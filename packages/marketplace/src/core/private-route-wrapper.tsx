@@ -26,6 +26,8 @@ export const PrivateRouteWrapper: React.FunctionComponent<PrivateRouteWrapperPro
   const isDeveloperEdition = Boolean(selectDeveloperId(connectSession))
   const isDesktopAdmin = selectIsAdmin(connectSession)
   const isAdmin = isDesktopAdmin || isDeveloperEdition
+  const hasOwnContainer =
+    window.location.pathname?.includes('/settings') || window.location.pathname?.includes('/apps/')
 
   if (!connectSession) {
     return (
@@ -48,7 +50,13 @@ export const PrivateRouteWrapper: React.FunctionComponent<PrivateRouteWrapperPro
   return (
     <AppNavContainer>
       {showMenu && <Menu />}
-      <FlexContainerBasic id="app-root-container" flexColumn hasBackground hasPadding isScrollable>
+      <FlexContainerBasic
+        id="app-root-container"
+        flexColumn
+        hasBackground={!hasOwnContainer}
+        hasPadding={!hasOwnContainer}
+        isScrollable
+      >
         <Suspense
           fallback={
             <Section>

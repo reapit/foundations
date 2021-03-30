@@ -78,6 +78,7 @@ exports[`Client should match a snapshot when LOADING false 1`] = `
                 </h3>
               </H3>
               <InfiniteScroll
+                className="ozch0bv-overflow-unset"
                 dataLength={0}
                 hasMore={false}
                 loader={null}
@@ -90,7 +91,7 @@ exports[`Client should match a snapshot when LOADING false 1`] = `
                   style={Object {}}
                 >
                   <div
-                    className="infinite-scroll-component "
+                    className="infinite-scroll-component ozch0bv-overflow-unset"
                     style={
                       Object {
                         "WebkitOverflowScrolling": "touch",
@@ -106,7 +107,7 @@ exports[`Client should match a snapshot when LOADING false 1`] = `
                       onCardClick={[Function]}
                     >
                       <div
-                        className="overflow-hidden mb-4"
+                        className="mb-4"
                       >
                         <Helper
                           variant="info"
@@ -209,6 +210,7 @@ exports[`Client should match a snapshot when LOADING false 2`] = `
                 </h3>
               </H3>
               <InfiniteScroll
+                className="ozch0bv-overflow-unset"
                 dataLength={0}
                 hasMore={false}
                 loader={null}
@@ -221,7 +223,7 @@ exports[`Client should match a snapshot when LOADING false 2`] = `
                   style={Object {}}
                 >
                   <div
-                    className="infinite-scroll-component "
+                    className="infinite-scroll-component ozch0bv-overflow-unset"
                     style={
                       Object {
                         "WebkitOverflowScrolling": "touch",
@@ -237,7 +239,7 @@ exports[`Client should match a snapshot when LOADING false 2`] = `
                       onCardClick={[Function]}
                     >
                       <div
-                        className="overflow-hidden mb-4"
+                        className="mb-4"
                       >
                         <GridFourCol
                           className="cpa4dpj-content-is-loading"

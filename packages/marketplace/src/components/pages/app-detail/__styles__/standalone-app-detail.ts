@@ -43,22 +43,20 @@ export const container = css`
 
 export const containerHeader = css`
   display: flex;
-  align-items: center;
   flex-direction: column;
+  margin-bottom: 1rem;
 `
 
 export const appIconContainer = css`
   width: 96px;
   height: auto;
-  margin: 0 auto;
 `
 
 export const headerContent = css`
   display: flex;
   flex-direction: column;
-  padding: 1rem;
-  align-items: center;
-  text-align: center;
+  padding: 1rem 0;
+  justify-content: flex-start;
 `
 
 export const containerOuterHeader = css`

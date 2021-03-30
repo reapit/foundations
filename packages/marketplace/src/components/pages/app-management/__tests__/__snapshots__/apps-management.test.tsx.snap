@@ -73,7 +73,7 @@ exports[`MyApps should match a snapshot when LOADING false 1`] = `
             onSettingsClick={[Function]}
           >
             <div
-              className="overflow-hidden mb-4"
+              className="mb-4"
             >
               <Helper
                 variant="info"
@@ -255,7 +255,7 @@ exports[`MyApps should match a snapshot when isAdmin false 1`] = `
             onSettingsClick={[Function]}
           >
             <div
-              className="overflow-hidden mb-4"
+              className="mb-4"
             >
               <Helper
                 variant="info"

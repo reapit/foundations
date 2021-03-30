@@ -73,7 +73,7 @@ export const Settings: React.FC = () => {
   const isDesktopAdmin = selectIsAdmin(connectSession)
 
   return (
-    <FlexContainerResponsive flexColumn hasPadding>
+    <FlexContainerResponsive flexColumn hasBackground hasPadding>
       <Section isFlex className="justify-between items-center" hasPadding={false}>
         <H3 className="mb-0">Settings</H3>
         {!connectIsDesktop && (

@@ -42,8 +42,7 @@ const AppHeader: React.FC<AppHeaderProps> = ({ appDetailData, buttonGroup }) => 
                 </>
               )}
             </SubTitleH6>
-
-            {buttonGroup && buttonGroup}
+            {buttonGroup && <div>{buttonGroup}</div>}
           </div>
         </div>
       </GridItem>
