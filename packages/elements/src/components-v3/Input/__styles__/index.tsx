@@ -1,12 +1,14 @@
 import { styled } from 'linaria/react'
 import { ElIcon } from '../../Icon/__styles__'
 
+const inputBg = '#ffffff'
+
 export const ElInput = styled.input`
   display: flex;
   color: black;
+  background: ${inputBg};
   padding: 0.5rem;
   border: none;
-  background: #ffffff;
   box-shadow: inset 0px -1px 0px #000000;
 
   + ${ElIcon} {
@@ -27,6 +29,7 @@ export const ElInputWithIconContainer = styled.div`
   display: flex;
 
   ${ElIcon} {
+    background: ${inputBg};
     padding-left: 0.5rem;
     align-items: center;
     order: -1;
