@@ -16,7 +16,7 @@ import {
   intentDanger,
 } from '../../../styles-v3/base/variables'
 
-const buttonXPadding = 1
+const buttonXPadding = 1.5
 const chevronLeft = (fill: string) =>
   `data:image/svg+xml;utf8,<svg width="18" height="40" viewBox="0 0 18 40" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M24 0L9.79882 0C8.09608 0 6.57999 1.07793 6.02073 2.6862L0.456861 18.6862C0.160976 19.5371 0.160976 20.4629 0.456861 21.3138L6.02073 37.3138C6.57999 38.9221 8.09608 40 9.79882 40H24V0Z" fill="${encodeURIComponent(
     fill,
@@ -35,6 +35,7 @@ export const ElButton = styled.button`
   text-align: center;
   white-space: nowrap;
   cursor: pointer;
+  text-transform: uppercase;
 
   border-radius: var(--default-border-radius);
   border: none;
