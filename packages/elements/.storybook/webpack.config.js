@@ -4,6 +4,10 @@ const MiniCssExtractPlugin = require('mini-css-extract-plugin')
 const configEnv = require('../config.json')
 
 module.exports = ({ config }) => {
+  // exclude SVG from file laoder so we can use @svgr/webpack instead
+  const fileLoaderRule = config.module.rules.find((rule) => rule.test && rule.test.test('.svg'))
+  fileLoaderRule.exclude = /\.svg$/
+
   config.module.rules.push(
     {
       test: /\.(ts|tsx)$/,
@@ -56,6 +60,17 @@ module.exports = ({ config }) => {
         'sass-loader',
       ],
       include: path.resolve(__dirname, '../'),
+    },
+    {
+      test: /\.svg$/,
+      use: [
+        {
+          loader: '@svgr/webpack',
+          options: {
+            icon: true,
+          },
+        },
+      ],
     },
   )
   config.resolve.extensions.push('.ts', '.tsx')

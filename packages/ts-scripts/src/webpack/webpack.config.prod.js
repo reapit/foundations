@@ -99,13 +99,24 @@ const webpackConfigProd = {
         ],
       },
       {
-        test: /\.(woff(2)?|ttf|eot|svg|png|jpg|jpeg|gif|pdf)$/,
+        test: /\.(woff(2)?|ttf|eot|png|jpg|jpeg|gif|pdf)$/,
         use: [
           {
             loader: 'file-loader',
             options: {
               name: '[name].[ext]',
               outputPath: '/assets',
+            },
+          },
+        ],
+      },
+      {
+        test: /\.svg$/,
+        use: [
+          {
+            loader: '@svgr/webpack',
+            options: {
+              icon: true,
             },
           },
         ],

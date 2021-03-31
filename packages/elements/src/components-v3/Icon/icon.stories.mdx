@@ -1,0 +1,68 @@
+import { Meta, Story, Canvas, ArgsTable } from '@storybook/addon-docs/blocks'
+import { Icon } from './index'
+import iconSet from './icons'
+
+export const Template = (args) => <Icon {...args} />
+
+<Meta title="V3/Icon" component={Icon} />
+
+# Icon
+
+Underlying tag: `<span>`
+
+<Canvas>
+  <Story name="Default Usage" args={{ icon: 'add' }}>
+    {Template.bind({})}
+  </Story>
+</Canvas>
+
+<ArgsTable story="Default Usage" />
+
+# Intent
+
+Set the `intent` prop to enable Icons to be used in different contexts
+
+<Canvas>
+  <Story name="Intent: Primary">
+    <Icon intent="primary" icon="add" />
+  </Story>
+  <Story name="Intent: Secondary">
+    <Icon intent="secondary" icon="add" />
+  </Story>
+  <Story name="Intent: Critical">
+    <Icon intent="critical" icon="add" />
+  </Story>
+  <Story name="Intent: Success">
+    <Icon intent="success" icon="add" />
+  </Story>
+  <Story name="Intent: Danger">
+    <Icon intent="danger" icon="add" />
+  </Story>
+</Canvas>
+
+# Different sizes
+
+Set the `fontSize` prop to scale the icon up or down
+
+<Canvas>
+  <Story name="Size: Increased">
+    <Icon fontSize="3rem" icon="add" />
+  </Story>
+  <Story name="Size: Decreased">
+    <Icon fontSize="0.7rem" icon="add" />
+  </Story>
+</Canvas>
+
+# Additional className
+
+Set the `className` prop to add additional custom CSS classes
+
+<Canvas>
+  <Story name="Additional className">
+    <Icon className="my-custom-className" icon="add" />
+  </Story>
+</Canvas>
+
+# Other attributes
+
+All other standard HTML attributes for `<span>` are supported and are passed through to the React component, e.g. onClick
