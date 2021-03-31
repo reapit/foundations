@@ -3,7 +3,7 @@ import { ElIcon } from '../../Icon/__styles__'
 import { ElLabel } from '../../Label/__styles__'
 import { ElInput } from '../../Input/__styles__'
 import { ElAfterInputText } from '../../AfterInputText/__styles__'
-import { inputBg, inputFocusBg, inputBorderBottom } from '../../Input/__styles__'
+import { inputBg, inputFocusBg, inputShadow } from '../../Input/__styles__'
 
 export const ElInputGroup = styled.div`
   display: flex;
@@ -18,7 +18,7 @@ export const ElInputGroup = styled.div`
 
   ${ElIcon} {
     background: ${inputBg};
-    box-shadow: ${inputBorderBottom};
+    box-shadow: ${inputShadow};
     padding-left: 0.5rem;
     align-items: center;
     order: 2;
@@ -36,7 +36,7 @@ export const ElInputGroup = styled.div`
 
   ${ElAfterInputText} {
     background: ${inputBg};
-    box-shadow: ${inputBorderBottom};
+    box-shadow: ${inputShadow};
     padding-right: 0.5rem;
     align-items: center;
     display: flex;

@@ -2,7 +2,7 @@ import { styled } from 'linaria/react'
 
 export const inputBg = '#ffffff'
 export const inputFocusBg = 'var(--color-grey-light)'
-export const inputBorderBottom = 'inset 0px -1px 0px #000000'
+export const inputShadow = 'inset 0px -1px 0px #000000'
 
 export const ElInput = styled.input`
   display: flex;
@@ -10,7 +10,7 @@ export const ElInput = styled.input`
   background: ${inputBg};
   padding: 0.5rem;
   border: none;
-  box-shadow: ${inputBorderBottom};
+  box-shadow: ${inputShadow};
   flex-grow: 1;
 
   &:focus {
