@@ -38,7 +38,6 @@
     "chrome 69"
   ],
   "dependencies": {
-    "@babel/preset-react": "^7.13.13",
     "@svgr/webpack": "^5.5.0",
     "babel-loader": "^8.2.2",
     "bulma": "^0.9.2",
@@ -62,7 +61,6 @@
     "react-google-maps-loader": "4.3.0",
     "react-icons": "^3.11.0",
     "react-image-crop": "8.6.6",
-    "react-svg-loader": "^3.0.3",
     "react-table": "^7.6.3",
     "react-transition-group": "^4.4.1",
     "snyk": "^1.463.0"
