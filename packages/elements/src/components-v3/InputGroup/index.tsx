@@ -11,11 +11,14 @@ export interface IInputGroup extends React.HTMLAttributes<HTMLDivElement> {
   label?: string
   afterInputText?: string
   /**
-   * This is passed down and added directly to the `Icon` and `AfterInputText` components (if in use)
+   * This is passed down and added directly to the `Icon` and `AfterInputText`
+   *components (if in use)
    */
   intent?: Intent
   /**
-   * This gets added to the Input as an ID and the Label as an `htmlFor`  prop, so that clicking on the label focusses the input. Generates a random ID if one isn't supplied
+   * This gets added to the Input as an ID and the Label as an `htmlFor` prop,
+   * so that clicking on the label focusses the input. Generates a random ID if
+   * one isn't supplied
    */
   id?: string
   /**
