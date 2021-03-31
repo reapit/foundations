@@ -5081,6 +5081,7 @@ __metadata:
     "@storybook/cli": ^6.1.20
     "@storybook/react": ^6.1.20
     "@storybook/theming": ^6.1.20
+    "@svgr/rollup": ^5.5.0
     "@svgr/webpack": ^5.5.0
     "@whitespace/storybook-addon-html": ^4.2.0
     babel-loader: ^8.2.2
@@ -5196,6 +5197,7 @@ __metadata:
     "@octokit/rest": ^16.43.2
     "@pmmmwh/react-refresh-webpack-plugin": ^0.4.3
     "@sentry/webpack-plugin": ^1.14.1
+    "@svgr/webpack": ^5.5.0
     "@typescript-eslint/eslint-plugin": ^4.15.2
     "@typescript-eslint/parser": ^4.15.2
     autoprefixer: ^9.8.6
@@ -5275,7 +5277,7 @@ __metadata:
     "@types/jwk-to-pem": ^2.0.0
     "@types/morgan": ^1.9.2
     "@types/nanoid": ^2.1.0
-    "@types/node": 10.17.54
+    "@types/node": 10.17.55
     "@types/papaparse": ^5.2.5
     "@types/query-string": ^6.3.0
     "@types/rc-select": ^5.9.34
@@ -7247,6 +7249,22 @@ __metadata:
   languageName: node
   linkType: hard
 
+"@svgr/rollup@npm:^5.5.0":
+  version: 5.5.0
+  resolution: "@svgr/rollup@npm:5.5.0"
+  dependencies:
+    "@babel/core": ^7.12.3
+    "@babel/plugin-transform-react-constant-elements": ^7.12.1
+    "@babel/preset-env": ^7.12.1
+    "@babel/preset-react": ^7.12.5
+    "@svgr/core": ^5.5.0
+    "@svgr/plugin-jsx": ^5.5.0
+    "@svgr/plugin-svgo": ^5.5.0
+    rollup-pluginutils: ^2.8.2
+  checksum: ce0c1bc5f6fe5219a9a631b03891ea3ac241d2dc87df32bc95c4ae4df62bdfe132c64509c67d9361c360bc9f02a1878bd01c7f33f06126080fbc803bfd7b2e82
+  languageName: node
+  linkType: hard
+
 "@svgr/webpack@npm:^5.5.0":
   version: 5.5.0
   resolution: "@svgr/webpack@npm:5.5.0"
@@ -8052,10 +8070,10 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@types/node@npm:10.17.54":
-  version: 10.17.54
-  resolution: "@types/node@npm:10.17.54"
-  checksum: 6f718d5d37f40586228b490b9635a1b44f3990766c75fc5af933858ad2bc6eac7cc5dca2b8a1389e0663542c5cb671d01eb45f847783e53aba0318a9fe11a66b
+"@types/node@npm:10.17.55":
+  version: 10.17.55
+  resolution: "@types/node@npm:10.17.55"
+  checksum: 03924314a7a6bd74f5d710b35b602f82b14e0bc95d650724a4296ed99aec9b8680885b78422a5e21586b2cb2b1d8148cd58ec99009e2ae6e2beaf1590c71a444
   languageName: node
   linkType: hard
 
