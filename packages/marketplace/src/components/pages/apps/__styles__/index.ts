@@ -31,8 +31,7 @@ export const ComingSoonImage = styled.div`
   background: #fff;
 
   img {
-    height: 80%;
-    margin: auto;
+    padding: 1rem;
   }
 
   a {

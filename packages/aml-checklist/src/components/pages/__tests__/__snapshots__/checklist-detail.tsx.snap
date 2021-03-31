@@ -334,337 +334,340 @@ exports[` 1`] = `
 exports[`checklist-detail ChecklistDetail should match snapshot when loading 1`] = `<Loader />`;
 
 exports[`checklist-detail ChecklistDetail should match snapshot when not loading 1`] = `
-<ErrorBoundary>
-  <Connect(AMLProgressBar) />
-  <Section
-    hasBackground={false}
-  >
-    <FadeIn
-      key="0"
-    >
-      <Section
-        hasPadding={false}
+<Section
+  hasMargin={false}
+  hasPadding={false}
+>
+  <ErrorBoundary>
+    <Connect(AMLProgressBar) />
+    <Section>
+      <FadeIn
+        key="0"
       >
-        <div
-          className="card"
+        <Section
+          hasPadding={false}
         >
           <div
-            className="card-content"
+            className="card"
           >
             <div
-              className="media"
+              className="card-content"
             >
               <div
-                className="media-content"
+                className="media"
               >
-                <H5>
-                  Personal Details
-                </H5>
-              </div>
-              <div
-                className="media-right"
-              >
-                 
-                <div>
-                  <div
-                    className="undefined undefined"
-                  >
-                    <FaCheck />
-                    <span>
-                      Completed
-                    </span>
+                <div
+                  className="media-content"
+                >
+                  <H5>
+                    Personal Details
+                  </H5>
+                </div>
+                <div
+                  className="media-right"
+                >
+                   
+                  <div>
+                    <div
+                      className="undefined undefined"
+                    >
+                      <FaCheck />
+                      <span>
+                        Completed
+                      </span>
+                    </div>
+                    <Button
+                      type="button"
+                      variant="primary"
+                    >
+                      Edit
+                    </Button>
                   </div>
-                  <Button
-                    type="button"
-                    variant="primary"
-                  >
-                    Edit
-                  </Button>
                 </div>
               </div>
-            </div>
-            <div
-              className="undefined undefined"
-            >
-              <FaCheck />
-              <span>
-                Completed
-              </span>
+              <div
+                className="undefined undefined"
+              >
+                <FaCheck />
+                <span>
+                  Completed
+                </span>
+              </div>
             </div>
           </div>
-        </div>
-      </Section>
-    </FadeIn>
-    <FadeIn
-      key="1"
-    >
-      <Section
-        hasPadding={false}
+        </Section>
+      </FadeIn>
+      <FadeIn
+        key="1"
       >
-        <div
-          className="card"
+        <Section
+          hasPadding={false}
         >
           <div
-            className="card-content"
+            className="card"
           >
             <div
-              className="media"
+              className="card-content"
             >
               <div
-                className="media-content"
+                className="media"
               >
-                <H5>
-                  Primary ID
-                </H5>
-              </div>
-              <div
-                className="media-right"
-              >
-                 
-                <div>
-                  <div
-                    className="undefined undefined"
-                  >
-                    <FaTimes />
-                    <span>
-                      Incomplete
-                    </span>
+                <div
+                  className="media-content"
+                >
+                  <H5>
+                    Primary ID
+                  </H5>
+                </div>
+                <div
+                  className="media-right"
+                >
+                   
+                  <div>
+                    <div
+                      className="undefined undefined"
+                    >
+                      <FaTimes />
+                      <span>
+                        Incomplete
+                      </span>
+                    </div>
+                    <Button
+                      type="button"
+                      variant="primary"
+                    >
+                      Edit
+                    </Button>
                   </div>
-                  <Button
-                    type="button"
-                    variant="primary"
-                  >
-                    Edit
-                  </Button>
                 </div>
               </div>
-            </div>
-            <div
-              className="undefined undefined"
-            >
-              <FaTimes />
-              <span>
-                Incomplete
-              </span>
+              <div
+                className="undefined undefined"
+              >
+                <FaTimes />
+                <span>
+                  Incomplete
+                </span>
+              </div>
             </div>
           </div>
-        </div>
-      </Section>
-    </FadeIn>
-    <FadeIn
-      key="2"
-    >
-      <Section
-        hasPadding={false}
+        </Section>
+      </FadeIn>
+      <FadeIn
+        key="2"
       >
-        <div
-          className="card"
+        <Section
+          hasPadding={false}
         >
           <div
-            className="card-content"
+            className="card"
           >
             <div
-              className="media"
+              className="card-content"
             >
               <div
-                className="media-content"
+                className="media"
               >
-                <H5>
-                  Secondary ID
-                </H5>
-              </div>
-              <div
-                className="media-right"
-              >
-                 
-                <div>
-                  <div
-                    className="undefined undefined"
-                  >
-                    <FaCheck />
-                    <span>
-                      Completed
-                    </span>
+                <div
+                  className="media-content"
+                >
+                  <H5>
+                    Secondary ID
+                  </H5>
+                </div>
+                <div
+                  className="media-right"
+                >
+                   
+                  <div>
+                    <div
+                      className="undefined undefined"
+                    >
+                      <FaCheck />
+                      <span>
+                        Completed
+                      </span>
+                    </div>
+                    <Button
+                      type="button"
+                      variant="primary"
+                    >
+                      Edit
+                    </Button>
                   </div>
-                  <Button
-                    type="button"
-                    variant="primary"
-                  >
-                    Edit
-                  </Button>
                 </div>
               </div>
-            </div>
-            <div
-              className="undefined undefined"
-            >
-              <FaCheck />
-              <span>
-                Completed
-              </span>
+              <div
+                className="undefined undefined"
+              >
+                <FaCheck />
+                <span>
+                  Completed
+                </span>
+              </div>
             </div>
           </div>
-        </div>
-      </Section>
-    </FadeIn>
-    <FadeIn
-      key="3"
-    >
-      <Section
-        hasPadding={false}
+        </Section>
+      </FadeIn>
+      <FadeIn
+        key="3"
       >
-        <div
-          className="card"
+        <Section
+          hasPadding={false}
         >
           <div
-            className="card-content"
+            className="card"
           >
             <div
-              className="media"
+              className="card-content"
             >
               <div
-                className="media-content"
+                className="media"
               >
-                <H5>
-                  Address Information
-                </H5>
-              </div>
-              <div
-                className="media-right"
-              >
-                 
-                <div>
-                  <div
-                    className="undefined undefined"
-                  >
-                    <FaTimes />
-                    <span>
-                      Incomplete
-                    </span>
+                <div
+                  className="media-content"
+                >
+                  <H5>
+                    Address Information
+                  </H5>
+                </div>
+                <div
+                  className="media-right"
+                >
+                   
+                  <div>
+                    <div
+                      className="undefined undefined"
+                    >
+                      <FaTimes />
+                      <span>
+                        Incomplete
+                      </span>
+                    </div>
+                    <Button
+                      type="button"
+                      variant="primary"
+                    >
+                      Edit
+                    </Button>
                   </div>
-                  <Button
-                    type="button"
-                    variant="primary"
-                  >
-                    Edit
-                  </Button>
                 </div>
               </div>
-            </div>
-            <div
-              className="undefined undefined"
-            >
-              <FaTimes />
-              <span>
-                Incomplete
-              </span>
+              <div
+                className="undefined undefined"
+              >
+                <FaTimes />
+                <span>
+                  Incomplete
+                </span>
+              </div>
             </div>
           </div>
-        </div>
-      </Section>
-    </FadeIn>
-    <FadeIn
-      key="4"
-    >
-      <Section
-        hasPadding={false}
+        </Section>
+      </FadeIn>
+      <FadeIn
+        key="4"
       >
-        <div
-          className="card"
+        <Section
+          hasPadding={false}
         >
           <div
-            className="card-content"
+            className="card"
           >
             <div
-              className="media"
+              className="card-content"
             >
               <div
-                className="media-content"
+                className="media"
               >
-                <H5>
-                  Declaration Risk Management
-                </H5>
-              </div>
-              <div
-                className="media-right"
-              >
-                 
-                <div>
-                  <div
-                    className="undefined undefined"
-                  >
-                    <FaTimes />
-                    <span>
-                      Incomplete
-                    </span>
+                <div
+                  className="media-content"
+                >
+                  <H5>
+                    Declaration Risk Management
+                  </H5>
+                </div>
+                <div
+                  className="media-right"
+                >
+                   
+                  <div>
+                    <div
+                      className="undefined undefined"
+                    >
+                      <FaTimes />
+                      <span>
+                        Incomplete
+                      </span>
+                    </div>
+                    <Button
+                      type="button"
+                      variant="primary"
+                    >
+                      Edit
+                    </Button>
                   </div>
-                  <Button
-                    type="button"
-                    variant="primary"
-                  >
-                    Edit
-                  </Button>
                 </div>
               </div>
-            </div>
-            <div
-              className="undefined undefined"
-            >
-              <FaTimes />
-              <span>
-                Incomplete
-              </span>
+              <div
+                className="undefined undefined"
+              >
+                <FaTimes />
+                <span>
+                  Incomplete
+                </span>
+              </div>
             </div>
           </div>
-        </div>
-      </Section>
-    </FadeIn>
-    <FadeIn
-      key="5"
-    >
-      <Section
-        hasPadding={false}
+        </Section>
+      </FadeIn>
+      <FadeIn
+        key="5"
       >
-        <div
-          className="card"
+        <Section
+          hasPadding={false}
         >
           <div
-            className="card-content"
+            className="card"
           >
             <div
-              className="media"
+              className="card-content"
             >
               <div
-                className="media-content"
+                className="media"
               >
-                <H5>
-                  Report
-                </H5>
-              </div>
-              <div
-                className="media-right"
-              >
-                 
-                <div>
-                  <Button
-                    type="button"
-                    variant="primary"
-                  >
-                    View
-                  </Button>
+                <div
+                  className="media-content"
+                >
+                  <H5>
+                    Report
+                  </H5>
+                </div>
+                <div
+                  className="media-right"
+                >
+                   
+                  <div>
+                    <Button
+                      type="button"
+                      variant="primary"
+                    >
+                      View
+                    </Button>
+                  </div>
                 </div>
               </div>
             </div>
           </div>
-        </div>
-      </Section>
-    </FadeIn>
-  </Section>
-  <withRouter(ProfileModal)
-    afterClose={[MockFunction]}
-    id="123"
-    modalContentType="PROFILE"
-    visible={true}
-  />
-</ErrorBoundary>
+        </Section>
+      </FadeIn>
+    </Section>
+    <withRouter(ProfileModal)
+      afterClose={[MockFunction]}
+      id="123"
+      modalContentType="PROFILE"
+      visible={true}
+    />
+  </ErrorBoundary>
+</Section>
 `;
