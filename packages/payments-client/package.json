@@ -32,7 +32,7 @@
     "react-router": "^5.2.0",
     "react-router-dom": "^5.2.0",
     "snyk": "^1.463.0",
-    "swr": "^0.4.2",
+    "swr": "^0.5.0",
     "yup": "^0.29.3"
   },
   "devDependencies": {
