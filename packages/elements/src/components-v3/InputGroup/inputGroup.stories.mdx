@@ -29,7 +29,7 @@ InputGroup provides a wrapper and styling for the `Input`, `Icon`, and `Label` c
     <InputGroup>
       <Input id="myId" type="text" />
       <Icon icon="username" />
-      <Label for="myId">Enter your username</Label>
+      <Label htmlFor="myId">Enter your username</Label>
     </InputGroup>
   </Story>
 </Canvas>
@@ -39,7 +39,7 @@ InputGroup provides a wrapper and styling for the `Input`, `Icon`, and `Label` c
 <Canvas>
   <Story name="With icon only">
     <InputGroup>
-      <Input id="myId" type="tel" placeholder="Enter your mobile number" />
+      <Input id="myId2" type="tel" placeholder="Enter your mobile number" />
       <Icon icon="phone" />
     </InputGroup>
   </Story>
@@ -50,8 +50,8 @@ InputGroup provides a wrapper and styling for the `Input`, `Icon`, and `Label` c
 <Canvas>
   <Story name="With label only">
     <InputGroup>
-      <Input id="myId" type="email" />
-      <Label for="myId">Email address</Label>
+      <Input id="myId3" type="email" />
+      <Label htmlFor="myId3">Email address</Label>
     </InputGroup>
   </Story>
 </Canvas>
@@ -64,8 +64,14 @@ except for `className` which is only applied to the parent `InputGroup` div
 <ArgsTable of={InputGroup} />
 
 <Canvas>
-  <Story name="Shorthand usage for React users">
+  <Story name="Shorthand for React">
     <InputGroup icon="home" label="Please enter an address" type="text" />
+  </Story>
+</Canvas>
+
+<Canvas>
+  <Story name="Shorthand for React - custom ID">
+    <InputGroup id="my-id" icon="home" label="Please enter an address" type="text" />
   </Story>
 </Canvas>
 

@@ -19,20 +19,18 @@ const generateRandomId = (): string => {
   }
 }
 
-export const InputGroup: React.FC<IInputGroup> = ({
-  icon,
-  label,
-  className,
-  id = generateRandomId(),
-  children,
-  ...rest
-}) => {
+export const InputGroup: React.FC<IInputGroup> = ({ icon, label, className, id, children, ...rest }) => {
+  const groupId = React.useMemo(() => {
+    if (id) return id
+    return generateRandomId()
+  }, [id])
+
   if (!children)
     return (
       <ElInputGroup className={className}>
-        <Input id={id} {...rest} />
+        <Input id={groupId} {...rest} />
         {icon && <Icon icon={icon} />}
-        {label && <Label htmlFor={id}>{label}</Label>}
+        {label && <Label htmlFor={groupId}>{label}</Label>}
       </ElInputGroup>
     )
 

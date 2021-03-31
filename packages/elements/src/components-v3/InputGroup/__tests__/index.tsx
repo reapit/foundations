@@ -7,22 +7,22 @@ import { Icon } from '../../Icon'
 
 describe('InputGroup component', () => {
   it('should match a snapshot when used in react shorthand mode', () => {
-    const wrapper = shallow(<InputGroup />)
+    const wrapper = shallow(<InputGroup id="myId" />)
     expect(wrapper).toMatchSnapshot()
   })
 
   it('should match a snapshot when used in react shorthand mode, with a label', () => {
-    const wrapper = shallow(<InputGroup label="Enter your username" />)
+    const wrapper = shallow(<InputGroup id="myId" label="Enter your username" />)
     expect(wrapper).toMatchSnapshot()
   })
 
   it('should match a snapshot when used in react shorthand mode, with an icon', () => {
-    const wrapper = shallow(<InputGroup icon="email" />)
+    const wrapper = shallow(<InputGroup id="myId" icon="email" />)
     expect(wrapper).toMatchSnapshot()
   })
 
   it('should match a snapshot when used in react shorthand mode, with an icon and a label', () => {
-    const wrapper = shallow(<InputGroup icon="email" label="Enter your username" />)
+    const wrapper = shallow(<InputGroup id="myId" icon="email" label="Enter your username" />)
     expect(wrapper).toMatchSnapshot()
   })
 
