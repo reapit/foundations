@@ -4,7 +4,7 @@ import { Input } from '../Input'
 import { Icon, IconNames } from '../Icon'
 import { Label } from '../Label'
 
-export interface IInputGroup extends React.InputHTMLAttributes<HTMLInputElement> {
+export interface IInputGroup extends React.HTMLAttributes<HTMLDivElement> {
   icon?: IconNames
   label?: string
   className?: string
@@ -32,7 +32,7 @@ export const InputGroup: React.FC<IInputGroup> = ({
       <ElInputGroup className={className}>
         <Input id={id} {...rest} />
         {icon && <Icon icon={icon} />}
-        {label && <Label for={id}>{label}</Label>}
+        {label && <Label htmlFor={id}>{label}</Label>}
       </ElInputGroup>
     )
 

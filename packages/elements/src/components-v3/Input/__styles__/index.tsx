@@ -1,6 +1,4 @@
 import { styled } from 'linaria/react'
-import { ElIcon } from '../../Icon/__styles__'
-import { ElLabel } from '../../Label/__styles__'
 
 export const inputBg = '#ffffff'
 export const inputFocusBg = 'var(--color-grey-light)'
