@@ -3,6 +3,7 @@ import { InputGroup } from './index'
 import { Input } from '../Input'
 import { Icon } from '../Icon'
 import { Label } from '../Label'
+import { AfterInputText } from '../AfterInputText'
 
 <Meta title="V3/Forms/InputGroup" component={InputGroup} />
 
@@ -19,25 +20,26 @@ InputGroup provides a wrapper and styling for the `Input`, `Icon`, and `Label` c
 
 ### Usage with React
 
-- You can supply the child components individually (ensure the `Input` component is included as the first child)
+- You can supply the child components individually (ensure the `Input` component is included as the first child). When using like this, any additional props on the `InputGroup` component are added to the underlying `div`.
 - Or, there is also a shorthand for React where you can supply props. This only works if _no children_ are supplied
 
-# Complete example, with icon and label
+# Complete example, with Icon, Label, and AfterInputText
 
 <Canvas>
-  <Story name="With label and icon">
+  <Story name="Complete example">
     <InputGroup>
       <Input id="myId" type="text" />
       <Icon icon="username" />
       <Label htmlFor="myId">Enter your username</Label>
+      <AfterInputText>Required</AfterInputText>
     </InputGroup>
   </Story>
 </Canvas>
 
-# With icon only
+# With Icon only
 
 <Canvas>
-  <Story name="With icon only">
+  <Story name="With Icon only">
     <InputGroup>
       <Input id="myId2" type="tel" placeholder="Enter your mobile number" />
       <Icon icon="phone" />
@@ -45,10 +47,10 @@ InputGroup provides a wrapper and styling for the `Input`, `Icon`, and `Label` c
   </Story>
 </Canvas>
 
-# With label only
+# With Label only
 
 <Canvas>
-  <Story name="With label only">
+  <Story name="With Label only">
     <InputGroup>
       <Input id="myId3" type="email" />
       <Label htmlFor="myId3">Email address</Label>
@@ -56,25 +58,43 @@ InputGroup provides a wrapper and styling for the `Input`, `Icon`, and `Label` c
   </Story>
 </Canvas>
 
-# Shorthand usage for React users
+# With AfterInputText only
 
-Any additional props are added to the `Input` component that is rendered as part of `InputGroup`,
-except for `className` which is only applied to the parent `InputGroup` div
+<Canvas>
+  <Story name="With AfterInputText only">
+    <InputGroup>
+      <Input id="myId3" type="email" />
+      <AfterInputText>Required</AfterInputText>
+    </InputGroup>
+  </Story>
+</Canvas>
+
+# Shorthand usage for React users
 
 <ArgsTable of={InputGroup} />
 
+#### Any additional props not listed here are added to the `Input` component that is rendered as part of `InputGroup`. This way you can easily supply `onChange`, `type`, etc props to the underlying `Input`
+
+### React shorthand with `icon` and `label` props
+
 <Canvas>
-  <Story name="Shorthand for React">
+  <Story name="React shorthand">
     <InputGroup icon="home" label="Please enter an address" type="text" />
   </Story>
 </Canvas>
 
+### As above, with a custom ID
+
 <Canvas>
-  <Story name="Shorthand for React - custom ID">
+  <Story name="React shorthand - custom ID">
     <InputGroup id="my-id" icon="home" label="Please enter an address" type="text" />
   </Story>
 </Canvas>
 
-# Other attributes
+### With `icon`, `label`, `afterInputText` and `intent` props
 
-All other standard HTML attributes for `<div>` are supported and are passed through to the React component.
+<Canvas>
+  <Story name="React shorthand - all props">
+    <InputGroup icon="asterisk" label="Email address" afterInputText="Required" intent="danger" type="text" />
+  </Story>
+</Canvas>

@@ -1,0 +1,40 @@
+import { Meta, Story, Canvas, ArgsTable } from '@storybook/addon-docs/blocks'
+import { AfterInputText } from './index'
+
+<Meta title="V3/Forms/AfterInputText" component={AfterInputText} />
+
+# AfterInputText
+
+Underlying tag: `<span>`
+
+<Canvas>
+  <Story name="Default Usage">
+    <AfterInputText>Short text message</AfterInputText>
+  </Story>
+</Canvas>
+
+# Intents
+
+Underlying tag: `<span>`
+
+<Canvas>
+  <Story name="Intent: Primary">
+    <AfterInputText intent="primary">Primary msg</AfterInputText>
+  </Story>
+  <Story name="Intent: Secondary">
+    <AfterInputText intent="secondary">Secondary msg</AfterInputText>
+  </Story>
+  <Story name="Intent: Critical">
+    <AfterInputText intent="critical">Critical msg</AfterInputText>
+  </Story>
+  <Story name="Intent: Success">
+    <AfterInputText intent="success">Success msg</AfterInputText>
+  </Story>
+  <Story name="Intent: Danger">
+    <AfterInputText intent="danger">Danger msg</AfterInputText>
+  </Story>
+</Canvas>
+
+# Other attributes
+
+All other standard HTML attributes for `<span>` are supported and are passed through to the React component.

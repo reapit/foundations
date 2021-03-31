@@ -7,9 +7,9 @@ import {
   elIntentDanger,
 } from '../../../styles-v3/base/intent'
 
-export const ElIcon = styled.span`
-  display: flex;
-  color: black;
+export const ElAfterInputText = styled.span`
+  font-size: var(--font-size-default);
+  color: var(--color-grey-dark);
 
   &${elIntentPrimary} {
     color: var(--intent-primary);

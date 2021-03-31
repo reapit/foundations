@@ -2,7 +2,8 @@ import { styled } from 'linaria/react'
 import { ElIcon } from '../../Icon/__styles__'
 import { ElLabel } from '../../Label/__styles__'
 import { ElInput } from '../../Input/__styles__'
-import { inputBg, inputFocusBg } from '../../Input/__styles__'
+import { ElAfterInputText } from '../../AfterInputText/__styles__'
+import { inputBg, inputFocusBg, inputBorderBottom } from '../../Input/__styles__'
 
 export const ElInputGroup = styled.div`
   display: flex;
@@ -17,7 +18,7 @@ export const ElInputGroup = styled.div`
 
   ${ElIcon} {
     background: ${inputBg};
-    box-shadow: inset 0px -1px 0px #000000;
+    box-shadow: ${inputBorderBottom};
     padding-left: 0.5rem;
     align-items: center;
     order: 2;
@@ -27,9 +28,18 @@ export const ElInputGroup = styled.div`
     order: 3;
 
     &:focus {
-      ~ ${ElIcon}, ~ ${ElLabel} {
+      ~ ${ElIcon}, ~ ${ElLabel}, ~ ${ElAfterInputText} {
         background: ${inputFocusBg};
       }
     }
+  }
+
+  ${ElAfterInputText} {
+    background: ${inputBg};
+    box-shadow: ${inputBorderBottom};
+    padding-right: 0.5rem;
+    align-items: center;
+    display: flex;
+    order: 4;
   }
 `
