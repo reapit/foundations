@@ -57,9 +57,74 @@ exports[`Client should match a snapshot when LOADING false 1`] = `
     >
       <Apps>
         <ErrorBoundary>
-          <p>
-            Something went wrong here, try refreshing your page.
-          </p>
+          <Section
+            className="a1ncdzrn-app-list"
+            hasBackground={false}
+            hasMargin={false}
+            hasPadding={false}
+            isFlex={true}
+            isFlexColumn={true}
+          >
+            <section
+              className="section is-flex is-flex-column a1ncdzrn-app-list"
+              data-test=""
+            >
+              <H3>
+                <h3
+                  className="title is-3"
+                  id=""
+                >
+                  Marketplace
+                </h3>
+              </H3>
+              <InfiniteScroll
+                className="ozch0bv-overflow-unset"
+                dataLength={0}
+                hasMore={false}
+                loader={null}
+                next={[Function]}
+                scrollThreshold={0.3}
+                scrollableTarget="app-root-container"
+              >
+                <div
+                  className="infinite-scroll-component__outerdiv"
+                  style={Object {}}
+                >
+                  <div
+                    className="infinite-scroll-component ozch0bv-overflow-unset"
+                    style={
+                      Object {
+                        "WebkitOverflowScrolling": "touch",
+                        "height": "auto",
+                        "overflow": "auto",
+                      }
+                    }
+                  >
+                    <AppList
+                      infoType="CLIENT_APPS_EMPTY"
+                      list={Array []}
+                      loading={false}
+                      onCardClick={[Function]}
+                    >
+                      <div
+                        className="mb-4"
+                      >
+                        <Helper
+                          variant="info"
+                        >
+                          <div
+                            className="notification helper-wrap helper-info"
+                          >
+                            We are sorry, there are no apps listed compatible with your account
+                          </div>
+                        </Helper>
+                      </div>
+                    </AppList>
+                  </div>
+                </div>
+              </InfiniteScroll>
+            </section>
+          </Section>
         </ErrorBoundary>
       </Apps>
     </Router>
@@ -124,9 +189,87 @@ exports[`Client should match a snapshot when LOADING false 2`] = `
     >
       <Apps>
         <ErrorBoundary>
-          <p>
-            Something went wrong here, try refreshing your page.
-          </p>
+          <Section
+            className="a1ncdzrn-app-list"
+            hasBackground={false}
+            hasMargin={false}
+            hasPadding={false}
+            isFlex={true}
+            isFlexColumn={true}
+          >
+            <section
+              className="section is-flex is-flex-column a1ncdzrn-app-list"
+              data-test=""
+            >
+              <H3>
+                <h3
+                  className="title is-3"
+                  id=""
+                >
+                  Marketplace
+                </h3>
+              </H3>
+              <InfiniteScroll
+                className="ozch0bv-overflow-unset"
+                dataLength={0}
+                hasMore={false}
+                loader={null}
+                next={[Function]}
+                scrollThreshold={0.3}
+                scrollableTarget="app-root-container"
+              >
+                <div
+                  className="infinite-scroll-component__outerdiv"
+                  style={Object {}}
+                >
+                  <div
+                    className="infinite-scroll-component ozch0bv-overflow-unset"
+                    style={
+                      Object {
+                        "WebkitOverflowScrolling": "touch",
+                        "height": "auto",
+                        "overflow": "auto",
+                      }
+                    }
+                  >
+                    <AppList
+                      infoType="CLIENT_APPS_EMPTY"
+                      list={Array []}
+                      loading={true}
+                      onCardClick={[Function]}
+                    >
+                      <div
+                        className="mb-4"
+                      >
+                        <GridFourCol
+                          className="cpa4dpj-content-is-loading"
+                          data-test="app-list-container"
+                        >
+                          <div
+                            className="columns is-multiline cpa4dpj-content-is-loading"
+                            data-test=""
+                          />
+                        </GridFourCol>
+                        <Loader
+                          body={true}
+                        >
+                          <div
+                            className="loader-spinner body"
+                            data-test=""
+                          >
+                            <div />
+                            <div />
+                            <div />
+                            <div />
+                          </div>
+                        </Loader>
+                      </div>
+                    </AppList>
+                  </div>
+                </div>
+              </InfiniteScroll>
+            </section>
+          </Section>
         </ErrorBoundary>
       </Apps>
     </Router>

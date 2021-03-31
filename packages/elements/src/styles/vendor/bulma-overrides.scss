@@ -64,6 +64,11 @@ html {
   box-shadow: 2px 4px 20px rgba(0, 0, 0, 0.05);
   border-radius: 4px;
 
+  .card-content {
+    padding: 1.5rem;
+    border-radius: 4px;
+  }
+
   &.is-clickable {
     cursor: pointer;
   }

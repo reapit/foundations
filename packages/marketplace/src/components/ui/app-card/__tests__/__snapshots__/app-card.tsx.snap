@@ -2,25 +2,23 @@
 
 exports[`AppCard should match a snapshot 1`] = `
 <div
-  className="bk0ga08-banner-wrap"
+  className="bv0d7a6-banner-wrap"
   data-test-app-id="09043eb8-9e5e-4650-b7f1-f0cb62699027"
   data-test-app-name="test"
 >
   <div
-    className="bcn8i89-banner-outer"
+    className="bgxdy39-banner-inner"
   >
-    <div
-      className="bv0d7a6-banner-inner"
-    >
-      In Development
-    </div>
+    In Development
   </div>
   <Tile
     dataTest="app-card_09043eb8-9e5e-4650-b7f1-f0cb62699027_isNoPending_test"
     heading={
-      <React.Fragment>
+      <div
+        className="ak0ga08-app-title"
+      >
         test
-      </React.Fragment>
+      </div>
     }
     image={
       <img
@@ -31,7 +29,14 @@ exports[`AppCard should match a snapshot 1`] = `
       />
     }
     subHeading="Pete's Proptech World Ltd"
-    subHeadingAdditional="Integration"
+    subHeadingAdditional={
+      <div
+        className="flex justify-between"
+      >
+        Integration
+         
+      </div>
+    }
   >
     <p
       className="chbr8km-content"

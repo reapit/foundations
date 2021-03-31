@@ -1,142 +1,50 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`DeveloperEditionContent should match snapshot 1`] = `
-<Fragment>
-  <ModalHeader
-    title="Agency Cloud Developer Edition"
-  />
-  <ModalBody
-    body={
-      <React.Fragment>
-        <SubTitleH6
-          className="has-text-weight-normal"
-        >
-          The Agency Cloud Developer Edition is a licensed product. However, there will be no charge for the licence during the Beta phase. For more information regarding the Developer Edition licence please refer to your Developer Registration 
-          <a
-            href=""
-            rel="noreferrer"
-            target="_blank"
-          >
-            Terms and Conditions
-          </a>
-          <br />
-          <br />
-          To proceed, please confirm your subscription below
-        </SubTitleH6>
-        <Formik
-          initialValues={
-            Object {
-              "developerList": Array [
-                "value",
-              ],
-            }
-          }
-          onSubmit={[MockFunction]}
-          validationSchema={
-            ObjectSchema {
-              "_blacklist": RefSet {
-                "list": Set {},
-                "refs": Map {},
-              },
-              "_conditions": Array [],
-              "_defaultDefault": [Function],
-              "_deps": Array [],
-              "_excludedEdges": Array [],
-              "_exclusive": Object {},
-              "_mutate": undefined,
-              "_nodes": Array [
-                "developerList",
-              ],
-              "_options": Object {
-                "abortEarly": true,
-                "recursive": true,
-              },
-              "_type": "object",
-              "_typeError": [Function],
-              "_whitelist": RefSet {
-                "list": Set {},
-                "refs": Map {},
-              },
-              "fields": Object {
-                "developerList": StringSchema {
-                  "_blacklist": RefSet {
-                    "list": Set {},
-                    "refs": Map {},
-                  },
-                  "_conditions": Array [],
-                  "_deps": Array [],
-                  "_exclusive": Object {
-                    "required": true,
-                  },
-                  "_mutate": undefined,
-                  "_options": Object {
-                    "abortEarly": true,
-                    "recursive": true,
-                  },
-                  "_type": "string",
-                  "_typeError": [Function],
-                  "_whitelist": RefSet {
-                    "list": Set {},
-                    "refs": Map {},
-                  },
-                  "tests": Array [
-                    [Function],
-                  ],
-                  "transforms": Array [
-                    [Function],
-                  ],
-                  "type": "string",
-                },
-              },
-              "tests": Array [],
-              "transforms": Array [
-                [Function],
-              ],
-              "type": "object",
-            }
-          }
-        >
-          <Form
-            className="form"
-          >
-            <DropdownSelect
-              fixedPosition={true}
-              hasLabel={false}
-              id="developerList"
-              mode="multiple"
-              name="developerList"
-              options={
-                Array [
-                  Object {
-                    "description": "description",
-                    "label": "label",
-                    "value": "value",
-                  },
-                ]
-              }
-              placeholder="Developer List"
-            />
-            <ButtonGroup
-              hasSpacing={true}
-              isCentered={true}
-            >
-              <Button
-                variant="secondary"
-              >
-                Cancel
-              </Button>
-              <Button
-                loading={false}
-                type="submit"
-                variant="primary"
-              >
-                Confirm Subscription
-              </Button>
-            </ButtonGroup>
-          </Form>
-        </Formik>
-      </React.Fragment>
+<ContextProvider
+  value={
+    Object {
+      "store": Object {
+        "clearActions": [Function],
+        "dispatch": [Function],
+        "getActions": [Function],
+        "getState": [Function],
+        "replaceReducer": [Function],
+        "subscribe": [Function],
+      },
+      "subscription": Subscription {
+        "handleChangeWrapper": [Function],
+        "listeners": Object {
+          "notify": [Function],
+        },
+        "onStateChange": [Function],
+        "parentSub": undefined,
+        "store": Object {
+          "clearActions": [Function],
+          "dispatch": [Function],
+          "getActions": [Function],
+          "getState": [Function],
+          "replaceReducer": [Function],
+          "subscribe": [Function],
+        },
+        "unsubscribe": null,
+      },
     }
+  }
+>
+  <DeveloperEditionContent
+    dropdownOptions={
+      Array [
+        Object {
+          "description": "description",
+          "label": "label",
+          "value": "value",
+        },
+      ]
+    }
+    loading={false}
+    onFormSubmit={[MockFunction]}
   />
-</Fragment>
+  ,
+</ContextProvider>
 `;

@@ -34,9 +34,6 @@ export const SuccessContent: React.FC<SuccessContentProps> = ({ developer, after
               We have added your subscription to your monthly billing. To manage your subscriptions please visit the
               &apos;Billing&apos; tab.
             </SubTitleH6>
-            <SubTitleH6 className="has-text-weight-normal">
-              Reminder: There is no charge for the Developer Edition Licence during the Beta Phase.
-            </SubTitleH6>
           </>
         }
       />

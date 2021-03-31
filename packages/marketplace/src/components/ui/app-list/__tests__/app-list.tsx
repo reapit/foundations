@@ -3,7 +3,7 @@ import { shallow } from 'enzyme'
 
 import { AppList, AppListProps } from '../app-list'
 import { appsDataStub } from '@/sagas/__stubs__/apps'
-import { Loader, GridThreeColItem, Helper } from '@reapit/elements'
+import { Loader, GridFourColItem, Helper } from '@reapit/elements'
 import { AppSummaryModel } from '@reapit/foundations-ts-definitions'
 import AppCard from '../../app-card'
 
@@ -36,9 +36,9 @@ describe('AppList', () => {
     expect(props.onCardClick).toHaveBeenCalledWith(appsDataStub?.data?.[0])
   })
 
-  it('should contain GridThreeColItem', () => {
+  it('should contain GridFourColItem', () => {
     const wrapper = shallow(<AppList {...props} />)
-    expect(wrapper.find(GridThreeColItem).length).toBeGreaterThan(0)
+    expect(wrapper.find(GridFourColItem).length).toBeGreaterThan(0)
   })
 
   it('should match the empty search message', () => {

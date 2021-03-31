@@ -47,7 +47,7 @@ describe('fetchSubscriptionListHandler ', () => {
     call(fetchSubscriptionListApi, {
       pageSize: REVISIONS_PER_PAGE,
       pageNumber: 1,
-      type: 'developerEdition',
+      subscriptionType: 'developerEdition',
       developerId: '17e6c3d3-b66d-4eb4-a0fc-f3d76e5809a1',
     }),
   )

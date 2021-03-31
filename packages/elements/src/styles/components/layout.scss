@@ -52,6 +52,12 @@
   &.has-box-shadow {
     box-shadow: 2px 4px 20px rgba(0, 0, 0, 0.05);
   }
+
+  &.has-border {
+    border: 1px solid $grey-medium;
+    border-radius: 4px;
+  }
+
 }
 
 .section {
@@ -104,6 +110,11 @@
 
   &.has-box-shadow {
     box-shadow: 2px 4px 20px rgba(0, 0, 0, 0.05);
+  }
+
+  &.has-border {
+    border: 1px solid $grey-medium;
+    border-radius: 4px;
   }
 
   &.hightlight {

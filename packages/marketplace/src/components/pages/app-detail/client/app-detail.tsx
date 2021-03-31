@@ -11,7 +11,7 @@ import { selectAppDetailData, selectAppDetailLoading } from '@/selector/apps'
 import { selectIsAdmin, selectSandboxDeveloper } from '@/selector/auth'
 import { canGoBack } from '@/utils/router-helper'
 import AppContent from './app-content'
-import { Loader, GridItem, Grid, Section } from '@reapit/elements'
+import { Loader, GridItem, Grid, Section, FlexContainerResponsive } from '@reapit/elements'
 import * as styles from '../__styles__/standalone-app-detail'
 import AppInstallConfirmation from '@/components/pages/app-detail/client/app-install-confirmation'
 import { Aside } from './aside'
@@ -120,7 +120,7 @@ const AppDetail: React.FC = () => {
   const { name = '' } = appDetailData
 
   return (
-    <Section hasPadding={false} hasBackground={false} hasMargin={false}>
+    <FlexContainerResponsive flexColumn hasBackground hasPadding>
       <Grid className={styles.container} dataTest="client-app-detail-container">
         {isLoadingAppDetail || unfetched ? (
           <Loader dataTest="client-app-detail-loader" />
@@ -173,7 +173,7 @@ const AppDetail: React.FC = () => {
           onClose={onCloseNonAdminModal}
         />
       </Grid>
-    </Section>
+    </FlexContainerResponsive>
   )
 }
 

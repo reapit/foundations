@@ -3,11 +3,11 @@ import { Dispatch } from 'redux'
 import qs from 'query-string'
 import { History } from 'history'
 import { useSelector, useDispatch } from 'react-redux'
-import { Section, H3, Grid } from '@reapit/elements'
+import { Section, H3 } from '@reapit/elements'
 import ErrorBoundary from '@/components/hocs/error-boundary'
 import { useHistory, useLocation } from 'react-router'
 import AppList from '@/components/ui/app-list'
-import FeaturedApp from '@/components/ui/featured-app'
+
 // Commenting out as we are disabling for launch because there are too few apps
 // import AppSidebar from '@/components/ui/app-sidebar'
 import { selectAppsListState, selectFeatureAppsListState } from '@/selector/apps'
@@ -17,11 +17,11 @@ import Routes from '@/constants/routes'
 import InfiniteScroll from 'react-infinite-scroll-component'
 import { fetchApps } from '@/actions/apps'
 import { getNumberOfItems } from '@/utils/browse-app'
-import ComingSoonApps from './coming-soon'
 import * as styles from './__styles__'
-import useReactResponsive from '../../hooks/use-react-responsive'
+import { FeaturedApps } from './featured'
+import { overflowUnset } from '../../ui/app-list/__styles__'
 
-const DEFAULT_SCROLL_THRESHOLD = 0.5
+const DEFAULT_SCROLL_THRESHOLD = 0.3
 
 export const handleAfterClose = ({ setVisible }) => () => setVisible(false)
 export const handleOnChange = (history) => (page: number) => {
@@ -50,15 +50,12 @@ export const handleLoadMore = ({
 }
 
 export const Apps: React.FunctionComponent = () => {
-  const [comingSoonAppSectionHeight, setComingSoonAppSectionHeight] = React.useState(0)
-
   const history = useHistory()
   const location = useLocation()
   const dispatch = useDispatch()
 
   const appsListState = useSelector(selectAppsListState)
   const hasParams = hasFilterParams(location.search)
-  const { isLargeDesktop } = useReactResponsive()
 
   const apps = appsListState?.data || []
   const { totalCount = 0, pageNumber = 1 } = appsListState || {}
@@ -79,8 +76,6 @@ export const Apps: React.FunctionComponent = () => {
    */
   const hasMore = apps.length == 0 || loading ? false : pageNumber < totalPage
 
-  const scrollThreshold = comingSoonAppSectionHeight > 0 ? `${comingSoonAppSectionHeight}px` : DEFAULT_SCROLL_THRESHOLD
-
   return (
     <ErrorBoundary>
       <Section
@@ -92,23 +87,15 @@ export const Apps: React.FunctionComponent = () => {
         hasBackground={false}
       >
         {/* <AppSidebar /> */}
-        <H3>Browse Apps</H3>
-        {!hasParams && featuredApps.length > 0 && (
-          <div className="pb-4 mb-4">
-            <Grid isMultiLine>
-              {featuredApps.map((app, i) => {
-                if (i > 1 && !isLargeDesktop) return null
-                return <FeaturedApp key={app.id} app={app} />
-              })}
-            </Grid>
-          </div>
-        )}
+        <H3>Marketplace</H3>
+        {!hasParams && featuredApps.length > 0 && <FeaturedApps apps={featuredApps} />}
         <InfiniteScroll
           dataLength={apps.length}
           next={handleLoadMore({ dispatch, preview, loading, numOfItemsPerPage, pageNumber })}
           hasMore={hasMore}
           loader={null}
-          scrollThreshold={scrollThreshold}
+          scrollThreshold={DEFAULT_SCROLL_THRESHOLD}
+          className={overflowUnset}
           // We disable the scrolling in the app list  container and allow the app root container to scroll
           // so the scrollableTarget must be set as app-root-container
           scrollableTarget="app-root-container"
@@ -120,8 +107,6 @@ export const Apps: React.FunctionComponent = () => {
             infoType={pageNumber > 1 || hasParams ? '' : 'CLIENT_APPS_EMPTY'}
           />
         </InfiniteScroll>
-        <div className="mb-4" />
-        <ComingSoonApps setComingSoonAppSectionHeight={setComingSoonAppSectionHeight} />
       </Section>
     </ErrorBoundary>
   )

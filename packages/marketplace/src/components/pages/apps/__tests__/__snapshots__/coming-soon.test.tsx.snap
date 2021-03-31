@@ -1,242 +1,31 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`ComingSoonAppComponent should match a snapshot 1`] = `
-<ComingSoonItem
-  key="sales@yourkeys.com"
->
+<GridFourColItem>
   <FadeIn>
-    <ComingSoonImage>
-      <a
-        href="mailto:sales@yourkeys.com?subject=Reapit%20Foundations%20Marketplace%20-%20Coming%20Soon&body=Dear%20Reapit%20App%20Developer%2C%20%0A%0AI%20would%20like%20more%20information%20about%20your%20app%20featured%20in%20the%20%E2%80%98Coming%20Soon%E2%80%99%20section%20of%20the%20Reapit%20Marketplace%20%0A%0ARegards"
-        rel="noopener noreferrer"
-        target="_blank"
-      >
-        <ImageComponent />
-      </a>
-    </ComingSoonImage>
+    <ComingSoonItem>
+      <ComingSoonTitle>
+        Coming soon
+      </ComingSoonTitle>
+      <ComingSoonInner>
+        <ComingSoonImageWrap>
+          <ComingSoonImage>
+            <a
+              href="mailto:sales@yourkeys.com?subject=Reapit%20Foundations%20Marketplace%20-%20Coming%20Soon&body=Dear%20Reapit%20App%20Developer%2C%20%0A%0AI%20would%20like%20more%20information%20about%20your%20app%20featured%20in%20the%20%E2%80%98Coming%20Soon%E2%80%99%20section%20of%20the%20Reapit%20Marketplace%20%0A%0ARegards"
+              rel="noopener noreferrer"
+              target="_blank"
+            >
+              <ImageComponent />
+            </a>
+          </ComingSoonImage>
+        </ComingSoonImageWrap>
+        <CategoryTitle>
+          <CloudIcon />
+           
+          Agency Cloud App
+        </CategoryTitle>
+      </ComingSoonInner>
+    </ComingSoonItem>
   </FadeIn>
-</ComingSoonItem>
-`;
-
-exports[`ComingSoonApps should match a snapshot 1`] = `
-<Fragment>
-  <H3>
-    Coming Soon
-  </H3>
-  <div
-    id="coming-soon-section"
-  >
-    <H5>
-      Agency Cloud Apps
-    </H5>
-    <ComingSoonContainer>
-      <ComingSoonAppComponent
-        app={
-          Object {
-            "email": "sales@yourkeys.com",
-            "image": "comingSoonImageYourkeys",
-          }
-        }
-        isDesktop={false}
-        key="comingSoonImageYourkeys"
-      />
-      <ComingSoonAppComponent
-        app={
-          Object {
-            "email": "hello@vyomm.com",
-            "image": "comingSoonImageVyomm",
-          }
-        }
-        isDesktop={false}
-        key="comingSoonImageVyomm"
-      />
-      <ComingSoonAppComponent
-        app={
-          Object {
-            "email": "support@sms-speedway.com",
-            "image": "comingSoonSmsSpeedWayIdVerification",
-          }
-        }
-        isDesktop={false}
-        key="comingSoonSmsSpeedWayIdVerification"
-      />
-      <ComingSoonAppComponent
-        app={
-          Object {
-            "email": "support@sms-speedway.com",
-            "image": "comingSoonSmsSpeedway",
-          }
-        }
-        isDesktop={false}
-        key="comingSoonSmsSpeedway"
-      />
-      <ComingSoonAppComponent
-        app={
-          Object {
-            "email": "hphillips@reapit.com",
-            "image": "comingSoonReapitPayments",
-          }
-        }
-        isDesktop={false}
-        key="comingSoonReapitPayments"
-      />
-      <ComingSoonAppComponent
-        app={
-          Object {
-            "email": "hphillips@reapit.com",
-            "image": "comingSoonImageMAB",
-          }
-        }
-        isDesktop={false}
-        key="comingSoonImageMAB"
-      />
-      <ComingSoonAppComponent
-        app={
-          Object {
-            "email": "helpdesk@perfectportal.co.uk",
-            "image": "comingSoonPerfectPortal",
-          }
-        }
-        isDesktop={false}
-        key="comingSoonPerfectPortal"
-      />
-      <ComingSoonAppComponent
-        app={
-          Object {
-            "email": "partner@movinghub.co.uk",
-            "image": "comingSoonMovingHub",
-          }
-        }
-        isDesktop={false}
-        key="comingSoonMovingHub"
-      />
-    </ComingSoonContainer>
-    <div
-      className="mb-4"
-    />
-    <H5>
-      Third Party Integrations
-    </H5>
-    <ComingSoonContainer>
-      <ComingSoonAppComponent
-        app={
-          Object {
-            "email": "hello@starberry.tv",
-            "image": "comingSoonImageStarberry",
-          }
-        }
-        isDesktop={false}
-        key="comingSoonImageStarberry"
-      />
-      <ComingSoonAppComponent
-        app={
-          Object {
-            "email": "sales@yomdel.com",
-            "image": "comingSoonImageYomdel",
-          }
-        }
-        isDesktop={false}
-        key="comingSoonImageYomdel"
-      />
-      <ComingSoonAppComponent
-        app={
-          Object {
-            "email": "info@integratedinterest.com",
-            "image": "comingSoonImageIntegrated",
-          }
-        }
-        isDesktop={false}
-        key="comingSoonImageIntegrated"
-      />
-      <ComingSoonAppComponent
-        app={
-          Object {
-            "email": "enquiries@zerodeposit.com",
-            "image": "comingSoonImageZero",
-          }
-        }
-        isDesktop={false}
-        key="comingSoonImageZero"
-      />
-      <ComingSoonAppComponent
-        app={
-          Object {
-            "email": "enquiries@twentyea.co.uk",
-            "image": "comingSoonImageTwentyci",
-          }
-        }
-        isDesktop={false}
-        key="comingSoonImageTwentyci"
-      />
-      <ComingSoonAppComponent
-        app={
-          Object {
-            "email": "enquiries@viewmychain.com",
-            "image": "comingSoonImageTwentyCiVMC",
-          }
-        }
-        isDesktop={false}
-        key="comingSoonImageTwentyCiVMC"
-      />
-      <ComingSoonAppComponent
-        app={
-          Object {
-            "email": "app-support@iamproperty.com",
-            "image": "comingSoonIAMProperty",
-          }
-        }
-        isDesktop={false}
-        key="comingSoonIAMProperty"
-      />
-      <ComingSoonAppComponent
-        app={
-          Object {
-            "email": "support@spectre.uk.com",
-            "image": "comingSoonImageSpectre",
-          }
-        }
-        isDesktop={false}
-        key="comingSoonImageSpectre"
-      />
-    </ComingSoonContainer>
-    <div
-      className="mb-4"
-    />
-    <H5>
-      Portal Integrations
-    </H5>
-    <ComingSoonContainer>
-      <ComingSoonAppComponent
-        app={
-          Object {
-            "email": "",
-            "image": "comingSoonImageZoopla",
-          }
-        }
-        isDesktop={false}
-        key="comingSoonImageZoopla"
-      />
-      <ComingSoonAppComponent
-        app={
-          Object {
-            "email": "",
-            "image": "comingSoonOnTheMarket",
-          }
-        }
-        isDesktop={false}
-        key="comingSoonOnTheMarket"
-      />
-      <ComingSoonAppComponent
-        app={
-          Object {
-            "email": "",
-            "image": "comingSoonRightMove",
-          }
-        }
-        isDesktop={false}
-        key="comingSoonRightMove"
-      />
-    </ComingSoonContainer>
-  </div>
-</Fragment>
+</GridFourColItem>
 `;
