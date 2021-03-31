@@ -1,11 +1,10 @@
 import * as React from 'react'
-import { cx } from 'linaria'
 import { ElInputGroup } from './__styles__'
 import { Input } from '../Input'
 import { Icon, IconNames } from '../Icon'
 import { Label } from '../Label'
 import { AfterInputText } from '../AfterInputText'
-import { Intent, getIntentClassName } from '../../helpers/v3/intent'
+import { Intent } from '../../helpers/v3/intent'
 
 export interface IInputGroup extends React.HTMLAttributes<HTMLDivElement> {
   icon?: IconNames
