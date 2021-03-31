@@ -120,59 +120,61 @@ const AppDetail: React.FC = () => {
   const { name = '' } = appDetailData
 
   return (
-    <FlexContainerResponsive flexColumn hasBackground hasPadding>
-      <Grid className={styles.container} dataTest="client-app-detail-container">
-        {isLoadingAppDetail || unfetched ? (
-          <Loader dataTest="client-app-detail-loader" />
-        ) : (
-          <>
-            <GridItem className="is-one-quarter">
-              <FadeIn>
-                <Aside appDetailData={appDetailData} desktopIntegrationTypes={userDesktopIntegrationTypes} />
-              </FadeIn>
-            </GridItem>
-            <GridItem className="is-three-quarters">
-              <Section isFlex isFlexColumn isFullHeight>
+    <FlexContainerResponsive flexColumn>
+      <Section>
+        <Grid className={styles.container} dataTest="client-app-detail-container">
+          {isLoadingAppDetail || unfetched ? (
+            <Loader dataTest="client-app-detail-loader" />
+          ) : (
+            <>
+              <GridItem className="is-one-quarter">
                 <FadeIn>
-                  <AppHeader
-                    appDetailData={appDetailData}
-                    buttonGroup={
-                      <AppDetailButtonGroup
-                        appDetailData={appDetailData}
-                        onInstallConfirmationModal={onInstallConfirmationModal}
-                        onUninstallConfirmationModal={onUninstsallConfirmationModal}
-                      />
-                    }
-                  />
+                  <Aside appDetailData={appDetailData} desktopIntegrationTypes={userDesktopIntegrationTypes} />
                 </FadeIn>
-                <AppContent appDetailData={appDetailData} />
-                {!isMobile && (
+              </GridItem>
+              <GridItem className="is-three-quarters">
+                <Section isFlex isFlexColumn isFullHeight>
                   <FadeIn>
-                    <BackToAppsSection onClick={onBackToAppsButtonClick(history)} />
+                    <AppHeader
+                      appDetailData={appDetailData}
+                      buttonGroup={
+                        <AppDetailButtonGroup
+                          appDetailData={appDetailData}
+                          onInstallConfirmationModal={onInstallConfirmationModal}
+                          onUninstallConfirmationModal={onUninstsallConfirmationModal}
+                        />
+                      }
+                    />
                   </FadeIn>
-                )}
-              </Section>
-            </GridItem>
-          </>
-        )}
-        <AppUninstallConfirmation
-          visible={isVisibleUninstallConfirmation}
-          appDetailData={appDetailData}
-          closeUninstallConfirmationModal={closeUninstallConfirmationModal}
-        />
+                  <AppContent appDetailData={appDetailData} />
+                  {!isMobile && (
+                    <FadeIn>
+                      <BackToAppsSection onClick={onBackToAppsButtonClick(history)} />
+                    </FadeIn>
+                  )}
+                </Section>
+              </GridItem>
+            </>
+          )}
+          <AppUninstallConfirmation
+            visible={isVisibleUninstallConfirmation}
+            appDetailData={appDetailData}
+            closeUninstallConfirmationModal={closeUninstallConfirmationModal}
+          />
 
-        <AppInstallConfirmation
-          visible={isVisibleInstallConfirmation}
-          appDetailData={appDetailData}
-          closeInstallConfirmationModal={closeInstallConfirmationModal}
-        />
-        <NonAdminInstallModal title={name} visible={nonAdminModalType === 'INSTALL'} onClose={onCloseNonAdminModal} />
-        <NonAdminUninstallModal
-          title={name}
-          visible={nonAdminModalType === 'UNINSTALL'}
-          onClose={onCloseNonAdminModal}
-        />
-      </Grid>
+          <AppInstallConfirmation
+            visible={isVisibleInstallConfirmation}
+            appDetailData={appDetailData}
+            closeInstallConfirmationModal={closeInstallConfirmationModal}
+          />
+          <NonAdminInstallModal title={name} visible={nonAdminModalType === 'INSTALL'} onClose={onCloseNonAdminModal} />
+          <NonAdminUninstallModal
+            title={name}
+            visible={nonAdminModalType === 'UNINSTALL'}
+            onClose={onCloseNonAdminModal}
+          />
+        </Grid>
+      </Section>
     </FlexContainerResponsive>
   )
 }

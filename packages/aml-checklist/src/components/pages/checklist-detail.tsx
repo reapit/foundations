@@ -134,11 +134,13 @@ export const ChecklistDetail: React.FC<CheckListDetailProps> = ({
   // TODO: Will replace callback by dispatch to show modald`
   const sections = React.useMemo(() => generateSection(status, showModal), [status])
   return (
-    <ErrorBoundary>
-      <AMLProgressBar />
-      <Section hasBackground={false}>{renderSections(sections)}</Section>
-      <Modal id={id} visible={isModalVisible} afterClose={hideModal} modalContentType={modalContentType} />
-    </ErrorBoundary>
+    <Section hasMargin={false} hasPadding={false}>
+      <ErrorBoundary>
+        <AMLProgressBar />
+        <Section>{renderSections(sections)}</Section>
+        <Modal id={id} visible={isModalVisible} afterClose={hideModal} modalContentType={modalContentType} />
+      </ErrorBoundary>
+    </Section>
   )
 }
 
