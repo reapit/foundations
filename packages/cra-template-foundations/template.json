@@ -1,7 +1,7 @@
 {
   "package": {
     "dependencies": {
-      "@reapit/elements": "^1.1.0",
+      "@reapit/elements": "^2.0.0-alpha.1",
       "@reapit/connect-session": "^2.3.0",
       "@reapit/foundations-ts-definitions": "^1.2.0",
       "@types/enzyme": "^3.10.8",
