@@ -9,6 +9,7 @@ exports[`PrivateRouter should match a snapshot 1`] = `
   >
     <FlexContainerResponsive
       flexColumn={true}
+      isFullHeight={true}
     >
       <Suspense
         fallback={
