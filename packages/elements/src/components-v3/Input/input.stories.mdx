@@ -1,0 +1,130 @@
+import { Meta, Story, Canvas, ArgsTable } from '@storybook/addon-docs/blocks'
+import { Input } from './index'
+
+export const Template = (args) => <Input {...args} />
+
+<Meta title="V3/Forms/Input" component={Input} />
+
+# Input
+
+Underlying tag: `<input>`
+
+<Canvas>
+  <Story name="Default Usage" args={{ placeholder: 'Placeholder' }}>
+    {Template.bind({})}
+  </Story>
+</Canvas>
+
+<ArgsTable story="Default Usage" />
+
+# Different types
+
+### email
+
+<Canvas>
+  <Story name="Type: email">
+    <Input type="email" placeholder="Enter your email" />
+  </Story>
+</Canvas>
+
+### file
+
+<Canvas>
+  <Story name="Type: file">
+    <Input type="file" placeholder="Select a file" />
+  </Story>
+</Canvas>
+
+### password
+
+<Canvas>
+  <Story name="Type: password">
+    <Input type="password" placeholder="Enter password" />
+  </Story>
+</Canvas>
+
+### number
+
+<Canvas>
+  <Story name="Type: number">
+    <Input type="number" />
+  </Story>
+</Canvas>
+
+### tel (for telephone numbers)
+
+<Canvas>
+  <Story name="Type: tel">
+    <Input type="tel" />
+  </Story>
+</Canvas>
+
+### url
+
+<Canvas>
+  <Story name="Type: url">
+    <Input type="url" />
+  </Story>
+</Canvas>
+
+### search
+
+<Canvas>
+  <Story name="Type: search">
+    <Input type="search" />
+  </Story>
+</Canvas>
+
+#### date
+
+<Canvas>
+  <Story name="Type: date">
+    <Input type="date" />
+  </Story>
+</Canvas>
+
+#### time
+
+<Canvas>
+  <Story name="Type: time">
+    <Input type="time" />
+  </Story>
+</Canvas>
+
+#### datetime-local
+
+<Canvas>
+  <Story name="Type: datetime-local">
+    <Input type="datetime-local" />
+  </Story>
+</Canvas>
+
+### week
+
+<Canvas>
+  <Story name="Type: week">
+    <Input type="week" />
+  </Story>
+</Canvas>
+
+### month
+
+<Canvas>
+  <Story name="Type: month">
+    <Input type="month" />
+  </Story>
+</Canvas>
+
+# Additional className
+
+Set the `className` prop to add additional custom CSS classes
+
+<Canvas>
+  <Story name="Additional className">
+    <Input className="my-custom-className" />
+  </Story>
+</Canvas>
+
+# Other attributes
+
+All other standard HTML attributes for `<input>` are supported and are passed through to the React component, e.g. onClick

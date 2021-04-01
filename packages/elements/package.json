@@ -1,6 +1,6 @@
 {
   "name": "@reapit/elements",
-  "version": "2.0.0-alpha.1",
+  "version": "2.0.1",
   "description": "A collection of React components and utilities for building apps for Reapit Marketplace",
   "homepage": "https://github.com/reapit/foundations#readme",
   "bugs": {
@@ -38,6 +38,8 @@
     "chrome 69"
   ],
   "dependencies": {
+    "@svgr/rollup": "^5.5.0",
+    "@svgr/webpack": "^5.5.0",
     "babel-loader": "^8.2.2",
     "bulma": "^0.9.2",
     "file-saver": "^2.0.5",

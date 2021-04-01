@@ -32,7 +32,7 @@ export const PrivateRouteWrapper: React.FC = ({ children }) => {
     <AppNavContainer>
       <Menu />
       <FlexContainerBasic flexColumn isScrollable>
-        <FlexContainerResponsive flexColumn>
+        <FlexContainerResponsive flexColumn isFullHeight>
           <Suspense fallback={<Loader body />}>{children}</Suspense>
         </FlexContainerResponsive>
       </FlexContainerBasic>

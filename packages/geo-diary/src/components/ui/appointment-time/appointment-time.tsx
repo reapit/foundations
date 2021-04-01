@@ -47,7 +47,7 @@ export const AppointmentTime = ({ queryParams, history }: AppointmentTimeProps) 
       variant={queryParams.time === 'weekView' ? 'primary' : 'secondary'}
       onClick={handleChangeTime({ queryParams, history, time: 'weekView' })}
     >
-      WEEK VIEW
+      WEEK
     </Button>
   </ButtonGroup>
 )

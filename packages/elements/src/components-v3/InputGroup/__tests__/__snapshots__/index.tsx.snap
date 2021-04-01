@@ -1,0 +1,63 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`InputGroup component should match a snapshot when used in explicit mode 1`] = `
+<ElInputGroup>
+  <Input />
+  <Icon
+    icon="email"
+  >
+    Please enter an email
+  </Icon>
+  <Label>
+    Please enter a username
+  </Label>
+</ElInputGroup>
+`;
+
+exports[`InputGroup component should match a snapshot when used in react shorthand mode 1`] = `
+<ElInputGroup>
+  <Input
+    id="myId"
+  />
+</ElInputGroup>
+`;
+
+exports[`InputGroup component should match a snapshot when used in react shorthand mode, with a label 1`] = `
+<ElInputGroup>
+  <Input
+    id="myId"
+  />
+  <Label
+    htmlFor="myId"
+  >
+    Enter your username
+  </Label>
+</ElInputGroup>
+`;
+
+exports[`InputGroup component should match a snapshot when used in react shorthand mode, with an icon 1`] = `
+<ElInputGroup>
+  <Input
+    id="myId"
+  />
+  <Icon
+    icon="email"
+  />
+</ElInputGroup>
+`;
+
+exports[`InputGroup component should match a snapshot when used in react shorthand mode, with an icon and a label 1`] = `
+<ElInputGroup>
+  <Input
+    id="myId"
+  />
+  <Icon
+    icon="email"
+  />
+  <Label
+    htmlFor="myId"
+  >
+    Enter your username
+  </Label>
+</ElInputGroup>
+`;

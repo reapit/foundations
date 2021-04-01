@@ -1,0 +1,27 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Icon component should match a snapshot 1`] = `
+<ElIcon
+  className=""
+  style={
+    Object {
+      "fontSize": undefined,
+    }
+  }
+>
+  <[object Object] />
+</ElIcon>
+`;
+
+exports[`Icon component should match a snapshot when intent prop is supplied 1`] = `
+<ElIcon
+  className="el-intent-primary"
+  style={
+    Object {
+      "fontSize": undefined,
+    }
+  }
+>
+  <[object Object] />
+</ElIcon>
+`;

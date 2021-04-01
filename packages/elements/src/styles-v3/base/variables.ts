@@ -1,52 +1,66 @@
 import { css } from 'linaria'
 
 // export javascript colours for the SVG background in the button
-export const intentPrimary = '#006580'
+export const intentPrimary = '#0061a8'
 export const intentSecondary = '#23a4de'
-export const intentCritical = '#ffb71b'
+export const intentCritical = '#f5b555'
 export const intentSuccess = '#a0c862'
 export const intentDanger = '#d3033d'
 
 export const elVariables = css`
   :global() {
     :root {
-      /* color variables */
+      /* basic color variables */
       --color-white: #fff;
-      --color-black: #3b454e;
-      --color-black-light: #363636;
-      --color-grey: #74818d;
-      --color-grey-light: #dbdbdb;
-      --color-grey-lightest: #f5f7f9;
-      --color-green: #a0c862;
-      --color-green-lighter: #acf2bd;
-      --color-green-lightest: #e6ffed;
-      --color-red: #d3033d;
-      --color-red-lighter: #fdb8c0;
-      --color-red-lightest: #ffeef0;
-      --color-blue: #0061a8;
-      --color-blue-dark: #262f69;
-      --color-blue-darkest: #1e2554;
+      --color-black: #000000;
+      --color-grey-dark: #646464;
+      --color-grey-medium: #e3e3e3;
+      --color-grey-light: #f2f2f2;
+
+      /** shades of blue color variables */
       --color-blue-light: #23a4de;
-      --color-blue-lightest: #7bc9eb;
-      --color-orange: #ec631b;
-      --color-lime: #cddb00;
-      --color-teal: #006580;
-      --color-plumb: #7a2c81;
-      --color-purple: #a4185c;
-      --color-gold: #ffb71b;
+      --color-blue-light2: #7bc9eb;
+      --color-blue-dark: #262f69;
+      --color-blue-dark2: #31448f;
 
-      /** intent variables */
-      --intent-primary: var(--color-teal);
-      --intent-secondary: var(--color-blue-light);
-      --intent-critical: var(--color-gold);
-      --intent-success: var(--color-green);
-      --intent-danger: var(--color-red);
-
+      /** intent color variables */
+      --intent-primary: ${intentPrimary};
+      --intent-secondary: ${intentSecondary};
+      --intent-critical: ${intentCritical};
+      --intent-success: ${intentSuccess};
+      --intent-danger: ${intentDanger};
+      /* colors of text that would sit on top of the intent when used as a background */
       --intent-primary-text: var(--color-white);
       --intent-secondary-text: var(--color-white);
       --intent-critical-text: var(--color-white);
       --intent-success-text: var(--color-white);
       --intent-danger-text: var(--color-white);
+
+      /** intent light color variables */
+      --intent-primary-light: #d6dae9;
+      --intent-secondary-light: #eaf5fc;
+      --intent-critical-light: #ffefdd;
+      --intent-success-light: #e3eed1;
+      --intent-danger-light: #fbeaef;
+      /* intent light text colors */
+      --intent-primary-light-text: var(--color-grey-dark);
+      --intent-secondary-light-text: var(--color-grey-dark);
+      --intent-critical-light-text: var(--color-grey-dark);
+      --intent-success-light-text: var(--color-grey-dark);
+      --intent-danger-light-text: var(--color-grey-dark);
+
+      /** intent dark color variables */
+      --intent-primary-dark: var(--color-blue-dark);
+      --intent-secondary-dark: #125370;
+      --intent-critical-dark: #78592a;
+      --intent-success-dark: #506331;
+      --intent-danger-dark: #70001f;
+      /* intent dark text colors */
+      --intent-primary-dark-text: var(--color-white);
+      --intent-secondary-dark-text: var(--color-white);
+      --intent-critical-dark-text: var(--color-white);
+      --intent-success-dark-text: var(--color-white);
+      --intent-danger-light-text: var(--color-white);
 
       /** font variables */
       --font-sans-serif: 'PT Sans', Helvetica, Arial, sans-serif;

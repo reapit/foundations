@@ -8,6 +8,7 @@ module.exports = {
     '<rootDir>[/\\\\](node_modules|src/types|src/tests|src/scripts|src/helpers|src/stylesq)[/\\\\]',
     '.stories.tsx',
     'src/index.tsx',
+    'src/v3.tsx',
     'index.ts',
     'src/styles-v3',
   ],

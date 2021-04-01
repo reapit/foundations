@@ -102,13 +102,24 @@ const webpackConfigDev = {
         use: ['style-loader', 'css-loader', 'postcss-loader'],
       },
       {
-        test: /\.(woff(2)?|ttf|eot|svg|png|jpg|jpeg|gif|pdf)$/,
+        test: /\.(woff(2)?|ttf|eot|png|jpg|jpeg|gif|pdf)$/,
         use: {
           loader: 'file-loader',
           options: {
             name: '[name].[ext]',
           },
         },
+      },
+      {
+        test: /\.svg$/,
+        use: [
+          {
+            loader: '@svgr/webpack',
+            options: {
+              icon: true,
+            },
+          },
+        ],
       },
     ],
   },

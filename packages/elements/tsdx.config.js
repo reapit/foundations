@@ -2,6 +2,7 @@ const scss = require('rollup-plugin-scss')
 const babel = require('@rollup/plugin-babel').default
 const linaria = require('linaria/rollup')
 const typescript = require('rollup-plugin-typescript2')
+const svgr = require('@svgr/rollup').default
 
 const EXCLUDE_PACKAGES = ['linaria']
 
@@ -11,7 +12,7 @@ const generateRegexExcludePackages = () => {
 }
 
 // Overrides and changes the order of TSDX's rollup config to accomodate linaria
-const replaceAndReorderPlugins = plugins => {
+const replaceAndReorderPlugins = (plugins) => {
   // Babel just to take my ESNEXT code and make legacy browser friendly
   const babelPlugin = babel({
     presets: [
@@ -47,11 +48,13 @@ const replaceAndReorderPlugins = plugins => {
     sourceMap: process.env.NODE_ENV !== 'production',
   })
 
-  const tsPlugin = plugins.find(plugin => plugin.name === 'rpt2')
+  const tsPlugin = plugins.find((plugin) => plugin.name === 'rpt2')
+
+  const svgrPlugin = svgr({ icon: true })
 
   // Remove the original TsPlugin that stripped out my styles, plus Babel. I add new Babel config back in
   // at the end after extracting styles
-  plugins.splice(plugins.indexOf(tsPlugin), 2, typescriptPlugin, linariaPlugin, sassPlugin, babelPlugin)
+  plugins.splice(plugins.indexOf(tsPlugin), 2, typescriptPlugin, linariaPlugin, sassPlugin, babelPlugin, svgrPlugin)
 
   return plugins
 }

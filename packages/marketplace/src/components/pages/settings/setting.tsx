@@ -73,74 +73,76 @@ export const Settings: React.FC = () => {
   const isDesktopAdmin = selectIsAdmin(connectSession)
 
   return (
-    <FlexContainerResponsive flexColumn hasBackground hasPadding>
-      <Section isFlex className="justify-between items-center" hasPadding={false}>
-        <H3 className="mb-0">Settings</H3>
-        {!connectIsDesktop && (
-          <Button dataTest="logout-btn" variant="primary" type="button" onClick={logout}>
-            Logout
-          </Button>
-        )}
+    <FlexContainerResponsive flexColumn>
+      <Section>
+        <Section isFlex className="justify-between items-center" hasPadding={false}>
+          <H3 className="mb-0">Settings</H3>
+          {!connectIsDesktop && (
+            <Button dataTest="logout-btn" variant="primary" type="button" onClick={logout}>
+              Logout
+            </Button>
+          )}
+        </Section>
+        <Section hasPadding={false}>
+          <Grid>
+            <GridItem>
+              <Grid>
+                <GridItem>
+                  <SubTitleH6>NAME:</SubTitleH6>
+                </GridItem>
+                <GridItem>
+                  <p>{name}</p>
+                </GridItem>
+              </Grid>
+            </GridItem>
+            <GridItem>
+              <Grid>
+                <GridItem>
+                  <SubTitleH6>EMAIL ADDRESS:</SubTitleH6>
+                </GridItem>
+                <GridItem>
+                  <p>{email}</p>
+                </GridItem>
+              </Grid>
+            </GridItem>
+          </Grid>
+          <Grid>
+            <GridItem>
+              <Grid>
+                <GridItem>
+                  <SubTitleH6>COMPANY:</SubTitleH6>
+                </GridItem>
+                <GridItem>
+                  <p>{companyName}</p>
+                </GridItem>
+              </Grid>
+            </GridItem>
+            <GridItem>
+              <Grid>
+                <GridItem>
+                  <SubTitleH6>CUSTOMER ID:</SubTitleH6>
+                </GridItem>
+                <GridItem>
+                  <p>{customerId}</p>
+                </GridItem>
+              </Grid>
+            </GridItem>
+          </Grid>
+          <Grid>
+            <GridItem>
+              <Grid>
+                <GridItem>
+                  <SubTitleH6>ROLE:</SubTitleH6>
+                </GridItem>
+                <GridItem>{role}</GridItem>
+              </Grid>
+            </GridItem>
+            <GridItem></GridItem>
+          </Grid>
+        </Section>
+        {!connectIsDesktop && <ChangePasswordForm changePassword={changePassword} loading={loading} />}
+        {isDesktopAdmin && <InstallationsTable />}
       </Section>
-      <Section hasPadding={false}>
-        <Grid>
-          <GridItem>
-            <Grid>
-              <GridItem>
-                <SubTitleH6>NAME:</SubTitleH6>
-              </GridItem>
-              <GridItem>
-                <p>{name}</p>
-              </GridItem>
-            </Grid>
-          </GridItem>
-          <GridItem>
-            <Grid>
-              <GridItem>
-                <SubTitleH6>EMAIL ADDRESS:</SubTitleH6>
-              </GridItem>
-              <GridItem>
-                <p>{email}</p>
-              </GridItem>
-            </Grid>
-          </GridItem>
-        </Grid>
-        <Grid>
-          <GridItem>
-            <Grid>
-              <GridItem>
-                <SubTitleH6>COMPANY:</SubTitleH6>
-              </GridItem>
-              <GridItem>
-                <p>{companyName}</p>
-              </GridItem>
-            </Grid>
-          </GridItem>
-          <GridItem>
-            <Grid>
-              <GridItem>
-                <SubTitleH6>CUSTOMER ID:</SubTitleH6>
-              </GridItem>
-              <GridItem>
-                <p>{customerId}</p>
-              </GridItem>
-            </Grid>
-          </GridItem>
-        </Grid>
-        <Grid>
-          <GridItem>
-            <Grid>
-              <GridItem>
-                <SubTitleH6>ROLE:</SubTitleH6>
-              </GridItem>
-              <GridItem>{role}</GridItem>
-            </Grid>
-          </GridItem>
-          <GridItem></GridItem>
-        </Grid>
-      </Section>
-      {!connectIsDesktop && <ChangePasswordForm changePassword={changePassword} loading={loading} />}
-      {isDesktopAdmin && <InstallationsTable />}
     </FlexContainerResponsive>
   )
 }
