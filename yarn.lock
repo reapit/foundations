@@ -5212,7 +5212,7 @@ __metadata:
     "@types/jwk-to-pem": ^2.0.0
     "@types/morgan": ^1.9.2
     "@types/nanoid": ^2.1.0
-    "@types/node": 10.17.54
+    "@types/node": 10.17.55
     "@types/papaparse": ^5.2.5
     "@types/query-string": ^6.3.0
     "@types/rc-select": ^5.9.34
@@ -7858,10 +7858,10 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@types/node@npm:10.17.54":
-  version: 10.17.54
-  resolution: "@types/node@npm:10.17.54"
-  checksum: 6f718d5d37f40586228b490b9635a1b44f3990766c75fc5af933858ad2bc6eac7cc5dca2b8a1389e0663542c5cb671d01eb45f847783e53aba0318a9fe11a66b
+"@types/node@npm:10.17.55":
+  version: 10.17.55
+  resolution: "@types/node@npm:10.17.55"
+  checksum: 03924314a7a6bd74f5d710b35b602f82b14e0bc95d650724a4296ed99aec9b8680885b78422a5e21586b2cb2b1d8148cd58ec99009e2ae6e2beaf1590c71a444
   languageName: node
   linkType: hard
 
@@ -27541,7 +27541,7 @@ fsevents@^1.2.7:
     serverless-s3-remover: ^0.6.0
     serverless-single-page-app-plugin: ^1.0.2
     snyk: ^1.463.0
-    swr: ^0.4.2
+    swr: ^0.5.0
     ts-jest: ^26.5.2
     typescript: ^4.0.3
     webpack: ^4.46.0
@@ -33731,14 +33731,14 @@ resolve@1.17.0:
   languageName: node
   linkType: hard
 
-"swr@npm:^0.4.2":
-  version: 0.4.2
-  resolution: "swr@npm:0.4.2"
+"swr@npm:^0.5.0":
+  version: 0.5.5
+  resolution: "swr@npm:0.5.5"
   dependencies:
     dequal: 2.0.2
   peerDependencies:
     react: ^16.11.0 || ^17.0.0
-  checksum: c3643842fc271d55e7d8cd6882bb30f8e834f928610381e268b036e84c43809beaf04af222e57669c854e87e45d44d5f172896d07ac5a2a920c2b25ae4a6a455
+  checksum: 80ff924020e57631c4ab6a58356ac2c0edeb59220ca10a362210c760a4e4cccb28db41b5b600d018790475bed087032fe217c3e138dedd448939345dbbba13ef
   languageName: node
   linkType: hard
 
