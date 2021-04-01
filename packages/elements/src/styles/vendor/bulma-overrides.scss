@@ -424,6 +424,7 @@ a {
 .tag:not(body) {
   // Overrides to fix weird docs spacing issue see #3874
   background-color: transparent;
+  color: white;
   display: inline;
   font-size: 1rem;
   height: 1rem;
@@ -431,6 +432,11 @@ a {
   padding-left: 0;
   padding-right: 0;
   white-space: pre;
+}
+
+span.token.plain-text {
+  color: white;
+  font-size: 1rem;
 }
 
 span.number.token {
