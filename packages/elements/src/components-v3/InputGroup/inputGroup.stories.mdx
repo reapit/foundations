@@ -98,3 +98,22 @@ InputGroup provides a wrapper and styling for the `Input`, `Icon`, `Label`, and 
     <InputGroup icon="asterisk" label="Email address" afterInputText="Required" intent="danger" type="text" />
   </Story>
 </Canvas>
+
+# Different input types
+
+## Checkbox
+
+<Canvas>
+  <Story name="Type: checkbox">
+    <InputGroup type="checkbox" icon="phone" label="Status" afterInputText="Listed" />
+  </Story>
+  <Story name="Type: checkbox - with intent">
+    <InputGroup type="checkbox" icon="info" intent="danger" label="Status" afterInputText="Listed" />
+  </Story>
+  <Story name="Type: checkbox - no icon">
+    <InputGroup type="checkbox" label="Status" afterInputText="Listed" />
+  </Story>
+  <Story name="Type: checkbox - no label">
+    <InputGroup type="checkbox" afterInputText="Listed" />
+  </Story>
+</Canvas>

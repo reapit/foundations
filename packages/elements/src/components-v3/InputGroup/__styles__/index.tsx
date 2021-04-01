@@ -41,4 +41,21 @@ export const ElInputGroup = styled.div`
     display: flex;
     order: 4;
   }
+
+  ${ElInput}[type='checkbox'] {
+    ~ ${ElIcon} {
+      box-shadow: none;
+      padding-left: 0;
+      padding-right: 0.5rem;
+    }
+    ~ ${ElLabel} {
+      padding-left: 0;
+      padding-bottom: 0.5rem;
+    }
+    ~ ${ElAfterInputText} {
+      box-shadow: none;
+      padding-left: 0.5rem;
+      flex-grow: 1;
+    }
+  }
 `
