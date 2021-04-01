@@ -1,5 +1,6 @@
 import { Meta, Story, Canvas, ArgsTable } from '@storybook/addon-docs/blocks'
 import { Select } from './index'
+import { Label } from '../Label'
 
 <Meta title="V3/Forms/Select" component={Select} />
 
@@ -9,6 +10,21 @@ Underlying tag: `<select>`
 
 <Canvas>
   <Story name="Default Usage">
+    <Select>
+      <option value="1">Option 1</option>
+      <option value="2">Option 2</option>
+      <option value="3">Option 3</option>
+    </Select>
+  </Story>
+</Canvas>
+
+Supply as children, as many `<option>` tags as required.
+
+## Use with a label
+
+<Canvas>
+  <Story name="Use with a label">
+    <Label>Select an option</Label>
     <Select>
       <option value="1">Option 1</option>
       <option value="2">Option 2</option>

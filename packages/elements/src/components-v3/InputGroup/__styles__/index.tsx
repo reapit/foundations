@@ -13,7 +13,6 @@ export const ElInputGroup = styled.div`
     background: ${inputBg};
     order: 1;
     flex-basis: 100%;
-    padding-left: 0.5rem;
   }
 
   ${ElIcon} {

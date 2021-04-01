@@ -72,7 +72,7 @@ export const elVariables = css`
       --font-size-heading-secondary: 1.5rem;
       --font-size-subHeading-secondary: 1.2rem;
       --font-size-default: 1rem;
-      --font-size-small: 0.8rem;
+      --font-size-small: 0.875rem;
 
       /** layout size */
       --layout-size-base: 1rem;
