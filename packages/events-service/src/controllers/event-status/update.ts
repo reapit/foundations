@@ -4,6 +4,7 @@ import { logger } from '../../core/logger'
 import { AppRequest } from '../../types/request'
 import { EventStatus, generateStatusItem } from '../../schemas/event-status.schema'
 import { db } from '../../core/db'
+import { HttpStatusCodeEnum } from '@/types/http.status.enum'
 
 export default async (req: AppRequest, res: Response) => {
   const eventId = req.params.eventId as string | undefined
@@ -17,10 +18,10 @@ export default async (req: AppRequest, res: Response) => {
     const retrievedItem = await db.get(itemToGet)
 
     if (retrievedItem.clientCode !== req.user?.clientCode) {
-      res.status(401)
+      res.status(HttpStatusCodeEnum.UNAUTHORIZED)
       return res.json({
         error: 'Unauthorized',
-        code: 401,
+        code: HttpStatusCodeEnum.UNAUTHORIZED,
       })
     }
 
@@ -29,23 +30,23 @@ export default async (req: AppRequest, res: Response) => {
 
     const result = await db.update(itemToUpdate, { onMissing: 'skip' })
 
-    res.status(200)
+    res.status(HttpStatusCodeEnum.OK)
     return res.json(result)
   } catch (error) {
     logger.error('Error updating status', stringifyError(error))
 
     if (error.name === 'ItemNotFoundException') {
-      res.status(200)
+      res.status(HttpStatusCodeEnum.OK)
       return res.json({
         error: `Status not found for ${eventId}`,
-        code: 404,
+        code: HttpStatusCodeEnum.NOT_FOUND,
       })
     }
 
-    res.status(400)
+    res.status(HttpStatusCodeEnum.BAD_REQUEST)
     res.json({
       error: `Bad request ${error}`,
-      code: 400,
+      code: HttpStatusCodeEnum.BAD_REQUEST,
     })
   }
 }
