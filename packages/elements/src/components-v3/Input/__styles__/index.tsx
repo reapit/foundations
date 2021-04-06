@@ -1,35 +1,27 @@
 import { styled } from 'linaria/react'
 
-export const inputBg = '#ffffff'
-export const inputFocusBg = 'var(--color-grey-light)'
-export const inputShadow = 'inset 0px -1px 0px #000000'
-
 export const ElInput = styled.input`
   display: flex;
   color: black;
-  background: ${inputBg};
+  background: var(--component-input-bg);
   padding: 0.5rem;
   border: none;
 
-  &:not([type='checkbox']) {
+  &:not([type='checkbox']):not([type='radio']) {
     flex-grow: 1;
-    box-shadow: ${inputShadow};
+    box-shadow: var(--component-input-shadow);
   }
 
   &:focus {
     outline: none;
-    background: ${inputFocusBg};
+    background: var(--component-input-focus-bg);
   }
 
   &[type='checkbox'] {
     appearance: none;
-    border: 1px solid #000000;
+    border: 1px solid var(--color-black);
     width: 1.5rem;
     height: 1.5rem;
-
-    &:active {
-      background-color: ${inputFocusBg};
-    }
 
     &:checked {
       background-image: url('data:image/svg+xml;utf8,<svg width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -38,6 +30,31 @@ export const ElInput = styled.input`
       background-position: center center;
       background-repeat: no-repeat;
       background-size: 1rem;
+      background-color: var(--component-input-focus-bg);
+    }
+  }
+
+  &[type='radio'] {
+    appearance: none;
+    border: 1px solid var(--color-black);
+    border-radius: 100%;
+    width: 1.5rem;
+    height: 1.5rem;
+    position: relative;
+
+    &:checked {
+      &:after {
+        content: '';
+        display: block;
+        position: absolute;
+        border-radius: 100%;
+        background-color: var(--color-black);
+        width: 0.75rem;
+        height: 0.75rem;
+        left: 50%;
+        top: 50%;
+        transform: translate(-50%, -50%);
+      }
     }
   }
 `

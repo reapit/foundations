@@ -86,6 +86,11 @@ export const elVariables = css`
 
       /** other defaults */
       --default-border-radius: 0.25rem;
+
+      /** component specific variables */
+      --component-input-bg: var(--color-white);
+      --component-input-focus-bg: var(--color-grey-light);
+      --component-input-shadow: inset 0px -1px 0px #000000;
     }
   }
 `

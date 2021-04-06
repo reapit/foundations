@@ -1,16 +1,15 @@
 import { styled } from 'linaria/react'
-import { inputBg, inputFocusBg, inputShadow } from '../../Input/__styles__'
 
 export const ElSelect = styled.select`
   display: flex;
   color: black;
-  background-color: ${inputBg};
+  background-color: var(--component-input-bg);
   padding: 0.5rem;
   padding-right: 2rem;
   appearance: none;
   border: none;
   position: relative;
-  box-shadow: ${inputShadow};
+  box-shadow: var(--component-input-shadow);
   flex-grow: 1;
 
   background-image: url('data:image/svg+xml;utf8,<svg width="12" height="12" viewBox="0 0 12 12" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -21,6 +20,6 @@ export const ElSelect = styled.select`
 
   &:focus {
     outline: none;
-    background-color: ${inputFocusBg};
+    background-color: var(--component-input-focus-bg);
   }
 `
