@@ -10,7 +10,7 @@ const createIndexFile = require('./create-index-file')
 const { sync: rimraf } = require('rimraf')
 
 // Fetch definitions for a given schema
-const fetchDefinitionsForSchema = async schemaConfig => {
+const fetchDefinitionsForSchema = async (schemaConfig) => {
   const { definitionFile, endpoint, headers } = schemaConfig
   const response = await fetch(endpoint, {
     headers,
@@ -33,7 +33,7 @@ const fetchDefinitionsForSchema = async schemaConfig => {
       formatDefinitions,
 
       { flag: 'a+' },
-      error => {
+      (error) => {
         if (error) {
           console.error(`Failed to write type definitions for: ${endpoint}`)
           throw error
@@ -48,7 +48,7 @@ const fetchDefinitionsForSchema = async schemaConfig => {
 }
 
 // Fetch definitions for all schemas
-const fetchSchema = async apiVersion => {
+const fetchSchema = async (apiVersion) => {
   if (existsSync(FOUNDATIONS_TYPES_FOLDER)) {
     rimraf(FOUNDATIONS_TYPES_FOLDER)
   }

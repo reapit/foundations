@@ -1,5 +1,4 @@
-const { runCommand } = require('../../../scripts/webpack/utils')
-// const updateNPM = require('./update-npm')
+const { runCommand } = require('@reapit/ts-scripts')
 const releaseGithub = require('./release-github')
 
 const gitStatus = runCommand('git', ['status', '-s'])
