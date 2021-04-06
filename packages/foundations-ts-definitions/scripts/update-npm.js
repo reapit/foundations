@@ -1,5 +1,5 @@
 const semver = require('semver')
-const { runCommand } = require('../../../scripts/webpack/utils')
+const { runCommand } = require('@reapit/ts-scripts')
 const fs = require('fs')
 const path = require('path')
 const { FOUNDATIONS_ROOT_FOLDER, PACKAGE_NAME } = require('./constants')
@@ -23,7 +23,7 @@ module.exports = () => {
     throw errrRemotePackageVersionStdOutInvalid
   }
 
-  remotePackageVersion = remotePackageVersionStdOut.find(remotePackageVersionStdOutPart => {
+  remotePackageVersion = remotePackageVersionStdOut.find((remotePackageVersionStdOutPart) => {
     return semver.parse(remotePackageVersionStdOutPart)
   })
 

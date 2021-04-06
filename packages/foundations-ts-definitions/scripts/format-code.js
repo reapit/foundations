@@ -1,7 +1,7 @@
 const prettier = require('prettier')
 const prettierBaseConfig = require('../../../.prettierrc')
 
-module.exports = content => {
+module.exports = (content) => {
   const formatcontent = prettier.format(content, {
     parser: 'typescript',
     ...prettierBaseConfig,

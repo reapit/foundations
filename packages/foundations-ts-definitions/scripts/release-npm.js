@@ -1,5 +1,5 @@
 const { execSync } = require('child_process')
-const { getVersionTag } = require('../../../scripts/webpack/utils')
+const { getVersionTag } = require('@reapit/ts-scripts')
 const publishTimeStampTag = require('./publish-time-stamp-tag')
 const { FOUNDATIONS_ROOT_FOLDER } = require('./constants')
 
