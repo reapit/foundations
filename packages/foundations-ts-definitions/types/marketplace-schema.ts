@@ -204,6 +204,48 @@ export interface AppDetailModel {
   media?: MediaModel[]
 }
 /**
+ * Model to expose app restriction info
+ */
+export interface AppRestrictionModel {
+  /**
+   * Gets the links associated to this model
+   */
+  readonly links?: LinkModel[]
+  /**
+   * Gets the unique identifier associated to the app restriction
+   */
+  id?: string // uuid
+  /**
+   * Gets the unique identifier of the app associated to the app restriction
+   */
+  appId?: string // uuid
+  /**
+   * The date and time the app restriction was created
+   */
+  created?: string // date-time
+  /**
+   * The date and time the app restriction was last modified
+   */
+  modified?: string // date-time
+  /**
+   * The status of the app restriction (include/exclude)
+   */
+  status?: string
+}
+/**
+ * Model to handle paged data and information
+ */
+export interface AppRestrictionModelPagedResult {
+  /**
+   * List of paged data
+   */
+  data?: AppRestrictionModel[]
+  pageNumber?: number // int32
+  pageSize?: number // int32
+  pageCount?: number // int32
+  totalCount?: number // int32
+}
+/**
  * App revision detailed representation
  */
 export interface AppRevisionModel {
