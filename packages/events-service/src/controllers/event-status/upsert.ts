@@ -6,6 +6,7 @@ import { generateStatusItem } from '../../schemas/event-status.schema'
 import { db } from '../../core/db'
 import createEventStatus from './create'
 import updateStatusById from './update'
+import { HttpStatusCodeEnum } from '@/types/http.status.enum'
 
 export default async (req: AppRequest, res: Response) => {
   const eventId = req.body.eventId as string | undefined
@@ -30,10 +31,10 @@ export default async (req: AppRequest, res: Response) => {
     }
 
     logger.error('Error upserting status', stringifyError(error))
-    res.status(400)
+    res.status(HttpStatusCodeEnum.BAD_REQUEST)
     res.json({
       error: `Bad request ${error}`,
-      code: 400,
+      code: HttpStatusCodeEnum.BAD_REQUEST,
     })
   }
 }
