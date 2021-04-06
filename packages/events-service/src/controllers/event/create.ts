@@ -7,7 +7,7 @@ import { Automation } from '../../schemas/automation.schema'
 import { generateStatusItem } from '../../schemas/event-status.schema'
 import { AutomationExecution } from '../../services/automation-execution'
 import { Event } from '../../types/event'
-import {HttpStatusCodeEnum} from '@/types/http.status.enum';
+import { HttpStatusCodeEnum } from '@/types/http.status.enum'
 
 type Payload = {
   event: Event
