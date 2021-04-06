@@ -7,6 +7,7 @@ import { Automation } from '../../schemas/automation.schema'
 import { generateStatusItem } from '../../schemas/event-status.schema'
 import { AutomationExecution } from '../../services/automation-execution'
 import { Event } from '../../types/event'
+import {HttpStatusCodeEnum} from '@/types/http.status.enum';
 
 type Payload = {
   event: Event
@@ -83,12 +84,12 @@ export default async (req: AppRequest, res: Response) => {
     if (error.name === 'ConditionalCheckFailedException') {
       const msg = `Conflict. Event with eventId ${event.id} has already been received previously`
       logger.error(msg, { traceId })
-      return res.status(409).json({ error: msg, code: 409 })
+      return res.status(HttpStatusCodeEnum.CONFLICT).json({ error: msg, code: HttpStatusCodeEnum.CONFLICT })
     }
 
-    res.status(400).json({
+    res.status(HttpStatusCodeEnum.BAD_REQUEST).json({
       error: `Bad request ${error}`,
-      code: 400,
+      code: HttpStatusCodeEnum.BAD_REQUEST,
     })
   }
 }

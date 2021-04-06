@@ -4,6 +4,7 @@ import { logger } from '../../core/logger'
 import { AppRequest } from '../../types/request'
 import { db } from '../../core/db'
 import { Automation } from '../../schemas/automation.schema'
+import { HttpStatusCodeEnum } from '@/types/http.status.enum'
 
 export default async (req: AppRequest, res: Response) => {
   const clientCode = req.query.clientCode as string | undefined
@@ -13,10 +14,10 @@ export default async (req: AppRequest, res: Response) => {
     logger.info('Getting automations by parmeters...', { traceId, clientCode })
 
     if (req.user?.clientCode !== clientCode) {
-      res.status(401)
+      res.status(HttpStatusCodeEnum.UNAUTHORIZED)
       return res.json({
         error: 'Unauthorized',
-        code: 401,
+        code: HttpStatusCodeEnum.UNAUTHORIZED,
       })
     }
 
@@ -31,15 +32,15 @@ export default async (req: AppRequest, res: Response) => {
       responeRecords.push(record)
     }
 
-    res.status(200)
+    res.status(HttpStatusCodeEnum.OK)
     return res.json(responeRecords)
   } catch (error) {
     logger.error('Error retrieving automations', stringifyError(error))
 
-    res.status(400)
+    res.status(HttpStatusCodeEnum.BAD_REQUEST)
     return res.json({
       error: `Bad request ${error}`,
-      code: 400,
+      code: HttpStatusCodeEnum.BAD_REQUEST,
     })
   }
 }

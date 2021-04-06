@@ -5,6 +5,7 @@ import { logger } from '../../core/logger'
 import { AppRequest } from '../../types/request'
 import { db } from '../../core/db'
 import { generateStatusItem } from '../../schemas/event-status.schema'
+import { HttpStatusCodeEnum } from '@/types/http.status.enum'
 
 type Payload = {
   eventId: string
@@ -21,10 +22,10 @@ export default async (req: AppRequest, res: Response) => {
     logger.info('Create new status...', { traceId, payload })
 
     if (req.user?.clientCode !== payload.clientCode) {
-      res.status(401)
+      res.status(HttpStatusCodeEnum.UNAUTHORIZED)
       return res.json({
         error: 'Unauthorized',
-        code: 401,
+        code: HttpStatusCodeEnum.UNAUTHORIZED,
       })
     }
 
@@ -41,23 +42,23 @@ export default async (req: AppRequest, res: Response) => {
 
     logger.info('Created event status successfully', { traceId, result })
 
-    res.status(201)
+    res.status(HttpStatusCodeEnum.CREATED)
     return res.json(result)
   } catch (error) {
     logger.error('Error creating status', stringifyError(error))
 
     if (error.name === 'ConditionalCheckFailedException') {
-      res.status(409)
+      res.status(HttpStatusCodeEnum.CONFLICT)
       return res.json({
         error: `Conflict. Event with eventId ${payload.eventId} already exists`,
-        code: 409,
+        code: HttpStatusCodeEnum.CONFLICT,
       })
     }
 
-    res.status(400)
+    res.status(HttpStatusCodeEnum.BAD_REQUEST)
     res.json({
       error: `Bad request ${error}`,
-      code: 400,
+      code: HttpStatusCodeEnum.BAD_REQUEST,
     })
   }
 }

@@ -5,6 +5,7 @@ import { logger } from '../../core/logger'
 import { AppRequest } from '../../types/request'
 import { db } from '../../core/db'
 import { EventStatus } from '../../schemas/event-status.schema'
+import { HttpStatusCodeEnum } from '@/types/http.status.enum'
 
 export default async (req: AppRequest, res: Response) => {
   const dateFrom = req.query.dateFrom as string | undefined
@@ -17,10 +18,10 @@ export default async (req: AppRequest, res: Response) => {
     logger.info('Getting statuses by parmeters...', { traceId, dateFrom, dateTo, clientCode })
 
     if (req.user?.clientCode !== clientCode) {
-      res.status(401)
+      res.status(HttpStatusCodeEnum.UNAUTHORIZED)
       return res.json({
         error: 'Unauthorized',
-        code: 401,
+        code: HttpStatusCodeEnum.UNAUTHORIZED,
       })
     }
 
@@ -46,15 +47,15 @@ export default async (req: AppRequest, res: Response) => {
       responeRecords.push(record)
     }
 
-    res.status(200)
+    res.status(HttpStatusCodeEnum.OK)
     return res.json(responeRecords)
   } catch (error) {
     logger.error('Error retrieving statuses', stringifyError(error))
 
-    res.status(400)
+    res.status(HttpStatusCodeEnum.BAD_REQUEST)
     return res.json({
       error: `Bad request ${error}`,
-      code: 400,
+      code: HttpStatusCodeEnum.BAD_REQUEST,
     })
   }
 }

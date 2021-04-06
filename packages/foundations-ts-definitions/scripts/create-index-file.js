@@ -14,9 +14,9 @@ module.exports = () => {
         'export * from "../traffic-schema/marketplace-traffic-event-schema"' +
         '// @ts-ignore\n' +
         files
-          .filter(file => file !== 'index.ts')
-          .map(file => file.replace('.ts', ''))
-          .map(file => `export * from './${file}'`)
+          .filter((file) => file !== 'index.ts')
+          .map((file) => file.replace('.ts', ''))
+          .map((file) => `export * from './${file}'`)
           .join('\n// @ts-ignore\n'),
     ),
   )

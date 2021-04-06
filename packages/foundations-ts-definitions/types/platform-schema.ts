@@ -93,6 +93,10 @@ export interface ApplicantContactModel {
    */
   email?: string
   /**
+   * A flag denoting whether or not this relationship is archived
+   */
+  fromArchive?: boolean
+  /**
    * Representation of the physical address of a building or premise
    */
   primaryAddress?: {
@@ -174,6 +178,10 @@ export interface ApplicantContactRelationshipModel {
    * A flag denoting whether or not this relationship should be regarded as the main relationship for the parent applicant entity
    */
   isMain?: boolean
+  /**
+   * A flag denoting whether or not this relationship is archived
+   */
+  fromArchive?: boolean
 }
 export interface ApplicantContactRelationshipModelPagedResult {
   _embedded?: {
@@ -217,6 +225,10 @@ export interface ApplicantContactRelationshipModelPagedResult {
      * A flag denoting whether or not this relationship should be regarded as the main relationship for the parent applicant entity
      */
     isMain?: boolean
+    /**
+     * A flag denoting whether or not this relationship is archived
+     */
+    fromArchive?: boolean
   }[]
   pageNumber?: number // int32
   pageSize?: number // int32
@@ -380,6 +392,16 @@ export interface ApplicantModel {
    */
   locationOptions?: string[]
   /**
+   * The date and time the applicant was archived
+   * example:
+   * 2019-08-14T12:30:02.0000000Z
+   */
+  archivedOn?: string // date-time
+  /**
+   * A flag denoting whether or not this applicant is archived
+   */
+  fromArchive?: boolean
+  /**
    * The details specific to applicants with a marketingMode of buying
    */
   buying?: {
@@ -518,6 +540,10 @@ export interface ApplicantModel {
      * The email address of the contact or company
      */
     email?: string
+    /**
+     * A flag denoting whether or not this relationship is archived
+     */
+    fromArchive?: boolean
     /**
      * Representation of the physical address of a building or premise
      */
@@ -686,6 +712,16 @@ export interface ApplicantModelPagedResult {
      */
     locationOptions?: string[]
     /**
+     * The date and time the applicant was archived
+     * example:
+     * 2019-08-14T12:30:02.0000000Z
+     */
+    archivedOn?: string // date-time
+    /**
+     * A flag denoting whether or not this applicant is archived
+     */
+    fromArchive?: boolean
+    /**
      * The details specific to applicants with a marketingMode of buying
      */
     buying?: {
@@ -825,6 +861,10 @@ export interface ApplicantModelPagedResult {
        */
       email?: string
       /**
+       * A flag denoting whether or not this relationship is archived
+       */
+      fromArchive?: boolean
+      /**
        * Representation of the physical address of a building or premise
        */
       primaryAddress?: {
@@ -945,6 +985,7 @@ export interface Applicants {
   )[]
   id?: string[]
   age?: ('period' | 'new' | 'modern')[]
+  emailAddresses?: string[]
   furnishing?: ('furnished' | 'unfurnished' | 'partFurnished')[]
   locality?: ('rural' | 'village' | 'townCity')[]
   negotiatorId?: string[]
@@ -990,6 +1031,7 @@ export interface Applicants {
   bedroomsFrom?: number
   bedroomsTo?: number
   active?: boolean
+  fromArchive?: boolean
   createdFrom?: string
   createdTo?: string
   modifiedFrom?: string
@@ -1040,6 +1082,10 @@ export interface AppointmentAttendeeModel {
      * The email address of the contact
      */
     email?: string
+    /**
+     * A flag determining if the related contact is archived
+     */
+    fromArchive?: boolean
   }[]
 }
 /**
@@ -1070,6 +1116,10 @@ export interface AppointmentContactModel {
    * The email address of the contact
    */
   email?: string
+  /**
+   * A flag determining if the related contact is archived
+   */
+  fromArchive?: boolean
 }
 /**
  * Follow up information relating to an appointment
@@ -1240,6 +1290,10 @@ export interface AppointmentModel {
        * The email address of the contact
        */
       email?: string
+      /**
+       * A flag determining if the related contact is archived
+       */
+      fromArchive?: boolean
     }[]
   }
   /**
@@ -1262,6 +1316,10 @@ export interface AppointmentModel {
    * A flag denoting whether or not the property and/or property's vendor has confirmed their attendance
    */
   propertyConfirmed?: boolean
+  /**
+   * A flag determining whether or not the appointment is archived
+   */
+  fromArchive?: boolean
   /**
    * App specific metadata that has been set against the appointment
    */
@@ -1421,6 +1479,10 @@ export interface AppointmentModelPagedResult {
          * The email address of the contact
          */
         email?: string
+        /**
+         * A flag determining if the related contact is archived
+         */
+        fromArchive?: boolean
       }[]
     }
     /**
@@ -1443,6 +1505,10 @@ export interface AppointmentModelPagedResult {
      * A flag denoting whether or not the property and/or property's vendor has confirmed their attendance
      */
     propertyConfirmed?: boolean
+    /**
+     * A flag determining whether or not the appointment is archived
+     */
+    fromArchive?: boolean
     /**
      * App specific metadata that has been set against the appointment
      */
@@ -1481,6 +1547,7 @@ export interface Appointments {
   end?: string
   includeCancelled?: boolean
   includeUnconfirmed?: boolean
+  fromArchive?: boolean
   createdFrom?: string
   createdTo?: string
   modifiedFrom?: string
@@ -2311,6 +2378,22 @@ export interface ContactModel {
    */
   negotiatorIds?: string[]
   /**
+   * A flag determining whether or not the contact is happy to receive communications by letter
+   */
+  communicationPreferenceLetter?: boolean
+  /**
+   * A flag determining whether or not the contact is happy to receive communications by email
+   */
+  communicationPreferenceEmail?: boolean
+  /**
+   * A flag determining whether or not the contact is happy to receive communications by phone
+   */
+  communicationPreferencePhone?: boolean
+  /**
+   * A flag determining whether or not the contact is happy to receive communications by SMS
+   */
+  communicationPreferenceSMS?: boolean
+  /**
    * App specific metadata that has been set against the contact
    */
   metadata?: {
@@ -2548,6 +2631,22 @@ export interface ContactModelPagedResult {
      */
     negotiatorIds?: string[]
     /**
+     * A flag determining whether or not the contact is happy to receive communications by letter
+     */
+    communicationPreferenceLetter?: boolean
+    /**
+     * A flag determining whether or not the contact is happy to receive communications by email
+     */
+    communicationPreferenceEmail?: boolean
+    /**
+     * A flag determining whether or not the contact is happy to receive communications by phone
+     */
+    communicationPreferencePhone?: boolean
+    /**
+     * A flag determining whether or not the contact is happy to receive communications by SMS
+     */
+    communicationPreferenceSMS?: boolean
+    /**
      * App specific metadata that has been set against the contact
      */
     metadata?: {
@@ -2680,6 +2779,113 @@ export interface ContactSourceModel {
    * The source type (office/source)
    */
   type?: string
+}
+/**
+ * Representation of an individual contact subscription
+ */
+export interface ContactSubscriptionModel {
+  readonly _links?: {
+    [name: string]: {
+      href?: string
+    }
+  }
+  readonly _embedded?: {
+    [name: string]: any
+  }
+  /**
+   * The unique identifier of the subscription
+   */
+  id?: string
+  /**
+   * The unique identifier of the contact the subscription is associated with
+   */
+  contactId?: string
+  /**
+   * The name of the subscription
+   */
+  name?: string
+  /**
+   * The name of the group this subscription belongs to, if applicable
+   */
+  group?: string
+  /**
+   * The status of the subscription (subscribed/unsubscribed)
+   */
+  status?: string
+  /**
+   * The type of subscription (mailing/event)
+   */
+  type?: string
+  /**
+   * The date and time when the subscription was started for the associated contact
+   * example:
+   * 2019-08-14T12:30:02.0000000Z
+   */
+  subscribedOn?: string // date-time
+  /**
+   * The date and time when the subscription was terminated for the associated contact
+   * example:
+   * 2019-08-14T12:30:02.0000000Z
+   */
+  unsubscribedOn?: string // date-time
+}
+export interface ContactSubscriptionModelPagedResult {
+  _embedded?: {
+    readonly _links?: {
+      [name: string]: {
+        href?: string
+      }
+    }
+    readonly _embedded?: {
+      [name: string]: any
+    }
+    /**
+     * The unique identifier of the subscription
+     */
+    id?: string
+    /**
+     * The unique identifier of the contact the subscription is associated with
+     */
+    contactId?: string
+    /**
+     * The name of the subscription
+     */
+    name?: string
+    /**
+     * The name of the group this subscription belongs to, if applicable
+     */
+    group?: string
+    /**
+     * The status of the subscription (subscribed/unsubscribed)
+     */
+    status?: string
+    /**
+     * The type of subscription (mailing/event)
+     */
+    type?: string
+    /**
+     * The date and time when the subscription was started for the associated contact
+     * example:
+     * 2019-08-14T12:30:02.0000000Z
+     */
+    subscribedOn?: string // date-time
+    /**
+     * The date and time when the subscription was terminated for the associated contact
+     * example:
+     * 2019-08-14T12:30:02.0000000Z
+     */
+    unsubscribedOn?: string // date-time
+  }[]
+  pageNumber?: number // int32
+  pageSize?: number // int32
+  pageCount?: number // int32
+  totalPageCount?: number // int32
+  totalCount?: number // int32
+  _links?: {
+    [name: string]: {
+      href?: string
+    }
+  }
 }
 export interface Contacts {
   pageSize?: number
@@ -4050,6 +4256,22 @@ export interface CreateContactModel {
     countryId?: string
   }
   /**
+   * A flag determining whether or not the contact is happy to receive communications by letter
+   */
+  communicationPreferenceLetter?: boolean
+  /**
+   * A flag determining whether or not the contact is happy to receive communications by email
+   */
+  communicationPreferenceEmail?: boolean
+  /**
+   * A flag determining whether or not the contact is happy to receive communications by phone
+   */
+  communicationPreferencePhone?: boolean
+  /**
+   * A flag determining whether or not the contact is happy to receive communications by SMS
+   */
+  communicationPreferenceSMS?: boolean
+  /**
    * App specific metadata to set against the contact
    */
   metadata?: {
@@ -4093,8 +4315,13 @@ export interface CreateDocumentModel {
   name: string
   /**
    * The base64 encoded document content, prefixed with the content type (eg. data:text/plain;base64,VGVzdCBmaWxl)
+   * This supports upto 6MB
    */
-  fileData: string
+  fileData?: string
+  /**
+   * The presigned s3 url which a document has been uploaded to (This supports files up to 30MB)
+   */
+  fileUrl?: string
   /**
    * App specific metadata to set against the document
    */
@@ -4702,6 +4929,17 @@ export interface CreateOfficeModel {
   }
 }
 /**
+ * Request body used to create pre signed urls to upload files between 6MB and 30MB
+ * example:
+ * [object Object]
+ */
+export interface CreatePreSignedUrlsModel {
+  /**
+   * The number of pre signed urls to create
+   */
+  amount: number // int32
+}
+/**
  * Request body used to set the address of a new property
  */
 export interface CreatePropertyAddressModel {
@@ -4750,6 +4988,19 @@ export interface CreatePropertyAddressModel {
      */
     longitude: number // double
   }
+}
+/**
+ * Request body used to set the commission fee for a property
+ */
+export interface CreatePropertyCommissionFeeModel {
+  /**
+   * The commission letting fee type (percentage/fixed)
+   */
+  type?: string
+  /**
+   * The commission letting fee amount
+   */
+  amount?: number // double
 }
 /**
  * Request body used to set the EPC statistic of a new property
@@ -4815,7 +5066,11 @@ export interface CreatePropertyImageModel {
   /**
    * The base64 encoded file content, prefixed with the content type (eg. data:image/jpeg;base64,VGVzdCBmaWxl)
    */
-  data: string
+  data?: string
+  /**
+   * The presigned s3 url which a property image has been uploaded to (This supports files up to 30MB)
+   */
+  fileUrl?: string
   /**
    * The unique identifier of the property attached to the image
    */
@@ -4892,6 +5147,36 @@ export interface CreatePropertyLettingModel {
    * The current status of the let (valuation/toLet/toLetUnavailable/underOffer/underOfferUnavailable/arrangingTenancyUnavailable/arrangingTenancy/tenancyCurrentUnavailable/tenancyCurrent/tenancyFinished/tenancyCancelled/sold/letByOtherAgent/letPrivately/provisional/withdrawn)
    */
   status?: string
+  /**
+   * The unique identifier of the landlord letting the property
+   */
+  landlordId?: string
+  /**
+   * Request body used to set the commission fee for a property
+   */
+  managementFee?: {
+    /**
+     * The commission letting fee type (percentage/fixed)
+     */
+    type?: string
+    /**
+     * The commission letting fee amount
+     */
+    amount?: number // double
+  }
+  /**
+   * Request body used to set the commission fee for a property
+   */
+  lettingFee?: {
+    /**
+     * The commission letting fee type (percentage/fixed)
+     */
+    type?: string
+    /**
+     * The commission letting fee amount
+     */
+    amount?: number // double
+  }
 }
 /**
  * Request body used to create a new property
@@ -5005,6 +5290,14 @@ export interface CreatePropertyModel {
    * The caption for the video url associated with this property
    */
   videoCaption?: string
+  /**
+   * The url of a second video associated with this property, such as a virtual tour
+   */
+  video2Url?: string
+  /**
+   * The caption for the second video url associated with this property
+   */
+  video2Caption?: string
   /**
    * Any general notes regarding the property. These are not usually exposed to end users and may contain sensitive information about a sale
    */
@@ -5121,6 +5414,27 @@ export interface CreatePropertyModel {
        */
       expiry?: string // date
     }
+    /**
+     * The selling agency type (marketingForAssociate/clientsOnly/comparable/subAgent/jointSole/jointSoleFeeAvailable/multiple/multipleFeeAvailable/ownToSell/soleSellingRights/soleSellingRightsFeeAvailable/soleAgent/soleAgentFeeAvailable)
+     */
+    sellingAgency?: string
+    /**
+     * Request body used to set the commission fee for a property
+     */
+    fee?: {
+      /**
+       * The commission letting fee type (percentage/fixed)
+       */
+      type?: string
+      /**
+       * The commission letting fee amount
+       */
+      amount?: number // double
+    }
+    /**
+     * The agent's recommended asking price
+     */
+    recommendedPrice?: number // int32
   }
   /**
    * Request body used to set details specific to lettings marketing on a new property
@@ -5168,6 +5482,36 @@ export interface CreatePropertyModel {
      * The current status of the let (valuation/toLet/toLetUnavailable/underOffer/underOfferUnavailable/arrangingTenancyUnavailable/arrangingTenancy/tenancyCurrentUnavailable/tenancyCurrent/tenancyFinished/tenancyCancelled/sold/letByOtherAgent/letPrivately/provisional/withdrawn)
      */
     status?: string
+    /**
+     * The unique identifier of the landlord letting the property
+     */
+    landlordId?: string
+    /**
+     * Request body used to set the commission fee for a property
+     */
+    managementFee?: {
+      /**
+       * The commission letting fee type (percentage/fixed)
+       */
+      type?: string
+      /**
+       * The commission letting fee amount
+       */
+      amount?: number // double
+    }
+    /**
+     * Request body used to set the commission fee for a property
+     */
+    lettingFee?: {
+      /**
+       * The commission letting fee type (percentage/fixed)
+       */
+      type?: string
+      /**
+       * The commission letting fee amount
+       */
+      amount?: number // double
+    }
   }
   /**
    * The property type attributes
@@ -5299,6 +5643,27 @@ export interface CreatePropertySellingModel {
      */
     expiry?: string // date
   }
+  /**
+   * The selling agency type (marketingForAssociate/clientsOnly/comparable/subAgent/jointSole/jointSoleFeeAvailable/multiple/multipleFeeAvailable/ownToSell/soleSellingRights/soleSellingRightsFeeAvailable/soleAgent/soleAgentFeeAvailable)
+   */
+  sellingAgency?: string
+  /**
+   * Request body used to set the commission fee for a property
+   */
+  fee?: {
+    /**
+     * The commission letting fee type (percentage/fixed)
+     */
+    type?: string
+    /**
+     * The commission letting fee amount
+     */
+    amount?: number // double
+  }
+  /**
+   * The agent's recommended asking price
+   */
+  recommendedPrice?: number // int32
 }
 /**
  * Request body used to set the tenure of a new property
@@ -5454,6 +5819,10 @@ export interface CreateTenancyModel {
    */
   endDate?: string // date
   /**
+   * The current status of the tenancy (offerPending/offerWithdrawn/offerRejected/arranging)
+   */
+  status?: string
+  /**
    * The role that the agent is performing for the tenancy (managed/rentCollection/collectFirstPayment/collectRentToDate/lettingOnly/introducingTenant)
    */
   agentRole: string
@@ -5465,6 +5834,50 @@ export interface CreateTenancyModel {
    * The rent collection frequency (weekly/monthly/annually)
    */
   rentFrequency: string
+  /**
+   * The frequency of rental instalment payments (weekly/fortnightly/monthly/quarterly/halfYearly/yearly/every28Days/other)
+   */
+  rentInstalmentsFrequency?: string
+  /**
+   * The amount due for each rent instalment (where specified)
+   */
+  rentInstalmentsAmount?: number // double
+  /**
+   * The date that the first instalment is due
+   * example:
+   * 2019-08-14
+   */
+  rentInstalmentsStart?: string // date
+  /**
+   * The recorded utility reading for the gas meter
+   */
+  meterReadingGas?: string
+  /**
+   * Date of when the reading of gas utility was last recorded
+   * example:
+   * 2019-08-14
+   */
+  meterReadingGasLastRead?: string // date
+  /**
+   * The recorded utility reading for the electricity meter
+   */
+  meterReadingElectricity?: string
+  /**
+   * Date of when the reading of electricity utility was last recorded
+   * example:
+   * 2019-08-14
+   */
+  meterReadingElectricityLastRead?: string // date
+  /**
+   * The recorded utility reading for the water meter
+   */
+  meterReadingWater?: string
+  /**
+   * Date of when the reading of water utility was last recorded
+   * example:
+   * 2019-08-14
+   */
+  meterReadingWaterLastRead?: string // date
   /**
    * A flag determining whether or not the tenancy has been extended indefinitely
    */
@@ -7360,10 +7773,6 @@ export interface NegotiatorModel {
    */
   jobTitle?: string
   /**
-   * A flag determining whether or not the negotiator is active
-   */
-  active?: boolean
-  /**
    * The unique identifier of the office that the negotiator is attached to
    */
   officeId?: string
@@ -7379,6 +7788,14 @@ export interface NegotiatorModel {
    * The email address of the negotiator
    */
   email?: string
+  /**
+   * The URL of the optional negotiator profile image
+   */
+  profileImageUrl?: string
+  /**
+   * A flag determining whether or not the negotiator is active
+   */
+  active?: boolean
   /**
    * App specific metadata that has been set against the negotiator
    */
@@ -7425,10 +7842,6 @@ export interface NegotiatorModelPagedResult {
      */
     jobTitle?: string
     /**
-     * A flag determining whether or not the negotiator is active
-     */
-    active?: boolean
-    /**
      * The unique identifier of the office that the negotiator is attached to
      */
     officeId?: string
@@ -7444,6 +7857,14 @@ export interface NegotiatorModelPagedResult {
      * The email address of the negotiator
      */
     email?: string
+    /**
+     * The URL of the optional negotiator profile image
+     */
+    profileImageUrl?: string
+    /**
+     * A flag determining whether or not the negotiator is active
+     */
+    active?: boolean
     /**
      * App specific metadata that has been set against the negotiator
      */
@@ -7479,6 +7900,7 @@ export interface Negotiators {
   createdTo?: string
   modifiedFrom?: string
   modifiedTo?: string
+  active?: boolean
   metadata?: string[]
 }
 /**
@@ -8247,17 +8669,17 @@ export interface Properties {
     | 'valuation'
     | 'toLet'
     | 'toLetUnavailable'
-    | 'underOffer '
+    | 'underOffer'
     | 'underOfferUnavailable'
-    | 'arrangingTenancyUnavailable '
+    | 'arrangingTenancyUnavailable'
     | 'arrangingTenancy'
     | 'tenancyCurrentUnavailable'
     | 'tenancyCurrent'
-    | 'tenancyFinished '
+    | 'tenancyFinished'
     | 'tenancyCancelled'
     | 'sold'
     | 'letByOtherAgent'
-    | 'letPrivately '
+    | 'letPrivately'
     | 'provisional'
     | 'withdrawn'
   )[]
@@ -8269,12 +8691,12 @@ export interface Properties {
     | 'preAppraisal'
     | 'valuation'
     | 'paidValuation'
-    | 'forSale '
+    | 'forSale'
     | 'forSaleUnavailable'
     | 'underOffer'
     | 'underOfferUnavailable'
     | 'reserved'
-    | 'exchanged '
+    | 'exchanged'
     | 'completed'
     | 'soldExternally'
     | 'withdrawn'
@@ -8317,6 +8739,7 @@ export interface Properties {
   rentTo?: number
   rentFrequency?: ('weekly' | 'monthly' | 'annually')[]
   internetAdvertising?: boolean
+  fromArchive?: boolean
   modifiedFrom?: string
   modifiedTo?: string
   metadata?: string[]
@@ -8370,6 +8793,19 @@ export interface PropertyAddressModel {
      */
     longitude?: number // double
   }
+}
+/**
+ * Representation of the the commission fee for a property
+ */
+export interface PropertyCommissionFeeModel {
+  /**
+   * The commission letting fee type (percentage/fixed)
+   */
+  type?: string
+  /**
+   * The commission letting fee amount
+   */
+  amount?: number // double
 }
 /**
  * Representation of EPC statistics
@@ -8622,6 +9058,32 @@ export interface PropertyLettingModel {
    * The unique identifier of the landlord letting the property
    */
   landlordId?: string
+  /**
+   * Representation of the the commission fee for a property
+   */
+  managementFee?: {
+    /**
+     * The commission letting fee type (percentage/fixed)
+     */
+    type?: string
+    /**
+     * The commission letting fee amount
+     */
+    amount?: number // double
+  }
+  /**
+   * Representation of the the commission fee for a property
+   */
+  lettingFee?: {
+    /**
+     * The commission letting fee type (percentage/fixed)
+     */
+    type?: string
+    /**
+     * The commission letting fee amount
+     */
+    amount?: number // double
+  }
 }
 /**
  * Representation of a property
@@ -8770,9 +9232,27 @@ export interface PropertyModel {
    */
   videoCaption?: string
   /**
+   * The url of a second video associated with this property, such as a virtual tour
+   */
+  video2Url?: string
+  /**
+   * The caption for the second video url associated with this property
+   */
+  video2Caption?: string
+  /**
    * Any general notes regarding the property. These are not usually exposed to end users and may contain sensitive information about a sale
    */
   notes?: string
+  /**
+   * The date and time the property was archived
+   * example:
+   * 2019-08-14T12:30:02.0000000Z
+   */
+  archivedOn?: string // date-time
+  /**
+   * A flag determining whether or not the property is archived
+   */
+  fromArchive?: boolean
   /**
    * Representation of the external land area of a property
    */
@@ -8889,6 +9369,27 @@ export interface PropertyModel {
      * The unique identifier of the vendor selling the property
      */
     vendorId?: string
+    /**
+     * The selling agency type (marketingForAssociate/clientsOnly/comparable/subAgent/jointSole/jointSoleFeeAvailable/multiple/multipleFeeAvailable/ownToSell/soleSellingRights/soleSellingRightsFeeAvailable/soleAgent/soleAgentFeeAvailable)
+     */
+    agency?: string
+    /**
+     * Representation of the the commission fee for a property
+     */
+    fee?: {
+      /**
+       * The commission letting fee type (percentage/fixed)
+       */
+      type?: string
+      /**
+       * The commission letting fee amount
+       */
+      amount?: number // double
+    }
+    /**
+     * The agent's recommended asking price
+     */
+    recommendedPrice?: number // int32
   }
   /**
    * Representation of property details specific to lettings marketing
@@ -8940,6 +9441,32 @@ export interface PropertyModel {
      * The unique identifier of the landlord letting the property
      */
     landlordId?: string
+    /**
+     * Representation of the the commission fee for a property
+     */
+    managementFee?: {
+      /**
+       * The commission letting fee type (percentage/fixed)
+       */
+      type?: string
+      /**
+       * The commission letting fee amount
+       */
+      amount?: number // double
+    }
+    /**
+     * Representation of the the commission fee for a property
+     */
+    lettingFee?: {
+      /**
+       * The commission letting fee type (percentage/fixed)
+       */
+      type?: string
+      /**
+       * The commission letting fee amount
+       */
+      amount?: number // double
+    }
   }
   /**
    * The property type attributes
@@ -9152,9 +9679,27 @@ export interface PropertyModelPagedResult {
      */
     videoCaption?: string
     /**
+     * The url of a second video associated with this property, such as a virtual tour
+     */
+    video2Url?: string
+    /**
+     * The caption for the second video url associated with this property
+     */
+    video2Caption?: string
+    /**
      * Any general notes regarding the property. These are not usually exposed to end users and may contain sensitive information about a sale
      */
     notes?: string
+    /**
+     * The date and time the property was archived
+     * example:
+     * 2019-08-14T12:30:02.0000000Z
+     */
+    archivedOn?: string // date-time
+    /**
+     * A flag determining whether or not the property is archived
+     */
+    fromArchive?: boolean
     /**
      * Representation of the external land area of a property
      */
@@ -9271,6 +9816,27 @@ export interface PropertyModelPagedResult {
        * The unique identifier of the vendor selling the property
        */
       vendorId?: string
+      /**
+       * The selling agency type (marketingForAssociate/clientsOnly/comparable/subAgent/jointSole/jointSoleFeeAvailable/multiple/multipleFeeAvailable/ownToSell/soleSellingRights/soleSellingRightsFeeAvailable/soleAgent/soleAgentFeeAvailable)
+       */
+      agency?: string
+      /**
+       * Representation of the the commission fee for a property
+       */
+      fee?: {
+        /**
+         * The commission letting fee type (percentage/fixed)
+         */
+        type?: string
+        /**
+         * The commission letting fee amount
+         */
+        amount?: number // double
+      }
+      /**
+       * The agent's recommended asking price
+       */
+      recommendedPrice?: number // int32
     }
     /**
      * Representation of property details specific to lettings marketing
@@ -9322,6 +9888,32 @@ export interface PropertyModelPagedResult {
        * The unique identifier of the landlord letting the property
        */
       landlordId?: string
+      /**
+       * Representation of the the commission fee for a property
+       */
+      managementFee?: {
+        /**
+         * The commission letting fee type (percentage/fixed)
+         */
+        type?: string
+        /**
+         * The commission letting fee amount
+         */
+        amount?: number // double
+      }
+      /**
+       * Representation of the the commission fee for a property
+       */
+      lettingFee?: {
+        /**
+         * The commission letting fee type (percentage/fixed)
+         */
+        type?: string
+        /**
+         * The commission letting fee amount
+         */
+        amount?: number // double
+      }
     }
     /**
      * The property type attributes
@@ -9474,6 +10066,27 @@ export interface PropertySellingModel {
    * The unique identifier of the vendor selling the property
    */
   vendorId?: string
+  /**
+   * The selling agency type (marketingForAssociate/clientsOnly/comparable/subAgent/jointSole/jointSoleFeeAvailable/multiple/multipleFeeAvailable/ownToSell/soleSellingRights/soleSellingRightsFeeAvailable/soleAgent/soleAgentFeeAvailable)
+   */
+  agency?: string
+  /**
+   * Representation of the the commission fee for a property
+   */
+  fee?: {
+    /**
+     * The commission letting fee type (percentage/fixed)
+     */
+    type?: string
+    /**
+     * The commission letting fee amount
+     */
+    amount?: number // double
+  }
+  /**
+   * The agent's recommended asking price
+   */
+  recommendedPrice?: number // int32
 }
 /**
  * Representation of the tenure of a property
@@ -9895,6 +10508,7 @@ export interface Tenancies {
   pageSize?: number
   pageNumber?: number
   sortBy?: string
+  fromArchive?: boolean
   embed?: ('appointments' | 'applicant' | 'documents' | 'negotiator' | 'property' | 'source' | 'tasks' | 'type')[]
   id?: string[]
   negotiatorId?: string[]
@@ -10096,6 +10710,10 @@ export interface TenancyContactModel {
    */
   email?: string
   /**
+   * A flag denoting whether or not this roie on the system is now archived
+   */
+  fromArchive?: boolean
+  /**
    * Representation of the physical address of a building or premise
    */
   primaryAddress?: {
@@ -10177,6 +10795,10 @@ export interface TenancyContactRelationshipModel {
    * A flag denoting whether or not this contact or company should be regarded as the main tenant
    */
   isMain?: boolean
+  /**
+   * A flag denoting whether or not this relationship is archived
+   */
+  fromArchive?: boolean
 }
 export interface TenancyContactRelationshipModelPagedResult {
   _embedded?: {
@@ -10220,6 +10842,10 @@ export interface TenancyContactRelationshipModelPagedResult {
      * A flag denoting whether or not this contact or company should be regarded as the main tenant
      */
     isMain?: boolean
+    /**
+     * A flag denoting whether or not this relationship is archived
+     */
+    fromArchive?: boolean
   }[]
   pageNumber?: number // int32
   pageSize?: number // int32
@@ -10295,6 +10921,50 @@ export interface TenancyModel {
    */
   isPeriodic?: boolean
   /**
+   * The frequency of rental instalment payments (weekly/fortnightly/monthly/quarterly/halfYearly/yearly/every28Days/other)
+   */
+  rentInstalmentsFrequency?: string
+  /**
+   * The amount due for each rent instalment (where specified)
+   */
+  rentInstalmentsAmount?: number // double
+  /**
+   * The date that the first instalment is due
+   * example:
+   * 2019-08-14
+   */
+  rentInstalmentsStart?: string // date
+  /**
+   * The recorded utility reading for the gas meter
+   */
+  meterReadingGas?: string
+  /**
+   * Date of when the reading of gas utility was last recorded
+   * example:
+   * 2019-08-14
+   */
+  meterReadingGasLastRead?: string // date
+  /**
+   * The recorded utility reading for the electricity meter
+   */
+  meterReadingElectricity?: string
+  /**
+   * Date of when the reading of electricity utility was last recorded
+   * example:
+   * 2019-08-14
+   */
+  meterReadingElectricityLastRead?: string // date
+  /**
+   * The recorded utility reading for the water meter
+   */
+  meterReadingWater?: string
+  /**
+   * Date of when the reading of water utility was last recorded
+   * example:
+   * 2019-08-14
+   */
+  meterReadingWaterLastRead?: string // date
+  /**
    * The unique identifier of the type of tenancy
    */
   typeId?: string
@@ -10368,6 +11038,10 @@ export interface TenancyModel {
      */
     email?: string
     /**
+     * A flag denoting whether or not this roie on the system is now archived
+     */
+    fromArchive?: boolean
+    /**
      * Representation of the physical address of a building or premise
      */
     primaryAddress?: {
@@ -10405,6 +11079,10 @@ export interface TenancyModel {
       countryId?: string
     }
   }[]
+  /**
+   * A flag denoting whether or not this tenancy is archived
+   */
+  fromArchive?: boolean
   /**
    * The ETag for the current version of the tenancy. Used for managing update concurrency
    */
@@ -10470,6 +11148,50 @@ export interface TenancyModelPagedResult {
      * A flag determining whether or not the tenancy has been extended indefinitely
      */
     isPeriodic?: boolean
+    /**
+     * The frequency of rental instalment payments (weekly/fortnightly/monthly/quarterly/halfYearly/yearly/every28Days/other)
+     */
+    rentInstalmentsFrequency?: string
+    /**
+     * The amount due for each rent instalment (where specified)
+     */
+    rentInstalmentsAmount?: number // double
+    /**
+     * The date that the first instalment is due
+     * example:
+     * 2019-08-14
+     */
+    rentInstalmentsStart?: string // date
+    /**
+     * The recorded utility reading for the gas meter
+     */
+    meterReadingGas?: string
+    /**
+     * Date of when the reading of gas utility was last recorded
+     * example:
+     * 2019-08-14
+     */
+    meterReadingGasLastRead?: string // date
+    /**
+     * The recorded utility reading for the electricity meter
+     */
+    meterReadingElectricity?: string
+    /**
+     * Date of when the reading of electricity utility was last recorded
+     * example:
+     * 2019-08-14
+     */
+    meterReadingElectricityLastRead?: string // date
+    /**
+     * The recorded utility reading for the water meter
+     */
+    meterReadingWater?: string
+    /**
+     * Date of when the reading of water utility was last recorded
+     * example:
+     * 2019-08-14
+     */
+    meterReadingWaterLastRead?: string // date
     /**
      * The unique identifier of the type of tenancy
      */
@@ -10544,6 +11266,10 @@ export interface TenancyModelPagedResult {
        */
       email?: string
       /**
+       * A flag denoting whether or not this roie on the system is now archived
+       */
+      fromArchive?: boolean
+      /**
        * Representation of the physical address of a building or premise
        */
       primaryAddress?: {
@@ -10581,6 +11307,10 @@ export interface TenancyModelPagedResult {
         countryId?: string
       }
     }[]
+    /**
+     * A flag denoting whether or not this tenancy is archived
+     */
+    fromArchive?: boolean
     /**
      * The ETag for the current version of the tenancy. Used for managing update concurrency
      */
@@ -11462,6 +12192,22 @@ export interface UpdateContactModel {
     countryId?: string
   }
   /**
+   * A flag determining whether or not the contact is happy to receive communications by letter
+   */
+  communicationPreferenceLetter?: boolean
+  /**
+   * A flag determining whether or not the contact is happy to receive communications by email
+   */
+  communicationPreferenceEmail?: boolean
+  /**
+   * A flag determining whether or not the contact is happy to receive communications by phone
+   */
+  communicationPreferencePhone?: boolean
+  /**
+   * A flag determining whether or not the contact is happy to receive communications by SMS
+   */
+  communicationPreferenceSMS?: boolean
+  /**
    * App specific metadata to set against the contact
    */
   metadata?: {
@@ -11480,6 +12226,15 @@ export interface UpdateContactSourceModel {
    * The source type (office/source)
    */
   type?: string
+}
+/**
+ * Request body used to update an existing contact subscription
+ */
+export interface UpdateContactSubscriptionModel {
+  /**
+   * The status of the subscription (subscribed/unsubscribed)
+   */
+  status?: string
 }
 /**
  * Request body for updating sales progression information on an existing offer
@@ -12077,6 +12832,19 @@ export interface UpdatePropertyAddressModel {
   }
 }
 /**
+ * Request body used to update the commission fee for a property
+ */
+export interface UpdatePropertyCommissionFeeModel {
+  /**
+   * The commission letting fee type (percentage/fixed)
+   */
+  type?: string
+  /**
+   * The commission letting fee amount
+   */
+  amount?: number // double
+}
+/**
  * Request body used to update the EPC statistics of an existing property
  */
 export interface UpdatePropertyEpcModel {
@@ -12209,6 +12977,36 @@ export interface UpdatePropertyLettingModel {
    * The role that the agent will be performing for this lettings property (managed/rentCollection/collectFirstPayment/collectRentToDate/lettingOnly/introducingTenant)
    */
   agentRole?: string
+  /**
+   * The unique identifier of the landlord letting the property
+   */
+  landlordId?: string
+  /**
+   * Request body used to update the commission fee for a property
+   */
+  managementFee?: {
+    /**
+     * The commission letting fee type (percentage/fixed)
+     */
+    type?: string
+    /**
+     * The commission letting fee amount
+     */
+    amount?: number // double
+  }
+  /**
+   * Request body used to update the commission fee for a property
+   */
+  lettingFee?: {
+    /**
+     * The commission letting fee type (percentage/fixed)
+     */
+    type?: string
+    /**
+     * The commission letting fee amount
+     */
+    amount?: number // double
+  }
 }
 /**
  * Request body used to update an existing property
@@ -12314,6 +13112,14 @@ export interface UpdatePropertyModel {
    * The caption for the video url associated with this property
    */
   videoCaption?: string
+  /**
+   * The url of a second video associated with this property, such as a virtual tour
+   */
+  video2Url?: string
+  /**
+   * The caption for the second video url associated with this property
+   */
+  video2Caption?: string
   /**
    * Any general notes regarding the property. These are not usually exposed to end users and may contain sensitive information about a sale
    */
@@ -12430,6 +13236,27 @@ export interface UpdatePropertyModel {
        */
       expiry?: string // date
     }
+    /**
+     * The selling agency type (marketingForAssociate/clientsOnly/comparable/subAgent/jointSole/jointSoleFeeAvailable/multiple/multipleFeeAvailable/ownToSell/soleSellingRights/soleSellingRightsFeeAvailable/soleAgent/soleAgentFeeAvailable)
+     */
+    sellingAgency?: string
+    /**
+     * Request body used to update the commission fee for a property
+     */
+    fee?: {
+      /**
+       * The commission letting fee type (percentage/fixed)
+       */
+      type?: string
+      /**
+       * The commission letting fee amount
+       */
+      amount?: number // double
+    }
+    /**
+     * The agent's recommended asking price
+     */
+    recommendedPrice?: number // int32
   }
   /**
    * Request body used to update details specific to lettings marketing on an existing property
@@ -12477,6 +13304,36 @@ export interface UpdatePropertyModel {
      * The role that the agent will be performing for this lettings property (managed/rentCollection/collectFirstPayment/collectRentToDate/lettingOnly/introducingTenant)
      */
     agentRole?: string
+    /**
+     * The unique identifier of the landlord letting the property
+     */
+    landlordId?: string
+    /**
+     * Request body used to update the commission fee for a property
+     */
+    managementFee?: {
+      /**
+       * The commission letting fee type (percentage/fixed)
+       */
+      type?: string
+      /**
+       * The commission letting fee amount
+       */
+      amount?: number // double
+    }
+    /**
+     * Request body used to update the commission fee for a property
+     */
+    lettingFee?: {
+      /**
+       * The commission letting fee type (percentage/fixed)
+       */
+      type?: string
+      /**
+       * The commission letting fee amount
+       */
+      amount?: number // double
+    }
   }
   /**
    * The property type attributes
@@ -12574,6 +13431,27 @@ export interface UpdatePropertySellingModel {
      */
     expiry?: string // date
   }
+  /**
+   * The selling agency type (marketingForAssociate/clientsOnly/comparable/subAgent/jointSole/jointSoleFeeAvailable/multiple/multipleFeeAvailable/ownToSell/soleSellingRights/soleSellingRightsFeeAvailable/soleAgent/soleAgentFeeAvailable)
+   */
+  sellingAgency?: string
+  /**
+   * Request body used to update the commission fee for a property
+   */
+  fee?: {
+    /**
+     * The commission letting fee type (percentage/fixed)
+     */
+    type?: string
+    /**
+     * The commission letting fee amount
+     */
+    amount?: number // double
+  }
+  /**
+   * The agent's recommended asking price
+   */
+  recommendedPrice?: number // int32
 }
 /**
  * Request body used to set the tenure of an existing property
@@ -12699,6 +13577,133 @@ export interface UpdateTenancyCheckModel {
    * The status of the tenancy check (needed/notNeeded/arranging/completed)
    */
   status?: string
+}
+/**
+ * Request body used to update an existing Tenancy
+ * example:
+ * [object Object]
+ */
+export interface UpdateTenancyModel {
+  /**
+   * The start date of the tenancy
+   * example:
+   * 2019-08-14
+   */
+  startDate?: string // date
+  /**
+   * The end date of the tenancy
+   * example:
+   * 2019-08-14
+   */
+  endDate?: string // date
+  /**
+   * The current status of the tenancy (offerPending/offerWithdrawn/offerRejected/arranging/current/finished/cancelled)
+   */
+  status?: string
+  /**
+   * The role that the agent is performing for the tenancy (managed/rentCollection/collectFirstPayment/collectRentToDate/lettingOnly/introducingTenant)
+   */
+  agentRole?: string
+  /**
+   * The amount of rent required, returned in relation to the collection frequency
+   */
+  rent?: number // double
+  /**
+   * The rent collection frequency (weekly/monthly/annually)
+   */
+  rentFrequency?: string
+  /**
+   * Flag for end date confirmation
+   */
+  endDateConfirmed?: boolean
+  /**
+   * A flag determining whether or not the tenancy has been extended indefinitely
+   */
+  isPeriodic?: boolean
+  /**
+   * The unique identifier of the type of tenancy
+   */
+  typeId?: string
+  /**
+   * The unique identifier of the negotiator who is managing the tenancy
+   */
+  negotiatorId?: string
+  /**
+   * Request body used to set the source of a new tenancy
+   */
+  source?: {
+    /**
+     * The unique identifier of the source for the tenancy
+     */
+    id?: string
+    /**
+     * The source type (office/source)
+     */
+    type?: string
+  }
+  /**
+   * The frequency of rental instalment payments (weekly/fortnightly/monthly/quarterly/halfYearly/yearly/every28Days/other)
+   */
+  rentInstalmentsFrequency?: string
+  /**
+   * The amount due for each rent instalment (where specified)
+   */
+  rentInstalmentsAmount?: number // double
+  /**
+   * The date that the first instalment is due
+   * example:
+   * 2019-08-14
+   */
+  rentInstalmentsStart?: string // date
+  /**
+   * The recorded utility reading for the gas meter
+   */
+  meterReadingGas?: string
+  /**
+   * Date of when the reading of gas utility was last recorded
+   * example:
+   * 2019-08-14
+   */
+  meterReadingGasLastRead?: string // date
+  /**
+   * The recorded utility reading for the electricity meter
+   */
+  meterReadingElectricity?: string
+  /**
+   * Date of when the reading of electricity utility was last recorded
+   * example:
+   * 2019-08-14
+   */
+  meterReadingElectricityLastRead?: string // date
+  /**
+   * The recorded utility reading for the water meter
+   */
+  meterReadingWater?: string
+  /**
+   * Date of when the reading of water utility was last recorded
+   * example:
+   * 2019-08-14
+   */
+  meterReadingWaterLastRead?: string // date
+  /**
+   * App specific metadata to set against the tenancy
+   */
+  metadata?: {
+    [name: string]: any
+  }
+}
+/**
+ * Request body used to set the source of a new tenancy
+ */
+export interface UpdateTenancySourceModel {
+  /**
+   * The unique identifier of the source for the tenancy
+   */
+  id?: string
+  /**
+   * The source type (office/source)
+   */
+  type?: string
 }
 /**
  * Request body used to update an existing vendor
@@ -12925,6 +13930,10 @@ export interface VendorContactModel {
    * The email address of the contact or company
    */
   email?: string
+  /**
+   * Flag to determine if this role on the system is now archived
+   */
+  fromArchive?: boolean
   /**
    * Representation of the physical address of a building or premise
    */
@@ -13176,6 +14185,10 @@ export interface VendorModel {
      */
     email?: string
     /**
+     * Flag to determine if this role on the system is now archived
+     */
+    fromArchive?: boolean
+    /**
      * Representation of the physical address of a building or premise
      */
     primaryAddress?: {
@@ -13221,6 +14234,16 @@ export interface VendorModel {
    * A collection of unique identifiers of offices attached to the vendor. The first item in the collection is considered the primary office
    */
   officeIds?: string[]
+  /**
+   * The date and time the vendor was archived
+   * example:
+   * 2019-08-14T12:30:02.0000000Z
+   */
+  archivedOn?: string // date-time
+  /**
+   * A flag determining whether or not the vendor is archived
+   */
+  fromArchive?: boolean
   /**
    * App specific metadata that has been set against the vendor
    */
@@ -13344,6 +14367,10 @@ export interface VendorModelPagedResult {
        */
       email?: string
       /**
+       * Flag to determine if this role on the system is now archived
+       */
+      fromArchive?: boolean
+      /**
        * Representation of the physical address of a building or premise
        */
       primaryAddress?: {
@@ -13389,6 +14416,16 @@ export interface VendorModelPagedResult {
      * A collection of unique identifiers of offices attached to the vendor. The first item in the collection is considered the primary office
      */
     officeIds?: string[]
+    /**
+     * The date and time the vendor was archived
+     * example:
+     * 2019-08-14T12:30:02.0000000Z
+     */
+    archivedOn?: string // date-time
+    /**
+     * A flag determining whether or not the vendor is archived
+     */
+    fromArchive?: boolean
     /**
      * App specific metadata that has been set against the vendor
      */
@@ -13445,6 +14482,7 @@ export interface Vendors {
   id?: string[]
   negotiatorId?: string[]
   officeId?: string[]
+  fromArchive?: boolean
   address?: string
   name?: string
   createdFrom?: string
