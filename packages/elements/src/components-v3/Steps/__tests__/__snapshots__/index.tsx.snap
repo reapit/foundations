@@ -1,0 +1,85 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Steps should match a snapshot 1`] = `
+<ElSteps
+  className=""
+>
+  <ElStep
+    className=""
+    key="1"
+    onClick={[Function]}
+  >
+    1
+  </ElStep>
+  <ElStep
+    className=""
+    key="2"
+    onClick={[Function]}
+  >
+    2
+  </ElStep>
+  <ElStep
+    className=""
+    key="3"
+    onClick={[Function]}
+  >
+    3
+  </ElStep>
+  <ElStep
+    className=""
+    key="4"
+    onClick={[Function]}
+  >
+    4
+  </ElStep>
+  <ElStep
+    className=""
+    key="5"
+    onClick={[Function]}
+  >
+    5
+  </ElStep>
+</ElSteps>
+`;
+
+exports[`Steps should match a snapshot when selectedStep is different 1`] = `
+<ElSteps
+  className=""
+>
+  <ElStep
+    className="el-is-used"
+    key="1"
+    onClick={[Function]}
+  >
+    1
+  </ElStep>
+  <ElStep
+    className="el-is-active"
+    key="2"
+    onClick={[Function]}
+  >
+    2
+  </ElStep>
+  <ElStep
+    className=""
+    key="3"
+    onClick={[Function]}
+  >
+    3
+  </ElStep>
+  <ElStep
+    className=""
+    key="4"
+    onClick={[Function]}
+  >
+    4
+  </ElStep>
+  <ElStep
+    className=""
+    key="5"
+    onClick={[Function]}
+  >
+    5
+  </ElStep>
+</ElSteps>
+`;

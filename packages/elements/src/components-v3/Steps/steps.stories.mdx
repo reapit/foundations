@@ -1,0 +1,56 @@
+import { useState } from 'react'
+import { Meta, Story, Canvas, ArgsTable } from '@storybook/addon-docs/blocks'
+import { Steps } from './index'
+
+<Meta title="V3/Steps" component={Steps} />
+
+# Steps
+
+Underlying tag: `<div>`
+
+<Canvas>
+  <Story name="Default Usage">
+    <Steps steps={['1', '2', '3', '4', '5']} />
+  </Story>
+</Canvas>
+
+<ArgsTable of={Steps} />
+
+Set the `selectedStep` prop to control the Steps component.
+
+Steps that exist before the currently selected step are given an additional class of `.el-is-used` which gives the step a different background color.
+
+A CSS transition occurs when moving between steps.
+
+<Canvas>
+  <Story name="Middle item selected">
+    <Steps steps={['1', '2', '3', '4', '5']} selectedStep="3" />
+  </Story>
+</Canvas>
+
+You can use any number of steps and you can also use letters instead of numbers. You can use any string as the content really.
+
+<Canvas>
+  <Story name="Last item selected">
+    <Steps steps={['A', 'B', 'C', 'D']} selectedStep="D" />
+  </Story>
+</Canvas>
+
+Be aware though, steps with long text **aren't supported** and will not render very well at all.
+
+<Canvas>
+  <Story name="With longer words">
+    <Steps steps={['Item a', 'item B', 'ITEM C']} />
+  </Story>
+</Canvas>
+
+### React example with `useState`
+
+<Canvas>
+  <Story name="React example">
+    {() => {
+      const [selectedStep, setSelectedStep] = useState('1')
+      return <Steps steps={['1', '2', '3', '4', '5']} selectedStep={selectedStep} onStepClick={setSelectedStep} />
+    }}
+  </Story>
+</Canvas>
