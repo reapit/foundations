@@ -52,7 +52,7 @@ export type RenderIdParams = {
 }
 
 export type RowIdParams = {
-  row: { index: number; created: string }
+  row: { original: { created: string }; index: number }
 }
 // eslint-disable-next-line react/display-name
 export const renderId = ({ page }: RenderIdParams) => ({ row: { index } }: RowIdParams) => {
@@ -156,8 +156,8 @@ export const generateTableColumn = ({
   {
     Header: 'Created On',
     accessor: 'created',
-    Cell: ({ row: { created } }: RowIdParams) => {
-      return <div>{dayjs(created).format('DD/MM/YYYY HH:mm')}</div>
+    Cell: ({ row }: RowIdParams) => {
+      return <div>{dayjs(row.original.created).format('DD/MM/YYYY HH:mm')}</div>
     },
   },
   {
