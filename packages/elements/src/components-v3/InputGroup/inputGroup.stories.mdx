@@ -98,3 +98,60 @@ InputGroup provides a wrapper and styling for the `Input`, `Icon`, `Label`, and 
     <InputGroup icon="asterisk" label="Email address" afterInputText="Required" intent="danger" type="text" />
   </Story>
 </Canvas>
+
+# Different input types
+
+## Checkbox
+
+<Canvas>
+  <Story name="Type: checkbox">
+    <InputGroup type="checkbox" icon="phone" label="Status" afterInputText="Listed" />
+  </Story>
+  <Story name="Type: checkbox - with intent">
+    <InputGroup type="checkbox" icon="info" intent="danger" label="Status" afterInputText="Listed" />
+  </Story>
+  <Story name="Type: checkbox - no icon">
+    <InputGroup type="checkbox" label="Status" afterInputText="Listed" />
+  </Story>
+  <Story name="Type: checkbox - no label">
+    <InputGroup type="checkbox" afterInputText="Listed" />
+  </Story>
+</Canvas>
+
+## Radio
+
+<Canvas>
+  <Story name="Type: radio">
+    <Label className="el-mb2 el-flex">Preffered contact</Label>
+    <InputGroup className="el-mb2" type="radio" name="phone" icon="phone" label="Mobile phone" />
+    <InputGroup className="el-mb2" type="radio" name="phone" icon="home" label="Home phone" />
+    <InputGroup className="el-mb2" type="radio" name="phone" icon="email" label="Email" />
+  </Story>
+  <Story name="Type: radio - with intent">
+    <Label className="el-mb2 el-flex">Preffered contact</Label>
+    <InputGroup className="el-mb2" type="radio" name="phone" icon="phone" label="Mobile phone" intent="danger" />
+    <InputGroup className="el-mb2" type="radio" name="phone" icon="home" label="Home phone" intent="danger" />
+    <InputGroup className="el-mb2" type="radio" name="phone" icon="email" label="Email" intent="danger" />
+  </Story>
+  <Story name="Type: radio - no icon">
+    <Label className="el-mb2 el-flex">Preffered contact</Label>
+    <InputGroup className="el-mb2" type="radio" name="phone" label="Mobile phone" />
+    <InputGroup className="el-mb2" type="radio" name="phone" label="Home phone" />
+    <InputGroup className="el-mb2" type="radio" name="phone" label="Email" />
+  </Story>
+</Canvas>
+
+#### Use with radio input type and afterInputText
+
+The `afterInputText` prop (and use of the `AfterInputText` component within `InputGroup` in general) _is_ supported with radio buttons, however with radio buttons the `Label` does most of the work.
+
+`AfterInputText` can be used but won't add that much value, and it's reccomended to use just `Label` on it's own. See an example below:
+
+<Canvas>
+  <Story name="Type: radio - with afterInputText">
+    <Label className="el-mb2 el-flex">Preffered contact</Label>
+    <InputGroup className="el-mb2" type="radio" name="phone" label="Mobile phone" afterInputText="Test" />
+    <InputGroup className="el-mb2" type="radio" name="phone" label="Home phone" afterInputText="Test" />
+    <InputGroup className="el-mb2" type="radio" name="phone" label="Email" afterInputText="Test" />
+  </Story>
+</Canvas>

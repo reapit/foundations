@@ -72,7 +72,7 @@ export const elVariables = css`
       --font-size-heading-secondary: 1.5rem;
       --font-size-subHeading-secondary: 1.2rem;
       --font-size-default: 1rem;
-      --font-size-small: 0.8rem;
+      --font-size-small: 0.875rem;
 
       /** layout size */
       --layout-size-base: 1rem;
@@ -86,6 +86,11 @@ export const elVariables = css`
 
       /** other defaults */
       --default-border-radius: 0.25rem;
+
+      /** component specific variables */
+      --component-input-bg: var(--color-white);
+      --component-input-focus-bg: var(--color-grey-light);
+      --component-input-shadow: inset 0px -1px 0px #000000;
     }
   }
 `

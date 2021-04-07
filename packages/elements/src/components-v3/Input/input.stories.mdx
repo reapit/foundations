@@ -1,7 +1,5 @@
-import { Meta, Story, Canvas, ArgsTable } from '@storybook/addon-docs/blocks'
+import { Meta, Story, Canvas } from '@storybook/addon-docs/blocks'
 import { Input } from './index'
-
-export const Template = (args) => <Input {...args} />
 
 <Meta title="V3/Forms/Input" component={Input} />
 
@@ -10,12 +8,10 @@ export const Template = (args) => <Input {...args} />
 Underlying tag: `<input>`
 
 <Canvas>
-  <Story name="Default Usage" args={{ placeholder: 'Placeholder' }}>
-    {Template.bind({})}
+  <Story name="Default Usage">
+    <Input type="text" placeholder="A placeholder" />
   </Story>
 </Canvas>
-
-<ArgsTable story="Default Usage" />
 
 # Different types
 
@@ -112,6 +108,23 @@ Underlying tag: `<input>`
 <Canvas>
   <Story name="Type: month">
     <Input type="month" />
+  </Story>
+</Canvas>
+
+# Checkbox
+
+<Canvas>
+  <Story name="Type: checkbox">
+    <Input type="checkbox" name="property" value="xyz" />
+  </Story>
+</Canvas>
+
+# Radio
+
+<Canvas>
+  <Story name="Type: radio">
+    <Input type="radio" name="property" value="abc" />
+    <Input type="radio" name="property" value="xyz" />
   </Story>
 </Canvas>
 
