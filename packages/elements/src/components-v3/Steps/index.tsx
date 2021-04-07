@@ -19,7 +19,7 @@ export const Steps: React.FC<ISteps> = ({ steps = [], selectedStep, onStepClick,
         const stepClassName = cx(index === selectedStepIndex && elIsActive, index < selectedStepIndex && elIsUsed)
 
         return (
-          <ElStep onClick={() => onStepClick && onStepClick(step)} className={stepClassName}>
+          <ElStep key={step} onClick={() => onStepClick && onStepClick(step)} className={stepClassName}>
             {step}
           </ElStep>
         )
