@@ -101,15 +101,8 @@ const webpackConfigDev = {
         test: /\.css$/,
         use: ['style-loader', 'css-loader', 'postcss-loader'],
       },
-      {
-        test: /\.(woff(2)?|ttf|eot|png|jpg|jpeg|gif|pdf)$/,
-        use: {
-          loader: 'file-loader',
-          options: {
-            name: '[name].[ext]',
-          },
-        },
-      },
+      // Load SVG Graphics used by Elements v3 and convert to React Components to be imported into the code
+      // This allows them to be styled eg add fill and so on
       {
         test: /\.svg$/,
         use: [
@@ -117,6 +110,21 @@ const webpackConfigDev = {
             loader: '@svgr/webpack',
             options: {
               icon: true,
+            },
+          },
+        ],
+      },
+      // SVGs loaded from the assets directory are exported to the dist/assets directory as normal
+      // This loader needs to come after the first as otherwise, regular loaded SVGs eg those used
+      // in Sass files will be overriden with React Code
+      {
+        test: /\.(woff(2)?|ttf|eot|png|jpg|jpeg|gif|pdf|svg)$/,
+        use: [
+          {
+            loader: 'file-loader',
+            options: {
+              name: '[name].[ext]',
+              outputPath: '/assets',
             },
           },
         ],
