@@ -36,6 +36,6 @@
   "devDependencies": {
     "@reapit/config-manager": "^2.0.8",
     "concurrently": "^5.3.0",
-    "eslint": "7.21.0"
+    "eslint": "7.23.0"
   }
 }

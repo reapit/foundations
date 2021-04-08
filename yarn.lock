@@ -5021,7 +5021,7 @@ __metadata:
     chalk: ^4.1.0
     change-case: ^4.1.2
     concurrently: ^5.3.0
-    eslint: 7.21.0
+    eslint: 7.23.0
     prettier: ^2.2.1
     prompts: ^2.4.0
     yargs: ^16.2.0
@@ -5039,7 +5039,7 @@ __metadata:
     axios: ^0.21.1
     concurrently: ^5.3.0
     cross-env: ^7.0.3
-    eslint: ^7.21.0
+    eslint: ^7.23.0
     isomorphic-fetch: ^3.0.0
     jest: ^26.6.3
     jest-coverage-badges: ^1.1.2
@@ -5057,7 +5057,7 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "@reapit/cra-template-foundations@workspace:packages/cra-template-foundations"
   dependencies:
-    eslint: 7.21.0
+    eslint: 7.23.0
   languageName: unknown
   linkType: soft
 
@@ -5089,7 +5089,7 @@ __metadata:
     concurrently: ^5.3.0
     cross-env: ^7.0.3
     dashify: 2.0.0
-    eslint: 7.21.0
+    eslint: 7.23.0
     file-saver: ^2.0.5
     formik: ^2.2.6
     fs-extra: ^9.1.0
@@ -5144,7 +5144,7 @@ __metadata:
   dependencies:
     "@reapit/config-manager": "workspace:packages/config-manager"
     concurrently: ^5.3.0
-    eslint: 7.21.0
+    eslint: 7.23.0
     sw2dts: ^2.6.3
   languageName: unknown
   linkType: soft
@@ -5155,7 +5155,7 @@ __metadata:
   dependencies:
     "@reapit/config-manager": "workspace:packages/config-manager"
     concurrently: ^5.3.0
-    eslint: 7.21.0
+    eslint: 7.23.0
     yeoman-generator: ^5.0.1
     yo: ^3.1.1
     yosay: ^2.0.2
@@ -5170,7 +5170,7 @@ __metadata:
     "@testing-library/svelte": ^3.0.3
     concurrently: ^6.0.0
     cross-env: ^7.0.3
-    eslint: ^7.21.0
+    eslint: ^7.23.0
     jest: ^26.6.3
     jest-coverage-badges: ^1.1.2
     sirv-cli: ^1.0.11
@@ -5212,7 +5212,7 @@ __metadata:
     enzyme-adapter-react-16: ^1.15.6
     enzyme-to-json: ^3.6.1
     esbuild-loader: ^2.9.2
-    eslint: 7.21.0
+    eslint: 7.23.0
     eslint-config-prettier: ^6.15.0
     eslint-plugin-prettier: ^3.3.1
     eslint-plugin-react: ^7.22.0
@@ -5306,7 +5306,7 @@ __metadata:
     concurrently: ^5.3.0
     cross-env: ^7.0.3
     error-polyfill: ^0.1.2
-    eslint: 7.21.0
+    eslint: 7.23.0
     jest: ^26.6.3
     jest-coverage-badges: ^1.1.2
     serialize-error: ^7.0.1
@@ -9213,7 +9213,7 @@ __metadata:
     cross-env: ^6.0.3
     dayjs: ^1.10.4
     diff: ^4.0.2
-    eslint: 7.21.0
+    eslint: 7.23.0
     jest: ^26.6.3
     jest-coverage-badges: ^1.1.2
     linaria: ^2.0.2
@@ -9413,7 +9413,7 @@ __metadata:
     concurrently: ^5.3.0
     cross-env: ^6.0.3
     dayjs: ^1.10.4
-    eslint: 7.21.0
+    eslint: 7.23.0
     jest: ^26.6.3
     jest-coverage-badges: ^1.1.2
     linaria: ^2.0.2
@@ -13035,7 +13035,7 @@ __metadata:
     cypress-file-upload: ^3.5.3
     cypress-plugin-retries: ^1.5.2
     cypress-plugin-snapshots: ^1.4.4
-    eslint: ^7.21.0
+    eslint: ^7.23.0
     eslint-config-prettier: ^6.15.0
     eslint-plugin-prettier: ^3.3.1
     jest: ^26.6.3
@@ -13088,7 +13088,7 @@ __metadata:
     aws-lambda: ^1.0.6
     concurrently: ^5.3.0
     cross-env: ^7.0.3
-    eslint: 7.21.0
+    eslint: 7.23.0
     jest: ^26.6.3
     jest-coverage-badges: ^1.1.2
     ncp: ^2.0.0
@@ -14477,7 +14477,7 @@ __metadata:
     cross-env: ^6.0.3
     dayjs: ^1.10.4
     diff: ^4.0.2
-    eslint: 7.21.0
+    eslint: 7.23.0
     jest: ^26.6.3
     jest-coverage-badges: ^1.1.2
     linaria: ^2.0.2
@@ -15070,7 +15070,7 @@ __metadata:
     cross-env: ^6.0.3
     dayjs: ^1.10.4
     diff: ^4.0.2
-    eslint: 7.21.0
+    eslint: 7.23.0
     file-saver: ^2.0.5
     jest: ^26.6.3
     jest-coverage-badges: ^1.1.2
@@ -16758,9 +16758,9 @@ __metadata:
   languageName: node
   linkType: hard
 
-"eslint@npm:7.21.0, eslint@npm:^7.21.0":
-  version: 7.21.0
-  resolution: "eslint@npm:7.21.0"
+"eslint@npm:7.23.0, eslint@npm:^7.23.0":
+  version: 7.23.0
+  resolution: "eslint@npm:7.23.0"
   dependencies:
     "@babel/code-frame": 7.12.11
     "@eslint/eslintrc": ^0.4.0
@@ -16779,7 +16779,7 @@ __metadata:
     file-entry-cache: ^6.0.1
     functional-red-black-tree: ^1.0.1
     glob-parent: ^5.0.0
-    globals: ^12.1.0
+    globals: ^13.6.0
     ignore: ^4.0.6
     import-fresh: ^3.0.0
     imurmurhash: ^0.1.4
@@ -16787,7 +16787,7 @@ __metadata:
     js-yaml: ^3.13.1
     json-stable-stringify-without-jsonify: ^1.0.1
     levn: ^0.4.1
-    lodash: ^4.17.20
+    lodash: ^4.17.21
     minimatch: ^3.0.4
     natural-compare: ^1.4.0
     optionator: ^0.9.1
@@ -16801,7 +16801,7 @@ __metadata:
     v8-compile-cache: ^2.0.3
   bin:
     eslint: bin/eslint.js
-  checksum: aa8fd50cddc4ab259e2d0ff8f43f0601060543c12e335d76ee074bf25ad02a885bea9d48a367de736d3bdb871de7eb62e6d67930c0173cc46280ddd0f236e740
+  checksum: f444869506eb0b53fdc6f6f6508b9f5daed51034af0289e6b201f996e7f2d06134f765ef598568269d2a0575dc9da5d3308bd2716f795b789d92e7febb654aab
   languageName: node
   linkType: hard
 
@@ -17033,7 +17033,7 @@ __metadata:
     concurrently: ^5.3.0
     cors: ^2.8.5
     cross-env: ^7.0.3
-    eslint: ^7.21.0
+    eslint: ^7.23.0
     express: ^4.17.1
     express-validator: ^6.10.0
     jest: ^26.6.3
@@ -18668,7 +18668,7 @@ fsevents@^1.2.7:
     concurrently: ^5.3.0
     cross-env: ^6.0.3
     dayjs: ^1.10.4
-    eslint: 7.21.0
+    eslint: 7.23.0
     graphql: 14.7.0
     jest: ^26.6.3
     jest-coverage-badges: ^1.1.2
@@ -19138,6 +19138,15 @@ fsevents@^1.2.7:
   languageName: node
   linkType: hard
 
+"globals@npm:^13.6.0":
+  version: 13.7.0
+  resolution: "globals@npm:13.7.0"
+  dependencies:
+    type-fest: ^0.20.2
+  checksum: 98e36151746f1457c28553db5d2ceb0fc11838f81bf4868d43df30fb1f03d0abf11b0fe16eeb8d390def5c91142a3e1a42a0f505ca67ec659aa1a30a82302268
+  languageName: node
+  linkType: hard
+
 "globalthis@npm:^1.0.0, globalthis@npm:^1.0.1":
   version: 1.0.1
   resolution: "globalthis@npm:1.0.1"
@@ -19493,7 +19502,7 @@ fsevents@^1.2.7:
     cross-env: ^7.0.3
     dataloader: ^2.0.0
     dayjs: ^1.10.4
-    eslint: 7.21.0
+    eslint: 7.23.0
     graphql: 14.7.0
     graphql-depth-limit: ^1.1.0
     graphql-import: ^0.7.1
@@ -20810,7 +20819,7 @@ fsevents@^1.2.7:
     "@sentry/browser": ^5.30.0
     concurrently: ^5.3.0
     cross-env: ^6.0.3
-    eslint: 7.21.0
+    eslint: 7.23.0
     jest: ^26.6.3
     jest-coverage-badges: ^1.1.2
     linaria: ^2.0.2
@@ -24735,7 +24744,7 @@ fsevents@^1.2.7:
     cors: ^2.8.5
     cross-env: ^7.0.3
     ejs: ^3.1.6
-    eslint: 7.21.0
+    eslint: 7.23.0
     express: ^4.17.1
     express-session: ^1.17.1
     jest: ^25.5.4
@@ -24873,7 +24882,7 @@ fsevents@^1.2.7:
     concurrently: ^5.3.0
     cross-env: ^6.0.3
     dayjs: ^1.10.4
-    eslint: 7.21.0
+    eslint: 7.23.0
     jest: ^26.6.3
     jest-coverage-badges: ^1.1.2
     just-debounce-it: ^1.1.0
@@ -24914,7 +24923,7 @@ fsevents@^1.2.7:
     cross-env: ^6.0.3
     dayjs: ^1.10.4
     diff: ^4.0.2
-    eslint: 7.21.0
+    eslint: 7.23.0
     jest: ^26.6.3
     jest-coverage-badges: ^1.1.2
     linaria: ^2.0.2
@@ -27826,7 +27835,7 @@ fsevents@^1.2.7:
     concurrently: ^5.3.0
     cross-env: ^6.0.3
     dayjs: ^1.10.4
-    eslint: 7.21.0
+    eslint: 7.23.0
     jest: ^26.6.3
     jest-coverage-badges: ^1.1.2
     linaria: ^2.0.2
@@ -27867,7 +27876,7 @@ fsevents@^1.2.7:
     cors: ^2.8.5
     cross-env: ^7.0.3
     dayjs: ^1.10.4
-    eslint: 7.21.0
+    eslint: 7.23.0
     express: ^4.17.1
     express-session: ^1.17.1
     jest: ^26.6.3
@@ -30227,7 +30236,7 @@ fsevents@^1.2.7:
     concurrently: ^5.3.0
     cross-env: ^6.0.3
     dayjs: ^1.10.4
-    eslint: 7.21.0
+    eslint: 7.23.0
     jest: ^26.6.3
     jest-coverage-badges: ^1.1.2
     linaria: ^2.0.2

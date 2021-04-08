@@ -29,7 +29,7 @@
     "cypress-file-upload": "^3.5.3",
     "cypress-plugin-retries": "^1.5.2",
     "cypress-plugin-snapshots": "^1.4.4",
-    "eslint": "^7.21.0",
+    "eslint": "^7.23.0",
     "eslint-config-prettier": "^6.15.0",
     "eslint-plugin-prettier": "^3.3.1",
     "jest": "^26.6.3",
