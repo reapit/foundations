@@ -60,7 +60,7 @@ export const elVariables = css`
       --intent-secondary-dark-text: var(--color-white);
       --intent-critical-dark-text: var(--color-white);
       --intent-success-dark-text: var(--color-white);
-      --intent-danger-light-text: var(--color-white);
+      --intent-danger-dark-text: var(--color-white);
 
       /** font variables */
       --font-sans-serif: 'PT Sans', Helvetica, Arial, sans-serif;

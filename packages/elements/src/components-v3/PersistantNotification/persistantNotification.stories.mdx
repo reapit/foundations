@@ -1,0 +1,107 @@
+import { Meta, Story, Canvas, ArgsTable } from '@storybook/addon-docs/blocks'
+import { useState } from 'react'
+import { PersistantNotification } from './index'
+
+<Meta title="V3/PersistantNotification" component={PersistantNotification} />
+
+# PersistantNotification
+
+Underlying tag: `<div>`
+
+## Full React example using `useState` and the default CSS position: fixed
+
+<Canvas>
+  <Story name="Full React example (fixed position)">
+    {() => {
+      const [isExpanded, setIsExpanded] = useState(false)
+      return (
+        <>
+          The element uses CSS position fixed by default, which means the component "floats" on top of all other
+          content. This example can be seen in the top right corner of the screen. Only one PersistantNotification per
+          page is supported.
+          <PersistantNotification isExpanded={isExpanded} onExpansionToggle={setIsExpanded}>
+            Here is a persistant notification. Here is more content. Here is more content. Here is more content. Here is
+            more content. Here is more content.
+          </PersistantNotification>
+        </>
+      )
+    }}
+  </Story>
+</Canvas>
+
+<ArgsTable of={PersistantNotification} />
+
+## Inline examples
+
+These stories have been given a custom CSS positon (`position: relative`) so that they appear inline. This makes it easier to preview these examples, but in normal usage they will pin to the top right of the screen as in the above example.
+
+### Default usage
+
+<Canvas>
+  <Story name="Default Usage">
+    <PersistantNotification isExpanded={true} style={{ position: 'relative' }}>
+      Here is a persistant notification
+    </PersistantNotification>
+  </Story>
+</Canvas>
+
+### With longer content
+
+The notification is set to a max-width of 50% of the parent element (in normal usage this is the entire window). If the content is longer the box just grows downwards.
+
+<Canvas>
+  <Story name="Long text">
+    <PersistantNotification isExpanded={true} style={{ position: 'relative' }}>
+      Here is a persistant notification. Here is more content. Here is more content. Here is more content. Here is more
+      content. Here is more content.
+    </PersistantNotification>
+  </Story>
+</Canvas>
+
+### With a different icon
+
+<Canvas>
+  <Story name="With a different icon">
+    <PersistantNotification isExpanded={true} icon="warning" style={{ position: 'relative' }}>
+      Here's some infomation about the thing you should be warned about, so bad things don't happen.
+    </PersistantNotification>
+  </Story>
+</Canvas>
+
+### With different intents
+
+<Canvas>
+  <Story name="Intent: primary">
+    <PersistantNotification isExpanded={true} intent="primary" style={{ position: 'relative' }}>
+      Here's a notification with a primary intent.
+    </PersistantNotification>
+  </Story>
+  <Story name="Intent: secondary (default)">
+    <PersistantNotification isExpanded={true} intent="secondary" style={{ position: 'relative' }}>
+      Here's a notification with a secondary intent.
+    </PersistantNotification>
+  </Story>
+  <Story name="Intent: critical">
+    <PersistantNotification isExpanded={true} intent="critical" style={{ position: 'relative' }}>
+      Here's a notification with a critical intent.
+    </PersistantNotification>
+  </Story>
+  <Story name="Intent: success">
+    <PersistantNotification isExpanded={true} intent="success" style={{ position: 'relative' }}>
+      Here's a notification with a success intent.
+    </PersistantNotification>
+  </Story>
+  <Story name="Intent: danger">
+    <PersistantNotification isExpanded={true} intent="danger" style={{ position: 'relative' }}>
+      Here's a notification with a danger intent.
+    </PersistantNotification>
+  </Story>
+</Canvas>
+
+### Collapsed/Expanded state
+
+Set the prop `isExpanded` to expand/collapse the component. In the collapsed state the whole component is moved to the right. In normal usage when the component is fixed to the right of the screen this means the content is out of view.
+
+## Other attributes
+
+All other standard HTML attributes for `<div>` are supported and are passed through to the React component.
