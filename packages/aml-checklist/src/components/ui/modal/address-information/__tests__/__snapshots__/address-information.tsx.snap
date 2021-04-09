@@ -612,8 +612,22 @@ exports[`AddressInformation AddressInput should render correctly 1`] = `
     isNarrowWidth={true}
     labelText="Upload File"
     name="metadata.primaryAddress[documentImage]"
+    onFilenameClick={[Function]}
     required={true}
   />
+  <ModalV2
+    afterClose={[Function]}
+    isCentered={true}
+    isResponsive={true}
+    title="Viewing document"
+    visible={false}
+  >
+    <Section>
+      <img
+        src=""
+      />
+    </Section>
+  </ModalV2>
 </div>
 `;
 
@@ -1229,8 +1243,22 @@ exports[`AddressInformation renderSencondaryAddress should match snapshot 1`] = 
     isNarrowWidth={true}
     labelText="Upload File"
     name="metadata.secondaryAddress[documentImage]"
+    onFilenameClick={[Function]}
     required={true}
   />
+  <ModalV2
+    afterClose={[Function]}
+    isCentered={true}
+    isResponsive={true}
+    title="Viewing document"
+    visible={false}
+  >
+    <Section>
+      <img
+        src=""
+      />
+    </Section>
+  </ModalV2>
 </div>
 `;
 

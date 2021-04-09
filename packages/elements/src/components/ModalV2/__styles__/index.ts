@@ -31,6 +31,8 @@ export const modalCentered = css`
 `
 // same styles as our .container class
 export const modalResponsiveContainer = css`
+  max-height: 100vh;
+
   @media screen and (min-width: 1024px) {
     width: 960px;
   }

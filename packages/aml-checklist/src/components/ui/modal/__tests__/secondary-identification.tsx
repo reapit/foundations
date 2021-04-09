@@ -42,7 +42,7 @@ describe('SecondaryIdentification', () => {
         initFormValues: {
           typeId: idCheck.identityDocument2?.typeId,
           details: idCheck.identityDocument2?.details,
-          expiry: new Date(idCheck.identityDocument2?.expiry as string),
+          expiry: idCheck.identityDocument2?.expiry,
           documentId: 'SOME_ID',
         },
       }
