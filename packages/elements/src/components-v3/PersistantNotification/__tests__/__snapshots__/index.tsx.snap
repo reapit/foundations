@@ -1,0 +1,61 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`PersistantNotification component should match a snapshot 1`] = `
+<ElPersistantNotification
+  className="el-intent-secondary"
+>
+  <div
+    className="el-pn-icon"
+    onClick={[Function]}
+  >
+    <Icon
+      icon="info"
+    />
+  </div>
+  <div
+    className="el-pn-content"
+  >
+    I am notification
+  </div>
+</ElPersistantNotification>
+`;
+
+exports[`PersistantNotification component should match a snapshot when expanded 1`] = `
+<ElPersistantNotification
+  className="el-intent-secondary el-is-active"
+>
+  <div
+    className="el-pn-icon"
+    onClick={[Function]}
+  >
+    <Icon
+      icon="info"
+    />
+  </div>
+  <div
+    className="el-pn-content"
+  >
+    I am notification
+  </div>
+</ElPersistantNotification>
+`;
+
+exports[`PersistantNotification component should match a snapshot when given an intent 1`] = `
+<ElPersistantNotification
+  className="el-intent-critical"
+>
+  <div
+    className="el-pn-icon"
+    onClick={[Function]}
+  >
+    <Icon
+      icon="info"
+    />
+  </div>
+  <div
+    className="el-pn-content"
+  >
+    I am notification
+  </div>
+</ElPersistantNotification>
+`;
