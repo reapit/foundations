@@ -14,6 +14,7 @@ import {
   selectCheckListDetailIsSubmitting,
 } from '@/selectors/checklist-detail'
 import { ContactModel } from '@reapit/foundations-ts-definitions'
+import dayjs from 'dayjs'
 
 export type PrimaryIdentiticationProps = DispatchProps & StateProps
 
@@ -53,7 +54,7 @@ export const mapStateToProps = (state: ReduxState): StateProps => {
 
     initFormValues = {
       typeId: typeId || DEFAULT_TYPE,
-      expiry: expiry ? new Date(expiry) : '',
+      expiry: expiry ? dayjs(expiry).format('YYYY-MM-DD') : '',
       details: details || '',
       documentId: documentId || '',
     } as IdentityDocumentForm

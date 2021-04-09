@@ -16,6 +16,7 @@ describe('UpdateStatus', () => {
       status: sectionsStatus,
       loginMode: 'WEB',
       updateIdentityCheckStatus: jest.fn(),
+      idCheckStatus: 'unchecked',
     }
     const wrapper = shallow(<UpdateStatus {...mockProps} />)
     expect(wrapper).toMatchSnapshot()
@@ -27,6 +28,9 @@ describe('UpdateStatus', () => {
         checklistDetail: {
           checklistDetailData: {
             contact,
+            idCheck: {
+              status: 'checked',
+            },
           },
           status: sectionsStatus,
           isSubmitting: false,
@@ -37,6 +41,7 @@ describe('UpdateStatus', () => {
         isSubmitting: false,
         contact,
         status: sectionsStatus,
+        idCheckStatus: 'checked',
       })
     })
     it('should run correctly', () => {
@@ -46,6 +51,7 @@ describe('UpdateStatus', () => {
         isSubmitting: false,
         contact: null,
         status: defaultStatus,
+        idCheckStatus: 'unchecked',
       })
     })
   })

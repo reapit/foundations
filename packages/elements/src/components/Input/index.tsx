@@ -5,7 +5,7 @@ import { fieldValidateRequire } from '../../utils/validators'
 import { cx } from 'linaria'
 
 export interface InputProps {
-  type: 'text' | 'password' | 'email' | 'tel' | 'hidden' | 'time'
+  type: 'text' | 'password' | 'email' | 'tel' | 'hidden' | 'time' | 'date'
   placeholder?: string
   id: string
   labelText?: string

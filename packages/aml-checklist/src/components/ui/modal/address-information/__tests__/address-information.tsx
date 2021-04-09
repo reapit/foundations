@@ -34,7 +34,9 @@ describe('AddressInformation', () => {
 
   describe('renderSencondaryAddress', () => {
     it('should match snapshot', () => {
-      const wrapper = shallow(renderSencondaryAddress(contact.secondaryAddress, false, jest.fn()))
+      const wrapper = shallow(
+        renderSencondaryAddress(contact.secondaryAddress, false, jest.fn(), { documentId: 'SOME_ID' }),
+      )
       expect(wrapper).toMatchSnapshot()
     })
   })
@@ -95,7 +97,10 @@ describe('AddressInformation', () => {
     it('should render correctly', () => {
       const mockProps = {
         index: 0,
-        addressType: 'primaryAddress',
+        addressType: 'primaryAddress' as 'primaryAddress' | 'secondaryAddress',
+        documentImage: {
+          documentId: 'https://someimage.com',
+        },
       }
       const wrapper = shallow(<AddressInput {...mockProps} />)
       expect(wrapper).toMatchSnapshot()
