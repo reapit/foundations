@@ -14,6 +14,6 @@
     "commit": "yarn lint"
   },
   "devDependencies": {
-    "eslint": "7.21.0"
+    "eslint": "7.23.0"
   }
 }
