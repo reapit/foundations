@@ -2,7 +2,9 @@
 
 exports[`UpdateStatus should match snapshot 1`] = `
 <Fragment>
-  <p>
+  <p
+    className="mb-4"
+  >
     You have completed 
     2
      out of 
@@ -11,26 +13,15 @@ exports[`UpdateStatus should match snapshot 1`] = `
     Mrs H Phillips
     . Please now select one of the following options in order to continue
   </p>
-  <div>
-    <AcButton
-      buttonProps={
-        Object {
-          "loading": false,
-          "onClick": [Function],
-          "type": "button",
-          "variant": "primary",
-        }
+  <Formik
+    initialValues={
+      Object {
+        "status": "unchecked",
       }
-      dynamicLinkParams={
-        Object {
-          "appMode": "WEB",
-          "entityCode": "AYL19000001",
-          "entityType": "contacts",
-        }
-      }
-    >
-      ID Check Successful
-    </AcButton>
-  </div>
+    }
+    onSubmit={[Function]}
+  >
+    <Component />
+  </Formik>
 </Fragment>
 `;

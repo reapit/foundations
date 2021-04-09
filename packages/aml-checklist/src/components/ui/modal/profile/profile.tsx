@@ -1,5 +1,5 @@
 import React from 'react'
-import { Button, Input, DatePicker, Formik, Form, ButtonGroup, Section } from '@reapit/elements'
+import { Button, Input, Formik, Form, ButtonGroup, Section } from '@reapit/elements'
 import { connect } from 'react-redux'
 import { Dispatch } from 'redux'
 import { ReduxState } from '@/types/core'
@@ -9,6 +9,7 @@ import { STEPS } from '@/components/ui/modal/modal'
 import styles from '@/styles/pages/checklist-detail.scss?mod'
 import validationSchema from './form-schema/validation-schema'
 import formFields from './form-schema/form-fields'
+import dayjs from 'dayjs'
 
 const {
   titleField,
@@ -48,7 +49,7 @@ export const Profile: React.FC<ProfileProps> = ({ contact, updateContact, isSubm
           [titleField.name]: title,
           [forenameField.name]: forename,
           [surnameField.name]: surname,
-          [dateOfBirthField.name]: dateOfBirth ? new Date(dateOfBirth) : null,
+          [dateOfBirthField.name]: dateOfBirth ? dayjs(dateOfBirth).format('YYYY-MM-DD') : null,
           [homePhoneField.name]: homePhone,
           [workPhoneField.name]: workPhone,
           [mobilePhoneField.name]: mobilePhone,
@@ -64,7 +65,8 @@ export const Profile: React.FC<ProfileProps> = ({ contact, updateContact, isSubm
                 <Input type="text" labelText={titleField.label} id={titleField.name} name={titleField.name} />
                 <Input type="text" labelText={forenameField.label} id={forenameField.name} name={forenameField.name} />
                 <Input type="text" labelText={surnameField.label} id={surnameField.name} name={surnameField.name} />
-                <DatePicker
+                <Input
+                  type="date"
                   labelText={dateOfBirthField.label}
                   id={dateOfBirthField.name}
                   name={dateOfBirthField.name}

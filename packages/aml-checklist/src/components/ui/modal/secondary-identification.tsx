@@ -16,6 +16,7 @@ import {
 } from '@/selectors/checklist-detail'
 import { IdentityDocumentModel, ContactModel, IdentityCheckModel } from '@reapit/foundations-ts-definitions'
 import { isCompletedPrimaryID } from '@reapit/elements'
+import dayjs from 'dayjs'
 
 export const SecondaryIdentification = ({
   contact,
@@ -61,7 +62,7 @@ export const mapStateToProps = (state: ReduxState): StateProps => {
 
     initFormValues = {
       typeId: typeId || DEFAULT_TYPE,
-      expiry: expiry ? new Date(expiry) : undefined,
+      expiry: expiry ? dayjs(expiry).format('YYYY-MM-DD') : '',
       details: details || '',
       documentId: documentId || '',
     } as IdentityDocumentForm

@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { SetStateAction, useState } from 'react'
 import {
   Input,
   Button,
@@ -8,6 +8,9 @@ import {
   Formik,
   Form,
   ButtonGroup,
+  ModalV2,
+  Loader,
+  Section,
 } from '@reapit/elements'
 import { connect } from 'react-redux'
 import { Dispatch } from 'redux'
@@ -19,6 +22,7 @@ import { updateAddressHistory, checklistDetailShowModal } from '@/actions/checkl
 import { STEPS } from '@/components/ui/modal/modal'
 import { formFields } from './form-schema/form-fields'
 import validationSchema from './form-schema/validation-schema'
+import { handleCloseModal, IdentityDocumentForm, ModalState } from '../../forms/identification'
 
 const optionsMonth = [
   { label: '0', value: '0' },
@@ -72,8 +76,28 @@ export const handleMoreThreeYear = ({ setShowMoreThreeYearInput, isShowMoreThree
   setShowMoreThreeYearInput(!isShowMoreThreeYearInput)
 }
 
-export const AddressInput = ({ addressType }) => {
+export type AddressType = 'primaryAddress' | 'secondaryAddress'
+
+export interface AddressInputProps {
+  addressType: AddressType
+  documentImage: IdentityDocumentForm
+}
+
+export const handleFilenameClick = (
+  values: IdentityDocumentForm,
+  setModalState: React.Dispatch<SetStateAction<ModalState>>,
+) => (e) => {
+  e.preventDefault()
+  setModalState({ isLoading: false, isVisible: true, image: values.documentId })
+}
+
+export const AddressInput = ({ addressType, documentImage }: AddressInputProps) => {
   const fields = formFields(addressType)
+  const [modalState, setModalState] = useState<ModalState>({
+    image: null,
+    isLoading: false,
+    isVisible: false,
+  })
   const {
     typeField,
     buildingNameField,
@@ -134,23 +158,44 @@ export const AddressInput = ({ addressType }) => {
         labelText={documentImageField.label || ''}
         id={documentImageField.name}
         name={documentImageField.name}
+        onFilenameClick={handleFilenameClick(documentImage, setModalState)}
         allowClear={true}
         required
         isNarrowWidth
         accept="image/*"
       />
+      <ModalV2
+        isCentered
+        isResponsive
+        visible={modalState.isVisible}
+        afterClose={handleCloseModal(setModalState)}
+        title="Viewing document"
+      >
+        {modalState.isLoading ? (
+          <Loader />
+        ) : (
+          <Section>
+            <img src={modalState.image || ''} />
+          </Section>
+        )}
+      </ModalV2>
     </div>
   )
 }
 
-export const renderSencondaryAddress = (secondaryAddress, isShowMoreThreeYearInput, setShowMoreThreeYearInput) => {
+export const renderSencondaryAddress = (
+  secondaryAddress,
+  isShowMoreThreeYearInput,
+  setShowMoreThreeYearInput,
+  documentImage,
+) => {
   if (secondaryAddress) {
-    return <AddressInput addressType="secondaryAddress" />
+    return <AddressInput addressType="secondaryAddress" documentImage={{ documentId: documentImage }} />
   }
   if (isShowMoreThreeYearInput) {
     return (
       <>
-        <AddressInput addressType="secondaryAddress" />
+        <AddressInput addressType="secondaryAddress" documentImage={{ documentId: documentImage }} />
         <div className={styles.moreThreeYearLink}>
           <a
             data-test="more-three-year"
@@ -224,8 +269,16 @@ export const AddressInformation: React.FC<AddressInformationProps> = ({
         {({ values, isValid }) => {
           return (
             <Form>
-              <AddressInput addressType="primaryAddress" />
-              {renderSencondaryAddress(secondaryAddress, isShowMoreThreeYearInput, setShowMoreThreeYearInput)}
+              <AddressInput
+                addressType="primaryAddress"
+                documentImage={{ documentId: formatedMetadata?.primaryAddress?.documentImage }}
+              />
+              {renderSencondaryAddress(
+                secondaryAddress,
+                isShowMoreThreeYearInput,
+                setShowMoreThreeYearInput,
+                formatedMetadata?.secondaryAddress?.documentImage,
+              )}
               <div className="field pb-2">
                 <div className={`columns ${styles.reverseColumns}`}>
                   <ButtonGroup hasSpacing isCentered>

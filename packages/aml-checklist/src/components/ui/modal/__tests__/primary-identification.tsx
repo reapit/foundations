@@ -43,7 +43,7 @@ describe('PrimaryIdentification', () => {
         initFormValues: {
           typeId: idCheck.identityDocument1?.typeId,
           details: idCheck.identityDocument1?.details,
-          expiry: new Date(idCheck.identityDocument1?.expiry as string),
+          expiry: idCheck.identityDocument1?.expiry,
           documentId: 'SOME_ID',
         },
       }
