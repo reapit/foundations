@@ -11341,6 +11341,271 @@ export interface TenancySourceModel {
   type?: string
 }
 /**
+ * Model representing a transaction
+ */
+export interface TransactionModel {
+  readonly _links?: {
+    [name: string]: {
+      href?: string
+    }
+  }
+  readonly _embedded?: {
+    [name: string]: any
+  }
+  /**
+   * The unique identifier of the transaction
+   */
+  id?: string
+  /**
+   * The date and time when the transaction was created
+   * example:
+   * 2019-08-14T12:30:02.0000000Z
+   */
+  created?: string // date-time
+  /**
+   * The date and time when the transaction was last modified
+   * example:
+   * 2019-08-14T12:30:02.0000000Z
+   */
+  modified?: string // date-time
+  /**
+   * The transaction category (advertisingCharge,accountTransfer,bankCharges,buyerAdminFee,buyerDeposit,buyerPayment,deposit,depositDeduction,depositRefund,depositTransfer,depositTransferToAgent,depositTransferToLandlord,depositTransferToScheme,estateServiceCharge,estateWorksOrder,estateUnitWorksOrder,externalCredit,externalAgentFee,freeholderPayment,float,groundRent,goodwillPayment,holdingDeposit,introducingTenantFee,landlordAdminFee,landlordTax,landlordPayment,landlordToSupplierPayment,landlordWorksOrder,leaseholderAdminFee,leaseholderPayment,leaseholderRepayment,leaseholderWorksOrder,lettingFee,managementFee,paymentSurcharge,receipt,rent,rentGuarantee,recoveryPayment,reserveFund,tenantAdminFee,tenantPayment,tenantToLandlordPayment,tenantToSupplierPayment,trustAccountingInvoice,tenantWorksOrder,vacantManagementFee,vendorAdminFee,vendorCommission,vendorPayment,vendorToSupplierPayment,worksOrderPayment)
+   */
+  category?: string
+  /**
+   * The transaction type (bankersDraft,bankTransfer,cash,cheque,creditCard,debitCard,directDebit,housingBenefit,paymentRequest,standingOrder)
+   */
+  type?: string
+  /**
+   * The transaction description
+   */
+  description?: string
+  /**
+   * The status of the transaction (awaitingAuthorisation/awaitingPosting/posted/rejected)
+   */
+  status?: string
+  /**
+   * The ledger the transaction is recorded in
+   */
+  ledger?: string
+  /**
+   * The transaction net amount
+   */
+  netAmount?: number // double
+  /**
+   * The transaction tax amount
+   */
+  taxAmount?: number // double
+  /**
+   * The transaction gross amount
+   */
+  grossAmount?: number // double
+  /**
+   * The amount outstanding that remains to be paid
+   */
+  outstanding?: number // double
+  /**
+   * The unique identifier of the company the transaction is associated with, where applicable
+   */
+  companyId?: string
+  /**
+   * The unique identifier of the landlord the transaction is associated with, where applicable
+   */
+  landlordId?: string
+  /**
+   * The unique identifier of the property the transaction is associated with, where applicable
+   */
+  propertyId?: string
+  /**
+   * The unique identifier of the tenancy the transaction is associated with, where applicable
+   */
+  tenancyId?: string
+  /**
+   * The ETag for the current version of the transaction. Used for managing update concurrency
+   */
+  readonly _eTag?: string
+}
+export interface TransactionModelPagedResult {
+  _embedded?: {
+    readonly _links?: {
+      [name: string]: {
+        href?: string
+      }
+    }
+    readonly _embedded?: {
+      [name: string]: any
+    }
+    /**
+     * The unique identifier of the transaction
+     */
+    id?: string
+    /**
+     * The date and time when the transaction was created
+     * example:
+     * 2019-08-14T12:30:02.0000000Z
+     */
+    created?: string // date-time
+    /**
+     * The date and time when the transaction was last modified
+     * example:
+     * 2019-08-14T12:30:02.0000000Z
+     */
+    modified?: string // date-time
+    /**
+     * The transaction category (advertisingCharge,accountTransfer,bankCharges,buyerAdminFee,buyerDeposit,buyerPayment,deposit,depositDeduction,depositRefund,depositTransfer,depositTransferToAgent,depositTransferToLandlord,depositTransferToScheme,estateServiceCharge,estateWorksOrder,estateUnitWorksOrder,externalCredit,externalAgentFee,freeholderPayment,float,groundRent,goodwillPayment,holdingDeposit,introducingTenantFee,landlordAdminFee,landlordTax,landlordPayment,landlordToSupplierPayment,landlordWorksOrder,leaseholderAdminFee,leaseholderPayment,leaseholderRepayment,leaseholderWorksOrder,lettingFee,managementFee,paymentSurcharge,receipt,rent,rentGuarantee,recoveryPayment,reserveFund,tenantAdminFee,tenantPayment,tenantToLandlordPayment,tenantToSupplierPayment,trustAccountingInvoice,tenantWorksOrder,vacantManagementFee,vendorAdminFee,vendorCommission,vendorPayment,vendorToSupplierPayment,worksOrderPayment)
+     */
+    category?: string
+    /**
+     * The transaction type (bankersDraft,bankTransfer,cash,cheque,creditCard,debitCard,directDebit,housingBenefit,paymentRequest,standingOrder)
+     */
+    type?: string
+    /**
+     * The transaction description
+     */
+    description?: string
+    /**
+     * The status of the transaction (awaitingAuthorisation/awaitingPosting/posted/rejected)
+     */
+    status?: string
+    /**
+     * The ledger the transaction is recorded in
+     */
+    ledger?: string
+    /**
+     * The transaction net amount
+     */
+    netAmount?: number // double
+    /**
+     * The transaction tax amount
+     */
+    taxAmount?: number // double
+    /**
+     * The transaction gross amount
+     */
+    grossAmount?: number // double
+    /**
+     * The amount outstanding that remains to be paid
+     */
+    outstanding?: number // double
+    /**
+     * The unique identifier of the company the transaction is associated with, where applicable
+     */
+    companyId?: string
+    /**
+     * The unique identifier of the landlord the transaction is associated with, where applicable
+     */
+    landlordId?: string
+    /**
+     * The unique identifier of the property the transaction is associated with, where applicable
+     */
+    propertyId?: string
+    /**
+     * The unique identifier of the tenancy the transaction is associated with, where applicable
+     */
+    tenancyId?: string
+    /**
+     * The ETag for the current version of the transaction. Used for managing update concurrency
+     */
+    readonly _eTag?: string
+  }[]
+  pageNumber?: number // int32
+  pageSize?: number // int32
+  pageCount?: number // int32
+  totalPageCount?: number // int32
+  totalCount?: number // int32
+  _links?: {
+    [name: string]: {
+      href?: string
+    }
+  }
+}
+export interface Transactions {
+  pageSize?: number
+  pageNumber?: number
+  sortBy?: string
+  id?: string[]
+  propertyId?: string[]
+  landlordId?: string[]
+  tenancyId?: string[]
+  status?: ('awaitingAuthorisation' | 'awaitingPosting' | 'posted' | 'rejected')[]
+  type?: (
+    | 'creditAdjustment'
+    | 'creditNoteCorrection'
+    | 'creditNoteGoodwillPayment'
+    | 'creditNoteRefund'
+    | 'creditNoteRepayment'
+    | 'creditNoteWriteOff'
+    | 'debitAdjustment'
+    | 'deposit'
+    | 'float'
+    | 'invoice'
+    | 'journal'
+    | 'openingBalanceDr'
+    | 'openingBalancingCr'
+    | 'payment'
+    | 'reserveFunds'
+    | 'transfer'
+  )[]
+  ledger?: ('landlord' | 'tenant')[]
+  category?: (
+    | 'advertisingCharge'
+    | 'accountTransfer'
+    | 'bankCharges'
+    | 'buyerAdminFee'
+    | 'buyerDeposit'
+    | 'buyerPayment'
+    | 'deposit'
+    | 'depositDeduction'
+    | 'depositRefund'
+    | 'depositTransfer'
+    | 'depositTransferToAgent'
+    | 'depositTransferToLandlord'
+    | 'depositTransferToScheme'
+    | 'estateServiceCharge'
+    | 'estateWorksOrder'
+    | 'estateUnitWorksOrder'
+    | 'externalCredit'
+    | 'externalAgentFee'
+    | 'freeholderPayment'
+    | 'float'
+    | 'groundRent'
+    | 'goodwillPayment'
+    | 'holdingDeposit'
+    | 'introducingTenantFee'
+    | 'landlordAdminFee'
+    | 'landlordTax'
+    | 'landlordPayment'
+    | 'landlordToSupplierPayment'
+    | 'landlordWorksOrder'
+    | 'leaseholderAdminFee'
+    | 'leaseholderPayment'
+    | 'leaseholderRepayment'
+    | 'leaseholderWorksOrder'
+    | 'lettingFee'
+    | 'managementFee'
+    | 'paymentSurcharge'
+    | 'receipt'
+    | 'rent'
+    | 'rentGuarantee'
+    | 'recoveryPayment'
+    | 'reserveFund'
+    | 'tenantAdminFee'
+    | 'tenantPayment'
+    | 'tenantToLandlordPayment'
+    | 'tenantToSupplierPayment'
+    | 'trustAccountingInvoice'
+    | 'tenantWorksOrder'
+    | 'vacantManagementFee'
+    | 'vendorAdminFee'
+    | 'vendorCommission'
+    | 'vendorPayment'
+    | 'vendorToSupplierPayment'
+    | 'worksOrderPayment'
+  )[]
+  createdFrom?: string
+  createdTo?: string
+}
+/**
  * The details specific to applicants with a marketingMode of buying
  */
 export interface UpdateApplicantBuyingModel {
