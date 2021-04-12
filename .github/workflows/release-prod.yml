@@ -37,7 +37,7 @@ jobs:
 
       - name: Set Version
         run: |
-          echo "${{ steps.tagName.outputs.version}}" >> $RELEASE_VERSION
+          echo "RELEASE_VERSION=${{ steps.tagName.outputs.package }}_${{ steps.tagName.outputs.version }}" >> $GITHUB_ENV
 
       - name: Install
         run: yarn
