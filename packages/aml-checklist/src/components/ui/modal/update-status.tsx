@@ -1,7 +1,7 @@
 import React from 'react'
 import { connect } from 'react-redux'
 import { Dispatch } from 'redux'
-import { DynamicLinkParams, AcButton, EntityType, Formik, Form, RadioSelect } from '@reapit/elements'
+import { DynamicLinkParams, AcButton, EntityType, Formik, Form, RadioSelect, ButtonGroup } from '@reapit/elements'
 import { ReduxState } from '@/types/core'
 import { checkListDetailIdentityCheckUpdateData } from '@/actions/checklist-detail'
 import { ContactModel, IdentityCheckModel } from '@reapit/foundations-ts-definitions'
@@ -71,21 +71,23 @@ export const UpdateStatus: React.FC<UpdateStatusProps> = ({
               state={values[initialProps.name]}
               {...initialProps}
             />
-            <AcButton
-              dynamicLinkParams={{
-                entityType: EntityType.CONTACT,
-                entityCode: id,
-                appMode: loginMode,
-              }}
-              buttonProps={{
-                type: 'submit',
-                variant: 'primary',
-                loading: isSubmitting,
-                disabled: !values.status,
-              }}
-            >
-              ID Check Successful
-            </AcButton>
+            <ButtonGroup hasSpacing isCentered>
+              <AcButton
+                dynamicLinkParams={{
+                  entityType: EntityType.CONTACT,
+                  entityCode: id,
+                  appMode: loginMode,
+                }}
+                buttonProps={{
+                  type: 'submit',
+                  variant: 'primary',
+                  loading: isSubmitting,
+                  disabled: !values.status,
+                }}
+              >
+                Save Status
+              </AcButton>
+            </ButtonGroup>
           </Form>
         )}
       </Formik>
