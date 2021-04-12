@@ -3,33 +3,7 @@
   "private": true,
   "workspaces": {
     "packages": [
-      "packages/admin-portal",
-      "packages/aml-checklist",
-      "packages/api-docs-lamda",
-      "packages/cloud-alert",
-      "packages/cognito-custom-mail-lambda",
-      "packages/config-manager",
-      "packages/connect-session",
-      "packages/cra-template-foundations",
-      "packages/data-warehouse",
-      "packages/developer-portal",
-      "packages/elements",
-      "packages/events-service",
-      "packages/foundations-ts-definitions",
-      "packages/geo-diary",
-      "packages/graphql-server",
-      "packages/insights",
-      "packages/login-with-reapit",
-      "packages/marketplace-management",
-      "packages/marketplace",
-      "packages/mailer-service",
-      "packages/payments-client",
-      "packages/payments-service",
-      "packages/react-app-scaffolder",
-      "packages/reapit-connect",
-      "packages/ts-scripts",
-      "packages/ts-types",
-      "packages/utils"
+      "packages/*"
     ]
   },
   "scripts": {
