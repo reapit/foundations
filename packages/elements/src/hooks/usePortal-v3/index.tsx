@@ -9,8 +9,7 @@ function createRootElement(id: string): HTMLDivElement {
 
 // Appends element as last child of body.
 function addRootElement(rootElem: HTMLDivElement) {
-  if (document?.body?.lastElementChild?.nextElementSibling)
-    document.body.insertBefore(rootElem, document.body.lastElementChild.nextElementSibling)
+  document.body.appendChild(rootElem)
 }
 
 /**

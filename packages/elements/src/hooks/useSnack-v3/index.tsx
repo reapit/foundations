@@ -1,52 +1,28 @@
-import { useState } from 'react'
+import React, { useState } from 'react'
+import { createPortal } from 'react-dom'
 import usePortal from '../usePortal-v3'
+import { Snack } from '../../components-v3/Snack'
 
-function useSnack(id: string): HTMLDivElement {
-  const portal = usePortal<HTMLDivElement>(id)
+function useSnack() {
+  const SNACK_PORTAL_ID = 'SNACK_PORTAL_ID'
 
-  useEffect(
-    function setupElement() {
-      // Look for existing target dom element to append to
-      const existingParent = document.querySelector(`#${id}`) as HTMLDivElement
-      // Parent is either a new root or the existing dom element
-      const parentElem = existingParent || createRootElement(id)
+  const [snacks, setSnacks] = useState<string[]>([])
+  const portal = usePortal(SNACK_PORTAL_ID)
 
-      // If there is no existing DOM element, add a new one.
-      if (!existingParent) {
-        addRootElement(parentElem)
-      }
-
-      // Add the detached element to the parent
-      if (rootElemRef.current) parentElem.appendChild(rootElemRef.current)
-
-      return function removeElement() {
-        if (rootElemRef.current) rootElemRef.current.remove()
-        if (!parentElem.childElementCount) {
-          parentElem.remove()
-        }
-      }
-    },
-    [id],
+  const snackbar = createPortal(
+    <div style={{ position: 'fixed', top: '0', right: 0, background: 'green', width: '500px', height: '500px' }}>
+      {snacks.map((text) => (
+        <Snack>{text}</Snack>
+      ))}
+    </div>,
+    portal,
   )
 
-  /**
-   * It's important we evaluate this lazily:
-   * - We need first render to contain the DOM element, so it shouldn't happen
-   *   in useEffect. We would normally put this in the constructor().
-   * - We can't do 'const rootElemRef = useRef(document.createElement('div))',
-   *   since this will run every single render (that's a lot).
-   * - We want the ref to consistently point to the same DOM element and only
-   *   ever run once.
-   * @link https://reactjs.org/docs/hooks-faq.html#how-to-create-expensive-objects-lazily
-   */
-  function getRootElem() {
-    if (!rootElemRef.current) {
-      rootElemRef.current = document.createElement('div')
-    }
-    return rootElemRef.current
+  function addSnack(text: string) {
+    setSnacks([...snacks, text])
   }
 
-  return getRootElem()
+  return { snackbar, addSnack }
 }
 
-export default usePortal
+export default useSnack
