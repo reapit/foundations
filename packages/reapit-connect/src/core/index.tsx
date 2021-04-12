@@ -1,5 +1,6 @@
 /* istanbul ignore file */
 import React from 'react'
+import * as Sentry from '@sentry/browser'
 import { render } from 'react-dom'
 import { Config } from '@/types/global'
 import { logger } from '@reapit/utils'
@@ -14,6 +15,7 @@ window.reapit = {
     connectOAuthUrl: '',
     connectUserPoolId: '',
     developerPortalUrl: '',
+    sentryDns: '',
   },
 }
 
@@ -33,6 +35,15 @@ const run = async () => {
   try {
     const configRes = await fetch('config.json')
     const config = (await configRes.json()) as Config
+    const isLocal = config.appEnv !== 'production'
+
+    if (!isLocal && config.sentryDns) {
+      Sentry.init({
+        release: process.env.APP_VERSION,
+        dsn: config.sentryDns,
+        environment: config.appEnv,
+      })
+    }
 
     window.reapit.config = config
 
