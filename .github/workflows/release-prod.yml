@@ -37,7 +37,7 @@ jobs:
 
       - name: Set Version
         run: |
-          echo "${{ steps.tagName.outputs.version}}" >> $RELEASE_VERSION
+          echo "${{steps.tagName.outputs.version}}" >> $RELEASE_VERSION
 
       - name: Install
         run: yarn
