@@ -87,11 +87,6 @@ const RedirectUriSection: React.FC<RedirectUriSectionProps> = ({ authFlow, isPri
             name={limitToClientIds.name}
             placeholder={limitToClientIds.placeHolder}
           />
-          <FormSubHeading>
-            This field is disabled during the beta period. Your app will be private by default as the Marketplace is not
-            yet live. You will have the opportunity to make your app private via an edit before setting it to be
-            &#34;Listed&#34; in the marketplace when we move from beta to production.
-          </FormSubHeading>
         </GridItem>
       </Grid>
     </FormSection>

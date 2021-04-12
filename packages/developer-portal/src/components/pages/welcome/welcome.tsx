@@ -162,9 +162,7 @@ export const Support = () => {
   return (
     <div className={content}>
       <p className="mb-5">
-        You are currently logged into our Beta release of Reapit Foundations and we are continuing to update, add
-        additional features and address any issues that may appear. In the meantime, if you would like to request a
-        feature or report a bug, this can be done from the ‘Help’ section on the left.
+        If you would like to request a feature or report a bug, this can be done from the ‘Help’ section on the left.
       </p>
 
       <p className="mb-5">
