@@ -29,7 +29,7 @@ export const StepBeforeYouStart: WizardStepComponent = ({ setWizardStep }) => {
         footerItems={
           <ButtonGroup hasSpacing isCentered>
             <a
-              className="button is-white is-secondary"
+              className="button is-secondary"
               href={`${Routes.API_DOCS}/developer-portal`}
               rel="noreferrer"
               target="_blank"

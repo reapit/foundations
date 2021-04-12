@@ -121,7 +121,7 @@ exports[`DeveloperDesktopPage SettingsBillingTabPage should match snapshot 1`] =
           <p
             className="mb-4"
           >
-            The subscriptions table below is just for reference whilst we are in Beta. When we move out of the Beta Phase you can use the table below to view and manage your Developer Portal Subscriptions.
+            Please use the table below to view and manage your Developer Portal Subscriptions.
           </p>
           <Table
             bordered={true}
