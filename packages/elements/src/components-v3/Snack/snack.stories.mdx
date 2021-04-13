@@ -1,7 +1,7 @@
 import { Meta, Story, Canvas } from '@storybook/addon-docs/blocks'
 import { Snack } from './index'
-import { Button } from '../Button'
-import useSnack from '../../hooks/useSnack-v3'
+import { SnackProvider } from '../../contexts/snacks'
+import { UseSnackHookStory } from './__stories__/useSnackHookStory'
 
 <Meta title="V3/Snack" component={Snack} />
 
@@ -63,21 +63,13 @@ Set the `className` prop to add additional custom CSS classes
   </Story>
 </Canvas>
 
-## useSnack hook
+## Complete example with `SnackProvider` and `useSnack` hook
 
 <Canvas>
   <Story name="useSnack hook">
-    {() => {
-      const { snackbar, addSnack } = useSnack()
-      return (
-        <>
-          {snackbar}
-          <Button intent="primary" onClick={() => addSnack('i am a snack')}>
-            Add a snack
-          </Button>
-        </>
-      )
-    }}
+    <SnackProvider>
+      <UseSnackHookStory />
+    </SnackProvider>
   </Story>
 </Canvas>
 
