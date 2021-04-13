@@ -1,0 +1,86 @@
+import { Meta, Story, Canvas } from '@storybook/addon-docs/blocks'
+import { Snack } from './index'
+import { Button } from '../Button'
+import useSnack from '../../hooks/useSnack-v3'
+
+<Meta title="V3/Snack" component={Snack} />
+
+# Snack
+
+Underlying tag: `<div>`
+
+<Canvas>
+  <Story name="Default Usage">
+    <Snack>Message goes here</Snack>
+  </Story>
+</Canvas>
+
+## With an icon
+
+<Canvas>
+  <Story name="With an icon">
+    <Snack icon="info">Message goes here</Snack>
+  </Story>
+</Canvas>
+
+## Different intents
+
+<Canvas>
+  <Story name="Intent: primary">
+    <Snack icon="info" intent="primary">
+      Primary message goes here
+    </Snack>
+  </Story>
+  <Story name="Intent: secondary">
+    <Snack intent="secondary" icon="info">
+      Secondary message goes here
+    </Snack>
+  </Story>
+  <Story name="Intent: Critical">
+    <Snack intent="critical" icon="warning">
+      Critical message goes here
+    </Snack>
+  </Story>
+  <Story name="Intent: success">
+    <Snack intent="success" icon="thick">
+      Success message goes here
+    </Snack>
+  </Story>
+  <Story name="Intent: danger">
+    <Snack intent="danger" icon="error">
+      Danger message goes here
+    </Snack>
+  </Story>
+</Canvas>
+
+## Additional className
+
+Set the `className` prop to add additional custom CSS classes
+
+<Canvas>
+  <Story name="Additional className">
+    <Snack className="my-custom-className">Snack with additional className</Snack>
+  </Story>
+</Canvas>
+
+## useSnack hook
+
+<Canvas>
+  <Story name="useSnack hook">
+    {() => {
+      const { snackbar, addSnack } = useSnack()
+      return (
+        <>
+          {snackbar}
+          <Button intent="primary" onClick={() => addSnack('i am a snack')}>
+            Add a snack
+          </Button>
+        </>
+      )
+    }}
+  </Story>
+</Canvas>
+
+## Other attributes
+
+All other standard HTML attributes for `<div>` are supported and are passed through to the React component

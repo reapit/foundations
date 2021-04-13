@@ -43,11 +43,11 @@ export const elVariables = css`
       --intent-success-light: #e3eed1;
       --intent-danger-light: #fbeaef;
       /* intent light text colors */
-      --intent-primary-light-text: var(--color-grey-dark);
-      --intent-secondary-light-text: var(--color-grey-dark);
-      --intent-critical-light-text: var(--color-grey-dark);
-      --intent-success-light-text: var(--color-grey-dark);
-      --intent-danger-light-text: var(--color-grey-dark);
+      --intent-primary-light-text: var(--color-black);
+      --intent-secondary-light-text: var(--color-black);
+      --intent-critical-light-text: var(--color-black);
+      --intent-success-light-text: var(--color-black);
+      --intent-danger-light-text: var(--color-black);
 
       /** intent dark color variables */
       --intent-primary-dark: var(--color-blue-dark);
