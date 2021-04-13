@@ -5035,6 +5035,8 @@ __metadata:
   resolution: "@reapit/connect-session@workspace:packages/connect-session"
   dependencies:
     "@reapit/config-manager": "workspace:packages/config-manager"
+    "@reapit/ts-scripts": "workspace:packages/ts-scripts"
+    "@reapit/ts-types": "workspace:packages/ts-types"
     "@testing-library/react-hooks": ^5.0.3
     axios: ^0.21.1
     concurrently: ^5.3.0
@@ -5071,6 +5073,8 @@ __metadata:
     "@mdx-js/react": ^1.6.22
     "@reapit/config-manager": "workspace:packages/config-manager"
     "@reapit/foundations-ts-definitions": "workspace:packages/foundations-ts-definitions"
+    "@reapit/ts-scripts": "workspace:packages/ts-scripts"
+    "@reapit/ts-types": "workspace:packages/ts-types"
     "@rollup/plugin-babel": ^5.3.0
     "@storybook/addon-actions": ^6.1.20
     "@storybook/addon-docs": ^6.1.20
@@ -5143,6 +5147,8 @@ __metadata:
   resolution: "@reapit/foundations-ts-definitions@workspace:packages/foundations-ts-definitions"
   dependencies:
     "@reapit/config-manager": "workspace:packages/config-manager"
+    "@reapit/ts-scripts": "workspace:packages/ts-scripts"
+    "@reapit/ts-types": "workspace:packages/ts-types"
     concurrently: ^5.3.0
     eslint: 7.23.0
     sw2dts: ^2.6.3
@@ -5167,6 +5173,8 @@ __metadata:
   resolution: "@reapit/login-with-reapit@workspace:packages/login-with-reapit"
   dependencies:
     "@reapit/connect-session": "workspace:packages/connect-session"
+    "@reapit/ts-scripts": "workspace:packages/ts-scripts"
+    "@reapit/ts-types": "workspace:packages/ts-types"
     "@testing-library/svelte": ^3.0.3
     concurrently: ^6.0.0
     cross-env: ^7.0.3
@@ -5302,6 +5310,8 @@ __metadata:
   resolution: "@reapit/utils@workspace:packages/utils"
   dependencies:
     "@reapit/config-manager": "workspace:packages/config-manager"
+    "@reapit/ts-scripts": "workspace:packages/ts-scripts"
+    "@reapit/ts-types": "workspace:packages/ts-types"
     "@sentry/node": ^5.30.0
     concurrently: ^5.3.0
     cross-env: ^7.0.3
@@ -9205,6 +9215,8 @@ __metadata:
     "@reapit/connect-session": "workspace:packages/connect-session"
     "@reapit/elements": "workspace:packages/elements"
     "@reapit/foundations-ts-definitions": "workspace:packages/foundations-ts-definitions"
+    "@reapit/ts-scripts": "workspace:packages/ts-scripts"
+    "@reapit/ts-types": "workspace:packages/ts-types"
     "@reapit/utils": "workspace:packages/utils"
     "@redux-saga/testing-utils": ^1.1.3
     "@sentry/browser": ^5.30.0
@@ -9408,6 +9420,8 @@ __metadata:
     "@reapit/config-manager": "workspace:packages/config-manager"
     "@reapit/elements": "workspace:packages/elements"
     "@reapit/foundations-ts-definitions": "workspace:packages/foundations-ts-definitions"
+    "@reapit/ts-scripts": "workspace:packages/ts-scripts"
+    "@reapit/ts-types": "workspace:packages/ts-types"
     "@reapit/utils": "workspace:packages/utils"
     "@sentry/browser": ^5.30.0
     concurrently: ^5.3.0
@@ -9635,6 +9649,8 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "api-docs-lambda@workspace:packages/api-docs-lamda"
   dependencies:
+    "@reapit/ts-scripts": "workspace:packages/ts-scripts"
+    "@reapit/ts-types": "workspace:packages/ts-types"
     axios: ^0.21.1
     cross-env: ^7.0.3
     jest: ^26.6.3
@@ -13025,6 +13041,8 @@ __metadata:
     "@babel/preset-env": ^7.13.8
     "@cypress/webpack-preprocessor": ^5.6.0
     "@reapit/config-manager": "workspace:packages/config-manager"
+    "@reapit/ts-scripts": "workspace:packages/ts-scripts"
+    "@reapit/ts-types": "workspace:packages/ts-types"
     "@slack/web-api": ^5.15.0
     "@slack/webhook": ^5.0.4
     "@typescript-eslint/eslint-plugin": ^2.34.0
@@ -13085,6 +13103,8 @@ __metadata:
   resolution: "cognito-custom-mail-lambda@workspace:packages/cognito-custom-mail-lambda"
   dependencies:
     "@reapit/config-manager": "workspace:packages/config-manager"
+    "@reapit/ts-scripts": "workspace:packages/ts-scripts"
+    "@reapit/ts-types": "workspace:packages/ts-types"
     aws-lambda: ^1.0.6
     concurrently: ^5.3.0
     cross-env: ^7.0.3
@@ -14472,6 +14492,8 @@ __metadata:
     "@reapit/config-manager": "workspace:packages/config-manager"
     "@reapit/connect-session": "workspace:packages/connect-session"
     "@reapit/elements": "workspace:packages/elements"
+    "@reapit/ts-scripts": "workspace:packages/ts-scripts"
+    "@reapit/ts-types": "workspace:packages/ts-types"
     "@sentry/browser": ^5.30.0
     concurrently: ^5.3.0
     cross-env: ^6.0.3
@@ -15061,6 +15083,8 @@ __metadata:
     "@reapit/connect-session": "workspace:packages/connect-session"
     "@reapit/elements": "workspace:packages/elements"
     "@reapit/foundations-ts-definitions": "workspace:packages/foundations-ts-definitions"
+    "@reapit/ts-scripts": "workspace:packages/ts-scripts"
+    "@reapit/ts-types": "workspace:packages/ts-types"
     "@reapit/utils": "workspace:packages/utils"
     "@redux-saga/testing-utils": ^1.1.3
     "@sentry/browser": ^5.30.0
@@ -17025,6 +17049,8 @@ __metadata:
     "@aws/dynamodb-data-mapper": ^0.7.3
     "@aws/dynamodb-data-mapper-annotations": ^0.7.3
     "@reapit/config-manager": "workspace:packages/config-manager"
+    "@reapit/ts-scripts": "workspace:packages/ts-scripts"
+    "@reapit/ts-types": "workspace:packages/ts-types"
     "@reapit/utils": "workspace:packages/utils"
     "@sentry/node": ^5.30.0
     aws-lambda: ^1.0.6
@@ -18661,6 +18687,8 @@ fsevents@^1.2.7:
     "@reapit/connect-session": "workspace:packages/connect-session"
     "@reapit/elements": "workspace:packages/elements"
     "@reapit/foundations-ts-definitions": "workspace:packages/foundations-ts-definitions"
+    "@reapit/ts-scripts": "workspace:packages/ts-scripts"
+    "@reapit/ts-types": "workspace:packages/ts-types"
     "@reapit/utils": "workspace:packages/utils"
     "@sentry/browser": ^5.30.0
     apollo-boost: ^0.4.9
@@ -19489,6 +19517,8 @@ fsevents@^1.2.7:
     "@babel/preset-env": ^7.13.8
     "@reapit/config-manager": "workspace:packages/config-manager"
     "@reapit/elements": "workspace:packages/elements"
+    "@reapit/ts-scripts": "workspace:packages/ts-scripts"
+    "@reapit/ts-types": "workspace:packages/ts-types"
     "@reapit/utils": "workspace:packages/utils"
     apollo-server-core: ^2.21.0
     apollo-server-lambda: ^2.21.0
@@ -20816,6 +20846,8 @@ fsevents@^1.2.7:
     "@reapit/config-manager": "workspace:packages/config-manager"
     "@reapit/connect-session": "workspace:packages/connect-session"
     "@reapit/elements": "workspace:packages/elements"
+    "@reapit/ts-scripts": "workspace:packages/ts-scripts"
+    "@reapit/ts-types": "workspace:packages/ts-types"
     "@sentry/browser": ^5.30.0
     concurrently: ^5.3.0
     cross-env: ^6.0.3
@@ -24736,6 +24768,8 @@ fsevents@^1.2.7:
   resolution: "mailer-service@workspace:packages/mailer-service"
   dependencies:
     "@reapit/config-manager": "workspace:packages/config-manager"
+    "@reapit/ts-scripts": "workspace:packages/ts-scripts"
+    "@reapit/ts-types": "workspace:packages/ts-types"
     "@sentry/node": ^5.30.0
     aws-sdk: ^2.853.0
     axios: ^0.21.1
@@ -24878,6 +24912,8 @@ fsevents@^1.2.7:
     "@reapit/config-manager": "workspace:packages/config-manager"
     "@reapit/connect-session": "workspace:packages/connect-session"
     "@reapit/elements": "workspace:packages/elements"
+    "@reapit/ts-scripts": "workspace:packages/ts-scripts"
+    "@reapit/ts-types": "workspace:packages/ts-types"
     "@sentry/browser": ^5.30.0
     concurrently: ^5.3.0
     cross-env: ^6.0.3
@@ -24914,6 +24950,8 @@ fsevents@^1.2.7:
     "@reapit/connect-session": "workspace:packages/connect-session"
     "@reapit/elements": "workspace:packages/elements"
     "@reapit/foundations-ts-definitions": "workspace:packages/foundations-ts-definitions"
+    "@reapit/ts-scripts": "workspace:packages/ts-scripts"
+    "@reapit/ts-types": "workspace:packages/ts-types"
     "@reapit/utils": "workspace:packages/utils"
     "@redux-saga/testing-utils": ^1.1.3
     "@sentry/browser": ^5.30.0
@@ -27831,6 +27869,8 @@ fsevents@^1.2.7:
     "@reapit/config-manager": "workspace:packages/config-manager"
     "@reapit/connect-session": "workspace:packages/connect-session"
     "@reapit/elements": "workspace:packages/elements"
+    "@reapit/ts-scripts": "workspace:packages/ts-scripts"
+    "@reapit/ts-types": "workspace:packages/ts-types"
     "@sentry/browser": ^5.30.0
     concurrently: ^5.3.0
     cross-env: ^6.0.3
@@ -27867,6 +27907,8 @@ fsevents@^1.2.7:
     "@aws/dynamodb-data-mapper-annotations": ^0.7.3
     "@reapit/config-manager": "workspace:packages/config-manager"
     "@reapit/connect-session": ^2.0.9
+    "@reapit/ts-scripts": "workspace:packages/ts-scripts"
+    "@reapit/ts-types": "workspace:packages/ts-types"
     "@sentry/node": ^5.30.0
     aws-lambda: ^1.0.6
     aws-sdk: ^2.853.0
@@ -27880,6 +27922,7 @@ fsevents@^1.2.7:
     express: ^4.17.1
     express-session: ^1.17.1
     jest: ^26.6.3
+    jest-coverage-badges: ^1.1.2
     memorystore: ^1.6.5
     morgan: ^1.10.0
     react: ^16.14.0
@@ -30232,6 +30275,8 @@ fsevents@^1.2.7:
     "@reapit/config-manager": "workspace:packages/config-manager"
     "@reapit/connect-session": "workspace:packages/connect-session"
     "@reapit/elements": "workspace:packages/elements"
+    "@reapit/ts-scripts": "workspace:packages/ts-scripts"
+    "@reapit/ts-types": "workspace:packages/ts-types"
     "@sentry/browser": ^5.30.0
     concurrently: ^5.3.0
     cross-env: ^6.0.3

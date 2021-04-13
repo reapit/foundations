@@ -13,7 +13,7 @@ module.exports = {
   },
   testPathIgnorePatterns: ['<rootDir>/scripts'],
   collectCoverageFrom: ['<rootDir>/src/**/*.ts', '<rootDir>/src/**/*.svelte'],
-  coverageDirectory: './tests/coverage',
+  coverageDirectory: './src/tests/coverage',
   coveragePathIgnorePatterns: [
     '<rootDir>[/\\\\](node_modules|src/types|tests|scripts|tests|src/common/styles/__themes__)[/\\\\]',
     '__stubs__',

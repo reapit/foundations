@@ -47,6 +47,8 @@
     "@babel/core": "^7.13.8",
     "@babel/preset-env": "^7.13.8",
     "@reapit/config-manager": "workspace:packages/config-manager",
+    "@reapit/ts-scripts": "workspace:packages/ts-scripts",
+    "@reapit/ts-types": "workspace:packages/ts-types",
     "babel-loader": "^8.2.2",
     "babel-runtime": "^6.26.0",
     "bufferutil": "^4.0.3",
