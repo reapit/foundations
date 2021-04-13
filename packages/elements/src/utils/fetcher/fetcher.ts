@@ -12,7 +12,10 @@ export class FetchError extends Error {
     this.status = (this.constructor as any).status
     this.message = message
 
-    Error.captureStackTrace(this, this.constructor)
+    if (Error.captureStackTrace && typeof Error.captureStackTrace === 'function') {
+      Error.captureStackTrace(this, this.constructor)
+    }
+
     this.response = response
   }
 }
@@ -31,6 +34,7 @@ export const genErr = async (res: Response, { method, url }: Partial<FetcherPara
   const error = new FetchError(
     `Foundations API error: Status: ${res.status} Method: ${method} Path: ${url} ${JSON.stringify(errRes)}`,
   )
+  error.status = res.status
   error.response = errRes
   return error
 }
