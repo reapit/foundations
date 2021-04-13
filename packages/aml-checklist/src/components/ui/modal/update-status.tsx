@@ -23,7 +23,6 @@ const initialProps = {
     { label: 'Fail', value: 'fail' },
     { label: 'Pending', value: 'pending' },
     { label: 'Cancelled', value: 'cancelled' },
-    { label: 'Warnings', value: 'warnings' },
     { label: 'Unchecked', value: 'unchecked' },
   ],
 }
