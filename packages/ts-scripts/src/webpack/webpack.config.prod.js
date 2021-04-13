@@ -40,6 +40,7 @@ const webpackConfigProd = {
     minimizer: [
       new ESBuildMinifyPlugin({
         target: 'es2019',
+        sourcemap: true,
       }),
     ],
   },

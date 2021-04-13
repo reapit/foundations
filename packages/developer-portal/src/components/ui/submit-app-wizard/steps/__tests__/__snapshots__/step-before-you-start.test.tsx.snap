@@ -21,7 +21,7 @@ exports[`StepBeforeYouStart should match snapshot 1`] = `
         isCentered={true}
       >
         <a
-          className="button is-white is-secondary"
+          className="button is-secondary"
           href="/api-docs/developer-portal"
           rel="noreferrer"
           target="_blank"

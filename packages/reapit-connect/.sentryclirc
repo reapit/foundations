@@ -1,0 +1,6 @@
+[defaults]
+project=reapit-connect
+org=reapit-ltd
+
+[http]
+keepalive=false

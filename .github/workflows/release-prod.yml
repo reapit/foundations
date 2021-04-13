@@ -35,6 +35,10 @@ jobs:
         with:
           node-version: '14.x'
 
+      - name: Set Version
+        run: |
+          echo "RELEASE_VERSION=${{ steps.tagName.outputs.package }}_${{ steps.tagName.outputs.version }}" >> $GITHUB_ENV
+
       - name: Install
         run: yarn
 

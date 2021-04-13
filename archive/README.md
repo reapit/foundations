@@ -26,6 +26,10 @@ Experimental repo to re-build Elements StoryBook using Docz library. Discontinue
 
 Demonstration app built for the November 2019 Foundations launch to demonstrate white labeling of our AML Checklist app for a client. Discontinued development.
 
+### Property Projector
+
+App to display property images in Agent's shop windows. Development put on hold for now.
+
 ### Site builder
 
 Prototype to compose Web Components into exportable sites using GrapesJS as a drag-and-drop interface. Discontinued development due to limitations of Grapes library.
@@ -33,3 +37,11 @@ Prototype to compose Web Components into exportable sites using GrapesJS as a dr
 ### SMB Onboarder
 
 App to onboard users to Agency Cloud desktop  CRM. Needs a re-thing and re-work of code to progress
+
+### Web Components
+
+Embeddable widgets to add rich functionality to static sites. Development put on hold for now.
+
+### Web Components Config Server
+
+Small service to store customer configuration for Web Components project. Development put on hold for now.
