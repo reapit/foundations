@@ -2,7 +2,6 @@ import * as React from 'react'
 import { Field, FieldProps, FieldInputProps } from 'formik'
 import { isBase64 } from '../../utils/is-base64'
 import { cx } from 'linaria'
-import { checkError } from '../../utils/form'
 
 const { useState } = React
 
@@ -85,7 +84,7 @@ export const FileInput = ({
   return (
     <Field name={name}>
       {({ field, meta }: FieldProps<string>) => {
-        const hasError = checkError(meta)
+        const hasError = meta.value !== meta.initialValue && meta.error
         const hasFile = fileUrl || field.value
         const containerClassName = `file ${hasError ? 'is-danger' : 'is-primary'} ${hasFile ? 'has-name' : ''}`
 
@@ -156,13 +155,13 @@ export const FileInput = ({
                   )}
                   {hasFile && allowClear && <a className="delete is-large" onClick={handleClearFile} />}
                 </label>
+                {hasError && (
+                  <div className="has-text-danger mt-2 mb-2" data-test="input-error">
+                    {meta.error}
+                  </div>
+                )}
               </div>
             </div>
-            {hasError && (
-              <div className="has-text-danger" data-test="input-error">
-                {meta.error}
-              </div>
-            )}
           </React.Fragment>
         )
       }}

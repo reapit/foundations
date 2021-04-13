@@ -39,6 +39,7 @@ exports[`Identification Identification should match snapshot when loading is fal
           "_conditions": Array [],
           "_deps": Array [],
           "_exclusive": Object {
+            "isValidBase64": false,
             "required": true,
           },
           "_mutate": undefined,
@@ -53,6 +54,7 @@ exports[`Identification Identification should match snapshot when loading is fal
             "refs": Map {},
           },
           "tests": Array [
+            [Function],
             [Function],
           ],
           "transforms": Array [
@@ -112,6 +114,7 @@ exports[`Identification Identification should match snapshot when loading is tru
           "_conditions": Array [],
           "_deps": Array [],
           "_exclusive": Object {
+            "isValidBase64": false,
             "required": true,
           },
           "_mutate": undefined,
@@ -126,6 +129,7 @@ exports[`Identification Identification should match snapshot when loading is tru
             "refs": Map {},
           },
           "tests": Array [
+            [Function],
             [Function],
           ],
           "transforms": Array [
