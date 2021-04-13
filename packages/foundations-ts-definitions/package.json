@@ -18,6 +18,8 @@
   },
   "devDependencies": {
     "@reapit/config-manager": "workspace:packages/config-manager",
+    "@reapit/ts-scripts": "workspace:packages/ts-scripts",
+    "@reapit/ts-types": "workspace:packages/ts-types",
     "concurrently": "^5.3.0",
     "eslint": "7.23.0",
     "sw2dts": "^2.6.3"
