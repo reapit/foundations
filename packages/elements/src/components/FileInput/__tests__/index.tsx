@@ -1,7 +1,7 @@
 import * as React from 'react'
 import { shallow, mount } from 'enzyme'
 import { FileInput, FileInputProps, handleChangeCroppedImage, clearFile } from '../index'
-import { Formik, Form } from 'formik'
+import { Formik } from 'formik'
 import toJson from 'enzyme-to-json'
 import { act } from 'react-dom/test-utils'
 
@@ -31,30 +31,6 @@ describe('FileInput', () => {
     const wrapper = mount(<Wrapper />)
     const label = wrapper.find('[data-test="file-input-label"]')
     expect(label.text()).toBe('test')
-  })
-
-  it('should render error correctly', async () => {
-    const Wrapper = () => (
-      <Formik validate={() => ({ test: 'test' })} initialValues={{ test: '' }} onSubmit={jest.fn()}>
-        {() => (
-          <Form>
-            <FileInput id="test" labelText="test" name="test" />
-          </Form>
-        )}
-      </Formik>
-    )
-
-    const wrapper = mount(<Wrapper />)
-
-    // onSubmit
-    await act(async () => {
-      wrapper.find('form').simulate('submit', { preventDefault: () => {} })
-    })
-
-    wrapper.update()
-
-    const error = wrapper.find('.has-text-danger')
-    expect(error).toHaveLength(1)
   })
 
   it('should convert to base64 data correctly', (done) => {

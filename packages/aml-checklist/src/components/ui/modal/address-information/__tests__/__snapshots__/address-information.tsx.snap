@@ -1386,6 +1386,7 @@ exports[`AddressInformation should match snapshot 1`] = `
                     "_conditions": Array [],
                     "_deps": Array [],
                     "_exclusive": Object {
+                      "isValidBase64": false,
                       "required": true,
                     },
                     "_mutate": undefined,
@@ -1400,6 +1401,7 @@ exports[`AddressInformation should match snapshot 1`] = `
                       "refs": Map {},
                     },
                     "tests": Array [
+                      [Function],
                       [Function],
                     ],
                     "transforms": Array [
