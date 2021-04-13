@@ -55,6 +55,10 @@ export const columns = [
     accessor: 'test',
   },
   {
+    Header: 'Status',
+    accessor: 'active',
+  },
+  {
     Header: 'Edit',
     accessor: 'edit',
   },
@@ -136,6 +140,7 @@ export const getTableTopicsData = ({
         Ping
       </a>
     ),
+    active: subscription.active ? 'Active' : 'Inactive',
     edit: (
       <Button
         dataTest="edit-btn"
