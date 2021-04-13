@@ -15,7 +15,6 @@ const sassDev = {
             modules: {
               localIdentName: '[name]-[local]-[hash:base64:5]',
             },
-            localsConvention: 'camelCase',
           },
         },
         {
@@ -61,7 +60,6 @@ const sassProd = {
             modules: {
               localIdentName: '[hash:base64:5]',
             },
-            localsConvention: 'camelCase',
           },
         },
         'postcss-loader',
