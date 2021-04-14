@@ -1,33 +1,34 @@
-import React, { useState } from 'react'
-import { createPortal } from 'react-dom'
-import usePortal from '../usePortal-v3'
-import { Snack } from '../../components-v3/Snack'
+import { useContext } from 'react'
+import { SnackContext } from '../../contexts/snacks'
+import { ISnack } from '../../components-v3/Snack'
 
 interface IUseSnack {
-  snackbar: React.ReactPortal
-  addSnack: (text: string) => void
+  custom: (snack: ISnack, timeout?: number) => void
+  success: (text: string, timeout?: number) => void
+  info: (text: string, timeout?: number) => void
+  error: (text: string, timeout?: number) => void
+  warning: (text: string, timeout?: number) => void
 }
 
-function useSnack(): IUseSnack {
-  const SNACK_PORTAL_ID = 'SNACK_PORTAL_ID'
+export default (): IUseSnack => {
+  const { addSnackWithTimeout } = useContext(SnackContext)
+  const DEFAULT_TIMEOUT = 3000
 
-  const [snacks, setSnacks] = useState<string[]>([])
-  const portal = usePortal(SNACK_PORTAL_ID)
-
-  const snackbar = createPortal(
-    <div style={{ position: 'fixed', top: '0', right: 0, background: 'green', width: '500px', height: '500px' }}>
-      {snacks.map((text) => (
-        <Snack key={text}>{text}</Snack>
-      ))}
-    </div>,
-    portal,
-  )
-
-  function addSnack(text: string) {
-    setSnacks([...snacks, text])
+  const custom = (snack: ISnack, timeout = DEFAULT_TIMEOUT) => {
+    addSnackWithTimeout(snack, timeout)
+  }
+  const success = (text: string, timeout = DEFAULT_TIMEOUT) => {
+    addSnackWithTimeout({ intent: 'success', icon: 'thick', text }, timeout)
+  }
+  const info = (text: string, timeout = DEFAULT_TIMEOUT) => {
+    addSnackWithTimeout({ intent: 'secondary', icon: 'info', text }, timeout)
+  }
+  const error = (text: string, timeout = DEFAULT_TIMEOUT) => {
+    addSnackWithTimeout({ intent: 'danger', icon: 'error', text }, timeout)
+  }
+  const warning = (text: string, timeout = DEFAULT_TIMEOUT) => {
+    addSnackWithTimeout({ intent: 'critical', icon: 'warning', text }, timeout)
   }
 
-  return { snackbar, addSnack }
+  return { custom, success, info, error, warning }
 }
-
-export default useSnack
