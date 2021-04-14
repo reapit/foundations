@@ -1,7 +1,7 @@
 import React from 'react'
-import { Button } from '../../Button'
-import useSnack from '../../../hooks/useSnack-v3'
-import { elM1 } from '../../../styles-v3/base/spacing'
+import { Button } from '../Button'
+import useSnack from '../../hooks/useSnack-v3'
+import { elM1 } from '../../styles-v3/base/spacing'
 
 export const UseSnackHookStory = () => {
   const { info, success, error, warning, custom } = useSnack()
