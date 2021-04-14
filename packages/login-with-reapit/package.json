@@ -18,6 +18,8 @@
     "svelte": "^3.34.0"
   },
   "devDependencies": {
+    "@reapit/ts-scripts": "workspace:packages/ts-scripts",
+    "@reapit/ts-types": "workspace:packages/ts-types",
     "@testing-library/svelte": "^3.0.3",
     "concurrently": "^6.0.0",
     "cross-env": "^7.0.3",

@@ -45,7 +45,6 @@ export const handleFilenameClick = (
   setModalState: Dispatch<SetStateAction<ModalState>>,
 ) => async (e) => {
   e.preventDefault()
-  console.log(values)
   setModalState({ isLoading: true, isVisible: true, image: null })
   const imageURL = await downloadDocument(values.documentId)
   const image = imageURL ? imageURL : null
@@ -105,7 +104,6 @@ export const Identification: React.FC<IdentificationProps> = ({
                 inputProps={{ disabled: disabled }}
                 required
                 onFilenameClick={handleFilenameClick(values, setModalState)}
-                isNarrowWidth
                 accept="image/*"
               />
               <div className="field pb-2">

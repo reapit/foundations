@@ -1,7 +1,7 @@
 import * as Yup from 'yup'
 import formFields from './form-fields'
 import errorMessages from '@/constants/error-messages'
-import { isValidUploadForm } from '@/utils/validates'
+import { isValidUploadForm } from '../../../../utils/validates'
 
 const { documentIdField } = formFields
 
