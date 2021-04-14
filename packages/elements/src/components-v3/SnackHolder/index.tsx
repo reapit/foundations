@@ -12,7 +12,7 @@ export const SnackHolder: React.FC<ISnackHolder> = ({ snacks, removeSnackById, .
     <ElSnackHolder {...rest}>
       {snacks &&
         snacks.map(({ text, _id, ...rest }) => (
-          <Snack onRemove={() => _id && removeSnackById && removeSnackById(_id)} {...rest}>
+          <Snack key={_id} onRemove={() => _id && removeSnackById && removeSnackById(_id)} {...rest}>
             {text}
           </Snack>
         ))}
