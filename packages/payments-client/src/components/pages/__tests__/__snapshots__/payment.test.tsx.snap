@@ -7,8 +7,11 @@ exports[`PaymentPage should match a snapshot when has a session 1`] = `
   isScrollable={true}
 >
   <FlexContainerResponsive
+    className="flex-height-fix"
     flexColumn={true}
+    hasBackground={true}
     hasPadding={true}
+    isFullHeight={true}
   >
     <Route
       component={[Function]}

@@ -5,6 +5,7 @@ import { Loader, Section, FlexContainerResponsive, AppNavContainer, FlexContaine
 import Menu from '../components/ui/menu'
 import { reapitConnectBrowserSession } from './connect-session'
 import { Routes } from '../constants/routes'
+import { flexHeightFix } from './__styles__/styles'
 
 const { Suspense } = React
 
@@ -49,7 +50,7 @@ export const PrivateRouteWrapper: React.FunctionComponent<PrivateRouteWrapperPro
     <AppNavContainer>
       <Menu />
       <FlexContainerBasic flexColumn isScrollable>
-        <FlexContainerResponsive hasPadding flexColumn>
+        <FlexContainerResponsive className={flexHeightFix} hasPadding flexColumn>
           <Suspense
             fallback={
               <Section>
