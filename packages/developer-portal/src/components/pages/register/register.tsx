@@ -28,6 +28,7 @@ import Routes from '@/constants/routes'
 import { container, imageContainer, loginImage, wrapper } from './__styles__/register'
 import { formFields } from './form-fields'
 import { validationSchema } from './validation-schema'
+import { useEffect } from 'react'
 
 const { nameField, emailField, companyNameField, telephoneField } = formFields
 
@@ -92,8 +93,13 @@ export const Register: React.FunctionComponent<RegisterProps> = () => {
   const history = useHistory()
   const dispatch = useDispatch()
   const [visible, setVisible] = React.useState<boolean>(false)
-  React.useEffect(handleSetFormDefault(dispatch), [history.location.pathname])
+  useEffect(handleSetFormDefault(dispatch), [history.location.pathname])
   const formState = useSelector(selectDeveloperFormState)
+  useEffect(() => {
+    if (formState === 'ERROR') {
+      setVisible(false)
+    }
+  }, [formState])
   const isSubmitting = formState === 'SUBMITTING'
 
   return (
