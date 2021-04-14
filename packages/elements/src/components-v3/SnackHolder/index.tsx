@@ -4,14 +4,18 @@ import { Snack, ISnack } from '../Snack'
 
 export interface ISnackHolder extends React.HTMLAttributes<HTMLDivElement> {
   snacks: ISnack[]
+  removeSnackById?: (id: string) => void
 }
 
-export const SnackHolder: React.FC<ISnackHolder> = ({ snacks, ...rest }) => {
+export const SnackHolder: React.FC<ISnackHolder> = ({ snacks, removeSnackById, ...rest }) => {
   return (
     <ElSnackHolder {...rest}>
-      {snacks.map(({ text, ...rest }) => (
-        <Snack {...rest}>{text}</Snack>
-      ))}
+      {snacks &&
+        snacks.map(({ text, _id, ...rest }) => (
+          <Snack onRemove={() => _id && removeSnackById && removeSnackById(_id)} {...rest}>
+            {text}
+          </Snack>
+        ))}
     </ElSnackHolder>
   )
 }

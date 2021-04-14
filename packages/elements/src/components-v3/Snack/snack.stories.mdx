@@ -1,11 +1,52 @@
-import { Meta, Story, Canvas } from '@storybook/addon-docs/blocks'
+import { Meta, Story, Canvas, ArgsTable } from '@storybook/addon-docs/blocks'
 import { Snack } from './index'
 import { SnackProvider } from '../../contexts/snacks'
 import { UseSnackHookStory } from './__stories__/useSnackHookStory'
+import useSnack from '../../hooks/useSnack-v3'
 
 <Meta title="V3/Snack" component={Snack} />
 
 # Snack
+
+.
+
+# React usage
+
+A context and a hook is provided to use the Snack component out of the box
+
+## Complete example with `SnackProvider` and `useSnack` hook
+
+<Canvas>
+  <Story name="useSnack hook">
+    <SnackProvider>
+      <UseSnackHookStory />
+    </SnackProvider>
+  </Story>
+</Canvas>
+
+You must wrap your whole application in the `SnackProvider` component. Thereafter you can use the `useSnack` hook in any component to trigger a hook.
+
+## `useSnack` API
+
+Exports the following methods
+
+- `custom`: (snack: ISnack, timeout?: number) => void
+- `success`: (text: string, timeout?: number) => void
+- `info`: (text: string, timeout?: number) => void
+- `error`: (text: string, timeout?: number) => void
+- `warning`: (text: string, timeout?: number) => void
+
+#### Description of arguments
+
+- `snack`: See below for the properties of the `ISnack` interface
+- `timeout`: Set to `0` to stop a Snack from disappearing on it's own. It would then have to be dismissed by the user instead.
+- `text`: The text content that will be shown inside the snack
+
+.
+
+# UI Component (for use in HTML or other frameworks)
+
+The Snack component can be used for UI purposes only, but won't have the functionality of the React implementation (i.e. the timeouts, appearing at the top of the screen, etc)
 
 Underlying tag: `<div>`
 
@@ -14,6 +55,8 @@ Underlying tag: `<div>`
     <Snack>Message goes here</Snack>
   </Story>
 </Canvas>
+
+<ArgsTable of={Snack} />
 
 ## With an icon
 
@@ -60,16 +103,6 @@ Set the `className` prop to add additional custom CSS classes
 <Canvas>
   <Story name="Additional className">
     <Snack className="my-custom-className">Snack with additional className</Snack>
-  </Story>
-</Canvas>
-
-## Complete example with `SnackProvider` and `useSnack` hook
-
-<Canvas>
-  <Story name="useSnack hook">
-    <SnackProvider>
-      <UseSnackHookStory />
-    </SnackProvider>
   </Story>
 </Canvas>
 

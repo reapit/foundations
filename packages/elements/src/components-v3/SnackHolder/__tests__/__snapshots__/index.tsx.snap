@@ -1,3 +1,13 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`SnackHolder component should match a snapshot 1`] = `<ElSnackHolder />`;
+exports[`SnackHolder component should match a snapshot 1`] = `
+<ElSnackHolder>
+  <Snack
+    icon="info"
+    intent="primary"
+    onRemove={[Function]}
+  >
+    i am a snack
+  </Snack>
+</ElSnackHolder>
+`;

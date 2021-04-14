@@ -1,0 +1,26 @@
+import { Meta, Story, Canvas, ArgsTable } from '@storybook/addon-docs/blocks'
+import { SnackHolder } from './index'
+
+<Meta title="V3/SnackHolder" component={SnackHolder} />
+
+# SnackHolder
+
+Underlying tag: `<div>`
+
+This component is essentially invisible. It is used automatically as part of the `<SnackProvider>` component, so if you are a React user you shouldn't need to use this component on it's own.
+
+`SnackHolder`'s purpose is to group snacks and dispaly them in the corner of the screen above all other content.
+
+If you are using this library without react, you may find is useful for putting `Snack`'s inside of.
+
+<Canvas>
+  <Story name="Default Usage">
+    <SnackHolder />
+  </Story>
+</Canvas>
+
+<ArgsTable of={SnackHolder} />
+
+## Other attributes
+
+All other standard HTML attributes for `<div>` are supported and are passed through to the React component

@@ -14,20 +14,19 @@ export default (): IUseSnack => {
   const { addSnackWithTimeout } = useContext(SnackContext)
   const DEFAULT_TIMEOUT = 3000
 
-  function custom(snack: ISnack, timeout = DEFAULT_TIMEOUT) {
+  const custom = (snack: ISnack, timeout = DEFAULT_TIMEOUT) => {
     addSnackWithTimeout(snack, timeout)
   }
-
-  function success(text: string, timeout = DEFAULT_TIMEOUT) {
+  const success = (text: string, timeout = DEFAULT_TIMEOUT) => {
     addSnackWithTimeout({ intent: 'success', icon: 'thick', text }, timeout)
   }
-  function info(text: string, timeout = DEFAULT_TIMEOUT) {
+  const info = (text: string, timeout = DEFAULT_TIMEOUT) => {
     addSnackWithTimeout({ intent: 'secondary', icon: 'info', text }, timeout)
   }
-  function error(text: string, timeout = DEFAULT_TIMEOUT) {
+  const error = (text: string, timeout = DEFAULT_TIMEOUT) => {
     addSnackWithTimeout({ intent: 'danger', icon: 'error', text }, timeout)
   }
-  function warning(text: string, timeout = DEFAULT_TIMEOUT) {
+  const warning = (text: string, timeout = DEFAULT_TIMEOUT) => {
     addSnackWithTimeout({ intent: 'critical', icon: 'warning', text }, timeout)
   }
 
