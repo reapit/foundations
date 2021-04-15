@@ -2,6 +2,7 @@
 
 exports[`Pagination render test Should match a snapshot 1`] = `
 <Section
+  className=""
   isCentered={true}
   isFlex={true}
 >

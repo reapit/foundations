@@ -1,4 +1,4 @@
-import { fetcherWithBlob } from '@reapit/elements'
+import { fetcherWithBlob, notification } from '@reapit/elements'
 import { URLS } from '@/constants/api'
 import { initAuthorizedRequestHeaders } from '@/utils/api'
 import { logger } from '@reapit/utils'
@@ -17,9 +17,11 @@ export const downloadDocument = async (documentId: string) => {
       },
     })
 
-    return window.URL.createObjectURL(documentBlob)
+    if (documentBlob) {
+      return window.URL.createObjectURL(documentBlob)
+    }
   } catch (error) {
     logger(error)
-    return error
+    notification.error({ message: 'Document not found' })
   }
 }

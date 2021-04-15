@@ -6,6 +6,7 @@ export interface PaginationProps {
   pageSize?: number
   totalCount?: number
   onChange?: (page: number) => void
+  className?: string
 }
 
 export const generatePagination = (currentPage: number, pageCount: number) => {
@@ -29,7 +30,13 @@ export const generatePagination = (currentPage: number, pageCount: number) => {
   return range
 }
 
-export const Pagination = ({ onChange, pageNumber = 1, pageSize = 1, totalCount = 1 }: PaginationProps) => {
+export const Pagination = ({
+  onChange,
+  pageNumber = 1,
+  pageSize = 1,
+  totalCount = 1,
+  className = '',
+}: PaginationProps) => {
   const maxPage = Math.ceil(totalCount / pageSize)
   if (!maxPage || maxPage < 2) {
     return null
@@ -38,7 +45,7 @@ export const Pagination = ({ onChange, pageNumber = 1, pageSize = 1, totalCount 
   const paginator = generatePagination(pageNumber, maxPage)
 
   return (
-    <Section isFlex isCentered>
+    <Section className={className} isFlex isCentered>
       <nav className="pagination is-centered" role="navigation" aria-label="pagination">
         {
           <a
