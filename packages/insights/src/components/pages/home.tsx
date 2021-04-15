@@ -17,7 +17,7 @@ export const Home: React.FC<HomeProps> = () => {
       setLoading(false)
       if (serviceResponse) {
         setMetabaseCredentials(serviceResponse)
-        if (serviceResponse && serviceResponse.url) {
+        if (serviceResponse && serviceResponse.url && serviceResponse.status === 'complete') {
           window.location.href = serviceResponse.url
         }
       }
@@ -34,6 +34,16 @@ export const Home: React.FC<HomeProps> = () => {
       <Section isFlex isFlexColumn hasPadding={false} hasMargin={false} isFullHeight>
         {loading ? (
           <Loader />
+        ) : metabaseCredentials && metabaseCredentials.status === 'failed' ? (
+          <Helper>
+            It looks like we have encountered an issue setting up your account. Please contact our support team
+            <a href="mailto:foundationssupport@reapit.com">foundationssupport@reapit.com</a> for further assistance.
+          </Helper>
+        ) : metabaseCredentials && metabaseCredentials.status === 'incomplete' ? (
+          <Helper>
+            We are currently in the process of setting up your account. We will automatically send you an email once
+            this has been completed.
+          </Helper>
         ) : metabaseCredentials && !metabaseCredentials.url ? (
           <Helper>No credentials found to load the application</Helper>
         ) : (
