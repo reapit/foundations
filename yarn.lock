@@ -9435,6 +9435,7 @@ __metadata:
     react: ^16.14.0
     react-dom: ^16.14.0
     react-ga: ^2.7.0
+    react-pdf: ^5.2.0
     react-redux: ^7.2.2
     react-router: ^5.2.0
     react-router-dom: ^5.2.0
@@ -24796,6 +24797,13 @@ fsevents@^1.2.7:
   languageName: unknown
   linkType: soft
 
+"make-cancellable-promise@npm:^1.0.0":
+  version: 1.0.0
+  resolution: "make-cancellable-promise@npm:1.0.0"
+  checksum: 0ee86eb49c0207a8416d9ebf1119c9318579b3c411daffc4b11fd981e51c0c47d16188de0756c3dae19d57551598f7b77bb670ca55958014c984b143811d705b
+  languageName: node
+  linkType: hard
+
 "make-dir@npm:^1.0.0":
   version: 1.3.0
   resolution: "make-dir@npm:1.3.0"
@@ -24828,6 +24836,13 @@ fsevents@^1.2.7:
   version: 1.3.6
   resolution: "make-error@npm:1.3.6"
   checksum: 2c780bab8409b865e8ee86697c599a2bf2765ec64d21eb67ccda27050e039f983feacad05a0d43aba3c966ea03d305d2612e94fec45474bcbc61181f57c5bb88
+  languageName: node
+  linkType: hard
+
+"make-event-props@npm:^1.1.0":
+  version: 1.2.0
+  resolution: "make-event-props@npm:1.2.0"
+  checksum: 628334a87740fe02801b987c84c339b19697ff5d99a375c7793c0165d5bf5018f77ffffe8eb9f2bd4098c515e4c96bb231c7080340fa58a50c34b2bf5d2d6554
   languageName: node
   linkType: hard
 
@@ -25280,6 +25295,13 @@ fsevents@^1.2.7:
   languageName: node
   linkType: hard
 
+"merge-class-names@npm:^1.1.1":
+  version: 1.4.0
+  resolution: "merge-class-names@npm:1.4.0"
+  checksum: b8453886475ac1510901437b5f3e845046389b8f3452c472aecb29a945440a934f386587d386965075afa3eebf3252d13c375a2ce0f12a71d1e5c29a57089e68
+  languageName: node
+  linkType: hard
+
 "merge-descriptors@npm:1.0.1":
   version: 1.0.1
   resolution: "merge-descriptors@npm:1.0.1"
@@ -25297,6 +25319,13 @@ fsevents@^1.2.7:
   peerDependencies:
     graphql: ^0.11.7 || ^0.13.0 || ^14.0.2 || ^15.0.0
   checksum: 24011c12ceec1ac96c81cb7ddeb558a3420ee0ad1caee2d2fece04bdae7b55fdc53fe6e594601ae9b0491b5a86c53d725ee381ff1afb0b7a91bea86b61c0faf4
+  languageName: node
+  linkType: hard
+
+"merge-refs@npm:^1.0.0":
+  version: 1.0.0
+  resolution: "merge-refs@npm:1.0.0"
+  checksum: 75e0b1a301e3ac9f057e4f4f8fc5c286af169e5cc7afc0786653ee7e7d338b8756c6b10a934793dfb80a9fbdb7bf2b002ddb173b0106329dfcf27909550a62fc
   languageName: node
   linkType: hard
 
@@ -27952,6 +27981,13 @@ fsevents@^1.2.7:
   languageName: node
   linkType: hard
 
+"pdfjs-dist@npm:2.5.207":
+  version: 2.5.207
+  resolution: "pdfjs-dist@npm:2.5.207"
+  checksum: b1a1536d46507493316cdb1f90e103f95a1538353c592c5b31a70bff39d4a10ee731541705d95aa36b7293ffca8af2203af2a86af1761fae75b65b1be196c147
+  languageName: node
+  linkType: hard
+
 "peek-stream@npm:^1.1.0":
   version: 1.1.3
   resolution: "peek-stream@npm:1.1.3"
@@ -29767,6 +29803,25 @@ fsevents@^1.2.7:
     react: ^15.5.x || ^16.x
     react-dom: ^15.5.x || ^16.x
   checksum: 3694b8a2831f0caffe86e42a772357f392ef2e887da8215445eeb98780315034f0827960ce6098542910fdd20ff3d59efc12f5a8d0012526195ea49cd698118b
+  languageName: node
+  linkType: hard
+
+"react-pdf@npm:^5.2.0":
+  version: 5.2.0
+  resolution: "react-pdf@npm:5.2.0"
+  dependencies:
+    "@babel/runtime": ^7.0.0
+    make-cancellable-promise: ^1.0.0
+    make-event-props: ^1.1.0
+    merge-class-names: ^1.1.1
+    merge-refs: ^1.0.0
+    pdfjs-dist: 2.5.207
+    prop-types: ^15.6.2
+    worker-loader: ^3.0.0
+  peerDependencies:
+    react: ^16.3.0 || ^17.0.0-0
+    react-dom: ^16.3.0 || ^17.0.0-0
+  checksum: aa7247a29b77b4617c7c8259098ad6f6ae77b6aa8b3d94528e03cbbbf375931e4f3d2ce4edabca697487bf28d0db79c86599654fac7624bf4cdd4b019b382638
   languageName: node
   linkType: hard
 
@@ -37199,6 +37254,18 @@ typescript@^4.0.3:
   dependencies:
     errno: ~0.1.7
   checksum: ef76a6892bdf6a4231e6d657c13e2e960278535915d6235d9e0e3e23b65da94a56e5bed17ac5fda282370601d4cd18f4cba9552aa52f4fa9a25cc9fd3fcf58a9
+  languageName: node
+  linkType: hard
+
+"worker-loader@npm:^3.0.0":
+  version: 3.0.8
+  resolution: "worker-loader@npm:3.0.8"
+  dependencies:
+    loader-utils: ^2.0.0
+    schema-utils: ^3.0.0
+  peerDependencies:
+    webpack: ^4.0.0 || ^5.0.0
+  checksum: 42e93da80473b886b25084f6e15f696a1afe0d00559370a138805f9ddc368ba676436abfe147f4cdb5255716b56bf6f3bc8926364d68e27216189cea95d416cf
   languageName: node
   linkType: hard
 
