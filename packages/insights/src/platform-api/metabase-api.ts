@@ -10,6 +10,7 @@ export interface CredentialsModel {
   token: string
   collection: number
   url: string | null
+  status: 'incomplete' | 'complete' | 'failed'
 }
 
 export const metabaseApiService = async (session: ReapitConnectSession): Promise<CredentialsModel | undefined> => {
