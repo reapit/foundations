@@ -8743,6 +8743,7 @@ export interface Properties {
   modifiedFrom?: string
   modifiedTo?: string
   metadata?: string[]
+  extrasField?: string[]
 }
 /**
  * Representation of the physical address of a building or premise
@@ -9530,6 +9531,12 @@ export interface PropertyModel {
     [name: string]: any
   }
   /**
+   * The requested extras fields
+   */
+  extrasField?: {
+    [name: string]: any
+  }
+  /**
    * The ETag for the current version of the property. Used for managing update concurrency
    */
   readonly _eTag?: string
@@ -9974,6 +9981,12 @@ export interface PropertyModelPagedResult {
      * App specific metadata that has been set against the property
      */
     metadata?: {
+      [name: string]: any
+    }
+    /**
+     * The requested extras fields
+     */
+    extrasField?: {
       [name: string]: any
     }
     /**
