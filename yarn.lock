@@ -5088,7 +5088,6 @@ __metadata:
     "@storybook/theming": ^6.1.20
     "@svgr/rollup": ^5.5.0
     "@svgr/webpack": ^5.5.0
-    "@types/react-dom": ^17.0.3
     "@whitespace/storybook-addon-html": ^4.2.0
     babel-loader: ^8.2.2
     bulma: ^0.9.2
@@ -8289,15 +8288,6 @@ __metadata:
   dependencies:
     "@types/react": ^16
   checksum: b22a7ac54aa140a96ad87194df51d3241042e5c68a5c8e17f62f0c97a5857b1cd5d1317902acb65bf7079af3c9baaec356a185b9d97cd257e44f97cc1ca16c46
-  languageName: node
-  linkType: hard
-
-"@types/react-dom@npm:^17.0.3":
-  version: 17.0.3
-  resolution: "@types/react-dom@npm:17.0.3"
-  dependencies:
-    "@types/react": "*"
-  checksum: 9314c91a985f153591e1e74aef3d63d8b22e098069773f32745bf0733740a49802731761a46da8788a7d3dd2c21346036f12c2c24627630e5a6210b120a650e6
   languageName: node
   linkType: hard
 
