@@ -8743,6 +8743,7 @@ export interface Properties {
   modifiedFrom?: string
   modifiedTo?: string
   metadata?: string[]
+  extrasField?: string[]
 }
 /**
  * Representation of the physical address of a building or premise
@@ -9058,6 +9059,10 @@ export interface PropertyLettingModel {
    * The unique identifier of the landlord letting the property
    */
   landlordId?: string
+  /**
+   * The unique identifier of the document used for the lettings brochure
+   */
+  brochureId?: string
   /**
    * Representation of the the commission fee for a property
    */
@@ -9390,6 +9395,10 @@ export interface PropertyModel {
      * The agent's recommended asking price
      */
     recommendedPrice?: number // int32
+    /**
+     * The unique identifier of the document used for the sales brochure
+     */
+    brochureId?: string
   }
   /**
    * Representation of property details specific to lettings marketing
@@ -9441,6 +9450,10 @@ export interface PropertyModel {
      * The unique identifier of the landlord letting the property
      */
     landlordId?: string
+    /**
+     * The unique identifier of the document used for the lettings brochure
+     */
+    brochureId?: string
     /**
      * Representation of the the commission fee for a property
      */
@@ -9527,6 +9540,12 @@ export interface PropertyModel {
    * App specific metadata that has been set against the property
    */
   metadata?: {
+    [name: string]: any
+  }
+  /**
+   * The requested extras fields
+   */
+  extrasField?: {
     [name: string]: any
   }
   /**
@@ -9837,6 +9856,10 @@ export interface PropertyModelPagedResult {
        * The agent's recommended asking price
        */
       recommendedPrice?: number // int32
+      /**
+       * The unique identifier of the document used for the sales brochure
+       */
+      brochureId?: string
     }
     /**
      * Representation of property details specific to lettings marketing
@@ -9888,6 +9911,10 @@ export interface PropertyModelPagedResult {
        * The unique identifier of the landlord letting the property
        */
       landlordId?: string
+      /**
+       * The unique identifier of the document used for the lettings brochure
+       */
+      brochureId?: string
       /**
        * Representation of the the commission fee for a property
        */
@@ -9974,6 +10001,12 @@ export interface PropertyModelPagedResult {
      * App specific metadata that has been set against the property
      */
     metadata?: {
+      [name: string]: any
+    }
+    /**
+     * The requested extras fields
+     */
+    extrasField?: {
       [name: string]: any
     }
     /**
@@ -10087,6 +10120,10 @@ export interface PropertySellingModel {
    * The agent's recommended asking price
    */
   recommendedPrice?: number // int32
+  /**
+   * The unique identifier of the document used for the sales brochure
+   */
+  brochureId?: string
 }
 /**
  * Representation of the tenure of a property
@@ -13247,6 +13284,10 @@ export interface UpdatePropertyLettingModel {
    */
   landlordId?: string
   /**
+   * The unique identifier of the document used for the lettings brochure
+   */
+  brochureId?: string
+  /**
    * Request body used to update the commission fee for a property
    */
   managementFee?: {
@@ -13522,6 +13563,10 @@ export interface UpdatePropertyModel {
      * The agent's recommended asking price
      */
     recommendedPrice?: number // int32
+    /**
+     * The unique identifier of the document used for the sales brochure
+     */
+    brochureId?: string
   }
   /**
    * Request body used to update details specific to lettings marketing on an existing property
@@ -13573,6 +13618,10 @@ export interface UpdatePropertyModel {
      * The unique identifier of the landlord letting the property
      */
     landlordId?: string
+    /**
+     * The unique identifier of the document used for the lettings brochure
+     */
+    brochureId?: string
     /**
      * Request body used to update the commission fee for a property
      */
@@ -13717,6 +13766,10 @@ export interface UpdatePropertySellingModel {
    * The agent's recommended asking price
    */
   recommendedPrice?: number // int32
+  /**
+   * The unique identifier of the document used for the sales brochure
+   */
+  brochureId?: string
 }
 /**
  * Request body used to set the tenure of an existing property
