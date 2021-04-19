@@ -40,6 +40,7 @@
   "dependencies": {
     "@svgr/rollup": "^5.5.0",
     "@svgr/webpack": "^5.5.0",
+    "@types/react-dom": "^17.0.3",
     "babel-loader": "^8.2.2",
     "bulma": "^0.9.2",
     "file-saver": "^2.0.5",
@@ -58,6 +59,7 @@
     "react-datasheet": "^1.4.9",
     "react-datepicker": "^2.16.0",
     "react-docgen-typescript-loader": "^3.7.2",
+    "react-dom-server": "^0.0.5",
     "react-google-map": "^3.1.1",
     "react-google-maps-loader": "4.3.0",
     "react-icons": "^3.11.0",
