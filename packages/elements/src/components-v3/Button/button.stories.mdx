@@ -39,11 +39,11 @@ Different intents are supported, to enable buttons to be used in different conte
   </Story>
 </Canvas>
 
-<RenderHtmlMarkup component="V3/Button" story="Intent: Primary" />
-<RenderHtmlMarkup component="V3/Button" story="Intent: Secondary" />
-<RenderHtmlMarkup component="V3/Button" story="Intent: Critical" />
-<RenderHtmlMarkup component="V3/Button" story="Intent: Success" />
-<RenderHtmlMarkup component="V3/Button" story="Intent: Danger" />
+<RenderHtmlMarkup
+  component="V3/Button"
+  story={['Intent: Primary', 'Intent: Secondary', 'Intent: Critical', 'Intent: Success', 'Intent: Danger']}
+  label="HTML of different intents"
+/>
 
 ### Typical usage of each intent
 
@@ -77,9 +77,11 @@ Chevrons can be added which are helpful to indicate movement, forwards or backwa
   </Story>
 </Canvas>
 
-<RenderHtmlMarkup component="V3/Button" story="Chevron: Left" />
-<RenderHtmlMarkup component="V3/Button" story="Chevron: Right" />
-<RenderHtmlMarkup component="V3/Button" story="Chevron: Both" />
+<RenderHtmlMarkup
+  component="V3/Button"
+  story={['Chevron: Left', 'Chevron: Right', 'Chevron: Both']}
+  label="HTML of the above"
+/>
 
 # Loading
 
@@ -116,12 +118,18 @@ Add a loading spinner to indicate progress of a background activity after the bu
   </Story>
 </Canvas>
 
-<RenderHtmlMarkup component="V3/Button" story="Loading" />
-<RenderHtmlMarkup component="V3/Button" story="Loading - Primary Intent" />
-<RenderHtmlMarkup component="V3/Button" story="Loading - Secondary Intent" />
-<RenderHtmlMarkup component="V3/Button" story="Loading - Critical Intent" />
-<RenderHtmlMarkup component="V3/Button" story="Loading - Success Intent" />
-<RenderHtmlMarkup component="V3/Button" story="Loading - Danger Intent" />
+<RenderHtmlMarkup
+  component="V3/Button"
+  story={[
+    'Loading',
+    'Loading - Primary Intent',
+    'Loading - Secondary Intent',
+    'Loading - Critical Intent',
+    'Loading - Success Intent',
+    'Loading - Danger Intent',
+  ]}
+  label="HTML of the above"
+/>
 
 # Disabled
 
@@ -158,12 +166,18 @@ Indicate that a button is disabled for whatever reason.
   </Story>
 </Canvas>
 
-<RenderHtmlMarkup component="V3/Button" story="Disabled" />
-<RenderHtmlMarkup component="V3/Button" story="Disabled - Primary Intent" />
-<RenderHtmlMarkup component="V3/Button" story="Disabled - Secondary Intent" />
-<RenderHtmlMarkup component="V3/Button" story="Disabled - Critical Intent" />
-<RenderHtmlMarkup component="V3/Button" story="Disabled - Success Intent" />
-<RenderHtmlMarkup component="V3/Button" story="Disabled - Danger Intent" />
+<RenderHtmlMarkup
+  component="V3/Button"
+  story={[
+    'Disabled',
+    'Disabled - Primary Intent',
+    'Disabled - Secondary Intent',
+    'Disabled - Critical Intent',
+    'Disabled - Success Intent',
+    'Disabled - Danger Intent',
+  ]}
+  label="HTML of the above"
+/>
 
 # Additional className
 
