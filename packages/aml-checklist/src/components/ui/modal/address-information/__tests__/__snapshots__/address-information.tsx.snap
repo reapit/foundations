@@ -606,7 +606,6 @@ exports[`AddressInformation AddressInput should render correctly 1`] = `
     required={true}
   />
   <CameraImageInput
-    accept="image/*"
     allowClear={true}
     id="metadata.primaryAddress[documentImage]"
     isNarrowWidth={true}
@@ -624,6 +623,7 @@ exports[`AddressInformation AddressInput should render correctly 1`] = `
   >
     <Section>
       <img
+        onError={[Function]}
         src=""
       />
     </Section>
@@ -1237,7 +1237,6 @@ exports[`AddressInformation renderSencondaryAddress should match snapshot 1`] = 
     required={true}
   />
   <CameraImageInput
-    accept="image/*"
     allowClear={true}
     id="metadata.secondaryAddress[documentImage]"
     isNarrowWidth={true}
@@ -1255,6 +1254,7 @@ exports[`AddressInformation renderSencondaryAddress should match snapshot 1`] = 
   >
     <Section>
       <img
+        onError={[Function]}
         src=""
       />
     </Section>

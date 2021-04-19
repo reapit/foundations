@@ -1,11 +1,23 @@
 import React, { Dispatch, SetStateAction, useState } from 'react'
 import { ContactModel, IdentityDocumentModel } from '@reapit/foundations-ts-definitions'
-import { Button, Input, CameraImageInput, Formik, Form, ButtonGroup, ModalV2, Loader, Section } from '@reapit/elements'
+import {
+  Button,
+  Input,
+  CameraImageInput,
+  Formik,
+  Form,
+  ButtonGroup,
+  ModalV2,
+  Loader,
+  Section,
+  Pagination,
+} from '@reapit/elements'
 import SelectIdentity from '@/components/ui/inputs/select-identity'
 import styles from '@/styles/pages/checklist-detail.scss?mod'
 import { downloadDocument } from '@/services/documents'
 import validationSchema from './form-schema/validation-schema'
 import FormFields from './form-schema/form-fields'
+import { Document, Page } from 'react-pdf/dist/esm/entry.webpack'
 
 const { typeIdField, detailsField, expiryField, documentIdField } = FormFields
 
@@ -48,7 +60,8 @@ export const handleFilenameClick = (
   setModalState({ isLoading: true, isVisible: true, image: null })
   const imageURL = await downloadDocument(values.documentId)
   const image = imageURL ? imageURL : null
-  setModalState({ isLoading: false, isVisible: true, image })
+  const visibleState = image ? true : false
+  setModalState({ isLoading: false, isVisible: visibleState, image })
 }
 
 export const handleCloseModal = (setModalState: Dispatch<SetStateAction<ModalState>>) => () => {
@@ -69,6 +82,13 @@ export const Identification: React.FC<IdentificationProps> = ({
     isLoading: false,
     isVisible: false,
   })
+
+  const [imageError, setImageError] = useState<boolean>(false)
+  const [numPages, setNumPages] = useState(0)
+  const [pageNumber, setPageNumber] = useState(1)
+  const onDocumentLoadSuccess = ({ numPages }) => {
+    setNumPages(numPages)
+  }
   return (
     <Formik
       validateOnMount
@@ -104,7 +124,6 @@ export const Identification: React.FC<IdentificationProps> = ({
                 inputProps={{ disabled: disabled }}
                 required
                 onFilenameClick={handleFilenameClick(values, setModalState)}
-                accept="image/*"
               />
               <div className="field pb-2">
                 <div className={`columns ${styles.reverseColumns}`}>
@@ -147,19 +166,38 @@ export const Identification: React.FC<IdentificationProps> = ({
               <p className="is-size-6">* Indicates fields that are required in order to ‘Complete’ this section.</p>
             </Form>
             <ModalV2
-              isCentered
               isResponsive
+              isCentered
               visible={modalState.isVisible}
               afterClose={handleCloseModal(setModalState)}
               title="Viewing document"
             >
-              {modalState.isLoading ? (
-                <Loader />
-              ) : (
-                <Section>
-                  <img src={modalState.image || ''} />
-                </Section>
-              )}
+              <>
+                {modalState.isLoading ? (
+                  <Loader />
+                ) : imageError && modalState.image ? (
+                  <Document file={modalState.image} onLoadSuccess={onDocumentLoadSuccess}>
+                    <Page pageNumber={pageNumber} />
+                    <Pagination
+                      className="mb-0 px-0 py-4"
+                      pageNumber={pageNumber}
+                      totalCount={numPages}
+                      onChange={setPageNumber}
+                    />
+                  </Document>
+                ) : (
+                  <Section>
+                    <img src={modalState.image || ''} onError={() => setImageError(true)} />
+                  </Section>
+                )}
+                {modalState.image && (
+                  <ButtonGroup hasSpacing isCentered>
+                    <a className="button is-primary" href={modalState.image}>
+                      Download Document
+                    </a>
+                  </ButtonGroup>
+                )}
+              </>
             </ModalV2>
           </>
         )

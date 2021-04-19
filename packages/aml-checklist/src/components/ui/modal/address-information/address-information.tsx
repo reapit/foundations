@@ -11,6 +11,7 @@ import {
   ModalV2,
   Loader,
   Section,
+  Pagination,
 } from '@reapit/elements'
 import { connect } from 'react-redux'
 import { Dispatch } from 'redux'
@@ -23,6 +24,7 @@ import { STEPS } from '@/components/ui/modal/modal'
 import { formFields } from './form-schema/form-fields'
 import validationSchema from './form-schema/validation-schema'
 import { handleCloseModal, IdentityDocumentForm, ModalState } from '../../forms/identification'
+import { Document, Page } from 'react-pdf/dist/esm/entry.webpack'
 
 const optionsMonth = [
   { label: '0', value: '0' },
@@ -98,6 +100,12 @@ export const AddressInput = ({ addressType, documentImage }: AddressInputProps) 
     isLoading: false,
     isVisible: false,
   })
+  const [imageError, setImageError] = useState<boolean>(false)
+  const [numPages, setNumPages] = useState(0)
+  const [pageNumber, setPageNumber] = useState(1)
+  const onDocumentLoadSuccess = ({ numPages }) => {
+    setNumPages(numPages)
+  }
   const {
     typeField,
     buildingNameField,
@@ -162,7 +170,6 @@ export const AddressInput = ({ addressType, documentImage }: AddressInputProps) 
         allowClear={true}
         required
         isNarrowWidth
-        accept="image/*"
       />
       <ModalV2
         isCentered
@@ -171,13 +178,32 @@ export const AddressInput = ({ addressType, documentImage }: AddressInputProps) 
         afterClose={handleCloseModal(setModalState)}
         title="Viewing document"
       >
-        {modalState.isLoading ? (
-          <Loader />
-        ) : (
-          <Section>
-            <img src={modalState.image || ''} />
-          </Section>
-        )}
+        <>
+          {modalState.isLoading ? (
+            <Loader />
+          ) : imageError && modalState.image ? (
+            <Document file={modalState.image} onLoadSuccess={onDocumentLoadSuccess}>
+              <Page pageNumber={pageNumber} />
+              <Pagination
+                className="mb-0 px-0 py-4"
+                pageNumber={pageNumber}
+                totalCount={numPages}
+                onChange={setPageNumber}
+              />
+            </Document>
+          ) : (
+            <Section>
+              <img src={modalState.image || ''} onError={() => setImageError(true)} />
+            </Section>
+          )}
+          {modalState.image && (
+            <ButtonGroup hasSpacing isCentered>
+              <a className="button is-primary" href={modalState.image}>
+                Download Document
+              </a>
+            </ButtonGroup>
+          )}
+        </>
       </ModalV2>
     </div>
   )

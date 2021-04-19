@@ -33,7 +33,6 @@ export const modalWidth = css`
     .modal-card {
       max-width: 940px;
       width: auto;
-      padding: 0 2rem;
     }
   }
 
@@ -42,7 +41,6 @@ export const modalWidth = css`
     .modal-card {
       max-width: 1140px;
       width: auto;
-      padding: 0 2rem;
     }
   }
 `
