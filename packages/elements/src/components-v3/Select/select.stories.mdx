@@ -1,6 +1,7 @@
 import { Meta, Story, Canvas, ArgsTable } from '@storybook/addon-docs/blocks'
 import { Select } from './index'
 import { Label } from '../Label'
+import { RenderHtmlMarkup } from '../../helpers/v3/render-html-markup'
 
 <Meta title="V3/Forms/Select" component={Select} />
 
@@ -20,6 +21,8 @@ Underlying tag: `<select>`
 
 Supply as children, as many `<option>` tags as required.
 
+<RenderHtmlMarkup component="V3/Forms/Select" story="Default Usage" />
+
 ## Use with a label
 
 <Canvas>
@@ -32,6 +35,8 @@ Supply as children, as many `<option>` tags as required.
     </Select>
   </Story>
 </Canvas>
+
+<RenderHtmlMarkup component="V3/Forms/Select" story="Use with a label" />
 
 # Other attributes
 

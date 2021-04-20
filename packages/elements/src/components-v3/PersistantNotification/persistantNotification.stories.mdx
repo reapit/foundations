@@ -1,5 +1,6 @@
 import { Meta, Story, Canvas, ArgsTable } from '@storybook/addon-docs/blocks'
 import { useState } from 'react'
+import { RenderHtmlMarkup } from '../../helpers/v3/render-html-markup'
 import { PersistantNotification } from './index'
 
 <Meta title="V3/PersistantNotification" component={PersistantNotification} />
@@ -45,6 +46,8 @@ These stories have been given a custom CSS positon (`position: relative`) so tha
   </Story>
 </Canvas>
 
+<RenderHtmlMarkup component="V3/PersistantNotification" story="Default Usage" />
+
 ### With longer content
 
 The notification is set to a max-width of 50% of the parent element (in normal usage this is the entire window). If the content is longer the box just grows downwards.
@@ -58,6 +61,8 @@ The notification is set to a max-width of 50% of the parent element (in normal u
   </Story>
 </Canvas>
 
+<RenderHtmlMarkup component="V3/PersistantNotification" story="Long text" />
+
 ### With a different icon
 
 <Canvas>
@@ -67,6 +72,8 @@ The notification is set to a max-width of 50% of the parent element (in normal u
     </PersistantNotification>
   </Story>
 </Canvas>
+
+<RenderHtmlMarkup component="V3/PersistantNotification" story="With a different icon" />
 
 ### With different intents
 
@@ -97,6 +104,11 @@ The notification is set to a max-width of 50% of the parent element (in normal u
     </PersistantNotification>
   </Story>
 </Canvas>
+
+<RenderHtmlMarkup
+  component="V3/PersistantNotification"
+  story={['Intent: primary', 'Intent: secondary (default)', 'Intent: critical', 'Intent: success', 'Intent: danger']}
+/>
 
 ### Collapsed/Expanded state
 
