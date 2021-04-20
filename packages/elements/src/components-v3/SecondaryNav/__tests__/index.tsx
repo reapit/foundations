@@ -1,10 +1,10 @@
 import * as React from 'react'
-import { shallow } from 'enzyme'
+import { mount } from 'enzyme'
 import { SecondaryNav, SecondaryNavItem } from '../'
 
 describe('SecondaryNav component', () => {
   it('should match a snapshot', () => {
-    const wrapper = shallow(
+    const wrapper = mount(
       <SecondaryNav>
         <SecondaryNavItem>App List</SecondaryNavItem>
         <SecondaryNavItem active>Create App</SecondaryNavItem>
