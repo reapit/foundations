@@ -12,6 +12,7 @@ import {
   Loader,
   Section,
   Pagination,
+  Helper,
 } from '@reapit/elements'
 import { connect } from 'react-redux'
 import { Dispatch } from 'redux'
@@ -197,11 +198,18 @@ export const AddressInput = ({ addressType, documentImage }: AddressInputProps) 
             </Section>
           )}
           {modalState.image && (
-            <ButtonGroup hasSpacing isCentered>
-              <a className="button is-primary" href={modalState.image}>
-                Download Document
-              </a>
-            </ButtonGroup>
+            <>
+              <ButtonGroup hasSpacing isCentered>
+                <a className="button is-primary" href={modalState.image}>
+                  Download Document
+                </a>
+              </ButtonGroup>
+              <Helper>
+                If you&apos;re having trouble viewing the above image or if it doesn&apos;t display correctly, please
+                use the &lsquo;Download Document&rsquo; option below. Once downloaded, you can select your default
+                browser to view the document (Internet Explorer, Chrome etc)
+              </Helper>
+            </>
           )}
         </>
       </ModalV2>
