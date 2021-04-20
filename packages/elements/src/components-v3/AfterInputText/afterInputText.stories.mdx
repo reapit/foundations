@@ -1,5 +1,6 @@
 import { Meta, Story, Canvas, ArgsTable } from '@storybook/addon-docs/blocks'
 import { AfterInputText } from './index'
+import { RenderHtmlMarkup } from '../../helpers/v3/render-html-markup'
 
 <Meta title="V3/Forms/AfterInputText" component={AfterInputText} />
 
@@ -12,6 +13,8 @@ Underlying tag: `<span>`
     <AfterInputText>Short text message</AfterInputText>
   </Story>
 </Canvas>
+
+<RenderHtmlMarkup component="V3/Forms/AfterInputText" story="Default Usage" />
 
 # Intents
 
@@ -34,6 +37,11 @@ Underlying tag: `<span>`
     <AfterInputText intent="danger">Danger msg</AfterInputText>
   </Story>
 </Canvas>
+
+<RenderHtmlMarkup
+  component="V3/Forms/AfterInputText"
+  story={['Intent: Primary', 'Intent: Secondary', 'Intent: Critical', 'Intent: Success', 'Intent: Danger']}
+/>
 
 # Other attributes
 

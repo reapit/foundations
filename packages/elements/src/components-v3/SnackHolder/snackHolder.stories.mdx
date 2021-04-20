@@ -1,5 +1,6 @@
 import { Meta, Story, Canvas, ArgsTable } from '@storybook/addon-docs/blocks'
 import { SnackHolder } from './index'
+import { RenderHtmlMarkup } from '../../helpers/v3/render-html-markup'
 
 <Meta title="V3/SnackHolder" component={SnackHolder} />
 
@@ -18,6 +19,8 @@ If you are using this library without react, you may find is useful for putting 
     <SnackHolder />
   </Story>
 </Canvas>
+
+<RenderHtmlMarkup component="V3/SnackHolder" story="Default Usage" />
 
 <ArgsTable of={SnackHolder} />
 
