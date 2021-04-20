@@ -1,0 +1,14 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`SecondaryNav component should match a snapshot 1`] = `
+<ElSecondaryNav>
+  <SecondaryNavItem>
+    App List
+  </SecondaryNavItem>
+  <SecondaryNavItem
+    active={true}
+  >
+    Create App
+  </SecondaryNavItem>
+</ElSecondaryNav>
+`;

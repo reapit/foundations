@@ -7,6 +7,11 @@ export const intentCritical = '#f5b555'
 export const intentSuccess = '#a0c862'
 export const intentDanger = '#d3033d'
 
+export const colorBlueLight = '#23a4de'
+export const colorBlueLight2 = '#7bc9eb'
+export const colorBlueDark = '#262f69'
+export const colorBlueDark2 = '#31448f'
+
 export const elVariables = css`
   :global() {
     :root {
@@ -18,10 +23,10 @@ export const elVariables = css`
       --color-grey-light: #f2f2f2;
 
       /** shades of blue color variables */
-      --color-blue-light: #23a4de;
-      --color-blue-light2: #7bc9eb;
-      --color-blue-dark: #262f69;
-      --color-blue-dark2: #31448f;
+      --color-blue-light: ${colorBlueLight};
+      --color-blue-light2: ${colorBlueLight2};
+      --color-blue-dark: ${colorBlueDark};
+      --color-blue-dark2: ${colorBlueDark2};
 
       /** intent color variables */
       --intent-primary: ${intentPrimary};
