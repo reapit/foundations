@@ -1,6 +1,7 @@
 import { useState } from 'react'
 import { Meta, Story, Canvas, ArgsTable } from '@storybook/addon-docs/blocks'
 import { Steps } from './index'
+import { RenderHtmlMarkup } from '../../helpers/v3/render-html-markup'
 
 <Meta title="V3/Steps" component={Steps} />
 
@@ -13,6 +14,8 @@ Underlying tag: `<div>`
     <Steps steps={['1', '2', '3', '4', '5']} />
   </Story>
 </Canvas>
+
+<RenderHtmlMarkup component="V3/Steps" story="Default Usage" />
 
 <ArgsTable of={Steps} />
 
@@ -28,6 +31,8 @@ A CSS transition occurs when moving between steps.
   </Story>
 </Canvas>
 
+<RenderHtmlMarkup component="V3/Steps" story="Middle item selected" />
+
 You can use any number of steps and you can also use letters instead of numbers. You can use any string as the content really.
 
 <Canvas>
@@ -36,6 +41,8 @@ You can use any number of steps and you can also use letters instead of numbers.
   </Story>
 </Canvas>
 
+<RenderHtmlMarkup component="V3/Steps" story="Last item selected" />
+
 Be aware though, steps with long text **aren't supported** and will not render very well at all.
 
 <Canvas>
@@ -43,6 +50,8 @@ Be aware though, steps with long text **aren't supported** and will not render v
     <Steps steps={['Item a', 'item B', 'ITEM C']} />
   </Story>
 </Canvas>
+
+<RenderHtmlMarkup component="V3/Steps" story="With longer words" />
 
 ### React example with `useState`
 

@@ -1,5 +1,6 @@
 import { Meta, Story, Canvas } from '@storybook/addon-docs/blocks'
 import { Button } from './index'
+import { RenderHtmlMarkup } from '../../helpers/v3/render-html-markup'
 import { action } from '@storybook/addon-actions'
 
 <Meta title="V3/Button" component={Button} />
@@ -13,6 +14,8 @@ Underlying tag: `<button>`
     <Button>Text within button</Button>
   </Story>
 </Canvas>
+
+<RenderHtmlMarkup component="V3/Button" story="Default Usage" />
 
 # Intent
 
@@ -35,6 +38,12 @@ Different intents are supported, to enable buttons to be used in different conte
     <Button intent="danger">Danger</Button>
   </Story>
 </Canvas>
+
+<RenderHtmlMarkup
+  component="V3/Button"
+  story={['Intent: Primary', 'Intent: Secondary', 'Intent: Critical', 'Intent: Success', 'Intent: Danger']}
+  label="HTML of different intents"
+/>
 
 ### Typical usage of each intent
 
@@ -68,13 +77,19 @@ Chevrons can be added which are helpful to indicate movement, forwards or backwa
   </Story>
 </Canvas>
 
+<RenderHtmlMarkup
+  component="V3/Button"
+  story={['Chevron: Left', 'Chevron: Right', 'Chevron: Both']}
+  label="HTML of the above"
+/>
+
 # Loading
 
 Add a loading spinner to indicate progress of a background activity after the button was clicked.
 
 <Canvas>
   <Story name="Loading">
-    <Button loading>Disabled</Button>
+    <Button loading>Loading</Button>
   </Story>
   <Story name="Loading - Primary Intent">
     <Button intent="primary" loading>
@@ -102,6 +117,19 @@ Add a loading spinner to indicate progress of a background activity after the bu
     </Button>
   </Story>
 </Canvas>
+
+<RenderHtmlMarkup
+  component="V3/Button"
+  story={[
+    'Loading',
+    'Loading - Primary Intent',
+    'Loading - Secondary Intent',
+    'Loading - Critical Intent',
+    'Loading - Success Intent',
+    'Loading - Danger Intent',
+  ]}
+  label="HTML of the above"
+/>
 
 # Disabled
 
@@ -138,6 +166,19 @@ Indicate that a button is disabled for whatever reason.
   </Story>
 </Canvas>
 
+<RenderHtmlMarkup
+  component="V3/Button"
+  story={[
+    'Disabled',
+    'Disabled - Primary Intent',
+    'Disabled - Secondary Intent',
+    'Disabled - Critical Intent',
+    'Disabled - Success Intent',
+    'Disabled - Danger Intent',
+  ]}
+  label="HTML of the above"
+/>
+
 # Additional className
 
 Add any additional CSS classes you need by supplying a className prop
@@ -156,24 +197,34 @@ All other standard HTML attributes for `<button>` are supported and are passed t
 
 ### Type
 
-<Story name="Standard attributes: type">
-  <Button type="submit" intent="primary">
-    Submit button
-  </Button>
-</Story>
+<Canvas>
+  <Story name="Standard attributes: type">
+    <Button type="submit" intent="primary">
+      Submit button
+    </Button>
+  </Story>
+</Canvas>
+
+<RenderHtmlMarkup component="V3/Button" story="Standard attributes: type" />
 
 ### onClick
 
-<Story name="Standard attributes: onClick">
-  <Button onClick={action('Button was clicked')} intent="primary">
-    Click me
-  </Button>
-</Story>
+<Canvas>
+  <Story name="Standard attributes: onClick">
+    <Button onClick={action('Button was clicked')} intent="primary">
+      Click me
+    </Button>
+  </Story>
+</Canvas>
 
 ### data-test
 
-<Story name="Standard attributes: data-*">
-  <Button data-test="someValue" intent="primary">
-    data-test attribute
-  </Button>
-</Story>
+<Canvas>
+  <Story name="Standard attributes: data-*">
+    <Button data-test="someValue" intent="primary">
+      data-test attribute
+    </Button>
+  </Story>
+</Canvas>
+
+<RenderHtmlMarkup component="V3/Button" story="Standard attributes: data-*" />
