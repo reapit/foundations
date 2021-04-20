@@ -1,0 +1,53 @@
+import { useState } from 'react'
+import { Meta, Story, Canvas, ArgsTable } from '@storybook/addon-docs/blocks'
+import { SecondaryNav, SecondaryNavItem } from './index'
+import { RenderHtmlMarkup } from '../../helpers/v3/render-html-markup'
+
+<Meta title="V3/SecondaryNav" component={SecondaryNav} />
+
+# SecondaryNav
+
+Underlying tag: `<div>`
+
+<Canvas>
+  <Story name="Default Usage">
+    <SecondaryNav>
+      <SecondaryNavItem>App List</SecondaryNavItem>
+      <SecondaryNavItem active>Create App</SecondaryNavItem>
+    </SecondaryNav>
+  </Story>
+</Canvas>
+
+<RenderHtmlMarkup component="V3/SecondaryNav" story="Default Usage" />
+
+Supply as children, as many `<SecondaryNavItem>` tags as required.
+
+# SecondaryNavItem
+
+Use `SecondaryNavItem` as a child of `SecondaryNav`. It accepts the following props, as well as any other standard HTML or React attribute for `<div>`, e.g. `onClick`
+
+<ArgsTable of={SecondaryNavItem} />
+
+# React example with `useState`
+
+<Canvas>
+  <Story name="React example">
+    {() => {
+      const [selectedItem, setSelectedItem] = useState(1)
+      return (
+        <SecondaryNav>
+          <SecondaryNavItem active={selectedItem === 1} onClick={() => setSelectedItem(1)}>
+            App List
+          </SecondaryNavItem>
+          <SecondaryNavItem active={selectedItem === 2} onClick={() => setSelectedItem(2)}>
+            Create App
+          </SecondaryNavItem>
+        </SecondaryNav>
+      )
+    }}
+  </Story>
+</Canvas>
+
+# Other attributes
+
+`SecondaryNav` takes no custom props but all other standard HTML attributes for `<div>` are supported and are passed through to the React component.
