@@ -1,5 +1,5 @@
 import * as Yup from 'yup'
-import { telephoneRegex, websiteRegex } from '@reapit/utils'
+import { isValidHttpsUrl, telephoneRegex } from '@reapit/utils'
 import { formFields } from './form-fields'
 import errorMessage from '@/constants/error-messages'
 
@@ -37,7 +37,13 @@ export const companyInformationFormSchema = Yup.object().shape({
   [websiteField.name]: Yup.string()
     .trim()
     .required(FIELD_REQUIRED)
-    .matches(websiteRegex, websiteField.errorMessage)
+    .test({
+      message: websiteField.errorMessage,
+      test: (value) => {
+        if (!value) return true
+        return isValidHttpsUrl(value)
+      },
+    })
     .max(100, MAXIMUM_CHARACTER_LENGTH(100)),
 
   [noTaxRegistrationField.name]: Yup.boolean(),
