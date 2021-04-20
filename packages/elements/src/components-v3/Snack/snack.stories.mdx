@@ -3,6 +3,7 @@ import { Snack } from './index'
 import { SnackProvider } from '../../contexts/snacks'
 import { UseSnackHookStory } from './useSnackHook.stories'
 import useSnack from '../../hooks/useSnack-v3'
+import { RenderHtmlMarkup } from '../../helpers/v3/render-html-markup'
 
 <Meta title="V3/Snack" component={Snack} />
 
@@ -56,6 +57,8 @@ Underlying tag: `<div>`
   </Story>
 </Canvas>
 
+<RenderHtmlMarkup component="V3/Snack" story="Default Usage" />
+
 <ArgsTable of={Snack} />
 
 ## With an icon
@@ -65,6 +68,8 @@ Underlying tag: `<div>`
     <Snack icon="info">Message goes here</Snack>
   </Story>
 </Canvas>
+
+<RenderHtmlMarkup component="V3/Snack" story="With an icon" />
 
 ## Different intents
 
@@ -95,6 +100,12 @@ Underlying tag: `<div>`
     </Snack>
   </Story>
 </Canvas>
+
+<RenderHtmlMarkup
+  component="V3/Snack"
+  story={['Intent: primary', 'Intent: secondary', 'Intent: Critical', 'Intent: success', 'Intent: danger']}
+  label="Snacks with different intents"
+/>
 
 ## Additional className
 

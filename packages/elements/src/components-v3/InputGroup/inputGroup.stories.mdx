@@ -4,6 +4,7 @@ import { Input } from '../Input'
 import { Icon } from '../Icon'
 import { Label } from '../Label'
 import { AfterInputText } from '../AfterInputText'
+import { RenderHtmlMarkup } from '../../helpers/v3/render-html-markup'
 
 <Meta title="V3/Forms/InputGroup" component={InputGroup} />
 
@@ -36,6 +37,8 @@ InputGroup provides a wrapper and styling for the `Input`, `Icon`, `Label`, and 
   </Story>
 </Canvas>
 
+<RenderHtmlMarkup component="V3/Forms/InputGroup" story="Complete example" />
+
 # With Icon only
 
 <Canvas>
@@ -46,6 +49,8 @@ InputGroup provides a wrapper and styling for the `Input`, `Icon`, `Label`, and 
     </InputGroup>
   </Story>
 </Canvas>
+
+<RenderHtmlMarkup component="V3/Forms/InputGroup" story="With Icon only" />
 
 # With Label only
 
@@ -58,6 +63,8 @@ InputGroup provides a wrapper and styling for the `Input`, `Icon`, `Label`, and 
   </Story>
 </Canvas>
 
+<RenderHtmlMarkup component="V3/Forms/InputGroup" story="With Label only" />
+
 # With AfterInputText only
 
 <Canvas>
@@ -68,6 +75,8 @@ InputGroup provides a wrapper and styling for the `Input`, `Icon`, `Label`, and 
     </InputGroup>
   </Story>
 </Canvas>
+
+<RenderHtmlMarkup component="V3/Forms/InputGroup" story="With AfterInputText only" />
 
 # Shorthand usage for React users
 
@@ -118,6 +127,12 @@ InputGroup provides a wrapper and styling for the `Input`, `Icon`, `Label`, and 
   </Story>
 </Canvas>
 
+<RenderHtmlMarkup
+  component="V3/Forms/InputGroup"
+  story={['Type: checkbox', 'Type: checkbox - with intent', 'Type: checkbox - no icon', 'Type: checkbox - no label']}
+  label="HTML of the above"
+/>
+
 ## Radio
 
 <Canvas>
@@ -140,6 +155,12 @@ InputGroup provides a wrapper and styling for the `Input`, `Icon`, `Label`, and 
     <InputGroup className="el-mb2" type="radio" name="phone" label="Email" />
   </Story>
 </Canvas>
+
+<RenderHtmlMarkup
+  component="V3/Forms/InputGroup"
+  story={['Type: radio', 'Type: radio - with intent', 'Type: radio - no icon']}
+  label="HTML of the above"
+/>
 
 #### Use with radio input type and afterInputText
 

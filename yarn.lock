@@ -5083,6 +5083,7 @@ __metadata:
     "@storybook/addon-storysource": ^6.1.20
     "@storybook/addons": ^6.1.20
     "@storybook/cli": ^6.1.20
+    "@storybook/csf": ^0.0.1
     "@storybook/react": ^6.1.20
     "@storybook/theming": ^6.1.20
     "@svgr/rollup": ^5.5.0
@@ -6911,7 +6912,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@storybook/csf@npm:0.0.1":
+"@storybook/csf@npm:0.0.1, @storybook/csf@npm:^0.0.1":
   version: 0.0.1
   resolution: "@storybook/csf@npm:0.0.1"
   dependencies:

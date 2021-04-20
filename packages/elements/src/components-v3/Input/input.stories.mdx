@@ -1,5 +1,6 @@
 import { Meta, Story, Canvas } from '@storybook/addon-docs/blocks'
 import { Input } from './index'
+import { RenderHtmlMarkup } from '../../helpers/v3/render-html-markup'
 
 <Meta title="V3/Forms/Input" component={Input} />
 
@@ -12,6 +13,8 @@ Underlying tag: `<input>`
     <Input type="text" placeholder="A placeholder" />
   </Story>
 </Canvas>
+
+<RenderHtmlMarkup component="V3/Forms/Input" story="Default Usage" />
 
 # Different types
 
@@ -119,6 +122,8 @@ Underlying tag: `<input>`
   </Story>
 </Canvas>
 
+<RenderHtmlMarkup component="V3/Forms/Input" story="Type: checkbox" />
+
 # Radio
 
 <Canvas>
@@ -127,6 +132,8 @@ Underlying tag: `<input>`
     <Input type="radio" name="property" value="xyz" />
   </Story>
 </Canvas>
+
+<RenderHtmlMarkup component="V3/Forms/Input" story="Type: radio" />
 
 # Additional className
 

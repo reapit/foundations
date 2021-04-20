@@ -38,6 +38,7 @@
     "chrome 69"
   ],
   "dependencies": {
+    "@storybook/csf": "^0.0.1",
     "@svgr/rollup": "^5.5.0",
     "@svgr/webpack": "^5.5.0",
     "babel-loader": "^8.2.2",
