@@ -11,6 +11,7 @@ import {
   Loader,
   Section,
   Pagination,
+  Helper,
 } from '@reapit/elements'
 import SelectIdentity from '@/components/ui/inputs/select-identity'
 import styles from '@/styles/pages/checklist-detail.scss?mod'
@@ -191,11 +192,18 @@ export const Identification: React.FC<IdentificationProps> = ({
                   </Section>
                 )}
                 {modalState.image && (
-                  <ButtonGroup hasSpacing isCentered>
-                    <a className="button is-primary" href={modalState.image}>
-                      Download Document
-                    </a>
-                  </ButtonGroup>
+                  <>
+                    <ButtonGroup hasSpacing isCentered>
+                      <a className="button is-primary" href={modalState.image}>
+                        Download Document
+                      </a>
+                    </ButtonGroup>
+                    <Helper>
+                      If you&apos;re having trouble viewing the above image or if it doesn&apos;t display correctly,
+                      please use the &lsquo;Download Document&rsquo; option below. Once downloaded, you can select your
+                      default browser to view the document (Internet Explorer, Chrome etc)
+                    </Helper>
+                  </>
                 )}
               </>
             </ModalV2>
