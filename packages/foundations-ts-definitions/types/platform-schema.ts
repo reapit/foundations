@@ -5362,7 +5362,7 @@ export interface CreatePropertyModel {
     max?: number // double
   }
   /**
-   * Request body used to set details specific to sales marketing on a new property
+   * Request body used to set details specific to sales marketing on a new property. When creating a new sales property, a vendor record is automatically created. Please refer to the [Platform Glossary](http://foundations.link/glossary#vendor) for full details
    */
   selling?: {
     /**
@@ -5591,7 +5591,7 @@ export interface CreatePropertyRoomModel {
   description?: string
 }
 /**
- * Request body used to set details specific to sales marketing on a new property
+ * Request body used to set details specific to sales marketing on a new property. When creating a new sales property, a vendor record is automatically created. Please refer to the [Platform Glossary](http://foundations.link/glossary#vendor) for full details
  */
 export interface CreatePropertySellingModel {
   /**
