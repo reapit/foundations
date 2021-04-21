@@ -9,15 +9,6 @@ import { fetchWebhookLogs } from '../../../../actions/webhook-logs/webhook-logs'
 import FileSaver from 'file-saver'
 
 describe('WebhooksLogsTable', () => {
-  // let store
-  // let spyDispatch
-  // beforeEach(() => {
-  //   /* mocking store */
-  //   const mockStore = configureStore()
-  //   store = mockStore(appState)
-  //   spyDispatch = jest.spyOn(ReactRedux, 'useDispatch').mockImplementation(() => store.dispatch)
-  // })
-
   it('should match a snapshot where there are logs', () => {
     const mockStore = configureStore()
     const store = mockStore({
