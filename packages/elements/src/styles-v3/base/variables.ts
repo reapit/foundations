@@ -11,6 +11,7 @@ export const colorBlueLight = '#23a4de'
 export const colorBlueLight2 = '#7bc9eb'
 export const colorBlueDark = '#262f69'
 export const colorBlueDark2 = '#31448f'
+export const colorAccentOrange = '#ffb71b'
 
 export const elVariables = css`
   :global() {
@@ -22,11 +23,12 @@ export const elVariables = css`
       --color-grey-medium: #e3e3e3;
       --color-grey-light: #f2f2f2;
 
-      /** shades of blue color variables */
+      /** shades of blue color variables and accent colors */
       --color-blue-light: ${colorBlueLight};
       --color-blue-light2: ${colorBlueLight2};
       --color-blue-dark: ${colorBlueDark};
       --color-blue-dark2: ${colorBlueDark2};
+      --color-accent-orange: ${colorAccentOrange};
 
       /** intent color variables */
       --intent-primary: ${intentPrimary};

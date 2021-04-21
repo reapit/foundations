@@ -1,0 +1,51 @@
+import { useState } from 'react'
+import { Meta, Story, Canvas, ArgsTable } from '@storybook/addon-docs/blocks'
+import { Loader } from './index'
+import { RenderHtmlMarkup } from '../../helpers/v3/render-html-markup'
+
+<Meta title="V3/Loader" component={Loader} />
+
+# Loader
+
+Underlying tag: `<div>`
+
+## React props
+
+<ArgsTable of={Loader} />
+
+## Inline (default)
+
+<Canvas>
+  <Story name="Inline">
+    <Loader />
+  </Story>
+</Canvas>
+
+<RenderHtmlMarkup component="V3/Loader" story="Inline" />
+
+## Inline - in a smaller container
+
+<Canvas>
+  <Story name="Inline - in a smaller container">
+    <div style={{ width: '80px' }}>
+      <Loader />
+    </div>
+  </Story>
+</Canvas>
+
+<RenderHtmlMarkup component="V3/Loader" story="Inline - in a smaller container" />
+
+## Full page
+
+<Canvas>
+  <Story name="Full page loader">
+    <p>This loader is fixed to the center of the screen</p>
+    <Loader fullPage />
+  </Story>
+</Canvas>
+
+<RenderHtmlMarkup component="V3/Loader" story="Full page loader" />
+
+# Other attributes
+
+`Loader` takes no custom props but all other standard HTML attributes for `<div>` are supported and are passed through to the React component, e.g. `className`
