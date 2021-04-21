@@ -167,6 +167,14 @@ const appState: ReduxState = {
       _embedded: [],
     },
   },
+  webhookLogs: {
+    list: {
+      isLoading: false,
+      errorMessage: '',
+      logs: [],
+      topics: [],
+    },
+  },
   developerSubscriptions: {
     create: {
       isLoading: false,

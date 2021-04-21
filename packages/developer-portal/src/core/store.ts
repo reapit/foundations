@@ -45,6 +45,8 @@ import developersSagas from '@/sagas/developers'
 import installationsSagas from '@/sagas/installations'
 import { webhooksTopicsSagas } from '@/sagas/webhooks-topics'
 import { currentMemberSagas } from '@/sagas/current-member'
+import webhookLogsReducer from '../reducers/webhook-logs'
+import { webhookLogsSagas } from '../sagas/webhook-logs'
 
 export class Store {
   static _instance: Store
@@ -77,6 +79,7 @@ export class Store {
     installations: installationsReducer,
     webhooksTopics: webhooksTopicsReducer,
     webhooksSubscriptions: webhooksSubscriptionsReducer,
+    webhookLogs: webhookLogsReducer,
     currentMember: currentMemberReducer,
   })
 
@@ -104,6 +107,7 @@ export class Store {
       fork(installationsSagas),
       fork(webhooksTopicsSagas),
       fork(webhooksSubscriptionsSagas),
+      fork(webhookLogsSagas),
       fork(currentMemberSagas),
     ])
   }

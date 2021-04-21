@@ -15,6 +15,7 @@ export const URLS = {
   webhooks: '/webhooks',
   webhookSubscriptions: '/webhooks/subscriptions',
   webhooksTopics: '/webhooks/topics',
+  webhooksLogs: '/webhooks/logs',
   trafficEventBilling: '/trafficevents/billing',
   trafficEventStatistics: '/trafficevents/trafficStatistics',
   negotiators: '/negotiators',

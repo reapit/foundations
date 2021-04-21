@@ -11,15 +11,16 @@ import {
   MODAL_TYPE,
   openCreateModal,
   openTestModal,
+  handleSetPageNumber,
 } from '../webhooks'
 import { mount } from 'enzyme'
-
 import { AppSummaryModel } from '@reapit/foundations-ts-definitions'
 import { SelectBoxOptions } from '@reapit/elements'
 import appState from '@/reducers/__stubs__/app-state'
 import { webhookSetOpenModal } from '@/actions/webhooks-subscriptions'
 import { TopicModel } from '@/services/webhooks'
 import { getMockRouterProps } from '@/utils/mock-helper'
+import { subscriptions } from '../../../../sagas/__stubs__/webhooks'
 
 jest.mock('react-router-dom', () => {
   return {
@@ -53,6 +54,26 @@ describe('DeveloperWebHooks', () => {
     ).toMatchSnapshot()
   })
 
+  it('should match a snapshot where there are subscriptions', () => {
+    window.reapit.config.appEnv = 'development'
+    const mockStore = configureStore()
+    store = mockStore({
+      ...appState,
+      webhooksSubscriptions: {
+        ...appState.webhooksSubscriptions,
+        list: subscriptions,
+      },
+    })
+
+    expect(
+      mount(
+        <ReactRedux.Provider store={store}>
+          <DeveloperWebhooks />
+        </ReactRedux.Provider>,
+      ),
+    ).toMatchSnapshot()
+  })
+
   describe('mapDeveloperAppsToAppSelectBoxOptions', () => {
     it('should return correctly', () => {
       const inputs: AppSummaryModel[] = [
@@ -72,9 +93,11 @@ describe('DeveloperWebHooks', () => {
   describe('handleSubscriptionChange', () => {
     it('should run correctly', () => {
       const values = { applicationId: '123' }
+      const mockSetPageNumber = jest.fn()
       const mockHistory = getMockRouterProps({ applicationId: '123' }).history
-      handleSubscriptionChange(mockHistory)(values)
+      handleSubscriptionChange(mockHistory, mockSetPageNumber)(values)
       expect(mockHistory.push).toHaveBeenCalled()
+      expect(mockSetPageNumber).toHaveBeenCalledWith(1)
     })
   })
   describe('renderTopicName', () => {
@@ -145,6 +168,16 @@ describe('DeveloperWebHooks', () => {
 
       openTestModal(spyDispatch, setWebhookId)(webhookId)
       expect(spyDispatch).toBeCalledWith(webhookSetOpenModal(MODAL_TYPE.TEST))
+    })
+  })
+
+  describe('handleSetPageNumber', () => {
+    it('should correctly set the page number', () => {
+      const pageNumber = 1
+      const mockSetPageNumber = jest.fn()
+
+      handleSetPageNumber(mockSetPageNumber)(pageNumber)
+      expect(mockSetPageNumber).toBeCalledWith(pageNumber)
     })
   })
 })

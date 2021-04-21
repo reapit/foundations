@@ -1,7 +1,7 @@
-import React, { ReactElement } from 'react'
+import React, { ReactElement, SetStateAction, useEffect, useState } from 'react'
 import qs from 'query-string'
 import { History } from 'history'
-import { Loader, Content, SelectBoxOptions, Section, Helper } from '@reapit/elements'
+import { Loader, Content, SelectBoxOptions, Section, Helper, Pagination, Grid, GridItem, H5 } from '@reapit/elements'
 import { useSelector, useDispatch } from 'react-redux'
 import { SelectBox, H3, LevelRight, Button, Table } from '@reapit/elements'
 import { AppSummaryModel } from '@reapit/foundations-ts-definitions'
@@ -24,6 +24,9 @@ import { useHistory } from 'react-router-dom'
 import { TopicModel, WebhookModel } from '@/services/webhooks'
 import { URLS } from '@/services/constants'
 import FadeIn from '../../../styles/fade-in'
+import { WebhooksLogsTable } from './webhook-logs-table'
+
+export const WEBHOOK_PAGE_SIZE = 5
 
 export type DeveloperWebhooksProps = {}
 
@@ -70,8 +73,11 @@ export const MODAL_TYPE = {
   TEST: 'TEST',
 }
 
-export const handleSubscriptionChange = (history: History) => (values: WebhooksFormValues): void => {
+export const handleSubscriptionChange = (history: History, setPageNumber: React.Dispatch<SetStateAction<number>>) => (
+  values: WebhooksFormValues,
+): void => {
   const { applicationId } = values
+  setPageNumber(1)
   history.push(`${URLS.webhooks}?applicationId=${applicationId}`)
 }
 
@@ -117,6 +123,9 @@ export const renderCustomerName = (subscriptionCustomerIds: string[]) => {
   }
   return ['All Customers (*)']
 }
+
+export const handleSetPageNumber = (setPageNumber: React.Dispatch<SetStateAction<number>>) => (pageNumber: number) =>
+  setPageNumber(pageNumber)
 
 type GetTableTopicsDataParams = {
   subscriptions: WebhookModel[]
@@ -169,15 +178,16 @@ export const DeveloperWebhooks = () => {
   const history = useHistory()
   const queryParams = qs.parse(history.location.search)
   const applicationId = queryParams.applicationId
-  const [webhookId, setWebhookId] = React.useState<string | undefined>()
-  React.useEffect(() => {
+  const [webhookId, setWebhookId] = useState<string | undefined>()
+  const [pageNumber, setPageNumber] = useState<number>(1)
+  useEffect(() => {
     if (applicationId) {
-      dispatch(fetchWebhooksSubscriptions({ applicationId: [applicationId] as string[] }))
-      dispatch(fetchWebhooksTopics({ applicationId }))
+      dispatch(fetchWebhooksSubscriptions({ applicationId: [applicationId] as string[], pageNumber }))
+      dispatch(fetchWebhooksTopics({ applicationId, pageNumber }))
     }
-  }, [dispatch, applicationId])
+  }, [dispatch, applicationId, pageNumber])
 
-  const subscriptions = useSelector(selectSubscriptionsData)
+  const subscriptionsData = useSelector(selectSubscriptionsData)
   const subscriptionsLoading = useSelector(selectSubscriptionsLoading)
   const topics = useSelector(selectTopicsData)
   const developerState = useSelector(selectDeveloper)
@@ -190,14 +200,16 @@ export const DeveloperWebhooks = () => {
   const onCloseModal = React.useCallback(handleCloseModal(dispatch), [dispatch])
   const afterClose = React.useCallback(handleAfterClose(dispatch, setWebhookId), [dispatch])
 
+  const applicationOptions = mapDeveloperAppsToAppSelectBoxOptions(apps || [])
   const unfetched = !apps
   const loading = developerState.loading
   const isShowDetailModal = modalType === MODAL_TYPE.EDIT || modalType === MODAL_TYPE.CREATE
   const isShowTestModal = modalType === MODAL_TYPE.TEST
+  const { _embedded: subscriptions, totalCount } = subscriptionsData ?? {}
 
   return (
     <>
-      <H3>Manage Webhook Subscriptions</H3>
+      <H3>Webhooks</H3>
       <FadeIn>
         <Section hasPadding={false}>
           <Content>
@@ -219,36 +231,43 @@ export const DeveloperWebhooks = () => {
             install/uninstall will only be visible in the Marketplace to customers who have been migrated to AWS.{' '}
           </Helper>
         </Section>
-        <Formik
-          initialValues={{
-            applicationId: applicationId || '',
-          }}
-          enableReinitialize={true}
-          onSubmit={() => {}}
-        >
-          {() => (
-            <Form>
-              <SelectBox
-                className="pt-2 pb-2"
-                name="applicationId"
-                options={mapDeveloperAppsToAppSelectBoxOptions(apps || [])}
-                labelText="Please select an App from the list below to view the associated Webhooks:"
-                id="subscription"
-              />
-              <FormikAutoSave onSave={handleSubscriptionChange(history)} />
-            </Form>
-          )}
-        </Formik>
-        {applicationId && (
-          <LevelRight>
-            <Button dataTest="logout-btn" variant="primary" type="button" onClick={handleOpenCreateModal}>
-              Add New Webhook
-            </Button>
-          </LevelRight>
-        )}
+        <H5>Manage Webhook Subscriptions</H5>
+        <Grid>
+          <GridItem>
+            <Formik
+              initialValues={{
+                applicationId: applicationId || '',
+              }}
+              enableReinitialize={true}
+              onSubmit={() => {}}
+            >
+              {() => (
+                <Form>
+                  <SelectBox
+                    className="pt-2 pb-2"
+                    name="applicationId"
+                    options={applicationOptions}
+                    labelText="Please select an App from the list below to view the associated Webhooks:"
+                    id="subscription"
+                  />
+                  <FormikAutoSave onSave={handleSubscriptionChange(history, setPageNumber)} />
+                </Form>
+              )}
+            </Formik>
+          </GridItem>
+          <GridItem>
+            {applicationId && (
+              <LevelRight>
+                <Button dataTest="logout-btn" variant="primary" type="button" onClick={handleOpenCreateModal}>
+                  Add New Webhook
+                </Button>
+              </LevelRight>
+            )}
+          </GridItem>
+        </Grid>
         {unfetched || loading || subscriptionsLoading ? (
           <Loader />
-        ) : subscriptions.length ? (
+        ) : subscriptions?.length ? (
           <Table
             scrollable
             columns={columns}
@@ -256,6 +275,13 @@ export const DeveloperWebhooks = () => {
             loading={false}
           />
         ) : null}
+        <Pagination
+          pageNumber={pageNumber}
+          onChange={handleSetPageNumber(setPageNumber)}
+          pageSize={WEBHOOK_PAGE_SIZE}
+          totalCount={totalCount ?? 0}
+        />
+        <WebhooksLogsTable applicationOptions={applicationOptions} />
       </FadeIn>
       {isShowDetailModal && (
         <WebhookEditModal
