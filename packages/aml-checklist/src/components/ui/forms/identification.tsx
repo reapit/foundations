@@ -200,7 +200,7 @@ export const Identification: React.FC<IdentificationProps> = ({
                     </ButtonGroup>
                     <Helper>
                       If you&apos;re having trouble viewing the above image or if it doesn&apos;t display correctly,
-                      please use the &lsquo;Download Document&rsquo; option below. Once downloaded, you can select your
+                      please use the &lsquo;Download Document&rsquo; option above. Once downloaded, you can select your
                       default browser to view the document (Internet Explorer, Chrome etc)
                     </Helper>
                   </>
