@@ -212,12 +212,22 @@ exports[`DeveloperWebHooks should match a snapshot 1`] = `
             </GridItem>
           </div>
         </Grid>
-        <Pagination
-          onChange={[Function]}
-          pageNumber={1}
-          pageSize={5}
-          totalCount={0}
-        />
+        <Section
+          hasPadding={false}
+        >
+          <section
+            className="section has-margin has-background"
+            data-test=""
+          >
+            <Pagination
+              className="mb-0 pb-0"
+              onChange={[Function]}
+              pageNumber={1}
+              pageSize={5}
+              totalCount={0}
+            />
+          </section>
+        </Section>
         <WebhooksLogsTable
           applicationOptions={Array []}
         >
@@ -32791,12 +32801,22 @@ exports[`DeveloperWebHooks should match a snapshot where there are subscriptions
             </table>
           </div>
         </Table>
-        <Pagination
-          onChange={[Function]}
-          pageNumber={1}
-          pageSize={5}
-          totalCount={1}
-        />
+        <Section
+          hasPadding={false}
+        >
+          <section
+            className="section has-margin has-background"
+            data-test=""
+          >
+            <Pagination
+              className="mb-0 pb-0"
+              onChange={[Function]}
+              pageNumber={1}
+              pageSize={5}
+              totalCount={1}
+            />
+          </section>
+        </Section>
         <WebhooksLogsTable
           applicationOptions={Array []}
         >
