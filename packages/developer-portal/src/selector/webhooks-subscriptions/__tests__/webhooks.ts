@@ -15,7 +15,7 @@ const input = {
 describe('selectWebhooks', () => {
   it('should run correctly selectSubscriptionsData', () => {
     const result = selectSubscriptionsData(input)
-    expect(result).toEqual(subscriptions._embedded)
+    expect(result).toEqual(input.webhooksSubscriptions.list)
   })
 
   it('should run correctly selectSubscriptionsLoading', () => {
