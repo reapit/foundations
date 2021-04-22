@@ -1,6 +1,8 @@
 import { styled } from 'linaria/react'
 import { elIsFullPage } from '../../../styles-v3/base/states'
 
+const ANIM_TIME = 1.2
+
 export const ElLoaderContainer = styled.div`
   display: flex;
   align-items: center;
@@ -30,7 +32,7 @@ export const ElLoader = styled.div`
     background: var(--color-blue-light);
     width: 62.5%;
     height: 100%;
-    animation: moveLightBlueBar 0.85s infinite linear;
+    animation: moveLightBlueBar ${ANIM_TIME}s infinite linear;
     z-index: 1;
   }
 
@@ -41,7 +43,7 @@ export const ElLoader = styled.div`
     background: var(--color-accent-orange);
     width: 50%;
     height: 100%;
-    animation: moveYellowBar 0.85s infinite linear;
+    animation: moveYellowBar ${ANIM_TIME}s infinite linear;
     z-index: 2;
   }
 
@@ -75,7 +77,7 @@ export const ElLoaderMovingBar = styled.div`
   height: 100%;
   width: 22.5%;
   background: var(--color-blue-dark);
-  animation: moveDarkBlueBar 0.85s infinite linear;
+  animation: moveDarkBlueBar ${ANIM_TIME}s infinite linear;
   z-index: 3;
 
   @keyframes moveDarkBlueBar {
