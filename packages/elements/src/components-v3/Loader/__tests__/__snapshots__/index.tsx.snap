@@ -1,0 +1,19 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Loader component should match a snapshot 1`] = `
+<Loader>
+  <ElLoader
+    className=""
+  >
+    <div
+      className="el-loader"
+    >
+      <ElLoaderMovingBar>
+        <div
+          className="el-loader-moving-bar"
+        />
+      </ElLoaderMovingBar>
+    </div>
+  </ElLoader>
+</Loader>
+`;

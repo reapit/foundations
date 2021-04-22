@@ -15,6 +15,7 @@ import { WebhooksTopicsRootState } from '@/reducers/webhooks-topics'
 import { WebhooksSubscriptionsRootState } from '@/reducers/webhooks-subscriptions'
 import { TrafficStatisticsRootState } from '@/reducers/traffic-statistics'
 import { CurrentMemberRootState } from '@/reducers/current-member'
+import { WebhookLogRootState } from '../reducers/webhook-logs'
 
 export type ModalProps = { visible: boolean; afterClose: () => void }
 
@@ -69,5 +70,6 @@ export interface ReduxState {
   installations: InstallationsRootState
   webhooksTopics: WebhooksTopicsRootState
   webhooksSubscriptions: WebhooksSubscriptionsRootState
+  webhookLogs: WebhookLogRootState
   currentMember: CurrentMemberRootState
 }

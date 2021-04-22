@@ -5248,7 +5248,7 @@ __metadata:
     postcss-loader: ^3.0.0
     prettier: ^2.2.1
     prettier-plugin-packagejson: ^2.2.10
-    react-refresh: ^0.9.0
+    react-refresh: ^0.10.0
     regenerator-runtime: ^0.13.7
     rimraf: ^3.0.2
     sass-loader: ^7.3.1
@@ -29908,17 +29908,17 @@ fsevents@^1.2.7:
   languageName: node
   linkType: hard
 
+"react-refresh@npm:^0.10.0":
+  version: 0.10.0
+  resolution: "react-refresh@npm:0.10.0"
+  checksum: 09a59d2732d8f2e9df3f59670146a507ea027f6b35a18b5a2116919f18ef056cfcc0455bed2f6b916ac154e4af78e3c57748cfbf9383930729624f7b8c672b91
+  languageName: node
+  linkType: hard
+
 "react-refresh@npm:^0.8.3":
   version: 0.8.3
   resolution: "react-refresh@npm:0.8.3"
   checksum: 38f06df8e0a20701b96e5d680838a3528d66cfb53db79843d30cb9517df3262ec596607147439975267bf0634bee77101db37298ea79b5742cc28664632f3c76
-  languageName: node
-  linkType: hard
-
-"react-refresh@npm:^0.9.0":
-  version: 0.9.0
-  resolution: "react-refresh@npm:0.9.0"
-  checksum: 300dc431389f4c532bdfec08d5bc59b591c8c440486a7d5770c8954adf3afe62501b659c5acbdb7831751e8be506eb90a6f72491fab40352f3b3fba16897acf6
   languageName: node
   linkType: hard
 

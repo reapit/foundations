@@ -1,8 +1,8 @@
-import { WebhookModel } from '@/services/webhooks'
+import { PagedResultWebhookModel_ } from '@/services/webhooks'
 import { ReduxState } from '@/types/core'
 
-export const selectSubscriptionsData = (state: ReduxState): WebhookModel[] => {
-  return state?.webhooksSubscriptions?.list?._embedded || []
+export const selectSubscriptionsData = (state: ReduxState): PagedResultWebhookModel_ | null => {
+  return state?.webhooksSubscriptions?.list || null
 }
 
 export const selectSubscriptionsLoading = (state: ReduxState): boolean => {

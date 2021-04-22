@@ -3,6 +3,7 @@ import { URLS } from './constants'
 import { getPlatformHeaders, logger } from '@reapit/utils'
 import { FetchListCommonParams, FetchByIdCommonParams } from './types'
 import { reapitConnectBrowserSession } from '../core/connect-session'
+import { WebhookLogsQuery } from '../components/pages/webhooks/webhook-logs-table'
 
 // Manual defined Model
 
@@ -86,6 +87,15 @@ export type UpdateTopicModel = {
   description?: string
   url?: string
   example?: string
+}
+
+export interface WebhookLogModel {
+  timeStamp: string
+  applicationId: string
+  url: string
+  payload: string
+  topicId: string
+  statusCode: number
 }
 
 // end manual defined Model
@@ -294,6 +304,26 @@ export const updateWebhooksTopicById = async (params: UpdateWebhooksTopicByIdPar
     return response
   } catch (error) {
     logger(error)
+    throw error?.response
+  }
+}
+
+export const fetchWebhookLogsApi = async (params: WebhookLogsQuery): Promise<WebhookLogModel[]> => {
+  try {
+    const headers = await getPlatformHeaders(reapitConnectBrowserSession, 'latest')
+    const response = await fetcher({
+      url: `${URLS.webhooksLogs}?${setQueryParams(params)}`,
+      api: window.reapit.config.platformApiUrl,
+      method: 'GET',
+      headers,
+    })
+    return response
+  } catch (error) {
+    // Weirdly the API returns a 404 when no logs are returned - this happens a lot so not
+    // logging to sentry as is intended behaviour and will get very noisy
+    if (error.status !== 404) {
+      logger(error)
+    }
     throw error?.response
   }
 }
