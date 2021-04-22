@@ -2,18 +2,24 @@
 
 exports[`Loader component should match a snapshot 1`] = `
 <Loader>
-  <ElLoader
+  <ElLoaderContainer
     className=""
   >
     <div
-      className="el-loader"
+      className="el-loader-container"
     >
-      <ElLoaderMovingBar>
+      <ElLoader>
         <div
-          className="el-loader-moving-bar"
-        />
-      </ElLoaderMovingBar>
+          className="el-loader"
+        >
+          <ElLoaderMovingBar>
+            <div
+              className="el-loader-moving-bar"
+            />
+          </ElLoaderMovingBar>
+        </div>
+      </ElLoader>
     </div>
-  </ElLoader>
+  </ElLoaderContainer>
 </Loader>
 `;

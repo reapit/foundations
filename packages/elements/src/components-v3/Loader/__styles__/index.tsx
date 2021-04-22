@@ -1,18 +1,27 @@
 import { styled } from 'linaria/react'
 import { elIsFullPage } from '../../../styles-v3/base/states'
 
-export const ElLoader = styled.div`
-  position: relative;
-  background: var(--color-grey-medium);
-  height: 3px;
+export const ElLoaderContainer = styled.div`
+  display: flex;
+  align-items: center;
 
   &${elIsFullPage} {
-    width: 100px;
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
     position: fixed;
   }
+`
+
+export const ElLoaderLabel = styled.p`
+  margin-right: 0.75rem;
+`
+
+export const ElLoader = styled.div`
+  position: relative;
+  background: var(--color-grey-medium);
+  height: 3px;
+  width: 80px;
 
   &:before {
     content: '';

@@ -1,19 +1,19 @@
 import * as React from 'react'
-import { cx } from 'linaria'
-import { ElLoader, ElLoaderMovingBar } from './__styles__'
+import { ElLoaderContainer, ElLoaderLabel, ElLoader, ElLoaderMovingBar } from './__styles__'
 import { elIsFullPage } from '../../styles-v3/base/states'
 
 export interface ILoader extends React.HTMLAttributes<HTMLDivElement> {
+  label?: string
   fullPage?: boolean
-  className?: string
 }
 
-export const Loader: React.FC<ILoader> = ({ fullPage, className, ...rest }) => {
-  const combinedClassname = cx(className, fullPage && elIsFullPage)
-
+export const Loader: React.FC<ILoader> = ({ label, fullPage, ...rest }) => {
   return (
-    <ElLoader className={combinedClassname} {...rest}>
-      <ElLoaderMovingBar />
-    </ElLoader>
+    <ElLoaderContainer className={fullPage ? elIsFullPage : ''}>
+      {label && <ElLoaderLabel>{label}</ElLoaderLabel>}
+      <ElLoader {...rest}>
+        <ElLoaderMovingBar />
+      </ElLoader>
+    </ElLoaderContainer>
   )
 }
