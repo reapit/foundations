@@ -1,5 +1,5 @@
 ---
-name: Extras field request
+name: Semi-structured 'extras' field request
 about: Request access to data held in the 'extras' Agency Cloud data format
 title: ''
 labels: back-end, needs-triage
@@ -9,7 +9,7 @@ assignees: ''
 
 **Request**
 
-In order for us to grant access to extras field data, please provide the following information in this request:
+In order for us to grant access to Semi-structured 'extras' field data, please provide the following information in this request:
 
 - The name of the customer you represent
 - The name of every field you need surfaced (if known)
