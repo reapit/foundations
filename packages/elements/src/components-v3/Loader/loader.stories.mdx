@@ -13,7 +13,7 @@ Underlying tag: `<div>`
 
 <ArgsTable of={Loader} />
 
-## Inline (default)
+## Inline
 
 <Canvas>
   <Story name="Inline">
@@ -23,24 +23,22 @@ Underlying tag: `<div>`
 
 <RenderHtmlMarkup component="V3/Loader" story="Inline" />
 
-## Inline - in a smaller container
+## With a label
 
 <Canvas>
-  <Story name="Inline - in a smaller container">
-    <div style={{ width: '80px' }}>
-      <Loader />
-    </div>
+  <Story name="With a label">
+    <Loader label="Loading" />
   </Story>
 </Canvas>
 
-<RenderHtmlMarkup component="V3/Loader" story="Inline - in a smaller container" />
+<RenderHtmlMarkup component="V3/Loader" story="With a label" />
 
 ## Full page
 
 <Canvas>
   <Story name="Full page loader">
     <p>This loader is fixed to the center of the screen</p>
-    <Loader fullPage />
+    <Loader fullPage label="Loading" />
   </Story>
 </Canvas>
 
