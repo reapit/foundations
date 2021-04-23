@@ -74,10 +74,8 @@ export const elVariables = css`
       --font-monospace: 'Source Code Pro', monospace;
 
       /** font size variables */
-      --font-size-heading-main: 2rem;
-      --font-size-subheading-main: 1.8rem;
-      --font-size-heading-secondary: 1.5rem;
-      --font-size-subHeading-secondary: 1.2rem;
+      --font-size-heading: 2rem;
+      --font-size-subheading: 1.25rem;
       --font-size-default: 1rem;
       --font-size-small: 0.875rem;
 
