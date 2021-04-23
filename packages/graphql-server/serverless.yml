@@ -72,6 +72,7 @@ package:
 functions:
   graphqlHandler:
     handler: src/index.graphqlHandler
+    timeout: 15 # Lambda timeout default is 6secs - for complex queries, can timeout because of slow downstream which reveals itself to the user as a 502 as the lamda doesn't respond to the Gateway
     environment:
       SLS_DEBUG: true
     events:
