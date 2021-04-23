@@ -1,0 +1,91 @@
+import { Meta, Story, Canvas, ArgsTable } from '@storybook/addon-docs/blocks'
+import { Title, Subtitle, BodyText, SmallText } from './index'
+import { RenderHtmlMarkup } from '../../helpers/v3/render-html-markup'
+
+<Meta title="V3/Typography" component={Title} />
+
+# Typography
+
+<Canvas>
+  <Story name="Title">
+    <Title>I am a Title</Title>
+  </Story>
+</Canvas>
+
+<RenderHtmlMarkup component="V3/Typography" story="Title" />
+
+<Canvas>
+  <Story name="Subtitle">
+    <Subtitle>I am a Subtitle</Subtitle>
+  </Story>
+</Canvas>
+
+<RenderHtmlMarkup component="V3/Typography" story="Subtitle" />
+
+<Canvas>
+  <Story name="Body Text">
+    <BodyText>
+      Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur non pulvinar tellus, quis pulvinar dui. Nunc
+      enim libero, ullamcorper ac ex id, tincidunt dapibus lectus. Vestibulum at porta quam, ac condimentum dui. Duis
+      ornare enim sed magna tincidunt volutpat. Vestibulum ultrices ipsum interdum, rhoncus ante eu, suscipit justo.
+      Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia curae; Nam sodales nisl eu lorem
+      porta auctor. Proin vulputate convallis nunc, vel porta dui bibendum non. Aliquam hendrerit facilisis iaculis.
+      Fusce sollicitudin nisi elit, sit amet vestibulum massa fringilla eu. Donec blandit faucibus tempus.
+    </BodyText>
+  </Story>
+</Canvas>
+
+<RenderHtmlMarkup component="V3/Typography" story="Body Text" />
+
+<Canvas>
+  <Story name="Small Text">
+    <SmallText>
+      Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur non pulvinar tellus, quis pulvinar dui. Nunc
+      enim libero, ullamcorper ac ex id, tincidunt dapibus lectus.
+    </SmallText>
+  </Story>
+</Canvas>
+
+<RenderHtmlMarkup component="V3/Typography" story="Small Text" />
+
+# Type pairings
+
+## Title and Subtitle
+
+<Canvas>
+  <Story name="Title and Subtitle">
+    <Title>Create a New App</Title>
+    <Subtitle>Do you intend for your app to be launched within Agency Cloud?</Subtitle>
+  </Story>
+</Canvas>
+
+<RenderHtmlMarkup component="V3/Typography" story="Title and Subtitle" />
+
+## Subtitle and Body text
+
+<Canvas>
+  <Story name="Subtitle and Body text">
+    <Subtitle>Why register for Foundations?</Subtitle>
+    <BodyText>
+      By registering for the Foundations platform, you will get access to the Reapit developer portal and sandbox data.
+      You will also get the opportunity to list apps in the Reapit Marketplace. We look forward to seeing what you
+      build!
+    </BodyText>
+  </Story>
+</Canvas>
+
+<RenderHtmlMarkup component="V3/Typography" story="Subtitle and Body text" />
+
+## Body text and Small text
+
+<Canvas>
+  <Story name="Body text and Small text">
+    <BodyText>Have you had a look at the documentation?</BodyText>
+    <SmallText>
+      Before continuing with registering your first app, we strongly advise that you read the "Step-by-step" guide on
+      how best to complete the following form.
+    </SmallText>
+  </Story>
+</Canvas>
+
+<RenderHtmlMarkup component="V3/Typography" story="Body text and Small text" />

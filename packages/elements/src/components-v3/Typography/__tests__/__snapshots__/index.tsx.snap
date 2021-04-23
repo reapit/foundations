@@ -1,0 +1,25 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Typography components BodyText should match a snapshot 1`] = `
+<ElBodyText>
+  I am body text
+</ElBodyText>
+`;
+
+exports[`Typography components SmallText should match a snapshot 1`] = `
+<ElSmallText>
+  I am small text
+</ElSmallText>
+`;
+
+exports[`Typography components SubTitle should match a snapshot 1`] = `
+<ElSubtitle>
+  I am a subtitle
+</ElSubtitle>
+`;
+
+exports[`Typography components Title should match a snapshot 1`] = `
+<ElTitle>
+  I am a title
+</ElTitle>
+`;
