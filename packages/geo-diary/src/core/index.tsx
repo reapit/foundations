@@ -8,6 +8,7 @@ import ReactGA from 'react-ga'
 import { Config } from '@/types/global'
 import * as serviceWorker from './service-worker'
 import { logger } from '@reapit/utils'
+import { GoogleMapsError } from '../components/ui/map/google-maps-error'
 
 injectSwitchModeToWindow()
 
@@ -63,8 +64,14 @@ const run = async () => {
       key: config.googleMapApiKey,
       libraries: '',
     }
-    load(`${GOOGLE_MAP_PLACES_API}?${qs.stringify(params)}`, () => {
-      renderApp(App)
+
+    // Ensure that Google maps SDK is loaded prior to the app first render
+    load(`${GOOGLE_MAP_PLACES_API}?${qs.stringify(params)}`, (error: Error) => {
+      if (!error) {
+        return renderApp(App)
+      }
+
+      renderApp(GoogleMapsError)
     })
   } catch (error) {
     logger(error)

@@ -40,8 +40,8 @@ export const MobileLayout: React.FC<MobileLayoutProps> = ({ appointments, loadin
     <>
       <Section className="pb-4" isFlex isFlexColumn hasPadding={false} hasMargin={false}>
         <ListAndMapTab queryParams={queryParams} history={history} />
-        <AppointmentTime queryParams={queryParams} history={history} />
-        <TravelMode queryParams={queryParams} history={history} />
+        <AppointmentTime />
+        <TravelMode />
       </Section>
       <Section isFlex isFlexColumn hasBackground={false}>
         {loading ? <Loader /> : <AppointmentList appointments={appointments} />}
