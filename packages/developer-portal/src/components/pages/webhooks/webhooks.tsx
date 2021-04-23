@@ -289,12 +289,15 @@ export const DeveloperWebhooks = () => {
             loading={false}
           />
         ) : null}
-        <Pagination
-          pageNumber={pageNumber}
-          onChange={handleSetPageNumber(setPageNumber)}
-          pageSize={WEBHOOK_PAGE_SIZE}
-          totalCount={totalCount ?? 0}
-        />
+        <Section hasPadding={false}>
+          <Pagination
+            className="mb-0 pb-0"
+            pageNumber={pageNumber}
+            onChange={handleSetPageNumber(setPageNumber)}
+            pageSize={WEBHOOK_PAGE_SIZE}
+            totalCount={totalCount ?? 0}
+          />
+        </Section>
         <WebhooksLogsTable applicationOptions={applicationOptions} />
       </FadeIn>
       {isShowDetailModal && (
