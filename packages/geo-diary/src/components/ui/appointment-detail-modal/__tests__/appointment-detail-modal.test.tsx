@@ -20,7 +20,7 @@ import {
   handleUpdateAppointment,
   AppointmentDetailModal,
 } from '../appointment-detail-modal'
-import UPDATE_APPOINTMENT_BY_ID from '../update-appointment-by-id.graphql'
+import UPDATE_APPOINTMENT_BY_ID from '../../../../graphql/mutations/update-appointment-by-id.graphql'
 
 describe('appointment-detail-modal', () => {
   describe('capitalizeFirstLetter', () => {

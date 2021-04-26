@@ -2,7 +2,7 @@ import React from 'react'
 import { MockedProvider } from '@apollo/react-testing'
 import { shallow } from 'enzyme'
 import { Appointment, sortAppoinmentsByStartTime } from '../appointment'
-import GET_APPOINTMENTS from '../get-appointments.graphql'
+import GET_APPOINTMENTS from '../../../../graphql/queries/get-appointments.graphql'
 import { appointment } from '@/graphql/__mocks__/appointment'
 import { appointmentsQueryData } from '../__mocks__/appointments-query'
 

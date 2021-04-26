@@ -1,19 +1,13 @@
 import React from 'react'
-import { useLocation, useHistory } from 'react-router-dom'
-import qs from 'query-string'
-import { History } from 'history'
 import TravelMode from '@/components/ui/travel-mode'
 import AppointmentTime from '@/components/ui/appointment-time'
 import AppointmentMap from '@/components/ui/map'
 import AppointmentList from '@/components/ui/appointment-list'
 import { ExtendedAppointmentModel } from '@/types/global'
 import ListAndMapTab from '@/components/ui/list-and-map-tab'
-import { Loader, Section } from '@reapit/elements'
-
-export type GenerateTabConfigParams = {
-  queryParams: qs.ParsedQuery<string>
-  history: History
-}
+import { Section } from '@reapit/elements'
+import { Loader } from '@reapit/elements/v3'
+import { useAppState } from '../../../core/app-state'
 
 export type MobileLayoutProps = {
   appointments: ExtendedAppointmentModel[]
@@ -21,15 +15,14 @@ export type MobileLayoutProps = {
 }
 
 export const MobileLayout: React.FC<MobileLayoutProps> = ({ appointments, loading }) => {
-  const location = useLocation()
-  const history = useHistory()
-  const queryParams = qs.parse(location.search)
+  const { appState } = useAppState()
+  const { tab } = appState
 
-  if (queryParams.tab === 'map') {
+  if (tab === 'MAP') {
     return (
       <>
         <Section className="flex-shrink-0 pb-4" isFlex isFlexColumn hasPadding={false} hasMargin={false}>
-          <ListAndMapTab queryParams={queryParams} history={history} />
+          <ListAndMapTab />
         </Section>
         <AppointmentMap appointments={appointments} />
       </>
@@ -39,12 +32,12 @@ export const MobileLayout: React.FC<MobileLayoutProps> = ({ appointments, loadin
   return (
     <>
       <Section className="pb-4" isFlex isFlexColumn hasPadding={false} hasMargin={false}>
-        <ListAndMapTab queryParams={queryParams} history={history} />
+        <ListAndMapTab />
         <AppointmentTime />
         <TravelMode />
       </Section>
       <Section isFlex isFlexColumn hasBackground={false}>
-        {loading ? <Loader /> : <AppointmentList appointments={appointments} />}
+        {loading ? <Loader label="Loading" /> : <AppointmentList appointments={appointments} />}
       </Section>
     </>
   )

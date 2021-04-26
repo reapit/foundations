@@ -561,7 +561,7 @@ exports[`WebhooksLogsTable should match a snapshot where there are logs 1`] = `
             "accessor": "topicId",
           },
           Object {
-            "Header": "Staus",
+            "Header": "Status",
             "accessor": "statusCode",
           },
           Object {
@@ -628,7 +628,7 @@ exports[`WebhooksLogsTable should match a snapshot where there are logs 1`] = `
                 key="header_statusCode"
                 role="columnheader"
               >
-                Staus
+                Status
               </th>
               <th
                 colSpan={1}
@@ -739,7 +739,7 @@ exports[`WebhooksLogsTable should match a snapshot where there are logs 1`] = `
                       Object {
                         "Cell": [Function],
                         "Footer": [Function],
-                        "Header": "Staus",
+                        "Header": "Status",
                         "accessor": [Function],
                         "canResize": true,
                         "depth": 0,
@@ -902,7 +902,7 @@ exports[`WebhooksLogsTable should match a snapshot where there are logs 1`] = `
                             "column": Object {
                               "Cell": [Function],
                               "Footer": [Function],
-                              "Header": "Staus",
+                              "Header": "Status",
                               "accessor": [Function],
                               "canResize": true,
                               "depth": 0,
@@ -1042,7 +1042,7 @@ exports[`WebhooksLogsTable should match a snapshot where there are logs 1`] = `
                             "column": Object {
                               "Cell": [Function],
                               "Footer": [Function],
-                              "Header": "Staus",
+                              "Header": "Status",
                               "accessor": [Function],
                               "canResize": true,
                               "depth": 0,
@@ -1254,7 +1254,7 @@ exports[`WebhooksLogsTable should match a snapshot where there are logs 1`] = `
                       Object {
                         "Cell": [Function],
                         "Footer": [Function],
-                        "Header": "Staus",
+                        "Header": "Status",
                         "accessor": [Function],
                         "canResize": true,
                         "depth": 0,
@@ -1434,7 +1434,7 @@ exports[`WebhooksLogsTable should match a snapshot where there are logs 1`] = `
                             "column": Object {
                               "Cell": [Function],
                               "Footer": [Function],
-                              "Header": "Staus",
+                              "Header": "Status",
                               "accessor": [Function],
                               "canResize": true,
                               "depth": 0,
@@ -1607,7 +1607,7 @@ exports[`WebhooksLogsTable should match a snapshot where there are logs 1`] = `
                             "column": Object {
                               "Cell": [Function],
                               "Footer": [Function],
-                              "Header": "Staus",
+                              "Header": "Status",
                               "accessor": [Function],
                               "canResize": true,
                               "depth": 0,
@@ -1788,7 +1788,7 @@ exports[`WebhooksLogsTable should match a snapshot where there are logs 1`] = `
                       Object {
                         "Cell": [Function],
                         "Footer": [Function],
-                        "Header": "Staus",
+                        "Header": "Status",
                         "accessor": [Function],
                         "canResize": true,
                         "depth": 0,
@@ -1953,7 +1953,7 @@ exports[`WebhooksLogsTable should match a snapshot where there are logs 1`] = `
                             "column": Object {
                               "Cell": [Function],
                               "Footer": [Function],
-                              "Header": "Staus",
+                              "Header": "Status",
                               "accessor": [Function],
                               "canResize": true,
                               "depth": 0,
@@ -2126,7 +2126,7 @@ exports[`WebhooksLogsTable should match a snapshot where there are logs 1`] = `
                             "column": Object {
                               "Cell": [Function],
                               "Footer": [Function],
-                              "Header": "Staus",
+                              "Header": "Status",
                               "accessor": [Function],
                               "canResize": true,
                               "depth": 0,
@@ -2311,7 +2311,7 @@ exports[`WebhooksLogsTable should match a snapshot where there are logs 1`] = `
                           Object {
                             "Cell": [Function],
                             "Footer": [Function],
-                            "Header": "Staus",
+                            "Header": "Status",
                             "accessor": [Function],
                             "canResize": true,
                             "depth": 0,
@@ -2468,7 +2468,7 @@ exports[`WebhooksLogsTable should match a snapshot where there are logs 1`] = `
                           Object {
                             "Cell": [Function],
                             "Footer": [Function],
-                            "Header": "Staus",
+                            "Header": "Status",
                             "accessor": [Function],
                             "canResize": true,
                             "depth": 0,
@@ -2614,7 +2614,7 @@ exports[`WebhooksLogsTable should match a snapshot where there are logs 1`] = `
                       Object {
                         "Cell": [Function],
                         "Footer": [Function],
-                        "Header": "Staus",
+                        "Header": "Status",
                         "accessor": [Function],
                         "canResize": true,
                         "depth": 0,
@@ -2779,7 +2779,7 @@ exports[`WebhooksLogsTable should match a snapshot where there are logs 1`] = `
                             "column": Object {
                               "Cell": [Function],
                               "Footer": [Function],
-                              "Header": "Staus",
+                              "Header": "Status",
                               "accessor": [Function],
                               "canResize": true,
                               "depth": 0,
@@ -2952,7 +2952,7 @@ exports[`WebhooksLogsTable should match a snapshot where there are logs 1`] = `
                             "column": Object {
                               "Cell": [Function],
                               "Footer": [Function],
-                              "Header": "Staus",
+                              "Header": "Status",
                               "accessor": [Function],
                               "canResize": true,
                               "depth": 0,
@@ -3162,7 +3162,7 @@ exports[`WebhooksLogsTable should match a snapshot where there are logs 1`] = `
                             "column": Object {
                               "Cell": [Function],
                               "Footer": [Function],
-                              "Header": "Staus",
+                              "Header": "Status",
                               "accessor": [Function],
                               "canResize": true,
                               "depth": 0,
@@ -3335,7 +3335,7 @@ exports[`WebhooksLogsTable should match a snapshot where there are logs 1`] = `
                             "column": Object {
                               "Cell": [Function],
                               "Footer": [Function],
-                              "Header": "Staus",
+                              "Header": "Status",
                               "accessor": [Function],
                               "canResize": true,
                               "depth": 0,
@@ -3537,7 +3537,7 @@ exports[`WebhooksLogsTable should match a snapshot where there are logs 1`] = `
                           "column": Object {
                             "Cell": [Function],
                             "Footer": [Function],
-                            "Header": "Staus",
+                            "Header": "Status",
                             "accessor": [Function],
                             "canResize": true,
                             "depth": 0,
@@ -3710,7 +3710,7 @@ exports[`WebhooksLogsTable should match a snapshot where there are logs 1`] = `
                           "column": Object {
                             "Cell": [Function],
                             "Footer": [Function],
-                            "Header": "Staus",
+                            "Header": "Status",
                             "accessor": [Function],
                             "canResize": true,
                             "depth": 0,
@@ -3911,7 +3911,7 @@ exports[`WebhooksLogsTable should match a snapshot where there are logs 1`] = `
                             "column": Object {
                               "Cell": [Function],
                               "Footer": [Function],
-                              "Header": "Staus",
+                              "Header": "Status",
                               "accessor": [Function],
                               "canResize": true,
                               "depth": 0,
@@ -4084,7 +4084,7 @@ exports[`WebhooksLogsTable should match a snapshot where there are logs 1`] = `
                             "column": Object {
                               "Cell": [Function],
                               "Footer": [Function],
-                              "Header": "Staus",
+                              "Header": "Status",
                               "accessor": [Function],
                               "canResize": true,
                               "depth": 0,
@@ -4286,7 +4286,7 @@ exports[`WebhooksLogsTable should match a snapshot where there are logs 1`] = `
                             "column": Object {
                               "Cell": [Function],
                               "Footer": [Function],
-                              "Header": "Staus",
+                              "Header": "Status",
                               "accessor": [Function],
                               "canResize": true,
                               "depth": 0,
@@ -4459,7 +4459,7 @@ exports[`WebhooksLogsTable should match a snapshot where there are logs 1`] = `
                             "column": Object {
                               "Cell": [Function],
                               "Footer": [Function],
-                              "Header": "Staus",
+                              "Header": "Status",
                               "accessor": [Function],
                               "canResize": true,
                               "depth": 0,
@@ -4657,7 +4657,7 @@ exports[`WebhooksLogsTable should match a snapshot where there are logs 1`] = `
                       Object {
                         "Cell": [Function],
                         "Footer": [Function],
-                        "Header": "Staus",
+                        "Header": "Status",
                         "accessor": [Function],
                         "canResize": true,
                         "depth": 0,
@@ -4810,7 +4810,7 @@ exports[`WebhooksLogsTable should match a snapshot where there are logs 1`] = `
                       Object {
                         "Cell": [Function],
                         "Footer": [Function],
-                        "Header": "Staus",
+                        "Header": "Status",
                         "accessor": [Function],
                         "canResize": true,
                         "depth": 0,
@@ -4973,7 +4973,7 @@ exports[`WebhooksLogsTable should match a snapshot where there are logs 1`] = `
                             "column": Object {
                               "Cell": [Function],
                               "Footer": [Function],
-                              "Header": "Staus",
+                              "Header": "Status",
                               "accessor": [Function],
                               "canResize": true,
                               "depth": 0,
@@ -5113,7 +5113,7 @@ exports[`WebhooksLogsTable should match a snapshot where there are logs 1`] = `
                             "column": Object {
                               "Cell": [Function],
                               "Footer": [Function],
-                              "Header": "Staus",
+                              "Header": "Status",
                               "accessor": [Function],
                               "canResize": true,
                               "depth": 0,
@@ -5325,7 +5325,7 @@ exports[`WebhooksLogsTable should match a snapshot where there are logs 1`] = `
                       Object {
                         "Cell": [Function],
                         "Footer": [Function],
-                        "Header": "Staus",
+                        "Header": "Status",
                         "accessor": [Function],
                         "canResize": true,
                         "depth": 0,
@@ -5505,7 +5505,7 @@ exports[`WebhooksLogsTable should match a snapshot where there are logs 1`] = `
                             "column": Object {
                               "Cell": [Function],
                               "Footer": [Function],
-                              "Header": "Staus",
+                              "Header": "Status",
                               "accessor": [Function],
                               "canResize": true,
                               "depth": 0,
@@ -5678,7 +5678,7 @@ exports[`WebhooksLogsTable should match a snapshot where there are logs 1`] = `
                             "column": Object {
                               "Cell": [Function],
                               "Footer": [Function],
-                              "Header": "Staus",
+                              "Header": "Status",
                               "accessor": [Function],
                               "canResize": true,
                               "depth": 0,
@@ -5859,7 +5859,7 @@ exports[`WebhooksLogsTable should match a snapshot where there are logs 1`] = `
                       Object {
                         "Cell": [Function],
                         "Footer": [Function],
-                        "Header": "Staus",
+                        "Header": "Status",
                         "accessor": [Function],
                         "canResize": true,
                         "depth": 0,
@@ -6024,7 +6024,7 @@ exports[`WebhooksLogsTable should match a snapshot where there are logs 1`] = `
                             "column": Object {
                               "Cell": [Function],
                               "Footer": [Function],
-                              "Header": "Staus",
+                              "Header": "Status",
                               "accessor": [Function],
                               "canResize": true,
                               "depth": 0,
@@ -6197,7 +6197,7 @@ exports[`WebhooksLogsTable should match a snapshot where there are logs 1`] = `
                             "column": Object {
                               "Cell": [Function],
                               "Footer": [Function],
-                              "Header": "Staus",
+                              "Header": "Status",
                               "accessor": [Function],
                               "canResize": true,
                               "depth": 0,
@@ -6382,7 +6382,7 @@ exports[`WebhooksLogsTable should match a snapshot where there are logs 1`] = `
                           Object {
                             "Cell": [Function],
                             "Footer": [Function],
-                            "Header": "Staus",
+                            "Header": "Status",
                             "accessor": [Function],
                             "canResize": true,
                             "depth": 0,
@@ -6539,7 +6539,7 @@ exports[`WebhooksLogsTable should match a snapshot where there are logs 1`] = `
                           Object {
                             "Cell": [Function],
                             "Footer": [Function],
-                            "Header": "Staus",
+                            "Header": "Status",
                             "accessor": [Function],
                             "canResize": true,
                             "depth": 0,
@@ -6685,7 +6685,7 @@ exports[`WebhooksLogsTable should match a snapshot where there are logs 1`] = `
                       Object {
                         "Cell": [Function],
                         "Footer": [Function],
-                        "Header": "Staus",
+                        "Header": "Status",
                         "accessor": [Function],
                         "canResize": true,
                         "depth": 0,
@@ -6850,7 +6850,7 @@ exports[`WebhooksLogsTable should match a snapshot where there are logs 1`] = `
                             "column": Object {
                               "Cell": [Function],
                               "Footer": [Function],
-                              "Header": "Staus",
+                              "Header": "Status",
                               "accessor": [Function],
                               "canResize": true,
                               "depth": 0,
@@ -7023,7 +7023,7 @@ exports[`WebhooksLogsTable should match a snapshot where there are logs 1`] = `
                             "column": Object {
                               "Cell": [Function],
                               "Footer": [Function],
-                              "Header": "Staus",
+                              "Header": "Status",
                               "accessor": [Function],
                               "canResize": true,
                               "depth": 0,
@@ -7233,7 +7233,7 @@ exports[`WebhooksLogsTable should match a snapshot where there are logs 1`] = `
                             "column": Object {
                               "Cell": [Function],
                               "Footer": [Function],
-                              "Header": "Staus",
+                              "Header": "Status",
                               "accessor": [Function],
                               "canResize": true,
                               "depth": 0,
@@ -7406,7 +7406,7 @@ exports[`WebhooksLogsTable should match a snapshot where there are logs 1`] = `
                             "column": Object {
                               "Cell": [Function],
                               "Footer": [Function],
-                              "Header": "Staus",
+                              "Header": "Status",
                               "accessor": [Function],
                               "canResize": true,
                               "depth": 0,
@@ -7608,7 +7608,7 @@ exports[`WebhooksLogsTable should match a snapshot where there are logs 1`] = `
                           "column": Object {
                             "Cell": [Function],
                             "Footer": [Function],
-                            "Header": "Staus",
+                            "Header": "Status",
                             "accessor": [Function],
                             "canResize": true,
                             "depth": 0,
@@ -7781,7 +7781,7 @@ exports[`WebhooksLogsTable should match a snapshot where there are logs 1`] = `
                           "column": Object {
                             "Cell": [Function],
                             "Footer": [Function],
-                            "Header": "Staus",
+                            "Header": "Status",
                             "accessor": [Function],
                             "canResize": true,
                             "depth": 0,
@@ -7982,7 +7982,7 @@ exports[`WebhooksLogsTable should match a snapshot where there are logs 1`] = `
                             "column": Object {
                               "Cell": [Function],
                               "Footer": [Function],
-                              "Header": "Staus",
+                              "Header": "Status",
                               "accessor": [Function],
                               "canResize": true,
                               "depth": 0,
@@ -8155,7 +8155,7 @@ exports[`WebhooksLogsTable should match a snapshot where there are logs 1`] = `
                             "column": Object {
                               "Cell": [Function],
                               "Footer": [Function],
-                              "Header": "Staus",
+                              "Header": "Status",
                               "accessor": [Function],
                               "canResize": true,
                               "depth": 0,
@@ -8357,7 +8357,7 @@ exports[`WebhooksLogsTable should match a snapshot where there are logs 1`] = `
                             "column": Object {
                               "Cell": [Function],
                               "Footer": [Function],
-                              "Header": "Staus",
+                              "Header": "Status",
                               "accessor": [Function],
                               "canResize": true,
                               "depth": 0,
@@ -8530,7 +8530,7 @@ exports[`WebhooksLogsTable should match a snapshot where there are logs 1`] = `
                             "column": Object {
                               "Cell": [Function],
                               "Footer": [Function],
-                              "Header": "Staus",
+                              "Header": "Status",
                               "accessor": [Function],
                               "canResize": true,
                               "depth": 0,
@@ -8728,7 +8728,7 @@ exports[`WebhooksLogsTable should match a snapshot where there are logs 1`] = `
                       Object {
                         "Cell": [Function],
                         "Footer": [Function],
-                        "Header": "Staus",
+                        "Header": "Status",
                         "accessor": [Function],
                         "canResize": true,
                         "depth": 0,
@@ -8881,7 +8881,7 @@ exports[`WebhooksLogsTable should match a snapshot where there are logs 1`] = `
                       Object {
                         "Cell": [Function],
                         "Footer": [Function],
-                        "Header": "Staus",
+                        "Header": "Status",
                         "accessor": [Function],
                         "canResize": true,
                         "depth": 0,
@@ -9044,7 +9044,7 @@ exports[`WebhooksLogsTable should match a snapshot where there are logs 1`] = `
                             "column": Object {
                               "Cell": [Function],
                               "Footer": [Function],
-                              "Header": "Staus",
+                              "Header": "Status",
                               "accessor": [Function],
                               "canResize": true,
                               "depth": 0,
@@ -9184,7 +9184,7 @@ exports[`WebhooksLogsTable should match a snapshot where there are logs 1`] = `
                             "column": Object {
                               "Cell": [Function],
                               "Footer": [Function],
-                              "Header": "Staus",
+                              "Header": "Status",
                               "accessor": [Function],
                               "canResize": true,
                               "depth": 0,
@@ -9396,7 +9396,7 @@ exports[`WebhooksLogsTable should match a snapshot where there are logs 1`] = `
                       Object {
                         "Cell": [Function],
                         "Footer": [Function],
-                        "Header": "Staus",
+                        "Header": "Status",
                         "accessor": [Function],
                         "canResize": true,
                         "depth": 0,
@@ -9576,7 +9576,7 @@ exports[`WebhooksLogsTable should match a snapshot where there are logs 1`] = `
                             "column": Object {
                               "Cell": [Function],
                               "Footer": [Function],
-                              "Header": "Staus",
+                              "Header": "Status",
                               "accessor": [Function],
                               "canResize": true,
                               "depth": 0,
@@ -9749,7 +9749,7 @@ exports[`WebhooksLogsTable should match a snapshot where there are logs 1`] = `
                             "column": Object {
                               "Cell": [Function],
                               "Footer": [Function],
-                              "Header": "Staus",
+                              "Header": "Status",
                               "accessor": [Function],
                               "canResize": true,
                               "depth": 0,
@@ -9930,7 +9930,7 @@ exports[`WebhooksLogsTable should match a snapshot where there are logs 1`] = `
                       Object {
                         "Cell": [Function],
                         "Footer": [Function],
-                        "Header": "Staus",
+                        "Header": "Status",
                         "accessor": [Function],
                         "canResize": true,
                         "depth": 0,
@@ -10095,7 +10095,7 @@ exports[`WebhooksLogsTable should match a snapshot where there are logs 1`] = `
                             "column": Object {
                               "Cell": [Function],
                               "Footer": [Function],
-                              "Header": "Staus",
+                              "Header": "Status",
                               "accessor": [Function],
                               "canResize": true,
                               "depth": 0,
@@ -10268,7 +10268,7 @@ exports[`WebhooksLogsTable should match a snapshot where there are logs 1`] = `
                             "column": Object {
                               "Cell": [Function],
                               "Footer": [Function],
-                              "Header": "Staus",
+                              "Header": "Status",
                               "accessor": [Function],
                               "canResize": true,
                               "depth": 0,
@@ -10453,7 +10453,7 @@ exports[`WebhooksLogsTable should match a snapshot where there are logs 1`] = `
                           Object {
                             "Cell": [Function],
                             "Footer": [Function],
-                            "Header": "Staus",
+                            "Header": "Status",
                             "accessor": [Function],
                             "canResize": true,
                             "depth": 0,
@@ -10610,7 +10610,7 @@ exports[`WebhooksLogsTable should match a snapshot where there are logs 1`] = `
                           Object {
                             "Cell": [Function],
                             "Footer": [Function],
-                            "Header": "Staus",
+                            "Header": "Status",
                             "accessor": [Function],
                             "canResize": true,
                             "depth": 0,
@@ -10756,7 +10756,7 @@ exports[`WebhooksLogsTable should match a snapshot where there are logs 1`] = `
                       Object {
                         "Cell": [Function],
                         "Footer": [Function],
-                        "Header": "Staus",
+                        "Header": "Status",
                         "accessor": [Function],
                         "canResize": true,
                         "depth": 0,
@@ -10921,7 +10921,7 @@ exports[`WebhooksLogsTable should match a snapshot where there are logs 1`] = `
                             "column": Object {
                               "Cell": [Function],
                               "Footer": [Function],
-                              "Header": "Staus",
+                              "Header": "Status",
                               "accessor": [Function],
                               "canResize": true,
                               "depth": 0,
@@ -11094,7 +11094,7 @@ exports[`WebhooksLogsTable should match a snapshot where there are logs 1`] = `
                             "column": Object {
                               "Cell": [Function],
                               "Footer": [Function],
-                              "Header": "Staus",
+                              "Header": "Status",
                               "accessor": [Function],
                               "canResize": true,
                               "depth": 0,
@@ -11304,7 +11304,7 @@ exports[`WebhooksLogsTable should match a snapshot where there are logs 1`] = `
                             "column": Object {
                               "Cell": [Function],
                               "Footer": [Function],
-                              "Header": "Staus",
+                              "Header": "Status",
                               "accessor": [Function],
                               "canResize": true,
                               "depth": 0,
@@ -11477,7 +11477,7 @@ exports[`WebhooksLogsTable should match a snapshot where there are logs 1`] = `
                             "column": Object {
                               "Cell": [Function],
                               "Footer": [Function],
-                              "Header": "Staus",
+                              "Header": "Status",
                               "accessor": [Function],
                               "canResize": true,
                               "depth": 0,
@@ -11679,7 +11679,7 @@ exports[`WebhooksLogsTable should match a snapshot where there are logs 1`] = `
                           "column": Object {
                             "Cell": [Function],
                             "Footer": [Function],
-                            "Header": "Staus",
+                            "Header": "Status",
                             "accessor": [Function],
                             "canResize": true,
                             "depth": 0,
@@ -11852,7 +11852,7 @@ exports[`WebhooksLogsTable should match a snapshot where there are logs 1`] = `
                           "column": Object {
                             "Cell": [Function],
                             "Footer": [Function],
-                            "Header": "Staus",
+                            "Header": "Status",
                             "accessor": [Function],
                             "canResize": true,
                             "depth": 0,
@@ -12053,7 +12053,7 @@ exports[`WebhooksLogsTable should match a snapshot where there are logs 1`] = `
                             "column": Object {
                               "Cell": [Function],
                               "Footer": [Function],
-                              "Header": "Staus",
+                              "Header": "Status",
                               "accessor": [Function],
                               "canResize": true,
                               "depth": 0,
@@ -12226,7 +12226,7 @@ exports[`WebhooksLogsTable should match a snapshot where there are logs 1`] = `
                             "column": Object {
                               "Cell": [Function],
                               "Footer": [Function],
-                              "Header": "Staus",
+                              "Header": "Status",
                               "accessor": [Function],
                               "canResize": true,
                               "depth": 0,
@@ -12428,7 +12428,7 @@ exports[`WebhooksLogsTable should match a snapshot where there are logs 1`] = `
                             "column": Object {
                               "Cell": [Function],
                               "Footer": [Function],
-                              "Header": "Staus",
+                              "Header": "Status",
                               "accessor": [Function],
                               "canResize": true,
                               "depth": 0,
@@ -12601,7 +12601,7 @@ exports[`WebhooksLogsTable should match a snapshot where there are logs 1`] = `
                             "column": Object {
                               "Cell": [Function],
                               "Footer": [Function],
-                              "Header": "Staus",
+                              "Header": "Status",
                               "accessor": [Function],
                               "canResize": true,
                               "depth": 0,
@@ -12799,7 +12799,7 @@ exports[`WebhooksLogsTable should match a snapshot where there are logs 1`] = `
                       Object {
                         "Cell": [Function],
                         "Footer": [Function],
-                        "Header": "Staus",
+                        "Header": "Status",
                         "accessor": [Function],
                         "canResize": true,
                         "depth": 0,
@@ -12952,7 +12952,7 @@ exports[`WebhooksLogsTable should match a snapshot where there are logs 1`] = `
                       Object {
                         "Cell": [Function],
                         "Footer": [Function],
-                        "Header": "Staus",
+                        "Header": "Status",
                         "accessor": [Function],
                         "canResize": true,
                         "depth": 0,
@@ -13013,7 +13013,7 @@ exports[`WebhooksLogsTable should match a snapshot where there are logs 1`] = `
                       "column": Object {
                         "Cell": [Function],
                         "Footer": [Function],
-                        "Header": "Staus",
+                        "Header": "Status",
                         "accessor": [Function],
                         "canResize": true,
                         "depth": 0,
@@ -13352,7 +13352,7 @@ exports[`WebhooksLogsTable should match a snapshot where there are logs 1`] = `
                     Object {
                       "Cell": [Function],
                       "Footer": [Function],
-                      "Header": "Staus",
+                      "Header": "Status",
                       "accessor": [Function],
                       "canResize": true,
                       "depth": 0,
@@ -13467,7 +13467,7 @@ exports[`WebhooksLogsTable should match a snapshot where there are logs 1`] = `
                       Object {
                         "Cell": [Function],
                         "Footer": [Function],
-                        "Header": "Staus",
+                        "Header": "Status",
                         "accessor": [Function],
                         "canResize": true,
                         "depth": 0,
@@ -13647,7 +13647,7 @@ exports[`WebhooksLogsTable should match a snapshot where there are logs 1`] = `
                             "column": Object {
                               "Cell": [Function],
                               "Footer": [Function],
-                              "Header": "Staus",
+                              "Header": "Status",
                               "accessor": [Function],
                               "canResize": true,
                               "depth": 0,
@@ -13820,7 +13820,7 @@ exports[`WebhooksLogsTable should match a snapshot where there are logs 1`] = `
                             "column": Object {
                               "Cell": [Function],
                               "Footer": [Function],
-                              "Header": "Staus",
+                              "Header": "Status",
                               "accessor": [Function],
                               "canResize": true,
                               "depth": 0,
@@ -14001,7 +14001,7 @@ exports[`WebhooksLogsTable should match a snapshot where there are logs 1`] = `
                       Object {
                         "Cell": [Function],
                         "Footer": [Function],
-                        "Header": "Staus",
+                        "Header": "Status",
                         "accessor": [Function],
                         "canResize": true,
                         "depth": 0,
@@ -14166,7 +14166,7 @@ exports[`WebhooksLogsTable should match a snapshot where there are logs 1`] = `
                             "column": Object {
                               "Cell": [Function],
                               "Footer": [Function],
-                              "Header": "Staus",
+                              "Header": "Status",
                               "accessor": [Function],
                               "canResize": true,
                               "depth": 0,
@@ -14339,7 +14339,7 @@ exports[`WebhooksLogsTable should match a snapshot where there are logs 1`] = `
                             "column": Object {
                               "Cell": [Function],
                               "Footer": [Function],
-                              "Header": "Staus",
+                              "Header": "Status",
                               "accessor": [Function],
                               "canResize": true,
                               "depth": 0,
@@ -14524,7 +14524,7 @@ exports[`WebhooksLogsTable should match a snapshot where there are logs 1`] = `
                           Object {
                             "Cell": [Function],
                             "Footer": [Function],
-                            "Header": "Staus",
+                            "Header": "Status",
                             "accessor": [Function],
                             "canResize": true,
                             "depth": 0,
@@ -14681,7 +14681,7 @@ exports[`WebhooksLogsTable should match a snapshot where there are logs 1`] = `
                           Object {
                             "Cell": [Function],
                             "Footer": [Function],
-                            "Header": "Staus",
+                            "Header": "Status",
                             "accessor": [Function],
                             "canResize": true,
                             "depth": 0,
@@ -14827,7 +14827,7 @@ exports[`WebhooksLogsTable should match a snapshot where there are logs 1`] = `
                       Object {
                         "Cell": [Function],
                         "Footer": [Function],
-                        "Header": "Staus",
+                        "Header": "Status",
                         "accessor": [Function],
                         "canResize": true,
                         "depth": 0,
@@ -14992,7 +14992,7 @@ exports[`WebhooksLogsTable should match a snapshot where there are logs 1`] = `
                             "column": Object {
                               "Cell": [Function],
                               "Footer": [Function],
-                              "Header": "Staus",
+                              "Header": "Status",
                               "accessor": [Function],
                               "canResize": true,
                               "depth": 0,
@@ -15165,7 +15165,7 @@ exports[`WebhooksLogsTable should match a snapshot where there are logs 1`] = `
                             "column": Object {
                               "Cell": [Function],
                               "Footer": [Function],
-                              "Header": "Staus",
+                              "Header": "Status",
                               "accessor": [Function],
                               "canResize": true,
                               "depth": 0,
@@ -15375,7 +15375,7 @@ exports[`WebhooksLogsTable should match a snapshot where there are logs 1`] = `
                             "column": Object {
                               "Cell": [Function],
                               "Footer": [Function],
-                              "Header": "Staus",
+                              "Header": "Status",
                               "accessor": [Function],
                               "canResize": true,
                               "depth": 0,
@@ -15548,7 +15548,7 @@ exports[`WebhooksLogsTable should match a snapshot where there are logs 1`] = `
                             "column": Object {
                               "Cell": [Function],
                               "Footer": [Function],
-                              "Header": "Staus",
+                              "Header": "Status",
                               "accessor": [Function],
                               "canResize": true,
                               "depth": 0,
@@ -15750,7 +15750,7 @@ exports[`WebhooksLogsTable should match a snapshot where there are logs 1`] = `
                           "column": Object {
                             "Cell": [Function],
                             "Footer": [Function],
-                            "Header": "Staus",
+                            "Header": "Status",
                             "accessor": [Function],
                             "canResize": true,
                             "depth": 0,
@@ -15923,7 +15923,7 @@ exports[`WebhooksLogsTable should match a snapshot where there are logs 1`] = `
                           "column": Object {
                             "Cell": [Function],
                             "Footer": [Function],
-                            "Header": "Staus",
+                            "Header": "Status",
                             "accessor": [Function],
                             "canResize": true,
                             "depth": 0,
@@ -16124,7 +16124,7 @@ exports[`WebhooksLogsTable should match a snapshot where there are logs 1`] = `
                             "column": Object {
                               "Cell": [Function],
                               "Footer": [Function],
-                              "Header": "Staus",
+                              "Header": "Status",
                               "accessor": [Function],
                               "canResize": true,
                               "depth": 0,
@@ -16297,7 +16297,7 @@ exports[`WebhooksLogsTable should match a snapshot where there are logs 1`] = `
                             "column": Object {
                               "Cell": [Function],
                               "Footer": [Function],
-                              "Header": "Staus",
+                              "Header": "Status",
                               "accessor": [Function],
                               "canResize": true,
                               "depth": 0,
@@ -16499,7 +16499,7 @@ exports[`WebhooksLogsTable should match a snapshot where there are logs 1`] = `
                             "column": Object {
                               "Cell": [Function],
                               "Footer": [Function],
-                              "Header": "Staus",
+                              "Header": "Status",
                               "accessor": [Function],
                               "canResize": true,
                               "depth": 0,
@@ -16672,7 +16672,7 @@ exports[`WebhooksLogsTable should match a snapshot where there are logs 1`] = `
                             "column": Object {
                               "Cell": [Function],
                               "Footer": [Function],
-                              "Header": "Staus",
+                              "Header": "Status",
                               "accessor": [Function],
                               "canResize": true,
                               "depth": 0,
@@ -16870,7 +16870,7 @@ exports[`WebhooksLogsTable should match a snapshot where there are logs 1`] = `
                       Object {
                         "Cell": [Function],
                         "Footer": [Function],
-                        "Header": "Staus",
+                        "Header": "Status",
                         "accessor": [Function],
                         "canResize": true,
                         "depth": 0,
@@ -17023,7 +17023,7 @@ exports[`WebhooksLogsTable should match a snapshot where there are logs 1`] = `
                       Object {
                         "Cell": [Function],
                         "Footer": [Function],
-                        "Header": "Staus",
+                        "Header": "Status",
                         "accessor": [Function],
                         "canResize": true,
                         "depth": 0,
@@ -17219,7 +17219,7 @@ exports[`WebhooksLogsTable should match a snapshot where there are logs 1`] = `
                             "column": Object {
                               "Cell": [Function],
                               "Footer": [Function],
-                              "Header": "Staus",
+                              "Header": "Status",
                               "accessor": [Function],
                               "canResize": true,
                               "depth": 0,
@@ -17359,7 +17359,7 @@ exports[`WebhooksLogsTable should match a snapshot where there are logs 1`] = `
                             "column": Object {
                               "Cell": [Function],
                               "Footer": [Function],
-                              "Header": "Staus",
+                              "Header": "Status",
                               "accessor": [Function],
                               "canResize": true,
                               "depth": 0,
@@ -17538,7 +17538,7 @@ exports[`WebhooksLogsTable should match a snapshot where there are logs 1`] = `
                       Object {
                         "Cell": [Function],
                         "Footer": [Function],
-                        "Header": "Staus",
+                        "Header": "Status",
                         "accessor": [Function],
                         "canResize": true,
                         "depth": 0,
@@ -17718,7 +17718,7 @@ exports[`WebhooksLogsTable should match a snapshot where there are logs 1`] = `
                             "column": Object {
                               "Cell": [Function],
                               "Footer": [Function],
-                              "Header": "Staus",
+                              "Header": "Status",
                               "accessor": [Function],
                               "canResize": true,
                               "depth": 0,
@@ -17891,7 +17891,7 @@ exports[`WebhooksLogsTable should match a snapshot where there are logs 1`] = `
                             "column": Object {
                               "Cell": [Function],
                               "Footer": [Function],
-                              "Header": "Staus",
+                              "Header": "Status",
                               "accessor": [Function],
                               "canResize": true,
                               "depth": 0,
@@ -18072,7 +18072,7 @@ exports[`WebhooksLogsTable should match a snapshot where there are logs 1`] = `
                       Object {
                         "Cell": [Function],
                         "Footer": [Function],
-                        "Header": "Staus",
+                        "Header": "Status",
                         "accessor": [Function],
                         "canResize": true,
                         "depth": 0,
@@ -18237,7 +18237,7 @@ exports[`WebhooksLogsTable should match a snapshot where there are logs 1`] = `
                             "column": Object {
                               "Cell": [Function],
                               "Footer": [Function],
-                              "Header": "Staus",
+                              "Header": "Status",
                               "accessor": [Function],
                               "canResize": true,
                               "depth": 0,
@@ -18410,7 +18410,7 @@ exports[`WebhooksLogsTable should match a snapshot where there are logs 1`] = `
                             "column": Object {
                               "Cell": [Function],
                               "Footer": [Function],
-                              "Header": "Staus",
+                              "Header": "Status",
                               "accessor": [Function],
                               "canResize": true,
                               "depth": 0,
@@ -18595,7 +18595,7 @@ exports[`WebhooksLogsTable should match a snapshot where there are logs 1`] = `
                           Object {
                             "Cell": [Function],
                             "Footer": [Function],
-                            "Header": "Staus",
+                            "Header": "Status",
                             "accessor": [Function],
                             "canResize": true,
                             "depth": 0,
@@ -18752,7 +18752,7 @@ exports[`WebhooksLogsTable should match a snapshot where there are logs 1`] = `
                           Object {
                             "Cell": [Function],
                             "Footer": [Function],
-                            "Header": "Staus",
+                            "Header": "Status",
                             "accessor": [Function],
                             "canResize": true,
                             "depth": 0,
@@ -18898,7 +18898,7 @@ exports[`WebhooksLogsTable should match a snapshot where there are logs 1`] = `
                       Object {
                         "Cell": [Function],
                         "Footer": [Function],
-                        "Header": "Staus",
+                        "Header": "Status",
                         "accessor": [Function],
                         "canResize": true,
                         "depth": 0,
@@ -19063,7 +19063,7 @@ exports[`WebhooksLogsTable should match a snapshot where there are logs 1`] = `
                             "column": Object {
                               "Cell": [Function],
                               "Footer": [Function],
-                              "Header": "Staus",
+                              "Header": "Status",
                               "accessor": [Function],
                               "canResize": true,
                               "depth": 0,
@@ -19236,7 +19236,7 @@ exports[`WebhooksLogsTable should match a snapshot where there are logs 1`] = `
                             "column": Object {
                               "Cell": [Function],
                               "Footer": [Function],
-                              "Header": "Staus",
+                              "Header": "Status",
                               "accessor": [Function],
                               "canResize": true,
                               "depth": 0,
@@ -19446,7 +19446,7 @@ exports[`WebhooksLogsTable should match a snapshot where there are logs 1`] = `
                             "column": Object {
                               "Cell": [Function],
                               "Footer": [Function],
-                              "Header": "Staus",
+                              "Header": "Status",
                               "accessor": [Function],
                               "canResize": true,
                               "depth": 0,
@@ -19619,7 +19619,7 @@ exports[`WebhooksLogsTable should match a snapshot where there are logs 1`] = `
                             "column": Object {
                               "Cell": [Function],
                               "Footer": [Function],
-                              "Header": "Staus",
+                              "Header": "Status",
                               "accessor": [Function],
                               "canResize": true,
                               "depth": 0,
@@ -19821,7 +19821,7 @@ exports[`WebhooksLogsTable should match a snapshot where there are logs 1`] = `
                           "column": Object {
                             "Cell": [Function],
                             "Footer": [Function],
-                            "Header": "Staus",
+                            "Header": "Status",
                             "accessor": [Function],
                             "canResize": true,
                             "depth": 0,
@@ -19994,7 +19994,7 @@ exports[`WebhooksLogsTable should match a snapshot where there are logs 1`] = `
                           "column": Object {
                             "Cell": [Function],
                             "Footer": [Function],
-                            "Header": "Staus",
+                            "Header": "Status",
                             "accessor": [Function],
                             "canResize": true,
                             "depth": 0,
@@ -20195,7 +20195,7 @@ exports[`WebhooksLogsTable should match a snapshot where there are logs 1`] = `
                             "column": Object {
                               "Cell": [Function],
                               "Footer": [Function],
-                              "Header": "Staus",
+                              "Header": "Status",
                               "accessor": [Function],
                               "canResize": true,
                               "depth": 0,
@@ -20368,7 +20368,7 @@ exports[`WebhooksLogsTable should match a snapshot where there are logs 1`] = `
                             "column": Object {
                               "Cell": [Function],
                               "Footer": [Function],
-                              "Header": "Staus",
+                              "Header": "Status",
                               "accessor": [Function],
                               "canResize": true,
                               "depth": 0,
@@ -20570,7 +20570,7 @@ exports[`WebhooksLogsTable should match a snapshot where there are logs 1`] = `
                             "column": Object {
                               "Cell": [Function],
                               "Footer": [Function],
-                              "Header": "Staus",
+                              "Header": "Status",
                               "accessor": [Function],
                               "canResize": true,
                               "depth": 0,
@@ -20743,7 +20743,7 @@ exports[`WebhooksLogsTable should match a snapshot where there are logs 1`] = `
                             "column": Object {
                               "Cell": [Function],
                               "Footer": [Function],
-                              "Header": "Staus",
+                              "Header": "Status",
                               "accessor": [Function],
                               "canResize": true,
                               "depth": 0,
@@ -20941,7 +20941,7 @@ exports[`WebhooksLogsTable should match a snapshot where there are logs 1`] = `
                       Object {
                         "Cell": [Function],
                         "Footer": [Function],
-                        "Header": "Staus",
+                        "Header": "Status",
                         "accessor": [Function],
                         "canResize": true,
                         "depth": 0,

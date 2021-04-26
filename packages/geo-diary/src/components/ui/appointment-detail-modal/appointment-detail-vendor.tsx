@@ -1,9 +1,10 @@
 import React from 'react'
 import { useQuery } from '@apollo/react-hooks'
-import { GET_VENDOR_BY_ID } from './get-vendor-by-id.graphql'
+import { GET_VENDOR_BY_ID } from '../../../graphql/queries/get-vendor-by-id.graphql'
 import { FaMale } from 'react-icons/fa'
-import { Loader, Grid, GridItem, H6, AcLink, EntityType } from '@reapit/elements'
+import { Grid, GridItem, H6, AcLink, EntityType } from '@reapit/elements'
 import { renderCommunicationDetail, LoginMode } from './appointment-detail-modal'
+import { Loader } from '@reapit/elements/v3'
 
 export type VendorRelateModel = {
   id: string
@@ -43,7 +44,7 @@ export const AppointmentDetailVendor: React.FC<{
 
   const listRelated = data?.GetVendorById?.related || []
 
-  if (loading) return <Loader />
+  if (loading) return <Loader label="Loading" />
   return listRelated.length > 0 ? (
     <Grid className="is-mobile">
       <GridItem className="is-one-third-desktop is-5-mobile horizontal">

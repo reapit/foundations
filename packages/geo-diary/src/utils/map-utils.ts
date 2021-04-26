@@ -1,15 +1,19 @@
-import { ExtendedAppointmentModel } from '@/types/global'
-import qs from 'query-string'
+import { ExtendedAppointmentModel } from '../types/global'
+import { AppState } from '../core/app-state'
 
 export type FetchDestinationInformation = {
-  queryParams: qs.ParsedQuery<string>
   appointment: ExtendedAppointmentModel
+  appState: AppState
 }
 
-export const fetchDestinationInformation = ({ queryParams, appointment }: FetchDestinationInformation) => {
+export const fetchDestinationInformation = ({
+  appointment,
+  appState,
+}: FetchDestinationInformation): Promise<google.maps.DistanceMatrixResponse> => {
+  const { currentLat, currentLng, travelMode } = appState
   return new Promise((resolve) => {
     if (window.google) {
-      const origins = [new google.maps.LatLng(queryParams.currentLat, queryParams.currentLng)]
+      const origins = [new google.maps.LatLng(currentLat, currentLng)]
       const destinations = [
         new google.maps.LatLng(
           appointment?.property?.address?.geolocation?.latitude || 1,
@@ -22,7 +26,7 @@ export const fetchDestinationInformation = ({ queryParams, appointment }: FetchD
         {
           origins,
           destinations,
-          travelMode: queryParams.travelMode || google.maps.TravelMode.DRIVING,
+          travelMode: travelMode as google.maps.TravelMode,
         },
         (response) => {
           resolve(response)

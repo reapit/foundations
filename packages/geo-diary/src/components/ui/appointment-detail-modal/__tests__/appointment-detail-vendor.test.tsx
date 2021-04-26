@@ -2,7 +2,7 @@ import React from 'react'
 import { MockedProvider } from '@apollo/react-testing'
 import { shallow } from 'enzyme'
 import AppointmentDetailVendor from '../appointment-detail-vendor'
-import GET_VENDOR_BY_ID from '../get-vendor-by-id.graphql'
+import GET_VENDOR_BY_ID from '../../../../graphql/queries/get-vendor-by-id.graphql'
 import { LoginMode } from '../appointment-detail-modal'
 import { vendorQueryData } from '../__stubs__/vendor-query'
 

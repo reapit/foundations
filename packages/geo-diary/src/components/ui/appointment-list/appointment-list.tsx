@@ -1,14 +1,14 @@
 import React from 'react'
 import { ExtendedAppointmentModel } from '@/types/global'
-import AppointmentTile from '../appointment-tile'
+import { AppointmentTile } from '../appointment-tile'
 import dayjs from 'dayjs'
 import { FadeIn, Helper } from '@reapit/elements'
 
-export type AppointmentListProps = {
+export interface AppointmentListProps {
   appointments: ExtendedAppointmentModel[]
 }
 
-export type AppointmentTypeQueryData = {
+export interface AppointmentTypeQueryData {
   GetConfigurationsByType: {
     id: string
     value: string
@@ -28,7 +28,7 @@ export function getTodayNextAppointment(appointments: ExtendedAppointmentModel[]
   return nearestAppointment
 }
 
-export type AppointmentTypeQueryVariables = {
+export interface AppointmentTypeQueryVariables {
   type: 'appointmentTypes'
 }
 

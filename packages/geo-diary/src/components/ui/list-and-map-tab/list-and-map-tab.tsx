@@ -1,51 +1,45 @@
-import React from 'react'
-import qs from 'query-string'
-import { History } from 'history'
-import { Tabs, TabConfig } from '@reapit/elements'
+import React, { Dispatch, FC, memo, SetStateAction } from 'react'
+import { Tabs } from '@reapit/elements'
 import { listAndMapTabContainer } from './__styles__'
-import { ROUTES } from '@/core/router'
+import { AppState, useAppState, AppTab } from '../../../core/app-state'
 
 export type HandleChangeTabParams = {
-  tabName: string
-  queryParams: qs.ParsedQuery<string>
-  history: History
+  tab: AppTab
+  setAppState: Dispatch<SetStateAction<AppState>>
 }
 
-export const handleChangeTab = ({ history, tabName, queryParams }: HandleChangeTabParams) => () => {
-  const queryString = qs.stringify({
-    ...queryParams,
-    tab: tabName,
-    destinationLat: undefined,
-    destinationLng: undefined,
-    appointmentId: undefined,
-  })
-  history.push(`${ROUTES.APPOINTMENT}?${queryString}`)
+export const handleChangeTab = ({ tab, setAppState }: HandleChangeTabParams) => () => {
+  setAppState((currentState) => ({
+    ...currentState,
+    tab,
+    destinationLat: null,
+    destinationLng: null,
+    appointmentId: null,
+  }))
 }
 
-export const generateTabConfig = ({ queryParams, history }): TabConfig[] => {
-  return [
-    {
-      tabIdentifier: 'list',
-      displayText: 'list',
-      onTabClick: handleChangeTab({ history, tabName: 'list', queryParams }),
-      active: queryParams.tab === 'list',
-    },
-    {
-      tabIdentifier: 'map',
-      displayText: 'map',
-      onTabClick: handleChangeTab({ history, tabName: 'map', queryParams }),
-      active: queryParams.tab === 'map',
-    },
-  ]
+export const ListAndMapTab: FC = () => {
+  const { appState, setAppState } = useAppState()
+  const { tab } = appState
+  return (
+    <Tabs
+      className={listAndMapTabContainer}
+      tabConfigs={[
+        {
+          tabIdentifier: 'LIST',
+          displayText: 'LIST',
+          onTabClick: handleChangeTab({ tab: 'LIST', setAppState }),
+          active: tab === 'LIST',
+        },
+        {
+          tabIdentifier: 'MAP',
+          displayText: 'MAP',
+          onTabClick: handleChangeTab({ tab: 'MAP', setAppState }),
+          active: tab === 'MAP',
+        },
+      ]}
+    />
+  )
 }
 
-export type ListAndMapTabProps = {
-  queryParams: qs.ParsedQuery<string>
-  history: History
-}
-
-export const ListAndMapTab: React.FC<ListAndMapTabProps> = ({ queryParams, history }) => {
-  return <Tabs className={listAndMapTabContainer} tabConfigs={generateTabConfig({ queryParams, history })} />
-}
-
-export default React.memo(ListAndMapTab)
+export default memo(ListAndMapTab)

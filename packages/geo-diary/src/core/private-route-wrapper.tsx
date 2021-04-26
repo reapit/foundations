@@ -1,6 +1,6 @@
-import * as React from 'react'
+import React, { useEffect } from 'react'
 import Menu from '@/components/ui/menu'
-import { Loader, AppNavContainer, Helper, Section } from '@reapit/elements'
+import { AppNavContainer, Helper, Section } from '@reapit/elements'
 import ErrorBoundary from './error-boundary'
 import { Redirect, useHistory, useLocation } from 'react-router'
 import { reapitConnectBrowserSession } from '@/core/connect-session'
@@ -10,7 +10,7 @@ import getClient from '@/graphql/client'
 import qs from 'query-string'
 import { ROUTES } from '@/core/router'
 import { History } from 'history'
-import { useEffect } from 'react'
+import { Loader } from '@reapit/elements/v3'
 
 const { Suspense } = React
 
@@ -49,7 +49,7 @@ export const PrivateRouteWrapper: React.FC<PrivateRouteWrapperProps> = ({ childr
   if (!connectSession) {
     return (
       <AppNavContainer>
-        <Loader body />
+        <Loader label="Loading" fullPage />
       </AppNavContainer>
     )
   }
@@ -76,7 +76,7 @@ export const PrivateRouteWrapper: React.FC<PrivateRouteWrapperProps> = ({ childr
     <ApolloProvider client={getClient(connectSession, window.reapit.config.graphqlUri)}>
       <AppNavContainer>
         <Menu />
-        <Suspense fallback={<Loader body />}>
+        <Suspense fallback={<Loader label="Loading" fullPage />}>
           <ErrorBoundary>{children}</ErrorBoundary>
         </Suspense>
       </AppNavContainer>

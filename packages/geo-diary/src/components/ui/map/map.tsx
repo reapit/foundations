@@ -5,7 +5,7 @@ import { CoordinateProps } from '@reapit/elements'
 import { useLocation } from 'react-router-dom'
 import qs from 'query-string'
 import { ExtendedAppointmentModel } from '@/types/global'
-import MapPanel from '../map-pannel'
+import MapPanel from '../map-panel'
 import { ListItemModel } from '@reapit/foundations-ts-definitions'
 import { AppointmentDetailModal } from '../appointment-detail-modal/appointment-detail-modal'
 

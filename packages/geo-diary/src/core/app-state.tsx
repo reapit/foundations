@@ -3,6 +3,7 @@ import { logger } from '../../../utils'
 
 export type AppTimeRange = 'TODAY' | 'TOMORROW' | 'WEEK'
 export type AppTravelMode = 'DRIVING' | 'WALKING'
+export type AppTab = 'MAP' | 'LIST'
 
 export interface AppState {
   currentLat: number
@@ -13,6 +14,7 @@ export interface AppState {
   destinationLat: number | null
   destinationLng: number | null
   appointmentId: string | null
+  tab: AppTab
 }
 
 export interface AppStateContextProps {
@@ -29,6 +31,7 @@ export const defaultAppState: AppState = {
   destinationLat: null,
   destinationLng: null,
   appointmentId: null,
+  tab: 'LIST',
 }
 
 export const AppStateContext = createContext<AppStateContextProps>({} as AppStateContextProps)

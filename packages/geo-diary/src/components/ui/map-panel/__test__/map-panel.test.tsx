@@ -1,8 +1,8 @@
 import React from 'react'
 import { shallow } from 'enzyme'
-import MapPanel, { handleChangeTab, getMapUrl, handleOpenNativeMap } from '../map-pannel'
+import MapPanel, { handleChangeTab, getMapUrl, handleOpenNativeMap } from '../map-panel'
 import { RouteInformation, UNDEFINED_LATLNG_NUMBER } from '../../map/map'
-import { getMockRouterProps } from '@/core/__mocks__/mock-router'
+import { getMockRouterProps } from '../../../../core/__mocks__/mock-router'
 
 const locationMock = { search: '?state=CLIENT&destinationLat=123&destinationLng=123', pathname: '/test' }
 

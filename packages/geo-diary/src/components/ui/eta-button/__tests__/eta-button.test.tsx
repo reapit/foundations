@@ -1,7 +1,8 @@
 import * as React from 'react'
-import { ETAButton, getAttendeeHaveMobilePhone, getNegotiator, handleUseEffect } from '../eta-button'
+import { EtaButton, getAttendeeHaveMobilePhone, getNegotiator, handleGetDuration } from '../eta-button'
 import { shallow } from 'enzyme'
 import { appointment } from '@/graphql/__mocks__/appointment'
+import { defaultAppState } from '../../../../core/app-state'
 
 let userAgentGetter
 jest.mock('../api', () => ({
@@ -14,7 +15,7 @@ jest.mock('../api', () => ({
   }),
 }))
 describe('eta-button', () => {
-  describe('ETAButton', () => {
+  describe('EtaButton', () => {
     beforeEach(() => {
       userAgentGetter = jest.spyOn(window.navigator, 'userAgent', 'get')
     })
@@ -23,7 +24,7 @@ describe('eta-button', () => {
         appointment: appointment,
         queryParams: {},
       }
-      expect(shallow(<ETAButton {...mockProps} />)).toMatchSnapshot()
+      expect(shallow(<EtaButton {...mockProps} />)).toMatchSnapshot()
     })
 
     it('Should include body message if using Android phone', () => {
@@ -35,16 +36,16 @@ describe('eta-button', () => {
         'Mozilla/5.0 (Linux; U; Android 1.6; en-us; HTC_TATTOO_A3288 Build/DRC79)' +
           ' AppleWebKit/528.5+ (KHTML, like Gecko) Version/3.1.2 Mobile Safari/525.20.1',
       )
-      const wrapper = shallow(<ETAButton {...mockProps} />)
+      const wrapper = shallow(<EtaButton {...mockProps} />)
       expect(wrapper.find('[data-test="eta-button"]').prop('href')).toBe(
         'sms:0123456789?&body=Hi , I am on my way to you. I will be with you in approximately undefined.',
       )
     })
   })
-  describe('handleUseEffect', () => {
+  describe('handleGetDuration', () => {
     it('should run correctly', (done) => {
-      const mockParams = { setDuration: jest.fn(), queryParams: {}, appointment }
-      const fn = handleUseEffect(mockParams)
+      const mockParams = { setDuration: jest.fn(), appState: defaultAppState, appointment }
+      const fn = handleGetDuration(mockParams)
       fn()
       setTimeout(() => {
         expect(mockParams.setDuration).toBeCalledWith({ text: 'mockText', value: 1 })

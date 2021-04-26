@@ -21,7 +21,7 @@ export const DesktopLayout: FC<DesktopLayoutProps> = ({ appointments, loading })
         <TravelMode />
       </Section>
       {loading ? (
-        <Loader />
+        <Loader label="Loading" />
       ) : (
         <FadeIn>
           <AppointmentList appointments={appointments} />
