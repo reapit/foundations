@@ -1,0 +1,88 @@
+import { Meta, Story, Canvas, ArgsTable } from '@storybook/addon-docs/blocks'
+import { cx } from 'linaria'
+import useModal from '../../hooks/useModal-v3'
+import { Modal } from './index'
+import { Button } from '../Button'
+import { BodyText } from '../Typography'
+import { RenderHtmlMarkup } from '../../helpers/v3/render-html-markup'
+import { elFlex, elFlexJustifyCenter } from '../../styles-v3/base/flexbox'
+
+<Meta title="V3/Modal" />
+
+# Modal
+
+.
+
+# React usage
+
+## Complete example with `useModal` hook
+
+<Canvas>
+  <Story name="useModal example">
+    {() => {
+      const { Modal: ModalComponent, openModal, closeModal } = useModal()
+      return (
+        <>
+          <Button onClick={openModal}>Open Modal</Button>
+          <ModalComponent title="Welcome to the demo modal">
+            <BodyText>Here's some nice content for the inside of the modal.</BodyText>
+            <div className={cx(elFlex, elFlexJustifyCenter)}>
+              <Button onClick={closeModal}>Close the modal</Button>
+            </div>
+          </ModalComponent>
+        </>
+      )
+    }}
+  </Story>
+</Canvas>
+
+## With multiple `useModal` hooks
+
+<Canvas>
+  <Story name="useModal example - multiple modals">
+    {() => {
+      const { Modal: ModalA, openModal: openModalA } = useModal()
+      const { Modal: ModalB, openModal: openModalB } = useModal()
+      return (
+        <>
+          <Button onClick={openModalA}>Open Modal A</Button>
+          <Button onClick={openModalB}>Open Modal B</Button>
+          <ModalA title="Modal A">I'm the modal A's content</ModalA>
+          <ModalB title="Modal B">I'm the modal B's content</ModalB>
+        </>
+      )
+    }}
+  </Story>
+</Canvas>
+
+If using multiple modals within a component, ensure you rename the exports from `useModal` to avoid conflicts, e.g. `const { Modal: ModalA, openModal: openModalA } = useModal()`
+
+## `useModal` API
+
+Exports the following properties as an object:
+
+- `Modal`: `React.ReactNode` - a React component that should be placed somewhere with the component that you want to use the modal.
+- `openModal`: `() => void` - a method that will open the Modal.
+- `closeModal`: `() => void` - a method that will close the Modal. The Modal can also be closed by default from within the Modal, or by clicking on the background
+
+.
+
+# UI Component (for use in HTML or other frameworks)
+
+The Modal component can be used for UI purposes only, but won't have the functionality of the React implementation (i.e. managing the state of whether it is open or closed)
+
+If using the Modal component like this, you will need to toggle the `el-is-active` class to show/hide the modal.
+
+This class must be applied on two elements, `div.el-modal-bg` and also `div.el-modal`, when you want the modal to be shown.
+
+Click "Show code" below to see HTML code for an un-opened modal.
+
+<Canvas>
+  <div className="el-modal-bg"></div>
+  <div className="el-modal">
+    <div className="el-modal-header">Welcome to the demo modal</div>
+    <div className="el-modal-body">
+      <p className="el-body-text">Here's some nice content for the inside of the modal.</p>
+    </div>
+  </div>
+</Canvas>
