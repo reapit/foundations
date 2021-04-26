@@ -15,8 +15,10 @@ export * from './components-v3/Snack'
 export * from './components-v3/SnackHolder'
 export * from './components-v3/Steps'
 export * from './components-v3/Typography'
+export * from './components-v3/Modal'
 
 export * from './hooks/usePortal-v3'
 export * from './hooks/useSnack-v3'
+export * from './hooks/useModal-v3'
 
 export * from './contexts/snacks'
