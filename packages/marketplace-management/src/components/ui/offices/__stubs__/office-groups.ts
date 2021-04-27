@@ -3,13 +3,13 @@ import { OfficeGroupModelPagedResult } from '../../../../types/organisations-sch
 export const data: OfficeGroupModelPagedResult = {
   _embedded: [
     {
-      id: 'string',
+      id: 'SOME_ID',
       created: '2019-08-14T12:30:02.0000000Z',
       modified: '2019-08-14T12:30:02.0000000Z',
       organisationId: 'string',
       name: 'string',
       tag: 'string',
-      officeIds: 'string',
+      officeIds: 'SOME_ID,ANOTHER_ID',
       status: 'string',
     },
   ],

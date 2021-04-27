@@ -4,13 +4,14 @@ import { useHistory, useLocation } from 'react-router'
 import { History } from 'history'
 import { OfficeGroupModelPagedResult, OfficeGroupModel } from '../../../types/organisations-schema'
 import ErrorBoundary from '@/components/hocs/error-boundary'
-import { Pagination, Table, Loader, FadeIn, Helper, toLocalTime, DATE_TIME_FORMAT, Button, H5 } from '@reapit/elements'
+import { Loader, toLocalTime, DATE_TIME_FORMAT, Button, H5 } from '@reapit/elements'
 import Routes from '@/constants/routes'
 import { URLS } from '../../../constants/api'
 import OfficeListCell from './office-list-cell'
 import CreateOfficeGroupModal from './create-office-group'
 import EditOfficeGroupModal from './edit-office-group'
 import { orgIdEffectHandler } from '../../../utils/org-id-effect-handler'
+import { OfficeGroupsContent } from './office-groups-content'
 
 export const onPageChangeHandler = (history: History<any>) => (page: number) => {
   const queryString = `?pageNumber=${page}`
@@ -33,7 +34,7 @@ const OfficesGroupsTab: React.FC = () => {
   const { data: officeGroups, mutate } = useSWR<OfficeGroupModelPagedResult>(
     !orgId
       ? null
-      : `${URLS.ORGANISATIONS}/${orgId}${URLS.OFFICES_GROUPS}${search ? search + '&pageSize=6' : '?pageSize=6'}`,
+      : `${URLS.ORGANISATIONS}/${orgId}${URLS.OFFICES_GROUPS}${search ? search + '&pageSize=12' : '?pageSize=12'}`,
   )
 
   const LastUpdatedCell = ({
@@ -54,7 +55,7 @@ const OfficesGroupsTab: React.FC = () => {
 
   const columns = [
     { Header: 'Group Name', accessor: 'name' },
-    { Header: 'Office List', accessor: 'officeIds', Cell: OfficeListCell },
+    { Header: 'Office List', accessor: 'offices', Cell: OfficeListCell },
     { Header: 'Last Updated', Cell: LastUpdatedCell },
     { Header: 'Edit', Cell: EditButton },
   ]
@@ -93,36 +94,6 @@ const OfficesGroupsTab: React.FC = () => {
         <OfficeGroupsContent officeGroups={officeGroups} columns={columns} onPageChange={onPageChange} />
       )}
     </ErrorBoundary>
-  )
-}
-
-export const OfficeGroupsContent: React.FC<{
-  officeGroups: OfficeGroupModelPagedResult
-  columns: any[]
-  onPageChange: (page: number) => void
-}> = ({ officeGroups, columns, onPageChange }) => {
-  const { _embedded: listGroup, totalCount, pageSize, pageNumber = 1 } = officeGroups
-  return (
-    <>
-      {renderResult(columns, listGroup)}
-      <Pagination onChange={onPageChange} totalCount={totalCount} pageSize={pageSize} pageNumber={pageNumber} />
-    </>
-  )
-}
-
-export const renderResult = (columns: any[], listGroup?: OfficeGroupModel[]) => {
-  if (listGroup?.length === 0) {
-    return (
-      <FadeIn>
-        <Helper variant="info">No Results</Helper>
-      </FadeIn>
-    )
-  }
-
-  return (
-    <FadeIn>
-      <Table expandable scrollable={true} data={listGroup || []} columns={columns} />
-    </FadeIn>
   )
 }
 
