@@ -1,0 +1,51 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`OfficeGroupsContent should match a snapshot 1`] = `
+<Fragment>
+  <FadeIn>
+    <Table
+      columns={
+        Array [
+          Object {
+            "Header": "Group Name",
+            "accessor": "name",
+          },
+          Object {
+            "Header": "Office List",
+            "accessor": "offices",
+          },
+          Object {
+            "Header": "Last Updated",
+            "accessor": "description",
+          },
+          Object {
+            "Header": "Edit",
+          },
+        ]
+      }
+      data={
+        Array [
+          Object {
+            "created": "2019-08-14T12:30:02.0000000Z",
+            "id": "SOME_ID",
+            "modified": "2019-08-14T12:30:02.0000000Z",
+            "name": "string",
+            "officeIds": "SOME_ID,ANOTHER_ID",
+            "organisationId": "string",
+            "status": "string",
+            "tag": "string",
+          },
+        ]
+      }
+      expandable={true}
+      scrollable={true}
+    />
+  </FadeIn>
+  <Pagination
+    onChange={[MockFunction]}
+    pageNumber={0}
+    pageSize={0}
+    totalCount={0}
+  />
+</Fragment>
+`;
