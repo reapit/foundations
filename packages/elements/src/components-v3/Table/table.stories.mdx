@@ -1,0 +1,38 @@
+import { Meta, Story, Canvas, ArgsTable } from '@storybook/addon-docs/blocks'
+import { Table, TableHeaders, TableHeader, TableRow, TableCell, TableExpandableCell } from './index'
+import { RenderHtmlMarkup } from '../../helpers/v3/render-html-markup'
+
+<Meta title="V3/Table" component={Table} />
+
+# Table
+
+Underlying tag: `<div>`
+
+<Canvas>
+  <Story name="Default Usage">
+    <Table>
+      <TableHeaders>
+        <TableHeader>Property</TableHeader>
+        <TableHeader>Customer</TableHeader>
+        <TableHeader>Client A/C</TableHeader>
+        <TableHeader>Description</TableHeader>
+        <TableHeader>Request Date</TableHeader>
+        <TableHeader>Amount</TableHeader>
+        <TableHeader>Payment Status</TableHeader>
+        <TableHeader>Expand</TableHeader>
+      </TableHeaders>
+      <TableRow>
+        <TableCell icon="home">Mountain Ash Jacket</TableCell>
+        <TableCell icon="user">Mr Johnny Corrigan</TableCell>
+        <TableCell>Alternate Lettings Client Acc</TableCell>
+        <TableCell>Tenant Payment Request</TableCell>
+        <TableCell>19 Apr 2021</TableCell>
+        <TableCell>£50.00</TableCell>
+        <TableCell>Not Requested</TableCell>
+        <TableExpandableCell>I am the content that is only visible when expanded</TableExpandableCell>
+      </TableRow>
+    </Table>
+  </Story>
+</Canvas>
+
+<RenderHtmlMarkup component="V3/Table" story="Default Usage" />
