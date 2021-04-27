@@ -16,8 +16,6 @@ const baseMockReq = {
   traceId: 'SOME_TRACE_ID',
   headers: {
     ['x-api-key']: 'SOME_API_KEY',
-    ['reapit-customer']: 'SOME_CODE',
-    ['api-version']: '2020-01-31',
   },
   params: {
     configKey: KEY,
