@@ -1,5 +1,5 @@
 import React, { createContext, Dispatch, SetStateAction, useContext, useEffect, useState } from 'react'
-import { logger } from '../../../utils'
+import { getAppStateWithGeoCoords } from '../utils/map-utils'
 
 export type AppTimeRange = 'TODAY' | 'TOMORROW' | 'WEEK'
 export type AppTravelMode = 'DRIVING' | 'WALKING'
@@ -38,36 +38,12 @@ export const AppStateContext = createContext<AppStateContextProps>({} as AppStat
 
 const { Provider } = AppStateContext
 
-export const initAppState = (): Promise<AppState> => {
-  return new Promise((resolve) => {
-    const hasGeoLocation = Boolean(navigator.geolocation)
-
-    if (!hasGeoLocation) return resolve(defaultAppState)
-
-    navigator.geolocation.getCurrentPosition(
-      (position) => {
-        return resolve({
-          ...defaultAppState,
-          hasGeoLocation: true,
-          currentLat: position.coords.latitude,
-          currentLng: position.coords.longitude,
-        })
-      },
-      (error) => {
-        const err = new Error(error.message)
-        logger(err)
-        return resolve(defaultAppState)
-      },
-    )
-  })
-}
-
 export const AppStateProvider: React.FC = ({ children }) => {
   const [appState, setAppState] = useState<AppState>(defaultAppState)
 
   useEffect(() => {
     const getAppState = async () => {
-      const initialAppState = await initAppState()
+      const initialAppState = await getAppStateWithGeoCoords(defaultAppState)
       setAppState(initialAppState)
     }
     getAppState()

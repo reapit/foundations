@@ -1,13 +1,12 @@
-import React from 'react'
+import React, { Dispatch, FC, memo, SetStateAction, useCallback, useEffect, useMemo, useState } from 'react'
 import { H5, SubTitleH5, combineAddress } from '@reapit/elements'
-import Gmaps from './gmaps'
-import { CoordinateProps } from '@reapit/elements'
-import { useLocation } from 'react-router-dom'
-import qs from 'query-string'
+import Gmaps, { CoordinateProps, DirectionsResult } from './gmaps'
 import { ExtendedAppointmentModel } from '@/types/global'
 import MapPanel from '../map-panel'
 import { ListItemModel } from '@reapit/foundations-ts-definitions'
 import { AppointmentDetailModal } from '../appointment-detail-modal/appointment-detail-modal'
+import { AppState, useAppState } from '../../../core/app-state'
+import { NullableCoords } from './gmaps'
 
 export const UNDEFINED_LATLNG_NUMBER = 9999
 export const UNDEFINED_NULL_STRING = Math.random()
@@ -43,7 +42,7 @@ export type RouteInformation = {
   distance: { text: string; value: number } | null
 }
 
-export const handleFilterInvalidMarker = (appointments: ExtendedAppointmentModel[]) => () =>
+export const handleFilterInvalidMarker = (appointments: ExtendedAppointmentModel[]) => (): CoordinateProps[] =>
   filterInvalidMarker(
     appointments.map(
       (appointment: ExtendedAppointmentModel): Coordinate => {
@@ -76,14 +75,15 @@ export const renderModalTitle = ({ appointmentType, heading }) => {
   )
 }
 
-export const getDestinationPoint = (queryParams: qs.ParsedQuery<string>) => () => {
-  return { lat: queryParams.destinationLat, lng: queryParams.destinationLng }
-}
+export const getDestinationPoint = ({ destinationLat, destinationLng }: AppState) => (): NullableCoords => ({
+  lat: destinationLat,
+  lng: destinationLng,
+})
 
 export const handleMarkerOnClick = (
   appointments: ExtendedAppointmentModel[],
-  setAppointment: React.Dispatch<React.SetStateAction<ExtendedAppointmentModel | null>>,
-  setAppointmentDetailModalVisible: React.Dispatch<React.SetStateAction<boolean>>,
+  setAppointment: Dispatch<SetStateAction<ExtendedAppointmentModel | null>>,
+  setAppointmentDetailModalVisible: Dispatch<SetStateAction<boolean>>,
 ) => (id: string) => () => {
   const appointment = appointments.find((item) => item.id === id)
   if (appointment) {
@@ -92,49 +92,41 @@ export const handleMarkerOnClick = (
   }
 }
 
-export const handleModalClose = (
-  setAppointmentDetailModalVisible: React.Dispatch<React.SetStateAction<boolean>>,
-) => () => {
+export const handleModalClose = (setAppointmentDetailModalVisible: Dispatch<SetStateAction<boolean>>) => () => {
   setAppointmentDetailModalVisible(false)
 }
 
 export const handleSetAppointment = (
-  appointmentId: string,
+  appointmentId: string | null,
   appointments: ExtendedAppointmentModel[],
-  setAppointment: (value: React.SetStateAction<ExtendedAppointmentModel | null>) => void,
-) => {
-  return () => {
-    const appointment = appointments.find((item) => item.id === appointmentId)
-    if (appointment) {
-      setAppointment(appointment)
-    }
+  setAppointment: (value: SetStateAction<ExtendedAppointmentModel | null>) => void,
+) => () => {
+  const appointment = appointments.find((item) => item.id === appointmentId)
+  if (appointment) {
+    setAppointment(appointment)
   }
 }
 
-export const AppointmentMap: React.FC<AppointmentMapProps> = ({ appointments }) => {
-  const [appointment, setAppointment] = React.useState<ExtendedAppointmentModel | null>(null)
-  const [appointmentDetailModalVisible, setAppointmentDetailModalVisible] = React.useState(false)
-  const location = useLocation()
-  const queryParams = qs.parse(location.search)
-  const [routeInformation, setRouteInformation] = React.useState<RouteInformation>({ duration: null, distance: null })
-  const coordinates: CoordinateProps<any> = React.useMemo(handleFilterInvalidMarker(appointments), [appointments])
-  const { appointmentId = '' } = queryParams
+export const AppointmentMap: FC<AppointmentMapProps> = ({ appointments }) => {
+  const [appointment, setAppointment] = useState<ExtendedAppointmentModel | null>(null)
+  const [appointmentDetailModalVisible, setAppointmentDetailModalVisible] = useState(false)
+  const { appState } = useAppState()
 
-  const onLoadedDirection = React.useCallback(
-    (res) => {
-      const { duration, distance } = res.routes[0].legs[0]
+  const [routeInformation, setRouteInformation] = useState<RouteInformation>({ duration: null, distance: null })
+  const coordinates: CoordinateProps[] = useMemo(handleFilterInvalidMarker(appointments), [appointments])
+  const { appointmentId, destinationLat, destinationLng, travelMode } = appState
+
+  const onLoadedDirections = useCallback(
+    (directions: DirectionsResult) => {
+      const { duration, distance } = directions.routes[0].legs[0]
       setRouteInformation({ duration, distance })
     },
-    [queryParams.destinationLat, queryParams.destinationLng, queryParams.travelMode],
+    [destinationLat, destinationLng, travelMode],
   )
 
-  const destinationPoint = React.useMemo(getDestinationPoint(queryParams), [
-    queryParams.destinationLat,
-    queryParams.destinationLng,
-    queryParams.travelMode,
-  ])
+  const destinationPoint = useMemo(getDestinationPoint(appState), [destinationLat, destinationLng, travelMode])
 
-  React.useEffect(handleSetAppointment(appointmentId, appointments, setAppointment), [appointmentId, appointments])
+  useEffect(handleSetAppointment(appointmentId, appointments, setAppointment), [appointmentId, appointments])
 
   const line1 = appointment?.property?.address?.line1 ?? ''
   const buildingName = appointment?.property?.address?.buildingName ?? ''
@@ -146,15 +138,11 @@ export const AppointmentMap: React.FC<AppointmentMapProps> = ({ appointments }) 
     <>
       <Gmaps
         autoFitBounds={Boolean(appointments.length)}
-        apiKey={window.reapit.config.googleMapApiKey}
         coordinates={coordinates}
         markerCallBack={handleMarkerOnClick(appointments, setAppointment, setAppointmentDetailModalVisible)}
-        onLoadedDirection={onLoadedDirection}
+        onLoadedDirections={onLoadedDirections}
         destinationPoint={destinationPoint}
         destinationAddress={destinationAddress}
-        travelMode={queryParams.travelMode}
-        mapContainerStyles={{ height: '100%' }}
-        styles={{} /* See import for explanation mapStyles */}
       />
       {destinationAddress && <MapPanel routeInformation={routeInformation} />}
       <AppointmentDetailModal
@@ -168,4 +156,4 @@ export const AppointmentMap: React.FC<AppointmentMapProps> = ({ appointments }) 
   )
 }
 
-export default React.memo(AppointmentMap)
+export default memo(AppointmentMap)

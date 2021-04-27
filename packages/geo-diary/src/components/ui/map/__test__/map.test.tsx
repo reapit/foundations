@@ -12,6 +12,7 @@ import {
   handleModalClose,
   handleSetAppointment,
 } from '../map'
+import { defaultAppState } from '../../../../core/app-state'
 
 const locationMock = { search: '?state=CLIENT', pathname: '/test' }
 
@@ -49,9 +50,9 @@ describe('map', () => {
 
   describe('getDestinationPoint', () => {
     it('should run correctly', () => {
-      const fn = getDestinationPoint({ destinationLat: '123', destinationLng: '123' })
+      const fn = getDestinationPoint(defaultAppState)
       const result = fn()
-      expect(result).toEqual({ lat: '123', lng: '123' })
+      expect(result).toEqual({ lat: 123, lng: 123 })
     })
   })
   describe('handleFilterInvalidMarker', () => {

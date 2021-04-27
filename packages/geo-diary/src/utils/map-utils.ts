@@ -1,5 +1,6 @@
 import { ExtendedAppointmentModel } from '../types/global'
 import { AppState } from '../core/app-state'
+import { logger } from '@reapit/utils'
 
 export type FetchDestinationInformation = {
   appointment: ExtendedAppointmentModel
@@ -33,5 +34,29 @@ export const fetchDestinationInformation = ({
         },
       )
     }
+  })
+}
+
+export const getAppStateWithGeoCoords = (appState: AppState): Promise<AppState> => {
+  return new Promise((resolve) => {
+    const hasGeoLocation = Boolean(navigator.geolocation)
+
+    if (!hasGeoLocation) return resolve(appState)
+
+    navigator.geolocation.getCurrentPosition(
+      (position) => {
+        return resolve({
+          ...appState,
+          hasGeoLocation: true,
+          currentLat: position.coords.latitude,
+          currentLng: position.coords.longitude,
+        })
+      },
+      (error) => {
+        const err = new Error(error.message)
+        logger(err)
+        return resolve(appState)
+      },
+    )
   })
 }

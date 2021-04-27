@@ -1,16 +1,15 @@
-import * as React from 'react'
+import React, { FC, memo, useMemo } from 'react'
 import { useQuery } from '@apollo/react-hooks'
 import dayjs from 'dayjs'
-import qs from 'query-string'
 import { isMobile } from '@reapit/elements'
 import { ExtendedAppointmentModel } from '@/types/global'
 import GET_APPOINTMENTS from '../../../graphql/queries/get-appointments.graphql'
 import { MobileLayout } from './mobile-layout'
-import { useLocation } from 'react-router-dom'
 import { DesktopLayout } from './desktop-layout'
 import { reapitConnectBrowserSession } from '@/core/connect-session'
 import { useReapitConnect } from '@reapit/connect-session'
-import { memo } from 'react'
+import { useAppState } from '../../../core/app-state'
+import { DATE_TIME_FORMAT } from '../../../../../elements/src/utils/datetime/datetime'
 
 export type AppointmentProps = {}
 
@@ -30,22 +29,22 @@ export type AppointmentListQueryVariables = {
   start: string
   end: string
   includeCancelled: boolean
-  includeConfirm: boolean
+  includeUnconfirmed: boolean
   embed: string
 }
 
 export const startAndEndTime = {
-  today: {
-    start: dayjs().startOf('day').utc(),
-    end: dayjs().endOf('day').utc(),
+  TODAY: {
+    start: dayjs().startOf('day').format(DATE_TIME_FORMAT.RFC3339),
+    end: dayjs().endOf('day').format(DATE_TIME_FORMAT.RFC3339),
   },
-  tomorrow: {
-    start: dayjs().add(1, 'day').startOf('day').utc(),
-    end: dayjs().add(1, 'day').endOf('day').utc(),
+  TOMORROW: {
+    start: dayjs().add(1, 'day').startOf('day').format(DATE_TIME_FORMAT.RFC3339),
+    end: dayjs().add(1, 'day').endOf('day').format(DATE_TIME_FORMAT.RFC3339),
   },
-  weekView: {
-    start: dayjs().startOf('day'),
-    end: dayjs().add(1, 'week').subtract(1, 'day').endOf('day').utc(),
+  WEEK: {
+    start: dayjs().startOf('day').format(DATE_TIME_FORMAT.RFC3339),
+    end: dayjs().add(1, 'week').subtract(1, 'day').endOf('day').format(DATE_TIME_FORMAT.RFC3339),
   },
 }
 
@@ -70,28 +69,27 @@ export const sortAppoinmentsByStartTime = (
   return sortedAppoinments
 }
 
-export const Appointment: React.FC<AppointmentProps> = () => {
+export const Appointment: FC<AppointmentProps> = () => {
   const isMobileView = isMobile()
   const { connectSession } = useReapitConnect(reapitConnectBrowserSession)
+  const { appState } = useAppState()
+  const { time } = appState
   const userCode = connectSession?.loginIdentity.userCode ?? ''
-  const location = useLocation()
-  const queryParams = qs.parse(location.search)
-  const time = queryParams.time || 'today'
   const { start, end } = startAndEndTime[time]
 
   const { data, loading } = useQuery<AppointmentListQueryData, AppointmentListQueryVariables>(GET_APPOINTMENTS, {
     variables: {
       negotiatorId: [userCode],
-      start: start,
-      end: end,
+      start,
+      end,
       includeCancelled: true,
-      includeConfirm: true,
+      includeUnconfirmed: true,
       embed: 'offices',
     },
     skip: !userCode,
   })
 
-  const appointmentSorted = React.useMemo(sortAppoinmentsByStartTime(data?.GetAppointments?._embedded || []), [
+  const appointmentSorted = useMemo(sortAppoinmentsByStartTime(data?.GetAppointments?._embedded || []), [
     data?.GetAppointments?._embedded,
   ])
 

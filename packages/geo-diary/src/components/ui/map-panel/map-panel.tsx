@@ -1,67 +1,49 @@
-import React from 'react'
-import qs from 'query-string'
-import { useLocation, useHistory } from 'react-router-dom'
+import React, { Dispatch, SetStateAction } from 'react'
 import { mapPanelContainer } from './__styles__'
-import { RouteInformation, UNDEFINED_LATLNG_NUMBER } from '../map/map'
+import { RouteInformation } from '../map/map'
 import { Button, isMobile, isIOS, ButtonGroup } from '@reapit/elements'
-import { ROUTES } from '@/core/router'
+import { AppState, useAppState } from '../../../core/app-state'
 
 export type GetMapUrlParams = {
-  queryParams: qs.ParsedQuery<string>
+  appState: AppState
   isIOS?: boolean
 }
 
-export const getMapUrl = ({ queryParams, isIOS = true }: GetMapUrlParams) => {
-  let mapUrl = ''
-  if (isIOS) {
-    mapUrl += 'maps'
-  } else {
-    mapUrl += 'https'
-  }
+export const getMapUrl = ({ appState, isIOS = true }: GetMapUrlParams) => {
+  const { currentLat, currentLng, destinationLat, destinationLng } = appState
+  const prefix = isIOS ? 'maps' : 'https'
 
-  mapUrl += '://maps.google.com/maps?'
-  const isValidCurrentLatAndLng =
-    !!queryParams.currentLat &&
-    queryParams.currentLat !== UNDEFINED_LATLNG_NUMBER &&
-    !!queryParams.currentLng &&
-    queryParams.currentLng !== UNDEFINED_LATLNG_NUMBER
-  if (isValidCurrentLatAndLng) {
-    mapUrl += `saddr=${queryParams.currentLat},${queryParams.currentLng}&`
-  }
-  const isValidDestinationLatAndLng =
-    !!queryParams.destinationLat &&
-    queryParams.destinationLat !== UNDEFINED_LATLNG_NUMBER &&
-    !!queryParams.destinationLng &&
-    queryParams.destinationLng !== UNDEFINED_LATLNG_NUMBER
+  const url = '://maps.google.com/maps?'
+  const from = `saddr=${currentLat},${currentLng}&`
+  const to = `daddr=${destinationLat},${destinationLng}`
 
-  if (isValidDestinationLatAndLng) {
-    mapUrl += `daddr=${queryParams.destinationLat},${queryParams.destinationLng}`
-  }
-
-  return mapUrl
+  return `${prefix}${url}${from}${to}`
 }
 
 export type HandleOpenNativeMapParams = {
-  queryParams: qs.ParsedQuery<string>
+  appState: AppState
 }
-export const handleOpenNativeMap = ({ queryParams }: HandleOpenNativeMapParams) => () => {
-  window.open(getMapUrl({ queryParams, isIOS: isIOS() }))
+export const handleOpenNativeMap = ({ appState }: HandleOpenNativeMapParams) => () => {
+  window.open(getMapUrl({ appState, isIOS: isIOS() }))
 }
 
-export const handleChangeTab = ({ queryParams, history }) => () => {
-  const queryString = qs.stringify({
-    ...queryParams,
-    destinationLat: undefined,
-    destinationLng: undefined,
-    appointmentId: undefined,
-  })
-  history.push(`${ROUTES.APPOINTMENT}?${queryString}`)
+export interface HandleChangeTabParams {
+  setAppState: Dispatch<SetStateAction<AppState>>
+}
+
+export const handleChangeTab = ({ setAppState }: HandleChangeTabParams) => () => {
+  setAppState((currentState) => ({
+    ...currentState,
+    destinationLat: null,
+    destinationLng: null,
+    appointmentId: null,
+  }))
 }
 
 const filterText = {
-  today: 'Today',
-  tomorrow: 'Tomorrow',
-  weekView: 'Week View',
+  TODAY: 'Today',
+  TOMORROW: 'Tomorrow',
+  WEEK: 'Week View',
 }
 
 export type MapPanelProps = {
@@ -69,10 +51,10 @@ export type MapPanelProps = {
 }
 
 export const MapPanel: React.FC<MapPanelProps> = ({ routeInformation }: MapPanelProps) => {
-  const location = useLocation()
-  const history = useHistory()
-  const queryParams = qs.parse(location.search)
-  if (!queryParams.destinationLat && !queryParams.destinationLng) {
+  const { appState, setAppState } = useAppState()
+  const { destinationLat, destinationLng, time } = appState
+
+  if (!destinationLat && !destinationLng) {
     return null
   }
   return (
@@ -82,12 +64,12 @@ export const MapPanel: React.FC<MapPanelProps> = ({ routeInformation }: MapPanel
         <p>{routeInformation.distance?.text}</p>
       </div>
       <ButtonGroup hasSpacing>
-        <Button type="button" variant="primary" onClick={handleOpenNativeMap({ queryParams })}>
+        <Button type="button" variant="primary" onClick={handleOpenNativeMap({ appState })}>
           Start Journey
         </Button>
         {!isMobile() && (
-          <Button type="button" variant="primary" onClick={handleChangeTab({ queryParams, history })}>
-            {filterText[queryParams.time || 'today']}
+          <Button type="button" variant="primary" onClick={handleChangeTab({ setAppState })}>
+            {filterText[time]}
           </Button>
         )}
       </ButtonGroup>

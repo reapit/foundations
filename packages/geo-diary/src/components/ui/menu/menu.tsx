@@ -1,9 +1,10 @@
 import * as React from 'react'
 import { useLocation } from 'react-router'
-import { AppsIcon, Menu as Sidebar, MenuConfig, ProfileIcon, ReapitHouseIcon } from '@reapit/elements'
+import { AppsIcon, DocsIcon, Menu as Sidebar, MenuConfig, ProfileIcon, ReapitHouseIcon } from '@reapit/elements'
 import { Location } from 'history'
 import { useReapitConnect } from '@reapit/connect-session'
 import { reapitConnectBrowserSession } from '@/core/connect-session'
+import { ROUTES } from '../../../core/router'
 
 export const generateMenuConfig = (logoutCallback: () => void, location: Location<any>): MenuConfig => {
   return {
@@ -14,6 +15,13 @@ export const generateMenuConfig = (logoutCallback: () => void, location: Locatio
         key: 'LOGO',
         icon: <ReapitHouseIcon />,
         type: 'LOGO',
+      },
+      {
+        title: 'Diary',
+        key: 'DIARY',
+        icon: <DocsIcon />,
+        url: ROUTES.APPOINTMENT,
+        type: 'PRIMARY',
       },
       {
         title: 'Apps',
