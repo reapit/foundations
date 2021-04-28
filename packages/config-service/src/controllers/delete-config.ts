@@ -1,6 +1,7 @@
 import { Response } from 'express'
 import { AppRequest } from '@reapit/node-utils'
 import { deleteConfigValue } from '../services/delete-ssm-config'
+import { connectSessionVerifyDecodeIdToken } from '@reapit/connect-session'
 import logger from '../core/logger'
 
 export const deleteConfig = async (req: AppRequest, res: Response) => {
@@ -9,7 +10,20 @@ export const deleteConfig = async (req: AppRequest, res: Response) => {
     if (!configKey) {
       throw new Error('No config key provided')
     }
-    await deleteConfigValue(configKey)
+    const { authorization } = req.headers
+    if (!authorization) {
+      throw new Error('Must have the authorization header')
+    }
+
+    const userPool = process.env.CONNECT_USER_POOL
+    const data = await connectSessionVerifyDecodeIdToken(authorization, userPool)
+    const clientCode = data?.clientId
+
+    if (!clientCode) {
+      throw new Error('Must be authorised to find client code and delete config')
+    }
+
+    await deleteConfigValue(`${clientCode}/${configKey}`)
     logger.info('Deleted value for config key: ', configKey)
     res.status(200)
     return res.send({ response: `Deleted value for ${configKey}` })

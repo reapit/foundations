@@ -17,6 +17,7 @@ export type Config = {
   marketplaceUrl: string
   paymentsApiUrl: string
   emailApiUrl: string
+  configServiceUrl: string
   opayo: { [key: string]: OpayoKeys }
 }
 
