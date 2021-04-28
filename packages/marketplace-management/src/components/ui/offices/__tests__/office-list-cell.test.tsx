@@ -1,30 +1,13 @@
 import * as React from 'react'
 import { shallow } from 'enzyme'
-import OfficeListCell, { OfficeName } from '../office-list-cell'
+import OfficeListCell from '../office-list-cell'
+import { data as officesStub } from '../__stubs__/offices'
 
 describe('OfficeListCell', () => {
   it('should match a snapshot', () => {
     const cellProps = {
-      value: 'ID1, ID2',
+      value: officesStub._embedded ?? [],
     }
     expect(shallow(<OfficeListCell cell={cellProps} />)).toMatchSnapshot()
-  })
-})
-
-jest.mock('swr', () =>
-  jest.fn(() => ({
-    data: { name: 'Reapit' },
-  })),
-)
-
-describe('OfficeName', () => {
-  it('should match a snapshot', () => {
-    expect(shallow(<OfficeName id="ID3" isLast={false} />)).toMatchSnapshot()
-  })
-})
-
-describe('OfficeName lol', () => {
-  it('should match a snapshot', () => {
-    expect(shallow(<OfficeName id="ID3" isLast={false} />)).toMatchSnapshot()
   })
 })

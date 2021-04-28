@@ -1,55 +1,5 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`OfficeGroupsContent should match a snapshot 1`] = `
-<Fragment>
-  <FadeIn>
-    <Table
-      columns={
-        Array [
-          Object {
-            "Header": "Group Name",
-            "accessor": "name",
-          },
-          Object {
-            "Header": "Office List",
-            "accessor": "officeIds",
-          },
-          Object {
-            "Header": "Last Updated",
-            "accessor": "description",
-          },
-          Object {
-            "Header": "Edit",
-          },
-        ]
-      }
-      data={
-        Array [
-          Object {
-            "created": "2019-08-14T12:30:02.0000000Z",
-            "id": "string",
-            "modified": "2019-08-14T12:30:02.0000000Z",
-            "name": "string",
-            "officeIds": "string",
-            "organisationId": "string",
-            "status": "string",
-            "tag": "string",
-          },
-        ]
-      }
-      expandable={true}
-      scrollable={true}
-    />
-  </FadeIn>
-  <Pagination
-    onChange={[MockFunction]}
-    pageNumber={0}
-    pageSize={0}
-    totalCount={0}
-  />
-</Fragment>
-`;
-
 exports[`OfficesGroupsTab should match a snapshot 1`] = `
 <ErrorBoundary>
   <div
@@ -81,7 +31,7 @@ exports[`OfficesGroupsTab should match a snapshot 1`] = `
         Object {
           "Cell": [Function],
           "Header": "Office List",
-          "accessor": "officeIds",
+          "accessor": "offices",
         },
         Object {
           "Cell": [Function],
@@ -98,10 +48,10 @@ exports[`OfficesGroupsTab should match a snapshot 1`] = `
         "_embedded": Array [
           Object {
             "created": "2019-08-14T12:30:02.0000000Z",
-            "id": "string",
+            "id": "SOME_ID",
             "modified": "2019-08-14T12:30:02.0000000Z",
             "name": "string",
-            "officeIds": "string",
+            "officeIds": "SOME_ID,ANOTHER_ID",
             "organisationId": "string",
             "status": "string",
             "tag": "string",
@@ -128,55 +78,4 @@ exports[`OfficesGroupsTab should match a snapshot 1`] = `
     onPageChange={[Function]}
   />
 </ErrorBoundary>
-`;
-
-exports[`renderResult should match snapshot when has result data 1`] = `
-<FadeIn>
-  <Table
-    columns={
-      Array [
-        Object {
-          "Header": "Group Name",
-          "accessor": "name",
-        },
-        Object {
-          "Header": "Office List",
-          "accessor": "officeIds",
-        },
-        Object {
-          "Header": "Last Updated",
-        },
-        Object {
-          "Header": "Edit",
-        },
-      ]
-    }
-    data={
-      Array [
-        Object {
-          "created": "2019-08-14T12:30:02.0000000Z",
-          "id": "string",
-          "modified": "2019-08-14T12:30:02.0000000Z",
-          "name": "string",
-          "officeIds": "string",
-          "organisationId": "string",
-          "status": "string",
-          "tag": "string",
-        },
-      ]
-    }
-    expandable={true}
-    scrollable={true}
-  />
-</FadeIn>
-`;
-
-exports[`renderResult should match snapshot when no result 1`] = `
-<FadeIn>
-  <Helper
-    variant="info"
-  >
-    No Results
-  </Helper>
-</FadeIn>
 `;
