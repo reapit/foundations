@@ -4,22 +4,30 @@ import { AppRequest } from '@reapit/node-utils'
 import { createConfigValue } from '../../services/create-ssm-config'
 import logger from '../../core/logger'
 
+const SSM_KEY = 'PaymentConfig'
+const MOCK_CLIENT_CODE = 'SBOX'
+const mockConfigValue = JSON.stringify({ configTest: true })
+
 jest.mock('../../services/create-ssm-config', () => ({
   createConfigValue: jest.fn(),
 }))
 
-jest.mock('../../core/logger')
+jest.mock('@reapit/connect-session', () => ({
+  connectSessionVerifyDecodeIdToken: jest.fn(() => {
+    return { clientId: MOCK_CLIENT_CODE }
+  }),
+}))
 
-const KEY = 'CLI/OpayoConfig'
-const mockConfigValue = JSON.stringify({ configTest: true })
+jest.mock('../../core/logger')
 
 const baseMockReq = {
   traceId: 'SOME_TRACE_ID',
   headers: {
     ['x-api-key']: 'SOME_API_KEY',
+    ['authorization']: 'token',
   },
   body: {
-    configKey: KEY,
+    configKey: SSM_KEY,
     configValue: mockConfigValue,
   },
 }
@@ -46,7 +54,7 @@ describe('createConfig', () => {
     await createConfig(mockReq as AppRequest, mockRes as Response)
 
     expect(logger.info).toHaveBeenCalledTimes(1)
-    expect(createConfigValue).toHaveBeenCalledWith(KEY, mockConfigValue)
+    expect(createConfigValue).toHaveBeenCalledWith(`${MOCK_CLIENT_CODE}/${SSM_KEY}`, mockConfigValue)
     expect(mockRes.status).toHaveBeenCalledWith(200)
     expect(mockRes.send).toHaveBeenCalledWith({ response: 'Config saved' })
   })
