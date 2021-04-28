@@ -16,4 +16,5 @@ export const URLS = {
   PAYMENT_REQUEST: '/payments/request',
   PAYMENT_RECEIPT_INTERNAL: '/payments/receipt/internal',
   PAYMENT_RECEIPT_EXTERNAL: '/payments/receipt/external',
+  CONFIG: '/config',
 }

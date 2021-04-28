@@ -29,6 +29,7 @@ provider:
     NODE_ENV: ${self:custom.env.NODE_ENV}
     APP_ENV: ${self:custom.env.APP_ENV}
     SENTRY_DSN: ${self:custom.env.SENTRY_DSN}
+    CONNECT_USER_POOL: ${self:custom.env.CONNECT_USER_POOL}
   iamRoleStatements:
     - Effect: Allow
       Action:

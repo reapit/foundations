@@ -4,21 +4,29 @@ import { AppRequest } from '@reapit/node-utils'
 import { fetchConfigValue } from '../../services/fetch-ssm-config'
 import logger from '../../core/logger'
 
+const MOCK_CLIENT_CODE = 'SBOX'
+const SSM_KEY = 'ConfigService'
+
 jest.mock('../../services/fetch-ssm-config', () => ({
   fetchConfigValue: jest.fn(),
 }))
 
-jest.mock('../../core/logger')
+jest.mock('@reapit/connect-session', () => ({
+  connectSessionVerifyDecodeIdToken: jest.fn(() => {
+    return { clientId: MOCK_CLIENT_CODE }
+  }),
+}))
 
-const KEY = 'ConfigService'
+jest.mock('../../core/logger')
 
 const baseMockReq = {
   traceId: 'SOME_TRACE_ID',
   headers: {
     ['x-api-key']: 'SOME_API_KEY',
+    ['authorization']: 'token',
   },
   params: {
-    configKey: KEY,
+    configKey: SSM_KEY,
   },
 }
 
@@ -44,7 +52,7 @@ describe('fetchConfig', () => {
     await fetchConfig(mockReq as AppRequest, mockRes as Response)
 
     expect(logger.info).toHaveBeenCalledTimes(1)
-    expect(fetchConfigValue).toHaveBeenCalledWith(KEY)
+    expect(fetchConfigValue).toHaveBeenCalledWith(`${MOCK_CLIENT_CODE}/${SSM_KEY}`)
     expect(mockRes.status).toHaveBeenCalledWith(200)
   })
   it('should throw error and return 400 if params are incorrect', async () => {
