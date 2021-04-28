@@ -1031,7 +1031,6 @@ export interface Applicants {
   bedroomsFrom?: number
   bedroomsTo?: number
   active?: boolean
-  fromArchive?: boolean
   createdFrom?: string
   createdTo?: string
   modifiedFrom?: string
@@ -1547,7 +1546,6 @@ export interface Appointments {
   end?: string
   includeCancelled?: boolean
   includeUnconfirmed?: boolean
-  fromArchive?: boolean
   createdFrom?: string
   createdTo?: string
   modifiedFrom?: string
@@ -1701,7 +1699,6 @@ export interface Companies {
   branch?: string
   name?: string
   typeId?: string
-  fromArchive?: boolean
   createdFrom?: string
   createdTo?: string
   modifiedFrom?: string
@@ -2901,7 +2898,6 @@ export interface Contacts {
   name?: string
   marketingConsent?: ('grant' | 'deny' | 'notAsked')[]
   active?: boolean
-  fromArchive?: boolean
   createdFrom?: string
   createdTo?: string
   modifiedFrom?: string
@@ -8754,7 +8750,6 @@ export interface Properties {
   rentTo?: number
   rentFrequency?: ('weekly' | 'monthly' | 'annually')[]
   internetAdvertising?: boolean
-  fromArchive?: boolean
   modifiedFrom?: string
   modifiedTo?: string
   metadata?: string[]
@@ -10560,7 +10555,6 @@ export interface Tenancies {
   pageSize?: number
   pageNumber?: number
   sortBy?: string
-  fromArchive?: boolean
   embed?: ('appointments' | 'applicant' | 'documents' | 'negotiator' | 'property' | 'source' | 'tasks' | 'type')[]
   id?: string[]
   negotiatorId?: string[]
@@ -14830,7 +14824,6 @@ export interface Vendors {
   id?: string[]
   negotiatorId?: string[]
   officeId?: string[]
-  fromArchive?: boolean
   address?: string
   name?: string
   createdFrom?: string
