@@ -22,7 +22,7 @@ const getHeadersFromRows = (rows: Row[]): string[] => {
   return Array.from(headers) as string[]
 }
 
-type Cell = {
+export type Cell = {
   label: string
   value: string
   children: React.ReactNode
@@ -34,7 +34,7 @@ type Cell = {
     isFullWidth?: boolean
   }
 }
-type Row = {
+export type Row = {
   cells: Cell[]
   expandableContent: React.ReactNode
 }

@@ -1,0 +1,19 @@
+import { Meta, Story, Canvas } from '@storybook/addon-docs/blocks'
+import { TableRow } from './molecules'
+import { RenderHtmlMarkup } from '../../helpers/v3/render-html-markup'
+
+<Meta title="V3/Table/Molecules/TableRow" component={TableRow} />
+
+# Molecule - TableRow
+
+`TableRow` only renders children. Any other props given are applied to the underlying `div` element.
+
+<Canvas>
+  <Story name="Default usage">
+    <TableRow>
+      <p>Child of TableRow</p>
+    </TableRow>
+  </Story>
+</Canvas>
+
+<RenderHtmlMarkup component="V3/Table/Molecules/TableRow" story="Default usage" />

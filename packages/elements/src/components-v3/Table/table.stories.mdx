@@ -1,6 +1,6 @@
 import { Meta, Story, Canvas, ArgsTable } from '@storybook/addon-docs/blocks'
 import { cx } from 'linaria'
-import { Table } from './index'
+import { Table, Cell, Row } from './index'
 import {
   TableHeadersRow,
   TableHeader,
@@ -10,14 +10,32 @@ import {
   TableExpandableRow,
 } from './molecules'
 import { Icon } from '../Icon'
-import { elTableNarrowCellIsFullWidth, elTableCellIsDarkText } from './__styles__'
 import { RenderHtmlMarkup } from '../../helpers/v3/render-html-markup'
 
-<Meta title="V3/Table/Component" component={Table} />
+<Meta title="V3/Table/Table" component={Table} />
 
 # Table
 
-Underlying tag: `<div>`
+.
+
+## Summary
+
+The Table component can be used in 2 main ways within React.
+
+1. Building a table from the Table molecule components, e.g. `TableRow`, `TableCell`, etc
+1. Using the React shorthand and supplying a `rows` prop with data. This way offers advantages such as not needing to manage the state for the expandable rows.
+
+There are two visual styles for the table, dependant on screen width.
+
+1. Normal
+1. Narrow (AKA "mobile" but really it's for any screen that is narrow enough, could be a tablet, small desktop window, etc)
+
+On the Narrow version, the table's grid switches to a 2 column layout. There are additional modifiers that can then be
+applied to cells when it's in narrow mode, e.g. showing the header within the cell and whether a cell should be full width.
+
+.
+
+## Table built from molecule components
 
 <Canvas>
   <Story name="Default Usage">
@@ -55,9 +73,11 @@ Underlying tag: `<div>`
   </Story>
 </Canvas>
 
-<RenderHtmlMarkup component="V3/Table/Component" story="Default Usage" />
+<RenderHtmlMarkup component="V3/Table/Table" story="Default Usage" />
 
-# React Shorthand
+## React Shorthand
+
+Simply supply a `rows` prop, and no children, to use the Table component like this.
 
 <Canvas>
   <Story name="React shorthand usage">
@@ -93,7 +113,7 @@ Underlying tag: `<div>`
             },
             {
               label: 'Amount',
-              value: '19 Apr 2021',
+              value: '£50.00',
               cellHasDarkText: true,
             },
             {
@@ -104,7 +124,80 @@ Underlying tag: `<div>`
           ],
           expandableContent: <p>I am the content that is only visible when expanded</p>,
         },
+        {
+          cells: [
+            {
+              label: 'Property',
+              value: 'Property Name, Road Name',
+              icon: 'home',
+              cellHasDarkText: true,
+              narrowTable: { showLabel: true },
+            },
+            {
+              label: 'Customer',
+              value: 'Mrs Davina Corrigan',
+              icon: 'username',
+              narrowTable: { showLabel: true },
+            },
+            {
+              label: 'Client A/C',
+              value: 'Alternate Lettings Client Acc',
+            },
+            {
+              label: 'Description',
+              value: 'Anther descriptions',
+            },
+            {
+              label: 'Request Date',
+              value: '23rd Apr 2021',
+              narrowTable: { showLabel: true },
+            },
+            {
+              label: 'Amount',
+              value: '£665.21',
+              cellHasDarkText: true,
+            },
+            {
+              label: 'Payment Status',
+              value: 'Pending',
+              narrowTable: { isFullWidth: true },
+            },
+          ],
+          expandableContent: <p>I am more content that is only visible when the 2nd row is expanded</p>,
+        },
       ]}
     />
   </Story>
 </Canvas>
+
+#### The `rows` prop
+
+<ArgsTable of={Table} />
+
+```
+type Row = {
+  cells: Cell[]
+  /* The content that should be hidden within the expandable row underneath this row */
+  expandableContent: React.ReactNode
+}
+```
+
+```
+type Cell = {
+  /* the label of the cell (AKA, the header) */
+  label: string
+  /* the value of the cell */
+  value: string
+  /* if supplied, children will be rendered in place of value. If a value and children are both supplied, only children will be rendered */
+  children: React.ReactNode
+  /* an icon to go within the cell */
+  icon?: IconNames
+  /* whether to make the text in the cell darker */
+  cellHasDarkText?: boolean
+  /* properties that apply when the table is in narrow view mode */
+  narrowTable?: {
+    showLabel?: boolean
+    isFullWidth?: boolean
+  }
+}
+```

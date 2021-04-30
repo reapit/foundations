@@ -59,7 +59,7 @@ export const elTableNarrowCellIsFullWidth = css`
     text-align: center;
   }
 `
-export const elTableCellIsDarkText = css``
+export const elTableCellHasDarkText = css``
 
 // molecules
 export const ElTableHeadersRow = styled.div`
@@ -143,7 +143,7 @@ export const ElTableCell = styled.div`
     margin-right: 0.75rem;
   }
 
-  &.${elTableCellIsDarkText} {
+  &.${elTableCellHasDarkText} {
     color: var(--color-black);
   }
 `
@@ -188,10 +188,3 @@ export const ElTableExpandableRow = styled.div`
     display: block;
   }
 `
-
-// TODO: make the expandable thing animate
-// TOOD: the status circles
-// TODO: allow setting a different order of cells on the narrow table
-// TODO: if there's time, the options for the headers to be shown as ordered ASC, or ordered DESC
-// TODO: make the media query configurable so we can set different breakpoints easily.
-// Use JS to generate the code from an array of desired breakpoints

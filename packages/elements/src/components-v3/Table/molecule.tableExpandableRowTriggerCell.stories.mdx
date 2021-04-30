@@ -1,0 +1,31 @@
+import { Meta, Story, Canvas, ArgsTable } from '@storybook/addon-docs/blocks'
+import { TableExpandableRowTriggerCell } from './molecules'
+import { RenderHtmlMarkup } from '../../helpers/v3/render-html-markup'
+
+<Meta title="V3/Table/Molecules/TableExpandableRowTriggerCell" component={TableExpandableRowTriggerCell} />
+
+# Molecule - TableExpandableRowTriggerCell
+
+`TableHeadersRow` renders an icon showing an up or down arrow dependant on the `isOpen` prop. It also renders any children if given some.
+
+Any other props given are applied to the underlying `div` element, e.g. `onClick` which will certainly need to be used to handle the `TableExpandableRow` opening and closing.
+
+<ArgsTable of={TableExpandableRowTriggerCell} />
+
+<Canvas>
+  <Story name="Default usage">
+    <TableExpandableRowTriggerCell />
+  </Story>
+</Canvas>
+
+<RenderHtmlMarkup component="V3/Table/Molecules/TableExpandableRowTriggerCell" story="Default usage" />
+
+### isOpen
+
+<Canvas>
+  <Story name="isOpen">
+    <TableExpandableRowTriggerCell isOpen />
+  </Story>
+</Canvas>
+
+<RenderHtmlMarkup component="V3/Table/Molecules/TableExpandableRowTriggerCell" story="isOpen" />

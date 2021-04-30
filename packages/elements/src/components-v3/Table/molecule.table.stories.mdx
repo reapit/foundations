@@ -1,0 +1,47 @@
+import { Meta, Story, Canvas, ArgsTable } from '@storybook/addon-docs/blocks'
+import { Table } from './index'
+import { RenderHtmlMarkup } from '../../helpers/v3/render-html-markup'
+
+<Meta title="V3/Table/Molecules/Table" component={Table} />
+
+# Molecule - Table
+
+<ArgsTable of={Table} />
+
+`Table` only renders children, unless the `rows` prop is supplied, then it works in the React shorthand fashion. This is documented on the main Table story.
+
+<Canvas>
+  <Story name="Rendering children">
+    <Table>
+      <p>
+        A child component of Table. It is expected you would use another Table molecule here, but anything will render.
+      </p>
+    </Table>
+  </Story>
+</Canvas>
+
+<RenderHtmlMarkup component="V3/Table/Molecules/Table" story="Rendering children" />
+
+## Creating a smaller final column, by explicitly setting the number of columns (optional)
+
+If you are using the expandable rows, you can set a react prop (or an HTML attribute if using raw HTML)
+of `data-num-columns-excl-expandable-row-trigger-col` and enter the number of columns
+present.
+
+This will tell the CSS grid how many columns to render, and give you one extra small column for putting the `<TableExpandableRowTriggerCell>`
+in since this doesn't need a lot of space. Valid values are any string between 2 and 12.
+
+Since an extra column is automatically added to give you space for the `<TableExpandableRowTriggerCell>` component, you should enter
+the number of columns required **excluding** the one for the `<TableExpandableRowTriggerCell>`.
+
+If using the Table component in React shorthand mode, `data-num-columns-excl-expandable-row-trigger-col` is set automatically for you.
+
+<Canvas>
+  <Story name="Setting the number of cols">
+    <Table data-num-columns-excl-expandable-row-trigger-col="4">
+      <p>A child component of Table. Different styles will be applied to other Table molecules now.</p>
+    </Table>
+  </Story>
+</Canvas>
+
+<RenderHtmlMarkup component="V3/Table/Molecules/Table" story="Setting the number of cols" />

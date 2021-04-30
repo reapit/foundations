@@ -8,7 +8,7 @@ import {
   ElTableCellContent,
   ElTableExpandableRowTriggerCell,
   ElTableExpandableRow,
-  elTableCellIsDarkText,
+  elTableCellHasDarkText,
   elTableNarrowCellIsFullWidth,
 } from './__styles__'
 import { Icon, IconNames } from '../Icon'
@@ -44,7 +44,7 @@ export const TableCell: React.FC<ITableCell> = ({
 }) => {
   const combinedClassname = cx(
     className,
-    darkText && elTableCellIsDarkText,
+    darkText && elTableCellHasDarkText,
     narrowIsFullWidth && elTableNarrowCellIsFullWidth,
   )
   return (

@@ -1,10 +1,10 @@
 import * as React from 'react'
 import { shallow } from 'enzyme'
-import { AfterInputText } from '../'
+import { Table } from '../'
 
-describe('AfterInputText component', () => {
+describe('Table component', () => {
   it('should match a snapshot', () => {
-    const wrapper = shallow(<AfterInputText />)
+    const wrapper = shallow(<Table />)
     expect(wrapper).toMatchSnapshot()
   })
 })
