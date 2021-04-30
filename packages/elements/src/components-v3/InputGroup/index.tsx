@@ -6,7 +6,7 @@ import { Label } from '../Label'
 import { AfterInputText } from '../AfterInputText'
 import { Intent } from '../../helpers/v3/intent'
 
-export interface IInputGroup extends React.HTMLAttributes<HTMLDivElement> {
+export interface IInputGroup extends React.HTMLAttributes<HTMLInputElement> {
   icon?: IconNames
   label?: string
   afterInputText?: string

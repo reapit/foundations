@@ -1,8 +1,19 @@
 import { Meta, Story, Canvas, ArgsTable } from '@storybook/addon-docs/blocks'
-import { Table, TableHeaders, TableHeader, TableRow, TableCell, TableExpandableCell } from './index'
+import { cx } from 'linaria'
+import { Table } from './index'
+import {
+  TableHeadersRow,
+  TableHeader,
+  TableRow,
+  TableCell,
+  TableExpandableRowTriggerCell,
+  TableExpandableRow,
+} from './molecules'
+import { Icon } from '../Icon'
+import { elTableNarrowCellIsFullWidth, elTableCellIsDarkText } from './__styles__'
 import { RenderHtmlMarkup } from '../../helpers/v3/render-html-markup'
 
-<Meta title="V3/Table" component={Table} />
+<Meta title="V3/Table/Component" component={Table} />
 
 # Table
 
@@ -11,7 +22,7 @@ Underlying tag: `<div>`
 <Canvas>
   <Story name="Default Usage">
     <Table>
-      <TableHeaders>
+      <TableHeadersRow>
         <TableHeader>Property</TableHeader>
         <TableHeader>Customer</TableHeader>
         <TableHeader>Client A/C</TableHeader>
@@ -19,20 +30,81 @@ Underlying tag: `<div>`
         <TableHeader>Request Date</TableHeader>
         <TableHeader>Amount</TableHeader>
         <TableHeader>Payment Status</TableHeader>
-        <TableHeader>Expand</TableHeader>
-      </TableHeaders>
+        <TableHeader>
+          <Icon icon="solidEdit" fontSize="1.2rem" />
+        </TableHeader>
+      </TableHeadersRow>
       <TableRow>
-        <TableCell icon="home">Mountain Ash Jacket</TableCell>
-        <TableCell icon="user">Mr Johnny Corrigan</TableCell>
+        <TableCell darkText icon="home">
+          Mt Ash Jacket
+          <br />
+          Brassey Road
+        </TableCell>
+        <TableCell narrowLabel="N_Customer" icon="username">
+          Mr Johnny Corrigan
+        </TableCell>
         <TableCell>Alternate Lettings Client Acc</TableCell>
         <TableCell>Tenant Payment Request</TableCell>
-        <TableCell>19 Apr 2021</TableCell>
-        <TableCell>£50.00</TableCell>
-        <TableCell>Not Requested</TableCell>
-        <TableExpandableCell>I am the content that is only visible when expanded</TableExpandableCell>
+        <TableCell narrowLabel="Request Date">19 Apr 2021</TableCell>
+        <TableCell darkText>£50.00</TableCell>
+        <TableCell narrowIsFullWidth>Not Requested</TableCell>
+        <TableExpandableRowTriggerCell />
       </TableRow>
+      <TableExpandableRow>I am the content that is only visible when expanded</TableExpandableRow>
     </Table>
   </Story>
 </Canvas>
 
-<RenderHtmlMarkup component="V3/Table" story="Default Usage" />
+<RenderHtmlMarkup component="V3/Table/Component" story="Default Usage" />
+
+# React Shorthand
+
+<Canvas>
+  <Story name="React shorthand usage">
+    <Table
+      rows={[
+        {
+          cells: [
+            {
+              label: 'Property',
+              value: 'Mt Ash Jacket, Brassey Road',
+              icon: 'home',
+              cellHasDarkText: true,
+              narrowTable: { showLabel: true },
+            },
+            {
+              label: 'Customer',
+              value: 'Mr Johnny Corrigan',
+              icon: 'username',
+              narrowTable: { showLabel: true },
+            },
+            {
+              label: 'Client A/C',
+              value: 'Alternate Lettings Client Acc',
+            },
+            {
+              label: 'Description',
+              value: 'Tenant Payment Request',
+            },
+            {
+              label: 'Request Date',
+              value: '19 Apr 2021',
+              narrowTable: { showLabel: true },
+            },
+            {
+              label: 'Amount',
+              value: '19 Apr 2021',
+              cellHasDarkText: true,
+            },
+            {
+              label: 'Payment Status',
+              value: 'Not Requested',
+              narrowTable: { isFullWidth: true },
+            },
+          ],
+          expandableContent: <p>I am the content that is only visible when expanded</p>,
+        },
+      ]}
+    />
+  </Story>
+</Canvas>

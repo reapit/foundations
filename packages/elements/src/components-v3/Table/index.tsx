@@ -1,24 +1,103 @@
-import * as React from 'react'
-// import { cx } from 'linaria'
-import { ElTable, ElTableHeaders, ElTableHeader, ElTableRow, ElTableCell, ElTableExpandableCell } from './__styles__'
+import React, { useState } from 'react'
+import { ElTable } from './__styles__'
+import { Icon, IconNames } from '../Icon'
+import {
+  TableHeadersRow,
+  TableHeader,
+  TableRow,
+  TableCell,
+  TableExpandableRow,
+  TableExpandableRowTriggerCell,
+} from './molecules'
+import { Intent } from '../../helpers/v3/intent'
 
-export interface ITable extends React.HTMLAttributes<HTMLDivElement> {}
+const getHeadersFromRows = (rows: Row[]): string[] => {
+  const headers = new Set()
+  rows.forEach((row) =>
+    row.cells.forEach((cell) => {
+      // add all labels and the set will ensure uniqueness
+      headers.add(cell.label)
+    }),
+  )
+  return Array.from(headers) as string[]
+}
 
-export const Table: React.FC<ITable> = ({ children, ...rest }) => {
-  return <ElTable {...rest}>{children}</ElTable>
+type Cell = {
+  label: string
+  value: string
+  children: React.ReactNode
+  icon?: IconNames
+  statusCircleIntent?: Intent
+  cellHasDarkText?: boolean
+  narrowTable?: {
+    showLabel?: boolean
+    isFullWidth?: boolean
+  }
 }
-export const TableHeaders: React.FC = ({ children, ...rest }) => {
-  return <ElTableHeaders {...rest}>{children}</ElTableHeaders>
+type Row = {
+  cells: Cell[]
+  expandableContent: React.ReactNode
 }
-export const TableHeader: React.FC = ({ children, ...rest }) => {
-  return <ElTableHeader {...rest}>{children}</ElTableHeader>
+export interface ITable extends React.HTMLAttributes<HTMLDivElement> {
+  rows?: Row[]
 }
-export const TableRow: React.FC = ({ children, ...rest }) => {
-  return <ElTableRow {...rest}>{children}</ElTableRow>
-}
-export const TableCell: React.FC = ({ children, ...rest }) => {
-  return <ElTableCell {...rest}>{children}</ElTableCell>
-}
-export const TableExpandableCell: React.FC = ({ children, ...rest }) => {
-  return <ElTableExpandableCell {...rest}>{children}</ElTableExpandableCell>
+
+export const Table: React.FC<ITable> = ({ rows, children, ...rest }) => {
+  if (!rows) return <ElTable {...rest}>{children}</ElTable>
+
+  const [expandedRow, setExpandedRow] = useState<false | number>(false)
+
+  const headers = getHeadersFromRows(rows)
+  const hasExpandableRows = rows.some((row) => !!row.expandableContent)
+  const toggleExpandedRow = (index: number) => {
+    expandedRow === index ? setExpandedRow(false) : setExpandedRow(index)
+  }
+
+  return (
+    <ElTable
+      {...rest}
+      data-num-columns-excl-expandable-row-trigger-col={hasExpandableRows ? headers.length : undefined}
+    >
+      <TableHeadersRow>
+        {headers.map((header) => (
+          <TableHeader>{header}</TableHeader>
+        ))}
+        {hasExpandableRows && (
+          <TableHeader>
+            <Icon icon="solidEdit" fontSize="1.2rem" />
+          </TableHeader>
+        )}
+      </TableHeadersRow>
+      {rows.map((row, index) => {
+        const expandableRowIsOpen = expandedRow === index
+        return (
+          <>
+            <TableRow>
+              {headers.map((header) => {
+                const cell = row.cells.find((c) => c.label === header)
+                if (!cell) return <TableCell />
+
+                return (
+                  <TableCell
+                    icon={cell.icon}
+                    darkText={cell.cellHasDarkText}
+                    narrowLabel={cell.narrowTable?.showLabel ? cell.label : undefined}
+                    narrowIsFullWidth={cell.narrowTable?.isFullWidth}
+                  >
+                    {cell.children || cell.value}
+                  </TableCell>
+                )
+              })}
+              {row.expandableContent && (
+                <TableExpandableRowTriggerCell isOpen={expandableRowIsOpen} onClick={() => toggleExpandedRow(index)} />
+              )}
+            </TableRow>
+            {row.expandableContent && (
+              <TableExpandableRow isOpen={expandableRowIsOpen}>{row.expandableContent}</TableExpandableRow>
+            )}
+          </>
+        )
+      })}
+    </ElTable>
+  )
 }
