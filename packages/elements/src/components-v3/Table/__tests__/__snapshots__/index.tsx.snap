@@ -5,3 +5,5 @@ exports[`AfterInputText component should match a snapshot 1`] = `
   className=""
 />
 `;
+
+exports[`Table component should match a snapshot 1`] = `<ElTable />`;
