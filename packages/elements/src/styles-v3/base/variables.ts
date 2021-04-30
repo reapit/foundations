@@ -98,7 +98,6 @@ export const elVariables = css`
       --component-input-shadow: inset 0px -1px 0px #000000;
       --component-steps-gutter-width: 12px;
       --component-table-min-column-width: 3rem;
-      --component-table-narrow-version-limit-default: 700px;
     }
   }
 `
