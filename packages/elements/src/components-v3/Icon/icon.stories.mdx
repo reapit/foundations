@@ -2,8 +2,6 @@ import { Meta, Story, Canvas, ArgsTable } from '@storybook/addon-docs/blocks'
 import { Icon } from './index'
 import iconSet from './icons'
 
-export const Template = (args) => <Icon {...args} />
-
 <Meta title="V3/Icon" component={Icon} />
 
 # Icon
@@ -11,12 +9,25 @@ export const Template = (args) => <Icon {...args} />
 Underlying tag: `<span>`
 
 <Canvas>
-  <Story name="Default Usage" args={{ icon: 'add' }}>
-    {Template.bind({})}
+  <Story name="Default Usage">
+    <Icon icon="add" />
   </Story>
 </Canvas>
 
 <ArgsTable story="Default Usage" />
+
+# All Icons
+
+<table>
+  {Object.keys(iconSet).map((icon) => (
+    <tr>
+      <td>
+        <Icon icon={icon} />
+      </td>
+      <td>{icon}</td>
+    </tr>
+  ))}
+</table>
 
 # Intent
 
