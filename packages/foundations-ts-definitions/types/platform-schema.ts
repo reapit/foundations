@@ -5964,6 +5964,32 @@ export interface CreateUpwardLinkModel {
   vendorSolicitorId?: string
 }
 /**
+ * Request body used to create a new webhook subscription
+ */
+export interface CreateWebhookModel {
+  /**
+   * The url where the payload associated with the webhook should be sent to
+   */
+  url: string
+  /**
+   * A short description associated with the webhook (ie a friendly name or label)
+   */
+  description?: string
+  /**
+   * The identifiers of the topics the subscription is associated with
+   */
+  topicIds?: string[]
+  /**
+   * Flag denoting whether or not the webhook is active and ready to receive data
+   */
+  active?: boolean
+  /**
+   * Flag denoting whether or events that only contain changes to etags and/or modified dates are emitted
+   * Pass true to disable emitting of these events
+   */
+  ignoreEtagOnlyChanges?: boolean
+}
+/**
  * Representation of a works order item
  * example:
  * [object Object]
@@ -10169,6 +10195,12 @@ export interface RecurrenceModel {
    */
   until?: string // date-time
 }
+export interface Resthooks {
+  pageSize?: number
+  pageNumber?: number
+  sortBy?: string
+  active?: boolean
+}
 /**
  * Model representing a JSON schema used to validate a specific entity type
  */
@@ -14098,6 +14130,32 @@ export interface UpdateVendorModel {
   }
 }
 /**
+ * Request body used to update a webhook subscription
+ */
+export interface UpdateWebhookModel {
+  /**
+   * The url where the payload associated with the webhook should be sent to
+   */
+  url: string
+  /**
+   * A short description associated with the webhook (ie a friendly name or label)
+   */
+  description?: string
+  /**
+   * The identifiers of the topics the subscription is associated with
+   */
+  topicIds?: string[]
+  /**
+   * Flag denoting whether or not the webhook is active and ready to receive data
+   */
+  active?: boolean
+  /**
+   * Flag denoting whether or events that only contain changes to etags and/or modified dates are emitted
+   * Pass true to disable emitting of these events
+   */
+  ignoreEtagOnlyChanges?: boolean
+}
+/**
  * Representation of a works order item
  * example:
  * [object Object]
@@ -14835,6 +14893,97 @@ export interface Vendors {
   nextCallFrom?: string
   nextCallTo?: string
   metadata?: string[]
+}
+/**
+ * Representation of a webhook subscription
+ */
+export interface WebhookModel {
+  /**
+   * The unique identifier of the webhook
+   */
+  id?: string // uuid
+  /**
+   * The date and time when the webhook was created
+   * example:
+   * 2019-08-14T12:30:02.0000000Z
+   */
+  created?: string // date-time
+  /**
+   * The date and time when the webhook was last modified
+   * example:
+   * 2019-08-14T12:30:02.0000000Z
+   */
+  modified?: string // date-time
+  /**
+   * The url where the payload associated with the webhook should be sent to
+   */
+  url?: string
+  /**
+   * A short description associated with the webhook (ie a friendly name or label)
+   */
+  description?: string
+  /**
+   * The identifiers of the topics the webhook is associated with
+   */
+  topicIds?: string[]
+  /**
+   * Flag denoting whether or not the webhook is active and ready to receive data
+   */
+  active?: boolean
+  /**
+   * Flag denoting whether or events that only contain changes to etags and/or modified dates are emitted
+   */
+  ignoreEtagOnlyChanges?: boolean
+}
+export interface WebhookModelPagedResult {
+  _embedded?: {
+    /**
+     * The unique identifier of the webhook
+     */
+    id?: string // uuid
+    /**
+     * The date and time when the webhook was created
+     * example:
+     * 2019-08-14T12:30:02.0000000Z
+     */
+    created?: string // date-time
+    /**
+     * The date and time when the webhook was last modified
+     * example:
+     * 2019-08-14T12:30:02.0000000Z
+     */
+    modified?: string // date-time
+    /**
+     * The url where the payload associated with the webhook should be sent to
+     */
+    url?: string
+    /**
+     * A short description associated with the webhook (ie a friendly name or label)
+     */
+    description?: string
+    /**
+     * The identifiers of the topics the webhook is associated with
+     */
+    topicIds?: string[]
+    /**
+     * Flag denoting whether or not the webhook is active and ready to receive data
+     */
+    active?: boolean
+    /**
+     * Flag denoting whether or events that only contain changes to etags and/or modified dates are emitted
+     */
+    ignoreEtagOnlyChanges?: boolean
+  }[]
+  pageNumber?: number // int32
+  pageSize?: number // int32
+  pageCount?: number // int32
+  totalPageCount?: number // int32
+  totalCount?: number // int32
+  _links?: {
+    [name: string]: {
+      href?: string
+    }
+  }
 }
 /**
  * Representation of a works order item
