@@ -193,4 +193,5 @@ export const ElTableExpandableRow = styled.div`
 // TOOD: the status circles
 // TODO: allow setting a different order of cells on the narrow table
 // TODO: if there's time, the options for the headers to be shown as ordered ASC, or ordered DESC
-// TODO: make the media query configurable so we can set different breakpoints easily. Use JS to generate the code from an array of desired breakpoints
+// TODO: make the media query configurable so we can set different breakpoints easily.
+// Use JS to generate the code from an array of desired breakpoints

@@ -60,7 +60,7 @@ export const Table: React.FC<ITable> = ({ rows, children, ...rest }) => {
     >
       <TableHeadersRow>
         {headers.map((header) => (
-          <TableHeader>{header}</TableHeader>
+          <TableHeader key={header}>{header}</TableHeader>
         ))}
         {hasExpandableRows && (
           <TableHeader>
@@ -79,6 +79,7 @@ export const Table: React.FC<ITable> = ({ rows, children, ...rest }) => {
 
                 return (
                   <TableCell
+                    key={index}
                     icon={cell.icon}
                     darkText={cell.cellHasDarkText}
                     narrowLabel={cell.narrowTable?.showLabel ? cell.label : undefined}
