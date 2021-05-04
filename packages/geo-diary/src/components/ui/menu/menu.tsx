@@ -1,14 +1,28 @@
-import * as React from 'react'
+import React, { Dispatch, SetStateAction } from 'react'
 import { useLocation } from 'react-router'
-import { AppsIcon, DocsIcon, Menu as Sidebar, MenuConfig, ProfileIcon, ReapitHouseIcon } from '@reapit/elements'
+import {
+  AppsIcon,
+  DocsIcon,
+  Menu as Sidebar,
+  MenuConfig,
+  ProfileIcon,
+  ReapitHouseIcon,
+  ResultsIcon,
+} from '@reapit/elements'
 import { Location } from 'history'
 import { useReapitConnect } from '@reapit/connect-session'
 import { reapitConnectBrowserSession } from '@/core/connect-session'
-import { ROUTES } from '../../../core/router'
+import { AppState, AppTab, useAppState } from '../../../core/app-state'
 
-export const generateMenuConfig = (logoutCallback: () => void, location: Location<any>): MenuConfig => {
+export const generateMenuConfig = (
+  logoutCallback: () => void,
+  location: Location<any>,
+  setAppState: Dispatch<SetStateAction<AppState>>,
+  appState: AppState,
+): MenuConfig => {
   return {
-    defaultActiveKey: 'APPS',
+    defaultActiveKey: 'DIARY',
+    currentActiveKey: appState.tab === 'LIST' ? 'DIARY' : 'MAP',
     location,
     menu: [
       {
@@ -20,7 +34,14 @@ export const generateMenuConfig = (logoutCallback: () => void, location: Locatio
         title: 'Diary',
         key: 'DIARY',
         icon: <DocsIcon />,
-        url: ROUTES.APPOINTMENT,
+        callback: changeTabCallback(setAppState, 'LIST'),
+        type: 'PRIMARY',
+      },
+      {
+        title: 'Map',
+        key: 'MAP',
+        icon: <ResultsIcon />,
+        callback: changeTabCallback(setAppState, 'MAP'),
         type: 'PRIMARY',
       },
       {
@@ -41,6 +62,13 @@ export const generateMenuConfig = (logoutCallback: () => void, location: Locatio
   }
 }
 
+export const changeTabCallback = (setAppState: Dispatch<SetStateAction<AppState>>, tab: AppTab) => () => {
+  setAppState((currentState) => ({
+    ...currentState,
+    tab,
+  }))
+}
+
 export const callbackAppClick = () =>
   (window.location.href =
     window.location.href.includes('dev') || window.location.href.includes('localhost')
@@ -51,8 +79,9 @@ export type MenuProps = {}
 
 export const Menu: React.FC<MenuProps> = () => {
   const location = useLocation()
+  const { setAppState, appState } = useAppState()
   const { connectLogoutRedirect, connectIsDesktop } = useReapitConnect(reapitConnectBrowserSession)
-  const menuConfigs = generateMenuConfig(() => connectLogoutRedirect(), location)
+  const menuConfigs = generateMenuConfig(() => connectLogoutRedirect(), location, setAppState, appState)
   const desktopOptimisedMenu = connectIsDesktop
     ? {
         ...menuConfigs,

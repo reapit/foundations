@@ -21,7 +21,7 @@ export const AppointmentTime = () => {
   const { appState, setAppState } = useAppState()
   const { time } = appState
   return (
-    <ButtonGroup className="is-narrow" isCentered>
+    <ButtonGroup className="is-narrow mb-2" isCentered>
       <Button
         type="button"
         variant={time !== 'TOMORROW' && time !== 'WEEK' ? 'primary' : 'secondary'}

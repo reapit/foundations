@@ -1,6 +1,7 @@
 import * as React from 'react'
 import { shallow } from 'enzyme'
 import { Menu, generateMenuConfig, callbackAppClick } from '../menu'
+import { AppState } from '../../../../core/app-state'
 
 jest.mock('react-router', () => ({
   ...(jest.requireActual('react-router') as Object),
@@ -25,7 +26,8 @@ describe('Menu', () => {
         state: {},
       }
       const logoutCallback = jest.fn()
-      const result = generateMenuConfig(logoutCallback, location)
+      const setAppState = jest.fn()
+      const result = generateMenuConfig(logoutCallback, location, setAppState, {} as AppState)
       expect(result).toBeDefined()
     })
   })

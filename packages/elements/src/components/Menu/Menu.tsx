@@ -6,6 +6,7 @@ import { getMarketplaceGlobalsByKey } from '../DynamicLinks'
 
 export interface MenuConfig extends RouteProps {
   defaultActiveKey: string
+  currentActiveKey?: string
   mode?: 'DESKTOP' | 'WEB'
   menu: MenuItem[]
 }
@@ -71,7 +72,13 @@ export const LinkItem: React.FC<{
   )
 }
 
-const MenuComponent: React.FC<MenuConfig> = ({ menu, location, mode: modeProp, defaultActiveKey }) => {
+const MenuComponent: React.FC<MenuConfig> = ({
+  menu,
+  location,
+  mode: modeProp,
+  defaultActiveKey,
+  currentActiveKey,
+}) => {
   const ownMode = getMarketplaceGlobalsByKey() ? 'DESKTOP' : 'WEB'
   // if pass mode, take that value
   // otherwise auto-detect
@@ -81,8 +88,8 @@ const MenuComponent: React.FC<MenuConfig> = ({ menu, location, mode: modeProp, d
   const activeItemRef = React.createRef<HTMLAnchorElement & Link>()
 
   React.useEffect(() => {
-    setIsActive(activeItem || defaultActiveKey)
-  }, [activeItem])
+    setIsActive(currentActiveKey || activeItem || defaultActiveKey)
+  }, [activeItem, currentActiveKey])
 
   // Auto scroll to the position of active item
   React.useEffect(() => {

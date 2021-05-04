@@ -17,7 +17,7 @@ export const generateRequest = (session: ReapitConnectSession) => async (operati
   })
 }
 
-export const onError: ErrorHandler = ({ graphQLErrors, networkError }: ErrorResponse) => {
+export const onError: ErrorHandler = ({ graphQLErrors, networkError, response }: ErrorResponse) => {
   if (graphQLErrors) {
     graphQLErrors.map(({ message, locations, path }) => {
       console.error(`[GraphQL error]: Message: ${message}, Location: ${locations}, Path: ${path}`)
@@ -34,6 +34,10 @@ export const onError: ErrorHandler = ({ graphQLErrors, networkError }: ErrorResp
     notification.error({
       message: networkError,
     })
+  }
+
+  if (response?.errors) {
+    response.errors = undefined
   }
 }
 

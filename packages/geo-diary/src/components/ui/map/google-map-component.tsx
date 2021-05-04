@@ -1,111 +1,47 @@
 import React, { Dispatch, FC, memo, SetStateAction, useEffect, useMemo, useRef, useState } from 'react'
 import GoogleMap from 'react-google-map'
 import { combineAddress, H5, notification, SubTitleH5 } from '@reapit/elements'
-import {
-  AppState,
-  DirectionsRenderer,
-  DirectionsResult,
-  DirectionsService,
-  GoogleMaps,
-  MapRefs,
-  Marker,
-  useAppState,
-  Map,
-} from '../../../core/app-state'
-import { ListItemModel, PropertyAddressModel } from '@reapit/foundations-ts-definitions'
+import { AppState, useAppState } from '../../../core/app-state'
 import { ExtendedAppointmentModel } from '../../../types/global'
 import { AppointmentDetailModal } from '../appointment-detail-modal/appointment-detail-modal'
 import MapPanel from '../map-panel'
-import { HandleSetMapParams } from './types'
+import {
+  AppStateParams,
+  HandleSetMapParams,
+  DirectionsRenderer,
+  DirectionsResult,
+  DirectionsService,
+  Map,
+  LatLngBounds,
+  GoogleMaps,
+  MapRefs,
+  Marker,
+  RenderInfoWindowParams,
+  RenderMarkersParams,
+  CoordinateProps,
+  Coordinate,
+  MapProps,
+  HandleMarkerClickParams,
+  HandleSetAppointmentParams,
+} from './types'
+import { getShortAddress } from '../../../utils/formatting-utils'
 
-type Coords = {
-  lat: number
-  lng: number
-}
-
-export type NullableCoords = {
-  lat: number | null
-  lng: number | null
-}
-
-export interface CoordinateProps {
-  position: Coords
-  id: string
-  address: PropertyAddressModel
-}
-
-interface MapProps {
-  appointments: ExtendedAppointmentModel[]
-}
-
-interface RenderInfoWindowParams {
-  latlng: Coords
-  address: string
-}
-
-interface RenderMarkersParams {
-  coordinates: CoordinateProps[]
-  appState: AppState
-}
-
-export type RouteInformation = {
-  duration: { text: string; value: number } | null
-  distance: { text: string; value: number } | null
-}
-
-export const UNDEFINED_LATLNG_NUMBER = 9999
-export const UNDEFINED_NULL_STRING = Math.random()
-  .toString(36)
-  .replace(/[^a-z]+/g, '')
-  .substr(0, 36)
-
-export interface Coordinate {
-  position: {
-    lat: number
-    lng: number
+export const handleInfoWindowClick = (
+  appointmentId: string,
+  setAppState: Dispatch<SetStateAction<AppState>>,
+  setAppointmentDetailModalVisible: Dispatch<SetStateAction<boolean>>,
+) => () => {
+  if (appointmentId) {
+    setAppState((currentState) => ({
+      ...currentState,
+      appointmentId,
+    }))
+    setAppointmentDetailModalVisible(true)
   }
-  address: any
-  id: string
 }
-
-export type RenderModalTitleParams = {
-  appointmentType?: ListItemModel
-  heading: string
-}
-export const renderModalTitle = ({ appointmentType, heading }) => {
-  return (
-    <>
-      {heading && <H5>{heading}</H5>}
-      {appointmentType && <SubTitleH5 className="mb-0">{appointmentType?.value}</SubTitleH5>}
-    </>
-  )
-}
-
-// export const getDestinationPoint = ({ destinationLat, destinationLng }: AppState) => (): NullableCoords => ({
-//   lat: destinationLat,
-//   lng: destinationLng,
-// })
-
-// export const handleMarkerOnClick = (
-//   appointments: ExtendedAppointmentModel[],
-//   setAppState: Dispatch<SetStateAction<AppState>>,
-//   setAppointmentDetailModalVisible: Dispatch<SetStateAction<boolean>>,
-// ) => (id: string) => () => {
-//   const appointment = appointments.find((item) => item.id === id)
-//   if (appointment) {
-//     setAppointment(appointment)
-//     setAppointmentDetailModalVisible(true)
-//   }
-// }
 
 export const handleModalClose = (setAppointmentDetailModalVisible: Dispatch<SetStateAction<boolean>>) => () => {
   setAppointmentDetailModalVisible(false)
-}
-
-export interface HandleSetAppointmentParams {
-  appointmentId: string | null
-  appointments: ExtendedAppointmentModel[]
-  setAppState: Dispatch<SetStateAction<AppState>>
 }
 
 export const handleSetAppointment = ({
@@ -125,117 +61,132 @@ export const handleSetAppointment = ({
   }
 }
 
+export const handleMarkerClick = ({ appointmentId, setAppState }: HandleMarkerClickParams) => {
+  if (appointmentId) {
+    setAppState((currentState) => ({
+      ...currentState,
+      appointmentId,
+    }))
+  }
+}
+
 export const renderInfoWindowContent = ({ latlng, address }: RenderInfoWindowParams) => {
   return `
-    <div style="max-width: 200px;padding: 0 1rem 1rem 0; cursor: pointer" id="coordinate-${latlng.lat}-${latlng.lng}">
+    <div style="max-width: 200px;padding: 0 1rem 1rem 0; cursor: pointer; font-family: 'PT Sans', Helvetica, Arial, sans-serif;" id="coordinate-${latlng.lat}-${latlng.lng}">
       <div>${address}</div>
     </div>
   `
 }
 
-export const renderMarkers = ({ coordinates, appState }: RenderMarkersParams) => {
+export const handleRenderMarkers = ({
+  coordinates,
+  appState,
+  setAppState,
+  setAppointmentDetailModalVisible,
+}: RenderMarkersParams) => () => {
   const { mapRefs } = appState
-  console.log(coordinates, mapRefs)
-  if (!mapRefs) return null
 
-  const { googleMapsRef, mapRef } = mapRefs
+  const googleMaps = mapRefs?.googleMapsRef?.current
+  const map = mapRefs?.mapRef?.current
+  const markersRef = mapRefs?.markersRef
 
-  if (!googleMapsRef.current || !mapRef.current) return
+  if (googleMaps && googleMaps && map && markersRef) {
+    markersRef.current = coordinates.map((coordinate: CoordinateProps, index: number) => {
+      const latlng = {
+        lat: coordinate.position.lat,
+        lng: coordinate.position.lng,
+      }
+      const address = combineAddress(coordinate.address) || ''
 
-  const googleMaps = googleMapsRef.current
-  const map = mapRef.current
+      const label = {
+        text: String(index + 1),
+        fontSize: '1.5rem',
+        fontWeight: '500',
+      }
 
-  return coordinates.map((coordinate: CoordinateProps, index: number) => {
-    const latlng = {
-      lat: coordinate.position.lat,
-      lng: coordinate.position.lng,
-    }
-    const address = combineAddress(coordinate.address) || ''
+      const marker = new googleMaps.Marker({
+        position: latlng,
+        label,
+        map,
+      })
 
-    const label = {
-      text: String(index + 1),
-      fontSize: '1.5rem',
-      fontWeight: '500',
-    }
-
-    const marker = new googleMaps.Marker({
-      position: latlng,
-      label,
-      map,
-    })
-
-    const infoWindow = new googleMaps.InfoWindow({
-      content: renderInfoWindowContent({ latlng, address }),
-    })
-
-    googleMaps.event.addListener(marker, 'click', () => {
-      infoWindow.open(map, marker)
-    })
-
-    googleMaps.event.addListener(infoWindow, 'domready', () => {
-      const infoWindow = document.getElementById(`coordinate-${coordinate.position.lat}-${coordinate.position.lng}`)
-
-      if (!infoWindow) return null
-
-      // infoWindow.addEventListener('click', markerCallBack(coordinate.id))
-    })
-    return marker
-  })
-}
-
-export const getLocationPoint = ({ currentLat, currentLng }: AppState): Coords => ({
-  lat: currentLat,
-  lng: currentLng,
-})
-
-export const getCurrentLocation = ({ currentLat, currentLng, mapRefs }: AppState) => {
-  if (!mapRefs) return null
-
-  const { googleMapsRef, mapRef } = mapRefs
-  const googleMaps = googleMapsRef.current
-  const map = mapRef.current
-
-  if (!googleMaps || !map) return null
-
-  const latlng = {
-    lat: currentLat,
-    lng: currentLng,
-  }
-
-  const currentLocation = new googleMaps.Marker({
-    position: latlng,
-    label: '',
-    map,
-  })
-
-  const geocoder = new googleMaps.Geocoder()
-
-  geocoder.geocode({ location: latlng }, (results, status) => {
-    if (status === 'OK') {
-      const streetAddress = results[0]
-      const address = streetAddress.formatted_address
       const infoWindow = new googleMaps.InfoWindow({
         content: renderInfoWindowContent({ latlng, address }),
       })
-      googleMaps.event.addListener(currentLocation, 'click', () => {
-        infoWindow.open(map, currentLocation)
+
+      googleMaps.event.addListener(marker, 'click', () => {
+        infoWindow.open(map, marker)
+
+        const appointmentId = coordinate.id
+
+        handleMarkerClick({ setAppState, appointmentId })
       })
-    } else {
-      console.error('Current address request failed due to: ' + status)
+
+      googleMaps.event.addListener(infoWindow, 'domready', () => {
+        const infoWindow = document.getElementById(`coordinate-${coordinate.position.lat}-${coordinate.position.lng}`)
+        const appointmentId = coordinate.id
+
+        if (!infoWindow || !appointmentId) return null
+
+        infoWindow.addEventListener(
+          'click',
+          handleInfoWindowClick(appointmentId, setAppState, setAppointmentDetailModalVisible),
+        )
+      })
+
+      return marker
+    })
+
+    setZoomAndCenter(appState)
+  }
+}
+
+export const handleRenderMyLocation = ({ appState, setAppState }: AppStateParams) => () => {
+  const { currentLat, currentLng, mapRefs } = appState
+
+  const googleMaps = mapRefs?.googleMapsRef?.current
+  const map = mapRefs?.mapRef?.current
+  const myLocationRef = mapRefs?.myLocationRef
+
+  if (googleMaps && map && myLocationRef) {
+    const latlng = {
+      lat: currentLat,
+      lng: currentLng,
     }
-  })
 
-  return currentLocation
+    const currentLocation = new googleMaps.Marker({
+      position: latlng,
+      label: '',
+      map,
+    })
+
+    const geocoder = new googleMaps.Geocoder()
+
+    geocoder.geocode({ location: latlng }, (results, status) => {
+      if (status === 'OK') {
+        const streetAddress = results[0]
+        const locationAddress = streetAddress.formatted_address
+        const infoWindow = new googleMaps.InfoWindow({
+          content: renderInfoWindowContent({ latlng, address: locationAddress }),
+        })
+        googleMaps.event.addListener(currentLocation, 'click', () => {
+          infoWindow.open(map, currentLocation)
+        })
+        setAppState((currentState) => ({
+          ...currentState,
+          locationAddress,
+        }))
+        setZoomAndCenter(appState)
+        myLocationRef.current?.setMap(null)
+        myLocationRef.current = currentLocation
+      } else {
+        console.error('Current address request failed due to: ' + status)
+      }
+    })
+  }
 }
 
-interface HandleDirectionServiceParams {
-  appState: AppState
-  // onLoadedDirections: (directions: google.maps.DirectionsResult) => void
-  // directionsRenderer: DirectionsRenderer
-  setAppState: Dispatch<SetStateAction<AppState>>
-}
-
-export const handleDirectionService = ({ appState, setAppState }: HandleDirectionServiceParams) => (
+export const handleDirectionService = ({ appState, setAppState }: AppStateParams) => (
   response: DirectionsResult,
   status: google.maps.DirectionsStatus,
 ) => {
@@ -269,41 +220,39 @@ export const handleDirectionService = ({ appState, setAppState }: HandleDirectio
   }))
 }
 
-export const handleRenderDirections = ({
-  // destinationPoint,
-  // map,
-  appState,
-  setAppState,
-}) => () => {
-  console.log(appState, setAppState)
-  // const { currentLat, currentLng, destinationLat, destinationLng, travelMode, mapRefs } = appState
-  // debugger
-  // if (mapRefs && destinationLat && destinationLng) {
-  //
-  //   const googleMaps = mapRefs.googleMapsRef.current
-  //   const directionsRenderer = mapRefs.directionsRendererRef.current
-  //   const directionsService = mapRefs.directionsServiceRef.current
-  //   const map = mapRefs.mapRef.current
-  //   const origin = new googleMaps.LatLng(currentLat, currentLng)
-  //   const destination = new googleMaps.LatLng(destinationLat, destinationLng)
+export const handleRenderDirections = ({ appState, setAppState }) => () => {
+  const { currentLat, currentLng, destinationLat, destinationLng, travelMode, mapRefs } = appState
+  const directionsRenderer = mapRefs?.directionsRendererRef?.current
+  const directionsService = mapRefs?.directionsServiceRef?.current
 
-  //   directionsRenderer.setMap(map)
-  //   directionsService.route(
-  //     {
-  //       origin,
-  //       destination,
-  //       travelMode,
-  //     },
-  //     handleDirectionService({
-  //       appState,
-  //       setAppState,
-  //     }),
-  //   )
-  // }
+  if (mapRefs && destinationLat && destinationLng) {
+    const googleMaps = mapRefs.googleMapsRef.current
+    const map = mapRefs.mapRef.current
+    const origin = new googleMaps.LatLng(currentLat, currentLng)
+    const destination = new googleMaps.LatLng(destinationLat, destinationLng)
+
+    directionsRenderer.setMap(map)
+    directionsService.route(
+      {
+        origin,
+        destination,
+        travelMode,
+      },
+      handleDirectionService({
+        appState,
+        setAppState,
+      }),
+    )
+  }
+
+  if (mapRefs && (!destinationLat || !destinationLng)) {
+    clearMap(appState)
+  }
 }
 
 export const setZoomAndCenter = (appState: AppState) => {
-  const { mapRefs } = appState
+  const { mapRefs, currentLat, currentLng } = appState
+
   if (!mapRefs) return null
 
   const googleMaps = mapRefs.googleMapsRef.current
@@ -313,94 +262,26 @@ export const setZoomAndCenter = (appState: AppState) => {
 
   if (!googleMaps || !bounds || !map || !markers) return null
 
-  // if (zoom && center) {
-  //   map.setZoom(zoom)
-  //   map.setCenter(new googleMaps.LatLng(center.lat, center.lng))
-  //   return
-  // }
-  // if (zoom) {
-  //   map.setZoom(zoom)
-  //   return
-
-  // }
-
-  const center = getLocationPoint(appState)
-  if (center?.lat && center?.lng) {
-    console.log('center')
-    // const DEFAULT_ZOOM = 9
-    map.setCenter(new googleMaps.LatLng(center.lat, center.lng))
-    // map.setZoom(DEFAULT_ZOOM)
-    return
+  if (!markers.length) {
+    return map.setCenter(new googleMaps.LatLng(currentLat, currentLng))
   }
 
-  if (!markers?.length) {
-    const LONDON_LAT_LNG = { lat: 51.507351, lng: -0.127758 }
-    const DEFAULT_ZOOM = 8
-    map.setCenter(new googleMaps.LatLng(LONDON_LAT_LNG.lat, LONDON_LAT_LNG.lng))
-    map.setZoom(DEFAULT_ZOOM)
-    return
-  }
   markers.forEach((marker) => {
     const position = marker.getPosition()
     if (position) bounds.extend(position)
   })
   map.fitBounds(bounds)
   map.setCenter(bounds.getCenter())
-  const DEFAULT_MARKER_LENGTH = 1
-  if (markers?.length === DEFAULT_MARKER_LENGTH) {
-    const DEFAULT_ZOOM = 9
-    map.setZoom(DEFAULT_ZOOM)
-  }
 }
 
-export const handleRenderMarkers = ({
-  coordinates,
-  // center,
-  // destinationPoint,
-  // onLoadedDirections,
-  // markerCallBack,
-  // destinationAddress,
-  appState,
-  // mapRefs,
-}) => () => {
-  // const { googleMapsRef, mapRef, directionsRendererRef, directionsServiceRef, markersRef } = mapRefs
-  // const googleMaps = googleMapsRef.current
-  // const map = mapRef.current
-  // const directionsRenderer = directionsRendererRef.current
-  // const directionsService = directionsServiceRef.current
+export const clearMap = ({ mapRefs }: AppState) => {
+  if (!mapRefs) return null
 
-  getCurrentLocation(appState)
-  // const isDrawDirection = destinationPoint && destinationPoint.lat && destinationPoint.lng
-  // if (isDrawDirection) {
-  // renderDirections({
-  //   // destinationPoint,
-  //   // map,
-  //   // googleMaps,
-  //   // directionsService,
-  //   // directionsRenderer,
-  //   // onLoadedDirections,
-  //   // destinationAddress,
-  //   appState,
-  //   // mapRefs,
-  // })
-  // }
-  renderMarkers({ coordinates, appState })
-  setZoomAndCenter(appState)
-  // markersRef.current = markers
+  const { directionsRendererRef, markersRef } = mapRefs
+
+  directionsRendererRef?.current?.setMap(null)
+  markersRef?.current?.forEach((marker) => marker?.setMap(null))
 }
-
-// export const onMarkerClick = (onDrawingMarkerClick) => {
-//   return (marker) => {
-//     onDrawingMarkerClick && onDrawingMarkerClick(marker)
-//   }
-// }
-
-// export const onMarkerComplete = (onDrawingMarkerComplete, onDrawingMarkerClick) => {
-//   return (marker) => {
-//     onDrawingMarkerComplete && onDrawingMarkerComplete(marker)
-//     marker.addListener('click', onMarkerClick(onDrawingMarkerClick))
-//   }
-// }
 
 export const handleSetMapRefs = ({ mapRefs, setAppState, appState }: HandleSetMapParams) => () => {
   if (!appState.mapRefs) {
@@ -420,38 +301,6 @@ export const handleOnLoaded = (mapRefs: MapRefs) => (googleMaps: GoogleMaps, map
     suppressMarkers: true,
   })
 }
-
-export const clearMap = ({ mapRefs }: AppState) => {
-  if (!mapRefs) return null
-
-  // const { directionsRendererRef, markersRef } = mapRefs
-
-  // directionsRendererRef?.current?.setMap(null)
-  // markersRef?.current?.forEach((marker) => marker?.setMap(null))
-}
-
-// export const handleUseEffect = ({
-//   coordinates,
-//   // center,
-//   destinationPoint,
-//   onLoadedDirections,
-//   markerCallBack,
-//   destinationAddress,
-//   appState,
-//   // mapRefs,
-// }) => () => {
-//   renderDirectionAndMarkers({
-//     // mapRefs,
-//     coordinates,
-//     // center,
-//     destinationPoint,
-//     onLoadedDirections,
-//     markerCallBack,
-//     destinationAddress,
-//     appState,
-//   })
-//   return clearMap(appState)
-// }
 
 export const handleFilterCoordinates = (appointments: ExtendedAppointmentModel[]) => (): CoordinateProps[] =>
   appointments
@@ -473,53 +322,56 @@ export const handleFilterCoordinates = (appointments: ExtendedAppointmentModel[]
     .filter((coordinate) => !!coordinate) as CoordinateProps[]
 
 export const GoogleMapComponent: FC<MapProps> = ({ appointments }) => {
-  // const [appointment, setAppointment] = useState<ExtendedAppointmentModel | null>(null)
   const [appointmentDetailModalVisible, setAppointmentDetailModalVisible] = useState(false)
   const googleMapsRef = useRef<GoogleMaps | null>(null)
   const mapRef = useRef<Map | null>(null)
   const markersRef = useRef<Marker[]>([])
   const directionsRendererRef = useRef<DirectionsRenderer | null>(null)
-  const boundsRef = useRef(null)
   const directionsServiceRef = useRef<DirectionsService | null>(null)
+  const myLocationRef = useRef<Marker | null>(null)
+  const boundsRef = useRef<LatLngBounds | null>(null)
   const { appState, setAppState } = useAppState()
-  // const destinationAddress = combineAddress(appointment?.property?.address)
-
-  const { appointmentId, routeInformation, destinationAddress, appointment } = appState
-
   const coordinates: CoordinateProps[] = useMemo(handleFilterCoordinates(appointments), [appointments])
 
+  const { appointmentId, routeInformation, appointment } = appState
+  const modalTitle = getShortAddress(appointment?.property)
   const mapRefs: MapRefs = {
     googleMapsRef,
     mapRef,
     markersRef,
     directionsRendererRef,
-    boundsRef,
     directionsServiceRef,
+    myLocationRef,
+    boundsRef,
   }
-
-  // const destinationPoint = useMemo(getDestinationPoint(appState), [destinationLat, destinationLng, travelMode])
-  // const markerCallBack = handleMarkerOnClick(appointments, setAppState, setAppointmentDetailModalVisible)
 
   useEffect(handleSetAppointment({ appointmentId, appointments, setAppState }), [appointmentId, appointments])
 
-  useEffect(handleRenderDirections({ appState, setAppState }), [appState])
+  useEffect(handleRenderDirections({ appState, setAppState }), [appState.destinationLat, appState.destinationLng])
 
   useEffect(
     handleRenderMarkers({
       appState,
+      setAppState,
+      setAppointmentDetailModalVisible,
       coordinates,
-      // destinationPoint,
-      // onLoadedDirections,
-      // markerCallBack,
-      // destinationAddress,
     }),
     [coordinates, appState],
   )
 
+  useEffect(handleRenderMyLocation({ appState, setAppState }), [
+    appState.currentLat,
+    appState.currentLng,
+    appState.mapRefs,
+  ])
+
   useEffect(handleSetMapRefs({ setAppState, mapRefs, appState }), [mapRefs])
+
+  console.log('App state is', appState)
+
   return (
     <>
-      <div style={{ height: '100vh' }}>
+      <div style={{ height: '100%' }}>
         <GoogleMap
           autoFitBounds={Boolean(appointments.length)}
           googleMaps={window.google.maps}
@@ -530,7 +382,14 @@ export const GoogleMapComponent: FC<MapProps> = ({ appointments }) => {
       </div>
       {routeInformation && <MapPanel routeInformation={routeInformation} />}
       <AppointmentDetailModal
-        title={renderModalTitle({ heading: destinationAddress, appointmentType: appointment?.appointmentType })}
+        title={
+          <>
+            <H5>{modalTitle}</H5>
+            {appointment?.appointmentType && (
+              <SubTitleH5 className="mb-0">{appointment?.appointmentType?.value}</SubTitleH5>
+            )}
+          </>
+        }
         appointment={appointment || ({} as ExtendedAppointmentModel)}
         visible={appointmentDetailModalVisible}
         destroyOnClose={true}

@@ -41,14 +41,16 @@ export const PrivateRouteWrapper: FC = ({ children }) => {
   }
 
   return (
-    <ApolloProvider client={getClient(connectSession, window.reapit.config.graphqlUri)}>
-      <AppNavContainer>
-        <Menu />
-        <Suspense fallback={<Loader label="Loading" fullPage />}>
-          <ErrorBoundary>{children}</ErrorBoundary>
-        </Suspense>
-      </AppNavContainer>
-    </ApolloProvider>
+    <AppNavContainer>
+      <Menu />
+      <Suspense fallback={<Loader label="Loading" fullPage />}>
+        <ErrorBoundary>
+          <ApolloProvider client={getClient(connectSession, window.reapit.config.graphqlUri)}>
+            {children}
+          </ApolloProvider>
+        </ErrorBoundary>
+      </Suspense>
+    </AppNavContainer>
   )
 }
 

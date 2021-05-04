@@ -1,15 +1,29 @@
 import React, { FC, memo, useMemo } from 'react'
 import { useQuery } from '@apollo/react-hooks'
 import dayjs from 'dayjs'
-import { isMobile } from '@reapit/elements'
+import { FadeIn } from '@reapit/elements'
 import { ExtendedAppointmentModel } from '@/types/global'
 import GET_APPOINTMENTS from '../../../graphql/queries/get-appointments.graphql'
-import { MobileLayout } from './mobile-layout'
-import { DesktopLayout } from './desktop-layout'
 import { reapitConnectBrowserSession } from '@/core/connect-session'
 import { useReapitConnect } from '@reapit/connect-session'
 import { useAppState } from '../../../core/app-state'
 import { DATE_TIME_FORMAT } from '../../../../../elements/src/utils/datetime/datetime'
+import { AppointmentTime } from '../../ui/appointment-time/appointment-time'
+import { TravelMode } from '../../ui/travel-mode/travel-mode'
+import { cx } from 'linaria'
+import {
+  AppoinmentContainer,
+  ControlsContainer,
+  MapContainer,
+  mobileAppointments,
+  mobileAppointmentsHidden,
+  mobileAppointmentsShow,
+} from './__styles__'
+import AppointmentList from '../../ui/appointment-list'
+import { Loader } from '@reapit/elements/v3'
+import GoogleMapComponent from '@/components/ui/map'
+import ErrorBoundary from '../../../core/error-boundary'
+import { MyLocation } from '../../ui/my-location/my-location'
 
 export type AppointmentProps = {}
 
@@ -70,12 +84,12 @@ export const sortAppoinmentsByStartTime = (
 }
 
 export const Appointment: FC<AppointmentProps> = () => {
-  const isMobileView = isMobile()
   const { connectSession } = useReapitConnect(reapitConnectBrowserSession)
   const { appState } = useAppState()
   const { time } = appState
   const userCode = connectSession?.loginIdentity.userCode ?? ''
   const { start, end } = startAndEndTime[time]
+  const { tab } = appState
 
   const { data, loading } = useQuery<AppointmentListQueryData, AppointmentListQueryVariables>(GET_APPOINTMENTS, {
     variables: {
@@ -93,10 +107,29 @@ export const Appointment: FC<AppointmentProps> = () => {
     data?.GetAppointments?._embedded,
   ])
 
-  if (isMobileView) {
-    return <MobileLayout appointments={appointmentSorted} loading={loading} />
-  }
-  return <DesktopLayout appointments={appointmentSorted} loading={loading} />
+  return (
+    <ErrorBoundary>
+      <ControlsContainer>
+        <AppointmentTime />
+        <TravelMode />
+        <MyLocation />
+      </ControlsContainer>
+      <AppoinmentContainer
+        className={cx(mobileAppointments, tab === 'MAP' ? mobileAppointmentsHidden : mobileAppointmentsShow)}
+      >
+        {loading ? (
+          <Loader label="Loading" />
+        ) : (
+          <FadeIn>
+            <AppointmentList appointments={appointmentSorted} />
+          </FadeIn>
+        )}
+      </AppoinmentContainer>
+      <MapContainer>
+        <GoogleMapComponent appointments={appointmentSorted} />
+      </MapContainer>
+    </ErrorBoundary>
+  )
 }
 
 export default memo(Appointment)

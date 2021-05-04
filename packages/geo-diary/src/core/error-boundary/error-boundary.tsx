@@ -1,6 +1,6 @@
 import * as React from 'react'
 import * as Sentry from '@sentry/browser'
-import { notification } from '@reapit/elements'
+import { notification, Helper } from '@reapit/elements'
 
 export interface ErrorState {
   hasFailed: boolean
@@ -38,7 +38,7 @@ export class ErrorBoundary extends React.Component<ErrorProps, ErrorState> {
 
   render() {
     if (this.state.hasFailed) {
-      return <p>Something went wrong here, try refreshing your page.</p>
+      return <Helper variant="warning">Something went wrong here, try refreshing your page.</Helper>
     }
 
     return this.props.children

@@ -1,6 +1,5 @@
 import React, { Dispatch, SetStateAction } from 'react'
 import { mapPanelContainer } from './__styles__'
-import { RouteInformation } from '../map/google-map-component'
 import { Button, isMobile, isIOS, ButtonGroup } from '@reapit/elements'
 import { AppState, useAppState } from '../../../core/app-state'
 
@@ -44,6 +43,11 @@ const filterText = {
   TODAY: 'Today',
   TOMORROW: 'Tomorrow',
   WEEK: 'Week View',
+}
+
+export type RouteInformation = {
+  duration: { text: string; value: number } | null
+  distance: { text: string; value: number } | null
 }
 
 export type MapPanelProps = {
