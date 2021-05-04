@@ -2,16 +2,19 @@
 
 exports[`PaymentInternalPage should match a snapshot when has a merchantKey and data 1`] = `
 <PaymentPageContent
-  merchantKey={
-    Object {
-      "expiry": "SomeDateTime",
-      "merchantSessionKey": "SomeKey",
-    }
-  }
   payment={
     Object {
       "clientCode": undefined,
       "property": Object {},
+    }
+  }
+  paymentProvider={
+    OpayoProvider {
+      "merchantKey": Object {
+        "expiry": "SomeDateTime",
+        "merchantSessionKey": "SomeKey",
+      },
+      "providerName": "opayo",
     }
   }
   refetchPayment={[MockFunction]}
@@ -20,12 +23,6 @@ exports[`PaymentInternalPage should match a snapshot when has a merchantKey and 
 
 exports[`PaymentInternalPage should match a snapshot when has a merchantKey and data 2`] = `
 <PaymentPageContent
-  merchantKey={
-    Object {
-      "expiry": "SomeDateTime",
-      "merchantSessionKey": "SomeKey",
-    }
-  }
   payment={
     Object {
       "_eTag": "",
@@ -365,6 +362,15 @@ exports[`PaymentInternalPage should match a snapshot when has a merchantKey and 
       "videoCaption": "Virtual property tour",
       "videoUrl": "https://www.example.com/property/123/videoTour",
       "viewingArrangements": "Accompanied viewings after 3PM only",
+    }
+  }
+  paymentProvider={
+    OpayoProvider {
+      "merchantKey": Object {
+        "expiry": "SomeDateTime",
+        "merchantSessionKey": "SomeKey",
+      },
+      "providerName": "opayo",
     }
   }
   refetchPayment={[MockFunction]}

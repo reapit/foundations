@@ -1,26 +1,26 @@
-import React, { useEffect, useState } from 'react'
+import React, { useState, useEffect } from 'react'
 import useSWR from 'swr'
 import { Helper, Loader } from '@reapit/elements'
 import { sessionFetcher } from '../../utils/fetcher'
 import PropertyPageContent from '../ui/payment-page-content'
-import { MerchantKey } from '../../types/opayo'
 import { URLS } from '../../constants/api'
-import { handleMerchantKeyEffect } from '../ui/payment-handlers'
 import { PaymentWithPropertyModel } from '../../types/payment'
+import { PaymentProvider } from '@/services/providers'
+import { handlePaymentProviderEffect } from '../ui/payment-handlers'
 
 export interface PaymentExternalPageProps {
   session: string
   paymentId: string
   clientId: string
   // Inject test dependiencies
-  defaultMerchantKey?: MerchantKey | null
+  defaultPaymentProvider?: PaymentProvider | null
 }
 
 const PaymentExternalPage: React.FC<PaymentExternalPageProps> = ({
   session,
   paymentId,
   clientId,
-  defaultMerchantKey = null,
+  defaultPaymentProvider = null,
 }) => {
   const { data, error, mutate: refetchPayment } = useSWR<{ payment?: PaymentWithPropertyModel; error?: string }>(
     [`${URLS.PAYMENTS}/${paymentId}`, session, clientId],
@@ -29,9 +29,11 @@ const PaymentExternalPage: React.FC<PaymentExternalPageProps> = ({
   const paymentModel = data?.payment as PaymentWithPropertyModel
   const hasError = data?.error
   const [loading, setLoading] = useState(false)
-  const [merchantKey, setMerchantKey] = useState<MerchantKey | null>(defaultMerchantKey)
+  const [paymentProvider, setPaymentProvider] = useState<PaymentProvider | null>(defaultPaymentProvider)
 
-  useEffect(handleMerchantKeyEffect(setLoading, setMerchantKey, clientId), [setMerchantKey, clientId])
+  useEffect(handlePaymentProviderEffect(setLoading, setPaymentProvider, clientId), [setPaymentProvider, clientId])
+
+  console.log(setLoading, setPaymentProvider)
 
   if (loading || !data) {
     return <Loader />
@@ -47,7 +49,7 @@ const PaymentExternalPage: React.FC<PaymentExternalPageProps> = ({
     )
   }
 
-  if (!merchantKey) {
+  if (!paymentProvider) {
     return (
       <Helper variant="info">
         There seems to be a problem with account with the payment provider. Please inform your agent of this issue and
@@ -64,7 +66,7 @@ const PaymentExternalPage: React.FC<PaymentExternalPageProps> = ({
   return (
     <PropertyPageContent
       payment={payment}
-      merchantKey={merchantKey}
+      paymentProvider={paymentProvider}
       session={session}
       refetchPayment={refetchPayment}
     />
