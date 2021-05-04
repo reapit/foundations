@@ -1,7 +1,7 @@
 import React from 'react'
 
 export default () => (
-  <svg width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <svg width="1em" height="1em" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
     <g clipPath="url(#clip0)">
       <path
         d="M17.7083 20H2.29172C1.02753 20 0 18.9725 0 17.7083V3.95831C0 2.69412 1.02753 1.66675 2.29172 1.66675H17.7083C18.9725 1.66675 20 2.69412 20 3.95831V17.7083C20 18.9725 18.9725 20 17.7083 20ZM2.29172 2.91675C1.71753 2.91675 1.25 3.38412 1.25 3.95831V17.7083C1.25 18.2825 1.71753 18.75 2.29172 18.75H17.7083C18.2825 18.75 18.75 18.2825 18.75 17.7083V3.95831C18.75 3.38412 18.2825 2.91675 17.7083 2.91675H2.29172Z"
@@ -28,7 +28,7 @@ export default () => (
     </g>
     <defs>
       <clipPath id="clip0">
-        <rect width="20" height="20" fill="white" />
+        <rect width="1em" height="1em" fill="white" />
       </clipPath>
     </defs>
   </svg>

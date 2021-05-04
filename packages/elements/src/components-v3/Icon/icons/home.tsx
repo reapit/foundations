@@ -1,7 +1,7 @@
 import React from 'react'
 
 export default () => (
-  <svg width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <svg width="1em" height="1em" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
     <g clipPath="url(#clip0)">
       <path
         fillRule="evenodd"
@@ -12,7 +12,7 @@ export default () => (
     </g>
     <defs>
       <clipPath id="clip0">
-        <rect width="20" height="20" fill="white" />
+        <rect width="1em" height="1em"  fill="white" />
       </clipPath>
     </defs>
   </svg>

@@ -91,14 +91,15 @@ export const ElTableHeadersRow = styled.div`
   // The variable component-table-num-columns should be the number of columns MINUS
   // the column that has the button to trigger the expandable row.
 
-  grid-template-columns: repeat(var(--component-table-num-columns, auto-fit), minmax(var(--component-table-min-column-width), 1fr)) var(--component-table-expandable-trigger-width, 0);
+  grid-template-columns:
+    repeat(var(--component-table-num-columns, auto-fit), minmax(var(--component-table-min-column-width), 1fr))
+    var(--component-table-expandable-trigger-width, 0);
 
   @media screen and (max-width: 750px) {
     display: none;
   }
-}
-
 `
+
 export const ElTableHeader = styled.div`
   background: var(--color-grey-light);
   color: var(--color-black);

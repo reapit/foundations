@@ -18,16 +18,22 @@ Underlying tag: `<span>`
 
 # All Icons
 
-<table>
-  {Object.keys(iconSet).map((icon) => (
-    <tr>
-      <td>
-        <Icon icon={icon} />
-      </td>
-      <td>{icon}</td>
-    </tr>
-  ))}
-</table>
+All the available icons exported by the project
+
+<Canvas>
+  <Story name="All Icons">
+    <div>
+      {Object.keys(iconSet).map((icon) => (
+        <div key={icon}>
+          <p>{icon}</p>
+          <p>
+            <Icon icon={icon} />
+          </p>
+        </div>
+      ))}
+    </div>
+  </Story>
+</Canvas>
 
 # Intent
 

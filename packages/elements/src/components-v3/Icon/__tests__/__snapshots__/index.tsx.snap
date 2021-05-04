@@ -9,7 +9,7 @@ exports[`Icon component should match a snapshot 1`] = `
     }
   }
 >
-  <[object Object] />
+  <_default />
 </ElIcon>
 `;
 
@@ -22,6 +22,6 @@ exports[`Icon component should match a snapshot when intent prop is supplied 1`]
     }
   }
 >
-  <[object Object] />
+  <_default />
 </ElIcon>
 `;
