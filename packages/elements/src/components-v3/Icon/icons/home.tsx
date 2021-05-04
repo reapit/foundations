@@ -12,7 +12,7 @@ export default () => (
     </g>
     <defs>
       <clipPath id="clip0">
-        <rect width="1em" height="1em"  fill="white" />
+        <rect width="1em" height="1em" fill="white" />
       </clipPath>
     </defs>
   </svg>
