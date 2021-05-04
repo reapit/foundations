@@ -5,21 +5,21 @@ import PaymentForm from './payment-form'
 import PropertySection from './property-section'
 import { FaPoundSign, FaShoppingCart, FaStickyNote } from 'react-icons/fa'
 import { PaymentLogo } from './payment-logo'
-import { MerchantKey } from '../../types/opayo'
 import { PaymentWithPropertyModel } from '../../types/payment'
 import PaymentRequestModal from './payment-request-modal'
 import { PaymentModel } from '@reapit/foundations-ts-definitions'
+import { PaymentProvider } from '../../services/providers'
 
 export interface PaymentPageContentProps {
   payment: PaymentWithPropertyModel
-  merchantKey: MerchantKey
+  paymentProvider: PaymentProvider
   refetchPayment: () => void
   session?: string
 }
 
 const PaymentPageContent: React.FC<PaymentPageContentProps> = ({
   payment,
-  merchantKey,
+  paymentProvider,
   refetchPayment,
   session,
 }: PaymentPageContentProps) => {
@@ -72,11 +72,11 @@ const PaymentPageContent: React.FC<PaymentPageContentProps> = ({
           />
         </FadeIn>
       )}
-      {merchantKey && payment ? (
+      {paymentProvider && payment ? (
         <FadeIn>
           <PaymentForm
             payment={payment}
-            merchantKey={merchantKey}
+            paymentProvider={paymentProvider}
             paymentId={id as string}
             session={session}
             refetchPayment={refetchPayment}
@@ -88,4 +88,5 @@ const PaymentPageContent: React.FC<PaymentPageContentProps> = ({
     </>
   )
 }
+
 export default PaymentPageContent

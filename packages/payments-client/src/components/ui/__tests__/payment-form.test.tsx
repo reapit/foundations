@@ -1,6 +1,6 @@
 import React from 'react'
 import { shallow } from 'enzyme'
-
+import { OpayoProvider } from '../../../services/providers'
 import PaymentForm from '../payment-form'
 import { stubPaymentWithPropertyModel } from '../__stubs__/payment'
 
@@ -13,7 +13,7 @@ describe('PaymentForm', () => {
       shallow(
         <PaymentForm
           payment={stubPaymentWithPropertyModel}
-          merchantKey={{ merchantSessionKey: 'merchantSessionKey', expiry: 'expiry' }}
+          paymentProvider={new OpayoProvider({ merchantSessionKey: 'merchantSessionKey', expiry: 'expiry' })}
           paymentId={paymentId}
           session={session}
           refetchPayment={jest.fn()}
