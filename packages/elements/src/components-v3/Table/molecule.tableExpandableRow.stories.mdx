@@ -1,0 +1,35 @@
+import { Meta, Story, Canvas, ArgsTable } from '@storybook/addon-docs/blocks'
+import { TableExpandableRow } from './molecules'
+import { RenderHtmlMarkup } from '../../helpers/v3/render-html-markup'
+
+<Meta title="V3/Table/Molecules/TableExpandableRow" component={TableExpandableRow} />
+
+# Molecule - TableExpandableRow
+
+`TableExpandableRow` only renders it's children. Any other props given are applied to the underlying `div` element.
+
+The isOpen prop toggles the `.el-is-active` class to show the content.
+
+<ArgsTable of={TableExpandableRow} />
+
+<Canvas>
+  <Story name="Default usage">
+    <TableExpandableRow>
+      <p>Content that won't be seen until the expandable row is open</p>
+    </TableExpandableRow>
+  </Story>
+</Canvas>
+
+<RenderHtmlMarkup component="V3/Table/Molecules/TableExpandableRow" story="Default usage" />
+
+### isOpen
+
+<Canvas>
+  <Story name="isOpen">
+    <TableExpandableRow isOpen>
+      <p>Content that won't be seen until the expandable row is open</p>
+    </TableExpandableRow>
+  </Story>
+</Canvas>
+
+<RenderHtmlMarkup component="V3/Table/Molecules/TableExpandableRow" story="isOpen" />

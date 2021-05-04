@@ -1,0 +1,79 @@
+import { Meta, Story, Canvas, ArgsTable } from '@storybook/addon-docs/blocks'
+import { TableCell } from './molecules'
+import { RenderHtmlMarkup } from '../../helpers/v3/render-html-markup'
+
+<Meta title="V3/Table/Molecules/TableCell" component={TableCell} />
+
+# Molecule - TableCell
+
+`TableCell` renders children, but also accepts some other props. Any other props given that aren't listed below are are applied to the underlying `div` element.
+
+<ArgsTable of={TableCell} />
+
+<Canvas>
+  <Story name="Default usage">
+    <TableCell>
+      <p>£556.21</p>
+    </TableCell>
+  </Story>
+</Canvas>
+
+<RenderHtmlMarkup component="V3/Table/Molecules/TableCell" story="Default usage" />
+
+### With an icon
+
+Adds an icon at the start of the cell
+
+<Canvas>
+  <Story name="With an icon">
+    <TableCell icon="link">
+      <p>£556.21</p>
+    </TableCell>
+  </Story>
+</Canvas>
+
+<RenderHtmlMarkup component="V3/Table/Molecules/TableCell" story="With an icon" />
+
+### With dark text
+
+Turns the cell's text colour to black to make a cell's content more bold.
+
+<Canvas>
+  <Story name="With dark text">
+    <TableCell darkText>
+      <p>£556.21</p>
+    </TableCell>
+  </Story>
+</Canvas>
+
+<RenderHtmlMarkup component="V3/Table/Molecules/TableCell" story="With dark text" />
+
+### With a label for the narrow view mode
+
+Set a label that will be shown within a cell, when the table is in narrow view mode. **You may need to make your screen smaller to see this story.**
+
+HTML users, note that a data attribute is set `data-narrow-label`.
+
+<Canvas>
+  <Story name="Narrow mode: with a label">
+    <TableCell narrowLabel="Sale Price">
+      <p>£556.21</p>
+    </TableCell>
+  </Story>
+</Canvas>
+
+<RenderHtmlMarkup component="V3/Table/Molecules/TableCell" story="Narrow mode: with a label" />
+
+### Full width cell in the narrow view mode
+
+If set, this prop will ensure that in narrow view mode the cell takes up both columns of a table.
+
+<Canvas>
+  <Story name="Narrow mode: full width">
+    <TableCell narrowIsFullWidth>
+      <p>£556.21</p>
+    </TableCell>
+  </Story>
+</Canvas>
+
+<RenderHtmlMarkup component="V3/Table/Molecules/TableCell" story="Narrow mode: full width" />

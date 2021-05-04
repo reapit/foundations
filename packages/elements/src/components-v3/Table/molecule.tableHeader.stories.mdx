@@ -1,0 +1,19 @@
+import { Meta, Story, Canvas } from '@storybook/addon-docs/blocks'
+import { TableHeader } from './molecules'
+import { RenderHtmlMarkup } from '../../helpers/v3/render-html-markup'
+
+<Meta title="V3/Table/Molecules/TableHeader" component={TableHeader} />
+
+# Molecule - TableHeader
+
+`TableHeader` only renders children. Any other props given are applied to the underlying `div` element.
+
+<Canvas>
+  <Story name="Default usage">
+    <TableHeader>
+      <p>Sale Price</p>
+    </TableHeader>
+  </Story>
+</Canvas>
+
+<RenderHtmlMarkup component="V3/Table/Molecules/TableHeader" story="Default usage" />
