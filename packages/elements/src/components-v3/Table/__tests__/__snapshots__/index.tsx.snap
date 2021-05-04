@@ -1,9 +1,3 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`AfterInputText component should match a snapshot 1`] = `
-<ElAfterInputText
-  className=""
-/>
-`;
-
 exports[`Table component should match a snapshot 1`] = `<ElTable />`;
