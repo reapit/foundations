@@ -5418,6 +5418,7 @@ __metadata:
     "@types/jsonwebtoken": ^8.5.0
     "@types/just-debounce-it": ^1.1.0
     "@types/jwk-to-pem": ^2.0.0
+    "@types/lodash.debounce": ^4.0.6
     "@types/morgan": ^1.9.2
     "@types/nanoid": ^2.1.0
     "@types/node": 10.17.56
@@ -8101,17 +8102,26 @@ __metadata:
   languageName: node
   linkType: hard
 
+"@types/lodash.debounce@npm:^4.0.6":
+  version: 4.0.6
+  resolution: "@types/lodash.debounce@npm:4.0.6"
+  dependencies:
+    "@types/lodash": "*"
+  checksum: 64952797f594f4068d2edd1e178a553647ca4ed5716c9b7673f9187d012fe5b5a0141c15ffc82c8f4d29bf13040c53001634a5b43b51a9efdfb6d4fa77ae24aa
+  languageName: node
+  linkType: hard
+
+"@types/lodash@npm:*, @types/lodash@npm:^4.14.165":
+  version: 4.14.168
+  resolution: "@types/lodash@npm:4.14.168"
+  checksum: 9a4e25f89fc035b9f0388f1f7be85e5eff49f9e6db0d93432c9a89fce0916f8a89db4e8290415f7ea02de6b00d3573826378dcb655b7b2d20530a6e8d6dd6fd0
+  languageName: node
+  linkType: hard
+
 "@types/lodash@npm:^4.14.123":
   version: 4.14.155
   resolution: "@types/lodash@npm:4.14.155"
   checksum: e3fa52de94757a765761b3b5f0e483aa61de985b75f7d4a55e6f6b79c31b7cbba0e2e91eec14b38fe66b82f5cd79dd83a54069a0e5491a1c7126e01b143a0a29
-  languageName: node
-  linkType: hard
-
-"@types/lodash@npm:^4.14.165":
-  version: 4.14.168
-  resolution: "@types/lodash@npm:4.14.168"
-  checksum: 9a4e25f89fc035b9f0388f1f7be85e5eff49f9e6db0d93432c9a89fce0916f8a89db4e8290415f7ea02de6b00d3573826378dcb655b7b2d20530a6e8d6dd6fd0
   languageName: node
   linkType: hard
 
@@ -18939,6 +18949,7 @@ fsevents@^1.2.7:
     jest-coverage-badges: ^1.1.2
     linaria: ^2.0.2
     little-loader: ^0.2.0
+    lodash.debounce: ^4.0.8
     query-string: 5.1.1
     react: ^16.14.0
     react-dom: ^16.14.0
