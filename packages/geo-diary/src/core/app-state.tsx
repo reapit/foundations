@@ -8,8 +8,8 @@ export type AppTravelMode = 'DRIVING' | 'WALKING'
 export type AppTab = 'MAP' | 'LIST'
 
 export interface AppState {
-  currentLat: number
-  currentLng: number
+  currentLat: number | null
+  currentLng: number | null
   hasGeoLocation: boolean
   time: AppTimeRange
   travelMode: AppTravelMode
@@ -35,8 +35,8 @@ export interface AppStateContextProps {
 }
 
 export const defaultAppState: AppState = {
-  currentLat: 51.509865,
-  currentLng: -0.118092,
+  currentLat: null,
+  currentLng: null,
   hasGeoLocation: false,
   time: 'TODAY',
   travelMode: 'DRIVING',

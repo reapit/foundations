@@ -3,6 +3,7 @@ import { useLocation } from 'react-router'
 import {
   AppsIcon,
   DocsIcon,
+  isMobile,
   Menu as Sidebar,
   MenuConfig,
   ProfileIcon,
@@ -13,6 +14,7 @@ import { Location } from 'history'
 import { useReapitConnect } from '@reapit/connect-session'
 import { reapitConnectBrowserSession } from '@/core/connect-session'
 import { AppState, AppTab, useAppState } from '../../../core/app-state'
+import { MenuWrap } from './__styles__/styles'
 
 export const generateMenuConfig = (
   logoutCallback: () => void,
@@ -20,7 +22,8 @@ export const generateMenuConfig = (
   setAppState: Dispatch<SetStateAction<AppState>>,
   appState: AppState,
 ): MenuConfig => {
-  return {
+  const isMobileView = isMobile()
+  const config = {
     defaultActiveKey: 'DIARY',
     currentActiveKey: appState.tab === 'LIST' ? 'DIARY' : 'MAP',
     location,
@@ -35,13 +38,6 @@ export const generateMenuConfig = (
         key: 'DIARY',
         icon: <DocsIcon />,
         callback: changeTabCallback(setAppState, 'LIST'),
-        type: 'PRIMARY',
-      },
-      {
-        title: 'Map',
-        key: 'MAP',
-        icon: <ResultsIcon />,
-        callback: changeTabCallback(setAppState, 'MAP'),
         type: 'PRIMARY',
       },
       {
@@ -60,6 +56,20 @@ export const generateMenuConfig = (
       },
     ],
   }
+
+  const mapItem = {
+    title: 'Map',
+    key: 'MAP',
+    icon: <ResultsIcon />,
+    callback: changeTabCallback(setAppState, 'MAP'),
+    type: 'PRIMARY',
+  }
+
+  if (isMobileView) {
+    config.menu.splice(2, 0, mapItem)
+  }
+
+  return config as MenuConfig
 }
 
 export const changeTabCallback = (setAppState: Dispatch<SetStateAction<AppState>>, tab: AppTab) => () => {
@@ -88,7 +98,11 @@ export const Menu: React.FC<MenuProps> = () => {
         menu: menuConfigs.menu.filter((config) => config.key !== 'APPS' && config.key !== 'LOGOUT'),
       }
     : menuConfigs
-  return <Sidebar {...desktopOptimisedMenu} location={location} />
+  return (
+    <MenuWrap>
+      <Sidebar {...desktopOptimisedMenu} location={location} />
+    </MenuWrap>
+  )
 }
 
 export default Menu

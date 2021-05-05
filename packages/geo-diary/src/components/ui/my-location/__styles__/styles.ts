@@ -14,19 +14,28 @@ export const MyLocationSection = styled.div`
 export const MyLocationSectionResults = styled.div`
   position: absolute;
   bottom: 0;
-  width: calc(100% - 2rem);
+  width: 100%;
+  left: 0;
 `
 
 export const MyLocationSectionResult = styled.div`
   position: absolute;
   width: 100%;
-  padding: 0.75rem;
+  left: 0;
+  padding: 1rem 1.5rem;
   margin-bottom: 0.5rem;
   background-color: #fff;
-  border-bottom: 1px solid black;
   box-shadow: 2px 4px 20px rgba(0, 0, 0, 0.05);
   cursor: pointer;
   color: #0061a8;
+
+  svg {
+    position: absolute;
+    font-size: 1.8rem;
+    color: black;
+    right: 1.5rem;
+    top: 0.75rem;
+  }
 `
 
 export const MyLocationIconContainer = styled.div`

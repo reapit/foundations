@@ -1,4 +1,4 @@
-import React, { ChangeEvent, Dispatch, FC, SetStateAction, useEffect } from 'react'
+import React, { ChangeEvent, Dispatch, MouseEvent, FC, SetStateAction, useCallback, useEffect } from 'react'
 import { Input } from '@reapit/elements/v3'
 import {
   MyLocationIconContainer,
@@ -6,66 +6,113 @@ import {
   MyLocationSectionResult,
   MyLocationSectionResults,
 } from './__styles__/styles'
-import { BiCurrentLocation } from 'react-icons/bi'
+import { BiCurrentLocation, BiX } from 'react-icons/bi'
 import { AppState, useAppState } from '../../../core/app-state'
-import { handleRenderMyLocation } from '../map/google-map-component'
-import { AppStateParams } from '../map/types'
+import { AppStateParams, GeocoderResult } from '../map/types'
+import { getAppStateWithGeoCoords } from '../../../utils/map-utils'
+import debounce from 'lodash.debounce'
+import { DebouncedFunc } from 'lodash'
 
-export const handleFetchLocationResults = ({ appState, setAppState }: AppStateParams) => () => {
+interface HandleFetchLocationResultsParams extends AppStateParams {
+  debouncedGeolocate: DebouncedFunc<({ appState, setAppState }: AppStateParams) => void>
+}
+
+export const fetchLocationResults = ({ appState, setAppState }: AppStateParams) => {
   const { mapRefs, locationQueryAddress } = appState
-
   const googleMaps = mapRefs?.googleMapsRef?.current
 
   if (googleMaps && locationQueryAddress) {
     const geocoder = new googleMaps.Geocoder()
 
     geocoder.geocode({ address: locationQueryAddress, region: 'GB' }, (results, status) => {
-      console.log('results', results)
       if (status === 'OK') {
         setAppState((currentState) => ({
           ...currentState,
           locationQueryResults: results,
         }))
       } else {
-        console.error('Current address request failed due to: ' + status)
+        console.error('Current address request failed due to asdadad: ' + status)
       }
     })
   }
+}
+
+export const handleFetchLocationResults = ({
+  appState,
+  setAppState,
+  debouncedGeolocate,
+}: HandleFetchLocationResultsParams) => () => {
+  debouncedGeolocate({ appState, setAppState })
+
+  return debouncedGeolocate.cancel
 }
 
 export const handleSetLocationQuery = (setAppState: Dispatch<SetStateAction<AppState>>) => (
   event: ChangeEvent<HTMLInputElement>,
 ) => {
   event.persist()
-  console.log(event.target.value)
   setAppState((currentState) => ({
     ...currentState,
     locationQueryAddress: event.target.value,
   }))
 }
 
+export const handleCloseResults = (setAppState: Dispatch<SetStateAction<AppState>>) => (
+  event: MouseEvent<SVGSVGElement>,
+) => {
+  event.stopPropagation()
+  setAppState((currentState) => ({
+    ...currentState,
+    locationQueryAddress: null,
+    locationQueryResults: [],
+  }))
+}
+
+export const handleSelectResult = (setAppState: Dispatch<SetStateAction<AppState>>, result: GeocoderResult) => (
+  event: MouseEvent<HTMLDivElement>,
+) => {
+  event.stopPropagation()
+  setAppState((currentState) => ({
+    ...currentState,
+    locationQueryAddress: null,
+    locationQueryResults: [],
+    locationAddress: result.formatted_address,
+    currentLat: result.geometry.location.lat(),
+    currentLng: result.geometry.location.lng(),
+  }))
+}
+
+export const handleGeoLocateMe = (appState: AppState, setAppState: Dispatch<SetStateAction<AppState>>) => async () => {
+  const stateWithGeoCoords = await getAppStateWithGeoCoords(appState)
+  setAppState(stateWithGeoCoords)
+}
+
 export const MyLocation: FC = () => {
   const { appState, setAppState } = useAppState()
-  const { locationAddress, hasGeoLocation } = appState
+  const { locationAddress, hasGeoLocation, locationQueryAddress, locationQueryResults } = appState
+  const debouncedGeolocate = useCallback(debounce(fetchLocationResults, 1000), [locationQueryAddress])
 
-  useEffect(handleFetchLocationResults({ appState, setAppState }), [appState.locationQueryAddress])
+  useEffect(handleFetchLocationResults({ debouncedGeolocate, setAppState, appState }), [locationQueryAddress])
 
-  console.log(appState.locationQueryResults.map((locationQuery) => console.log(locationQuery.formatted_address)))
   return (
     <MyLocationSection>
       <Input
         placeholder={locationAddress ? locationAddress : 'Enter location'}
         onChange={handleSetLocationQuery(setAppState)}
+        value={locationQueryAddress ?? ''}
       />
-      {appState.locationQueryResults.length ? (
+      {locationQueryResults.length ? (
         <MyLocationSectionResults>
-          {appState.locationQueryResults.map((result) => (
-            <MyLocationSectionResult key={result.place_id}>{result.formatted_address}</MyLocationSectionResult>
+          {locationQueryResults.map((result) => (
+            <MyLocationSectionResult key={result.place_id} onClick={handleSelectResult(setAppState, result)}>
+              {result.formatted_address}
+              <BiX onClick={handleCloseResults(setAppState)} />
+            </MyLocationSectionResult>
           ))}
         </MyLocationSectionResults>
       ) : null}
       {hasGeoLocation && (
-        <MyLocationIconContainer onClick={handleRenderMyLocation({ appState, setAppState })}>
+        <MyLocationIconContainer onClick={handleGeoLocateMe(appState, setAppState)}>
           <BiCurrentLocation />
         </MyLocationIconContainer>
       )}

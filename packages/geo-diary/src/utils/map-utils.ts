@@ -13,7 +13,7 @@ export const fetchDestinationInformation = ({
 }: FetchDestinationInformation): Promise<google.maps.DistanceMatrixResponse> => {
   const { currentLat, currentLng, travelMode } = appState
   return new Promise((resolve) => {
-    if (window.google) {
+    if (window.google && currentLat && currentLng) {
       const origins = [new google.maps.LatLng(currentLat, currentLng)]
       const destinations = [
         new google.maps.LatLng(

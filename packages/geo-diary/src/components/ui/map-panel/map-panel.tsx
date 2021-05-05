@@ -1,7 +1,8 @@
 import React, { Dispatch, SetStateAction } from 'react'
-import { mapPanelContainer } from './__styles__'
-import { Button, isMobile, isIOS, ButtonGroup } from '@reapit/elements'
+import { MapPanelContainer } from './__styles__'
+import { Button, isIOS, ButtonGroup } from '@reapit/elements'
 import { AppState, useAppState } from '../../../core/app-state'
+import { buttonPaddingSmall } from '../../pages/appointment/__styles__'
 
 export type GetMapUrlParams = {
   appState: AppState
@@ -39,12 +40,6 @@ export const handleChangeTab = ({ setAppState }: HandleChangeTabParams) => () =>
   }))
 }
 
-const filterText = {
-  TODAY: 'Today',
-  TOMORROW: 'Tomorrow',
-  WEEK: 'Week View',
-}
-
 export type RouteInformation = {
   duration: { text: string; value: number } | null
   distance: { text: string; value: number } | null
@@ -55,29 +50,25 @@ export type MapPanelProps = {
 }
 
 export const MapPanel: React.FC<MapPanelProps> = ({ routeInformation }: MapPanelProps) => {
-  const { appState, setAppState } = useAppState()
-  const { destinationLat, destinationLng, time } = appState
+  const { appState } = useAppState()
 
-  if (!destinationLat && !destinationLng) {
-    return null
-  }
   return (
-    <div className={mapPanelContainer}>
+    <MapPanelContainer>
       <div>
-        <p className="is-size-4 mr-4">{routeInformation.duration?.text}</p>
+        <p className="is-size-5 mr-2">{routeInformation.duration?.text}</p>
         <p>{routeInformation.distance?.text}</p>
       </div>
       <ButtonGroup hasSpacing>
-        <Button type="button" variant="primary" onClick={handleOpenNativeMap({ appState })}>
+        <Button
+          className={buttonPaddingSmall}
+          type="button"
+          variant="primary"
+          onClick={handleOpenNativeMap({ appState })}
+        >
           Start Journey
         </Button>
-        {!isMobile() && (
-          <Button type="button" variant="primary" onClick={handleChangeTab({ setAppState })}>
-            {filterText[time]}
-          </Button>
-        )}
       </ButtonGroup>
-    </div>
+    </MapPanelContainer>
   )
 }
 

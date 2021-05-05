@@ -25,6 +25,10 @@ import {
   HandleSetAppointmentParams,
 } from './types'
 import { getShortAddress } from '../../../utils/formatting-utils'
+import startPin from '../../../assets/images/pin-customer.svg'
+import destinationPin from '../../../assets/images/pin-reapit.svg'
+import { MapContentContainer, mapContainerHasMapPanel } from './__styles__/styles'
+import { cx } from 'linaria'
 
 export const handleInfoWindowClick = (
   appointmentId: string,
@@ -91,22 +95,17 @@ export const handleRenderMarkers = ({
   const markersRef = mapRefs?.markersRef
 
   if (googleMaps && googleMaps && map && markersRef) {
-    markersRef.current = coordinates.map((coordinate: CoordinateProps, index: number) => {
+    clearMap(appState, setAppState)
+    markersRef.current = coordinates.map((coordinate: CoordinateProps) => {
       const latlng = {
         lat: coordinate.position.lat,
         lng: coordinate.position.lng,
       }
       const address = combineAddress(coordinate.address) || ''
 
-      const label = {
-        text: String(index + 1),
-        fontSize: '1.5rem',
-        fontWeight: '500',
-      }
-
       const marker = new googleMaps.Marker({
         position: latlng,
-        label,
+        icon: destinationPin,
         map,
       })
 
@@ -143,12 +142,11 @@ export const handleRenderMarkers = ({
 
 export const handleRenderMyLocation = ({ appState, setAppState }: AppStateParams) => () => {
   const { currentLat, currentLng, mapRefs } = appState
-
   const googleMaps = mapRefs?.googleMapsRef?.current
   const map = mapRefs?.mapRef?.current
   const myLocationRef = mapRefs?.myLocationRef
 
-  if (googleMaps && map && myLocationRef) {
+  if (googleMaps && map && myLocationRef && currentLat && currentLng) {
     const latlng = {
       lat: currentLat,
       lng: currentLng,
@@ -156,7 +154,7 @@ export const handleRenderMyLocation = ({ appState, setAppState }: AppStateParams
 
     const currentLocation = new googleMaps.Marker({
       position: latlng,
-      label: '',
+      icon: startPin,
       map,
     })
 
@@ -172,13 +170,15 @@ export const handleRenderMyLocation = ({ appState, setAppState }: AppStateParams
         googleMaps.event.addListener(currentLocation, 'click', () => {
           infoWindow.open(map, currentLocation)
         })
+        myLocationRef.current?.setMap(null)
+        myLocationRef.current = currentLocation
+
         setAppState((currentState) => ({
           ...currentState,
           locationAddress,
+          locationQueryLoading: false,
         }))
         setZoomAndCenter(appState)
-        myLocationRef.current?.setMap(null)
-        myLocationRef.current = currentLocation
       } else {
         console.error('Current address request failed due to: ' + status)
       }
@@ -196,7 +196,7 @@ export const handleDirectionService = ({ appState, setAppState }: AppStateParams
     notification.error({
       message: 'Directions request failed due to ' + status,
     })
-    return clearMap(appState)
+    return clearMap(appState, setAppState)
   }
 
   response?.routes?.forEach((route) => {
@@ -225,7 +225,7 @@ export const handleRenderDirections = ({ appState, setAppState }) => () => {
   const directionsRenderer = mapRefs?.directionsRendererRef?.current
   const directionsService = mapRefs?.directionsServiceRef?.current
 
-  if (mapRefs && destinationLat && destinationLng) {
+  if (mapRefs && destinationLat && destinationLng && currentLat && currentLng) {
     const googleMaps = mapRefs.googleMapsRef.current
     const map = mapRefs.mapRef.current
     const origin = new googleMaps.LatLng(currentLat, currentLng)
@@ -246,24 +246,33 @@ export const handleRenderDirections = ({ appState, setAppState }) => () => {
   }
 
   if (mapRefs && (!destinationLat || !destinationLng)) {
-    clearMap(appState)
+    clearMap(appState, setAppState)
   }
 }
 
 export const setZoomAndCenter = (appState: AppState) => {
-  const { mapRefs, currentLat, currentLng } = appState
+  const { mapRefs } = appState
 
   if (!mapRefs) return null
 
   const googleMaps = mapRefs.googleMapsRef.current
-  const bounds = mapRefs.boundsRef.current
+  const boundsRef = mapRefs.boundsRef
   const map = mapRefs.mapRef.current
   const markers = mapRefs.markersRef.current
+  const myLocation = mapRefs.myLocationRef.current
 
-  if (!googleMaps || !bounds || !map || !markers) return null
+  if (!googleMaps || !boundsRef || !map || !markers) return null
+  boundsRef.current = new googleMaps.LatLngBounds()
+
+  const bounds = boundsRef.current
+
+  if (myLocation) {
+    const position = myLocation.getPosition()
+    if (position) bounds.extend(position)
+  }
 
   if (!markers.length) {
-    return map.setCenter(new googleMaps.LatLng(currentLat, currentLng))
+    return map.setZoom(10)
   }
 
   markers.forEach((marker) => {
@@ -272,12 +281,22 @@ export const setZoomAndCenter = (appState: AppState) => {
   })
   map.fitBounds(bounds)
   map.setCenter(bounds.getCenter())
+  if (markers.length === 1 && !myLocation) {
+    map.setZoom(10)
+  }
 }
 
-export const clearMap = ({ mapRefs }: AppState) => {
+export const clearMap = (appState: AppState, setAppState: Dispatch<SetStateAction<AppState>>) => {
+  const { mapRefs } = appState
   if (!mapRefs) return null
 
   const { directionsRendererRef, markersRef } = mapRefs
+
+  setAppState((currentState) => ({
+    ...currentState,
+    routeInformation: null,
+    destinationAddress: null,
+  }))
 
   directionsRendererRef?.current?.setMap(null)
   markersRef?.current?.forEach((marker) => marker?.setMap(null))
@@ -332,8 +351,16 @@ export const GoogleMapComponent: FC<MapProps> = ({ appointments }) => {
   const boundsRef = useRef<LatLngBounds | null>(null)
   const { appState, setAppState } = useAppState()
   const coordinates: CoordinateProps[] = useMemo(handleFilterCoordinates(appointments), [appointments])
-
-  const { appointmentId, routeInformation, appointment } = appState
+  const {
+    appointmentId,
+    routeInformation,
+    appointment,
+    destinationLat,
+    destinationLng,
+    travelMode,
+    currentLat,
+    currentLng,
+  } = appState
   const modalTitle = getShortAddress(appointment?.property)
   const mapRefs: MapRefs = {
     googleMapsRef,
@@ -344,10 +371,15 @@ export const GoogleMapComponent: FC<MapProps> = ({ appointments }) => {
     myLocationRef,
     boundsRef,
   }
+  const hasMapRefs = Boolean(appState.mapRefs)
+
+  useEffect(handleSetMapRefs({ setAppState, mapRefs, appState }), [mapRefs])
+
+  useEffect(handleRenderMyLocation({ appState, setAppState }), [currentLat, currentLng, hasMapRefs])
 
   useEffect(handleSetAppointment({ appointmentId, appointments, setAppState }), [appointmentId, appointments])
 
-  useEffect(handleRenderDirections({ appState, setAppState }), [appState.destinationLat, appState.destinationLng])
+  useEffect(handleRenderDirections({ appState, setAppState }), [destinationLat, destinationLng, travelMode])
 
   useEffect(
     handleRenderMarkers({
@@ -356,22 +388,12 @@ export const GoogleMapComponent: FC<MapProps> = ({ appointments }) => {
       setAppointmentDetailModalVisible,
       coordinates,
     }),
-    [coordinates, appState],
+    [coordinates],
   )
-
-  useEffect(handleRenderMyLocation({ appState, setAppState }), [
-    appState.currentLat,
-    appState.currentLng,
-    appState.mapRefs,
-  ])
-
-  useEffect(handleSetMapRefs({ setAppState, mapRefs, appState }), [mapRefs])
-
-  console.log('App state is', appState)
 
   return (
     <>
-      <div style={{ height: '100%' }}>
+      <MapContentContainer className={cx(routeInformation && mapContainerHasMapPanel)}>
         <GoogleMap
           autoFitBounds={Boolean(appointments.length)}
           googleMaps={window.google.maps}
@@ -379,7 +401,7 @@ export const GoogleMapComponent: FC<MapProps> = ({ appointments }) => {
           onLoaded={handleOnLoaded(mapRefs)}
           zoom={10}
         />
-      </div>
+      </MapContentContainer>
       {routeInformation && <MapPanel routeInformation={routeInformation} />}
       <AppointmentDetailModal
         title={

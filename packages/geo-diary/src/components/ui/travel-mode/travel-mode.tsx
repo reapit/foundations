@@ -8,20 +8,25 @@ export type HandleChangeTravelModeParams = {
 }
 
 export const handleChangeTravelMode = ({ setAppState, travelMode }: HandleChangeTravelModeParams) => () => {
-  setAppState((currentState) => ({
-    ...currentState,
-    travelMode,
-    destinationLat: null,
-    destinationLng: null,
-    appointmentId: null,
-  }))
+  setAppState((currentState) => {
+    const mapRefs = currentState.mapRefs
+    if (mapRefs) {
+      // mapRefs.directionsRendererRef.current?.setMap(null)
+      // mapRefs.directionsServiceRef.current?.setMap(null)
+    }
+    return {
+      ...currentState,
+      mapRefs,
+      travelMode,
+    }
+  })
 }
 
 export const TravelMode: FC = () => {
   const { appState, setAppState } = useAppState()
   const { travelMode } = appState
   return (
-    <ButtonGroup isCentered className="is-narrow">
+    <ButtonGroup isCentered className="is-narrow mb-2">
       <Button
         type="button"
         variant={travelMode !== 'WALKING' ? 'primary' : 'secondary'}

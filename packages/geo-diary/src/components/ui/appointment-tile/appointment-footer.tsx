@@ -1,5 +1,5 @@
 import React, { Dispatch, FC, SetStateAction, useState } from 'react'
-import { Button, ButtonGroup, H5, SubTitleH5 } from '@reapit/elements'
+import { Button, ButtonGroup, H5, isMobile, SubTitleH5 } from '@reapit/elements'
 import { ExtendedAppointmentModel } from '../../../types/global'
 import { EtaButton } from '../eta-button/eta-button'
 import { buttonPaddingSmall } from '../../pages/appointment/__styles__'
@@ -15,9 +15,14 @@ export interface AppointmentFooterProps {
 export interface HandleDirectionOnClickParams {
   appointment: ExtendedAppointmentModel
   setAppState: Dispatch<SetStateAction<AppState>>
+  isMobileView: boolean
 }
 
-export const handleDirectionOnClick = ({ appointment, setAppState }: HandleDirectionOnClickParams) => () => {
+export const handleDirectionOnClick = ({
+  appointment,
+  setAppState,
+  isMobileView,
+}: HandleDirectionOnClickParams) => () => {
   const lat = appointment?.property?.address?.geolocation?.latitude
   const lng = appointment?.property?.address?.geolocation?.longitude
 
@@ -26,7 +31,7 @@ export const handleDirectionOnClick = ({ appointment, setAppState }: HandleDirec
     destinationLat: lat ?? currentState.destinationLat,
     destinationLng: lng ?? currentState.destinationLng,
     appointmentId: appointment.id ?? currentState.appointmentId,
-    tab: 'MAP',
+    tab: isMobileView ? 'MAP' : 'LIST',
   }))
 }
 
@@ -40,6 +45,7 @@ export const AppointmentFooter: FC<AppointmentFooterProps> = ({ appointment, nex
   const lat = appointment?.property?.address?.geolocation?.latitude
   const lng = appointment?.property?.address?.geolocation?.longitude
   const { appointmentType } = appointment
+  const isMobileView = isMobile()
 
   const hasLatLng = Boolean(lat) && Boolean(lng)
   const isNextAppointment = nextAppointment?.id && nextAppointment?.id === appointment?.id
@@ -64,7 +70,7 @@ export const AppointmentFooter: FC<AppointmentFooterProps> = ({ appointment, nex
           variant="primary"
           key="viewDirection"
           type="submit"
-          onClick={handleDirectionOnClick({ appointment, setAppState })}
+          onClick={handleDirectionOnClick({ appointment, setAppState, isMobileView })}
           disabled={false}
           loading={false}
           fullWidth={false}
