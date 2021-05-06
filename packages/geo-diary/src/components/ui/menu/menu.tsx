@@ -8,7 +8,7 @@ import {
   MenuConfig,
   ProfileIcon,
   ReapitHouseIcon,
-  ResultsIcon,
+  MapIcon,
 } from '@reapit/elements'
 import { Location } from 'history'
 import { useReapitConnect } from '@reapit/connect-session'
@@ -60,7 +60,7 @@ export const generateMenuConfig = (
   const mapItem = {
     title: 'Map',
     key: 'MAP',
-    icon: <ResultsIcon />,
+    icon: <MapIcon />,
     callback: changeTabCallback(setAppState, 'MAP'),
     type: 'PRIMARY',
   }

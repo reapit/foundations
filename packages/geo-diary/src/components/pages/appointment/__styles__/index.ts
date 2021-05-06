@@ -75,7 +75,3 @@ export const mobileAppointmentsShow = css`
     }
   }
 `
-
-export const mobileAppointments = css`
-  /* border-right: 5px grey solid; */
-`

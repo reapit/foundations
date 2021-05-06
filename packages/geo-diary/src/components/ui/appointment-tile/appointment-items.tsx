@@ -1,8 +1,12 @@
-import React, { FC } from 'react'
-import { getTime, IconList, IconListItem, Section } from '@reapit/elements'
-import { FaClock, FaStreetView, FaAddressCard } from 'react-icons/fa'
+import React, { Dispatch, FC, SetStateAction } from 'react'
 import { ExtendedAppointmentModel } from '../../../types/global'
 import { ListItemModel } from '@reapit/foundations-ts-definitions'
+import { AppState } from '../../../core/app-state'
+// import ContactDrawer from '../contact-drawer'
+import { AttendeeItem } from './attendees-item'
+import { PropertyItem } from './property-item'
+import { ContactDrawerType } from '../contact-drawer'
+import { VendorItem } from './vendor-item'
 
 export type RenderIconItemsProps = {
   appointment: ExtendedAppointmentModel
@@ -18,36 +22,30 @@ export type RenderModalTitleParams = {
   heading: string
 }
 
-export const AppointmentItems: FC<RenderIconItemsProps> = ({ appointment }) => {
-  const line2 = appointment?.property?.address?.line2 ?? ''
-  const line3 = appointment?.property?.address?.line3 ?? ''
-  const line4 = appointment?.property?.address?.line4 ?? ''
-  const postcode = appointment?.property?.address?.postcode ?? ''
-  const address = `${line2} ${line3} ${line4} ${postcode}`.trim()
-  const start = getTime(appointment?.start || '')
-  const end = getTime(appointment?.end || '')
-  const appointmentType = appointment.appointmentType?.value
+export const handleContactDrawerClose = (setContactDrawerOpen: Dispatch<SetStateAction<boolean>>) => () => {
+  setContactDrawerOpen(() => false)
+}
 
+export const handleOpenContactDrawer = (
+  setAppState: Dispatch<SetStateAction<AppState>>,
+  appointment: ExtendedAppointmentModel,
+  contactDrawerType: ContactDrawerType,
+) => () => {
+  setAppState((currentState) => ({
+    ...currentState,
+    appointment,
+    appointmentId: appointment.id ?? null,
+    contactDrawerOpen: true,
+    contactDrawerType,
+  }))
+}
+
+export const AppointmentItems: FC<RenderIconItemsProps> = ({ appointment }) => {
   return (
-    <Section hasPadding={false}>
-      <IconList
-        items={
-          [
-            {
-              icon: <FaAddressCard className="icon-list-icon" />,
-              text: address,
-            },
-            appointmentType && {
-              icon: <FaStreetView className="icon-list-icon" />,
-              text: appointmentType,
-            },
-            {
-              icon: <FaClock className="icon-list-icon" />,
-              text: appointment.cancelled ? 'Appointment cancelled' : `${start} - ${end}`,
-            },
-          ].filter((item) => !!item) as IconListItem[]
-        }
-      />
-    </Section>
+    <>
+      <PropertyItem appointment={appointment} />
+      <AttendeeItem appointment={appointment} />
+      <VendorItem appointment={appointment} />
+    </>
   )
 }

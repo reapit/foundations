@@ -1,4 +1,4 @@
-import React, { Dispatch, FC, SetStateAction, useState } from 'react'
+import React, { Dispatch, FC, SetStateAction } from 'react'
 import { Button, ButtonGroup, isMobile } from '@reapit/elements'
 import { ExtendedAppointmentModel } from '../../../types/global'
 import { EtaButton } from '../eta-button/eta-button'
@@ -44,25 +44,12 @@ export const handleModalOpen = (setModalVisible: Dispatch<SetStateAction<boolean
   setModalVisible(() => true)
 }
 
-export const getContactsFromAppointment = (appointment: ExtendedAppointmentModel) => {
-  const { attendee } = appointment
-  let contacts: any = []
-
-  if (attendee && attendee.contacts) {
-    contacts = [...attendee.contacts]
-  }
-
-  if (appointment) console.log(appointment)
-
-  return contacts
-}
-
 export const AppointmentFooter: FC<AppointmentFooterProps> = ({ appointment, nextAppointment, headingText }) => {
   const { setAppState } = useAppState()
-  const [modalVisible, setModalVisible] = useState<boolean>(false)
+  // const [modalVisible, setModalVisible] = useState<boolean>(false)
   const lat = appointment?.property?.address?.geolocation?.latitude
   const lng = appointment?.property?.address?.geolocation?.longitude
-  const contacts = getContactsFromAppointment(appointment)
+
   const isMobileView = isMobile()
 
   console.log(headingText)
@@ -77,7 +64,7 @@ export const AppointmentFooter: FC<AppointmentFooterProps> = ({ appointment, nex
         variant="primary"
         key="viewDetails"
         type="submit"
-        onClick={handleModalOpen(setModalVisible)}
+        // onClick={handleModalOpen(setModalVisible)}
         disabled={false}
         loading={false}
         fullWidth={false}
@@ -99,7 +86,7 @@ export const AppointmentFooter: FC<AppointmentFooterProps> = ({ appointment, nex
         </Button>
       )}
       {isNextAppointment && <EtaButton key="etaButton" appointment={appointment} />}
-      <ContactDrawer isOpen={modalVisible} handleClose={handleModalClose(setModalVisible)} contacts={contacts} />
+      <ContactDrawer />
       {/* <AppointmentDetailModal
         title={
           <>

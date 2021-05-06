@@ -379,7 +379,13 @@ export const GoogleMapComponent: FC<MapProps> = ({ appointments }) => {
 
   useEffect(handleSetAppointment({ appointmentId, appointments, setAppState }), [appointmentId, appointments])
 
-  useEffect(handleRenderDirections({ appState, setAppState }), [destinationLat, destinationLng, travelMode])
+  useEffect(handleRenderDirections({ appState, setAppState }), [
+    currentLat,
+    currentLng,
+    destinationLat,
+    destinationLng,
+    travelMode,
+  ])
 
   useEffect(
     handleRenderMarkers({

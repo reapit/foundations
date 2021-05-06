@@ -1,26 +1,33 @@
 import React, { Dispatch, FC, MutableRefObject, SetStateAction, useEffect, useRef } from 'react'
-import { H5, Section } from '@reapit/elements'
+import { getTime, H5, Section, SubTitleH6 } from '@reapit/elements'
 import { ExtendedAppointmentModel } from '@/types/global'
-import { AppointmentFooter } from './appointment-footer'
+// import { AppointmentFooter } from './appointment-footer'
 import { AppointmentItems } from './appointment-items'
 import { AppState, useAppState } from '../../../core/app-state'
 import { highlightTile, appointmentTile } from './__styles__/styles'
 import { cx } from 'linaria'
-import { getShortAddress } from '../../../utils/formatting-utils'
+// import { VendorModel } from '../../pages/appointment/appointment'
+// import { getShortAddress } from '../../../utils/formatting-utils'
+// import ContactDrawer from '../contact-drawer'
+// import {FaDirections} from 'react-icons/fa'
 
 export type AppointmentTileProps = {
   appointment: ExtendedAppointmentModel
-  nextAppointment?: ExtendedAppointmentModel
 }
 
 export const handleSetAppointmentId = (
   setAppState: Dispatch<SetStateAction<AppState>>,
-  appointmentId?: string,
+  appointment: ExtendedAppointmentModel,
 ) => () => {
-  if (appointmentId) {
+  const { id, property } = appointment
+  const destinationLat = property?.address?.geolocation?.latitude ?? null
+  const destinationLng = property?.address?.geolocation?.longitude ?? null
+  if (id) {
     setAppState((currentState) => ({
       ...currentState,
-      appointmentId,
+      appointmentId: id,
+      destinationLat,
+      destinationLng,
     }))
   }
 }
@@ -35,22 +42,31 @@ export const handleScrollIntoView = (
   }
 }
 
-export const AppointmentTile: FC<AppointmentTileProps> = ({ appointment, nextAppointment }) => {
+export const AppointmentTile: FC<AppointmentTileProps> = ({ appointment /*, nextAppointment*/ }) => {
   const { appState, setAppState } = useAppState()
   const { appointmentId } = appState
   const tileRef = useRef<HTMLDivElement>(null)
-  const { id, property } = appointment
-  const headingText = getShortAddress(property)
+  const { id } = appointment
 
+  const start = getTime(appointment?.start ?? '')
+  const end = getTime(appointment?.end ?? '')
+  const appointmentType = appointment.appointmentType?.value
+
+  const headingText = `${start} - ${end}`
   useEffect(handleScrollIntoView(tileRef, appointmentId, id), [appointmentId, id])
 
   return (
-    <div onClick={handleSetAppointmentId(setAppState, id)} ref={tileRef}>
-      <Section className={cx(appointmentTile, appointmentId === id && highlightTile)}>
-        <H5>{headingText}</H5>
-        <AppointmentItems appointment={appointment} />
-        <AppointmentFooter appointment={appointment} nextAppointment={nextAppointment} headingText={headingText} />
-      </Section>
-    </div>
+    <>
+      <div onClick={handleSetAppointmentId(setAppState, appointment)} ref={tileRef}>
+        <Section className={cx(appointmentTile, appointmentId === id && highlightTile)}>
+          <H5 className="text-ellipsis">{headingText}</H5>
+          {appointmentType && <SubTitleH6>{appointmentType}</SubTitleH6>}
+          <AppointmentItems appointment={appointment} />
+        </Section>
+      </div>
+    </>
   )
+}
+{
+  /* <AppointmentFooter appointment={appointment} nextAppointment={nextAppointment} headingText={headingText} /> */
 }

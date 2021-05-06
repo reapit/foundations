@@ -1,44 +1,40 @@
-import * as React from 'react'
-import { cx } from 'linaria'
-import Drawer, { DrawerHeader } from '../drawer'
-import EmailRow from './email-row'
-import PhoneRow from './phone-row'
-import Tag from '../tag'
-import { VendorModel } from '@reapit/foundations-ts-definitions'
-import * as styles from './__styles__'
+import React, { Dispatch, SetStateAction } from 'react'
+import Drawer from '../drawer'
 
-export interface IContactDrawerProps {
-  isOpen: boolean
-  handleClose: () => void
-  contacts?: VendorModel['related']
+import { AppState, useAppState } from '../../../core/app-state'
+import { AttendeeDrawer } from './attendee-drawer'
+import { PropertyDrawer } from './property-drawer'
+import { VendorDrawer } from './vendor-drawer'
+
+export type ContactDrawerType = 'ATTENDEE' | 'PROPERTY' | 'VENDOR'
+
+export const handleClose = (setAppState: Dispatch<SetStateAction<AppState>>) => () => {
+  setAppState((currentState) => ({
+    ...currentState,
+    contactDrawerOpen: false,
+  }))
 }
 
-const ContactDrawer: React.FC<IContactDrawerProps> = ({ contacts = [], isOpen, handleClose }: IContactDrawerProps) => {
-  console.log(contacts)
-  return (
-    <Drawer isOpen={isOpen} handleClose={handleClose}>
-      {contacts.map((contact, index) => {
-        const { name, mobilePhone, homePhone, workPhone, email } = contact
-        const noPhoneNumbers = !mobilePhone && !homePhone && !workPhone
+export const getDrawerContent = (contactDrawerType: ContactDrawerType) => {
+  switch (contactDrawerType) {
+    case 'ATTENDEE':
+      return <AttendeeDrawer />
+    case 'PROPERTY':
+      return <PropertyDrawer />
+    case 'VENDOR':
+      return <VendorDrawer />
+    default:
+      return null
+  }
+}
 
-        return (
-          <>
-            {index === 0 ? (
-              <DrawerHeader title={`Reach out to ${name}`} handleClose={handleClose} />
-            ) : (
-              <h2 className={cx(styles.contactName, styles.extraContactName)}>
-                <span>{name}</span>
-                <Tag label="Additional contact" />
-              </h2>
-            )}
-            {noPhoneNumbers && <PhoneRow label="Phone" />}
-            {mobilePhone && <PhoneRow label="Mobile" phoneNumber={mobilePhone} showMobileActions />}
-            {homePhone && <PhoneRow label="Home" phoneNumber={homePhone} />}
-            {workPhone && <PhoneRow label="Work" phoneNumber={workPhone} />}
-            <EmailRow label="Email" email={email} />
-          </>
-        )
-      })}
+const ContactDrawer: React.FC = () => {
+  const { appState, setAppState } = useAppState()
+  const { contactDrawerOpen, contactDrawerType } = appState
+
+  return (
+    <Drawer isOpen={contactDrawerOpen} handleClose={handleClose(setAppState)}>
+      {getDrawerContent(contactDrawerType)}
     </Drawer>
   )
 }

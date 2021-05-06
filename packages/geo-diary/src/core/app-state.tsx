@@ -1,4 +1,6 @@
 import React, { createContext, Dispatch, SetStateAction, useContext, useEffect, useState } from 'react'
+import { VendorModel } from '../components/pages/appointment/appointment'
+import { ContactDrawerType } from '../components/ui/contact-drawer'
 import { Distance, Duration, GeocoderResult, MapRefs } from '../components/ui/map/types'
 import { ExtendedAppointmentModel } from '../types/global'
 import { getAppStateWithGeoCoords } from '../utils/map-utils'
@@ -27,6 +29,9 @@ export interface AppState {
   mapRefs: MapRefs | null
   locationQueryAddress: string | null
   locationQueryResults: GeocoderResult[]
+  contactDrawerOpen: boolean
+  contactDrawerType: ContactDrawerType
+  vendors: VendorModel[]
 }
 
 export interface AppStateContextProps {
@@ -51,6 +56,9 @@ export const defaultAppState: AppState = {
   mapRefs: null,
   locationQueryAddress: null,
   locationQueryResults: [],
+  contactDrawerOpen: false,
+  contactDrawerType: 'ATTENDEE',
+  vendors: [],
 }
 
 export const AppStateContext = createContext<AppStateContextProps>({} as AppStateContextProps)

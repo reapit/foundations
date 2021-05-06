@@ -1,9 +1,10 @@
-import React, { FC, memo, useMemo } from 'react'
+import React, { FC, memo, useEffect, useMemo } from 'react'
 import { useQuery } from '@apollo/react-hooks'
 import dayjs from 'dayjs'
 import { FadeIn } from '@reapit/elements'
 import { ExtendedAppointmentModel } from '@/types/global'
 import GET_APPOINTMENTS from '../../../graphql/queries/get-appointments.graphql'
+import GET_VENDORS from '../../../graphql/queries/get-vendors.graphql'
 import { reapitConnectBrowserSession } from '@/core/connect-session'
 import { useReapitConnect } from '@reapit/connect-session'
 import { useAppState } from '../../../core/app-state'
@@ -15,7 +16,6 @@ import {
   AppoinmentContainer,
   ControlsContainer,
   MapContainer,
-  mobileAppointments,
   mobileAppointmentsHidden,
   mobileAppointmentsShow,
 } from './__styles__'
@@ -36,6 +36,31 @@ export type AppointmentListQueryData = {
     _links: string
     _embedded: ExtendedAppointmentModel[]
   }
+}
+
+export type VendorRelatedModel = {
+  id: string
+  name?: string
+  type?: string
+  homePhone?: string
+  workPhone?: string
+  mobilePhone?: string
+  email?: string
+}
+
+export type VendorModel = {
+  id: string
+  related: VendorRelatedModel[]
+}
+
+export type VendorsQueryData = {
+  GetVendors: {
+    _embedded: VendorModel[]
+  }
+}
+
+export type VendorsQueryVariables = {
+  id: string[]
 }
 
 export type AppointmentListQueryVariables = {
@@ -83,9 +108,14 @@ export const sortAppoinmentsByStartTime = (
   return sortedAppoinments
 }
 
+export const getVendorIds = (appointments: ExtendedAppointmentModel[]) => (): string[] =>
+  appointments
+    .map((appointment) => appointment?.property?.selling?.vendorId)
+    .filter((vendorId) => !!vendorId) as string[]
+
 export const Appointment: FC<AppointmentProps> = () => {
   const { connectSession } = useReapitConnect(reapitConnectBrowserSession)
-  const { appState } = useAppState()
+  const { appState, setAppState } = useAppState()
   const { time } = appState
   const userCode = connectSession?.loginIdentity.userCode ?? ''
   const { start, end } = startAndEndTime[time]
@@ -103,6 +133,24 @@ export const Appointment: FC<AppointmentProps> = () => {
     skip: !userCode,
   })
 
+  const vendorIds = useMemo(getVendorIds(data?.GetAppointments?._embedded || []), [data?.GetAppointments?._embedded])
+
+  const { data: vendors } = useQuery<VendorsQueryData, VendorsQueryVariables>(GET_VENDORS, {
+    variables: {
+      id: vendorIds,
+    },
+    skip: !vendorIds.length,
+  })
+
+  useEffect(() => {
+    if (vendors?.GetVendors._embedded.length) {
+      setAppState((currentState) => ({
+        ...currentState,
+        vendors: vendors.GetVendors._embedded,
+      }))
+    }
+  }, [vendors])
+
   const appointmentSorted = useMemo(sortAppoinmentsByStartTime(data?.GetAppointments?._embedded || []), [
     data?.GetAppointments?._embedded,
   ])
@@ -114,9 +162,7 @@ export const Appointment: FC<AppointmentProps> = () => {
         <TravelMode />
         <MyLocation />
       </ControlsContainer>
-      <AppoinmentContainer
-        className={cx(mobileAppointments, tab === 'MAP' ? mobileAppointmentsHidden : mobileAppointmentsShow)}
-      >
+      <AppoinmentContainer className={cx(tab === 'MAP' ? mobileAppointmentsHidden : mobileAppointmentsShow)}>
         {loading ? (
           <Loader label="Loading" />
         ) : (
