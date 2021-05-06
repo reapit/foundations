@@ -18956,6 +18956,7 @@ fsevents@^1.2.7:
     react-ga: ^2.7.0
     react-router: ^5.2.0
     react-router-dom: ^5.2.0
+    react-swipeable: ^6.1.0
     rimraf: ^3.0.2
     serverless: ^2.28.0
     serverless-s3-deploy: ^0.10.0
@@ -30539,6 +30540,15 @@ fsevents@^1.2.7:
     react: ^0.14.0 || ^15.0.1 || ^16.0.0 || ^17.0.0
     react-dom: ^0.14.0 || ^15.0.1 || ^16.0.0 || ^17.0.0
   checksum: fa9694f2e8ce05ab2e19acb577bed85433be4a0a7dca8ee5888090c6bc171f3417d957b8097fdd3a08284fa96e1c621585313431a9e8c2c138a4acbb9e318321
+  languageName: node
+  linkType: hard
+
+"react-swipeable@npm:^6.1.0":
+  version: 6.1.0
+  resolution: "react-swipeable@npm:6.1.0"
+  peerDependencies:
+    react: ^16.8.3 || ^17
+  checksum: bb2e4843d815c7fa5e6eaceaecd479ab42844bc40572f2c7642bf8f8ebbac5f5852f05a76406f659fa7d410e09905a17138c9f4c95ddfbea3734ea146473a061
   languageName: node
   linkType: hard
 
