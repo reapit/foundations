@@ -1,10 +1,11 @@
 import React, { Dispatch, FC, SetStateAction, useState } from 'react'
-import { Button, ButtonGroup, H5, isMobile, SubTitleH5 } from '@reapit/elements'
+import { Button, ButtonGroup, isMobile } from '@reapit/elements'
 import { ExtendedAppointmentModel } from '../../../types/global'
 import { EtaButton } from '../eta-button/eta-button'
 import { buttonPaddingSmall } from '../../pages/appointment/__styles__'
 import { AppState, useAppState } from '../../../core/app-state'
-import { AppointmentDetailModal } from '../appointment-detail-modal/appointment-detail-modal'
+// import { AppointmentDetailModal } from '../appointment-detail-modal/appointment-detail-modal'
+import ContactDrawer from '../contact-drawer/index'
 
 export interface AppointmentFooterProps {
   appointment: ExtendedAppointmentModel
@@ -35,8 +36,25 @@ export const handleDirectionOnClick = ({
   }))
 }
 
-export const handleModalToggle = (setModalVisible: Dispatch<SetStateAction<boolean>>) => () => {
-  setModalVisible((modalVisible) => !modalVisible)
+export const handleModalClose = (setModalVisible: Dispatch<SetStateAction<boolean>>) => () => {
+  setModalVisible(() => false)
+}
+
+export const handleModalOpen = (setModalVisible: Dispatch<SetStateAction<boolean>>) => () => {
+  setModalVisible(() => true)
+}
+
+export const getContactsFromAppointment = (appointment: ExtendedAppointmentModel) => {
+  const { attendee } = appointment
+  let contacts: any = []
+
+  if (attendee && attendee.contacts) {
+    contacts = [...attendee.contacts]
+  }
+
+  if (appointment) console.log(appointment)
+
+  return contacts
 }
 
 export const AppointmentFooter: FC<AppointmentFooterProps> = ({ appointment, nextAppointment, headingText }) => {
@@ -44,8 +62,10 @@ export const AppointmentFooter: FC<AppointmentFooterProps> = ({ appointment, nex
   const [modalVisible, setModalVisible] = useState<boolean>(false)
   const lat = appointment?.property?.address?.geolocation?.latitude
   const lng = appointment?.property?.address?.geolocation?.longitude
-  const { appointmentType } = appointment
+  const contacts = getContactsFromAppointment(appointment)
   const isMobileView = isMobile()
+
+  console.log(headingText)
 
   const hasLatLng = Boolean(lat) && Boolean(lng)
   const isNextAppointment = nextAppointment?.id && nextAppointment?.id === appointment?.id
@@ -57,12 +77,12 @@ export const AppointmentFooter: FC<AppointmentFooterProps> = ({ appointment, nex
         variant="primary"
         key="viewDetails"
         type="submit"
-        onClick={handleModalToggle(setModalVisible)}
+        onClick={handleModalOpen(setModalVisible)}
         disabled={false}
         loading={false}
         fullWidth={false}
       >
-        Details
+        Contacts
       </Button>
       {hasLatLng && (
         <Button
@@ -79,7 +99,8 @@ export const AppointmentFooter: FC<AppointmentFooterProps> = ({ appointment, nex
         </Button>
       )}
       {isNextAppointment && <EtaButton key="etaButton" appointment={appointment} />}
-      <AppointmentDetailModal
+      <ContactDrawer isOpen={modalVisible} handleClose={handleModalClose(setModalVisible)} contacts={contacts} />
+      {/* <AppointmentDetailModal
         title={
           <>
             <H5>{headingText}</H5>
@@ -89,7 +110,7 @@ export const AppointmentFooter: FC<AppointmentFooterProps> = ({ appointment, nex
         appointment={appointment}
         visible={modalVisible}
         onClose={handleModalToggle(setModalVisible)}
-      />
+      /> */}
     </ButtonGroup>
   )
 }

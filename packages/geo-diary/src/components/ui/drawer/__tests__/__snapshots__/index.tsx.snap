@@ -1,0 +1,33 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Drawer component should match a snapshot when closed 1`] = `
+<Fragment>
+  <div
+    className=""
+    onClick={[Function]}
+    onMouseDown={[Function]}
+  />
+  <div
+    className=""
+    onMouseDown={[Function]}
+  >
+    Hello. I am content.
+  </div>
+</Fragment>
+`;
+
+exports[`Drawer component should match a snapshot when open 1`] = `
+<Fragment>
+  <div
+    className=""
+    onClick={[Function]}
+    onMouseDown={[Function]}
+  />
+  <div
+    className=""
+    onMouseDown={[Function]}
+  >
+    Hello. I am content.
+  </div>
+</Fragment>
+`;

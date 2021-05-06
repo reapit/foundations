@@ -37,6 +37,7 @@
     "react-ga": "^2.7.0",
     "react-router": "^5.2.0",
     "react-router-dom": "^5.2.0",
+    "react-swipeable": "^6.1.0",
     "yup": "^0.29.3"
   },
   "devDependencies": {

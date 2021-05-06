@@ -1,0 +1,33 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`IconButton component should match a snapshot 1`] = `
+<button
+  className=""
+>
+  <Icon
+    icon="add"
+  />
+</button>
+`;
+
+exports[`IconButton component should match a snapshot when disabled 1`] = `
+<button
+  className=""
+  disabled={true}
+>
+  <Icon
+    icon="add"
+  />
+</button>
+`;
+
+exports[`IconButton component should match a snapshot when in dark mode 1`] = `
+<button
+  className=""
+>
+  <Icon
+    color="white"
+    icon="add"
+  />
+</button>
+`;

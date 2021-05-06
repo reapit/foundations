@@ -31,7 +31,7 @@ export const fetchLocationResults = ({ appState, setAppState }: AppStateParams) 
           locationQueryResults: results,
         }))
       } else {
-        console.error('Current address request failed due to asdadad: ' + status)
+        console.error(`Current address request failed due to ${status}`)
       }
     })
   }
