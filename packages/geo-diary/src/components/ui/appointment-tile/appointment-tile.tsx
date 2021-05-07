@@ -1,174 +1,72 @@
-import React from 'react'
-import { IconList, getTime, Button, H5, SubTitleH5, ButtonGroup, Section } from '@reapit/elements'
-import qs from 'query-string'
-import { useLocation, useHistory } from 'react-router-dom'
-import { History } from 'history'
-import { FaClock, FaStreetView, FaAddressCard } from 'react-icons/fa'
+import React, { Dispatch, FC, MutableRefObject, SetStateAction, useEffect, useRef } from 'react'
+import { getTime, H5, SubTitleH6 } from '@reapit/elements'
 import { ExtendedAppointmentModel } from '@/types/global'
-import { ROUTES } from '@/core/router'
-import AppointmentDetailModal from '../appointment-detail-modal'
-import { ListItemModel } from '@reapit/foundations-ts-definitions'
-import { ETAButton } from '../eta-button/eta-button'
-import { buttonPaddingSmall } from '../../pages/appointment/__styles__'
-
-export type RenderIconItemsParams = {
-  appointment: ExtendedAppointmentModel
-}
-
-export const renderIconItems = ({ appointment }: RenderIconItemsParams) => {
-  const line2 = appointment?.property?.address?.line2 ?? ''
-  const line3 = appointment?.property?.address?.line3 ?? ''
-  const line4 = appointment?.property?.address?.line4 ?? ''
-  const postcode = appointment?.property?.address?.postcode ?? ''
-  const address = `${line2} ${line3} ${line4} ${postcode}`
-  const start = getTime(appointment?.start || '')
-  const end = getTime(appointment?.end || '')
-  const appointmentType = appointment.appointmentType
-
-  const iconItems: Array<{ icon: React.ReactElement; text: string }> = []
-  if (address.trim()) {
-    iconItems.push({
-      icon: <FaAddressCard className="icon-list-icon" />,
-      text: address,
-    })
-  }
-
-  if (appointmentType && appointmentType.value) {
-    iconItems.push({
-      icon: <FaStreetView className="icon-list-icon" />,
-      text: appointmentType.value,
-    })
-  }
-
-  iconItems.push({
-    icon: <FaClock className="icon-list-icon" />,
-    text: appointment.cancelled ? 'Appointment cancelled' : `${start} - ${end}`,
-  })
-  return iconItems
-}
-
-export type HandleDirectionOnClickParams = {
-  appointment: ExtendedAppointmentModel
-  queryParams: qs.ParsedQuery<string>
-  history: History
-}
-
-export const handleDirectionOnClick = ({ appointment, queryParams, history }: HandleDirectionOnClickParams) => () => {
-  const lat = appointment?.property?.address?.geolocation?.latitude
-  const lng = appointment?.property?.address?.geolocation?.longitude
-  const queryString = qs.stringify({
-    ...queryParams,
-    destinationLat: lat,
-    destinationLng: lng,
-    appointmentId: appointment.id,
-    tab: 'map',
-  })
-  history.push(`${ROUTES.APPOINTMENT}?${queryString}`)
-}
-
-export type RenderFooterItemsParams = {
-  appointment: ExtendedAppointmentModel
-  queryParams: qs.ParsedQuery<string>
-  history: History
-  setShowDetail: React.Dispatch<React.SetStateAction<boolean>>
-  nextAppointment?: ExtendedAppointmentModel
-}
-
-export const renderFooterItems = ({
-  appointment,
-  queryParams,
-  history,
-  setShowDetail,
-  nextAppointment,
-}: RenderFooterItemsParams) => {
-  const lat = appointment?.property?.address?.geolocation?.latitude
-  const lng = appointment?.property?.address?.geolocation?.longitude
-  const buttons = [
-    <Button
-      className={buttonPaddingSmall}
-      variant="primary"
-      key="viewDetails"
-      type="submit"
-      onClick={() => setShowDetail(true)}
-      disabled={false}
-      loading={false}
-      fullWidth={false}
-    >
-      Details
-    </Button>,
-  ] as JSX.Element[]
-  if (!!lat && !!lng) {
-    buttons.push(
-      <Button
-        className={buttonPaddingSmall}
-        variant="primary"
-        key="viewDirection"
-        type="submit"
-        onClick={handleDirectionOnClick({ appointment, queryParams, history })}
-        disabled={false}
-        loading={false}
-        fullWidth={false}
-      >
-        Directions
-      </Button>,
-    )
-  }
-  if (!!nextAppointment?.id && nextAppointment?.id == appointment?.id) {
-    buttons.push(<ETAButton key="etaButton" appointment={appointment} queryParams={queryParams} />)
-  }
-  return buttons
-}
+import { AppointmentItems } from './appointment-items'
+import { AppState, useAppState } from '../../../core/app-state'
+import { highlightTile, AppointmentTileContainer, AppointmentTileHeadingWrap, cancelledTile } from './__styles__/styles'
+import { cx } from 'linaria'
+import { ContextMenu } from '../context-menu/index'
 
 export type AppointmentTileProps = {
   appointment: ExtendedAppointmentModel
-  nextAppointment?: ExtendedAppointmentModel
 }
 
-export type RenderModalTitleParams = {
-  appointmentType?: ListItemModel
-  heading: string
+export const handleSetAppointmentId = (
+  setAppState: Dispatch<SetStateAction<AppState>>,
+  appointment: ExtendedAppointmentModel,
+) => () => {
+  const { id, property } = appointment
+  const destinationLat = property?.address?.geolocation?.latitude ?? null
+  const destinationLng = property?.address?.geolocation?.longitude ?? null
+  if (id) {
+    setAppState((currentState) => ({
+      ...currentState,
+      appointmentId: id,
+      destinationLat,
+      destinationLng,
+    }))
+  }
 }
-export const renderModalTitle = ({ appointmentType, heading }) => {
+
+export const handleScrollIntoView = (
+  tileRef: MutableRefObject<HTMLDivElement | null>,
+  appointmentId: string | null,
+  id?: string,
+) => () => {
+  if (tileRef.current && appointmentId && id && appointmentId === id) {
+    tileRef.current.scrollIntoView({ behavior: 'smooth', block: 'nearest' })
+  }
+}
+
+export const AppointmentTile: FC<AppointmentTileProps> = ({ appointment }) => {
+  const { appState, setAppState } = useAppState()
+  const { appointmentId } = appState
+  const tileRef = useRef<HTMLDivElement>(null)
+  const { id } = appointment
+
+  const start = getTime(appointment?.start ?? '')
+  const end = getTime(appointment?.end ?? '')
+  const appointmentType = appointment.appointmentType?.value
+  const cancelledText = appointment.cancelled ? ' - Cancelled ' : ''
+  const headingText = `${start} - ${end}${cancelledText}`
+  useEffect(handleScrollIntoView(tileRef, appointmentId, id), [appointmentId, id])
+
   return (
     <>
-      {heading && <H5>{heading}</H5>}
-      {appointmentType && <SubTitleH5 className="mb-0">{appointmentType?.value}</SubTitleH5>}
+      <div onClick={handleSetAppointmentId(setAppState, appointment)} ref={tileRef}>
+        <AppointmentTileContainer
+          className={cx(appointmentId === id && highlightTile, appointment.cancelled && cancelledTile)}
+        >
+          <AppointmentTileHeadingWrap>
+            <div>
+              <H5 className="text-ellipsis">{headingText}</H5>
+              {appointmentType && <SubTitleH6>{appointmentType}</SubTitleH6>}
+            </div>
+            <ContextMenu appointment={appointment} />
+          </AppointmentTileHeadingWrap>
+          <AppointmentItems appointment={appointment} />
+        </AppointmentTileContainer>
+      </div>
     </>
   )
 }
-
-export const handleModalClose = (setShowDetail: React.Dispatch<React.SetStateAction<boolean>>) => () => {
-  setShowDetail(false)
-}
-
-export const AppointmentTile: React.FC<AppointmentTileProps> = ({ appointment, nextAppointment }) => {
-  const location = useLocation()
-  const history = useHistory()
-  const queryParams = qs.parse(location.search)
-  const line1 = appointment?.property?.address?.line1 ?? ''
-  const buildingName = appointment?.property?.address?.buildingName ?? ''
-  const buildingNumber = appointment?.property?.address?.buildingNumber ?? ''
-  const heading = `${buildingNumber || buildingName || ''} ${line1 || ''}`
-  const [isShowDetail, setShowDetail] = React.useState<boolean>(false)
-  return (
-    <>
-      <Section className={queryParams.appointmentId === appointment.id ? 'highlight' : ''}>
-        <H5>{heading}</H5>
-        <div className="mb-4">
-          <IconList items={renderIconItems({ appointment })} />
-        </div>
-        <ButtonGroup isCentered hasSpacing key={appointment.id}>
-          {renderFooterItems({ appointment, queryParams, history, setShowDetail, nextAppointment })}
-        </ButtonGroup>
-      </Section>
-      <AppointmentDetailModal
-        title={renderModalTitle({ heading, appointmentType: appointment?.appointmentType })}
-        appointment={appointment}
-        visible={isShowDetail}
-        onClose={handleModalClose(setShowDetail)}
-      />
-    </>
-  )
-}
-
-export default AppointmentTile

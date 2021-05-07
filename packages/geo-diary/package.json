@@ -30,12 +30,14 @@
     "graphql": "14.7.0",
     "linaria": "^2.0.2",
     "little-loader": "^0.2.0",
+    "lodash.debounce": "^4.0.8",
     "query-string": "5.1.1",
     "react": "^16.14.0",
     "react-dom": "^16.14.0",
     "react-ga": "^2.7.0",
     "react-router": "^5.2.0",
     "react-router-dom": "^5.2.0",
+    "react-swipeable": "^6.1.0",
     "yup": "^0.29.3"
   },
   "devDependencies": {

@@ -1,55 +1,50 @@
-import * as React from 'react'
+import React, { Dispatch, memo, SetStateAction } from 'react'
 import { ButtonGroup, Button } from '@reapit/elements'
-import { History } from 'history'
-import qs from 'query-string'
-import { ROUTES } from '@/core/router'
+import { AppState, useAppState, AppTimeRange } from '../../../core/app-state'
 
 export type HandleChangeTimeParams = {
-  time: 'today' | 'tomorrow' | 'weekView'
-  queryParams: qs.ParsedQuery<string>
-  history: History
+  time: AppTimeRange
+  setAppState: Dispatch<SetStateAction<AppState>>
 }
 
-export const handleChangeTime = ({ history, time, queryParams }: HandleChangeTimeParams) => () => {
-  const queryString = qs.stringify({
-    ...queryParams,
+export const handleChangeTime = ({ time, setAppState }: HandleChangeTimeParams) => () => {
+  setAppState((currentState) => ({
+    ...currentState,
     time: time,
-    destinationLat: undefined,
-    destinationLng: undefined,
-    appointmentId: undefined,
-  })
-  history.push(`${ROUTES.APPOINTMENT}?${queryString}`)
+    destinationLat: null,
+    destinationLng: null,
+    appointmentId: null,
+  }))
 }
 
-export interface AppointmentTimeProps {
-  queryParams: qs.ParsedQuery<string>
-  history: History
+export const AppointmentTime = () => {
+  const { appState, setAppState } = useAppState()
+  const { time } = appState
+  return (
+    <ButtonGroup className="is-narrow mb-2" isCentered>
+      <Button
+        type="button"
+        variant={time !== 'TOMORROW' && time !== 'WEEK' ? 'primary' : 'secondary'}
+        onClick={handleChangeTime({ setAppState, time: 'TODAY' })}
+      >
+        TODAY
+      </Button>
+      <Button
+        type="button"
+        variant={time === 'TOMORROW' ? 'primary' : 'secondary'}
+        onClick={handleChangeTime({ setAppState, time: 'TOMORROW' })}
+      >
+        TOMORROW
+      </Button>
+      <Button
+        type="button"
+        variant={time === 'WEEK' ? 'primary' : 'secondary'}
+        onClick={handleChangeTime({ setAppState, time: 'WEEK' })}
+      >
+        WEEK
+      </Button>
+    </ButtonGroup>
+  )
 }
 
-export const AppointmentTime = ({ queryParams, history }: AppointmentTimeProps) => (
-  <ButtonGroup className="is-narrow" isCentered>
-    <Button
-      type="button"
-      variant={queryParams.time !== 'tomorrow' && queryParams.time !== 'weekView' ? 'primary' : 'secondary'}
-      onClick={handleChangeTime({ queryParams, history, time: 'today' })}
-    >
-      TODAY
-    </Button>
-    <Button
-      type="button"
-      variant={queryParams.time === 'tomorrow' ? 'primary' : 'secondary'}
-      onClick={handleChangeTime({ queryParams, history, time: 'tomorrow' })}
-    >
-      TOMORROW
-    </Button>
-    <Button
-      type="button"
-      variant={queryParams.time === 'weekView' ? 'primary' : 'secondary'}
-      onClick={handleChangeTime({ queryParams, history, time: 'weekView' })}
-    >
-      WEEK
-    </Button>
-  </ButtonGroup>
-)
-
-export default React.memo(AppointmentTime)
+export default memo(AppointmentTime)

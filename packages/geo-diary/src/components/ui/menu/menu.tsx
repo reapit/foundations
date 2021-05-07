@@ -1,19 +1,44 @@
-import * as React from 'react'
+import React, { Dispatch, SetStateAction } from 'react'
 import { useLocation } from 'react-router'
-import { AppsIcon, Menu as Sidebar, MenuConfig, ProfileIcon, ReapitHouseIcon } from '@reapit/elements'
+import {
+  AppsIcon,
+  DocsIcon,
+  isMobile,
+  Menu as Sidebar,
+  MenuConfig,
+  ProfileIcon,
+  ReapitHouseIcon,
+  MapIcon,
+} from '@reapit/elements'
 import { Location } from 'history'
 import { useReapitConnect } from '@reapit/connect-session'
 import { reapitConnectBrowserSession } from '@/core/connect-session'
+import { AppState, AppTab, useAppState } from '../../../core/app-state'
+import { MenuWrap } from './__styles__/styles'
 
-export const generateMenuConfig = (logoutCallback: () => void, location: Location<any>): MenuConfig => {
-  return {
-    defaultActiveKey: 'APPS',
+export const generateMenuConfig = (
+  logoutCallback: () => void,
+  location: Location<any>,
+  setAppState: Dispatch<SetStateAction<AppState>>,
+  appState: AppState,
+  isMobileView: boolean,
+): MenuConfig => {
+  const config = {
+    defaultActiveKey: 'DIARY',
+    currentActiveKey: appState.tab === 'LIST' ? 'DIARY' : 'MAP',
     location,
     menu: [
       {
         key: 'LOGO',
         icon: <ReapitHouseIcon />,
         type: 'LOGO',
+      },
+      {
+        title: 'Diary',
+        key: 'DIARY',
+        icon: <DocsIcon />,
+        callback: changeTabCallback(setAppState, 'LIST'),
+        type: 'PRIMARY',
       },
       {
         title: 'Apps',
@@ -31,6 +56,27 @@ export const generateMenuConfig = (logoutCallback: () => void, location: Locatio
       },
     ],
   }
+
+  const mapItem = {
+    title: 'Map',
+    key: 'MAP',
+    icon: <MapIcon />,
+    callback: changeTabCallback(setAppState, 'MAP'),
+    type: 'PRIMARY',
+  }
+
+  if (isMobileView) {
+    config.menu.splice(2, 0, mapItem)
+  }
+
+  return config as MenuConfig
+}
+
+export const changeTabCallback = (setAppState: Dispatch<SetStateAction<AppState>>, tab: AppTab) => () => {
+  setAppState((currentState) => ({
+    ...currentState,
+    tab,
+  }))
 }
 
 export const callbackAppClick = () =>
@@ -43,15 +89,21 @@ export type MenuProps = {}
 
 export const Menu: React.FC<MenuProps> = () => {
   const location = useLocation()
+  const { setAppState, appState } = useAppState()
   const { connectLogoutRedirect, connectIsDesktop } = useReapitConnect(reapitConnectBrowserSession)
-  const menuConfigs = generateMenuConfig(() => connectLogoutRedirect(), location)
+  const isMobileView = isMobile()
+  const menuConfigs = generateMenuConfig(() => connectLogoutRedirect(), location, setAppState, appState, isMobileView)
   const desktopOptimisedMenu = connectIsDesktop
     ? {
         ...menuConfigs,
         menu: menuConfigs.menu.filter((config) => config.key !== 'APPS' && config.key !== 'LOGOUT'),
       }
     : menuConfigs
-  return <Sidebar {...desktopOptimisedMenu} location={location} />
+  return (
+    <MenuWrap>
+      <Sidebar {...desktopOptimisedMenu} location={location} />
+    </MenuWrap>
+  )
 }
 
 export default Menu

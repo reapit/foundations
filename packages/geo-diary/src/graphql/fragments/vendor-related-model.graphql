@@ -1,4 +1,4 @@
-fragment VendorRelate on VendorRelate {
+fragment VendorRelated on VendorRelate {
   id
   name
   type

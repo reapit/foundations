@@ -1,0 +1,12 @@
+#import "../fragments/vendor-related-model.graphql"
+
+query GET_VENDORS($id: [String!]) {
+  GetVendors(id: $id ) {
+    _embedded {
+      id
+      related {
+      ...VendorRelated
+      }
+    }
+  }
+}

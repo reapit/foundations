@@ -1,7 +1,7 @@
 import React from 'react'
 import { createBrowserHistory } from 'history'
 import { Route, Router } from 'react-router-dom'
-import { handleUseEffect, PrivateRouteWrapper, PrivateRouteWrapperProps } from '../private-route-wrapper'
+import { PrivateRouteWrapper } from '../private-route-wrapper'
 import { getMockRouterProps } from '../__mocks__/mock-router'
 import { shallow } from 'enzyme'
 
@@ -22,7 +22,7 @@ jest.mock('react-router', () => ({
 
 describe('PrivateRouter', () => {
   it('should match a snapshot', () => {
-    const props: PrivateRouteWrapperProps = {
+    const props = {
       path: '/client/apps',
       ...getMockRouterProps({ params: {}, search: '?username=wmcvay@reapit.com&desktopToken=TOKEN' }),
     }
@@ -39,7 +39,7 @@ describe('PrivateRouter', () => {
     expect(wrapper).toMatchSnapshot()
   })
   it('should match a snapshot', () => {
-    const props: PrivateRouteWrapperProps = {
+    const props = {
       path: '/client/apps',
       ...getMockRouterProps({ params: {}, search: '?username=wmcvay@reapit.com&desktopToken=TOKEN' }),
     }
@@ -49,17 +49,5 @@ describe('PrivateRouter', () => {
       </PrivateRouteWrapper>,
     )
     expect(wrapper).toMatchSnapshot()
-  })
-
-  describe('handleUseEffect', () => {
-    it('should run correctly', () => {
-      const mockProps = {
-        queryParams: {},
-        history: getMockRouterProps({ params: '', search: '' }).history,
-      }
-      const fn = handleUseEffect(mockProps)
-      fn()
-      expect(mockProps.history.push).not.toBeCalled()
-    })
   })
 })

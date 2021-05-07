@@ -1,39 +1,43 @@
-import * as React from 'react'
+import React, { Dispatch, FC, memo, SetStateAction } from 'react'
 import { ButtonGroup, Button } from '@reapit/elements'
-import { History } from 'history'
-import qs from 'query-string'
-import { ROUTES } from '@/core/router'
+import { AppState, AppTravelMode, useAppState } from '../../../core/app-state'
 
 export type HandleChangeTravelModeParams = {
-  travelMode: 'DRIVING' | 'WALKING'
-  queryParams: qs.ParsedQuery<string>
-  history: History
+  travelMode: AppTravelMode
+  setAppState: Dispatch<SetStateAction<AppState>>
 }
 
-export const handleChangeTravelMode = ({ history, travelMode, queryParams }: HandleChangeTravelModeParams) => () => {
-  const queryString = qs.stringify({ ...queryParams, travelMode: travelMode })
-  history.push(`${ROUTES.APPOINTMENT}?${queryString}`)
+export const handleChangeTravelMode = ({ setAppState, travelMode }: HandleChangeTravelModeParams) => () => {
+  setAppState((currentState) => {
+    const mapRefs = currentState.mapRefs
+    if (mapRefs) {
+      // mapRefs.directionsRendererRef.current?.setMap(null)
+      // mapRefs.directionsServiceRef.current?.setMap(null)
+    }
+    return {
+      ...currentState,
+      mapRefs,
+      travelMode,
+    }
+  })
 }
 
-export type TravelModeProps = {
-  queryParams: qs.ParsedQuery<string>
-  history: History
-}
-
-export const TravelMode: React.FC<TravelModeProps> = ({ queryParams, history }) => {
+export const TravelMode: FC = () => {
+  const { appState, setAppState } = useAppState()
+  const { travelMode } = appState
   return (
-    <ButtonGroup isCentered className="is-narrow">
+    <ButtonGroup isCentered className="is-narrow mb-2">
       <Button
         type="button"
-        variant={queryParams.travelMode !== 'WALKING' ? 'primary' : 'secondary'}
-        onClick={handleChangeTravelMode({ queryParams, travelMode: 'DRIVING', history })}
+        variant={travelMode !== 'WALKING' ? 'primary' : 'secondary'}
+        onClick={handleChangeTravelMode({ setAppState, travelMode: 'DRIVING' })}
       >
         Car
       </Button>
       <Button
         type="button"
-        variant={queryParams.travelMode === 'WALKING' ? 'primary' : 'secondary'}
-        onClick={handleChangeTravelMode({ queryParams, travelMode: 'WALKING', history })}
+        variant={travelMode === 'WALKING' ? 'primary' : 'secondary'}
+        onClick={handleChangeTravelMode({ setAppState, travelMode: 'WALKING' })}
       >
         Walk
       </Button>
@@ -41,4 +45,4 @@ export const TravelMode: React.FC<TravelModeProps> = ({ queryParams, history }) 
   )
 }
 
-export default React.memo(TravelMode)
+export default memo(TravelMode)

@@ -1,16 +1,31 @@
-import * as React from 'react'
+import React, { FC, memo, useEffect, useMemo } from 'react'
 import { useQuery } from '@apollo/react-hooks'
 import dayjs from 'dayjs'
-import qs from 'query-string'
-import { isMobile } from '@reapit/elements'
+import { FadeIn } from '@reapit/elements'
 import { ExtendedAppointmentModel } from '@/types/global'
-import GET_APPOINTMENTS from './get-appointments.graphql'
-import { MobileLayout } from './mobile-layout'
-import { useLocation } from 'react-router-dom'
-import { DesktopLayout } from './desktop-layout'
+import GET_APPOINTMENTS from '../../../graphql/queries/get-appointments.graphql'
+import GET_VENDORS from '../../../graphql/queries/get-vendors.graphql'
 import { reapitConnectBrowserSession } from '@/core/connect-session'
 import { useReapitConnect } from '@reapit/connect-session'
-import { memo } from 'react'
+import { useAppState } from '../../../core/app-state'
+import { DATE_TIME_FORMAT } from '../../../../../elements/src/utils/datetime/datetime'
+import { AppointmentTime } from '../../ui/appointment-time/appointment-time'
+import { TravelMode } from '../../ui/travel-mode/travel-mode'
+import { cx } from 'linaria'
+import {
+  AppoinmentContainer,
+  ControlsContainer,
+  LoadingContainer,
+  MapContainer,
+  mobileAppointmentsHidden,
+  mobileAppointmentsShow,
+} from './__styles__'
+import AppointmentList from '../../ui/appointment-list'
+import { Loader } from '@reapit/elements/v3'
+import GoogleMapComponent from '@/components/ui/map'
+import ErrorBoundary from '../../../core/error-boundary'
+import { MyLocation } from '../../ui/my-location/my-location'
+import ContactDrawer from '../../ui/contact-drawer'
 
 export type AppointmentProps = {}
 
@@ -25,27 +40,52 @@ export type AppointmentListQueryData = {
   }
 }
 
+export type VendorRelatedModel = {
+  id: string
+  name?: string
+  type?: string
+  homePhone?: string
+  workPhone?: string
+  mobilePhone?: string
+  email?: string
+}
+
+export type VendorModel = {
+  id: string
+  related: VendorRelatedModel[]
+}
+
+export type VendorsQueryData = {
+  GetVendors: {
+    _embedded: VendorModel[]
+  }
+}
+
+export type VendorsQueryVariables = {
+  id: string[]
+}
+
 export type AppointmentListQueryVariables = {
   negotiatorId: string[]
   start: string
   end: string
   includeCancelled: boolean
-  includeConfirm: boolean
+  includeUnconfirmed: boolean
   embed: string
 }
 
 export const startAndEndTime = {
-  today: {
-    start: dayjs().startOf('day').utc(),
-    end: dayjs().endOf('day').utc(),
+  TODAY: {
+    start: dayjs().startOf('day').format(DATE_TIME_FORMAT.RFC3339),
+    end: dayjs().endOf('day').format(DATE_TIME_FORMAT.RFC3339),
   },
-  tomorrow: {
-    start: dayjs().add(1, 'day').startOf('day').utc(),
-    end: dayjs().add(1, 'day').endOf('day').utc(),
+  TOMORROW: {
+    start: dayjs().add(1, 'day').startOf('day').format(DATE_TIME_FORMAT.RFC3339),
+    end: dayjs().add(1, 'day').endOf('day').format(DATE_TIME_FORMAT.RFC3339),
   },
-  weekView: {
-    start: dayjs().startOf('day'),
-    end: dayjs().add(1, 'week').subtract(1, 'day').endOf('day').utc(),
+  WEEK: {
+    start: dayjs().startOf('day').format(DATE_TIME_FORMAT.RFC3339),
+    end: dayjs().add(1, 'week').subtract(1, 'day').endOf('day').format(DATE_TIME_FORMAT.RFC3339),
   },
 }
 
@@ -70,35 +110,77 @@ export const sortAppoinmentsByStartTime = (
   return sortedAppoinments
 }
 
-export const Appointment: React.FC<AppointmentProps> = () => {
-  const isMobileView = isMobile()
+export const getVendorIds = (appointments: ExtendedAppointmentModel[]) => (): string[] =>
+  appointments
+    .map((appointment) => appointment?.property?.selling?.vendorId)
+    .filter((vendorId) => !!vendorId) as string[]
+
+export const Appointment: FC<AppointmentProps> = () => {
   const { connectSession } = useReapitConnect(reapitConnectBrowserSession)
+  const { appState, setAppState } = useAppState()
+  const { time } = appState
   const userCode = connectSession?.loginIdentity.userCode ?? ''
-  const location = useLocation()
-  const queryParams = qs.parse(location.search)
-  const time = queryParams.time || 'today'
   const { start, end } = startAndEndTime[time]
+  const { tab } = appState
 
   const { data, loading } = useQuery<AppointmentListQueryData, AppointmentListQueryVariables>(GET_APPOINTMENTS, {
     variables: {
       negotiatorId: [userCode],
-      start: start,
-      end: end,
+      start,
+      end,
       includeCancelled: true,
-      includeConfirm: true,
+      includeUnconfirmed: true,
       embed: 'offices',
     },
     skip: !userCode,
   })
 
-  const appointmentSorted = React.useMemo(sortAppoinmentsByStartTime(data?.GetAppointments?._embedded || []), [
+  const vendorIds = useMemo(getVendorIds(data?.GetAppointments?._embedded || []), [data?.GetAppointments?._embedded])
+
+  const { data: vendors } = useQuery<VendorsQueryData, VendorsQueryVariables>(GET_VENDORS, {
+    variables: {
+      id: vendorIds,
+    },
+    skip: !vendorIds.length,
+  })
+
+  useEffect(() => {
+    if (vendors?.GetVendors._embedded.length) {
+      setAppState((currentState) => ({
+        ...currentState,
+        vendors: vendors.GetVendors._embedded,
+      }))
+    }
+  }, [vendors])
+
+  const appointmentSorted = useMemo(sortAppoinmentsByStartTime(data?.GetAppointments?._embedded || []), [
     data?.GetAppointments?._embedded,
   ])
 
-  if (isMobileView) {
-    return <MobileLayout appointments={appointmentSorted} loading={loading} />
-  }
-  return <DesktopLayout appointments={appointmentSorted} loading={loading} />
+  return (
+    <ErrorBoundary>
+      <ControlsContainer>
+        <AppointmentTime />
+        <TravelMode />
+        <MyLocation />
+      </ControlsContainer>
+      <AppoinmentContainer className={cx(tab === 'MAP' ? mobileAppointmentsHidden : mobileAppointmentsShow)}>
+        {loading ? (
+          <LoadingContainer>
+            <Loader label="Loading" />
+          </LoadingContainer>
+        ) : (
+          <FadeIn>
+            <AppointmentList appointments={appointmentSorted} />
+          </FadeIn>
+        )}
+      </AppoinmentContainer>
+      <ContactDrawer />
+      <MapContainer>
+        <GoogleMapComponent appointments={appointmentSorted} />
+      </MapContainer>
+    </ErrorBoundary>
+  )
 }
 
 export default memo(Appointment)

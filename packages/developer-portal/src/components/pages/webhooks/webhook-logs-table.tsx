@@ -121,7 +121,7 @@ export const WebhooksLogsTable: React.FC<WebhooksLogsTableProps> = ({ applicatio
               Cell: ({ value }) => webhookLogs.topics.find((topic) => topic.id === value)?.name ?? value,
             },
             {
-              Header: 'Staus',
+              Header: 'Status',
               accessor: 'statusCode',
             },
             {

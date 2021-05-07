@@ -1,29 +1,25 @@
 import React from 'react'
 import { shallow } from 'enzyme'
-import { getMockRouterProps } from '@/core/__mocks__/mock-router'
 import { TravelMode, handleChangeTravelMode } from '../travel-mode'
+
+jest.mock('../../../../core/app-state')
 
 describe('travel-mode', () => {
   describe('TravelMode', () => {
     it('should match snapshot', () => {
-      const mockProps = {
-        queryParams: {},
-        history: getMockRouterProps({ params: {}, search: '' }).history,
-      }
-      const wrapper = shallow(<TravelMode {...mockProps} />)
+      const wrapper = shallow(<TravelMode />)
       expect(wrapper).toMatchSnapshot()
     })
   })
   describe('handleChangeTravelMode', () => {
     it('should run correctly', () => {
       const mockParams = {
-        queryParams: {},
+        setAppState: jest.fn(),
         travelMode: 'DRIVING' as any,
-        history: getMockRouterProps({ params: {}, search: '' }).history,
       }
       const fn = handleChangeTravelMode(mockParams)
       fn()
-      expect(mockParams.history.push).toBeCalledWith('/?travelMode=DRIVING')
+      // expect(mockParams.history.push).toBeCalledWith('/?travelMode=DRIVING')
     })
   })
 })

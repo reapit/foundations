@@ -1,1 +1,1 @@
-export { default } from './appointment-tile'
+export { AppointmentTile } from './appointment-tile'

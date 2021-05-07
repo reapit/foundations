@@ -1,35 +1,29 @@
-import React from 'react'
+import React, { Dispatch, SetStateAction } from 'react'
 import { ExtendedAppointmentModel } from '@/types/global'
-import AppointmentTile from '../appointment-tile'
-import dayjs from 'dayjs'
+import { AppointmentTile } from '../appointment-tile'
 import { FadeIn, Helper } from '@reapit/elements'
 
-export type AppointmentListProps = {
+export interface AppointmentListProps {
   appointments: ExtendedAppointmentModel[]
 }
 
-export type AppointmentTypeQueryData = {
+export interface AppointmentTypeQueryData {
   GetConfigurationsByType: {
     id: string
     value: string
   }[]
 }
 
-export function getTodayNextAppointment(appointments: ExtendedAppointmentModel[]) {
-  const filteredNextAppointments = appointments.filter((appointment) => {
-    const isSameDay = dayjs(appointment.start).isSame(dayjs(), 'day')
-    const isBeforeAppointmentTime = dayjs().isBefore(dayjs(appointment.start))
-    return !appointment.cancelled && isSameDay && isBeforeAppointmentTime
-  })
-  const sortedAppointmentByStartDate = filteredNextAppointments.sort((a, b) => {
-    return dayjs(a.start).isAfter(dayjs(b.start)) ? 1 : -1
-  })
-  const nearestAppointment = sortedAppointmentByStartDate?.[0]
-  return nearestAppointment
+export interface AppointmentTypeQueryVariables {
+  type: 'appointmentTypes'
 }
 
-export type AppointmentTypeQueryVariables = {
-  type: 'appointmentTypes'
+export const handleContactDrawerClose = (setContactDrawerOpen: Dispatch<SetStateAction<boolean>>) => () => {
+  setContactDrawerOpen(() => false)
+}
+
+export const handleContactDrawerOpen = (setContactDrawerOpen: Dispatch<SetStateAction<boolean>>) => () => {
+  setContactDrawerOpen(() => true)
 }
 
 export const AppointmentList: React.FC<AppointmentListProps> = ({ appointments }: AppointmentListProps) => {
@@ -44,10 +38,9 @@ export const AppointmentList: React.FC<AppointmentListProps> = ({ appointments }
   return (
     <>
       {appointments?.map((appointment: ExtendedAppointmentModel) => {
-        const nextAppointment = getTodayNextAppointment(appointments)
         return (
           <FadeIn key={appointment.id}>
-            <AppointmentTile appointment={appointment} nextAppointment={nextAppointment} />
+            <AppointmentTile appointment={appointment} />
           </FadeIn>
         )
       })}

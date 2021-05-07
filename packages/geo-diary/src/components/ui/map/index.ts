@@ -1,1 +1,1 @@
-export { default } from './map'
+export { default } from './google-map-component'

@@ -1,0 +1,37 @@
+#import "../fragments/appointment-attendee-model.graphql"
+#import "../fragments/appointment-contact-model.graphql"
+#import "../fragments/appointment-followup-model.graphql"
+#import "../fragments/appointment-model.graphql"
+#import "../fragments/list-item-model.graphql"
+#import "../fragments/negotiator-model.graphql"
+#import "../fragments/office-model.graphql"
+#import "../fragments/property-model.graphql"
+
+mutation UPDATE_APPOINTMENT_BY_ID($id: String!, $cancelled: Boolean $_eTag: String!) {
+  UpdateAppointment(id: $id, cancelled: $cancelled, _eTag: $_eTag) {
+    ...AppointmentModel
+    property{
+      ...PropertyModel
+    }
+    negotiators {
+      ...NegotiatorModel
+    }
+    followUp {
+      ...AppointmentModelFollowUp
+    }
+    attendee {
+      ...AppointmentAttendeeModel
+      contacts {
+        ...AppointmentContactModel
+      }
+    }
+    appointmentType {
+      ...ListItemModel
+    }
+    _embedded {
+      offices {
+        ...OfficeModel
+      }
+    }
+  }
+}
