@@ -5,6 +5,7 @@ import { handleOpenContactDrawer } from './appointment-items'
 import { VendorRelatedModel } from '../../pages/appointment/appointment'
 import { ExtendedAppointmentModel } from '../../../types/global'
 import { FadeIn } from '@reapit/elements'
+import { TileIconAnchorWrap, TileSectionContainer } from './__styles__/styles'
 
 export type VendorItemProps = {
   appointment: ExtendedAppointmentModel
@@ -25,17 +26,17 @@ export const VendorItem: FC<VendorItemProps> = ({ appointment }) => {
 
   return (
     <FadeIn>
-      <Label>Vendors</Label>
-      {vendorContactList.map((vendor: VendorRelatedModel) => {
-        return (
-          <div className="flex py-1" key={vendor.id}>
-            <Icon className="mr-4 v-align-middle" icon="username" />
-            <a className="v-align-middle" onClick={handleOpenContactDrawer(setAppState, appointment, 'VENDOR')}>
-              {vendor.name}
-            </a>
-          </div>
-        )
-      })}
+      <TileSectionContainer>
+        <Label>Vendors</Label>
+        {vendorContactList.map((vendor: VendorRelatedModel) => {
+          return (
+            <TileIconAnchorWrap key={vendor.id}>
+              <Icon icon="username" />
+              <a onClick={handleOpenContactDrawer(setAppState, appointment, 'VENDOR', vendor.id)}>{vendor.name}</a>
+            </TileIconAnchorWrap>
+          )
+        })}
+      </TileSectionContainer>
     </FadeIn>
   )
 }

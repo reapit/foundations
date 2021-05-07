@@ -32,7 +32,7 @@ export const ControlsContainer = styled.div`
 `
 
 export const AppoinmentContainer = styled.div`
-  padding: 1rem 1rem;
+  padding: 1.5rem 1.5rem;
   position: absolute;
   background: #f5f7f9;
   height: calc(100% - 15.6rem);
@@ -49,6 +49,14 @@ export const AppoinmentContainer = styled.div`
     height: calc(100% - 11.6rem);
   }
 `
+
+export const LoadingContainer = styled.div`
+  height: 100%;
+  display: flex;
+  vertical-align: middle;
+  justify-content: center;
+`
+
 export const buttonPaddingSmall = css`
   padding-left: 0.7rem !important;
   padding-right: 0.7rem !important;
@@ -56,7 +64,7 @@ export const buttonPaddingSmall = css`
 
 export const mobileAppointmentsHidden = css`
   transform: translate3d(0%, 0, 0);
-  animation: slide-out 0.3s forwards;
+  animation: slide-out 0.35s forwards;
 
   @keyframes slide-out {
     100% {
@@ -67,7 +75,7 @@ export const mobileAppointmentsHidden = css`
 
 export const mobileAppointmentsShow = css`
   transform: translate3d(-100%, 0, 0);
-  animation: slide-in 0.3s forwards;
+  animation: slide-in 0.35s forwards;
 
   @keyframes slide-in {
     100% {

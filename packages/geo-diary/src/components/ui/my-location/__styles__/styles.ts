@@ -1,7 +1,7 @@
 import { styled } from 'linaria/react'
 
 export const MyLocationSection = styled.div`
-  padding: 0 1rem;
+  padding: 0 1.5rem;
   display: flex;
   width: 100%;
   position: relative;

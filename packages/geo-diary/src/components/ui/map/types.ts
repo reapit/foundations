@@ -53,7 +53,6 @@ export interface RenderInfoWindowParams {
 export interface RenderMarkersParams {
   coordinates: CoordinateProps[]
   setAppState: Dispatch<SetStateAction<AppState>>
-  setAppointmentDetailModalVisible: Dispatch<SetStateAction<boolean>>
   appState: AppState
 }
 

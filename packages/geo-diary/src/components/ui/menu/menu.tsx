@@ -21,8 +21,8 @@ export const generateMenuConfig = (
   location: Location<any>,
   setAppState: Dispatch<SetStateAction<AppState>>,
   appState: AppState,
+  isMobileView: boolean,
 ): MenuConfig => {
-  const isMobileView = isMobile()
   const config = {
     defaultActiveKey: 'DIARY',
     currentActiveKey: appState.tab === 'LIST' ? 'DIARY' : 'MAP',
@@ -91,7 +91,8 @@ export const Menu: React.FC<MenuProps> = () => {
   const location = useLocation()
   const { setAppState, appState } = useAppState()
   const { connectLogoutRedirect, connectIsDesktop } = useReapitConnect(reapitConnectBrowserSession)
-  const menuConfigs = generateMenuConfig(() => connectLogoutRedirect(), location, setAppState, appState)
+  const isMobileView = isMobile()
+  const menuConfigs = generateMenuConfig(() => connectLogoutRedirect(), location, setAppState, appState, isMobileView)
   const desktopOptimisedMenu = connectIsDesktop
     ? {
         ...menuConfigs,

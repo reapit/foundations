@@ -3,13 +3,11 @@
 exports[`Drawer component should match a snapshot when closed 1`] = `
 <Fragment>
   <div
-    className=""
+    className="drawer-bg"
     onClick={[Function]}
-    onMouseDown={[Function]}
   />
   <div
-    className=""
-    onMouseDown={[Function]}
+    className="drawer"
   >
     Hello. I am content.
   </div>
@@ -19,13 +17,11 @@ exports[`Drawer component should match a snapshot when closed 1`] = `
 exports[`Drawer component should match a snapshot when open 1`] = `
 <Fragment>
   <div
-    className=""
+    className="drawer-bg drawer-bg-open"
     onClick={[Function]}
-    onMouseDown={[Function]}
   />
   <div
-    className=""
-    onMouseDown={[Function]}
+    className="drawer drawer-open"
   >
     Hello. I am content.
   </div>

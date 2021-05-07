@@ -2,6 +2,7 @@ import * as React from 'react'
 import IconButton from '../icon-button'
 import Grid, { Col } from '../grid'
 import * as styles from './__styles__'
+import { Label } from '@reapit/elements/v3'
 
 export interface PhoneRowProps {
   label: string
@@ -37,7 +38,7 @@ const PhoneRow: React.FC<PhoneRowProps> = ({ label, phoneNumber, showMobileActio
     <div className={styles.contactOptionRow}>
       <Grid>
         <Col span={8}>
-          <div className={styles.contactOptionLabel}>{label}</div>
+          <Label>{label}</Label>
           <div className={styles.contactOptionValue}>{phoneNumber || 'No phone number found'}</div>
         </Col>
         <Col span={8}>

@@ -2,7 +2,7 @@
 
 exports[`IconButton component should match a snapshot 1`] = `
 <button
-  className=""
+  className="icon-button-container"
 >
   <Icon
     icon="add"
@@ -12,7 +12,7 @@ exports[`IconButton component should match a snapshot 1`] = `
 
 exports[`IconButton component should match a snapshot when disabled 1`] = `
 <button
-  className=""
+  className="icon-button-container disabled-button"
   disabled={true}
 >
   <Icon
@@ -23,7 +23,7 @@ exports[`IconButton component should match a snapshot when disabled 1`] = `
 
 exports[`IconButton component should match a snapshot when in dark mode 1`] = `
 <button
-  className=""
+  className="icon-button-container dark-mode-button"
 >
   <Icon
     color="white"

@@ -2,7 +2,6 @@ import React, { Dispatch, SetStateAction } from 'react'
 import { ExtendedAppointmentModel } from '@/types/global'
 import { AppointmentTile } from '../appointment-tile'
 import { FadeIn, Helper } from '@reapit/elements'
-import ContactDrawer from '../contact-drawer'
 
 export interface AppointmentListProps {
   appointments: ExtendedAppointmentModel[]
@@ -45,7 +44,6 @@ export const AppointmentList: React.FC<AppointmentListProps> = ({ appointments }
           </FadeIn>
         )
       })}
-      <ContactDrawer />
     </>
   )
 }

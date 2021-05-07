@@ -2,7 +2,7 @@
 
 exports[`appointment-time AppointmentTime should match snapshot 1`] = `
 <ButtonGroup
-  className="is-narrow"
+  className="is-narrow mb-2"
   isCentered={true}
 >
   <Button

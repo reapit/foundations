@@ -4,13 +4,14 @@ import { iconContainer } from '../../icon/__styles__'
 
 export const iconButtonContainer = css`
   border: none;
-  background: ${colors.gray2};
+  background: #fff;
   width: 2.75rem;
   height: 2.75rem;
   border-radius: 2.75rem;
   display: flex;
   align-items: center;
   justify-content: center;
+  cursor: pointer;
 
   :active {
     box-shadow: 0px 0px 15px 0px inset ${colors.black20};

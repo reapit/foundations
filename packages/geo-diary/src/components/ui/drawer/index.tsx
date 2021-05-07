@@ -3,6 +3,7 @@ import { cx } from 'linaria'
 import { useSwipeable } from 'react-swipeable'
 import IconButton from '../icon-button'
 import * as styles from './__styles__'
+import { H5 } from '@reapit/elements'
 
 export interface IDrawerProps {
   isOpen: boolean
@@ -16,7 +17,6 @@ const Drawer: React.FC<IDrawerProps> = ({ children, isOpen, handleClose }: IDraw
       handleClose()
     },
     trackTouch: true,
-    trackMouse: true,
   })
 
   const handleExit = (event: React.SyntheticEvent) => {
@@ -36,7 +36,7 @@ const Drawer: React.FC<IDrawerProps> = ({ children, isOpen, handleClose }: IDraw
 
 export const DrawerHeader = ({ title, handleClose }: { title: string; handleClose: () => void }) => (
   <div className={styles.drawerHeader}>
-    <h2 className={styles.drawerHeaderTitle}>{title}</h2>
+    <H5 className="mb-0">{title}</H5>
     {handleClose && <IconButton size="small" icon="cancel" onClick={handleClose} />}
   </div>
 )

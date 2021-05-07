@@ -30,6 +30,7 @@ export const handleOpenContactDrawer = (
   setAppState: Dispatch<SetStateAction<AppState>>,
   appointment: ExtendedAppointmentModel,
   contactDrawerType: ContactDrawerType,
+  contactId: string | null,
 ) => () => {
   setAppState((currentState) => ({
     ...currentState,
@@ -37,6 +38,7 @@ export const handleOpenContactDrawer = (
     appointmentId: appointment.id ?? null,
     contactDrawerOpen: true,
     contactDrawerType,
+    contactId,
   }))
 }
 

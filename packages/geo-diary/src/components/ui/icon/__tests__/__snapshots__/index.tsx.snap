@@ -2,7 +2,7 @@
 
 exports[`Icon component should match a snapshot 1`] = `
 <span
-  className=""
+  className="icon-container"
   style={
     Object {
       "color": undefined,
@@ -10,13 +10,13 @@ exports[`Icon component should match a snapshot 1`] = `
     }
   }
 >
-  <SvgAdd />
+  <_default />
 </span>
 `;
 
 exports[`Icon component should match a snapshot when color prop is supplied 1`] = `
 <span
-  className=""
+  className="icon-container"
   style={
     Object {
       "color": "red",
@@ -24,7 +24,7 @@ exports[`Icon component should match a snapshot when color prop is supplied 1`] 
     }
   }
 >
-  <SvgAdd />
+  <_default />
 </span>
 `;
 

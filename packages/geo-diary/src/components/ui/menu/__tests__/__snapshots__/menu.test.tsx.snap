@@ -1,35 +1,45 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`Menu should match a snapshot 1`] = `
-<Memo(MenuComponent)
-  defaultActiveKey="APPS"
-  location={
-    Object {
-      "location": "location",
+<MenuWrap>
+  <Memo(MenuComponent)
+    currentActiveKey="DIARY"
+    defaultActiveKey="DIARY"
+    location={
+      Object {
+        "location": "location",
+      }
     }
-  }
-  menu={
-    Array [
-      Object {
-        "icon": <ReapitHouseIcon />,
-        "key": "LOGO",
-        "type": "LOGO",
-      },
-      Object {
-        "callback": [Function],
-        "icon": <AppsIcon />,
-        "key": "APPS",
-        "title": "Apps",
-        "type": "PRIMARY",
-      },
-      Object {
-        "callback": [Function],
-        "icon": <ProfileIcon />,
-        "key": "LOGOUT",
-        "title": "Logout",
-        "type": "SECONDARY",
-      },
-    ]
-  }
-/>
+    menu={
+      Array [
+        Object {
+          "icon": <ReapitHouseIcon />,
+          "key": "LOGO",
+          "type": "LOGO",
+        },
+        Object {
+          "callback": [Function],
+          "icon": <DocsIcon />,
+          "key": "DIARY",
+          "title": "Diary",
+          "type": "PRIMARY",
+        },
+        Object {
+          "callback": [Function],
+          "icon": <AppsIcon />,
+          "key": "APPS",
+          "title": "Apps",
+          "type": "PRIMARY",
+        },
+        Object {
+          "callback": [Function],
+          "icon": <ProfileIcon />,
+          "key": "LOGOUT",
+          "title": "Logout",
+          "type": "SECONDARY",
+        },
+      ]
+    }
+  />
+</MenuWrap>
 `;

@@ -2,7 +2,7 @@
 
 exports[`Col component should match a snapshot and render children 1`] = `
 <div
-  className=""
+  className="col span6"
 >
   <p>
     I am child
@@ -12,7 +12,7 @@ exports[`Col component should match a snapshot and render children 1`] = `
 
 exports[`Col component should render with the correct classNames when supplied span and offset props 1`] = `
 <div
-  className=""
+  className="col span4 offset2"
 >
   <p>
     I am child
@@ -22,7 +22,7 @@ exports[`Col component should render with the correct classNames when supplied s
 
 exports[`Grid component should match a snapshot and render children 1`] = `
 <div
-  className=""
+  className="grid"
 >
   <p>
     I am child

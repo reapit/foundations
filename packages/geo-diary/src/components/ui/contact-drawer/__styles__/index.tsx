@@ -8,16 +8,16 @@ export const contactName = css`
   margin: 0;
 `
 export const extraContactName = css`
-  padding: ${sizes.paddingLarge};
-  margin-bottom: ${sizes.marginLarge};
+  padding: ${sizes.paddingNormal};
+  margin-bottom: ${sizes.marginNormal};
 
   span {
-    margin-right: ${sizes.marginLarge};
+    margin-right: ${sizes.marginNormal};
   }
 `
 export const contactOptionRow = css`
-  margin-bottom: ${sizes.marginMedium};
-  padding-bottom: ${sizes.paddingMedium};
+  margin-bottom: ${sizes.marginNormal};
+  padding-bottom: ${sizes.paddingNormal};
   border-bottom: 1px solid ${colors.black20};
   padding-left: ${sizes.paddingLarge};
   padding-right: ${sizes.paddingLarge};
@@ -28,13 +28,7 @@ export const contactOptionRow = css`
     border-bottom: none;
   }
 `
-export const contactOptionLabel = css`
-  text-align: left;
-  font-size: ${sizes.textSmaller};
-  font-weight: ${sizes.semiBold};
-  text-transform: uppercase;
-  color: ${colors.black60};
-`
+
 export const contactOptionValue = css`
   text-align: left;
 `

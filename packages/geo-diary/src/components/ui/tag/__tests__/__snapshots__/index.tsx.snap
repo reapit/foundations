@@ -2,7 +2,7 @@
 
 exports[`Tag component should match a snapshot 1`] = `
 <span
-  className=""
+  className="tag-container"
 >
   I am a tag
 </span>

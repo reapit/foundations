@@ -10,6 +10,8 @@ jest.mock('react-router', () => ({
   })),
 }))
 
+jest.mock('../../../../core/app-state')
+
 describe('Menu', () => {
   it('should match a snapshot', () => {
     const wrapper = shallow(<Menu />)
@@ -27,7 +29,7 @@ describe('Menu', () => {
       }
       const logoutCallback = jest.fn()
       const setAppState = jest.fn()
-      const result = generateMenuConfig(logoutCallback, location, setAppState, {} as AppState)
+      const result = generateMenuConfig(logoutCallback, location, setAppState, {} as AppState, true)
       expect(result).toBeDefined()
     })
   })

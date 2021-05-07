@@ -3,6 +3,7 @@ import { Label, Icon } from '@reapit/elements/v3'
 import { useAppState } from '../../../core/app-state'
 import { ExtendedAppointmentModel } from '../../../types/global'
 import { handleOpenContactDrawer } from './appointment-items'
+import { TileIconAnchorWrap, TileSectionContainer } from './__styles__/styles'
 
 export type AttendeeItemProps = {
   appointment: ExtendedAppointmentModel
@@ -15,20 +16,23 @@ export const AttendeeItem: FC<AttendeeItemProps> = ({ appointment }) => {
   if (!appointment || !contacts.length) return null
 
   return (
-    <>
+    <TileSectionContainer>
       <Label>Attendees</Label>
       {contacts.map((contact) => {
         const { name, id } = contact
 
         return (
-          <div className="flex py-1" key={id}>
-            <Icon className="mr-4 v-align-middle" icon="username" />
-            <a className="v-align-middle" onClick={handleOpenContactDrawer(setAppState, appointment, 'ATTENDEE')}>
+          <TileIconAnchorWrap key={id}>
+            <Icon icon="username" />
+            <a
+              className="v-align-middle"
+              onClick={handleOpenContactDrawer(setAppState, appointment, 'ATTENDEE', id ?? null)}
+            >
               {name}
             </a>
-          </div>
+          </TileIconAnchorWrap>
         )
       })}
-    </>
+    </TileSectionContainer>
   )
 }

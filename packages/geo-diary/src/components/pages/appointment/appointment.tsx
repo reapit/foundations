@@ -15,6 +15,7 @@ import { cx } from 'linaria'
 import {
   AppoinmentContainer,
   ControlsContainer,
+  LoadingContainer,
   MapContainer,
   mobileAppointmentsHidden,
   mobileAppointmentsShow,
@@ -24,6 +25,7 @@ import { Loader } from '@reapit/elements/v3'
 import GoogleMapComponent from '@/components/ui/map'
 import ErrorBoundary from '../../../core/error-boundary'
 import { MyLocation } from '../../ui/my-location/my-location'
+import ContactDrawer from '../../ui/contact-drawer'
 
 export type AppointmentProps = {}
 
@@ -164,13 +166,16 @@ export const Appointment: FC<AppointmentProps> = () => {
       </ControlsContainer>
       <AppoinmentContainer className={cx(tab === 'MAP' ? mobileAppointmentsHidden : mobileAppointmentsShow)}>
         {loading ? (
-          <Loader label="Loading" />
+          <LoadingContainer>
+            <Loader label="Loading" />
+          </LoadingContainer>
         ) : (
           <FadeIn>
             <AppointmentList appointments={appointmentSorted} />
           </FadeIn>
         )}
       </AppoinmentContainer>
+      <ContactDrawer />
       <MapContainer>
         <GoogleMapComponent appointments={appointmentSorted} />
       </MapContainer>

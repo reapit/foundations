@@ -7,6 +7,7 @@ import { NegotiatorModel } from '@reapit/foundations-ts-definitions'
 import { useAppState } from '../../../core/app-state'
 import { useReapitConnect } from '@reapit/connect-session'
 import { reapitConnectBrowserSession } from '../../../core/connect-session'
+import { Label } from '@reapit/elements/v3'
 
 export interface EtaTextRowProps {
   phoneNumber?: string
@@ -46,7 +47,7 @@ const EtaTextRow: React.FC<EtaTextRowProps> = ({ phoneNumber, name }: EtaTextRow
     <div className={styles.contactOptionRow}>
       <Grid>
         <Col span={8}>
-          <div className={styles.contactOptionLabel}>Send ETA text</div>
+          <Label>Send ETA Text</Label>
           <div className={styles.contactOptionValue}>{phoneNumber || 'No phone number found'}</div>
         </Col>
         <Col span={8}>

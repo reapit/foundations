@@ -31,6 +31,7 @@ export interface AppState {
   locationQueryResults: GeocoderResult[]
   contactDrawerOpen: boolean
   contactDrawerType: ContactDrawerType
+  contactId: string | null
   vendors: VendorModel[]
 }
 
@@ -58,6 +59,7 @@ export const defaultAppState: AppState = {
   locationQueryResults: [],
   contactDrawerOpen: false,
   contactDrawerType: 'ATTENDEE',
+  contactId: null,
   vendors: [],
 }
 

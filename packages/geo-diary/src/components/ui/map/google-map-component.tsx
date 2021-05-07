@@ -1,9 +1,8 @@
-import React, { Dispatch, FC, memo, SetStateAction, useEffect, useMemo, useRef, useState } from 'react'
+import React, { Dispatch, FC, memo, SetStateAction, useEffect, useMemo, useRef } from 'react'
 import GoogleMap from 'react-google-map'
-import { combineAddress, H5, notification, SubTitleH5 } from '@reapit/elements'
+import { combineAddress, notification } from '@reapit/elements'
 import { AppState, useAppState } from '../../../core/app-state'
 import { ExtendedAppointmentModel } from '../../../types/global'
-import { AppointmentDetailModal } from '../appointment-detail-modal/appointment-detail-modal'
 import MapPanel from '../map-panel'
 import {
   AppStateParams,
@@ -24,25 +23,11 @@ import {
   HandleMarkerClickParams,
   HandleSetAppointmentParams,
 } from './types'
-import { getShortAddress } from '../../../utils/formatting-utils'
 import startPin from '../../../assets/images/pin-customer.svg'
 import destinationPin from '../../../assets/images/pin-reapit.svg'
 import { MapContentContainer, mapContainerHasMapPanel } from './__styles__/styles'
 import { cx } from 'linaria'
-
-export const handleInfoWindowClick = (
-  appointmentId: string,
-  setAppState: Dispatch<SetStateAction<AppState>>,
-  setAppointmentDetailModalVisible: Dispatch<SetStateAction<boolean>>,
-) => () => {
-  if (appointmentId) {
-    setAppState((currentState) => ({
-      ...currentState,
-      appointmentId,
-    }))
-    setAppointmentDetailModalVisible(true)
-  }
-}
+import { DEFAULT_LAT_LNG, DEFAULT_ZOOM } from '../../../core/constants'
 
 export const handleModalClose = (setAppointmentDetailModalVisible: Dispatch<SetStateAction<boolean>>) => () => {
   setAppointmentDetailModalVisible(false)
@@ -56,10 +41,14 @@ export const handleSetAppointment = ({
   const appointment = appointments.find((item) => item.id === appointmentId)
   if (appointment) {
     const destinationAddress = combineAddress(appointment?.property?.address)
+    const destinationLat = appointment.property?.address?.geolocation?.latitude ?? null
+    const destinationLng = appointment.property?.address?.geolocation?.longitude ?? null
 
     setAppState((currentState) => ({
       ...currentState,
       appointment,
+      destinationLat,
+      destinationLng,
       destinationAddress,
     }))
   }
@@ -76,18 +65,13 @@ export const handleMarkerClick = ({ appointmentId, setAppState }: HandleMarkerCl
 
 export const renderInfoWindowContent = ({ latlng, address }: RenderInfoWindowParams) => {
   return `
-    <div style="max-width: 200px;padding: 0 1rem 1rem 0; cursor: pointer; font-family: 'PT Sans', Helvetica, Arial, sans-serif;" id="coordinate-${latlng.lat}-${latlng.lng}">
+    <div style="max-width: 200px;padding: 0 1rem 1rem 0; cursor: pointer; font-family: 'PT Sans', Helvetica, Arial, sans-serif; font-size: 0.875rem;" id="coordinate-${latlng.lat}-${latlng.lng}">
       <div>${address}</div>
     </div>
   `
 }
 
-export const handleRenderMarkers = ({
-  coordinates,
-  appState,
-  setAppState,
-  setAppointmentDetailModalVisible,
-}: RenderMarkersParams) => () => {
+export const handleRenderMarkers = ({ coordinates, appState, setAppState }: RenderMarkersParams) => () => {
   const { mapRefs } = appState
 
   const googleMaps = mapRefs?.googleMapsRef?.current
@@ -119,18 +103,6 @@ export const handleRenderMarkers = ({
         const appointmentId = coordinate.id
 
         handleMarkerClick({ setAppState, appointmentId })
-      })
-
-      googleMaps.event.addListener(infoWindow, 'domready', () => {
-        const infoWindow = document.getElementById(`coordinate-${coordinate.position.lat}-${coordinate.position.lng}`)
-        const appointmentId = coordinate.id
-
-        if (!infoWindow || !appointmentId) return null
-
-        infoWindow.addEventListener(
-          'click',
-          handleInfoWindowClick(appointmentId, setAppState, setAppointmentDetailModalVisible),
-        )
       })
 
       return marker
@@ -266,13 +238,20 @@ export const setZoomAndCenter = (appState: AppState) => {
 
   const bounds = boundsRef.current
 
+  if (!myLocation && !markers.length) {
+    map.setCenter(DEFAULT_LAT_LNG)
+    return map.setZoom(DEFAULT_ZOOM)
+  }
+
+  if (myLocation && !markers.length) {
+    const position = myLocation.getPosition()
+    map.setCenter(position ?? DEFAULT_LAT_LNG)
+    return map.setZoom(DEFAULT_ZOOM)
+  }
+
   if (myLocation) {
     const position = myLocation.getPosition()
     if (position) bounds.extend(position)
-  }
-
-  if (!markers.length) {
-    return map.setZoom(10)
   }
 
   markers.forEach((marker) => {
@@ -282,7 +261,7 @@ export const setZoomAndCenter = (appState: AppState) => {
   map.fitBounds(bounds)
   map.setCenter(bounds.getCenter())
   if (markers.length === 1 && !myLocation) {
-    map.setZoom(10)
+    map.setZoom(DEFAULT_ZOOM)
   }
 }
 
@@ -341,7 +320,6 @@ export const handleFilterCoordinates = (appointments: ExtendedAppointmentModel[]
     .filter((coordinate) => !!coordinate) as CoordinateProps[]
 
 export const GoogleMapComponent: FC<MapProps> = ({ appointments }) => {
-  const [appointmentDetailModalVisible, setAppointmentDetailModalVisible] = useState(false)
   const googleMapsRef = useRef<GoogleMaps | null>(null)
   const mapRef = useRef<Map | null>(null)
   const markersRef = useRef<Marker[]>([])
@@ -354,14 +332,12 @@ export const GoogleMapComponent: FC<MapProps> = ({ appointments }) => {
   const {
     appointmentId,
     routeInformation,
-    appointment,
     destinationLat,
     destinationLng,
     travelMode,
     currentLat,
     currentLng,
   } = appState
-  const modalTitle = getShortAddress(appointment?.property)
   const mapRefs: MapRefs = {
     googleMapsRef,
     mapRef,
@@ -391,7 +367,6 @@ export const GoogleMapComponent: FC<MapProps> = ({ appointments }) => {
     handleRenderMarkers({
       appState,
       setAppState,
-      setAppointmentDetailModalVisible,
       coordinates,
     }),
     [coordinates],
@@ -405,24 +380,11 @@ export const GoogleMapComponent: FC<MapProps> = ({ appointments }) => {
           googleMaps={window.google.maps}
           apiKey={window.reapit.config.googleMapApiKey}
           onLoaded={handleOnLoaded(mapRefs)}
-          zoom={10}
+          zoom={DEFAULT_ZOOM}
+          center={{ lat: currentLat ?? DEFAULT_LAT_LNG.lat, lng: currentLng ?? DEFAULT_LAT_LNG.lng }}
         />
       </MapContentContainer>
       {routeInformation && <MapPanel routeInformation={routeInformation} />}
-      <AppointmentDetailModal
-        title={
-          <>
-            <H5>{modalTitle}</H5>
-            {appointment?.appointmentType && (
-              <SubTitleH5 className="mb-0">{appointment?.appointmentType?.value}</SubTitleH5>
-            )}
-          </>
-        }
-        appointment={appointment || ({} as ExtendedAppointmentModel)}
-        visible={appointmentDetailModalVisible}
-        destroyOnClose={true}
-        onClose={handleModalClose(setAppointmentDetailModalVisible)}
-      />
     </>
   )
 }
