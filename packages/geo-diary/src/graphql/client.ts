@@ -5,6 +5,7 @@ import typeDefs from './schema.graphql'
 import resolvers from './resolvers'
 import { notification } from '@reapit/elements'
 import { ReapitConnectSession } from '@reapit/connect-session'
+import { logger } from '@reapit/utils'
 
 export const generateRequest = (session: ReapitConnectSession) => async (operation: Operation) => {
   const { loginIdentity, accessToken, idToken } = session
@@ -17,7 +18,7 @@ export const generateRequest = (session: ReapitConnectSession) => async (operati
   })
 }
 
-export const onError: ErrorHandler = ({ graphQLErrors, networkError, response }: ErrorResponse) => {
+export const onError: ErrorHandler = ({ graphQLErrors, networkError }: ErrorResponse) => {
   if (graphQLErrors) {
     graphQLErrors.map(({ message, locations, path }) => {
       console.error(`[GraphQL error]: Message: ${message}, Location: ${locations}, Path: ${path}`)
@@ -28,16 +29,13 @@ export const onError: ErrorHandler = ({ graphQLErrors, networkError, response }:
         message: messageNotIncludeTraceID,
       })
     })
+    graphQLErrors.forEach((error) => logger(error))
   }
   if (networkError) {
-    console.error(`[Network error]: ${networkError}`)
     notification.error({
-      message: networkError,
+      message: `Network Error: ${networkError.message}`,
     })
-  }
-
-  if (response?.errors) {
-    response.errors = undefined
+    logger(networkError)
   }
 }
 
