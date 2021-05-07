@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react'
+import React, { useState, useEffect } from 'react'
 import useSWR from 'swr'
 import { Helper, Loader } from '@reapit/elements'
 import { URLS } from '../../constants/api'
@@ -6,35 +6,37 @@ import { useReapitConnect } from '@reapit/connect-session'
 import { reapitConnectBrowserSession } from '../../core/connect-session'
 import PaymentPageContent from '../ui/payment-page-content'
 import { PaymentModel, PropertyModel } from '@reapit/foundations-ts-definitions'
-import { handleMerchantKeyEffect } from '../ui/payment-handlers'
-import { MerchantKey } from '../../types/opayo'
 import { PaymentWithPropertyModel } from '../../types/payment'
+import { PaymentProvider } from '@/services/providers'
+import { handlePaymentProviderEffect } from '../ui/payment-handlers'
 
 export interface PaymentInternalPageProps {
   paymentId: string
   // Inject test dependiencies
-  defaultMerchantKey?: MerchantKey | null
+  defaultPaymentProvider?: PaymentProvider | null
 }
 
-const PaymentInternalPage: React.FC<PaymentInternalPageProps> = ({ paymentId, defaultMerchantKey = null }) => {
+const PaymentInternalPage: React.FC<PaymentInternalPageProps> = ({ paymentId, defaultPaymentProvider = null }) => {
   const { connectSession } = useReapitConnect(reapitConnectBrowserSession)
   const { data: paymentModel, mutate: refetchPayment } = useSWR<PaymentModel>(`${URLS.PAYMENTS}/${paymentId}`)
   const { data: propertyModel } = useSWR<PropertyModel>(
     paymentModel?.propertyId ? `${URLS.PROPERTIES}/${paymentModel?.propertyId}` : null,
   )
   const [loading, setLoading] = useState(false)
-  const [merchantKey, setMerchantKey] = useState<MerchantKey | null>(defaultMerchantKey)
+  const [paymentProvider, setPaymentProvider] = useState<PaymentProvider | null>(defaultPaymentProvider)
 
-  useEffect(handleMerchantKeyEffect(setLoading, setMerchantKey, connectSession?.loginIdentity?.clientId), [
-    setMerchantKey,
+  useEffect(handlePaymentProviderEffect(setLoading, setPaymentProvider, connectSession?.loginIdentity?.clientId), [
+    setPaymentProvider,
     connectSession,
   ])
+
+  console.log(setLoading, setPaymentProvider)
 
   if (loading || !propertyModel || !paymentModel) {
     return <Loader />
   }
 
-  if (!merchantKey) {
+  if (!paymentProvider) {
     return (
       <Helper variant="info">
         Welome to Reapit Payments portal. It seems you don&apos;t currently have an account registered with Opayo.
@@ -49,7 +51,7 @@ const PaymentInternalPage: React.FC<PaymentInternalPageProps> = ({ paymentId, de
     property: propertyModel,
   }
 
-  return <PaymentPageContent payment={payment} merchantKey={merchantKey} refetchPayment={refetchPayment} />
+  return <PaymentPageContent payment={payment} paymentProvider={paymentProvider} refetchPayment={refetchPayment} />
 }
 
 export default PaymentInternalPage

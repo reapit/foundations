@@ -3,6 +3,7 @@ import { shallow } from 'enzyme'
 import PaymentExternalPage from '../payment-external'
 import { stubPaymentWithPropertyModel } from '../../ui/__stubs__/payment'
 import useSWR from 'swr'
+import { OpayoProvider } from '@/services/providers'
 
 jest.mock('swr')
 
@@ -53,7 +54,7 @@ describe('PaymentExternalPage', () => {
           session={session}
           paymentId="MKT20000010"
           clientId="SBOX"
-          defaultMerchantKey={{ merchantSessionKey: 'SomeKey', expiry: 'SomeDateTime' }}
+          defaultPaymentProvider={new OpayoProvider({ merchantSessionKey: 'SomeKey', expiry: 'SomeDateTime' })}
         />,
       ),
     ).toMatchSnapshot()

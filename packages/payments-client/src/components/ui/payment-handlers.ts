@@ -12,28 +12,27 @@ import {
 } from '../../services/payment'
 import dayjs from 'dayjs'
 import { MerchantKey } from '../../types/opayo'
-import { opayoMerchantKeyService } from '../../services/opayo'
-import { opayoCreateTransactionService } from '../../services/opayo'
+import { opayoMerchantKeyService, opayoCreateTransactionService } from '../../services/opayo'
 import { CardDetails } from './payment-form'
 import { PaymentWithPropertyModel, UpdateStatusBody, UpdateStatusParams } from '../../types/payment'
 import uuid from 'uuid/v4'
+import { PaymentProvider, OpayoProvider } from '@/services/providers'
 
-export const handleMerchantKeyEffect = (
+export const handlePaymentProviderEffect = (
   setLoading: Dispatch<SetStateAction<boolean>>,
-  setMerchantKey: Dispatch<SetStateAction<MerchantKey | null>>,
+  setPaymentProvider: Dispatch<SetStateAction<PaymentProvider | null>>,
   clientCode?: string | null,
 ) => () => {
   if (clientCode) {
     const fetchmerchantKey = async () => {
       const fetchedKey = await opayoMerchantKeyService(clientCode)
       if (fetchedKey) {
-        setMerchantKey(fetchedKey)
+        const provider = new OpayoProvider(fetchedKey)
+        setPaymentProvider(provider)
       }
       setLoading(false)
     }
-
     fetchmerchantKey()
-
     setLoading(true)
   }
 }

@@ -10,12 +10,6 @@ exports[`PaymentExternalPage should match a snapshot when has an error 1`] = `
 
 exports[`PaymentExternalPage should match a snapshot when has data and a merchantKey 1`] = `
 <PaymentPageContent
-  merchantKey={
-    Object {
-      "expiry": "SomeDateTime",
-      "merchantSessionKey": "SomeKey",
-    }
-  }
   payment={
     Object {
       "_eTag": "",
@@ -231,6 +225,15 @@ exports[`PaymentExternalPage should match a snapshot when has data and a merchan
       "status": "awaitingPosting",
       "tenancyId": "",
       "type": "paymentRequest",
+    }
+  }
+  paymentProvider={
+    OpayoProvider {
+      "merchantKey": Object {
+        "expiry": "SomeDateTime",
+        "merchantSessionKey": "SomeKey",
+      },
+      "providerName": "opayo",
     }
   }
   refetchPayment={[MockFunction]}

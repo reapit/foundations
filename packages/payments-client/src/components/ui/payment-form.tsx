@@ -2,10 +2,10 @@ import React, { useState } from 'react'
 import { Section, Formik, Form, CardInputGroup, Input, LevelRight, Button, Helper, FadeIn } from '@reapit/elements'
 import { Routes } from '../../constants/routes'
 import { history } from '../../core/router'
-import { MerchantKey } from '../../types/opayo'
 import { PaymentWithPropertyModel } from '../../types/payment'
 import { ResendConfirmButton } from './payment-resend-confirm-button'
 import { onHandleSubmit } from './payment-handlers'
+import { PaymentProvider } from '@/services/providers'
 
 export interface CardDetails {
   customerFirstName: string
@@ -24,13 +24,20 @@ export interface CardDetails {
 
 const PaymentForm: React.FC<{
   payment: PaymentWithPropertyModel
-  merchantKey: MerchantKey
   paymentId: string
+  paymentProvider: PaymentProvider
   session?: string
   refetchPayment: () => void
-}> = ({ payment, merchantKey, paymentId, session, refetchPayment }) => {
+}> = ({ payment, paymentProvider, paymentId, session, refetchPayment }) => {
   const [isLoading, setIsLoading] = useState<boolean>(false)
-  const onSubmit = onHandleSubmit(merchantKey, payment, paymentId, setIsLoading, refetchPayment, session)
+  const onSubmit = onHandleSubmit(
+    paymentProvider.merchantKey,
+    payment,
+    paymentId,
+    setIsLoading,
+    refetchPayment,
+    session,
+  )
   const { customer, status } = payment
   const { forename = '', surname = '', email = '', primaryAddress } = customer ?? {}
   const redirectToDashboard = () => history.push(Routes.PAYMENTS)

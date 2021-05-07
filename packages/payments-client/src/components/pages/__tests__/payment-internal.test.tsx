@@ -4,6 +4,7 @@ import PaymentInternalPage from '../payment-internal'
 import { stubPaymentModel } from '../../ui/__stubs__/payment'
 import { stubPropertyModel } from '../../ui/__stubs__/property'
 import useSWR from 'swr'
+import { OpayoProvider } from '@/services/providers'
 
 jest.mock('swr')
 jest.mock('../../../core/connect-session')
@@ -30,7 +31,7 @@ describe('PaymentInternalPage', () => {
       shallow(
         <PaymentInternalPage
           paymentId="MKT20000010"
-          defaultMerchantKey={{ merchantSessionKey: 'SomeKey', expiry: 'SomeDateTime' }}
+          defaultPaymentProvider={new OpayoProvider({ merchantSessionKey: 'SomeKey', expiry: 'SomeDateTime' })}
         />,
       ),
     ).toMatchSnapshot()
@@ -55,7 +56,7 @@ describe('PaymentInternalPage', () => {
       shallow(
         <PaymentInternalPage
           paymentId="MKT20000010"
-          defaultMerchantKey={{ merchantSessionKey: 'SomeKey', expiry: 'SomeDateTime' }}
+          defaultPaymentProvider={new OpayoProvider({ merchantSessionKey: 'SomeKey', expiry: 'SomeDateTime' })}
         />,
       ),
     ).toMatchSnapshot()
