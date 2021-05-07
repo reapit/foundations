@@ -1,6 +1,6 @@
 import * as React from 'react'
-import * as Sentry from '@sentry/browser'
 import { notification, Helper } from '@reapit/elements'
+import { logger } from '@reapit/utils'
 
 export interface ErrorState {
   hasFailed: boolean
@@ -28,10 +28,7 @@ export class ErrorBoundary extends React.Component<ErrorProps, ErrorState> {
     console.error('ERROR BOUNDARY CAUGHT', error.message, info)
     const isLocal = window.reapit.config.appEnv === 'local'
     if (!isLocal) {
-      Sentry.withScope((scope) => {
-        scope.setExtras(info as Record<string, any>)
-        Sentry.captureException(error)
-      })
+      logger(error)
     }
     notification.error({ message: error.message })
   }
