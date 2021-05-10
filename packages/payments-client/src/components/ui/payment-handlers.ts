@@ -17,6 +17,7 @@ import { CardDetails } from './payment-form'
 import { PaymentWithPropertyModel, UpdateStatusBody, UpdateStatusParams } from '../../types/payment'
 import uuid from 'uuid/v4'
 import { PaymentProvider, OpayoProvider } from '@/services/providers'
+import { URLS } from '../../constants/api'
 
 export const handlePaymentProviderEffect = (
   setLoading: Dispatch<SetStateAction<boolean>>,
@@ -108,7 +109,7 @@ export const onUpdateStatus = async (
   updateStatusParams: UpdateStatusParams,
   cardDetails: CardDetails,
   payment: PaymentWithPropertyModel,
-  refetchPayment: () => void,
+  refetchPayment: (api: string) => void,
   setIsLoading: Dispatch<SetStateAction<boolean>>,
 ) => {
   const { session } = updateStatusParams
@@ -137,7 +138,7 @@ export const onUpdateStatus = async (
   }
 
   setIsLoading(false)
-  refetchPayment()
+  refetchPayment(`${URLS.PAYMENTS}/${payment.id}`)
 }
 
 export const handleCreateTransaction = (
@@ -146,7 +147,7 @@ export const handleCreateTransaction = (
   cardDetails: CardDetails,
   paymentId: string,
   setIsLoading: Dispatch<SetStateAction<boolean>>,
-  refetchPayment: () => void,
+  refetchPayment: (api: string) => void,
   session?: string,
 ) => async (result: any) => {
   const { customerFirstName, customerLastName, address1, city, postalCode, country } = cardDetails
@@ -203,7 +204,7 @@ export const onHandleSubmit = (
   payment: PaymentWithPropertyModel,
   paymentId: string,
   setIsLoading: Dispatch<SetStateAction<boolean>>,
-  refetchPayment: () => void,
+  refetchPayment: (api: string) => void,
   session?: string,
 ) => (cardDetails: CardDetails) => {
   const { cardholderName, cardNumber, expiryDate, securityCode } = cardDetails

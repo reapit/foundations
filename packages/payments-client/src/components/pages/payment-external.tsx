@@ -33,8 +33,6 @@ const PaymentExternalPage: React.FC<PaymentExternalPageProps> = ({
 
   useEffect(handlePaymentProviderEffect(setLoading, setPaymentProvider, clientId), [setPaymentProvider, clientId])
 
-  console.log(setLoading, setPaymentProvider)
-
   if (loading || !data) {
     return <Loader />
   }
