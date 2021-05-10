@@ -30,8 +30,6 @@ const PaymentInternalPage: React.FC<PaymentInternalPageProps> = ({ paymentId, de
     connectSession,
   ])
 
-  console.log(setLoading, setPaymentProvider)
-
   if (loading || !propertyModel || !paymentModel) {
     return <Loader />
   }
