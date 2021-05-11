@@ -65,43 +65,37 @@ describe('onUpdateStatus', () => {
   }
   const stubBody = { status: 'posted', externalReference: '' }
   it('it should call update session status and generate email correctly then refetch payment', async () => {
-    const mockedRefetch = jest.fn()
     const mockSetLoading = jest.fn()
     await onUpdateStatus(
       stubBody,
       stubUpdateStatusParams,
       stubCardDetails,
       stubPaymentWithPropertyModel,
-      mockedRefetch,
       mockSetLoading,
     )
     expect(updatePaymentStatus).toHaveBeenCalledWith(stubBody, stubUpdateStatusParams)
     expect(generateEmailPaymentReceiptInternal).toHaveBeenCalledWith(stubEmailBody, stubUpdateStatusParams)
-    expect(mockedRefetch).toHaveBeenCalled()
     expect(mockSetLoading).toHaveBeenCalledWith('posted')
   })
 
   it('it should call update session status and generate email correctly then refetch payment with a session', async () => {
-    const mockedRefetch = jest.fn()
     const mockSetLoading = jest.fn()
     await onUpdateStatus(
       stubBody,
       stubUpdateStatusParamsWithSession,
       stubCardDetails,
       stubPaymentWithPropertyModel,
-      mockedRefetch,
       mockSetLoading,
     )
     expect(updatePaymentSessionStatus).toHaveBeenCalledWith(stubBody, stubUpdateStatusParamsWithSession)
     expect(generateEmailPaymentReceiptExternal).toHaveBeenCalledWith(stubEmailBody, stubUpdateStatusParamsWithSession)
-    expect(mockedRefetch).toHaveBeenCalled()
     expect(mockSetLoading).toHaveBeenCalledWith('posted')
   })
 })
 
 describe('onHandleSubmit', () => {
   window.sagepayOwnForm = jest.fn().mockReturnValue({ tokeniseCardDetails: jest.fn() })
-  const onSubmit = onHandleSubmit(merchantKey, stubPaymentWithPropertyModel, paymentId, jest.fn(), jest.fn(), session)
+  const onSubmit = onHandleSubmit(merchantKey, stubPaymentWithPropertyModel, paymentId, jest.fn(), session)
 
   it('should correctly call the opayo method', () => {
     onSubmit(stubCardDetails)
@@ -122,7 +116,6 @@ xdescribe('handleCreateTransaction', () => {
       stubCardDetails,
       paymentId,
       jest.fn(),
-      jest.fn(),
       session,
     )
     await onTokenised({ success: true })
@@ -137,7 +130,6 @@ xdescribe('handleCreateTransaction', () => {
       stubPaymentWithPropertyModel,
       stubCardDetails,
       paymentId,
-      jest.fn(),
       jest.fn(),
       session,
     )

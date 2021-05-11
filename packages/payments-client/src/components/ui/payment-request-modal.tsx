@@ -19,7 +19,7 @@ import { emailRegex } from '@reapit/utils'
 export type PaymentRequestModalProps = {
   payment: PaymentModel | null
   setSelectedPayment: React.Dispatch<React.SetStateAction<PaymentModel | null>>
-  refetchPayments: () => void
+  refetchPayments?: () => void
 }
 
 export interface PaymentEmailRequestModel {
@@ -41,7 +41,7 @@ export const PaymentRequestModal: React.FC<PaymentRequestModalProps> = ({
   const [isLoading, setIsLoading] = useState<boolean>(false)
   const handleOnClose = () => {
     setSelectedPayment(null)
-    refetchPayments()
+    refetchPayments && refetchPayments()
   }
   return (
     <ModalV2

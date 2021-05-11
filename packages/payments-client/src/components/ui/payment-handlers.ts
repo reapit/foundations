@@ -17,7 +17,6 @@ import { CardDetails, PaymentStatusType } from './payment-form'
 import { PaymentWithPropertyModel, UpdateStatusBody, UpdateStatusParams } from '../../types/payment'
 import uuid from 'uuid/v4'
 import { PaymentProvider, OpayoProvider } from '@/services/providers'
-import { URLS } from '../../constants/api'
 
 export const handlePaymentProviderEffect = (
   setLoading: Dispatch<SetStateAction<boolean>>,
@@ -111,7 +110,6 @@ export const onUpdateStatus = async (
   updateStatusParams: UpdateStatusParams,
   cardDetails: CardDetails,
   payment: PaymentWithPropertyModel,
-  refetchPayment: (api: string) => void,
   setPaymentStatus: Dispatch<SetStateAction<PaymentStatusType>>,
 ) => {
   const { session } = updateStatusParams
@@ -140,7 +138,6 @@ export const onUpdateStatus = async (
   }
 
   setPaymentStatus('posted')
-  refetchPayment(`${URLS.PAYMENTS}/${payment.id}`)
 }
 
 export const handleCreateTransaction = (
@@ -149,7 +146,6 @@ export const handleCreateTransaction = (
   cardDetails: CardDetails,
   paymentId: string,
   setPaymentStatus: Dispatch<SetStateAction<PaymentStatusType>>,
-  refetchPayment: (api: string) => void,
   session?: string,
 ) => async (result: any) => {
   const { customerFirstName, customerLastName, address1, city, postalCode, country } = cardDetails
@@ -186,26 +182,12 @@ export const handleCreateTransaction = (
     const externalReference = transaction && transaction.transactionId ? transaction.transactionId : 'rejected'
     const updateStatusBody = { status, externalReference: externalReference }
 
-    return await onUpdateStatus(
-      updateStatusBody,
-      updateStatusParams,
-      cardDetails,
-      payment,
-      refetchPayment,
-      setPaymentStatus,
-    )
+    return await onUpdateStatus(updateStatusBody, updateStatusParams, cardDetails, payment, setPaymentStatus)
   }
 
   const updateStatusBody = { status, externalReference: 'rejected' }
 
-  return await onUpdateStatus(
-    updateStatusBody,
-    updateStatusParams,
-    cardDetails,
-    payment,
-    refetchPayment,
-    setPaymentStatus,
-  )
+  return await onUpdateStatus(updateStatusBody, updateStatusParams, cardDetails, payment, setPaymentStatus)
 }
 
 export const onHandleSubmit = (
@@ -213,7 +195,6 @@ export const onHandleSubmit = (
   payment: PaymentWithPropertyModel,
   paymentId: string,
   setPaymentStatus: Dispatch<SetStateAction<PaymentStatusType>>,
-  refetchPayment: (api: string) => void,
   session?: string,
 ) => (cardDetails: CardDetails) => {
   const { cardholderName, cardNumber, expiryDate, securityCode } = cardDetails
@@ -229,14 +210,6 @@ export const onHandleSubmit = (
         expiryDate: unformatCardExpires(expiryDate),
         securityCode,
       },
-      onTokenised: handleCreateTransaction(
-        merchantKey,
-        payment,
-        cardDetails,
-        paymentId,
-        setPaymentStatus,
-        refetchPayment,
-        session,
-      ),
+      onTokenised: handleCreateTransaction(merchantKey, payment, cardDetails, paymentId, setPaymentStatus, session),
     })
 }
