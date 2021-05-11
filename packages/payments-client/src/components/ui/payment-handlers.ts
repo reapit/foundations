@@ -187,7 +187,7 @@ export const handleCreateTransaction = (
 
   const updateStatusBody = { status, externalReference: 'rejected' }
 
-  return await onUpdateStatus(updateStatusBody, updateStatusParams, cardDetails, payment, setPaymentStatus)
+  return onUpdateStatus(updateStatusBody, updateStatusParams, cardDetails, payment, setPaymentStatus)
 }
 
 export const onHandleSubmit = (
