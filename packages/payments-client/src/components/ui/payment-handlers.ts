@@ -182,7 +182,7 @@ export const handleCreateTransaction = (
     const externalReference = transaction && transaction.transactionId ? transaction.transactionId : 'rejected'
     const updateStatusBody = { status, externalReference: externalReference }
 
-    return await onUpdateStatus(updateStatusBody, updateStatusParams, cardDetails, payment, setPaymentStatus)
+    return onUpdateStatus(updateStatusBody, updateStatusParams, cardDetails, payment, setPaymentStatus)
   }
 
   const updateStatusBody = { status, externalReference: 'rejected' }
