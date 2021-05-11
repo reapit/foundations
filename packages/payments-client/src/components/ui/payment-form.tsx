@@ -22,6 +22,8 @@ export interface CardDetails {
   email: string
 }
 
+export type PaymentStatusType = 'pending' | 'rejected' | 'posted' | 'loading' | 'awaitingPosting'
+
 const PaymentForm: React.FC<{
   payment: PaymentWithPropertyModel
   paymentId: string
@@ -29,18 +31,19 @@ const PaymentForm: React.FC<{
   session?: string
   refetchPayment: () => void
 }> = ({ payment, paymentProvider, paymentId, session, refetchPayment }) => {
-  const [isLoading, setIsLoading] = useState<boolean>(false)
+  const [paymentStatus, setPaymentStatus] = useState<PaymentStatusType>(payment.status as PaymentStatusType)
   const onSubmit = onHandleSubmit(
     paymentProvider.merchantKey,
     payment,
     paymentId,
-    setIsLoading,
+    setPaymentStatus,
     refetchPayment,
     session,
   )
-  const { customer, status } = payment
+  const { customer } = payment
   const { forename = '', surname = '', email = '', primaryAddress } = customer ?? {}
   const redirectToDashboard = () => history.push(Routes.PAYMENTS)
+  const isLoading = paymentStatus === 'loading'
 
   const address1 = primaryAddress
     ? primaryAddress.buildingName && primaryAddress.line1
@@ -70,14 +73,14 @@ const PaymentForm: React.FC<{
     >
       {() => (
         <Form className="form">
-          {status === 'rejected' && (
+          {paymentStatus === 'rejected' && (
             <FadeIn>
               <Helper variant="warning">
                 This payment has failed. Please check the details submitted are correct and try again.
               </Helper>
             </FadeIn>
           )}
-          {status === 'posted' && (
+          {paymentStatus === 'posted' && (
             <FadeIn>
               <Helper variant="info">
                 This payment has been successfully submitted and confirmation of payment has been emailed to the address
@@ -98,7 +101,7 @@ const PaymentForm: React.FC<{
               </Section>
             </FadeIn>
           )}
-          {status !== 'posted' && (
+          {paymentStatus !== 'posted' && (
             <FadeIn>
               <CardInputGroup hasBillingAddress whiteListTestCards={['4929000000006']} />
               <Section hasPadding={false}>

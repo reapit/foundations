@@ -78,7 +78,7 @@ describe('onUpdateStatus', () => {
     expect(updatePaymentStatus).toHaveBeenCalledWith(stubBody, stubUpdateStatusParams)
     expect(generateEmailPaymentReceiptInternal).toHaveBeenCalledWith(stubEmailBody, stubUpdateStatusParams)
     expect(mockedRefetch).toHaveBeenCalled()
-    expect(mockSetLoading).toHaveBeenCalledWith(false)
+    expect(mockSetLoading).toHaveBeenCalledWith('posted')
   })
 
   it('it should call update session status and generate email correctly then refetch payment with a session', async () => {
@@ -95,7 +95,7 @@ describe('onUpdateStatus', () => {
     expect(updatePaymentSessionStatus).toHaveBeenCalledWith(stubBody, stubUpdateStatusParamsWithSession)
     expect(generateEmailPaymentReceiptExternal).toHaveBeenCalledWith(stubEmailBody, stubUpdateStatusParamsWithSession)
     expect(mockedRefetch).toHaveBeenCalled()
-    expect(mockSetLoading).toHaveBeenCalledWith(false)
+    expect(mockSetLoading).toHaveBeenCalledWith('posted')
   })
 })
 

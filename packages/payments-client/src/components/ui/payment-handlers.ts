@@ -13,7 +13,7 @@ import {
 import dayjs from 'dayjs'
 import { MerchantKey } from '../../types/opayo'
 import { opayoMerchantKeyService, opayoCreateTransactionService } from '../../services/opayo'
-import { CardDetails } from './payment-form'
+import { CardDetails, PaymentStatusType } from './payment-form'
 import { PaymentWithPropertyModel, UpdateStatusBody, UpdateStatusParams } from '../../types/payment'
 import uuid from 'uuid/v4'
 import { PaymentProvider, OpayoProvider } from '@/services/providers'
@@ -101,6 +101,8 @@ export const handlePaymentRequestSubmit = (
     notification.error({
       message: 'Payment email request was unsuccessful',
     })
+
+    setIsLoading(false)
   }
 }
 
@@ -110,7 +112,7 @@ export const onUpdateStatus = async (
   cardDetails: CardDetails,
   payment: PaymentWithPropertyModel,
   refetchPayment: (api: string) => void,
-  setIsLoading: Dispatch<SetStateAction<boolean>>,
+  setPaymentStatus: Dispatch<SetStateAction<PaymentStatusType>>,
 ) => {
   const { session } = updateStatusParams
   const { externalReference } = updateStatusBody
@@ -137,7 +139,7 @@ export const onUpdateStatus = async (
     await generateEmailPaymentReceiptInternal(emailReceiptBody, updateStatusParams)
   }
 
-  setIsLoading(false)
+  setPaymentStatus('posted')
   refetchPayment(`${URLS.PAYMENTS}/${payment.id}`)
 }
 
@@ -146,7 +148,7 @@ export const handleCreateTransaction = (
   payment: PaymentWithPropertyModel,
   cardDetails: CardDetails,
   paymentId: string,
-  setIsLoading: Dispatch<SetStateAction<boolean>>,
+  setPaymentStatus: Dispatch<SetStateAction<PaymentStatusType>>,
   refetchPayment: (api: string) => void,
   session?: string,
 ) => async (result: any) => {
@@ -190,25 +192,32 @@ export const handleCreateTransaction = (
       cardDetails,
       payment,
       refetchPayment,
-      setIsLoading,
+      setPaymentStatus,
     )
   }
 
   const updateStatusBody = { status, externalReference: 'rejected' }
 
-  return await onUpdateStatus(updateStatusBody, updateStatusParams, cardDetails, payment, refetchPayment, setIsLoading)
+  return await onUpdateStatus(
+    updateStatusBody,
+    updateStatusParams,
+    cardDetails,
+    payment,
+    refetchPayment,
+    setPaymentStatus,
+  )
 }
 
 export const onHandleSubmit = (
   merchantKey: MerchantKey,
   payment: PaymentWithPropertyModel,
   paymentId: string,
-  setIsLoading: Dispatch<SetStateAction<boolean>>,
+  setPaymentStatus: Dispatch<SetStateAction<PaymentStatusType>>,
   refetchPayment: (api: string) => void,
   session?: string,
 ) => (cardDetails: CardDetails) => {
   const { cardholderName, cardNumber, expiryDate, securityCode } = cardDetails
-  setIsLoading(true)
+  setPaymentStatus('loading')
   window
     .sagepayOwnForm({
       merchantSessionKey: merchantKey.merchantSessionKey,
@@ -225,7 +234,7 @@ export const onHandleSubmit = (
         payment,
         cardDetails,
         paymentId,
-        setIsLoading,
+        setPaymentStatus,
         refetchPayment,
         session,
       ),
