@@ -1,5 +1,5 @@
 import logger from '../../logger'
-import { ServerContext } from '../../index'
+import { ServerContext } from '../../utils'
 import {
   GetSourceByIdArgs,
   CreateSourceArgs,

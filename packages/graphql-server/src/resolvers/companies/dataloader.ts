@@ -1,6 +1,6 @@
 import DataLoader from 'dataloader'
 import { getCompanies } from './services'
-import { ServerContext } from '@/index'
+import { ServerContext } from '@/utils'
 import { CompanyModel, CompanyModelPagedResult } from '@reapit/foundations-ts-definitions'
 import logger from '@/logger'
 import handleError from '@/utils/handle-error'

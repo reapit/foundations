@@ -1,4 +1,4 @@
-import { ServerContext } from '../index'
+import { ServerContext } from '../utils'
 import { appointmentTypeMock } from '../resolvers/configurations/__stubs__/mock-appointment-types'
 import { propertiesMock } from '../resolvers/properties/__stubs__/mock-properties'
 import { officesMock } from '../resolvers/offices/__stubs__/mock-offices'

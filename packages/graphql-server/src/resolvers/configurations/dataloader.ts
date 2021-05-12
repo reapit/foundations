@@ -1,6 +1,6 @@
 import DataLoader from 'dataloader'
 import { getConfigurationsByType } from './services'
-import { ServerContext } from '@/index'
+import { ServerContext } from '@/utils'
 import handleError from '@/utils/handle-error'
 import logger from '@/logger'
 import { ConfigurationType } from './configurations'
