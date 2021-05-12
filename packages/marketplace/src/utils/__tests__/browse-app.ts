@@ -1,7 +1,12 @@
 import { ReapitConnectSession } from '@reapit/connect-session'
 import { AppSummaryModel, AppSummaryModelPagedResult } from '@reapit/foundations-ts-definitions'
-import { COGNITO_GROUP_ORGANISATION_ADMIN } from '../../constants/api'
-import { filterOrgAdminRestrictedApps, getNumberOfItems, mergeAppsWithoutDuplicateId } from '../browse-app'
+import { COGNITO_GROUP_ADMIN_USERS, COGNITO_GROUP_ORGANISATION_ADMIN } from '../../constants/api'
+import {
+  filterAdminRestrictedApps,
+  filterOrgAdminRestrictedApps,
+  getNumberOfItems,
+  mergeAppsWithoutDuplicateId,
+} from '../browse-app'
 
 describe('Browse apps', () => {
   test('getNumberOfItems', () => {
@@ -373,6 +378,64 @@ describe('filterOrgAdminRestrictedApps', () => {
       },
     } as ReapitConnectSession
     const result = filterOrgAdminRestrictedApps(stubApps, stubSession) as AppSummaryModelPagedResult
+    expect(result.data?.length).toBeUndefined()
+  })
+})
+
+describe('filterAdminRestrictedApps', () => {
+  it('should correctly filter apps if user is not an admin and appId is in config', () => {
+    window.reapit.config.adminRestrictedAppIds = ['ID_IN_CONFIG']
+    const idInConfig = 'ID_IN_CONFIG'
+    const idNotInConfig = 'ID_NOT_IN_CONFIG'
+    const stubApps = {
+      data: [
+        {
+          id: idInConfig,
+        },
+        { id: idNotInConfig },
+      ],
+    }
+    const stubSession = {
+      loginIdentity: {
+        groups: [] as string[],
+      },
+    } as ReapitConnectSession
+    const result = filterAdminRestrictedApps(stubApps, stubSession) as AppSummaryModelPagedResult
+    expect(result.data?.length).toBe(1)
+    expect((result?.data as AppSummaryModel[])[0].id).toEqual(idNotInConfig)
+  })
+
+  it('should correctly not filter apps if user is  an admin and appId is in config', () => {
+    window.reapit.config.adminRestrictedAppIds = ['ID_IN_CONFIG']
+    const idInConfig = 'ID_IN_CONFIG'
+    const idNotInConfig = 'ID_NOT_IN_CONFIG'
+    const stubApps = {
+      data: [
+        {
+          id: idInConfig,
+        },
+        { id: idNotInConfig },
+      ],
+    }
+    const stubSession = {
+      loginIdentity: {
+        groups: [COGNITO_GROUP_ADMIN_USERS] as string[],
+      },
+    } as ReapitConnectSession
+    const result = filterAdminRestrictedApps(stubApps, stubSession) as AppSummaryModelPagedResult
+    expect(result.data?.length).toBe(2)
+    expect((result?.data as AppSummaryModel[])[0].id).toEqual(idInConfig)
+  })
+
+  it('should correctly not filter apps if data is undefined', () => {
+    window.reapit.config.adminRestrictedAppIds = ['ID_IN_CONFIG']
+    const stubApps = {}
+    const stubSession = {
+      loginIdentity: {
+        groups: [] as string[],
+      },
+    } as ReapitConnectSession
+    const result = filterAdminRestrictedApps(stubApps, stubSession) as AppSummaryModelPagedResult
     expect(result.data?.length).toBeUndefined()
   })
 })
