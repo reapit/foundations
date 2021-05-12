@@ -1,4 +1,4 @@
-import { AuthenticationError, UserInputError } from 'apollo-server-lambda'
+import { UserInputError } from 'apollo-server-lambda'
 import { AreaModel, AreaModelPagedResult, CreateAreaModel, UpdateAreaModel } from '@reapit/foundations-ts-definitions'
 
 export type CreateAreaArgs = CreateAreaModel
@@ -27,7 +27,7 @@ export type CreateAreaReturn = Promise<AreaModel | UserInputError>
 export type UpdateAreaReturn = Promise<AreaModel | UserInputError>
 
 // resolver type
-export type QueryGetAreaByIdReturn = AuthenticationError | GetAreaByIdReturn
-export type QueryGetAreasReturn = AuthenticationError | GetAreasReturn
-export type MutationCreateAreaReturn = AuthenticationError | CreateAreaReturn
-export type MutationUpdateAreaReturn = AuthenticationError | UpdateAreaReturn
+export type QueryGetAreaByIdReturn = GetAreaByIdReturn
+export type QueryGetAreasReturn = GetAreasReturn
+export type MutationCreateAreaReturn = CreateAreaReturn
+export type MutationUpdateAreaReturn = UpdateAreaReturn
