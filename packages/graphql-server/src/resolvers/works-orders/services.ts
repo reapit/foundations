@@ -1,4 +1,4 @@
-import { ServerContext } from '@/index'
+import { ServerContext } from '@/utils'
 import {
   GetWorksOrdersReturn,
   GetWorksOrdersArgs,
