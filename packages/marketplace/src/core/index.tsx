@@ -18,6 +18,7 @@ window.reapit = {
     webComponentConfigApiUrl: '',
     developerPortalUrl: '',
     orgAdminRestrictedAppIds: [],
+    adminRestrictedAppIds: [],
     reapitConnectManagementUri: '',
     comingSoonApps: [],
   },
