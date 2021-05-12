@@ -1,6 +1,7 @@
 import { ReapitConnectSession } from '@reapit/connect-session'
 import { AppSummaryModel, AppSummaryModelPagedResult } from '@reapit/foundations-ts-definitions'
 import { COGNITO_GROUP_ORGANISATION_ADMIN } from '../constants/api'
+import { selectIsAdmin } from '../selector/auth'
 
 export const HEADER_HEIGHT = 68
 export const FEATURED_APP_HEIGHT = 200
@@ -34,6 +35,21 @@ export const filterOrgAdminRestrictedApps = (
   if (isOrgAdmin || !appsResponse || !appsResponse.data || !window.reapit) return appsResponse
   const filtered = appsResponse.data.filter(
     (app) => !window.reapit.config.orgAdminRestrictedAppIds.includes(app.id as string),
+  )
+  return {
+    ...appsResponse,
+    data: filtered,
+  }
+}
+
+export const filterAdminRestrictedApps = (
+  appsResponse: AppSummaryModelPagedResult,
+  connectSession: ReapitConnectSession,
+) => {
+  const isAdmin = selectIsAdmin(connectSession)
+  if (isAdmin || !appsResponse || !appsResponse.data || !window.reapit) return appsResponse
+  const filtered = appsResponse.data.filter(
+    (app) => app.id && !window.reapit.config.adminRestrictedAppIds.includes(app.id),
   )
   return {
     ...appsResponse,
