@@ -1,8 +1,6 @@
 import appointmentServices from './services'
-import { checkPermission } from '../../utils/check-permission'
 import logger from '../../logger'
-import errors from '../../errors'
-import { ServerContext } from '../../utils'
+import { ServerContext, resolverHandler } from '../../utils'
 import {
   GetAppointmentByIdArgs,
   CreateAppointmentArgs,
@@ -15,61 +13,37 @@ import {
 } from './appointments'
 import { AppointmentModel } from '@reapit/foundations-ts-definitions'
 
-export const queryGetAppointmentById = (
-  _: any,
-  args: GetAppointmentByIdArgs,
-  context: ServerContext,
-): QueryGetAppointmentByIdReturn => {
-  const traceId = context.traceId
-  logger.info('queryGetAppointmentById', { traceId, args })
-  const isPermit = checkPermission(context)
-  if (!isPermit) {
-    return errors.generateAuthenticationError(context.traceId)
-  }
-  return appointmentServices.getAppointmentById(args, context)
-}
+export const queryGetAppointmentById = resolverHandler<GetAppointmentByIdArgs, QueryGetAppointmentByIdReturn>(
+  (_: any, args: GetAppointmentByIdArgs, context: ServerContext): QueryGetAppointmentByIdReturn => {
+    const traceId = context.traceId
+    logger.info('queryGetAppointmentById', { traceId, args })
+    return appointmentServices.getAppointmentById(args, context)
+  },
+)
 
-export const queryGetAppointments = (
-  _: any,
-  args: GetAppointmentsArgs,
-  context: ServerContext,
-): QueryGetAppointmentsReturn => {
-  const traceId = context.traceId
-  logger.info('queryGetAppointments', { traceId, args })
-  const isPermit = checkPermission(context)
-  if (!isPermit) {
-    return errors.generateAuthenticationError(context.traceId)
-  }
-  return appointmentServices.getAppointments(args, context)
-}
+export const queryGetAppointments = resolverHandler<GetAppointmentsArgs, QueryGetAppointmentsReturn>(
+  (_: any, args: GetAppointmentsArgs, context: ServerContext): QueryGetAppointmentsReturn => {
+    const traceId = context.traceId
+    logger.info('queryGetAppointments', { traceId, args })
+    return appointmentServices.getAppointments(args, context)
+  },
+)
 
-export const mutationCreateAppointment = (
-  _: any,
-  args: CreateAppointmentArgs,
-  context: ServerContext,
-): MutationCreateAppointmentReturn => {
-  const traceId = context.traceId
-  logger.info('mutationCreateAppointment', { traceId, args })
-  const isPermit = checkPermission(context)
-  if (!isPermit) {
-    return errors.generateAuthenticationError(context.traceId)
-  }
-  return appointmentServices.createAppointment(args, context)
-}
+export const mutationCreateAppointment = resolverHandler<CreateAppointmentArgs, MutationCreateAppointmentReturn>(
+  (_: any, args: CreateAppointmentArgs, context: ServerContext): MutationCreateAppointmentReturn => {
+    const traceId = context.traceId
+    logger.info('mutationCreateAppointment', { traceId, args })
+    return appointmentServices.createAppointment(args, context)
+  },
+)
 
-export const mutationUpdateAppointment = (
-  _: any,
-  args: UpdateAppointmentArgs,
-  context: ServerContext,
-): MutationUpdateAppointmentReturn => {
-  const traceId = context.traceId
-  logger.info('mutationUpdateAppointment', { traceId, args })
-  const isPermit = checkPermission(context)
-  if (!isPermit) {
-    return errors.generateAuthenticationError(context.traceId)
-  }
-  return appointmentServices.updateAppointment(args, context)
-}
+export const mutationUpdateAppointment = resolverHandler<UpdateAppointmentArgs, MutationUpdateAppointmentReturn>(
+  (_: any, args: UpdateAppointmentArgs, context: ServerContext): MutationUpdateAppointmentReturn => {
+    const traceId = context.traceId
+    logger.info('mutationUpdateAppointment', { traceId, args })
+    return appointmentServices.updateAppointment(args, context)
+  },
+)
 
 export const queryConfiguration = (appointment: AppointmentModel, _, context: ServerContext) => {
   return context.dataLoader.configurationLoader.load(appointment.typeId)
