@@ -1,8 +1,6 @@
 import propertyServices from './services'
-import { checkPermission } from '../../utils/check-permission'
 import logger from '../../logger'
-import errors from '../../errors'
-import { ServerContext } from '../../utils'
+import { resolverHandler, ServerContext } from '../../utils'
 import {
   GetConveyancingByIdArgs,
   GetConveyancingArgs,
@@ -22,117 +20,85 @@ import {
   MutationDeleteDownwardLinkModelReturn,
 } from './conveyancing'
 
-export const queryGetConveyancingById = (
+export const queryGetConveyancingById = resolverHandler<GetConveyancingByIdArgs, QueryGetConveyancingByIdReturn>((
   _: any,
   args: GetConveyancingByIdArgs,
   context: ServerContext,
 ): QueryGetConveyancingByIdReturn => {
   const traceId = context.traceId
   logger.info('queryGetConveyancingById', { traceId, args })
-  const isPermit = checkPermission(context)
-  if (!isPermit) {
-    return errors.generateAuthenticationError(context.traceId)
-  }
   return propertyServices.getConveyancingById(args, context)
-}
+})
 
-export const queryGetConveyancing = (
+export const queryGetConveyancing = resolverHandler<GetConveyancingArgs, QueryGetConveyancingReturn>((
   _: any,
   args: GetConveyancingArgs,
   context: ServerContext,
 ): QueryGetConveyancingReturn => {
   const traceId = context.traceId
   logger.info('queryGetConveyancing', { traceId, args })
-  const isPermit = checkPermission(context)
-  if (!isPermit) {
-    return errors.generateAuthenticationError(context.traceId)
-  }
   return propertyServices.getConveyancing(args, context)
-}
+})
 
-export const queryGetConveyancingChain = (
+export const queryGetConveyancingChain = resolverHandler<GetConveyancingChainArgs, QueryGetConveyancingChainReturn>((
   _: any,
   args: GetConveyancingChainArgs,
   context: ServerContext,
 ): QueryGetConveyancingChainReturn => {
   const traceId = context.traceId
   logger.info('queryGetConveyancingChain', { traceId, args })
-  const isPermit = checkPermission(context)
-  if (!isPermit) {
-    return errors.generateAuthenticationError(context.traceId)
-  }
   return propertyServices.getConveyancingChain(args, context)
-}
+})
 
-export const mutationUpdateConveyancing = (
+export const mutationUpdateConveyancing = resolverHandler<UpdateConveyancingArgs, MutationUpdateConveyancingReturn>((
   _: any,
   args: UpdateConveyancingArgs,
   context: ServerContext,
 ): MutationUpdateConveyancingReturn => {
   const traceId = context.traceId
   logger.info('mutationUpdateConveyancing', { traceId, args })
-  const isPermit = checkPermission(context)
-  if (!isPermit) {
-    return errors.generateAuthenticationError(context.traceId)
-  }
   return propertyServices.updateConveyancing(args, context)
-}
+})
 
-export const mutationCreateUpwardLinkModel = (
+export const mutationCreateUpwardLinkModel = resolverHandler<CreateUpwardLinkModelArgs, MutationCreateUpwardLinkModelReturn>((
   _: any,
   args: CreateUpwardLinkModelArgs,
   context: ServerContext,
 ): MutationCreateUpwardLinkModelReturn => {
   const traceId = context.traceId
   logger.info('mutationCreateUpwardLinkModel', { traceId, args })
-  const isPermit = checkPermission(context)
-  if (!isPermit) {
-    return errors.generateAuthenticationError(context.traceId)
-  }
   return propertyServices.createUpwardLinkModel(args, context)
-}
+})
 
-export const mutationCreateDownwardLinkModel = (
+export const mutationCreateDownwardLinkModel = resolverHandler<CreateDownwardLinkModelArgs, MutationCreateDownwardLinkModelReturn>((
   _: any,
   args: CreateDownwardLinkModelArgs,
   context: ServerContext,
 ): MutationCreateDownwardLinkModelReturn => {
   const traceId = context.traceId
   logger.info('mutationCreateDownwardLinkModel', { traceId, args })
-  const isPermit = checkPermission(context)
-  if (!isPermit) {
-    return errors.generateAuthenticationError(context.traceId)
-  }
   return propertyServices.createDownwardLinkModel(args, context)
-}
+})
 
-export const mutationDeleteUpwardLinkModel = (
+export const mutationDeleteUpwardLinkModel = resolverHandler<DeleteUpwardLinkModelArgs, MutationDeleteUpwardLinkModelReturn>((
   _: any,
   args: DeleteUpwardLinkModelArgs,
   context: ServerContext,
 ): MutationDeleteUpwardLinkModelReturn => {
   const traceId = context.traceId
   logger.info('mutationDeleteUpwardLinkModel', { traceId, args })
-  const isPermit = checkPermission(context)
-  if (!isPermit) {
-    return errors.generateAuthenticationError(context.traceId)
-  }
   return propertyServices.deleteUpwardLinkModel(args, context)
-}
+})
 
-export const mutationDeleteDownwardLinkModel = (
+export const mutationDeleteDownwardLinkModel = resolverHandler<DeleteDownwardLinkModelArgs, MutationDeleteDownwardLinkModelReturn>((
   _: any,
   args: DeleteDownwardLinkModelArgs,
   context: ServerContext,
 ): MutationDeleteDownwardLinkModelReturn => {
   const traceId = context.traceId
   logger.info('mutationDeleteDownwardLinkModel', { traceId, args })
-  const isPermit = checkPermission(context)
-  if (!isPermit) {
-    return errors.generateAuthenticationError(context.traceId)
-  }
   return propertyServices.deleteDownwardLinkModel(args, context)
-}
+})
 
 export default {
   Query: {

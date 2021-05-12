@@ -1,4 +1,4 @@
-import { AuthenticationError, UserInputError } from 'apollo-server-lambda'
+import { UserInputError } from 'apollo-server-lambda'
 import {
   ConveyancingModel,
   ConveyancingModelPagedResult,
@@ -50,11 +50,11 @@ export type CreateDownwardLinkModelReturn = Promise<ConveyancingModel | UserInpu
 export type DeleteDownwardLinkModelReturn = Promise<String | UserInputError>
 
 // resolver type
-export type QueryGetConveyancingByIdReturn = AuthenticationError | GetConveyancingByIdReturn
-export type QueryGetConveyancingReturn = AuthenticationError | GetConveyancingReturn
-export type QueryGetConveyancingChainReturn = AuthenticationError | GetConveyancingChainReturn
-export type MutationUpdateConveyancingReturn = AuthenticationError | UpdateConveyancingReturn
-export type MutationCreateUpwardLinkModelReturn = AuthenticationError | CreateUpwardLinkModelReturn
-export type MutationDeleteUpwardLinkModelReturn = AuthenticationError | DeleteUpwardLinkModelReturn
-export type MutationCreateDownwardLinkModelReturn = AuthenticationError | CreateDownwardLinkModelReturn
-export type MutationDeleteDownwardLinkModelReturn = AuthenticationError | DeleteDownwardLinkModelReturn
+export type QueryGetConveyancingByIdReturn = GetConveyancingByIdReturn
+export type QueryGetConveyancingReturn = GetConveyancingReturn
+export type QueryGetConveyancingChainReturn = GetConveyancingChainReturn
+export type MutationUpdateConveyancingReturn = UpdateConveyancingReturn
+export type MutationCreateUpwardLinkModelReturn = CreateUpwardLinkModelReturn
+export type MutationDeleteUpwardLinkModelReturn = DeleteUpwardLinkModelReturn
+export type MutationCreateDownwardLinkModelReturn = CreateDownwardLinkModelReturn
+export type MutationDeleteDownwardLinkModelReturn = DeleteDownwardLinkModelReturn
