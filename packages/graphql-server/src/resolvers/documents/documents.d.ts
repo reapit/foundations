@@ -1,4 +1,4 @@
-import { AuthenticationError, UserInputError } from 'apollo-server-lambda'
+import { UserInputError } from 'apollo-server-lambda'
 import {
   DocumentModel,
   CreateDocumentModel,
@@ -63,8 +63,8 @@ export type UpdateDocumentReturn = Promise<DocumentModel | UserInputError>
 export type DeleteDocumentReturn = Promise<string | UserInputError>
 
 // resolver type
-export type QueryGetDocumentByIdReturn = AuthenticationError | GetDocumentByIdReturn
-export type QueryGetDocumentsReturn = AuthenticationError | GetDocumentsReturn
-export type MutationCreateDocumentReturn = AuthenticationError | CreateDocumentReturn
-export type MutationUpdateDocumentReturn = AuthenticationError | UpdateDocumentReturn
-export type MutationDeleteDocumentReturn = AuthenticationError | DeleteDocumentReturn
+export type QueryGetDocumentByIdReturn = GetDocumentByIdReturn
+export type QueryGetDocumentsReturn = GetDocumentsReturn
+export type MutationCreateDocumentReturn = CreateDocumentReturn
+export type MutationUpdateDocumentReturn = UpdateDocumentReturn
+export type MutationDeleteDocumentReturn = DeleteDocumentReturn
