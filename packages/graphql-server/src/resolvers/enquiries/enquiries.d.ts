@@ -1,4 +1,4 @@
-import { AuthenticationError, UserInputError } from 'apollo-server-lambda'
+import { UserInputError } from 'apollo-server-lambda'
 import { EnquiryModel, EnquiryModelPagedResult, CreateEnquiryModel } from '@reapit/foundations-ts-definitions'
 
 export type CreateEnquiryArgs = CreateEnquiryModel
@@ -22,6 +22,6 @@ export type GetEnquiriesReturn = Promise<EnquiryModelPagedResult | UserInputErro
 export type CreateEnquiryReturn = Promise<EnquiryModel | UserInputError>
 
 // resolver type
-export type QueryGetEnquiryByIdReturn = AuthenticationError | GetEnquiryByIdReturn
-export type QueryGetEnquiriesReturn = AuthenticationError | GetEnquiriesReturn
-export type MutationCreateEnquiryReturn = AuthenticationError | CreateEnquiryReturn
+export type QueryGetEnquiryByIdReturn = GetEnquiryByIdReturn
+export type QueryGetEnquiriesReturn = GetEnquiriesReturn
+export type MutationCreateEnquiryReturn = CreateEnquiryReturn
