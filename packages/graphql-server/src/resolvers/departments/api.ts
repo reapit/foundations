@@ -1,6 +1,6 @@
 import qs from 'query-string'
 import logger from '../../logger'
-import { ServerContext } from '../../index'
+import { ServerContext } from '../../utils'
 import { GetDepartmentByIdArgs, GetDepartmentsArgs, GetDepartmentByIdReturn, GetDepartmentsReturn } from './departments'
 import { URLS } from '../../constants/api'
 import { createPlatformAxiosInstance } from '../../utils/axios-instances'

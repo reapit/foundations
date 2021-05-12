@@ -1,4 +1,4 @@
-import { formatError, handleContext } from '../index'
+import { formatError, handleContext } from '../utils'
 import { GraphQLError } from 'graphql'
 
 jest.mock('../logger')

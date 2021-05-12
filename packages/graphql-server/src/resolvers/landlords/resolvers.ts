@@ -2,7 +2,7 @@ import landlordServices from './services'
 import { checkPermission } from '../../utils/check-permission'
 import logger from '../../logger'
 import errors from '../../errors'
-import { ServerContext } from '../../index'
+import { ServerContext } from '../../utils'
 import {
   GetLandlordByIdArgs,
   QueryGetLandlordByIdReturn,

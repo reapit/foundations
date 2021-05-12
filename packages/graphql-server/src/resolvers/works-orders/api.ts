@@ -18,7 +18,7 @@ import {
   DeleteWorksOrderItemArgs,
 } from './works-orders'
 import qs from 'query-string'
-import { ServerContext } from '@/index'
+import { ServerContext } from '@/utils'
 import logger from '@/logger'
 import { createPlatformAxiosInstance } from '@/utils/axios-instances'
 import { URLS } from '@/constants/api'

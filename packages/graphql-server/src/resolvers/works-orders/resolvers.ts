@@ -17,7 +17,7 @@ import {
   DeleteWorksOrderItemArgs,
   MutationDeleteWorksOrderItemReturn,
 } from './works-orders'
-import { ServerContext } from '@/index'
+import { ServerContext } from '@/utils'
 import { checkPermission } from '@/utils/check-permission'
 import errors from '@/errors'
 import * as worksOrdersServices from './services'

@@ -1,5 +1,5 @@
 import logger from '../logger'
-import { ServerContext } from '../index'
+import { ServerContext } from './handle.context'
 
 export const checkPermission = (context: ServerContext) => {
   const traceId = context.traceId

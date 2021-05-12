@@ -1,6 +1,6 @@
 import DataLoader from 'dataloader'
 import { getNegotiators } from './services'
-import { ServerContext } from '@/index'
+import { ServerContext } from '@/utils'
 import logger from '@/logger'
 import handleError from '@/utils/handle-error'
 import { NegotiatorModelPagedResult, NegotiatorModel } from '@reapit/foundations-ts-definitions'
