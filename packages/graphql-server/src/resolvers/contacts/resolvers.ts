@@ -1,8 +1,6 @@
 import contactServices from './services'
-import { checkPermission } from '../../utils/check-permission'
 import logger from '../../logger'
-import errors from '../../errors'
-import { ServerContext } from '../../utils'
+import { resolverHandler, ServerContext } from '../../utils'
 import {
   GetContactByIdArgs,
   CreateContactArgs,
@@ -14,57 +12,41 @@ import {
   MutationUpdateContactReturn,
 } from './contacts'
 
-export const queryGetContactById = (
+export const queryGetContactById = resolverHandler<GetContactByIdArgs, QueryGetContactByIdReturn>((
   _: any,
   args: GetContactByIdArgs,
   context: ServerContext,
 ): QueryGetContactByIdReturn => {
   const traceId = context.traceId
   logger.info('queryGetContactById', { traceId, args })
-  const isPermit = checkPermission(context)
-  if (!isPermit) {
-    return errors.generateAuthenticationError(context.traceId)
-  }
   return contactServices.getContactById(args, context)
-}
+})
 
-export const queryGetContacts = (_: any, args: GetContactsArgs, context: ServerContext): QueryGetContactsReturn => {
+export const queryGetContacts = resolverHandler<GetContactsArgs, QueryGetContactsReturn>((_: any, args: GetContactsArgs, context: ServerContext): QueryGetContactsReturn => {
   const traceId = context.traceId
   logger.info('queryGetContacts', { traceId, args })
-  const isPermit = checkPermission(context)
-  if (!isPermit) {
-    return errors.generateAuthenticationError(context.traceId)
-  }
   return contactServices.getContacts(args, context)
-}
+})
 
-export const mutationCreateContact = (
+export const mutationCreateContact = resolverHandler<CreateContactArgs, MutationCreateContactReturn>((
   _: any,
   args: CreateContactArgs,
   context: ServerContext,
 ): MutationCreateContactReturn => {
   const traceId = context.traceId
   logger.info('mutationCreateContact', { traceId, args })
-  const isPermit = checkPermission(context)
-  if (!isPermit) {
-    return errors.generateAuthenticationError(context.traceId)
-  }
   return contactServices.createContact(args, context)
-}
+})
 
-export const mutationUpdateContact = (
+export const mutationUpdateContact = resolverHandler<UpdateContactArgs, MutationUpdateContactReturn>((
   _: any,
   args: UpdateContactArgs,
   context: ServerContext,
 ): MutationUpdateContactReturn => {
   const traceId = context.traceId
   logger.info('mutationUpdateContact', { traceId, args })
-  const isPermit = checkPermission(context)
-  if (!isPermit) {
-    return errors.generateAuthenticationError(context.traceId)
-  }
   return contactServices.updateContact(args, context)
-}
+})
 
 export default {
   Query: {
