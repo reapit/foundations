@@ -1,4 +1,4 @@
-import { AuthenticationError, UserInputError } from 'apollo-server-lambda'
+import { UserInputError } from 'apollo-server-lambda'
 import {
   IdentityCheckModel,
   IdentityCheckModelPagedResult,
@@ -35,7 +35,7 @@ export type CreateIdentityCheckReturn = Promise<IdentityCheckModel | UserInputEr
 export type UpdateIdentityCheckReturn = Promise<IdentityCheckModel | UserInputError>
 
 // resolver type
-export type QueryGetIdentityCheckByIdReturn = AuthenticationError | GetIdentityCheckByIdReturn
-export type QueryGetIdentityChecksReturn = AuthenticationError | GetIdentityChecksReturn
-export type MutationCreateIdentityCheckReturn = AuthenticationError | CreateIdentityCheckReturn
-export type MutationUpdateIdentityCheckReturn = AuthenticationError | UpdateIdentityCheckReturn
+export type QueryGetIdentityCheckByIdReturn = GetIdentityCheckByIdReturn
+export type QueryGetIdentityChecksReturn = GetIdentityChecksReturn
+export type MutationCreateIdentityCheckReturn = CreateIdentityCheckReturn
+export type MutationUpdateIdentityCheckReturn = UpdateIdentityCheckReturn
