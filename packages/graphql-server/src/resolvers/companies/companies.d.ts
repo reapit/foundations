@@ -1,4 +1,4 @@
-import { AuthenticationError, UserInputError } from 'apollo-server-lambda'
+import { UserInputError } from 'apollo-server-lambda'
 import {
   CompanyModel,
   CompanyModelPagedResult,
@@ -43,8 +43,8 @@ export type CreateCompanyReturn = Promise<CompanyModel | UserInputError>
 export type UpdateCompanyReturn = Promise<CompanyModel | UserInputError>
 
 // resolver type
-export type QueryGetCompanyByIdReturn = AuthenticationError | GetCompanyByIdReturn
-export type QueryGetCompaniesReturn = AuthenticationError | GetCompaniesReturn
-export type QueryGetCompanyRolesReturn = AuthenticationError | GetCompanyRolesReturn
-export type MutationCreateCompanyReturn = AuthenticationError | CreateCompanyReturn
-export type MutationUpdateCompanyReturn = AuthenticationError | UpdateCompanyReturn
+export type QueryGetCompanyByIdReturn = GetCompanyByIdReturn
+export type QueryGetCompaniesReturn = GetCompaniesReturn
+export type QueryGetCompanyRolesReturn = GetCompanyRolesReturn
+export type MutationCreateCompanyReturn = CreateCompanyReturn
+export type MutationUpdateCompanyReturn = UpdateCompanyReturn
