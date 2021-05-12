@@ -17,7 +17,6 @@ exports[`PaymentInternalPage should match a snapshot when has a merchantKey and 
       "providerName": "opayo",
     }
   }
-  refetchPayment={[MockFunction]}
 />
 `;
 
@@ -373,7 +372,6 @@ exports[`PaymentInternalPage should match a snapshot when has a merchantKey and 
       "providerName": "opayo",
     }
   }
-  refetchPayment={[MockFunction]}
 />
 `;
 

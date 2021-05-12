@@ -18,7 +18,7 @@ export interface PaymentInternalPageProps {
 
 const PaymentInternalPage: React.FC<PaymentInternalPageProps> = ({ paymentId, defaultPaymentProvider = null }) => {
   const { connectSession } = useReapitConnect(reapitConnectBrowserSession)
-  const { data: paymentModel, mutate: refetchPayment } = useSWR<PaymentModel>(`${URLS.PAYMENTS}/${paymentId}`)
+  const { data: paymentModel } = useSWR<PaymentModel>(`${URLS.PAYMENTS}/${paymentId}`)
   const { data: propertyModel } = useSWR<PropertyModel>(
     paymentModel?.propertyId ? `${URLS.PROPERTIES}/${paymentModel?.propertyId}` : null,
   )
@@ -49,7 +49,7 @@ const PaymentInternalPage: React.FC<PaymentInternalPageProps> = ({ paymentId, de
     property: propertyModel,
   }
 
-  return <PaymentPageContent payment={payment} paymentProvider={paymentProvider} refetchPayment={refetchPayment} />
+  return <PaymentPageContent payment={payment} paymentProvider={paymentProvider} />
 }
 
 export default PaymentInternalPage

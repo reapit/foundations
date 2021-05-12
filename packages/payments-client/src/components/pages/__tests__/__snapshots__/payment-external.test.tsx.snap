@@ -236,7 +236,6 @@ exports[`PaymentExternalPage should match a snapshot when has data and a merchan
       "providerName": "opayo",
     }
   }
-  refetchPayment={[MockFunction]}
   session="session-token"
 />
 `;

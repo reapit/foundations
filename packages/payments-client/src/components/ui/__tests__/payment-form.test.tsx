@@ -16,7 +16,6 @@ describe('PaymentForm', () => {
           paymentProvider={new OpayoProvider({ merchantSessionKey: 'merchantSessionKey', expiry: 'expiry' })}
           paymentId={paymentId}
           session={session}
-          refetchPayment={jest.fn()}
         />,
       ),
     ).toMatchSnapshot()
