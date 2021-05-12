@@ -37,6 +37,9 @@ type IdentityCheckModelIdentityDocument {
   typeId: String
   expiry: String
   details: String
+  fileData: String
+  fileUrl: String
+  name: String
 }
 
 type PagedResultIdentityCheckModel {

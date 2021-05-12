@@ -73,12 +73,22 @@ type TenancyModel {
   rentFrequency: String
   endDateConfirmed: Boolean
   isPeriodic: Boolean
+  rentInstalmentsFrequency: String
+  rentInstalmentsAmount: Float
+  rentInstalmentStart: String
+  meterReadingGas: String
+  meterReadingGasLastRead: String
+  meterReadingElectricity: String
+  meterReadingElecticityLastRead: String
+  meterReadingWater: String
+  meterReadingWaterLastRead: String
   typeId: String
   negotiatorId: String
   propertyId: String
   applicantId: String
   source: TenancySourceModel
   related: [TenancyRelatedModel!]
+  fromArchive: Boolean
   _eTag: String
   _links: JSON
   _embedded: EmbeddedTenancyModel
@@ -122,6 +132,7 @@ type TenancyRelatedModel {
   mobilePhone: String
   email: String
   primaryAddress: TenancyPrimaryAddressModel
+  fromArchive: Boolean
 }
 
 type TenancyPrimaryAddressModel {
