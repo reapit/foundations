@@ -14,11 +14,17 @@ type ContactModel {
   workPhone: String
   mobilePhone: String
   email: String
+  archivedOn: String
+  fromArchive: Boolean
   primaryAddress: ContactModelAddress
   secondaryAddress: ContactModelAddress
   workAddress: ContactModelAddress
   officeIds: [String!]
   negotiatorIds: [String!]
+  communicationPreferenceLetter: Boolean
+  communicationPreferenceEmail: Boolean
+  communicationPreferencePhone: Boolean
+  communicationPreferenceSMS: Boolean
   metadata: JSON
   _eTag: String
   _links: JSON
