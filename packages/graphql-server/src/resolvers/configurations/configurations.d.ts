@@ -1,4 +1,4 @@
-import { AuthenticationError, UserInputError } from 'apollo-server-lambda'
+import { UserInputError } from 'apollo-server-lambda'
 import { ListItemModel } from '@reapit/foundations-ts-definitions'
 
 export type ConfigurationType =
@@ -25,5 +25,5 @@ export type GetConfigurationByTypeAndIdReturn = Promise<ListItemModel | UserInpu
 export type GetConfigurationsByTypeReturn = Promise<ListItemModel[] | UserInputError>
 
 // resolver type
-export type QueryConfigurationByTypeAndIdReturn = AuthenticationError | GetConfigurationByTypeAndIdReturn
-export type QueryConfigurationsByTypeReturn = AuthenticationError | GetConfigurationsByTypeReturn
+export type QueryConfigurationByTypeAndIdReturn = GetConfigurationByTypeAndIdReturn
+export type QueryConfigurationsByTypeReturn = GetConfigurationsByTypeReturn

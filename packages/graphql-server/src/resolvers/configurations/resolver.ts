@@ -1,8 +1,6 @@
 import configurationService from './services'
-import { checkPermission } from '../../utils/check-permission'
 import logger from '../../logger'
-import errors from '../../errors'
-import { ServerContext } from '../../utils'
+import { resolverHandler, ServerContext } from '../../utils'
 import {
   QueryConfigurationByTypeAndIdReturn,
   QueryConfigurationsByTypeReturn,
@@ -10,33 +8,25 @@ import {
   GetConfigurationByTypeArgs,
 } from './configurations'
 
-export const queryGetConfigurationsByType = (
+export const queryGetConfigurationsByType = resolverHandler<GetConfigurationByTypeArgs, QueryConfigurationsByTypeReturn>((
   _: any,
   args: GetConfigurationByTypeArgs,
   context: ServerContext,
 ): QueryConfigurationsByTypeReturn => {
   const traceId = context.traceId
   logger.info('queryGetConfigurationsByType', { traceId, args })
-  const isPermit = checkPermission(context)
-  if (!isPermit) {
-    return errors.generateAuthenticationError(context.traceId)
-  }
   return configurationService.getConfigurationsByType(args, context)
-}
+})
 
-export const queryGetConfigurationsByTypeAndId = (
+export const queryGetConfigurationsByTypeAndId = resolverHandler<GetConfigurationByTypeAndIdArgs, QueryConfigurationByTypeAndIdReturn>((
   _: any,
   args: GetConfigurationByTypeAndIdArgs,
   context: ServerContext,
 ): QueryConfigurationByTypeAndIdReturn => {
   const traceId = context.traceId
   logger.info('queryGetConfigurationsByTypeAndId', { traceId, args })
-  const isPermit = checkPermission(context)
-  if (!isPermit) {
-    return errors.generateAuthenticationError(context.traceId)
-  }
   return configurationService.getConfigurationByTypeAndId(args, context)
-}
+})
 
 export default {
   Query: {
