@@ -2060,10 +2060,12 @@ type PropertyModel {
   modified: String
   marketingMode: String
   currency: String
+  alternateId: String
   address: PropertyModelAddress
   areaId: String
   strapline: String
   description: String
+  longDescription: String
   summary: String
   departmentId: String
   negotiatorId: String
@@ -2075,6 +2077,11 @@ type PropertyModel {
   viewingArrangements: String
   videoUrl: String
   videoCaption: String
+  video2Url: String
+  video2Caption: String
+  notes: String
+  archivedOn: String
+  fromArchive: Boolean
   externalArea: PropertyModelExternalArea
   internalArea: PropertyModelInternalArea
   epc: PropertyModelEpc
@@ -2088,6 +2095,8 @@ type PropertyModel {
   locality: [String!]
   rooms: [PropertyRoomModel!]
   officeIds: [String!]
+  lostInstructionDate: String
+  lostInstructionNote: String
   metadata: JSON
   _eTag: String
   _links: JSON
@@ -2155,6 +2164,19 @@ type PropertyModeLetting {
   status: String
   agentRole: String
   landlordId: String
+  brochureId: String
+  managementFee: PropertyModelManagementFee
+  lettingFee: PropertyModelLettingFee
+}
+
+type PropertyModelManagementFee {
+  type: String
+  amount: Float
+}
+
+type PropertyModelLettingFee {
+  type: String
+  amount: Float
 }
 
 type PropertyModelSelling {
@@ -2162,10 +2184,20 @@ type PropertyModelSelling {
   price: Float
   qualifier: String
   status: String
+  disposal: String
   completed: String
   exchanged: String
   tenure: PropertyModelSellingTenure
   vendorId: String
+  agency: String
+  fee: PropertyModelFee
+  recommendedPrice: Int
+  brochureId: String
+}
+
+type PropertyModelFee {
+  type: String
+  amount: Int
 }
 
 type PropertyModelSellingTenure {
