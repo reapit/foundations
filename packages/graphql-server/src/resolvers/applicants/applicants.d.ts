@@ -1,4 +1,4 @@
-import { AuthenticationError, UserInputError } from 'apollo-server-lambda'
+import { UserInputError } from 'apollo-server-lambda'
 import {
   ApplicantContactRelationshipModel,
   ApplicantModel,
@@ -103,10 +103,10 @@ export type CreateApplicantReturn = Promise<ApplicantModel | UserInputError>
 export type UpdateApplicantReturn = Promise<ApplicantModel | UserInputError>
 
 // resolver type
-export type QueryGetApplicantByIdReturn = AuthenticationError | GetApplicantByIdReturn
-export type QueryGetApplicantsReturn = AuthenticationError | GetApplicantsReturn
-export type MutationCreateApplicantReturn = AuthenticationError | CreateApplicantReturn
-export type MutationUpdateApplicantReturn = AuthenticationError | UpdateApplicantReturn
+export type QueryGetApplicantByIdReturn = GetApplicantByIdReturn
+export type QueryGetApplicantsReturn = GetApplicantsReturn
+export type MutationCreateApplicantReturn = CreateApplicantReturn
+export type MutationUpdateApplicantReturn = UpdateApplicantReturn
 
 export type GetApplicantRelationshipsByIdArgs = {
   id: string
@@ -137,7 +137,7 @@ export type CreateApplicantRelationshipReturn = Promise<ApplicantModel | UserInp
 export type DeleteApplicantRelationshipReturn = Promise<string | UserInputError>
 
 // resolver type
-export type QueryGetApplicantRelationshipsByIdReturn = AuthenticationError | GetApplicantRelationshipsByIdReturn
-export type QueryGetApplicantRelationshipsReturn = AuthenticationError | GetApplicantRelationshipsReturn
-export type MutationCreateApplicantRelationshipsReturn = AuthenticationError | CreateApplicantRelationshipReturn
-export type MutationDeleteApplicantRelationshipReturn = AuthenticationError | DeleteApplicantRelationshipReturn
+export type QueryGetApplicantRelationshipsByIdReturn = GetApplicantRelationshipsByIdReturn
+export type QueryGetApplicantRelationshipsReturn = GetApplicantRelationshipsReturn
+export type MutationCreateApplicantRelationshipsReturn = CreateApplicantRelationshipReturn
+export type MutationDeleteApplicantRelationshipReturn = DeleteApplicantRelationshipReturn
