@@ -1,8 +1,6 @@
 import propertyServices from './services'
-import { checkPermission } from '../../utils/check-permission'
 import logger from '../../logger'
-import errors from '../../errors'
-import { ServerContext } from '../../utils'
+import { resolverHandler, ServerContext } from '../../utils'
 import {
   GetPropertyByIdArgs,
   CreatePropertyArgs,
@@ -14,61 +12,45 @@ import {
   MutationUpdatePropertyReturn,
 } from './properties'
 
-export const queryGetPropertyById = (
+export const queryGetPropertyById = resolverHandler<GetPropertyByIdArgs, QueryGetPropertyByIdReturn>((
   _: any,
   args: GetPropertyByIdArgs,
   context: ServerContext,
 ): QueryGetPropertyByIdReturn => {
   const traceId = context.traceId
   logger.info('queryGetPropertyById', { traceId, args })
-  const isPermit = checkPermission(context)
-  if (!isPermit) {
-    return errors.generateAuthenticationError(context.traceId)
-  }
   return propertyServices.getPropertyById(args, context)
-}
+})
 
-export const queryGetProperties = (
+export const queryGetProperties = resolverHandler<GetPropertiesArgs, QueryGetPropertiesReturn>((
   _: any,
   args: GetPropertiesArgs,
   context: ServerContext,
 ): QueryGetPropertiesReturn => {
   const traceId = context.traceId
   logger.info('queryGetProperties', { traceId, args })
-  const isPermit = checkPermission(context)
-  if (!isPermit) {
-    return errors.generateAuthenticationError(context.traceId)
-  }
   return propertyServices.getProperties(args, context)
-}
+})
 
-export const mutationCreateProperty = (
+export const mutationCreateProperty = resolverHandler<CreatePropertyArgs, MutationCreatePropertyReturn>((
   _: any,
   args: CreatePropertyArgs,
   context: ServerContext,
 ): MutationCreatePropertyReturn => {
   const traceId = context.traceId
   logger.info('mutationCreateProperty', { traceId, args })
-  const isPermit = checkPermission(context)
-  if (!isPermit) {
-    return errors.generateAuthenticationError(context.traceId)
-  }
   return propertyServices.createProperty(args, context)
-}
+})
 
-export const mutationUpdateProperty = (
+export const mutationUpdateProperty = resolverHandler<UpdatePropertyArgs, MutationUpdatePropertyReturn>((
   _: any,
   args: UpdatePropertyArgs,
   context: ServerContext,
 ): MutationUpdatePropertyReturn => {
   const traceId = context.traceId
   logger.info('mutationUpdateProperty', { traceId, args })
-  const isPermit = checkPermission(context)
-  if (!isPermit) {
-    return errors.generateAuthenticationError(context.traceId)
-  }
   return propertyServices.updateProperty(args, context)
-}
+})
 
 export default {
   Query: {
