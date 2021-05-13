@@ -1,4 +1,4 @@
-import { AuthenticationError, UserInputError } from 'apollo-server-lambda'
+import { UserInputError } from 'apollo-server-lambda'
 import {
   SourceModel,
   SourceModelPagedResult,
@@ -36,7 +36,7 @@ export type CreateSourceReturn = Promise<SourceModel | UserInputError>
 export type UpdateSourceReturn = Promise<SourceModel | UserInputError>
 
 // resolver type
-export type QueryGetSourceByIdReturn = AuthenticationError | GetSourceByIdReturn
-export type QueryGetSourcesReturn = AuthenticationError | GetSourcesReturn
-export type MutationCreateSourceReturn = AuthenticationError | CreateSourceReturn
-export type MutationUpdateSourceReturn = AuthenticationError | UpdateSourceReturn
+export type QueryGetSourceByIdReturn = GetSourceByIdReturn
+export type QueryGetSourcesReturn = GetSourcesReturn
+export type MutationCreateSourceReturn = CreateSourceReturn
+export type MutationUpdateSourceReturn = UpdateSourceReturn
