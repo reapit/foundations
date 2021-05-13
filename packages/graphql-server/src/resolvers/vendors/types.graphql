@@ -90,10 +90,13 @@ type VendorModel {
   typeId: String
   sellingReasonId: String
   solicitorId: String
+  propertyId: String
   source: VendorSourceModel
   related: [VendorRelate]
   negotiatorId: String
   officeIds: [String]
+  archivedOn: String
+  fromArchive: Boolean
   metadata: JSON
   _eTag: JSON
   _links: JSON
