@@ -1,4 +1,4 @@
-import { AuthenticationError, UserInputError } from 'apollo-server-lambda'
+import { UserInputError } from 'apollo-server-lambda'
 import {
   LandlordModelPagedResult,
   LandlordContactRelationshipModelPagedResult,
@@ -43,12 +43,12 @@ export type DeleteLandlordRelationshipReturn = Promise<string | UserInputError>
 export type UpdateLandlordReturn = Promise<LandlordModel | UserInputError>
 
 // resolver type
-export type QueryGetLandlordsReturn = AuthenticationError | GetLandlordsReturn
-export type QueryGetLandlordByIdReturn = AuthenticationError | GetLandlordByIdReturn
-export type QueryGetLandlordRelationshipsReturn = AuthenticationError | GetLandlordRelationshipsReturn
-export type QueryGetLandlordRelationshipByIdReturn = AuthenticationError | GetLandlordRelationshipByIdReturn
+export type QueryGetLandlordsReturn = GetLandlordsReturn
+export type QueryGetLandlordByIdReturn = GetLandlordByIdReturn
+export type QueryGetLandlordRelationshipsReturn = GetLandlordRelationshipsReturn
+export type QueryGetLandlordRelationshipByIdReturn = GetLandlordRelationshipByIdReturn
 
-export type MutationCreateLandlordReturn = AuthenticationError | CreateLandlordReturn
-export type MutationCreateLandlordRelationshipReturn = AuthenticationError | CreateLandlordRelationshipReturn
-export type MutationDeleteLandlordRelationshipReturn = AuthenticationError | DeleteLandlordRelationshipReturn
-export type MutationUpdateLandlordReturn = AuthenticationError | UpdateLandlordReturn
+export type MutationCreateLandlordReturn = CreateLandlordReturn
+export type MutationCreateLandlordRelationshipReturn = CreateLandlordRelationshipReturn
+export type MutationDeleteLandlordRelationshipReturn = DeleteLandlordRelationshipReturn
+export type MutationUpdateLandlordReturn = UpdateLandlordReturn

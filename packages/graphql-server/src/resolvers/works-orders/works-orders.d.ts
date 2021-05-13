@@ -1,5 +1,5 @@
 import { WorksOrderModelPagedResult, CreateWorksOrderItemModel } from '@reapit/foundations-ts-definitions'
-import { UserInputError, AuthenticationError } from 'apollo-server-lambda'
+import { UserInputError } from 'apollo-server-lambda'
 
 import {
   WorksOrderModel,
@@ -51,13 +51,13 @@ export type DeleteWorksOrderItemReturn = Promise<boolean | UserInputError>
 
 // resolver return types
 
-export type QueryGetWorksOrderItemsReturn = AuthenticationError | GetWorksOrderItemsReturn
-export type QueryGetWorksOrderItemByIdReturn = AuthenticationError | GetWorksOrderItemByIdReturn
-export type MutationCreateWorksOrderItemReturn = AuthenticationError | CreateWorksOrderItemReturn
-export type MutationUpdateWorksOrderItemReturn = AuthenticationError | UpdateWorksOrderItemArgs
-export type MutationDeleteWorksOrderItemReturn = AuthenticationError | DeleteWorksOrderItemReturn
+export type QueryGetWorksOrderItemsReturn = GetWorksOrderItemsReturn
+export type QueryGetWorksOrderItemByIdReturn = GetWorksOrderItemByIdReturn
+export type MutationCreateWorksOrderItemReturn = CreateWorksOrderItemReturn
+export type MutationUpdateWorksOrderItemReturn = UpdateWorksOrderItemArgs
+export type MutationDeleteWorksOrderItemReturn = DeleteWorksOrderItemReturn
 
-export type QueryGetWorksOrdersReturn = AuthenticationError | GetWorksOrdersReturn
-export type QueryGetWorksOrdersByIdReturn = AuthenticationError | GetWorksOrderByIdReturn
+export type QueryGetWorksOrdersReturn = GetWorksOrdersReturn
+export type QueryGetWorksOrdersByIdReturn = GetWorksOrderByIdReturn
 export type MutationCreateWorksOrder = QueryGetWorksOrdersByIdReturn
 export type MutationUpdateWorksOrder = QueryGetWorksOrdersByIdReturn

@@ -1,4 +1,4 @@
-import { AuthenticationError, UserInputError } from 'apollo-server-lambda'
+import { UserInputError } from 'apollo-server-lambda'
 import {
   VendorModel,
   VendorModelPagedResult,
@@ -66,11 +66,11 @@ export type CreateVendorRelationshipReturn = Promise<boolean | UserInputError>
 export type DeleteVendorRelationshipReturn = Promise<boolean | UserInputError>
 
 // resolver type
-export type QueryGetVendorByIdReturn = AuthenticationError | GetVendorByIdReturn
-export type QueryGetVendorsReturn = AuthenticationError | GetVendorsReturn
-export type QueryGetVendorRelationshipByIdReturn = AuthenticationError | GetVendorRelationshipByIdReturn
-export type QueryGetVendorRelationshipsReturn = AuthenticationError | GetVendorRelationshipsReturn
+export type QueryGetVendorByIdReturn = GetVendorByIdReturn
+export type QueryGetVendorsReturn = GetVendorsReturn
+export type QueryGetVendorRelationshipByIdReturn = GetVendorRelationshipByIdReturn
+export type QueryGetVendorRelationshipsReturn = GetVendorRelationshipsReturn
 
-export type MutationUpdateVendorReturn = AuthenticationError | UpdateVendorReturn
-export type MutationCreateVendorRelationshipReturn = AuthenticationError | CreateVendorRelationshipReturn
-export type MutationDeleteVendorRelationshipReturn = AuthenticationError | DeleteVendorRelationshipReturn
+export type MutationUpdateVendorReturn = UpdateVendorReturn
+export type MutationCreateVendorRelationshipReturn = CreateVendorRelationshipReturn
+export type MutationDeleteVendorRelationshipReturn = DeleteVendorRelationshipReturn

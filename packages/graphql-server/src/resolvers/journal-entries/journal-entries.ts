@@ -1,4 +1,4 @@
-import { AuthenticationError, UserInputError } from 'apollo-server-lambda'
+import { UserInputError } from 'apollo-server-lambda'
 import {
   JournalEntryModelPagedResult,
   CreateJournalEntryModel,
@@ -14,5 +14,5 @@ export type GetJournalEntriesReturn = Promise<JournalEntryModelPagedResult | Use
 export type CreateJournalEntryReturn = Promise<Boolean | UserInputError>
 
 // resolver type
-export type QueryGetJournalEntriesReturn = AuthenticationError | GetJournalEntriesReturn
-export type MutationCreateJournalEntryReturn = AuthenticationError | CreateJournalEntryReturn
+export type QueryGetJournalEntriesReturn = GetJournalEntriesReturn
+export type MutationCreateJournalEntryReturn = CreateJournalEntryReturn

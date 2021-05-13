@@ -1,4 +1,4 @@
-import { GraphQLError, GraphQLFormattedError } from "graphql"
+import { GraphQLError, GraphQLFormattedError } from 'graphql'
 
 export const formatError = (error: GraphQLError): GraphQLFormattedError => {
   if (process.env.NODE_ENV === 'production') {

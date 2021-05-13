@@ -1,4 +1,4 @@
-import { AuthenticationError, UserInputError } from 'apollo-server-lambda'
+import { UserInputError } from 'apollo-server-lambda'
 import {
   OfferModel,
   CreateOfferModel,
@@ -42,7 +42,7 @@ export type CreateOfferReturn = Promise<OfferModel | UserInputError>
 export type UpdateOfferReturn = Promise<OfferModel | UserInputError>
 
 // resolver type
-export type QueryGetOfferByIdReturn = AuthenticationError | GetOfferByIdReturn
-export type QueryGetOffersReturn = AuthenticationError | GetOffersReturn
-export type MutationCreateOfferReturn = AuthenticationError | CreateOfferReturn
-export type MutationUpdateOfferReturn = AuthenticationError | UpdateOfferReturn
+export type QueryGetOfferByIdReturn = GetOfferByIdReturn
+export type QueryGetOffersReturn = GetOffersReturn
+export type MutationCreateOfferReturn = CreateOfferReturn
+export type MutationUpdateOfferReturn = UpdateOfferReturn

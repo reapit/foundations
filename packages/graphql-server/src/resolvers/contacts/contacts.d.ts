@@ -1,4 +1,4 @@
-import { AuthenticationError, UserInputError } from 'apollo-server-lambda'
+import { UserInputError } from 'apollo-server-lambda'
 import {
   ContactModel,
   ContactModelPagedResult,
@@ -39,7 +39,7 @@ export type CreateContactReturn = Promise<ContactModel | UserInputError>
 export type UpdateContactReturn = Promise<ContactModel | UserInputError>
 
 // resolver type
-export type QueryGetContactByIdReturn = AuthenticationError | GetContactByIdReturn
-export type QueryGetContactsReturn = AuthenticationError | GetContactsReturn
-export type MutationCreateContactReturn = AuthenticationError | CreateContactReturn
-export type MutationUpdateContactReturn = AuthenticationError | UpdateContactReturn
+export type QueryGetContactByIdReturn = GetContactByIdReturn
+export type QueryGetContactsReturn = GetContactsReturn
+export type MutationCreateContactReturn = CreateContactReturn
+export type MutationUpdateContactReturn = UpdateContactReturn
