@@ -1,4 +1,4 @@
-import { AuthenticationError, UserInputError } from 'apollo-server-lambda'
+import { UserInputError } from 'apollo-server-lambda'
 import {
   NegotiatorModel,
   NegotiatorModelPagedResult,
@@ -33,7 +33,7 @@ export type CreateNegotiatorReturn = Promise<NegotiatorModel | UserInputError>
 export type UpdateNegotiatorReturn = Promise<NegotiatorModel | UserInputError>
 
 // resolver type
-export type QueryGetNegotiatorByIdReturn = AuthenticationError | GetNegotiatorByIdReturn
-export type QueryGetNegotiatorsReturn = AuthenticationError | GetNegotiatorsReturn
-export type MutationCreateNegotiatorReturn = AuthenticationError | CreateNegotiatorReturn
-export type MutationUpdateNegotiatorReturn = AuthenticationError | UpdateNegotiatorReturn
+export type QueryGetNegotiatorByIdReturn = GetNegotiatorByIdReturn
+export type QueryGetNegotiatorsReturn = GetNegotiatorsReturn
+export type MutationCreateNegotiatorReturn = CreateNegotiatorReturn
+export type MutationUpdateNegotiatorReturn = UpdateNegotiatorReturn
