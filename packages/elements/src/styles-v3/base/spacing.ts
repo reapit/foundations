@@ -81,6 +81,10 @@ export const elMb4 = css`
   margin-bottom: 1rem;
 `
 
+export const elMb6 = css`
+  margin-bottom: 1.5rem;
+`
+
 export const elMt0 = css`
   margin-top: 0;
 `

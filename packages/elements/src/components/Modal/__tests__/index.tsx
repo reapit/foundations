@@ -20,7 +20,7 @@ const App: React.FunctionComponent<any> = ({
       <Modal
         tapOutsideToDissmiss={tapOutsideToDissmiss}
         visible={visible}
-        afterClose={() => setVisible(false)}
+        setSubscribingState={() => setVisible(false)}
         title="Some Modal Title"
       >
         <div>

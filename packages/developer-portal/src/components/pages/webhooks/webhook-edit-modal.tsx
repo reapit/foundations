@@ -14,7 +14,6 @@ import {
   ModalFooter,
   ModalBody,
   ModalHeader,
-  Loader,
   notification,
   ButtonGroup,
 } from '@reapit/elements'
@@ -34,6 +33,7 @@ import { validationSchema } from './form-schema/validation-schema'
 import { formFields } from './form-schema/form-fields'
 import { InstallationModel } from '@reapit/foundations-ts-definitions'
 import { SANDBOX_CLIENT } from '@/constants/api'
+import { Loader } from '@reapit/elements/v3'
 
 const { activeField, topicIdsField, webhookUrlField, customerIdsField, ignoreEtagOnlyChangesField } = formFields
 
@@ -204,7 +204,7 @@ export const WebhookEditModal: React.FunctionComponent<WebhookEditProps> = ({
                 body={
                   <Form>
                     {loading ? (
-                      <Loader />
+                      <Loader label="Loading" />
                     ) : (
                       <>
                         <Content>

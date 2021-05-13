@@ -1,7 +1,6 @@
 import React, { useEffect, useState } from 'react'
 import Menu from '@/components/ui/menu'
 import {
-  Loader,
   Section,
   FlexContainerResponsive,
   AppNavContainer,
@@ -23,6 +22,8 @@ import {
   selectCurrentMemberUpdateState,
 } from '../selector/current-member'
 import { Dispatch } from 'redux'
+import { ELEMENTS_V3_PAGES } from '../constants/pages'
+import { Loader } from '@reapit/elements/v3'
 
 const { Suspense } = React
 
@@ -58,6 +59,7 @@ export const PrivateRouteWrapper: React.FunctionComponent<PrivateRouteWrapperPro
   const currentMemberLoading = useSelector(selectCurrentMemberIsLoading)
   const memberUpdateState = useSelector(selectCurrentMemberUpdateState)
   const currentUri = `${location.pathname}${location.search}`
+  const isV3Page = ELEMENTS_V3_PAGES.includes(location.pathname)
 
   useEffect(() => {
     if (showTermsModal && memberUpdateState === 'SUCCESS') {
@@ -86,9 +88,9 @@ export const PrivateRouteWrapper: React.FunctionComponent<PrivateRouteWrapperPro
   if (!connectSession) {
     return (
       <AppNavContainer>
-        <FlexContainerResponsive hasBackground>
-          <Loader />
-        </FlexContainerResponsive>
+        <FlexContainerBasic hasBackground>
+          <Loader label="Loading" fullPage />
+        </FlexContainerBasic>
       </AppNavContainer>
     )
   }
@@ -105,26 +107,41 @@ export const PrivateRouteWrapper: React.FunctionComponent<PrivateRouteWrapperPro
   return (
     <AppNavContainer>
       {showMenu && <Menu />}
-      <FlexContainerBasic flexColumn isScrollable>
-        <FlexContainerResponsive
-          hasPadding
-          flexColumn
-          // I want to allow scrolling beyond the end of the page to allow for the toast notification
-          // except on the Gitbook page because the iframe handles it's own scrolling
-          isPageContainer={location.pathname !== Routes.API_DOCS}
-        >
+      {isV3Page ? (
+        <FlexContainerBasic flexColumn isScrollable hasPadding hasBackground>
           <Suspense
             fallback={
               <Section>
-                <Loader />
+                <Loader label="Loading" fullPage />
               </Section>
             }
           >
             {children}
           </Suspense>
           <TermsAndConditionsModal visible={showTermsModal} onAccept={updateTerms} tapOutsideToDissmiss={false} />
-        </FlexContainerResponsive>
-      </FlexContainerBasic>
+        </FlexContainerBasic>
+      ) : (
+        <FlexContainerBasic flexColumn isScrollable>
+          <FlexContainerResponsive
+            hasPadding
+            flexColumn
+            // I want to allow scrolling beyond the end of the page to allow for the toast notification
+            // except on the Gitbook page because the iframe handles it's own scrolling
+            isPageContainer={location.pathname !== Routes.API_DOCS}
+          >
+            <Suspense
+              fallback={
+                <Section>
+                  <Loader label="Loading" fullPage />
+                </Section>
+              }
+            >
+              {children}
+            </Suspense>
+            <TermsAndConditionsModal visible={showTermsModal} onAccept={updateTerms} tapOutsideToDissmiss={false} />
+          </FlexContainerResponsive>
+        </FlexContainerBasic>
+      )}
     </AppNavContainer>
   )
 }

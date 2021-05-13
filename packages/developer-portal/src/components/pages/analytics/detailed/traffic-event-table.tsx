@@ -1,7 +1,8 @@
 import * as React from 'react'
-import { Table, H5, Section, Loader } from '@reapit/elements'
+import { Table, H5, Section } from '@reapit/elements'
 import { TrafficEventsModel } from '@/reducers/traffic-statistics/list'
 import FadeIn from '../../../../styles/fade-in'
+import { Loader } from '@reapit/elements/v3'
 
 export type TrafficEventTableProps = {
   trafficEvents: TrafficEventsModel | null
@@ -36,7 +37,7 @@ export const TrafficEventTable: React.FC<TrafficEventTableProps> = ({ trafficEve
   const trafficEventTableColumn = React.useMemo(prepareColumnsData(trafficEvents), [trafficEvents])
 
   if (loading) {
-    return <Loader />
+    return <Loader label="Loading" />
   }
   return (
     <Section hasMargin={false} hasBoxShadow>

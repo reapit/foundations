@@ -1,6 +1,6 @@
 import React from 'react'
 import { useSelector, useDispatch } from 'react-redux'
-import { Button, Formik, Form, LevelRight, H3, FormSection, Loader } from '@reapit/elements'
+import { Button, Formik, Form, LevelRight, H3, FormSection } from '@reapit/elements'
 import { companyInformationFormSchema } from './form-schema/validation-schema'
 import { OrganisationFormValues } from './form-schema/form-fields'
 import CompanyInformationSection from './company-information-section'
@@ -9,6 +9,7 @@ import { DeveloperModel, UpdateDeveloperModel } from '@reapit/foundations-ts-def
 import { selectSettingsPageDeveloperInformation, selectSettingsPageIsLoading } from '@/selector/settings'
 import { updateDeveloperData } from '@/actions/settings'
 import FadeIn from '../../../../../styles/fade-in'
+import { Loader } from '@reapit/elements/v3'
 
 export const defaultInitialValues: OrganisationFormValues = {
   about: '',
@@ -147,7 +148,7 @@ const OrganisationForm: React.FC<OrganisationFormProps> = ({ onInviteNewMemberCl
   const developerInfo: DeveloperModel | null = useSelector(selectSettingsPageDeveloperInformation)
 
   if (isLoading) {
-    return <Loader />
+    return <Loader label="Loading" />
   }
 
   return (

@@ -6,7 +6,6 @@ import {
   GridFourCol,
   GridFourColItem,
   H5,
-  Loader,
   SelectBox,
   SelectBoxOptions,
   Table,
@@ -19,6 +18,7 @@ import { selectWebhookLogs } from '../../../selector/webhook-logs'
 import { fetchWebhookLogs } from '../../../actions/webhook-logs/webhook-logs'
 import { saveAs } from 'file-saver'
 import { logger } from '../../../../../utils'
+import { Loader } from '@reapit/elements/v3'
 
 interface WebhooksLogsTableProps {
   applicationOptions: SelectBoxOptions[]
@@ -134,7 +134,7 @@ export const WebhooksLogsTable: React.FC<WebhooksLogsTableProps> = ({ applicatio
           scrollable
         />
       ) : null}
-      {webhookLogs.isLoading && <Loader />}
+      {webhookLogs.isLoading && <Loader label="Loading" />}
     </>
   )
 }

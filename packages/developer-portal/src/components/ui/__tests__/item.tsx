@@ -1,10 +1,10 @@
 import * as React from 'react'
 import { shallow } from 'enzyme'
 
-import { Loader } from '@reapit/elements'
+import { Loader } from '@reapit/elements/v3'
 
 describe('Loader', () => {
   it('should match a snapshot', () => {
-    expect(shallow(<Loader />)).toMatchSnapshot()
+    expect(shallow(<Loader label="Loading" />)).toMatchSnapshot()
   })
 })

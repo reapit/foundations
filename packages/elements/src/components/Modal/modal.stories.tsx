@@ -23,7 +23,7 @@ export const Open: Story<ModalProps> = (args) => (
 Open.args = {
   tapOutsideToDissmiss: true,
   visible: true,
-  afterClose: action(
+  setSubscribingState: action(
     'The user requested that the modal closed. Your application will now need to toggle the visible prop',
   ),
   title: 'Modal Title',
@@ -42,7 +42,7 @@ export const OpenWithFooter: Story<ModalProps> = (args) => (
 OpenWithFooter.args = {
   tapOutsideToDissmiss: true,
   visible: true,
-  afterClose: action(
+  setSubscribingState: action(
     'The user requested that the modal closed. Your application will now need to toggle the visible prop',
   ),
   title: 'Modal Title',

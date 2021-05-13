@@ -7,7 +7,7 @@ import { DeveloperAside } from './app-aside'
 import { useSelector } from 'react-redux'
 import { History } from 'history'
 import { selectInstallationsListLoading } from '@/selector/installations'
-import { Loader, Grid, GridItem, Section } from '@reapit/elements'
+import { Grid, GridItem, Section } from '@reapit/elements'
 import AppHeader from '@/components/pages/app-detail/app-header'
 import routes from '@/constants/routes'
 import { getDesktopIntegrationTypes } from '@/utils/get-desktop-integration-types'
@@ -17,6 +17,7 @@ import AppContent from './app-content'
 import { selectAppDetailState, selectAppDetailData, selectAppDetailLoading } from '@/selector/app-detail'
 import { container } from './__styles__/app-detail'
 import FadeIn from '../../../styles/fade-in'
+import { Loader } from '@reapit/elements/v3'
 
 export type AppDetailProps = {}
 
@@ -59,7 +60,7 @@ const AppDetail: React.FC<AppDetailProps> = () => {
   )
 
   if (isLoadingAppDetail || isLoadingInstallations || unfetch) {
-    return <Loader />
+    return <Loader label="Loading" fullPage />
   }
 
   return (
