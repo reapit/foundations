@@ -1,8 +1,6 @@
 import propertyServices from './services'
-import { checkPermission } from '../../utils/check-permission'
 import logger from '../../logger'
-import errors from '../../errors'
-import { ServerContext } from '../../utils'
+import { resolverHandler, ServerContext } from '../../utils'
 import {
   GetPropertyImageByIdArgs,
   CreatePropertyImageArgs,
@@ -16,75 +14,56 @@ import {
   MutationDeletePropertyImageReturn,
 } from './propertyImages'
 
-export const queryGetPropertyImageById = (
+export const queryGetPropertyImageById = resolverHandler<GetPropertyImageByIdArgs, QueryGetPropertyImageByIdReturn>((
   _: any,
   args: GetPropertyImageByIdArgs,
   context: ServerContext,
 ): QueryGetPropertyImageByIdReturn => {
   const traceId = context.traceId
   logger.info('queryGetPropertyImageById', { traceId, args })
-  const isPermit = checkPermission(context)
-  if (!isPermit) {
-    return errors.generateAuthenticationError(context.traceId)
-  }
   return propertyServices.getPropertyImageById(args, context)
-}
+})
 
-export const queryGetPropertyImages = (
+export const queryGetPropertyImages = resolverHandler<GetPropertyImagesArgs, QueryGetPropertyImagesReturn>((
   _: any,
   args: GetPropertyImagesArgs,
   context: ServerContext,
 ): QueryGetPropertyImagesReturn => {
   const traceId = context.traceId
   logger.info('queryGetPropertyImages', { traceId, args })
-  const isPermit = checkPermission(context)
-  if (!isPermit) {
-    return errors.generateAuthenticationError(context.traceId)
-  }
   return propertyServices.getPropertyImages(args, context)
-}
+})
 
-export const mutationCreatePropertyImage = (
+export const mutationCreatePropertyImage = resolverHandler<CreatePropertyImageArgs, MutationCreatePropertyImageReturn>((
   _: any,
   args: CreatePropertyImageArgs,
   context: ServerContext,
 ): MutationCreatePropertyImageReturn => {
   const traceId = context.traceId
   logger.info('mutationCreatePropertyImage', { traceId, args })
-  const isPermit = checkPermission(context)
-  if (!isPermit) {
-    return errors.generateAuthenticationError(context.traceId)
-  }
-  return propertyServices.createPropertyImage(args, context)
-}
 
-export const mutationUpdatePropertyImage = (
+  return propertyServices.createPropertyImage(args, context)
+})
+
+export const mutationUpdatePropertyImage = resolverHandler<UpdatePropertyImageArgs, MutationUpdatePropertyImageReturn>((
   _: any,
   args: UpdatePropertyImageArgs,
   context: ServerContext,
 ): MutationUpdatePropertyImageReturn => {
   const traceId = context.traceId
   logger.info('mutationUpdatePropertyImage', { traceId, args })
-  const isPermit = checkPermission(context)
-  if (!isPermit) {
-    return errors.generateAuthenticationError(context.traceId)
-  }
   return propertyServices.updatePropertyImage(args, context)
-}
+})
 
-export const mutationDeletePropertyImage = (
+export const mutationDeletePropertyImage = resolverHandler<DeletePropertyImageArgs, MutationDeletePropertyImageReturn>((
   _: any,
   args: DeletePropertyImageArgs,
   context: ServerContext,
 ): MutationDeletePropertyImageReturn => {
   const traceId = context.traceId
   logger.info('mutationDeletePropertyImage', { traceId, args })
-  const isPermit = checkPermission(context)
-  if (!isPermit) {
-    return errors.generateAuthenticationError(context.traceId)
-  }
   return propertyServices.deletePropertyImage(args, context)
-}
+})
 
 export default {
   Query: {
