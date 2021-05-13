@@ -2,7 +2,6 @@ import React, { ReactElement, SetStateAction, useEffect, useState } from 'react'
 import qs from 'query-string'
 import { History } from 'history'
 import {
-  Loader,
   Content,
   SelectBoxOptions,
   Section,
@@ -39,6 +38,7 @@ import { TopicModel, WebhookModel } from '@/services/webhooks'
 import { URLS } from '@/services/constants'
 import FadeIn from '../../../styles/fade-in'
 import { WebhooksLogsTable } from './webhook-logs-table'
+import { Loader } from '@reapit/elements/v3'
 
 export const WEBHOOK_PAGE_SIZE = 5
 
@@ -280,7 +280,7 @@ export const DeveloperWebhooks = () => {
           </GridItem>
         </Grid>
         {unfetched || loading || subscriptionsLoading ? (
-          <Loader />
+          <Loader label="Loading" fullPage />
         ) : subscriptions?.length ? (
           <Table
             scrollable

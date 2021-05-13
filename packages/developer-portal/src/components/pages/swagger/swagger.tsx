@@ -3,10 +3,11 @@ import SwaggerUI from 'swagger-ui-react'
 import 'swagger-ui-react/swagger-ui.css'
 import { swagger } from './__styles__/swagger'
 import ErrorBoundary from '@/components/hocs/error-boundary'
-import { Loader, StringMap } from '@reapit/elements'
+import { StringMap } from '@reapit/elements'
 import { getAccessToken } from '@/utils/session'
 import { SandboxPopUp } from '@/components/ui/popup/sandbox-pop-up'
 import { URLS } from '../../../services/constants'
+import { Loader } from '@reapit/elements/v3'
 
 export type InterceptorParams = {
   url: string
@@ -54,7 +55,7 @@ export const SwaggerPage: React.FC = () => {
   return (
     <ErrorBoundary>
       <div className={swagger}>
-        {(loading || !accessToken) && <Loader />}
+        {(loading || !accessToken) && <Loader label="Loading" fullPage />}
         <div className={`${loading ? 'swagger-loading' : ''}`}>
           <SwaggerUI
             url={`${window.reapit.config.platformApiUrl}${URLS.docs}`}

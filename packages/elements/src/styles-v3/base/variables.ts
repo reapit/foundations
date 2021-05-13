@@ -3,7 +3,7 @@ import { css } from 'linaria'
 // export javascript colours for the SVG background in the button
 export const intentPrimary = '#0061a8'
 export const intentSecondary = '#23a4de'
-export const intentCritical = '#f5b555'
+export const intentCritical = '#ffb71b'
 export const intentSuccess = '#a0c862'
 export const intentDanger = '#d3033d'
 

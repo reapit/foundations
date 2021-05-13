@@ -15,13 +15,17 @@ import SuccessContent from './success-content'
 import ErrorContent from './error-content'
 import { useReapitConnect } from '@reapit/connect-session'
 import { reapitConnectBrowserSession } from '@/core/connect-session'
+import { SetStateAction } from 'react'
+import { SubscribingState } from '../../pages/desktop/desktop'
 
-export type DeveloperEditionModalProps = Pick<ModalProps, 'afterClose' | 'visible'>
+export type DeveloperEditionModalProps = Pick<ModalProps, 'visible'> & {
+  setSubscribingState: React.Dispatch<SetStateAction<SubscribingState>>
+}
 
 export const handleOnCreated = (
   setSelectedDeveloper: React.Dispatch<React.SetStateAction<DeveloperModel | undefined>>,
   setSuccess: React.Dispatch<React.SetStateAction<boolean>>,
-) => (developer) => () => {
+) => (developer: DeveloperModel) => () => {
   setSelectedDeveloper(developer)
   setSuccess(true)
 }
@@ -52,14 +56,17 @@ export const handleFormSubmit = (
 export const handleAfterClose = (
   setSuccess: React.Dispatch<React.SetStateAction<boolean>>,
   dispatch: Dispatch,
-  afterClose: (() => void) | undefined,
+  setSubscribingState: React.Dispatch<SetStateAction<SubscribingState>>,
 ) => () => {
   setSuccess(false)
   dispatch(developerCreateSubscriptionClearError())
-  afterClose && afterClose()
+  setSubscribingState('INITIAL')
 }
 
-export const DeveloperEditionModal: React.FC<DeveloperEditionModalProps> = ({ visible = false, afterClose }) => {
+export const DeveloperEditionModal: React.FC<DeveloperEditionModalProps> = ({
+  visible = false,
+  setSubscribingState,
+}) => {
   const { connectSession } = useReapitConnect(reapitConnectBrowserSession)
   const loginIdentity = selectLoginIdentity(connectSession)
 
@@ -86,23 +93,26 @@ export const DeveloperEditionModal: React.FC<DeveloperEditionModalProps> = ({ vi
 
   if (isSuccess) {
     content = (
-      <SuccessContent developer={selectedDeveloper} afterClose={handleAfterClose(setSuccess, dispatch, afterClose)} />
+      <SuccessContent
+        developer={selectedDeveloper}
+        afterClose={handleAfterClose(setSuccess, dispatch, setSubscribingState)}
+      />
     )
   } else if (hasError) {
-    content = <ErrorContent afterClose={handleAfterClose(setSuccess, dispatch, afterClose)} />
+    content = <ErrorContent afterClose={handleAfterClose(setSuccess, dispatch, setSubscribingState)} />
   } else {
     content = (
       <DeveloperEditionContent
         dropdownOptions={dropdownOptions}
         loading={loading}
-        afterClose={handleAfterClose(setSuccess, dispatch, afterClose)}
+        afterClose={handleAfterClose(setSuccess, dispatch, setSubscribingState)}
         onFormSubmit={handleFormSubmit(developerLists, dispatch, handleOnCreated(setSelectedDeveloper, setSuccess))}
       />
     )
   }
 
   return (
-    <Modal visible={visible} afterClose={handleAfterClose(setSuccess, dispatch, afterClose)} renderChildren>
+    <Modal visible={visible} afterClose={handleAfterClose(setSuccess, dispatch, setSubscribingState)} renderChildren>
       {content}
     </Modal>
   )

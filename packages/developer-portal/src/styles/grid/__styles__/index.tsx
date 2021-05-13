@@ -7,6 +7,70 @@ export const grid = css`
   grid-template-columns: repeat(${GRID_SIZE}, 1fr);
 `
 
+export const colGap0 = css`
+  grid-column-gap: 0rem;
+`
+
+export const colGap1 = css`
+  grid-column-gap: 0.25rem;
+`
+
+export const colGap2 = css`
+  grid-column-gap: 0.5rem;
+`
+
+export const colGap3 = css`
+  grid-column-gap: 0.75rem;
+`
+
+export const colGap4 = css`
+  grid-column-gap: 1rem;
+`
+
+export const colGap6 = css`
+  grid-column-gap: 1.5rem;
+`
+
+export const colGap8 = css`
+  grid-column-gap: 2rem;
+`
+
+export const colGap12 = css`
+  grid-column-gap: 3rem;
+`
+
+export const rowGap0 = css`
+  grid-row-gap: 0rem;
+`
+
+export const rowGap1 = css`
+  grid-row-gap: 0.25rem;
+`
+
+export const rowGap2 = css`
+  grid-row-gap: 0.5rem;
+`
+
+export const rowGap3 = css`
+  grid-row-gap: 0.75rem;
+`
+
+export const rowGap4 = css`
+  grid-row-gap: 1rem;
+`
+
+export const rowGap6 = css`
+  grid-row-gap: 1.5rem;
+`
+
+export const rowGap8 = css`
+  grid-row-gap: 2rem;
+`
+
+export const rowGap12 = css`
+  grid-row-gap: 3rem;
+`
+
 export const col = css``
 
 // spans

@@ -10,13 +10,14 @@ import {
   clearAppRevisionList,
 } from '@/actions/apps'
 import { AppDetailState } from '@/reducers/apps/app-detail'
-import { Modal, Loader, Button, ModalV2 } from '@reapit/elements'
+import { Modal, Button, ModalV2 } from '@reapit/elements'
 import AppRevisionComparison from './app-revision-comparison'
 import CallToAction from '@/components/ui/call-to-action'
 import { selectAppRevisions, selectAppRevisionDetail, selectDeclineAppRevisionLoading } from '@/selector/app-revisions'
 import { selectLoginIdentity } from '@/selector/auth'
 import { useReapitConnect, LoginIdentity } from '@reapit/connect-session'
 import { reapitConnectBrowserSession } from '@/core/connect-session'
+import { Loader } from '@reapit/elements/v3'
 
 export type AppRevisionModalProps = {
   visible: boolean
@@ -154,7 +155,7 @@ export const DeveloperAppRevisionModal: React.FC<AppRevisionModalProps> = ({
         {!isLoading && hasRevisionDetailData ? (
           <AppRevisionComparison appDetailState={appDetailState} revisionDetailState={revisionDetailState} />
         ) : (
-          <Loader />
+          <Loader label="Loading" />
         )}
         <Modal
           visible={isConfirmationModalVisible}

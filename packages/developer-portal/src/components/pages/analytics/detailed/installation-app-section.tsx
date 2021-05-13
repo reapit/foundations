@@ -1,5 +1,5 @@
 import * as React from 'react'
-import { Table, H5, Loader, toLocalTime, Pagination, Grid, GridItem, Section } from '@reapit/elements'
+import { Table, H5, toLocalTime, Pagination, Grid, GridItem, Section } from '@reapit/elements'
 import { InstallationModel, AppSummaryModel } from '@reapit/foundations-ts-definitions'
 import { INSTALLATIONS_PER_PAGE } from '@/constants/paginator'
 import DeveloperInstallationsChart from '@/components/pages/analytics/detailed/installations-chart'
@@ -11,6 +11,7 @@ import {
 } from '@/selector/installations'
 import { useSelector } from 'react-redux'
 import FadeIn from '../../../../styles/fade-in'
+import { Loader } from '@reapit/elements/v3'
 
 export interface InstallationModelWithAppName extends InstallationModel {
   appName?: string
@@ -158,7 +159,7 @@ export const InstallationAppSection: React.FC<{
   return (
     <>
       {installationListLoading ? (
-        <Loader />
+        <Loader label="Loading" />
       ) : (
         <>
           <Grid isMultiLine>

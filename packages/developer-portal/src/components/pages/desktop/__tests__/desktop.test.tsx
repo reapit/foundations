@@ -29,8 +29,7 @@ describe('DeveloperDesktopPage', () => {
 describe('handleToggleVisibleModal', () => {
   it('should run correctly', () => {
     const setIsDeveloperEditionModalOpen = jest.fn()
-    const isVisible = false
-    handleToggleVisibleModal(setIsDeveloperEditionModalOpen, isVisible)()
-    expect(setIsDeveloperEditionModalOpen).toBeCalledWith(isVisible)
+    handleToggleVisibleModal(setIsDeveloperEditionModalOpen, 'CONFIRMING')()
+    expect(setIsDeveloperEditionModalOpen).toBeCalledWith('CONFIRMING')
   })
 })

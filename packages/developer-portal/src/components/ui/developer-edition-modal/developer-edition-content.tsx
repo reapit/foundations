@@ -10,7 +10,6 @@ import {
   SelectOption,
   ModalProps,
   ButtonGroup,
-  Loader,
   Content,
 } from '@reapit/elements'
 import { FormValues } from './form-fields'
@@ -20,6 +19,7 @@ import { selectSettingsPageDeveloperInformation, selectSettingsPageIsLoading } f
 import { selectCurrentMemberData, selectCurrentMemberIsLoading } from '../../../selector/current-member'
 import { useSelector } from 'react-redux'
 import { modalContent } from './modal-content'
+import { Loader } from '@reapit/elements/v3'
 
 const { developerList } = formFields
 
@@ -50,7 +50,7 @@ export const DeveloperEditionContent: React.FC<DeveloperEditionContentProps> = (
 
   const content =
     currentUserLoading || currentDeveloperLoading ? (
-      <Loader />
+      <Loader label="Loading" />
     ) : billingContent ? (
       <>
         <Content>{billingContent}</Content>

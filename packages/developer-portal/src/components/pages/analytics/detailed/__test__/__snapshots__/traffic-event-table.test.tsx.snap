@@ -93,4 +93,4 @@ exports[`TrafficEventTable should match snapshot if data is empty 1`] = `
 </Section>
 `;
 
-exports[`TrafficEventTable should match snapshot when loading 1`] = `<Loader />`;
+exports[`TrafficEventTable should match snapshot when loading 1`] = `<Loader label="Loading" />`;
