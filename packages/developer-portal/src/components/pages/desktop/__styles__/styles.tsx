@@ -2,6 +2,7 @@ import { css } from 'linaria'
 import { styled } from 'linaria/react'
 
 const SUBSCRIBE_IMAGE_BREAKPOINT = '1400px'
+const SUBSCRIBE_BUTTON_QUERY = '@media (min-width: 1024px) and (max-width: 1115px)'
 
 export const ImageTextPair = styled.div`
   padding: 0.75rem;
@@ -34,6 +35,7 @@ export const VideoContainer = styled.div`
 
   img {
     margin-bottom: 1rem;
+    width: 100%;
   }
 
   p {
@@ -52,9 +54,25 @@ export const SubscribeContainer = styled.div`
 `
 
 export const SubscribeInnerContainer = styled.div`
-  padding: 1rem;
   border-radius: 4px;
   background-color: var(--color-white);
+  padding: 2rem 2rem 1.5rem 2rem;
+  // Trnsitioning min and max height because animating auto height containers not a thing in CSS
+  max-height: 12rem;
+  min-height: 0rem;
+  transition: all 0.3s linear;
+  margin: 1rem 4rem;
+
+  // extra breakpoint to deal with squished button
+  ${SUBSCRIBE_BUTTON_QUERY} {
+    padding: 2rem 1rem 1.5rem 1rem;
+  }
+`
+
+export const subscribingExpandedContainer = css`
+  max-height: 35rem;
+  min-height: 18rem;
+  margin: 1rem;
 `
 
 export const SubscribeHeadingContainer = styled.div`
@@ -74,6 +92,16 @@ export const SubscribeButtonContainer = styled.div`
   button:last-child {
     margin-left: 0.5rem;
   }
+
+  ${SUBSCRIBE_BUTTON_QUERY} {
+    button:first-child {
+      margin-right: 0.125rem;
+    }
+
+    button:last-child {
+      margin-left: 0.125rem;
+    }
+  }
 `
 
 export const SubscribeImageContainer = styled.div`
@@ -81,6 +109,11 @@ export const SubscribeImageContainer = styled.div`
   position: relative;
   overflow: hidden;
   border-radius: 4px;
+`
+
+export const subscribingContractedContainer = css`
+  height: 240px;
+  transition: all 0.3s linear;
 `
 
 export const SubscribeImageBars = styled.img`
@@ -93,6 +126,21 @@ export const SubscribeImageBars = styled.img`
     transform: scale(1.2);
     left: 10%;
     bottom: 11%;
+  }
+`
+
+export const imgBarsContracted = css`
+  animation: bars-image 0.3s linear forwards;
+
+  @keyframes bars-image {
+    from {
+      bottom: 19%;
+      transform: scale(1);
+    }
+    to {
+      bottom: 10%;
+      transform: scale(0.8);
+    }
   }
 `
 
@@ -109,6 +157,21 @@ export const SubscribeImageDevices = styled.img`
   }
 `
 
+export const imgDevicesContracted = css`
+  animation: devices-image 0.3s linear forwards;
+
+  @keyframes devices-image {
+    from {
+      bottom: 20%;
+      transform: scale(1);
+    }
+    to {
+      bottom: 0;
+      transform: scale(0.8);
+    }
+  }
+`
+
 export const SubscribeImageFooter = styled.img`
   width: 100%;
   position: absolute;
@@ -117,6 +180,19 @@ export const SubscribeImageFooter = styled.img`
 
   @media (min-width: ${SUBSCRIBE_IMAGE_BREAKPOINT}) {
     bottom: -20%;
+  }
+`
+
+export const imgFooterContracted = css`
+  animation: footer-image 0.3s linear forwards;
+
+  @keyframes footer-image {
+    from {
+      bottom: 0;
+    }
+    to {
+      bottom: -20px;
+    }
   }
 `
 
@@ -143,14 +219,4 @@ export const PriceSection = styled.div`
 
 export const hasGreyText = css`
   color: var(--color-grey-dark);
-`
-
-export const subscribingStateInitialContainer = css`
-  margin: 1rem 4rem;
-  padding: 2rem 2rem 1.5rem 2rem;
-
-  // extra breakpoint to deal with squished button
-  @media (min-width: 1024px) and (max-width: 1115px) {
-    margin: 1rem 3rem;
-  }
 `
