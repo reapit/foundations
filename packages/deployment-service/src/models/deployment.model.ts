@@ -8,4 +8,13 @@ export class DeploymentModel {
 
   @attribute()
   name: string
+
+  @attribute()
+  organisationId: string
+
+  @attribute()
+  created: string
+
+  @attribute()
+  modified: string
 }
