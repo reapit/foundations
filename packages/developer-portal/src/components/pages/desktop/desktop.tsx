@@ -17,9 +17,12 @@ import {
   SubscribeImageBars,
   SubscribeImageDevices,
   SubscribeImageFooter,
-  subscribingStateInitialContainer,
+  subscribingExpandedContainer,
   PriceSection,
   BannerCol,
+  subscribingContractedContainer,
+  imgFooterContracted,
+  imgBarsContracted,
 } from './__styles__/styles'
 import { Grid, Col } from '../../../styles/grid'
 import { cx } from 'linaria'
@@ -31,10 +34,11 @@ import windowsImage from '../../../assets/images/desktop/windows-badge.svg'
 import devEditionImgOne from '../../../assets/images/desktop/developer-edition/developer-edition-01.svg'
 import devEditionImgTwo from '../../../assets/images/desktop/developer-edition/developer-edition-02.svg'
 import devEditionImgThree from '../../../assets/images/desktop/developer-edition/developer-edition-03.svg'
+import { imgDevicesContracted } from './__styles__/styles'
 
 export type SubscribingState = 'INITIAL' | 'SUBSCRIBE_NOW' | 'SUBSCRIBE' | 'CONFIRMING' | 'SAVING' | 'SUBSCRIBED'
 
-export const handleToggleVisibleModal = (
+export const handleSetSubscribingState = (
   setSubscribingState: Dispatch<SetStateAction<SubscribingState>>,
   subscribingState: SubscribingState,
 ) => () => setSubscribingState(subscribingState)
@@ -124,17 +128,22 @@ export const SubscribeSection: FC = () => {
                 </TextWrap>
               </ImageTextPair>
             )}
-            <SubscribeInnerContainer className={cx(subscribingState === 'INITIAL' && subscribingStateInitialContainer)}>
+            <SubscribeInnerContainer className={cx(subscribingState !== 'INITIAL' && subscribingExpandedContainer)}>
               {subscribingState === 'INITIAL' ? (
                 <PriceSection>
                   <h3>£300</h3>
                   <div>month</div>
-                  <Button intent="critical" chevronRight fullWidth>
+                  <Button
+                    onClick={handleSetSubscribingState(setSubscribingState, 'SUBSCRIBE_NOW')}
+                    intent="critical"
+                    chevronRight
+                    fullWidth
+                  >
                     Subscribe
                   </Button>
                 </PriceSection>
               ) : (
-                <>
+                <FadeIn>
                   <BodyText className={cx(elMb4, hasGreyText)}>
                     The Developer Edition of Agency Cloud allows developers using the Desktop API to test their apps
                     within the desktop application using sandbox data.
@@ -149,49 +158,38 @@ export const SubscribeSection: FC = () => {
                     to install it.
                   </BodyText>
                   <SubscribeButtonContainer>
-                    <Button intent="secondary" fullWidth>
+                    <Button
+                      intent="secondary"
+                      fullWidth
+                      onClick={handleSetSubscribingState(setSubscribingState, 'INITIAL')}
+                    >
                       Cancel
                     </Button>
                     <Button intent="critical" chevronRight fullWidth>
                       Subscribe
                     </Button>
                   </SubscribeButtonContainer>
-                </>
+                </FadeIn>
               )}
             </SubscribeInnerContainer>
           </Col>
           <Col span={12} spanTablet={6} spanMobile={12}>
-            <SubscribeImageContainer>
-              <SubscribeImageBars src={devEditionImgOne} />
-              <SubscribeImageDevices src={devEditionImgTwo} />
-              <SubscribeImageFooter src={devEditionImgThree} />
+            <SubscribeImageContainer className={cx(subscribingState !== 'INITIAL' && subscribingContractedContainer)}>
+              <SubscribeImageBars
+                className={cx(subscribingState !== 'INITIAL' && imgBarsContracted)}
+                src={devEditionImgOne}
+              />
+              <SubscribeImageDevices
+                className={cx(subscribingState !== 'INITIAL' && imgDevicesContracted)}
+                src={devEditionImgTwo}
+              />
+              <SubscribeImageFooter
+                className={cx(subscribingState !== 'INITIAL' && imgFooterContracted)}
+                src={devEditionImgThree}
+              />
             </SubscribeImageContainer>
           </Col>
         </Grid>
-        {/* <div className={developerDesktopPricingTile}>
-        <div className="desktop-inner-container">
-        <div className="modal-card-head mb-4">
-        <Title className="mb-0">Developer Edition</Title>
-        </div>
-        <div className="justify-center items-center is-flex py-2">
-        <span className="desktop-price">£300</span>&nbsp;
-        <span className="desktop-price-period">/ Month</span>
-        </div>
-        <div className="text-center px-2 py-1">Become familiar with our CRM software using sandbox data</div>
-        <div className="text-center px-2 py-1">Test your Marketplace application inside Agency Cloud</div>
-        <div className="text-center px-2 py-1">Understand how customers will interact with your application</div>
-        <Section hasMargin={false}>
-        <Button
-        type="button"
-        // variant="primary"
-        // fullWidth
-        onClick={handleToggleVisibleModal(setModalVisible, true)}
-        >
-        Subscribe now
-        </Button>
-        </Section>
-        </div>
-      </div> */}
       </SubscribeContainer>
       <DeveloperEditonModal visible={subscribingState === 'CONFIRMING'} setSubscribingState={setSubscribingState} />
     </FadeIn>
