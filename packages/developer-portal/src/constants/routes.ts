@@ -5,6 +5,7 @@ const Routes = {
   APPS: '/apps',
   APP_DETAIL: '/apps/:appid',
   SWAGGER: '/swagger',
+  GRAPHQL: '/graphql',
   DESKTOP: '/desktop',
   APPS_EDIT: '/apps/:appid/edit',
   API_DOCS: '/api-docs',

@@ -92,7 +92,7 @@ const webpackConfigDev = {
             loader: 'esbuild-loader',
             options: {
               loader: 'tsx',
-              target: 'es2019',
+              target: 'es2018',
             },
           },
         ],

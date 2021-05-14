@@ -27,6 +27,7 @@
     "dayjs": "^1.10.4",
     "diff": "^4.0.2",
     "file-saver": "^2.0.5",
+    "graphql-playground-react": "^1.7.27",
     "lodash.isequal": "^4.5.0",
     "lodash.orderby": "^4.6.0",
     "papaparse": "^5.3.0",

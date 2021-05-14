@@ -19,6 +19,7 @@ const AppDetail = React.lazy(() => catchChunkError(() => import('../components/p
 const EditApp = React.lazy(() => catchChunkError(() => import('../components/pages/edit-app')))
 const ApiDocsPage = React.lazy(() => catchChunkError(() => import('../components/pages/api-docs')))
 const SwaggerPage = React.lazy(() => catchChunkError(() => import('../components/pages/swagger')))
+const GraphQLPage = React.lazy(() => catchChunkError(() => import('../components/pages/graphql')))
 const DesktopPage = React.lazy(() => catchChunkError(() => import('../components/pages/desktop')))
 const WelcomePage = React.lazy(() => catchChunkError(() => import('../components/pages/welcome')))
 const HelpPage = React.lazy(() => catchChunkError(() => import('../components/pages/help')))
@@ -63,6 +64,7 @@ const Router = () => {
                 <PrivateRoute path={Routes.API_DOCS} component={ApiDocsPage} />
                 <PrivateRoute path={Routes.WEBHOOKS} fetcher component={WebhooksPage} />
                 <PrivateRoute path={Routes.SWAGGER} exact component={SwaggerPage} />
+                <PrivateRoute path={Routes.GRAPHQL} exact component={GraphQLPage} />
                 <PrivateRoute path={Routes.DESKTOP} exact component={DesktopPage} fetcher />
                 <PrivateRoute path={Routes.ANALYTICS_TAB} fetcher exact component={AnalyticsPage} />
 
