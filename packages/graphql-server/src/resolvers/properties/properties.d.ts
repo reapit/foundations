@@ -1,4 +1,4 @@
-import { AuthenticationError, UserInputError } from 'apollo-server-lambda'
+import { UserInputError } from 'apollo-server-lambda'
 import {
   PropertyModel,
   PropertyModelPagedResult,
@@ -51,7 +51,7 @@ export type CreatePropertyReturn = Promise<PropertyModel | UserInputError>
 export type UpdatePropertyReturn = Promise<PropertyModel | UserInputError>
 
 // resolver type
-export type QueryGetPropertyByIdReturn = AuthenticationError | GetPropertyByIdReturn
-export type QueryGetPropertiesReturn = AuthenticationError | GetPropertiesReturn
-export type MutationCreatePropertyReturn = AuthenticationError | CreatePropertyReturn
-export type MutationUpdatePropertyReturn = AuthenticationError | UpdatePropertyReturn
+export type QueryGetPropertyByIdReturn = GetPropertyByIdReturn
+export type QueryGetPropertiesReturn = GetPropertiesReturn
+export type MutationCreatePropertyReturn = CreatePropertyReturn
+export type MutationUpdatePropertyReturn = UpdatePropertyReturn

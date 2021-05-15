@@ -1,6 +1,6 @@
 import DataLoader from 'dataloader'
 import { getDepartments } from './services'
-import { ServerContext } from '@/index'
+import { ServerContext } from '@/utils'
 import { DepartmentModel, DepartmentModelPagedResult } from '@reapit/foundations-ts-definitions'
 import logger from '@/logger'
 import handleError from '@/utils/handle-error'

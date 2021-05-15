@@ -1,5 +1,5 @@
 import { checkPermission } from '../check-permission'
-import { ServerContext } from '../../index'
+import { ServerContext } from '../../utils'
 
 describe('checkPermission', () => {
   it('should run correctly', () => {

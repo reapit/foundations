@@ -1,4 +1,4 @@
-import { AuthenticationError, UserInputError } from 'apollo-server-lambda'
+import { UserInputError } from 'apollo-server-lambda'
 import {
   TenancyModelPagedResult,
   TenancyContactRelationshipModelPagedResult,
@@ -35,13 +35,13 @@ export type DeleteTenancyCheckReturn = Promise<boolean | UserInputError>
 export type UpdateTenancyCheckReturn = Promise<TenancyCheckModel | UserInputError>
 
 // resolver type
-export type QueryGetTenanciesReturn = AuthenticationError | GetTenanciesReturn
-export type QueryGetTenancyByIdReturn = AuthenticationError | GetTenancyByIdReturn
-export type QueryGetTenancyRelationshipsReturn = AuthenticationError | GetTenancyRelationshipsReturn
-export type QueryGetTenancyChecksReturn = AuthenticationError | GetTenancyChecksReturn
-export type QueryGetTenancyCheckByIdReturn = AuthenticationError | GetTenancyCheckByIdReturn
+export type QueryGetTenanciesReturn = GetTenanciesReturn
+export type QueryGetTenancyByIdReturn = GetTenancyByIdReturn
+export type QueryGetTenancyRelationshipsReturn = GetTenancyRelationshipsReturn
+export type QueryGetTenancyChecksReturn = GetTenancyChecksReturn
+export type QueryGetTenancyCheckByIdReturn = GetTenancyCheckByIdReturn
 
-export type MutationCreateTenancyReturn = AuthenticationError | CreateTenancyReturn
-export type MutationCreateTenancyCheckReturn = AuthenticationError | CreateTenancyCheckReturn
-export type MutationDeleteTenancyCheckReturn = AuthenticationError | DeleteTenancyCheckReturn
-export type MutationUpdateTenancyCheckReturn = AuthenticationError | UpdateTenancyCheckReturn
+export type MutationCreateTenancyReturn = CreateTenancyReturn
+export type MutationCreateTenancyCheckReturn = CreateTenancyCheckReturn
+export type MutationDeleteTenancyCheckReturn = DeleteTenancyCheckReturn
+export type MutationUpdateTenancyCheckReturn = UpdateTenancyCheckReturn

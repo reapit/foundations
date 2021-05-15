@@ -1,4 +1,4 @@
-import { AuthenticationError, UserInputError } from 'apollo-server-lambda'
+import { UserInputError } from 'apollo-server-lambda'
 import {
   PropertyImageModel,
   PropertyImageModelPagedResult,
@@ -34,8 +34,8 @@ export type UpdatePropertyImageReturn = Promise<PropertyImageModel | UserInputEr
 export type DeletePropertyImageReturn = Promise<boolean | UserInputError>
 
 // resolver type
-export type QueryGetPropertyImageByIdReturn = AuthenticationError | GetPropertyImageByIdReturn
-export type QueryGetPropertyImagesReturn = AuthenticationError | GetPropertyImagesReturn
-export type MutationCreatePropertyImageReturn = AuthenticationError | CreatePropertyImageReturn
-export type MutationUpdatePropertyImageReturn = AuthenticationError | UpdatePropertyImageReturn
-export type MutationDeletePropertyImageReturn = AuthenticationError | DeletePropertyImageReturn
+export type QueryGetPropertyImageByIdReturn = GetPropertyImageByIdReturn
+export type QueryGetPropertyImagesReturn = GetPropertyImagesReturn
+export type MutationCreatePropertyImageReturn = CreatePropertyImageReturn
+export type MutationUpdatePropertyImageReturn = UpdatePropertyImageReturn
+export type MutationDeletePropertyImageReturn = DeletePropertyImageReturn

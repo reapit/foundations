@@ -1,4 +1,4 @@
-import { AuthenticationError, UserInputError } from 'apollo-server-lambda'
+import { UserInputError } from 'apollo-server-lambda'
 import {
   OfficeModel,
   OfficeModelPagedResult,
@@ -32,7 +32,7 @@ export type CreateOfficeReturn = Promise<OfficeModel | UserInputError>
 export type UpdateOfficeReturn = Promise<OfficeModel | UserInputError>
 
 // resolver type
-export type QueryGetOfficeByIdReturn = AuthenticationError | GetOfficeByIdReturn
-export type QueryGetOfficesReturn = AuthenticationError | GetOfficesReturn
-export type MutationCreateOfficeReturn = AuthenticationError | CreateOfficeReturn
-export type MutationUpdateOfficeReturn = AuthenticationError | UpdateOfficeReturn
+export type QueryGetOfficeByIdReturn = GetOfficeByIdReturn
+export type QueryGetOfficesReturn = GetOfficesReturn
+export type MutationCreateOfficeReturn = CreateOfficeReturn
+export type MutationUpdateOfficeReturn = UpdateOfficeReturn

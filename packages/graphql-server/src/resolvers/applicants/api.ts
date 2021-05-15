@@ -20,7 +20,7 @@ import {
 import errors from '../../errors'
 
 import { createPlatformAxiosInstance } from '../../utils/axios-instances'
-import { ServerContext } from '../../index'
+import { ServerContext } from '../../utils'
 import logger from '../../logger'
 import { URLS } from '../../constants/api'
 import { handleError } from '../../utils/handle-error'

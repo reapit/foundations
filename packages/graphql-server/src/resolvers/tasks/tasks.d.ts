@@ -1,4 +1,4 @@
-import { AuthenticationError, UserInputError } from 'apollo-server-lambda'
+import { UserInputError } from 'apollo-server-lambda'
 import { TaskModel, TaskModelPagedResult, CreateTaskModel, UpdateTaskModel } from '@reapit/foundations-ts-definitions'
 
 export type CreateTaskArgs = CreateTaskModel
@@ -39,7 +39,7 @@ export type CreateTaskReturn = Promise<TaskModel | UserInputError>
 export type UpdateTaskReturn = Promise<TaskModel | UserInputError>
 
 // resolver type
-export type QueryGetTaskByIdReturn = AuthenticationError | GetTaskByIdReturn
-export type QueryGetTasksReturn = AuthenticationError | GetTasksReturn
-export type MutationCreateTaskReturn = AuthenticationError | CreateTaskReturn
-export type MutationUpdateTaskReturn = AuthenticationError | UpdateTaskReturn
+export type QueryGetTaskByIdReturn = GetTaskByIdReturn
+export type QueryGetTasksReturn = GetTasksReturn
+export type MutationCreateTaskReturn = CreateTaskReturn
+export type MutationUpdateTaskReturn = UpdateTaskReturn

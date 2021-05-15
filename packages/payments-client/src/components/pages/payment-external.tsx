@@ -22,7 +22,7 @@ const PaymentExternalPage: React.FC<PaymentExternalPageProps> = ({
   clientId,
   defaultPaymentProvider = null,
 }) => {
-  const { data, error, mutate: refetchPayment } = useSWR<{ payment?: PaymentWithPropertyModel; error?: string }>(
+  const { data, error } = useSWR<{ payment?: PaymentWithPropertyModel; error?: string }>(
     [`${URLS.PAYMENTS}/${paymentId}`, session, clientId],
     sessionFetcher,
   )
@@ -32,8 +32,6 @@ const PaymentExternalPage: React.FC<PaymentExternalPageProps> = ({
   const [paymentProvider, setPaymentProvider] = useState<PaymentProvider | null>(defaultPaymentProvider)
 
   useEffect(handlePaymentProviderEffect(setLoading, setPaymentProvider, clientId), [setPaymentProvider, clientId])
-
-  console.log(setLoading, setPaymentProvider)
 
   if (loading || !data) {
     return <Loader />
@@ -63,14 +61,7 @@ const PaymentExternalPage: React.FC<PaymentExternalPageProps> = ({
     clientCode: clientId,
   }
 
-  return (
-    <PropertyPageContent
-      payment={payment}
-      paymentProvider={paymentProvider}
-      session={session}
-      refetchPayment={refetchPayment}
-    />
-  )
+  return <PropertyPageContent payment={payment} paymentProvider={paymentProvider} session={session} />
 }
 
 export default PaymentExternalPage

@@ -1,6 +1,6 @@
 import DataLoader from 'dataloader'
 import { getProperties } from './services'
-import { ServerContext } from '@/index'
+import { ServerContext } from '@/utils'
 import { PropertyModel, PropertyModelPagedResult } from '@reapit/foundations-ts-definitions'
 import logger from '@/logger'
 import handleError from '@/utils/handle-error'

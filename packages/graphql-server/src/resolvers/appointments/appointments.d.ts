@@ -1,4 +1,4 @@
-import { AuthenticationError, UserInputError } from 'apollo-server-lambda'
+import { UserInputError } from 'apollo-server-lambda'
 import {
   AppointmentModel,
   AppointmentModelPagedResult,
@@ -38,7 +38,7 @@ export type CreateAppointmentReturn = Promise<AppointmentModel | UserInputError>
 export type UpdateAppointmentReturn = Promise<AppointmentModel | UserInputError>
 
 // resolver type
-export type QueryGetAppointmentByIdReturn = AuthenticationError | GetAppointmentByIdReturn
-export type QueryGetAppointmentsReturn = AuthenticationError | GetAppointmentsReturn
-export type MutationCreateAppointmentReturn = AuthenticationError | CreateAppointmentReturn
-export type MutationUpdateAppointmentReturn = AuthenticationError | UpdateAppointmentReturn
+export type QueryGetAppointmentByIdReturn = GetAppointmentByIdReturn
+export type QueryGetAppointmentsReturn = GetAppointmentsReturn
+export type MutationCreateAppointmentReturn = CreateAppointmentReturn
+export type MutationUpdateAppointmentReturn = UpdateAppointmentReturn
