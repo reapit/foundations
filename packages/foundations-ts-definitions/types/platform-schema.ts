@@ -9456,6 +9456,14 @@ export interface PropertyModel {
      * The unique identifier of the document used for the sales brochure
      */
     brochureId?: string
+    /**
+     * The price the property exchanged/sold for
+     */
+    exchangedPrice?: number // int32
+    /**
+     * The unique identifier of the office that sold the property
+     */
+    exchangedOfficeId?: string
   }
   /**
    * Representation of property details specific to lettings marketing
@@ -9921,6 +9929,14 @@ export interface PropertyModelPagedResult {
        * The unique identifier of the document used for the sales brochure
        */
       brochureId?: string
+      /**
+       * The price the property exchanged/sold for
+       */
+      exchangedPrice?: number // int32
+      /**
+       * The unique identifier of the office that sold the property
+       */
+      exchangedOfficeId?: string
     }
     /**
      * Representation of property details specific to lettings marketing
@@ -10185,6 +10201,14 @@ export interface PropertySellingModel {
    * The unique identifier of the document used for the sales brochure
    */
   brochureId?: string
+  /**
+   * The price the property exchanged/sold for
+   */
+  exchangedPrice?: number // int32
+  /**
+   * The unique identifier of the office that sold the property
+   */
+  exchangedOfficeId?: string
 }
 /**
  * Representation of the tenure of a property
