@@ -122,9 +122,9 @@ export const ElButton = styled.button`
 `
 
 export const elButtonHasLeftChevron = css`
-  background-size: calc(100% - 1rem);
-  background-position-x: right;
-  padding-left: ${buttonXPadding + 0.5}rem
+  background-size: 100%;
+  background-position-x: 0.5rem;
+  padding-left: ${buttonXPadding + 0.5}rem;
 
   &::before {
     content: '';
@@ -171,12 +171,12 @@ export const elButtonHasLeftChevron = css`
 `
 
 export const elButtonHasRightChevron = css`
-  background-size: calc(100% - 1rem);
-  background-position-x: left;
+  background-size: 100%;
+  background-position-x: -0.5rem;
   padding-right: ${buttonXPadding + 0.5}rem;
 
   &.${elButtonHasLeftChevron} {
-    background-size: calc(100% - 2rem);
+    background-size: 100%;
     background-position-x: center;
   }
 
