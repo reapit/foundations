@@ -16,7 +16,7 @@ const DeveloperSettingsOrganisationTabPage: React.FC = () => {
   const currentUser = useSelector(selectCurrentMemberData)
   const loading = useSelector(selectCurrentMemberIsLoading)
   if (loading) {
-    return <Loader label="Loading" />
+    return <Loader label="Loading" fullPage />
   }
   if (currentUser?.role === 'admin') {
     return (

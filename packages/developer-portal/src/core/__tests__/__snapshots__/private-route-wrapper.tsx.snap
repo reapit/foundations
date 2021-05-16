@@ -15,7 +15,10 @@ exports[`PrivateRouteWrapper should match snapshot 1`] = `
       <Suspense
         fallback={
           <Section>
-            <Loader label="Loading" />
+            <Loader
+              fullPage={true}
+              label="Loading"
+            />
           </Section>
         }
       />

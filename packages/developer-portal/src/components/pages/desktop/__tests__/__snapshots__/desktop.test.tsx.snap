@@ -19,193 +19,423 @@ exports[`DeveloperDesktopPage should match snapshot 1`] = `
         componentError={null}
         errorThrownComponent={[Function]}
       >
-        <H3>
-          <h3
-            className="title is-3"
-            id=""
-          >
-            Desktop
-          </h3>
-        </H3>
-        <FadeIn>
-          <div
-            className="f1ohzb3j-fade-in"
-          >
-            <Section
-              hasPadding={false}
+        <Title>
+          <ElTitle>
+            <h1
+              className="e14sffxa-el-title"
             >
-              <section
-                className="section has-margin has-background"
-                data-test=""
+              Desktop
+            </h1>
+          </ElTitle>
+        </Title>
+        <Grid>
+          <div
+            className="go2h5m0-grid r1012k5-row-gap8 c1tyjn4x-col-gap6"
+          >
+            <Col
+              span={8}
+              spanMobile={12}
+              spanTablet={12}
+            >
+              <div
+                className="c1kect7b-col s1ibr8s6-span12"
               >
-                <DeveloperDesktopContentPartOne>
-                  <Content>
+                <BannerSection>
+                  <FadeIn>
                     <div
-                      className="content"
-                      data-test=""
+                      className="f334tw0-fade-in"
                     >
-                      <p>
-                        Reapit's Agency Cloud is a desktop application that offers estate agencies a comprehensive range of market leading agency products, including a Sales CRM, Lettings CRM, Client Accounts, Property Management and real-time Analytics.
-                      </p>
-                      <p>
-                        Developers that would like to integrate with or extend the functionality of Agency Cloud can use the Foundations Desktop API to build web applications for Reapit's app Marketplace that trigger events in the Agency Cloud desktop application, as well as associating their apps with common actions in Agency Cloud to replace default behaviours and screens.
-                      </p>
-                      <p>
-                        For example, a developer building a Marketplace app that provides AML and ID checking, can use the Desktop API to associate their app with the default ID checking screen in Agency Cloud. When a customer clicks the default button to launch the ID check screen, the developer's associated app would be presented instead.
-                      </p>
-                      <p>
-                        To learn more about what’s possible with the Desktop API, please visit the
-                         
-                        <a
-                          href="/api-docs/api/desktop-api"
-                          rel="noreferrer"
-                          target="_blank"
+                      <BodyText
+                        className="ehxtz07-el-mb4 hw5zku-has-grey-text"
+                      >
+                        <ElBodyText
+                          className="ehxtz07-el-mb4 hw5zku-has-grey-text"
                         >
-                          documentation.
-                        </a>
-                      </p>
-                    </div>
-                  </Content>
-                </DeveloperDesktopContentPartOne>
-              </section>
-            </Section>
-          </div>
-        </FadeIn>
-        <FadeIn>
-          <div
-            className="f1ohzb3j-fade-in"
-          >
-            <Section
-              hasPadding={false}
-            >
-              <section
-                className="section has-margin has-background"
-                data-test=""
-              >
-                <DeveloperDesktopContentPartTwo>
-                  <Content>
-                    <div
-                      className="content"
-                      data-test=""
-                    >
-                      <Grid>
+                          <p
+                            className="ehxtz07-el-mb4 hw5zku-has-grey-text e11h1vsn-el-body-text"
+                          >
+                            Reapit's Agency Cloud is a desktop application that offers estate agencies a comprehensive range of market leading agency products, including a Sales CRM, Lettings CRM, Client Accounts, Property Management and real-time Analytics.
+                          </p>
+                        </ElBodyText>
+                      </BodyText>
+                      <Grid
+                        className="e2exruq-el-mb6"
+                      >
                         <div
-                          className="columns"
-                          data-test=""
+                          className="go2h5m0-grid r1012k5-row-gap8 c1tyjn4x-col-gap6 e2exruq-el-mb6"
                         >
-                          <GridItem>
+                          <BannerCol>
                             <div
-                              className="column"
-                              data-test=""
+                              className="byv3zgt-banner-col"
                             >
-                              <H5>
-                                <h5
-                                  className="title is-5"
-                                  id=""
-                                >
-                                  Developer Edition
-                                </h5>
-                              </H5>
-                              <p>
-                                The Developer Edition of Agency Cloud allows developers using the Desktop API to test their apps within the desktop application using sandbox data.
-                              </p>
-                              <p>
-                                From 1st April, the Developer Edition of Agency Cloud will no longer be a free subscription. If you had subscribed during the Beta Phase and still wish to continue to use the software, please re subscribe.
-                              </p>
-                              <p>
-                                The application is licenced per user/developer of an organisation and will require a Windows machine to install it.
-                              </p>
-                            </div>
-                          </GridItem>
-                          <GridItem>
-                            <div
-                              className="column"
-                              data-test=""
-                            >
-                              <div
-                                className="d16jkq6b-developer-desktop-pricing-tile"
-                              >
+                              <ImageTextPair>
                                 <div
-                                  className="desktop-inner-container"
+                                  className="i1trbknv-image-text-pair"
                                 >
-                                  <div
-                                    className="modal-card-head mb-4"
-                                  >
-                                    <H5
-                                      className="mb-0"
-                                      isCentered={true}
+                                  <img
+                                    src={Object {}}
+                                  />
+                                  <TextWrap>
+                                    <div
+                                      className="tcicpyr-text-wrap"
                                     >
-                                      <h5
-                                        className="title is-5 mb-0 has-text-centered"
-                                        id=""
-                                      >
-                                        Developer Edition
-                                      </h5>
-                                    </H5>
-                                  </div>
-                                  <div
-                                    className="justify-center items-center is-flex py-2"
-                                  >
-                                    <span
-                                      className="desktop-price"
-                                    >
-                                      £300
-                                    </span>
-                                     
-                                    <span
-                                      className="desktop-price-period"
-                                    >
-                                      / Month
-                                    </span>
-                                  </div>
-                                  <div
-                                    className="text-center px-2 py-1"
-                                  >
-                                    Become familiar with our CRM software using sandbox data
-                                  </div>
-                                  <div
-                                    className="text-center px-2 py-1"
-                                  >
-                                    Test your Marketplace application inside Agency Cloud
-                                  </div>
-                                  <div
-                                    className="text-center px-2 py-1"
-                                  >
-                                    Understand how customers will interact with your application
-                                  </div>
-                                  <Section
-                                    hasMargin={false}
-                                  >
-                                    <section
-                                      className="section has-padding has-background"
-                                      data-test=""
-                                    >
-                                      <Button
-                                        fullWidth={true}
-                                        onClick={[Function]}
-                                        type="button"
-                                        variant="primary"
-                                      >
-                                        <button
-                                          className="button is-fullwidth  is-primary "
-                                          data-test=""
-                                          disabled={false}
-                                          onClick={[Function]}
-                                          type="button"
-                                        >
-                                          Subscribe now
-                                        </button>
-                                      </Button>
-                                    </section>
-                                  </Section>
+                                      Become familiar with our CRM software using sandbox data
+                                    </div>
+                                  </TextWrap>
                                 </div>
-                              </div>
+                              </ImageTextPair>
                             </div>
-                          </GridItem>
+                          </BannerCol>
+                          <BannerCol>
+                            <div
+                              className="byv3zgt-banner-col"
+                            >
+                              <ImageTextPair>
+                                <div
+                                  className="i1trbknv-image-text-pair"
+                                >
+                                  <img
+                                    src={Object {}}
+                                  />
+                                  <TextWrap>
+                                    <div
+                                      className="tcicpyr-text-wrap"
+                                    >
+                                      Test your Marketplace application inside Agency Cloud
+                                    </div>
+                                  </TextWrap>
+                                </div>
+                              </ImageTextPair>
+                            </div>
+                          </BannerCol>
+                          <BannerCol>
+                            <div
+                              className="byv3zgt-banner-col"
+                            >
+                              <ImageTextPair>
+                                <div
+                                  className="i1trbknv-image-text-pair"
+                                >
+                                  <img
+                                    src={Object {}}
+                                  />
+                                  <TextWrap>
+                                    <div
+                                      className="tcicpyr-text-wrap"
+                                    >
+                                      Understand how customers will interact with your application
+                                    </div>
+                                  </TextWrap>
+                                </div>
+                              </ImageTextPair>
+                            </div>
+                          </BannerCol>
                         </div>
                       </Grid>
+                    </div>
+                  </FadeIn>
+                </BannerSection>
+                <Grid>
+                  <div
+                    className="go2h5m0-grid r1012k5-row-gap8 c1tyjn4x-col-gap6"
+                  >
+                    <Col
+                      span={6}
+                      spanMobile={12}
+                      spanTablet={6}
+                    >
+                      <div
+                        className="c1kect7b-col s45ka4g-span6"
+                      >
+                        <AboutSection>
+                          <FadeIn>
+                            <div
+                              className="f334tw0-fade-in"
+                            >
+                              <Subtitle>
+                                <ElSubtitle>
+                                  <h2
+                                    className="e1o0su1y-el-subtitle"
+                                  >
+                                    About Foundations Desktop API
+                                  </h2>
+                                </ElSubtitle>
+                              </Subtitle>
+                              <BodyText
+                                className="ehxtz07-el-mb4 hw5zku-has-grey-text"
+                              >
+                                <ElBodyText
+                                  className="ehxtz07-el-mb4 hw5zku-has-grey-text"
+                                >
+                                  <p
+                                    className="ehxtz07-el-mb4 hw5zku-has-grey-text e11h1vsn-el-body-text"
+                                  >
+                                    Developers that would like to integrate with or extend the functionality of Agency Cloud can use the Foundations Desktop API to build web applications for Reapit's app Marketplace that trigger events in the Agency Cloud desktop application, as well as associating their apps with common actions in Agency Cloud to replace default behaviours and screens.
+                                  </p>
+                                </ElBodyText>
+                              </BodyText>
+                              <BodyText
+                                className="ehxtz07-el-mb4 hw5zku-has-grey-text"
+                              >
+                                <ElBodyText
+                                  className="ehxtz07-el-mb4 hw5zku-has-grey-text"
+                                >
+                                  <p
+                                    className="ehxtz07-el-mb4 hw5zku-has-grey-text e11h1vsn-el-body-text"
+                                  >
+                                    For example, a developer building a Marketplace app that provides AML and ID checking, can use the Desktop API to associate their app with the default ID checking screen in Agency Cloud. When a customer clicks the default button to launch the ID check screen, the developer's associated app would be presented instead.
+                                  </p>
+                                </ElBodyText>
+                              </BodyText>
+                              <BodyText
+                                className="ehxtz07-el-mb4 hw5zku-has-grey-text"
+                              >
+                                <ElBodyText
+                                  className="ehxtz07-el-mb4 hw5zku-has-grey-text"
+                                >
+                                  <p
+                                    className="ehxtz07-el-mb4 hw5zku-has-grey-text e11h1vsn-el-body-text"
+                                  >
+                                    To learn more about what’s possible with the Desktop API, please visit the
+                                     
+                                    <a
+                                      href="/api-docs/api/desktop-api"
+                                      rel="noreferrer"
+                                      target="_blank"
+                                    >
+                                      documentation.
+                                    </a>
+                                  </p>
+                                </ElBodyText>
+                              </BodyText>
+                            </div>
+                          </FadeIn>
+                        </AboutSection>
+                      </div>
+                    </Col>
+                    <Col
+                      span={6}
+                      spanMobile={12}
+                      spanTablet={6}
+                    >
+                      <div
+                        className="c1kect7b-col s45ka4g-span6"
+                      >
+                        <VideoSection>
+                          <FadeIn>
+                            <div
+                              className="f334tw0-fade-in"
+                            >
+                              <Subtitle>
+                                <ElSubtitle>
+                                  <h2
+                                    className="e1o0su1y-el-subtitle"
+                                  >
+                                    How your app integrates with the Developer Edition of Agency Cloud
+                                  </h2>
+                                </ElSubtitle>
+                              </Subtitle>
+                              <VideoContainer>
+                                <div
+                                  className="v168oy7x-video-container"
+                                >
+                                  <img
+                                    onClick={[Function]}
+                                    src={Object {}}
+                                  />
+                                  <SmallText
+                                    className="hw5zku-has-grey-text"
+                                  >
+                                    <ElSmallText
+                                      className="hw5zku-has-grey-text"
+                                    >
+                                      <p
+                                        className="hw5zku-has-grey-text e1sqb2md-el-small-text"
+                                      >
+                                        The Developer Edition of Agency Cloud allows developers using the Desktop API to test their apps within the desktop application using sandbox data.
+                                      </p>
+                                    </ElSmallText>
+                                  </SmallText>
+                                </div>
+                              </VideoContainer>
+                              <Modal
+                                afterClose={[Function]}
+                                className="v1w08p9z-video-modal"
+                                title="Desktop API"
+                                visible={false}
+                              />
+                            </div>
+                          </FadeIn>
+                        </VideoSection>
+                      </div>
+                    </Col>
+                  </div>
+                </Grid>
+              </div>
+            </Col>
+            <Col
+              span={4}
+              spanMobile={12}
+              spanTablet={12}
+            >
+              <div
+                className="c1kect7b-col s1ibr8s6-span12"
+              >
+                <SubscribeSection>
+                  <FadeIn>
+                    <div
+                      className="f334tw0-fade-in"
+                    >
+                      <SubscribeContainer>
+                        <div
+                          className="scy9g71-subscribe-container"
+                        >
+                          <SubscribeHeadingContainer>
+                            <div
+                              className="s1bibujz-subscribe-heading-container"
+                            >
+                              <Title>
+                                <ElTitle>
+                                  <h1
+                                    className="e14sffxa-el-title"
+                                  >
+                                    Developer Edition
+                                  </h1>
+                                </ElTitle>
+                              </Title>
+                            </div>
+                          </SubscribeHeadingContainer>
+                          <Grid
+                            rowGap={0}
+                          >
+                            <div
+                              className="go2h5m0-grid c1tyjn4x-col-gap6"
+                            >
+                              <Col
+                                span={12}
+                                spanMobile={12}
+                                spanTablet={6}
+                              >
+                                <div
+                                  className="c1kect7b-col s45ka4g-span6"
+                                >
+                                  <FadeIn>
+                                    <div
+                                      className="f334tw0-fade-in"
+                                    >
+                                      <ImageTextPair
+                                        className="exc1ds4-el-mx4"
+                                      >
+                                        <div
+                                          className="exc1ds4-el-mx4 i1trbknv-image-text-pair"
+                                        >
+                                          <img
+                                            src={Object {}}
+                                          />
+                                          <TextWrap
+                                            className="hw5zku-has-grey-text"
+                                          >
+                                            <div
+                                              className="hw5zku-has-grey-text tcicpyr-text-wrap"
+                                            >
+                                              The application is licensed per user / developer of an organisation and requires a Windows machine to install.
+                                            </div>
+                                          </TextWrap>
+                                        </div>
+                                      </ImageTextPair>
+                                    </div>
+                                  </FadeIn>
+                                  <SubscribeInnerContainer
+                                    className="s1xkf4td-subscribe-container-contracted"
+                                  >
+                                    <div
+                                      className="s1xkf4td-subscribe-container-contracted s98unde-subscribe-inner-container"
+                                    >
+                                      <PriceSection>
+                                        <div
+                                          className="puh3zri-price-section"
+                                        >
+                                          <h3>
+                                            £300
+                                          </h3>
+                                          <div>
+                                            month
+                                          </div>
+                                          <Button
+                                            chevronRight={true}
+                                            fullWidth={true}
+                                            intent="critical"
+                                            onClick={[Function]}
+                                          >
+                                            <ElButton
+                                              className="e17vzom8-el-intent-critical e1fklsye-el-button-has-right-chevron eqdngm6-el-wfull"
+                                              onClick={[Function]}
+                                            >
+                                              <button
+                                                className="e17vzom8-el-intent-critical e1fklsye-el-button-has-right-chevron eqdngm6-el-wfull e1k47yvu-el-button"
+                                                onClick={[Function]}
+                                              >
+                                                Subscribe Now
+                                              </button>
+                                            </ElButton>
+                                          </Button>
+                                        </div>
+                                      </PriceSection>
+                                    </div>
+                                  </SubscribeInnerContainer>
+                                </div>
+                              </Col>
+                              <Col
+                                span={12}
+                                spanMobile={12}
+                                spanTablet={6}
+                              >
+                                <div
+                                  className="c1kect7b-col s45ka4g-span6"
+                                >
+                                  <SubscribeImageContainer
+                                    className=""
+                                  >
+                                    <div
+                                      className="s14oa4r7-subscribe-image-container"
+                                    >
+                                      <SubscribeImageBars
+                                        className="i1if6zcm-img-bars-initial"
+                                        src={Object {}}
+                                      >
+                                        <img
+                                          className="i1if6zcm-img-bars-initial shyowty-subscribe-image-bars"
+                                          src={Object {}}
+                                        />
+                                      </SubscribeImageBars>
+                                      <SubscribeImageDevices
+                                        className="itxhqqo-img-devices-initial"
+                                        src={Object {}}
+                                      >
+                                        <img
+                                          className="itxhqqo-img-devices-initial szs8gc8-subscribe-image-devices"
+                                          src={Object {}}
+                                        />
+                                      </SubscribeImageDevices>
+                                      <SubscribeImageFooter
+                                        className="i1mi5hjj-image-footer-initial"
+                                        src={Object {}}
+                                      >
+                                        <img
+                                          className="i1mi5hjj-image-footer-initial sksyt9v-subscribe-image-footer"
+                                          src={Object {}}
+                                        />
+                                      </SubscribeImageFooter>
+                                    </div>
+                                  </SubscribeImageContainer>
+                                </div>
+                              </Col>
+                            </div>
+                          </Grid>
+                        </div>
+                      </SubscribeContainer>
                       <DeveloperEditionModal
-                        afterClose={[Function]}
+                        setSubscribingState={[Function]}
                         visible={false}
                       >
                         <Modal
@@ -215,12 +445,12 @@ exports[`DeveloperDesktopPage should match snapshot 1`] = `
                         />
                       </DeveloperEditionModal>
                     </div>
-                  </Content>
-                </DeveloperDesktopContentPartTwo>
-              </section>
-            </Section>
+                  </FadeIn>
+                </SubscribeSection>
+              </div>
+            </Col>
           </div>
-        </FadeIn>
+        </Grid>
       </ErrorBoundary>
     </Connect(ErrorBoundary)>
   </DeveloperDesktopPage>

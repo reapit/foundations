@@ -33,17 +33,15 @@ exports[`DeveloperEditionContent should match snapshot 1`] = `
   }
 >
   <DeveloperEditionContent
-    dropdownOptions={
-      Array [
-        Object {
-          "description": "description",
-          "label": "label",
-          "value": "value",
-        },
-      ]
+    developer={
+      Object {
+        "description": "description",
+        "label": "label",
+        "value": "value",
+      }
     }
+    handleOnConfirm={[MockFunction]}
     loading={false}
-    onFormSubmit={[MockFunction]}
   />
   ,
 </ContextProvider>

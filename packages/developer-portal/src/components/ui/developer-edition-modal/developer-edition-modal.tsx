@@ -2,14 +2,13 @@ import { DeveloperModel } from '@reapit/foundations-ts-definitions'
 import * as React from 'react'
 import { Dispatch } from 'redux'
 import { useSelector, useDispatch } from 'react-redux'
-import { Modal, ModalProps, SelectOption } from '@reapit/elements'
+import { Modal, ModalProps } from '@reapit/elements'
 import { selectLoginIdentity } from '@/selector/auth'
 import {
   selectCreateDeveloperSubscriptionLoading,
   selectCreateDeveloperSubscriptionError,
 } from '@/selector/developer-subscriptions'
 import { developerCreateSubscription, developerCreateSubscriptionClearError } from '@/actions/developer-subscriptions'
-import { FormValues } from './form-fields'
 import DeveloperEditionContent from './developer-edition-content'
 import SuccessContent from './success-content'
 import ErrorContent from './error-content'
@@ -30,16 +29,11 @@ export const handleOnCreated = (
   setSuccess(true)
 }
 
-export const handleFormSubmit = (
-  developerLists: Partial<DeveloperModel>[],
+export const handleOnConfirm = (
+  developer: Partial<DeveloperModel>,
   dispatch: Dispatch,
   onCreated: (developer: DeveloperModel) => () => void,
-) => (values: FormValues) => {
-  const selectedDeveloperIds = values.developerList
-  const selectedDevelopers = developerLists.filter((developer) => selectedDeveloperIds.includes(developer.id || ''))
-  // For now just call api with one developer
-  const developer = selectedDevelopers[0]
-
+) => () => {
   dispatch(
     developerCreateSubscription({
       params: {
@@ -75,13 +69,8 @@ export const DeveloperEditionModal: React.FC<DeveloperEditionModalProps> = ({
   const developerName = loginIdentity?.name
   const developerId = loginIdentity?.developerId || ''
   const developerEmail = loginIdentity?.email
-  const developerLists: Partial<DeveloperModel>[] = [{ id: developerId, name: developerName, email: developerEmail }]
 
-  const dropdownOptions: SelectOption[] = developerLists.map(({ id, name }) => ({
-    value: id || '',
-    label: name || '',
-    description: name,
-  }))
+  const developer: Partial<DeveloperModel> = { id: developerId, name: developerName, email: developerEmail }
 
   const [isSuccess, setSuccess] = React.useState<boolean>(false)
   const [selectedDeveloper, setSelectedDeveloper] = React.useState<DeveloperModel | undefined>()
@@ -103,10 +92,10 @@ export const DeveloperEditionModal: React.FC<DeveloperEditionModalProps> = ({
   } else {
     content = (
       <DeveloperEditionContent
-        dropdownOptions={dropdownOptions}
+        developer={developer}
         loading={loading}
         afterClose={handleAfterClose(setSuccess, dispatch, setSubscribingState)}
-        onFormSubmit={handleFormSubmit(developerLists, dispatch, handleOnCreated(setSelectedDeveloper, setSuccess))}
+        handleOnConfirm={handleOnConfirm(developer, dispatch, handleOnCreated(setSelectedDeveloper, setSuccess))}
       />
     )
   }

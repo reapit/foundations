@@ -1,6 +1,6 @@
 import React, { Dispatch, FC, SetStateAction, useState } from 'react'
 import ErrorBoundary from '@/components/hocs/error-boundary'
-import { FadeIn } from '@reapit/elements'
+import { FadeIn, Modal } from '@reapit/elements'
 import { Title, Subtitle, BodyText, elMb4, elMb6, SmallText, Button, elMx4 } from '@reapit/elements/v3'
 import Routes from '@/constants/routes'
 import DeveloperEditonModal from '@/components/ui/developer-edition-modal'
@@ -28,6 +28,7 @@ import {
   imgBarsSubscribing,
   imgDevicesInitial,
   imgDevicesSubscribing,
+  videoModal,
 } from './__styles__/styles'
 import { Grid, Col } from '../../../styles/grid'
 import { cx } from 'linaria'
@@ -39,13 +40,17 @@ import windowsImage from '../../../assets/images/desktop/windows-badge.svg'
 import devEditionImgOne from '../../../assets/images/desktop/developer-edition/developer-edition-01.svg'
 import devEditionImgTwo from '../../../assets/images/desktop/developer-edition/developer-edition-02.svg'
 import devEditionImgThree from '../../../assets/images/desktop/developer-edition/developer-edition-03.svg'
+import { IFRAME_URLS } from '../../../constants/iframe-urls'
 
-export type SubscribingState = 'INITIAL' | 'SUBSCRIBE_NOW' | 'SUBSCRIBE' | 'CONFIRMING' | 'SAVING' | 'SUBSCRIBED'
+export type SubscribingState = 'INITIAL' | 'SUBSCRIBE_NOW' | 'CONFIRMING'
 
 export const handleSetSubscribingState = (
   setSubscribingState: Dispatch<SetStateAction<SubscribingState>>,
   subscribingState: SubscribingState,
 ) => () => setSubscribingState(subscribingState)
+
+export const handleToggleModal = (setModalVisible: Dispatch<SetStateAction<boolean>>, modalVisible: boolean) => () =>
+  setModalVisible(!modalVisible)
 
 export const BannerSection: FC = () => (
   <FadeIn>
@@ -100,18 +105,35 @@ export const AboutSection: FC = () => (
   </FadeIn>
 )
 
-export const VideoSection: FC = () => (
-  <FadeIn>
-    <Subtitle>How your app integrates with the Developer Edition of Agency Cloud</Subtitle>
-    <VideoContainer>
-      <img src={videoImage} />
-      <SmallText className={cx(hasGreyText)}>
-        The Developer Edition of Agency Cloud allows developers using the Desktop API to test their apps within the
-        desktop application using sandbox data.
-      </SmallText>
-    </VideoContainer>
-  </FadeIn>
-)
+export const VideoSection: FC = () => {
+  const [modalVisible, setModalVisible] = useState<boolean>(false)
+  return (
+    <FadeIn>
+      <Subtitle>How your app integrates with the Developer Edition of Agency Cloud</Subtitle>
+      <VideoContainer>
+        <img src={videoImage} onClick={handleToggleModal(setModalVisible, modalVisible)} />
+        <SmallText className={cx(hasGreyText)}>
+          The Developer Edition of Agency Cloud allows developers using the Desktop API to test their apps within the
+          desktop application using sandbox data.
+        </SmallText>
+      </VideoContainer>
+      <Modal
+        className={videoModal}
+        visible={modalVisible}
+        afterClose={handleToggleModal(setModalVisible, modalVisible)}
+        title="Desktop API"
+      >
+        <iframe
+          src={IFRAME_URLS.desktopVideo}
+          title="YouTube video player"
+          frameBorder="0"
+          allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+          allowFullScreen
+        ></iframe>
+      </Modal>
+    </FadeIn>
+  )
+}
 
 export const SubscribeSection: FC = () => {
   const [subscribingState, setSubscribingState] = useState<SubscribingState>('INITIAL')
@@ -174,7 +196,12 @@ export const SubscribeSection: FC = () => {
                     >
                       Cancel
                     </Button>
-                    <Button intent="critical" chevronRight fullWidth>
+                    <Button
+                      intent="critical"
+                      chevronRight
+                      fullWidth
+                      onClick={handleSetSubscribingState(setSubscribingState, 'CONFIRMING')}
+                    >
                       Subscribe
                     </Button>
                   </SubscribeButtonContainer>

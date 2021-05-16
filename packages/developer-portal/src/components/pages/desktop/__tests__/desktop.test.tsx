@@ -3,7 +3,7 @@ import { mount } from 'enzyme'
 import { Provider } from 'react-redux'
 import configureStore from 'redux-mock-store'
 import appState from '@/reducers/__stubs__/app-state'
-import { DeveloperDesktopPage, handleSetSubscribingState } from '../desktop'
+import { DeveloperDesktopPage, handleSetSubscribingState, handleToggleModal } from '../desktop'
 
 describe('DeveloperDesktopPage', () => {
   let store
@@ -31,5 +31,13 @@ describe('handleSetSubscribingState', () => {
     const setIsDeveloperEditionModalOpen = jest.fn()
     handleSetSubscribingState(setIsDeveloperEditionModalOpen, 'CONFIRMING')()
     expect(setIsDeveloperEditionModalOpen).toBeCalledWith('CONFIRMING')
+  })
+})
+
+describe('handleToggleModal', () => {
+  it('should correctly set state', () => {
+    const setModalVisible = jest.fn()
+    handleToggleModal(setModalVisible, true)()
+    expect(setModalVisible).toBeCalledWith(false)
   })
 })
