@@ -1,7 +1,7 @@
 import * as React from 'react'
 import { mount } from 'enzyme'
 import appState from '@/reducers/__stubs__/app-state'
-import { DeveloperEditionModal, handleAfterClose, handleFormSubmit, handleOnCreated } from '../developer-edition-modal'
+import { DeveloperEditionModal, handleAfterClose, handleOnConfirm, handleOnCreated } from '../developer-edition-modal'
 import { Provider } from 'react-redux'
 import configureStore from 'redux-mock-store'
 import { developerCreateSubscriptionClearError } from '@/actions/developer-subscriptions'
@@ -41,12 +41,12 @@ describe('DeveloperEditionModal', () => {
     expect(wrapper).toMatchSnapshot()
   })
 
-  describe('handleFormSubmit', () => {
+  describe('handleOnConfirm', () => {
     it('should run correctly', () => {
-      const developerLists = [{ id: developerStub.id, name: developerStub.name, email: developerStub.email }]
+      const developer = { id: developerStub.id, name: developerStub.name, email: developerStub.email }
       const dispatch = jest.fn()
       const onCreated = jest.fn((developer) => jest.fn(developer))
-      handleFormSubmit(developerLists, dispatch, onCreated)({ developerList: [developerStub.id] })
+      handleOnConfirm(developer, dispatch, onCreated)()
       expect(dispatch).toBeCalled()
     })
   })

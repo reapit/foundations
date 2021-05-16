@@ -31,7 +31,7 @@ export const Forms: React.FC = () => {
   const { changePassword, logout } = createDispatchers(dispatch)
 
   if (loading) {
-    return <Loader label="Loading" />
+    return <Loader label="Loading" fullPage />
   }
 
   return (

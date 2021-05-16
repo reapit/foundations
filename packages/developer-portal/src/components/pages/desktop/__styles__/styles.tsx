@@ -29,6 +29,7 @@ export const VideoContainer = styled.div`
   box-shadow: 2px 4px 20px rgba(0, 0, 0, 0.05);
   border-radius: 4px;
   padding: 1rem 1rem 0.5rem 1rem;
+  cursor: pointer;
 
   img {
     margin-bottom: 1rem;
@@ -41,6 +42,24 @@ export const VideoContainer = styled.div`
 
   svg {
     width: 100%;
+  }
+`
+
+export const videoModal = css`
+  .modal-content.modal-medium {
+    width: 90vw;
+    height: 90vh;
+    max-width: 2000px;
+  }
+
+  .modal-card {
+    width: 100%;
+    height: 100%;
+  }
+
+  iframe {
+    width: 100%;
+    height: 100%;
   }
 `
 
