@@ -5251,7 +5251,7 @@ __metadata:
     react-google-map: ^3.1.1
     react-google-maps-loader: 4.3.0
     react-icons: ^3.11.0
-    react-image-crop: 8.6.6
+    react-image-crop: 8.6.7
     react-is: ^16.13.1
     react-table: ^7.6.3
     react-transition-group: ^4.4.1
@@ -5421,7 +5421,7 @@ __metadata:
     "@types/lodash.debounce": ^4.0.6
     "@types/morgan": ^1.9.2
     "@types/nanoid": ^2.1.0
-    "@types/node": 10.17.57
+    "@types/node": 10.17.58
     "@types/papaparse": ^5.2.5
     "@types/query-string": ^6.3.0
     "@types/rc-select": ^5.9.34
@@ -8232,10 +8232,10 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@types/node@npm:10.17.57":
-  version: 10.17.57
-  resolution: "@types/node@npm:10.17.57"
-  checksum: 633fe1606def1336b7d58fefe0810ca7bcc65292db6b1a1522fad065600d817794a1b8c3c729e7520fff49dea8e7f97b0e8860e4de8562820c4cbeb73a3d10ea
+"@types/node@npm:10.17.58":
+  version: 10.17.58
+  resolution: "@types/node@npm:10.17.58"
+  checksum: 48412811a6c4f8d2d59a5e299b1600cdb3bdc5011db01f1cdf149f8f5a2f6fa5273370c1ce5eebbad1348a49251e88c680b008cfe09da6bfbb9a16d9aec3ff5a
   languageName: node
   linkType: hard
 
@@ -14000,6 +14000,13 @@ __metadata:
   version: 3.6.5
   resolution: "core-js@npm:3.6.5"
   checksum: 9283348dd5be2f1d07feaf90e2336b3f00a2316e3d3c6d4f789c9a67bdd4d7b08ce1c88dca4e591340130056c6b412b0b74fae039f8e259206f1073f542e4e85
+  languageName: node
+  linkType: hard
+
+"core-js@npm:^3.11.0":
+  version: 3.12.1
+  resolution: "core-js@npm:3.12.1"
+  checksum: 8b1d05579e7ddeafcd390001cc893540275fa3e658a00ae57f88954411a25bdfe583debb1929c6a50e40631cc07f2092490ea2284b35ffb922b23d7677060f28
   languageName: node
   linkType: hard
 
@@ -30225,16 +30232,16 @@ fsevents@^1.2.7:
   languageName: node
   linkType: hard
 
-"react-image-crop@npm:8.6.6":
-  version: 8.6.6
-  resolution: "react-image-crop@npm:8.6.6"
+"react-image-crop@npm:8.6.7":
+  version: 8.6.7
+  resolution: "react-image-crop@npm:8.6.7"
   dependencies:
     clsx: ^1.1.1
-    core-js: ^3.6.5
+    core-js: ^3.11.0
     prop-types: ^15.7.2
   peerDependencies:
     react: ">=16.13.1"
-  checksum: 9f6450a72e7535ad6521d08d0df237868496612f2e49e6048694009493cfb5975e02e63f938ebb2f76628a1633857dc5fc358f851ba14ef80b6125d80aac8a02
+  checksum: 17b82f740fd5db8c89245a24ea5be1eee2c13921384af54556c8999f09720d630aaadc23e27123a3edb291998e2f6216120b123fb15795c4e0c48ddd0ed710cb
   languageName: node
   linkType: hard
 
