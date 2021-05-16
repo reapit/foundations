@@ -5421,7 +5421,7 @@ __metadata:
     "@types/lodash.debounce": ^4.0.6
     "@types/morgan": ^1.9.2
     "@types/nanoid": ^2.1.0
-    "@types/node": 10.17.57
+    "@types/node": 10.17.58
     "@types/papaparse": ^5.2.5
     "@types/query-string": ^6.3.0
     "@types/rc-select": ^5.9.34
@@ -8232,10 +8232,10 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@types/node@npm:10.17.57":
-  version: 10.17.57
-  resolution: "@types/node@npm:10.17.57"
-  checksum: 633fe1606def1336b7d58fefe0810ca7bcc65292db6b1a1522fad065600d817794a1b8c3c729e7520fff49dea8e7f97b0e8860e4de8562820c4cbeb73a3d10ea
+"@types/node@npm:10.17.58":
+  version: 10.17.58
+  resolution: "@types/node@npm:10.17.58"
+  checksum: 48412811a6c4f8d2d59a5e299b1600cdb3bdc5011db01f1cdf149f8f5a2f6fa5273370c1ce5eebbad1348a49251e88c680b008cfe09da6bfbb9a16d9aec3ff5a
   languageName: node
   linkType: hard
 
