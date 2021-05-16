@@ -1,10 +1,6 @@
 import { css } from 'linaria'
 import { styled } from 'linaria/react'
 
-const SUBSCRIBE_IMAGE_BREAKPOINT = '1400px'
-const SUBSCRIBE_BUTTON_QUERY = '@media (min-width: 1024px) and (max-width: 1115px)'
-// const SUBSCRIBE_INNER_BP_LARGE = '1'
-
 export const ImageTextPair = styled.div`
   padding: 0.75rem;
   border-radius: 4px;
@@ -123,7 +119,7 @@ export const SubscribeButtonContainer = styled.div`
     margin-left: 0.5rem;
   }
 
-  ${SUBSCRIBE_BUTTON_QUERY} {
+  @media (min-width: 1024px) and (max-width: 1115px) {
     button:first-child {
       margin-right: 0.125rem;
     }
@@ -135,94 +131,259 @@ export const SubscribeButtonContainer = styled.div`
 `
 
 export const SubscribeImageContainer = styled.div`
-  height: 380px;
+  height: 23rem;
   transition: height 0.3s linear;
   position: relative;
   overflow: hidden;
   border-radius: 4px;
+
+  @media (min-width: 580px) {
+    height: 15.5rem;
+  }
+
+  @media (min-width: 769px) {
+    height: 100%;
+  }
+
+  @media (min-width: 1025px) {
+    height: 24rem;
+  }
+
+  @media (min-width: 1115px) {
+    height: 23rem;
+  }
+
+  @media (min-width: 1400px) {
+    height: 18rem;
+  }
+
+  @media (min-width: 1700px) {
+    height: 15.5rem;
+  }
 `
 
 export const subscribingContractedContainer = css`
-  height: 280px;
+  height: 12.75rem;
+
+  @media (min-width: 580px) {
+    height: 11.85rem;
+  }
+
+  @media (min-width: 769px) {
+    height: 100%;
+  }
+
+  @media (min-width: 1025px) {
+    height: 12.75rem;
+  }
+
+  @media (min-width: 1400px) {
+    height: 11.85rem;
+  }
 `
 
 export const SubscribeImageBars = styled.img`
+  transition: transform 0.3s linear, left 0.3s linear, bottom 0.3s linear;
   position: absolute;
+  z-index: 1;
+`
+
+export const imgBarsInitial = css`
   left: 5%;
   bottom: 19%;
-  z-index: 1;
 
-  @media (min-width: ${SUBSCRIBE_IMAGE_BREAKPOINT}) {
+  @media (min-width: 769px) {
+    left: 5%;
+    bottom: 20%;
+  }
+
+  @media (min-width: 1025px) {
+    left: 5%;
+    bottom: 10%;
+  }
+
+  @media (min-width: 1115px) {
+    bottom: 15%;
+  }
+
+  @media (min-width: 1400px) {
     transform: scale(1.2);
     left: 10%;
     bottom: 11%;
   }
+
+  @media (min-width: 1700px) {
+  }
 `
 
-export const imgBarsContracted = css`
-  animation: bars-image-contract 0.3s linear forwards;
+export const imgBarsSubscribing = css`
+  left: 5%;
+  bottom: 10%;
 
-  @keyframes bars-image-contract {
-    from {
-      bottom: 19%;
-      transform: scale(1);
-    }
-    to {
-      bottom: 10%;
-      transform: scale(0.8);
-    }
+  @media (min-width: 580px) {
+    bottom: -5%;
+  }
+
+  @media (min-width: 769px) {
+    left: 5%;
+    bottom: 10%;
+    transform: scale(1.2);
+  }
+
+  @media (min-width: 1025px) {
+    transform: scale(0.8);
+    left: 5%;
+    bottom: 10%;
+  }
+
+  @media (min-width: 1115px) {
+    bottom: 12%;
+  }
+
+  @media (min-width: 1400px) {
+    left: 10%;
+    bottom: 0%;
+  }
+
+  @media (min-width: 1700px) {
+    bottom: -10%;
   }
 `
 
 export const SubscribeImageDevices = styled.img`
+  transition: transform 0.3s linear, left 0.3s linear, bottom 0.3s linear;
   position: absolute;
   z-index: 3;
+`
+
+export const imgDevicesInitial = css`
   bottom: 20%;
   left: 30%;
 
-  @media (min-width: ${SUBSCRIBE_IMAGE_BREAKPOINT}) {
-    transform: scale(1.2);
+  @media (min-width: 580px) {
+    bottom: 9%;
     left: 40%;
-    bottom: 20%;
+  }
+
+  @media (min-width: 769px) {
+    bottom: 5;
+    left: 30%;
+    transform: scale(1.1);
+  }
+
+  @media (min-width: 1025px) {
+    transform: scale(0.8);
+    left: 20%;
+    bottom: 15%;
+  }
+
+  @media (min-width: 1115px) {
+    transform: scale(1);
+    left: 30%;
+  }
+
+  @media (min-width: 1400px) {
+    left: 40%;
+    bottom: 5%;
+  }
+
+  @media (min-width: 1700px) {
   }
 `
 
-export const imgDevicesContracted = css`
-  animation: devices-image 0.3s linear forwards;
+export const imgDevicesSubscribing = css`
+  bottom: 0;
+  left: 30%;
+  transform: scale(0.8);
 
-  @keyframes devices-image {
-    from {
-      bottom: 20%;
-      transform: scale(1);
-    }
-    to {
-      bottom: 0;
-      transform: scale(0.8);
-    }
+  @media (min-width: 580px) {
+    bottom: -8%;
+    left: 40%;
+  }
+
+  @media (min-width: 769px) {
+    bottom: 20%;
+    left: 30%;
+  }
+
+  @media (min-width: 1025px) {
+    transform: scale(0.8);
+    left: 20%;
+    bottom: 0%;
+  }
+
+  @media (min-width: 1115px) {
+    transform: scale(0.8);
+    left: 30%;
+  }
+
+  @media (min-width: 1400px) {
+    bottom: -8%;
+    left: 40%;
+  }
+
+  @media (min-width: 1700px) {
+    left: 45%;
   }
 `
 
 export const SubscribeImageFooter = styled.img`
+  transition: bottom 0.3s linear;
   width: 100%;
   position: absolute;
   z-index: 2;
+`
+
+export const imageFooterInitial = css`
   bottom: 0;
 
-  @media (min-width: ${SUBSCRIBE_IMAGE_BREAKPOINT}) {
+  @media (min-width: 580px) {
+    bottom: -28%;
+  }
+
+  @media (min-width: 769px) {
+    bottom: 0;
+  }
+
+  @media (min-width: 1025px) {
+  }
+
+  @media (min-width: 1115px) {
+  }
+
+  @media (min-width: 1400px) {
     bottom: -20%;
+  }
+
+  @media (min-width: 1700px) {
+    bottom: -30%;
   }
 `
 
-export const imgFooterContracted = css`
-  animation: footer-image 0.3s linear forwards;
+export const imgFooterSubscribing = css`
+  bottom: -15%;
 
-  @keyframes footer-image {
-    from {
-      bottom: 0;
-    }
-    to {
-      bottom: -20px;
-    }
+  @media (min-width: 580px) {
+    bottom: -65%;
+  }
+
+  @media (min-width: 769px) {
+    bottom: -5%;
+  }
+
+  @media (min-width: 1025px) {
+    bottom: -15%;
+  }
+
+  @media (min-width: 1115px) {
+  }
+
+  @media (min-width: 1400px) {
+    bottom: -40%;
+  }
+
+  @media (min-width: 1700px) {
+    bottom: -65%;
   }
 `
 
