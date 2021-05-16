@@ -13,18 +13,21 @@ import {
   SubscribeInnerContainer,
   SubscribeHeadingContainer,
   SubscribeButtonContainer,
-  // SubscribeImageContainer,
-  // SubscribeImageBars,
-  // SubscribeImageDevices,
-  // SubscribeImageFooter,
+  SubscribeImageContainer,
+  SubscribeImageBars,
+  SubscribeImageDevices,
+  SubscribeImageFooter,
   subscribeContainerExpanded,
   subscribeContainerContracted,
   PriceSection,
   BannerCol,
-  // subscribingContractedContainer,
-  // imgFooterContracted,
-  // imgBarsContracted,
-  // imgDevicesContracted,
+  subscribingContractedContainer,
+  imageFooterInitial,
+  imgFooterSubscribing,
+  imgBarsInitial,
+  imgBarsSubscribing,
+  imgDevicesInitial,
+  imgDevicesSubscribing,
 } from './__styles__/styles'
 import { Grid, Col } from '../../../styles/grid'
 import { cx } from 'linaria'
@@ -33,9 +36,9 @@ import phoneImage from '../../../assets/images/desktop/marketplace-agency-cloud.
 import customerImage from '../../../assets/images/desktop/customer-interact-app.svg'
 import videoImage from '../../../assets/images/desktop/video-placeholder.svg'
 import windowsImage from '../../../assets/images/desktop/windows-badge.svg'
-// import devEditionImgOne from '../../../assets/images/desktop/developer-edition/developer-edition-01.svg'
-// import devEditionImgTwo from '../../../assets/images/desktop/developer-edition/developer-edition-02.svg'
-// import devEditionImgThree from '../../../assets/images/desktop/developer-edition/developer-edition-03.svg'
+import devEditionImgOne from '../../../assets/images/desktop/developer-edition/developer-edition-01.svg'
+import devEditionImgTwo from '../../../assets/images/desktop/developer-edition/developer-edition-02.svg'
+import devEditionImgThree from '../../../assets/images/desktop/developer-edition/developer-edition-03.svg'
 
 export type SubscribingState = 'INITIAL' | 'SUBSCRIBE_NOW' | 'SUBSCRIBE' | 'CONFIRMING' | 'SAVING' | 'SUBSCRIBED'
 
@@ -179,22 +182,22 @@ export const SubscribeSection: FC = () => {
               )}
             </SubscribeInnerContainer>
           </Col>
-          {/* <Col span={12} spanTablet={6} spanMobile={12}>
-            <SubscribeImageContainer className={cx(subscribingState !== 'INITIAL' && subscribingContractedContainer)}>
+          <Col span={12} spanTablet={6} spanMobile={12}>
+            <SubscribeImageContainer className={cx(!isInitial && subscribingContractedContainer)}>
               <SubscribeImageBars
-                className={cx(subscribingState !== 'INITIAL' && imgBarsContracted)}
+                className={cx(isInitial ? imgBarsInitial : imgBarsSubscribing)}
                 src={devEditionImgOne}
               />
               <SubscribeImageDevices
-                className={cx(subscribingState !== 'INITIAL' && imgDevicesContracted)}
+                className={cx(isInitial ? imgDevicesInitial : imgDevicesSubscribing)}
                 src={devEditionImgTwo}
               />
               <SubscribeImageFooter
-                className={cx(subscribingState !== 'INITIAL' && imgFooterContracted)}
+                className={cx(isInitial ? imageFooterInitial : imgFooterSubscribing)}
                 src={devEditionImgThree}
               />
             </SubscribeImageContainer>
-          </Col> */}
+          </Col>
         </Grid>
       </SubscribeContainer>
       <DeveloperEditonModal visible={subscribingState === 'CONFIRMING'} setSubscribingState={setSubscribingState} />
