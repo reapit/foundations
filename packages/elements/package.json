@@ -22,8 +22,8 @@
   ],
   "scripts": {
     "build": "yarn build:v3 && yarn build:v2",
-    "build:v2": "concurrently \"cross-env NODE_ENV=production && rimraf dist && tsdx build --format=cjs,esm,umd\" \"cross-env NODE_ENV=production && rimraf public/dist && build-storybook -o public/dist\"",
-    "build:v3": "cross-env NODE_ENV=production && rimraf v3 && rimraf dist && tsdx build --entry src/v3.tsx --name v3 --format=cjs,esm,umd && move-file dist/ v3/",
+    "build:v2": "concurrently \"cross-env NODE_ENV=production && rimraf dist && echo 'tsdx build --format=cjs,esm,umd'\" \"cross-env NODE_ENV=production && rimraf public/dist && build-storybook -o public/dist\"",
+    "build:v3": "cross-env NODE_ENV=production && rimraf v3 && rimraf dist && echo 'tsdx build --entry src/v3.tsx --name v3 --format=cjs,esm,umd && move-file dist/ v3/'",
     "commit": "concurrently \"yarn test --coverage --no-cache --silent --forceExit --detectOpenHandles --runInBand --watch=false && jest-coverage-badges --input src/tests/coverage/coverage-summary.json --output src/tests/badges\" \"yarn lint\"",
     "conf": "yarn config-manager --namespace cloud --entity elements --name local --mode fetch",
     "lint": "eslint --cache --ext=ts,tsx src --fix",

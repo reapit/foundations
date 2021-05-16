@@ -208,19 +208,6 @@ exports[`DeveloperDesktopPage should match snapshot 1`] = `
                                   </p>
                                 </ElBodyText>
                               </BodyText>
-                              <BodyText
-                                className="ehxtz07-el-mb4 hw5zku-has-grey-text"
-                              >
-                                <ElBodyText
-                                  className="ehxtz07-el-mb4 hw5zku-has-grey-text"
-                                >
-                                  <p
-                                    className="ehxtz07-el-mb4 hw5zku-has-grey-text e11h1vsn-el-body-text"
-                                  >
-                                    £300 per licence / per month.
-                                  </p>
-                                </ElBodyText>
-                              </BodyText>
                             </div>
                           </FadeIn>
                         </AboutSection>
@@ -372,7 +359,7 @@ exports[`DeveloperDesktopPage should match snapshot 1`] = `
                                             £300
                                           </h3>
                                           <div>
-                                            month
+                                            per licence / per month
                                           </div>
                                           <Button
                                             chevronRight={true}
