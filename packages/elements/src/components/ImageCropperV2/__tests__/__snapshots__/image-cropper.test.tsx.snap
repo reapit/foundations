@@ -19,7 +19,7 @@ exports[`ImageCropper should match snapshots with multiple conditions 1`] = `
           >
             Crop Image
           </H5>
-          <a
+          <l
             circularCrop={false}
             className="image-cropper-crop-panel"
             crop={
