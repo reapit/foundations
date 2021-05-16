@@ -1,6 +1,6 @@
 import * as React from 'react'
 import { Dispatch } from 'redux'
-import { Loader, Helper, H5 } from '@reapit/elements'
+import { Helper, H5 } from '@reapit/elements'
 import { useDispatch, useSelector } from 'react-redux'
 import { updateDeveloperData } from '@/actions/settings'
 import { selectSettingsPageDeveloperInformation, selectSettingsPageIsLoading } from '@/selector/settings'
@@ -13,6 +13,7 @@ import { UpdateDeveloperModel, DeveloperModel } from '@reapit/foundations-ts-def
 import { validationSchema } from './form-schema/validation-schema'
 import { selectIsRequiredDataOfBillingPageFilled } from '@/selector/billing'
 import FadeIn from '../../../../../styles/fade-in'
+import { Loader } from '@reapit/elements/v3'
 
 export type AccountsInformationFormProps = {}
 
@@ -107,7 +108,7 @@ const AccountsInformationForm: React.FC<AccountsInformationFormProps> = () => {
   const isShowLoader = isLoading
 
   if (isShowLoader) {
-    return <Loader />
+    return <Loader label="Loading" />
   }
 
   const initialValues = generateInitialValues({ developerInfo, defaultInitialValues })

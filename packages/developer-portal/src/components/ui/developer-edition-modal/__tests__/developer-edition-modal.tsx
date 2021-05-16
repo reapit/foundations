@@ -1,7 +1,7 @@
 import * as React from 'react'
 import { mount } from 'enzyme'
 import appState from '@/reducers/__stubs__/app-state'
-import { DeveloperEditionModal, handleAfterClose, handleFormSubmit, handleOnCreated } from '../developer-edition-modal'
+import { DeveloperEditionModal, handleAfterClose, handleOnConfirm, handleOnCreated } from '../developer-edition-modal'
 import { Provider } from 'react-redux'
 import configureStore from 'redux-mock-store'
 import { developerCreateSubscriptionClearError } from '@/actions/developer-subscriptions'
@@ -26,7 +26,7 @@ describe('DeveloperEditionModal', () => {
   it('should match snapshot when visible', () => {
     const wrapper = mount(
       <Provider store={store}>
-        <DeveloperEditionModal visible={true} afterClose={jest.fn()} />
+        <DeveloperEditionModal visible={true} setSubscribingState={jest.fn()} />
       </Provider>,
     )
     expect(wrapper).toMatchSnapshot()
@@ -35,18 +35,18 @@ describe('DeveloperEditionModal', () => {
   it('should match snapshot when not visible', () => {
     const wrapper = mount(
       <Provider store={store}>
-        <DeveloperEditionModal visible={false} afterClose={jest.fn()} />
+        <DeveloperEditionModal visible={false} setSubscribingState={jest.fn()} />
       </Provider>,
     )
     expect(wrapper).toMatchSnapshot()
   })
 
-  describe('handleFormSubmit', () => {
+  describe('handleOnConfirm', () => {
     it('should run correctly', () => {
-      const developerLists = [{ id: developerStub.id, name: developerStub.name, email: developerStub.email }]
+      const developer = { id: developerStub.id, name: developerStub.name, email: developerStub.email }
       const dispatch = jest.fn()
       const onCreated = jest.fn((developer) => jest.fn(developer))
-      handleFormSubmit(developerLists, dispatch, onCreated)({ developerList: [developerStub.id] })
+      handleOnConfirm(developer, dispatch, onCreated)()
       expect(dispatch).toBeCalled()
     })
   })
@@ -55,13 +55,13 @@ describe('DeveloperEditionModal', () => {
     it('should run correctly', () => {
       const setSuccess = jest.fn()
       const dispatch = jest.fn()
-      const afterClose = jest.fn()
-      handleAfterClose(setSuccess, dispatch, afterClose)()
+      const setSubscribingState = jest.fn()
+      handleAfterClose(setSuccess, dispatch, setSubscribingState)()
       expect(setSuccess).toBeCalled()
       expect(setSuccess).toBeCalledWith(false)
       expect(dispatch).toBeCalled()
       expect(dispatch).toBeCalledWith(developerCreateSubscriptionClearError())
-      expect(afterClose).toBeCalled()
+      expect(setSubscribingState).toBeCalled()
     })
   })
 

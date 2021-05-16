@@ -1,5 +1,13 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`OrganisationForm should match a snapshot when have developerInfo 1`] = `<Loader />`;
+exports[`OrganisationForm should match a snapshot when have developerInfo 1`] = `
+<Loader
+  label="Loading"
+/>
+`;
 
-exports[`OrganisationForm should match a snapshot when no error 1`] = `<Loader />`;
+exports[`OrganisationForm should match a snapshot when no error 1`] = `
+<Loader
+  label="Loading"
+/>
+`;

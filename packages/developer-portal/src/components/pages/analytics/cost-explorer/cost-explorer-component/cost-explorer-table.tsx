@@ -1,8 +1,9 @@
 import * as React from 'react'
-import { Table, Loader } from '@reapit/elements'
+import { Table } from '@reapit/elements'
 import { useSelector } from 'react-redux'
 import { selectMonthlyBillingLoading } from '@/selector/developer'
 import { TableData } from './cost-explorer'
+import { Loader } from '@reapit/elements/v3'
 
 type CostExplorerTableProps = {
   tableData: TableData
@@ -11,7 +12,7 @@ type CostExplorerTableProps = {
 const CostExplorerTable: React.FC<CostExplorerTableProps> = ({ columns, tableData }) => {
   const isLoading = useSelector(selectMonthlyBillingLoading)
 
-  if (isLoading) return <Loader />
+  if (isLoading) return <Loader label="Loading" />
 
   return (
     <>

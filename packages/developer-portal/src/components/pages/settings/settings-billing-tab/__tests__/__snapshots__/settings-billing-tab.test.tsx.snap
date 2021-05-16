@@ -93,16 +93,35 @@ exports[`DeveloperDesktopPage SettingsBillingTabPage should match snapshot 1`] =
       </Tabs>
     </Tabs>
     <AccountsInformationForm>
-      <Loader>
-        <div
-          className="loader-spinner body"
-          data-test=""
+      <Loader
+        label="Loading"
+      >
+        <ElLoaderContainer
+          className=""
         >
-          <div />
-          <div />
-          <div />
-          <div />
-        </div>
+          <div
+            className="eo0rgq8-el-loader-container"
+          >
+            <ElLoaderLabel>
+              <p
+                className="e1yntvew-el-loader-label"
+              >
+                Loading
+              </p>
+            </ElLoaderLabel>
+            <ElLoader>
+              <div
+                className="er32db2-el-loader"
+              >
+                <ElLoaderMovingBar>
+                  <div
+                    className="e14cotwz-el-loader-moving-bar"
+                  />
+                </ElLoaderMovingBar>
+              </div>
+            </ElLoader>
+          </div>
+        </ElLoaderContainer>
       </Loader>
     </AccountsInformationForm>
     <Subcriptions>

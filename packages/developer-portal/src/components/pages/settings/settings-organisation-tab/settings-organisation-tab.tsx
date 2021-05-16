@@ -1,11 +1,12 @@
 import * as React from 'react'
-import { Button, LevelRight, Info, Loader } from '@reapit/elements'
+import { Button, LevelRight, Info } from '@reapit/elements'
 import { Tabs } from '../tabs'
 import DeveloperInviteModal from '@/components/ui/developer-invite-member-modal'
 import { Members } from './members'
 import OrganisationForm from './organisation-form'
 import { useSelector } from 'react-redux'
 import { selectCurrentMemberData, selectCurrentMemberIsLoading } from '@/selector/current-member'
+import { Loader } from '@reapit/elements/v3'
 
 export const handleToggleVisibleModal = (setModalOpen: React.Dispatch<boolean>, isVisible: boolean) => () =>
   setModalOpen(isVisible)
@@ -15,7 +16,7 @@ const DeveloperSettingsOrganisationTabPage: React.FC = () => {
   const currentUser = useSelector(selectCurrentMemberData)
   const loading = useSelector(selectCurrentMemberIsLoading)
   if (loading) {
-    return <Loader />
+    return <Loader label="Loading" fullPage />
   }
   if (currentUser?.role === 'admin') {
     return (

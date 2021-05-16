@@ -7,7 +7,6 @@ import {
   Content,
   Formik,
   SelectOption,
-  Loader,
   Button,
   ModalFooter,
   SelectBox,
@@ -23,6 +22,7 @@ import { developerWebhookPing, developerSetWebhookPingStatus } from '@/actions/d
 import { selectWebhookTestStatus } from '@/selector'
 import { link } from '@/styles/elements/link'
 import Routes from '@/constants/routes'
+import { Loader } from '@reapit/elements/v3'
 
 export interface GenerateTopicOptions {
   topics: TopicItem[]
@@ -137,7 +137,7 @@ export const WebhookTestModal: React.FunctionComponent<WebhookTestModalProps> = 
   return (
     <Modal visible={visible} renderChildren afterClose={afterClose}>
       {loading ? (
-        <Loader />
+        <Loader label="Loading" />
       ) : (
         <Formik initialValues={initFormValues} onSubmit={onSubmit}>
           <Form>
@@ -169,7 +169,7 @@ export const WebhookTestResultModal: React.FunctionComponent = () => {
   return (
     <Modal visible={visible} renderChildren>
       {loading ? (
-        <Loader />
+        <Loader label="Loading" />
       ) : (
         <>
           <Alert

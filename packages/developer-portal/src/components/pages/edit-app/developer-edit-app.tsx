@@ -6,7 +6,6 @@ import { useHistory, useParams } from 'react-router'
 import {
   Input,
   Button,
-  Loader,
   Alert,
   H3,
   ButtonGroup,
@@ -44,6 +43,7 @@ import { getDeveloperIdFromConnectSession } from '@/utils/session'
 import { createAppRevision } from '@/actions/apps'
 import { selectCurrentMemberData } from '@/selector/current-member'
 import { selectSettingsPageDeveloperInformation } from '@/selector/settings'
+import { Loader } from '@reapit/elements/v3'
 
 const { CLIENT_SECRET } = authFlows
 
@@ -433,7 +433,7 @@ export const DeveloperEditApp: React.FC<DeveloperSubmitAppProps> = () => {
 
   const { isLoading, errorMessage, data } = appDetailState
   if (isLoading) {
-    return <Loader />
+    return <Loader label="Loading" fullPage />
   }
 
   if (errorMessage) {

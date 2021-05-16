@@ -1,6 +1,6 @@
 import React from 'react'
 import ChartComponent, { Bar, ChartData, ChartComponentProps } from 'react-chartjs-2'
-import { H5, DATE_TIME_FORMAT, Section, Loader } from '@reapit/elements'
+import { H5, DATE_TIME_FORMAT, Section } from '@reapit/elements'
 import { AppSummaryModel, DeveloperModel } from '@reapit/foundations-ts-definitions'
 import { useDispatch, useSelector } from 'react-redux'
 import { selectMyIdentity, selectBilling, selectDeveloperLoading, selectIsServiceChartLoading } from '@/selector'
@@ -15,6 +15,7 @@ import { useReapitConnect } from '@reapit/connect-session'
 import { reapitConnectBrowserSession } from '@/core/connect-session'
 import { getDeveloperIdFromConnectSession } from '@/utils/session'
 import { chartContainer } from './__styles__/service-chart'
+import { Loader } from '@reapit/elements/v3'
 
 const API_CALL_INDEX = 0
 const APP_LISTING_INDEX = 1
@@ -219,7 +220,7 @@ export const ServiceChart: React.FC = () => {
   const datasets = mapServiceChartDataSet(billing)
 
   if (isDeveloperLoading || isServiceChartLoading) {
-    return <Loader />
+    return <Loader label="Loading" />
   }
 
   return (

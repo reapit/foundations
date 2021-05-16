@@ -1,5 +1,5 @@
 import * as React from 'react'
-import { H3, Button, Loader, Section } from '@reapit/elements'
+import { H3, Button, Section } from '@reapit/elements'
 import EnhanceContactInformation from './contact-information-form'
 import ChangePasswordForm, { ChangePasswordValues } from './change-password-form'
 import { useSelector, useDispatch } from 'react-redux'
@@ -9,6 +9,7 @@ import { selectCurrentMemberIsLoading } from '@/selector/current-member'
 
 import { reapitConnectBrowserSession } from '@/core/connect-session'
 import ToggleCustomerDataForm from './toggle-customer-data-form'
+import { Loader } from '@reapit/elements/v3'
 
 export type CreateDispatchersReturn = {
   changePassword: (values: ChangePasswordValues) => void
@@ -30,7 +31,7 @@ export const Forms: React.FC = () => {
   const { changePassword, logout } = createDispatchers(dispatch)
 
   if (loading) {
-    return <Loader />
+    return <Loader label="Loading" fullPage />
   }
 
   return (

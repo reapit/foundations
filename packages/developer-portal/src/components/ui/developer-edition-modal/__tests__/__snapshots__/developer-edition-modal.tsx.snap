@@ -14,7 +14,7 @@ exports[`DeveloperEditionModal should match snapshot when not visible 1`] = `
   }
 >
   <DeveloperEditionModal
-    afterClose={[MockFunction]}
+    setSubscribingState={[MockFunction]}
     visible={false}
   >
     <Modal
@@ -40,7 +40,7 @@ exports[`DeveloperEditionModal should match snapshot when visible 1`] = `
   }
 >
   <DeveloperEditionModal
-    afterClose={[MockFunction]}
+    setSubscribingState={[MockFunction]}
     visible={true}
   >
     <Modal
