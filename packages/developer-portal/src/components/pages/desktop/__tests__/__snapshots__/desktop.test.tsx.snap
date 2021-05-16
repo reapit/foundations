@@ -199,12 +199,25 @@ exports[`DeveloperDesktopPage should match snapshot 1`] = `
                                     To learn more about what’s possible with the Desktop API, please visit the
                                      
                                     <a
-                                      href="/api-docs/api/desktop-api"
+                                      href="https://foundations-documentation.reapit.cloud/api/desktop-api"
                                       rel="noreferrer"
                                       target="_blank"
                                     >
                                       documentation.
                                     </a>
+                                  </p>
+                                </ElBodyText>
+                              </BodyText>
+                              <BodyText
+                                className="ehxtz07-el-mb4 hw5zku-has-grey-text"
+                              >
+                                <ElBodyText
+                                  className="ehxtz07-el-mb4 hw5zku-has-grey-text"
+                                >
+                                  <p
+                                    className="ehxtz07-el-mb4 hw5zku-has-grey-text e11h1vsn-el-body-text"
+                                  >
+                                    £300 per licence / per month.
                                   </p>
                                 </ElBodyText>
                               </BodyText>
