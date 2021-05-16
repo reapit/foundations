@@ -13,16 +13,18 @@ import {
   SubscribeInnerContainer,
   SubscribeHeadingContainer,
   SubscribeButtonContainer,
-  SubscribeImageContainer,
-  SubscribeImageBars,
-  SubscribeImageDevices,
-  SubscribeImageFooter,
-  subscribingExpandedContainer,
+  // SubscribeImageContainer,
+  // SubscribeImageBars,
+  // SubscribeImageDevices,
+  // SubscribeImageFooter,
+  subscribeContainerExpanded,
+  subscribeContainerContracted,
   PriceSection,
   BannerCol,
-  subscribingContractedContainer,
-  imgFooterContracted,
-  imgBarsContracted,
+  // subscribingContractedContainer,
+  // imgFooterContracted,
+  // imgBarsContracted,
+  // imgDevicesContracted,
 } from './__styles__/styles'
 import { Grid, Col } from '../../../styles/grid'
 import { cx } from 'linaria'
@@ -31,10 +33,9 @@ import phoneImage from '../../../assets/images/desktop/marketplace-agency-cloud.
 import customerImage from '../../../assets/images/desktop/customer-interact-app.svg'
 import videoImage from '../../../assets/images/desktop/video-placeholder.svg'
 import windowsImage from '../../../assets/images/desktop/windows-badge.svg'
-import devEditionImgOne from '../../../assets/images/desktop/developer-edition/developer-edition-01.svg'
-import devEditionImgTwo from '../../../assets/images/desktop/developer-edition/developer-edition-02.svg'
-import devEditionImgThree from '../../../assets/images/desktop/developer-edition/developer-edition-03.svg'
-import { imgDevicesContracted } from './__styles__/styles'
+// import devEditionImgOne from '../../../assets/images/desktop/developer-edition/developer-edition-01.svg'
+// import devEditionImgTwo from '../../../assets/images/desktop/developer-edition/developer-edition-02.svg'
+// import devEditionImgThree from '../../../assets/images/desktop/developer-edition/developer-edition-03.svg'
 
 export type SubscribingState = 'INITIAL' | 'SUBSCRIBE_NOW' | 'SUBSCRIBE' | 'CONFIRMING' | 'SAVING' | 'SUBSCRIBED'
 
@@ -111,6 +112,7 @@ export const VideoSection: FC = () => (
 
 export const SubscribeSection: FC = () => {
   const [subscribingState, setSubscribingState] = useState<SubscribingState>('INITIAL')
+  const isInitial = subscribingState === 'INITIAL'
   return (
     <FadeIn>
       <SubscribeContainer>
@@ -120,15 +122,19 @@ export const SubscribeSection: FC = () => {
         <Grid rowGap={0}>
           <Col span={12} spanTablet={6} spanMobile={12}>
             {subscribingState === 'INITIAL' && (
-              <ImageTextPair className={elMx4}>
-                <img src={windowsImage} />
-                <TextWrap className={hasGreyText}>
-                  The application is licensed per user / developer of an organisation and requires a Windows machine to
-                  install.
-                </TextWrap>
-              </ImageTextPair>
+              <FadeIn>
+                <ImageTextPair className={elMx4}>
+                  <img src={windowsImage} />
+                  <TextWrap className={hasGreyText}>
+                    The application is licensed per user / developer of an organisation and requires a Windows machine
+                    to install.
+                  </TextWrap>
+                </ImageTextPair>
+              </FadeIn>
             )}
-            <SubscribeInnerContainer className={cx(subscribingState !== 'INITIAL' && subscribingExpandedContainer)}>
+            <SubscribeInnerContainer
+              className={cx(!isInitial ? subscribeContainerExpanded : subscribeContainerContracted)}
+            >
               {subscribingState === 'INITIAL' ? (
                 <PriceSection>
                   <h3>£300</h3>
@@ -139,7 +145,7 @@ export const SubscribeSection: FC = () => {
                     chevronRight
                     fullWidth
                   >
-                    Subscribe
+                    Subscribe Now
                   </Button>
                 </PriceSection>
               ) : (
@@ -173,7 +179,7 @@ export const SubscribeSection: FC = () => {
               )}
             </SubscribeInnerContainer>
           </Col>
-          <Col span={12} spanTablet={6} spanMobile={12}>
+          {/* <Col span={12} spanTablet={6} spanMobile={12}>
             <SubscribeImageContainer className={cx(subscribingState !== 'INITIAL' && subscribingContractedContainer)}>
               <SubscribeImageBars
                 className={cx(subscribingState !== 'INITIAL' && imgBarsContracted)}
@@ -188,7 +194,7 @@ export const SubscribeSection: FC = () => {
                 src={devEditionImgThree}
               />
             </SubscribeImageContainer>
-          </Col>
+          </Col> */}
         </Grid>
       </SubscribeContainer>
       <DeveloperEditonModal visible={subscribingState === 'CONFIRMING'} setSubscribingState={setSubscribingState} />

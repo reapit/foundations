@@ -3,6 +3,7 @@ import { styled } from 'linaria/react'
 
 const SUBSCRIBE_IMAGE_BREAKPOINT = '1400px'
 const SUBSCRIBE_BUTTON_QUERY = '@media (min-width: 1024px) and (max-width: 1115px)'
+// const SUBSCRIBE_INNER_BP_LARGE = '1'
 
 export const ImageTextPair = styled.div`
   padding: 0.75rem;
@@ -54,31 +55,60 @@ export const SubscribeContainer = styled.div`
 `
 
 export const SubscribeInnerContainer = styled.div`
+  padding: 2rem 1.5rem;
   border-radius: 4px;
   background-color: var(--color-white);
-  padding: 2rem 2rem 1.5rem 2rem;
-  // Trnsitioning min and max height because animating auto height containers not a thing in CSS
-  max-height: 12rem;
-  min-height: 0rem;
-  transition: all 0.3s linear;
-  margin: 1rem 4rem;
+  margin: 0 auto 2rem auto;
+`
 
-  // extra breakpoint to deal with squished button
-  ${SUBSCRIBE_BUTTON_QUERY} {
-    padding: 2rem 1rem 1.5rem 1rem;
+export const subscribeContainerExpanded = css`
+  transition: height 0.3s linear, width 0.3s linear;
+  height: 28.5rem;
+  width: 19rem;
+
+  @media (min-width: 580px) {
+    height: 21rem;
+    width: 30rem;
+  }
+
+  @media (min-width: 769px) {
+    height: 28.5rem;
+    width: 19rem;
+  }
+
+  @media (min-width: 1025px) {
+    height: 29.5rem;
+    width: 17rem;
+    padding: 2rem 1rem;
+  }
+
+  @media (min-width: 1115px) {
+    height: 28.5rem;
+    width: 19rem;
+    padding: 2rem 1.5rem;
+  }
+
+  @media (min-width: 1400px) {
+    height: 23.5rem;
+    width: 25rem;
+  }
+
+  @media (min-width: 1700px) {
+    height: 21rem;
+    width: 30rem;
   }
 `
 
-export const subscribingExpandedContainer = css`
-  max-height: 35rem;
-  min-height: 18rem;
-  margin: 1rem;
+export const subscribeContainerContracted = css`
+  transition: height 0.3s linear, width 0.3s linear;
+  height: 12.25rem;
+  width: 15rem;
 `
 
 export const SubscribeHeadingContainer = styled.div`
   display: flex;
   justify-content: center;
-  margin: 0 1rem;
+  margin: 0 1rem 1rem 1rem;
 `
 
 export const SubscribeButtonContainer = styled.div`
@@ -105,15 +135,15 @@ export const SubscribeButtonContainer = styled.div`
 `
 
 export const SubscribeImageContainer = styled.div`
-  height: 340px;
+  height: 380px;
+  transition: height 0.3s linear;
   position: relative;
   overflow: hidden;
   border-radius: 4px;
 `
 
 export const subscribingContractedContainer = css`
-  height: 240px;
-  transition: all 0.3s linear;
+  height: 280px;
 `
 
 export const SubscribeImageBars = styled.img`
@@ -130,9 +160,9 @@ export const SubscribeImageBars = styled.img`
 `
 
 export const imgBarsContracted = css`
-  animation: bars-image 0.3s linear forwards;
+  animation: bars-image-contract 0.3s linear forwards;
 
-  @keyframes bars-image {
+  @keyframes bars-image-contract {
     from {
       bottom: 19%;
       transform: scale(1);
@@ -199,6 +229,7 @@ export const imgFooterContracted = css`
 export const PriceSection = styled.div`
   display: flex;
   flex-direction: column;
+  padding-top: 0.5rem;
 
   h3 {
     font-size: 3rem;
