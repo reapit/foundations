@@ -101,7 +101,6 @@ export const AboutSection: FC = () => (
         documentation.
       </a>
     </BodyText>
-    <BodyText className={cx(elMb4, hasGreyText)}>£300 per licence / per month.</BodyText>
   </FadeIn>
 )
 
@@ -163,7 +162,7 @@ export const SubscribeSection: FC = () => {
               {subscribingState === 'INITIAL' ? (
                 <PriceSection>
                   <h3>£300</h3>
-                  <div>month</div>
+                  <div>per licence / per month</div>
                   <Button
                     onClick={handleSetSubscribingState(setSubscribingState, 'SUBSCRIBE_NOW')}
                     intent="critical"

@@ -421,7 +421,6 @@ export const PriceSection = styled.div`
   div {
     border-top: 1px solid var(--color-grey-medium);
     display: flex;
-    max-width: 5rem;
     margin: 0rem auto 1rem auto;
     padding: 0 1rem;
     font-size: 0.875rem;
