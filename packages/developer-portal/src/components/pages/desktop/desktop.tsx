@@ -2,7 +2,6 @@ import React, { Dispatch, FC, SetStateAction, useState } from 'react'
 import ErrorBoundary from '@/components/hocs/error-boundary'
 import { FadeIn, Modal } from '@reapit/elements'
 import { Title, Subtitle, BodyText, elMb4, elMb6, SmallText, Button, elMx4 } from '@reapit/elements/v3'
-import Routes from '@/constants/routes'
 import DeveloperEditonModal from '@/components/ui/developer-edition-modal'
 import {
   hasGreyText,
@@ -98,10 +97,11 @@ export const AboutSection: FC = () => (
     </BodyText>
     <BodyText className={cx(elMb4, hasGreyText)}>
       To learn more about what’s possible with the Desktop API, please visit the{' '}
-      <a target="_blank" rel="noreferrer" href={`${Routes.API_DOCS}/api/desktop-api`}>
+      <a target="_blank" rel="noreferrer" href="https://foundations-documentation.reapit.cloud/api/desktop-api">
         documentation.
       </a>
     </BodyText>
+    <BodyText className={cx(elMb4, hasGreyText)}>£300 per licence / per month.</BodyText>
   </FadeIn>
 )
 
