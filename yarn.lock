@@ -15490,6 +15490,7 @@ __metadata:
     class-validator: ^0.13.1
     concurrently: ^6.1.0
     eslint: ^7.26.0
+    jsonwebtoken: ^8.5.1
     prettier: ^2.3.0
     serverless: ^2.41.2
     serverless-dynamodb-local: ^0.2.39

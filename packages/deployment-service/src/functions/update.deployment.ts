@@ -1,10 +1,10 @@
 import { httpHandler, NotFoundException, ValidationException } from '@homeservenow/serverless-aws-handler'
-import { DeploymentDto } from '../dto'
-import { DeploymentModel } from '../models'
-import * as service from './../services/deployment'
+import { DeploymentDto } from '@/dto'
+import { DeploymentModel } from '@/models'
+import * as service from '@/services/deployment'
 import { plainToClass } from 'class-transformer'
 import { validate } from 'class-validator'
-import { authorised } from './../utils'
+import { authorised, ownership } from '@/utils'
 
 /**
  * Update a given deployment
@@ -36,6 +36,8 @@ export const updateDeployment = httpHandler<DeploymentDto, DeploymentModel>({
     if (!deployment) {
       throw new NotFoundException()
     }
+
+    ownership(deployment, event.headers)
 
     return service.updateDeploymentModel(deployment, body)
   },

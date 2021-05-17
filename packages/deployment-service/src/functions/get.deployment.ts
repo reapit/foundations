@@ -1,7 +1,7 @@
 import { httpHandler, NotFoundException } from '@homeservenow/serverless-aws-handler'
 import { DeploymentModel } from '../models'
 import * as service from './../services/deployment'
-import { authorised } from './../utils'
+import { authorised, ownership } from './../utils'
 
 /**
  * Get a deployment by id
@@ -18,6 +18,8 @@ export const getDeployment = httpHandler({
     if (!deployment) {
       throw new NotFoundException()
     }
+
+    ownership(deployment, event.headers)
 
     return deployment
   },

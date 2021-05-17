@@ -1,6 +1,6 @@
 import { httpHandler, NotFoundException, HttpStatusCode } from '@homeservenow/serverless-aws-handler'
 import * as service from './../services/deployment'
-import { authorised } from './../utils'
+import { authorised, ownership } from './../utils'
 /**
  * Delete a deployment
  */
@@ -17,6 +17,8 @@ export const deleteDeployment = httpHandler({
     if (!deployment) {
       throw new NotFoundException()
     }
+
+    ownership(deployment, event.headers)
 
     await service.deleteDeploymentModel(deployment)
   },
