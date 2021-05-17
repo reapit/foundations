@@ -6,7 +6,7 @@
     "class-validator": "^0.13.1"
   },
   "scripts": {
-    "start": "yarn build && yarn serverless offline start --runtime nodejs12.x --stage local",
+    "start": "serverless dynamodb install && yarn build && yarn serverless offline start --runtime nodejs12.x --stage local",
     "test": "cross-env TZ=UTC jest --watch --colors --silent",
     "build": "echo '...skipping...'",
     "lint": "concurrently \"prettier src/**/*.ts --write \"  \"eslint --cache --ext=ts,tsx src --fix\"",
