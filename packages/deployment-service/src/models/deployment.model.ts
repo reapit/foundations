@@ -17,4 +17,7 @@ export class DeploymentModel {
 
   @attribute()
   modified?: string
+
+  @attribute()
+  developerId?: string
 }

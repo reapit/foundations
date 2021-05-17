@@ -29,6 +29,7 @@ export const getByKey = (apiKey: string): Promise<DeploymentModel | undefined> =
 
 export const batchGet = async (
   organisationId: string,
+  developerId: string,
   startKey?: { [s: string]: string },
 ): Promise<QueryPaginator<DeploymentModel>> => {
   return db
@@ -36,6 +37,7 @@ export const batchGet = async (
       DeploymentModel,
       {
         organisationId,
+        developerId,
       },
       {
         limit: 10,

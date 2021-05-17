@@ -3,7 +3,8 @@
   "dependencies": {
     "@homeservenow/serverless-aws-handler": "^0.2.4",
     "class-transformer": "^0.4.0",
-    "class-validator": "^0.13.1"
+    "class-validator": "^0.13.1",
+    "jsonwebtoken": "^8.5.1"
   },
   "scripts": {
     "start": "serverless dynamodb install && yarn build && yarn serverless offline start --runtime nodejs12.x --stage local",

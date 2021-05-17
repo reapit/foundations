@@ -18,10 +18,6 @@ export class DeploymentDto {
   @IsOptional()
   repo?: string
 
-  @IsString()
-  @IsNotEmpty()
-  organisationId?: string
-
   @IsEnum(AppTypeEnum)
   @IsNotEmpty()
   appType?: AppTypeEnum
