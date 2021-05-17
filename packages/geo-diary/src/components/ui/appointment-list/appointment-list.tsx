@@ -1,4 +1,4 @@
-import React, { Dispatch, SetStateAction } from 'react'
+import React from 'react'
 import { ExtendedAppointmentModel } from '@/types/global'
 import { AppointmentTile } from '../appointment-tile'
 import { FadeIn, Helper } from '@reapit/elements'
@@ -16,14 +16,6 @@ export interface AppointmentTypeQueryData {
 
 export interface AppointmentTypeQueryVariables {
   type: 'appointmentTypes'
-}
-
-export const handleContactDrawerClose = (setContactDrawerOpen: Dispatch<SetStateAction<boolean>>) => () => {
-  setContactDrawerOpen(() => false)
-}
-
-export const handleContactDrawerOpen = (setContactDrawerOpen: Dispatch<SetStateAction<boolean>>) => () => {
-  setContactDrawerOpen(() => true)
 }
 
 export const AppointmentList: React.FC<AppointmentListProps> = ({ appointments }: AppointmentListProps) => {

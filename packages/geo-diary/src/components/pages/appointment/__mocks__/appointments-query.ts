@@ -501,6 +501,9 @@ export const appointmentsQueryData = {
               postcode: 'MK18 2JW',
             },
             id: 'BCK140280',
+            selling: {
+              vendorId: 'TEST_VENDOR',
+            },
           },
           propertyConfirmed: false,
           propertyId: 'BCK140280',
