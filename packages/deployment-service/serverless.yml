@@ -110,7 +110,7 @@ package:
 
 functions:
   createDeployment:
-    handler: src/functions/index.createDeployment
+    handler: src/index.createDeployment
     events:
       - http:
           path: /
@@ -131,7 +131,7 @@ functions:
           authorizer:
             arn: arn:aws:cognito-idp:${self:provider.region}:${self:custom.env.AWS_ACCOUNT_ID}:userpool/${self:custom.env.COGNITO_USERPOOL_ID}
   updateDeployment:
-    handler: src/functions/index.updateDeployment
+    handler: src/index.updateDeployment
     events:
       - http:
           path: /{id}
@@ -152,7 +152,7 @@ functions:
           authorizer:
             arn: arn:aws:cognito-idp:${self:provider.region}:${self:custom.env.AWS_ACCOUNT_ID}:userpool/${self:custom.env.COGNITO_USERPOOL_ID}
   getDeployment:
-    handler: src/functions/index.getDeployment
+    handler: src/index.getDeployment
     events:
       - http:
           path: /{id}
@@ -173,7 +173,7 @@ functions:
           authorizer:
             arn: arn:aws:cognito-idp:${self:provider.region}:${self:custom.env.AWS_ACCOUNT_ID}:userpool/${self:custom.env.COGNITO_USERPOOL_ID}
   deleteDeployment:
-    handler: src/functions/index.deleteDeployment
+    handler: src/index.deleteDeployment
     events:
       - http:
           path: /{id}
@@ -194,7 +194,7 @@ functions:
           authorizer:
             arn: arn:aws:cognito-idp:${self:provider.region}:${self:custom.env.AWS_ACCOUNT_ID}:userpool/${self:custom.env.COGNITO_USERPOOL_ID}
   paginateDeployments:
-    handler: src/functions/index.paginateDeployments
+    handler: src/index.paginateDeployments
     events:
       - http:
           path: /
