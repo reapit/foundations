@@ -45,7 +45,7 @@ export const formFields: Record<FieldType, FormFieldInfo> = {
 
 export const sortAddRemoveGroups = (editingUser: UserModel, groupIds: string[]) => {
   const currentGroups = editingUser.groups ?? []
-  const removeIds = currentGroups.filter((group) => !groupIds.find((groupId) => groupId === group))
+  const removeIds = currentGroups.filter((group) => !groupIds.includes(group))
   const addIds = groupIds.filter((group) => !currentGroups.find((groupId) => groupId === group))
 
   return {
