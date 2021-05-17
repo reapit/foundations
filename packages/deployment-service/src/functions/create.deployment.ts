@@ -10,8 +10,8 @@ import { validate } from 'class-validator'
  */
 export const createDeployment = httpHandler<DeploymentDto, DeploymentModel>({
   serialise: {
-    input: (event: any): DeploymentDto => {
-      return plainToClass(DeploymentDto, event.body)
+    input: (event): DeploymentDto => {
+      return event.body ? plainToClass(DeploymentDto, JSON.parse(event.body)) : new DeploymentDto()
     },
   },
   validator: async (dto: DeploymentDto): Promise<DeploymentDto> => {
