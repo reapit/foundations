@@ -3,6 +3,7 @@ service: "deployment-service"
 plugins:
   - serverless-webpack
   - serverless-offline
+  - serverless-dynamodb-local
   - serverless-deployment-bucket
 
 custom:
@@ -16,6 +17,7 @@ custom:
       noFrozenLockFile: false
     excludeFiles: src/**/*.test.ts
     keepOutputDirectory: true
+  
 
 provider:
   name: aws
@@ -31,6 +33,19 @@ provider:
     NODE_ENV: 'production'
     COGNITO_USERPOOL_ID: ${self:custom.env.COGNITO_USERPOOL_ID}
     SENTRY_DSN: ${self:custom.env.SENTRY_DSN}
+    DYNAMO_DB_REGION: ${self:custom.env.DYNAMO_DB_REGION}
+    DYNAMO_DB_ENDPOINT: ${self:custom.env.DYNAMO_DB_ENDPOINT}
+    DYNAMO_DB_TABLE_NAME: ${self:custom.env.DYNAMO_DB_TABLE_NAME}
+  iamRoleStatements:
+    - Effect: Allow
+      Action:
+        - dynamodb:Query
+        - dynamodb:Scan
+        - dynamodb:GetItem
+        - dynamodb:PutItem
+        - dynamodb:UpdateItem
+        - dynamodb:DeleteItem
+      Resource: 'arn:aws:dynamodb:${self:provider.region}:*:table/${self:custom.env.DYNAMO_DB_TABLE_NAME}'
 
 resources:
   Resources:
@@ -52,6 +67,21 @@ resources:
         ResponseType: DEFAULT_5XX
         RestApiId:
           Ref: 'ApiGatewayRestApi'
+    deploymentTable:
+      Type: AWS::DynamoDB::Table
+      Properties:
+        TableName: ${self:custom.env.DYNAMO_DB_TABLE_NAME}
+        AttributeDefinitions:
+          - AttributeName: apiKey
+            AttributeType: S
+        KeySchema:
+          - AttributeName: apiKey
+            KeyType: HASH
+        ProvisionedThroughput:
+          ReadCapacityUnits: 1
+          WriteCapacityUnits: 1
+        PointInTimeRecoverySpecification:
+          PointInTimeRecoveryEnabled: true
 
 package:
   individually: true
