@@ -20,9 +20,9 @@ exports[`ComingSoonAppComponent should match a snapshot 1`] = `
           </ComingSoonImage>
         </ComingSoonImageWrap>
         <CategoryTitle>
-          <CloudIcon />
+          <SquareIcon />
            
-          Agency Cloud App
+          Portal Integration
         </CategoryTitle>
       </ComingSoonInner>
     </ComingSoonItem>

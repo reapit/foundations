@@ -36,7 +36,6 @@ import comingSoonLifeTimeLegal from '@/assets/images/coming-soon/lifetimelegal.j
 import comingSoonRealMedia from '@/assets/images/coming-soon/RealMediaGroup.jpg'
 import comingSoonRentProfile from '@/assets/images/coming-soon/Rentprofile.jpg'
 import comingSoonTheBunch from '@/assets/images/coming-soon/TheBunch.jpg'
-import comingSoonUSeeHomes from '@/assets/images/coming-soon/USeeHomes.jpg'
 import { ComingSoonApp } from '@/types/global'
 import {
   CategoryTitle,
@@ -97,7 +96,6 @@ const comingSoonImagesMap = {
   comingSoonRealMedia,
   comingSoonRentProfile,
   comingSoonTheBunch,
-  comingSoonUSeeHomes,
 }
 
 export const getComingAppLinkHref = (isDesktop: boolean, email?: string) => {
