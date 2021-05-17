@@ -1,3 +1,3 @@
 export enum TABLE_NAMES {
-  DEPLOYMENT = 'deployment',
+  DEPLOYMENT = 'Cloud_Deployments_Service',
 }
