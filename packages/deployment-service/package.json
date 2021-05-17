@@ -6,10 +6,13 @@
     "class-validator": "^0.13.1"
   },
   "scripts": {
+    "start": "yarn build && yarn serverless offline start --runtime nodejs12.x --stage local",
+    "test": "cross-env TZ=UTC jest --watch --colors --silent",
+    "build": "echo '...skipping...'",
     "lint": "concurrently \"prettier src/**/*.ts --write \"  \"eslint --cache --ext=ts,tsx src --fix\"",
     "release": "serverless deploy",
     "publish": "echo '...skipping...'",
-    "conf": "yarn config-manager --namespace cloud --entity graphql-server --name local --mode fetch"
+    "conf": "yarn config-manager --namespace cloud --entity deployment-service --name local --mode fetch"
   },
   "devDependencies": {
     "concurrently": "^6.1.0",

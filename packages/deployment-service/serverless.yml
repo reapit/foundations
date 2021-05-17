@@ -1,0 +1,177 @@
+service: "deployment-service"
+
+plugins:
+  - serverless-webpack
+  - serverless-offline
+  - serverless-deployment-bucket
+
+custom:
+  s3CloudFormBucket: cloud-deployment-cloudform-templates-${opt:stage, 'dev'}
+  env: ${file(./config.json)}
+  webpack:
+    webpackConfig: 'webpack.config.js'
+    includeModules: true
+    packager: 'yarn'
+    packagerOptions:
+      noFrozenLockFile: false
+    excludeFiles: src/**/*.test.ts
+    keepOutputDirectory: true
+
+provider:
+  name: aws
+  runtime: ${opt:runtime, 'nodejs14.x'}
+  stage: ${opt:stage, 'dev'}
+  endpointType: REGIONAL
+  region: eu-west-2
+  deploymentBucket:
+    name: ${self:custom.s3CloudFormBucket}
+    blockPublicAccess: false
+  
+  environment:
+    NODE_ENV: 'production'
+    COGNITO_USERPOOL_ID: ${self:custom.env.COGNITO_USERPOOL_ID}
+    SENTRY_DSN: ${self:custom.env.SENTRY_DSN}
+
+resources:
+  Resources:
+    GatewayResponseDefault4XX:
+      Type: 'AWS::ApiGateway::GatewayResponse'
+      Properties:
+        ResponseParameters:
+          gatewayresponse.header.Access-Control-Allow-Origin: "'*'"
+          gatewayresponse.header.Access-Control-Allow-Headers: "'Content-Type,X-Amz-Date,Authorization,X-Api-Key,X-Amz-Security-Token,X-Amz-User-Agent,reapit-customer,reapit-connect-token,api-version,if-match'"
+        ResponseType: DEFAULT_4XX
+        RestApiId:
+          Ref: 'ApiGatewayRestApi'
+    GatewayResponseDefault5XX:
+      Type: 'AWS::ApiGateway::GatewayResponse'
+      Properties:
+        ResponseParameters:
+          gatewayresponse.header.Access-Control-Allow-Origin: "'*'"
+          gatewayresponse.header.Access-Control-Allow-Headers: "'Content-Type,X-Amz-Date,Authorization,X-Api-Key,X-Amz-Security-Token,X-Amz-User-Agent,reapit-customer,reapit-connect-token,api-version,if-match'"
+        ResponseType: DEFAULT_5XX
+        RestApiId:
+          Ref: 'ApiGatewayRestApi'
+
+package:
+  individually: true
+  include:
+    - dist/**
+  exclude:
+    - package.json
+    - node_modules/**
+    - error.log
+    - info.log
+    - jest.config.js
+    - nodemon.json
+    - serverless.yml
+    - src/**
+    - tsconfig.json
+    - yml-helpers.js
+
+functions:
+  createDeployment:
+    handler: src/functions/index.createDeployment
+    events:
+      - http:
+          path: /
+          method: post
+          cors:
+            origin: '*'
+            headers:
+              - Content-Type
+              - X-Amz-Date
+              - Authorization
+              - X-Api-Key
+              - X-Amz-Security-Token
+              - X-Amz-User-Agent
+              - reapit-customer
+              - reapit-connect-token
+              - api-version
+              - if-match
+          authorizer:
+            arn: arn:aws:cognito-idp:${self:provider.region}:${self:custom.env.AWS_ACCOUNT_ID}:userpool/${self:custom.env.COGNITO_USERPOOL_ID}
+  updateDeployment:
+    handler: src/functions/index.updateDeployment
+    events:
+      - http:
+          path: /{id}
+          method: put
+          cors:
+            origin: '*'
+            headers:
+              - Content-Type
+              - X-Amz-Date
+              - Authorization
+              - X-Api-Key
+              - X-Amz-Security-Token
+              - X-Amz-User-Agent
+              - reapit-customer
+              - reapit-connect-token
+              - api-version
+              - if-match
+          authorizer:
+            arn: arn:aws:cognito-idp:${self:provider.region}:${self:custom.env.AWS_ACCOUNT_ID}:userpool/${self:custom.env.COGNITO_USERPOOL_ID}
+  getDeployment:
+    handler: src/functions/index.getDeployment
+    events:
+      - http:
+          path: /{id}
+          method: get
+          cors:
+            origin: '*'
+            headers:
+              - Content-Type
+              - X-Amz-Date
+              - Authorization
+              - X-Api-Key
+              - X-Amz-Security-Token
+              - X-Amz-User-Agent
+              - reapit-customer
+              - reapit-connect-token
+              - api-version
+              - if-match
+          authorizer:
+            arn: arn:aws:cognito-idp:${self:provider.region}:${self:custom.env.AWS_ACCOUNT_ID}:userpool/${self:custom.env.COGNITO_USERPOOL_ID}
+  deleteDeployment:
+    handler: src/functions/index.deleteDeployment
+    events:
+      - http:
+          path: /{id}
+          method: delete
+          cors:
+            origin: '*'
+            headers:
+              - Content-Type
+              - X-Amz-Date
+              - Authorization
+              - X-Api-Key
+              - X-Amz-Security-Token
+              - X-Amz-User-Agent
+              - reapit-customer
+              - reapit-connect-token
+              - api-version
+              - if-match
+          authorizer:
+            arn: arn:aws:cognito-idp:${self:provider.region}:${self:custom.env.AWS_ACCOUNT_ID}:userpool/${self:custom.env.COGNITO_USERPOOL_ID}
+  paginateDeployment:
+    handler: src/functions/index.paginateDeployment
+    events:
+      - http:
+          path: /
+          method: get
+          cors:
+            origin: '*'
+            headers:
+              - Content-Type
+              - X-Amz-Date
+              - Authorization
+              - X-Api-Key
+              - X-Amz-Security-Token
+              - X-Amz-User-Agent
+              - reapit-customer
+              - reapit-connect-token
+              - api-version
+              - if-match
+          authorizer:
+            arn: arn:aws:cognito-idp:${self:provider.region}:${self:custom.env.AWS_ACCOUNT_ID}:userpool/${self:custom.env.COGNITO_USERPOOL_ID}
