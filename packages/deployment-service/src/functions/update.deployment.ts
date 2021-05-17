@@ -15,7 +15,7 @@ export const updateDeployment = httpHandler<DeploymentDto, DeploymentModel>({
         throw new NotFoundException()
       }
 
-      return plainToClass(DeploymentDto, event.body)
+      return event.body ? plainToClass(DeploymentDto, JSON.parse(event.body)) : new DeploymentDto()
     },
   },
   validator: async (dto: DeploymentDto): Promise<DeploymentDto> => {

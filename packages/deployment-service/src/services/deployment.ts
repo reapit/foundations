@@ -1,6 +1,7 @@
 import { DeploymentDto } from '../dto'
 import { DeploymentModel } from '../models'
 import { db } from './../core'
+import { QueryPaginator } from '@aws/dynamodb-data-mapper'
 
 export const createDeploymentModel = (dto: DeploymentDto): Promise<DeploymentModel> => {
   return db.put({
@@ -29,6 +30,20 @@ export const getByKey = (apiKey: string): Promise<DeploymentModel | undefined> =
   })
 }
 
-export const batchGet = async (organisationId: string): Promise<DeploymentModel[]> => {
-  return db.batchGet() // TODO get by organisation
+export const batchGet = async (
+  organisationId: string,
+  startKey?: { [s: string]: string },
+): Promise<QueryPaginator<DeploymentModel>> => {
+  return db
+    .query(
+      DeploymentModel,
+      {
+        organisationId,
+      },
+      {
+        limit: 10,
+        startKey,
+      },
+    )
+    .pages()
 }
