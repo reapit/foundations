@@ -62,7 +62,7 @@
     "react-google-map": "^3.1.1",
     "react-google-maps-loader": "4.3.0",
     "react-icons": "^3.11.0",
-    "react-image-crop": "8.6.7",
+    "react-image-crop": "8.6.8",
     "react-table": "^7.6.3",
     "react-transition-group": "^4.4.1",
     "snyk": "^1.463.0"
