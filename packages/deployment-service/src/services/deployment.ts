@@ -4,20 +4,17 @@ import { db } from './../core'
 import { QueryPaginator } from '@aws/dynamodb-data-mapper'
 
 export const createDeploymentModel = (dto: DeploymentDto): Promise<DeploymentModel> => {
-  return db.put({
-    ...dto,
-    create: new Date().toISOString(),
-    apiKey: '', // TODO solve api key, think every propert on model with key value (or is that GSI I'm thinking of?)
-  })
+  return db.put(Object.assign(new DeploymentModel(), dto))
 }
 
 export const updateDeploymentModel = (model: DeploymentModel, dto: DeploymentDto): Promise<DeploymentModel> => {
-  return db.put({
-    ...model,
-    ...dto,
-    modified: new Date().toISOString(),
-    apiKey: '', // TODO solve api key
-  })
+  return db.put(
+    Object.assign(new DeploymentModel(), {
+      ...model,
+      ...dto,
+      modified: new Date().toISOString(),
+    }),
+  )
 }
 
 export const deleteDeploymentModel = async (model: DeploymentModel): Promise<void> => {
