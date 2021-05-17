@@ -1,26 +1,10 @@
-import { addMemberToGroup, removeMemberFromGroup, updateUser } from '../user'
+import { addMemberToGroup, removeMemberFromGroup } from '../user'
 import { fetcher } from '@reapit/elements'
 
 jest.mock('@reapit/elements')
 jest.mock('../../core/connect-session')
 const mockResponse = 'success'
 const mockedFetch = fetcher as jest.Mock
-
-describe('updateUser', () => {
-  const mockGroup = { name: 'Group Name', groupIds: ['OF1', 'OF2'] }
-  const mockOrgId = 'orgId-001'
-  it('should return a response from the users service', async () => {
-    mockedFetch.mockReturnValueOnce(mockResponse)
-    expect(await updateUser(mockGroup, mockOrgId)).toEqual(mockResponse)
-  })
-
-  it('should catch an error if no response from users service', async () => {
-    const errorSpy = jest.spyOn(console, 'error')
-    mockedFetch.mockReturnValueOnce(undefined as any)
-    await updateUser(mockGroup, mockOrgId)
-    expect(errorSpy).toHaveBeenLastCalledWith('Failed to update user')
-  })
-})
 
 describe('addMemberToGroup', () => {
   const mocUserGroup = { id: 'SOME_ID', userId: 'SOME_USER_ID' }

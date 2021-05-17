@@ -8,7 +8,6 @@ import {
   ModalV2,
   Formik,
   Form,
-  Input,
   DropdownSelect,
   Loader,
   notification,
@@ -16,7 +15,7 @@ import {
 } from '@reapit/elements'
 import { UserModel, GroupModelPagedResult } from '../../../types/organisations-schema'
 import { URLS } from '../../../constants/api'
-import { updateUser } from '../../../services/user'
+import { addMemberToGroup, removeMemberFromGroup } from '../../../services/user'
 import { toastMessages } from '../../../constants/toast-messages'
 import { prepareUserGroupOptions } from '../../../utils/prepare-options'
 
@@ -28,7 +27,6 @@ export interface UpdateUserModalProps {
 }
 
 interface UpdateUserModel {
-  name: string
   groupIds: string[]
 }
 
@@ -45,13 +43,35 @@ export const formFields: Record<FieldType, FormFieldInfo> = {
   },
 }
 
+export const sortAddRemoveGroups = (editingUser: UserModel, groupIds: string[]) => {
+  const currentGroups = editingUser.groups ?? []
+  const removeIds = currentGroups.filter((group) => !groupIds.find((groupId) => groupId === group))
+  const addIds = groupIds.filter((group) => !currentGroups.find((groupId) => groupId === group))
+
+  return {
+    removeIds,
+    addIds,
+  }
+}
+
 export const onHandleSubmit = (handleOnClose: () => void, onRefetchData: () => void, editingUser?: UserModel) => async (
   params: UpdateUserModel,
 ) => {
-  const { name, groupIds } = params
-  const updateUserRes = await updateUser({ name, groupIds }, editingUser?.id || '')
+  const { groupIds } = params
+  const userId = editingUser?.id
+  if (!groupIds || !editingUser || !userId) return null
 
-  if (updateUserRes) {
+  const { removeIds, addIds } = sortAddRemoveGroups(editingUser, groupIds)
+  const totalUpdates = removeIds.length + addIds.length
+
+  const updateUserRes = await Promise.all([
+    ...removeIds.map((id) => removeMemberFromGroup({ id, userId })),
+    ...addIds.map((id) => addMemberToGroup({ id, userId })),
+  ])
+
+  const positiveResponses = updateUserRes.filter((res) => Boolean(res))
+
+  if (positiveResponses && positiveResponses.length === totalUpdates) {
     notification.success({
       message: toastMessages.CHANGES_SAVE_SUCCESS,
     })
@@ -60,7 +80,7 @@ export const onHandleSubmit = (handleOnClose: () => void, onRefetchData: () => v
   }
 
   return notification.error({
-    message: updateUserRes.description || toastMessages.FAILED_TO_EDIT_USER,
+    message: toastMessages.FAILED_TO_EDIT_USER,
   })
 }
 
@@ -71,7 +91,7 @@ export const UpdateUserModal: React.FC<UpdateUserModalProps> = ({
   orgId,
 }) => {
   const handleOnClose = () => setEditingUser(undefined)
-  const { name, groupIds } = formFields
+  const { groupIds } = formFields
 
   const groupIdQuery = qs.stringify({ id: window.reapit.config.groupIdsWhitelist }, { indices: false })
   const { data } = useSWR<GroupModelPagedResult | undefined>(
@@ -99,7 +119,6 @@ export const UpdateUserModal: React.FC<UpdateUserModalProps> = ({
       </p>
       <Formik
         initialValues={{
-          name: editingUser.name || '',
           groupIds: editingUser.groups || [],
         }}
         onSubmit={onSubmit}
@@ -108,7 +127,6 @@ export const UpdateUserModal: React.FC<UpdateUserModalProps> = ({
           return (
             <Form noValidate={true}>
               <Section hasPadding={false} hasMargin={false}>
-                <Input type="text" labelText={name.label} id={name.name} name={name.name} />
                 <DropdownSelect
                   mode="multiple"
                   id={groupIds.name}
