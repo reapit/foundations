@@ -1,5 +1,5 @@
-import { DeploymentDto } from "../dto"
-import { DeploymentModel } from "../models"
+import { DeploymentDto } from '../dto'
+import { DeploymentModel } from '../models'
 import { db } from './../core'
 
 export const createDeploymentModel = (dto: DeploymentDto): Promise<DeploymentModel> => {
@@ -23,8 +23,10 @@ export const deleteDeploymentModel = async (model: DeploymentModel): Promise<voi
   await db.delete(model)
 }
 
-export const getByKey = (key: string): Promise<DeploymentModel | undefined> => {
-  return db.get(key)
+export const getByKey = (apiKey: string): Promise<DeploymentModel | undefined> => {
+  return db.get({
+    apiKey,
+  })
 }
 
 export const batchGet = async (organisationId: string): Promise<DeploymentModel[]> => {
