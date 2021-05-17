@@ -4,6 +4,7 @@ import { DeploymentModel } from '../models'
 import * as service from './../services/deployment'
 import { plainToClass } from 'class-transformer'
 import { validate } from 'class-validator'
+import { authorised } from './../utils'
 
 /**
  * Update a given deployment
@@ -11,6 +12,8 @@ import { validate } from 'class-validator'
 export const updateDeployment = httpHandler<DeploymentDto, DeploymentModel>({
   serialise: {
     input: (event): DeploymentDto => {
+      authorised(event)
+
       if (!event.pathParameters?.id) {
         throw new NotFoundException()
       }

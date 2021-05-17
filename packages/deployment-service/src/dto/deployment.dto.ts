@@ -1,5 +1,14 @@
-import { IsString, IsNotEmpty, IsOptional } from 'class-validator'
+import { IsString, IsNotEmpty, IsOptional, IsEnum } from 'class-validator'
 
+export enum AppTypeEnum {
+  REACT = 'react',
+  NODE = 'node',
+}
+
+export enum PackageManagerEnum {
+  YARN = 'yarn',
+  NPM = 'npm',
+}
 export class DeploymentDto {
   @IsString()
   @IsNotEmpty()
@@ -8,4 +17,18 @@ export class DeploymentDto {
   @IsString()
   @IsOptional()
   repo?: string
+
+  @IsString()
+  @IsNotEmpty()
+  organisationId?: string
+
+  @IsEnum(AppTypeEnum)
+  @IsNotEmpty()
+  appType?: AppTypeEnum
+
+  @IsString()
+  buildCommand?: string = 'build'
+
+  @IsEnum(PackageManagerEnum)
+  packageManager: PackageManagerEnum = PackageManagerEnum.YARN
 }

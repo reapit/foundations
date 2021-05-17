@@ -4,6 +4,7 @@ import { DeploymentModel } from '../models'
 import * as service from './../services/deployment'
 import { plainToClass, classToClassFromExist } from 'class-transformer'
 import { validate } from 'class-validator'
+import { authorised } from './../utils'
 
 /**
  * Create a deployment
@@ -11,6 +12,7 @@ import { validate } from 'class-validator'
 export const createDeployment = httpHandler<DeploymentDto, DeploymentModel>({
   serialise: {
     input: (event): DeploymentDto => {
+      authorised(event)
       return event.body ? plainToClass(DeploymentDto, JSON.parse(event.body)) : new DeploymentDto()
     },
   },
@@ -23,7 +25,12 @@ export const createDeployment = httpHandler<DeploymentDto, DeploymentModel>({
 
     return dto
   },
-  handler: async ({ body }): Promise<DeploymentModel> => {
-    return service.createDeploymentModel(classToClassFromExist<DeploymentModel>(new DeploymentModel(), body))
+  handler: async ({ body, event }): Promise<DeploymentModel> => {
+    const model = classToClassFromExist<DeploymentModel>(new DeploymentModel(), body)
+
+    console.log(event.headers)
+
+    model.organisationId = ''
+    return service.createDeploymentModel(model)
   },
 })
