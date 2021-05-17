@@ -1,4 +1,4 @@
-import { IsString, IsNotEmpty } from 'class-validator'
+import { IsString, IsNotEmpty, IsOptional } from 'class-validator'
 
 export class DeploymentDto {
   @IsString()
@@ -6,5 +6,6 @@ export class DeploymentDto {
   name?: string
 
   @IsString()
+  @IsOptional()
   repo?: string
 }
