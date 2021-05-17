@@ -28,8 +28,6 @@ export const createDeployment = httpHandler<DeploymentDto, DeploymentModel>({
   handler: async ({ body, event }): Promise<DeploymentModel> => {
     const model = classToClassFromExist<DeploymentModel>(new DeploymentModel(), body)
 
-    console.log(event.headers)
-
     model.organisationId = ''
     return service.createDeploymentModel(model)
   },
