@@ -14,10 +14,9 @@ export const paginateDeployments = httpHandler({
     },
   },
   handler: async ({ event }): Promise<QueryPaginator<DeploymentModel>> => {
-
     const customer = decodeToken(event.headers['reapit-connect-token'] as string)
-  const organisationId = customer['custom:reapit:orgId']
-  const developerId = customer['custom:reapit:developerId']
+    const organisationId = customer['custom:reapit:orgId']
+    const developerId = customer['custom:reapit:developerId']
 
     return service.batchGet(organisationId, developerId)
   },
