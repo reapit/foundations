@@ -15492,6 +15492,7 @@ __metadata:
     eslint: ^7.26.0
     prettier: ^2.3.0
     serverless: ^2.41.2
+    serverless-dynamodb-local: ^0.2.39
   languageName: unknown
   linkType: soft
 
