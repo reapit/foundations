@@ -2,7 +2,6 @@ import React, { Dispatch, FC, SetStateAction } from 'react'
 import { ExtendedAppointmentModel } from '../../../types/global'
 import { ListItemModel } from '@reapit/foundations-ts-definitions'
 import { AppState } from '../../../core/app-state'
-// import ContactDrawer from '../contact-drawer'
 import { AttendeeItem } from './attendees-item'
 import { PropertyItem } from './property-item'
 import { ContactDrawerType } from '../contact-drawer'
@@ -20,10 +19,6 @@ export type AppointmentTileProps = {
 export type RenderModalTitleParams = {
   appointmentType?: ListItemModel
   heading: string
-}
-
-export const handleContactDrawerClose = (setContactDrawerOpen: Dispatch<SetStateAction<boolean>>) => () => {
-  setContactDrawerOpen(() => false)
 }
 
 export const handleOpenContactDrawer = (

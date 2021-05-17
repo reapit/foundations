@@ -1,21 +1,17 @@
 import React from 'react'
 import { MockedProvider } from '@apollo/react-testing'
 import { shallow } from 'enzyme'
-import { Appointment, sortAppoinmentsByStartTime } from '../appointment'
+import { Appointment, getVendorIds, handleGetVendors, sortAppoinmentsByStartTime } from '../appointment'
 import GET_APPOINTMENTS from '../../../../graphql/queries/get-appointments.graphql'
+import GET_VENDORS from '../../../../graphql/queries/get-vendors.graphql'
 import { appointment } from '@/graphql/__mocks__/appointment'
 import { appointmentsQueryData } from '../__mocks__/appointments-query'
-
-const locationMock = { search: '?state=CLIENT', pathname: '/test' }
-
-jest.mock('react-router-dom', () => ({
-  ...(jest.requireActual('react-router-dom') as Object),
-  useLocation: jest.fn(() => locationMock),
-}))
+import { mockVendorsQuery } from '../__mocks__/vendors-query'
+import { ExtendedAppointmentModel } from '../../../../types/global'
 
 describe('appointment', () => {
   describe('Apppointment', () => {
-    it('should match snapshot', () => {
+    it('should match snapshot with an empty query', () => {
       const wrapper = shallow(
         <MockedProvider mocks={[]} addTypename={false}>
           <Appointment />
@@ -24,7 +20,7 @@ describe('appointment', () => {
       expect(wrapper).toMatchSnapshot()
     })
 
-    it('should match snapshot', () => {
+    it('should match snapshot with data', () => {
       const mocks = [
         {
           request: {
@@ -38,6 +34,15 @@ describe('appointment', () => {
             },
           },
           result: appointmentsQueryData,
+        },
+        {
+          request: {
+            query: GET_VENDORS,
+            variables: {
+              id: ['SOME_ID'],
+            },
+          },
+          result: mockVendorsQuery,
         },
       ]
       const wrapper = shallow(
@@ -57,6 +62,31 @@ describe('appointment', () => {
       const result = fn()
       const startDatesOfResultSortAppoinmentsByStartTime = result.map((appoinment) => appoinment.start)
       expect(startDatesOfResultSortAppoinmentsByStartTime).toEqual(outputStartDates)
+    })
+  })
+
+  describe('getVendorIds', () => {
+    it('should correctly return vendor ids', () => {
+      const appoinments = appointmentsQueryData.data.GetAppointments._embedded as ExtendedAppointmentModel[]
+      const curried = getVendorIds(appoinments)
+      const result = curried()
+
+      expect(result.length).toBe(1)
+      expect(result[0]).toEqual('TEST_VENDOR')
+    })
+  })
+
+  describe('handleGetVendors', () => {
+    it('should correctly set state', () => {
+      const mockSetState = jest.fn()
+      const curried = handleGetVendors(mockVendorsQuery?.data, mockSetState)
+      curried()
+
+      const newState = mockSetState.mock.calls[0][0]()
+
+      expect(newState).toEqual({
+        vendors: mockVendorsQuery.data.GetVendors._embedded,
+      })
     })
   })
 })

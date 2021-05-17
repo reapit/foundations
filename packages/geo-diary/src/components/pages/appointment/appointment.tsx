@@ -1,4 +1,4 @@
-import React, { FC, memo, useEffect, useMemo } from 'react'
+import React, { Dispatch, FC, memo, SetStateAction, useEffect, useMemo } from 'react'
 import { useQuery } from '@apollo/react-hooks'
 import dayjs from 'dayjs'
 import { FadeIn } from '@reapit/elements'
@@ -7,7 +7,7 @@ import GET_APPOINTMENTS from '../../../graphql/queries/get-appointments.graphql'
 import GET_VENDORS from '../../../graphql/queries/get-vendors.graphql'
 import { reapitConnectBrowserSession } from '@/core/connect-session'
 import { useReapitConnect } from '@reapit/connect-session'
-import { useAppState } from '../../../core/app-state'
+import { AppState, useAppState } from '../../../core/app-state'
 import { DATE_TIME_FORMAT } from '../../../../../elements/src/utils/datetime/datetime'
 import { AppointmentTime } from '../../ui/appointment-time/appointment-time'
 import { TravelMode } from '../../ui/travel-mode/travel-mode'
@@ -115,6 +115,18 @@ export const getVendorIds = (appointments: ExtendedAppointmentModel[]) => (): st
     .map((appointment) => appointment?.property?.selling?.vendorId)
     .filter((vendorId) => !!vendorId) as string[]
 
+export const handleGetVendors = (
+  vendors: VendorsQueryData | undefined,
+  setAppState: Dispatch<SetStateAction<AppState>>,
+) => () => {
+  if (vendors?.GetVendors._embedded.length) {
+    setAppState((currentState) => ({
+      ...currentState,
+      vendors: vendors.GetVendors._embedded,
+    }))
+  }
+}
+
 export const Appointment: FC<AppointmentProps> = () => {
   const { connectSession } = useReapitConnect(reapitConnectBrowserSession)
   const { appState, setAppState } = useAppState()
@@ -144,14 +156,7 @@ export const Appointment: FC<AppointmentProps> = () => {
     skip: !vendorIds.length,
   })
 
-  useEffect(() => {
-    if (vendors?.GetVendors._embedded.length) {
-      setAppState((currentState) => ({
-        ...currentState,
-        vendors: vendors.GetVendors._embedded,
-      }))
-    }
-  }, [vendors])
+  useEffect(handleGetVendors(vendors, setAppState), [vendors])
 
   const appointmentSorted = useMemo(sortAppoinmentsByStartTime(data?.GetAppointments?._embedded || []), [
     data?.GetAppointments?._embedded,

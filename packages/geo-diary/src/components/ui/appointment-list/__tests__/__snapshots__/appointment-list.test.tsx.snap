@@ -1,6 +1,6 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`appointment-list AppointmentList should match snapshot 1`] = `
+exports[`AppointmentList should match snapshot with appointments 1`] = `
 <Fragment>
   <FadeIn
     key="NEP1600290"
@@ -190,4 +190,14 @@ exports[`appointment-list AppointmentList should match snapshot 1`] = `
     />
   </FadeIn>
 </Fragment>
+`;
+
+exports[`AppointmentList should match snapshot with no appointments 1`] = `
+<FadeIn>
+  <Helper
+    variant="info"
+  >
+    No appointments
+  </Helper>
+</FadeIn>
 `;

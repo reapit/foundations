@@ -1,6 +1,6 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`appointment Apppointment should match snapshot 1`] = `
+exports[`appointment Apppointment should match snapshot with an empty query 1`] = `
 <ApolloProvider
   client={
     ApolloClient {
@@ -223,7 +223,7 @@ exports[`appointment Apppointment should match snapshot 1`] = `
 </ApolloProvider>
 `;
 
-exports[`appointment Apppointment should match snapshot 2`] = `
+exports[`appointment Apppointment should match snapshot with data 1`] = `
 <ApolloProvider
   client={
     ApolloClient {
@@ -3662,6 +3662,9 @@ query GET_APPOINTMENTS($negotiatorId: [String!], $start: String!, $end: String!,
                             "postcode": "MK18 2JW",
                           },
                           "id": "BCK140280",
+                          "selling": Object {
+                            "vendorId": "TEST_VENDOR",
+                          },
                         },
                         "propertyConfirmed": false,
                         "propertyId": "BCK140280",
@@ -4136,6 +4139,492 @@ query GET_APPOINTMENTS($negotiatorId: [String!], $start: String!, $end: String!,
                     "pageNumber": 1,
                     "pageSize": 25,
                     "totalCount": 8,
+                  },
+                },
+              },
+            },
+          ],
+          "{\\"query\\":\\"query GET_VENDORS($id: [String!]) {\\\\n  GetVendors(id: $id) {\\\\n    _embedded {\\\\n      id\\\\n      related {\\\\n        ...VendorRelated\\\\n      }\\\\n    }\\\\n  }\\\\n}\\\\n\\\\nfragment VendorRelated on VendorRelate {\\\\n  id\\\\n  name\\\\n  type\\\\n  homePhone\\\\n  workPhone\\\\n  mobilePhone\\\\n  email\\\\n}\\\\n\\"}": Array [
+            Object {
+              "request": Object {
+                "query": Object {
+                  "GET_VENDORS": Object {
+                    "definitions": Array [
+                      Object {
+                        "directives": Array [],
+                        "kind": "OperationDefinition",
+                        "name": Object {
+                          "kind": "Name",
+                          "value": "GET_VENDORS",
+                        },
+                        "operation": "query",
+                        "selectionSet": Object {
+                          "kind": "SelectionSet",
+                          "selections": Array [
+                            Object {
+                              "arguments": Array [
+                                Object {
+                                  "kind": "Argument",
+                                  "name": Object {
+                                    "kind": "Name",
+                                    "value": "id",
+                                  },
+                                  "value": Object {
+                                    "kind": "Variable",
+                                    "name": Object {
+                                      "kind": "Name",
+                                      "value": "id",
+                                    },
+                                  },
+                                },
+                              ],
+                              "directives": Array [],
+                              "kind": "Field",
+                              "name": Object {
+                                "kind": "Name",
+                                "value": "GetVendors",
+                              },
+                              "selectionSet": Object {
+                                "kind": "SelectionSet",
+                                "selections": Array [
+                                  Object {
+                                    "arguments": Array [],
+                                    "directives": Array [],
+                                    "kind": "Field",
+                                    "name": Object {
+                                      "kind": "Name",
+                                      "value": "_embedded",
+                                    },
+                                    "selectionSet": Object {
+                                      "kind": "SelectionSet",
+                                      "selections": Array [
+                                        Object {
+                                          "arguments": Array [],
+                                          "directives": Array [],
+                                          "kind": "Field",
+                                          "name": Object {
+                                            "kind": "Name",
+                                            "value": "id",
+                                          },
+                                        },
+                                        Object {
+                                          "arguments": Array [],
+                                          "directives": Array [],
+                                          "kind": "Field",
+                                          "name": Object {
+                                            "kind": "Name",
+                                            "value": "related",
+                                          },
+                                          "selectionSet": Object {
+                                            "kind": "SelectionSet",
+                                            "selections": Array [
+                                              Object {
+                                                "directives": Array [],
+                                                "kind": "FragmentSpread",
+                                                "name": Object {
+                                                  "kind": "Name",
+                                                  "value": "VendorRelated",
+                                                },
+                                              },
+                                            ],
+                                          },
+                                        },
+                                      ],
+                                    },
+                                  },
+                                ],
+                              },
+                            },
+                          ],
+                        },
+                        "variableDefinitions": Array [
+                          Object {
+                            "directives": Array [],
+                            "kind": "VariableDefinition",
+                            "type": Object {
+                              "kind": "ListType",
+                              "type": Object {
+                                "kind": "NonNullType",
+                                "type": Object {
+                                  "kind": "NamedType",
+                                  "name": Object {
+                                    "kind": "Name",
+                                    "value": "String",
+                                  },
+                                },
+                              },
+                            },
+                            "variable": Object {
+                              "kind": "Variable",
+                              "name": Object {
+                                "kind": "Name",
+                                "value": "id",
+                              },
+                            },
+                          },
+                        ],
+                      },
+                      Object {
+                        "directives": Array [],
+                        "kind": "FragmentDefinition",
+                        "name": Object {
+                          "kind": "Name",
+                          "value": "VendorRelated",
+                        },
+                        "selectionSet": Object {
+                          "kind": "SelectionSet",
+                          "selections": Array [
+                            Object {
+                              "arguments": Array [],
+                              "directives": Array [],
+                              "kind": "Field",
+                              "name": Object {
+                                "kind": "Name",
+                                "value": "id",
+                              },
+                            },
+                            Object {
+                              "arguments": Array [],
+                              "directives": Array [],
+                              "kind": "Field",
+                              "name": Object {
+                                "kind": "Name",
+                                "value": "name",
+                              },
+                            },
+                            Object {
+                              "arguments": Array [],
+                              "directives": Array [],
+                              "kind": "Field",
+                              "name": Object {
+                                "kind": "Name",
+                                "value": "type",
+                              },
+                            },
+                            Object {
+                              "arguments": Array [],
+                              "directives": Array [],
+                              "kind": "Field",
+                              "name": Object {
+                                "kind": "Name",
+                                "value": "homePhone",
+                              },
+                            },
+                            Object {
+                              "arguments": Array [],
+                              "directives": Array [],
+                              "kind": "Field",
+                              "name": Object {
+                                "kind": "Name",
+                                "value": "workPhone",
+                              },
+                            },
+                            Object {
+                              "arguments": Array [],
+                              "directives": Array [],
+                              "kind": "Field",
+                              "name": Object {
+                                "kind": "Name",
+                                "value": "mobilePhone",
+                              },
+                            },
+                            Object {
+                              "arguments": Array [],
+                              "directives": Array [],
+                              "kind": "Field",
+                              "name": Object {
+                                "kind": "Name",
+                                "value": "email",
+                              },
+                            },
+                          ],
+                        },
+                        "typeCondition": Object {
+                          "kind": "NamedType",
+                          "name": Object {
+                            "kind": "Name",
+                            "value": "VendorRelate",
+                          },
+                        },
+                      },
+                    ],
+                    "kind": "Document",
+                    "loc": Object {
+                      "end": 198,
+                      "source": Object {
+                        "body": "#import \\"../fragments/vendor-related-model.graphql\\"
+
+query GET_VENDORS($id: [String!]) {
+  GetVendors(id: $id ) {
+    _embedded {
+      id
+      related {
+      ...VendorRelated
+      }
+    }
+  }
+}
+",
+                        "locationOffset": Object {
+                          "column": 1,
+                          "line": 1,
+                        },
+                        "name": "GraphQL request",
+                      },
+                      "start": 0,
+                    },
+                  },
+                  "definitions": Array [
+                    Object {
+                      "directives": Array [],
+                      "kind": "OperationDefinition",
+                      "name": Object {
+                        "kind": "Name",
+                        "value": "GET_VENDORS",
+                      },
+                      "operation": "query",
+                      "selectionSet": Object {
+                        "kind": "SelectionSet",
+                        "selections": Array [
+                          Object {
+                            "arguments": Array [
+                              Object {
+                                "kind": "Argument",
+                                "name": Object {
+                                  "kind": "Name",
+                                  "value": "id",
+                                },
+                                "value": Object {
+                                  "kind": "Variable",
+                                  "name": Object {
+                                    "kind": "Name",
+                                    "value": "id",
+                                  },
+                                },
+                              },
+                            ],
+                            "directives": Array [],
+                            "kind": "Field",
+                            "name": Object {
+                              "kind": "Name",
+                              "value": "GetVendors",
+                            },
+                            "selectionSet": Object {
+                              "kind": "SelectionSet",
+                              "selections": Array [
+                                Object {
+                                  "arguments": Array [],
+                                  "directives": Array [],
+                                  "kind": "Field",
+                                  "name": Object {
+                                    "kind": "Name",
+                                    "value": "_embedded",
+                                  },
+                                  "selectionSet": Object {
+                                    "kind": "SelectionSet",
+                                    "selections": Array [
+                                      Object {
+                                        "arguments": Array [],
+                                        "directives": Array [],
+                                        "kind": "Field",
+                                        "name": Object {
+                                          "kind": "Name",
+                                          "value": "id",
+                                        },
+                                      },
+                                      Object {
+                                        "arguments": Array [],
+                                        "directives": Array [],
+                                        "kind": "Field",
+                                        "name": Object {
+                                          "kind": "Name",
+                                          "value": "related",
+                                        },
+                                        "selectionSet": Object {
+                                          "kind": "SelectionSet",
+                                          "selections": Array [
+                                            Object {
+                                              "directives": Array [],
+                                              "kind": "FragmentSpread",
+                                              "name": Object {
+                                                "kind": "Name",
+                                                "value": "VendorRelated",
+                                              },
+                                            },
+                                          ],
+                                        },
+                                      },
+                                    ],
+                                  },
+                                },
+                              ],
+                            },
+                          },
+                        ],
+                      },
+                      "variableDefinitions": Array [
+                        Object {
+                          "directives": Array [],
+                          "kind": "VariableDefinition",
+                          "type": Object {
+                            "kind": "ListType",
+                            "type": Object {
+                              "kind": "NonNullType",
+                              "type": Object {
+                                "kind": "NamedType",
+                                "name": Object {
+                                  "kind": "Name",
+                                  "value": "String",
+                                },
+                              },
+                            },
+                          },
+                          "variable": Object {
+                            "kind": "Variable",
+                            "name": Object {
+                              "kind": "Name",
+                              "value": "id",
+                            },
+                          },
+                        },
+                      ],
+                    },
+                    Object {
+                      "directives": Array [],
+                      "kind": "FragmentDefinition",
+                      "name": Object {
+                        "kind": "Name",
+                        "value": "VendorRelated",
+                      },
+                      "selectionSet": Object {
+                        "kind": "SelectionSet",
+                        "selections": Array [
+                          Object {
+                            "arguments": Array [],
+                            "directives": Array [],
+                            "kind": "Field",
+                            "name": Object {
+                              "kind": "Name",
+                              "value": "id",
+                            },
+                          },
+                          Object {
+                            "arguments": Array [],
+                            "directives": Array [],
+                            "kind": "Field",
+                            "name": Object {
+                              "kind": "Name",
+                              "value": "name",
+                            },
+                          },
+                          Object {
+                            "arguments": Array [],
+                            "directives": Array [],
+                            "kind": "Field",
+                            "name": Object {
+                              "kind": "Name",
+                              "value": "type",
+                            },
+                          },
+                          Object {
+                            "arguments": Array [],
+                            "directives": Array [],
+                            "kind": "Field",
+                            "name": Object {
+                              "kind": "Name",
+                              "value": "homePhone",
+                            },
+                          },
+                          Object {
+                            "arguments": Array [],
+                            "directives": Array [],
+                            "kind": "Field",
+                            "name": Object {
+                              "kind": "Name",
+                              "value": "workPhone",
+                            },
+                          },
+                          Object {
+                            "arguments": Array [],
+                            "directives": Array [],
+                            "kind": "Field",
+                            "name": Object {
+                              "kind": "Name",
+                              "value": "mobilePhone",
+                            },
+                          },
+                          Object {
+                            "arguments": Array [],
+                            "directives": Array [],
+                            "kind": "Field",
+                            "name": Object {
+                              "kind": "Name",
+                              "value": "email",
+                            },
+                          },
+                        ],
+                      },
+                      "typeCondition": Object {
+                        "kind": "NamedType",
+                        "name": Object {
+                          "kind": "Name",
+                          "value": "VendorRelate",
+                        },
+                      },
+                    },
+                  ],
+                  "kind": "Document",
+                  "loc": Object {
+                    "end": 198,
+                    "source": Object {
+                      "body": "#import \\"../fragments/vendor-related-model.graphql\\"
+
+query GET_VENDORS($id: [String!]) {
+  GetVendors(id: $id ) {
+    _embedded {
+      id
+      related {
+      ...VendorRelated
+      }
+    }
+  }
+}
+",
+                      "locationOffset": Object {
+                        "column": 1,
+                        "line": 1,
+                      },
+                      "name": "GraphQL request",
+                    },
+                    "start": 0,
+                  },
+                },
+                "variables": Object {
+                  "id": Array [
+                    "SOME_ID",
+                  ],
+                },
+              },
+              "result": Object {
+                "data": Object {
+                  "GetVendors": Object {
+                    "__typename": "PagedResultVendorModel",
+                    "_embedded": Array [
+                      Object {
+                        "id": "OXF200001",
+                        "related": Array [
+                          Object {
+                            "email": "example@email.com",
+                            "homePhone": "01234 567890",
+                            "id": "OXF12300101",
+                            "mobilePhone": "07890 123456",
+                            "name": "Mr John Smith",
+                            "type": "contact",
+                            "workPhone": "03242343244",
+                          },
+                        ],
+                      },
+                    ],
                   },
                 },
               },
@@ -7624,6 +8113,9 @@ query GET_APPOINTMENTS($negotiatorId: [String!], $start: String!, $end: String!,
                               "postcode": "MK18 2JW",
                             },
                             "id": "BCK140280",
+                            "selling": Object {
+                              "vendorId": "TEST_VENDOR",
+                            },
                           },
                           "propertyConfirmed": false,
                           "propertyId": "BCK140280",
@@ -8098,6 +8590,492 @@ query GET_APPOINTMENTS($negotiatorId: [String!], $start: String!, $end: String!,
                       "pageNumber": 1,
                       "pageSize": 25,
                       "totalCount": 8,
+                    },
+                  },
+                },
+              },
+            ],
+            "{\\"query\\":\\"query GET_VENDORS($id: [String!]) {\\\\n  GetVendors(id: $id) {\\\\n    _embedded {\\\\n      id\\\\n      related {\\\\n        ...VendorRelated\\\\n      }\\\\n    }\\\\n  }\\\\n}\\\\n\\\\nfragment VendorRelated on VendorRelate {\\\\n  id\\\\n  name\\\\n  type\\\\n  homePhone\\\\n  workPhone\\\\n  mobilePhone\\\\n  email\\\\n}\\\\n\\"}": Array [
+              Object {
+                "request": Object {
+                  "query": Object {
+                    "GET_VENDORS": Object {
+                      "definitions": Array [
+                        Object {
+                          "directives": Array [],
+                          "kind": "OperationDefinition",
+                          "name": Object {
+                            "kind": "Name",
+                            "value": "GET_VENDORS",
+                          },
+                          "operation": "query",
+                          "selectionSet": Object {
+                            "kind": "SelectionSet",
+                            "selections": Array [
+                              Object {
+                                "arguments": Array [
+                                  Object {
+                                    "kind": "Argument",
+                                    "name": Object {
+                                      "kind": "Name",
+                                      "value": "id",
+                                    },
+                                    "value": Object {
+                                      "kind": "Variable",
+                                      "name": Object {
+                                        "kind": "Name",
+                                        "value": "id",
+                                      },
+                                    },
+                                  },
+                                ],
+                                "directives": Array [],
+                                "kind": "Field",
+                                "name": Object {
+                                  "kind": "Name",
+                                  "value": "GetVendors",
+                                },
+                                "selectionSet": Object {
+                                  "kind": "SelectionSet",
+                                  "selections": Array [
+                                    Object {
+                                      "arguments": Array [],
+                                      "directives": Array [],
+                                      "kind": "Field",
+                                      "name": Object {
+                                        "kind": "Name",
+                                        "value": "_embedded",
+                                      },
+                                      "selectionSet": Object {
+                                        "kind": "SelectionSet",
+                                        "selections": Array [
+                                          Object {
+                                            "arguments": Array [],
+                                            "directives": Array [],
+                                            "kind": "Field",
+                                            "name": Object {
+                                              "kind": "Name",
+                                              "value": "id",
+                                            },
+                                          },
+                                          Object {
+                                            "arguments": Array [],
+                                            "directives": Array [],
+                                            "kind": "Field",
+                                            "name": Object {
+                                              "kind": "Name",
+                                              "value": "related",
+                                            },
+                                            "selectionSet": Object {
+                                              "kind": "SelectionSet",
+                                              "selections": Array [
+                                                Object {
+                                                  "directives": Array [],
+                                                  "kind": "FragmentSpread",
+                                                  "name": Object {
+                                                    "kind": "Name",
+                                                    "value": "VendorRelated",
+                                                  },
+                                                },
+                                              ],
+                                            },
+                                          },
+                                        ],
+                                      },
+                                    },
+                                  ],
+                                },
+                              },
+                            ],
+                          },
+                          "variableDefinitions": Array [
+                            Object {
+                              "directives": Array [],
+                              "kind": "VariableDefinition",
+                              "type": Object {
+                                "kind": "ListType",
+                                "type": Object {
+                                  "kind": "NonNullType",
+                                  "type": Object {
+                                    "kind": "NamedType",
+                                    "name": Object {
+                                      "kind": "Name",
+                                      "value": "String",
+                                    },
+                                  },
+                                },
+                              },
+                              "variable": Object {
+                                "kind": "Variable",
+                                "name": Object {
+                                  "kind": "Name",
+                                  "value": "id",
+                                },
+                              },
+                            },
+                          ],
+                        },
+                        Object {
+                          "directives": Array [],
+                          "kind": "FragmentDefinition",
+                          "name": Object {
+                            "kind": "Name",
+                            "value": "VendorRelated",
+                          },
+                          "selectionSet": Object {
+                            "kind": "SelectionSet",
+                            "selections": Array [
+                              Object {
+                                "arguments": Array [],
+                                "directives": Array [],
+                                "kind": "Field",
+                                "name": Object {
+                                  "kind": "Name",
+                                  "value": "id",
+                                },
+                              },
+                              Object {
+                                "arguments": Array [],
+                                "directives": Array [],
+                                "kind": "Field",
+                                "name": Object {
+                                  "kind": "Name",
+                                  "value": "name",
+                                },
+                              },
+                              Object {
+                                "arguments": Array [],
+                                "directives": Array [],
+                                "kind": "Field",
+                                "name": Object {
+                                  "kind": "Name",
+                                  "value": "type",
+                                },
+                              },
+                              Object {
+                                "arguments": Array [],
+                                "directives": Array [],
+                                "kind": "Field",
+                                "name": Object {
+                                  "kind": "Name",
+                                  "value": "homePhone",
+                                },
+                              },
+                              Object {
+                                "arguments": Array [],
+                                "directives": Array [],
+                                "kind": "Field",
+                                "name": Object {
+                                  "kind": "Name",
+                                  "value": "workPhone",
+                                },
+                              },
+                              Object {
+                                "arguments": Array [],
+                                "directives": Array [],
+                                "kind": "Field",
+                                "name": Object {
+                                  "kind": "Name",
+                                  "value": "mobilePhone",
+                                },
+                              },
+                              Object {
+                                "arguments": Array [],
+                                "directives": Array [],
+                                "kind": "Field",
+                                "name": Object {
+                                  "kind": "Name",
+                                  "value": "email",
+                                },
+                              },
+                            ],
+                          },
+                          "typeCondition": Object {
+                            "kind": "NamedType",
+                            "name": Object {
+                              "kind": "Name",
+                              "value": "VendorRelate",
+                            },
+                          },
+                        },
+                      ],
+                      "kind": "Document",
+                      "loc": Object {
+                        "end": 198,
+                        "source": Object {
+                          "body": "#import \\"../fragments/vendor-related-model.graphql\\"
+
+query GET_VENDORS($id: [String!]) {
+  GetVendors(id: $id ) {
+    _embedded {
+      id
+      related {
+      ...VendorRelated
+      }
+    }
+  }
+}
+",
+                          "locationOffset": Object {
+                            "column": 1,
+                            "line": 1,
+                          },
+                          "name": "GraphQL request",
+                        },
+                        "start": 0,
+                      },
+                    },
+                    "definitions": Array [
+                      Object {
+                        "directives": Array [],
+                        "kind": "OperationDefinition",
+                        "name": Object {
+                          "kind": "Name",
+                          "value": "GET_VENDORS",
+                        },
+                        "operation": "query",
+                        "selectionSet": Object {
+                          "kind": "SelectionSet",
+                          "selections": Array [
+                            Object {
+                              "arguments": Array [
+                                Object {
+                                  "kind": "Argument",
+                                  "name": Object {
+                                    "kind": "Name",
+                                    "value": "id",
+                                  },
+                                  "value": Object {
+                                    "kind": "Variable",
+                                    "name": Object {
+                                      "kind": "Name",
+                                      "value": "id",
+                                    },
+                                  },
+                                },
+                              ],
+                              "directives": Array [],
+                              "kind": "Field",
+                              "name": Object {
+                                "kind": "Name",
+                                "value": "GetVendors",
+                              },
+                              "selectionSet": Object {
+                                "kind": "SelectionSet",
+                                "selections": Array [
+                                  Object {
+                                    "arguments": Array [],
+                                    "directives": Array [],
+                                    "kind": "Field",
+                                    "name": Object {
+                                      "kind": "Name",
+                                      "value": "_embedded",
+                                    },
+                                    "selectionSet": Object {
+                                      "kind": "SelectionSet",
+                                      "selections": Array [
+                                        Object {
+                                          "arguments": Array [],
+                                          "directives": Array [],
+                                          "kind": "Field",
+                                          "name": Object {
+                                            "kind": "Name",
+                                            "value": "id",
+                                          },
+                                        },
+                                        Object {
+                                          "arguments": Array [],
+                                          "directives": Array [],
+                                          "kind": "Field",
+                                          "name": Object {
+                                            "kind": "Name",
+                                            "value": "related",
+                                          },
+                                          "selectionSet": Object {
+                                            "kind": "SelectionSet",
+                                            "selections": Array [
+                                              Object {
+                                                "directives": Array [],
+                                                "kind": "FragmentSpread",
+                                                "name": Object {
+                                                  "kind": "Name",
+                                                  "value": "VendorRelated",
+                                                },
+                                              },
+                                            ],
+                                          },
+                                        },
+                                      ],
+                                    },
+                                  },
+                                ],
+                              },
+                            },
+                          ],
+                        },
+                        "variableDefinitions": Array [
+                          Object {
+                            "directives": Array [],
+                            "kind": "VariableDefinition",
+                            "type": Object {
+                              "kind": "ListType",
+                              "type": Object {
+                                "kind": "NonNullType",
+                                "type": Object {
+                                  "kind": "NamedType",
+                                  "name": Object {
+                                    "kind": "Name",
+                                    "value": "String",
+                                  },
+                                },
+                              },
+                            },
+                            "variable": Object {
+                              "kind": "Variable",
+                              "name": Object {
+                                "kind": "Name",
+                                "value": "id",
+                              },
+                            },
+                          },
+                        ],
+                      },
+                      Object {
+                        "directives": Array [],
+                        "kind": "FragmentDefinition",
+                        "name": Object {
+                          "kind": "Name",
+                          "value": "VendorRelated",
+                        },
+                        "selectionSet": Object {
+                          "kind": "SelectionSet",
+                          "selections": Array [
+                            Object {
+                              "arguments": Array [],
+                              "directives": Array [],
+                              "kind": "Field",
+                              "name": Object {
+                                "kind": "Name",
+                                "value": "id",
+                              },
+                            },
+                            Object {
+                              "arguments": Array [],
+                              "directives": Array [],
+                              "kind": "Field",
+                              "name": Object {
+                                "kind": "Name",
+                                "value": "name",
+                              },
+                            },
+                            Object {
+                              "arguments": Array [],
+                              "directives": Array [],
+                              "kind": "Field",
+                              "name": Object {
+                                "kind": "Name",
+                                "value": "type",
+                              },
+                            },
+                            Object {
+                              "arguments": Array [],
+                              "directives": Array [],
+                              "kind": "Field",
+                              "name": Object {
+                                "kind": "Name",
+                                "value": "homePhone",
+                              },
+                            },
+                            Object {
+                              "arguments": Array [],
+                              "directives": Array [],
+                              "kind": "Field",
+                              "name": Object {
+                                "kind": "Name",
+                                "value": "workPhone",
+                              },
+                            },
+                            Object {
+                              "arguments": Array [],
+                              "directives": Array [],
+                              "kind": "Field",
+                              "name": Object {
+                                "kind": "Name",
+                                "value": "mobilePhone",
+                              },
+                            },
+                            Object {
+                              "arguments": Array [],
+                              "directives": Array [],
+                              "kind": "Field",
+                              "name": Object {
+                                "kind": "Name",
+                                "value": "email",
+                              },
+                            },
+                          ],
+                        },
+                        "typeCondition": Object {
+                          "kind": "NamedType",
+                          "name": Object {
+                            "kind": "Name",
+                            "value": "VendorRelate",
+                          },
+                        },
+                      },
+                    ],
+                    "kind": "Document",
+                    "loc": Object {
+                      "end": 198,
+                      "source": Object {
+                        "body": "#import \\"../fragments/vendor-related-model.graphql\\"
+
+query GET_VENDORS($id: [String!]) {
+  GetVendors(id: $id ) {
+    _embedded {
+      id
+      related {
+      ...VendorRelated
+      }
+    }
+  }
+}
+",
+                        "locationOffset": Object {
+                          "column": 1,
+                          "line": 1,
+                        },
+                        "name": "GraphQL request",
+                      },
+                      "start": 0,
+                    },
+                  },
+                  "variables": Object {
+                    "id": Array [
+                      "SOME_ID",
+                    ],
+                  },
+                },
+                "result": Object {
+                  "data": Object {
+                    "GetVendors": Object {
+                      "__typename": "PagedResultVendorModel",
+                      "_embedded": Array [
+                        Object {
+                          "id": "OXF200001",
+                          "related": Array [
+                            Object {
+                              "email": "example@email.com",
+                              "homePhone": "01234 567890",
+                              "id": "OXF12300101",
+                              "mobilePhone": "07890 123456",
+                              "name": "Mr John Smith",
+                              "type": "contact",
+                              "workPhone": "03242343244",
+                            },
+                          ],
+                        },
+                      ],
                     },
                   },
                 },
