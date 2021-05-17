@@ -1,0 +1,20 @@
+{
+  "name": "deployment-service",
+  "dependencies": {
+    "@homeservenow/serverless-aws-handler": "^0.2.4",
+    "class-transformer": "^0.4.0",
+    "class-validator": "^0.13.1"
+  },
+  "scripts": {
+    "lint": "concurrently \"prettier src/**/*.ts --write \"  \"eslint --cache --ext=ts,tsx src --fix\"",
+    "release": "serverless deploy",
+    "publish": "echo '...skipping...'",
+    "conf": "yarn config-manager --namespace cloud --entity graphql-server --name local --mode fetch"
+  },
+  "devDependencies": {
+    "concurrently": "^6.1.0",
+    "eslint": "^7.26.0",
+    "prettier": "^2.3.0",
+    "serverless": "^2.41.2"
+  }
+}
