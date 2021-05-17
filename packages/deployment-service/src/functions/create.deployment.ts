@@ -2,7 +2,7 @@ import { httpHandler, ValidationException } from '@homeservenow/serverless-aws-h
 import { DeploymentDto } from '../dto'
 import { DeploymentModel } from '../models'
 import * as service from './../services/deployment'
-import { plainToClass } from 'class-transformer'
+import { plainToClass, classToClassFromExist } from 'class-transformer'
 import { validate } from 'class-validator'
 
 /**
@@ -24,6 +24,6 @@ export const createDeployment = httpHandler<DeploymentDto, DeploymentModel>({
     return dto
   },
   handler: async ({ body }): Promise<DeploymentModel> => {
-    return service.createDeploymentModel(body)
+    return service.createDeploymentModel(classToClassFromExist<DeploymentModel>(new DeploymentModel(), body))
   },
 })
