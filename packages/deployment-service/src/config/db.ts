@@ -4,6 +4,6 @@ export type DBConfig = {
 }
 
 export const dbConfig: DBConfig = {
-  region: '',
-  endpoint: '',
+  region: process.env.DYNAMO_DB_REGION || '',
+  endpoint: process.env.DYNAMO_DB_ENDPOINT || '',
 }
