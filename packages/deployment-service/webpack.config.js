@@ -1,9 +1,7 @@
-const { webpackConfigProd, webpackConfigDev, sassProd, sassDev } = require('@reapit/ts-scripts')
+const slsw = require('serverless-webpack')
+const { webpackConfigNode } = require('@reapit/ts-scripts')
 
-const isProd = process.env.NODE_ENV === 'production'
-const config = isProd ? webpackConfigProd : webpackConfigDev
-const sassRules = isProd ? sassProd : sassDev
+webpackConfigNode.entry = slsw.lib.entries
+webpackConfigNode.optimization.minimize = slsw.lib.webpack.isLocal ? false : true
 
-config.module.rules.push(sassRules)
-
-module.exports = config
+module.exports = webpackConfigNode
