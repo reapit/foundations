@@ -1,8 +1,8 @@
 import { httpHandler } from '@homeservenow/serverless-aws-handler'
-import { DeploymentModel } from '../models'
-import * as service from './../services/deployment'
+import { DeploymentModel } from '@/models'
+import * as service from '@/services/deployment'
 import { QueryPaginator } from '@aws/dynamodb-data-mapper'
-import { authorised, decodeToken } from './../utils'
+import { authorised, decodeToken } from '@/utils'
 
 /**
  * Return pagination response for signed in user

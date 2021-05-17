@@ -1,6 +1,6 @@
 import { httpHandler, NotFoundException, HttpStatusCode } from '@homeservenow/serverless-aws-handler'
-import * as service from './../services/deployment'
-import { authorised, ownership } from './../utils'
+import * as service from '@/services/deployment'
+import { authorised, ownership } from '@/utils'
 /**
  * Delete a deployment
  */

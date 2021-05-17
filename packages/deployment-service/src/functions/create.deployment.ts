@@ -1,10 +1,10 @@
 import { httpHandler, ValidationException } from '@homeservenow/serverless-aws-handler'
-import { DeploymentDto } from '../dto'
-import { DeploymentModel } from '../models'
-import * as service from './../services/deployment'
+import { DeploymentDto } from '@/dto'
+import { DeploymentModel } from '@/models'
+import * as service from '@/services/deployment'
 import { plainToClass, classToClassFromExist } from 'class-transformer'
 import { validate } from 'class-validator'
-import { authorised } from './../utils'
+import { authorised } from '@/utils'
 import { decodeToken } from '@/utils/decode.token'
 
 /**

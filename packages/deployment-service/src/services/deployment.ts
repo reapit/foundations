@@ -1,6 +1,6 @@
-import { DeploymentDto } from '../dto'
-import { DeploymentModel } from '../models'
-import { db } from './../core'
+import { DeploymentDto } from '@/dto'
+import { DeploymentModel } from '@/models'
+import { db } from '@/core'
 import { QueryPaginator } from '@aws/dynamodb-data-mapper'
 
 export const createDeploymentModel = (dto: Partial<DeploymentModel>): Promise<DeploymentModel> => {
