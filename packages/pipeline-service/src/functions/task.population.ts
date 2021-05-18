@@ -42,7 +42,12 @@ const workflowCreation = async (
   return createBatchTasks(batchTasks)
 }
 
+/**
+ * DynamoDB stream to auto generate tasks on pipeline creation
+ */
 export const taskPopulation: Handler = async (event: any, context: Context, callback: Callback): Promise<void> => {
+  // TODO add condition for only created actions
+
   await Promise.all(
     event.Records.map((record) => {
       const pipeline: AttributeMap = record.dynamodb.NewImage
