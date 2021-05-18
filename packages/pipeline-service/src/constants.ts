@@ -7,4 +7,6 @@ export enum Status {
   FAILED = 'failed',
   SUCCESS = 'success',
   CANCELED = 'canceled',
+  PENDING = 'pending',
+  RUNNING = 'running',
 }
