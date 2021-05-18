@@ -4,11 +4,11 @@ import * as service from './../services'
 
 /**
  * Create a new pipeline for deployment
- * 
+ *
  * Cancels all existing running pipelines
  */
 export const createPipeline = httpHandler<void, PipelineModel>({
-  handler: async ({ event }): Promise<PipelineModel> => {
+  handler: ({ event }): Promise<PipelineModel> => {
     // TODO stop all currently running pipelines for deployment
 
     const deploymentId = event.pathParameters?.deploymentId
