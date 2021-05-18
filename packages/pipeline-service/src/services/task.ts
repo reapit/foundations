@@ -18,6 +18,16 @@ export const updateTask = (model: TaskModel, dto: Partial<TaskModel>) => {
   }))
 }
 
+export const findByPipelineId = async (pipelineId: string): Promise<TaskModel[]> => {
+  const results = await db.query(TaskModel, {
+    keyConditions: {
+      pipelineId,
+    },
+  })
+
+  return asyncIteratorToArray<TaskModel>(results)
+}
+
 const asyncIteratorToArray = async <T>(asyncIterator): Promise<T[]> => { 
   const result: T[] = []; 
   for await(const i of asyncIterator) result.push(i); 

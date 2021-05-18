@@ -1,5 +1,5 @@
 import { PipelineModel } from '@/models'
-import {httpHandler, BadRequestException} from '@homeservenow/serverless-aws-handler'
+import { httpHandler, BadRequestException } from '@homeservenow/serverless-aws-handler'
 import { DeploymentStatus } from '@reapit/foundations-ts-definitions'
 import * as service from './../services'
 
@@ -12,7 +12,7 @@ export const updatePipeline = httpHandler<{ status: DeploymentStatus.CANCELED },
 
     return payload
   },
-  handler: async ({event, body}): Promise<PipelineModel> => {
+  handler: async ({ event, body }): Promise<PipelineModel> => {
     const pipeline = await service.findById(event.pathParameters?.id as string)
 
     if (pipeline.status !== DeploymentStatus.RUNNING) {
