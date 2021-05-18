@@ -1,0 +1,24 @@
+{
+  "name": "pipeline-service",
+  "scripts": {
+    "start": "serverless dynamodb install && yarn build && yarn serverless offline start --runtime nodejs12.x --stage local",
+    "test": "cross-env TZ=UTC jest --watch --colors --silent",
+    "build": "echo '...skipping...'",
+    "lint": "concurrently \"prettier src/**/*.ts --write \"  \"eslint --cache --ext=ts,tsx src --fix\"",
+    "release": "serverless deploy",
+    "publish": "echo '...skipping...'",
+    "conf": "yarn config-manager --namespace cloud --entity deployment-service --name local --mode fetch"
+  },
+  "devDependencies": {
+    "concurrently": "^6.1.0",
+    "eslint": "^7.26.0",
+    "prettier": "^2.3.0",
+    "serverless": "^2.41.2",
+    "serverless-dynamodb-local": "^0.2.39"
+  },
+  "dependencies": {
+    "@aws/dynamodb-data-mapper": "^0.7.3",
+    "@aws/dynamodb-data-mapper-annotations": "^0.7.3",
+    "@homeservenow/serverless-aws-handler": "^0.2.4"
+  }
+}
