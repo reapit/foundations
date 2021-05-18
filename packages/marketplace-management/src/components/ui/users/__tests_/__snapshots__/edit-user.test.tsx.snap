@@ -22,7 +22,6 @@ exports[`UpdateUserModal should match a snapshot 1`] = `
           "OF1",
           "OF2",
         ],
-        "name": "User Name",
       }
     }
     onSubmit={[Function]}

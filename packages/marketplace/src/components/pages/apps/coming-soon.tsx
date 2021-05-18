@@ -11,8 +11,6 @@ import comingSoonImageZero from '@/assets/images/coming-soon/8Zero.jpg'
 import comingSoonImageIntegrated from '@/assets/images/coming-soon/12Integrated.jpg'
 import comingSoonSmsSpeedway from '@/assets/images/coming-soon/SMS2.jpg'
 import comingSoonSmsSpeedWayIdVerification from '@/assets/images/coming-soon/SMSMobile.jpg'
-import comingSoonIAMProperty from '@/assets/images/coming-soon/3IAMProperty.jpg'
-import comingSoonImageMAB from '@/assets/images/coming-soon/MAB.jpg'
 import comingSoonOnTheMarket from '@/assets/images/coming-soon/OnTheMarket.jpg'
 import comingSoonPerfectPortal from '@/assets/images/coming-soon/PerfectPortal.jpg'
 import comingSoonRightMove from '@/assets/images/coming-soon/RightMove.jpg'
@@ -25,14 +23,19 @@ import comingSoonHomeHero from '@/assets/images/coming-soon/Homehero.jpg'
 import comingSoonBarbuck from '@/assets/images/coming-soon/Barbuck.jpg'
 import comingSoonCoadjute from '@/assets/images/coming-soon/Coadjute.jpg'
 import comingSoonSMSWorks from '@/assets/images/coming-soon/SMSWorks.jpg'
-import comingSoonLeadPro from '@/assets/images/coming-soon/Leadpro.jpg'
-import comingSoonCanopy from '@/assets/images/coming-soon/Canopy.jpg'
-import comingSoonData8 from '@/assets/images/coming-soon/Data8.jpg'
 import comingSoonFacebook from '@/assets/images/coming-soon/Facebook.jpg'
 import comingSoonOffr from '@/assets/images/coming-soon/Offr.jpg'
 import comingSoonAddland from '@/assets/images/coming-soon/Addland.jpg'
 import comingSoonBYM from '@/assets/images/coming-soon/BYM.jpg'
-import comingSoonGotoView from '@/assets/images/coming-soon/GotoView.jpg'
+import comingSoonApex from '@/assets/images/coming-soon/Apex.jpg'
+import comingSoonBricksAndAgent from '@/assets/images/coming-soon/BricksandAgent.jpg'
+import comingSoonCommVersion from '@/assets/images/coming-soon/CommVersion.jpg'
+import comingSoonDocuSign from '@/assets/images/coming-soon/Docusign.jpg'
+import comingSoonJustMoveIn from '@/assets/images/coming-soon/Justmovein.jpg'
+import comingSoonLifeTimeLegal from '@/assets/images/coming-soon/lifetimelegal.jpg'
+import comingSoonRealMedia from '@/assets/images/coming-soon/RealMediaGroup.jpg'
+import comingSoonRentProfile from '@/assets/images/coming-soon/Rentprofile.jpg'
+import comingSoonTheBunch from '@/assets/images/coming-soon/TheBunch.jpg'
 import { ComingSoonApp } from '@/types/global'
 import {
   CategoryTitle,
@@ -68,8 +71,6 @@ const comingSoonImagesMap = {
   comingSoonSmsSpeedway,
   comingSoonImageTwentyCiVMC,
   comingSoonSmsSpeedWayIdVerification,
-  comingSoonIAMProperty,
-  comingSoonImageMAB,
   comingSoonOnTheMarket,
   comingSoonPerfectPortal,
   comingSoonRightMove,
@@ -82,14 +83,19 @@ const comingSoonImagesMap = {
   comingSoonBarbuck,
   comingSoonCoadjute,
   comingSoonSMSWorks,
-  comingSoonLeadPro,
-  comingSoonCanopy,
-  comingSoonData8,
   comingSoonFacebook,
   comingSoonOffr,
   comingSoonAddland,
   comingSoonBYM,
-  comingSoonGotoView,
+  comingSoonApex,
+  comingSoonBricksAndAgent,
+  comingSoonCommVersion,
+  comingSoonDocuSign,
+  comingSoonJustMoveIn,
+  comingSoonLifeTimeLegal,
+  comingSoonRealMedia,
+  comingSoonRentProfile,
+  comingSoonTheBunch,
 }
 
 export const getComingAppLinkHref = (isDesktop: boolean, email?: string) => {
@@ -107,12 +113,13 @@ export const ComingSoonAppComponent: React.FC<ComingSoonAppProps> = ({
 }) => {
   const emailLink = getComingAppLinkHref(isDesktop, email)
   const ImageComponent = () => <img className="image" src={comingSoonImagesMap[image]} onError={onImageError} />
-  const Icon =
-    integrationType === 'Agency Cloud App'
-      ? CloudIcon
-      : integrationType === 'Third Party Integration'
-      ? TriangleIcon
-      : SquareIcon
+  const Icon = integrationType === 'AC' ? CloudIcon : integrationType === 'TP' ? TriangleIcon : SquareIcon
+  const displayText =
+    integrationType === 'AC'
+      ? 'Agency Cloud App'
+      : integrationType === 'TP'
+      ? 'Third Party Integration'
+      : 'Portal Integration'
   return (
     <GridFourColItem>
       <FadeIn>
@@ -135,7 +142,7 @@ export const ComingSoonAppComponent: React.FC<ComingSoonAppProps> = ({
               </ComingSoonImage>
             </ComingSoonImageWrap>
             <CategoryTitle>
-              <Icon /> {integrationType}
+              <Icon /> {displayText}
             </CategoryTitle>
           </ComingSoonInner>
         </ComingSoonItem>
