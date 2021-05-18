@@ -5,7 +5,9 @@ import { Handler, Context, Callback } from 'aws-lambda'
 import { AttributeMap } from "aws-sdk/clients/dynamodb"
 
 const workflowCreation = async (pipeline: PipelineModel, deployment: DeploymentModelInterface): Promise<TaskModel[]> => {
-  const batchTasks: (Partial<TaskModel> & {pipelineId: string})[] = (deployment.appType !== AppTypeEnum.NODE) ? [{
+  const batchTasks: (Partial<TaskModel> & {pipelineId: string})[] = (deployment.appType !== AppTypeEnum.NODE) ? 
+    [
+      {
         pipelineId: pipeline.id as string,
         functionName: TaskRunnerFunctions.PULL,
       },
@@ -43,13 +45,14 @@ export const taskPopulation: Handler = async (event: any, context: Context, call
     
     console.log(pipeline);
 
+    // TODO find deployment for all deployment settings OR find deployment on pipeline creation and sync settings?
     const deployment: DeploymentModelInterface = {
       id: '',
       appType: AppTypeEnum.NODE,
     };
 
     return workflowCreation(pipeline, deployment);
-  }));
+  }))
 
-  return callback(null, `Successfully processed ${event.Records.length} records.`);
+  return callback(null, `Successfully processed ${event.Records.length} records.`)
 }

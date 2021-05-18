@@ -11,3 +11,9 @@ export const updatePipelineModel = (model: PipelineModel, dto: Partial<PipelineM
     ...dto,
   }))
 }
+
+export const findById = (id: string): Promise<PipelineModel> => {
+  return db.get(Object.assign(new PipelineModel(), {
+    id,
+  }))
+}
