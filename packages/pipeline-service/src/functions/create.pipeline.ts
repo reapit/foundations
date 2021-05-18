@@ -1,4 +1,5 @@
 import { PipelineModel } from '@/models'
+import { authorised } from '@/utils'
 import { httpHandler } from '@homeservenow/serverless-aws-handler'
 import * as service from './../services'
 
@@ -8,7 +9,12 @@ import * as service from './../services'
  * Cancels all existing running pipelines
  */
 export const createPipeline = httpHandler<void, PipelineModel>({
-  handler: ({ event }): Promise<PipelineModel> => {
+  serialise: {
+    input: (event) => {
+      authorised(event)
+    },
+  },
+  handler: async ({ event }): Promise<PipelineModel> => {
     // TODO stop all currently running pipelines for deployment
 
     const deploymentId = event.pathParameters?.deploymentId
