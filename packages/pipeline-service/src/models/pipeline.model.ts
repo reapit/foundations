@@ -30,6 +30,6 @@ export class PipelineModel implements PipelineModelInterface {
   @attribute({ defaultProvider: () => DeploymentStatus.PENDING })
   status?: DeploymentStatus
 
-  @attribute({ memberType: embed(Comment) })
+  @attribute({ memberType: embed(TaskModel) })
   tasks?: TaskModel[] = []
 }

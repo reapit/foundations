@@ -44,7 +44,9 @@ provider:
     SENTRY_DSN: ${self:custom.env.SENTRY_DSN}
     DYNAMO_DB_REGION: ${self:custom.env.DYNAMO_DB_REGION}
     DYNAMO_DB_ENDPOINT: ${self:custom.env.DYNAMO_DB_ENDPOINT}
-    DYNAMO_DB_TABLE_NAME: ${self:custom.env.DYNAMO_DB_TABLE_NAME}
+    DYNAMO_DB_PIPELINE_TABLE_NAME: ${self:custom.env.DYNAMO_DB_PIPELINE_TABLE_NAME}
+    DYNAMO_DB_TASK_TABLE_NAME: ${self:custom.env.DYNAMO_DB_TASK_TABLE_NAME}
+    SLS_DEBUG: "*"
   iamRoleStatements:
     - Effect: Allow
       Action:
@@ -54,7 +56,16 @@ provider:
         - dynamodb:PutItem
         - dynamodb:UpdateItem
         - dynamodb:DeleteItem
-      Resource: 'arn:aws:dynamodb:${self:provider.region}:*:table/${self:custom.env.DYNAMO_DB_TABLE_NAME}'
+      Resource: 'arn:aws:dynamodb:${self:provider.region}:*:table/${self:custom.env.DYNAMO_DB_PIPELINE_TABLE_NAME}'
+    - Effect: Allow
+      Action:
+        - dynamodb:Query
+        - dynamodb:Scan
+        - dynamodb:GetItem
+        - dynamodb:PutItem
+        - dynamodb:UpdateItem
+        - dynamodb:DeleteItem
+      Resource: 'arn:aws:dynamodb:${self:provider.region}:*:table/${self:custom.env.DYNAMO_DB_TASK_TABLE_NAME}'
 
 resources:
   Resources:
@@ -123,3 +134,75 @@ package:
     - tsconfig.json
     - yml-helpers.js
 
+
+functions:
+  createPipeline:
+    handler: src/index.createPipeline
+    events:
+      - http:
+          path: /{deploymentId}
+          method: post
+          cors:
+            origin: '*'
+            headers:
+              - Content-Type
+              - X-Amz-Date
+              - Authorization
+              - X-Api-Key
+              - X-Amz-Security-Token
+              - X-Amz-User-Agent
+              - reapit-customer
+              - reapit-connect-token
+              - api-version
+              - if-match
+          authorizer:
+            arn: arn:aws:cognito-idp:${self:provider.region}:${self:custom.env.AWS_ACCOUNT_ID}:userpool/${self:custom.env.COGNITO_USERPOOL_ID}
+  updatePipeline:
+    handler: src/index.updatePipeline
+    events:
+      - http:
+          path: /{id}
+          method: put
+          cors:
+            origin: '*'
+            headers:
+              - Content-Type
+              - X-Amz-Date
+              - Authorization
+              - X-Api-Key
+              - X-Amz-Security-Token
+              - X-Amz-User-Agent
+              - reapit-customer
+              - reapit-connect-token
+              - api-version
+              - if-match
+          authorizer:
+            arn: arn:aws:cognito-idp:${self:provider.region}:${self:custom.env.AWS_ACCOUNT_ID}:userpool/${self:custom.env.COGNITO_USERPOOL_ID}
+  getPipeline:
+    handler: src/index.getPipeline
+    events:
+      - http:
+          path: /{id}
+          method: get
+          cors:
+            origin: '*'
+            headers:
+              - Content-Type
+              - X-Amz-Date
+              - Authorization
+              - X-Api-Key
+              - X-Amz-Security-Token
+              - X-Amz-User-Agent
+              - reapit-customer
+              - reapit-connect-token
+              - api-version
+              - if-match
+          authorizer:
+            arn: arn:aws:cognito-idp:${self:provider.region}:${self:custom.env.AWS_ACCOUNT_ID}:userpool/${self:custom.env.COGNITO_USERPOOL_ID}
+  taskPopulate:
+    handler: src/index.taskPopulate
+    events:
+      - stream:
+        type: dynamodb
+        arn: 
+          Fn::GetAtt: [self:custom.env.DYNAMO_DB_PIPELINE_TABLE_NAME, StreamArn]
