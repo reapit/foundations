@@ -134,7 +134,6 @@ package:
     - tsconfig.json
     - yml-helpers.js
 
-
 functions:
   createPipeline:
     handler: src/index.createPipeline
