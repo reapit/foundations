@@ -5,9 +5,7 @@ import { Handler, Context, Callback } from 'aws-lambda'
 import { AttributeMap } from "aws-sdk/clients/dynamodb"
 
 const workflowCreation = async (pipeline: PipelineModel, deployment: DeploymentModelInterface): Promise<TaskModel[]> => {
-  if (deployment.appType === AppTypeEnum.NODE) {
-    return createBatchTasks([
-      {
+  const batchTasks: (Partial<TaskModel> & {pipelineId: string})[] = (deployment.appType !== AppTypeEnum.NODE) ? [{
         pipelineId: pipeline.id as string,
         functionName: TaskRunnerFunctions.PULL,
       },
@@ -19,9 +17,9 @@ const workflowCreation = async (pipeline: PipelineModel, deployment: DeploymentM
         pipelineId: pipeline.id as string,
         functionName: TaskRunnerFunctions.DEPLOY_LAMBDAS,
       },
-    ])
-  } else {
-    return createBatchTasks([
+    ]
+  :
+    [
       {
         pipelineId: pipeline.id as string,
         functionName: TaskRunnerFunctions.PULL,
@@ -34,8 +32,9 @@ const workflowCreation = async (pipeline: PipelineModel, deployment: DeploymentM
         pipelineId: pipeline.id as string,
         functionName: TaskRunnerFunctions.DEPLOY_REACT,
       },
-    ])
-  }
+    ]
+
+  return createBatchTasks(batchTasks)
 }
 
 export const taskPopulation: Handler = async (event: any, context: Context, callback: Callback): Promise<void> => {
@@ -43,6 +42,11 @@ export const taskPopulation: Handler = async (event: any, context: Context, call
     const pipeline: AttributeMap = record.dynamodb.NewImage
     
     console.log(pipeline);
+
+    const deployment: DeploymentModelInterface = {
+      id: '',
+      appType: AppTypeEnum.NODE,
+    };
 
     return workflowCreation(pipeline, deployment);
   }));
