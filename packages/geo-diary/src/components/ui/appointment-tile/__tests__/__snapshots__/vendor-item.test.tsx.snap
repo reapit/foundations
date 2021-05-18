@@ -1,0 +1,25 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`VendorItem should match snapshot with vendors in state 1`] = `
+<FadeIn>
+  <TileSectionContainer>
+    <Label>
+      Vendors
+    </Label>
+    <TileIconAnchorWrap
+      key="OXF12300101"
+    >
+      <Icon
+        icon="username"
+      />
+      <a
+        onClick={[Function]}
+      >
+        Mr John Smith
+      </a>
+    </TileIconAnchorWrap>
+  </TileSectionContainer>
+</FadeIn>
+`;
+
+exports[`VendorItem should match snapshot without vendors in state 1`] = `""`;

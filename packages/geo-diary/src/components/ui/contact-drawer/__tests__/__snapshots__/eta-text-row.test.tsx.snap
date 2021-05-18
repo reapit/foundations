@@ -1,0 +1,39 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`EtaTextRow should match snapshot with a phone number and populated state 1`] = `
+<div
+  className="contact-option-row"
+>
+  <Grid>
+    <Col
+      span={8}
+    >
+      <Label>
+        Send ETA Text
+      </Label>
+      <div
+        className="contact-option-value"
+      >
+        0777777777
+      </div>
+    </Col>
+    <Col
+      span={8}
+    >
+      <div
+        className="contact-option-icons"
+      >
+        <a
+          href="sms:0777777777?&body=Hi Bob, this is Liam Jowett from ACME , I will be with you in approximately 1hr 20mins."
+        >
+          <IconButton
+            icon="sms"
+          />
+        </a>
+      </div>
+    </Col>
+  </Grid>
+</div>
+`;
+
+exports[`EtaTextRow should match snapshot without phone number and default state 1`] = `""`;

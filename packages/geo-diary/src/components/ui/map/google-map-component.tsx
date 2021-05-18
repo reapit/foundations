@@ -29,10 +29,6 @@ import { MapContentContainer, mapContainerHasMapPanel } from './__styles__/style
 import { cx } from 'linaria'
 import { DEFAULT_LAT_LNG, DEFAULT_ZOOM } from '../../../core/constants'
 
-export const handleModalClose = (setAppointmentDetailModalVisible: Dispatch<SetStateAction<boolean>>) => () => {
-  setAppointmentDetailModalVisible(false)
-}
-
 export const handleSetAppointment = ({
   appointments,
   setAppState,

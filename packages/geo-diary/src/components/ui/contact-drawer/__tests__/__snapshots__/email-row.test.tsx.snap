@@ -1,0 +1,37 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`EmailRow should match snapshot 1`] = `
+<div
+  className="contact-option-row"
+>
+  <Grid>
+    <Col
+      span={10}
+    >
+      <Label>
+        Label
+      </Label>
+      <div
+        className="contact-option-value"
+      >
+        mail@example.com
+      </div>
+    </Col>
+    <Col
+      span={6}
+    >
+      <div
+        className="contact-option-icons"
+      >
+        <a
+          href="mailto:mail@example.com"
+        >
+          <IconButton
+            icon="email"
+          />
+        </a>
+      </div>
+    </Col>
+  </Grid>
+</div>
+`;

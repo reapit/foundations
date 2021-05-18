@@ -1,0 +1,24 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`GoogleMapComponent should match snapshot with an appointment 1`] = `
+<Fragment>
+  <MapContentContainer
+    className=""
+  >
+    <t
+      apiKey=""
+      autoFitBounds={true}
+      boundsOffset={0.002}
+      center={
+        Object {
+          "lat": 51.509865,
+          "lng": -0.118092,
+        }
+      }
+      coordinates={Array []}
+      onLoaded={[Function]}
+      zoom={10}
+    />
+  </MapContentContainer>
+</Fragment>
+`;

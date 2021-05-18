@@ -1,0 +1,37 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`AttendeeItem should match snapshot with contacts 1`] = `
+<TileSectionContainer>
+  <Label>
+    Attendees
+  </Label>
+  <TileIconAnchorWrap
+    key="BDF15001578"
+  >
+    <Icon
+      icon="username"
+    />
+    <a
+      className="v-align-middle"
+      onClick={[Function]}
+    >
+      Ms Harper Dale
+    </a>
+  </TileIconAnchorWrap>
+  <TileIconAnchorWrap
+    key="BDF15001579"
+  >
+    <Icon
+      icon="username"
+    />
+    <a
+      className="v-align-middle"
+      onClick={[Function]}
+    >
+      Mr Teddy Allan
+    </a>
+  </TileIconAnchorWrap>
+</TileSectionContainer>
+`;
+
+exports[`AttendeeItem should match snapshot with no contacts 1`] = `""`;

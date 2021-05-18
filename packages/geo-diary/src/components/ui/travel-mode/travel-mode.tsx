@@ -9,14 +9,8 @@ export type HandleChangeTravelModeParams = {
 
 export const handleChangeTravelMode = ({ setAppState, travelMode }: HandleChangeTravelModeParams) => () => {
   setAppState((currentState) => {
-    const mapRefs = currentState.mapRefs
-    if (mapRefs) {
-      // mapRefs.directionsRendererRef.current?.setMap(null)
-      // mapRefs.directionsServiceRef.current?.setMap(null)
-    }
     return {
       ...currentState,
-      mapRefs,
       travelMode,
     }
   })

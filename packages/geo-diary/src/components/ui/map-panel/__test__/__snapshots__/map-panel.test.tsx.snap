@@ -1,0 +1,28 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`MapPanel should match snapshot without an appointment in state 1`] = `
+<MapPanelContainer>
+  <div>
+    <p
+      className="is-size-5 mr-2"
+    >
+      TEXT
+    </p>
+    <p>
+      TEXT
+    </p>
+  </div>
+  <ButtonGroup
+    hasSpacing={true}
+  >
+    <Button
+      className="button-padding-small"
+      onClick={[Function]}
+      type="button"
+      variant="primary"
+    >
+      Start Journey
+    </Button>
+  </ButtonGroup>
+</MapPanelContainer>
+`;

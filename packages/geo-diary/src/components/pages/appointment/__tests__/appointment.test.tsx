@@ -5,7 +5,7 @@ import { Appointment, getVendorIds, handleGetVendors, sortAppoinmentsByStartTime
 import GET_APPOINTMENTS from '../../../../graphql/queries/get-appointments.graphql'
 import GET_VENDORS from '../../../../graphql/queries/get-vendors.graphql'
 import { appointment } from '@/graphql/__mocks__/appointment'
-import { appointmentsQueryData } from '../__mocks__/appointments-query'
+import { mockAppointmentsQuery } from '../__mocks__/appointments-query'
 import { mockVendorsQuery } from '../__mocks__/vendors-query'
 import { ExtendedAppointmentModel } from '../../../../types/global'
 
@@ -33,7 +33,7 @@ describe('appointment', () => {
               includeConfirm: true,
             },
           },
-          result: appointmentsQueryData,
+          result: mockAppointmentsQuery,
         },
         {
           request: {
@@ -67,12 +67,12 @@ describe('appointment', () => {
 
   describe('getVendorIds', () => {
     it('should correctly return vendor ids', () => {
-      const appoinments = appointmentsQueryData.data.GetAppointments._embedded as ExtendedAppointmentModel[]
+      const appoinments = mockAppointmentsQuery.data.GetAppointments._embedded as ExtendedAppointmentModel[]
       const curried = getVendorIds(appoinments)
       const result = curried()
 
-      expect(result.length).toBe(1)
-      expect(result[0]).toEqual('TEST_VENDOR')
+      expect(result.length).toBe(2)
+      expect(result[1]).toEqual('TEST_VENDOR')
     })
   })
 

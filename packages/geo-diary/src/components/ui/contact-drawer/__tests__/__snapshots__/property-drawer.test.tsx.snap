@@ -1,0 +1,38 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`PropertyDrawer should match snapshot with an appointment in state 1`] = `
+<Fragment>
+  <DrawerHeader
+    handleClose={[Function]}
+    title="Property Information"
+  />
+  <TextRow
+    content={
+      <React.Fragment>
+        <p>
+          Yew Tree Cottage
+        </p>
+        <p>
+          
+          Church Walk
+        </p>
+        <p>
+          Ambrosden
+        </p>
+        <p>
+          Bicester
+        </p>
+        <p>
+          Oxfordshire
+        </p>
+        <p>
+          OX25 2UJ
+        </p>
+      </React.Fragment>
+    }
+    label="Address"
+  />
+</Fragment>
+`;
+
+exports[`PropertyDrawer should match snapshot without an appointment in state 1`] = `""`;

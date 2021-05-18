@@ -13,13 +13,22 @@ describe('appointment-time', () => {
     })
   })
   describe('handleChangeTime', () => {
-    it('should run correctly', () => {
+    it('should correctly set state', () => {
       const mockParams = {
         setAppState: jest.fn(),
         time: 'today' as AppTimeRange,
       }
-      const fn = handleChangeTime(mockParams)
-      fn()
+      const curried = handleChangeTime(mockParams)
+      curried()
+
+      const newState = mockParams.setAppState.mock.calls[0][0]()
+
+      expect(newState).toEqual({
+        time: mockParams.time,
+        destinationLat: null,
+        destinationLng: null,
+        appointmentId: null,
+      })
     })
   })
 })
