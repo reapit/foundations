@@ -21,10 +21,8 @@ export const deleteDeploymentModel = async (model: DeploymentModel): Promise<voi
   await db.delete(model)
 }
 
-export const getByKey = (apiKey: string): Promise<DeploymentModel | undefined> => {
-  return db.get({
-    apiKey,
-  })
+export const getByKey = (id: string): Promise<DeploymentModel | undefined> => {
+  return db.get(Object.assign(new DeploymentModel(), { id }))
 }
 
 export const batchGet = async (
