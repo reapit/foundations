@@ -1,13 +1,13 @@
 export interface DeploymentModelInterface {
-  id: string
-  name: string
-  organisationId: string
-  created: string
-  modified: string
-  developerId: string
-  appType: AppTypeEnum
-  buildCommand: string
-  packageManager: PackageManagerEnum
+  id?: string
+  name?: string
+  organisationId?: string
+  created?: string
+  modified?: string
+  developerId?: string
+  appType?: AppTypeEnum
+  buildCommand?: string
+  packageManager?: PackageManagerEnum
 }
 
 export interface PipelineModelInterface {
