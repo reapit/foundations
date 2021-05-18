@@ -29067,6 +29067,21 @@ fsevents@^1.2.7:
   languageName: node
   linkType: hard
 
+"pipeline-service@workspace:packages/pipeline-service":
+  version: 0.0.0-use.local
+  resolution: "pipeline-service@workspace:packages/pipeline-service"
+  dependencies:
+    "@aws/dynamodb-data-mapper": ^0.7.3
+    "@aws/dynamodb-data-mapper-annotations": ^0.7.3
+    "@homeservenow/serverless-aws-handler": ^0.2.4
+    concurrently: ^6.1.0
+    eslint: ^7.26.0
+    prettier: ^2.3.0
+    serverless: ^2.41.2
+    serverless-dynamodb-local: ^0.2.39
+  languageName: unknown
+  linkType: soft
+
 "pirates@npm:^4.0.0, pirates@npm:^4.0.1":
   version: 4.0.1
   resolution: "pirates@npm:4.0.1"
