@@ -34,8 +34,8 @@ export const batchGet = async (
     .query(
       DeploymentModel,
       {
-        organisationId,
-        developerId,
+        organisationId: organisationId ? organisationId : undefined,
+        developerId: organisationId ? undefined : developerId,
       },
       {
         limit: 10,
