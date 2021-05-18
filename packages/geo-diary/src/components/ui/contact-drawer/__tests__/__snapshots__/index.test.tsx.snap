@@ -1,0 +1,37 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`ContactDrawer should match snapshot with default state 1`] = `
+<Drawer
+  handleClose={[Function]}
+  isOpen={false}
+>
+  <AttendeeDrawer />
+</Drawer>
+`;
+
+exports[`ContactDrawer should match snapshot with drawer open and ATTENDEE type 1`] = `
+<Drawer
+  handleClose={[Function]}
+  isOpen={true}
+>
+  <AttendeeDrawer />
+</Drawer>
+`;
+
+exports[`ContactDrawer should match snapshot with drawer open and PROPERTY type 1`] = `
+<Drawer
+  handleClose={[Function]}
+  isOpen={true}
+>
+  <PropertyDrawer />
+</Drawer>
+`;
+
+exports[`ContactDrawer should match snapshot with drawer open and VENDOR type 1`] = `
+<Drawer
+  handleClose={[Function]}
+  isOpen={true}
+>
+  <VendorDrawer />
+</Drawer>
+`;

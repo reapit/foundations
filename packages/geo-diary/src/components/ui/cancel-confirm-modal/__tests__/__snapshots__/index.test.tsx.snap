@@ -1,0 +1,473 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`CancelConfirmModal should match snapshot 1`] = `
+<ApolloProvider
+  client={
+    ApolloClient {
+      "cache": InMemoryCache {
+        "addTypename": false,
+        "cacheKeyRoot": KeyTrie {
+          "weakness": true,
+        },
+        "config": Object {
+          "addTypename": false,
+          "dataIdFromObject": [Function],
+          "fragmentMatcher": HeuristicFragmentMatcher {},
+          "freezeResults": false,
+          "resultCaching": true,
+        },
+        "data": DepTrackingCache {
+          "data": Object {},
+          "depend": [Function],
+        },
+        "maybeBroadcastWatch": [Function],
+        "optimisticData": DepTrackingCache {
+          "data": Object {},
+          "depend": [Function],
+        },
+        "silenceBroadcast": false,
+        "storeReader": StoreReader {
+          "executeSelectionSet": [Function],
+          "executeStoreQuery": [Function],
+          "executeSubSelectedArray": [Function],
+          "freezeResults": false,
+        },
+        "storeWriter": StoreWriter {},
+        "typenameDocumentCache": Map {},
+        "watches": Set {},
+      },
+      "clearStoreCallbacks": Array [],
+      "defaultOptions": Object {},
+      "disableNetworkFetches": false,
+      "link": MockLink {
+        "addTypename": false,
+        "mockedResponsesByKey": Object {},
+      },
+      "localState": LocalState {
+        "cache": InMemoryCache {
+          "addTypename": false,
+          "cacheKeyRoot": KeyTrie {
+            "weakness": true,
+          },
+          "config": Object {
+            "addTypename": false,
+            "dataIdFromObject": [Function],
+            "fragmentMatcher": HeuristicFragmentMatcher {},
+            "freezeResults": false,
+            "resultCaching": true,
+          },
+          "data": DepTrackingCache {
+            "data": Object {},
+            "depend": [Function],
+          },
+          "maybeBroadcastWatch": [Function],
+          "optimisticData": DepTrackingCache {
+            "data": Object {},
+            "depend": [Function],
+          },
+          "silenceBroadcast": false,
+          "storeReader": StoreReader {
+            "executeSelectionSet": [Function],
+            "executeStoreQuery": [Function],
+            "executeSubSelectedArray": [Function],
+            "freezeResults": false,
+          },
+          "storeWriter": StoreWriter {},
+          "typenameDocumentCache": Map {},
+          "watches": Set {},
+        },
+        "client": [Circular],
+      },
+      "mutate": [Function],
+      "query": [Function],
+      "queryDeduplication": true,
+      "queryManager": QueryManager {
+        "assumeImmutableResults": false,
+        "clientAwareness": Object {
+          "name": undefined,
+          "version": undefined,
+        },
+        "dataStore": DataStore {
+          "cache": InMemoryCache {
+            "addTypename": false,
+            "cacheKeyRoot": KeyTrie {
+              "weakness": true,
+            },
+            "config": Object {
+              "addTypename": false,
+              "dataIdFromObject": [Function],
+              "fragmentMatcher": HeuristicFragmentMatcher {},
+              "freezeResults": false,
+              "resultCaching": true,
+            },
+            "data": DepTrackingCache {
+              "data": Object {},
+              "depend": [Function],
+            },
+            "maybeBroadcastWatch": [Function],
+            "optimisticData": DepTrackingCache {
+              "data": Object {},
+              "depend": [Function],
+            },
+            "silenceBroadcast": false,
+            "storeReader": StoreReader {
+              "executeSelectionSet": [Function],
+              "executeStoreQuery": [Function],
+              "executeSubSelectedArray": [Function],
+              "freezeResults": false,
+            },
+            "storeWriter": StoreWriter {},
+            "typenameDocumentCache": Map {},
+            "watches": Set {},
+          },
+        },
+        "fetchQueryRejectFns": Map {},
+        "idCounter": 1,
+        "inFlightLinkObservables": Map {},
+        "link": MockLink {
+          "addTypename": false,
+          "mockedResponsesByKey": Object {},
+        },
+        "localState": LocalState {
+          "cache": InMemoryCache {
+            "addTypename": false,
+            "cacheKeyRoot": KeyTrie {
+              "weakness": true,
+            },
+            "config": Object {
+              "addTypename": false,
+              "dataIdFromObject": [Function],
+              "fragmentMatcher": HeuristicFragmentMatcher {},
+              "freezeResults": false,
+              "resultCaching": true,
+            },
+            "data": DepTrackingCache {
+              "data": Object {},
+              "depend": [Function],
+            },
+            "maybeBroadcastWatch": [Function],
+            "optimisticData": DepTrackingCache {
+              "data": Object {},
+              "depend": [Function],
+            },
+            "silenceBroadcast": false,
+            "storeReader": StoreReader {
+              "executeSelectionSet": [Function],
+              "executeStoreQuery": [Function],
+              "executeSubSelectedArray": [Function],
+              "freezeResults": false,
+            },
+            "storeWriter": StoreWriter {},
+            "typenameDocumentCache": Map {},
+            "watches": Set {},
+          },
+          "client": [Circular],
+        },
+        "mutationStore": MutationStore {
+          "store": Object {},
+        },
+        "onBroadcast": [Function],
+        "pollingInfoByQueryId": Map {},
+        "queries": Map {},
+        "queryDeduplication": true,
+        "queryStore": QueryStore {
+          "store": Object {},
+        },
+        "ssrMode": false,
+        "transformCache": WeakMap {},
+      },
+      "reFetchObservableQueries": [Function],
+      "resetStore": [Function],
+      "resetStoreCallbacks": Array [],
+      "store": DataStore {
+        "cache": InMemoryCache {
+          "addTypename": false,
+          "cacheKeyRoot": KeyTrie {
+            "weakness": true,
+          },
+          "config": Object {
+            "addTypename": false,
+            "dataIdFromObject": [Function],
+            "fragmentMatcher": HeuristicFragmentMatcher {},
+            "freezeResults": false,
+            "resultCaching": true,
+          },
+          "data": DepTrackingCache {
+            "data": Object {},
+            "depend": [Function],
+          },
+          "maybeBroadcastWatch": [Function],
+          "optimisticData": DepTrackingCache {
+            "data": Object {},
+            "depend": [Function],
+          },
+          "silenceBroadcast": false,
+          "storeReader": StoreReader {
+            "executeSelectionSet": [Function],
+            "executeStoreQuery": [Function],
+            "executeSubSelectedArray": [Function],
+            "freezeResults": false,
+          },
+          "storeWriter": StoreWriter {},
+          "typenameDocumentCache": Map {},
+          "watches": Set {},
+        },
+      },
+      "typeDefs": undefined,
+      "version": "2.6.10",
+      "watchQuery": [Function],
+    }
+  }
+>
+  <CancelConfirmModal
+    appointment={
+      Object {
+        "__typename": "AppointmentModel",
+        "_eTag": "\\"342E83AC106AD7264C8473B199E079D0\\"",
+        "_embedded": Object {},
+        "_links": Object {
+          "attendee": Object {
+            "href": "/applicants/ALB2000006",
+          },
+          "negotiators": Object {
+            "href": "/negotiators/?id=LJW&id=LXJ&id=LSB&id=JCW",
+          },
+          "offices": Object {
+            "href": "/offices/?id=ALB",
+          },
+          "organiser": Object {
+            "href": "/negotiators/LJW",
+          },
+          "property": Object {
+            "href": "/properties/ALB160019",
+          },
+          "self": Object {
+            "href": "/appointments/ALB2000006",
+          },
+          "type": Object {
+            "href": "/configuration/appointmentTypes/VW",
+          },
+        },
+        "accompanied": true,
+        "appointmentType": Object {
+          "__typename": "ListItemModel",
+          "id": "VW",
+          "value": "Viewing",
+        },
+        "attendee": Object {
+          "__typename": "AppointmentAttendeeModel",
+          "contacts": Array [
+            Object {
+              "__typename": "AppointmentContactModel",
+              "email": "hdale580@rpsfiction.net",
+              "homePhone": "01632 962190",
+              "id": "BDF15001578",
+              "mobilePhone": "07700 902190",
+              "name": "Ms Harper Dale",
+              "workPhone": "020 7946 2190",
+            },
+            Object {
+              "__typename": "AppointmentContactModel",
+              "email": "tallan423@rpsfiction.net",
+              "homePhone": "01632 960169",
+              "id": "BDF15001579",
+              "mobilePhone": "07700 900169",
+              "name": "Mr Teddy Allan",
+              "workPhone": "020 7946 0169",
+            },
+          ],
+          "id": "BDF151344",
+          "type": "applicant",
+        },
+        "attendeeConfirmed": false,
+        "cancelled": false,
+        "created": "2020-04-15T20:36:27Z",
+        "description": "",
+        "end": "2020-07-08T14:30:00Z",
+        "followUp": Object {
+          "__typename": "AppointmentModelFollowUp",
+          "due": "2020-07-09",
+          "notes": "",
+          "responseId": "",
+        },
+        "id": "ALB2000006",
+        "metadata": Object {},
+        "modified": "2020-07-07T08:14:19Z",
+        "negotiatorConfirmed": false,
+        "negotiatorIds": Array [
+          "LJW",
+          "LXJ",
+          "LSB",
+          "JCW",
+        ],
+        "negotiators": Array [
+          Object {
+            "__typename": "NegotiatorModel",
+            "_eTag": "\\"CB9E584CE62E60C463C142EDCB433608\\"",
+            "_embedded": Object {},
+            "_links": Object {
+              "office": Object {
+                "href": "/offices/ALB",
+              },
+              "self": Object {
+                "href": "/negotiators/LJW",
+              },
+            },
+            "active": true,
+            "created": "2014-11-10T15:24:39Z",
+            "email": "emilie.boyd@reapitestates.net",
+            "id": "LJW",
+            "jobTitle": "",
+            "metadata": Object {},
+            "mobilePhone": "",
+            "modified": "2020-07-07T08:14:31Z",
+            "name": "Liam Jowett",
+            "officeId": "ALB",
+            "workPhone": "",
+          },
+          Object {
+            "__typename": "NegotiatorModel",
+            "_eTag": "\\"85F585A47F82909C139CAE0CDF76BD29\\"",
+            "_embedded": Object {},
+            "_links": Object {
+              "office": Object {
+                "href": "/offices/ALB",
+              },
+              "self": Object {
+                "href": "/negotiators/LXJ",
+              },
+            },
+            "active": true,
+            "created": "2013-01-15T13:49:55Z",
+            "email": "fletcher.barr@reapitestates.net",
+            "id": "LXJ",
+            "jobTitle": "",
+            "metadata": Object {},
+            "mobilePhone": "",
+            "modified": "2016-10-17T07:47:53Z",
+            "name": "Fletcher Barr",
+            "officeId": "ALB",
+            "workPhone": "",
+          },
+          Object {
+            "__typename": "NegotiatorModel",
+            "_eTag": "\\"D03398DFF51B9876BD04C925F52A6A04\\"",
+            "_embedded": Object {},
+            "_links": Object {
+              "office": Object {
+                "href": "/offices/ALB",
+              },
+              "self": Object {
+                "href": "/negotiators/LSB",
+              },
+            },
+            "active": true,
+            "created": "2015-01-11T15:32:15Z",
+            "email": "killian.allen@reapitestates.net",
+            "id": "LSB",
+            "jobTitle": "",
+            "metadata": Object {},
+            "mobilePhone": "",
+            "modified": "2016-09-16T10:23:16Z",
+            "name": "Killian Allen",
+            "officeId": "ALB",
+            "workPhone": "",
+          },
+          Object {
+            "__typename": "NegotiatorModel",
+            "_eTag": "\\"CB56729ECEF1690220F7C041B9A55125\\"",
+            "_embedded": Object {},
+            "_links": Object {
+              "office": Object {
+                "href": "/offices/ALB",
+              },
+              "self": Object {
+                "href": "/negotiators/JCW",
+              },
+            },
+            "active": true,
+            "created": "2011-12-27T15:08:47Z",
+            "email": "mara.grieve@reapitestates.net",
+            "id": "JCW",
+            "jobTitle": "",
+            "metadata": Object {},
+            "mobilePhone": "",
+            "modified": "2016-09-21T15:54:30Z",
+            "name": "Mara Grieve",
+            "officeId": "ALB",
+            "workPhone": "",
+          },
+        ],
+        "officeIds": Array [
+          "ALB",
+        ],
+        "offices": Array [
+          Object {
+            "__typename": "OfficeModel",
+            "_eTag": "\\"9B4650E205A1B4DDB0E4A3CB98F4435F\\"",
+            "_embedded": Object {},
+            "_links": Object {
+              "negotiators": Object {
+                "href": "/negotiators/?officeId=ALB",
+              },
+              "self": Object {
+                "href": "/offices/ALB",
+              },
+            },
+            "address": Object {
+              "__typename": "OfficeModelAddress",
+              "buildingName": "",
+              "buildingNumber": "",
+              "countryId": "",
+              "line1": "Exchange Street",
+              "line2": "Aylesbury",
+              "line3": "",
+              "line4": "",
+              "postcode": "HP19 9QL",
+            },
+            "created": "2011-12-26T17:55:46Z",
+            "email": "salesa@hughmason.co.uk",
+            "id": "ALB",
+            "manager": "Gabriela Broadfoot",
+            "metadata": Object {},
+            "modified": "2020-02-14T16:03:23Z",
+            "name": "Stoke Mandeville",
+            "workPhone": "",
+          },
+        ],
+        "organiserId": "LJW",
+        "property": Object {
+          "__typename": "PropertyModel",
+          "address": Object {
+            "__typename": "PropertyModelAddress",
+            "buildingName": "Yew Tree Cottage",
+            "buildingNumber": "",
+            "countryId": "GB",
+            "geolocation": Object {
+              "__typename": "PropertyModelAddressGeolocation",
+              "latitude": 51.869761,
+              "longitude": -1.125311,
+            },
+            "line1": "Church Walk",
+            "line2": "Ambrosden",
+            "line3": "Bicester",
+            "line4": "Oxfordshire",
+            "postcode": "OX25 2UJ",
+          },
+          "id": "ALB160019",
+          "selling": Object {
+            "vendorId": "OXF200001",
+          },
+        },
+        "propertyConfirmed": false,
+        "propertyId": "ALB160019",
+        "recurring": false,
+        "start": "2020-07-08T14:00:00Z",
+        "typeId": "VW",
+      }
+    }
+    handleHideModal={[MockFunction]}
+    showModal={true}
+  />
+</ApolloProvider>
+`;

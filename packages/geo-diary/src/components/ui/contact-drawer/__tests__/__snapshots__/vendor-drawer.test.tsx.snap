@@ -1,0 +1,29 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`VendorDrawer should match snapshot with vendors in state 1`] = `
+<Fragment>
+  <DrawerHeader
+    handleClose={[Function]}
+    title="Mr John Smith"
+  />
+  <PhoneRow
+    label="Mobile"
+    phoneNumber="07890 123456"
+    showMobileActions={true}
+  />
+  <PhoneRow
+    label="Home"
+    phoneNumber="01234 567890"
+  />
+  <PhoneRow
+    label="Work"
+    phoneNumber="03242343244"
+  />
+  <EmailRow
+    email="example@email.com"
+    label="Email"
+  />
+</Fragment>
+`;
+
+exports[`VendorDrawer should match snapshot without vendors in state 1`] = `""`;

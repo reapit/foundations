@@ -1,0 +1,51 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`PhoneRow should match snapshot 1`] = `
+<div
+  className="contact-option-row"
+>
+  <Grid>
+    <Col
+      span={8}
+    >
+      <Label>
+        Label
+      </Label>
+      <div
+        className="contact-option-value"
+      >
+        07777777
+      </div>
+    </Col>
+    <Col
+      span={8}
+    >
+      <div
+        className="contact-option-icons"
+      >
+        <a
+          href="https://wa.me/447777777"
+        >
+          <IconButton
+            icon="whatsapp"
+          />
+        </a>
+        <a
+          href="sms:07777777"
+        >
+          <IconButton
+            icon="sms"
+          />
+        </a>
+        <a
+          href="tel:07777777"
+        >
+          <IconButton
+            icon="call"
+          />
+        </a>
+      </div>
+    </Col>
+  </Grid>
+</div>
+`;

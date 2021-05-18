@@ -1,0 +1,22 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`TextRow should match snapshot 1`] = `
+<div
+  className="contact-option-row"
+>
+  <Grid>
+    <Col
+      span={16}
+    >
+      <Label>
+        Label
+      </Label>
+    </Col>
+    <Col
+      span={16}
+    >
+      blah blah
+    </Col>
+  </Grid>
+</div>
+`;

@@ -1,0 +1,33 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`AttendeeDrawer should match snapshot with an appointment in state 1`] = `
+<Fragment>
+  <DrawerHeader
+    handleClose={[Function]}
+    title="Ms Harper Dale"
+  />
+  <PhoneRow
+    label="Mobile"
+    phoneNumber="07700 902190"
+    showMobileActions={true}
+  />
+  <EtaTextRow
+    name="Ms Harper Dale"
+    phoneNumber="07700 902190"
+  />
+  <PhoneRow
+    label="Home"
+    phoneNumber="01632 962190"
+  />
+  <PhoneRow
+    label="Work"
+    phoneNumber="020 7946 2190"
+  />
+  <EmailRow
+    email="hdale580@rpsfiction.net"
+    label="Email"
+  />
+</Fragment>
+`;
+
+exports[`AttendeeDrawer should match snapshot without an appointment in state 1`] = `""`;

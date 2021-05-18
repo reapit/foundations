@@ -1,4 +1,4 @@
-import React, { Dispatch, SetStateAction } from 'react'
+import React from 'react'
 import { MapPanelContainer } from './__styles__'
 import { Button, isIOS, ButtonGroup } from '@reapit/elements'
 import { AppState, useAppState } from '../../../core/app-state'
@@ -25,19 +25,6 @@ export type HandleOpenNativeMapParams = {
 }
 export const handleOpenNativeMap = ({ appState }: HandleOpenNativeMapParams) => () => {
   window.open(getMapUrl({ appState, isIOS: isIOS() }))
-}
-
-export interface HandleChangeTabParams {
-  setAppState: Dispatch<SetStateAction<AppState>>
-}
-
-export const handleChangeTab = ({ setAppState }: HandleChangeTabParams) => () => {
-  setAppState((currentState) => ({
-    ...currentState,
-    destinationLat: null,
-    destinationLng: null,
-    appointmentId: null,
-  }))
 }
 
 export type RouteInformation = {

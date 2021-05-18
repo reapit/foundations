@@ -1,4 +1,4 @@
-export const appointmentsQueryData = {
+export const mockAppointmentsQuery = {
   data: {
     GetAppointments: {
       __typename: 'PagedResultAppointmentModel',
@@ -384,6 +384,9 @@ export const appointmentsQueryData = {
               postcode: 'OX25 2UJ',
             },
             id: 'ALB160019',
+            selling: {
+              vendorId: 'OXF200001',
+            },
           },
           propertyConfirmed: false,
           propertyId: 'ALB160019',

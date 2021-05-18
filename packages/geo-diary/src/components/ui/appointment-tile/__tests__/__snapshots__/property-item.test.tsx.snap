@@ -1,0 +1,19 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`PropertyItem should match snapshot with a property 1`] = `
+<TileSectionContainer>
+  <Label>
+    Property
+  </Label>
+  <TileIconAnchorWrap>
+    <BsHouse />
+    <a
+      onClick={[Function]}
+    >
+      Yew Tree Cottage Church Walk
+    </a>
+  </TileIconAnchorWrap>
+</TileSectionContainer>
+`;
+
+exports[`PropertyItem should match snapshot without a property 1`] = `""`;
