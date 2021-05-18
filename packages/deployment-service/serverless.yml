@@ -81,10 +81,10 @@ resources:
       Properties:
         TableName: ${self:custom.env.DYNAMO_DB_TABLE_NAME}
         AttributeDefinitions:
-          - AttributeName: apiKey
+          - AttributeName: id
             AttributeType: S
         KeySchema:
-          - AttributeName: apiKey
+          - AttributeName: id
             KeyType: HASH
         ProvisionedThroughput:
           ReadCapacityUnits: 1
