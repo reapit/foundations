@@ -3,6 +3,9 @@ import { httpHandler, BadRequestException } from '@homeservenow/serverless-aws-h
 import { DeploymentStatus } from '@reapit/foundations-ts-definitions'
 import * as service from './../services'
 
+/**
+ * Update a pipeline (cancel)
+ */
 // TODO refactor to delete method instead?
 export const updatePipeline = httpHandler<{ status: DeploymentStatus.CANCELED }, PipelineModel>({
   validator: (payload) => {
