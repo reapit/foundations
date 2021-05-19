@@ -21,6 +21,17 @@ export const updateTask = (model: TaskModel, dto: Partial<TaskModel>) => {
   )
 }
 
+export const batchUpdateTask = (models: TaskModel[]) => {
+  return db.batchPut(
+    models.map((model) =>
+      Object.assign(new TaskModel(), {
+        ...model,
+        modified: new Date().toISOString(),
+      }),
+    ),
+  )
+}
+
 export const findByPipelineId = async (pipelineId: string): Promise<TaskModel[]> => {
   const results = await db.query(TaskModel, {
     keyConditions: {
