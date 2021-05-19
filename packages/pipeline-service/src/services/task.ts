@@ -16,6 +16,7 @@ export const updateTask = (model: TaskModel, dto: Partial<TaskModel>) => {
     Object.assign(new TaskModel(), {
       ...model,
       ...dto,
+      modified: new Date().toISOString(),
     }),
   )
 }
