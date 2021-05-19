@@ -8,14 +8,14 @@ import * as service from './../services'
  * Update a pipeline (cancel)
  */
 // TODO refactor to delete method instead?
-export const updatePipeline = httpHandler<{ status: DeploymentStatus.CANCELED }, PipelineModel>({
+export const updatePipeline = httpHandler<{ buildStatus: DeploymentStatus.CANCELED }, PipelineModel>({
   serialise: {
     input: (event) => {
       authorised(event)
     },
   },
   validator: (payload) => {
-    if (payload.status && payload.status !== DeploymentStatus.CANCELED) {
+    if (payload.buildSTatus && payload.buildSTatus !== DeploymentStatus.CANCELED) {
       throw new BadRequestException('Validation errors: Status can only be canceled')
     }
 
@@ -24,7 +24,7 @@ export const updatePipeline = httpHandler<{ status: DeploymentStatus.CANCELED },
   handler: async ({ event, body }): Promise<PipelineModel> => {
     const pipeline = await service.findById(event.pathParameters?.id as string)
 
-    if (pipeline.status !== DeploymentStatus.RUNNING) {
+    if (pipeline.buildStatus !== DeploymentStatus.RUNNING) {
       return pipeline
     }
 

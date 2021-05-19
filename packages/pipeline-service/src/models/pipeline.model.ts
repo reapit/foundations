@@ -28,7 +28,10 @@ export class PipelineModel implements PipelineModelInterface {
   // packageManager?: PackageManagerEnum
 
   @attribute({ defaultProvider: () => DeploymentStatus.PENDING })
-  status?: DeploymentStatus
+  buildStatus?: DeploymentStatus
+
+  @attribute()
+  S3Location?: string
 
   @attribute({ memberType: embed(TaskModel) })
   tasks?: TaskModel[] = []
