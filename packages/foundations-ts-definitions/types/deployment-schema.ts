@@ -18,6 +18,7 @@ export interface PipelineModelInterface {
   appType?: AppTypeEnum
   buildCommand?: string
   packageManager?: PackageManagerEnum
+  tasks?: TaskModelInterface[]
 }
 
 export interface TaskModelInterface {
