@@ -5,7 +5,7 @@ import { Handler, Context, Callback } from 'aws-lambda'
 import { Converter } from 'aws-sdk/clients/dynamodb'
 import { v4 as uuid } from 'uuid'
 
-const workflowCreation = async (
+export const workflowCreation = async (
   pipeline: PipelineModel,
   deployment: DeploymentModelInterface,
 ): Promise<TaskModel[]> => {
