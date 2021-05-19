@@ -2,7 +2,7 @@
   "name": "pipeline-service",
   "scripts": {
     "start": "serverless dynamodb install && yarn build && yarn serverless offline start --runtime nodejs12.x --stage local",
-    "test": "cross-env TZ=UTC jest --watch --colors --silent",
+    "test": "cross-env TZ=UTC jest --watch --colors",
     "build": "echo '...skipping...'",
     "lint": "concurrently \"prettier src/**/*.ts --write \"  \"eslint --cache --ext=ts,tsx src --fix\"",
     "release": "serverless deploy",
@@ -11,6 +11,7 @@
   },
   "devDependencies": {
     "concurrently": "^6.1.0",
+    "cross-env": "^7.0.3",
     "eslint": "^7.26.0",
     "prettier": "^2.3.0",
     "serverless": "^2.41.2",
