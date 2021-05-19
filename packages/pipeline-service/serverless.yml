@@ -27,6 +27,14 @@ custom:
       heapMax: 1g
       migrate: true
       convertEmptyValues: true
+  dynamodbStream:
+    host: localhost
+    port: 8000
+    pollForever: true
+    streams:
+      - table: '${self:custom.env.DYNAMO_DB_TASK_TABLE_NAME}'
+        functions:
+          - taskPopulate
 
 provider:
   name: aws
