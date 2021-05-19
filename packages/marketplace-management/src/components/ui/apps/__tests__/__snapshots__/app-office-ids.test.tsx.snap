@@ -1,0 +1,20 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`AppCard should match a snapshot 1`] = `
+<Fragment>
+  <FadeIn
+    key="ID_ONE"
+  >
+    <span>
+      ID_ONE 
+    </span>
+  </FadeIn>
+  <FadeIn
+    key=" ID_TWO"
+  >
+    <span>
+       ID_TWO 
+    </span>
+  </FadeIn>
+</Fragment>
+`;
