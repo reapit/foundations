@@ -10,6 +10,7 @@ export const updatePipelineModel = (model: PipelineModel, dto: Partial<PipelineM
     Object.assign(new PipelineModel(), {
       ...model,
       ...dto,
+      modified: new Date().toISOString(),
     }),
   )
 }
