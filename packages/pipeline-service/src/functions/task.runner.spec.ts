@@ -1,7 +1,7 @@
 import { v4 as uuid } from 'uuid'
 import { AppTypeEnum, PipelineModelInterface } from '@reapit/foundations-ts-definitions'
 import * as services from '@/services'
-import {workflowCreation} from '@/functions'
+import { workflowCreation } from '@/functions'
 import { taskPopulation } from './task.population'
 import { Context } from 'aws-lambda'
 
@@ -9,7 +9,7 @@ jest.mock('../core/db')
 jest.mock('../executables')
 
 describe('Task Runner', () => {
-  let pipeline: PipelineModelInterface;
+  let pipeline: PipelineModelInterface
 
   beforeAll(async () => {
     pipeline = await services.createPipelineModel({
@@ -23,7 +23,7 @@ describe('Task Runner', () => {
   })
 
   it('Can run successful pipeline', async () => {
-    const result = await taskPopulation({}, {} as Context, () => {});
+    const result = await taskPopulation({}, {} as Context, () => {})
 
     expect(result).toBe('')
   })
