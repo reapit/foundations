@@ -3,13 +3,15 @@
   "name": "reapit-cli",
   "dependencies": {
     "chalk": "^4.1.1",
-    "clime": "^0.5.14",
     "figlet": "^1.5.0",
-    "inquirer": "^8.0.0"
+    "inquirer": "^8.0.0",
+    "reflect-metadata": "^0.1.13",
+    "yargs": "^17.0.1"
   },
   "devDependencies": {
     "@types/figlet": "^1.5.1",
     "@types/inquirer": "^7.3.1",
+    "@types/yargs": "^16.0.2",
     "ts-node": "^9.1.1"
   },
   "scripts": {
