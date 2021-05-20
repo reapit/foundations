@@ -6,7 +6,7 @@ export const OPTION_NAME = 'OPTION_NAME'
 export type CommandOptions = {
   name: string;
   description: string;
-  parentCommand?: string;
+  parent?: string;
 }
 
 export const Command = (options: CommandOptions | {default: true}): ClassDecorator => (target) => Reflect.defineMetadata(COMMAND_OPTIONS, options, target)

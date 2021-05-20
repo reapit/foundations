@@ -10,12 +10,25 @@ import { COMMAND_OPTIONS } from './decorators'
 import { IntroCommand } from './intro'
 
 const boot = async (defaultCommand: AbstractCommand, commands: AbstractCommand[]) => {
-  const {_: params, options} = yargs(hideBin(process.argv)).argv
+  const { _: params, options } = yargs(hideBin(process.argv)).argv
 
-  if (params.length === 0) {
+  if (params.length === 0 && Object.keys(options as Array<any>).length === 0) {
     defaultCommand.run(params, options);
     return;
-  }
+  } 
+  // TODO figure out how to add help command stuffs
+  // else if (params.length === 0 && options) {
+  //   commands.forEach(command => {
+  //     const config: CommandOptions = Reflect.getOwnMetadata(COMMAND_OPTIONS, command.constructor);
+
+  //     console.log(
+  //       `
+  //         ${chalk.bold.white([config.parent, config.name].filter(sub => typeof sub !== 'undefined').join(' '))}
+  //         ${chalk.white(config.description)}
+  //       `,
+  //     )
+  //   })
+  // }
 
   const command = commands.find(command => {
     const commandConfig = Reflect.getOwnMetadata(COMMAND_OPTIONS, command.constructor);
@@ -24,7 +37,7 @@ const boot = async (defaultCommand: AbstractCommand, commands: AbstractCommand[]
   });
 
   if (!command) {
-    console.log(chalk.red('Command not found'))
+    console.log(chalk.red('sub command not found'))
   }
   else command.run(params, options)
 }
