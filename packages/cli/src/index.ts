@@ -5,7 +5,8 @@ import 'reflect-metadata'
 import yargs from 'yargs'
 import { hideBin } from 'yargs/helpers'
 import { AbstractCommand } from './abstract.command'
-import { ConfigCommand } from './config'
+import { ConfigCommand } from './commands/config'
+import { DeploymentList } from './commands/deployment/list'
 import { COMMAND_OPTIONS } from './decorators'
 import { IntroCommand } from './intro'
 
@@ -46,5 +47,6 @@ boot(
   new IntroCommand(),
   [
     new ConfigCommand(),
+    new DeploymentList(),
   ],
 )
