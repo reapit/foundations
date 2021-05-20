@@ -1,0 +1,19 @@
+{
+  "version": "0.1.0",
+  "name": "reapit-cli",
+  "dependencies": {
+    "chalk": "^4.1.1",
+    "clime": "^0.5.14",
+    "figlet": "^1.5.0",
+    "inquirer": "^8.0.0"
+  },
+  "devDependencies": {
+    "@types/figlet": "^1.5.1",
+    "@types/inquirer": "^7.3.1",
+    "ts-node": "^9.1.1"
+  },
+  "scripts": {
+    "run": "ts-node src/index.ts",
+    "build": "tsc -p ."
+  }
+}
