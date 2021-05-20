@@ -1,6 +1,6 @@
-import { AbstractCommand } from "./abstract.command"
-import { Command } from "./decorators"
-import { resolveConfig, ReapitCliConfig, createConfig } from "./utils"
+import { AbstractCommand } from "./../abstract.command"
+import { Command } from "./../decorators"
+import { resolveConfig, ReapitCliConfig, createConfig } from "./../utils"
 import inquirer from 'inquirer'
 import chalk from "chalk"
 import {resolve} from 'path'

@@ -2,6 +2,7 @@
   "version": "0.1.0",
   "name": "reapit-cli",
   "dependencies": {
+    "axios": "^0.21.1",
     "chalk": "^4.1.1",
     "figlet": "^1.5.0",
     "inquirer": "^8.0.0",

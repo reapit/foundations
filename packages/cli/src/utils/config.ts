@@ -8,6 +8,11 @@ export type ReapitCliConfig = {
   baseUrl?: string
 }
 
+export type ReapitCliConfigResolve = {
+  config: ReapitCliConfig
+  from: 'project' | 'global'
+}
+
 const findConfig = async (relativePath: string): Promise<false | ReapitCliConfig> => {
   if (!fs.existsSync(resolve(relativePath, fileName))) return Promise.resolve(false)
 
@@ -16,7 +21,7 @@ const findConfig = async (relativePath: string): Promise<false | ReapitCliConfig
   return JSON.parse(config)
 }
 
-export const resolveConfig = async (): Promise<false | {config: ReapitCliConfig; from: 'project' | 'global'}> => {
+export const resolveConfig = async (): Promise<false | ReapitCliConfigResolve> => {
   const configs = await Promise.all([
     findConfig(process.cwd()),
     findConfig(resolve('~')),
