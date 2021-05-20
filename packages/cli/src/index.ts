@@ -1,9 +1,37 @@
 #!/usr/bin/env node
 
-import * as Path from 'path';
-import { CLI, Shim } from 'clime';
+import chalk from 'chalk'
+import 'reflect-metadata'
+import yargs from 'yargs'
+import { hideBin } from 'yargs/helpers'
+import { AbstractCommand } from './abstract.command'
+import { ConfigCommand } from './config'
+import { COMMAND_OPTIONS } from './decorators'
+import { IntroCommand } from './intro'
 
-let cli = new CLI('help', Path.join(__dirname, 'commands'));
+const boot = async (defaultCommand: AbstractCommand, commands: AbstractCommand[]) => {
+  const {_: params, options} = yargs(hideBin(process.argv)).argv
 
-let shim = new Shim(cli);
-shim.execute(process.argv);
+  if (params.length === 0) {
+    defaultCommand.run(params, options);
+    return;
+  }
+
+  const command = commands.find(command => {
+    const commandConfig = Reflect.getOwnMetadata(COMMAND_OPTIONS, command.constructor);
+
+    return commandConfig && !commandConfig.default && commandConfig.name === params[0];
+  });
+
+  if (!command) {
+    console.log(chalk.red('Command not found'))
+  }
+  else command.run(params, options)
+}
+
+boot(
+  new IntroCommand(),
+  [
+    new ConfigCommand(),
+  ],
+)
