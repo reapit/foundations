@@ -1,6 +1,7 @@
 {
   "version": "0.1.0",
   "name": "reapit-cli",
+  "description": "A cli tool for reapit deployments and other commands",
   "dependencies": {
     "axios": "^0.21.1",
     "chalk": "^4.1.1",

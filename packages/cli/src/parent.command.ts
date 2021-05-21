@@ -27,7 +27,7 @@ export abstract class ParentCommand extends AbstractCommand {
   printConfig() {
     const parentConfig = Reflect.getOwnMetadata(COMMAND_OPTIONS, this.constructor)
     console.log(`
-    ${chalk.green(parentConfig.name)}
+    ${chalk.bold.green(parentConfig.name)}
       ${parentConfig.description}
     `)
     this.commands.forEach((command) => command.printConfig())

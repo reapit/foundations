@@ -37,7 +37,7 @@ export abstract class AbstractCommand {
   printConfig() {
     const config: CommandOptions = Reflect.getOwnMetadata(COMMAND_OPTIONS, this.constructor)
     console.log(`
-      ${chalk.white(config.name)}
+      ${chalk.bold.white(config.name)}
       ${config.description}
     `)
   }
