@@ -31511,8 +31511,11 @@ fsevents@^1.2.7:
     "@types/yargs": ^16.0.2
     axios: ^0.21.1
     chalk: ^4.1.1
+    concurrently: ^6.1.0
+    eslint: ^7.26.0
     figlet: ^1.5.0
     inquirer: ^8.0.0
+    prettier: ^2.3.0
     process.argv: ^0.6.0
     reflect-metadata: ^0.1.13
     ts-node: ^9.1.1

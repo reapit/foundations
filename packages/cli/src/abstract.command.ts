@@ -1,17 +1,14 @@
-import { ReapitCliConfigResolve, resolveConfig } from "./utils";
-import axios from 'axios';
-import { CommandOptions, COMMAND_OPTIONS } from "./decorators";
-import chalk from "chalk";
+import { ReapitCliConfigResolve, resolveConfig } from './utils'
+import axios from 'axios'
+import { CommandOptions, COMMAND_OPTIONS } from './decorators'
+import chalk from 'chalk'
 
 export interface Command {
-  run(): Promise<any> | any;
+  run(): Promise<any> | any
 }
 
 export abstract class AbstractCommand {
-  abstract run(
-    params: {[s: string]: any},
-    options: unknown,
-  );
+  abstract run(params: { [s: string]: any }, options: unknown)
 
   async getConfig(): Promise<ReapitCliConfigResolve | false> {
     return resolveConfig()

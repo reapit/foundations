@@ -22,17 +22,14 @@ const findConfig = async (relativePath: string): Promise<false | ReapitCliConfig
 }
 
 export const resolveConfig = async (): Promise<false | ReapitCliConfigResolve> => {
-  const configs = await Promise.all([
-    findConfig(process.cwd()),
-    findConfig(resolve('~')),
-  ])
+  const configs = await Promise.all([findConfig(process.cwd()), findConfig(resolve('~'))])
 
   if (configs[0] !== false) return { config: configs[0], from: 'project' }
-  return (configs[1] !== false) ? { config: configs[1], from: 'global' } : false
+  return configs[1] !== false ? { config: configs[1], from: 'global' } : false
 }
 
 export const createConfig = async (path: string, config: ReapitCliConfig): Promise<void> => {
   fs.writeFileSync(resolve(path, fileName), JSON.stringify(config), {
     encoding: 'utf-8',
-  });
+  })
 }
