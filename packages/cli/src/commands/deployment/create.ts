@@ -1,12 +1,12 @@
-import chalk from "chalk";
-import { AbstractCommand } from "../../abstract.command";
-import { Command } from "../../decorators";
+import chalk from 'chalk'
+import { AbstractCommand } from '../../abstract.command'
+import { Command } from '../../decorators'
 import { DeploymentModelInterface } from '@reapit/foundations-ts-definitions'
 
 @Command({
-  name: "create",
-  parent: "deployment",
-  description: "List deployments",
+  name: 'create',
+  parent: 'deployment',
+  description: 'List deployments',
 })
 export class DeploymentCreate extends AbstractCommand {
   async run() {
@@ -19,6 +19,6 @@ export class DeploymentCreate extends AbstractCommand {
 
     // TODO use inquirer for questions and anwser blocks
 
-    const response = await this.axios(config.config.baseUrl).get<DeploymentModelInterface[]>('/deployments')
+    const response = await this.axios(config.config.baseUrl).post<DeploymentModelInterface[]>('/deployments', {})
   }
 }

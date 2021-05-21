@@ -19,27 +19,25 @@ const boot = async (defaultCommand: AbstractCommand, commands: (AbstractCommand 
   const options = commandsArgs
 
   if (!params && Object.keys(options).length === 0) {
-    defaultCommand.run(params, options);
-    return;
-  }
-  else if (!params || params.length === 0 && options) {
-    defaultCommand.run(params, options);
+    defaultCommand.run(params, options)
+    return
+  } else if (!params || (params.length === 0 && options)) {
+    defaultCommand.run(params, options)
     const helpCommand = new HelpCommand()
     helpCommand.setCommands(commands)
     helpCommand.run()
-    return;
+    return
   }
 
-  const command = commands.find(command => {
-    const commandConfig = Reflect.getOwnMetadata(COMMAND_OPTIONS, command.constructor);
+  const command = commands.find((command) => {
+    const commandConfig = Reflect.getOwnMetadata(COMMAND_OPTIONS, command.constructor)
 
-    return (commandConfig && !commandConfig.default && commandConfig.name === params[0])
-  });
+    return commandConfig && !commandConfig.default && commandConfig.name === params[0]
+  })
 
   if (!command) {
     console.log(chalk.red('sub command not found'))
-  }
-  else {
+  } else {
     if (command instanceof ParentCommand && command.isChildRunnable(params)) {
       command.runChild(params, options)
       return
@@ -48,10 +46,4 @@ const boot = async (defaultCommand: AbstractCommand, commands: (AbstractCommand 
   }
 }
 
-boot(
-  new IntroCommand(),
-  [
-    new ConfigCommand(),
-    new DeploymentCommand(),
-  ],
-)
+boot(new IntroCommand(), [new ConfigCommand(), new DeploymentCommand()])

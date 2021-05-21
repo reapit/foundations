@@ -1,12 +1,12 @@
-import chalk from "chalk";
-import { AbstractCommand } from "../../abstract.command";
-import { Command } from "../../decorators";
+import chalk from 'chalk'
+import { AbstractCommand } from '../../abstract.command'
+import { Command } from '../../decorators'
 import { DeploymentModelInterface } from '@reapit/foundations-ts-definitions'
 
 @Command({
-  name: "list",
-  parent: "deployment",
-  description: "List deployments",
+  name: 'list',
+  parent: 'deployment',
+  description: 'List deployments',
 })
 export class DeploymentList extends AbstractCommand {
   async run() {
@@ -20,7 +20,7 @@ export class DeploymentList extends AbstractCommand {
     const response = await this.axios(config.config.baseUrl).get<DeploymentModelInterface[]>('/deployments')
 
     if (response.status !== 200) {
-      console.log(chalk.red("Error fetching results: ", response.status, response.statusText))
+      console.log(chalk.red('Error fetching results: ', response.status, response.statusText))
     }
 
     if (response.data.length === 0) {
@@ -28,14 +28,13 @@ export class DeploymentList extends AbstractCommand {
       return
     }
 
-    console.table(response.data.map(deployment => ([
-      chalk.blue(deployment.id),
-      chalk.blue(deployment.name),
-      chalk.blue(deployment.appType),
-    ])), [
-      'id',
-      'name',
-      'deployment type',
-    ])
+    console.table(
+      response.data.map((deployment) => [
+        chalk.blue(deployment.id),
+        chalk.blue(deployment.name),
+        chalk.blue(deployment.appType),
+      ]),
+      ['id', 'name', 'deployment type'],
+    )
   }
 }
