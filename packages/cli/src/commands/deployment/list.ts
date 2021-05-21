@@ -11,13 +11,14 @@ import ora from 'ora'
 })
 export class DeploymentList extends AbstractCommand {
   async run() {
-    const spinner = ora('Fetching deployments').start();
-    const response = await (await this.axios()).get<DeploymentModelInterface[]>('/', { // deployments
+    const spinner = ora('Fetching deployments').start()
+    const response = await (await this.axios()).get<DeploymentModelInterface[]>('/', {
+      // deployments
       headers: {
         authorization: '',
-      }
+      },
     })
-    spinner.stop();
+    spinner.stop()
 
     if (response.status !== 200) {
       console.log(chalk.red('Error fetching results: ', response.status, response.statusText))

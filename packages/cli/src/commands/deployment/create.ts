@@ -19,7 +19,7 @@ export class DeploymentCreate extends AbstractCommand {
     const answers = await inquirer.prompt([
       {
         type: 'input',
-        message: 'Your project\'s name',
+        message: "Your project's name",
         name: 'name',
         default: process.cwd().split('/').pop(),
       },
@@ -27,24 +27,21 @@ export class DeploymentCreate extends AbstractCommand {
         type: 'list',
         message: 'App Type',
         name: 'appType',
-        choices: [
-          "Node",
-          "React",
-        ],
+        choices: ['Node', 'React'],
       },
       {
-        type: "confirm",
-        message: "Would you like to create a deployment config in this directory?",
-        name: "create",
+        type: 'confirm',
+        message: 'Would you like to create a deployment config in this directory?',
+        name: 'create',
       },
     ])
-  
-    const spinner = ora('Creating deployments').start();
+
+    const spinner = ora('Creating deployments').start()
     const response = await (await this.axios()).post<DeploymentModelInterface>('/', {
       name: answers.name,
       appType: answers.appType.toLowerCase(),
     }) // /deployment
-    spinner.stop();
+    spinner.stop()
 
     if (response.status === 200) {
       console.log(chalk.green('Successfully created deployment'))
