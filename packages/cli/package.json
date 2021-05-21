@@ -6,8 +6,8 @@
     "chalk": "^4.1.1",
     "figlet": "^1.5.0",
     "inquirer": "^8.0.0",
-    "reflect-metadata": "^0.1.13",
-    "yargs": "^17.0.1"
+    "process.argv": "^0.6.0",
+    "reflect-metadata": "^0.1.13"
   },
   "devDependencies": {
     "@types/figlet": "^1.5.1",

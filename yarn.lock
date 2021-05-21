@@ -27788,6 +27788,13 @@ fsevents@^1.2.7:
   languageName: node
   linkType: hard
 
+"obop@npm:^0.2.0":
+  version: 0.2.1
+  resolution: "obop@npm:0.2.1"
+  checksum: 17f37d61708b23e4f4cc802dde023f7030e1567cf5d8fbce5bcf6d35801e086a8828f71286db0df794ec91a2b360301cdce8fa53b30b452732a395a71548f7b6
+  languageName: node
+  linkType: hard
+
 "obuf@npm:^1.0.0, obuf@npm:^1.1.2":
   version: 1.1.2
   resolution: "obuf@npm:1.1.2"
@@ -29671,6 +29678,15 @@ fsevents@^1.2.7:
   languageName: node
   linkType: hard
 
+"process.argv@npm:^0.6.0":
+  version: 0.6.0
+  resolution: "process.argv@npm:0.6.0"
+  dependencies:
+    obop: ^0.2.0
+  checksum: 970d2702b1fec9e765ab96fe3c495ebbca40f50ebe6277cf97f62077d9302cd54d66e59fbcf47ad6513f15d1cba2d3064ae1bf3d9c968b414e7bec310378b578
+  languageName: node
+  linkType: hard
+
 "process@npm:^0.11.1, process@npm:^0.11.10":
   version: 0.11.10
   resolution: "process@npm:0.11.10"
@@ -31497,9 +31513,9 @@ fsevents@^1.2.7:
     chalk: ^4.1.1
     figlet: ^1.5.0
     inquirer: ^8.0.0
+    process.argv: ^0.6.0
     reflect-metadata: ^0.1.13
     ts-node: ^9.1.1
-    yargs: ^17.0.1
   languageName: unknown
   linkType: soft
 
@@ -39088,21 +39104,6 @@ typescript@^4.0.3:
     y18n: ^5.0.5
     yargs-parser: ^20.2.2
   checksum: a79ce1f043021cd645de1ffebb6149541d382ba68f4a6b5eca5d2ad65af51893371bbd78e240dc3b6cf0cbb419511ba5bda715dec992e4266e6863ea49f14feb
-  languageName: node
-  linkType: hard
-
-"yargs@npm:^17.0.1":
-  version: 17.0.1
-  resolution: "yargs@npm:17.0.1"
-  dependencies:
-    cliui: ^7.0.2
-    escalade: ^3.1.1
-    get-caller-file: ^2.0.5
-    require-directory: ^2.1.1
-    string-width: ^4.2.0
-    y18n: ^5.0.5
-    yargs-parser: ^20.2.2
-  checksum: a7969b48d2dea129a7d4fcc3f13e88d4f94bacbd24f720b2ce19946fa9facc42cfed89c059d953091241f4e9e9000ed9dbf86e4bb4b6ceb3a26af10ddebdd0b2
   languageName: node
   linkType: hard
 
