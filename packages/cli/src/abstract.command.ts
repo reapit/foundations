@@ -14,12 +14,25 @@ export abstract class AbstractCommand {
     return resolveConfig()
   }
 
-  axios(baseURL: string = 'https://developer.reapit.com/') {
+  async axios() {
     // TODO get login creds from config or whatever is required
+    const config = await this.getConfig();
+
+    if (!config || !config.config) {
+      console.log(chalk.red('No config found. Please use the config command before running this command'))
+      throw new Error()
+    }
+
     return axios.create({
-      baseURL,
+      baseURL: config ? config.config.baseUrl : 'https://developer.reapit.com/',
+      headers: {
+        'reapit-customer': config.config['customer'], // TODO get these from config etc
+        'reapit-connect-token': config.config['connect-token'], // TODO get these from config etc
+      },
     })
   }
+
+
 
   printConfig() {
     const config: CommandOptions = Reflect.getOwnMetadata(COMMAND_OPTIONS, this.constructor)
