@@ -9,8 +9,7 @@ import { resolve } from 'path'
 
 @Command({
   name: 'create',
-  parent: 'deployment',
-  description: 'List deployments',
+  description: 'Create a deployment',
 })
 export class DeploymentCreate extends AbstractCommand {
   async run() {

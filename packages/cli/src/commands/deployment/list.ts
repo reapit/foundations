@@ -6,7 +6,6 @@ import ora from 'ora'
 
 @Command({
   name: 'list',
-  parent: 'deployment',
   description: 'List deployments',
 })
 export class DeploymentList extends AbstractCommand {
@@ -14,9 +13,6 @@ export class DeploymentList extends AbstractCommand {
     const spinner = ora('Fetching deployments').start()
     const response = await (await this.axios()).get<DeploymentModelInterface[]>('/', {
       // deployments
-      headers: {
-        authorization: '',
-      },
     })
     spinner.stop()
 

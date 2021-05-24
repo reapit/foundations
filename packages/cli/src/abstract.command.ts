@@ -23,6 +23,8 @@ export abstract class AbstractCommand {
       throw new Error()
     }
 
+    console.log(config.config)
+
     return axios.create({
       baseURL: config ? config.config.baseUrl : 'https://developer.reapit.com/',
       headers: {
