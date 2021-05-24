@@ -6,7 +6,6 @@ export const OPTION_NAME = 'OPTION_NAME'
 export type CommandOptions = {
   name: string
   description: string
-  parent?: string
 }
 
 export const Command = (options: CommandOptions | { default: true }): ClassDecorator => (target) =>

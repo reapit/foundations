@@ -10,6 +10,7 @@ import { IntroCommand } from './intro'
 import { HelpCommand } from './commands/help'
 import { ParentCommand } from './parent.command'
 import { DeploymentCommand } from './commands/deployment'
+import { DeployCommand } from './commands/deploy'
 
 const boot = async (defaultCommand: AbstractCommand, commands: (AbstractCommand | ParentCommand)[]) => {
   const processArgv = argv(process.argv.slice(2))
@@ -46,4 +47,4 @@ const boot = async (defaultCommand: AbstractCommand, commands: (AbstractCommand 
   }
 }
 
-boot(new IntroCommand(), [new ConfigCommand(), new DeploymentCommand()])
+boot(new IntroCommand(), [new ConfigCommand(), new DeploymentCommand(), new DeployCommand()])
