@@ -113,6 +113,7 @@ exports[`MarketplaceAppPage should match a snapshot when has data 1`] = `
       </AppPricingPermissionsSection>
       <AppToggleVisibilitySection
         app={Object {}}
+        reFetchApp={[MockFunction]}
       >
         <Section
           hasPadding={false}
