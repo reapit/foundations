@@ -18,7 +18,7 @@
     "build": "echo '...skipping...'",
     "lint": "concurrently \"prettier src/**/*.ts --write \"  \"eslint --cache --ext=ts,tsx src --fix\"",
     "test": "cross-env TZ=UTC jest --watch --colors --silent",
-    "conf": "yarn config-manager --namespace cloud --entity apiKey --name local --mode fetch",
+    "conf": "yarn config-manager --namespace cloud --entity api-key-service --name local --mode fetch",
     "release": "serverless deploy",
     "publish": "echo '...skipping...'"
   }
