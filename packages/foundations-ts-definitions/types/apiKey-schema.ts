@@ -16,6 +16,6 @@ export interface PaymentApiKeyInterface extends ApiKeyInterface {
 }
 
 export interface DeploymentApiKeyInterface extends ApiKeyInterface {
-	developmentId: string
+	developerId: string
 	organisationId?: string
 }
