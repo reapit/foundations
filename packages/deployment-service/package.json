@@ -13,7 +13,7 @@
     "lint": "concurrently \"prettier src/**/*.ts --write \"  \"eslint --cache --ext=ts,tsx src --fix\"",
     "release": "serverless deploy",
     "publish": "echo '...skipping...'",
-    "conf": "yarn config-manager --namespace cloud --entity deployment-service --name local --mode fetch"
+    "conf": "...skipping... && echo 'yarn config-manager --namespace cloud --entity deployment-service --name local --mode fetch'"
   },
   "devDependencies": {
     "concurrently": "^6.1.0",
