@@ -1,28 +1,35 @@
-import { httpHandler, ValidationException } from '@homeservenow/serverless-aws-handler'
+import { httpHandler, UnauthorizedException, ValidationException } from '@homeservenow/serverless-aws-handler'
 import { DeploymentDto } from '@/dto'
 import { DeploymentModel } from '@/models'
 import * as service from '@/services/deployment'
 import { plainToClass, classToClassFromExist } from 'class-transformer'
 import { validate } from 'class-validator'
 import { authorised } from '@/utils'
-import { decodeToken } from '@/utils/decode.token'
+import { connectSessionVerifyDecodeIdToken, LoginIdentity } from '@reapit/connect-session'
 
 /**
  * Create a deployment
  */
 export const createDeployment = httpHandler<DeploymentDto, DeploymentModel>({
   serialise: {
-    input: (event): DeploymentDto => {
+    input: async (event): Promise<DeploymentDto> => {
       authorised(event)
-      const customer = decodeToken(event.headers['reapit-connect-token'] as string)
-      const organisationId = customer['custom:reapit:orgId']
-      const developerId = customer['custom:reapit:developerId']
+      let customer: LoginIdentity | undefined
+
+      try {
+        customer = await connectSessionVerifyDecodeIdToken(
+          event.headers['reapit-connect-token'] as string,
+          process.env.CONNECT_USER_POOL as string,
+        )
+      } catch (e) {
+        throw new UnauthorizedException(e.message)
+      }
 
       return event.body
         ? plainToClass(DeploymentDto, {
             ...JSON.parse(event.body),
-            organisationId,
-            developerId,
+            organisationId: customer?.orgId,
+            developerId: customer?.developerId,
           })
         : new DeploymentDto()
     },
