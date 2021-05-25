@@ -7,7 +7,7 @@
     "class-validator": "^0.13.1"
   },
   "scripts": {
-    "conf": "...skipping...",
+    "conf": "echo '...skipping...'",
     "test": "...skipping...",
     "lint": "...skipping..."
   }
