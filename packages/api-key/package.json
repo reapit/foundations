@@ -1,0 +1,9 @@
+{
+  "name": "api-key",
+  "dependencies": {
+    "@aws/dynamodb-data-mapper-annotations": "^0.7.3",
+    "@homeservenow/serverless-aws-handler": "^0.2.4",
+    "class-transformer": "^0.4.0",
+    "class-validator": "^0.13.1"
+  }
+}
