@@ -16,9 +16,11 @@ export class DeployCommand extends AbstractCommand {
       console.log(chalk.red('No deployment config found in cwd'))
       return
     }
-    const deployment = JSON.parse(fs.readFileSync(resolve(process.cwd(), 'reapit-deployment.json'), {
-      encoding: 'utf8',
-    }))
+    const deployment = JSON.parse(
+      fs.readFileSync(resolve(process.cwd(), 'reapit-deployment.json'), {
+        encoding: 'utf8',
+      }),
+    )
 
     console.log(deployment)
 
