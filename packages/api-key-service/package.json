@@ -8,6 +8,7 @@
   },
   "scripts": {
     "conf": "...skipping...",
-    "test": "...skipping..."
+    "test": "...skipping...",
+    "lint": "...skipping..."
   }
 }
