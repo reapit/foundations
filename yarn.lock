@@ -10023,9 +10023,9 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"api-key@workspace:packages/api-key":
+"api-key@workspace:packages/api-key-service":
   version: 0.0.0-use.local
-  resolution: "api-key@workspace:packages/api-key"
+  resolution: "api-key@workspace:packages/api-key-service"
   dependencies:
     "@aws/dynamodb-data-mapper-annotations": ^0.7.3
     "@homeservenow/serverless-aws-handler": ^0.2.4
