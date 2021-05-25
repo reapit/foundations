@@ -26,8 +26,8 @@ export const getByKey = (id: string): Promise<DeploymentModel | undefined> => {
 }
 
 export const batchGet = async (
-  organisationId: string,
   developerId: string,
+  organisationId?: string,
   startKey?: { [s: string]: string },
 ): Promise<QueryPaginator<DeploymentModel>> => {
   return db
