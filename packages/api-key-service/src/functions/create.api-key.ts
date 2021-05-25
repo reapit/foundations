@@ -1,24 +1,32 @@
-import { httpHandler, ValidationException } from '@homeservenow/serverless-aws-handler'
+import { httpHandler, UnauthorizedException, ValidationException } from '@homeservenow/serverless-aws-handler'
 import { plainToClass } from 'class-transformer'
 import { validate } from 'class-validator'
 import { ApiKeyDto } from '@/dto'
 import { ApiKeyModel } from '@/models'
 import { createApiKey as create } from '@/services'
-import { authorised, decodeToken } from '@reapit/node-utils'
+import { authorised } from '@reapit/node-utils'
+import { connectSessionVerifyDecodeIdToken, LoginIdentity } from '@reapit/connect-session'
 
 export const createApiKey = httpHandler<ApiKeyDto, ApiKeyModel>({
   serialise: {
-    input: (event): ApiKeyDto => {
+    input: async (event): Promise<ApiKeyDto> => {
       authorised(event)
-      const customer = decodeToken(event.headers['reapit-connect-token'] as string)
-      const organisationId = customer['custom:reapit:orgId']
-      const developerId = customer['custom:reapit:developerId']
+      let customer: LoginIdentity | undefined
+
+      try {
+        customer = await connectSessionVerifyDecodeIdToken(
+          event.headers['reapit-connect-token'] as string,
+          process.env.CONNECT_USER_POOL as string,
+        )
+      } catch (e) {
+        throw new UnauthorizedException(e.message)
+      }
 
       return event.body
         ? plainToClass(ApiKeyDto, {
             ...JSON.parse(event.body),
-            organisationId,
-            developerId,
+            organisationId: customer?.orgId,
+            developerId: customer?.developerId,
           })
         : new ApiKeyDto()
     },
