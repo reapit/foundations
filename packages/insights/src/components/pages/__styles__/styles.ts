@@ -1,4 +1,5 @@
 import { css } from 'linaria'
+import { styled } from 'linaria/react'
 
 export const loginContainer = css`
   min-width: 100vw;
@@ -89,4 +90,8 @@ export const loginImage = css`
       background-image: url('../../../assets/images/login/step-3.svg');
     }
   }
+`
+
+export const MetabaseContainer = styled.div`
+  height: 100%;
 `
