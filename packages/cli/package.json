@@ -23,6 +23,10 @@
   "scripts": {
     "run": "ts-node src/index.ts",
     "build": "tsc -p .",
-    "lint": "concurrently \"prettier src/**/*.ts --write \"  \"eslint --cache --ext=ts,tsx src --fix\""
+    "lint": "concurrently \"prettier src/**/*.ts --write \"  \"eslint --cache --ext=ts,tsx src --fix\"",
+    "conf": "echo '...skipping...'",
+    "test": "echo '...skipping...'",
+    "release": "echo '...skipping...'",
+    "publish": "echo '...skipping...'"
   }
 }
