@@ -4,5 +4,5 @@ export const BASE_HEADERS = {
 }
 
 export const URLS = {
-  METABASE: '/metabase',
+  POWER_BI: '/powerbi',
 }
