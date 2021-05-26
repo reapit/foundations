@@ -113,7 +113,7 @@ functions:
     handler: src/index.createApiKey
     events:
       - http:
-          path: /
+          path: /api-key
           method: post
           cors:
             origin: '*'
