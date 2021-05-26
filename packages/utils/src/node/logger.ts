@@ -1,5 +1,5 @@
 import winston, { LeveledLogMethod, Logger } from 'winston'
-import uuid from 'uuid/v4'
+import { v4 as uuid } from 'uuid'
 import { createWistonLoggerErrorFn } from './sentry-logger'
 import express from 'express'
 
