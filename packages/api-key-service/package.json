@@ -1,5 +1,5 @@
 {
-  "name": "api-key",
+  "name": "api-key-service",
   "dependencies": {
     "@aws/dynamodb-data-mapper-annotations": "^0.7.3",
     "@homeservenow/serverless-aws-handler": "^0.2.4",
