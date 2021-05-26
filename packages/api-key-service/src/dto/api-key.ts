@@ -3,15 +3,15 @@ import { IsEnum, IsNotEmpty, IsOptional, IsString } from 'class-validator'
 
 export class ApiKeyDto {
   @IsEnum(KeyType)
-  keyType: KeyType
+  keyType?: KeyType
 
   @IsString()
   @IsNotEmpty()
-  keyExpiresAt: string
+  keyExpiresAt?: string
 
   @IsString()
   @IsNotEmpty()
-  clientCode: string
+  clientCode?: string
 
   @IsString()
   @IsOptional()

@@ -5171,6 +5171,27 @@ __metadata:
   languageName: node
   linkType: hard
 
+"@reapit/cli@workspace:packages/cli":
+  version: 0.0.0-use.local
+  resolution: "@reapit/cli@workspace:packages/cli"
+  dependencies:
+    "@types/figlet": ^1.5.1
+    "@types/inquirer": ^7.3.1
+    "@types/yargs": ^16.0.2
+    axios: ^0.21.1
+    chalk: ^4.1.1
+    concurrently: ^6.1.0
+    eslint: ^7.26.0
+    figlet: ^1.5.0
+    inquirer: ^8.0.0
+    ora: ^5.4.0
+    prettier: ^2.3.0
+    process.argv: ^0.6.0
+    reflect-metadata: ^0.1.13
+    ts-node: ^9.1.1
+  languageName: unknown
+  linkType: soft
+
 "@reapit/config-manager@^2.0.8, @reapit/config-manager@workspace:packages/config-manager":
   version: 0.0.0-use.local
   resolution: "@reapit/config-manager@workspace:packages/config-manager"
@@ -10182,9 +10203,9 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"api-key@workspace:packages/api-key-service":
+"api-key-service@workspace:packages/api-key-service":
   version: 0.0.0-use.local
-  resolution: "api-key@workspace:packages/api-key-service"
+  resolution: "api-key-service@workspace:packages/api-key-service"
   dependencies:
     "@aws/dynamodb-data-mapper-annotations": ^0.7.3
     "@homeservenow/serverless-aws-handler": ^0.2.4
@@ -31886,27 +31907,6 @@ fsevents@^1.2.7:
   checksum: 808efda909def3b5ef195f4bc7bbf4813b8b5f3cad37d89664bd9c28475d69a3f4d3751adf7980403b55522acf537cce825d8a9ba9f994e9354107ab7f257583
   languageName: node
   linkType: hard
-
-"reapit-cli@workspace:packages/cli":
-  version: 0.0.0-use.local
-  resolution: "reapit-cli@workspace:packages/cli"
-  dependencies:
-    "@types/figlet": ^1.5.1
-    "@types/inquirer": ^7.3.1
-    "@types/yargs": ^16.0.2
-    axios: ^0.21.1
-    chalk: ^4.1.1
-    concurrently: ^6.1.0
-    eslint: ^7.26.0
-    figlet: ^1.5.0
-    inquirer: ^8.0.0
-    ora: ^5.4.0
-    prettier: ^2.3.0
-    process.argv: ^0.6.0
-    reflect-metadata: ^0.1.13
-    ts-node: ^9.1.1
-  languageName: unknown
-  linkType: soft
 
 "reapit-connect@workspace:packages/reapit-connect":
   version: 0.0.0-use.local
