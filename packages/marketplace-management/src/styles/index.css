@@ -1,5 +1,14 @@
 @import url('https://fonts.googleapis.com/css?family=Roboto&display=swap');
 
+body {
+  background: #262f69;
+}
+
+#root {
+  height: 100%;
+  background: #f2f2f2;
+}
+
 .helper-text {
   margin-bottom: 20px;
 }
