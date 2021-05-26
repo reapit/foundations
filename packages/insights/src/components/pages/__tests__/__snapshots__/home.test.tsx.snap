@@ -12,9 +12,9 @@ exports[`Home should match a snapshot 1`] = `
     isFlexColumn={true}
     isFullHeight={true}
   >
-    <Helper>
-      You will now be redirected to Metabase
-    </Helper>
+    <MetabaseContainer
+      id="reportContainer"
+    />
   </Section>
 </Fragment>
 `;

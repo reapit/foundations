@@ -17190,7 +17190,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"es6-promise@npm:^3.0.2":
+"es6-promise@npm:^3.0.2, es6-promise@npm:^3.1.2, es6-promise@npm:^3.2.1":
   version: 3.3.1
   resolution: "es6-promise@npm:3.3.1"
   checksum: 49fefad27ef0cb6a6cdf62dd0040c96596a50b5e0d3901ca1fa1faa5caa690068d5c789c8bcd1d71f917311f67d0d11f617d97957551936575dad0c5154c721e
@@ -21311,6 +21311,15 @@ fsevents@^1.2.7:
   languageName: node
   linkType: hard
 
+"http-post-message@npm:^0.2":
+  version: 0.2.4
+  resolution: "http-post-message@npm:0.2.4"
+  dependencies:
+    es6-promise: ^3.2.1
+  checksum: 102a46266f4ee84c8a46c147548abe30ecbb45371bb7fafc45808912365c8690c581d7a6a6408b6f51da7e7c470eabff03d8e6b150969d8077d6771c2217d550
+  languageName: node
+  linkType: hard
+
 "http-proxy-agent@npm:^2.1.0":
   version: 2.1.0
   resolution: "http-proxy-agent@npm:2.1.0"
@@ -21934,6 +21943,7 @@ fsevents@^1.2.7:
     jest: ^26.6.3
     jest-coverage-badges: ^1.1.2
     linaria: ^2.0.2
+    powerbi-client: ^2.18.0
     react: ^16.14.0
     react-dom: ^16.14.0
     react-ga: ^2.7.0
@@ -29820,6 +29830,35 @@ fsevents@^1.2.7:
   languageName: node
   linkType: hard
 
+"powerbi-client@npm:^2.18.0":
+  version: 2.18.1
+  resolution: "powerbi-client@npm:2.18.1"
+  dependencies:
+    http-post-message: ^0.2
+    powerbi-models: ^1.9
+    powerbi-router: ^0.1
+    window-post-message-proxy: ^0.2
+  checksum: d2032f02e54abf44f859bb01929df56972c9122355e4e41afe7204c6951a42d9ebf90454596e72d4c4ad95edb802da08878dcbd47a7c7b614d5a45b8341ef620
+  languageName: node
+  linkType: hard
+
+"powerbi-models@npm:^1.9":
+  version: 1.9.0
+  resolution: "powerbi-models@npm:1.9.0"
+  checksum: 4740df6f1f08e4495095e8f86048b207b71ac8b1a4e974d2eb80256a19e2f4301dca525f8cec0912e80740018b6aa77e10deb4bd8f0b1daa00a4b49db415fdcb
+  languageName: node
+  linkType: hard
+
+"powerbi-router@npm:^0.1":
+  version: 0.1.5
+  resolution: "powerbi-router@npm:0.1.5"
+  dependencies:
+    es6-promise: ^3.2.1
+    route-recognizer: ^0.1.11
+  checksum: 8c05225b82c04e60b01f93dd231df6d69958a91fe9392f235b4f661a612edb045a173e9c9277f10eec70129128824017078f407c9811aacdc595a2b072fe7849
+  languageName: node
+  linkType: hard
+
 "prebuild-install@npm:5.3.0":
   version: 5.3.0
   resolution: "prebuild-install@npm:5.3.0"
@@ -32913,6 +32952,13 @@ resolve@1.17.0:
   version: 0.1.2
   resolution: "rootpath@npm:0.1.2"
   checksum: 2ac20e32c848e13679931426be381b5b7119311d4d0c1cfc7792ccd6272ad15d430688729d065a8a5d7991191d233baded55ca7861bb810613a7896a66f330d8
+  languageName: node
+  linkType: hard
+
+"route-recognizer@npm:^0.1.11":
+  version: 0.1.11
+  resolution: "route-recognizer@npm:0.1.11"
+  checksum: d73d9c519b37f4e76b47336367660710ac69d613335329a6b2d7c04daa421a196b0d00667761a5084fb4862659f13b845843c2d459ad7be90a79814e271d5792
   languageName: node
   linkType: hard
 
@@ -38828,6 +38874,15 @@ typescript@^4.0.3:
   dependencies:
     string-width: ^4.0.0
   checksum: 729c30582e49bdcb1372216eedfd71d1640a1344a4b4e970bc9f33d575b56b130f530b383fbab2cf2bcffb76ea4357e6a66939778d8de91ca66037651d94e01a
+  languageName: node
+  linkType: hard
+
+"window-post-message-proxy@npm:^0.2":
+  version: 0.2.6
+  resolution: "window-post-message-proxy@npm:0.2.6"
+  dependencies:
+    es6-promise: ^3.1.2
+  checksum: db8bd90cacecddfce7ccd073f71a4baca5d83d6863f4f2306e2b6f49633d5c6012b894162311b79c498f73b9c477b5cbd2f98065406b3fdec225d552b3076b21
   languageName: node
   linkType: hard
 
