@@ -17,7 +17,7 @@
     "start": "serverless dynamodb install && yarn build && yarn serverless offline start --runtime nodejs12.x --stage local",
     "build": "echo '...skipping...'",
     "lint": "concurrently \"prettier src/**/*.ts --write \"  \"eslint --cache --ext=ts,tsx src --fix\"",
-    "test": "cross-env TZ=UTC jest --watch --colors --silent",
+    "test": "echo '...skipping...'",
     "conf": "yarn config-manager --namespace cloud --entity api-key-service --name local --mode fetch",
     "release": "serverless deploy",
     "publish": "echo '...skipping...'"
