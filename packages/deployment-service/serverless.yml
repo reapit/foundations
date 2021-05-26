@@ -172,7 +172,7 @@ functions:
     handler: src/index.createDeployment
     events:
       - http:
-          path: /
+          path: /deployment
           method: post
           cors:
             origin: '*'
@@ -193,7 +193,7 @@ functions:
     handler: src/index.updateDeployment
     events:
       - http:
-          path: /{id}
+          path: /deployment/{id}
           method: put
           cors:
             origin: '*'
@@ -214,7 +214,7 @@ functions:
     handler: src/index.getDeployment
     events:
       - http:
-          path: /{id}
+          path: /deployment/{id}
           method: get
           cors:
             origin: '*'
@@ -235,7 +235,7 @@ functions:
     handler: src/index.deleteDeployment
     events:
       - http:
-          path: /{id}
+          path: /deployment/{id}
           method: delete
           cors:
             origin: '*'
@@ -256,7 +256,7 @@ functions:
     handler: src/index.paginateDeployments
     events:
       - http:
-          path: /
+          path: /deployment
           method: get
           cors:
             origin: '*'
@@ -277,7 +277,7 @@ functions:
     handler: src/index.createPipeline
     events:
       - http:
-          path: /{deploymentId}/pipeline
+          path: /deployment/{deploymentId}/pipeline
           method: post
           cors:
             origin: '*'
@@ -298,7 +298,7 @@ functions:
     handler: src/index.updatePipeline
     events:
       - http:
-          path: /pipeline/{id}
+          path: /deployment/pipeline/{id}
           method: put
           cors:
             origin: '*'
@@ -319,7 +319,7 @@ functions:
     handler: src/index.getPipeline
     events:
       - http:
-          path: /pipeline/{id}
+          path: /deployment/pipeline/{id}
           method: get
           cors:
             origin: '*'
