@@ -2,7 +2,7 @@ import { v4 as uuid } from 'uuid'
 import { AppTypeEnum, PipelineModelInterface } from '@reapit/foundations-ts-definitions'
 import * as services from '@/services'
 import { workflowCreation } from '@/functions'
-import { taskPopulation } from './task.population'
+import { taskPopulation } from '../functions/task.population'
 import { Context } from 'aws-lambda'
 
 jest.mock('../core/db')
