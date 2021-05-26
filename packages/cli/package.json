@@ -1,6 +1,6 @@
 {
   "version": "0.1.0",
-  "name": "reapit-cli",
+  "name": "@reapit/cli",
   "description": "A cli tool for reapit deployments and other commands",
   "main": "dist/index.js",
   "dependencies": {
