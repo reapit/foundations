@@ -8,7 +8,7 @@
       "@reapit/elements": ["../elements/src"],
       "@reapit/utils": ["../utils/index.ts"],
       "@reapit/connect-session": ["../connect-session/src"],
-      "@reapit/foundations-ts-definitions": ["../foundations-ts-definitions/src"],
+      "@reapit/foundations-ts-definitions": ["../foundations-ts-definitions/types"],
       "@reapit/node-utils": ["../utils/src/node/index.ts"]
     },
     "experimentalDecorators": true,
