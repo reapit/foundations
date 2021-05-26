@@ -96,6 +96,7 @@ export const elVariables = css`
       --component-input-bg: var(--color-white);
       --component-input-focus-bg: var(--color-grey-light);
       --component-input-shadow: inset 0px -1px 0px #000000;
+      --component-input-border-bottom: 1px solid #000000;
       --component-steps-gutter-width: 12px;
       --component-table-min-column-width: 3rem;
     }

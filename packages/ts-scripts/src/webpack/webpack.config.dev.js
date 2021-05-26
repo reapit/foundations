@@ -18,7 +18,7 @@ const generateRegexExcludePackages = () => {
 
 const tagName = getVersionTag()
 
-const webpackConfigDev = {
+const webpackConfigDev = ({ appName }) => ({
   mode: 'development',
   bail: true,
   devtool: 'inline-source-map',
@@ -49,22 +49,27 @@ const webpackConfigDev = {
     }),
     new FaviconsWebpackPlugin({
       logo: PATHS.logo,
-      emitStats: false,
-      persistentCache: true,
+      cache: true,
       inject: true,
-      background: '#fff',
-      title: 'Reapit',
-      icons: {
-        android: true,
-        appleIcon: true,
-        appleStartup: true,
-        coast: false,
-        favicons: true,
-        firefox: false,
-        opengraph: false,
-        twitter: false,
-        yandex: false,
-        windows: false,
+      mode: 'light',
+      devMode: 'light',
+      favicons: {
+        appName,
+        developerName: 'Reapit Ltd',
+        background: '#262F69',
+        theme_color: '#262F69',
+        icons: {
+          favicons: true,
+          android: false,
+          appleIcon: false,
+          appleStartup: false,
+          coast: false,
+          firefox: false,
+          opengraph: false,
+          twitter: false,
+          yandex: false,
+          windows: false,
+        },
       },
     }),
     new FriendlyErrorsWebpackPlugin(),
@@ -162,6 +167,6 @@ const webpackConfigDev = {
       chunks: 'all',
     },
   },
-}
+})
 
 module.exports = { webpackConfigDev }
