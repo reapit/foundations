@@ -27,7 +27,9 @@ export interface CredentialsResponseModel extends CredentialsBaseModel {
   reports: Report[]
 }
 
-export const powerBiApiService = async (session: ReapitConnectSession): Promise<CredentialsModel | undefined | never> => {
+export const powerBiApiService = async (
+  session: ReapitConnectSession,
+): Promise<CredentialsModel | undefined | never> => {
   try {
     const response: CredentialsResponseModel | undefined = await fetcher({
       api: window.reapit.config.platformApiUrl,
