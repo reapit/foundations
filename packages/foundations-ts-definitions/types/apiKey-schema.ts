@@ -4,18 +4,12 @@ export enum KeyType {
 }
 
 export interface ApiKeyInterface {
-  apiKey: string
-  keyType: KeyType
-	keyCreatedAt: string
-	keyExpiresAt: string
-	clientCode: string
-}
-
-export interface PaymentApiKeyInterface extends ApiKeyInterface {
-	paymentId: string
-}
-
-export interface DeploymentApiKeyInterface extends ApiKeyInterface {
-	developerId: string
+  apiKey?: string
+  keyType?: KeyType
+	keyCreatedAt?: string
+	keyExpiresAt?: string
+	clientCode?: string
+	developerId?: string
 	organisationId?: string
+	paymentId?: string
 }
