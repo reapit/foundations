@@ -1,4 +1,4 @@
-service: "cloud-api-key-service"
+service: cloud-api-key-service
 
 plugins:
   - serverless-webpack
