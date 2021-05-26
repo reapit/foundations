@@ -1,4 +1,4 @@
-service: "cloud-deployment-service"
+service: cloud-deployment-service
 
 plugins:
   - serverless-webpack
