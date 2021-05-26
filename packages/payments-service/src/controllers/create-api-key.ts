@@ -3,7 +3,7 @@ import { Response, NextFunction } from 'express'
 import { db } from '../core/db'
 import { logger } from '../core/logger'
 import { generateApiKey } from '../core/schema'
-import uuid from 'uuid/v4'
+import { v4 as uuid } from 'uuid'
 
 export const createApiKey = async (req: AppRequest, res: Response, next: NextFunction, apiKey = uuid()) => {
   const { clientCode, paymentId, keyExpiresAt } = req.body
