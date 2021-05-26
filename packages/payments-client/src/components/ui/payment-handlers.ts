@@ -15,7 +15,7 @@ import { MerchantKey } from '../../types/opayo'
 import { opayoMerchantKeyService, opayoCreateTransactionService } from '../../services/opayo'
 import { CardDetails, PaymentStatusType } from './payment-form'
 import { PaymentWithPropertyModel, UpdateStatusBody, UpdateStatusParams } from '../../types/payment'
-import uuid from 'uuid/v4'
+import { v4 as uuid } from 'uuid'
 import { PaymentProvider, OpayoProvider } from '@/services/providers'
 
 export const handlePaymentProviderEffect = (
