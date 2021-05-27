@@ -3,7 +3,7 @@ service: cloud-api-key-service
 plugins:
   - serverless-webpack
   - serverless-offline
-  - serverless-dynamodb-local
+  # - serverless-dynamodb-local
   - serverless-deployment-bucket
 
 custom:
