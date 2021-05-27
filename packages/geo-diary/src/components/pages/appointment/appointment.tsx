@@ -130,7 +130,7 @@ export const getLandlordIds = (appointments: ExtendedAppointmentModel[]) => (): 
 export const handleGetVendors = (
   vendors: VendorsQueryData | undefined,
   setAppState: Dispatch<SetStateAction<AppState>>,
-) => () => {
+) => (): void => {
   if (vendors?.GetVendors._embedded.length) {
     setAppState((currentState) => ({
       ...currentState,
@@ -142,7 +142,7 @@ export const handleGetVendors = (
 export const handleGetLandlords = (
   landlords: LandlordsQueryData | undefined,
   setAppState: Dispatch<SetStateAction<AppState>>,
-) => () => {
+) => (): void => {
   if (landlords?.GetLandlords._embedded.length) {
     setAppState((currentState) => ({
       ...currentState,

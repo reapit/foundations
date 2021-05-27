@@ -6,6 +6,7 @@ import { handleOpenContactDrawer } from './appointment-items'
 import { getShortAddress } from '../../../utils/formatting-utils'
 import { BsHouse } from 'react-icons/bs'
 import { TileIconAnchorWrap, TileSectionContainer } from './__styles__/styles'
+import { ContactDrawerType } from '../contact-drawer'
 
 export type PropertyItemProps = {
   appointment: ExtendedAppointmentModel
@@ -24,7 +25,9 @@ export const PropertyItem: FC<PropertyItemProps> = ({ appointment }) => {
       <Label>Property</Label>
       <TileIconAnchorWrap>
         <BsHouse />
-        <a onClick={handleOpenContactDrawer(setAppState, appointment, 'PROPERTY', property.id ?? null)}>{address}</a>
+        <a onClick={handleOpenContactDrawer(setAppState, appointment, ContactDrawerType.PROPERTY, property.id ?? null)}>
+          {address}
+        </a>
       </TileIconAnchorWrap>
     </TileSectionContainer>
   )

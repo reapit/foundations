@@ -6,6 +6,7 @@ import { VendorLandlordRelatedModel } from '../../pages/appointment/appointment'
 import { ExtendedAppointmentModel } from '../../../types/global'
 import { FadeIn } from '@reapit/elements'
 import { TileIconAnchorWrap, TileSectionContainer } from './__styles__/styles'
+import { ContactDrawerType } from '../contact-drawer'
 
 export type VendorItemProps = {
   appointment: ExtendedAppointmentModel
@@ -32,7 +33,9 @@ export const VendorItem: FC<VendorItemProps> = ({ appointment }) => {
           return (
             <TileIconAnchorWrap key={vendor.id}>
               <Icon icon="username" />
-              <a onClick={handleOpenContactDrawer(setAppState, appointment, 'VENDOR', vendor.id)}>{vendor.name}</a>
+              <a onClick={handleOpenContactDrawer(setAppState, appointment, ContactDrawerType.VENDOR, vendor.id)}>
+                {vendor.name}
+              </a>
             </TileIconAnchorWrap>
           )
         })}
