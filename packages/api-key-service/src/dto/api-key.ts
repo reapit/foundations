@@ -16,4 +16,7 @@ export class ApiKeyDto {
   @IsString()
   @IsOptional()
   paymentId?: string
+
+  @IsString()
+  developerId?: string
 }
