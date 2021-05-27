@@ -76,10 +76,7 @@ const getPublicKeys = async (connectUserPoolId: string): Promise<MapOfKidToPubli
   }
 }
 
-export const connectSessionVerifyDecodeIdToken = async (
-  token: string,
-  connectUserPoolId: string,
-): Promise<LoginIdentity | undefined> => {
+export const connectSessionVerifyDecodeIdTokenWithPublicKeys = async (token: string, connectUserPoolId: string, keys: MapOfKidToPublicKey): Promise<LoginIdentity | undefined> => {
   try {
     const tokenSections = token.split('.')
     const cognitoIssuer = `https://cognito-idp.eu-west-2.amazonaws.com/${connectUserPoolId}`
@@ -89,8 +86,6 @@ export const connectSessionVerifyDecodeIdToken = async (
     const headerJSON = Buffer.from(tokenSections[0], 'base64').toString('utf8')
 
     const header = JSON.parse(headerJSON) as TokenHeader
-
-    const keys = await getPublicKeys(connectUserPoolId)
 
     if (!keys) throw new Error('Error fetching public keys')
 
@@ -128,4 +123,15 @@ export const connectSessionVerifyDecodeIdToken = async (
   } catch (error) {
     console.error('Reapit Connect Session error:', error.message)
   }
+}
+
+export const connectSessionVerifyDecodeIdToken = async (
+  token: string,
+  connectUserPoolId: string,
+): Promise<LoginIdentity | undefined> => {
+  const keys = await getPublicKeys(connectUserPoolId)
+  if (!keys) {
+    throw new Error('public keys not found')
+  }
+  return connectSessionVerifyDecodeIdTokenWithPublicKeys(token, connectUserPoolId, keys)
 }
