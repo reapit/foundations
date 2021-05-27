@@ -28,14 +28,20 @@ export const handleOpenContactDrawer = (
   contactDrawerType: ContactDrawerType,
   contactId: string | null,
 ) => () => {
+  const isDeskop = Boolean(window['__REAPIT_MARKETPLACE_GLOBALS__'])
   setAppState((currentState) => ({
     ...currentState,
     appointment,
     appointmentId: appointment.id ?? null,
-    contactDrawerOpen: true,
+    contactDrawerOpen: isDeskop ? false : true,
     contactDrawerType,
     contactId,
   }))
+
+  if (isDeskop && contactId) {
+    const entity = contactDrawerType === ContactDrawerType.PROPERTY ? 'properties' : 'contacts'
+    window.location.href = `agencycloud://${entity}/${contactId}`
+  }
 }
 
 export const AppointmentItems: FC<RenderIconItemsProps> = ({ appointment }) => {

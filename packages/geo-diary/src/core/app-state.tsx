@@ -59,7 +59,7 @@ export const defaultAppState: AppState = {
   locationQueryAddress: null,
   locationQueryResults: [],
   contactDrawerOpen: false,
-  contactDrawerType: 'ATTENDEE',
+  contactDrawerType: ContactDrawerType.ATTENDEE,
   contactId: null,
   vendors: [],
   landlords: [],

@@ -7,7 +7,12 @@ import { PropertyDrawer } from './property-drawer'
 import { VendorDrawer } from './vendor-drawer'
 import { LandlordDrawer } from './landlord-drawer'
 
-export type ContactDrawerType = 'ATTENDEE' | 'PROPERTY' | 'VENDOR' | 'LANDLORD'
+export enum ContactDrawerType {
+  'ATTENDEE',
+  'PROPERTY',
+  'VENDOR',
+  'LANDLORD',
+}
 
 export const handleClose = (setAppState: Dispatch<SetStateAction<AppState>>) => () => {
   setAppState((currentState) => ({
@@ -18,13 +23,13 @@ export const handleClose = (setAppState: Dispatch<SetStateAction<AppState>>) => 
 
 export const getDrawerContent = (contactDrawerType: ContactDrawerType) => {
   switch (contactDrawerType) {
-    case 'ATTENDEE':
+    case ContactDrawerType.ATTENDEE:
       return <AttendeeDrawer />
-    case 'PROPERTY':
+    case ContactDrawerType.PROPERTY:
       return <PropertyDrawer />
-    case 'VENDOR':
+    case ContactDrawerType.VENDOR:
       return <VendorDrawer />
-    case 'LANDLORD':
+    case ContactDrawerType.LANDLORD:
       return <LandlordDrawer />
     default:
       return null

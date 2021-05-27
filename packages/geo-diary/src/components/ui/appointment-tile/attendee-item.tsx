@@ -4,6 +4,7 @@ import { useAppState } from '../../../core/app-state'
 import { ExtendedAppointmentModel } from '../../../types/global'
 import { handleOpenContactDrawer } from './appointment-items'
 import { TileIconAnchorWrap, TileSectionContainer } from './__styles__/styles'
+import { ContactDrawerType } from '../contact-drawer'
 
 export type AttendeeItemProps = {
   appointment: ExtendedAppointmentModel
@@ -26,7 +27,7 @@ export const AttendeeItem: FC<AttendeeItemProps> = ({ appointment }) => {
             <Icon icon="username" />
             <a
               className="v-align-middle"
-              onClick={handleOpenContactDrawer(setAppState, appointment, 'ATTENDEE', id ?? null)}
+              onClick={handleOpenContactDrawer(setAppState, appointment, ContactDrawerType.ATTENDEE, id ?? null)}
             >
               {name}
             </a>
