@@ -1,13 +1,18 @@
-import { httpHandler, UnauthorizedException, ValidationException } from '@homeservenow/serverless-aws-handler'
+import {
+  httpHandler,
+  NotFoundException,
+  UnauthorizedException,
+  ValidationException,
+} from '@homeservenow/serverless-aws-handler'
 import { plainToClass } from 'class-transformer'
 import { validate } from 'class-validator'
 import { ApiKeyDto } from '@/dto'
 import { ApiKeyModel } from '@/models'
-import { createApiKey as create } from '@/services'
+import { getApiKey, updateApiKey as update } from '@/services'
 import { connectSessionVerifyDecodeIdTokenWithPublicKeys, LoginIdentity } from '@reapit/connect-session'
 import publicKeys from './../../publicKeys.json'
 
-export const createApiKey = httpHandler<ApiKeyDto, ApiKeyModel>({
+export const updateApiKey = httpHandler<ApiKeyDto, ApiKeyModel>({
   handler: async ({ body, event }): Promise<ApiKeyModel> => {
     let customer: LoginIdentity | undefined
 
@@ -18,7 +23,7 @@ export const createApiKey = httpHandler<ApiKeyDto, ApiKeyModel>({
         publicKeys,
       )
 
-      if (typeof customer === 'undefined') {
+      if (typeof customer === 'undefined' || !customer.developerId) {
         throw new Error('Unauthorised')
       }
     } catch (e) {
@@ -38,6 +43,15 @@ export const createApiKey = httpHandler<ApiKeyDto, ApiKeyModel>({
       throw new ValidationException(errors as any)
     }
 
-    return create(dto)
+    const model = await getApiKey({
+      id: event.pathParameters?.id,
+      developerId: customer.developerId,
+    })
+
+    if (!model) {
+      throw new NotFoundException()
+    }
+
+    return update(model, dto)
   },
 })
