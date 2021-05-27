@@ -15,7 +15,7 @@
     "serverless": "^2.43.1"
   },
   "scripts": {
-    "start": "serverless dynamodb install && yarn build && yarn serverless offline start --runtime nodejs12.x --stage local",
+    "start": "yarn build && yarn serverless offline start --runtime nodejs12.x --stage local",
     "build": "echo '...skipping...'",
     "lint": "concurrently \"prettier src/**/*.ts --write \"  \"eslint --cache --ext=ts,tsx src --fix\"",
     "test": "echo '...skipping...'",
