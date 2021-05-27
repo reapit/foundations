@@ -40,7 +40,7 @@ provider:
   
   environment:
     NODE_ENV: 'production'
-    COGNITO_USERPOOL_ID: ${self:custom.env.COGNITO_USERPOOL_ID}
+    CONNECT_USER_POOL: ${self:custom.env.CONNECT_USER_POOL}
     SENTRY_DSN: ${self:custom.env.SENTRY_DSN}
     DYNAMO_DB_REGION: ${self:custom.env.DYNAMO_DB_REGION}
     DYNAMO_DB_ENDPOINT: ${self:custom.env.DYNAMO_DB_ENDPOINT}
@@ -127,7 +127,7 @@ functions:
               - api-version
               - if-match
           authorizer:
-            arn: arn:aws:cognito-idp:${self:provider.region}:${self:custom.env.AWS_ACCOUNT_ID}:userpool/${self:custom.env.COGNITO_USERPOOL_ID}
+            arn: arn:aws:cognito-idp:${self:provider.region}:${self:custom.env.AWS_ACCOUNT_ID}:userpool/${self:custom.env.CONNECT_USER_POOL}
   getApiKey:
     handler: src/index.getApiKey
     events:
@@ -146,7 +146,7 @@ functions:
               - api-version
               - if-match
           authorizer:
-            arn: arn:aws:cognito-idp:${self:provider.region}:${self:custom.env.AWS_ACCOUNT_ID}:userpool/${self:custom.env.COGNITO_USERPOOL_ID}
+            arn: arn:aws:cognito-idp:${self:provider.region}:${self:custom.env.AWS_ACCOUNT_ID}:userpool/${self:custom.env.CONNECT_USER_POOL}
   paginateApiKey:
     handler: src/index.paginateApiKey
     events:
@@ -165,7 +165,7 @@ functions:
               - api-version
               - if-match
           authorizer:
-            arn: arn:aws:cognito-idp:${self:provider.region}:${self:custom.env.AWS_ACCOUNT_ID}:userpool/${self:custom.env.COGNITO_USERPOOL_ID}
+            arn: arn:aws:cognito-idp:${self:provider.region}:${self:custom.env.AWS_ACCOUNT_ID}:userpool/${self:custom.env.CONNECT_USER_POOL}
 
   updateApiKey:
     handler: src/index.updateApiKey
@@ -185,4 +185,4 @@ functions:
               - api-version
               - if-match
           authorizer:
-            arn: arn:aws:cognito-idp:${self:provider.region}:${self:custom.env.AWS_ACCOUNT_ID}:userpool/${self:custom.env.COGNITO_USERPOOL_ID}
+            arn: arn:aws:cognito-idp:${self:provider.region}:${self:custom.env.AWS_ACCOUNT_ID}:userpool/${self:custom.env.CONNECT_USER_POOL}
