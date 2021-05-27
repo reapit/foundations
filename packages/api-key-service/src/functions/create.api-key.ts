@@ -4,18 +4,16 @@ import { validate } from 'class-validator'
 import { ApiKeyDto } from '@/dto'
 import { ApiKeyModel } from '@/models'
 import { createApiKey as create } from '@/services'
-import { authorised } from '@reapit/node-utils'
 import { connectSessionVerifyDecodeIdToken, LoginIdentity } from '@reapit/connect-session'
 
 export const createApiKey = httpHandler<ApiKeyDto, ApiKeyModel>({
   serialise: {
     input: async (event): Promise<ApiKeyDto> => {
-      authorised(event)
       let customer: LoginIdentity | undefined
 
       try {
         customer = await connectSessionVerifyDecodeIdToken(
-          event.headers['reapit-connect-token'] as string,
+          event.headers['authorization'] as string,
           process.env.CONNECT_USER_POOL as string,
         )
       } catch (e) {
