@@ -16,8 +16,8 @@ export const updateApiKey = (apiKey: ApiKeyModel, dto: Partial<ApiKeyModel>): Pr
   )
 }
 
-export const getApiKey = (apiKey: string): Promise<ApiKeyModel | undefined> => {
-  return db.get(Object.assign(new ApiKeyModel(), { apiKey }))
+export const getApiKey = (apiKey: Partial<ApiKeyModel>): Promise<ApiKeyModel | undefined> => {
+  return db.get(Object.assign(new ApiKeyModel(), apiKey))
 }
 
 export const batchGetApiKeys = async (

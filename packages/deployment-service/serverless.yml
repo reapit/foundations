@@ -36,7 +36,6 @@ custom:
         functions:
           - taskPopulate
 
-
 provider:
   name: aws
   runtime: ${opt:runtime, 'nodejs14.x'}
