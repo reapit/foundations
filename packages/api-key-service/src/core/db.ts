@@ -4,7 +4,7 @@ import { dbConfig } from './../config/db'
 
 const dynamoDBClient = new DynamoDB({
   region: dbConfig.region,
-  endpoint: dbConfig.endpoint,
+  // endpoint: dbConfig.endpoint,
 })
 
 export const db = new DataMapper({
