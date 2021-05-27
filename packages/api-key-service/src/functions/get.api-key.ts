@@ -9,7 +9,7 @@ export const getApiKey = httpHandler<void, ApiKeyModel>({
 
     try {
       customer = await connectSessionVerifyDecodeIdToken(
-        event.headers['authorization'] as string,
+        event.headers?.Authorization as string,
         process.env.CONNECT_USER_POOL as string,
       )
     } catch (e) {
