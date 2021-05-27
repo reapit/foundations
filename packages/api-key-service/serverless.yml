@@ -124,8 +124,6 @@ functions:
               - X-Api-Key
               - X-Amz-Security-Token
               - X-Amz-User-Agent
-              - reapit-customer
-              - reapit-connect-token
               - api-version
               - if-match
           authorizer:
@@ -145,8 +143,6 @@ functions:
               - X-Api-Key
               - X-Amz-Security-Token
               - X-Amz-User-Agent
-              - reapit-customer
-              - reapit-connect-token
               - api-version
               - if-match
           authorizer:
@@ -166,8 +162,6 @@ functions:
               - X-Api-Key
               - X-Amz-Security-Token
               - X-Amz-User-Agent
-              - reapit-customer
-              - reapit-connect-token
               - api-version
               - if-match
           authorizer:
@@ -188,8 +182,6 @@ functions:
               - X-Api-Key
               - X-Amz-Security-Token
               - X-Amz-User-Agent
-              - reapit-customer
-              - reapit-connect-token
               - api-version
               - if-match
           authorizer:
