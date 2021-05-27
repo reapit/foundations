@@ -1,14 +1,16 @@
 import React, { Dispatch, SetStateAction, useState } from 'react'
-import { AppSummaryModel } from '@reapit/foundations-ts-definitions'
+import { AppDetailModel, AppSummaryModel } from '@reapit/foundations-ts-definitions'
 import { Section, notification, H5 } from '@reapit/elements'
 import { updateAppRestrictionsService } from '../../../services/apps'
 
 export interface AppToggleVisibilityProps {
   app: AppSummaryModel
+  reFetchApp: () => Promise<AppDetailModel | undefined>
 }
 
 export const handleOnCheckboxChange = (
   setChecked: Dispatch<SetStateAction<boolean>>,
+  reFetchApp: () => Promise<AppDetailModel | undefined>,
   appId: string,
   checked: boolean,
 ) => async () => {
@@ -19,6 +21,7 @@ export const handleOnCheckboxChange = (
     status: checked ? 'exclude' : 'include',
   })
   if (updatedAppRestrictions) {
+    await reFetchApp()
     return notification.success({
       message: 'Successfully updated app restrictions',
     })
@@ -31,7 +34,10 @@ export const handleOnCheckboxChange = (
   setChecked(checked)
 }
 
-const AppToggleVisibilitySection: React.FC<AppToggleVisibilityProps> = ({ app }: AppToggleVisibilityProps) => {
+const AppToggleVisibilitySection: React.FC<AppToggleVisibilityProps> = ({
+  app,
+  reFetchApp,
+}: AppToggleVisibilityProps) => {
   const [checked, setChecked] = useState(!app.isHidden)
   return (
     <Section hasPadding={false}>
@@ -49,7 +55,7 @@ const AppToggleVisibilitySection: React.FC<AppToggleVisibilityProps> = ({ app }:
           type="checkbox"
           id={app.id}
           checked={checked}
-          onChange={handleOnCheckboxChange(setChecked, app.id as string, checked)}
+          onChange={handleOnCheckboxChange(setChecked, reFetchApp, app.id as string, checked)}
         />
         <label className="label" htmlFor={app.id}>
           Visible

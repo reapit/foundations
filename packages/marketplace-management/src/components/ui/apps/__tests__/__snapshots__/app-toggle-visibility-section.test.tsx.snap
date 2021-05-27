@@ -8,6 +8,7 @@ exports[`AppToggleVisibilitySection should match a snapshot 1`] = `
       "name": "APP_NAME",
     }
   }
+  reFetchApp={[MockFunction]}
 >
   <Section
     hasPadding={false}

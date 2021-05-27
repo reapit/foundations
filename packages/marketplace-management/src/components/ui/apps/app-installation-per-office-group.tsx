@@ -3,9 +3,9 @@ import useSWR from 'swr'
 import { InstallationModelPagedResult } from '@reapit/foundations-ts-definitions'
 import { OfficeGroupModelPagedResult, OfficeGroupModel } from '../../../types/organisations-schema'
 import { FadeIn, Loader, Section, Table, Button, FlexContainerBasic } from '@reapit/elements'
-import OfficeListCell from '../offices/office-list-cell'
 import { URLS } from '../../../constants/api'
 import { orgIdEffectHandler } from '../../../utils/org-id-effect-handler'
+import { AppOfficeIdsCell } from './app-office-ids-cell'
 
 export interface AppInstallationPerOfficeGroupProps {
   installations: InstallationModelPagedResult | undefined
@@ -126,7 +126,7 @@ const AppInstallationPerOfficeGroup: React.FC<AppInstallationPerOfficeGroupProps
               Header: 'Group Name',
               accessor: 'name',
             },
-            { Header: 'Office List', accessor: 'officeIds', Cell: OfficeListCell },
+            { Header: 'Office List', accessor: 'officeIds', Cell: AppOfficeIdsCell },
             {
               Header: 'Edit',
               accessor: 'customerId',
