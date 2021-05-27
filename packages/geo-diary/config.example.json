@@ -6,5 +6,7 @@
   "googleMapApiKey": "",
   "connectOAuthUrl": "",
   "connectUserPoolId": "",
-  "graphqlUri": ""
+  "graphqlUri": "",
+  "amlAppId": "",
+  "platformApiUrl": ""
 }

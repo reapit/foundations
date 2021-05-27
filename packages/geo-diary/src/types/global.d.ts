@@ -17,6 +17,8 @@ export type Config = {
   graphqlUri: string
   googleMapApiKey: string
   platformApiUrl: string
+  amlAppId: string
+  amlAppUrl: string
 }
 
 declare global {

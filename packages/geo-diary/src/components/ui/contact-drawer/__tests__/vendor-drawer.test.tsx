@@ -16,13 +16,14 @@ describe('VendorDrawer', () => {
     expect(shallow(<VendorDrawer />)).toMatchSnapshot()
   })
 
-  it('should match snapshot with vendors in state', () => {
+  it('should match snapshot with vendors in state and an AML app', () => {
     const contacts = mockVendorsQuery.data.GetVendors._embedded[0].related ?? []
     mockedUseAppState.mockImplementation(() => ({
       appState: {
         vendors: mockVendorsQuery.data.GetVendors._embedded,
         contactId: contacts[0].id,
         appointment,
+        hasAmlApp: true,
       },
       setAppState: jest.fn(),
     }))

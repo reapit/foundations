@@ -1,6 +1,6 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`LandlordDrawer should match snapshot with landlords in state 1`] = `
+exports[`LandlordDrawer should match snapshot with landlords in state and an AML App 1`] = `
 <Fragment>
   <DrawerHeader
     handleClose={[Function]}
@@ -22,6 +22,10 @@ exports[`LandlordDrawer should match snapshot with landlords in state 1`] = `
   <EmailRow
     email="example@email.com"
     label="Email"
+  />
+  <AmlCheckRow
+    contactId="OXF12300101"
+    name="Mr John Smith"
   />
 </Fragment>
 `;

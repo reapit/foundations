@@ -16,13 +16,14 @@ describe('LandlordDrawer', () => {
     expect(shallow(<LandlordDrawer />)).toMatchSnapshot()
   })
 
-  it('should match snapshot with landlords in state', () => {
+  it('should match snapshot with landlords in state and an AML App', () => {
     const contacts = mockLandlordsQuery.data.GetLandlords._embedded[0].related ?? []
     mockedUseAppState.mockImplementation(() => ({
       appState: {
         landlords: mockLandlordsQuery.data.GetLandlords._embedded,
         contactId: contacts[0].id,
         appointment,
+        hasAmlApp: true,
       },
       setAppState: jest.fn(),
     }))

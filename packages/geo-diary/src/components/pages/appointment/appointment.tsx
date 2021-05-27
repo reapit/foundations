@@ -1,7 +1,7 @@
 import React, { Dispatch, FC, memo, SetStateAction, useEffect, useMemo } from 'react'
 import { useQuery } from '@apollo/react-hooks'
 import dayjs from 'dayjs'
-import { FadeIn } from '@reapit/elements'
+import { FadeIn, fetcher } from '@reapit/elements'
 import { ExtendedAppointmentModel } from '@/types/global'
 import GET_APPOINTMENTS from '../../../graphql/queries/get-appointments.graphql'
 import GET_VENDORS from '../../../graphql/queries/get-vendors.graphql'
@@ -27,6 +27,7 @@ import GoogleMapComponent from '@/components/ui/map'
 import ErrorBoundary from '../../../core/error-boundary'
 import { MyLocation } from '../../ui/my-location/my-location'
 import ContactDrawer from '../../ui/contact-drawer'
+import { InstallationModelPagedResult } from '@reapit/foundations-ts-definitions'
 
 export type AppointmentProps = {}
 
@@ -151,11 +152,42 @@ export const handleGetLandlords = (
   }
 }
 
+export const handleGetAmlInstallation = (
+  setAppState: Dispatch<SetStateAction<AppState>>,
+  accessToken?: string,
+  clientId?: string | null,
+) => (): void => {
+  const getAmlInstallations = async (): Promise<void> => {
+    const amlAppId = window.reapit.config.amlAppId
+    const amlInstallations: InstallationModelPagedResult | never = await fetcher({
+      api: window.reapit.config.platformApiUrl,
+      url: `/marketplace/installations?appId=${amlAppId}&clientId=${clientId}&isInstalled=true`,
+      method: 'GET',
+      headers: {
+        authorization: `Bearer ${accessToken}`,
+      },
+    })
+
+    if (amlInstallations?.totalCount) {
+      setAppState((currentState) => ({
+        ...currentState,
+        hasAmlApp: true,
+      }))
+    }
+  }
+
+  if (accessToken && clientId) {
+    getAmlInstallations()
+  }
+}
+
 export const Appointment: FC<AppointmentProps> = () => {
   const { connectSession } = useReapitConnect(reapitConnectBrowserSession)
   const { appState, setAppState } = useAppState()
   const { time } = appState
   const userCode = connectSession?.loginIdentity.userCode ?? ''
+  const clientId = connectSession?.loginIdentity.clientId
+  const accessToken = connectSession?.accessToken
   const { start, end } = startAndEndTime[time]
   const { tab } = appState
 
@@ -194,6 +226,8 @@ export const Appointment: FC<AppointmentProps> = () => {
   })
 
   useEffect(handleGetLandlords(landlords, setAppState), [landlords])
+
+  useEffect(handleGetAmlInstallation(setAppState, accessToken, clientId), [accessToken, clientId])
 
   const appointmentSorted = useMemo(sortAppoinmentsByStartTime(data?.GetAppointments?._embedded || []), [
     data?.GetAppointments?._embedded,

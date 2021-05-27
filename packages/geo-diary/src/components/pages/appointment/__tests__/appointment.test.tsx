@@ -5,6 +5,7 @@ import {
   Appointment,
   getLandlordIds,
   getVendorIds,
+  handleGetAmlInstallation,
   handleGetLandlords,
   handleGetVendors,
   sortAppoinmentsByStartTime,
@@ -16,6 +17,13 @@ import { mockAppointmentsQuery } from '../__mocks__/appointments-query'
 import { mockVendorsQuery } from '../__mocks__/vendors-query'
 import { ExtendedAppointmentModel } from '../../../../types/global'
 import { mockLandlordsQuery } from '../__mocks__/landlords-query'
+
+const mockFadeIn = ({ children }) => <div>{children}</div>
+
+jest.mock('@reapit/elements', () => ({
+  FadeIn: mockFadeIn,
+  fetcher: jest.fn(() => ({ totalCount: 1 })),
+}))
 
 describe('appointment', () => {
   describe('Apppointment', () => {
@@ -119,6 +127,20 @@ describe('appointment', () => {
 
       expect(newState).toEqual({
         landlords: mockVendorsQuery.data.GetVendors._embedded,
+      })
+    })
+  })
+
+  describe('handleGetAmlInstallation', () => {
+    it('should correctly set state if there are installations', async () => {
+      const mockSetState = jest.fn()
+      const curried = handleGetAmlInstallation(mockSetState, 'SOME_TOKEN', 'SOME_CLIENT_ID')
+      await curried()
+
+      const newState = mockSetState.mock.calls[0][0]()
+
+      expect(newState).toEqual({
+        hasAmlApp: true,
       })
     })
   })

@@ -22,6 +22,7 @@ export const useAppState = jest.fn(() => {
       contactId: null,
       vendors: [],
       landlords: [],
+      hasAmlApp: true,
     },
     setAppState: jest.fn(),
   }

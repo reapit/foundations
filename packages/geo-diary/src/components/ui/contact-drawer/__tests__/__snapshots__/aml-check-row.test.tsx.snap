@@ -1,0 +1,39 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`AmlCheckRow should match snapshot 1`] = `
+<div
+  className="contact-option-row"
+>
+  <Grid>
+    <Col
+      span={8}
+    >
+      <Label>
+        AML Check
+      </Label>
+      <div
+        className="contact-option-value"
+      >
+        Will
+      </div>
+    </Col>
+    <Col
+      span={8}
+    >
+      <div
+        className="contact-option-icons"
+      >
+        <a
+          href="https://some-url/SOME_ID"
+          rel="noopener noreferrer"
+          target="_blank"
+        >
+          <IconButton
+            icon="edit"
+          />
+        </a>
+      </div>
+    </Col>
+  </Grid>
+</div>
+`;
