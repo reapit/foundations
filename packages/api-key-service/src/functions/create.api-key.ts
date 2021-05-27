@@ -17,6 +17,10 @@ export const createApiKey = httpHandler<ApiKeyDto, ApiKeyModel>({
         process.env.CONNECT_USER_POOL as string,
         publicKeys,
       )
+
+      if (typeof customer === 'undefined') {
+        throw new Error('Unauthorised')
+      }
     } catch (e) {
       throw new UnauthorizedException(e.message)
     }
