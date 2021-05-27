@@ -14,6 +14,9 @@ export class ApiKeyModel implements ApiKeyInterface {
   @attribute()
   developerId?: string
 
+  @attribute()
+  name?: string
+
   @attribute({ defaultProvider: () => new Date().toISOString() })
   keyCreatedAt?: string
 

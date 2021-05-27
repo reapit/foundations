@@ -7,7 +7,7 @@ import publicKeys from './../../publicKeys.json'
 type Pagintation<T> = {
   items: T[]
   meta: {
-    count: number
+    // count: number
     nextCursor: string
   }
 }
@@ -30,18 +30,17 @@ export const paginateApiKeys = httpHandler<void, Pagintation<ApiKeyModel>>({
       throw new UnauthorizedException(e.message)
     }
 
-    const [items, meta] = await batchGetApiKeys(
+    const response = await batchGetApiKeys(
       customer as LoginIdentity & { developerId: string },
       event?.queryStringParameters?.nextCursor ? { id: event?.queryStringParameters?.nextCursor } : undefined,
     )
 
     const pagination: Pagintation<ApiKeyModel> = {
       items: [],
-      meta,
+      meta: response[1],
     }
 
-    // TODO requires unmarshalling?
-    for await (const apiKey of items) {
+    for await (const apiKey of response[0]) {
       pagination.items.push(apiKey)
     }
 
