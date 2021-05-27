@@ -87,8 +87,6 @@ export const connectSessionVerifyDecodeIdTokenWithPublicKeys = async (token: str
 
     const header = JSON.parse(headerJSON) as TokenHeader
 
-    if (!keys) throw new Error('Error fetching public keys')
-
     const key = keys[header.kid]
 
     if (!key) throw new Error('Id verification claim made for unknown kid')
@@ -129,9 +127,14 @@ export const connectSessionVerifyDecodeIdToken = async (
   token: string,
   connectUserPoolId: string,
 ): Promise<LoginIdentity | undefined> => {
-  const keys = await getPublicKeys(connectUserPoolId)
-  if (!keys) {
-    throw new Error('public keys not found')
+  let keys;
+  try {
+    keys = await getPublicKeys(connectUserPoolId)
+    if (!keys) {
+      if (!keys) throw new Error('Error fetching public keys')
+    }
+  } catch (error) {
+    console.error('Reapit Connect Session error:', error.message)
   }
   return connectSessionVerifyDecodeIdTokenWithPublicKeys(token, connectUserPoolId, keys)
 }
