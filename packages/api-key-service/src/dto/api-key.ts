@@ -1,5 +1,5 @@
 import { KeyType } from '@reapit/foundations-ts-definitions'
-import { IsEnum, IsNotEmpty, IsOptional, IsString } from 'class-validator'
+import { IsEnum, IsNotEmpty, IsOptional, IsString, Length } from 'class-validator'
 
 export class ApiKeyDto {
   @IsEnum(KeyType)
@@ -11,6 +11,7 @@ export class ApiKeyDto {
 
   @IsString()
   @IsNotEmpty()
+  @Length(3, 3)
   clientCode?: string
 
   @IsString()
