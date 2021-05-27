@@ -1,16 +1,18 @@
 import { ApiKeyModel } from '@/models'
 import { httpHandler, UnauthorizedException } from '@homeservenow/serverless-aws-handler'
-import { connectSessionVerifyDecodeIdToken, LoginIdentity } from '@reapit/connect-session'
+import { connectSessionVerifyDecodeIdTokenWithPublicKeys, LoginIdentity } from '@reapit/connect-session'
 import { getApiKey as get } from './../services'
+import publicKeys from './../../publicKeys.json'
 
 export const getApiKey = httpHandler<void, ApiKeyModel>({
   handler: async ({ event }) => {
     let customer: LoginIdentity | undefined
 
     try {
-      customer = await connectSessionVerifyDecodeIdToken(
+      customer = await connectSessionVerifyDecodeIdTokenWithPublicKeys(
         event.headers?.Authorization as string,
         process.env.CONNECT_USER_POOL as string,
+        publicKeys,
       )
     } catch (e) {
       throw new UnauthorizedException(e.message)
