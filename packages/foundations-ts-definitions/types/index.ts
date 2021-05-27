@@ -5,3 +5,7 @@ export * from './marketplace-schema'
 export * from './payments-schema'
 // @ts-ignore
 export * from './platform-schema'
+// @ts-ignore
+export * from '../deployment-schema'
+// @ts-ignore
+export * from '../api-key-schema'
