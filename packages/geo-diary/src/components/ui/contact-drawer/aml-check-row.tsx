@@ -20,7 +20,7 @@ export const AmlCheckRow: FC<AmlCheckContentProps> = ({ contactId, name }) => {
         </Col>
         <Col span={8}>
           <div className={styles.contactOptionIcons}>
-            <a href={amlAppUrl} target="_blank" rel="noopener noreferrer">
+            <a href={amlAppUrl}>
               <IconButton icon="edit" />
             </a>
           </div>

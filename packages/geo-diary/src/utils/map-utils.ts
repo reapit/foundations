@@ -46,6 +46,7 @@ export const getGeoCoords = (): Promise<Partial<AppState>> => {
     navigator.geolocation.getCurrentPosition(
       (position) => {
         return resolve({
+          hasGeoLocation: true,
           currentLat: position.coords.latitude,
           currentLng: position.coords.longitude,
         })
