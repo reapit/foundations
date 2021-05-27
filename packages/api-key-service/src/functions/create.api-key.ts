@@ -4,16 +4,18 @@ import { validate } from 'class-validator'
 import { ApiKeyDto } from '@/dto'
 import { ApiKeyModel } from '@/models'
 import { createApiKey as create } from '@/services'
-import { connectSessionVerifyDecodeIdToken, LoginIdentity } from '@reapit/connect-session'
+import { connectSessionVerifyDecodeIdTokenWithPublicKeys, LoginIdentity } from '@reapit/connect-session'
+import publicKeys from './../../publicKeys.json'
 
 export const createApiKey = httpHandler<ApiKeyDto, ApiKeyModel>({
   handler: async ({ body, event }): Promise<ApiKeyModel> => {
     let customer: LoginIdentity | undefined
 
     try {
-      customer = await connectSessionVerifyDecodeIdToken(
+      customer = await connectSessionVerifyDecodeIdTokenWithPublicKeys(
         event.headers?.Authorization as string,
         process.env.CONNECT_USER_POOL as string,
+        publicKeys,
       )
     } catch (e) {
       throw new UnauthorizedException(e.message)
