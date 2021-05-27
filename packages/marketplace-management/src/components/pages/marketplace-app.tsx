@@ -25,7 +25,7 @@ const MarketplaceAppPage: React.FC = () => {
   const { appId } = parms
   const clientId = connectSession?.loginIdentity?.clientId
 
-  const { data: app, error: appsError } = useSWR<AppDetailModel | undefined>(
+  const { data: app, error: appsError, mutate: reFetchApp } = useSWR<AppDetailModel | undefined>(
     clientId ? `${URLS.APPS}/${appId}?clientId=${clientId}` : null,
   )
   const { data: desktopIntegrationTypes, error: typesError } = useSWR<
@@ -52,7 +52,7 @@ const MarketplaceAppPage: React.FC = () => {
         desktopIntegrationTypes={desktopIntegrationTypes.data ?? []}
         isDesktop={connectIsDesktop}
       />
-      <AppToggleVisibilitySection app={app} />
+      <AppToggleVisibilitySection app={app} reFetchApp={reFetchApp} />
       <AppInstallationManager app={app} />
     </FadeIn>
   )

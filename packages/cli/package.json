@@ -1,0 +1,33 @@
+{
+  "version": "0.1.0",
+  "name": "@reapit/cli",
+  "description": "A cli tool for reapit deployments and other commands",
+  "main": "dist/index.js",
+  "dependencies": {
+    "axios": "^0.21.1",
+    "chalk": "^4.1.1",
+    "figlet": "^1.5.0",
+    "inquirer": "^8.0.0",
+    "ora": "^5.4.0",
+    "process.argv": "^0.6.0",
+    "reflect-metadata": "^0.1.13"
+  },
+  "devDependencies": {
+    "@types/figlet": "^1.5.1",
+    "@types/inquirer": "^7.3.1",
+    "@types/yargs": "^16.0.2",
+    "concurrently": "^6.1.0",
+    "eslint": "^7.26.0",
+    "prettier": "^2.3.0",
+    "ts-node": "^9.1.1"
+  },
+  "scripts": {
+    "run": "ts-node src/index.ts",
+    "build": "tsc -p .",
+    "lint": "concurrently \"prettier src/**/*.ts --write \"  \"eslint --cache --ext=ts,tsx src --fix\"",
+    "conf": "echo '...skipping...'",
+    "test": "echo '...skipping...'",
+    "release": "echo '...skipping...'",
+    "publish": "echo '...skipping...'"
+  }
+}

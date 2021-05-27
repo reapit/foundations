@@ -1,0 +1,19 @@
+{
+  "extends": "../../tsconfig.json",
+  "compilerOptions": {
+    "outDir": "dist",
+    "target": "es6",
+    "module": "commonjs",
+    "experimentalDecorators": true,
+    "emitDecoratorMetadata": true,
+    "strict": true,
+    "baseUrl": "./",
+
+    "paths": {
+      "@/*": ["src/*"],
+      "@reapit/utils": ["../utils/index.ts"],
+    }
+  },
+  "include": ["src"],
+  "exclude": ["public", "dist", "node_modules", "src/tests/coverage"]
+}

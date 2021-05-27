@@ -41,7 +41,14 @@ export const reapitGreen = '#a0c862'
 export const reapitRed = '#d3033d'
 
 export const globals = css`
-  #root {
-    height: 100%;
+  :global() {
+    body {
+      background: #262f69;
+    }
+
+    #root {
+      height: 100%;
+      background: #fff;
+    }
   }
 `

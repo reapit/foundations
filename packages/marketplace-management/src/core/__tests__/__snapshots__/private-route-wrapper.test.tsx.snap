@@ -8,6 +8,7 @@ exports[`PrivateRouter should match a snapshot 1`] = `
     isScrollable={true}
   >
     <FlexContainerResponsive
+      className="flex-height-fix"
       flexColumn={true}
       hasPadding={true}
     >

@@ -31,20 +31,23 @@ jest.mock('react-router', () => ({
 describe('AppToggleVisibilitySection', () => {
   it('should match a snapshot', () => {
     const stubApp = { name: 'APP_NAME', developer: 'APP_DEVELOPER' }
-    expect(mount(<AppToggleVisibilitySection app={stubApp} />)).toMatchSnapshot()
+    const mockReFetchApp = jest.fn()
+    expect(mount(<AppToggleVisibilitySection app={stubApp} reFetchApp={mockReFetchApp} />)).toMatchSnapshot()
   })
 })
 
 describe('handleOnCheckboxChange', () => {
   it('should toggle checked', async () => {
     const mockSetChecked = jest.fn()
+    const mockReFetchApp = jest.fn()
     const mockAppId = 'SOME_ID'
 
-    const curried = handleOnCheckboxChange(mockSetChecked, mockAppId, true)
+    const curried = handleOnCheckboxChange(mockSetChecked, mockReFetchApp, mockAppId, true)
 
     await curried()
 
     expect(mockSetChecked).toHaveBeenCalledWith(false)
+    expect(mockReFetchApp).toHaveBeenCalledTimes(1)
     expect(updateAppRestrictionsService).toHaveBeenLastCalledWith({
       appId: mockAppId,
       status: 'exclude',
@@ -54,13 +57,15 @@ describe('handleOnCheckboxChange', () => {
   it('should show an error message if fetching fails and reset checkbox', async () => {
     ;(updateAppRestrictionsService as jest.Mock).mockReturnValueOnce(undefined)
     const mockSetChecked = jest.fn()
+    const mockReFetchApp = jest.fn()
     const mockAppId = 'SOME_ID'
 
-    const curried = handleOnCheckboxChange(mockSetChecked, mockAppId, true)
+    const curried = handleOnCheckboxChange(mockSetChecked, mockReFetchApp, mockAppId, true)
 
     await curried()
 
     expect(mockSetChecked).toHaveBeenCalledWith(false)
+    expect(mockReFetchApp).not.toHaveBeenCalled()
     expect(updateAppRestrictionsService).toHaveBeenLastCalledWith({
       appId: mockAppId,
       status: 'exclude',
