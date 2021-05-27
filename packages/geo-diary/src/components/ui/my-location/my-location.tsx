@@ -9,7 +9,7 @@ import {
 import { BiCurrentLocation, BiX } from 'react-icons/bi'
 import { AppState, useAppState } from '../../../core/app-state'
 import { AppStateParams, GeocoderResult } from '../map/types'
-import { getAppStateWithGeoCoords } from '../../../utils/map-utils'
+import { getGeoCoords } from '../../../utils/map-utils'
 import debounce from 'lodash.debounce'
 import { DebouncedFunc } from 'lodash'
 
@@ -83,8 +83,11 @@ export const handleSelectResult = (setAppState: Dispatch<SetStateAction<AppState
 }
 
 export const handleGeoLocateMe = (appState: AppState, setAppState: Dispatch<SetStateAction<AppState>>) => async () => {
-  const stateWithGeoCoords = await getAppStateWithGeoCoords(appState)
-  setAppState(stateWithGeoCoords)
+  const geoCoords = await getGeoCoords()
+  setAppState((currentState) => ({
+    ...currentState,
+    ...geoCoords,
+  }))
 }
 
 export const MyLocation: FC = () => {

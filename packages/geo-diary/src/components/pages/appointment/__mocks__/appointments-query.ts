@@ -387,6 +387,9 @@ export const mockAppointmentsQuery = {
             selling: {
               vendorId: 'OXF200001',
             },
+            letting: {
+              landlordId: 'OXF200001',
+            },
           },
           propertyConfirmed: false,
           propertyId: 'ALB160019',
@@ -506,6 +509,9 @@ export const mockAppointmentsQuery = {
             id: 'BCK140280',
             selling: {
               vendorId: 'TEST_VENDOR',
+            },
+            letting: {
+              landlordId: 'TEST_LANDLORD',
             },
           },
           propertyConfirmed: false,

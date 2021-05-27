@@ -5298,7 +5298,7 @@ __metadata:
     react-google-map: ^3.1.1
     react-google-maps-loader: 4.3.0
     react-icons: ^3.11.0
-    react-image-crop: 8.6.8
+    react-image-crop: 8.6.9
     react-is: ^16.13.1
     react-table: ^7.6.3
     react-transition-group: ^4.4.1
@@ -31272,16 +31272,16 @@ fsevents@^1.2.7:
   languageName: node
   linkType: hard
 
-"react-image-crop@npm:8.6.8":
-  version: 8.6.8
-  resolution: "react-image-crop@npm:8.6.8"
+"react-image-crop@npm:8.6.9":
+  version: 8.6.9
+  resolution: "react-image-crop@npm:8.6.9"
   dependencies:
     clsx: ^1.1.1
     core-js: ^3.11.0
     prop-types: ^15.7.2
   peerDependencies:
     react: ">=16.13.1"
-  checksum: 9608a28c9821863ecd34d991c86bb0a8953514360ac10d0bef7938f2c5eff0df84dd171f538f3e957f99dcb12d6243f4d860be05e02d77401660563db6de167f
+  checksum: 18d2a3873cc285e6e183fd998527a477befad01c9743abb874c7fcf1778090df8bceb46cf53752b1618e3b1ce28d5da0609c33c006cc141656dd78118a3eb94c
   languageName: node
   linkType: hard
 

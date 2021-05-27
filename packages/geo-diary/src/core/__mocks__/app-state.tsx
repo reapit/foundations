@@ -21,6 +21,7 @@ export const useAppState = jest.fn(() => {
       contactDrawerType: 'ATTENDEE',
       contactId: null,
       vendors: [],
+      landlords: [],
     },
     setAppState: jest.fn(),
   }

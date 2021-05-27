@@ -1,0 +1,9 @@
+fragment LandlordRelatedModel on LandlordRelatedModel {
+  id
+  name
+  type
+  homePhone
+  workPhone
+  mobilePhone
+  email
+}
