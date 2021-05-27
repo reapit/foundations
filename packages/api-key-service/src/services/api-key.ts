@@ -4,7 +4,7 @@ import { LoginIdentity } from '@reapit/connect-session'
 import { QueryIterator } from '@aws/dynamodb-data-mapper'
 
 export const createApiKey = (apiKey: Partial<ApiKeyModel>): Promise<ApiKeyModel> => {
-  return db.put(Object.assign(new ApiKeyModel(), { apiKey }))
+  return db.put(Object.assign(new ApiKeyModel(), { ...apiKey }))
 }
 
 export const updateApiKey = (apiKey: ApiKeyModel, dto: Partial<ApiKeyModel>): Promise<ApiKeyModel> => {
