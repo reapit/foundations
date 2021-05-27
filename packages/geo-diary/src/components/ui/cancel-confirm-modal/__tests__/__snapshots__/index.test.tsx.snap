@@ -455,6 +455,9 @@ exports[`CancelConfirmModal should match snapshot 1`] = `
             "postcode": "OX25 2UJ",
           },
           "id": "ALB160019",
+          "letting": Object {
+            "landlordId": "OXF200001",
+          },
           "selling": Object {
             "vendorId": "OXF200001",
           },

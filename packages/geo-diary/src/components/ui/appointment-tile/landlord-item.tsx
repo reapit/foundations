@@ -7,32 +7,34 @@ import { ExtendedAppointmentModel } from '../../../types/global'
 import { FadeIn } from '@reapit/elements'
 import { TileIconAnchorWrap, TileSectionContainer } from './__styles__/styles'
 
-export type VendorItemProps = {
+export type LandlordItemProps = {
   appointment: ExtendedAppointmentModel
 }
 
-export const VendorItem: FC<VendorItemProps> = ({ appointment }) => {
+export const LandlordItem: FC<LandlordItemProps> = ({ appointment }) => {
   const { setAppState, appState } = useAppState()
 
-  const { vendors } = appState
+  const { landlords } = appState
 
-  if (!vendors.length) return null
+  if (!landlords.length) return null
 
-  const vendorId = appointment.property?.selling?.vendorId
-  const vendor = vendors.find((item) => item.id === vendorId)
-  const vendorContactList = vendor?.related ?? []
+  const landlordId = appointment.property?.letting?.landlordId
+  const landlord = landlords.find((item) => item.id === landlordId)
+  const landlordContactList = landlord?.related ?? []
 
-  if (!vendorContactList.length) return null
+  if (!landlordContactList.length) return null
 
   return (
     <FadeIn>
       <TileSectionContainer>
-        <Label>Vendors</Label>
-        {vendorContactList.map((vendor: VendorLandlordRelatedModel) => {
+        <Label>Landlords</Label>
+        {landlordContactList.map((landlord: VendorLandlordRelatedModel) => {
           return (
-            <TileIconAnchorWrap key={vendor.id}>
+            <TileIconAnchorWrap key={landlord.id}>
               <Icon icon="username" />
-              <a onClick={handleOpenContactDrawer(setAppState, appointment, 'VENDOR', vendor.id)}>{vendor.name}</a>
+              <a onClick={handleOpenContactDrawer(setAppState, appointment, 'LANDLORD', landlord.id)}>
+                {landlord.name}
+              </a>
             </TileIconAnchorWrap>
           )
         })}

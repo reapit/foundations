@@ -5,6 +5,7 @@ import { FadeIn } from '@reapit/elements'
 import { ExtendedAppointmentModel } from '@/types/global'
 import GET_APPOINTMENTS from '../../../graphql/queries/get-appointments.graphql'
 import GET_VENDORS from '../../../graphql/queries/get-vendors.graphql'
+import GET_LANDLORDS from '../../../graphql/queries/get-landlords.graphql'
 import { reapitConnectBrowserSession } from '@/core/connect-session'
 import { useReapitConnect } from '@reapit/connect-session'
 import { AppState, useAppState } from '../../../core/app-state'
@@ -40,7 +41,7 @@ export type AppointmentListQueryData = {
   }
 }
 
-export type VendorRelatedModel = {
+export type VendorLandlordRelatedModel = {
   id: string
   name?: string
   type?: string
@@ -50,18 +51,24 @@ export type VendorRelatedModel = {
   email?: string
 }
 
-export type VendorModel = {
+export type VendorLandlordModel = {
   id: string
-  related: VendorRelatedModel[]
+  related: VendorLandlordRelatedModel[]
 }
 
 export type VendorsQueryData = {
   GetVendors: {
-    _embedded: VendorModel[]
+    _embedded: VendorLandlordModel[]
   }
 }
 
-export type VendorsQueryVariables = {
+export type LandlordsQueryData = {
+  GetLandlords: {
+    _embedded: VendorLandlordModel[]
+  }
+}
+
+export type VendorLandlordQueryVariables = {
   id: string[]
 }
 
@@ -115,6 +122,11 @@ export const getVendorIds = (appointments: ExtendedAppointmentModel[]) => (): st
     .map((appointment) => appointment?.property?.selling?.vendorId)
     .filter((vendorId) => !!vendorId) as string[]
 
+export const getLandlordIds = (appointments: ExtendedAppointmentModel[]) => (): string[] =>
+  appointments
+    .map((appointment) => appointment?.property?.letting?.landlordId)
+    .filter((landlordId) => !!landlordId) as string[]
+
 export const handleGetVendors = (
   vendors: VendorsQueryData | undefined,
   setAppState: Dispatch<SetStateAction<AppState>>,
@@ -123,6 +135,18 @@ export const handleGetVendors = (
     setAppState((currentState) => ({
       ...currentState,
       vendors: vendors.GetVendors._embedded,
+    }))
+  }
+}
+
+export const handleGetLandlords = (
+  landlords: LandlordsQueryData | undefined,
+  setAppState: Dispatch<SetStateAction<AppState>>,
+) => () => {
+  if (landlords?.GetLandlords._embedded.length) {
+    setAppState((currentState) => ({
+      ...currentState,
+      landlords: landlords.GetLandlords._embedded,
     }))
   }
 }
@@ -149,7 +173,7 @@ export const Appointment: FC<AppointmentProps> = () => {
 
   const vendorIds = useMemo(getVendorIds(data?.GetAppointments?._embedded || []), [data?.GetAppointments?._embedded])
 
-  const { data: vendors } = useQuery<VendorsQueryData, VendorsQueryVariables>(GET_VENDORS, {
+  const { data: vendors } = useQuery<VendorsQueryData, VendorLandlordQueryVariables>(GET_VENDORS, {
     variables: {
       id: vendorIds,
     },
@@ -157,6 +181,19 @@ export const Appointment: FC<AppointmentProps> = () => {
   })
 
   useEffect(handleGetVendors(vendors, setAppState), [vendors])
+
+  const landlordIds = useMemo(getLandlordIds(data?.GetAppointments?._embedded || []), [
+    data?.GetAppointments?._embedded,
+  ])
+
+  const { data: landlords } = useQuery<LandlordsQueryData, VendorLandlordQueryVariables>(GET_LANDLORDS, {
+    variables: {
+      id: landlordIds,
+    },
+    skip: !landlordIds.length,
+  })
+
+  useEffect(handleGetLandlords(landlords, setAppState), [landlords])
 
   const appointmentSorted = useMemo(sortAppoinmentsByStartTime(data?.GetAppointments?._embedded || []), [
     data?.GetAppointments?._embedded,

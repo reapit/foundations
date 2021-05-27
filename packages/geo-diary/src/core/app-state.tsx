@@ -1,9 +1,9 @@
 import React, { createContext, Dispatch, SetStateAction, useContext, useEffect, useState } from 'react'
-import { VendorModel } from '../components/pages/appointment/appointment'
+import { VendorLandlordModel } from '../components/pages/appointment/appointment'
 import { ContactDrawerType } from '../components/ui/contact-drawer'
 import { Distance, Duration, GeocoderResult, MapRefs } from '../components/ui/map/types'
 import { ExtendedAppointmentModel } from '../types/global'
-import { getAppStateWithGeoCoords } from '../utils/map-utils'
+import { getGeoCoords } from '../utils/map-utils'
 
 export type AppTimeRange = 'TODAY' | 'TOMORROW' | 'WEEK'
 export type AppTravelMode = 'DRIVING' | 'WALKING'
@@ -32,7 +32,8 @@ export interface AppState {
   contactDrawerOpen: boolean
   contactDrawerType: ContactDrawerType
   contactId: string | null
-  vendors: VendorModel[]
+  vendors: VendorLandlordModel[]
+  landlords: VendorLandlordModel[]
 }
 
 export interface AppStateContextProps {
@@ -61,6 +62,7 @@ export const defaultAppState: AppState = {
   contactDrawerType: 'ATTENDEE',
   contactId: null,
   vendors: [],
+  landlords: [],
 }
 
 export const AppStateContext = createContext<AppStateContextProps>({} as AppStateContextProps)
@@ -72,8 +74,11 @@ export const AppStateProvider: React.FC = ({ children }) => {
 
   useEffect(() => {
     const getAppState = async () => {
-      const initialAppState = await getAppStateWithGeoCoords(defaultAppState)
-      setAppState(initialAppState)
+      const geoCoords = await getGeoCoords()
+      setAppState((currentState) => ({
+        ...currentState,
+        ...geoCoords,
+      }))
     }
     getAppState()
   }, [])

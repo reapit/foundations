@@ -37,17 +37,15 @@ export const fetchDestinationInformation = ({
   })
 }
 
-export const getAppStateWithGeoCoords = (appState: AppState): Promise<AppState> => {
+export const getGeoCoords = (): Promise<Partial<AppState>> => {
   return new Promise((resolve) => {
     const hasGeoLocation = Boolean(navigator.geolocation)
 
-    if (!hasGeoLocation) return resolve(appState)
+    if (!hasGeoLocation) return resolve({})
 
     navigator.geolocation.getCurrentPosition(
       (position) => {
         return resolve({
-          ...appState,
-          hasGeoLocation: true,
           currentLat: position.coords.latitude,
           currentLng: position.coords.longitude,
         })
@@ -55,7 +53,7 @@ export const getAppStateWithGeoCoords = (appState: AppState): Promise<AppState> 
       (error) => {
         const err = new Error(error.message)
         logger(err)
-        return resolve(appState)
+        return resolve({})
       },
     )
   })

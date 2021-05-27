@@ -1,13 +1,21 @@
 import React from 'react'
 import { MockedProvider } from '@apollo/react-testing'
 import { shallow } from 'enzyme'
-import { Appointment, getVendorIds, handleGetVendors, sortAppoinmentsByStartTime } from '../appointment'
+import {
+  Appointment,
+  getLandlordIds,
+  getVendorIds,
+  handleGetLandlords,
+  handleGetVendors,
+  sortAppoinmentsByStartTime,
+} from '../appointment'
 import GET_APPOINTMENTS from '../../../../graphql/queries/get-appointments.graphql'
 import GET_VENDORS from '../../../../graphql/queries/get-vendors.graphql'
 import { appointment } from '@/graphql/__mocks__/appointment'
 import { mockAppointmentsQuery } from '../__mocks__/appointments-query'
 import { mockVendorsQuery } from '../__mocks__/vendors-query'
 import { ExtendedAppointmentModel } from '../../../../types/global'
+import { mockLandlordsQuery } from '../__mocks__/landlords-query'
 
 describe('appointment', () => {
   describe('Apppointment', () => {
@@ -86,6 +94,31 @@ describe('appointment', () => {
 
       expect(newState).toEqual({
         vendors: mockVendorsQuery.data.GetVendors._embedded,
+      })
+    })
+  })
+
+  describe('getLandlordIds', () => {
+    it('should correctly return vendor ids', () => {
+      const appoinments = mockAppointmentsQuery.data.GetAppointments._embedded as ExtendedAppointmentModel[]
+      const curried = getLandlordIds(appoinments)
+      const result = curried()
+
+      expect(result.length).toBe(2)
+      expect(result[1]).toEqual('TEST_LANDLORD')
+    })
+  })
+
+  describe('handleGetLandlords', () => {
+    it('should correctly set state', () => {
+      const mockSetState = jest.fn()
+      const curried = handleGetLandlords(mockLandlordsQuery?.data, mockSetState)
+      curried()
+
+      const newState = mockSetState.mock.calls[0][0]()
+
+      expect(newState).toEqual({
+        landlords: mockVendorsQuery.data.GetVendors._embedded,
       })
     })
   })

@@ -269,6 +269,9 @@ exports[`ContextMenu should match snapshot with an appointment 1`] = `
             "postcode": "OX25 2UJ",
           },
           "id": "ALB160019",
+          "letting": Object {
+            "landlordId": "OXF200001",
+          },
           "selling": Object {
             "vendorId": "OXF200001",
           },

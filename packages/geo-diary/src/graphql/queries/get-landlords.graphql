@@ -1,0 +1,12 @@
+#import "../fragments/landlord-related-model.graphql"
+
+query GET_LANDLORDS($id: [String!]) {
+  GetLandlords(id: $id ) {
+    _embedded {
+      id
+      related {
+      ...LandlordRelatedModel
+      }
+    }
+  }
+}

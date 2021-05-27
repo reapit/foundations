@@ -6,6 +6,7 @@ import { AttendeeItem } from './attendee-item'
 import { PropertyItem } from './property-item'
 import { ContactDrawerType } from '../contact-drawer'
 import { VendorItem } from './vendor-item'
+import { LandlordItem } from './landlord-item'
 
 export type RenderIconItemsProps = {
   appointment: ExtendedAppointmentModel
@@ -43,6 +44,7 @@ export const AppointmentItems: FC<RenderIconItemsProps> = ({ appointment }) => {
       <PropertyItem appointment={appointment} />
       <AttendeeItem appointment={appointment} />
       <VendorItem appointment={appointment} />
+      <LandlordItem appointment={appointment} />
     </>
   )
 }
