@@ -27,13 +27,13 @@ export default async (req: AppRequest, res: Response) => {
     }
     const iterator = db.query(Automation, keyCondition, queryConditons)
 
-    const responeRecords = []
+    const responseRecords = []
     for await (const record of iterator) {
-      responeRecords.push(record)
+      responseRecords.push(record)
     }
 
     res.status(HttpStatusCodeEnum.OK)
-    return res.json(responeRecords)
+    return res.json(responseRecords)
   } catch (error) {
     logger.error('Error retrieving automations', stringifyError(error))
 
