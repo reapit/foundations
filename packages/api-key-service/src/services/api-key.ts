@@ -21,26 +21,31 @@ export const getApiKey = (apiKey: Partial<ApiKeyModel>): Promise<ApiKeyModel | u
 }
 
 export const batchGetApiKeys = async (
-  customer: LoginIdentity,
+  customer: LoginIdentity & { developerId: string },
   startKey?: { [s: string]: string },
 ): Promise<[QueryIterator<ApiKeyModel>, { count: number; nextCursor: string }]> => {
-  const dynamoResponse = await db.query(
-    ApiKeyModel,
-    {
-      organisationId: customer.orgId ? customer.orgId : undefined,
-      developerId: customer.orgId ? undefined : customer.developerId,
-    },
-    {
-      limit: 10,
-      startKey,
-    },
-  )
+  try {
+    const dynamoResponse = await db.query(
+      ApiKeyModel,
+      {
+        developerId: customer.developerId,
+      },
+      {
+        indexName: 'developerIdOwnership',
+        limit: 10,
+        startKey,
+      },
+    )
 
-  return [
-    dynamoResponse,
-    {
-      count: dynamoResponse.count,
-      nextCursor: '',
-    },
-  ]
+    return [
+      dynamoResponse,
+      {
+        count: dynamoResponse.count,
+        nextCursor: '',
+      },
+    ]
+  } catch (e) {
+    console.error(e)
+    throw e
+  }
 }

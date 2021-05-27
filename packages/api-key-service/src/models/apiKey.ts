@@ -12,9 +12,6 @@ export class ApiKeyModel implements ApiKeyInterface {
   apiKey?: string
 
   @attribute()
-  organisationId?: string
-
-  @attribute()
   developerId?: string
 
   @attribute({ defaultProvider: () => new Date().toISOString() })

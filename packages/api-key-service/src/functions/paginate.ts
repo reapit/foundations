@@ -23,7 +23,7 @@ export const paginateApiKeys = httpHandler<void, Pagintation<ApiKeyModel>>({
         publicKeys,
       )
 
-      if (typeof customer === 'undefined') {
+      if (typeof customer === 'undefined' || !customer.developerId) {
         throw new Error('Unauthorised')
       }
     } catch (e) {
@@ -31,7 +31,7 @@ export const paginateApiKeys = httpHandler<void, Pagintation<ApiKeyModel>>({
     }
 
     const [items, meta] = await batchGetApiKeys(
-      customer as LoginIdentity,
+      customer as LoginIdentity & { developerId: string },
       event?.queryStringParameters?.nextCursor ? { id: event?.queryStringParameters?.nextCursor } : undefined,
     )
 

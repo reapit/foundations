@@ -15,7 +15,7 @@ export const getApiKey = httpHandler<void, ApiKeyModel>({
         publicKeys,
       )
 
-      if (typeof customer === 'undefined') {
+      if (typeof customer === 'undefined' || !customer.developerId) {
         throw new Error('Unauthorised')
       }
     } catch (e) {
@@ -24,8 +24,7 @@ export const getApiKey = httpHandler<void, ApiKeyModel>({
 
     return get({
       id: event.pathParameters?.id,
-      developerId: customer?.developerId ? customer.developerId : undefined,
-      organisationId: customer?.orgId ? customer.orgId : undefined,
+      developerId: customer?.developerId,
     })
   },
 })
