@@ -130,3 +130,45 @@ functions:
               - if-match
           authorizer:
             arn: arn:aws:cognito-idp:${self:provider.region}:${self:custom.env.AWS_ACCOUNT_ID}:userpool/${self:custom.env.COGNITO_USERPOOL_ID}
+  getApiKey:
+    handler: src/index.getApiKey
+    events:
+      - http:
+          path: /api-key/{id}
+          method: get
+          cors:
+            origin: '*'
+            headers:
+              - Content-Type
+              - X-Amz-Date
+              - Authorization
+              - X-Api-Key
+              - X-Amz-Security-Token
+              - X-Amz-User-Agent
+              - reapit-customer
+              - reapit-connect-token
+              - api-version
+              - if-match
+          authorizer:
+            arn: arn:aws:cognito-idp:${self:provider.region}:${self:custom.env.AWS_ACCOUNT_ID}:userpool/${self:custom.env.COGNITO_USERPOOL_ID}
+  updateApiKey:
+    handler: src/index.updateApiKey
+    events:
+      - http:
+          path: /api-key/{id}
+          method: put
+          cors:
+            origin: '*'
+            headers:
+              - Content-Type
+              - X-Amz-Date
+              - Authorization
+              - X-Api-Key
+              - X-Amz-Security-Token
+              - X-Amz-User-Agent
+              - reapit-customer
+              - reapit-connect-token
+              - api-version
+              - if-match
+          authorizer:
+            arn: arn:aws:cognito-idp:${self:provider.region}:${self:custom.env.AWS_ACCOUNT_ID}:userpool/${self:custom.env.COGNITO_USERPOOL_ID}
