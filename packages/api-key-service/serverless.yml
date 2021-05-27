@@ -151,7 +151,7 @@ functions:
               - if-match
           authorizer:
             arn: arn:aws:cognito-idp:${self:provider.region}:${self:custom.env.AWS_ACCOUNT_ID}:userpool/${self:custom.env.COGNITO_USERPOOL_ID}
-paginateApiKey:
+  paginateApiKey:
     handler: src/index.paginateApiKey
     events:
       - http:
