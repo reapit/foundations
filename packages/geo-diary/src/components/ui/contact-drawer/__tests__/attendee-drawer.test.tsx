@@ -15,13 +15,14 @@ describe('AttendeeDrawer', () => {
     expect(shallow(<AttendeeDrawer />)).toMatchSnapshot()
   })
 
-  it('should match snapshot with an appointment in state', () => {
+  it('should match snapshot with an appointment in state and an AML App', () => {
     const contacts = appointment?.attendee?.contacts ?? []
 
     mockedUseAppState.mockImplementation(() => ({
       appState: {
         contactId: contacts[0].id,
         appointment,
+        hasAmlApp: true,
       },
       setAppState: jest.fn(),
     }))

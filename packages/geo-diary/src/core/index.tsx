@@ -24,6 +24,8 @@ window.reapit = {
     graphqlUri: '',
     googleMapApiKey: '',
     platformApiUrl: '',
+    amlAppId: '',
+    amlAppUrl: '',
   },
 }
 

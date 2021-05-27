@@ -4,10 +4,11 @@ import PhoneRow from './phone-row'
 import { DrawerHeader } from '../drawer'
 import { useAppState } from '../../../core/app-state'
 import { handleClose } from './index'
+import { AmlCheckRow } from './aml-check-row'
 
 export const LandlordDrawer: FC = () => {
   const { appState, setAppState } = useAppState()
-  const { appointment, landlords, contactId } = appState
+  const { appointment, landlords, contactId, hasAmlApp } = appState
 
   if (!landlords.length || !contactId) return null
 
@@ -28,6 +29,7 @@ export const LandlordDrawer: FC = () => {
       {homePhone && <PhoneRow label="Home" phoneNumber={homePhone} />}
       {workPhone && <PhoneRow label="Work" phoneNumber={workPhone} />}
       <EmailRow label="Email" email={email} />
+      {hasAmlApp && contactId && <AmlCheckRow contactId={contactId} name={name ?? ''} />}
     </>
   )
 }

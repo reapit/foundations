@@ -5,10 +5,11 @@ import { DrawerHeader } from '../drawer'
 import { useAppState } from '../../../core/app-state'
 import { handleClose } from './index'
 import EtaTextRow from './eta-text-row'
+import { AmlCheckRow } from './aml-check-row'
 
 export const AttendeeDrawer: FC = () => {
   const { appState, setAppState } = useAppState()
-  const { appointment, contactId } = appState
+  const { appointment, contactId, hasAmlApp } = appState
   const contacts = appointment?.attendee?.contacts ?? []
   const contact = contacts.find((item) => item.id === contactId)
 
@@ -26,6 +27,7 @@ export const AttendeeDrawer: FC = () => {
       {homePhone && <PhoneRow label="Home" phoneNumber={homePhone} />}
       {workPhone && <PhoneRow label="Work" phoneNumber={workPhone} />}
       <EmailRow label="Email" email={email} />
+      {hasAmlApp && contactId && <AmlCheckRow contactId={contactId} name={name ?? ''} />}
     </>
   )
 }

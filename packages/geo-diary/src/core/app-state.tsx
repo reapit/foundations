@@ -34,6 +34,7 @@ export interface AppState {
   contactId: string | null
   vendors: VendorLandlordModel[]
   landlords: VendorLandlordModel[]
+  hasAmlApp: boolean
 }
 
 export interface AppStateContextProps {
@@ -63,6 +64,7 @@ export const defaultAppState: AppState = {
   contactId: null,
   vendors: [],
   landlords: [],
+  hasAmlApp: false,
 }
 
 export const AppStateContext = createContext<AppStateContextProps>({} as AppStateContextProps)
