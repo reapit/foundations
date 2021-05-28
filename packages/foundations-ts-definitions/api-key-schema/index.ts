@@ -1,13 +1,13 @@
-export enum KeyType {
+export enum ApiKeyEntityType {
   PAYMENT = 'payment',
   DEPLOYMENT = 'deployment',
 }
 
 export interface ApiKeyInterface {
   apiKey?: string
-  keyType?: KeyType
 	keyCreatedAt?: string
 	keyExpiresAt?: string
 	developerId?: string
-	paymentId?: string
+	entityId?: string
+	entityType?: ApiKeyEntityType
 }
