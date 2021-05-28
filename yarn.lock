@@ -10214,10 +10214,13 @@ __metadata:
     "@reapit/config-manager": "workspace:packages/config-manager"
     "@reapit/foundations-ts-definitions": "workspace:packages/foundations-ts-definitions"
     "@reapit/utils": "workspace:packages/utils"
+    "@reapit/ts-scripts": "workspace:packages/ts-scripts"
     class-transformer: ^0.4.0
     class-validator: ^0.13.1
     concurrently: ^6.2.0
+    cross-env: ^7.0.3
     eslint: ^7.27.0
+    jest: 26.6.3
     prettier: ^2.3.0
     serverless: ^2.43.1
   languageName: unknown
@@ -24005,6 +24008,19 @@ fsevents@^1.2.7:
   languageName: node
   linkType: hard
 
+"jest@npm:26.6.3, jest@npm:^26.6.3":
+  version: 26.6.3
+  resolution: "jest@npm:26.6.3"
+  dependencies:
+    "@jest/core": ^26.6.3
+    import-local: ^3.0.2
+    jest-cli: ^26.6.3
+  bin:
+    jest: bin/jest.js
+  checksum: 4ffcfefa2b30999a71c205e1aacf2b3d7af10f36c17ba1baf45677684116ad5aa6a5bb162ad2dd418f9ea99d18f24b70d8c83fb317b765a3acac361a50e9db9f
+  languageName: node
+  linkType: hard
+
 "jest@npm:^25.3.0, jest@npm:^25.5.4":
   version: 25.5.4
   resolution: "jest@npm:25.5.4"
@@ -24015,19 +24031,6 @@ fsevents@^1.2.7:
   bin:
     jest: bin/jest.js
   checksum: aa4a0c3d6999036892d2c652afb87c4e8329a9303999fe595a91efaf674c2d0ff6eceed373042f82094fdd837264b01771c5a69dc0ee96533cc178860eac8991
-  languageName: node
-  linkType: hard
-
-"jest@npm:^26.6.3":
-  version: 26.6.3
-  resolution: "jest@npm:26.6.3"
-  dependencies:
-    "@jest/core": ^26.6.3
-    import-local: ^3.0.2
-    jest-cli: ^26.6.3
-  bin:
-    jest: bin/jest.js
-  checksum: 4ffcfefa2b30999a71c205e1aacf2b3d7af10f36c17ba1baf45677684116ad5aa6a5bb162ad2dd418f9ea99d18f24b70d8c83fb317b765a3acac361a50e9db9f
   languageName: node
   linkType: hard
 
