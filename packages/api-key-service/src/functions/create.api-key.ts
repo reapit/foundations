@@ -18,7 +18,7 @@ export const createApiKey = httpHandler<ApiKeyDto, ApiKeyModel>({
         publicKeys,
       )
 
-      if (typeof customer === 'undefined') {
+      if (typeof customer === 'undefined' || !customer.developerId) {
         throw new Error('Unauthorised')
       }
     } catch (e) {
@@ -28,7 +28,7 @@ export const createApiKey = httpHandler<ApiKeyDto, ApiKeyModel>({
     const dto = event.body
       ? plainToClass(ApiKeyDto, {
           ...body,
-          developerId: customer?.developerId,
+          developerId: customer.developerId,
         })
       : new ApiKeyDto()
 
