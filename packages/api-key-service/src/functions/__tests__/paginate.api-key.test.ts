@@ -1,4 +1,4 @@
-import { deleteApiKey } from './../'
+import { paginateApiKeys } from './../'
 import { HttpStatusCode } from '@homeservenow/serverless-aws-handler'
 import { APIGatewayEventRequestContextWithAuthorizer, Context } from 'aws-lambda'
 import { v4 as uuid } from 'uuid'
@@ -31,43 +31,24 @@ const mockRequestHandlerContext = (
   resource: '',
 })
 
-describe('Delete ApiKey', () => {
+describe('Paginate ApiKey', () => {
   afterEach(() => {
     jest.resetAllMocks()
   })
 
   it('Can result in unauthorised', async () => {
-    const result = await deleteApiKey(mockRequestHandlerContext({}), {} as Context)
+    const result = await paginateApiKeys(mockRequestHandlerContext({}), {} as Context)
 
     expect(result.statusCode).toBe(HttpStatusCode.UNAUTHORIZED)
   })
 
-  it('Can result in not found if key does not exist', async () => {
-    // TODO add mock test for not found result
-    const result = await deleteApiKey(
-      mockRequestHandlerContext(
-        {},
-        {
-          authorization: '1234',
-        },
-      ),
-      {} as Context,
-    )
+  it('Can result in pagination returned', async () => {
+    const result = await paginateApiKeys(mockRequestHandlerContext({}), {} as Context)
 
-    expect(result.statusCode).toBe(HttpStatusCode.NOT_FOUND)
-  })
+    const body = JSON.parse(result.body)
 
-  it('Can result in deletion', async () => {
-    const result = await deleteApiKey(
-      mockRequestHandlerContext(
-        {},
-        {
-          authorization: '1234',
-        },
-      ),
-      {} as Context,
-    )
-
-    expect(result.statusCode).toBe(HttpStatusCode.NO_CONTENT)
+    expect(result.statusCode).toBe(HttpStatusCode.OK)
+    expect(body).toHaveProperty('items')
+    expect(body).toHaveProperty('meta')
   })
 })
