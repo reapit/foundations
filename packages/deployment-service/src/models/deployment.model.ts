@@ -10,9 +10,6 @@ export class DeploymentModel {
   @attribute()
   name?: string
 
-  @attribute()
-  organisationId?: string
-
   @attribute({ defaultProvider: () => new Date() })
   created?: string
 

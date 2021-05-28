@@ -1,7 +1,7 @@
 import { DeploymentDto } from '@/dto'
 import { DeploymentModel } from '@/models'
 import { db } from '@/core'
-import { QueryPaginator } from '@aws/dynamodb-data-mapper'
+import { QueryIterator } from '@aws/dynamodb-data-mapper'
 
 export const createDeploymentModel = (dto: Partial<DeploymentModel>): Promise<DeploymentModel> => {
   return db.put(Object.assign(new DeploymentModel(), dto))
@@ -27,20 +27,24 @@ export const getByKey = (id: string): Promise<DeploymentModel | undefined> => {
 
 export const batchGet = async (
   developerId: string,
-  organisationId?: string,
   startKey?: { [s: string]: string },
-): Promise<QueryPaginator<DeploymentModel>> => {
-  return db
-    .query(
-      DeploymentModel,
-      {
-        organisationId: organisationId ? organisationId : undefined,
-        developerId: organisationId ? undefined : developerId,
-      },
-      {
-        limit: 10,
-        startKey,
-      },
-    )
-    .pages()
+): Promise<[QueryIterator<DeploymentModel>, { nextCursor: string }]> => {
+  const dynamoResponse = await db.query(
+    DeploymentModel,
+    {
+      developerId,
+    },
+    {
+      indexName: 'developerIdOwnership',
+      limit: 10,
+      startKey,
+    },
+  )
+
+  return [
+    dynamoResponse,
+    {
+      nextCursor: '',
+    },
+  ]
 }
