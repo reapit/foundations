@@ -37,7 +37,15 @@ describe('Paginate ApiKey', () => {
   })
 
   it('Can result in unauthorised', async () => {
-    const result = await paginateApiKeys(mockRequestHandlerContext({}), {} as Context)
+    const result = await paginateApiKeys(
+      mockRequestHandlerContext(
+        {},
+        {
+          Authorization: '1234',
+        },
+      ),
+      {} as Context,
+    )
 
     expect(result.statusCode).toBe(HttpStatusCode.UNAUTHORIZED)
   })
