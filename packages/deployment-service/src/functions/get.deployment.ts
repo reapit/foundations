@@ -19,7 +19,7 @@ export const getDeployment = httpHandler({
       throw new NotFoundException()
     }
 
-    ownership(deployment, event.headers)
+    await ownership(deployment.developerId, event.headers)
 
     return deployment
   },

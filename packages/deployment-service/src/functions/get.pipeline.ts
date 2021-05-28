@@ -1,6 +1,6 @@
 import { PipelineModel } from '@/models'
-import { authorised } from '@/utils'
-import { httpHandler } from '@homeservenow/serverless-aws-handler'
+import { authorised, ownership } from '@/utils'
+import { httpHandler, NotFoundException } from '@homeservenow/serverless-aws-handler'
 import * as service from './../services'
 
 /**
@@ -13,6 +13,14 @@ export const getPipeline = httpHandler<void, PipelineModel>({
     },
   },
   handler: async ({ event }): Promise<PipelineModel> => {
-    return service.findById(event.pathParameters?.id as string)
+    const pipeline = await service.findById(event.pathParameters?.id as string)
+
+    if (!pipeline || typeof pipeline.deployment === 'undefined') {
+      throw new NotFoundException()
+    }
+
+    await ownership(pipeline.deployment.id as string, event.headers)
+
+    return pipeline
   },
 })
