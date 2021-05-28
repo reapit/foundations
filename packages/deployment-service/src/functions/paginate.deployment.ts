@@ -26,7 +26,7 @@ export const paginateDeployments = httpHandler({
 
     try {
       customer = await connectSessionVerifyDecodeIdToken(
-        event.headers['reapit-connect-token'] as string,
+        event.headers['x-api-key'] as string,
         process.env.CONNECT_USER_POOL as string,
       )
 

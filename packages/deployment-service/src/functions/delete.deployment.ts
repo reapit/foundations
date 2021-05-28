@@ -18,7 +18,7 @@ export const deleteDeployment = httpHandler({
       throw new NotFoundException()
     }
 
-    ownership(deployment, event.headers)
+    await ownership(deployment.developerId, event.headers)
 
     await service.deleteDeploymentModel(deployment)
   },

@@ -37,7 +37,7 @@ export const updateDeployment = httpHandler<DeploymentDto, DeploymentModel>({
       throw new NotFoundException()
     }
 
-    ownership(deployment, event.headers)
+    await ownership(deployment.developerId, event.headers)
 
     return service.updateDeploymentModel(deployment, body)
   },

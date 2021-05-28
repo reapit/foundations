@@ -1,6 +1,6 @@
 import { PipelineModel } from '@/models'
-import { authorised } from '@/utils'
-import { httpHandler, BadRequestException } from '@homeservenow/serverless-aws-handler'
+import { authorised, ownership } from '@/utils'
+import { httpHandler, BadRequestException, NotFoundException } from '@homeservenow/serverless-aws-handler'
 import { DeploymentStatus } from '@reapit/foundations-ts-definitions'
 import * as service from './../services'
 
@@ -23,6 +23,12 @@ export const updatePipeline = httpHandler<{ buildStatus: DeploymentStatus.CANCEL
   },
   handler: async ({ event, body }): Promise<PipelineModel> => {
     const pipeline = await service.findById(event.pathParameters?.id as string)
+
+    if (!pipeline || typeof pipeline.deployment === 'undefined') {
+      throw new NotFoundException()
+    }
+
+    await ownership(pipeline.deployment.id as string, event.headers)
 
     if (pipeline.buildStatus !== DeploymentStatus.RUNNING) {
       return pipeline
