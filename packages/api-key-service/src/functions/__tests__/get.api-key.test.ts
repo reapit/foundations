@@ -43,7 +43,15 @@ describe('Get ApiKey', () => {
   })
 
   it('Can result in fetched returned', async () => {
-    const result = await paginateApiKeys(mockRequestHandlerContext({}), {} as Context)
+    const result = await paginateApiKeys(
+      mockRequestHandlerContext(
+        {},
+        {
+          Authorization: '1234',
+        },
+      ),
+      {} as Context,
+    )
 
     const body = JSON.parse(result.body)
 
