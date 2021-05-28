@@ -43,7 +43,15 @@ describe('Create ApiKey', () => {
   })
 
   it('Can result in validation errors', async () => {
-    const result = await createApiKey(mockRequestHandlerContext({}), {} as Context)
+    const result = await createApiKey(
+      mockRequestHandlerContext(
+        {},
+        {
+          Authentication: '1234',
+        },
+      ),
+      {} as Context,
+    )
 
     const body = JSON.parse(result.body)
 
@@ -57,7 +65,7 @@ describe('Create ApiKey', () => {
       mockRequestHandlerContext(
         {},
         {
-          authorization: '1234',
+          Authorization: '1234',
         },
       ),
       {} as Context,
@@ -79,7 +87,7 @@ describe('Create ApiKey', () => {
           keyExpiresAt: '2021-06-21T12:12:12',
         },
         {
-          authorization: '1234',
+          Authorization: '1234',
         },
       ),
       {} as Context,

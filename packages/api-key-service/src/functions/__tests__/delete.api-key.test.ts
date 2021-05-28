@@ -62,7 +62,7 @@ describe('Delete ApiKey', () => {
       mockRequestHandlerContext(
         {},
         {
-          authorization: '1234',
+          Authorization: '1234',
         },
       ),
       {} as Context,
