@@ -1,22 +1,19 @@
-import { KeyType } from '@reapit/foundations-ts-definitions'
-import { IsEnum, IsNotEmpty, IsOptional, IsString } from 'class-validator'
+import { ApiKeyEntityType } from '@reapit/foundations-ts-definitions'
+import { IsDateString, IsEnum, IsNotEmpty, IsOptional, IsString, IsUUID } from 'class-validator'
 
 export class ApiKeyDto {
-  @IsEnum(KeyType)
-  keyType?: KeyType
+  @IsEnum(ApiKeyEntityType)
+  entityType?: ApiKeyEntityType
 
-  @IsString()
+  @IsUUID()
+  @IsOptional()
+  entityId?: string
+
+  @IsDateString()
   @IsNotEmpty()
   keyExpiresAt?: string
 
   @IsString()
   @IsOptional()
   name?: string
-
-  @IsString()
-  @IsOptional()
-  paymentId?: string
-
-  @IsString()
-  developerId?: string
 }
