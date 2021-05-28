@@ -4,8 +4,8 @@ import { DeploymentModel } from '@/models'
 import * as service from '@/services/deployment'
 import { plainToClass } from 'class-transformer'
 import { validate } from 'class-validator'
-import { authorised } from '@/utils'
-import { connectSessionVerifyDecodeIdToken, LoginIdentity } from '@reapit/connect-session'
+import { connectSessionVerifyDecodeIdTokenWithPublicKeys, LoginIdentity } from '@reapit/connect-session'
+import publicKeys from './../../publicKeys.json'
 
 /**
  * Create a deployment
@@ -21,14 +21,18 @@ export const createDeployment = httpHandler<DeploymentDto, DeploymentModel>({
     return dto
   },
   handler: async ({ event }): Promise<DeploymentModel> => {
-    authorised(event)
     let customer: LoginIdentity | undefined
 
     try {
-      customer = await connectSessionVerifyDecodeIdToken(
+      customer = await connectSessionVerifyDecodeIdTokenWithPublicKeys(
         event.headers['x-api-key'] as string,
         process.env.CONNECT_USER_POOL as string,
+        publicKeys,
       )
+
+      if (!customer) {
+        throw new Error('unauthorised')
+      }
     } catch (e) {
       throw new UnauthorizedException(e.message)
     }

@@ -1,8 +1,8 @@
 import { httpHandler, UnauthorizedException } from '@homeservenow/serverless-aws-handler'
 import { DeploymentModel } from '@/models'
 import * as service from '@/services/deployment'
-import { authorised } from '@/utils'
-import { connectSessionVerifyDecodeIdToken, LoginIdentity } from '@reapit/connect-session'
+import { connectSessionVerifyDecodeIdTokenWithPublicKeys, LoginIdentity } from '@reapit/connect-session'
+import publicKeys from './../../publicKeys.json'
 
 type Pagintation<T> = {
   items: T[]
@@ -16,18 +16,14 @@ type Pagintation<T> = {
  * Return pagination response for signed in user
  */
 export const paginateDeployments = httpHandler({
-  serialise: {
-    input: (event) => {
-      authorised(event)
-    },
-  },
   handler: async ({ event }): Promise<Pagintation<DeploymentModel>> => {
     let customer: LoginIdentity | undefined
 
     try {
-      customer = await connectSessionVerifyDecodeIdToken(
-        event.headers['x-api-key'] as string,
+      customer = await connectSessionVerifyDecodeIdTokenWithPublicKeys(
+        event.headers.Authorization as string,
         process.env.CONNECT_USER_POOL as string,
+        publicKeys,
       )
 
       if (typeof customer === 'undefined' || !customer.developerId) {

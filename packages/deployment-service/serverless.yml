@@ -3,7 +3,6 @@ service: cloud-deployment-service
 plugins:
   - serverless-webpack
   - serverless-offline
-  - serverless-dynamodb-local
   - serverless-deployment-bucket
 
 custom:
@@ -48,7 +47,7 @@ provider:
   
   environment:
     NODE_ENV: 'production'
-    COGNITO_USERPOOL_ID: ${self:custom.env.COGNITO_USERPOOL_ID}
+    CONNECT_USER_POOL: ${self:custom.env.CONNECT_USER_POOL}
     SENTRY_DSN: ${self:custom.env.SENTRY_DSN}
     DYNAMO_DB_REGION: ${self:custom.env.DYNAMO_DB_REGION}
     DYNAMO_DB_ENDPOINT: ${self:custom.env.DYNAMO_DB_ENDPOINT}
