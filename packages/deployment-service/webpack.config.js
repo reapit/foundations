@@ -12,5 +12,4 @@ webpackConfigNode.plugins.push(new CopyPlugin({
   ]
 }))
 
-
 module.exports = webpackConfigNode
