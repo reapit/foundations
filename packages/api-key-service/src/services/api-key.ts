@@ -48,3 +48,7 @@ export const batchGetApiKeys = async (
     throw e
   }
 }
+
+export const removeApiKey = async (apiKey: ApiKeyModel): Promise<void> => {
+  await db.delete(apiKey)
+}
