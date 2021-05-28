@@ -39,8 +39,6 @@ describe('Create ApiKey', () => {
   it('Can result in unauthorised', async () => {
     const result = await createApiKey(mockRequestHandlerContext({}), {} as Context)
 
-    console.log('result', result)
-
     expect(result.statusCode).toBe(HttpStatusCode.UNAUTHORIZED)
   })
 
