@@ -35,7 +35,7 @@ describe('Update ApiKey', () => {
         },
         {
           id: '1234',
-        }
+        },
       ),
       {} as Context,
     )
@@ -48,12 +48,19 @@ describe('Update ApiKey', () => {
   })
 
   it('Can result in not found', async () => {
-    const result = await updateApiKey(mockRequestHandlerContext({}, {
-      Authorization: '1234',
-      'Content-Type': 'application/json',
-    }, {
-      id: '345678',
-    }), {} as Context);
+    const result = await updateApiKey(
+      mockRequestHandlerContext(
+        {},
+        {
+          Authorization: '1234',
+          'Content-Type': 'application/json',
+        },
+        {
+          id: '345678',
+        },
+      ),
+      {} as Context,
+    )
 
     expect(result.statusCode).toBe(HttpStatusCode.NOT_FOUND)
   })
@@ -72,7 +79,7 @@ describe('Update ApiKey', () => {
         },
         {
           id: '1234',
-        }
+        },
       ),
       {} as Context,
     )
