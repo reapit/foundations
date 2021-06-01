@@ -6,7 +6,7 @@ import {
   UnauthorizedException,
 } from '@homeservenow/serverless-aws-handler'
 import { connectSessionVerifyDecodeIdTokenWithPublicKeys, LoginIdentity } from '@reapit/connect-session'
-import publicKeys from '../../publicKeys.json'
+import publicKeys from '../../public-keys.json'
 
 export const deleteApiKey = httpHandler({
   defaultStatusCode: HttpStatusCode.NO_CONTENT,

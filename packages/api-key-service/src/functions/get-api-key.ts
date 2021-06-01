@@ -2,7 +2,7 @@ import { ApiKeyModel } from '@/models'
 import { httpHandler, UnauthorizedException } from '@homeservenow/serverless-aws-handler'
 import { connectSessionVerifyDecodeIdTokenWithPublicKeys, LoginIdentity } from '@reapit/connect-session'
 import { getApiKey as get } from '../services'
-import publicKeys from '../../publicKeys.json'
+import publicKeys from '../../public-keys.json'
 
 export const getApiKey = httpHandler<void, ApiKeyModel>({
   handler: async ({ event }) => {
