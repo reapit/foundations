@@ -1,6 +1,3 @@
-import { paginateApiKeys } from './../'
-import { HttpStatusCode } from '@homeservenow/serverless-aws-handler'
-import { APIGatewayEventRequestContextWithAuthorizer, Context } from 'aws-lambda'
 import { v4 as uuid } from 'uuid'
 
 const mockDeveloperId = uuid()
@@ -12,27 +9,13 @@ jest.mock('@reapit/connect-session', () => ({
   }),
 }))
 
-const mockRequestHandlerContext = (
-  body: { [s: string]: any },
-  headers: { [s: string]: any } = {},
-  path: string = '/',
-) => ({
-  body: JSON.stringify(body),
-  pathParameters: {},
-  headers,
-  httpMethod: 'post',
-  path,
-  queryStringParameters: {},
-  multiValueHeaders: {},
-  isBase64Encoded: false,
-  requestContext: {} as APIGatewayEventRequestContextWithAuthorizer<any>,
-  multiValueQueryStringParameters: {},
-  stageVariables: {},
-  resource: '',
-})
+import { paginateApiKeys } from './../'
+import { HttpStatusCode } from '@homeservenow/serverless-aws-handler'
+import { Context } from 'aws-lambda'
+import { mockRequestHandlerContext } from './mock.hander.context'
 
 describe('Get ApiKey', () => {
-  afterEach(() => {
+  afterAll(() => {
     jest.resetAllMocks()
   })
 
