@@ -94,3 +94,6 @@ web-components:
 
 web-components-config-server:
   - packages/web-components-config-server/**
+
+api-key-service:
+  - packages/api-key-service/*
