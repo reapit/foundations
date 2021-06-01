@@ -1,6 +1,6 @@
-import { DeploymentDto } from '@/dto'
-import { DeploymentModel } from '@/models'
-import { db } from '@/core'
+import { DeploymentDto } from './../dto'
+import { DeploymentModel } from './../models'
+import { db } from './../core'
 import { QueryIterator } from '@aws/dynamodb-data-mapper'
 
 export const createDeploymentModel = (dto: Partial<DeploymentModel>): Promise<DeploymentModel> => {
@@ -27,7 +27,7 @@ export const getByKey = (id: string): Promise<DeploymentModel | undefined> => {
 
 export const batchGet = async (
   developerId: string,
-  startKey?: { [s: string]: string },
+  startKey?: Partial<DeploymentModel>,
 ): Promise<[QueryIterator<DeploymentModel>, { nextCursor: string }]> => {
   const dynamoResponse = await db.query(
     DeploymentModel,
