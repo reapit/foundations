@@ -1,8 +1,8 @@
 import { PipelineModel, TaskModel } from '@/models'
 import { TaskRunnerFunctions } from '@reapit/foundations-ts-definitions'
 import { build } from './build'
-import { deployNode } from './deploy.node'
-import { deployReact } from './deploy.react'
+import { deployNode } from './deploy-node'
+import { deployReact } from './deploy-react'
 import { pull } from './pull'
 
 export type ExecutableType = (task: TaskModel, pipeline: PipelineModel) => Promise<boolean> | boolean

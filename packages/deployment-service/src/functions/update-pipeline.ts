@@ -9,7 +9,7 @@ import {
 import { DeploymentStatus } from '@reapit/foundations-ts-definitions'
 import * as service from './../services'
 import { connectSessionVerifyDecodeIdTokenWithPublicKeys, LoginIdentity } from '@reapit/connect-session'
-import publicKeys from './../../publicKeys.json'
+import publicKeys from './../../public-keys.json'
 
 /**
  * Update a pipeline (cancel)
