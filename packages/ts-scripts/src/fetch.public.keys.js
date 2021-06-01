@@ -1,3 +1,5 @@
+#!/usr/bin/env node
+
 const fs = require('fs')
 const jwkToPem = require('jwk-to-pem')
 require('isomorphic-fetch')

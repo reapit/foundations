@@ -9,6 +9,7 @@
   "devDependencies": {
     "@reapit/config-manager": "workspace:packages/config-manager",
     "@reapit/foundations-ts-definitions": "workspace:packages/foundations-ts-definitions",
+    "@reapit/ts-scripts": "workspace:packages/ts-scripts",
     "concurrently": "^6.2.0",
     "eslint": "^7.27.0",
     "prettier": "^2.3.0",
@@ -22,6 +23,6 @@
     "conf": "yarn config-manager --namespace cloud --entity api-key-service --name local --mode fetch",
     "release": "yarn publicKeyFetch && serverless deploy",
     "publish": "echo '...skipping...'",
-    "publicKeyFetch": "node src/fetch.public.keys.js"
+    "publicKeyFetch": "reapit-fetch-public-keys"
   }
 }
