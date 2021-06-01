@@ -8,7 +8,10 @@ export const db = {
     keyCreatedAt: new Date().toISOString(),
   })),
   get: jest.fn(),
-  getBatch: jest.fn(),
+  query: jest.fn(() => ({
+    async *[Symbol.asyncIterator]() {
+      yield* [];
+    },
+  })),
   delete: jest.fn(),
-  query: jest.fn(),
 }
