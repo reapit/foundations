@@ -19,13 +19,12 @@
     "serverless": "^2.43.1"
   },
   "scripts": {
-    "start": "yarn publicKeyFetch && yarn build && yarn serverless offline start --runtime nodejs12.x --stage local",
+    "start": "reapit-fetch-public-keys && yarn build && yarn serverless offline start --runtime nodejs12.x --stage local",
     "build": "echo '...skipping...'",
     "lint": "concurrently \"prettier src/**/*.ts --write \"  \"eslint --cache --ext=ts,tsx src --fix\"",
-    "test": "yarn publicKeyFetch --test && cross-env TZ=UTC jest --colors --watch --silent",
+    "test": "reapit-fetch-public-keys --test && cross-env TZ=UTC jest --colors --watch --silent",
     "conf": "yarn config-manager --namespace cloud --entity api-key-service --name local --mode fetch",
-    "release": "yarn publicKeyFetch && serverless deploy",
-    "publish": "echo '...skipping...'",
-    "publicKeyFetch": "reapit-fetch-public-keys"
+    "release": "reapit-fetch-public-keys && serverless deploy",
+    "publish": "echo '...skipping...'"
   }
 }
