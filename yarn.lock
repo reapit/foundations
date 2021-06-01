@@ -15790,6 +15790,7 @@ __metadata:
   dependencies:
     "@homeservenow/serverless-aws-handler": ^0.2.4
     "@reapit/config-manager": "workspace:packages/config-manager"
+    "@reapit/utils": "workspace:packages/utils"
     class-transformer: ^0.4.0
     class-validator: ^0.13.1
     concurrently: ^6.1.0
