@@ -12,7 +12,7 @@ jest.mock('@reapit/connect-session', () => ({
 import { paginateApiKeys } from './../'
 import { HttpStatusCode } from '@homeservenow/serverless-aws-handler'
 import { Context } from 'aws-lambda'
-import { mockRequestHandlerContext } from './mock.hander.context'
+import { mockRequestHandlerContext } from '../tests/mock.hander.context'
 
 describe('Paginate ApiKey', () => {
   afterAll(() => {
@@ -20,22 +20,22 @@ describe('Paginate ApiKey', () => {
   })
 
   it('Can result in unauthorised', async () => {
-    const result = await paginateApiKeys(
-      mockRequestHandlerContext(
-        {},
-        {},
-      ),
-      {} as Context,
-    )
+    const result = await paginateApiKeys(mockRequestHandlerContext({}, {}), {} as Context)
 
     expect(result.statusCode).toBe(HttpStatusCode.UNAUTHORIZED)
   })
 
   it('Can result in pagination returned', async () => {
-    const result = await paginateApiKeys(mockRequestHandlerContext({}, {
-      Authorization: '1234',
-      'Content-Type': 'application/json',
-    }), {} as Context)
+    const result = await paginateApiKeys(
+      mockRequestHandlerContext(
+        {},
+        {
+          Authorization: '1234',
+          'Content-Type': 'application/json',
+        },
+      ),
+      {} as Context,
+    )
 
     const body = JSON.parse(result.body)
 
