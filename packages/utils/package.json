@@ -8,7 +8,7 @@
     "url": "git+git@github.com:reapit/foundations.git"
   },
   "bin": {
-    "reapit-fetch-public-keys": "./src/fetch.public.keys.js"
+    "reapit-fetch-public-keys": "./src/node/fetchPublicKeys/index.js"
   },
   "license": "MIT",
   "author": "Reapit Ltd",
