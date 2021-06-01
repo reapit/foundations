@@ -44,7 +44,6 @@ export const batchGetApiKeys = async (
       },
     ]
   } catch (e) {
-    console.error(e)
     throw e
   }
 }
