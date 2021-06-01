@@ -22,7 +22,7 @@ export const getApiKey = (apiKey: Partial<ApiKeyModel>): Promise<ApiKeyModel | u
 
 export const batchGetApiKeys = async (
   customer: LoginIdentity & { developerId: string },
-  startKey?: { [s: string]: string },
+  startKey?: Partial<ApiKeyModel>,
 ): Promise<[QueryIterator<ApiKeyModel>, { nextCursor: string }]> => {
   try {
     const dynamoResponse = await db.query(
