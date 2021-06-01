@@ -1,6 +1,3 @@
-import { createApiKey } from './../'
-import { HttpStatusCode } from '@homeservenow/serverless-aws-handler'
-import { APIGatewayEventRequestContextWithAuthorizer, Context } from 'aws-lambda'
 import { v4 as uuid } from 'uuid'
 
 const mockDeveloperId = uuid()
@@ -8,9 +5,13 @@ const mockDeveloperId = uuid()
 jest.mock('../../core/db')
 jest.mock('@reapit/connect-session', () => ({
   connectSessionVerifyDecodeIdTokenWithPublicKeys: jest.fn((header) => {
-    return header ? { mockDeveloperId } : undefined
+    return header ? { developerId: mockDeveloperId } : undefined
   }),
 }))
+
+import { createApiKey } from './../'
+import { HttpStatusCode } from '@homeservenow/serverless-aws-handler'
+import { APIGatewayEventRequestContextWithAuthorizer, Context } from 'aws-lambda'
 
 const mockRequestHandlerContext = (
   body: { [s: string]: any },
@@ -47,25 +48,8 @@ describe('Create ApiKey', () => {
       mockRequestHandlerContext(
         {},
         {
-          Authentication: '1234',
-        },
-      ),
-      {} as Context,
-    )
-
-    const body = JSON.parse(result.body)
-
-    expect(result.statusCode).toBe(HttpStatusCode.BAD_REQUEST)
-    expect(body).toHaveProperty('data')
-    expect(body.data.length).toBe(2)
-  })
-
-  it('Can result in validation errors', async () => {
-    const result = await createApiKey(
-      mockRequestHandlerContext(
-        {},
-        {
           Authorization: '1234',
+          'Content-Type': 'application/json',
         },
       ),
       {} as Context,
@@ -82,12 +66,13 @@ describe('Create ApiKey', () => {
     const result = await createApiKey(
       mockRequestHandlerContext(
         {
-          name: 'test',
-          entityType: 'deployment',
           keyExpiresAt: '2021-06-21T12:12:12',
+          name: 'new name',
+          entityType: 'deployment',
         },
         {
           Authorization: '1234',
+          'Content-Type': 'application/json',
         },
       ),
       {} as Context,
@@ -95,7 +80,7 @@ describe('Create ApiKey', () => {
 
     const body = JSON.parse(result.body)
 
-    expect(result.statusCode).toBe(HttpStatusCode.BAD_REQUEST)
+    expect(result.statusCode).toBe(HttpStatusCode.OK)
     expect(body).toHaveProperty('apiKey')
     expect(body).toHaveProperty('id')
     expect(body).toHaveProperty('entityType')

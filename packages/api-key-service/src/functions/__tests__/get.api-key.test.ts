@@ -8,7 +8,7 @@ const mockDeveloperId = uuid()
 jest.mock('../../core/db')
 jest.mock('@reapit/connect-session', () => ({
   connectSessionVerifyDecodeIdTokenWithPublicKeys: jest.fn((header) => {
-    return header ? { mockDeveloperId } : undefined
+    return header ? { developerId: mockDeveloperId } : undefined
   }),
 }))
 
@@ -48,6 +48,7 @@ describe('Get ApiKey', () => {
         {},
         {
           Authorization: '1234',
+          'Content-Type': 'application/json',
         },
       ),
       {} as Context,
