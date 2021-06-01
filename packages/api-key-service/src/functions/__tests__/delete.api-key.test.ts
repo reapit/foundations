@@ -33,7 +33,7 @@ describe('Delete ApiKey', () => {
           Authorization: '1234',
         },
         {
-          id: '/56765',
+          id: '56765',
         },
       ),
       {} as Context,
