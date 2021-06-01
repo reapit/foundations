@@ -1,5 +1,5 @@
 import { table, attribute, hashKey } from '@aws/dynamodb-data-mapper-annotations'
-import { TABLE_NAMES } from './../constants'
+import { TABLE_NAMES } from '../constants'
 import { TaskRunnerFunctions, TaskModelInterface, DeploymentStatus } from '@reapit/foundations-ts-definitions'
 
 @table(TABLE_NAMES.TASK)
