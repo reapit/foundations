@@ -32,7 +32,9 @@ export const createApiKey = httpHandler<ApiKeyDto, ApiKeyModel>({
         })
       : new ApiKeyDto()
 
-    const errors = await validate(dto)
+    const errors = await validate(dto, {
+      whitelist: true,
+    })
 
     if (errors.length >= 1) {
       throw new ValidationException(errors as any)
