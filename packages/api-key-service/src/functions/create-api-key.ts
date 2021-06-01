@@ -5,7 +5,7 @@ import { ApiKeyDto } from '@/dto'
 import { ApiKeyModel } from '@/models'
 import { createApiKey as create } from '@/services'
 import { connectSessionVerifyDecodeIdTokenWithPublicKeys, LoginIdentity } from '@reapit/connect-session'
-import publicKeys from '../../publicKeys.json'
+import publicKeys from '../../public-keys.json'
 
 export const createApiKey = httpHandler<ApiKeyDto, ApiKeyModel>({
   handler: async ({ body, event }): Promise<ApiKeyModel> => {
