@@ -1,7 +1,7 @@
 import { PipelineModel } from '@/models'
 import { ownership } from '@/utils'
 import { httpHandler, NotFoundException, UnauthorizedException } from '@homeservenow/serverless-aws-handler'
-import * as service from './../services'
+import * as service from '../services'
 import { connectSessionVerifyDecodeIdTokenWithPublicKeys, LoginIdentity } from '@reapit/connect-session'
 import publicKeys from './../../public-keys.json'
 

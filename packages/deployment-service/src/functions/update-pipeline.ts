@@ -7,7 +7,7 @@ import {
   UnauthorizedException,
 } from '@homeservenow/serverless-aws-handler'
 import { DeploymentStatus } from '@reapit/foundations-ts-definitions'
-import * as service from './../services'
+import * as service from '../services'
 import { connectSessionVerifyDecodeIdTokenWithPublicKeys, LoginIdentity } from '@reapit/connect-session'
 import publicKeys from './../../public-keys.json'
 

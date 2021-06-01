@@ -1,4 +1,4 @@
-import { createPipeline } from '../functions/create.pipeline'
+import { createPipeline } from '../functions/create-pipeline'
 import { v4 as uuid } from 'uuid'
 import { Context } from 'aws-lambda'
 import { HttpStatusCode } from '@homeservenow/serverless-aws-handler'
