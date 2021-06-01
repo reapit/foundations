@@ -3,13 +3,13 @@ import { APIGatewayEventRequestContextWithAuthorizer } from 'aws-lambda'
 export const mockRequestHandlerContext = (
   body: { [s: string]: any },
   headers: { [s: string]: any } = {},
-  path: string = '/',
+  pathParameters: { [s: string]: string } = {},
 ) => ({
   body: JSON.stringify(body),
-  pathParameters: {},
+  pathParameters,
   headers,
   httpMethod: 'post',
-  path,
+  path: Object.values(pathParameters).join('/'),
   queryStringParameters: {},
   multiValueHeaders: {},
   isBase64Encoded: false,
