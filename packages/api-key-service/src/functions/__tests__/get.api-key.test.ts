@@ -12,7 +12,7 @@ jest.mock('@reapit/connect-session', () => ({
 import { paginateApiKeys } from './../'
 import { HttpStatusCode } from '@homeservenow/serverless-aws-handler'
 import { Context } from 'aws-lambda'
-import { mockRequestHandlerContext } from './mock.hander.context'
+import { mockRequestHandlerContext } from '../tests/mock.hander.context'
 
 describe('Get ApiKey', () => {
   afterAll(() => {

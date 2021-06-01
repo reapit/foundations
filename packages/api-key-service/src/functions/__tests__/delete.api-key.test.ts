@@ -12,7 +12,7 @@ jest.mock('@reapit/connect-session', () => ({
 import { deleteApiKey } from './../'
 import { HttpStatusCode } from '@homeservenow/serverless-aws-handler'
 import { Context } from 'aws-lambda'
-import { mockRequestHandlerContext } from './mock.hander.context'
+import { mockRequestHandlerContext } from '../tests/mock.hander.context'
 
 describe('Delete ApiKey', () => {
   afterAll(() => {
@@ -26,12 +26,14 @@ describe('Delete ApiKey', () => {
   })
 
   it('Can result in not found if key does not exist', async () => {
-    // TODO add mock test for not found result
     const result = await deleteApiKey(
       mockRequestHandlerContext(
         {},
         {
-          authorization: '1234',
+          Authorization: '1234',
+        },
+        {
+          id: '/56765',
         },
       ),
       {} as Context,
@@ -46,6 +48,9 @@ describe('Delete ApiKey', () => {
         {},
         {
           Authorization: '1234',
+        },
+        {
+          id: '1234',
         },
       ),
       {} as Context,
