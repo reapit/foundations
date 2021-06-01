@@ -1,6 +1,6 @@
-import React, { FC, Suspense, useEffect } from 'react'
+import React, { FC, Suspense } from 'react'
 import Menu from '@/components/ui/menu'
-import { AppNavContainer, Helper, isMobile, notification, Section } from '@reapit/elements'
+import { AppNavContainer, Helper, Section } from '@reapit/elements'
 import ErrorBoundary from './error-boundary'
 import { Redirect, useLocation } from 'react-router'
 import { reapitConnectBrowserSession } from '@/core/connect-session'
@@ -13,23 +13,6 @@ export const PrivateRouteWrapper: FC = ({ children }) => {
   const { connectSession, connectInternalRedirect } = useReapitConnect(reapitConnectBrowserSession)
   const location = useLocation()
   const currentUri = `${location.pathname}${location.search}`
-
-  const isMobileView = isMobile()
-
-  useEffect(() => {
-    if (isMobileView && !window.matchMedia('(display-mode: standalone)').matches) {
-      notification.info({
-        message: (
-          <>
-            Did you know, you can save GEO Diary to your home screen?{' '}
-            <a href="https://reapit-1.gitbook.io/g/" target="_blank" rel="noopener noreferrer">
-              Tap here to find out how.
-            </a>
-          </>
-        ),
-      })
-    }
-  }, [])
 
   if (!connectSession) {
     return (

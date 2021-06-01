@@ -19,7 +19,7 @@ export const VendorDrawer: FC = () => {
 
   if (!vendorContact) return null
 
-  const { name, mobilePhone, homePhone, workPhone, email } = vendorContact
+  const { name, mobilePhone, homePhone, workPhone, email, type } = vendorContact
   const noPhoneNumbers = !mobilePhone && !homePhone && !workPhone
   return (
     <>
@@ -29,7 +29,7 @@ export const VendorDrawer: FC = () => {
       {homePhone && <PhoneRow label="Home" phoneNumber={homePhone} />}
       {workPhone && <PhoneRow label="Work" phoneNumber={workPhone} />}
       <EmailRow label="Email" email={email} />
-      {hasAmlApp && contactId && <AmlCheckRow contactId={contactId} name={name ?? ''} />}
+      {hasAmlApp && contactId && type === 'contact' && <AmlCheckRow contactId={contactId} name={name ?? ''} />}
     </>
   )
 }
