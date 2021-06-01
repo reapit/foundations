@@ -19,7 +19,7 @@ export const LandlordDrawer: FC = () => {
 
   if (!landlordContact) return null
 
-  const { name, mobilePhone, homePhone, workPhone, email } = landlordContact
+  const { name, mobilePhone, homePhone, workPhone, email, type } = landlordContact
   const noPhoneNumbers = !mobilePhone && !homePhone && !workPhone
   return (
     <>
@@ -29,7 +29,7 @@ export const LandlordDrawer: FC = () => {
       {homePhone && <PhoneRow label="Home" phoneNumber={homePhone} />}
       {workPhone && <PhoneRow label="Work" phoneNumber={workPhone} />}
       <EmailRow label="Email" email={email} />
-      {hasAmlApp && contactId && <AmlCheckRow contactId={contactId} name={name ?? ''} />}
+      {hasAmlApp && contactId && type === 'contact' && <AmlCheckRow contactId={contactId} name={name ?? ''} />}
     </>
   )
 }
