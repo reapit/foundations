@@ -23,10 +23,7 @@ describe('Paginate ApiKey', () => {
     const result = await paginateApiKeys(
       mockRequestHandlerContext(
         {},
-        {
-          Authorization: '1234',
-          'Content-Type': 'application/json',
-        },
+        {},
       ),
       {} as Context,
     )
@@ -35,7 +32,10 @@ describe('Paginate ApiKey', () => {
   })
 
   it('Can result in pagination returned', async () => {
-    const result = await paginateApiKeys(mockRequestHandlerContext({}), {} as Context)
+    const result = await paginateApiKeys(mockRequestHandlerContext({}, {
+      Authorization: '1234',
+      'Content-Type': 'application/json',
+    }), {} as Context)
 
     const body = JSON.parse(result.body)
 
