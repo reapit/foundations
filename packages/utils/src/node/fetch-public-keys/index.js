@@ -1,6 +1,6 @@
 #!/usr/bin/env node
 
-const syncKeys = require('./fetch.public.keys')
+const syncKeys = require('./fetch-public-keys')
 const fs = require('fs')
 const constants = require('./constants')
 

@@ -9,32 +9,29 @@ jest.mock('@reapit/connect-session', () => ({
   }),
 }))
 
-import { updateApiKey } from './../'
+import { createApiKey } from '..'
 import { HttpStatusCode } from '@homeservenow/serverless-aws-handler'
 import { Context } from 'aws-lambda'
-import { mockRequestHandlerContext } from '../tests/mock.hander.context'
+import { mockRequestHandlerContext } from '../tests/mock-hander-context'
 
-describe('Update ApiKey', () => {
+describe('Create ApiKey', () => {
   afterAll(() => {
     jest.resetAllMocks()
   })
 
   it('Can result in unauthorised', async () => {
-    const result = await updateApiKey(mockRequestHandlerContext({}), {} as Context)
+    const result = await createApiKey(mockRequestHandlerContext({}), {} as Context)
 
     expect(result.statusCode).toBe(HttpStatusCode.UNAUTHORIZED)
   })
 
   it('Can result in validation errors', async () => {
-    const result = await updateApiKey(
+    const result = await createApiKey(
       mockRequestHandlerContext(
         {},
         {
           Authorization: '1234',
           'Content-Type': 'application/json',
-        },
-        {
-          id: '1234',
         },
       ),
       {} as Context,
@@ -47,38 +44,17 @@ describe('Update ApiKey', () => {
     expect(body.data.length).toBe(2)
   })
 
-  it('Can result in not found', async () => {
-    const result = await updateApiKey(
-      mockRequestHandlerContext(
-        {},
-        {
-          Authorization: '1234',
-          'Content-Type': 'application/json',
-        },
-        {
-          id: '345678',
-        },
-      ),
-      {} as Context,
-    )
-
-    expect(result.statusCode).toBe(HttpStatusCode.NOT_FOUND)
-  })
-
-  it('Can result in update of api-key', async () => {
-    const result = await updateApiKey(
+  it('Can result in creation of api-key', async () => {
+    const result = await createApiKey(
       mockRequestHandlerContext(
         {
           keyExpiresAt: '2021-06-21T12:12:12',
-          name: 'changed name',
+          name: 'new name',
           entityType: 'deployment',
         },
         {
           Authorization: '1234',
           'Content-Type': 'application/json',
-        },
-        {
-          id: '1234',
         },
       ),
       {} as Context,
@@ -92,6 +68,5 @@ describe('Update ApiKey', () => {
     expect(body).toHaveProperty('entityType')
     expect(body).toHaveProperty('keyCreatedAt')
     expect(body).toHaveProperty('developerId')
-    expect(body.name).toBe('changed name')
   })
 })

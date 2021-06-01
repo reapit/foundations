@@ -1,1 +1,1 @@
-export * from './apiKey'
+export * from './api-key'

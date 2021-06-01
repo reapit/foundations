@@ -1,13 +1,18 @@
-import { httpHandler, UnauthorizedException, ValidationException } from '@homeservenow/serverless-aws-handler'
+import {
+  httpHandler,
+  NotFoundException,
+  UnauthorizedException,
+  ValidationException,
+} from '@homeservenow/serverless-aws-handler'
 import { plainToClass } from 'class-transformer'
 import { validate } from 'class-validator'
 import { ApiKeyDto } from '@/dto'
 import { ApiKeyModel } from '@/models'
-import { createApiKey as create } from '@/services'
+import { getApiKey, updateApiKey as update } from '@/services'
 import { connectSessionVerifyDecodeIdTokenWithPublicKeys, LoginIdentity } from '@reapit/connect-session'
-import publicKeys from './../../publicKeys.json'
+import publicKeys from '../../publicKeys.json'
 
-export const createApiKey = httpHandler<ApiKeyDto, ApiKeyModel>({
+export const updateApiKey = httpHandler<ApiKeyDto, ApiKeyModel>({
   handler: async ({ body, event }): Promise<ApiKeyModel> => {
     let customer: LoginIdentity | undefined
 
@@ -25,10 +30,19 @@ export const createApiKey = httpHandler<ApiKeyDto, ApiKeyModel>({
       throw new UnauthorizedException(e.message)
     }
 
+    const model = await getApiKey({
+      id: event.pathParameters?.id,
+      developerId: customer.developerId,
+    })
+
+    if (!model) {
+      throw new NotFoundException()
+    }
+
     const dto = event.body
       ? plainToClass(ApiKeyDto, {
           ...body,
-          developerId: customer.developerId,
+          developerId: customer?.developerId,
         })
       : new ApiKeyDto()
 
@@ -38,6 +52,6 @@ export const createApiKey = httpHandler<ApiKeyDto, ApiKeyModel>({
       throw new ValidationException(errors as any)
     }
 
-    return create(dto)
+    return update(model, dto)
   },
 })
