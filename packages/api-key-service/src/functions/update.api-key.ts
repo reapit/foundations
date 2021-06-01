@@ -30,21 +30,6 @@ export const updateApiKey = httpHandler<ApiKeyDto, ApiKeyModel>({
       throw new UnauthorizedException(e.message)
     }
 
-    const dto = event.body
-      ? plainToClass(ApiKeyDto, {
-          ...body,
-          developerId: customer?.developerId,
-        })
-      : new ApiKeyDto()
-
-    const errors = await validate(dto, {
-      whitelist: true,
-    })
-
-    if (errors.length >= 1) {
-      throw new ValidationException(errors as any)
-    }
-
     const model = await getApiKey({
       id: event.pathParameters?.id,
       developerId: customer.developerId,
@@ -52,6 +37,19 @@ export const updateApiKey = httpHandler<ApiKeyDto, ApiKeyModel>({
 
     if (!model) {
       throw new NotFoundException()
+    }
+
+    const dto = event.body
+      ? plainToClass(ApiKeyDto, {
+          ...body,
+          developerId: customer?.developerId,
+        })
+      : new ApiKeyDto()
+
+    const errors = await validate(dto)
+
+    if (errors.length >= 1) {
+      throw new ValidationException(errors as any)
     }
 
     return update(model, dto)
