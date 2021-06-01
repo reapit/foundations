@@ -10,9 +10,6 @@
     "type": "git",
     "url": "git+https://github.com/reapit/foundations.git"
   },
-  "bin": {
-    "reapit-fetch-public-keys": "./src/fetch.public.keys.js"
-  },
   "license": "MIT",
   "author": "wmcvay@reapit.com",
   "main": "./src/index.js",
