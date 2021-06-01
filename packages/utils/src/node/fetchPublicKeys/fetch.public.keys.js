@@ -3,6 +3,7 @@
 const fs = require('fs')
 const jwkToPem = require('jwk-to-pem')
 require('isomorphic-fetch')
+const constants = require('./constants')
 
 const getPublicKeys = async (connectUserPoolId) => {
   try {
@@ -29,14 +30,14 @@ const getPublicKeys = async (connectUserPoolId) => {
   }
 }
 
-const syncKeys = async () => {
-  if (!fs.existsSync('./config.json')) {
+module.exports = async () => {
+  if (!fs.existsSync(`./${constants.configFileName}`)) {
     console.error('Could not found config.json locally')
 
     return
   }
 
-  const config = JSON.parse(fs.readFileSync('./config.json'))
+  const config = JSON.parse(fs.readFileSync(`./${constants.configFileName}`))
 
   const keys = await getPublicKeys(config.CONNECT_USER_POOL)
   if (!keys) {
@@ -44,9 +45,7 @@ const syncKeys = async () => {
     return
   }
 
-  fs.writeFileSync('./publicKeys.json', JSON.stringify(keys))
+  fs.writeFileSync(`./${constants.publicKeyFileName}`, JSON.stringify(keys))
 
   console.log('Successfully fetched public keys')
 }
-
-syncKeys()
