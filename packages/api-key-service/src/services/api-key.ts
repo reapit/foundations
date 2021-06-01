@@ -24,28 +24,24 @@ export const batchGetApiKeys = async (
   customer: LoginIdentity & { developerId: string },
   startKey?: Partial<ApiKeyModel>,
 ): Promise<[QueryIterator<ApiKeyModel>, { nextCursor: string }]> => {
-  try {
-    const dynamoResponse = await db.query(
-      ApiKeyModel,
-      {
-        developerId: customer.developerId,
-      },
-      {
-        indexName: 'developerIdOwnership',
-        limit: 10,
-        startKey,
-      },
-    )
+  const dynamoResponse = await db.query(
+    ApiKeyModel,
+    {
+      developerId: customer.developerId,
+    },
+    {
+      indexName: 'developerIdOwnership',
+      limit: 10,
+      startKey,
+    },
+  )
 
-    return [
-      dynamoResponse,
-      {
-        nextCursor: '',
-      },
-    ]
-  } catch (e) {
-    throw e
-  }
+  return [
+    dynamoResponse,
+    {
+      nextCursor: '',
+    },
+  ]
 }
 
 export const removeApiKey = async (apiKey: ApiKeyModel): Promise<void> => {
