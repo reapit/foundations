@@ -5442,8 +5442,6 @@ __metadata:
     webpack-cli: ^3.3.12
     webpack-dev-server: ^3.11.2
     workbox-webpack-plugin: ^5.1.4
-  bin:
-    reapit-fetch-public-keys: ./src/fetch.public.keys.js
   languageName: unknown
   linkType: soft
 
@@ -5506,6 +5504,8 @@ __metadata:
     jest-coverage-badges: ^1.1.2
     serialize-error: ^7.0.1
     uuid: ^8.3.2
+  bin:
+    reapit-fetch-public-keys: ./src/fetch.public.keys.js
   languageName: unknown
   linkType: soft
 
@@ -10213,7 +10213,7 @@ __metadata:
     "@homeservenow/serverless-aws-handler": ^0.2.4
     "@reapit/config-manager": "workspace:packages/config-manager"
     "@reapit/foundations-ts-definitions": "workspace:packages/foundations-ts-definitions"
-    "@reapit/ts-scripts": "workspace:packages/ts-scripts"
+    "@reapit/utils": "workspace:packages/utils"
     class-transformer: ^0.4.0
     class-validator: ^0.13.1
     concurrently: ^6.2.0
