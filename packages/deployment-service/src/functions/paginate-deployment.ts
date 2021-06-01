@@ -2,7 +2,7 @@ import { httpHandler, UnauthorizedException } from '@homeservenow/serverless-aws
 import { DeploymentModel } from '@/models'
 import * as service from '@/services/deployment'
 import { connectSessionVerifyDecodeIdTokenWithPublicKeys, LoginIdentity } from '@reapit/connect-session'
-import publicKeys from './../../publicKeys.json'
+import publicKeys from './../../public-keys.json'
 
 type Pagintation<T> = {
   items: T[]

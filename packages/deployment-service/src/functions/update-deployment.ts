@@ -10,7 +10,7 @@ import * as service from '@/services/deployment'
 import { validate } from 'class-validator'
 import { ownership } from '@/utils'
 import { connectSessionVerifyDecodeIdTokenWithPublicKeys, LoginIdentity } from '@reapit/connect-session'
-import publicKeys from './../../publicKeys.json'
+import publicKeys from './../../public-keys.json'
 
 /**
  * Update a given deployment

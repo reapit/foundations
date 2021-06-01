@@ -5,7 +5,7 @@ import * as service from '@/services/deployment'
 import { plainToClass } from 'class-transformer'
 import { validate } from 'class-validator'
 import { connectSessionVerifyDecodeIdTokenWithPublicKeys, LoginIdentity } from '@reapit/connect-session'
-import publicKeys from './../../publicKeys.json'
+import publicKeys from './../../public-keys.json'
 
 /**
  * Create a deployment

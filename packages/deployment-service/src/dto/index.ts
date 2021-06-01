@@ -1,1 +1,1 @@
-export * from './deployment.dto'
+export * from './deployment-dto'
