@@ -49,7 +49,7 @@ describe('Update ApiKey', () => {
 
   it('Can result in not found', async () => {
     const result = await updateApiKey(mockRequestHandlerContext({}, {
-      Authoriztion: '1234',
+      Authorization: '1234',
       'Content-Type': 'application/json',
     }, {
       id: '345678',
