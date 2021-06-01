@@ -97,3 +97,6 @@ web-components-config-server:
 
 api-key-service:
   - packages/api-key-service/*
+
+deployment-service:
+  - packages/deployment-service/*
