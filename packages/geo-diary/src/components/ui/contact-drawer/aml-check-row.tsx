@@ -3,6 +3,7 @@ import IconButton from '../icon-button'
 import Grid, { Col } from '../grid'
 import * as styles from './__styles__'
 import { Label } from '@reapit/elements/v3'
+import { handlePwaNavigate, usePwaNavigate } from '../../../utils/pwa-navigate'
 
 interface AmlCheckContentProps {
   contactId: string
@@ -11,6 +12,8 @@ interface AmlCheckContentProps {
 
 export const AmlCheckRow: FC<AmlCheckContentProps> = ({ contactId, name }) => {
   const amlAppUrl = `${window.reapit.config.amlAppUrl}/${contactId}`
+  const { setPwaNavState } = usePwaNavigate()
+  const pwaNavHandler = handlePwaNavigate(setPwaNavState, amlAppUrl)
   return (
     <div className={styles.contactOptionRow}>
       <Grid>
@@ -20,7 +23,7 @@ export const AmlCheckRow: FC<AmlCheckContentProps> = ({ contactId, name }) => {
         </Col>
         <Col span={8}>
           <div className={styles.contactOptionIcons}>
-            <a href={amlAppUrl}>
+            <a onClick={pwaNavHandler}>
               <IconButton icon="edit" />
             </a>
           </div>

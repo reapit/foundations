@@ -56,7 +56,6 @@ const webpackConfigDev = ({ appName }) => ({
       favicons: {
         appName,
         developerName: 'Reapit Ltd',
-        background: '#262F69',
         theme_color: '#262F69',
         icons: {
           favicons: true,

@@ -14,6 +14,7 @@ import AppDetail, {
 } from '../app-detail'
 import Routes from '@/constants/routes'
 import appState from '@/reducers/__stubs__/app-state'
+import { Loader } from '@reapit/elements/v3'
 
 describe('AppDetail', () => {
   const { history } = getMockRouterProps({})
@@ -53,7 +54,7 @@ describe('AppDetail', () => {
     )
 
     expect(wrapper).toMatchSnapshot()
-    const loader = wrapper.find('[data-test="client-app-detail-loader"]')
+    const loader = wrapper.find(Loader)
     expect(loader.length).toBe(1)
   })
 
@@ -78,7 +79,7 @@ describe('AppDetail', () => {
     )
 
     expect(wrapper).toMatchSnapshot()
-    const loader = wrapper.find('[data-test="client-app-detail-loader"]')
+    const loader = wrapper.find(Loader)
     expect(loader.length).toBe(1)
   })
 

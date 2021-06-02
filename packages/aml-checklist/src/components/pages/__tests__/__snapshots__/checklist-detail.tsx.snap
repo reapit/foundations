@@ -331,7 +331,12 @@ exports[` 1`] = `
 </div>
 `;
 
-exports[`checklist-detail ChecklistDetail should match snapshot when loading 1`] = `<Loader />`;
+exports[`checklist-detail ChecklistDetail should match snapshot when loading 1`] = `
+<Loader
+  fullPage={true}
+  label="Loading"
+/>
+`;
 
 exports[`checklist-detail ChecklistDetail should match snapshot when not loading 1`] = `
 <Section

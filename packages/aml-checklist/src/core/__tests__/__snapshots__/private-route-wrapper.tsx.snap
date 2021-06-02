@@ -14,7 +14,8 @@ exports[`PrivateRouter should match a snapshot 1`] = `
       <Suspense
         fallback={
           <Loader
-            body={true}
+            fullPage={true}
+            label="Loading"
           />
         }
       />

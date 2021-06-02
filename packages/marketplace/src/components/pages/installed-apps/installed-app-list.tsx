@@ -3,7 +3,7 @@ import { AppSummaryModel } from '@reapit/foundations-ts-definitions'
 import InstalledAppCard from './installed-app-card'
 import * as installedAppListStyles from './__styles__/installed-app-list'
 import {
-  Loader,
+  FadeIn,
   InfoType,
   PaginationProps,
   Pagination,
@@ -14,7 +14,7 @@ import {
   infoText,
 } from '@reapit/elements'
 import { cx } from 'linaria'
-import FadeIn from '../../../core/__styles__/fade-in'
+import { Loader } from '@reapit/elements/v3'
 
 export type InstalledAppListProps = {
   list: AppSummaryModel[]
@@ -80,7 +80,7 @@ export const InstalledAppList: React.FC<InstalledAppListProps> = ({
       ) : (
         <ListDesktopScreen list={list} loading={loading} onCardClick={onCardClick} />
       )}
-      {loading && <Loader body />}
+      {loading && <Loader label="Loading" fullPage />}
       {pagination && <Pagination {...pagination} />}
     </>
   )

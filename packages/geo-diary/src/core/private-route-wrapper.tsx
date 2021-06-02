@@ -1,6 +1,6 @@
-import React, { FC, Suspense, useEffect } from 'react'
+import React, { FC, Suspense } from 'react'
 import Menu from '@/components/ui/menu'
-import { AppNavContainer, Helper, isMobile, notification, Section } from '@reapit/elements'
+import { AppNavContainer, Helper, Section } from '@reapit/elements'
 import ErrorBoundary from './error-boundary'
 import { Redirect, useLocation } from 'react-router'
 import { reapitConnectBrowserSession } from '@/core/connect-session'
@@ -8,28 +8,13 @@ import { useReapitConnect } from '@reapit/connect-session'
 import { ApolloProvider } from '@apollo/react-hooks'
 import getClient from '@/graphql/client'
 import { Loader } from '@reapit/elements/v3'
+import { PwaMessageHandler, PwaMessagePoster, usePwaNavigate } from '../utils/pwa-navigate'
 
 export const PrivateRouteWrapper: FC = ({ children }) => {
   const { connectSession, connectInternalRedirect } = useReapitConnect(reapitConnectBrowserSession)
   const location = useLocation()
+  const { pwaNavState, setPwaNavState } = usePwaNavigate()
   const currentUri = `${location.pathname}${location.search}`
-
-  const isMobileView = isMobile()
-
-  useEffect(() => {
-    if (isMobileView && !window.matchMedia('(display-mode: standalone)').matches) {
-      notification.info({
-        message: (
-          <>
-            Did you know, you can save GEO Diary to your home screen?{' '}
-            <a href="https://reapit-1.gitbook.io/g/" target="_blank" rel="noopener noreferrer">
-              Tap here to find out how.
-            </a>
-          </>
-        ),
-      })
-    }
-  }, [])
 
   if (!connectSession) {
     return (
@@ -57,9 +42,15 @@ export const PrivateRouteWrapper: FC = ({ children }) => {
     return <Redirect to={connectInternalRedirect} />
   }
 
+  if (pwaNavState) {
+    return <iframe src={pwaNavState} height="100%" width="100%" style={{ border: 'none' }} />
+  }
+
   return (
     <AppNavContainer>
       <Menu />
+      <PwaMessageHandler setPwaNavState={setPwaNavState} pwaNavState={pwaNavState} />
+      <PwaMessagePoster />
       <Suspense fallback={<Loader label="Loading" fullPage />}>
         <ErrorBoundary>
           <ApolloProvider client={getClient(connectSession, window.reapit.config.graphqlUri)}>

@@ -2,12 +2,12 @@ import * as React from 'react'
 import { AppSummaryModel } from '@reapit/foundations-ts-definitions'
 import AppCard from '../app-card'
 import * as styles from './__styles__'
-import { Loader, InfoType, GridFourCol, GridFourColItem, Helper, infoText } from '@reapit/elements'
+import { FadeIn, InfoType, GridFourCol, GridFourColItem, Helper, infoText } from '@reapit/elements'
 import { cx } from 'linaria'
-import FadeIn from '../../../core/__styles__/fade-in'
 import { ComingSoonAppComponent } from '../../pages/apps/coming-soon'
 import { useReapitConnect } from '@reapit/connect-session'
 import { reapitConnectBrowserSession } from '../../../core/connect-session'
+import { Loader } from '@reapit/elements/v3'
 
 export type AppListProps = {
   list: AppSummaryModel[]
@@ -67,7 +67,7 @@ export const AppList: React.FunctionComponent<AppListProps> = ({
           ))}
         </GridFourCol>
       )}
-      {loading && <Loader body />}
+      {loading && <Loader label="Loading" />}
     </div>
   )
 }

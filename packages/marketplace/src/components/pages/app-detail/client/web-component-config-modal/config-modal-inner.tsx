@@ -7,7 +7,6 @@ import {
   Formik,
   RadioSelect,
   Checkbox,
-  Loader,
   FormikValues,
   DropdownSelect,
   SelectOption,
@@ -25,6 +24,7 @@ import { selectNegotiators } from '@/selector/negotiators'
 import { UpdateWebComponentConfigParams } from '@/services/web-component'
 import { Dispatch } from 'redux'
 import { selectAppDetailData } from '@/selector/apps'
+import { Loader } from '@reapit/elements/v3'
 
 export const handleUpdateWebComponentConfig = (dispatch: Dispatch, appId: string, callback) => (
   params: FormikValues,
@@ -155,7 +155,7 @@ export const WebComponentConfigModalInner = ({ closeModal }: WebComponentConfigM
     daysOfWeek: ['1', '2', '3', '4', '5', '6'],
   }) as FormikValues
 
-  if (loading) return <Loader />
+  if (loading) return <Loader label="Loading" />
   return (
     <Formik initialValues={initialFormValues} onSubmit={handleUpdateWebComponentConfig(dispatch, id, closeModal)}>
       {(formikProps) => (
