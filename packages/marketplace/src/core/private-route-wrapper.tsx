@@ -2,10 +2,11 @@ import * as React from 'react'
 import { reapitConnectBrowserSession } from '@/core/connect-session'
 import { useReapitConnect } from '@reapit/connect-session'
 import Menu from '@/components/ui/menu'
-import { Loader, Section, AppNavContainer, FlexContainerBasic } from '@reapit/elements'
+import { Section, AppNavContainer, FlexContainerBasic } from '@reapit/elements'
 import { Redirect, useLocation } from 'react-router'
 import Routes from '@/constants/routes'
 import { selectDeveloperId, selectIsAdmin } from '../selector/auth'
+import { Loader } from '@reapit/elements/v3'
 
 const { Suspense } = React
 
@@ -33,7 +34,7 @@ export const PrivateRouteWrapper: React.FunctionComponent<PrivateRouteWrapperPro
     return (
       <AppNavContainer>
         <FlexContainerBasic hasBackground hasPadding>
-          <Loader />
+          <Loader label="Loading" fullPage />
         </FlexContainerBasic>
       </AppNavContainer>
     )
@@ -60,7 +61,7 @@ export const PrivateRouteWrapper: React.FunctionComponent<PrivateRouteWrapperPro
         <Suspense
           fallback={
             <Section>
-              <Loader />
+              <Loader label="Loading" fullPage />
             </Section>
           }
         >

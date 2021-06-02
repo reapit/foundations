@@ -1,11 +1,12 @@
 import React, { Dispatch, SetStateAction } from 'react'
-import { Table, H5, Loader, toLocalTime, Pagination, FadeIn } from '@reapit/elements'
+import { Table, H5, toLocalTime, Pagination, FadeIn } from '@reapit/elements'
 import { InstallationModel, AppSummaryModel, InstallationModelPagedResult } from '@reapit/foundations-ts-definitions'
 import { INSTALLATIONS_PER_PAGE } from '@/constants/paginator'
 import { selectInstallationsList, selectInstallationsLoading } from '@/selector/installations'
 import { useSelector } from 'react-redux'
 import { useMemo, useState } from 'react'
 import { selectAppsListState } from '../../../selector/apps'
+import { Loader } from '@reapit/elements/v3'
 
 export interface InstallationModelWithAppName extends InstallationModel {
   appName: string
@@ -75,7 +76,7 @@ export const InstallationsTable: React.FC = () => {
   return installationListLoading || appsListLoading ? (
     <>
       <H5>Installation Details</H5>
-      <Loader />
+      <Loader label="Loading" />
     </>
   ) : (
     <>

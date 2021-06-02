@@ -9,7 +9,6 @@ import {
   Form,
   ButtonGroup,
   ModalV2,
-  Loader,
   Section,
   Pagination,
   Helper,
@@ -26,6 +25,7 @@ import { formFields } from './form-schema/form-fields'
 import validationSchema from './form-schema/validation-schema'
 import { handleCloseModal, IdentityDocumentForm, ModalState } from '../../forms/identification'
 import { Document, Page } from 'react-pdf/dist/esm/entry.webpack'
+import { Loader } from '@reapit/elements/v3'
 
 const optionsMonth = [
   { label: '0', value: '0' },
@@ -181,7 +181,7 @@ export const AddressInput = ({ addressType, documentImage }: AddressInputProps) 
       >
         <>
           {modalState.isLoading ? (
-            <Loader />
+            <Loader label="Loading" />
           ) : imageError && modalState.image ? (
             <Document file={modalState.image} onLoadSuccess={onDocumentLoadSuccess}>
               <Page pageNumber={pageNumber} />

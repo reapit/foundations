@@ -8,7 +8,6 @@ import {
   Form,
   ButtonGroup,
   ModalV2,
-  Loader,
   Section,
   Pagination,
   Helper,
@@ -19,6 +18,7 @@ import { downloadDocument } from '@/services/documents'
 import validationSchema from './form-schema/validation-schema'
 import FormFields from './form-schema/form-fields'
 import { Document, Page } from 'react-pdf/dist/esm/entry.webpack'
+import { Loader } from '@reapit/elements/v3'
 
 const { typeIdField, detailsField, expiryField, documentIdField } = FormFields
 
@@ -175,7 +175,7 @@ export const Identification: React.FC<IdentificationProps> = ({
             >
               <>
                 {modalState.isLoading ? (
-                  <Loader />
+                  <Loader label="Loading" />
                 ) : imageError && modalState.image ? (
                   <Document file={modalState.image} onLoadSuccess={onDocumentLoadSuccess}>
                     <Page pageNumber={pageNumber} />

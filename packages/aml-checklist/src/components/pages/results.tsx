@@ -5,9 +5,10 @@ import { withRouter, RouteComponentProps } from 'react-router'
 import ErrorBoundary from '@/components/hocs/error-boundary'
 import { ReduxState } from '@/types/core'
 import { ResultState } from '@/reducers/result'
-import { Pagination, Table, Button, H3, Section, FadeIn, Helper, Loader } from '@reapit/elements'
+import { Pagination, Table, Button, H3, Section, FadeIn, Helper } from '@reapit/elements'
 import { resultRequestData, ContactsParams, SearchParams } from '@/actions/result'
 import Routes from '@/constants/routes'
+import { Loader } from '@reapit/elements/v3'
 
 export interface ResultMappedActions {
   fetchContacts: (params: ContactsParams) => void
@@ -124,7 +125,7 @@ export const Result: React.FunctionComponent<ResultProps> = ({ resultState, fetc
         </Section>
         <Section>
           {loading ? (
-            <Loader />
+            <Loader label="Loading" fullPage />
           ) : (
             <FadeIn>
               {!search || Number(totalCount) === 0 ? (

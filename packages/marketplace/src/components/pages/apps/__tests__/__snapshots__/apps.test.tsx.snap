@@ -251,17 +251,34 @@ exports[`Client should match a snapshot when LOADING false 2`] = `
                           />
                         </GridFourCol>
                         <Loader
-                          body={true}
+                          label="Loading"
                         >
-                          <div
-                            className="loader-spinner body"
-                            data-test=""
+                          <ElLoaderContainer
+                            className=""
                           >
-                            <div />
-                            <div />
-                            <div />
-                            <div />
-                          </div>
+                            <div
+                              className="eo0rgq8-el-loader-container"
+                            >
+                              <ElLoaderLabel>
+                                <p
+                                  className="e1yntvew-el-loader-label"
+                                >
+                                  Loading
+                                </p>
+                              </ElLoaderLabel>
+                              <ElLoader>
+                                <div
+                                  className="er32db2-el-loader"
+                                >
+                                  <ElLoaderMovingBar>
+                                    <div
+                                      className="e14cotwz-el-loader-moving-bar"
+                                    />
+                                  </ElLoaderMovingBar>
+                                </div>
+                              </ElLoader>
+                            </div>
+                          </ElLoaderContainer>
                         </Loader>
                       </div>
                     </AppList>

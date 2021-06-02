@@ -81,7 +81,7 @@ exports[`pep-search renderLoading should match snapshot 1`] = `
 <div>
   <div>
     <Loader
-      body={false}
+      label="Loading"
     />
   </div>
 </div>

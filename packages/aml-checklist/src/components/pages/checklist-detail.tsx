@@ -1,6 +1,6 @@
 import * as React from 'react'
 import { connect } from 'react-redux'
-import { Loader, Button, Section, FadeIn, H5 } from '@reapit/elements'
+import { Button, Section, FadeIn, H5 } from '@reapit/elements'
 import { ReduxState } from '@/types/core'
 import ErrorBoundary from '@/components/hocs/error-boundary'
 import { withRouter, RouteComponentProps } from 'react-router'
@@ -14,6 +14,7 @@ import styles from '@/styles/ui/section.scss?mod'
 import { SectionsStatus } from '@/reducers/checklist-detail'
 import { defaultStatus } from '@/constants/section-status'
 import { FaCheck, FaTimes } from 'react-icons/fa'
+import { Loader } from '@reapit/elements/v3'
 
 export type CheckListDetailProps = HomeMappedActions & HomeMappedProps & RouteComponentProps<{ id?: any }>
 
@@ -128,7 +129,7 @@ export const ChecklistDetail: React.FC<CheckListDetailProps> = ({
   },
 }) => {
   if (loading) {
-    return <Loader />
+    return <Loader label="Loading" fullPage />
   }
 
   // TODO: Will replace callback by dispatch to show modald`

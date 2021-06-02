@@ -1,0 +1,16 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`PwaMessageHandler should match snapshot 1`] = `""`;
+
+exports[`PwaMessagePoster should match snapshot 1`] = `""`;
+
+exports[`PwaNavigateProvider should match snapshot 1`] = `
+<ContextProvider
+  value={
+    Object {
+      "pwaNavState": null,
+      "setPwaNavState": [Function],
+    }
+  }
+/>
+`;
