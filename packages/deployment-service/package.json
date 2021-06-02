@@ -12,7 +12,7 @@
     "test": "reapit-fetch-public-keys --test && echo '...skipping...'",
     "build": "echo '...skipping...'",
     "lint": "concurrently \"prettier src/**/*.ts --write \"  \"eslint --cache --ext=ts,tsx src --fix\"",
-    "release": "yarn publicKeyFetch && serverless deploy",
+    "release": "yarn reapit-fetch-public-keys && serverless deploy",
     "publish": "echo '...skipping...'",
     "conf": "yarn config-manager --namespace cloud --entity deployment-service --name local --mode fetch"
   },
