@@ -1,9 +1,9 @@
 import { traceIdMiddleware, AppRequest, AppResponse, createParseLog } from '../logger'
 import { Logger } from 'winston'
 
-jest.mock('uuid', (): ({v4: () => string}) => {
+jest.mock('uuid', (): { v4: () => string } => {
   return {
-    v4: () => 'mockUUID'
+    v4: () => 'mockUUID',
   }
 })
 
