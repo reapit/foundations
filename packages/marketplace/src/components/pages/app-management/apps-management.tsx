@@ -2,7 +2,7 @@ import * as React from 'react'
 import { useSelector } from 'react-redux'
 import { useLocation, useHistory } from 'react-router'
 import { History } from 'history'
-import { Loader, Pagination, H3 } from '@reapit/elements'
+import { Pagination, H3 } from '@reapit/elements'
 import ErrorBoundary from '@/components/hocs/error-boundary'
 import routes from '@/constants/routes'
 import AppList from '@/components/ui/app-list'
@@ -13,6 +13,7 @@ import Routes from '@/constants/routes'
 import { getParamsFromPath } from '@/utils/client-url-params'
 import { useReapitConnect } from '@reapit/connect-session'
 import { reapitConnectBrowserSession } from '@/core/connect-session'
+import { Loader } from '@reapit/elements/v3'
 
 export const handleOnChange = (history) => (page: number) => history.push(`${routes.MY_APPS}?page=${page}`)
 
@@ -37,7 +38,7 @@ export const AppsManagement: React.FunctionComponent = () => {
     <ErrorBoundary>
       <H3>Manage Apps</H3>
       {loading ? (
-        <Loader />
+        <Loader label="Loading" fullPage />
       ) : (
         <>
           <AppList

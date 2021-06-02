@@ -1,5 +1,6 @@
 import * as React from 'react'
-import { Loader, Alert, ModalBody } from '@reapit/elements'
+import { Alert, ModalBody } from '@reapit/elements'
+import { Loader } from '@reapit/elements/v3'
 
 export interface AsyncContainerProps {
   loading: boolean
@@ -9,7 +10,7 @@ export interface AsyncContainerProps {
 
 const AsyncContainer: React.FunctionComponent<AsyncContainerProps> = ({ loading, error, data, children }) => {
   if (loading) {
-    return <ModalBody body={<Loader />} />
+    return <ModalBody body={<Loader label="Loading" />} />
   }
 
   if (error) {

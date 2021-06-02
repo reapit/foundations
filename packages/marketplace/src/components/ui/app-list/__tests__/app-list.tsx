@@ -3,7 +3,8 @@ import { shallow } from 'enzyme'
 
 import { AppList, AppListProps } from '../app-list'
 import { appsDataStub } from '@/sagas/__stubs__/apps'
-import { Loader, GridFourColItem, Helper } from '@reapit/elements'
+import { GridFourColItem, Helper } from '@reapit/elements'
+import { Loader } from '@reapit/elements/v3'
 import { AppSummaryModel } from '@reapit/foundations-ts-definitions'
 import AppCard from '../../app-card'
 

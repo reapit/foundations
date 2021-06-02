@@ -1,0 +1,37 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`AppStateProvider should match snapshot 1`] = `
+<ContextProvider
+  value={
+    Object {
+      "appState": Object {
+        "appointment": null,
+        "appointmentId": null,
+        "contactDrawerOpen": false,
+        "contactDrawerType": 0,
+        "contactId": null,
+        "currentLat": null,
+        "currentLng": null,
+        "destinationAddress": null,
+        "destinationLat": null,
+        "destinationLng": null,
+        "hasAmlApp": false,
+        "hasGeoLocation": false,
+        "landlords": Array [],
+        "locationAddress": null,
+        "locationQueryAddress": null,
+        "locationQueryResults": Array [],
+        "mapRefs": null,
+        "routeInformation": null,
+        "tab": "LIST",
+        "time": "TODAY",
+        "travelMode": "DRIVING",
+        "vendors": Array [],
+      },
+      "setAppState": [Function],
+    }
+  }
+>
+  <div />
+</ContextProvider>
+`;

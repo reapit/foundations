@@ -15,7 +15,8 @@
       ],
       "@reapit/connect-session": [
         "../connect-session/src"
-      ]
+      ],
+      "@reapit/elements/v3": ["../elements/src/v3"]
     }
   },
   "include": [

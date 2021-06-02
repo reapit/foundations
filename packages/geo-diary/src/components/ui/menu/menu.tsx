@@ -15,11 +15,18 @@ import { useReapitConnect } from '@reapit/connect-session'
 import { reapitConnectBrowserSession } from '@/core/connect-session'
 import { AppState, AppTab, useAppState } from '../../../core/app-state'
 import { MenuWrap } from './__styles__/styles'
+import { handlePwaNavigate, usePwaNavigate } from '../../../utils/pwa-navigate'
+
+const marketplaceUrl =
+  window.location.href.includes('dev') || window.location.href.includes('localhost')
+    ? 'https://marketplace.dev.paas.reapit.cloud/installed'
+    : 'https://marketplace.reapit.cloud/installed'
 
 export const generateMenuConfig = (
   logoutCallback: () => void,
   location: Location<any>,
   setAppState: Dispatch<SetStateAction<AppState>>,
+  setPwaNavState: Dispatch<SetStateAction<string | null>>,
   appState: AppState,
   isMobileView: boolean,
 ): MenuConfig => {
@@ -44,7 +51,7 @@ export const generateMenuConfig = (
         title: 'Apps',
         key: 'APPS',
         icon: <AppsIcon />,
-        callback: callbackAppClick,
+        callback: handlePwaNavigate(setPwaNavState, marketplaceUrl),
         type: 'PRIMARY',
       },
       {
@@ -79,20 +86,22 @@ export const changeTabCallback = (setAppState: Dispatch<SetStateAction<AppState>
   }))
 }
 
-export const callbackAppClick = () =>
-  (window.location.href =
-    window.location.href.includes('dev') || window.location.href.includes('localhost')
-      ? 'https://marketplace.dev.paas.reapit.cloud/installed'
-      : 'https://marketplace.reapit.cloud/installed')
-
 export type MenuProps = {}
 
 export const Menu: React.FC<MenuProps> = () => {
   const location = useLocation()
   const { setAppState, appState } = useAppState()
   const { connectLogoutRedirect, connectIsDesktop } = useReapitConnect(reapitConnectBrowserSession)
+  const { setPwaNavState } = usePwaNavigate()
   const isMobileView = isMobile()
-  const menuConfigs = generateMenuConfig(() => connectLogoutRedirect(), location, setAppState, appState, isMobileView)
+  const menuConfigs = generateMenuConfig(
+    () => connectLogoutRedirect(),
+    location,
+    setAppState,
+    setPwaNavState,
+    appState,
+    isMobileView,
+  )
   const desktopOptimisedMenu = connectIsDesktop
     ? {
         ...menuConfigs,

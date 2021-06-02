@@ -8,7 +8,7 @@ import {
   ListDesktopScreen,
 } from '../installed-app-list'
 import { appsDataStub } from '@/sagas/__stubs__/apps'
-import { Loader } from '@reapit/elements'
+import { Loader } from '@reapit/elements/v3'
 import { AppSummaryModel } from '@reapit/foundations-ts-definitions'
 
 const app = appsDataStub.data?.[0] as AppSummaryModel

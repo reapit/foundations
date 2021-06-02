@@ -76,17 +76,35 @@ exports[`AppDetail should match a snapshot 1`] = `
                     data-test="client-app-detail-container"
                   >
                     <Loader
-                      dataTest="client-app-detail-loader"
+                      fullPage={true}
+                      label="Loading"
                     >
-                      <div
-                        className="loader-spinner body"
-                        data-test="client-app-detail-loader"
+                      <ElLoaderContainer
+                        className="exir83a-el-is-full-page"
                       >
-                        <div />
-                        <div />
-                        <div />
-                        <div />
-                      </div>
+                        <div
+                          className="exir83a-el-is-full-page eo0rgq8-el-loader-container"
+                        >
+                          <ElLoaderLabel>
+                            <p
+                              className="e1yntvew-el-loader-label"
+                            >
+                              Loading
+                            </p>
+                          </ElLoaderLabel>
+                          <ElLoader>
+                            <div
+                              className="er32db2-el-loader"
+                            >
+                              <ElLoaderMovingBar>
+                                <div
+                                  className="e14cotwz-el-loader-moving-bar"
+                                />
+                              </ElLoaderMovingBar>
+                            </div>
+                          </ElLoader>
+                        </div>
+                      </ElLoaderContainer>
                     </Loader>
                     <AppUninstallConfirmation
                       appDetailData={Object {}}
@@ -524,17 +542,35 @@ exports[`AppDetail should render loader when client.appDetail.data is an empty o
                     data-test="client-app-detail-container"
                   >
                     <Loader
-                      dataTest="client-app-detail-loader"
+                      fullPage={true}
+                      label="Loading"
                     >
-                      <div
-                        className="loader-spinner body"
-                        data-test="client-app-detail-loader"
+                      <ElLoaderContainer
+                        className="exir83a-el-is-full-page"
                       >
-                        <div />
-                        <div />
-                        <div />
-                        <div />
-                      </div>
+                        <div
+                          className="exir83a-el-is-full-page eo0rgq8-el-loader-container"
+                        >
+                          <ElLoaderLabel>
+                            <p
+                              className="e1yntvew-el-loader-label"
+                            >
+                              Loading
+                            </p>
+                          </ElLoaderLabel>
+                          <ElLoader>
+                            <div
+                              className="er32db2-el-loader"
+                            >
+                              <ElLoaderMovingBar>
+                                <div
+                                  className="e14cotwz-el-loader-moving-bar"
+                                />
+                              </ElLoaderMovingBar>
+                            </div>
+                          </ElLoader>
+                        </div>
+                      </ElLoaderContainer>
                     </Loader>
                     <AppUninstallConfirmation
                       appDetailData={Object {}}
@@ -972,17 +1008,35 @@ exports[`AppDetail should render loader when isLoadingAppDetail = true 1`] = `
                     data-test="client-app-detail-container"
                   >
                     <Loader
-                      dataTest="client-app-detail-loader"
+                      fullPage={true}
+                      label="Loading"
                     >
-                      <div
-                        className="loader-spinner body"
-                        data-test="client-app-detail-loader"
+                      <ElLoaderContainer
+                        className="exir83a-el-is-full-page"
                       >
-                        <div />
-                        <div />
-                        <div />
-                        <div />
-                      </div>
+                        <div
+                          className="exir83a-el-is-full-page eo0rgq8-el-loader-container"
+                        >
+                          <ElLoaderLabel>
+                            <p
+                              className="e1yntvew-el-loader-label"
+                            >
+                              Loading
+                            </p>
+                          </ElLoaderLabel>
+                          <ElLoader>
+                            <div
+                              className="er32db2-el-loader"
+                            >
+                              <ElLoaderMovingBar>
+                                <div
+                                  className="e14cotwz-el-loader-moving-bar"
+                                />
+                              </ElLoaderMovingBar>
+                            </div>
+                          </ElLoader>
+                        </div>
+                      </ElLoaderContainer>
                     </Loader>
                     <AppUninstallConfirmation
                       appDetailData={Object {}}

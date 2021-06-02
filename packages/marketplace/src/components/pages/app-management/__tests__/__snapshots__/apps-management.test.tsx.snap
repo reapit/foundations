@@ -164,16 +164,36 @@ exports[`MyApps should match a snapshot when LOADING true 1`] = `
               Manage Apps
             </h3>
           </H3>
-          <Loader>
-            <div
-              className="loader-spinner body"
-              data-test=""
+          <Loader
+            fullPage={true}
+            label="Loading"
+          >
+            <ElLoaderContainer
+              className="exir83a-el-is-full-page"
             >
-              <div />
-              <div />
-              <div />
-              <div />
-            </div>
+              <div
+                className="exir83a-el-is-full-page eo0rgq8-el-loader-container"
+              >
+                <ElLoaderLabel>
+                  <p
+                    className="e1yntvew-el-loader-label"
+                  >
+                    Loading
+                  </p>
+                </ElLoaderLabel>
+                <ElLoader>
+                  <div
+                    className="er32db2-el-loader"
+                  >
+                    <ElLoaderMovingBar>
+                      <div
+                        className="e14cotwz-el-loader-moving-bar"
+                      />
+                    </ElLoaderMovingBar>
+                  </div>
+                </ElLoader>
+              </div>
+            </ElLoaderContainer>
           </Loader>
         </ErrorBoundary>
       </AppsManagement>

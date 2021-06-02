@@ -24,6 +24,10 @@ exports[`AsyncContainer should match a snapshot when error = true 1`] = `
 
 exports[`AsyncContainer should match a snapshot when loading = true 1`] = `
 <ModalBody
-  body={<Loader />}
+  body={
+    <Loader
+      label="Loading"
+    />
+  }
 />
 `;

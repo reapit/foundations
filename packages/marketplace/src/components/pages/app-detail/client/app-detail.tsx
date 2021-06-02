@@ -11,7 +11,7 @@ import { selectAppDetailData, selectAppDetailLoading } from '@/selector/apps'
 import { selectIsAdmin, selectSandboxDeveloper } from '@/selector/auth'
 import { canGoBack } from '@/utils/router-helper'
 import AppContent from './app-content'
-import { Loader, GridItem, Grid, Section, FlexContainerResponsive } from '@reapit/elements'
+import { GridItem, Grid, Section, FlexContainerResponsive, FadeIn } from '@reapit/elements'
 import * as styles from '../__styles__/standalone-app-detail'
 import AppInstallConfirmation from '@/components/pages/app-detail/client/app-install-confirmation'
 import { Aside } from './aside'
@@ -24,7 +24,7 @@ import { AppDetailButtonGroup } from './app-detail-button-group'
 import { useReapitConnect } from '@reapit/connect-session'
 import { reapitConnectBrowserSession } from '@/core/connect-session'
 import { NonAdminInstallModal, NonAdminUninstallModal } from './non-admin-modal'
-import FadeIn from '../../../../core/__styles__/fade-in'
+import { Loader } from '@reapit/elements/v3'
 
 export type ClientAppDetailProps = {}
 
@@ -124,7 +124,7 @@ const AppDetail: React.FC = () => {
       <Section>
         <Grid className={styles.container} dataTest="client-app-detail-container">
           {isLoadingAppDetail || unfetched ? (
-            <Loader dataTest="client-app-detail-loader" />
+            <Loader label="Loading" fullPage />
           ) : (
             <>
               <GridItem className="is-one-quarter">
