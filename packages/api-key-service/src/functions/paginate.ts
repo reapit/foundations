@@ -1,4 +1,4 @@
-import { ApiKeyModel } from '@/models'
+import { ApiKeyModel } from '@reapit/utils'
 import { httpHandler, UnauthorizedException } from '@homeservenow/serverless-aws-handler'
 import { batchGetApiKeys } from './../services'
 import { connectSessionVerifyDecodeIdTokenWithPublicKeys, LoginIdentity } from '@reapit/connect-session'

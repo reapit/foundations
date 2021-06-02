@@ -2,7 +2,7 @@ import { httpHandler, UnauthorizedException, ValidationException } from '@homese
 import { plainToClass } from 'class-transformer'
 import { validate } from 'class-validator'
 import { ApiKeyDto } from '@/dto'
-import { ApiKeyModel } from '@/models'
+import { ApiKeyModel } from '@reapit/utils'
 import { createApiKey as create } from '@/services'
 import { connectSessionVerifyDecodeIdTokenWithPublicKeys, LoginIdentity } from '@reapit/connect-session'
 import publicKeys from '../../public-keys.json'
