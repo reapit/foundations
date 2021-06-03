@@ -33,6 +33,7 @@ export const getApiKey: ApiKeyResolveFunction = (db: DataMapper): GetApiKeyFunct
 
     apiKeys
       .sort((a, b) => new Date(a.keyExpiresAt as string).getDate() - new Date(b.keyExpiresAt as string).getDate())
+      .filter(key => typeof key !== 'undefined')
       .reverse()
 
     return apiKeys[0]
