@@ -1,6 +1,6 @@
 import * as React from 'react'
 import { shallow } from 'enzyme'
-import { Menu, generateMenuConfig } from '../menu'
+import { Menu, generateMenuConfig, callbackAppClick } from '../menu'
 import { AppState } from '../../../../core/app-state'
 
 jest.mock('react-router', () => ({
@@ -29,9 +29,15 @@ describe('Menu', () => {
       }
       const logoutCallback = jest.fn()
       const setAppState = jest.fn()
-      const setPwaNavState = jest.fn()
-      const result = generateMenuConfig(logoutCallback, location, setAppState, setPwaNavState, {} as AppState, true)
+      const result = generateMenuConfig(logoutCallback, location, setAppState, {} as AppState, true)
       expect(result).toBeDefined()
+    })
+  })
+
+  describe('callbackAppClick', () => {
+    it('should run correcly', () => {
+      const fn = callbackAppClick()
+      expect(fn).toEqual('https://marketplace.reapit.cloud/installed')
     })
   })
 })

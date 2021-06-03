@@ -8,12 +8,10 @@ import { useReapitConnect } from '@reapit/connect-session'
 import { ApolloProvider } from '@apollo/react-hooks'
 import getClient from '@/graphql/client'
 import { Loader } from '@reapit/elements/v3'
-import { PwaMessageHandler, PwaMessagePoster, usePwaNavigate } from '../utils/pwa-navigate'
 
 export const PrivateRouteWrapper: FC = ({ children }) => {
   const { connectSession, connectInternalRedirect } = useReapitConnect(reapitConnectBrowserSession)
   const location = useLocation()
-  const { pwaNavState, setPwaNavState } = usePwaNavigate()
   const currentUri = `${location.pathname}${location.search}`
 
   if (!connectSession) {
@@ -42,15 +40,9 @@ export const PrivateRouteWrapper: FC = ({ children }) => {
     return <Redirect to={connectInternalRedirect} />
   }
 
-  if (pwaNavState) {
-    return <iframe src={pwaNavState} height="100%" width="100%" style={{ border: 'none' }} />
-  }
-
   return (
     <AppNavContainer>
       <Menu />
-      <PwaMessageHandler setPwaNavState={setPwaNavState} pwaNavState={pwaNavState} />
-      <PwaMessagePoster />
       <Suspense fallback={<Loader label="Loading" fullPage />}>
         <ErrorBoundary>
           <ApolloProvider client={getClient(connectSession, window.reapit.config.graphqlUri)}>

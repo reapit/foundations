@@ -24,7 +24,7 @@ exports[`AmlCheckRow should match snapshot 1`] = `
         className="contact-option-icons"
       >
         <a
-          onClick={[Function]}
+          href="https://some-url/SOME_ID"
         >
           <IconButton
             icon="edit"

@@ -32,7 +32,7 @@ const EtaTextRow: React.FC<EtaTextRowProps> = ({ phoneNumber, name }: EtaTextRow
   const userCode = session.connectSession?.loginIdentity.userCode
   const orgName = session.connectSession?.loginIdentity.orgName
   const { appointment, routeInformation } = appState
-  const negotiator = useMemo(getNegotiator({ appointment, userCode }), [appointment])
+  const negotiator = useMemo(getNegotiator({ appointment, userCode }), [appointment, userCode])
 
   if (!phoneNumber) return null
 
