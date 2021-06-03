@@ -1,4 +1,4 @@
-import { ApiKeyModel } from '@reapit/utils'
+import { ApiKeyModel } from '@reapit/api-key-verify'
 import { db } from '@/core'
 import { LoginIdentity } from '@reapit/connect-session'
 import { QueryIterator } from '@aws/dynamodb-data-mapper'
