@@ -1,5 +1,5 @@
 import { ApiKeyModel } from '../api-key-model'
-import { getApiKey } from '../api-key'
+import { getApiKey, resolveApiKey } from '../api-key'
 import { DataMapper, QueryIterator, StringToAnyObjectMap } from '@aws/dynamodb-data-mapper'
 import { ApiKeyExpiredException, ApiKeyNotFoundException } from '@/exceptions'
 
@@ -20,7 +20,7 @@ describe('ApiKey', () => {
       const apiKeyHeader = (keyCondition as {[s: string]: any}).apiKey as string
 
       const createApiKeyModel = (apiKey: string, keyExpiresAt: Date): ApiKeyModel => {
-        const model: any = {}
+        const model = new ApiKeyModel()
         model.apiKey = apiKey
         model.keyExpiresAt = keyExpiresAt.toISOString()
 
@@ -96,6 +96,23 @@ describe('ApiKey', () => {
   })
 
   describe('resolveApiKey', () => {
-    
+    it('Throws not found exception on no apiKey', async () => {
+      try {
+        await resolveApiKey({region: 'eu-west-2'})(NOT_FOUND_API_KEY)
+        expect(true).toBeFalsy()
+
+      }catch (e) {
+        expect(e).toBeInstanceOf(ApiKeyNotFoundException)
+      }
+    })
+
+    it('Throws expired exception on expired apiKey', async () => {
+      try {
+        await resolveApiKey({region: 'eu-west-2'})(EXPIRED_API_KEY)
+        expect(true).toBeFalsy()
+      }catch (e) {
+        expect(e).toBeInstanceOf(ApiKeyExpiredException)
+      }
+    })
   })
 })
