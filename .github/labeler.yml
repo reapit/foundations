@@ -100,3 +100,6 @@ api-key-service:
 
 deployment-service:
   - packages/deployment-service/*
+
+api-key-verify:
+  - packages/api-key-verify/*
