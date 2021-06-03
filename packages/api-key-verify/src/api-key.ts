@@ -1,6 +1,6 @@
 import { ApiKeyInterface } from '@reapit/foundations-ts-definitions'
 import { DataMapper } from '@aws/dynamodb-data-mapper'
-import DynamoDB from 'aws-sdk/clients/dynamodb'
+import { DynamoDB } from 'aws-sdk'
 import { ApiKeyModel } from './api-key-model'
 import { ApiKeyExpiredException, ApiKeyNotFoundException } from './exceptions'
 
@@ -43,6 +43,7 @@ export const getApiKey: ApiKeyResolveFunction = (
 
     return apiKeys[0]
   } catch (e) {
+    console.error(e)
     // TODO only return undefined on not found response
     return undefined
   }
