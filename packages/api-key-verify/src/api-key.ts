@@ -22,9 +22,15 @@ export const getApiKey: ApiKeyResolveFunction = (
   })
 
   try {
-    const result = await db.query(Object.assign(new ApiKeyModel(), { apiKey: apiKeyHeader }), {
-      indexName: 'apiKey',
-    })
+    const result = await db.query(
+      ApiKeyModel,
+      {
+        apiKey: apiKeyHeader,
+      },
+      {
+        indexName: 'apiKey',
+      },
+    )
 
     const apiKeys: ApiKeyInterface[] = []
 
