@@ -1,0 +1,35 @@
+{
+  "name": "@reapit/api-key-verify",
+  "version": "0.0.1",
+  "private": true,
+  "description": "Common Package for Reapit Foundation",
+  "repository": {
+    "type": "git",
+    "url": "git+git@github.com:reapit/foundations.git"
+  },
+  "license": "MIT",
+  "author": "Reapit Ltd",
+  "main": "./src/index.ts",
+  "scripts": {
+    "start": "echo '...skipping...'",
+    "test": "cross-env TZ=UTC jest --watch --colors --silent",
+    "build": "echo '...skipping...'",
+    "lint": "eslint --cache --ext=ts,tsx src --fix",
+    "release": "echo '...skipping...'",
+    "publish": "echo '...skipping...'",
+    "conf": "echo '...skipping...'",
+    "commit": "concurrently \"yarn test --coverage --no-cache --silent --forceExit --detectOpenHandles --runInBand --watch=false && jest-coverage-badges --input src/tests/coverage/coverage-summary.json --output src/tests/badges\" \"yarn lint\""
+  },
+  "dependencies": {
+    "@aws/dynamodb-data-mapper": "^0.7.3",
+    "@aws/dynamodb-data-mapper-annotations": "^0.7.3",
+    "@reapit/foundations-ts-definitions": "workspace:packages/foundations-ts-definitions",
+    "aws": "^0.0.3-2"
+  },
+  "devDependencies": {
+    "concurrently": "^5.3.0",
+    "cross-env": "^7.0.3",
+    "eslint": "7.23.0",
+    "jest": "^26.6.3"
+  }
+}
