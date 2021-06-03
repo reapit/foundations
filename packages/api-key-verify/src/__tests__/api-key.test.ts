@@ -2,6 +2,7 @@ import { ApiKeyModel } from '../api-key-model'
 import { getApiKey, resolveApiKey } from '../api-key'
 import { DataMapper, QueryIterator, StringToAnyObjectMap } from '@aws/dynamodb-data-mapper'
 import { ApiKeyExpiredException, ApiKeyNotFoundException } from '@/exceptions'
+import { DynamoDB } from 'aws-sdk'
 
 const SUCCESS_API_KEY = 'success-api-key'
 const NOT_FOUND_API_KEY = 'not-found-api-key'
@@ -9,6 +10,7 @@ const EXPIRED_API_KEY = 'expired-api-key'
 const MIXED_API_KEY = 'mixed-api-key'
 
 describe('ApiKey', () => {
+  let db: DataMapper;
   beforeAll(() => {
     // @ts-ignore
     jest
@@ -58,6 +60,10 @@ describe('ApiKey', () => {
           [Symbol.asyncIterator]: async function* () {} as any,
         } as QueryIterator<any>
       })
+
+    db = new DataMapper({
+      client: new DynamoDB({ region: 'eu-west-2' }),
+    })
   })
 
   afterAll(() => {
@@ -66,27 +72,27 @@ describe('ApiKey', () => {
 
   describe('getApiKey', () => {
     it('Can get apiKey', async () => {
-      const result = await getApiKey({ region: 'eu-west-2' })(SUCCESS_API_KEY)
+      const result = await getApiKey(db)(SUCCESS_API_KEY)
 
       expect(result?.apiKey).toBe(SUCCESS_API_KEY)
       expect(new Date(result?.keyExpiresAt as string) > new Date()).toBeTruthy()
     })
 
     it('Can get expired apiKey', async () => {
-      const result = await getApiKey({ region: 'eu-west-2' })(EXPIRED_API_KEY)
+      const result = await getApiKey(db)(EXPIRED_API_KEY)
 
       expect(result?.apiKey).toBe(EXPIRED_API_KEY)
       expect(new Date(result?.keyExpiresAt as string) < new Date()).toBeTruthy()
     })
 
     it('Returns undefined on no apiKey', async () => {
-      const result = await getApiKey({ region: 'eu-west-2' })(NOT_FOUND_API_KEY)
+      const result = await getApiKey(db)(NOT_FOUND_API_KEY)
 
       expect(typeof result).toBe('undefined')
     })
 
     it('Can get latest apiKey', async () => {
-      const result = await getApiKey({ region: 'eu-west-2' })(MIXED_API_KEY)
+      const result = await getApiKey(db)(MIXED_API_KEY)
 
       expect(result?.apiKey).toBe(MIXED_API_KEY)
       // TODO add expect for the most recent
@@ -96,7 +102,7 @@ describe('ApiKey', () => {
   describe('resolveApiKey', () => {
     it('Throws not found exception on no apiKey', async () => {
       try {
-        await resolveApiKey({ region: 'eu-west-2' })(NOT_FOUND_API_KEY)
+        await resolveApiKey(db)(NOT_FOUND_API_KEY)
         expect(true).toBeFalsy()
       } catch (e) {
         expect(e).toBeInstanceOf(ApiKeyNotFoundException)
@@ -105,7 +111,7 @@ describe('ApiKey', () => {
 
     it('Throws expired exception on expired apiKey', async () => {
       try {
-        await resolveApiKey({ region: 'eu-west-2' })(EXPIRED_API_KEY)
+        await resolveApiKey(db)(EXPIRED_API_KEY)
         expect(true).toBeFalsy()
       } catch (e) {
         expect(e).toBeInstanceOf(ApiKeyExpiredException)
