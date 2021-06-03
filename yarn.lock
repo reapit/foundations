@@ -5468,7 +5468,7 @@ __metadata:
     "@types/lodash.debounce": ^4.0.6
     "@types/morgan": ^1.9.2
     "@types/nanoid": ^2.1.0
-    "@types/node": 10.17.59
+    "@types/node": ^14.17.2
     "@types/papaparse": ^5.2.5
     "@types/query-string": ^6.3.0
     "@types/rc-select": ^5.9.34
@@ -8564,13 +8564,6 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@types/node@npm:10.17.59":
-  version: 10.17.59
-  resolution: "@types/node@npm:10.17.59"
-  checksum: 558c0e23405e34103c517bdf352f89519001bf0de6f0e14f46ceba77e920c534e67174f309659cf804ccde1cbfdb55c07cdcc6087183f0afb416d0f4815834fb
-  languageName: node
-  linkType: hard
-
 "@types/node@npm:12.12.50":
   version: 12.12.50
   resolution: "@types/node@npm:12.12.50"
@@ -8589,6 +8582,13 @@ __metadata:
   version: 13.13.12
   resolution: "@types/node@npm:13.13.12"
   checksum: 247f27e0863a4b23c7129b246b5d3a84dcee52ac7d853807fb81058cf9986fef7b82cc386390f8688e7a40f1665ebebde9128f31afa242f7ee7996cfc94af2ea
+  languageName: node
+  linkType: hard
+
+"@types/node@npm:^14.17.2":
+  version: 14.17.2
+  resolution: "@types/node@npm:14.17.2"
+  checksum: 7a2e90989ce2948d3cdfc1d15fb5f0439ea53971d81a466ad049922bb23ef38252f6639271ae5899670ab93d48ed62542ad687767e45ffa6fe902ce59f518e5b
   languageName: node
   linkType: hard
 
