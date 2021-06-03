@@ -10,12 +10,12 @@ const EXPIRED_API_KEY = 'expired-api-key'
 const MIXED_API_KEY = 'mixed-api-key'
 
 describe('ApiKey', () => {
-  let db: DataMapper;
+  let db: DataMapper
   beforeAll(() => {
     // @ts-ignore
     jest
       .spyOn(DataMapper.prototype, 'query')
-        // @ts-ignore
+      // @ts-ignore
       .mockImplementation((valueConstructor: any, keyCondition: any) => {
         const apiKeyHeader = (keyCondition as { [s: string]: any }).apiKey as string
 
@@ -49,10 +49,17 @@ describe('ApiKey', () => {
           expires.setDate(expires.getDate() - 3)
           return mockAsyncIterator([createApiKeyModel(EXPIRED_API_KEY, expires)])
         } else if (apiKeyHeader === MIXED_API_KEY) {
+          const expires1 = new Date()
+          const expires2 = new Date()
+          const expires3 = new Date()
+
+          expires1.setDate(expires1.getDate() - 3)
+          expires2.setDate(expires2.getDate() - 5)
+          expires3.setDate(expires3.getDate() + 10)
           return mockAsyncIterator([
-            createApiKeyModel(MIXED_API_KEY, expires),
-            createApiKeyModel(MIXED_API_KEY, expires),
-            createApiKeyModel(MIXED_API_KEY, expires),
+            createApiKeyModel(MIXED_API_KEY, expires3),
+            createApiKeyModel(MIXED_API_KEY, expires1),
+            createApiKeyModel(MIXED_API_KEY, expires2),
           ])
         }
 
@@ -94,8 +101,12 @@ describe('ApiKey', () => {
     it('Can get latest apiKey', async () => {
       const result = await getApiKey(db)(MIXED_API_KEY)
 
+      const expiresDate = new Date()
+      expiresDate.setDate(expiresDate.getDate() + 10)
+
       expect(result?.apiKey).toBe(MIXED_API_KEY)
-      // TODO add expect for the most recent
+      expect(result?.expired).toBeFalsy()
+      expect(new Date(result?.keyExpiresAt as string).getDate()).toBe(expiresDate.getDate())
     })
   })
 

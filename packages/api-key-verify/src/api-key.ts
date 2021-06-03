@@ -1,9 +1,8 @@
-import { ApiKeyInterface } from '@reapit/foundations-ts-definitions'
 import { DataMapper } from '@aws/dynamodb-data-mapper'
 import { ApiKeyModel } from './api-key-model'
 import { ApiKeyExpiredException, ApiKeyNotFoundException } from './exceptions'
 
-export type GetApiKeyFunction = (apiKeyHeader: string) => Promise<ApiKeyInterface | undefined>
+export type GetApiKeyFunction = (apiKeyHeader: string) => Promise<ApiKeyModel | undefined>
 export type ApiKeyResolveFunction = (dbConfig: DataMapper) => GetApiKeyFunction
 
 /**
@@ -12,9 +11,9 @@ export type ApiKeyResolveFunction = (dbConfig: DataMapper) => GetApiKeyFunction
  * @param dbConfig
  * @returns GetApiKeyFunction
  */
-export const getApiKey: ApiKeyResolveFunction = (
-  db: DataMapper,
-): GetApiKeyFunction => async (apiKeyHeader: string): Promise<ApiKeyModel | undefined> => {
+export const getApiKey: ApiKeyResolveFunction = (db: DataMapper): GetApiKeyFunction => async (
+  apiKeyHeader: string,
+): Promise<ApiKeyModel | undefined> => {
   try {
     const result = await db.query(
       ApiKeyModel,
@@ -32,7 +31,9 @@ export const getApiKey: ApiKeyResolveFunction = (
       apiKeys.push(key)
     }
 
-    apiKeys.sort((a, b) => new Date(a.keyExpiresAt as string).getDate() - new Date(b.keyExpiresAt as string).getDate())
+    apiKeys
+      .sort((a, b) => new Date(a.keyExpiresAt as string).getDate() - new Date(b.keyExpiresAt as string).getDate())
+      .reverse()
 
     return apiKeys[0]
   } catch (e) {
@@ -47,9 +48,9 @@ export const getApiKey: ApiKeyResolveFunction = (
  * @param dbConfig
  * @returns GetApiKeyFunction
  */
-export const resolveApiKey: ApiKeyResolveFunction = (
-  db: DataMapper,
-): GetApiKeyFunction => async (apiKeyHeader: string): Promise<ApiKeyInterface | never> => {
+export const resolveApiKey: ApiKeyResolveFunction = (db: DataMapper): GetApiKeyFunction => async (
+  apiKeyHeader: string,
+): Promise<ApiKeyModel | never> => {
   const apiKey = await getApiKey(db)(apiKeyHeader)
 
   if (!apiKey) {
