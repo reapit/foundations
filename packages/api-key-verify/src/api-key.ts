@@ -43,7 +43,6 @@ export const getApiKey: ApiKeyResolveFunction = (
 
     return apiKeys[0]
   } catch (e) {
-    console.error(e)
     // TODO only return undefined on not found response
     return undefined
   }
