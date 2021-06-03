@@ -1,11 +1,10 @@
 import { ApiKeyInterface } from '@reapit/foundations-ts-definitions'
 import { DataMapper } from '@aws/dynamodb-data-mapper'
-import { DynamoDB } from 'aws-sdk'
 import { ApiKeyModel } from './api-key-model'
 import { ApiKeyExpiredException, ApiKeyNotFoundException } from './exceptions'
 
 export type GetApiKeyFunction = (apiKeyHeader: string) => Promise<ApiKeyInterface | undefined>
-export type ApiKeyResolveFunction = (dbConfig: DynamoDB.Types.ClientConfiguration) => GetApiKeyFunction
+export type ApiKeyResolveFunction = (dbConfig: DataMapper) => GetApiKeyFunction
 
 /**
  * use dynamoDB to resolve apiKey for given api-key header
@@ -14,14 +13,8 @@ export type ApiKeyResolveFunction = (dbConfig: DynamoDB.Types.ClientConfiguratio
  * @returns GetApiKeyFunction
  */
 export const getApiKey: ApiKeyResolveFunction = (
-  dbConfig: DynamoDB.Types.ClientConfiguration,
+  db: DataMapper,
 ): GetApiKeyFunction => async (apiKeyHeader: string): Promise<ApiKeyModel | undefined> => {
-  const dynamoDBClient = new DynamoDB(dbConfig)
-
-  const db = new DataMapper({
-    client: dynamoDBClient,
-  })
-
   try {
     const result = await db.query(
       ApiKeyModel,
@@ -55,9 +48,9 @@ export const getApiKey: ApiKeyResolveFunction = (
  * @returns GetApiKeyFunction
  */
 export const resolveApiKey: ApiKeyResolveFunction = (
-  dbConfig: DynamoDB.Types.ClientConfiguration,
+  db: DataMapper,
 ): GetApiKeyFunction => async (apiKeyHeader: string): Promise<ApiKeyInterface | never> => {
-  const apiKey = await getApiKey(dbConfig)(apiKeyHeader)
+  const apiKey = await getApiKey(db)(apiKeyHeader)
 
   if (!apiKey) {
     throw new ApiKeyNotFoundException()
