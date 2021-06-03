@@ -15,7 +15,7 @@ export type ApiKeyResolveFunction = (dbConfig: DynamoDB.Types.ClientConfiguratio
  */
 export const getApiKey: ApiKeyResolveFunction = (
   dbConfig: DynamoDB.Types.ClientConfiguration,
-): GetApiKeyFunction => async (apiKeyHeader: string): Promise<ApiKeyInterface | undefined> => {
+): GetApiKeyFunction => async (apiKeyHeader: string): Promise<ApiKeyModel | undefined> => {
   const dynamoDBClient = new DynamoDB(dbConfig)
 
   const db = new DataMapper({
@@ -33,7 +33,7 @@ export const getApiKey: ApiKeyResolveFunction = (
       },
     )
 
-    const apiKeys: ApiKeyInterface[] = []
+    const apiKeys: ApiKeyModel[] = []
 
     for await (const key of result) {
       apiKeys.push(key)
@@ -62,7 +62,7 @@ export const resolveApiKey: ApiKeyResolveFunction = (
 
   if (!apiKey) {
     throw new ApiKeyNotFoundException()
-  } else if (!apiKey.keyExpiresAt || new Date(apiKey.keyExpiresAt) > new Date()) {
+  } else if (!apiKey.keyExpiresAt || (apiKey as ApiKeyModel).expired) {
     throw new ApiKeyExpiredException()
   }
 
