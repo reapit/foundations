@@ -2,6 +2,7 @@ import { ApiKeyInterface } from '@reapit/foundations-ts-definitions'
 import { DataMapper } from '@aws/dynamodb-data-mapper'
 import DynamoDB from 'aws-sdk/clients/dynamodb'
 import { ApiKeyModel } from './api-key-model'
+import { ApiKeyExpiredException, ApiKeyNotFoundException } from './exceptions'
 
 export type GetApiKeyFunction = (apiKeyHeader: string) => Promise<ApiKeyInterface | undefined>
 export type ApiKeyResolveFunction = (dbConfig: DynamoDB.Types.ClientConfiguration) => GetApiKeyFunction
@@ -59,9 +60,9 @@ export const resolveApiKey: ApiKeyResolveFunction = (
   const apiKey = await getApiKey(dbConfig)(apiKeyHeader)
 
   if (!apiKey) {
-    throw new Error('ApiKey not found')
+    throw new ApiKeyNotFoundException()
   } else if (!apiKey.keyExpiresAt || new Date(apiKey.keyExpiresAt) > new Date()) {
-    throw new Error('ApiKey expired')
+    throw new ApiKeyExpiredException()
   }
 
   return apiKey
