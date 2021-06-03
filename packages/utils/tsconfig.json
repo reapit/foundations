@@ -10,9 +10,7 @@
       "@reapit/connect-session": ["../connect-session/src"]
     },
     "declaration": true,
-    "declarationDir": "dist",
-    "experimentalDecorators": true,
-    "emitDecoratorMetadata": true
+    "declarationDir": "dist"
   },
 
   "include": ["src"],
