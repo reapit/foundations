@@ -5171,6 +5171,21 @@ __metadata:
   languageName: node
   linkType: hard
 
+"@reapit/api-key-verify@workspace:packages/api-key-verify":
+  version: 0.0.0-use.local
+  resolution: "@reapit/api-key-verify@workspace:packages/api-key-verify"
+  dependencies:
+    "@aws/dynamodb-data-mapper": ^0.7.3
+    "@aws/dynamodb-data-mapper-annotations": ^0.7.3
+    "@reapit/foundations-ts-definitions": "workspace:packages/foundations-ts-definitions"
+    aws: ^0.0.3-2
+    concurrently: ^5.3.0
+    cross-env: ^7.0.3
+    eslint: 7.23.0
+    jest: ^26.6.3
+  languageName: unknown
+  linkType: soft
+
 "@reapit/cli@workspace:packages/cli":
   version: 0.0.0-use.local
   resolution: "@reapit/cli@workspace:packages/cli"
@@ -11205,6 +11220,15 @@ __metadata:
   version: 1.11.0
   resolution: "aws4@npm:1.11.0"
   checksum: d30dce2b73839974894d8283a06c53e8374b74d643d3b08340d84c364e01158be011fcfd1a88f8462be946d69055313a3038202f2eafd155b039aaab3549ba21
+  languageName: node
+  linkType: hard
+
+"aws@npm:^0.0.3-2":
+  version: 0.0.3-2
+  resolution: "aws@npm:0.0.3-2"
+  dependencies:
+    vows: ">= 0.5.1"
+  checksum: 8daf37afdd13403d63368a7cbb00e3e44d43b86ba16f5b24d4be69e75970925424211d403dce0fe16b070ad14c5df101b4fbd55f150cb864c53114eebf7b301d
   languageName: node
   linkType: hard
 
@@ -18460,7 +18484,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"eyes@npm:0.1.x":
+"eyes@npm:0.1.x, eyes@npm:~0.1.6":
   version: 0.1.8
   resolution: "eyes@npm:0.1.8"
   checksum: 8959a893bcace67f89a7239d09558c93942f931d717c3c0520bbda6084c5991c3c4cb6db05858a6542423ffe69f29abb59747fa6b3029e3c051afc405a310760
@@ -38366,6 +38390,19 @@ typescript@^4.0.3:
   version: 1.1.2
   resolution: "vm-browserify@npm:1.1.2"
   checksum: fc571a62d2cf797ae8773ebb3cb0d2bea50ed02059e128dd9087975929fce4c80a6485ce1aaf7d44ef69db99dfdcde50b6be5d5eb73b296660d761c32fb544fe
+  languageName: node
+  linkType: hard
+
+"vows@npm:>= 0.5.1":
+  version: 0.8.3
+  resolution: "vows@npm:0.8.3"
+  dependencies:
+    diff: ^4.0.1
+    eyes: ~0.1.6
+    glob: ^7.1.2
+  bin:
+    vows: ./bin/vows
+  checksum: 90d8da8ff0eefe5eff50698532b8af5f4e903071f919afb511f57afcb95864cc7338d1b310b7bbf6c216ac9bfa655b48c1536edf245ddcd319df1b67c5a95b8a
   languageName: node
   linkType: hard
 
