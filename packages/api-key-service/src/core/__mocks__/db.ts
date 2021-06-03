@@ -1,4 +1,4 @@
-import { ApiKeyModel } from '@/models'
+import { ApiKeyModel } from '@reapit/api-key-verify'
 import { v4 as uuid } from 'uuid'
 
 export const db = {
