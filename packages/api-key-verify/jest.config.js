@@ -9,6 +9,7 @@ module.exports = {
     '<rootDir>[/\\\\](node_modules|src/types|src/tests|src/scripts|src/__stubs__|dist)|config|core|models[/\\\\]',
     '.d.ts',
     'index.ts',
+    '<rootDir>/src/api-key-model.ts'
   ],
   coverageThreshold: {
     global: {
