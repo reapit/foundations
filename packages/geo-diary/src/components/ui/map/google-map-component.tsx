@@ -74,7 +74,11 @@ export const handleRenderMarkers = ({ coordinates, appState, setAppState }: Rend
   const map = mapRefs?.mapRef?.current
   const markersRef = mapRefs?.markersRef
 
+<<<<<<< HEAD
   if (googleMaps && map && markersRef) {
+=======
+  if (googleMaps && googleMaps && map && markersRef) {
+>>>>>>> f7371293f (fix: geo diary hotfix)
     markersRef.current = coordinates.map((coordinate: CoordinateProps) => {
       const latlng = {
         lat: coordinate.position.lat,
