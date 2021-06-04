@@ -5,7 +5,6 @@ import { ExtendedAppointmentModel } from '../../types/global'
 
 describe('fetchDestinationInformation', () => {
   it('should call the fetch distance matrix', () => {
-    // const mockSetAppState = jest.fn()
     const mockGetDistanceMatrix = { getDistanceMatrix: jest.fn() }
     window.google.maps = {
       LatLng: jest.fn(),

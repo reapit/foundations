@@ -2787,13 +2787,6 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@googlemaps/jest-mocks@npm:^0.1.1":
-  version: 0.1.1
-  resolution: "@googlemaps/jest-mocks@npm:0.1.1"
-  checksum: a0624a716fca9d1ae135589aefe7496ede9bc0e01076de65dc2f41d3d231d64143fbecc5174c7942ff2243c0b34e5cb65a468e4f3a52d9829a9941b36cac0600
-  languageName: node
-  linkType: hard
-
 "@graphql-toolkit/common@npm:0.10.4":
   version: 0.10.4
   resolution: "@graphql-toolkit/common@npm:0.10.4"
@@ -19718,7 +19711,6 @@ fsevents@^1.2.7:
   dependencies:
     "@apollo/react-hooks": ^3.1.5
     "@apollo/react-testing": ^3.1.4
-    "@googlemaps/jest-mocks": ^0.1.1
     "@reapit/config-manager": "workspace:packages/config-manager"
     "@reapit/connect-session": "workspace:packages/connect-session"
     "@reapit/elements": "workspace:packages/elements"
@@ -19736,7 +19728,6 @@ fsevents@^1.2.7:
     graphql: 14.7.0
     jest: ^26.6.3
     jest-coverage-badges: ^1.1.2
-    jest-google-maps-mock: ^1.0.7
     linaria: ^2.0.2
     little-loader: ^0.2.0
     lodash.debounce: ^4.0.8
@@ -23428,13 +23419,6 @@ fsevents@^1.2.7:
   version: 26.3.0
   resolution: "jest-get-type@npm:26.3.0"
   checksum: fc3e2d2b90cca74597c4ad6234c2fcc2ccb62894d0f7afe22fc55b5d93a2f02d3080ccef50f09c979d4b5a060bc76c4343911556d75ed9e892e0ebda6d54c44b
-  languageName: node
-  linkType: hard
-
-"jest-google-maps-mock@npm:^1.0.7":
-  version: 1.0.7
-  resolution: "jest-google-maps-mock@npm:1.0.7"
-  checksum: 836f68a3cc694f85e68acc2e173cb55bc3fb5e63c139171fa447d4f638ba49fc367b0ef87fd9992e4216cb7447f289022ac73d6f5205b00f644279887c3ea35d
   languageName: node
   linkType: hard
 
