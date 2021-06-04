@@ -15813,6 +15813,7 @@ __metadata:
   resolution: "deployment-service@workspace:packages/deployment-service"
   dependencies:
     "@homeservenow/serverless-aws-handler": ^0.2.4
+    "@reapit/api-key-verify": "workspace:packages/api-key-verify"
     "@reapit/config-manager": "workspace:packages/config-manager"
     "@reapit/utils": "workspace:packages/utils"
     class-transformer: ^0.4.0
