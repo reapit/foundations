@@ -1,11 +1,10 @@
-import { httpHandler, UnauthorizedException, ValidationException } from '@homeservenow/serverless-aws-handler'
+import { httpHandler, ValidationException } from '@homeservenow/serverless-aws-handler'
 import { DeploymentDto } from '@/dto'
 import { DeploymentModel } from '@/models'
 import * as service from '@/services/deployment'
 import { plainToClass } from 'class-transformer'
 import { validate } from 'class-validator'
-import { connectSessionVerifyDecodeIdTokenWithPublicKeys, LoginIdentity } from '@reapit/connect-session'
-import publicKeys from './../../public-keys.json'
+import { resolveDeveloperId } from './../utils/resolve-developer-id'
 
 /**
  * Create a deployment
@@ -21,27 +20,12 @@ export const createDeployment = httpHandler<DeploymentDto, DeploymentModel>({
     return dto
   },
   handler: async ({ event }): Promise<DeploymentModel> => {
-    let customer: LoginIdentity | undefined
-
-    try {
-      customer = await connectSessionVerifyDecodeIdTokenWithPublicKeys(
-        event.headers['x-api-key'] as string,
-        process.env.CONNECT_USER_POOL as string,
-        publicKeys,
-      )
-
-      if (!customer) {
-        throw new Error('unauthorised')
-      }
-    } catch (e) {
-      throw new UnauthorizedException(e.message)
-    }
+    const developerId = await resolveDeveloperId(event)
 
     const dto = event.body
       ? plainToClass(DeploymentDto, {
           ...JSON.parse(event.body),
-          organisationId: customer?.orgId,
-          developerId: customer?.developerId,
+          developerId,
         })
       : new DeploymentDto()
 

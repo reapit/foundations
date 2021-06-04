@@ -1,30 +1,15 @@
 import { PipelineModel } from '@/models'
 import { ownership } from '@/utils'
-import { httpHandler, NotFoundException, UnauthorizedException } from '@homeservenow/serverless-aws-handler'
+import { httpHandler, NotFoundException } from '@homeservenow/serverless-aws-handler'
 import * as service from '../services'
-import { connectSessionVerifyDecodeIdTokenWithPublicKeys, LoginIdentity } from '@reapit/connect-session'
-import publicKeys from './../../public-keys.json'
+import { resolveDeveloperId } from '@/utils/resolve-developer-id'
 
 /**
  * Get a pipeline by id
  */
 export const getPipeline = httpHandler<void, PipelineModel>({
   handler: async ({ event }): Promise<PipelineModel> => {
-    let customer: LoginIdentity | undefined
-
-    try {
-      customer = await connectSessionVerifyDecodeIdTokenWithPublicKeys(
-        event.headers['x-api-key'] as string,
-        process.env.CONNECT_USER_POOL as string,
-        publicKeys,
-      )
-
-      if (!customer) {
-        throw new Error('unauthorised')
-      }
-    } catch (e) {
-      throw new UnauthorizedException(e.message)
-    }
+    const developerId = await resolveDeveloperId(event)
 
     const pipeline = await service.findById(event.pathParameters?.id as string)
 
@@ -32,7 +17,7 @@ export const getPipeline = httpHandler<void, PipelineModel>({
       throw new NotFoundException()
     }
 
-    await ownership(pipeline.deployment.id as string, customer)
+    await ownership(pipeline.deployment.id as string, developerId)
 
     return pipeline
   },

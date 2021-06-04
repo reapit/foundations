@@ -1,16 +1,10 @@
-import {
-  httpHandler,
-  NotFoundException,
-  UnauthorizedException,
-  ValidationException,
-} from '@homeservenow/serverless-aws-handler'
+import { httpHandler, NotFoundException, ValidationException } from '@homeservenow/serverless-aws-handler'
 import { DeploymentDto } from '@/dto'
 import { DeploymentModel } from '@/models'
 import * as service from '@/services/deployment'
 import { validate } from 'class-validator'
 import { ownership } from '@/utils'
-import { connectSessionVerifyDecodeIdTokenWithPublicKeys, LoginIdentity } from '@reapit/connect-session'
-import publicKeys from './../../public-keys.json'
+import { resolveDeveloperId } from '@/utils/resolve-developer-id'
 
 /**
  * Update a given deployment
@@ -26,21 +20,7 @@ export const updateDeployment = httpHandler<DeploymentDto, DeploymentModel>({
     return dto
   },
   handler: async ({ body, event }): Promise<DeploymentModel> => {
-    let customer: LoginIdentity | undefined
-
-    try {
-      customer = await connectSessionVerifyDecodeIdTokenWithPublicKeys(
-        event.headers.Authorization as string,
-        process.env.CONNECT_USER_POOL as string,
-        publicKeys,
-      )
-
-      if (typeof customer === 'undefined' || !customer.developerId) {
-        throw new Error('Unauthorised')
-      }
-    } catch (e) {
-      throw new UnauthorizedException(e.message)
-    }
+    const developerId = await resolveDeveloperId(event)
 
     const deployment = await service.getByKey(event.pathParameters?.id as string) // TODO should this be body.toApiKey
 
@@ -48,7 +28,7 @@ export const updateDeployment = httpHandler<DeploymentDto, DeploymentModel>({
       throw new NotFoundException()
     }
 
-    await ownership(deployment.developerId, customer)
+    await ownership(deployment.developerId, developerId)
 
     return service.updateDeploymentModel(deployment, body)
   },
