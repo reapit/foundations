@@ -1,8 +1,7 @@
 import { httpHandler, NotFoundException } from '@homeservenow/serverless-aws-handler'
 import { DeploymentModel } from '@/models'
 import * as service from '@/services/deployment'
-import { ownership } from '@/utils'
-import { resolveDeveloperId } from '@/utils/resolve-developer-id'
+import { ownership, resolveDeveloperId } from '@/utils'
 
 /**
  * Get a deployment by id

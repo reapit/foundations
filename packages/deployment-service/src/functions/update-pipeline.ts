@@ -1,20 +1,14 @@
 import { PipelineModel } from '@/models'
-import { authorised, ownership } from '@/utils'
+import { ownership, resolveDeveloperId } from '@/utils'
 import { httpHandler, BadRequestException, NotFoundException } from '@homeservenow/serverless-aws-handler'
 import { DeploymentStatus } from '@reapit/foundations-ts-definitions'
 import * as service from '../services'
-import { resolveDeveloperId } from '@/utils/resolve-developer-id'
 
 /**
  * Update a pipeline (cancel)
  */
 // TODO refactor to delete method instead?
 export const updatePipeline = httpHandler<{ buildStatus: DeploymentStatus.CANCELED }, PipelineModel>({
-  serialise: {
-    input: (event) => {
-      authorised(event)
-    },
-  },
   validator: (payload) => {
     if (payload.buildSTatus && payload.buildSTatus !== DeploymentStatus.CANCELED) {
       throw new BadRequestException('Validation errors: Status can only be canceled')

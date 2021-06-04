@@ -1,8 +1,7 @@
 import { PipelineModel } from '@/models'
-import { ownership } from '@/utils'
+import { ownership, resolveDeveloperId } from '@/utils'
 import { httpHandler, NotFoundException } from '@homeservenow/serverless-aws-handler'
 import * as service from '../services'
-import { resolveDeveloperId } from '@/utils/resolve-developer-id'
 
 /**
  * Create a new pipeline for deployment

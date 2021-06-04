@@ -1,7 +1,7 @@
 import { httpHandler } from '@homeservenow/serverless-aws-handler'
 import { DeploymentModel } from '@/models'
 import * as service from '@/services/deployment'
-import { resolveDeveloperId } from '@/utils/resolve-developer-id'
+import { resolveDeveloperId } from '@/utils'
 
 type Pagintation<T> = {
   items: T[]
