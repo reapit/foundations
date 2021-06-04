@@ -42,6 +42,7 @@ module.exports = async () => {
   const keys = await getPublicKeys(config.CONNECT_USER_POOL)
   if (!keys) {
     console.error('Failed to get keys')
+    process.exit(1)
     return
   }
 
