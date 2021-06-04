@@ -85,6 +85,8 @@ resources:
             AttributeType: S
           - AttributeName: developerId
             AttributeType: S
+          - AttributeName: apiKey
+            AttributeType: S
         KeySchema:
           - AttributeName: id
             KeyType: HASH
@@ -92,6 +94,15 @@ resources:
           - IndexName: developerIdOwnership
             KeySchema:
               - AttributeName: developerId
+                KeyType: HASH
+            Projection:
+              ProjectionType: ALL
+            ProvisionedThroughput:
+              ReadCapacityUnits: 1
+              WriteCapacityUnits: 1
+          - IndexName: apiKey
+            KeySchema:
+              - AttributeName: apiKey
                 KeyType: HASH
             Projection:
               ProjectionType: ALL
