@@ -82,7 +82,7 @@ export const handleSelectResult = (setAppState: Dispatch<SetStateAction<AppState
   }))
 }
 
-export const handleGeoLocateMe = (appState: AppState, setAppState: Dispatch<SetStateAction<AppState>>) => async () => {
+export const handleGeoLocateMe = (setAppState: Dispatch<SetStateAction<AppState>>) => async () => {
   const geoCoords = await getGeoCoords()
   setAppState((currentState) => ({
     ...currentState,
@@ -115,7 +115,7 @@ export const MyLocation: FC = () => {
         </MyLocationSectionResults>
       ) : null}
       {hasGeoLocation && (
-        <MyLocationIconContainer onClick={handleGeoLocateMe(appState, setAppState)}>
+        <MyLocationIconContainer onClick={handleGeoLocateMe(setAppState)}>
           <BiCurrentLocation />
         </MyLocationIconContainer>
       )}
