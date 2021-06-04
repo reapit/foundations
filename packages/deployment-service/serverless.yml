@@ -110,21 +110,6 @@ resources:
         AttributeDefinitions:
           - AttributeName: id
             AttributeType: S
-        KeySchema:
-          - AttributeName: id
-            KeyType: HASH
-        ProvisionedThroughput:
-          ReadCapacityUnits: 1
-          WriteCapacityUnits: 1
-        PointInTimeRecoverySpecification:
-          PointInTimeRecoveryEnabled: true
-    PipelineTable:
-      Type: AWS::DynamoDB::Table
-      Properties:
-        TableName: ${self:custom.env.DYNAMO_DB_PIPELINE_TABLE_NAME}
-        AttributeDefinitions:
-          - AttributeName: id
-            AttributeType: S
           - AttributeName: developerId
             AttributeType: S
         KeySchema:
@@ -140,6 +125,21 @@ resources:
             ProvisionedThroughput:
               ReadCapacityUnits: 1
               WriteCapacityUnits: 1
+        ProvisionedThroughput:
+          ReadCapacityUnits: 1
+          WriteCapacityUnits: 1
+        PointInTimeRecoverySpecification:
+          PointInTimeRecoveryEnabled: true
+    PipelineTable:
+      Type: AWS::DynamoDB::Table
+      Properties:
+        TableName: ${self:custom.env.DYNAMO_DB_PIPELINE_TABLE_NAME}
+        AttributeDefinitions:
+          - AttributeName: id
+            AttributeType: S
+        KeySchema:
+          - AttributeName: id
+            KeyType: HASH
         ProvisionedThroughput:
           ReadCapacityUnits: 1
           WriteCapacityUnits: 1
