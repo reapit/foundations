@@ -3,8 +3,7 @@ import { DeploymentDto } from '@/dto'
 import { DeploymentModel } from '@/models'
 import * as service from '@/services/deployment'
 import { validate } from 'class-validator'
-import { ownership } from '@/utils'
-import { resolveDeveloperId } from '@/utils/resolve-developer-id'
+import { ownership, resolveDeveloperId } from '@/utils'
 
 /**
  * Update a given deployment

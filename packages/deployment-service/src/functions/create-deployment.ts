@@ -4,7 +4,7 @@ import { DeploymentModel } from '@/models'
 import * as service from '@/services/deployment'
 import { plainToClass } from 'class-transformer'
 import { validate } from 'class-validator'
-import { resolveDeveloperId } from './../utils/resolve-developer-id'
+import { resolveDeveloperId } from './../utils'
 
 /**
  * Create a deployment

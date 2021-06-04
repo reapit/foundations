@@ -8,7 +8,7 @@ export const resolveCustomer = async (event: APIGatewayEvent): Promise<LoginIden
 
   try {
     customer = await connectSessionVerifyDecodeIdTokenWithPublicKeys(
-      event.headers['x-api-key'] as string,
+      event.headers['reapit-connect-token'] as string,
       process.env.CONNECT_USER_POOL as string,
       publicKeys,
     )
