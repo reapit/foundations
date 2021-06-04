@@ -31,9 +31,11 @@ export const ElNavItem = styled.div`
   display: flex;
   text-align: center;
   padding: 0.5rem;
+  justify-content: middle;
 
   @media screen and (min-width: 768px) {
     flex-direction: column;
+    justify-content: flex-end;
     height: 72px;
   }
 `
