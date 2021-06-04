@@ -75,7 +75,6 @@ export const handleRenderMarkers = ({ coordinates, appState, setAppState }: Rend
   const markersRef = mapRefs?.markersRef
 
   if (googleMaps && googleMaps && map && markersRef) {
-    clearMap(appState, setAppState)
     markersRef.current = coordinates.map((coordinate: CoordinateProps) => {
       const latlng = {
         lat: coordinate.position.lat,
