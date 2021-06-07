@@ -1,23 +1,114 @@
 import { Story, Canvas } from '@storybook/addon-docs/blocks'
 import { cx } from 'linaria'
-import { Nav } from './index'
+import { Nav, NavItem } from './index'
+import { elNavItemActive } from './__styles__'
+import { NavStateProvider } from '../../hooks/use-nav-state'
+import { useNavState } from '../../hooks/use-nav-state/index'
+import { Icon } from '../Icon'
+import { UseNavStory } from './use-nav.stories'
+import { RenderHtmlMarkup } from '../../helpers/v3/render-html-markup'
 
 <Meta title="V3/Nav" />
 
-# Modal
+# Nav
 
-# React usage
+### Basic Example
 
-## Complete example with `useNav` hook
+In this basic example, no additional JS is added to the React generatated markup (see rendered markup section for the underlying elements).
+
+Routing can be handled by way of an `href` attribute, an additional `el-nav-item-active` class can be toggled to display the currently selected menu item and an `el-nav-item-secondary` class can be added to align menu items with the bottom of the page rather than the top.
+
+We would encourage you to find a suitable icon for your navigation item from the `Icons` section of the styleguide - these should be nested inside a nav item, along with the name of your page.
 
 <Canvas>
-  <Story name="useNav example">
-    {() => {
-      return (
-        <>
-          <Nav />
-        </>
-      )
-    }}
+  <Story name="Basic Example">
+    <Nav>
+      <NavItem href="https://reapit.com">
+        <Icon icon="reapitHouse" />
+      </NavItem>
+      <NavItem className={elNavItemActive} href="https://marketplace.reapit.cloud/apps">
+        <Icon icon="apps" />
+        Apps
+      </NavItem>
+      <NavItem href="https://developers.reapit.cloud/analytics">
+        <Icon icon="analytics" />
+        Analytics
+      </NavItem>
+      <NavItem href="https://marketplace.reapit.cloud">
+        <Icon icon="marketplace" />
+        Marketplace
+      </NavItem>
+      <NavItem isSecondary href="https://developers.reapit.cloud/login">
+        <Icon icon="logout" />
+        Logout
+      </NavItem>
+    </Nav>
+  </Story>
+</Canvas>
+
+<RenderHtmlMarkup
+  component="V3/Nav"
+  story={['Basic Example']}
+  label="Nav Rendered HTML markup"
+/>
+
+### React usage Complete example with `useNav` hook
+
+The `useNav` hook will track the currently selected nav icon by setting any string identifier eg `ICON`, on the `navState`.
+
+The `setNavState` function is set by the developer with the chosen identifier for the nav item and a callback to be executed on click.
+
+Practically the callback will be a dispatch to React Router, an update to `window.history` object or similar client side routing function. You may also wish to bind the callback to an application action for example below, we pass a `logout` function to the logout nav item.
+
+As before, you can override this behaviour by simply setting a `href` attribute to route to any url or path, for maximum flexibility.
+
+```tsx
+import React from 'react'
+import { useNavState } from '../../hooks/use-nav-state'
+import { elNavItemActive } from './__styles__/index'
+import { Nav, NavItem } from './index'
+import { Icon } from '../Icon'
+import { cx } from 'linaria'
+
+export const UseNavStory = () => {
+  const { navState, setNavState } = useNavState()
+  const { navItemId } = navState
+  const navigate = () => console.log('Navigating - dispatch to React router or similar')
+  const logOut = () => console.log('Logging the user out')
+
+  return (
+    <Nav>
+      <NavItem className={cx(navItemId === 'ICON' && elNavItemActive)} onClick={setNavState('ICON', navigate)}>
+        <Icon icon="reapitHouse" />
+      </NavItem>
+      <NavItem className={cx(navItemId === 'APPS' && elNavItemActive)} onClick={setNavState('APPS', navigate)}>
+        <Icon icon="apps" />
+        Apps
+      </NavItem>
+      <NavItem
+        className={cx(navItemId === 'ANALYTICS' && elNavItemActive)}
+        onClick={setNavState('ANALYTICS', navigate)}
+      >
+        <Icon icon="analytics" />
+        Analytics
+      </NavItem>
+      <NavItem href="https://marketplace.reapit.cloud">
+        <Icon icon="marketplace" />
+        Marketplace
+      </NavItem>
+      <NavItem onClick={setNavState('LOGOUT', logOut)} isSecondary>
+        <Icon icon="logout" />
+        Logout
+      </NavItem>
+    </Nav>
+  )
+}
+```
+
+<Canvas>
+  <Story name="React Usage With useNav hook">
+    <NavStateProvider>
+      <UseNavStory />
+    </NavStateProvider>
   </Story>
 </Canvas>

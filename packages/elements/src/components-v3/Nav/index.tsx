@@ -1,24 +1,21 @@
-import React, { FC } from 'react'
+import React, { AnchorHTMLAttributes, HTMLAttributes, FC } from 'react'
 import { cx } from 'linaria'
 import { ElNavContainer, ElNavItem, elNavItemSecondary } from './__styles__'
 
-export interface NavItemProps {
+export interface NavItemProps extends AnchorHTMLAttributes<HTMLAnchorElement> {
   isSecondary?: boolean
 }
 
-export const NavItem: FC<NavItemProps> = ({ isSecondary, children }) => {
-  const combinedClasses = cx(isSecondary && elNavItemSecondary)
+export interface NavProps extends HTMLAttributes<HTMLDivElement> {}
 
-  return <ElNavItem className={combinedClasses}>{children}</ElNavItem>
-}
+export const NavItem: FC<NavItemProps> = ({ isSecondary, children, className, ...rest }) => {
+  const combinedClasses = cx(isSecondary && elNavItemSecondary, className)
 
-export const Nav: FC = () => {
   return (
-    <ElNavContainer>
-      <NavItem>Marketplace</NavItem>
-      <NavItem>Apps</NavItem>
-      <NavItem>Analytics</NavItem>
-      <NavItem isSecondary>Logout</NavItem>
-    </ElNavContainer>
+    <ElNavItem className={combinedClasses} {...rest}>
+      {children}
+    </ElNavItem>
   )
 }
+
+export const Nav: FC<NavProps> = ({ children, ...rest }) => <ElNavContainer {...rest}>{children}</ElNavContainer>
