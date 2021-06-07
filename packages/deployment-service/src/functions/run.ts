@@ -6,6 +6,7 @@ import { execSync } from 'child_process'
 import { resolve } from 'path'
 
 const cloneDir = 'project'
+const dir = resolve('/tmp')
 
 export const deployRun = httpHandler({
   defaultStatusCode: HttpStatusCode.CREATED,
@@ -25,9 +26,26 @@ export const deployRun = httpHandler({
     }
 
     try {
-      const clone = execSync(`git clone ${deployment.repository} ${cloneDir}`)
+      const clone = execSync(`git clone ${deployment.repository} ${cloneDir}`, {
+        cwd: dir,
+      })
       console.log('clone', clone.toString())
     } catch (e) {
+      // console.error(e)
+      console.log('message', e.message)
+      return {
+        statusCode: 500,
+      }
+    }
+
+    try {
+      const yarn = execSync('npm i', {
+        cwd: resolve(dir, cloneDir),
+      })
+      console.log('yarn', yarn.toString())
+    } catch (e) {
+      console.log(e.output.toString())
+      console.log('yarn errors')
       console.error(e)
       return {
         statusCode: 500,
@@ -35,11 +53,12 @@ export const deployRun = httpHandler({
     }
 
     try {
-      const yarn = execSync('yarn', {
-        cwd: resolve(process.cwd(), cloneDir),
+      const yarn = execSync('npm run build', {
+        cwd: resolve(dir, cloneDir),
       })
-      console.log('clone', yarn.toString())
+      console.log('yarn build', yarn.toString())
     } catch (e) {
+      console.log('yarn build errors')
       console.error(e)
       return {
         statusCode: 500,
@@ -48,7 +67,7 @@ export const deployRun = httpHandler({
 
     try {
       const serverless = execSync('serverless deploy', {
-        cwd: resolve(process.cwd(), cloneDir),
+        cwd: resolve(dir, cloneDir),
       })
       console.log('serverless', serverless.toString())
     } catch (e) {
