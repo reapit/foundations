@@ -23,13 +23,10 @@ export abstract class AbstractCommand {
       throw new Error()
     }
 
-    console.log(config.config)
-
     return axios.create({
       baseURL: config ? config.config.baseUrl : 'https://developer.reapit.com/',
       headers: {
-        'reapit-customer': config.config['customer'], // TODO get these from an auth command
-        'reapit-connect-token': config.config['connect-token'], // TODO get these from an auth command
+        'x-api-key': config.config['api-key'],
       },
     })
   }

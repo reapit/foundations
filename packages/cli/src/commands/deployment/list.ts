@@ -11,7 +11,7 @@ import ora from 'ora'
 export class DeploymentList extends AbstractCommand {
   async run() {
     const spinner = ora('Fetching deployments').start()
-    const response = await (await this.axios()).get<DeploymentModelInterface[]>('/', {
+    const response = await (await this.axios()).get<{items: DeploymentModelInterface[]}>('/deployment', {
       // deployments
     })
     spinner.stop()
@@ -20,18 +20,19 @@ export class DeploymentList extends AbstractCommand {
       console.log(chalk.red('Error fetching results: ', response.status, response.statusText))
     }
 
-    if (response.data.length === 0) {
+    if (!response.data || !response.data.items || response.data.items.length === 0) {
       console.log(chalk.redBright('No deployments found'))
       return
     }
 
     console.table(
-      response.data.map((deployment) => [
-        chalk.blue(deployment.id),
-        chalk.blue(deployment.name),
-        chalk.blue(deployment.appType),
-      ]),
-      ['id', 'name', 'deployment type'],
+      response.data.items.map((deployment) => ({
+        id: deployment.id,
+        name: deployment.name,
+        appType: deployment.appType,
+        repository: deployment.repository,
+      })),
+      ['id', 'name', 'appType', 'repository'],
     )
   }
 }

@@ -4,7 +4,7 @@ import { resolve } from 'path'
 const fileName = 'reapit-cli.json'
 
 export type ReapitCliConfig = {
-  authKey: string
+  ['api-key']: string
   baseUrl?: string
 }
 

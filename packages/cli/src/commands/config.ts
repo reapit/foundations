@@ -9,9 +9,9 @@ const createConfigFromQuestions = async (config?: ReapitCliConfig): Promise<Reap
   const values = await inquirer.prompt([
     {
       type: 'input',
-      message: 'Please enter your authKey',
-      name: 'authKey',
-      default: config ? config.authKey : undefined,
+      message: 'Please enter your api-key',
+      name: 'api-key',
+      default: config ? config['api-key'] : undefined,
     },
   ])
 
