@@ -27,4 +27,7 @@ export class DeploymentModel {
 
   @attribute({ defaultProvider: () => PackageManagerEnum.YARN })
   packageManager?: PackageManagerEnum
+
+  @attribute()
+  repository?: string
 }
