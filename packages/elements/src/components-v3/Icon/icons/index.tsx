@@ -29,6 +29,28 @@ import warning from './warning'
 import share from './share'
 import trash from './trash'
 import username from './username'
+import account from './account'
+import analytics from './analytics'
+import api from './api'
+import apps from './apps'
+import data from './data'
+import desktop from './desktop'
+import developers from './developers'
+import help from './help'
+import installed from './installed'
+import logout from './logout'
+import manage from './manage'
+import map from './map'
+import marketplace from './marketplace'
+import offices from './offices'
+import payments from './payments'
+import pointer from './pointer'
+import profile from './profile'
+import reapitHouse from './reapit-house'
+import results from './results'
+import search from './search'
+import users from './users'
+import webhooks from './webhooks'
 
 export default {
   add,
@@ -62,4 +84,26 @@ export default {
   share,
   trash,
   username,
+  account,
+  api,
+  analytics,
+  apps,
+  desktop,
+  data,
+  developers,
+  help,
+  logout,
+  installed,
+  manage,
+  map,
+  marketplace,
+  offices,
+  payments,
+  pointer,
+  profile,
+  reapitHouse,
+  results,
+  search,
+  users,
+  webhooks,
 }
