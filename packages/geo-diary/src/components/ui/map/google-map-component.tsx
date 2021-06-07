@@ -74,8 +74,7 @@ export const handleRenderMarkers = ({ coordinates, appState, setAppState }: Rend
   const map = mapRefs?.mapRef?.current
   const markersRef = mapRefs?.markersRef
 
-  if (googleMaps && googleMaps && map && markersRef) {
-    clearMap(appState, setAppState)
+  if (googleMaps && map && markersRef) {
     markersRef.current = coordinates.map((coordinate: CoordinateProps) => {
       const latlng = {
         lat: coordinate.position.lat,
@@ -173,7 +172,7 @@ export const handleDirectionService = ({ appState, setAppState }: AppStateParams
     })
   })
 
-  if (directionsRenderer) {
+  if (directionsRenderer && directionsRenderer.setDirections) {
     directionsRenderer.setDirections(response)
   }
 
@@ -251,11 +250,14 @@ export const setZoomAndCenter = (appState: AppState) => {
   }
 
   markers.forEach((marker) => {
+    if (!marker.getPosition) return null
     const position = marker.getPosition()
     if (position) bounds.extend(position)
   })
   map.fitBounds(bounds)
-  map.setCenter(bounds.getCenter())
+  if (bounds.getCenter) {
+    map.setCenter(bounds.getCenter())
+  }
   if (markers.length === 1 && !myLocation) {
     map.setZoom(DEFAULT_ZOOM)
   }
@@ -274,7 +276,7 @@ export const clearMap = (appState: AppState, setAppState: Dispatch<SetStateActio
   }))
 
   directionsRendererRef?.current?.setMap(null)
-  markersRef?.current?.forEach((marker) => marker?.setMap(null))
+  markersRef?.current?.forEach((marker) => marker && marker.setMap && marker?.setMap(null))
 }
 
 export const handleSetMapRefs = ({ mapRefs, setAppState, appState }: HandleSetMapParams) => () => {
