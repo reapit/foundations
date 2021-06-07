@@ -1,0 +1,65 @@
+import { getByKey } from '@/services'
+import { ownership } from '@/utils'
+import { resolveDeveloperId } from './../utils'
+import { httpHandler, HttpStatusCode, NotFoundException } from '@homeservenow/serverless-aws-handler'
+import { execSync } from 'child_process'
+import { resolve } from 'path'
+
+const cloneDir = 'project'
+
+export const deployRun = httpHandler({
+  defaultStatusCode: HttpStatusCode.CREATED,
+  handler: async ({ event }) => {
+    const developerId = await resolveDeveloperId(event)
+
+    const deployment = await getByKey(event.pathParameters?.id as string)
+
+    if (!deployment) {
+      throw new NotFoundException()
+    }
+
+    await ownership(deployment.developerId, developerId)
+
+    if (!deployment.repository) {
+      throw new Error('No repository set')
+    }
+
+    try {
+      const clone = execSync(`git clone ${deployment.repository} ${cloneDir}`)
+      console.log('clone', clone.toString())
+    } catch (e) {
+      console.error(e)
+      return {
+        statusCode: 500,
+      }
+    }
+
+    try {
+      const yarn = execSync('yarn', {
+        cwd: resolve(process.cwd(), cloneDir),
+      })
+      console.log('clone', yarn.toString())
+    } catch (e) {
+      console.error(e)
+      return {
+        statusCode: 500,
+      }
+    }
+
+    try {
+      const serverless = execSync('serverless deploy', {
+        cwd: resolve(process.cwd(), cloneDir),
+      })
+      console.log('serverless', serverless.toString())
+    } catch (e) {
+      console.log('sefverless error')
+      console.error(e)
+
+      return {
+        statusCode: 500,
+      }
+    }
+
+    console.log('hello?')
+  },
+})
