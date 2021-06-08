@@ -14,7 +14,7 @@ export type ReapitCliConfigResolve = {
 
 /**
  * Resolves given config path
- * 
+ *
  * @param relativePath
  * @returns
  */
@@ -28,7 +28,7 @@ const findConfig = async (relativePath: string): Promise<false | ReapitCliConfig
 
 /**
  * resolves local or global cli config
- * 
+ *
  * @returns ReapitCliConfig | false
  */
 export const resolveConfig = async (): Promise<false | ReapitCliConfigResolve> => {
@@ -40,7 +40,7 @@ export const resolveConfig = async (): Promise<false | ReapitCliConfigResolve> =
 
 /**
  * Create config file
- * 
+ *
  * @param path
  * @param config
  */
