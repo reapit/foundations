@@ -83,7 +83,12 @@ export class DeploymentCreate extends AbstractCommand {
     }) // /deployment
 
     if (response.status === 200) {
-      spinner.succeed(`App ${response.data.name} deployed to Reapit Cloud at https://${response.data.name?.replace(' ', '-')}.reapit.cloud`)
+      spinner.succeed(
+        `App ${response.data.name} deployed to Reapit Cloud at https://${response.data.name?.replace(
+          ' ',
+          '-',
+        )}.reapit.cloud`,
+      )
 
       if (answers.create) {
         spinner.start('Creating local deployment config')
