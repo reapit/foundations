@@ -3,6 +3,8 @@ import axios, { AxiosInstance } from 'axios'
 import { CommandOptions, COMMAND_OPTIONS } from './decorators'
 import chalk from 'chalk'
 import { Ora } from 'ora'
+import { resolve } from 'path'
+import * as fs from 'fs'
 
 export interface Command {
   run(): Promise<any> | any
@@ -11,11 +13,30 @@ export interface Command {
 export abstract class AbstractCommand {
   abstract run(params: { [s: string]: any }, options: unknown)
 
+  /**
+   * Get custom config file for command
+   *
+   * @param fileName
+   * @returns
+   */
+  protected async resolveConfigFile<T>(fileName: string): Promise<T | false> {
+    if (!fs.existsSync(resolve(process.cwd(), fileName))) return Promise.resolve(false)
+
+    const config = await fs.promises.readFile(resolve(process.cwd(), fileName), 'utf-8')
+
+    return JSON.parse(config) as T
+  }
+
+  /**
+   * Resolves reapit cli config from local dir or root
+   *
+   * @returns
+   */
   async getConfig(): Promise<ReapitCliConfigResolve | false> {
     return resolveConfig()
   }
 
-  async axios(spinner?: Ora): Promise<AxiosInstance> {
+  protected async axios(spinner?: Ora): Promise<AxiosInstance> {
     // TODO get login creds from config or whatever is required
     const config = await this.getConfig()
 
@@ -33,17 +54,23 @@ export abstract class AbstractCommand {
       },
     })
 
-    instance.interceptors.request.use(function (config) {
-      return config
-    }, function (error) {
-      return Promise.resolve(error)
-    })
-  
-    instance.interceptors.response.use(function (response) {
-      return response
-    }, function (error) {
-      return Promise.resolve(error)
-    })
+    instance.interceptors.request.use(
+      function (config) {
+        return config
+      },
+      function (error) {
+        return Promise.resolve(error)
+      },
+    )
+
+    instance.interceptors.response.use(
+      function (response) {
+        return response
+      },
+      function (error) {
+        return Promise.resolve(error)
+      },
+    )
 
     return instance
   }
