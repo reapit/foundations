@@ -2,6 +2,7 @@ import { ReapitCliConfigResolve, resolveConfig } from './utils'
 import axios, { AxiosInstance } from 'axios'
 import { CommandOptions, COMMAND_OPTIONS } from './decorators'
 import chalk from 'chalk'
+import { Ora } from 'ora'
 
 export interface Command {
   run(): Promise<any> | any
@@ -14,13 +15,14 @@ export abstract class AbstractCommand {
     return resolveConfig()
   }
 
-  async axios(): Promise<AxiosInstance> {
+  async axios(spinner?: Ora): Promise<AxiosInstance> {
     // TODO get login creds from config or whatever is required
     const config = await this.getConfig()
 
     if (!config || !config.config) {
       console.log(chalk.red('No config found. Please use the config command before running this command'))
-      throw new Error()
+      spinner?.stop()
+      process.exit(1)
     }
 
     const instance = axios.create({
