@@ -9,3 +9,5 @@ export const elIntentCritical = css``
 export const elIntentSuccess = css``
 
 export const elIntentDanger = css``
+
+export const elIntentNeutral = css``

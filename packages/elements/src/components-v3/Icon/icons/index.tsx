@@ -51,6 +51,9 @@ import results from './results'
 import search from './search'
 import users from './users'
 import webhooks from './webhooks'
+import reapitLogo from './reapit-logo'
+import hamburger from './hamburger'
+import hamburgerOpen from './hamburger-open'
 
 export default {
   add,
@@ -106,4 +109,7 @@ export default {
   search,
   users,
   webhooks,
+  reapitLogo,
+  hamburger,
+  hamburgerOpen,
 }

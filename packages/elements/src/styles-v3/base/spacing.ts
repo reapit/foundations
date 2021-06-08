@@ -1,6 +1,34 @@
 import { css } from 'linaria'
 
 // Utilities for margin
+export const elMAuto = css`
+  margin: 0;
+`
+
+export const elMXAuto = css`
+  margin: 0 auto;
+`
+
+export const elMYAuto = css`
+  margin: auto 0;
+`
+
+export const elMLAuto = css`
+  margin-left: auto;
+`
+
+export const elMRAuto = css`
+  margin-right: auto;
+`
+
+export const elMTAuto = css`
+  margin-top: auto;
+`
+
+export const elMBAuto = css`
+  margin-bottom: auto;
+`
+
 export const elM0 = css`
   margin: 0;
 `

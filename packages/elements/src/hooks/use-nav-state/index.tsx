@@ -1,7 +1,11 @@
-import React, { createContext, Dispatch, SetStateAction, useContext, useState, MouseEvent } from 'react'
+import React, { createContext, Dispatch, SetStateAction, useContext, useState, MouseEvent, useEffect } from 'react'
 
 export interface NavState {
-  navItemId: string
+  navItemIndex: number | null
+  navMenuOpen: boolean
+  navSubMenuOpen: boolean
+  navSubItemIndex: number | null
+  callback?: () => void
 }
 
 export interface NavStateContextProps {
@@ -11,18 +15,19 @@ export interface NavStateContextProps {
 
 export interface UseNavState {
   navState: NavState
-  setNavState: (navItemId: string, callback: () => void) => (event: MouseEvent<HTMLAnchorElement>) => void
+  setNavState: (newState: Partial<NavState>) => (event: MouseEvent<HTMLAnchorElement>) => void
 }
 
 export const NavStateContext = createContext<NavStateContextProps>({} as NavStateContextProps)
-
-export const DEFAULT_NAV_ID = 'ICON'
 
 const { Provider } = NavStateContext
 
 export const NavStateProvider: React.FC = ({ children }) => {
   const [navState, setNavState] = useState<NavState>({
-    navItemId: DEFAULT_NAV_ID,
+    navItemIndex: null,
+    navMenuOpen: false,
+    navSubMenuOpen: false,
+    navSubItemIndex: null,
   })
 
   return (
@@ -37,18 +42,31 @@ export const NavStateProvider: React.FC = ({ children }) => {
   )
 }
 
-export const useNavState = (): UseNavState => {
+export const useNavState = (
+  defaultNavIndex: number | null = null,
+  defaultNavSubIndex: number | null = null,
+): UseNavState => {
   const { navState, setNavState } = useContext(NavStateContext)
 
-  const handleSetNavState = (navItemId: string, callback: () => void) => (event: MouseEvent<HTMLAnchorElement>) => {
+  useEffect(() => {
+    setNavState((currentState) => ({
+      ...currentState,
+      navMenuIndex: defaultNavIndex,
+      navMenuSubIndex: defaultNavSubIndex,
+    }))
+  }, [])
+
+  const handleSetNavState = (newState: Partial<NavState>) => (event: MouseEvent<HTMLAnchorElement>) => {
     event.preventDefault()
 
     setNavState((currentState: NavState) => ({
       ...currentState,
-      navItemId,
+      ...newState,
     }))
 
-    callback()
+    if (newState.callback) {
+      newState.callback()
+    }
   }
 
   return {
