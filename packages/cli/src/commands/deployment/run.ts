@@ -36,7 +36,7 @@ export class DeploymentRun extends AbstractCommand {
     }
 
     const spinner = ora('Creating deployment').start()
-    const response = await (await this.axios()).post<DeploymentModelInterface>(`/deployment/${deploymentId}/run`) // /deployment
+    const response = await (await this.axios(spinner)).post<DeploymentModelInterface>(`/deployment/${deploymentId}/run`) // /deployment
 
     if (response.status === 200) {
       spinner.succeed(`App ${response.data.name} deployed to Reapit Cloud at https://${response.data.name}reapit.cloud`)
