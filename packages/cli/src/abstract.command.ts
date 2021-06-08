@@ -1,5 +1,5 @@
 import { ReapitCliConfigResolve, resolveConfig } from './utils'
-import axios from 'axios'
+import axios, { AxiosInstance } from 'axios'
 import { CommandOptions, COMMAND_OPTIONS } from './decorators'
 import chalk from 'chalk'
 
@@ -14,7 +14,7 @@ export abstract class AbstractCommand {
     return resolveConfig()
   }
 
-  async axios() {
+  async axios(): Promise<AxiosInstance> {
     // TODO get login creds from config or whatever is required
     const config = await this.getConfig()
 
@@ -23,12 +23,27 @@ export abstract class AbstractCommand {
       throw new Error()
     }
 
-    return axios.create({
+    const instance = axios.create({
       baseURL: config ? config.config.baseUrl : 'https://developer.reapit.com/',
       headers: {
         'x-api-key': config.config['api-key'],
+        'Content-Type': 'application/json',
       },
     })
+
+    instance.interceptors.request.use(function (config) {
+      return config
+    }, function (error) {
+      return Promise.resolve(error)
+    })
+  
+    instance.interceptors.response.use(function (response) {
+      return response
+    }, function (error) {
+      return Promise.resolve(error)
+    })
+
+    return instance
   }
 
   printConfig() {
