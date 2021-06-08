@@ -10,6 +10,7 @@ import { IntroCommand } from './intro'
 import { HelpCommand } from './commands/help'
 import { ParentCommand } from './parent.command'
 import { DeploymentCommand } from './commands/deployment'
+import { resolveArgs } from './utils/resolveArgs'
 
 const boot = async (defaultCommand: AbstractCommand, commands: (AbstractCommand | ParentCommand)[]) => {
   const processArgv = argv(process.argv.slice(2))
@@ -39,10 +40,11 @@ const boot = async (defaultCommand: AbstractCommand, commands: (AbstractCommand 
     console.log(chalk.red('sub command not found'))
   } else {
     if (command instanceof ParentCommand && command.isChildRunnable(params)) {
-      command.runChild(params, options)
+      command.runChild(params)
       return
     }
-    command.run(params, options)
+    const args = resolveArgs(params, command.argOptions)
+    command.run(...args)
   }
 }
 

@@ -12,16 +12,15 @@ export interface ArgsType {
   name: string
   type: 'parameter' | 'option'
   shortName?: string
+  default?: any
 }
 
 export type ParameterType = ArgsType & {
-  default?: any
   type: 'parameter'
 }
 
 
 export type OptionType = ArgsType & {
-  default?: any
   shortName: string
   type: 'option'
 }
