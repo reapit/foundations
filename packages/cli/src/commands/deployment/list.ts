@@ -11,9 +11,7 @@ import ora from 'ora'
 export class DeploymentList extends AbstractCommand {
   async run() {
     const spinner = ora('Fetching deployments').start()
-    const response = await (await this.axios()).get<{ items: DeploymentModelInterface[] }>('/deployment', {
-      // deployments
-    })
+    const response = await (await this.axios()).get<{ items: DeploymentModelInterface[] }>('/deployment')
     spinner.stop()
 
     if (response.status !== 200) {
