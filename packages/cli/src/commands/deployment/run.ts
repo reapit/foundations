@@ -1,5 +1,5 @@
 import { AbstractCommand } from '../../abstract.command'
-import { Command } from '../../decorators'
+import { Command, Param } from '../../decorators'
 import { DeploymentModelInterface } from '@reapit/foundations-ts-definitions'
 import ora from 'ora'
 import chalk from 'chalk'
@@ -24,12 +24,12 @@ export class DeploymentRun extends AbstractCommand {
     return config.id
   }
 
-  async run(params) {
-
-    console.log('params', params)
-
-    const deploymentId = params.delpoymentId
-
+  async run(
+    @Param({
+      name: 'deploymentId',
+    })
+    deploymentId: string,
+  ) {
     if (!deploymentId) {
       console.log(chalk.red('Deployment Id is required'))
       process.exit(1)
