@@ -4,6 +4,7 @@ import { COMMAND_OPTIONS } from './decorators'
 
 export abstract class ParentCommand extends AbstractCommand {
   abstract commands: AbstractCommand[]
+
   run() {
     this.printConfig()
   }
@@ -25,11 +26,10 @@ export abstract class ParentCommand extends AbstractCommand {
   }
 
   printConfig() {
-    const parentConfig = Reflect.getOwnMetadata(COMMAND_OPTIONS, this.constructor)
     console.log(`
-    ${chalk.bold.green(parentConfig.name)}
-      ${parentConfig.description}
+    ${chalk.bold.green(this.commandOptions.name)}
+      ${this.commandOptions.description}
     `)
-    this.commands.forEach((command) => command.printConfig())
+    this.commands.forEach((command) => command.printConfig(this))
   }
 }
