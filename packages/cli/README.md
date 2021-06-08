@@ -36,6 +36,13 @@ export class ExampleCommand extends AbstractCommand {
 
 > All commands must use the `Command` decorator so that the command can be found to be ran
 
+### Add new command
+
+When adding a command to the cli, it will need to be added to the runnable commands array in the bootstrap func which lives in the `index.ts` file
+
+```ts
+boot(new IntroCommand(), [new ConfigCommand(), new DeploymentCommand(), /* add new command here*/])
+```
 
 ### Parent commands
 
