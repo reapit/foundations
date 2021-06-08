@@ -9,7 +9,7 @@ const cloneDir = 'project'
 const dir = resolve('/tmp')
 
 export const deployRun = httpHandler({
-  defaultStatusCode: HttpStatusCode.CREATED,
+  defaultStatusCode: HttpStatusCode.OK,
   handler: async ({ event }) => {
     const developerId = await resolveDeveloperId(event)
 
@@ -79,6 +79,8 @@ export const deployRun = httpHandler({
       }
     }
 
-    console.log('hello?')
+    return {
+      statusCode: HttpStatusCode.OK,
+    }
   },
 })
