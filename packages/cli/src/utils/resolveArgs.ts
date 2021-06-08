@@ -4,13 +4,10 @@ export type ParameterType = {
   default: any
 }
 
-export const resolveArgs = (incomingArgs: any, args: ArgsType[]): any[] => {
+export const resolveArgs = (incomingArgs: any, args?: ArgsType[]): any[] => {
   const results: any[] = []
 
-  console.log(incomingArgs, args)
-
-  args.forEach((param, index) => {
-    console.log(index, incomingArgs[index])
+  args?.forEach((param, index) => {
     results[index] = incomingArgs[index] || param.default
   })
 
