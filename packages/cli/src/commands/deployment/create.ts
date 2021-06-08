@@ -1,7 +1,7 @@
 import { AbstractCommand } from '../../abstract.command'
 import { Command } from '../../decorators'
 import { DeploymentModelInterface } from '@reapit/foundations-ts-definitions'
-import inquirer from 'inquirer'
+import inquirer, { QuestionCollection } from 'inquirer'
 import ora from 'ora'
 import chalk from 'chalk'
 import * as fs from 'fs'
@@ -20,8 +20,9 @@ export class DeploymentCreate extends AbstractCommand {
       if (repositories) {
         return repositories.split('\n').reduce<string[]>((repos: string[], repo: string) => {
           const urlParts = repo.split(' ')
-          if (!repos.includes(urlParts[0])) {
-            repos.push(urlParts[0])
+          const gitUrl = urlParts[0].split('\t')
+          if (!repos.includes(gitUrl[gitUrl.length - 1])) {
+            repos.push(gitUrl[gitUrl.length - 1])
           }
           return repos
         }, [])
@@ -36,7 +37,7 @@ export class DeploymentCreate extends AbstractCommand {
   async run() {
     const repositories = await this.fetchGitRemotes()
 
-    const questions = [
+    const questions: QuestionCollection<any>[] = [
       {
         type: 'input',
         message: "Your project's name",
@@ -57,6 +58,12 @@ export class DeploymentCreate extends AbstractCommand {
         message: "Please enter your repository",
         name: "repository",
         choices: repositories,
+      })
+    } else {
+      questions.push({
+        type: 'input',
+        message: 'Please add your repository url',
+        name: "repository",
       })
     }
 
