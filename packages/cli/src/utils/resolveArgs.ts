@@ -1,4 +1,4 @@
-import { ArgsType } from "@/decorators"
+import { ArgsType } from '@/decorators'
 
 export type ParameterType = {
   default: any
