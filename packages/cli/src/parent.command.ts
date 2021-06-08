@@ -1,6 +1,7 @@
 import chalk from 'chalk'
 import { AbstractCommand } from './abstract.command'
 import { COMMAND_OPTIONS } from './decorators'
+import { resolveArgs } from './utils/resolveArgs'
 
 export abstract class ParentCommand extends AbstractCommand {
   abstract commands: AbstractCommand[]
@@ -15,14 +16,16 @@ export abstract class ParentCommand extends AbstractCommand {
       .includes(params[1])
   }
 
-  runChild(params: string[], options) {
+  runChild(params: string[]) {
     const command = this.commands.find(
       (command) => Reflect.getOwnMetadata(COMMAND_OPTIONS, command.constructor).name === params[1],
     )
     if (!command) return
-    delete params[0]
-    delete params[1]
-    command.run(params, options)
+    params.shift()
+    params.shift()
+    const args = resolveArgs(params, command.argOptions)
+
+    command.run(...args)
   }
 
   printConfig() {
