@@ -8,6 +8,7 @@ export interface DeploymentModelInterface {
   appType?: AppTypeEnum
   buildCommand?: string
   packageManager?: PackageManagerEnum
+  repository?: string
 }
 
 export interface PipelineModelInterface {
