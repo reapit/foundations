@@ -76,7 +76,7 @@ export class DeploymentCreate extends AbstractCommand {
     ])
 
     const spinner = ora('Creating deployment').start()
-    const response = await (await this.axios()).post<DeploymentModelInterface>('/deployment', {
+    const response = await (await this.axios(spinner)).post<DeploymentModelInterface>('/deployment', {
       name: answers.name,
       appType: answers.appType.toLowerCase(),
       repository: answers.repository,
