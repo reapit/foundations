@@ -15,15 +15,19 @@ import git from 'simple-git'
 export class DeploymentCreate extends AbstractCommand {
 
   private async fetchGitRemotes(): Promise<string[]> {
-    const repositories = await git().remote(['-v'])
-    if (repositories) {
-      return repositories.split('\n').reduce<string[]>((repos: string[], repo: string) => {
-        const urlParts = repo.split(' ')
-        if (!repos.includes(urlParts[0])) {
-          repos.push(urlParts[0])
-        }
-        return repos
-      }, [])
+    try {
+      const repositories = await git().remote(['-v'])
+      if (repositories) {
+        return repositories.split('\n').reduce<string[]>((repos: string[], repo: string) => {
+          const urlParts = repo.split(' ')
+          if (!repos.includes(urlParts[0])) {
+            repos.push(urlParts[0])
+          }
+          return repos
+        }, [])
+      }
+    } catch (e) {
+      return []
     }
 
     return []
