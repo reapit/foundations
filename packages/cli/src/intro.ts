@@ -9,9 +9,8 @@ import pack from './../package.json'
 })
 export class IntroCommand extends AbstractCommand {
   run() {
-    console.log('here we are?')
     console.log(
-      chalk.blue(
+      chalk.blueBright(
         figlet.textSync('Reapit', {
           font: 'Larry 3D',
         }),
