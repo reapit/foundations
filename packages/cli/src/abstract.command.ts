@@ -21,6 +21,10 @@ export abstract class AbstractCommand {
     return Reflect.getOwnMetadata(COMMAND_OPTIONS, this.constructor)
   }
 
+  get argOptions(): ArgsType[] {
+    return Reflect.getOwnMetadata(ARGUMENT_OPTIONS, this.constructor)
+  }
+
   abstract run(...params: any)
 
   /**
