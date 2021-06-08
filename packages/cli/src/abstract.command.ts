@@ -1,11 +1,6 @@
 import { ReapitCliConfigResolve, resolveConfig } from './utils'
 import axios, { AxiosInstance } from 'axios'
-import {
-  CommandOptions,
-  COMMAND_OPTIONS,
-  ARGUMENT_OPTIONS,
-  ArgsType,
-} from './decorators'
+import { CommandOptions, COMMAND_OPTIONS, ARGUMENT_OPTIONS, ArgsType } from './decorators'
 import chalk from 'chalk'
 import { Ora } from 'ora'
 import { resolve } from 'path'
@@ -16,7 +11,6 @@ export interface Command {
 }
 
 export abstract class AbstractCommand {
-
   get commandOptions(): CommandOptions {
     return Reflect.getOwnMetadata(COMMAND_OPTIONS, this.constructor)
   }
@@ -52,7 +46,7 @@ export abstract class AbstractCommand {
 
   /**
    * Creates axios instance
-   * 
+   *
    * @param spinner Ora spinner for errors
    * @returns
    */
@@ -96,14 +90,13 @@ export abstract class AbstractCommand {
 
   printConfig(parent?: AbstractCommand) {
     const config: CommandOptions = Reflect.getOwnMetadata(COMMAND_OPTIONS, this.constructor)
-    const args: ArgsType[] | undefined = Reflect.getOwnMetadata(
-      ARGUMENT_OPTIONS,
-      this.constructor,
-    )
+    const args: ArgsType[] | undefined = Reflect.getOwnMetadata(ARGUMENT_OPTIONS, this.constructor)
 
     console.log(`
       ${chalk.bold.white(config.name)}\t${config.description}
-      $ ${chalk.green('reapit')} ${parent ? `${chalk.whiteBright(parent.commandOptions.name)} ` : ''}${chalk.white(config.name)} ${
+      $ ${chalk.green('reapit')} ${parent ? `${chalk.whiteBright(parent.commandOptions.name)} ` : ''}${chalk.white(
+      config.name,
+    )} ${
       !Array.isArray(args)
         ? ''
         : args

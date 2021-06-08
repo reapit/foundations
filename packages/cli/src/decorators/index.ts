@@ -19,7 +19,6 @@ export type ParameterType = ArgsType & {
   type: 'parameter'
 }
 
-
 export type OptionType = ArgsType & {
   shortName: string
   type: 'option'
@@ -31,8 +30,7 @@ export interface ArgsInputInterface {
   name: string
 }
 
-export interface ParameterInputInterface extends ArgsInputInterface {
-}
+export interface ParameterInputInterface extends ArgsInputInterface {}
 
 export interface OptionInputInterface extends ArgsInputInterface {
   shortName?: string
@@ -41,8 +39,11 @@ export interface OptionInputInterface extends ArgsInputInterface {
 export const Command = (options: CommandOptions | { default: true }): ClassDecorator => (target) =>
   Reflect.defineMetadata(COMMAND_OPTIONS, options, target)
 
-
-export const Param = (options: ParameterInputInterface): ParameterDecorator => (target, propertyKey, parameterIndex) => {
+export const Param = (options: ParameterInputInterface): ParameterDecorator => (
+  target,
+  propertyKey,
+  parameterIndex,
+) => {
   const params = Reflect.getOwnMetadata(ARGUMENT_OPTIONS, target.constructor) || []
 
   params[parameterIndex] = {
@@ -53,7 +54,11 @@ export const Param = (options: ParameterInputInterface): ParameterDecorator => (
   Reflect.defineMetadata(ARGUMENT_OPTIONS, params, target.constructor)
 }
 
-export const Optional = (options: OptionInputInterface): ParameterDecorator => (target, propertyKey, parameterIndex) => {
+export const Optional = (options: OptionInputInterface): ParameterDecorator => (
+  target,
+  propertyKey,
+  parameterIndex,
+) => {
   const params = Reflect.getOwnMetadata(ARGUMENT_OPTIONS, target.constructor) || []
 
   params[parameterIndex] = {
