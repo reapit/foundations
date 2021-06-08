@@ -35,11 +35,11 @@ export class DeploymentRun extends AbstractCommand {
       process.exit(1)
     }
 
-    const spinner = ora('Creating deployment').start()
+    const spinner = ora('Deploying').start()
     const response = await (await this.axios(spinner)).post<DeploymentModelInterface>(`/deployment/${deploymentId}/run`) // /deployment
 
     if (response.status === 200) {
-      spinner.succeed(`App ${response.data.name} deployed to Reapit Cloud at https://${response.data.name}reapit.cloud`)
+      spinner.succeed(`Deployment successfully deployed https://${response.data.name}reapit.cloud`)
     } else {
       spinner.fail('Failed to run deployment')
       console.log(chalk.red('Check your internet connection'))
