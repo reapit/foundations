@@ -11,6 +11,7 @@
     "ora": "^5.4.0",
     "process.argv": "^0.6.0",
     "reflect-metadata": "^0.1.13",
+    "shleemy": "^1.2.2",
     "simple-git": "^2.39.0"
   },
   "devDependencies": {

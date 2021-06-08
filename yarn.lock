@@ -5203,6 +5203,7 @@ __metadata:
     prettier: ^2.3.0
     process.argv: ^0.6.0
     reflect-metadata: ^0.1.13
+    shleemy: ^1.2.2
     simple-git: ^2.39.0
     ts-node: ^9.1.1
   languageName: unknown
@@ -34037,6 +34038,13 @@ resolve@1.17.0:
   version: 0.1.1
   resolution: "shellwords@npm:0.1.1"
   checksum: 3559ff550917ece921d252edf42eb54827540e9676e537137ace236df8f9b78e48c542ae0b3f8876fea0faf5826c97629d5b8cb9ac7dee287260e9804fb8132c
+  languageName: node
+  linkType: hard
+
+"shleemy@npm:^1.2.2":
+  version: 1.2.2
+  resolution: "shleemy@npm:1.2.2"
+  checksum: c030270ca7dff3dab29b8a73dacbf9ff3ce8b9b0262322cd980974492b78e5e90d22394bb2ab37596073cd30cf32635ff683fcbddc9ad7e07d3f31191bfaa82d
   languageName: node
   linkType: hard
 

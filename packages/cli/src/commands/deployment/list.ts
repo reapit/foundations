@@ -3,6 +3,7 @@ import { AbstractCommand } from '../../abstract.command'
 import { Command } from '../../decorators'
 import { DeploymentModelInterface } from '@reapit/foundations-ts-definitions'
 import ora from 'ora'
+import { shleemy } from 'shleemy'
 
 @Command({
   name: 'list',
@@ -11,7 +12,7 @@ import ora from 'ora'
 export class DeploymentList extends AbstractCommand {
   async run() {
     const spinner = ora('Fetching deployments').start()
-    const response = await (await this.axios()).get<{ items: DeploymentModelInterface[] }>('/deployment')
+    const response = await (await this.axios(spinner)).get<{ items: DeploymentModelInterface[] }>('/deployment')
     spinner.stop()
 
     if (response.status !== 200) {
@@ -29,8 +30,9 @@ export class DeploymentList extends AbstractCommand {
         name: deployment.name,
         appType: deployment.appType,
         repository: deployment.repository,
+        created: shleemy(new Date(deployment.created as string)).forHumans,
       })),
-      ['id', 'name', 'appType', 'repository'],
+      ['id', 'name', 'appType', 'repository', 'created'],
     )
   }
 }
