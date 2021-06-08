@@ -6,16 +6,33 @@ import ora from 'ora'
 import chalk from 'chalk'
 import * as fs from 'fs'
 import { resolve } from 'path'
+import git from 'simple-git'
 
 @Command({
   name: 'create',
   description: 'Create a deployment',
 })
 export class DeploymentCreate extends AbstractCommand {
-  async run() {
-    // TODO use inquirer for questions and anwser blocks
 
-    const answers = await inquirer.prompt([
+  private async fetchGitRemotes(): Promise<string[]> {
+    const repositories = await git().remote(['-v'])
+    if (repositories) {
+      return repositories.split('\n').reduce<string[]>((repos: string[], repo: string) => {
+        const urlParts = repo.split(' ')
+        if (!repos.includes(urlParts[0])) {
+          repos.push(urlParts[0])
+        }
+        return repos
+      }, [])
+    }
+
+    return []
+  }
+
+  async run() {
+    const repositories = await this.fetchGitRemotes()
+
+    const questions = [
       {
         type: 'input',
         message: "Your project's name",
@@ -28,6 +45,19 @@ export class DeploymentCreate extends AbstractCommand {
         name: 'appType',
         choices: ['Node', 'React'],
       },
+    ]
+
+    if (repositories.length >= 1) {
+      questions.push({
+        type: "list",
+        message: "Please enter your repository",
+        name: "repository",
+        choices: repositories,
+      })
+    }
+
+    const answers = await inquirer.prompt([
+      ...questions,
       {
         type: 'confirm',
         message: 'Would you like to create a deployment config in this directory?',
@@ -35,21 +65,26 @@ export class DeploymentCreate extends AbstractCommand {
       },
     ])
 
-    const spinner = ora('Creating deployments').start()
-    const response = await (await this.axios()).post<DeploymentModelInterface>('/', {
+    const spinner = ora('Creating deployment').start()
+    const response = await (await this.axios()).post<DeploymentModelInterface>('/deployment', {
       name: answers.name,
       appType: answers.appType.toLowerCase(),
+      repository: answers.repository,
     }) // /deployment
-    spinner.stop()
 
     if (response.status === 200) {
-      console.log(chalk.green('Successfully created deployment'))
-
-      fs.writeFileSync(resolve(process.cwd(), 'reapit-deployment.json'), JSON.stringify(response.data))
+      spinner.succeed(`Successfully created deployment [${response.data.id}]`)
 
       if (answers.create) {
-        // TODO generate local config schema
+        spinner.start('Creating local deployment config')
+        fs.writeFileSync(resolve(process.cwd(), 'reapit-deployment.json'), JSON.stringify(response.data))
+        spinner.succeed('Created local deployment config')
       }
+    } else {
+      spinner.fail('Failed to create deployment')
+      console.log(chalk.red('Check your internet connection'))
+      console.log(chalk.red('Report this error if it persists'))
+      process.exit(1)
     }
   }
 }
