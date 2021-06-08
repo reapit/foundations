@@ -7,6 +7,7 @@ import chalk from 'chalk'
 import * as fs from 'fs'
 import { resolve } from 'path'
 import git from 'simple-git'
+import { REAPIT_DEPLOYMENT_CONFIG_FILE } from './constants'
 
 @Command({
   name: 'create',
@@ -84,17 +85,15 @@ export class DeploymentCreate extends AbstractCommand {
 
     if (response.status === 200) {
       spinner.succeed(
-        `App ${response.data.name} deployed to Reapit Cloud at https://${response.data.name?.replace(
-          ' ',
-          '-',
-        )}.reapit.cloud`,
+        `Deployment ${response.data.name} created`,
       )
 
       if (answers.create) {
         spinner.start('Creating local deployment config')
-        fs.writeFileSync(resolve(process.cwd(), 'reapit-deployment.json'), JSON.stringify(response.data))
+        fs.writeFileSync(resolve(process.cwd(), REAPIT_DEPLOYMENT_CONFIG_FILE), JSON.stringify(response.data))
         spinner.succeed('Created local deployment config')
       }
+      console.log('Now use reapit deployment run to start a deployment')
     } else {
       spinner.fail('Failed to create deployment')
       console.log(chalk.red('Check your internet connection'))
