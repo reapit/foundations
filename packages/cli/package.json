@@ -10,7 +10,8 @@
     "inquirer": "^8.0.0",
     "ora": "^5.4.0",
     "process.argv": "^0.6.0",
-    "reflect-metadata": "^0.1.13"
+    "reflect-metadata": "^0.1.13",
+    "simple-git": "^2.39.0"
   },
   "devDependencies": {
     "@types/figlet": "^1.5.1",

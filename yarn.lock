@@ -5203,6 +5203,7 @@ __metadata:
     prettier: ^2.3.0
     process.argv: ^0.6.0
     reflect-metadata: ^0.1.13
+    simple-git: ^2.39.0
     ts-node: ^9.1.1
   languageName: unknown
   linkType: soft
