@@ -1,7 +1,13 @@
-# reapit
+# Reapit-cli
 Command line interface tool for reapit 
 
 ![Deployment gif](reapit-deploy.gif)
+
+## Install
+
+```bash
+$ npm i -g @reapit/cli
+```
 
 ## Commands
 
@@ -12,7 +18,9 @@ command | description | args &amp; options
 `deployment run {deploymentId}` | Run a deployment configuration | 
 `config` | Create, update or show your config | 
 
-## Create commands
+# Development
+
+## Creating commands
 
 Commands are written in an OOP method and are bootstraped with the `AbstractCommand` class which provides some helpful functions for creating commands
 
