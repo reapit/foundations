@@ -13,7 +13,6 @@ import git from 'simple-git'
   description: 'Create a deployment',
 })
 export class DeploymentCreate extends AbstractCommand {
-
   private async fetchGitRemotes(): Promise<string[]> {
     try {
       const repositories = await git().remote(['-v'])
@@ -54,16 +53,16 @@ export class DeploymentCreate extends AbstractCommand {
 
     if (repositories.length >= 1) {
       questions.push({
-        type: "list",
-        message: "Please enter your repository",
-        name: "repository",
+        type: 'list',
+        message: 'Please enter your repository',
+        name: 'repository',
         choices: repositories,
       })
     } else {
       questions.push({
         type: 'input',
         message: 'Please add your repository url',
-        name: "repository",
+        name: 'repository',
       })
     }
 
@@ -84,7 +83,7 @@ export class DeploymentCreate extends AbstractCommand {
     }) // /deployment
 
     if (response.status === 200) {
-      spinner.succeed(`App ${response.data.name} deployed to Reapit Cloud at https://${response.data.name}reapit.cloud`)
+      spinner.succeed(`App ${response.data.name} deployed to Reapit Cloud at https://${response.data.name?.replace(' ', '-')}.reapit.cloud`)
 
       if (answers.create) {
         spinner.start('Creating local deployment config')
