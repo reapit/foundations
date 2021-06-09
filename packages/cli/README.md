@@ -17,6 +17,7 @@ command | description | args &amp; options
 `deployment list` | List your existing deployment configurations | 
 `deployment run {deploymentId}` | Run a deployment configuration | 
 `config` | Create, update or show your config | 
+`react-starter` | Creates the reapit create react app starter | 
 
 # Development
 
