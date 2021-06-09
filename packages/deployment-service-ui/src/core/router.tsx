@@ -30,6 +30,7 @@ export const catchChunkError = (
 
 const LoginPage = React.lazy(() => catchChunkError(() => import('../components/pages/login')))
 const AuthenticatedPage = React.lazy(() => catchChunkError(() => import('../components/pages/authenticated')))
+const ApiKeyListPage = React.lazy(() => catchChunkError(() => import('../components/pages/api-key/list')))
 
 const Router = () => (
   <BrowserRouter history={history}>
@@ -38,7 +39,9 @@ const Router = () => (
         <Route path={Routes.LOGIN} component={LoginPage} />
         <PrivateRouteWrapper>
           <Switch>
-            <Route path={Routes.HOME} component={AuthenticatedPage} />
+            <Route path={Routes.HOME} exact component={AuthenticatedPage} />
+            {/* <Route path={Routes.DEPLOYMENTS} component={Deployments} /> */}
+            <Route path={Routes.API_KEYS} exact component={ApiKeyListPage} />
           </Switch>
         </PrivateRouteWrapper>
         <Redirect to={Routes.LOGIN} />

@@ -1,6 +1,6 @@
 import * as React from 'react'
 import { withRouter, RouteComponentProps } from 'react-router'
-import { Menu as Sidebar, MenuConfig, ReapitHouseIcon, AppsIcon, ProfileIcon } from '@reapit/elements'
+import { Menu as Sidebar, MenuConfig, ReapitHouseIcon, AppsIcon, ProfileIcon, DataIcon } from '@reapit/elements'
 import { reapitConnectBrowserSession } from '@/core/connect-session'
 import { useReapitConnect } from '@reapit/connect-session'
 import { Location } from 'history'
@@ -19,6 +19,22 @@ export const generateMenuConfig = (
         key: 'LOGO',
         icon: <ReapitHouseIcon />,
         type: 'LOGO',
+      },
+      {
+        title: 'Api Keys',
+        key: 'API_KEYS',
+        icon: <ProfileIcon />,
+        callback: callbackAppClick,
+        url: 'api-keys',
+        type: 'PRIMARY',
+      },
+      {
+        title: 'Deployments',
+        key: 'DEPLOYMENTS',
+        icon: <DataIcon />,
+        callback: callbackAppClick,
+        url: 'deployments',
+        type: 'PRIMARY',
       },
       {
         title: 'Apps',
