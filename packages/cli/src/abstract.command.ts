@@ -36,6 +36,17 @@ export abstract class AbstractCommand {
   }
 
   /**
+   * Write a custom config file
+   * @param path
+   * @param config
+   */
+  protected async writeConfigFile(path: string, config: {[s: string]: any}): Promise<void> {
+    await fs.promises.writeFile(resolve(process.cwd(), path), JSON.stringify(config), {
+      encoding: 'utf8',
+    })
+  }
+
+  /**
    * Resolves reapit cli config from local dir or root
    *
    * @returns
