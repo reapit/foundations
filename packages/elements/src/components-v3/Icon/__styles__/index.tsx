@@ -5,6 +5,7 @@ import {
   elIntentCritical,
   elIntentSuccess,
   elIntentDanger,
+  elIntentNeutral,
 } from '../../../styles-v3/base/intent'
 
 export const ElIcon = styled.span`
@@ -25,5 +26,8 @@ export const ElIcon = styled.span`
   }
   &${elIntentDanger} {
     color: var(--intent-danger);
+  }
+  &${elIntentNeutral} {
+    color: var(--intent-primary-text);
   }
 `
