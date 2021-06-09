@@ -1,0 +1,19 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Nav component should match a snapshot 1`] = `<ElNavContainer />`;
+
+exports[`NavItem component should match a snapshot 1`] = `
+<ElNavItem
+  className=""
+/>
+`;
+
+exports[`NavItem component should match a snapshot for a secondary item 1`] = `
+<ElNavItem
+  className="el-nav-item-secondary"
+/>
+`;
+
+exports[`NavSubNav component should match a snapshot 1`] = `<ElNavSubContainer />`;
+
+exports[`NavSubNavItem component should match a snapshot 1`] = `<ElNavSubItem />`;

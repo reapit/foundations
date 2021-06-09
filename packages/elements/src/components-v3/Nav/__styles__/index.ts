@@ -40,7 +40,7 @@ export const ElNavItem = styled.a`
   justify-content: flex-start;
   align-items: center;
   height: 0;
-  padding: 0 1rem;
+  padding: 0 0.75rem;
   opacity: 0;
   transition: height 0.3s linear, opacity 0.3s linear, padding-top 0.3s linear, padding-bottom 0.3s linear;
 
@@ -97,7 +97,19 @@ export const elNavItemExpanded = css`
   @media screen and (max-width: 767px) {
     height: 48px;
     opacity: 1;
-    padding: 0.5rem 1rem;
+    padding: 0.5rem 0.75rem;
+  }
+`
+
+export const elNavItemHideDesktop = css`
+  @media screen and (min-width: 768px) {
+    display: none;
+  }
+`
+
+export const elNavItemIcon = css`
+  @media screen and (max-width: 767px) {
+    margin-left: 0.75rem;
   }
 `
 
@@ -112,10 +124,10 @@ export const ElNavSubItem = styled.a`
   align-items: center;
   transition: all 0.3s linear;
   padding: 0;
-  margin-left: 3rem;
+  margin-left: 3.25rem;
 
   * {
-    padding: 0.1rem 0.5rem;
+    padding: 0.2rem 0.5rem;
   }
 
   @media screen and (min-width: 768px) {
@@ -154,13 +166,13 @@ export const elNavSubItemActive = css`
     outline-color: var(--color-blue-dark);
     background-size: calc(100% - 1rem);
     background-position-x: left;
-    padding-right: 1.25rem;
+    padding-right: 1.5rem;
     position: relative;
 
     &::after {
       content: '';
       position: absolute;
-      height: 24px;
+      height: 26px;
       width: 100%;
       top: 0;
       right: 6px;

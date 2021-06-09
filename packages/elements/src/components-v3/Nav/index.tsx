@@ -18,9 +18,11 @@ export const NavItem: FC<NavItemProps> = ({ isSecondary, children, className, ..
   )
 }
 
-export const NavSubItem: FC<NavItemProps> = ({ children, ...rest }) => <ElNavSubItem {...rest}>{children}</ElNavSubItem>
-
 export const Nav: FC<NavProps> = ({ children, ...rest }) => <ElNavContainer {...rest}>{children}</ElNavContainer>
+
+export const NavSubNavItem: FC<NavItemProps> = ({ children, ...rest }) => (
+  <ElNavSubItem {...rest}>{children}</ElNavSubItem>
+)
 
 export const NavSubNav: FC<NavProps> = ({ children, ...rest }) => (
   <ElNavSubContainer {...rest}>{children}</ElNavSubContainer>

@@ -1,0 +1,17 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`NavStateProvider should match snapshot 1`] = `
+<ContextProvider
+  value={
+    Object {
+      "navState": Object {
+        "navItemIndex": null,
+        "navMenuOpen": false,
+        "navSubItemIndex": null,
+        "navSubMenuIndex": null,
+      },
+      "setNavState": [Function],
+    }
+  }
+/>
+`;
