@@ -40,7 +40,7 @@ export abstract class AbstractCommand {
    * @param path
    * @param config
    */
-  protected async writeConfigFile(path: string, config: {[s: string]: any}): Promise<void> {
+  protected async writeConfigFile(path: string, config: { [s: string]: any }): Promise<void> {
     await fs.promises.writeFile(resolve(process.cwd(), path), JSON.stringify(config), {
       encoding: 'utf8',
     })

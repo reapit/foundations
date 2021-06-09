@@ -10,7 +10,6 @@ type ReapitConfig = {
   [s: string]: any
 }
 
-
 @Command({
   name: 'react-template',
   description: 'Creates a Reapit react app template setup',
@@ -37,16 +36,12 @@ export class ReactStarterCommand extends AbstractCommand {
 
   /**
    * Update the reapit.config.json file in the react template
-   * 
-   * @param path 
-   * @param clientId 
-   * @param userPool 
+   *
+   * @param path
+   * @param clientId
+   * @param userPool
    */
-  protected async updateConfigValues(
-    path: string,
-    clientId: string,
-    userPool: string,
-  ): Promise<void | never> {
+  protected async updateConfigValues(path: string, clientId: string, userPool: string): Promise<void | never> {
     const reapitConfig = await this.resolveConfigFile<ReapitConfig>(`${path}/src/reapit.config.json`)
 
     if (!reapitConfig) {
