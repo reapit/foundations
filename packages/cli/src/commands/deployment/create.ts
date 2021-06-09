@@ -84,9 +84,7 @@ export class DeploymentCreate extends AbstractCommand {
     }) // /deployment
 
     if (response.status === 200) {
-      spinner.succeed(
-        `Deployment ${response.data.name} created`,
-      )
+      spinner.succeed(`Deployment ${response.data.name} created`)
 
       if (answers.create) {
         spinner.start('Creating local deployment config')
