@@ -6,6 +6,9 @@ export interface MediaType {
   isDesktop: boolean
 }
 
+export const MOBILE_BREAKPOINT = 768
+export const TABLET_BREAKPOINT = 1024
+
 export const useMediaQuery = (): MediaType => {
   const [windowWidth, setWindowWidth] = useState(() => window.innerWidth)
 
@@ -15,9 +18,9 @@ export const useMediaQuery = (): MediaType => {
     return () => window.removeEventListener('resize', onResize)
   })
 
-  const isMobile = windowWidth < 768
-  const isTablet = windowWidth >= 768 && windowWidth <= 1024
-  const isDesktop = windowWidth > 1024
+  const isMobile = windowWidth < MOBILE_BREAKPOINT
+  const isTablet = windowWidth >= MOBILE_BREAKPOINT && windowWidth <= TABLET_BREAKPOINT
+  const isDesktop = windowWidth > TABLET_BREAKPOINT
 
   return {
     isMobile,
