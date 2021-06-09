@@ -103,3 +103,6 @@ deployment-service:
 
 api-key-verify:
   - packages/api-key-verify/*
+
+cli:
+  - packages/cli/*
