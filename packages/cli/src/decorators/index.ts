@@ -13,10 +13,12 @@ export interface ArgsType {
   type: 'parameter' | 'option'
   shortName?: string
   default?: any
+  required?: boolean
 }
 
 export type ParameterType = ArgsType & {
   type: 'parameter'
+  required?: boolean
 }
 
 export type OptionType = ArgsType & {
@@ -30,7 +32,9 @@ export interface ArgsInputInterface {
   name: string
 }
 
-export interface ParameterInputInterface extends ArgsInputInterface {}
+export interface ParameterInputInterface extends ArgsInputInterface {
+  required?: boolean
+}
 
 export interface OptionInputInterface extends ArgsInputInterface {
   shortName?: string
