@@ -1,12 +1,14 @@
 import { Story, Canvas } from '@storybook/addon-docs/blocks'
 import { cx } from 'linaria'
 import { Nav, NavItem } from './index'
-import { elNavItemActive } from './__styles__'
+import { elNavItemActive, elNavItemHideDesktop, elNavItemExpanded, elNavItemIcon } from './__styles__'
 import { NavStateProvider } from '../../hooks/use-nav-state'
 import { useNavState } from '../../hooks/use-nav-state/index'
 import { Icon } from '../Icon'
 import { UseNavStory, UseNavMobileSubMenuStory } from './use-nav.stories'
 import { RenderHtmlMarkup } from '../../helpers/v3/render-html-markup'
+import { elIntentNeutral } from '../../styles-v3/base/intent'
+import { elMl4, elMLAuto, elMr2 } from '../../styles-v3/base/spacing'
 
 <Meta title="V3/Nav" />
 
@@ -20,11 +22,13 @@ Routing can be handled by way of an `href` attribute, an additional `el-nav-item
 
 We would encourage you to find a suitable icon for your navigation item from the `Icons` section of the styleguide - these should be nested inside a nav item, along with the name of your page.
 
+N/B in this example, the menu will not expand in mobile - to enable this behaviour you will need to use some JavaScript - see below.
+
 <Canvas>
   <Story name="Basic Example">
     <Nav>
       <NavItem href="https://reapit.com">
-        <Icon icon="reapitHouse" />
+        <Icon className={elNavItemIcon} icon="reapitHouse" />
       </NavItem>
       <NavItem className={elNavItemActive} href="https://marketplace.reapit.cloud/apps">
         <Icon icon="apps" />
@@ -46,57 +50,125 @@ We would encourage you to find a suitable icon for your navigation item from the
   </Story>
 </Canvas>
 
+<RenderHtmlMarkup component="V3/Nav" story={['Basic Example']} label="Nav Rendered HTML markup" />
+
+### Basic Example With Mobile Menu
+
+In this example, changing the browser width to mobile will show the expanded mobile menu. You will need to use some JavaScript to toggle the `el-nav-item-expanded` class on the `NavItem` components on cllick of the hamburger menu. This will give slide up and down effect on Mobile devices.
+
+<Canvas>
+  <Story name="Basic Example With Mobile Menu">
+    <Nav>
+      <NavItem>
+        <Icon className={elNavItemIcon} icon="reapitHouse" />
+        <Icon className={cx(elIntentNeutral, elMLAuto, elMr2, elNavItemHideDesktop)} icon="hamburger" />
+      </NavItem>
+      <NavItem className={cx(elNavItemActive, elNavItemExpanded)} href="https://marketplace.reapit.cloud/apps">
+        <Icon icon="apps" />
+        Apps
+      </NavItem>
+      <NavItem className={elNavItemExpanded} href="https://developers.reapit.cloud/analytics">
+        <Icon icon="analytics" />
+        Analytics
+      </NavItem>
+      <NavItem className={elNavItemExpanded} href="https://marketplace.reapit.cloud">
+        <Icon icon="marketplace" />
+        Marketplace
+      </NavItem>
+      <NavItem className={elNavItemExpanded} isSecondary href="https://developers.reapit.cloud/login">
+        <Icon icon="logout" />
+        Logout
+      </NavItem>
+    </Nav>
+  </Story>
+</Canvas>
+
 <RenderHtmlMarkup
   component="V3/Nav"
-  story={['Basic Example']}
-  label="Nav Rendered HTML markup"
+  story={['Basic Example With Mobile Menu']}
+  label="Nav with Mobile Menu Rendered HTML markup"
 />
 
-### React usage Complete example with `useNav` hook
+### React usage Complete example with `useNavState` hook
 
-The `useNav` hook will track the currently selected nav icon by setting any string identifier eg `ICON`, on the `navState`.
+The `useNavState` hook will track the currrent state of the Nav and return both, the `navState` and a `setNavState` function. The annotated inteface of `NavState` is below, setNavState accepts a partial (any combination) of these keys and updates the state accordingly.
 
-The `setNavState` function is set by the developer with the chosen identifier for the nav item and a callback to be executed on click.
+The key think is to ensure each if your menu and sub menu (see below example), items have an index that can be tracked on click. The hook will then provide these indexes and you can toggle the provided classes from there.
 
+```ts
+export interface NavState {
+  navItemIndex: number | null // The unique index of the currently selected NavItem
+  navMenuOpen: boolean // If the mobile menu is open or closed - defaults to closed
+  navSubMenuIndex: number | null // The unique index of the sub menu - there can be one for each NavItem
+  navSubItemIndex: number | null // Within the sub-menu, which item should be selected
+  callback?: () => void // If specified, the callback will be executed when set on state.
+}
+```
 Practically the callback will be a dispatch to React Router, an update to `window.history` object or similar client side routing function. You may also wish to bind the callback to an application action for example below, we pass a `logout` function to the logout nav item.
 
 As before, you can override this behaviour by simply setting a `href` attribute to route to any url or path, for maximum flexibility.
 
 ```tsx
 import React from 'react'
-import { useNavState } from '../../hooks/use-nav-state'
-import { elNavItemActive } from './__styles__/index'
-import { Nav, NavItem } from './index'
-import { Icon } from '../Icon'
 import { cx } from 'linaria'
+import {
+  elNavItemActive,
+  useNavState,
+  Nav,
+  NavItem,
+  Icon,
+  elNavItemIcon,
+  elNavItemExpanded
+} from '@reapit/elements'
+
 
 export const UseNavStory = () => {
-  const { navState, setNavState } = useNavState('APPS')
-  const { navItemId } = navState
+  const { navState, setNavState } = useNavState(1)
+  const { navItemIndex, navMenuOpen } = navState
   const navigate = () => console.log('Navigating - dispatch to React router or similar')
   const logOut = () => console.log('Logging the user out')
 
   return (
     <Nav>
-      <NavItem className={cx(navItemId === 'ICON' && elNavItemActive)} onClick={setNavState('ICON', navigate)}>
-        <Icon icon="reapitHouse" />
+      <NavItem
+        className={cx(navItemIndex === 0 && elNavItemActive)}
+        onClick={setNavState({
+          navItemIndex: 0,
+          callback: navigate,
+        })}
+      >
+        <Icon className={elNavItemIcon} icon="reapitHouse" />
+        <Icon
+          className={cx(elIntentNeutral, elMLAuto, elMr2, elNavItemHideDesktop)}
+          icon={navMenuOpen ? 'hamburgerOpen' : 'hamburger'}
+          onClick={setNavState({
+            navMenuOpen: !navMenuOpen,
+          })}
+        />
       </NavItem>
-      <NavItem className={cx(navItemId === 'APPS' && elNavItemActive)} onClick={setNavState('APPS', navigate)}>
+      <NavItem
+        className={cx(navItemIndex === 1 && elNavItemActive, navMenuOpen && elNavItemExpanded)}
+        onClick={setNavState({ navItemIndex: 1, callback: navigate })}
+      >
         <Icon icon="apps" />
         Apps
       </NavItem>
       <NavItem
-        className={cx(navItemId === 'ANALYTICS' && elNavItemActive)}
-        onClick={setNavState('ANALYTICS', navigate)}
+        className={cx(navItemIndex === 2 && elNavItemActive, navMenuOpen && elNavItemExpanded)}
+        onClick={setNavState({ navItemIndex: 2, callback: navigate })}
       >
         <Icon icon="analytics" />
         Analytics
       </NavItem>
-      <NavItem href="https://marketplace.reapit.cloud">
+      <NavItem className={cx(navMenuOpen && elNavItemExpanded)} href="https://marketplace.reapit.cloud">
         <Icon icon="marketplace" />
         Marketplace
       </NavItem>
-      <NavItem onClick={setNavState('LOGOUT', logOut)} isSecondary>
+      <NavItem
+        className={cx(navMenuOpen && elNavItemExpanded)}
+        onClick={setNavState({ navItemIndex: 4, callback: logOut })}
+        isSecondary
+      >
         <Icon icon="logout" />
         Logout
       </NavItem>
@@ -114,10 +186,156 @@ export const UseNavStory = () => {
 </Canvas>
 
 
+### Advanced React Usage - Mobile Sub Menus with `useNavState` and `useMediaQuery` hooks
+
+In the previous example we saw how we can toggle classes to hide and show sub-menu items using the `useNavState` hook. This example expands on the previous one by showing how we can render menu sub items for mobile devices.
+
+We also introduce a second hook `useMediaQuery` which supplies an `isMobile` value - this enables to switch out elements based on a media query.
+
+It is worth noting that there is a lot of state to keep in sync and so this approach is reasonably complex. For general use cases muliple top level menu items fulfils most requirements.
+
+```tsx
+
+import React from 'react'
+import {
+  useNavState,
+  useMediaQuery
+  elNavSubItemExpanded,
+  elNavItemActive,
+  elNavSubItemActive,
+  elNavItemExpanded,
+  elNavItemHideDesktop,
+  elNavItemIcon,
+  elIntentNeutral,
+  Nav,
+  NavItem,
+  NavSubNavItem,
+  NavSubNav,
+  elMLAuto,
+  elMr2,
+  Icon
+} from '@reapit/elements'
+import { cx } from 'linaria'
+
+export const UseNavMobileSubMenuStory = () => {
+  const { navState, setNavState } = useNavState(1)
+  const { isMobile } = useMediaQuery()
+  const { navItemIndex, navMenuOpen, navSubItemIndex, navSubMenuIndex } = navState
+  const navigate = () => console.log('Navigating - dispatch to React router or similar')
+  const logOut = () => console.log('Logging the user out')
+
+  return (
+    <Nav>
+      <NavItem
+        className={cx(navItemIndex === 0 && elNavItemActive)}
+        onClick={setNavState({
+          navItemIndex: 0,
+          callback: navigate,
+        })}
+      >
+        <Icon className={elNavItemIcon} icon={isMobile ? 'reapitLogo' : 'reapitHouse'} />
+        <Icon
+          className={cx(elIntentNeutral, elMLAuto, elMr2, elNavItemHideDesktop)}
+          icon={navMenuOpen ? 'hamburgerOpen' : 'hamburger'}
+          onClick={setNavState({
+            navMenuOpen: !navMenuOpen,
+            navSubMenuIndex: null,
+          })}
+        />
+      </NavItem>
+      <NavItem
+        className={cx(navItemIndex === 1 && elNavItemActive, navMenuOpen && elNavItemExpanded)}
+        onClick={
+          isMobile
+            ? setNavState({
+                navItemIndex: 1,
+                navSubMenuIndex: navMenuOpen && navSubMenuIndex === 0 ? null : 0,
+              })
+            : setNavState({ navItemIndex: 1, callback: navigate })
+        }
+      >
+        <Icon icon="apps" />
+        Apps
+        {isMobile && (
+          <Icon className={cx(elIntentNeutral, elMLAuto)} icon={navSubMenuIndex === 0 ? 'arrowUp' : 'arrowDown'} />
+        )}
+      </NavItem>
+      <NavSubNav>
+        <NavSubNavItem
+          className={cx(navSubItemIndex === 0 && elNavSubItemActive, navSubMenuIndex === 0 && elNavSubItemExpanded)}
+          onClick={setNavState({ navSubItemIndex: 0, callback: navigate })}
+        >
+          <span>App List</span>
+        </NavSubNavItem>
+        <NavSubNavItem
+          className={cx(navSubItemIndex === 1 && elNavSubItemActive, navSubMenuIndex === 0 && elNavSubItemExpanded)}
+          onClick={setNavState({ navSubItemIndex: 1, callback: navigate })}
+        >
+          <span>Create App</span>
+        </NavSubNavItem>
+      </NavSubNav>
+      <NavItem
+        className={cx(navItemIndex === 2 && elNavItemActive, navMenuOpen && elNavItemExpanded)}
+        onClick={
+          isMobile
+            ? setNavState({
+                navItemIndex: 2,
+                navSubMenuIndex: navMenuOpen && navSubMenuIndex === 1 ? null : 1,
+              })
+            : setNavState({ navItemIndex: 2, callback: navigate })
+        }
+      >
+        <Icon icon="analytics" />
+        Analytics
+        {isMobile && (
+          <Icon className={cx(elIntentNeutral, elMLAuto)} icon={navSubMenuIndex === 1 ? 'arrowUp' : 'arrowDown'} />
+        )}
+      </NavItem>
+      <NavSubNav>
+        <NavSubNavItem
+          className={cx(navSubItemIndex === 2 && elNavSubItemActive, navSubMenuIndex === 1 && elNavSubItemExpanded)}
+          onClick={setNavState({ navSubItemIndex: 2, callback: navigate })}
+        >
+          <span>Hits Per Day</span>
+        </NavSubNavItem>
+        <NavSubNavItem
+          className={cx(navSubItemIndex === 3 && elNavSubItemActive, navSubMenuIndex === 1 && elNavSubItemExpanded)}
+          onClick={setNavState({ navSubItemIndex: 3, callback: navigate })}
+        >
+          <span>Weekly Hits</span>
+        </NavSubNavItem>
+      </NavSubNav>
+      <NavItem className={cx(navMenuOpen && elNavItemExpanded)} href="https://marketplace.reapit.cloud">
+        <Icon icon="marketplace" />
+        Marketplace
+      </NavItem>
+      <NavItem
+        className={cx(navMenuOpen && elNavItemExpanded)}
+        onClick={setNavState({ navItemIndex: 4, callback: logOut })}
+        isSecondary
+      >
+        <Icon icon="logout" />
+        Logout
+      </NavItem>
+    </Nav>
+  )
+}
+
+```
+
 <Canvas>
-  <Story name="Advanced React Usage - Mobile Sub Menus with useNav hook">
+  <Story name="Advanced React Usage - Mobile Sub Menus with useNav and useMediaQuery hooks">
     <NavStateProvider>
       <UseNavMobileSubMenuStory />
     </NavStateProvider>
+  </Story>
+</Canvas>
+
+
+<Canvas>
+  <Story name="Coming soon... React Shorthand">
+    <div>
+      Clearly the above example is complex to keep in sync - we will soon be offering a simplified React Shorthand Component that does the heavy lifting of building a nav for you.
+    </div>
   </Story>
 </Canvas>

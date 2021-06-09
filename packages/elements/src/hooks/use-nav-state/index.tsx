@@ -3,7 +3,7 @@ import React, { createContext, Dispatch, SetStateAction, useContext, useState, M
 export interface NavState {
   navItemIndex: number | null
   navMenuOpen: boolean
-  navSubMenuOpen: boolean
+  navSubMenuIndex: number | null
   navSubItemIndex: number | null
   callback?: () => void
 }
@@ -26,7 +26,7 @@ export const NavStateProvider: React.FC = ({ children }) => {
   const [navState, setNavState] = useState<NavState>({
     navItemIndex: null,
     navMenuOpen: false,
-    navSubMenuOpen: false,
+    navSubMenuIndex: null,
     navSubItemIndex: null,
   })
 
@@ -51,13 +51,14 @@ export const useNavState = (
   useEffect(() => {
     setNavState((currentState) => ({
       ...currentState,
-      navMenuIndex: defaultNavIndex,
-      navMenuSubIndex: defaultNavSubIndex,
+      navItemIndex: defaultNavIndex,
+      navSubMenuIndex: defaultNavSubIndex,
     }))
   }, [])
 
   const handleSetNavState = (newState: Partial<NavState>) => (event: MouseEvent<HTMLAnchorElement>) => {
     event.preventDefault()
+    event.stopPropagation()
 
     setNavState((currentState: NavState) => ({
       ...currentState,
