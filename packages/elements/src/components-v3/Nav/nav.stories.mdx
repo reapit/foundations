@@ -2,8 +2,8 @@ import { Story, Canvas } from '@storybook/addon-docs/blocks'
 import { cx } from 'linaria'
 import { Nav, NavItem } from './index'
 import { elNavItemActive, elNavItemHideDesktop, elNavItemExpanded, elNavItemIcon } from './__styles__'
-import { NavStateProvider } from '../../hooks/use-nav-state'
-import { useNavState } from '../../hooks/use-nav-state/index'
+import { NavStateProvider, useNavState } from '../../hooks/use-nav-state'
+import { MediaStateProvider } from '../../hooks/use-media-query'
 import { Icon } from '../Icon'
 import { UseNavStory, UseNavMobileSubMenuStory } from './use-nav.stories'
 import { RenderHtmlMarkup } from '../../helpers/v3/render-html-markup'
@@ -326,7 +326,9 @@ export const UseNavMobileSubMenuStory = () => {
 <Canvas>
   <Story name="Advanced React Usage - Mobile Sub Menus with useNav and useMediaQuery hooks">
     <NavStateProvider>
-      <UseNavMobileSubMenuStory />
+      <MediaStateProvider>
+        <UseNavMobileSubMenuStory />
+      </MediaStateProvider>
     </NavStateProvider>
   </Story>
 </Canvas>

@@ -1,0 +1,31 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Col component should match a snapshot and render children 1`] = `
+<div
+  className="c1kect7b-col s1ibr8s6-span12"
+>
+  <p>
+    I am child
+  </p>
+</div>
+`;
+
+exports[`Col component should render with the correct classNames when supplied span and offset props 1`] = `
+<div
+  className="c1kect7b-col s1ibr8s6-span12"
+>
+  <p>
+    I am child
+  </p>
+</div>
+`;
+
+exports[`Grid component should match a snapshot and render children 1`] = `
+<div
+  className="go2h5m0-grid r1012k5-row-gap8 c1tyjn4x-col-gap6"
+>
+  <p>
+    I am child
+  </p>
+</div>
+`;

@@ -1,6 +1,6 @@
 import React from 'react'
 import { shallow } from 'enzyme'
-import { Nav, NavItem, NavSubNavItem, NavSubNav } from '../'
+import { Nav, NavItem, NavSubNavItem, NavSubNav } from '../nav'
 
 describe('Nav component', () => {
   it('should match a snapshot', () => {

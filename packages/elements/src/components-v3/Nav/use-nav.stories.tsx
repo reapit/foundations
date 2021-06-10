@@ -9,7 +9,7 @@ import {
   elNavItemHideDesktop,
   elNavItemIcon,
 } from './__styles__/index'
-import { Nav, NavItem, NavSubNavItem, NavSubNav } from './index'
+import { Nav, NavItem, NavSubNavItem, NavSubNav } from './nav'
 import { Icon } from '../Icon'
 import { cx } from 'linaria'
 import { elIntentNeutral } from '../../styles-v3/base/intent'
