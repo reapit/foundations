@@ -1,19 +1,24 @@
 import Routes from '@/constants/routes'
 import { reapitConnectBrowserSession } from '@/core/connect-session'
 import { ReapitConnectSession, useReapitConnect } from '@reapit/connect-session'
-import { H3, Section } from '@reapit/elements'
+import { ButtonGroup, H3, Section } from '@reapit/elements'
 import { Button, Table } from '@reapit/elements'
 import { Loader } from '@reapit/elements/v3'
 import { DeploymentModelInterface } from '@reapit/foundations-ts-definitions'
 import React, { useEffect, useState } from 'react'
 import { Link } from 'react-router-dom'
-import { deploymentServiceDelete, deploymentServicePaginate } from '../../../platform-api/deployments'
+import {
+  deploymentServiceDelete,
+  deploymentServicePaginate,
+  deploymentServiceRun,
+} from '../../../platform-api/deployments'
 
 export default () => {
   const { connectSession } = useReapitConnect(reapitConnectBrowserSession)
   const [deployments, setDeployments] = useState<DeploymentModelInterface[]>([])
   const [loading, setLoading] = useState<boolean>(false)
   const [deletionLoading, setDeletionLoading] = useState<string[]>([])
+  const [deploying, setDeploying] = useState<string[]>([])
 
   useEffect(() => {
     const fetchDeployments = async () => {
@@ -36,6 +41,13 @@ export default () => {
 
     setDeletionLoading(deletionLoading.filter((del) => del !== id))
     setDeployments(deployments.filter((deployment) => deployment.id !== id))
+  }
+
+  const deployDeployment = async (id: string) => {
+    setDeploying([...deploying, id])
+
+    await deploymentServiceRun(connectSession as ReapitConnectSession, id)
+    setDeploying(deploying.filter((deploymentId) => deploymentId !== id))
   }
 
   return (
@@ -68,17 +80,18 @@ export default () => {
             {
               id: 'Delete',
               Cell: ({ row }: { row: { original: any } }) => (
-                <Button onClick={() => deleteDeployment(row.original.id)} variant="danger">
-                  Delete
-                </Button>
-              ),
-            },
-            {
-              id: 'Deployment',
-              Cell: () => (
-                <Button variant="info">
-                  Run Deployment
-                </Button>
+                <ButtonGroup>
+                  <Button
+                    loading={deletionLoading.includes(row.original.id)}
+                    onClick={() => deleteDeployment(row.original.id)}
+                    variant="danger"
+                  >
+                    Delete
+                  </Button>
+                  <Button loading={deploying.includes(row.original.id)} onClick={() => deployDeployment} variant="info">
+                    Deploy
+                  </Button>
+                </ButtonGroup>
               ),
             },
           ]}
