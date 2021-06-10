@@ -2,6 +2,7 @@ import React, { FC, HTMLAttributes } from 'react'
 import { cx } from 'linaria'
 import { ElGrid, ElCol } from './__styles__'
 import { MediaType, useMediaQuery } from '../../hooks/use-media-query'
+import * as units from './__styles__/units'
 
 export type GridUnitType = 0 | 1 | 2 | 3 | 4 | 6 | 8 | 12
 export type ColUnitType = 0 | 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9 | 10 | 11 | 12
@@ -43,19 +44,22 @@ export const getGridClasses = (props: GridResponsiveProps, mediaType: MediaType)
   const { isMobile, isTablet, isDesktop, isWideScreen } = mediaType
 
   if (isMobile) {
-    return cx(colGapMobile && `elColGap${colGapMobile}`, rowGapMobile && `elRowGap${rowGapMobile}`)
+    return cx(colGapMobile && units[`elColGap${colGapMobile}`], rowGapMobile && units[`elRowGap${rowGapMobile}`])
   }
 
   if (isTablet) {
-    return cx(colGapTablet && `elColGap${colGapTablet}`, rowGapTablet && `elRowGap${rowGapTablet}`)
+    return cx(colGapTablet && units[`elColGap${colGapTablet}`], rowGapTablet && units[`elRowGap${rowGapTablet}`])
   }
 
   if (isDesktop) {
-    return cx(colGapDesktop && `elColGap${colGapDesktop}`, rowGapDesktop && `elRowGap${rowGapDesktop}`)
+    return cx(colGapDesktop && units[`elColGap${colGapDesktop}`], rowGapDesktop && units[`elRowGap${rowGapDesktop}`])
   }
 
   if (isWideScreen) {
-    return cx(colGapWideScreen && `elColGap${colGapWideScreen}`, rowGapWideScreen && `elRowGap${rowGapWideScreen}`)
+    return cx(
+      colGapWideScreen && units[`elColGap${colGapWideScreen}`],
+      rowGapWideScreen && units[`elRowGap${rowGapWideScreen}`],
+    )
   }
 
   return null
@@ -76,19 +80,22 @@ export const getColClasses = (props: ColResponsiveProps, mediaType: MediaType): 
   const { isMobile, isTablet, isDesktop, isWideScreen } = mediaType
 
   if (isMobile) {
-    return cx(spanMobile && `elSpan${spanMobile}`, offsetMobile && `elOffset${offsetMobile}`)
+    return cx(spanMobile && units[`elSpan${spanMobile}`], offsetMobile && units[`elOffset${offsetMobile}`])
   }
 
   if (isTablet) {
-    return cx(spanTablet && `elSpan${spanTablet}`, offsetTablet && `elOffset${offsetTablet}`)
+    return cx(spanTablet && units[`elSpan${spanTablet}`], offsetTablet && units[`elOffset${offsetTablet}`])
   }
 
   if (isDesktop) {
-    return cx(spanDesktop && `elSpan${spanDesktop}`, offsetDesktop && `elOffset${offsetDesktop}`)
+    return cx(spanDesktop && units[`elSpan${spanDesktop}`], offsetDesktop && units[`elOffset${offsetDesktop}`])
   }
 
   if (isWideScreen) {
-    return cx(spanWideScreen && `elSpan${spanWideScreen}`, offsetWideScreen && `elOffset${offsetWideScreen}`)
+    return cx(
+      spanWideScreen && units[`elSpan${spanWideScreen}`],
+      offsetWideScreen && units[`elOffset${offsetWideScreen}`],
+    )
   }
 
   return null

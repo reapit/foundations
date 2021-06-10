@@ -1,0 +1,21 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Col should match a snapshot and render children 1`] = `
+<ElCol
+  className=""
+>
+  <p>
+    I am child
+  </p>
+</ElCol>
+`;
+
+exports[`Grid should match a snapshot and render children 1`] = `
+<ElGrid
+  className=""
+>
+  <p>
+    I am child
+  </p>
+</ElGrid>
+`;
