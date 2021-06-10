@@ -8,6 +8,9 @@ import { connectSessionVerifyDecodeIdTokenWithPublicKeys, LoginIdentity } from '
 import publicKeys from '../../public-keys.json'
 
 export const createApiKey = httpHandler<ApiKeyDto, ApiKeyModel>({
+  defaultOutputHeaders: {
+    'Access-Control-Allow-Origin': '*',
+  },
   handler: async ({ body, event }): Promise<ApiKeyModel> => {
     let customer: LoginIdentity | undefined
 
