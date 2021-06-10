@@ -9,6 +9,9 @@ const cloneDir = 'project'
 const dir = resolve('/tmp')
 
 export const deployRun = httpHandler({
+  defaultOutputHeaders: {
+    'Access-Control-Allow-Origin': '*',
+  },
   defaultStatusCode: HttpStatusCode.OK,
   handler: async ({ event }) => {
     const developerId = await resolveDeveloperId(event)

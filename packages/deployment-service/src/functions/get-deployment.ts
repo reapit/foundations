@@ -7,6 +7,9 @@ import { ownership, resolveDeveloperId } from '@/utils'
  * Get a deployment by id
  */
 export const getDeployment = httpHandler({
+  defaultOutputHeaders: {
+    'Access-Control-Allow-Origin': '*',
+  },
   handler: async ({ event }): Promise<DeploymentModel> => {
     const developerId = await resolveDeveloperId(event)
 

@@ -9,6 +9,9 @@ import * as service from '../services'
  * Cancels all existing running pipelines
  */
 export const createPipeline = httpHandler<void, PipelineModel>({
+  defaultOutputHeaders: {
+    'Access-Control-Allow-Origin': '*',
+  },
   handler: async ({ event }): Promise<PipelineModel> => {
     const deploymentId = event.pathParameters?.deploymentId
 

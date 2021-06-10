@@ -9,6 +9,9 @@ import { ownership, resolveDeveloperId } from '@/utils'
  * Update a given deployment
  */
 export const updateDeployment = httpHandler<DeploymentDto, DeploymentModel>({
+  defaultOutputHeaders: {
+    'Access-Control-Allow-Origin': '*',
+  },
   validator: async (dto: DeploymentDto): Promise<DeploymentDto> => {
     const errors = await validate(dto)
 

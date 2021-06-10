@@ -9,6 +9,9 @@ import * as service from '../services'
  */
 // TODO refactor to delete method instead?
 export const updatePipeline = httpHandler<{ buildStatus: DeploymentStatus.CANCELED }, PipelineModel>({
+  defaultOutputHeaders: {
+    'Access-Control-Allow-Origin': '*',
+  },
   validator: (payload) => {
     if (payload.buildSTatus && payload.buildSTatus !== DeploymentStatus.CANCELED) {
       throw new BadRequestException('Validation errors: Status can only be canceled')

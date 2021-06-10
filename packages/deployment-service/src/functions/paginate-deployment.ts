@@ -15,6 +15,9 @@ type Pagintation<T> = {
  * Return pagination response for signed in user
  */
 export const paginateDeployments = httpHandler({
+  defaultOutputHeaders: {
+    'Access-Control-Allow-Origin': '*',
+  },
   handler: async ({ event }): Promise<Pagintation<DeploymentModel>> => {
     const developerId = await resolveDeveloperId(event)
 
