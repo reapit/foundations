@@ -47,7 +47,7 @@ export default () => {
   const deleteApiKey = async (id: string) => {
     setDeletionLoading([...deletionLoading, id])
 
-    configurationApiKeyApiDeleteService(connectSession as ReapitConnectSession, id)
+    await configurationApiKeyApiDeleteService(connectSession as ReapitConnectSession, id)
 
     setDeletionLoading(deletionLoading.filter((del) => del !== id))
     setApiKeys(apiKeys.filter((apiKey) => (apiKey as { id: string }).id !== id))
