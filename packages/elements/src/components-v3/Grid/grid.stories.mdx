@@ -1,0 +1,159 @@
+import { Story, Canvas } from '@storybook/addon-docs/blocks'
+import { GridDemoBlock } from './grid.stories'
+import { Grid, Col } from './grid.tsx'
+import { RenderHtmlMarkup } from '../../helpers/v3/render-html-markup'
+import { cx } from 'linaria'
+import { elColGap2, elRowGap3, elSpan12, elSpan8, elSpan4, elOffset4, elOffset8 } from './__styles__/units'
+
+<Meta title="V3/Grid" />
+
+# Grid
+
+### Basic Example
+
+The basic grid should fulil the majority of requirements for most users.
+
+The Grid leverages CSS Grid to provide a responsive layout for your applications. The main grid is 8 columns width in Mobile and in tablet and above it is 12 columns. The breakpoints are explained by the variables below;
+
+```ts
+...
+const windowWidth = window.innerWidth
+const isMobile = windowWidth < 768
+const isTablet = windowWidth >= 768 && windowWidth < 1024
+const isDesktop = windowWidth >= 1024 && windowWidth < 1400
+const isWideScreen = windowWidth >= 1400
+...
+```
+
+For mobile view, the columns are full width, in tablet they are 50%, for desktop one third and a quarter width in widescreen.
+
+Row and column gaps are standardised in line with our style guide.
+
+<Canvas>
+  <Story name="Basic Example">
+    <Grid>
+      <Col>
+        <GridDemoBlock />
+      </Col>
+      <Col>
+        <GridDemoBlock />
+      </Col>
+      <Col>
+        <GridDemoBlock />
+      </Col>
+      <Col>
+        <GridDemoBlock />
+      </Col>
+    </Grid>
+  </Story>
+</Canvas>
+
+<RenderHtmlMarkup component="V3/Grid" story={['Basic Example']} label="Grid Rendered HTML markup" />
+
+### Custom Example
+
+If you need more granular control over your grid, you can override the base with utility classes we expose.
+
+The grid class / component can have both it's `grid-column-gap` and `grid-row-gap` properties with modifiers classes that follow the pattern below:
+
+- `.e-col-gap-{unit}`
+- `.el-row-gap-{unit}`
+
+Where the `{unit}` value is one of
+
+- `0`: 0rem
+- `1`: 0.25rem
+- `2`: 0.5rem
+- `3`: 0.75rem
+- `4`: 1rem
+- `6`: 1.5rem
+- `8`: 2rem
+- `12`: 3rem
+
+So a class `.el-col-gap-4` will give a `grid-column-gap` property of 1rem. Note if importing the TypeScript components, the classes are `camelCased` eg `elColGap4`
+
+Similarly, for the `Col` component / class, you can override both the `grid-column-end` and `grid-column-start` properties with the following options;
+
+- `.e-span-{unit}`
+- `.el-offset-{unit}`
+
+Where the `{unit}` value a number `1 - 12`, mapping to the number of columns the `Col` should span and the column it should start at on the grid respectively.
+
+The below contrived example we have overridden the base behaviour by adding a custom column and row gap to the grid and start and span properties to the columns.
+
+Obviously to make the classes responsive, you will need some JavaScript to toggle the classes as appropriate.
+
+<Canvas>
+  <Story name="Custom Example">
+    <Grid className={cx(elColGap2, elRowGap3)}>
+      <Col className={cx(elSpan12)}>
+        <GridDemoBlock />
+      </Col>
+      <Col className={cx(elSpan8, elOffset4)}>
+        <GridDemoBlock />
+      </Col>
+      <Col className={cx(elSpan4, elOffset4)}>
+        <GridDemoBlock />
+      </Col>
+      <Col className={cx(elSpan4, elOffset8)}>
+        <GridDemoBlock />
+      </Col>
+    </Grid>
+  </Story>
+</Canvas>
+
+<RenderHtmlMarkup component="V3/Grid" story={['Custom Example']} label="Custom Grid Rendered HTML markup" />
+
+### React Example - Responsive Customisation
+
+If you need more granular control over your grid, you can override the base with utility classes we expose.
+
+The grid class / component can have both it's `grid-column-gap` and `grid-row-gap` properties with modifiers classes that follow the pattern below:
+
+- `.e-col-gap-{unit}`
+- `.el-row-gap-{unit}`
+
+Where the `{unit}` value is one of
+
+- `0`: 0rem
+- `1`: 0.25rem
+- `2`: 0.5rem
+- `3`: 0.75rem
+- `4`: 1rem
+- `6`: 1.5rem
+- `8`: 2rem
+- `12`: 3rem
+
+So a class `.el-col-gap-4` will give a `grid-column-gap` property of 1rem. Note if importing the TypeScript components, the classes are `camelCased` eg `elColGap4`
+
+Similarly, for the `Col` component / class, you can override both the `grid-column-end` and `grid-column-start` properties with the following options;
+
+- `.e-span-{unit}`
+- `.el-offset-{unit}`
+
+Where the `{unit}` value a number `1 - 12`, mapping to the number of columns the `Col` should span and the column it should start at on the grid respectively.
+
+The below contrived example we have overridden the base behaviour by adding a custom column and row gap to the grid and start and span properties to the columns.
+
+Obviously to make the classes responsive, you will need some JavaScript to toggle the classes as appropriate.
+
+<Canvas>
+  <Story name="React Example - Responsive Customisation">
+    <Grid className={cx(elColGap2, elRowGap3)}>
+      <Col className={cx(elSpan12)}>
+        <GridDemoBlock />
+      </Col>
+      <Col className={cx(elSpan8, elOffset4)}>
+        <GridDemoBlock />
+      </Col>
+      <Col className={cx(elSpan4, elOffset4)}>
+        <GridDemoBlock />
+      </Col>
+      <Col className={cx(elSpan4, elOffset8)}>
+        <GridDemoBlock />
+      </Col>
+    </Grid>
+  </Story>
+</Canvas>
+
+<RenderHtmlMarkup component="V3/Grid" story={['React Example - Responsive Customisation']} label="Custom Grid Rendered HTML markup" />
