@@ -54,7 +54,12 @@ provider:
         - dynamodb:PutItem
         - dynamodb:UpdateItem
         - dynamodb:DeleteItem
-      Resource: 'arn:aws:dynamodb:${self:provider.region}:*:table/${self:custom.env.DYNAMO_DB_API_KEY_TABLE_NAME}'
+      Resource: 'arn:aws:dynamodb:${self:provider.region}:028446965111:table/${self:custom.env.DYNAMO_DB_API_KEY_TABLE_NAME}'
+    - Effect: Allow
+      Action:
+        - dynamodb:Query
+        - dynamodb:Scan
+      Resource: "arn:aws:dynamodb:${self:provider.region}:*:table/${self:custom.env.DYNAMO_DB_API_KEY_TABLE_NAME}/index/*"
     
 resources:
   Resources:
