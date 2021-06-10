@@ -1,5 +1,4 @@
 import { styled } from 'linaria/react'
-import { css } from 'linaria'
 
 export const ElMainContainer = styled.main`
   display: flex;
@@ -41,25 +40,12 @@ export const ElSecondaryNavContainer = styled.aside`
   }
 `
 
-export const ElAtom = styled.div``
-
-export const ElMolecule = styled.div``
-
-export const ElOrganisam = styled.div``
+export const ElMolecule = styled.div`
+  display: block;
+  padding: 0.75rem;
+  margin-bottom: 1.25rem;
+`
 
 export const ElFlexContainer = styled.div`
   display: flex;
-`
-
-export const elHasBackground = css`
-  background-color: var(--color-white);
-`
-
-export const elHasBoxShadow = css`
-  box-shadow: 2px 4px 20px rgba(0, 0, 0, 0.05);
-`
-
-export const elHasBorder = css`
-  border: 1px solid var(--color-grey-medium);
-  border-radius: 4px;
 `
