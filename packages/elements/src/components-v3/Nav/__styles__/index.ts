@@ -7,7 +7,7 @@ const chevronRight = (fill: string) =>
     fill,
   )}"/></svg>`
 
-export const ElNavContainer = styled.div`
+export const ElNavContainer = styled.nav`
   display: flex;
   flex-direction: column;
   justify-content: flex-start;

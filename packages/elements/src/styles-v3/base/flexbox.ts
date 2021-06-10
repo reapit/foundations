@@ -54,6 +54,7 @@ export const elFlexAuto = css`
 export const elFlexInitial = css`
   flex: 0 1 auto;
 `
+
 export const elFlexNone = css`
   flex: none;
 `
@@ -100,4 +101,18 @@ export const elFlexJustifyAround = css`
 
 export const elFlexJustifyEvenly = css`
   justify-content: space-evenly;
+`
+
+// Align Items
+
+export const elAlignCenter = css`
+  align-items: center;
+`
+
+export const elAlignStart = css`
+  align-items: flex-start;
+`
+
+export const elAlignEnd = css`
+  align-items: flex-end;
 `
