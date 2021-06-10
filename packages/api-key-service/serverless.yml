@@ -142,13 +142,7 @@ functions:
             origin: '*'
             headers:
               - Content-Type
-              - X-Amz-Date
               - Authorization
-              - X-Api-Key
-              - X-Amz-Security-Token
-              - X-Amz-User-Agent
-              - api-version
-              - if-match
           authorizer:
             arn: arn:aws:cognito-idp:${self:provider.region}:${self:custom.env.AWS_ACCOUNT_ID}:userpool/${self:custom.env.CONNECT_USER_POOL}
   getApiKey:
@@ -161,13 +155,7 @@ functions:
             origin: '*'
             headers:
               - Content-Type
-              - X-Amz-Date
               - Authorization
-              - X-Api-Key
-              - X-Amz-Security-Token
-              - X-Amz-User-Agent
-              - api-version
-              - if-match
           authorizer:
             arn: arn:aws:cognito-idp:${self:provider.region}:${self:custom.env.AWS_ACCOUNT_ID}:userpool/${self:custom.env.CONNECT_USER_POOL}
   paginateApiKeys:
@@ -180,13 +168,7 @@ functions:
             origin: '*'
             headers:
               - Content-Type
-              - X-Amz-Date
               - Authorization
-              - X-Api-Key
-              - X-Amz-Security-Token
-              - X-Amz-User-Agent
-              - api-version
-              - if-match
           authorizer:
             arn: arn:aws:cognito-idp:${self:provider.region}:${self:custom.env.AWS_ACCOUNT_ID}:userpool/${self:custom.env.CONNECT_USER_POOL}
 
@@ -200,13 +182,7 @@ functions:
             origin: '*'
             headers:
               - Content-Type
-              - X-Amz-Date
               - Authorization
-              - X-Api-Key
-              - X-Amz-Security-Token
-              - X-Amz-User-Agent
-              - api-version
-              - if-match
           authorizer:
             arn: arn:aws:cognito-idp:${self:provider.region}:${self:custom.env.AWS_ACCOUNT_ID}:userpool/${self:custom.env.CONNECT_USER_POOL}
   deleteApiKey:
@@ -219,12 +195,6 @@ functions:
             origin: '*'
             headers:
               - Content-Type
-              - X-Amz-Date
               - Authorization
-              - X-Api-Key
-              - X-Amz-Security-Token
-              - X-Amz-User-Agent
-              - api-version
-              - if-match
           authorizer:
             arn: arn:aws:cognito-idp:${self:provider.region}:${self:custom.env.AWS_ACCOUNT_ID}:userpool/${self:custom.env.CONNECT_USER_POOL}
