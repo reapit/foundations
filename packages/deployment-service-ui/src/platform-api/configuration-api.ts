@@ -1,19 +1,19 @@
 import { fetcher } from '@reapit/elements'
 import { ReapitConnectSession } from '@reapit/connect-session'
-import { ListItemModel } from '@reapit/foundations-ts-definitions'
-import { URLS, BASE_HEADERS } from '../constants/api'
+import { ApiKeyInterface } from '@reapit/foundations-ts-definitions'
+import { BASE_HEADERS } from '../constants/api'
 
-export const configurationAppointmentsApiService = async (
+export const configurationApiKeyApiService = async (
   session: ReapitConnectSession,
-): Promise<ListItemModel[] | undefined> => {
+): Promise<ApiKeyInterface[] | undefined> => {
   try {
-    const response: ListItemModel[] | undefined = await fetcher({
-      api: window.reapit.config.platformApiUrl,
-      url: URLS.CONFIGURATION_APPOINTMENT_TYPES,
+    const response: ApiKeyInterface[] | undefined = await fetcher({
+      api: 'https://ey4eq5tak9.execute-api.eu-west-2.amazonaws.com',
+      url: '/dev/api-key',
       method: 'GET',
       headers: {
         ...BASE_HEADERS,
-        Authorization: `Bearer ${session.accessToken}`,
+        Authorization: `${session.idToken}`,
       },
     })
 

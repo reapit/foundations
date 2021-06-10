@@ -4,5 +4,5 @@ export const BASE_HEADERS = {
 }
 
 export const URLS = {
-  CONFIGURATION_APPOINTMENT_TYPES: '/configuration/appointmentTypes',
+  API_KEY_LIST: '/api-key',
 }
