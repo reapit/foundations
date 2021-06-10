@@ -49,10 +49,8 @@ export default () => {
 
     configurationApiKeyApiDeleteService(connectSession as ReapitConnectSession, id)
 
-    console.log(apiKeys)
-
     setDeletionLoading(deletionLoading.filter((del) => del !== id))
-    setApiKeys(apiKeys.filter((apiKey) => apiKey.apiKey !== id))
+    setApiKeys(apiKeys.filter((apiKey) => (apiKey as { id: string }).id !== id))
   }
 
   return (
@@ -95,8 +93,7 @@ export default () => {
             {
               id: 'Delete',
               Cell: ({ row }: { row: { original: any } }) => (
-                <Button onClick={() => deleteApiKey(row.original.apiKey)} variant="danger">
-                  {console.log(row)}
+                <Button onClick={() => deleteApiKey(row.original.id)} variant="danger">
                   Delete
                 </Button>
               ),
