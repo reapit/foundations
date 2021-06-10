@@ -1,29 +1,31 @@
 import { styled } from 'linaria/react'
+import { isMobile, isTablet } from '../../../styles-v3/base/media'
 
 export const ElMainContainer = styled.main`
   display: flex;
+  flex-direction: column;
   width: 100vw;
   height: 100%;
   overflow-y: visible;
   overflow-x: hidden;
   background: var(--color-grey-light);
 
-  @media screen and (max-width: 768px) {
-    flex-direction: column;
+  ${isTablet} {
+    flex-direction: row;
   }
 `
 
 export const ElPageContainer = styled.section`
   display: block;
-  padding: 2rem 1.5rem;
+  padding: 0.5rem 1.25rem;
   width: 100%;
   height: 100%;
   overflow-y: scroll;
   overflow-x: hidden;
   background-color: var(--color-white);
 
-  @media screen and (max-width: 768px) {
-    padding: 0.5rem 1.25rem;
+  ${isTablet} {
+    padding: 2rem 1.5rem;
   }
 `
 
@@ -35,7 +37,7 @@ export const ElSecondaryNavContainer = styled.aside`
   overflow-x: hidden;
   background: var(--color-grey-light);
 
-  @media screen and (min-width: 767px) {
+  ${isMobile} {
     display: none;
   }
 `
@@ -44,8 +46,11 @@ export const ElMolecule = styled.div`
   display: block;
   padding: 0.75rem;
   margin-bottom: 1.25rem;
+  width: 100%;
 `
 
 export const ElFlexContainer = styled.div`
   display: flex;
+  flex: 1 0 auto;
+  margin-bottom: auto;
 `
