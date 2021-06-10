@@ -68,7 +68,7 @@ provider:
       Action:
         - dynamodb:Query
         - dynamodb:Scan
-      Resource: "arn:aws:dynamodb:${self:provider.region}:*:table/${self:custom.env.DYNAMO_DB_API_KEY_TABLE_NAME}/index/*"
+      Resource: "arn:aws:dynamodb:${self:provider.region}:*:table/${self:custom.env.DYNAMO_DB_TABLE_NAME}/index/*"
     - Effect: Allow
       Action:
         - dynamodb:Query
@@ -82,7 +82,7 @@ provider:
       Action:
         - dynamodb:Query
         - dynamodb:Scan
-      Resource: "arn:aws:dynamodb:${self:provider.region}:*:table/${self:custom.env.DYNAMO_DB_API_KEY_TABLE_NAME}/index/*"
+      Resource: "arn:aws:dynamodb:${self:provider.region}:*:table/${self:custom.env.DYNAMO_DB_PIPELINE_TABLE_NAME}/index/*"
     - Effect: Allow
       Action:
         - dynamodb:Query
@@ -100,7 +100,7 @@ resources:
       Properties:
         ResponseParameters:
           gatewayresponse.header.Access-Control-Allow-Origin: "'*'"
-          gatewayresponse.header.Access-Control-Allow-Headers: "'Content-Type,X-Amz-Date,Authorization,X-Api-Key,X-Amz-Security-Token,X-Amz-User-Agent,reapit-customer,reapit-connect-token,api-version,if-match'"
+          gatewayresponse.header.Access-Control-Allow-Headers: "'Content-Type,X-Amz-Date,Authorization,X-Api-Key,X-Amz-Security-Token,X-Amz-User-Agent,api-version'"
         ResponseType: DEFAULT_4XX
         RestApiId:
           Ref: 'ApiGatewayRestApi'
@@ -109,7 +109,7 @@ resources:
       Properties:
         ResponseParameters:
           gatewayresponse.header.Access-Control-Allow-Origin: "'*'"
-          gatewayresponse.header.Access-Control-Allow-Headers: "'Content-Type,X-Amz-Date,Authorization,X-Api-Key,X-Amz-Security-Token,X-Amz-User-Agent,reapit-customer,reapit-connect-token,api-version,if-match'"
+          gatewayresponse.header.Access-Control-Allow-Headers: "'Content-Type,X-Amz-Date,Authorization,X-Api-Key,X-Amz-Security-Token,X-Amz-User-Agent,api-version'"
         ResponseType: DEFAULT_5XX
         RestApiId:
           Ref: 'ApiGatewayRestApi'
@@ -198,15 +198,9 @@ functions:
             origin: '*'
             headers:
               - Content-Type
-              - X-Amz-Date
               - Authorization
               - X-Api-Key
-              - X-Amz-Security-Token
-              - X-Amz-User-Agent
-              - reapit-customer
-              - reapit-connect-token
               - api-version
-              - if-match
           authorizer:
             arn: arn:aws:cognito-idp:${self:provider.region}:${self:custom.env.AWS_ACCOUNT_ID}:userpool/${self:custom.env.CONNECT_USER_POOL}
   updateDeployment:
@@ -219,15 +213,9 @@ functions:
             origin: '*'
             headers:
               - Content-Type
-              - X-Amz-Date
               - Authorization
               - X-Api-Key
-              - X-Amz-Security-Token
-              - X-Amz-User-Agent
-              - reapit-customer
-              - reapit-connect-token
               - api-version
-              - if-match
           authorizer:
             arn: arn:aws:cognito-idp:${self:provider.region}:${self:custom.env.AWS_ACCOUNT_ID}:userpool/${self:custom.env.CONNECT_USER_POOL}
   getDeployment:
@@ -240,15 +228,9 @@ functions:
             origin: '*'
             headers:
               - Content-Type
-              - X-Amz-Date
               - Authorization
               - X-Api-Key
-              - X-Amz-Security-Token
-              - X-Amz-User-Agent
-              - reapit-customer
-              - reapit-connect-token
               - api-version
-              - if-match
           authorizer:
             arn: arn:aws:cognito-idp:${self:provider.region}:${self:custom.env.AWS_ACCOUNT_ID}:userpool/${self:custom.env.CONNECT_USER_POOL}
   deleteDeployment:
@@ -261,15 +243,9 @@ functions:
             origin: '*'
             headers:
               - Content-Type
-              - X-Amz-Date
               - Authorization
               - X-Api-Key
-              - X-Amz-Security-Token
-              - X-Amz-User-Agent
-              - reapit-customer
-              - reapit-connect-token
               - api-version
-              - if-match
           authorizer:
             arn: arn:aws:cognito-idp:${self:provider.region}:${self:custom.env.AWS_ACCOUNT_ID}:userpool/${self:custom.env.CONNECT_USER_POOL}
   paginateDeployments:
@@ -282,15 +258,9 @@ functions:
             origin: '*'
             headers:
               - Content-Type
-              - X-Amz-Date
               - Authorization
               - X-Api-Key
-              - X-Amz-Security-Token
-              - X-Amz-User-Agent
-              - reapit-customer
-              - reapit-connect-token
               - api-version
-              - if-match
           authorizer:
             arn: arn:aws:cognito-idp:${self:provider.region}:${self:custom.env.AWS_ACCOUNT_ID}:userpool/${self:custom.env.CONNECT_USER_POOL}
   createPipeline:
@@ -303,15 +273,9 @@ functions:
             origin: '*'
             headers:
               - Content-Type
-              - X-Amz-Date
               - Authorization
               - X-Api-Key
-              - X-Amz-Security-Token
-              - X-Amz-User-Agent
-              - reapit-customer
-              - reapit-connect-token
               - api-version
-              - if-match
           authorizer:
             arn: arn:aws:cognito-idp:${self:provider.region}:${self:custom.env.AWS_ACCOUNT_ID}:userpool/${self:custom.env.CONNECT_USER_POOL}
   updatePipeline:
@@ -324,15 +288,9 @@ functions:
             origin: '*'
             headers:
               - Content-Type
-              - X-Amz-Date
               - Authorization
               - X-Api-Key
-              - X-Amz-Security-Token
-              - X-Amz-User-Agent
-              - reapit-customer
-              - reapit-connect-token
               - api-version
-              - if-match
           authorizer:
             arn: arn:aws:cognito-idp:${self:provider.region}:${self:custom.env.AWS_ACCOUNT_ID}:userpool/${self:custom.env.CONNECT_USER_POOL}
   getPipeline:
@@ -345,15 +303,8 @@ functions:
             origin: '*'
             headers:
               - Content-Type
-              - X-Amz-Date
               - Authorization
-              - X-Api-Key
-              - X-Amz-Security-Token
-              - X-Amz-User-Agent
-              - reapit-customer
-              - reapit-connect-token
               - api-version
-              - if-match
           authorizer:
             arn: arn:aws:cognito-idp:${self:provider.region}:${self:custom.env.AWS_ACCOUNT_ID}:userpool/${self:custom.env.CONNECT_USER_POOL}
   deployRun:
@@ -366,15 +317,9 @@ functions:
             origin: '*'
             headers:
               - Content-Type
-              - X-Amz-Date
               - Authorization
               - X-Api-Key
-              - X-Amz-Security-Token
-              - X-Amz-User-Agent
-              - reapit-customer
-              - reapit-connect-token
               - api-version
-              - if-match
           authorizer:
             arn: arn:aws:cognito-idp:${self:provider.region}:${self:custom.env.AWS_ACCOUNT_ID}:userpool/${self:custom.env.CONNECT_USER_POOL}
   taskPopulate:
