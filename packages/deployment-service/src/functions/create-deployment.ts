@@ -10,6 +10,9 @@ import { resolveDeveloperId } from './../utils'
  * Create a deployment
  */
 export const createDeployment = httpHandler<DeploymentDto, DeploymentModel>({
+  defaultOutputHeaders: {
+    'Access-Control-Allow-Origin': '*',
+  },
   validator: async (dto: DeploymentDto): Promise<DeploymentDto> => {
     const errors = await validate(dto)
 

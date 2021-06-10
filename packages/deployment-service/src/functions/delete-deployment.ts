@@ -5,6 +5,9 @@ import { ownership, resolveDeveloperId } from '@/utils'
  * Delete a deployment
  */
 export const deleteDeployment = httpHandler({
+  defaultOutputHeaders: {
+    'Access-Control-Allow-Origin': '*',
+  },
   defaultStatusCode: HttpStatusCode.NO_CONTENT,
   handler: async ({ event }): Promise<void> => {
     const developerId = await resolveDeveloperId(event)

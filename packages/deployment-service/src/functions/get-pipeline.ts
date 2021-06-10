@@ -7,6 +7,9 @@ import * as service from '../services'
  * Get a pipeline by id
  */
 export const getPipeline = httpHandler<void, PipelineModel>({
+  defaultOutputHeaders: {
+    'Access-Control-Allow-Origin': '*',
+  },
   handler: async ({ event }): Promise<PipelineModel> => {
     const developerId = await resolveDeveloperId(event)
 
