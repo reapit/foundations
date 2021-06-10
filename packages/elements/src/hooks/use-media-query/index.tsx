@@ -26,10 +26,10 @@ export const MediaStateProvider: React.FC = ({ children }) => {
   useEffect(() => {
     const onResize = () => {
       const windowWidth = window.innerWidth
-      const isMobile = windowWidth < 768
-      const isTablet = windowWidth >= 768 && windowWidth < 1024
-      const isDesktop = windowWidth >= 1024 && windowWidth < 1400
-      const isWideScreen = windowWidth >= 1400
+      const isMobile = windowWidth < MOBILE_BREAKPOINT
+      const isTablet = windowWidth >= MOBILE_BREAKPOINT && windowWidth < TABLET_BREAKPOINT
+      const isDesktop = windowWidth >= TABLET_BREAKPOINT && windowWidth < DESKTOP_BREAKPOINT
+      const isWideScreen = windowWidth >= DESKTOP_BREAKPOINT
 
       setMediaType({
         isMobile,
@@ -46,7 +46,5 @@ export const MediaStateProvider: React.FC = ({ children }) => {
 }
 
 export const useMediaQuery = (): MediaType => {
-  const mediaType = useContext(MediaStateContext)
-
-  return mediaType
+  return useContext(MediaStateContext)
 }
