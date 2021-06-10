@@ -17,8 +17,6 @@ export const ElNavContainer = styled.nav`
   position: sticky;
   top: 0;
   z-index: 1;
-  overflow-x: scroll;
-  overflow-y: hidden;
 
   @media screen and (min-width: 768px) {
     height: 100%;

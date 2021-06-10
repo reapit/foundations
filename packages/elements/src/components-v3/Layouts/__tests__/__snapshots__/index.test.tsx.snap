@@ -1,0 +1,53 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`FlexContainer should match a snapshot and render children 1`] = `
+<ElFlexContainer
+  className=""
+>
+  <p>
+    I am child
+  </p>
+</ElFlexContainer>
+`;
+
+exports[`FlexContainer should match a snapshot and render children with all props applied 1`] = `
+<ElFlexContainer
+  className="el-flex-row el-flex-row-reverse el-flex-column el-flex-column-reverse el-flex-wrap el-flex-no-wrap el-flex-wrap-reverse el-flex-auto el-flex-initial el-flex-grow0 el-flex-grow el-flex-shrink0 el-flex-shrink el-flex-justify-center el-flex-justify-start el-flex-justify-end el-flex-justify-between el-flex-justify-around el-flex-justify-evenly el-align-center el-align-start"
+>
+  <p>
+    I am child
+  </p>
+</ElFlexContainer>
+`;
+
+exports[`MainContainer should match a snapshot and render children 1`] = `
+<ElMainContainer>
+  <p>
+    I am child
+  </p>
+</ElMainContainer>
+`;
+
+exports[`Molecule should match a snapshot and render children 1`] = `
+<ElMolecule>
+  <p>
+    I am child
+  </p>
+</ElMolecule>
+`;
+
+exports[`PageContainer should match a snapshot and render children 1`] = `
+<ElPageContainer>
+  <p>
+    I am child
+  </p>
+</ElPageContainer>
+`;
+
+exports[`SecondaryNavContainer should match a snapshot and render children 1`] = `
+<ElSecondaryNavContainer>
+  <p>
+    I am child
+  </p>
+</ElSecondaryNavContainer>
+`;
