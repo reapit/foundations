@@ -5,6 +5,9 @@ import { getApiKey as get } from '../services'
 import publicKeys from '../../public-keys.json'
 
 export const getApiKey = httpHandler<void, ApiKeyModel>({
+  defaultOutputHeaders: {
+    'Access-Control-Allow-Origin': '*',
+  },
   handler: async ({ event }) => {
     let customer: LoginIdentity | undefined
 

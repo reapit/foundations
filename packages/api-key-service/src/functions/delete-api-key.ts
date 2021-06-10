@@ -9,6 +9,9 @@ import { connectSessionVerifyDecodeIdTokenWithPublicKeys, LoginIdentity } from '
 import publicKeys from '../../public-keys.json'
 
 export const deleteApiKey = httpHandler({
+  defaultOutputHeaders: {
+    'Access-Control-Allow-Origin': '*',
+  },
   defaultStatusCode: HttpStatusCode.NO_CONTENT,
   handler: async ({ event }): Promise<void> => {
     let customer: LoginIdentity | undefined

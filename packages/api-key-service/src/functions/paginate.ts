@@ -13,6 +13,9 @@ type Pagintation<T> = {
 }
 
 export const paginateApiKeys = httpHandler<void, Pagintation<ApiKeyModel>>({
+  defaultOutputHeaders: {
+    'Access-Control-Allow-Origin': '*',
+  },
   handler: async ({ event }): Promise<Pagintation<ApiKeyModel>> => {
     let customer: LoginIdentity | undefined
 
