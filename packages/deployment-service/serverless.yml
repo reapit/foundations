@@ -68,11 +68,21 @@ provider:
       Action:
         - dynamodb:Query
         - dynamodb:Scan
+      Resource: "arn:aws:dynamodb:${self:provider.region}:*:table/${self:custom.env.DYNAMO_DB_API_KEY_TABLE_NAME}/index/*"
+    - Effect: Allow
+      Action:
+        - dynamodb:Query
+        - dynamodb:Scan
         - dynamodb:GetItem
         - dynamodb:PutItem
         - dynamodb:UpdateItem
         - dynamodb:DeleteItem
       Resource: 'arn:aws:dynamodb:${self:provider.region}:*:table/${self:custom.env.DYNAMO_DB_PIPELINE_TABLE_NAME}'
+    - Effect: Allow
+      Action:
+        - dynamodb:Query
+        - dynamodb:Scan
+      Resource: "arn:aws:dynamodb:${self:provider.region}:*:table/${self:custom.env.DYNAMO_DB_API_KEY_TABLE_NAME}/index/*"
     - Effect: Allow
       Action:
         - dynamodb:Query
