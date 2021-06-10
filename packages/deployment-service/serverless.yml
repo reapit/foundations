@@ -263,50 +263,50 @@ functions:
               - api-version
           authorizer:
             arn: arn:aws:cognito-idp:${self:provider.region}:${self:custom.env.AWS_ACCOUNT_ID}:userpool/${self:custom.env.CONNECT_USER_POOL}
-  createPipeline:
-    handler: src/index.createPipeline
-    events:
-      - http:
-          path: /deployment/{deploymentId}/pipeline
-          method: post
-          cors:
-            origin: '*'
-            headers:
-              - Content-Type
-              - Authorization
-              - X-Api-Key
-              - api-version
-          authorizer:
-            arn: arn:aws:cognito-idp:${self:provider.region}:${self:custom.env.AWS_ACCOUNT_ID}:userpool/${self:custom.env.CONNECT_USER_POOL}
-  updatePipeline:
-    handler: src/index.updatePipeline
-    events:
-      - http:
-          path: /deployment/pipeline/{id}
-          method: put
-          cors:
-            origin: '*'
-            headers:
-              - Content-Type
-              - Authorization
-              - X-Api-Key
-              - api-version
-          authorizer:
-            arn: arn:aws:cognito-idp:${self:provider.region}:${self:custom.env.AWS_ACCOUNT_ID}:userpool/${self:custom.env.CONNECT_USER_POOL}
-  getPipeline:
-    handler: src/index.getPipeline
-    events:
-      - http:
-          path: /deployment/pipeline/{id}
-          method: get
-          cors:
-            origin: '*'
-            headers:
-              - Content-Type
-              - Authorization
-              - api-version
-          authorizer:
-            arn: arn:aws:cognito-idp:${self:provider.region}:${self:custom.env.AWS_ACCOUNT_ID}:userpool/${self:custom.env.CONNECT_USER_POOL}
+  # createPipeline:
+  #   handler: src/index.createPipeline
+  #   events:
+  #     - http:
+  #         path: /deployment/{deploymentId}/pipeline
+  #         method: post
+  #         cors:
+  #           origin: '*'
+  #           headers:
+  #             - Content-Type
+  #             - Authorization
+  #             - X-Api-Key
+  #             - api-version
+  #         authorizer:
+  #           arn: arn:aws:cognito-idp:${self:provider.region}:${self:custom.env.AWS_ACCOUNT_ID}:userpool/${self:custom.env.CONNECT_USER_POOL}
+  # updatePipeline:
+  #   handler: src/index.updatePipeline
+  #   events:
+  #     - http:
+  #         path: /deployment/{deploymentId}/pipeline/{pipelineId}
+  #         method: put
+  #         cors:
+  #           origin: '*'
+  #           headers:
+  #             - Content-Type
+  #             - Authorization
+  #             - X-Api-Key
+  #             - api-version
+  #         authorizer:
+  #           arn: arn:aws:cognito-idp:${self:provider.region}:${self:custom.env.AWS_ACCOUNT_ID}:userpool/${self:custom.env.CONNECT_USER_POOL}
+  # getPipeline:
+  #   handler: src/index.getPipeline
+  #   events:
+  #     - http:
+  #         path: /deployment/{deploymentId}/pipeline/{pipelineId}
+  #         method: get
+  #         cors:
+  #           origin: '*'
+  #           headers:
+  #             - Content-Type
+  #             - Authorization
+  #             - api-version
+  #         authorizer:
+  #           arn: arn:aws:cognito-idp:${self:provider.region}:${self:custom.env.AWS_ACCOUNT_ID}:userpool/${self:custom.env.CONNECT_USER_POOL}
   deployRun:
     handler: src/index.deployRun
     events:
@@ -322,10 +322,10 @@ functions:
               - api-version
           authorizer:
             arn: arn:aws:cognito-idp:${self:provider.region}:${self:custom.env.AWS_ACCOUNT_ID}:userpool/${self:custom.env.CONNECT_USER_POOL}
-  taskPopulate:
-    handler: src/index.taskPopulate
-    events:
-      - stream:
-        type: dynamodb
-        arn: 
-          Fn::GetAtt: [self:custom.env.DYNAMO_DB_PIPELINE_TABLE_NAME, StreamArn]
+  # taskPopulate:
+  #   handler: src/index.taskPopulate
+  #   events:
+  #     - stream:
+  #       type: dynamodb
+  #       arn: 
+  #         Fn::GetAtt: [self:custom.env.DYNAMO_DB_PIPELINE_TABLE_NAME, StreamArn]
