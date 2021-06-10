@@ -58,3 +58,30 @@ export const configurationApiKeyApiCreateService = async (
     console.error('Error fetching Configuration Appointment Types', err.message)
   }
 }
+
+export const configurationApiKeyApiDeleteService = async (
+  session: ReapitConnectSession,
+  id: string,
+): Promise<undefined> => {
+  try {
+    const keyExpiresAt = new Date()
+    keyExpiresAt.setFullYear(keyExpiresAt.getFullYear() + 1)
+    const response: undefined = await fetcher({
+      api: 'https://ey4eq5tak9.execute-api.eu-west-2.amazonaws.com',
+      url: `/dev/api-key/${id}`,
+      method: 'DELETE',
+      headers: {
+        ...BASE_HEADERS,
+        Authorization: `${session.idToken}`,
+      },
+    })
+
+    if (response) {
+      return response
+    }
+
+    throw new Error('No response returned by API')
+  } catch (err) {
+    console.error('Error fetching Configuration Appointment Types', err.message)
+  }
+}
