@@ -32,6 +32,7 @@
     "react-ga": "^2.7.0",
     "react-router": "^5.2.0",
     "react-router-dom": "^5.2.0",
+    "shleemy": "^1.2.2",
     "snyk": "^1.463.0",
     "yup": "^0.29.3"
   },

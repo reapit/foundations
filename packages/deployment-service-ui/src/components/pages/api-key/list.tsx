@@ -1,17 +1,23 @@
 import { reapitConnectBrowserSession } from '@/core/connect-session'
-import { configurationApiKeyApiCreateService, configurationApiKeyApiService } from '@/platform-api/configuration-api'
+import {
+  configurationApiKeyApiCreateService,
+  configurationApiKeyApiDeleteService,
+  configurationApiKeyApiService,
+} from '@/platform-api/configuration-api'
 import { ReapitConnectSession, useReapitConnect } from '@reapit/connect-session'
 import { H3, Section } from '@reapit/elements'
 import { Button, Table } from '@reapit/elements'
 import { Loader } from '@reapit/elements/v3'
 import { ApiKeyInterface } from '@reapit/foundations-ts-definitions'
 import React, { useEffect, useState } from 'react'
+import { shleemy } from 'shleemy'
 
 export default () => {
   const { connectSession } = useReapitConnect(reapitConnectBrowserSession)
   const [apiKeys, setApiKeys] = useState<ApiKeyInterface[]>([])
   const [loading, setLoading] = useState<boolean>(false)
   const [creationLoading, setCreationLoading] = useState<boolean>(false)
+  const [deletionLoading, setDeletionLoading] = useState<string[]>([])
 
   useEffect(() => {
     const fetchApiKeys = async () => {
@@ -19,8 +25,7 @@ export default () => {
       const serviceResponse = await configurationApiKeyApiService(connectSession as ReapitConnectSession)
       setLoading(false)
       if (serviceResponse) {
-        console.log(serviceResponse)
-        setApiKeys(apiKeys)
+        setApiKeys(serviceResponse)
       }
     }
     if (connectSession) {
@@ -33,12 +38,21 @@ export default () => {
 
     const apiKey = await configurationApiKeyApiCreateService(connectSession as ReapitConnectSession, {})
 
-    console.log(apiKey)
-
     setCreationLoading(false)
     if (apiKey) {
       setApiKeys([...apiKeys, ...[apiKey]])
     }
+  }
+
+  const deleteApiKey = async (id: string) => {
+    setDeletionLoading([...deletionLoading, id])
+
+    configurationApiKeyApiDeleteService(connectSession as ReapitConnectSession, id)
+
+    console.log(apiKeys)
+
+    setDeletionLoading(deletionLoading.filter((del) => del !== id))
+    setApiKeys(apiKeys.filter((apiKey) => apiKey.apiKey !== id))
   }
 
   return (
@@ -54,20 +68,38 @@ export default () => {
           data={apiKeys}
           columns={[
             {
-              Header: 'Name',
-              accessor: 'name',
+              Header: 'ApiKey',
+              accessor: 'apiKey',
             },
             {
-              Header: 'Created',
-              accessor: 'createdAt',
-              Cell: ({ cell, data }) => {
-                console.log(cell, data)
-                return <span>Created at</span>
+              Header: 'Expires',
+              accessor: 'keyExpiresAt',
+              Cell: (cell: { value }) => {
+                const int = shleemy(cell.value)
+                return (
+                  <span>
+                    {int.date} {int.time}
+                  </span>
+                )
               },
             },
             {
-              Header: 'ApiKey',
-              accessor: 'apiKey',
+              Header: 'Created',
+              accessor: 'keyCreatedAt',
+              Cell: (cell: { value }) => {
+                const int = shleemy(cell.value)
+
+                return <span>{int.forHumans}</span>
+              },
+            },
+            {
+              id: 'Delete',
+              Cell: ({ row }: { row: { original: any } }) => (
+                <Button onClick={() => deleteApiKey(row.original.apiKey)} variant="danger">
+                  {console.log(row)}
+                  Delete
+                </Button>
+              ),
             },
           ]}
         />

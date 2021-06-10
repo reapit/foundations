@@ -15867,6 +15867,7 @@ __metadata:
     serverless-s3-deploy: ^0.10.0
     serverless-s3-remover: ^0.6.0
     serverless-single-page-app-plugin: ^1.0.2
+    shleemy: ^1.2.2
     snyk: ^1.463.0
     typescript: ^4.0.3
     webpack: ^4.46.0
