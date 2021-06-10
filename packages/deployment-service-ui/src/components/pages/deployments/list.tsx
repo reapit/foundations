@@ -68,15 +68,10 @@ export default () => {
               Header: 'Name',
               accessor: 'name',
             },
-            // {
-            //   Header: 'Created',
-            //   accessor: 'created',
-            //   Cell: (cell: { value }) => {
-            //     const int = shleemy(cell.value)
-
-            //     return <span>{int.forHumans}</span>
-            //   },
-            // },
+            {
+              Header: 'Repository',
+              accessor: 'repository',
+            },
             {
               id: 'Delete',
               Cell: ({ row }: { row: { original: any } }) => (
@@ -88,7 +83,11 @@ export default () => {
                   >
                     Delete
                   </Button>
-                  <Button loading={deploying.includes(row.original.id)} onClick={() => deployDeployment} variant="info">
+                  <Button
+                    loading={deploying.includes(row.original.id)}
+                    onClick={() => deployDeployment(row.original.id)}
+                    variant="info"
+                  >
                     Deploy
                   </Button>
                 </ButtonGroup>
