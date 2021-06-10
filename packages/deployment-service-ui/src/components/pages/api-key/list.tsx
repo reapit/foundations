@@ -93,7 +93,11 @@ export default () => {
             {
               id: 'Delete',
               Cell: ({ row }: { row: { original: any } }) => (
-                <Button onClick={() => deleteApiKey(row.original.id)} variant="danger">
+                <Button
+                  loading={deletionLoading.includes(row.original.id)}
+                  onClick={() => deleteApiKey(row.original.id)}
+                  variant="danger"
+                >
                   Delete
                 </Button>
               ),
