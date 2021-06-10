@@ -1,0 +1,95 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`ColResponsive should match a snapshot and render children with no props 1`] = `
+<ContextProvider
+  value={
+    Object {
+      "isDesktop": false,
+      "isMobile": true,
+      "isTablet": false,
+      "isWideScreen": false,
+    }
+  }
+>
+  <ColResponsive>
+    <p>
+      I am child
+    </p>
+  </ColResponsive>
+</ContextProvider>
+`;
+
+exports[`ColResponsive should render with the correct classNames when supplied all props 1`] = `
+<ContextProvider
+  value={
+    Object {
+      "isDesktop": false,
+      "isMobile": true,
+      "isTablet": false,
+      "isWideScreen": false,
+    }
+  }
+>
+  <ColResponsive
+    offsetDesktop={1}
+    offsetMobile={1}
+    offsetTablet={1}
+    offsetWideScreen={1}
+    spanDesktop={1}
+    spanMobile={1}
+    spanTablet={1}
+    spanWideScreen={1}
+  >
+    <p>
+      I am child
+    </p>
+  </ColResponsive>
+</ContextProvider>
+`;
+
+exports[`GridResponsive hould render with the correct classNames when supplied all props 1`] = `
+<ContextProvider
+  value={
+    Object {
+      "isDesktop": false,
+      "isMobile": true,
+      "isTablet": false,
+      "isWideScreen": false,
+    }
+  }
+>
+  <GridResponsive
+    colGapDesktop={3}
+    colGapMobile={1}
+    colGapTablet={2}
+    colGapWideScreen={4}
+    rowGapDesktop={3}
+    rowGapMobile={1}
+    rowGapTablet={2}
+    rowGapWideScreen={4}
+  >
+    <p>
+      I am child
+    </p>
+  </GridResponsive>
+</ContextProvider>
+`;
+
+exports[`GridResponsive should match a snapshot and render children with no props 1`] = `
+<ContextProvider
+  value={
+    Object {
+      "isDesktop": false,
+      "isMobile": true,
+      "isTablet": false,
+      "isWideScreen": false,
+    }
+  }
+>
+  <GridResponsive>
+    <p>
+      I am child
+    </p>
+  </GridResponsive>
+</ContextProvider>
+`;

@@ -17,7 +17,7 @@ const { Provider } = MediaStateContext
 
 export const MediaStateProvider: React.FC = ({ children }) => {
   const [mediaType, setMediaType] = useState<MediaType>({
-    isMobile: false,
+    isMobile: true,
     isTablet: false,
     isDesktop: false,
     isWideScreen: false,
