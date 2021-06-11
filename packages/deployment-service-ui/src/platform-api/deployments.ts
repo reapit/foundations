@@ -1,4 +1,4 @@
-import { fetcher } from '@reapit/elements'
+import { fetcher, notification } from '@reapit/elements'
 import { ReapitConnectSession } from '@reapit/connect-session'
 import { DeploymentModelInterface } from '@reapit/foundations-ts-definitions'
 import { BASE_HEADERS } from '../constants/api'
@@ -99,6 +99,7 @@ export const deploymentServiceRun = async (
 
     throw new Error('No response returned by API')
   } catch (err) {
+    console.log(notification.error({ message: 'Deployment failed to run' }))
     console.error('Error fetching Configuration Appointment Types', err.message)
   }
 }
