@@ -26,6 +26,8 @@ export * from './components-v3/Typography'
 export * from './components-v3/Modal'
 export * from './components-v3/Nav'
 export * from './components-v3/Grid'
+export * from './components-v3/Layouts'
+export * from './components-v3/Toggle'
 
 export * from './hooks/usePortal-v3'
 export * from './hooks/useSnack-v3'

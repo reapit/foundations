@@ -1,0 +1,23 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Toggle should match a snapshot and render children 1`] = `
+<Fragment>
+  <ElToggleCheckbox
+    type="checkbox"
+  />
+  <ElToggleLabel
+    className=""
+  >
+    <span
+      className="el-toggle-item"
+    >
+      On
+    </span>
+    <span
+      className="el-toggle-item"
+    >
+      Off
+    </span>
+  </ElToggleLabel>
+</Fragment>
+`;
