@@ -5,6 +5,7 @@ import { httpHandler, HttpStatusCode, NotFoundException } from '@homeservenow/se
 import { execSync } from 'child_process'
 import { resolve } from 'path'
 import { defaultOutputHeaders } from './../constants'
+import git from 'simple-git'
 
 const cloneDir = 'project'
 const dir = resolve('/tmp')
@@ -28,9 +29,7 @@ export const deployRun = httpHandler({
     }
 
     try {
-      const clone = execSync(`git clone ${deployment.repository} ${cloneDir}`, {
-        cwd: dir,
-      })
+      const clone = await git().clone(deployment.repository, cloneDir)
       console.log('clone', clone.toString())
     } catch (e) {
       // console.error(e)
