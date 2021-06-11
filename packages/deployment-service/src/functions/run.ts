@@ -5,7 +5,6 @@ import { httpHandler, HttpStatusCode, NotFoundException } from '@homeservenow/se
 import { execSync } from 'child_process'
 import { resolve } from 'path'
 import { defaultOutputHeaders } from './../constants'
-import git from 'simple-git'
 
 const cloneDir = 'project'
 const dir = resolve('/tmp')
@@ -29,13 +28,16 @@ export const deployRun = httpHandler({
     }
 
     try {
-      const clone = await git().clone(deployment.repository, cloneDir)
+      console.log('hello! cloning now with simple-git')
+      const clone = await execSync(`curl -o ${cloneDir} -s -O ${deployment.repository}`)
       console.log('clone', clone.toString())
     } catch (e) {
       // console.error(e)
       console.log('message', e.message)
+      console.log('clone failed')
       return {
         statusCode: 500,
+        headers: defaultOutputHeaders,
       }
     }
 
@@ -48,8 +50,10 @@ export const deployRun = httpHandler({
       console.log(e.output.toString())
       console.log('yarn errors')
       console.error(e)
+      console.log('npm install failed')
       return {
         statusCode: 500,
+        headers: defaultOutputHeaders,
       }
     }
 
@@ -61,8 +65,10 @@ export const deployRun = httpHandler({
     } catch (e) {
       console.log('yarn build errors')
       console.error(e)
+      console.log('npm build failed')
       return {
         statusCode: 500,
+        headers: defaultOutputHeaders,
       }
     }
 
@@ -77,6 +83,7 @@ export const deployRun = httpHandler({
 
       return {
         statusCode: 500,
+        headers: defaultOutputHeaders,
       }
     }
 

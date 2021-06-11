@@ -15890,7 +15890,6 @@ __metadata:
     jsonwebtoken: ^8.5.1
     prettier: ^2.3.0
     serverless: ^2.41.2
-    simple-git: ^2.39.1
   languageName: unknown
   linkType: soft
 
@@ -34272,17 +34271,6 @@ resolve@1.17.0:
     "@kwsites/promise-deferred": ^1.1.1
     debug: ^4.3.1
   checksum: 26f46dab06d557219db06a3c3b7e275945a7a0a7ea93eb0905eff9256269c9ca91a710a5f9e1661cd9e3f24259244aaaf589df09a04afed06ab1b2ed4c86756a
-  languageName: node
-  linkType: hard
-
-"simple-git@npm:^2.39.1":
-  version: 2.39.1
-  resolution: "simple-git@npm:2.39.1"
-  dependencies:
-    "@kwsites/file-exists": ^1.1.1
-    "@kwsites/promise-deferred": ^1.1.1
-    debug: ^4.3.1
-  checksum: 738e1cd94f0f7eaf03eefd0178bf55c5519fa46430029d7bf78fc09310f738064a86536aa28887f428b2e68f5a3c8928162c60de38210dfba987bcb2e154e8b8
   languageName: node
   linkType: hard
 
