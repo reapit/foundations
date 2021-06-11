@@ -7,11 +7,10 @@ import {
 } from '@homeservenow/serverless-aws-handler'
 import { connectSessionVerifyDecodeIdTokenWithPublicKeys, LoginIdentity } from '@reapit/connect-session'
 import publicKeys from '../../public-keys.json'
+import { defaultOutputHeaders } from './../constants'
 
 export const deleteApiKey = httpHandler({
-  defaultOutputHeaders: {
-    'Access-Control-Allow-Origin': '*',
-  },
+  defaultOutputHeaders,
   defaultStatusCode: HttpStatusCode.NO_CONTENT,
   handler: async ({ event }): Promise<void> => {
     let customer: LoginIdentity | undefined
