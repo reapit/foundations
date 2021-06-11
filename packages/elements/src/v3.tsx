@@ -28,6 +28,7 @@ export * from './components-v3/Nav'
 export * from './components-v3/Grid'
 export * from './components-v3/Layouts'
 export * from './components-v3/Toggle'
+export * from './components-v3/MultiSelect'
 
 export * from './hooks/usePortal-v3'
 export * from './hooks/useSnack-v3'
