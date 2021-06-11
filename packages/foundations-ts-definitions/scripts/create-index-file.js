@@ -15,7 +15,7 @@ module.exports = () => {
         '// @ts-ignore\n' +
         'export * from "../deployment-schema"' +
         '// @ts-ignore\n' +
-        'export * from export * from "../api-key-schema"' +
+        'export * from "../api-key-schema"' +
         '// @ts-ignore\n' +
         files
           .filter((file) => file !== 'index.ts')
