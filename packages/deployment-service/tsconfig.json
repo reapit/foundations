@@ -6,7 +6,6 @@
     "paths": {
       "@/*": ["src/*"],
       "@reapit/elements": ["../elements/src"],
-      "@reapit/elements/v3": ["../elements/src/v3"],
       "@reapit/utils": ["../utils/index.ts"],
       "@reapit/connect-session": ["../connect-session/src"]
     },
