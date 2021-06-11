@@ -69,9 +69,15 @@ export interface ApplicantContactModel {
    */
   forename?: string
   /**
-   * The surname of the the contact (Available when 'type' is 'contact')
+   * The surname of the contact (Available when 'type' is 'contact')
    */
   surname?: string
+  /**
+   * The date of birth of the contact (Available when 'type' is 'contact')
+   * example:
+   * 2019-08-14
+   */
+  dateOfBirth?: string // date
   /**
    * The type of the contact (company/contact)
    */
@@ -517,9 +523,15 @@ export interface ApplicantModel {
      */
     forename?: string
     /**
-     * The surname of the the contact (Available when 'type' is 'contact')
+     * The surname of the contact (Available when 'type' is 'contact')
      */
     surname?: string
+    /**
+     * The date of birth of the contact (Available when 'type' is 'contact')
+     * example:
+     * 2019-08-14
+     */
+    dateOfBirth?: string // date
     /**
      * The type of the contact (company/contact)
      */
@@ -837,9 +849,15 @@ export interface ApplicantModelPagedResult {
        */
       forename?: string
       /**
-       * The surname of the the contact (Available when 'type' is 'contact')
+       * The surname of the contact (Available when 'type' is 'contact')
        */
       surname?: string
+      /**
+       * The date of birth of the contact (Available when 'type' is 'contact')
+       * example:
+       * 2019-08-14
+       */
+      dateOfBirth?: string // date
       /**
        * The type of the contact (company/contact)
        */
@@ -5415,6 +5433,12 @@ export interface CreatePropertyModel {
      */
     exchanged?: string // date
     /**
+     * The date the property account was paid
+     * example:
+     * 2019-08-14
+     */
+    accountPaid?: string // date
+    /**
      * Request body used to set the tenure of a new property
      */
     tenure?: {
@@ -5643,6 +5667,12 @@ export interface CreatePropertySellingModel {
    * 2019-08-14
    */
   exchanged?: string // date
+  /**
+   * The date the property account was paid
+   * example:
+   * 2019-08-14
+   */
+  accountPaid?: string // date
   /**
    * Request body used to set the tenure of a new property
    */
@@ -7192,9 +7222,15 @@ export interface LandlordContactModel {
    */
   forename?: string
   /**
-   * The surname of the the contact (Available when 'type' is 'contact')
+   * The surname of the contact (Available when 'type' is 'contact')
    */
   surname?: string
+  /**
+   * The date of birth of the contact (Available when 'type' is 'contact')
+   * example:
+   * 2019-08-14
+   */
+  dateOfBirth?: string // date
   /**
    * The type of the contact (contact/company)
    */
@@ -7426,9 +7462,15 @@ export interface LandlordModel {
      */
     forename?: string
     /**
-     * The surname of the the contact (Available when 'type' is 'contact')
+     * The surname of the contact (Available when 'type' is 'contact')
      */
     surname?: string
+    /**
+     * The date of birth of the contact (Available when 'type' is 'contact')
+     * example:
+     * 2019-08-14
+     */
+    dateOfBirth?: string // date
     /**
      * The type of the contact (contact/company)
      */
@@ -7570,9 +7612,15 @@ export interface LandlordModelPagedResult {
        */
       forename?: string
       /**
-       * The surname of the the contact (Available when 'type' is 'contact')
+       * The surname of the contact (Available when 'type' is 'contact')
        */
       surname?: string
+      /**
+       * The date of birth of the contact (Available when 'type' is 'contact')
+       * example:
+       * 2019-08-14
+       */
+      dateOfBirth?: string // date
       /**
        * The type of the contact (contact/company)
        */
@@ -8002,9 +8050,15 @@ export interface OfferContactModel {
    */
   forename?: string
   /**
-   * The surname of the the contact (Available when 'type' is 'contact')
+   * The surname of the contact (Available when 'type' is 'contact')
    */
   surname?: string
+  /**
+   * The date of birth of the contact (Available when 'type' is 'contact')
+   * example:
+   * 2019-08-14
+   */
+  dateOfBirth?: string // date
   /**
    * The type of the contact (contact/company)
    */
@@ -8154,9 +8208,15 @@ export interface OfferModel {
      */
     forename?: string
     /**
-     * The surname of the the contact (Available when 'type' is 'contact')
+     * The surname of the contact (Available when 'type' is 'contact')
      */
     surname?: string
+    /**
+     * The date of birth of the contact (Available when 'type' is 'contact')
+     * example:
+     * 2019-08-14
+     */
+    dateOfBirth?: string // date
     /**
      * The type of the contact (contact/company)
      */
@@ -8315,9 +8375,15 @@ export interface OfferModelPagedResult {
        */
       forename?: string
       /**
-       * The surname of the the contact (Available when 'type' is 'contact')
+       * The surname of the contact (Available when 'type' is 'contact')
        */
       surname?: string
+      /**
+       * The date of birth of the contact (Available when 'type' is 'contact')
+       * example:
+       * 2019-08-14
+       */
+      dateOfBirth?: string // date
       /**
        * The type of the contact (contact/company)
        */
@@ -9413,6 +9479,12 @@ export interface PropertyModel {
      */
     exchanged?: string // date
     /**
+     * The date the property account was paid
+     * example:
+     * 2019-08-14
+     */
+    accountPaid?: string // date
+    /**
      * Representation of the tenure of a property
      */
     tenure?: {
@@ -9886,6 +9958,12 @@ export interface PropertyModelPagedResult {
        */
       exchanged?: string // date
       /**
+       * The date the property account was paid
+       * example:
+       * 2019-08-14
+       */
+      accountPaid?: string // date
+      /**
        * Representation of the tenure of a property
        */
       tenure?: {
@@ -10157,6 +10235,12 @@ export interface PropertySellingModel {
    * 2019-08-14
    */
   exchanged?: string // date
+  /**
+   * The date the property account was paid
+   * example:
+   * 2019-08-14
+   */
+  accountPaid?: string // date
   /**
    * Representation of the tenure of a property
    */
@@ -10813,9 +10897,15 @@ export interface TenancyContactModel {
    */
   forename?: string
   /**
-   * The surname of the the contact (Available when 'type' is 'contact')
+   * The surname of the contact (Available when 'type' is 'contact')
    */
   surname?: string
+  /**
+   * The date of birth of the contact (Available when 'type' is 'contact')
+   * example:
+   * 2019-08-14
+   */
+  dateOfBirth?: string // date
   /**
    * The type of the contact (company/contact)
    */
@@ -11141,9 +11231,15 @@ export interface TenancyModel {
      */
     forename?: string
     /**
-     * The surname of the the contact (Available when 'type' is 'contact')
+     * The surname of the contact (Available when 'type' is 'contact')
      */
     surname?: string
+    /**
+     * The date of birth of the contact (Available when 'type' is 'contact')
+     * example:
+     * 2019-08-14
+     */
+    dateOfBirth?: string // date
     /**
      * The type of the contact (company/contact)
      */
@@ -11369,9 +11465,15 @@ export interface TenancyModelPagedResult {
        */
       forename?: string
       /**
-       * The surname of the the contact (Available when 'type' is 'contact')
+       * The surname of the contact (Available when 'type' is 'contact')
        */
       surname?: string
+      /**
+       * The date of birth of the contact (Available when 'type' is 'contact')
+       * example:
+       * 2019-08-14
+       */
+      dateOfBirth?: string // date
       /**
        * The type of the contact (company/contact)
        */
@@ -11673,7 +11775,7 @@ export interface Transactions {
     | 'reserveFunds'
     | 'transfer'
   )[]
-  ledger?: ('landlord' | 'tenant')[]
+  ledger?: ('landlord' | 'tenant' | 'vendor')[]
   category?: (
     | 'advertisingCharge'
     | 'accountTransfer'
@@ -13637,6 +13739,12 @@ export interface UpdatePropertyModel {
      */
     exchanged?: string // date
     /**
+     * The date the property account was paid
+     * example:
+     * 2019-08-14
+     */
+    accountPaid?: string // date
+    /**
      * Request body used to set the tenure of an existing property
      */
     tenure?: {
@@ -13839,6 +13947,12 @@ export interface UpdatePropertySellingModel {
    * 2019-08-14
    */
   exchanged?: string // date
+  /**
+   * The date the property account was paid
+   * example:
+   * 2019-08-14
+   */
+  accountPaid?: string // date
   /**
    * Request body used to set the tenure of an existing property
    */
@@ -14360,9 +14474,15 @@ export interface VendorContactModel {
    */
   forename?: string
   /**
-   * The surname of the the contact (Available when 'type' is 'contact')
+   * The surname of the contact (Available when 'type' is 'contact')
    */
   surname?: string
+  /**
+   * The date of birth of the contact (Available when 'type' is 'contact')
+   * example:
+   * 2019-08-14
+   */
+  dateOfBirth?: string // date
   /**
    * The type of the contact (company/contact)
    */
@@ -14614,9 +14734,15 @@ export interface VendorModel {
      */
     forename?: string
     /**
-     * The surname of the the contact (Available when 'type' is 'contact')
+     * The surname of the contact (Available when 'type' is 'contact')
      */
     surname?: string
+    /**
+     * The date of birth of the contact (Available when 'type' is 'contact')
+     * example:
+     * 2019-08-14
+     */
+    dateOfBirth?: string // date
     /**
      * The type of the contact (company/contact)
      */
@@ -14796,9 +14922,15 @@ export interface VendorModelPagedResult {
        */
       forename?: string
       /**
-       * The surname of the the contact (Available when 'type' is 'contact')
+       * The surname of the contact (Available when 'type' is 'contact')
        */
       surname?: string
+      /**
+       * The date of birth of the contact (Available when 'type' is 'contact')
+       * example:
+       * 2019-08-14
+       */
+      dateOfBirth?: string // date
       /**
        * The type of the contact (company/contact)
        */
