@@ -11,11 +11,10 @@ import { ApiKeyModel } from '@reapit/api-key-verify'
 import { getApiKey, updateApiKey as update } from '@/services'
 import { connectSessionVerifyDecodeIdTokenWithPublicKeys, LoginIdentity } from '@reapit/connect-session'
 import publicKeys from '../../public-keys.json'
+import { defaultOutputHeaders } from './../constants'
 
 export const updateApiKey = httpHandler<ApiKeyDto, ApiKeyModel>({
-  defaultOutputHeaders: {
-    'Access-Control-Allow-Origin': '*',
-  },
+  defaultOutputHeaders,
   handler: async ({ body, event }): Promise<ApiKeyModel> => {
     let customer: LoginIdentity | undefined
 

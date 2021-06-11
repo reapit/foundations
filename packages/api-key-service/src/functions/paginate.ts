@@ -3,6 +3,7 @@ import { httpHandler, UnauthorizedException } from '@homeservenow/serverless-aws
 import { batchGetApiKeys } from './../services'
 import { connectSessionVerifyDecodeIdTokenWithPublicKeys, LoginIdentity } from '@reapit/connect-session'
 import publicKeys from './../../public-keys.json'
+import { defaultOutputHeaders } from './../constants'
 
 type Pagintation<T> = {
   items: T[]
@@ -13,9 +14,7 @@ type Pagintation<T> = {
 }
 
 export const paginateApiKeys = httpHandler<void, Pagintation<ApiKeyModel>>({
-  defaultOutputHeaders: {
-    'Access-Control-Allow-Origin': '*',
-  },
+  defaultOutputHeaders,
   handler: async ({ event }): Promise<Pagintation<ApiKeyModel>> => {
     let customer: LoginIdentity | undefined
 

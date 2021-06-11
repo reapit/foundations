@@ -3,11 +3,10 @@ import { httpHandler, UnauthorizedException } from '@homeservenow/serverless-aws
 import { connectSessionVerifyDecodeIdTokenWithPublicKeys, LoginIdentity } from '@reapit/connect-session'
 import { getApiKey as get } from '../services'
 import publicKeys from '../../public-keys.json'
+import { defaultOutputHeaders } from './../constants'
 
 export const getApiKey = httpHandler<void, ApiKeyModel>({
-  defaultOutputHeaders: {
-    'Access-Control-Allow-Origin': '*',
-  },
+  defaultOutputHeaders,
   handler: async ({ event }) => {
     let customer: LoginIdentity | undefined
 
