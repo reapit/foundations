@@ -1,5 +1,5 @@
 import { configurationApiKeyApiService } from '../configuration-api'
-import { ListItemModel } from '@reapit/foundations-ts-definitions'
+import { ApiKeyEntityType, ApiKeyInterface, ListItemModel } from '@reapit/foundations-ts-definitions'
 import { mockBrowserSession } from '../__mocks__/session'
 import { fetcher } from '@reapit/elements'
 
@@ -8,14 +8,17 @@ jest.mock('@reapit/elements')
 const mockedFetch = fetcher as jest.Mock
 const mockConfigurationAppointments = [
   {
-    id: 'some_id',
-    value: 'some_value',
-  },
-] as ListItemModel[]
+    id: 'some-uuid',
+    apiKey: 'another-uuid',
+    keyExpiresAt: new Date().toISOString(),
+    keyCreatedAt: new Date().toISOString(),
+    entityType: ApiKeyEntityType.DEPLOYMENT,
+  }
+] as (ApiKeyInterface & { id: string })[]
 
 describe('configurationApiKeyApiService', () => {
   it('should return a response from the config service', async () => {
-    mockedFetch.mockReturnValueOnce(mockConfigurationAppointments)
+    mockedFetch.mockReturnValueOnce({ items: mockConfigurationAppointments })
     expect(await configurationApiKeyApiService(mockBrowserSession)).toEqual(mockConfigurationAppointments)
     expect(fetcher).toHaveBeenCalledTimes(1)
   })
