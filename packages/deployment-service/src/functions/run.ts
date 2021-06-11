@@ -4,14 +4,13 @@ import { resolveDeveloperId } from './../utils'
 import { httpHandler, HttpStatusCode, NotFoundException } from '@homeservenow/serverless-aws-handler'
 import { execSync } from 'child_process'
 import { resolve } from 'path'
+import { defaultOutputHeaders } from './../constants'
 
 const cloneDir = 'project'
 const dir = resolve('/tmp')
 
 export const deployRun = httpHandler({
-  defaultOutputHeaders: {
-    'Access-Control-Allow-Origin': '*',
-  },
+  defaultOutputHeaders,
   defaultStatusCode: HttpStatusCode.OK,
   handler: async ({ event }) => {
     const developerId = await resolveDeveloperId(event)
