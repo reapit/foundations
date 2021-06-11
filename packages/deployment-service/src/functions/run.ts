@@ -28,8 +28,9 @@ export const deployRun = httpHandler({
     }
 
     try {
-      console.log('hello! cloning now with simple-git')
-      const clone = await execSync(`curl -o ${cloneDir} -s -O ${deployment.repository}`)
+      const clone = execSync(`git clone ${deployment.repository} ${cloneDir}`, {
+        cwd: dir,
+      })
       console.log('clone', clone.toString())
     } catch (e) {
       // console.error(e)
