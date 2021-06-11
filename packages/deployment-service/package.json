@@ -6,7 +6,8 @@
     "@reapit/utils": "workspace:packages/utils",
     "class-transformer": "^0.4.0",
     "class-validator": "^0.13.1",
-    "jsonwebtoken": "^8.5.1"
+    "jsonwebtoken": "^8.5.1",
+    "simple-git": "^2.39.1"
   },
   "scripts": {
     "start": "reapit-fetch-public-keys yarn build && yarn serverless offline start --runtime nodejs12.x --stage local",
