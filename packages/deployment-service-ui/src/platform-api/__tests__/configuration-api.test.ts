@@ -1,5 +1,5 @@
 import { configurationApiKeyApiService } from '../configuration-api'
-import { ApiKeyEntityType, ApiKeyInterface, ListItemModel } from '@reapit/foundations-ts-definitions'
+import { ApiKeyEntityType, ApiKeyInterface } from '@reapit/foundations-ts-definitions'
 import { mockBrowserSession } from '../__mocks__/session'
 import { fetcher } from '@reapit/elements'
 
@@ -13,7 +13,7 @@ const mockConfigurationAppointments = [
     keyExpiresAt: new Date().toISOString(),
     keyCreatedAt: new Date().toISOString(),
     entityType: ApiKeyEntityType.DEPLOYMENT,
-  }
+  },
 ] as (ApiKeyInterface & { id: string })[]
 
 describe('configurationApiKeyApiService', () => {
