@@ -2,6 +2,7 @@ import { PipelineModel } from '@/models'
 import { ownership, resolveDeveloperId } from '@/utils'
 import { httpHandler, NotFoundException } from '@homeservenow/serverless-aws-handler'
 import * as service from '../services'
+import { defaultOutputHeaders } from './../constants'
 
 /**
  * Create a new pipeline for deployment
@@ -9,9 +10,7 @@ import * as service from '../services'
  * Cancels all existing running pipelines
  */
 export const createPipeline = httpHandler<void, PipelineModel>({
-  defaultOutputHeaders: {
-    'Access-Control-Allow-Origin': '*',
-  },
+  defaultOutputHeaders,
   handler: async ({ event }): Promise<PipelineModel> => {
     const deploymentId = event.pathParameters?.deploymentId
 

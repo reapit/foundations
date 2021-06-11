@@ -5,14 +5,13 @@ import * as service from '@/services/deployment'
 import { plainToClass } from 'class-transformer'
 import { validate } from 'class-validator'
 import { resolveDeveloperId } from './../utils'
+import { defaultOutputHeaders } from './../constants'
 
 /**
  * Create a deployment
  */
 export const createDeployment = httpHandler<DeploymentDto, DeploymentModel>({
-  defaultOutputHeaders: {
-    'Access-Control-Allow-Origin': '*',
-  },
+  defaultOutputHeaders,
   validator: async (dto: DeploymentDto): Promise<DeploymentDto> => {
     const errors = await validate(dto)
 

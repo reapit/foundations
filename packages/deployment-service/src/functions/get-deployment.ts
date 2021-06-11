@@ -2,14 +2,13 @@ import { httpHandler, NotFoundException } from '@homeservenow/serverless-aws-han
 import { DeploymentModel } from '@/models'
 import * as service from '@/services/deployment'
 import { ownership, resolveDeveloperId } from '@/utils'
+import { defaultOutputHeaders } from './../constants'
 
 /**
  * Get a deployment by id
  */
 export const getDeployment = httpHandler({
-  defaultOutputHeaders: {
-    'Access-Control-Allow-Origin': '*',
-  },
+  defaultOutputHeaders,
   handler: async ({ event }): Promise<DeploymentModel> => {
     const developerId = await resolveDeveloperId(event)
 

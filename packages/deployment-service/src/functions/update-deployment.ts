@@ -4,14 +4,13 @@ import { DeploymentModel } from '@/models'
 import * as service from '@/services/deployment'
 import { validate } from 'class-validator'
 import { ownership, resolveDeveloperId } from '@/utils'
+import { defaultOutputHeaders } from './../constants'
 
 /**
  * Update a given deployment
  */
 export const updateDeployment = httpHandler<DeploymentDto, DeploymentModel>({
-  defaultOutputHeaders: {
-    'Access-Control-Allow-Origin': '*',
-  },
+  defaultOutputHeaders,
   validator: async (dto: DeploymentDto): Promise<DeploymentDto> => {
     const errors = await validate(dto)
 

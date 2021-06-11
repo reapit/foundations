@@ -3,15 +3,14 @@ import { ownership, resolveDeveloperId } from '@/utils'
 import { httpHandler, BadRequestException, NotFoundException } from '@homeservenow/serverless-aws-handler'
 import { DeploymentStatus } from '@reapit/foundations-ts-definitions'
 import * as service from '../services'
+import { defaultOutputHeaders } from './../constants'
 
 /**
  * Update a pipeline (cancel)
  */
 // TODO refactor to delete method instead?
 export const updatePipeline = httpHandler<{ buildStatus: DeploymentStatus.CANCELED }, PipelineModel>({
-  defaultOutputHeaders: {
-    'Access-Control-Allow-Origin': '*',
-  },
+  defaultOutputHeaders,
   validator: (payload) => {
     if (payload.buildSTatus && payload.buildSTatus !== DeploymentStatus.CANCELED) {
       throw new BadRequestException('Validation errors: Status can only be canceled')
