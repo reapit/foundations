@@ -1,7 +1,7 @@
 import Routes from '@/constants/routes'
 import { reapitConnectBrowserSession } from '@/core/connect-session'
 import { ReapitConnectSession, useReapitConnect } from '@reapit/connect-session'
-import { ButtonGroup, H3, Section } from '@reapit/elements'
+import { ButtonGroup, H3, notification, Section } from '@reapit/elements'
 import { Button, Table } from '@reapit/elements'
 import { Loader } from '@reapit/elements/v3'
 import { DeploymentModelInterface } from '@reapit/foundations-ts-definitions'
@@ -41,6 +41,7 @@ export default () => {
 
     setDeletionLoading(deletionLoading.filter((del) => del !== id))
     setDeployments(deployments.filter((deployment) => deployment.id !== id))
+    notification.success({ message: 'Deployment deleted' })
   }
 
   const deployDeployment = async (id: string) => {
