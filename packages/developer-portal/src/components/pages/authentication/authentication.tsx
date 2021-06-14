@@ -6,7 +6,7 @@ import Routes from '@/constants/routes'
 import { reapitConnectBrowserSession } from '@/core/connect-session'
 import { ReapitConnectSession, useReapitConnect } from '@reapit/connect-session'
 import { useDispatch, useSelector } from 'react-redux'
-import { COGNITO_GROUP_ADMIN_USERS } from '../../../selector/auth'
+import { COGNITO_GROUP_ADMIN_USERS, selectDeveloperId } from '../../../selector/auth'
 import { CreateDeveloperModel } from '@reapit/foundations-ts-definitions'
 import { Dispatch } from 'redux'
 import { developerCreate } from '../../../actions/developer'
@@ -45,6 +45,7 @@ const Authentication: React.FC = () => {
   const developerCreateState = useSelector(selectDeveloperFormState)
   const orgName = connectSession?.loginIdentity.orgName ?? ''
   const isUserAdmin = connectSession?.loginIdentity?.groups.includes(COGNITO_GROUP_ADMIN_USERS)
+  const developerId = useSelector(selectDeveloperId)
   const isLoading = developerCreateState === 'SUBMITTING'
 
   if (!connectSession) {
@@ -83,7 +84,7 @@ const Authentication: React.FC = () => {
       }
     >
       <p>
-        {isUserAdmin
+        {isUserAdmin && !developerId
           ? `To continue using the Developers Portal, you will first need to setup your profile information for your organisation ‘${orgName}’. Please click ‘Continue’ to proceed, where you will be redirected to setup your organisation's profile.`
           : `As you are a part of the ‘${orgName}’ group, you will need to be invited to join this Developer organisation by an Administrator. Please contact an Administrator within your organisation to request an invitation.`}
       </p>
