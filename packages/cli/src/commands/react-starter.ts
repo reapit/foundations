@@ -3,6 +3,8 @@ import { AbstractCommand } from './../abstract.command'
 import { exec } from 'child_process'
 import ora, { Ora } from 'ora'
 import chalk from 'chalk'
+import fs from 'fs'
+import { resolve } from 'path'
 
 type ReapitConfig = {
   connectClientId: string
@@ -54,6 +56,131 @@ export class ReactStarterCommand extends AbstractCommand {
     await this.writeConfigFile(`${path}/src/reapit.config.json`, reapitConfig)
   }
 
+  protected async createServerlessConfig(): Promise<void> {
+    const content = `
+service: cloud-geo-diary
+plugins:
+  - serverless-single-page-app-plugin
+  - serverless-deployment-bucket
+  - serverless-s3-remover
+  - serverless-s3-deploy
+
+custom:
+  s3WebAppBucket: cloud-geo-diary-web-app-\${opt:stage, 'dev'}
+  s3CloudFormBucket: cloud-deployment-cloudform-templates-\${opt:stage, 'dev'}
+  remover:
+      buckets:
+        - \${self:custom.s3WebAppBucket}
+  assets:
+    auto: true
+    targets:
+      - bucket: \${self:custom.s3WebAppBucket}
+        files:
+          - source: ./public/dist/
+            globs: '**/*'
+provider:
+  name: aws
+  runtime: nodejs14.x
+  stage: \${opt:stage, 'dev'}
+  region: eu-west-2
+  deploymentBucket:
+    name: \${self:custom.s3CloudFormBucket}
+
+resources:
+  Resources:
+    ## Specifying the S3 Bucket
+    WebAppS3Bucket:
+      Type: AWS::S3::Bucket
+      Properties:
+        BucketName: \${self:custom.s3WebAppBucket}
+        AccessControl: PublicRead
+        WebsiteConfiguration:
+          IndexDocument: index.html
+          ErrorDocument: error.html
+
+    ## Specifying the policies to make sure all files inside the Bucket are available to CloudFront
+    WebAppS3BucketPolicy:
+      Type: AWS::S3::BucketPolicy
+      Properties:
+        Bucket:
+          Ref: WebAppS3Bucket
+        PolicyDocument:
+          Statement:
+            - Sid: PublicReadGetObject
+              Effect: Allow
+              Principal: "*"
+              Action:
+              - s3:GetObject
+              Resource:
+                Fn::Join: [
+                  "", [
+                    "arn:aws:s3:::",
+                    { "Ref": "WebAppS3Bucket" },
+                    "/*"
+                  ]
+                ]
+
+    ## Specifying the CloudFront Distribution to server your Web Application
+    WebAppCloudFrontDistribution:
+      Type: AWS::CloudFront::Distribution
+      Properties:
+        DistributionConfig:
+          Origins:
+            - DomainName:
+                Fn::Join: [
+                  "", [
+                    { "Ref": "WebAppS3Bucket" },
+                    ".s3.amazonaws.com"
+                  ]
+                ]
+              Id: S3-\${self:custom.s3WebAppBucket}
+              CustomOriginConfig:
+                HTTPPort: 80
+                HTTPSPort: 443
+                OriginProtocolPolicy: https-only
+              ## In case you want to restrict the bucket access use S3OriginConfig and remove CustomOriginConfig
+              # S3OriginConfig:
+              #   OriginAccessIdentity: origin-access-identity/cloudfront/E127EXAMPLE51Z
+          Enabled: 'true'
+          DefaultRootObject: index.html
+          CustomErrorResponses:
+            - ErrorCode: 404
+              ResponseCode: 200
+              ResponsePagePath: /index.html
+            - ErrorCode: 403
+              ResponseCode: 200
+              ResponsePagePath: /index.html
+            - ErrorCode: 400
+              ResponseCode: 200
+              ResponsePagePath: /index.html
+          DefaultCacheBehavior:
+            AllowedMethods:
+              - GET
+              - HEAD
+              - OPTIONS
+            TargetOriginId: S3-\${self:custom.s3WebAppBucket}
+            ForwardedValues:
+              QueryString: 'false'
+              Cookies:
+                Forward: none
+            ViewerProtocolPolicy: redirect-to-https
+          ViewerCertificate:
+            CloudFrontDefaultCertificate: 'true'
+          # Logging:
+          #   IncludeCookies: 'false'
+          #   Bucket: mylogs.s3.amazonaws.com
+          #   Prefix: myprefix
+  Outputs:
+    WebAppCloudFrontDistributionOutput:
+      Value:
+        'Fn::GetAtt': [ WebAppCloudFrontDistribution, DomainName ]
+    `
+
+    await fs.promises.writeFile(resolve(process.cwd(), 'serverless.yml'), content, {
+      encoding: 'utf8',
+    })
+  }
+
   async run(
     @Param({
       name: 'name',
@@ -85,6 +212,10 @@ export class ReactStarterCommand extends AbstractCommand {
     await this.updateConfigValues(name, clientId, userPool)
 
     spinner.succeed('Finished param config setup')
+
+    spinner.start('Creating serverless config')
+    await this.createServerlessConfig()
+    spinner.succeed('Serverless file created')
 
     console.log(`
 
