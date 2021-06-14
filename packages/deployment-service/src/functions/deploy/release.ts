@@ -56,18 +56,20 @@ export const deployRelease = httpHandler<any, void>({
 /**
  * List releases
  */
-export const releases = httpHandler<any, any[]>({
+export const deployReleases = httpHandler<any, string[]>({
   handler: async ({ event }) => {
     const developerId = await resolveDeveloperId(event)
 
-    const files = await new Promise<Object[]>((resolve, reject) =>
+    console.log('looknig for', [developerId, event.pathParameters?.project as string].join(fileSeparator))
+
+    const files = await new Promise<string[]>((resolve, reject) =>
       s3Client.listObjectsV2(
         {
           Bucket: process.env.DEPLOYMENT_BUCKET_NAME as string,
           Delimiter: [developerId, event.pathParameters?.project as string].join(fileSeparator),
         },
         (err, data) => {
-          if (typeof data !== 'undefined' && Array.isArray(data)) resolve(data.Contents as Object[])
+          if (typeof data !== 'undefined' && Array.isArray(data)) resolve(data.map(fi => fi.Name))
           reject()
         },
       ),
