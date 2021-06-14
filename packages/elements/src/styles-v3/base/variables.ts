@@ -99,6 +99,11 @@ export const elVariables = css`
       --component-input-border-bottom: 1px solid #000000;
       --component-steps-gutter-width: 12px;
       --component-table-min-column-width: 3rem;
+
+      --nav-menu-background-dark: var(--color-blue-dark);
+      --nav-menu-background-accent: var(--color-blue-dark2);
+      --nav-menu-text: var(--color-white);
+      --nav-menu-text-hover: var(--color-white);
     }
   }
 `

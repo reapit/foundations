@@ -4,8 +4,8 @@ exports[`MediaStateProvider should match snapshot 1`] = `
 <ContextProvider
   value={
     Object {
-      "isDesktop": false,
-      "isMobile": true,
+      "isDesktop": true,
+      "isMobile": false,
       "isTablet": false,
       "isWideScreen": false,
     }

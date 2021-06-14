@@ -7,11 +7,17 @@ const chevronRight = (fill: string) =>
     fill,
   )}"/></svg>`
 
+export const elNavIsDesktop = css`
+  --nav-menu-background-dark: var(--color-grey-dark);
+  --nav-menu-background-accent: var(--color-grey-medium);
+  --nav-menu-text-hover: var(--color-black);
+`
+
 export const ElNavContainer = styled.nav`
   display: flex;
   flex-direction: column;
   justify-content: flex-start;
-  background-color: var(--color-blue-dark);
+  background-color: var(--nav-menu-background-dark);
   height: auto;
   width: 100%;
   position: sticky;
@@ -27,7 +33,7 @@ export const ElNavContainer = styled.nav`
 `
 
 export const ElNavSubContainer = styled.div`
-  background-color: var(--color-blue-dark2);
+  background-color: var(--nav-menu-background-accent);
 `
 
 export const ElNavItem = styled.a`
@@ -48,15 +54,15 @@ export const ElNavItem = styled.a`
   }
 
   &:hover {
-    color: var(--color-white);
-    background-color: var(--color-blue-dark2);
+    color: var(--nav-menu-text-hover);
+    background-color: var(--nav-menu-background-accent);
   }
 
   &:first-child {
     height: 48px;
     opacity: 1;
     padding: 0;
-    background-color: var(--color-blue-dark);
+    background-color: var(--nav-menu-background-dark);
   }
 
   @media screen and (min-width: 768px) {
@@ -78,7 +84,7 @@ export const ElNavItem = styled.a`
       height: 72px;
 
       &:hover {
-        background-color: var(--color-blue-dark2);
+        background-color: var(--nav-menu-background-accent);
       }
     }
   }
@@ -86,8 +92,8 @@ export const ElNavItem = styled.a`
 
 export const elNavItemActive = css`
   @media screen and (min-width: 768px) {
-    color: var(--color-white);
-    background-color: var(--color-blue-dark2);
+    color: var(--nav-menu-text-hover);
+    background-color: var(--nav-menu-background-accent);
   }
 `
 
@@ -161,7 +167,7 @@ export const elNavSubItemActive = css`
     border-radius: 0.25rem;
     background-repeat: no-repeat;
     background-image: linear-gradient(to right, var(--color-blue-light), var(--color-blue-light));
-    outline-color: var(--color-blue-dark);
+    outline-color: var(--nav-menu-background-dark);
     background-size: calc(100% - 1rem);
     background-position-x: left;
     padding-right: 1.5rem;

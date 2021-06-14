@@ -1,0 +1,80 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`NavResponsive component should match a snapshot 1`] = `
+<ContextProvider
+  value={
+    Object {
+      "navState": Object {
+        "navItemIndex": null,
+        "navMenuOpen": false,
+        "navSubItemIndex": null,
+        "navSubMenuIndex": null,
+      },
+      "setNavState": [Function],
+    }
+  }
+>
+  <MediaStateProvider>
+    <NavResponsive
+      defaultNavIndex={1}
+      options={
+        Array [
+          Object {
+            "callback": [Function],
+            "itemIndex": 0,
+          },
+          Object {
+            "callback": [Function],
+            "iconId": "apps",
+            "itemIndex": 1,
+            "subItems": Array [
+              Object {
+                "callback": [Function],
+                "itemIndex": 0,
+                "text": "App List",
+              },
+              Object {
+                "callback": [Function],
+                "itemIndex": 1,
+                "text": "Create App",
+              },
+            ],
+            "text": "Apps",
+          },
+          Object {
+            "callback": [Function],
+            "iconId": "analytics",
+            "itemIndex": 2,
+            "subItems": Array [
+              Object {
+                "callback": [Function],
+                "itemIndex": 2,
+                "text": "Hits Per Day",
+              },
+              Object {
+                "callback": [Function],
+                "itemIndex": 3,
+                "text": "Weekly Hits",
+              },
+            ],
+            "text": "Analytics",
+          },
+          Object {
+            "href": "https://marketplace.reapit.cloud",
+            "iconId": "marketplace",
+            "itemIndex": 3,
+            "text": "Marketplace",
+          },
+          Object {
+            "callback": [Function],
+            "iconId": "logout",
+            "isSecondary": true,
+            "itemIndex": 4,
+            "text": "Logout",
+          },
+        ]
+      }
+    />
+  </MediaStateProvider>
+</ContextProvider>
+`;
