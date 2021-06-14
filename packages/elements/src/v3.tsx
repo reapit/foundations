@@ -33,5 +33,7 @@ export * from './components-v3/MultiSelect'
 export * from './hooks/usePortal-v3'
 export * from './hooks/useSnack-v3'
 export * from './hooks/useModal-v3'
+export * from './hooks/use-media-query'
+export * from './hooks/use-nav-state'
 
 export * from './contexts/snacks'
