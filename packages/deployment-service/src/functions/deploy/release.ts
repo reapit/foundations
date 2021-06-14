@@ -13,7 +13,7 @@ import { s3Client } from '../../services'
  *
  */
 
-const fileSeparator = '-'
+const fileSeparator = '/'
 
 const fileName = (developerId: string, project: string, version: string): string =>
   [developerId, project, version].join(fileSeparator) + '.zip'
@@ -60,17 +60,17 @@ export const deployReleases = httpHandler<any, string[]>({
   handler: async ({ event }) => {
     const developerId = await resolveDeveloperId(event)
 
-    console.log('looknig for', [developerId, event.pathParameters?.project as string].join(fileSeparator))
-
     const files = await new Promise<string[]>((resolve, reject) =>
       s3Client.listObjectsV2(
         {
           Bucket: process.env.DEPLOYMENT_BUCKET_NAME as string,
-          Delimiter: [developerId, event.pathParameters?.project as string].join(fileSeparator),
+          Delimiter: fileSeparator,
+          Prefix: `${[developerId, event.pathParameters?.project as string].join(fileSeparator)}/`,
         },
         (err, data) => {
-          if (typeof data !== 'undefined' && Array.isArray(data)) resolve(data.map(fi => fi.Name))
+          if (data) resolve(data.Contents?.map((file) => file.Key as string) || ([] as string[]))
           reject()
+          console.error(err)
         },
       ),
     )
