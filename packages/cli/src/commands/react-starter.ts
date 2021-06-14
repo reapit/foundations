@@ -56,7 +56,7 @@ export class ReactStarterCommand extends AbstractCommand {
     await this.writeConfigFile(`${path}/src/reapit.config.json`, reapitConfig)
   }
 
-  protected async createServerlessConfig(): Promise<void> {
+  protected async createServerlessConfig(path: string): Promise<void> {
     const content = `
 service: cloud-geo-diary
 plugins:
@@ -176,7 +176,7 @@ resources:
         'Fn::GetAtt': [ WebAppCloudFrontDistribution, DomainName ]
     `
 
-    await fs.promises.writeFile(resolve(process.cwd(), 'serverless.yml'), content, {
+    await fs.promises.writeFile(resolve(process.cwd(), path, 'serverless.yml'), content, {
       encoding: 'utf8',
     })
   }
@@ -214,7 +214,7 @@ resources:
     spinner.succeed('Finished param config setup')
 
     spinner.start('Creating serverless config')
-    await this.createServerlessConfig()
+    await this.createServerlessConfig(name)
     spinner.succeed('Serverless file created')
 
     console.log(`
