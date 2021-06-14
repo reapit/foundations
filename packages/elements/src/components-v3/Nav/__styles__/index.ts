@@ -22,7 +22,7 @@ export const ElNavContainer = styled.nav`
   width: 100%;
   position: sticky;
   top: 0;
-  z-index: 1;
+  z-index: 3;
 
   @media screen and (min-width: 768px) {
     height: 100%;

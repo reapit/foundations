@@ -1,5 +1,5 @@
 import cx from 'linaria/lib/core/cx'
-import React, { FC, HTMLAttributes, ReactNode } from 'react'
+import React, { FC, Fragment, HTMLAttributes, ReactNode } from 'react'
 import { useNavState } from '../../hooks/use-nav-state'
 import { useMediaQuery } from '../../hooks/use-media-query'
 import { elIntentNeutral } from '../../styles-v3/base/intent'
@@ -86,10 +86,9 @@ export const NavResponsive: FC<NavResponsiveProps> = ({
           }
 
           return (
-            <>
+            <Fragment key={itemIndex}>
               <NavItem
                 className={cx(navItemIndex === itemIndex && elNavItemActive, navMenuOpen && elNavItemExpanded)}
-                key={itemIndex}
                 href={href}
                 isSecondary={isSecondary}
                 onClick={
@@ -98,6 +97,7 @@ export const NavResponsive: FC<NavResponsiveProps> = ({
                         navItemIndex: itemIndex,
                         navSubMenuIndex: navMenuOpen && navSubMenuIndex === itemIndex ? null : itemIndex,
                         navSubItemIndex: navMenuOpen && navSubMenuIndex === itemIndex ? null : navSubItemIndex,
+                        callback,
                       })
                     : setNavState({ navItemIndex: itemIndex, callback })
                 }
@@ -112,7 +112,7 @@ export const NavResponsive: FC<NavResponsiveProps> = ({
                 )}
               </NavItem>
               {subItems && subItems.length && (
-                <NavSubNav>
+                <NavSubNav key={Math.floor(Math.random() * 1)}>
                   {subItems.map(
                     ({
                       callback: innerCallback,
@@ -137,7 +137,7 @@ export const NavResponsive: FC<NavResponsiveProps> = ({
                   )}
                 </NavSubNav>
               )}
-            </>
+            </Fragment>
           )
         },
       )}
