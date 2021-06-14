@@ -1,13 +1,15 @@
-import React, { Dispatch, FC, memo, SetStateAction } from 'react'
-import { ButtonGroup, Button } from '@reapit/elements'
+import React, { ChangeEvent, Dispatch, FC, memo, SetStateAction } from 'react'
 import { AppState, AppTravelMode, useAppState } from '../../../core/app-state'
+import { ToggleRadio, FlexContainer, elMb2 } from '@reapit/elements/v3'
 
 export type HandleChangeTravelModeParams = {
-  travelMode: AppTravelMode
   setAppState: Dispatch<SetStateAction<AppState>>
 }
 
-export const handleChangeTravelMode = ({ setAppState, travelMode }: HandleChangeTravelModeParams) => () => {
+export const handleChangeTravelMode = ({ setAppState }: HandleChangeTravelModeParams) => (
+  event: ChangeEvent<HTMLInputElement>,
+) => {
+  const travelMode = (event.currentTarget.value ?? 'DRIVING') as AppTravelMode
   setAppState((currentState) => {
     return {
       ...currentState,
@@ -20,22 +22,28 @@ export const TravelMode: FC = () => {
   const { appState, setAppState } = useAppState()
   const { travelMode } = appState
   return (
-    <ButtonGroup isCentered className="is-narrow mb-2">
-      <Button
-        type="button"
-        variant={travelMode !== 'WALKING' ? 'primary' : 'secondary'}
-        onClick={handleChangeTravelMode({ setAppState, travelMode: 'DRIVING' })}
-      >
-        Car
-      </Button>
-      <Button
-        type="button"
-        variant={travelMode === 'WALKING' ? 'primary' : 'secondary'}
-        onClick={handleChangeTravelMode({ setAppState, travelMode: 'WALKING' })}
-      >
-        Walk
-      </Button>
-    </ButtonGroup>
+    <div className={elMb2}>
+      <FlexContainer isFlexJustifyCenter>
+        <ToggleRadio
+          name="travel-mode"
+          onChange={handleChangeTravelMode({ setAppState })}
+          options={[
+            {
+              id: 'driving',
+              value: 'DRIVING',
+              text: 'Driving',
+              isChecked: travelMode === 'DRIVING',
+            },
+            {
+              id: 'walking',
+              value: 'WALKING',
+              text: 'Walking',
+              isChecked: travelMode === 'WALKING',
+            },
+          ]}
+        />
+      </FlexContainer>
+    </div>
   )
 }
 

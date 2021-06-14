@@ -1,16 +1,16 @@
-import React, { Dispatch, memo, SetStateAction } from 'react'
-import { ButtonGroup, Button } from '@reapit/elements'
+import React, { ChangeEvent, Dispatch, memo, SetStateAction } from 'react'
 import { AppState, useAppState, AppTimeRange } from '../../../core/app-state'
+import { elMb2, FlexContainer, ToggleRadio } from '@reapit/elements/v3'
 
 export type HandleChangeTimeParams = {
-  time: AppTimeRange
   setAppState: Dispatch<SetStateAction<AppState>>
 }
 
-export const handleChangeTime = ({ time, setAppState }: HandleChangeTimeParams) => () => {
+export const handleChangeTime = ({ setAppState }: HandleChangeTimeParams) => (event: ChangeEvent<HTMLInputElement>) => {
+  const time = (event.currentTarget.value ?? 'TODAY') as AppTimeRange
   setAppState((currentState) => ({
     ...currentState,
-    time: time,
+    time,
     destinationLat: null,
     destinationLng: null,
     appointmentId: null,
@@ -21,29 +21,34 @@ export const AppointmentTime = () => {
   const { appState, setAppState } = useAppState()
   const { time } = appState
   return (
-    <ButtonGroup className="is-narrow mb-2" isCentered>
-      <Button
-        type="button"
-        variant={time !== 'TOMORROW' && time !== 'WEEK' ? 'primary' : 'secondary'}
-        onClick={handleChangeTime({ setAppState, time: 'TODAY' })}
-      >
-        TODAY
-      </Button>
-      <Button
-        type="button"
-        variant={time === 'TOMORROW' ? 'primary' : 'secondary'}
-        onClick={handleChangeTime({ setAppState, time: 'TOMORROW' })}
-      >
-        TOMORROW
-      </Button>
-      <Button
-        type="button"
-        variant={time === 'WEEK' ? 'primary' : 'secondary'}
-        onClick={handleChangeTime({ setAppState, time: 'WEEK' })}
-      >
-        WEEK
-      </Button>
-    </ButtonGroup>
+    <div className={elMb2}>
+      <FlexContainer isFlexJustifyCenter>
+        <ToggleRadio
+          name="appointment-time"
+          onChange={handleChangeTime({ setAppState })}
+          options={[
+            {
+              id: 'today',
+              value: 'TODAY',
+              text: 'Today',
+              isChecked: time === 'TODAY',
+            },
+            {
+              id: 'tomorrow',
+              value: 'TOMORROW',
+              text: 'Tomorrow',
+              isChecked: time === 'TOMORROW',
+            },
+            {
+              id: 'week',
+              value: 'WEEK',
+              text: 'Week',
+              isChecked: time === 'WEEK',
+            },
+          ]}
+        />
+      </FlexContainer>
+    </div>
   )
 }
 

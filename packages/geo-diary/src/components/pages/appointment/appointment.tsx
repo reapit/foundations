@@ -28,6 +28,7 @@ import ErrorBoundary from '../../../core/error-boundary'
 import { MyLocation } from '../../ui/my-location/my-location'
 import ContactDrawer from '../../ui/contact-drawer'
 import { InstallationModelPagedResult } from '@reapit/foundations-ts-definitions'
+import { TabMode } from '../../ui/tab-mode/tab-mode'
 
 export type AppointmentProps = {}
 
@@ -236,6 +237,7 @@ export const Appointment: FC<AppointmentProps> = () => {
   return (
     <ErrorBoundary>
       <ControlsContainer>
+        <TabMode />
         <AppointmentTime />
         <TravelMode />
         <MyLocation />

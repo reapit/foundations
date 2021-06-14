@@ -37,6 +37,7 @@ export interface ToggleRadioOption {
   id: string
   value: string
   text: string
+  isChecked: boolean
 }
 
 export interface ToggleRadioProps extends HTMLAttributes<HTMLInputElement> {
@@ -58,16 +59,19 @@ Typically you will use this component when you want the user to select from a nu
           id: 'option-1',
           value: 'option-1',
           text: 'Option 1',
+          isChecked: true,
         },
         {
           id: 'option-2',
           value: 'option-2',
           text: 'Option 2',
+          isChecked: false,
         },
         {
           id: 'option-3',
           value: 'option-3',
           text: 'Option 3',
+          isChecked: false,
         },
       ]}
     />
