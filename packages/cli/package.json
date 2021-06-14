@@ -1,5 +1,5 @@
 {
-  "version": "0.1.0",
+  "version": "2.3.2",
   "name": "@reapit/cli",
   "description": "A cli tool for reapit cloud",
   "main": "dist/index.js",
@@ -16,6 +16,7 @@
     "simple-git": "^2.39.0"
   },
   "devDependencies": {
+    "@types/adm-zip": "^0.4.34",
     "@types/figlet": "^1.5.1",
     "@types/inquirer": "^7.3.1",
     "@types/yargs": "^16.0.2",

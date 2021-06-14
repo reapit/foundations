@@ -12,6 +12,7 @@ import { ParentCommand } from './parent.command'
 import { DeploymentCommand } from './commands/deployment'
 import { resolveArgs } from './utils/resolveArgs'
 import { ReactStarterCommand } from './commands/react-starter'
+import { DeployCommand } from './commands/deploy'
 
 const boot = async (defaultCommand: AbstractCommand, commands: (AbstractCommand | ParentCommand)[]) => {
   const processArgv = argv(process.argv.slice(2))
@@ -50,4 +51,4 @@ const boot = async (defaultCommand: AbstractCommand, commands: (AbstractCommand 
   }
 }
 
-boot(new IntroCommand(), [new ConfigCommand(), new DeploymentCommand(), new ReactStarterCommand()])
+boot(new IntroCommand(), [new ConfigCommand(), new DeploymentCommand(), new ReactStarterCommand(), new DeployCommand()])

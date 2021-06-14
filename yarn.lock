@@ -5190,6 +5190,7 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "@reapit/cli@workspace:packages/cli"
   dependencies:
+    "@types/adm-zip": ^0.4.34
     "@types/figlet": ^1.5.1
     "@types/inquirer": ^7.3.1
     "@types/yargs": ^16.0.2
@@ -7854,6 +7855,15 @@ __metadata:
   dependencies:
     "@types/node": "*"
   checksum: 78a31c01d948c405a1a6a89061f0acd5a89df40de445c36382538985a3d00a236ba1cc5099bd812118525c2f29bb61d4869cd775ba63dd3e160113b5fa203915
+  languageName: node
+  linkType: hard
+
+"@types/adm-zip@npm:^0.4.34":
+  version: 0.4.34
+  resolution: "@types/adm-zip@npm:0.4.34"
+  dependencies:
+    "@types/node": "*"
+  checksum: da295cb428029c67db9eddfa33c41fd0835493e847781e044d3502270e801ab19b263400e773971e28f620099e9a2900e3e92f5bbea3908501aea60069dd7908
   languageName: node
   linkType: hard
 
