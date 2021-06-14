@@ -8,7 +8,7 @@ export class HelpCommand extends AbstractCommand {
     this.commands = commands
   }
   async run() {
-    this.commands.forEach((command) => {
+    this.commands.sort((a, b) => a instanceof ParentCommand ? 1 : -1).forEach((command) => {
       command.printConfig()
     })
   }
