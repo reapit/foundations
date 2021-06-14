@@ -16,11 +16,12 @@ export const MediaStateContext = createContext<MediaType>({} as MediaType)
 const { Provider } = MediaStateContext
 
 export const MediaStateProvider: React.FC = ({ children }) => {
+  const initialWindowWidth = window.innerWidth
   const [mediaType, setMediaType] = useState<MediaType>({
-    isMobile: true,
-    isTablet: false,
-    isDesktop: false,
-    isWideScreen: false,
+    isMobile: initialWindowWidth < MOBILE_BREAKPOINT,
+    isTablet: initialWindowWidth >= MOBILE_BREAKPOINT && initialWindowWidth < TABLET_BREAKPOINT,
+    isDesktop: initialWindowWidth >= TABLET_BREAKPOINT && initialWindowWidth < DESKTOP_BREAKPOINT,
+    isWideScreen: initialWindowWidth >= DESKTOP_BREAKPOINT,
   })
 
   useEffect(() => {

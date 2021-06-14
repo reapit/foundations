@@ -1,5 +1,5 @@
 import { Story, Canvas } from '@storybook/addon-docs/blocks'
-import { Toggle } from './index'
+import { Toggle, ToggleRadio } from './index'
 import { RenderHtmlMarkup } from '../../helpers/v3/render-html-markup'
 import { elToggleItem } from './__styles__'
 
@@ -25,3 +25,53 @@ Typically you will use this component when you want the user to select binary op
 </Canvas>
 
 <RenderHtmlMarkup component="V3/Toggle" story="Basic Example" />
+
+### Multi Toggle - ToggleRadio
+
+The `ToggleRadio` component uses very similar markup as the binary toggle but expands it to allow radio options. As before, you can manage state using any Form library or by referencing the `onChange` input event.
+
+For react users, the component does not render children, rather it accepts a list of options in the following interface and maps through them on render.
+
+```tsx
+export interface ToggleRadioOption {
+  id: string
+  value: string
+  text: string
+}
+
+export interface ToggleRadioProps extends HTMLAttributes<HTMLInputElement> {
+  options: ToggleRadioOption[]
+  name: string
+}
+```
+
+As per the previous example, for non React users, you can just apply the classes in the rendered markup to your input and label elements.
+
+Typically you will use this component when you want the user to select from a number of options, possibly filters or similar select options where a dropdown is not appropriate.
+
+<Canvas>
+  <Story name="Multi Toggle - ToggleRadio">
+    <ToggleRadio
+      name="my-cool-toggle-radio"
+      options={[
+        {
+          id: 'option-1',
+          value: 'option-1',
+          text: 'Option 1',
+        },
+        {
+          id: 'option-2',
+          value: 'option-2',
+          text: 'Option 2',
+        },
+        {
+          id: 'option-3',
+          value: 'option-3',
+          text: 'Option 3',
+        },
+      ]}
+    />
+  </Story>
+</Canvas>
+
+<RenderHtmlMarkup component="V3/Toggle" story="Multi Toggle - ToggleRadio" />

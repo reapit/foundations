@@ -1,8 +1,26 @@
 import React, { FC, HTMLAttributes } from 'react'
 import { cx } from 'linaria'
-import { ElToggleCheckbox, ElToggleLabel } from './__styles__/index'
+import {
+  ElToggleCheckbox,
+  ElToggleLabel,
+  ElToggleRadio,
+  elToggleRadioItem,
+  ElToggleRadioLabel,
+  ElToggleRadioWrap,
+} from './__styles__/index'
 
 export interface ToggleProps extends HTMLAttributes<HTMLInputElement> {}
+
+export interface ToggleRadioOption {
+  id: string
+  value: string
+  text: string
+}
+
+export interface ToggleRadioProps extends HTMLAttributes<HTMLInputElement> {
+  options: ToggleRadioOption[]
+  name: string
+}
 
 export const Toggle: FC<ToggleProps> = ({ className, children, id, ...rest }) => (
   <>
@@ -11,4 +29,17 @@ export const Toggle: FC<ToggleProps> = ({ className, children, id, ...rest }) =>
       {children}
     </ElToggleLabel>
   </>
+)
+
+export const ToggleRadio: FC<ToggleRadioProps> = ({ className, name, options, ...rest }) => (
+  <ElToggleRadioWrap>
+    {options.map(({ id, value, text }) => (
+      <>
+        <ElToggleRadio id={id} name={name} value={value} type="radio" {...rest} />
+        <ElToggleRadioLabel htmlFor={id} className={cx(className && className)}>
+          <span className={elToggleRadioItem}>{text}</span>
+        </ElToggleRadioLabel>
+      </>
+    ))}
+  </ElToggleRadioWrap>
 )
