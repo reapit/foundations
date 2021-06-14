@@ -110,8 +110,8 @@ exports[`PrivateRouter should match a snapshot 1`] = `
 `;
 
 exports[`PrivateRouter should match a snapshot 2`] = `
-<AppNavContainer>
-  <Menu />
+<MainContainer>
+  <Nav />
   <Section>
     <Helper
       variant="info"
@@ -119,5 +119,5 @@ exports[`PrivateRouter should match a snapshot 2`] = `
       We could not detect that you are a negotiator for your organisation from your login. Try logging out and then back in again. If this does not work, please contact your Reapit administrator.
     </Helper>
   </Section>
-</AppNavContainer>
+</MainContainer>
 `;

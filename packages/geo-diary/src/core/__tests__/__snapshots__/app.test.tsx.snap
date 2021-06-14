@@ -2,8 +2,10 @@
 
 exports[`App should match a snapshot 1`] = `
 <AppStateProvider>
-  <PwaNavigateProvider>
-    <MockRouter />
-  </PwaNavigateProvider>
+  <NavStateProvider>
+    <MediaStateProvider>
+      <MockRouter />
+    </MediaStateProvider>
+  </NavStateProvider>
 </AppStateProvider>
 `;

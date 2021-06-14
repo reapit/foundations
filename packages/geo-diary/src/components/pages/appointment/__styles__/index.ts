@@ -5,19 +5,19 @@ export const MapContainer = styled.div`
   overflow: hidden;
   position: absolute;
   width: 100%;
-  height: calc(100% - 15.6rem);
-  top: 15.6rem;
+  height: calc(100% - 14.5rem);
+  top: 14.5rem;
 
   @media (min-width: 769px) {
     top: 0;
     height: 100%;
-    left: calc(390px + 4.6rem);
-    width: calc(100vw - 29rem);
+    left: 467px;
+    width: calc(100vw - 467px);
   }
 `
 export const ControlsContainer = styled.div`
   position: absolute;
-  top: 4rem;
+  top: 3rem;
   background: #fff;
   width: 100%;
   z-index: 2;
@@ -25,8 +25,8 @@ export const ControlsContainer = styled.div`
   padding: 1rem 0;
 
   @media (min-width: 769px) {
-    width: 25rem;
-    left: 4.1rem;
+    width: 24.1rem;
+    left: 5rem;
     top: 0;
   }
 `
@@ -35,18 +35,18 @@ export const AppoinmentContainer = styled.div`
   padding: 1.5rem 1.5rem;
   position: absolute;
   background: #f5f7f9;
-  height: calc(100% - 15.6rem);
+  height: calc(100% - 14.5rem);
   left: 0;
-  top: 15.6rem;
+  top: 14.5rem;
   width: 100%;
   overflow: scroll;
   z-index: 1;
 
   @media (min-width: 769px) {
-    width: 25rem;
-    left: 4.1rem;
-    top: 11.6rem;
-    height: calc(100% - 11.6rem);
+    width: 24.1rem;
+    left: 5rem;
+    top: 11.5rem;
+    height: calc(100% - 11.5rem);
   }
 `
 

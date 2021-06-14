@@ -2,13 +2,15 @@ import * as React from 'react'
 import Router from './router'
 import './__styles__'
 import { AppStateProvider } from './app-state'
-import { PwaNavigateProvider } from '../utils/pwa-navigate'
+import { NavStateProvider, MediaStateProvider } from '@reapit/elements/v3'
 
 const App = () => (
   <AppStateProvider>
-    <PwaNavigateProvider>
-      <Router />
-    </PwaNavigateProvider>
+    <NavStateProvider>
+      <MediaStateProvider>
+        <Router />
+      </MediaStateProvider>
+    </NavStateProvider>
   </AppStateProvider>
 )
 

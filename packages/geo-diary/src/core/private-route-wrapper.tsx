@@ -1,13 +1,13 @@
 import React, { FC, Suspense } from 'react'
-import Menu from '@/components/ui/menu'
-import { AppNavContainer, Helper, Section } from '@reapit/elements'
+import Nav from '../components/ui/nav'
+import { Helper, Section } from '@reapit/elements'
 import ErrorBoundary from './error-boundary'
 import { Redirect, useLocation } from 'react-router'
 import { reapitConnectBrowserSession } from '@/core/connect-session'
 import { useReapitConnect } from '@reapit/connect-session'
 import { ApolloProvider } from '@apollo/react-hooks'
 import getClient from '@/graphql/client'
-import { Loader } from '@reapit/elements/v3'
+import { Loader, MainContainer } from '@reapit/elements/v3'
 
 export const PrivateRouteWrapper: FC = ({ children }) => {
   const { connectSession, connectInternalRedirect } = useReapitConnect(reapitConnectBrowserSession)
@@ -16,23 +16,23 @@ export const PrivateRouteWrapper: FC = ({ children }) => {
 
   if (!connectSession) {
     return (
-      <AppNavContainer>
+      <MainContainer>
         <Loader label="Loading" fullPage />
-      </AppNavContainer>
+      </MainContainer>
     )
   }
 
   if (!connectSession?.loginIdentity?.userCode) {
     return (
-      <AppNavContainer>
-        <Menu />
+      <MainContainer>
+        <Nav />
         <Section>
           <Helper variant="info">
             We could not detect that you are a negotiator for your organisation from your login. Try logging out and
             then back in again. If this does not work, please contact your Reapit administrator.
           </Helper>
         </Section>
-      </AppNavContainer>
+      </MainContainer>
     )
   }
 
@@ -41,8 +41,8 @@ export const PrivateRouteWrapper: FC = ({ children }) => {
   }
 
   return (
-    <AppNavContainer>
-      <Menu />
+    <MainContainer>
+      <Nav />
       <Suspense fallback={<Loader label="Loading" fullPage />}>
         <ErrorBoundary>
           <ApolloProvider client={getClient(connectSession, window.reapit.config.graphqlUri)}>
@@ -50,7 +50,7 @@ export const PrivateRouteWrapper: FC = ({ children }) => {
           </ApolloProvider>
         </ErrorBoundary>
       </Suspense>
-    </AppNavContainer>
+    </MainContainer>
   )
 }
 

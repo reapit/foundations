@@ -1,6 +1,6 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`travel-mode TravelMode should match snapshot 1`] = `
+exports[`TabMode should match snapshot 1`] = `
 <div
   className="el-mb2"
 >
@@ -8,21 +8,21 @@ exports[`travel-mode TravelMode should match snapshot 1`] = `
     isFlexJustifyCenter={true}
   >
     <ToggleRadio
-      name="travel-mode"
+      name="tab-mode"
       onChange={[Function]}
       options={
         Array [
           Object {
-            "id": "driving",
+            "id": "diary",
             "isChecked": true,
-            "text": "Driving",
-            "value": "DRIVING",
+            "text": "Diary",
+            "value": "LIST",
           },
           Object {
-            "id": "walking",
+            "id": "map",
             "isChecked": false,
-            "text": "Walking",
-            "value": "WALKING",
+            "text": "Map",
+            "value": "MAP",
           },
         ]
       }

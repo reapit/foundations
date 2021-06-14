@@ -38,8 +38,8 @@ export interface NavResponsiveProps extends HTMLAttributes<HTMLDivElement> {
 export const NavResponsive: FC<NavResponsiveProps> = ({
   options,
   className,
-  defaultNavIndex = 1,
-  defaultNavSubIndex = null,
+  defaultNavIndex,
+  defaultNavSubIndex,
   ...rest
 }) => {
   const { navState, setNavState } = useNavState(defaultNavIndex, defaultNavSubIndex)
