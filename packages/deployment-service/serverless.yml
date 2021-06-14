@@ -44,6 +44,9 @@ provider:
   deploymentBucket:
     name: ${self:custom.s3CloudFormBucket}
     blockPublicAccess: false
+  s3:
+    deploymentReleaseBucket:
+      name: ${self:custom.env.DEPLOYMENT_BUCKET_NAME}
   
   environment:
     NODE_ENV: 'production'
@@ -329,3 +332,19 @@ functions:
   #       type: dynamodb
   #       arn: 
   #         Fn::GetAtt: [self:custom.env.DYNAMO_DB_PIPELINE_TABLE_NAME, StreamArn]
+
+  deployRelease:
+    handler: src/index.deployRelease
+    events:
+      - http:
+          path: /deploy/release/{project}/{version}
+          method: post
+          cors:
+            origin: '*'
+            headers:
+              - Content-Type
+              - Authorization
+              - X-Api-Key
+              - api-version
+          authorizer:
+            arn: arn:aws:cognito-idp:${self:provider.region}:${self:custom.env.AWS_ACCOUNT_ID}:userpool/${self:custom.env.CONNECT_USER_POOL}
