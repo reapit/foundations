@@ -5192,6 +5192,7 @@ __metadata:
   dependencies:
     "@types/adm-zip": ^0.4.34
     "@types/figlet": ^1.5.1
+    "@types/form-data": ^2.5.0
     "@types/inquirer": ^7.3.1
     "@types/yargs": ^16.0.2
     axios: ^0.21.1
@@ -5200,6 +5201,7 @@ __metadata:
     create-react-app: ^4.0.3
     eslint: ^7.26.0
     figlet: ^1.5.0
+    form-data: ^4.0.0
     inquirer: ^8.0.0
     ora: ^5.4.0
     prettier: ^2.3.0
@@ -8158,6 +8160,15 @@ __metadata:
   version: 1.5.1
   resolution: "@types/figlet@npm:1.5.1"
   checksum: 8d6d8dbeebaa2d9bcdc09a72f47e4428b3a6d116d5c052a54722bc5d15e89cab88f499f07ae2b5c2979008ce3a2a8a1b4b3fa2ba57cddb4ccc8634343669a5fa
+  languageName: node
+  linkType: hard
+
+"@types/form-data@npm:^2.5.0":
+  version: 2.5.0
+  resolution: "@types/form-data@npm:2.5.0"
+  dependencies:
+    form-data: "*"
+  checksum: c44b41e642061049f28807f579f4742c18d73fed98859de07651a6fc4e6c555e925c6b2041f0beef74f4613e430a09cc67d552fe95da8cd8cc757f92d4d70e2d
   languageName: node
   linkType: hard
 
@@ -19373,6 +19384,17 @@ __metadata:
     semver: ^7.3.2
     tapable: ^1.0.0
   checksum: 34785a8c0506b8bc0a0da5adfc95dc785e209de85a63f9924c8a47ef743cea5bd481e8d196323e13e671e86e571f34ab98423ff8f5bd3a349da2e8087bb78dc9
+  languageName: node
+  linkType: hard
+
+"form-data@npm:*, form-data@npm:^4.0.0":
+  version: 4.0.0
+  resolution: "form-data@npm:4.0.0"
+  dependencies:
+    asynckit: ^0.4.0
+    combined-stream: ^1.0.8
+    mime-types: ^2.1.12
+  checksum: ecbe8f41bcf5c415f38e39058b34598a9261bb74a3d54b633d0b5dd8b7cf9a30b0626cd06ae8e79874a2ca88c222041142a7893e5afdd35fdfc3272264d03d44
   languageName: node
   linkType: hard
 
