@@ -27,15 +27,27 @@ export const deployRelease = httpHandler<any, void>({
 
     const s3FileName = fileName(
       developerId,
-      event.pathParameters?.porject as string,
+      event.pathParameters?.project as string,
       event.pathParameters?.version as string,
     )
 
-    await s3Client.putObject({
-      Body: body,
-      Bucket: process.env.DEPLOYMENT_BUCKET_NAME as string,
-      Key: s3FileName,
-    })
+    await new Promise<void>((resolve, reject) =>
+      s3Client.putObject(
+        {
+          Body: body,
+          Bucket: process.env.DEPLOYMENT_BUCKET_NAME as string,
+          Key: s3FileName,
+        },
+        (error, data) => {
+          if (error) {
+            console.error(error)
+            reject()
+          }
+          console.log('data', data)
+          resolve()
+        },
+      ),
+    )
 
     // TODO deploy release
   },
