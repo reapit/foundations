@@ -30,7 +30,6 @@ import WebhookEditModal from './webhook-edit-modal'
 import { selectDeveloper } from '@/selector/developer'
 import WebhookTestModal from './webhook-test-modal'
 import { link, hyperlinked } from '@/styles/elements/link'
-import Routes from '@/constants/routes'
 import { selectAppListState } from '@/selector/apps/app-list'
 import { fetchWebhooksTopics } from '@/actions/webhooks-topics'
 import { useHistory } from 'react-router-dom'
@@ -236,7 +235,12 @@ export const DeveloperWebhooks = () => {
             can set up a single endpoint to catch all topics for all customers. Alternatively, you may wish to set up a
             different webhook subscription per topic or per customer. For more information about Webhooks, please see
             our{' '}
-            <a className={link} href={`${Routes.API_DOCS}/api/webhooks`} target="_blank" rel="noopener noreferrer">
+            <a
+              className={link}
+              href="https://foundations-documentation.reapit.cloud/api/webhooks"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
               webhooks documentation
             </a>
           </Content>
