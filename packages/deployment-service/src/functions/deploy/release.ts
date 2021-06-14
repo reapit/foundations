@@ -1,6 +1,5 @@
 import { resolveDeveloperId } from '@/utils'
-import { httpHandler, NotFoundException, ValidationException } from '@homeservenow/serverless-aws-handler'
-import { IsNotEmpty, IsString, validate } from 'class-validator'
+import { httpHandler, NotFoundException } from '@homeservenow/serverless-aws-handler'
 import { s3Client } from '../../services'
 
 /**
@@ -14,25 +13,6 @@ import { s3Client } from '../../services'
  *
  */
 
-class SimpleDeployDto {
-  @IsNotEmpty()
-  @IsString()
-  requestedVersion?: string
-
-  @IsNotEmpty()
-  @IsString()
-  projectName?: string
-}
-
-const validator = async (dto: SimpleDeployDto): Promise<SimpleDeployDto> => {
-  const errors = await validate(dto)
-
-  if (errors.length >= 1) {
-    throw new ValidationException(errors as any)
-  }
-
-  return dto
-}
 const fileSeparator = '-'
 
 const fileName = (developerId: string, project: string, version: string): string =>
@@ -41,16 +21,19 @@ const fileName = (developerId: string, project: string, version: string): string
 /**
  * Deploy a new release
  */
-export const deployRelease = httpHandler<SimpleDeployDto, void>({
-  validator,
+export const deployRelease = httpHandler<any, void>({
   handler: async ({ body, event }) => {
     const developerId = await resolveDeveloperId(event)
 
-    const s3FileName = fileName(developerId, body.projectName as string, body.requestedVersion as string)
+    const s3FileName = fileName(
+      developerId,
+      event.pathParameters?.porject as string,
+      event.pathParameters?.version as string,
+    )
 
     await s3Client.putObject({
-      Body: '',
-      Bucket: '',
+      Body: body,
+      Bucket: process.env.DEPLOYMENT_BUCKET_NAME as string,
       Key: s3FileName,
     })
 
@@ -61,16 +44,15 @@ export const deployRelease = httpHandler<SimpleDeployDto, void>({
 /**
  * List releases
  */
-export const releases = httpHandler<SimpleDeployDto, any[]>({
-  validator,
-  handler: async ({ event, body }) => {
+export const releases = httpHandler<any, any[]>({
+  handler: async ({ event }) => {
     const developerId = await resolveDeveloperId(event)
 
     const files = await new Promise<Object[]>((resolve, reject) =>
       s3Client.listObjectsV2(
         {
-          Bucket: '',
-          Delimiter: [developerId, body.projectName].join(fileSeparator),
+          Bucket: process.env.DEPLOYMENT_BUCKET_NAME as string,
+          Delimiter: [developerId, event.pathParameters?.project as string].join(fileSeparator),
         },
         (err, data) => {
           if (typeof data !== 'undefined' && Array.isArray(data)) resolve(data.Contents as Object[])
@@ -93,7 +75,7 @@ export const releaseVersion = httpHandler({
     const file = await new Promise<AWS.S3.Body>((resolve, reject) =>
       s3Client.getObject(
         {
-          Bucket: '',
+          Bucket: process.env.DEPLOYMENT_BUCKET_NAME as string,
           Key: fileName(developerId, event.pathParameters?.project as string, event.pathParameters?.version as string),
         },
         (err, data) => {
