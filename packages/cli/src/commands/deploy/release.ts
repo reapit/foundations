@@ -5,6 +5,8 @@ import path from 'path'
 import inquirer from 'inquirer'
 import AdmZip from 'adm-zip'
 import chalk from 'chalk'
+import ora, { Ora } from 'ora'
+var FormData = require('form-data')
 
 @Command({
   name: 'release',
@@ -16,7 +18,7 @@ export class ReleaseCommand extends AbstractCommand {
    *
    * @param version
    */
-  async bumpVersion(): Promise<void | never> {
+  async bumpVersion(spinner: Ora): Promise<[string, string] | never> {
     const fileName = path.resolve(process.cwd(), 'package.json')
     const workingPackageRaw = await fs.promises.readFile(fileName, {
       encoding: 'utf-8',
@@ -35,6 +37,7 @@ export class ReleaseCommand extends AbstractCommand {
         default: workingPackage.version,
       },
     ])
+    spinner.start('bumping package version')
 
     if (workingPackage.version === answers.version) {
       console.warn(chalk.yellow('Overriding existing verison: rollback disabled'))
@@ -43,6 +46,9 @@ export class ReleaseCommand extends AbstractCommand {
     workingPackage.version = answers.version
 
     await fs.promises.writeFile(fileName, JSON.stringify(workingPackage, null, 2))
+    spinner.succeed('bumping package version')
+
+    return [workingPackage.name, answers.version]
   }
 
   /**
@@ -66,16 +72,32 @@ export class ReleaseCommand extends AbstractCommand {
    * send zip to reapit
    *
    */
-  async sendZip(buffer: Buffer): Promise<void | never> {
-    await (await this.axios()).post('deployment/release', buffer)
+  async sendZip(buffer: Buffer, project: string, version: string, spinner: Ora): Promise<void | never> {
+    spinner.start('Sending zip')
+    const form = new FormData()
+    form.append('file', buffer.toString())
+
+    const response = await (await this.axios()).post(`deploy/release/${project}/${version}`, form, {
+      headers: form.getHeaders(),
+    })
+
+    if (response.status !== 200) {
+      spinner.fail('Failed to publish zip to reapit')
+    }
+
+    spinner.succeed('Successfully published to reapit')
   }
 
   /**
    * Run command
    */
   async run() {
-    await this.bumpVersion()
+    const spinner = ora()
+
+    const [project, version] = await this.bumpVersion(spinner)
+    spinner.start('packing zip file')
     const zip = await this.pack()
-    await this.sendZip(zip)
+    spinner.succeed('Created zip')
+    await this.sendZip(zip, project, version, spinner)
   }
 }

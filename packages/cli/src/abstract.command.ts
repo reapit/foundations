@@ -105,9 +105,9 @@ export abstract class AbstractCommand {
 
     console.log(`
     ${parent ? '\t' : ''}${chalk.bold.white(config.name)}\t${config.description}
-    ${parent ? '\t' : ''}$ ${chalk.green('reapit')} ${parent ? `${chalk.whiteBright(parent.commandOptions.name)} ` : ''}${chalk.white(
-      config.name,
-    )} ${
+    ${parent ? '\t' : ''}$ ${chalk.green('reapit')} ${
+      parent ? `${chalk.whiteBright(parent.commandOptions.name)} ` : ''
+    }${chalk.white(config.name)} ${
       !Array.isArray(args)
         ? ''
         : args
