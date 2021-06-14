@@ -1,5 +1,6 @@
 import { Command } from '../../decorators'
 import { ParentCommand } from '../../parent.command'
+import { ReleaseListCommand } from './list'
 import { ReleaseCommand } from './release'
 
 @Command({
@@ -7,5 +8,5 @@ import { ReleaseCommand } from './release'
   description: 'For managing simple deployments',
 })
 export class DeployCommand extends ParentCommand {
-  commands = [new ReleaseCommand()]
+  commands = [new ReleaseCommand(), new ReleaseListCommand()]
 }
