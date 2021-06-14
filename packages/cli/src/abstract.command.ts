@@ -104,8 +104,8 @@ export abstract class AbstractCommand {
     const args: ArgsType[] | undefined = Reflect.getOwnMetadata(ARGUMENT_OPTIONS, this.constructor)
 
     console.log(`
-      ${chalk.bold.white(config.name)}\t${config.description}
-      $ ${chalk.green('reapit')} ${parent ? `${chalk.whiteBright(parent.commandOptions.name)} ` : ''}${chalk.white(
+    ${parent ? '\t' : ''}${chalk.bold.white(config.name)}\t${config.description}
+    ${parent ? '\t' : ''}$ ${chalk.green('reapit')} ${parent ? `${chalk.whiteBright(parent.commandOptions.name)} ` : ''}${chalk.white(
       config.name,
     )} ${
       !Array.isArray(args)
