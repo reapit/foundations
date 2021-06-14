@@ -57,6 +57,7 @@ provider:
     DYNAMO_DB_TABLE_NAME: ${self:custom.env.DYNAMO_DB_TABLE_NAME}
     DYNAMO_DB_PIPELINE_TABLE_NAME: ${self:custom.env.DYNAMO_DB_PIPELINE_TABLE_NAME}
     DYNAMO_DB_TASK_TABLE_NAME: ${self:custom.env.DYNAMO_DB_TASK_TABLE_NAME}
+    DEPLOYMENT_BUCKET_NAME: ${self:custom.env.DEPLOYMENT_BUCKET_NAME}
   iamRoleStatements:
     - Effect: Allow
       Action:
@@ -94,7 +95,11 @@ provider:
         - dynamodb:PutItem
         - dynamodb:UpdateItem
         - dynamodb:DeleteItem
-      Resource: 'arn:aws:dynamodb:${self:provider.region}:*:table/${self:custom.env.DYNAMO_DB_TASK_TABLE_NAME}'
+      Resource: 'arn:aws:dynamodb:${self:provider.region}:*/${self:custom.env.DEPLOYMENT_BUCKET_NAME}'
+    - Effect: "Allow"
+      Action:
+        - "s3:*"
+      Resource: 'arn:aws:s3:::${self:custom.env.DEPLOYMENT_BUCKET_NAME}'
 
 resources:
   Resources:
@@ -173,6 +178,11 @@ resources:
           WriteCapacityUnits: 1
         PointInTimeRecoverySpecification:
           PointInTimeRecoveryEnabled: true
+    DeploymentBucket:
+      Type: AWS::S3::Bucket
+      Properties:
+        BucketName: ${self:custom.env.DEPLOYMENT_BUCKET_NAME}
+        AccessControl: Private
 
 package:
   individually: true
