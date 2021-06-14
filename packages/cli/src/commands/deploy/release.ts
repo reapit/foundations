@@ -1,20 +1,19 @@
-import { Command } from "./../../decorators";
-import { AbstractCommand } from "../../abstract.command"
+import { Command } from './../../decorators'
+import { AbstractCommand } from '../../abstract.command'
 import fs from 'fs'
 import path from 'path'
-import inquirer from "inquirer"
+import inquirer from 'inquirer'
 import AdmZip from 'adm-zip'
-import chalk from "chalk";
+import chalk from 'chalk'
 
 @Command({
   name: 'release',
   description: 'Release a simple deployment',
 })
 export class ReleaseCommand extends AbstractCommand {
-
   /**
    * bump package version
-   * 
+   *
    * @param version
    */
   async bumpVersion(): Promise<void | never> {
@@ -48,11 +47,10 @@ export class ReleaseCommand extends AbstractCommand {
 
   /**
    * create zip pack
-   * 
+   *
    * @returns
    */
   async pack(): Promise<Buffer> {
-
     // TODO cp serverless + reapit.config.json to /dist
 
     if (!fs.existsSync(path.resolve(process.cwd(), 'dist'))) {
@@ -66,16 +64,16 @@ export class ReleaseCommand extends AbstractCommand {
 
   /**
    * send zip to reapit
-   * 
+   *
    */
   async sendZip(buffer: Buffer): Promise<void | never> {
-    await (await this.axios()).post(`deployment/release`, buffer)
+    await (await this.axios()).post('deployment/release', buffer)
   }
 
   /**
    * Run command
    */
-  async run () {
+  async run() {
     await this.bumpVersion()
     const zip = await this.pack()
     await this.sendZip(zip)
