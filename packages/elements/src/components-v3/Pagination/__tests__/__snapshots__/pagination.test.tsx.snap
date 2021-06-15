@@ -1,0 +1,53 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Pagination should match a snapshot 1`] = `
+<PaginationWrap>
+  <PaginationText>
+    <strong>
+      2
+    </strong>
+     of 
+    4
+  </PaginationText>
+  <PaginationButton
+    onClick={[Function]}
+  >
+    <Icon
+      className="el-pagination-primary"
+      icon="solidBack"
+    />
+  </PaginationButton>
+  <PaginationButton
+    onClick={[Function]}
+  >
+    <Icon
+      className="el-pagination-primary"
+      icon="solidNext"
+    />
+  </PaginationButton>
+</PaginationWrap>
+`;
+
+exports[`PaginationButton should match a snapshot and render children 1`] = `
+<ElPaginationButton>
+  <div>
+    I am a child
+  </div>
+</ElPaginationButton>
+`;
+
+exports[`PaginationText should match a snapshot and render children 1`] = `
+<ElPaginationText>
+  <div>
+    I am a child
+  </div>
+</ElPaginationText>
+`;
+
+exports[`PaginationWrap should match a snapshot and render children 1`] = `
+<ElPaginationWrap>
+  <div>
+    I am a child
+  </div>
+</ElPaginationWrap>
+`;
