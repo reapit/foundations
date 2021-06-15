@@ -9754,7 +9754,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"adm-zip@npm:^0.5.4":
+"adm-zip@npm:^0.5.4, adm-zip@npm:^0.5.5":
   version: 0.5.5
   resolution: "adm-zip@npm:0.5.5"
   checksum: ad9514161538bcf29137c55326fb71494977eba4642d1c87cd92929fff97683f106917561c3b6aba3cb7b1919586cfb5008f4cf381fcb4af0ed7c6f02a4ef295
@@ -15904,6 +15904,8 @@ __metadata:
     "@reapit/api-key-verify": "workspace:packages/api-key-verify"
     "@reapit/config-manager": "workspace:packages/config-manager"
     "@reapit/utils": "workspace:packages/utils"
+    "@types/adm-zip": ^0.4.34
+    adm-zip: ^0.5.5
     class-transformer: ^0.4.0
     class-validator: ^0.13.1
     concurrently: ^6.1.0

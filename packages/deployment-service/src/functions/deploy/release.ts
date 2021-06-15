@@ -1,6 +1,8 @@
 import { resolveDeveloperId } from '@/utils'
-import { httpHandler, NotFoundException } from '@homeservenow/serverless-aws-handler'
+import { BadRequestException, httpHandler, NotFoundException } from '@homeservenow/serverless-aws-handler'
 import { s3Client } from '../../services'
+import AdmZip from 'adm-zip'
+import { execSync } from 'child_process'
 
 /**
  * TODO
@@ -18,11 +20,32 @@ const fileSeparator = '/'
 const fileName = (developerId: string, project: string, version: string): string =>
   [developerId, project, version].join(fileSeparator) + '.zip'
 
+const release = async (file: Buffer): Promise<void> => {
+  const tmpDir = '/tmp/project'
+
+  const zip = new AdmZip(file)
+
+  await new Promise<void>((resolve, reject) =>
+    zip.extractAllToAsync(tmpDir, true, (err) => {
+      if (err) {
+        console.log('error happened init')
+        console.error(err)
+        reject(err)
+      }
+      resolve()
+    }),
+  )
+
+  await execSync('npx serverless release', {
+    cwd: tmpDir,
+  })
+}
+
 /**
  * Deploy a new release
  */
 export const deployRelease = httpHandler<any, void>({
-  handler: async ({ body, event }) => {
+  handler: async ({ event, body }) => {
     const developerId = await resolveDeveloperId(event)
 
     const s3FileName = fileName(
@@ -31,25 +54,30 @@ export const deployRelease = httpHandler<any, void>({
       event.pathParameters?.version as string,
     )
 
+    const file = Buffer.from(body.file, 'base64')
+
+    if (!file) {
+      throw new BadRequestException('File not provided')
+    }
+
     await new Promise<void>((resolve, reject) =>
       s3Client.putObject(
         {
-          Body: body,
+          Body: file,
           Bucket: process.env.DEPLOYMENT_BUCKET_NAME as string,
           Key: s3FileName,
         },
-        (error, data) => {
+        (error) => {
           if (error) {
             console.error(error)
             reject()
           }
-          console.log('data', data)
           resolve()
         },
       ),
     )
 
-    // TODO deploy release
+    await release(file)
   },
 })
 
@@ -103,6 +131,6 @@ export const releaseVersion = httpHandler({
       throw new NotFoundException()
     }
 
-    // TODO deploy version
+    await release(Buffer.from(file))
   },
 })
