@@ -1,19 +1,19 @@
 import { AbstractCommand } from '../../abstract.command'
 import { Command } from '../../decorators'
-import { DeploymentModelInterface } from '@reapit/foundations-ts-definitions'
+import { PipelineModelInterface } from '@reapit/foundations-ts-definitions'
 import inquirer, { QuestionCollection } from 'inquirer'
 import ora from 'ora'
 import chalk from 'chalk'
 import * as fs from 'fs'
 import { resolve } from 'path'
 import git from 'simple-git'
-import { REAPIT_DEPLOYMENT_CONFIG_FILE } from './constants'
+import { REAPIT_PIPELINE_CONFIG_FILE } from './constants'
 
 @Command({
   name: 'create',
-  description: 'Create a deployment',
+  description: 'Create a pipeline',
 })
-export class DeploymentCreate extends AbstractCommand {
+export class PipelineCreate extends AbstractCommand {
   private async fetchGitRemotes(): Promise<string[]> {
     try {
       const repositories = await git().remote(['-v'])
@@ -71,29 +71,29 @@ export class DeploymentCreate extends AbstractCommand {
       ...questions,
       {
         type: 'confirm',
-        message: 'Would you like to create a deployment config in this directory?',
+        message: 'Would you like to create a pipeline config in this directory?',
         name: 'create',
       },
     ])
 
-    const spinner = ora('Creating deployment').start()
-    const response = await (await this.axios(spinner)).post<DeploymentModelInterface>('/deployment', {
+    const spinner = ora('Creating pipeline').start()
+    const response = await (await this.axios(spinner)).post<PipelineModelInterface>('/pipeline', {
       name: answers.name,
       appType: answers.appType.toLowerCase(),
       repository: answers.repository,
     }) // /deployment
 
     if (response.status === 200) {
-      spinner.succeed(`Deployment ${response.data.name} created`)
+      spinner.succeed(`Pipeline ${response.data.name} created`)
 
       if (answers.create) {
-        spinner.start('Creating local deployment config')
-        fs.writeFileSync(resolve(process.cwd(), REAPIT_DEPLOYMENT_CONFIG_FILE), JSON.stringify(response.data))
-        spinner.succeed('Created local deployment config')
+        spinner.start('Creating local pipeline config')
+        fs.writeFileSync(resolve(process.cwd(), REAPIT_PIPELINE_CONFIG_FILE), JSON.stringify(response.data))
+        spinner.succeed('Created local pipeline config')
       }
-      console.log('Now use reapit deployment run to start a deployment')
+      console.log('Now use reapit pipeline run to start a pipeline')
     } else {
-      spinner.fail('Failed to create deployment')
+      spinner.fail('Failed to create pipeline')
       console.log(chalk.red('Check your internet connection'))
       console.log(chalk.red('Report this error if it persists'))
       process.exit(1)
