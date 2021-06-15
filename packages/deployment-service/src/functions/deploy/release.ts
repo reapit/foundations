@@ -128,7 +128,6 @@ export const deployVersion = httpHandler({
             console.error(err)
             reject()
           }
-          console.log('data', data)
           resolve(data.Body as AWS.S3.Body)
         },
       ),
