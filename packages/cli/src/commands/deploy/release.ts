@@ -67,7 +67,7 @@ export class ReleaseCommand extends AbstractCommand {
 
     const zip = new AdmZip()
     zip.addLocalFolder(path.resolve(process.cwd(), 'dist'))
-    files.forEach(file => {
+    files.forEach((file) => {
       if (fs.existsSync(path.resolve(process.cwd(), file))) {
         zip.addLocalFile(path.resolve(process.cwd(), file))
       }
@@ -81,11 +81,9 @@ export class ReleaseCommand extends AbstractCommand {
    */
   async sendZip(buffer: Buffer, project: string, version: string, spinner: Ora): Promise<void | never> {
     spinner.start('Sending zip')
-    const form = new FormData()
-    form.append('file', buffer.toString())
 
-    const response = await (await this.axios()).post(`deploy/release/${project}/${version}`, form, {
-      headers: form.getHeaders(),
+    const response = await (await this.axios()).post(`deploy/release/${project}/${version}`, {
+      file: buffer.toString('base64'),
     })
 
     if (response.status !== 200) {

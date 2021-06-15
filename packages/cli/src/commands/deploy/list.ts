@@ -7,9 +7,8 @@ import ora, { Ora } from 'ora'
   description: 'List all releases',
 })
 export class ReleaseListCommand extends AbstractCommand {
-
-  async projectInfo(): Promise<{[s: string]: any}> {
-    const config = await this.resolveConfigFile<{[s: string]: string}>('package.json')
+  async projectInfo(): Promise<{ [s: string]: any }> {
+    const config = await this.resolveConfigFile<{ [s: string]: string }>('package.json')
 
     if (!config) {
       throw new Error('package info not found')
@@ -17,7 +16,7 @@ export class ReleaseListCommand extends AbstractCommand {
 
     return config
   }
- 
+
   async listDeployments(spinner: Ora, project: string): Promise<any[]> {
     spinner.start('Fetching releases')
     const response = await (await this.axios()).get(`/deploy/release/${project}`)
@@ -43,12 +42,14 @@ export class ReleaseListCommand extends AbstractCommand {
 
     const deploys = await this.listDeployments(spinner, packageInfo.name)
 
-    console.table(deploys.map((deploy) => {
-      const parts = deploy.split('/')
+    console.table(
+      deploys.map((deploy) => {
+        const parts = deploy.split('/')
 
-      const filenameParts = parts[parts.length - 1].split('.zip')
+        const filenameParts = parts[parts.length - 1].split('.zip')
 
-      return filenameParts[0]
-    }))
+        return filenameParts[0]
+      }),
+    )
   }
 }
