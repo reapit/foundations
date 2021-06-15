@@ -4,9 +4,7 @@ import fs from 'fs'
 import path from 'path'
 import inquirer from 'inquirer'
 import AdmZip from 'adm-zip'
-import chalk from 'chalk'
 import ora, { Ora } from 'ora'
-var FormData = require('form-data')
 
 @Command({
   name: 'release',
@@ -40,7 +38,7 @@ export class ReleaseCommand extends AbstractCommand {
     spinner.start('bumping package version')
 
     if (workingPackage.version === answers.version) {
-      console.warn(chalk.yellow('Overriding existing verison: rollback disabled'))
+      spinner.warn('Overriding existing verison: rollback disabled')
     }
 
     workingPackage.version = answers.version
@@ -88,6 +86,7 @@ export class ReleaseCommand extends AbstractCommand {
 
     if (response.status !== 200) {
       spinner.fail('Failed to publish zip to reapit')
+      process.exit(1)
     }
 
     spinner.succeed('Successfully published to reapit')
