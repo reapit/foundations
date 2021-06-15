@@ -10,6 +10,7 @@ describe('TabMode', () => {
     expect(wrapper).toMatchSnapshot()
   })
 })
+
 describe('handleChangeTabMode', () => {
   it('should run correctly', () => {
     const mockParams = {
