@@ -1,6 +1,8 @@
 import React, { ChangeEvent, Dispatch, FC, memo, SetStateAction } from 'react'
 import { AppState, useAppState, AppTab } from '../../../core/app-state'
 import { ToggleRadio, FlexContainer, elMb2 } from '@reapit/elements/v3'
+import { hideWhenInDesktop } from './__styles__/index'
+import { cx } from 'linaria'
 
 export type HandleChangeTabModeParams = {
   setAppState: Dispatch<SetStateAction<AppState>>
@@ -22,7 +24,7 @@ export const TabMode: FC = () => {
   const { appState, setAppState } = useAppState()
   const { tab } = appState
   return (
-    <div className={elMb2}>
+    <div className={cx(elMb2, hideWhenInDesktop)}>
       <FlexContainer isFlexJustifyCenter>
         <ToggleRadio
           name="tab-mode"

@@ -2,7 +2,7 @@
 
 exports[`TabMode should match snapshot 1`] = `
 <div
-  className="el-mb2"
+  className="el-mb2 hide-when-in-desktop"
 >
   <FlexContainer
     isFlexJustifyCenter={true}

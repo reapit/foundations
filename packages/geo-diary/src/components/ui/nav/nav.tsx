@@ -2,12 +2,13 @@ import React from 'react'
 import { useReapitConnect } from '@reapit/connect-session'
 import { reapitConnectBrowserSession } from '@/core/connect-session'
 import { NavResponsive, NavResponsiveOption } from '@reapit/elements/v3'
+import { MARKETPLACE_DEV_URL, MARKETPLACE_PROD_URL } from '../../../core/constants'
 
 export const callbackAppClick = () =>
   (window.location.href =
     window.location.href.includes('dev') || window.location.href.includes('localhost')
-      ? 'https://marketplace.dev.paas.reapit.cloud/installed'
-      : 'https://marketplace.reapit.cloud/installed')
+      ? MARKETPLACE_DEV_URL
+      : MARKETPLACE_PROD_URL)
 
 export const Nav: React.FC = () => {
   const { connectLogoutRedirect, connectIsDesktop } = useReapitConnect(reapitConnectBrowserSession)
