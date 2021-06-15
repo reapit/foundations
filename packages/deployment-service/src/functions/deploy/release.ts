@@ -9,7 +9,7 @@ import { execSync } from 'child_process'
  *
  * [x] enable cli to upload code zip to S3 and add version files
  *
- * [ ] take zip from bucket and deploy with serverless
+ * [x] take zip from bucket and deploy with serverless
  * [x] list deployment versions (list file version from S3)
  * [ ] enable rollback deployments
  *
@@ -20,6 +20,9 @@ const fileSeparator = '/'
 const fileName = (developerId: string, project: string, version: string): string =>
   [developerId, project, version].join(fileSeparator) + '.zip'
 
+/**
+ * Method for releasing built package
+ */
 const release = async (file: Buffer): Promise<void> => {
   const tmpDir = '/tmp/project'
 
@@ -110,7 +113,7 @@ export const deployReleases = httpHandler<any, string[]>({
 /**
  * Release a particular version
  */
-export const releaseVersion = httpHandler({
+export const deployVersion = httpHandler({
   handler: async ({ event }) => {
     const developerId = await resolveDeveloperId(event)
 
@@ -121,8 +124,12 @@ export const releaseVersion = httpHandler({
           Key: fileName(developerId, event.pathParameters?.project as string, event.pathParameters?.version as string),
         },
         (err, data) => {
-          if (typeof data !== 'undefined' && Array.isArray(data)) resolve(data.Body as AWS.S3.Body)
-          reject()
+          if (err) {
+            console.error(err)
+            reject()
+          }
+          console.log('data', data)
+          resolve(data.Body as AWS.S3.Body)
         },
       ),
     )
@@ -131,6 +138,6 @@ export const releaseVersion = httpHandler({
       throw new NotFoundException()
     }
 
-    await release(Buffer.from(file))
+    await release(file as Buffer)
   },
 })
