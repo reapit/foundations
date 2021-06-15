@@ -1,0 +1,58 @@
+import { useState } from 'react'
+import { Story, Canvas } from '@storybook/addon-docs/blocks'
+import { Pagination, PaginationWrap, PaginationText, PaginationButton } from './index'
+import { elPaginationPrimary } from './__styles__'
+import { RenderHtmlMarkup } from '../../helpers/v3/render-html-markup'
+
+<Meta title="V3/Pagination" />
+
+# Pagination
+
+### Basic Example
+
+In this example you can see the raw React Components you need to build a styled pagination block. React users will need to apply their own logic if they use this basic example.
+
+For non-React users, just use the rendered markup and use your own JS to trigger fetch actions.
+
+<Canvas>
+  <Story name="Basic Example">
+    <PaginationWrap>
+      <PaginationText>
+        <strong>1</strong> of 4
+      </PaginationText>
+      <PaginationButton>
+        <Icon icon="solidBack" />
+      </PaginationButton>
+      <PaginationButton>
+        <Icon icon="solidNext" className={elPaginationPrimary} />
+      </PaginationButton>
+    </PaginationWrap>
+  </Story>
+</Canvas>
+
+<RenderHtmlMarkup component="V3/Pagination" story="Basic Example" />
+
+### React Example
+
+For React users, we export a `Pagination` component that handles the pagination behaviour. Props are in the following defintion:
+
+```tsx
+export interface PaginationProps extends HTMLAttributes<HTMLDivElement> {
+  callback: (nextPage: number) => void
+  currentPage: number
+  numberPages: number
+}
+```
+
+The callback can be any action and will return you the next current page on button click forward or back. The below example uses `useState`:
+
+<Canvas>
+  <Story name="React Example">
+    {() => {
+      const [currentPage, setCurrentPage] = useState(1)
+      return <Pagination callback={setCurrentPage} currentPage={currentPage} numberPages={4} />
+    }}
+  </Story>
+</Canvas>
+
+<RenderHtmlMarkup component="V3/Pagination" story="React Example" />
