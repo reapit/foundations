@@ -1,5 +1,6 @@
 export * from './pipeline-delete'
 export * from './pipeline-update'
+export * from './pipeline-create'
 export * from './pipeline-get'
 export * from './pipeline-paginate'
 export * from './pipeline-run'
