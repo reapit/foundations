@@ -9,7 +9,7 @@ import { COMMAND_OPTIONS } from './decorators'
 import { IntroCommand } from './intro'
 import { HelpCommand } from './commands/help'
 import { ParentCommand } from './parent.command'
-import { DeploymentCommand } from './commands/deployment'
+import { PipelineCommand } from './commands/pipeline'
 import { resolveArgs } from './utils/resolveArgs'
 import { ReactStarterCommand } from './commands/react-starter'
 import { DeployCommand } from './commands/deploy'
@@ -51,4 +51,4 @@ const boot = async (defaultCommand: AbstractCommand, commands: (AbstractCommand 
   }
 }
 
-boot(new IntroCommand(), [new ConfigCommand(), new DeploymentCommand(), new ReactStarterCommand(), new DeployCommand()])
+boot(new IntroCommand(), [new ConfigCommand(), new PipelineCommand(), new ReactStarterCommand(), new DeployCommand()])
