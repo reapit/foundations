@@ -54,8 +54,8 @@ provider:
     SENTRY_DSN: ${self:custom.env.SENTRY_DSN}
     DYNAMO_DB_REGION: ${self:custom.env.DYNAMO_DB_REGION}
     DYNAMO_DB_ENDPOINT: ${self:custom.env.DYNAMO_DB_ENDPOINT}
-    DYNAMO_DB_TABLE_NAME: ${self:custom.env.DYNAMO_DB_TABLE_NAME}
     DYNAMO_DB_PIPELINE_TABLE_NAME: ${self:custom.env.DYNAMO_DB_PIPELINE_TABLE_NAME}
+    DYNAMO_DB_PIPELINE_RUNNER_TABLE_NAME: ${self:custom.env.DYNAMO_DB_PIPELINE_RUNNER_TABLE_NAME}
     DYNAMO_DB_TASK_TABLE_NAME: ${self:custom.env.DYNAMO_DB_TASK_TABLE_NAME}
     DEPLOYMENT_BUCKET_NAME: ${self:custom.env.DEPLOYMENT_BUCKET_NAME}
   iamRoleStatements:
@@ -67,12 +67,12 @@ provider:
         - dynamodb:PutItem
         - dynamodb:UpdateItem
         - dynamodb:DeleteItem
-      Resource: 'arn:aws:dynamodb:${self:provider.region}:*:table/${self:custom.env.DYNAMO_DB_TABLE_NAME}'
+      Resource: 'arn:aws:dynamodb:${self:provider.region}:*:table/${self:custom.env.DYNAMO_DB_PIPELINE_TABLE_NAME}'
     - Effect: Allow
       Action:
         - dynamodb:Query
         - dynamodb:Scan
-      Resource: "arn:aws:dynamodb:${self:provider.region}:*:table/${self:custom.env.DYNAMO_DB_TABLE_NAME}/index/*"
+      Resource: "arn:aws:dynamodb:${self:provider.region}:*:table/${self:custom.env.DYNAMO_DB_PIPELINE_TABLE_NAME}/index/*"
     - Effect: Allow
       Action:
         - dynamodb:Query
@@ -121,10 +121,10 @@ resources:
         ResponseType: DEFAULT_5XX
         RestApiId:
           Ref: 'ApiGatewayRestApi'
-    DeploymentTable:
+    PipelineTable:
       Type: AWS::DynamoDB::Table
       Properties:
-        TableName: ${self:custom.env.DYNAMO_DB_TABLE_NAME}
+        TableName: ${self:custom.env.DYNAMO_DB_PIPELINE_TABLE_NAME}
         AttributeDefinitions:
           - AttributeName: id
             AttributeType: S
@@ -148,10 +148,10 @@ resources:
           WriteCapacityUnits: 1
         PointInTimeRecoverySpecification:
           PointInTimeRecoveryEnabled: true
-    PipelineTable:
+    PipelineRunnerTable:
       Type: AWS::DynamoDB::Table
       Properties:
-        TableName: ${self:custom.env.DYNAMO_DB_PIPELINE_TABLE_NAME}
+        TableName: ${self:custom.env.DYNAMO_DB_PIPELINE_RUNNER_TABLE_NAME}
         AttributeDefinitions:
           - AttributeName: id
             AttributeType: S
@@ -201,8 +201,8 @@ package:
     - yml-helpers.js
 
 functions:
-  createDeployment:
-    handler: src/index.createDeployment
+  createPipeline:
+    handler: src/index.pipelineCreate
     events:
       - http:
           path: /deployment
@@ -216,11 +216,11 @@ functions:
               - api-version
           authorizer:
             arn: arn:aws:cognito-idp:${self:provider.region}:${self:custom.env.AWS_ACCOUNT_ID}:userpool/${self:custom.env.CONNECT_USER_POOL}
-  updateDeployment:
-    handler: src/index.updateDeployment
+  updatePipeline:
+    handler: src/index.pipelineUpdate
     events:
       - http:
-          path: /deployment/{id}
+          path: /pipeline/{id}
           method: put
           cors:
             origin: '*'
@@ -231,11 +231,11 @@ functions:
               - api-version
           authorizer:
             arn: arn:aws:cognito-idp:${self:provider.region}:${self:custom.env.AWS_ACCOUNT_ID}:userpool/${self:custom.env.CONNECT_USER_POOL}
-  getDeployment:
-    handler: src/index.getDeployment
+  getPipeline:
+    handler: src/index.pipelineGet
     events:
       - http:
-          path: /deployment/{id}
+          path: /pipeline/{id}
           method: get
           cors:
             origin: '*'
@@ -246,11 +246,11 @@ functions:
               - api-version
           authorizer:
             arn: arn:aws:cognito-idp:${self:provider.region}:${self:custom.env.AWS_ACCOUNT_ID}:userpool/${self:custom.env.CONNECT_USER_POOL}
-  deleteDeployment:
-    handler: src/index.deleteDeployment
+  deletePipeline:
+    handler: src/index.deletePipeline
     events:
       - http:
-          path: /deployment/{id}
+          path: /pipeline/{id}
           method: delete
           cors:
             origin: '*'
@@ -261,8 +261,8 @@ functions:
               - api-version
           authorizer:
             arn: arn:aws:cognito-idp:${self:provider.region}:${self:custom.env.AWS_ACCOUNT_ID}:userpool/${self:custom.env.CONNECT_USER_POOL}
-  paginateDeployments:
-    handler: src/index.paginateDeployments
+  paginatePipelines:
+    handler: src/index.pipelinePaginate
     events:
       - http:
           path: /deployment
@@ -276,11 +276,11 @@ functions:
               - api-version
           authorizer:
             arn: arn:aws:cognito-idp:${self:provider.region}:${self:custom.env.AWS_ACCOUNT_ID}:userpool/${self:custom.env.CONNECT_USER_POOL}
-  # createPipeline:
-  #   handler: src/index.createPipeline
+  # createPipelineRunner:
+  #   handler: src/index.pipelineRunnerCreate
   #   events:
   #     - http:
-  #         path: /deployment/{deploymentId}/pipeline
+  #         path: /pipeline/{pipelineId}/pipeline
   #         method: post
   #         cors:
   #           origin: '*'
@@ -291,11 +291,11 @@ functions:
   #             - api-version
   #         authorizer:
   #           arn: arn:aws:cognito-idp:${self:provider.region}:${self:custom.env.AWS_ACCOUNT_ID}:userpool/${self:custom.env.CONNECT_USER_POOL}
-  # updatePipeline:
-  #   handler: src/index.updatePipeline
+  # updatePipelineRunner:
+  #   handler: src/index.pipelineRunnerUpdate
   #   events:
   #     - http:
-  #         path: /deployment/{deploymentId}/pipeline/{pipelineId}
+  #         path: /pipeline/{pipelineId}/pipeline/{pipelineId}
   #         method: put
   #         cors:
   #           origin: '*'
@@ -306,11 +306,11 @@ functions:
   #             - api-version
   #         authorizer:
   #           arn: arn:aws:cognito-idp:${self:provider.region}:${self:custom.env.AWS_ACCOUNT_ID}:userpool/${self:custom.env.CONNECT_USER_POOL}
-  # getPipeline:
-  #   handler: src/index.getPipeline
+  # getPipelineRunner:
+  #   handler: src/index.pipelineRunnerGet
   #   events:
   #     - http:
-  #         path: /deployment/{deploymentId}/pipeline/{pipelineId}
+  #         path: /pipeline/{pipelineId}/pipeline/{pipelineId}
   #         method: get
   #         cors:
   #           origin: '*'
@@ -320,11 +320,11 @@ functions:
   #             - api-version
   #         authorizer:
   #           arn: arn:aws:cognito-idp:${self:provider.region}:${self:custom.env.AWS_ACCOUNT_ID}:userpool/${self:custom.env.CONNECT_USER_POOL}
-  deployRun:
-    handler: src/index.deployRun
+  pipelineRun:
+    handler: src/index.pipelineRun
     events:
       - http:
-          path: /deployment/{id}/run
+          path: /pipeline/{id}/run
           method: post
           cors:
             origin: '*'

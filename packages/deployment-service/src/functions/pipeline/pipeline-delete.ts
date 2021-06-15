@@ -1,25 +1,25 @@
 import { httpHandler, NotFoundException, HttpStatusCode } from '@homeservenow/serverless-aws-handler'
-import * as service from '@/services/deployment'
+import * as service from '@/services/pipeline'
 import { ownership, resolveDeveloperId } from '@/utils'
-import { defaultOutputHeaders } from './../constants'
+import { defaultOutputHeaders } from './../../constants'
 
 /**
- * Delete a deployment
+ * Delete a pipeline
  */
-export const deleteDeployment = httpHandler({
+export const pipelineDelete = httpHandler({
   defaultOutputHeaders,
   defaultStatusCode: HttpStatusCode.NO_CONTENT,
   handler: async ({ event }): Promise<void> => {
     const developerId = await resolveDeveloperId(event)
 
-    const deployment = await service.getByKey(event.pathParameters?.id as string)
+    const pipeline = await service.findPipelineById(event.pathParameters?.id as string)
 
-    if (!deployment) {
+    if (!pipeline) {
       throw new NotFoundException()
     }
 
-    await ownership(deployment.developerId, developerId)
+    await ownership(pipeline.developerId, developerId)
 
-    await service.deleteDeploymentModel(deployment)
+    await service.deletePipelineModel(pipeline)
   },
 })

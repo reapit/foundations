@@ -1,7 +1,7 @@
 import { httpHandler } from '@homeservenow/serverless-aws-handler'
-import { DeploymentModel } from '@/models'
-import * as service from '@/services/deployment'
-import { resolveDeveloperId } from './../utils'
+import { PipelineModel } from '@/models'
+import * as service from '@/services/pipeline'
+import { resolveDeveloperId } from './../../utils'
 
 type Pagintation<T> = {
   items: T[]
@@ -14,19 +14,19 @@ type Pagintation<T> = {
 /**
  * Return pagination response for signed in user
  */
-export const paginateDeployments = httpHandler({
+export const pipelinePaginate = httpHandler({
   defaultOutputHeaders: {
     'Access-Control-Allow-Origin': '*',
   },
-  handler: async ({ event }): Promise<Pagintation<DeploymentModel>> => {
+  handler: async ({ event }): Promise<Pagintation<PipelineModel>> => {
     const developerId = await resolveDeveloperId(event)
 
-    const response = await service.batchGet(
+    const response = await service.batchGetPipelines(
       developerId,
       event?.queryStringParameters?.nextCursor ? { id: event?.queryStringParameters?.nextCursor } : undefined,
     )
 
-    const pagination: Pagintation<DeploymentModel> = {
+    const pagination: Pagintation<PipelineModel> = {
       items: [],
       meta: response[1],
     }
