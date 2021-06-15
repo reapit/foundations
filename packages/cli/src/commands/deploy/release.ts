@@ -63,8 +63,15 @@ export class ReleaseCommand extends AbstractCommand {
       throw new Error('Dist not found. Be sure to build in the dist dir')
     }
 
+    const files = ['serverless.yml', 'package.json', 'yarn.lock', 'package-lock.json']
+
     const zip = new AdmZip()
     zip.addLocalFolder(path.resolve(process.cwd(), 'dist'))
+    files.forEach(file => {
+      if (fs.existsSync(path.resolve(process.cwd(), file))) {
+        zip.addLocalFile(path.resolve(process.cwd(), file))
+      }
+    })
     return zip.toBuffer()
   }
 
