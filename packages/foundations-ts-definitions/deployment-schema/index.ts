@@ -1,4 +1,4 @@
-export interface DeploymentModelInterface {
+export interface PipelineModelInterface {
   id?: string
   name?: string
   organisationId?: string
@@ -11,9 +11,9 @@ export interface DeploymentModelInterface {
   repository?: string
 }
 
-export interface PipelineModelInterface {
+export interface PipelineRunnerModelInterface {
   id?: string
-  deploymentId?: string
+  pipelineId?: string
   created?: string
   modified?: string
   appType?: AppTypeEnum
@@ -24,7 +24,7 @@ export interface PipelineModelInterface {
 
 export interface TaskModelInterface {
   id?: string
-  pipelineId?: string
+  pipelineRunnerId?: string
   created?: string
   modified?: string
   functionName?: TaskRunnerFunctions
