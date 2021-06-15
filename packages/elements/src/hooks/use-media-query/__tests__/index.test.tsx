@@ -9,9 +9,9 @@ describe('useMediaQuery', () => {
       wrapper: (props) => <MediaStateProvider>{props.children}</MediaStateProvider>,
     })
 
-    expect(result.current.isMobile).toBe(true)
+    expect(result.current.isMobile).toBe(false)
     expect(result.current.isTablet).toBe(false)
-    expect(result.current.isDesktop).toBe(false)
+    expect(result.current.isDesktop).toBe(true)
     expect(result.current.isWideScreen).toBe(false)
   })
 })

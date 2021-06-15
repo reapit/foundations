@@ -1,23 +1,30 @@
 import { css } from 'linaria'
 import { styled } from 'linaria/react'
 
+const navControlsHeightMobile = '15rem'
+const navHeightMobile = '3.5rem'
+const navAppointmentListWidthDesktop = '467px'
+const controlsHeightDesktop = '9.1rem'
+const navWidthDesktop = '5rem'
+const appointmentListWidthDesktop = '24.1rem'
+
 export const MapContainer = styled.div`
   overflow: hidden;
   position: absolute;
   width: 100%;
-  height: calc(100% - 15.6rem);
-  top: 15.6rem;
+  height: calc(100% - ${navControlsHeightMobile});
+  top: ${navControlsHeightMobile};
 
   @media (min-width: 769px) {
     top: 0;
     height: 100%;
-    left: calc(390px + 4.6rem);
-    width: calc(100vw - 29rem);
+    left: ${navAppointmentListWidthDesktop};
+    width: calc(100vw - ${navAppointmentListWidthDesktop});
   }
 `
 export const ControlsContainer = styled.div`
   position: absolute;
-  top: 4rem;
+  top: ${navHeightMobile};
   background: #fff;
   width: 100%;
   z-index: 2;
@@ -25,8 +32,8 @@ export const ControlsContainer = styled.div`
   padding: 1rem 0;
 
   @media (min-width: 769px) {
-    width: 25rem;
-    left: 4.1rem;
+    width: ${appointmentListWidthDesktop};
+    left: 5rem;
     top: 0;
   }
 `
@@ -35,18 +42,18 @@ export const AppoinmentContainer = styled.div`
   padding: 1.5rem 1.5rem;
   position: absolute;
   background: #f5f7f9;
-  height: calc(100% - 15.6rem);
+  height: calc(100% - ${navControlsHeightMobile});
   left: 0;
-  top: 15.6rem;
+  top: ${navControlsHeightMobile};
   width: 100%;
   overflow: scroll;
   z-index: 1;
 
   @media (min-width: 769px) {
-    width: 25rem;
-    left: 4.1rem;
-    top: 11.6rem;
-    height: calc(100% - 11.6rem);
+    width: ${appointmentListWidthDesktop};
+    left: ${navWidthDesktop};
+    top: ${controlsHeightDesktop};
+    height: calc(100% - ${controlsHeightDesktop});
   }
 `
 

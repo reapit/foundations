@@ -1,0 +1,79 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Toggle should match a snapshot and render children 1`] = `
+<Fragment>
+  <ElToggleCheckbox
+    type="checkbox"
+  />
+  <ElToggleLabel
+    className=""
+  >
+    <span
+      className="el-toggle-item"
+    >
+      On
+    </span>
+    <span
+      className="el-toggle-item"
+    >
+      Off
+    </span>
+  </ElToggleLabel>
+</Fragment>
+`;
+
+exports[`ToggleRadio should match a snapshot and render children 1`] = `
+<ElToggleRadioWrap>
+  <ElToggleRadio
+    defaultChecked={true}
+    id="option-1"
+    name="my-cool-toggle-radio"
+    type="radio"
+    value="option-1"
+  />
+  <ElToggleRadioLabel
+    className=""
+    htmlFor="option-1"
+  >
+    <span
+      className="el-toggle-radio-item"
+    >
+      Option 1
+    </span>
+  </ElToggleRadioLabel>
+  <ElToggleRadio
+    defaultChecked={false}
+    id="option-2"
+    name="my-cool-toggle-radio"
+    type="radio"
+    value="option-2"
+  />
+  <ElToggleRadioLabel
+    className=""
+    htmlFor="option-2"
+  >
+    <span
+      className="el-toggle-radio-item"
+    >
+      Option 2
+    </span>
+  </ElToggleRadioLabel>
+  <ElToggleRadio
+    defaultChecked={false}
+    id="option-3"
+    name="my-cool-toggle-radio"
+    type="radio"
+    value="option-3"
+  />
+  <ElToggleRadioLabel
+    className=""
+    htmlFor="option-3"
+  >
+    <span
+      className="el-toggle-radio-item"
+    >
+      Option 3
+    </span>
+  </ElToggleRadioLabel>
+</ElToggleRadioWrap>
+`;

@@ -1,7 +1,6 @@
-import React from 'react'
+import React, { ChangeEvent } from 'react'
 import { shallow } from 'enzyme'
 import { TravelMode, handleChangeTravelMode } from '../travel-mode'
-import { AppTravelMode } from '../../../../core/app-state'
 
 jest.mock('../../../../core/app-state')
 
@@ -16,10 +15,10 @@ describe('travel-mode', () => {
     it('should run correctly', () => {
       const mockParams = {
         setAppState: jest.fn(),
-        travelMode: 'WALKING' as AppTravelMode,
       }
       const curried = handleChangeTravelMode(mockParams)
-      curried()
+      const event = { currentTarget: { value: 'WALKING' } } as ChangeEvent<HTMLInputElement>
+      curried(event)
 
       const newState = mockParams.setAppState.mock.calls[0][0]()
       expect(newState).toEqual({ travelMode: 'WALKING' })

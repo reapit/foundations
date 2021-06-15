@@ -1,7 +1,6 @@
-import React from 'react'
+import React, { ChangeEvent } from 'react'
 import { shallow } from 'enzyme'
 import { AppointmentTime, handleChangeTime } from '../appointment-time'
-import { AppTimeRange } from '../../../../core/app-state'
 
 jest.mock('../../../../core/app-state')
 
@@ -16,15 +15,15 @@ describe('appointment-time', () => {
     it('should correctly set state', () => {
       const mockParams = {
         setAppState: jest.fn(),
-        time: 'today' as AppTimeRange,
       }
       const curried = handleChangeTime(mockParams)
-      curried()
+      const event = { currentTarget: { value: 'TOMORROW' } } as ChangeEvent<HTMLInputElement>
+      curried(event)
 
       const newState = mockParams.setAppState.mock.calls[0][0]()
 
       expect(newState).toEqual({
-        time: mockParams.time,
+        time: 'TOMORROW',
         destinationLat: null,
         destinationLng: null,
         appointmentId: null,

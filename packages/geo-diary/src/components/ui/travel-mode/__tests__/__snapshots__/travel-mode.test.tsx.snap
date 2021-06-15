@@ -1,23 +1,32 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`travel-mode TravelMode should match snapshot 1`] = `
-<ButtonGroup
-  className="is-narrow mb-2"
-  isCentered={true}
+<div
+  className="el-mb2"
 >
-  <Button
-    onClick={[Function]}
-    type="button"
-    variant="primary"
+  <FlexContainer
+    isFlexJustifyCenter={true}
   >
-    Car
-  </Button>
-  <Button
-    onClick={[Function]}
-    type="button"
-    variant="secondary"
-  >
-    Walk
-  </Button>
-</ButtonGroup>
+    <ToggleRadio
+      name="travel-mode"
+      onChange={[Function]}
+      options={
+        Array [
+          Object {
+            "id": "driving",
+            "isChecked": true,
+            "text": "Driving",
+            "value": "DRIVING",
+          },
+          Object {
+            "id": "walking",
+            "isChecked": false,
+            "text": "Walking",
+            "value": "WALKING",
+          },
+        ]
+      }
+    />
+  </FlexContainer>
+</div>
 `;

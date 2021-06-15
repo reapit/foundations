@@ -50,7 +50,7 @@ exports[`DeveloperWebHooks should match a snapshot 1`] = `
                  
                 <a
                   className="l3gjl5x-link"
-                  href="/api-docs/api/webhooks"
+                  href="https://foundations-documentation.reapit.cloud/api/webhooks"
                   rel="noopener noreferrer"
                   target="_blank"
                 >
@@ -793,7 +793,7 @@ exports[`DeveloperWebHooks should match a snapshot where there are subscriptions
                  
                 <a
                   className="l3gjl5x-link"
-                  href="/api-docs/api/webhooks"
+                  href="https://foundations-documentation.reapit.cloud/api/webhooks"
                   rel="noopener noreferrer"
                   target="_blank"
                 >

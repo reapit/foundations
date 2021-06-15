@@ -1,30 +1,38 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`appointment-time AppointmentTime should match snapshot 1`] = `
-<ButtonGroup
-  className="is-narrow mb-2"
-  isCentered={true}
+<div
+  className="el-mb2"
 >
-  <Button
-    onClick={[Function]}
-    type="button"
-    variant="primary"
+  <FlexContainer
+    isFlexJustifyCenter={true}
   >
-    TODAY
-  </Button>
-  <Button
-    onClick={[Function]}
-    type="button"
-    variant="secondary"
-  >
-    TOMORROW
-  </Button>
-  <Button
-    onClick={[Function]}
-    type="button"
-    variant="secondary"
-  >
-    WEEK
-  </Button>
-</ButtonGroup>
+    <ToggleRadio
+      name="appointment-time"
+      onChange={[Function]}
+      options={
+        Array [
+          Object {
+            "id": "today",
+            "isChecked": true,
+            "text": "Today",
+            "value": "TODAY",
+          },
+          Object {
+            "id": "tomorrow",
+            "isChecked": false,
+            "text": "Tomorrow",
+            "value": "TOMORROW",
+          },
+          Object {
+            "id": "week",
+            "isChecked": false,
+            "text": "Week",
+            "value": "WEEK",
+          },
+        ]
+      }
+    />
+  </FlexContainer>
+</div>
 `;

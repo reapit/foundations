@@ -1,0 +1,26 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`MultiSelect should match a snapshot and render children 1`] = `
+<ElMultiSelect
+  className=""
+>
+  <span>
+    Some Value
+  </span>
+</ElMultiSelect>
+`;
+
+exports[`MultiSelectChip should match a snapshot and render children 1`] = `
+<Fragment>
+  <ElMultiSelectCheckbox
+    type="checkbox"
+  />
+  <ElMultiSelectLabel
+    className=""
+  >
+    <span>
+      Some Value
+    </span>
+  </ElMultiSelectLabel>
+</Fragment>
+`;

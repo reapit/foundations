@@ -1,7 +1,7 @@
 import { Story, Canvas } from '@storybook/addon-docs/blocks'
 import { cx } from 'linaria'
 import { Nav, NavItem } from './index'
-import { elNavItemActive, elNavItemHideDesktop, elNavItemExpanded, elNavItemIcon } from './__styles__'
+import { elNavItemActive, elNavItemHideDesktop, elNavItemExpanded, elNavItemIcon, elNavIsDesktop } from './__styles__'
 import { NavStateProvider, useNavState } from '../../hooks/use-nav-state'
 import { MediaStateProvider } from '../../hooks/use-media-query'
 import { Icon } from '../Icon'
@@ -9,6 +9,7 @@ import { UseNavStory, UseNavMobileSubMenuStory } from './use-nav.stories'
 import { RenderHtmlMarkup } from '../../helpers/v3/render-html-markup'
 import { elIntentNeutral } from '../../styles-v3/base/intent'
 import { elMl4, elMLAuto, elMr2 } from '../../styles-v3/base/spacing'
+import { NavResponsive } from './nav-responsive'
 
 <Meta title="V3/Nav" />
 
@@ -89,6 +90,41 @@ In this example, changing the browser width to mobile will show the expanded mob
   label="Nav with Mobile Menu Rendered HTML markup"
 />
 
+### Desktop Mode
+
+When rendering your app inside Agency Cloud, apply the `el-nav-is-desktop` class to make it blend in with the Desktop UI.
+
+You can check if the app is in desktop mode by checking if the `window.__REAPIT_MARKETPLACE_GLOBALS__` value is present.
+
+<Canvas>
+  <Story name="Desktop Mode">
+    <Nav className={elNavIsDesktop}>
+      <NavItem>
+        <Icon className={elNavItemIcon} icon="reapitHouse" />
+        <Icon className={cx(elIntentNeutral, elMLAuto, elMr2, elNavItemHideDesktop)} icon="hamburger" />
+      </NavItem>
+      <NavItem className={cx(elNavItemActive, elNavItemExpanded)} href="https://marketplace.reapit.cloud/apps">
+        <Icon icon="apps" />
+        Apps
+      </NavItem>
+      <NavItem className={elNavItemExpanded} href="https://developers.reapit.cloud/analytics">
+        <Icon icon="analytics" />
+        Analytics
+      </NavItem>
+      <NavItem className={elNavItemExpanded} href="https://marketplace.reapit.cloud">
+        <Icon icon="marketplace" />
+        Marketplace
+      </NavItem>
+      <NavItem className={elNavItemExpanded} isSecondary href="https://developers.reapit.cloud/login">
+        <Icon icon="logout" />
+        Logout
+      </NavItem>
+    </Nav>
+  </Story>
+</Canvas>
+
+<RenderHtmlMarkup component="V3/Nav" story={['Desktop Mode']} label="Nav with Mobile Menu Rendered HTML markup" />
+
 ### React usage Complete example with `useNavState` hook
 
 The `useNavState` hook will track the currrent state of the Nav and return both, the `navState` and a `setNavState` function. The annotated inteface of `NavState` is below, setNavState accepts a partial (any combination) of these keys and updates the state accordingly.
@@ -104,6 +140,7 @@ export interface NavState {
   callback?: () => void // If specified, the callback will be executed when set on state.
 }
 ```
+
 Practically the callback will be a dispatch to React Router, an update to `window.history` object or similar client side routing function. You may also wish to bind the callback to an application action for example below, we pass a `logout` function to the logout nav item.
 
 As before, you can override this behaviour by simply setting a `href` attribute to route to any url or path, for maximum flexibility.
@@ -111,16 +148,7 @@ As before, you can override this behaviour by simply setting a `href` attribute 
 ```tsx
 import React from 'react'
 import { cx } from 'linaria'
-import {
-  elNavItemActive,
-  useNavState,
-  Nav,
-  NavItem,
-  Icon,
-  elNavItemIcon,
-  elNavItemExpanded
-} from '@reapit/elements'
-
+import { elNavItemActive, useNavState, Nav, NavItem, Icon, elNavItemIcon, elNavItemExpanded } from '@reapit/elements'
 
 export const UseNavStory = () => {
   const { navState, setNavState } = useNavState(1)
@@ -184,7 +212,6 @@ export const UseNavStory = () => {
     </NavStateProvider>
   </Story>
 </Canvas>
-
 
 ### Advanced React Usage - Mobile Sub Menus with `useNavState` and `useMediaQuery` hooks
 
@@ -333,11 +360,96 @@ export const UseNavMobileSubMenuStory = () => {
   </Story>
 </Canvas>
 
+### React Shorthand - NavResponsive
+
+Clearly the above example is complex to keep in sync so we offer a relatively simplified React Shorthand Component that does the heavy lifting of building a nav for you.
+
+Essentially, each menu item has config where all options are optional except `itemIndex` which is required and must be a unique numeric id for each menu item and sub item.
+
+See the below annotated interfaces for details:
+
+```ts
+export interface NavResponsiveOption {
+  itemIndex: number // The unique numeric identifier for your menu item or sub item.
+  isSecondary?: boolean // Should the menu item render as a secondary item at the bottom of the nav
+  icon?: ReactNode // If supplied, will assume you are supplying a custom React component as your icon
+  iconId?: IconNames // If supplied and no icon supplied, should be a named Icon from our icon collection
+  callback?: () => void // Any action to be performed on click eg Navigate, logout etc
+  text?: string // The text to render in the Menu for your item
+  href?: string // If you want to navigate externally, just supply an href
+  subItems?: NavResponsiveOption[] // An array of sub items, following the same rules as the main nav
+}
+
+export interface NavResponsiveProps extends HTMLAttributes<HTMLDivElement> {
+  options: NavResponsiveOption[] // A list of Nav items as per the above inteface
+  defaultNavIndex?: number // The default top menu nav item to be selected when rendering the nav
+  defaultNavSubIndex?: number // As per the above but for sub-items
+}
+```
 
 <Canvas>
-  <Story name="Coming soon... React Shorthand">
-    <div>
-      Clearly the above example is complex to keep in sync - we will soon be offering a simplified React Shorthand Component that does the heavy lifting of building a nav for you.
-    </div>
+  <Story name="React Shorthand - NavResponsive">
+    <NavStateProvider>
+      <MediaStateProvider>
+        <NavResponsive
+          defaultNavIndex={1}
+          options={[
+            {
+              itemIndex: 0,
+              callback: () => console.log('Navigating'),
+            },
+            {
+              itemIndex: 1,
+              callback: () => console.log('Navigating'),
+              iconId: 'apps',
+              text: 'Apps',
+              subItems: [
+                {
+                  itemIndex: 0,
+                  callback: () => console.log('Navigating'),
+                  text: 'App List',
+                },
+                {
+                  itemIndex: 1,
+                  callback: () => console.log('Navigating'),
+                  text: 'Create App',
+                },
+              ],
+            },
+            {
+              itemIndex: 2,
+              callback: () => console.log('Navigating'),
+              iconId: 'analytics',
+              text: 'Analytics',
+              subItems: [
+                {
+                  itemIndex: 2,
+                  callback: () => console.log('Navigating'),
+                  text: 'Hits Per Day',
+                },
+                {
+                  itemIndex: 3,
+                  callback: () => console.log('Navigating'),
+                  text: 'Weekly Hits',
+                },
+              ],
+            },
+            {
+              itemIndex: 3,
+              href: 'https://marketplace.reapit.cloud',
+              iconId: 'marketplace',
+              text: 'Marketplace',
+            },
+            {
+              itemIndex: 4,
+              callback: () => console.log('Logging out'),
+              isSecondary: true,
+              iconId: 'logout',
+              text: 'Logout',
+            },
+          ]}
+        />
+      </MediaStateProvider>
+    </NavStateProvider>
   </Story>
 </Canvas>
