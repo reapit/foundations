@@ -9,7 +9,7 @@ export enum PackageManagerEnum {
   YARN = 'yarn',
   NPM = 'npm',
 }
-export class DeploymentDto {
+export class PipelineDto {
   @IsString()
   @IsNotEmpty()
   name?: string

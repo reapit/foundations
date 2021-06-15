@@ -1,4 +1,4 @@
-import { createPipeline } from '../functions/create-pipeline'
+import { pipelineCreate } from '../functions/pipeline/pipeline-create'
 import { v4 as uuid } from 'uuid'
 import { Context } from 'aws-lambda'
 import { HttpStatusCode } from '@homeservenow/serverless-aws-handler'
@@ -11,7 +11,7 @@ describe('Create Pipeline', () => {
   it('Can create pipeline', async () => {
     const deploymentId = uuid()
 
-    const result = await createPipeline(mockRequestHandlerContext({}, `/${deploymentId}`), {} as Context)
+    const result = await pipelineCreate(mockRequestHandlerContext({}, `/${deploymentId}`), {} as Context)
     const body = JSON.parse(result.body)
 
     expect(result.statusCode).toBe(HttpStatusCode.OK)

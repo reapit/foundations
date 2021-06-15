@@ -1,19 +1,19 @@
 import { v4 as uuid } from 'uuid'
-import { AppTypeEnum, PipelineModelInterface } from '@reapit/foundations-ts-definitions'
+import { AppTypeEnum, PipelineRunnerModelInterface } from '@reapit/foundations-ts-definitions'
 import * as services from '@/services'
 import { workflowCreation } from '@/functions'
-import { taskPopulation } from '../functions/task-population'
+import { taskPopulation } from '../functions/pipeline/task-population'
 import { Context } from 'aws-lambda'
 
 jest.mock('../core/db')
 jest.mock('../executables')
 
 describe('Task Runner', () => {
-  let pipeline: PipelineModelInterface
+  let pipeline: PipelineRunnerModelInterface
 
   beforeAll(async () => {
-    pipeline = await services.createPipelineModel({
-      deploymentId: uuid(),
+    pipeline = await services.createPipelineRunnerModel({
+      pipelineId: uuid(),
     })
     const tasks = await workflowCreation(pipeline, {
       appType: AppTypeEnum.NODE,

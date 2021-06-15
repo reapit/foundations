@@ -1,26 +1,26 @@
 import { SQSHandler, SQSHandleActions } from '@homeservenow/serverless-aws-handler'
 import { sqs } from '@/services'
 import { DeploymentStatus } from '@reapit/foundations-ts-definitions'
-import { PipelineModel, TaskModel } from '@/models'
+import { PipelineRunnerModel, TaskModel } from '@/models'
 import * as services from '@/services'
 
 const updateTasks = async (tasks: TaskModel[]): Promise<void> => {
   await services.batchUpdateTask(tasks)
 }
 
-const pipelineStatusUpdate = async (pipeline: PipelineModel, buildStatus: DeploymentStatus): Promise<void> => {
-  await services.updatePipelineModel(pipeline, {
+const pipelineStatusUpdate = async (pipeline: PipelineRunnerModel, buildStatus: DeploymentStatus): Promise<void> => {
+  await services.updatePipelineRunnerModel(pipeline, {
     buildStatus,
   })
 }
 
-const nextTask = (pipeline: PipelineModel, rightSibling?: string): TaskModel | undefined => {
+const nextTask = (pipeline: PipelineRunnerModel, rightSibling?: string): TaskModel | undefined => {
   return rightSibling ? pipeline.tasks?.find((task) => task.id === rightSibling) : undefined
 }
 
 type TaskExecutionContextType = {
   currentTask?: TaskModel
-  pipeline: PipelineModel
+  pipeline: PipelineRunnerModel
 }
 /**
  * Task runner executable and pipeline
@@ -35,7 +35,7 @@ export const taskRunner = SQSHandler<TaskExecutionContextType>(sqs)(
     // TODO update task on result
     // TODO start next task || send complete
 
-    const pipeline = await services.findById(executionContext.pipeline.id as string)
+    const pipeline = await services.findPipelineRunnerById(executionContext.pipeline.id as string)
     executionContext.pipeline = pipeline
 
     // check pipeline is canceled to cancel task

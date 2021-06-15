@@ -1,5 +1,5 @@
+export * from './pipeline-runner'
 export * from './pipeline'
-export * from './deployment'
 export * from './sqs'
 export * from './task'
 export * from './s3'

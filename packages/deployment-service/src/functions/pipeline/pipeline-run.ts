@@ -1,34 +1,34 @@
-import { getByKey } from '@/services'
+import { findPipelineById } from '@/services'
 import { ownership } from '@/utils'
-import { resolveDeveloperId } from './../utils'
+import { resolveDeveloperId } from '../../utils'
 import { httpHandler, HttpStatusCode, NotFoundException } from '@homeservenow/serverless-aws-handler'
 import { execSync } from 'child_process'
 import { resolve } from 'path'
-import { defaultOutputHeaders } from './../constants'
+import { defaultOutputHeaders } from '../../constants'
 
 const cloneDir = 'project'
 const dir = resolve('/tmp')
 
-export const deployRun = httpHandler({
+export const pipelineRun = httpHandler({
   defaultOutputHeaders,
   defaultStatusCode: HttpStatusCode.OK,
   handler: async ({ event }) => {
     const developerId = await resolveDeveloperId(event)
 
-    const deployment = await getByKey(event.pathParameters?.id as string)
+    const pipeline = await findPipelineById(event.pathParameters?.id as string)
 
-    if (!deployment) {
+    if (!pipeline) {
       throw new NotFoundException()
     }
 
-    await ownership(deployment.developerId, developerId)
+    await ownership(pipeline.developerId, developerId)
 
-    if (!deployment.repository) {
+    if (!pipeline.repository) {
       throw new Error('No repository set')
     }
 
     try {
-      const clone = execSync(`git clone ${deployment.repository} ${cloneDir}`, {
+      const clone = execSync(`git clone ${pipeline.repository} ${cloneDir}`, {
         cwd: dir,
       })
       console.log('clone', clone.toString())
