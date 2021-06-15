@@ -6,7 +6,7 @@ import { PipelineRun } from './run'
 
 @Command({
   name: 'pipeline',
-  description: 'For managing deployments',
+  description: '(BETA) For managing Pipeline deployments',
 })
 export class PipelineCommand extends ParentCommand {
   commands = [new PipelineCreate(), new PipelineList(), new PipelineRun()]

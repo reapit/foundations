@@ -205,7 +205,7 @@ functions:
     handler: src/index.pipelineCreate
     events:
       - http:
-          path: /deployment
+          path: /pipeline
           method: post
           cors:
             origin: '*'
@@ -265,7 +265,7 @@ functions:
     handler: src/index.pipelinePaginate
     events:
       - http:
-          path: /deployment
+          path: /pipeline
           method: get
           cors:
             origin: '*'
@@ -280,7 +280,7 @@ functions:
   #   handler: src/index.pipelineRunnerCreate
   #   events:
   #     - http:
-  #         path: /pipeline/{pipelineId}/pipeline
+  #         path: /pipeline/{pipelineId}/runner
   #         method: post
   #         cors:
   #           origin: '*'
@@ -295,7 +295,7 @@ functions:
   #   handler: src/index.pipelineRunnerUpdate
   #   events:
   #     - http:
-  #         path: /pipeline/{pipelineId}/pipeline/{pipelineId}
+  #         path: /pipeline/{pipelineId}/runner/{pipelineRunnerId}
   #         method: put
   #         cors:
   #           origin: '*'
@@ -310,7 +310,7 @@ functions:
   #   handler: src/index.pipelineRunnerGet
   #   events:
   #     - http:
-  #         path: /pipeline/{pipelineId}/pipeline/{pipelineId}
+  #         path: /pipeline/{pipelineId}/runner/{pipelineRunnerId}
   #         method: get
   #         cors:
   #           origin: '*'
