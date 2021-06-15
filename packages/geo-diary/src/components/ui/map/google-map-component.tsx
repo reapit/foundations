@@ -368,7 +368,7 @@ export const GoogleMapComponent: FC<MapProps> = ({ appointments }) => {
       setAppState,
       coordinates,
     }),
-    [coordinates, currentLat, currentLng],
+    [coordinates, currentLat, currentLng, travelMode],
   )
 
   return (
