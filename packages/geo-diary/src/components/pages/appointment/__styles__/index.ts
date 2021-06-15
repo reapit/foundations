@@ -5,8 +5,8 @@ export const MapContainer = styled.div`
   overflow: hidden;
   position: absolute;
   width: 100%;
-  height: calc(100% - 14.5rem);
-  top: 14.5rem;
+  height: calc(100% - 15rem);
+  top: 15rem;
 
   @media (min-width: 769px) {
     top: 0;
@@ -17,7 +17,7 @@ export const MapContainer = styled.div`
 `
 export const ControlsContainer = styled.div`
   position: absolute;
-  top: 3rem;
+  top: 3.5rem;
   background: #fff;
   width: 100%;
   z-index: 2;
@@ -35,9 +35,9 @@ export const AppoinmentContainer = styled.div`
   padding: 1.5rem 1.5rem;
   position: absolute;
   background: #f5f7f9;
-  height: calc(100% - 14.5rem);
+  height: calc(100% - 15rem);
   left: 0;
-  top: 14.5rem;
+  top: 15rem;
   width: 100%;
   overflow: scroll;
   z-index: 1;

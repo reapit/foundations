@@ -59,7 +59,7 @@ export const ElNavItem = styled.a`
   }
 
   &:first-child {
-    height: 48px;
+    height: 56px;
     opacity: 1;
     padding: 0;
     background-color: var(--nav-menu-background-dark);
