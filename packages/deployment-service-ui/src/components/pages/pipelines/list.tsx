@@ -8,52 +8,52 @@ import { PipelineModelInterface } from '@reapit/foundations-ts-definitions'
 import React, { useEffect, useState } from 'react'
 import { Link } from 'react-router-dom'
 import {
-  deploymentServiceDelete,
-  deploymentServicePaginate,
-  deploymentServiceRun,
+  pipelineServiceDelete,
+  pipelineServicePaginate,
+  pipelineServiceRun,
 } from '../../../platform-api/pipelines'
 
 export default () => {
   const { connectSession } = useReapitConnect(reapitConnectBrowserSession)
-  const [pipelines, setDeployments] = useState<PipelineModelInterface[]>([])
+  const [pipelines, setPipelines] = useState<PipelineModelInterface[]>([])
   const [loading, setLoading] = useState<boolean>(false)
   const [deletionLoading, setDeletionLoading] = useState<string[]>([])
   const [deploying, setDeploying] = useState<string[]>([])
 
   useEffect(() => {
-    const fetchDeployments = async () => {
+    const fetchPipelines = async () => {
       setLoading(true)
-      const serviceResponse = await deploymentServicePaginate(connectSession as ReapitConnectSession)
+      const serviceResponse = await pipelineServicePaginate(connectSession as ReapitConnectSession)
       setLoading(false)
       if (serviceResponse) {
-        setDeployments([...pipelines, ...serviceResponse])
+        setPipelines([...pipelines, ...serviceResponse])
       }
     }
     if (connectSession) {
-      fetchDeployments()
+      fetchPipelines()
     }
   }, [connectSession])
 
-  const deleteDeployment = async (id: string) => {
+  const deletePipeline = async (id: string) => {
     setDeletionLoading([...deletionLoading, id])
 
-    await deploymentServiceDelete(connectSession as ReapitConnectSession, id)
+    await pipelineServiceDelete(connectSession as ReapitConnectSession, id)
 
     setDeletionLoading(deletionLoading.filter((del) => del !== id))
-    setDeployments(pipelines.filter((pipeline) => pipeline.id !== id))
+    setPipelines(pipelines.filter((pipeline) => pipeline.id !== id))
     notification.success({ message: 'Pipeline deleted' })
   }
 
-  const deployDeployment = async (id: string) => {
+  const deployPipeline = async (id: string) => {
     setDeploying([...deploying, id])
 
-    await deploymentServiceRun(connectSession as ReapitConnectSession, id)
-    setDeploying(deploying.filter((deploymentId) => deploymentId !== id))
+    await pipelineServiceRun(connectSession as ReapitConnectSession, id)
+    setDeploying(deploying.filter((pipelineId) => pipelineId !== id))
   }
 
   return (
     <Section>
-      <H3>Deployments</H3>
+      <H3>Pipelines</H3>
       <Link to={Routes.PIPELINES_CREATION}>
         <Button type="button" variant="primary">
           Create new Pipeline
@@ -79,14 +79,14 @@ export default () => {
                 <ButtonGroup>
                   <Button
                     loading={deletionLoading.includes(row.original.id)}
-                    onClick={() => deleteDeployment(row.original.id)}
+                    onClick={() => deletePipeline(row.original.id)}
                     variant="danger"
                   >
                     Delete
                   </Button>
                   <Button
                     loading={deploying.includes(row.original.id)}
-                    onClick={() => deployDeployment(row.original.id)}
+                    onClick={() => deployPipeline(row.original.id)}
                     variant="info"
                   >
                     Deploy
