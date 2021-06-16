@@ -96,13 +96,13 @@ web-components-config-server:
   - packages/web-components-config-server/**
 
 api-key-service:
-  - packages/api-key-service/*
+  - packages/api-key-service/**
 
 deployment-service:
-  - packages/deployment-service/*
+  - packages/deployment-service/**
 
 api-key-verify:
-  - packages/api-key-verify/*
+  - packages/api-key-verify/**
 
 cli:
-  - packages/cli/*
+  - packages/cli/**
