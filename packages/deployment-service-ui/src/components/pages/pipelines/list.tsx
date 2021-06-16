@@ -7,11 +7,7 @@ import { Loader } from '@reapit/elements/v3'
 import { PipelineModelInterface } from '@reapit/foundations-ts-definitions'
 import React, { useEffect, useState } from 'react'
 import { Link } from 'react-router-dom'
-import {
-  pipelineServiceDelete,
-  pipelineServicePaginate,
-  pipelineServiceRun,
-} from '../../../platform-api/pipelines'
+import { pipelineServiceDelete, pipelineServicePaginate, pipelineServiceRun } from '../../../platform-api/pipelines'
 
 export default () => {
   const { connectSession } = useReapitConnect(reapitConnectBrowserSession)
