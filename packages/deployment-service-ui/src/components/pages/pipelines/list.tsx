@@ -4,18 +4,18 @@ import { ReapitConnectSession, useReapitConnect } from '@reapit/connect-session'
 import { ButtonGroup, H3, notification, Section } from '@reapit/elements'
 import { Button, Table } from '@reapit/elements'
 import { Loader } from '@reapit/elements/v3'
-import { DeploymentModelInterface } from '@reapit/foundations-ts-definitions'
+import { PipelineModelInterface } from '@reapit/foundations-ts-definitions'
 import React, { useEffect, useState } from 'react'
 import { Link } from 'react-router-dom'
 import {
   deploymentServiceDelete,
   deploymentServicePaginate,
   deploymentServiceRun,
-} from '../../../platform-api/deployments'
+} from '../../../platform-api/pipelines'
 
 export default () => {
   const { connectSession } = useReapitConnect(reapitConnectBrowserSession)
-  const [deployments, setDeployments] = useState<DeploymentModelInterface[]>([])
+  const [pipelines, setDeployments] = useState<PipelineModelInterface[]>([])
   const [loading, setLoading] = useState<boolean>(false)
   const [deletionLoading, setDeletionLoading] = useState<string[]>([])
   const [deploying, setDeploying] = useState<string[]>([])
@@ -26,7 +26,7 @@ export default () => {
       const serviceResponse = await deploymentServicePaginate(connectSession as ReapitConnectSession)
       setLoading(false)
       if (serviceResponse) {
-        setDeployments([...deployments, ...serviceResponse])
+        setDeployments([...pipelines, ...serviceResponse])
       }
     }
     if (connectSession) {
@@ -40,8 +40,8 @@ export default () => {
     await deploymentServiceDelete(connectSession as ReapitConnectSession, id)
 
     setDeletionLoading(deletionLoading.filter((del) => del !== id))
-    setDeployments(deployments.filter((deployment) => deployment.id !== id))
-    notification.success({ message: 'Deployment deleted' })
+    setDeployments(pipelines.filter((pipeline) => pipeline.id !== id))
+    notification.success({ message: 'Pipeline deleted' })
   }
 
   const deployDeployment = async (id: string) => {
@@ -56,14 +56,14 @@ export default () => {
       <H3>Deployments</H3>
       <Link to={Routes.DEPLOYMENTS_CREATION}>
         <Button type="button" variant="primary">
-          Create new Deployment
+          Create new Pipeline
         </Button>
       </Link>
       {loading ? (
         <Loader />
       ) : (
         <Table
-          data={deployments}
+          data={pipelines}
           columns={[
             {
               Header: 'Name',
