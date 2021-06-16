@@ -1,8 +1,8 @@
 const Routes = {
   HOME: '/',
   LOGIN: '/login',
-  DEPLOYMENTS: '/deployments',
-  DEPLOYMENTS_CREATION: '/deployments/create',
+  PIPELINES: '/pipeline',
+  PIPELINES_CREATION: '/pipeline/create',
   API_KEYS: '/api-keys',
 }
 

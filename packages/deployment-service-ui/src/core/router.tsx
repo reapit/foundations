@@ -41,7 +41,7 @@ const Router = () => (
         <PrivateRouteWrapper>
           <Switch>
             <Route path={Routes.HOME} exact component={AuthenticatedPage} />
-            <Route path={Routes.DEPLOYMENTS} exact component={DeploymentsListPage} />
+            <Route path={Routes.PIPELINES} exact component={DeploymentsListPage} />
             <Route path={Routes.API_KEYS} exact component={ApiKeyListPage} />
           </Switch>
         </PrivateRouteWrapper>
