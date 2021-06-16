@@ -1,14 +1,14 @@
 import { fetcher, notification } from '@reapit/elements'
 import { ReapitConnectSession } from '@reapit/connect-session'
-import { DeploymentModelInterface } from '@reapit/foundations-ts-definitions'
+import { PipelineModelInterface } from '@reapit/foundations-ts-definitions'
 import { BASE_HEADERS } from '../constants/api'
 
-export const deploymentServiceCreate = async (
+export const pipelineServiceCreate = async (
   session: ReapitConnectSession,
-  pipeline: Partial<DeploymentModelInterface>,
-): Promise<DeploymentModelInterface | undefined> => {
+  pipeline: Partial<PipelineModelInterface>,
+): Promise<PipelineModelInterface | undefined> => {
   try {
-    const response: DeploymentModelInterface | undefined = await fetcher({
+    const response: PipelineModelInterface | undefined = await fetcher({
       api: 'https://ayld62ixlf.execute-api.eu-west-2.amazonaws.com',
       url: '/dev/pipeline',
       method: 'POST',
@@ -29,11 +29,11 @@ export const deploymentServiceCreate = async (
   }
 }
 
-export const deploymentServicePaginate = async (
+export const pipelineServicePaginate = async (
   session: ReapitConnectSession,
-): Promise<DeploymentModelInterface[] | undefined> => {
+): Promise<PipelineModelInterface[] | undefined> => {
   try {
-    const response: { items: DeploymentModelInterface[] } | undefined = await fetcher({
+    const response: { items: PipelineModelInterface[] } | undefined = await fetcher({
       api: 'https://ayld62ixlf.execute-api.eu-west-2.amazonaws.com',
       url: '/dev/pipeline',
       method: 'GET',
@@ -53,12 +53,12 @@ export const deploymentServicePaginate = async (
   }
 }
 
-export const deploymentServiceDelete = async (
+export const pipelineServiceDelete = async (
   session: ReapitConnectSession,
   id: string,
-): Promise<DeploymentModelInterface | undefined> => {
+): Promise<PipelineModelInterface | undefined> => {
   try {
-    const response: DeploymentModelInterface | undefined = await fetcher({
+    const response: PipelineModelInterface | undefined = await fetcher({
       api: 'https://ayld62ixlf.execute-api.eu-west-2.amazonaws.com',
       url: `/dev/pipeline/${id}`,
       method: 'DELETE',
@@ -78,12 +78,12 @@ export const deploymentServiceDelete = async (
   }
 }
 
-export const deploymentServiceRun = async (
+export const pipelineServiceRun = async (
   session: ReapitConnectSession,
   id: string,
-): Promise<DeploymentModelInterface | undefined> => {
+): Promise<PipelineModelInterface | undefined> => {
   try {
-    const response: DeploymentModelInterface | undefined = await fetcher({
+    const response: PipelineModelInterface | undefined = await fetcher({
       api: 'https://ayld62ixlf.execute-api.eu-west-2.amazonaws.com',
       url: `/dev/pipeline/${id}/run`,
       method: 'POST',
