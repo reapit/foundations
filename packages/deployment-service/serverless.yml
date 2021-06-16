@@ -98,7 +98,9 @@ provider:
       Resource: 'arn:aws:dynamodb:${self:provider.region}:*/${self:custom.env.DEPLOYMENT_BUCKET_NAME}'
     - Effect: "Allow"
       Action:
-        - "s3:*"
+        - "s3:PutObject"
+        - "s3:GetObject"
+        - "s3:ListObjects"
       Resource: 'arn:aws:s3:::${self:custom.env.DEPLOYMENT_BUCKET_NAME}'
 
 resources:
@@ -201,7 +203,7 @@ package:
     - yml-helpers.js
 
 functions:
-  createPipeline:
+  pipelineCreate:
     handler: src/index.pipelineCreate
     events:
       - http:
@@ -216,7 +218,7 @@ functions:
               - api-version
           authorizer:
             arn: arn:aws:cognito-idp:${self:provider.region}:${self:custom.env.AWS_ACCOUNT_ID}:userpool/${self:custom.env.CONNECT_USER_POOL}
-  updatePipeline:
+  pipelineUpdate:
     handler: src/index.pipelineUpdate
     events:
       - http:
@@ -231,7 +233,7 @@ functions:
               - api-version
           authorizer:
             arn: arn:aws:cognito-idp:${self:provider.region}:${self:custom.env.AWS_ACCOUNT_ID}:userpool/${self:custom.env.CONNECT_USER_POOL}
-  getPipeline:
+  pipelineGet:
     handler: src/index.pipelineGet
     events:
       - http:
@@ -246,7 +248,7 @@ functions:
               - api-version
           authorizer:
             arn: arn:aws:cognito-idp:${self:provider.region}:${self:custom.env.AWS_ACCOUNT_ID}:userpool/${self:custom.env.CONNECT_USER_POOL}
-  deletePipeline:
+  pipelineDelete:
     handler: src/index.deletePipeline
     events:
       - http:
@@ -261,7 +263,7 @@ functions:
               - api-version
           authorizer:
             arn: arn:aws:cognito-idp:${self:provider.region}:${self:custom.env.AWS_ACCOUNT_ID}:userpool/${self:custom.env.CONNECT_USER_POOL}
-  paginatePipelines:
+  pipelinePaginate:
     handler: src/index.pipelinePaginate
     events:
       - http:
