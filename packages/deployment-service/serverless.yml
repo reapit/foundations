@@ -81,12 +81,12 @@ provider:
         - dynamodb:PutItem
         - dynamodb:UpdateItem
         - dynamodb:DeleteItem
-      Resource: 'arn:aws:dynamodb:${self:provider.region}:*:table/${self:custom.env.DYNAMO_DB_PIPELINE_TABLE_NAME}'
+      Resource: 'arn:aws:dynamodb:${self:provider.region}:*:table/${self:custom.env.DYNAMO_DB_PIPELINE_RUNNER_TABLE_NAME}'
     - Effect: Allow
       Action:
         - dynamodb:Query
         - dynamodb:Scan
-      Resource: "arn:aws:dynamodb:${self:provider.region}:*:table/${self:custom.env.DYNAMO_DB_PIPELINE_TABLE_NAME}/index/*"
+      Resource: "arn:aws:dynamodb:${self:provider.region}:*:table/${self:custom.env.DYNAMO_DB_PIPELINE_RUNNER_TABLE_NAME}/index/*"
     - Effect: Allow
       Action:
         - dynamodb:Query
@@ -95,7 +95,7 @@ provider:
         - dynamodb:PutItem
         - dynamodb:UpdateItem
         - dynamodb:DeleteItem
-      Resource: 'arn:aws:dynamodb:${self:provider.region}:*/${self:custom.env.DEPLOYMENT_BUCKET_NAME}'
+      Resource: 'arn:aws:dynamodb:${self:provider.region}:*/${self:custom.env.DYNAMO_DB_TASK_TABLE_NAME}'
     - Effect: Allow
       Action:
         - s3:PutObject
