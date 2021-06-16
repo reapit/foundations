@@ -96,12 +96,13 @@ provider:
         - dynamodb:UpdateItem
         - dynamodb:DeleteItem
       Resource: 'arn:aws:dynamodb:${self:provider.region}:*/${self:custom.env.DEPLOYMENT_BUCKET_NAME}'
-    # - Effect: "Allow"
-    #   Action:
-    #     - s3:PutObject
-    #     - s3:GetObject
-    #     - s3:ListBucket
-    #   Resource: 'arn:aws:s3:::${self:custom.env.DEPLOYMENT_BUCKET_NAME}'
+    - Effect: "Allow"
+      Action:
+        - s3:PutObject
+        - s3:GetObject
+        - s3:ListBucket
+      Resource: 'arn:aws:s3:::${self:custom.env.DEPLOYMENT_BUCKET_NAME}'
+
 
 resources:
   Resources:
