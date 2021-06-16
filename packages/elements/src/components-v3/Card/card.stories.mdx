@@ -1,6 +1,29 @@
 import { useState } from 'react'
 import { Story, Canvas } from '@storybook/addon-docs/blocks'
-import { Card } from './card'
+import {
+  Card,
+  CardHeading,
+  CardSubHeading,
+  CardSubHeadingAdditional,
+  CardHeadingWrap,
+  CardImageWrap,
+  CardBodyWrap,
+  CardListHeading,
+  CardListSubHeading,
+  CardListItem,
+  CardListIcon,
+  CardListItemTextWrap,
+  CardListItemTextPrimary,
+  CardListItemTextSecondary,
+  CardContextMenuWrapper,
+  CardContextMenuToggle,
+  CardContextMenuItems,
+  CardContextMenuItem,
+  CardMainWrap,
+} from './card'
+import { elCardContextMenuOpen } from './__styles__'
+import { Icon } from '../Icon'
+import { elMb5 } from '../../styles-v3/base/spacing'
 import { RenderHtmlMarkup } from '../../helpers/v3/render-html-markup'
 
 <Meta title="V3/Card" />
@@ -12,7 +35,58 @@ import { RenderHtmlMarkup } from '../../helpers/v3/render-html-markup'
 <Canvas>
   <Story name="Complete Example">
     <Card>
-      Content
+      <CardContextMenuWrapper>
+        <CardContextMenuToggle>
+          <Icon icon="more" />
+        </CardContextMenuToggle>
+        <CardContextMenuItems className={elCardContextMenuOpen}>
+          <CardContextMenuItem>
+            <Icon icon="close" />
+          </CardContextMenuItem>
+          <CardContextMenuItem>
+            <Icon icon="trash" intent="danger" />
+          </CardContextMenuItem>
+          <CardContextMenuItem>
+            <Icon icon="share" />
+          </CardContextMenuItem>
+        </CardContextMenuItems>
+      </CardContextMenuWrapper>
+      <CardMainWrap>
+        <CardImageWrap>
+          <img src="https://via.placeholder.com/72x72.svg" />
+        </CardImageWrap>
+        <CardHeadingWrap>
+          <CardHeading>Main Heading</CardHeading>
+          <CardSubHeading>Sub Heading</CardSubHeading>
+          <CardSubHeadingAdditional>Sub Heading Additional</CardSubHeadingAdditional>
+        </CardHeadingWrap>
+      </CardMainWrap>
+      <CardBodyWrap className={elMb5}>
+        Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore
+        magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
+        consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla
+        pariatur.
+      </CardBodyWrap>
+      <CardListHeading>Secondary Heading</CardListHeading>
+      <CardListSubHeading>Secondary Sub Heading</CardListSubHeading>
+      <CardListItem>
+        <CardListIcon>
+          <Icon icon="house" />
+        </CardListIcon>
+        <CardListItemTextWrap>
+          <CardListItemTextPrimary>Item Title</CardListItemTextPrimary>
+          <CardListItemTextSecondary>Item Details</CardListItemTextSecondary>
+        </CardListItemTextWrap>
+      </CardListItem>
+      <CardListItem>
+        <CardListIcon>
+          <Icon icon="applicant" />
+        </CardListIcon>
+        <CardListItemTextWrap>
+          <CardListItemTextPrimary>Item Title</CardListItemTextPrimary>
+          <CardListItemTextSecondary>Item Details</CardListItemTextSecondary>
+        </CardListItemTextWrap>
+      </CardListItem>
     </Card>
   </Story>
 </Canvas>

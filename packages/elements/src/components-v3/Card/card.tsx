@@ -3,7 +3,7 @@ import React, { FC, HTMLAttributes } from 'react'
 import {
   ElCard,
   ElCardBodyWrap,
-  ElCardContent,
+  ElCardHeadingWrap,
   ElCardContextMenuItem,
   ElCardContextMenuItems,
   ElCardContextMenuToggle,
@@ -15,14 +15,20 @@ import {
   ElCardListItem,
   ElCardSubHeading,
   ElCardSubHeadingAdditional,
+  ElCardListHeading,
+  ElCardListSubHeading,
+  ElCardListItemTextWrap,
+  ElCardListItemTextPrimary,
+  ElCardListItemTextSecondary,
+  ElCardMainWrap,
 } from './__styles__'
 
 export interface CardBaseProps extends HTMLAttributes<HTMLDivElement> {}
 
 export const Card: FC<CardBaseProps> = ({ children, ...rest }) => <ElCard {...rest}>{children}</ElCard>
 
-export const CardContent: FC<CardBaseProps> = ({ children, ...rest }) => (
-  <ElCardContent {...rest}>{children}</ElCardContent>
+export const CardHeadingWrap: FC<CardBaseProps> = ({ children, ...rest }) => (
+  <ElCardHeadingWrap {...rest}>{children}</ElCardHeadingWrap>
 )
 
 export const CardHeading: FC<CardBaseProps> = ({ children, ...rest }) => (
@@ -37,6 +43,10 @@ export const CardSubHeadingAdditional: FC<CardBaseProps> = ({ children, ...rest 
   <ElCardSubHeadingAdditional {...rest}>{children}</ElCardSubHeadingAdditional>
 )
 
+export const CardMainWrap: FC<CardBaseProps> = ({ children, ...rest }) => (
+  <ElCardMainWrap {...rest}>{children}</ElCardMainWrap>
+)
+
 export const CardBodyWrap: FC<CardBaseProps> = ({ children, ...rest }) => (
   <ElCardBodyWrap {...rest}>{children}</ElCardBodyWrap>
 )
@@ -47,8 +57,28 @@ export const CardImageWrap: FC<CardBaseProps> = ({ children, ...rest }) => (
 
 export const CardList: FC<CardBaseProps> = ({ children, ...rest }) => <ElCardList {...rest}>{children}</ElCardList>
 
+export const CardListHeading: FC<CardBaseProps> = ({ children, ...rest }) => (
+  <ElCardListHeading {...rest}>{children}</ElCardListHeading>
+)
+
+export const CardListSubHeading: FC<CardBaseProps> = ({ children, ...rest }) => (
+  <ElCardListSubHeading {...rest}>{children}</ElCardListSubHeading>
+)
+
 export const CardListItem: FC<CardBaseProps> = ({ children, ...rest }) => (
   <ElCardListItem {...rest}>{children}</ElCardListItem>
+)
+
+export const CardListItemTextWrap: FC<CardBaseProps> = ({ children, ...rest }) => (
+  <ElCardListItemTextWrap {...rest}>{children}</ElCardListItemTextWrap>
+)
+
+export const CardListItemTextPrimary: FC<CardBaseProps> = ({ children, ...rest }) => (
+  <ElCardListItemTextPrimary {...rest}>{children}</ElCardListItemTextPrimary>
+)
+
+export const CardListItemTextSecondary: FC<CardBaseProps> = ({ children, ...rest }) => (
+  <ElCardListItemTextSecondary {...rest}>{children}</ElCardListItemTextSecondary>
 )
 
 export const CardListIcon: FC<CardBaseProps> = ({ children, ...rest }) => (
@@ -59,11 +89,11 @@ export const CardContextMenuWrapper: FC<CardBaseProps> = ({ children, ...rest })
   <ElCardContextMenuWrapper {...rest}>{children}</ElCardContextMenuWrapper>
 )
 
-export const CardContetMenuItems: FC<CardBaseProps> = ({ children, ...rest }) => (
+export const CardContextMenuItems: FC<CardBaseProps> = ({ children, ...rest }) => (
   <ElCardContextMenuItems {...rest}>{children}</ElCardContextMenuItems>
 )
 
-export const CardContetMenuItem: FC<CardBaseProps> = ({ children, ...rest }) => (
+export const CardContextMenuItem: FC<CardBaseProps> = ({ children, ...rest }) => (
   <ElCardContextMenuItem {...rest}>{children}</ElCardContextMenuItem>
 )
 
