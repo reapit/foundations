@@ -54,6 +54,18 @@ import webhooks from './webhooks'
 import reapitLogo from './reapit-logo'
 import hamburger from './hamburger'
 import hamburgerOpen from './hamburger-open'
+import applicant from './applicant'
+import barnConversion from './barn-conversion'
+import bungalow from './bungalow'
+import cottage from './cottage'
+import farm from './farm'
+import flat from './flat'
+import house from './house'
+import land from './land'
+import landlord from './landlord'
+import maisonette from './maisonette'
+import plot from './plot'
+import vendor from './vendor'
 
 export default {
   add,
@@ -112,4 +124,16 @@ export default {
   reapitLogo,
   hamburger,
   hamburgerOpen,
+  applicant,
+  barnConversion,
+  bungalow,
+  cottage,
+  farm,
+  flat,
+  house,
+  land,
+  landlord,
+  maisonette,
+  plot,
+  vendor,
 }

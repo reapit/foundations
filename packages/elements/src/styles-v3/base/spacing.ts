@@ -49,6 +49,26 @@ export const elM4 = css`
   margin: 1rem;
 `
 
+export const elM5 = css`
+  margin: 1.25rem;
+`
+
+export const elM6 = css`
+  margin: 1.5rem;
+`
+
+export const elM8 = css`
+  margin: 2rem;
+`
+
+export const elM10 = css`
+  margin: 2.5rem;
+`
+
+export const elM12 = css`
+  margin: 3rem;
+`
+
 export const elMl0 = css`
   margin-left: 0;
 `
@@ -67,6 +87,26 @@ export const elMl3 = css`
 
 export const elMl4 = css`
   margin-left: 1rem;
+`
+
+export const elMl5 = css`
+  margin-left: 1.25rem;
+`
+
+export const elMl6 = css`
+  margin-left: 1.5rem;
+`
+
+export const elMl8 = css`
+  margin-left: 2rem;
+`
+
+export const elMl10 = css`
+  margin-left: 2.5rem;
+`
+
+export const elMl12 = css`
+  margin-left: 3rem;
 `
 
 export const elMr0 = css`
@@ -89,6 +129,26 @@ export const elMr4 = css`
   margin-right: 1rem;
 `
 
+export const elMr5 = css`
+  margin-right: 1.25rem;
+`
+
+export const elMr6 = css`
+  margin-right: 1.5rem;
+`
+
+export const elMr8 = css`
+  margin-right: 2rem;
+`
+
+export const elMr10 = css`
+  margin-right: 2.5rem;
+`
+
+export const elMr12 = css`
+  margin-right: 3rem;
+`
+
 export const elMb0 = css`
   margin-bottom: 0;
 `
@@ -109,8 +169,24 @@ export const elMb4 = css`
   margin-bottom: 1rem;
 `
 
+export const elMb5 = css`
+  margin-bottom: 1.25rem;
+`
+
 export const elMb6 = css`
   margin-bottom: 1.5rem;
+`
+
+export const elMb8 = css`
+  margin-bottom: 2rem;
+`
+
+export const elMb10 = css`
+  margin-bottom: 2.5rem;
+`
+
+export const elMb12 = css`
+  margin-bottom: 3rem;
 `
 
 export const elMt0 = css`
@@ -131,6 +207,26 @@ export const elMt3 = css`
 
 export const elMt4 = css`
   margin-top: 1rem;
+`
+
+export const elMt5 = css`
+  margin-top: 1.25rem;
+`
+
+export const elMt6 = css`
+  margin-top: 1.5rem;
+`
+
+export const elMt8 = css`
+  margin-top: 2rem;
+`
+
+export const elMt10 = css`
+  margin-top: 2.5rem;
+`
+
+export const elMt12 = css`
+  margin-top: 3rem;
 `
 
 export const elMy0 = css`
@@ -158,6 +254,31 @@ export const elMy4 = css`
   margin-bottom: 1rem;
 `
 
+export const elMy5 = css`
+  margin-top: 1.25rem;
+  margin-bottom: 1.25rem;
+`
+
+export const elMy6 = css`
+  margin-top: 1.5rem;
+  margin-bottom: 1.5rem;
+`
+
+export const elMy8 = css`
+  margin-top: 2rem;
+  margin-bottom: 2rem;
+`
+
+export const elMy10 = css`
+  margin-top: 2.5rem;
+  margin-bottom: 2.5rem;
+`
+
+export const elMy12 = css`
+  margin-top: 3rem;
+  margin-bottom: 3rem;
+`
+
 export const elMx0 = css`
   margin-left: 0;
   margin-right: 0;
@@ -181,6 +302,31 @@ export const elMx3 = css`
 export const elMx4 = css`
   margin-left: 1rem;
   margin-right: 1rem;
+`
+
+export const elMx5 = css`
+  margin-top: 1.25rem;
+  margin-bottom: 1.25rem;
+`
+
+export const elMx6 = css`
+  margin-top: 1.5rem;
+  margin-bottom: 1.5rem;
+`
+
+export const elMx8 = css`
+  margin-top: 2rem;
+  margin-bottom: 2rem;
+`
+
+export const elMx10 = css`
+  margin-top: 2.5rem;
+  margin-bottom: 2.5rem;
+`
+
+export const elMx12 = css`
+  margin-top: 3rem;
+  margin-bottom: 3rem;
 `
 
 // Utilities for padding
