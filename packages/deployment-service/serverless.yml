@@ -95,7 +95,7 @@ provider:
         - dynamodb:PutItem
         - dynamodb:UpdateItem
         - dynamodb:DeleteItem
-      Resource: 'arn:aws:dynamodb:${self:provider.region}:*/${self:custom.env.DYNAMO_DB_TASK_TABLE_NAME}'
+      Resource: 'arn:aws:dynamodb:${self:provider.region}:*:table/${self:custom.env.DYNAMO_DB_TASK_TABLE_NAME}'
     - Effect: Allow
       Action:
         - s3:PutObject
