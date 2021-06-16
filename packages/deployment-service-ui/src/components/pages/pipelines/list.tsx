@@ -54,7 +54,7 @@ export default () => {
   return (
     <Section>
       <H3>Deployments</H3>
-      <Link to={Routes.DEPLOYMENTS_CREATION}>
+      <Link to={Routes.PIPELINES_CREATION}>
         <Button type="button" variant="primary">
           Create new Pipeline
         </Button>
