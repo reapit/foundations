@@ -46,7 +46,7 @@ export class ReactStarterCommand extends AbstractCommand {
 
   protected async installServerlessDeps(path: string): Promise<void> {
     const deps = ['serverless-deployment-bucket', 'serverless-s3-deploy', 'serverless-s3-remover', 'serverless-single-page-app-plugin']
-    const result = await new Promise<void>((resolve, reject) => exec(`npm i --save-dev ${deps.join(' ')}`, {
+    const result = await new Promise<void>((resolve, reject) => exec(`yarn add --dev ${deps.join(' ')}`, {
       cwd: process.cwd() + '/' + path,
     }, (err, stdout) => {
       if (err !== null) {

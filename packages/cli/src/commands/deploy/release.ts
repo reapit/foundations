@@ -45,7 +45,7 @@ export class ReleaseCommand extends AbstractCommand {
     workingPackage.version = answers.version
 
     await fs.promises.writeFile(fileName, JSON.stringify(workingPackage, null, 2))
-    spinner.succeed('bumping package version')
+    spinner.succeed(`bumping package version ${workingPackage.version} -> ${answers.version}`)
 
     return [workingPackage.name, answers.version]
   }
