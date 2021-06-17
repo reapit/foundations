@@ -4,6 +4,7 @@ const Routes = {
   PIPELINES: '/pipelines',
   PIPELINES_CREATION: '/pipeline/create',
   API_KEYS: '/api-keys',
+  RELEASES: '/releases',
 }
 
 export default Routes
