@@ -47,7 +47,11 @@ export class ReleaseCommand extends AbstractCommand {
     workingPackage.version = answers.version
 
     await fs.promises.writeFile(fileName, JSON.stringify(workingPackage, null, 2))
-    spinner.succeed(`bumping package version ${prevVersion} -> ${answers.version}`)
+    spinner.succeed(
+      prevVersion === answers.version
+        ? `Replacing current version ${answers.version}`
+        : `bumped package version ${prevVersion} -> ${answers.version}`,
+    )
 
     return [workingPackage.name, answers.version]
   }
