@@ -32,11 +32,15 @@ export default () => {
         <Loader />
       ) : (
         <Table
-          data={[]}
+          data={releases}
           columns={[
             {
               Header: 'Version',
-              accessor: 'version',
+              Cell: ({ row }: { row: { original: any } }) => {
+                const parts = row.original.split('/')
+                const version = parts.pop().split('.zip').shift()
+                return <span>{version}</span>
+              },
             },
             {
               id: 'Deploy',
