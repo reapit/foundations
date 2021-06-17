@@ -28,6 +28,14 @@ exports[`Menu should match a snapshot 1`] = `
       },
       Object {
         "callback": [Function],
+        "icon": <ManageIcon />,
+        "key": "RELEASES",
+        "title": "Releases",
+        "type": "PRIMARY",
+        "url": "/releases",
+      },
+      Object {
+        "callback": [Function],
         "icon": <AppsIcon />,
         "key": "APPS",
         "title": "Apps",
