@@ -5,7 +5,7 @@ import { fetcher } from '@reapit/elements'
 export const releaseServicePaginate = async (session: ReapitConnectSession): Promise<any[] | undefined> => {
   try {
     const response: any[] | undefined = await fetcher({
-      api: 'https://nxdq541s9g.execute-api.eu-west-2.amazonaws.com',
+      api: 'https://h2r8e8wbd4.execute-api.eu-west-2.amazonaws.com',
       url: '/dev/deploy/release/react-test',
       method: 'GET',
       headers: {
