@@ -17,6 +17,14 @@ type ReapitConfig = {
   description: 'Creates a Reapit react app template setup',
 })
 export class ReactStarterCommand extends AbstractCommand {
+
+  async checkFolderExists(path: string, spinner: Ora): Promise<void | never> {
+    if (fs.existsSync(path)) {
+      spinner.fail(`Folder already exists [${path}]`)
+      process.exit(1)
+    }
+  }
+
   async createReactApp(spinner: Ora, name: string): Promise<void> {
     return new Promise((resolve, reject) => {
       spinner.start('Creating app with create-react-app')
@@ -34,6 +42,19 @@ export class ReactStarterCommand extends AbstractCommand {
         },
       )
     })
+  }
+
+  protected async installServerlessDeps(path: string): Promise<void> {
+    const deps = ['serverless-deployment-bucket', 'serverless-s3-deploy', 'serverless-s3-remover', 'serverless-single-page-app-plugin']
+    const result = await new Promise<void>((resolve, reject) => exec(`npm i --save-dev ${deps.join(' ')}`, {
+      cwd: process.cwd() + '/' + path,
+    }, (err, stdout) => {
+      if (err !== null) {
+        console.error('err', err)
+        reject()
+      }
+      resolve()
+    }))
   }
 
   /**
@@ -200,6 +221,8 @@ resources:
   ) {
     const spinner = ora()
 
+    await this.checkFolderExists(name, spinner)
+
     try {
       await this.createReactApp(spinner, name)
     } catch (e) {
@@ -211,11 +234,14 @@ resources:
 
     await this.updateConfigValues(name, clientId, userPool)
 
-    spinner.succeed('Finished param config setup')
+    spinner.info('Finished param config setup')
 
-    spinner.start('Creating serverless config')
+    spinner.info('Creating serverless config')
     await this.createServerlessConfig(name)
-    spinner.succeed('Serverless file created')
+    spinner.info('Serverless file created')
+    spinner.info('Installing serverless dependancies')
+    await this.installServerlessDeps(name)
+    spinner.succeed('Finished react starter setup')
 
     console.log(`
 
