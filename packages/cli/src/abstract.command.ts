@@ -71,7 +71,7 @@ export abstract class AbstractCommand {
     }
 
     const instance = axios.create({
-      baseURL: config ? config.config.baseUrl : 'https://developer.reapit.com/',
+      baseURL: config?.config?.baseUrl || 'https://nxdq541s9g.execute-api.eu-west-2.amazonaws.com/dev/',
       headers: {
         'x-api-key': config.config['api-key'],
         'Content-Type': 'application/json',
