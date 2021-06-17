@@ -45,7 +45,7 @@ export const resolveConfig = async (): Promise<false | ReapitCliConfigResolve> =
  * @param config
  */
 export const createConfig = async (path: string, config: ReapitCliConfig): Promise<void> => {
-  fs.writeFileSync(resolve(path, CLI_CONFIG_FILENAME), JSON.stringify(config), {
+  fs.writeFileSync(resolve(path, CLI_CONFIG_FILENAME), JSON.stringify(config, null, 2), {
     encoding: 'utf-8',
   })
 }
