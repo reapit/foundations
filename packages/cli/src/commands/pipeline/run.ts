@@ -10,11 +10,7 @@ import { REAPIT_PIPELINE_CONFIG_FILE } from './constants'
   description: 'Run a pipeline',
 })
 export class PipelineRun extends AbstractCommand {
-  async resolvePipelineId(pipelineId?: string): Promise<string | undefined> {
-    if (pipelineId) {
-      return Promise.resolve(pipelineId)
-    }
-
+  async resolvePipelineId(): Promise<string | undefined> {
     const config = await this.resolveConfigFile<PipelineModelInterface>(REAPIT_PIPELINE_CONFIG_FILE)
 
     if (!config) {
@@ -28,14 +24,23 @@ export class PipelineRun extends AbstractCommand {
     @Param({
       name: 'pipelineId',
     })
-    pipelineId: string,
+    pipelineId: string | undefined,
   ) {
+    const spinner = ora('Deploying')
+
     if (!pipelineId) {
-      console.log(chalk.red('Pipeline Id is required'))
-      process.exit(1)
+      spinner.start('resolving pipelineId from ./ as not specified from parameter')
+      pipelineId = await this.resolvePipelineId()
+
+      if (!pipelineId) {
+        spinner.fail('Cannot find pipelineId in project or parameter')
+        process.exit(1)
+      } else {
+        spinner.info(`pipelineId resolved as ${pipelineId}`)
+      }
     }
 
-    const spinner = ora('Deploying').start()
+    spinner.info('Beginning deployment')
     const response = await (await this.axios(spinner)).post<PipelineModelInterface>(`/pipeline/${pipelineId}/run`) // /pipeline
 
     if (response.status === 200) {

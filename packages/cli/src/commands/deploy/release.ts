@@ -59,11 +59,10 @@ export class ReleaseCommand extends AbstractCommand {
     // TODO cp serverless + reapit.config.json to /dist
     spinner.start('packing zip file')
 
-
     if (!fs.existsSync(path.resolve(process.cwd(), 'build'))) {
       spinner.fail('Cannot find build folder')
       console.log(chalk.yellow('Be sure your project has been built'))
-      console.log(chalk.yellow('And you\'ve used reapit\'s react template'))
+      console.log(chalk.yellow("And you've used reapit's react template"))
       process.exit(1)
     }
 
