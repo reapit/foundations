@@ -88,7 +88,7 @@ export class PipelineCreate extends AbstractCommand {
 
       if (answers.create) {
         spinner.start('Creating local pipeline config')
-        fs.writeFileSync(resolve(process.cwd(), REAPIT_PIPELINE_CONFIG_FILE), JSON.stringify(response.data))
+        fs.writeFileSync(resolve(process.cwd(), REAPIT_PIPELINE_CONFIG_FILE), JSON.stringify(response.data, null, 2))
         spinner.succeed('Created local pipeline config')
       }
       console.log('Now use reapit pipeline run to start a pipeline')
