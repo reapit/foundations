@@ -60,7 +60,7 @@ export const ElCardHeading = styled.h5`
 `
 
 export const ElCardSubHeading = styled.h6`
-  color: #646464;
+  color: var(--color-grey-dark);
   text-overflow: ellipsis;
   white-space: nowrap;
   overflow: hidden;
@@ -71,7 +71,7 @@ export const elCardSubHeadingAdditionalExpanded = css`
 `
 
 export const ElCardSubHeadingAdditional = styled.h6`
-  color: #646464;
+  color: var(--color-grey-dark);
   font-weight: bold;
   font-size: 0.875rem;
   text-overflow: ellipsis;
@@ -97,7 +97,7 @@ export const elCardBodyWrapExpanded = css`
 
 export const ElCardBodyWrap = styled.div`
   width: 100%;
-  color: #646464;
+  color: var(--color-grey-dark);
   display: -webkit-box;
   -webkit-line-clamp: 3;
   -webkit-box-orient: vertical;
@@ -154,7 +154,7 @@ export const ElCardImageWrap = styled.div`
   flex-shrink: 0;
   align-items: center;
   justify-content: center;
-  background-color: #f2f2f2;
+  background-color: var(--color-grey-light);
   margin-right: 0.5rem;
   border-radius: 0.25rem;
   height: fit-content;
@@ -209,7 +209,7 @@ export const ElCardListHeading = styled.h5`
 `
 
 export const ElCardListSubHeading = styled.h6`
-  color: #646464;
+  color: var(--color-grey-dark);
   text-overflow: ellipsis;
   white-space: nowrap;
   overflow: hidden;
@@ -259,7 +259,7 @@ export const ElCardListItemTextWrap = styled.div`
 `
 
 export const ElCardListItemTextPrimary = styled.div`
-  color: #646464;
+  color: var(--color-grey-dark);
 `
 
 export const ElCardListItemTextSecondary = styled.div`
