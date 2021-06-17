@@ -42,10 +42,12 @@ export class ReleaseCommand extends AbstractCommand {
       spinner.warn('Overriding existing verison: rollback disabled')
     }
 
+    const prevVersion = workingPackage.version
+
     workingPackage.version = answers.version
 
     await fs.promises.writeFile(fileName, JSON.stringify(workingPackage, null, 2))
-    spinner.succeed(`bumping package version ${workingPackage.version} -> ${answers.version}`)
+    spinner.succeed(`bumping package version ${prevVersion} -> ${answers.version}`)
 
     return [workingPackage.name, answers.version]
   }
