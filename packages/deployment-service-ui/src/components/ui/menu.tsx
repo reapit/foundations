@@ -1,6 +1,14 @@
 import * as React from 'react'
 import { withRouter, RouteComponentProps } from 'react-router'
-import { Menu as Sidebar, MenuConfig, ReapitHouseIcon, AppsIcon, ProfileIcon, DataIcon } from '@reapit/elements'
+import {
+  Menu as Sidebar,
+  MenuConfig,
+  ReapitHouseIcon,
+  AppsIcon,
+  ProfileIcon,
+  DataIcon,
+  ManageIcon,
+} from '@reapit/elements'
 import { reapitConnectBrowserSession } from '@/core/connect-session'
 import { useReapitConnect } from '@reapit/connect-session'
 import { Location } from 'history'
@@ -35,6 +43,14 @@ export const generateMenuConfig = (
         icon: <DataIcon />,
         callback: callbackAppClick,
         url: Routes.PIPELINES,
+        type: 'PRIMARY',
+      },
+      {
+        title: 'Releases',
+        key: 'RELEASES',
+        icon: <ManageIcon />,
+        callback: callbackAppClick,
+        url: Routes.RELEASES,
         type: 'PRIMARY',
       },
       {
