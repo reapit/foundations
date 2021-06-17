@@ -69,7 +69,7 @@ export class PipelineCreate extends AbstractCommand {
       name: name,
       appType: appType.toLowerCase(),
       repository: repository,
-    }) // /deployment
+    })
 
     if (response.status === 200) {
       spinner.succeed(`Pipeline ${response.data.name} created`)
