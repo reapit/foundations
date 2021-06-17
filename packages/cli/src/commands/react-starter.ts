@@ -58,7 +58,7 @@ export class ReactStarterCommand extends AbstractCommand {
 
   protected async createServerlessConfig(path: string): Promise<void> {
     const content = `
-service: cloud-geo-diary
+service: ${path}
 plugins:
   - serverless-single-page-app-plugin
   - serverless-deployment-bucket
@@ -66,7 +66,7 @@ plugins:
   - serverless-s3-deploy
 
 custom:
-  s3WebAppBucket: cloud-geo-diary-web-app-\${opt:stage, 'dev'}
+  s3WebAppBucket: cloud-${path}-web-app-\${opt:stage, 'dev'}
   s3CloudFormBucket: cloud-deployment-cloudform-templates-\${opt:stage, 'dev'}
   remover:
       buckets:
