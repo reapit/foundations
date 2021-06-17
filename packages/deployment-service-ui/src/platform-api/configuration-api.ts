@@ -8,7 +8,7 @@ export const configurationApiKeyApiService = async (
 ): Promise<ApiKeyInterface[] | undefined> => {
   try {
     const response: { items: ApiKeyInterface[] } | undefined = await fetcher({
-      api: 'https://ayld62ixlf.execute-api.eu-west-2.amazonaws.com',
+      api: 'https://ey4eq5tak9.execute-api.eu-west-2.amazonaws.com',
       url: '/dev/api-key',
       method: 'GET',
       headers: {
@@ -35,7 +35,7 @@ export const configurationApiKeyApiCreateService = async (
     const keyExpiresAt = new Date()
     keyExpiresAt.setFullYear(keyExpiresAt.getFullYear() + 1)
     const response: ApiKeyInterface | undefined = await fetcher({
-      api: 'https://ayld62ixlf.execute-api.eu-west-2.amazonaws.com',
+      api: 'https://ey4eq5tak9.execute-api.eu-west-2.amazonaws.com',
       url: '/dev/api-key',
       method: 'POST',
       headers: {
@@ -67,7 +67,7 @@ export const configurationApiKeyApiDeleteService = async (
     const keyExpiresAt = new Date()
     keyExpiresAt.setFullYear(keyExpiresAt.getFullYear() + 1)
     const response: undefined = await fetcher({
-      api: 'https://ayld62ixlf.execute-api.eu-west-2.amazonaws.com',
+      api: 'https://ey4eq5tak9.execute-api.eu-west-2.amazonaws.com',
       url: `/dev/api-key/${id}`,
       method: 'DELETE',
       headers: {
