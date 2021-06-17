@@ -6,18 +6,13 @@ import { execSync } from 'child_process'
 import { defaultOutputHeaders } from '../../constants'
 
 /**
- * TODO
- *
- * [x] enable cli to upload code zip to S3 and add version files
- *
- * [x] take zip from bucket and deploy with serverless
- * [x] list deployment versions (list file version from S3)
- * [ ] enable rollback deployments
- *
+ * For separation of parameters. Currently {delpoymentId}/{project-name}/{version}.zip
  */
-
 const fileSeparator = '/'
 
+/**
+ * Generates file name {delpoymentId}/{project-name}/{version}.zip
+ */
 const fileName = (developerId: string, project: string, version: string): string =>
   [developerId, project, version].join(fileSeparator) + '.zip'
 
@@ -39,12 +34,29 @@ const release = async (file: Buffer): Promise<void> => {
       resolve()
     }),
   )
+  try {
+    const yarn = await execSync('/opt/homebrew/bin/yarn', {
+      maxBuffer: 1024 * 10000,
+      cwd: tmpDir,
+    })
 
-  const serverless = await execSync('serverless deploy', {
-    cwd: tmpDir,
-  })
+    console.error('yarn', yarn.toString())
+  } catch (e) {
+    console.log(e.output.toString())
+    console.error(e)
+  }
 
-  console.log('serverless', serverless.toString())
+  try {
+    const serverless = await execSync('npx serverless deploy', {
+      maxBuffer: 1024 * 10000,
+      cwd: tmpDir,
+    })
+
+    console.log('serverless', serverless.toString())
+  } catch (e) {
+    console.error(e)
+    console.log(e.output.toString())
+  }
 }
 
 /**
