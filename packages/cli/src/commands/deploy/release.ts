@@ -5,6 +5,7 @@ import path from 'path'
 import inquirer from 'inquirer'
 import AdmZip from 'adm-zip'
 import ora, { Ora } from 'ora'
+import chalk from 'chalk'
 
 @Command({
   name: 'release',
@@ -54,22 +55,29 @@ export class ReleaseCommand extends AbstractCommand {
    *
    * @returns
    */
-  async pack(): Promise<Buffer> {
+  async pack(spinner: Ora): Promise<Buffer> {
     // TODO cp serverless + reapit.config.json to /dist
+    spinner.start('packing zip file')
 
-    if (!fs.existsSync(path.resolve(process.cwd(), 'dist'))) {
-      throw new Error('Dist not found. Be sure to build in the dist dir')
+
+    if (!fs.existsSync(path.resolve(process.cwd(), 'build'))) {
+      spinner.fail('Cannot find build folder')
+      console.log(chalk.yellow('Be sure your project has been built'))
+      console.log(chalk.yellow('And you\'ve used reapit\'s react template'))
+      process.exit(1)
     }
 
     const files = ['serverless.yml', 'package.json', 'yarn.lock', 'package-lock.json']
 
     const zip = new AdmZip()
-    zip.addLocalFolder(path.resolve(process.cwd(), 'dist'))
+    zip.addLocalFolder(path.resolve(process.cwd(), 'build'))
     files.forEach((file) => {
       if (fs.existsSync(path.resolve(process.cwd(), file))) {
         zip.addLocalFile(path.resolve(process.cwd(), file))
       }
     })
+
+    spinner.succeed('Successfully packed project')
     return zip.toBuffer()
   }
 
@@ -99,9 +107,7 @@ export class ReleaseCommand extends AbstractCommand {
     const spinner = ora()
 
     const [project, version] = await this.bumpVersion(spinner)
-    spinner.start('packing zip file')
-    const zip = await this.pack()
-    spinner.succeed('Created zip')
+    const zip = await this.pack(spinner)
     await this.sendZip(zip, project, version, spinner)
   }
 }
