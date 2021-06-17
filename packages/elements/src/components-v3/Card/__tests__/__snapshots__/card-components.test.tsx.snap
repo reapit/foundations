@@ -1,0 +1,167 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Card should match a snapshot and render children with full props 1`] = `
+<CardWrap
+  className=""
+>
+  <CardContextMenu
+    contextMenuItems={
+      Array [
+        Object {
+          "icon": "trash",
+          "intent": "danger",
+          "onClick": [Function],
+        },
+        Object {
+          "icon": "share",
+          "onClick": [Function],
+        },
+      ]
+    }
+  />
+  <CardMainWrap>
+    <CardImageWrap>
+      <img
+        src="https://via.placeholder.com/72x72.svg"
+      />
+    </CardImageWrap>
+    <CardHeadingWrap>
+      <CardHeading>
+        Main Heading
+      </CardHeading>
+      <CardSubHeading>
+        Main Subheading
+      </CardSubHeading>
+      <CardSubHeadingAdditional
+        className=""
+      >
+        Main Subheading Additional
+      </CardSubHeadingAdditional>
+    </CardHeadingWrap>
+    <CardMobileToggle
+      onClick={[Function]}
+    >
+      <Icon
+        icon="arrowDown"
+      />
+    </CardMobileToggle>
+  </CardMainWrap>
+  <CardBodyWrap
+    className="el-mb5"
+  >
+    Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.
+  </CardBodyWrap>
+  <CardListMainWrap
+    className=""
+  >
+    <CardContextMenu
+      contextMenuItems={
+        Array [
+          Object {
+            "icon": "trash",
+            "intent": "danger",
+            "onClick": [Function],
+          },
+          Object {
+            "icon": "share",
+            "onClick": [Function],
+          },
+        ]
+      }
+    />
+    <CardListHeading>
+      List Card Heading
+    </CardListHeading>
+    <CardListSubHeading>
+      List Card Sub Heading
+    </CardListSubHeading>
+  </CardListMainWrap>
+  <CardListItem
+    className=""
+    key="0"
+    onClick={[Function]}
+  >
+    <CardListIcon>
+      <Icon
+        icon="applicant"
+      />
+    </CardListIcon>
+    <CardListItemTextWrap>
+      <CardListItemTextPrimary>
+        Applicant
+      </CardListItemTextPrimary>
+      <CardListItemTextSecondary>
+        Bob Smith
+      </CardListItemTextSecondary>
+    </CardListItemTextWrap>
+  </CardListItem>
+  <CardListItem
+    className=""
+    key="1"
+    onClick={[Function]}
+  >
+    <CardListIcon>
+      <Icon
+        icon="house"
+      />
+    </CardListIcon>
+    <CardListItemTextWrap>
+      <CardListItemTextPrimary>
+        Property
+      </CardListItemTextPrimary>
+      <CardListItemTextSecondary>
+        Some Address
+      </CardListItemTextSecondary>
+    </CardListItemTextWrap>
+  </CardListItem>
+</CardWrap>
+`;
+
+exports[`Card should match a snapshot and render children with no props 1`] = `
+<CardWrap
+  className=""
+/>
+`;
+
+exports[`CardContextMenu should match a snapshot and render children with full props 1`] = `
+<CardContextMenuWrapper>
+  <CardContextMenuToggle
+    onClick={[Function]}
+  >
+    <Icon
+      fontSize="1.25rem"
+      icon="more"
+    />
+  </CardContextMenuToggle>
+  <CardContextMenuItems
+    className=""
+  >
+    <CardContextMenuItem
+      onClick={[Function]}
+    >
+      <Icon
+        icon="close"
+      />
+    </CardContextMenuItem>
+    <CardContextMenuItem
+      key="0"
+      onClick={[Function]}
+    >
+      <Icon
+        icon="trash"
+        intent="danger"
+      />
+    </CardContextMenuItem>
+    <CardContextMenuItem
+      key="1"
+      onClick={[Function]}
+    >
+      <Icon
+        icon="share"
+      />
+    </CardContextMenuItem>
+  </CardContextMenuItems>
+</CardContextMenuWrapper>
+`;
+
+exports[`CardContextMenu should match a snapshot and render children with no props 1`] = `""`;
