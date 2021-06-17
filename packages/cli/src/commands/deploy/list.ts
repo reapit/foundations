@@ -17,16 +17,16 @@ export class ReleaseListCommand extends AbstractCommand {
     return config
   }
 
-  async listDeployments(spinner: Ora, project: string): Promise<any[]> {
+  async listReleases(spinner: Ora, project: string): Promise<any[]> {
     spinner.start('Fetching releases')
     const response = await (await this.axios()).get(`/deploy/release/${project}`)
 
     if (response.status !== 200) {
-      spinner.fail('Failed to fetch deployments')
-      throw new Error('Failed to fetch deployments')
+      spinner.fail('Failed to fetch releases')
+      process.exit(1)
     }
 
-    spinner.succeed('Fetched deployments')
+    spinner.succeed('Fetched releases')
 
     return response.data
   }
@@ -40,7 +40,7 @@ export class ReleaseListCommand extends AbstractCommand {
     const packageInfo = await this.projectInfo()
     spinner.succeed('found package info')
 
-    const deploys = await this.listDeployments(spinner, packageInfo.name)
+    const deploys = await this.listReleases(spinner, packageInfo.name)
 
     console.table(
       deploys.map((deploy) => {
