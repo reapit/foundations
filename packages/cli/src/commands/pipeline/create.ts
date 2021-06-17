@@ -34,7 +34,62 @@ export class PipelineCreate extends AbstractCommand {
     return []
   }
 
+  async checkExistingPipeline(): Promise<void | never> {
+    const pipelineConfig = await this.resolveConfigFile(REAPIT_PIPELINE_CONFIG_FILE)
+
+    if (pipelineConfig) {
+      const answers = await inquirer.prompt([
+        {
+          type: 'confirm',
+          message: 'Deployment config already exists for this project. Do you want to create a new config?',
+          name: 'recreate',
+        },
+      ])
+
+      if (!answers.recreate) {
+        console.log()
+        process.exit(1)
+      }
+    }
+  }
+
+  async createPipeline({
+    name,
+    appType,
+    repository,
+    create,
+  }: {
+    name: string
+    appType: string
+    repository: string
+    create: boolean
+  }) {
+    const spinner = ora('Creating pipeline').start()
+    const response = await (await this.axios(spinner)).post<PipelineModelInterface>('/pipeline', {
+      name: name,
+      appType: appType.toLowerCase(),
+      repository: repository,
+    }) // /deployment
+
+    if (response.status === 200) {
+      spinner.succeed(`Pipeline ${response.data.name} created`)
+
+      if (create) {
+        spinner.start('Creating local pipeline config')
+        fs.writeFileSync(resolve(process.cwd(), REAPIT_PIPELINE_CONFIG_FILE), JSON.stringify(response.data, null, 2))
+        spinner.succeed('Created local pipeline config')
+      }
+      console.log('Now use reapit pipeline run to start a pipeline')
+    } else {
+      spinner.fail('Failed to create pipeline')
+      console.log(chalk.red('Check your internet connection'))
+      console.log(chalk.red('Report this error if it persists'))
+      process.exit(1)
+    }
+  }
+
   async run() {
+    await this.checkExistingPipeline()
     const repositories = await this.fetchGitRemotes()
 
     const questions: QuestionCollection<any>[] = [
@@ -76,27 +131,6 @@ export class PipelineCreate extends AbstractCommand {
       },
     ])
 
-    const spinner = ora('Creating pipeline').start()
-    const response = await (await this.axios(spinner)).post<PipelineModelInterface>('/pipeline', {
-      name: answers.name,
-      appType: answers.appType.toLowerCase(),
-      repository: answers.repository,
-    }) // /deployment
-
-    if (response.status === 200) {
-      spinner.succeed(`Pipeline ${response.data.name} created`)
-
-      if (answers.create) {
-        spinner.start('Creating local pipeline config')
-        fs.writeFileSync(resolve(process.cwd(), REAPIT_PIPELINE_CONFIG_FILE), JSON.stringify(response.data, null, 2))
-        spinner.succeed('Created local pipeline config')
-      }
-      console.log('Now use reapit pipeline run to start a pipeline')
-    } else {
-      spinner.fail('Failed to create pipeline')
-      console.log(chalk.red('Check your internet connection'))
-      console.log(chalk.red('Report this error if it persists'))
-      process.exit(1)
-    }
+    await this.createPipeline(answers)
   }
 }
