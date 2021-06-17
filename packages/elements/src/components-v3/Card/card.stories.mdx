@@ -1,7 +1,6 @@
-import { useState } from 'react'
 import { Story, Canvas } from '@storybook/addon-docs/blocks'
 import {
-  Card,
+  CardWrap,
   CardHeading,
   CardSubHeading,
   CardSubHeadingAdditional,
@@ -20,11 +19,24 @@ import {
   CardContextMenuItems,
   CardContextMenuItem,
   CardMainWrap,
+  CardMobileToggle,
+  CardListMainWrap,
 } from './card'
-import { elCardContextMenuOpen } from './__styles__'
+import {
+  elCardContextMenuOpen,
+  elCardFocussed,
+  elCardBodyWrapExpanded,
+  elCardListItemExpanded,
+  elCardSubHeadingAdditionalExpanded,
+  elCardListMainWrapExpanded,
+  elMobileListToggle,
+} from './__styles__'
 import { Icon } from '../Icon'
 import { elMb5 } from '../../styles-v3/base/spacing'
 import { RenderHtmlMarkup } from '../../helpers/v3/render-html-markup'
+import { cx } from 'linaria'
+import { Card } from './card-components'
+import { MediaStateProvider } from '../../hooks/use-media-query'
 
 <Meta title="V3/Card" />
 
@@ -34,10 +46,10 @@ import { RenderHtmlMarkup } from '../../helpers/v3/render-html-markup'
 
 <Canvas>
   <Story name="Complete Example">
-    <Card>
+    <CardWrap className={elCardFocussed}>
       <CardContextMenuWrapper>
         <CardContextMenuToggle>
-          <Icon icon="more" />
+          <Icon icon="more" fontSize="1.25rem" />
         </CardContextMenuToggle>
         <CardContextMenuItems className={elCardContextMenuOpen}>
           <CardContextMenuItem>
@@ -58,18 +70,44 @@ import { RenderHtmlMarkup } from '../../helpers/v3/render-html-markup'
         <CardHeadingWrap>
           <CardHeading>Main Heading</CardHeading>
           <CardSubHeading>Sub Heading</CardSubHeading>
-          <CardSubHeadingAdditional>Sub Heading Additional</CardSubHeadingAdditional>
+          <CardSubHeadingAdditional className={elCardSubHeadingAdditionalExpanded}>
+            Sub Heading Additional
+          </CardSubHeadingAdditional>
         </CardHeadingWrap>
+        <CardMobileToggle>
+          <Icon icon="arrowUp" />
+        </CardMobileToggle>
       </CardMainWrap>
-      <CardBodyWrap className={elMb5}>
+      <CardBodyWrap className={cx(elMb5, elCardBodyWrapExpanded)}>
         Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore
         magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
         consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla
         pariatur.
       </CardBodyWrap>
-      <CardListHeading>Secondary Heading</CardListHeading>
-      <CardListSubHeading>Secondary Sub Heading</CardListSubHeading>
-      <CardListItem>
+      <CardListMainWrap className={elCardListMainWrapExpanded}>
+        <CardContextMenuWrapper>
+          <CardContextMenuToggle>
+            <Icon icon="more" fontSize="1.25rem" />
+          </CardContextMenuToggle>
+          <CardContextMenuItems className={elCardContextMenuOpen}>
+            <CardContextMenuItem>
+              <Icon icon="close" />
+            </CardContextMenuItem>
+            <CardContextMenuItem>
+              <Icon icon="trash" intent="danger" />
+            </CardContextMenuItem>
+            <CardContextMenuItem>
+              <Icon icon="share" />
+            </CardContextMenuItem>
+          </CardContextMenuItems>
+        </CardContextMenuWrapper>
+        <CardListHeading>Secondary Heading</CardListHeading>
+        <CardListSubHeading>Secondary Sub Heading</CardListSubHeading>
+        <CardMobileToggle className={elMobileListToggle}>
+          <Icon icon="arrowUp" />
+        </CardMobileToggle>
+      </CardListMainWrap>
+      <CardListItem className={elCardListItemExpanded}>
         <CardListIcon>
           <Icon icon="house" />
         </CardListIcon>
@@ -78,7 +116,7 @@ import { RenderHtmlMarkup } from '../../helpers/v3/render-html-markup'
           <CardListItemTextSecondary>Item Details</CardListItemTextSecondary>
         </CardListItemTextWrap>
       </CardListItem>
-      <CardListItem>
+      <CardListItem className={elCardListItemExpanded}>
         <CardListIcon>
           <Icon icon="applicant" />
         </CardListIcon>
@@ -87,8 +125,52 @@ import { RenderHtmlMarkup } from '../../helpers/v3/render-html-markup'
           <CardListItemTextSecondary>Item Details</CardListItemTextSecondary>
         </CardListItemTextWrap>
       </CardListItem>
-    </Card>
+    </CardWrap>
   </Story>
 </Canvas>
 
 <RenderHtmlMarkup component="V3/Card" story="Complete Example" />
+
+### React Example
+
+<Canvas>
+  <Story name="React Example">
+    <MediaStateProvider>
+      <Card
+        isMainCard
+        isListCard
+        mainContextMenuItems={[
+          { icon: 'trash', onClick: () => console.log('Clicking'), intent: 'danger' },
+          { icon: 'share', onClick: () => console.log('Clicking') },
+        ]}
+        mainCardHeading="Main Heading"
+        mainCardSubHeading="Main Subheading"
+        mainCardSubHeadingAdditional="Main Subheading Additional"
+        mainCardBody="Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur."
+        mainCardImgUrl="https://via.placeholder.com/72x72.svg"
+        listCardHeading="List Card Heading"
+        listCardSubHeading="List Card Sub Heading"
+        listCardItems={[
+          {
+            listCardItemHeading: 'Applicant',
+            listCardItemSubHeading: 'Bob Smith',
+            listCardItemIcon: 'applicant',
+            onClick: () => console.log('Clicking'),
+          },
+          {
+            listCardItemHeading: 'Property',
+            listCardItemSubHeading: 'Some Address',
+            listCardItemIcon: 'house',
+            onClick: () => console.log('Clicking'),
+          },
+        ]}
+        listContextMenuItems={[
+          { icon: 'trash', onClick: () => console.log('Clicking'), intent: 'danger' },
+          { icon: 'share', onClick: () => console.log('Clicking') },
+        ]}
+      />
+    </MediaStateProvider>
+  </Story>
+</Canvas>
+
+<RenderHtmlMarkup component="V3/Card" story="React Example" />

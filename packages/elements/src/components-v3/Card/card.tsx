@@ -1,7 +1,6 @@
-// import { cx } from 'linaria'
 import React, { FC, HTMLAttributes } from 'react'
 import {
-  ElCard,
+  ElCardWrap,
   ElCardBodyWrap,
   ElCardHeadingWrap,
   ElCardContextMenuItem,
@@ -21,11 +20,14 @@ import {
   ElCardListItemTextPrimary,
   ElCardListItemTextSecondary,
   ElCardMainWrap,
+  ElMobileToggle,
+  ElCardListMainWrap,
 } from './__styles__'
 
 export interface CardBaseProps extends HTMLAttributes<HTMLDivElement> {}
+export interface CardButtonProps extends HTMLAttributes<HTMLButtonElement> {}
 
-export const Card: FC<CardBaseProps> = ({ children, ...rest }) => <ElCard {...rest}>{children}</ElCard>
+export const CardWrap: FC<CardBaseProps> = ({ children, ...rest }) => <ElCardWrap {...rest}>{children}</ElCardWrap>
 
 export const CardHeadingWrap: FC<CardBaseProps> = ({ children, ...rest }) => (
   <ElCardHeadingWrap {...rest}>{children}</ElCardHeadingWrap>
@@ -55,7 +57,15 @@ export const CardImageWrap: FC<CardBaseProps> = ({ children, ...rest }) => (
   <ElCardImageWrap {...rest}>{children}</ElCardImageWrap>
 )
 
+export const CardMobileToggle: FC<CardButtonProps> = ({ children, ...rest }) => (
+  <ElMobileToggle {...rest}>{children}</ElMobileToggle>
+)
+
 export const CardList: FC<CardBaseProps> = ({ children, ...rest }) => <ElCardList {...rest}>{children}</ElCardList>
+
+export const CardListMainWrap: FC<CardBaseProps> = ({ children, ...rest }) => (
+  <ElCardListMainWrap {...rest}>{children}</ElCardListMainWrap>
+)
 
 export const CardListHeading: FC<CardBaseProps> = ({ children, ...rest }) => (
   <ElCardListHeading {...rest}>{children}</ElCardListHeading>
