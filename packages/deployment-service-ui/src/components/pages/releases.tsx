@@ -28,7 +28,10 @@ export default () => {
   return (
     <Section>
       <H3>Releases</H3>
-      {loading ? <Loader/> : <Table
+      {loading ? (
+        <Loader />
+      ) : (
+        <Table
           data={[]}
           columns={[
             {
@@ -46,7 +49,7 @@ export default () => {
             },
           ]}
         />
-    }
+      )}
     </Section>
   )
 }
