@@ -71,7 +71,7 @@ export abstract class AbstractCommand {
     }
 
     const instance = axios.create({
-      baseURL: config?.config?.baseUrl || 'https://nxdq541s9g.execute-api.eu-west-2.amazonaws.com/dev/',
+      baseURL: config?.config?.baseUrl || 'https://h2r8e8wbd4.execute-api.eu-west-2.amazonaws.com/dev/',
       headers: {
         'x-api-key': config.config['api-key'],
         'Content-Type': 'application/json',
