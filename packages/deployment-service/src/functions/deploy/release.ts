@@ -39,7 +39,7 @@ const release = async (file: Buffer): Promise<void> => {
     }),
   )
 
-  await execSync('npx serverless release', {
+  await execSync('npx serverless deploy', {
     cwd: tmpDir,
   })
 }

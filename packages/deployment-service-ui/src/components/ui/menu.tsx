@@ -4,6 +4,7 @@ import { Menu as Sidebar, MenuConfig, ReapitHouseIcon, AppsIcon, ProfileIcon, Da
 import { reapitConnectBrowserSession } from '@/core/connect-session'
 import { useReapitConnect } from '@reapit/connect-session'
 import { Location } from 'history'
+import Routes from '@/constants/routes'
 
 export const generateMenuConfig = (
   logoutCallback: () => void,
@@ -25,7 +26,7 @@ export const generateMenuConfig = (
         key: 'API_KEYS',
         icon: <ProfileIcon />,
         callback: callbackAppClick,
-        url: '/api-keys',
+        url: Routes.API_KEYS,
         type: 'PRIMARY',
       },
       {
@@ -33,7 +34,7 @@ export const generateMenuConfig = (
         key: 'PIPELINES',
         icon: <DataIcon />,
         callback: callbackAppClick,
-        url: '/pipelines',
+        url: Routes.PIPELINES,
         type: 'PRIMARY',
       },
       {
