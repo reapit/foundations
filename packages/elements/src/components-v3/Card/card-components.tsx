@@ -37,11 +37,6 @@ import { elMb5 } from '../../styles-v3/base/spacing'
 import { Intent } from '../../helpers/v3/intent'
 import { useMediaQuery } from '../../hooks/use-media-query'
 
-export interface CardState {
-  mainMobileOpen: boolean
-  listMobileOpen: boolean
-}
-
 export interface CardListItem {
   listCardItemHeading?: string
   listCardItemSubHeading?: string
@@ -190,7 +185,9 @@ export const Card: FC<CardProps> = ({
       {isListCard && (
         <>
           <CardListMainWrap className={cx(listMobileOpen && elCardListMainWrapExpanded)}>
-            {listContextMenuItems && listMobileOpen && <CardContextMenu contextMenuItems={listContextMenuItems} />}
+            {listContextMenuItems && (listMobileOpen || !isMobile) && (
+              <CardContextMenu contextMenuItems={listContextMenuItems} />
+            )}
             <CardListHeading>{listCardHeading}</CardListHeading>
             <CardListSubHeading>{listCardSubHeading}</CardListSubHeading>
             {!isMainCard && (

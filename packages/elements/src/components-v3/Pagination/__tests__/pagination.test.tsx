@@ -37,17 +37,13 @@ describe('PaginationButton', () => {
 
 describe('Pagination', () => {
   it('should match a snapshot', () => {
-    const wrapper = shallow(
-      <Pagination callback={jest.fn()} currentPage={2} numberPages={4} />
-    )
+    const wrapper = shallow(<Pagination callback={jest.fn()} currentPage={2} numberPages={4} />)
     expect(wrapper).toMatchSnapshot()
   })
 
   it('should callback onClick correctly', () => {
     const mockCallback = jest.fn()
-    const wrapper = shallow(
-      <Pagination callback={mockCallback} currentPage={2} numberPages={4} />
-    )
+    const wrapper = shallow(<Pagination callback={mockCallback} currentPage={2} numberPages={4} />)
     const buttons = wrapper.find(PaginationButton)
 
     buttons.first().simulate('click')
