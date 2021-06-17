@@ -9,7 +9,7 @@ export const pipelineServiceCreate = async (
 ): Promise<PipelineModelInterface | undefined> => {
   try {
     const response: PipelineModelInterface | undefined = await fetcher({
-      api: 'https://nxdq541s9g.execute-api.eu-west-2.amazonaws.com',
+      api: 'https://h2r8e8wbd4.execute-api.eu-west-2.amazonaws.com',
       url: '/dev/pipeline',
       method: 'POST',
       headers: {
@@ -34,7 +34,7 @@ export const pipelineServicePaginate = async (
 ): Promise<PipelineModelInterface[] | undefined> => {
   try {
     const response: { items: PipelineModelInterface[] } | undefined = await fetcher({
-      api: 'https://nxdq541s9g.execute-api.eu-west-2.amazonaws.com',
+      api: 'https://h2r8e8wbd4.execute-api.eu-west-2.amazonaws.com',
       url: '/dev/pipeline',
       method: 'GET',
       headers: {
@@ -59,7 +59,7 @@ export const pipelineServiceDelete = async (
 ): Promise<PipelineModelInterface | undefined> => {
   try {
     const response: PipelineModelInterface | undefined = await fetcher({
-      api: 'https://nxdq541s9g.execute-api.eu-west-2.amazonaws.com',
+      api: 'https://h2r8e8wbd4.execute-api.eu-west-2.amazonaws.com',
       url: `/dev/pipeline/${id}`,
       method: 'DELETE',
       headers: {
@@ -84,7 +84,7 @@ export const pipelineServiceRun = async (
 ): Promise<PipelineModelInterface | undefined> => {
   try {
     const response: PipelineModelInterface | undefined = await fetcher({
-      api: 'https://nxdq541s9g.execute-api.eu-west-2.amazonaws.com',
+      api: 'https://h2r8e8wbd4.execute-api.eu-west-2.amazonaws.com',
       url: `/dev/pipeline/${id}/run`,
       method: 'POST',
       headers: {
