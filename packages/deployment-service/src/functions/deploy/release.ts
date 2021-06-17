@@ -3,6 +3,7 @@ import { BadRequestException, httpHandler, NotFoundException } from '@homeserven
 import { s3Client } from '../../services'
 import AdmZip from 'adm-zip'
 import { execSync } from 'child_process'
+import { defaultOutputHeaders } from '../../constants'
 
 /**
  * TODO
@@ -48,6 +49,7 @@ const release = async (file: Buffer): Promise<void> => {
  * Deploy a new release
  */
 export const deployRelease = httpHandler<any, void>({
+  defaultOutputHeaders,
   handler: async ({ event, body }) => {
     const developerId = await resolveDeveloperId(event)
 
@@ -88,6 +90,7 @@ export const deployRelease = httpHandler<any, void>({
  * List releases
  */
 export const deployReleases = httpHandler<any, string[]>({
+  defaultOutputHeaders,
   handler: async ({ event }) => {
     const developerId = await resolveDeveloperId(event)
 
@@ -114,6 +117,7 @@ export const deployReleases = httpHandler<any, string[]>({
  * Release a particular version
  */
 export const deployVersion = httpHandler({
+  defaultOutputHeaders,
   handler: async ({ event }) => {
     const developerId = await resolveDeveloperId(event)
 
