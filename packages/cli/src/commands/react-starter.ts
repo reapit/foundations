@@ -17,7 +17,6 @@ type ReapitConfig = {
   description: 'Creates a Reapit react app template setup',
 })
 export class ReactStarterCommand extends AbstractCommand {
-
   async checkFolderExists(path: string, spinner: Ora): Promise<void | never> {
     if (fs.existsSync(path)) {
       spinner.fail(`Folder already exists [${path}]`)
@@ -45,16 +44,27 @@ export class ReactStarterCommand extends AbstractCommand {
   }
 
   protected async installServerlessDeps(path: string): Promise<void> {
-    const deps = ['serverless-deployment-bucket', 'serverless-s3-deploy', 'serverless-s3-remover', 'serverless-single-page-app-plugin']
-    const result = await new Promise<void>((resolve, reject) => exec(`yarn add --dev ${deps.join(' ')}`, {
-      cwd: process.cwd() + '/' + path,
-    }, (err, stdout) => {
-      if (err !== null) {
-        console.error('err', err)
-        reject()
-      }
-      resolve()
-    }))
+    const deps = [
+      'serverless-deployment-bucket',
+      'serverless-s3-deploy',
+      'serverless-s3-remover',
+      'serverless-single-page-app-plugin',
+    ]
+    await new Promise<void>((resolve, reject) =>
+      exec(
+        `yarn add --dev ${deps.join(' ')}`,
+        {
+          cwd: process.cwd() + '/' + path,
+        },
+        (err) => {
+          if (err !== null) {
+            console.error('err', err)
+            reject()
+          }
+          resolve()
+        },
+      ),
+    )
   }
 
   /**
