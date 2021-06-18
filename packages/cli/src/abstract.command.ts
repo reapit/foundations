@@ -128,27 +128,6 @@ export abstract class AbstractCommand {
       '  ',
     )
     this.writeLine('')
-
-    // console.log(`
-    // ${parent ? '\t' : ''}${chalk.bold.white(config.name)}\t${config.description}
-    // ${parent ? '\t' : ''}$ ${chalk.green('reapit')} ${
-    //   parent ? `${chalk.whiteBright(parent.commandOptions.name)} ` : ''
-    // }${chalk.white(config.name)} ${
-    //   !Array.isArray(args)
-    //     ? ''
-    //     : args
-    //         .filter((arg) => arg.type === 'parameter')
-    //         .map((arg) => chalk.white(`{${arg.name}}`))
-    //         .join(' ')
-    // } ${
-    //   !Array.isArray(args)
-    //     ? ''
-    //     : args
-    //         .filter((arg) => arg.type === 'option')
-    //         .map((arg) => `[--${arg.name}${arg.shortName ? `|-${arg.shortName}` : ''}]`)
-    //         .join(' ')
-    // }
-    // `)
   }
 
   protected writeLine(text: string, tabbed: number = 0, tabValue: string = '\t'): void {
