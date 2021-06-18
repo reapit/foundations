@@ -12,6 +12,7 @@ export class HelpCommand extends AbstractCommand {
     this.commands = commands
   }
   async run() {
+    this.writeLine('')
     this.commands.sort(this.sortCommands).forEach((command) => {
       command.printConfig()
     })
