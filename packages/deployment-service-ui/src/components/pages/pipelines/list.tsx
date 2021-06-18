@@ -73,6 +73,9 @@ export default () => {
               id: 'Delete',
               Cell: ({ row }: { row: { original: any } }) => (
                 <ButtonGroup>
+                  <Button variant="secondary">
+                    <Link to={Routes.PIPELINES_SHOW.replace(':pipelineId', row.original.id)}>Show</Link>
+                  </Button>
                   <Button
                     loading={deletionLoading.includes(row.original.id)}
                     onClick={() => deletePipeline(row.original.id)}
