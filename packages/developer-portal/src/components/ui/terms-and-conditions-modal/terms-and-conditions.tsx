@@ -33,6 +33,10 @@ export const TermsAndConditions = () => (
                 used to pass data back and forth between software applications and programs in a formalised way.
               </TermsLi>
               <TermsLi>
+                <strong>API Call</strong> means the messenger that delivers the Developer’s request to the Foundations
+                Platform and then delivers the response back to the Developer.
+              </TermsLi>
+              <TermsLi>
                 <strong>Application User Terms</strong> means the terms of use for an Application on the App
                 Marketplace.
               </TermsLi>
@@ -199,18 +203,18 @@ export const TermsAndConditions = () => (
           </TermsLi>
         </TermsOl>
         <TermsLi>
-          the words including and include shall mean including without limitation and include without limitation,
+          The words including and include shall mean including without limitation and include without limitation,
           respectively;
         </TermsLi>
-        <TermsLi>any reference to a time of day is to United Kingdom time;</TermsLi>
-        <TermsLi>the Schedules form part of this Agreement;</TermsLi>
-        <TermsLi>the headings do not affect the interpretation of this Agreement;</TermsLi>
+        <TermsLi>Any reference to a time of day is to United Kingdom time.</TermsLi>
+        <TermsLi>The Schedules form part of this Agreement.</TermsLi>
+        <TermsLi>The headings do not affect the interpretation of this Agreement.</TermsLi>
         <TermsLi>
-          any reference to a statute or statutory provision includes, unless the context otherwise requires, a reference
+          Any reference to a statute or statutory provision includes, unless the context otherwise requires, a reference
           to that statute or statutory provision as from time to time amended, consolidated, extended, re-enacted, or
-          replaced and to all statutory instruments, orders, regulations or rules made pursuant to it; and
+          replaced and to all statutory instruments, orders, regulations or rules made pursuant to it.
         </TermsLi>
-        <TermsLi>all references to the Parties include their permitted successors and assigns;</TermsLi>
+        <TermsLi>All references to the Parties include their permitted successors and assigns.</TermsLi>
       </TermsLi>
       <TermsLi>
         <H5>Foundations Platform and Applications</H5>
@@ -347,7 +351,8 @@ export const TermsAndConditions = () => (
             Developer shall pay Reapit the Fees as calculated in accordance with Schedule 2 and as invoiced by Reapit in
             accordance with this clause 3. The Fees do not include value added tax or any locally applicable equivalent
             sales tax which Developer shall pay, in addition to the Fees, at the prevailing rate, and in the manner
-            prescribed by applicable law.&nbsp;
+            prescribed by applicable law. Without prejudice to the foregoing, Reapit reserves the right to invoice the
+            Developer for any API Calls in excess of the Monthly API Call limit set out in Schedule 2.
           </TermsLi>
           <TermsLi>
             The Fees are payable in accordance with the terms of Schedule 2 and the applicable invoice. Fees will be
@@ -857,8 +862,18 @@ export const TermsAndConditions = () => (
             This Agreement may be terminated:
             <TermsOl>
               <TermsLi>
-                by Reapit on written notice if the Developer fails to pay an undisputed, invoiced amount within 30 days
-                following receipt of an initial written notice from Reapit stating that the amount is due and is unpaid;
+                By reapit
+                <TermsOl>
+                  <TermsLiAlpha>
+                    on written notice if the Developer fails to pay an undisputed, invoiced amount within 30 days
+                    following receipt of an initial written notice from Reapit stating that the amount is due and is
+                    unpaid;
+                  </TermsLiAlpha>
+                  <TermsLiAlpha>
+                    on written notice if the Developer: (i) breaches a Developer Obligation; and (ii) on 45 days’
+                    written notice.
+                  </TermsLiAlpha>
+                </TermsOl>
               </TermsLi>
               <TermsLi>
                 by written notice from a Party if the other Party commits a material breach of this Agreement and which
@@ -885,9 +900,18 @@ export const TermsAndConditions = () => (
             and 16.
           </TermsLi>
           <TermsLi>
-            Upon termination or expiry of this Agreement, the licence granted by the Developer in clause 4.2.1 shall
-            terminate automatically and Reapit shall cease marketing the Application(s) from the effective date of
-            termination or expiry.
+            Upon termination or expiry of this Agreement:
+            <TermsOl>
+              <TermsLiAlpha>
+                the licence granted by the Developer in clause 4.2.1 shall terminate automatically and Reapit shall
+                cease marketing the Application(s) from the effective date of termination or expiry;
+              </TermsLiAlpha>
+              <TermsLiAlpha>
+                by Reapit pursuant to clause 11.3.1(b)(ii), Reapit shall refund the Developer on a pro-rata basis any
+                pre-paid Fees that apply from the period starting on the effective date of termination until the date
+                that applied to the pre-paid Fees.
+              </TermsLiAlpha>
+            </TermsOl>
           </TermsLi>
           <TermsLi>
             Termination of this Agreement in accordance with its terms shall not relieve the Developer of its payment

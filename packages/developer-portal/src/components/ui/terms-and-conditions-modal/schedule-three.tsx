@@ -19,8 +19,15 @@ export const ScheduleThree = () => (
             Reapit&rsquo;s express prior written permission;
           </TermsLiBullet>
           <TermsLiBullet>
+            it will not interfere with or disrupt the Foundations Platform, or any services or network used to provide
+            access to the Foundations Platform;
+          </TermsLiBullet>
+          <TermsLiBullet>
             it will not collect any data or Personal Data on the Foundations Platform, other than through its
             Application and in accordance with the Application User Terms Principles;
+          </TermsLiBullet>
+          <TermsLiBullet>
+            it will not re-identify (or seek to re-identify) any anonymised data (whether Personal Data or not);
           </TermsLiBullet>
           <TermsLiBullet>
             it will provide feedback when requested by Reapit, in relation to the performance of the Foundations
@@ -28,8 +35,9 @@ export const ScheduleThree = () => (
           </TermsLiBullet>
           <TermsLiBullet>it will co-operate in all matters relating to this Agreement with Reapit;</TermsLiBullet>
           <TermsLiBullet>
-            it will not provide access to the Foundations Platform to anyone who has not entered into a direct agreement
-            with Reapit on the same terms as this Agreement;
+            t will not provide access to the Foundations Platform to anyone who has not entered into a direct agreement
+            with Reapit on the same terms as this Agreement and, without prejudice to the foregoing, it will not share
+            (i) any API access credentials provided by Reapit and/or (ii) the Registration Details with any third party;
           </TermsLiBullet>
           <TermsLiBullet>
             it will conduct an industry-standard penetration test on each Application at least once every calendar year
@@ -67,7 +75,7 @@ export const ScheduleThree = () => (
         </TermsUl>
       </TermsLi>
       <TermsLi>
-        The developer must make available upon request access to the Application in both test and production
+        The Developer must make available upon request access to the Application in both test and production
         environments for Reapit to conduct random spot-checks.
       </TermsLi>
       <TermsLi>
@@ -84,8 +92,35 @@ export const ScheduleThree = () => (
         Applications for the Marketplace.
       </TermsLi>
       <TermsLi>
-        The Developer will conduct an industry-standard penetration test on each Application at least once every
-        calendar year and provide Reapit with the results of such test.
+        The Developer must not exceed or circumvent (or seek to circumvent) the Monthly API Calls and the Developer is
+        solely responsible for ensuring that it keeps track of its current consumption of Monthly API Calls.
+      </TermsLi>
+      <TermsLi>
+        The Monthly API Calls rates must not exceed: (i) 20 requests per second (ii) 5 concurrent requests for each
+        customer that has installed your app (iii) a maximum of 250,000 requests per day
+      </TermsLi>
+      <TermsLi>
+        The Developer acknowledges and agrees that the Foundations Platform API is to be used for a transactional basis
+        only, including - Retrieval of data in real-time as and when the Application requires it; and
+      </TermsLi>
+      <TermsLi>
+        Storage of data as a transactional, operational data store for the Application. The Foundations Platform APIs
+        must not be used for:
+        <TermsUl>
+          <TermsLiBullet>
+            Bulk extraction of data, historical or otherwise, into third party applications, databases, or data
+            warehouses to support business intelligence (BI), data mining, and other decision support applications.
+          </TermsLiBullet>
+          <TermsLiBullet>
+            Automated or scheduled routines to acquire non-transactional data without a requirement to immediately
+            process it for your applications use case (this does not include webhooks).
+          </TermsLiBullet>
+          <TermsLiBullet>Load or volume testing of your application using sandbox or customer data.</TermsLiBullet>
+        </TermsUl>
+      </TermsLi>
+      <TermsLi>
+        An Application must maintain no more than 5 API interaction threads and awaits completion of previous requests
+        before submitting new ones
       </TermsLi>
     </TermsOl>
   </Content>

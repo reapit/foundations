@@ -80,6 +80,15 @@ export const PrivateRouteWrapper: React.FunctionComponent<PrivateRouteWrapperPro
       if (currentMember && currentMember.id && !currentMember.agreedTerms) {
         setShowTermsModal(true)
       }
+
+      if (
+        currentMember &&
+        currentMember.id &&
+        currentMember.agreedTerms &&
+        dayjs(currentMember.agreedTerms).isBefore(dayjs('2021-06-18'))
+      ) {
+        setShowTermsModal(true)
+      }
     }
   }, [connectSession, currentMember, setShowTermsModal, dispatch])
 

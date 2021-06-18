@@ -4,7 +4,7 @@ import { TermsLi, TermsOl } from './__styles__/terms-and-conditions'
 
 export const ScheduleOne = () => (
   <Content>
-    <H5 className="text-center">Schedule 1 - Application User Term Principles</H5>
+    <H5 className="text-center">Schedule 1 - Application User Terms Principles</H5>
     <TermsOl>
       <TermsLi>
         <H5>General</H5>
