@@ -2,7 +2,7 @@ import Routes from '@/constants/routes'
 import { reapitConnectBrowserSession } from '@/core/connect-session'
 import { pipelineServiceGet } from '@/platform-api/pipelines'
 import { ReapitConnectSession, useReapitConnect } from '@reapit/connect-session'
-import { Breadcrumb, BreadcrumbItem, H1, Section } from '@reapit/elements'
+import { Breadcrumb, BreadcrumbItem, FlexContainerBasic, H1, Section } from '@reapit/elements'
 import { Label, Loader } from '@reapit/elements/v3'
 import React, { useEffect, useState } from 'react'
 import { Link, useParams } from 'react-router-dom'
@@ -29,7 +29,9 @@ export default () => {
   }, [connectSession])
 
   return loading ? (
-    <Loader />
+    <FlexContainerBasic centerContent flexColumn hasBackground hasPadding>
+      <Loader />
+    </FlexContainerBasic>
   ) : pipeline ? (
     <>
       <Breadcrumb>

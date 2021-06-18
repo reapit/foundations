@@ -1,7 +1,7 @@
 import Routes from '@/constants/routes'
 import { reapitConnectBrowserSession } from '@/core/connect-session'
 import { ReapitConnectSession, useReapitConnect } from '@reapit/connect-session'
-import { ButtonGroup, H3, notification, Section } from '@reapit/elements'
+import { ButtonGroup, FlexContainerBasic, H3, notification, Section } from '@reapit/elements'
 import { Button, Table } from '@reapit/elements'
 import { Loader } from '@reapit/elements/v3'
 import { PipelineModelInterface } from '@reapit/foundations-ts-definitions'
@@ -55,47 +55,49 @@ export default () => {
           Create new Pipeline
         </Button>
       </Link>
-      {loading ? (
-        <Loader />
-      ) : (
-        <Table
-          data={pipelines}
-          columns={[
-            {
-              Header: 'Name',
-              accessor: 'name',
-            },
-            {
-              Header: 'Repository',
-              accessor: 'repository',
-            },
-            {
-              id: 'Delete',
-              Cell: ({ row }: { row: { original: any } }) => (
-                <ButtonGroup>
-                  <Button variant="secondary">
-                    <Link to={Routes.PIPELINES_SHOW.replace(':pipelineId', row.original.id)}>Show</Link>
-                  </Button>
-                  <Button
-                    loading={deletionLoading.includes(row.original.id)}
-                    onClick={() => deletePipeline(row.original.id)}
-                    variant="danger"
-                  >
-                    Delete
-                  </Button>
-                  <Button
-                    loading={deploying.includes(row.original.id)}
-                    onClick={() => deployPipeline(row.original.id)}
-                    variant="info"
-                  >
-                    Deploy
-                  </Button>
-                </ButtonGroup>
-              ),
-            },
-          ]}
-        />
-      )}
+      <FlexContainerBasic centerContent flexColumn hasBackground hasPadding>
+        {loading ? (
+          <Loader />
+        ) : (
+          <Table
+            data={pipelines}
+            columns={[
+              {
+                Header: 'Name',
+                accessor: 'name',
+              },
+              {
+                Header: 'Repository',
+                accessor: 'repository',
+              },
+              {
+                id: 'Delete',
+                Cell: ({ row }: { row: { original: any } }) => (
+                  <ButtonGroup>
+                    <Button variant="secondary">
+                      <Link to={Routes.PIPELINES_SHOW.replace(':pipelineId', row.original.id)}>Show</Link>
+                    </Button>
+                    <Button
+                      loading={deletionLoading.includes(row.original.id)}
+                      onClick={() => deletePipeline(row.original.id)}
+                      variant="danger"
+                    >
+                      Delete
+                    </Button>
+                    <Button
+                      loading={deploying.includes(row.original.id)}
+                      onClick={() => deployPipeline(row.original.id)}
+                      variant="info"
+                    >
+                      Deploy
+                    </Button>
+                  </ButtonGroup>
+                ),
+              },
+            ]}
+          />
+        )}
+      </FlexContainerBasic>
     </Section>
   )
 }
