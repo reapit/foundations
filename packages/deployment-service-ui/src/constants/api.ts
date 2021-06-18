@@ -3,7 +3,7 @@ export const BASE_HEADERS = {
   'api-version': '2020-01-31',
 }
 
-export const URLS = {
-  API_KEY_SERVICE_HOST: 'https://ey4eq5tak9.execute-api.eu-west-2.amazonaws.com',
-  DEPLOYMENT_SERVICE_HOST: 'https://h2r8e8wbd4.execute-api.eu-west-2.amazonaws.com',
+export const URLS: { [s: string]: string } = {
+  API_KEY_SERVICE_HOST: window.reapit.config.API_KEY_SERVICE_HOST,
+  DEPLOYMENT_SERVICE_HOST: window.reapit.config.DEPLOYMENT_SERVICE_HOST,
 }
