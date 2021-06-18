@@ -1,14 +1,14 @@
 import { fetcher } from '@reapit/elements'
 import { ReapitConnectSession } from '@reapit/connect-session'
 import { ApiKeyEntityType, ApiKeyInterface } from '@reapit/foundations-ts-definitions'
-import { BASE_HEADERS } from '../constants/api'
+import { BASE_HEADERS, URLS } from '../constants/api'
 
 export const configurationApiKeyApiService = async (
   session: ReapitConnectSession,
 ): Promise<ApiKeyInterface[] | undefined> => {
   try {
     const response: { items: ApiKeyInterface[] } | undefined = await fetcher({
-      api: 'https://ey4eq5tak9.execute-api.eu-west-2.amazonaws.com',
+      api: URLS.API_KEY_SERVICE_HOST,
       url: '/dev/api-key',
       method: 'GET',
       headers: {
@@ -35,7 +35,7 @@ export const configurationApiKeyApiCreateService = async (
     const keyExpiresAt = new Date()
     keyExpiresAt.setFullYear(keyExpiresAt.getFullYear() + 1)
     const response: ApiKeyInterface | undefined = await fetcher({
-      api: 'https://ey4eq5tak9.execute-api.eu-west-2.amazonaws.com',
+      api: URLS.API_KEY_SERVICE_HOST,
       url: '/dev/api-key',
       method: 'POST',
       headers: {
@@ -67,7 +67,7 @@ export const configurationApiKeyApiDeleteService = async (
     const keyExpiresAt = new Date()
     keyExpiresAt.setFullYear(keyExpiresAt.getFullYear() + 1)
     const response: undefined = await fetcher({
-      api: 'https://ey4eq5tak9.execute-api.eu-west-2.amazonaws.com',
+      api: URLS.API_KEY_SERVICE_HOST,
       url: `/dev/api-key/${id}`,
       method: 'DELETE',
       headers: {

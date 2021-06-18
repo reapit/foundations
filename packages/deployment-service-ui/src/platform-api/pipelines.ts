@@ -1,7 +1,7 @@
 import { fetcher, notification } from '@reapit/elements'
 import { ReapitConnectSession } from '@reapit/connect-session'
 import { PipelineModelInterface } from '@reapit/foundations-ts-definitions'
-import { BASE_HEADERS } from '../constants/api'
+import { BASE_HEADERS, URLS } from '../constants/api'
 
 export const pipelineServiceCreate = async (
   session: ReapitConnectSession,
@@ -9,7 +9,7 @@ export const pipelineServiceCreate = async (
 ): Promise<PipelineModelInterface | undefined> => {
   try {
     const response: PipelineModelInterface | undefined = await fetcher({
-      api: 'https://h2r8e8wbd4.execute-api.eu-west-2.amazonaws.com',
+      api: URLS.DEPLOYMENT_SERVICE_HOST,
       url: '/dev/pipeline',
       method: 'POST',
       headers: {
@@ -35,7 +35,7 @@ export const pipelineServiceGet = async (
 ): Promise<PipelineModelInterface | undefined> => {
   try {
     const response: PipelineModelInterface | undefined = await fetcher({
-      api: 'https://h2r8e8wbd4.execute-api.eu-west-2.amazonaws.com',
+      api: URLS.DEPLOYMENT_SERVICE_HOST,
       url: `/dev/pipeline/${pipelineId}`,
       method: 'GET',
       headers: {
@@ -59,7 +59,7 @@ export const pipelineServicePaginate = async (
 ): Promise<PipelineModelInterface[] | undefined> => {
   try {
     const response: { items: PipelineModelInterface[] } | undefined = await fetcher({
-      api: 'https://h2r8e8wbd4.execute-api.eu-west-2.amazonaws.com',
+      api: URLS.DEPLOYMENT_SERVICE_HOST,
       url: '/dev/pipeline',
       method: 'GET',
       headers: {
@@ -84,7 +84,7 @@ export const pipelineServiceDelete = async (
 ): Promise<PipelineModelInterface | undefined> => {
   try {
     const response: PipelineModelInterface | undefined = await fetcher({
-      api: 'https://h2r8e8wbd4.execute-api.eu-west-2.amazonaws.com',
+      api: URLS.DEPLOYMENT_SERVICE_HOST,
       url: `/dev/pipeline/${id}`,
       method: 'DELETE',
       headers: {
@@ -109,7 +109,7 @@ export const pipelineServiceRun = async (
 ): Promise<PipelineModelInterface | undefined> => {
   try {
     const response: PipelineModelInterface | undefined = await fetcher({
-      api: 'https://h2r8e8wbd4.execute-api.eu-west-2.amazonaws.com',
+      api: URLS.DEPLOYMENT_SERVICE_HOST,
       url: `/dev/pipeline/${id}/run`,
       method: 'POST',
       headers: {

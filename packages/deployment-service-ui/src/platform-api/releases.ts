@@ -1,11 +1,11 @@
-import { BASE_HEADERS } from './../constants/api'
+import { BASE_HEADERS, URLS } from './../constants/api'
 import { ReapitConnectSession } from '@reapit/connect-session'
 import { fetcher } from '@reapit/elements'
 
 export const releaseServicePaginate = async (session: ReapitConnectSession): Promise<any[] | undefined> => {
   try {
     const response: any[] | undefined = await fetcher({
-      api: 'https://h2r8e8wbd4.execute-api.eu-west-2.amazonaws.com',
+      api: URLS.DEPLOYMENT_SERVICE_HOST,
       url: '/dev/deploy/release/react-test',
       method: 'GET',
       headers: {
