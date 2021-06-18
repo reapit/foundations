@@ -55,14 +55,14 @@ export interface CardContextMenuProps extends HTMLAttributes<HTMLDivElement> {
 }
 
 export interface CardProps extends HTMLAttributes<HTMLDivElement> {
-  isMainCard?: boolean
+  hasMainCard?: boolean
   mainCardHeading?: string
   mainCardSubHeading?: string
   mainCardSubHeadingAdditional?: string
   mainCardBody?: string
   mainCardImgUrl?: string
   mainContextMenuItems?: ContextMenuItem[]
-  isListCard?: boolean
+  hasListCard?: boolean
   listCardHeading?: string
   listCardSubHeading?: string
   listCardItems?: CardListItem[]
@@ -125,8 +125,8 @@ export const CardContextMenu: FC<CardContextMenuProps> = ({ className, contextMe
 
 export const Card: FC<CardProps> = ({
   className,
-  isMainCard,
-  isListCard,
+  hasMainCard,
+  hasListCard,
   mainContextMenuItems,
   mainCardHeading,
   mainCardSubHeading,
@@ -146,7 +146,7 @@ export const Card: FC<CardProps> = ({
 
   return (
     <CardWrap className={cx(className && className, isSelected && elCardFocussed)} {...rest}>
-      {isMainCard && (
+      {hasMainCard && (
         <>
           {mainContextMenuItems && <CardContextMenu contextMenuItems={mainContextMenuItems} />}
           <CardMainWrap>
@@ -164,7 +164,7 @@ export const Card: FC<CardProps> = ({
             </CardHeadingWrap>
             <CardMobileToggle
               onClick={
-                isListCard
+                hasListCard
                   ? handleToggleBothMobileOpen(mainMobileOpen, setMainMobileOpen, listMobileOpen, setListMobileOpen)
                   : handleToggleMainMobileOpen(mainMobileOpen, setMainMobileOpen)
               }
@@ -174,7 +174,7 @@ export const Card: FC<CardProps> = ({
           </CardMainWrap>
           <CardBodyWrap
             className={cx(
-              isListCard && (!isMobile || listMobileOpen) && elMb5,
+              hasListCard && (!isMobile || listMobileOpen) && elMb5,
               mainMobileOpen && elCardBodyWrapExpanded,
             )}
           >
@@ -182,7 +182,7 @@ export const Card: FC<CardProps> = ({
           </CardBodyWrap>
         </>
       )}
-      {isListCard && (
+      {hasListCard && (
         <>
           <CardListMainWrap className={cx(listMobileOpen && elCardListMainWrapExpanded)}>
             {listContextMenuItems && (listMobileOpen || !isMobile) && (
@@ -190,7 +190,7 @@ export const Card: FC<CardProps> = ({
             )}
             <CardListHeading>{listCardHeading}</CardListHeading>
             <CardListSubHeading>{listCardSubHeading}</CardListSubHeading>
-            {!isMainCard && (
+            {!hasMainCard && (
               <CardMobileToggle
                 className={elMobileListToggle}
                 onClick={handleToggleListMobileOpen(listMobileOpen, setListMobileOpen)}

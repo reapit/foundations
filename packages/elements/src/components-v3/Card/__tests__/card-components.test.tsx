@@ -22,8 +22,8 @@ describe('Card', () => {
   it('should match a snapshot and render children with full props', () => {
     const wrapper = shallow(
       <Card
-        isMainCard
-        isListCard
+        hasMainCard
+        hasListCard
         mainContextMenuItems={[
           { icon: 'trash', onClick: () => console.log('Clicking'), intent: 'danger' },
           { icon: 'share', onClick: () => console.log('Clicking') },
