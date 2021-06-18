@@ -68,7 +68,9 @@ export default () => {
               <Input id="build" />
             </InputGroup>
             <br />
-            <Button loading={loading} intent="primary">Create</Button>
+            <Button loading={loading} intent="primary">
+              Create
+            </Button>
           </Form>
         </Formik>
       </Section>

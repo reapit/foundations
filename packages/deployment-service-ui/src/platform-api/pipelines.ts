@@ -29,6 +29,31 @@ export const pipelineServiceCreate = async (
   }
 }
 
+export const pipelineServiceGet = async (
+  session: ReapitConnectSession,
+  pipelineId: string,
+): Promise<PipelineModelInterface | undefined> => {
+  try {
+    const response: PipelineModelInterface | undefined = await fetcher({
+      api: 'https://h2r8e8wbd4.execute-api.eu-west-2.amazonaws.com',
+      url: `/dev/pipeline/${pipelineId}`,
+      method: 'GET',
+      headers: {
+        ...BASE_HEADERS,
+        Authorization: `${session.idToken}`,
+      },
+    })
+
+    if (response) {
+      return response
+    }
+
+    throw new Error('No response returned by API')
+  } catch (err) {
+    console.error('Error fetching Configuration Appointment Types', err.message)
+  }
+}
+
 export const pipelineServicePaginate = async (
   session: ReapitConnectSession,
 ): Promise<PipelineModelInterface[] | undefined> => {
