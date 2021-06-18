@@ -18,6 +18,8 @@ window.reapit = {
     platformApiUrl: '',
     graphqlUri: '',
     marketplaceUrl: '',
+    API_KEY_SERVICE_HOST: '',
+    DEPLOYMENT_SERVICE_HOST: '',
   },
 }
 

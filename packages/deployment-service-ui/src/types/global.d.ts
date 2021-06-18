@@ -8,6 +8,8 @@ export type Config = {
   platformApiUrl: string
   graphqlUri: string
   marketplaceUrl: string
+  API_KEY_SERVICE_HOST: string
+  DEPLOYMENT_SERVICE_HOST: string
 }
 
 declare global {
