@@ -24,7 +24,7 @@ export class PipelineRun extends AbstractCommand {
     @Param({
       name: 'pipelineId',
     })
-    pipelineId: string | undefined,
+    pipelineId?: string,
   ) {
     const spinner = ora('Deploying')
 
