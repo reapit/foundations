@@ -1,0 +1,21 @@
+import { useState } from 'react'
+import { Meta, Story, Canvas, ArgsTable } from '@storybook/addon-docs/blocks'
+import { ProgressBar } from './progress-bar'
+import { RenderHtmlMarkup } from '../../helpers/v3/render-html-markup'
+
+<Meta title="V3/ProgressBar" component={ProgressBar} />
+
+# Progress Bar
+
+## React Example
+
+<ArgsTable of={ProgressBar} />
+
+<Canvas>
+  <Story name="React Example">
+    <ProgressBar duration={30} />
+  </Story>
+</Canvas>
+
+<RenderHtmlMarkup component="V3/ProgressBar" story="React Example" />
+
