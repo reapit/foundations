@@ -4,5 +4,6 @@ export const BASE_HEADERS = {
 }
 
 export const URLS = {
-  API_KEY_LIST: '/api-key',
+  API_KEY_SERVICE_HOST: 'https://ey4eq5tak9.execute-api.eu-west-2.amazonaws.com',
+  DEPLOYMENT_SERVICE_HOST: 'https://h2r8e8wbd4.execute-api.eu-west-2.amazonaws.com',
 }
