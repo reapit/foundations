@@ -11,6 +11,8 @@ export interface Command {
 }
 
 export abstract class AbstractCommand {
+  protected baseUrl: string = 'https://h2r8e8wbd4.execute-api.eu-west-2.amazonaws.com/dev/'
+
   get commandOptions(): CommandOptions {
     return Reflect.getOwnMetadata(COMMAND_OPTIONS, this.constructor)
   }
@@ -71,7 +73,7 @@ export abstract class AbstractCommand {
     }
 
     const instance = axios.create({
-      baseURL: config?.config?.baseUrl || 'https://h2r8e8wbd4.execute-api.eu-west-2.amazonaws.com/dev/',
+      baseURL: config?.config?.baseUrl || this.baseUrl,
       headers: {
         'x-api-key': config.config['api-key'],
         'Content-Type': 'application/json',
@@ -103,25 +105,61 @@ export abstract class AbstractCommand {
     const config: CommandOptions = Reflect.getOwnMetadata(COMMAND_OPTIONS, this.constructor)
     const args: ArgsType[] | undefined = Reflect.getOwnMetadata(ARGUMENT_OPTIONS, this.constructor)
 
-    console.log(`
-    ${parent ? '\t' : ''}${chalk.bold.white(config.name)}\t${config.description}
-    ${parent ? '\t' : ''}$ ${chalk.green('reapit')} ${
-      parent ? `${chalk.whiteBright(parent.commandOptions.name)} ` : ''
-    }${chalk.white(config.name)} ${
-      !Array.isArray(args)
-        ? ''
-        : args
-            .filter((arg) => arg.type === 'parameter')
-            .map((arg) => chalk.white(`{${arg.name}}`))
-            .join(' ')
-    } ${
-      !Array.isArray(args)
-        ? ''
-        : args
-            .filter((arg) => arg.type === 'option')
-            .map((arg) => `[--${arg.name}${arg.shortName ? `|-${arg.shortName}` : ''}]`)
-            .join(' ')
-    } 
-    `)
+    this.writeLine(`${chalk.bold.white(config.name)}\t${config.description}`, parent ? 2 : 1, '  ')
+    this.writeLine(
+      `$ ${chalk.green('reapit')} ${parent ? `${chalk.whiteBright(parent.commandOptions.name)} ` : ''}${chalk.white(
+        config.name,
+      )} ${
+        !Array.isArray(args)
+          ? ''
+          : args
+              .filter((arg) => arg.type === 'parameter')
+              .map((arg) => chalk.white(`{${arg.name}}`))
+              .join(' ')
+      } ${
+        !Array.isArray(args)
+          ? ''
+          : args
+              .filter((arg) => arg.type === 'option')
+              .map((arg) => `[--${arg.name}${arg.shortName ? `|-${arg.shortName}` : ''}]`)
+              .join(' ')
+      }`,
+      parent ? 2 : 1,
+      '  ',
+    )
+    this.writeLine('')
+
+    // console.log(`
+    // ${parent ? '\t' : ''}${chalk.bold.white(config.name)}\t${config.description}
+    // ${parent ? '\t' : ''}$ ${chalk.green('reapit')} ${
+    //   parent ? `${chalk.whiteBright(parent.commandOptions.name)} ` : ''
+    // }${chalk.white(config.name)} ${
+    //   !Array.isArray(args)
+    //     ? ''
+    //     : args
+    //         .filter((arg) => arg.type === 'parameter')
+    //         .map((arg) => chalk.white(`{${arg.name}}`))
+    //         .join(' ')
+    // } ${
+    //   !Array.isArray(args)
+    //     ? ''
+    //     : args
+    //         .filter((arg) => arg.type === 'option')
+    //         .map((arg) => `[--${arg.name}${arg.shortName ? `|-${arg.shortName}` : ''}]`)
+    //         .join(' ')
+    // }
+    // `)
+  }
+
+  protected writeLine(text: string, tabbed: number = 0, tabValue: string = '\t'): void {
+    console.log(
+      `${
+        tabbed
+          ? Array.from(Array(tabbed).keys())
+              .map(() => tabValue)
+              .join('')
+          : ''
+      }${text}`,
+    )
   }
 }

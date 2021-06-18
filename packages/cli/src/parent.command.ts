@@ -29,10 +29,9 @@ export abstract class ParentCommand extends AbstractCommand {
   }
 
   printConfig() {
-    console.log(`
-    ${chalk.bold.green(this.commandOptions.name)}
-      ${this.commandOptions.description}
-    `)
+    this.writeLine(`${chalk.bold.green(this.commandOptions.name)}`, 1, '  ')
+    this.writeLine(`${this.commandOptions.description}`, 1, '  ')
+    this.writeLine('')
     this.commands.forEach((command) => command.printConfig(this))
   }
 }
