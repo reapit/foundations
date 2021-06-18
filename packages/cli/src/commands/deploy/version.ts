@@ -26,7 +26,7 @@ export class VersionCommand extends AbstractCommand {
    *
    */
   async deployVersion(project: string, version: string, spinner: Ora): Promise<void | never> {
-    const response = await (await this.axios()).post(`deploy/version/${project}/${version}`)
+    const response = await (await this.axios(spinner)).post(`deploy/version/${project}/${version}`)
 
     if (response.status !== 200) {
       let message: string
