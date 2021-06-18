@@ -1,10 +1,26 @@
 import Routes from '@/constants/routes'
+import { reapitConnectBrowserSession } from '@/core/connect-session'
+import { ReapitConnectSession, useReapitConnect } from '@reapit/connect-session'
 import { Breadcrumb, BreadcrumbItem, H1, Section, Formik, Form } from '@reapit/elements'
 import { AfterInputText, Button, Input, InputGroup, Label } from '@reapit/elements/v3'
-import React from 'react'
+import React, { useState } from 'react'
 import { Link } from 'react-router-dom'
+import { PipelineModelInterface } from '@reapit/foundations-ts-definitions'
+import { pipelineServiceCreate } from '@/platform-api/pipelines'
 
 export default () => {
+  const { connectSession } = useReapitConnect(reapitConnectBrowserSession)
+  const [loading, setLoading] = useState<boolean>(false)
+
+  const createPipeline = async (pipeline: Partial<PipelineModelInterface>): Promise<void> => {
+    setLoading(true)
+    const result = await pipelineServiceCreate(connectSession as ReapitConnectSession, pipeline)
+    if (result) {
+      // TODO navigate to display pipeline
+    }
+    setLoading(false)
+  }
+
   return (
     <>
       <Breadcrumb>
@@ -24,8 +40,9 @@ export default () => {
             projectName: '',
             repository: '',
           }}
-          onSubmit={(values) => {
+          onSubmit={async (values) => {
             console.log(values)
+            await createPipeline(values)
           }}
         >
           <Form>
@@ -51,7 +68,7 @@ export default () => {
               <Input id="build" />
             </InputGroup>
             <br />
-            <Button intent="primary">Create</Button>
+            <Button loading={loading} intent="primary">Create</Button>
           </Form>
         </Formik>
       </Section>
