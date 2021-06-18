@@ -22,6 +22,7 @@
   },
   "dependencies": {
     "@reapit/connect-session": "workspace:packages/connect-session",
+    "@reapit/elements": "workspace:packages/elements",
     "@reapit/foundations-ts-definitions": "workspace:packages/foundations-ts-definitions",
     "@sentry/browser": "^5.30.0",
     "dayjs": "^1.10.4",

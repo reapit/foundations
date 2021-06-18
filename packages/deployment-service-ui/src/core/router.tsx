@@ -33,6 +33,7 @@ const AuthenticatedPage = React.lazy(() => catchChunkError(() => import('../comp
 const PipelineListPage = React.lazy(() => catchChunkError(() => import('../components/pages/pipelines/list')))
 const ApiKeyListPage = React.lazy(() => catchChunkError(() => import('../components/pages/api-key/list')))
 const ReleasesPage = React.lazy(() => catchChunkError(() => import('../components/pages/releases')))
+const PipelineCreatePage = React.lazy(() => catchChunkError(() => import('../components/pages/pipelines/create')))
 
 const Router = () => (
   <BrowserRouter history={history}>
@@ -45,6 +46,7 @@ const Router = () => (
             <Route path={Routes.PIPELINES} exact component={PipelineListPage} />
             <Route path={Routes.RELEASES} exact component={ReleasesPage} />
             <Route path={Routes.API_KEYS} exact component={ApiKeyListPage} />
+            <Route path={Routes.PIPELINES_CREATION} exact component={PipelineCreatePage} />
           </Switch>
         </PrivateRouteWrapper>
         <Redirect to={Routes.LOGIN} />
