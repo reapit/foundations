@@ -455,7 +455,7 @@ export interface CardContextMenuProps extends HTMLAttributes<HTMLDivElement> {
 }
 
 export interface CardProps extends HTMLAttributes<HTMLDivElement> {
-  isMainCard?: boolean // Should we render an Image card as the main card?
+  hasMainCard?: boolean // Should we render an Image card as the main card?
   // Supplied text options for the various fields
   mainCardHeading?: string
   mainCardSubHeading?: string
@@ -464,7 +464,7 @@ export interface CardProps extends HTMLAttributes<HTMLDivElement> {
   mainCardImgUrl?: string
   // A list of context menu options
   mainContextMenuItems?: ContextMenuItem[]
-  isListCard?: boolean // Should we render a bottom list section. If supplied without isMainCard, will just render a list
+  hasListCard?: boolean // Should we render a bottom list section. If supplied without hasMainCard, will just render a list
   // Heading strings for the list
   listCardHeading?: string 
   listCardSubHeading?: string
@@ -481,8 +481,8 @@ As you can see, all of the props are optional however, a completed version with 
   <Story name="React Example">
     <MediaStateProvider>
       <Card
-        isMainCard
-        isListCard
+        hasMainCard
+        hasListCard
         mainContextMenuItems={[
           { icon: 'trash', onClick: () => console.log('Clicking'), intent: 'danger' },
           { icon: 'share', onClick: () => console.log('Clicking') },
