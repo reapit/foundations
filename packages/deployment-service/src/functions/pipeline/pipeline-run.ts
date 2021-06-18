@@ -90,6 +90,7 @@ export const pipelineRun = httpHandler({
 
     return {
       statusCode: HttpStatusCode.OK,
+      body: pipeline,
     }
   },
 })
