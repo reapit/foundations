@@ -75,7 +75,7 @@ export class ReleaseCommand extends AbstractCommand {
     const files = ['serverless.yml', 'package.json', 'yarn.lock', 'package-lock.json']
 
     const zip = new AdmZip()
-    zip.addLocalFolder(path.resolve(process.cwd(), 'build'))
+    zip.addLocalFolder(path.resolve(process.cwd(), 'build'), 'build')
     files.forEach((file) => {
       if (fs.existsSync(path.resolve(process.cwd(), file))) {
         zip.addLocalFile(path.resolve(process.cwd(), file))
