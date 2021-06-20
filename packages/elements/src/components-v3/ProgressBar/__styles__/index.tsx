@@ -20,26 +20,33 @@ export const elProgressBarItemOrange = css`
 export const ElProgressBarContainer = styled.div`
   display: flex;
   align-items: center;
+  justify-content: flex-start;
   width: 100%;
-  padding: 0.5rem;
+  padding: 0.25rem 0.5rem;
+  background-color: var(--color-grey-light);
 `
 
 export const ElProgressBarLabel = styled.div`
-  margin-right: 0.75rem;
+  font-size: 0.875rem;
+  flex-shrink: 0;
 `
 
 export const ElProgressBarInner = styled.div`
+  width: 0;
   display: flex;
-  flex-grow: 1;
+  transition: width 0.5s linear;
+  margin-right: 0.75rem;
 `
 
 export const ElProgressBarItem = styled.div`
-  width: 0;
+  width: 20%;
   height: 3px;
-  transition-property: width;
-  transition-timing-function: linear;
 `
 
 export const elProgressBarLabelRight = css`
-  margin-right: 0.75rem;
+  margin-right: auto;
+`
+
+export const elProgressBarLabelLeft = css`
+  margin-left: auto;
 `
