@@ -1,5 +1,5 @@
-import { cx } from 'linaria'
-import React, { FC, HTMLAttributes } from 'react'
+import React, { Dispatch, FC, HTMLAttributes, SetStateAction, useEffect, useState } from 'react'
+import { elProgressBarLabelLeft } from './__styles__/index'
 import {
   ElProgressBarContainer,
   ElProgressBarLabel,
@@ -13,8 +13,13 @@ import {
   elProgressBarItemOrange,
 } from './__styles__'
 
-export interface ProgressBarProps extends HTMLAttributes<HTMLDivElement> {
+export interface ProgressBarPercentageProps extends HTMLAttributes<HTMLDivElement> {
   duration: number
+}
+
+export interface ProgressBarStepProps extends HTMLAttributes<HTMLDivElement> {
+  numberSteps: number
+  currentStep: number
 }
 
 export interface ProgressBarBaseProps extends HTMLAttributes<HTMLDivElement> {}
@@ -35,35 +40,69 @@ export const ProgressBarLabel: FC<ProgressBarBaseProps> = ({ children, ...rest }
   <ElProgressBarLabel {...rest}>{children}</ElProgressBarLabel>
 )
 
-export const ProgressBar: FC<ProgressBarProps> = ({ duration, ...rest }) => {
-  const transitionDuration = duration / 100
-  const percentageComplete = Math.ceil(rThe)
-  const itemWidth = percentComplete / 5
+export const handleSetPercentageComplete = (
+  setPercentageComplete: Dispatch<SetStateAction<number>>,
+  intervalTime: number,
+) => () => {
+  const interval = window.setInterval(() => {
+    setPercentageComplete((prev) => {
+      if (prev < 100) {
+        return ++prev
+      }
+
+      return prev
+    })
+  }, intervalTime)
+
+  return () => window.clearInterval(interval)
+}
+
+export const ProgressBarPercentage: FC<ProgressBarPercentageProps> = ({ duration, ...rest }) => {
+  const [percentageComplete, setPercentageComplete] = useState<number>(0)
+  const intervalTime = duration * 10
+  const transitionDuration = duration / 60
+
+  useEffect(handleSetPercentageComplete(setPercentageComplete, intervalTime), [percentageComplete])
+
   return (
     <ProgressBarContainer {...rest}>
-      <ProgressBarInner>
-        <ProgressBarItem
-          className={elProgressBarItemDarkBlue}
-          style={{ width: `${itemWidth}%`, transitionDuration: `${transitionDuration}s` }}
-        />
-        <ProgressBarItem
-          className={elProgressBarItemMediumBlue}
-          style={{ width: `${itemWidth}%`, transitionDuration: `${transitionDuration}s` }}
-        />
-        <ProgressBarItem
-          className={elProgressBarItemLightBlue}
-          style={{ width: `${itemWidth}%`, transitionDuration: `${transitionDuration}s` }}
-        />
-        <ProgressBarItem
-          className={elProgressBarItemLightestBlue}
-          style={{ width: `${itemWidth}%`, transitionDuration: `${transitionDuration}s` }}
-        />
-        <ProgressBarItem
-          className={elProgressBarItemOrange}
-          style={{ width: `${itemWidth}%`, transitionDuration: `${transitionDuration}s` }}
-        />
+      <ProgressBarInner style={{ width: `${percentageComplete}%`, transitionDuration: `${transitionDuration}s` }}>
+        <ProgressBarItem className={elProgressBarItemDarkBlue} />
+        <ProgressBarItem className={elProgressBarItemMediumBlue} />
+        <ProgressBarItem className={elProgressBarItemLightBlue} />
+        <ProgressBarItem className={elProgressBarItemLightestBlue} />
+        <ProgressBarItem className={elProgressBarItemOrange} />
       </ProgressBarInner>
-      <ProgressBarLabel className={elProgressBarLabelRight}>{percentComplete}%</ProgressBarLabel>
+      <ProgressBarLabel className={elProgressBarLabelRight}>{percentageComplete}%</ProgressBarLabel>
+    </ProgressBarContainer>
+  )
+}
+
+export const handleSetPercentageCompleteSteps = (
+  setPercentageComplete: Dispatch<SetStateAction<number>>,
+  currentStep: number,
+  numberSteps: number,
+) => () => {
+  setPercentageComplete((currentStep / numberSteps) * 100)
+}
+
+export const ProgressBarSteps: FC<ProgressBarStepProps> = ({ numberSteps, currentStep, ...rest }) => {
+  const [percentageComplete, setPercentageComplete] = useState<number>((currentStep / numberSteps) * 100)
+
+  useEffect(handleSetPercentageCompleteSteps(setPercentageComplete, currentStep, numberSteps), [currentStep])
+
+  return (
+    <ProgressBarContainer {...rest}>
+      <ProgressBarInner style={{ width: `${percentageComplete}%` }}>
+        <ProgressBarItem className={elProgressBarItemDarkBlue} />
+        <ProgressBarItem className={elProgressBarItemMediumBlue} />
+        <ProgressBarItem className={elProgressBarItemLightBlue} />
+        <ProgressBarItem className={elProgressBarItemLightestBlue} />
+        <ProgressBarItem className={elProgressBarItemOrange} />
+      </ProgressBarInner>
+      <ProgressBarLabel className={elProgressBarLabelLeft}>
+        {currentStep}/{numberSteps} Completed
+      </ProgressBarLabel>
     </ProgressBarContainer>
   )
 }

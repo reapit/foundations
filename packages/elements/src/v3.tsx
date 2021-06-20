@@ -30,6 +30,8 @@ export * from './components-v3/Layouts'
 export * from './components-v3/Toggle'
 export * from './components-v3/MultiSelect'
 export * from './components-v3/Pagination'
+export * from './components-v3/Card'
+export * from './components-v3/ProgressBar'
 
 export * from './hooks/usePortal-v3'
 export * from './hooks/useSnack-v3'
