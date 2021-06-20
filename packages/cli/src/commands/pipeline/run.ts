@@ -44,7 +44,7 @@ export class PipelineRun extends AbstractCommand {
     const response = await (await this.axios(spinner)).post<PipelineModelInterface>(`/pipeline/${pipelineId}/run`) // /pipeline
 
     if (response.status === 200) {
-      spinner.succeed(`Pipeline successfully deployed https://${response.data.name}reapit.cloud`)
+      spinner.succeed(`Pipeline successfully deployed https://cloud-${response.data.name}-web-app-dev.s3.eu-west-2.amazonaws.com/index.html`)
     } else {
       spinner.fail('Failed to run pipeline')
       console.log(chalk.red('Check your internet connection'))
