@@ -18,6 +18,11 @@ export const elToggleRadioItem = css`
   padding: 0 1rem;
 `
 
+export const elToggleFullWidth = css`
+  width: 100%;
+  justify-content: space-evenly;
+`
+
 export const ElToggleCheckbox = styled.input`
   height: 0;
   width: 0;
@@ -80,10 +85,7 @@ export const ElToggleRadioLabel = styled.label`
   background: var(--color-white);
   display: flex;
   align-items: center;
-
-  &:not(:last-child) {
-    margin-right: 0.375rem;
-  }
+  margin: 0 auto;
 `
 
 export const ElToggleRadioWrap = styled.div`
@@ -95,4 +97,9 @@ export const ElToggleRadioWrap = styled.div`
   height: 30px;
   padding: 0.2rem;
   width: fit-content;
+  align-items: center;
+
+  &.${elToggleFullWidth} {
+    width: 100%;
+  }
 `

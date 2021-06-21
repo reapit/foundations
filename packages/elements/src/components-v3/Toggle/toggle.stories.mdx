@@ -43,6 +43,7 @@ export interface ToggleRadioOption {
 export interface ToggleRadioProps extends HTMLAttributes<HTMLInputElement> {
   options: ToggleRadioOption[]
   name: string
+  isFullWidth?: boolean
 }
 ```
 
@@ -54,6 +55,7 @@ Typically you will use this component when you want the user to select from a nu
   <Story name="Multi Toggle - ToggleRadio">
     <ToggleRadio
       name="my-cool-toggle-radio"
+      isFullWidth
       options={[
         {
           id: 'option-1',

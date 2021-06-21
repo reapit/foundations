@@ -20,6 +20,7 @@ describe('ToggleRadio', () => {
     const wrapper = shallow(
       <ToggleRadio
         name="my-cool-toggle-radio"
+        isFullWidth
         options={[
           {
             id: 'option-1',

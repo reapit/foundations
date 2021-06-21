@@ -5,6 +5,7 @@ export * from './styles-v3/base/flexbox'
 export * from './styles-v3/base/sizing'
 export * from './styles-v3/base/borders'
 export * from './styles-v3/base/typography'
+export * from './styles-v3/base/helpers'
 // Not yet implemented
 // export * from './styles-v3/base/intent'
 // export * from './styles-v3/base/states'

@@ -23,7 +23,9 @@ exports[`Toggle should match a snapshot and render children 1`] = `
 `;
 
 exports[`ToggleRadio should match a snapshot and render children 1`] = `
-<ElToggleRadioWrap>
+<ElToggleRadioWrap
+  className="el-toggle-full-width"
+>
   <ElToggleRadio
     defaultChecked={true}
     id="option-1"
@@ -32,7 +34,6 @@ exports[`ToggleRadio should match a snapshot and render children 1`] = `
     value="option-1"
   />
   <ElToggleRadioLabel
-    className=""
     htmlFor="option-1"
   >
     <span
@@ -49,7 +50,6 @@ exports[`ToggleRadio should match a snapshot and render children 1`] = `
     value="option-2"
   />
   <ElToggleRadioLabel
-    className=""
     htmlFor="option-2"
   >
     <span
@@ -66,7 +66,6 @@ exports[`ToggleRadio should match a snapshot and render children 1`] = `
     value="option-3"
   />
   <ElToggleRadioLabel
-    className=""
     htmlFor="option-3"
   >
     <span
