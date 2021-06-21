@@ -1,6 +1,7 @@
 import React from 'react'
 import { MapPanelContainer } from './__styles__'
-import { Button, isIOS, ButtonGroup } from '@reapit/elements'
+import { isIOS } from '@reapit/elements'
+import { Button } from '@reapit/elements/v3'
 import { AppState, useAppState } from '../../../core/app-state'
 import { buttonPaddingSmall } from '../../pages/appointment/__styles__'
 
@@ -45,16 +46,14 @@ export const MapPanel: React.FC<MapPanelProps> = ({ routeInformation }: MapPanel
         <p className="is-size-5 mr-2">{routeInformation.duration?.text}</p>
         <p>{routeInformation.distance?.text}</p>
       </div>
-      <ButtonGroup hasSpacing>
-        <Button
-          className={buttonPaddingSmall}
-          type="button"
-          variant="primary"
-          onClick={handleOpenNativeMap({ appState })}
-        >
-          Start Journey
-        </Button>
-      </ButtonGroup>
+      <Button
+        className={buttonPaddingSmall}
+        type="button"
+        intent="critical"
+        onClick={handleOpenNativeMap({ appState })}
+      >
+        Start Journey
+      </Button>
     </MapPanelContainer>
   )
 }

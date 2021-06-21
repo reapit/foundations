@@ -2,23 +2,26 @@
 
 exports[`LandlordItem should match snapshot with landlords in state 1`] = `
 <FadeIn>
-  <TileSectionContainer>
-    <Label>
-      Landlords
-    </Label>
-    <TileIconAnchorWrap
-      key="OXF12300101"
-    >
+  <CardListItem
+    className="el-fade-in el-card-list-item-expanded"
+    key="OXF12300101"
+  >
+    <CardListIcon>
       <Icon
-        icon="username"
+        icon="landlord"
       />
-      <a
-        onClick={[Function]}
-      >
+    </CardListIcon>
+    <CardListItemTextWrap
+      onClick={[Function]}
+    >
+      <CardListItemTextPrimary>
+        Landlord
+      </CardListItemTextPrimary>
+      <CardListItemTextSecondary>
         Mr John Smith
-      </a>
-    </TileIconAnchorWrap>
-  </TileSectionContainer>
+      </CardListItemTextSecondary>
+    </CardListItemTextWrap>
+  </CardListItem>
 </FadeIn>
 `;
 

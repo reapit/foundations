@@ -11,18 +11,18 @@ import { useReapitConnect } from '@reapit/connect-session'
 import { AppState, useAppState } from '../../../core/app-state'
 import { DATE_TIME_FORMAT } from '../../../../../elements/src/utils/datetime/datetime'
 import { AppointmentTime } from '../../ui/appointment-time/appointment-time'
-import { TravelMode } from '../../ui/travel-mode/travel-mode'
 import { cx } from 'linaria'
 import {
   AppoinmentContainer,
   ControlsContainer,
+  ControlsTitleWrapper,
   LoadingContainer,
   MapContainer,
   mobileAppointmentsHidden,
   mobileAppointmentsShow,
 } from './__styles__'
 import AppointmentList from '../../ui/appointment-list'
-import { Loader } from '@reapit/elements/v3'
+import { elIsBoldText, Loader, Subtitle } from '@reapit/elements/v3'
 import GoogleMapComponent from '@/components/ui/map'
 import ErrorBoundary from '../../../core/error-boundary'
 import { MyLocation } from '../../ui/my-location/my-location'
@@ -237,12 +237,14 @@ export const Appointment: FC<AppointmentProps> = () => {
   return (
     <ErrorBoundary>
       <ControlsContainer>
-        <TabMode />
-        <AppointmentTime />
-        <TravelMode />
+        <ControlsTitleWrapper>
+          <Subtitle className={elIsBoldText}>Location</Subtitle>
+          <TabMode />
+        </ControlsTitleWrapper>
         <MyLocation />
       </ControlsContainer>
       <AppoinmentContainer className={cx(tab === 'MAP' ? mobileAppointmentsHidden : mobileAppointmentsShow)}>
+        <AppointmentTime />
         {loading ? (
           <LoadingContainer>
             <Loader label="Loading" />

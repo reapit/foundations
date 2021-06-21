@@ -25,6 +25,7 @@ export const AppointmentTime = () => {
       <FlexContainer isFlexJustifyCenter>
         <ToggleRadio
           name="appointment-time"
+          isFullWidth
           onChange={handleChangeTime({ setAppState })}
           options={[
             {

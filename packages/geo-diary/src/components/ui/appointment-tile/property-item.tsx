@@ -1,11 +1,17 @@
 import React, { FC } from 'react'
-import { Label } from '@reapit/elements/v3'
+import {
+  CardListIcon,
+  CardListItem,
+  CardListItemTextPrimary,
+  CardListItemTextSecondary,
+  CardListItemTextWrap,
+  elCardListItemExpanded,
+  Icon,
+} from '@reapit/elements/v3'
 import { useAppState } from '../../../core/app-state'
 import { ExtendedAppointmentModel } from '../../../types/global'
 import { handleOpenContactDrawer } from './appointment-items'
 import { getShortAddress } from '../../../utils/formatting-utils'
-import { BsHouse } from 'react-icons/bs'
-import { TileIconAnchorWrap, TileSectionContainer } from './__styles__/styles'
 import { ContactDrawerType } from '../contact-drawer'
 
 export type PropertyItemProps = {
@@ -21,14 +27,16 @@ export const PropertyItem: FC<PropertyItemProps> = ({ appointment }) => {
   const address = getShortAddress(property)
 
   return (
-    <TileSectionContainer>
-      <Label>Property</Label>
-      <TileIconAnchorWrap>
-        <BsHouse />
-        <a onClick={handleOpenContactDrawer(setAppState, appointment, ContactDrawerType.PROPERTY, property.id ?? null)}>
-          {address}
-        </a>
-      </TileIconAnchorWrap>
-    </TileSectionContainer>
+    <CardListItem className={elCardListItemExpanded}>
+      <CardListIcon>
+        <Icon icon="house" />
+      </CardListIcon>
+      <CardListItemTextWrap
+        onClick={handleOpenContactDrawer(setAppState, appointment, ContactDrawerType.PROPERTY, property.id ?? null)}
+      >
+        <CardListItemTextPrimary>Property</CardListItemTextPrimary>
+        <CardListItemTextSecondary>{address}</CardListItemTextSecondary>
+      </CardListItemTextWrap>
+    </CardListItem>
   )
 }

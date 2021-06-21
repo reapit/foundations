@@ -12,17 +12,13 @@ exports[`MapPanel should match snapshot without an appointment in state 1`] = `
       TEXT
     </p>
   </div>
-  <ButtonGroup
-    hasSpacing={true}
+  <Button
+    className="button-padding-small"
+    intent="critical"
+    onClick={[Function]}
+    type="button"
   >
-    <Button
-      className="button-padding-small"
-      onClick={[Function]}
-      type="button"
-      variant="primary"
-    >
-      Start Journey
-    </Button>
-  </ButtonGroup>
+    Start Journey
+  </Button>
 </MapPanelContainer>
 `;

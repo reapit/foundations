@@ -1,6 +1,7 @@
 import { ExtendedAppointmentModel } from '../types/global'
-import { AppState } from '../core/app-state'
+import { AppRouteInformation, AppState, AppTravelMode } from '../core/app-state'
 import { logger } from '@reapit/utils'
+import { DirectionsResult } from '../components/ui/map/types'
 
 export type FetchDestinationInformation = {
   appointment: ExtendedAppointmentModel
@@ -57,5 +58,40 @@ export const getGeoCoords = (): Promise<Partial<AppState>> => {
         return resolve({})
       },
     )
+  })
+}
+
+export const handleGetRouteInfo = (
+  appState: AppState,
+  travelMode: AppTravelMode,
+): Promise<AppRouteInformation | null> => {
+  const { currentLat, currentLng, destinationLat, destinationLng, mapRefs } = appState
+  const googleMaps = mapRefs?.googleMapsRef.current
+  const directionsService = mapRefs?.directionsServiceRef?.current
+  return new Promise((resolve) => {
+    if (googleMaps && directionsService && destinationLat && destinationLng && currentLat && currentLng) {
+      const origin = new googleMaps.LatLng(currentLat, currentLng)
+      const destination = new googleMaps.LatLng(destinationLat, destinationLng)
+
+      directionsService.route(
+        {
+          origin,
+          destination,
+          travelMode: travelMode as google.maps.TravelMode,
+        },
+        (response: DirectionsResult, status: google.maps.DirectionsStatus) => {
+          if (status !== 'OK') {
+            resolve(null)
+          }
+
+          const { duration, distance } = response.routes[0].legs[0]
+
+          resolve({
+            duration,
+            distance,
+          })
+        },
+      )
+    }
   })
 }
