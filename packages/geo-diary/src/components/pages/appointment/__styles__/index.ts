@@ -46,7 +46,7 @@ export const ControlsTitleWrapper = styled.div`
 `
 
 export const AppoinmentContainer = styled.div`
-  padding: 1.5rem 1.5rem;
+  padding: 1.5rem 1.5rem 0 1.5rem;
   position: absolute;
   background: #f5f7f9;
   height: calc(100% - ${navControlsHeightMobile});
@@ -69,11 +69,6 @@ export const LoadingContainer = styled.div`
   display: flex;
   vertical-align: middle;
   justify-content: center;
-`
-
-export const buttonPaddingSmall = css`
-  padding-left: 0.7rem !important;
-  padding-right: 0.7rem !important;
 `
 
 export const mobileAppointmentsHidden = css`

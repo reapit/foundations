@@ -1,6 +1,7 @@
 import React, { ChangeEvent, Dispatch, MouseEvent, FC, SetStateAction, useCallback, useEffect } from 'react'
 import { Input } from '@reapit/elements/v3'
 import {
+  DestinationLocationSection,
   MyLocationIconContainer,
   MyLocationSection,
   MyLocationSectionResult,
@@ -92,33 +93,44 @@ export const handleGeoLocateMe = (setAppState: Dispatch<SetStateAction<AppState>
 
 export const MyLocation: FC = () => {
   const { appState, setAppState } = useAppState()
-  const { locationAddress, hasGeoLocation, locationQueryAddress, locationQueryResults } = appState
+  const {
+    locationAddress,
+    hasGeoLocation,
+    locationQueryAddress,
+    locationQueryResults,
+    tab,
+    destinationAddress,
+  } = appState
   const debouncedGeolocate = useCallback(debounce(fetchLocationResults, 1000), [locationQueryAddress])
+  const hasDesination = tab === 'MAP' && destinationAddress
 
   useEffect(handleFetchLocationResults({ debouncedGeolocate, setAppState, appState }), [locationQueryAddress])
 
   return (
-    <MyLocationSection>
-      <Input
-        placeholder={locationAddress ? locationAddress : 'Enter location'}
-        onChange={handleSetLocationQuery(setAppState)}
-        value={locationQueryAddress ?? ''}
-      />
-      {locationQueryResults.length ? (
-        <MyLocationSectionResults>
-          {locationQueryResults.map((result) => (
-            <MyLocationSectionResult key={result.place_id} onClick={handleSelectResult(setAppState, result)}>
-              {result.formatted_address}
-              <BiX onClick={handleCloseResults(setAppState)} />
-            </MyLocationSectionResult>
-          ))}
-        </MyLocationSectionResults>
-      ) : null}
-      {hasGeoLocation && (
-        <MyLocationIconContainer onClick={handleGeoLocateMe(setAppState)}>
-          <BiCurrentLocation />
-        </MyLocationIconContainer>
-      )}
-    </MyLocationSection>
+    <>
+      <MyLocationSection>
+        <Input
+          placeholder={locationAddress ? locationAddress : 'Enter location'}
+          onChange={handleSetLocationQuery(setAppState)}
+          value={locationQueryAddress ?? ''}
+        />
+        {locationQueryResults.length ? (
+          <MyLocationSectionResults>
+            {locationQueryResults.map((result) => (
+              <MyLocationSectionResult key={result.place_id} onClick={handleSelectResult(setAppState, result)}>
+                {result.formatted_address}
+                <BiX onClick={handleCloseResults(setAppState)} />
+              </MyLocationSectionResult>
+            ))}
+          </MyLocationSectionResults>
+        ) : null}
+        {hasGeoLocation && (
+          <MyLocationIconContainer onClick={handleGeoLocateMe(setAppState)}>
+            <BiCurrentLocation />
+          </MyLocationIconContainer>
+        )}
+      </MyLocationSection>
+      {hasDesination && <DestinationLocationSection>{destinationAddress}</DestinationLocationSection>}
+    </>
   )
 }
