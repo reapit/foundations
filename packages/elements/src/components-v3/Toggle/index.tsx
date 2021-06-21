@@ -2,6 +2,7 @@ import React, { FC, Fragment, HTMLAttributes } from 'react'
 import { cx } from 'linaria'
 import {
   ElToggleCheckbox,
+  elToggleFullWidth,
   ElToggleLabel,
   ElToggleRadio,
   elToggleRadioItem,
@@ -21,6 +22,7 @@ export interface ToggleRadioOption {
 export interface ToggleRadioProps extends HTMLAttributes<HTMLInputElement> {
   options: ToggleRadioOption[]
   name: string
+  isFullWidth?: boolean
 }
 
 export const Toggle: FC<ToggleProps> = ({ className, children, id, ...rest }) => (
@@ -32,12 +34,12 @@ export const Toggle: FC<ToggleProps> = ({ className, children, id, ...rest }) =>
   </>
 )
 
-export const ToggleRadio: FC<ToggleRadioProps> = ({ className, name, options, ...rest }) => (
-  <ElToggleRadioWrap>
+export const ToggleRadio: FC<ToggleRadioProps> = ({ className, isFullWidth, name, options, ...rest }) => (
+  <ElToggleRadioWrap className={cx(className && className, isFullWidth && elToggleFullWidth)}>
     {options.map(({ id, value, text, isChecked }) => (
       <Fragment key={id}>
         <ElToggleRadio id={id} name={name} value={value} type="radio" {...rest} defaultChecked={isChecked} />
-        <ElToggleRadioLabel htmlFor={id} className={cx(className && className)}>
+        <ElToggleRadioLabel htmlFor={id}>
           <span className={elToggleRadioItem}>{text}</span>
         </ElToggleRadioLabel>
       </Fragment>

@@ -18,3 +18,5 @@ export const BodyText: React.FC<ITypographyProps> = ({ children, ...rest }) => {
 export const SmallText: React.FC<ITypographyProps> = ({ children, ...rest }) => {
   return <ElSmallText {...rest}>{children}</ElSmallText>
 }
+
+export * from './__styles__'

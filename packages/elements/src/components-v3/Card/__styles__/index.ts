@@ -18,10 +18,10 @@ export const ElCardWrap = styled.div`
   border: 1px solid var(--color-grey-medium);
   background: var(--color-white);
   position: relative;
+  border: 1px solid var(--color-white);
 
   ${isTablet} {
     box-shadow: 2px 4px 20px rgba(0, 0, 0, 0.05);
-    border: none;
   }
 
   &.${elCardFocussed} {
@@ -256,6 +256,7 @@ export const ElCardListItem = styled.div`
 export const ElCardListItemTextWrap = styled.div`
   display: flex;
   flex-direction: column;
+  cursor: pointer;
 `
 
 export const ElCardListItemTextPrimary = styled.div`
