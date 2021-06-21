@@ -1,12 +1,20 @@
 import React, { Dispatch, FC, MutableRefObject, SetStateAction, useEffect, useRef, useState } from 'react'
-import { getTime, H5, SubTitleH6 } from '@reapit/elements'
+import { getTime } from '@reapit/elements'
 import { ExtendedAppointmentModel } from '@/types/global'
 import { AppointmentItems } from './appointment-items'
 import { AppState, useAppState } from '../../../core/app-state'
-import { highlightTile, AppointmentTileContainer, AppointmentTileHeadingWrap, cancelledTile } from './__styles__/styles'
+import { cancelledTile } from './__styles__/styles'
 import { cx } from 'linaria'
-import { ContextMenu } from '../context-menu/index'
-import { Card } from '@reapit/elements/v3'
+import {
+  CardContextMenu,
+  CardListHeading,
+  CardListMainWrap,
+  CardListSubHeading,
+  CardWrap,
+  elCardFocussed,
+  elCardListMainWrapExpanded,
+  elMb4,
+} from '@reapit/elements/v3'
 import { CancelConfirmModal } from '../cancel-confirm-modal'
 
 export type AppointmentTileProps = {
@@ -63,57 +71,33 @@ export const AppointmentTile: FC<AppointmentTileProps> = ({ appointment }) => {
   useEffect(handleScrollIntoView(tileRef, appointmentId, id), [appointmentId, id])
 
   return (
-    <>
-      <Card
-        hasListCard
-        listContextMenuItems={[
-          {
-            icon: 'trash',
-            onClick: handleShowModal(setShowModal),
-            intent: 'danger',
-          },
-        ]}
-        listCardHeading={headingText}
-        listCardSubHeading={appointmentType}
-        listCardItems={[
-          {
-            listCardItemHeading: 'Applicant',
-            listCardItemSubHeading: 'Bob Smith',
-            listCardItemIcon: 'applicant',
-            onClick: () => console.log('Clicking'),
-          },
-          {
-            listCardItemHeading: 'Property',
-            listCardItemSubHeading: 'Some Address',
-            listCardItemIcon: 'house',
-            onClick: () => console.log('Clicking'),
-          },
-        ]}
-      />
-      <CancelConfirmModal
-        showModal={showModal}
-        handleHideModal={handleHideModal(setShowModal)}
-        appointment={appointment}
-      />
-    </>
-  )
-
-  return (
-    <>
-      <div onClick={handleSetAppointmentId(setAppState, appointment)} ref={tileRef}>
-        <AppointmentTileContainer
-          className={cx(appointmentId === id && highlightTile, appointment.cancelled && cancelledTile)}
-        >
-          <AppointmentTileHeadingWrap>
-            <div>
-              <H5 className="text-ellipsis">{headingText}</H5>
-              {appointmentType && <SubTitleH6>{appointmentType}</SubTitleH6>}
-            </div>
-            <ContextMenu appointment={appointment} />
-          </AppointmentTileHeadingWrap>
-          <AppointmentItems appointment={appointment} />
-        </AppointmentTileContainer>
-      </div>
-    </>
+    <div ref={tileRef}>
+      <CardWrap
+        className={cx(appointmentId === id && elCardFocussed, appointment.cancelled && cancelledTile, elMb4)}
+        onClick={handleSetAppointmentId(setAppState, appointment)}
+      >
+        <CardListMainWrap className={elCardListMainWrapExpanded}>
+          {!appointment.cancelled && (
+            <CardContextMenu
+              contextMenuItems={[
+                {
+                  icon: 'trash',
+                  onClick: handleShowModal(setShowModal),
+                  intent: 'danger',
+                },
+              ]}
+            />
+          )}
+          <CardListHeading>{headingText}</CardListHeading>
+          <CardListSubHeading>{appointmentType}</CardListSubHeading>
+        </CardListMainWrap>
+        <AppointmentItems appointment={appointment} />
+        <CancelConfirmModal
+          showModal={showModal}
+          handleHideModal={handleHideModal(setShowModal)}
+          appointment={appointment}
+        />
+      </CardWrap>
+    </div>
   )
 }

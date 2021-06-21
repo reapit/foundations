@@ -8,6 +8,10 @@ import { getGeoCoords } from '../utils/map-utils'
 export type AppTimeRange = 'TODAY' | 'TOMORROW' | 'WEEK'
 export type AppTravelMode = 'DRIVING' | 'WALKING'
 export type AppTab = 'MAP' | 'LIST'
+export interface AppRouteInformation {
+  duration: Duration
+  distance: Distance
+}
 
 export interface AppState {
   currentLat: number | null
@@ -20,10 +24,7 @@ export interface AppState {
   appointmentId: string | null
   appointment: ExtendedAppointmentModel | null
   tab: AppTab
-  routeInformation: {
-    duration: Duration
-    distance: Distance
-  } | null
+  routeInformation: AppRouteInformation | null
   destinationAddress: string | null
   locationAddress: string | null
   mapRefs: MapRefs | null

@@ -1,12 +1,20 @@
 import React, { FC } from 'react'
-import { Label, Icon } from '@reapit/elements/v3'
+import {
+  Icon,
+  CardListItem,
+  CardListIcon,
+  CardListItemTextPrimary,
+  CardListItemTextSecondary,
+  CardListItemTextWrap,
+  elCardListItemExpanded,
+  elFadeIn,
+} from '@reapit/elements/v3'
 import { useAppState } from '../../../core/app-state'
 import { handleOpenContactDrawer } from './appointment-items'
 import { VendorLandlordRelatedModel } from '../../pages/appointment/appointment'
 import { ExtendedAppointmentModel } from '../../../types/global'
-import { FadeIn } from '@reapit/elements'
-import { TileIconAnchorWrap, TileSectionContainer } from './__styles__/styles'
 import { ContactDrawerType } from '../contact-drawer'
+import { cx } from 'linaria'
 
 export type VendorItemProps = {
   appointment: ExtendedAppointmentModel
@@ -26,20 +34,22 @@ export const VendorItem: FC<VendorItemProps> = ({ appointment }) => {
   if (!vendorContactList.length) return null
 
   return (
-    <FadeIn>
-      <TileSectionContainer>
-        <Label>Vendors</Label>
-        {vendorContactList.map((vendor: VendorLandlordRelatedModel) => {
-          return (
-            <TileIconAnchorWrap key={vendor.id}>
-              <Icon icon="username" />
-              <a onClick={handleOpenContactDrawer(setAppState, appointment, ContactDrawerType.VENDOR, vendor.id)}>
-                {vendor.name}
-              </a>
-            </TileIconAnchorWrap>
-          )
-        })}
-      </TileSectionContainer>
-    </FadeIn>
+    <>
+      {vendorContactList.map((vendor: VendorLandlordRelatedModel) => {
+        return (
+          <CardListItem key={vendor.id} className={cx(elFadeIn, elCardListItemExpanded)}>
+            <CardListIcon>
+              <Icon icon="vendor" />
+            </CardListIcon>
+            <CardListItemTextWrap
+              onClick={handleOpenContactDrawer(setAppState, appointment, ContactDrawerType.VENDOR, vendor.id)}
+            >
+              <CardListItemTextPrimary>Vendor</CardListItemTextPrimary>
+              <CardListItemTextSecondary>{vendor.name}</CardListItemTextSecondary>
+            </CardListItemTextWrap>
+          </CardListItem>
+        )
+      })}
+    </>
   )
 }

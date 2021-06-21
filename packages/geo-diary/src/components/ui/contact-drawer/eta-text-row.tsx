@@ -1,13 +1,16 @@
-import React, { useMemo } from 'react'
-import IconButton from '../icon-button'
+import React from 'react'
 import Grid, { Col } from '../grid'
 import * as styles from './__styles__'
 import { ExtendedAppointmentModel } from '../../../types/global'
 import { NegotiatorModel } from '@reapit/foundations-ts-definitions'
-import { useAppState } from '../../../core/app-state'
-import { useReapitConnect } from '@reapit/connect-session'
+import { AppState, AppTravelMode, useAppState } from '../../../core/app-state'
+import { ReapitConnectSession, useReapitConnect } from '@reapit/connect-session'
 import { reapitConnectBrowserSession } from '../../../core/connect-session'
 import { Label } from '@reapit/elements/v3'
+import { handleGetRouteInfo } from '../../../utils/map-utils'
+import { MdDriveEta } from 'react-icons/md'
+import { FaWalking } from 'react-icons/fa'
+import { FaIconWrap } from './__styles__/index'
 
 export interface EtaTextRowProps {
   phoneNumber?: string
@@ -19,29 +22,40 @@ export type GetNegotiatorParams = {
   userCode?: string | null
 }
 
-export const getNegotiator = ({ appointment, userCode }: GetNegotiatorParams) => () => {
+export const getNegotiator = ({ appointment, userCode }: GetNegotiatorParams) => {
   if (!appointment || !userCode) return null
   return appointment?.negotiators?.find((item: NegotiatorModel) => {
     return item.id === userCode
   })
 }
 
-const EtaTextRow: React.FC<EtaTextRowProps> = ({ phoneNumber, name }: EtaTextRowProps) => {
-  const { appState } = useAppState()
-  const session = useReapitConnect(reapitConnectBrowserSession)
-  const userCode = session.connectSession?.loginIdentity.userCode
-  const orgName = session.connectSession?.loginIdentity.orgName
-  const { appointment, routeInformation } = appState
-  const negotiator = useMemo(getNegotiator({ appointment, userCode }), [appointment, userCode])
-
-  if (!phoneNumber) return null
-
+export const handleGenerateUserText = (
+  appState: AppState,
+  session: ReapitConnectSession | null,
+  travelMode: AppTravelMode,
+  name?: string,
+  phoneNumber?: string,
+) => async () => {
+  const { appointment } = appState
+  const routeInformation = await handleGetRouteInfo(appState, travelMode)
+  const userCode = session?.loginIdentity.userCode
+  const orgName = session?.loginIdentity.orgName
+  const negotiator = getNegotiator({ appointment, userCode })
+  console.log(userCode, appointment, negotiator)
   const customerName = name ? ` ${name}` : ''
   const negotiatorName = negotiator?.name ?? ''
-  const negotiatorCompany = orgName ? ` from ${orgName} ` : ''
+  const negotiatorCompany = orgName ? ` from ${orgName}` : ''
   const duration = routeInformation?.duration ? `in approximately ${routeInformation?.duration.text}.` : 'shortly.'
 
-  const href = `sms:${phoneNumber}?&body=Hi${customerName}, this is ${negotiatorName}${negotiatorCompany}, I will be with you ${duration}`
+  window.location.href = `sms:${phoneNumber}?&body=Hi${customerName}, this is ${negotiatorName}${negotiatorCompany}, I will be with you ${duration}`
+}
+
+const EtaTextRow: React.FC<EtaTextRowProps> = ({ phoneNumber, name }: EtaTextRowProps) => {
+  const { appState } = useAppState()
+
+  const { connectSession } = useReapitConnect(reapitConnectBrowserSession)
+
+  if (!phoneNumber || !connectSession) return null
 
   return (
     <div className={styles.contactOptionRow}>
@@ -52,8 +66,15 @@ const EtaTextRow: React.FC<EtaTextRowProps> = ({ phoneNumber, name }: EtaTextRow
         </Col>
         <Col span={8}>
           <div className={styles.contactOptionIcons}>
-            <a href={href}>
-              <IconButton icon="sms" />
+            <a onClick={handleGenerateUserText(appState, connectSession, 'DRIVING', name, phoneNumber)}>
+              <FaIconWrap>
+                <MdDriveEta />
+              </FaIconWrap>
+            </a>
+            <a onClick={handleGenerateUserText(appState, connectSession, 'WALKING', name, phoneNumber)}>
+              <FaIconWrap>
+                <FaWalking />
+              </FaIconWrap>
             </a>
           </div>
         </Col>

@@ -2,8 +2,10 @@ import { css } from 'linaria'
 import * as sizes from '../../../../core/__styles__/sizes'
 import * as colors from '../../../../core/__styles__/colors'
 
+const drawerWidth = '24.1rem'
+const menuOffSet = '5rem'
+
 export const drawerBg = css`
-  /* background-color: rgba(100, 100, 100, 0); */
   position: fixed;
   top: 0;
   bottom: 0;
@@ -13,8 +15,8 @@ export const drawerBg = css`
   transition: 0.35s;
 
   @media (min-width: 769px) {
-    width: 25rem;
-    left: 4.1rem;
+    width: ${drawerWidth};
+    left: ${menuOffSet};
   }
 `
 export const drawerBgOpen = css`
@@ -39,8 +41,8 @@ export const drawer = css`
   z-index: -2;
 
   @media (min-width: 769px) {
-    width: 25rem;
-    left: 4.1rem;
+    width: ${drawerWidth};
+    left: ${menuOffSet};
   }
 `
 export const drawerOpen = css`

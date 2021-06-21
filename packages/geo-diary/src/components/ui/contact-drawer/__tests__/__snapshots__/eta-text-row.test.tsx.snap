@@ -24,11 +24,18 @@ exports[`EtaTextRow should match snapshot with a phone number and populated stat
         className="contact-option-icons"
       >
         <a
-          href="sms:0777777777?&body=Hi Bob, this is Liam Jowett from ACME , I will be with you in approximately 1hr 20mins."
+          onClick={[Function]}
         >
-          <IconButton
-            icon="sms"
-          />
+          <FaIconWrap>
+            <MdDriveEta />
+          </FaIconWrap>
+        </a>
+        <a
+          onClick={[Function]}
+        >
+          <FaIconWrap>
+            <FaWalking />
+          </FaIconWrap>
         </a>
       </div>
     </Col>

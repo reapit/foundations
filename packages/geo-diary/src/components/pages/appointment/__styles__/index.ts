@@ -3,10 +3,10 @@ import { styled } from 'linaria/react'
 
 const navControlsHeightMobile = '15rem'
 const navHeightMobile = '3.5rem'
-const navAppointmentListWidthDesktop = '467px'
-const controlsHeightDesktop = '9.1rem'
+const navAppointmentListWidthDesktop = '28rem'
+const controlsHeightDesktop = '8.2rem'
 const navWidthDesktop = '5rem'
-const appointmentListWidthDesktop = '24.1rem'
+const appointmentListWidthDesktop = '23rem'
 
 export const MapContainer = styled.div`
   overflow: hidden;
@@ -29,13 +29,20 @@ export const ControlsContainer = styled.div`
   width: 100%;
   z-index: 2;
   box-shadow: 2px 4px 20px rgba(0, 0, 0, 0.05);
-  padding: 1rem 0;
+  padding: 2.5rem 1.5rem 0.875rem 1.5rem;
+  display: flex;
+  flex-direction: column;
 
   @media (min-width: 769px) {
     width: ${appointmentListWidthDesktop};
     left: 5rem;
     top: 0;
   }
+`
+
+export const ControlsTitleWrapper = styled.div`
+  display: flex;
+  justify-content: space-between;
 `
 
 export const AppoinmentContainer = styled.div`

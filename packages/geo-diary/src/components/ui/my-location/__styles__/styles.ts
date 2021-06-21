@@ -1,7 +1,6 @@
 import { styled } from 'linaria/react'
 
 export const MyLocationSection = styled.div`
-  padding: 0 1.5rem;
   display: flex;
   width: 100%;
   position: relative;
@@ -47,6 +46,7 @@ export const MyLocationIconContainer = styled.div`
   border-bottom: 1px solid black;
 
   svg {
-    font-size: 1.8rem;
+    font-size: 1.5rem;
+    color: #0061a8;
   }
 `

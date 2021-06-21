@@ -1,25 +1,28 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`VendorItem should match snapshot with vendors in state 1`] = `
-<FadeIn>
-  <TileSectionContainer>
-    <Label>
-      Vendors
-    </Label>
-    <TileIconAnchorWrap
-      key="OXF12300101"
-    >
+<Fragment>
+  <CardListItem
+    className="el-fade-in el-card-list-item-expanded"
+    key="OXF12300101"
+  >
+    <CardListIcon>
       <Icon
-        icon="username"
+        icon="vendor"
       />
-      <a
-        onClick={[Function]}
-      >
+    </CardListIcon>
+    <CardListItemTextWrap
+      onClick={[Function]}
+    >
+      <CardListItemTextPrimary>
+        Vendor
+      </CardListItemTextPrimary>
+      <CardListItemTextSecondary>
         Mr John Smith
-      </a>
-    </TileIconAnchorWrap>
-  </TileSectionContainer>
-</FadeIn>
+      </CardListItemTextSecondary>
+    </CardListItemTextWrap>
+  </CardListItem>
+</Fragment>
 `;
 
 exports[`VendorItem should match snapshot without vendors in state 1`] = `""`;

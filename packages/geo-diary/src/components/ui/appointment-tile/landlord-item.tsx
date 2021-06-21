@@ -1,12 +1,21 @@
 import React, { FC } from 'react'
-import { Label, Icon } from '@reapit/elements/v3'
+import {
+  Icon,
+  CardListItem,
+  CardListIcon,
+  CardListItemTextPrimary,
+  CardListItemTextSecondary,
+  CardListItemTextWrap,
+  elCardListItemExpanded,
+  elFadeIn,
+} from '@reapit/elements/v3'
 import { useAppState } from '../../../core/app-state'
 import { handleOpenContactDrawer } from './appointment-items'
 import { VendorLandlordRelatedModel } from '../../pages/appointment/appointment'
 import { ExtendedAppointmentModel } from '../../../types/global'
 import { FadeIn } from '@reapit/elements'
-import { TileIconAnchorWrap, TileSectionContainer } from './__styles__/styles'
 import { ContactDrawerType } from '../contact-drawer'
+import { cx } from 'linaria'
 
 export type LandlordItemProps = {
   appointment: ExtendedAppointmentModel
@@ -27,17 +36,19 @@ export const LandlordItem: FC<LandlordItemProps> = ({ appointment }) => {
 
   return (
     <FadeIn>
-      <TileSectionContainer>
-        <Label>Landlords</Label>
-        {landlordContactList.map((landlord: VendorLandlordRelatedModel) => (
-          <TileIconAnchorWrap key={landlord.id}>
-            <Icon icon="username" />
-            <a onClick={handleOpenContactDrawer(setAppState, appointment, ContactDrawerType.LANDLORD, landlord.id)}>
-              {landlord.name}
-            </a>
-          </TileIconAnchorWrap>
-        ))}
-      </TileSectionContainer>
+      {landlordContactList.map((landlord: VendorLandlordRelatedModel) => (
+        <CardListItem key={landlord.id} className={cx(elFadeIn, elCardListItemExpanded)}>
+          <CardListIcon>
+            <Icon icon="landlord" />
+          </CardListIcon>
+          <CardListItemTextWrap
+            onClick={handleOpenContactDrawer(setAppState, appointment, ContactDrawerType.LANDLORD, landlord.id)}
+          >
+            <CardListItemTextPrimary>Landlord</CardListItemTextPrimary>
+            <CardListItemTextSecondary>{landlord.name}</CardListItemTextSecondary>
+          </CardListItemTextWrap>
+        </CardListItem>
+      ))}
     </FadeIn>
   )
 }

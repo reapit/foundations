@@ -1,4 +1,5 @@
 import { css } from 'linaria'
+import { styled } from 'linaria/react'
 import * as sizes from '../../../../core/__styles__/sizes'
 import * as colors from '../../../../core/__styles__/colors'
 import { iconButtonContainer } from '../../icon-button/__styles__'
@@ -40,5 +41,23 @@ export const contactOptionIcons = css`
 
   ${iconButtonContainer} {
     margin-left: ${sizes.marginNormal};
+  }
+`
+
+export const FaIconWrap = styled.div`
+  border: none;
+  background: #fff;
+  width: 1.8rem;
+  height: 1.8rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  margin: 0 0.65rem;
+
+  svg {
+    color: black;
+    height: 100%;
+    width: 100%;
   }
 `
