@@ -10,6 +10,18 @@ export const MyLocationSection = styled.div`
   }
 `
 
+export const DestinationLocationSection = styled.div`
+  display: flex;
+  width: 100%;
+  border-bottom: var(--component-input-border-bottom);
+  color: var(--color-black);
+  overflow: hidden;
+  white-space: nowrap;
+  padding: 0 0.5rem;
+  height: 2.25rem;
+  align-items: center;
+`
+
 export const MyLocationSectionResults = styled.div`
   position: absolute;
   bottom: 0;
@@ -43,7 +55,7 @@ export const MyLocationIconContainer = styled.div`
   justify-content: flex-end;
   padding: 0.25rem 0.5rem;
   cursor: pointer;
-  border-bottom: 1px solid black;
+  border-bottom: 1px solid var(--color-grey-medium);
 
   svg {
     font-size: 1.5rem;

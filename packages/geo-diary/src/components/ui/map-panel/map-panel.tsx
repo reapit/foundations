@@ -1,9 +1,8 @@
 import React from 'react'
-import { MapPanelContainer } from './__styles__'
+import { MapPanelContainer, MapPanelItem } from './__styles__'
 import { isIOS } from '@reapit/elements'
-import { Button } from '@reapit/elements/v3'
+import { Button, elIsBoldText, Subtitle } from '@reapit/elements/v3'
 import { AppState, useAppState } from '../../../core/app-state'
-import { buttonPaddingSmall } from '../../pages/appointment/__styles__'
 
 export type GetMapUrlParams = {
   appState: AppState
@@ -42,18 +41,19 @@ export const MapPanel: React.FC<MapPanelProps> = ({ routeInformation }: MapPanel
 
   return (
     <MapPanelContainer>
-      <div>
-        <p className="is-size-5 mr-2">{routeInformation.duration?.text}</p>
+      <MapPanelItem>
+        <Subtitle className={elIsBoldText}>ETA</Subtitle>
+        <p>{routeInformation.duration?.text}</p>
+      </MapPanelItem>
+      <MapPanelItem>
+        <Subtitle className={elIsBoldText}>Distance</Subtitle>
         <p>{routeInformation.distance?.text}</p>
-      </div>
-      <Button
-        className={buttonPaddingSmall}
-        type="button"
-        intent="critical"
-        onClick={handleOpenNativeMap({ appState })}
-      >
-        Start Journey
-      </Button>
+      </MapPanelItem>
+      <MapPanelItem>
+        <Button type="button" intent="critical" onClick={handleOpenNativeMap({ appState })}>
+          Start Journey
+        </Button>
+      </MapPanelItem>
     </MapPanelContainer>
   )
 }

@@ -11,11 +11,19 @@ export const ElInput = styled.input`
     flex-grow: 1;
     border-radius: 0;
     border-bottom: var(--component-input-border-bottom);
+
+    &:focus {
+      border-bottom: var(--component-input-border-bottom-focus);
+    }
   }
 
   &:focus {
     outline: none;
     background: var(--component-input-focus-bg);
+  }
+
+  &::placeholder {
+    color: var(--color-black);
   }
 
   &[type='checkbox'] {
