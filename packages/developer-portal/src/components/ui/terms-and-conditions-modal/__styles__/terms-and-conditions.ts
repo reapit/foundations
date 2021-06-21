@@ -14,10 +14,9 @@ export const TermsLi = styled.li`
   margin-bottom: 0.6em;
   &:before {
     font-weight: 700;
-    color: $black;
     content: counters(item, '.');
     display: table-cell;
-    padding-right: 2em;
+    width: 4rem;
   }
 `
 
@@ -57,8 +56,7 @@ export const TermsLiBullet = styled.li`
   &:before {
     content: '.';
     font-weight: 700;
-    color: $black;
     display: table-cell;
-    padding-right: 2em;
+    width: 4rem;
   }
 `

@@ -436,7 +436,7 @@ In the React example, you can compose your card by applying props as appropriate
 
 ```ts
 // Card list items have a heading, a sub heading an icon name from our icon list and an onClick action
-export interface CardListItem {
+export interface CardListItemProps {
   listCardItemHeading?: string
   listCardItemSubHeading?: string
   listCardItemIcon?: IconNames
@@ -468,7 +468,7 @@ export interface CardProps extends HTMLAttributes<HTMLDivElement> {
   // Heading strings for the list
   listCardHeading?: string 
   listCardSubHeading?: string
-  listCardItems?: CardListItem[] // A list of options for the list - see CardList item above
+  listCardItems?: CardListItemProps[] // A list of options for the list - see CardList item above
   listContextMenuItems?: ContextMenuItem[]
   isSelected?: boolean // Does the card have the blue selected border
 }

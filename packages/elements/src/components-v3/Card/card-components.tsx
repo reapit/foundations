@@ -37,7 +37,7 @@ import { elMb5 } from '../../styles-v3/base/spacing'
 import { Intent } from '../../helpers/v3/intent'
 import { useMediaQuery } from '../../hooks/use-media-query'
 
-export interface CardListItem {
+export interface CardListItemProps {
   listCardItemHeading?: string
   listCardItemSubHeading?: string
   listCardItemIcon?: IconNames
@@ -65,7 +65,7 @@ export interface CardProps extends HTMLAttributes<HTMLDivElement> {
   hasListCard?: boolean
   listCardHeading?: string
   listCardSubHeading?: string
-  listCardItems?: CardListItem[]
+  listCardItems?: CardListItemProps[]
   listContextMenuItems?: ContextMenuItem[]
   isSelected?: boolean
 }
