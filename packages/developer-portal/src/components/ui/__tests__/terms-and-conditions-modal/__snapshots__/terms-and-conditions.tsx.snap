@@ -548,7 +548,7 @@ exports[`TermsAndConditionsModal it matches a snapshot 1`] = `
     </TermsLi>
     <TermsLi>
       <H5>
-        5 Developer Feedback
+        Developer Feedback
       </H5>
       <TermsOl>
         <TermsLi>

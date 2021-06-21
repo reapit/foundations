@@ -504,7 +504,7 @@ export const TermsAndConditions = () => (
         </TermsOl>
       </TermsLi>
       <TermsLi>
-        <H5>5 Developer Feedback</H5>
+        <H5>Developer Feedback</H5>
         <TermsOl>
           <TermsLi>
             The Developer grants Reapit a perpetual royalty-free and non-exclusive licence to use any Developer Feedback
