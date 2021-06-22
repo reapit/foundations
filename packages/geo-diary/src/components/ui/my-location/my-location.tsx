@@ -2,6 +2,7 @@ import React, { ChangeEvent, Dispatch, MouseEvent, FC, SetStateAction, useCallba
 import { Input } from '@reapit/elements/v3'
 import {
   DestinationLocationSection,
+  destinationSectionExpanded,
   MyLocationIconContainer,
   MyLocationSection,
   MyLocationSectionResult,
@@ -13,6 +14,7 @@ import { AppStateParams, GeocoderResult } from '../map/types'
 import { getGeoCoords } from '../../../utils/map-utils'
 import debounce from 'lodash.debounce'
 import { DebouncedFunc } from 'lodash'
+import { cx } from 'linaria'
 
 interface HandleFetchLocationResultsParams extends AppStateParams {
   debouncedGeolocate: DebouncedFunc<({ appState, setAppState }: AppStateParams) => void>
@@ -130,7 +132,9 @@ export const MyLocation: FC = () => {
           </MyLocationIconContainer>
         )}
       </MyLocationSection>
-      {hasDesination && <DestinationLocationSection>{destinationAddress}</DestinationLocationSection>}
+      <DestinationLocationSection className={cx(hasDesination && destinationSectionExpanded)}>
+        {destinationAddress}
+      </DestinationLocationSection>
     </>
   )
 }

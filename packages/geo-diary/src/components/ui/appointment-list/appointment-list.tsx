@@ -1,7 +1,7 @@
 import React from 'react'
 import { ExtendedAppointmentModel } from '@/types/global'
 import { AppointmentTile } from '../appointment-tile'
-import { FadeIn, Helper } from '@reapit/elements'
+import { PersistantNotification } from '@reapit/elements/v3'
 
 export interface AppointmentListProps {
   appointments: ExtendedAppointmentModel[]
@@ -19,22 +19,18 @@ export interface AppointmentTypeQueryVariables {
 }
 
 export const AppointmentList: React.FC<AppointmentListProps> = ({ appointments }: AppointmentListProps) => {
-  if (appointments.length === 0) {
+  if (!appointments.length) {
     return (
-      <FadeIn>
-        <Helper variant="info">No appointments</Helper>
-      </FadeIn>
+      <PersistantNotification isExpanded isFullWidth>
+        No appointments
+      </PersistantNotification>
     )
   }
 
   return (
     <>
       {appointments?.map((appointment: ExtendedAppointmentModel) => {
-        return (
-          <FadeIn key={appointment.id}>
-            <AppointmentTile appointment={appointment} />
-          </FadeIn>
-        )
+        return <AppointmentTile key={appointment.id} appointment={appointment} />
       })}
     </>
   )

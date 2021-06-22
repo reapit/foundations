@@ -1,6 +1,11 @@
 import React, { ChangeEvent, Dispatch, memo, SetStateAction } from 'react'
 import { AppState, useAppState, AppTimeRange } from '../../../core/app-state'
-import { elMb2, FlexContainer, ToggleRadio } from '@reapit/elements/v3'
+import { FlexContainer, ToggleRadio } from '@reapit/elements/v3'
+import {
+  AppointmentTimeContainer,
+  appointmentTimeContainerExpanded,
+} from '../../pages/appointment/__styles__/page-layout-styles'
+import { cx } from 'linaria'
 
 export type HandleChangeTimeParams = {
   setAppState: Dispatch<SetStateAction<AppState>>
@@ -19,9 +24,10 @@ export const handleChangeTime = ({ setAppState }: HandleChangeTimeParams) => (ev
 
 export const AppointmentTime = () => {
   const { appState, setAppState } = useAppState()
-  const { time } = appState
+  const { time, tab } = appState
+  const isExpanded = tab === 'LIST'
   return (
-    <div className={elMb2}>
+    <AppointmentTimeContainer className={cx(isExpanded && appointmentTimeContainerExpanded)}>
       <FlexContainer isFlexJustifyCenter>
         <ToggleRadio
           name="appointment-time"
@@ -49,7 +55,7 @@ export const AppointmentTime = () => {
           ]}
         />
       </FlexContainer>
-    </div>
+    </AppointmentTimeContainer>
   )
 }
 

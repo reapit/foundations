@@ -25,9 +25,9 @@ import {
 } from './types'
 import startPin from '../../../assets/images/pin-customer.svg'
 import destinationPin from '../../../assets/images/pin-reapit.svg'
-import { MapContentContainer, mapContainerHasMapPanel } from './__styles__/styles'
 import { cx } from 'linaria'
 import { DEFAULT_LAT_LNG, DEFAULT_ZOOM } from '../../../core/constants'
+import { mapContainerHasMapPanel, MapContentContainer } from '../../pages/appointment/__styles__/page-layout-styles'
 
 export const handleSetAppointment = ({
   appointments,
@@ -383,7 +383,7 @@ export const GoogleMapComponent: FC<MapProps> = ({ appointments }) => {
           center={{ lat: currentLat ?? DEFAULT_LAT_LNG.lat, lng: currentLng ?? DEFAULT_LAT_LNG.lng }}
         />
       </MapContentContainer>
-      {routeInformation && <MapPanel routeInformation={routeInformation} />}
+      <MapPanel routeInformation={routeInformation} />
     </>
   )
 }

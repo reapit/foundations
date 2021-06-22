@@ -1,29 +1,5 @@
 import { styled } from 'linaria/react'
-
-const navAppointmentListWidthDesktop = '28rem'
-const mapPanelHeight = '5rem'
-
-export const MapPanelContainer = styled.div`
-  position: absolute;
-  bottom: 0;
-  width: calc(100vw - ${navAppointmentListWidthDesktop});
-  left: ${navAppointmentListWidthDesktop};
-  display: flex;
-  background-color: #fff;
-  padding: 1rem;
-  align-items: center;
-  height: ${mapPanelHeight};
-
-  @media screen and (max-width: 768px) {
-    justify-content: space-between;
-    left: 0;
-    width: 100%;
-  }
-  @media screen and (min-width: 768px) {
-    width: calc(100vw - ${navAppointmentListWidthDesktop});
-    left: 0;
-  }
-`
+import { isDesktop } from '../../../../core/__styles__/media'
 
 export const MapPanelItem = styled.div`
   display: flex;
@@ -48,7 +24,7 @@ export const MapPanelItem = styled.div`
     white-space: normal;
   }
 
-  @media screen and (min-width: 768px) {
+  ${isDesktop} {
     margin-right: 2rem;
 
     button {

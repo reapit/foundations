@@ -1,8 +1,11 @@
 import React from 'react'
-import { MapPanelContainer, MapPanelItem } from './__styles__'
+import { MapPanelItem } from './__styles__'
 import { isIOS } from '@reapit/elements'
 import { Button, elIsBoldText, Subtitle } from '@reapit/elements/v3'
 import { AppState, useAppState } from '../../../core/app-state'
+import { MapPanelContainer, mapPanelContainerExpanded } from '../../pages/appointment/__styles__/page-layout-styles'
+import { cx } from 'linaria'
+import { TravelMode } from '../travel-mode/travel-mode'
 
 export type GetMapUrlParams = {
   appState: AppState
@@ -33,21 +36,24 @@ export type RouteInformation = {
 }
 
 export type MapPanelProps = {
-  routeInformation: RouteInformation
+  routeInformation: RouteInformation | null
 }
 
 export const MapPanel: React.FC<MapPanelProps> = ({ routeInformation }: MapPanelProps) => {
   const { appState } = useAppState()
 
   return (
-    <MapPanelContainer>
+    <MapPanelContainer className={cx(routeInformation && mapPanelContainerExpanded)}>
+      <MapPanelItem>
+        <TravelMode />
+      </MapPanelItem>
       <MapPanelItem>
         <Subtitle className={elIsBoldText}>ETA</Subtitle>
-        <p>{routeInformation.duration?.text}</p>
+        <p>{routeInformation?.duration?.text}</p>
       </MapPanelItem>
       <MapPanelItem>
         <Subtitle className={elIsBoldText}>Distance</Subtitle>
-        <p>{routeInformation.distance?.text}</p>
+        <p>{routeInformation?.distance?.text}</p>
       </MapPanelItem>
       <MapPanelItem>
         <Button type="button" intent="critical" onClick={handleOpenNativeMap({ appState })}>

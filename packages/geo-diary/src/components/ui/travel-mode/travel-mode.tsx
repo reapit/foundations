@@ -1,19 +1,22 @@
-import React, { ChangeEvent, Dispatch, FC, memo, SetStateAction } from 'react'
+import React, { Dispatch, FC, memo, SetStateAction } from 'react'
 import { AppState, AppTravelMode, useAppState } from '../../../core/app-state'
-import { ToggleRadio, FlexContainer, elMb2 } from '@reapit/elements/v3'
+import { ToggleTravelCheckbox, ToggleTravelLabel } from './__styles__/index'
+import drivingSelected from '../../../assets/driving-sel.svg'
+import drivingDeselected from '../../../assets/driving-des.svg'
+import walkingSelected from '../../../assets/walking-sel.svg'
+import walkingDeselected from '../../../assets/walking-des.svg'
 
 export type HandleChangeTravelModeParams = {
   setAppState: Dispatch<SetStateAction<AppState>>
+  travelMode: AppTravelMode
 }
 
-export const handleChangeTravelMode = ({ setAppState }: HandleChangeTravelModeParams) => (
-  event: ChangeEvent<HTMLInputElement>,
-) => {
-  const travelMode = (event.currentTarget.value ?? 'DRIVING') as AppTravelMode
+export const handleChangeTravelMode = ({ setAppState, travelMode }: HandleChangeTravelModeParams) => () => {
+  const newValue = travelMode === 'DRIVING' ? 'WALKING' : 'DRIVING'
   setAppState((currentState) => {
     return {
       ...currentState,
-      travelMode,
+      travelMode: newValue,
     }
   })
 }
@@ -22,28 +25,18 @@ export const TravelMode: FC = () => {
   const { appState, setAppState } = useAppState()
   const { travelMode } = appState
   return (
-    <div className={elMb2}>
-      <FlexContainer isFlexJustifyCenter>
-        <ToggleRadio
-          name="travel-mode"
-          onChange={handleChangeTravelMode({ setAppState })}
-          options={[
-            {
-              id: 'driving',
-              value: 'DRIVING',
-              text: 'Driving',
-              isChecked: travelMode === 'DRIVING',
-            },
-            {
-              id: 'walking',
-              value: 'WALKING',
-              text: 'Walking',
-              isChecked: travelMode === 'WALKING',
-            },
-          ]}
-        />
-      </FlexContainer>
-    </div>
+    <>
+      <ToggleTravelCheckbox
+        id="travel-mode"
+        type="checkbox"
+        checked={travelMode === 'DRIVING'}
+        onChange={handleChangeTravelMode({ setAppState, travelMode })}
+      />
+      <ToggleTravelLabel htmlFor="travel-mode">
+        <img src={travelMode === 'DRIVING' ? drivingSelected : drivingDeselected} />
+        <img src={travelMode === 'WALKING' ? walkingSelected : walkingDeselected} />
+      </ToggleTravelLabel>
+    </>
   )
 }
 
