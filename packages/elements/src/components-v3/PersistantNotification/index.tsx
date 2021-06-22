@@ -1,6 +1,6 @@
 import { cx } from 'linaria'
 import * as React from 'react'
-import { ElPersistantNotification, elPnIcon, elPnContent } from './__styles__'
+import { ElPersistantNotification, elPnIcon, elPnContent, elPnIsFullWidth, elPnIsFixed } from './__styles__'
 import { Icon, IconNames } from '../Icon'
 import { elIsActive } from '../../styles-v3/base/states'
 import { Intent, getIntentClassName } from '../../helpers/v3/intent'
@@ -10,6 +10,8 @@ export interface IPersistantNotification extends React.HTMLAttributes<HTMLDivEle
   intent?: Intent
   className?: string
   isExpanded?: boolean
+  isFullWidth?: boolean
+  isFixed?: boolean
   onExpansionToggle?: (newState: boolean) => void
 }
 
@@ -18,12 +20,20 @@ export const PersistantNotification: React.FC<IPersistantNotification> = ({
   intent = 'secondary',
   className,
   isExpanded = false,
+  isFullWidth = false,
+  isFixed = false,
   onExpansionToggle,
   children,
   ...rest
 }) => {
   const intentClassName = getIntentClassName(intent)
-  const combinedClassName = cx(className, intentClassName, isExpanded && elIsActive)
+  const combinedClassName = cx(
+    className,
+    intentClassName,
+    isExpanded && elIsActive,
+    isFullWidth && elPnIsFullWidth,
+    isFixed && elPnIsFixed,
+  )
 
   return (
     <ElPersistantNotification className={combinedClassName} {...rest}>

@@ -6,6 +6,7 @@ export * from './styles-v3/base/sizing'
 export * from './styles-v3/base/borders'
 export * from './styles-v3/base/typography'
 export * from './styles-v3/base/helpers'
+export * from './styles-v3/base/media'
 // Not yet implemented
 // export * from './styles-v3/base/intent'
 // export * from './styles-v3/base/states'

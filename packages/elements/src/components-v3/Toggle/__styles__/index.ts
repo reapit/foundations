@@ -57,7 +57,7 @@ export const ElToggleLabel = styled.label`
   height: 30px;
   background: var(--color-white);
   border-radius: 1rem;
-  border: 1px solid var(--color-grey-light);
+  border: 1px solid var(--color-grey-medium);
   display: flex;
   justify-content: space-evenly;
   align-items: center;
@@ -90,7 +90,7 @@ export const ElToggleRadioLabel = styled.label`
 
 export const ElToggleRadioWrap = styled.div`
   display: flex;
-  border: 1px solid var(--color-grey-light);
+  border: 1px solid var(--color-grey-medium);
   background: var(--color-white);
   border-radius: 1rem;
   overflow: hidden;

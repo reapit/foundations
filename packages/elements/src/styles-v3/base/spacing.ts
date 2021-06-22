@@ -305,28 +305,28 @@ export const elMx4 = css`
 `
 
 export const elMx5 = css`
-  margin-top: 1.25rem;
-  margin-bottom: 1.25rem;
+  margin-left: 1.25rem;
+  margin-right: 1.25rem;
 `
 
 export const elMx6 = css`
-  margin-top: 1.5rem;
-  margin-bottom: 1.5rem;
+  margin-left: 1.5rem;
+  margin-right: 1.5rem;
 `
 
 export const elMx8 = css`
-  margin-top: 2rem;
-  margin-bottom: 2rem;
+  margin-left: 2rem;
+  margin-right: 2rem;
 `
 
 export const elMx10 = css`
-  margin-top: 2.5rem;
-  margin-bottom: 2.5rem;
+  margin-left: 2.5rem;
+  margin-right: 2.5rem;
 `
 
 export const elMx12 = css`
-  margin-top: 3rem;
-  margin-bottom: 3rem;
+  margin-left: 3rem;
+  margin-right: 3rem;
 `
 
 // Utilities for padding
