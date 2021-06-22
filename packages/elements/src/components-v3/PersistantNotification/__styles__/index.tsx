@@ -14,7 +14,7 @@ export const elPnIcon = css`
   padding: 0 0.5rem;
   display: flex;
   align-items: center;
-  border-radius var(--default-border-radius) 0 0 var(--default-border-radius);
+  border-radius: var(--default-border-radius) 0 0 var(--default-border-radius);
   cursor: pointer;
 
   ${ElIcon} {
@@ -26,13 +26,16 @@ export const elPnContent = css`
   padding: 0.75rem 1.25rem;
   opacity: 0;
   transition: 0.5s;
+  width: 100%;
 `
+
+export const elPnIsFullWidth = css``
+
+export const elPnIsFixed = css``
 
 export const ElPersistantNotification = styled.div`
   display: flex;
-  position: fixed;
-  top: 1rem;
-  right: 2rem; // should be the width of the elPnIcon element (icon is 1rem and padding is 0.5rem each side)
+  position: relative;
   max-width: 50%;
   transform: translateX(100%);
   transition: 0.5s;
@@ -45,6 +48,18 @@ export const ElPersistantNotification = styled.div`
     .${elPnContent} {
       opacity: 1;
     }
+  }
+
+  &.${elPnIsFullWidth} {
+    width: 100%;
+    max-width: 100%;
+    flex: 1 0 auto;
+  }
+
+  &.${elPnIsFixed} {
+    position: fixed;
+    top: 1rem;
+    right: 2rem; // should be the width of the elPnIcon element (icon is 1rem and padding is 0.5rem each side)
   }
 
   &${elIntentPrimary} {
