@@ -1,3 +1,4 @@
+import { css } from 'linaria'
 import { styled } from 'linaria/react'
 
 export const MyLocationSection = styled.div`
@@ -10,6 +11,8 @@ export const MyLocationSection = styled.div`
   }
 `
 
+export const destinationSectionExpanded = css``
+
 export const DestinationLocationSection = styled.div`
   display: flex;
   width: 100%;
@@ -18,8 +21,15 @@ export const DestinationLocationSection = styled.div`
   overflow: hidden;
   white-space: nowrap;
   padding: 0 0.5rem;
-  height: 2.25rem;
+  height: 0;
   align-items: center;
+  opacity: 0;
+  transition: opacity 0.2s linear;
+
+  &.${destinationSectionExpanded} {
+    height: 2.25rem;
+    opacity: 1;
+  }
 `
 
 export const MyLocationSectionResults = styled.div`

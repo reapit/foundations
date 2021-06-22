@@ -3,7 +3,6 @@ import { getTime } from '@reapit/elements'
 import { ExtendedAppointmentModel } from '@/types/global'
 import { AppointmentItems } from './appointment-items'
 import { AppState, useAppState } from '../../../core/app-state'
-import { cancelledTile } from './__styles__/styles'
 import { cx } from 'linaria'
 import {
   CardContextMenu,
@@ -16,6 +15,7 @@ import {
   elMb4,
 } from '@reapit/elements/v3'
 import { CancelConfirmModal } from '../cancel-confirm-modal'
+import { cancelledTile } from './__styles__/styles'
 
 export type AppointmentTileProps = {
   appointment: ExtendedAppointmentModel

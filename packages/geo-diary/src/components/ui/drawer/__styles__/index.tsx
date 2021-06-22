@@ -1,8 +1,8 @@
 import { css } from 'linaria'
 import * as sizes from '../../../../core/__styles__/sizes'
 import * as colors from '../../../../core/__styles__/colors'
+import { appointmentListWidthDesktop } from '../../../pages/appointment/__styles__/page-layout-styles'
 
-const drawerWidth = '24.1rem'
 const menuOffSet = '5rem'
 
 export const drawerBg = css`
@@ -15,7 +15,7 @@ export const drawerBg = css`
   transition: 0.35s;
 
   @media (min-width: 769px) {
-    width: ${drawerWidth};
+    width: ${appointmentListWidthDesktop};
     left: ${menuOffSet};
   }
 `
@@ -41,7 +41,7 @@ export const drawer = css`
   z-index: -2;
 
   @media (min-width: 769px) {
-    width: ${drawerWidth};
+    width: ${appointmentListWidthDesktop};
     left: ${menuOffSet};
   }
 `

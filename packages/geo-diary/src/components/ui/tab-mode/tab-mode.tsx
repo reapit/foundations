@@ -1,17 +1,14 @@
-import React, { ChangeEvent, Dispatch, FC, memo, SetStateAction } from 'react'
+import React, { Dispatch, FC, memo, SetStateAction } from 'react'
 import { AppState, useAppState, AppTab } from '../../../core/app-state'
-import { ToggleRadio, FlexContainer, elMb2 } from '@reapit/elements/v3'
-import { hideWhenInDesktop } from './__styles__/index'
-import { cx } from 'linaria'
+import { Button } from '@reapit/elements/v3'
+import { TabModeButtonContainer } from './__styles__'
 
 export type HandleChangeTabModeParams = {
   setAppState: Dispatch<SetStateAction<AppState>>
+  tab: AppTab
 }
 
-export const handleChangeTabMode = ({ setAppState }: HandleChangeTabModeParams) => (
-  event: ChangeEvent<HTMLInputElement>,
-) => {
-  const tab = (event.currentTarget.value ?? 'LIST') as AppTab
+export const handleChangeTabMode = ({ setAppState, tab }: HandleChangeTabModeParams) => () => {
   setAppState((currentState) => {
     return {
       ...currentState,
@@ -23,29 +20,14 @@ export const handleChangeTabMode = ({ setAppState }: HandleChangeTabModeParams) 
 export const TabMode: FC = () => {
   const { appState, setAppState } = useAppState()
   const { tab } = appState
+  const text = tab === 'LIST' ? 'MAP' : 'DIARY'
+  const nextTab = tab === 'LIST' ? 'MAP' : 'LIST'
   return (
-    <div className={cx(elMb2, hideWhenInDesktop)}>
-      <FlexContainer isFlexJustifyCenter>
-        <ToggleRadio
-          name="tab-mode"
-          onChange={handleChangeTabMode({ setAppState })}
-          options={[
-            {
-              id: 'diary',
-              value: 'LIST',
-              text: 'Diary',
-              isChecked: tab === 'LIST',
-            },
-            {
-              id: 'map',
-              value: 'MAP',
-              text: 'Map',
-              isChecked: tab === 'MAP',
-            },
-          ]}
-        />
-      </FlexContainer>
-    </div>
+    <TabModeButtonContainer>
+      <Button intent="primary" onClick={handleChangeTabMode({ setAppState, tab: nextTab })}>
+        {text}
+      </Button>
+    </TabModeButtonContainer>
   )
 }
 

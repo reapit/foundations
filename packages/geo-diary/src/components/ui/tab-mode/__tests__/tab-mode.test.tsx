@@ -1,6 +1,7 @@
-import React, { ChangeEvent } from 'react'
+import React from 'react'
 import { shallow } from 'enzyme'
 import { TabMode, handleChangeTabMode } from '../tab-mode'
+import { AppTab } from '../../../../core/app-state'
 
 jest.mock('../../../../core/app-state')
 
@@ -15,10 +16,10 @@ describe('handleChangeTabMode', () => {
   it('should run correctly', () => {
     const mockParams = {
       setAppState: jest.fn(),
+      tab: 'LIST' as AppTab,
     }
     const curried = handleChangeTabMode(mockParams)
-    const event = { currentTarget: { value: 'LIST' } } as ChangeEvent<HTMLInputElement>
-    curried(event)
+    curried()
 
     const newState = mockParams.setAppState.mock.calls[0][0]()
     expect(newState).toEqual({ tab: 'LIST' })
