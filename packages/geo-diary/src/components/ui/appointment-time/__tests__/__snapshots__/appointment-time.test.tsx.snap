@@ -1,8 +1,8 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`appointment-time AppointmentTime should match snapshot 1`] = `
-<div
-  className="el-mb2"
+<AppointmentTimeContainer
+  className="appointment-time-container-expanded"
 >
   <FlexContainer
     isFlexJustifyCenter={true}
@@ -35,5 +35,5 @@ exports[`appointment-time AppointmentTime should match snapshot 1`] = `
       }
     />
   </FlexContainer>
-</div>
+</AppointmentTimeContainer>
 `;

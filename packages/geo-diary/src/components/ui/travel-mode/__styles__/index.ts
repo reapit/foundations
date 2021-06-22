@@ -18,10 +18,16 @@ export const ToggleTravelLabel = styled.label`
   justify-content: space-between;
   align-items: center;
   padding: 0.2rem;
+  position: absolute;
+  bottom: 0.5rem;
+  right: 0.5rem;
 
   ${isDesktop} {
     height: 2.5rem;
     width: 5rem;
     flex-direction: row;
+    position: relative;
+    bottom: auto;
+    right: auto;
   }
 `

@@ -26,6 +26,12 @@ export const MapPanelItem = styled.div`
 
   ${isDesktop} {
     margin-right: 2rem;
+    flex-direction: row;
+    align-items: baseline;
+
+    h2 {
+      margin-right: 0.875rem;
+    }
 
     button {
       width: auto;

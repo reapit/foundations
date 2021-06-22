@@ -1,7 +1,7 @@
 import React from 'react'
 import { MapPanelItem } from './__styles__'
 import { isIOS } from '@reapit/elements'
-import { Button, elIsBoldText, Subtitle } from '@reapit/elements/v3'
+import { Button, elIsBoldText, Subtitle, useMediaQuery } from '@reapit/elements/v3'
 import { AppState, useAppState } from '../../../core/app-state'
 import { MapPanelContainer, mapPanelContainerExpanded } from '../../pages/appointment/__styles__/page-layout-styles'
 import { cx } from 'linaria'
@@ -41,12 +41,15 @@ export type MapPanelProps = {
 
 export const MapPanel: React.FC<MapPanelProps> = ({ routeInformation }: MapPanelProps) => {
   const { appState } = useAppState()
+  const { isDesktop, isWideScreen } = useMediaQuery()
 
   return (
     <MapPanelContainer className={cx(routeInformation && mapPanelContainerExpanded)}>
-      <MapPanelItem>
-        <TravelMode />
-      </MapPanelItem>
+      {(isDesktop || isWideScreen) && (
+        <MapPanelItem>
+          <TravelMode />
+        </MapPanelItem>
+      )}
       <MapPanelItem>
         <Subtitle className={elIsBoldText}>ETA</Subtitle>
         <p>{routeInformation?.duration?.text}</p>

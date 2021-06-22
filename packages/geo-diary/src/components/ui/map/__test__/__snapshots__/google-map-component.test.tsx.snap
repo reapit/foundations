@@ -16,9 +16,24 @@ exports[`GoogleMapComponent should match snapshot with an appointment 1`] = `
         }
       }
       coordinates={Array []}
+      fullscreenControl={false}
+      mapTypeControl={false}
       onLoaded={[Function]}
+      streetViewControlOptions={
+        Object {
+          "position": undefined,
+        }
+      }
       zoom={10}
+      zoomControlOptions={
+        Object {
+          "position": undefined,
+        }
+      }
     />
   </MapContentContainer>
+  <MapPanel
+    routeInformation={null}
+  />
 </Fragment>
 `;

@@ -1,32 +1,22 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`travel-mode TravelMode should match snapshot 1`] = `
-<div
-  className="el-mb2"
->
-  <FlexContainer
-    isFlexJustifyCenter={true}
+<Fragment>
+  <ToggleTravelCheckbox
+    checked={true}
+    id="travel-mode"
+    onChange={[Function]}
+    type="checkbox"
+  />
+  <ToggleTravelLabel
+    htmlFor="travel-mode"
   >
-    <ToggleRadio
-      name="travel-mode"
-      onChange={[Function]}
-      options={
-        Array [
-          Object {
-            "id": "driving",
-            "isChecked": true,
-            "text": "Driving",
-            "value": "DRIVING",
-          },
-          Object {
-            "id": "walking",
-            "isChecked": false,
-            "text": "Walking",
-            "value": "WALKING",
-          },
-        ]
-      }
+    <img
+      src={Object {}}
     />
-  </FlexContainer>
-</div>
+    <img
+      src={Object {}}
+    />
+  </ToggleTravelLabel>
+</Fragment>
 `;
