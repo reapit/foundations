@@ -1,11 +1,20 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`MyLocation should match snapshot 1`] = `
-<MyLocationSection>
-  <Input
-    onChange={[Function]}
-    placeholder="Enter location"
-    value=""
-  />
-</MyLocationSection>
+<MyLocationWrap>
+  <MyLocationInnerWrap
+    className=""
+  >
+    <MyLocationSection>
+      <Input
+        onChange={[Function]}
+        placeholder="Enter location"
+        value=""
+      />
+    </MyLocationSection>
+    <DestinationLocationSection
+      className=""
+    />
+  </MyLocationInnerWrap>
+</MyLocationWrap>
 `;

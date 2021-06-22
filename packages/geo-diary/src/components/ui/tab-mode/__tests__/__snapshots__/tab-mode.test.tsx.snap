@@ -1,32 +1,12 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`TabMode should match snapshot 1`] = `
-<div
-  className="el-mb2 hide-when-in-desktop"
->
-  <FlexContainer
-    isFlexJustifyCenter={true}
+<TabModeButtonContainer>
+  <Button
+    intent="primary"
+    onClick={[Function]}
   >
-    <ToggleRadio
-      name="tab-mode"
-      onChange={[Function]}
-      options={
-        Array [
-          Object {
-            "id": "diary",
-            "isChecked": true,
-            "text": "Diary",
-            "value": "LIST",
-          },
-          Object {
-            "id": "map",
-            "isChecked": false,
-            "text": "Map",
-            "value": "MAP",
-          },
-        ]
-      }
-    />
-  </FlexContainer>
-</div>
+    MAP
+  </Button>
+</TabModeButtonContainer>
 `;

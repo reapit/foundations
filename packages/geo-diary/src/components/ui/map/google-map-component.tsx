@@ -1,6 +1,7 @@
 import React, { Dispatch, FC, memo, SetStateAction, useEffect, useMemo, useRef } from 'react'
 import GoogleMap from 'react-google-map'
 import { combineAddress, notification } from '@reapit/elements'
+import { useMediaQuery } from '@reapit/elements/v3'
 import { AppState, useAppState } from '../../../core/app-state'
 import { ExtendedAppointmentModel } from '../../../types/global'
 import MapPanel from '../map-panel'
@@ -28,6 +29,7 @@ import destinationPin from '../../../assets/images/pin-reapit.svg'
 import { cx } from 'linaria'
 import { DEFAULT_LAT_LNG, DEFAULT_ZOOM } from '../../../core/constants'
 import { mapContainerHasMapPanel, MapContentContainer } from '../../pages/appointment/__styles__/page-layout-styles'
+import { TravelMode } from '../travel-mode/travel-mode'
 
 export const handleSetAppointment = ({
   appointments,
@@ -328,6 +330,7 @@ export const GoogleMapComponent: FC<MapProps> = ({ appointments }) => {
   const boundsRef = useRef<LatLngBounds | null>(null)
   const { appState, setAppState } = useAppState()
   const coordinates: CoordinateProps[] = useMemo(handleFilterCoordinates(appointments), [appointments])
+  const { isMobile, isTablet } = useMediaQuery()
   const {
     appointmentId,
     routeInformation,
@@ -381,7 +384,16 @@ export const GoogleMapComponent: FC<MapProps> = ({ appointments }) => {
           onLoaded={handleOnLoaded(mapRefs)}
           zoom={DEFAULT_ZOOM}
           center={{ lat: currentLat ?? DEFAULT_LAT_LNG.lat, lng: currentLng ?? DEFAULT_LAT_LNG.lng }}
+          mapTypeControl={false}
+          fullscreenControl={false}
+          zoomControlOptions={{
+            position: google?.maps?.ControlPosition.TOP_RIGHT,
+          }}
+          streetViewControlOptions={{
+            position: google?.maps?.ControlPosition.TOP_RIGHT,
+          }}
         />
+        {(isMobile || isTablet) && routeInformation && <TravelMode />}
       </MapContentContainer>
       <MapPanel routeInformation={routeInformation} />
     </>

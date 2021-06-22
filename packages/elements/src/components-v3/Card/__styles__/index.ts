@@ -12,7 +12,7 @@ export const elCardFocussed = css`
 `
 
 export const ElCardWrap = styled.div`
-  padding: 1.25rem;
+  padding: 0.75rem;
   border-radius: 0.25rem;
   box-shadow: 2px 4px 20px rgba(0, 0, 0, 0.03);
   border: 1px solid var(--color-grey-medium);
@@ -21,6 +21,7 @@ export const ElCardWrap = styled.div`
   border: 1px solid var(--color-white);
 
   ${isTablet} {
+    padding: 1.25rem;
     box-shadow: 2px 4px 20px rgba(0, 0, 0, 0.05);
   }
 
@@ -42,9 +43,7 @@ export const ElCardMainWrap = styled.div`
 `
 
 export const ElCardHeading = styled.h5`
-  font-size: 20px;
-  line-height: 24px;
-  height: 1.5em;
+  height: 1.2rem;
   display: -webkit-box;
   -webkit-line-clamp: 1;
   -webkit-box-orient: vertical;
@@ -53,6 +52,7 @@ export const ElCardHeading = styled.h5`
   margin-bottom: 0;
 
   ${isTablet} {
+    font-size: 20px;
     margin-bottom: 1.25rem;
     -webkit-line-clamp: 2;
     height: 3rem;
@@ -201,20 +201,28 @@ export const ElCardListMainWrap = styled.div`
 
 export const ElCardListHeading = styled.h5`
   width: 100%;
-  font-size: 20px;
-  line-height: 24px;
   text-overflow: ellipsis;
   white-space: nowrap;
   overflow: hidden;
+
+  ${isTablet} {
+    font-size: 20px;
+    line-height: 24px;
+  }
 `
 
 export const ElCardListSubHeading = styled.h6`
+  font-size: 0.875rem;
   color: var(--color-grey-dark);
   text-overflow: ellipsis;
   white-space: nowrap;
   overflow: hidden;
   margin-bottom: 1.25rem;
   transition: margin-bottom 0.2s linear;
+
+  ${isTablet} {
+    font-size: 1rem;
+  }
 `
 
 export const elCardListItemExpanded = css`
@@ -254,9 +262,14 @@ export const ElCardListItem = styled.div`
 `
 
 export const ElCardListItemTextWrap = styled.div`
+  font-size: 0.85rem;
   display: flex;
   flex-direction: column;
   cursor: pointer;
+
+  ${isTablet} {
+    font-size: 1rem;
+  }
 `
 
 export const ElCardListItemTextPrimary = styled.div`
@@ -296,8 +309,15 @@ export const ElCardContextMenuItems = styled.div`
     z-index: 1;
     box-shadow: 2px 4px 14px rgba(0, 0, 0, 0.07);
     background: #fff;
-    right: -1rem;
-    top: -1rem;
+    right: -0.5rem;
+    top: -0.5rem;
+  }
+
+  ${isTablet} {
+    &.${elCardContextMenuOpen} {
+      right: -1rem;
+      top: -1rem;
+    }
   }
 `
 

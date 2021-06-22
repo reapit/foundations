@@ -16,7 +16,7 @@ describe('travel-mode', () => {
     it('should run correctly', () => {
       const mockParams = {
         setAppState: jest.fn(),
-        travelMode: 'WALKING' as AppTravelMode,
+        travelMode: 'DRIVING' as AppTravelMode,
       }
       const curried = handleChangeTravelMode(mockParams)
       curried()

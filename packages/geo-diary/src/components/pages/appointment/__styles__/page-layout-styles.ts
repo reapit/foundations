@@ -156,16 +156,17 @@ export const AppointmentTimeContainer = styled.div`
   position: sticky;
   top: ${navControlsHeightMobile};
   padding: 0 1.5rem 0 1.5rem;
-  z-index: 2;
   background-color: var(--color-grey-light);
   width: 100%;
   overflow: hidden;
   transition: opacity 0.2s linear;
   opacity: 0;
+  z-index: 1;
 
   ${isTablet} {
     top: ${controlsHeightDesktop};
     width: ${appointmentListWidthDesktop};
+    z-index: 0;
   }
 
   &.${appointmentTimeContainerExpanded} {
