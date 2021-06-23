@@ -1,13 +1,22 @@
 import * as React from 'react'
 import { shallow } from 'enzyme'
-import * as TypographyComponents from '../index'
-import toJson from 'enzyme-to-json'
+import { Title, Subtitle, BodyText, SmallText } from '../'
 
-describe('TypographyComponents', () => {
-  Object.keys(TypographyComponents).forEach((componentName) => {
-    it('should match a snapshot for ' + componentName, () => {
-      const Component = TypographyComponents[componentName] as React.FC<TypographyComponents.HeadingProps>
-      expect(toJson(shallow(<Component className="some-class">Test text</Component>))).toMatchSnapshot()
-    })
+describe('Typography components', () => {
+  it('Title should match a snapshot', () => {
+    const wrapper = shallow(<Title>I am a title</Title>)
+    expect(wrapper).toMatchSnapshot()
+  })
+  it('SubTitle should match a snapshot', () => {
+    const wrapper = shallow(<Subtitle>I am a subtitle</Subtitle>)
+    expect(wrapper).toMatchSnapshot()
+  })
+  it('BodyText should match a snapshot', () => {
+    const wrapper = shallow(<BodyText>I am body text</BodyText>)
+    expect(wrapper).toMatchSnapshot()
+  })
+  it('SmallText should match a snapshot', () => {
+    const wrapper = shallow(<SmallText>I am small text</SmallText>)
+    expect(wrapper).toMatchSnapshot()
   })
 })

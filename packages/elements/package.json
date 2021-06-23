@@ -1,6 +1,6 @@
 {
   "name": "@reapit/elements",
-  "version": "2.0.6",
+  "version": "3.0.0-alpha.1",
   "description": "A collection of React components and utilities for building apps for Reapit Marketplace",
   "homepage": "https://github.com/reapit/foundations#readme",
   "bugs": {
@@ -18,13 +18,12 @@
   "typings": "dist/index.d.ts",
   "files": [
     "dist/",
-    "v3/",
     "src/tests/badges"
   ],
   "scripts": {
-    "build": "yarn build:v3 && yarn build:v2",
-    "build:v2": "concurrently \"cross-env NODE_ENV=production && tsdx build --format=cjs,esm,umd\" \"cross-env NODE_ENV=production && rimraf public/dist && build-storybook -o public/dist\"",
-    "build:v3": "cross-env NODE_ENV=production && rimraf ./v3 && tsdx build --entry src/v3.tsx --name v3 --format=cjs,esm,umd && move-file dist/ v3/",
+    "build": "yarn build:dist && yarn build:storybook",
+    "build:storybook": "cross-env NODE_ENV=production && build-storybook -o public/dist",
+    "build:dist": "cross-env NODE_ENV=production && rimraf public/dist && tsdx build --format=cjs,esm,umd",
     "commit": "concurrently \"yarn test --coverage --no-cache --silent --forceExit --detectOpenHandles --runInBand --watch=false && jest-coverage-badges --input src/tests/coverage/coverage-summary.json --output src/tests/badges\" \"yarn lint\"",
     "conf": "yarn config-manager --namespace cloud --entity elements --name local --mode fetch",
     "lint": "eslint --cache --ext=ts,tsx src --fix",
