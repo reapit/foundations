@@ -2,7 +2,7 @@ import { fetcher } from '@reapit/elements-legacy'
 import { SettingsModel } from '../../types/settings'
 import { getSettingsService, updateSettingsService } from '../settings'
 
-jest.mock('@reapit/elements')
+jest.mock('@reapit/elements-legacy')
 jest.mock('../../core/connect-session')
 
 const mockedFetch = fetcher as jest.Mock

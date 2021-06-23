@@ -1,7 +1,15 @@
 import React from 'react'
 import { connect } from 'react-redux'
 import { Dispatch } from 'redux'
-import { DynamicLinkParams, AcButton, EntityType, Formik, Form, RadioSelect, ButtonGroup } from '@reapit/elements-legacy'
+import {
+  DynamicLinkParams,
+  AcButton,
+  EntityType,
+  Formik,
+  Form,
+  RadioSelect,
+  ButtonGroup,
+} from '@reapit/elements-legacy'
 import { ReduxState } from '@/types/core'
 import { checkListDetailIdentityCheckUpdateData } from '@/actions/checklist-detail'
 import { ContactModel, IdentityCheckModel } from '@reapit/foundations-ts-definitions'

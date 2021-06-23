@@ -1,4 +1,4 @@
-jest.mock('@reapit/elements')
+jest.mock('@reapit/elements-legacy')
 import { fetcher } from '@reapit/elements-legacy'
 import { CreateTransactionModel } from '../../types/opayo'
 import { opayoCreateTransactionService, opayoMerchantKeyService } from '../opayo'

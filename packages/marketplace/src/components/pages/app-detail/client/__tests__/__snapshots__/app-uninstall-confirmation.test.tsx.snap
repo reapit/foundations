@@ -54,7 +54,7 @@ exports[`ClientAppUninstallConfirmation UninstallationsSuccessModal should match
     visible={true}
   >
     <Dialog
-      className="m1s2ncsn-modal-container m1257vs8-modal-no-header"
+      className="m36ncwu-modal-container m1pyzxrx-modal-no-header"
       closeIcon={
         <span
           aria-label="close"
@@ -64,7 +64,7 @@ exports[`ClientAppUninstallConfirmation UninstallationsSuccessModal should match
       destroyOnClose={true}
       title={<ModalHeaderV2 />}
       visible={true}
-      wrapClassName="m1iljaow-modal-centered m1y19rn5-modal-no-padding"
+      wrapClassName="m140lwlu-modal-centered mhi5uvy-modal-no-padding"
     >
       <PortalWrapper
         visible={true}
@@ -83,12 +83,12 @@ exports[`ClientAppUninstallConfirmation UninstallationsSuccessModal should match
                   />
                   <div
                     aria-labelledby="rcDialogTitle1"
-                    class="rc-dialog-wrap m1iljaow-modal-centered m1y19rn5-modal-no-padding"
+                    class="rc-dialog-wrap m140lwlu-modal-centered mhi5uvy-modal-no-padding"
                     role="dialog"
                     tabindex="-1"
                   >
                     <div
-                      class="rc-dialog m1s2ncsn-modal-container m1257vs8-modal-no-header"
+                      class="rc-dialog m36ncwu-modal-container m1pyzxrx-modal-no-header"
                       role="document"
                     >
                       <div
@@ -178,7 +178,7 @@ exports[`ClientAppUninstallConfirmation UninstallationsSuccessModal should match
           >
             <Dialog
               afterClose={[Function]}
-              className="m1s2ncsn-modal-container m1257vs8-modal-no-header"
+              className="m36ncwu-modal-container m1pyzxrx-modal-no-header"
               closeIcon={
                 <span
                   aria-label="close"
@@ -207,12 +207,12 @@ exports[`ClientAppUninstallConfirmation UninstallationsSuccessModal should match
                           />
                           <div
                             aria-labelledby="rcDialogTitle0"
-                            class="rc-dialog-wrap m1iljaow-modal-centered"
+                            class="rc-dialog-wrap m140lwlu-modal-centered"
                             role="dialog"
                             tabindex="-1"
                           >
                             <div
-                              class="rc-dialog m1s2ncsn-modal-container"
+                              class="rc-dialog m36ncwu-modal-container"
                               role="document"
                             >
                               <div
@@ -299,12 +299,12 @@ exports[`ClientAppUninstallConfirmation UninstallationsSuccessModal should match
                           />
                           <div
                             aria-labelledby="rcDialogTitle1"
-                            class="rc-dialog-wrap m1iljaow-modal-centered m1y19rn5-modal-no-padding"
+                            class="rc-dialog-wrap m140lwlu-modal-centered mhi5uvy-modal-no-padding"
                             role="dialog"
                             tabindex="-1"
                           >
                             <div
-                              class="rc-dialog m1s2ncsn-modal-container m1257vs8-modal-no-header"
+                              class="rc-dialog m36ncwu-modal-container m1pyzxrx-modal-no-header"
                               role="document"
                             >
                               <div
@@ -399,7 +399,7 @@ exports[`ClientAppUninstallConfirmation UninstallationsSuccessModal should match
               switchScrollingEffect={[Function]}
               title={<ModalHeaderV2 />}
               visible={true}
-              wrapClassName="m1iljaow-modal-centered m1y19rn5-modal-no-padding"
+              wrapClassName="m140lwlu-modal-centered mhi5uvy-modal-no-padding"
             >
               <div
                 className="rc-dialog-root"
@@ -432,7 +432,7 @@ exports[`ClientAppUninstallConfirmation UninstallationsSuccessModal should match
                 </Mask>
                 <div
                   aria-labelledby="rcDialogTitle1"
-                  className="rc-dialog-wrap m1iljaow-modal-centered m1y19rn5-modal-no-padding"
+                  className="rc-dialog-wrap m140lwlu-modal-centered mhi5uvy-modal-no-padding"
                   onClick={[Function]}
                   onKeyDown={[Function]}
                   role="dialog"
@@ -447,7 +447,7 @@ exports[`ClientAppUninstallConfirmation UninstallationsSuccessModal should match
                   <Content
                     afterClose={[Function]}
                     ariaId="rcDialogTitle1"
-                    className="m1s2ncsn-modal-container m1257vs8-modal-no-header"
+                    className="m36ncwu-modal-container m1pyzxrx-modal-no-header"
                     closable={true}
                     closeIcon={
                       <span
@@ -482,12 +482,12 @@ exports[`ClientAppUninstallConfirmation UninstallationsSuccessModal should match
                                 />
                                 <div
                                   aria-labelledby="rcDialogTitle0"
-                                  class="rc-dialog-wrap m1iljaow-modal-centered"
+                                  class="rc-dialog-wrap m140lwlu-modal-centered"
                                   role="dialog"
                                   tabindex="-1"
                                 >
                                   <div
-                                    class="rc-dialog m1s2ncsn-modal-container"
+                                    class="rc-dialog m36ncwu-modal-container"
                                     role="document"
                                   >
                                     <div
@@ -574,12 +574,12 @@ exports[`ClientAppUninstallConfirmation UninstallationsSuccessModal should match
                                 />
                                 <div
                                   aria-labelledby="rcDialogTitle1"
-                                  class="rc-dialog-wrap m1iljaow-modal-centered m1y19rn5-modal-no-padding"
+                                  class="rc-dialog-wrap m140lwlu-modal-centered mhi5uvy-modal-no-padding"
                                   role="dialog"
                                   tabindex="-1"
                                 >
                                   <div
-                                    class="rc-dialog m1s2ncsn-modal-container m1257vs8-modal-no-header"
+                                    class="rc-dialog m36ncwu-modal-container m1pyzxrx-modal-no-header"
                                     role="document"
                                   >
                                     <div
@@ -674,7 +674,7 @@ exports[`ClientAppUninstallConfirmation UninstallationsSuccessModal should match
                     switchScrollingEffect={[Function]}
                     title={<ModalHeaderV2 />}
                     visible={true}
-                    wrapClassName="m1iljaow-modal-centered m1y19rn5-modal-no-padding"
+                    wrapClassName="m140lwlu-modal-centered mhi5uvy-modal-no-padding"
                   >
                     <CSSMotion
                       onAppearPrepare={[Function]}
@@ -685,7 +685,7 @@ exports[`ClientAppUninstallConfirmation UninstallationsSuccessModal should match
                     >
                       <DomWrapper>
                         <div
-                          className="rc-dialog m1s2ncsn-modal-container m1257vs8-modal-no-header"
+                          className="rc-dialog m36ncwu-modal-container m1pyzxrx-modal-no-header"
                           key="dialog-element"
                           onMouseDown={[Function]}
                           onMouseUp={[Function]}
@@ -1019,7 +1019,7 @@ exports[`ClientAppUninstallConfirmation should match a snapshot 1`] = `
           visible={true}
         >
           <Dialog
-            className="m1s2ncsn-modal-container"
+            className="m36ncwu-modal-container"
             closeIcon={
               <span
                 aria-label="close"
@@ -1060,7 +1060,7 @@ exports[`ClientAppUninstallConfirmation should match a snapshot 1`] = `
               </ModalHeaderV2>
             }
             visible={true}
-            wrapClassName="m1iljaow-modal-centered"
+            wrapClassName="m140lwlu-modal-centered"
           >
             <PortalWrapper
               visible={true}
@@ -1079,12 +1079,12 @@ exports[`ClientAppUninstallConfirmation should match a snapshot 1`] = `
                         />
                         <div
                           aria-labelledby="rcDialogTitle0"
-                          class="rc-dialog-wrap m1iljaow-modal-centered"
+                          class="rc-dialog-wrap m140lwlu-modal-centered"
                           role="dialog"
                           tabindex="-1"
                         >
                           <div
-                            class="rc-dialog m1s2ncsn-modal-container"
+                            class="rc-dialog m36ncwu-modal-container"
                             role="document"
                           >
                             <div
@@ -1166,7 +1166,7 @@ exports[`ClientAppUninstallConfirmation should match a snapshot 1`] = `
                 >
                   <Dialog
                     afterClose={[Function]}
-                    className="m1s2ncsn-modal-container"
+                    className="m36ncwu-modal-container"
                     closeIcon={
                       <span
                         aria-label="close"
@@ -1222,12 +1222,12 @@ exports[`ClientAppUninstallConfirmation should match a snapshot 1`] = `
                                 />
                                 <div
                                   aria-labelledby="rcDialogTitle0"
-                                  class="rc-dialog-wrap m1iljaow-modal-centered"
+                                  class="rc-dialog-wrap m140lwlu-modal-centered"
                                   role="dialog"
                                   tabindex="-1"
                                 >
                                   <div
-                                    class="rc-dialog m1s2ncsn-modal-container"
+                                    class="rc-dialog m36ncwu-modal-container"
                                     role="document"
                                   >
                                     <div
@@ -1318,7 +1318,7 @@ exports[`ClientAppUninstallConfirmation should match a snapshot 1`] = `
                       </ModalHeaderV2>
                     }
                     visible={true}
-                    wrapClassName="m1iljaow-modal-centered"
+                    wrapClassName="m140lwlu-modal-centered"
                   >
                     <div
                       className="rc-dialog-root"
@@ -1351,7 +1351,7 @@ exports[`ClientAppUninstallConfirmation should match a snapshot 1`] = `
                       </Mask>
                       <div
                         aria-labelledby="rcDialogTitle0"
-                        className="rc-dialog-wrap m1iljaow-modal-centered"
+                        className="rc-dialog-wrap m140lwlu-modal-centered"
                         onClick={[Function]}
                         onKeyDown={[Function]}
                         role="dialog"
@@ -1366,7 +1366,7 @@ exports[`ClientAppUninstallConfirmation should match a snapshot 1`] = `
                         <Content
                           afterClose={[Function]}
                           ariaId="rcDialogTitle0"
-                          className="m1s2ncsn-modal-container"
+                          className="m36ncwu-modal-container"
                           closable={true}
                           closeIcon={
                             <span
@@ -1428,12 +1428,12 @@ exports[`ClientAppUninstallConfirmation should match a snapshot 1`] = `
                                       />
                                       <div
                                         aria-labelledby="rcDialogTitle0"
-                                        class="rc-dialog-wrap m1iljaow-modal-centered"
+                                        class="rc-dialog-wrap m140lwlu-modal-centered"
                                         role="dialog"
                                         tabindex="-1"
                                       >
                                         <div
-                                          class="rc-dialog m1s2ncsn-modal-container"
+                                          class="rc-dialog m36ncwu-modal-container"
                                           role="document"
                                         >
                                           <div
@@ -1524,7 +1524,7 @@ exports[`ClientAppUninstallConfirmation should match a snapshot 1`] = `
                             </ModalHeaderV2>
                           }
                           visible={true}
-                          wrapClassName="m1iljaow-modal-centered"
+                          wrapClassName="m140lwlu-modal-centered"
                         >
                           <CSSMotion
                             onAppearPrepare={[Function]}
@@ -1535,7 +1535,7 @@ exports[`ClientAppUninstallConfirmation should match a snapshot 1`] = `
                           >
                             <DomWrapper>
                               <div
-                                className="rc-dialog m1s2ncsn-modal-container"
+                                className="rc-dialog m36ncwu-modal-container"
                                 key="dialog-element"
                                 onMouseDown={[Function]}
                                 onMouseUp={[Function]}
@@ -1728,7 +1728,7 @@ exports[`ClientAppUninstallConfirmation should match a snapshot 1`] = `
             visible={false}
           >
             <Dialog
-              className="m1s2ncsn-modal-container m1257vs8-modal-no-header"
+              className="m36ncwu-modal-container m1pyzxrx-modal-no-header"
               closeIcon={
                 <span
                   aria-label="close"
@@ -1739,7 +1739,7 @@ exports[`ClientAppUninstallConfirmation should match a snapshot 1`] = `
               onClose={[Function]}
               title={<ModalHeaderV2 />}
               visible={false}
-              wrapClassName="m1iljaow-modal-centered m1y19rn5-modal-no-padding"
+              wrapClassName="m140lwlu-modal-centered mhi5uvy-modal-no-padding"
             />
           </ModalV2>
         </UninstallationsSuccessModal>

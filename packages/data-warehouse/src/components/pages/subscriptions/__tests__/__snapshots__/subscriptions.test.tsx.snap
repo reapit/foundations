@@ -13,7 +13,7 @@ exports[`Subscriptions should match a snapshot 1`] = `
     </H3>
     <FadeIn>
       <div
-        className="f334tw0"
+        className="fvmt8oy"
       >
         <Section
           hasPadding={false}
@@ -58,7 +58,7 @@ exports[`Subscriptions should match a snapshot 1`] = `
     <SubscriptionsContent>
       <FadeIn>
         <div
-          className="f334tw0"
+          className="fvmt8oy"
         >
           <Content>
             <div

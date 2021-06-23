@@ -14,7 +14,7 @@ exports[`DeveloperWelcomeMessage Documentation step should match a snapshot 1`] 
   }
 >
   <Section
-    className="h1brg7vr-help-guide"
+    className="h1g45gvf-help-guide"
     hasMargin={false}
     isFlex={true}
     isFlexColumn={false}
@@ -46,7 +46,7 @@ exports[`DeveloperWelcomeMessage Managing step should match a snapshot 1`] = `
   }
 >
   <Section
-    className="h1brg7vr-help-guide"
+    className="h1g45gvf-help-guide"
     hasMargin={false}
     isFlex={true}
     isFlexColumn={false}
@@ -78,7 +78,7 @@ exports[`DeveloperWelcomeMessage Submitting step should match a snapshot 1`] = `
   }
 >
   <Section
-    className="h1brg7vr-help-guide"
+    className="h1g45gvf-help-guide"
     hasMargin={false}
     isFlex={true}
     isFlexColumn={false}
@@ -110,7 +110,7 @@ exports[`DeveloperWelcomeMessage Support step should match a snapshot 1`] = `
   }
 >
   <Section
-    className="h1brg7vr-help-guide"
+    className="h1g45gvf-help-guide"
     hasMargin={false}
     isFlex={true}
     isFlexColumn={false}
@@ -142,7 +142,7 @@ exports[`DeveloperWelcomeMessage Welcome step should match a snapshot 1`] = `
   }
 >
   <Section
-    className="h1brg7vr-help-guide"
+    className="h1g45gvf-help-guide"
     hasMargin={false}
     isFlex={true}
     isFlexColumn={false}

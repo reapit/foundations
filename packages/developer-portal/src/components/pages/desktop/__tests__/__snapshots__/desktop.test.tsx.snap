@@ -22,7 +22,7 @@ exports[`DeveloperDesktopPage should match snapshot 1`] = `
         <Title>
           <ElTitle>
             <h1
-              className="e14sffxa-el-title"
+              className="ezz3v3m-el-title"
             >
               Desktop
             </h1>
@@ -43,26 +43,26 @@ exports[`DeveloperDesktopPage should match snapshot 1`] = `
                 <BannerSection>
                   <FadeIn>
                     <div
-                      className="f334tw0-fade-in"
+                      className="fvmt8oy-fade-in"
                     >
                       <BodyText
-                        className="e6jz2aa-el-mb4 hw5zku-has-grey-text"
+                        className="e1y7nq95-el-mb4 hw5zku-has-grey-text"
                       >
                         <ElBodyText
-                          className="e6jz2aa-el-mb4 hw5zku-has-grey-text"
+                          className="e1y7nq95-el-mb4 hw5zku-has-grey-text"
                         >
                           <p
-                            className="e6jz2aa-el-mb4 hw5zku-has-grey-text e11h1vsn-el-body-text"
+                            className="e1y7nq95-el-mb4 hw5zku-has-grey-text eqik610-el-body-text"
                           >
                             Reapit's Agency Cloud is a desktop application that offers estate agencies a comprehensive range of market leading agency products, including a Sales CRM, Lettings CRM, Client Accounts, Property Management and real-time Analytics.
                           </p>
                         </ElBodyText>
                       </BodyText>
                       <Grid
-                        className="e1negdm3-el-mb6"
+                        className="eb3s8zx-el-mb6"
                       >
                         <div
-                          className="go2h5m0-grid r1012k5-row-gap8 c1tyjn4x-col-gap6 e1negdm3-el-mb6"
+                          className="go2h5m0-grid r1012k5-row-gap8 c1tyjn4x-col-gap6 eb3s8zx-el-mb6"
                         >
                           <BannerCol>
                             <div
@@ -150,51 +150,51 @@ exports[`DeveloperDesktopPage should match snapshot 1`] = `
                         <AboutSection>
                           <FadeIn>
                             <div
-                              className="f334tw0-fade-in"
+                              className="fvmt8oy-fade-in"
                             >
                               <Subtitle>
                                 <ElSubtitle>
                                   <h2
-                                    className="e1o0su1y-el-subtitle"
+                                    className="ehqdbsp-el-subtitle"
                                   >
                                     About Foundations Desktop API
                                   </h2>
                                 </ElSubtitle>
                               </Subtitle>
                               <BodyText
-                                className="e6jz2aa-el-mb4 hw5zku-has-grey-text"
+                                className="e1y7nq95-el-mb4 hw5zku-has-grey-text"
                               >
                                 <ElBodyText
-                                  className="e6jz2aa-el-mb4 hw5zku-has-grey-text"
+                                  className="e1y7nq95-el-mb4 hw5zku-has-grey-text"
                                 >
                                   <p
-                                    className="e6jz2aa-el-mb4 hw5zku-has-grey-text e11h1vsn-el-body-text"
+                                    className="e1y7nq95-el-mb4 hw5zku-has-grey-text eqik610-el-body-text"
                                   >
                                     Developers that would like to integrate with or extend the functionality of Agency Cloud can use the Foundations Desktop API to build web applications for Reapit's app Marketplace that trigger events in the Agency Cloud desktop application, as well as associating their apps with common actions in Agency Cloud to replace default behaviours and screens.
                                   </p>
                                 </ElBodyText>
                               </BodyText>
                               <BodyText
-                                className="e6jz2aa-el-mb4 hw5zku-has-grey-text"
+                                className="e1y7nq95-el-mb4 hw5zku-has-grey-text"
                               >
                                 <ElBodyText
-                                  className="e6jz2aa-el-mb4 hw5zku-has-grey-text"
+                                  className="e1y7nq95-el-mb4 hw5zku-has-grey-text"
                                 >
                                   <p
-                                    className="e6jz2aa-el-mb4 hw5zku-has-grey-text e11h1vsn-el-body-text"
+                                    className="e1y7nq95-el-mb4 hw5zku-has-grey-text eqik610-el-body-text"
                                   >
                                     For example, a developer building a Marketplace app that provides AML and ID checking, can use the Desktop API to associate their app with the default ID checking screen in Agency Cloud. When a customer clicks the default button to launch the ID check screen, the developer's associated app would be presented instead.
                                   </p>
                                 </ElBodyText>
                               </BodyText>
                               <BodyText
-                                className="e6jz2aa-el-mb4 hw5zku-has-grey-text"
+                                className="e1y7nq95-el-mb4 hw5zku-has-grey-text"
                               >
                                 <ElBodyText
-                                  className="e6jz2aa-el-mb4 hw5zku-has-grey-text"
+                                  className="e1y7nq95-el-mb4 hw5zku-has-grey-text"
                                 >
                                   <p
-                                    className="e6jz2aa-el-mb4 hw5zku-has-grey-text e11h1vsn-el-body-text"
+                                    className="e1y7nq95-el-mb4 hw5zku-has-grey-text eqik610-el-body-text"
                                   >
                                     To learn more about what’s possible with the Desktop API, please visit the
                                      
@@ -224,12 +224,12 @@ exports[`DeveloperDesktopPage should match snapshot 1`] = `
                         <VideoSection>
                           <FadeIn>
                             <div
-                              className="f334tw0-fade-in"
+                              className="fvmt8oy-fade-in"
                             >
                               <Subtitle>
                                 <ElSubtitle>
                                   <h2
-                                    className="e1o0su1y-el-subtitle"
+                                    className="ehqdbsp-el-subtitle"
                                   >
                                     How your app integrates with the Developer Edition of Agency Cloud
                                   </h2>
@@ -250,7 +250,7 @@ exports[`DeveloperDesktopPage should match snapshot 1`] = `
                                       className="hw5zku-has-grey-text"
                                     >
                                       <p
-                                        className="hw5zku-has-grey-text e1sqb2md-el-small-text"
+                                        className="hw5zku-has-grey-text e36kmm3-el-small-text"
                                       >
                                         The Developer Edition of Agency Cloud allows developers using the Desktop API to test their apps within the desktop application using sandbox data.
                                       </p>
@@ -284,7 +284,7 @@ exports[`DeveloperDesktopPage should match snapshot 1`] = `
                 <SubscribeSection>
                   <FadeIn>
                     <div
-                      className="f334tw0-fade-in"
+                      className="fvmt8oy-fade-in"
                     >
                       <SubscribeContainer>
                         <div
@@ -297,7 +297,7 @@ exports[`DeveloperDesktopPage should match snapshot 1`] = `
                               <Title>
                                 <ElTitle>
                                   <h1
-                                    className="e14sffxa-el-title"
+                                    className="ezz3v3m-el-title"
                                   >
                                     Developer Edition
                                   </h1>
@@ -321,13 +321,13 @@ exports[`DeveloperDesktopPage should match snapshot 1`] = `
                                 >
                                   <FadeIn>
                                     <div
-                                      className="f334tw0-fade-in"
+                                      className="fvmt8oy-fade-in"
                                     >
                                       <ImageTextPair
-                                        className="e1nqnpd4-el-mx4"
+                                        className="e1nhfde7-el-mx4"
                                       >
                                         <div
-                                          className="e1nqnpd4-el-mx4 i1trbknv-image-text-pair"
+                                          className="e1nhfde7-el-mx4 i1trbknv-image-text-pair"
                                         >
                                           <img
                                             src={Object {}}
@@ -368,11 +368,11 @@ exports[`DeveloperDesktopPage should match snapshot 1`] = `
                                             onClick={[Function]}
                                           >
                                             <ElButton
-                                              className="e17vzom8-el-intent-critical e1fklsye-el-button-has-right-chevron eqdngm6-el-wfull"
+                                              className="e1iow709-el-intent-critical e1qzzusn-el-button-has-right-chevron e8pb45p-el-wfull"
                                               onClick={[Function]}
                                             >
                                               <button
-                                                className="e17vzom8-el-intent-critical e1fklsye-el-button-has-right-chevron eqdngm6-el-wfull e1k47yvu-el-button"
+                                                className="e1iow709-el-intent-critical e1qzzusn-el-button-has-right-chevron e8pb45p-el-wfull e1l9lt93-el-button"
                                                 onClick={[Function]}
                                               >
                                                 Subscribe Now

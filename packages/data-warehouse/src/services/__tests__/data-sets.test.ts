@@ -2,7 +2,7 @@ import { fetcher } from '@reapit/elements-legacy'
 import { getDataSetsService } from '../data-sets'
 import { stubDataSets } from '../__stubs__/data-sets'
 
-jest.mock('@reapit/elements')
+jest.mock('@reapit/elements-legacy')
 jest.mock('../../core/connect-session')
 
 const mockedFetch = fetcher as jest.Mock

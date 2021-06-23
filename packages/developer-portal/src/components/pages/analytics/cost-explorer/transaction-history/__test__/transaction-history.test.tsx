@@ -29,7 +29,7 @@ jest.mock('@reapit/utils')
 
 jest.mock('file-saver')
 
-jest.mock('@reapit/elements', () => ({
+jest.mock('@reapit/elements-legacy', () => ({
   fetcherWithBlob: jest.fn(
     () =>
       new Promise((resolve) => {

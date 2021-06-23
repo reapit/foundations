@@ -3394,7 +3394,7 @@ exports[`DeveloperSubmitApp should match a snapshot when pendingRevisions = fals
           visible={false}
         >
           <Dialog
-            className="m1s2ncsn-modal-container"
+            className="m36ncwu-modal-container"
             closeIcon={
               <span
                 aria-label="close"
@@ -3418,7 +3418,7 @@ exports[`DeveloperSubmitApp should match a snapshot when pendingRevisions = fals
               </ModalHeaderV2>
             }
             visible={false}
-            wrapClassName="m1iljaow-modal-centered"
+            wrapClassName="m140lwlu-modal-centered"
           />
         </ModalV2>
       </DeveloperEditApp>

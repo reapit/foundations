@@ -17,8 +17,8 @@ import configureStore from 'redux-mock-store'
 import * as ReactRedux from 'react-redux'
 import appState from '@/reducers/__stubs__/app-state'
 
-jest.mock('@reapit/elements', () => ({
-  ...(jest.requireActual('@reapit/elements') as Object),
+jest.mock('@reapit/elements-legacy', () => ({
+  ...(jest.requireActual('@reapit/elements-legacy') as Object),
   toLocalTime: jest.fn().mockReturnValue('localtime'),
 }))
 jest.mock('../../../../../core/store')

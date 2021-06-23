@@ -3,7 +3,7 @@ import { WebhookLogsQuery } from '../../components/pages/webhooks/webhook-logs-t
 import { mockWebhookLogs } from '../../sagas/__stubs__/webhooks'
 import { fetchWebhookLogsApi } from '../webhooks'
 
-jest.mock('@reapit/elements')
+jest.mock('@reapit/elements-legacy')
 jest.mock('@reapit/utils')
 
 const mockedFetch = fetcher as jest.Mock

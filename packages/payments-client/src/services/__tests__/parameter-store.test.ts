@@ -1,7 +1,7 @@
 import { fetchConfigWithKey } from '../parameter-store'
 import { fetcher } from '@reapit/elements-legacy'
 
-jest.mock('@reapit/elements')
+jest.mock('@reapit/elements-legacy')
 jest.mock('../../core/connect-session')
 const mockedFetch = fetcher as jest.Mock
 

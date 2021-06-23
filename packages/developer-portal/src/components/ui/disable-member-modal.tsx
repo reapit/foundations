@@ -2,11 +2,10 @@ import * as React from 'react'
 import { useSelector, useDispatch } from 'react-redux'
 import CallToAction from '@/components/ui/call-to-action'
 import { DeveloperModel } from '@reapit/foundations-ts-definitions'
-import { Button, Modal, ModalBody, ModalHeader, ModalFooter, ModalProps } from '@reapit/elements-legacy'
+import { Button, Modal, ModalBody, ModalHeader, ModalFooter, ModalProps, ButtonGroup } from '@reapit/elements-legacy'
 import { disableMember } from '@/actions/developers'
 import { selectDisableMemberLoading } from '@/selector/developers'
 import { selectCurrentMemberData } from '@/selector/current-member'
-import { ButtonGroup } from '../../../../elements/src/components/Button/index'
 
 export interface DisableMemberModalProps extends Pick<ModalProps, 'visible'> {
   developer?: DeveloperModel

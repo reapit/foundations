@@ -64,7 +64,7 @@ exports[`developer-invite-member-modal InviteMemberModal should match snapshot w
       visible={true}
     >
       <Dialog
-        className="m1s2ncsn-modal-container"
+        className="m36ncwu-modal-container"
         closeIcon={
           <span
             aria-label="close"
@@ -103,7 +103,7 @@ exports[`developer-invite-member-modal InviteMemberModal should match snapshot w
                       tabindex="-1"
                     >
                       <div
-                        class="rc-dialog m1s2ncsn-modal-container"
+                        class="rc-dialog m36ncwu-modal-container"
                         role="document"
                       >
                         <div
@@ -280,7 +280,7 @@ exports[`developer-invite-member-modal InviteMemberModal should match snapshot w
             >
               <Dialog
                 afterClose={[Function]}
-                className="m1s2ncsn-modal-container"
+                className="m36ncwu-modal-container"
                 closeIcon={
                   <span
                     aria-label="close"
@@ -315,7 +315,7 @@ exports[`developer-invite-member-modal InviteMemberModal should match snapshot w
                               tabindex="-1"
                             >
                               <div
-                                class="rc-dialog m1s2ncsn-modal-container"
+                                class="rc-dialog m36ncwu-modal-container"
                                 role="document"
                               >
                                 <div
@@ -549,7 +549,7 @@ exports[`developer-invite-member-modal InviteMemberModal should match snapshot w
                     <Content
                       afterClose={[Function]}
                       ariaId="rcDialogTitle0"
-                      className="m1s2ncsn-modal-container"
+                      className="m36ncwu-modal-container"
                       closable={true}
                       closeIcon={
                         <span
@@ -589,7 +589,7 @@ exports[`developer-invite-member-modal InviteMemberModal should match snapshot w
                                     tabindex="-1"
                                   >
                                     <div
-                                      class="rc-dialog m1s2ncsn-modal-container"
+                                      class="rc-dialog m36ncwu-modal-container"
                                       role="document"
                                     >
                                       <div
@@ -786,7 +786,7 @@ exports[`developer-invite-member-modal InviteMemberModal should match snapshot w
                       >
                         <DomWrapper>
                           <div
-                            className="rc-dialog m1s2ncsn-modal-container"
+                            className="rc-dialog m36ncwu-modal-container"
                             key="dialog-element"
                             onMouseDown={[Function]}
                             onMouseUp={[Function]}
