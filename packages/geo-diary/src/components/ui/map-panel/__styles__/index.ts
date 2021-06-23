@@ -1,5 +1,42 @@
+import { css } from 'linaria'
 import { styled } from 'linaria/react'
-import { isDesktop } from '../../../../core/__styles__/media'
+import { isDesktop, isTablet } from '../../../../core/__styles__/media'
+import { mapPanelHeight, navAppointmentListWidthDesktop } from '../../../../core/__styles__/page-layout-variables'
+
+export const mapPanelContainerExpanded = css``
+
+export const MapPanelContainer = styled.div`
+  position: absolute;
+  bottom: 0;
+  left: ${navAppointmentListWidthDesktop};
+  display: flex;
+  background-color: #fff;
+  padding: 0 1rem;
+  align-items: center;
+  height: 0;
+  width: calc(100vw - ${navAppointmentListWidthDesktop});
+  left: 0;
+  width: 100%;
+  justify-content: space-between;
+  align-items: center;
+  transition: all 0.2s linear;
+  overflow: hidden;
+  opacity: 0;
+
+  ${isTablet} {
+    width: calc(100vw - ${navAppointmentListWidthDesktop});
+  }
+
+  ${isDesktop} {
+    justify-content: flex-start;
+  }
+
+  &.${mapPanelContainerExpanded} {
+    height: ${mapPanelHeight};
+    padding: 1rem;
+    opacity: 1;
+  }
+`
 
 export const MapPanelItem = styled.div`
   display: flex;

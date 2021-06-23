@@ -28,8 +28,8 @@ import startPin from '../../../assets/images/pin-customer.svg'
 import destinationPin from '../../../assets/images/pin-reapit.svg'
 import { cx } from 'linaria'
 import { DEFAULT_LAT_LNG, DEFAULT_ZOOM } from '../../../core/constants'
-import { mapContainerHasMapPanel, MapContentContainer } from '../../pages/appointment/__styles__/page-layout-styles'
 import { TravelMode } from '../travel-mode/travel-mode'
+import { MapContentContainer, mapContainerHasMapPanel } from './__styles__/index'
 
 export const handleSetAppointment = ({
   appointments,

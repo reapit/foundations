@@ -1,3 +1,4 @@
+import { ExtendedAppointmentModel } from '../../types/global'
 export const appointment = {
   id: 'NEP1600290',
   created: '2019-05-08T17:07:39',
@@ -165,4 +166,4 @@ export const appointment = {
     },
   ],
   _eTag: '"CB9E584CE62E60C463C142EDCB433608"',
-}
+} as ExtendedAppointmentModel

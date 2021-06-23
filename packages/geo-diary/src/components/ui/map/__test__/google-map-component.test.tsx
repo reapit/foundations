@@ -42,12 +42,12 @@ const mockDirectionsRenderer = {
   setDirections: mockSetDirection,
   setMap: mockSetMap,
 }
-const mockDirectionsService = {
+export const mockDirectionsService = {
   route: mockRoute,
 }
 const mockDirectionsRendererConstructor = jest.fn()
 const mockDirectionsServiceConstructor = jest.fn()
-const mockAppState = ({
+export const mockAppState = ({
   ...defaultAppState,
   currentLat: 1234,
   currentLng: 1234,

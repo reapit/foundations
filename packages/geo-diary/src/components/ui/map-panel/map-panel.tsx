@@ -1,9 +1,8 @@
 import React from 'react'
-import { MapPanelItem } from './__styles__'
+import { MapPanelContainer, mapPanelContainerExpanded, MapPanelItem } from './__styles__'
 import { isIOS } from '@reapit/elements'
 import { Button, elIsBoldText, Subtitle, useMediaQuery } from '@reapit/elements/v3'
 import { AppState, useAppState } from '../../../core/app-state'
-import { MapPanelContainer, mapPanelContainerExpanded } from '../../pages/appointment/__styles__/page-layout-styles'
 import { cx } from 'linaria'
 import { TravelMode } from '../travel-mode/travel-mode'
 

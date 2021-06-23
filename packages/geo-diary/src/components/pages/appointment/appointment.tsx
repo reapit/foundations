@@ -20,7 +20,7 @@ import {
   MapContainer,
   mobileAppointmentsHidden,
   mobileAppointmentsShow,
-} from './__styles__/page-layout-styles'
+} from './__styles__'
 import AppointmentList from '../../ui/appointment-list'
 import { elIsBoldText, Loader, Subtitle } from '@reapit/elements/v3'
 import GoogleMapComponent from '@/components/ui/map'
