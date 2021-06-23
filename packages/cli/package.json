@@ -15,6 +15,10 @@
     "shleemy": "^1.2.2",
     "simple-git": "^2.39.0"
   },
+  "repository": {
+    "url": "https://github.com/reapit/foundations/packages/cli",
+    "type": "git"
+  },
   "devDependencies": {
     "@types/adm-zip": "^0.4.34",
     "@types/figlet": "^1.5.1",
