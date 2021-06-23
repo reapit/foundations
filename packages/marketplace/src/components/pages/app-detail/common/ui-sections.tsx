@@ -20,7 +20,7 @@ import {
   GridFourColItem,
   HTMLRender,
   Content,
-} from '@reapit/elements'
+} from '@reapit/elements-legacy'
 
 interface IsSidebar {
   isSidebar?: boolean

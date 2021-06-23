@@ -19,7 +19,7 @@ import {
 } from '@/actions/developers'
 import ActionTypes from '@/constants/action-types'
 import { getDeveloperId } from '@/utils/session'
-import { notification } from '@reapit/elements'
+import { notification } from '@reapit/elements-legacy'
 import errorMessages from '@/constants/error-messages'
 
 export const organisationFetchMembers = function* ({ data }: Action<FetchOrganisationMembersParams>) {

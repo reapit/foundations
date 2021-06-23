@@ -1,5 +1,5 @@
 import React from 'react'
-import { FadeIn } from '@reapit/elements'
+import { FadeIn } from '@reapit/elements-legacy'
 
 interface AppOfficeIdsCellProps {
   cell: {

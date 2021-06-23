@@ -1,4 +1,4 @@
-import { FormFieldInfo } from '@reapit/elements'
+import { FormFieldInfo } from '@reapit/elements-legacy'
 
 export type FieldKeys = 'search' | 'searchBy'
 export type FormFields = Partial<Record<FieldKeys, string>>

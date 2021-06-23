@@ -1,13 +1,13 @@
 import React, { FC, Suspense } from 'react'
 import Nav from '../components/ui/nav'
-import { Helper, Section } from '@reapit/elements'
+import { Helper, Section } from '@reapit/elements-legacy'
 import ErrorBoundary from './error-boundary'
 import { Redirect, useLocation } from 'react-router'
 import { reapitConnectBrowserSession } from '@/core/connect-session'
 import { useReapitConnect } from '@reapit/connect-session'
 import { ApolloProvider } from '@apollo/react-hooks'
 import getClient from '@/graphql/client'
-import { Loader, MainContainer } from '@reapit/elements/v3'
+import { Loader, MainContainer } from '@reapit/elements'
 
 export const PrivateRouteWrapper: FC = ({ children }) => {
   const { connectSession, connectInternalRedirect } = useReapitConnect(reapitConnectBrowserSession)

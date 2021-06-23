@@ -11,7 +11,7 @@ import {
 } from '@/actions/current-member'
 import { UpdateMemberModel } from '@reapit/foundations-ts-definitions'
 import { selectCurrentMemberData } from '@/selector/current-member'
-import { notification } from '@reapit/elements'
+import { notification } from '@reapit/elements-legacy'
 import { fetchOrganisationMembers, updateOrganisationMemberById } from '@/services/developers'
 import { getDeveloperId, getLoggedUserEmail } from '@/utils/session'
 

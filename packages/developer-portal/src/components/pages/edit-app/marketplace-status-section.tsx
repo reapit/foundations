@@ -1,5 +1,5 @@
 import * as React from 'react'
-import { FormSection, Grid, GridItem, Checkbox, FormSubHeading, FormHeading } from '@reapit/elements'
+import { FormSection, Grid, GridItem, Checkbox, FormSubHeading, FormHeading } from '@reapit/elements-legacy'
 import { formFields } from './form-schema/form-fields'
 
 const { isDirectApi } = formFields

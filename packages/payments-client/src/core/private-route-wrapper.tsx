@@ -1,7 +1,7 @@
 import * as React from 'react'
 import { Redirect, useLocation } from 'react-router'
 import { useReapitConnect } from '@reapit/connect-session'
-import { Loader, Section, FlexContainerResponsive, AppNavContainer, FlexContainerBasic } from '@reapit/elements'
+import { Loader, Section, FlexContainerResponsive, AppNavContainer, FlexContainerBasic } from '@reapit/elements-legacy'
 import Menu from '../components/ui/menu'
 import { reapitConnectBrowserSession } from './connect-session'
 import { Routes } from '../constants/routes'

@@ -1,7 +1,7 @@
 import dayjs from 'dayjs'
 import { cleanObject } from '@reapit/utils'
 import { PaymentsFilterFormValues } from '../ui/payments-filter-form'
-import { DATE_TIME_FORMAT, isEmptyObject, setQueryParams } from '@reapit/elements'
+import { DATE_TIME_FORMAT, isEmptyObject, setQueryParams } from '@reapit/elements-legacy'
 import { History } from 'history'
 import { Routes } from '../../constants/routes'
 import { history } from '../../core/router'

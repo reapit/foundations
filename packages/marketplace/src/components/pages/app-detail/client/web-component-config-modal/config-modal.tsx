@@ -1,5 +1,5 @@
 import * as React from 'react'
-import { Modal } from '@reapit/elements'
+import { Modal } from '@reapit/elements-legacy'
 import { WebComponentConfigModalInner } from './config-modal-inner'
 
 export type WebComponentModalProps = {

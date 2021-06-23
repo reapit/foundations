@@ -1,5 +1,5 @@
 import * as React from 'react'
-import { Button, Level, FlexContainerBasic, Section, notification } from '@reapit/elements'
+import { Button, Level, FlexContainerBasic, Section, notification } from '@reapit/elements-legacy'
 import { getDefaultRoute } from '@/utils/auth-route'
 import messages from '@/constants/messages'
 import * as loginStyles from './__styles__'

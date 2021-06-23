@@ -36,7 +36,7 @@ import {
   fetchBillingsByMonth,
 } from '@/services/billing'
 import { getDeveloperId } from '@/utils/session'
-import { notification } from '@reapit/elements'
+import { notification } from '@reapit/elements-legacy'
 
 jest.mock('@/services/apps')
 jest.mock('@/services/scopes')

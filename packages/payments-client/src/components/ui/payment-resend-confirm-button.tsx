@@ -1,7 +1,7 @@
 import React, { Dispatch, SetStateAction, useState } from 'react'
 import { PaymentWithPropertyModel, UpdateStatusParams } from '../../types/payment'
 import { generateEmailPaymentReceiptExternal, generateEmailPaymentReceiptInternal } from '../../services/payment'
-import { Button, useFormikContext } from '@reapit/elements'
+import { Button, useFormikContext } from '@reapit/elements-legacy'
 import { CardDetails } from './payment-form'
 
 export interface ResendConfirmButtonProps {

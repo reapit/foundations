@@ -1,7 +1,7 @@
 import * as React from 'react'
 import { useSelector, useDispatch } from 'react-redux'
 import { ApproveModel, AppRevisionModel } from '@reapit/foundations-ts-definitions'
-import { Button, Modal, ModalProps, ModalBody, SubTitleH6, ModalFooter, Form, Formik } from '@reapit/elements'
+import { Button, Modal, ModalProps, ModalBody, SubTitleH6, ModalFooter, Form, Formik } from '@reapit/elements-legacy'
 import { requestApproveRevision } from '@/actions/revision-detail'
 import CallToAction from '../call-to-action'
 import { Dispatch } from 'redux'

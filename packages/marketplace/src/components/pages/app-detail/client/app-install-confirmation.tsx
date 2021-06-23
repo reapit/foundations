@@ -3,7 +3,16 @@ import { useHistory } from 'react-router'
 import { History } from 'history'
 import { useDispatch, useSelector } from 'react-redux'
 import { AppDetailModel, DesktopIntegrationTypeModel } from '@reapit/foundations-ts-definitions'
-import { Button, ModalV2, GridFourCol, GridFourColItem, Content, ModalPropsV2, H5, ButtonGroup } from '@reapit/elements'
+import {
+  Button,
+  ModalV2,
+  GridFourCol,
+  GridFourColItem,
+  Content,
+  ModalPropsV2,
+  H5,
+  ButtonGroup,
+} from '@reapit/elements-legacy'
 import { installApp } from '@/actions/installations'
 import { fetchAppDetail } from '@/actions/apps'
 import { Dispatch } from 'redux'

@@ -1,5 +1,5 @@
 import { put, call, fork, takeLatest, all } from '@redux-saga/core/effects'
-import { notification } from '@reapit/elements'
+import { notification } from '@reapit/elements-legacy'
 import { Action } from '@/types/core'
 import { fetchNegotiatorsFailed, fetchNegotiatorsSuccess } from '@/actions/negotiators'
 import ActionTypes from '@/constants/action-types'

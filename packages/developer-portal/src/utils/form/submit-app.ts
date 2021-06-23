@@ -1,6 +1,6 @@
 // @ts-nocheck
 // TODO: remove developer standalone submit app code #1824
-import { validateRequire, validateEmail } from '@reapit/elements'
+import { validateRequire, validateEmail } from '@reapit/elements-legacy'
 import {
   isValidUrlWithCustomScheme,
   whiteListLocalhostAndIsValidUrl,

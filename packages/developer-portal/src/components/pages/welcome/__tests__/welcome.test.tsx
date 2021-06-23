@@ -11,7 +11,7 @@ import {
   Welcome,
 } from '../welcome'
 import routes from '@/constants/routes'
-import { HelpGuide } from '@reapit/elements'
+import { HelpGuide } from '@reapit/elements-legacy'
 
 jest.mock('@/utils/cookie')
 import { setCookieString, COOKIE_DEVELOPER_FIRST_TIME_LOGIN_COMPLETE, COOKIE_MAX_AGE_INFINITY } from '@/utils/cookie'

@@ -1,7 +1,7 @@
 import React from 'react'
-import { fetcher } from '@reapit/elements'
+import { fetcher } from '@reapit/elements-legacy'
 import { shallow, mount } from 'enzyme'
-import { notification } from '@reapit/elements'
+import { notification } from '@reapit/elements-legacy'
 import CreateOfficeGroupModal, {
   CreateOfficeGroupModalProps,
   onHandleSubmit,

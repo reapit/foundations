@@ -1,11 +1,11 @@
 import * as React from 'react'
 import { useSelector } from 'react-redux'
-import { Info } from '@reapit/elements'
+import { Info } from '@reapit/elements-legacy'
 import Subcriptions from '@/components/pages/settings/billing/subscriptions'
 import AccountsInformationForm from './accounts-information-form'
 import { Tabs } from '../tabs'
 import { selectCurrentMemberData, selectCurrentMemberIsLoading } from '@/selector/current-member'
-import { Loader } from '@reapit/elements/v3'
+import { Loader } from '@reapit/elements'
 
 const SettingsBillingTabPage: React.FC<{}> = () => {
   const currentUser = useSelector(selectCurrentMemberData)

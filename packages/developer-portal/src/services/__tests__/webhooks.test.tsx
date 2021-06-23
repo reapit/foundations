@@ -1,4 +1,4 @@
-import { fetcher } from '@reapit/elements'
+import { fetcher } from '@reapit/elements-legacy'
 import { WebhookLogsQuery } from '../../components/pages/webhooks/webhook-logs-table'
 import { mockWebhookLogs } from '../../sagas/__stubs__/webhooks'
 import { fetchWebhookLogsApi } from '../webhooks'

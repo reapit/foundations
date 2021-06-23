@@ -4,7 +4,7 @@ import { ReduxState } from '@/types/core'
 import { contact } from '@/sagas/__stubs__/contact'
 import { UpdateStatus, mapStateToProps, mapDispatchToProps } from '../update-status'
 import { sectionsStatus } from '@/sagas/__stubs__/status'
-import { EntityType } from '@reapit/elements'
+import { EntityType } from '@reapit/elements-legacy'
 import { defaultStatus } from '@/constants/section-status'
 import Routes from '@/constants/routes'
 

@@ -1,7 +1,7 @@
 import * as React from 'react'
 import { useSelector } from 'react-redux'
 import { Redirect, useHistory, useLocation } from 'react-router'
-import { H3, isMobile, Content } from '@reapit/elements'
+import { H3, isMobile, Content } from '@reapit/elements-legacy'
 import ErrorBoundary from '@/components/hocs/error-boundary'
 import routes from '@/constants/routes'
 import InstalledAppList from '@/components/pages/installed-apps/installed-app-list'
@@ -16,7 +16,7 @@ import { cx } from 'linaria'
 import { useMemo } from 'react'
 import { selectIsAdmin, selectSandboxDeveloper } from '../../../selector/auth'
 import { Link } from 'react-router-dom'
-import { Loader } from '@reapit/elements/v3'
+import { Loader } from '@reapit/elements'
 
 export const handleOnChange = (history) => (page: number) => history.push(`${routes.INSTALLED_APPS}?page=${page}`)
 

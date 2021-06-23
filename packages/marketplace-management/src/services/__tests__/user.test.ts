@@ -1,5 +1,5 @@
 import { addMemberToGroup, removeMemberFromGroup } from '../user'
-import { fetcher } from '@reapit/elements'
+import { fetcher } from '@reapit/elements-legacy'
 
 jest.mock('@reapit/elements')
 jest.mock('../../core/connect-session')

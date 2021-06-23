@@ -13,7 +13,7 @@ import {
   Formik,
   Section,
   FadeIn,
-} from '@reapit/elements'
+} from '@reapit/elements-legacy'
 import ErrorBoundary from '@/components/hocs/error-boundary'
 import Routes from '@/constants/routes'
 import { SearchParams, resultSetSearchParams } from '@/actions/result'

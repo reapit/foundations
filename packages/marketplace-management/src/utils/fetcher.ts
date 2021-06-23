@@ -1,4 +1,4 @@
-import { StringMap } from '@reapit/elements'
+import { StringMap } from '@reapit/elements-legacy'
 import { logger } from '@reapit/utils'
 import { genPlatformHeaders } from './headers'
 

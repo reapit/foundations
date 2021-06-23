@@ -1,6 +1,6 @@
 import * as React from 'react'
 import dayjs from 'dayjs'
-import { Button, ButtonGroup, H6, DATE_TIME_FORMAT, Section } from '@reapit/elements'
+import { Button, ButtonGroup, H6, DATE_TIME_FORMAT, Section } from '@reapit/elements-legacy'
 
 export type DefaultFilterGroupProps = {
   appIds: string[]

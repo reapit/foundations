@@ -1,6 +1,6 @@
 import * as React from 'react'
 import * as chartjs from 'chart.js'
-import { GridItem, Grid } from '@reapit/elements'
+import { GridItem, Grid } from '@reapit/elements-legacy'
 import { cx } from 'linaria'
 
 export type ChartLegendItem = {

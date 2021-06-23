@@ -15,7 +15,7 @@ import {
 } from '../webhooks'
 import { mount } from 'enzyme'
 import { AppSummaryModel } from '@reapit/foundations-ts-definitions'
-import { SelectBoxOptions } from '@reapit/elements'
+import { SelectBoxOptions } from '@reapit/elements-legacy'
 import appState from '@/reducers/__stubs__/app-state'
 import { webhookSetOpenModal } from '@/actions/webhooks-subscriptions'
 import { TopicModel } from '@/services/webhooks'

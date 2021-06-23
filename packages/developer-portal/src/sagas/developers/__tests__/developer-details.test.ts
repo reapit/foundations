@@ -7,7 +7,7 @@ import { fetchDeveloperDetailsSuccess, fetchDeveloperDetailsFailed } from '@/act
 import { DeveloperModel } from '@reapit/foundations-ts-definitions'
 import errorMessages from '@/constants/error-messages'
 import ActionTypes from '@/constants/action-types'
-import { notification } from '@reapit/elements'
+import { notification } from '@reapit/elements-legacy'
 
 describe('fetchDeveloperDetails', () => {
   const params: Action<FetchDeveloperByIdParams> = {

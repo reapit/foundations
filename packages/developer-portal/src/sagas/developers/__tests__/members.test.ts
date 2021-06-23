@@ -30,7 +30,7 @@ import {
 import ActionTypes from '@/constants/action-types'
 import { MemberModelPagedResult } from '@reapit/foundations-ts-definitions'
 import { getDeveloperId } from '@/utils/session'
-import { notification } from '@reapit/elements'
+import { notification } from '@reapit/elements-legacy'
 
 const params: Action<InviteDeveloperAsOrgMemberParams & { callback: () => void }> = {
   data: {

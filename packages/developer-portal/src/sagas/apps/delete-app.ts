@@ -3,7 +3,7 @@ import { Action } from '@/types/core'
 import errorMessages from '@/constants/error-messages'
 import { deleteAppById, DeleteAppByIdParams } from '@/services/apps'
 import { deleteAppSuccess, deleteAppFailed, deleteApp } from '@/actions/apps'
-import { notification } from '@reapit/elements'
+import { notification } from '@reapit/elements-legacy'
 
 export const deleteAppSaga = function* ({ data: { successCallback, id } }: Action<DeleteAppByIdParams>) {
   try {

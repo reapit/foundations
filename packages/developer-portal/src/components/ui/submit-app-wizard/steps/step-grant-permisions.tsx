@@ -1,6 +1,6 @@
 import React from 'react'
 import { useSelector } from 'react-redux'
-import { ModalBody, Button, DropdownSelect, ModalFooter, H5, SelectOption, ButtonGroup } from '@reapit/elements'
+import { ModalBody, Button, DropdownSelect, ModalFooter, H5, SelectOption, ButtonGroup } from '@reapit/elements-legacy'
 import { WizardStepComponent, SetWizardStep, AuthFlow } from '../types'
 import { formFields } from '../form-fields'
 import { useFormikContext } from 'formik'

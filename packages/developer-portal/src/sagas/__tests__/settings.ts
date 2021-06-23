@@ -13,7 +13,7 @@ import { DeveloperModel } from '@reapit/foundations-ts-definitions'
 import { ChangePasswordParams, settingShowLoading, requestDeveloperDataSuccess } from '@/actions/settings'
 import { cloneableGenerator } from '@redux-saga/testing-utils'
 import { selectDeveloperEmail } from '@/selector/developer'
-import { notification } from '@reapit/elements'
+import { notification } from '@reapit/elements-legacy'
 
 import errorMessages from '@/constants/error-messages'
 import messages from '@/constants/messages'

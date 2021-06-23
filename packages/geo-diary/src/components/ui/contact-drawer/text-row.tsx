@@ -1,5 +1,5 @@
 import React, { FC, ReactNode } from 'react'
-import { Label } from '@reapit/elements/v3'
+import { Label } from '@reapit/elements'
 import Grid, { Col } from '../grid'
 import * as styles from './__styles__'
 

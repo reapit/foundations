@@ -1,6 +1,6 @@
 import * as React from 'react'
 import { Form, Formik } from 'formik'
-import { Grid, GridItem, SelectBox, Input, FlexContainerResponsive, Button } from '@reapit/elements'
+import { Grid, GridItem, SelectBox, Input, FlexContainerResponsive, Button } from '@reapit/elements-legacy'
 import { validationSchema } from './validation-schema'
 import { EndpointsUsedRange, endpointsUsedRange } from './use-foundation-cost-table'
 

@@ -1,7 +1,7 @@
 import * as React from 'react'
 import { useDispatch, useSelector } from 'react-redux'
 import { Dispatch } from 'redux'
-import { ToastMessage as ToastMessageElement } from '@reapit/elements'
+import { ToastMessage as ToastMessageElement } from '@reapit/elements-legacy'
 import { hideNotificationMessage } from '@/actions/notification-message'
 import { selectNotificationMessageState } from '@/selector/notification-message'
 

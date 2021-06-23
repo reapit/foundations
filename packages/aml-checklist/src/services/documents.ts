@@ -1,4 +1,4 @@
-import { fetcherWithBlob, notification } from '@reapit/elements'
+import { fetcherWithBlob, notification } from '@reapit/elements-legacy'
 import { URLS } from '@/constants/api'
 import { initAuthorizedRequestHeaders } from '@/utils/api'
 import { logger } from '@reapit/utils'

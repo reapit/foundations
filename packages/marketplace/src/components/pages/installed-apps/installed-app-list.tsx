@@ -12,9 +12,9 @@ import {
   GridFourColItem,
   Helper,
   infoText,
-} from '@reapit/elements'
+} from '@reapit/elements-legacy'
 import { cx } from 'linaria'
-import { Loader } from '@reapit/elements/v3'
+import { Loader } from '@reapit/elements'
 
 export type InstalledAppListProps = {
   list: AppSummaryModel[]

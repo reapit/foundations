@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react'
-import { Button } from '@reapit/elements'
+import { Button } from '@reapit/elements-legacy'
 import { useDispatch, useSelector } from 'react-redux'
 import { selectWebComponentData } from '@/selector/web-components'
 import { fetchWebComponentConfig } from '@/actions/web-component'

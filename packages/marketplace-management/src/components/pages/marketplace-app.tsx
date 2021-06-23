@@ -1,6 +1,6 @@
 import React from 'react'
 import { AppDetailModel, DesktopIntegrationTypeModelPagedResult } from '@reapit/foundations-ts-definitions'
-import { Button, FadeIn, H3, Helper, Loader, Section } from '@reapit/elements'
+import { Button, FadeIn, H3, Helper, Loader, Section } from '@reapit/elements-legacy'
 import AppToggleVisibilitySection from '../ui/apps/app-toggle-visibility-section'
 import { useReapitConnect } from '@reapit/connect-session'
 import { reapitConnectBrowserSession } from '../../core/connect-session'

@@ -1,6 +1,6 @@
 import React from 'react'
 import { AppSummaryModel } from '@reapit/foundations-ts-definitions'
-import { Modal, Button, PortalProvider, Content, ButtonGroup } from '@reapit/elements'
+import { Modal, Button, PortalProvider, Content, ButtonGroup } from '@reapit/elements-legacy'
 import { WHOLE_ORG, SPECIFIC_OFFICE_GROUPS, InstallTypes } from './app-installation-manager'
 
 export interface AppInstallationConfirmationModalProps {

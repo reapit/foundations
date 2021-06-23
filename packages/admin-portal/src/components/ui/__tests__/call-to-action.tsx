@@ -1,7 +1,7 @@
 import * as React from 'react'
 import { shallow, mount } from 'enzyme'
 import CallToAction, { CallToActionCardProps } from '../call-to-action'
-import { Button } from '@reapit/elements'
+import { Button } from '@reapit/elements-legacy'
 
 const props: CallToActionCardProps = {
   buttonText: 'My button',

@@ -15,7 +15,7 @@ import {
   selectCheckListDetailIdCheck,
 } from '@/selectors/checklist-detail'
 import { IdentityDocumentModel, ContactModel, IdentityCheckModel } from '@reapit/foundations-ts-definitions'
-import { isCompletedPrimaryID } from '@reapit/elements'
+import { isCompletedPrimaryID } from '@reapit/elements-legacy'
 import dayjs from 'dayjs'
 
 export const SecondaryIdentification = ({

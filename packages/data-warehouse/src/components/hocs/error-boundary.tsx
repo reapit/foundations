@@ -1,5 +1,5 @@
 import * as React from 'react'
-import { Alert } from '@reapit/elements'
+import { Alert } from '@reapit/elements-legacy'
 
 export interface ErrorState {
   hasFailed: boolean

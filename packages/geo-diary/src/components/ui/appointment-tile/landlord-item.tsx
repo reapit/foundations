@@ -8,12 +8,12 @@ import {
   CardListItemTextWrap,
   elCardListItemExpanded,
   elFadeIn,
-} from '@reapit/elements/v3'
+} from '@reapit/elements'
 import { useAppState } from '../../../core/app-state'
 import { handleOpenContactDrawer } from './appointment-items'
 import { VendorLandlordRelatedModel } from '../../pages/appointment/appointment'
 import { ExtendedAppointmentModel } from '../../../types/global'
-import { FadeIn } from '@reapit/elements'
+import { FadeIn } from '@reapit/elements-legacy'
 import { ContactDrawerType } from '../contact-drawer'
 import { cx } from 'linaria'
 

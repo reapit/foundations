@@ -18,7 +18,7 @@ import {
   toLocalTime,
   DATE_TIME_FORMAT,
   H5,
-} from '@reapit/elements'
+} from '@reapit/elements-legacy'
 import Routes from '@/constants/routes'
 import { URLS } from '../../../constants/api'
 import OfficesFilterForm, { OfficesFilterFormValues } from '@/components/ui/offices/offices-tab-filter'

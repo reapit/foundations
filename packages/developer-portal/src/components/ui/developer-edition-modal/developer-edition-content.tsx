@@ -1,10 +1,10 @@
 import * as React from 'react'
-import { Button, SubTitleH6, ModalHeader, ModalBody, ModalProps, ButtonGroup, Content } from '@reapit/elements'
+import { Button, SubTitleH6, ModalHeader, ModalBody, ModalProps, ButtonGroup, Content } from '@reapit/elements-legacy'
 import { selectSettingsPageDeveloperInformation, selectSettingsPageIsLoading } from '../../../selector/settings'
 import { selectCurrentMemberData, selectCurrentMemberIsLoading } from '../../../selector/current-member'
 import { useSelector } from 'react-redux'
 import { modalContent } from './modal-content'
-import { Loader } from '@reapit/elements/v3'
+import { Loader } from '@reapit/elements'
 import { DeveloperModel } from '@reapit/foundations-ts-definitions'
 
 export type DeveloperEditionContentProps = Pick<ModalProps, 'afterClose'> & {

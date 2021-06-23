@@ -6,7 +6,7 @@ import errorMessages from '@/constants/error-messages'
 import { FetchAppListParams } from '@/reducers/apps/app-list'
 import { Action } from '@/types/core'
 import { getDeveloperId } from '@/utils/session'
-import { notification } from '@reapit/elements'
+import { notification } from '@reapit/elements-legacy'
 
 export const fetchAppListSaga = function* ({ data }) {
   try {

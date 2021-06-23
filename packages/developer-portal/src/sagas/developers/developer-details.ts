@@ -4,7 +4,7 @@ import { FetchDeveloperByIdParams, fetchDeveloperById } from '@/services/develop
 import errorMessages from '@/constants/error-messages'
 import ActionTypes from '@/constants/action-types'
 import { fetchDeveloperDetailsSuccess, fetchDeveloperDetailsFailed } from '@/actions/developers'
-import { notification } from '@reapit/elements'
+import { notification } from '@reapit/elements-legacy'
 
 export const fetchDeveloperDetails = function* ({ data }: Action<FetchDeveloperByIdParams>) {
   try {

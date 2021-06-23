@@ -1,5 +1,5 @@
 import * as React from 'react'
-import { FormHeading, FormSubHeading, Input, Helper } from '@reapit/elements'
+import { FormHeading, FormSubHeading, Input, Helper } from '@reapit/elements-legacy'
 import { AccountsInformationFormValues, ACCOUNT_REF_MIN_LENGTH } from './accounts-information-form'
 import formFields from './form-schema/form-fields'
 

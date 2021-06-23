@@ -1,5 +1,5 @@
 import * as React from 'react'
-import { Button, Modal, ModalProps } from '@reapit/elements'
+import { Button, Modal, ModalProps } from '@reapit/elements-legacy'
 
 export interface SubmitAppReadDocModalProps extends Omit<ModalProps, 'children'> {
   onContinueClick?: () => void

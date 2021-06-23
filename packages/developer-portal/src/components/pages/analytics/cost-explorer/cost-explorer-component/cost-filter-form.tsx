@@ -1,5 +1,14 @@
 import React, { useMemo } from 'react'
-import { Formik, Form, DatePicker, DATE_TIME_FORMAT, GridItem, Grid, SelectOption, SelectBox } from '@reapit/elements'
+import {
+  Formik,
+  Form,
+  DatePicker,
+  DATE_TIME_FORMAT,
+  GridItem,
+  Grid,
+  SelectOption,
+  SelectBox,
+} from '@reapit/elements-legacy'
 import FormikAutoSave from '@/components/hocs/formik-auto-save'
 import { CostFilterFormValues } from './cost-explorer'
 import { useSelector } from 'react-redux'

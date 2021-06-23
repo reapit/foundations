@@ -9,7 +9,7 @@ import { AppDetailModel /** , InstallationModel */ } from '@reapit/foundations-t
 import { FaCheck } from 'react-icons/fa'
 import { check } from './__styles__/app-detail'
 // import { installApp, uninstallApp } from '@/actions/installations'
-// import { ToastMessage } from '@reapit/elements'
+// import { ToastMessage } from '@reapit/elements-legacy'
 
 interface StatusSectionProps extends IsSidebar {
   appDetail: AppDetailModel

@@ -1,5 +1,5 @@
 import React, { useState } from 'react'
-import { ModalV2, Formik, Form, Button, RadioSelect, RadioSelectOption, Input, FormikProps } from '@reapit/elements'
+import { ModalV2, Formik, Form, Button, RadioSelect, RadioSelectOption, Input, FormikProps } from '@reapit/elements-legacy'
 import { UpdateDeveloperModel, DeveloperModel } from '@reapit/foundations-ts-definitions'
 import { setRequestDeveloperStatusFormState } from '@/actions/developer-set-status'
 import { Dispatch } from 'redux'

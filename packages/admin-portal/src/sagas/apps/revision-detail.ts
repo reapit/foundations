@@ -16,7 +16,7 @@ import { fetchAppRevisionsById, approveAppRevisionById, rejectAppRevisionById } 
 import { fetchScopesList } from '@/services/scopes'
 import { fetchDesktopIntegrationTypesList } from '@/services/desktop-integration-types'
 import { selectApprovalListPageNumber } from '@/selector/approvals'
-import { notification } from '@reapit/elements'
+import { notification } from '@reapit/elements-legacy'
 
 export const revisionDetailDataFetch = function* ({
   data: { appId, appRevisionId },

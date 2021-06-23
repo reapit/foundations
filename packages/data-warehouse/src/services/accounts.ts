@@ -1,4 +1,4 @@
-import { fetcher, fetcherWithReturnHeader } from '@reapit/elements'
+import { fetcher, fetcherWithReturnHeader } from '@reapit/elements-legacy'
 import { URLS } from '../constants/api'
 import { AccountCreateModel, PagedAccountsModel, AccountModel } from '../types/accounts'
 import { reapitConnectBrowserSession } from '../core/connect-session'

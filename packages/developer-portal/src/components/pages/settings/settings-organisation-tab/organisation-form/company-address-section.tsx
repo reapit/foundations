@@ -1,5 +1,5 @@
 import * as React from 'react'
-import { Grid, Input, GridItem, SelectBox } from '@reapit/elements'
+import { Grid, Input, GridItem, SelectBox } from '@reapit/elements-legacy'
 import { formFields } from './form-schema/form-fields'
 import { COUNTRY_OPTIONS } from './country-options-list'
 

@@ -1,4 +1,4 @@
-import { SelectOption } from '@reapit/elements'
+import { SelectOption } from '@reapit/elements-legacy'
 import { OfficeModel } from '@reapit/foundations-ts-definitions'
 import { GroupModel } from '../types/organisations-schema'
 

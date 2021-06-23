@@ -22,6 +22,7 @@
   },
   "dependencies": {
     "@reapit/elements": "workspace:packages/elements",
+    "@reapit/elements-legacy": "workspace:packages/elements-legacy",
     "@reapit/utils": "workspace:packages/utils",
     "@sentry/browser": "^5.30.0",
     "dayjs": "^1.10.4",

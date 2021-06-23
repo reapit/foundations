@@ -2,7 +2,7 @@ import React from 'react'
 import { cx } from 'linaria'
 import { tag } from '../__styles__/app-detail'
 
-import { H5, Content } from '@reapit/elements'
+import { H5, Content } from '@reapit/elements-legacy'
 
 interface AppDetailSectionProps {
   headerText: string | React.ReactNode

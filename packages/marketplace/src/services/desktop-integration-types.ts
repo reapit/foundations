@@ -1,6 +1,6 @@
 import { getPlatformHeaders, logger } from '@reapit/utils'
 import { DesktopIntegrationTypeModelPagedResult } from '@reapit/foundations-ts-definitions'
-import { fetcher, setQueryParams } from '@reapit/elements'
+import { fetcher, setQueryParams } from '@reapit/elements-legacy'
 import { URLS } from './constants'
 import { FetchListCommonParams } from './types'
 import { reapitConnectBrowserSession } from '../core/connect-session'

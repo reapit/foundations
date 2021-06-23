@@ -1,5 +1,5 @@
 import React from 'react'
-import { GridItem, combineAddress, IconList, H5, FadeIn } from '@reapit/elements'
+import { GridItem, combineAddress, IconList, H5, FadeIn } from '@reapit/elements-legacy'
 import { PaymentCustomerModel } from '@reapit/foundations-ts-definitions'
 import { FaHome, FaUserAlt, FaEnvelope, FaStickyNote } from 'react-icons/fa'
 

@@ -1,5 +1,5 @@
 import * as React from 'react'
-import { Grid, Input, GridItem, TextArea, Checkbox } from '@reapit/elements'
+import { Grid, Input, GridItem, TextArea, Checkbox } from '@reapit/elements-legacy'
 import { formFields, OrganisationFormValues } from './form-schema/form-fields'
 
 export type CompanyInformationSectionProps = {

@@ -11,7 +11,7 @@ import {
   ModalFooter,
   SelectBox,
   Alert,
-} from '@reapit/elements'
+} from '@reapit/elements-legacy'
 import { useDispatch, useSelector } from 'react-redux'
 import { Dispatch } from 'redux'
 import { requestWebhookData } from '@/actions/webhooks-subscriptions'
@@ -22,7 +22,7 @@ import { developerWebhookPing, developerSetWebhookPingStatus } from '@/actions/d
 import { selectWebhookTestStatus } from '@/selector'
 import { link } from '@/styles/elements/link'
 import Routes from '@/constants/routes'
-import { Loader } from '@reapit/elements/v3'
+import { Loader } from '@reapit/elements'
 
 export interface GenerateTopicOptions {
   topics: TopicItem[]

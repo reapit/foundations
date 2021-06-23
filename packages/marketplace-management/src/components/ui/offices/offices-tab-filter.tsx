@@ -1,7 +1,7 @@
 import React from 'react'
 
 import { FormFieldInfo } from '@reapit/utils'
-import { Grid, GridItem, Formik, Form, Input, Button } from '@reapit/elements'
+import { Grid, GridItem, Formik, Form, Input, Button } from '@reapit/elements-legacy'
 
 type FieldType = 'name'
 

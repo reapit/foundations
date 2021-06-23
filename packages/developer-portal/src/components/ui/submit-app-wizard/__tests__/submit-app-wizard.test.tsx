@@ -1,7 +1,7 @@
 import React from 'react'
 import { SubmitAppWizard, handleSubmit, CustomCreateAppModel, onModalClose } from '../submit-app-wizard'
 import { shallow } from 'enzyme'
-import { FormikHelpers } from '@reapit/elements'
+import { FormikHelpers } from '@reapit/elements-legacy'
 import AuthFlow from '@/constants/app-auth-flow'
 import { wizzardSteps } from '../constant'
 

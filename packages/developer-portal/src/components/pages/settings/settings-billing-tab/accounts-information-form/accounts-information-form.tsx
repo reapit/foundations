@@ -1,10 +1,10 @@
 import * as React from 'react'
 import { Dispatch } from 'redux'
-import { Helper, H5 } from '@reapit/elements'
+import { Helper, H5 } from '@reapit/elements-legacy'
 import { useDispatch, useSelector } from 'react-redux'
 import { updateDeveloperData } from '@/actions/settings'
 import { selectSettingsPageDeveloperInformation, selectSettingsPageIsLoading } from '@/selector/settings'
-import { FormSection, Form, Grid, GridItem, Formik, LevelRight, Button, H3 } from '@reapit/elements'
+import { FormSection, Form, Grid, GridItem, Formik, LevelRight, Button, H3 } from '@reapit/elements-legacy'
 import ReapitReferenceSection from './reapit-reference-section'
 import DirectDebitSection from './direct-debit-section'
 import ContactInformationSection from './contact-information-section'
@@ -13,7 +13,7 @@ import { UpdateDeveloperModel, DeveloperModel } from '@reapit/foundations-ts-def
 import { validationSchema } from './form-schema/validation-schema'
 import { selectIsRequiredDataOfBillingPageFilled } from '@/selector/billing'
 import FadeIn from '../../../../../styles/fade-in'
-import { Loader } from '@reapit/elements/v3'
+import { Loader } from '@reapit/elements'
 
 export type AccountsInformationFormProps = {}
 

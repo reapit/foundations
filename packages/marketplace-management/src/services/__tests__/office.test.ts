@@ -1,4 +1,4 @@
-import { fetcher } from '@reapit/elements'
+import { fetcher } from '@reapit/elements-legacy'
 import { createOfficeGroup, updateOfficeGroup } from '../office'
 
 jest.mock('@reapit/elements')

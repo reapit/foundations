@@ -10,7 +10,7 @@ import {
   Menu as Sidebar,
   MenuConfig,
   ReapitHouseIcon,
-} from '@reapit/elements'
+} from '@reapit/elements-legacy'
 import Routes from '@/constants/routes'
 import { Location } from 'history'
 import { selectIsAdmin, selectClientId, selectSandboxDeveloper } from '@/selector/auth'

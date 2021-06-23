@@ -12,7 +12,7 @@ import {
   DATE_TIME_FORMAT,
   H5,
   Section,
-} from '@reapit/elements'
+} from '@reapit/elements-legacy'
 import { formFields } from './payment-filter-fields'
 import { columnRelative, searchBtn } from '../../styles/ui/payment-filter-form'
 import { statusOptions, typeOptions } from '../../constants/filter-options'

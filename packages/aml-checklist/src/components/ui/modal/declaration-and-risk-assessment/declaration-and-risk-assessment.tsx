@@ -1,5 +1,5 @@
 import React from 'react'
-import { Input, Button, CameraImageInput, SelectBox, Formik, Form, ButtonGroup } from '@reapit/elements'
+import { Input, Button, CameraImageInput, SelectBox, Formik, Form, ButtonGroup } from '@reapit/elements-legacy'
 import { connect } from 'react-redux'
 import { RISK_ASSESSMENT_TYPE } from '@/constants/appointment-detail'
 import { ContactModel } from '@reapit/foundations-ts-definitions'

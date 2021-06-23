@@ -27,7 +27,7 @@ import {
   fetchOrganisationMembers,
   disableMemberApi,
 } from '@/services/developers'
-import { notification } from '@reapit/elements'
+import { notification } from '@reapit/elements-legacy'
 import { errorMessages } from '@reapit/utils'
 import { Action, ActionType } from '../../../types/core'
 import ActionTypes from '../../../constants/action-types'

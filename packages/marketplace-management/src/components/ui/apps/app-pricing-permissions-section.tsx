@@ -1,4 +1,4 @@
-import { Content, FadeIn, GridFourCol, GridFourColItem, H5, Section } from '@reapit/elements'
+import { Content, FadeIn, GridFourCol, GridFourColItem, H5, Section } from '@reapit/elements-legacy'
 import { AppDetailModel, DesktopIntegrationTypeModel } from '@reapit/foundations-ts-definitions'
 import React from 'react'
 

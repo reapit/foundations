@@ -1,5 +1,5 @@
 import * as React from 'react'
-import { FormHeading, FormSubHeading, Input } from '@reapit/elements'
+import { FormHeading, FormSubHeading, Input } from '@reapit/elements-legacy'
 import formFields from './form-schema/form-fields'
 
 export type ContactInformationSectionProps = { disabled?: boolean }

@@ -18,7 +18,7 @@ import {
 } from '@/services/installations'
 import { reapitConnectBrowserSession } from '@/core/connect-session'
 import { selectClientId } from '@/selector/auth'
-import { notification } from '@reapit/elements'
+import { notification } from '@reapit/elements-legacy'
 import { GET_ALL_PAGE_SIZE } from '../../constants/paginator'
 
 export const installSagas = function* ({ data }) {

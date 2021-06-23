@@ -6,7 +6,7 @@ import {
   generateEmailPaymentReceiptInternal,
   generateEmailPaymentReceiptExternal,
 } from '../payment'
-import { fetcher } from '@reapit/elements'
+import { fetcher } from '@reapit/elements-legacy'
 import { body, params } from '../__stubs__/payment'
 
 jest.mock('@reapit/elements')

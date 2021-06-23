@@ -14,7 +14,7 @@ import {
   FadeIn,
   Table,
   ButtonGroup,
-} from '@reapit/elements'
+} from '@reapit/elements-legacy'
 import {
   GroupMembershipModelPagedResult,
   GroupModel,

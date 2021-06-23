@@ -10,7 +10,7 @@ import {
   GridItem,
   Formik,
   Checkbox,
-} from '@reapit/elements'
+} from '@reapit/elements-legacy'
 import { MemberModel } from '@reapit/foundations-ts-definitions'
 import { updateCurrentMember } from '@/actions/current-member'
 import { useDispatch, useSelector } from 'react-redux'

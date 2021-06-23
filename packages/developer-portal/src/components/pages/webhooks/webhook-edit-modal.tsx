@@ -16,7 +16,7 @@ import {
   ModalHeader,
   notification,
   ButtonGroup,
-} from '@reapit/elements'
+} from '@reapit/elements-legacy'
 import {
   requestWebhookSubcriptionData,
   CreateWebhookParams,
@@ -33,7 +33,7 @@ import { validationSchema } from './form-schema/validation-schema'
 import { formFields } from './form-schema/form-fields'
 import { InstallationModel } from '@reapit/foundations-ts-definitions'
 import { SANDBOX_CLIENT } from '@/constants/api'
-import { Loader } from '@reapit/elements/v3'
+import { Loader } from '@reapit/elements'
 
 const { activeField, topicIdsField, webhookUrlField, customerIdsField, ignoreEtagOnlyChangesField } = formFields
 

@@ -1,10 +1,10 @@
 import * as Yup from 'yup'
-import { letterNumberSpaceRegex } from '@reapit/elements'
+import { letterNumberSpaceRegex } from '@reapit/elements-legacy'
 import { formFields } from './form-fields'
 import { WizardStep } from './types'
 import errorMessages from '@/constants/error-messages'
 import { isValidUrlWithCustomScheme } from '@/utils/validate'
-import { PartialRecord } from '@reapit/elements'
+import { PartialRecord } from '@reapit/elements-legacy'
 
 const { FIELD_REQUIRED, FIELD_WRONG_URI_FORMAT, MAXIMUM_CHARACTER_LENGTH } = errorMessages
 

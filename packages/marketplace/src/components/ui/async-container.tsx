@@ -1,6 +1,6 @@
 import * as React from 'react'
-import { Alert, ModalBody } from '@reapit/elements'
-import { Loader } from '@reapit/elements/v3'
+import { Alert, ModalBody } from '@reapit/elements-legacy'
+import { Loader } from '@reapit/elements'
 
 export interface AsyncContainerProps {
   loading: boolean

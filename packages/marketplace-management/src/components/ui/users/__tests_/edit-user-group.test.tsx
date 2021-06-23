@@ -1,6 +1,6 @@
 import React from 'react'
 import { shallow } from 'enzyme'
-import { notification } from '@reapit/elements'
+import { notification } from '@reapit/elements-legacy'
 import UpdateUserGroupModal, { UpdateUserGroupModalProps, onHandleSubmit, getUserOptions } from '../edit-user-group'
 import { addMemberToGroup, removeMemberFromGroup } from '../../../../services/user'
 import { listUserGroup, listUserGroupMember } from '../__stubs__/user-groups'

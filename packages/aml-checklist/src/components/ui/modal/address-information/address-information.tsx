@@ -12,7 +12,7 @@ import {
   Section,
   Pagination,
   Helper,
-} from '@reapit/elements'
+} from '@reapit/elements-legacy'
 import { connect } from 'react-redux'
 import { Dispatch } from 'redux'
 import { DOCUMENT_TYPE } from '@/constants/appointment-detail'
@@ -25,7 +25,7 @@ import { formFields } from './form-schema/form-fields'
 import validationSchema from './form-schema/validation-schema'
 import { handleCloseModal, IdentityDocumentForm, ModalState } from '../../forms/identification'
 import { Document, Page } from 'react-pdf/dist/esm/entry.webpack'
-import { Loader } from '@reapit/elements/v3'
+import { Loader } from '@reapit/elements'
 
 const optionsMonth = [
   { label: '0', value: '0' },

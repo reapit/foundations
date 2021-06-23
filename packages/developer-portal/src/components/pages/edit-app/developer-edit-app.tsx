@@ -15,7 +15,7 @@ import {
   FormikValues,
   ModalV2,
   LevelRight,
-} from '@reapit/elements'
+} from '@reapit/elements-legacy'
 import { FIELD_ERROR_DESCRIPTION } from '@/constants/form'
 
 import { useDispatch, useSelector } from 'react-redux'
@@ -35,7 +35,7 @@ import { selectCategories } from '@/selector/app-categories'
 import { validationSchemaSubmitRevision } from './form-schema/validation-schema'
 import { formFields } from './form-schema/form-fields'
 import authFlows from '@/constants/app-auth-flow'
-import { Section } from '@reapit/elements'
+import { Section } from '@reapit/elements-legacy'
 import { selectScopeList } from '@/selector/scopes/scope-list'
 import { useReapitConnect } from '@reapit/connect-session'
 import { reapitConnectBrowserSession } from '@/core/connect-session'
@@ -43,7 +43,7 @@ import { getDeveloperIdFromConnectSession } from '@/utils/session'
 import { createAppRevision } from '@/actions/apps'
 import { selectCurrentMemberData } from '@/selector/current-member'
 import { selectSettingsPageDeveloperInformation } from '@/selector/settings'
-import { Loader } from '@reapit/elements/v3'
+import { Loader } from '@reapit/elements'
 
 const { CLIENT_SECRET } = authFlows
 

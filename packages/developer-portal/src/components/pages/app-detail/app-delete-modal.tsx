@@ -1,6 +1,6 @@
 import * as React from 'react'
 import { useDispatch, useSelector } from 'react-redux'
-import { Button, ModalProps, Modal, ModalBody, ModalHeader, ModalFooter } from '@reapit/elements'
+import { Button, ModalProps, Modal, ModalBody, ModalHeader, ModalFooter } from '@reapit/elements-legacy'
 import CallToAction from '../../ui/call-to-action'
 import { Dispatch } from 'redux'
 import { deleteApp } from '@/actions/apps'

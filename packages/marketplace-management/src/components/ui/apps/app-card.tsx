@@ -1,6 +1,6 @@
 import React, { Dispatch, SetStateAction, useEffect, useState } from 'react'
 import { AppSummaryModel, InstallationModelPagedResult } from '@reapit/foundations-ts-definitions'
-import { Tile } from '@reapit/elements'
+import { Tile } from '@reapit/elements-legacy'
 import defaultAppIcon from '../../../assets/images/default-app-icon.jpg'
 import Routes from '../../../constants/routes'
 import { history } from '../../../core/router'

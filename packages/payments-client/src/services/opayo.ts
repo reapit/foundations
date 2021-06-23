@@ -1,4 +1,4 @@
-import { fetcher, notification } from '@reapit/elements'
+import { fetcher, notification } from '@reapit/elements-legacy'
 import { logger } from '@reapit/utils'
 import { URLS } from '../constants/api'
 import { genPaymentsHeaders } from '../utils/headers'

@@ -1,6 +1,6 @@
 import * as React from 'react'
 import { withRouter, RouteComponentProps } from 'react-router'
-import { ReapitLogo, Menu as Sidebar, MenuConfig } from '@reapit/elements'
+import { ReapitLogo, Menu as Sidebar, MenuConfig } from '@reapit/elements-legacy'
 import { FaSignOutAlt, FaCloud } from 'react-icons/fa'
 import { reapitConnectBrowserSession } from '@/core/connect-session'
 import { useReapitConnect } from '@reapit/connect-session'

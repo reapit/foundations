@@ -1,5 +1,5 @@
 import React from 'react'
-import { ModalBody, Button, H5, ModalFooter, ButtonGroup } from '@reapit/elements'
+import { ModalBody, Button, H5, ModalFooter, ButtonGroup } from '@reapit/elements-legacy'
 import { WizardStepComponent, SetWizardStep, SetDirectApi } from '../types'
 import { useFormikContext } from 'formik'
 import { formFields } from '../form-fields'

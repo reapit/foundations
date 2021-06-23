@@ -1,5 +1,5 @@
 import * as React from 'react'
-import { H3, Grid, GridItem, SubTitleH6 } from '@reapit/elements'
+import { H3, Grid, GridItem, SubTitleH6 } from '@reapit/elements-legacy'
 import { FaCheck } from 'react-icons/fa'
 import { AppDetailModel } from '@reapit/foundations-ts-definitions'
 import { MEDIA_INDEX } from '@/constants/media'

@@ -1,4 +1,4 @@
-import { fetcher } from '@reapit/elements'
+import { fetcher } from '@reapit/elements-legacy'
 import { CreateSubscriptionModel } from '@reapit/foundations-ts-definitions'
 import { createSubscriptionsService, deleteSubscriptionsService, getSubscriptionsService } from '../subscriptions'
 import { stubSubscriptions } from '../__stubs__/subscriptions'

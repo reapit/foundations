@@ -1,7 +1,7 @@
 import React from 'react'
 import ReactToPrint from 'react-to-print'
 import { connect } from 'react-redux'
-import { Button, Table } from '@reapit/elements'
+import { Button, Table } from '@reapit/elements-legacy'
 import styles from '@/styles/ui/report.scss?mod'
 import { ContactModel, IdentityCheckModel, ListItemModel } from '@reapit/foundations-ts-definitions'
 import { ReduxState } from '@/types/core'

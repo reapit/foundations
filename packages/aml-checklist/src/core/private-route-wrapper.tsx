@@ -1,10 +1,10 @@
 import * as React from 'react'
-import { AppNavContainer, FlexContainerBasic, FlexContainerResponsive } from '@reapit/elements'
+import { AppNavContainer, FlexContainerBasic, FlexContainerResponsive } from '@reapit/elements-legacy'
 import Menu from '@/components/ui/menu'
 import { useReapitConnect } from '@reapit/connect-session'
 import { reapitConnectBrowserSession } from './connect-session'
 import { Redirect, useLocation } from 'react-router'
-import { Loader } from '@reapit/elements/v3'
+import { Loader } from '@reapit/elements'
 
 const { Suspense } = React
 

@@ -2,7 +2,7 @@ import * as React from 'react'
 import { useDispatch } from 'react-redux'
 import CallToAction from '@/components/ui/call-to-action'
 import { MemberModel } from '@reapit/foundations-ts-definitions'
-import { Button, Modal, ModalBody, ModalHeader, ModalFooter, SubTitleH6, ModalProps } from '@reapit/elements'
+import { Button, Modal, ModalBody, ModalHeader, ModalFooter, SubTitleH6, ModalProps } from '@reapit/elements-legacy'
 import { disableMember } from '@/actions/devs-management'
 
 export interface DisableMemberModalProps extends Pick<ModalProps, 'visible'> {

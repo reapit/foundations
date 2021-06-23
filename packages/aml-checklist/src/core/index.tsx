@@ -4,7 +4,7 @@ import React from 'react'
 import { render } from 'react-dom'
 import ReactGA from 'react-ga'
 import { Config } from '@/types/global'
-import { getMarketplaceGlobalsByKey } from '@reapit/elements'
+import { getMarketplaceGlobalsByKey } from '@reapit/elements-legacy'
 import { logger } from '@reapit/utils'
 
 // Init global config

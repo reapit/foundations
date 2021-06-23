@@ -1,5 +1,5 @@
 import React from 'react'
-import { ModalPropsV2 } from '@reapit/elements'
+import { ModalPropsV2 } from '@reapit/elements-legacy'
 
 export type AuthFlow = 'authorisationCode' | 'clientCredentials'
 

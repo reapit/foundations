@@ -17,7 +17,7 @@ import {
   isCompletedSecondaryID,
   isCompletedDeclarationRisk,
   isCompletedAddress,
-} from '@reapit/elements'
+} from '@reapit/elements-legacy'
 // import { isCompletedPepSearch } from '@/utils/pep-search'
 import { defaultStatus } from '@/constants/section-status'
 

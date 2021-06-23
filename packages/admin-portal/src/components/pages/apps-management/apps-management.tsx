@@ -22,7 +22,7 @@ import {
   isEmptyObject,
   Section,
   LevelRight,
-} from '@reapit/elements'
+} from '@reapit/elements-legacy'
 import { selectAppsData, selectAppsLoading } from '@/selector/admin'
 import { requestMarkAppAsFeatured } from '@/actions/apps-management'
 import AppDeleteModal from '@/components/ui/app-delete'

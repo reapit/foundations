@@ -1,5 +1,5 @@
 import React from 'react'
-import { Modal } from '@reapit/elements'
+import { Modal } from '@reapit/elements-legacy'
 import Profile from './profile'
 import Report from './report'
 import AddressInformation from './address-information'

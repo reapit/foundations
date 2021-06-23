@@ -9,7 +9,7 @@ import {
   Input,
   TextArea,
   LevelRight,
-} from '@reapit/elements'
+} from '@reapit/elements-legacy'
 import { Formik } from 'formik'
 import { validationSchema } from './validation-schema'
 import { formFields } from './form-fields'

@@ -39,7 +39,7 @@ import { initAuthorizedRequestHeaders } from '@/utils/api'
 import { ContactModel, IdentityCheckModel } from '@reapit/foundations-ts-definitions'
 import { selectCheckListDetailContact, selectCheckListDetailIdCheck } from '@/selectors/checklist-detail'
 import { handlePepSearchStatus } from '@/utils/pep-search'
-import { EntityType, DynamicLinkParams, notification } from '@reapit/elements'
+import { EntityType, DynamicLinkParams, notification } from '@reapit/elements-legacy'
 import { extractNetworkErrString } from '@reapit/utils'
 
 const mockHeaders = {

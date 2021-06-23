@@ -1,5 +1,14 @@
 import * as React from 'react'
-import { H5, Grid, GridItem, DATE_TIME_FORMAT, Section, LevelRight, Button, SelectOption } from '@reapit/elements'
+import {
+  H5,
+  Grid,
+  GridItem,
+  DATE_TIME_FORMAT,
+  Section,
+  LevelRight,
+  Button,
+  SelectOption,
+} from '@reapit/elements-legacy'
 import CostFilterForm from './cost-filter-form'
 import dayjs from 'dayjs'
 import CostExplorerTable from './cost-explorer-table'

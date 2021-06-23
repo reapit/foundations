@@ -1,5 +1,5 @@
 import React, { Dispatch, FC, MutableRefObject, SetStateAction, useEffect, useRef, useState } from 'react'
-import { getTime } from '@reapit/elements'
+import { getTime } from '@reapit/elements-legacy'
 import { ExtendedAppointmentModel } from '@/types/global'
 import { AppointmentItems } from './appointment-items'
 import { AppState, useAppState } from '../../../core/app-state'
@@ -13,7 +13,7 @@ import {
   elCardFocussed,
   elCardListMainWrapExpanded,
   elMb4,
-} from '@reapit/elements/v3'
+} from '@reapit/elements'
 import { CancelConfirmModal } from '../cancel-confirm-modal'
 import { cancelledTile } from './__styles__/styles'
 

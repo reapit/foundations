@@ -1,5 +1,5 @@
 import dayjs from 'dayjs'
-import { toUTCTime, toLocalTime, DATE_TIME_FORMAT } from '@reapit/elements'
+import { toUTCTime, toLocalTime, DATE_TIME_FORMAT } from '@reapit/elements-legacy'
 import { IdentityCheckModel, ContactModel } from '@reapit/foundations-ts-definitions'
 /**
  * This function created by backend required parse time to UTC before submit

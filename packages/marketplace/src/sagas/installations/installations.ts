@@ -10,7 +10,7 @@ import {
   RemoveAccessToAppByIdParams,
 } from '@/services/installations'
 import { reapitConnectBrowserSession } from '@/core/connect-session'
-import { notification } from '@reapit/elements'
+import { notification } from '@reapit/elements-legacy'
 
 export const installSagas = function* ({ data }) {
   try {

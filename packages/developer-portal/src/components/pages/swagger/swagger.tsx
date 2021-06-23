@@ -3,11 +3,11 @@ import SwaggerUI from 'swagger-ui-react'
 import 'swagger-ui-react/swagger-ui.css'
 import { swagger } from './__styles__/swagger'
 import ErrorBoundary from '@/components/hocs/error-boundary'
-import { StringMap } from '@reapit/elements'
+import { StringMap } from '@reapit/elements-legacy'
 import { getAccessToken } from '@/utils/session'
 import { SandboxPopUp } from '@/components/ui/popup/sandbox-pop-up'
 import { URLS } from '../../../services/constants'
-import { Loader } from '@reapit/elements/v3'
+import { Loader } from '@reapit/elements'
 
 export type InterceptorParams = {
   url: string

@@ -1,7 +1,7 @@
 import * as React from 'react'
 import { History } from 'history'
 import { Redirect, useHistory } from 'react-router'
-import { Modal, Button, ButtonGroup } from '@reapit/elements'
+import { Modal, Button, ButtonGroup } from '@reapit/elements-legacy'
 import Routes from '@/constants/routes'
 import { reapitConnectBrowserSession } from '@/core/connect-session'
 import { ReapitConnectSession, useReapitConnect } from '@reapit/connect-session'

@@ -1,5 +1,5 @@
 import React, { ChangeEvent, Dispatch, MouseEvent, FC, SetStateAction, useCallback, useEffect } from 'react'
-import { Input } from '@reapit/elements/v3'
+import { Input } from '@reapit/elements'
 import {
   DepartureIcon,
   DestinationLocationSection,

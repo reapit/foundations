@@ -20,6 +20,7 @@
   "dependencies": {
     "@reapit/connect-session": "workspace:packages/connect-session",
     "@reapit/elements": "workspace:packages/elements",
+    "@reapit/elements-legacy": "workspace:packages/elements-legacy",
     "@reapit/utils": "workspace:packages/utils",
     "@sentry/browser": "^5.30.0",
     "chart.js": "^2.9.4",

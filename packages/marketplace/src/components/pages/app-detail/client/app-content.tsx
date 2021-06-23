@@ -1,5 +1,5 @@
 import * as React from 'react'
-import { FadeIn, Section } from '@reapit/elements'
+import { FadeIn, Section } from '@reapit/elements-legacy'
 import {
   SummarySection,
   AdditionalImagesSection,

@@ -1,4 +1,4 @@
-import { notification } from '@reapit/elements'
+import { notification } from '@reapit/elements-legacy'
 import { developerSetStatusRequestSaga } from '../developer-set-status'
 import { put, call } from '@redux-saga/core/effects'
 import { cloneableGenerator } from '@redux-saga/testing-utils'

@@ -1,5 +1,5 @@
 import React from 'react'
-import { Content, FadeIn, H3, H5, Section } from '@reapit/elements'
+import { Content, FadeIn, H3, H5, Section } from '@reapit/elements-legacy'
 import SubscriptionsContent from './subscriptions-content'
 
 export const Subscriptions: React.FC = () => {

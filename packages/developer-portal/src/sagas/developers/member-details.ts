@@ -11,7 +11,7 @@ import {
 import errorMessages from '@/constants/error-messages'
 import ActionTypes from '@/constants/action-types'
 import { fetchMemberDetailsSuccess, fetchMemberDetailsFailed, setInviteMemberStatus } from '@/actions/developers'
-import { notification } from '@reapit/elements'
+import { notification } from '@reapit/elements-legacy'
 
 export const fetchMemberDetailsSaga = function* ({ data }: Action<FetchMemberDetailsParams>) {
   try {

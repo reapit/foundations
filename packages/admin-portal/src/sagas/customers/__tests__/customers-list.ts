@@ -6,7 +6,7 @@ import { cloneableGenerator } from '@redux-saga/testing-utils'
 import { Action } from '@/types/core'
 import { fetchCustomersList } from '@/services/customers'
 import { CUSTOMERS_PER_PAGE } from '@/constants/paginator'
-import { notification } from '@reapit/elements'
+import { notification } from '@reapit/elements-legacy'
 import { fetchCustomersListFailed, fetchCustomersListSuccess, FetchCustomersListQueryParams } from '@/actions/customers'
 
 jest.mock('@/services/approvals')

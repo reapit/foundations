@@ -1,5 +1,5 @@
 import React from 'react'
-import { ModalV2, Formik, Input, Form, Content, Button } from '@reapit/elements'
+import { ModalV2, Formik, Input, Form, Content, Button } from '@reapit/elements-legacy'
 import { getParamsFromPath } from '@/utils/client-url-params'
 import { useLocation } from 'react-router'
 import { useDispatch, useSelector } from 'react-redux'

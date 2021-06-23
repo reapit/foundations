@@ -1,5 +1,5 @@
 import * as React from 'react'
-import { Button, Modal, ModalProps, SubTitleH6 } from '@reapit/elements'
+import { Button, Modal, ModalProps, SubTitleH6 } from '@reapit/elements-legacy'
 
 export type ClientWelcomeMessageModalProps = {
   onAccept: () => void

@@ -1,5 +1,5 @@
 import * as React from 'react'
-import { H3, H5, Section, Content } from '@reapit/elements'
+import { H3, H5, Section, Content } from '@reapit/elements-legacy'
 import { useQuery } from '@apollo/react-hooks'
 import GET_APPOINTMENTS from './gql/get-appointments.graphql'
 

@@ -3,7 +3,7 @@ import Router from './router'
 import { css } from 'linaria'
 import { useReapitConnect, LoginIdentity } from '@reapit/connect-session'
 import { reapitConnectBrowserSession } from './connect-session'
-import { FlexContainerBasic, FlexContainerResponsive, Loader } from '@reapit/elements'
+import { FlexContainerBasic, FlexContainerResponsive, Loader } from '@reapit/elements-legacy'
 
 export const globals = css`
   :global() {

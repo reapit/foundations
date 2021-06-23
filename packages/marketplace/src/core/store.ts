@@ -1,7 +1,7 @@
 import { createStore, applyMiddleware, compose, combineReducers, Store as ReduxStore, Dispatch } from 'redux'
 import createSagaMiddleware from 'redux-saga'
 import { fork, all } from '@redux-saga/core/effects'
-import { injectSwitchModeToWindow } from '@reapit/elements'
+import { injectSwitchModeToWindow } from '@reapit/elements-legacy'
 import { ReduxState } from '@/types/core'
 import apps from '@/reducers/apps'
 import negotiators from '@/reducers/negotiators'

@@ -9,7 +9,7 @@ import { extractNetworkErrString } from '@reapit/utils'
 import { fetchAppsList } from '@/services/apps'
 import { fetchDevelopersList } from '@/services/developers'
 import { fetchInstallationsList } from '@/services/installations'
-import { notification } from '@reapit/elements'
+import { notification } from '@reapit/elements-legacy'
 
 export const MARKETPLACE_GOLIVE_DATE = '2020-02-14'
 

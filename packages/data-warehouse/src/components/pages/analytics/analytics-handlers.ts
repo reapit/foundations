@@ -8,7 +8,7 @@ import {
 import dayjs from 'dayjs'
 import { saveAs } from 'file-saver'
 import { Dispatch, SetStateAction } from 'react'
-import { DATE_TIME_FORMAT } from '@reapit/elements'
+import { DATE_TIME_FORMAT } from '@reapit/elements-legacy'
 import { MessageState } from '../../../context/message-context'
 import { getBillingByDatesService, getBillingByMonthService } from '../../../services/billing'
 import { SettingsModel } from '../../../types/settings'

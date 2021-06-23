@@ -2,7 +2,7 @@ import * as React from 'react'
 import { mount } from 'enzyme'
 import { WHOLE_ORG, SPECIFIC_OFFICE_GROUPS } from '../app-installation-manager'
 import AppInstallationConfirmationModal from '../app-installation-confirmation-modal'
-import { Button } from '@reapit/elements'
+import { Button } from '@reapit/elements-legacy'
 
 describe('AppInstallationConfirmationModal', () => {
   it('should match a snapshot when the install type is WHOLE_ORG', () => {

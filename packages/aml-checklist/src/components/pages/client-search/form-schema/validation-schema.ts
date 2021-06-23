@@ -1,7 +1,7 @@
 import * as Yup from 'yup'
 import formFields from './form-fields'
 import errorMessages from '@/constants/error-messages'
-import { letterNumberSpaceRegex } from '@reapit/elements'
+import { letterNumberSpaceRegex } from '@reapit/elements-legacy'
 
 const { MAXIMUM_CHARACTER_LENGTH, FIELD_REQUIRED, FIELD_GENERAL_ERROR } = errorMessages
 const { nameField, addressField } = formFields

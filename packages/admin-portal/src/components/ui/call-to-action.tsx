@@ -1,5 +1,5 @@
 import * as React from 'react'
-import { Button, Alert, FlexContainerBasic } from '@reapit/elements'
+import { Button, Alert, FlexContainerBasic } from '@reapit/elements-legacy'
 
 type CTAType = 'success' | 'danger'
 

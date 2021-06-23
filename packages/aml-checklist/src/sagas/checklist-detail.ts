@@ -1,5 +1,5 @@
 import { selectCheckListDetailContact, selectCheckListDetailIdCheck } from '@/selectors/checklist-detail'
-import { isBase64, navigateDynamicApp, DynamicLinkParams, isEmptyObject, notification } from '@reapit/elements'
+import { isBase64, navigateDynamicApp, DynamicLinkParams, isEmptyObject, notification } from '@reapit/elements-legacy'
 import { put, fork, takeLatest, all, call, select } from '@redux-saga/core/effects'
 import { Action } from '@/types/core'
 import ActionTypes from '@/constants/action-types'

@@ -2,7 +2,7 @@ import * as React from 'react'
 import { useHistory } from 'react-router'
 import { useSelector } from 'react-redux'
 import { History } from 'history'
-import { Pagination, Section, H3, Button } from '@reapit/elements'
+import { Pagination, Section, H3, Button } from '@reapit/elements-legacy'
 import AppList from '@/components/ui/apps/app-list'
 import ErrorBoundary from '@/components/hocs/error-boundary'
 import { SandboxPopUp } from '@/components/ui/popup/sandbox-pop-up'
@@ -11,7 +11,7 @@ import { getParamValueFromPath } from '@/utils/client-url-params'
 import Routes from '@/constants/routes'
 import { SubmitAppWizardModal } from '@/components/ui/submit-app-wizard'
 import { selectAppListState } from '@/selector/apps/app-list'
-import { Loader } from '@reapit/elements/v3'
+import { Loader } from '@reapit/elements'
 
 export const handleOnCardClick = (history: History) => (app: AppSummaryModel) => {
   history.push(`${Routes.APPS}/${app.id}`)

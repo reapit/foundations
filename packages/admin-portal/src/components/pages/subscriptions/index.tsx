@@ -15,7 +15,7 @@ import {
   Alert,
   Button,
   notification,
-} from '@reapit/elements'
+} from '@reapit/elements-legacy'
 import Routes from '@/constants/routes'
 import SubscriptionsFilterForm, {
   SubscriptionsFilterFormValues,

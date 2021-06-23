@@ -11,7 +11,7 @@ import { StepInputAuthenticationUris } from './steps/step-input-authentication-u
 import { StepGrantPermissions } from './steps/step-grant-permisions'
 import { StepSubmitAppSuccess } from './steps/step-submit-app-success'
 import { StepChoseAuthType } from './steps/step-chose-auth-type'
-import { Formik, FormikHelpers, Form, ModalV2 } from '@reapit/elements'
+import { Formik, FormikHelpers, Form, ModalV2 } from '@reapit/elements-legacy'
 import { WizardStep, WizardStepComponent, SetWizardStep } from './types'
 import { formFields } from './form-fields'
 import { validationSchemas } from './validation-schema'

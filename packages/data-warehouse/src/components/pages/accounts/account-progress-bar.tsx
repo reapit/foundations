@@ -1,5 +1,5 @@
 import React, { Dispatch, SetStateAction, useEffect } from 'react'
-import { Section } from '@reapit/elements'
+import { Section } from '@reapit/elements-legacy'
 import { ProgressBar, ProgressMessageText } from './__styles__/account-progress-bar'
 
 export interface AccountProgressBarProps {

@@ -1,5 +1,5 @@
 import React, { useState, SetStateAction } from 'react'
-import { H5, Table, getDate } from '@reapit/elements'
+import { H5, Table, getDate } from '@reapit/elements-legacy'
 import { useSelector, useDispatch } from 'react-redux'
 import { developerFetchSubscriptions, developerDeleteSubscription } from '@/actions/developer-subscriptions'
 import { selectSubscriptions, selectSubscriptionsLoading } from '@/selector/developer-subscriptions'
@@ -12,7 +12,7 @@ import { useReapitConnect } from '@reapit/connect-session'
 import { reapitConnectBrowserSession } from '@/core/connect-session'
 import { getDeveloperIdFromConnectSession } from '@/utils/session'
 import FadeIn from '../../../../styles/fade-in'
-import { Loader } from '@reapit/elements/v3'
+import { Loader } from '@reapit/elements'
 
 export const TimeCell = ({ cell: { value } }) => <p>{getDate(value)}</p>
 export const StatusCell = ({ cell: { value } }) => <p>{value ? 'Cancelled' : 'Active'}</p>

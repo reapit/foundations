@@ -1,6 +1,6 @@
 import React, { useContext, useEffect, useState } from 'react'
 import { Bar } from 'react-chartjs-2'
-import { H5, Section, Loader, FadeIn } from '@reapit/elements'
+import { H5, Section, Loader, FadeIn } from '@reapit/elements-legacy'
 import { BillingOverviewForPeriodV2Model } from '@reapit/foundations-ts-definitions'
 import { useReapitConnect } from '@reapit/connect-session'
 import { reapitConnectBrowserSession } from '@/core/connect-session'

@@ -1,4 +1,4 @@
-import { notification } from '@reapit/elements'
+import { notification } from '@reapit/elements-legacy'
 
 import ActionTypes from '@/constants/action-types'
 import errorMessages from '@/constants/error-messages'

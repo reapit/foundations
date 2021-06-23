@@ -8,7 +8,7 @@ import {
   Checkbox,
   FormikErrors,
   Helper,
-} from '@reapit/elements'
+} from '@reapit/elements-legacy'
 import { ScopeModel, CreateAppModel } from '@reapit/foundations-ts-definitions'
 import { formFields } from './form-schema/form-fields'
 

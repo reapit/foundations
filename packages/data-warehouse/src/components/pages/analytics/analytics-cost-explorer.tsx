@@ -13,7 +13,7 @@ import {
   DatePicker,
   DATE_TIME_FORMAT,
   Loader,
-} from '@reapit/elements'
+} from '@reapit/elements-legacy'
 import { useReapitConnect } from '@reapit/connect-session'
 import { reapitConnectBrowserSession } from '@/core/connect-session'
 import { BillingBreakdownForMonthV2Model } from '@reapit/foundations-ts-definitions'

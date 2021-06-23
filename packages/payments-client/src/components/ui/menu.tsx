@@ -1,6 +1,6 @@
 import * as React from 'react'
 import { withRouter, RouteComponentProps } from 'react-router'
-import { Menu as Sidebar, MenuConfig, ReapitHouseIcon, PaymentsIcon, AppsIcon, ProfileIcon } from '@reapit/elements'
+import { Menu as Sidebar, MenuConfig, ReapitHouseIcon, PaymentsIcon, AppsIcon, ProfileIcon } from '@reapit/elements-legacy'
 import { reapitConnectBrowserSession } from '../../core/connect-session'
 import { useReapitConnect } from '@reapit/connect-session'
 import { Location } from 'history'

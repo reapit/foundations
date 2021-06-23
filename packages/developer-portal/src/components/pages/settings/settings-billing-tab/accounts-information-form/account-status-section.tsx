@@ -1,5 +1,5 @@
 import * as React from 'react'
-import { GridItem, Input, Content } from '@reapit/elements'
+import { GridItem, Input, Content } from '@reapit/elements-legacy'
 import formFields from './form-schema/form-fields'
 
 const { statusField } = formFields

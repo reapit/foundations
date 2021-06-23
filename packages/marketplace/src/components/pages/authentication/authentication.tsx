@@ -1,7 +1,7 @@
 import * as React from 'react'
 import { Dispatch } from 'redux'
 import { useDispatch } from 'react-redux'
-import { Modal, Button } from '@reapit/elements'
+import { Modal, Button } from '@reapit/elements-legacy'
 import { developerRoutes } from '@/constants/routes'
 import { reapitConnectBrowserSession } from '@/core/connect-session'
 

@@ -3,7 +3,7 @@ import { Route, RouteProps } from 'react-router'
 import { Redirect } from 'react-router-dom'
 import RouteFetcher from '../components/hocs/route-fetcher'
 import Routes from '@/constants/routes'
-import { getMarketplaceGlobalsByKey } from '@reapit/elements'
+import { getMarketplaceGlobalsByKey } from '@reapit/elements-legacy'
 
 export interface PrivateRouteProps {
   component: React.FunctionComponent

@@ -7,7 +7,7 @@ import appState from '@/reducers/__stubs__/app-state'
 import { handleUpdateTerms, PrivateRouteWrapper } from '../private-route-wrapper'
 import { updateCurrentMember } from '../../actions/current-member'
 import dayjs from 'dayjs'
-import { DATE_TIME_FORMAT } from '@reapit/elements'
+import { DATE_TIME_FORMAT } from '@reapit/elements-legacy'
 
 const locationMock = { search: '', pathname: '/test' }
 

@@ -4,7 +4,7 @@ import { AppSidebar, FilterForm, handleSelectCategory, handleSearchApp } from '.
 import { FormFields, formFields } from '../form-fields'
 import { addQuery, removeQuery } from '@/utils/client-url-params'
 import { selectCategories } from '@/selector/categories'
-import { FormikProps } from '@reapit/elements'
+import { FormikProps } from '@reapit/elements-legacy'
 import { useHistory, useLocation } from 'react-router'
 import { useSelector } from 'react-redux'
 import { CategoryModel } from '@reapit/foundations-ts-definitions'

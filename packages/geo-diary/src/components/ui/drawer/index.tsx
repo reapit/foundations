@@ -3,7 +3,7 @@ import { cx } from 'linaria'
 import { useSwipeable } from 'react-swipeable'
 import IconButton from '../icon-button'
 import * as styles from './__styles__'
-import { H5 } from '@reapit/elements'
+import { H5 } from '@reapit/elements-legacy'
 
 export interface IDrawerProps {
   isOpen: boolean

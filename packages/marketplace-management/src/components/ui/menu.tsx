@@ -9,7 +9,7 @@ import {
   UsersIcon,
   MarketplaceIcon,
   AppsIcon,
-} from '@reapit/elements'
+} from '@reapit/elements-legacy'
 import { reapitConnectBrowserSession } from '@/core/connect-session'
 import { useReapitConnect } from '@reapit/connect-session'
 import { Location } from 'history'

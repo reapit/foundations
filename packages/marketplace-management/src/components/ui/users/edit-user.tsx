@@ -12,7 +12,7 @@ import {
   Loader,
   notification,
   ButtonGroup,
-} from '@reapit/elements'
+} from '@reapit/elements-legacy'
 import { UserModel, GroupModelPagedResult } from '../../../types/organisations-schema'
 import { URLS } from '../../../constants/api'
 import { addMemberToGroup, removeMemberFromGroup } from '../../../services/user'

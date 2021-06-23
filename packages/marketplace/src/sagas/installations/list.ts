@@ -4,7 +4,7 @@ import { fetchInstallationsListSuccess, fetchInstallationsListFailed } from '@/a
 import { fetchInstallationsList, FetchInstallationsListParams } from '@/services/installations'
 import errorMessages from '@/constants/error-messages'
 import { Action } from '@/types/core'
-import { notification } from '@reapit/elements'
+import { notification } from '@reapit/elements-legacy'
 
 export const fetchInstallationsListSaga = function* ({ data }) {
   try {

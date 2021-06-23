@@ -1,5 +1,5 @@
 jest.mock('@reapit/elements')
-import { fetcher } from '@reapit/elements'
+import { fetcher } from '@reapit/elements-legacy'
 import { CreateTransactionModel } from '../../types/opayo'
 import { opayoCreateTransactionService, opayoMerchantKeyService } from '../opayo'
 

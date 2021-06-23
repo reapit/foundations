@@ -1,5 +1,5 @@
 import * as Yup from 'yup'
-import { letterNumberSpaceRegex } from '@reapit/elements'
+import { letterNumberSpaceRegex } from '@reapit/elements-legacy'
 import { formFields } from './form-fields'
 import errorMessages from '@/constants/error-messages'
 

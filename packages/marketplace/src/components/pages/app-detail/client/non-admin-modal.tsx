@@ -1,5 +1,5 @@
 import React from 'react'
-import { ModalV2, Content, Button } from '@reapit/elements'
+import { ModalV2, Content, Button } from '@reapit/elements-legacy'
 
 export type NonAdminInstallModalProps = {
   visible: boolean

@@ -3,7 +3,7 @@ import { fetchScopeList, fetchScopeListSuccess, fetchScopeListFailed } from '@/a
 import errorMessages from '@/constants/error-messages'
 import { Action } from '@/types/core'
 import { fetchScopeListAPI } from '@/services/scopes'
-import { notification } from '@reapit/elements'
+import { notification } from '@reapit/elements-legacy'
 
 export const fetchScopeListSaga = function* () {
   try {

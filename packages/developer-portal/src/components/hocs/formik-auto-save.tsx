@@ -1,7 +1,7 @@
 import * as React from 'react'
 import { connect } from 'formik'
 import isEqual from 'lodash.isequal'
-import { FormikContextType } from '@reapit/elements'
+import { FormikContextType } from '@reapit/elements-legacy'
 
 export const handleUseEffectToSetValueToCurrentRef = (value, ref) => {
   return () => {

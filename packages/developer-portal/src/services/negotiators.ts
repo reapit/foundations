@@ -1,4 +1,4 @@
-import { fetcher, setQueryParams } from '@reapit/elements'
+import { fetcher, setQueryParams } from '@reapit/elements-legacy'
 import { getPlatformHeaders, logger } from '@reapit/utils'
 import { reapitConnectBrowserSession } from '../core/connect-session'
 import { URLS } from './constants'

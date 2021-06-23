@@ -1,7 +1,7 @@
 import React from 'react'
 import AppRevisionModal from './app-revision-modal'
 import AppDeleteModal from '@/components/pages/app-detail/app-delete-modal'
-import { Content, Button } from '@reapit/elements'
+import { Content, Button } from '@reapit/elements-legacy'
 import { useHistory } from 'react-router'
 import routes from '@/constants/routes'
 import { History } from 'history'

@@ -1,9 +1,9 @@
 import { reapitConnectBrowserSession } from '@/core/connect-session'
 import { releaseServicePaginate } from '@/platform-api/releases'
 import { ReapitConnectSession, useReapitConnect } from '@reapit/connect-session'
-import { FlexContainerBasic, H3, Section } from '@reapit/elements'
-import { Button, Table } from '@reapit/elements'
-import { Loader } from '@reapit/elements/v3'
+import { FlexContainerBasic, H3, Section } from '@reapit/elements-legacy'
+import { Button, Table } from '@reapit/elements-legacy'
+import { Loader } from '@reapit/elements'
 import React, { useEffect, useState } from 'react'
 
 export default () => {

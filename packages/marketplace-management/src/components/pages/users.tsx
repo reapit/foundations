@@ -1,6 +1,6 @@
 import React from 'react'
 import { useHistory, useLocation } from 'react-router'
-import { H3, Section, Tabs, TabConfig } from '@reapit/elements'
+import { H3, Section, Tabs, TabConfig } from '@reapit/elements-legacy'
 import { Route } from 'react-router-dom'
 import Routes from '../../constants/routes'
 import UsersTab from '../ui/users/users-tab'

@@ -1,5 +1,5 @@
 import * as React from 'react'
-import { Section, H5, FadeIn, DATE_TIME_FORMAT, Loader, Formik, DatePicker, Form } from '@reapit/elements'
+import { Section, H5, FadeIn, DATE_TIME_FORMAT, Loader, Formik, DatePicker, Form } from '@reapit/elements-legacy'
 import ErrorBoundary from '../../hocs/error-boundary'
 import { Line } from 'react-chartjs-2'
 import { useCallback, useContext, useEffect, useState } from 'react'

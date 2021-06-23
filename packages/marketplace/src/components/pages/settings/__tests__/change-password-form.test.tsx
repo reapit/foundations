@@ -1,7 +1,7 @@
 import React from 'react'
 import { shallow } from 'enzyme'
 import { ChangePasswordForm, handleSubmitChangePassword, ChangePasswordValues } from '../change-password-form'
-import { FormikHelpers } from '@reapit/elements'
+import { FormikHelpers } from '@reapit/elements-legacy'
 
 describe('ChangePasswordForm', () => {
   it('should match snapshot', () => {

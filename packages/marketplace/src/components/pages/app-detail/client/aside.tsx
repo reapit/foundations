@@ -1,6 +1,6 @@
 import React from 'react'
 import { DesktopIntegrationTypeModel, AppDetailModel } from '@reapit/foundations-ts-definitions'
-import { FlexContainerBasic } from '@reapit/elements'
+import { FlexContainerBasic } from '@reapit/elements-legacy'
 import { ContactDeveloperSection } from './contact-developer-section'
 import useReactResponsive from '@/components/hooks/use-react-responsive'
 import { History } from 'history'

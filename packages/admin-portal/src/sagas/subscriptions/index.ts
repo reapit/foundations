@@ -12,7 +12,7 @@ import {
   createSubscriptionSuccess,
 } from '@/actions/subscriptions'
 
-import { notification } from '@reapit/elements'
+import { notification } from '@reapit/elements-legacy'
 import { Action } from '@/types/core'
 import ActionTypes from '@/constants/action-types'
 import { REVISIONS_PER_PAGE } from '@/constants/paginator'

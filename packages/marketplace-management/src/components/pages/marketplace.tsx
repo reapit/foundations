@@ -1,5 +1,5 @@
 import React, { Dispatch, SetStateAction, useCallback, useEffect, useState } from 'react'
-import { H3, Section, H5, Pagination, GridFourCol, GridFourColItem, FadeIn, Loader } from '@reapit/elements'
+import { H3, Section, H5, Pagination, GridFourCol, GridFourColItem, FadeIn, Loader } from '@reapit/elements-legacy'
 import { useHistory, useLocation } from 'react-router'
 import { History } from 'history'
 import Routes from '../../constants/routes'

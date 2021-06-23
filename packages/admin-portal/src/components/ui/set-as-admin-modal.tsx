@@ -1,5 +1,5 @@
 import React, { useState } from 'react'
-import { Modal, ModalHeader, ModalBody, ModalFooter, Button } from '@reapit/elements'
+import { Modal, ModalHeader, ModalBody, ModalFooter, Button } from '@reapit/elements-legacy'
 import { setAsAdmin, SetAsAdminParams } from '@/actions/devs-management'
 import { useDispatch } from 'react-redux'
 import { Dispatch } from 'redux'

@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react'
 import useSWR from 'swr'
-import { Helper, Loader } from '@reapit/elements'
+import { Helper, Loader } from '@reapit/elements-legacy'
 import { sessionFetcher } from '../../utils/fetcher'
 import PropertyPageContent from '../ui/payment-page-content'
 import { URLS } from '../../constants/api'

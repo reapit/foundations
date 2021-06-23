@@ -1,4 +1,4 @@
-import { DATE_TIME_FORMAT, toLocalTime, toUTCTime } from '@reapit/elements'
+import { DATE_TIME_FORMAT, toLocalTime, toUTCTime } from '@reapit/elements-legacy'
 import MockDate from 'mockdate'
 import { idCheck } from '@/sagas/__stubs__/id-check'
 import {

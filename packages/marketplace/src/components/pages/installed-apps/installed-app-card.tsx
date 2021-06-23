@@ -1,7 +1,7 @@
 import * as React from 'react'
 import { AppSummaryModel } from '@reapit/foundations-ts-definitions'
 import * as installedAppCardStyles from './__styles__/installed-app-card'
-import { isMobile, Tile } from '@reapit/elements'
+import { isMobile, Tile } from '@reapit/elements-legacy'
 import defaultAppIcon from '@/assets/images/default-app-icon.jpg'
 import * as appCardStyles from '../../ui/app-card/__styles__'
 

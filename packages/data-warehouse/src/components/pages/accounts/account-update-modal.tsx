@@ -1,5 +1,5 @@
 import React, { useContext } from 'react'
-import { Button, Form, Formik, FormSection, FormSubHeading, Input, LevelRight, Modal } from '@reapit/elements'
+import { Button, Form, Formik, FormSection, FormSubHeading, Input, LevelRight, Modal } from '@reapit/elements-legacy'
 import * as Yup from 'yup'
 import { passwordRegex } from '@reapit/utils'
 import { AccountCreateModel } from '../../../types/accounts'

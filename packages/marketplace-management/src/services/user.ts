@@ -1,6 +1,6 @@
 import { reapitConnectBrowserSession } from '../core/connect-session'
 import { URLS } from '../constants/api'
-import { fetcher } from '@reapit/elements'
+import { fetcher } from '@reapit/elements-legacy'
 import { getPlatformHeaders, logger } from '@reapit/utils'
 
 interface UpdateUserGroupParams {

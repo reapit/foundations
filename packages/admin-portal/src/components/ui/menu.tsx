@@ -12,7 +12,7 @@ import {
   ResultsIcon,
   UsersIcon,
   ProfileIcon,
-} from '@reapit/elements'
+} from '@reapit/elements-legacy'
 import Routes from '../../constants/routes'
 import { Location } from 'history'
 import { useReapitConnect } from '@reapit/connect-session'

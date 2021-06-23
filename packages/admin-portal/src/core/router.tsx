@@ -4,8 +4,8 @@ import { catchChunkError } from '@reapit/utils'
 import Routes from '../constants/routes'
 import PrivateRoute from './private-route'
 import { createBrowserHistory } from 'history'
-import { Info } from '@reapit/elements'
-import { PortalProvider } from '@reapit/elements'
+import { Info } from '@reapit/elements-legacy'
+import { PortalProvider } from '@reapit/elements-legacy'
 import { OkayPage } from '@reapit/utils'
 
 export const history = createBrowserHistory()

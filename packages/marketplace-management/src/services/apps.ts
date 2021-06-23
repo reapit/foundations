@@ -1,4 +1,4 @@
-import { fetcher, notification } from '@reapit/elements'
+import { fetcher, notification } from '@reapit/elements-legacy'
 import { AppSummaryModelPagedResult } from '@reapit/foundations-ts-definitions'
 import { reapitConnectBrowserSession } from '../core/connect-session'
 import { URLS } from '../constants/api'

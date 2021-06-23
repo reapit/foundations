@@ -1,7 +1,7 @@
 import * as React from 'react'
 import { openChatbot } from '../../../scripts/chat-bot'
 import { history } from '@/core/router'
-import { H3 } from '@reapit/elements'
+import { H3 } from '@reapit/elements-legacy'
 import Routes from '@/constants/routes'
 import { HelpLinks } from '@/constants/developer-help-links'
 import welcomeImg from '@/assets/images/help/welcome-guide.jpg'

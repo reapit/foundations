@@ -13,7 +13,7 @@ import { getDeveloperId } from '@/utils/session'
 import { reapitConnectBrowserSession } from '@/core/connect-session'
 import { changePasswordService } from '@/services/cognito-identity'
 import { selectDeveloperEmail } from '@/selector'
-import { notification } from '@reapit/elements'
+import { notification } from '@reapit/elements-legacy'
 
 export const developerInformationFetch = function* () {
   yield put(settingShowLoading(true))

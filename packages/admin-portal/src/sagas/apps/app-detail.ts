@@ -5,7 +5,7 @@ import { Action } from '@/types/core'
 import { extractNetworkErrString } from '@reapit/utils'
 import { fetchAppById } from '@/services/apps'
 import { fetchApiKeyInstallationById } from '@/services/installations'
-import { notification } from '@reapit/elements'
+import { notification } from '@reapit/elements-legacy'
 
 export const appDetailDataFetch = function* ({ data }: Action<AppDetailParams>) {
   try {

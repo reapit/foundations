@@ -11,7 +11,7 @@ import {
   notification,
   SelectOption,
   ButtonGroup,
-} from '@reapit/elements'
+} from '@reapit/elements-legacy'
 import { createOfficeGroup } from '../../../services/office'
 import { toastMessages } from '../../../constants/toast-messages'
 import { prepareOfficeOptions } from '../../../utils/prepare-options'

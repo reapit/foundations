@@ -1,5 +1,5 @@
 import React, { useContext, useEffect, useState } from 'react'
-import { H5, Grid, GridItem, Content, Section, Button, FadeIn, Loader } from '@reapit/elements'
+import { H5, Grid, GridItem, Content, Section, Button, FadeIn, Loader } from '@reapit/elements-legacy'
 import { PricingTile } from './__styles__/pricing-tile'
 import { MessageContext } from '../../../context/message-context'
 import { SubscriptionModelPagedResult } from '@reapit/foundations-ts-definitions'

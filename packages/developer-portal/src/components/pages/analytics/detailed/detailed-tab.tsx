@@ -6,7 +6,7 @@ import { InstallationModel, AppSummaryModel } from '@reapit/foundations-ts-defin
 import { getAppHttpTraffic } from '@/selector/analytics'
 import { selectInstallationsListData, selectInstallationsFilterListData } from '@/selector/installations'
 
-import { Grid, GridItem } from '@reapit/elements'
+import { Grid, GridItem } from '@reapit/elements-legacy'
 import DeveloperHitsPerDayChart from './hits-per-day-chart'
 import InstallationAppSection, { InstallationModelWithAppName } from './installation-app-section'
 import FilterBar from './filter-bar'

@@ -1,5 +1,5 @@
 import * as React from 'react'
-import { Button } from '@reapit/elements'
+import { Button } from '@reapit/elements-legacy'
 import { AppDetailModel } from '@reapit/foundations-ts-definitions'
 import { selectClientId, selectSandboxDeveloper } from '@/selector/auth'
 import { reapitConnectBrowserSession } from '@/core/connect-session'

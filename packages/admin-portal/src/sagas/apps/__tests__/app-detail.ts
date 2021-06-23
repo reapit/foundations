@@ -7,7 +7,7 @@ import { Action } from '@/types/core'
 import { cloneableGenerator } from '@redux-saga/testing-utils'
 import { fetchAppById } from '@/services/apps'
 import { fetchApiKeyInstallationById } from '@/services/installations'
-import { notification } from '@reapit/elements'
+import { notification } from '@reapit/elements-legacy'
 import { errorMessages } from '@reapit/utils'
 
 jest.mock('@reapit/elements')

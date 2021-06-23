@@ -2,7 +2,7 @@ import { DeveloperModel } from '@reapit/foundations-ts-definitions'
 import * as React from 'react'
 import { Dispatch } from 'redux'
 import { useSelector, useDispatch } from 'react-redux'
-import { Modal, ModalProps } from '@reapit/elements'
+import { Modal, ModalProps } from '@reapit/elements-legacy'
 import { selectLoginIdentity } from '@/selector/auth'
 import {
   selectCreateDeveloperSubscriptionLoading,

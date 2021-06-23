@@ -9,7 +9,7 @@ import {
   RejectRevisionModel,
   AppClientSecretModel,
 } from '@reapit/foundations-ts-definitions'
-import { fetcher, fetcherWithReturnHeader, fetcherWithRawUrl, setQueryParams } from '@reapit/elements'
+import { fetcher, fetcherWithReturnHeader, fetcherWithRawUrl, setQueryParams } from '@reapit/elements-legacy'
 import { URLS } from './constants'
 import { logger, getPlatformHeaders } from '@reapit/utils'
 import { FetchByIdCommonParams, FetchListCommonParams } from './types'

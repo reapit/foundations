@@ -1,7 +1,7 @@
 import React from 'react'
 import { useReapitConnect } from '@reapit/connect-session'
 import { reapitConnectBrowserSession } from '@/core/connect-session'
-import { NavResponsive, NavResponsiveOption } from '@reapit/elements/v3'
+import { NavResponsive, NavResponsiveOption } from '@reapit/elements'
 import { MARKETPLACE_DEV_URL, MARKETPLACE_PROD_URL } from '../../../core/constants'
 
 export const callbackAppClick = () =>

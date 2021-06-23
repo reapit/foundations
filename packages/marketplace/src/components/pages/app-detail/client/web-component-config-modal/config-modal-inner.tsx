@@ -11,7 +11,7 @@ import {
   DropdownSelect,
   SelectOption,
   FormikProps,
-} from '@reapit/elements'
+} from '@reapit/elements-legacy'
 import { useDispatch, useSelector } from 'react-redux'
 import { NegotiatorModel } from '@reapit/foundations-ts-definitions'
 import { updateWebComponentConfig } from '@/actions/web-component'
@@ -24,7 +24,7 @@ import { selectNegotiators } from '@/selector/negotiators'
 import { UpdateWebComponentConfigParams } from '@/services/web-component'
 import { Dispatch } from 'redux'
 import { selectAppDetailData } from '@/selector/apps'
-import { Loader } from '@reapit/elements/v3'
+import { Loader } from '@reapit/elements'
 
 export const handleUpdateWebComponentConfig = (dispatch: Dispatch, appId: string, callback) => (
   params: FormikValues,

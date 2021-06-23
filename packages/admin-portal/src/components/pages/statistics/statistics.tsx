@@ -1,7 +1,7 @@
 import React, { useEffect } from 'react'
 import { useSelector, useDispatch } from 'react-redux'
 import { Dispatch } from 'redux'
-import { H3, ButtonGroup, Button, H6, Loader, H5, Section } from '@reapit/elements'
+import { H3, ButtonGroup, Button, H6, Loader, H5, Section } from '@reapit/elements-legacy'
 import { StatisticsRequestParams, fetchStatistics } from '@/actions/statistics'
 import { getRangeName } from '@/utils/statistics'
 import { selectStatistics } from '@/selector/admin'

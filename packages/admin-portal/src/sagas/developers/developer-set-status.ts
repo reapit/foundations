@@ -9,7 +9,7 @@ import { Action } from '@/types/core'
 import { DeveloperModel } from '@reapit/foundations-ts-definitions'
 import { extractNetworkErrString } from '@reapit/utils'
 import { updateDeveloperById } from '@/services/developers'
-import { notification } from '@reapit/elements'
+import { notification } from '@reapit/elements-legacy'
 
 export const DEVELOPER_ID_NOT_EXIST = 'developerId is not exist'
 export const setRequestDeveloperStatusFormStateSaga = function* ({ data: dev }) {

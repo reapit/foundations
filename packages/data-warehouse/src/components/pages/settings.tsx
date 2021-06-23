@@ -1,5 +1,5 @@
 import React from 'react'
-import { H3, H5, Section, Content } from '@reapit/elements'
+import { H3, H5, Section, Content } from '@reapit/elements-legacy'
 
 export type SettingsProps = {}
 

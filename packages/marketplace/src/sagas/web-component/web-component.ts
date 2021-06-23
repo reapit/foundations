@@ -1,4 +1,4 @@
-import { notification } from '@reapit/elements'
+import { notification } from '@reapit/elements-legacy'
 import { put, fork, takeLatest, all, call } from '@redux-saga/core/effects'
 import { Action } from '@/types/core'
 import ActionTypes from '@/constants/action-types'

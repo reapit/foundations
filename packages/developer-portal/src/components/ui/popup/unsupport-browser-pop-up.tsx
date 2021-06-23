@@ -1,5 +1,5 @@
 import * as React from 'react'
-import { ToastMessage } from '@reapit/elements'
+import { ToastMessage } from '@reapit/elements-legacy'
 import { wrapPopup } from './__styles__/popup'
 
 export const TIMEOUT_DURATION = 500

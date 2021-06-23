@@ -25,7 +25,7 @@ import {
   PagedResultWebhookModel_,
 } from '@/services/webhooks'
 import { fetchInstallationsList } from '@/services/installations'
-import { notification } from '@reapit/elements'
+import { notification } from '@reapit/elements-legacy'
 
 export const requestSubcriptionData = function* ({ data: applicationId }: Action<string>) {
   yield put(setApplicationId(applicationId))

@@ -1,6 +1,6 @@
 import React, { Dispatch, SetStateAction, useState } from 'react'
 import { AppDetailModel, AppSummaryModel } from '@reapit/foundations-ts-definitions'
-import { Section, notification, H5 } from '@reapit/elements'
+import { Section, notification, H5 } from '@reapit/elements-legacy'
 import { updateAppRestrictionsService } from '../../../services/apps'
 
 export interface AppToggleVisibilityProps {
