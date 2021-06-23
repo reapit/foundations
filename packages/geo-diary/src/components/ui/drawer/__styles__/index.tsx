@@ -1,7 +1,7 @@
 import { css } from 'linaria'
 import * as sizes from '../../../../core/__styles__/sizes'
 import * as colors from '../../../../core/__styles__/colors'
-import { appointmentListWidthDesktop } from '../../../pages/appointment/__styles__/page-layout-styles'
+import { appointmentListWidthDesktop } from '../../../../core/__styles__/page-layout-variables'
 
 const menuOffSet = '5rem'
 

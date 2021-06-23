@@ -41,7 +41,6 @@ export const handleGenerateUserText = (
   const userCode = session?.loginIdentity.userCode
   const orgName = session?.loginIdentity.orgName
   const negotiator = getNegotiator({ appointment, userCode })
-  console.log(userCode, appointment, negotiator)
   const customerName = name ? ` ${name}` : ''
   const negotiatorName = negotiator?.name ?? ''
   const negotiatorCompany = orgName ? ` from ${orgName}` : ''

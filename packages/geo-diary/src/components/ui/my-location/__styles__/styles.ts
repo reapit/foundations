@@ -1,14 +1,15 @@
 import { css } from 'linaria'
 import { styled } from 'linaria/react'
 import { isTablet } from '../../../../core/__styles__/media'
-import { appointmentListWidthDesktop } from '../../../pages/appointment/__styles__/page-layout-styles'
+import { appointmentListWidthDesktop } from '../../../../core/__styles__/page-layout-variables'
 
+// Modifiers
 export const myLocationHasDestination = css``
+export const destinationSectionExpanded = css``
 
 export const MyLocationWrap = styled.div`
   display: flex;
   width: 100%;
-  /* position: relative; */
 `
 
 export const MyLocationInnerWrap = styled.div`
@@ -20,15 +21,11 @@ export const MyLocationInnerWrap = styled.div`
 
 export const MyLocationSection = styled.div`
   display: flex;
-
   position: relative;
 `
 
-export const destinationSectionExpanded = css``
-
 export const DestinationLocationSection = styled.div`
   display: flex;
-
   border-bottom: var(--component-input-border-bottom);
   color: var(--color-black);
   overflow: hidden;
@@ -93,7 +90,7 @@ export const MyLocationIconContainer = styled.div`
 export const DepartureIcon = styled.div`
   position: absolute;
   left: 0;
-  top: 10px;
+  top: 0.75rem;
   border: 3px solid var(--intent-primary);
   border-radius: 50%;
   height: 0.875rem;
@@ -104,8 +101,8 @@ export const DepartureIcon = styled.div`
 export const JourneyIcon = styled.div`
   position: absolute;
   left: 5px;
-  top: 24px;
-  border-left: 2px solid var(--color-grey-medium);
+  top: 25px;
+  border-left: 3px solid var(--color-grey-medium);
   height: 1.5rem;
 `
 
@@ -120,7 +117,7 @@ export const MyLocationIconWrap = styled.div`
     position: absolute;
     left: 0;
     height: 1.1rem;
-    top: 45px;
+    top: 3rem;
     z-index: 1;
   }
 `
