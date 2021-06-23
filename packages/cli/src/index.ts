@@ -13,6 +13,13 @@ import { PipelineCommand } from './commands/pipeline'
 import { resolveArgs } from './utils/resolveArgs'
 import { ReactStarterCommand } from './commands/react-starter'
 import { DeployCommand } from './commands/deploy'
+import { CheckVersionCommand } from './commands/check-version'
+
+const checkVersion = async () => {
+  const checkVersion = new CheckVersionCommand()
+
+  await checkVersion.run()
+}
 
 const boot = async (defaultCommand: AbstractCommand, commands: (AbstractCommand | ParentCommand)[]) => {
   const processArgv = argv(process.argv.slice(2))
@@ -23,14 +30,18 @@ const boot = async (defaultCommand: AbstractCommand, commands: (AbstractCommand 
 
   if (!params && Object.keys(options).length === 0) {
     defaultCommand.run(params, options)
+    await checkVersion()
     return
   } else if (!params || (params.length === 0 && options)) {
     defaultCommand.run(params, options)
+    await checkVersion()
     const helpCommand = new HelpCommand()
     helpCommand.setCommands(commands)
     helpCommand.run()
     return
   }
+
+  await checkVersion()
 
   const command = commands.find((command) => {
     const commandConfig = Reflect.getOwnMetadata(COMMAND_OPTIONS, command.constructor)
