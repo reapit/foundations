@@ -1,0 +1,417 @@
+import { Meta, Story, Canvas, ArgsTable } from '@storybook/addon-docs/blocks'
+import { cx } from 'linaria'
+import { Table, Cell, Row } from './index'
+import {
+  TableHeadersRow,
+  TableHeader,
+  TableRow,
+  TableCell,
+  TableExpandableRowTriggerCell,
+  TableExpandableRow,
+} from './molecules'
+import { Icon } from '../icon'
+import { RenderHtmlMarkup } from '../../helpers/render-html-markup'
+
+<Meta title="V3/Table/Table" component={Table} />
+
+# Table
+
+## Summary
+
+The Table component can be used in 2 main ways within React.
+
+1. Building a table from the Table molecule components, e.g. `TableRow`, `TableCell`, etc
+1. Using the React shorthand and supplying a `rows` prop with data. This way offers advantages such as not needing to manage the state for the expandable rows.
+
+There are two visual styles for the table, dependant on screen width.
+
+1. Normal
+1. Narrow (AKA "mobile" but really it's for any screen that is narrow enough, could be a tablet, small desktop window, etc)
+
+On the Narrow version, the table's grid switches to a 2 column layout. There are additional modifiers that can then be
+applied to cells when it's in narrow mode, e.g. showing the header within the cell and whether a cell should be full width.
+
+### Molecule - Table
+
+<ArgsTable of={Table} />
+
+`Table` only renders children, unless the `rows` prop is supplied, then it works in the React shorthand fashion. This is documented on the main Table story.
+
+<Canvas>
+  <Story name="Rendering children">
+    <Table>
+      <p>
+        A child component of Table. It is expected you would use another Table molecule here, but anything will render.
+      </p>
+    </Table>
+  </Story>
+</Canvas>
+
+<RenderHtmlMarkup component="sTable" story="Rendering children" />
+
+## Creating a smaller final column, by explicitly setting the number of columns (optional)
+
+If you are using the expandable rows, you can set a react prop (or an HTML attribute if using raw HTML)
+of `data-num-columns-excl-expandable-row-trigger-col` and enter the number of columns
+present.
+
+This will tell the CSS grid how many columns to render, and give you one extra small column for putting the `<TableExpandableRowTriggerCell>`
+in since this doesn't need a lot of space. Valid values are any string between 2 and 12.
+
+Since an extra column is automatically added to give you space for the `<TableExpandableRowTriggerCell>` component, you should enter
+the number of columns required **excluding** the one for the `<TableExpandableRowTriggerCell>`.
+
+If using the Table component in React shorthand mode, `data-num-columns-excl-expandable-row-trigger-col` is set automatically for you.
+
+<Canvas>
+  <Story name="Setting the number of cols">
+    <Table data-num-columns-excl-expandable-row-trigger-col="4">
+      <p>A child component of Table. Different styles will be applied to other Table molecules now.</p>
+    </Table>
+  </Story>
+</Canvas>
+
+<RenderHtmlMarkup component="sTable" story="Setting the number of cols" />
+
+
+# Molecule - TableCell
+
+`TableCell` renders children, but also accepts some other props. Any other props given that aren't listed below are are applied to the underlying `div` element.
+
+<ArgsTable of={TableCell} />
+
+<Canvas>
+  <Story name="TableCell - Default usage">
+    <TableCell>
+      <p>£556.21</p>
+    </TableCell>
+  </Story>
+</Canvas>
+
+<RenderHtmlMarkup component="TableCell" story="TableCell - Default usage" />
+
+### With an icon
+
+Adds an icon at the start of the cell
+
+<Canvas>
+  <Story name="TableCell With an icon">
+    <TableCell icon="link">
+      <p>£556.21</p>
+    </TableCell>
+  </Story>
+</Canvas>
+
+<RenderHtmlMarkup component="TableCell" story="TableCell With an icon" />
+
+### With dark text
+
+Turns the cell's text colour to black to make a cell's content more bold.
+
+<Canvas>
+  <Story name="TableCell With dark text">
+    <TableCell darkText>
+      <p>£556.21</p>
+    </TableCell>
+  </Story>
+</Canvas>
+
+<RenderHtmlMarkup component="TableCell" story="TableCell With dark text" />
+
+### With a label for the narrow view mode
+
+Set a label that will be shown within a cell, when the table is in narrow view mode. **You may need to make your screen smaller to see this story.**
+
+HTML users, note that a data attribute is set `data-narrow-label`.
+
+<Canvas>
+  <Story name="TableCell - Narrow mode: with a label">
+    <TableCell narrowLabel="Sale Price">
+      <p>£556.21</p>
+    </TableCell>
+  </Story>
+</Canvas>
+
+<RenderHtmlMarkup component="TableCell" story="TableCell - Narrow mode: with a label" />
+
+### Full width cell in the narrow view mode
+
+If set, this prop will ensure that in narrow view mode the cell takes up both columns of a table.
+
+<Canvas>
+  <Story name="TableCell - Narrow mode: full width">
+    <TableCell narrowIsFullWidth>
+      <p>£556.21</p>
+    </TableCell>
+  </Story>
+</Canvas>
+
+<RenderHtmlMarkup component="TableCell" story="TableCell - Narrow mode: full width" />
+
+
+### Molecule - TableRow
+
+`TableRow` only renders children. Any other props given are applied to the underlying `div` element.
+
+<Canvas>
+  <Story name="TableRow">
+    <TableRow>
+      <p>Child of TableRow</p>
+    </TableRow>
+  </Story>
+</Canvas>
+
+<RenderHtmlMarkup component="TableRow" story="TableRow" />
+
+
+### Molecule - TableHeadersRow
+
+`TableHeadersRow` only renders children. Any other props given are applied to the underlying `div` element.
+
+<Canvas>
+  <Story name="TableHeadersRow">
+    <TableHeadersRow>
+      <p>Child of TableHeadersRow</p>
+    </TableHeadersRow>
+  </Story>
+</Canvas>
+
+<RenderHtmlMarkup component="TableHeadersRow" story="TableHeadersRow" />
+
+### Molecule - TableHeader
+
+`TableHeader` only renders children. Any other props given are applied to the underlying `div` element.
+
+<Canvas>
+  <Story name="TableHeader">
+    <TableHeader>
+      <p>Sale Price</p>
+    </TableHeader>
+  </Story>
+</Canvas>
+
+<RenderHtmlMarkup component="TableHeader" story="TableHeader" />
+
+### Molecule - TableExpandableRowTriggerCell
+
+`TableHeadersRow` renders an icon showing an up or down arrow dependant on the `isOpen` prop. It also renders any children if given some.
+
+Any other props given are applied to the underlying `div` element, e.g. `onClick` which will certainly need to be used to handle the `TableExpandableRow` opening and closing.
+
+<ArgsTable of={TableExpandableRowTriggerCell} />
+
+<Canvas>
+  <Story name="TableExpandableRowTriggerCell">
+    <TableExpandableRowTriggerCell />
+  </Story>
+</Canvas>
+
+<RenderHtmlMarkup component="TableExpandableRowTriggerCell" story="TableExpandableRowTriggerCell" />
+
+### TableExpandableRowTriggerCell isOpen
+
+<Canvas>
+  <Story name="TableExpandableRowTriggerCell isOpen">
+    <TableExpandableRowTriggerCell isOpen />
+  </Story>
+</Canvas>
+
+<RenderHtmlMarkup component="TableExpandableRowTriggerCell" story="TableExpandableRowTriggerCell isOpen" />
+
+### Molecule - TableExpandableRow
+
+`TableExpandableRow` only renders it's children. Any other props given are applied to the underlying `div` element.
+
+The isOpen prop toggles the `.el-is-active` class to show the content.
+
+<ArgsTable of={TableExpandableRow} />
+
+<Canvas>
+  <Story name="TableExpandableRow">
+    <TableExpandableRow>
+      <p>Content that won't be seen until the expandable row is open</p>
+    </TableExpandableRow>
+  </Story>
+</Canvas>
+
+<RenderHtmlMarkup component="TableExpandableRow" story="TableExpandableRow" />
+
+### TableExpandableRow isOpen
+
+<Canvas>
+  <Story name="TableExpandableRow - isOpen">
+    <TableExpandableRow isOpen>
+      <p>Content that won't be seen until the expandable row is open</p>
+    </TableExpandableRow>
+  </Story>
+</Canvas>
+
+<RenderHtmlMarkup component="TableExpandableRow" story="TableExpandableRow - isOpen" />
+
+
+### Table built from molecule components
+
+<Canvas>
+  <Story name="Combined Table">
+    <Table>
+      <TableHeadersRow>
+        <TableHeader>Property</TableHeader>
+        <TableHeader>Customer</TableHeader>
+        <TableHeader>Client A/C</TableHeader>
+        <TableHeader>Description</TableHeader>
+        <TableHeader>Request Date</TableHeader>
+        <TableHeader>Amount</TableHeader>
+        <TableHeader>Payment Status</TableHeader>
+        <TableHeader>
+          <Icon icon="solidEdit" fontSize="1.2rem" />
+        </TableHeader>
+      </TableHeadersRow>
+      <TableRow>
+        <TableCell darkText icon="home">
+          Mt Ash Jacket
+          <br />
+          Brassey Road
+        </TableCell>
+        <TableCell narrowLabel="N_Customer" icon="username">
+          Mr Johnny Corrigan
+        </TableCell>
+        <TableCell>Alternate Lettings Client Acc</TableCell>
+        <TableCell>Tenant Payment Request</TableCell>
+        <TableCell narrowLabel="Request Date">19 Apr 2021</TableCell>
+        <TableCell darkText>£50.00</TableCell>
+        <TableCell narrowIsFullWidth>Not Requested</TableCell>
+        <TableExpandableRowTriggerCell />
+      </TableRow>
+      <TableExpandableRow>I am the content that is only visible when expanded</TableExpandableRow>
+    </Table>
+  </Story>
+</Canvas>
+
+<RenderHtmlMarkup component="Table" story="Combined Table" />
+
+## React Shorthand
+
+Simply supply a `rows` prop, and no children, to use the Table component like this.
+
+<Canvas>
+  <Story name="React shorthand usage">
+    <Table
+      rows={[
+        {
+          cells: [
+            {
+              label: 'Property',
+              value: 'Mt Ash Jacket, Brassey Road',
+              icon: 'home',
+              cellHasDarkText: true,
+              narrowTable: { showLabel: true },
+            },
+            {
+              label: 'Customer',
+              value: 'Mr Johnny Corrigan',
+              icon: 'username',
+              narrowTable: { showLabel: true },
+            },
+            {
+              label: 'Client A/C',
+              value: 'Alternate Lettings Client Acc',
+            },
+            {
+              label: 'Description',
+              value: 'Tenant Payment Request',
+            },
+            {
+              label: 'Request Date',
+              value: '19 Apr 2021',
+              narrowTable: { showLabel: true },
+            },
+            {
+              label: 'Amount',
+              value: '£50.00',
+              cellHasDarkText: true,
+            },
+            {
+              label: 'Payment Status',
+              value: 'Not Requested',
+              narrowTable: { isFullWidth: true },
+            },
+          ],
+          expandableContent: <p>I am the content that is only visible when expanded</p>,
+        },
+        {
+          cells: [
+            {
+              label: 'Property',
+              value: 'Property Name, Road Name',
+              icon: 'home',
+              cellHasDarkText: true,
+              narrowTable: { showLabel: true },
+            },
+            {
+              label: 'Customer',
+              value: 'Mrs Davina Corrigan',
+              icon: 'username',
+              narrowTable: { showLabel: true },
+            },
+            {
+              label: 'Client A/C',
+              value: 'Alternate Lettings Client Acc',
+            },
+            {
+              label: 'Description',
+              value: 'Anther descriptions',
+            },
+            {
+              label: 'Request Date',
+              value: '23rd Apr 2021',
+              narrowTable: { showLabel: true },
+            },
+            {
+              label: 'Amount',
+              value: '£665.21',
+              cellHasDarkText: true,
+            },
+            {
+              label: 'Payment Status',
+              value: 'Pending',
+              narrowTable: { isFullWidth: true },
+            },
+          ],
+          expandableContent: <p>I am more content that is only visible when the 2nd row is expanded</p>,
+        },
+      ]}
+    />
+  </Story>
+</Canvas>
+
+#### The `rows` prop
+
+<ArgsTable of={Table} />
+
+```
+type Row = {
+  cells: Cell[]
+  /* The content that should be hidden within the expandable row underneath this row */
+  expandableContent: React.ReactNode
+}
+```
+
+```
+type Cell = {
+  /* the label of the cell (AKA, the header) */
+  label: string
+  /* the value of the cell */
+  value: string
+  /* if supplied, children will be rendered in place of value. If a value and children are both supplied, only children will be rendered */
+  children: React.ReactNode
+  /* an icon to go within the cell */
+  icon?: IconNames
+  /* whether to make the text in the cell darker */
+  cellHasDarkText?: boolean
+  /* properties that apply when the table is in narrow view mode */
+  narrowTable?: {
+    showLabel?: boolean
+    isFullWidth?: boolean
+  }
+}
+```

@@ -1,151 +1,104 @@
-import { useTable, useExpanded } from 'react-table'
-import * as React from 'react'
-import { Loader } from '../Loader'
-import { FaMinusSquare, FaPlusSquare } from 'react-icons/fa'
+import React, { useState } from 'react'
+import { ElTable } from './__styles__'
+import { Icon, IconNames } from '../icon'
+import {
+  TableHeadersRow,
+  TableHeader,
+  TableRow,
+  TableCell,
+  TableExpandableRow,
+  TableExpandableRowTriggerCell,
+} from './molecules'
+import { Intent } from '../../helpers/intent'
 
-/**
- * React-table currently don't implement types
- *
- */
-export interface TableProps {
-  columns: any[]
-  data: any[]
-  loading?: boolean
-  scrollable?: boolean
-  bordered?: boolean
-  striped?: boolean
-  fullWidth?: boolean
-  maxHeight?: number
-  expandable?: boolean
+const getHeadersFromRows = (rows: Row[]): string[] => {
+  const headers = new Set()
+  rows.forEach((row) =>
+    row.cells.forEach((cell) => {
+      // add all labels and the set will ensure uniqueness
+      headers.add(cell.label)
+    }),
+  )
+  return Array.from(headers) as string[]
 }
 
-const renderExpanderCell = (row) => {
-  return row.canExpand ? (
-    <span {...row.getToggleRowExpandedProps()}>{row.isExpanded ? <FaMinusSquare /> : <FaPlusSquare />}</span>
-  ) : null
+export type Cell = {
+  label: string
+  value: string
+  children: React.ReactNode
+  icon?: IconNames
+  statusCircleIntent?: Intent
+  cellHasDarkText?: boolean
+  narrowTable?: {
+    showLabel?: boolean
+    isFullWidth?: boolean
+  }
+}
+export type Row = {
+  cells: Cell[]
+  expandableContent: React.ReactNode
+}
+export interface ITable extends React.HTMLAttributes<HTMLDivElement> {
+  rows?: Row[]
 }
 
-export const expanderColumn = {
-  id: 'expander', // id is required for expander column
-  columnProps: {
-    width: 20,
-  },
-  Cell: ({ row }) => {
-    return renderExpanderCell(row)
-  },
-}
+export const Table: React.FC<ITable> = ({ rows, children, ...rest }) => {
+  if (!rows) return <ElTable {...rest}>{children}</ElTable>
 
-export const addExpandableColumnToColumnsIfExpandableIsTrue = ({
-  expandable,
-  columns,
-}: {
-  expandable: boolean
-  columns: any[]
-}) => {
-  if (!expandable) {
-    return columns
+  const [expandedRow, setExpandedRow] = useState<false | number>(false)
+
+  const headers = getHeadersFromRows(rows)
+  const hasExpandableRows = rows.some((row) => !!row.expandableContent)
+  const toggleExpandedRow = (index: number) => {
+    expandedRow === index ? setExpandedRow(false) : setExpandedRow(index)
   }
 
-  return [expanderColumn, ...columns]
-}
-
-export const Table: React.FC<TableProps> = ({
-  columns,
-  data,
-  loading,
-  striped = true,
-  fullWidth = true,
-  scrollable = false,
-  bordered = false,
-  maxHeight,
-  expandable = false,
-}) => {
-  const formatColumns = React.useMemo(
-    () =>
-      addExpandableColumnToColumnsIfExpandableIsTrue({
-        expandable,
-        columns,
-      }),
-    [columns, expandable],
-  )
-
-  // Use the state and functions returned from useTable to build your UI
-  const { getTableProps, headerGroups, footerGroups, rows, prepareRow } = useTable(
-    {
-      columns: formatColumns,
-      data,
-    },
-    useExpanded,
-  )
-  const hasFooter = formatColumns.some((item) => item.Footer)
-
-  // Render the UI for your table
-  const renderTable = () => (
-    <table
-      {...getTableProps()}
-      className={`table ${striped ? 'is-striped' : ''} ${fullWidth ? 'is-fullwidth' : ''} ${
-        bordered ? 'is-bordered' : ''
-      }`}
+  return (
+    <ElTable
+      {...rest}
+      data-num-columns-excl-expandable-row-trigger-col={hasExpandableRows ? headers.length : undefined}
     >
-      <thead>
-        {headerGroups.map((headerGroup, index) => (
-          <tr key={index} {...headerGroup.getHeaderGroupProps()}>
-            {headerGroup.headers.map((header, index) => (
-              <th key={index} {...header.getHeaderProps()}>
-                {header.render('Header')}
-              </th>
-            ))}
-          </tr>
+      <TableHeadersRow>
+        {headers.map((header) => (
+          <TableHeader key={header}>{header}</TableHeader>
         ))}
-      </thead>
-      <tbody>
-        {loading ? (
-          <tr>
-            <td>
-              <div className="table-loading">
-                <Loader />
-              </div>
-            </td>
-          </tr>
-        ) : (
-          rows.map(
-            (row) =>
-              prepareRow(row) || (
-                <tr {...row.getRowProps()} className={`${row.isExpanded ? 'is-expanded' : ''}`}>
-                  {row.cells.map((cell, index) => {
-                    const {
-                      column: { columnProps },
-                    } = cell
-                    return (
-                      <td key={index} {...cell.getCellProps()} {...columnProps}>
-                        {cell.render('Cell')}
-                      </td>
-                    )
-                  })}
-                </tr>
-              ),
-          )
+        {hasExpandableRows && (
+          <TableHeader>
+            <Icon icon="solidEdit" fontSize="1.2rem" />
+          </TableHeader>
         )}
-      </tbody>
-      {footerGroups && hasFooter && (
-        <tfoot>
-          {footerGroups.map((footerGroup, index) => (
-            <tr key={index} {...footerGroup.getFooterGroupProps()}>
-              {footerGroup.headers.map((column, index) => (
-                <th key={index} {...column.getFooterProps()}>
-                  {column.render('Footer')}
-                </th>
-              ))}
-            </tr>
-          ))}
-        </tfoot>
-      )}
-    </table>
+      </TableHeadersRow>
+      {rows.map((row, index) => {
+        const expandableRowIsOpen = expandedRow === index
+        return (
+          <>
+            <TableRow>
+              {headers.map((header) => {
+                const cell = row.cells.find((c) => c.label === header)
+                if (!cell) return <TableCell />
+
+                return (
+                  <TableCell
+                    key={index}
+                    icon={cell.icon}
+                    darkText={cell.cellHasDarkText}
+                    narrowLabel={cell.narrowTable?.showLabel ? cell.label : undefined}
+                    narrowIsFullWidth={cell.narrowTable?.isFullWidth}
+                  >
+                    {cell.children || cell.value}
+                  </TableCell>
+                )
+              })}
+              {row.expandableContent && (
+                <TableExpandableRowTriggerCell isOpen={expandableRowIsOpen} onClick={() => toggleExpandedRow(index)} />
+              )}
+            </TableRow>
+            {row.expandableContent && (
+              <TableExpandableRow isOpen={expandableRowIsOpen}>{row.expandableContent}</TableExpandableRow>
+            )}
+          </>
+        )
+      })}
+    </ElTable>
   )
-
-  if (scrollable) {
-    return <div style={{ maxHeight: maxHeight, overflow: 'scroll' }}>{renderTable()}</div>
-  }
-
-  return renderTable()
 }

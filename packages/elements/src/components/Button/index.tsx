@@ -1,77 +1,43 @@
-import { cx } from 'linaria'
 import * as React from 'react'
+import { cx } from 'linaria'
+import { Intent, getIntentClassName } from '../../helpers/intent'
+import { elIsLoading } from '../../styles/states'
+import * as styles from './__styles__'
+import { ElButton } from './__styles__'
+import { elWFull } from '../../styles/sizing'
 
-export interface ButtonProps {
-  type?: 'submit' | 'reset' | 'button'
-  variant?: 'primary' | 'secondary' | 'danger' | 'info' | 'success'
-  onClick?: () => void
-  disabled?: boolean
+export interface IButton extends React.ButtonHTMLAttributes<HTMLButtonElement> {
+  intent?: Intent
   loading?: boolean
+  chevronLeft?: boolean
+  chevronRight?: boolean
   fullWidth?: boolean
   className?: string
-  dataTest?: string
 }
 
-export const Button: React.FC<ButtonProps> = ({
-  type = 'button',
-  variant = 'primary',
-  className = '',
-  disabled = false,
+export const Button: React.FC<IButton> = ({
+  intent,
   loading = false,
-  children,
+  chevronLeft = false,
+  chevronRight = false,
   fullWidth = false,
-  onClick,
-  dataTest = '',
-}) => {
-  const theme =
-    variant === 'primary'
-      ? 'is-primary'
-      : variant === 'secondary'
-      ? 'is-secondary'
-      : variant === 'info'
-      ? 'is-info'
-      : variant === 'success'
-      ? 'is-success'
-      : 'is-danger'
-
-  return (
-    <button
-      type={type}
-      className={`button ${fullWidth ? 'is-fullwidth' : ''} ${loading ? 'is-loading' : ''} ${theme} ${className}`}
-      disabled={disabled}
-      onClick={onClick}
-      data-test={dataTest}
-    >
-      {children}
-    </button>
-  )
-}
-
-export interface ButtonGroupProps {
-  className?: string
-  hasSpacing?: boolean
-  isCentered?: boolean
-}
-/* JB v2 suggestions
- * the classes `is-centered`, and `has-addons` should be incorporated into the `buttons`
- * class, because they are always added by default anyway
- */
-export const ButtonGroup: React.FC<ButtonGroupProps> = ({
   className = '',
-  hasSpacing = false,
-  isCentered = false,
   children,
+  ...rest
 }) => {
+  const intentClassname = intent && getIntentClassName(intent)
+  const combinedClassName = cx(
+    className,
+    intentClassname,
+    chevronLeft && styles.elButtonHasLeftChevron,
+    chevronRight && styles.elButtonHasRightChevron,
+    loading && elIsLoading,
+    fullWidth && elWFull,
+  )
+
   return (
-    <div
-      className={cx(
-        'is-centered buttons',
-        !hasSpacing && 'has-addons',
-        isCentered && 'mx-auto',
-        className && className,
-      )}
-    >
+    <ElButton className={combinedClassName} {...rest}>
       {children}
-    </div>
+    </ElButton>
   )
 }
