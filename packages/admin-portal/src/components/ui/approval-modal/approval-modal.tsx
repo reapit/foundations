@@ -1,6 +1,6 @@
 import * as React from 'react'
 import { useSelector } from 'react-redux'
-import { Modal, ModalProps, Loader, Button, ModalHeader, ModalFooter, ModalBody, Alert } from '@reapit/elements'
+import { Modal, ModalProps, Loader, Button, ModalHeader, ModalFooter, ModalBody, Alert } from '@reapit/elements-legacy'
 import ApproveRevisionModal from './approve-revision-modal'
 import DeclineRevisionModal from './decline-revision-modal'
 import AppRevisionComparison from '../app-revision-comparison/app-revision-comparison'

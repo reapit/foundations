@@ -1,6 +1,6 @@
 import React from 'react'
 import { Route, useLocation, useParams } from 'react-router'
-import { FlexContainerBasic, FlexContainerResponsive } from '@reapit/elements'
+import { FlexContainerBasic, FlexContainerResponsive } from '@reapit/elements-legacy'
 import { Routes } from '../../constants/routes'
 import PrivateRouteWrapper from '../../core/private-route-wrapper'
 import PaymentExternalPage from './payment-external'

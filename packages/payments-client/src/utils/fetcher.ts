@@ -1,4 +1,4 @@
-import { fetcher } from '@reapit/elements'
+import { fetcher } from '@reapit/elements-legacy'
 import { genPlatformHeaders } from '../utils/headers'
 
 export const platformFetcher = async (path: string) =>

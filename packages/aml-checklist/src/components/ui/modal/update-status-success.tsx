@@ -1,6 +1,6 @@
 import React from 'react'
 import { History } from 'history'
-import { Button } from '@reapit/elements'
+import { Button } from '@reapit/elements-legacy'
 import styles from '@/styles/pages/checklist-detail.scss?mod'
 import { Dispatch } from 'redux'
 import { connect } from 'react-redux'

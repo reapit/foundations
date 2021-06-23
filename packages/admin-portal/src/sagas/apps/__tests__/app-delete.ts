@@ -8,7 +8,7 @@ import { Action } from '@/types/core'
 import { cloneableGenerator } from '@redux-saga/testing-utils'
 import { fetchAppListSuccess } from '@/actions/apps-management'
 import { deleteAppById, fetchAppsList } from '@/services/apps'
-import { notification } from '@reapit/elements'
+import { notification } from '@reapit/elements-legacy'
 
 jest.mock('@/services/apps')
 jest.mock('@reapit/elements')

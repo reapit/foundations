@@ -3,13 +3,13 @@ import routes from '@/constants/routes'
 import dayjs from 'dayjs'
 import { Dispatch } from 'redux'
 import { GET_ALL_PAGE_SIZE } from '@/constants/paginator'
-import { Button, DATE_TIME_FORMAT, Section } from '@reapit/elements'
+import { Button, DATE_TIME_FORMAT, Section } from '@reapit/elements-legacy'
 import ConfirmUninstall from './app-uninstall-modal/confirm-uninstall'
 import { handleUninstall, handleAfterClose } from './app-uninstall-modal/app-uninstall-modal'
 import { InstallationModel, AppDetailModel } from '@reapit/foundations-ts-definitions'
 import { useSelector, useDispatch } from 'react-redux'
 import { selectInstallationsListData } from '@/selector/installations'
-import { Modal } from '@reapit/elements'
+import { Modal } from '@reapit/elements-legacy'
 import {
   ListingPreviewSection,
   AuthenticationSection,

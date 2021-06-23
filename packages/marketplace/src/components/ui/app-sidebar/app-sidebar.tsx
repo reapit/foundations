@@ -1,6 +1,6 @@
 import * as React from 'react'
 import { useSelector } from 'react-redux'
-import { FlexContainerBasic, H5, Input, Formik, Form, RadioSelect, FormikProps, H6 } from '@reapit/elements'
+import { FlexContainerBasic, H5, Input, Formik, Form, RadioSelect, FormikProps, H6 } from '@reapit/elements-legacy'
 import { useHistory, useLocation } from 'react-router'
 import * as styles from './__styles__'
 import CategoriesList from '@/components/ui/categories-list'

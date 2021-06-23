@@ -26,7 +26,7 @@ import { fetchAppRevisionsById, approveAppRevisionById, rejectAppRevisionById } 
 import { fetchScopesList } from '@/services/scopes'
 import { fetchDesktopIntegrationTypesList } from '@/services/desktop-integration-types'
 import { selectApprovalListPageNumber } from '@/selector/approvals'
-import { notification } from '@reapit/elements'
+import { notification } from '@reapit/elements-legacy'
 import { errorMessages } from '@reapit/utils'
 
 jest.mock('@/services/apps')

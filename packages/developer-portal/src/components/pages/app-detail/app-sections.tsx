@@ -19,7 +19,7 @@ import {
   GridFourColItem,
   HTMLRender,
   Content,
-} from '@reapit/elements'
+} from '@reapit/elements-legacy'
 import AuthFlow from '@/constants/app-auth-flow'
 import AppAuthenticationDetail from '@/components/pages/app-detail/app-authentication-detail'
 import { preview } from './__styles__/app-detail'

@@ -10,7 +10,7 @@ import {
   DatePicker,
   ButtonGroup,
   Formik,
-} from '@reapit/elements'
+} from '@reapit/elements-legacy'
 import { PaymentModel } from '@reapit/foundations-ts-definitions'
 import * as Yup from 'yup'
 import { handlePaymentRequestSubmit } from './payment-handlers'

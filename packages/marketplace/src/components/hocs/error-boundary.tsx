@@ -1,7 +1,7 @@
 import * as React from 'react'
 import * as Sentry from '@sentry/browser'
 import errorMessages from '@/constants/error-messages'
-import { notification } from '@reapit/elements'
+import { notification } from '@reapit/elements-legacy'
 
 export interface ErrorState {
   hasFailed: boolean

@@ -4,7 +4,7 @@ import ActionTypes from '@/constants/action-types'
 import { Action } from '@/types/core'
 import { extractNetworkErrString } from '@reapit/utils'
 import { fetchApprovalsList } from '@/services/approvals'
-import { notification } from '@reapit/elements'
+import { notification } from '@reapit/elements-legacy'
 
 export const approvalsDataFetch = function* ({ data: page }) {
   try {

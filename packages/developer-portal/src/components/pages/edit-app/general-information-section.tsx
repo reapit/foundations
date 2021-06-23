@@ -12,7 +12,7 @@ import {
   TextAreaEditor,
   SelectBoxOptions,
   Checkbox,
-} from '@reapit/elements'
+} from '@reapit/elements-legacy'
 import { exec } from 'pell'
 import { link } from '@/styles/elements/link'
 import { useSelector } from 'react-redux'

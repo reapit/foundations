@@ -1,4 +1,4 @@
-import { fetcher } from '@reapit/elements'
+import { fetcher } from '@reapit/elements-legacy'
 import { getDataSetsService } from '../data-sets'
 import { stubDataSets } from '../__stubs__/data-sets'
 

@@ -1,7 +1,7 @@
 import * as React from 'react'
 import { shallow } from 'enzyme'
 import { Login } from '@/components/pages/login'
-import { Button } from '@reapit/elements'
+import { Button } from '@reapit/elements-legacy'
 import { reapitConnectBrowserSession } from '@/core/connect-session'
 
 jest.mock('@/core/connect-session', () => ({

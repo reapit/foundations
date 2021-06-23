@@ -1,6 +1,6 @@
 import * as React from 'react'
 import { useSelector } from 'react-redux'
-import { H5, Grid, GridItem, H6, fetcherWithBlob, setQueryParams, Section, Content } from '@reapit/elements'
+import { H5, Grid, GridItem, H6, fetcherWithBlob, setQueryParams, Section, Content } from '@reapit/elements-legacy'
 import { ReduxState } from '@/types/core'
 import lodashIsEqual from 'lodash.isequal'
 import {
@@ -17,7 +17,7 @@ import { selectAppListState } from '@/selector/apps/app-list'
 import FadeIn from '../../../../../styles/fade-in'
 import { getPlatformHeaders } from '@reapit/utils'
 import { reapitConnectBrowserSession } from '../../../../../core/connect-session'
-import { Loader } from '@reapit/elements/v3'
+import { Loader } from '@reapit/elements'
 
 export type TransactionHistoryProps = {}
 

@@ -7,7 +7,7 @@ import { DeveloperAside } from './app-aside'
 import { useSelector } from 'react-redux'
 import { History } from 'history'
 import { selectInstallationsListLoading } from '@/selector/installations'
-import { Grid, GridItem, Section } from '@reapit/elements'
+import { Grid, GridItem, Section } from '@reapit/elements-legacy'
 import AppHeader from '@/components/pages/app-detail/app-header'
 import routes from '@/constants/routes'
 import { getDesktopIntegrationTypes } from '@/utils/get-desktop-integration-types'
@@ -17,7 +17,7 @@ import AppContent from './app-content'
 import { selectAppDetailState, selectAppDetailData, selectAppDetailLoading } from '@/selector/app-detail'
 import { container } from './__styles__/app-detail'
 import FadeIn from '../../../styles/fade-in'
-import { Loader } from '@reapit/elements/v3'
+import { Loader } from '@reapit/elements'
 
 export type AppDetailProps = {}
 

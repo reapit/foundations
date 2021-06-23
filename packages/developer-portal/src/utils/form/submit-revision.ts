@@ -5,7 +5,7 @@ import {
   validateMaxCharacterLength,
   validateURI,
   validateRequire,
-} from '@reapit/elements'
+} from '@reapit/elements-legacy'
 
 export type SubmitRevisionFormErrorKeys = keyof CreateAppRevisionModel
 

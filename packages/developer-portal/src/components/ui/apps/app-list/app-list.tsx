@@ -2,7 +2,7 @@ import * as React from 'react'
 import { AppSummaryModel } from '@reapit/foundations-ts-definitions'
 import AppCard from '../app-card'
 import { contentIsLoading } from './__styles__/app-list'
-import { Loader, InfoType, GridFourCol, GridThreeColItem, Helper, infoText } from '@reapit/elements'
+import { Loader, InfoType, GridFourCol, GridThreeColItem, Helper, infoText } from '@reapit/elements-legacy'
 import FadeIn from '../../../../styles/fade-in'
 
 export type AppListProps = {

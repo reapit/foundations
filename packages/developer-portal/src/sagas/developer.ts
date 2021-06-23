@@ -21,7 +21,7 @@ import {
   FetchBillingsByMonthParams,
 } from '@/services/billing'
 import { getDeveloperId } from '@/utils/session'
-import { notification } from '@reapit/elements'
+import { notification } from '@reapit/elements-legacy'
 
 export const developerCreate = function* ({ data }: Action<CreateDeveloperModel>) {
   yield put(developerSetFormState('SUBMITTING'))

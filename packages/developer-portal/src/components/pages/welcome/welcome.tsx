@@ -1,5 +1,5 @@
 import * as React from 'react'
-import { useHelpGuideContext, HelpGuide, Button } from '@reapit/elements'
+import { useHelpGuideContext, HelpGuide, Button } from '@reapit/elements-legacy'
 import Routes from '@/constants/routes'
 import { history } from '@/core/router'
 import Step1 from '@/assets/images/step-1.png'

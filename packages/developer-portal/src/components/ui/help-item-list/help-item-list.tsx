@@ -1,5 +1,5 @@
 import React from 'react'
-import { Button, GridFourCol, GridThreeColItem, H5, Section, LevelRight, Content } from '@reapit/elements'
+import { Button, GridFourCol, GridThreeColItem, H5, Section, LevelRight, Content } from '@reapit/elements-legacy'
 import { wrapBoxContent, button } from './__styles__/help-item-list'
 import FadeIn from '../../../styles/fade-in'
 

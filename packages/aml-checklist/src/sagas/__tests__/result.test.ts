@@ -1,6 +1,6 @@
 import resultSagas, { resultFetch, resultListen } from '../result'
 import ActionTypes from '@/constants/action-types'
-import { notification } from '@reapit/elements'
+import { notification } from '@reapit/elements-legacy'
 import { put, call, takeLatest, all, fork } from '@redux-saga/core/effects'
 import { resultReceiveData, resultRequestDataFailure, ContactsParams } from '@/actions/result'
 import { cloneableGenerator } from '@redux-saga/testing-utils'

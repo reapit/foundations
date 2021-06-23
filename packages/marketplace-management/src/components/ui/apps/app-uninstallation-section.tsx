@@ -1,6 +1,6 @@
 import React from 'react'
 import { InstallationModelPagedResult } from '@reapit/foundations-ts-definitions'
-import { Section, H5, FlexContainerBasic, Button } from '@reapit/elements'
+import { Section, H5, FlexContainerBasic, Button } from '@reapit/elements-legacy'
 import {
   getInstallationsForOfficeGroups,
   getInstallationsForWholeOrg,

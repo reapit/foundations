@@ -11,7 +11,7 @@ import {
   handleSetFormDefault,
 } from '../register'
 import { developerCreate } from '@/actions/developer'
-import { DATE_TIME_FORMAT } from '@reapit/elements'
+import { DATE_TIME_FORMAT } from '@reapit/elements-legacy'
 import MockDate from 'mockdate'
 import appState from '@/reducers/__stubs__/app-state'
 import { MemoryRouter } from 'react-router'

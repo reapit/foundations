@@ -14,7 +14,7 @@ import AppDetail, {
 } from '../app-detail'
 import Routes from '@/constants/routes'
 import appState from '@/reducers/__stubs__/app-state'
-import { Loader } from '@reapit/elements/v3'
+import { Loader } from '@reapit/elements'
 
 describe('AppDetail', () => {
   const { history } = getMockRouterProps({})

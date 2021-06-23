@@ -1,6 +1,6 @@
 import * as React from 'react'
 import { reapitConnectBrowserSession } from '@/core/connect-session'
-import { Button, Level, FlexContainerBasic, Section } from '@reapit/elements'
+import { Button, Level, FlexContainerBasic, Section } from '@reapit/elements-legacy'
 import connectImage from '@/assets/images/reapit-connect.png'
 import { loginContainer, wrapper, loginImage, imageContainer, loginLevel } from './__styles__'
 

@@ -1,4 +1,4 @@
-import { FormFieldInfo } from '@reapit/elements'
+import { FormFieldInfo } from '@reapit/elements-legacy'
 type Field = 'terminatedReasonField'
 
 const formFields: Record<Field, FormFieldInfo> = {

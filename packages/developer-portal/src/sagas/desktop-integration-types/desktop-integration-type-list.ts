@@ -7,7 +7,7 @@ import {
 import errorMessages from '@/constants/error-messages'
 import { Action } from '@/types/core'
 import { fetchDesktopIntegrationTypeListAPI } from '@/services/desktop-integration-types'
-import { notification } from '@reapit/elements'
+import { notification } from '@reapit/elements-legacy'
 
 export const fetchDesktopIntegrationTypeListSaga = function* () {
   try {

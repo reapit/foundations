@@ -1,6 +1,6 @@
 import React, { ChangeEvent, Dispatch, memo, SetStateAction } from 'react'
 import { AppState, useAppState, AppTimeRange } from '../../../core/app-state'
-import { FlexContainer, ToggleRadio } from '@reapit/elements/v3'
+import { FlexContainer, ToggleRadio } from '@reapit/elements'
 import { cx } from 'linaria'
 import { AppointmentTimeContainer, appointmentTimeContainerExpanded } from './__styles__/index'
 

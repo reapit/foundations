@@ -1,9 +1,9 @@
 import * as React from 'react'
-import { Table } from '@reapit/elements'
+import { Table } from '@reapit/elements-legacy'
 import { useSelector } from 'react-redux'
 import { selectMonthlyBillingLoading } from '@/selector/developer'
 import { TableData } from './cost-explorer'
-import { Loader } from '@reapit/elements/v3'
+import { Loader } from '@reapit/elements'
 
 type CostExplorerTableProps = {
   tableData: TableData

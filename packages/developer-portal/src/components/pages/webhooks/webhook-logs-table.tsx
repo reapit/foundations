@@ -9,7 +9,7 @@ import {
   SelectBox,
   SelectBoxOptions,
   Table,
-} from '@reapit/elements'
+} from '@reapit/elements-legacy'
 import FormikAutoSave from '../../../components/hocs/formik-auto-save'
 import { Dispatch } from 'redux'
 import { useDispatch, useSelector } from 'react-redux'
@@ -18,7 +18,7 @@ import { selectWebhookLogs } from '../../../selector/webhook-logs'
 import { fetchWebhookLogs } from '../../../actions/webhook-logs/webhook-logs'
 import { saveAs } from 'file-saver'
 import { logger } from '../../../../../utils'
-import { Loader } from '@reapit/elements/v3'
+import { Loader } from '@reapit/elements'
 
 interface WebhooksLogsTableProps {
   applicationOptions: SelectBoxOptions[]

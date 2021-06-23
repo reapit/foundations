@@ -3,7 +3,7 @@ import {
   InstallationModelPagedResult,
   TerminateInstallationModel,
 } from '@reapit/foundations-ts-definitions'
-import { fetcher, setQueryParams } from '@reapit/elements'
+import { fetcher, setQueryParams } from '@reapit/elements-legacy'
 import { URLS } from './constants'
 import { getPlatformHeaders, logger } from '@reapit/utils'
 import { FetchListCommonParams } from './types'

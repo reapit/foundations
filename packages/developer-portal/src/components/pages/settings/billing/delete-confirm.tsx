@@ -1,5 +1,5 @@
 import React from 'react'
-import { Modal, ModalHeader, ModalBody, ModalFooter, Button } from '@reapit/elements'
+import { Modal, ModalHeader, ModalBody, ModalFooter, Button } from '@reapit/elements-legacy'
 import { ButtonGroup } from '../../../../../../elements/src/components/Button/index'
 
 export interface ConfirmModalProps {

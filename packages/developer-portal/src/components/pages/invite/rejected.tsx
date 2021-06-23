@@ -1,5 +1,5 @@
 import React from 'react'
-import { ModalV2, Content } from '@reapit/elements'
+import { ModalV2, Content } from '@reapit/elements-legacy'
 
 export const RejectedModal = ({ visible }: { visible: boolean }) => {
   return (

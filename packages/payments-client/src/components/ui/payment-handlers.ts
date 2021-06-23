@@ -1,5 +1,5 @@
 import { Dispatch, SetStateAction } from 'react'
-import { DATE_TIME_FORMAT, notification, unformatCard, unformatCardExpires } from '@reapit/elements'
+import { DATE_TIME_FORMAT, notification, unformatCard, unformatCardExpires } from '@reapit/elements-legacy'
 import { PaymentEmailRequestModel } from './payment-request-modal'
 import { reapitConnectBrowserSession } from '../../core/connect-session'
 import {

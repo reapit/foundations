@@ -1,6 +1,6 @@
 import { BASE_HEADERS, URLS } from './../constants/api'
 import { ReapitConnectSession } from '@reapit/connect-session'
-import { fetcher } from '@reapit/elements'
+import { fetcher } from '@reapit/elements-legacy'
 
 export const releaseServicePaginate = async (session: ReapitConnectSession): Promise<any[] | undefined> => {
   try {

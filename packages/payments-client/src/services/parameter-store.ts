@@ -1,5 +1,5 @@
 import { URLS } from '../constants/api'
-import { fetcher } from '@reapit/elements'
+import { fetcher } from '@reapit/elements-legacy'
 import { reapitConnectBrowserSession } from '../core/connect-session'
 import { logger } from '@reapit/utils'
 

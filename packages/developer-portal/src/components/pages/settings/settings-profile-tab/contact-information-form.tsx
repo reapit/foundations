@@ -10,7 +10,7 @@ import {
   Grid,
   GridItem,
   Formik,
-} from '@reapit/elements'
+} from '@reapit/elements-legacy'
 import { MemberModel } from '@reapit/foundations-ts-definitions'
 import { validationSchemaContactInfomation as validationSchema } from './form-schema/validation-schema'
 import { formFieldsContactInfomation } from './form-schema/form-fields'

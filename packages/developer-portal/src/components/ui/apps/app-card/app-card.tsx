@@ -1,6 +1,6 @@
 import * as React from 'react'
 import { AppSummaryModel } from '@reapit/foundations-ts-definitions'
-import { Tile } from '@reapit/elements'
+import { Tile } from '@reapit/elements-legacy'
 import defaultAppIcon from '@/assets/images/default-app-icon.jpg'
 import { appSummary } from './__styles__/app-card'
 

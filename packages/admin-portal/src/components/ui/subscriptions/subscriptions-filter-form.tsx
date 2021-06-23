@@ -12,7 +12,7 @@ import {
   DropdownSelect,
   SelectOption,
   SelectBox,
-} from '@reapit/elements'
+} from '@reapit/elements-legacy'
 import store from '../../../core/store'
 import { fetchDeveloperList, fetchDeveloperListValues } from '@/actions/devs-management'
 import { selectDeveloperListState } from '@/selector/admin'

@@ -5,7 +5,7 @@ import { useSelector } from 'react-redux'
 import { selectCurrentMemberData, selectCurrentMemberIsLoading } from '@/selector/current-member'
 import { Redirect } from 'react-router'
 import Routes from '@/constants/routes'
-import { Loader } from '@reapit/elements/v3'
+import { Loader } from '@reapit/elements'
 
 export const RedirectToSettingsProfilePage = () => <Redirect to={Routes.SETTINGS_PROFILE_TAB} />
 

@@ -2,12 +2,12 @@ import * as React from 'react'
 import { AppSummaryModel } from '@reapit/foundations-ts-definitions'
 import AppCard from '../app-card'
 import * as styles from './__styles__'
-import { FadeIn, InfoType, GridFourCol, GridFourColItem, Helper, infoText } from '@reapit/elements'
+import { FadeIn, InfoType, GridFourCol, GridFourColItem, Helper, infoText } from '@reapit/elements-legacy'
 import { cx } from 'linaria'
 import { ComingSoonAppComponent } from '../../pages/apps/coming-soon'
 import { useReapitConnect } from '@reapit/connect-session'
 import { reapitConnectBrowserSession } from '../../../core/connect-session'
-import { Loader } from '@reapit/elements/v3'
+import { Loader } from '@reapit/elements'
 
 export type AppListProps = {
   list: AppSummaryModel[]

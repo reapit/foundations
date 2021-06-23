@@ -1,5 +1,5 @@
 import { PAYMENTS_HEADERS, URLS } from '../constants/api'
-import { fetcher, notification } from '@reapit/elements'
+import { fetcher, notification } from '@reapit/elements-legacy'
 import { genPlatformHeaders, genPaymentsUpdateStatusHeaders } from '../utils/headers'
 import { reapitConnectBrowserSession } from '../core/connect-session'
 import { logger } from '@reapit/utils'

@@ -1,5 +1,5 @@
 import * as React from 'react'
-import { H3, H5, Section, Content } from '@reapit/elements'
+import { H3, H5, Section, Content } from '@reapit/elements-legacy'
 import { useReapitConnect } from '@reapit/connect-session'
 import { reapitConnectBrowserSession } from '@/core/connect-session'
 

@@ -7,7 +7,7 @@ import AppUninstallationSection from './app-uninstallation-section'
 import { URLS } from '../../../constants/api'
 import { clientIdEffectHandler } from '../../../utils/client-id-effect-handler'
 import { bulkInstall } from '../../../services/installation'
-import { notification } from '@reapit/elements'
+import { notification } from '@reapit/elements-legacy'
 
 export interface AppInstallationManagerProps {
   app: AppSummaryModel

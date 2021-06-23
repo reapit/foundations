@@ -1,4 +1,4 @@
-import { SelectBoxOptions } from '@reapit/elements'
+import { SelectBoxOptions } from '@reapit/elements-legacy'
 
 export const COUNTRY_OPTIONS: SelectBoxOptions[] = [
   { value: 'GB', label: 'United Kingdom' },

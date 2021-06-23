@@ -1,7 +1,7 @@
 import ApolloClient, { InMemoryCache, Operation, defaultDataIdFromObject, IdGetterObj } from 'apollo-boost'
 import { ErrorHandler, ErrorResponse } from 'apollo-link-error'
 import { ApolloCache } from 'apollo-cache'
-import { notification } from '@reapit/elements'
+import { notification } from '@reapit/elements-legacy'
 
 export const generateRequest = (accessToken: string) => async (operation: Operation) => {
   operation.setContext({

@@ -1,7 +1,7 @@
 import * as React from 'react'
 import Router from './router'
 import ErrorBoundary from '@/components/hocs/error-boundary'
-import { injectSwitchModeToWindow, PortalProvider } from '@reapit/elements'
+import { injectSwitchModeToWindow, PortalProvider } from '@reapit/elements-legacy'
 import { MessageProvider } from '../context/message-context'
 
 injectSwitchModeToWindow()

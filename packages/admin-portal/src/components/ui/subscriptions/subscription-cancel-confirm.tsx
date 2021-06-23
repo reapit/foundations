@@ -1,5 +1,5 @@
 import React, { useEffect } from 'react'
-import { Button, Section, ModalV2, H5 } from '@reapit/elements'
+import { Button, Section, ModalV2, H5 } from '@reapit/elements-legacy'
 export type CancelConfirmModalProps = {
   onConfirm: () => void
   isShowConfirmModal: boolean

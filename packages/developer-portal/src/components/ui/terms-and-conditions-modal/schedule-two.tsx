@@ -1,5 +1,5 @@
 import React from 'react'
-import { H5, Content, Section } from '@reapit/elements'
+import { H5, Content, Section } from '@reapit/elements-legacy'
 import { ConsumptionCostMethodologyTable } from './consumption-cost-methodology-table'
 import { ConsumptionCostExampleTable } from './consumption-cost-example-table'
 import { ConsumptionCostTypesTable } from './consumption-cost-types-table'

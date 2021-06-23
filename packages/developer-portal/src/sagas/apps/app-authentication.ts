@@ -1,6 +1,6 @@
 import { fetchtAppAuthentication, fetchtAppAuthenticationSuccess, fetchtAppAuthenticationFailed } from '@/actions/apps'
 import { put, call, fork, takeLatest, all } from '@redux-saga/core/effects'
-import { notification } from '@reapit/elements'
+import { notification } from '@reapit/elements-legacy'
 import errorMessages from '@/constants/error-messages'
 import { Action } from '@/types/core'
 import { fetchAppSecretByIdAPI } from '@/services/apps'

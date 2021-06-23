@@ -1,5 +1,5 @@
 import * as React from 'react'
-import { Button, ModalHeader, ModalBody } from '@reapit/elements'
+import { Button, ModalHeader, ModalBody } from '@reapit/elements-legacy'
 
 type CTAType = 'success' | 'danger'
 

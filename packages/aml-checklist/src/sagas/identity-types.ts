@@ -5,7 +5,7 @@ import { initAuthorizedRequestHeaders } from '@/utils/api'
 import { identityTypesReceiveData, identityTypesRequestFailure } from '../actions/identity-types'
 import { extractNetworkErrString, logger } from '@reapit/utils'
 import { fetchIdentityDocumentTypes } from './api'
-import { notification } from '@reapit/elements'
+import { notification } from '@reapit/elements-legacy'
 
 export const identityTypesDataFetch = function* () {
   const headers = yield call(initAuthorizedRequestHeaders)

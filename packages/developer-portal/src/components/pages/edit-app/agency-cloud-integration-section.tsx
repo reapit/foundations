@@ -7,7 +7,7 @@ import {
   GridItem,
   DropdownSelect,
   SelectOption,
-} from '@reapit/elements'
+} from '@reapit/elements-legacy'
 import { useSelector } from 'react-redux'
 import { selectIntegrationTypes } from '@/selector/integration-types'
 import { DesktopIntegrationTypeModel } from '@reapit/foundations-ts-definitions'

@@ -14,7 +14,7 @@ import {
   isEmptyObject,
   Alert,
   FlexContainerBasic,
-} from '@reapit/elements'
+} from '@reapit/elements-legacy'
 import Routes from '@/constants/routes'
 import DevsManagementFilterForm, { DevsManagementFilterFormValues } from '@/components/ui/devs-management-filter-form'
 import { DeveloperModel, MemberModel } from '@reapit/foundations-ts-definitions'

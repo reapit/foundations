@@ -1,10 +1,10 @@
 import * as React from 'react'
 import { Line } from 'react-chartjs-2'
-import { H5, Section } from '@reapit/elements'
+import { H5, Section } from '@reapit/elements-legacy'
 import { InstallationModelWithAppName } from '@/components/pages/analytics/detailed/installation-app-section'
 import { groupInstalledAppsByDate, getChartData, groupAppsByNameAndCount } from '@/utils/developer-analytics'
 import FadeIn from '../../../../styles/fade-in'
-import { Loader } from '@reapit/elements/v3'
+import { Loader } from '@reapit/elements'
 
 export interface DeveloperInstallationsChartProps {
   data: Array<InstallationModelWithAppName>

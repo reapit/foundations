@@ -3,7 +3,7 @@ import { Route, RouteProps } from 'react-router'
 import RouteFetcher from '../components/hocs/route-fetcher'
 import { reapitConnectBrowserSession } from './connect-session'
 import { useReapitConnect } from '@reapit/connect-session'
-import { Info } from '@reapit/elements'
+import { Info } from '@reapit/elements-legacy'
 
 export interface PrivateRouteProps {
   component: React.FunctionComponent | React.LazyExoticComponent<any>

@@ -1,7 +1,7 @@
 import * as React from 'react'
 import { Dispatch } from 'redux'
 import { useSelector, useDispatch } from 'react-redux'
-import { Button, Modal, ModalBody, ModalHeader, ModalFooter, SubTitleH6, ModalProps } from '@reapit/elements'
+import { Button, Modal, ModalBody, ModalHeader, ModalFooter, SubTitleH6, ModalProps } from '@reapit/elements-legacy'
 import CallToAction from '@/components/ui/call-to-action'
 import { developerSetStatusRequest, developerSetStatusSetInitFormState } from '@/actions/developer-set-status'
 import { DeveloperModel } from '@reapit/foundations-ts-definitions'

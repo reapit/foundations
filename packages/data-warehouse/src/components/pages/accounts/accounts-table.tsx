@@ -1,5 +1,5 @@
 import React, { SetStateAction, useContext, useState } from 'react'
-import { Button, Table } from '@reapit/elements'
+import { Button, Table } from '@reapit/elements-legacy'
 import { AccountModel } from '../../../types/accounts'
 import { MessageContext } from '../../../context/message-context'
 import { Dispatch } from 'react'

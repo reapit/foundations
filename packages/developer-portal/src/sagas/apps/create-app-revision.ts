@@ -3,7 +3,7 @@ import { Action } from '@/types/core'
 import errorMessages from '@/constants/error-messages'
 import { createAppRevisionAPI, CreateAppRevisionParams } from '@/services/apps'
 import { createAppRevisionSuccess, createAppRevisionFailed, createAppRevision } from '@/actions/apps'
-import { notification } from '@reapit/elements'
+import { notification } from '@reapit/elements-legacy'
 import { imageUploaderHelper } from '@/services/upload'
 
 export const createAppRevisionSaga = function* ({

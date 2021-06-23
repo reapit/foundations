@@ -1,5 +1,5 @@
 import * as React from 'react'
-import { notification, Helper } from '@reapit/elements'
+import { notification, Helper } from '@reapit/elements-legacy'
 import { logger } from '@reapit/utils'
 
 export interface ErrorState {

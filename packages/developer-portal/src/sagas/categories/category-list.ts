@@ -3,7 +3,7 @@ import { fetchCategoryList, fetchCategoryListSuccess, fetchCategoryListFailed } 
 import errorMessages from '@/constants/error-messages'
 import { Action } from '@/types/core'
 import { fetchCategoryListAPI } from '@/services/categories'
-import { notification } from '@reapit/elements'
+import { notification } from '@reapit/elements-legacy'
 
 export const fetchCategoryListSaga = function* () {
   try {

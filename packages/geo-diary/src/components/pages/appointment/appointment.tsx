@@ -1,7 +1,7 @@
 import React, { Dispatch, FC, memo, SetStateAction, useEffect, useMemo } from 'react'
 import { useQuery } from '@apollo/react-hooks'
 import dayjs from 'dayjs'
-import { FadeIn, fetcher } from '@reapit/elements'
+import { FadeIn, fetcher } from '@reapit/elements-legacy'
 import { ExtendedAppointmentModel } from '@/types/global'
 import GET_APPOINTMENTS from '../../../graphql/queries/get-appointments.graphql'
 import GET_VENDORS from '../../../graphql/queries/get-vendors.graphql'
@@ -22,7 +22,7 @@ import {
   mobileAppointmentsShow,
 } from './__styles__'
 import AppointmentList from '../../ui/appointment-list'
-import { elIsBoldText, Loader, Subtitle } from '@reapit/elements/v3'
+import { elIsBoldText, Loader, Subtitle } from '@reapit/elements'
 import GoogleMapComponent from '@/components/ui/map'
 import ErrorBoundary from '../../../core/error-boundary'
 import { MyLocation } from '../../ui/my-location/my-location'

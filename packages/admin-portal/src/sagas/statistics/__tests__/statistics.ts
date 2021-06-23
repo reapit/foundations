@@ -8,7 +8,7 @@ import { Action } from '@/types/core'
 import { fetchStatisticsSucces, StatisticsRequestParams, fetchStatisticsFailed } from '@/actions/statistics'
 import { getDateRange } from '@/utils/statistics'
 import { fetchAppsList } from '@/services/apps'
-import { notification } from '@reapit/elements'
+import { notification } from '@reapit/elements-legacy'
 import { errorMessages } from '@reapit/utils'
 
 jest.mock('@reapit/elements')

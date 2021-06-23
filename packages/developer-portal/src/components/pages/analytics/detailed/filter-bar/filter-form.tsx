@@ -12,7 +12,7 @@ import {
   H6,
   SelectOption,
   Section,
-} from '@reapit/elements'
+} from '@reapit/elements-legacy'
 import { Form, Formik } from 'formik'
 import { FilterFormInitialValues } from './filter-bar'
 import { AppSummaryModel, InstallationModel } from '@reapit/foundations-ts-definitions'

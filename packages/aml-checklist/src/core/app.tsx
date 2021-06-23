@@ -1,4 +1,4 @@
-import { PortalProvider } from '@reapit/elements'
+import { PortalProvider } from '@reapit/elements-legacy'
 import Router from './router'
 import { Provider } from 'react-redux'
 import store from './store'

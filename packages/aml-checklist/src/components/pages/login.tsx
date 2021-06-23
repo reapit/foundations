@@ -1,5 +1,5 @@
 import * as React from 'react'
-import { Button, Level, FlexContainerBasic } from '@reapit/elements'
+import { Button, Level, FlexContainerBasic } from '@reapit/elements-legacy'
 import loginStyles from '@/styles/pages/login.scss?mod'
 import connectImage from '@/assets/images/reapit-connect.png'
 import { reapitConnectBrowserSession } from '@/core/connect-session'

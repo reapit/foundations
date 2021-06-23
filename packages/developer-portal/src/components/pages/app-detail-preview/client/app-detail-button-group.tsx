@@ -1,5 +1,5 @@
 import * as React from 'react'
-import { Button } from '@reapit/elements'
+import { Button } from '@reapit/elements-legacy'
 
 interface AppDetailButtonGroupProps {
   installedOn: string

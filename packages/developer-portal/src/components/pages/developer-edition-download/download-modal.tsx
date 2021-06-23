@@ -1,5 +1,5 @@
 import React, { useState } from 'react'
-import { Modal, Button } from '@reapit/elements'
+import { Modal, Button } from '@reapit/elements-legacy'
 import developerEditionGuide from '@/assets/files/developer-edition-guide.pdf'
 
 export const onDownload = (setIsCompleted: React.Dispatch<boolean>) => (): void => {

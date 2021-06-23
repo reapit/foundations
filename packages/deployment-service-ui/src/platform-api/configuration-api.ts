@@ -1,4 +1,4 @@
-import { fetcher } from '@reapit/elements'
+import { fetcher } from '@reapit/elements-legacy'
 import { ReapitConnectSession } from '@reapit/connect-session'
 import { ApiKeyEntityType, ApiKeyInterface } from '@reapit/foundations-ts-definitions'
 import { BASE_HEADERS, URLS } from '../constants/api'

@@ -21,6 +21,7 @@
     "@react-hook/resize-observer": "^1.2.0",
     "@reapit/connect-session": "workspace:packages/connect-session",
     "@reapit/elements": "workspace:packages/elements",
+    "@reapit/elements-legacy": "workspace:packages/elements-legacy",
     "@reapit/utils": "workspace:packages/utils",
     "@sentry/browser": "^5.30.0",
     "amazon-cognito-identity-js": "^4.5.12",

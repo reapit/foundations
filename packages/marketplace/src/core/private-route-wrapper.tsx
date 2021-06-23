@@ -2,11 +2,11 @@ import * as React from 'react'
 import { reapitConnectBrowserSession } from '@/core/connect-session'
 import { useReapitConnect } from '@reapit/connect-session'
 import Menu from '@/components/ui/menu'
-import { Section, AppNavContainer, FlexContainerBasic } from '@reapit/elements'
+import { Section, AppNavContainer, FlexContainerBasic } from '@reapit/elements-legacy'
 import { Redirect, useLocation } from 'react-router'
 import Routes from '@/constants/routes'
 import { selectDeveloperId, selectIsAdmin } from '../selector/auth'
-import { Loader } from '@reapit/elements/v3'
+import { Loader } from '@reapit/elements'
 
 const { Suspense } = React
 

@@ -7,7 +7,7 @@ import { fork } from 'redux-saga/effects'
 import revisionDetailSagas, { fetchRevisionDetailSaga, fetchRevisionDetailDataListen } from '../app-revision-detail'
 import { fetchAppRevisionDetailSuccess, fetchAppRevisionDetailFailed, fetchAppRevisionDetail } from '@/actions/apps'
 import errorMessages from '@/constants/error-messages'
-import { notification } from '@reapit/elements'
+import { notification } from '@reapit/elements-legacy'
 
 jest.mock('@/services/apps')
 jest.mock('@/services/scopes')

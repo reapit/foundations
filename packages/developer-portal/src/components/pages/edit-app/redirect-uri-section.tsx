@@ -1,5 +1,5 @@
 import * as React from 'react'
-import { FormSection, FormHeading, FormSubHeading, Grid, GridItem, Input, RadioSelect } from '@reapit/elements'
+import { FormSection, FormHeading, FormSubHeading, Grid, GridItem, Input, RadioSelect } from '@reapit/elements-legacy'
 import { formFields } from './form-schema/form-fields'
 
 const { redirectUris, signoutUris, limitToClientIds, isPrivateApp: isPrivateAppForm } = formFields

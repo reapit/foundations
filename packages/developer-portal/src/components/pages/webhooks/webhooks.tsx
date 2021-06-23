@@ -15,7 +15,7 @@ import {
   LevelRight,
   Button,
   Table,
-} from '@reapit/elements'
+} from '@reapit/elements-legacy'
 import { useSelector, useDispatch } from 'react-redux'
 import { AppSummaryModel } from '@reapit/foundations-ts-definitions'
 import { Dispatch } from 'redux'
@@ -37,7 +37,7 @@ import { TopicModel, WebhookModel } from '@/services/webhooks'
 import { URLS } from '@/services/constants'
 import FadeIn from '../../../styles/fade-in'
 import { WebhooksLogsTable } from './webhook-logs-table'
-import { Loader } from '@reapit/elements/v3'
+import { Loader } from '@reapit/elements'
 
 export const WEBHOOK_PAGE_SIZE = 5
 

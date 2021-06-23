@@ -1,6 +1,6 @@
 import React, { Dispatch, useMemo } from 'react'
 import { MemberModel } from '@reapit/foundations-ts-definitions'
-import { FlexContainerBasic, Table, Section, H5 } from '@reapit/elements'
+import { FlexContainerBasic, Table, Section, H5 } from '@reapit/elements-legacy'
 import SetAsAdminModal from './set-as-admin'
 import DisableMemberModal from '@/components/ui/disable-member-modal'
 import { hyperlinked } from '@/styles/elements/link'

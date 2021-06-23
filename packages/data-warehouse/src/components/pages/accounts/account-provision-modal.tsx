@@ -9,7 +9,7 @@ import {
   Input,
   LevelRight,
   Modal,
-} from '@reapit/elements'
+} from '@reapit/elements-legacy'
 import * as Yup from 'yup'
 import { passwordRegex } from '@reapit/utils'
 import { reapitConnectBrowserSession } from '../../../core/connect-session'

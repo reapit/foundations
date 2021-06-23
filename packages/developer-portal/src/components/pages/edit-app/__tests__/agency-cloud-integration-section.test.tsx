@@ -4,7 +4,7 @@ import * as ReactRedux from 'react-redux'
 import configureStore from 'redux-mock-store'
 import appState from '@/reducers/__stubs__/app-state'
 import AgencyCloudIntegrationSection, { prepareIntegrationTypeOptions } from '../agency-cloud-integration-section'
-import { Formik, Form } from '@reapit/elements'
+import { Formik, Form } from '@reapit/elements-legacy'
 import { integrationTypesStub } from '@/sagas/__stubs__/integration-types'
 
 describe('AgencyCloudIntegrationSection', () => {

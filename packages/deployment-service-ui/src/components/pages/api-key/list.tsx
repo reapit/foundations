@@ -5,9 +5,9 @@ import {
   configurationApiKeyApiService,
 } from '@/platform-api/configuration-api'
 import { ReapitConnectSession, useReapitConnect } from '@reapit/connect-session'
-import { H3, Section } from '@reapit/elements'
-import { Button, Table } from '@reapit/elements'
-import { Loader } from '@reapit/elements/v3'
+import { H3, Section } from '@reapit/elements-legacy'
+import { Button, Table } from '@reapit/elements-legacy'
+import { Loader } from '@reapit/elements'
 import { ApiKeyInterface } from '@reapit/foundations-ts-definitions'
 import React, { useEffect, useState } from 'react'
 import { shleemy } from 'shleemy'

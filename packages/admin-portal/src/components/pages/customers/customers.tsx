@@ -17,7 +17,7 @@ import {
   GridItem,
   Input,
   Formik,
-} from '@reapit/elements'
+} from '@reapit/elements-legacy'
 import Routes from '@/constants/routes'
 import qs from 'querystring'
 import { selectCustomersList } from '@/selector/customers'

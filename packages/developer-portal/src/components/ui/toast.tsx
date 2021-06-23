@@ -1,7 +1,7 @@
 import * as React from 'react'
 import { useDispatch, useSelector } from 'react-redux'
 import { Dispatch } from 'redux'
-import { Toast as ToastElement } from '@reapit/elements'
+import { Toast as ToastElement } from '@reapit/elements-legacy'
 import { errorClearedServer, errorClearedComponent } from '@/actions/error'
 import { selectErrorState } from '@/selector/error'
 

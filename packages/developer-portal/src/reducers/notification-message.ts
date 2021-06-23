@@ -1,7 +1,7 @@
 import { Action } from '../types/core'
 import { isType } from '../utils/actions'
 import { showNotificationMessage, hideNotificationMessage } from '../actions/notification-message'
-import { ToastVariant } from '@reapit/elements'
+import { ToastVariant } from '@reapit/elements-legacy'
 
 export interface NotificationMessageState {
   visible: boolean

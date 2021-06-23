@@ -1,5 +1,5 @@
 import * as React from 'react'
-import { H3 } from '@reapit/elements'
+import { H3 } from '@reapit/elements-legacy'
 import liveChatImg from '@/assets/images/help/live-chat.jpg'
 import { HelpItem, HelpItemList } from '@/components/pages/help/help-item-list'
 

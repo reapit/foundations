@@ -1,5 +1,5 @@
 import React from 'react'
-import { FadeIn } from '@reapit/elements'
+import { FadeIn } from '@reapit/elements-legacy'
 import { OfficeModel } from '@reapit/foundations-ts-definitions'
 
 const OfficeListCell = ({ cell: { value } }) => {

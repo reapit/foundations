@@ -1,7 +1,7 @@
 import * as React from 'react'
 import CostCalculator from './cost-calculator'
 import TransactionHistory from './transaction-history'
-import { Grid, GridItem } from '@reapit/elements'
+import { Grid, GridItem } from '@reapit/elements-legacy'
 import ErrorBoundary from '@/components/hocs/error-boundary'
 import ServiceChart from './service-chart'
 import CostExplorer from './cost-explorer-component'

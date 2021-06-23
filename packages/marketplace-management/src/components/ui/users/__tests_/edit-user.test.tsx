@@ -1,6 +1,6 @@
 import React from 'react'
 import { shallow } from 'enzyme'
-import { notification } from '@reapit/elements'
+import { notification } from '@reapit/elements-legacy'
 import UpdateUserModal, { UpdateUserModalProps, onHandleSubmit } from '../edit-user'
 import { UserModel } from '../../../../types/organisations-schema'
 import { addMemberToGroup, removeMemberFromGroup } from '../../../../services/user'

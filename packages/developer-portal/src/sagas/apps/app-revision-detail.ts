@@ -4,7 +4,7 @@ import { Action } from '@/types/core'
 import { fetchAppRevisionsById, FetchAppRevisionsByIdParams } from '@/services/apps'
 import { fork } from 'redux-saga/effects'
 import { fetchAppRevisionDetailSuccess, fetchAppRevisionDetail, fetchAppRevisionDetailFailed } from '@/actions/apps'
-import { notification } from '@reapit/elements'
+import { notification } from '@reapit/elements-legacy'
 
 export const fetchRevisionDetailSaga = function* ({ data: { id, revisionId } }: Action<FetchAppRevisionsByIdParams>) {
   try {

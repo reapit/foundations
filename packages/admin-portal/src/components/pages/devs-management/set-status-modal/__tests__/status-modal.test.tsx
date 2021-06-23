@@ -2,7 +2,7 @@ import { onSubmitStatus, reapitRefInput, StatusModal, onAfterSubmit } from '../s
 import { setRequestDeveloperStatusFormState } from '@/actions/developer-set-status'
 import { shallow, mount } from 'enzyme'
 import React from 'react'
-import { FormikProps } from '@reapit/elements'
+import { FormikProps } from '@reapit/elements-legacy'
 import configureStore from 'redux-mock-store'
 import { DeveloperModelPagedResult } from '@reapit/foundations-ts-definitions'
 import appState from '@/reducers/__stubs__/app-state'

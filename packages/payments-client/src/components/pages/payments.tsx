@@ -13,7 +13,7 @@ import {
   Helper,
   Table,
   Pagination,
-} from '@reapit/elements'
+} from '@reapit/elements-legacy'
 import { URLS } from '../../constants/api'
 import { PaymentModel, PaymentModelPagedResult, PropertyModel } from '@reapit/foundations-ts-definitions'
 import { statusOptions } from '../../constants/filter-options'

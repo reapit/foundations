@@ -1,4 +1,4 @@
-import { FormFieldInfo } from '@reapit/elements'
+import { FormFieldInfo } from '@reapit/elements-legacy'
 
 type FieldChangePassword = 'currentPasswordField' | 'passwordField' | 'confirmPasswordField'
 

@@ -1,5 +1,5 @@
 import React, { FC, MutableRefObject, useEffect, useRef, useState } from 'react'
-import { H3, Section, Helper, Loader } from '@reapit/elements'
+import { H3, Section, Helper, Loader } from '@reapit/elements-legacy'
 import { useReapitConnect, ReapitConnectSession } from '@reapit/connect-session'
 import { reapitConnectBrowserSession } from '@/core/connect-session'
 import { CredentialsModel, powerBiApiService } from '@/platform-api/power-bi-api'

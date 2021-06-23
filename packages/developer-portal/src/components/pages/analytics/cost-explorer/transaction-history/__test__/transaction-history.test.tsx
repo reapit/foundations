@@ -1,7 +1,7 @@
 import * as React from 'react'
 import * as ReactRedux from 'react-redux'
 import { URLS } from '@/services/constants'
-import { fetcherWithBlob } from '@reapit/elements'
+import { fetcherWithBlob } from '@reapit/elements-legacy'
 import { shallow } from 'enzyme'
 import TransactionHistory, {
   selectTransactionHistoryState,

@@ -1,7 +1,7 @@
 import React, { useEffect, Dispatch, SetStateAction, useState } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
 import { Dispatch as ReduxDispatch } from 'redux'
-import { Button } from '@reapit/elements'
+import { Button } from '@reapit/elements-legacy'
 import { fetchSubscriptionsByTypeAndDev, createSubscription, cancelSubscription } from '../../../actions/subscriptions'
 import {
   selectCancelSubscriptionLoading,

@@ -4,7 +4,7 @@ import { updateOrganisationMemberById } from '@/services/developers'
 import errorMessages from '@/constants/error-messages'
 import ActionTypes from '@/constants/action-types'
 import { setAsAdminFailed, setAsAdminSuccess, SetAsAdminParams, fetchOrganisationMembers } from '@/actions/developers'
-import { notification } from '@reapit/elements'
+import { notification } from '@reapit/elements-legacy'
 
 export const setAsAdminSaga = function* ({ data }: Action<SetAsAdminParams>) {
   const { callback, ...params } = data

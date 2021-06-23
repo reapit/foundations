@@ -1,7 +1,7 @@
 import React, { Dispatch, SetStateAction } from 'react'
 import { InstallationModelPagedResult } from '@reapit/foundations-ts-definitions'
 import AppInstallationPerOfficeGroup from './app-installation-per-office-group'
-import { Section, H5, FlexContainerBasic, Button } from '@reapit/elements'
+import { Section, H5, FlexContainerBasic, Button } from '@reapit/elements-legacy'
 import { WHOLE_ORG, SPECIFIC_OFFICE_GROUPS, InstallTypes } from './app-installation-manager'
 
 export interface AppInstallationSectionProps {

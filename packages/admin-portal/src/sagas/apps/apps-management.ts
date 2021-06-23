@@ -7,7 +7,7 @@ import { AppDetailModel } from '@reapit/foundations-ts-definitions'
 import { extractNetworkErrString } from '@reapit/utils'
 import { featureAppById, unfeatureAppById, fetchAppsList } from '@/services/apps'
 import { APPS_PER_PAGE } from '@/constants/paginator'
-import { notification } from '@reapit/elements'
+import { notification } from '@reapit/elements-legacy'
 
 export const appsManagementFetch = function* ({ data }) {
   try {

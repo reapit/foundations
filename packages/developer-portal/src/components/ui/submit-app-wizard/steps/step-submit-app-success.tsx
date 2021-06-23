@@ -1,7 +1,7 @@
 import React from 'react'
 import AuthFlow from '@/constants/app-auth-flow'
 import AppAuthenticationDetail from '@/components/pages/app-detail/app-authentication-detail'
-import { ModalBody, Button, ModalFooter, H5 } from '@reapit/elements'
+import { ModalBody, Button, ModalFooter, H5 } from '@reapit/elements-legacy'
 import { WizardStep, WizardStepComponent } from '../types'
 import { useFormikContext } from 'formik'
 import { formFields } from '../form-fields'

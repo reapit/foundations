@@ -13,7 +13,7 @@ import {
   Checkbox,
   SelectOption,
   ButtonGroup,
-} from '@reapit/elements'
+} from '@reapit/elements-legacy'
 import { updateOfficeGroup } from '../../../services/office'
 import { toastMessages } from '../../../constants/toast-messages'
 import { prepareOfficeOptions } from '../../../utils/prepare-options'

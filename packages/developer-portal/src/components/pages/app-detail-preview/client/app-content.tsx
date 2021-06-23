@@ -1,5 +1,5 @@
 import * as React from 'react'
-import { Section } from '@reapit/elements'
+import { Section } from '@reapit/elements-legacy'
 import { SummarySection, AdditionalImagesSection, PermissionsSection, DescriptionSection } from '../common/ui-sections'
 import { AppDetailData } from '@/reducers/developer'
 import { DeveloperAboutSection } from '../../app-detail/app-sections'

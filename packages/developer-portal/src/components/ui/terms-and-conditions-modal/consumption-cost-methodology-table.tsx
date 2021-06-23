@@ -1,5 +1,5 @@
 import React from 'react'
-import { Table, FlexContainerBasic, Grid, GridItem, H6 } from '@reapit/elements'
+import { Table, FlexContainerBasic, Grid, GridItem, H6 } from '@reapit/elements-legacy'
 
 const consumptionCostsMethodology = [
   {

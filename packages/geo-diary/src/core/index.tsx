@@ -1,5 +1,5 @@
 import * as Sentry from '@sentry/browser'
-import { injectSwitchModeToWindow } from '@reapit/elements'
+import { injectSwitchModeToWindow } from '@reapit/elements-legacy'
 import load from 'little-loader'
 import qs from 'query-string'
 import React from 'react'

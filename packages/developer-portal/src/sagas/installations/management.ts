@@ -11,7 +11,7 @@ import { setInstallationsFormState } from '@/actions/installations'
 import { Action } from '@/types/core'
 import ActionTypes from '@/constants/action-types'
 import errorMessages from '@/constants/error-messages'
-import { notification } from '@reapit/elements'
+import { notification } from '@reapit/elements-legacy'
 
 export const createInstallationSaga = function* (options) {
   const data: InstallParams = options.data

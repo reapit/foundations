@@ -1,6 +1,6 @@
 import React from 'react'
 import { ValidateFormikOnMount } from '../utils'
-import { ModalBody, Button, Input, ModalFooter, ButtonGroup } from '@reapit/elements'
+import { ModalBody, Button, Input, ModalFooter, ButtonGroup } from '@reapit/elements-legacy'
 import { WizardStepComponent, SetWizardStep } from '../types'
 import { formFields } from '../form-fields'
 import { useFormikContext } from 'formik'

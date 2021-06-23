@@ -1,6 +1,6 @@
 import React from 'react'
 import { OfficeGroupModel, OfficeGroupModelPagedResult } from '../../../types/organisations-schema'
-import { Pagination, Table, FadeIn, Helper } from '@reapit/elements'
+import { Pagination, Table, FadeIn, Helper } from '@reapit/elements-legacy'
 import { OfficeModel } from '@reapit/foundations-ts-definitions'
 import useSWR from 'swr'
 import { URLS } from '../../../constants/api'

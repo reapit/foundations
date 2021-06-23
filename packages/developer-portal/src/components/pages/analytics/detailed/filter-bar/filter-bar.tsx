@@ -2,7 +2,7 @@ import * as React from 'react'
 import DefaultFilterGroup, { prepareDefaultFilterDateParams } from './default-filter-group'
 import FilterForm from './filter-form'
 import { AppSummaryModel, InstallationModel } from '@reapit/foundations-ts-definitions'
-import { Content } from '@reapit/elements'
+import { Content } from '@reapit/elements-legacy'
 
 export type FilterBarProps = {
   developerAppsData: AppSummaryModel[]

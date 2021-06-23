@@ -1,4 +1,4 @@
-import { SelectBoxOptions } from '@reapit/elements'
+import { SelectBoxOptions } from '@reapit/elements-legacy'
 
 export const subscriptionTypes: SelectBoxOptions[] = [
   { label: 'Application Listing', value: 'applicationListing' },

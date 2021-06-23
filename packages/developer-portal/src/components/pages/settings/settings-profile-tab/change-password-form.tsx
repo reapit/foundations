@@ -11,7 +11,7 @@ import {
   Grid,
   GridItem,
   FormikHelpers,
-} from '@reapit/elements'
+} from '@reapit/elements-legacy'
 import { validationSchemaChangePassword as validationSchema } from './form-schema/validation-schema'
 import { formFieldsChangePassword } from './form-schema/form-fields'
 import FadeIn from '../../../../styles/fade-in'

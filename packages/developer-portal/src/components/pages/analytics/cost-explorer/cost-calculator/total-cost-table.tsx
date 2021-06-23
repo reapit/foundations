@@ -2,7 +2,7 @@ import * as React from 'react'
 import { FaCaretDown, FaCaretUp } from 'react-icons/fa'
 import { CostCalculatorFormValues } from './cost-calculator-form'
 import { formatCurrency, formatNumber } from '@/utils/number-formatter'
-import { Table, Grid, GridItem, H6, H5, Button, Section } from '@reapit/elements'
+import { Table, Grid, GridItem, H6, H5, Button, Section } from '@reapit/elements-legacy'
 import useFoundationCostTable, { endpointsUsedRange } from './use-foundation-cost-table'
 
 export type TotalCostTableProps = {

@@ -1,4 +1,4 @@
-import { fetcher } from '@reapit/elements'
+import { fetcher } from '@reapit/elements-legacy'
 import { ReapitConnectSession } from '@reapit/connect-session'
 import { URLS, BASE_HEADERS } from '../constants/api'
 import { logger } from '@reapit/utils'

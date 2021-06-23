@@ -23,6 +23,7 @@
   "dependencies": {
     "@reapit/connect-session": "workspace:packages/connect-session",
     "@reapit/elements": "workspace:packages/elements",
+    "@reapit/elements-legacy": "workspace:packages/elements-legacy",
     "@sentry/browser": "^5.30.0",
     "dayjs": "^1.10.4",
     "linaria": "^2.0.2",

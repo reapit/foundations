@@ -1,4 +1,4 @@
-import { injectSwitchModeToWindow } from '@reapit/elements'
+import { injectSwitchModeToWindow } from '@reapit/elements-legacy'
 import {
   createStore,
   applyMiddleware,

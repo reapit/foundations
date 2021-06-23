@@ -1,7 +1,7 @@
 import * as React from 'react'
 import { mount } from 'enzyme'
 import * as ReactRedux from 'react-redux'
-import { Formik, Form } from '@reapit/elements'
+import { Formik, Form } from '@reapit/elements-legacy'
 import configureStore from 'redux-mock-store'
 import appState from '@/reducers/__stubs__/app-state'
 import GeneralInformationSection, { prepareCategoryOptions } from '../general-information-section'

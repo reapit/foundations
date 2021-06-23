@@ -1,5 +1,5 @@
 import React, { useState, useEffect, useContext } from 'react'
-import { Button, H3, H5, Section, Helper, Loader, Content } from '@reapit/elements'
+import { Button, H3, H5, Section, Helper, Loader, Content } from '@reapit/elements-legacy'
 import { PagedApiResponse } from '../../../types/core'
 import { AccountModel } from '../../../types/accounts'
 import AccountsTable from './accounts-table'

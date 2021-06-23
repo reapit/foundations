@@ -1,6 +1,6 @@
 import React from 'react'
 import * as styles from './__styles__'
-import { Button, GridFourCol, GridThreeColItem, H5, Section, LevelRight, Content } from '@reapit/elements'
+import { Button, GridFourCol, GridThreeColItem, H5, Section, LevelRight, Content } from '@reapit/elements-legacy'
 
 export interface HelpItem {
   imgSrc: string

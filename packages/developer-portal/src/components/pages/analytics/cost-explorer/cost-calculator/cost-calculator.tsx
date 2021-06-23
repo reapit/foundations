@@ -1,5 +1,5 @@
 import * as React from 'react'
-import { H5, GridItem, Grid, Section } from '@reapit/elements'
+import { H5, GridItem, Grid, Section } from '@reapit/elements-legacy'
 import CostCalculatorForm, { CostCalculatorFormValues } from './cost-calculator-form'
 import TotalCostTable from './total-cost-table'
 import FadeIn from '../../../../../styles/fade-in'

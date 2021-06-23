@@ -1,7 +1,7 @@
 import React, { Dispatch, FC, SetStateAction, useState } from 'react'
 import ErrorBoundary from '@/components/hocs/error-boundary'
-import { FadeIn, Modal } from '@reapit/elements'
-import { Title, Subtitle, BodyText, elMb4, elMb6, SmallText, Button, elMx4 } from '@reapit/elements/v3'
+import { FadeIn, Modal } from '@reapit/elements-legacy'
+import { Title, Subtitle, BodyText, elMb4, elMb6, SmallText, Button, elMx4 } from '@reapit/elements'
 import DeveloperEditonModal from '@/components/ui/developer-edition-modal'
 import {
   hasGreyText,

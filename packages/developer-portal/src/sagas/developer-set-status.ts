@@ -6,7 +6,7 @@ import {
 } from '@/actions/developer-set-status'
 import ActionTypes from '@/constants/action-types'
 import { Action } from '@/types/core'
-import { notification } from '@reapit/elements'
+import { notification } from '@reapit/elements-legacy'
 import errorMessages from '@/constants/error-messages'
 import { DeveloperModel } from '@reapit/foundations-ts-definitions'
 import { updateDeveloperById } from '@/services/developers'

@@ -21,7 +21,7 @@ import {
   MediaModel,
   ScopeModel,
 } from '@reapit/foundations-ts-definitions'
-import { Button } from '@reapit/elements'
+import { Button } from '@reapit/elements-legacy'
 import { InstallationsTableSection, PermissionsSection, DescriptionSection } from '../ui-sections'
 import { installationsStub } from '@/sagas/__stubs__/installations'
 

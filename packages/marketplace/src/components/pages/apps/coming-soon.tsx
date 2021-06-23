@@ -1,5 +1,5 @@
 import * as React from 'react'
-import { GridFourColItem, FadeIn } from '@reapit/elements'
+import { GridFourColItem, FadeIn } from '@reapit/elements-legacy'
 
 import placeHolderImage from '@/assets/images/default-feature-image.jpg'
 import comingSoonImageZoopla from '@/assets/images/coming-soon/Zoopla.jpg'

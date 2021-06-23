@@ -1,6 +1,6 @@
 import React from 'react'
 import { connect } from 'react-redux'
-import { SelectBox } from '@reapit/elements'
+import { SelectBox } from '@reapit/elements-legacy'
 import { ReduxState } from '@/types/core'
 import { IdentityTypesState } from '@/reducers/identity-types'
 import { ListItemModel } from '@reapit/foundations-ts-definitions'

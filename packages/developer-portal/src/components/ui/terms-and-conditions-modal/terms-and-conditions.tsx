@@ -1,5 +1,5 @@
 import React from 'react'
-import { Content, H5 } from '@reapit/elements'
+import { Content, H5 } from '@reapit/elements-legacy'
 import { TermsOl, TermsLi, TermsLiAlpha } from './__styles__/terms-and-conditions'
 
 export const TermsAndConditions = () => (

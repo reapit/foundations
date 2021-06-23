@@ -10,7 +10,7 @@ import configureStore from 'redux-mock-store'
 import { Provider } from 'react-redux'
 import { UpdateWebComponentConfigParams } from '@/services/web-component'
 import appState from '@/reducers/__stubs__/app-state'
-import { FormikProps } from '@reapit/elements'
+import { FormikProps } from '@reapit/elements-legacy'
 
 const params = {
   appId: 'appid',

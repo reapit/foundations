@@ -11,14 +11,14 @@ import {
   Section,
   Pagination,
   Helper,
-} from '@reapit/elements'
+} from '@reapit/elements-legacy'
 import SelectIdentity from '@/components/ui/inputs/select-identity'
 import styles from '@/styles/pages/checklist-detail.scss?mod'
 import { downloadDocument } from '@/services/documents'
 import validationSchema from './form-schema/validation-schema'
 import FormFields from './form-schema/form-fields'
 import { Document, Page } from 'react-pdf/dist/esm/entry.webpack'
-import { Loader } from '@reapit/elements/v3'
+import { Loader } from '@reapit/elements'
 
 const { typeIdField, detailsField, expiryField, documentIdField } = FormFields
 

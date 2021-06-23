@@ -5,7 +5,7 @@ import { fetchInstallationsList, FetchInstallationsListParams } from '@/services
 import { getDeveloperId } from '@/utils/session'
 import errorMessages from '@/constants/error-messages'
 import { Action } from '@/types/core'
-import { notification } from '@reapit/elements'
+import { notification } from '@reapit/elements-legacy'
 
 export const fetchInstallationsFilterListSaga = function* ({ data }) {
   try {

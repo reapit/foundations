@@ -5,7 +5,7 @@ import {
 } from '../actions/authenticated'
 import { put, fork, takeLatest, all, call } from '@redux-saga/core/effects'
 import ActionTypes from '../constants/action-types'
-import { notification } from '@reapit/elements'
+import { notification } from '@reapit/elements-legacy'
 import errorMessages from '../constants/error-messages'
 import { Action } from '@/types/core'
 

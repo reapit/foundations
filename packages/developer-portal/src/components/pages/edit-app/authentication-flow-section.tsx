@@ -1,6 +1,6 @@
 import * as React from 'react'
 
-import { FormSection, FormHeading, FormSubHeading, Grid, GridItem, RadioSelect } from '@reapit/elements'
+import { FormSection, FormHeading, FormSubHeading, Grid, GridItem, RadioSelect } from '@reapit/elements-legacy'
 import { link } from '@/styles/elements/link'
 
 export type AuthenticationFlowSectionProps = {

@@ -1,5 +1,5 @@
 import React from 'react'
-import { Content, ModalV2, Button } from '@reapit/elements'
+import { Content, ModalV2, Button } from '@reapit/elements-legacy'
 
 export type SuccessModalProps = {
   name?: string

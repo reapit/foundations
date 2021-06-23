@@ -1,5 +1,5 @@
 import React from 'react'
-import { ModalBody, ModalFooter, H5, Button, ButtonGroup } from '@reapit/elements'
+import { ModalBody, ModalFooter, H5, Button, ButtonGroup } from '@reapit/elements-legacy'
 import { History } from 'history'
 import Routes from '@/constants/routes'
 import { WizardStepComponent, SetWizardStep } from '../types'

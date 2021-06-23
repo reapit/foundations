@@ -1,4 +1,4 @@
-import { fetcher, notification } from '@reapit/elements'
+import { fetcher, notification } from '@reapit/elements-legacy'
 import { reapitConnectBrowserSession } from '../core/connect-session'
 import { URLS } from '../constants/api'
 import { getPlatformHeaders, logger } from '@reapit/utils'

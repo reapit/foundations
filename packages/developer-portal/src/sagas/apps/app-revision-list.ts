@@ -3,7 +3,7 @@ import { fetchAppRevisionList, fetchAppRevisionListSuccess, fetchAppRevisionList
 import { fetchAppRevisionsList, FetchAppRevisionsListParams } from '@/services/apps'
 import errorMessages from '@/constants/error-messages'
 import { Action } from '@/types/core'
-import { notification } from '@reapit/elements'
+import { notification } from '@reapit/elements-legacy'
 
 export const fetchAppRevisionListSaga = function* ({ data }: Action<FetchAppRevisionsListParams>) {
   try {

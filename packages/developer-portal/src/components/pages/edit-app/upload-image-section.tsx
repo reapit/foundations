@@ -7,7 +7,7 @@ import {
   GridFourColItem,
   ImageCropperWithInput,
   ResizeDimensions,
-} from '@reapit/elements'
+} from '@reapit/elements-legacy'
 import { formFields } from './form-schema/form-fields'
 
 const { screen1ImageUrl, screen2ImageUrl, screen3ImageUrl, screen4ImageUrl, screen5ImageUrl, iconImageUrl } = formFields

@@ -1,6 +1,6 @@
 import React, { Dispatch, FC, memo, SetStateAction } from 'react'
 import { AppState, useAppState, AppTab } from '../../../core/app-state'
-import { Button } from '@reapit/elements/v3'
+import { Button } from '@reapit/elements'
 import { TabModeButtonContainer } from './__styles__'
 
 export type HandleChangeTabModeParams = {

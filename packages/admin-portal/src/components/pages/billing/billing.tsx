@@ -10,7 +10,7 @@ import {
   Grid,
   GridItem,
   notification,
-} from '@reapit/elements'
+} from '@reapit/elements-legacy'
 import { fetchDeveloperBillingPeriod } from '@/services/developers'
 import dayjs from 'dayjs'
 import { MONTHS } from '@/constants/datetime'

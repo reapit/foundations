@@ -1,5 +1,5 @@
 import * as React from 'react'
-import { Button, Level } from '@reapit/elements'
+import { Button, Level } from '@reapit/elements-legacy'
 import * as loginStyles from './__styles__/styles'
 
 import logoImage from '@/assets/images/reapit-graphic.jpg'

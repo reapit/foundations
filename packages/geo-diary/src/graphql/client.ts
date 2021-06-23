@@ -3,7 +3,7 @@ import { ErrorHandler, ErrorResponse } from 'apollo-link-error'
 import { ApolloCache } from 'apollo-cache'
 import typeDefs from './schema.graphql'
 import resolvers from './resolvers'
-import { notification } from '@reapit/elements'
+import { notification } from '@reapit/elements-legacy'
 import { ReapitConnectSession } from '@reapit/connect-session'
 import { logger } from '@reapit/utils'
 

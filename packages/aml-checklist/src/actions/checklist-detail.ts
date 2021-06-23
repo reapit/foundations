@@ -1,7 +1,7 @@
 import { ContactModel, IdentityCheckModel } from '@reapit/foundations-ts-definitions'
 import { actionCreator } from '../utils/actions'
 import ActionTypes from '../constants/action-types'
-import { DynamicLinkParams } from '@reapit/elements'
+import { DynamicLinkParams } from '@reapit/elements-legacy'
 import { IdentityDocumentForm } from '../components/ui/forms/identification'
 
 export const checklistDetailRequestData = actionCreator<string>(ActionTypes.CHECKLIST_DETAIL_REQUEST_DATA)

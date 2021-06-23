@@ -12,7 +12,7 @@ import {
   checklistDetailReceiveIdentityCheck,
   checkListDetailIdentityCheckUpdateData,
 } from '../checklist-detail'
-import { EntityType } from '@reapit/elements'
+import { EntityType } from '@reapit/elements-legacy'
 
 describe('checklist-detail actions', () => {
   it('should create a checklistDetailRequestData action', () => {

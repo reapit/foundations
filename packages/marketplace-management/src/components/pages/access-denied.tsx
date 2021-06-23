@@ -1,5 +1,5 @@
 import * as React from 'react'
-import { ModalV2, Button, ButtonGroup } from '@reapit/elements'
+import { ModalV2, Button, ButtonGroup } from '@reapit/elements-legacy'
 import { reapitConnectBrowserSession } from '../../core/connect-session'
 
 export const onMarketplaceButtonClick = () => {

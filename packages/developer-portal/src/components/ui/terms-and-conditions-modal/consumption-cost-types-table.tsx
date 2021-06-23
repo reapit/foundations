@@ -1,5 +1,5 @@
 import React from 'react'
-import { Table } from '@reapit/elements'
+import { Table } from '@reapit/elements-legacy'
 
 const consumptionCostTypes = [
   { type: 'Annual Registration Fee', amount: '£995', payable: 'Per Contract year, payable in advance' },

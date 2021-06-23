@@ -6,7 +6,7 @@ import { revisionSubmitStub } from '@/sagas/__stubs__/revision-submit'
 import { createAppRevisionAPI, CreateAppRevisionParams } from '@/services/apps'
 import errorMessages from '@/constants/error-messages'
 import { createAppRevisionFailed, createAppRevisionSuccess, createAppRevision } from '@/actions/apps'
-import { notification } from '@reapit/elements'
+import { notification } from '@reapit/elements-legacy'
 
 jest.mock('@/services/apps')
 jest.mock('@reapit/elements')

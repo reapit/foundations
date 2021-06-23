@@ -1,6 +1,6 @@
 import * as React from 'react'
 import Routes from '@/constants/routes'
-import { Tabs as ElementsTabs, TabConfig } from '@reapit/elements'
+import { Tabs as ElementsTabs, TabConfig } from '@reapit/elements-legacy'
 import { useHistory, useRouteMatch } from 'react-router-dom'
 
 export type TabConfigsProps = {

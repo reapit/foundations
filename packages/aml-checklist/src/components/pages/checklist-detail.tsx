@@ -1,6 +1,6 @@
 import * as React from 'react'
 import { connect } from 'react-redux'
-import { Button, Section, FadeIn, H5 } from '@reapit/elements'
+import { Button, Section, FadeIn, H5 } from '@reapit/elements-legacy'
 import { ReduxState } from '@/types/core'
 import ErrorBoundary from '@/components/hocs/error-boundary'
 import { withRouter, RouteComponentProps } from 'react-router'
@@ -14,7 +14,7 @@ import styles from '@/styles/ui/section.scss?mod'
 import { SectionsStatus } from '@/reducers/checklist-detail'
 import { defaultStatus } from '@/constants/section-status'
 import { FaCheck, FaTimes } from 'react-icons/fa'
-import { Loader } from '@reapit/elements/v3'
+import { Loader } from '@reapit/elements'
 
 export type CheckListDetailProps = HomeMappedActions & HomeMappedProps & RouteComponentProps<{ id?: any }>
 

@@ -6,7 +6,7 @@ import { call, put, takeLatest, fork, all } from 'redux-saga/effects'
 import { setAsAdminSuccess, setAsAdminFailed, fetchOrganisationMembers, SetAsAdminParams } from '@/actions/developers'
 import errorMessages from '@/constants/error-messages'
 import ActionTypes from '@/constants/action-types'
-import { notification } from '@reapit/elements'
+import { notification } from '@reapit/elements-legacy'
 
 describe('setAsAdminSaga', () => {
   const params: Action<SetAsAdminParams> = {

@@ -7,7 +7,7 @@ import {
   CardListItemTextWrap,
   elCardListItemExpanded,
   Icon,
-} from '@reapit/elements/v3'
+} from '@reapit/elements'
 import { useAppState } from '../../../core/app-state'
 import { ExtendedAppointmentModel } from '../../../types/global'
 import { handleOpenContactDrawer } from './appointment-items'

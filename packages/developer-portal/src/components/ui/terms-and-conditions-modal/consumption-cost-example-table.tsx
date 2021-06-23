@@ -1,5 +1,5 @@
 import React from 'react'
-import { Table, Grid, GridItem, H6 } from '@reapit/elements'
+import { Table, Grid, GridItem, H6 } from '@reapit/elements-legacy'
 // eslint-disable-next-line max-len
 import { CostCalculatorFormValues } from '@/components/pages/analytics/cost-explorer/cost-calculator/cost-calculator-form'
 import useFoundationCostTable, {

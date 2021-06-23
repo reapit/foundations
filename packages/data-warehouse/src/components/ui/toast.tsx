@@ -1,5 +1,5 @@
 import React, { useContext } from 'react'
-import { ToastMessage } from '@reapit/elements'
+import { ToastMessage } from '@reapit/elements-legacy'
 import { defaultMessageState, MessageContext } from '../../context/message-context'
 
 const ToastError: React.FC = () => {

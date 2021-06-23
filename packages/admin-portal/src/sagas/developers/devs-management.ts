@@ -9,7 +9,7 @@ import {
   SetAsAdminParams,
 } from '@/actions/devs-management'
 
-import { DATE_TIME_FORMAT, notification } from '@reapit/elements'
+import { DATE_TIME_FORMAT, notification } from '@reapit/elements-legacy'
 import { Action } from '@/types/core'
 import ActionTypes from '@/constants/action-types'
 import { REVISIONS_PER_PAGE } from '@/constants/paginator'

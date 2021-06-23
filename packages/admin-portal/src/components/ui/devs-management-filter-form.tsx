@@ -11,7 +11,7 @@ import {
   Formik,
   Form,
   DatePicker,
-} from '@reapit/elements'
+} from '@reapit/elements-legacy'
 
 export interface DevsManagementFilterFormValues {
   name: string

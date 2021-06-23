@@ -1,5 +1,5 @@
 import * as React from 'react'
-import { Button, Helper, Modal, ModalProps } from '@reapit/elements'
+import { Button, Helper, Modal, ModalProps } from '@reapit/elements-legacy'
 import { TermsAndConditions } from './terms-and-conditions'
 import { ScheduleOne } from './schedule-one'
 import { ScheduleTwo } from './schedule-two'

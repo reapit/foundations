@@ -22,7 +22,7 @@ import {
   CreateSubscriptionParams,
 } from '@/actions/developer-subscriptions'
 import { getDeveloperId } from '@/utils/session'
-import { notification } from '@reapit/elements'
+import { notification } from '@reapit/elements-legacy'
 import errorMessages from '@/constants/error-messages'
 
 jest.mock('@reapit/elements')

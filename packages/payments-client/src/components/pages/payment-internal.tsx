@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react'
 import useSWR from 'swr'
-import { Helper, Loader } from '@reapit/elements'
+import { Helper, Loader } from '@reapit/elements-legacy'
 import { URLS } from '../../constants/api'
 import { useReapitConnect } from '@reapit/connect-session'
 import { reapitConnectBrowserSession } from '../../core/connect-session'

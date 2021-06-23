@@ -1,7 +1,7 @@
 import * as React from 'react'
 import { Dispatch } from 'redux'
 import { useDispatch, useSelector } from 'react-redux'
-import { H3, Button, Section, Grid, GridItem, SubTitleH6, FlexContainerResponsive } from '@reapit/elements'
+import { H3, Button, Section, Grid, GridItem, SubTitleH6, FlexContainerResponsive } from '@reapit/elements-legacy'
 import { LoginIdentity } from '@reapit/connect-session'
 import { reapitConnectBrowserSession } from '@/core/connect-session'
 import { useReapitConnect, ReapitConnectSession } from '@reapit/connect-session'

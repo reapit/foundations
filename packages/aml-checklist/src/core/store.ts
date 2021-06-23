@@ -20,7 +20,7 @@ import identityTypes from '@/reducers/identity-types'
 import resultSagas from '@/sagas/result'
 import checklistDetailSagas from '@/sagas/checklist-detail'
 import identityTypesSagas from '@/sagas/identity-types'
-import { injectSwitchModeToWindow } from '@reapit/elements'
+import { injectSwitchModeToWindow } from '@reapit/elements-legacy'
 
 export class Store {
   static _instance: Store

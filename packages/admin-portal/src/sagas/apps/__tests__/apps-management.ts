@@ -14,7 +14,7 @@ import { fetchAppListSuccess, fetchAppListFailed, AppsFeaturedParams } from '@/a
 import { selectAppsData } from '@/selector/admin'
 import { featureAppById, fetchAppsList } from '@/services/apps'
 import { APPS_PER_PAGE } from '@/constants/paginator'
-import { notification } from '@reapit/elements'
+import { notification } from '@reapit/elements-legacy'
 
 jest.mock('@/services/apps')
 jest.mock('@reapit/elements')

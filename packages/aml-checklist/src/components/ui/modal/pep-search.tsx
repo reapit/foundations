@@ -2,7 +2,7 @@ import React from 'react'
 import { connect } from 'react-redux'
 import { Dispatch } from 'redux'
 import { FaRegTimesCircle } from 'react-icons/fa'
-import { Input, Button, H4, FlexContainerBasic, Formik, Form, ButtonGroup } from '@reapit/elements'
+import { Input, Button, H4, FlexContainerBasic, Formik, Form, ButtonGroup } from '@reapit/elements-legacy'
 import { ReduxState } from '@/types/core'
 import styles from '@/styles/pages/checklist-detail.scss?mod'
 import {
@@ -13,7 +13,7 @@ import {
 import { STEPS } from './modal'
 import { getPepSearchStatus } from '@/utils/pep-search'
 import { ContactModel } from '@reapit/foundations-ts-definitions'
-import { Loader } from '@reapit/elements/v3'
+import { Loader } from '@reapit/elements'
 
 export const renderLoading = () => {
   return (

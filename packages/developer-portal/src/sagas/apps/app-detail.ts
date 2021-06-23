@@ -1,7 +1,7 @@
 // import { clientFetchAppDetailSuccess } from '@/actions/client'
 import { put, call, fork, takeLatest, all } from '@redux-saga/core/effects'
 import ActionTypes from '@/constants/action-types'
-import { notification } from '@reapit/elements'
+import { notification } from '@reapit/elements-legacy'
 import errorMessages from '@/constants/error-messages'
 import { Action } from '@/types/core'
 import { fetchAppById, FetchAppByIdParams } from '@/services/apps'

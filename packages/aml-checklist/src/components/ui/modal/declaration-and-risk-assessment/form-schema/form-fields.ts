@@ -1,4 +1,4 @@
-import { FormFieldInfo } from '@reapit/elements'
+import { FormFieldInfo } from '@reapit/elements-legacy'
 
 type Field = 'declarationFormField' | 'typeField' | 'reasonField' | 'riskAssessmentFormField'
 

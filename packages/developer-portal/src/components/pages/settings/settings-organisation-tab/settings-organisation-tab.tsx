@@ -1,12 +1,12 @@
 import * as React from 'react'
-import { Button, LevelRight, Info } from '@reapit/elements'
+import { Button, LevelRight, Info } from '@reapit/elements-legacy'
 import { Tabs } from '../tabs'
 import DeveloperInviteModal from '@/components/ui/developer-invite-member-modal'
 import { Members } from './members'
 import OrganisationForm from './organisation-form'
 import { useSelector } from 'react-redux'
 import { selectCurrentMemberData, selectCurrentMemberIsLoading } from '@/selector/current-member'
-import { Loader } from '@reapit/elements/v3'
+import { Loader } from '@reapit/elements'
 
 export const handleToggleVisibleModal = (setModalOpen: React.Dispatch<boolean>, isVisible: boolean) => () =>
   setModalOpen(isVisible)

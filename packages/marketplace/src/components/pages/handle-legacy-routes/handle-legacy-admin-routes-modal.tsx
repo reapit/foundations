@@ -1,7 +1,7 @@
 import routes from '@/constants/routes'
 import { history } from '@/core/router'
 import React from 'react'
-import { Button, Modal } from '@reapit/elements'
+import { Button, Modal } from '@reapit/elements-legacy'
 
 export const handleBtnBackToMarketplace = () => {
   history.push(routes.APPS)

@@ -1,5 +1,5 @@
 import React from 'react'
-import { Button, Input, Formik, Form, ButtonGroup, Section } from '@reapit/elements'
+import { Button, Input, Formik, Form, ButtonGroup, Section } from '@reapit/elements-legacy'
 import { connect } from 'react-redux'
 import { Dispatch } from 'redux'
 import { ReduxState } from '@/types/core'

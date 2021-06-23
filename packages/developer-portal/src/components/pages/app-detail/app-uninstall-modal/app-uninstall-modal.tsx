@@ -1,5 +1,5 @@
 import * as React from 'react'
-import { ModalProps, Modal } from '@reapit/elements'
+import { ModalProps, Modal } from '@reapit/elements-legacy'
 import { InstallationModel } from '@reapit/foundations-ts-definitions'
 import ConfirmUninstall from './confirm-uninstall'
 

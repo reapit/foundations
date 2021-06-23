@@ -1,5 +1,5 @@
 import React, { FC } from 'react'
-import { AppNavContainer, FlexContainerResponsive, Helper, Section } from '@reapit/elements'
+import { AppNavContainer, FlexContainerResponsive, Helper, Section } from '@reapit/elements-legacy'
 
 export const GoogleMapsError: FC = () => (
   <AppNavContainer>

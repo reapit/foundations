@@ -8,7 +8,7 @@ import {
   setApplicationId,
 } from '@/actions/webhooks-subscriptions'
 import { fetchWebhooksSubscriptionsListApi, FetchWebhooksSubscriptionsListParams } from '@/services/webhooks'
-import { notification } from '@reapit/elements'
+import { notification } from '@reapit/elements-legacy'
 
 export const webhooksSubscriptionsFetch = function* ({ data }: Action<FetchWebhooksSubscriptionsListParams>) {
   try {

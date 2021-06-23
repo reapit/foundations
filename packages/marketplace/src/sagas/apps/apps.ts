@@ -1,5 +1,5 @@
 import { put, fork, takeLatest, call, all } from '@redux-saga/core/effects'
-import { notification } from '@reapit/elements'
+import { notification } from '@reapit/elements-legacy'
 import {
   fetchAppsSuccess,
   fetchAppsFailed,

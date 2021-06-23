@@ -14,7 +14,7 @@ import { fetchInstallationsFilterList } from '@/actions/installations'
 import { fetchTrafficStatistics } from '@/actions/traffic-statistics'
 import { GET_ALL_PAGE_SIZE } from '@/constants/paginator'
 import { appsDataStub } from '@/sagas/__stubs__/apps'
-import { DATE_TIME_FORMAT } from '@reapit/elements'
+import { DATE_TIME_FORMAT } from '@reapit/elements-legacy'
 import { SANDBOX_CLIENT_ID, SANDBOX_CLIENT_NAME } from '@/constants/api'
 
 const mockProps: FilterFormProps = {

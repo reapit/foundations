@@ -1,5 +1,5 @@
 import React from 'react'
-import { Loader, H3, Grid, H5, Section, FadeIn, IconList, H6 } from '@reapit/elements'
+import { Loader, H3, Grid, H5, Section, FadeIn, IconList, H6 } from '@reapit/elements-legacy'
 import PaymentCustomerSection from './payment-customer-section'
 import PaymentForm from './payment-form'
 import PropertySection from './property-section'

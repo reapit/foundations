@@ -1,5 +1,5 @@
 import React, { SetStateAction, useContext, useState } from 'react'
-import { Button, Table } from '@reapit/elements'
+import { Button, Table } from '@reapit/elements-legacy'
 import { MessageContext } from '../../../context/message-context'
 import { Dispatch } from 'react'
 import { PagedApiResponse } from '../../../types/core'

@@ -16,7 +16,7 @@ import {
   deleteSubscription,
 } from '@/services/developer-subscriptions'
 import { getDeveloperId } from '@/utils/session'
-import { notification } from '@reapit/elements'
+import { notification } from '@reapit/elements-legacy'
 
 export const developerFetchSubcriptionsList = function* ({ data }: Action<FetchSubscriptionsListParams>) {
   try {

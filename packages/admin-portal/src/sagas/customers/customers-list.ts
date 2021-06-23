@@ -2,7 +2,7 @@ import { put, fork, takeLatest, all, call } from '@redux-saga/core/effects'
 import { fetchCustomersListFailed, fetchCustomersListSuccess, FetchCustomersListQueryParams } from '@/actions/customers'
 import { fetchCustomersList as fetchCustomersListAPI } from '@/services/customers'
 
-import { notification } from '@reapit/elements'
+import { notification } from '@reapit/elements-legacy'
 import { Action } from '@/types/core'
 import ActionTypes from '@/constants/action-types'
 import { CUSTOMERS_PER_PAGE } from '@/constants/paginator'

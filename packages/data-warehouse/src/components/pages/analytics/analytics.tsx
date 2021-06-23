@@ -11,7 +11,7 @@ import {
   LevelRight,
   Loader,
   Section,
-} from '@reapit/elements'
+} from '@reapit/elements-legacy'
 import ErrorBoundary from '@/components/hocs/error-boundary'
 import AnalyticsCostExplorer from './analytics-cost-explorer'
 import AnalyticsDailyUsage from './analytics-daily-usage'

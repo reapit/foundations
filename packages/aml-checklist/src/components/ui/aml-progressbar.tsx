@@ -12,7 +12,7 @@ import {
   SubTitleH5,
   FadeIn,
   Section,
-} from '@reapit/elements'
+} from '@reapit/elements-legacy'
 import { SectionsStatus } from '@/reducers/checklist-detail'
 import { IdentityCheckModel, ContactModel } from '@reapit/foundations-ts-definitions'
 import { Dispatch } from 'redux'

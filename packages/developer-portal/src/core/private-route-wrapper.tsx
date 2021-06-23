@@ -6,7 +6,7 @@ import {
   AppNavContainer,
   FlexContainerBasic,
   DATE_TIME_FORMAT,
-} from '@reapit/elements'
+} from '@reapit/elements-legacy'
 import { Redirect, useLocation } from 'react-router'
 import Routes from '@/constants/routes'
 import { useReapitConnect } from '@reapit/connect-session'
@@ -23,7 +23,7 @@ import {
 } from '../selector/current-member'
 import { Dispatch } from 'redux'
 import { ELEMENTS_V3_PAGES } from '../constants/pages'
-import { Loader } from '@reapit/elements/v3'
+import { Loader } from '@reapit/elements'
 
 const { Suspense } = React
 

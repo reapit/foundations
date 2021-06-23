@@ -1,5 +1,5 @@
 import React, { useContext, useEffect, useState } from 'react'
-import { H3, H5, Section, Content, Helper, Loader } from '@reapit/elements'
+import { H3, H5, Section, Content, Helper, Loader } from '@reapit/elements-legacy'
 import { MessageContext } from '../../../context/message-context'
 import { PagedApiResponse } from '../../../types/core'
 import { DataSetModel } from '../../../types/data-sets'

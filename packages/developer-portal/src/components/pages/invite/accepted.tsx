@@ -1,5 +1,5 @@
 import React from 'react'
-import { ModalV2, Content, Button } from '@reapit/elements'
+import { ModalV2, Content, Button } from '@reapit/elements-legacy'
 import Routes from '@/constants/routes'
 import { useHistory } from 'react-router-dom'
 import { reapitConnectBrowserSession } from '@/core/connect-session'

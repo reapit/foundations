@@ -3,7 +3,7 @@ import Slider from 'react-slick'
 import { AppSummaryModel } from '@reapit/foundations-ts-definitions'
 import FeaturedApp from '../../ui/featured-app'
 import { SlickWrapper } from './__styles__/slick'
-import { Section } from '@reapit/elements'
+import { Section } from '@reapit/elements-legacy'
 
 export interface FeaturedAppsProps {
   apps: AppSummaryModel[]

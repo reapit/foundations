@@ -5,7 +5,7 @@ import ActionTypes from '@/constants/action-types'
 import { ChangePasswordParams, changePasswordSuccess, changePasswordFailed } from '@/actions/cognito-identity'
 import { reapitConnectBrowserSession } from '@/core/connect-session'
 import { changePasswordService } from '@/services/cognito-identity'
-import { notification } from '@reapit/elements'
+import { notification } from '@reapit/elements-legacy'
 
 export const clientPasswordChange = function* ({ data }: Action<ChangePasswordParams>) {
   try {

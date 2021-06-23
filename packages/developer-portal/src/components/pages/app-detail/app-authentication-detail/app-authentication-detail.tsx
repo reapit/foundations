@@ -1,7 +1,7 @@
 import * as React from 'react'
 import { Dispatch } from 'redux'
 import { useSelector, useDispatch } from 'react-redux'
-import { Loader, Content, H5 } from '@reapit/elements'
+import { Loader, Content, H5 } from '@reapit/elements-legacy'
 import { FaCopy } from 'react-icons/fa'
 import CopyToClipboard from 'react-copy-to-clipboard'
 import { selectAppAuthenticationLoading, selectAppAuthenticationCode } from '@/selector/app-authentication'

@@ -24,7 +24,7 @@ import {
 import { REVISIONS_PER_PAGE } from '@/constants/paginator'
 import { SubscriptionModelPagedResult, CreateSubscriptionModel } from '@reapit/foundations-ts-definitions'
 import { fetchSubscriptionListApi, cancelSubscriptionApi } from '@/services/subscriptions'
-import { notification } from '@reapit/elements'
+import { notification } from '@reapit/elements-legacy'
 import { errorMessages } from '@reapit/utils'
 import { Action, ActionType } from '../../../types/core'
 import ActionTypes from '../../../constants/action-types'

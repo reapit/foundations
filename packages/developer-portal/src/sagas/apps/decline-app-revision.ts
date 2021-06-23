@@ -3,7 +3,7 @@ import { Action } from '@/types/core'
 import errorMessages from '@/constants/error-messages'
 import { rejectAppRevisionById, RejectAppRevisionByIdParams } from '@/services/apps'
 import { declineAppRevisionSuccess, declineAppRevisionFailed, declineAppRevision } from '@/actions/apps'
-import { notification } from '@reapit/elements'
+import { notification } from '@reapit/elements-legacy'
 
 export const declineAppRevisionSaga = function* ({
   data: { successCallback, ...body },

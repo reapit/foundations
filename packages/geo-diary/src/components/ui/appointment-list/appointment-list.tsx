@@ -1,7 +1,7 @@
 import React from 'react'
 import { ExtendedAppointmentModel } from '@/types/global'
 import { AppointmentTile } from '../appointment-tile'
-import { PersistantNotification } from '@reapit/elements/v3'
+import { PersistantNotification } from '@reapit/elements'
 
 export interface AppointmentListProps {
   appointments: ExtendedAppointmentModel[]

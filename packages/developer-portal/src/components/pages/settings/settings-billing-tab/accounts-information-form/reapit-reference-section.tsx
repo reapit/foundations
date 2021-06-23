@@ -1,5 +1,5 @@
 import * as React from 'react'
-import { FormHeading, FormSubHeading, RadioSelect, Input } from '@reapit/elements'
+import { FormHeading, FormSubHeading, RadioSelect, Input } from '@reapit/elements-legacy'
 import { AccountsInformationFormValues } from './accounts-information-form'
 import formFields from './form-schema/form-fields'
 

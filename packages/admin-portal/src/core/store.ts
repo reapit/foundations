@@ -14,7 +14,7 @@ import { devsManagementSagas, developerSetStatusSagas } from '@/sagas/developers
 import { customersListSagas } from '@/sagas/customers'
 import subscriptionsListSagas from '@/sagas/subscriptions'
 
-import { injectSwitchModeToWindow } from '@reapit/elements'
+import { injectSwitchModeToWindow } from '@reapit/elements-legacy'
 
 export class Store {
   static _instance: Store

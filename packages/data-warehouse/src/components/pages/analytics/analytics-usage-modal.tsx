@@ -11,7 +11,7 @@ import {
   LevelRight,
   Modal,
   useFormikContext,
-} from '@reapit/elements'
+} from '@reapit/elements-legacy'
 import * as Yup from 'yup'
 import { reapitConnectBrowserSession } from '../../../core/connect-session'
 import { useReapitConnect } from '@reapit/connect-session'

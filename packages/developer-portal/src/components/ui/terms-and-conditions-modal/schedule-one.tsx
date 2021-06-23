@@ -1,5 +1,5 @@
 import React from 'react'
-import { H5, Content } from '@reapit/elements'
+import { H5, Content } from '@reapit/elements-legacy'
 import { TermsLi, TermsOl } from './__styles__/terms-and-conditions'
 
 export const ScheduleOne = () => (
