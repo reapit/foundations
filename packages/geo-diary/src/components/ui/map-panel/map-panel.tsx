@@ -24,9 +24,10 @@ export const getMapUrl = ({ appState, isIOS = true }: GetMapUrlParams) => {
 
 export type HandleOpenNativeMapParams = {
   appState: AppState
+  ios?: boolean
 }
-export const handleOpenNativeMap = ({ appState }: HandleOpenNativeMapParams) => () => {
-  window.open(getMapUrl({ appState, isIOS: isIOS() }))
+export const handleOpenNativeMap = ({ appState, ios = isIOS() }: HandleOpenNativeMapParams) => () => {
+  window.open(getMapUrl({ appState, isIOS: ios }))
 }
 
 export type RouteInformation = {
