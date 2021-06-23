@@ -1,5 +1,4 @@
-import '../src/styles/index.scss'
-import '../src/styles-v3/base/variables.ts'
+import '../src/styles/variables'
 
 export const parameters = {
   actions: { argTypesRegex: '^on[A-Z].*' },

@@ -5,23 +5,19 @@ module.exports = {
   testPathIgnorePatterns: ['<rootDir>/src/tests/'],
   collectCoverageFrom: ['<rootDir>/src/**/*.ts', '<rootDir>/src/**/*.tsx'],
   coveragePathIgnorePatterns: [
-    '<rootDir>[/\\\\](node_modules|src/types|src/tests|src/contexts|src/scripts|src/helpers|src/stylesq)[/\\\\]',
+    '<rootDir>[/\\\\](node_modules|src/types|src/tests|src/contexts|src/scripts|src/helpers|src/styles)[/\\\\]',
     '.stories.tsx',
     'src/index.tsx',
-    'src/v3.tsx',
     'index.ts',
-    'src/styles-v3',
+    'src/styles',
   ],
-  modulePathIgnorePatterns: ['<rootDir>[/\\\\](node_modules|public|v3|dist)[/\\\\]'],
-  transform: {
-    '^.+\\.svg$': '<rootDir>/src/scripts/svg-transform.js',
-  },
+  modulePathIgnorePatterns: ['<rootDir>[/\\\\](node_modules|public|dist)[/\\\\]'],
   moduleNameMapper: {
     '\\.(css|less|scss|sass)$': '<rootDir>/src/scripts/style-mock.js',
   },
   coverageThreshold: {
     global: {
-      branches: 70,
+      branches: 50,
       functions: 90,
       lines: 90,
       statements: 90,

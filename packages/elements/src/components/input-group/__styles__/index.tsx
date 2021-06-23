@@ -1,7 +1,7 @@
 import { styled } from 'linaria/react'
 import { ElIcon } from '../../icon/__styles__'
 import { ElLabel } from '../../label/__styles__'
-import { ElInput } from '../../Input/__styles__'
+import { ElInput } from '../../input/__styles__'
 import { ElAfterInputText } from '../../after-input-text/__styles__'
 
 export const ElInputGroup = styled.div`
