@@ -1,6 +1,6 @@
 import React, { createContext, useState, useRef } from 'react'
-import { SnackHolder } from '../components-v3/SnackHolder'
-import { ISnack } from '../components-v3/Snack'
+import { SnackHolder } from '../components/snack-holder'
+import { ISnack } from '../components/snack'
 
 export interface SnackContextProps {
   addSnackWithTimeout: (snack: ISnack, timeout: number) => void
