@@ -32,6 +32,11 @@ import { TabMode } from '../../ui/tab-mode/tab-mode'
 
 export type AppointmentProps = {}
 
+export interface AppointmentContentProps {
+  appointmentsSorted: ExtendedAppointmentModel[]
+  loading: boolean
+}
+
 export type AppointmentListQueryData = {
   GetAppointments: {
     pageNumber: number
@@ -182,6 +187,38 @@ export const handleGetAmlInstallation = (
   }
 }
 
+export const AppointmentContent: FC<AppointmentContentProps> = ({ appointmentsSorted, loading }) => {
+  const { appState } = useAppState()
+  const { tab } = appState
+  return (
+    <>
+      <ControlsContainer>
+        <ControlsTitleWrapper>
+          <Subtitle className={elIsBoldText}>Location</Subtitle>
+          <TabMode />
+        </ControlsTitleWrapper>
+        <MyLocation />
+      </ControlsContainer>
+      <AppointmentTime />
+      <AppoinmentContainer className={cx(tab === 'MAP' ? mobileAppointmentsHidden : mobileAppointmentsShow)}>
+        {loading ? (
+          <LoadingContainer>
+            <Loader label="Loading" />
+          </LoadingContainer>
+        ) : (
+          <FadeIn>
+            <AppointmentList appointments={appointmentsSorted} />
+          </FadeIn>
+        )}
+      </AppoinmentContainer>
+      <ContactDrawer />
+      <MapContainer>
+        <GoogleMapComponent appointments={appointmentsSorted} />
+      </MapContainer>
+    </>
+  )
+}
+
 export const Appointment: FC<AppointmentProps> = () => {
   const { connectSession } = useReapitConnect(reapitConnectBrowserSession)
   const { appState, setAppState } = useAppState()
@@ -190,7 +227,6 @@ export const Appointment: FC<AppointmentProps> = () => {
   const clientId = connectSession?.loginIdentity.clientId
   const accessToken = connectSession?.accessToken
   const { start, end } = startAndEndTime[time]
-  const { tab } = appState
 
   const { data, loading } = useQuery<AppointmentListQueryData, AppointmentListQueryVariables>(GET_APPOINTMENTS, {
     variables: {
@@ -230,35 +266,13 @@ export const Appointment: FC<AppointmentProps> = () => {
 
   useEffect(handleGetAmlInstallation(setAppState, accessToken, clientId), [accessToken, clientId])
 
-  const appointmentSorted = useMemo(sortAppoinmentsByStartTime(data?.GetAppointments?._embedded || []), [
+  const appointmentsSorted = useMemo(sortAppoinmentsByStartTime(data?.GetAppointments?._embedded || []), [
     data?.GetAppointments?._embedded,
   ])
 
   return (
     <ErrorBoundary>
-      <ControlsContainer>
-        <ControlsTitleWrapper>
-          <Subtitle className={elIsBoldText}>Location</Subtitle>
-          <TabMode />
-        </ControlsTitleWrapper>
-        <MyLocation />
-      </ControlsContainer>
-      <AppointmentTime />
-      <AppoinmentContainer className={cx(tab === 'MAP' ? mobileAppointmentsHidden : mobileAppointmentsShow)}>
-        {loading ? (
-          <LoadingContainer>
-            <Loader label="Loading" />
-          </LoadingContainer>
-        ) : (
-          <FadeIn>
-            <AppointmentList appointments={appointmentSorted} />
-          </FadeIn>
-        )}
-      </AppoinmentContainer>
-      <ContactDrawer />
-      <MapContainer>
-        <GoogleMapComponent appointments={appointmentSorted} />
-      </MapContainer>
+      <AppointmentContent loading={loading} appointmentsSorted={appointmentsSorted} />
     </ErrorBoundary>
   )
 }
