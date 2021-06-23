@@ -1,5 +1,13 @@
 import * as React from 'react'
-import { Button, SubTitleH6, ModalHeader, ModalBody, ModalFooter, ModalProps, ButtonGroup } from '@reapit/elements-legacy'
+import {
+  Button,
+  SubTitleH6,
+  ModalHeader,
+  ModalBody,
+  ModalFooter,
+  ModalProps,
+  ButtonGroup,
+} from '@reapit/elements-legacy'
 import { link } from '@/styles/elements/link'
 
 import developerEditionGuide from '@/assets/files/developer-edition-guide.pdf'

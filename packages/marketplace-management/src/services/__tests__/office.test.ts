@@ -1,7 +1,7 @@
 import { fetcher } from '@reapit/elements-legacy'
 import { createOfficeGroup, updateOfficeGroup } from '../office'
 
-jest.mock('@reapit/elements')
+jest.mock('@reapit/elements-legacy')
 jest.mock('../../core/connect-session')
 const mockResponse = 'success'
 const mockedFetch = fetcher as jest.Mock

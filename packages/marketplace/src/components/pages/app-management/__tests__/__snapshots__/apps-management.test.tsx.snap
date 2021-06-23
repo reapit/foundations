@@ -169,25 +169,25 @@ exports[`MyApps should match a snapshot when LOADING true 1`] = `
             label="Loading"
           >
             <ElLoaderContainer
-              className="exir83a-el-is-full-page"
+              className="ev48hx0-el-is-full-page"
             >
               <div
-                className="exir83a-el-is-full-page eo0rgq8-el-loader-container"
+                className="ev48hx0-el-is-full-page e1weh9x5-el-loader-container"
               >
                 <ElLoaderLabel>
                   <p
-                    className="e1yntvew-el-loader-label"
+                    className="e144yzr3-el-loader-label"
                   >
                     Loading
                   </p>
                 </ElLoaderLabel>
                 <ElLoader>
                   <div
-                    className="er32db2-el-loader"
+                    className="e1s22du2-el-loader"
                   >
                     <ElLoaderMovingBar>
                       <div
-                        className="e14cotwz-el-loader-moving-bar"
+                        className="e1yxuq7j-el-loader-moving-bar"
                       />
                     </ElLoaderMovingBar>
                   </div>

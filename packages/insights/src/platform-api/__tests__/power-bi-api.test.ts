@@ -2,7 +2,7 @@ import { CredentialsResponseModel, powerBiApiService } from '../power-bi-api'
 import { mockBrowserSession } from '../__mocks__/session'
 import { fetcher } from '@reapit/elements-legacy'
 
-jest.mock('@reapit/elements')
+jest.mock('@reapit/elements-legacy')
 
 const mockedFetch = fetcher as jest.Mock
 const mockCredentialsResponse: CredentialsResponseModel = {

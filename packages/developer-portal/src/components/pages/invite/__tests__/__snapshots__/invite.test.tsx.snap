@@ -79,7 +79,7 @@ exports[`AcceptedModal should match snapshot 1`] = `
             visible={true}
           >
             <Dialog
-              className="m1s2ncsn-modal-container"
+              className="m36ncwu-modal-container"
               closable={false}
               closeIcon={
                 <span
@@ -101,7 +101,7 @@ exports[`AcceptedModal should match snapshot 1`] = `
                 </ModalHeaderV2>
               }
               visible={true}
-              wrapClassName="m1iljaow-modal-centered"
+              wrapClassName="m140lwlu-modal-centered"
             >
               <PortalWrapper
                 visible={true}
@@ -120,12 +120,12 @@ exports[`AcceptedModal should match snapshot 1`] = `
                           />
                           <div
                             aria-labelledby="rcDialogTitle0"
-                            class="rc-dialog-wrap m1iljaow-modal-centered"
+                            class="rc-dialog-wrap m140lwlu-modal-centered"
                             role="dialog"
                             tabindex="-1"
                           >
                             <div
-                              class="rc-dialog m1s2ncsn-modal-container"
+                              class="rc-dialog m36ncwu-modal-container"
                               role="document"
                             >
                               <div
@@ -259,7 +259,7 @@ exports[`AcceptedModal should match snapshot 1`] = `
                   >
                     <Dialog
                       afterClose={[Function]}
-                      className="m1s2ncsn-modal-container"
+                      className="m36ncwu-modal-container"
                       closable={false}
                       closeIcon={
                         <span
@@ -296,12 +296,12 @@ exports[`AcceptedModal should match snapshot 1`] = `
                                   />
                                   <div
                                     aria-labelledby="rcDialogTitle0"
-                                    class="rc-dialog-wrap m1iljaow-modal-centered"
+                                    class="rc-dialog-wrap m140lwlu-modal-centered"
                                     role="dialog"
                                     tabindex="-1"
                                   >
                                     <div
-                                      class="rc-dialog m1s2ncsn-modal-container"
+                                      class="rc-dialog m36ncwu-modal-container"
                                       role="document"
                                     >
                                       <div
@@ -444,7 +444,7 @@ exports[`AcceptedModal should match snapshot 1`] = `
                         </ModalHeaderV2>
                       }
                       visible={true}
-                      wrapClassName="m1iljaow-modal-centered"
+                      wrapClassName="m140lwlu-modal-centered"
                     >
                       <div
                         className="rc-dialog-root"
@@ -477,7 +477,7 @@ exports[`AcceptedModal should match snapshot 1`] = `
                         </Mask>
                         <div
                           aria-labelledby="rcDialogTitle0"
-                          className="rc-dialog-wrap m1iljaow-modal-centered"
+                          className="rc-dialog-wrap m140lwlu-modal-centered"
                           onClick={[Function]}
                           onKeyDown={[Function]}
                           role="dialog"
@@ -492,7 +492,7 @@ exports[`AcceptedModal should match snapshot 1`] = `
                           <Content
                             afterClose={[Function]}
                             ariaId="rcDialogTitle0"
-                            className="m1s2ncsn-modal-container"
+                            className="m36ncwu-modal-container"
                             closable={false}
                             closeIcon={
                               <span
@@ -534,12 +534,12 @@ exports[`AcceptedModal should match snapshot 1`] = `
                                         />
                                         <div
                                           aria-labelledby="rcDialogTitle0"
-                                          class="rc-dialog-wrap m1iljaow-modal-centered"
+                                          class="rc-dialog-wrap m140lwlu-modal-centered"
                                           role="dialog"
                                           tabindex="-1"
                                         >
                                           <div
-                                            class="rc-dialog m1s2ncsn-modal-container"
+                                            class="rc-dialog m36ncwu-modal-container"
                                             role="document"
                                           >
                                             <div
@@ -682,7 +682,7 @@ exports[`AcceptedModal should match snapshot 1`] = `
                               </ModalHeaderV2>
                             }
                             visible={true}
-                            wrapClassName="m1iljaow-modal-centered"
+                            wrapClassName="m140lwlu-modal-centered"
                           >
                             <CSSMotion
                               onAppearPrepare={[Function]}
@@ -693,7 +693,7 @@ exports[`AcceptedModal should match snapshot 1`] = `
                             >
                               <DomWrapper>
                                 <div
-                                  className="rc-dialog m1s2ncsn-modal-container"
+                                  className="rc-dialog m36ncwu-modal-container"
                                   key="dialog-element"
                                   onMouseDown={[Function]}
                                   onMouseUp={[Function]}
@@ -944,7 +944,7 @@ exports[`AcceptedModal should match snapshot 1`] = `
             visible={false}
           >
             <Dialog
-              className="m1s2ncsn-modal-container"
+              className="m36ncwu-modal-container"
               closable={false}
               closeIcon={
                 <span
@@ -968,7 +968,7 @@ exports[`AcceptedModal should match snapshot 1`] = `
                 </ModalHeaderV2>
               }
               visible={false}
-              wrapClassName="m1iljaow-modal-centered"
+              wrapClassName="m140lwlu-modal-centered"
             />
           </ModalV2>
         </AcceptedModal>
@@ -982,7 +982,7 @@ exports[`AcceptedModal should match snapshot 1`] = `
             visible={false}
           >
             <Dialog
-              className="m1s2ncsn-modal-container"
+              className="m36ncwu-modal-container"
               closable={false}
               closeIcon={
                 <span
@@ -997,7 +997,7 @@ exports[`AcceptedModal should match snapshot 1`] = `
                 </ModalHeaderV2>
               }
               visible={false}
-              wrapClassName="m1iljaow-modal-centered"
+              wrapClassName="m140lwlu-modal-centered"
             />
           </ModalV2>
         </RejectedModal>

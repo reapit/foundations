@@ -22,9 +22,12 @@ import { mockLandlordsQuery } from '../__mocks__/landlords-query'
 
 const mockFadeIn = ({ children }) => <div>{children}</div>
 
-jest.mock('@reapit/elements', () => ({
+jest.mock('@reapit/elements-legacy', () => ({
   FadeIn: mockFadeIn,
   fetcher: jest.fn(() => ({ totalCount: 1 })),
+  DATE_TIME_FORMAT: {
+    RFC3339: 'yyyy-MM-dd',
+  },
 }))
 
 jest.mock('../../../../core/app-state')

@@ -9,7 +9,7 @@ import {
 import { fetcher } from '@reapit/elements-legacy'
 import { body, params } from '../__stubs__/payment'
 
-jest.mock('@reapit/elements')
+jest.mock('@reapit/elements-legacy')
 jest.mock('../../core/connect-session')
 const mockResponse = 'success'
 const mockedFetch = fetcher as jest.Mock

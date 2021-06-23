@@ -15,7 +15,7 @@ const filterProps = (): CreateOfficeGroupModalProps => ({
   onRefetchData: jest.fn(),
 })
 
-jest.mock('@reapit/elements')
+jest.mock('@reapit/elements-legacy')
 jest.mock('../../../../core/connect-session')
 const mockResponse = 'success'
 const mockedFetch = fetcher as jest.Mock

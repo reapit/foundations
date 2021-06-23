@@ -80,25 +80,25 @@ exports[`AppDetail should match a snapshot 1`] = `
                       label="Loading"
                     >
                       <ElLoaderContainer
-                        className="exir83a-el-is-full-page"
+                        className="ev48hx0-el-is-full-page"
                       >
                         <div
-                          className="exir83a-el-is-full-page eo0rgq8-el-loader-container"
+                          className="ev48hx0-el-is-full-page e1weh9x5-el-loader-container"
                         >
                           <ElLoaderLabel>
                             <p
-                              className="e1yntvew-el-loader-label"
+                              className="e144yzr3-el-loader-label"
                             >
                               Loading
                             </p>
                           </ElLoaderLabel>
                           <ElLoader>
                             <div
-                              className="er32db2-el-loader"
+                              className="e1s22du2-el-loader"
                             >
                               <ElLoaderMovingBar>
                                 <div
-                                  className="e14cotwz-el-loader-moving-bar"
+                                  className="e1yxuq7j-el-loader-moving-bar"
                                 />
                               </ElLoaderMovingBar>
                             </div>
@@ -144,7 +144,7 @@ exports[`AppDetail should match a snapshot 1`] = `
                         visible={false}
                       >
                         <Dialog
-                          className="m1s2ncsn-modal-container"
+                          className="m36ncwu-modal-container"
                           closeIcon={
                             <span
                               aria-label="close"
@@ -185,7 +185,7 @@ exports[`AppDetail should match a snapshot 1`] = `
                             </ModalHeaderV2>
                           }
                           visible={false}
-                          wrapClassName="m1iljaow-modal-centered"
+                          wrapClassName="m140lwlu-modal-centered"
                         />
                       </ModalV2>
                       <UninstallationsSuccessModal
@@ -203,7 +203,7 @@ exports[`AppDetail should match a snapshot 1`] = `
                           visible={false}
                         >
                           <Dialog
-                            className="m1s2ncsn-modal-container m1257vs8-modal-no-header"
+                            className="m36ncwu-modal-container m1pyzxrx-modal-no-header"
                             closeIcon={
                               <span
                                 aria-label="close"
@@ -214,7 +214,7 @@ exports[`AppDetail should match a snapshot 1`] = `
                             onClose={[Function]}
                             title={<ModalHeaderV2 />}
                             visible={false}
-                            wrapClassName="m1iljaow-modal-centered m1y19rn5-modal-no-padding"
+                            wrapClassName="m140lwlu-modal-centered mhi5uvy-modal-no-padding"
                           />
                         </ModalV2>
                       </UninstallationsSuccessModal>
@@ -256,7 +256,7 @@ exports[`AppDetail should match a snapshot 1`] = `
                         visible={false}
                       >
                         <Dialog
-                          className="m1s2ncsn-modal-container"
+                          className="m36ncwu-modal-container"
                           closeIcon={
                             <span
                               aria-label="close"
@@ -296,7 +296,7 @@ exports[`AppDetail should match a snapshot 1`] = `
                             </ModalHeaderV2>
                           }
                           visible={false}
-                          wrapClassName="m1iljaow-modal-centered"
+                          wrapClassName="m140lwlu-modal-centered"
                         />
                       </ModalV2>
                       <InstallDirectApiAppSucesfullyModal
@@ -314,7 +314,7 @@ exports[`AppDetail should match a snapshot 1`] = `
                           visible={false}
                         >
                           <Dialog
-                            className="m1s2ncsn-modal-container m1257vs8-modal-no-header"
+                            className="m36ncwu-modal-container m1pyzxrx-modal-no-header"
                             closeIcon={
                               <span
                                 aria-label="close"
@@ -325,7 +325,7 @@ exports[`AppDetail should match a snapshot 1`] = `
                             onClose={[Function]}
                             title={<ModalHeaderV2 />}
                             visible={false}
-                            wrapClassName="m1iljaow-modal-centered m1y19rn5-modal-no-padding"
+                            wrapClassName="m140lwlu-modal-centered mhi5uvy-modal-no-padding"
                           />
                         </ModalV2>
                       </InstallDirectApiAppSucesfullyModal>
@@ -344,7 +344,7 @@ exports[`AppDetail should match a snapshot 1`] = `
                           visible={false}
                         >
                           <Dialog
-                            className="m1s2ncsn-modal-container m1257vs8-modal-no-header"
+                            className="m36ncwu-modal-container m1pyzxrx-modal-no-header"
                             closeIcon={
                               <span
                                 aria-label="close"
@@ -355,7 +355,7 @@ exports[`AppDetail should match a snapshot 1`] = `
                             onClose={[Function]}
                             title={<ModalHeaderV2 />}
                             visible={false}
-                            wrapClassName="m1iljaow-modal-centered m1y19rn5-modal-no-padding"
+                            wrapClassName="m140lwlu-modal-centered mhi5uvy-modal-no-padding"
                           />
                         </ModalV2>
                       </InstallNonDirectApiAppSucesfullyModal>
@@ -380,7 +380,7 @@ exports[`AppDetail should match a snapshot 1`] = `
                         visible={false}
                       >
                         <Dialog
-                          className="m1s2ncsn-modal-container"
+                          className="m36ncwu-modal-container"
                           closable={false}
                           closeIcon={
                             <span
@@ -403,7 +403,7 @@ exports[`AppDetail should match a snapshot 1`] = `
                             </ModalHeaderV2>
                           }
                           visible={false}
-                          wrapClassName="m1iljaow-modal-centered"
+                          wrapClassName="m140lwlu-modal-centered"
                         />
                       </ModalV2>
                     </NonAdminInstallModal>
@@ -427,7 +427,7 @@ exports[`AppDetail should match a snapshot 1`] = `
                         visible={false}
                       >
                         <Dialog
-                          className="m1s2ncsn-modal-container"
+                          className="m36ncwu-modal-container"
                           closable={false}
                           closeIcon={
                             <span
@@ -450,7 +450,7 @@ exports[`AppDetail should match a snapshot 1`] = `
                             </ModalHeaderV2>
                           }
                           visible={false}
-                          wrapClassName="m1iljaow-modal-centered"
+                          wrapClassName="m140lwlu-modal-centered"
                         />
                       </ModalV2>
                     </NonAdminUninstallModal>
@@ -546,25 +546,25 @@ exports[`AppDetail should render loader when client.appDetail.data is an empty o
                       label="Loading"
                     >
                       <ElLoaderContainer
-                        className="exir83a-el-is-full-page"
+                        className="ev48hx0-el-is-full-page"
                       >
                         <div
-                          className="exir83a-el-is-full-page eo0rgq8-el-loader-container"
+                          className="ev48hx0-el-is-full-page e1weh9x5-el-loader-container"
                         >
                           <ElLoaderLabel>
                             <p
-                              className="e1yntvew-el-loader-label"
+                              className="e144yzr3-el-loader-label"
                             >
                               Loading
                             </p>
                           </ElLoaderLabel>
                           <ElLoader>
                             <div
-                              className="er32db2-el-loader"
+                              className="e1s22du2-el-loader"
                             >
                               <ElLoaderMovingBar>
                                 <div
-                                  className="e14cotwz-el-loader-moving-bar"
+                                  className="e1yxuq7j-el-loader-moving-bar"
                                 />
                               </ElLoaderMovingBar>
                             </div>
@@ -610,7 +610,7 @@ exports[`AppDetail should render loader when client.appDetail.data is an empty o
                         visible={false}
                       >
                         <Dialog
-                          className="m1s2ncsn-modal-container"
+                          className="m36ncwu-modal-container"
                           closeIcon={
                             <span
                               aria-label="close"
@@ -651,7 +651,7 @@ exports[`AppDetail should render loader when client.appDetail.data is an empty o
                             </ModalHeaderV2>
                           }
                           visible={false}
-                          wrapClassName="m1iljaow-modal-centered"
+                          wrapClassName="m140lwlu-modal-centered"
                         />
                       </ModalV2>
                       <UninstallationsSuccessModal
@@ -669,7 +669,7 @@ exports[`AppDetail should render loader when client.appDetail.data is an empty o
                           visible={false}
                         >
                           <Dialog
-                            className="m1s2ncsn-modal-container m1257vs8-modal-no-header"
+                            className="m36ncwu-modal-container m1pyzxrx-modal-no-header"
                             closeIcon={
                               <span
                                 aria-label="close"
@@ -680,7 +680,7 @@ exports[`AppDetail should render loader when client.appDetail.data is an empty o
                             onClose={[Function]}
                             title={<ModalHeaderV2 />}
                             visible={false}
-                            wrapClassName="m1iljaow-modal-centered m1y19rn5-modal-no-padding"
+                            wrapClassName="m140lwlu-modal-centered mhi5uvy-modal-no-padding"
                           />
                         </ModalV2>
                       </UninstallationsSuccessModal>
@@ -722,7 +722,7 @@ exports[`AppDetail should render loader when client.appDetail.data is an empty o
                         visible={false}
                       >
                         <Dialog
-                          className="m1s2ncsn-modal-container"
+                          className="m36ncwu-modal-container"
                           closeIcon={
                             <span
                               aria-label="close"
@@ -762,7 +762,7 @@ exports[`AppDetail should render loader when client.appDetail.data is an empty o
                             </ModalHeaderV2>
                           }
                           visible={false}
-                          wrapClassName="m1iljaow-modal-centered"
+                          wrapClassName="m140lwlu-modal-centered"
                         />
                       </ModalV2>
                       <InstallDirectApiAppSucesfullyModal
@@ -780,7 +780,7 @@ exports[`AppDetail should render loader when client.appDetail.data is an empty o
                           visible={false}
                         >
                           <Dialog
-                            className="m1s2ncsn-modal-container m1257vs8-modal-no-header"
+                            className="m36ncwu-modal-container m1pyzxrx-modal-no-header"
                             closeIcon={
                               <span
                                 aria-label="close"
@@ -791,7 +791,7 @@ exports[`AppDetail should render loader when client.appDetail.data is an empty o
                             onClose={[Function]}
                             title={<ModalHeaderV2 />}
                             visible={false}
-                            wrapClassName="m1iljaow-modal-centered m1y19rn5-modal-no-padding"
+                            wrapClassName="m140lwlu-modal-centered mhi5uvy-modal-no-padding"
                           />
                         </ModalV2>
                       </InstallDirectApiAppSucesfullyModal>
@@ -810,7 +810,7 @@ exports[`AppDetail should render loader when client.appDetail.data is an empty o
                           visible={false}
                         >
                           <Dialog
-                            className="m1s2ncsn-modal-container m1257vs8-modal-no-header"
+                            className="m36ncwu-modal-container m1pyzxrx-modal-no-header"
                             closeIcon={
                               <span
                                 aria-label="close"
@@ -821,7 +821,7 @@ exports[`AppDetail should render loader when client.appDetail.data is an empty o
                             onClose={[Function]}
                             title={<ModalHeaderV2 />}
                             visible={false}
-                            wrapClassName="m1iljaow-modal-centered m1y19rn5-modal-no-padding"
+                            wrapClassName="m140lwlu-modal-centered mhi5uvy-modal-no-padding"
                           />
                         </ModalV2>
                       </InstallNonDirectApiAppSucesfullyModal>
@@ -846,7 +846,7 @@ exports[`AppDetail should render loader when client.appDetail.data is an empty o
                         visible={false}
                       >
                         <Dialog
-                          className="m1s2ncsn-modal-container"
+                          className="m36ncwu-modal-container"
                           closable={false}
                           closeIcon={
                             <span
@@ -869,7 +869,7 @@ exports[`AppDetail should render loader when client.appDetail.data is an empty o
                             </ModalHeaderV2>
                           }
                           visible={false}
-                          wrapClassName="m1iljaow-modal-centered"
+                          wrapClassName="m140lwlu-modal-centered"
                         />
                       </ModalV2>
                     </NonAdminInstallModal>
@@ -893,7 +893,7 @@ exports[`AppDetail should render loader when client.appDetail.data is an empty o
                         visible={false}
                       >
                         <Dialog
-                          className="m1s2ncsn-modal-container"
+                          className="m36ncwu-modal-container"
                           closable={false}
                           closeIcon={
                             <span
@@ -916,7 +916,7 @@ exports[`AppDetail should render loader when client.appDetail.data is an empty o
                             </ModalHeaderV2>
                           }
                           visible={false}
-                          wrapClassName="m1iljaow-modal-centered"
+                          wrapClassName="m140lwlu-modal-centered"
                         />
                       </ModalV2>
                     </NonAdminUninstallModal>
@@ -1012,25 +1012,25 @@ exports[`AppDetail should render loader when isLoadingAppDetail = true 1`] = `
                       label="Loading"
                     >
                       <ElLoaderContainer
-                        className="exir83a-el-is-full-page"
+                        className="ev48hx0-el-is-full-page"
                       >
                         <div
-                          className="exir83a-el-is-full-page eo0rgq8-el-loader-container"
+                          className="ev48hx0-el-is-full-page e1weh9x5-el-loader-container"
                         >
                           <ElLoaderLabel>
                             <p
-                              className="e1yntvew-el-loader-label"
+                              className="e144yzr3-el-loader-label"
                             >
                               Loading
                             </p>
                           </ElLoaderLabel>
                           <ElLoader>
                             <div
-                              className="er32db2-el-loader"
+                              className="e1s22du2-el-loader"
                             >
                               <ElLoaderMovingBar>
                                 <div
-                                  className="e14cotwz-el-loader-moving-bar"
+                                  className="e1yxuq7j-el-loader-moving-bar"
                                 />
                               </ElLoaderMovingBar>
                             </div>
@@ -1076,7 +1076,7 @@ exports[`AppDetail should render loader when isLoadingAppDetail = true 1`] = `
                         visible={false}
                       >
                         <Dialog
-                          className="m1s2ncsn-modal-container"
+                          className="m36ncwu-modal-container"
                           closeIcon={
                             <span
                               aria-label="close"
@@ -1117,7 +1117,7 @@ exports[`AppDetail should render loader when isLoadingAppDetail = true 1`] = `
                             </ModalHeaderV2>
                           }
                           visible={false}
-                          wrapClassName="m1iljaow-modal-centered"
+                          wrapClassName="m140lwlu-modal-centered"
                         />
                       </ModalV2>
                       <UninstallationsSuccessModal
@@ -1135,7 +1135,7 @@ exports[`AppDetail should render loader when isLoadingAppDetail = true 1`] = `
                           visible={false}
                         >
                           <Dialog
-                            className="m1s2ncsn-modal-container m1257vs8-modal-no-header"
+                            className="m36ncwu-modal-container m1pyzxrx-modal-no-header"
                             closeIcon={
                               <span
                                 aria-label="close"
@@ -1146,7 +1146,7 @@ exports[`AppDetail should render loader when isLoadingAppDetail = true 1`] = `
                             onClose={[Function]}
                             title={<ModalHeaderV2 />}
                             visible={false}
-                            wrapClassName="m1iljaow-modal-centered m1y19rn5-modal-no-padding"
+                            wrapClassName="m140lwlu-modal-centered mhi5uvy-modal-no-padding"
                           />
                         </ModalV2>
                       </UninstallationsSuccessModal>
@@ -1188,7 +1188,7 @@ exports[`AppDetail should render loader when isLoadingAppDetail = true 1`] = `
                         visible={false}
                       >
                         <Dialog
-                          className="m1s2ncsn-modal-container"
+                          className="m36ncwu-modal-container"
                           closeIcon={
                             <span
                               aria-label="close"
@@ -1228,7 +1228,7 @@ exports[`AppDetail should render loader when isLoadingAppDetail = true 1`] = `
                             </ModalHeaderV2>
                           }
                           visible={false}
-                          wrapClassName="m1iljaow-modal-centered"
+                          wrapClassName="m140lwlu-modal-centered"
                         />
                       </ModalV2>
                       <InstallDirectApiAppSucesfullyModal
@@ -1246,7 +1246,7 @@ exports[`AppDetail should render loader when isLoadingAppDetail = true 1`] = `
                           visible={false}
                         >
                           <Dialog
-                            className="m1s2ncsn-modal-container m1257vs8-modal-no-header"
+                            className="m36ncwu-modal-container m1pyzxrx-modal-no-header"
                             closeIcon={
                               <span
                                 aria-label="close"
@@ -1257,7 +1257,7 @@ exports[`AppDetail should render loader when isLoadingAppDetail = true 1`] = `
                             onClose={[Function]}
                             title={<ModalHeaderV2 />}
                             visible={false}
-                            wrapClassName="m1iljaow-modal-centered m1y19rn5-modal-no-padding"
+                            wrapClassName="m140lwlu-modal-centered mhi5uvy-modal-no-padding"
                           />
                         </ModalV2>
                       </InstallDirectApiAppSucesfullyModal>
@@ -1276,7 +1276,7 @@ exports[`AppDetail should render loader when isLoadingAppDetail = true 1`] = `
                           visible={false}
                         >
                           <Dialog
-                            className="m1s2ncsn-modal-container m1257vs8-modal-no-header"
+                            className="m36ncwu-modal-container m1pyzxrx-modal-no-header"
                             closeIcon={
                               <span
                                 aria-label="close"
@@ -1287,7 +1287,7 @@ exports[`AppDetail should render loader when isLoadingAppDetail = true 1`] = `
                             onClose={[Function]}
                             title={<ModalHeaderV2 />}
                             visible={false}
-                            wrapClassName="m1iljaow-modal-centered m1y19rn5-modal-no-padding"
+                            wrapClassName="m140lwlu-modal-centered mhi5uvy-modal-no-padding"
                           />
                         </ModalV2>
                       </InstallNonDirectApiAppSucesfullyModal>
@@ -1312,7 +1312,7 @@ exports[`AppDetail should render loader when isLoadingAppDetail = true 1`] = `
                         visible={false}
                       >
                         <Dialog
-                          className="m1s2ncsn-modal-container"
+                          className="m36ncwu-modal-container"
                           closable={false}
                           closeIcon={
                             <span
@@ -1335,7 +1335,7 @@ exports[`AppDetail should render loader when isLoadingAppDetail = true 1`] = `
                             </ModalHeaderV2>
                           }
                           visible={false}
-                          wrapClassName="m1iljaow-modal-centered"
+                          wrapClassName="m140lwlu-modal-centered"
                         />
                       </ModalV2>
                     </NonAdminInstallModal>
@@ -1359,7 +1359,7 @@ exports[`AppDetail should render loader when isLoadingAppDetail = true 1`] = `
                         visible={false}
                       >
                         <Dialog
-                          className="m1s2ncsn-modal-container"
+                          className="m36ncwu-modal-container"
                           closable={false}
                           closeIcon={
                             <span
@@ -1382,7 +1382,7 @@ exports[`AppDetail should render loader when isLoadingAppDetail = true 1`] = `
                             </ModalHeaderV2>
                           }
                           visible={false}
-                          wrapClassName="m1iljaow-modal-centered"
+                          wrapClassName="m140lwlu-modal-centered"
                         />
                       </ModalV2>
                     </NonAdminUninstallModal>

@@ -1,5 +1,16 @@
 import React, { useState } from 'react'
-import { Section, Formik, Form, CardInputGroup, Input, LevelRight, Button, Helper, FadeIn, H5 } from '@reapit/elements-legacy'
+import {
+  Section,
+  Formik,
+  Form,
+  CardInputGroup,
+  Input,
+  LevelRight,
+  Button,
+  Helper,
+  FadeIn,
+  H5,
+} from '@reapit/elements-legacy'
 import { Routes } from '../../constants/routes'
 import { history } from '../../core/router'
 import { PaymentWithPropertyModel } from '../../types/payment'

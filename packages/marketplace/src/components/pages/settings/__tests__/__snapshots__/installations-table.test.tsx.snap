@@ -24,7 +24,7 @@ exports[`InstallationsTable should match a snapshot 1`] = `
     </H5>
     <FadeIn>
       <div
-        className="f334tw0-fade-in"
+        className="fvmt8oy-fade-in"
       >
         <Table
           bordered={true}

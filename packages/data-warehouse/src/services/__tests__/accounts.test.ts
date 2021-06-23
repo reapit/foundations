@@ -9,7 +9,7 @@ import {
 } from '../accounts'
 import { stubAccounts } from '../__stubs__/accounts'
 
-jest.mock('@reapit/elements')
+jest.mock('@reapit/elements-legacy')
 jest.mock('../../core/connect-session')
 
 const mockedFetch = fetcher as jest.Mock

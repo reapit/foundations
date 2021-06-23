@@ -15,7 +15,8 @@ import {
 import { stubCardDetails, stubPaymentWithPropertyModel } from '../__stubs__/payment'
 import * as Handlers from '../payment-handlers'
 import { PaymentEmailRequestModel } from '../payment-request-modal'
-jest.mock('@reapit/elements')
+
+jest.mock('@reapit/elements-legacy')
 
 const session = '475625c2-af01-4e64-a948-c504992f5e'
 const paymentId = 'MKT20000010'
