@@ -3,6 +3,7 @@ import { MockedProvider } from '@apollo/react-testing'
 import { shallow } from 'enzyme'
 import {
   Appointment,
+  AppointmentContent,
   getLandlordIds,
   getVendorIds,
   handleGetAmlInstallation,
@@ -25,6 +26,8 @@ jest.mock('@reapit/elements', () => ({
   FadeIn: mockFadeIn,
   fetcher: jest.fn(() => ({ totalCount: 1 })),
 }))
+
+jest.mock('../../../../core/app-state')
 
 describe('appointment', () => {
   describe('Apppointment', () => {
@@ -75,6 +78,23 @@ describe('appointment', () => {
         <MockedProvider mocks={mocks} addTypename={false}>
           <Appointment />
         </MockedProvider>,
+      )
+      expect(wrapper).toMatchSnapshot()
+    })
+  })
+
+  describe('AppointmentContent', () => {
+    it('should match snapshot when loading', () => {
+      const wrapper = shallow(<AppointmentContent loading={true} appointmentsSorted={[]} />)
+      expect(wrapper).toMatchSnapshot()
+    })
+
+    it('should match snapshot when has appointments', () => {
+      const wrapper = shallow(
+        <AppointmentContent
+          loading={false}
+          appointmentsSorted={mockAppointmentsQuery.data.GetAppointments._embedded as ExtendedAppointmentModel[]}
+        />,
       )
       expect(wrapper).toMatchSnapshot()
     })
