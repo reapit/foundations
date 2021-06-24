@@ -7227,16 +7227,16 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@serverless/dashboard-plugin@npm:^5.3.0":
-  version: 5.3.0
-  resolution: "@serverless/dashboard-plugin@npm:5.3.0"
+"@serverless/dashboard-plugin@npm:^5.4.0":
+  version: 5.4.2
+  resolution: "@serverless/dashboard-plugin@npm:5.4.2"
   dependencies:
     "@serverless/event-mocks": ^1.1.1
     "@serverless/platform-client": ^4.2.3
-    "@serverless/utils": ^5.2.0
+    "@serverless/utils": ^5.3.0
     chalk: ^4.1.1
     child-process-ext: ^2.1.1
-    chokidar: ^3.5.1
+    chokidar: ^3.5.2
     cli-color: ^2.0.0
     flat: ^5.0.2
     fs-extra: ^9.1.0
@@ -7249,10 +7249,10 @@ __metadata:
     node-fetch: ^2.6.1
     open: ^7.4.2
     semver: ^7.3.5
-    simple-git: ^2.39.0
+    simple-git: ^2.40.0
     uuid: ^8.3.2
     yamljs: ^0.3.0
-  checksum: 9591f6bfec0a4ec904cd90d138bc5ed7175f1faca8858f08aacaed2092f31bc5fee8ef02e1aec7d805dc52ef38e459080f6b55f9df5eadcebffb6e2fdb4df39b
+  checksum: ce3c8cb1af5659070c4a031f20fbece0fb03171935d4b759b81db4cfea4f568c2cf8116b315f4d40b212f19dc473201c26b94f68511e775c057ab5622bfd51ee
   languageName: node
   linkType: hard
 
@@ -7564,7 +7564,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@serverless/utils@npm:^5.2.0":
+"@serverless/utils@npm:^5.3.0":
   version: 5.3.0
   resolution: "@serverless/utils@npm:5.3.0"
   dependencies:
@@ -11695,6 +11695,16 @@ __metadata:
   languageName: node
   linkType: hard
 
+"anymatch@npm:~3.1.2":
+  version: 3.1.2
+  resolution: "anymatch@npm:3.1.2"
+  dependencies:
+    normalize-path: ^3.0.0
+    picomatch: ^2.0.4
+  checksum: cd6c08eb8d435741a9de6f5695c75cfba747a50772929ca588235535c6a57d37f2c2b34057768f015fd92abb88108b122ed2e399faac6ae30363a8ca0b6107d0
+  languageName: node
+  linkType: hard
+
 "api-docs-lambda@workspace:packages/api-docs-lamda":
   version: 0.0.0-use.local
   resolution: "api-docs-lambda@workspace:packages/api-docs-lamda"
@@ -12700,9 +12710,9 @@ __metadata:
   languageName: node
   linkType: hard
 
-"aws-sdk@npm:^2.926.0":
-  version: 2.928.0
-  resolution: "aws-sdk@npm:2.928.0"
+"aws-sdk@npm:^2.931.0":
+  version: 2.933.0
+  resolution: "aws-sdk@npm:2.933.0"
   dependencies:
     buffer: 4.9.2
     events: 1.1.1
@@ -12713,7 +12723,7 @@ __metadata:
     url: 0.10.3
     uuid: 3.3.2
     xml2js: 0.4.19
-  checksum: 5af32f9ce1653bc20e21d0ed7cb2b33d7c2c20849d927a96f62c6bce5a060f747b9ac0182449936e96fc9aa368afe136491384e8784f8907296bd8a6c5929720
+  checksum: 5737570340a90e0d81390660ac454b0742edcd6cc8c4dc216f100eca6dce584c37be028f96ea3484de060af7431b3c87a62a7a74f3c47a635412e1a45d64f420
   languageName: node
   linkType: hard
 
@@ -13324,6 +13334,21 @@ __metadata:
   version: 2.1.1
   resolution: "before-after-hook@npm:2.1.1"
   checksum: 07b84cf850593a22e8d333e2ff3fe9af8d6f6cb661b2a81a88fcd25afc8360413f513d5b7d76dfe877f8d5fe3fa8f8c533d26961955b335b4977ba73692b32e5
+  languageName: node
+  linkType: hard
+
+"bestzip@npm:^2.2.0":
+  version: 2.2.0
+  resolution: "bestzip@npm:2.2.0"
+  dependencies:
+    archiver: ^5.3.0
+    async: ^3.2.0
+    glob: ^7.1.6
+    which: ^2.0.2
+    yargs: ^16.2.0
+  bin:
+    bestzip: bin/cli.js
+  checksum: 5470c182904d0ddb97fdb5f4995b2321f84eec2eaa715d55032a65fc7a9d4f4eab3863efe88c6f87c8c7f22e5815f9665e550fcfb7d81057d0e4a7a4d8e532c1
   languageName: node
   linkType: hard
 
@@ -14723,6 +14748,25 @@ __metadata:
     fsevents:
       optional: true
   checksum: 61b3f710f9e7dc69d76f638d8b0d37bad586497444165125ca8062f7192695f35403b5f622cbd7dfdd06805201ceaba40ff90e53ea2974df9a8087861192a99b
+  languageName: node
+  linkType: hard
+
+"chokidar@npm:^3.5.2":
+  version: 3.5.2
+  resolution: "chokidar@npm:3.5.2"
+  dependencies:
+    anymatch: ~3.1.2
+    braces: ~3.0.2
+    fsevents: ~2.3.2
+    glob-parent: ~5.1.2
+    is-binary-path: ~2.1.0
+    is-glob: ~4.0.1
+    normalize-path: ~3.0.0
+    readdirp: ~3.6.0
+  dependenciesMeta:
+    fsevents:
+      optional: true
+  checksum: 52fbff3acebf06ec0125872110f6c8403e66cd3d613264c83405496e199554d99380342d9b3a7ffd7910c53c5865e242ed7dd72fcb2e883d8e3ad3f3883aee6c
   languageName: node
   linkType: hard
 
@@ -17286,7 +17330,8 @@ __metadata:
     jsonwebtoken: ^8.5.1
     original-fs: ^1.1.0
     prettier: ^2.3.0
-    serverless: ^2.46.0
+    serverless: ^2.48.0
+    serverless-webpack: ^5.5.1
   languageName: unknown
   linkType: soft
 
@@ -21110,6 +21155,24 @@ fsevents@^1.2.7:
   languageName: node
   linkType: hard
 
+"fsevents@patch:fsevents@~2.3.2#builtin<compat/fsevents>":
+  version: 2.3.2
+  resolution: "fsevents@patch:fsevents@npm%3A2.3.2#builtin<compat/fsevents>::version=2.3.2&hash=11e9ea"
+  dependencies:
+    node-gyp: latest
+  checksum: 7b25d9251aefe433d508a0eb614217f0495ae05a9e8af15f7dbf9998e08c4e675acd1cf32361e0fcf71d917d9e8c4b76301fdc72a1ec1105a3ea0994f5e15a8d
+  languageName: node
+  linkType: hard
+
+fsevents@~2.3.2:
+  version: 2.3.2
+  resolution: "fsevents@npm:2.3.2"
+  dependencies:
+    node-gyp: latest
+  checksum: a1883f4ca12b8b403ec528f1a4cb312b0877eacd24719da535cabea78d6fdd78530e3538bdba590a1c0f6c295128f964a89182621885296353a44dcfa4f9db53
+  languageName: node
+  linkType: hard
+
 "fstream-ignore@npm:^1.0.5":
   version: 1.0.5
   resolution: "fstream-ignore@npm:1.0.5"
@@ -21568,7 +21631,7 @@ fsevents@^1.2.7:
   languageName: node
   linkType: hard
 
-"glob-parent@npm:^5.1.1":
+"glob-parent@npm:^5.1.1, glob-parent@npm:~5.1.2":
   version: 5.1.2
   resolution: "glob-parent@npm:5.1.2"
   dependencies:
@@ -21627,6 +21690,20 @@ fsevents@^1.2.7:
     once: ^1.3.0
     path-is-absolute: ^1.0.0
   checksum: 789977b52432865bd63846da5c75a6efc2c56abdc0cb5ffcdb8e91eeb67a58fa5594c1195d18b2b4aff99675b0739ed6bd61024b26562e0cca18c8f993efdc82
+  languageName: node
+  linkType: hard
+
+"glob@npm:^7.1.7":
+  version: 7.1.7
+  resolution: "glob@npm:7.1.7"
+  dependencies:
+    fs.realpath: ^1.0.0
+    inflight: ^1.0.4
+    inherits: 2
+    minimatch: ^3.0.4
+    once: ^1.3.0
+    path-is-absolute: ^1.0.0
+  checksum: 352f74f08247db5420161a2f68f2bd84b53228b5fcfc9dcc37cd54d3f19ec0232495d84aeff1286d0727059e9fdc1031400e00b971bdc59e30f8f82b199c9d02
   languageName: node
   linkType: hard
 
@@ -21858,6 +21935,20 @@ fsevents@^1.2.7:
     merge2: ^1.3.0
     slash: ^3.0.0
   checksum: f17da0f869918656ec8c16c15ad100f025fbd13e4c157286cf340811eb1355a7d06dde77be1685a7a051970ec6abeff96a9b2a1a97525f84bc94fbd518c1d1db
+  languageName: node
+  linkType: hard
+
+"globby@npm:^11.0.4":
+  version: 11.0.4
+  resolution: "globby@npm:11.0.4"
+  dependencies:
+    array-union: ^2.1.0
+    dir-glob: ^3.0.1
+    fast-glob: ^3.1.1
+    ignore: ^5.1.4
+    merge2: ^1.3.0
+    slash: ^3.0.0
+  checksum: 9f365b35b835c0235880e272fa2a2f5d9d78428e09af8dfc67536f1047953e7b0c66aab9bb6d41e6c0f4c3ec75a22840d9acb892f102daecaadd338b2c763219
   languageName: node
   linkType: hard
 
@@ -23791,6 +23882,15 @@ fsevents@^1.2.7:
   dependencies:
     builtin-modules: ^3.0.0
   checksum: ecd0c8669523da05d1d491df8c5c5cb4fe7395268174a8694a3c3dca67e1f546564c52b66cbd94e49c4964fe73b6231bdc4ec14a0d46fabf1936fd39370414cd
+  languageName: node
+  linkType: hard
+
+"is-builtin-module@npm:^3.1.0":
+  version: 3.1.0
+  resolution: "is-builtin-module@npm:3.1.0"
+  dependencies:
+    builtin-modules: ^3.0.0
+  checksum: 47e63f00aaa979aa3102ea3874cbf0575bf93362b5d37e7ed2524658c4184c2fcd760e040d5341e7fab2e9ff53ef0f3775dacfddf237a8b62b472aa278a8d409
   languageName: node
   linkType: hard
 
@@ -33670,6 +33770,15 @@ fsevents@^1.2.7:
   languageName: node
   linkType: hard
 
+"readdirp@npm:~3.6.0":
+  version: 3.6.0
+  resolution: "readdirp@npm:3.6.0"
+  dependencies:
+    picomatch: ^2.2.1
+  checksum: 7da2fe8d5abf17ae0bf97a052718e16d29fa185f3e461153035728d93642326ae8e44c17b9a9b3a5fa616dff160e96be3184e0323efaac7211f80c0aab5f622b
+  languageName: node
+  linkType: hard
+
 "realpath-native@npm:^2.0.0":
   version: 2.0.0
   resolution: "realpath-native@npm:2.0.0"
@@ -35427,6 +35536,27 @@ resolve@^1.19.0:
   languageName: node
   linkType: hard
 
+"serverless-webpack@npm:^5.5.1":
+  version: 5.5.1
+  resolution: "serverless-webpack@npm:5.5.1"
+  dependencies:
+    bestzip: ^2.2.0
+    bluebird: ^3.7.2
+    fs-extra: ^9.1.0
+    glob: ^7.1.7
+    is-builtin-module: ^3.1.0
+    lodash: ^4.17.21
+    semver: ^7.3.5
+    ts-node: ">= 8.3.0"
+  peerDependencies:
+    webpack: ">= 3.0.0 < 6"
+  dependenciesMeta:
+    ts-node:
+      optional: true
+  checksum: 874c68bebb6605ae42ec45ac3b6e24c565070fe0497b57105c259ee91b7b3516b51ff6eccd3532acf617be9f48aff9ce4d8d08868e79b21e956db81e748e3e58
+  languageName: node
+  linkType: hard
+
 "serverless@npm:^2.28.0":
   version: 2.28.0
   resolution: "serverless@npm:2.28.0"
@@ -35547,18 +35677,18 @@ resolve@^1.19.0:
   languageName: node
   linkType: hard
 
-"serverless@npm:^2.46.0":
-  version: 2.46.0
-  resolution: "serverless@npm:2.46.0"
+"serverless@npm:^2.48.0":
+  version: 2.48.0
+  resolution: "serverless@npm:2.48.0"
   dependencies:
     "@serverless/cli": ^1.5.2
     "@serverless/components": ^3.12.0
-    "@serverless/dashboard-plugin": ^5.3.0
-    "@serverless/utils": ^5.2.0
+    "@serverless/dashboard-plugin": ^5.4.0
+    "@serverless/utils": ^5.3.0
     ajv: ^6.12.6
     ajv-keywords: ^3.5.2
     archiver: ^5.3.0
-    aws-sdk: ^2.926.0
+    aws-sdk: ^2.931.0
     bluebird: ^3.7.2
     boxen: ^5.0.1
     cachedir: ^2.3.0
@@ -35574,7 +35704,7 @@ resolve@^1.19.0:
     filesize: ^6.3.0
     fs-extra: ^9.1.0
     get-stdin: ^8.0.0
-    globby: ^11.0.3
+    globby: ^11.0.4
     got: ^11.8.2
     graceful-fs: ^4.2.6
     https-proxy-agent: ^5.0.0
@@ -35603,7 +35733,7 @@ resolve@^1.19.0:
   bin:
     serverless: bin/serverless.js
     sls: bin/serverless.js
-  checksum: 5941e1f51db823118f01d0f5620f02a5355129a66c467b4014188292a5b88d83a0d2d5d14173870d8a456da1a68eb342d1c722c4251fcd9c7d9fc941060426a3
+  checksum: aab2995ef9448d34979b03d0c1155d4cee3a08ba98a760146b4c1b05c827c3ebdb0be9510332936787b3a8b6e91751c6ab11126511758cad966df796b22c3892
   languageName: node
   linkType: hard
 
@@ -35870,6 +36000,17 @@ resolve@^1.19.0:
     "@kwsites/promise-deferred": ^1.1.1
     debug: ^4.3.1
   checksum: 26f46dab06d557219db06a3c3b7e275945a7a0a7ea93eb0905eff9256269c9ca91a710a5f9e1661cd9e3f24259244aaaf589df09a04afed06ab1b2ed4c86756a
+  languageName: node
+  linkType: hard
+
+"simple-git@npm:^2.40.0":
+  version: 2.40.0
+  resolution: "simple-git@npm:2.40.0"
+  dependencies:
+    "@kwsites/file-exists": ^1.1.1
+    "@kwsites/promise-deferred": ^1.1.1
+    debug: ^4.3.1
+  checksum: c73e3963f57cc1eb0f7d7ee9439f1dc9d33ec00e1e9608d5baabf45ebe829b285074d23b0f33cbd5cc8340a1ae148f357d3d76077332c51e4518876f535eac6f
   languageName: node
   linkType: hard
 
@@ -41260,8 +41401,8 @@ typescript@^4.0.3:
   linkType: hard
 
 "ws@npm:^7.4.6":
-  version: 7.4.6
-  resolution: "ws@npm:7.4.6"
+  version: 7.5.0
+  resolution: "ws@npm:7.5.0"
   peerDependencies:
     bufferutil: ^4.0.1
     utf-8-validate: ^5.0.2
@@ -41270,7 +41411,7 @@ typescript@^4.0.3:
       optional: true
     utf-8-validate:
       optional: true
-  checksum: ffeb626d92f14aa3a67aa3784824c1d290131e25d225f4ca6b1b6b6d7ea754fca67694d89a5b99b144382365e1bccf1f7ec2f92df56f0d25f44939b070452f06
+  checksum: f9ac36310e795995f13ac7abff9c3b104b2460864de7f0b6233d285f62c6929529e24f386ff87740c3646f818fefa014be587371aa9a5a6fffae2cd9d1e9e008
   languageName: node
   linkType: hard
 
