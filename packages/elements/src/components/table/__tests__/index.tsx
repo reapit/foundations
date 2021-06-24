@@ -1,6 +1,6 @@
 import * as React from 'react'
 import { shallow } from 'enzyme'
-import { Table } from '../'
+import { Table } from '..'
 
 describe('Table component', () => {
   it('should match a snapshot', () => {

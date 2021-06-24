@@ -1,10 +1,10 @@
 import * as React from 'react'
 import { shallow } from 'enzyme'
-import { Select } from '../'
+import { Label } from '..'
 
-describe('Select component', () => {
+describe('Label component', () => {
   it('should match a snapshot', () => {
-    const wrapper = shallow(<Select />)
+    const wrapper = shallow(<Label />)
     expect(wrapper).toMatchSnapshot()
   })
 })

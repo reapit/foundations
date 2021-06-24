@@ -1,6 +1,6 @@
 import * as React from 'react'
 import { mount } from 'enzyme'
-import { Loader } from '../'
+import { Loader } from '..'
 
 describe('Loader component', () => {
   it('should match a snapshot', () => {
