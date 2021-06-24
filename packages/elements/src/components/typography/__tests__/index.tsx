@@ -1,6 +1,6 @@
 import * as React from 'react'
 import { shallow } from 'enzyme'
-import { Title, Subtitle, BodyText, SmallText } from '../'
+import { Title, Subtitle, BodyText, SmallText } from '..'
 
 describe('Typography components', () => {
   it('Title should match a snapshot', () => {

@@ -1,6 +1,6 @@
 import * as React from 'react'
 import { shallow } from 'enzyme'
-import { Modal } from '../'
+import { Modal } from '..'
 
 describe('Modal component', () => {
   it('should match a snapshot when closed', () => {
