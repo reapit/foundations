@@ -1,5 +1,5 @@
 export const appointmentListWidthDesktop = '23rem'
-export const appointmentTimeContainerHeight = '3.5rem'
+export const appointmentTimeContainerHeight = '3.75rem'
 export const controlsHeightDesktop = '8.31rem'
 export const navControlsHeightMobile = '11.75rem'
 export const navHeightMobile = '3.5rem'
