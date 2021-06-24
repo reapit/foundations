@@ -49,11 +49,10 @@ export const ElCardHeading = styled.h5`
   -webkit-box-orient: vertical;
   overflow: hidden;
   white-space: normal;
-  margin-bottom: 0;
+  margin-bottom: 1.25rem;
 
   ${isTablet} {
     font-size: 20px;
-    margin-bottom: 1.25rem;
     -webkit-line-clamp: 2;
     height: 3rem;
   }
@@ -64,6 +63,11 @@ export const ElCardSubHeading = styled.h6`
   text-overflow: ellipsis;
   white-space: nowrap;
   overflow: hidden;
+  font-size: 0.875rem;
+
+  ${isTablet} {
+    font-size: 1rem;
+  }
 `
 
 export const elCardSubHeadingAdditionalExpanded = css`
@@ -104,15 +108,21 @@ export const ElCardBodyWrap = styled.div`
   overflow: hidden;
   white-space: normal;
   height: 0;
+  font-size: 0.875rem;
   transition: height 0.2s linear;
   transition: margin-bottom 0.2s linear;
 
   ${isTablet} {
     height: 3.5rem;
+    font-size: 1rem;
   }
 
   &.${elCardBodyWrapExpanded} {
-    height: 3.5rem;
+    height: 3rem;
+
+    ${isTablet} {
+      height: 3.5rem;
+    }
   }
 `
 
@@ -132,8 +142,8 @@ export const ElMobileToggle = styled.button`
   align-items: center;
   margin-left: auto;
   position: absolute;
-  top: 4.5rem;
-  right: 1.25rem;
+  top: 4.25rem;
+  right: 0.5rem;
 
   svg {
     font-size: 0.75rem;

@@ -58,9 +58,8 @@ module.exports = {
   rules: {
     quotes: ['error', 'single', { avoidEscape: true, allowTemplateLiterals: false }],
     semi: ['error', 'never'],
-    'no-unused-vars': ['error', { vars: 'all', args: 'after-used' }],
-    'no-debugger': 'off',
     '@typescript-eslint/no-unused-vars': [2, { args: 'none' }],
+    'no-debugger': 'off',
     'prettier/prettier': [
       'warn',
       {

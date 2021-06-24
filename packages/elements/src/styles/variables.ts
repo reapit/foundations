@@ -107,6 +107,7 @@ export const elVariables = css`
       --nav-menu-text-hover: var(--color-white);
     }
 
+    /* Reset CSS */
     html,
     body,
     div,
@@ -194,6 +195,7 @@ export const elVariables = css`
       font-size: 100%;
       font: inherit;
       vertical-align: baseline;
+      line-height: 1.2;
     }
     /* HTML5 display-role reset for older browsers */
     article,
@@ -232,24 +234,24 @@ export const elVariables = css`
       border-spacing: 0;
     }
 
+    /* Some basic defaults */
+
     html {
       font-size: 16px;
       font-family: 'PT Sans', Helvetica, Arial, sans-serif;
       height: 100%;
-      line-height: 20px;
+      -webkit-font-smoothing: antialiased;
+      -moz-osx-font-smoothing: grayscale;
+      -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
       box-sizing: border-box;
     }
 
     body {
-      margin: 0;
       height: 100%;
     }
 
-    * {
-      font-size: inherit;
-      font-family: inherit;
-      line-height: inherit;
-      box-sizing: inherit;
+    a {
+      text-decoration: none;
     }
   }
 `
