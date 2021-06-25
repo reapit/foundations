@@ -21,6 +21,7 @@
     "@reapit/ts-scripts": "workspace:packages/ts-scripts",
     "@reapit/ts-types": "workspace:packages/ts-types",
     "@testing-library/svelte": "^3.0.3",
+    "babel-loader": "^8.2.2",
     "concurrently": "^6.0.0",
     "cross-env": "^7.0.3",
     "eslint": "^7.23.0",
