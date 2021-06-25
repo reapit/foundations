@@ -31,9 +31,6 @@ module.exports = ({ config }) => {
       use: [
         {
           loader: MiniCssExtractPlugin.loader,
-          options: {
-            hmr: process.env.NODE_ENV !== 'production',
-          },
         },
         {
           loader: 'css-loader',
