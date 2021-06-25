@@ -22,7 +22,7 @@ const ssm = new aws.SSM()
 
 describe('deleteConfigValue', () => {
   it('should be called with correct params', () => {
-    var params = {
+    const params = {
       Name: `${CLIENT_KEY_PREFIX}${KEY}`,
     }
 

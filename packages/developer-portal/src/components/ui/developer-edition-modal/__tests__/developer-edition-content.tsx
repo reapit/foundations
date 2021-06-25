@@ -10,9 +10,8 @@ const developer = { value: 'value', label: 'label', description: 'description' }
 
 describe('DeveloperEditionContent', () => {
   it('should match snapshot', () => {
-    let store
     const mockStore = configureStore()
-    store = mockStore(appState)
+    const store = mockStore(appState)
 
     const wrapper = shallow(
       <Provider store={store}>

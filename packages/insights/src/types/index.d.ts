@@ -3,7 +3,7 @@
  */
 
 declare namespace yargs {
-  export type Arguments<T> = any
+  export type Arguments = any
 }
 
 declare module '*.css'
