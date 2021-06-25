@@ -6592,6 +6592,7 @@ __metadata:
     "@reapit/ts-scripts": "workspace:packages/ts-scripts"
     "@reapit/ts-types": "workspace:packages/ts-types"
     "@testing-library/svelte": ^3.0.3
+    babel-loader: ^8.2.2
     concurrently: ^6.0.0
     cross-env: ^7.0.3
     eslint: ^7.23.0
@@ -11235,6 +11236,7 @@ __metadata:
     "@reapit/utils": "workspace:packages/utils"
     "@redux-saga/testing-utils": ^1.1.3
     "@sentry/browser": ^5.30.0
+    babel-loader: ^8.2.2
     chart.js: ^2.9.4
     concurrently: ^5.3.0
     cross-env: ^6.0.3
@@ -11463,6 +11465,7 @@ __metadata:
     "@reapit/ts-types": "workspace:packages/ts-types"
     "@reapit/utils": "workspace:packages/utils"
     "@sentry/browser": ^5.30.0
+    babel-loader: ^8.2.2
     concurrently: ^5.3.0
     cross-env: ^6.0.3
     dayjs: ^1.10.4
@@ -16689,6 +16692,7 @@ __metadata:
     "@reapit/ts-scripts": "workspace:packages/ts-scripts"
     "@reapit/ts-types": "workspace:packages/ts-types"
     "@sentry/browser": ^5.30.0
+    babel-loader: ^8.2.2
     concurrently: ^5.3.0
     cross-env: ^6.0.3
     dayjs: ^1.10.4
@@ -17185,6 +17189,7 @@ __metadata:
     "@reapit/ts-scripts": "workspace:packages/ts-scripts"
     "@reapit/ts-types": "workspace:packages/ts-types"
     "@sentry/browser": ^5.30.0
+    babel-loader: ^8.2.2
     concurrently: ^5.3.0
     cross-env: ^6.0.3
     dayjs: ^1.10.4
@@ -17357,6 +17362,7 @@ __metadata:
     "@redux-saga/testing-utils": ^1.1.3
     "@sentry/browser": ^5.30.0
     amazon-cognito-identity-js: ^4.5.12
+    babel-loader: ^8.2.2
     chart.js: ^2.9.4
     concurrently: ^5.3.0
     cross-env: ^6.0.3
@@ -21225,6 +21231,7 @@ fsevents@^1.2.7:
     "@sentry/browser": ^5.30.0
     apollo-boost: ^0.4.9
     apollo-link-error: ^1.1.13
+    babel-loader: ^8.2.2
     concurrently: ^5.3.0
     cross-env: ^6.0.3
     dayjs: ^1.10.4
@@ -23501,6 +23508,7 @@ fsevents@^1.2.7:
     "@reapit/ts-scripts": "workspace:packages/ts-scripts"
     "@reapit/ts-types": "workspace:packages/ts-types"
     "@sentry/browser": ^5.30.0
+    babel-loader: ^8.2.2
     concurrently: ^5.3.0
     cross-env: ^6.0.3
     eslint: 7.23.0
@@ -27798,6 +27806,7 @@ fsevents@^1.2.7:
     "@reapit/ts-scripts": "workspace:packages/ts-scripts"
     "@reapit/ts-types": "workspace:packages/ts-types"
     "@sentry/browser": ^5.30.0
+    babel-loader: ^8.2.2
     concurrently: ^5.3.0
     cross-env: ^6.0.3
     dayjs: ^1.10.4
@@ -27840,6 +27849,7 @@ fsevents@^1.2.7:
     "@redux-saga/testing-utils": ^1.1.3
     "@sentry/browser": ^5.30.0
     amazon-cognito-identity-js: ^4.5.12
+    babel-loader: ^8.2.2
     chart.js: ^2.9.4
     concurrently: ^5.3.0
     cross-env: ^6.0.3
@@ -31000,6 +31010,7 @@ fsevents@^1.2.7:
     "@reapit/ts-scripts": "workspace:packages/ts-scripts"
     "@reapit/ts-types": "workspace:packages/ts-types"
     "@sentry/browser": ^5.30.0
+    babel-loader: ^8.2.2
     concurrently: ^5.3.0
     cross-env: ^6.0.3
     dayjs: ^1.10.4
@@ -33615,6 +33626,7 @@ fsevents@^1.2.7:
     "@reapit/ts-scripts": "workspace:packages/ts-scripts"
     "@reapit/ts-types": "workspace:packages/ts-types"
     "@sentry/browser": ^5.30.0
+    babel-loader: ^8.2.2
     concurrently: ^5.3.0
     cross-env: ^6.0.3
     dayjs: ^1.10.4
