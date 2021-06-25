@@ -30,6 +30,7 @@ const webpackConfigDev = ({ appName }) => ({
     filename: '[name].[contentHash].js',
   },
   plugins: [
+    new NodePolyfillPlugin(),
     new ReactRefreshWebpackPlugin(),
     new ForkTsCheckerWebpackPlugin({
       eslint: {
@@ -71,10 +72,17 @@ const webpackConfigDev = ({ appName }) => ({
       },
     }),
     new FriendlyErrorsWebpackPlugin(),
-    new NodePolyfillPlugin(),
   ],
   module: {
     rules: [
+      {
+        test: /\.mjs$/,
+        include: /node_modules/,
+        type: 'javascript/auto',
+        resolve: {
+          fullySpecified: false,
+        },
+      },
       {
         test: /.tsx?$/,
         exclude: generateRegexExcludePackages(),
@@ -142,6 +150,10 @@ const webpackConfigDev = ({ appName }) => ({
       'react-dom': require.resolve('react-dom'),
       'react-router': require.resolve('react-router'),
       'react-router-dom': require.resolve('react-router-dom'),
+      stream: 'stream-browserify',
+    },
+    fallback: {
+      stream: require.resolve('stream-browserify'),
     },
   },
   devServer: {

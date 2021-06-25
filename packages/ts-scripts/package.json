@@ -83,6 +83,7 @@
     "rimraf": "^3.0.2",
     "sass-loader": "^12.1.0",
     "shelljs": "^0.8.4",
+    "stream-browserify": "^3.0.0",
     "style-loader": "^3.0.0",
     "ts-jest": "^26.5.2",
     "ts-loader": "^9.2.3",
