@@ -76,7 +76,11 @@ const getPublicKeys = async (connectUserPoolId: string): Promise<MapOfKidToPubli
   }
 }
 
-export const connectSessionVerifyDecodeIdTokenWithPublicKeys = async (token: string, connectUserPoolId: string, keys: MapOfKidToPublicKey): Promise<LoginIdentity | undefined> => {
+export const connectSessionVerifyDecodeIdTokenWithPublicKeys = async (
+  token: string,
+  connectUserPoolId: string,
+  keys: MapOfKidToPublicKey,
+): Promise<LoginIdentity | undefined> => {
   try {
     const tokenSections = token.split('.')
     const cognitoIssuer = `https://cognito-idp.eu-west-2.amazonaws.com/${connectUserPoolId}`
@@ -127,7 +131,7 @@ export const connectSessionVerifyDecodeIdToken = async (
   token: string,
   connectUserPoolId: string,
 ): Promise<LoginIdentity | undefined> => {
-  let keys;
+  let keys
   try {
     keys = await getPublicKeys(connectUserPoolId)
     if (!keys) {

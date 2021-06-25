@@ -22,7 +22,7 @@ const ssm = new aws.SSM()
 
 describe('createConfigValue', () => {
   it('should be called with correct params and return a value', () => {
-    var params = {
+    const params = {
       Name: `${CLIENT_KEY_PREFIX}${KEY}`,
       WithDecryption: true,
     }
