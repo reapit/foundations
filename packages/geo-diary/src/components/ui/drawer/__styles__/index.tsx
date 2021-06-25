@@ -39,6 +39,12 @@ export const drawer = css`
   opacity: 0;
   transform: translateY(100%);
   z-index: -2;
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+
+  &::-webkit-scrollbar {
+    display: none;
+  }
 
   @media (min-width: 769px) {
     width: ${appointmentListWidthDesktop};

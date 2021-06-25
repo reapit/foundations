@@ -5,5 +5,6 @@ module.exports = {
     '@whitespace/storybook-addon-html',
     '@storybook/addon-essentials',
     '@storybook/addon-storysource/register',
+    '@storybook/addon-postcss',
   ],
 }
