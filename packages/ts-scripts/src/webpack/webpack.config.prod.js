@@ -4,12 +4,13 @@ const MiniCssExtractPlugin = require('mini-css-extract-plugin')
 const ResolveTSPathsToWebpackAlias = require('ts-paths-to-webpack-alias')
 const CopyPlugin = require('copy-webpack-plugin')
 const SentryWebpackPlugin = require('@sentry/webpack-plugin')
-const { EnvironmentPlugin, SourceMapDevToolPlugin, HashedModuleIdsPlugin } = require('webpack')
+const { EnvironmentPlugin, SourceMapDevToolPlugin } = require('webpack')
 const { PATHS } = require('./constants')
 const { getVersionTag, getRef } = require('./utils')
-const { ESBuildPlugin, ESBuildMinifyPlugin } = require('esbuild-loader')
+const { ESBuildMinifyPlugin } = require('esbuild-loader')
 const ForkTsCheckerWebpackPlugin = require('fork-ts-checker-webpack-plugin')
 const WorkboxWebpackPlugin = require('workbox-webpack-plugin')
+const NodePolyfillPlugin = require('node-polyfill-webpack-plugin')
 
 const EXCLUDE_PACKAGES = ['linaria']
 
@@ -145,7 +146,6 @@ const webpackConfigProd = ({ appName }) => {
       modules: false,
     },
     plugins: [
-      new ESBuildPlugin(),
       new ForkTsCheckerWebpackPlugin({
         eslint: {
           files: './src/**/*.{ts,tsx,js,jsx}',
@@ -176,7 +176,7 @@ const webpackConfigProd = ({ appName }) => {
         },
       }),
       new MiniCssExtractPlugin({
-        filename: '[name].[hash].css',
+        filename: '[name].[contentHash].css',
       }),
       new FaviconsWebpackPlugin({
         logo: PATHS.logo,
@@ -205,7 +205,6 @@ const webpackConfigProd = ({ appName }) => {
       new EnvironmentPlugin({
         APP_VERSION: APP_VERSION,
       }),
-      new HashedModuleIdsPlugin(),
       new WorkboxWebpackPlugin.GenerateSW({
         clientsClaim: true,
         exclude: [/\.map$/, /manifest\.json$/],
@@ -218,6 +217,7 @@ const webpackConfigProd = ({ appName }) => {
           new RegExp('/[^/?]+\\.[^/]+$'),
         ],
       }),
+      new NodePolyfillPlugin(),
     ],
   }
 

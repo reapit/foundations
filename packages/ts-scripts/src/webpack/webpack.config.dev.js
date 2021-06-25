@@ -7,8 +7,8 @@ const { PATHS } = require('./constants')
 const { getVersionTag } = require('./utils')
 const FriendlyErrorsWebpackPlugin = require('friendly-errors-webpack-plugin')
 const ForkTsCheckerWebpackPlugin = require('fork-ts-checker-webpack-plugin')
-const { ESBuildPlugin } = require('esbuild-loader')
 const ReactRefreshWebpackPlugin = require('@pmmmwh/react-refresh-webpack-plugin')
+const NodePolyfillPlugin = require('node-polyfill-webpack-plugin')
 const EXCLUDE_PACKAGES = ['linaria']
 
 const generateRegexExcludePackages = () => {
@@ -27,10 +27,9 @@ const webpackConfigDev = ({ appName }) => ({
   output: {
     pathinfo: false,
     path: PATHS.output,
-    filename: '[name].[hash].js',
+    filename: '[name].[contentHash].js',
   },
   plugins: [
-    new ESBuildPlugin(),
     new ReactRefreshWebpackPlugin(),
     new ForkTsCheckerWebpackPlugin({
       eslint: {
@@ -72,6 +71,7 @@ const webpackConfigDev = ({ appName }) => ({
       },
     }),
     new FriendlyErrorsWebpackPlugin(),
+    new NodePolyfillPlugin(),
   ],
   module: {
     rules: [
@@ -127,7 +127,7 @@ const webpackConfigDev = ({ appName }) => ({
           {
             loader: 'file-loader',
             options: {
-              name: '[name].[ext]',
+              name: '[contentHash].[ext]',
             },
           },
         ],

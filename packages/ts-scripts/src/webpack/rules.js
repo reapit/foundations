@@ -22,7 +22,9 @@ const sassDev = {
           loader: 'sass-loader',
           options: {
             sourceMap: true,
-            includePaths: ['node_modules'],
+            sassOptions: {
+              includePaths: ['node_modules'],
+            },
           },
         },
       ],
@@ -39,7 +41,9 @@ const sassDev = {
           loader: 'sass-loader',
           options: {
             sourceMap: true,
-            includePaths: ['node_modules'],
+            sassOptions: {
+              includePaths: ['node_modules'],
+            },
           },
         },
       ],
