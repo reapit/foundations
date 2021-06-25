@@ -66,6 +66,12 @@ export const AppoinmentContainer = styled.div`
   width: 100%;
   overflow: scroll;
   z-index: 1;
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+
+  &::-webkit-scrollbar {
+    display: none;
+  }
 
   ${isTablet} {
     width: ${appointmentListWidthDesktop};
