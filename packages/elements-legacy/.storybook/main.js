@@ -5,6 +5,16 @@ module.exports = {
     '@whitespace/storybook-addon-html',
     '@storybook/addon-essentials',
     '@storybook/addon-storysource/register',
-    '@storybook/addon-postcss',
+    {
+      name: '@storybook/addon-postcss',
+      options: {
+        postcssLoaderOptions: {
+          implementation: require('postcss'),
+        },
+      },
+    },
   ],
+  core: {
+    builder: 'webpack5',
+  },
 }
