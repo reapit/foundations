@@ -53,6 +53,9 @@ const webpackConfigProd = ({ appName }) => {
           test: /\.mjs$/,
           include: /node_modules/,
           type: 'javascript/auto',
+          resolve: {
+            fullySpecified: false,
+          },
         },
         {
           test: /.tsx?$/,
@@ -135,6 +138,10 @@ const webpackConfigProd = ({ appName }) => {
       extensions: ['.tsx', '.ts', '.js', '.mjs'],
       alias: {
         '@': `${PATHS.src}/`,
+        stream: 'stream-browserify',
+      },
+      fallback: {
+        stream: require.resolve('stream-browserify'),
       },
     },
     stats: {
@@ -146,6 +153,7 @@ const webpackConfigProd = ({ appName }) => {
       modules: false,
     },
     plugins: [
+      new NodePolyfillPlugin(),
       new ForkTsCheckerWebpackPlugin({
         eslint: {
           files: './src/**/*.{ts,tsx,js,jsx}',
@@ -217,7 +225,6 @@ const webpackConfigProd = ({ appName }) => {
           new RegExp('/[^/?]+\\.[^/]+$'),
         ],
       }),
-      new NodePolyfillPlugin(),
     ],
   }
 
