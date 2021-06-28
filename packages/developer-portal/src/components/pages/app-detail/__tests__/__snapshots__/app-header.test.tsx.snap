@@ -2,7 +2,7 @@
 
 exports[`AppHeader should match a snapshot 1`] = `
 <Grid
-  className="flex items-center mb-4 ct3g6zj-container-outer-header flex-col-min-height"
+  className=""
 >
   <GridItem>
     <div

@@ -167,7 +167,7 @@ exports[`ConfirmUninstall should match a snapshot 1`] = `
             >
               <SubTitleH6>
                 <h6
-                  className="subtitle is-6"
+                  className=""
                   id=""
                 >
                   Are you sure you wish to uninstall ‘
@@ -179,7 +179,7 @@ exports[`ConfirmUninstall should match a snapshot 1`] = `
               </SubTitleH6>
               <SubTitleH6>
                 <h6
-                  className="subtitle is-6"
+                  className=""
                   id=""
                 >
                   *Please confirm reason for uninstalling
@@ -200,7 +200,7 @@ exports[`ConfirmUninstall should match a snapshot 1`] = `
                       className="control"
                     >
                       <textarea
-                        className="textarea is-primary"
+                        className=""
                         data-test=""
                         id="terminatedReason"
                         name="terminatedReason"

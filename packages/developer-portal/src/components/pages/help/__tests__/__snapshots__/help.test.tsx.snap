@@ -16,7 +16,7 @@ exports[`DeveloperHelpPage should match a snapshot where there is a developer id
   <DeveloperHelpPage>
     <H3>
       <h3
-        className="title is-3"
+        className=""
         id=""
       >
         Help
@@ -76,14 +76,14 @@ exports[`DeveloperHelpPage should match a snapshot where there is a developer id
     >
       <GridFourCol>
         <div
-          className="columns is-multiline"
+          className=""
           data-test=""
         >
           <GridThreeColItem
             key="Welcome Guide"
           >
             <div
-              className="column is-multiline is-half-tablet is-one-third-widescreen"
+              className=""
               data-test=""
             >
               <Section
@@ -92,88 +92,84 @@ exports[`DeveloperHelpPage should match a snapshot where there is a developer id
                 isFullHeight={true}
               >
                 <section
-                  className="section is-flex has-padding has-margin has-background is-full-height has-box-shadow"
+                  className=""
                   data-test=""
                 >
-                  <FadeIn>
-                    <div
-                      className="f1ohzb3j-fade-in"
+                  <mock-styled.div>
+                    <Section
+                      className="w1aw3py2-wrap-box-content"
+                      isFlex={true}
+                      isFlexColumn={true}
                     >
-                      <Section
-                        className="w1aw3py2-wrap-box-content"
-                        isFlex={true}
-                        isFlexColumn={true}
+                      <section
+                        className=""
+                        data-test=""
                       >
-                        <section
-                          className="section is-flex is-flex-column has-padding has-margin has-background w1aw3py2-wrap-box-content"
-                          data-test=""
+                        <Section
+                          className="flex-shrink-0"
                         >
-                          <Section
-                            className="flex-shrink-0"
+                          <section
+                            className=""
+                            data-test=""
                           >
-                            <section
-                              className="section has-padding has-margin has-background flex-shrink-0"
-                              data-test=""
-                            >
-                              <img
-                                alt="Welcome Guide"
-                                src=""
-                              />
-                            </section>
-                          </Section>
-                          <H5
-                            isCentered={true}
+                            <img
+                              alt="Welcome Guide"
+                              src=""
+                            />
+                          </section>
+                        </Section>
+                        <H5
+                          isCentered={true}
+                        >
+                          <h5
+                            className=""
+                            id=""
                           >
-                            <h5
-                              className="title is-5 has-text-centered"
-                              id=""
-                            >
-                              Welcome Guide
-                            </h5>
-                          </H5>
-                          <Content
-                            className="flex-grow-1"
+                            Welcome Guide
+                          </h5>
+                        </H5>
+                        <Content
+                          className="flex-grow-1"
+                        >
+                          <div
+                            className=""
+                            data-test=""
                           >
-                            <div
-                              className="content flex-grow-1"
-                              data-test=""
-                            >
-                              Need a little help? Have a look through the Welcome Guide, which we’ve put
+                            Need a little help? Have a look through the Welcome Guide, which we’ve put
       together to help you navigate through your Developer portal.
-                            </div>
-                          </Content>
-                          <LevelRight
-                            className="text-end"
+                          </div>
+                        </Content>
+                        <LevelRight
+                          className="text-end"
+                        >
+                          <div
+                            className=""
+                            data-test=""
                           >
-                            <div
-                              className="level-right text-end"
-                              data-test=""
+                            <Button
+                              className="bit4slh-button"
+                              disabled={false}
+                              fullWidth={false}
+                              loading={false}
+                              onClick={[Function]}
+                              type="button"
+                              variant="primary"
                             >
-                              <Button
-                                className="bit4slh-button"
+                              <button
+                                className="button   is-primary bit4slh-button"
+                                data-test=""
                                 disabled={false}
-                                fullWidth={false}
-                                loading={false}
                                 onClick={[Function]}
                                 type="button"
-                                variant="primary"
                               >
-                                <button
-                                  className="button   is-primary bit4slh-button"
-                                  data-test=""
-                                  disabled={false}
-                                  onClick={[Function]}
-                                  type="button"
-                                >
-                                  VIEW
-                                </button>
-                              </Button>
-                            </div>
-                          </LevelRight>
-                        </section>
-                      </Section>
-                    </div>
-                  </FadeIn>
+                                VIEW
+                              </button>
+                            </Button>
+                          </div>
+                        </LevelRight>
+                      </section>
+                    </Section>
+                  </mock-styled.div>
                 </section>
               </Section>
             </div>
@@ -182,7 +178,7 @@ exports[`DeveloperHelpPage should match a snapshot where there is a developer id
             key="Request a Feature"
           >
             <div
-              className="column is-multiline is-half-tablet is-one-third-widescreen"
+              className=""
               data-test=""
             >
               <Section
@@ -191,88 +187,84 @@ exports[`DeveloperHelpPage should match a snapshot where there is a developer id
                 isFullHeight={true}
               >
                 <section
-                  className="section is-flex has-padding has-margin has-background is-full-height has-box-shadow"
+                  className=""
                   data-test=""
                 >
-                  <FadeIn>
-                    <div
-                      className="f1ohzb3j-fade-in"
+                  <mock-styled.div>
+                    <Section
+                      className="w1aw3py2-wrap-box-content"
+                      isFlex={true}
+                      isFlexColumn={true}
                     >
-                      <Section
-                        className="w1aw3py2-wrap-box-content"
-                        isFlex={true}
-                        isFlexColumn={true}
+                      <section
+                        className=""
+                        data-test=""
                       >
-                        <section
-                          className="section is-flex is-flex-column has-padding has-margin has-background w1aw3py2-wrap-box-content"
-                          data-test=""
+                        <Section
+                          className="flex-shrink-0"
                         >
-                          <Section
-                            className="flex-shrink-0"
+                          <section
+                            className=""
+                            data-test=""
                           >
-                            <section
-                              className="section has-padding has-margin has-background flex-shrink-0"
-                              data-test=""
-                            >
-                              <img
-                                alt="Request a Feature"
-                                src=""
-                              />
-                            </section>
-                          </Section>
-                          <H5
-                            isCentered={true}
+                            <img
+                              alt="Request a Feature"
+                              src=""
+                            />
+                          </section>
+                        </Section>
+                        <H5
+                          isCentered={true}
+                        >
+                          <h5
+                            className=""
+                            id=""
                           >
-                            <h5
-                              className="title is-5 has-text-centered"
-                              id=""
-                            >
-                              Request a Feature
-                            </h5>
-                          </H5>
-                          <Content
-                            className="flex-grow-1"
+                            Request a Feature
+                          </h5>
+                        </H5>
+                        <Content
+                          className="flex-grow-1"
+                        >
+                          <div
+                            className=""
+                            data-test=""
                           >
-                            <div
-                              className="content flex-grow-1"
-                              data-test=""
-                            >
-                              Use this form to request a feature in either the Marketplace or Foundations API. Please note, we will
+                            Use this form to request a feature in either the Marketplace or Foundations API. Please note, we will
       look at all requests carefully however, we cannot guarantee all will be implemented.
-                            </div>
-                          </Content>
-                          <LevelRight
-                            className="text-end"
+                          </div>
+                        </Content>
+                        <LevelRight
+                          className="text-end"
+                        >
+                          <div
+                            className=""
+                            data-test=""
                           >
-                            <div
-                              className="level-right text-end"
-                              data-test=""
+                            <Button
+                              className="bit4slh-button"
+                              disabled={false}
+                              fullWidth={false}
+                              loading={false}
+                              onClick={[Function]}
+                              type="button"
+                              variant="primary"
                             >
-                              <Button
-                                className="bit4slh-button"
+                              <button
+                                className="button   is-primary bit4slh-button"
+                                data-test=""
                                 disabled={false}
-                                fullWidth={false}
-                                loading={false}
                                 onClick={[Function]}
                                 type="button"
-                                variant="primary"
                               >
-                                <button
-                                  className="button   is-primary bit4slh-button"
-                                  data-test=""
-                                  disabled={false}
-                                  onClick={[Function]}
-                                  type="button"
-                                >
-                                  REQUEST
-                                </button>
-                              </Button>
-                            </div>
-                          </LevelRight>
-                        </section>
-                      </Section>
-                    </div>
-                  </FadeIn>
+                                REQUEST
+                              </button>
+                            </Button>
+                          </div>
+                        </LevelRight>
+                      </section>
+                    </Section>
+                  </mock-styled.div>
                 </section>
               </Section>
             </div>
@@ -281,7 +273,7 @@ exports[`DeveloperHelpPage should match a snapshot where there is a developer id
             key="Report a Bug"
           >
             <div
-              className="column is-multiline is-half-tablet is-one-third-widescreen"
+              className=""
               data-test=""
             >
               <Section
@@ -290,87 +282,83 @@ exports[`DeveloperHelpPage should match a snapshot where there is a developer id
                 isFullHeight={true}
               >
                 <section
-                  className="section is-flex has-padding has-margin has-background is-full-height has-box-shadow"
+                  className=""
                   data-test=""
                 >
-                  <FadeIn>
-                    <div
-                      className="f1ohzb3j-fade-in"
+                  <mock-styled.div>
+                    <Section
+                      className="w1aw3py2-wrap-box-content"
+                      isFlex={true}
+                      isFlexColumn={true}
                     >
-                      <Section
-                        className="w1aw3py2-wrap-box-content"
-                        isFlex={true}
-                        isFlexColumn={true}
+                      <section
+                        className=""
+                        data-test=""
                       >
-                        <section
-                          className="section is-flex is-flex-column has-padding has-margin has-background w1aw3py2-wrap-box-content"
-                          data-test=""
+                        <Section
+                          className="flex-shrink-0"
                         >
-                          <Section
-                            className="flex-shrink-0"
+                          <section
+                            className=""
+                            data-test=""
                           >
-                            <section
-                              className="section has-padding has-margin has-background flex-shrink-0"
-                              data-test=""
-                            >
-                              <img
-                                alt="Report a Bug"
-                                src=""
-                              />
-                            </section>
-                          </Section>
-                          <H5
-                            isCentered={true}
+                            <img
+                              alt="Report a Bug"
+                              src=""
+                            />
+                          </section>
+                        </Section>
+                        <H5
+                          isCentered={true}
+                        >
+                          <h5
+                            className=""
+                            id=""
                           >
-                            <h5
-                              className="title is-5 has-text-centered"
-                              id=""
-                            >
-                              Report a Bug
-                            </h5>
-                          </H5>
-                          <Content
-                            className="flex-grow-1"
+                            Report a Bug
+                          </h5>
+                        </H5>
+                        <Content
+                          className="flex-grow-1"
+                        >
+                          <div
+                            className=""
+                            data-test=""
                           >
-                            <div
-                              className="content flex-grow-1"
-                              data-test=""
-                            >
-                              Please report details of any bugs in relation to the Reapit Developer portal or Reapit Foundations API here. 
-                            </div>
-                          </Content>
-                          <LevelRight
-                            className="text-end"
+                            Please report details of any bugs in relation to the Reapit Developer portal or Reapit Foundations API here. 
+                          </div>
+                        </Content>
+                        <LevelRight
+                          className="text-end"
+                        >
+                          <div
+                            className=""
+                            data-test=""
                           >
-                            <div
-                              className="level-right text-end"
-                              data-test=""
+                            <Button
+                              className="bit4slh-button"
+                              disabled={false}
+                              fullWidth={false}
+                              loading={false}
+                              onClick={[Function]}
+                              type="button"
+                              variant="primary"
                             >
-                              <Button
-                                className="bit4slh-button"
+                              <button
+                                className="button   is-primary bit4slh-button"
+                                data-test=""
                                 disabled={false}
-                                fullWidth={false}
-                                loading={false}
                                 onClick={[Function]}
                                 type="button"
-                                variant="primary"
                               >
-                                <button
-                                  className="button   is-primary bit4slh-button"
-                                  data-test=""
-                                  disabled={false}
-                                  onClick={[Function]}
-                                  type="button"
-                                >
-                                  REPORT
-                                </button>
-                              </Button>
-                            </div>
-                          </LevelRight>
-                        </section>
-                      </Section>
-                    </div>
-                  </FadeIn>
+                                REPORT
+                              </button>
+                            </Button>
+                          </div>
+                        </LevelRight>
+                      </section>
+                    </Section>
+                  </mock-styled.div>
                 </section>
               </Section>
             </div>
@@ -379,7 +367,7 @@ exports[`DeveloperHelpPage should match a snapshot where there is a developer id
             key="Roadmap"
           >
             <div
-              className="column is-multiline is-half-tablet is-one-third-widescreen"
+              className=""
               data-test=""
             >
               <Section
@@ -388,88 +376,84 @@ exports[`DeveloperHelpPage should match a snapshot where there is a developer id
                 isFullHeight={true}
               >
                 <section
-                  className="section is-flex has-padding has-margin has-background is-full-height has-box-shadow"
+                  className=""
                   data-test=""
                 >
-                  <FadeIn>
-                    <div
-                      className="f1ohzb3j-fade-in"
+                  <mock-styled.div>
+                    <Section
+                      className="w1aw3py2-wrap-box-content"
+                      isFlex={true}
+                      isFlexColumn={true}
                     >
-                      <Section
-                        className="w1aw3py2-wrap-box-content"
-                        isFlex={true}
-                        isFlexColumn={true}
+                      <section
+                        className=""
+                        data-test=""
                       >
-                        <section
-                          className="section is-flex is-flex-column has-padding has-margin has-background w1aw3py2-wrap-box-content"
-                          data-test=""
+                        <Section
+                          className="flex-shrink-0"
                         >
-                          <Section
-                            className="flex-shrink-0"
+                          <section
+                            className=""
+                            data-test=""
                           >
-                            <section
-                              className="section has-padding has-margin has-background flex-shrink-0"
-                              data-test=""
-                            >
-                              <img
-                                alt="Roadmap"
-                                src=""
-                              />
-                            </section>
-                          </Section>
-                          <H5
-                            isCentered={true}
+                            <img
+                              alt="Roadmap"
+                              src=""
+                            />
+                          </section>
+                        </Section>
+                        <H5
+                          isCentered={true}
+                        >
+                          <h5
+                            className=""
+                            id=""
                           >
-                            <h5
-                              className="title is-5 has-text-centered"
-                              id=""
-                            >
-                              Roadmap
-                            </h5>
-                          </H5>
-                          <Content
-                            className="flex-grow-1"
+                            Roadmap
+                          </h5>
+                        </H5>
+                        <Content
+                          className="flex-grow-1"
+                        >
+                          <div
+                            className=""
+                            data-test=""
                           >
-                            <div
-                              className="content flex-grow-1"
-                              data-test=""
-                            >
-                              Want to see what we are building or check on the progress of your feature requests?
+                            Want to see what we are building or check on the progress of your feature requests?
       You can see our product roadmap milestones here. 
-                            </div>
-                          </Content>
-                          <LevelRight
-                            className="text-end"
+                          </div>
+                        </Content>
+                        <LevelRight
+                          className="text-end"
+                        >
+                          <div
+                            className=""
+                            data-test=""
                           >
-                            <div
-                              className="level-right text-end"
-                              data-test=""
+                            <Button
+                              className="bit4slh-button"
+                              disabled={false}
+                              fullWidth={false}
+                              loading={false}
+                              onClick={[Function]}
+                              type="button"
+                              variant="primary"
                             >
-                              <Button
-                                className="bit4slh-button"
+                              <button
+                                className="button   is-primary bit4slh-button"
+                                data-test=""
                                 disabled={false}
-                                fullWidth={false}
-                                loading={false}
                                 onClick={[Function]}
                                 type="button"
-                                variant="primary"
                               >
-                                <button
-                                  className="button   is-primary bit4slh-button"
-                                  data-test=""
-                                  disabled={false}
-                                  onClick={[Function]}
-                                  type="button"
-                                >
-                                  VIEW
-                                </button>
-                              </Button>
-                            </div>
-                          </LevelRight>
-                        </section>
-                      </Section>
-                    </div>
-                  </FadeIn>
+                                VIEW
+                              </button>
+                            </Button>
+                          </div>
+                        </LevelRight>
+                      </section>
+                    </Section>
+                  </mock-styled.div>
                 </section>
               </Section>
             </div>
@@ -478,7 +462,7 @@ exports[`DeveloperHelpPage should match a snapshot where there is a developer id
             key="Need Help?"
           >
             <div
-              className="column is-multiline is-half-tablet is-one-third-widescreen"
+              className=""
               data-test=""
             >
               <Section
@@ -487,87 +471,83 @@ exports[`DeveloperHelpPage should match a snapshot where there is a developer id
                 isFullHeight={true}
               >
                 <section
-                  className="section is-flex has-padding has-margin has-background is-full-height has-box-shadow"
+                  className=""
                   data-test=""
                 >
-                  <FadeIn>
-                    <div
-                      className="f1ohzb3j-fade-in"
+                  <mock-styled.div>
+                    <Section
+                      className="w1aw3py2-wrap-box-content"
+                      isFlex={true}
+                      isFlexColumn={true}
                     >
-                      <Section
-                        className="w1aw3py2-wrap-box-content"
-                        isFlex={true}
-                        isFlexColumn={true}
+                      <section
+                        className=""
+                        data-test=""
                       >
-                        <section
-                          className="section is-flex is-flex-column has-padding has-margin has-background w1aw3py2-wrap-box-content"
-                          data-test=""
+                        <Section
+                          className="flex-shrink-0"
                         >
-                          <Section
-                            className="flex-shrink-0"
+                          <section
+                            className=""
+                            data-test=""
                           >
-                            <section
-                              className="section has-padding has-margin has-background flex-shrink-0"
-                              data-test=""
-                            >
-                              <img
-                                alt="Need Help?"
-                                src=""
-                              />
-                            </section>
-                          </Section>
-                          <H5
-                            isCentered={true}
+                            <img
+                              alt="Need Help?"
+                              src=""
+                            />
+                          </section>
+                        </Section>
+                        <H5
+                          isCentered={true}
+                        >
+                          <h5
+                            className=""
+                            id=""
                           >
-                            <h5
-                              className="title is-5 has-text-centered"
-                              id=""
-                            >
-                              Need Help?
-                            </h5>
-                          </H5>
-                          <Content
-                            className="flex-grow-1"
+                            Need Help?
+                          </h5>
+                        </H5>
+                        <Content
+                          className="flex-grow-1"
+                        >
+                          <div
+                            className=""
+                            data-test=""
                           >
-                            <div
-                              className="content flex-grow-1"
-                              data-test=""
-                            >
-                              If you have a question that is not covered in the documentation you can ask here. Please note we don’t provide chat support for Agency Cloud Developer Edition.
-                            </div>
-                          </Content>
-                          <LevelRight
-                            className="text-end"
+                            If you have a question that is not covered in the documentation you can ask here. Please note we don’t provide chat support for Agency Cloud Developer Edition.
+                          </div>
+                        </Content>
+                        <LevelRight
+                          className="text-end"
+                        >
+                          <div
+                            className=""
+                            data-test=""
                           >
-                            <div
-                              className="level-right text-end"
-                              data-test=""
+                            <Button
+                              className="bit4slh-button"
+                              disabled={false}
+                              fullWidth={false}
+                              loading={false}
+                              onClick={[Function]}
+                              type="button"
+                              variant="primary"
                             >
-                              <Button
-                                className="bit4slh-button"
+                              <button
+                                className="button   is-primary bit4slh-button"
+                                data-test=""
                                 disabled={false}
-                                fullWidth={false}
-                                loading={false}
                                 onClick={[Function]}
                                 type="button"
-                                variant="primary"
                               >
-                                <button
-                                  className="button   is-primary bit4slh-button"
-                                  data-test=""
-                                  disabled={false}
-                                  onClick={[Function]}
-                                  type="button"
-                                >
-                                  START CHAT
-                                </button>
-                              </Button>
-                            </div>
-                          </LevelRight>
-                        </section>
-                      </Section>
-                    </div>
-                  </FadeIn>
+                                START CHAT
+                              </button>
+                            </Button>
+                          </div>
+                        </LevelRight>
+                      </section>
+                    </Section>
+                  </mock-styled.div>
                 </section>
               </Section>
             </div>
@@ -576,7 +556,7 @@ exports[`DeveloperHelpPage should match a snapshot where there is a developer id
             key="What’s New"
           >
             <div
-              className="column is-multiline is-half-tablet is-one-third-widescreen"
+              className=""
               data-test=""
             >
               <Section
@@ -585,88 +565,84 @@ exports[`DeveloperHelpPage should match a snapshot where there is a developer id
                 isFullHeight={true}
               >
                 <section
-                  className="section is-flex has-padding has-margin has-background is-full-height has-box-shadow"
+                  className=""
                   data-test=""
                 >
-                  <FadeIn>
-                    <div
-                      className="f1ohzb3j-fade-in"
+                  <mock-styled.div>
+                    <Section
+                      className="w1aw3py2-wrap-box-content"
+                      isFlex={true}
+                      isFlexColumn={true}
                     >
-                      <Section
-                        className="w1aw3py2-wrap-box-content"
-                        isFlex={true}
-                        isFlexColumn={true}
+                      <section
+                        className=""
+                        data-test=""
                       >
-                        <section
-                          className="section is-flex is-flex-column has-padding has-margin has-background w1aw3py2-wrap-box-content"
-                          data-test=""
+                        <Section
+                          className="flex-shrink-0"
                         >
-                          <Section
-                            className="flex-shrink-0"
+                          <section
+                            className=""
+                            data-test=""
                           >
-                            <section
-                              className="section has-padding has-margin has-background flex-shrink-0"
-                              data-test=""
-                            >
-                              <img
-                                alt="What’s New"
-                                src=""
-                              />
-                            </section>
-                          </Section>
-                          <H5
-                            isCentered={true}
+                            <img
+                              alt="What’s New"
+                              src=""
+                            />
+                          </section>
+                        </Section>
+                        <H5
+                          isCentered={true}
+                        >
+                          <h5
+                            className=""
+                            id=""
                           >
-                            <h5
-                              className="title is-5 has-text-centered"
-                              id=""
-                            >
-                              What’s New
-                            </h5>
-                          </H5>
-                          <Content
-                            className="flex-grow-1"
+                            What’s New
+                          </h5>
+                        </H5>
+                        <Content
+                          className="flex-grow-1"
+                        >
+                          <div
+                            className=""
+                            data-test=""
                           >
-                            <div
-                              className="content flex-grow-1"
-                              data-test=""
-                            >
-                              We are constantly working to improve your experience with the Foundations Platform. Have a look to see what
+                            We are constantly working to improve your experience with the Foundations Platform. Have a look to see what
       new features and fixes have been released.
-                            </div>
-                          </Content>
-                          <LevelRight
-                            className="text-end"
+                          </div>
+                        </Content>
+                        <LevelRight
+                          className="text-end"
+                        >
+                          <div
+                            className=""
+                            data-test=""
                           >
-                            <div
-                              className="level-right text-end"
-                              data-test=""
+                            <Button
+                              className="bit4slh-button"
+                              disabled={false}
+                              fullWidth={false}
+                              loading={false}
+                              onClick={[Function]}
+                              type="button"
+                              variant="primary"
                             >
-                              <Button
-                                className="bit4slh-button"
+                              <button
+                                className="button   is-primary bit4slh-button"
+                                data-test=""
                                 disabled={false}
-                                fullWidth={false}
-                                loading={false}
                                 onClick={[Function]}
                                 type="button"
-                                variant="primary"
                               >
-                                <button
-                                  className="button   is-primary bit4slh-button"
-                                  data-test=""
-                                  disabled={false}
-                                  onClick={[Function]}
-                                  type="button"
-                                >
-                                  VIEW
-                                </button>
-                              </Button>
-                            </div>
-                          </LevelRight>
-                        </section>
-                      </Section>
-                    </div>
-                  </FadeIn>
+                                VIEW
+                              </button>
+                            </Button>
+                          </div>
+                        </LevelRight>
+                      </section>
+                    </Section>
+                  </mock-styled.div>
                 </section>
               </Section>
             </div>

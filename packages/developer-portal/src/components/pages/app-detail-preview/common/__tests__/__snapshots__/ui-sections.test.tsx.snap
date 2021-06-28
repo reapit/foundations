@@ -197,14 +197,14 @@ exports[`InstallationsTableSection should not render a table when has no data 1`
       dataTest="render-installations-table-empty-text"
     >
       <div
-        className="content"
+        className=""
         data-test="render-installations-table-empty-text"
       >
         <H5
           className=""
         >
           <h5
-            className="title is-5"
+            className=""
             id=""
           >
             Installations
@@ -255,14 +255,14 @@ exports[`InstallationsTableSection should render a table and match a snapshot wh
       dataTest="render-installations-table"
     >
       <div
-        className="content"
+        className=""
         data-test="render-installations-table"
       >
         <H5
           className=""
         >
           <h5
-            className="title is-5"
+            className=""
             id=""
           >
             Installations

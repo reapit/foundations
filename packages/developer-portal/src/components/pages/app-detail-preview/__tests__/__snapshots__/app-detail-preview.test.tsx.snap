@@ -60,12 +60,12 @@ exports[`AppDetailPreview should match a snapshot 1`] = `
           dataTest="client-app-detail-container"
         >
           <div
-            className="columns"
+            className=""
             data-test="client-app-detail-container"
           >
             <GridItem>
               <div
-                className="column"
+                className=""
                 data-test=""
               >
                 <Alert
