@@ -1,4 +1,4 @@
-import { css } from 'linaria'
+import { css } from '@linaria/core'
 
 // Convenience classes to add standard 1px grey border
 export const elBorderT = css`

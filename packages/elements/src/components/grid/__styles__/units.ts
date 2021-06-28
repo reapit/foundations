@@ -1,4 +1,4 @@
-import { css } from 'linaria'
+import { css } from '@linaria/core'
 
 // Col Gaps
 export const elColGap0 = css`

@@ -90,12 +90,11 @@ const webpackConfigDev = ({ appName }) => ({
           {
             loader: 'babel-loader',
             options: {
-              presets: ['linaria/babel'],
               plugins: [require.resolve('react-refresh/babel')],
             },
           },
           {
-            loader: 'linaria/loader',
+            loader: '@linaria/webpack-loader',
             options: {
               sourceMap: process.env.NODE_ENV !== 'production',
             },

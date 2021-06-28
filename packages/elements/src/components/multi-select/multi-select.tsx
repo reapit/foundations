@@ -1,5 +1,5 @@
 import React, { FC, HTMLAttributes } from 'react'
-import { cx } from 'linaria'
+import { cx } from '@linaria/core'
 import { ElMultiSelectCheckbox, ElMultiSelect, ElMultiSelectLabel } from './__styles__/index'
 
 export interface MultiSelectProps extends HTMLAttributes<HTMLDivElement> {}

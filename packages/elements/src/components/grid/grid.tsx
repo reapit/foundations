@@ -1,5 +1,5 @@
 import React, { FC, HTMLAttributes } from 'react'
-import { cx } from 'linaria'
+import { cx } from '@linaria/core'
 import { ElGrid, ElCol } from './__styles__'
 
 export interface GridProps extends HTMLAttributes<HTMLElement> {}

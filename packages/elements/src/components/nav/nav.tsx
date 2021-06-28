@@ -1,5 +1,5 @@
 import React, { AnchorHTMLAttributes, HTMLAttributes, FC } from 'react'
-import { cx } from 'linaria'
+import { cx } from '@linaria/core'
 import { ElNavContainer, ElNavItem, elNavItemSecondary, ElNavSubContainer, ElNavSubItem } from './__styles__'
 
 export interface NavItemProps extends AnchorHTMLAttributes<HTMLAnchorElement> {

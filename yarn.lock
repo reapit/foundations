@@ -3120,6 +3120,89 @@ __metadata:
   languageName: node
   linkType: hard
 
+"@babel/preset-env@npm:>=7, @babel/preset-env@npm:^7.12.11":
+  version: 7.14.7
+  resolution: "@babel/preset-env@npm:7.14.7"
+  dependencies:
+    "@babel/compat-data": ^7.14.7
+    "@babel/helper-compilation-targets": ^7.14.5
+    "@babel/helper-plugin-utils": ^7.14.5
+    "@babel/helper-validator-option": ^7.14.5
+    "@babel/plugin-bugfix-v8-spread-parameters-in-optional-chaining": ^7.14.5
+    "@babel/plugin-proposal-async-generator-functions": ^7.14.7
+    "@babel/plugin-proposal-class-properties": ^7.14.5
+    "@babel/plugin-proposal-class-static-block": ^7.14.5
+    "@babel/plugin-proposal-dynamic-import": ^7.14.5
+    "@babel/plugin-proposal-export-namespace-from": ^7.14.5
+    "@babel/plugin-proposal-json-strings": ^7.14.5
+    "@babel/plugin-proposal-logical-assignment-operators": ^7.14.5
+    "@babel/plugin-proposal-nullish-coalescing-operator": ^7.14.5
+    "@babel/plugin-proposal-numeric-separator": ^7.14.5
+    "@babel/plugin-proposal-object-rest-spread": ^7.14.7
+    "@babel/plugin-proposal-optional-catch-binding": ^7.14.5
+    "@babel/plugin-proposal-optional-chaining": ^7.14.5
+    "@babel/plugin-proposal-private-methods": ^7.14.5
+    "@babel/plugin-proposal-private-property-in-object": ^7.14.5
+    "@babel/plugin-proposal-unicode-property-regex": ^7.14.5
+    "@babel/plugin-syntax-async-generators": ^7.8.4
+    "@babel/plugin-syntax-class-properties": ^7.12.13
+    "@babel/plugin-syntax-class-static-block": ^7.14.5
+    "@babel/plugin-syntax-dynamic-import": ^7.8.3
+    "@babel/plugin-syntax-export-namespace-from": ^7.8.3
+    "@babel/plugin-syntax-json-strings": ^7.8.3
+    "@babel/plugin-syntax-logical-assignment-operators": ^7.10.4
+    "@babel/plugin-syntax-nullish-coalescing-operator": ^7.8.3
+    "@babel/plugin-syntax-numeric-separator": ^7.10.4
+    "@babel/plugin-syntax-object-rest-spread": ^7.8.3
+    "@babel/plugin-syntax-optional-catch-binding": ^7.8.3
+    "@babel/plugin-syntax-optional-chaining": ^7.8.3
+    "@babel/plugin-syntax-private-property-in-object": ^7.14.5
+    "@babel/plugin-syntax-top-level-await": ^7.14.5
+    "@babel/plugin-transform-arrow-functions": ^7.14.5
+    "@babel/plugin-transform-async-to-generator": ^7.14.5
+    "@babel/plugin-transform-block-scoped-functions": ^7.14.5
+    "@babel/plugin-transform-block-scoping": ^7.14.5
+    "@babel/plugin-transform-classes": ^7.14.5
+    "@babel/plugin-transform-computed-properties": ^7.14.5
+    "@babel/plugin-transform-destructuring": ^7.14.7
+    "@babel/plugin-transform-dotall-regex": ^7.14.5
+    "@babel/plugin-transform-duplicate-keys": ^7.14.5
+    "@babel/plugin-transform-exponentiation-operator": ^7.14.5
+    "@babel/plugin-transform-for-of": ^7.14.5
+    "@babel/plugin-transform-function-name": ^7.14.5
+    "@babel/plugin-transform-literals": ^7.14.5
+    "@babel/plugin-transform-member-expression-literals": ^7.14.5
+    "@babel/plugin-transform-modules-amd": ^7.14.5
+    "@babel/plugin-transform-modules-commonjs": ^7.14.5
+    "@babel/plugin-transform-modules-systemjs": ^7.14.5
+    "@babel/plugin-transform-modules-umd": ^7.14.5
+    "@babel/plugin-transform-named-capturing-groups-regex": ^7.14.7
+    "@babel/plugin-transform-new-target": ^7.14.5
+    "@babel/plugin-transform-object-super": ^7.14.5
+    "@babel/plugin-transform-parameters": ^7.14.5
+    "@babel/plugin-transform-property-literals": ^7.14.5
+    "@babel/plugin-transform-regenerator": ^7.14.5
+    "@babel/plugin-transform-reserved-words": ^7.14.5
+    "@babel/plugin-transform-shorthand-properties": ^7.14.5
+    "@babel/plugin-transform-spread": ^7.14.6
+    "@babel/plugin-transform-sticky-regex": ^7.14.5
+    "@babel/plugin-transform-template-literals": ^7.14.5
+    "@babel/plugin-transform-typeof-symbol": ^7.14.5
+    "@babel/plugin-transform-unicode-escapes": ^7.14.5
+    "@babel/plugin-transform-unicode-regex": ^7.14.5
+    "@babel/preset-modules": ^0.1.4
+    "@babel/types": ^7.14.5
+    babel-plugin-polyfill-corejs2: ^0.2.2
+    babel-plugin-polyfill-corejs3: ^0.2.2
+    babel-plugin-polyfill-regenerator: ^0.2.2
+    core-js-compat: ^3.15.0
+    semver: ^6.3.0
+  peerDependencies:
+    "@babel/core": ^7.0.0-0
+  checksum: 50c21b42c47a2d7ae26f70d6f5e77b83ab803fb54b22ae6e398a4ab6b388f7397207ff6ca51e5cb697de14d31965988147a2b65009e638fb04a3b8a5c60676c8
+  languageName: node
+  linkType: hard
+
 "@babel/preset-env@npm:^7.1.6, @babel/preset-env@npm:^7.12.1":
   version: 7.12.16
   resolution: "@babel/preset-env@npm:7.12.16"
@@ -3271,89 +3354,6 @@ __metadata:
   peerDependencies:
     "@babel/core": ^7.0.0-0
   checksum: fa41587bdb31900499a3d8661e251e93e2b075590660985de3b63efdf72f1a4c1588a25c9148d0f91046639d324b7730ebf8c4fb0230b3dfcc70ac7937fd6a7e
-  languageName: node
-  linkType: hard
-
-"@babel/preset-env@npm:^7.12.11":
-  version: 7.14.7
-  resolution: "@babel/preset-env@npm:7.14.7"
-  dependencies:
-    "@babel/compat-data": ^7.14.7
-    "@babel/helper-compilation-targets": ^7.14.5
-    "@babel/helper-plugin-utils": ^7.14.5
-    "@babel/helper-validator-option": ^7.14.5
-    "@babel/plugin-bugfix-v8-spread-parameters-in-optional-chaining": ^7.14.5
-    "@babel/plugin-proposal-async-generator-functions": ^7.14.7
-    "@babel/plugin-proposal-class-properties": ^7.14.5
-    "@babel/plugin-proposal-class-static-block": ^7.14.5
-    "@babel/plugin-proposal-dynamic-import": ^7.14.5
-    "@babel/plugin-proposal-export-namespace-from": ^7.14.5
-    "@babel/plugin-proposal-json-strings": ^7.14.5
-    "@babel/plugin-proposal-logical-assignment-operators": ^7.14.5
-    "@babel/plugin-proposal-nullish-coalescing-operator": ^7.14.5
-    "@babel/plugin-proposal-numeric-separator": ^7.14.5
-    "@babel/plugin-proposal-object-rest-spread": ^7.14.7
-    "@babel/plugin-proposal-optional-catch-binding": ^7.14.5
-    "@babel/plugin-proposal-optional-chaining": ^7.14.5
-    "@babel/plugin-proposal-private-methods": ^7.14.5
-    "@babel/plugin-proposal-private-property-in-object": ^7.14.5
-    "@babel/plugin-proposal-unicode-property-regex": ^7.14.5
-    "@babel/plugin-syntax-async-generators": ^7.8.4
-    "@babel/plugin-syntax-class-properties": ^7.12.13
-    "@babel/plugin-syntax-class-static-block": ^7.14.5
-    "@babel/plugin-syntax-dynamic-import": ^7.8.3
-    "@babel/plugin-syntax-export-namespace-from": ^7.8.3
-    "@babel/plugin-syntax-json-strings": ^7.8.3
-    "@babel/plugin-syntax-logical-assignment-operators": ^7.10.4
-    "@babel/plugin-syntax-nullish-coalescing-operator": ^7.8.3
-    "@babel/plugin-syntax-numeric-separator": ^7.10.4
-    "@babel/plugin-syntax-object-rest-spread": ^7.8.3
-    "@babel/plugin-syntax-optional-catch-binding": ^7.8.3
-    "@babel/plugin-syntax-optional-chaining": ^7.8.3
-    "@babel/plugin-syntax-private-property-in-object": ^7.14.5
-    "@babel/plugin-syntax-top-level-await": ^7.14.5
-    "@babel/plugin-transform-arrow-functions": ^7.14.5
-    "@babel/plugin-transform-async-to-generator": ^7.14.5
-    "@babel/plugin-transform-block-scoped-functions": ^7.14.5
-    "@babel/plugin-transform-block-scoping": ^7.14.5
-    "@babel/plugin-transform-classes": ^7.14.5
-    "@babel/plugin-transform-computed-properties": ^7.14.5
-    "@babel/plugin-transform-destructuring": ^7.14.7
-    "@babel/plugin-transform-dotall-regex": ^7.14.5
-    "@babel/plugin-transform-duplicate-keys": ^7.14.5
-    "@babel/plugin-transform-exponentiation-operator": ^7.14.5
-    "@babel/plugin-transform-for-of": ^7.14.5
-    "@babel/plugin-transform-function-name": ^7.14.5
-    "@babel/plugin-transform-literals": ^7.14.5
-    "@babel/plugin-transform-member-expression-literals": ^7.14.5
-    "@babel/plugin-transform-modules-amd": ^7.14.5
-    "@babel/plugin-transform-modules-commonjs": ^7.14.5
-    "@babel/plugin-transform-modules-systemjs": ^7.14.5
-    "@babel/plugin-transform-modules-umd": ^7.14.5
-    "@babel/plugin-transform-named-capturing-groups-regex": ^7.14.7
-    "@babel/plugin-transform-new-target": ^7.14.5
-    "@babel/plugin-transform-object-super": ^7.14.5
-    "@babel/plugin-transform-parameters": ^7.14.5
-    "@babel/plugin-transform-property-literals": ^7.14.5
-    "@babel/plugin-transform-regenerator": ^7.14.5
-    "@babel/plugin-transform-reserved-words": ^7.14.5
-    "@babel/plugin-transform-shorthand-properties": ^7.14.5
-    "@babel/plugin-transform-spread": ^7.14.6
-    "@babel/plugin-transform-sticky-regex": ^7.14.5
-    "@babel/plugin-transform-template-literals": ^7.14.5
-    "@babel/plugin-transform-typeof-symbol": ^7.14.5
-    "@babel/plugin-transform-unicode-escapes": ^7.14.5
-    "@babel/plugin-transform-unicode-regex": ^7.14.5
-    "@babel/preset-modules": ^0.1.4
-    "@babel/types": ^7.14.5
-    babel-plugin-polyfill-corejs2: ^0.2.2
-    babel-plugin-polyfill-corejs3: ^0.2.2
-    babel-plugin-polyfill-regenerator: ^0.2.2
-    core-js-compat: ^3.15.0
-    semver: ^6.3.0
-  peerDependencies:
-    "@babel/core": ^7.0.0-0
-  checksum: 50c21b42c47a2d7ae26f70d6f5e77b83ab803fb54b22ae6e398a4ab6b388f7397207ff6ca51e5cb697de14d31965988147a2b65009e638fb04a3b8a5c60676c8
   languageName: node
   linkType: hard
 
@@ -5700,6 +5700,128 @@ __metadata:
   languageName: node
   linkType: hard
 
+"@linaria/babel-preset@npm:^3.0.0-beta.4, @linaria/babel-preset@npm:^3.0.0-beta.7":
+  version: 3.0.0-beta.7
+  resolution: "@linaria/babel-preset@npm:3.0.0-beta.7"
+  dependencies:
+    "@babel/generator": ">=7"
+    "@babel/plugin-syntax-dynamic-import": ">=7"
+    "@babel/template": ">=7"
+    "@linaria/core": ^3.0.0-beta.4
+    "@linaria/logger": ^3.0.0-beta.3
+    cosmiconfig: ^5.1.0
+    source-map: ^0.7.3
+    stylis: ^3.5.4
+  peerDependencies:
+    "@babel/core": ">=7"
+  checksum: 97f6641af35caebe74bf8e0ee51e3cf0a58841558dbcfb69c56709f61cd43c3b70b7db30f3b30b04e60cd5aa5b7b1e2592a6795887c39f18cc1f162415ed9340
+  languageName: node
+  linkType: hard
+
+"@linaria/core@npm:^3.0.0-beta.4":
+  version: 3.0.0-beta.4
+  resolution: "@linaria/core@npm:3.0.0-beta.4"
+  checksum: 2bd079f9d9be7228f2833f8433bcf0cad05e31e3d3247f7db48eee6e2d993adae22ae36598758509548fa69738df5c736ecae87783a7254d73cfa50ae1f11cd8
+  languageName: node
+  linkType: hard
+
+"@linaria/logger@npm:^3.0.0-beta.3":
+  version: 3.0.0-beta.3
+  resolution: "@linaria/logger@npm:3.0.0-beta.3"
+  dependencies:
+    debug: ^4.1.1
+  checksum: 8ace53570eb313cf7a3eaf7573ca5dbef7fe0b4d5bad2b036f8782cca307c5ae9277829ba1d9ee6cbe3ca3118dc681f88497bfb300703b842073ef0e86228851
+  languageName: node
+  linkType: hard
+
+"@linaria/preeval@npm:^3.0.0-beta.7":
+  version: 3.0.0-beta.7
+  resolution: "@linaria/preeval@npm:3.0.0-beta.7"
+  dependencies:
+    "@linaria/babel-preset": ^3.0.0-beta.7
+  peerDependencies:
+    "@babel/core": ">=7"
+  checksum: 35cb99c8a0e11872513d33d5173572cb692f6777576d4147a64fd9ede0f9227a63ef78ac73eb4dbf7e5f2b60cfd88b802886e72b4053f5b11483e408f9e5dc3b
+  languageName: node
+  linkType: hard
+
+"@linaria/react@npm:^3.0.0-beta.7":
+  version: 3.0.0-beta.7
+  resolution: "@linaria/react@npm:3.0.0-beta.7"
+  dependencies:
+    "@emotion/is-prop-valid": ^0.8.8
+    "@linaria/core": ^3.0.0-beta.4
+  peerDependencies:
+    react: ">=16"
+  checksum: 1f2eee0f8c764cae9b858a7582a1b6d43fa760634f4ab5dc4e603124fd27f1052051e20c15611407c4d4971c4d04ea6a5ae69c6b1eb7ba33ccf04989e2dbec6f
+  languageName: node
+  linkType: hard
+
+"@linaria/shaker@npm:^3.0.0-beta.7":
+  version: 3.0.0-beta.7
+  resolution: "@linaria/shaker@npm:3.0.0-beta.7"
+  dependencies:
+    "@babel/generator": ">=7"
+    "@babel/plugin-transform-runtime": ">=7"
+    "@babel/plugin-transform-template-literals": ">=7"
+    "@babel/preset-env": ">=7"
+    "@linaria/babel-preset": ^3.0.0-beta.7
+    "@linaria/logger": ^3.0.0-beta.3
+    "@linaria/preeval": ^3.0.0-beta.7
+    babel-plugin-transform-react-remove-prop-types: ^0.4.24
+  peerDependencies:
+    "@babel/core": ">=7"
+  checksum: 300e3cf733f7dc769194545b4e36fa091df28ce840ca1c036971b4f8fb9afad00319608670d30ae32f8bbe1e90dce8aa50df8d26c2501333706ad5394b2f840b
+  languageName: node
+  linkType: hard
+
+"@linaria/webpack-loader@npm:^3.0.0-beta.7":
+  version: 3.0.0-beta.7
+  resolution: "@linaria/webpack-loader@npm:3.0.0-beta.7"
+  dependencies:
+    "@linaria/webpack4-loader": ^3.0.0-beta.7
+    "@linaria/webpack5-loader": ^3.0.0-beta.7
+  checksum: b8898e5477ffec679b3f99d3dbac18d8d5fae323f14ba470c822efa143049c2bcb2882fb01e2924c9c7ce0018832ee9c306f4034ae36decad5489b06c2e439a2
+  languageName: node
+  linkType: hard
+
+"@linaria/webpack4-loader@npm:^3.0.0-beta.7":
+  version: 3.0.0-beta.7
+  resolution: "@linaria/webpack4-loader@npm:3.0.0-beta.7"
+  dependencies:
+    "@linaria/babel-preset": ^3.0.0-beta.7
+    "@linaria/logger": ^3.0.0-beta.3
+    cosmiconfig: ^5.1.0
+    enhanced-resolve: ^4.1.0
+    find-yarn-workspace-root: ^1.2.1
+    loader-utils: ^1.2.3
+    mkdirp: ^0.5.1
+    normalize-path: ^3.0.0
+  peerDependencies:
+    "@babel/core": ">=7"
+  checksum: 3e7f70b2591beda36d479abfd66fbd2dbf7b3ea951bd105fd9dde244986741fc197228ba376adda65a8dd64f146fe692c59d25a4f15d6080185d985aea62d2a1
+  languageName: node
+  linkType: hard
+
+"@linaria/webpack5-loader@npm:^3.0.0-beta.7":
+  version: 3.0.0-beta.7
+  resolution: "@linaria/webpack5-loader@npm:3.0.0-beta.7"
+  dependencies:
+    "@linaria/babel-preset": ^3.0.0-beta.7
+    "@linaria/logger": ^3.0.0-beta.3
+    cosmiconfig: ^5.1.0
+    enhanced-resolve: ^5.3.1
+    find-yarn-workspace-root: ^1.2.1
+    loader-utils: ^2.0.0
+    mkdirp: ^0.5.1
+    normalize-path: ^3.0.0
+  peerDependencies:
+    "@babel/core": ">=7"
+    webpack: ">=5"
+  checksum: a4df37a943f95c8a41cdb43e1ee3246ed0692d1196ef271a85d172ab78320f4e7ad65c71302867802e7fa444e43d03afa35db347d9c6470419ca9183c5456755
+  languageName: node
+  linkType: hard
+
 "@mdx-js/loader@npm:^1.6.22":
   version: 1.6.22
   resolution: "@mdx-js/loader@npm:1.6.22"
@@ -6437,6 +6559,11 @@ __metadata:
     "@babel/core": ^7.13.8
     "@babel/plugin-transform-runtime": 7.13.8
     "@babel/runtime": 7.13.8
+    "@linaria/babel-preset": ^3.0.0-beta.4
+    "@linaria/core": ^3.0.0-beta.4
+    "@linaria/react": ^3.0.0-beta.7
+    "@linaria/shaker": ^3.0.0-beta.7
+    "@linaria/webpack-loader": ^3.0.0-beta.7
     "@mdx-js/react": ^1.6.22
     "@reapit/config-manager": "workspace:packages/config-manager"
     "@reapit/foundations-ts-definitions": "workspace:packages/foundations-ts-definitions"
@@ -6473,7 +6600,6 @@ __metadata:
     jest: ^26.6.3
     jest-coverage-badges: ^1.1.2
     jsonwebtoken: ^8.5.1
-    linaria: ^2.0.2
     move-file-cli: ^2.0.0
     node-polyfill-webpack-plugin: ^1.1.3
     papaparse: ^5.3.0
@@ -6522,6 +6648,11 @@ __metadata:
     "@babel/core": ^7.13.8
     "@babel/plugin-transform-runtime": 7.13.8
     "@babel/runtime": 7.13.8
+    "@linaria/babel-preset": ^3.0.0-beta.4
+    "@linaria/core": ^3.0.0-beta.4
+    "@linaria/react": ^3.0.0-beta.7
+    "@linaria/shaker": ^3.0.0-beta.7
+    "@linaria/webpack-loader": ^3.0.0-beta.7
     "@mdx-js/react": ^1.6.22
     "@reapit/config-manager": "workspace:packages/config-manager"
     "@reapit/ts-scripts": "workspace:packages/ts-scripts"
@@ -6549,7 +6680,6 @@ __metadata:
     eslint: 7.23.0
     jest: ^26.6.3
     jest-coverage-badges: ^1.1.2
-    linaria: ^2.0.2
     move-file-cli: ^2.0.0
     node-polyfill-webpack-plugin: ^1.1.3
     postcss: ^8.3.5
@@ -6636,6 +6766,8 @@ __metadata:
     "@babel/preset-react": ^7.12.13
     "@babel/preset-typescript": ^7.13.0
     "@babel/runtime": ^7.13.8
+    "@linaria/babel-preset": ^3.0.0-beta.4
+    "@linaria/webpack-loader": ^3.0.0-beta.7
     "@octokit/rest": ^16.43.2
     "@pmmmwh/react-refresh-webpack-plugin": ^0.4.3
     "@sentry/webpack-plugin": ^1.14.1
@@ -6643,6 +6775,7 @@ __metadata:
     "@typescript-eslint/eslint-plugin": ^4.15.2
     "@typescript-eslint/parser": ^4.15.2
     autoprefixer: ^10.2.6
+    babel-jest: 26
     babel-loader: ^8.2.2
     babel-plugin-module-resolver: ^4.1.0
     concurrently: ^5.3.0
@@ -6674,7 +6807,6 @@ __metadata:
     jest-coverage-badges: ^1.1.2
     jest-fetch-mock: ^3.0.0
     jest-transform-graphql: ^2.1.0
-    linaria: ^2.0.2
     mini-css-extract-plugin: ^1.6.0
     mockdate: ^2.0.5
     node-polyfill-webpack-plugin: ^1.1.3
@@ -13453,6 +13585,24 @@ __metadata:
   languageName: node
   linkType: hard
 
+"babel-jest@npm:26, babel-jest@npm:^26.6.3":
+  version: 26.6.3
+  resolution: "babel-jest@npm:26.6.3"
+  dependencies:
+    "@jest/transform": ^26.6.2
+    "@jest/types": ^26.6.2
+    "@types/babel__core": ^7.1.7
+    babel-plugin-istanbul: ^6.0.0
+    babel-preset-jest: ^26.6.2
+    chalk: ^4.0.0
+    graceful-fs: ^4.2.4
+    slash: ^3.0.0
+  peerDependencies:
+    "@babel/core": ^7.0.0
+  checksum: 89231d00e6b73e1dc6f009cb97a74edb1af4426f2cfa5d9b71684d1382526651820f8dd301857b9007a44c6b7d1fb77242b201bdea3cff98488b893e9c7d7182
+  languageName: node
+  linkType: hard
+
 "babel-jest@npm:^25.5.1":
   version: 25.5.1
   resolution: "babel-jest@npm:25.5.1"
@@ -13468,24 +13618,6 @@ __metadata:
   peerDependencies:
     "@babel/core": ^7.0.0
   checksum: c52979392d6c759f0aa20970b1b50c5385d67353bd64e708edd4f168d823077730182e282595d46a01935373fba8861bd7fd723d0731939e467f0e4a7db6a122
-  languageName: node
-  linkType: hard
-
-"babel-jest@npm:^26.6.3":
-  version: 26.6.3
-  resolution: "babel-jest@npm:26.6.3"
-  dependencies:
-    "@jest/transform": ^26.6.2
-    "@jest/types": ^26.6.2
-    "@types/babel__core": ^7.1.7
-    babel-plugin-istanbul: ^6.0.0
-    babel-preset-jest: ^26.6.2
-    chalk: ^4.0.0
-    graceful-fs: ^4.2.4
-    slash: ^3.0.0
-  peerDependencies:
-    "@babel/core": ^7.0.0
-  checksum: 89231d00e6b73e1dc6f009cb97a74edb1af4426f2cfa5d9b71684d1382526651820f8dd301857b9007a44c6b7d1fb77242b201bdea3cff98488b893e9c7d7182
   languageName: node
   linkType: hard
 
@@ -18104,6 +18236,8 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "developer-portal@workspace:packages/developer-portal"
   dependencies:
+    "@linaria/core": ^3.0.0-beta.4
+    "@linaria/react": ^3.0.0-beta.7
     "@reapit/config-manager": "workspace:packages/config-manager"
     "@reapit/connect-session": "workspace:packages/connect-session"
     "@reapit/elements": "workspace:packages/elements"
@@ -18115,6 +18249,7 @@ __metadata:
     "@redux-saga/testing-utils": ^1.1.3
     "@sentry/browser": ^5.30.0
     amazon-cognito-identity-js: ^4.5.12
+    babel-jest: 26
     babel-loader: ^8.2.2
     chart.js: ^2.9.4
     concurrently: ^5.3.0
@@ -18125,7 +18260,6 @@ __metadata:
     file-saver: ^2.0.5
     jest: ^26.6.3
     jest-coverage-badges: ^1.1.2
-    linaria: ^2.0.2
     lodash.isequal: ^4.5.0
     lodash.orderby: ^4.6.0
     node-polyfill-webpack-plugin: ^1.1.3
@@ -19133,7 +19267,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"enhanced-resolve@npm:^5.0.0, enhanced-resolve@npm:^5.8.0":
+"enhanced-resolve@npm:^5.0.0, enhanced-resolve@npm:^5.3.1, enhanced-resolve@npm:^5.8.0":
   version: 5.8.2
   resolution: "enhanced-resolve@npm:5.8.2"
   dependencies:

@@ -39,14 +39,16 @@
     "chrome 69"
   ],
   "dependencies": {
-    "@storybook/builder-webpack5": "next",
-    "@storybook/manager-webpack5": "next",
-    "linaria": "^2.0.2"
+    "@linaria/core": "^3.0.0-beta.4",
+    "@linaria/react": "^3.0.0-beta.7"
   },
   "devDependencies": {
     "@babel/core": "^7.13.8",
     "@babel/plugin-transform-runtime": "7.13.8",
     "@babel/runtime": "7.13.8",
+    "@linaria/babel-preset": "^3.0.0-beta.4",
+    "@linaria/shaker": "^3.0.0-beta.7",
+    "@linaria/webpack-loader": "^3.0.0-beta.7",
     "@mdx-js/react": "^1.6.22",
     "@reapit/config-manager": "workspace:packages/config-manager",
     "@reapit/ts-scripts": "workspace:packages/ts-scripts",
@@ -59,8 +61,10 @@
     "@storybook/addon-postcss": "^2.0.0",
     "@storybook/addon-storysource": "^6.4.0-alpha.2",
     "@storybook/addons": "^6.4.0-alpha.2",
+    "@storybook/builder-webpack5": "next",
     "@storybook/cli": "^6.4.0-alpha.2",
     "@storybook/csf": "^0.0.2-alpha.0",
+    "@storybook/manager-webpack5": "next",
     "@storybook/react": "^6.4.0-alpha.2",
     "@storybook/theming": "^6.4.0-alpha.2",
     "@svgr/rollup": "^5.5.0",

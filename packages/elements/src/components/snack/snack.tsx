@@ -1,5 +1,5 @@
 import React, { FC, HTMLAttributes } from 'react'
-import { cx } from 'linaria'
+import { cx } from '@linaria/core'
 import { ElSnack, elSnackIcon, elSnackCloseIcon } from './__styles__'
 import { ElSnackHolder } from './__styles__/snack-holder'
 import { Icon, IconNames } from '../icon'

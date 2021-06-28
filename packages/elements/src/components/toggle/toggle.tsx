@@ -1,5 +1,5 @@
 import React, { FC, Fragment, HTMLAttributes } from 'react'
-import { cx } from 'linaria'
+import { cx } from '@linaria/core'
 import {
   ElToggleCheckbox,
   elToggleFullWidth,

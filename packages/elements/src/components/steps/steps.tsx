@@ -1,5 +1,5 @@
 import React, { FC, HTMLAttributes } from 'react'
-import { cx } from 'linaria'
+import { cx } from '@linaria/core'
 import { elIsActive, elIsUsed } from '../../styles/states'
 import { ElSteps, ElStep } from './__styles__'
 

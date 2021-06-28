@@ -1,4 +1,4 @@
-import { styled } from 'linaria/react'
+import { styled } from '@linaria/react'
 import { elIsActive, elIsUsed } from '../../../styles/states'
 
 export const ElSteps = styled.div`

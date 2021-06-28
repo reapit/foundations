@@ -1,4 +1,4 @@
-import { css } from 'linaria'
+import { css } from '@linaria/core'
 
 // Utilities for margin
 export const elMAuto = css`

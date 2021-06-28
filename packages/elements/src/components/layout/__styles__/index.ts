@@ -1,4 +1,4 @@
-import { styled } from 'linaria/react'
+import { styled } from '@linaria/react'
 import { isMobile, isTablet } from '../../../styles/media'
 
 export const ElMainContainer = styled.main`
