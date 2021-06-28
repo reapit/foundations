@@ -38,7 +38,7 @@ const jestGlobalConfig = {
   globals: {
     'ts-jest': {
       babelConfig: {
-        presets: ['@babel/env', '@babel/preset-typescript', '@babel/preset-react', 'linaria/babel'],
+        presets: ['@babel/env', '@babel/preset-typescript', '@babel/preset-react', '@linaria'],
         plugins: [
           '@babel/plugin-transform-runtime',
           [

@@ -1,5 +1,5 @@
-import { css } from 'linaria'
-import { styled } from 'linaria/react'
+import { css } from '@linaria/core'
+import { styled } from '@linaria/react'
 import { ElIcon } from '../../icon/__styles__'
 import { elIsActive } from '../../../styles/states'
 import {

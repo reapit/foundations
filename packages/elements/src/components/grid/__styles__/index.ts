@@ -1,4 +1,4 @@
-import { styled } from 'linaria/react'
+import { styled } from '@linaria/react'
 import { is4KScreen, isDesktop, isMobile, isSuperWideScreen, isTablet, isWideScreen } from '../../../styles/media'
 
 export const ElGrid = styled.div`

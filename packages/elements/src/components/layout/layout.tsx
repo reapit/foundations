@@ -1,5 +1,5 @@
 import React, { HTMLAttributes, FC } from 'react'
-import { cx } from 'linaria'
+import { cx } from '@linaria/core'
 import { ElMainContainer, ElPageContainer, ElSecondaryNavContainer, ElMolecule, ElFlexContainer } from './__styles__'
 import {
   elFlexRow,

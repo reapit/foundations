@@ -1,4 +1,4 @@
-import { styled } from 'linaria/react'
+import { styled } from '@linaria/react'
 import { ElSnack } from '.'
 
 export const ElSnackHolder = styled.div`

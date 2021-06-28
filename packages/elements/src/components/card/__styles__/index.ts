@@ -1,5 +1,5 @@
-import { styled } from 'linaria/react'
-import { css } from 'linaria'
+import { styled } from '@linaria/react'
+import { css } from '@linaria/core'
 import { isTablet } from '../../../styles/media'
 
 export const elCardContextMenuOpen = css`

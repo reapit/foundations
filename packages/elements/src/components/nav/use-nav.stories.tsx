@@ -11,7 +11,7 @@ import {
 } from './__styles__/index'
 import { Nav, NavItem, NavSubNavItem, NavSubNav } from './nav'
 import { Icon } from '../icon'
-import { cx } from 'linaria'
+import { cx } from '@linaria/core'
 import { elIntentNeutral } from '../../styles/intent'
 import { elMLAuto, elMr2 } from '../../styles/spacing'
 

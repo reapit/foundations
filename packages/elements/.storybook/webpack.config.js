@@ -10,14 +10,9 @@ module.exports = ({ config }) => {
       use: [
         {
           loader: 'babel-loader',
-          options: {
-            presets: [
-              'linaria/babel',
-            ],
-          },
         },
         {
-          loader: 'linaria/loader',
+          loader: '@linaria/webpack-loader',
           options: {
             sourceMap: process.env.NODE_ENV !== 'production',
           },

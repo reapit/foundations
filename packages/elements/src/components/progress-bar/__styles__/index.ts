@@ -1,5 +1,5 @@
-import { css } from 'linaria'
-import { styled } from 'linaria/react'
+import { css } from '@linaria/core'
+import { styled } from '@linaria/react'
 
 export const elProgressBarItemDarkBlue = css`
   background-color: var(--color-blue-dark);

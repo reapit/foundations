@@ -1,4 +1,4 @@
-import { cx } from 'linaria'
+import { cx } from '@linaria/core'
 import React, { FC, HTMLAttributes } from 'react'
 import { Icon } from '../icon'
 import { ElPaginationButton, elPaginationPrimary, ElPaginationText, ElPaginationWrap } from './__styles__'

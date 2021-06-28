@@ -1,4 +1,4 @@
-import { styled } from 'linaria/react'
+import { styled } from '@linaria/react'
 import { ElIcon } from '../../icon/__styles__'
 import { ElLabel } from '../../label/__styles__'
 import { ElInput } from '../../input/__styles__'

@@ -1,5 +1,5 @@
 import React, { FC, HTMLAttributes } from 'react'
-import { cx } from 'linaria'
+import { cx } from '@linaria/core'
 import { ElGrid, ElCol } from './__styles__'
 import { MediaType, useMediaQuery } from '../../hooks/use-media-query'
 import * as units from './__styles__/units'

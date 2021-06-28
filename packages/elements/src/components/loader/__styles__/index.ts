@@ -1,4 +1,4 @@
-import { styled } from 'linaria/react'
+import { styled } from '@linaria/react'
 import { elIsFullPage } from '../../../styles/states'
 
 const ANIM_TIME = 1.2

@@ -1,4 +1,4 @@
-import { cx } from 'linaria'
+import { cx } from '@linaria/core'
 import React, { FC, HTMLAttributes } from 'react'
 import { ElPersistantNotification, elPnIcon, elPnContent, elPnIsFullWidth, elPnIsFixed } from './__styles__'
 import { Icon, IconNames } from '../icon'

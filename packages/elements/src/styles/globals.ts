@@ -1,4 +1,4 @@
-import { css } from 'linaria'
+import { css } from '@linaria/core'
 
 // export javascript colours for the SVG background in the button
 export const intentPrimary = '#0061a8'

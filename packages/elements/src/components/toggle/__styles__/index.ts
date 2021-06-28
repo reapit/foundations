@@ -1,5 +1,5 @@
-import { styled } from 'linaria/react'
-import { css } from 'linaria'
+import { styled } from '@linaria/react'
+import { css } from '@linaria/core'
 
 export const elToggleItem = css`
   width: 50%;

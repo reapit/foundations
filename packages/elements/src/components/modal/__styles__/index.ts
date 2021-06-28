@@ -1,4 +1,4 @@
-import { styled } from 'linaria/react'
+import { styled } from '@linaria/react'
 import { elIsActive } from '../../../styles/states'
 import { ElIcon } from '../../icon/__styles__'
 

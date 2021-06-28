@@ -1,4 +1,4 @@
-import { cx } from 'linaria'
+import { cx } from '@linaria/core'
 import React, { Dispatch, FC, HTMLAttributes, SetStateAction, useState } from 'react'
 import {
   CardWrap,
