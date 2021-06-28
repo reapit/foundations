@@ -26,7 +26,7 @@ exports[`WebhooksLogsTable should match a snapshot where there are logs 1`] = `
   >
     <H5>
       <h5
-        className="title is-5"
+        className=""
         id=""
       >
         Transaction Logs
@@ -51,12 +51,12 @@ exports[`WebhooksLogsTable should match a snapshot where there are logs 1`] = `
         >
           <GridFourCol>
             <div
-              className="columns is-multiline"
+              className=""
               data-test=""
             >
               <GridFourColItem>
                 <div
-                  className="column is-multiline is-full-mobile is-half-tablet is-one-third-widescreen is-one-quarter-fullhd"
+                  className=""
                   data-test=""
                 >
                   <DatePicker
@@ -74,7 +74,7 @@ exports[`WebhooksLogsTable should match a snapshot where there are logs 1`] = `
                       validate={null}
                     >
                       <div
-                        className="field"
+                        className=""
                       >
                         <div
                           className="control"
@@ -235,7 +235,7 @@ exports[`WebhooksLogsTable should match a snapshot where there are logs 1`] = `
               </GridFourColItem>
               <GridFourColItem>
                 <div
-                  className="column is-multiline is-full-mobile is-half-tablet is-one-third-widescreen is-one-quarter-fullhd"
+                  className=""
                   data-test=""
                 >
                   <DatePicker
@@ -253,7 +253,7 @@ exports[`WebhooksLogsTable should match a snapshot where there are logs 1`] = `
                       validate={null}
                     >
                       <div
-                        className="field"
+                        className=""
                       >
                         <div
                           className="control"
@@ -414,7 +414,7 @@ exports[`WebhooksLogsTable should match a snapshot where there are logs 1`] = `
               </GridFourColItem>
               <GridFourColItem>
                 <div
-                  className="column is-multiline is-full-mobile is-half-tablet is-one-third-widescreen is-one-quarter-fullhd"
+                  className=""
                   data-test=""
                 >
                   <SelectBox
@@ -436,7 +436,7 @@ exports[`WebhooksLogsTable should match a snapshot where there are logs 1`] = `
                       validate={null}
                     >
                       <div
-                        className="field"
+                        className=""
                       >
                         <div
                           className="control"
@@ -477,7 +477,7 @@ exports[`WebhooksLogsTable should match a snapshot where there are logs 1`] = `
               </GridFourColItem>
               <GridFourColItem>
                 <div
-                  className="column is-multiline is-full-mobile is-half-tablet is-one-third-widescreen is-one-quarter-fullhd"
+                  className=""
                   data-test=""
                 />
               </GridFourColItem>

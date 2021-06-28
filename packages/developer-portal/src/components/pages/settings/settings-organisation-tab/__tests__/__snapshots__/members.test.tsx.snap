@@ -18,12 +18,12 @@ exports[`Members should match a snapshot when no error 1`] = `
       hasPadding={false}
     >
       <section
-        className="section has-margin has-background"
+        className=""
         data-test=""
       >
         <H5>
           <h5
-            className="title is-5"
+            className=""
             id=""
           >
             Members

@@ -5,13 +5,13 @@ exports[`DiffViewer should match a snapshot 1`] = `
   className="dwmgqyi-diff-viewer-container"
 >
   <span
-    className="rbeetup-red"
+    className=""
     key="0"
   >
     abc
   </span>
   <span
-    className="g1gwscut-green"
+    className=""
     key="1"
   >
     axxxxxxxxxxxbc

@@ -8,7 +8,7 @@ exports[`TransactionHistory should match a snapshot 1`] = `
   <Component>
     Transaction History
   </Component>
-  <FadeIn>
+  <mock-styled.div>
     <Component>
       <Component>
         This Months Transactions To Date
@@ -35,6 +35,6 @@ exports[`TransactionHistory should match a snapshot 1`] = `
     <Component>
       <Component />
     </Component>
-  </FadeIn>
+  </mock-styled.div>
 </Component>
 `;

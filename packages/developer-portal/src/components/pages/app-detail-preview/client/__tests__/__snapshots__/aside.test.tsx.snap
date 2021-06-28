@@ -162,7 +162,7 @@ exports[`ClientAside ClientAside - should match snapshot 1`] = `
           isFullHeight={true}
         >
           <div
-            className="container-flex is-full-height is-column has-background has-padding"
+            className=""
           >
             <CategorySection
               className=""
@@ -176,14 +176,14 @@ exports[`ClientAside ClientAside - should match snapshot 1`] = `
                   dataTest=""
                 >
                   <div
-                    className="content"
+                    className=""
                     data-test=""
                   >
                     <H5
                       className="mb-2"
                     >
                       <h5
-                        className="title is-5 mb-2"
+                        className=""
                         id=""
                       >
                         Category
@@ -253,14 +253,14 @@ exports[`ClientAside ClientAside - should match snapshot 1`] = `
                   dataTest=""
                 >
                   <div
-                    className="content"
+                    className=""
                     data-test=""
                   >
                     <H5
                       className="mb-2"
                     >
                       <h5
-                        className="title is-5 mb-2"
+                        className=""
                         id=""
                       >
                         Desktop Integration
@@ -270,7 +270,7 @@ exports[`ClientAside ClientAside - should match snapshot 1`] = `
                       key="Identity Check"
                     >
                       <div
-                        className="t17cjti2-tag"
+                        className=""
                       >
                         Identity Check
                       </div>
@@ -279,7 +279,7 @@ exports[`ClientAside ClientAside - should match snapshot 1`] = `
                       key="Property Marketing Information"
                     >
                       <div
-                        className="t17cjti2-tag"
+                        className=""
                       >
                         Property Marketing Information
                       </div>
@@ -288,7 +288,7 @@ exports[`ClientAside ClientAside - should match snapshot 1`] = `
                       key="Vendor Marketing Report"
                     >
                       <div
-                        className="t17cjti2-tag"
+                        className=""
                       >
                         Vendor Marketing Report
                       </div>
@@ -297,7 +297,7 @@ exports[`ClientAside ClientAside - should match snapshot 1`] = `
                       key="Property Details Generation"
                     >
                       <div
-                        className="t17cjti2-tag"
+                        className=""
                       >
                         Property Details Generation
                       </div>
@@ -306,7 +306,7 @@ exports[`ClientAside ClientAside - should match snapshot 1`] = `
                       key="Applicant Export"
                     >
                       <div
-                        className="t17cjti2-tag"
+                        className=""
                       >
                         Applicant Export
                       </div>
@@ -315,7 +315,7 @@ exports[`ClientAside ClientAside - should match snapshot 1`] = `
                       key="Property"
                     >
                       <div
-                        className="t17cjti2-tag"
+                        className=""
                       >
                         Property
                       </div>
@@ -324,7 +324,7 @@ exports[`ClientAside ClientAside - should match snapshot 1`] = `
                       key="Applicant"
                     >
                       <div
-                        className="t17cjti2-tag"
+                        className=""
                       >
                         Applicant
                       </div>
@@ -344,14 +344,14 @@ exports[`ClientAside ClientAside - should match snapshot 1`] = `
                   dataTest=""
                 >
                   <div
-                    className="content"
+                    className=""
                     data-test=""
                   >
                     <H5
                       className="mb-2"
                     >
                       <h5
-                        className="title is-5 mb-2"
+                        className=""
                         id=""
                       >
                         Integration
@@ -378,14 +378,14 @@ exports[`ClientAside ClientAside - should match snapshot 1`] = `
             >
               <Content>
                 <div
-                  className="content"
+                  className=""
                   data-test=""
                 >
                   <H5
                     className="mb-2"
                   >
                     <h5
-                      className="title is-5 mb-2"
+                      className=""
                       id=""
                     >
                       Developer Links
@@ -393,12 +393,12 @@ exports[`ClientAside ClientAside - should match snapshot 1`] = `
                   </H5>
                   <Grid>
                     <div
-                      className="columns"
+                      className=""
                       data-test=""
                     >
                       <GridItem>
                         <div
-                          className="column"
+                          className=""
                           data-test=""
                         >
                           <p />

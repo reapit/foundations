@@ -28,7 +28,7 @@ exports[`AppContent AppContent - should match snapshoot 1`] = `
       isFlexColumn={true}
     >
       <section
-        className="section is-flex is-flex-column has-background"
+        className=""
         data-test=""
       >
         <SummarySection
@@ -36,7 +36,7 @@ exports[`AppContent AppContent - should match snapshoot 1`] = `
         >
           <Content>
             <div
-              className="content"
+              className=""
               data-test=""
             />
           </Content>
@@ -68,14 +68,14 @@ exports[`AppContent AppContent - should match snapshoot 1`] = `
               dataTest=""
             >
               <div
-                className="content"
+                className=""
                 data-test=""
               >
                 <H5
                   className=""
                 >
                   <h5
-                    className="title is-5"
+                    className=""
                     id=""
                   >
                     <span
@@ -141,14 +141,14 @@ exports[`AppContent AppContent - should match snapshoot 1`] = `
               dataTest=""
             >
               <div
-                className="content"
+                className=""
                 data-test=""
               >
                 <H5
                   className=""
                 >
                   <h5
-                    className="title is-5"
+                    className=""
                     id=""
                   >
                     Authentication
@@ -178,14 +178,14 @@ exports[`AppContent AppContent - should match snapshoot 1`] = `
               dataTest=""
             >
               <div
-                className="content"
+                className=""
                 data-test=""
               >
                 <H5
                   className=""
                 >
                   <h5
-                    className="title is-5"
+                    className=""
                     id=""
                   >
                     Permissions required
@@ -193,7 +193,7 @@ exports[`AppContent AppContent - should match snapshoot 1`] = `
                 </H5>
                 <GridFourCol>
                   <div
-                    className="columns is-multiline"
+                    className=""
                     data-test=""
                   />
                 </GridFourCol>
@@ -241,14 +241,14 @@ exports[`AppContent AppContent - should match snapshoot 1`] = `
               dataTest="render-installations-table-empty-text"
             >
               <div
-                className="content"
+                className=""
                 data-test="render-installations-table-empty-text"
               >
                 <H5
                   className=""
                 >
                   <h5
-                    className="title is-5"
+                    className=""
                     id=""
                   >
                     Installations
