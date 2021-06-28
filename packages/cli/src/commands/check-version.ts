@@ -31,9 +31,11 @@ export class CheckVersionCommand extends AbstractCommand {
       return
     }
 
-    const latest = latestSemver(availableVersions)
+    const latest = latestSemver(availableVersions) as string
 
-    if (!semver.satisfies(packageInfo.version, `^${latest}`)) {
+    const diff = semver.diff(packageInfo.version, latest)
+
+    if (diff && ['major', 'premajor', 'minor'].includes(diff)) {
       this.writeLine(chalk.yellow(`Newer version of ${packageInfo.name} is available!`))
       this.writeLine(chalk.greenBright(`${packageInfo.version} => ${latest}`))
       this.writeLine(
