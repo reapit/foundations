@@ -39,6 +39,7 @@ export class CheckVersionCommand extends AbstractCommand {
       this.writeLine(
         `${chalk.yellow('You can update using')} ${chalk.bgGreenBright.black('npm update -g @reapit/cli')}`,
       )
+      this.writeLine('')
     }
   }
 }
