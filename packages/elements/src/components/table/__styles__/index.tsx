@@ -61,6 +61,10 @@ export const elTableNarrowCellIsFullWidth = css`
 `
 export const elTableCellHasDarkText = css``
 
+export const elTableRowFocused = css`
+  box-shadow: 0px 0px 2px var(--color-blue-light);
+`
+
 // molecules
 export const ElTableHeadersRow = styled.div`
   display: grid;
@@ -127,6 +131,10 @@ export const ElTableRow = styled.div`
 
   @media screen and (max-width: 750px) {
     grid-template-columns: 1fr 1fr;
+  }
+
+  &:hover, &:focus {
+    box-shadow: 0px 0px 3px var(--color-blue-light);
   }
 `
 
