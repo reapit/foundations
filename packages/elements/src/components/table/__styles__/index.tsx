@@ -114,6 +114,11 @@ export const ElTableHeader = styled.div`
 
   &:last-child {
     margin-right: 0;
+    border-radius: 0 var(--default-border-radius) var(--default-border-radius) 0;
+  }
+
+  &:first-child {
+    border-radius: var(--default-border-radius) 0 0 var(--default-border-radius);
   }
 `
 
