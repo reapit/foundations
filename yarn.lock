@@ -6349,6 +6349,7 @@ __metadata:
     "@types/adm-zip": ^0.4.34
     "@types/figlet": ^1.5.1
     "@types/inquirer": ^7.3.1
+    "@types/semver": ^7.3.6
     "@types/yargs": ^16.0.2
     axios: ^0.21.1
     chalk: ^4.1.1
@@ -6357,10 +6358,12 @@ __metadata:
     eslint: ^7.26.0
     figlet: ^1.5.0
     inquirer: ^8.0.0
+    latest-semver: ^3.0.0
     ora: ^5.4.0
     prettier: ^2.3.0
     process.argv: ^0.6.0
     reflect-metadata: ^0.1.13
+    semver: ^7.3.5
     shleemy: ^1.2.2
     simple-git: ^2.39.0
     ts-node: ^9.1.1
@@ -10483,6 +10486,13 @@ __metadata:
   dependencies:
     "@types/node": "*"
   checksum: e95d14da2d05dea49e913db55922857234b01f2b1b513dd8cc556b64ffa6d89fb81ce4c1f21a6b4cd20f39d61455975e623ed681502b3d06b2d24a2ddd03a21e
+  languageName: node
+  linkType: hard
+
+"@types/semver@npm:^7.3.6":
+  version: 7.3.6
+  resolution: "@types/semver@npm:7.3.6"
+  checksum: 36776caed9a5d80cc7e0dd32fc08ac762918273bef849c369a300895646f9126e9857c9235e130493cf1fb2ee77e44cd1b599eded4fcbd11803962936771506a
   languageName: node
   linkType: hard
 
@@ -14793,6 +14803,15 @@ __metadata:
   dependencies:
     source-map: ~0.6.0
   checksum: a60f7800828ea7a6b8315c3c855d700c59cf9e45e88a88e73c7fff12ee316a4afcbca1041b14453c8020f57de72ebf3d0ed6250f306faea83f5e05ee90a4c67a
+  languageName: node
+  linkType: hard
+
+"clean-semver@npm:^2.1.0":
+  version: 2.1.0
+  resolution: "clean-semver@npm:2.1.0"
+  dependencies:
+    semver: ^7.3.2
+  checksum: e5a0e86459d03d0d16f34076d56ddb93a448e20622cd436bcb464ab37aa34eee524982602e7c1ae81dc249657bdc8abe04d25148cd3504679cbc21e784b9c355
   languageName: node
   linkType: hard
 
@@ -26503,6 +26522,15 @@ fsevents@^1.2.7:
   version: 2.0.0
   resolution: "kuler@npm:2.0.0"
   checksum: 801e252e7b936019a0ca4b636a4c50d3fa25e18020be8dd1ce82ef7a9eaca9e97060f9e1dd0fe062a1de6226f5b1377f552910e2f3ef5a2245d70112cd20a2b7
+  languageName: node
+  linkType: hard
+
+"latest-semver@npm:^3.0.0":
+  version: 3.0.0
+  resolution: "latest-semver@npm:3.0.0"
+  dependencies:
+    to-semver: ^3.0.0
+  checksum: 7783cbaf0c591aa15deecf8363cfa53fd995bc0ab990a4c691eef8e7ba59d6bde91dfd222d5201cb318eca55a03a69392e7e8b65484b00628b9cac734e6aae30
   languageName: node
   linkType: hard
 
@@ -38478,6 +38506,16 @@ resolve@^1.19.0:
     regex-not: ^1.0.2
     safe-regex: ^1.1.0
   checksum: ed733fdff8970628ef2d425564d1331a812e57cbb6ab7675c970046b2b792cbf2386c8292e45bb201bf85ca71a7708e3e1ffb979f5cd089ad4a82a12df75939b
+  languageName: node
+  linkType: hard
+
+"to-semver@npm:^3.0.0":
+  version: 3.0.0
+  resolution: "to-semver@npm:3.0.0"
+  dependencies:
+    clean-semver: ^2.1.0
+    semver: ^7.3.2
+  checksum: 3601ae883fbfb268cbb6496cb3fc158023763611312b202ed9c9d2f0a83ef29d0b041693929209e74cf29b47fc4717c054167427025fab2e93705ef0d71327e8
   languageName: node
   linkType: hard
 

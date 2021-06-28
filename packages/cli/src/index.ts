@@ -13,13 +13,12 @@ import { PipelineCommand } from './commands/pipeline'
 import { resolveArgs } from './utils/resolveArgs'
 import { ReactStarterCommand } from './commands/react-starter'
 import { DeployCommand } from './commands/deploy'
-  // TODO upcomment with @reapit/cli has been published
+// TODO upcomment with @reapit/cli has been published
 // import { CheckVersionCommand } from './commands/check-version'
 
 const checkVersion = async () => {
   // TODO upcomment with @reapit/cli has been published
   // const checkVersion = new CheckVersionCommand()
-
   // await checkVersion.run()
 }
 
