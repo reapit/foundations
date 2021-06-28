@@ -105,6 +105,8 @@ export const ElTableHeader = styled.div`
   color: var(--color-black);
   padding: 0.75rem;
   margin-right: 2px;
+  display: flex;
+  align-items: center;
 
   &:last-child {
     margin-right: 0;
