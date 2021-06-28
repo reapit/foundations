@@ -3,7 +3,7 @@ import { styled } from 'linaria/react'
 import { ElIcon } from '../../icon/__styles__'
 import { elIsActive } from '../../../styles/states'
 
-const EXPANDABLE_TRIGGER_CELL_WIDTH = '50px'
+const EXPANDABLE_TRIGGER_CELL_WIDTH = '55px'
 
 export const ElTable = styled.div`
   &[data-num-columns-excl-expandable-row-trigger-col='2'] {
@@ -179,6 +179,14 @@ export const ElTableExpandableRowTriggerCell = styled.div`
   justify-content: center;
   cursor: pointer;
   padding: 0.75rem;
+
+  &:last-child {
+    border-radius: 0 var(--default-border-radius) var(--default-border-radius) 0;
+  }
+
+  &:first-child {
+    border-radius: var(--default-border-radius) 0 0 var(--default-border-radius);
+  }
 
   @media screen and (max-width: 750px) {
     grid-column-end: span 2;
