@@ -8,7 +8,6 @@ RUN mkdir -p ${FUNCTION_DIR}
 ADD ../ ${FUNCTION_DIR}
 
 RUN yum install -y git
-RUN git --version
 RUN npm i -g yarn
 
 WORKDIR ${FUNCTION_DIR}
