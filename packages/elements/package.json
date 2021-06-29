@@ -18,6 +18,7 @@
   "typings": "dist/index.d.ts",
   "files": [
     "dist/",
+    "assets/",
     "src/tests/badges"
   ],
   "scripts": {
