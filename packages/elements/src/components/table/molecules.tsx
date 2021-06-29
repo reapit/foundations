@@ -11,6 +11,7 @@ import {
   elTableCellHasDarkText,
   elTableNarrowCellIsFullWidth,
   ElTableRowContainer,
+  ElTableExpandableContainer,
 } from './__styles__'
 import { Icon, IconNames } from '../icon'
 import { elIsActive } from '../../styles/states'
@@ -80,7 +81,7 @@ export const TableExpandableRow: React.FC<ITableExpandableRow> = ({ isOpen, clas
   const combinedClassname = cx(className, isOpen && elIsActive)
   return (
     <ElTableExpandableRow className={combinedClassname} {...rest}>
-      {children}
+      <ElTableExpandableContainer>{children}</ElTableExpandableContainer>
     </ElTableExpandableRow>
   )
 }
