@@ -249,6 +249,37 @@ The isOpen prop toggles the `.el-is-active` class to show the content.
 
 <RenderHtmlMarkup component="TableExpandableRow" story="TableExpandableRow - isOpen" />
 
+### TableRowContainer 
+
+`TableRowContainer` is a container for `TableRow` and `TableExpandableRow` to keep styles consistent. Without the `TableRowContainer` elements, styles for `TableRow` and `TableExpandableRow` will clash (border radius and box-shadows).
+
+> Only required for rows that contain `TableExpandableRow`. Otherwise the `TableRowContainer` is optional.
+
+<Canvas>
+  <Story name="TableExpandableContainer">
+    <TableRowContainer isOpen>
+      <TableRow>
+        <TableCell darkText icon="home">
+          Mt Ash Jacket
+          <br />
+          Brassey Road
+        </TableCell>
+        <TableCell narrowLabel="N_Customer" icon="username">
+          Mr Johnny Corrigan
+        </TableCell>
+        <TableCell>Alternate Lettings Client Acc</TableCell>
+        <TableCell>Tenant Payment Request</TableCell>
+        <TableCell narrowLabel="Request Date">19 Apr 2021</TableCell>
+        <TableCell darkText>£50.00</TableCell>
+        <TableCell narrowIsFullWidth>Not Requested</TableCell>
+        <TableExpandableRowTriggerCell isOpen />
+      </TableRow>
+      <TableExpandableRow isOpen>
+        <p>Content that won't be seen until the expandable row is open</p>
+      </TableExpandableRow>
+    </TableRowContainer>
+  </Story>
+</Canvas>
 
 ### Table built from molecule components
 
