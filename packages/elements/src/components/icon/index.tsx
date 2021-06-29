@@ -2,7 +2,7 @@ import * as React from 'react'
 import { cx } from 'linaria'
 import { Intent, getIntentClassName } from '../../helpers/intent'
 import { ElIcon } from './__styles__'
-import iconSet from './icons'
+import { iconSet } from './icons'
 
 export type IconNames = keyof typeof iconSet
 
