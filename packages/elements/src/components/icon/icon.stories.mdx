@@ -2,6 +2,8 @@ import { Meta, Story, Canvas, ArgsTable } from '@storybook/addon-docs/blocks'
 import { Icon } from './index'
 import { iconSet } from './icons'
 import { elMb5 } from '../../styles/spacing'
+import {cx} from 'linaria'
+import { elIconSizeLarge, elIconSizeLargest, elIconSizeMedium, elIconSizeSmall, elIconSizeSmallest, elIconMenu } from './__styles__'
 
 <Meta title="Icon" component={Icon} />
 
@@ -50,121 +52,121 @@ Set the `fontSize` prop to scale the icon up or down
 
 All the available icons exported by the project
 
-| Icon Name              | Smallest Icon                          | Small Icon                             |
-| ---------------------- | -------------------------------------- | -------------------------------------- |
-| addSystem              | <Icon icon="addSystem" />              | <Icon icon="addSystem" />              |
-| arrowDownSystem        | <Icon icon="arrowDownSystem" />        | <Icon icon="arrowDownSystem" />        |
-| arrowLeftSystem        | <Icon icon="arrowLeftSystem" />        | <Icon icon="arrowLeftSystem" />        |
-| arrowRightSystem       | <Icon icon="arrowRightSystem" />       | <Icon icon="arrowRightSystem" />       |
-| arrowUpSystem          | <Icon icon="arrowUpSystem" />          | <Icon icon="arrowUpSystem" />          |
-| asteriskSystem         | <Icon icon="asteriskSystem" />         | <Icon icon="asteriskSystem" />         |
-| backSolidSystem        | <Icon icon="backSolidSystem" />        | <Icon icon="backSolidSystem" />        |
-| backSystem             | <Icon icon="backSystem" />             | <Icon icon="backSystem" />             |
-| calendarSystem         | <Icon icon="calendarSystem" />         | <Icon icon="calendarSystem" />         |
-| cancelSolidSystem      | <Icon icon="cancelSolidSystem" />      | <Icon icon="cancelSolidSystem" />      |
-| carSolidSystem         | <Icon icon="carSolidSystem" />         | <Icon icon="carSolidSystem" />         |
-| checkSystem            | <Icon icon="checkSystem" />            | <Icon icon="checkSystem" />            |
-| circleSolidSystem      | <Icon icon="circleSolidSystem" />      | <Icon icon="circleSolidSystem" />      |
-| closeSystem            | <Icon icon="closeSystem" />            | <Icon icon="closeSystem" />            |
-| cloudSolidSystem       | <Icon icon="cloudSolidSystem" />       | <Icon icon="cloudSolidSystem" />       |
-| companySystem          | <Icon icon="companySystem" />          | <Icon icon="companySystem" />          |
-| downloadSystem         | <Icon icon="downloadSystem" />         | <Icon icon="downloadSystem" />         |
-| downSolidSystem        | <Icon icon="downSolidSystem" />        | <Icon icon="downSolidSystem" />        |
-| editSolidSystem        | <Icon icon="editSolidSystem" />        | <Icon icon="editSolidSystem" />        |
-| editSystem             | <Icon icon="editSystem" />             | <Icon icon="editSystem" />             |
-| emailSystem            | <Icon icon="emailSystem" />            | <Icon icon="emailSystem" />            |
-| errorSolidSystem       | <Icon icon="errorSolidSystem" />       | <Icon icon="errorSolidSystem" />       |
-| filterSystem           | <Icon icon="filterSystem" />           | <Icon icon="filterSystem" />           |
-| geoLocationSolidSystem | <Icon icon="geoLocationSolidSystem" /> | <Icon icon="geoLocationSolidSystem" /> |
-| homeSystem             | <Icon icon="homeSystem" />             | <Icon icon="homeSystem" />             |
-| infoSolidSystem        | <Icon icon="infoSolidSystem" />        | <Icon icon="infoSolidSystem" />        |
-| linkSolidSystem        | <Icon icon="linkSolidSystem" />        | <Icon icon="linkSolidSystem" />        |
-| linkSystem             | <Icon icon="linkSystem" />             | <Icon icon="linkSystem" />             |
-| moreSystem             | <Icon icon="moreSystem" />             | <Icon icon="moreSystem" />             |
-| nextSolidSystem        | <Icon icon="nextSolidSystem" />        | <Icon icon="nextSolidSystem" />        |
-| nextSystem             | <Icon icon="nextSystem" />             | <Icon icon="nextSystem" />             |
-| paymentSystem          | <Icon icon="paymentSystem" />          | <Icon icon="paymentSystem" />          |
-| phoneSystem            | <Icon icon="phoneSystem" />            | <Icon icon="phoneSystem" />            |
-| pinSolidSystem         | <Icon icon="pinSolidSystem" />         | <Icon icon="pinSolidSystem" />         |
-| previewSystem          | <Icon icon="previewSystem" />          | <Icon icon="previewSystem" />          |
-| saveSystem             | <Icon icon="saveSystem" />             | <Icon icon="saveSystem" />             |
-| searchSystem           | <Icon icon="searchSystem" />           | <Icon icon="searchSystem" />           |
-| settingsSystem         | <Icon icon="settingsSystem" />         | <Icon icon="settingsSystem" />         |
-| shareSystem            | <Icon icon="shareSystem" />            | <Icon icon="shareSystem" />            |
-| sortSystem             | <Icon icon="sortSystem" />             | <Icon icon="sortSystem" />             |
-| tickSolidSystem        | <Icon icon="tickSolidSystem" />        | <Icon icon="tickSolidSystem" />        |
-| tickSystem             | <Icon icon="tickSystem" />             | <Icon icon="tickSystem" />             |
-| trashSystem            | <Icon icon="trashSystem" />            | <Icon icon="trashSystem" />            |
-| upSolidSystem          | <Icon icon="upSolidSystem" />          | <Icon icon="upSolidSystem" />          |
-| usernameSystem         | <Icon icon="usernameSystem" />         | <Icon icon="usernameSystem" />         |
-| viewSolidSystem        | <Icon icon="viewSolidSystem" />        | <Icon icon="viewSolidSystem" />        |
-| walkingSolidSystem     | <Icon icon="walkingSolidSystem" />     | <Icon icon="walkingSolidSystem" />     |
-| warningSolidSystem     | <Icon icon="warningSolidSystem" />     | <Icon icon="warningSolidSystem" />     |
+| Icon Name              | Smallest Icon                                                     | Small Icon                                                         |
+| ---------------------- | ----------------------------------------------------------------- | ------------------------------------------------------------------ |
+| addSystem              | <Icon className={elIconSizeSmallest} icon="addSystem" />              | <Icon className={elIconSizeSmall} icon="addSystem" />              |
+| arrowDownSystem        | <Icon className={elIconSizeSmallest} icon="arrowDownSystem" />        | <Icon className={elIconSizeSmall} icon="arrowDownSystem" />        |
+| arrowLeftSystem        | <Icon className={elIconSizeSmallest} icon="arrowLeftSystem" />        | <Icon className={elIconSizeSmall} icon="arrowLeftSystem" />        |
+| arrowRightSystem       | <Icon className={elIconSizeSmallest} icon="arrowRightSystem" />       | <Icon className={elIconSizeSmall} icon="arrowRightSystem" />       |
+| arrowUpSystem          | <Icon className={elIconSizeSmallest} icon="arrowUpSystem" />          | <Icon className={elIconSizeSmall} icon="arrowUpSystem" />          |
+| asteriskSystem         | <Icon className={elIconSizeSmallest} icon="asteriskSystem" />         | <Icon className={elIconSizeSmall} icon="asteriskSystem" />         |
+| backSolidSystem        | <Icon className={elIconSizeSmallest} icon="backSolidSystem" />        | <Icon className={elIconSizeSmall} icon="backSolidSystem" />        |
+| backSystem             | <Icon className={elIconSizeSmallest} icon="backSystem" />             | <Icon className={elIconSizeSmall} icon="backSystem" />             |
+| calendarSystem         | <Icon className={elIconSizeSmallest} icon="calendarSystem" />         | <Icon className={elIconSizeSmall} icon="calendarSystem" />         |
+| cancelSolidSystem      | <Icon className={elIconSizeSmallest} icon="cancelSolidSystem" />      | <Icon className={elIconSizeSmall} icon="cancelSolidSystem" />      |
+| carSolidSystem         | <Icon className={elIconSizeSmallest} icon="carSolidSystem" />         | <Icon className={elIconSizeSmall} icon="carSolidSystem" />         |
+| checkSystem            | <Icon className={elIconSizeSmallest} icon="checkSystem" />            | <Icon className={elIconSizeSmall} icon="checkSystem" />            |
+| circleSolidSystem      | <Icon className={elIconSizeSmallest} icon="circleSolidSystem" />      | <Icon className={elIconSizeSmall} icon="circleSolidSystem" />      |
+| closeSystem            | <Icon className={elIconSizeSmallest} icon="closeSystem" />            | <Icon className={elIconSizeSmall} icon="closeSystem" />            |
+| cloudSolidSystem       | <Icon className={elIconSizeSmallest} icon="cloudSolidSystem" />       | <Icon className={elIconSizeSmall} icon="cloudSolidSystem" />       |
+| companySystem          | <Icon className={elIconSizeSmallest} icon="companySystem" />          | <Icon className={elIconSizeSmall} icon="companySystem" />          |
+| downloadSystem         | <Icon className={elIconSizeSmallest} icon="downloadSystem" />         | <Icon className={elIconSizeSmall} icon="downloadSystem" />         |
+| downSolidSystem        | <Icon className={elIconSizeSmallest} icon="downSolidSystem" />        | <Icon className={elIconSizeSmall} icon="downSolidSystem" />        |
+| editSolidSystem        | <Icon className={elIconSizeSmallest} icon="editSolidSystem" />        | <Icon className={elIconSizeSmall} icon="editSolidSystem" />        |
+| editSystem             | <Icon className={elIconSizeSmallest} icon="editSystem" />             | <Icon className={elIconSizeSmall} icon="editSystem" />             |
+| emailSystem            | <Icon className={elIconSizeSmallest} icon="emailSystem" />            | <Icon className={elIconSizeSmall} icon="emailSystem" />            |
+| errorSolidSystem       | <Icon className={elIconSizeSmallest} icon="errorSolidSystem" />       | <Icon className={elIconSizeSmall} icon="errorSolidSystem" />       |
+| filterSystem           | <Icon className={elIconSizeSmallest} icon="filterSystem" />           | <Icon className={elIconSizeSmall} icon="filterSystem" />           |
+| geoLocationSolidSystem | <Icon className={elIconSizeSmallest} icon="geoLocationSolidSystem" /> | <Icon className={elIconSizeSmall} icon="geoLocationSolidSystem" /> |
+| homeSystem             | <Icon className={elIconSizeSmallest} icon="homeSystem" />             | <Icon className={elIconSizeSmall} icon="homeSystem" />             |
+| infoSolidSystem        | <Icon className={elIconSizeSmallest} icon="infoSolidSystem" />        | <Icon className={elIconSizeSmall} icon="infoSolidSystem" />        |
+| linkSolidSystem        | <Icon className={elIconSizeSmallest} icon="linkSolidSystem" />        | <Icon className={elIconSizeSmall} icon="linkSolidSystem" />        |
+| linkSystem             | <Icon className={elIconSizeSmallest} icon="linkSystem" />             | <Icon className={elIconSizeSmall} icon="linkSystem" />             |
+| moreSystem             | <Icon className={elIconSizeSmallest} icon="moreSystem" />             | <Icon className={elIconSizeSmall} icon="moreSystem" />             |
+| nextSolidSystem        | <Icon className={elIconSizeSmallest} icon="nextSolidSystem" />        | <Icon className={elIconSizeSmall} icon="nextSolidSystem" />        |
+| nextSystem             | <Icon className={elIconSizeSmallest} icon="nextSystem" />             | <Icon className={elIconSizeSmall} icon="nextSystem" />             |
+| paymentSystem          | <Icon className={elIconSizeSmallest} icon="paymentSystem" />          | <Icon className={elIconSizeSmall} icon="paymentSystem" />          |
+| phoneSystem            | <Icon className={elIconSizeSmallest} icon="phoneSystem" />            | <Icon className={elIconSizeSmall} icon="phoneSystem" />            |
+| pinSolidSystem         | <Icon className={elIconSizeSmallest} icon="pinSolidSystem" />         | <Icon className={elIconSizeSmall} icon="pinSolidSystem" />         |
+| previewSystem          | <Icon className={elIconSizeSmallest} icon="previewSystem" />          | <Icon className={elIconSizeSmall} icon="previewSystem" />          |
+| saveSystem             | <Icon className={elIconSizeSmallest} icon="saveSystem" />             | <Icon className={elIconSizeSmall} icon="saveSystem" />             |
+| searchSystem           | <Icon className={elIconSizeSmallest} icon="searchSystem" />           | <Icon className={elIconSizeSmall} icon="searchSystem" />           |
+| settingsSystem         | <Icon className={elIconSizeSmallest} icon="settingsSystem" />         | <Icon className={elIconSizeSmall} icon="settingsSystem" />         |
+| shareSystem            | <Icon className={elIconSizeSmallest} icon="shareSystem" />            | <Icon className={elIconSizeSmall} icon="shareSystem" />            |
+| sortSystem             | <Icon className={elIconSizeSmallest} icon="sortSystem" />             | <Icon className={elIconSizeSmall} icon="sortSystem" />             |
+| tickSolidSystem        | <Icon className={elIconSizeSmallest} icon="tickSolidSystem" />        | <Icon className={elIconSizeSmall} icon="tickSolidSystem" />        |
+| tickSystem             | <Icon className={elIconSizeSmallest} icon="tickSystem" />             | <Icon className={elIconSizeSmall} icon="tickSystem" />             |
+| trashSystem            | <Icon className={elIconSizeSmallest} icon="trashSystem" />            | <Icon className={elIconSizeSmall} icon="trashSystem" />            |
+| upSolidSystem          | <Icon className={elIconSizeSmallest} icon="upSolidSystem" />          | <Icon className={elIconSizeSmall} icon="upSolidSystem" />          |
+| usernameSystem         | <Icon className={elIconSizeSmallest} icon="usernameSystem" />         | <Icon className={elIconSizeSmall} icon="usernameSystem" />         |
+| viewSolidSystem        | <Icon className={elIconSizeSmallest} icon="viewSolidSystem" />        | <Icon className={elIconSizeSmall} icon="viewSolidSystem" />        |
+| walkingSolidSystem     | <Icon className={elIconSizeSmallest} icon="walkingSolidSystem" />     | <Icon className={elIconSizeSmall} icon="walkingSolidSystem" />     |
+| warningSolidSystem     | <Icon className={elIconSizeSmallest} icon="warningSolidSystem" />     | <Icon className={elIconSizeSmall} icon="warningSolidSystem" />     |
 
 # Menu Icons
 
-| Icon Name              | Medium Icon                            |
-| ---------------------- | -------------------------------------- |
-| accountMenu            | <Icon icon="accountMenu" />            |
-| analyticsMenu          | <Icon icon="analyticsMenu" />          |
-| apiMenu                | <Icon icon="apiMenu" />                |
-| appsMenu               | <Icon icon="appsMenu" />               |
-| dataMenu               | <Icon icon="dataMenu" />               |
-| defaultMenu            | <Icon icon="defaultMenu" />            |
-| desktopMenu            | <Icon icon="desktopMenu" />            |
-| developersMenu         | <Icon icon="developersMenu" />         |
-| docsMenu               | <Icon icon="docsMenu" />               |
-| helpMenu               | <Icon icon="helpMenu" />               |
-| installedMenu          | <Icon icon="installedMenu" />          |
-| logoutMenu             | <Icon icon="logoutMenu" />             |
-| manageMenu             | <Icon icon="manageMenu" />             |
-| mapMenu                | <Icon icon="mapMenu" />                |
-| marketplaceMenu        | <Icon icon="marketplaceMenu" />        |
-| myAccountMenu          | <Icon icon="myAccountMenu" />          |
-| officesMenu            | <Icon icon="officesMenu" />            |
-| paymentsMenu           | <Icon icon="paymentsMenu" />           |
-| profileMenu            | <Icon icon="profileMenu" />            |
-| reapitLogoMenu         | <Icon icon="reapitLogoMenu" />         |
-| reapitLogoSelectedMenu | <Icon icon="reapitLogoSelectedMenu" /> |
-| resultsMenu            | <Icon icon="resultsMenu" />            |
-| searchMenu             | <Icon icon="searchMenu" />             |
-| usersMenu              | <Icon icon="usersMenu" />              |
-| webhooksMenu           | <Icon icon="webhooksMenu" />           |
+| Icon Name              | Medium Icon                                                         |
+| ---------------------- | ------------------------------------------------------------------- |
+| accountMenu            | <Icon className={cx(elIconSizeMedium, elIconMenu)} icon="accountMenu" />            |
+| analyticsMenu          | <Icon className={cx(elIconSizeMedium, elIconMenu)} icon="analyticsMenu" />          |
+| apiMenu                | <Icon className={cx(elIconSizeMedium, elIconMenu)} icon="apiMenu" />                |
+| appsMenu               | <Icon className={cx(elIconSizeMedium, elIconMenu)} icon="appsMenu" />               |
+| dataMenu               | <Icon className={cx(elIconSizeMedium, elIconMenu)} icon="dataMenu" />               |
+| defaultMenu            | <Icon className={cx(elIconSizeMedium, elIconMenu)} icon="defaultMenu" />            |
+| desktopMenu            | <Icon className={cx(elIconSizeMedium, elIconMenu)} icon="desktopMenu" />            |
+| developersMenu         | <Icon className={cx(elIconSizeMedium, elIconMenu)} icon="developersMenu" />         |
+| docsMenu               | <Icon className={cx(elIconSizeMedium, elIconMenu)} icon="docsMenu" />               |
+| helpMenu               | <Icon className={cx(elIconSizeMedium, elIconMenu)} icon="helpMenu" />               |
+| installedMenu          | <Icon className={cx(elIconSizeMedium, elIconMenu)} icon="installedMenu" />          |
+| logoutMenu             | <Icon className={cx(elIconSizeMedium, elIconMenu)} icon="logoutMenu" />             |
+| manageMenu             | <Icon className={cx(elIconSizeMedium, elIconMenu)} icon="manageMenu" />             |
+| mapMenu                | <Icon className={cx(elIconSizeMedium, elIconMenu)} icon="mapMenu" />                |
+| marketplaceMenu        | <Icon className={cx(elIconSizeMedium, elIconMenu)} icon="marketplaceMenu" />        |
+| myAccountMenu          | <Icon className={cx(elIconSizeMedium, elIconMenu)} icon="myAccountMenu" />          |
+| officesMenu            | <Icon className={cx(elIconSizeMedium, elIconMenu)} icon="officesMenu" />            |
+| paymentsMenu           | <Icon className={cx(elIconSizeMedium, elIconMenu)} icon="paymentsMenu" />           |
+| profileMenu            | <Icon className={cx(elIconSizeMedium, elIconMenu)} icon="profileMenu" />            |
+| reapitLogoMenu         | <Icon className={cx(elIconSizeMedium, elIconMenu)} icon="reapitLogoMenu" />         |
+| reapitLogoSelectedMenu | <Icon className={cx(elIconSizeMedium, elIconMenu)} icon="reapitLogoSelectedMenu" /> |
+| resultsMenu            | <Icon className={cx(elIconSizeMedium, elIconMenu)} icon="resultsMenu" />            |
+| searchMenu             | <Icon className={cx(elIconSizeMedium, elIconMenu)} icon="searchMenu" />             |
+| usersMenu              | <Icon className={cx(elIconSizeMedium, elIconMenu)} icon="usersMenu" />              |
+| webhooksMenu           | <Icon className={cx(elIconSizeMedium, elIconMenu)} icon="webhooksMenu" />           |
 
 # Info Graphic Icons
 
-| Icon Name              | Small Icon                             | Medium Icon                            | Large Icon                             |
-| ---------------------- | -------------------------------------- | -------------------------------------- | -------------------------------------- |
-| agencyCloudInfographic | <Icon icon="agencyCloudInfographic" /> | <Icon icon="agencyCloudInfographic" /> | <Icon icon="agencyCloudInfographic" /> |
-| apiInfographic         | <Icon icon="apiInfographic" />         | <Icon icon="apiInfographic" />         | <Icon icon="apiInfographic" />         |
-| appInfographic         | <Icon icon="appInfographic" />         | <Icon icon="appInfographic" />         | <Icon icon="appInfographic" />         |
-| appInfographicAlt      | <Icon icon="appInfographicAlt" />      | <Icon icon="appInfographicAlt" />      | <Icon icon="appInfographicAlt" />      |
-| applicantInfographic   | <Icon icon="applicantInfographic" />   | <Icon icon="applicantInfographic" />   | <Icon icon="applicantInfographic" />   |
-| barnInfographic        | <Icon icon="barnInfographic" />        | <Icon icon="barnInfographic" />        | <Icon icon="barnInfographic" />        |
-| bungalowInfographic    | <Icon icon="bungalowInfographic" />    | <Icon icon="bungalowInfographic" />    | <Icon icon="bungalowInfographic" />    |
-| cottageInfographic     | <Icon icon="cottageInfographic" />     | <Icon icon="cottageInfographic" />     | <Icon icon="cottageInfographic" />     |
-| crmInfographic         | <Icon icon="crmInfographic" />         | <Icon icon="crmInfographic" />         | <Icon icon="crmInfographic" />         |
-| customerInfographic    | <Icon icon="customerInfographic" />    | <Icon icon="customerInfographic" />    | <Icon icon="customerInfographic" />    |
-| developmentInfographic | <Icon icon="developmentInfographic" /> | <Icon icon="developmentInfographic" /> | <Icon icon="developmentInfographic" /> |
-| docsInfographic        | <Icon icon="docsInfographic" />        | <Icon icon="docsInfographic" />        | <Icon icon="docsInfographic" />        |
-| elementsInfographic    | <Icon icon="elementsInfographic" />    | <Icon icon="elementsInfographic" />    | <Icon icon="elementsInfographic" />    |
-| farmInfographic        | <Icon icon="farmInfographic" />        | <Icon icon="farmInfographic" />        | <Icon icon="farmInfographic" />        |
-| flatInfographic        | <Icon icon="flatInfographic" />        | <Icon icon="flatInfographic" />        | <Icon icon="flatInfographic" />        |
-| graphQlInfographic     | <Icon icon="graphQlInfographic" />     | <Icon icon="graphQlInfographic" />     | <Icon icon="graphQlInfographic" />     |
-| landInfographic        | <Icon icon="landInfographic" />        | <Icon icon="landInfographic" />        | <Icon icon="landInfographic" />        |
-| landlordInfographic    | <Icon icon="landlordInfographic" />    | <Icon icon="landlordInfographic" />    | <Icon icon="landlordInfographic" />    |
-| maisonetteInfographi   | <Icon icon="maisonetteInfographic" />  | <Icon icon="maisonetteInfographic" />  | <Icon icon="maisonetteInfographic" />  |
-| vendorInfographic      | <Icon icon="vendorInfographic" />      | <Icon icon="vendorInfographic" />      | <Icon icon="vendorInfographic" />      |
+| Icon Name              | Small Icon                                                     | Medium Icon                                                         | Large Icon                                                         |
+| ---------------------- | -------------------------------------------------------------- | ------------------------------------------------------------------- | ------------------------------------------------------------------ |
+| agencyCloudInfographic | <Icon className={elIconSizeSmall} icon="agencyCloudInfographic" /> | <Icon className={elIconSizeMedium} icon="agencyCloudInfographic" /> | <Icon className={elIconSizeLarge} icon="agencyCloudInfographic" /> |
+| apiInfographic         | <Icon className={elIconSizeSmall} icon="apiInfographic" />         | <Icon className={elIconSizeMedium} icon="apiInfographic" />         | <Icon className={elIconSizeLarge} icon="apiInfographic" />         |
+| appInfographic         | <Icon className={elIconSizeSmall} icon="appInfographic" />         | <Icon className={elIconSizeMedium} icon="appInfographic" />         | <Icon className={elIconSizeLarge} icon="appInfographic" />         |
+| appInfographicAlt      | <Icon className={elIconSizeSmall} icon="appInfographicAlt" />      | <Icon className={elIconSizeMedium} icon="appInfographicAlt" />      | <Icon className={elIconSizeLarge} icon="appInfographicAlt" />      |
+| applicantInfographic   | <Icon className={elIconSizeSmall} icon="applicantInfographic" />   | <Icon className={elIconSizeMedium} icon="applicantInfographic" />   | <Icon className={elIconSizeLarge} icon="applicantInfographic" />   |
+| barnInfographic        | <Icon className={elIconSizeSmall} icon="barnInfographic" />        | <Icon className={elIconSizeMedium} icon="barnInfographic" />        | <Icon className={elIconSizeLarge} icon="barnInfographic" />        |
+| bungalowInfographic    | <Icon className={elIconSizeSmall} icon="bungalowInfographic" />    | <Icon className={elIconSizeMedium} icon="bungalowInfographic" />    | <Icon className={elIconSizeLarge} icon="bungalowInfographic" />    |
+| cottageInfographic     | <Icon className={elIconSizeSmall} icon="cottageInfographic" />     | <Icon className={elIconSizeMedium} icon="cottageInfographic" />     | <Icon className={elIconSizeLarge} icon="cottageInfographic" />     |
+| crmInfographic         | <Icon className={elIconSizeSmall} icon="crmInfographic" />         | <Icon className={elIconSizeMedium} icon="crmInfographic" />         | <Icon className={elIconSizeLarge} icon="crmInfographic" />         |
+| customerInfographic    | <Icon className={elIconSizeSmall} icon="customerInfographic" />    | <Icon className={elIconSizeMedium} icon="customerInfographic" />    | <Icon className={elIconSizeLarge} icon="customerInfographic" />    |
+| developmentInfographic | <Icon className={elIconSizeSmall} icon="developmentInfographic" /> | <Icon className={elIconSizeMedium} icon="developmentInfographic" /> | <Icon className={elIconSizeLarge} icon="developmentInfographic" /> |
+| docsInfographic        | <Icon className={elIconSizeSmall} icon="docsInfographic" />        | <Icon className={elIconSizeMedium} icon="docsInfographic" />        | <Icon className={elIconSizeLarge} icon="docsInfographic" />        |
+| elementsInfographic    | <Icon className={elIconSizeSmall} icon="elementsInfographic" />    | <Icon className={elIconSizeMedium} icon="elementsInfographic" />    | <Icon className={elIconSizeLarge} icon="elementsInfographic" />    |
+| farmInfographic        | <Icon className={elIconSizeSmall} icon="farmInfographic" />        | <Icon className={elIconSizeMedium} icon="farmInfographic" />        | <Icon className={elIconSizeLarge} icon="farmInfographic" />        |
+| flatInfographic        | <Icon className={elIconSizeSmall} icon="flatInfographic" />        | <Icon className={elIconSizeMedium} icon="flatInfographic" />        | <Icon className={elIconSizeLarge} icon="flatInfographic" />        |
+| graphQlInfographic     | <Icon className={elIconSizeSmall} icon="graphQlInfographic" />     | <Icon className={elIconSizeMedium} icon="graphQlInfographic" />     | <Icon className={elIconSizeLarge} icon="graphQlInfographic" />     |
+| landInfographic        | <Icon className={elIconSizeSmall} icon="landInfographic" />        | <Icon className={elIconSizeMedium} icon="landInfographic" />        | <Icon className={elIconSizeLarge} icon="landInfographic" />        |
+| landlordInfographic    | <Icon className={elIconSizeSmall} icon="landlordInfographic" />    | <Icon className={elIconSizeMedium} icon="landlordInfographic" />    | <Icon className={elIconSizeLarge} icon="landlordInfographic" />    |
+| maisonetteInfographi   | <Icon className={elIconSizeSmall} icon="maisonetteInfographic" />  | <Icon className={elIconSizeMedium} icon="maisonetteInfographic" />  | <Icon className={elIconSizeLarge} icon="maisonetteInfographic" />  |
+| vendorInfographic      | <Icon className={elIconSizeSmall} icon="vendorInfographic" />      | <Icon className={elIconSizeMedium} icon="vendorInfographic" />      | <Icon className={elIconSizeLarge} icon="vendorInfographic" />      |
 
 # Animated Icons
 
-| Icon Name             | Largest Icon                          |
-| --------------------- | ------------------------------------- |
-| docsAnimated1         | <Icon icon="docsAnimated1" />         |
-| docsAnimated2         | <Icon icon="docsAnimated2" />         |
-| webhooksAnimated1     | <Icon icon="webhooksAnimated1" />     |
-| webhooksAnimated2     | <Icon icon="webhooksAnimated2" />     |
-| webhooksDocsAnimated1 | <Icon icon="webhooksDocsAnimated1" /> |
-| webhooksDocsAnimated2 | <Icon icon="webhooksDocsAnimated2" /> |
-| welcomeAnimated1      | <Icon icon="welcomeAnimated1" />      |
-| welcomeAnimated2      | <Icon icon="welcomeAnimated2" />      |
+| Icon Name             | Largest Icon                                                        |
+| --------------------- | ------------------------------------------------------------------- |
+| docsAnimated1         | <Icon className={elIconSizeLargest} icon="docsAnimated1" />         |
+| docsAnimated2         | <Icon className={elIconSizeLargest} icon="docsAnimated2" />         |
+| webhooksAnimated1     | <Icon className={elIconSizeLargest} icon="webhooksAnimated1" />     |
+| webhooksAnimated2     | <Icon className={elIconSizeLargest} icon="webhooksAnimated2" />     |
+| webhooksDocsAnimated1 | <Icon className={elIconSizeLargest} icon="webhooksDocsAnimated1" /> |
+| webhooksDocsAnimated2 | <Icon className={elIconSizeLargest} icon="webhooksDocsAnimated2" /> |
+| welcomeAnimated1      | <Icon className={elIconSizeLargest} icon="welcomeAnimated1" />      |
+| welcomeAnimated2      | <Icon className={elIconSizeLargest} icon="welcomeAnimated2" />      |
