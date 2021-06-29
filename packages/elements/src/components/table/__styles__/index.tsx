@@ -5,6 +5,10 @@ import { elIsActive } from '../../../styles/states'
 
 const EXPANDABLE_TRIGGER_CELL_WIDTH = '55px'
 
+const MAX_HEADER_HEIGHT = '40px'
+const MAX_TABLE_CONTENT_HEIGHT = '60px'
+const MAX_LINE_LENGTH = 2
+
 export const ElTable = styled.div`
   &[data-num-columns-excl-expandable-row-trigger-col='2'] {
     --component-table-expandable-trigger-width: ${EXPANDABLE_TRIGGER_CELL_WIDTH};
@@ -111,7 +115,9 @@ export const ElTableHeader = styled.div`
   margin-right: 2px;
   display: flex;
   align-items: center;
-  max-height: calc(40px - .75rem);
+  max-height: calc(${MAX_HEADER_HEIGHT} - .75rem);
+  overflow: hidden;
+  text-overflow: ellipsis;
 
   &:last-child {
     margin-right: 0;
@@ -192,9 +198,9 @@ export const ElTableCell = styled.div`
 export const ElTableCellContent = styled.div`
   flex: 1;
   display: -webkit-box;
-  -webkit-line-clamp: 2;
+  -webkit-line-clamp: ${MAX_LINE_LENGTH};
   -webkit-box-orient: vertical;
-  max-height: calc(60px - .75rem);
+  max-height: calc(${MAX_TABLE_CONTENT_HEIGHT} - .75rem);
   overflow: hidden;
   line-height: 1.5rem;
   text-overflow: ellipsis;
