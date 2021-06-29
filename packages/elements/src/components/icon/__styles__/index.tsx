@@ -1,3 +1,4 @@
+import { css } from 'linaria'
 import { styled } from 'linaria/react'
 import {
   elIntentPrimary,
@@ -7,6 +8,32 @@ import {
   elIntentDanger,
   elIntentNeutral,
 } from '../../../styles/intent'
+
+export const elIconSizeSmallest = css`
+  font-size: 0.75rem;
+`
+
+export const elIconSizeSmall = css`
+  font-size: 1.25rem;
+`
+
+export const elIconSizeMedium = css`
+  font-size: 2.5rem;
+`
+
+export const elIconSizeLarge = css`
+  font-size: 5rem;
+`
+
+export const elIconSizeLargest = css`
+  font-size: 8.75rem;
+`
+
+export const elIconMenu = css`
+  svg {
+    background: var(--nav-menu-background-dark);
+  }
+`
 
 export const ElIcon = styled.span`
   display: flex;
