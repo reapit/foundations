@@ -1,4 +1,4 @@
-import { styled } from 'linaria/react'
+import { styled } from '@linaria/react'
 import { grey, reapitDarkblueDarkened, reapitLightestblue } from '../../../../styles/colors'
 
 export const ProgressBar = styled.div<{ width: number }>`

@@ -1,7 +1,7 @@
 import * as React from 'react'
 import * as jsdiff from 'diff'
 import { diffViewerContainer, greenBackground, redBackground } from './__styles__'
-import { cx } from 'linaria'
+import { cx } from '@linaria/core'
 
 export type DiffType = 'chars' | 'words' | 'lines' | 'wordsWithSpace'
 

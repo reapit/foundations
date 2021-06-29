@@ -1,4 +1,4 @@
-import { styled } from 'linaria/react'
+import { styled } from '@linaria/react'
 import { isTablet } from '../../../../core/__styles__/media'
 
 export const TabModeButtonContainer = styled.div`

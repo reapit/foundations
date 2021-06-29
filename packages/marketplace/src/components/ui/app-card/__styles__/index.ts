@@ -1,5 +1,5 @@
-import { css } from 'linaria'
-import { styled } from 'linaria/react'
+import { css } from '@linaria/core'
+import { styled } from '@linaria/react'
 import { black, reapitLightblue, white } from '@/core/__styles__/colors'
 
 export const content = css`

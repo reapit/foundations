@@ -20,7 +20,7 @@ import { AppStateParams, GeocoderResult } from '../map/types'
 import { getGeoCoords } from '../../../utils/map-utils'
 import debounce from 'lodash.debounce'
 import { DebouncedFunc } from 'lodash'
-import { cx } from 'linaria'
+import { cx } from '@linaria/core'
 import pinIcon from '../../../assets/pin.svg'
 
 interface HandleFetchLocationResultsParams extends AppStateParams {

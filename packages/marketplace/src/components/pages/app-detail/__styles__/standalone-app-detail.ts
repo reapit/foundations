@@ -1,4 +1,4 @@
-import { css } from 'linaria'
+import { css } from '@linaria/core'
 import * as colors from '@/core/__styles__/colors'
 import { forMobileOnly, forTabletAndBelow } from '@/core/__styles__/screen-size'
 import { forIeOnly } from '@/core/__styles__/browser'

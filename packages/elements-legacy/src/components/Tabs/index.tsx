@@ -1,5 +1,5 @@
 import * as React from 'react'
-import { cx } from 'linaria'
+import { cx } from '@linaria/core'
 
 export interface TabConfig {
   tabIdentifier: string

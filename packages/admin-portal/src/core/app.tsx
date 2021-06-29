@@ -2,7 +2,7 @@ import React from 'react'
 import Router from './router'
 import { Provider } from 'react-redux'
 import store from './store'
-import { css } from 'linaria'
+import { css } from '@linaria/core'
 
 export const globals = css`
   :global() {

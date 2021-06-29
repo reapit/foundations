@@ -1,4 +1,4 @@
-import { css } from 'linaria'
+import { css } from '@linaria/core'
 
 export const loginContainer = css`
   min-width: 100vw;

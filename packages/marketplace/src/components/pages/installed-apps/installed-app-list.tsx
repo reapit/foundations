@@ -13,7 +13,7 @@ import {
   Helper,
   infoText,
 } from '@reapit/elements-legacy'
-import { cx } from 'linaria'
+import { cx } from '@linaria/core'
 import { Loader } from '@reapit/elements'
 
 export type InstalledAppListProps = {

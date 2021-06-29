@@ -25,7 +25,7 @@ import { MessageContext } from '../../../context/message-context'
 import AnalyticsUsageModal from './analytics-usage-modal'
 import { getChargableUsageString, handleGetSettings } from './analytics-handlers'
 import { SettingsModel } from '../../../types/settings'
-import { cx } from 'linaria'
+import { cx } from '@linaria/core'
 import { flexColumn, icon } from './__styles__/analytics'
 import { FaInfo } from 'react-icons/fa'
 

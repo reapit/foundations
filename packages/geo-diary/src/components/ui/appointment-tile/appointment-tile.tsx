@@ -3,7 +3,7 @@ import { getTime } from '@reapit/elements-legacy'
 import { ExtendedAppointmentModel } from '@/types/global'
 import { AppointmentItems } from './appointment-items'
 import { AppState, useAppState } from '../../../core/app-state'
-import { cx } from 'linaria'
+import { cx } from '@linaria/core'
 import {
   CardContextMenu,
   CardListHeading,

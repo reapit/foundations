@@ -1,5 +1,5 @@
 import React from 'react'
-import { cx } from 'linaria'
+import { cx } from '@linaria/core'
 import { breadcrumbItem, breadcrumbBold, breadcrumbLastItem } from './__styles__/styles'
 
 export type RenderLinksParams = {

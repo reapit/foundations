@@ -1,6 +1,6 @@
 import React from 'react'
 import Dialog from 'rc-dialog'
-import { cx } from 'linaria'
+import { cx } from '@linaria/core'
 import { modalContainer, modalCentered, modalNoPadding, modalResponsiveContainer, modalNoHeader } from './__styles__'
 import { IDialogPropTypes } from 'rc-dialog/lib/IDialogPropTypes'
 

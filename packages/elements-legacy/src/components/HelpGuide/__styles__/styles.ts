@@ -1,4 +1,4 @@
-import { css } from 'linaria'
+import { css } from '@linaria/core'
 
 export const helpGuideContent = css`
   padding: 3rem 0;

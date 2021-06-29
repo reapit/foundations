@@ -1,4 +1,4 @@
-import { css } from 'linaria'
+import { css } from '@linaria/core'
 import { white, grey } from '@/core/__styles__/colors'
 
 export const sidebar = css`

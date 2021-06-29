@@ -5,7 +5,7 @@ import dayjs from 'dayjs'
 import customParseFormat from 'dayjs/plugin/customParseFormat'
 import { checkError } from '../../utils/form'
 import { fieldValidateRequire } from '../../utils/validators'
-import { cx } from 'linaria'
+import { cx } from '@linaria/core'
 ;(dayjs as any).extend(customParseFormat)
 
 const { useState, useEffect } = React

@@ -7,7 +7,7 @@ import * as styles from '../__styles__/standalone-app-detail'
 import { MEDIA_INDEX } from '@/constants/media'
 import ImagePlaceHolder from '@/assets/images/default-app-icon.jpg'
 import featureImagePlaceHolder from '@/assets/images/default-feature-image.jpg'
-import { cx } from 'linaria'
+import { cx } from '@linaria/core'
 
 export type AppHeaderProps = {
   appDetailData: AppDetailModel & {

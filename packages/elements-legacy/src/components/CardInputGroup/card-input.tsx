@@ -1,7 +1,7 @@
 import React, { Dispatch, SetStateAction, useEffect, useRef } from 'react'
 import { Field, FieldProps } from 'formik'
 import { checkError } from '../../utils/form'
-import { cx } from 'linaria'
+import { cx } from '@linaria/core'
 import { InputProps } from '../Input'
 import { FaCreditCard, FaCcVisa, FaCcMastercard, FaCcAmex } from 'react-icons/fa'
 import { CardType, formatCardNumber, getCardType, handleValidateCard } from './card-helpers'

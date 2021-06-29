@@ -34,7 +34,7 @@
     "merge-graphql-schemas": "^1.7.8",
     "query-string": "^6.14.1",
     "snyk": "^1.463.0",
-    "tslib": "2.2.0",
+    "tslib": "2.3.0",
     "uuid": "^3.4.0",
     "winston": "^3.3.3"
   },
@@ -52,7 +52,7 @@
     "cross-env": "^7.0.3",
     "eslint": "7.23.0",
     "graphql-tag": "^2.11.0",
-    "jest": "^25.5.4",
+    "jest": "^26.6.3",
     "jest-coverage-badges": "^1.1.2",
     "prettier": "^2.2.1",
     "serialize-error": "^7.0.1",

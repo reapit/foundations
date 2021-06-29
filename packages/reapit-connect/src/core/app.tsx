@@ -1,6 +1,6 @@
 import * as React from 'react'
 import Router from './router'
-import { css } from 'linaria'
+import { css } from '@linaria/core'
 import { useReapitConnect, LoginIdentity } from '@reapit/connect-session'
 import { reapitConnectBrowserSession } from './connect-session'
 import { FlexContainerBasic, FlexContainerResponsive, Loader } from '@reapit/elements-legacy'

@@ -1,4 +1,4 @@
-import { styled } from 'linaria/react'
+import { styled } from '@linaria/react'
 
 export const CardHeading = styled.h5`
   font-size: 20px;
