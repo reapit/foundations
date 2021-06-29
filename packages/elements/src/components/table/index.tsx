@@ -8,6 +8,7 @@ import {
   TableCell,
   TableExpandableRow,
   TableExpandableRowTriggerCell,
+  TableRowContainer,
 } from './molecules'
 import { Intent } from '../../helpers/intent'
 
@@ -71,15 +72,15 @@ export const Table: React.FC<ITable> = ({ rows, children, ...rest }) => {
       {rows.map((row, index) => {
         const expandableRowIsOpen = expandedRow === index
         return (
-          <>
+          <TableRowContainer key={index} isOpen={expandableRowIsOpen}>
             <TableRow>
-              {headers.map((header) => {
+              {headers.map((header, headerIndex) => {
                 const cell = row.cells.find((c) => c.label === header)
                 if (!cell) return <TableCell />
 
                 return (
                   <TableCell
-                    key={index}
+                    key={`${headerIndex}-${index}`}
                     icon={cell.icon}
                     darkText={cell.cellHasDarkText}
                     narrowLabel={cell.narrowTable?.showLabel ? cell.label : undefined}
@@ -96,7 +97,7 @@ export const Table: React.FC<ITable> = ({ rows, children, ...rest }) => {
             {row.expandableContent && (
               <TableExpandableRow isOpen={expandableRowIsOpen}>{row.expandableContent}</TableExpandableRow>
             )}
-          </>
+          </TableRowContainer>
         )
       })}
     </ElTable>
