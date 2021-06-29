@@ -71,7 +71,7 @@ exports[`Login should match a snapshot 1`] = `
           >
             <Level>
               <div
-                className=""
+                className="level"
                 data-test=""
               >
                 <img
@@ -82,7 +82,7 @@ exports[`Login should match a snapshot 1`] = `
             </Level>
             <Section>
               <section
-                className=""
+                className="section has-padding has-margin has-background"
                 data-test=""
               >
                 <p>
@@ -94,7 +94,7 @@ exports[`Login should match a snapshot 1`] = `
               className="r1j5cb07-register-level"
             >
               <div
-                className=""
+                className="level r1j5cb07-register-level"
                 data-test=""
               >
                 <Button
@@ -140,7 +140,7 @@ exports[`Login should match a snapshot 1`] = `
               className="pt-8"
             >
               <div
-                className=""
+                className="container-flex is-centered pt-8"
               />
             </FlexContainerBasic>
           </div>

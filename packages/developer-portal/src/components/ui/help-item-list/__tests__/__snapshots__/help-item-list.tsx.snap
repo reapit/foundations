@@ -10,7 +10,7 @@ exports[`HelpItemList should match a snapshot 1`] = `
       isFlex={true}
       isFullHeight={true}
     >
-      <mock-styled.div>
+      <FadeIn>
         <Section
           className="w1aw3py2-wrap-box-content"
           isFlex={true}
@@ -51,7 +51,7 @@ exports[`HelpItemList should match a snapshot 1`] = `
             </Button>
           </LevelRight>
         </Section>
-      </mock-styled.div>
+      </FadeIn>
     </Section>
   </GridThreeColItem>
   <GridThreeColItem
@@ -62,7 +62,7 @@ exports[`HelpItemList should match a snapshot 1`] = `
       isFlex={true}
       isFullHeight={true}
     >
-      <mock-styled.div>
+      <FadeIn>
         <Section
           className="w1aw3py2-wrap-box-content"
           isFlex={true}
@@ -103,7 +103,7 @@ exports[`HelpItemList should match a snapshot 1`] = `
             </Button>
           </LevelRight>
         </Section>
-      </mock-styled.div>
+      </FadeIn>
     </Section>
   </GridThreeColItem>
   <GridThreeColItem
@@ -114,7 +114,7 @@ exports[`HelpItemList should match a snapshot 1`] = `
       isFlex={true}
       isFullHeight={true}
     >
-      <mock-styled.div>
+      <FadeIn>
         <Section
           className="w1aw3py2-wrap-box-content"
           isFlex={true}
@@ -154,7 +154,7 @@ exports[`HelpItemList should match a snapshot 1`] = `
             </Button>
           </LevelRight>
         </Section>
-      </mock-styled.div>
+      </FadeIn>
     </Section>
   </GridThreeColItem>
   <GridThreeColItem
@@ -165,7 +165,7 @@ exports[`HelpItemList should match a snapshot 1`] = `
       isFlex={true}
       isFullHeight={true}
     >
-      <mock-styled.div>
+      <FadeIn>
         <Section
           className="w1aw3py2-wrap-box-content"
           isFlex={true}
@@ -206,7 +206,7 @@ exports[`HelpItemList should match a snapshot 1`] = `
             </Button>
           </LevelRight>
         </Section>
-      </mock-styled.div>
+      </FadeIn>
     </Section>
   </GridThreeColItem>
   <GridThreeColItem
@@ -217,7 +217,7 @@ exports[`HelpItemList should match a snapshot 1`] = `
       isFlex={true}
       isFullHeight={true}
     >
-      <mock-styled.div>
+      <FadeIn>
         <Section
           className="w1aw3py2-wrap-box-content"
           isFlex={true}
@@ -257,7 +257,7 @@ exports[`HelpItemList should match a snapshot 1`] = `
             </Button>
           </LevelRight>
         </Section>
-      </mock-styled.div>
+      </FadeIn>
     </Section>
   </GridThreeColItem>
   <GridThreeColItem
@@ -268,7 +268,7 @@ exports[`HelpItemList should match a snapshot 1`] = `
       isFlex={true}
       isFullHeight={true}
     >
-      <mock-styled.div>
+      <FadeIn>
         <Section
           className="w1aw3py2-wrap-box-content"
           isFlex={true}
@@ -309,7 +309,7 @@ exports[`HelpItemList should match a snapshot 1`] = `
             </Button>
           </LevelRight>
         </Section>
-      </mock-styled.div>
+      </FadeIn>
     </Section>
   </GridThreeColItem>
 </GridFourCol>

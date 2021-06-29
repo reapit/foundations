@@ -1,4 +1,4 @@
-import { css } from 'linaria'
+import { css } from '@linaria/core'
 import { greyMedium } from '../../../../core/__styles__/colors'
 
 /** Use These css-s to make sure Authentication modal work on IE  **/

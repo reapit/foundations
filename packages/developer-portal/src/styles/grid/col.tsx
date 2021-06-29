@@ -1,5 +1,5 @@
 import React, { FC, HTMLAttributes, ReactNode } from 'react'
-import { cx } from 'linaria'
+import { cx } from '@linaria/core'
 import * as styles from './__styles__'
 import { useViewPortSize } from './use-view-port-size'
 

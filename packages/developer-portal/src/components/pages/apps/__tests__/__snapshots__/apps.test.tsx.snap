@@ -387,7 +387,7 @@ exports[`Login should match a snapshot 1`] = `
                   visible={false}
                 >
                   <div
-                    className=""
+                    className="toast"
                     data-test="toast-wrapper"
                     onClick={[Function]}
                   >

@@ -1,4 +1,4 @@
-import { css } from 'linaria'
+import { css } from '@linaria/core'
 import { forTabletOnly } from '@/core/__styles__/media'
 
 export const content = css`

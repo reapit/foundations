@@ -27,7 +27,7 @@ exports[`Tabs should match a snapshot 1`] = `
       }
     >
       <div
-        className=""
+        className="tabs is-fullwidth"
         role="tablist"
       >
         <ul>

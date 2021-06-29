@@ -1,5 +1,5 @@
 /* purgecss start ignore */
-import { css } from 'linaria'
+import { css } from '@linaria/core'
 import { bluePrimaryMedium, greyDark, greyLight } from '@/core/__styles__/colors'
 
 /*

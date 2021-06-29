@@ -26,7 +26,7 @@ exports[`ContactDeveloperSection should match snapshot with gutter 1`] = `
       <GridItem>
         <p>
           <a
-            className=""
+            className="l3gjl5x-link l1kb5vky-link-normal"
             href="mailto:reapit@reapit.com"
             rel="noopener noreferrer"
             target="_blank"
@@ -40,7 +40,7 @@ exports[`ContactDeveloperSection should match snapshot with gutter 1`] = `
       <GridItem>
         <p>
           <a
-            className=""
+            className="l3gjl5x-link l1kb5vky-link-normal"
             href="https://reapit.com"
             rel="noopener noreferrer"
             target="_blank"
@@ -80,7 +80,7 @@ exports[`ContactDeveloperSection should match snapshot without gutter 1`] = `
       <GridItem>
         <p>
           <a
-            className=""
+            className="l3gjl5x-link l1kb5vky-link-normal"
             href="mailto:reapit@reapit.com"
             rel="noopener noreferrer"
             target="_blank"
@@ -94,7 +94,7 @@ exports[`ContactDeveloperSection should match snapshot without gutter 1`] = `
       <GridItem>
         <p>
           <a
-            className=""
+            className="l3gjl5x-link l1kb5vky-link-normal"
             href="https://reapit.com"
             rel="noopener noreferrer"
             target="_blank"

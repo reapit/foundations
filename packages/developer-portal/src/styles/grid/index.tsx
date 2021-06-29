@@ -3,7 +3,7 @@
 import React, { FC, HTMLAttributes, ReactNode } from 'react'
 import * as styles from './__styles__'
 import Col from './col'
-import { cx } from 'linaria'
+import { cx } from '@linaria/core'
 import { useViewPortSize } from './use-view-port-size'
 
 export type GridGapType = 0 | 1 | 2 | 3 | 4 | 6 | 8 | 12

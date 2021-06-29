@@ -79,7 +79,7 @@ exports[`AcceptedModal should match snapshot 1`] = `
             visible={true}
           >
             <Dialog
-              className=""
+              className="m36ncwu-modal-container"
               closable={false}
               closeIcon={
                 <span
@@ -101,7 +101,7 @@ exports[`AcceptedModal should match snapshot 1`] = `
                 </ModalHeaderV2>
               }
               visible={true}
-              wrapClassName=""
+              wrapClassName="m140lwlu-modal-centered"
             >
               <PortalWrapper
                 visible={true}
@@ -120,12 +120,12 @@ exports[`AcceptedModal should match snapshot 1`] = `
                           />
                           <div
                             aria-labelledby="rcDialogTitle0"
-                            class="rc-dialog-wrap"
+                            class="rc-dialog-wrap m140lwlu-modal-centered"
                             role="dialog"
                             tabindex="-1"
                           >
                             <div
-                              class="rc-dialog"
+                              class="rc-dialog m36ncwu-modal-container"
                               role="document"
                             >
                               <div
@@ -154,7 +154,7 @@ exports[`AcceptedModal should match snapshot 1`] = `
                                   class="rc-dialog-body"
                                 >
                                   <div
-                                    class=""
+                                    class="content"
                                     data-test=""
                                   >
                                     <p>
@@ -169,7 +169,7 @@ exports[`AcceptedModal should match snapshot 1`] = `
                                     action="#"
                                   >
                                     <div
-                                      class=""
+                                      class="field"
                                     >
                                       <div
                                         class="control "
@@ -181,7 +181,7 @@ exports[`AcceptedModal should match snapshot 1`] = `
                                           Name
                                         </label>
                                         <input
-                                          class=""
+                                          class="input is-primary"
                                           data-test=""
                                           id="name"
                                           name="name"
@@ -192,7 +192,7 @@ exports[`AcceptedModal should match snapshot 1`] = `
                                       </div>
                                     </div>
                                     <div
-                                      class=""
+                                      class="field"
                                     >
                                       <div
                                         class="control "
@@ -204,7 +204,7 @@ exports[`AcceptedModal should match snapshot 1`] = `
                                           Job Title
                                         </label>
                                         <input
-                                          class=""
+                                          class="input is-primary"
                                           data-test=""
                                           id="jobTitle"
                                           name="jobTitle"
@@ -216,7 +216,7 @@ exports[`AcceptedModal should match snapshot 1`] = `
                                     </div>
                                   </form>
                                   <div
-                                    class=""
+                                    class="content"
                                     data-test=""
                                   >
                                     <p>
@@ -259,7 +259,7 @@ exports[`AcceptedModal should match snapshot 1`] = `
                   >
                     <Dialog
                       afterClose={[Function]}
-                      className=""
+                      className="m36ncwu-modal-container"
                       closable={false}
                       closeIcon={
                         <span
@@ -296,12 +296,12 @@ exports[`AcceptedModal should match snapshot 1`] = `
                                   />
                                   <div
                                     aria-labelledby="rcDialogTitle0"
-                                    class="rc-dialog-wrap"
+                                    class="rc-dialog-wrap m140lwlu-modal-centered"
                                     role="dialog"
                                     tabindex="-1"
                                   >
                                     <div
-                                      class="rc-dialog"
+                                      class="rc-dialog m36ncwu-modal-container"
                                       role="document"
                                     >
                                       <div
@@ -330,7 +330,7 @@ exports[`AcceptedModal should match snapshot 1`] = `
                                           class="rc-dialog-body"
                                         >
                                           <div
-                                            class=""
+                                            class="content"
                                             data-test=""
                                           >
                                             <p>
@@ -345,7 +345,7 @@ exports[`AcceptedModal should match snapshot 1`] = `
                                             action="#"
                                           >
                                             <div
-                                              class=""
+                                              class="field"
                                             >
                                               <div
                                                 class="control "
@@ -357,7 +357,7 @@ exports[`AcceptedModal should match snapshot 1`] = `
                                                   Name
                                                 </label>
                                                 <input
-                                                  class=""
+                                                  class="input is-primary"
                                                   data-test=""
                                                   id="name"
                                                   name="name"
@@ -368,7 +368,7 @@ exports[`AcceptedModal should match snapshot 1`] = `
                                               </div>
                                             </div>
                                             <div
-                                              class=""
+                                              class="field"
                                             >
                                               <div
                                                 class="control "
@@ -380,7 +380,7 @@ exports[`AcceptedModal should match snapshot 1`] = `
                                                   Job Title
                                                 </label>
                                                 <input
-                                                  class=""
+                                                  class="input is-primary"
                                                   data-test=""
                                                   id="jobTitle"
                                                   name="jobTitle"
@@ -392,7 +392,7 @@ exports[`AcceptedModal should match snapshot 1`] = `
                                             </div>
                                           </form>
                                           <div
-                                            class=""
+                                            class="content"
                                             data-test=""
                                           >
                                             <p>
@@ -444,7 +444,7 @@ exports[`AcceptedModal should match snapshot 1`] = `
                         </ModalHeaderV2>
                       }
                       visible={true}
-                      wrapClassName=""
+                      wrapClassName="m140lwlu-modal-centered"
                     >
                       <div
                         className="rc-dialog-root"
@@ -477,7 +477,7 @@ exports[`AcceptedModal should match snapshot 1`] = `
                         </Mask>
                         <div
                           aria-labelledby="rcDialogTitle0"
-                          className="rc-dialog-wrap"
+                          className="rc-dialog-wrap m140lwlu-modal-centered"
                           onClick={[Function]}
                           onKeyDown={[Function]}
                           role="dialog"
@@ -492,7 +492,7 @@ exports[`AcceptedModal should match snapshot 1`] = `
                           <Content
                             afterClose={[Function]}
                             ariaId="rcDialogTitle0"
-                            className=""
+                            className="m36ncwu-modal-container"
                             closable={false}
                             closeIcon={
                               <span
@@ -534,12 +534,12 @@ exports[`AcceptedModal should match snapshot 1`] = `
                                         />
                                         <div
                                           aria-labelledby="rcDialogTitle0"
-                                          class="rc-dialog-wrap"
+                                          class="rc-dialog-wrap m140lwlu-modal-centered"
                                           role="dialog"
                                           tabindex="-1"
                                         >
                                           <div
-                                            class="rc-dialog"
+                                            class="rc-dialog m36ncwu-modal-container"
                                             role="document"
                                           >
                                             <div
@@ -568,7 +568,7 @@ exports[`AcceptedModal should match snapshot 1`] = `
                                                 class="rc-dialog-body"
                                               >
                                                 <div
-                                                  class=""
+                                                  class="content"
                                                   data-test=""
                                                 >
                                                   <p>
@@ -583,7 +583,7 @@ exports[`AcceptedModal should match snapshot 1`] = `
                                                   action="#"
                                                 >
                                                   <div
-                                                    class=""
+                                                    class="field"
                                                   >
                                                     <div
                                                       class="control "
@@ -595,7 +595,7 @@ exports[`AcceptedModal should match snapshot 1`] = `
                                                         Name
                                                       </label>
                                                       <input
-                                                        class=""
+                                                        class="input is-primary"
                                                         data-test=""
                                                         id="name"
                                                         name="name"
@@ -606,7 +606,7 @@ exports[`AcceptedModal should match snapshot 1`] = `
                                                     </div>
                                                   </div>
                                                   <div
-                                                    class=""
+                                                    class="field"
                                                   >
                                                     <div
                                                       class="control "
@@ -618,7 +618,7 @@ exports[`AcceptedModal should match snapshot 1`] = `
                                                         Job Title
                                                       </label>
                                                       <input
-                                                        class=""
+                                                        class="input is-primary"
                                                         data-test=""
                                                         id="jobTitle"
                                                         name="jobTitle"
@@ -630,7 +630,7 @@ exports[`AcceptedModal should match snapshot 1`] = `
                                                   </div>
                                                 </form>
                                                 <div
-                                                  class=""
+                                                  class="content"
                                                   data-test=""
                                                 >
                                                   <p>
@@ -682,7 +682,7 @@ exports[`AcceptedModal should match snapshot 1`] = `
                               </ModalHeaderV2>
                             }
                             visible={true}
-                            wrapClassName=""
+                            wrapClassName="m140lwlu-modal-centered"
                           >
                             <CSSMotion
                               onAppearPrepare={[Function]}
@@ -693,7 +693,7 @@ exports[`AcceptedModal should match snapshot 1`] = `
                             >
                               <DomWrapper>
                                 <div
-                                  className="rc-dialog"
+                                  className="rc-dialog m36ncwu-modal-container"
                                   key="dialog-element"
                                   onMouseDown={[Function]}
                                   onMouseUp={[Function]}
@@ -739,7 +739,7 @@ exports[`AcceptedModal should match snapshot 1`] = `
                                       >
                                         <Content>
                                           <div
-                                            className=""
+                                            className="content"
                                             data-test=""
                                           >
                                             <p>
@@ -769,7 +769,7 @@ exports[`AcceptedModal should match snapshot 1`] = `
                                                 validate={[Function]}
                                               >
                                                 <div
-                                                  className=""
+                                                  className="field"
                                                 >
                                                   <div
                                                     className="control "
@@ -781,7 +781,7 @@ exports[`AcceptedModal should match snapshot 1`] = `
                                                       Name
                                                     </label>
                                                     <input
-                                                      className=""
+                                                      className="input is-primary"
                                                       data-test=""
                                                       disabled={false}
                                                       id="name"
@@ -808,7 +808,7 @@ exports[`AcceptedModal should match snapshot 1`] = `
                                                 validate={[Function]}
                                               >
                                                 <div
-                                                  className=""
+                                                  className="field"
                                                 >
                                                   <div
                                                     className="control "
@@ -820,7 +820,7 @@ exports[`AcceptedModal should match snapshot 1`] = `
                                                       Job Title
                                                     </label>
                                                     <input
-                                                      className=""
+                                                      className="input is-primary"
                                                       data-test=""
                                                       disabled={false}
                                                       id="jobTitle"
@@ -839,7 +839,7 @@ exports[`AcceptedModal should match snapshot 1`] = `
                                         </Form>
                                         <Content>
                                           <div
-                                            className=""
+                                            className="content"
                                             data-test=""
                                           >
                                             <p>
@@ -944,7 +944,7 @@ exports[`AcceptedModal should match snapshot 1`] = `
             visible={false}
           >
             <Dialog
-              className=""
+              className="m36ncwu-modal-container"
               closable={false}
               closeIcon={
                 <span
@@ -968,7 +968,7 @@ exports[`AcceptedModal should match snapshot 1`] = `
                 </ModalHeaderV2>
               }
               visible={false}
-              wrapClassName=""
+              wrapClassName="m140lwlu-modal-centered"
             />
           </ModalV2>
         </AcceptedModal>
@@ -982,7 +982,7 @@ exports[`AcceptedModal should match snapshot 1`] = `
             visible={false}
           >
             <Dialog
-              className=""
+              className="m36ncwu-modal-container"
               closable={false}
               closeIcon={
                 <span
@@ -997,7 +997,7 @@ exports[`AcceptedModal should match snapshot 1`] = `
                 </ModalHeaderV2>
               }
               visible={false}
-              wrapClassName=""
+              wrapClassName="m140lwlu-modal-centered"
             />
           </ModalV2>
         </RejectedModal>

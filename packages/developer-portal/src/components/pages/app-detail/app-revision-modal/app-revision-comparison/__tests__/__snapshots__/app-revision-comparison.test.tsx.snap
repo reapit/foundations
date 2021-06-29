@@ -185,13 +185,13 @@ Get
                 className="dwmgqyi-diff-viewer-container"
               >
                 <span
-                  className=""
+                  className="rbeetup-red"
                   key="0"
                 >
                   Peter's
                 </span>
                 <span
-                  className=""
+                  className="g1gwscut-green"
                   key="1"
                 >
                   Amazon
@@ -203,13 +203,13 @@ Get
                    
                 </span>
                 <span
-                  className=""
+                  className="rbeetup-red"
                   key="3"
                 >
                   Properties
                 </span>
                 <span
-                  className=""
+                  className="g1gwscut-green"
                   key="4"
                 >
                   Shopping 2
@@ -235,7 +235,7 @@ Get
                 className="dwmgqyi-diff-viewer-container"
               >
                 <span
-                  className=""
+                  className="rbeetup-red"
                   key="0"
                 >
                   Tools
@@ -261,13 +261,13 @@ Get
                 className="dwmgqyi-diff-viewer-container"
               >
                 <span
-                  className=""
+                  className="rbeetup-red"
                   key="0"
                 >
                   http
                 </span>
                 <span
-                  className=""
+                  className="g1gwscut-green"
                   key="1"
                 >
                   https
@@ -279,13 +279,13 @@ Get
                   ://
                 </span>
                 <span
-                  className=""
+                  className="rbeetup-red"
                   key="3"
                 >
                   myawesomeproptechproduct
                 </span>
                 <span
-                  className=""
+                  className="g1gwscut-green"
                   key="4"
                 >
                   www
@@ -297,13 +297,13 @@ Get
                   .
                 </span>
                 <span
-                  className=""
+                  className="rbeetup-red"
                   key="6"
                 >
                   io
                 </span>
                 <span
-                  className=""
+                  className="g1gwscut-green"
                   key="7"
                 >
                   amazon.com/
@@ -353,13 +353,13 @@ Get
                 className="dwmgqyi-diff-viewer-container"
               >
                 <span
-                  className=""
+                  className="rbeetup-red"
                   key="0"
                 >
                   support
                 </span>
                 <span
-                  className=""
+                  className="g1gwscut-green"
                   key="1"
                 >
                   VBNApplication
@@ -371,13 +371,13 @@ Get
                   @
                 </span>
                 <span
-                  className=""
+                  className="rbeetup-red"
                   key="3"
                 >
                   reapit
                 </span>
                 <span
-                  className=""
+                  className="g1gwscut-green"
                   key="4"
                 >
                   test
@@ -409,13 +409,13 @@ Get
                 className="dwmgqyi-diff-viewer-container"
               >
                 <span
-                  className=""
+                  className="rbeetup-red"
                   key="0"
                 >
                   0113
                 </span>
                 <span
-                  className=""
+                  className="g1gwscut-green"
                   key="1"
                 >
                   0800
@@ -427,13 +427,13 @@ Get
                    
                 </span>
                 <span
-                  className=""
+                  className="rbeetup-red"
                   key="3"
                 >
                   288
                 </span>
                 <span
-                  className=""
+                  className="g1gwscut-green"
                   key="4"
                 >
                   279
@@ -445,13 +445,13 @@ Get
                    
                 </span>
                 <span
-                  className=""
+                  className="rbeetup-red"
                   key="6"
                 >
                   2900
                 </span>
                 <span
-                  className=""
+                  className="g1gwscut-green"
                   key="7"
                 >
                   7234
@@ -478,13 +478,13 @@ Get
                 className="dwmgqyi-diff-viewer-container"
               >
                 <span
-                  className=""
+                  className="rbeetup-red"
                   key="0"
                 >
                   vitae
                 </span>
                 <span
-                  className=""
+                  className="g1gwscut-green"
                   key="1"
                 >
                   Shop
@@ -496,13 +496,13 @@ Get
                    
                 </span>
                 <span
-                  className=""
+                  className="rbeetup-red"
                   key="3"
                 >
                   elementum
                 </span>
                 <span
-                  className=""
+                  className="g1gwscut-green"
                   key="4"
                 >
                   millions
@@ -514,13 +514,13 @@ Get
                    
                 </span>
                 <span
-                  className=""
+                  className="rbeetup-red"
                   key="6"
                 >
                   curabitur
                 </span>
                 <span
-                  className=""
+                  className="g1gwscut-green"
                   key="7"
                 >
                   of
@@ -532,13 +532,13 @@ Get
                    
                 </span>
                 <span
-                  className=""
+                  className="rbeetup-red"
                   key="9"
                 >
                   vitae
                 </span>
                 <span
-                  className=""
+                  className="g1gwscut-green"
                   key="10"
                 >
                   products, never miss amazing deals, compare prices and reviews
@@ -577,14 +577,14 @@ Get
                 className="d1hksy8i-diff-render-html-container"
               >
                 <HTMLRender
-                  className=""
+                  className="dh9he44-diff-render-block rbeetup-red"
                   html="enim facilisis"
                 >
                   <Content
-                    className=""
+                    className="dh9he44-diff-render-block rbeetup-red"
                   >
                     <div
-                      className=""
+                      className="content dh9he44-diff-render-block rbeetup-red"
                       data-test=""
                     >
                       enim facilisis
@@ -597,7 +597,7 @@ Get
                   →
                 </span>
                 <HTMLRender
-                  className=""
+                  className="dh9he44-diff-render-block g1gwscut-green"
                   html="Download the app now and start shopping our selection of fashion, books, toys, home
       appliances, sport accessories and much more.
 
@@ -614,10 +614,10 @@ Get
       notifications when a new deal is available."
                 >
                   <Content
-                    className=""
+                    className="dh9he44-diff-render-block g1gwscut-green"
                   >
                     <div
-                      className=""
+                      className="content dh9he44-diff-render-block g1gwscut-green"
                       data-test=""
                     >
                       Download the app now and start shopping our selection of fashion, books, toys, home
@@ -754,7 +754,7 @@ Get
                 className="dwmgqyi-diff-viewer-container"
               >
                 <span
-                  className=""
+                  className="rbeetup-red"
                   key="0"
                 >
                   https://reapit.com
@@ -780,7 +780,7 @@ Get
                 className="dwmgqyi-diff-viewer-container"
               >
                 <span
-                  className=""
+                  className="rbeetup-red"
                   key="0"
                 >
                   https://reapit.com
@@ -806,7 +806,7 @@ Get
                 className="dwmgqyi-diff-viewer-container"
               >
                 <span
-                  className=""
+                  className="rbeetup-red"
                   key="0"
                 >
                   https://reapit.com
@@ -939,10 +939,10 @@ Get
                 className="csqkcaq-container"
               >
                 <div
-                  className=""
+                  className="b11uh1qk-block meppgna-media-block"
                 >
                   <div
-                    className=""
+                    className="izfgzzl-image mxgsyq9-media-image"
                     style={
                       Object {
                         "backgroundImage": "url(\\"undefined\\")",
@@ -956,10 +956,10 @@ Get
                   →
                 </span>
                 <div
-                  className=""
+                  className="b11uh1qk-block meppgna-media-block"
                 >
                   <div
-                    className=""
+                    className="izfgzzl-image mxgsyq9-media-image"
                     style={
                       Object {
                         "backgroundImage": "url(\\"undefined\\")",

@@ -279,7 +279,7 @@ exports[`DeveloperDesktopPage should match snapshot 1`] = `
                                 </FadeIn>
                               </VideoSection>
                             </div>
-                          </Col>
+                          </Grid>
                         </div>
                       </Grid>
                     </div>

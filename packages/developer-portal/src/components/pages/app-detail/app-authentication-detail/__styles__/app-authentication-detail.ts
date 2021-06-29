@@ -1,4 +1,4 @@
-import { css } from 'linaria'
+import { css } from '@linaria/core'
 import { greyMedium } from '@/core/__styles__/colors'
 
 export const authenticationCodeWrap = css`

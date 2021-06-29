@@ -7,7 +7,7 @@ exports[`CostCalculator should match a snapshot 1`] = `
   <H5>
     API Cost Calculator
   </H5>
-  <mock-styled.div>
+  <FadeIn>
     <Grid>
       <GridItem
         className="is-half-desktop"
@@ -49,6 +49,6 @@ exports[`CostCalculator should match a snapshot 1`] = `
         }
       }
     />
-  </mock-styled.div>
+  </FadeIn>
 </Section>
 `;

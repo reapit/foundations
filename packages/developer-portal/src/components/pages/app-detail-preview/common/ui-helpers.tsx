@@ -1,5 +1,5 @@
 import React from 'react'
-import { cx } from 'linaria'
+import { cx } from '@linaria/core'
 import { tag } from '../__styles__/app-detail'
 
 import { H5, Content } from '@reapit/elements-legacy'
