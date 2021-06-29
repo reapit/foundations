@@ -1,0 +1,43 @@
+import { Meta, Story, Canvas, ArgsTable, RenderHtmlMarkup } from '@storybook/addon-docs/blocks'
+import { StatusIndicator } from './'
+
+<Meta title="Status Indicator" component={StatusIndicator} />
+
+# Status Indicator
+
+## Summary
+
+A small coloured circle indicator to provide quick visual reference to the status of something; be it an action, response or anything else.
+
+<ArgsTable of={StatusIndicator} />
+
+# Default usage
+
+<Canvas>
+  <Story name="Default usage">
+    <div><StatusIndicator intent="critical" /> Something is happening</div>
+  </Story>
+</Canvas>
+
+
+# Intent
+
+Different intents are supported, to enable buttons to be used in different contexts
+
+<Canvas>
+  <Story name="Intent: Primary">
+    <div><StatusIndicator intent="primary" /> Primary</div>
+  </Story>
+  <Story name="Intent: Secondary">
+    <div><StatusIndicator intent="secondary" /> Secondary</div>
+  </Story>
+  <Story name="Intent: Critical">
+    <div><StatusIndicator intent="critical" /> Critical</div>
+  </Story>
+  <Story name="Intent: Success">
+    <div><StatusIndicator intent="success" /> Success</div>
+  </Story>
+  <Story name="Intent: Danger">
+    <div><StatusIndicator intent="danger" /> Danger</div>
+  </Story>
+</Canvas>
