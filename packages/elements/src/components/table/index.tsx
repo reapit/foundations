@@ -36,12 +36,14 @@ export type Cell = {
   }
 }
 export type Row = {
-  cells: Cell[]
+  cells: Partial<Cell>[]
   expandableContent: React.ReactNode
 }
 export interface ITable extends React.HTMLAttributes<HTMLDivElement> {
   rows?: Row[]
 }
+
+export * from './molecules'
 
 export const Table: React.FC<ITable> = ({ rows, children, ...rest }) => {
   if (!rows) return <ElTable {...rest}>{children}</ElTable>

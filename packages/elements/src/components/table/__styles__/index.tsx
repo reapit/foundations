@@ -115,7 +115,7 @@ export const ElTableHeader = styled.div`
   margin-right: 2px;
   display: flex;
   align-items: center;
-  max-height: calc(${MAX_HEADER_HEIGHT} - .75rem);
+  max-height: calc(${MAX_HEADER_HEIGHT} - 0.75rem);
   overflow: hidden;
   text-overflow: ellipsis;
 
@@ -200,7 +200,7 @@ export const ElTableCellContent = styled.div`
   display: -webkit-box;
   -webkit-line-clamp: ${MAX_LINE_LENGTH};
   -webkit-box-orient: vertical;
-  max-height: calc(${MAX_TABLE_CONTENT_HEIGHT} - .75rem);
+  max-height: calc(${MAX_TABLE_CONTENT_HEIGHT} - 0.75rem);
   overflow: hidden;
   line-height: 1.5rem;
   text-overflow: ellipsis;
