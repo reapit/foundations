@@ -137,16 +137,23 @@ export const ElTableRow = styled.div`
   @media screen and (max-width: 750px) {
     grid-template-columns: 1fr 1fr;
   }
+
+  &:hover,
+  &:focus {
+    box-shadow: 0px 0px 3px var(--color-blue-light);
+  }
 `
 
 export const ElTableRowContainer = styled.div`
   border-radius: var(--default-border-radius);
 
   &:hover,
-  &:focus,
-  &:hover + .el-table-expandable-row,
-  &:focus + .el-table-expandable-row {
+  &:focus {
     box-shadow: 0px 0px 3px var(--color-blue-light);
+
+    .el-table-row {
+      box-shadow: none;
+    }
   }
 
   &${elIsActive} {
