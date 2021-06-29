@@ -8,6 +8,7 @@ import {
   TableCell,
   TableExpandableRowTriggerCell,
   TableExpandableRow,
+  TableRowContainer,
 } from './molecules'
 import { Icon } from '../icon'
 import { RenderHtmlMarkup } from '../../helpers/render-html-markup'
@@ -266,23 +267,25 @@ The isOpen prop toggles the `.el-is-active` class to show the content.
           <Icon icon="editSolidSystem" fontSize="1.2rem" />
         </TableHeader>
       </TableHeadersRow>
-      <TableRow>
-        <TableCell darkText icon="homeSystem">
-          Mt Ash Jacket
-          <br />
-          Brassey Road
-        </TableCell>
-        <TableCell narrowLabel="N_Customer" icon="usernameSystem">
-          Mr Johnny Corrigan
-        </TableCell>
-        <TableCell>Alternate Lettings Client Acc</TableCell>
-        <TableCell>Tenant Payment Request</TableCell>
-        <TableCell narrowLabel="Request Date">19 Apr 2021</TableCell>
-        <TableCell darkText>£50.00</TableCell>
-        <TableCell narrowIsFullWidth>Not Requested</TableCell>
-        <TableExpandableRowTriggerCell />
-      </TableRow>
-      <TableExpandableRow>I am the content that is only visible when expanded</TableExpandableRow>
+      <TableRowContainer>
+        <TableRow>
+          <TableCell darkText icon="homeSystem">
+            Mt Ash Jacket
+            <br />
+            Brassey Road
+          </TableCell>
+          <TableCell narrowLabel="N_Customer" icon="usernameSystem">
+            Mr Johnny Corrigan
+          </TableCell>
+          <TableCell>Alternate Lettings Client Acc</TableCell>
+          <TableCell>Tenant Payment Request</TableCell>
+          <TableCell narrowLabel="Request Date">19 Apr 2021</TableCell>
+          <TableCell darkText>£50.00</TableCell>
+          <TableCell narrowIsFullWidth>Not Requested</TableCell>
+          <TableExpandableRowTriggerCell />
+        </TableRow>
+        <TableExpandableRow>I am the content that is only visible when expanded</TableExpandableRow>
+      </TableRowContainer>
     </Table>
   </Story>
 </Canvas>

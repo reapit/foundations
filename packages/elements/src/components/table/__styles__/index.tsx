@@ -137,9 +137,26 @@ export const ElTableRow = styled.div`
   @media screen and (max-width: 750px) {
     grid-template-columns: 1fr 1fr;
   }
+`
 
-  &:hover, &:focus, &:hover + .el-table-expandable-row, &:focus + .el-table-expandable-row {
+export const ElTableRowContainer = styled.div`
+  border-radius: var(--default-border-radius);
+
+  &:hover,
+  &:focus,
+  &:hover + .el-table-expandable-row,
+  &:focus + .el-table-expandable-row {
     box-shadow: 0px 0px 3px var(--color-blue-light);
+  }
+
+  &${elIsActive} {
+    .el-table-row {
+      border-radius: var(--default-border-radius) var(--default-border-radius) 0 0;
+    }
+
+    .el-table-expandable-row-trigger-cell {
+      border-radius: 0 var(--default-border-radius) 0 0;
+    }
   }
 `
 
