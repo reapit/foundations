@@ -111,6 +111,7 @@ export const ElTableHeader = styled.div`
   margin-right: 2px;
   display: flex;
   align-items: center;
+  max-height: calc(40px - .75rem);
 
   &:last-child {
     margin-right: 0;
@@ -190,6 +191,13 @@ export const ElTableCell = styled.div`
 
 export const ElTableCellContent = styled.div`
   flex: 1;
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+  max-height: calc(60px - .75rem);
+  overflow: hidden;
+  line-height: 1.5rem;
+  text-overflow: ellipsis;
 
   @media screen and (max-width: 750px) {
     &::before {
