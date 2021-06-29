@@ -50,17 +50,14 @@ export const ElTable = styled.div`
 
   &[data-expandable-content-size="small"] {
     --table-expanded-height: 12rem;
-    --table-expanded-animation-speed: .3s;
   }
 
   &[data-expandable-content-size="medium"] {
     --table-expanded-height: 18rem;
-    --table-expanded-animation-speed: .5s;
   }
 
   &[data-expandable-content-size="large"] {
     --table-expanded-height: 24rem;
-    --table-expanded-animation-speed: .8s;
   }
 `
 
