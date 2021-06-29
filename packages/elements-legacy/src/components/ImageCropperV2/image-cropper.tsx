@@ -11,7 +11,7 @@ import {
   imageCropperPreview,
   imageCropperActionWrapper,
 } from './__styles__/styles'
-import { cx } from 'linaria'
+import { cx } from '@linaria/core'
 import { Button } from '../Button'
 import { H5 } from '../Typography'
 import { ImageInput } from '../ImageInput'

@@ -2,7 +2,7 @@ import * as React from 'react'
 import { Field, FieldProps } from 'formik'
 import { checkError } from '../../utils/form'
 import { fieldValidateRequire } from '../../utils/validators'
-import { cx } from 'linaria'
+import { cx } from '@linaria/core'
 
 export interface SelectBoxOptions {
   label: string

@@ -1,5 +1,5 @@
-import { css } from 'linaria'
-import { styled } from 'linaria/react'
+import { css } from '@linaria/core'
+import { styled } from '@linaria/react'
 import * as sizes from '../../../../core/__styles__/sizes'
 import * as colors from '../../../../core/__styles__/colors'
 import { iconButtonContainer } from '../../icon-button/__styles__'

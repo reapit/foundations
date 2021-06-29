@@ -1,4 +1,4 @@
-import { css } from 'linaria'
+import { css } from '@linaria/core'
 
 export const permissionBlock = css`
   margin-bottom: 15px;

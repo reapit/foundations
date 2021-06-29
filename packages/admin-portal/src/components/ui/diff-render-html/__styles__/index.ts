@@ -1,4 +1,4 @@
-import { css } from 'linaria'
+import { css } from '@linaria/core'
 import { GREY, RED_LIGHTER, GREEN_LIGHTER, GREY_LIGHT, BLACK, REAPIT_MID_BLUE } from '@/core/__styles__/colors'
 
 export const diffHtmlContainer = css`

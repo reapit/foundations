@@ -1,5 +1,5 @@
 import React from 'react'
-import { cx } from 'linaria'
+import { cx } from '@linaria/core'
 import { breadcrumbSeparator } from './__styles__/styles'
 
 export interface BreadcrumbSeparatorProps {

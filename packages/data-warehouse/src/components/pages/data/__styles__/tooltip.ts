@@ -1,4 +1,4 @@
-import { css } from 'linaria'
+import { css } from '@linaria/core'
 import { grey } from '../../../../styles/colors'
 
 export const btnCopy = css`

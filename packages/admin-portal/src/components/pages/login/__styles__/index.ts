@@ -1,4 +1,4 @@
-import { css } from 'linaria'
+import { css } from '@linaria/core'
 import { WHITE } from '@/core/__styles__/colors'
 
 export const loginContainer = css`

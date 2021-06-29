@@ -26,7 +26,7 @@ import {
 } from './types'
 import startPin from '../../../assets/images/pin-customer.svg'
 import destinationPin from '../../../assets/images/pin-reapit.svg'
-import { cx } from 'linaria'
+import { cx } from '@linaria/core'
 import { DEFAULT_LAT_LNG, DEFAULT_ZOOM } from '../../../core/constants'
 import { TravelMode } from '../travel-mode/travel-mode'
 import { MapContentContainer, mapContainerHasMapPanel } from './__styles__/index'

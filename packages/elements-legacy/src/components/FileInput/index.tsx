@@ -1,7 +1,7 @@
 import * as React from 'react'
 import { Field, FieldProps, FieldInputProps } from 'formik'
 import { isBase64 } from '../../utils/is-base64'
-import { cx } from 'linaria'
+import { cx } from '@linaria/core'
 
 const { useState } = React
 

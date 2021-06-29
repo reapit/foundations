@@ -1,5 +1,5 @@
 /* eslint-disable max-len */
-import { css } from 'linaria'
+import { css } from '@linaria/core'
 
 // CSS from react-image-cropper
 export const reactImageCropGlobalStyles = css`

@@ -1,4 +1,4 @@
-import { css } from 'linaria'
+import { css } from '@linaria/core'
 import { black } from '@/core/__styles__/colors'
 
 export const categoryItem = css`

@@ -1,4 +1,4 @@
-import { css } from 'linaria'
+import { css } from '@linaria/core'
 
 export const breadcrumbItem = css`
   font-size: 0.875rem;

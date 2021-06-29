@@ -3,6 +3,7 @@ const { defaults } = require('jest-config')
 
 const jestGlobalConfig = {
   preset: 'ts-jest',
+  testEnvironment: 'jsdom',
   testPathIgnorePatterns: ['<rootDir>/src/tests/'],
   setupFiles: [path.join(__dirname, './jest-setup')],
   collectCoverageFrom: ['<rootDir>/src/**/*.ts', '<rootDir>/src/**/*.tsx', '!<rootDir>/src/**/*.worker.ts'],

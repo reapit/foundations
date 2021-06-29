@@ -14,7 +14,7 @@ import {
   getInstallationsForWholeOrg,
 } from './app-installation-manager'
 import { FaCheck, FaTimes } from 'react-icons/fa'
-import { cx } from 'linaria'
+import { cx } from '@linaria/core'
 import { installed, installString, uninstalled } from './__styled__/app-styles'
 
 export interface AppCardProps {

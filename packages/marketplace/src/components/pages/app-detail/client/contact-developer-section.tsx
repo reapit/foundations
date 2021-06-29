@@ -2,7 +2,7 @@ import React from 'react'
 import { H5, Grid, GridItem, Content } from '@reapit/elements-legacy'
 import { link, linkNormal } from '@/core/__styles__/elements'
 import { getMarketplaceGlobalsByKey } from '@reapit/elements-legacy'
-import { cx } from 'linaria'
+import { cx } from '@linaria/core'
 
 export type ContactDeveloperSectionType = {
   contact: {

@@ -1,7 +1,7 @@
 import React, { useRef } from 'react'
 import { Field, FieldProps } from 'formik'
 import { checkError } from '../../utils/form'
-import { cx } from 'linaria'
+import { cx } from '@linaria/core'
 import { InputProps } from '../Input'
 import { formatCardExpires, validateCardExpires } from './card-helpers'
 

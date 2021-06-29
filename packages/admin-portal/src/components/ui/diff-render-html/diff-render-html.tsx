@@ -1,6 +1,6 @@
 import * as React from 'react'
 import { HTMLRender } from '@reapit/elements-legacy'
-import { cx } from 'linaria'
+import { cx } from '@linaria/core'
 import { diffHtmlContainer, diffRenderBlock, redBackground, greenBackground, arrow } from './__styles__'
 
 export interface DiffRenderHTMLProps {

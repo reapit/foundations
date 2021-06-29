@@ -1,4 +1,4 @@
-import { css } from 'linaria'
+import { css } from '@linaria/core'
 import { reapitMidblue } from './colors'
 
 export const link = css`

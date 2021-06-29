@@ -1,5 +1,5 @@
 import React from 'react'
-import { cx } from 'linaria'
+import { cx } from '@linaria/core'
 import { Field, FieldProps, FormikProps } from 'formik'
 import { checkError } from '../../utils/form'
 import { Grid, GridItem } from '../Layout'

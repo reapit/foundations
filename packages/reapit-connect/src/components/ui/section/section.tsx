@@ -1,6 +1,6 @@
 import * as React from 'react'
 import { H2, SubTitleH4, SubTitleH6, GridItem } from '@reapit/elements-legacy'
-import { cx } from 'linaria'
+import { cx } from '@linaria/core'
 import { sectionContainer, hasBackgroundSection, gridItem } from './__styles__'
 
 export type SectionProps = {

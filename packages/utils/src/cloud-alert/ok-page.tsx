@@ -1,5 +1,5 @@
 import React from 'react'
-import { css } from 'linaria'
+import { css } from '@linaria/core'
 
 const okayWrapper = css`
   display: flex;

@@ -15,7 +15,7 @@ import { VendorLandlordRelatedModel } from '../../pages/appointment/appointment'
 import { ExtendedAppointmentModel } from '../../../types/global'
 import { FadeIn } from '@reapit/elements-legacy'
 import { ContactDrawerType } from '../contact-drawer'
-import { cx } from 'linaria'
+import { cx } from '@linaria/core'
 
 export type LandlordItemProps = {
   appointment: ExtendedAppointmentModel

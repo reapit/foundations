@@ -1,4 +1,4 @@
-import { css } from 'linaria'
+import { css } from '@linaria/core'
 
 export const sectionContainer = css`
   @media screen and (min-width: 768px) {

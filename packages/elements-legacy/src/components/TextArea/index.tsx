@@ -1,6 +1,6 @@
 import * as React from 'react'
 import { Field, FieldProps } from 'formik'
-import { cx } from 'linaria'
+import { cx } from '@linaria/core'
 import { checkError } from '../../utils/form'
 
 export interface TextAreaProps {

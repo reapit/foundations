@@ -1,5 +1,5 @@
 import React from 'react'
-import { styled } from 'linaria/react'
+import { styled } from '@linaria/react'
 
 const Logo = styled.div`
   display: inline-block;

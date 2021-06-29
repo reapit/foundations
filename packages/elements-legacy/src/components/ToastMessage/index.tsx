@@ -1,4 +1,4 @@
-import { cx } from 'linaria'
+import { cx } from '@linaria/core'
 import * as React from 'react'
 import { Button } from '../Button'
 

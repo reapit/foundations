@@ -1,5 +1,5 @@
 import * as React from 'react'
-import { cx } from 'linaria'
+import { cx } from '@linaria/core'
 import { checkboxContainer, checkboxWrap, greenBackground, redBackground, arow } from './__styles__'
 
 export interface DiffCheckboxProps {

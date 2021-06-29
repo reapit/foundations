@@ -6,26 +6,6 @@ const MockDate = require('mockdate')
 Enzyme.configure({ adapter: new Adapter() })
 global.fetch = fetchMock
 
-jest.mock('linaria', () => {
-  return {
-    css: jest.fn(() => ''),
-    cx: jest.fn(() => ''),
-  }
-})
-
-jest.mock('linaria/react', () => {
-  function styled(tag) {
-    return jest.fn(() => `mock-styled.${tag}`)
-  }
-  return {
-    styled: new Proxy(styled, {
-      get(o, prop) {
-        return o(prop)
-      },
-    }),
-  }
-})
-
 jest.mock('react-chartjs-2', () => ({
   Bar: () => null,
   Line: () => null,

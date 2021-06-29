@@ -1,5 +1,5 @@
-import { css } from 'linaria'
-import { styled } from 'linaria/react'
+import { css } from '@linaria/core'
+import { styled } from '@linaria/react'
 import { isDesktop, isTablet } from '../../../../core/__styles__/media'
 import { mapPanelHeight, navAppointmentListWidthDesktop } from '../../../../core/__styles__/page-layout-variables'
 

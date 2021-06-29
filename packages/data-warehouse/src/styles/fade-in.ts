@@ -1,4 +1,4 @@
-import { styled } from 'linaria/react'
+import { styled } from '@linaria/react'
 
 const FadeIn = styled.div`
   @keyframes fade-in {

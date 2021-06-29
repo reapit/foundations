@@ -1,4 +1,4 @@
-import { css } from 'linaria'
+import { css } from '@linaria/core'
 import * as colors from '../../../../core/__styles__/colors'
 import * as sizes from '../../../../core/__styles__/sizes'
 

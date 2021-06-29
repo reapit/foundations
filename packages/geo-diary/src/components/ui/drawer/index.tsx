@@ -1,5 +1,5 @@
 import * as React from 'react'
-import { cx } from 'linaria'
+import { cx } from '@linaria/core'
 import { useSwipeable } from 'react-swipeable'
 import IconButton from '../icon-button'
 import * as styles from './__styles__'

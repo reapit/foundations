@@ -10,7 +10,7 @@ import { reapitConnectBrowserSession } from '@/core/connect-session'
 import { useReapitConnect } from '@reapit/connect-session'
 import { AppState, useAppState } from '../../../core/app-state'
 import { AppointmentTime } from '../../ui/appointment-time/appointment-time'
-import { cx } from 'linaria'
+import { cx } from '@linaria/core'
 import {
   AppoinmentContainer,
   ControlsContainer,

@@ -3,7 +3,7 @@ import { MapPanelContainer, mapPanelContainerExpanded, MapPanelItem } from './__
 import { isIOS } from '@reapit/elements-legacy'
 import { Button, elIsBoldText, Subtitle, useMediaQuery } from '@reapit/elements'
 import { AppState, useAppState } from '../../../core/app-state'
-import { cx } from 'linaria'
+import { cx } from '@linaria/core'
 import { TravelMode } from '../travel-mode/travel-mode'
 
 export type GetMapUrlParams = {

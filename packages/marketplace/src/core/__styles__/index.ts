@@ -1,4 +1,4 @@
-import { css } from 'linaria'
+import { css } from '@linaria/core'
 
 export const globals = css`
   @import url('https://fonts.googleapis.com/css?family=Source+Code+Pro&display=swap');

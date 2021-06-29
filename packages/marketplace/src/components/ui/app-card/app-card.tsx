@@ -5,7 +5,7 @@ import * as appCardStyles from './__styles__'
 import defaultAppIcon from '@/assets/images/default-app-icon.jpg'
 import Fade from '@/components/ui/fade'
 import { IsFree } from './__styles__'
-import { cx } from 'linaria'
+import { cx } from '@linaria/core'
 
 export interface AppCardProps {
   app: AppSummaryModel

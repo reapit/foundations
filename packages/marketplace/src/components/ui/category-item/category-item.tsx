@@ -1,7 +1,7 @@
 import * as React from 'react'
 import * as styles from './__styles__'
 import { CategoryModel } from '@reapit/foundations-ts-definitions'
-import { cx } from 'linaria'
+import { cx } from '@linaria/core'
 
 export interface CategoryItemProps {
   category?: CategoryModel

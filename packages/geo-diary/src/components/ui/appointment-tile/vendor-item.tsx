@@ -14,7 +14,7 @@ import { handleOpenContactDrawer } from './appointment-items'
 import { VendorLandlordRelatedModel } from '../../pages/appointment/appointment'
 import { ExtendedAppointmentModel } from '../../../types/global'
 import { ContactDrawerType } from '../contact-drawer'
-import { cx } from 'linaria'
+import { cx } from '@linaria/core'
 
 export type VendorItemProps = {
   appointment: ExtendedAppointmentModel
