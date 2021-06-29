@@ -60,6 +60,7 @@ export const Table: React.FC<ITable> = ({ rows, children, ...rest }) => {
     <ElTable
       {...rest}
       data-num-columns-excl-expandable-row-trigger-col={hasExpandableRows ? headers.length : undefined}
+      data-has-expandable-action={hasExpandableRows}
     >
       <TableHeadersRow>
         {headers.map((header) => (

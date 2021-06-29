@@ -11,48 +11,41 @@ const MAX_LINE_LENGTH = 2
 
 export const ElTable = styled.div`
   &[data-num-columns-excl-expandable-row-trigger-col='2'] {
-    --component-table-expandable-trigger-width: ${EXPANDABLE_TRIGGER_CELL_WIDTH};
     --component-table-num-columns: 2;
   }
   &[data-num-columns-excl-expandable-row-trigger-col='3'] {
-    --component-table-expandable-trigger-width: ${EXPANDABLE_TRIGGER_CELL_WIDTH};
     --component-table-num-columns: 3;
   }
   &[data-num-columns-excl-expandable-row-trigger-col='4'] {
-    --component-table-expandable-trigger-width: ${EXPANDABLE_TRIGGER_CELL_WIDTH};
     --component-table-num-columns: 4;
   }
   &[data-num-columns-excl-expandable-row-trigger-col='5'] {
-    --component-table-expandable-trigger-width: ${EXPANDABLE_TRIGGER_CELL_WIDTH};
     --component-table-num-columns: 5;
   }
   &[data-num-columns-excl-expandable-row-trigger-col='6'] {
-    --component-table-expandable-trigger-width: ${EXPANDABLE_TRIGGER_CELL_WIDTH};
     --component-table-num-columns: 6;
   }
   &[data-num-columns-excl-expandable-row-trigger-col='7'] {
-    --component-table-expandable-trigger-width: ${EXPANDABLE_TRIGGER_CELL_WIDTH};
     --component-table-num-columns: 7;
   }
   &[data-num-columns-excl-expandable-row-trigger-col='8'] {
-    --component-table-expandable-trigger-width: ${EXPANDABLE_TRIGGER_CELL_WIDTH};
     --component-table-num-columns: 8;
   }
   &[data-num-columns-excl-expandable-row-trigger-col='9'] {
-    --component-table-expandable-trigger-width: ${EXPANDABLE_TRIGGER_CELL_WIDTH};
     --component-table-num-columns: 9;
   }
   &[data-num-columns-excl-expandable-row-trigger-col='10'] {
-    --component-table-expandable-trigger-width: ${EXPANDABLE_TRIGGER_CELL_WIDTH};
     --component-table-num-columns: 10;
   }
   &[data-num-columns-excl-expandable-row-trigger-col='11'] {
-    --component-table-expandable-trigger-width: ${EXPANDABLE_TRIGGER_CELL_WIDTH};
     --component-table-num-columns: 11;
   }
   &[data-num-columns-excl-expandable-row-trigger-col='12'] {
-    --component-table-expandable-trigger-width: ${EXPANDABLE_TRIGGER_CELL_WIDTH};
     --component-table-num-columns: 12;
+  }
+
+  &[data-has-expandable-action] {
+    --component-table-expandable-trigger-width: ${EXPANDABLE_TRIGGER_CELL_WIDTH};
   }
 `
 
@@ -134,7 +127,7 @@ export const ElTableRow = styled.div`
   // see above for the explanation of this line
   grid-template-columns:
     repeat(var(--component-table-num-columns, auto-fit), minmax(var(--component-table-min-column-width), 1fr))
-    var(--component-table-expandable-trigger-width, 40px);
+    var(--component-table-expandable-trigger-width, 0);
   margin-top: 0.5rem;
 
   background: var(--color-white);
@@ -234,7 +227,7 @@ export const ElTableExpandableRowTriggerCell = styled.div`
   @media screen and (max-width: 750px) {
     grid-column-end: span 2;
     text-align: center;
-    
+
     &:last-child {
       border-radius: 0 0 var(--default-border-radius) var(--default-border-radius);
     }
