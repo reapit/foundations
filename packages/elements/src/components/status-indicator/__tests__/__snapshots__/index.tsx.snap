@@ -1,0 +1,37 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Table component should match a snapshot 1`] = `
+<ElStatusIndicator
+  className=""
+/>
+`;
+
+exports[`Table component should match a snapshot 2`] = `
+<ElStatusIndicator
+  className="el-intent-primary"
+/>
+`;
+
+exports[`Table component should match a snapshot 3`] = `
+<ElStatusIndicator
+  className="el-intent-secondary"
+/>
+`;
+
+exports[`Table component should match a snapshot 4`] = `
+<ElStatusIndicator
+  className="el-intent-danger"
+/>
+`;
+
+exports[`Table component should match a snapshot 5`] = `
+<ElStatusIndicator
+  className="el-intent-success"
+/>
+`;
+
+exports[`Table component should match a snapshot 6`] = `
+<ElStatusIndicator
+  className="el-intent-critical"
+/>
+`;
