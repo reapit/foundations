@@ -255,7 +255,7 @@ The isOpen prop toggles the `.el-is-active` class to show the content.
 
 <Canvas>
   <Story name="TableExpandableContainer">
-    <Table data-num-columns-excl-expandable-row-trigger-col="7">
+    <Table data-num-columns-excl-expandable-row-trigger-col="7" data-has-expandable-action>
       <TableRowContainer isOpen>
         <TableRow>
           <TableCell darkText icon="home">
@@ -285,7 +285,7 @@ The isOpen prop toggles the `.el-is-active` class to show the content.
 
 <Canvas>
   <Story name="Combined Table">
-    <Table data-num-columns-excl-expandable-row-trigger-col="7">
+    <Table data-num-columns-excl-expandable-row-trigger-col="7" data-has-expandable-action>
       <TableHeadersRow>
         <TableHeader>Property</TableHeader>
         <TableHeader>Customer</TableHeader>
@@ -322,6 +322,129 @@ The isOpen prop toggles the `.el-is-active` class to show the content.
 </Canvas>
 
 <RenderHtmlMarkup component="Table" story="Combined Table" />
+
+### Table grid cells
+
+Table cells are dependant on columns being defined by a data attribute. Below we've used `data-num-columns-excl-expandable-row-trigger-col="2"` as an example.
+
+<Canvas>
+  <Story name="Column Table Cell example">
+    <Table data-num-columns-excl-expandable-row-trigger-col="2">
+      <TableRow>
+        <TableCell>
+          cell 1
+        </TableCell>
+        <TableCell>
+          cell 2
+        </TableCell>
+      </TableRow>
+    </Table>
+  </Story>
+</Canvas>
+
+<RenderHtmlMarkup component="Table" story="Column Table Cell example" />
+
+#### Maximum
+
+This can be used for a maximum of 12 columns
+
+<Canvas>
+  <Story name="Column Table Cell example 2">
+    <Table data-num-columns-excl-expandable-row-trigger-col="12">
+      <TableHeadersRow>
+        <TableHeader>1</TableHeader>
+        <TableHeader>2</TableHeader>
+        <TableHeader>3</TableHeader>
+        <TableHeader>4</TableHeader>
+        <TableHeader>5</TableHeader>
+        <TableHeader>6</TableHeader>
+        <TableHeader>7</TableHeader>
+        <TableHeader>8</TableHeader>
+        <TableHeader>9</TableHeader>
+        <TableHeader>10</TableHeader>
+        <TableHeader>11</TableHeader>
+        <TableHeader>12</TableHeader>
+      </TableHeadersRow>
+      <TableRow>
+        <TableCell>
+          cell 1
+        </TableCell>
+        <TableCell>
+          cell 2
+        </TableCell>
+         <TableCell>
+          cell 3
+        </TableCell>
+        <TableCell>
+          cell 4
+        </TableCell>
+         <TableCell>
+          cell 5
+        </TableCell>
+        <TableCell>
+          cell 6
+        </TableCell>
+         <TableCell>
+          cell 7
+        </TableCell>
+        <TableCell>
+          cell 8
+        </TableCell>
+         <TableCell>
+          cell 9
+        </TableCell>
+        <TableCell>
+          cell 10
+        </TableCell>
+        <TableCell>
+          cell 11
+        </TableCell>
+        <TableCell>
+          cell 12
+        </TableCell>
+      </TableRow>
+    </Table>
+  </Story>
+</Canvas>
+
+<RenderHtmlMarkup component="Table" story="Column Table Cell example 2" />
+
+#### Expandable headers
+
+Using expandable actions and column headers you'll need to use the `data-has-expandable-action` to change the sizing of the action columns respectively.
+
+> Don't forget to not include the expandable row trigger columns in your column num attribute
+
+<Canvas>
+  <Story name="Column Table Expandable action">
+    <Table data-num-columns-excl-expandable-row-trigger-col="4" data-has-expandable-action>
+      <TableHeadersRow>
+        <TableHeader>1</TableHeader>
+        <TableHeader>2</TableHeader>
+        <TableHeader>3</TableHeader>
+        <TableHeader>4</TableHeader>
+        <TableHeader><Icon icon="home"/></TableHeader>
+      </TableHeadersRow>
+      <TableRow>
+        <TableCell>
+          cell 1
+        </TableCell>
+        <TableCell>
+          cell 2
+        </TableCell>
+         <TableCell>
+          cell 3
+        </TableCell>
+        <TableCell>
+          cell 4
+        </TableCell>
+        <TableExpandableRowTriggerCell />
+      </TableRow>
+    </Table>
+  </Story>
+</Canvas>
+
+<RenderHtmlMarkup component="Table" story="Column Table Expandable action" />
 
 ## React Shorthand
 
