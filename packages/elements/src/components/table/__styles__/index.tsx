@@ -3,7 +3,7 @@ import { styled } from 'linaria/react'
 import { ElIcon } from '../../icon/__styles__'
 import { elIsActive } from '../../../styles/states'
 
-const EXPANDABLE_TRIGGER_CELL_WIDTH = '55px'
+const EXPANDABLE_TRIGGER_CELL_WIDTH = '40px'
 
 const MAX_HEADER_HEIGHT = '40px'
 const MAX_TABLE_CONTENT_HEIGHT = '60px'
@@ -115,7 +115,7 @@ export const ElTableHeader = styled.div`
   margin-right: 2px;
   display: flex;
   align-items: center;
-  max-height: calc(${MAX_HEADER_HEIGHT} - 0.75rem);
+  max-height: calc(${MAX_HEADER_HEIGHT} - 1.5rem);
   overflow: hidden;
   text-overflow: ellipsis;
 
@@ -134,7 +134,7 @@ export const ElTableRow = styled.div`
   // see above for the explanation of this line
   grid-template-columns:
     repeat(var(--component-table-num-columns, auto-fit), minmax(var(--component-table-min-column-width), 1fr))
-    var(--component-table-expandable-trigger-width, 0);
+    var(--component-table-expandable-trigger-width, 40px);
   margin-top: 0.5rem;
 
   background: var(--color-white);
