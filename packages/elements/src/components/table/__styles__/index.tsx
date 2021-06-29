@@ -50,14 +50,17 @@ export const ElTable = styled.div`
 
   &[data-expandable-content-size="small"] {
     --table-expanded-height: 12rem;
+    --table-expanded-animation-speed: .3s;
   }
 
   &[data-expandable-content-size="medium"] {
     --table-expanded-height: 18rem;
+    --table-expanded-animation-speed: .5s;
   }
 
   &[data-expandable-content-size="large"] {
     --table-expanded-height: 24rem;
+    --table-expanded-animation-speed: .8s;
   }
 `
 
@@ -256,7 +259,7 @@ export const ElTableExpandableRow = styled.div`
   box-shadow: 0px 2px 9px rgba(0, 0, 0, 0.08);
   border-radius: 0 0 var(--default-border-radius) var(--default-border-radius);
   opacity: 0;
-  transition: height .2s linear, opacity .2s linear;
+  transition: height var(--table-expanded-animation-speed, .2s) linear, opacity .2s linear;
   border: none;
   overflow: hidden;
   padding: 0;
