@@ -1,0 +1,191 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Table Component should match a snapshot 1`] = `<ElTable />`;
+
+exports[`Table Component should match a snapshot 2`] = `
+<ElTable
+  data-num-columns-excl-expandable-row-trigger-col={7}
+>
+  <TableHeadersRow>
+    <TableHeader
+      key="Property"
+    >
+      Property
+    </TableHeader>
+    <TableHeader
+      key="Customer"
+    >
+      Customer
+    </TableHeader>
+    <TableHeader
+      key="Client A/C"
+    >
+      Client A/C
+    </TableHeader>
+    <TableHeader
+      key="Description"
+    >
+      Description
+    </TableHeader>
+    <TableHeader
+      key="Request Date"
+    >
+      Request Date
+    </TableHeader>
+    <TableHeader
+      key="Amount"
+    >
+      Amount
+    </TableHeader>
+    <TableHeader
+      key="Payment Status"
+    >
+      Payment Status
+    </TableHeader>
+    <TableHeader>
+      <Icon
+        fontSize="1.2rem"
+        icon="solidEdit"
+      />
+    </TableHeader>
+  </TableHeadersRow>
+  <TableRowContainer
+    isOpen={false}
+    key="0"
+  >
+    <TableRow>
+      <TableCell
+        darkText={true}
+        icon="home"
+        key="0-0"
+        narrowLabel="Property"
+      >
+        Mt Ash Jacket, Brassey Road
+      </TableCell>
+      <TableCell
+        icon="username"
+        key="1-0"
+        narrowLabel="Customer"
+      >
+        Mr Johnny Corrigan
+      </TableCell>
+      <TableCell
+        key="2-0"
+      >
+        Alternate Lettings Client Acc
+      </TableCell>
+      <TableCell
+        key="3-0"
+      >
+        Tenant Payment Request
+      </TableCell>
+      <TableCell
+        key="4-0"
+        narrowLabel="Request Date"
+      >
+        19 Apr 2021
+      </TableCell>
+      <TableCell
+        darkText={true}
+        key="5-0"
+      >
+        £50.00
+      </TableCell>
+      <TableCell
+        key="6-0"
+        narrowIsFullWidth={true}
+      >
+        Not Requested
+      </TableCell>
+      <TableExpandableRowTriggerCell
+        isOpen={false}
+        onClick={[Function]}
+      />
+    </TableRow>
+    <TableExpandableRow
+      isOpen={false}
+    >
+      <p>
+        I am the content that is only visible when expanded
+      </p>
+    </TableExpandableRow>
+  </TableRowContainer>
+</ElTable>
+`;
+
+exports[`Table Component should match a snapshot 3`] = `
+<ElTable>
+  <TableHeadersRow>
+    <TableHeader>
+      Property
+    </TableHeader>
+    <TableHeader>
+      Customer
+    </TableHeader>
+    <TableHeader>
+      Client A/C
+    </TableHeader>
+    <TableHeader>
+      Description
+    </TableHeader>
+    <TableHeader>
+      Request Date
+    </TableHeader>
+    <TableHeader>
+      Amount
+    </TableHeader>
+    <TableHeader>
+      Payment Status
+    </TableHeader>
+    <TableHeader>
+      <Icon
+        fontSize="1.2rem"
+        icon="solidEdit"
+      />
+    </TableHeader>
+  </TableHeadersRow>
+  <TableRowContainer>
+    <TableRow>
+      <TableCell
+        darkText={true}
+        icon="home"
+      >
+        Mt Ash Jacket
+        <br />
+        Brassey Road
+      </TableCell>
+      <TableCell
+        icon="username"
+        narrowLabel="N_Customer"
+      >
+        Mr Johnny Corrigan
+      </TableCell>
+      <TableCell>
+        Alternate Lettings Client Acc
+      </TableCell>
+      <TableCell>
+        Tenant Payment Request
+      </TableCell>
+      <TableCell
+        narrowLabel="Request Date"
+      >
+        19 Apr 2021
+      </TableCell>
+      <TableCell
+        darkText={true}
+      >
+        £50.00
+      </TableCell>
+      <TableCell
+        narrowIsFullWidth={true}
+      >
+        Not Requested
+      </TableCell>
+      <TableExpandableRowTriggerCell />
+    </TableRow>
+    <TableExpandableRow>
+      I am the content that is only visible when expanded
+    </TableExpandableRow>
+  </TableRowContainer>
+</ElTable>
+`;
