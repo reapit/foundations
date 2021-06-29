@@ -12,6 +12,11 @@ import {
 } from './molecules'
 import { Icon } from '../icon'
 import { RenderHtmlMarkup } from '../../helpers/render-html-markup'
+import { Grid, Col, elSpan6, elOffset7 } from '../grid'
+import { Molecule } from '../layout'
+import { Subtitle } from '../typography'
+import { InputGroup } from '../input-group'
+import { Button } from '../button'
 
 <Meta title="Table" component={Table} />
 
@@ -248,6 +253,68 @@ The isOpen prop toggles the `.el-is-active` class to show the content.
 </Canvas>
 
 <RenderHtmlMarkup component="TableExpandableRow" story="TableExpandableRow - isOpen" />
+
+### TableExpandableRow content size
+
+You can adjust the size of the expandable content section using the `data-expandable-content-size` data attribute on the table. The fixed heights are required for the drop down animation.
+
+#### Available sizes
+
+Value | Size
+--- | ---
+"" | 6rem
+"small" | 12rem
+"medium" | 18rem
+"large" | 24rem
+
+> All content sizes include overflow on the Y axis
+
+<Canvas>
+  <Story name="TableExpandableRow - expandable-content-size">
+    <Table data-num-columns-excl-expandable-row-trigger-col="7" data-has-expandable-action data-expandable-content-size="large">
+      <TableRowContainer isOpen>
+        <TableRow>
+          <TableCell darkText icon="home">
+            Mt Ash Jacket
+            <br />
+            Brassey Road
+          </TableCell>
+          <TableCell narrowLabel="N_Customer" icon="username">
+            Mr Johnny Corrigan
+          </TableCell>
+          <TableCell>Alternate Lettings Client Acc</TableCell>
+          <TableCell>Tenant Payment Request</TableCell>
+          <TableCell narrowLabel="Request Date">19 Apr 2021</TableCell>
+          <TableCell darkText>£50.00</TableCell>
+          <TableCell narrowIsFullWidth>Not Requested</TableCell>
+          <TableExpandableRowTriggerCell isOpen />
+        </TableRow>
+        <TableExpandableRow isOpen>
+          <p>This form will send an email request for payment to your customer with an embedded link to our card processing page. You should set an expiry for this payment request and an email address to receive the request. The default expiry is a week.</p>
+          <Molecule>
+            <Grid>
+              <Col className={cx(elSpan6)}>
+                <Subtitle>Subtitle</Subtitle>
+                <InputGroup icon="home" label="Please enter an address" type="text" />
+                <InputGroup label="Please your name" type="text" />
+              </Col>
+              <Col className={cx(elSpan6)}>
+                <Subtitle>Subtitle</Subtitle>
+                <InputGroup label="Please enter your email" type="text" />
+                <InputGroup label="Selection" type="checkbox" />
+              </Col>
+              <Col className={cx(elSpan6, elOffset7)}>
+                <Button chevronRight intent="primary">Send</Button>
+              </Col>
+            </Grid>
+          </Molecule>
+        </TableExpandableRow>
+      </TableRowContainer>
+    </Table>
+  </Story>
+</Canvas>
+
+<RenderHtmlMarkup component="TableExpandableRow" story="TableExpandableRow - expandable-content-size" />
 
 ### TableRowContainer 
 
