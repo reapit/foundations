@@ -5,7 +5,7 @@ import { AppDetailModel } from '@reapit/foundations-ts-definitions'
 import { MEDIA_INDEX } from '@/constants/media'
 import ImagePlaceHolder from '@/assets/images/default-app-icon.jpg'
 import featureImagePlaceHolder from '@/assets/images/default-feature-image.jpg'
-import { cx } from 'linaria'
+import { cx } from '@linaria/core'
 import { containerOuterHeader, headerContent, containerHeader, check, appIconContainer } from '../__styles__/app-detail'
 
 export type AppHeaderProps = {

@@ -64,7 +64,7 @@ exports[`developer-invite-member-modal InviteMemberModal should match snapshot w
       visible={true}
     >
       <Dialog
-        className=""
+        className="m36ncwu-modal-container"
         closeIcon={
           <span
             aria-label="close"
@@ -103,7 +103,7 @@ exports[`developer-invite-member-modal InviteMemberModal should match snapshot w
                       tabindex="-1"
                     >
                       <div
-                        class="rc-dialog"
+                        class="rc-dialog m36ncwu-modal-container"
                         role="document"
                       >
                         <div
@@ -142,7 +142,7 @@ exports[`developer-invite-member-modal InviteMemberModal should match snapshot w
                             class="rc-dialog-body"
                           >
                             <h6
-                              class=""
+                              class="subtitle is-6"
                               id=""
                             >
                               Please enter a name and email address below to invite a new member to your organisation:
@@ -152,10 +152,10 @@ exports[`developer-invite-member-modal InviteMemberModal should match snapshot w
                               class="form"
                             >
                               <div
-                                class=""
+                                class="container-flex is-column has-background"
                               >
                                 <div
-                                  class=""
+                                  class="field"
                                 >
                                   <div
                                     class="control "
@@ -167,7 +167,7 @@ exports[`developer-invite-member-modal InviteMemberModal should match snapshot w
                                       Name
                                     </label>
                                     <input
-                                      class=""
+                                      class="input is-primary"
                                       data-test=""
                                       id="name"
                                       name="name"
@@ -178,7 +178,7 @@ exports[`developer-invite-member-modal InviteMemberModal should match snapshot w
                                   </div>
                                 </div>
                                 <div
-                                  class=""
+                                  class="field"
                                 >
                                   <div
                                     class="control "
@@ -190,7 +190,7 @@ exports[`developer-invite-member-modal InviteMemberModal should match snapshot w
                                       Email
                                     </label>
                                     <input
-                                      class=""
+                                      class="input is-primary"
                                       data-test=""
                                       id="email"
                                       name="email"
@@ -201,7 +201,7 @@ exports[`developer-invite-member-modal InviteMemberModal should match snapshot w
                                   </div>
                                 </div>
                                 <div
-                                  class=""
+                                  class="field"
                                 >
                                   <div
                                     class="control "
@@ -213,7 +213,7 @@ exports[`developer-invite-member-modal InviteMemberModal should match snapshot w
                                       Job Title
                                     </label>
                                     <input
-                                      class=""
+                                      class="input is-primary"
                                       data-test=""
                                       id="jobTitle"
                                       name="jobTitle"
@@ -230,13 +230,13 @@ exports[`developer-invite-member-modal InviteMemberModal should match snapshot w
                                     class="control"
                                   >
                                     <label
-                                      class=""
+                                      class="label mb-2"
                                       for="message"
                                     >
                                       Message (Optional)
                                     </label>
                                     <textarea
-                                      class=""
+                                      class="textarea is-primary"
                                       data-test=""
                                       id="message"
                                       name="message"
@@ -245,7 +245,7 @@ exports[`developer-invite-member-modal InviteMemberModal should match snapshot w
                                   </div>
                                 </div>
                                 <div
-                                  class=""
+                                  class="level-right"
                                   data-test=""
                                 >
                                   <button
@@ -280,7 +280,7 @@ exports[`developer-invite-member-modal InviteMemberModal should match snapshot w
             >
               <Dialog
                 afterClose={[Function]}
-                className=""
+                className="m36ncwu-modal-container"
                 closeIcon={
                   <span
                     aria-label="close"
@@ -315,7 +315,7 @@ exports[`developer-invite-member-modal InviteMemberModal should match snapshot w
                               tabindex="-1"
                             >
                               <div
-                                class="rc-dialog"
+                                class="rc-dialog m36ncwu-modal-container"
                                 role="document"
                               >
                                 <div
@@ -354,7 +354,7 @@ exports[`developer-invite-member-modal InviteMemberModal should match snapshot w
                                     class="rc-dialog-body"
                                   >
                                     <h6
-                                      class=""
+                                      class="subtitle is-6"
                                       id=""
                                     >
                                       Please enter a name and email address below to invite a new member to your organisation:
@@ -364,10 +364,10 @@ exports[`developer-invite-member-modal InviteMemberModal should match snapshot w
                                       class="form"
                                     >
                                       <div
-                                        class=""
+                                        class="container-flex is-column has-background"
                                       >
                                         <div
-                                          class=""
+                                          class="field"
                                         >
                                           <div
                                             class="control "
@@ -379,7 +379,7 @@ exports[`developer-invite-member-modal InviteMemberModal should match snapshot w
                                               Name
                                             </label>
                                             <input
-                                              class=""
+                                              class="input is-primary"
                                               data-test=""
                                               id="name"
                                               name="name"
@@ -390,7 +390,7 @@ exports[`developer-invite-member-modal InviteMemberModal should match snapshot w
                                           </div>
                                         </div>
                                         <div
-                                          class=""
+                                          class="field"
                                         >
                                           <div
                                             class="control "
@@ -402,7 +402,7 @@ exports[`developer-invite-member-modal InviteMemberModal should match snapshot w
                                               Email
                                             </label>
                                             <input
-                                              class=""
+                                              class="input is-primary"
                                               data-test=""
                                               id="email"
                                               name="email"
@@ -413,7 +413,7 @@ exports[`developer-invite-member-modal InviteMemberModal should match snapshot w
                                           </div>
                                         </div>
                                         <div
-                                          class=""
+                                          class="field"
                                         >
                                           <div
                                             class="control "
@@ -425,7 +425,7 @@ exports[`developer-invite-member-modal InviteMemberModal should match snapshot w
                                               Job Title
                                             </label>
                                             <input
-                                              class=""
+                                              class="input is-primary"
                                               data-test=""
                                               id="jobTitle"
                                               name="jobTitle"
@@ -442,13 +442,13 @@ exports[`developer-invite-member-modal InviteMemberModal should match snapshot w
                                             class="control"
                                           >
                                             <label
-                                              class=""
+                                              class="label mb-2"
                                               for="message"
                                             >
                                               Message (Optional)
                                             </label>
                                             <textarea
-                                              class=""
+                                              class="textarea is-primary"
                                               data-test=""
                                               id="message"
                                               name="message"
@@ -457,7 +457,7 @@ exports[`developer-invite-member-modal InviteMemberModal should match snapshot w
                                           </div>
                                         </div>
                                         <div
-                                          class=""
+                                          class="level-right"
                                           data-test=""
                                         >
                                           <button
@@ -549,7 +549,7 @@ exports[`developer-invite-member-modal InviteMemberModal should match snapshot w
                     <Content
                       afterClose={[Function]}
                       ariaId="rcDialogTitle0"
-                      className=""
+                      className="m36ncwu-modal-container"
                       closable={true}
                       closeIcon={
                         <span
@@ -589,7 +589,7 @@ exports[`developer-invite-member-modal InviteMemberModal should match snapshot w
                                     tabindex="-1"
                                   >
                                     <div
-                                      class="rc-dialog"
+                                      class="rc-dialog m36ncwu-modal-container"
                                       role="document"
                                     >
                                       <div
@@ -628,7 +628,7 @@ exports[`developer-invite-member-modal InviteMemberModal should match snapshot w
                                           class="rc-dialog-body"
                                         >
                                           <h6
-                                            class=""
+                                            class="subtitle is-6"
                                             id=""
                                           >
                                             Please enter a name and email address below to invite a new member to your organisation:
@@ -638,10 +638,10 @@ exports[`developer-invite-member-modal InviteMemberModal should match snapshot w
                                             class="form"
                                           >
                                             <div
-                                              class=""
+                                              class="container-flex is-column has-background"
                                             >
                                               <div
-                                                class=""
+                                                class="field"
                                               >
                                                 <div
                                                   class="control "
@@ -653,7 +653,7 @@ exports[`developer-invite-member-modal InviteMemberModal should match snapshot w
                                                     Name
                                                   </label>
                                                   <input
-                                                    class=""
+                                                    class="input is-primary"
                                                     data-test=""
                                                     id="name"
                                                     name="name"
@@ -664,7 +664,7 @@ exports[`developer-invite-member-modal InviteMemberModal should match snapshot w
                                                 </div>
                                               </div>
                                               <div
-                                                class=""
+                                                class="field"
                                               >
                                                 <div
                                                   class="control "
@@ -676,7 +676,7 @@ exports[`developer-invite-member-modal InviteMemberModal should match snapshot w
                                                     Email
                                                   </label>
                                                   <input
-                                                    class=""
+                                                    class="input is-primary"
                                                     data-test=""
                                                     id="email"
                                                     name="email"
@@ -687,7 +687,7 @@ exports[`developer-invite-member-modal InviteMemberModal should match snapshot w
                                                 </div>
                                               </div>
                                               <div
-                                                class=""
+                                                class="field"
                                               >
                                                 <div
                                                   class="control "
@@ -699,7 +699,7 @@ exports[`developer-invite-member-modal InviteMemberModal should match snapshot w
                                                     Job Title
                                                   </label>
                                                   <input
-                                                    class=""
+                                                    class="input is-primary"
                                                     data-test=""
                                                     id="jobTitle"
                                                     name="jobTitle"
@@ -716,13 +716,13 @@ exports[`developer-invite-member-modal InviteMemberModal should match snapshot w
                                                   class="control"
                                                 >
                                                   <label
-                                                    class=""
+                                                    class="label mb-2"
                                                     for="message"
                                                   >
                                                     Message (Optional)
                                                   </label>
                                                   <textarea
-                                                    class=""
+                                                    class="textarea is-primary"
                                                     data-test=""
                                                     id="message"
                                                     name="message"
@@ -731,7 +731,7 @@ exports[`developer-invite-member-modal InviteMemberModal should match snapshot w
                                                 </div>
                                               </div>
                                               <div
-                                                class=""
+                                                class="level-right"
                                                 data-test=""
                                               >
                                                 <button
@@ -786,7 +786,7 @@ exports[`developer-invite-member-modal InviteMemberModal should match snapshot w
                       >
                         <DomWrapper>
                           <div
-                            className="rc-dialog"
+                            className="rc-dialog m36ncwu-modal-container"
                             key="dialog-element"
                             onMouseDown={[Function]}
                             onMouseUp={[Function]}
@@ -843,7 +843,7 @@ exports[`developer-invite-member-modal InviteMemberModal should match snapshot w
                                 >
                                   <SubTitleH6>
                                     <h6
-                                      className=""
+                                      className="subtitle is-6"
                                       id=""
                                     >
                                       Please enter a name and email address below to invite a new member to your organisation:
@@ -1011,7 +1011,7 @@ exports[`developer-invite-member-modal InviteMemberModal should match snapshot w
                                           hasBackground={true}
                                         >
                                           <div
-                                            className=""
+                                            className="container-flex is-column has-background"
                                           >
                                             <InviteMemberModalInput>
                                               <Input
@@ -1027,7 +1027,7 @@ exports[`developer-invite-member-modal InviteMemberModal should match snapshot w
                                                   validate={[Function]}
                                                 >
                                                   <div
-                                                    className=""
+                                                    className="field"
                                                   >
                                                     <div
                                                       className="control "
@@ -1039,7 +1039,7 @@ exports[`developer-invite-member-modal InviteMemberModal should match snapshot w
                                                         Name
                                                       </label>
                                                       <input
-                                                        className=""
+                                                        className="input is-primary"
                                                         data-test=""
                                                         disabled={false}
                                                         id="name"
@@ -1067,7 +1067,7 @@ exports[`developer-invite-member-modal InviteMemberModal should match snapshot w
                                                   validate={[Function]}
                                                 >
                                                   <div
-                                                    className=""
+                                                    className="field"
                                                   >
                                                     <div
                                                       className="control "
@@ -1079,7 +1079,7 @@ exports[`developer-invite-member-modal InviteMemberModal should match snapshot w
                                                         Email
                                                       </label>
                                                       <input
-                                                        className=""
+                                                        className="input is-primary"
                                                         data-test=""
                                                         disabled={false}
                                                         id="email"
@@ -1107,7 +1107,7 @@ exports[`developer-invite-member-modal InviteMemberModal should match snapshot w
                                                   validate={[Function]}
                                                 >
                                                   <div
-                                                    className=""
+                                                    className="field"
                                                   >
                                                     <div
                                                       className="control "
@@ -1119,7 +1119,7 @@ exports[`developer-invite-member-modal InviteMemberModal should match snapshot w
                                                         Job Title
                                                       </label>
                                                       <input
-                                                        className=""
+                                                        className="input is-primary"
                                                         data-test=""
                                                         disabled={false}
                                                         id="jobTitle"
@@ -1151,13 +1151,13 @@ exports[`developer-invite-member-modal InviteMemberModal should match snapshot w
                                                       className="control"
                                                     >
                                                       <label
-                                                        className=""
+                                                        className="label mb-2"
                                                         htmlFor="message"
                                                       >
                                                         Message (Optional)
                                                       </label>
                                                       <textarea
-                                                        className=""
+                                                        className="textarea is-primary"
                                                         data-test=""
                                                         id="message"
                                                         name="message"
@@ -1173,7 +1173,7 @@ exports[`developer-invite-member-modal InviteMemberModal should match snapshot w
                                             </InviteMemberModalInput>
                                             <LevelRight>
                                               <div
-                                                className=""
+                                                className="level-right"
                                                 data-test=""
                                               >
                                                 <Button

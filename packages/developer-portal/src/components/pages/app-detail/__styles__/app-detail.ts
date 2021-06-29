@@ -1,4 +1,4 @@
-import { css } from 'linaria'
+import { css } from '@linaria/core'
 import { greyLight, greenSemantic } from '../../../../core/__styles__/colors'
 import { forMobileOnly, forIEOnly, forTabletAndBelow } from '@/core/__styles__/media'
 

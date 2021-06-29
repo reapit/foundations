@@ -97,12 +97,12 @@ exports[`ServiceChart should match a snapshot 1`] = `
       hasMargin={false}
     >
       <section
-        className=""
+        className="section has-padding has-background has-box-shadow"
         data-test=""
       >
         <H5>
           <h5
-            className=""
+            className="title is-5"
             id=""
           >
             Services

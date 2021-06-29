@@ -26,18 +26,18 @@ exports[`AgencyCloudIntegrationSection should match a snapshot 1`] = `
         <AgencyCloudIntegrationSection>
           <FormSection>
             <div
-              className=""
+              className="form-section"
             >
               <FormHeading>
                 <div
-                  className=""
+                  className="form-heading"
                 >
                   Agency Cloud Integration
                 </div>
               </FormHeading>
               <FormSubHeading>
                 <div
-                  className=""
+                  className="form-subheading"
                 >
                   To be able to associate your application with an action in Agency Cloud the application will need to be given a desktop type. Please select the type of integration your app requires from the list below. For more information on Desktop Types, please
                    
@@ -53,12 +53,12 @@ exports[`AgencyCloudIntegrationSection should match a snapshot 1`] = `
               </FormSubHeading>
               <Grid>
                 <div
-                  className=""
+                  className="columns"
                   data-test=""
                 >
                   <GridItem>
                     <div
-                      className=""
+                      className="column"
                       data-test=""
                     >
                       <DropdownSelect

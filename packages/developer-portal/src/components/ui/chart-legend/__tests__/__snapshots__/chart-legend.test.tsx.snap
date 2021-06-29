@@ -29,7 +29,7 @@ exports[`ChartLegend should match a snapshot 1`] = `
         className="px-0"
       >
         <p
-          className=""
+          className="is-size-7"
         >
           API Calls
         </p>
@@ -63,7 +63,7 @@ exports[`ChartLegend should match a snapshot 1`] = `
         className="px-0"
       >
         <p
-          className=""
+          className="is-size-7"
         >
           App Listing
         </p>
@@ -97,7 +97,7 @@ exports[`ChartLegend should match a snapshot 1`] = `
         className="px-0"
       >
         <p
-          className=""
+          className="is-size-7"
         >
           Developer Edition
         </p>
@@ -131,7 +131,7 @@ exports[`ChartLegend should match a snapshot 1`] = `
         className="px-0"
       >
         <p
-          className=""
+          className="is-size-7"
         >
           Developer Registration
         </p>

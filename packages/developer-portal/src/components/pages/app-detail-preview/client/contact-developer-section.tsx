@@ -1,7 +1,7 @@
 import React from 'react'
 import { H5, Grid, GridItem, Content } from '@reapit/elements-legacy'
 import { link, linkNormal } from '@/styles/elements/link'
-import { cx } from 'linaria'
+import { cx } from '@linaria/core'
 
 export type ContactDeveloperSectionType = {
   contact: {

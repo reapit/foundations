@@ -1,4 +1,4 @@
-import { css } from 'linaria'
+import { css } from '@linaria/core'
 import { forTabletAndDesktop } from '@/core/__styles__/media'
 
 const navWidth = '80px'

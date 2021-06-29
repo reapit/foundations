@@ -1,7 +1,7 @@
 import * as React from 'react'
 import * as chartjs from 'chart.js'
 import { GridItem, Grid } from '@reapit/elements-legacy'
-import { cx } from 'linaria'
+import { cx } from '@linaria/core'
 
 export type ChartLegendItem = {
   text: string

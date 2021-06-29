@@ -30,7 +30,7 @@ import {
   videoModal,
 } from './__styles__/styles'
 import { Grid, Col } from '../../../styles/grid'
-import { cx } from 'linaria'
+import { cx } from '@linaria/core'
 import crmImage from '../../../assets/images/desktop/crm-sandbox.svg'
 import phoneImage from '../../../assets/images/desktop/marketplace-agency-cloud.svg'
 import customerImage from '../../../assets/images/desktop/customer-interact-app.svg'

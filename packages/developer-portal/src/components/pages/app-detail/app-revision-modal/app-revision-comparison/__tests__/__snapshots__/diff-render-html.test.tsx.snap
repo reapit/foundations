@@ -5,7 +5,7 @@ exports[`DiffRenderHTML should match a snapshot 1`] = `
   className="d1hksy8i-diff-render-html-container"
 >
   <HTMLRender
-    className=""
+    className="dh9he44-diff-render-block rbeetup-red"
     html="abc"
   />
   <span
@@ -14,7 +14,7 @@ exports[`DiffRenderHTML should match a snapshot 1`] = `
     →
   </span>
   <HTMLRender
-    className=""
+    className="dh9he44-diff-render-block g1gwscut-green"
     html="<b>axxxxxxxxxxxbc<b>"
   />
 </div>

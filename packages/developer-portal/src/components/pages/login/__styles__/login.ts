@@ -1,4 +1,4 @@
-import { css } from 'linaria'
+import { css } from '@linaria/core'
 import { white } from '@/core/__styles__/colors'
 import { forMobileOnly } from '@/core/__styles__/media'
 

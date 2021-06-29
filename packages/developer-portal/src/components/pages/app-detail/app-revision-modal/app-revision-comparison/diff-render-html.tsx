@@ -1,5 +1,5 @@
 import * as React from 'react'
-import { cx } from 'linaria'
+import { cx } from '@linaria/core'
 import { HTMLRender } from '@reapit/elements-legacy'
 import { red, green, diffRenderBlock, arrow, diffRenderHtmlContainer } from './__styles__/pending-revision-comparison'
 

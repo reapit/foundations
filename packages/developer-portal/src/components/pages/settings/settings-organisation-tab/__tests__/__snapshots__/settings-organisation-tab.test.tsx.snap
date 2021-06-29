@@ -42,7 +42,7 @@ exports[`DeveloperOrganisationTabPage DeveloperSettingsOrganisationTabPage shoul
         }
       >
         <div
-          className=""
+          className="tabs is-fullwidth"
           role="tablist"
         >
           <ul>
@@ -131,12 +131,12 @@ exports[`DeveloperOrganisationTabPage DeveloperSettingsOrganisationTabPage shoul
         hasPadding={false}
       >
         <section
-          className=""
+          className="section has-margin has-background"
           data-test=""
         >
           <H5>
             <h5
-              className=""
+              className="title is-5"
               id=""
             >
               Members
@@ -1598,7 +1598,7 @@ exports[`DeveloperOrganisationTabPage DeveloperSettingsOrganisationTabPage shoul
     </Members>
     <LevelRight>
       <div
-        className=""
+        className="level-right"
         data-test=""
       >
         <Button

@@ -4,7 +4,7 @@ import { Provider } from 'react-redux'
 import store from './store'
 import Toast from '../components/ui/toast'
 import ToastMessage from '../components/ui/toast-message'
-import { css } from 'linaria'
+import { css } from '@linaria/core'
 import { MediaStateProvider, NavStateProvider } from '@reapit/elements'
 
 export const globals = css`
