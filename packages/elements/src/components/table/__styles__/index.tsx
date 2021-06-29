@@ -138,7 +138,7 @@ export const ElTableRow = styled.div`
     grid-template-columns: 1fr 1fr;
   }
 
-  &:hover, &:focus {
+  &:hover, &:focus, &:hover + .el-table-expandable-row, &:focus + .el-table-expandable-row {
     box-shadow: 0px 0px 3px var(--color-blue-light);
   }
 `
