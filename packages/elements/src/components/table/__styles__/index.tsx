@@ -2,7 +2,7 @@ import { css } from 'linaria'
 import { styled } from 'linaria/react'
 import { ElIcon } from '../../icon/__styles__'
 import { elIsActive } from '../../../styles/states'
-import { isMobile } from './../../../styles/media'
+import { isMobile, isTablet } from './../../../styles/media'
 
 const EXPANDABLE_TRIGGER_CELL_WIDTH = '40px'
 
@@ -231,7 +231,7 @@ export const ElTableHeadersRow = styled.div`
     repeat(var(--component-table-num-columns, auto-fit), minmax(var(--component-table-min-column-width), 1fr))
     var(--component-table-expandable-trigger-width, 0);
 
-  ${isMobile} {
+    @media only screen and (max-width: 1024px) {
     display: none;
   }
 `
@@ -270,6 +270,10 @@ export const ElTableRow = styled.div`
   background: var(--color-white);
   box-shadow: 0px 2px 9px rgba(0, 0, 0, 0.08);
   border-radius: var(--default-border-radius);
+
+  @media only screen and (max-width: 1024px) {
+    grid-template-columns: 1fr 1fr 1fr 1fr;
+  }
 
   ${isMobile} {
     grid-template-columns: 1fr 1fr;
@@ -362,6 +366,24 @@ export const ElTableExpandableRowTriggerCell = styled.div`
 
   &:first-child {
     border-radius: var(--default-border-radius) 0 0 var(--default-border-radius);
+  }
+
+  @media only screen and (max-width: 1024px) {
+    &:not(.el-table-narrow-cell-is-full-width) {
+      grid-column-end: span 4;
+      text-align: center;
+      width: 40px;
+      justify-self: end;
+      grid-column-end: 5;
+    }
+
+    &:last-child {
+      border-radius: 0 0 var(--default-border-radius) var(--default-border-radius);
+    }
+
+    &:first-child {
+      border-radius: var(--default-border-radius) var(--default-border-radius) 0 0;
+    }
   }
 
   ${isMobile} {
