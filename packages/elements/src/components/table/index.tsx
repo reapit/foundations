@@ -41,7 +41,7 @@ export type Cell = {
 }
 export type Row = {
   cells: Cell[]
-  expandableContent: React.ReactNode
+  expandableContent?: React.ReactNode
 }
 export interface ITable extends React.HTMLAttributes<HTMLDivElement> {
   rows?: Row[]
