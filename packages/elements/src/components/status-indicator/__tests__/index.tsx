@@ -32,4 +32,9 @@ describe('Table component', () => {
     const wrapper = shallow(<StatusIndicator intent="critical" />)
     expect(wrapper).toMatchSnapshot()
   })
+
+  it('should match a snapshot', () => {
+    const wrapper = shallow(<StatusIndicator />)
+    expect(wrapper).toMatchSnapshot()
+  })
 })
