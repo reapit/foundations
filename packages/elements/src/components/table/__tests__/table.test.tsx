@@ -115,4 +115,72 @@ describe('Table Component', () => {
     )
     expect(wrapper).toMatchSnapshot()
   })
+
+  it('should match a snapshot', () => {
+    const wrapper = shallow(
+        <TableHeadersRow>
+          <TableHeader>Property</TableHeader>
+          <TableHeader>Customer</TableHeader>
+          <TableHeader>Client A/C</TableHeader>
+          <TableHeader>Description</TableHeader>
+          <TableHeader>Request Date</TableHeader>
+          <TableHeader>Amount</TableHeader>
+          <TableHeader>Payment Status</TableHeader>
+          <TableHeader>
+            <Icon icon="solidEdit" fontSize="1.2rem" />
+          </TableHeader>
+        </TableHeadersRow>,
+    )
+    expect(wrapper).toMatchSnapshot()
+  })
+
+  it('should match a snapshot', () => {
+    const wrapper = shallow(
+      <TableCell darkText icon="home">
+        Mt Ash Jacket
+        <br />
+        Brassey Road
+      </TableCell>,
+    )
+    expect(wrapper).toMatchSnapshot()
+  })
+
+  it('should match a snapshot', () => {
+    const wrapper = shallow(
+      <TableRowContainer isOpen>
+        <TableRow>
+          <TableCell darkText icon="home">
+            Mt Ash Jacket
+            <br />
+            Brassey Road
+          </TableCell>
+          <TableCell narrowLabel="N_Customer" icon="username">
+            Mr Johnny Corrigan
+          </TableCell>
+          <TableCell>Alternate Lettings Client Acc</TableCell>
+          <TableCell>Tenant Payment Request</TableCell>
+          <TableCell narrowLabel="Request Date">19 Apr 2021</TableCell>
+          <TableCell darkText>£50.00</TableCell>
+          <TableCell>Not Requested</TableCell>
+          <TableExpandableRowTriggerCell isOpen />
+        </TableRow>
+        <TableExpandableRow isOpen>I am the content that is only visible when expanded</TableExpandableRow>
+      </TableRowContainer>,
+    )
+    expect(wrapper).toMatchSnapshot()
+  })
+
+  it('should match a snapshot', () => {
+    const wrapper = shallow(
+      <TableHeader>Property</TableHeader>,
+    )
+    expect(wrapper).toMatchSnapshot()
+  })
+
+  it('should match a snapshot', () => {
+    const wrapper = shallow(
+      <TableRow></TableRow>
+    )
+    expect(wrapper).toMatchSnapshot()
+  })
 })
