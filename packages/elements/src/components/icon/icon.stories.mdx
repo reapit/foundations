@@ -2,16 +2,30 @@ import { Meta, Story, Canvas, ArgsTable } from '@storybook/addon-docs/blocks'
 import { Icon } from './index'
 import { iconSet } from './icons'
 import { elMb5 } from '../../styles/spacing'
-import {cx} from 'linaria'
-import { elIconSizelarge, elIconSizelargest, elIconSizemedium, elIconSizesmall, elIconSizesmallest, elIconMenu } from './__styles__'
+import { cx } from 'linaria'
+import {
+  elIconSizelarge,
+  elIconSizelargest,
+  elIconSizemedium,
+  elIconSizesmall,
+  elIconSizesmallest,
+  elIconMenu,
+} from './__styles__'
+import { RenderHtmlMarkup } from '../../helpers/render-html-markup'
 
 <Meta title="Icon" component={Icon} />
 
 # Icon
 
+The basic icon component relies on adding an `icon` prop that maps to the name of a SVG file. See the tables below for the icons available.
+
+For non-React users, we export all the icons from `@reapit/elements/assets` where they are grouped in folders `animated-icons`, `infographic-icons`, `menu-icons` and `system-icons` eg `import addSystem from "@reapit/elements/assets/system-icons/addSystem.svg"`. You can then wrap your SVG in the appropriate classes you see in the rendered markup with each story in these docs. 
+
 <ArgsTable story="Basic Usage" />
 
 ## Basic Usage
+
+For a basic icon, just select an icon name from one of the tables below. They are rendered in suggested sizes appropriate for their use - for details on how this works see the "Icon Sizes" story below.
 
 <Canvas>
   <Story name="Basic Usage">
@@ -19,12 +33,18 @@ import { elIconSizelarge, elIconSizelargest, elIconSizemedium, elIconSizesmall, 
   </Story>
 </Canvas>
 
+<RenderHtmlMarkup
+  component="Icon"
+  story={['Basic Usage']}
+  label="HTML of Icon Component"
+/>
+
 # System Icons
 
 All the available icons exported by the project
 
-| Icon Name              | smallest Icon                                                     | small Icon                                                         |
-| ---------------------- | ----------------------------------------------------------------- | ------------------------------------------------------------------ |
+| Icon Name              | Smallest Icon                                              | Small Icon                                              |
+| ---------------------- | ---------------------------------------------------------- | ------------------------------------------------------- |
 | addSystem              | <Icon iconSize="smallest" icon="addSystem" />              | <Icon iconSize="small" icon="addSystem" />              |
 | arrowDownSystem        | <Icon iconSize="smallest" icon="arrowDownSystem" />        | <Icon iconSize="small" icon="arrowDownSystem" />        |
 | arrowLeftSystem        | <Icon iconSize="smallest" icon="arrowLeftSystem" />        | <Icon iconSize="small" icon="arrowLeftSystem" />        |
@@ -76,8 +96,8 @@ All the available icons exported by the project
 
 # Menu Icons
 
-| Icon Name              | medium Icon                                                         |
-| ---------------------- | ------------------------------------------------------------------- |
+| Icon Name              | Medium Icon                                                                     |
+| ---------------------- | ------------------------------------------------------------------------------- |
 | accountMenu            | <Icon iconSize="medium" className={elIconMenu} icon="accountMenu" />            |
 | analyticsMenu          | <Icon iconSize="medium" className={elIconMenu} icon="analyticsMenu" />          |
 | apiMenu                | <Icon iconSize="medium" className={elIconMenu} icon="apiMenu" />                |
@@ -103,14 +123,14 @@ All the available icons exported by the project
 | searchMenu             | <Icon iconSize="medium" className={elIconMenu} icon="searchMenu" />             |
 | usersMenu              | <Icon iconSize="medium" className={elIconMenu} icon="usersMenu" />              |
 | webhooksMenu           | <Icon iconSize="medium" className={elIconMenu} icon="webhooksMenu" />           |
-| hamburgerMenu          | <Icon iconSize="medium" icon="hamburgerMenu" />           |
-| hamburgerOpenMenu      | <Icon iconSize="medium" icon="hamburgerOpenMenu" />           |
-| reapitLogoTextMenu     | <Icon iconSize="medium" className={elIconMenu} icon="reapitLogoTextMenu" />           |
+| hamburgerMenu          | <Icon iconSize="medium" icon="hamburgerMenu" />                                 |
+| hamburgerOpenMenu      | <Icon iconSize="medium" icon="hamburgerOpenMenu" />                             |
+| reapitLogoTextMenu     | <Icon iconSize="medium" className={elIconMenu} icon="reapitLogoTextMenu" />     |
 
 # Info Graphic Icons
 
-| Icon Name              | small Icon                                                     | medium Icon                                                         | large Icon                                                         |
-| ---------------------- | -------------------------------------------------------------- | ------------------------------------------------------------------- | ------------------------------------------------------------------ |
+| Icon Name              | Small Icon                                              | Medium Icon                                              | Large Icon                                              |
+| ---------------------- | ------------------------------------------------------- | -------------------------------------------------------- | ------------------------------------------------------- |
 | agencyCloudInfographic | <Icon iconSize="small" icon="agencyCloudInfographic" /> | <Icon iconSize="medium" icon="agencyCloudInfographic" /> | <Icon iconSize="large" icon="agencyCloudInfographic" /> |
 | apiInfographic         | <Icon iconSize="small" icon="apiInfographic" />         | <Icon iconSize="medium" icon="apiInfographic" />         | <Icon iconSize="large" icon="apiInfographic" />         |
 | appInfographic         | <Icon iconSize="small" icon="appInfographic" />         | <Icon iconSize="medium" icon="appInfographic" />         | <Icon iconSize="large" icon="appInfographic" />         |
@@ -135,8 +155,8 @@ All the available icons exported by the project
 
 # Animated Icons
 
-| Icon Name             | largest Icon                                                        |
-| --------------------- | ------------------------------------------------------------------- |
+| Icon Name             | Largest Icon                                             |
+| --------------------- | -------------------------------------------------------- |
 | docsAnimated1         | <Icon iconSize="largest" icon="docsAnimated1" />         |
 | docsAnimated2         | <Icon iconSize="largest" icon="docsAnimated2" />         |
 | webhooksAnimated1     | <Icon iconSize="largest" icon="webhooksAnimated1" />     |
@@ -146,10 +166,53 @@ All the available icons exported by the project
 | welcomeAnimated1      | <Icon iconSize="largest" icon="welcomeAnimated1" />      |
 | welcomeAnimated2      | <Icon iconSize="largest" icon="welcomeAnimated2" />      |
 
+## Icon Sizes - Font Size
 
-# Intent
+Set the `fontSize` prop to scale the icon up or down on a granular level. Note the `el-mb-5` class is purely presentational for this story.
 
-Set the `intent` prop to enable Icons to be used in different contexts
+<Canvas>
+  <Story name="Icon Sizes - Font Size">
+    <Icon className={elMb5} fontSize="2rem" icon="addSystem" />
+    <Icon className={elMb5} fontSize="0.75rem" icon="addSystem" />
+  </Story>
+</Canvas>
+
+
+<RenderHtmlMarkup
+  component="Icon"
+  story={['Icon Sizes - Font Size']}
+  label="HTML of Icon Component with Font Size"
+/>
+
+## Icon Sizes - Set Sizes
+
+You can use one of the pre-defined sizes we ship using the `iconSize` prop. See the props table in the basic usage story for the available sizes. 
+
+For non React users, the sizes map directly to css classes - see the rendered markup for these. Note the `el-mb-5` class is purely presentational for this story.
+
+<Canvas>
+  <Story name="Icon Sizes - Set Sizes">
+    <Icon className={elMb5} iconSize="smallest" icon="tickSystem" />
+    <Icon className={elMb5} iconSize="small"  icon="tickSystem" />
+    <Icon className={elMb5} iconSize="medium"  icon="tickSystem" />
+    <Icon className={elMb5} iconSize="large"  icon="tickSystem" />
+    <Icon className={elMb5} iconSize="largest"  icon="tickSystem" />
+  </Story>
+</Canvas>
+
+
+<RenderHtmlMarkup
+  component="Icon"
+  story={['Icon Sizes - Set Sizes']}
+  label="HTML of Icon Component with Set Sizes"
+/>
+
+
+## Intent
+
+Set the `intent` prop to enable Icons to be used in different contexts by assigning colors. Note this only applies to icons in the System Icons table above.
+
+Again, non React users can apply the relevant classes to achieve the same behaviour.
 
 <Canvas>
   <Story name="Intent">
@@ -161,14 +224,9 @@ Set the `intent` prop to enable Icons to be used in different contexts
   </Story>
 </Canvas>
 
-# Different sizes
 
-Set the `fontSize` prop to scale the icon up or down
-
-<Canvas>
-  <Story name="Size">
-    <Icon className={elMb5} fontSize="2rem" icon="addSystem" />
-    <Icon className={elMb5} fontSize="0.75rem" icon="addSystem" />
-  </Story>
-</Canvas>
-
+<RenderHtmlMarkup
+  component="Icon"
+  story={['Intent']}
+  label="HTML of Icon Component with Intent"
+/>

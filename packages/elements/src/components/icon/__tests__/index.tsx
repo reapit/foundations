@@ -2,6 +2,14 @@ import * as React from 'react'
 import { shallow } from 'enzyme'
 import { Icon } from '..'
 import { iconSet } from '../icons'
+import { getIconSize } from '../index'
+import {
+  elIconSizeLarge,
+  elIconSizeLargest,
+  elIconSizeMedium,
+  elIconSizeSmall,
+  elIconSizeSmallest,
+} from '../__styles__'
 
 describe('Icon component', () => {
   it('should match a snapshot', () => {
@@ -20,5 +28,16 @@ describe('Icon component', () => {
       const wrapper = shallow(<Icon />)
       expect(wrapper).toMatchSnapshot()
     })
+  })
+})
+
+describe('getIconSize', () => {
+  it('should correctly return classes for each icon size', () => {
+    expect(getIconSize('smallest')).toEqual(elIconSizeSmallest)
+    expect(getIconSize('small')).toEqual(elIconSizeSmall)
+    expect(getIconSize('medium')).toEqual(elIconSizeMedium)
+    expect(getIconSize('large')).toEqual(elIconSizeLarge)
+    expect(getIconSize('largest')).toEqual(elIconSizeLargest)
+    expect(getIconSize()).toBeNull()
   })
 })
