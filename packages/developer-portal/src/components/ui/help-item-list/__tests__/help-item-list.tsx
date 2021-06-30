@@ -8,6 +8,9 @@ import { LoginIdentity } from '@reapit/connect-session'
 
 describe('HelpItemList', () => {
   it('should match a snapshot', () => {
-    expect(toJson(shallow(<HelpItemList items={helpItems({} as LoginIdentity)} />))).toMatchSnapshot()
+    window.reapit.config.liveChatWhitelist = ['SOME_ID']
+    expect(
+      toJson(shallow(<HelpItemList items={helpItems({ developerId: 'SOME_ID' } as LoginIdentity)} />)),
+    ).toMatchSnapshot()
   })
 })

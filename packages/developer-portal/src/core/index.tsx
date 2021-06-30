@@ -20,6 +20,7 @@ window.reapit = {
     platformApiUrl: '',
     developerEditionDownloadUrl: '',
     adobeSignApiKey: '',
+    liveChatWhitelist: [],
   },
 }
 

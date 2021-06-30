@@ -26,6 +26,16 @@ jest.mock('../../../../core/router', () => ({
   },
 }))
 
+jest.mock('@reapit/connect-session', () => ({
+  useReapitConnect: jest.fn(() => ({
+    connectSession: {
+      loginIdentity: {
+        developerId: 'SOME_ID',
+      },
+    },
+  })),
+  ReapitConnectBrowserSession: jest.fn(),
+}))
 afterEach(() => {
   jest.clearAllMocks()
 })
@@ -38,7 +48,19 @@ describe('DeveloperHelpPage', () => {
     store = mockStore(appState)
   })
 
-  it('should match a snapshot', () => {
+  it('should match a snapshot where there is no developer id', () => {
+    window.reapit.config.liveChatWhitelist = []
+    expect(
+      mount(
+        <ReactRedux.Provider store={store}>
+          <DeveloperHelpPage />
+        </ReactRedux.Provider>,
+      ),
+    ).toMatchSnapshot()
+  })
+
+  it('should match a snapshot where there is a developer id', () => {
+    window.reapit.config.liveChatWhitelist = ['SOME_ID']
     expect(
       mount(
         <ReactRedux.Provider store={store}>
