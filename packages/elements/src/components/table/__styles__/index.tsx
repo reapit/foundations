@@ -2,7 +2,7 @@ import { css } from 'linaria'
 import { styled } from 'linaria/react'
 import { ElIcon } from '../../icon/__styles__'
 import { elIsActive } from '../../../styles/states'
-import { isMobile, isTablet } from './../../../styles/media'
+import { isMobile } from './../../../styles/media'
 
 const EXPANDABLE_TRIGGER_CELL_WIDTH = '40px'
 
@@ -231,7 +231,7 @@ export const ElTableHeadersRow = styled.div`
     repeat(var(--component-table-num-columns, auto-fit), minmax(var(--component-table-min-column-width), 1fr))
     var(--component-table-expandable-trigger-width, 0);
 
-    @media only screen and (max-width: 1024px) {
+  @media only screen and (max-width: 1024px) {
     display: none;
   }
 `
