@@ -47,9 +47,39 @@ applied to cells when it's in narrow mode, e.g. showing the header within the ce
 <Canvas>
   <Story name="Rendering children">
     <Table>
-      <p>
-        A child component of Table. It is expected you would use another Table molecule here, but anything will render.
-      </p>
+      <TableHeadersRow>
+        <TableHeader>
+          First Header
+        </TableHeader>
+        <TableHeader>
+          Second Header
+        </TableHeader>
+        <TableHeader>
+          Third Header
+        </TableHeader>
+      </TableHeadersRow>
+      <TableRow>
+        <TableCell>
+         First Column
+        </TableCell>
+        <TableCell>
+          Second Column
+        </TableCell>
+        <TableCell>
+          Third Column
+        </TableCell>
+      </TableRow>
+      <TableRow>
+        <TableCell>
+         First Column
+        </TableCell>
+        <TableCell>
+          Second Column
+        </TableCell>
+        <TableCell>
+          Third Column
+        </TableCell>
+      </TableRow>
     </Table>
   </Story>
 </Canvas>
@@ -272,7 +302,7 @@ The isOpen prop toggles the `.el-is-active` class to show the content.
 
 ### TableExpandableRow content size
 
-You can adjust the size of the expandable content section using the `data-expandable-content-size` data attribute on the table. The fixed heights are required for the drop down animation.
+You can adjust the size of the expandable content section using the `expandableContentSize` property or the data attribute `data-expandable-content-size` on the table. The fixed heights are required for the drop down animation.
 
 #### Available sizes
 
@@ -287,7 +317,7 @@ Value | Size
 
 <Canvas>
   <Story name="TableExpandableRow - expandable-content-size">
-    <Table data-num-columns-excl-expandable-row-trigger-col="7" data-has-expandable-action data-expandable-content-size="large">
+    <Table expandableContentSize="large" data-num-columns-excl-expandable-row-trigger-col="7" data-has-expandable-action>
       <TableRowContainer isOpen>
         <TableRow>
           <TableCell darkText icon="home">

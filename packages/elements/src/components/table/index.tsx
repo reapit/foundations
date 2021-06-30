@@ -41,12 +41,13 @@ export type Row = {
 }
 export interface ITable extends React.HTMLAttributes<HTMLDivElement> {
   rows?: Row[]
+  expandableContentSize?: 'small' | 'medium' | 'large'
 }
 
 export * from './molecules'
 
-export const Table: React.FC<ITable> = ({ rows, children, ...rest }) => {
-  if (!rows) return <ElTable {...rest}>{children}</ElTable>
+export const Table: React.FC<ITable> = ({ rows, children, expandableContentSize, ...rest }) => {
+  if (!rows) return <ElTable data-expandable-content-size={expandableContentSize} {...rest}>{children}</ElTable>
 
   const [expandedRow, setExpandedRow] = useState<false | number>(false)
 
@@ -61,6 +62,7 @@ export const Table: React.FC<ITable> = ({ rows, children, ...rest }) => {
       {...rest}
       data-num-columns-excl-expandable-row-trigger-col={hasExpandableRows ? headers.length : undefined}
       data-has-expandable-action={hasExpandableRows}
+      data-expandable-content-size={expandableContentSize}
     >
       <TableHeadersRow>
         {headers.map((header) => (
