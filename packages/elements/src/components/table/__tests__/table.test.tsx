@@ -157,18 +157,18 @@ describe('Table Component', () => {
 
   it('should match a snapshot', () => {
     const wrapper = shallow(
-        <TableHeadersRow>
-          <TableHeader>Property</TableHeader>
-          <TableHeader>Customer</TableHeader>
-          <TableHeader>Client A/C</TableHeader>
-          <TableHeader>Description</TableHeader>
-          <TableHeader>Request Date</TableHeader>
-          <TableHeader>Amount</TableHeader>
-          <TableHeader>Payment Status</TableHeader>
-          <TableHeader>
-            <Icon icon="solidEdit" fontSize="1.2rem" />
-          </TableHeader>
-        </TableHeadersRow>,
+      <TableHeadersRow>
+        <TableHeader>Property</TableHeader>
+        <TableHeader>Customer</TableHeader>
+        <TableHeader>Client A/C</TableHeader>
+        <TableHeader>Description</TableHeader>
+        <TableHeader>Request Date</TableHeader>
+        <TableHeader>Amount</TableHeader>
+        <TableHeader>Payment Status</TableHeader>
+        <TableHeader>
+          <Icon icon="solidEdit" fontSize="1.2rem" />
+        </TableHeader>
+      </TableHeadersRow>,
     )
     expect(wrapper).toMatchSnapshot()
   })
@@ -176,6 +176,17 @@ describe('Table Component', () => {
   it('should match a snapshot', () => {
     const wrapper = shallow(
       <TableCell darkText icon="home">
+        Mt Ash Jacket
+        <br />
+        Brassey Road
+      </TableCell>,
+    )
+    expect(wrapper).toMatchSnapshot()
+  })
+
+  it('should match a snapshot', () => {
+    const wrapper = shallow(
+      <TableCell narrowOrder={4}>
         Mt Ash Jacket
         <br />
         Brassey Road
@@ -210,16 +221,12 @@ describe('Table Component', () => {
   })
 
   it('should match a snapshot', () => {
-    const wrapper = shallow(
-      <TableHeader>Property</TableHeader>,
-    )
+    const wrapper = shallow(<TableHeader>Property</TableHeader>)
     expect(wrapper).toMatchSnapshot()
   })
 
   it('should match a snapshot', () => {
-    const wrapper = shallow(
-      <TableRow></TableRow>
-    )
+    const wrapper = shallow(<TableRow></TableRow>)
     expect(wrapper).toMatchSnapshot()
   })
 })

@@ -185,6 +185,23 @@ If set, this prop will ensure that in narrow view mode the cell takes up both co
 
 <RenderHtmlMarkup component="TableCell" story="TableCell - Narrow mode: full width" />
 
+### Narrow order 
+
+If you require to change the order of your cells in the mobile/narrow view, you can use the `narrowOrder` property to change the cell's order in the column.
+
+The order can be specified between 1 and 12.
+
+<Canvas>
+  <Story name="TableCell - Narrow order">
+    <TableCell narrowOrder={3}>
+      <p>£556.21</p>
+    </TableCell>
+  </Story>
+</Canvas>
+
+<RenderHtmlMarkup component="TableCell" story="TableCell - Narrow order" />
+
+
 
 ### Molecule - TableRow
 
@@ -711,8 +728,6 @@ type Row = {
 ```
 ##### Inside cells array
 
-<ArgsTable of={TableCell} />
-
 ```
 type Cell = {
   /* the label of the cell (AKA, the header) */
@@ -729,6 +744,7 @@ type Cell = {
   narrowTable?: {
     showLabel?: boolean
     isFullWidth?: boolean
+    order?: 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9 | 10 | 11 | 12
   }
 }
 ```
