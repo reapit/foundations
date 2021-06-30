@@ -24,7 +24,7 @@ const getHeadersFromRows = (rows: Row[]): string[] => {
   return Array.from(headers) as string[]
 }
 
-export type NarrowOptionsType =  {
+export type NarrowOptionsType = {
   showLabel?: boolean
   isFullWidth?: boolean
   order?: NarrowOrderType
