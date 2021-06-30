@@ -59,15 +59,18 @@ export const TableCell: React.FC<ITableCell> = ({
 
 export interface ITableExpandableRowTriggerCell extends React.HTMLAttributes<HTMLDivElement> {
   isOpen?: boolean
+  narrowIsFullWidth?: boolean
 }
 export const TableExpandableRowTriggerCell: React.FC<ITableExpandableRowTriggerCell> = ({
   isOpen,
+  narrowIsFullWidth,
+  className,
   children,
   ...rest
 }) => {
   return (
-    <ElTableExpandableRowTriggerCell {...rest}>
-      <Icon intent={isOpen ? 'primary' : 'secondary'} icon={isOpen ? 'arrowUpSystem' : 'arrowUpSystem'} />
+    <ElTableExpandableRowTriggerCell className={cx(className, narrowIsFullWidth && elTableNarrowCellIsFullWidth)} {...rest}>
+      <Icon intent={isOpen ? 'primary' : 'secondary'} icon={isOpen ? 'arrowUpSystem' : 'solidDownSystem'} />
       {children}
     </ElTableExpandableRowTriggerCell>
   )

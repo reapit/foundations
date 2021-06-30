@@ -225,6 +225,19 @@ Any other props given are applied to the underlying `div` element, e.g. `onClick
 
 <RenderHtmlMarkup component="TableExpandableRowTriggerCell" story="TableExpandableRowTriggerCell isOpen" />
 
+#### TableExpandableRowTriggerCell narrowIsFullWidth 
+
+This property will force the trigger cell to be fullwidth of the table on narrow sized tables.
+
+<Canvas>
+  <Story name="TableExpandableRowTriggerCell - narrowIsFullWidth">
+    <TableExpandableRowTriggerCell narrowIsFullWidth />
+  </Story>
+</Canvas>
+
+<RenderHtmlMarkup component="TableExpandableRowTriggerCell - narrowIsFullWidth" story="TableExpandableRowTriggerCell - narrowIsFullWidth" />
+
+
 ### Molecule - TableExpandableRow
 
 `TableExpandableRow` only renders it's children. Any other props given are applied to the underlying `div` element.

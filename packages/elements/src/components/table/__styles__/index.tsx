@@ -237,11 +237,13 @@ export const ElTableExpandableRowTriggerCell = styled.div`
   }
 
   @media screen and (max-width: 750px) {
-    grid-column-end: span 2;
-    text-align: center;
-    width: 40px;
-    justify-self: end;
-    grid-column-end: 3;
+    &:not(.el-table-narrow-cell-is-full-width) {
+      grid-column-end: span 2;
+      text-align: center;
+      width: 40px;
+      justify-self: end;
+      grid-column-end: 3;
+    }
 
     &:last-child {
       border-radius: 0 0 var(--default-border-radius) var(--default-border-radius);
