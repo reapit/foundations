@@ -14,7 +14,7 @@ exports[`Pagination should match a snapshot 1`] = `
   >
     <Icon
       className="el-pagination-primary"
-      icon="solidBack"
+      icon="backSystem"
     />
   </PaginationButton>
   <PaginationButton
@@ -22,7 +22,7 @@ exports[`Pagination should match a snapshot 1`] = `
   >
     <Icon
       className="el-pagination-primary"
-      icon="solidNext"
+      icon="nextSystem"
     />
   </PaginationButton>
 </PaginationWrap>

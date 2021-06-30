@@ -8,12 +8,12 @@ exports[`Card should match a snapshot and render children with full props 1`] = 
     contextMenuItems={
       Array [
         Object {
-          "icon": "trash",
+          "icon": "trashSystem",
           "intent": "danger",
           "onClick": [Function],
         },
         Object {
-          "icon": "share",
+          "icon": "shareSystem",
           "onClick": [Function],
         },
       ]
@@ -42,7 +42,7 @@ exports[`Card should match a snapshot and render children with full props 1`] = 
       onClick={[Function]}
     >
       <Icon
-        icon="arrowDown"
+        icon="arrowDownSystem"
       />
     </CardMobileToggle>
   </CardMainWrap>
@@ -58,12 +58,12 @@ exports[`Card should match a snapshot and render children with full props 1`] = 
       contextMenuItems={
         Array [
           Object {
-            "icon": "trash",
+            "icon": "trashSystem",
             "intent": "danger",
             "onClick": [Function],
           },
           Object {
-            "icon": "share",
+            "icon": "shareSystem",
             "onClick": [Function],
           },
         ]
@@ -83,7 +83,7 @@ exports[`Card should match a snapshot and render children with full props 1`] = 
   >
     <CardListIcon>
       <Icon
-        icon="applicant"
+        icon="applicantInfographic"
       />
     </CardListIcon>
     <CardListItemTextWrap>
@@ -102,7 +102,7 @@ exports[`Card should match a snapshot and render children with full props 1`] = 
   >
     <CardListIcon>
       <Icon
-        icon="house"
+        icon="houseInfographic"
       />
     </CardListIcon>
     <CardListItemTextWrap>
@@ -130,7 +130,7 @@ exports[`CardContextMenu should match a snapshot and render children with full p
   >
     <Icon
       fontSize="1.25rem"
-      icon="more"
+      icon="moreSystem"
     />
   </CardContextMenuToggle>
   <CardContextMenuItems
@@ -140,7 +140,7 @@ exports[`CardContextMenu should match a snapshot and render children with full p
       onClick={[Function]}
     >
       <Icon
-        icon="close"
+        icon="closeSystem"
       />
     </CardContextMenuItem>
     <CardContextMenuItem
@@ -148,7 +148,7 @@ exports[`CardContextMenu should match a snapshot and render children with full p
       onClick={[Function]}
     >
       <Icon
-        icon="trash"
+        icon="trashSystem"
         intent="danger"
       />
     </CardContextMenuItem>
@@ -157,7 +157,7 @@ exports[`CardContextMenu should match a snapshot and render children with full p
       onClick={[Function]}
     >
       <Icon
-        icon="share"
+        icon="shareSystem"
       />
     </CardContextMenuItem>
   </CardContextMenuItems>

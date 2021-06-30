@@ -96,7 +96,7 @@ Adds an icon at the start of the cell
 
 <Canvas>
   <Story name="TableCell With an icon">
-    <TableCell icon="link">
+    <TableCell icon="linkSystem">
       <p>£556.21</p>
     </TableCell>
   </Story>
@@ -263,16 +263,16 @@ The isOpen prop toggles the `.el-is-active` class to show the content.
         <TableHeader>Amount</TableHeader>
         <TableHeader>Payment Status</TableHeader>
         <TableHeader>
-          <Icon icon="solidEdit" fontSize="1.2rem" />
+          <Icon icon="editSolidSystem" fontSize="1.2rem" />
         </TableHeader>
       </TableHeadersRow>
       <TableRow>
-        <TableCell darkText icon="home">
+        <TableCell darkText icon="homeSystem">
           Mt Ash Jacket
           <br />
           Brassey Road
         </TableCell>
-        <TableCell narrowLabel="N_Customer" icon="username">
+        <TableCell narrowLabel="N_Customer" icon="usernameSystem">
           Mr Johnny Corrigan
         </TableCell>
         <TableCell>Alternate Lettings Client Acc</TableCell>
@@ -302,14 +302,14 @@ Simply supply a `rows` prop, and no children, to use the Table component like th
             {
               label: 'Property',
               value: 'Mt Ash Jacket, Brassey Road',
-              icon: 'home',
+              icon: 'homeSystem',
               cellHasDarkText: true,
               narrowTable: { showLabel: true },
             },
             {
               label: 'Customer',
               value: 'Mr Johnny Corrigan',
-              icon: 'username',
+              icon: 'usernameSystem',
               narrowTable: { showLabel: true },
             },
             {
@@ -343,21 +343,21 @@ Simply supply a `rows` prop, and no children, to use the Table component like th
             {
               label: 'Property',
               value: 'Property Name, Road Name',
-              icon: 'home',
+              icon: 'homeSystem',
               cellHasDarkText: true,
               narrowTable: { showLabel: true },
             },
             {
               label: 'Customer',
               value: 'Mrs Davina Corrigan',
-              icon: 'username',
+              icon: 'usernameSystem',
               narrowTable: { showLabel: true },
             },
             {
               label: 'Client A/C',
               value: 'Alternate Lettings Client Acc',
             },
-            {
+            {System
               label: 'Description',
               value: 'Anther descriptions',
             },

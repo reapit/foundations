@@ -13,7 +13,7 @@ import { iconSet } from './icons'
 
 export type IconNames = keyof typeof iconSet
 
-export type IconSize = 'SMALLEST' | 'SMALL' | 'MEDIUM' | 'LARGE' | 'LARGEST'
+export type IconSize = 'smallest' | 'small' | 'medium' | 'large' | 'largest'
 
 export interface IIcon extends React.HTMLAttributes<HTMLSpanElement> {
   icon: IconNames
@@ -25,15 +25,15 @@ export interface IIcon extends React.HTMLAttributes<HTMLSpanElement> {
 
 export const getIconSize = (iconSize?: IconSize): string | null => {
   switch (iconSize) {
-    case 'SMALLEST':
+    case 'smallest':
       return elIconSizeSmallest
-    case 'SMALL':
+    case 'small':
       return elIconSizeSmall
-    case 'MEDIUM':
+    case 'medium':
       return elIconSizeMedium
-    case 'LARGE':
+    case 'large':
       return elIconSizeLarge
-    case 'LARGEST':
+    case 'largest':
       return elIconSizeLargest
     default:
       return null

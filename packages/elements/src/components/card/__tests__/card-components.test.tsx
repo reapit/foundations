@@ -25,8 +25,8 @@ describe('Card', () => {
         hasMainCard
         hasListCard
         mainContextMenuItems={[
-          { icon: 'trash', onClick: () => console.log('Clicking'), intent: 'danger' },
-          { icon: 'share', onClick: () => console.log('Clicking') },
+          { icon: 'trashSystem', onClick: () => console.log('Clicking'), intent: 'danger' },
+          { icon: 'shareSystem', onClick: () => console.log('Clicking') },
         ]}
         mainCardHeading="Main Heading"
         mainCardSubHeading="Main Subheading"
@@ -39,19 +39,19 @@ describe('Card', () => {
           {
             listCardItemHeading: 'Applicant',
             listCardItemSubHeading: 'Bob Smith',
-            listCardItemIcon: 'applicant',
+            listCardItemIcon: 'applicantInfographic',
             onClick: () => console.log('Clicking'),
           },
           {
             listCardItemHeading: 'Property',
             listCardItemSubHeading: 'Some Address',
-            listCardItemIcon: 'house',
+            listCardItemIcon: 'houseInfographic',
             onClick: () => console.log('Clicking'),
           },
         ]}
         listContextMenuItems={[
-          { icon: 'trash', onClick: () => console.log('Clicking'), intent: 'danger' },
-          { icon: 'share', onClick: () => console.log('Clicking') },
+          { icon: 'trashSystem', onClick: () => console.log('Clicking'), intent: 'danger' },
+          { icon: 'shareSystem', onClick: () => console.log('Clicking') },
         ]}
       >
         <div>I am a child</div>
@@ -75,8 +75,8 @@ describe('CardContextMenu', () => {
     const wrapper = shallow(
       <CardContextMenu
         contextMenuItems={[
-          { icon: 'trash', onClick: () => console.log('Clicking'), intent: 'danger' },
-          { icon: 'share', onClick: () => console.log('Clicking') },
+          { icon: 'trashSystem', onClick: () => console.log('Clicking'), intent: 'danger' },
+          { icon: 'shareSystem', onClick: () => console.log('Clicking') },
         ]}
       >
         <div>I am a child</div>

@@ -18,16 +18,16 @@ export default (): IUseSnack => {
     addSnackWithTimeout(snack, timeout)
   }
   const success = (text: string, timeout = DEFAULT_TIMEOUT) => {
-    addSnackWithTimeout({ intent: 'success', icon: 'thick', text }, timeout)
+    addSnackWithTimeout({ intent: 'success', icon: 'tickSolidSystem', text }, timeout)
   }
   const info = (text: string, timeout = DEFAULT_TIMEOUT) => {
-    addSnackWithTimeout({ intent: 'secondary', icon: 'info', text }, timeout)
+    addSnackWithTimeout({ intent: 'secondary', icon: 'infoSolidSystem', text }, timeout)
   }
   const error = (text: string, timeout = DEFAULT_TIMEOUT) => {
-    addSnackWithTimeout({ intent: 'danger', icon: 'error', text }, timeout)
+    addSnackWithTimeout({ intent: 'danger', icon: 'errorSolidSystem', text }, timeout)
   }
   const warning = (text: string, timeout = DEFAULT_TIMEOUT) => {
-    addSnackWithTimeout({ intent: 'critical', icon: 'warning', text }, timeout)
+    addSnackWithTimeout({ intent: 'critical', icon: 'warningSolidSystem', text }, timeout)
   }
 
   return { custom, success, info, error, warning }

@@ -68,7 +68,6 @@ export const ElNavItem = styled.a`
   @media screen and (min-width: 768px) {
     font-size: 12px;
     font-weight: bold;
-    width: 100%;
     flex-direction: column;
     justify-content: center;
     height: 72px;

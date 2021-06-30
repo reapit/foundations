@@ -14,7 +14,7 @@ exports[`Modal component should match a snapshot when open 1`] = `
     <ElModalHeader>
       test
       <Icon
-        icon="close"
+        icon="closeSystem"
         onClick={[Function]}
       />
     </ElModalHeader>

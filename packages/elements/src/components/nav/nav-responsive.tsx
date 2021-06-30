@@ -68,14 +68,18 @@ export const NavResponsive: FC<NavResponsiveProps> = ({
                 {icon ? (
                   icon
                 ) : iconId ? (
-                  <Icon className={elNavItemIcon} icon={iconId} />
+                  <Icon iconSize="medium" className={elNavItemIcon} icon={iconId} />
                 ) : (
-                  <Icon className={elNavItemIcon} icon={isMobile ? 'reapitLogo' : 'reapitHouse'} />
+                  <Icon
+                    iconSize="medium"
+                    className={elNavItemIcon}
+                    icon={isMobile ? 'reapitLogoTextMenu' : 'reapitLogoMenu'}
+                  />
                 )}
                 {text}
                 <Icon
                   className={cx(elIntentNeutral, elMLAuto, elMr2, elNavItemHideDesktop)}
-                  icon={navMenuOpen ? 'hamburgerOpen' : 'hamburger'}
+                  icon={navMenuOpen ? 'hamburgerOpenMenu' : 'hamburgerMenu'}
                   onClick={setNavState({
                     navMenuOpen: !navMenuOpen,
                     navSubMenuIndex: null,
@@ -102,12 +106,12 @@ export const NavResponsive: FC<NavResponsiveProps> = ({
                     : setNavState({ navItemIndex: itemIndex, callback })
                 }
               >
-                {icon ? icon : iconId ? <Icon className={elNavItemIcon} icon={iconId} /> : ''}
+                {icon ? icon : iconId ? <Icon iconSize="medium" className={elNavItemIcon} icon={iconId} /> : ''}
                 {text}
                 {isMobile && subItems && (
                   <Icon
                     className={cx(elIntentNeutral, elMLAuto)}
-                    icon={navSubMenuIndex === itemIndex ? 'arrowUp' : 'arrowDown'}
+                    icon={navSubMenuIndex === itemIndex ? 'arrowUpSystem' : 'arrowDownSystem'}
                   />
                 )}
               </NavItem>

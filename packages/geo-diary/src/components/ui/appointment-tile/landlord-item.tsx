@@ -39,7 +39,7 @@ export const LandlordItem: FC<LandlordItemProps> = ({ appointment }) => {
       {landlordContactList.map((landlord: VendorLandlordRelatedModel) => (
         <CardListItem key={landlord.id} className={cx(elFadeIn, elCardListItemExpanded)}>
           <CardListIcon>
-            <Icon icon="landlord" />
+            <Icon icon="landlordInfographic" />
           </CardListIcon>
           <CardListItemTextWrap
             onClick={handleOpenContactDrawer(setAppState, appointment, ContactDrawerType.LANDLORD, landlord.id)}

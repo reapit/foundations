@@ -25,7 +25,7 @@ exports[`NavResponsive component should match a snapshot 1`] = `
           },
           Object {
             "callback": [Function],
-            "iconId": "apps",
+            "iconId": "appsMenu",
             "itemIndex": 1,
             "subItems": Array [
               Object {
@@ -43,7 +43,7 @@ exports[`NavResponsive component should match a snapshot 1`] = `
           },
           Object {
             "callback": [Function],
-            "iconId": "analytics",
+            "iconId": "analyticsMenu",
             "itemIndex": 2,
             "subItems": Array [
               Object {
@@ -61,13 +61,13 @@ exports[`NavResponsive component should match a snapshot 1`] = `
           },
           Object {
             "href": "https://marketplace.reapit.cloud",
-            "iconId": "marketplace",
+            "iconId": "marketplaceMenu",
             "itemIndex": 3,
             "text": "Marketplace",
           },
           Object {
             "callback": [Function],
-            "iconId": "logout",
+            "iconId": "logoutMenu",
             "isSecondary": true,
             "itemIndex": 4,
             "text": "Logout",

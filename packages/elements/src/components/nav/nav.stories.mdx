@@ -29,22 +29,22 @@ N/B in this example, the menu will not expand in mobile - to enable this behavio
   <Story name="Basic Example">
     <Nav>
       <NavItem href="https://reapit.com">
-        <Icon className={elNavItemIcon} icon="reapitHouse" />
+        <Icon iconSize="medium" className={elNavItemIcon} icon="reapitLogoMenu" />
       </NavItem>
       <NavItem className={elNavItemActive} href="https://marketplace.reapit.cloud/apps">
-        <Icon icon="apps" />
+        <Icon iconSize="medium" icon="appsMenu" />
         Apps
       </NavItem>
       <NavItem href="https://developers.reapit.cloud/analytics">
-        <Icon icon="analytics" />
+        <Icon iconSize="medium" icon="analyticsMenu" />
         Analytics
       </NavItem>
       <NavItem href="https://marketplace.reapit.cloud">
-        <Icon icon="marketplace" />
+        <Icon iconSize="medium" icon="marketplaceMenu" />
         Marketplace
       </NavItem>
       <NavItem isSecondary href="https://developers.reapit.cloud/login">
-        <Icon icon="logout" />
+        <Icon iconSize="medium" icon="logoutMenu" />
         Logout
       </NavItem>
     </Nav>
@@ -61,23 +61,23 @@ In this example, changing the browser width to mobile will show the expanded mob
   <Story name="Basic Example With Mobile Menu">
     <Nav>
       <NavItem>
-        <Icon className={elNavItemIcon} icon="reapitHouse" />
-        <Icon className={cx(elIntentNeutral, elMLAuto, elMr2, elNavItemHideDesktop)} icon="hamburger" />
+        <Icon iconSize="medium" className={elNavItemIcon} icon="reapitLogoMenu" />
+        <Icon className={cx(elIntentNeutral, elMLAuto, elMr2, elNavItemHideDesktop)} icon="hamburgerMenu" />
       </NavItem>
       <NavItem className={cx(elNavItemActive, elNavItemExpanded)} href="https://marketplace.reapit.cloud/apps">
-        <Icon icon="apps" />
+        <Icon iconSize="medium" icon="appsMenu" />
         Apps
       </NavItem>
       <NavItem className={elNavItemExpanded} href="https://developers.reapit.cloud/analytics">
-        <Icon icon="analytics" />
+        <Icon iconSize="medium" icon="analyticsMenu" />
         Analytics
       </NavItem>
       <NavItem className={elNavItemExpanded} href="https://marketplace.reapit.cloud">
-        <Icon icon="marketplace" />
+        <Icon iconSize="medium" icon="marketplaceMenu" />
         Marketplace
       </NavItem>
       <NavItem className={elNavItemExpanded} isSecondary href="https://developers.reapit.cloud/login">
-        <Icon icon="logout" />
+        <Icon iconSize="medium" icon="logoutMenu" />
         Logout
       </NavItem>
     </Nav>
@@ -100,23 +100,23 @@ You can check if the app is in desktop mode by checking if the `window.__REAPIT_
   <Story name="Desktop Mode">
     <Nav className={elNavIsDesktop}>
       <NavItem>
-        <Icon className={elNavItemIcon} icon="reapitHouse" />
-        <Icon className={cx(elIntentNeutral, elMLAuto, elMr2, elNavItemHideDesktop)} icon="hamburger" />
+        <Icon iconSize="medium" className={elNavItemIcon} icon="reapitLogoMenu" />
+        <Icon className={cx(elIntentNeutral, elMLAuto, elMr2, elNavItemHideDesktop)} icon="hamburgerMenu" />
       </NavItem>
       <NavItem className={cx(elNavItemActive, elNavItemExpanded)} href="https://marketplace.reapit.cloud/apps">
-        <Icon icon="apps" />
+        <Icon iconSize="medium" icon="appsMenu" />
         Apps
       </NavItem>
       <NavItem className={elNavItemExpanded} href="https://developers.reapit.cloud/analytics">
-        <Icon icon="analytics" />
+        <Icon iconSize="medium" icon="analyticsMenu" />
         Analytics
       </NavItem>
       <NavItem className={elNavItemExpanded} href="https://marketplace.reapit.cloud">
-        <Icon icon="marketplace" />
+        <Icon iconSize="medium" icon="marketplaceMenu" />
         Marketplace
       </NavItem>
       <NavItem className={elNavItemExpanded} isSecondary href="https://developers.reapit.cloud/login">
-        <Icon icon="logout" />
+        <Icon iconSize="medium" icon="logoutMenu" />
         Logout
       </NavItem>
     </Nav>
@@ -165,7 +165,7 @@ export const UseNavStory = () => {
           callback: navigate,
         })}
       >
-        <Icon className={elNavItemIcon} icon="reapitHouse" />
+        <Icon iconSize="medium" className={elNavItemIcon} icon="reapitLogoMenu" />
         <Icon
           className={cx(elIntentNeutral, elMLAuto, elMr2, elNavItemHideDesktop)}
           icon={navMenuOpen ? 'hamburgerOpen' : 'hamburger'}
@@ -178,18 +178,18 @@ export const UseNavStory = () => {
         className={cx(navItemIndex === 1 && elNavItemActive, navMenuOpen && elNavItemExpanded)}
         onClick={setNavState({ navItemIndex: 1, callback: navigate })}
       >
-        <Icon icon="apps" />
+        <Icon iconSize="medium" icon="appsMenu" />
         Apps
       </NavItem>
       <NavItem
         className={cx(navItemIndex === 2 && elNavItemActive, navMenuOpen && elNavItemExpanded)}
         onClick={setNavState({ navItemIndex: 2, callback: navigate })}
       >
-        <Icon icon="analytics" />
+        <Icon iconSize="medium" icon="analyticsMenu" />
         Analytics
       </NavItem>
       <NavItem className={cx(navMenuOpen && elNavItemExpanded)} href="https://marketplace.reapit.cloud">
-        <Icon icon="marketplace" />
+        <Icon iconSize="medium" icon="marketplaceMenu" />
         Marketplace
       </NavItem>
       <NavItem
@@ -197,7 +197,7 @@ export const UseNavStory = () => {
         onClick={setNavState({ navItemIndex: 4, callback: logOut })}
         isSecondary
       >
-        <Icon icon="logout" />
+        <Icon iconSize="medium" icon="logoutMenu" />
         Logout
       </NavItem>
     </Nav>
@@ -260,7 +260,7 @@ export const UseNavMobileSubMenuStory = () => {
           callback: navigate,
         })}
       >
-        <Icon className={elNavItemIcon} icon={isMobile ? 'reapitLogo' : 'reapitHouse'} />
+        <Icon className={elNavItemIcon} icon={isMobile ? 'reapitLogoTextMenu' : 'reapitLogoMenu'} />
         <Icon
           className={cx(elIntentNeutral, elMLAuto, elMr2, elNavItemHideDesktop)}
           icon={navMenuOpen ? 'hamburgerOpen' : 'hamburger'}
@@ -281,10 +281,10 @@ export const UseNavMobileSubMenuStory = () => {
             : setNavState({ navItemIndex: 1, callback: navigate })
         }
       >
-        <Icon icon="apps" />
+        <Icon iconSize="medium" icon="appsMenu" />
         Apps
         {isMobile && (
-          <Icon className={cx(elIntentNeutral, elMLAuto)} icon={navSubMenuIndex === 0 ? 'arrowUp' : 'arrowDown'} />
+          <Icon className={cx(elIntentNeutral, elMLAuto)} icon={navSubMenuIndex === 0 ? 'arrowUpSystem' : 'arrowDownSystem'} />
         )}
       </NavItem>
       <NavSubNav>
@@ -312,10 +312,10 @@ export const UseNavMobileSubMenuStory = () => {
             : setNavState({ navItemIndex: 2, callback: navigate })
         }
       >
-        <Icon icon="analytics" />
+        <Icon iconSize="medium" icon="analyticsMenu" />
         Analytics
         {isMobile && (
-          <Icon className={cx(elIntentNeutral, elMLAuto)} icon={navSubMenuIndex === 1 ? 'arrowUp' : 'arrowDown'} />
+          <Icon className={cx(elIntentNeutral, elMLAuto)} icon={navSubMenuIndex === 1 ? 'arrowUpSystem' : 'arrowDownSystem'} />
         )}
       </NavItem>
       <NavSubNav>
@@ -333,7 +333,7 @@ export const UseNavMobileSubMenuStory = () => {
         </NavSubNavItem>
       </NavSubNav>
       <NavItem className={cx(navMenuOpen && elNavItemExpanded)} href="https://marketplace.reapit.cloud">
-        <Icon icon="marketplace" />
+        <Icon iconSize="medium" icon="marketplaceMenu" />
         Marketplace
       </NavItem>
       <NavItem
@@ -341,7 +341,7 @@ export const UseNavMobileSubMenuStory = () => {
         onClick={setNavState({ navItemIndex: 4, callback: logOut })}
         isSecondary
       >
-        <Icon icon="logout" />
+        <Icon iconSize="medium" icon="logoutMenu" />
         Logout
       </NavItem>
     </Nav>
@@ -401,7 +401,7 @@ export interface NavResponsiveProps extends HTMLAttributes<HTMLDivElement> {
             {
               itemIndex: 1,
               callback: () => console.log('Navigating'),
-              iconId: 'apps',
+              iconId: 'appsMenu',
               text: 'Apps',
               subItems: [
                 {
@@ -419,7 +419,7 @@ export interface NavResponsiveProps extends HTMLAttributes<HTMLDivElement> {
             {
               itemIndex: 2,
               callback: () => console.log('Navigating'),
-              iconId: 'analytics',
+              iconId: 'analyticsMenu',
               text: 'Analytics',
               subItems: [
                 {
@@ -437,14 +437,14 @@ export interface NavResponsiveProps extends HTMLAttributes<HTMLDivElement> {
             {
               itemIndex: 3,
               href: 'https://marketplace.reapit.cloud',
-              iconId: 'marketplace',
+              iconId: 'marketplaceMenu',
               text: 'Marketplace',
             },
             {
               itemIndex: 4,
               callback: () => console.log('Logging out'),
               isSecondary: true,
-              iconId: 'logout',
+              iconId: 'logoutMenu',
               text: 'Logout',
             },
           ]}

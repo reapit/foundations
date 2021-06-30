@@ -8,7 +8,7 @@ exports[`AttendeeItem should match snapshot with contacts 1`] = `
   >
     <CardListIcon>
       <Icon
-        icon="applicant"
+        icon="applicantInfographic"
       />
     </CardListIcon>
     <CardListItemTextWrap
@@ -28,7 +28,7 @@ exports[`AttendeeItem should match snapshot with contacts 1`] = `
   >
     <CardListIcon>
       <Icon
-        icon="applicant"
+        icon="applicantInfographic"
       />
     </CardListIcon>
     <CardListItemTextWrap

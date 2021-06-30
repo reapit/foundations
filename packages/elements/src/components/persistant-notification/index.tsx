@@ -16,7 +16,7 @@ export interface IPersistantNotification extends React.HTMLAttributes<HTMLDivEle
 }
 
 export const PersistantNotification: React.FC<IPersistantNotification> = ({
-  icon = 'info',
+  icon = 'infoSolidSystem',
   intent = 'secondary',
   className,
   isExpanded = false,
