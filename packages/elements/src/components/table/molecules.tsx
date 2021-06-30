@@ -69,7 +69,10 @@ export const TableExpandableRowTriggerCell: React.FC<ITableExpandableRowTriggerC
   ...rest
 }) => {
   return (
-    <ElTableExpandableRowTriggerCell className={cx(className, narrowIsFullWidth && elTableNarrowCellIsFullWidth)} {...rest}>
+    <ElTableExpandableRowTriggerCell
+      className={cx(className, narrowIsFullWidth && elTableNarrowCellIsFullWidth)}
+      {...rest}
+    >
       <Icon intent={isOpen ? 'primary' : 'secondary'} icon={isOpen ? 'arrowUpSystem' : 'solidDownSystem'} />
       {children}
     </ElTableExpandableRowTriggerCell>
