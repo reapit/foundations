@@ -1,8 +1,8 @@
 ---
-name: Cloud (Internal)
-about: Issues raised by the Reapit Cloud Team for internal usage
+name: Platform Applications (Internal)
+about: Issues raised by the Reapit Platform Applications Team for internal usage
 title: ''
-labels: front-end, needs-triage
+labels: front-end
 assignees: ''
 
 ---

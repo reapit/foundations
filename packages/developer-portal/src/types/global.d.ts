@@ -10,6 +10,7 @@ export type Config = {
   platformApiUrl: string
   developerEditionDownloadUrl: string
   adobeSignApiKey: string
+  liveChatWhitelist: string[]
 }
 
 declare global {
