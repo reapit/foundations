@@ -35,3 +35,9 @@ exports[`Table component should match a snapshot 6`] = `
   className="el-intent-critical"
 />
 `;
+
+exports[`Table component should match a snapshot 7`] = `
+<ElStatusIndicator
+  className=""
+/>
+`;
