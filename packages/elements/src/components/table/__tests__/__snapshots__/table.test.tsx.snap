@@ -190,3 +190,109 @@ exports[`Table Component should match a snapshot 3`] = `
   </TableRowContainer>
 </ElTable>
 `;
+
+exports[`Table Component should match a snapshot 4`] = `
+<ElTableHeadersRow>
+  <TableHeader>
+    Property
+  </TableHeader>
+  <TableHeader>
+    Customer
+  </TableHeader>
+  <TableHeader>
+    Client A/C
+  </TableHeader>
+  <TableHeader>
+    Description
+  </TableHeader>
+  <TableHeader>
+    Request Date
+  </TableHeader>
+  <TableHeader>
+    Amount
+  </TableHeader>
+  <TableHeader>
+    Payment Status
+  </TableHeader>
+  <TableHeader>
+    <Icon
+      fontSize="1.2rem"
+      icon="solidEdit"
+    />
+  </TableHeader>
+</ElTableHeadersRow>
+`;
+
+exports[`Table Component should match a snapshot 5`] = `
+<ElTableCell
+  className="el-table-cell-has-dark-text"
+>
+  <Icon
+    icon="home"
+    intent="secondary"
+  />
+  <ElTableCellContent>
+    Mt Ash Jacket
+    <br />
+    Brassey Road
+  </ElTableCellContent>
+</ElTableCell>
+`;
+
+exports[`Table Component should match a snapshot 6`] = `
+<ElTableRowContainer
+  className="el-is-active"
+>
+  <TableRow>
+    <TableCell
+      darkText={true}
+      icon="home"
+    >
+      Mt Ash Jacket
+      <br />
+      Brassey Road
+    </TableCell>
+    <TableCell
+      icon="username"
+      narrowLabel="N_Customer"
+    >
+      Mr Johnny Corrigan
+    </TableCell>
+    <TableCell>
+      Alternate Lettings Client Acc
+    </TableCell>
+    <TableCell>
+      Tenant Payment Request
+    </TableCell>
+    <TableCell
+      narrowLabel="Request Date"
+    >
+      19 Apr 2021
+    </TableCell>
+    <TableCell
+      darkText={true}
+    >
+      £50.00
+    </TableCell>
+    <TableCell>
+      Not Requested
+    </TableCell>
+    <TableExpandableRowTriggerCell
+      isOpen={true}
+    />
+  </TableRow>
+  <TableExpandableRow
+    isOpen={true}
+  >
+    I am the content that is only visible when expanded
+  </TableExpandableRow>
+</ElTableRowContainer>
+`;
+
+exports[`Table Component should match a snapshot 7`] = `
+<ElTableHeader>
+  Property
+</ElTableHeader>
+`;
+
+exports[`Table Component should match a snapshot 8`] = `<ElTableRow />`;
