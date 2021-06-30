@@ -10,9 +10,9 @@ import {
 export const ElStatusIndicator = styled.span`
   border-radius: 3rem;
   display: inline-block;
-  width: .75rem;
-  height: .75rem;
-  margin: 0 .25rem;
+  width: 0.75rem;
+  height: 0.75rem;
+  margin: 0 0.25rem;
   background: var(--color-grey-medium);
 
   &${elIntentPrimary} {
