@@ -27,7 +27,7 @@ describe('Table Component', () => {
               {
                 label: 'Property',
                 value: 'Mt Ash Jacket, Brassey Road',
-                icon: 'home',
+                icon: 'homeSystem',
                 cellHasDarkText: true,
                 narrowTable: {
                   showLabel: true,
@@ -36,7 +36,7 @@ describe('Table Component', () => {
               {
                 label: 'Customer',
                 value: 'Mr Johnny Corrigan',
-                icon: 'username',
+                icon: 'usernameSystem',
                 narrowTable: {
                   showLabel: true,
                 },
@@ -89,17 +89,17 @@ describe('Table Component', () => {
           <TableHeader>Amount</TableHeader>
           <TableHeader>Payment Status</TableHeader>
           <TableHeader>
-            <Icon icon="solidEdit" fontSize="1.2rem" />
+            <Icon icon="editSystem" fontSize="1.2rem" />
           </TableHeader>
         </TableHeadersRow>
         <TableRowContainer>
           <TableRow>
-            <TableCell darkText icon="home">
+            <TableCell darkText icon="homeSystem">
               Mt Ash Jacket
               <br />
               Brassey Road
             </TableCell>
-            <TableCell narrowLabel="N_Customer" icon="username">
+            <TableCell narrowLabel="N_Customer" icon="usernameSystem">
               Mr Johnny Corrigan
             </TableCell>
             <TableCell>Alternate Lettings Client Acc</TableCell>
@@ -128,17 +128,17 @@ describe('Table Component', () => {
           <TableHeader>Amount</TableHeader>
           <TableHeader>Payment Status</TableHeader>
           <TableHeader>
-            <Icon icon="solidEdit" fontSize="1.2rem" />
+            <Icon icon="editSystem" fontSize="1.2rem" />
           </TableHeader>
         </TableHeadersRow>
         <TableRowContainer>
           <TableRow>
-            <TableCell darkText icon="home">
+            <TableCell darkText icon="homeSystem">
               Mt Ash Jacket
               <br />
               Brassey Road
             </TableCell>
-            <TableCell narrowLabel="N_Customer" icon="username">
+            <TableCell narrowLabel="N_Customer" icon="usernameSystem">
               Mr Johnny Corrigan
             </TableCell>
             <TableCell>Alternate Lettings Client Acc</TableCell>
@@ -166,7 +166,7 @@ describe('Table Component', () => {
         <TableHeader>Amount</TableHeader>
         <TableHeader>Payment Status</TableHeader>
         <TableHeader>
-          <Icon icon="solidEdit" fontSize="1.2rem" />
+          <Icon icon="editSystem" fontSize="1.2rem" />
         </TableHeader>
       </TableHeadersRow>,
     )
@@ -175,7 +175,7 @@ describe('Table Component', () => {
 
   it('should match a snapshot', () => {
     const wrapper = shallow(
-      <TableCell darkText icon="home">
+      <TableCell darkText icon="homeSystem">
         Mt Ash Jacket
         <br />
         Brassey Road
@@ -199,12 +199,12 @@ describe('Table Component', () => {
     const wrapper = shallow(
       <TableRowContainer isOpen>
         <TableRow>
-          <TableCell darkText icon="home">
+          <TableCell darkText icon="homeSystem">
             Mt Ash Jacket
             <br />
             Brassey Road
           </TableCell>
-          <TableCell narrowLabel="N_Customer" icon="username">
+          <TableCell narrowLabel="N_Customer" icon="usernameSystem">
             Mr Johnny Corrigan
           </TableCell>
           <TableCell>Alternate Lettings Client Acc</TableCell>
