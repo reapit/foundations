@@ -40,57 +40,65 @@ export const handleFaq = (loginIdentity: LoginIdentity) => {
   openChatbot(loginIdentity)
 }
 
-export const helpItems = (loginIdentity: LoginIdentity): HelpItem[] => [
-  {
-    imgSrc: welcomeImg,
-    header: 'Welcome Guide',
-    text: `Need a little help? Have a look through the Welcome Guide, which we’ve put
+export const helpItems = (loginIdentity: LoginIdentity): HelpItem[] => {
+  const items = [
+    {
+      imgSrc: welcomeImg,
+      header: 'Welcome Guide',
+      text: `Need a little help? Have a look through the Welcome Guide, which we’ve put
       together to help you navigate through your Developer portal.`,
-    buttonText: 'VIEW',
-    buttonOnClick: handleGotoWelcomeGuide,
-  },
-  {
-    imgSrc: requestEndpointImg,
-    header: 'Request a Feature',
-    text: `Use this form to request a feature in either the Marketplace or Foundations API. Please note, we will
+      buttonText: 'VIEW',
+      buttonOnClick: handleGotoWelcomeGuide,
+    },
+    {
+      imgSrc: requestEndpointImg,
+      header: 'Request a Feature',
+      text: `Use this form to request a feature in either the Marketplace or Foundations API. Please note, we will
       look at all requests carefully however, we cannot guarantee all will be implemented.`,
-    buttonText: 'REQUEST',
-    buttonOnClick: handleRequestEndpoint,
-  },
-  {
-    imgSrc: reportBugImg,
-    header: 'Report a Bug',
-    text:
-      'Please report details of any bugs in relation to the Reapit Developer portal or Reapit Foundations API here. ',
-    buttonText: 'REPORT',
-    buttonOnClick: handleReportBug,
-  },
-  {
-    imgSrc: roadmapImg,
-    header: 'Roadmap',
-    text: `Want to see what we are building or check on the progress of your feature requests?
+      buttonText: 'REQUEST',
+      buttonOnClick: handleRequestEndpoint,
+    },
+    {
+      imgSrc: reportBugImg,
+      header: 'Report a Bug',
+      text:
+        'Please report details of any bugs in relation to the Reapit Developer portal or Reapit Foundations API here. ',
+      buttonText: 'REPORT',
+      buttonOnClick: handleReportBug,
+    },
+    {
+      imgSrc: roadmapImg,
+      header: 'Roadmap',
+      text: `Want to see what we are building or check on the progress of your feature requests?
       You can see our product roadmap milestones here. `,
-    buttonText: 'VIEW',
-    buttonOnClick: handleViewRoadmap,
-  },
-  {
-    imgSrc: liveChatImg,
-    header: 'Need Help?',
-    text:
-      'If you have a question that is not covered in the documentation you can ask here. Please note ' +
-      'we don’t provide chat support for Agency Cloud Developer Edition.',
-    buttonText: 'START CHAT',
-    buttonOnClick: () => handleFaq(loginIdentity),
-  },
-  {
-    imgSrc: whatNewImg,
-    header: 'What’s New',
-    text: `We are constantly working to improve your experience with the Foundations Platform. Have a look to see what
+      buttonText: 'VIEW',
+      buttonOnClick: handleViewRoadmap,
+    },
+    {
+      imgSrc: whatNewImg,
+      header: 'What’s New',
+      text: `We are constantly working to improve your experience with the Foundations Platform. Have a look to see what
       new features and fixes have been released.`,
-    buttonText: 'VIEW',
-    buttonOnClick: handleWhatsNew,
-  },
-]
+      buttonText: 'VIEW',
+      buttonOnClick: handleWhatsNew,
+    },
+  ]
+
+  if (loginIdentity.developerId && window.reapit.config.liveChatWhitelist.includes(loginIdentity.developerId)) {
+    const liveChatItem = {
+      imgSrc: liveChatImg,
+      header: 'Need Help?',
+      text:
+        'If you have a question that is not covered in the documentation you can ask here. Please note ' +
+        'we don’t provide chat support for Agency Cloud Developer Edition.',
+      buttonText: 'START CHAT',
+      buttonOnClick: () => handleFaq(loginIdentity),
+    }
+    items.splice(4, 0, liveChatItem)
+  }
+
+  return items
+}
 
 export type DeveloperHelpPageProps = {}
 
