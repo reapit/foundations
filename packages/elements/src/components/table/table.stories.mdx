@@ -229,6 +229,8 @@ Any other props given are applied to the underlying `div` element, e.g. `onClick
 
 This property will force the trigger cell to be fullwidth of the table on narrow sized tables.
 
+> View in mobile view
+
 <Canvas>
   <Story name="TableExpandableRowTriggerCell - narrowIsFullWidth">
     <TableExpandableRowTriggerCell narrowIsFullWidth />
@@ -489,6 +491,50 @@ This can be used for a maximum of 12 columns
 </Canvas>
 
 <RenderHtmlMarkup component="Table" story="Column Table Cell example 2" />
+
+#### NarrowTable cell sizes
+
+The individual cell sizing can be changed when the table is on a narrow screened device (mobile, table). This is done using the `narrowIsFullWidth` property on cells to be full width instead of the default half width
+
+> View this in mobile view
+
+<Canvas>
+  <Story name="Column Table Cell narrowIsFullWidth">
+    <Table data-num-columns-excl-expandable-row-trigger-col="6">
+      <TableHeadersRow>
+        <TableHeader>1</TableHeader>
+        <TableHeader>2</TableHeader>
+        <TableHeader>3</TableHeader>
+        <TableHeader>4</TableHeader>
+        <TableHeader>5</TableHeader>
+        <TableHeader>6</TableHeader>
+      </TableHeadersRow>
+      <TableRow>
+        <TableCell>
+          cell 1
+        </TableCell>
+        <TableCell>
+          cell 2
+        </TableCell>
+         <TableCell>
+          cell 3
+        </TableCell>
+        <TableCell narrowIsFullWidth>
+          cell 4
+        </TableCell>
+         <TableCell>
+          cell 5
+        </TableCell>
+        <TableCell>
+          cell 6
+        </TableCell>
+      </TableRow>
+    </Table>
+  </Story>
+</Canvas>
+
+<RenderHtmlMarkup component="Table" story="Column Table Cell narrowIsFullWidth" />
+
 
 #### Expandable headers
 
