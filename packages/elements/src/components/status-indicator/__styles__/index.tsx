@@ -13,7 +13,7 @@ export const ElStatusIndicator = styled.span`
   width: .75rem;
   height: .75rem;
   margin: 0 .25rem;
-  background: var(--color-grey-light);
+  background: var(--color-grey-medium);
 
   &${elIntentPrimary} {
     background-image: linear-gradient(to right, var(--intent-primary), var(--intent-primary));
