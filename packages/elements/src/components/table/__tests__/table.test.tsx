@@ -118,6 +118,45 @@ describe('Table Component', () => {
 
   it('should match a snapshot', () => {
     const wrapper = shallow(
+      <Table expandableContentSize="medium">
+        <TableHeadersRow>
+          <TableHeader>Property</TableHeader>
+          <TableHeader>Customer</TableHeader>
+          <TableHeader>Client A/C</TableHeader>
+          <TableHeader>Description</TableHeader>
+          <TableHeader>Request Date</TableHeader>
+          <TableHeader>Amount</TableHeader>
+          <TableHeader>Payment Status</TableHeader>
+          <TableHeader>
+            <Icon icon="solidEdit" fontSize="1.2rem" />
+          </TableHeader>
+        </TableHeadersRow>
+        <TableRowContainer>
+          <TableRow>
+            <TableCell darkText icon="home">
+              Mt Ash Jacket
+              <br />
+              Brassey Road
+            </TableCell>
+            <TableCell narrowLabel="N_Customer" icon="username">
+              Mr Johnny Corrigan
+            </TableCell>
+            <TableCell>Alternate Lettings Client Acc</TableCell>
+            <TableCell>Tenant Payment Request</TableCell>
+            <TableCell narrowLabel="Request Date">19 Apr 2021</TableCell>
+            <TableCell darkText>£50.00</TableCell>
+            <TableCell narrowIsFullWidth>Not Requested</TableCell>
+            <TableExpandableRowTriggerCell />
+          </TableRow>
+          <TableExpandableRow>I am the content that is only visible when expanded</TableExpandableRow>
+        </TableRowContainer>
+      </Table>,
+    )
+    expect(wrapper).toMatchSnapshot()
+  })
+
+  it('should match a snapshot', () => {
+    const wrapper = shallow(
         <TableHeadersRow>
           <TableHeader>Property</TableHeader>
           <TableHeader>Customer</TableHeader>
