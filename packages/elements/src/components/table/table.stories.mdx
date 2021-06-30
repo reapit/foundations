@@ -287,7 +287,7 @@ Value | Size
           <TableCell>Tenant Payment Request</TableCell>
           <TableCell narrowLabel="Request Date">19 Apr 2021</TableCell>
           <TableCell darkText>£50.00</TableCell>
-          <TableCell narrowIsFullWidth><StatusIndicator intent="critical" /> Pending</TableCell>
+          <TableCell><StatusIndicator intent="critical" /> Pending</TableCell>
           <TableExpandableRowTriggerCell isOpen />
         </TableRow>
         <TableExpandableRow isOpen>
@@ -338,7 +338,7 @@ Value | Size
           <TableCell>Tenant Payment Request</TableCell>
           <TableCell narrowLabel="Request Date">19 Apr 2021</TableCell>
           <TableCell darkText>£50.00</TableCell>
-          <TableCell narrowIsFullWidth><StatusIndicator intent="danger" /> Pending</TableCell>
+          <TableCell><StatusIndicator intent="critical" /> Pending</TableCell>
           <TableExpandableRowTriggerCell isOpen />
         </TableRow>
         <TableExpandableRow isOpen>
@@ -380,7 +380,7 @@ Value | Size
           <TableCell>Tenant Payment Request</TableCell>
           <TableCell narrowLabel="Request Date">19 Apr 2021</TableCell>
           <TableCell darkText>£50.00</TableCell>
-          <TableCell narrowIsFullWidth> <StatusIndicator intent="danger" /> Pending</TableCell>
+          <TableCell> <StatusIndicator intent="critical" /> Pending</TableCell>
           <TableExpandableRowTriggerCell />
         </TableRow>
         <TableExpandableRow>I am the content that is only visible when expanded</TableExpandableRow>
@@ -558,7 +558,6 @@ Simply supply a `rows` prop, and no children, to use the Table component like th
             {
               label: 'Payment Status',
               value: 'Not Requested',
-              narrowTable: { isFullWidth: true },
             },
           ],
           expandableContent: <p>I am the content that is only visible when expanded</p>,
@@ -599,7 +598,6 @@ Simply supply a `rows` prop, and no children, to use the Table component like th
             {
               label: 'Payment Status',
               value: 'Pending',
-              narrowTable: { isFullWidth: true },
             },
           ],
           expandableContent: <p>I am more content that is only visible when the 2nd row is expanded</p>,
