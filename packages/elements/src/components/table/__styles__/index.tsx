@@ -9,6 +9,128 @@ const MAX_HEADER_HEIGHT = '40px'
 const MAX_TABLE_CONTENT_HEIGHT = '60px'
 const MAX_LINE_LENGTH = 2
 
+export const ElTableCellNarrowOrder1 = css`
+  @media only screen and (max-wdith: 750px) {
+    order: 0;
+  }
+`
+
+export const ElTableCellNarrowOrder2 = css`
+  @media only screen and (max-wdith: 750px) {
+    order: 1;
+  }
+`
+
+export const ElTableCellNarrowOrder3 = css`
+  @media only screen and (max-wdith: 750px) {
+    order: 2;
+  }
+`
+
+export const ElTableCellNarrowOrder4 = css`
+  @media only screen and (max-wdith: 750px) {
+    order: 3;
+  }
+`
+
+export const ElTableCellNarrowOrder5 = css`
+  @media only screen and (max-wdith: 750px) {
+    order: 4;
+  }
+`
+
+export const ElTableCellNarrowOrder6 = css`
+  @media only screen and (max-wdith: 750px) {
+    order: 5;
+  }
+`
+
+export const ElTableCellNarrowOrder7 = css`
+  @media only screen and (max-wdith: 750px) {
+    order: 6;
+  }
+`
+
+export const ElTableCellNarrowOrder8 = css`
+  @media only screen and (max-wdith: 750px) {
+    order: 7;
+  }
+`
+
+export const ElTableCellNarrowOrder9 = css`
+  @media only screen and (max-wdith: 750px) {
+    order: 8;
+  }
+`
+
+export const ElTableCellNarrowOrder10 = css`
+  @media only screen and (max-wdith: 750px) {
+    order: 9;
+  }
+`
+
+export const ElTableCellNarrowOrder11 = css`
+  @media only screen and (max-wdith: 750px) {
+    order: 10;
+  }
+`
+
+export const ElTableCellNarrowOrder12 = css`
+  @media only screen and (max-wdith: 750px) {
+    order: 11;
+  }
+`
+
+const cellOrders = `
+  &:nth-child(1) {
+    order: 0;
+  }
+
+  &:nth-child(2) {
+    order: 1;
+  }
+
+  &:nth-child(3) {
+    order: 2;
+  }
+
+  &:nth-child(4) {
+    order: 3;
+  }
+
+  &:nth-child(5) {
+    order: 4;
+  }
+
+  &:nth-child(6) {
+    order: 5;
+  }
+
+  &:nth-child(7) {
+    order: 6;
+  }
+
+  &:nth-child(8) {
+    order: 7;
+  }
+
+  &:nth-child(9) {
+    order: 8;
+  }
+
+  &:nth-child(10) {
+    order: 9;
+  }
+
+  &:nth-child(11) {
+    order: 10;
+  }
+
+  &:nth-child(12) {
+    order: 11;
+  }
+`
+
 export const ElTable = styled.div`
   &[data-num-columns-excl-expandable-row-trigger-col='2'] {
     --component-table-num-columns: 2;
@@ -124,6 +246,8 @@ export const ElTableHeader = styled.div`
   overflow: hidden;
   text-overflow: ellipsis;
 
+  ${cellOrders}
+
   &:last-child {
     margin-right: 0;
     border-radius: 0 var(--default-border-radius) var(--default-border-radius) 0;
@@ -191,6 +315,8 @@ export const ElTableCell = styled.div`
     margin-right: 0;
   }
 
+  ${cellOrders}
+
   ${ElIcon} {
     margin-right: 0.75rem;
   }
@@ -227,6 +353,7 @@ export const ElTableExpandableRowTriggerCell = styled.div`
   justify-content: center;
   cursor: pointer;
   padding: 0.75rem;
+  order: 12;
 
   &:last-child {
     border-radius: 0 var(--default-border-radius) var(--default-border-radius) 0;

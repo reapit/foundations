@@ -9,6 +9,7 @@ import {
   TableExpandableRow,
   TableExpandableRowTriggerCell,
   TableRowContainer,
+  NarrowOrderType,
 } from './molecules'
 import { Intent } from '../../helpers/intent'
 
@@ -26,17 +27,18 @@ const getHeadersFromRows = (rows: Row[]): string[] => {
 export type Cell = {
   label: string
   value: string
-  children: React.ReactNode
+  children?: React.ReactNode
   icon?: IconNames
   statusCircleIntent?: Intent
   cellHasDarkText?: boolean
   narrowTable?: {
     showLabel?: boolean
     isFullWidth?: boolean
+    order?: NarrowOrderType
   }
 }
 export type Row = {
-  cells: Partial<Cell>[]
+  cells: Cell[]
   expandableContent: React.ReactNode
 }
 export interface ITable extends React.HTMLAttributes<HTMLDivElement> {
@@ -47,7 +49,12 @@ export interface ITable extends React.HTMLAttributes<HTMLDivElement> {
 export * from './molecules'
 
 export const Table: React.FC<ITable> = ({ rows, children, expandableContentSize, ...rest }) => {
-  if (!rows) return <ElTable data-expandable-content-size={expandableContentSize} {...rest}>{children}</ElTable>
+  if (!rows)
+    return (
+      <ElTable data-expandable-content-size={expandableContentSize} {...rest}>
+        {children}
+      </ElTable>
+    )
 
   const [expandedRow, setExpandedRow] = useState<false | number>(false)
 
@@ -90,6 +97,7 @@ export const Table: React.FC<ITable> = ({ rows, children, expandableContentSize,
                     darkText={cell.cellHasDarkText}
                     narrowLabel={cell.narrowTable?.showLabel ? cell.label : undefined}
                     narrowIsFullWidth={cell.narrowTable?.isFullWidth}
+                    narrowOrder={cell.narrowTable?.order}
                   >
                     {cell.children || cell.value}
                   </TableCell>
