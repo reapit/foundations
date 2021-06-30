@@ -24,6 +24,12 @@ const getHeadersFromRows = (rows: Row[]): string[] => {
   return Array.from(headers) as string[]
 }
 
+export type NarrowOptionsType =  {
+  showLabel?: boolean
+  isFullWidth?: boolean
+  order?: NarrowOrderType
+}
+
 export type Cell = {
   label: string
   value: string
@@ -31,11 +37,7 @@ export type Cell = {
   icon?: IconNames
   statusCircleIntent?: Intent
   cellHasDarkText?: boolean
-  narrowTable?: {
-    showLabel?: boolean
-    isFullWidth?: boolean
-    order?: NarrowOrderType
-  }
+  narrowTable?: NarrowOptionsType
 }
 export type Row = {
   cells: Cell[]
