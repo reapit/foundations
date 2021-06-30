@@ -2,6 +2,7 @@ import { css } from 'linaria'
 import { styled } from 'linaria/react'
 import { ElIcon } from '../../icon/__styles__'
 import { elIsActive } from '../../../styles/states'
+import { isMobile } from './../../../styles/media'
 
 const EXPANDABLE_TRIGGER_CELL_WIDTH = '40px'
 
@@ -10,73 +11,73 @@ const MAX_TABLE_CONTENT_HEIGHT = '60px'
 const MAX_LINE_LENGTH = 2
 
 export const ElTableCellNarrowOrder1 = css`
-  @media only screen and (max-wdith: 750px) {
+  ${isMobile} {
     order: 0;
   }
 `
 
 export const ElTableCellNarrowOrder2 = css`
-  @media only screen and (max-wdith: 750px) {
+  ${isMobile} {
     order: 1;
   }
 `
 
 export const ElTableCellNarrowOrder3 = css`
-  @media only screen and (max-wdith: 750px) {
+  ${isMobile} {
     order: 2;
   }
 `
 
 export const ElTableCellNarrowOrder4 = css`
-  @media only screen and (max-wdith: 750px) {
+  ${isMobile} {
     order: 3;
   }
 `
 
 export const ElTableCellNarrowOrder5 = css`
-  @media only screen and (max-wdith: 750px) {
+  ${isMobile} {
     order: 4;
   }
 `
 
 export const ElTableCellNarrowOrder6 = css`
-  @media only screen and (max-wdith: 750px) {
+  ${isMobile} {
     order: 5;
   }
 `
 
 export const ElTableCellNarrowOrder7 = css`
-  @media only screen and (max-wdith: 750px) {
+  ${isMobile} {
     order: 6;
   }
 `
 
 export const ElTableCellNarrowOrder8 = css`
-  @media only screen and (max-wdith: 750px) {
+  ${isMobile} {
     order: 7;
   }
 `
 
 export const ElTableCellNarrowOrder9 = css`
-  @media only screen and (max-wdith: 750px) {
+  ${isMobile} {
     order: 8;
   }
 `
 
 export const ElTableCellNarrowOrder10 = css`
-  @media only screen and (max-wdith: 750px) {
+  ${isMobile} {
     order: 9;
   }
 `
 
 export const ElTableCellNarrowOrder11 = css`
-  @media only screen and (max-wdith: 750px) {
+  ${isMobile} {
     order: 10;
   }
 `
 
 export const ElTableCellNarrowOrder12 = css`
-  @media only screen and (max-wdith: 750px) {
+  ${isMobile} {
     order: 11;
   }
 `
@@ -185,7 +186,7 @@ export const ElTable = styled.div`
 
 // modifiers
 export const elTableNarrowCellIsFullWidth = css`
-  @media screen and (max-width: 750px) {
+  ${isMobile} {
     grid-column-end: span 2;
     text-align: center;
   }
@@ -230,7 +231,7 @@ export const ElTableHeadersRow = styled.div`
     repeat(var(--component-table-num-columns, auto-fit), minmax(var(--component-table-min-column-width), 1fr))
     var(--component-table-expandable-trigger-width, 0);
 
-  @media screen and (max-width: 750px) {
+  ${isMobile} {
     display: none;
   }
 `
@@ -270,7 +271,7 @@ export const ElTableRow = styled.div`
   box-shadow: 0px 2px 9px rgba(0, 0, 0, 0.08);
   border-radius: var(--default-border-radius);
 
-  @media screen and (max-width: 750px) {
+  ${isMobile} {
     grid-template-columns: 1fr 1fr;
   }
 
@@ -336,7 +337,7 @@ export const ElTableCellContent = styled.div`
   line-height: 1.5rem;
   text-overflow: ellipsis;
 
-  @media screen and (max-width: 750px) {
+  ${isMobile} {
     &::before {
       display: block;
       content: attr(data-narrow-label);
@@ -363,7 +364,7 @@ export const ElTableExpandableRowTriggerCell = styled.div`
     border-radius: var(--default-border-radius) 0 0 var(--default-border-radius);
   }
 
-  @media screen and (max-width: 750px) {
+  ${isMobile} {
     &:not(.el-table-narrow-cell-is-full-width) {
       grid-column-end: span 2;
       text-align: center;
