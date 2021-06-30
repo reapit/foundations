@@ -205,6 +205,8 @@ You can also use the classes `el-table-cell-narrow-order-1` through to `el-table
 
 ### Molecule - TableRow
 
+<ArgsTable component={TableRow} story="TableRow" />
+
 `TableRow` only renders children. Any other props given are applied to the underlying `div` element.
 
 <Canvas>
@@ -293,7 +295,7 @@ This property will force the trigger cell to be fullwidth of the table on narrow
 
 The isOpen prop toggles the `.el-is-active` class to show the content.
 
-<ArgsTable of={TableExpandableRow} />
+<ArgsTable of={TableExpandableRow} story="TableExpandableRow" />
 
 <Canvas>
   <Story name="TableExpandableRow">
@@ -383,8 +385,10 @@ Value | Size
 
 `TableRowContainer` is a container for `TableRow` and `TableExpandableRow` to keep styles consistent. Without the `TableRowContainer` elements, styles for `TableRow` and `TableExpandableRow` will clash (border radius and box-shadows).
 
+<ArgsTable component={TableRowContainer} story="TableRowContainer" />
+
 <Canvas>
-  <Story name="TableExpandableContainer">
+  <Story name="TableRowContainer">
     <Table data-num-columns-excl-expandable-row-trigger-col="7" data-has-expandable-action>
       <TableRowContainer isOpen>
         <TableRow>
