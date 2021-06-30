@@ -46,7 +46,7 @@ exports[`Table Component should match a snapshot 2`] = `
     <TableHeader>
       <Icon
         fontSize="1.2rem"
-        icon="solidEdit"
+        icon="editSolidSystem"
       />
     </TableHeader>
   </TableHeadersRow>
@@ -57,14 +57,14 @@ exports[`Table Component should match a snapshot 2`] = `
     <TableRow>
       <TableCell
         darkText={true}
-        icon="home"
+        icon="homeSystem"
         key="0-0"
         narrowLabel="Property"
       >
         Mt Ash Jacket, Brassey Road
       </TableCell>
       <TableCell
-        icon="username"
+        icon="usernameSystem"
         key="1-0"
         narrowLabel="Customer"
       >
@@ -141,7 +141,7 @@ exports[`Table Component should match a snapshot 3`] = `
     <TableHeader>
       <Icon
         fontSize="1.2rem"
-        icon="solidEdit"
+        icon="editSystem"
       />
     </TableHeader>
   </TableHeadersRow>
@@ -149,14 +149,14 @@ exports[`Table Component should match a snapshot 3`] = `
     <TableRow>
       <TableCell
         darkText={true}
-        icon="home"
+        icon="homeSystem"
       >
         Mt Ash Jacket
         <br />
         Brassey Road
       </TableCell>
       <TableCell
-        icon="username"
+        icon="usernameSystem"
         narrowLabel="N_Customer"
       >
         Mr Johnny Corrigan
@@ -220,7 +220,7 @@ exports[`Table Component should match a snapshot 4`] = `
     <TableHeader>
       <Icon
         fontSize="1.2rem"
-        icon="solidEdit"
+        icon="editSystem"
       />
     </TableHeader>
   </TableHeadersRow>
@@ -228,14 +228,14 @@ exports[`Table Component should match a snapshot 4`] = `
     <TableRow>
       <TableCell
         darkText={true}
-        icon="home"
+        icon="homeSystem"
       >
         Mt Ash Jacket
         <br />
         Brassey Road
       </TableCell>
       <TableCell
-        icon="username"
+        icon="usernameSystem"
         narrowLabel="N_Customer"
       >
         Mr Johnny Corrigan
@@ -296,7 +296,7 @@ exports[`Table Component should match a snapshot 5`] = `
   <TableHeader>
     <Icon
       fontSize="1.2rem"
-      icon="solidEdit"
+      icon="editSystem"
     />
   </TableHeader>
 </ElTableHeadersRow>
@@ -307,7 +307,7 @@ exports[`Table Component should match a snapshot 6`] = `
   className="el-table-cell-has-dark-text"
 >
   <Icon
-    icon="home"
+    icon="homeSystem"
     intent="secondary"
   />
   <ElTableCellContent>
@@ -337,14 +337,14 @@ exports[`Table Component should match a snapshot 8`] = `
   <TableRow>
     <TableCell
       darkText={true}
-      icon="home"
+      icon="homeSystem"
     >
       Mt Ash Jacket
       <br />
       Brassey Road
     </TableCell>
     <TableCell
-      icon="username"
+      icon="usernameSystem"
       narrowLabel="N_Customer"
     >
       Mr Johnny Corrigan
