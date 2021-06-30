@@ -647,6 +647,7 @@ Simply supply a `rows` prop, and no children, to use the Table component like th
             {
               label: 'Payment Status',
               value: 'Not Requested',
+              children: <><StatusIndicator intent="danger"/> Not Requested</>,
             },
           ],
           expandableContent: <p>I am the content that is only visible when expanded</p>,
@@ -687,6 +688,7 @@ Simply supply a `rows` prop, and no children, to use the Table component like th
             {
               label: 'Payment Status',
               value: 'Pending',
+              children: <><StatusIndicator intent="critical"/> Pending</>,
             },
           ],
           expandableContent: <p>I am more content that is only visible when the 2nd row is expanded</p>,
