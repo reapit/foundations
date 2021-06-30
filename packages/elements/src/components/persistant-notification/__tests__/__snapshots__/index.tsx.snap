@@ -9,7 +9,7 @@ exports[`PersistantNotification component should match a snapshot 1`] = `
     onClick={[Function]}
   >
     <Icon
-      icon="info"
+      icon="infoSolidSystem"
     />
   </div>
   <div
@@ -29,7 +29,7 @@ exports[`PersistantNotification component should match a snapshot when expanded 
     onClick={[Function]}
   >
     <Icon
-      icon="info"
+      icon="infoSolidSystem"
     />
   </div>
   <div
@@ -49,7 +49,7 @@ exports[`PersistantNotification component should match a snapshot when given an 
     onClick={[Function]}
   >
     <Icon
-      icon="info"
+      icon="infoSolidSystem"
     />
   </div>
   <div

@@ -81,7 +81,7 @@ export const AppointmentTile: FC<AppointmentTileProps> = ({ appointment }) => {
             <CardContextMenu
               contextMenuItems={[
                 {
-                  icon: 'trash',
+                  icon: 'trashSystem',
                   onClick: handleShowModal(setShowModal),
                   intent: 'danger',
                 },

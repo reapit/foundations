@@ -3,7 +3,7 @@
 exports[`SnackHolder component should match a snapshot 1`] = `
 <ElSnackHolder>
   <Snack
-    icon="info"
+    icon="infoSolidSystem"
     intent="primary"
     onRemove={[Function]}
   >

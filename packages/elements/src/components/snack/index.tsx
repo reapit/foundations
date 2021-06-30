@@ -21,7 +21,7 @@ export const Snack: React.FC<ISnack> = ({ icon, intent = 'secondary', className,
     <ElSnack className={combinedClassName} {...rest}>
       {icon && <Icon className={elSnackIcon} intent={intent} fontSize="1.25rem" icon={icon} />}
       {children}
-      {onRemove && <Icon className={elSnackCloseIcon} onClick={onRemove} icon="close" />}
+      {onRemove && <Icon className={elSnackCloseIcon} onClick={onRemove} icon="closeSystem" />}
     </ElSnack>
   )
 }

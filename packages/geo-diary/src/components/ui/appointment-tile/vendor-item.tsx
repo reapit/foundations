@@ -39,7 +39,7 @@ export const VendorItem: FC<VendorItemProps> = ({ appointment }) => {
         return (
           <CardListItem key={vendor.id} className={cx(elFadeIn, elCardListItemExpanded)}>
             <CardListIcon>
-              <Icon icon="vendor" />
+              <Icon icon="vendorInfographic" />
             </CardListIcon>
             <CardListItemTextWrap
               onClick={handleOpenContactDrawer(setAppState, appointment, ContactDrawerType.VENDOR, vendor.id)}

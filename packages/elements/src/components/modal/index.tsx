@@ -23,7 +23,7 @@ export const Modal: React.FC<IModal> = ({ isOpen, onModalClose, title, className
         {title && (
           <ElModalHeader>
             {title}
-            <Icon onClick={onModalClose} icon="close" />
+            <Icon onClick={onModalClose} icon="closeSystem" />
           </ElModalHeader>
         )}
         <ElModalBody>{children}</ElModalBody>

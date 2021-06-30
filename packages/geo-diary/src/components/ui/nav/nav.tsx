@@ -23,14 +23,14 @@ export const Nav: React.FC = () => {
       {
         itemIndex: 1,
         callback: callbackAppClick,
-        iconId: 'apps',
+        iconId: 'appsMenu',
         text: 'Apps',
       },
       {
         itemIndex: 2,
         callback: connectLogoutRedirect,
         isSecondary: true,
-        iconId: 'logout',
+        iconId: 'logoutMenu',
         text: 'Logout',
       },
     )

@@ -30,10 +30,10 @@ export const UseNavStory = () => {
           callback: navigate,
         })}
       >
-        <Icon className={elNavItemIcon} icon="reapitHouse" />
+        <Icon iconSize="medium" className={elNavItemIcon} icon="reapitLogoMenu" />
         <Icon
           className={cx(elIntentNeutral, elMLAuto, elMr2, elNavItemHideDesktop)}
-          icon={navMenuOpen ? 'hamburgerOpen' : 'hamburger'}
+          icon={navMenuOpen ? 'hamburgerOpenMenu' : 'hamburgerMenu'}
           onClick={setNavState({
             navMenuOpen: !navMenuOpen,
           })}
@@ -43,18 +43,18 @@ export const UseNavStory = () => {
         className={cx(navItemIndex === 1 && elNavItemActive, navMenuOpen && elNavItemExpanded)}
         onClick={setNavState({ navItemIndex: 1, callback: navigate })}
       >
-        <Icon icon="apps" />
+        <Icon iconSize="medium" icon="appsMenu" />
         Apps
       </NavItem>
       <NavItem
         className={cx(navItemIndex === 2 && elNavItemActive, navMenuOpen && elNavItemExpanded)}
         onClick={setNavState({ navItemIndex: 2, callback: navigate })}
       >
-        <Icon icon="analytics" />
+        <Icon iconSize="medium" icon="analyticsMenu" />
         Analytics
       </NavItem>
       <NavItem className={cx(navMenuOpen && elNavItemExpanded)} href="https://marketplace.reapit.cloud">
-        <Icon icon="marketplace" />
+        <Icon iconSize="medium" icon="marketplaceMenu" />
         Marketplace
       </NavItem>
       <NavItem
@@ -62,7 +62,7 @@ export const UseNavStory = () => {
         onClick={setNavState({ navItemIndex: 4, callback: logOut })}
         isSecondary
       >
-        <Icon icon="logout" />
+        <Icon iconSize="medium" icon="logoutMenu" />
         Logout
       </NavItem>
     </Nav>
@@ -85,10 +85,10 @@ export const UseNavMobileSubMenuStory = () => {
           callback: navigate,
         })}
       >
-        <Icon className={elNavItemIcon} icon={isMobile ? 'reapitLogo' : 'reapitHouse'} />
+        <Icon iconSize="medium" className={elNavItemIcon} icon={isMobile ? 'reapitLogoTextMenu' : 'reapitLogoMenu'} />
         <Icon
           className={cx(elIntentNeutral, elMLAuto, elMr2, elNavItemHideDesktop)}
-          icon={navMenuOpen ? 'hamburgerOpen' : 'hamburger'}
+          icon={navMenuOpen ? 'hamburgerOpenMenu' : 'hamburgerMenu'}
           onClick={setNavState({
             navMenuOpen: !navMenuOpen,
             navSubMenuIndex: null,
@@ -106,10 +106,13 @@ export const UseNavMobileSubMenuStory = () => {
             : setNavState({ navItemIndex: 1, callback: navigate })
         }
       >
-        <Icon icon="apps" />
+        <Icon iconSize="medium" icon="appsMenu" />
         Apps
         {isMobile && (
-          <Icon className={cx(elIntentNeutral, elMLAuto)} icon={navSubMenuIndex === 0 ? 'arrowUp' : 'arrowDown'} />
+          <Icon
+            className={cx(elIntentNeutral, elMLAuto)}
+            icon={navSubMenuIndex === 0 ? 'arrowUpSystem' : 'arrowDownSystem'}
+          />
         )}
       </NavItem>
       <NavSubNav>
@@ -137,10 +140,13 @@ export const UseNavMobileSubMenuStory = () => {
             : setNavState({ navItemIndex: 2, callback: navigate })
         }
       >
-        <Icon icon="analytics" />
+        <Icon iconSize="medium" icon="analyticsMenu" />
         Analytics
         {isMobile && (
-          <Icon className={cx(elIntentNeutral, elMLAuto)} icon={navSubMenuIndex === 1 ? 'arrowUp' : 'arrowDown'} />
+          <Icon
+            className={cx(elIntentNeutral, elMLAuto)}
+            icon={navSubMenuIndex === 1 ? 'arrowUpSystem' : 'arrowDownSystem'}
+          />
         )}
       </NavItem>
       <NavSubNav>
@@ -158,7 +164,7 @@ export const UseNavMobileSubMenuStory = () => {
         </NavSubNavItem>
       </NavSubNav>
       <NavItem className={cx(navMenuOpen && elNavItemExpanded)} href="https://marketplace.reapit.cloud">
-        <Icon icon="marketplace" />
+        <Icon iconSize="medium" icon="marketplaceMenu" />
         Marketplace
       </NavItem>
       <NavItem
@@ -166,7 +172,7 @@ export const UseNavMobileSubMenuStory = () => {
         onClick={setNavState({ navItemIndex: 4, callback: logOut })}
         isSecondary
       >
-        <Icon icon="logout" />
+        <Icon iconSize="medium" icon="logoutMenu" />
         Logout
       </NavItem>
     </Nav>

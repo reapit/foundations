@@ -13,7 +13,7 @@ exports[`Snack component should match a snapshot if an icon is supplied 1`] = `
   <Icon
     className="el-snack-icon"
     fontSize="1.25rem"
-    icon="email"
+    icon="emailSystem"
     intent="secondary"
   />
 </ElSnack>

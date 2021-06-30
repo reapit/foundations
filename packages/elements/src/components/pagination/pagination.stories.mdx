@@ -3,6 +3,7 @@ import { Story, Canvas } from '@storybook/addon-docs/blocks'
 import { Pagination, PaginationWrap, PaginationText, PaginationButton } from './index'
 import { elPaginationPrimary } from './__styles__'
 import { RenderHtmlMarkup } from '../../helpers/render-html-markup'
+import { Icon } from '../icon'
 
 <Meta title="Pagination" />
 
@@ -21,10 +22,10 @@ For non-React users, just use the rendered markup and use your own JS to trigger
         <strong>1</strong> of 4
       </PaginationText>
       <PaginationButton>
-        <Icon icon="solidBack" />
+        <Icon icon="backSystem" />
       </PaginationButton>
       <PaginationButton>
-        <Icon icon="solidNext" className={elPaginationPrimary} />
+        <Icon icon="nextSystem" className={elPaginationPrimary} />
       </PaginationButton>
     </PaginationWrap>
   </Story>

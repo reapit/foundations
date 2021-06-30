@@ -9,13 +9,13 @@ exports[`Nav should match a snapshot 1`] = `
       },
       Object {
         "callback": [Function],
-        "iconId": "apps",
+        "iconId": "appsMenu",
         "itemIndex": 1,
         "text": "Apps",
       },
       Object {
         "callback": [Function],
-        "iconId": "logout",
+        "iconId": "logoutMenu",
         "isSecondary": true,
         "itemIndex": 2,
         "text": "Logout",

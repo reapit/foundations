@@ -107,11 +107,11 @@ export const CardContextMenu: FC<CardContextMenuProps> = ({ className, contextMe
   return (
     <CardContextMenuWrapper className={className} {...rest}>
       <CardContextMenuToggle onClick={handleToggleContextMenu(contextMenuOpen, setContextMenuOpen)}>
-        <Icon icon="more" fontSize="1.25rem" />
+        <Icon icon="moreSystem" fontSize="1.25rem" />
       </CardContextMenuToggle>
       <CardContextMenuItems className={cx(contextMenuOpen && elCardContextMenuOpen)}>
         <CardContextMenuItem onClick={handleToggleContextMenu(contextMenuOpen, setContextMenuOpen)}>
-          <Icon icon="close" />
+          <Icon icon="closeSystem" />
         </CardContextMenuItem>
         {contextMenuItems.map(({ icon, intent, onClick }, index) => (
           <CardContextMenuItem key={index} onClick={onClick}>
@@ -169,7 +169,7 @@ export const Card: FC<CardProps> = ({
                   : handleToggleMainMobileOpen(mainMobileOpen, setMainMobileOpen)
               }
             >
-              <Icon icon={mainMobileOpen ? 'arrowUp' : 'arrowDown'} />
+              <Icon icon={mainMobileOpen ? 'arrowUpSystem' : 'arrowDownSystem'} />
             </CardMobileToggle>
           </CardMainWrap>
           <CardBodyWrap
@@ -195,7 +195,7 @@ export const Card: FC<CardProps> = ({
                 className={elMobileListToggle}
                 onClick={handleToggleListMobileOpen(listMobileOpen, setListMobileOpen)}
               >
-                <Icon icon={listMobileOpen ? 'arrowUp' : 'arrowDown'} />
+                <Icon icon={listMobileOpen ? 'arrowUpSystem' : 'arrowDownSystem'} />
               </CardMobileToggle>
             )}
           </CardListMainWrap>

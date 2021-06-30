@@ -5,7 +5,9 @@ import { SnackHolder } from '../'
 
 describe('SnackHolder component', () => {
   it('should match a snapshot', () => {
-    const wrapper = shallow(<SnackHolder snacks={[{ text: 'i am a snack', intent: 'primary', icon: 'info' }]} />)
+    const wrapper = shallow(
+      <SnackHolder snacks={[{ text: 'i am a snack', intent: 'primary', icon: 'infoSolidSystem' }]} />,
+    )
     expect(wrapper).toMatchSnapshot()
   })
 
@@ -13,7 +15,7 @@ describe('SnackHolder component', () => {
     const spy = jest.fn()
     const wrapper = shallow(
       <SnackHolder
-        snacks={[{ text: 'i am a snack', intent: 'primary', icon: 'info', _id: '1' }]}
+        snacks={[{ text: 'i am a snack', intent: 'primary', icon: 'infoSolidSystem', _id: '1' }]}
         removeSnackById={spy}
       />,
     )

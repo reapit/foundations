@@ -8,7 +8,7 @@ exports[`VendorItem should match snapshot with vendors in state 1`] = `
   >
     <CardListIcon>
       <Icon
-        icon="vendor"
+        icon="vendorInfographic"
       />
     </CardListIcon>
     <CardListItemTextWrap

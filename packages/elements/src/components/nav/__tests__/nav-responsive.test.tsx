@@ -19,7 +19,7 @@ describe('NavResponsive component', () => {
               {
                 itemIndex: 1,
                 callback: () => console.log('Navigating'),
-                iconId: 'apps',
+                iconId: 'appsMenu',
                 text: 'Apps',
                 subItems: [
                   {
@@ -37,7 +37,7 @@ describe('NavResponsive component', () => {
               {
                 itemIndex: 2,
                 callback: () => console.log('Navigating'),
-                iconId: 'analytics',
+                iconId: 'analyticsMenu',
                 text: 'Analytics',
                 subItems: [
                   {
@@ -55,14 +55,14 @@ describe('NavResponsive component', () => {
               {
                 itemIndex: 3,
                 href: 'https://marketplace.reapit.cloud',
-                iconId: 'marketplace',
+                iconId: 'marketplaceMenu',
                 text: 'Marketplace',
               },
               {
                 itemIndex: 4,
                 callback: () => console.log('Logging out'),
                 isSecondary: true,
-                iconId: 'logout',
+                iconId: 'logoutMenu',
                 text: 'Logout',
               },
             ]}

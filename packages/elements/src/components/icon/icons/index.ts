@@ -52,6 +52,9 @@ import resultsMenu from './menu-icons/resultsMenu'
 import searchMenu from './menu-icons/searchMenu'
 import usersMenu from './menu-icons/usersMenu'
 import webhooksMenu from './menu-icons/webhooksMenu'
+import hamburgerMenu from './menu-icons/hamburgerMenu'
+import hamburgerOpenMenu from './menu-icons/hamburgerOpenMenu'
+import reapitLogoTextMenu from './menu-icons/reapitLogoTextMenu'
 import addSystem from './system-icons/addSystem'
 import arrowDownSystem from './system-icons/arrowDownSystem'
 import arrowLeftSystem from './system-icons/arrowLeftSystem'
@@ -175,6 +178,9 @@ export const iconSet = {
   searchMenu,
   usersMenu,
   webhooksMenu,
+  hamburgerMenu,
+  hamburgerOpenMenu,
+  reapitLogoTextMenu,
   docsAnimated1,
   docsAnimated2,
   webhooksAnimated1,

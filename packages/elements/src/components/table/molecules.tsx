@@ -65,7 +65,7 @@ export const TableExpandableRowTriggerCell: React.FC<ITableExpandableRowTriggerC
 }) => {
   return (
     <ElTableExpandableRowTriggerCell {...rest}>
-      <Icon intent={isOpen ? 'primary' : 'secondary'} icon={isOpen ? 'arrowUp' : 'solidDown'} />
+      <Icon intent={isOpen ? 'primary' : 'secondary'} icon={isOpen ? 'arrowUpSystem' : 'arrowUpSystem'} />
       {children}
     </ElTableExpandableRowTriggerCell>
   )

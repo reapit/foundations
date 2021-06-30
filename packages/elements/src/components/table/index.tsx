@@ -64,7 +64,7 @@ export const Table: React.FC<ITable> = ({ rows, children, ...rest }) => {
         ))}
         {hasExpandableRows && (
           <TableHeader>
-            <Icon icon="solidEdit" fontSize="1.2rem" />
+            <Icon icon="editSolidSystem" fontSize="1.2rem" />
           </TableHeader>
         )}
       </TableHeadersRow>

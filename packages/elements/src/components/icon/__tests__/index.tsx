@@ -1,16 +1,16 @@
 import * as React from 'react'
 import { shallow } from 'enzyme'
 import { Icon } from '..'
-import iconSet from '../icons'
+import { iconSet } from '../icons'
 
 describe('Icon component', () => {
   it('should match a snapshot', () => {
-    const wrapper = shallow(<Icon icon="add" />)
+    const wrapper = shallow(<Icon icon="addSystem" />)
     expect(wrapper).toMatchSnapshot()
   })
 
   it('should match a snapshot when intent prop is supplied', () => {
-    const wrapper = shallow(<Icon icon="add" intent="primary" />)
+    const wrapper = shallow(<Icon icon="addSystem" intent="primary" />)
     expect(wrapper).toMatchSnapshot()
   })
 
