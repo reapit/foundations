@@ -3,7 +3,7 @@ import { InputGroup } from './index'
 import { Input } from '../input'
 import { Icon } from '../icon'
 import { Label } from '../label'
-import { AfterInputText } from '../after-input-text'
+import { InputAddOn } from '../input-add-on'
 import { RenderHtmlMarkup } from '../../storybook/render-html-markup'
 
 <Meta title="InputGroup" component={InputGroup} />
@@ -12,19 +12,19 @@ import { RenderHtmlMarkup } from '../../storybook/render-html-markup'
 
 Underlying tag: `<div>`
 
-InputGroup provides a wrapper and styling for the `Input`, `Icon`, `Label`, and `AfterInputText` components, so that they can work nicely together.
+InputGroup provides a wrapper and styling for the `Input`, `Icon`, `Label`, and `InputAddOn` components, so that they can work nicely together.
 
 ### Usage with HTML & CSS only
 
 - The order of the child components matters, in order to make the focus state work (i.e. the different styling applied when you click into the component)
-- The `<input>` component must come first in the DOM, before the `<label>`, and the `<span>` for the icon and AfterInputText, as is shown in the HTML docs
+- The `<input>` component must come first in the DOM, before the `<label>`, and the `<span>` for the icon and InputAddOn, as is shown in the HTML docs
 
 ### Usage with React
 
 - You can supply the child components individually (ensure the `Input` component is included as the first child). When using like this, any additional props on the `InputGroup` component are added to the underlying `div`.
 - Or, there is also a shorthand for React where you can supply props. This only works if _no children_ are supplied
 
-# Complete example, with Icon, Label, and AfterInputText
+# Complete example, with Icon, Label, and InputAddOn
 
 <Canvas>
   <Story name="Complete example">
@@ -32,7 +32,7 @@ InputGroup provides a wrapper and styling for the `Input`, `Icon`, `Label`, and 
       <Input id="myId" type="text" />
       <Icon icon="usernameSystem" />
       <Label htmlFor="myId">Enter your username</Label>
-      <AfterInputText>Required</AfterInputText>
+      <InputAddOn>Required</InputAddOn>
     </InputGroup>
   </Story>
 </Canvas>
@@ -65,18 +65,18 @@ InputGroup provides a wrapper and styling for the `Input`, `Icon`, `Label`, and 
 
 <RenderHtmlMarkup component="InputGroup" story="With Label only" />
 
-# With AfterInputText only
+# With InputAddOn only
 
 <Canvas>
-  <Story name="With AfterInputText only">
+  <Story name="With InputAddOn only">
     <InputGroup>
       <Input id="myId3" type="email" />
-      <AfterInputText>Required</AfterInputText>
+      <InputAddOn>Required</InputAddOn>
     </InputGroup>
   </Story>
 </Canvas>
 
-<RenderHtmlMarkup component="InputGroup" story="With AfterInputText only" />
+<RenderHtmlMarkup component="InputGroup" story="With InputAddOn only" />
 
 # Shorthand usage for React users
 
@@ -100,11 +100,11 @@ InputGroup provides a wrapper and styling for the `Input`, `Icon`, `Label`, and 
   </Story>
 </Canvas>
 
-### With `icon`, `label`, `afterInputText` and `intent` props
+### With `icon`, `label`, `InputAddOn` and `intent` props
 
 <Canvas>
   <Story name="React shorthand - all props">
-    <InputGroup icon="asteriskSystem" label="Email address" afterInputText="Required" intent="danger" type="text" />
+    <InputGroup icon="asteriskSystem" label="Email address" InputAddOn="Required" intent="danger" type="text" />
   </Story>
 </Canvas>
 
@@ -114,16 +114,16 @@ InputGroup provides a wrapper and styling for the `Input`, `Icon`, `Label`, and 
 
 <Canvas>
   <Story name="Type: checkbox">
-    <InputGroup type="checkbox" icon="phoneSystem" label="Status" afterInputText="Listed" />
+    <InputGroup type="checkbox" icon="phoneSystem" label="Status" InputAddOn="Listed" />
   </Story>
   <Story name="Type: checkbox - with intent">
-    <InputGroup type="checkbox" icon="infoSystem" intent="danger" label="Status" afterInputText="Listed" />
+    <InputGroup type="checkbox" icon="infoSystem" intent="danger" label="Status" InputAddOn="Listed" />
   </Story>
   <Story name="Type: checkbox - no icon">
-    <InputGroup type="checkbox" label="Status" afterInputText="Listed" />
+    <InputGroup type="checkbox" label="Status" InputAddOn="Listed" />
   </Story>
   <Story name="Type: checkbox - no label">
-    <InputGroup type="checkbox" afterInputText="Listed" />
+    <InputGroup type="checkbox" InputAddOn="Listed" />
   </Story>
 </Canvas>
 
@@ -162,17 +162,17 @@ InputGroup provides a wrapper and styling for the `Input`, `Icon`, `Label`, and 
   label="HTML of the above"
 />
 
-#### Use with radio input type and afterInputText
+#### Use with radio input type and InputAddOn
 
-The `afterInputText` prop (and use of the `AfterInputText` component within `InputGroup` in general) _is_ supported with radio buttons, however with radio buttons the `Label` does most of the work.
+The `inputAddOn` prop (and use of the `InputAddOn` component within `InputGroup` in general) _is_ supported with radio buttons, however with radio buttons the `Label` does most of the work.
 
-`AfterInputText` can be used but won't add that much value, and it's reccomended to use just `Label` on it's own. See an example below:
+`inputAddOn` can be used but won't add that much value, and it's reccomended to use just `Label` on it's own. See an example below:
 
 <Canvas>
-  <Story name="Type: radio - with afterInputText">
+  <Story name="Type: radio - with InputAddOn">
     <Label className="el-mb2 el-flex">Preffered contact</Label>
-    <InputGroup className="el-mb2" type="radio" name="phone" label="Mobile phone" afterInputText="Test" />
-    <InputGroup className="el-mb2" type="radio" name="phone" label="Home phone" afterInputText="Test" />
-    <InputGroup className="el-mb2" type="radio" name="phone" label="Email" afterInputText="Test" />
+    <InputGroup className="el-mb2" type="radio" name="phone" label="Mobile phone" InputAddOn="Test" />
+    <InputGroup className="el-mb2" type="radio" name="phone" label="Home phone" InputAddOn="Test" />
+    <InputGroup className="el-mb2" type="radio" name="phone" label="Email" InputAddOn="Test" />
   </Story>
 </Canvas>

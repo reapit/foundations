@@ -1,4 +1,4 @@
-import { Story, Canvas } from '@storybook/addon-docs/blocks'
+import { Story, Canvas, ArgsTable } from '@storybook/addon-docs/blocks'
 import {
   CardWrap,
   CardHeading,
@@ -38,7 +38,7 @@ import { cx } from 'linaria'
 import { Card } from './card-components'
 import { MediaStateProvider } from '../../hooks/use-media-query'
 
-<Meta title="Card" />
+<Meta title="Card" component={Card} />
 
 # Card
 
@@ -56,11 +56,73 @@ For non-React users, the following examples show how applying and removing class
 
 React users, may wish to revert to the React example below where this heavy lifting is done for you.
 
-### Card With Image
+## Basic Usage - Card With Image
 
 <Canvas>
-  <Story name="Card With Image">
+  <Story name="Basic Usage - Card With Image">
+    <CardWrap>
+      <CardMainWrap>
+        <CardImageWrap>
+          <img src="https://via.placeholder.com/72x72.svg" />
+        </CardImageWrap>
+        <CardHeadingWrap>
+          <CardHeading>Main Heading</CardHeading>
+          <CardSubHeading>Sub Heading</CardSubHeading>
+          <CardSubHeadingAdditional className={elCardSubHeadingAdditionalExpanded}>
+            Sub Heading Additional
+          </CardSubHeadingAdditional>
+        </CardHeadingWrap>
+        <CardMobileToggle>
+          <Icon icon="arrowUp" />
+        </CardMobileToggle>
+      </CardMainWrap>
+      <CardBodyWrap className={elCardBodyWrapExpanded}>
+        Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore
+        magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
+        consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla
+        pariatur.
+      </CardBodyWrap>
+    </CardWrap>
+  </Story>
+</Canvas>
+
+<RenderHtmlMarkup component="Card" story="Basic Usage - Card With Image" />
+
+<Canvas>
+  <Story name="Card With Image Focussed">
     <CardWrap className={elCardFocussed}>
+      <CardMainWrap>
+        <CardImageWrap>
+          <img src="https://via.placeholder.com/72x72.svg" />
+        </CardImageWrap>
+        <CardHeadingWrap>
+          <CardHeading>Main Heading</CardHeading>
+          <CardSubHeading>Sub Heading</CardSubHeading>
+          <CardSubHeadingAdditional className={elCardSubHeadingAdditionalExpanded}>
+            Sub Heading Additional
+          </CardSubHeadingAdditional>
+        </CardHeadingWrap>
+        <CardMobileToggle>
+          <Icon icon="arrowUp" />
+        </CardMobileToggle>
+      </CardMainWrap>
+      <CardBodyWrap className={elCardBodyWrapExpanded}>
+        Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore
+        magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
+        consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla
+        pariatur.
+      </CardBodyWrap>
+    </CardWrap>
+  </Story>
+</Canvas>
+
+<RenderHtmlMarkup component="Card" story="Card With Image Focussed" />
+
+## Card With Image and Context Menu
+
+<Canvas>
+  <Story name="Card With Image and Context Menu">
+    <CardWrap>
       <CardContextMenuWrapper>
         <CardContextMenuToggle>
           <Icon icon="moreSystem" fontSize="1.25rem" />
@@ -102,12 +164,12 @@ React users, may wish to revert to the React example below where this heavy lift
   </Story>
 </Canvas>
 
-<RenderHtmlMarkup component="Card" story="Card With Image" />
+<RenderHtmlMarkup component="Card" story="Card With Image and Context Menu" />
 
-### Card With Image Closed
+## Card With Image and Context Menu Closed
 
 <Canvas>
-  <Story name="Card With Image Closed">
+  <Story name="Card With Image and Context Menu Closed">
     <CardWrap>
       <CardContextMenuWrapper>
         <CardContextMenuToggle>
@@ -148,13 +210,49 @@ React users, may wish to revert to the React example below where this heavy lift
   </Story>
 </Canvas>
 
-<RenderHtmlMarkup component="Card" story="Card With Image Closed" />
+<RenderHtmlMarkup component="Card" story="Card With Image and Context Menu Closed" />
 
-### Card With List
+## Basic Usage - Card With List
 
 <Canvas>
-  <Story name="Card With List">
-    <CardWrap className={elCardFocussed}>
+  <Story name="Basic Usage - Card With List">
+    <CardWrap>
+      <CardListMainWrap className={elCardListMainWrapExpanded}>
+        <CardListHeading>Secondary Heading</CardListHeading>
+        <CardListSubHeading>Secondary Sub Heading</CardListSubHeading>
+        <CardMobileToggle className={elMobileListToggle}>
+          <Icon icon="arrowUpSystem" />
+        </CardMobileToggle>
+      </CardListMainWrap>
+      <CardListItem className={elCardListItemExpanded}>
+        <CardListIcon>
+          <Icon icon="houseInfographic" />
+        </CardListIcon>
+        <CardListItemTextWrap>
+          <CardListItemTextPrimary>Item Title</CardListItemTextPrimary>
+          <CardListItemTextSecondary>Item Details</CardListItemTextSecondary>
+        </CardListItemTextWrap>
+      </CardListItem>
+      <CardListItem className={elCardListItemExpanded}>
+        <CardListIcon>
+          <Icon icon="applicantInfographic" />
+        </CardListIcon>
+        <CardListItemTextWrap>
+          <CardListItemTextPrimary>Item Title</CardListItemTextPrimary>
+          <CardListItemTextSecondary>Item Details</CardListItemTextSecondary>
+        </CardListItemTextWrap>
+      </CardListItem>
+    </CardWrap>
+  </Story>
+</Canvas>
+
+<RenderHtmlMarkup component="Card" story="Basic Usage - Card With List" />
+
+## Card With List and Context Menu
+
+<Canvas>
+  <Story name="Card With List and Context Menu">
+    <CardWrap>
       <CardListMainWrap className={elCardListMainWrapExpanded}>
         <CardContextMenuWrapper>
           <CardContextMenuToggle>
@@ -200,12 +298,12 @@ React users, may wish to revert to the React example below where this heavy lift
   </Story>
 </Canvas>
 
-<RenderHtmlMarkup component="Card" story="Card With List" />
+<RenderHtmlMarkup component="Card" story="Card With List and Context Menu" />
 
-### Card With List Closed
+## Card With List and Context Menu Closed
 
 <Canvas>
-  <Story name="Card With List Closed">
+  <Story name="Card With List and Context Menu Closed">
     <CardWrap>
       <CardListMainWrap>
         <CardContextMenuWrapper>
@@ -252,13 +350,13 @@ React users, may wish to revert to the React example below where this heavy lift
   </Story>
 </Canvas>
 
-<RenderHtmlMarkup component="Card" story="Card With List Closed" />
+<RenderHtmlMarkup component="Card" story="Card With List and Context Menu Closed" />
 
-### Complete Example Open
+## Complete Example Open
 
 <Canvas>
   <Story name="Complete Example Open">
-    <CardWrap className={elCardFocussed}>
+    <CardWrap>
       <CardContextMenuWrapper>
         <CardContextMenuToggle>
           <Icon icon="moreSystem" fontSize="1.25rem" />
@@ -343,7 +441,7 @@ React users, may wish to revert to the React example below where this heavy lift
 
 <RenderHtmlMarkup component="Card" story="Complete Example Open" />
 
-### Complete Example Closed
+## Complete Example Closed
 
 <Canvas>
   <Story name="Complete Example Closed">
@@ -430,52 +528,13 @@ React users, may wish to revert to the React example below where this heavy lift
 
 <RenderHtmlMarkup component="Card" story="Complete Example Closed" />
 
-### React Example
+## React Example
 
 In the React example, you can compose your card by applying props as appropriate following the `CardProps` interface:
 
-```ts
-// Card list items have a heading, a sub heading an icon name from our icon list and an onClick action
-export interface CardListItemProps {
-  listCardItemHeading?: string
-  listCardItemSubHeading?: string
-  listCardItemIcon?: IconNames
-  onClick?: () => void
-}
+<ArgsTable component={Card} />
 
-// As per above, each of the context menu options should have an icon name, a click action and optionally, an intent for example "danger", will render a red icon
-export interface ContextMenuItem {
-  icon: IconNames
-  onClick: () => void
-  intent?: Intent
-}
-
-export interface CardContextMenuProps extends HTMLAttributes<HTMLDivElement> {
-  contextMenuItems?: ContextMenuItem[]
-}
-
-export interface CardProps extends HTMLAttributes<HTMLDivElement> {
-  hasMainCard?: boolean // Should we render an Image card as the main card?
-  // Supplied text options for the various fields
-  mainCardHeading?: string
-  mainCardSubHeading?: string
-  mainCardSubHeadingAdditional?: string
-  mainCardBody?: string
-  mainCardImgUrl?: string
-  // A list of context menu options
-  mainContextMenuItems?: ContextMenuItem[]
-  hasListCard?: boolean // Should we render a bottom list section. If supplied without hasMainCard, will just render a list
-  // Heading strings for the list
-  listCardHeading?: string 
-  listCardSubHeading?: string
-  listCardItems?: CardListItemProps[] // A list of options for the list - see CardList item above
-  listContextMenuItems?: ContextMenuItem[]
-  isSelected?: boolean // Does the card have the blue selected border
-}
-
-```
-
-As you can see, all of the props are optional however, a completed version with all options is below:
+As you can see, all of the props are optional - a completed version with all options is below:
 
 <Canvas>
   <Story name="React Example">
@@ -509,8 +568,8 @@ As you can see, all of the props are optional however, a completed version with 
           },
         ]}
         listContextMenuItems={[
-          { icon: 'trash', onClick: () => console.log('Clicking'), intent: 'danger' },
-          { icon: 'share', onClick: () => console.log('Clicking') },
+          { icon: 'trashSystem', onClick: () => console.log('Clicking'), intent: 'danger' },
+          { icon: 'shareSystem', onClick: () => console.log('Clicking') },
         ]}
       />
     </MediaStateProvider>
@@ -518,3 +577,47 @@ As you can see, all of the props are optional however, a completed version with 
 </Canvas>
 
 <RenderHtmlMarkup component="Card" story="React Example" />
+
+To explain the docs further, the annotated interfaces are below:
+
+```tsx
+export interface CardListItemProps {
+  // Card list items have a heading, a sub heading an icon name from our icon list and an onClick action
+  listCardItemHeading?: string
+  listCardItemSubHeading?: string
+  listCardItemIcon?: IconNames
+  onClick?: () => void
+}
+
+export interface ContextMenuItem {
+  icon: IconNames
+  onClick: () => void
+  intent?: Intent
+}
+
+// As per above, each of the context menu options should have an icon name, a click action and
+// optionally, an intent for example "danger", will render a red icon
+export interface CardContextMenuProps extends HTMLAttributes<HTMLDivElement> {
+  contextMenuItems?: ContextMenuItem[]
+}
+
+export interface CardProps extends HTMLAttributes<HTMLDivElement> {
+  hasMainCard?: boolean // Should we render an Image card as the main card?
+  // Supplied text options for the various fields
+  mainCardHeading?: string
+  mainCardSubHeading?: string
+  mainCardSubHeadingAdditional?: string
+  mainCardBody?: string
+  mainCardImgUrl?: string
+  // A list of context menu options
+  mainContextMenuItems?: ContextMenuItem[]
+  // Should we render a bottom list section. If supplied without hasMainCard, will just render a list
+  hasListCard?: boolean
+  // Heading strings for the list
+  listCardHeading?: string
+  listCardSubHeading?: string
+  listCardItems?: CardListItemProps[] // A list of options for the list - see CardList item above
+  listContextMenuItems?: ContextMenuItem[]
+  isSelected?: boolean // Does the card have the blue selected border
+}
+```

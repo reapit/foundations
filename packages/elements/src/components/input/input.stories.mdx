@@ -11,10 +11,11 @@ Underlying tag: `<input>`
 <Canvas>
   <Story name="Default Usage">
     <Input type="text" placeholder="A placeholder" />
+        <Input type="email" placeholder="Enter your email" />
   </Story>
 </Canvas>
 
-<RenderHtmlMarkup component="V3/Forms/Input" story="Default Usage" />
+<RenderHtmlMarkup component="Input" story="Default Usage" />
 
 # Different types
 
@@ -134,17 +135,3 @@ Underlying tag: `<input>`
 </Canvas>
 
 <RenderHtmlMarkup component="V3/Forms/Input" story="Type: radio" />
-
-# Additional className
-
-Set the `className` prop to add additional custom CSS classes
-
-<Canvas>
-  <Story name="Additional className">
-    <Input className="my-custom-className" />
-  </Story>
-</Canvas>
-
-# Other attributes
-
-All other standard HTML attributes for `<input>` are supported and are passed through to the React component, e.g. onClick
