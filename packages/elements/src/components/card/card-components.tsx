@@ -38,6 +38,7 @@ import { Intent } from '../../helpers/intent'
 import { useMediaQuery } from '../../hooks/use-media-query'
 
 export interface CardListItemProps {
+  // Card list items have a heading, a sub heading an icon name from our icon list and an onClick action
   listCardItemHeading?: string
   listCardItemSubHeading?: string
   listCardItemIcon?: IconNames
@@ -50,24 +51,30 @@ export interface ContextMenuItem {
   intent?: Intent
 }
 
+// As per above, each of the context menu options should have an icon name, a click action and
+// optionally, an intent for example "danger", will render a red icon
 export interface CardContextMenuProps extends HTMLAttributes<HTMLDivElement> {
   contextMenuItems?: ContextMenuItem[]
 }
 
 export interface CardProps extends HTMLAttributes<HTMLDivElement> {
-  hasMainCard?: boolean
+  hasMainCard?: boolean // Should we render an Image card as the main card?
+  // Supplied text options for the various fields
   mainCardHeading?: string
   mainCardSubHeading?: string
   mainCardSubHeadingAdditional?: string
   mainCardBody?: string
   mainCardImgUrl?: string
+  // A list of context menu options
   mainContextMenuItems?: ContextMenuItem[]
+  // Should we render a bottom list section. If supplied without hasMainCard, will just render a list
   hasListCard?: boolean
+  // Heading strings for the list
   listCardHeading?: string
   listCardSubHeading?: string
-  listCardItems?: CardListItemProps[]
+  listCardItems?: CardListItemProps[] // A list of options for the list - see CardList item above
   listContextMenuItems?: ContextMenuItem[]
-  isSelected?: boolean
+  isSelected?: boolean // Does the card have the blue selected border
 }
 
 export const handleToggleContextMenu = (

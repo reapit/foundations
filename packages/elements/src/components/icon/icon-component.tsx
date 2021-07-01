@@ -1,4 +1,4 @@
-import * as React from 'react'
+import React, { FC, HTMLAttributes } from 'react'
 import { cx } from 'linaria'
 import { Intent, getIntentClassName } from '../../helpers/intent'
 import {
@@ -15,7 +15,7 @@ export type IconNames = keyof typeof iconSet
 
 export type IconSize = 'smallest' | 'small' | 'medium' | 'large' | 'largest'
 
-export interface IIcon extends React.HTMLAttributes<HTMLSpanElement> {
+export interface IconProps extends HTMLAttributes<HTMLSpanElement> {
   icon: IconNames
   intent?: Intent
   fontSize?: string
@@ -40,7 +40,7 @@ export const getIconSize = (iconSize?: IconSize): string | null => {
   }
 }
 
-export const Icon: React.FC<IIcon> = ({ icon, intent, fontSize, iconSize, className, ...rest }) => {
+export const Icon: FC<IconProps> = ({ icon, intent, fontSize, iconSize, className, ...rest }) => {
   const intentClassname = intent && getIntentClassName(intent)
   const sizeClassname = getIconSize(iconSize)
   const combinedClassName = cx(className, intentClassname, sizeClassname)

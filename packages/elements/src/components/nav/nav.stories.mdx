@@ -6,7 +6,7 @@ import { NavStateProvider, useNavState } from '../../hooks/use-nav-state'
 import { MediaStateProvider } from '../../hooks/use-media-query'
 import { Icon } from '../icon'
 import { UseNavStory, UseNavMobileSubMenuStory } from './use-nav.stories'
-import { RenderHtmlMarkup } from '../../helpers/render-html-markup'
+import { RenderHtmlMarkup } from '../../storybook/render-html-markup'
 import { elIntentNeutral } from '../../styles/intent'
 import { elMl4, elMLAuto, elMr2 } from '../../styles/spacing'
 import { NavResponsive } from './nav-responsive'
@@ -62,7 +62,11 @@ In this example, changing the browser width to mobile will show the expanded mob
     <Nav>
       <NavItem>
         <Icon iconSize="medium" className={elNavItemIcon} icon="reapitLogoMenu" />
-        <Icon className={cx(elIntentNeutral, elMLAuto, elMr2, elNavItemHideDesktop)} icon="hamburgerMenu" />
+        <Icon
+          className={cx(elIntentNeutral, elMLAuto, elMr2, elNavItemHideDesktop)}
+          fontSize="2rem"
+          icon="hamburgerMenu"
+        />
       </NavItem>
       <NavItem className={cx(elNavItemActive, elNavItemExpanded)} href="https://marketplace.reapit.cloud/apps">
         <Icon iconSize="medium" icon="appsMenu" />
@@ -101,7 +105,11 @@ You can check if the app is in desktop mode by checking if the `window.__REAPIT_
     <Nav className={elNavIsDesktop}>
       <NavItem>
         <Icon iconSize="medium" className={elNavItemIcon} icon="reapitLogoMenu" />
-        <Icon className={cx(elIntentNeutral, elMLAuto, elMr2, elNavItemHideDesktop)} icon="hamburgerMenu" />
+        <Icon
+          className={cx(elIntentNeutral, elMLAuto, elMr2, elNavItemHideDesktop)}
+          icon="hamburgerMenu"
+          fontSize="2rem"
+        />
       </NavItem>
       <NavItem className={cx(elNavItemActive, elNavItemExpanded)} href="https://marketplace.reapit.cloud/apps">
         <Icon iconSize="medium" icon="appsMenu" />
@@ -172,6 +180,7 @@ export const UseNavStory = () => {
           onClick={setNavState({
             navMenuOpen: !navMenuOpen,
           })}
+          fontSize="2rem"
         />
       </NavItem>
       <NavItem
@@ -260,10 +269,11 @@ export const UseNavMobileSubMenuStory = () => {
           callback: navigate,
         })}
       >
-        <Icon className={elNavItemIcon} icon={isMobile ? 'reapitLogoTextMenu' : 'reapitLogoMenu'} />
+        <Icon className={elNavItemIcon} fontSize={isMobile ? '7rem' : '2.5rem'} icon={isMobile ? 'reapitLogoTextMenu' : 'reapitLogoMenu'} />
         <Icon
           className={cx(elIntentNeutral, elMLAuto, elMr2, elNavItemHideDesktop)}
-          icon={navMenuOpen ? 'hamburgerOpen' : 'hamburger'}
+          icon={navMenuOpen ? 'hamburgerOpenMenu' : 'hamburgerMenu'}
+          fontSize="2rem"
           onClick={setNavState({
             navMenuOpen: !navMenuOpen,
             navSubMenuIndex: null,

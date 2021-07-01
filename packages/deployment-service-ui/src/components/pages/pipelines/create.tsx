@@ -2,7 +2,7 @@ import Routes from '@/constants/routes'
 import { reapitConnectBrowserSession } from '@/core/connect-session'
 import { ReapitConnectSession, useReapitConnect } from '@reapit/connect-session'
 import { Breadcrumb, BreadcrumbItem, H1, Section, Formik, Form } from '@reapit/elements-legacy'
-import { AfterInputText, Button, Input, InputGroup, Label } from '@reapit/elements'
+import { InputAddOn, Button, Input, InputGroup, Label } from '@reapit/elements'
 import React, { useState } from 'react'
 import { Link } from 'react-router-dom'
 import { PipelineModelInterface } from '@reapit/foundations-ts-definitions'
@@ -57,11 +57,11 @@ export default () => {
             <Label>Package Manager</Label>
             <InputGroup>
               <Input name="package" type="radio" value="yarn" />
-              <AfterInputText>yarn</AfterInputText>
+              <InputAddOn>yarn</InputAddOn>
             </InputGroup>
             <InputGroup>
               <Input name="package" type="radio" value="npm" />
-              <AfterInputText>npm</AfterInputText>
+              <InputAddOn>npm</InputAddOn>
             </InputGroup>
             <InputGroup>
               <Label>Build Command</Label>

@@ -1,8 +1,8 @@
-import '../src/styles/variables'
+import '../src/styles/globals'
 
 export const parameters = {
   actions: { argTypesRegex: '^on[A-Z].*' },
   options: {
-    storySort: { method: 'alphabetical' },
+    storySort: { method: 'alphabetical', order: ['Welcome', 'Introduction', '*'] },
   },
 }

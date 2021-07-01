@@ -71,7 +71,7 @@ export const NavResponsive: FC<NavResponsiveProps> = ({
                   <Icon iconSize="medium" className={elNavItemIcon} icon={iconId} />
                 ) : (
                   <Icon
-                    iconSize="medium"
+                    fontSize={isMobile ? '7rem' : '2.5rem'}
                     className={elNavItemIcon}
                     icon={isMobile ? 'reapitLogoTextMenu' : 'reapitLogoMenu'}
                   />
@@ -80,6 +80,7 @@ export const NavResponsive: FC<NavResponsiveProps> = ({
                 <Icon
                   className={cx(elIntentNeutral, elMLAuto, elMr2, elNavItemHideDesktop)}
                   icon={navMenuOpen ? 'hamburgerOpenMenu' : 'hamburgerMenu'}
+                  fontSize="2rem"
                   onClick={setNavState({
                     navMenuOpen: !navMenuOpen,
                     navSubMenuIndex: null,

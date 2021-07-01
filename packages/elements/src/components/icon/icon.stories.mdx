@@ -11,7 +11,7 @@ import {
   elIconSizesmallest,
   elIconMenu,
 } from './__styles__'
-import { RenderHtmlMarkup } from '../../helpers/render-html-markup'
+import { RenderHtmlMarkup } from '../../storybook/render-html-markup'
 
 <Meta title="Icon" component={Icon} />
 
@@ -39,7 +39,7 @@ For a basic icon, just select an icon name from one of the tables below. They ar
   label="HTML of Icon Component"
 />
 
-# System Icons
+## System Icons
 
 All the available icons exported by the project
 
@@ -94,7 +94,7 @@ All the available icons exported by the project
 | walkingSolidSystem     | <Icon iconSize="smallest" icon="walkingSolidSystem" />     | <Icon iconSize="small" icon="walkingSolidSystem" />     |
 | warningSolidSystem     | <Icon iconSize="smallest" icon="warningSolidSystem" />     | <Icon iconSize="small" icon="warningSolidSystem" />     |
 
-# Menu Icons
+## Menu Icons
 
 | Icon Name              | Medium Icon                                                                     |
 | ---------------------- | ------------------------------------------------------------------------------- |
@@ -127,7 +127,7 @@ All the available icons exported by the project
 | hamburgerOpenMenu      | <Icon iconSize="medium" icon="hamburgerOpenMenu" />                             |
 | reapitLogoTextMenu     | <Icon iconSize="medium" className={elIconMenu} icon="reapitLogoTextMenu" />     |
 
-# Info Graphic Icons
+## Info Graphic Icons
 
 | Icon Name              | Small Icon                                              | Medium Icon                                              | Large Icon                                              |
 | ---------------------- | ------------------------------------------------------- | -------------------------------------------------------- | ------------------------------------------------------- |
@@ -152,8 +152,9 @@ All the available icons exported by the project
 | landlordInfographic    | <Icon iconSize="small" icon="landlordInfographic" />    | <Icon iconSize="medium" icon="landlordInfographic" />    | <Icon iconSize="large" icon="landlordInfographic" />    |
 | maisonetteInfographi   | <Icon iconSize="small" icon="maisonetteInfographic" />  | <Icon iconSize="medium" icon="maisonetteInfographic" />  | <Icon iconSize="large" icon="maisonetteInfographic" />  |
 | vendorInfographic      | <Icon iconSize="small" icon="vendorInfographic" />      | <Icon iconSize="medium" icon="vendorInfographic" />      | <Icon iconSize="large" icon="vendorInfographic" />      |
+| designInfographic      | <Icon iconSize="small" icon="designInfographic" />      | <Icon iconSize="medium" icon="designInfographic" />      | <Icon iconSize="large" icon="designInfographic" />      |
 
-# Animated Icons
+## Animated Icons
 
 | Icon Name             | Largest Icon                                             |
 | --------------------- | -------------------------------------------------------- |
@@ -177,7 +178,6 @@ Set the `fontSize` prop to scale the icon up or down on a granular level. Note t
   </Story>
 </Canvas>
 
-
 <RenderHtmlMarkup
   component="Icon"
   story={['Icon Sizes - Font Size']}
@@ -200,13 +200,11 @@ For non React users, the sizes map directly to css classes - see the rendered ma
   </Story>
 </Canvas>
 
-
 <RenderHtmlMarkup
   component="Icon"
   story={['Icon Sizes - Set Sizes']}
   label="HTML of Icon Component with Set Sizes"
 />
-
 
 ## Intent
 
