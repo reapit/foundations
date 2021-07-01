@@ -10,7 +10,7 @@ import {
 } from '../../../styles/intent'
 import { elIsLoading } from '../../../styles/states'
 import { intentPrimary, intentSecondary, intentCritical, intentSuccess, intentDanger } from '../../../styles/variables'
-import { ElIcon } from '@/components/icon/__styles__'
+import { ElIcon } from './../../icon/__styles__'
 
 const buttonXPadding = 1.5
 const buttonYPaddingMobile = 0.25
