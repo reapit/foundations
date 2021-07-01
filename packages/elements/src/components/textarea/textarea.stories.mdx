@@ -1,0 +1,27 @@
+import { Meta, Story, Canvas } from '@storybook/addon-docs/blocks'
+import { TextArea } from './index'
+import { RenderHtmlMarkup } from '../../helpers/render-html-markup'
+
+<Meta title="TextArea" component={TextArea} />
+
+# TextArea
+
+Underlying tag: `<textarea>`
+
+<Canvas>
+  <Story name="TextArea">
+    <TextArea type="text" placeholder="A placeholder" />
+  </Story>
+</Canvas>
+
+<RenderHtmlMarkup component="TextArea" story="TextArea" />
+
+## Placeholder
+
+<Canvas>
+  <Story name="TextArea placeholder">
+    <TextArea type="text" placeholder="Hello" />
+  </Story>
+</Canvas>
+
+<RenderHtmlMarkup component="TextArea" story="TextArea placeholder" />
