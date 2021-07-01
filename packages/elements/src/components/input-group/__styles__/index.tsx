@@ -2,7 +2,7 @@ import { styled } from 'linaria/react'
 import { ElIcon } from '../../icon/__styles__'
 import { ElLabel } from '../../label/__styles__'
 import { ElInput } from '../../input/__styles__'
-import { ElAfterInputText } from '../../after-input-text/__styles__'
+import { ElInputAddOn } from '../../input-add-on/__styles__'
 
 export const ElInputGroup = styled.div`
   display: flex;
@@ -17,7 +17,7 @@ export const ElInputGroup = styled.div`
 
   ${ElIcon} {
     background: var(--component-input-bg);
-    box-shadow: var(--component-input-shadow);
+    border-bottom: var(--component-input-border-bottom);
     padding-left: 0.5rem;
     align-items: center;
     order: 2;
@@ -29,15 +29,19 @@ export const ElInputGroup = styled.div`
 
   ${ElInput}:not([type='checkbox']):not([type='radio']) {
     &:focus {
-      ~ ${ElIcon}, ~ ${ElLabel}, ~ ${ElAfterInputText} {
+      ~ ${ElIcon}, ~ ${ElLabel}, ~ ${ElInputAddOn} {
         background: var(--component-input-focus-bg);
+      }
+
+      ~ ${ElIcon}, ~ ${ElInputAddOn} {
+        border-bottom: var(--component-input-border-bottom-focus);
       }
     }
   }
 
-  ${ElAfterInputText} {
+  ${ElInputAddOn} {
     background: var(--component-input-bg);
-    box-shadow: var(--component-input-shadow);
+    border-bottom: var(--component-input-border-bottom);
     padding-right: 0.5rem;
     align-items: center;
     display: flex;
@@ -50,14 +54,14 @@ export const ElInputGroup = styled.div`
       padding-left: 0;
       padding-right: 0.5rem;
     }
-    ~ ${ElAfterInputText} {
+    ~ ${ElInputAddOn} {
       box-shadow: none;
       padding-left: 0.5rem;
       flex-grow: 1;
     }
 
     &:checked {
-      ~ ${ElIcon}, ~ ${ElLabel}, ~ ${ElAfterInputText} {
+      ~ ${ElIcon}, ~ ${ElLabel}, ~ ${ElInputAddOn} {
         background: var(--component-input-focus-bg);
       }
     }

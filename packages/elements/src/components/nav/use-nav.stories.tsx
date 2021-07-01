@@ -34,6 +34,7 @@ export const UseNavStory = () => {
         <Icon
           className={cx(elIntentNeutral, elMLAuto, elMr2, elNavItemHideDesktop)}
           icon={navMenuOpen ? 'hamburgerOpenMenu' : 'hamburgerMenu'}
+          fontSize="2rem"
           onClick={setNavState({
             navMenuOpen: !navMenuOpen,
           })}
@@ -85,10 +86,15 @@ export const UseNavMobileSubMenuStory = () => {
           callback: navigate,
         })}
       >
-        <Icon iconSize="medium" className={elNavItemIcon} icon={isMobile ? 'reapitLogoTextMenu' : 'reapitLogoMenu'} />
+        <Icon
+          className={elNavItemIcon}
+          icon={isMobile ? 'reapitLogoTextMenu' : 'reapitLogoMenu'}
+          fontSize={isMobile ? '7rem' : '2.5rem'}
+        />
         <Icon
           className={cx(elIntentNeutral, elMLAuto, elMr2, elNavItemHideDesktop)}
           icon={navMenuOpen ? 'hamburgerOpenMenu' : 'hamburgerMenu'}
+          fontSize="2rem"
           onClick={setNavState({
             navMenuOpen: !navMenuOpen,
             navSubMenuIndex: null,

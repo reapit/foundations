@@ -3,15 +3,15 @@ import { ElInputGroup } from './__styles__'
 import { Input } from '../input'
 import { Icon, IconNames } from '../icon'
 import { Label } from '../label'
-import { AfterInputText } from '../after-input-text'
+import { InputAddOn } from '../input-add-on'
 import { Intent } from '../../helpers/intent'
 
 export interface IInputGroup extends React.HTMLAttributes<HTMLInputElement> {
   icon?: IconNames
   label?: string
-  afterInputText?: string
+  inputAddOnText?: string
   /**
-   * This is passed down and added directly to the `Icon` and `AfterInputText`
+   * This is passed down and added directly to the `Icon` and `InputAddOn`
    *components (if in use)
    */
   intent?: Intent
@@ -41,7 +41,7 @@ export const InputGroup: React.FC<IInputGroup> = ({
   className,
   id,
   intent,
-  afterInputText,
+  inputAddOnText,
   children,
   ...rest
 }) => {
@@ -56,7 +56,7 @@ export const InputGroup: React.FC<IInputGroup> = ({
         <Input id={groupId} {...rest} />
         {icon && <Icon intent={intent} icon={icon} />}
         {label && <Label htmlFor={groupId}>{label}</Label>}
-        {afterInputText && <AfterInputText intent={intent}>{afterInputText}</AfterInputText>}
+        {inputAddOnText && <InputAddOn intent={intent}>{inputAddOnText}</InputAddOn>}
       </ElInputGroup>
     )
 

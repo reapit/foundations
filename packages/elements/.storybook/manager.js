@@ -35,6 +35,5 @@ addons.setConfig({
     inputBorderRadius: 0,
 
     brandTitle: `Elements ${version}`,
-    brandImage: '',
   }),
 })

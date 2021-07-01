@@ -1,20 +1,20 @@
 import * as React from 'react'
 import { cx } from 'linaria'
-import { ElAfterInputText } from './__styles__'
+import { ElInputAddOn } from './__styles__'
 import { Intent, getIntentClassName } from '../../helpers/intent'
 
-export interface IAfterInputText extends React.HTMLAttributes<HTMLSpanElement> {
+export interface InputAddOnProps extends React.HTMLAttributes<HTMLSpanElement> {
   intent?: Intent
   className?: string
 }
 
-export const AfterInputText: React.FC<IAfterInputText> = ({ intent, className, children, ...rest }) => {
+export const InputAddOn: React.FC<InputAddOnProps> = ({ intent, className, children, ...rest }) => {
   const intentClassName = intent && getIntentClassName(intent)
   const combinedClassName = cx(intentClassName, className)
 
   return (
-    <ElAfterInputText className={combinedClassName} {...rest}>
+    <ElInputAddOn className={combinedClassName} {...rest}>
       {children}
-    </ElAfterInputText>
+    </ElInputAddOn>
   )
 }

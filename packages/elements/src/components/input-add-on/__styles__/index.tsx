@@ -7,7 +7,7 @@ import {
   elIntentDanger,
 } from '../../../styles/intent'
 
-export const ElAfterInputText = styled.span`
+export const ElInputAddOn = styled.span`
   font-size: var(--font-size-default);
   color: var(--color-grey-dark);
 
