@@ -272,3 +272,25 @@ An element to collectively group several buttons
   story="Button Group"
   label="Button Group"
 />
+
+
+## Button Group sizes
+
+Sizing button groups
+
+<Canvas>
+  <Story name="ButtonGroupSize">
+    <ButtonGroup>
+      <Button intent="primary">No Size</Button>
+      <Button intent="secondary" size={2}>Size 2</Button>
+      <Button intent="critical" size={3}>Size 3</Button>
+      <Button intent="danger" size={4}>Size 4</Button>
+    </ButtonGroup>
+  </Story>
+</Canvas>
+
+<RenderHtmlMarkup
+  component="ButtonGroupSize"
+  story="Button Group Sizes"
+  label="Button Group Sizes"
+/>
