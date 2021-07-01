@@ -253,5 +253,9 @@ export const elVariables = css`
     a {
       text-decoration: none;
     }
+
+    strong {
+      font-weight: bold;
+    }
   }
 `

@@ -1,7 +1,7 @@
-import React from 'react'
+import React, { memo } from 'react'
 
-export default () => (
-  <svg width="32" height="32" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg">
+export default memo(() => (
+  <svg width="1em" height="1em" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg">
     <rect width="32" height="32" rx="4" fill="#23A4DE" />
     <path
       fillRule="evenodd"
@@ -10,4 +10,4 @@ export default () => (
       fill="white"
     />
   </svg>
-)
+))
