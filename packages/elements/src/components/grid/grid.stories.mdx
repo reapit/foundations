@@ -1,4 +1,4 @@
-import { Story, Canvas } from '@storybook/addon-docs/blocks'
+import { Story, Canvas, ArgsTable } from '@storybook/addon-docs/blocks'
 import { GridDemoBlock } from './grid.stories'
 import { Grid, Col } from './grid'
 import { GridResponsive, ColResponsive } from './grid-responsive'
@@ -15,21 +15,7 @@ import { elColGap2, elRowGap3, elSpan12, elSpan8, elSpan4, elOffset4, elOffset8 
 
 The basic grid should fulil the majority of requirements for most users.
 
-The Grid leverages CSS Grid to provide a responsive layout for your applications. The main grid is 8 columns width in Mobile and in tablet and above it is 12 columns. The breakpoints are explained by the variables below;
-
-```ts
-...
-const windowWidth = window.innerWidth
-const isMobile = windowWidth < 768
-const isTablet = windowWidth >= 768 && windowWidth < 1024
-const isDesktop = windowWidth >= 1024 && windowWidth < 1400
-const isWideScreen = windowWidth >= 1400
-...
-```
-
-For mobile view, the columns are full width, in tablet they are 50%, for desktop one third and a quarter width in widescreen.
-
-Row and column gaps are standardised in line with our style guide.
+The Grid leverages CSS Grid to provide a responsive layout for your applications.
 
 <Canvas>
   <Story name="Basic Example">
@@ -51,6 +37,34 @@ Row and column gaps are standardised in line with our style guide.
 </Canvas>
 
 <RenderHtmlMarkup component="Grid" story={['Basic Example']} label="Grid Rendered HTML markup" />
+
+The grid's columns change at different breakpoints. These are listed in the table below
+
+Breakpoint | Column count
+--- | ---
+isMobile | 4
+isTablet | 8
+isDesktop | 12
+isSuperWideScreen | 16
+is4KScreen | 20
+
+ The breakpoints are explained by the variables below;
+
+```ts
+...
+const windowWidth = window.innerWidth
+const isMobile = windowWidth < 768
+const isTablet = windowWidth >= 768 && windowWidth < 1024
+const isDesktop = windowWidth >= 1024 && windowWidth < 1400
+const isWideScreen = windowWidth >= 1400 && windowWidth < 1920
+const isSuperWideScreen = windowWidth >= 1920 && windowWidth < 2560
+const is4KScreen = windowWidth >= 2560
+...
+```
+
+For mobile view, the columns are full width, in tablet they are 50%, for desktop one third and a quarter width in widescreen.
+
+Row and column gaps are standardised in line with our style guide.
 
 ### Custom Example
 
@@ -114,32 +128,7 @@ For React users, we have an addional `GridResponsive` component that under the h
 
 Both the `GridResponsive` and `ColResponsive` components accept props in the following interfaces:
 
-```tsx
-export type GridUnitType = 0 | 1 | 2 | 3 | 4 | 6 | 8 | 12
-export type ColUnitType = 0 | 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9 | 10 | 11 | 12
-
-export interface GridResponsiveProps extends HTMLAttributes<HTMLElement> {
-  colGapMobile?: GridUnitType
-  colGapTablet?: GridUnitType
-  colGapDesktop?: GridUnitType
-  colGapWideScreen?: GridUnitType
-  rowGapMobile?: GridUnitType
-  rowGapTablet?: GridUnitType
-  rowGapDesktop?: GridUnitType
-  rowGapWideScreen?: GridUnitType
-}
-
-export interface ColResponsiveProps extends HTMLAttributes<HTMLElement> {
-  spanMobile?: ColUnitType
-  spanTablet?: ColUnitType
-  spanDesktop?: ColUnitType
-  spanWideScreen?: ColUnitType
-  offsetMobile?: ColUnitType
-  offsetTablet?: ColUnitType
-  offsetDesktop?: ColUnitType
-  offsetWideScreen?: ColUnitType
-}
-```
+<ArgsTable of={GridResponsive} />
 
 Essentially for `GridResponsive` we can set `grid-column-gap` and `grid-row-gap` for each of mobile, tablet, desktop and widescreen based on the relevant prop.
 
@@ -148,6 +137,10 @@ For `ColResponsive` the same applies, but for the `grid-column-end` and `grid-co
 In all cases, the class is toggled as the screen size changes, defaulting to the base grid values if no additional class is applied.
 
 Full (somewhat contrived) example below:
+
+### ColResponsive
+
+<ArgsTable of={ColResponsive} />
 
 <Canvas>
   <Story name="React Example - Responsive Customisation">

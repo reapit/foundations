@@ -104,6 +104,30 @@ export const elSpan11 = css`
 export const elSpan12 = css`
   grid-column-end: span 12;
 `
+export const elSpan13 = css`
+  grid-column-end: span 13;
+`
+export const elSpan14 = css`
+  grid-column-end: span 14;
+`
+export const elSpan15 = css`
+  grid-column-end: span 15;
+`
+export const elSpan16 = css`
+  grid-column-end: span 16;
+`
+export const elSpan17 = css`
+  grid-column-end: span 17;
+`
+export const elSpan18 = css`
+  grid-column-end: span 18;
+`
+export const elSpan19 = css`
+  grid-column-end: span 19;
+`
+export const elSpan20 = css`
+  grid-column-end: span 20;
+`
 
 // offsets
 export const elOffset1 = css`
@@ -141,4 +165,28 @@ export const elOffset11 = css`
 `
 export const elOffset12 = css`
   grid-column-start: 12;
+`
+export const elOffset13 = css`
+  grid-column-start: 13;
+`
+export const elOffset14 = css`
+  grid-column-start: 14;
+`
+export const elOffset15 = css`
+  grid-column-start: 15;
+`
+export const elOffset16 = css`
+  grid-column-start: 16;
+`
+export const elOffset17 = css`
+  grid-column-start: 17;
+`
+export const elOffset18 = css`
+  grid-column-start: 18;
+`
+export const elOffset19 = css`
+  grid-column-start: 19;
+`
+export const elOffset20 = css`
+  grid-column-start: 20;
 `
