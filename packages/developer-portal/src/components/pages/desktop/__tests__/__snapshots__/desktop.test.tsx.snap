@@ -20,9 +20,11 @@ exports[`DeveloperDesktopPage should match snapshot 1`] = `
         errorThrownComponent={[Function]}
       >
         <Title>
-          <ElTitle>
+          <ElTitle
+            className=""
+          >
             <h1
-              className="ezz3v3m-el-title"
+              className="ehqdbsp-el-title"
             >
               Desktop
             </h1>
@@ -52,7 +54,7 @@ exports[`DeveloperDesktopPage should match snapshot 1`] = `
                           className="e1y7nq95-el-mb4 hw5zku-has-grey-text"
                         >
                           <p
-                            className="e1y7nq95-el-mb4 hw5zku-has-grey-text eqik610-el-body-text"
+                            className="e1y7nq95-el-mb4 hw5zku-has-grey-text e36kmm3-el-body-text"
                           >
                             Reapit's Agency Cloud is a desktop application that offers estate agencies a comprehensive range of market leading agency products, including a Sales CRM, Lettings CRM, Client Accounts, Property Management and real-time Analytics.
                           </p>
@@ -153,9 +155,11 @@ exports[`DeveloperDesktopPage should match snapshot 1`] = `
                               className="fvmt8oy-fade-in"
                             >
                               <Subtitle>
-                                <ElSubtitle>
+                                <ElSubtitle
+                                  className=""
+                                >
                                   <h2
-                                    className="ehqdbsp-el-subtitle"
+                                    className="eqik610-el-subtitle"
                                   >
                                     About Foundations Desktop API
                                   </h2>
@@ -168,7 +172,7 @@ exports[`DeveloperDesktopPage should match snapshot 1`] = `
                                   className="e1y7nq95-el-mb4 hw5zku-has-grey-text"
                                 >
                                   <p
-                                    className="e1y7nq95-el-mb4 hw5zku-has-grey-text eqik610-el-body-text"
+                                    className="e1y7nq95-el-mb4 hw5zku-has-grey-text e36kmm3-el-body-text"
                                   >
                                     Developers that would like to integrate with or extend the functionality of Agency Cloud can use the Foundations Desktop API to build web applications for Reapit's app Marketplace that trigger events in the Agency Cloud desktop application, as well as associating their apps with common actions in Agency Cloud to replace default behaviours and screens.
                                   </p>
@@ -181,7 +185,7 @@ exports[`DeveloperDesktopPage should match snapshot 1`] = `
                                   className="e1y7nq95-el-mb4 hw5zku-has-grey-text"
                                 >
                                   <p
-                                    className="e1y7nq95-el-mb4 hw5zku-has-grey-text eqik610-el-body-text"
+                                    className="e1y7nq95-el-mb4 hw5zku-has-grey-text e36kmm3-el-body-text"
                                   >
                                     For example, a developer building a Marketplace app that provides AML and ID checking, can use the Desktop API to associate their app with the default ID checking screen in Agency Cloud. When a customer clicks the default button to launch the ID check screen, the developer's associated app would be presented instead.
                                   </p>
@@ -194,7 +198,7 @@ exports[`DeveloperDesktopPage should match snapshot 1`] = `
                                   className="e1y7nq95-el-mb4 hw5zku-has-grey-text"
                                 >
                                   <p
-                                    className="e1y7nq95-el-mb4 hw5zku-has-grey-text eqik610-el-body-text"
+                                    className="e1y7nq95-el-mb4 hw5zku-has-grey-text e36kmm3-el-body-text"
                                   >
                                     To learn more about what’s possible with the Desktop API, please visit the
                                      
@@ -227,9 +231,11 @@ exports[`DeveloperDesktopPage should match snapshot 1`] = `
                               className="fvmt8oy-fade-in"
                             >
                               <Subtitle>
-                                <ElSubtitle>
+                                <ElSubtitle
+                                  className=""
+                                >
                                   <h2
-                                    className="ehqdbsp-el-subtitle"
+                                    className="eqik610-el-subtitle"
                                   >
                                     How your app integrates with the Developer Edition of Agency Cloud
                                   </h2>
@@ -250,7 +256,7 @@ exports[`DeveloperDesktopPage should match snapshot 1`] = `
                                       className="hw5zku-has-grey-text"
                                     >
                                       <p
-                                        className="hw5zku-has-grey-text e36kmm3-el-small-text"
+                                        className="hw5zku-has-grey-text e1qqgcq8-el-small-text"
                                       >
                                         The Developer Edition of Agency Cloud allows developers using the Desktop API to test their apps within the desktop application using sandbox data.
                                       </p>
@@ -295,9 +301,11 @@ exports[`DeveloperDesktopPage should match snapshot 1`] = `
                               className="s1bibujz-subscribe-heading-container"
                             >
                               <Title>
-                                <ElTitle>
+                                <ElTitle
+                                  className=""
+                                >
                                   <h1
-                                    className="ezz3v3m-el-title"
+                                    className="ehqdbsp-el-title"
                                   >
                                     Developer Edition
                                   </h1>
