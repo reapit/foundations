@@ -7,7 +7,6 @@ import { ElButton, ElButtonGroup } from './__styles__'
 import { elWFull } from '../../styles/sizing'
 import { Icon, IconNames } from '../icon'
 
-
 export type ButtonSizeType = 2 | 3 | 4
 export interface IButton extends React.ButtonHTMLAttributes<HTMLButtonElement> {
   intent?: Intent

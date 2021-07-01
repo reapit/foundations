@@ -1,6 +1,8 @@
 import { css } from 'linaria'
 import { styled } from 'linaria/react'
 
+export const elGrey = css``
+
 export const ElTitle = styled.h1`
   font-family: var(--font-sans-serif);
   font-weight: bold;
@@ -9,6 +11,10 @@ export const ElTitle = styled.h1`
   line-height: 2.25rem;
   letter-spacing: 0%;
   margin-bottom: 2rem;
+
+  &.${elGrey} {
+    color: var(--color-grey-dark);
+  }
 `
 
 export const ElSubtitle = styled.h2`
@@ -19,6 +25,10 @@ export const ElSubtitle = styled.h2`
   line-height: 1.5rem;
   letter-spacing: 0%;
   margin-bottom: 1.25rem;
+
+  &.${elGrey} {
+    color: var(--color-grey-dark);
+  }
 `
 
 export const ElBodyText = styled.p`
@@ -29,6 +39,10 @@ export const ElBodyText = styled.p`
   line-height: 1.25rem;
   letter-spacing: -1%;
   margin-bottom: 1rem;
+
+  &.${elGrey} {
+    color: var(--color-grey-dark);
+  }
 `
 
 export const ElSmallText = styled.p`
@@ -39,6 +53,10 @@ export const ElSmallText = styled.p`
   line-height: 1.125rem;
   letter-spacing: 0%;
   margin-bottom: 1rem;
+
+  &.${elGrey} {
+    color: var(--color-grey-dark);
+  }
 `
 
 export const elIsBoldText = css`
