@@ -19,4 +19,9 @@ describe('Typography components', () => {
     const wrapper = shallow(<SmallText>I am small text</SmallText>)
     expect(wrapper).toMatchSnapshot()
   })
+
+  it('SmallText should match a snapshot', () => {
+    const wrapper = shallow(<SmallText bold hasGreyText italic>I am small text</SmallText>)
+    expect(wrapper).toMatchSnapshot()
+  })
 })
