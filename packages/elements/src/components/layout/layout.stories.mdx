@@ -1,7 +1,7 @@
 import { Story, Canvas, ArgsTable } from '@storybook/addon-docs/blocks'
 import { MainContainer, PageContainer, SecondaryNavContainer, Molecule, FlexContainer } from './index'
-import { GridDemoBlock } from '../grid/grid.stories'
-import { RenderHtmlMarkup } from '../../helpers/render-html-markup'
+import { GridDemoBlock } from '../../storybook/demo-block'
+import { RenderHtmlMarkup } from '../../storybook/render-html-markup'
 import { LayoutCompleteExample } from './layout.stories'
 
 <Meta title="Layouts" component={Molecule} />
@@ -57,14 +57,13 @@ Finally, the `Molecule` container is a multi purpose container for adding sensib
 
 ### Combined Layout
 
-For a complete example of how to lay out a page, see below where we have combined a number of other stories including `Nav`, `SecondaryNav` and `Grid` to give a full page layout. 
+For a complete example of how to lay out a page, see below where we have combined a number of other stories including `Nav`, `SecondaryNav` and `Grid` to give a full page layout.
 
 <Canvas>
   <Story name="Complete Combined Example">
     <LayoutCompleteExample />
   </Story>
 </Canvas>
-
 
 <RenderHtmlMarkup
   component="Layouts"

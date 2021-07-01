@@ -1,6 +1,7 @@
 import addons from '@storybook/addons'
 import { create } from '@storybook/theming'
 import { version } from '../package.json'
+import logo from './public/logo.svg'
 
 addons.setConfig({
   theme: create({
@@ -35,6 +36,6 @@ addons.setConfig({
     inputBorderRadius: 0,
 
     brandTitle: `Elements ${version}`,
-    brandImage: '',
+    brandImage: logo,
   }),
 })

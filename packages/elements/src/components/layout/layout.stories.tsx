@@ -4,7 +4,7 @@ import { SecondaryNav, SecondaryNavItem } from '../secondary-nav'
 import { NavStateProvider } from '../../hooks/use-nav-state'
 import { MediaStateProvider } from '../../hooks/use-media-query'
 import { FlexContainer, MainContainer, Molecule, PageContainer, SecondaryNavContainer } from '.'
-import { GridDemoBlock } from '../grid/grid.stories'
+import { GridDemoBlock } from '../../storybook/demo-block'
 import { Grid, Col } from '../grid'
 
 export const LayoutCompleteExample: FC = () => {
