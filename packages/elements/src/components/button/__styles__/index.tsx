@@ -12,7 +12,7 @@ import { elIsLoading } from '../../../styles/states'
 import { intentPrimary, intentSecondary, intentCritical, intentSuccess, intentDanger } from '../../../styles/variables'
 
 const buttonXPadding = 1.5
-const buttonYPaddingMobile = .25
+const buttonYPaddingMobile = 0.25
 const chevronLeft = (fill: string) =>
   `data:image/svg+xml;utf8,<svg width="18" height="40" viewBox="0 0 18 40" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M24 0L9.79882 0C8.09608 0 6.57999 1.07793 6.02073 2.6862L0.456861 18.6862C0.160976 19.5371 0.160976 20.4629 0.456861 21.3138L6.02073 37.3138C6.57999 38.9221 8.09608 40 9.79882 40H24V0Z" fill="${encodeURIComponent(
     fill,
@@ -259,29 +259,34 @@ export const elButtonHasRightChevron = css`
 `
 
 export const ElButtonGroup = styled.div`
-  .el-button {
-    margin-left: .5rem;
-    margin-right: .5rem;
-    margin-top: .25rem;
-    margin-bottom: .25rem;
+  display: grid;
+  grid-auto-flow: column;
+  column-gap: 1rem;
+  row-gap: 1rem;
 
-    &:first-child {
-      margin-left: 0;
-    }
+  .el-button-size2 {
+    min-width: auto;
+    grid-column: span 2;
+  }
 
-    &:last-child {
-      margin-right: 0;
-    }
+  .el-button-size3 {
+    min-width: auto;
+    grid-column: span 3;
+  }
+
+  .el-button-size4 {
+    min-width: auto;
+    grid-column: span 4;
   }
 
   ${isMobile} {
-    display: grid;
     grid-template-columns: 1fr 1fr 1fr;
-    column-gap: .8rem;
-    row-gap: .8rem;
+    column-gap: 0.8rem;
+    row-gap: 0.8rem;
+    grid-auto-flow: inherit;
 
-    .el-button {
-      margin: 0;
+    .el-button-size4 {
+      grid-column: span 3;
     }
   }
 `

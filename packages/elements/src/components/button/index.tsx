@@ -56,6 +56,6 @@ export const Button: React.FC<IButton> = ({
   )
 }
 
-export const ButtonGroup: React.FC = ({children}) => {
+export const ButtonGroup: React.FC = ({ children }) => {
   return <ElButtonGroup>{children}</ElButtonGroup>
 }
