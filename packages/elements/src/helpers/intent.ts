@@ -1,6 +1,13 @@
-import { elIntentPrimary, elIntentSecondary, elIntentCritical, elIntentSuccess, elIntentDanger } from '../styles/intent'
+import {
+  elIntentPrimary,
+  elIntentSecondary,
+  elIntentCritical,
+  elIntentSuccess,
+  elIntentDanger,
+  elIntentNeutral,
+} from '../styles/intent'
 
-export type Intent = 'primary' | 'secondary' | 'critical' | 'success' | 'danger'
+export type Intent = 'primary' | 'secondary' | 'critical' | 'success' | 'danger' | 'neutral'
 
 export const getIntentClassName = (intent: Intent): string => {
   switch (intent) {
@@ -14,5 +21,7 @@ export const getIntentClassName = (intent: Intent): string => {
       return elIntentSuccess
     case 'danger':
       return elIntentDanger
+    case 'neutral':
+      return elIntentNeutral
   }
 }
