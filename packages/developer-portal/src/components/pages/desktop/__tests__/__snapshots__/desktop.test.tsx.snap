@@ -368,11 +368,11 @@ exports[`DeveloperDesktopPage should match snapshot 1`] = `
                                             onClick={[Function]}
                                           >
                                             <ElButton
-                                              className="e1iow709-el-intent-critical e1qzzusn-el-button-has-right-chevron e8pb45p-el-wfull"
+                                              className="e1iow709-el-intent-critical e7garbp-el-button-has-right-chevron e8pb45p-el-wfull"
                                               onClick={[Function]}
                                             >
                                               <button
-                                                className="e1iow709-el-intent-critical e1qzzusn-el-button-has-right-chevron e8pb45p-el-wfull e1l9lt93-el-button"
+                                                className="e1iow709-el-intent-critical e7garbp-el-button-has-right-chevron e8pb45p-el-wfull enf6htb-el-button"
                                                 onClick={[Function]}
                                               >
                                                 Subscribe Now
