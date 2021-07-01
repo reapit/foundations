@@ -10,3 +10,34 @@ exports[`Button should match a snapshot 1`] = `
   button text
 </ElButton>
 `;
+
+exports[`Button should match a snapshot 2`] = `
+<Button
+  className="el-floating-button"
+  disabled={false}
+  intent="primary"
+  loading={false}
+  onClick={[MockFunction]}
+  type="submit"
+>
+  <Icon
+    icon="addSystem"
+    iconSize="small"
+    intent="neutral"
+  />
+</Button>
+`;
+
+exports[`Button should match a snapshot 3`] = `
+<ElButtonGroup>
+  <Button>
+    1
+  </Button>
+  <Button>
+    2
+  </Button>
+  <Button>
+    3
+  </Button>
+</ElButtonGroup>
+`;
