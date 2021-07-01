@@ -17,15 +17,25 @@ describe('Button', () => {
   })
 
   it('should match a snapshot', () => {
-    expect(shallow(<FloatingButton icon="addSystem" {...props}>button text</FloatingButton>)).toMatchSnapshot()
+    expect(
+      shallow(
+        <FloatingButton icon="addSystem" {...props}>
+          button text
+        </FloatingButton>,
+      ),
+    ).toMatchSnapshot()
   })
 
   it('should match a snapshot', () => {
-    expect(shallow(<ButtonGroup>
-      <Button>1</Button>
-      <Button>2</Button>
-      <Button>3</Button>
-    </ButtonGroup>)).toMatchSnapshot()
+    expect(
+      shallow(
+        <ButtonGroup>
+          <Button>1</Button>
+          <Button>2</Button>
+          <Button>3</Button>
+        </ButtonGroup>,
+      ),
+    ).toMatchSnapshot()
   })
 
   it('should fire a click event correctly', () => {
