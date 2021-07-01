@@ -1,4 +1,4 @@
-import { isMobile } from '@/styles/media'
+import { isMobile } from './../../../styles/media'
 import { css } from 'linaria'
 import { styled } from 'linaria/react'
 import {
@@ -10,6 +10,7 @@ import {
 } from '../../../styles/intent'
 import { elIsLoading } from '../../../styles/states'
 import { intentPrimary, intentSecondary, intentCritical, intentSuccess, intentDanger } from '../../../styles/variables'
+import { ElIcon } from '@/components/icon/__styles__'
 
 const buttonXPadding = 1.5
 const buttonYPaddingMobile = 0.25
@@ -148,7 +149,7 @@ export const ElButton = styled.button`
     padding: ${buttonYPaddingMobile}rem 0.75rem;
   }
 
-  &.el-floating-button {
+  &.${elFloatingButton} {
     border-radius: 100%;
     height: 3.75rem;
     width: 3.75rem;
@@ -171,7 +172,7 @@ export const ElButton = styled.button`
         top: inherit;
       }
 
-      .el-icon {
+      ${ElIcon} {
         visibility: hidden;
       }
     }
@@ -295,17 +296,17 @@ export const ElButtonGroup = styled.div`
   column-gap: 1rem;
   row-gap: 1rem;
 
-  .el-button-size2 {
+  .${elButtonSize2} {
     min-width: auto;
     grid-column: span 2;
   }
 
-  .el-button-size3 {
+  .${elButtonSize3} {
     min-width: auto;
     grid-column: span 3;
   }
 
-  .el-button-size4 {
+  .${elButtonSize4} {
     min-width: auto;
     grid-column: span 4;
   }
@@ -316,7 +317,7 @@ export const ElButtonGroup = styled.div`
     row-gap: 0.8rem;
     grid-auto-flow: inherit;
 
-    .el-button-size4 {
+    .${elButtonSize4} {
       grid-column: span 3;
     }
   }
