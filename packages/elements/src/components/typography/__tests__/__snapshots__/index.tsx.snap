@@ -12,6 +12,14 @@ exports[`Typography components SmallText should match a snapshot 1`] = `
 </ElSmallText>
 `;
 
+exports[`Typography components SmallText should match a snapshot 2`] = `
+<ElSmallText
+  className="el-has-grey-text el-is-bold-text"
+>
+  I am small text
+</ElSmallText>
+`;
+
 exports[`Typography components SubTitle should match a snapshot 1`] = `
 <ElSubtitle>
   I am a subtitle
