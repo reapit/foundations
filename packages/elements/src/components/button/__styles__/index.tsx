@@ -9,7 +9,7 @@ import {
   elIntentDanger,
 } from '../../../styles/intent'
 import { elIsLoading } from '../../../styles/states'
-import { intentPrimary, intentSecondary, intentCritical, intentSuccess, intentDanger } from '../../../styles/variables'
+import { intentPrimary, intentSecondary, intentCritical, intentSuccess, intentDanger } from '../../../styles/globals'
 import { ElIcon } from './../../icon/__styles__'
 
 const buttonXPadding = 1.5

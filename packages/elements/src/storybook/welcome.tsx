@@ -116,7 +116,7 @@ export const Welcome: FC = () => {
         </WelcomeFooterItem>
         <WelcomeFooterItem>
           <WelcomeFooterTitle>Reliable</WelcomeFooterTitle>
-          <p>Excellent test coverage</p>
+          <p>Excellent test coverage, strongly typed</p>
           <p>Production hardened accross the Reapit Estate</p>
           <p>Tiny dependency footprint</p>
         </WelcomeFooterItem>
