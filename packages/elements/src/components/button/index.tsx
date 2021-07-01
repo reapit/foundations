@@ -7,6 +7,8 @@ import { ElButton, ElButtonGroup } from './__styles__'
 import { elWFull } from '../../styles/sizing'
 import { Icon, IconNames } from '../icon'
 
+
+export type ButtonSizeType = 2 | 3 | 4
 export interface IButton extends React.ButtonHTMLAttributes<HTMLButtonElement> {
   intent?: Intent
   loading?: boolean
@@ -14,10 +16,10 @@ export interface IButton extends React.ButtonHTMLAttributes<HTMLButtonElement> {
   chevronRight?: boolean
   fullWidth?: boolean
   className?: string
-  size?: 2 | 3 | 4
+  size?: ButtonSizeType
 }
 
-export const resolveButtonSize = (size: 2 | 3 | 4): string => {
+export const resolveButtonSize = (size: ButtonSizeType): string => {
   switch (size) {
     case 2:
       return styles.elButtonSize2
