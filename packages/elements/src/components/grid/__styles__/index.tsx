@@ -1,5 +1,5 @@
 import { styled } from 'linaria/react'
-import { is4KScreen, isDesktop, isMobile, isTablet, isWideScreen } from '../../../styles/media'
+import { is4KScreen, isDesktop, isMobile, isSuperWideScreen, isTablet, isWideScreen } from '../../../styles/media'
 
 export const ElGrid = styled.div`
   display: grid;
@@ -8,9 +8,21 @@ export const ElGrid = styled.div`
   grid-row-gap: 1.5rem;
 
   ${isTablet} {
-    grid-template-columns: repeat(12, 1fr);
+    grid-template-columns: repeat(8, 1fr);
     grid-column-gap: 2rem;
     grid-row-gap: 2.5rem;
+  }
+
+  ${isDesktop} {
+    grid-template-columns: repeat(12, 1fr);
+  }
+
+  ${isSuperWideScreen} {
+    grid-template-columns: repeat(16, 1fr);
+  }
+
+  ${is4KScreen} {
+    grid-template-columns: repeat(20, 1fr);
   }
 `
 
