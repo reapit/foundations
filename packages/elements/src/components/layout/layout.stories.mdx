@@ -1,10 +1,10 @@
-import { Story, Canvas } from '@storybook/addon-docs/blocks'
+import { Story, Canvas, ArgsTable } from '@storybook/addon-docs/blocks'
 import { MainContainer, PageContainer, SecondaryNavContainer, Molecule, FlexContainer } from './index'
 import { GridDemoBlock } from '../grid/grid.stories'
 import { RenderHtmlMarkup } from '../../helpers/render-html-markup'
 import {LayoutCompleteExample} from './layout.stories'
 
-<Meta title="Layouts" />
+<Meta title="Layouts" component={Molecule} />
 
 # Layouts
 
@@ -96,4 +96,25 @@ For a complete example of how to lay out a page, see below where we have combine
   component="Layouts"
   story={['Complete Combined Example']}
   label="Complete Combined Example Rendered HTML markup"
+/>
+
+## Atomic design
+
+Atomic design is a design system methodology for defining the structure or scale of a set of components. A simple explaination is as follows: the smallest component is defined as an `Atom`. A collection of Atoms is defined as a `Molecule`. A collection of Molecules is defined as an `Organisum`.
+
+So the summarise `Atom => Molecule => Organisum`.
+
+### Molecule
+
+<Canvas>
+  <Story name="Molecule">
+    <Molecule>
+      hello
+    </Molecule>
+  </Story>
+</Canvas>
+
+<RenderHtmlMarkup
+  component="Layouts"
+  story="Molecule"
 />
