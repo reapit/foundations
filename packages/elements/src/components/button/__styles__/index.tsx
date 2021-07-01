@@ -22,7 +22,7 @@ const chevronRight = (fill: string) =>
     fill,
   )}"/></svg>`
 
-export const ElButtonSize2 = css`
+export const elButtonSize2 = css`
   min-width: 8rem;
 
   ${isMobile} {
@@ -30,7 +30,7 @@ export const ElButtonSize2 = css`
   }
 `
 
-export const ElButtonSize3 = css`
+export const elButtonSize3 = css`
   min-width: 12rem;
 
   ${isMobile} {
@@ -38,13 +38,15 @@ export const ElButtonSize3 = css`
   }
 `
 
-export const ElButtonSize4 = css`
+export const elButtonSize4 = css`
   min-width: 16rem;
 
   ${isMobile} {
     min-width: 10rem;
   }
 `
+
+export const elFloatingButton = css``
 
 export const ElButton = styled.button`
   display: inline-block;
@@ -144,6 +146,35 @@ export const ElButton = styled.button`
     height: 2.5rem;
     font-size: 1rem;
     padding: ${buttonYPaddingMobile}rem 0.75rem;
+  }
+
+  &.el-floating-button {
+    border-radius: 100%;
+    height: 3.75rem;
+    width: 3.75rem;
+    margin: 0.5rem;
+
+    padding: 0.4rem;
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+
+    ${isMobile} {
+      width: 2.5rem;
+      height: 2.5rem;
+      margin: 0.5rem;
+    }
+
+    &${elIsLoading} {
+      &:after {
+        left: inherit;
+        top: inherit;
+      }
+
+      .el-icon {
+        visibility: hidden;
+      }
+    }
   }
 `
 
