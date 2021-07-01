@@ -17,7 +17,7 @@ export interface IButton extends React.ButtonHTMLAttributes<HTMLButtonElement> {
   size?: 2 | 3 | 4
 }
 
-const resolveButtonSize = (size: 2 | 3 | 4): string => {
+export const resolveButtonSize = (size: 2 | 3 | 4): string => {
   switch (size) {
     case 2:
       return styles.elButtonSize2
