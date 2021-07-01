@@ -2,7 +2,7 @@ import { Story, Canvas, ArgsTable } from '@storybook/addon-docs/blocks'
 import { MainContainer, PageContainer, SecondaryNavContainer, Molecule, FlexContainer } from './index'
 import { GridDemoBlock } from '../grid/grid.stories'
 import { RenderHtmlMarkup } from '../../helpers/render-html-markup'
-import {LayoutCompleteExample} from './layout.stories'
+import { LayoutCompleteExample } from './layout.stories'
 
 <Meta title="Layouts" component={Molecule} />
 
@@ -22,31 +22,6 @@ The `PageContainer` should be the body of your content, it will typically contai
 
 The previous two containers are postioned using the `FlexContainer` component. This component has a number of optional props to perform most flexbox operations - see the below inteface for React users:
 
-```tsx
-export interface ContainerFlexProps extends ContainerProps {
-  isFlexRow?: boolean
-  isFlexRowReverse?: boolean
-  isFlexColumn?: boolean
-  isFlexColumnReverse?: boolean
-  isFlexWrap?: boolean
-  isFlexNoWrap?: boolean
-  isFlexWrapReverse?: boolean
-  isFlexAuto?: boolean
-  isFlexInitial?: boolean
-  isFlexGrow0?: boolean
-  isFlexGrow1?: boolean
-  isFlexShrink0?: boolean
-  isFlexShrink?: boolean
-  isFlexJustifyCenter?: boolean
-  isFlexJustifyEnd?: boolean
-  isFlexJustifyBetween?: boolean
-  isFlexJustifyAround?: boolean
-  isFlexJustifyEvenly?: boolean
-  isFlexAlignCenter?: boolean
-  isFlexAlignStart?: boolean
-  isFlexAlignEnd?: boolean
-}
-```
 
 These booleans map 1:1 to the flexbox helpers you can see here on [Github](https://github.com/reapit/foundations/blob/master/packages/elements/src/styles-v3/base/flexbox.ts). For the output helper classes, see the HTML Markup Component below.
 
@@ -109,7 +84,7 @@ So the summarise `Atom => Molecule => Organisum`.
 <Canvas>
   <Story name="Molecule">
     <Molecule>
-      hello
+      <GridDemoBlock />
     </Molecule>
   </Story>
 </Canvas>
@@ -118,3 +93,100 @@ So the summarise `Atom => Molecule => Organisum`.
   component="Layouts"
   story="Molecule"
 />
+
+
+## PageContainer
+
+The `PageContainer` should be the body of your content, it will typically contain a `Grid` component.
+
+<Canvas>
+  <Story name="PageContainer">
+    <PageContainer>
+      <GridDemoBlock />
+      <FlexContainer>
+        <Molecule>
+          <GridDemoBlock />
+        </Molecule>
+        <Molecule>
+          <GridDemoBlock />
+        </Molecule>
+      </FlexContainer>
+    </PageContainer>
+  </Story>
+</Canvas>
+
+<RenderHtmlMarkup
+  component="Layouts"
+  story="PageContainer"
+/>
+
+
+## MainContainer
+
+In this example you can see the `MainContainer` component - used to wrap the whole application and will handle the `Nav` and main content positioning.
+
+<Canvas>
+  <Story name="MainContainer">
+    <MainContainer>
+      <FlexContainer>
+        <PageContainer>
+          <GridDemoBlock />
+          <FlexContainer>
+            <Molecule>
+              <GridDemoBlock />
+            </Molecule>
+            <Molecule>
+              <GridDemoBlock />
+            </Molecule>
+          </FlexContainer>
+        </PageContainer>
+      </FlexContainer>
+    </MainContainer>
+  </Story>
+</Canvas>
+
+<RenderHtmlMarkup
+  component="Layouts"
+  story="MainContainer"
+/>
+
+
+## SecondaryNavContainer
+
+The `SecondaryNavContainer` is fixed width and used to contain secondary navigation as well as controls like filters.
+
+<Canvas>
+  <Story name="SecondaryNavContainer">
+    <SecondaryNavContainer>
+    </SecondaryNavContainer>
+  </Story>
+</Canvas>
+
+<RenderHtmlMarkup
+  component="Layouts"
+  story="SecondaryNavContainer"
+/>
+
+## FlexContainer
+
+The previous two containers are postioned using the `FlexContainer` component. This component has a number of optional props to perform most flexbox operations - see the below inteface for React users:
+
+<Canvas>
+  <Story name="FlexContainer">
+    <FlexContainer>
+      <Molecule>
+        <GridDemoBlock />
+      </Molecule>
+      <Molecule>
+        <GridDemoBlock />
+      </Molecule>
+    </FlexContainer>
+  </Story>
+</Canvas>
+
+<RenderHtmlMarkup
+  component="Layouts"
+  story="FlexContainer"
+/>
+
+<ArgsTable of={FlexContainer} />
