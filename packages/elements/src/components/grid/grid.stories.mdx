@@ -1,4 +1,4 @@
-import { Story, Canvas } from '@storybook/addon-docs/blocks'
+import { Story, Canvas, ArgsTable } from '@storybook/addon-docs/blocks'
 import { GridDemoBlock } from './grid.stories'
 import { Grid, Col } from './grid'
 import { GridResponsive, ColResponsive } from './grid-responsive'
@@ -114,32 +114,7 @@ For React users, we have an addional `GridResponsive` component that under the h
 
 Both the `GridResponsive` and `ColResponsive` components accept props in the following interfaces:
 
-```tsx
-export type GridUnitType = 0 | 1 | 2 | 3 | 4 | 6 | 8 | 12
-export type ColUnitType = 0 | 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9 | 10 | 11 | 12
-
-export interface GridResponsiveProps extends HTMLAttributes<HTMLElement> {
-  colGapMobile?: GridUnitType
-  colGapTablet?: GridUnitType
-  colGapDesktop?: GridUnitType
-  colGapWideScreen?: GridUnitType
-  rowGapMobile?: GridUnitType
-  rowGapTablet?: GridUnitType
-  rowGapDesktop?: GridUnitType
-  rowGapWideScreen?: GridUnitType
-}
-
-export interface ColResponsiveProps extends HTMLAttributes<HTMLElement> {
-  spanMobile?: ColUnitType
-  spanTablet?: ColUnitType
-  spanDesktop?: ColUnitType
-  spanWideScreen?: ColUnitType
-  offsetMobile?: ColUnitType
-  offsetTablet?: ColUnitType
-  offsetDesktop?: ColUnitType
-  offsetWideScreen?: ColUnitType
-}
-```
+<ArgsTable of={GridResponsive} />
 
 Essentially for `GridResponsive` we can set `grid-column-gap` and `grid-row-gap` for each of mobile, tablet, desktop and widescreen based on the relevant prop.
 

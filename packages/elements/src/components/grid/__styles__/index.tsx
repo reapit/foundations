@@ -1,5 +1,5 @@
 import { styled } from 'linaria/react'
-import { isDesktop, isTablet, isWideScreen } from '../../../styles/media'
+import { is4KScreen, isDesktop, isMobile, isTablet, isWideScreen } from '../../../styles/media'
 
 export const ElGrid = styled.div`
   display: grid;
@@ -17,6 +17,10 @@ export const ElGrid = styled.div`
 export const ElCol = styled.div`
   grid-column-end: span 8;
 
+  ${isMobile} {
+    grid-column-end: span 4;
+  }
+
   ${isTablet} {
     grid-column-end: span 6;
   }
@@ -27,5 +31,9 @@ export const ElCol = styled.div`
 
   ${isWideScreen} {
     grid-column-end: span 3;
+  }
+
+  ${is4KScreen} {
+    grid-column-end: span 2;
   }
 `
