@@ -1,5 +1,5 @@
 import { Meta, Story, Canvas } from '@storybook/addon-docs/blocks'
-import { Button } from './index'
+import { Button, ButtonGroup } from './index'
 import { RenderHtmlMarkup } from '../../helpers/render-html-markup'
 import { action } from '@storybook/addon-actions'
 
@@ -228,3 +228,47 @@ All other standard HTML attributes for `<button>` are supported and are passed t
 </Canvas>
 
 <RenderHtmlMarkup component="Button" story="Standard attributes: data-*" />
+
+
+# Button Sizes
+
+Statically sized buttons. The width is applied with `min-width` enabling expanding.
+
+<Canvas>
+  <Story name="ButtonSize 2">
+    <Button intent="primary" size={2}>size 2</Button>
+  </Story>
+  <Story name="ButtonSize 3">
+    <Button intent="primary" size={3}>size 3</Button>
+  </Story>
+  <Story name="ButtonSize 4">
+    <Button intent="primary" size={4}>size 4</Button>
+  </Story>
+</Canvas>
+
+<RenderHtmlMarkup
+  component="ButtonGroup"
+  story="Button Group"
+  label="Button Sizes"
+/>
+
+# Button Group
+
+An element to collectively group several buttons
+
+<Canvas>
+  <Story name="ButtonGroup">
+    <ButtonGroup>
+      <Button intent="primary">First</Button>
+      <Button intent="secondary">Second</Button>
+      <Button intent="critical">Another</Button>
+      <Button intent="danger">End</Button>
+    </ButtonGroup>
+  </Story>
+</Canvas>
+
+<RenderHtmlMarkup
+  component="ButtonGroup"
+  story="Button Group"
+  label="Button Group"
+/>

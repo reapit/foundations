@@ -3,7 +3,7 @@ import { cx } from 'linaria'
 import { Intent, getIntentClassName } from '../../helpers/intent'
 import { elIsLoading } from '../../styles/states'
 import * as styles from './__styles__'
-import { ElButton } from './__styles__'
+import { ElButton, ElButtonGroup } from './__styles__'
 import { elWFull } from '../../styles/sizing'
 
 export interface IButton extends React.ButtonHTMLAttributes<HTMLButtonElement> {
@@ -13,6 +13,18 @@ export interface IButton extends React.ButtonHTMLAttributes<HTMLButtonElement> {
   chevronRight?: boolean
   fullWidth?: boolean
   className?: string
+  size?: 2 | 3 | 4
+}
+
+const resolveButtonSize = (size: 2 | 3 | 4): string => {
+  switch (size) {
+    case 2:
+      return styles.ElButtonSize2
+    case 3:
+      return styles.ElButtonSize3
+    case 4:
+      return styles.ElButtonSize4
+  }
 }
 
 export const Button: React.FC<IButton> = ({
@@ -23,6 +35,7 @@ export const Button: React.FC<IButton> = ({
   fullWidth = false,
   className = '',
   children,
+  size,
   ...rest
 }) => {
   const intentClassname = intent && getIntentClassName(intent)
@@ -33,6 +46,7 @@ export const Button: React.FC<IButton> = ({
     chevronRight && styles.elButtonHasRightChevron,
     loading && elIsLoading,
     fullWidth && elWFull,
+    size && resolveButtonSize(size),
   )
 
   return (
@@ -40,4 +54,8 @@ export const Button: React.FC<IButton> = ({
       {children}
     </ElButton>
   )
+}
+
+export const ButtonGroup: React.FC = ({children}) => {
+  return <ElButtonGroup>{children}</ElButtonGroup>
 }

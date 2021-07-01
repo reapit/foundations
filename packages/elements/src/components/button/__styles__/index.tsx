@@ -1,3 +1,4 @@
+import { isMobile } from '@/styles/media'
 import { css } from 'linaria'
 import { styled } from 'linaria/react'
 import {
@@ -11,6 +12,7 @@ import { elIsLoading } from '../../../styles/states'
 import { intentPrimary, intentSecondary, intentCritical, intentSuccess, intentDanger } from '../../../styles/variables'
 
 const buttonXPadding = 1.5
+const buttonYPaddingMobile = .25
 const chevronLeft = (fill: string) =>
   `data:image/svg+xml;utf8,<svg width="18" height="40" viewBox="0 0 18 40" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M24 0L9.79882 0C8.09608 0 6.57999 1.07793 6.02073 2.6862L0.456861 18.6862C0.160976 19.5371 0.160976 20.4629 0.456861 21.3138L6.02073 37.3138C6.57999 38.9221 8.09608 40 9.79882 40H24V0Z" fill="${encodeURIComponent(
     fill,
@@ -19,6 +21,30 @@ const chevronRight = (fill: string) =>
   `data:image/svg+xml;utf8,<svg width="18" height="40" viewBox="0 0 18 40" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M0 0L8.8012 0C10.5501 0 13.0962 2.1362 12.6186 2.80527L17.6261 18.8053C17.8695 19.5832 17.8695 20.4168 17.6261 21.1947L12.6186 37.1947C12.0962 38.8638 10.5501 40 8.8012 40H0V0Z" fill="${encodeURIComponent(
     fill,
   )}"/></svg>`
+
+export const ElButtonSize2 = css`
+  min-width: 8rem;
+
+  ${isMobile} {
+    min-width: 6rem;
+  }
+`
+
+export const ElButtonSize3 = css`
+  min-width: 12rem;
+
+  ${isMobile} {
+    min-width: 8rem;
+  }
+`
+
+export const ElButtonSize4 = css`
+  min-width: 16rem;
+
+  ${isMobile} {
+    min-width: 10rem;
+  }
+`
 
 export const ElButton = styled.button`
   display: inline-block;
@@ -113,12 +139,22 @@ export const ElButton = styled.button`
       }
     }
   }
+
+  ${isMobile} {
+    height: 2.5rem;
+    font-size: 1rem;
+    padding: ${buttonYPaddingMobile}rem 0.75rem;
+  }
 `
 
 export const elButtonHasLeftChevron = css`
   background-size: 100%;
   background-position-x: 0.5rem;
   padding-left: ${buttonXPadding + 0.5}rem;
+
+  ${isMobile} {
+    padding-left: 1.25rem;
+  }
 
   &::before {
     content: '';
@@ -174,6 +210,10 @@ export const elButtonHasRightChevron = css`
     background-position-x: center;
   }
 
+  ${isMobile} {
+    padding-right: 1.25rem;
+  }
+
   &::after {
     content: '';
     position: absolute;
@@ -214,6 +254,34 @@ export const elButtonHasRightChevron = css`
   &${elIntentDanger} {
     &::after {
       background-image: url('${chevronRight(intentDanger)}');
+    }
+  }
+`
+
+export const ElButtonGroup = styled.div`
+  .el-button {
+    margin-left: .5rem;
+    margin-right: .5rem;
+    margin-top: .25rem;
+    margin-bottom: .25rem;
+
+    &:first-child {
+      margin-left: 0;
+    }
+
+    &:last-child {
+      margin-right: 0;
+    }
+  }
+
+  ${isMobile} {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    column-gap: .8rem;
+    row-gap: .8rem;
+
+    .el-button {
+      margin: 0;
     }
   }
 `
