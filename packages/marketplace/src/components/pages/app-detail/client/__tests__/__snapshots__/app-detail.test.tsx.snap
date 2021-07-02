@@ -83,22 +83,22 @@ exports[`AppDetail should match a snapshot 1`] = `
                         className="ev48hx0-el-is-full-page"
                       >
                         <div
-                          className="ev48hx0-el-is-full-page e1weh9x5-el-loader-container"
+                          className="ev48hx0-el-is-full-page ebhrnzh-el-loader-container"
                         >
                           <ElLoaderLabel>
                             <p
-                              className="e144yzr3-el-loader-label"
+                              className="e15h0ww-el-loader-label"
                             >
                               Loading
                             </p>
                           </ElLoaderLabel>
                           <ElLoader>
                             <div
-                              className="e1s22du2-el-loader"
+                              className="eq1m1jz-el-loader"
                             >
                               <ElLoaderMovingBar>
                                 <div
-                                  className="e1yxuq7j-el-loader-moving-bar"
+                                  className="exikdu1-el-loader-moving-bar"
                                 />
                               </ElLoaderMovingBar>
                             </div>
@@ -549,22 +549,22 @@ exports[`AppDetail should render loader when client.appDetail.data is an empty o
                         className="ev48hx0-el-is-full-page"
                       >
                         <div
-                          className="ev48hx0-el-is-full-page e1weh9x5-el-loader-container"
+                          className="ev48hx0-el-is-full-page ebhrnzh-el-loader-container"
                         >
                           <ElLoaderLabel>
                             <p
-                              className="e144yzr3-el-loader-label"
+                              className="e15h0ww-el-loader-label"
                             >
                               Loading
                             </p>
                           </ElLoaderLabel>
                           <ElLoader>
                             <div
-                              className="e1s22du2-el-loader"
+                              className="eq1m1jz-el-loader"
                             >
                               <ElLoaderMovingBar>
                                 <div
-                                  className="e1yxuq7j-el-loader-moving-bar"
+                                  className="exikdu1-el-loader-moving-bar"
                                 />
                               </ElLoaderMovingBar>
                             </div>
@@ -1015,22 +1015,22 @@ exports[`AppDetail should render loader when isLoadingAppDetail = true 1`] = `
                         className="ev48hx0-el-is-full-page"
                       >
                         <div
-                          className="ev48hx0-el-is-full-page e1weh9x5-el-loader-container"
+                          className="ev48hx0-el-is-full-page ebhrnzh-el-loader-container"
                         >
                           <ElLoaderLabel>
                             <p
-                              className="e144yzr3-el-loader-label"
+                              className="e15h0ww-el-loader-label"
                             >
                               Loading
                             </p>
                           </ElLoaderLabel>
                           <ElLoader>
                             <div
-                              className="e1s22du2-el-loader"
+                              className="eq1m1jz-el-loader"
                             >
                               <ElLoaderMovingBar>
                                 <div
-                                  className="e1yxuq7j-el-loader-moving-bar"
+                                  className="exikdu1-el-loader-moving-bar"
                                 />
                               </ElLoaderMovingBar>
                             </div>

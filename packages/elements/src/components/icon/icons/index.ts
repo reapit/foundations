@@ -28,6 +28,7 @@ import landlordInfographic from './infographic-icons/landlordInfographic'
 import maisonetteInfographic from './infographic-icons/maisonetteInfographic'
 import vendorInfographic from './infographic-icons/vendorInfographic'
 import designInfographic from './infographic-icons/designInfographic'
+import apiDocsInfographic from './infographic-icons/apiDocsInfographic'
 import accountMenu from './menu-icons/accountMenu'
 import analyticsMenu from './menu-icons/analyticsMenu'
 import apiMenu from './menu-icons/apiMenu'
@@ -212,4 +213,5 @@ export const iconSet = {
   maisonetteInfographic,
   vendorInfographic,
   designInfographic,
+  apiDocsInfographic,
 }

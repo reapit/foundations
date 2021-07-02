@@ -25,7 +25,7 @@ import { StatusIndicator } from '../status-indicator'
 
 ## Summary
 
-The Table component can be used in 2 main ways within React.
+The Table component can be used in 2 main ways within 
 
 1. Building a table from the Table molecule components, e.g. `TableRow`, `TableCell`, etc
 1. Using the React shorthand and supplying a `rows` prop with data. This way offers advantages such as not needing to manage the state for the expandable rows.
@@ -38,7 +38,7 @@ There are two visual styles for the table, dependant on screen width.
 On the Narrow version, the table's grid switches to a 2 column layout. There are additional modifiers that can then be
 applied to cells when it's in narrow mode, e.g. showing the header within the cell and whether a cell should be full width.
 
-### Molecule - Table
+## Molecule - Table
 
 <ArgsTable of={Table} />
 
@@ -110,7 +110,7 @@ If using the Table component in React shorthand mode, `data-num-columns-excl-exp
 
 <RenderHtmlMarkup component="Table" story="Setting the number of cols" />
 
-# Molecule - TableCell
+## Molecule - TableCell
 
 `TableCell` renders children, but also accepts some other props. Any other props given that aren't listed below are are applied to the underlying `div` element.
 
@@ -126,7 +126,7 @@ If using the Table component in React shorthand mode, `data-num-columns-excl-exp
 
 <RenderHtmlMarkup component="TableCell" story="TableCell - Default usage" />
 
-### With an icon
+## With an icon
 
 Adds an icon at the start of the cell
 
@@ -140,7 +140,7 @@ Adds an icon at the start of the cell
 
 <RenderHtmlMarkup component="TableCell" story="TableCell With an icon" />
 
-### With dark text
+## With dark text
 
 Turns the cell's text colour to black to make a cell's content more bold.
 
@@ -154,7 +154,7 @@ Turns the cell's text colour to black to make a cell's content more bold.
 
 <RenderHtmlMarkup component="TableCell" story="TableCell With dark text" />
 
-### With a label for the narrow view mode
+## With a label for the narrow view mode
 
 Set a label that will be shown within a cell, when the table is in narrow view mode. **You may need to make your screen smaller to see this story.**
 
@@ -170,7 +170,7 @@ HTML users, note that a data attribute is set `data-narrow-label`.
 
 <RenderHtmlMarkup component="TableCell" story="TableCell - Narrow mode: with a label" />
 
-### Full width cell in the narrow view mode
+## Full width cell in the narrow view mode
 
 If set, this prop will ensure that in narrow view mode the cell takes up both columns of a table.
 
@@ -184,7 +184,7 @@ If set, this prop will ensure that in narrow view mode the cell takes up both co
 
 <RenderHtmlMarkup component="TableCell" story="TableCell - Narrow mode: full width" />
 
-### Narrow order 
+## Narrow order 
 
 If you require to change the order of your cells in the mobile/narrow view, you can use the `narrowOrder` property to change the cell's order in the column.
 
@@ -202,7 +202,7 @@ You can also use the classes `el-table-cell-narrow-order-1` through to `el-table
 
 <RenderHtmlMarkup component="TableCell" story="TableCell - Narrow order" />
 
-### Molecule - TableRow
+## Molecule - TableRow
 
 <ArgsTable component={TableRow} story="TableRow" />
 
@@ -219,7 +219,7 @@ You can also use the classes `el-table-cell-narrow-order-1` through to `el-table
 <RenderHtmlMarkup component="TableRow" story="TableRow" />
 
 
-### Molecule - TableHeadersRow
+## Molecule - TableHeadersRow
 
 `TableHeadersRow` only renders children. Any other props given are applied to the underlying `div` element.
 
@@ -233,7 +233,7 @@ You can also use the classes `el-table-cell-narrow-order-1` through to `el-table
 
 <RenderHtmlMarkup component="TableHeadersRow" story="TableHeadersRow" />
 
-### Molecule - TableHeader
+## Molecule - TableHeader
 
 `TableHeader` only renders children. Any other props given are applied to the underlying `div` element.
 
@@ -247,7 +247,7 @@ You can also use the classes `el-table-cell-narrow-order-1` through to `el-table
 
 <RenderHtmlMarkup component="TableHeader" story="TableHeader" />
 
-### Molecule - TableExpandableRowTriggerCell
+## Molecule - TableExpandableRowTriggerCell
 
 `TableHeadersRow` renders an icon showing an up or down arrow dependant on the `isOpen` prop. It also renders any children if given some.
 
@@ -263,7 +263,7 @@ Any other props given are applied to the underlying `div` element, e.g. `onClick
 
 <RenderHtmlMarkup component="TableExpandableRowTriggerCell" story="TableExpandableRowTriggerCell" />
 
-### TableExpandableRowTriggerCell isOpen
+## TableExpandableRowTriggerCell isOpen
 
 <Canvas>
   <Story name="TableExpandableRowTriggerCell isOpen">
@@ -273,7 +273,7 @@ Any other props given are applied to the underlying `div` element, e.g. `onClick
 
 <RenderHtmlMarkup component="TableExpandableRowTriggerCell" story="TableExpandableRowTriggerCell isOpen" />
 
-#### TableExpandableRowTriggerCell narrowIsFullWidth 
+## TableExpandableRowTriggerCell narrowIsFullWidth 
 
 This property will force the trigger cell to be fullwidth of the table on narrow sized tables.
 
@@ -288,7 +288,7 @@ This property will force the trigger cell to be fullwidth of the table on narrow
 <RenderHtmlMarkup component="TableExpandableRowTriggerCell - narrowIsFullWidth" story="TableExpandableRowTriggerCell - narrowIsFullWidth" />
 
 
-### Molecule - TableExpandableRow
+## Molecule - TableExpandableRow
 
 `TableExpandableRow` only renders it's children. Any other props given are applied to the underlying `div` element.
 
@@ -306,7 +306,7 @@ The isOpen prop toggles the `.el-is-active` class to show the content.
 
 <RenderHtmlMarkup component="TableExpandableRow" story="TableExpandableRow" />
 
-### TableExpandableRow isOpen
+## TableExpandableRow isOpen
 
 <Canvas>
   <Story name="TableExpandableRow - isOpen">
@@ -318,11 +318,11 @@ The isOpen prop toggles the `.el-is-active` class to show the content.
 
 <RenderHtmlMarkup component="TableExpandableRow" story="TableExpandableRow - isOpen" />
 
-### TableExpandableRow content size
+## TableExpandableRow content size
 
 You can adjust the size of the expandable content section using the `expandableContentSize` property or the data attribute `data-expandable-content-size` on the table. The fixed heights are required for the drop down animation.
 
-#### Available sizes
+## Available sizes
 
 Value | Size
 --- | ---
@@ -380,7 +380,7 @@ Value | Size
 
 <RenderHtmlMarkup component="TableExpandableRow" story="TableExpandableRow - expandable-content-size" />
 
-### TableRowContainer 
+## TableRowContainer 
 
 `TableRowContainer` is a container for `TableRow` and `TableExpandableRow` to keep styles consistent. Without the `TableRowContainer` elements, styles for `TableRow` and `TableExpandableRow` will clash (border radius and box-shadows).
 
@@ -414,7 +414,7 @@ Value | Size
   </Story>
 </Canvas>
 
-### Table built from molecule components
+## Table built from molecule components
 
 <Canvas>
   <Story name="Combined Table">
@@ -456,7 +456,7 @@ Value | Size
 
 <RenderHtmlMarkup component="Table" story="Combined Table" />
 
-### Table grid cells
+## Table grid cells
 
 Table cells are dependant on columns being defined by a data attribute. Below we've used `data-num-columns-excl-expandable-row-trigger-col="2"` as an example.
 
@@ -477,7 +477,7 @@ Table cells are dependant on columns being defined by a data attribute. Below we
 
 <RenderHtmlMarkup component="Table" story="Column Table Cell example" />
 
-#### Maximum
+## Maximum
 
 This can be used for a maximum of 12 columns
 
@@ -542,7 +542,7 @@ This can be used for a maximum of 12 columns
 
 <RenderHtmlMarkup component="Table" story="Column Table Cell example 2" />
 
-#### NarrowTable cell sizes
+### NarrowTable cell sizes
 
 The individual cell sizing can be changed when the table is on a narrow screened device (mobile, table). This is done using the `narrowIsFullWidth` property on cells to be full width instead of the default half width
 
@@ -588,7 +588,7 @@ You can also use the class `el-table-narrow-cell-is-full-width`.
 <RenderHtmlMarkup component="Table" story="Column Table Cell narrowIsFullWidth" />
 
 
-#### Expandable headers
+### Expandable headers
 
 Using expandable actions and column headers you'll need to use the `data-has-expandable-action` to change the sizing of the action columns respectively.
 
@@ -720,26 +720,26 @@ Simply supply a `rows` prop, and no children, to use the Table component like th
   </Story>
 </Canvas>
 
-#### The `rows` prop
+### The `rows` prop
 
 <ArgsTable of={Table} />
 
-```
+```ts
 type Row = {
   cells: Cell[]
   /* The content that should be hidden within the expandable row underneath this row */
-  expandableContent: React.ReactNode
+  expandableContent: ReactNode
 }
 ```
 
-```
+```ts
 type Cell = {
   /* the label of the cell (AKA, the header) */
   label: string
   /* the value of the cell */
   value: string
   /* if supplied, children will be rendered in place of value. If a value and children are both supplied, only children will be rendered */
-  children: React.ReactNode
+  children: ReactNode
   /* an icon to go within the cell */
   icon?: IconNames
   /* whether to make the text in the cell darker */

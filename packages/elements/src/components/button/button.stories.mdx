@@ -7,7 +7,13 @@ import { action } from '@storybook/addon-actions'
 
 # Button
 
-Underlying tag: `<button>`
+Styled button component with multiple flavours depending on use case.
+
+<ArgsTable of={Button} />
+
+## Default Usage
+
+A button with no addtional props / classes applied.
 
 <Canvas>
   <Story name="Default Usage">
@@ -17,11 +23,9 @@ Underlying tag: `<button>`
 
 <RenderHtmlMarkup component="Button" story="Default Usage" />
 
-<ArgsTable of={Button} />
+## With Intent
 
-# Intent
-
-Different intents are supported, to enable buttons to be used in different contexts
+Different intents are supported, to enable buttons to be used in different contexts. Typcially you will always choose an intent for your button. The intent prop maps directly to the intent helper classes for non React users.
 
 <Canvas>
   <Story name="Intent: Primary">
@@ -47,17 +51,7 @@ Different intents are supported, to enable buttons to be used in different conte
   label="HTML of different intents"
 />
 
-### Typical usage of each intent
-
-| Intent    | Usage                                                                                                  |
-| --------- | ------------------------------------------------------------------------------------------------------ |
-| primary   | The main/most likely action a user might want to take                                                  |
-| secondary | Typically used alonside a primary button to offer an alternative action, e.g. a Cancel or Close button |
-| critical  | An action that should be the very next, or only logical action that a user can take                    |
-| success   | An action that would lead to a good or pleasant outcome                                                |
-| danger    | An action that would lead to a potentially bad or dangerous outcome, e.g a delete button               |
-
-# Chevrons
+## With Chevron
 
 Chevrons can be added which are helpful to indicate movement, forwards or backwards, between stages.
 
@@ -79,13 +73,9 @@ Chevrons can be added which are helpful to indicate movement, forwards or backwa
   </Story>
 </Canvas>
 
-<RenderHtmlMarkup
-  component="Button"
-  story={['Chevron: Left', 'Chevron: Right', 'Chevron: Both']}
-  label="HTML of the above"
-/>
+<RenderHtmlMarkup component="Button" story={['Chevron: Left', 'Chevron: Right', 'Chevron: Both']} />
 
-# Loading
+## With Loading
 
 Add a loading spinner to indicate progress of a background activity after the button was clicked.
 
@@ -133,7 +123,7 @@ Add a loading spinner to indicate progress of a background activity after the bu
   label="HTML of the above"
 />
 
-# Disabled
+## Is Disabled
 
 Indicate that a button is disabled for whatever reason.
 
@@ -141,59 +131,11 @@ Indicate that a button is disabled for whatever reason.
   <Story name="Disabled">
     <Button disabled>Disabled</Button>
   </Story>
-  <Story name="Disabled - Primary Intent">
-    <Button intent="primary" disabled>
-      Disabled
-    </Button>
-  </Story>
-  <Story name="Disabled - Secondary Intent">
-    <Button intent="secondary" disabled>
-      Disabled
-    </Button>
-  </Story>
-  <Story name="Disabled - Critical Intent">
-    <Button intent="critical" disabled>
-      Disabled
-    </Button>
-  </Story>
-  <Story name="Disabled - Success Intent">
-    <Button intent="success" disabled>
-      Disabled
-    </Button>
-  </Story>
-  <Story name="Disabled - Danger Intent">
-    <Button intent="danger" disabled>
-      Disabled
-    </Button>
-  </Story>
 </Canvas>
 
-<RenderHtmlMarkup
-  component="Button"
-  story={[
-    'Disabled',
-    'Disabled - Primary Intent',
-    'Disabled - Secondary Intent',
-    'Disabled - Critical Intent',
-    'Disabled - Success Intent',
-    'Disabled - Danger Intent',
-  ]}
-  label="HTML of the above"
-/>
+<RenderHtmlMarkup component="Button" story={['Disabled']} />
 
-# Additional className
-
-Add any additional CSS classes you need by supplying a className prop
-
-<Canvas>
-  <Story name="Additional className">
-    <Button className="my-custom-className" intent="primary">
-      Button with custom classname
-    </Button>
-  </Story>
-</Canvas>
-
-# Other attributes
+## Other attributes
 
 All other standard HTML attributes for `<button>` are supported and are passed through to the React component, e.g. type and onClick
 
@@ -231,34 +173,31 @@ All other standard HTML attributes for `<button>` are supported and are passed t
 
 <RenderHtmlMarkup component="Button" story="Standard attributes: data-*" />
 
-
-# Button Sizes
+## Button Sizes
 
 Statically sized buttons. The width is applied with `min-width` enabling expanding.
 
 <Canvas>
   <Story name="Button Size 2">
-    <Button intent="primary" size={2}>size 2</Button>
+    <Button intent="primary" size={2}>
+      size 2
+    </Button>
   </Story>
   <Story name="Button Size 3">
-    <Button intent="primary" size={3}>size 3</Button>
+    <Button intent="primary" size={3}>
+      size 3
+    </Button>
   </Story>
   <Story name="Button Size 4">
-    <Button intent="primary" size={4}>size 4</Button>
+    <Button intent="primary" size={4}>
+      size 4
+    </Button>
   </Story>
 </Canvas>
 
-<RenderHtmlMarkup
-  component="Button"
-  story={[
-    'Button Size 2',
-    'Button Size 3',
-    'Button Size 4',
-  ]}
-  label="Button Sizes"
-/>
+<RenderHtmlMarkup component="Button" story={['Button Size 2', 'Button Size 3', 'Button Size 4']} label="Button Sizes" />
 
-# Button Group
+## Button Group
 
 An element to collectively group several buttons
 
@@ -273,7 +212,7 @@ An element to collectively group several buttons
   </Story>
 </Canvas>
 
-<RenderHtmlMarkup component="Button" story="Button Group" label="ButtonGroup" />
+<RenderHtmlMarkup component="Button" story="Button Group" />
 
 ## Button Group sizes
 
@@ -283,20 +222,22 @@ Sizing button groups
   <Story name="Button Group Size">
     <ButtonGroup>
       <Button intent="primary">No Size</Button>
-      <Button intent="secondary" size={2}>Size 2</Button>
-      <Button intent="critical" size={3}>Size 3</Button>
-      <Button intent="danger" size={4}>Size 4</Button>
+      <Button intent="secondary" size={2}>
+        Size 2
+      </Button>
+      <Button intent="critical" size={3}>
+        Size 3
+      </Button>
+      <Button intent="danger" size={4}>
+        Size 4
+      </Button>
     </ButtonGroup>
   </Story>
 </Canvas>
 
-<RenderHtmlMarkup
-  component="Button"
-  story="Button Group Size"
-  label="Button Group Sizes"
-/>
+<RenderHtmlMarkup component="Button" story="Button Group Size" />
 
-# Floating Button
+## Floating Button
 
 A circular floating icon button
 
@@ -309,10 +250,6 @@ A circular floating icon button
   </Story>
 </Canvas>
 
-<RenderHtmlMarkup
-  component="Button"
-  story="Floating Button"
-  label="Floating Button"
-/>
+<RenderHtmlMarkup component="Button" story="Floating Button" />
 
 <ArgsTable of={FloatingButton} />

@@ -24,6 +24,8 @@ import {
 
 There are two flavors of `ProgressBar` - one showing percentage complete of an action, the other showing steps completed.
 
+<ArgsTable of={ProgressBarPercentage} />
+
 ## Basic Example - ProgressBarPercentage
 
 In the percentage progress bar, if not using the React component, you will need to render both the percentage completed within the label class and add a percentage width to the progress bar inner.
@@ -73,8 +75,6 @@ The progress bar steps example is very similar in terms of markup with the excep
 ## React Example - ProgressBarPercentage
 
 In the React Example, we do the calculations of width and timing for you - simply specify a duration prop for the expected time in seconds of your event or action and we do the rest.
-
-<ArgsTable of={ProgressBarPercentage} />
 
 <Canvas>
   <Story name="React Example - ProgressBarPercentage">

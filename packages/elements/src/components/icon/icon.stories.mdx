@@ -19,7 +19,7 @@ import { RenderHtmlMarkup } from '../../storybook/render-html-markup'
 
 The basic icon component relies on adding an `icon` prop that maps to the name of a SVG file. See the tables below for the icons available.
 
-For non-React users, we export all the icons from `@reapit/elements/assets` where they are grouped in folders `animated-icons`, `infographic-icons`, `menu-icons` and `system-icons` eg `import addSystem from "@reapit/elements/assets/system-icons/addSystem.svg"`. You can then wrap your SVG in the appropriate classes you see in the rendered markup with each story in these docs. 
+For non-React users, we export all the icons from `@reapit/elements/assets` where they are grouped in folders `animated-icons`, `infographic-icons`, `menu-icons` and `system-icons` eg `import addSystem from "@reapit/elements/assets/system-icons/addSystem.svg"`. You can then wrap your SVG in the appropriate classes you see in the rendered markup with each story in these docs.
 
 <ArgsTable story="Basic Usage" />
 
@@ -33,11 +33,7 @@ For a basic icon, just select an icon name from one of the tables below. They ar
   </Story>
 </Canvas>
 
-<RenderHtmlMarkup
-  component="Icon"
-  story={['Basic Usage']}
-  label="HTML of Icon Component"
-/>
+<RenderHtmlMarkup component="Icon" story={['Basic Usage']} />
 
 ## System Icons
 
@@ -153,6 +149,7 @@ All the available icons exported by the project
 | maisonetteInfographi   | <Icon iconSize="small" icon="maisonetteInfographic" />  | <Icon iconSize="medium" icon="maisonetteInfographic" />  | <Icon iconSize="large" icon="maisonetteInfographic" />  |
 | vendorInfographic      | <Icon iconSize="small" icon="vendorInfographic" />      | <Icon iconSize="medium" icon="vendorInfographic" />      | <Icon iconSize="large" icon="vendorInfographic" />      |
 | designInfographic      | <Icon iconSize="small" icon="designInfographic" />      | <Icon iconSize="medium" icon="designInfographic" />      | <Icon iconSize="large" icon="designInfographic" />      |
+| apiDocsInfographic     | <Icon iconSize="small" icon="apiDocsInfographic" />     | <Icon iconSize="medium" icon="apiDocsInfographic" />     | <Icon iconSize="large" icon="apiDocsInfographic" />     |
 
 ## Animated Icons
 
@@ -178,33 +175,25 @@ Set the `fontSize` prop to scale the icon up or down on a granular level. Note t
   </Story>
 </Canvas>
 
-<RenderHtmlMarkup
-  component="Icon"
-  story={['Icon Sizes - Font Size']}
-  label="HTML of Icon Component with Font Size"
-/>
+<RenderHtmlMarkup component="Icon" story={['Icon Sizes - Font Size']} />
 
 ## Icon Sizes - Set Sizes
 
-You can use one of the pre-defined sizes we ship using the `iconSize` prop. See the props table in the basic usage story for the available sizes. 
+You can use one of the pre-defined sizes we ship using the `iconSize` prop. See the props table in the basic usage story for the available sizes.
 
 For non React users, the sizes map directly to css classes - see the rendered markup for these. Note the `el-mb-5` class is purely presentational for this story.
 
 <Canvas>
   <Story name="Icon Sizes - Set Sizes">
     <Icon className={elMb5} iconSize="smallest" icon="tickSystem" />
-    <Icon className={elMb5} iconSize="small"  icon="tickSystem" />
-    <Icon className={elMb5} iconSize="medium"  icon="tickSystem" />
-    <Icon className={elMb5} iconSize="large"  icon="tickSystem" />
-    <Icon className={elMb5} iconSize="largest"  icon="tickSystem" />
+    <Icon className={elMb5} iconSize="small" icon="tickSystem" />
+    <Icon className={elMb5} iconSize="medium" icon="tickSystem" />
+    <Icon className={elMb5} iconSize="large" icon="tickSystem" />
+    <Icon className={elMb5} iconSize="largest" icon="tickSystem" />
   </Story>
 </Canvas>
 
-<RenderHtmlMarkup
-  component="Icon"
-  story={['Icon Sizes - Set Sizes']}
-  label="HTML of Icon Component with Set Sizes"
-/>
+<RenderHtmlMarkup component="Icon" story={['Icon Sizes - Set Sizes']} />
 
 ## Intent
 
@@ -222,9 +211,4 @@ Again, non React users can apply the relevant classes to achieve the same behavi
   </Story>
 </Canvas>
 
-
-<RenderHtmlMarkup
-  component="Icon"
-  story={['Intent']}
-  label="HTML of Icon Component with Intent"
-/>
+<RenderHtmlMarkup component="Icon" story={['Intent']} />

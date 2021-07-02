@@ -1,4 +1,4 @@
-import { Story, Canvas } from '@storybook/addon-docs/blocks'
+import { Story, Canvas, ArgsTable } from '@storybook/addon-docs/blocks'
 import { cx } from 'linaria'
 import { Nav, NavItem } from './index'
 import { elNavItemActive, elNavItemHideDesktop, elNavItemExpanded, elNavItemIcon, elNavIsDesktop } from './__styles__'
@@ -15,7 +15,11 @@ import { NavResponsive } from './nav-responsive'
 
 # Nav
 
-### Basic Example
+The primary navigation all Reapit Marketplace applications should have.
+
+<ArgsTable component={Nav} />
+
+## Basic Example
 
 In this basic example, no additional JS is added to the React generatated markup (see rendered markup section for the underlying elements).
 
@@ -51,9 +55,9 @@ N/B in this example, the menu will not expand in mobile - to enable this behavio
   </Story>
 </Canvas>
 
-<RenderHtmlMarkup component="Nav" story={['Basic Example']} label="Nav Rendered HTML markup" />
+<RenderHtmlMarkup component="Nav" story={['Basic Example']} />
 
-### Basic Example With Mobile Menu
+## Basic Example With Mobile Menu
 
 In this example, changing the browser width to mobile will show the expanded mobile menu. You will need to use some JavaScript to toggle the `el-nav-item-expanded` class on the `NavItem` components on cllick of the hamburger menu. This will give slide up and down effect on Mobile devices.
 
@@ -88,13 +92,10 @@ In this example, changing the browser width to mobile will show the expanded mob
   </Story>
 </Canvas>
 
-<RenderHtmlMarkup
-  component="Nav"
-  story={['Basic Example With Mobile Menu']}
-  label="Nav with Mobile Menu Rendered HTML markup"
+<RenderHtmlMarkup component="Nav" story={['Basic Example With Mobile Menu']} />
 />
 
-### Desktop Mode
+## Desktop Mode
 
 When rendering your app inside Agency Cloud, apply the `el-nav-is-desktop` class to make it blend in with the Desktop UI.
 
@@ -131,9 +132,9 @@ You can check if the app is in desktop mode by checking if the `window.__REAPIT_
   </Story>
 </Canvas>
 
-<RenderHtmlMarkup component="Nav" story={['Desktop Mode']} label="Nav with Mobile Menu Rendered HTML markup" />
+<RenderHtmlMarkup component="Nav" story={['Desktop Mode']} />
 
-### React usage Complete example with `useNavState` hook
+## React usage Complete example with `useNavState` hook
 
 The `useNavState` hook will track the currrent state of the Nav and return both, the `navState` and a `setNavState` function. The annotated inteface of `NavState` is below, setNavState accepts a partial (any combination) of these keys and updates the state accordingly.
 
@@ -222,7 +223,7 @@ export const UseNavStory = () => {
   </Story>
 </Canvas>
 
-### Advanced React Usage - Mobile Sub Menus with `useNavState` and `useMediaQuery` hooks
+## Advanced React Usage - Mobile Sub Menus with `useNavState` and `useMediaQuery` hooks
 
 In the previous example we saw how we can toggle classes to hide and show sub-menu items using the `useNavState` hook. This example expands on the previous one by showing how we can render menu sub items for mobile devices.
 
@@ -370,7 +371,7 @@ export const UseNavMobileSubMenuStory = () => {
   </Story>
 </Canvas>
 
-### React Shorthand - NavResponsive
+## React Shorthand - NavResponsive
 
 Clearly the above example is complex to keep in sync so we offer a relatively simplified React Shorthand Component that does the heavy lifting of building a nav for you.
 

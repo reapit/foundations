@@ -1,4 +1,4 @@
-import * as React from 'react'
+import React, { FC, HTMLAttributes, useMemo } from 'react'
 import { ElInputGroup } from './__styles__'
 import { Input } from '../input'
 import { Icon, IconNames } from '../icon'
@@ -6,7 +6,7 @@ import { Label } from '../label'
 import { InputAddOn } from '../input-add-on'
 import { Intent } from '../../helpers/intent'
 
-export interface IInputGroup extends React.HTMLAttributes<HTMLInputElement> {
+export interface InputGroupProps extends HTMLAttributes<HTMLInputElement> {
   icon?: IconNames
   label?: string
   inputAddOnText?: string
@@ -35,7 +35,7 @@ const generateRandomId = (): string => {
   }
 }
 
-export const InputGroup: React.FC<IInputGroup> = ({
+export const InputGroup: FC<InputGroupProps> = ({
   icon,
   label,
   className,
@@ -45,7 +45,7 @@ export const InputGroup: React.FC<IInputGroup> = ({
   children,
   ...rest
 }) => {
-  const groupId = React.useMemo(() => {
+  const groupId = useMemo(() => {
     if (id) return id
     return generateRandomId()
   }, [id])

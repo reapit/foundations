@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { FC, HTMLAttributes } from 'react'
 import { cx } from 'linaria'
 import {
   ElTableHeadersRow,
@@ -28,15 +28,15 @@ import {
 import { Icon, IconNames } from '../icon'
 import { elIsActive } from '../../styles/states'
 
-export const TableHeadersRow: React.FC = ({ children, ...rest }) => {
+export const TableHeadersRow: FC = ({ children, ...rest }) => {
   return <ElTableHeadersRow {...rest}>{children}</ElTableHeadersRow>
 }
 
-export const TableHeader: React.FC = ({ children, ...rest }) => {
+export const TableHeader: FC = ({ children, ...rest }) => {
   return <ElTableHeader {...rest}>{children}</ElTableHeader>
 }
 
-export const TableRow: React.FC = ({ children, ...rest }) => {
+export const TableRow: FC = ({ children, ...rest }) => {
   return <ElTableRow {...rest}>{children}</ElTableRow>
 }
 
@@ -71,7 +71,7 @@ const resolveNarrowOrderClass = (order: number): string | undefined => {
 
 export type NarrowOrderType = 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9 | 10 | 11 | 12
 
-export interface ITableCell extends React.HTMLAttributes<HTMLDivElement> {
+export interface ITableCell extends HTMLAttributes<HTMLDivElement> {
   icon?: IconNames
   darkText?: boolean
   narrowLabel?: string
@@ -79,7 +79,7 @@ export interface ITableCell extends React.HTMLAttributes<HTMLDivElement> {
   className?: string
   narrowOrder?: NarrowOrderType
 }
-export const TableCell: React.FC<ITableCell> = ({
+export const TableCell: FC<ITableCell> = ({
   icon,
   darkText,
   narrowLabel,
@@ -103,11 +103,11 @@ export const TableCell: React.FC<ITableCell> = ({
   )
 }
 
-export interface ITableExpandableRowTriggerCell extends React.HTMLAttributes<HTMLDivElement> {
+export interface ITableExpandableRowTriggerCell extends HTMLAttributes<HTMLDivElement> {
   isOpen?: boolean
   narrowIsFullWidth?: boolean
 }
-export const TableExpandableRowTriggerCell: React.FC<ITableExpandableRowTriggerCell> = ({
+export const TableExpandableRowTriggerCell: FC<ITableExpandableRowTriggerCell> = ({
   isOpen,
   narrowIsFullWidth,
   className,
@@ -125,11 +125,11 @@ export const TableExpandableRowTriggerCell: React.FC<ITableExpandableRowTriggerC
   )
 }
 
-export interface ITableExpandableRow extends React.HTMLAttributes<HTMLDivElement> {
+export interface ITableExpandableRow extends HTMLAttributes<HTMLDivElement> {
   isOpen?: boolean
   className?: string
 }
-export const TableExpandableRow: React.FC<ITableExpandableRow> = ({ isOpen, className, children, ...rest }) => {
+export const TableExpandableRow: FC<ITableExpandableRow> = ({ isOpen, className, children, ...rest }) => {
   const combinedClassname = cx(className, isOpen && elIsActive)
   return (
     <ElTableExpandableRow className={combinedClassname} {...rest}>
@@ -138,11 +138,11 @@ export const TableExpandableRow: React.FC<ITableExpandableRow> = ({ isOpen, clas
   )
 }
 
-export interface ITableRowContainer extends React.HTMLAttributes<HTMLDivElement> {
+export interface ITableRowContainer extends HTMLAttributes<HTMLDivElement> {
   isOpen?: boolean
 }
 
-export const TableRowContainer: React.FC<ITableRowContainer> = ({ isOpen, className, children, ...rest }) => {
+export const TableRowContainer: FC<ITableRowContainer> = ({ isOpen, className, children, ...rest }) => {
   return (
     <ElTableRowContainer className={cx(className, isOpen && elIsActive)} {...rest}>
       {children}

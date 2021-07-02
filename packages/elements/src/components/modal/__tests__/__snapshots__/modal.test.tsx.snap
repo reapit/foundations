@@ -1,0 +1,58 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Modal component should match a snapshot when closed 1`] = `""`;
+
+exports[`Modal component should match a snapshot when open 1`] = `
+<Fragment>
+  <ElModalBg
+    className="el-is-active"
+    onClick={[Function]}
+  />
+  <ElModal
+    className="el-is-active"
+  >
+    <ElModalHeader>
+      test
+      <Icon
+        icon="closeSystem"
+        onClick={[Function]}
+      />
+    </ElModalHeader>
+    <ElModalBody>
+      Content within modal
+    </ElModalBody>
+  </ElModal>
+</Fragment>
+`;
+
+exports[`ModalBg should match a snapshot 1`] = `
+<ElModalBg
+  className=""
+>
+  Content within modal
+</ElModalBg>
+`;
+
+exports[`ModalBody should match a snapshot 1`] = `
+<ElModalBg
+  className=""
+>
+  Content within modal
+</ElModalBg>
+`;
+
+exports[`ModalContainer should match a snapshot 1`] = `
+<ElModal
+  className=""
+>
+  Content within modal
+</ElModal>
+`;
+
+exports[`ModalHeader should match a snapshot 1`] = `
+<ElModalHeader
+  className=""
+>
+  Content within modal
+</ElModalHeader>
+`;

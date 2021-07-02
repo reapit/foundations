@@ -12,7 +12,7 @@ When thinking about laying out your page, you will need to wrap your content in 
 
 The components themsleves are really around laying out a page so you may want to skip forward to the full examples below.
 
-### Container Components
+## Container Components
 
 In this example you can see the `MainContainer` component - used to wrap the whole application and will handle the `Nav` and main content positioning.
 
@@ -49,13 +49,9 @@ Finally, the `Molecule` container is a multi purpose container for adding sensib
   </Story>
 </Canvas>
 
-<RenderHtmlMarkup
-  component="Layouts"
-  story={['Container Components']}
-  label="Container Components Rendered HTML markup"
-/>
+<RenderHtmlMarkup component="Layouts" story={['Container Components']} />
 
-### Combined Layout
+## Combined Layout
 
 For a complete example of how to lay out a page, see below where we have combined a number of other stories including `Nav`, `SecondaryNav` and `Grid` to give a full page layout.
 
@@ -77,7 +73,7 @@ Atomic design is a design system methodology for defining the structure or scale
 
 So the summarise `Atom => Molecule => Organisum`.
 
-### Molecule
+## Molecule
 
 <Canvas>
   <Story name="Molecule">
@@ -87,11 +83,7 @@ So the summarise `Atom => Molecule => Organisum`.
   </Story>
 </Canvas>
 
-<RenderHtmlMarkup
-  component="Layouts"
-  story="Molecule"
-/>
-
+<RenderHtmlMarkup component="Layouts" story="Molecule" />
 
 ## PageContainer
 
@@ -113,11 +105,7 @@ The `PageContainer` should be the body of your content, it will typically contai
   </Story>
 </Canvas>
 
-<RenderHtmlMarkup
-  component="Layouts"
-  story="PageContainer"
-/>
-
+<RenderHtmlMarkup component="Layouts" story="PageContainer" />
 
 ## MainContainer
 
@@ -143,11 +131,7 @@ In this example you can see the `MainContainer` component - used to wrap the who
   </Story>
 </Canvas>
 
-<RenderHtmlMarkup
-  component="Layouts"
-  story="MainContainer"
-/>
-
+<RenderHtmlMarkup component="Layouts" story="MainContainer" />
 
 ## SecondaryNavContainer
 
@@ -155,19 +139,17 @@ The `SecondaryNavContainer` is fixed width and used to contain secondary navigat
 
 <Canvas>
   <Story name="SecondaryNavContainer">
-    <SecondaryNavContainer>
-    </SecondaryNavContainer>
+    <SecondaryNavContainer></SecondaryNavContainer>
   </Story>
 </Canvas>
 
-<RenderHtmlMarkup
-  component="Layouts"
-  story="SecondaryNavContainer"
-/>
+<RenderHtmlMarkup component="Layouts" story="SecondaryNavContainer" />
 
 ## FlexContainer
 
 The previous two containers are postioned using the `FlexContainer` component. This component has a number of optional props to perform most flexbox operations - see the below inteface for React users:
+
+<ArgsTable of={FlexContainer} />
 
 <Canvas>
   <Story name="FlexContainer">
@@ -182,9 +164,4 @@ The previous two containers are postioned using the `FlexContainer` component. T
   </Story>
 </Canvas>
 
-<RenderHtmlMarkup
-  component="Layouts"
-  story="FlexContainer"
-/>
-
-<ArgsTable of={FlexContainer} />
+<RenderHtmlMarkup component="Layouts" story="FlexContainer" />

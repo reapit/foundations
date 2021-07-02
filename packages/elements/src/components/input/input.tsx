@@ -1,8 +1,8 @@
-import * as React from 'react'
+import React, { FC, InputHTMLAttributes } from 'react'
 import { ElInput } from './__styles__'
 
-export interface IInput extends React.InputHTMLAttributes<HTMLInputElement> {}
+export interface InputProps extends InputHTMLAttributes<HTMLInputElement> {}
 
-export const Input: React.FC<IInput> = ({ ...rest }) => {
+export const Input: FC<InputProps> = ({ ...rest }) => {
   return <ElInput {...rest} />
 }

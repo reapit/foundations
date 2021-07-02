@@ -7,15 +7,19 @@ import { RenderHtmlMarkup } from '../../storybook/render-html-markup'
 
 # Steps
 
-Underlying tag: `<div>`
+Used to indicate position in a process - for example a Wizard.
+
+<ArgsTable component={ArgsTable} />
+
+## Basic Usage
 
 <Canvas>
-  <Story name="Default Usage">
+  <Story name="Basic Usage">
     <Steps steps={['1', '2', '3', '4', '5']} />
   </Story>
 </Canvas>
 
-<RenderHtmlMarkup component="Steps" story="Default Usage" />
+<RenderHtmlMarkup component="Steps" story="Basic Usage" />
 
 <ArgsTable of={Steps} />
 
@@ -35,6 +39,8 @@ A CSS transition occurs when moving between steps.
 
 You can use any number of steps and you can also use letters instead of numbers. You can use any string as the content really.
 
+Be aware though, steps with long text **aren't supported** and will not render very well at all.
+
 <Canvas>
   <Story name="Last item selected">
     <Steps steps={['A', 'B', 'C', 'D']} selectedStep="D" />
@@ -43,17 +49,7 @@ You can use any number of steps and you can also use letters instead of numbers.
 
 <RenderHtmlMarkup component="Steps" story="Last item selected" />
 
-Be aware though, steps with long text **aren't supported** and will not render very well at all.
-
-<Canvas>
-  <Story name="With longer words">
-    <Steps steps={['Item a', 'item B', 'ITEM C']} />
-  </Story>
-</Canvas>
-
-<RenderHtmlMarkup component="Steps" story="With longer words" />
-
-### React example with `useState`
+## React example with `useState`
 
 <Canvas>
   <Story name="React example">
