@@ -69,7 +69,7 @@ export interface IFloatingButton extends ButtonProps {
 export const FloatingButton: FC<IFloatingButton> = ({ icon, intent, ...rest }) => {
   return (
     <Button className={styles.elFloatingButton} intent={intent} {...rest}>
-      <Icon icon={icon} intent={'neutral' as Intent} iconSize="small" />
+      <Icon icon={icon} intent={intent ? 'neutral' : undefined} iconSize="small" />
     </Button>
   )
 }
