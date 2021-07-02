@@ -8,6 +8,8 @@ import { RenderHtmlMarkup } from '../../storybook/render-html-markup'
 
 The input component is by design just a styled html / react component to allow developers maximum flexibility to use whatever form library they choose, or simply by listening on the native `onChange` event, accessing the `value` property of the input.
 
+All HTML input types are supported however, owing to it's nasty default styling, the `FileInput` component is documented as it's own story. You may also wish to add your own custom elements eg a JS Datepicker - in this case, just target the default input with your own custom component or use the CSS classes provided.
+
 ## Type - text
 
 <Canvas>
@@ -26,13 +28,7 @@ The input component is by design just a styled html / react component to allow d
   </Story>
 </Canvas>
 
-## Type - file
-
-<Canvas>
-  <Story name="Type - file">
-    <Input type="file" placeholder="Select a file" />
-  </Story>
-</Canvas>
+<RenderHtmlMarkup component="Input" story="Type - email" />
 
 ## Type - password
 
@@ -42,6 +38,8 @@ The input component is by design just a styled html / react component to allow d
   </Story>
 </Canvas>
 
+<RenderHtmlMarkup component="Input" story="Type - password" />
+
 ## Type - number
 
 <Canvas>
@@ -49,6 +47,8 @@ The input component is by design just a styled html / react component to allow d
     <Input type="number" />
   </Story>
 </Canvas>
+
+<RenderHtmlMarkup component="Input" story="Type - number" />
 
 ## Type - tel (for telephone numbers)
 
@@ -58,6 +58,8 @@ The input component is by design just a styled html / react component to allow d
   </Story>
 </Canvas>
 
+<RenderHtmlMarkup component="Input" story="Type - tel" />
+
 ## Type - url
 
 <Canvas>
@@ -65,6 +67,8 @@ The input component is by design just a styled html / react component to allow d
     <Input type="url" />
   </Story>
 </Canvas>
+
+<RenderHtmlMarkup component="Input" story="Type - url" />
 
 ## Type - search
 
@@ -74,6 +78,8 @@ The input component is by design just a styled html / react component to allow d
   </Story>
 </Canvas>
 
+<RenderHtmlMarkup component="Input" story="Type - search" />
+
 ## Type - date
 
 <Canvas>
@@ -81,6 +87,8 @@ The input component is by design just a styled html / react component to allow d
     <Input type="date" />
   </Story>
 </Canvas>
+
+<RenderHtmlMarkup component="Input" story="Type - date" />
 
 ## Type - time
 
@@ -90,6 +98,8 @@ The input component is by design just a styled html / react component to allow d
   </Story>
 </Canvas>
 
+<RenderHtmlMarkup component="Input" story="Type - time" />
+
 ## Type - datetime-local
 
 <Canvas>
@@ -97,6 +107,8 @@ The input component is by design just a styled html / react component to allow d
     <Input type="datetime-local" />
   </Story>
 </Canvas>
+
+<RenderHtmlMarkup component="Input" story="Type - datetime-local" />
 
 ## Type - week
 
@@ -106,6 +118,8 @@ The input component is by design just a styled html / react component to allow d
   </Story>
 </Canvas>
 
+<RenderHtmlMarkup component="Input" story="Type - week" />
+
 ## Type - month
 
 <Canvas>
@@ -114,7 +128,9 @@ The input component is by design just a styled html / react component to allow d
   </Story>
 </Canvas>
 
-# Checkbox
+<RenderHtmlMarkup component="Input" story="Type - month" />
+
+## Checkbox
 
 <Canvas>
   <Story name="Type - checkbox">
@@ -122,9 +138,9 @@ The input component is by design just a styled html / react component to allow d
   </Story>
 </Canvas>
 
-<RenderHtmlMarkup component="V3/Forms/Input" story="Type - checkbox" />
+<RenderHtmlMarkup component="Input" story="Type - checkbox" />
 
-# Radio
+## Radio
 
 <Canvas>
   <Story name="Type - radio">
@@ -133,4 +149,4 @@ The input component is by design just a styled html / react component to allow d
   </Story>
 </Canvas>
 
-<RenderHtmlMarkup component="V3/Forms/Input" story="Type - radio" />
+<RenderHtmlMarkup component="Input" story="Type - radio" />

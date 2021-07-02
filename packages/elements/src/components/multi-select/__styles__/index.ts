@@ -43,6 +43,9 @@ export const ElMultiSelectLabel = styled.label`
   position: relative;
   font-size: 14px;
   transition: all 0.2s linear;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 `
 
 export const ElMultiSelect = styled.div`

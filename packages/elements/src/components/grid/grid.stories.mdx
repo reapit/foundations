@@ -11,14 +11,14 @@ import { elColGap2, elRowGap3, elSpan12, elSpan8, elSpan4, elOffset4, elOffset8 
 
 # Grid
 
-### Basic Example
+## Basic Usage
 
 The basic grid should fulil the majority of requirements for most users.
 
 The Grid leverages CSS Grid to provide a responsive layout for your applications.
 
 <Canvas>
-  <Story name="Basic Example">
+  <Story name="Basic Usage">
     <Grid>
       <Col>
         <GridDemoBlock />
@@ -36,19 +36,19 @@ The Grid leverages CSS Grid to provide a responsive layout for your applications
   </Story>
 </Canvas>
 
-<RenderHtmlMarkup component="Grid" story={['Basic Example']} label="Grid Rendered HTML markup" />
+<RenderHtmlMarkup component="Grid" story={['Basic Usage']} />
 
 The grid's columns change at different breakpoints. These are listed in the table below
 
-Breakpoint | Column count
---- | ---
-isMobile | 4
-isTablet | 8
-isDesktop | 12
-isSuperWideScreen | 16
-is4KScreen | 20
+| Breakpoint        | Column count |
+| ----------------- | ------------ |
+| isMobile          | 4            |
+| isTablet          | 8            |
+| isDesktop         | 12           |
+| isSuperWideScreen | 16           |
+| is4KScreen        | 20           |
 
- The breakpoints are explained by the variables below;
+The breakpoints are explained by the variables below;
 
 ```ts
 ...
@@ -66,7 +66,7 @@ For mobile view, the columns are full width, in tablet they are 50%, for desktop
 
 Row and column gaps are standardised in line with our style guide.
 
-### Custom Example
+## Custom Usage
 
 If you need more granular control over your grid, you can override the base with utility classes we expose.
 
@@ -100,7 +100,7 @@ The below contrived example we have overridden the base behaviour by adding a cu
 Obviously to make the classes responsive, you will need some JavaScript to toggle the classes as appropriate.
 
 <Canvas>
-  <Story name="Custom Example">
+  <Story name="Custom Usage">
     <Grid className={cx(elColGap2, elRowGap3)}>
       <Col className={cx(elSpan12)}>
         <GridDemoBlock />
@@ -118,9 +118,9 @@ Obviously to make the classes responsive, you will need some JavaScript to toggl
   </Story>
 </Canvas>
 
-<RenderHtmlMarkup component="Grid" story={['Custom Example']} label="Custom Grid Rendered HTML markup" />
+<RenderHtmlMarkup component="Grid" story={['Custom Usage']} />
 
-### React Example - Responsive Customisation
+## React Example - Responsive Customisation
 
 In the previous example, we saw that customisation required some JS logic to toggle classes based on media widths.
 
@@ -138,7 +138,7 @@ In all cases, the class is toggled as the screen size changes, defaulting to the
 
 Full (somewhat contrived) example below:
 
-### ColResponsive
+## ColResponsive
 
 <ArgsTable of={ColResponsive} />
 
@@ -172,8 +172,4 @@ Full (somewhat contrived) example below:
   </Story>
 </Canvas>
 
-<RenderHtmlMarkup
-  component="Grid"
-  story={['React Example - Responsive Customisation']}
-  label="Custom Grid Rendered HTML markup"
-/>
+<RenderHtmlMarkup component="Grid" story={['React Example - Responsive Customisation']} />

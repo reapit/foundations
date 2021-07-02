@@ -32,14 +32,14 @@ export const UseSnackHookStory = () => {
         onClick={() =>
           custom({
             text: 'I can have anything in the interface ISnack applied as a parameter here',
-            icon: 'home',
+            icon: 'homeSystem',
             intent: 'success',
           })
         }
       >
         Trigger a custom snack
       </Button>
-      <Button className={elM1} intent="primary" onClick={() => info("This message won't dissapear on it's own", 0)}>
+      <Button className={elM1} intent="primary" onClick={() => info("This message won't disappear on it's own", 0)}>
         Trigger a non-dissapearing snack
       </Button>
     </>

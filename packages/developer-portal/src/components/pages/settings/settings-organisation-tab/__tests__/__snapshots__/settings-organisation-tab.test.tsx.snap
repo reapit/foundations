@@ -102,22 +102,22 @@ exports[`DeveloperOrganisationTabPage DeveloperSettingsOrganisationTabPage shoul
           className=""
         >
           <div
-            className="e1weh9x5-el-loader-container"
+            className="ebhrnzh-el-loader-container"
           >
             <ElLoaderLabel>
               <p
-                className="e144yzr3-el-loader-label"
+                className="e15h0ww-el-loader-label"
               >
                 Loading
               </p>
             </ElLoaderLabel>
             <ElLoader>
               <div
-                className="e1s22du2-el-loader"
+                className="eq1m1jz-el-loader"
               >
                 <ElLoaderMovingBar>
                   <div
-                    className="e1yxuq7j-el-loader-moving-bar"
+                    className="exikdu1-el-loader-moving-bar"
                   />
                 </ElLoaderMovingBar>
               </div>

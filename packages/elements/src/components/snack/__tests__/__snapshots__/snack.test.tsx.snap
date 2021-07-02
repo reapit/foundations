@@ -1,0 +1,32 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Snack component should match a snapshot 1`] = `
+<ElSnack
+  className="el-intent-secondary"
+/>
+`;
+
+exports[`Snack component should match a snapshot if an icon is supplied 1`] = `
+<ElSnack
+  className="el-intent-secondary"
+>
+  <Icon
+    className="el-snack-icon"
+    fontSize="1.25rem"
+    icon="emailSystem"
+    intent="secondary"
+  />
+</ElSnack>
+`;
+
+exports[`SnackHolder component should match a snapshot 1`] = `
+<ElSnackHolder>
+  <Snack
+    icon="infoSolidSystem"
+    intent="primary"
+    onRemove={[Function]}
+  >
+    i am a snack
+  </Snack>
+</ElSnackHolder>
+`;

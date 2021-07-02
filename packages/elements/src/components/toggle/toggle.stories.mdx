@@ -1,4 +1,4 @@
-import { Story, Canvas } from '@storybook/addon-docs/blocks'
+import { Story, Canvas, ArgsTable } from '@storybook/addon-docs/blocks'
 import { Toggle, ToggleRadio } from './index'
 import { RenderHtmlMarkup } from '../../storybook/render-html-markup'
 import { elToggleItem } from './__styles__'
@@ -7,7 +7,7 @@ import { elToggleItem } from './__styles__'
 
 # Toggle
 
-### Basic Example
+## Basic Usage
 
 The toggle component is mask for a checkbox and for React users can be used as a drop in for this input type. You therefore manage state using any Form library or by referencing the `onChange` input event.
 
@@ -15,8 +15,10 @@ For non React users, you can just apply the classes in the rendered markup to yo
 
 Typically you will use this component when you want the user to select binary options like off/on or active/inactive.
 
+<ArgsTable component={Toggle} />
+
 <Canvas>
-  <Story name="Basic Example">
+  <Story name="Basic Usage">
     <Toggle id="my-cool-toggle">
       <span className={elToggleItem}>On</span>
       <span className={elToggleItem}>Off</span>
@@ -24,9 +26,9 @@ Typically you will use this component when you want the user to select binary op
   </Story>
 </Canvas>
 
-<RenderHtmlMarkup component="Toggle" story="Basic Example" />
+<RenderHtmlMarkup component="Toggle" story="Basic Usage" />
 
-### Multi Toggle - ToggleRadio
+## Multi Toggle - ToggleRadio
 
 The `ToggleRadio` component uses very similar markup as the binary toggle but expands it to allow radio options. As before, you can manage state using any Form library or by referencing the `onChange` input event.
 
@@ -50,6 +52,8 @@ export interface ToggleRadioProps extends HTMLAttributes<HTMLInputElement> {
 As per the previous example, for non React users, you can just apply the classes in the rendered markup to your input and label elements.
 
 Typically you will use this component when you want the user to select from a number of options, possibly filters or similar select options where a dropdown is not appropriate.
+
+<ArgsTable component={ToggleRadio} />
 
 <Canvas>
   <Story name="Multi Toggle - ToggleRadio">

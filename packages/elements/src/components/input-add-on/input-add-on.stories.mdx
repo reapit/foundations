@@ -31,12 +31,13 @@ It may also be useful to render an icon after your input - for example to render
 
 <Canvas>
   <Story name="With Icon">
-    <InputAddOn><Icon icon="errorSolidSystem" /></InputAddOn>
+    <InputAddOn>
+      <Icon icon="errorSolidSystem" />
+    </InputAddOn>
   </Story>
 </Canvas>
 
 <RenderHtmlMarkup component="InputAddOn" story="With Icon" />
-
 
 ## With Intent
 
@@ -50,7 +51,4 @@ Can be combined with an icon to color the icon.
   </Story>
 </Canvas>
 
-<RenderHtmlMarkup
-  component="InputAddOn"
-  story={['With Intent']}
-/>
+<RenderHtmlMarkup component="InputAddOn" story={['With Intent']} />

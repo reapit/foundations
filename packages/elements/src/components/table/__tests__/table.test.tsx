@@ -10,7 +10,7 @@ import {
   TableExpandableRowTriggerCell,
   TableExpandableRow,
 } from '../'
-import { Icon } from '@/components/icon'
+import { Icon } from '../../icon'
 
 describe('Table Component', () => {
   it('should match a snapshot', () => {

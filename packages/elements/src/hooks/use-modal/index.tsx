@@ -1,8 +1,8 @@
-import React, { useState } from 'react'
+import React, { ReactNode, useState } from 'react'
 import { Modal } from '../../components/modal'
 
 interface IUseModal {
-  Modal: React.ReactNode
+  Modal: ReactNode
   closeModal: () => void
   openModal: () => void
 }
