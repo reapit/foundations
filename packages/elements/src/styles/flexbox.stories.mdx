@@ -437,3 +437,55 @@ Position items to the end of the opposite axis
 
 <RenderHtmlMarkup component="Flexbox" story="flex-align-end" />
 
+# Layout Selfs
+
+## Align Self Center
+
+Position a singular item to the center of the opposite axis
+
+<Canvas>
+  <Story name="flex-align-self-center">
+    <div className="el-flex el-flex-column el-flex-align-end">
+      <GridDemoBlockWithMargin>1</GridDemoBlockWithMargin>
+      <GridDemoBlockWithMargin>2</GridDemoBlockWithMargin>
+      <GridDemoBlockWithMargin className="el-flex-align-self-center">3</GridDemoBlockWithMargin>
+      <GridDemoBlockWithMargin>4</GridDemoBlockWithMargin>
+    </div>
+  </Story>
+</Canvas>
+
+<RenderHtmlMarkup component="Flexbox" story="flex-align-self-center" />
+
+## Align Self Start
+
+Position a singular item to the start of the opposite axis
+
+<Canvas>
+  <Story name="flex-align-self-start">
+    <div className="el-flex el-flex-column el-flex-align-end">
+      <GridDemoBlockWithMargin>1</GridDemoBlockWithMargin>
+      <GridDemoBlockWithMargin>2</GridDemoBlockWithMargin>
+      <GridDemoBlockWithMargin className="el-flex-align-self-start">3</GridDemoBlockWithMargin>
+      <GridDemoBlockWithMargin>4</GridDemoBlockWithMargin>
+    </div>
+  </Story>
+</Canvas>
+
+<RenderHtmlMarkup component="Flexbox" story="flex-align-self-start" />
+
+## Align Self End
+
+Position a singular item to the end of the opposite axis
+
+<Canvas>
+  <Story name="flex-align-self-end">
+    <div className="el-flex el-flex-column el-flex-align-start">
+      <GridDemoBlockWithMargin>1</GridDemoBlockWithMargin>
+      <GridDemoBlockWithMargin>2</GridDemoBlockWithMargin>
+      <GridDemoBlockWithMargin className="el-flex-align-self-end">3</GridDemoBlockWithMargin>
+      <GridDemoBlockWithMargin>4</GridDemoBlockWithMargin>
+    </div>
+  </Story>
+</Canvas>
+
+<RenderHtmlMarkup component="Flexbox" story="flex-align-self-end" />
