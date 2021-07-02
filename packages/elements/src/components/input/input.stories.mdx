@@ -8,7 +8,7 @@ import { RenderHtmlMarkup } from '../../storybook/render-html-markup'
 
 The input component is by design just a styled html / react component to allow developers maximum flexibility to use whatever form library they choose, or simply by listening on the native `onChange` event, accessing the `value` property of the input.
 
-All HTML input types are supported however, owing to it's nasty default styling, the `FileInput` component is documented as it's own story. You may also wish to add your own custom elements eg a JS Datepicker - in this case, just target the default input with your own custom component or use the CSS classes provided.
+You may also wish to add your own custom elements eg a JS Datepicker - in this case, just target the default input with your own custom component or use the CSS classes provided.
 
 ## Type - text
 
@@ -129,6 +129,17 @@ All HTML input types are supported however, owing to it's nasty default styling,
 </Canvas>
 
 <RenderHtmlMarkup component="Input" story="Type - month" />
+
+
+## Type - file
+
+<Canvas>
+  <Story name="Type - file">
+    <Input type="file" />
+  </Story>
+</Canvas>
+
+<RenderHtmlMarkup component="Input" story="Type - file" />
 
 ## Checkbox
 

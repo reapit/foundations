@@ -11,13 +11,11 @@ import { elIntentNeutral } from '../../styles/intent'
 import { elMl4, elMLAuto, elMr2 } from '../../styles/spacing'
 import { NavResponsive } from './nav-responsive'
 
-<Meta title="Nav" />
+<Meta title="Nav" component={NavResponsive}/>
 
 # Nav
 
 The primary navigation all Reapit Marketplace applications should have.
-
-<ArgsTable component={Nav} />
 
 ## Basic Example
 
@@ -361,6 +359,14 @@ export const UseNavMobileSubMenuStory = () => {
 
 ```
 
+## React Shorthand - NavResponsive
+
+Clearly the above example is complex to keep in sync so we offer a relatively simplified React Shorthand Component that does the heavy lifting of building a nav for you.
+
+Essentially, each menu item has config where all options are optional except `itemIndex` which is required and must be a unique numeric id for each menu item and sub item.
+
+<ArgsTable component={NavResponsive} />
+
 <Canvas>
   <Story name="Advanced React Usage - Mobile Sub Menus with useNav and useMediaQuery hooks">
     <NavStateProvider>
@@ -371,13 +377,7 @@ export const UseNavMobileSubMenuStory = () => {
   </Story>
 </Canvas>
 
-## React Shorthand - NavResponsive
-
-Clearly the above example is complex to keep in sync so we offer a relatively simplified React Shorthand Component that does the heavy lifting of building a nav for you.
-
-Essentially, each menu item has config where all options are optional except `itemIndex` which is required and must be a unique numeric id for each menu item and sub item.
-
-See the below annotated interfaces for details:
+See the below annotated interfaces for details
 
 ```ts
 export interface NavResponsiveOption {

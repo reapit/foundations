@@ -65,4 +65,12 @@ export const ElInput = styled.input`
       }
     }
   }
+
+  &[type='file'] {
+    font-family: var(--font-sans-serif);
+    &::file-selector-button {
+      visibility: hidden;
+      width: 0;
+    }
+  }
 `
