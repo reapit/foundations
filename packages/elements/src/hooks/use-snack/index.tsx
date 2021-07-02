@@ -1,6 +1,9 @@
 import React, { createContext, useState, useRef, useContext } from 'react'
 import { SnackProps, SnackHolder } from '../../components/snack'
 
+export interface SnackContextProps {
+  addSnackWithTimeout: (snack: SnackProps, timeout: number) => void
+}
 
 export const SnackContext = createContext<SnackContextProps>({} as SnackContextProps)
 
@@ -60,7 +63,4 @@ export default (): IUseSnack => {
   }
 
   return { custom, success, info, error, warning }
-}
-export interface SnackContextProps {
-  addSnackWithTimeout: (snack: SnackProps, timeout: number) => void
 }
