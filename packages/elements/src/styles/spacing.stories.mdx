@@ -1,9 +1,76 @@
 import { Meta, Story, Canvas, ArgsTable } from '@storybook/addon-docs/blocks'
 import * as styles from './spacing'
+import { RenderHtmlMarkup } from '../storybook/render-html-markup'
+import { GridDemoBlock } from './../storybook/demo-block'
 
 <Meta title="Spacing" />
 
 # Utilities - Spacing
+
+## Margin
+
+Margins apply spacing between the element and surrounding elements.
+
+### Margin
+
+Applies margin to all edges. Below is a table of available margin helper classes and the margin applied.
+
+Class | Margin Value
+--- | ---
+`el-m0` | `0`
+`el-m1` | `.25rem`
+`el-m2` | `.5rem`
+`el-m3` | `.75rem`
+`el-m4` | `1rem`
+`el-m5` | `1.25rem`
+`el-m6` | `1.5rem`
+`el-m7` | `1.75rem`
+`el-m8` | `2rem`
+`el-m9` | `2.25rem`
+`el-m10` | `2.5rem`
+`el-m11` | `2.75rem`
+`el-m12` | `3rem`
+
+<Canvas>
+  <Story name="margin">
+    <GridDemoBlock />
+    <GridDemoBlock  className="el-m3" />
+    <GridDemoBlock />
+  </Story>
+</Canvas>
+
+<RenderHtmlMarkup
+  component="Spacing"
+  story="margin"
+/>
+
+### Margin Left
+
+### Margin Right
+
+### Margin Bottom
+
+### Margin Top
+
+### Margin Y
+
+### Margin X
+
+## Padding
+
+### Padding
+
+### Padding Left
+
+### Padding Right
+
+### Padding Bottom
+
+### Padding Top
+
+### Padding Y
+
+### Padding X
 
 - el-m0
 - el-m1
