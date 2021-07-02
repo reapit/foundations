@@ -9,7 +9,7 @@ export const GridDemoBlock = styled.div`
 export const GridDemoBlockWithMargin = styled.div`
   height: 3rem;
   background-color: var(--color-blue-light2);
-  margin: .5rem;
+  margin: 0.5rem;
   color: white;
   font-weight: bold;
   text-align: center;
