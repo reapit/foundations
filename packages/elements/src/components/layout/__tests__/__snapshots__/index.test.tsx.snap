@@ -12,7 +12,7 @@ exports[`FlexContainer should match a snapshot and render children 1`] = `
 
 exports[`FlexContainer should match a snapshot and render children with all props applied 1`] = `
 <ElFlexContainer
-  className="el-flex-row el-flex-row-reverse el-flex-column el-flex-column-reverse el-flex-wrap el-flex-no-wrap el-flex-wrap-reverse el-flex-auto el-flex-initial el-flex-grow0 el-flex-grow el-flex-shrink0 el-flex-shrink el-flex-justify-center el-flex-justify-start el-flex-justify-end el-flex-justify-between el-flex-justify-around el-flex-justify-evenly el-align-center el-align-start"
+  className="el-flex-row el-flex-row-reverse el-flex-column el-flex-column-reverse el-flex-wrap el-flex-no-wrap el-flex-wrap-reverse el-flex-auto el-flex-initial el-flex-grow0 el-flex-grow el-flex-shrink0 el-flex-shrink el-flex-justify-center el-flex-justify-start el-flex-justify-end el-flex-justify-between el-flex-justify-around el-flex-justify-evenly el-flex-align-center el-flex-align-start"
 >
   <p>
     I am child

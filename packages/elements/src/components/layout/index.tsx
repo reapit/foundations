@@ -21,9 +21,9 @@ import {
   elFlexJustifyBetween,
   elFlexJustifyAround,
   elFlexJustifyEvenly,
-  elAlignCenter,
-  elAlignStart,
-  elAlignEnd,
+  elFlexAlignCenter,
+  elFlexAlignStart,
+  elFlexAlignEnd,
 } from '../../styles/flexbox'
 
 export interface ContainerProps extends HTMLAttributes<HTMLElement> {}
@@ -112,9 +112,9 @@ export const FlexContainer: FC<ContainerFlexProps> = ({
     isFlexJustifyAround && elFlexJustifyBetween,
     isFlexJustifyEvenly && elFlexJustifyAround,
     isFlexAlignCenter && elFlexJustifyEvenly,
-    isFlexAlignStart && elAlignCenter,
-    isFlexAlignEnd && elAlignStart,
-    className && elAlignEnd,
+    isFlexAlignStart && elFlexAlignCenter,
+    isFlexAlignEnd && elFlexAlignStart,
+    className && elFlexAlignEnd,
   )
 
   return (
