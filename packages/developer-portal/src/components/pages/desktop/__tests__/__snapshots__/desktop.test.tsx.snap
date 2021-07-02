@@ -48,23 +48,23 @@ exports[`DeveloperDesktopPage should match snapshot 1`] = `
                       className="fvmt8oy-fade-in"
                     >
                       <BodyText
-                        className="e1y7nq95-el-mb4 hw5zku-has-grey-text"
+                        className="eb3s8zx-el-mb4 hw5zku-has-grey-text"
                       >
                         <ElBodyText
-                          className="e1y7nq95-el-mb4 hw5zku-has-grey-text"
+                          className="eb3s8zx-el-mb4 hw5zku-has-grey-text"
                         >
                           <p
-                            className="e1y7nq95-el-mb4 hw5zku-has-grey-text eh96l6x-el-body-text"
+                            className="eb3s8zx-el-mb4 hw5zku-has-grey-text eh96l6x-el-body-text"
                           >
                             Reapit's Agency Cloud is a desktop application that offers estate agencies a comprehensive range of market leading agency products, including a Sales CRM, Lettings CRM, Client Accounts, Property Management and real-time Analytics.
                           </p>
                         </ElBodyText>
                       </BodyText>
                       <Grid
-                        className="eb3s8zx-el-mb6"
+                        className="ey31tut-el-mb6"
                       >
                         <div
-                          className="go2h5m0-grid r1012k5-row-gap8 c1tyjn4x-col-gap6 eb3s8zx-el-mb6"
+                          className="go2h5m0-grid r1012k5-row-gap8 c1tyjn4x-col-gap6 ey31tut-el-mb6"
                         >
                           <BannerCol>
                             <div
@@ -166,39 +166,39 @@ exports[`DeveloperDesktopPage should match snapshot 1`] = `
                                 </ElSubtitle>
                               </Subtitle>
                               <BodyText
-                                className="e1y7nq95-el-mb4 hw5zku-has-grey-text"
+                                className="eb3s8zx-el-mb4 hw5zku-has-grey-text"
                               >
                                 <ElBodyText
-                                  className="e1y7nq95-el-mb4 hw5zku-has-grey-text"
+                                  className="eb3s8zx-el-mb4 hw5zku-has-grey-text"
                                 >
                                   <p
-                                    className="e1y7nq95-el-mb4 hw5zku-has-grey-text eh96l6x-el-body-text"
+                                    className="eb3s8zx-el-mb4 hw5zku-has-grey-text eh96l6x-el-body-text"
                                   >
                                     Developers that would like to integrate with or extend the functionality of Agency Cloud can use the Foundations Desktop API to build web applications for Reapit's app Marketplace that trigger events in the Agency Cloud desktop application, as well as associating their apps with common actions in Agency Cloud to replace default behaviours and screens.
                                   </p>
                                 </ElBodyText>
                               </BodyText>
                               <BodyText
-                                className="e1y7nq95-el-mb4 hw5zku-has-grey-text"
+                                className="eb3s8zx-el-mb4 hw5zku-has-grey-text"
                               >
                                 <ElBodyText
-                                  className="e1y7nq95-el-mb4 hw5zku-has-grey-text"
+                                  className="eb3s8zx-el-mb4 hw5zku-has-grey-text"
                                 >
                                   <p
-                                    className="e1y7nq95-el-mb4 hw5zku-has-grey-text eh96l6x-el-body-text"
+                                    className="eb3s8zx-el-mb4 hw5zku-has-grey-text eh96l6x-el-body-text"
                                   >
                                     For example, a developer building a Marketplace app that provides AML and ID checking, can use the Desktop API to associate their app with the default ID checking screen in Agency Cloud. When a customer clicks the default button to launch the ID check screen, the developer's associated app would be presented instead.
                                   </p>
                                 </ElBodyText>
                               </BodyText>
                               <BodyText
-                                className="e1y7nq95-el-mb4 hw5zku-has-grey-text"
+                                className="eb3s8zx-el-mb4 hw5zku-has-grey-text"
                               >
                                 <ElBodyText
-                                  className="e1y7nq95-el-mb4 hw5zku-has-grey-text"
+                                  className="eb3s8zx-el-mb4 hw5zku-has-grey-text"
                                 >
                                   <p
-                                    className="e1y7nq95-el-mb4 hw5zku-has-grey-text eh96l6x-el-body-text"
+                                    className="eb3s8zx-el-mb4 hw5zku-has-grey-text eh96l6x-el-body-text"
                                   >
                                     To learn more about what’s possible with the Desktop API, please visit the
                                      
@@ -332,10 +332,10 @@ exports[`DeveloperDesktopPage should match snapshot 1`] = `
                                       className="fvmt8oy-fade-in"
                                     >
                                       <ImageTextPair
-                                        className="e1nhfde7-el-mx4"
+                                        className="e1msawv2-el-mx4"
                                       >
                                         <div
-                                          className="e1nhfde7-el-mx4 i1trbknv-image-text-pair"
+                                          className="e1msawv2-el-mx4 i1trbknv-image-text-pair"
                                         >
                                           <img
                                             src={Object {}}
