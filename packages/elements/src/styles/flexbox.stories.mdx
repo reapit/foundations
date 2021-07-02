@@ -7,15 +7,7 @@ import { GridDemoBlockWithMargin } from '../storybook/demo-block'
 
 # Utilities - Flexbox
 
-- el-flex1
-- el-flex-auto
-- el-flex-initial
-- el-flex-none
-
-- el-flex-grow0
-- el-flex-grow
-- el-flex-shrink0
-- el-flex-shrink
+A collection of simple flex modifiers
 
 ## Flex
 
@@ -23,7 +15,10 @@ Basic definition of a flex layout.
 
 <Canvas>
   <Story name="flex">
-    <div className="el-flex"></div>
+    <div className="el-flex">
+      <GridDemoBlockWithMargin>First Element</GridDemoBlockWithMargin>
+      <GridDemoBlockWithMargin>Second Element</GridDemoBlockWithMargin>
+    </div>
   </Story>
 </Canvas>
 
@@ -175,6 +170,13 @@ A reverse wrap will reverse the elements and wrap them
 
 ## Flex1
 
+Flex1 is used to set the flex grow, flex shrink and flex basis values. Flex 1 sets the following
+
+```css
+flex-grow: 1;
+flex-shrink: 1;
+flex-basis: 0%;
+```
 
 <Canvas>
   <Story name="flex1">
@@ -192,14 +194,15 @@ A reverse wrap will reverse the elements and wrap them
 
 ## Flex auto
 
+Flex auto will set the basis to be `auto` meaning the element will fill the avaiable space.
 
 <Canvas>
   <Story name="flex-auto">
     <div className="el-flex el-flex-row">
-      <GridDemoBlockWithMargin className="el-auto">1</GridDemoBlockWithMargin>
+      <GridDemoBlockWithMargin className="el-flex-auto">1</GridDemoBlockWithMargin>
       <GridDemoBlockWithMargin>2</GridDemoBlockWithMargin>
       <GridDemoBlockWithMargin>3</GridDemoBlockWithMargin>
-      <GridDemoBlockWithMargin className="el-flex1">4</GridDemoBlockWithMargin>
+      <GridDemoBlockWithMargin>4</GridDemoBlockWithMargin>
     </div>
   </Story>
 </Canvas>
@@ -209,14 +212,15 @@ A reverse wrap will reverse the elements and wrap them
 
 ## Flex Initial
 
+Flex initial is the default flex value. Setting grow to 0 to prevent the element filling the available space.
 
 <Canvas>
   <Story name="flex-initial">
     <div className="el-flex el-flex-row el-flex-initial">
-      <GridDemoBlockWithMargin className="el-initial">1</GridDemoBlockWithMargin>
+      <GridDemoBlockWithMargin className="el-flex-initial">1</GridDemoBlockWithMargin>
       <GridDemoBlockWithMargin>2</GridDemoBlockWithMargin>
       <GridDemoBlockWithMargin>3</GridDemoBlockWithMargin>
-      <GridDemoBlockWithMargin className="el-flex1">4</GridDemoBlockWithMargin>
+      <GridDemoBlockWithMargin>4</GridDemoBlockWithMargin>
     </div>
   </Story>
 </Canvas>
