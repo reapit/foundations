@@ -17,13 +17,6 @@ import { GridDemoBlockWithMargin } from '../storybook/demo-block'
 - el-flex-shrink0
 - el-flex-shrink
 
-- el-flex-justify-center
-- el-flex-justify-start
-- el-flex-justify-end
-- el-flex-justify-between
-- el-flex-justify-around
-- el-flex-justify-evenly
-
 ## Flex
 
 Basic definition of a flex layout. 
@@ -398,4 +391,49 @@ Position elements evenly with an equal gap between themselves and the container.
 </Canvas>
 
 <RenderHtmlMarkup component="Flexbox" story="flex-justify-evenly" />
+
+## Align Items Center
+
+Center elements in the center of the container along the opposite axis
+
+<Canvas>
+  <Story name="flex-align-center">
+    <div className="el-flex el-flex-column el-flex-align-center">
+      <GridDemoBlockWithMargin style={{width: '300px'}}>1</GridDemoBlockWithMargin>
+      <GridDemoBlockWithMargin style={{width: '300px'}}>2</GridDemoBlockWithMargin>
+    </div>
+  </Story>
+</Canvas>
+
+<RenderHtmlMarkup component="Flexbox" story="flex-align-center" />
+
+## Align Items Start
+
+Position items to the start of the opposite axis
+
+<Canvas>
+  <Story name="flex-align-start">
+    <div className="el-flex el-flex-column el-flex-align-start">
+      <GridDemoBlockWithMargin style={{width: '300px'}}>1</GridDemoBlockWithMargin>
+      <GridDemoBlockWithMargin style={{width: '300px'}}>2</GridDemoBlockWithMargin>
+    </div>
+  </Story>
+</Canvas>
+
+<RenderHtmlMarkup component="Flexbox" story="flex-align-start" />
+
+## Align Items End
+
+Position items to the end of the opposite axis
+
+<Canvas>
+  <Story name="flex-align-end">
+    <div className="el-flex el-flex-column el-flex-align-end">
+      <GridDemoBlockWithMargin style={{width: '300px'}}>1</GridDemoBlockWithMargin>
+      <GridDemoBlockWithMargin style={{width: '300px'}}>2</GridDemoBlockWithMargin>
+    </div>
+  </Story>
+</Canvas>
+
+<RenderHtmlMarkup component="Flexbox" story="flex-align-end" />
 
