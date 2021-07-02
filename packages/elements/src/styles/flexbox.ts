@@ -105,14 +105,14 @@ export const elFlexJustifyEvenly = css`
 
 // Align Items
 
-export const elAlignCenter = css`
+export const elFlexAlignCenter = css`
   align-items: center;
 `
 
-export const elAlignStart = css`
+export const elFlexAlignStart = css`
   align-items: flex-start;
 `
 
-export const elAlignEnd = css`
+export const elFlexAlignEnd = css`
   align-items: flex-end;
 `
