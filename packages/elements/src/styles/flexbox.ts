@@ -116,3 +116,17 @@ export const elFlexAlignStart = css`
 export const elFlexAlignEnd = css`
   align-items: flex-end;
 `
+
+// Selfs
+
+export const elFlexAlignSelfCenter = css`
+  align-self: center;
+`
+
+export const elFlexAlignSelfStart = css`
+  align-self: flex-start;
+`
+
+export const elFlexAlignSelfEnd = css`
+  align-self: flex-end;
+`
