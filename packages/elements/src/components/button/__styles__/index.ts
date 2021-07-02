@@ -240,6 +240,17 @@ export const elButtonHasRightChevron = css`
   &.${elButtonHasLeftChevron} {
     background-size: 100%;
     background-position-x: center;
+
+    padding-left: ${buttonXPadding}rem;
+    padding-right: ${buttonXPadding}rem;
+
+    &::after {
+      right: -1rem;
+    }
+
+    &::before {
+      left: -1rem;
+    }
   }
 
   ${isMobile} {
