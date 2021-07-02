@@ -137,8 +137,16 @@ export const elMr6 = css`
   margin-right: 1.5rem;
 `
 
+export const elMr7 = css`
+  margin-right: 1.75rem;
+`
+
 export const elMr8 = css`
   margin-right: 2rem;
+`
+
+export const elMr9 = css`
+  margin-right: 2.25rem;
 `
 
 export const elMr10 = css`
@@ -175,6 +183,10 @@ export const elMb5 = css`
 
 export const elMb6 = css`
   margin-bottom: 1.5rem;
+`
+
+export const elMb7 = css`
+  margin-bottom: 1.75rem;
 `
 
 export const elMb8 = css`
@@ -217,8 +229,16 @@ export const elMt6 = css`
   margin-top: 1.5rem;
 `
 
+export const elMt7 = css`
+  margin-top: 1.75rem;
+`
+
 export const elMt8 = css`
   margin-top: 2rem;
+`
+
+export const elMt9 = css`
+  margin-top: 2.25rem;
 `
 
 export const elMt10 = css`
@@ -264,9 +284,19 @@ export const elMy6 = css`
   margin-bottom: 1.5rem;
 `
 
+export const elMy7 = css`
+  margin-top: 1.75rem;
+  margin-bottom: 1.75rem;
+`
+
 export const elMy8 = css`
   margin-top: 2rem;
   margin-bottom: 2rem;
+`
+
+export const elMy9 = css`
+  margin-top: 2.25rem;
+  margin-bottom: 2.25rem;
 `
 
 export const elMy10 = css`
@@ -314,9 +344,19 @@ export const elMx6 = css`
   margin-right: 1.5rem;
 `
 
+export const elMx7 = css`
+  margin-left: 1.25rem;
+  margin-right: 1.25rem;
+`
+
 export const elMx8 = css`
   margin-left: 2rem;
   margin-right: 2rem;
+`
+
+export const elMx9 = css`
+  margin-left: 2.25rem;
+  margin-right: 2.25rem;
 `
 
 export const elMx10 = css`
@@ -349,6 +389,7 @@ export const elP3 = css`
 export const elP4 = css`
   padding: 1rem;
 `
+
 export const elPr0 = css`
   padding-right: 0;
 `
@@ -436,4 +477,44 @@ export const elPx3 = css`
 export const elPx4 = css`
   padding-left: 1rem;
   padding-right: 1rem;
+`
+
+export const elPt0 = css`
+  padding-top: 0;
+`
+
+export const elPt1 = css`
+  padding-top: 0.25rem;
+`
+
+export const elPt2 = css`
+  padding-top: 0.5rem;
+`
+
+export const elPt3 = css`
+  padding-top: 0.75rem;
+`
+
+export const elPt4 = css`
+  padding-top: 1rem;
+`
+
+export const elPb0 = css`
+  padding-bottom: 0;
+`
+
+export const elPb1 = css`
+  padding-bottom: 0.25rem;
+`
+
+export const elPb2 = css`
+  padding-bottom: 0.5rem;
+`
+
+export const elPb3 = css`
+  padding-bottom: 0.75rem;
+`
+
+export const elPb4 = css`
+  padding-bottom: 1rem;
 `
