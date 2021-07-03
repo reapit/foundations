@@ -1,28 +1,28 @@
 import { Meta, Story, Canvas, ArgsTable } from '@storybook/addon-docs/blocks'
 import { cx } from 'linaria'
 import useModal from '../../hooks/use-modal'
-import { Modal, ModalBg, ModalContainer, ModalHeader, ModalBody } from './index'
+import { Modal, ModalBg, ModalContainer, ModalHeader, ModalBody, elIsActive } from './index'
 import { Button } from '../button'
 import { BodyText } from '../typography'
 import { elFlex, elFlexJustifyCenter } from '../../styles/flexbox'
 import { FlexContainer } from '../layout'
 import { RenderHtmlMarkup } from '../../storybook/render-html-markup'
 
-<Meta title="Modal" />
+<Meta title="Modal" component={Modal} />
 
 # Modal
 
-<ArgsTable component={Modal} />
+The modal component renders a dialog box that overlays the main screen. It is typically used for displaying confirmation or error notifications to users that require an addtional call to action or step.
 
 ## Basic Usage
 
 The Modal component can be used for UI purposes only, but won't have the functionality of the React implementation (i.e. managing the state of whether it is open or closed)
 
-If using the Modal component like this, you will need to toggle the `el-is-active` class to show/hide the modal.
+If using the Modal component like this, you will need to toggle the `elIsActive` / `el-is-active` class to show/hide the modal.
 
 This class must be applied on two elements, `div.el-modal-bg` and also `div.el-modal`, when you want the modal to be shown.
 
-Click "Show code" below to see HTML code for an un-opened modal.
+Click "Show code" below to see JSX / HTML code for an un-opened modal.
 
 <Canvas>
   <Story name="Basic Usage">
@@ -36,9 +36,15 @@ Click "Show code" below to see HTML code for an un-opened modal.
   </Story>
 </Canvas>
 
-<RenderHtmlMarkup component={ModalContainer} story={['Basic Usage']} />
+<RenderHtmlMarkup component="Modal" story="Basic Usage" />
 
 ## React usage- Complete example with `useModal` hook
+
+The external button here is just ilustrative of how you would combine the `useModal` hook with a button to trigger an open modal. See the `useModal` API below for more information.
+
+Props available for the React version of the component;
+
+<ArgsTable component={Modal} />
 
 <Canvas>
   <Story name="useModal example">
@@ -61,6 +67,12 @@ Click "Show code" below to see HTML code for an un-opened modal.
 
 ## React usage - With multiple `useModal` hooks
 
+Props available for the React version of the component;
+
+<ArgsTable component={Modal} />
+
+If using multiple modals within a component, ensure you rename the exports from `useModal` to avoid conflicts, e.g. `const { Modal: ModalA, openModal: openModalA } = useModal()`
+
 <Canvas>
   <Story name="useModal example - multiple modals">
     {() => {
@@ -77,8 +89,6 @@ Click "Show code" below to see HTML code for an un-opened modal.
     }}
   </Story>
 </Canvas>
-
-If using multiple modals within a component, ensure you rename the exports from `useModal` to avoid conflicts, e.g. `const { Modal: ModalA, openModal: openModalA } = useModal()`
 
 ## `useModal` API
 

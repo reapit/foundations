@@ -77,16 +77,20 @@ On the CSS side, there are no dependencies or external libraries.
 
 When using this Storybook, it is worth drawing attention to the tabs at the top of the page - `docs` and `canvas`.
 
-The `docs` tab is the best starting place in most cases as 
+The `docs` tab is the best starting place in most cases as it includes usage documentation and commentry on each of the components. For React components we also display a `props` table and a `canvas` component that will allow you to copy-paste the JSX markup for use in your code.
 
-The `canvas` tab is best used for inspecting the components and looking at how they behave in a browser-like environment. They do not display the markdown documentation so please refer back to the `docs` tab for commentry on usage.
+The `canvas` tab is best used for inspecting the components and looking at how they behave in a browser-like environment. They do not display the markdown documentation, the props table or the copy-paste canvas, so please refer back to the `docs` tab for commentry on usage.
 
 ### Non React Users
 
-One of our core motivators for the library was that while the library is built in React, we want to 
+One of our core motivators for the library was that while the library is built in React, we want to give the best possible experience for non-react users.
 
- Rendered HTML block for non react users
- HTML tab in canvas
+The base styles generated from the React code are all documented as CSS classes you can just add to any markup in any language. Additionally, care has been taken with the library so that where possible, all component behaviour in React can be mirrored in any JS framework or indeed, vanilla JS, by simply toggling available classes. 
+
+To view the rendered HTML markup of a React component, there are two options;
+
+1. In the `canvas` tab, you can see in the bottom menu a HTML tab - this shows the output DOM of the page.
+2. In the `docs` tab, each React example `canvas` has a corresponding custom component that is labeled `HTML of <<Story Name>>`. This both renders the HTML markup and offers the same copy-paste functionality as the React Canvas.
 
 ### Browser Support
 
@@ -94,13 +98,19 @@ Because of the extensive use of CSS Variables, and other modern CSS features lik
 
 When building for the Reapit Marketplace, your application will render in a Chromium browser, currently at version 69 although we expect this to upgrade to a more recent version in the coming months. We will always support the Reapit Marketplace Chromium version as a minimum version.
 
-### Migrating From v2
+### Migrating from v2
 
-TODO - Expand these - just adding some notes for now
+If you are on version 2 of Elements and this is working for your application the first question is "why migrate"? As previously stated, v3 is a ground up re-write with better performance, radically smaller size, better docs and a more friendly API. You will also benefit from much longer term support, new features and of course all the benefits of our clean, professional in house design system.
 
-- Why migrate? Size, maintenence, feature requests, changelog, Design system
-- Link to v2 Storybook 
-- Explain v2 exports v3 to allow incremental updates
+We understand that because v3 is a ground-up re-write, migration will be some work so to make this easy to manage incrementally, we export the whole of Elements v3 from the v3 directory of Elements 2 e.g. to get a v3 button in the v2 library;
+
+```tsx
+import { Button } from "@reapit/elements/v3"
+```
+
+This will mean you can update from v2 to v3 at your own pace.
+
+The elements v2 components are detailed on a [separate Storybook here](https://elements-legacy.prod.paas.reapit.cloud). v2 will have a long term support for at least the next year and we will provide a deprecation notice at install 6 months prior to the end of official support for v2.
 
 ### Issues
 

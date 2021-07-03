@@ -9,6 +9,8 @@ import { action } from '@storybook/addon-actions'
 
 Styled button component with multiple flavours depending on use case.
 
+Props available for the React version of the component;
+
 <ArgsTable of={Button} />
 
 ## Default Usage
@@ -161,15 +163,6 @@ All other standard HTML attributes for `<button>` are supported and are passed t
   </Story>
 </Canvas>
 
-### data-test
-
-<Canvas>
-  <Story name="Standard attributes: data-*">
-    <Button data-test="someValue" intent="primary">
-      data-test attribute
-    </Button>
-  </Story>
-</Canvas>
 
 <RenderHtmlMarkup component="Button" story="Standard attributes: data-*" />
 
@@ -239,7 +232,11 @@ Sizing button groups
 
 ## Floating Button
 
-A circular floating icon button
+A circular floating icon button. 
+
+Props available for the React version of the component;
+
+<ArgsTable of={FloatingButton} />
 
 <Canvas>
   <Story name="Floating Button">
@@ -251,5 +248,3 @@ A circular floating icon button
 </Canvas>
 
 <RenderHtmlMarkup component="Button" story="Floating Button" />
-
-<ArgsTable of={FloatingButton} />

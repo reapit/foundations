@@ -40,6 +40,8 @@ applied to cells when it's in narrow mode, e.g. showing the header within the ce
 
 ## Molecule - Table
 
+Props available for the React version of the component;
+
 <ArgsTable of={Table} />
 
 `Table` only renders children, unless the `rows` prop is supplied, then it works in the React shorthand fashion. This is documented on the main Table story.
@@ -113,6 +115,8 @@ If using the Table component in React shorthand mode, `data-num-columns-excl-exp
 ## Molecule - TableCell
 
 `TableCell` renders children, but also accepts some other props. Any other props given that aren't listed below are are applied to the underlying `div` element.
+
+Props available for the React version of the component;
 
 <ArgsTable of={TableCell} />
 
@@ -204,6 +208,8 @@ You can also use the classes `el-table-cell-narrow-order-1` through to `el-table
 
 ## Molecule - TableRow
 
+Props available for the React version of the component;
+
 <ArgsTable component={TableRow} story="TableRow" />
 
 `TableRow` only renders children. Any other props given are applied to the underlying `div` element.
@@ -253,6 +259,8 @@ You can also use the classes `el-table-cell-narrow-order-1` through to `el-table
 
 Any other props given are applied to the underlying `div` element, e.g. `onClick` which will certainly need to be used to handle the `TableExpandableRow` opening and closing.
 
+Props available for the React version of the component;
+
 <ArgsTable of={TableExpandableRowTriggerCell} />
 
 <Canvas>
@@ -293,6 +301,8 @@ This property will force the trigger cell to be fullwidth of the table on narrow
 `TableExpandableRow` only renders it's children. Any other props given are applied to the underlying `div` element.
 
 The isOpen prop toggles the `.el-is-active` class to show the content.
+
+Props available for the React version of the component;
 
 <ArgsTable of={TableExpandableRow} story="TableExpandableRow" />
 
@@ -383,6 +393,8 @@ Value | Size
 ## TableRowContainer 
 
 `TableRowContainer` is a container for `TableRow` and `TableExpandableRow` to keep styles consistent. Without the `TableRowContainer` elements, styles for `TableRow` and `TableExpandableRow` will clash (border radius and box-shadows).
+
+Props available for the React version of the component;
 
 <ArgsTable component={TableRowContainer} story="TableRowContainer" />
 
@@ -720,7 +732,7 @@ Simply supply a `rows` prop, and no children, to use the Table component like th
   </Story>
 </Canvas>
 
-### The `rows` prop
+## The `rows` prop
 
 <ArgsTable of={Table} />
 
