@@ -1,15 +1,11 @@
 export * from './styles/globals'
 export * from './styles/spacing'
-export * from './styles/box-alignment'
 export * from './styles/flexbox'
 export * from './styles/sizing'
 export * from './styles/borders'
 export * from './styles/typography'
 export * from './styles/helpers'
 export * from './styles/media'
-// Not yet implemented
-// export * from './styles/intent'
-// export * from './styles/states'
 
 export * from './components/button'
 export * from './components/card'

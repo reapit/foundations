@@ -8,7 +8,7 @@ import { Icon } from '../components/icon'
 
 # Theming
 
-One of the core objectives for the v3 re-write of Elements was to support Global theming. We have achieved this by using CSS Variables throughout the project that are loaded globally on the `:root` selector when importing the `elGlobals` class into your code (see getting started).
+One of the core objectives for the v3 re-write of Elements was to support Global theming. We have achieved this by using CSS Variables throughout the project that are loaded globally on the `:root` selector when importing the Elements stylesheet into your code (see getting started).
 
 CSS Variables rely on the same rules of specificity as all CSS selectors, so you are able to theme your project globally, by adding a more specific class or id to the root selector of your project and in a CSS file, just override the pre-defined variables.
 
@@ -36,3 +36,100 @@ In both examples the markup is identical however, the demo wrapper component has
 <RenderHtmlMarkup component="Theming" story="Basic Example" />
 
 ## Available Variables
+
+The variable usage is project wide - literally every component uses some of the variables - so it would be impossible to document all of the places they are used however, you can view a list of the available variables on [Github here](https://github.com/reapit/foundations/blob/master/packages/elements/src/styles/globals.ts#L171), also in the list below.
+
+We will aim to keep this list as up to date as possible as well as expanding it as we continue to develop the library.
+
+```css
+/* basic color variables */
+--color-white: #fff;
+--color-black: #000000;
+--color-grey-dark: #646464;
+--color-grey-medium: #e3e3e3;
+--color-grey-light: #f2f2f2;
+
+/** shades of blue color variables and accent colors */
+--color-blue-light: #23a4de;
+--color-blue-light2: #7bc9eb;
+--color-blue-dark: #262f69;
+--color-blue-dark2: #31448f;
+--color-accent-orange: #ffb71b;
+
+/** intent color variables */
+--intent-primary: #0061a8;
+--intent-secondary: #23a4de;
+--intent-critical: #ffb71b;
+--intent-success: #a0c862;
+--intent-danger: #d3033d;
+/* colors of text that would sit on top of the intent when used as a background */
+--intent-primary-text: var(--color-white);
+--intent-secondary-text: var(--color-white);
+--intent-critical-text: var(--color-white);
+--intent-success-text: var(--color-white);
+--intent-danger-text: var(--color-white);
+
+/** intent light color variables */
+--intent-primary-light: #d6dae9;
+--intent-secondary-light: #eaf5fc;
+--intent-critical-light: #ffefdd;
+--intent-success-light: #e3eed1;
+--intent-danger-light: #fbeaef;
+/* intent light text colors */
+--intent-primary-light-text: var(--color-black);
+--intent-secondary-light-text: var(--color-black);
+--intent-critical-light-text: var(--color-black);
+--intent-success-light-text: var(--color-black);
+--intent-danger-light-text: var(--color-black);
+
+/** intent dark color variables */
+--intent-primary-dark: var(--color-blue-dark);
+--intent-secondary-dark: #125370;
+--intent-critical-dark: #78592a;
+--intent-success-dark: #506331;
+--intent-danger-dark: #70001f;
+/* intent dark text colors */
+--intent-primary-dark-text: var(--color-white);
+--intent-secondary-dark-text: var(--color-white);
+--intent-critical-dark-text: var(--color-white);
+--intent-success-dark-text: var(--color-white);
+--intent-danger-dark-text: var(--color-white);
+
+/** font variables */
+--font-sans-serif: 'PT Sans', Helvetica, Arial, sans-serif;
+--font-monospace: 'Source Code Pro', monospace;
+
+/** font size variables */
+--font-size-heading: 2rem;
+--font-size-subheading: 1.25rem;
+--font-size-default: 1rem;
+--font-size-small: 0.875rem;
+
+/** layout size */
+--layout-size-base: 1rem;
+--layout-size-1_2: 0.5rem;
+--layout-size-1_4: 0.25rem;
+--layout-size-3_4: 0.75rem;
+--layout-size-1_3: calc(1rem / 3);
+--layout-size-2_3: calc(2rem / 3);
+--layout-size-2: 2rem;
+--layout-size-3: 3rem;
+
+/** other defaults */
+--default-border-radius: 0.25rem;
+
+/** component specific variables */
+--component-input-bg: var(--color-white);
+--component-input-focus-bg: var(--color-grey-light);
+--component-input-shadow: inset 0px -1px 0px #000000;
+--component-input-border-bottom: 1px solid var(--color-grey-medium);
+--component-input-border-bottom-focus: 1px solid #000000;
+--component-steps-gutter-width: 12px;
+--component-table-min-column-width: 3rem;
+
+/** Navigation specific variables */
+--nav-menu-background-dark: var(--color-blue-dark);
+--nav-menu-background-accent: var(--color-blue-dark2);
+--nav-menu-text: var(--color-white);
+--nav-menu-text-hover: var(--color-white);
+```

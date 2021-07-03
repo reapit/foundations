@@ -177,18 +177,18 @@ export const elGlobals = css`
       --color-grey-light: #f2f2f2;
 
       /** shades of blue color variables and accent colors */
-      --color-blue-light: ${colorBlueLight};
-      --color-blue-light2: ${colorBlueLight2};
-      --color-blue-dark: ${colorBlueDark};
-      --color-blue-dark2: ${colorBlueDark2};
-      --color-accent-orange: ${colorAccentOrange};
+      --color-blue-light: #23a4de;
+      --color-blue-light2: #7bc9eb;
+      --color-blue-dark: #262f69;
+      --color-blue-dark2: #31448f;
+      --color-accent-orange: #ffb71b;
 
       /** intent color variables */
-      --intent-primary: ${intentPrimary};
-      --intent-secondary: ${intentSecondary};
-      --intent-critical: ${intentCritical};
-      --intent-success: ${intentSuccess};
-      --intent-danger: ${intentDanger};
+      --intent-primary: #0061a8;
+      --intent-secondary: #23a4de;
+      --intent-critical: #ffb71b;
+      --intent-success: #a0c862;
+      --intent-danger: #d3033d;
       /* colors of text that would sit on top of the intent when used as a background */
       --intent-primary-text: var(--color-white);
       --intent-secondary-text: var(--color-white);
@@ -254,6 +254,7 @@ export const elGlobals = css`
       --component-steps-gutter-width: 12px;
       --component-table-min-column-width: 3rem;
 
+      /** Navigation specific variables */
       --nav-menu-background-dark: var(--color-blue-dark);
       --nav-menu-background-accent: var(--color-blue-dark2);
       --nav-menu-text: var(--color-white);
