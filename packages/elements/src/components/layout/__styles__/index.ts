@@ -19,7 +19,7 @@ export const ElPageContainer = styled.section`
   display: block;
   padding: 0.5rem 1.25rem;
   width: 100%;
-  height: 100%;
+  height: 100vh;
   overflow-y: scroll;
   overflow-x: hidden;
   background-color: var(--color-white);
@@ -32,6 +32,7 @@ export const ElPageContainer = styled.section`
 export const ElSecondaryNavContainer = styled.aside`
   display: block;
   width: 14rem;
+  flex: 0 0 14rem;
   padding: 2rem 1.5rem;
   overflow-y: scroll;
   overflow-x: hidden;
@@ -51,6 +52,6 @@ export const ElMolecule = styled.div`
 
 export const ElFlexContainer = styled.div`
   display: flex;
-  flex: 1 0 auto;
   margin-bottom: auto;
+  min-width: 0;
 `

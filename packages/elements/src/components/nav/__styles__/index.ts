@@ -27,6 +27,7 @@ export const ElNavContainer = styled.nav`
   @media screen and (min-width: 768px) {
     height: 100%;
     width: 80px;
+    flex: 0 0 80px;
     overflow-x: hidden;
     overflow-y: auto;
   }

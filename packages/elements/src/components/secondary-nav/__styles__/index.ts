@@ -24,9 +24,9 @@ export const ElSecondaryNavItem = styled.div`
     background-repeat: no-repeat;
     background-image: linear-gradient(to right, var(--color-blue-light), var(--color-blue-light));
     outline-color: var(--color-blue-dark);
-    background-size: calc(100% - 1rem);
+    background-size: calc(100% - 0.6rem);
     background-position-x: left;
-    padding-right: 1.25rem;
+    padding-right: 0.5rem;
 
     &::after {
       content: '';
