@@ -1,13 +1,18 @@
-import * as React from 'react'
+import React, { FC } from 'react'
 import SwaggerUI from 'swagger-ui-react'
 import 'swagger-ui-react/swagger-ui.css'
 import { swagger } from './__styles__/swagger'
 import ErrorBoundary from '@/components/hocs/error-boundary'
 import { StringMap } from '@reapit/elements-legacy'
-import { getAccessToken } from '@/utils/session'
 import { SandboxPopUp } from '@/components/ui/popup/sandbox-pop-up'
 import { URLS } from '../../../services/constants'
-import { Loader } from '@reapit/elements'
+import { FlexContainer, Loader, SecondaryNav, SecondaryNavContainer, SecondaryNavItem } from '@reapit/elements'
+import Routes from '../../../constants/routes'
+import { navigate } from '../../ui/menu'
+import { useHistory, useLocation } from 'react-router'
+import { cx } from 'linaria'
+import { useReapitConnect } from '@reapit/connect-session'
+import { reapitConnectBrowserSession } from '../../../core/connect-session'
 
 export type InterceptorParams = {
   url: string
@@ -23,15 +28,10 @@ export const handleOnComplete = (setLoading) => () => {
   setLoading(false)
 }
 
-export const fetchAccessToken = async (setAccessToken: React.Dispatch<React.SetStateAction<null | string>>) => {
-  const fetchedAccessToken = await getAccessToken()
-  setAccessToken(fetchedAccessToken)
-}
-
-export const fetchInterceptor = (params: InterceptorParams, accessToken: string | null) => {
-  // if (params.url === `${window.reapit.config.platformApiUrl}${URLS.docs}`) {
-  //   return params
-  // }
+export const fetchInterceptor = (params: InterceptorParams, accessToken?: string | null) => {
+  if (!accessToken) {
+    return
+  }
 
   return {
     ...params,
@@ -43,30 +43,39 @@ export const fetchInterceptor = (params: InterceptorParams, accessToken: string 
   }
 }
 
-export const SwaggerPage: React.FC = () => {
+export const SwaggerPage: FC = () => {
   const [loading, setLoading] = React.useState(true)
-  const [accessToken, setAccessToken] = React.useState<string | null>(null)
-  const requestInterceptor = (params: InterceptorParams) => fetchInterceptor(params, accessToken)
-
-  React.useEffect(() => {
-    fetchAccessToken(setAccessToken)
-  })
+  const { connectSession } = useReapitConnect(reapitConnectBrowserSession)
+  const requestInterceptor = (params: InterceptorParams) => fetchInterceptor(params, connectSession?.accessToken)
+  const location = useLocation()
+  const history = useHistory()
+  const { pathname } = location
 
   return (
     <ErrorBoundary>
-      <div className={swagger}>
-        {(loading || !accessToken) && <Loader label="Loading" fullPage />}
-        <div className={`${loading ? 'swagger-loading' : ''}`}>
+      <FlexContainer isFlexInitial>
+        <SecondaryNavContainer>
+          <SecondaryNav>
+            <SecondaryNavItem onClick={navigate(history, Routes.SWAGGER)} active={pathname === Routes.SWAGGER}>
+              Foundations API
+            </SecondaryNavItem>
+            <SecondaryNavItem onClick={navigate(history, Routes.GRAPHQL)} active={pathname === Routes.GRAPHQL}>
+              GraphQL
+            </SecondaryNavItem>
+          </SecondaryNav>
+        </SecondaryNavContainer>
+        {(loading || !connectSession?.accessToken) && <Loader label="Loading" fullPage />}
+        <div className={cx(swagger, `${loading ? 'swagger-loading' : ''}`)}>
           <SwaggerUI
             url={`${window.reapit.config.platformApiUrl}${URLS.docs}`}
             onComplete={handleOnComplete(setLoading)}
             docExpansion="none"
             requestInterceptor={requestInterceptor}
           />
-        </div>
 
-        <SandboxPopUp loading={loading} />
-      </div>
+          <SandboxPopUp loading={loading} />
+        </div>
+      </FlexContainer>
     </ErrorBoundary>
   )
 }

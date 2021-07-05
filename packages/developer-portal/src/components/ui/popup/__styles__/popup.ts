@@ -1,6 +1,8 @@
 import { css } from 'linaria'
 import { forTabletAndDesktop } from '@/core/__styles__/media'
 
+const navWidth = '80px'
+
 export const wrapPopup = css`
   position: fixed;
   bottom: 0;
@@ -13,8 +15,8 @@ export const wrapPopup = css`
   }
 
   ${forTabletAndDesktop} {
-    transform: translateX(66px); // 66px being the width of the sidebar
-    width: calc(100vw - 66px);
+    transform: translateX(${navWidth}); // 66px being the width of the sidebar
+    width: calc(100vw - ${navWidth});
   }
 
   &-desktop {

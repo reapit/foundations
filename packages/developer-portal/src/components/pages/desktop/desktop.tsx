@@ -1,7 +1,7 @@
 import React, { Dispatch, FC, SetStateAction, useState } from 'react'
 import ErrorBoundary from '@/components/hocs/error-boundary'
 import { FadeIn, Modal } from '@reapit/elements-legacy'
-import { Title, Subtitle, BodyText, elMb4, elMb6, SmallText, Button, elMx4 } from '@reapit/elements'
+import { Title, Subtitle, BodyText, elMb4, elMb6, SmallText, Button, elMx4, PageContainer } from '@reapit/elements'
 import DeveloperEditonModal from '@/components/ui/developer-edition-modal'
 import {
   hasGreyText,
@@ -233,23 +233,25 @@ export const SubscribeSection: FC = () => {
 
 export const DeveloperDesktopPage: FC = () => (
   <ErrorBoundary>
-    <Title>Desktop</Title>
-    <Grid>
-      <Col span={8} spanTablet={12} spanMobile={12}>
-        <BannerSection />
-        <Grid>
-          <Col span={6} spanTablet={6} spanMobile={12}>
-            <AboutSection />
-          </Col>
-          <Col span={6} spanTablet={6} spanMobile={12}>
-            <VideoSection />
-          </Col>
-        </Grid>
-      </Col>
-      <Col span={4} spanTablet={12} spanMobile={12}>
-        <SubscribeSection />
-      </Col>
-    </Grid>
+    <PageContainer>
+      <Title>Desktop</Title>
+      <Grid>
+        <Col span={8} spanTablet={12} spanMobile={12}>
+          <BannerSection />
+          <Grid>
+            <Col span={6} spanTablet={6} spanMobile={12}>
+              <AboutSection />
+            </Col>
+            <Col span={6} spanTablet={6} spanMobile={12}>
+              <VideoSection />
+            </Col>
+          </Grid>
+        </Col>
+        <Col span={4} spanTablet={12} spanMobile={12}>
+          <SubscribeSection />
+        </Col>
+      </Grid>
+    </PageContainer>
   </ErrorBoundary>
 )
 

@@ -1,10 +1,12 @@
 import * as React from 'react'
-import { useHistory } from 'react-router'
+import { useHistory, useLocation } from 'react-router'
 import ErrorBoundary from '@/components/hocs/error-boundary'
-import { UnsupportBrowserPopUp } from '@/components/ui/popup/unsupport-browser-pop-up'
-import { isIE } from '@/utils/browser'
 import Routes from '@/constants/routes'
 import { IFRAME_URLS } from '@/constants/iframe-urls'
+import { elHFull, FlexContainer, PageContainer, SecondaryNav, SecondaryNavContainer, Title } from '@reapit/elements'
+import { SecondaryNavItem } from '@reapit/elements'
+import { navigate } from '../../ui/menu'
+import { iframeWrapper } from './__styles__/index'
 
 export const parseIframeUrl = (pathname: string, hash: string): string => {
   const documentPagePath = pathname.split(Routes.API_DOCS)[1]
@@ -12,23 +14,31 @@ export const parseIframeUrl = (pathname: string, hash: string): string => {
 }
 
 const ApiDocsPage: React.FC = () => {
-  const { location } = useHistory()
-
+  const location = useLocation()
+  const history = useHistory()
+  const { pathname } = location
   return (
     <ErrorBoundary>
-      {!isIE() && (
-        <iframe
-          style={{ border: 'none', flexGrow: 1 }}
-          src={`${IFRAME_URLS.documentation}${parseIframeUrl(location.pathname, location.hash)}`}
-          width="100%"
-          height="100%"
-        />
-      )}
-      <UnsupportBrowserPopUp
-        unsupported={isIE()}
-        // eslint-disable-next-line
-        message="Unsupported Browser - Unfortunately as Internet Explorer 11 is no longer supported, we are unable to display the documentation, please login to the Developer Portal using either Chrome, Firefox, Safari or Edge"
-      />
+      <FlexContainer isFlexAuto>
+        <SecondaryNavContainer>
+          <SecondaryNav>
+            <SecondaryNavItem onClick={navigate(history, Routes.API_DOCS)} active={pathname === Routes.API_DOCS}>
+              API Docs
+            </SecondaryNavItem>
+            <SecondaryNavItem onClick={navigate(history, Routes.ELEMENTS)} active={pathname === Routes.ELEMENTS}>
+              Elements
+            </SecondaryNavItem>
+          </SecondaryNav>
+        </SecondaryNavContainer>
+        <PageContainer className={elHFull}>
+          <Title>API Docs</Title>
+          <iframe
+            className={iframeWrapper}
+            frameBorder="0"
+            src={`${IFRAME_URLS.documentation}${parseIframeUrl(location.pathname, location.hash)}`}
+          />
+        </PageContainer>
+      </FlexContainer>
     </ErrorBoundary>
   )
 }

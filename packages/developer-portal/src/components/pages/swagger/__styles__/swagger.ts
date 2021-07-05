@@ -9,6 +9,9 @@ import { bluePrimaryMedium, greyDark, greyLight } from '@/core/__styles__/colors
 export const swagger = css`
   // Can't reset the global scrollbar to default styles
   // Need to write custom styles
+  height: 100vh;
+  overflow: scroll;
+
   *::-webkit-scrollbar {
     display: block;
     width: 12px;
