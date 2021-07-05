@@ -4,8 +4,10 @@ exports[`ColResponsive should match a snapshot and render children with no props
 <ContextProvider
   value={
     Object {
+      "is4KScreen": false,
       "isDesktop": true,
       "isMobile": false,
+      "isSuperWideScreen": false,
       "isTablet": false,
       "isWideScreen": false,
     }
@@ -23,8 +25,10 @@ exports[`ColResponsive should render with the correct classNames when supplied a
 <ContextProvider
   value={
     Object {
+      "is4KScreen": false,
       "isDesktop": true,
       "isMobile": false,
+      "isSuperWideScreen": false,
       "isTablet": false,
       "isWideScreen": false,
     }
@@ -51,8 +55,10 @@ exports[`GridResponsive hould render with the correct classNames when supplied a
 <ContextProvider
   value={
     Object {
+      "is4KScreen": false,
       "isDesktop": true,
       "isMobile": false,
+      "isSuperWideScreen": false,
       "isTablet": false,
       "isWideScreen": false,
     }
@@ -79,8 +85,10 @@ exports[`GridResponsive should match a snapshot and render children with no prop
 <ContextProvider
   value={
     Object {
+      "is4KScreen": false,
       "isDesktop": true,
       "isMobile": false,
+      "isSuperWideScreen": false,
       "isTablet": false,
       "isWideScreen": false,
     }
