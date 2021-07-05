@@ -34,7 +34,7 @@ export const ElCol = styled.div`
   }
 
   ${isTablet} {
-    grid-column-end: span 6;
+    grid-column-end: span 4;
   }
 
   ${isDesktop} {
