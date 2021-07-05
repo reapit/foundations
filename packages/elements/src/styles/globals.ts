@@ -153,7 +153,11 @@ export const elGlobals = css`
       -webkit-font-smoothing: antialiased;
       -moz-osx-font-smoothing: grayscale;
       -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
-      box-sizing: border-box;
+
+      * {
+        box-sizing: border-box;
+        letter-spacing: -0.01em;
+      }
     }
 
     body {
