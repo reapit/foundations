@@ -11,10 +11,9 @@ export interface MediaType {
 
 export const MOBILE_BREAKPOINT = 768
 export const TABLET_BREAKPOINT = 1024
-export const DESKTOP_BREAKPOINT = 1024
-export const WIDESCREEN_BREAKPOINT = 1440
-export const SUPER_WIDESCREEN_BREAKPOINT = 1920
-export const FOUR_K_SCREEN_BREAKPOINT = 2560
+export const DESKTOP_BREAKPOINT = 1440
+export const WIDESCREEN_BREAKPOINT = 1920
+export const SUPER_WIDESCREEN_BREAKPOINT = 2560
 
 export const MediaStateContext = createContext<MediaType>({} as MediaType)
 
