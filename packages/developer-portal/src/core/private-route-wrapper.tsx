@@ -1,12 +1,6 @@
 import React, { useEffect, useState } from 'react'
 import Menu from '@/components/ui/menu'
-import {
-  Section,
-  FlexContainerResponsive,
-  AppNavContainer,
-  FlexContainerBasic,
-  DATE_TIME_FORMAT,
-} from '@reapit/elements-legacy'
+import { Section, FlexContainerResponsive, FlexContainerBasic, DATE_TIME_FORMAT } from '@reapit/elements-legacy'
 import { Redirect, useLocation } from 'react-router'
 import Routes from '@/constants/routes'
 import { useReapitConnect } from '@reapit/connect-session'
@@ -23,7 +17,7 @@ import {
 } from '../selector/current-member'
 import { Dispatch } from 'redux'
 import { ELEMENTS_V3_PAGES } from '../constants/pages'
-import { Loader } from '@reapit/elements'
+import { Loader, MainContainer } from '@reapit/elements'
 
 const { Suspense } = React
 
@@ -96,11 +90,11 @@ export const PrivateRouteWrapper: React.FunctionComponent<PrivateRouteWrapperPro
 
   if (!connectSession) {
     return (
-      <AppNavContainer>
+      <MainContainer>
         <FlexContainerBasic hasBackground>
           <Loader label="Loading" fullPage />
         </FlexContainerBasic>
-      </AppNavContainer>
+      </MainContainer>
     )
   }
 
@@ -114,10 +108,10 @@ export const PrivateRouteWrapper: React.FunctionComponent<PrivateRouteWrapperPro
   }
 
   return (
-    <AppNavContainer>
+    <MainContainer>
       {showMenu && <Menu />}
       {isV3Page ? (
-        <FlexContainerBasic flexColumn isScrollable hasPadding hasBackground>
+        <>
           <Suspense
             fallback={
               <Section>
@@ -128,7 +122,7 @@ export const PrivateRouteWrapper: React.FunctionComponent<PrivateRouteWrapperPro
             {children}
           </Suspense>
           <TermsAndConditionsModal visible={showTermsModal} onAccept={updateTerms} tapOutsideToDissmiss={false} />
-        </FlexContainerBasic>
+        </>
       ) : (
         <FlexContainerBasic flexColumn isScrollable>
           <FlexContainerResponsive
@@ -151,7 +145,7 @@ export const PrivateRouteWrapper: React.FunctionComponent<PrivateRouteWrapperPro
           </FlexContainerResponsive>
         </FlexContainerBasic>
       )}
-    </AppNavContainer>
+    </MainContainer>
   )
 }
 

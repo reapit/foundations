@@ -11,6 +11,8 @@ export type Config = {
   developerEditionDownloadUrl: string
   adobeSignApiKey: string
   liveChatWhitelist: string[]
+  elementsUri: string
+  graphQLUri: string
 }
 
 declare global {
@@ -21,5 +23,8 @@ declare global {
     __REDUX_DEVTOOLS_EXTENSION__?: Function
     Cypress: any
     store: any
+    GraphQLPlayground: {
+      init: any
+    }
   }
 }

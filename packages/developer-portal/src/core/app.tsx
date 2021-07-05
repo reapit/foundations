@@ -5,6 +5,7 @@ import store from './store'
 import Toast from '../components/ui/toast'
 import ToastMessage from '../components/ui/toast-message'
 import { css } from 'linaria'
+import { MediaStateProvider, NavStateProvider } from '@reapit/elements'
 
 export const globals = css`
   :global() {
@@ -22,9 +23,13 @@ export const globals = css`
 const App = () => {
   return (
     <Provider store={store.reduxStore}>
-      <Router />
-      <Toast />
-      <ToastMessage />
+      <NavStateProvider>
+        <MediaStateProvider>
+          <Router />
+          <Toast />
+          <ToastMessage />
+        </MediaStateProvider>
+      </NavStateProvider>
     </Provider>
   )
 }
