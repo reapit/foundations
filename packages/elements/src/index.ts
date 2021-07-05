@@ -38,5 +38,4 @@ export * from './hooks/use-snack'
 export * from './hooks/use-modal'
 export * from './hooks/use-media-query'
 export * from './hooks/use-nav-state'
-
-export * from './contexts/snacks'
+export * from './hooks/use-snack'

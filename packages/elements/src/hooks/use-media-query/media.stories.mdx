@@ -1,0 +1,41 @@
+import { Meta, Story, Canvas, ArgsTable } from '@storybook/addon-docs/blocks'
+import { MediaStateProvider } from './'
+import { MediaMobileExample, AllBreakPointExample } from './media.stories'
+
+<Meta title="MediaStateProvider" component={MediaStateProvider} />
+
+# MediaStateProvider
+
+> React only
+
+Programmatic media queries
+
+<Canvas>
+  <Story name="MediaStateProvider usage">
+    <MediaStateProvider>
+      <MediaMobileExample />
+    </MediaStateProvider>
+  </Story>
+</Canvas>
+
+## Available break points
+
+> Note: all breakpoints viewed here are calculated from the iframe width
+
+<Canvas>
+  <Story name="MediaStateProvider breakpoints">
+    <MediaStateProvider>
+      <AllBreakPointExample />
+    </MediaStateProvider>
+  </Story>
+</Canvas>
+
+Variable | breakpoint sum 
+--- | ---
+`isMobile` | < 768
+`isTable` | >= 768 && < 1024
+`isDesktop` | >= 1024 && < 1440
+`isWideScreen` | >= 1440 && < 1920
+`isSuperWideScreen` | >= 1920 && < 2560
+`is4KScreen` | >= 2560
+
