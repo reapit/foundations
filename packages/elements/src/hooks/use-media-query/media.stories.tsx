@@ -14,23 +14,23 @@ export const AllBreakPointExample = () => {
     return <h1>Is Mobile</h1>
   }
 
-  else if (isTablet) {
+  if (isTablet) {
     return <h1>Is Tablet</h1>
   }
 
-  else if (isDesktop) {
+  if (isDesktop) {
     return <h1>Is Tablet</h1>
   }
 
-  else if (isWideScreen) {
+  if (isWideScreen) {
     return <h1>Is Tablet</h1>
   }
 
-  else if (isSuperWideScreen) {
+  if (isSuperWideScreen) {
     return <h1>Is Tablet</h1>
   }
 
-  else if (is4KScreen) {
+  if (is4KScreen) {
     return <h1>Is Tablet</h1>
   }
 }
