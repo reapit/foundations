@@ -1,26 +1,26 @@
 import { SQSHandler, SQSHandleActions } from '@homeservenow/serverless-aws-handler'
 import { sqs } from '@/services'
 import { DeploymentStatus } from '@reapit/foundations-ts-definitions'
-import { PipelineRunnerModel, TaskModel } from '@/models'
+import { PipelineRunnerEntity, TaskEntity } from '@/entities'
 import * as services from '@/services'
 
-const updateTasks = async (tasks: TaskModel[]): Promise<void> => {
+const updateTasks = async (tasks: TaskEntity[]): Promise<void> => {
   await services.batchUpdateTask(tasks)
 }
 
-const pipelineStatusUpdate = async (pipeline: PipelineRunnerModel, buildStatus: DeploymentStatus): Promise<void> => {
-  await services.updatePipelineRunnerModel(pipeline, {
+const pipelineStatusUpdate = async (pipeline: PipelineRunnerEntity, buildStatus: DeploymentStatus): Promise<void> => {
+  await services.updatePipelineRunnerEntity(pipeline, {
     buildStatus,
   })
 }
 
-const nextTask = (pipeline: PipelineRunnerModel, rightSibling?: string): TaskModel | undefined => {
+const nextTask = (pipeline: PipelineRunnerEntity, rightSibling?: string): TaskEntity | undefined => {
   return rightSibling ? pipeline.tasks?.find((task) => task.id === rightSibling) : undefined
 }
 
 type TaskExecutionContextType = {
-  currentTask?: TaskModel
-  pipeline: PipelineRunnerModel
+  currentTask?: TaskEntity
+  pipeline: PipelineRunnerEntity
 }
 /**
  * Task runner executable and pipeline

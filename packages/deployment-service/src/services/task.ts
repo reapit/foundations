@@ -1,19 +1,19 @@
 import { db } from '@/core'
-import { TaskModel } from '@/models'
+import { TaskEntity } from '@/entities'
 
-export const createTask = (dto: Partial<TaskModel> & { pipelineId: string }): Promise<TaskModel> => {
-  return db.put(Object.assign(new TaskModel(), dto))
+export const createTask = (dto: Partial<TaskEntity> & { pipelineId: string }): Promise<TaskEntity> => {
+  return db.put(Object.assign(new TaskEntity(), dto))
 }
 
-export const createBatchTasks = async (dtos: Partial<TaskModel> & { pipelineId: string }[]): Promise<TaskModel[]> => {
-  const results = await db.batchPut(dtos.map((dto) => Object.assign(new TaskModel(), dto)))
+export const createBatchTasks = async (dtos: Partial<TaskEntity> & { pipelineId: string }[]): Promise<TaskEntity[]> => {
+  const results = await db.batchPut(dtos.map((dto) => Object.assign(new TaskEntity(), dto)))
 
-  return asyncIteratorToArray<TaskModel>(results)
+  return asyncIteratorToArray<TaskEntity>(results)
 }
 
-export const updateTask = (model: TaskModel, dto: Partial<TaskModel>) => {
+export const updateTask = (model: TaskEntity, dto: Partial<TaskEntity>) => {
   return db.put(
-    Object.assign(new TaskModel(), {
+    Object.assign(new TaskEntity(), {
       ...model,
       ...dto,
       modified: new Date().toISOString(),
@@ -21,10 +21,10 @@ export const updateTask = (model: TaskModel, dto: Partial<TaskModel>) => {
   )
 }
 
-export const batchUpdateTask = (models: TaskModel[]) => {
+export const batchUpdateTask = (models: TaskEntity[]) => {
   return db.batchPut(
     models.map((model) =>
-      Object.assign(new TaskModel(), {
+      Object.assign(new TaskEntity(), {
         ...model,
         modified: new Date().toISOString(),
       }),
@@ -32,14 +32,14 @@ export const batchUpdateTask = (models: TaskModel[]) => {
   )
 }
 
-export const findByPipelineId = async (pipelineId: string): Promise<TaskModel[]> => {
-  const results = await db.query(TaskModel, {
+export const findByPipelineId = async (pipelineId: string): Promise<TaskEntity[]> => {
+  const results = await db.query(TaskEntity, {
     keyConditions: {
       pipelineId,
     },
   })
 
-  return asyncIteratorToArray<TaskModel>(results)
+  return asyncIteratorToArray<TaskEntity>(results)
 }
 
 const asyncIteratorToArray = async <T>(asyncIterator): Promise<T[]> => {

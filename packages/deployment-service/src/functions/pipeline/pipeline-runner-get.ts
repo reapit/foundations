@@ -1,4 +1,4 @@
-import { PipelineRunnerModel } from '@/models'
+import { PipelineRunnerEntity } from '@/entities'
 import { ownership, resolveDeveloperId } from '@/utils'
 import { httpHandler, NotFoundException } from '@homeservenow/serverless-aws-handler'
 import * as service from '../../services'
@@ -7,9 +7,9 @@ import { defaultOutputHeaders } from './../../constants'
 /**
  * Get a pipeline by id
  */
-export const pipelineRunnerGet = httpHandler<void, PipelineRunnerModel>({
+export const pipelineRunnerGet = httpHandler<void, PipelineRunnerEntity>({
   defaultOutputHeaders,
-  handler: async ({ event }): Promise<PipelineRunnerModel> => {
+  handler: async ({ event }): Promise<PipelineRunnerEntity> => {
     const developerId = await resolveDeveloperId(event)
 
     const pipelineRunner = await service.findPipelineRunnerById(event.pathParameters?.id as string)

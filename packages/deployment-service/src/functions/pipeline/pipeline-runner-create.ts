@@ -1,4 +1,4 @@
-import { PipelineModel } from '@/models'
+import { PipelineEntity } from '@/entities'
 import { ownership, resolveDeveloperId } from '@/utils'
 import { httpHandler, NotFoundException } from '@homeservenow/serverless-aws-handler'
 import * as service from '../../services'
@@ -9,9 +9,9 @@ import { defaultOutputHeaders } from './../../constants'
  *
  * Cancels all existing running pipelines
  */
-export const pipelineRunnerCreate = httpHandler<void, PipelineModel>({
+export const pipelineRunnerCreate = httpHandler<void, PipelineEntity>({
   defaultOutputHeaders,
-  handler: async ({ event }): Promise<PipelineModel> => {
+  handler: async ({ event }): Promise<PipelineEntity> => {
     const pipelineId = event.pathParameters?.pipelineId
 
     if (!pipelineId) {
@@ -20,16 +20,16 @@ export const pipelineRunnerCreate = httpHandler<void, PipelineModel>({
 
     const developerId = await resolveDeveloperId(event)
 
-    const deployment = await service.findPipelineById(pipelineId)
+    const pipeline = await service.findPipelineById(pipelineId)
 
-    if (!deployment) {
+    if (!pipeline) {
       throw new NotFoundException()
     }
 
-    await ownership(deployment.developerId, developerId)
+    await ownership(pipeline.developerId, developerId)
 
-    return service.createPipelineRunnerModel({
-      pipelineId,
+    return service.createPipelineRunnerEntity({
+      pipeline,
     })
   },
 })

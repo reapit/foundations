@@ -1,6 +1,6 @@
 import { httpHandler, ValidationException } from '@homeservenow/serverless-aws-handler'
 import { PipelineDto } from '@/dto'
-import { PipelineModel } from '@/models'
+import { PipelineEntity } from '@/entities'
 import * as service from '@/services/pipeline'
 import { plainToClass } from 'class-transformer'
 import { validate } from 'class-validator'
@@ -10,7 +10,7 @@ import { defaultOutputHeaders } from '../../constants'
 /**
  * Create a deployment pipeline configuration
  */
-export const pipelineCreate = httpHandler<PipelineDto, PipelineModel>({
+export const pipelineCreate = httpHandler<PipelineDto, PipelineEntity>({
   defaultOutputHeaders,
   validator: async (dto: PipelineDto): Promise<PipelineDto> => {
     const errors = await validate(dto)
@@ -21,7 +21,7 @@ export const pipelineCreate = httpHandler<PipelineDto, PipelineModel>({
 
     return dto
   },
-  handler: async ({ event }): Promise<PipelineModel> => {
+  handler: async ({ event }): Promise<PipelineEntity> => {
     const developerId = await resolveDeveloperId(event)
 
     const dto = event.body
@@ -31,6 +31,6 @@ export const pipelineCreate = httpHandler<PipelineDto, PipelineModel>({
         })
       : new PipelineDto()
 
-    return service.createPipelineModel(dto)
+    return service.createPipelineEntity(dto)
   },
 })

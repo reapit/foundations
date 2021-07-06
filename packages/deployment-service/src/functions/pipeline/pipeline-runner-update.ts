@@ -1,4 +1,4 @@
-import { PipelineModel } from '@/models'
+import { PipelineEntity } from '@/entities'
 import { ownership, resolveDeveloperId } from '@/utils'
 import { httpHandler, BadRequestException, NotFoundException } from '@homeservenow/serverless-aws-handler'
 import { DeploymentStatus } from '@reapit/foundations-ts-definitions'
@@ -9,7 +9,7 @@ import { defaultOutputHeaders } from './../../constants'
  * Update a pipelineRunner (cancel)
  */
 // TODO refactor to delete method instead?
-export const pipelineRunnerUpdate = httpHandler<{ buildStatus: DeploymentStatus.CANCELED }, PipelineModel>({
+export const pipelineRunnerUpdate = httpHandler<{ buildStatus: DeploymentStatus.CANCELED }, PipelineEntity>({
   defaultOutputHeaders,
   validator: (payload) => {
     if (payload.buildSTatus && payload.buildSTatus !== DeploymentStatus.CANCELED) {
@@ -18,7 +18,7 @@ export const pipelineRunnerUpdate = httpHandler<{ buildStatus: DeploymentStatus.
 
     return payload
   },
-  handler: async ({ event, body }): Promise<PipelineModel> => {
+  handler: async ({ event, body }): Promise<PipelineEntity> => {
     const developerId = await resolveDeveloperId(event)
 
     const pipelineRunner = await service.findPipelineRunnerById(event.pathParameters?.id as string)
@@ -33,6 +33,6 @@ export const pipelineRunnerUpdate = httpHandler<{ buildStatus: DeploymentStatus.
       return pipelineRunner
     }
 
-    return service.updatePipelineRunnerModel(pipelineRunner, body)
+    return service.updatePipelineRunnerEntity(pipelineRunner, body)
   },
 })

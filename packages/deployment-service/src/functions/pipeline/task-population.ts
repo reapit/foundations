@@ -1,4 +1,4 @@
-import { PipelineModel, TaskModel } from '@/models'
+import { PipelineEntity, TaskEntity } from '@/entities'
 import { createBatchTasks } from '@/services'
 import {
   AppTypeEnum,
@@ -11,12 +11,12 @@ import { Converter } from 'aws-sdk/clients/dynamodb'
 import { v4 as uuid } from 'uuid'
 
 export const workflowCreation = async (
-  pipeline: PipelineModel,
+  pipeline: PipelineEntity,
   pipelineRunner: PipelineRunnerModelInterface,
-): Promise<TaskModel[]> => {
+): Promise<TaskEntity[]> => {
   const ids: string[] = [uuid(), uuid(), uuid()]
 
-  const batchTasks: (Partial<TaskModel> & { pipelineId: string })[] =
+  const batchTasks: (Partial<TaskEntity> & { pipelineId: string })[] =
     pipeline.appType !== AppTypeEnum.NODE
       ? [
           {
@@ -72,7 +72,7 @@ export const taskPopulation: Handler = async (event: any, context: Context, call
 
   await Promise.all(
     event.Records.filter((record) => record.eventName === 'INSERT').map((record) => {
-      const pipeline = Object.assign(new PipelineModel(), Converter.unmarshall(record.dynamodb.NewImage))
+      const pipeline = Object.assign(new PipelineEntity(), Converter.unmarshall(record.dynamodb.NewImage))
 
       console.log(pipeline)
 

@@ -1,5 +1,5 @@
 import { httpHandler, NotFoundException } from '@homeservenow/serverless-aws-handler'
-import { PipelineModel } from '@/models'
+import { PipelineEntity } from '@/entities'
 import * as service from '@/services/pipeline'
 import { ownership, resolveDeveloperId } from '@/utils'
 import { defaultOutputHeaders } from './../../constants'
@@ -9,7 +9,7 @@ import { defaultOutputHeaders } from './../../constants'
  */
 export const pipelineGet = httpHandler({
   defaultOutputHeaders,
-  handler: async ({ event }): Promise<PipelineModel> => {
+  handler: async ({ event }): Promise<PipelineEntity> => {
     const developerId = await resolveDeveloperId(event)
 
     const pipeline = await service.findPipelineById(event.pathParameters?.id as string)

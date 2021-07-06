@@ -26,14 +26,6 @@ custom:
       heapMax: 1g
       migrate: true
       convertEmptyValues: true
-  dynamodbStream:
-    host: localhost
-    port: 8000
-    pollForever: true
-    streams:
-      - table: '${self:custom.env.DYNAMO_DB_TASK_TABLE_NAME}'
-        functions:
-          - taskPopulate
 
 provider:
   name: aws
@@ -59,6 +51,8 @@ provider:
     DYNAMO_DB_PIPELINE_RUNNER_TABLE_NAME: ${self:custom.env.DYNAMO_DB_PIPELINE_RUNNER_TABLE_NAME}
     DYNAMO_DB_TASK_TABLE_NAME: ${self:custom.env.DYNAMO_DB_TASK_TABLE_NAME}
     DEPLOYMENT_BUCKET_NAME: ${self:custom.env.DEPLOYMENT_BUCKET_NAME}
+    AURORA_DB_HOST: ${self:custom.env.AURORA_DB_HOST}
+    AURORA_DB_PASSWORD: ${self:custom.env.AURORA_DB_PASSWORD}
   iamRoleStatements:
     - Effect: Allow
       Action:
@@ -124,63 +118,6 @@ resources:
         ResponseType: DEFAULT_5XX
         RestApiId:
           Ref: 'ApiGatewayRestApi'
-    PipelineTable:
-      Type: AWS::DynamoDB::Table
-      Properties:
-        TableName: ${self:custom.env.DYNAMO_DB_PIPELINE_TABLE_NAME}
-        AttributeDefinitions:
-          - AttributeName: id
-            AttributeType: S
-          - AttributeName: developerId
-            AttributeType: S
-        KeySchema:
-          - AttributeName: id
-            KeyType: HASH
-        GlobalSecondaryIndexes:
-          - IndexName: developerIdOwnership
-            KeySchema:
-              - AttributeName: developerId
-                KeyType: HASH
-            Projection:
-              ProjectionType: ALL
-            ProvisionedThroughput:
-              ReadCapacityUnits: 1
-              WriteCapacityUnits: 1
-        ProvisionedThroughput:
-          ReadCapacityUnits: 1
-          WriteCapacityUnits: 1
-        PointInTimeRecoverySpecification:
-          PointInTimeRecoveryEnabled: true
-    PipelineRunnerTable:
-      Type: AWS::DynamoDB::Table
-      Properties:
-        TableName: ${self:custom.env.DYNAMO_DB_PIPELINE_RUNNER_TABLE_NAME}
-        AttributeDefinitions:
-          - AttributeName: id
-            AttributeType: S
-        KeySchema:
-          - AttributeName: id
-            KeyType: HASH
-        ProvisionedThroughput:
-          ReadCapacityUnits: 1
-          WriteCapacityUnits: 1
-        PointInTimeRecoverySpecification:
-          PointInTimeRecoveryEnabled: true
-    TaskTable:
-      Type: AWS::DynamoDB::Table
-      Properties:
-        TableName: ${self:custom.env.DYNAMO_DB_TASK_TABLE_NAME}
-        AttributeDefinitions:
-          - AttributeName: id
-            AttributeType: S
-        KeySchema:
-          - AttributeName: id
-            KeyType: HASH
-        ProvisionedThroughput:
-          ReadCapacityUnits: 1
-          WriteCapacityUnits: 1
-        PointInTimeRecoverySpecification:
-          PointInTimeRecoveryEnabled: true
     DeploymentBucket:
       Type: AWS::S3::Bucket
       Properties:
