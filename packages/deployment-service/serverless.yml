@@ -48,11 +48,6 @@ provider:
     deploymentReleaseBucket:
       name: ${self:custom.env.DEPLOYMENT_BUCKET_NAME}
 
-  ecr:
-    images:
-      executables:
-        path: 
-          - ./
   
   environment:
     NODE_ENV: 'production'
@@ -329,10 +324,7 @@ functions:
   #         authorizer:
   #           arn: arn:aws:cognito-idp:${self:provider.region}:${self:custom.env.AWS_ACCOUNT_ID}:userpool/${self:custom.env.CONNECT_USER_POOL}
   pipelineRun:
-    image:
-      name: executables
-      command:
-        - src/index.pipelineRun
+    handler: src/index.pipelineRun
     events:
       - http:
           path: /pipeline/{id}/run
