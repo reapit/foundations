@@ -1,7 +1,7 @@
 import { PipelineDto } from '../dto'
 import { PipelineEntity } from '../entities'
 import { connect } from '@/core'
-import {Pagination, paginate} from 'nestjs-typeorm-paginate'
+import { Pagination, paginate } from 'nestjs-typeorm-paginate'
 
 export const createPipelineEntity = async (dto: Partial<PipelineEntity>): Promise<PipelineEntity> => {
   const connection = await connect()
@@ -14,12 +14,10 @@ export const updatePipelineEntity = async (model: PipelineEntity, dto: PipelineD
   const connection = await connect()
   const repo = connection.getRepository(PipelineEntity)
 
-  return repo.save(
-    {
-      ...model,
-      ...dto,
-    },
-  )
+  return repo.save({
+    ...model,
+    ...dto,
+  })
 }
 
 export const deletePipelineEntity = async (model: PipelineEntity): Promise<void> => {

@@ -1,5 +1,5 @@
-import { Connection, createConnection, getConnection } from "typeorm"
-import { dbConfig } from "./../config/db"
+import { Connection, createConnection, getConnection } from 'typeorm'
+import { dbConfig } from './../config/db'
 
 let connection: Connection | null = null
 
@@ -13,4 +13,4 @@ export const connect = async (): Promise<Connection | never> => {
   }
 
   return connection
-};
+}
