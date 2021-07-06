@@ -8,60 +8,37 @@ import {
 } from '@reapit/foundations-ts-definitions'
 import { Handler, Context, Callback } from 'aws-lambda'
 import { Converter } from 'aws-sdk/clients/dynamodb'
-import { v4 as uuid } from 'uuid'
 
 export const workflowCreation = async (
   pipeline: PipelineEntity,
   pipelineRunner: PipelineRunnerModelInterface,
 ): Promise<TaskEntity[]> => {
-  const ids: string[] = [uuid(), uuid(), uuid()]
-
-  const batchTasks: (Partial<TaskEntity> & { pipelineId: string })[] =
+  const batchTasks: Partial<TaskEntity>[] =
     pipeline.appType !== AppTypeEnum.NODE
       ? [
           {
-            id: ids[0],
-            pipelineId: pipelineRunner.id as string,
             functionName: TaskRunnerFunctions.PULL,
-            rightSibling: ids[0],
           },
           {
-            id: ids[1],
-            pipelineId: pipelineRunner.id as string,
             functionName: TaskRunnerFunctions.BUILD,
-            leftSibling: ids[0],
-            rightSibling: ids[2],
           },
           {
-            id: ids[2],
-            pipelineId: pipelineRunner.id as string,
             functionName: TaskRunnerFunctions.DEPLOY_LAMBDAS,
-            leftSibling: ids[1],
           },
         ]
       : [
           {
-            id: ids[0],
-            pipelineId: pipelineRunner.id as string,
             functionName: TaskRunnerFunctions.PULL,
-            rightSibling: ids[1],
           },
           {
-            id: ids[1],
-            pipelineId: pipelineRunner.id as string,
             functionName: TaskRunnerFunctions.BUILD,
-            rightSibling: ids[2],
-            leftSibling: ids[0],
           },
           {
-            id: ids[2],
-            pipelineId: pipelineRunner.id as string,
             functionName: TaskRunnerFunctions.DEPLOY_REACT,
-            leftSibling: ids[1],
           },
         ]
 
-  return createBatchTasks(batchTasks)
+  return createBatchTasks(pipelineRunner, batchTasks)
 }
 
 /**
