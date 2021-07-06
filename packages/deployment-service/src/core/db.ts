@@ -1,11 +1,16 @@
-import DynamoDB from 'aws-sdk/clients/dynamodb'
-import { DataMapper, DataMapperConfiguration } from '@aws/dynamodb-data-mapper'
-import { dbConfig } from './../config/db'
+import { Connection, createConnection, getConnection } from "typeorm"
+import { dbConfig } from "./../config/db"
 
-const dynamoDBClient = new DynamoDB({
-  region: dbConfig.region,
-})
+let connection: Connection | null = null
 
-export const db = new DataMapper({
-  client: dynamoDBClient,
-} as DataMapperConfiguration)
+export const connect = async (): Promise<Connection | never> => {
+  if (connection !== null) return Promise.resolve(connection)
+
+  try {
+    connection = await getConnection()
+  } catch {
+    connection = await createConnection(dbConfig)
+  }
+
+  return connection
+};
