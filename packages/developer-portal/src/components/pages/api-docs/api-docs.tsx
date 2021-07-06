@@ -18,9 +18,8 @@ import {
   Title,
 } from '@reapit/elements'
 import { SecondaryNavItem } from '@reapit/elements'
-import { navigate } from '../../ui/menu'
 import { iframeWrapper } from './__styles__/index'
-import { openNewPage, ExternalPages } from '../../../utils/open-new-page'
+import { openNewPage, ExternalPages, navigate } from '../../../utils/navigation'
 
 export const parseIframeUrl = (pathname: string, hash: string): string => {
   const documentPagePath = pathname.split(Routes.API_DOCS)[1]

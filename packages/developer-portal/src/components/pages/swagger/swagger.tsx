@@ -28,7 +28,7 @@ import { useHistory, useLocation } from 'react-router'
 import { cx } from 'linaria'
 import { useReapitConnect } from '@reapit/connect-session'
 import { reapitConnectBrowserSession } from '../../../core/connect-session'
-import { ExternalPages, openNewPage } from '../../../utils/open-new-page'
+import { ExternalPages, openNewPage } from '../../../utils/navigation'
 
 export type InterceptorParams = {
   url: string

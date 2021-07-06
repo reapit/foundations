@@ -9,11 +9,6 @@ import { bluePrimaryMedium, greyDark, greyLight } from '@/core/__styles__/colors
 export const swagger = css`
   // Can't reset the global scrollbar to default styles
   // Need to write custom styles
-  height: 100vh;
-  overflow: scroll;
-  width: 100%;
-  background: #fff;
-
   *::-webkit-scrollbar {
     display: block;
     width: 12px;
@@ -33,6 +28,11 @@ export const swagger = css`
   *::-webkit-scrollbar-thumb:hover {
     background-color: #828587;
   }
+
+  height: 100vh;
+  overflow: scroll;
+  width: 100%;
+  background: #fff;
 
   .swagger-ui {
     width: 100%;
