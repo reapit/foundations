@@ -1,10 +1,17 @@
 import {
+  BodyText,
+  Button,
   elHFull,
+  elMb3,
+  elMb8,
   FlexContainer,
+  Icon,
+  Loader,
   PageContainer,
   SecondaryNav,
   SecondaryNavContainer,
   SecondaryNavItem,
+  Subtitle,
   Title,
 } from '@reapit/elements'
 import React, { Dispatch, FC, MutableRefObject, SetStateAction, useEffect, useRef, useState } from 'react'
@@ -15,6 +22,7 @@ import { reapitConnectBrowserSession } from '../../../core/connect-session'
 import { useReapitConnect, ReapitConnectSession } from '@reapit/connect-session'
 import { graphQLWrapper } from './__styles__/index'
 import { GRAPHQL_CONSTANTS } from '../../../constants/graphql'
+import { openNewPage, ExternalPages } from '../../../utils/open-new-page'
 
 const { scriptSrc, scriptId, localStorageKey, settings } = GRAPHQL_CONSTANTS
 
@@ -70,7 +78,8 @@ export const GraphQLPage: FC = () => {
   return (
     <FlexContainer isFlexAuto>
       <SecondaryNavContainer>
-        <SecondaryNav>
+        <Title>API</Title>
+        <SecondaryNav className={elMb8}>
           <SecondaryNavItem onClick={navigate(history, Routes.SWAGGER)} active={pathname === Routes.SWAGGER}>
             Foundations API
           </SecondaryNavItem>
@@ -78,9 +87,23 @@ export const GraphQLPage: FC = () => {
             GraphQL
           </SecondaryNavItem>
         </SecondaryNav>
+        <Icon icon="graphQlInfographic" iconSize="large" />
+        <Subtitle>GraphQL Playground</Subtitle>
+        <BodyText hasGreyText>
+          GraphQL is a query language for APIs and a runtime for fulfilling those queries with your existing data.
+          GraphQL gives clients the power to ask for exactly what they need and nothing more, makes it easier to evolve
+          APIs over time, and enables powerful developer tools.
+        </BodyText>
+        <Button className={elMb3} intent="neutral" onClick={openNewPage(ExternalPages.graphQLDocs)}>
+          View Docs
+        </Button>
+        <Button className={elMb3} intent="critical" onClick={openNewPage(window.reapit.config.graphQLUri)}>
+          Open New
+        </Button>
       </SecondaryNavContainer>
       <PageContainer className={elHFull}>
         <Title>GraphQL</Title>
+        {!loaded && <Loader label="Loading" fullPage />}
         <div className={graphQLWrapper} ref={graphQlRef} />
       </PageContainer>
     </FlexContainer>

@@ -1369,11 +1369,17 @@ type ContactModel {
   workPhone: String
   mobilePhone: String
   email: String
+  archivedOn: String
+  fromArchive: Boolean
   primaryAddress: ContactModelAddress
   secondaryAddress: ContactModelAddress
   workAddress: ContactModelAddress
   officeIds: [String!]
   negotiatorIds: [String!]
+  communicationPreferenceLetter: Boolean
+  communicationPreferenceEmail: Boolean
+  communicationPreferencePhone: Boolean
+  communicationPreferenceSMS: Boolean
   metadata: JSON
   _eTag: String
   _links: JSON
@@ -1672,6 +1678,9 @@ type IdentityCheckModelIdentityDocument {
   typeId: String
   expiry: String
   details: String
+  fileData: String
+  fileUrl: String
+  name: String
 }
 
 type PagedResultIdentityCheckModel {
@@ -2360,12 +2369,22 @@ type TenancyModel {
   rentFrequency: String
   endDateConfirmed: Boolean
   isPeriodic: Boolean
+  rentInstalmentsFrequency: String
+  rentInstalmentsAmount: Float
+  rentInstalmentStart: String
+  meterReadingGas: String
+  meterReadingGasLastRead: String
+  meterReadingElectricity: String
+  meterReadingElecticityLastRead: String
+  meterReadingWater: String
+  meterReadingWaterLastRead: String
   typeId: String
   negotiatorId: String
   propertyId: String
   applicantId: String
   source: TenancySourceModel
   related: [TenancyRelatedModel!]
+  fromArchive: Boolean
   _eTag: String
   _links: JSON
   _embedded: EmbeddedTenancyModel
@@ -2409,6 +2428,7 @@ type TenancyRelatedModel {
   mobilePhone: String
   email: String
   primaryAddress: TenancyPrimaryAddressModel
+  fromArchive: Boolean
 }
 
 type TenancyPrimaryAddressModel {
@@ -2513,10 +2533,13 @@ type VendorModel {
   typeId: String
   sellingReasonId: String
   solicitorId: String
+  propertyId: String
   source: VendorSourceModel
   related: [VendorRelate]
   negotiatorId: String
   officeIds: [String]
+  archivedOn: String
+  fromArchive: Boolean
   metadata: JSON
   _eTag: JSON
   _links: JSON
