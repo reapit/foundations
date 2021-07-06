@@ -1,7 +1,6 @@
 {
   "name": "@reapit/api-key-verify",
   "version": "0.0.1",
-  "private": false,
   "description": "Common Package for Reapit Foundation",
   "repository": {
     "type": "git",
