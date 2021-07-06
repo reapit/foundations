@@ -276,50 +276,6 @@ functions:
               - Authorization
               - X-Api-Key
               - api-version
-  # createPipelineRunner:
-  #   handler: src/index.pipelineRunnerCreate
-  #   events:
-  #     - http:
-  #         path: /pipeline/{pipelineId}/runner
-  #         method: post
-  #         cors:
-  #           origin: '*'
-  #           headers:
-  #             - Content-Type
-  #             - Authorization
-  #             - X-Api-Key
-  #             - api-version
-  #         authorizer:
-  #           arn: arn:aws:cognito-idp:${self:provider.region}:${self:custom.env.AWS_ACCOUNT_ID}:userpool/${self:custom.env.CONNECT_USER_POOL}
-  # updatePipelineRunner:
-  #   handler: src/index.pipelineRunnerUpdate
-  #   events:
-  #     - http:
-  #         path: /pipeline/{pipelineId}/runner/{pipelineRunnerId}
-  #         method: put
-  #         cors:
-  #           origin: '*'
-  #           headers:
-  #             - Content-Type
-  #             - Authorization
-  #             - X-Api-Key
-  #             - api-version
-  #         authorizer:
-  #           arn: arn:aws:cognito-idp:${self:provider.region}:${self:custom.env.AWS_ACCOUNT_ID}:userpool/${self:custom.env.CONNECT_USER_POOL}
-  # getPipelineRunner:
-  #   handler: src/index.pipelineRunnerGet
-  #   events:
-  #     - http:
-  #         path: /pipeline/{pipelineId}/runner/{pipelineRunnerId}
-  #         method: get
-  #         cors:
-  #           origin: '*'
-  #           headers:
-  #             - Content-Type
-  #             - Authorization
-  #             - api-version
-  #         authorizer:
-  #           arn: arn:aws:cognito-idp:${self:provider.region}:${self:custom.env.AWS_ACCOUNT_ID}:userpool/${self:custom.env.CONNECT_USER_POOL}
   pipelineRun:
     handler: src/index.pipelineRun
     events:
@@ -335,14 +291,6 @@ functions:
               - api-version
           authorizer:
             arn: arn:aws:cognito-idp:${self:provider.region}:${self:custom.env.AWS_ACCOUNT_ID}:userpool/${self:custom.env.CONNECT_USER_POOL}
-  # taskPopulate:
-  #   handler: src/index.taskPopulate
-  #   events:
-  #     - stream:
-  #       type: dynamodb
-  #       arn: 
-  #         Fn::GetAtt: [self:custom.env.DYNAMO_DB_PIPELINE_TABLE_NAME, StreamArn]
-
   deployRelease:
     handler: src/index.deployRelease
     events:
