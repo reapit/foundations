@@ -1,8 +1,12 @@
+import { useState } from 'react'
 import { Story, Canvas, ArgsTable } from '@storybook/addon-docs/blocks'
 import { MainContainer, PageContainer, SecondaryNavContainer, Molecule, FlexContainer } from './index'
 import { GridDemoBlock } from '../../storybook/demo-block'
 import { RenderHtmlMarkup } from '../../storybook/render-html-markup'
-import { LayoutCompleteExample } from './layout.stories'
+import { NavStateProvider } from '../../hooks/use-nav-state'
+import { MediaStateProvider } from '../../hooks/use-media-query'
+import { UseNavMobileSubMenuStory } from '../nav/use-nav.stories'
+import { SecondaryNav, SecondaryNavItem } from '../secondary-nav'
 
 <Meta title="Layouts" component={Molecule} />
 
@@ -29,7 +33,7 @@ Finally, the `Molecule` container is a multi purpose container for adding sensib
 <Canvas>
   <Story name="Container Components">
     <MainContainer>
-      <FlexContainer>
+      <FlexContainer isFlexGrow1>
         <SecondaryNavContainer>
           <GridDemoBlock />
         </SecondaryNavContainer>
@@ -57,7 +61,100 @@ For a complete example of how to lay out a page, see below where we have combine
 
 <Canvas>
   <Story name="Complete Combined Example">
-    <LayoutCompleteExample />
+    {() => {
+      const [selectedItem, setSelectedItem] = useState(1)
+      return (
+        <NavStateProvider>
+          <MediaStateProvider>
+            <MainContainer>
+              <UseNavMobileSubMenuStory />
+              <FlexContainer isFlexGrow1>
+                <SecondaryNavContainer>
+                  <SecondaryNav>
+                    <SecondaryNavItem active={selectedItem === 1} onClick={() => setSelectedItem(1)}>
+                      App List
+                    </SecondaryNavItem>
+                    <SecondaryNavItem active={selectedItem === 2} onClick={() => setSelectedItem(2)}>
+                      Create App
+                    </SecondaryNavItem>
+                  </SecondaryNav>
+                </SecondaryNavContainer>
+                <PageContainer>
+                  <Molecule>
+                    <GridDemoBlock />
+                  </Molecule>
+                  <Grid>
+                    <Col>
+                      <FlexContainer>
+                        <Molecule>
+                          <GridDemoBlock />
+                        </Molecule>
+                        <Molecule>
+                          <GridDemoBlock />
+                        </Molecule>
+                      </FlexContainer>
+                    </Col>
+                    <Col>
+                      <FlexContainer>
+                        <Molecule>
+                          <GridDemoBlock />
+                        </Molecule>
+                        <Molecule>
+                          <GridDemoBlock />
+                        </Molecule>
+                      </FlexContainer>
+                    </Col>
+                    <Col>
+                      <FlexContainer>
+                        <Molecule>
+                          <GridDemoBlock />
+                        </Molecule>
+                        <Molecule>
+                          <GridDemoBlock />
+                        </Molecule>
+                      </FlexContainer>
+                    </Col>
+                    <Col>
+                      <FlexContainer>
+                        <Molecule>
+                          <GridDemoBlock />
+                        </Molecule>
+                        <Molecule>
+                          <GridDemoBlock />
+                        </Molecule>
+                      </FlexContainer>
+                    </Col>
+                    <Col>
+                      <Molecule>
+                        <GridDemoBlock />
+                      </Molecule>
+                    </Col>
+                    <Col>
+                      <Molecule>
+                        <GridDemoBlock />
+                      </Molecule>
+                    </Col>
+                    <Col>
+                      <Molecule>
+                        <GridDemoBlock />
+                      </Molecule>
+                    </Col>
+                    <Col>
+                      <Molecule>
+                        <GridDemoBlock />
+                      </Molecule>
+                    </Col>
+                  </Grid>
+                  <Molecule>
+                    <GridDemoBlock />
+                  </Molecule>
+                </PageContainer>
+              </FlexContainer>
+            </MainContainer>
+          </MediaStateProvider>
+        </NavStateProvider>
+      )
+    }}
   </Story>
 </Canvas>
 
@@ -93,7 +190,7 @@ The `PageContainer` should be the body of your content, it will typically contai
   <Story name="PageContainer">
     <PageContainer>
       <GridDemoBlock />
-      <FlexContainer>
+      <FlexContainer isFlexGrow1>
         <Molecule>
           <GridDemoBlock />
         </Molecule>
@@ -114,7 +211,7 @@ In this example you can see the `MainContainer` component - used to wrap the who
 <Canvas>
   <Story name="MainContainer">
     <MainContainer>
-      <FlexContainer>
+      <FlexContainer isFlexGrow1>
         <PageContainer>
           <GridDemoBlock />
           <FlexContainer>
