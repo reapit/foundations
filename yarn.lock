@@ -17372,6 +17372,7 @@ __metadata:
     concurrently: ^6.1.0
     eslint: ^7.26.0
     jsonwebtoken: ^8.5.1
+    nestjs-typeorm-paginate: ^2.5.3
     original-fs: ^1.1.0
     prettier: ^2.3.0
     serverless: ^2.48.0
@@ -29251,6 +29252,16 @@ fsevents@~2.3.2:
   version: 2.1.0
   resolution: "nested-error-stacks@npm:2.1.0"
   checksum: f3f930722ef2b02e6dd5d91662d3b39820d3fc1440e50174ee354f2744243587cabebdd659887b577a593684aa0caec428d0706a587455e3320e164a1ad5290d
+  languageName: node
+  linkType: hard
+
+"nestjs-typeorm-paginate@npm:^2.5.3":
+  version: 2.5.3
+  resolution: "nestjs-typeorm-paginate@npm:2.5.3"
+  peerDependencies:
+    "@nestjs/common": ^6.1.1 || ^5.6.2 || ^7.0.0
+    typeorm: ^0.2.12
+  checksum: 708219b7de4d34a1bff2fedf1b6b7d9064fc6d68dd79649c056f6b86148311ffbcae6b9a57c75dab58037a2d5c3c9b8cddbf1265828e7342f74e7b0a3bb9a2fc
   languageName: node
   linkType: hard
 

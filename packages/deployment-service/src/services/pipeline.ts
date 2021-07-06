@@ -1,50 +1,44 @@
 import { PipelineDto } from '../dto'
 import { PipelineEntity } from '../entities'
-import { db } from '../core'
-import { QueryIterator } from '@aws/dynamodb-data-mapper'
+import { connect } from '@/core'
+import {Pagination, paginate} from 'nestjs-typeorm-paginate'
 
-export const createPipelineEntity = (dto: Partial<PipelineEntity>): Promise<PipelineEntity> => {
-  return db.put(Object.assign(new PipelineEntity(), dto))
+export const createPipelineEntity = async (dto: Partial<PipelineEntity>): Promise<PipelineEntity> => {
+  const connection = await connect()
+  const repo = connection.getRepository(PipelineEntity)
+
+  return repo.save(repo.create(dto))
 }
 
-export const updatePipelineEntity = (model: PipelineEntity, dto: PipelineDto): Promise<PipelineEntity> => {
-  return db.put(
-    Object.assign(new PipelineEntity(), {
+export const updatePipelineEntity = async (model: PipelineEntity, dto: PipelineDto): Promise<PipelineEntity> => {
+  const connection = await connect()
+  const repo = connection.getRepository(PipelineEntity)
+
+  return repo.save(
+    {
       ...model,
       ...dto,
-      modified: new Date().toISOString(),
-    }),
+    },
   )
 }
 
 export const deletePipelineEntity = async (model: PipelineEntity): Promise<void> => {
-  await db.delete(model)
+  const connection = await connect()
+  const repo = connection.getRepository(PipelineEntity)
+
+  await repo.delete(model)
 }
 
-export const findPipelineById = (id: string): Promise<PipelineEntity | undefined> => {
-  return db.get(Object.assign(new PipelineEntity(), { id }))
+export const findPipelineById = async (id: string): Promise<PipelineEntity | undefined> => {
+  const connection = await connect()
+  const repo = connection.getRepository(PipelineEntity)
+
+  return repo.findOne({ id })
 }
 
-export const batchGetPipelines = async (
-  developerId: string,
-  startKey?: Partial<PipelineEntity>,
-): Promise<[QueryIterator<PipelineEntity>, { nextCursor: string }]> => {
-  const dynamoResponse = await db.query(
-    PipelineEntity,
-    {
-      developerId,
-    },
-    {
-      indexName: 'developerIdOwnership',
-      limit: 10,
-      startKey,
-    },
-  )
+export const paginatePipelines = async (developerId: string, page: number = 1): Promise<Pagination<PipelineEntity>> => {
+  const connection = await connect()
+  const repo = connection.getRepository(PipelineEntity)
 
-  return [
-    dynamoResponse,
-    {
-      nextCursor: '',
-    },
-  ]
+  return paginate(repo, { limit: 10, page }, { developerId })
 }

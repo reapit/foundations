@@ -1,27 +1,32 @@
 import { PipelineRunnerEntity } from '../entities'
-import { db } from '@/core'
+import { connect } from '@/core'
 
-export const createPipelineRunnerEntity = (dto: Partial<PipelineRunnerEntity>): Promise<PipelineRunnerEntity> => {
-  return db.put(Object.assign(new PipelineRunnerEntity(), dto))
+export const createPipelineRunnerEntity = async (dto: Partial<PipelineRunnerEntity>): Promise<PipelineRunnerEntity> => {
+  const connection = await connect()
+  const repo = connection.getRepository(PipelineRunnerEntity)
+
+  return repo.save(repo.create(dto))
 }
 
-export const updatePipelineRunnerEntity = (
+export const updatePipelineRunnerEntity = async (
   model: PipelineRunnerEntity,
   dto: Partial<PipelineRunnerEntity>,
 ): Promise<PipelineRunnerEntity> => {
-  return db.put(
-    Object.assign(new PipelineRunnerEntity(), {
-      ...model,
-      ...dto,
-      modified: new Date().toISOString(),
-    }),
-  )
+  const connection = await connect()
+  const repo = connection.getRepository(PipelineRunnerEntity)
+
+  return repo.save(
+    {
+    ...model,
+    ...dto,
+  })
 }
 
-export const findPipelineRunnerById = (id: string): Promise<PipelineRunnerEntity> => {
-  return db.get(
-    Object.assign(new PipelineRunnerEntity(), {
-      id,
-    }),
+export const findPipelineRunnerById = async (id: string): Promise<PipelineRunnerEntity | undefined> => {
+  const connection = await connect()
+  const repo = connection.getRepository(PipelineRunnerEntity)
+
+  return repo.findOne(
+    id,
   )
 }
