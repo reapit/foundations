@@ -11,6 +11,8 @@ export const swagger = css`
   // Need to write custom styles
   height: 100vh;
   overflow: scroll;
+  width: 100%;
+  background: #fff;
 
   *::-webkit-scrollbar {
     display: block;
@@ -32,11 +34,9 @@ export const swagger = css`
     background-color: #828587;
   }
 
-  .swagger-loading {
-    display: none;
-  }
-
   .swagger-ui {
+    width: 100%;
+
     p,
     a,
     .info,
@@ -104,6 +104,7 @@ export const swagger = css`
 
     .wrapper {
       padding: 0;
+      max-width: 100%;
     }
 
     .wrapper .block {
@@ -112,18 +113,7 @@ export const swagger = css`
     }
 
     .information-container {
-      .info {
-        margin: 0;
-
-        .title .version,
-        small {
-          display: none;
-        }
-
-        .url {
-          font-size: 1rem;
-        }
-      }
+      display: none;
     }
 
     section.models {
@@ -175,3 +165,10 @@ export const swagger = css`
   }
 `
 /* purgecss end ignore */
+
+export const titleWrap = css`
+  padding: 2rem 1.5rem 0 1.5rem;
+`
+export const swaggerHidden = css`
+  display: none;
+`

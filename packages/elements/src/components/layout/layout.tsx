@@ -43,6 +43,7 @@ export interface ContainerFlexProps extends ContainerProps {
   isFlexShrink0?: boolean
   isFlexShrink?: boolean
   isFlexJustifyCenter?: boolean
+  isFlexJustifyStart?: boolean
   isFlexJustifyEnd?: boolean
   isFlexJustifyBetween?: boolean
   isFlexJustifyAround?: boolean
@@ -82,6 +83,7 @@ export const FlexContainer: FC<ContainerFlexProps> = ({
   isFlexShrink0,
   isFlexShrink,
   isFlexJustifyCenter,
+  isFlexJustifyStart,
   isFlexJustifyEnd,
   isFlexJustifyBetween,
   isFlexJustifyAround,
@@ -107,14 +109,15 @@ export const FlexContainer: FC<ContainerFlexProps> = ({
     isFlexShrink0 && elFlexShrink0,
     isFlexShrink && elFlexShrink,
     isFlexJustifyCenter && elFlexJustifyCenter,
-    isFlexJustifyEnd && elFlexJustifyStart,
-    isFlexJustifyBetween && elFlexJustifyEnd,
-    isFlexJustifyAround && elFlexJustifyBetween,
-    isFlexJustifyEvenly && elFlexJustifyAround,
-    isFlexAlignCenter && elFlexJustifyEvenly,
-    isFlexAlignStart && elFlexAlignCenter,
-    isFlexAlignEnd && elFlexAlignStart,
-    className && elFlexAlignEnd,
+    isFlexJustifyStart && elFlexJustifyStart,
+    isFlexJustifyEnd && elFlexJustifyEnd,
+    isFlexJustifyBetween && elFlexJustifyBetween,
+    isFlexJustifyAround && elFlexJustifyAround,
+    isFlexJustifyEvenly && elFlexJustifyEvenly,
+    isFlexAlignCenter && elFlexAlignCenter,
+    isFlexAlignStart && elFlexAlignStart,
+    isFlexAlignEnd && elFlexAlignEnd,
+    className && className,
   )
 
   return (
