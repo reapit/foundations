@@ -26,6 +26,7 @@ export const ElementsPage: FC = () => {
   return (
     <FlexContainer isFlexAuto>
       <SecondaryNavContainer>
+        <Title>Docs</Title>
         <SecondaryNav className={elMb8}>
           <SecondaryNavItem onClick={navigate(history, Routes.API_DOCS)} active={pathname === Routes.API_DOCS}>
             API Docs
