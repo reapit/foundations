@@ -1,9 +1,9 @@
 import * as React from 'react'
 import { useHistory, useLocation } from 'react-router'
-import { History } from 'history'
 import Routes from '../../constants/routes'
 import { NavResponsive } from '@reapit/elements'
 import { memo } from 'react'
+import { navigate } from '../../utils/navigation'
 
 /** Commenting out the Chrismas code for now. We may well use it again next year but no need for it
  * to be in the prod bundle */
@@ -69,10 +69,6 @@ export const getDefaultNavIndex = (pathname: string) => {
     default:
       return 0
   }
-}
-
-export const navigate = (history: History, route: string) => (): void => {
-  history.push(route)
 }
 
 export const Menu: React.FunctionComponent = () => {

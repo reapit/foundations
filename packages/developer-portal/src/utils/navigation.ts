@@ -1,3 +1,5 @@
+import { History } from 'history'
+
 export enum ExternalPages {
   platformAPIDocs = 'https://foundations-documentation.reapit.cloud/api/api-documentation',
   glossaryDocs = 'https://foundations-documentation.reapit.cloud/platform-glossary',
@@ -9,4 +11,8 @@ export enum ExternalPages {
 
 export const openNewPage = (uri: ExternalPages | string) => () => {
   window.open(uri, '_blank')
+}
+
+export const navigate = (history: History, route: string) => (): void => {
+  history.push(route)
 }

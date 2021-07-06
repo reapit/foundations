@@ -16,8 +16,7 @@ import {
 import React, { FC } from 'react'
 import { useHistory, useLocation } from 'react-router'
 import Routes from '../../../constants/routes'
-import { openNewPage, ExternalPages } from '../../../utils/open-new-page'
-import { navigate } from '../../ui/menu'
+import { openNewPage, ExternalPages, navigate } from '../../../utils/navigation'
 import { iframeWrapper } from './__styles__/index'
 
 export const ElementsPage: FC = () => {
