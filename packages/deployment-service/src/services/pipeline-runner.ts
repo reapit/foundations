@@ -15,8 +15,7 @@ export const updatePipelineRunnerEntity = async (
   const connection = await connect()
   const repo = connection.getRepository(PipelineRunnerEntity)
 
-  return repo.save(
-    {
+  return repo.save({
     ...model,
     ...dto,
   })
@@ -26,7 +25,5 @@ export const findPipelineRunnerById = async (id: string): Promise<PipelineRunner
   const connection = await connect()
   const repo = connection.getRepository(PipelineRunnerEntity)
 
-  return repo.findOne(
-    id,
-  )
+  return repo.findOne(id)
 }
