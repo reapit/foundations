@@ -1,0 +1,26 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Menu should match a snapshot 1`] = `
+<NavResponsive
+  options={
+    Array [
+      Object {
+        "itemIndex": 0,
+      },
+      Object {
+        "href": undefined,
+        "iconId": "appsMenu",
+        "itemIndex": 1,
+        "text": "Apps",
+      },
+      Object {
+        "callback": [Function],
+        "iconId": "logoutMenu",
+        "isSecondary": true,
+        "itemIndex": 2,
+        "text": "Logout",
+      },
+    ]
+  }
+/>
+`;
