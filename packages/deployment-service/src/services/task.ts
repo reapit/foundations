@@ -1,50 +1,56 @@
-import { db } from '@/core'
-import { TaskEntity } from '@/entities'
+import { connect } from '@/core'
+import { PipelineRunnerEntity, TaskEntity } from '@/entities'
 
-export const createTask = (dto: Partial<TaskEntity> & { pipelineId: string }): Promise<TaskEntity> => {
-  return db.put(Object.assign(new TaskEntity(), dto))
+export const createTask = async (dto: Partial<TaskEntity> & { pipelineId: string }): Promise<TaskEntity> => {
+  const connection = await connect()
+  const repo = connection.getRepository(TaskEntity)
+
+  return repo.save(repo.create(dto))
 }
 
-export const createBatchTasks = async (dtos: Partial<TaskEntity> & { pipelineId: string }[]): Promise<TaskEntity[]> => {
-  const results = await db.batchPut(dtos.map((dto) => Object.assign(new TaskEntity(), dto)))
+export const createBatchTasks = async (
+  pipelineRunner: PipelineRunnerEntity,
+  dtos: Partial<TaskEntity>[],
+): Promise<TaskEntity[]> => {
+  const connection = await connect()
+  const repo = connection.getRepository(TaskEntity)
 
-  return asyncIteratorToArray<TaskEntity>(results)
-}
-
-export const updateTask = (model: TaskEntity, dto: Partial<TaskEntity>) => {
-  return db.put(
-    Object.assign(new TaskEntity(), {
-      ...model,
-      ...dto,
-      modified: new Date().toISOString(),
-    }),
-  )
-}
-
-export const batchUpdateTask = (models: TaskEntity[]) => {
-  return db.batchPut(
-    models.map((model) =>
-      Object.assign(new TaskEntity(), {
-        ...model,
-        modified: new Date().toISOString(),
-      }),
+  return repo.save(
+    repo.create(
+      dtos.map((dto) => ({
+        pipelineRunner,
+        ...dto,
+      })),
     ),
   )
 }
 
-export const findByPipelineId = async (pipelineId: string): Promise<TaskEntity[]> => {
-  const results = await db.query(TaskEntity, {
-    keyConditions: {
-      pipelineId,
-    },
-  })
+export const updateTask = async (model: TaskEntity, dto: Partial<TaskEntity>) => {
+  const connection = await connect()
+  const repo = connection.getRepository(TaskEntity)
 
-  return asyncIteratorToArray<TaskEntity>(results)
+  return repo.save({
+    ...model,
+    ...dto,
+  })
 }
 
-const asyncIteratorToArray = async <T>(asyncIterator): Promise<T[]> => {
-  const result: T[] = []
-  for await (const i of asyncIterator) result.push(i)
+export const batchUpdateTask = async (tasks: TaskEntity[]) => {
+  const connection = await connect()
+  const repo = connection.getRepository(TaskEntity)
 
-  return result
+  return repo.save(tasks)
+}
+
+export const findByPipelineId = async (pipelineRunnerId: string): Promise<TaskEntity[]> => {
+  const connection = await connect()
+  const repo = connection.getRepository(TaskEntity)
+
+  return repo.find({
+    where: {
+      pipelineRunner: {
+        id: pipelineRunnerId,
+      },
+    },
+  })
 }
