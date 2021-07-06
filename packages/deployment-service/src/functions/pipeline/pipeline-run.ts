@@ -2,7 +2,7 @@ import { findPipelineById } from '@/services'
 import { ownership } from '@/utils'
 import { resolveDeveloperId } from '../../utils'
 import { httpHandler, HttpStatusCode, NotFoundException } from '@homeservenow/serverless-aws-handler'
-// import { execSync } from 'child_process'
+import { execSync } from 'child_process'
 import { resolve } from 'path'
 import { defaultOutputHeaders } from '../../constants'
 import fs from 'fs'
@@ -66,29 +66,29 @@ export const pipelineRun = httpHandler({
 
     unzip()
 
-    const dirName = `${pipeline.repository.split('/').pop()}-master`
+    const projectDirName = resolve(dir, `${pipeline.repository.split('/').pop()}-master`)
+    // TODO use to install, build and deploy
 
-    console.log(fs.existsSync(resolve(dir, dirName)))
+    console.log('installing...', projectDirName)
+
+    try {
+      // TODO optional yarn usage
+      execSync('npm i', {
+        cwd: projectDirName,
+      })
+      // console.log('yarn', yarn.toString())
+    } catch (e) {
+      console.log('yarn errors', e)
+      console.log(e.output.toString())
+      return {
+        statusCode: 500,
+        headers: defaultOutputHeaders,
+      }
+    }
 
     return {
       statusCode: 200,
     }
-
-    // try {
-    //   const yarn = execSync('npm i', {
-    //     cwd: resolve(dir, cloneDir),
-    //   })
-    //   console.log('yarn', yarn.toString())
-    // } catch (e) {
-    //   console.log(e.output.toString())
-    //   console.log('yarn errors')
-    //   console.error(e)
-    //   console.log('npm install failed')
-    //   return {
-    //     statusCode: 500,
-    //     headers: defaultOutputHeaders,
-    //   }
-    // }
 
     // try {
     //   const yarn = execSync('npm run build', {
