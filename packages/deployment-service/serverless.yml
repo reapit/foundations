@@ -51,8 +51,10 @@ provider:
     DYNAMO_DB_PIPELINE_RUNNER_TABLE_NAME: ${self:custom.env.DYNAMO_DB_PIPELINE_RUNNER_TABLE_NAME}
     DYNAMO_DB_TASK_TABLE_NAME: ${self:custom.env.DYNAMO_DB_TASK_TABLE_NAME}
     DEPLOYMENT_BUCKET_NAME: ${self:custom.env.DEPLOYMENT_BUCKET_NAME}
-    AURORA_DB_HOST: ${self:custom.env.AURORA_DB_HOST}
-    AURORA_DB_PASSWORD: ${self:custom.env.AURORA_DB_PASSWORD}
+    AURORA_HOST: ${self:custom.env.AURORA_HOST}
+    AURORA_DATABASE: ${self:custom.env.AURORA_DATABASE}
+    AURORA_USERNAME: ${self:custom.env.AURORA_USERNAME}
+    AURORA_PASSWORD: ${self:custom.env.AURORA_PASSWORD}
   iamRoleStatements:
     - Effect: Allow
       Action:
