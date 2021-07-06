@@ -1,7 +1,7 @@
 {
   "name": "@reapit/api-key-verify",
   "version": "0.0.1",
-  "private": true,
+  "private": false,
   "description": "Common Package for Reapit Foundation",
   "repository": {
     "type": "git",
@@ -16,7 +16,7 @@
     "build": "echo '...skipping...'",
     "lint": "eslint --cache --ext=ts,tsx src --fix",
     "release": "echo '...skipping...'",
-    "publish": "echo '...skipping...'",
+    "publish": "yarn npm publish --access public",
     "conf": "echo '...skipping...'",
     "commit": "concurrently \"yarn test --coverage --no-cache --silent --forceExit --detectOpenHandles --runInBand --watch=false && jest-coverage-badges --input src/tests/coverage/coverage-summary.json --output src/tests/badges\" \"yarn lint\""
   },
