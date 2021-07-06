@@ -20,6 +20,6 @@ export const pipelineDelete = httpHandler({
 
     await ownership(pipeline.developerId, developerId)
 
-    await service.deletePipelineModel(pipeline)
+    await service.deletePipelineEntity(pipeline)
   },
 })

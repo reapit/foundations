@@ -1,6 +1,6 @@
 import { httpHandler, NotFoundException, ValidationException } from '@homeservenow/serverless-aws-handler'
 import { PipelineDto } from '@/dto'
-import { PipelineModel } from '@/models'
+import { PipelineEntity } from '@/entities'
 import * as service from '@/services/pipeline'
 import { validate } from 'class-validator'
 import { ownership, resolveDeveloperId } from '@/utils'
@@ -9,7 +9,7 @@ import { defaultOutputHeaders } from './../../constants'
 /**
  * Update a given pipeline
  */
-export const pipelineUpdate = httpHandler<PipelineDto, PipelineModel>({
+export const pipelineUpdate = httpHandler<PipelineDto, PipelineEntity>({
   defaultOutputHeaders,
   validator: async (dto: PipelineDto): Promise<PipelineDto> => {
     const errors = await validate(dto)
@@ -20,7 +20,7 @@ export const pipelineUpdate = httpHandler<PipelineDto, PipelineModel>({
 
     return dto
   },
-  handler: async ({ body, event }): Promise<PipelineModel> => {
+  handler: async ({ body, event }): Promise<PipelineEntity> => {
     const developerId = await resolveDeveloperId(event)
 
     // TODO should this be body.toApiKey
@@ -32,6 +32,6 @@ export const pipelineUpdate = httpHandler<PipelineDto, PipelineModel>({
 
     await ownership(pipeline.developerId, developerId)
 
-    return service.updatePipelineModel(pipeline, body)
+    return service.updatePipelineEntity(pipeline, body)
   },
 })

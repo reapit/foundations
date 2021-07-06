@@ -1,15 +1,15 @@
 import { PipelineDto } from '../dto'
-import { PipelineModel } from '../models'
+import { PipelineEntity } from '../entities'
 import { db } from '../core'
 import { QueryIterator } from '@aws/dynamodb-data-mapper'
 
-export const createPipelineModel = (dto: Partial<PipelineModel>): Promise<PipelineModel> => {
-  return db.put(Object.assign(new PipelineModel(), dto))
+export const createPipelineEntity = (dto: Partial<PipelineEntity>): Promise<PipelineEntity> => {
+  return db.put(Object.assign(new PipelineEntity(), dto))
 }
 
-export const updatePipelineModel = (model: PipelineModel, dto: PipelineDto): Promise<PipelineModel> => {
+export const updatePipelineEntity = (model: PipelineEntity, dto: PipelineDto): Promise<PipelineEntity> => {
   return db.put(
-    Object.assign(new PipelineModel(), {
+    Object.assign(new PipelineEntity(), {
       ...model,
       ...dto,
       modified: new Date().toISOString(),
@@ -17,20 +17,20 @@ export const updatePipelineModel = (model: PipelineModel, dto: PipelineDto): Pro
   )
 }
 
-export const deletePipelineModel = async (model: PipelineModel): Promise<void> => {
+export const deletePipelineEntity = async (model: PipelineEntity): Promise<void> => {
   await db.delete(model)
 }
 
-export const findPipelineById = (id: string): Promise<PipelineModel | undefined> => {
-  return db.get(Object.assign(new PipelineModel(), { id }))
+export const findPipelineById = (id: string): Promise<PipelineEntity | undefined> => {
+  return db.get(Object.assign(new PipelineEntity(), { id }))
 }
 
 export const batchGetPipelines = async (
   developerId: string,
-  startKey?: Partial<PipelineModel>,
-): Promise<[QueryIterator<PipelineModel>, { nextCursor: string }]> => {
+  startKey?: Partial<PipelineEntity>,
+): Promise<[QueryIterator<PipelineEntity>, { nextCursor: string }]> => {
   const dynamoResponse = await db.query(
-    PipelineModel,
+    PipelineEntity,
     {
       developerId,
     },

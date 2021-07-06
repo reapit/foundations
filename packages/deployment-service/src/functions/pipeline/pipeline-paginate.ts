@@ -1,5 +1,5 @@
 import { httpHandler } from '@homeservenow/serverless-aws-handler'
-import { PipelineModel } from '@/models'
+import { PipelineEntity } from '@/entities'
 import * as service from '@/services/pipeline'
 import { resolveDeveloperId } from './../../utils'
 
@@ -18,7 +18,7 @@ export const pipelinePaginate = httpHandler({
   defaultOutputHeaders: {
     'Access-Control-Allow-Origin': '*',
   },
-  handler: async ({ event }): Promise<Pagintation<PipelineModel>> => {
+  handler: async ({ event }): Promise<Pagintation<PipelineEntity>> => {
     const developerId = await resolveDeveloperId(event)
 
     const response = await service.batchGetPipelines(
@@ -26,7 +26,7 @@ export const pipelinePaginate = httpHandler({
       event?.queryStringParameters?.nextCursor ? { id: event?.queryStringParameters?.nextCursor } : undefined,
     )
 
-    const pagination: Pagintation<PipelineModel> = {
+    const pagination: Pagintation<PipelineEntity> = {
       items: [],
       meta: response[1],
     }
