@@ -12,8 +12,10 @@ describe('Task Runner', () => {
   let pipeline: PipelineRunnerModelInterface
 
   beforeAll(async () => {
-    pipeline = await services.createPipelineRunnerModel({
-      pipelineId: uuid(),
+    pipeline = await services.createPipelineRunnerEntity({
+      pipeline: {
+        id: uuid(),
+      },
     })
     const tasks = await workflowCreation(pipeline, {
       appType: AppTypeEnum.NODE,
