@@ -215,10 +215,22 @@ functions:
             headers:
               - Content-Type
               - Authorization
-              - X-Api-Key
               - api-version
           authorizer:
             arn: arn:aws:cognito-idp:${self:provider.region}:${self:custom.env.AWS_ACCOUNT_ID}:userpool/${self:custom.env.CONNECT_USER_POOL}
+  apiPipelineCreate:
+    handler: src/index.pipelineCreate
+    events:
+      - http:
+          path: /api/pipeline
+          method: post
+          cors:
+            origin: '*'
+            headers:
+              - Content-Type
+              - Authorization
+              - X-Api-Key
+              - api-version
   pipelineUpdate:
     handler: src/index.pipelineUpdate
     events:
@@ -230,10 +242,22 @@ functions:
             headers:
               - Content-Type
               - Authorization
-              - X-Api-Key
               - api-version
           authorizer:
             arn: arn:aws:cognito-idp:${self:provider.region}:${self:custom.env.AWS_ACCOUNT_ID}:userpool/${self:custom.env.CONNECT_USER_POOL}
+  apiPipelineUpdate:
+    handler: src/index.pipelineUpdate
+    events:
+      - http:
+          path: /api/pipeline/{id}
+          method: put
+          cors:
+            origin: '*'
+            headers:
+              - Content-Type
+              - Authorization
+              - X-Api-Key
+              - api-version
   pipelineGet:
     handler: src/index.pipelineGet
     events:
@@ -245,10 +269,22 @@ functions:
             headers:
               - Content-Type
               - Authorization
-              - X-Api-Key
               - api-version
           authorizer:
             arn: arn:aws:cognito-idp:${self:provider.region}:${self:custom.env.AWS_ACCOUNT_ID}:userpool/${self:custom.env.CONNECT_USER_POOL}
+  apiPipelineGet:
+    handler: src/index.pipelineGet
+    events:
+      - http:
+          path: /api/pipeline/{id}
+          method: get
+          cors:
+            origin: '*'
+            headers:
+              - Content-Type
+              - Authorization
+              - X-Api-Key
+              - api-version
   pipelineDelete:
     handler: src/index.deletePipeline
     events:
@@ -260,10 +296,22 @@ functions:
             headers:
               - Content-Type
               - Authorization
-              - X-Api-Key
               - api-version
           authorizer:
             arn: arn:aws:cognito-idp:${self:provider.region}:${self:custom.env.AWS_ACCOUNT_ID}:userpool/${self:custom.env.CONNECT_USER_POOL}
+  apiPipelineDelete:
+    handler: src/index.deletePipeline
+    events:
+      - http:
+          path: /api/pipeline/{id}
+          method: delete
+          cors:
+            origin: '*'
+            headers:
+              - Content-Type
+              - Authorization
+              - X-Api-Key
+              - api-version
   pipelinePaginate:
     handler: src/index.pipelinePaginate
     events:
@@ -275,10 +323,22 @@ functions:
             headers:
               - Content-Type
               - Authorization
-              - X-Api-Key
               - api-version
           authorizer:
             arn: arn:aws:cognito-idp:${self:provider.region}:${self:custom.env.AWS_ACCOUNT_ID}:userpool/${self:custom.env.CONNECT_USER_POOL}
+  apiPipelinePaginate:
+    handler: src/index.pipelinePaginate
+    events:
+      - http:
+          path: /api/pipeline
+          method: get
+          cors:
+            origin: '*'
+            headers:
+              - Content-Type
+              - Authorization
+              - X-Api-Key
+              - api-version
   # createPipelineRunner:
   #   handler: src/index.pipelineRunnerCreate
   #   events:
@@ -357,10 +417,22 @@ functions:
             headers:
               - Content-Type
               - Authorization
-              - X-Api-Key
               - api-version
           authorizer:
             arn: arn:aws:cognito-idp:${self:provider.region}:${self:custom.env.AWS_ACCOUNT_ID}:userpool/${self:custom.env.CONNECT_USER_POOL}
+  apiDeployRelease:
+    handler: src/index.deployRelease
+    events:
+      - http:
+          path: /api/deploy/release/{project}/{version}
+          method: post
+          cors:
+            origin: '*'
+            headers:
+              - Content-Type
+              - Authorization
+              - X-Api-Key
+              - api-version
   deployReleases:
     handler: src/index.deployReleases
     events:
@@ -372,10 +444,22 @@ functions:
             headers:
               - Content-Type
               - Authorization
-              - X-Api-Key
               - api-version
           authorizer:
             arn: arn:aws:cognito-idp:${self:provider.region}:${self:custom.env.AWS_ACCOUNT_ID}:userpool/${self:custom.env.CONNECT_USER_POOL}
+  apiDeployReleases:
+    handler: src/index.deployReleases
+    events:
+      - http:
+          path: /api/deploy/release/{project}
+          method: get
+          cors:
+            origin: '*'
+            headers:
+              - Content-Type
+              - Authorization
+              - X-Api-Key
+              - api-version
   deployVersion:
     handler: src/index.deployVersion
     events:
@@ -387,7 +471,19 @@ functions:
             headers:
               - Content-Type
               - Authorization
-              - X-Api-Key
               - api-version
           authorizer:
             arn: arn:aws:cognito-idp:${self:provider.region}:${self:custom.env.AWS_ACCOUNT_ID}:userpool/${self:custom.env.CONNECT_USER_POOL}
+  apiDeployVersion:
+    handler: src/index.deployVersion
+    events:
+      - http:
+          path: /api/deploy/version/{project}/{version}
+          method: post
+          cors:
+            origin: '*'
+            headers:
+              - Content-Type
+              - Authorization
+              - X-Api-Key
+              - api-version
