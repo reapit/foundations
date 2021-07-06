@@ -67,16 +67,17 @@ export const pipelineRun = httpHandler({
     unzip()
 
     const projectDirName = resolve(dir, `${pipeline.repository.split('/').pop()}-master`)
-    // TODO use to install, build and deploy
+
+    // TODO convert logging to stream
 
     console.log('installing...', projectDirName)
 
     try {
       // TODO optional yarn usage
-      execSync('npm i', {
+      const yarn = execSync('npm i', {
         cwd: projectDirName,
       })
-      // console.log('yarn', yarn.toString())
+      yarn && console.log('yarn', yarn.toString())
     } catch (e) {
       console.log('yarn errors', e)
       console.log(e.output.toString())
@@ -86,43 +87,23 @@ export const pipelineRun = httpHandler({
       }
     }
 
-    return {
-      statusCode: 200,
+    console.log('building...', projectDirName)
+
+    try {
+      const build = execSync('npm run build', {
+        cwd: projectDirName,
+      })
+      console.log('yarn build', build.toString())
+    } catch (e) {
+      console.log('yarn build errors')
+      console.error(e)
+      console.log('npm build failed')
+      return {
+        statusCode: 500,
+        headers: defaultOutputHeaders,
+      }
     }
 
-    // try {
-    //   const yarn = execSync('npm run build', {
-    //     cwd: resolve(dir, cloneDir),
-    //   })
-    //   console.log('yarn build', yarn.toString())
-    // } catch (e) {
-    //   console.log('yarn build errors')
-    //   console.error(e)
-    //   console.log('npm build failed')
-    //   return {
-    //     statusCode: 500,
-    //     headers: defaultOutputHeaders,
-    //   }
-    // }
-
-    // try {
-    //   const serverless = execSync('serverless deploy', {
-    //     cwd: resolve(dir, cloneDir),
-    //   })
-    //   console.log('serverless', serverless.toString())
-    // } catch (e) {
-    //   console.log('sefverless error')
-    //   console.error(e)
-
-    //   return {
-    //     statusCode: 500,
-    //     headers: defaultOutputHeaders,
-    //   }
-    // }
-
-    // return {
-    //   statusCode: HttpStatusCode.OK,
-    //   body: pipeline,
-    // }
+    // TODO programmatically run CDK deploy
   },
 })
