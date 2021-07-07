@@ -13,7 +13,7 @@ const IndicatorDiv = styled.div`
   margin-top: -29px;
   font-size: 12px;
   line-height: 12px;
-  background: blue;
+  background: var(--intent-primary);
 
   svg {
     fill: #fff;
@@ -110,7 +110,7 @@ export const RenderNode = ({ render }) => {
     }
   }, [scroll])
 
-  const container = document.querySelector('.page-container')
+  const container = document.querySelector('#page-container')
 
   return (
     <>

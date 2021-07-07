@@ -30,11 +30,7 @@ export const PrivateRouteWrapper: React.FunctionComponent<PrivateRouteWrapperPro
   return (
     <MainContainer>
       <Menu />
-      <PageContainer>
-        <PageContainer>
-          <Suspense fallback={<Loader label="Loading" fullPage />}>{children}</Suspense>
-        </PageContainer>
-      </PageContainer>
+      <Suspense fallback={<Loader label="Loading" fullPage />}>{children}</Suspense>
     </MainContainer>
   )
 }

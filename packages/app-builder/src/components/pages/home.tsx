@@ -1,96 +1,17 @@
 // @ts-nocheck
-import React, { FC, useState, useEffect } from 'react'
-import { Button, SecondaryNavContainer, SecondaryNavItem } from '@reapit/elements'
-import { Editor, Frame, Element, useNode, useEditor } from '@craftjs/core'
-import ContentEditable from 'react-contenteditable'
+import React, { FC } from 'react'
+import { Editor, Frame, Element } from '@craftjs/core'
 
 import { RenderNode } from '../ui/RenderNode'
+import Viewport from '../ui/Viewport'
+import Container from '../ui/user/Container'
+import Text from '../ui/user/Text'
 
 export type AuthenticatedProps = {}
 
-const Text = ({ text, ...props }) => {
-  const {
-    connectors: { connect, drag },
-    selected,
-    actions: { setProp },
-  } = useNode((state) => ({
-    selected: state.events.selected,
-    dragged: state.events.dragged,
-  }))
-
-  const [editable, setEditable] = useState(false)
-
-  useEffect(() => {
-    if (selected) {
-      return
-    }
-
-    setEditable(false)
-  }, [selected])
-
-  return (
-    <div
-      {...props}
-      className="el-flex-auto"
-      ref={(ref) => connect(drag(ref))}
-      onClick={() => selected && setEditable(true)}
-    >
-      <ContentEditable
-        html={text}
-        disabled={!editable}
-        onChange={(e) => setProp((props) => (props.text = e.target.value.replace(/<\/?[^>]+(>|$)/g, '')), 500)}
-        tagName="p"
-      />
-    </div>
-  )
-}
-
-const Sidebar = () => {
-  const { connectors, query, actions } = useEditor()
-
-  return (
-    <SecondaryNavContainer>
-      <SecondaryNavItem>
-        <button ref={(ref) => connectors.create(ref, <Text text="Hi world" />)}>Drag to add text</button>
-      </SecondaryNavItem>
-      <SecondaryNavItem>
-        <Button
-          onClick={() => {
-            window.localStorage.saveState = query.serialize()
-          }}
-          intent="primary"
-        >
-          save
-        </Button>
-      </SecondaryNavItem>
-      <SecondaryNavItem>
-        <Button
-          onClick={() => {
-            const state = window.localStorage.saveState
-            if (!state) {
-              return alert('nothing to load')
-            }
-            actions.deserialize(state)
-          }}
-          intent="secondary"
-        >
-          load
-        </Button>
-      </SecondaryNavItem>
-    </SecondaryNavContainer>
-  )
-}
-
-const Container = ({ children }) => {
-  const {
-    connectors: { connect, drag },
-  } = useNode()
-  return <div ref={(ref) => connect(drag(ref))}>{children}</div>
-}
-
 export const Authenticated: FC<AuthenticatedProps> = () => {
   return (
-    <div className="page-container">
+    <div id="page-container" style={{ width: '100%' }}>
       <Editor
         resolver={{
           Text,
@@ -98,14 +19,21 @@ export const Authenticated: FC<AuthenticatedProps> = () => {
         }}
         onRender={RenderNode}
       >
-        <Sidebar />
-        <div style={{ minHeight: 800 }} className="craftjs-renderer">
+        <Viewport>
           <Frame>
-            <Element canvas is={Container}>
+            <Element
+              canvas
+              is={Container}
+              width="800px"
+              height="auto"
+              background="white"
+              padding={40}
+              custom={{ displayName: 'App' }}
+            >
               <Text text="I'm here by default!" />
             </Element>
           </Frame>
-        </div>
+        </Viewport>
       </Editor>
     </div>
   )
