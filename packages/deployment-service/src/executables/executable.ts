@@ -1,4 +1,5 @@
-import { PipelineEntity, TaskEntity } from '@/entities'
+import { PipelineEntity } from './../entities/pipeline.entity'
+import { TaskEntity } from './../entities/task.entity'
 import { TaskRunnerFunctions } from '@reapit/foundations-ts-definitions'
 import { build } from './build'
 import { deployNode } from './deploy-node'
