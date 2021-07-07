@@ -74,14 +74,14 @@ describe('getDefaultNavIndex', () => {
     },
     {
       route: Routes.WEBHOOKS,
+      index: 3,
+    },
+    {
+      route: Routes.ELEMENTS,
       index: 4,
     },
     {
       route: Routes.API_DOCS,
-      index: 5,
-    },
-    {
-      route: Routes.ELEMENTS,
       index: 5,
     },
     {

@@ -3,38 +3,22 @@ import {
   Button,
   elHFull,
   elMb3,
-  elMb8,
   FlexContainer,
   Icon,
   PageContainer,
-  SecondaryNav,
   SecondaryNavContainer,
-  SecondaryNavItem,
   Subtitle,
   Title,
 } from '@reapit/elements'
 import React, { FC } from 'react'
-import { useHistory, useLocation } from 'react-router'
-import Routes from '../../../constants/routes'
-import { openNewPage, ExternalPages, navigate } from '../../../utils/navigation'
+import { openNewPage, ExternalPages } from '../../../utils/navigation'
 import { iframeWrapper } from './__styles__/index'
 
 export const ElementsPage: FC = () => {
-  const location = useLocation()
-  const history = useHistory()
-  const { pathname } = location
   return (
     <FlexContainer isFlexAuto>
       <SecondaryNavContainer>
-        <Title>Docs</Title>
-        <SecondaryNav className={elMb8}>
-          <SecondaryNavItem onClick={navigate(history, Routes.API_DOCS)} active={pathname === Routes.API_DOCS}>
-            API Docs
-          </SecondaryNavItem>
-          <SecondaryNavItem onClick={navigate(history, Routes.ELEMENTS)} active={pathname === Routes.ELEMENTS}>
-            Elements
-          </SecondaryNavItem>
-        </SecondaryNav>
+        <Title>UI</Title>
         <Icon icon="elementsInfographic" iconSize="large" />
         <Subtitle>Reapit Elements</Subtitle>
         <BodyText hasGreyText>

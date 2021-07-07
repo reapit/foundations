@@ -85,7 +85,10 @@ export const GraphQLPage: FC = () => {
         <Title>API</Title>
         <SecondaryNav className={elMb8}>
           <SecondaryNavItem onClick={navigate(history, Routes.SWAGGER)} active={pathname === Routes.SWAGGER}>
-            Foundations API
+            REST API
+          </SecondaryNavItem>
+          <SecondaryNavItem onClick={navigate(history, Routes.WEBHOOKS)} active={pathname === Routes.WEBHOOKS}>
+            Webhooks
           </SecondaryNavItem>
           <SecondaryNavItem onClick={navigate(history, Routes.GRAPHQL)} active={pathname === Routes.GRAPHQL}>
             GraphQL

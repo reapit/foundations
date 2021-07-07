@@ -2,7 +2,7 @@ import * as React from 'react'
 import { useHistory } from 'react-router'
 import { useSelector } from 'react-redux'
 import { History } from 'history'
-import { Pagination, Section, H3, Button } from '@reapit/elements-legacy'
+import { Pagination } from '@reapit/elements-legacy'
 import AppList from '@/components/ui/apps/app-list'
 import ErrorBoundary from '@/components/hocs/error-boundary'
 import { SandboxPopUp } from '@/components/ui/popup/sandbox-pop-up'
@@ -11,7 +11,24 @@ import { getParamValueFromPath } from '@/utils/client-url-params'
 import Routes from '@/constants/routes'
 import { SubmitAppWizardModal } from '@/components/ui/submit-app-wizard'
 import { selectAppListState } from '@/selector/apps/app-list'
-import { Loader } from '@reapit/elements'
+import {
+  BodyText,
+  Button,
+  elHFull,
+  elMb3,
+  elMb8,
+  FlexContainer,
+  Icon,
+  Loader,
+  PageContainer,
+  SecondaryNav,
+  SecondaryNavContainer,
+  SecondaryNavItem,
+  Subtitle,
+  Title,
+} from '@reapit/elements'
+import { navigate, openNewPage, ExternalPages } from '../../../utils/navigation'
+import { useLocation } from 'react-router-dom'
 
 export const handleOnCardClick = (history: History) => (app: AppSummaryModel) => {
   history.push(`${Routes.APPS}/${app.id}`)
@@ -27,6 +44,8 @@ export const onCloseSubmitAppModal = (setSubmitAppModalVisible: React.Dispatch<R
 
 export const Apps: React.FC = () => {
   const history = useHistory()
+  const location = useLocation()
+  const { pathname } = location
   const { isLoading, data = [], totalCount, pageSize } = useSelector(selectAppListState)
   const [submitAppModalVisible, setSubmitAppModalVisible] = React.useState<boolean>(false)
 
@@ -43,34 +62,53 @@ export const Apps: React.FC = () => {
 
   return (
     <ErrorBoundary>
-      <Section className="justify-between items-center" isFlex hasPadding={false}>
-        <H3 className="mb-0">My Apps</H3>
-        <Button onClick={onShowSubmitAppModal(setSubmitAppModalVisible)} type="button" variant="primary">
-          Create new app
-        </Button>
-        <SubmitAppWizardModal
-          visible={submitAppModalVisible}
-          onClose={onCloseSubmitAppModal(setSubmitAppModalVisible)}
-        />
-      </Section>
-      {unfetched || isLoading ? (
-        <Loader label="Loading" fullPage />
-      ) : (
-        <>
-          <AppList
-            list={data}
-            loading={isLoading}
-            onCardClick={handleOnCardClick(history)}
-            infoType="DEVELOPER_APPS_EMPTY"
-          />
-          <Pagination
-            totalCount={totalCount}
-            pageSize={pageSize}
-            pageNumber={pageNumber}
-            onChange={handleOnChange(history)}
-          />
-        </>
-      )}
+      <FlexContainer isFlexAuto>
+        <SecondaryNavContainer>
+          <Title>Apps</Title>
+          <SecondaryNav className={elMb8}>
+            <SecondaryNavItem
+              onClick={navigate(history, Routes.APPS)}
+              active={pathname === Routes.APPS && !submitAppModalVisible}
+            >
+              My Apps
+            </SecondaryNavItem>
+            <SecondaryNavItem onClick={onShowSubmitAppModal(setSubmitAppModalVisible)} active={submitAppModalVisible}>
+              Create New App
+            </SecondaryNavItem>
+          </SecondaryNav>
+          <Icon icon="myAppsInfographic" iconSize="large" />
+          <Subtitle>Apps Documentation</Subtitle>
+          <BodyText hasGreyText>
+            This is the dashboard for your applications created using the Reapit Foundations platform. If you have not
+            created an app before or you need help, please take the time to view our getting started guide.
+          </BodyText>
+          <Button className={elMb3} intent="neutral" onClick={openNewPage(ExternalPages.developerPortalDocs)}>
+            View Docs
+          </Button>
+        </SecondaryNavContainer>
+        <PageContainer className={elHFull}>
+          <Title>My Apps</Title>
+          {unfetched || isLoading ? (
+            <Loader label="Loading" fullPage />
+          ) : (
+            <>
+              <AppList
+                list={data}
+                loading={isLoading}
+                onCardClick={handleOnCardClick(history)}
+                infoType="DEVELOPER_APPS_EMPTY"
+              />
+              <Pagination
+                totalCount={totalCount}
+                pageSize={pageSize}
+                pageNumber={pageNumber}
+                onChange={handleOnChange(history)}
+              />
+            </>
+          )}
+        </PageContainer>
+      </FlexContainer>
+      <SubmitAppWizardModal visible={submitAppModalVisible} onClose={onCloseSubmitAppModal(setSubmitAppModalVisible)} />
       <SandboxPopUp loading={isLoading} />
     </ErrorBoundary>
   )

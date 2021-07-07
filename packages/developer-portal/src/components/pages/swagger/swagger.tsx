@@ -68,7 +68,10 @@ export const SwaggerPage: FC = () => {
           <Title>API</Title>
           <SecondaryNav className={elMb8}>
             <SecondaryNavItem onClick={navigate(history, Routes.SWAGGER)} active={pathname === Routes.SWAGGER}>
-              Foundations API
+              REST API
+            </SecondaryNavItem>
+            <SecondaryNavItem onClick={navigate(history, Routes.WEBHOOKS)} active={pathname === Routes.WEBHOOKS}>
+              Webhooks
             </SecondaryNavItem>
             <SecondaryNavItem onClick={navigate(history, Routes.GRAPHQL)} active={pathname === Routes.GRAPHQL}>
               GraphQL
@@ -76,20 +79,6 @@ export const SwaggerPage: FC = () => {
           </SecondaryNav>
           <Icon icon="apiInfographic" iconSize="large" />
           <Subtitle>Open API Specification</Subtitle>
-          <BodyText hasGreyText>
-            This tool is interactive and provides instant access to data hosted in our sandbox environment with
-            authentication and versioning headers pre-populated. Example requests and responses are shown by default but
-            you can switch to view a fully documented schema - look for the model link.
-          </BodyText>
-          <Button className={elMb3} intent="neutral" onClick={openNewPage(ExternalPages.platformAPIDocs)}>
-            View Docs
-          </Button>
-          <Button className={elMb3} intent="neutral" onClick={navigate(history, Routes.HELP)}>
-            See Help
-          </Button>
-          <Button className={elMb3} intent="neutral" onClick={openNewPage(ExternalPages.glossaryDocs)}>
-            See Glossary
-          </Button>
           <div>
             <Label>API Version</Label>
             <p className={elMb3}>2020-01-31</p>
@@ -98,10 +87,27 @@ export const SwaggerPage: FC = () => {
             <Label>API Location</Label>
             <p className={elMb3}>https://platform.reapit.cloud</p>
           </div>
-          <div>
-            <Label>API Document Path</Label>
-            <p className={elMb3}> /docs</p>
-          </div>
+          <BodyText hasGreyText>
+            This tool is interactive and provides instant access to data hosted in our sandbox environment with
+            authentication and versioning headers pre-populated. Example requests and responses are shown by default but
+            you can switch to view a fully documented schema - look for the model link.
+          </BodyText>
+          <Button className={elMb3} intent="neutral" onClick={openNewPage(ExternalPages.platformAPIDocs)}>
+            View Docs
+          </Button>
+          <Button
+            className={elMb3}
+            intent="neutral"
+            onClick={openNewPage(`${window.reapit.config.platformApiUrl}/docs`)}
+          >
+            Download Spec
+          </Button>
+          <Button className={elMb3} intent="neutral" onClick={navigate(history, Routes.HELP)}>
+            See Help
+          </Button>
+          <Button className={elMb3} intent="neutral" onClick={openNewPage(ExternalPages.glossaryDocs)}>
+            See Glossary
+          </Button>
         </SecondaryNavContainer>
         {(loading || !connectSession?.accessToken) && <Loader label="Loading" fullPage />}
         <div className={cx(swagger, loading && swaggerHidden)}>

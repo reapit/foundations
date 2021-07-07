@@ -116,7 +116,7 @@ export const subscribeContainerExpanded = css`
 
 export const subscribeContainerContracted = css`
   transition: height 0.3s linear, width 0.3s linear;
-  height: 12.25rem;
+  height: 15rem;
   width: 15rem;
 `
 
