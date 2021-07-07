@@ -2,22 +2,40 @@ import { useNode, useEditor } from '@craftjs/core'
 import { ROOT_NODE } from '@craftjs/utils'
 import React, { useEffect, useRef, useCallback } from 'react'
 import ReactDOM from 'react-dom'
-import styled from 'styled-components'
+import styled, { createGlobalStyle } from 'styled-components'
 
-import ArrowUp from '../icons/arrow-up.svg'
-import Delete from '../icons/delete.svg'
-import Move from '../icons/move.svg'
+import ArrowUp from '../icons/arrow-up'
+import Delete from '../icons/delete'
+import Move from '../icons/move'
 
 const IndicatorDiv = styled.div`
   height: 30px;
   margin-top: -29px;
   font-size: 12px;
   line-height: 12px;
+  background: blue;
 
   svg {
     fill: #fff;
     width: 15px;
     height: 15px;
+  }
+`
+
+const Globals = createGlobalStyle`
+  .component-selected {
+    position: relative;
+  }
+  .component-selected:after {
+    content: " ";
+    border: 1px dashed #2680eb;
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    left: 0;
+    top: 0;
+    pointer-events: none;
+    display: block;
   }
 `
 
@@ -60,16 +78,15 @@ export const RenderNode = ({ render }) => {
   const currentRef = useRef<HTMLDivElement>()
 
   useEffect(() => {
-    if (dom) {
-      if (isActive || isHover) dom.classList.add('component-selected')
-      else dom.classList.remove('component-selected')
+    if (isActive || isHover) {
+      dom?.classList.add('component-selected')
+    } else {
+      dom?.classList.remove('component-selected')
     }
   }, [dom, isActive, isHover])
 
   const getPos = useCallback((dom: HTMLElement) => {
-    const { top, left, bottom } = dom
-      ? dom.getBoundingClientRect()
-      : { top: 0, left: 0, bottom: 0 }
+    const { top, left, bottom } = dom ? dom.getBoundingClientRect() : { top: 0, left: 0, bottom: 0 }
     return {
       top: `${top > 0 ? top : bottom}px`,
       left: `${left}px`,
@@ -86,14 +103,10 @@ export const RenderNode = ({ render }) => {
   }, [dom, getPos])
 
   useEffect(() => {
-    document
-      .querySelector('.craftjs-renderer')
-      ?.addEventListener('scroll', scroll)
+    document.querySelector('.craftjs-renderer')?.addEventListener('scroll', scroll)
 
     return () => {
-      document
-        .querySelector('.craftjs-renderer')
-        ?.removeEventListener('scroll', scroll)
+      document.querySelector('.craftjs-renderer')?.removeEventListener('scroll', scroll)
     }
   }, [scroll])
 
@@ -101,6 +114,7 @@ export const RenderNode = ({ render }) => {
 
   return (
     <>
+      <Globals />
       {(isHover || isActive) && container && dom
         ? ReactDOM.createPortal(
             <IndicatorDiv
@@ -140,7 +154,7 @@ export const RenderNode = ({ render }) => {
                 </Btn>
               ) : null}
             </IndicatorDiv>,
-            container
+            container,
           )
         : null}
       {render}

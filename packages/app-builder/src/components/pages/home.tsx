@@ -1,10 +1,10 @@
 // @ts-nocheck
 import React, { FC, useState, useEffect } from 'react'
-import { FlexContainer, Button, SecondaryNavContainer, SecondaryNavItem } from '@reapit/elements'
+import { Button, SecondaryNavContainer, SecondaryNavItem } from '@reapit/elements'
 import { Editor, Frame, Element, useNode, useEditor } from '@craftjs/core'
 import ContentEditable from 'react-contenteditable'
 
-import {RenderNode} from '../ui/RenderNode'
+import { RenderNode } from '../ui/RenderNode'
 
 export type AuthenticatedProps = {}
 
@@ -38,13 +38,7 @@ const Text = ({ text, ...props }) => {
       <ContentEditable
         html={text}
         disabled={!editable}
-        onChange={(e) =>
-          setProp(
-            (props) =>
-              (props.text = e.target.value.replace(/<\/?[^>]+(>|$)/g, '')),
-            500
-          )
-        }
+        onChange={(e) => setProp((props) => (props.text = e.target.value.replace(/<\/?[^>]+(>|$)/g, '')), 500)}
         tagName="p"
       />
     </div>
@@ -60,18 +54,28 @@ const Sidebar = () => {
         <button ref={(ref) => connectors.create(ref, <Text text="Hi world" />)}>Drag to add text</button>
       </SecondaryNavItem>
       <SecondaryNavItem>
-          <Button onClick={() => {
+        <Button
+          onClick={() => {
             window.localStorage.saveState = query.serialize()
-          }} intent="primary">save</Button>
+          }}
+          intent="primary"
+        >
+          save
+        </Button>
       </SecondaryNavItem>
       <SecondaryNavItem>
-          <Button onClick={() => {
+        <Button
+          onClick={() => {
             const state = window.localStorage.saveState
             if (!state) {
               return alert('nothing to load')
             }
             actions.deserialize(state)
-          }} intent="secondary">load</Button>
+          }}
+          intent="secondary"
+        >
+          load
+        </Button>
       </SecondaryNavItem>
     </SecondaryNavContainer>
   )
@@ -81,36 +85,29 @@ const Container = ({ children }) => {
   const {
     connectors: { connect, drag },
   } = useNode()
-  return (
-    <div ref={(ref) => connect(drag(ref))}>{children}</div>
-  )
+  return <div ref={(ref) => connect(drag(ref))}>{children}</div>
 }
 
 export const Authenticated: FC<AuthenticatedProps> = () => {
-
   return (
-    <FlexContainer className="page-container">
-      <Editor resolver={{
-        Text,
-        Container,
-      }} 
-      onRender={RenderNode}
+    <div className="page-container">
+      <Editor
+        resolver={{
+          Text,
+          Container,
+        }}
+        onRender={RenderNode}
       >
         <Sidebar />
         <div style={{ minHeight: 800 }} className="craftjs-renderer">
           <Frame>
-            <Element
-              canvas
-              is={Container}
-            >
-              <Text
-                text="I'm here by default!"
-              />
+            <Element canvas is={Container}>
+              <Text text="I'm here by default!" />
             </Element>
           </Frame>
         </div>
       </Editor>
-    </FlexContainer>
+    </div>
   )
 }
 
