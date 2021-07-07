@@ -23,6 +23,8 @@
   "dependencies": {
     "@linaria/core": "^3.0.0-beta.4",
     "@linaria/react": "^3.0.0-beta.7",
+    "@craftjs/core": "^0.1.0-beta.19",
+    "@material-ui/core": "^4.12.0",
     "@reapit/connect-session": "workspace:packages/connect-session",
     "@reapit/elements": "workspace:packages/elements",
     "@reapit/elements-legacy": "workspace:packages/elements-legacy",
@@ -30,6 +32,7 @@
     "dayjs": "^1.10.6",
     "react": "^17.0.2",
     "react-dom": "^17.0.2",
+    "react-contenteditable": "^3.3.5",
     "react-ga": "^2.7.0",
     "react-router": "^5.2.0",
     "react-router-dom": "^5.2.0",
