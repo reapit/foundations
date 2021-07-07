@@ -1,6 +1,6 @@
 import { PipelineDto } from '../dto'
-import { PipelineEntity } from '../entities'
-import { connect } from '@/core'
+import { PipelineEntity } from '../entities/pipeline.entity'
+import { connect } from './../core'
 import { Pagination, paginate } from 'nestjs-typeorm-paginate'
 
 export const createPipelineEntity = async (dto: Partial<PipelineEntity>): Promise<PipelineEntity> => {

@@ -1,7 +1,7 @@
 import { httpHandler, NotFoundException } from '@homeservenow/serverless-aws-handler'
-import { PipelineEntity } from '@/entities'
-import * as service from '@/services/pipeline'
-import { ownership, resolveDeveloperId } from '@/utils'
+import { PipelineEntity } from './../../entities/pipeline.entity'
+import * as service from './../../services/pipeline'
+import { ownership, resolveDeveloperId } from './../../utils'
 import { defaultOutputHeaders } from './../../constants'
 
 /**

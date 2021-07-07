@@ -1,9 +1,9 @@
 import { httpHandler, NotFoundException, ValidationException } from '@homeservenow/serverless-aws-handler'
-import { PipelineDto } from '@/dto'
-import { PipelineEntity } from '@/entities'
-import * as service from '@/services/pipeline'
+import { PipelineDto } from './../../dto'
+import { PipelineEntity } from './../../entities/pipeline.entity'
+import * as service from './../../services/pipeline'
 import { validate } from 'class-validator'
-import { ownership, resolveDeveloperId } from '@/utils'
+import { ownership, resolveDeveloperId } from './../../utils'
 import { defaultOutputHeaders } from './../../constants'
 
 /**
