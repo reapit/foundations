@@ -17,13 +17,14 @@ describe('fetchInstallationsListSaga sagas', () => {
   const installationsParams = {
     data: {
       appId: ['1'],
+      clientId: ['SBOX', 'SBOX'],
     },
   }
 
   describe('fetchInstallationsFilterListSaga', () => {
     const gen = cloneableGenerator(fetchInstallationsFilterListSaga)(installationsParams)
     expect(gen.next().value).toEqual(getDeveloperId())
-    expect(gen.next().value).toEqual(call(fetchInstallationsList, { ...installationsParams.data }))
+    expect(gen.next().value).toEqual(call(fetchInstallationsList, { ...installationsParams.data, clientId: ['SBOX'] }))
 
     test('api call success', () => {
       const clone = gen.clone()

@@ -22,5 +22,6 @@ describe('navigate', () => {
     curried()
 
     expect(mockHistory.push).toHaveBeenCalledWith(Routes.APPS)
+    expect(document.title).toEqual('Developers')
   })
 })
