@@ -29,6 +29,8 @@ import maisonetteInfographic from './infographic-icons/maisonetteInfographic'
 import vendorInfographic from './infographic-icons/vendorInfographic'
 import designInfographic from './infographic-icons/designInfographic'
 import apiDocsInfographic from './infographic-icons/apiDocsInfographic'
+import myAppsInfographic from './infographic-icons/myAppsInfographic'
+import webhooksInfographic from './infographic-icons/webhooksInfographic'
 import accountMenu from './menu-icons/accountMenu'
 import analyticsMenu from './menu-icons/analyticsMenu'
 import apiMenu from './menu-icons/apiMenu'
@@ -54,6 +56,7 @@ import resultsMenu from './menu-icons/resultsMenu'
 import searchMenu from './menu-icons/searchMenu'
 import usersMenu from './menu-icons/usersMenu'
 import webhooksMenu from './menu-icons/webhooksMenu'
+import uiMenu from './menu-icons/uiMenu'
 import hamburgerMenu from './menu-icons/hamburgerMenu'
 import hamburgerOpenMenu from './menu-icons/hamburgerOpenMenu'
 import reapitLogoTextMenu from './menu-icons/reapitLogoTextMenu'
@@ -180,6 +183,7 @@ export const iconSet = {
   searchMenu,
   usersMenu,
   webhooksMenu,
+  uiMenu,
   hamburgerMenu,
   hamburgerOpenMenu,
   reapitLogoTextMenu,
@@ -214,4 +218,6 @@ export const iconSet = {
   vendorInfographic,
   designInfographic,
   apiDocsInfographic,
+  myAppsInfographic,
+  webhooksInfographic,
 }
