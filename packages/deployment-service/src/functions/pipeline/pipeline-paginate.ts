@@ -1,6 +1,6 @@
 import { httpHandler } from '@homeservenow/serverless-aws-handler'
-import { PipelineEntity } from '@/entities'
-import * as service from '@/services/pipeline'
+import { PipelineEntity } from './../../entities/pipeline.entity'
+import * as service from './../../services/pipeline'
 import { resolveDeveloperId } from './../../utils'
 import { Pagination } from 'nestjs-typeorm-paginate'
 

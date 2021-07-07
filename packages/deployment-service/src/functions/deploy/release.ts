@@ -1,4 +1,4 @@
-import { resolveDeveloperId } from '@/utils'
+import { resolveDeveloperId } from './../../utils'
 import { BadRequestException, httpHandler, NotFoundException } from '@homeservenow/serverless-aws-handler'
 import { s3Client } from '../../services'
 import AdmZip from 'adm-zip'

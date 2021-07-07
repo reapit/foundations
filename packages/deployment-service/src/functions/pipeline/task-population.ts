@@ -1,5 +1,6 @@
-import { PipelineEntity, TaskEntity } from '@/entities'
-import { createBatchTasks } from '@/services'
+import { PipelineEntity } from './../../entities/pipeline.entity'
+import { TaskEntity } from './../../entities/task.entity'
+import { createBatchTasks } from './../../services'
 import {
   AppTypeEnum,
   PipelineModelInterface,

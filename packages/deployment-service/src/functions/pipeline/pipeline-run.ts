@@ -1,5 +1,5 @@
-import { findPipelineById } from '@/services'
-import { ownership } from '@/utils'
+import { findPipelineById } from './../../services'
+import { ownership } from './../../utils'
 import { resolveDeveloperId } from '../../utils'
 import { httpHandler, HttpStatusCode, NotFoundException } from '@homeservenow/serverless-aws-handler'
 import { execSync } from 'child_process'

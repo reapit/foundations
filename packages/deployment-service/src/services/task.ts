@@ -1,5 +1,6 @@
 import { connect } from '@/core'
-import { PipelineRunnerEntity, TaskEntity } from '@/entities'
+import { PipelineRunnerEntity } from './../entities/pipeline-runner.entity'
+import { TaskEntity } from './../entities/task.entity'
 
 export const createTask = async (dto: Partial<TaskEntity> & { pipelineId: string }): Promise<TaskEntity> => {
   const connection = await connect()

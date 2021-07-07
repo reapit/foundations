@@ -1,5 +1,5 @@
-import { PipelineRunnerEntity } from '../entities'
-import { connect } from '@/core'
+import { PipelineRunnerEntity } from '../entities/pipeline-runner.entity'
+import { connect } from './../core'
 
 export const createPipelineRunnerEntity = async (dto: Partial<PipelineRunnerEntity>): Promise<PipelineRunnerEntity> => {
   const connection = await connect()
