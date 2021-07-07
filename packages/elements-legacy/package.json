@@ -1,5 +1,5 @@
 {
-  "name": "@reapit/elements",
+  "name": "@reapit/elements-legacy",
   "version": "2.1.2",
   "description": "A collection of React components and utilities for building apps for Reapit Marketplace",
   "homepage": "https://github.com/reapit/foundations#readme",
