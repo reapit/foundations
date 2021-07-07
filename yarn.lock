@@ -17371,6 +17371,7 @@ __metadata:
     "@homeservenow/serverless-aws-handler": ^0.2.4
     "@reapit/api-key-verify": "workspace:packages/api-key-verify"
     "@reapit/config-manager": "workspace:packages/config-manager"
+    "@reapit/connect-session": "workspace:packages/connect-session"
     "@reapit/utils": "workspace:packages/utils"
     "@types/adm-zip": ^0.4.34
     adm-zip: ^0.5.5

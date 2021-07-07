@@ -3,6 +3,7 @@
   "dependencies": {
     "@homeservenow/serverless-aws-handler": "^0.2.4",
     "@reapit/api-key-verify": "workspace:packages/api-key-verify",
+    "@reapit/connect-session": "workspace:packages/connect-session",
     "@reapit/utils": "workspace:packages/utils",
     "adm-zip": "^0.5.5",
     "class-transformer": "^0.4.0",
