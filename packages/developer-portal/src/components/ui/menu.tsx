@@ -50,12 +50,12 @@ export const getDefaultNavIndex = (pathname: string) => {
     case Routes.ANALYTICS_TAB:
       return 2
     case Routes.SWAGGER:
+    case Routes.WEBHOOKS:
     case Routes.GRAPHQL:
       return 3
-    case Routes.WEBHOOKS:
+    case Routes.ELEMENTS:
       return 4
     case Routes.API_DOCS:
-    case Routes.ELEMENTS:
       return 5
     case Routes.DESKTOP:
       return 6
@@ -109,6 +109,12 @@ export const Menu: React.FunctionComponent = () => {
             },
             {
               itemIndex: 1,
+              callback: navigate(history, Routes.WEBHOOKS),
+              iconId: 'webhooksMenu',
+              text: 'Webhooks',
+            },
+            {
+              itemIndex: 2,
               callback: navigate(history, Routes.GRAPHQL),
               text: 'GraphQL',
             },
@@ -116,25 +122,20 @@ export const Menu: React.FunctionComponent = () => {
         },
         {
           itemIndex: 4,
-          callback: navigate(history, Routes.WEBHOOKS),
-          iconId: 'webhooksMenu',
-          text: 'Webhooks',
+          callback: navigate(history, Routes.ELEMENTS),
+          iconId: 'uiMenu',
+          text: 'UI',
         },
         {
           itemIndex: 5,
           callback: navigate(history, Routes.API_DOCS),
-          iconId: 'apiMenu',
+          iconId: 'docsMenu',
           text: 'Docs',
           subItems: [
             {
-              itemIndex: 2,
+              itemIndex: 3,
               callback: navigate(history, Routes.API_DOCS),
               text: 'Docs',
-            },
-            {
-              itemIndex: 3,
-              callback: navigate(history, Routes.ELEMENTS),
-              text: 'Elements',
             },
           ],
         },

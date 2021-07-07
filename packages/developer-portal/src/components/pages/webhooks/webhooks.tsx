@@ -2,18 +2,13 @@ import React, { ReactElement, SetStateAction, useEffect, useState } from 'react'
 import qs from 'query-string'
 import { History } from 'history'
 import {
-  Content,
   SelectBoxOptions,
   Section,
-  Helper,
   Pagination,
   Grid,
   GridItem,
-  H5,
   SelectBox,
-  H3,
   LevelRight,
-  Button,
   Table,
 } from '@reapit/elements-legacy'
 import { useSelector, useDispatch } from 'react-redux'
@@ -29,7 +24,7 @@ import FormikAutoSave from '@/components/hocs/formik-auto-save'
 import WebhookEditModal from './webhook-edit-modal'
 import { selectDeveloper } from '@/selector/developer'
 import WebhookTestModal from './webhook-test-modal'
-import { link, hyperlinked } from '@/styles/elements/link'
+import { hyperlinked } from '@/styles/elements/link'
 import { selectAppListState } from '@/selector/apps/app-list'
 import { fetchWebhooksTopics } from '@/actions/webhooks-topics'
 import { useHistory } from 'react-router-dom'
@@ -37,7 +32,25 @@ import { TopicModel, WebhookModel } from '@/services/webhooks'
 import { URLS } from '@/services/constants'
 import FadeIn from '../../../styles/fade-in'
 import { WebhooksLogsTable } from './webhook-logs-table'
-import { Loader } from '@reapit/elements'
+import {
+  BodyText,
+  Button,
+  elMb3,
+  elMb8,
+  elWFull,
+  FlexContainer,
+  Icon,
+  Loader,
+  PageContainer,
+  PersistantNotification,
+  SecondaryNav,
+  SecondaryNavContainer,
+  SecondaryNavItem,
+  Subtitle,
+  Title,
+} from '@reapit/elements'
+import Routes from '../../../constants/routes'
+import { navigate, openNewPage, ExternalPages } from '../../../utils/navigation'
 
 export const WEBHOOK_PAGE_SIZE = 5
 
@@ -165,8 +178,8 @@ export const getTableTopicsData = ({
     active: subscription.active ? 'Active' : 'Inactive',
     edit: (
       <Button
-        dataTest="edit-btn"
-        variant="primary"
+        data-test="edit-btn"
+        intent="primary"
         type="button"
         onClick={() => {
           handleOpenEditModal(subscription.id as string)
@@ -193,6 +206,7 @@ export const DeveloperWebhooks = () => {
   const applicationId = queryParams.applicationId
   const [webhookId, setWebhookId] = useState<string | undefined>()
   const [pageNumber, setPageNumber] = useState<number>(1)
+  const { pathname } = location
   useEffect(() => {
     if (applicationId) {
       dispatch(fetchWebhooksSubscriptions({ applicationId: [applicationId] as string[], pageNumber }))
@@ -222,106 +236,122 @@ export const DeveloperWebhooks = () => {
 
   return (
     <>
-      <H3>Webhooks</H3>
-      <FadeIn>
-        <Section hasPadding={false}>
-          <Content>
-            Our webhooks system allows your application to directly subscribe to events happening in our customers data.
-            Rather than needing to make API calls to poll for new information, a webhook subscription can be created to
-            allow Reapit Foundations to send a HTTP request directly to your endpoints that you configure here.
-          </Content>
-          <Content>
+      <FlexContainer className={elWFull} isFlexInitial>
+        <SecondaryNavContainer>
+          <Title>API</Title>
+          <SecondaryNav className={elMb8}>
+            <SecondaryNavItem onClick={navigate(history, Routes.SWAGGER)} active={pathname === Routes.SWAGGER}>
+              REST API
+            </SecondaryNavItem>
+            <SecondaryNavItem onClick={navigate(history, Routes.WEBHOOKS)} active={pathname === Routes.WEBHOOKS}>
+              Webhooks
+            </SecondaryNavItem>
+            <SecondaryNavItem onClick={navigate(history, Routes.GRAPHQL)} active={pathname === Routes.GRAPHQL}>
+              GraphQL
+            </SecondaryNavItem>
+          </SecondaryNav>
+          <Icon icon="webhooksInfographic" iconSize="large" />
+          <Subtitle>Webhooks Documentation</Subtitle>
+          <BodyText hasGreyText>
             This system is designed to flexibly work with how your application is built and deployed. If you wish, you
             can set up a single endpoint to catch all topics for all customers. Alternatively, you may wish to set up a
             different webhook subscription per topic or per customer. For more information about Webhooks, please see
-            our{' '}
-            <a
-              className={link}
-              href="https://foundations-documentation.reapit.cloud/api/webhooks"
-              target="_blank"
-              rel="noopener noreferrer"
-            >
-              webhooks documentation
-            </a>
-          </Content>
-          <Helper variant="info">
-            Please note that apps and integrations developed using Webhooks for topics other than application
-            install/uninstall will only be visible in the Marketplace to customers who have been migrated to AWS.{' '}
-          </Helper>
-        </Section>
-        <H5>Manage Webhook Subscriptions</H5>
-        <Grid>
-          <GridItem>
-            <Formik
-              initialValues={{
-                applicationId: applicationId || '',
-              }}
-              enableReinitialize={true}
-              onSubmit={() => {}}
-            >
-              {() => (
-                <Form>
-                  <SelectBox
-                    className="pt-2 pb-2"
-                    name="applicationId"
-                    options={applicationOptions}
-                    labelText="Please select an App from the list below to view the associated Webhooks:"
-                    id="subscription"
-                  />
-                  <FormikAutoSave onSave={handleSubscriptionChange(history, setPageNumber)} />
-                </Form>
-              )}
-            </Formik>
-          </GridItem>
-          <GridItem>
-            {applicationId && (
-              <LevelRight>
-                <Button dataTest="logout-btn" variant="primary" type="button" onClick={handleOpenCreateModal}>
-                  Add New Webhook
-                </Button>
-              </LevelRight>
-            )}
-          </GridItem>
-        </Grid>
-        {unfetched || loading || subscriptionsLoading ? (
-          <Loader label="Loading" fullPage />
-        ) : subscriptions?.length ? (
-          <Table
-            scrollable
-            columns={columns}
-            data={getTableTopicsData({ subscriptions, handleOpenEditModal, topics, handleOpenTestModal })}
-            loading={false}
-          />
-        ) : null}
-        <Section hasPadding={false}>
-          <Pagination
-            className="mb-0 pb-0"
-            pageNumber={pageNumber}
-            onChange={handleSetPageNumber(setPageNumber)}
-            pageSize={WEBHOOK_PAGE_SIZE}
-            totalCount={totalCount ?? 0}
-          />
-        </Section>
-        <WebhooksLogsTable applicationOptions={applicationOptions} />
-      </FadeIn>
-      {isShowDetailModal && (
-        <WebhookEditModal
-          visible={isShowDetailModal}
-          isUpdate={modalType === MODAL_TYPE.EDIT}
-          appId={applicationId}
-          webhookId={webhookId}
-          afterClose={afterClose}
-          closeModal={onCloseModal}
-        />
-      )}
-      {isShowTestModal && (
-        <WebhookTestModal
-          visible={isShowTestModal}
-          webhookId={webhookId}
-          afterClose={afterClose}
-          closeModal={onCloseModal}
-        />
-      )}
+            our documentation.
+          </BodyText>
+          <Button className={elMb3} intent="neutral" onClick={openNewPage(ExternalPages.webhooksDocs)}>
+            View Docs
+          </Button>
+        </SecondaryNavContainer>
+        <PageContainer>
+          <Title>Foundations API</Title>
+          <FadeIn>
+            <Section hasPadding={false}>
+              <BodyText hasGreyText>
+                Our webhooks system allows your application to directly subscribe to events happening in our customers
+                data. Rather than needing to make API calls to poll for new information, a webhook subscription can be
+                created to allow Reapit Foundations to send a HTTP request directly to your endpoints that you configure
+                here.
+              </BodyText>
+              <PersistantNotification isFullWidth isExpanded intent="secondary">
+                Please note that apps and integrations developed using Webhooks for topics other than application
+                install/uninstall will only be visible in the Marketplace to customers who have been migrated to AWS.{' '}
+              </PersistantNotification>
+            </Section>
+            <Subtitle>Manage Webhook Subscriptions</Subtitle>
+            <Grid>
+              <GridItem>
+                <Formik
+                  initialValues={{
+                    applicationId: applicationId || '',
+                  }}
+                  enableReinitialize={true}
+                  onSubmit={() => {}}
+                >
+                  {() => (
+                    <Form>
+                      <SelectBox
+                        className="pt-2 pb-2"
+                        name="applicationId"
+                        options={applicationOptions}
+                        labelText="Please select an App from the list below to view the associated Webhooks:"
+                        id="subscription"
+                      />
+                      <FormikAutoSave onSave={handleSubscriptionChange(history, setPageNumber)} />
+                    </Form>
+                  )}
+                </Formik>
+              </GridItem>
+              <GridItem>
+                {applicationId && (
+                  <LevelRight>
+                    <Button data-test="logout-btn" intent="primary" type="button" onClick={handleOpenCreateModal}>
+                      Add New Webhook
+                    </Button>
+                  </LevelRight>
+                )}
+              </GridItem>
+            </Grid>
+            {unfetched || loading || subscriptionsLoading ? (
+              <Loader label="Loading" fullPage />
+            ) : subscriptions?.length ? (
+              <Table
+                scrollable
+                columns={columns}
+                data={getTableTopicsData({ subscriptions, handleOpenEditModal, topics, handleOpenTestModal })}
+                loading={false}
+              />
+            ) : null}
+            <Section hasPadding={false}>
+              <Pagination
+                className="mb-0 pb-0"
+                pageNumber={pageNumber}
+                onChange={handleSetPageNumber(setPageNumber)}
+                pageSize={WEBHOOK_PAGE_SIZE}
+                totalCount={totalCount ?? 0}
+              />
+            </Section>
+            <WebhooksLogsTable applicationOptions={applicationOptions} />
+          </FadeIn>
+          {isShowDetailModal && (
+            <WebhookEditModal
+              visible={isShowDetailModal}
+              isUpdate={modalType === MODAL_TYPE.EDIT}
+              appId={applicationId}
+              webhookId={webhookId}
+              afterClose={afterClose}
+              closeModal={onCloseModal}
+            />
+          )}
+          {isShowTestModal && (
+            <WebhookTestModal
+              visible={isShowTestModal}
+              webhookId={webhookId}
+              afterClose={afterClose}
+              closeModal={onCloseModal}
+            />
+          )}
+        </PageContainer>
+      </FlexContainer>
     </>
   )
 }
