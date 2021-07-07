@@ -4,6 +4,8 @@ import { FlexContainer, Button, SecondaryNavContainer, SecondaryNavItem } from '
 import { Editor, Frame, Element, useNode, useEditor } from '@craftjs/core'
 import ContentEditable from 'react-contenteditable'
 
+import {RenderNode} from '../ui/RenderNode'
+
 export type AuthenticatedProps = {}
 
 const Text = ({ text, ...props }) => {
@@ -87,21 +89,21 @@ const Container = ({ children }) => {
 export const Authenticated: FC<AuthenticatedProps> = () => {
 
   return (
-    <FlexContainer>
-
+    <FlexContainer className="page-container">
       <Editor resolver={{
         Text,
         Container,
-      }}>
+      }} 
+      onRender={RenderNode}
+      >
         <Sidebar />
-        <div style={{ minHeight: 800 }}>
+        <div style={{ minHeight: 800 }} className="craftjs-renderer">
           <Frame>
             <Element
               canvas
               is={Container}
             >
               <Text
-                size="small"
                 text="I'm here by default!"
               />
             </Element>
