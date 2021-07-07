@@ -14,7 +14,8 @@ const { FETCH_TRAFFIC_STATISTICS } = ActionTypes
 
 export const apphttpTrafficEventSaga = function* ({ data }: Action<FetchTrafficStatisticsParams>) {
   try {
-    const response = yield call(fetchTrafficStatistics, data)
+    const uniqueCustomerIds = [...new Set(data.customerId)]
+    const response = yield call(fetchTrafficStatistics, { ...data, customerId: uniqueCustomerIds })
     yield put(fetchTrafficStatisticsSuccess(response))
   } catch (err) {
     yield put(fetchTrafficStatisticsFailed())

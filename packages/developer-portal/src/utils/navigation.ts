@@ -15,4 +15,8 @@ export const openNewPage = (uri: ExternalPages | string) => () => {
 
 export const navigate = (history: History, route: string) => (): void => {
   history.push(route)
+  // GQL playground unsets the page title - need to reset this to the correct value
+  if (document.title !== 'Developers') {
+    document.title = 'Developers'
+  }
 }
