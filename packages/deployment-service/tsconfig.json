@@ -19,7 +19,7 @@
     "resolveJsonModule": true,
     "experimentalDecorators": true,
     "emitDecoratorMetadata": true,
-    "baseUrl": "src",
+    "baseUrl": "./",
     "paths": {
       "@reapit/connect-session": ["../connect-session/src"]
     }
