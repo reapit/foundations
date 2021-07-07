@@ -1,8 +1,9 @@
 import * as React from 'react'
 import { shallow } from 'enzyme'
-import { Menu, generateMenuConfig, XmasLogo } from '../menu'
+import { getDefaultNavIndex, Menu } from '../menu'
 import configureStore from 'redux-mock-store'
 import { Provider } from 'react-redux'
+import Routes from '../../../constants/routes'
 
 jest.mock('react-router', () => ({
   ...(jest.requireActual('react-router') as Object),
@@ -31,24 +32,47 @@ describe('Menu', () => {
       ),
     ).toMatchSnapshot()
   })
+})
 
-  describe('generateMenuConfig', () => {
-    it('should return config', () => {
-      const location = {
-        hash: 'mockHash',
-        key: 'mockKey',
-        pathname: 'mockPathname',
-        search: '',
-        state: {},
-      }
-      const result = generateMenuConfig(location, false, false, 'SBOX')
-      expect(result).toBeDefined()
-    })
-  })
+describe('getDefaultNavIndex', () => {
+  const routes = [
+    {
+      route: Routes.APPS,
+      index: 1,
+    },
+    {
+      route: Routes.APP_DETAIL,
+      index: 1,
+    },
+    {
+      route: Routes.INSTALLED_APPS,
+      index: 2,
+    },
+    {
+      route: Routes.MY_APPS,
+      index: 3,
+    },
+    {
+      route: Routes.MY_APPS_PAGINATE,
+      index: 3,
+    },
+    {
+      route: Routes.APP_DETAIL_MANAGE,
+      index: 3,
+    },
+    {
+      route: Routes.SETTINGS,
+      index: 5,
+    },
+    {
+      route: '/',
+      index: 0,
+    },
+  ]
 
-  describe('XmasLogo', () => {
-    it('should match a snapshot', () => {
-      expect(shallow(<XmasLogo />)).toMatchSnapshot()
+  routes.forEach((route) => {
+    it(`should correctly return the default nav index for ${route.route}`, () => {
+      expect(getDefaultNavIndex(route.route)).toEqual(route.index)
     })
   })
 })
