@@ -21,6 +21,8 @@ window.reapit = {
     developerEditionDownloadUrl: '',
     adobeSignApiKey: '',
     liveChatWhitelist: [],
+    elementsUri: '',
+    graphQLUri: '',
   },
 }
 

@@ -8,6 +8,7 @@ import { handleUpdateTerms, PrivateRouteWrapper } from '../private-route-wrapper
 import { updateCurrentMember } from '../../actions/current-member'
 import dayjs from 'dayjs'
 import { DATE_TIME_FORMAT } from '@reapit/elements-legacy'
+import { NavStateProvider } from '@reapit/elements'
 
 const locationMock = { search: '', pathname: '/test' }
 
@@ -60,7 +61,9 @@ describe('PrivateRouteWrapper', () => {
     mount(
       <Provider store={store}>
         <MemoryRouter>
-          <PrivateRouteWrapper path="/" />
+          <NavStateProvider>
+            <PrivateRouteWrapper path="/" />
+          </NavStateProvider>
         </MemoryRouter>
       </Provider>,
     )

@@ -27,6 +27,8 @@ const Routes = {
   FORGOT_PASSWORD: '/forgot-password',
   INVITE: '/invite',
   OK: '/ok',
+  GRAPHQL: '/graphql',
+  ELEMENTS: '/elements',
 }
 
 export default Routes

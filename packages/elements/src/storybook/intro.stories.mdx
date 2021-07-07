@@ -6,52 +6,114 @@ Welcome to Reapit Elements UI Library.
 
 Within this Storybook, there are all the basic components and classes you will need to build clean, composable UI interfaces for the Reapit Marketplace and Platform.
 
+The UI library itself is based on the Reapit Foundations Design system which is distributed as a [public Figma file here](https://www.figma.com/file/5fLETXbCWmA5R87gycjPZb/Design-System?node-id=2936%3A2572). To get a sense  of the thinking behind the library and for information on the base design principles behind it, we would advise strongly looking at the design system before getting started with your Elements project.
+
 ## Getting Started
 
-TODO - Expand these - just adding some notes for now
+### Installation
 
-- Using the docs
-- Rendered HTML block for non react users
-- Adding stylesheet
-- Adding globals
+Elements is distributed via NPM as a CommonJS, ESM and UDM module. Your first step is, with NodeJS installed, to run;
 
-## Basic Concepts and Patterns
+```bash
+npm install @reapit/elements
 
-TODO - Expand these - just adding some notes for now
+# or for yarn users
 
-- Intents
+yarn add @reapit/elements
+```
 
-### Typical usage of each intent
+You can then import the modules into your project in the normal way;
 
-| Intent    | Usage                                                                                                  |
-| --------- | ------------------------------------------------------------------------------------------------------ |
-| primary   | The main/most likely action a user might want to take                                                  |
-| secondary | Typically used alonside a primary button to offer an alternative action, e.g. a Cancel or Close button |
-| critical  | An action that should be the very next, or only logical action that a user can take                    |
-| success   | An action that would lead to a good or pleasant outcome                                                |
-| danger    | An action that would lead to a potentially bad or dangerous outcome, e.g a delete button               |
+```ts
+import { Input } from '@reapit/elements'
 
-- El prefixing
-- Overides with Modifiers - Adding classNames
-- Inheriting base element propertiesMock
+// Or for CommonJS users
 
-## Migrating From v2
+const { Input } = require('@reapit/elements')
+```
 
-TODO - Expand these - just adding some notes for now
+You will also need to add the exported stylesheet from the dist folder of the library, to the entry point of your application eg;
 
-- Link to v2 Storybook 
-- Explain v2 exports v3 to allow incremental updates
+```ts
+import '@reapit/elements/dist/index.css'
 
-## Issues
+// CommonJS 
+
+require('@reapit/elements/dist/index.css')
+```
+
+or in a css file
+
+```css
+
+@import '~@reapit/elements/dist/index.css';
+
+```
+
+And that's it - the stylesheet will include the PT Sans Google Font and some basic defaults, with the component CSS classes providng the majority of the styles.
+
+### Dependencies
+
+From the outset, we have aimed to keep the library purely presentational with as few dependencies as possible. The basic reasoning for this is;
+
+- Small footpint - we don't want to bloat your project.
+- Developer flexibility - you can use your preferred libraries and frameworks alongside Elements, not competing against it.
+- Limited vendor buy in - we are not depedent on other libraries update paths and API changes when developing Elements.
+
+As such there is only one core dependency on the React side of the library - the Excellent [Linaria CSS in JS package](https://github.com/callstack/linaria). The reason for using this over other CSS pre-processors are as follows;
+
+- Zero runtime so it's extremely performant. 
+- CSS extraction - we can export the CSS in our CSS at compile time.
+- Friendly, semantic class names - the `camelCased` class names and `PascalCased` components can be output to readable `kebab-case` CSS classes, with no hashed ids.
+- Tiny footprint - the core library is [only 282b](https://bundlephobia.com/package/linaria@2.1.0)!
+
+Because the project is compiled, you should have no issues using Linaria components out the box. If you want to use it yourself alongside Elements, please see the [integration guide here](https://github.com/callstack/linaria/blob/master/docs/BUNDLERS_INTEGRATION.md).
+
+Aside from Linaria, if you are using the React components, obviously you will need to have both `react` and `react-dom` as peer dependencies.
+
+On the CSS side, there are no dependencies or external libraries.
+
+### Using the Docs
+
+When using this Storybook, it is worth drawing attention to the tabs at the top of the page - `docs` and `canvas`.
+
+The `docs` tab is the best starting place in most cases as it includes usage documentation and commentry on each of the components. For React components we also display a `props` table and a `canvas` component that will allow you to copy-paste the JSX markup for use in your code.
+
+The `canvas` tab is best used for inspecting the components and looking at how they behave in a browser-like environment. They do not display the markdown documentation, the props table or the copy-paste canvas, so please refer back to the `docs` tab for commentry on usage.
+
+### Non React Users
+
+One of our core motivators for the library was that while the library is built in React, we want to give the best possible experience for non-react users.
+
+The base styles generated from the React code are all documented as CSS classes you can just add to any markup in any language. Additionally, care has been taken with the library so that where possible, all component behaviour in React can be mirrored in any JS framework or indeed, vanilla JS, by simply toggling available classes. 
+
+To view the rendered HTML markup of a React component, there are two options;
+
+1. In the `canvas` tab, you can see in the bottom menu a HTML tab - this shows the output DOM of the page.
+2. In the `docs` tab, each React example `canvas` has a corresponding custom component that is labeled `HTML of <<Story Name>>`. This both renders the HTML markup and offers the same copy-paste functionality as the React Canvas.
+
+### Browser Support
+
+Because of the extensive use of CSS Variables, and other modern CSS features like grid and flexbox, support is limited to modern browsers i.e. Chrome, Edge, Safari and Firefox.
+
+When building for the Reapit Marketplace, your application will render in a Chromium browser, currently at version 69 although we expect this to upgrade to a more recent version in the coming months. We will always support the Reapit Marketplace Chromium version as a minimum version.
+
+### Migrating from v2
+
+If you are on version 2 of Elements and this is working for your application the first question is "why migrate"? As previously stated, v3 is a ground up re-write with better performance, radically smaller size, better docs and a more friendly API. You will also benefit from much longer term support, new features and of course all the benefits of our clean, professional in house design system.
+
+We understand that because v3 is a ground-up re-write, migration will be some work so to make this easy to manage incrementally, we export the whole of Elements v3 from the v3 directory of Elements 2 e.g. to get a v3 button in the v2 library;
+
+```tsx
+import { Button } from "@reapit/elements/v3"
+```
+
+This will mean you can update from v2 to v3 at your own pace.
+
+The elements v2 components are detailed on a [separate Storybook here](https://elements-legacy.prod.paas.reapit.cloud). v2 will have a long term support for at least the next year and we will provide a deprecation notice at install 6 months prior to the end of official support for v2.
+
+### Issues
 
 If you find a bug with any of the components, please report it through [this link](https://github.com/reapit/foundations/issues/new?assignees=&labels=bug%2C+needs-triage%2C+elements&template=bug_report.md&title=) to our Github Issues page.
 
 We are also open to feature requests - in the same way please request [here](https://github.com/reapit/foundations/issues/new?assignees=&labels=external-request%2C+needs-triage%2C+elements&template=feature_request.md&title=) and if it makes sense with our roadmap and the wider design system, we will accept for development.
-
-## Changelog
-
-Release version history and changes - where possible, we will adhere to Semver versioning. Beta versions should be relatively stable but subject to occssional breaking changes.
-
-#### **3.0.0-beta.1 - 01/07/20**
-  - Initial 3.x.x full ground up re-build with zero compat from v2.x.x
-  - For migration information see above

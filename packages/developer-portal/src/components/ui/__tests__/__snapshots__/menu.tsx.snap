@@ -1,7 +1,5 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`Menu XmasLogo should match a snapshot 1`] = `<ReapitHouseIcon />`;
-
 exports[`Menu should match a snapshot 1`] = `
 <ContextProvider
   value={

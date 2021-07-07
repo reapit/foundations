@@ -1,6 +1,6 @@
 {
   "name": "@reapit/elements",
-  "version": "3.0.0-alpha.1",
+  "version": "3.0.0",
   "description": "A collection of React components and utilities for building apps for Reapit Marketplace",
   "homepage": "https://github.com/reapit/foundations#readme",
   "bugs": {
@@ -88,11 +88,8 @@
     "webpack": "^4.46.0"
   },
   "peerDependencies": {
-    "dayjs": "^1.8.19",
     "react": "^16.11.0",
-    "react-dom": "^16.11.0",
-    "react-router": "^5.1.2",
-    "react-router-dom": "^5.1.2"
+    "react-dom": "^16.11.0"
   },
   "snyk": true
 }

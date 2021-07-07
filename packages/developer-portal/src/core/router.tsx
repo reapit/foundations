@@ -28,6 +28,8 @@ const WebhooksPage = React.lazy(() => catchChunkError(() => import('../component
 const SettingsPage = React.lazy(() => catchChunkError(() => import('../components/pages/settings/')))
 const AppDetailPreview = React.lazy(() => catchChunkError(() => import('../components/pages/app-detail-preview')))
 const Invite = React.lazy(() => catchChunkError(() => import('../components/pages/invite')))
+const ElementsPage = React.lazy(() => catchChunkError(() => import('../components/pages/elements')))
+const GraphQLPage = React.lazy(() => catchChunkError(() => import('../components/pages/graphql')))
 
 const SettingsOrganisationTabPage = React.lazy(() =>
   catchChunkError(() => import('../components/pages/settings/settings-organisation-tab')),
@@ -65,7 +67,6 @@ const Router = () => {
                 <PrivateRoute path={Routes.SWAGGER} exact component={SwaggerPage} />
                 <PrivateRoute path={Routes.DESKTOP} exact component={DesktopPage} fetcher />
                 <PrivateRoute path={Routes.ANALYTICS_TAB} fetcher exact component={AnalyticsPage} />
-
                 <PrivateRoute path={Routes.SETTINGS} exact component={RedirectToSettingsProfilePage} />
                 <PrivateRoute path={Routes.SETTINGS_PROFILE_TAB} fetcher exact component={SettingsPage} />
                 <PrivateRoute path={Routes.SETTINGS_BILLING_TAB} fetcher component={SettingsBillingTabPage} />
@@ -74,6 +75,8 @@ const Router = () => {
                 <PrivateRoute path={Routes.HELP} exact fetcher component={HelpPage} />
                 <PrivateRoute path={Routes.DEVELOPER_EDITION_DOWNLOAD} component={EditionDownloadPage} />
                 <PrivateRoute path={Routes.APP_PREVIEW} exact component={AppDetailPreview} fetcher />
+                <PrivateRoute path={Routes.GRAPHQL} component={GraphQLPage} />
+                <PrivateRoute path={Routes.ELEMENTS} exact component={ElementsPage} />
                 <Route render={() => <Info infoType="404" />} />
               </Switch>
             </PrivateRouteWrapper>

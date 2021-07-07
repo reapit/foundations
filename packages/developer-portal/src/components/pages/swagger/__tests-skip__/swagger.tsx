@@ -1,8 +1,7 @@
 import * as React from 'react'
 import { shallow } from 'enzyme'
-import { getAccessToken } from '@/utils/session'
 
-import Swagger, { handleOnComplete, fetchInterceptor, fetchAccessToken, InterceptorParams } from '../swagger'
+import Swagger, { handleOnComplete, fetchInterceptor, InterceptorParams } from '../swagger'
 
 jest.mock('../../../../core/store')
 jest.mock('@/utils/session')
@@ -60,15 +59,5 @@ describe('Swagger', () => {
     const spy = jest.spyOn(document, 'querySelector')
     expect(spy).toBeCalledWith('a[href="https://dev.platform.reapit.cloud/docs"]')
     expect(setLoading).toBeCalledWith(false)
-  })
-
-  it('sets the accessToken', async () => {
-    const token = 'SOME_TOKEN'
-    ;(getAccessToken as jest.Mock).mockImplementation(() => token)
-    const setAccessToken = jest.fn()
-
-    await fetchAccessToken(setAccessToken)
-
-    expect(setAccessToken).toBeCalledWith(token)
   })
 })

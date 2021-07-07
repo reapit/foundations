@@ -18,7 +18,7 @@ const typeDefs = importSchema('./src/schema.graphql')
 const server = new ApolloServer({
   typeDefs,
   resolvers,
-  playground: process.env.NODE_ENV === 'development',
+  playground: true,
   introspection: true,
   formatError,
   uploads: false,

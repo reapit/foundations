@@ -10,13 +10,13 @@ import { RenderHtmlMarkup } from '../../storybook/render-html-markup'
 
 A multi purpose notification component to inform users of updates and events within your application.
 
+Props available for the React version of the component;
+
 <ArgsTable of={Snack} />
 
 ## Basic Usage
 
 The Snack component can be used for UI purposes only, but won't have the functionality of the React implementation (i.e. the timeouts, appearing at the top of the screen, etc)
-
-Underlying tag: `<div>`
 
 <Canvas>
   <Story name="Basic Usage">
@@ -107,14 +107,14 @@ You must wrap your whole application in the `SnackProvider` component. Thereafte
 
 Exports the following methods
 
-- `custom`: (snack: ISnack, timeout?: number) => void
-- `success`: (text: string, timeout?: number) => void
-- `info`: (text: string, timeout?: number) => void
-- `error`: (text: string, timeout?: number) => void
-- `warning`: (text: string, timeout?: number) => void
+- `custom`: `(snack: ISnack, timeout?: number) => void`
+- `success`: `(text: string, timeout?: number) => void`
+- `info`: `(text: string, timeout?: number) => void`
+- `error`: `(text: string, timeout?: number) => void`
+- `warning`: `(text: string, timeout?: number) => void`
 
 #### Description of arguments
 
-- `snack`: See below for the properties of the `ISnack` interface
+- `snack`: See below for the properties of the `SnackProps` interface
 - `timeout`: Set to `0` to stop a Snack from disappearing on it's own. It would then have to be dismissed by the user instead.
 - `text`: The text content that will be shown inside the snack

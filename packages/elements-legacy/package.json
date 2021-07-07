@@ -1,6 +1,6 @@
 {
   "name": "@reapit/elements-legacy",
-  "version": "2.1.0",
+  "version": "2.1.2",
   "description": "A collection of React components and utilities for building apps for Reapit Marketplace",
   "homepage": "https://github.com/reapit/foundations#readme",
   "bugs": {
@@ -22,11 +22,10 @@
     "src/tests/badges"
   ],
   "scripts": {
-    "build": "yarn build:dist && yarn build:storybook",
+    "build": "yarn build:dist && yarn build:storybook && yarn build:v3",
     "build:storybook": "cross-env NODE_ENV=production && build-storybook -o public/dist",
     "build:dist": "cross-env NODE_ENV=production && rimraf public/dist && tsdx build --format=cjs,esm,umd",
     "build:v3": "cross-env NODE_ENV=production && rimraf ./v3 && yarn workspace @reapit/elements run build:dist && cd ../elements && move-file dist/ ../elements-legacy/v3/",
-    "build:all": "yarn build && yarn build:v3",
     "commit": "concurrently \"yarn test --coverage --no-cache --silent --forceExit --detectOpenHandles --runInBand --watch=false && jest-coverage-badges --input src/tests/coverage/coverage-summary.json --output src/tests/badges\" \"yarn lint\"",
     "conf": "yarn config-manager --namespace cloud --entity elements-legacy --name local --mode fetch",
     "lint": "eslint --cache --ext=ts,tsx src --fix",

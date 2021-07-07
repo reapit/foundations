@@ -7,9 +7,7 @@ import { RenderHtmlMarkup } from '../../storybook/render-html-markup'
 
 # Loader
 
-Underlying tag: `<div>`
-
-## React props
+A simple loader component to give a visual indicator of progress. It ships with an optional label prop as per below and can be shown inline or centered.
 
 <ArgsTable of={Loader} />
 
@@ -34,6 +32,8 @@ Underlying tag: `<div>`
 <RenderHtmlMarkup component="Loader" story="With a label" />
 
 ## Full page
+
+The full page loader overlays any content and centers on the page - suitable for use when loading entire pages of content.
 
 <Canvas>
   <Story name="Full page loader">
