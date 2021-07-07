@@ -12,7 +12,8 @@
     "mysql": "^2.18.1",
     "nestjs-typeorm-paginate": "^2.5.3",
     "original-fs": "^1.1.0",
-    "typeorm": "^0.2.34"
+    "typeorm": "^0.2.34",
+    "typeorm-aurora-data-api-driver": "^2.2.0"
   },
   "scripts": {
     "start": "reapit-fetch-public-keys yarn build && yarn serverless offline start --runtime nodejs12.x --stage local",

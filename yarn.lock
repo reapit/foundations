@@ -16800,6 +16800,15 @@ __metadata:
   languageName: node
   linkType: hard
 
+"data-api-client@npm:^1.2.0":
+  version: 1.2.0
+  resolution: "data-api-client@npm:1.2.0"
+  dependencies:
+    sqlstring: ^2.3.2
+  checksum: cb3a01a8fa1afcc6ed112eba947714c795b141ad9d298b571937a74090e57cf94a2495d4fb2687b014cdff445fb424de0e5618a661d8dd1f0fb95aa528bcddb5
+  languageName: node
+  linkType: hard
+
 "data-uri-to-buffer@npm:1":
   version: 1.2.0
   resolution: "data-uri-to-buffer@npm:1.2.0"
@@ -17387,6 +17396,7 @@ __metadata:
     serverless: ^2.48.0
     serverless-webpack: ^5.5.1
     typeorm: ^0.2.34
+    typeorm-aurora-data-api-driver: ^2.2.0
   languageName: unknown
   linkType: soft
 
@@ -37088,6 +37098,13 @@ resolve@^1.19.0:
   languageName: node
   linkType: hard
 
+"sqlstring@npm:^2.3.2":
+  version: 2.3.2
+  resolution: "sqlstring@npm:2.3.2"
+  checksum: 2389f9436973af0287061f202ced7a77e2b62c15667a44bf961340f93b74775c8f0f9dfe03193c2b0a0ff943b6419e2461a12c33f6dd0e62a67d8bb992d6c56e
+  languageName: node
+  linkType: hard
+
 "ssh2-streams@npm:~0.4.10":
   version: 0.4.10
   resolution: "ssh2-streams@npm:0.4.10"
@@ -39499,6 +39516,15 @@ resolve@^1.19.0:
   version: 0.0.6
   resolution: "typedarray@npm:0.0.6"
   checksum: c9ef0176aaf32593514c31e5c6edc1db970847aff6e1f0a0570a6ac0cc996335792f394c2fcec59cc76691d22a01888ea073a2f3c6930cfcf7c519addf4e2ad7
+  languageName: node
+  linkType: hard
+
+"typeorm-aurora-data-api-driver@npm:^2.2.0":
+  version: 2.2.0
+  resolution: "typeorm-aurora-data-api-driver@npm:2.2.0"
+  dependencies:
+    data-api-client: ^1.2.0
+  checksum: 03816126bef551b418b06a4b9563916775572cd58e2713d034806e2ee89b0606f05b4174b2b2736571e16569771ddcc32bd220a16aca19fffdf73cf1ceb35d75
   languageName: node
   linkType: hard
 
