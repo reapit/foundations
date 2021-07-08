@@ -6,7 +6,6 @@ import { Pagination, paginate } from 'nestjs-typeorm-paginate'
 export const createPipelineEntity = async (dto: Partial<PipelineEntity>): Promise<PipelineEntity> => {
   const connection = await connect()
   const repo = connection.getRepository(PipelineEntity)
-
   return repo.save(repo.create(dto))
 }
 
