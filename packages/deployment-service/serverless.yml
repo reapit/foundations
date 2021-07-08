@@ -286,6 +286,56 @@ functions:
               - Authorization
               - X-Api-Key
               - api-version
+  pipelineRunnerCreate:
+    handler: src/index.pipelineRunnerCreate
+    events:
+      - http:
+          path: /pipeline/{id}/pipeline-runner
+          method: post
+          cors:
+            origin: '*'
+            headers:
+              - Content-Type
+              - Authorization
+              - api-version
+  apiPipelineRunnerCreate:
+    handler: src/index.pipelineRunnerCreate
+    events:
+      - http:
+          path: /api/pipeline/{id}/pipeline-runner
+          method: post
+          cors:
+            origin: '*'
+            headers:
+              - Content-Type
+              - Authorization
+              - X-Api-Key
+              - api-version
+  pipelineRunnerPaginate:
+    handler: src/index.pipelineRunnerPaginate
+    events:
+      - http:
+          path: /pipeline/{id}/pipeline-runner
+          method: get
+          cors:
+            origin: '*'
+            headers:
+              - Content-Type
+              - Authorization
+              - api-version
+  apiPipelineRunnerPaginate:
+    handler: src/index.pipelineRunnerPaginate
+    events:
+      - http:
+          path: /api/pipeline/{id}/pipeline-runner
+          method: get
+          cors:
+            origin: '*'
+            headers:
+              - Content-Type
+              - Authorization
+              - X-Api-Key
+              - api-version
   pipelineRun:
     handler: src/index.pipelineRun
     events:
@@ -382,3 +432,4 @@ functions:
               - Authorization
               - X-Api-Key
               - api-version
+  
