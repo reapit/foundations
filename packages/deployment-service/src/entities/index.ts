@@ -36,7 +36,9 @@ export class PipelineRunnerEntity extends AbsrtactEntity implements PipelineRunn
   @Column({ default: DeploymentStatus.PENDING, type: 'enum', enum: DeploymentStatus })
   buildStatus?: DeploymentStatus
 
-  @Column()
+  @Column({
+    nullable: true,
+  })
   S3Location?: string
 
   @OneToMany(() => TaskEntity, (task) => task.pipelineRunner)
