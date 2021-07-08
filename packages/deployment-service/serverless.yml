@@ -100,7 +100,13 @@ provider:
     - Effect: Allow
       Action:
         - rds-data:BeginTransaction
+        - rds-data:CommitTransaction
+        - rds-data:ExecuteStatement
       Resource: 'arn:aws:rds:${self:provider.region}:${self:custom.env.AWS_ACCOUNT_ID}:cluster:cloud-deployment-dev'
+    - Effect: Allow
+      Action:
+        - secretsmanager:GetSecretValue
+      Resource: ${self:custom.env.AURORA_SECRET_ARN}
 
 resources:
   Resources:

@@ -93,6 +93,6 @@ export class TaskEntity extends AbsrtactEntity implements TaskModelInterface {
   @TreeParent()
   parent?: TaskEntity
 
-  @Column({ default: DeploymentStatus.PENDING, type: 'varchar', })
+  @Column({ default: DeploymentStatus.PENDING, type: 'varchar' })
   status?: DeploymentStatus
 }
