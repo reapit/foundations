@@ -14,20 +14,9 @@ export const pipelinePaginate = httpHandler({
   handler: async ({ event }): Promise<Pagination<PipelineEntity>> => {
     const developerId = await resolveDeveloperId(event)
 
-    const response = await service.paginatePipelines(
+    return service.paginatePipelines(
       developerId,
       event?.queryStringParameters?.page ? Number(event?.queryStringParameters?.page) : undefined,
     )
-
-    const pagination: Pagination<PipelineEntity> = {
-      items: [],
-      meta: response[1],
-    }
-
-    for await (const apiKey of response[0]) {
-      pagination.items.push(apiKey)
-    }
-
-    return pagination
   },
 })
