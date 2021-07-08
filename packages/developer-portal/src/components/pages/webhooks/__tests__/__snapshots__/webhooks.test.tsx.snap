@@ -309,7 +309,6 @@ exports[`DeveloperWebHooks should match a snapshot 1`] = `
                                 className="e6j6mha-el-pn-content"
                               >
                                 Please note that apps and integrations developed using Webhooks for topics other than application install/uninstall will only be visible in the Marketplace to customers who have been migrated to AWS.
-                                 
                               </div>
                             </div>
                           </ElPersistantNotification>
@@ -1307,7 +1306,6 @@ exports[`DeveloperWebHooks should match a snapshot where there are subscriptions
                                 className="e6j6mha-el-pn-content"
                               >
                                 Please note that apps and integrations developed using Webhooks for topics other than application install/uninstall will only be visible in the Marketplace to customers who have been migrated to AWS.
-                                 
                               </div>
                             </div>
                           </ElPersistantNotification>
