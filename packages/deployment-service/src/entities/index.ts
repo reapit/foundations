@@ -33,7 +33,7 @@ abstract class AbsrtactEntity {
 
 @Entity('pipeline_runners')
 export class PipelineRunnerEntity extends AbsrtactEntity implements PipelineRunnerModelInterface {
-  @Column({ default: DeploymentStatus.PENDING })
+  @Column({ default: DeploymentStatus.PENDING, type: 'enum', enum: DeploymentStatus })
   buildStatus?: DeploymentStatus
 
   @Column()
@@ -53,6 +53,8 @@ export class PipelineEntity extends AbsrtactEntity implements PipelineModelInter
 
   @Column({
     default: AppTypeEnum.REACT,
+    type: 'enum',
+    enum: AppTypeEnum,
   })
   appType?: AppTypeEnum
 
@@ -61,6 +63,8 @@ export class PipelineEntity extends AbsrtactEntity implements PipelineModelInter
 
   @Column({
     default: PackageManagerEnum.NPM,
+    type: 'enum',
+    enum: PackageManagerEnum,
   })
   packageManager?: PackageManagerEnum
 
@@ -80,7 +84,10 @@ export class TaskEntity extends AbsrtactEntity implements TaskModelInterface {
   @ManyToOne(() => PipelineRunnerEntity, (pipelineRunner) => pipelineRunner.tasks)
   pipelineRunner?: PipelineRunnerEntity
 
-  @Column()
+  @Column({
+    type: 'enum',
+    enum: TaskRunnerFunctions,
+  })
   functionName?: TaskRunnerFunctions
 
   @TreeChildren()
@@ -89,6 +96,6 @@ export class TaskEntity extends AbsrtactEntity implements TaskModelInterface {
   @TreeParent()
   parent?: TaskEntity
 
-  @Column({ default: DeploymentStatus.PENDING })
+  @Column({ default: DeploymentStatus.PENDING, type: 'enum', enum: DeploymentStatus })
   status?: DeploymentStatus
 }
