@@ -15,7 +15,7 @@ export const pipelineRunnerPaginate = httpHandler({
   handler: async ({ event }): Promise<Pagination<PipelineEntity>> => {
     const developerId = await resolveDeveloperId(event)
 
-    const pipeline = await pipelineService.findPipelineById(event.pathParameters?.id as string)
+    const pipeline = await pipelineService.findPipelineById(event.pathParameters?.pipelineId as string)
 
     if (!pipeline) {
       throw new NotFoundException()
