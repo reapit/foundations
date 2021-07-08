@@ -274,7 +274,7 @@ export const DeveloperWebhooks = () => {
               </BodyText>
               <PersistantNotification isFullWidth isExpanded intent="secondary">
                 Please note that apps and integrations developed using Webhooks for topics other than application
-                install/uninstall will only be visible in the Marketplace to customers who have been migrated to AWS.{' '}
+                install/uninstall will only be visible in the Marketplace to customers who have been migrated to AWS.
               </PersistantNotification>
             </Section>
             <Subtitle>Manage Webhook Subscriptions</Subtitle>
