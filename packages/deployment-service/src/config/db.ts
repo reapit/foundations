@@ -11,5 +11,5 @@ export const dbConfig: ConnectionOptions = {
   secretArn: process.env.AURORA_SECRET_ARN as string,
   resourceArn: process.env.AURORA_RESOURCE_ARN as string,
   entities: [PipelineEntity, PipelineRunnerEntity, TaskEntity],
-  synchronize: true,
+  synchronize: false, // set to true when there are DB changes. Waiting for what to do about migrations
 }
