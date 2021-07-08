@@ -116,7 +116,7 @@ const Header = () => {
             }}
           >
             <ButtonIcon>{enabled ? <Checkmark /> : <Customize />}</ButtonIcon>
-            {enabled ? 'Finish Editing' : 'Edit'}
+            {enabled ? 'Preview' : 'Edit'}
           </Button>
         </ButtonGroup>
       </div>

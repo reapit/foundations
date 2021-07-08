@@ -39,22 +39,14 @@ const Toolbox = () => {
   }))
 
   return (
-    <ToolboxDiv enabled={enabled && enabled} className="toolbox transition w-12 h-full flex flex-col bg-white">
+    <ToolboxDiv enabled={enabled} className="toolbox transition w-12 h-full flex flex-col bg-white">
       <div className="flex flex-1 flex-col items-center pt-3">
         <div
           ref={(ref) =>
             ref &&
             create(
               ref,
-              <Element
-                canvas
-                is={Container}
-                background={{ r: 78, g: 78, b: 78, a: 1 }}
-                color={{ r: 0, g: 0, b: 0, a: 1 }}
-                padding={12}
-                height="300px"
-                width="300px"
-              >
+              <Element canvas is={Container} background="white" padding={12} height="auto" width={1}>
                 <></>
               </Element>,
             )

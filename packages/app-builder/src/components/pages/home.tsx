@@ -24,7 +24,7 @@ export const Authenticated: FC<AuthenticatedProps> = () => {
             <Element
               canvas
               is={Container}
-              width="800px"
+              width="1"
               height="auto"
               background="white"
               padding={40}
