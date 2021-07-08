@@ -311,6 +311,31 @@ functions:
               - Authorization
               - X-Api-Key
               - api-version
+  pipelineRunnerUpdate:
+    handler: src/index.pipelineRunnerUpdate
+    events:
+      - http:
+          path: /pipeline/{pipelineId}/pipeline-runner
+          method: put
+          cors:
+            origin: '*'
+            headers:
+              - Content-Type
+              - Authorization
+              - api-version
+  apiPipelineRunnerUpdate:
+    handler: src/index.pipelineRunnerUpdate
+    events:
+      - http:
+          path: /api/pipeline/{pipelineId}/pipeline-runner
+          method: put
+          cors:
+            origin: '*'
+            headers:
+              - Content-Type
+              - Authorization
+              - X-Api-Key
+              - api-version
   pipelineRunnerPaginate:
     handler: src/index.pipelineRunnerPaginate
     events:

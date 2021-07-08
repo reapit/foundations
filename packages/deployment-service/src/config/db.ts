@@ -4,12 +4,11 @@ import { TaskEntity, PipelineEntity, PipelineRunnerEntity } from './../entities'
 export const dbConfig: ConnectionOptions = {
   type: 'aurora-data-api',
   logging: true,
-  username: process.env.AURORA_USERNAME as string,
   database: process.env.AURORA_DATABASE as string,
-  password: process.env.AURORA_PASSWORD as string,
   region: process.env.DYNAMO_DB_REGION as string,
   secretArn: process.env.AURORA_SECRET_ARN as string,
   resourceArn: process.env.AURORA_RESOURCE_ARN as string,
   entities: [PipelineEntity, PipelineRunnerEntity, TaskEntity],
-  synchronize: false, // set to true when there are DB changes. Waiting for what to do about migrations
+  synchronize: false,
+  migrations: ['migrations/*.ts'],
 }
