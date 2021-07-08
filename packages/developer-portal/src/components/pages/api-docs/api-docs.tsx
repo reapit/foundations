@@ -37,7 +37,7 @@ const ApiDocsPage: React.FC = () => {
             accross these pages.
           </BodyText>
           <BodyText hasGreyText>
-            You can also visit us on Githb where you can raise and track issues, look at code examples and view our
+            You can also visit us on Github where you can raise and track issues, look at code examples and view our
             milestones.
           </BodyText>
           <Button className={elMb3} intent="neutral" onClick={openNewPage(ExternalPages.github)}>
