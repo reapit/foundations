@@ -1,4 +1,4 @@
-import { PipelineEntity } from './../../entities/pipeline.entity'
+import { PipelineEntity } from './../../entities'
 import { ownership, resolveDeveloperId } from './../../utils'
 import { httpHandler, BadRequestException, NotFoundException } from '@homeservenow/serverless-aws-handler'
 import { DeploymentStatus } from '@reapit/foundations-ts-definitions'

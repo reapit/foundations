@@ -1,6 +1,6 @@
 import { httpHandler, ValidationException } from '@homeservenow/serverless-aws-handler'
 import { PipelineDto } from './../../dto'
-import { PipelineEntity } from './../../entities/pipeline.entity'
+import { PipelineEntity } from './../../entities'
 import * as service from './../../services/pipeline'
 import { plainToClass } from 'class-transformer'
 import { validate } from 'class-validator'

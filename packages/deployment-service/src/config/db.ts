@@ -1,4 +1,5 @@
 import { ConnectionOptions } from 'typeorm'
+import { TaskEntity, PipelineEntity, PipelineRunnerEntity } from './../entities'
 
 export const dbConfig: ConnectionOptions = {
   type: 'aurora-data-api',
@@ -10,5 +11,5 @@ export const dbConfig: ConnectionOptions = {
   region: '',
   secretArn: '',
   resourceArn: '',
-  entities: ['**/*/*.entity.ts'],
+  entities: [PipelineEntity, PipelineRunnerEntity, TaskEntity],
 }
