@@ -1,4 +1,4 @@
-import { PipelineRunnerEntity } from './../../entities/pipeline-runner.entity'
+import { PipelineRunnerEntity } from './../../entities'
 import { ownership, resolveDeveloperId } from './../../utils'
 import { httpHandler, NotFoundException } from '@homeservenow/serverless-aws-handler'
 import * as service from '../../services'

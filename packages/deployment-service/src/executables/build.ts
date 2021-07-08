@@ -1,5 +1,4 @@
-import { PipelineEntity } from './../entities/pipeline.entity'
-import { TaskEntity } from './../entities/task.entity'
+import { PipelineEntity, TaskEntity } from './../entities'
 import { ExecutableType } from './executable'
 
 export const build: ExecutableType = (task: TaskEntity, pipeline: PipelineEntity): Promise<boolean> => {

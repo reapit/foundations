@@ -1,5 +1,5 @@
 import { PipelineDto } from '../dto'
-import { PipelineEntity } from '../entities/pipeline.entity'
+import { PipelineEntity } from '../entities'
 import { connect } from './../core'
 import { Pagination, paginate } from 'nestjs-typeorm-paginate'
 
