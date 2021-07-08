@@ -53,8 +53,7 @@ export class PipelineEntity extends AbsrtactEntity implements PipelineModelInter
 
   @Column({
     default: AppTypeEnum.REACT,
-    type: 'enum',
-    enum: AppTypeEnum,
+    type: 'varchar',
   })
   appType?: AppTypeEnum
 
@@ -63,8 +62,7 @@ export class PipelineEntity extends AbsrtactEntity implements PipelineModelInter
 
   @Column({
     default: PackageManagerEnum.NPM,
-    type: 'enum',
-    enum: PackageManagerEnum,
+    type: 'varchar',
   })
   packageManager?: PackageManagerEnum
 
@@ -85,8 +83,7 @@ export class TaskEntity extends AbsrtactEntity implements TaskModelInterface {
   pipelineRunner?: PipelineRunnerEntity
 
   @Column({
-    type: 'enum',
-    enum: TaskRunnerFunctions,
+    type: 'varchar',
   })
   functionName?: TaskRunnerFunctions
 
@@ -96,6 +93,6 @@ export class TaskEntity extends AbsrtactEntity implements TaskModelInterface {
   @TreeParent()
   parent?: TaskEntity
 
-  @Column({ default: DeploymentStatus.PENDING, type: 'enum', enum: DeploymentStatus })
+  @Column({ default: DeploymentStatus.PENDING, type: 'varchar', })
   status?: DeploymentStatus
 }
