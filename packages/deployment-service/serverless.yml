@@ -39,7 +39,6 @@ provider:
   s3:
     deploymentReleaseBucket:
       name: ${self:custom.env.DEPLOYMENT_BUCKET_NAME}
-
   
   environment:
     NODE_ENV: 'production'
@@ -51,10 +50,9 @@ provider:
     DYNAMO_DB_PIPELINE_RUNNER_TABLE_NAME: ${self:custom.env.DYNAMO_DB_PIPELINE_RUNNER_TABLE_NAME}
     DYNAMO_DB_TASK_TABLE_NAME: ${self:custom.env.DYNAMO_DB_TASK_TABLE_NAME}
     DEPLOYMENT_BUCKET_NAME: ${self:custom.env.DEPLOYMENT_BUCKET_NAME}
-    AURORA_HOST: ${self:custom.env.AURORA_HOST}
+    AURORA_RESOURCE_ARN: ${self:custom.env.AURORA_RESOURCE_ARN}
+    AURORA_SECRET_ARN: ${self:custom.env.AURORA_SECRET_ARN}
     AURORA_DATABASE: ${self:custom.env.AURORA_DATABASE}
-    AURORA_USERNAME: ${self:custom.env.AURORA_USERNAME}
-    AURORA_PASSWORD: ${self:custom.env.AURORA_PASSWORD}
   iamRoleStatements:
     - Effect: Allow
       Action:
@@ -99,6 +97,10 @@ provider:
         - s3:GetObject
         - s3:ListBucket
       Resource: 'arn:aws:s3:::${self:custom.env.DEPLOYMENT_BUCKET_NAME}'
+    - Effect: Allow
+      Action:
+        - rds-data:BeginTransaction
+      Resource: 'arn:aws:rds:${self:provider.region}:${self:custom.env.AWS_ACCOUNT_ID}:cluster:cloud-deployment-dev'
 
 resources:
   Resources:
