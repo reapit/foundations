@@ -1,6 +1,11 @@
 import React, { useState, useEffect } from 'react'
 import ContentEditable from 'react-contenteditable'
 import { useNode } from '@craftjs/core'
+import { ToolbarItem, ToolbarSection } from '../Toolbar'
+
+const defaultProps = {
+  fontSize: 12,
+}
 
 const Text = ({ text, ...props }) => {
   const {
@@ -11,7 +16,11 @@ const Text = ({ text, ...props }) => {
     selected: state.events.selected,
     dragged: state.events.dragged,
   }))
-
+  const { fontSize } = {
+    ...defaultProps,
+    ...props,
+  }
+  console.log(fontSize)
   const [editable, setEditable] = useState(false)
 
   useEffect(() => {
@@ -28,6 +37,9 @@ const Text = ({ text, ...props }) => {
       className="el-flex-auto"
       ref={(ref) => ref && connect(drag(ref))}
       onClick={() => selected && setEditable(true)}
+      style={{
+        fontSize,
+      }}
     >
       <ContentEditable
         html={text}
@@ -37,6 +49,24 @@ const Text = ({ text, ...props }) => {
       />
     </div>
   )
+}
+
+const TextSettings = () => (
+  <ToolbarSection
+    title="Typography"
+    props={['fontSize']}
+    summary={({ fontSize }: any) => {
+      return `${fontSize || ''}px`
+    }}
+  >
+    <ToolbarItem propKey="fontSize" type="number" label="Font Size" />
+  </ToolbarSection>
+)
+Text.craft = {
+  props: defaultProps,
+  related: {
+    toolbar: TextSettings,
+  },
 }
 
 export default Text
