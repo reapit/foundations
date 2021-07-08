@@ -225,7 +225,7 @@ exports[`DeveloperWebHooks should match a snapshot 1`] = `
                     <h1
                       className="ewfctk4-el-title"
                     >
-                      Foundations API
+                      Webhooks
                     </h1>
                   </ElTitle>
                 </Title>
@@ -1223,7 +1223,7 @@ exports[`DeveloperWebHooks should match a snapshot where there are subscriptions
                     <h1
                       className="ewfctk4-el-title"
                     >
-                      Foundations API
+                      Webhooks
                     </h1>
                   </ElTitle>
                 </Title>

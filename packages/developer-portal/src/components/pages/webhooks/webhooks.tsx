@@ -263,7 +263,7 @@ export const DeveloperWebhooks = () => {
           </Button>
         </SecondaryNavContainer>
         <PageContainer>
-          <Title>Foundations API</Title>
+          <Title>Webhooks</Title>
           <FadeIn>
             <Section hasPadding={false}>
               <BodyText hasGreyText>
