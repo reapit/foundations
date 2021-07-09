@@ -457,4 +457,31 @@ functions:
               - Authorization
               - X-Api-Key
               - api-version
-  
+  releaseProjectPagination:
+    handler: src/index.projectPaginate
+    events:
+      - http:
+          path: /deploy/project
+          method: get
+          cors:
+            origin: '*'
+            headers:
+              - Content-Type
+              - Authorization
+              - api-version
+          authorizer:
+            arn: arn:aws:cognito-idp:${self:provider.region}:${self:custom.env.AWS_ACCOUNT_ID}:userpool/${self:custom.env.CONNECT_USER_POOL}
+  apiReleaseProjectPagination:
+    handler: src/index.projectPaginate
+    events:
+      - http:
+          path: /api/deploy/project
+          method: get
+          cors:
+            origin: '*'
+            headers:
+              - Content-Type
+              - Authorization
+              - X-Api-Key
+              - api-version
+ 
