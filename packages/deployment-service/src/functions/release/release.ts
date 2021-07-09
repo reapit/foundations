@@ -54,9 +54,8 @@ export const deployRelease = httpHandler<any, ReleaseEntity>({
       ),
     )
 
-    // TODO can I promise.all some of these?
-
     await release(file)
+    await services.resetDeploymentStatus(event.pathParameters?.project as string, developerId)
 
     const releaseEntity = await services.createRelease({
       projectName: event.pathParameters?.project,
@@ -65,8 +64,6 @@ export const deployRelease = httpHandler<any, ReleaseEntity>({
       currentlyDeployed: true,
       zipLocation: s3FileName,
     })
-
-    await services.resetDeploymentStatus(event.pathParameters?.project as string, developerId)
 
     return releaseEntity
   },
