@@ -10,5 +10,4 @@ export const dbConfig: ConnectionOptions = {
   resourceArn: process.env.AURORA_RESOURCE_ARN as string,
   entities: [PipelineEntity, PipelineRunnerEntity, TaskEntity],
   synchronize: false,
-  migrations: ['migrations/*.ts'],
 }
