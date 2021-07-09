@@ -8,7 +8,7 @@ export class CheckVersionCommand extends AbstractCommand {
   async fetchTags(): Promise<string[] | false> {
     const npmInfo = await (await this.axios()).get<{
       'dist-tags': { [s: string]: string }
-      }>(packageInfo.name, {
+    }>(packageInfo.name, {
       baseURL: 'https://registry.npmjs.org/',
       headers: {
         Accept: 'application/vnd.npm.install-v1+json',

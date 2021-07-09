@@ -2,6 +2,7 @@ import { Command } from './../../decorators'
 import { AbstractCommand } from '../../abstract.command'
 import ora, { Ora } from 'ora'
 import { Pagination } from 'nestjs-typeorm-paginate'
+import chalk from 'chalk'
 
 @Command({
   name: 'list',
@@ -43,10 +44,8 @@ export class ReleaseListCommand extends AbstractCommand {
 
     const deploys = await this.listReleases(spinner, packageInfo.name)
 
-    console.table(
-      deploys.items.map((deploy) => {
-        return `${deploy.version}${deploy.currentlyDeployed ? ' (current)' : ''}`
-      }),
-    )
+    deploys.items.forEach((deploy) => {
+      this.writeLine(`${deploy.version}${deploy.currentlyDeployed ? chalk.green(' (current)') : ''}`)
+    })
   }
 }
