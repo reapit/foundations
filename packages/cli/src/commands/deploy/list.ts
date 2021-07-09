@@ -1,6 +1,7 @@
 import { Command } from './../../decorators'
 import { AbstractCommand } from '../../abstract.command'
 import ora, { Ora } from 'ora'
+import { Pagination } from 'nestjs-typeorm-paginate'
 
 @Command({
   name: 'list',
@@ -17,7 +18,7 @@ export class ReleaseListCommand extends AbstractCommand {
     return config
   }
 
-  async listReleases(spinner: Ora, project: string): Promise<any[]> {
+  async listReleases(spinner: Ora, project: string): Promise<Pagination<any>> {
     spinner.start('Fetching releases')
     const response = await (await this.axios()).get(`/api/deploy/release/${project}`)
 
@@ -43,7 +44,7 @@ export class ReleaseListCommand extends AbstractCommand {
     const deploys = await this.listReleases(spinner, packageInfo.name)
 
     console.table(
-      deploys.map((deploy) => {
+      deploys.items.map((deploy) => {
         const parts = deploy.split('/')
 
         const filenameParts = parts[parts.length - 1].split('.zip')
