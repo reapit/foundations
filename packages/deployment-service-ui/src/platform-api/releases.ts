@@ -1,12 +1,13 @@
 import { BASE_HEADERS, URLS } from './../constants/api'
 import { ReapitConnectSession } from '@reapit/connect-session'
 import { fetcher } from '@reapit/elements-legacy'
+import { Pagination } from 'nestjs-typeorm-paginate'
 
-export const releaseServicePaginate = async (session: ReapitConnectSession): Promise<any[] | undefined> => {
+export const releaseServicePaginate = async (session: ReapitConnectSession): Promise<Pagination<any> | undefined> => {
   try {
-    const response: any[] | undefined = await fetcher({
+    const response: Pagination<any> | undefined = await fetcher({
       api: URLS.DEPLOYMENT_SERVICE_HOST,
-      url: '/dev/deploy/release/react-test',
+      url: '/dev/api/deploy/release/react-test',
       method: 'GET',
       headers: {
         ...BASE_HEADERS,

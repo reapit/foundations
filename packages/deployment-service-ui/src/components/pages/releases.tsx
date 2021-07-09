@@ -17,7 +17,7 @@ export default () => {
       const serviceResponse = await releaseServicePaginate(connectSession as ReapitConnectSession)
       setLoading(false)
       if (serviceResponse) {
-        setReleases([...releases, ...serviceResponse])
+        setReleases([...releases, ...serviceResponse.items])
       }
     }
     if (connectSession) {
