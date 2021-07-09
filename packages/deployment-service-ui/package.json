@@ -28,6 +28,7 @@
     "@sentry/browser": "^5.30.0",
     "dayjs": "^1.10.4",
     "linaria": "^2.0.2",
+    "nestjs-typeorm-paginate": "^2.5.3",
     "react": "^16.14.0",
     "react-dom": "^16.14.0",
     "react-ga": "^2.7.0",
