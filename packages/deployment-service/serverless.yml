@@ -434,7 +434,7 @@ functions:
     handler: src/index.deployVersion
     events:
       - http:
-          path: /deploy/version/{project}/{version}
+          path: /deploy/version/{projectName}/{version}
           method: post
           cors:
             origin: '*'
@@ -448,7 +448,7 @@ functions:
     handler: src/index.deployVersion
     events:
       - http:
-          path: /api/deploy/version/{project}/{version}
+          path: /api/deploy/version/{projectName}/{version}
           method: post
           cors:
             origin: '*'
