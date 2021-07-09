@@ -403,8 +403,8 @@ functions:
               - Authorization
               - X-Api-Key
               - api-version
-  deployReleases:
-    handler: src/index.deployReleases
+  releasePaginate:
+    handler: src/index.releasePaginate
     events:
       - http:
           path: /deploy/release/{project}
@@ -417,8 +417,8 @@ functions:
               - api-version
           authorizer:
             arn: arn:aws:cognito-idp:${self:provider.region}:${self:custom.env.AWS_ACCOUNT_ID}:userpool/${self:custom.env.CONNECT_USER_POOL}
-  apiDeployReleases:
-    handler: src/index.deployReleases
+  apiReleasePaginate:
+    handler: src/index.releasePaginate
     events:
       - http:
           path: /api/deploy/release/{project}

@@ -20,7 +20,7 @@ import {
   TaskRunnerFunctions,
 } from '@reapit/foundations-ts-definitions'
 
-abstract class AbsrtactEntity {
+abstract class AbstractEntity {
   @PrimaryGeneratedColumn('uuid')
   id?: string
 
@@ -32,7 +32,7 @@ abstract class AbsrtactEntity {
 }
 
 @Entity('pipeline_runners')
-export class PipelineRunnerEntity extends AbsrtactEntity implements PipelineRunnerModelInterface {
+export class PipelineRunnerEntity extends AbstractEntity implements PipelineRunnerModelInterface {
   @Column({ default: DeploymentStatus.PENDING, type: 'enum', enum: DeploymentStatus })
   buildStatus?: DeploymentStatus
 
@@ -51,7 +51,7 @@ export class PipelineRunnerEntity extends AbsrtactEntity implements PipelineRunn
 }
 
 @Entity('pipelines')
-export class PipelineEntity extends AbsrtactEntity implements PipelineModelInterface {
+export class PipelineEntity extends AbstractEntity implements PipelineModelInterface {
   @Column()
   name?: string
 
@@ -82,7 +82,7 @@ export class PipelineEntity extends AbsrtactEntity implements PipelineModelInter
 
 @Entity('tasks')
 @Tree('nested-set')
-export class TaskEntity extends AbsrtactEntity implements TaskModelInterface {
+export class TaskEntity extends AbstractEntity implements TaskModelInterface {
   @ManyToOne(() => PipelineRunnerEntity, (pipelineRunner) => pipelineRunner.tasks)
   pipelineRunner?: PipelineRunnerEntity
 
@@ -99,4 +99,22 @@ export class TaskEntity extends AbsrtactEntity implements TaskModelInterface {
 
   @Column({ default: DeploymentStatus.PENDING, type: 'varchar' })
   status?: DeploymentStatus
+}
+
+@Entity('releases')
+export class ReleaseEntity extends AbstractEntity {
+  @Column()
+  zipLocation?: string
+
+  @Column()
+  version?: string
+
+  @Column()
+  currentlyDeployed?: boolean
+
+  @Column()
+  projectName?: string
+
+  @Column()
+  developerId?: string
 }
