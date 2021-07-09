@@ -41,7 +41,9 @@ export class PipelineRunnerEntity extends AbsrtactEntity implements PipelineRunn
   })
   S3Location?: string
 
-  @OneToMany(() => TaskEntity, (task) => task.pipelineRunner)
+  @OneToMany(() => TaskEntity, (task) => task.pipelineRunner, {
+    eager: true,
+  })
   tasks?: TaskEntity[]
 
   @ManyToOne(() => PipelineEntity, (pipeline) => pipeline.runners)
