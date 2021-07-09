@@ -45,11 +45,7 @@ export class ReleaseListCommand extends AbstractCommand {
 
     console.table(
       deploys.items.map((deploy) => {
-        const parts = deploy.split('/')
-
-        const filenameParts = parts[parts.length - 1].split('.zip')
-
-        return filenameParts[0]
+        return `${deploy.version}${deploy.currentlyDeployed ? ' (current)' : ''}`
       }),
     )
   }
