@@ -3,6 +3,7 @@ import { AbstractCommand } from '../../abstract.command'
 import fs from 'fs'
 import path from 'path'
 import ora, { Ora } from 'ora'
+import chalk from 'chalk'
 
 @Command({
   name: 'version',
@@ -26,7 +27,7 @@ export class VersionCommand extends AbstractCommand {
    *
    */
   async deployVersion(project: string, version: string, spinner: Ora): Promise<void | never> {
-    const response = await (await this.axios(spinner)).post(`deploy/version/${project}/${version}`)
+    const response = await (await this.axios(spinner)).post(`/api/deploy/version/${project}/${version}`)
 
     if (response.status !== 200) {
       let message: string
@@ -66,8 +67,18 @@ export class VersionCommand extends AbstractCommand {
       process.exit(1)
     }
 
+    if (!version) {
+      this.writeLine(chalk.red('Error: Version param required'))
+      this.writeLine('')
+      this.writeLine(
+        `use ${chalk.bgGreen.black('reapit deploy list')} to view your projects avaiable versions to deploy`,
+      )
+
+      process.exit(1)
+    }
+
     spinner.info(`Project found ${projectInfo.name}`)
-    spinner.info(`Deploying [${version}]`)
+    spinner.start(`Deploying [${version}]`)
 
     await this.deployVersion(projectInfo.name, version, spinner)
   }
