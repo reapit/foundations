@@ -6359,6 +6359,7 @@ __metadata:
     figlet: ^1.5.0
     inquirer: ^8.0.0
     latest-semver: ^3.0.0
+    nestjs-typeorm-paginate: ^2.5.3
     ora: ^5.4.0
     prettier: ^2.3.0
     process.argv: ^0.6.0
