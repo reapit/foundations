@@ -5,6 +5,7 @@ import { ToolbarItem, ToolbarSection } from '../Toolbar'
 
 const defaultProps = {
   fontSize: 12,
+  width: 12,
 }
 
 const Text = ({ text, ...props }) => {
@@ -16,11 +17,10 @@ const Text = ({ text, ...props }) => {
     selected: state.events.selected,
     dragged: state.events.dragged,
   }))
-  const { fontSize } = {
+  const { fontSize, width } = {
     ...defaultProps,
     ...props,
   }
-  console.log(fontSize)
   const [editable, setEditable] = useState(false)
 
   useEffect(() => {
@@ -39,6 +39,7 @@ const Text = ({ text, ...props }) => {
       onClick={() => selected && setEditable(true)}
       style={{
         fontSize,
+        gridColumn: `span ${width}`,
       }}
     >
       <ContentEditable
@@ -52,16 +53,28 @@ const Text = ({ text, ...props }) => {
 }
 
 const TextSettings = () => (
-  <ToolbarSection
-    title="Typography"
-    props={['fontSize']}
-    summary={({ fontSize }: any) => {
-      return `${fontSize || ''}px`
-    }}
-  >
-    <ToolbarItem propKey="fontSize" type="number" label="Font Size" />
-  </ToolbarSection>
+  <>
+    <ToolbarSection
+      title="Typography"
+      props={['fontSize']}
+      summary={({ fontSize }: any) => {
+        return `${fontSize || ''}px`
+      }}
+    >
+      <ToolbarItem propKey="fontSize" type="number" label="Font Size" />
+    </ToolbarSection>
+    <ToolbarSection
+      title="Size"
+      props={['width']}
+      summary={({ width }: any) => {
+        return `${width || ''} columns`
+      }}
+    >
+      <ToolbarItem propKey="width" type="number" label="Columns" />
+    </ToolbarSection>
+  </>
 )
+
 Text.craft = {
   props: defaultProps,
   related: {

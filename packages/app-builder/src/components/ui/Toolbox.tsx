@@ -44,12 +44,7 @@ const Toolbox = () => {
         <div
           ref={(ref) =>
             ref &&
-            create(
-              ref,
-              <Element canvas is={Container} background="white" padding={12} height="auto" width={1}>
-                <></>
-              </Element>,
-            )
+            create(ref, <Element canvas is={Container} background="white" padding={12} height="auto" width={12} />)
           }
         >
           <Tooltip title="Container" placement="right">

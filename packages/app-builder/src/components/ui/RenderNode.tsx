@@ -54,7 +54,7 @@ const Btn = styled.a`
 export const RenderNode = ({ render }) => {
   const { id } = useNode()
   const { actions, query, isActive } = useEditor((state) => ({
-    isActive: state.nodes[id].events.selected,
+    isActive: !!state.nodes[id]?.events.selected,
   }))
 
   const {
