@@ -50,7 +50,7 @@ export const generateMenuConfig = (
         key: 'RELEASES',
         icon: <ManageIcon />,
         callback: callbackAppClick,
-        url: Routes.RELEASES,
+        url: Routes.RELEASE_PROJECTS,
         type: 'PRIMARY',
       },
       {
