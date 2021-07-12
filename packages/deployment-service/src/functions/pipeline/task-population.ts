@@ -1,36 +1,16 @@
-import { TaskEntity, PipelineRunnerEntity } from './../../entities'
+import { TaskEntity, PipelineRunnerEntity, PipelineEntity } from './../../entities'
 import { createBatchTasks } from './../../services'
-import { AppTypeEnum, TaskRunnerFunctions } from '@reapit/foundations-ts-definitions'
 import { Handler, Context, Callback } from 'aws-lambda'
 import { plainToClass } from 'class-transformer'
 import { sqs } from './../../services'
 import { QueueNames } from '../../constants'
 
 export const workflowCreation = async (pipelineRunner: PipelineRunnerEntity): Promise<TaskEntity[]> => {
-  const batchTasks: Partial<TaskEntity>[] =
-    pipelineRunner.pipeline?.appType !== AppTypeEnum.NODE
-      ? [
-          {
-            functionName: TaskRunnerFunctions.PULL,
-          },
-          {
-            functionName: TaskRunnerFunctions.BUILD,
-          },
-          {
-            functionName: TaskRunnerFunctions.DEPLOY_LAMBDAS,
-          },
-        ]
-      : [
-          {
-            functionName: TaskRunnerFunctions.PULL,
-          },
-          {
-            functionName: TaskRunnerFunctions.BUILD,
-          },
-          {
-            functionName: TaskRunnerFunctions.DEPLOY_REACT,
-          },
-        ]
+  const batchTasks: Partial<TaskEntity>[] = (pipelineRunner.pipeline as PipelineEntity).workflow.map(
+    (functionName) => ({
+      functionName,
+    }),
+  )
 
   return createBatchTasks(pipelineRunner, batchTasks)
 }
