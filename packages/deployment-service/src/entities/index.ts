@@ -19,6 +19,7 @@ import {
   TaskModelInterface,
   TaskRunnerFunctions,
 } from '@reapit/foundations-ts-definitions'
+import { Type } from 'class-transformer'
 
 abstract class AbstractEntity {
   @PrimaryGeneratedColumn('uuid')
@@ -33,7 +34,7 @@ abstract class AbstractEntity {
 
 @Entity('pipeline_runners')
 export class PipelineRunnerEntity extends AbstractEntity implements PipelineRunnerModelInterface {
-  @Column({ default: DeploymentStatus.PENDING, type: 'enum', enum: DeploymentStatus })
+  @Column({ default: DeploymentStatus.PENDING, type: 'varchar' })
   buildStatus?: DeploymentStatus
 
   @Column({
@@ -46,6 +47,7 @@ export class PipelineRunnerEntity extends AbstractEntity implements PipelineRunn
   })
   tasks?: TaskEntity[]
 
+  @Type(() => PipelineEntity)
   @ManyToOne(() => PipelineEntity, (pipeline) => pipeline.runners)
   pipeline?: PipelineEntity
 }
@@ -60,6 +62,10 @@ export class PipelineEntity extends AbstractEntity implements PipelineModelInter
     type: 'varchar',
   })
   appType?: AppTypeEnum
+
+  get workflow(): TaskWorkflow {
+    return taskWorkflows[this.appType as AppTypeEnum]
+  }
 
   @Column()
   buildCommand?: string = 'build'
@@ -78,6 +84,13 @@ export class PipelineEntity extends AbstractEntity implements PipelineModelInter
 
   @Column()
   developerId?: string
+}
+
+export type TaskWorkflow = TaskRunnerFunctions[]
+
+export const taskWorkflows: { [key in AppTypeEnum]: TaskWorkflow } = {
+  [AppTypeEnum.NODE]: [TaskRunnerFunctions.PULL, TaskRunnerFunctions.BUILD, TaskRunnerFunctions.DEPLOY_LAMBDAS],
+  [AppTypeEnum.REACT]: [TaskRunnerFunctions.PULL, TaskRunnerFunctions.BUILD, TaskRunnerFunctions.DEPLOY_REACT],
 }
 
 @Entity('tasks')
