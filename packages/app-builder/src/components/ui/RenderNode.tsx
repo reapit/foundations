@@ -4,8 +4,6 @@ import React, { useEffect, useRef, useCallback } from 'react'
 import ReactDOM from 'react-dom'
 import styled, { createGlobalStyle } from 'styled-components'
 
-import { Indicator } from './Resizer'
-
 import ArrowUp from '../icons/arrow-up'
 import Delete from '../icons/delete'
 import Move from '../icons/move'
@@ -46,6 +44,9 @@ const Btn = styled.a`
   opacity: 0.9;
   display: flex;
   align-items: center;
+  :hover {
+    color: white;
+  }
   > div {
     position: relative;
     top: -50%;
@@ -67,6 +68,7 @@ export const RenderNode = ({ render }) => {
     deletable,
     connectors: { drag },
     parent,
+    actions: { setProp },
   } = useNode((node) => ({
     isHover: node.events.hovered,
     dom: node.dom,
@@ -121,49 +123,77 @@ export const RenderNode = ({ render }) => {
       <Globals />
       {(isHover || isActive) && container && dom
         ? ReactDOM.createPortal(
-            <>
-              <IndicatorDiv
-                ref={currentRef}
-                className="px-2 py-2 text-white bg-primary fixed flex items-center"
-                style={{
-                  left: getPos(dom).left,
-                  top: getPos(dom).top,
-                  zIndex: 9999,
-                }}
-              >
-                <h2 className="flex-1 mr-4">{name}</h2>
-                {moveable ? (
-                  <Btn className="mr-2 cursor-move" ref={drag}>
-                    <Move />
-                  </Btn>
-                ) : null}
-                {id !== ROOT_NODE && (
+            <IndicatorDiv
+              ref={currentRef}
+              className="px-2 py-2 text-white bg-primary fixed flex items-center"
+              style={{
+                left: getPos(dom).left,
+                top: getPos(dom).top,
+                zIndex: 9999,
+              }}
+            >
+              <h2 className="flex-1 mr-4">{name}</h2>
+              {moveable && (
+                <>
                   <Btn
-                    className="mr-2 cursor-pointer"
+                    title="Increase block width"
+                    className="mr-2 text-white"
+                    style={{ fontSize: 18, fontWeight: 800 }}
                     onClick={() => {
-                      actions.selectNode(parent)
+                      setProp((props) => {
+                        props.width++
+                        if (props.width > 12) {
+                          props.width = 12
+                        }
+                      })
                     }}
                   >
-                    <ArrowUp />
+                    +
                   </Btn>
-                )}
-                {deletable ? (
                   <Btn
-                    className="cursor-pointer"
-                    onMouseDown={(e: React.MouseEvent) => {
-                      e.stopPropagation()
-                      actions.delete(id)
+                    title="Decrease block width"
+                    className="mr-2 text-white"
+                    style={{ fontSize: 18, fontWeight: 800 }}
+                    onClick={() => {
+                      setProp((props) => {
+                        props.width--
+                        if (props.width < 1) {
+                          props.width = 1
+                        }
+                      })
                     }}
                   >
-                    <Delete />
+                    —
                   </Btn>
-                ) : null}
-              </IndicatorDiv>
-              <>
-                <Indicator left={getPos(dom).left - 5} top={getPos(dom).top - 5 + getPos(dom).height / 2} />
-                <Indicator left={getPos(dom).right - 5} top={getPos(dom).top - 5 + getPos(dom).height / 2} />
-              </>
-            </>,
+                </>
+              )}
+              {moveable ? (
+                <Btn className="mr-2 cursor-move" ref={drag}>
+                  <Move />
+                </Btn>
+              ) : null}
+              {id !== ROOT_NODE && (
+                <Btn
+                  className="mr-2 cursor-pointer"
+                  onClick={() => {
+                    actions.selectNode(parent)
+                  }}
+                >
+                  <ArrowUp />
+                </Btn>
+              )}
+              {deletable ? (
+                <Btn
+                  className="cursor-pointer"
+                  onMouseDown={(e: React.MouseEvent) => {
+                    e.stopPropagation()
+                    actions.delete(id)
+                  }}
+                >
+                  <Delete />
+                </Btn>
+              ) : null}
+            </IndicatorDiv>,
             container,
           )
         : null}
