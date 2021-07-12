@@ -54,3 +54,10 @@ export const findByPipelineId = async (pipelineRunnerId: string): Promise<TaskEn
     },
   })
 }
+
+export const findTaskById = async (taskId: string): Promise<TaskEntity | undefined> => {
+  const connection = await connect()
+  const repo = connection.getTreeRepository(TaskEntity)
+
+  return repo.findOne(taskId)
+}

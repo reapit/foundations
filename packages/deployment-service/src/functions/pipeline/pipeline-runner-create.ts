@@ -3,6 +3,7 @@ import { ownership, resolveDeveloperId } from './../../utils'
 import { httpHandler, NotFoundException } from '@homeservenow/serverless-aws-handler'
 import * as service from '../../services'
 import { defaultOutputHeaders } from './../../constants'
+import { QueueNames } from './../../constants'
 
 /**
  * Create a new pipeline runner for deployment
@@ -35,7 +36,7 @@ export const pipelineRunnerCreate = httpHandler<void, PipelineEntity>({
     const queueUrl = await new Promise<string>((resolve, reject) =>
       service.sqs.getQueueUrl(
         {
-          QueueName: 'TaskPopulation',
+          QueueName: QueueNames.TASK_POPULATION,
         },
         (error, data) => {
           if (error) {
