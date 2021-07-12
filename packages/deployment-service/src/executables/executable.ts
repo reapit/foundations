@@ -5,7 +5,7 @@ import { deployNode } from './deploy-node'
 import { deployReact } from './deploy-react'
 import { pull } from './pull'
 
-export type ExecutableType = (task: TaskEntity) => Promise<boolean> | boolean
+export type ExecutableType = (task: TaskEntity) => Promise<true | never> | true | never
 
 export const resolveExecutable = (task: TaskEntity): ExecutableType => {
   switch (task.functionName) {
