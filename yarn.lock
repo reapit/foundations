@@ -18528,6 +18528,13 @@ __metadata:
   languageName: node
   linkType: hard
 
+"fast-memoize@npm:^2.5.1":
+  version: 2.5.2
+  resolution: "fast-memoize@npm:2.5.2"
+  checksum: 88bd91488039c0e04131d5382b8ea084268f144ce14ab36c360dd04f7792ac0c419e125b0fe6e6f41e77f03d1f703b31697475b2e95889ca86510623e2f0d904
+  languageName: node
+  linkType: hard
+
 "fast-safe-stringify@npm:^2.0.4":
   version: 2.0.7
   resolution: "fast-safe-stringify@npm:2.0.7"

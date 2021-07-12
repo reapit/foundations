@@ -16,7 +16,9 @@ const Container = ({
 }) => {
   const {
     connectors: { connect, drag },
+    // actions: { setProp },
   } = useNode()
+
   return (
     <div
       {...props}
