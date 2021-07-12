@@ -81,7 +81,7 @@ export class PipelineEntity extends AbstractEntity implements PipelineModelInter
 }
 
 @Entity('tasks')
-@Tree('nested-set')
+@Tree('adjacency-list')
 export class TaskEntity extends AbstractEntity implements TaskModelInterface {
   @ManyToOne(() => PipelineRunnerEntity, (pipelineRunner) => pipelineRunner.tasks)
   pipelineRunner?: PipelineRunnerEntity

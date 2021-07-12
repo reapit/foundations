@@ -3,7 +3,7 @@ import { PipelineRunnerEntity, TaskEntity } from './../entities'
 
 export const createTask = async (dto: Partial<TaskEntity> & { pipelineId: string }): Promise<TaskEntity> => {
   const connection = await connect()
-  const repo = connection.getRepository(TaskEntity)
+  const repo = connection.getTreeRepository(TaskEntity)
 
   return repo.save(repo.create(dto))
 }
@@ -13,7 +13,7 @@ export const createBatchTasks = async (
   dtos: Partial<TaskEntity>[],
 ): Promise<TaskEntity[]> => {
   const connection = await connect()
-  const repo = connection.getRepository(TaskEntity)
+  const repo = connection.getTreeRepository(TaskEntity)
 
   return repo.save(
     repo.create(
@@ -27,7 +27,7 @@ export const createBatchTasks = async (
 
 export const updateTask = async (model: TaskEntity, dto: Partial<TaskEntity>) => {
   const connection = await connect()
-  const repo = connection.getRepository(TaskEntity)
+  const repo = connection.getTreeRepository(TaskEntity)
 
   return repo.save({
     ...model,
@@ -37,14 +37,14 @@ export const updateTask = async (model: TaskEntity, dto: Partial<TaskEntity>) =>
 
 export const batchUpdateTask = async (tasks: TaskEntity[]) => {
   const connection = await connect()
-  const repo = connection.getRepository(TaskEntity)
+  const repo = connection.getTreeRepository(TaskEntity)
 
   return repo.save(tasks)
 }
 
 export const findByPipelineId = async (pipelineRunnerId: string): Promise<TaskEntity[]> => {
   const connection = await connect()
-  const repo = connection.getRepository(TaskEntity)
+  const repo = connection.getTreeRepository(TaskEntity)
 
   return repo.find({
     where: {
