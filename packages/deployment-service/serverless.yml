@@ -507,3 +507,12 @@ functions:
             Fn::GetAtt:
               - TaskPopulation
               - Arn
+  taskRunner:
+    handler: src/index.taskRunner
+    events:
+      - sqs:
+          queueName: TaskRunner
+          arn:
+            Fn::GetAtt:
+              - TaskRunner
+              - Arn

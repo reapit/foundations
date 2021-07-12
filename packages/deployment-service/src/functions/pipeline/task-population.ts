@@ -66,6 +66,7 @@ export const taskPopulation: Handler = async (event: any, context: Context, call
         ),
       )
 
+      console.log('sending message on queue', queueUrl)
       await new Promise<void>((resolve, reject) =>
         sqs.sendMessage(
           {
