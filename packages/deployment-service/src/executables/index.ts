@@ -1,2 +1,6 @@
 export * from './executable'
 export * from './release'
+export * from './deploy-node'
+export * from './deploy-react'
+export * from './pull'
+export * from './build'
