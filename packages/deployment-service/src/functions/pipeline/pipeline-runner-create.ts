@@ -28,8 +28,39 @@ export const pipelineRunnerCreate = httpHandler<void, PipelineEntity>({
 
     await ownership(pipeline.developerId, developerId)
 
-    return service.createPipelineRunnerEntity({
+    const pipelineRunner = await service.createPipelineRunnerEntity({
       pipeline,
     })
+
+    const queueUrl = await new Promise<string>((resolve, reject) =>
+      service.sqs.getQueueUrl(
+        {
+          QueueName: 'TaskPopulation',
+        },
+        (error, data) => {
+          if (error) {
+            reject()
+          }
+          typeof data.QueueUrl === 'undefined' ? reject() : resolve(data.QueueUrl)
+        },
+      ),
+    )
+
+    await new Promise<void>((resolve, reject) =>
+      service.sqs.sendMessage(
+        {
+          MessageBody: JSON.stringify(pipelineRunner),
+          QueueUrl: queueUrl,
+        },
+        (error) => {
+          if (error) {
+            reject(error)
+          }
+          resolve()
+        },
+      ),
+    )
+
+    return pipelineRunner
   },
 })
