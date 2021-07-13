@@ -20,6 +20,7 @@ export interface PipelineRunnerModelInterface {
   buildCommand?: string
   packageManager?: PackageManagerEnum
   tasks?: TaskModelInterface[]
+  buildStatus?: DeploymentStatus
 }
 
 export interface TaskModelInterface {
