@@ -3,9 +3,10 @@ import { releaseServicePaginate, releaseVersionDeploy } from '@/platform-api/rel
 import { ReapitConnectSession, useReapitConnect } from '@reapit/connect-session'
 import { FlexContainerBasic, H3, Section } from '@reapit/elements-legacy'
 import { Button, Table } from '@reapit/elements-legacy'
-import { Loader, SnackProvider } from '@reapit/elements'
+import { Loader } from '@reapit/elements'
 import React, { useEffect, useState } from 'react'
 import { useParams } from 'react-router'
+// import useSnack from '@reapit/elements/src/hooks/use-snack'
 
 export default () => {
   const { connectSession } = useReapitConnect(reapitConnectBrowserSession)
@@ -14,6 +15,9 @@ export default () => {
   const [deployLoading, setDeployLoading] = useState<string | undefined>()
 
   const { projectName } = useParams<{ projectName: string }>()
+  // const snack = useSnack()
+
+  // console.log(snack)
 
   useEffect(() => {
     const fetchReleases = async () => {
@@ -54,43 +58,41 @@ export default () => {
   }
 
   return (
-    <SnackProvider>
-      <Section>
-        <H3>Releases</H3>
-        <FlexContainerBasic centerContent flexColumn hasBackground hasPadding>
-          {loading ? (
-            <Loader />
-          ) : (
-            <Table
-              data={releases}
-              columns={[
-                {
-                  Header: 'Version',
-                  accessor: 'version',
-                },
-                {
-                  Header: 'Deployed',
-                  Cell: ({ row }: { row: { original: any } }) => row.original.currentlyDeployed && 'current',
-                },
-                {
-                  id: 'Deploy',
-                  Cell: ({ row }: { row: { original: any } }) => (
-                    <Button
-                      loading={typeof deployLoading !== 'undefined' && row.original.id === deployLoading}
-                      variant="info"
-                      onClick={() => {
-                        deployVersion(row.original)
-                      }}
-                    >
-                      Release
-                    </Button>
-                  ),
-                },
-              ]}
-            />
-          )}
-        </FlexContainerBasic>
-      </Section>
-    </SnackProvider>
+    <Section>
+      <H3>Releases - {projectName}</H3>
+      <FlexContainerBasic centerContent flexColumn hasBackground hasPadding>
+        {loading ? (
+          <Loader />
+        ) : (
+          <Table
+            data={releases}
+            columns={[
+              {
+                Header: 'Version',
+                accessor: 'version',
+              },
+              {
+                Header: 'Deployed',
+                Cell: ({ row }: { row: { original: any } }) => row.original.currentlyDeployed && 'current',
+              },
+              {
+                id: 'Deploy',
+                Cell: ({ row }: { row: { original: any } }) => (
+                  <Button
+                    loading={typeof deployLoading !== 'undefined' && row.original.id === deployLoading}
+                    variant="info"
+                    onClick={() => {
+                      deployVersion(row.original)
+                    }}
+                  >
+                    Release
+                  </Button>
+                ),
+              },
+            ]}
+          />
+        )}
+      </FlexContainerBasic>
+    </Section>
   )
 }
