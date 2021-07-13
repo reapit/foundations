@@ -10,7 +10,7 @@ export const pipelineServiceCreate = async (
   try {
     const response: PipelineModelInterface | undefined = await fetcher({
       api: URLS.DEPLOYMENT_SERVICE_HOST,
-      url: '/dev/pipeline',
+      url: '/pipeline',
       method: 'POST',
       headers: {
         ...BASE_HEADERS,
@@ -36,7 +36,7 @@ export const pipelineServiceGet = async (
   try {
     const response: PipelineModelInterface | undefined = await fetcher({
       api: URLS.DEPLOYMENT_SERVICE_HOST,
-      url: `/dev/pipeline/${pipelineId}`,
+      url: `/pipeline/${pipelineId}`,
       method: 'GET',
       headers: {
         ...BASE_HEADERS,
@@ -60,7 +60,7 @@ export const pipelineServicePaginate = async (
   try {
     const response: { items: PipelineModelInterface[] } | undefined = await fetcher({
       api: URLS.DEPLOYMENT_SERVICE_HOST,
-      url: '/dev/pipeline',
+      url: '/pipeline',
       method: 'GET',
       headers: {
         ...BASE_HEADERS,
@@ -85,7 +85,7 @@ export const pipelineServiceDelete = async (
   try {
     const response: PipelineModelInterface | undefined = await fetcher({
       api: URLS.DEPLOYMENT_SERVICE_HOST,
-      url: `/dev/pipeline/${id}`,
+      url: `/pipeline/${id}`,
       method: 'DELETE',
       headers: {
         ...BASE_HEADERS,
@@ -110,7 +110,7 @@ export const pipelineServiceRun = async (
   try {
     const response: PipelineModelInterface | undefined = await fetcher({
       api: URLS.DEPLOYMENT_SERVICE_HOST,
-      url: `/dev/pipeline/${id}/run`,
+      url: `/pipeline/${id}/run`,
       method: 'POST',
       headers: {
         ...BASE_HEADERS,
