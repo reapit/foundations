@@ -41,7 +41,6 @@ export const AppList: React.FunctionComponent<AppListProps> = ({
               <FadeIn>
                 <AppCard
                   app={app}
-                  connectIsDesktop={connectIsDesktop}
                   onClick={
                     onCardClick
                       ? (event: React.MouseEvent) => {

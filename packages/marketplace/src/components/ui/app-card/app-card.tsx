@@ -4,7 +4,6 @@ import { Tile } from '@reapit/elements-legacy'
 import * as appCardStyles from './__styles__'
 import defaultAppIcon from '@/assets/images/default-app-icon.jpg'
 import Fade from '@/components/ui/fade'
-// import { cx } from 'linaria'
 import { IsFree } from './__styles__'
 import { cx } from 'linaria'
 
@@ -14,7 +13,6 @@ export interface AppCardProps {
   onClick?: (event: React.MouseEvent) => void
   onSettingsClick?: (event: React.MouseEvent) => void
   animated?: boolean
-  connectIsDesktop: boolean
 }
 
 export const onImageError = (event: React.SyntheticEvent<HTMLImageElement>) =>
@@ -25,7 +23,6 @@ const AppCard: React.FunctionComponent<AppCardProps> = ({
   onClick,
   onSettingsClick,
   animated = false,
-  connectIsDesktop,
 }: AppCardProps) => {
   const dataTest = ['app-card', app.id]
   !app.pendingRevisions && dataTest.push('isNoPending')
@@ -48,7 +45,7 @@ const AppCard: React.FunctionComponent<AppCardProps> = ({
         subHeading={app.developer}
         image={<img className="image" src={app.iconUri || defaultAppIcon} onError={onImageError} alt={app.name} />}
       >
-        <p className={cx(appCardStyles.content, connectIsDesktop && appCardStyles.contentIsDesktop)}>{app.summary}</p>
+        <p className={cx(appCardStyles.content)}>{app.summary}</p>
       </Tile>
     </div>
   )

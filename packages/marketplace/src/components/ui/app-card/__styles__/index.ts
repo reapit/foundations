@@ -9,11 +9,7 @@ export const content = css`
   max-width: 700px;
   overflow: hidden;
   text-overflow: ellipsis;
-  height: 4rem;
-`
-
-export const contentIsDesktop = css`
-  height: 4.2rem;
+  height: 3.5rem;
 `
 
 export const appTitle = css`
@@ -23,7 +19,7 @@ export const appTitle = css`
   max-width: 700px;
   overflow: hidden;
   text-overflow: ellipsis;
-  height: 2.1em;
+  height: 2.65em;
 `
 
 export const directAPI = css`
