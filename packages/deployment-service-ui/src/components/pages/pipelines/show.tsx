@@ -3,7 +3,7 @@ import { reapitConnectBrowserSession } from '@/core/connect-session'
 import { pipelineRunnerCreate, pipelineRunnerPaginate, pipelineServiceGet } from '@/platform-api/pipelines'
 import { ReapitConnectSession, useReapitConnect } from '@reapit/connect-session'
 import { Breadcrumb, BreadcrumbItem, FlexContainerBasic, H1, Section, H3 } from '@reapit/elements-legacy'
-import { Button, Label, Loader, StatusIndicator, Table } from '@reapit/elements'
+import { Button, Label, Loader, StatusIndicator, Table, Intent } from '@reapit/elements'
 import React, { useEffect, useState } from 'react'
 import { Link, useParams } from 'react-router-dom'
 import {
@@ -13,7 +13,6 @@ import {
   TaskModelInterface,
 } from '@reapit/foundations-ts-definitions'
 import { Pagination } from 'nestjs-typeorm-paginate'
-import { Intent } from '@reapit/elements/src/helpers/intent'
 
 const pipelineStatusToIntent = (status: DeploymentStatus): Intent => {
   switch (status) {
