@@ -2,12 +2,12 @@
 
 exports[`InstalledAppCard should match a snapshot 1`] = `
 <div
-  className="bv0d7a6-banner-wrap"
+  className="bcn8i89-banner-wrap"
   data-test-app-id="09043eb8-9e5e-4650-b7f1-f0cb62699027"
   data-test-app-name="test"
 >
   <div
-    className="bgxdy39-banner-inner"
+    className="bv0d7a6-banner-inner"
   >
     In Development
   </div>
