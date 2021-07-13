@@ -162,3 +162,29 @@ export const pipelineRunnerPaginate = async (
     console.error('Error fetching Configuration Appointment Types', err.message)
   }
 }
+
+export const pipelineRunnerCreate = async (
+  session: ReapitConnectSession,
+  pipeline: PipelineModelInterface,
+): Promise<PipelineRunnerModelInterface | undefined> => {
+  try {
+    const response: PipelineRunnerModelInterface = await fetcher({
+      api: URLS.DEPLOYMENT_SERVICE_HOST,
+      url: `/pipeline/${pipeline.id}/pipeline-runner`,
+      method: 'POST',
+      headers: {
+        ...BASE_HEADERS,
+        Authorization: `${session.idToken}`,
+      },
+    })
+
+    if (response) {
+      return response
+    }
+
+    throw new Error('No response returned by API')
+  } catch (err) {
+    console.log(notification.error({ message: 'Pipeline failed to run' }))
+    console.error('Error fetching Configuration Appointment Types', err.message)
+  }
+}
