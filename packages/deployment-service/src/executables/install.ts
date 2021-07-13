@@ -1,17 +1,16 @@
-import { TaskEntity } from "src/entities"
-import { ExecutableType } from "./executable"
+import { PipelineEntity, TaskEntity } from 'src/entities'
+import { ExecutableType } from './executable'
 import { execSync } from 'child_process'
-import { resolve } from 'path'
+import { projectDir } from './../utils/project-dir'
+import { dir } from './../constants'
 
-const cloneDir = 'project'
-const dir = resolve('/tmp', cloneDir)
-const cloneZip = 'resource.zip'
-
-export const install: ExecutableType = async (task: TaskEntity): Promise<true | never> => {
+export const install: ExecutableType = async (task: TaskEntity, pipeline: PipelineEntity): Promise<true | never> => {
   console.log('installing...')
   console.log('executable', task)
 
-  const projectDirName = resolve(dir, `${task.pipelineRunner.pipeline.repository.split('/').pop()}-master`)
+  // TODO check folder etc still exists in context
+
+  const projectDirName = projectDir(dir, pipeline)
 
   try {
     // TODO optional yarn usage

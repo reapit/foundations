@@ -1,4 +1,4 @@
-import { PipelineRunnerEntity, TaskEntity, TaskWorkflow } from './../../entities'
+import { PipelineEntity, PipelineRunnerEntity, TaskEntity, TaskWorkflow } from './../../entities'
 import { Handler, Context, Callback } from 'aws-lambda'
 import { plainToClass } from 'class-transformer'
 import * as services from './../../services'
@@ -119,7 +119,7 @@ export const taskRunner: Handler = async (event: any, context: Context, callback
         const executable = resolveExecutable(task)
 
         await startTask(task)
-        await executable(task)
+        await executable(task, task.pipelineRunner?.pipeline as PipelineEntity)
 
         const nextTask = await getNextTask(task)
 
