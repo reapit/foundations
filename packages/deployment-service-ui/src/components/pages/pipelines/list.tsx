@@ -7,14 +7,13 @@ import { Loader } from '@reapit/elements'
 import { PipelineModelInterface } from '@reapit/foundations-ts-definitions'
 import React, { useEffect, useState } from 'react'
 import { Link } from 'react-router-dom'
-import { pipelineServiceDelete, pipelineServicePaginate, pipelineServiceRun } from '../../../platform-api/pipelines'
+import { pipelineServiceDelete, pipelineServicePaginate } from '../../../platform-api/pipelines'
 
 export default () => {
   const { connectSession } = useReapitConnect(reapitConnectBrowserSession)
   const [pipelines, setPipelines] = useState<PipelineModelInterface[]>([])
   const [loading, setLoading] = useState<boolean>(false)
   const [deletionLoading, setDeletionLoading] = useState<string[]>([])
-  const [deploying, setDeploying] = useState<string[]>([])
 
   useEffect(() => {
     const fetchPipelines = async () => {
@@ -38,13 +37,6 @@ export default () => {
     setDeletionLoading(deletionLoading.filter((del) => del !== id))
     setPipelines(pipelines.filter((pipeline) => pipeline.id !== id))
     notification.success({ message: 'Pipeline deleted' })
-  }
-
-  const deployPipeline = async (id: string) => {
-    setDeploying([...deploying, id])
-
-    await pipelineServiceRun(connectSession as ReapitConnectSession, id)
-    setDeploying(deploying.filter((pipelineId) => pipelineId !== id))
   }
 
   return (
@@ -75,7 +67,7 @@ export default () => {
                 Cell: ({ row }: { row: { original: any } }) => (
                   <ButtonGroup>
                     <Button variant="secondary">
-                      <Link to={Routes.PIPELINES_SHOW.replace(':pipelineId', row.original.id)}>Show</Link>
+                      <Link to={Routes.PIPELINES_SHOW.replace(':pipelineId', row.original.id)}>Manage</Link>
                     </Button>
                     <Button
                       loading={deletionLoading.includes(row.original.id)}
@@ -83,13 +75,6 @@ export default () => {
                       variant="danger"
                     >
                       Delete
-                    </Button>
-                    <Button
-                      loading={deploying.includes(row.original.id)}
-                      onClick={() => deployPipeline(row.original.id)}
-                      variant="info"
-                    >
-                      Deploy
                     </Button>
                   </ButtonGroup>
                 ),
