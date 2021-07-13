@@ -3,7 +3,7 @@ import { releaseServicePaginate, releaseVersionDeploy } from '@/platform-api/rel
 import { ReapitConnectSession, useReapitConnect } from '@reapit/connect-session'
 import { FlexContainerBasic, H3, Section } from '@reapit/elements-legacy'
 import { Button, Table } from '@reapit/elements-legacy'
-import { Loader } from '@reapit/elements'
+import { Loader, StatusIndicator } from '@reapit/elements'
 import React, { useEffect, useState } from 'react'
 import { useParams } from 'react-router'
 // import useSnack from '@reapit/elements/src/hooks/use-snack'
@@ -59,7 +59,9 @@ export default () => {
 
   return (
     <Section>
-      <H3>Releases - {projectName}</H3>
+      <H3>
+        <StatusIndicator intent={'success'} /> Releases - {projectName}
+      </H3>
       <FlexContainerBasic centerContent flexColumn hasBackground hasPadding>
         {loading ? (
           <Loader />
@@ -73,7 +75,12 @@ export default () => {
               },
               {
                 Header: 'Deployed',
-                Cell: ({ row }: { row: { original: any } }) => row.original.currentlyDeployed && 'current',
+                Cell: ({ row }: { row: { original: any } }) =>
+                  row.original.currentlyDeployed && (
+                    <>
+                      <StatusIndicator intent="success" /> current
+                    </>
+                  ),
               },
               {
                 id: 'Deploy',
