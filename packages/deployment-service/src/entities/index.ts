@@ -89,8 +89,18 @@ export class PipelineEntity extends AbstractEntity implements PipelineModelInter
 export type TaskWorkflow = TaskRunnerFunctions[]
 
 export const taskWorkflows: { [key in AppTypeEnum]: TaskWorkflow } = {
-  [AppTypeEnum.NODE]: [TaskRunnerFunctions.PULL, TaskRunnerFunctions.BUILD, TaskRunnerFunctions.DEPLOY_LAMBDAS],
-  [AppTypeEnum.REACT]: [TaskRunnerFunctions.PULL, TaskRunnerFunctions.BUILD, TaskRunnerFunctions.DEPLOY_REACT],
+  [AppTypeEnum.NODE]: [
+    TaskRunnerFunctions.PULL,
+    TaskRunnerFunctions.INSTALL,
+    TaskRunnerFunctions.BUILD,
+    TaskRunnerFunctions.DEPLOY_LAMBDAS,
+  ],
+  [AppTypeEnum.REACT]: [
+    TaskRunnerFunctions.PULL,
+    TaskRunnerFunctions.INSTALL,
+    TaskRunnerFunctions.BUILD,
+    TaskRunnerFunctions.DEPLOY_REACT,
+  ],
 }
 
 @Entity('tasks')

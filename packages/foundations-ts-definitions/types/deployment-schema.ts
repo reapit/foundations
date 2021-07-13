@@ -51,6 +51,7 @@ export enum DeploymentStatus {
 }
 
 export enum TaskRunnerFunctions {
+  INSTALL = 'install',
   BUILD = 'build',
   DEPLOY_LAMBDAS = 'deploy lambdas',
   DEPLOY_REACT = 'deploy react',
