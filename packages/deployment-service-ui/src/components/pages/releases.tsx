@@ -1,12 +1,11 @@
 import { reapitConnectBrowserSession } from '@/core/connect-session'
 import { releaseServicePaginate, releaseVersionDeploy } from '@/platform-api/releases'
 import { ReapitConnectSession, useReapitConnect } from '@reapit/connect-session'
-import { FlexContainerBasic, H3, Section } from '@reapit/elements-legacy'
+import { FlexContainerBasic, H3, Section, notification } from '@reapit/elements-legacy'
 import { Button, Table } from '@reapit/elements-legacy'
 import { Loader, StatusIndicator } from '@reapit/elements'
 import React, { useEffect, useState } from 'react'
 import { useParams } from 'react-router'
-// import useSnack from '@reapit/elements/src/hooks/use-snack'
 
 export default () => {
   const { connectSession } = useReapitConnect(reapitConnectBrowserSession)
@@ -15,9 +14,6 @@ export default () => {
   const [deployLoading, setDeployLoading] = useState<string | undefined>()
 
   const { projectName } = useParams<{ projectName: string }>()
-  // const snack = useSnack()
-
-  // console.log(snack)
 
   useEffect(() => {
     const fetchReleases = async () => {
@@ -35,7 +31,9 @@ export default () => {
 
   const deployVersion = ({ id, version, projectName }: { version: string; projectName: string; id: string }) => {
     if (deployLoading) {
-      // TODO show toast message
+      notification.info({
+        message: 'Release already in progress',
+      })
       return
     }
 
@@ -45,16 +43,16 @@ export default () => {
 
     setDeployLoading(id)
 
-    console.log(id, deployLoading)
-
-    // snack.info('Started deployment')
+    notification.info({
+      message: 'Started deployment',
+    })
 
     releaseVersionDeploy(connectSession, projectName, version)
 
     setDeployLoading(undefined)
-    // snack.info('Deployment complete')
-
-    // Set toast
+    notification.success({
+      message: 'Deployment complete',
+    })
   }
 
   return (
