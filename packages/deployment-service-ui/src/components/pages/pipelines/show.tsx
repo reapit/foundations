@@ -148,7 +148,9 @@ export default () => {
       </Section>
       <Section>
         {runnerLoading ? (
-          <Loader />
+          <FlexContainerBasic centerContent flexColumn hasBackground hasPadding>
+            <Loader />
+          </FlexContainerBasic>
         ) : pipelineRunners ? (
           <Table rows={pipelineRunnerMapped} expandableContentSize="small" />
         ) : (
