@@ -1,9 +1,9 @@
 import Routes from '@/constants/routes'
 import { reapitConnectBrowserSession } from '@/core/connect-session'
-import { pipelineRunnerPaginate, pipelineServiceGet } from '@/platform-api/pipelines'
+import { pipelineRunnerCreate, pipelineRunnerPaginate, pipelineServiceGet } from '@/platform-api/pipelines'
 import { ReapitConnectSession, useReapitConnect } from '@reapit/connect-session'
 import { Breadcrumb, BreadcrumbItem, FlexContainerBasic, H1, Section, H3 } from '@reapit/elements-legacy'
-import { Label, Loader, StatusIndicator, Table } from '@reapit/elements'
+import { Button, Label, Loader, StatusIndicator, Table } from '@reapit/elements'
 import React, { useEffect, useState } from 'react'
 import { Link, useParams } from 'react-router-dom'
 import {
@@ -84,6 +84,13 @@ export default () => {
     }
   }, [pipeline])
 
+  const deployPipeline = async () => {
+    if (!pipeline) {
+      return
+    }
+    await pipelineRunnerCreate(connectSession as ReapitConnectSession, pipeline)
+  }
+
   const pipelineRunnerMapped = pipelineRunners?.items.map((pipeline) => ({
     cells: [
       {
@@ -139,6 +146,11 @@ export default () => {
       </Breadcrumb>
       <Section>
         <H1>Pipeline {pipeline?.name}</H1>
+        <div>
+          <Button onClick={() => deployPipeline()} intent="success">
+            Deploy
+          </Button>
+        </div>
         <Label>Package Manager</Label>
         <p>{pipeline?.packageManager}</p>
         <Label>Build Command</Label>
