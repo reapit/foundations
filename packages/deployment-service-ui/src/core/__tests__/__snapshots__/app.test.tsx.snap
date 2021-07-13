@@ -2,6 +2,8 @@
 
 exports[`App should match a snapshot 1`] = `
 <ErrorBoundary>
-  <_default />
+  <SnackProvider>
+    <_default />
+  </SnackProvider>
 </ErrorBoundary>
 `;
