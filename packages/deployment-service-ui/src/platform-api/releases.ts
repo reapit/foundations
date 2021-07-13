@@ -9,8 +9,8 @@ export const releaseServicePaginate = async (
 ): Promise<Pagination<any> | undefined> => {
   try {
     const response: Pagination<any> | undefined = await fetcher({
-      api: 'http://localhost:3000/local/', //URLS.DEPLOYMENT_SERVICE_HOST,
-      url: `deploy/release/${projectName}`, //dev
+      api: URLS.DEPLOYMENT_SERVICE_HOST,
+      url: `/deploy/release/${projectName}`,
       method: 'GET',
       headers: {
         ...BASE_HEADERS,
@@ -34,7 +34,7 @@ export const releaseServiceProjectPaginate = async (
   try {
     const response: Pagination<any> | undefined = await fetcher({
       api: URLS.DEPLOYMENT_SERVICE_HOST,
-      url: 'dev/deploy/project/',
+      url: '/deploy/project/',
       method: 'GET',
       headers: {
         ...BASE_HEADERS,
@@ -60,7 +60,7 @@ export const releaseVersionDeploy = async (
   try {
     await fetcher({
       api: URLS.DEPLOYMENT_SERVICE_HOST,
-      url: `dev/deploy/version/${projectName}/${version}`,
+      url: `/deploy/version/${projectName}/${version}`,
       method: 'POST',
       headers: {
         ...BASE_HEADERS,

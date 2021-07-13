@@ -9,7 +9,7 @@ export const configurationApiKeyApiService = async (
   try {
     const response: { items: ApiKeyInterface[] } | undefined = await fetcher({
       api: URLS.API_KEY_SERVICE_HOST,
-      url: '/dev/api-key',
+      url: '/api-key',
       method: 'GET',
       headers: {
         ...BASE_HEADERS,
@@ -36,7 +36,7 @@ export const configurationApiKeyApiCreateService = async (
     keyExpiresAt.setFullYear(keyExpiresAt.getFullYear() + 1)
     const response: ApiKeyInterface | undefined = await fetcher({
       api: URLS.API_KEY_SERVICE_HOST,
-      url: '/dev/api-key',
+      url: '/api-key',
       method: 'POST',
       headers: {
         ...BASE_HEADERS,
@@ -68,7 +68,7 @@ export const configurationApiKeyApiDeleteService = async (
     keyExpiresAt.setFullYear(keyExpiresAt.getFullYear() + 1)
     const response: undefined = await fetcher({
       api: URLS.API_KEY_SERVICE_HOST,
-      url: `/dev/api-key/${id}`,
+      url: `/api-key/${id}`,
       method: 'DELETE',
       headers: {
         ...BASE_HEADERS,
