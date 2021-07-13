@@ -12733,6 +12733,23 @@ __metadata:
   languageName: node
   linkType: hard
 
+"aws-sdk@npm:^2.757.0":
+  version: 2.943.0
+  resolution: "aws-sdk@npm:2.943.0"
+  dependencies:
+    buffer: 4.9.2
+    events: 1.1.1
+    ieee754: 1.1.13
+    jmespath: 0.15.0
+    querystring: 0.2.0
+    sax: 1.2.1
+    url: 0.10.3
+    uuid: 3.3.2
+    xml2js: 0.4.19
+  checksum: 82857858c95a9b1b29fd60694e2d3a96ae6e8d7252db94ccc72f6676029e8b3cdf0ecf4fee5b78d734c4a1e1b8fba80580e2f5238e0c0a40839422591ae6c5b0
+  languageName: node
+  linkType: hard
+
 "aws-sdk@npm:^2.852.0, aws-sdk@npm:^2.853.0":
   version: 2.853.0
   resolution: "aws-sdk@npm:2.853.0"
@@ -17424,6 +17441,7 @@ __metadata:
     original-fs: ^1.1.0
     prettier: ^2.3.0
     serverless: ^2.48.0
+    serverless-offline-sqs: ^4.1.1
     serverless-webpack: ^5.5.1
     ts-node: ^10.0.0
     typeorm: ^0.2.34
@@ -35573,6 +35591,19 @@ resolve@^1.19.0:
     "@types/aws-lambda":
       optional: true
   checksum: 96b9b0d33af37c4c22c4009e0e15e7d2ab0bad5b5ccdd7c53f0439a405544862dd47e7ec9a87fcf4233539a8815bc0a8b48800974b5471e8034a0f79084f6f31
+  languageName: node
+  linkType: hard
+
+"serverless-offline-sqs@npm:^4.1.1":
+  version: 4.1.1
+  resolution: "serverless-offline-sqs@npm:4.1.1"
+  dependencies:
+    aws-sdk: ^2.757.0
+    lodash: ^4.17.20
+    p-queue: ^6.6.1
+  peerDependencies:
+    serverless-offline: ^6.7.0
+  checksum: a17e5325e3f81b0611230759470518c0c27cfadd2b70b7a6b0e11cb9eeda353d1bf372682df4684c5bd8822498fa49a5d44bc13a8b8c8ee9a226be3e22f83081
   languageName: node
   linkType: hard
 

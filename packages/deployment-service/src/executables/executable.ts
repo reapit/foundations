@@ -1,13 +1,13 @@
-import { PipelineEntity, TaskEntity } from './../entities'
+import { TaskEntity } from './../entities'
 import { TaskRunnerFunctions } from '@reapit/foundations-ts-definitions'
 import { build } from './build'
 import { deployNode } from './deploy-node'
 import { deployReact } from './deploy-react'
 import { pull } from './pull'
 
-export type ExecutableType = (task: TaskEntity, pipeline: PipelineEntity) => Promise<boolean> | boolean
+export type ExecutableType = (task: TaskEntity) => Promise<true | never> | true | never
 
-export const executable = (task: TaskEntity): ExecutableType => {
+export const resolveExecutable = (task: TaskEntity): ExecutableType => {
   switch (task.functionName) {
     case TaskRunnerFunctions.PULL:
       return pull
@@ -18,6 +18,6 @@ export const executable = (task: TaskEntity): ExecutableType => {
     case TaskRunnerFunctions.DEPLOY_REACT:
       return deployReact
     default:
-      return () => false
+      throw new Error(`task with func name [${task.functionName}] was not resolved`)
   }
 }

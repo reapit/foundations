@@ -12,6 +12,7 @@
     "mysql": "^2.18.1",
     "nestjs-typeorm-paginate": "^2.5.3",
     "original-fs": "^1.1.0",
+    "serverless-offline-sqs": "^4.1.1",
     "typeorm": "^0.2.34",
     "typeorm-aurora-data-api-driver": "^2.2.0"
   },

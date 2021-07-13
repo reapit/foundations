@@ -4,6 +4,7 @@ plugins:
   - serverless-webpack
   - serverless-offline
   - serverless-deployment-bucket
+  - serverless-offline-sqs
 
 custom:
   s3CloudFormBucket: cloud-deployment-cloudform-templates-${opt:stage, 'dev'}
@@ -26,6 +27,11 @@ custom:
       heapMax: 1g
       migrate: true
       convertEmptyValues: true
+  serverless-offline-sqs:
+    autoCreate: true
+    region: eu-west-2
+    endpoint: http://0.0.0.0:9324
+    skipCacheInvalidation: false
 
 provider:
   name: aws
@@ -133,6 +139,14 @@ resources:
       Properties:
         BucketName: ${self:custom.env.DEPLOYMENT_BUCKET_NAME}
         AccessControl: Private
+    TaskRunner:
+      Type: AWS::SQS::Queue
+      Properties:
+        QueueName: TaskRunner
+    TaskPopulation:
+      Type: AWS::SQS::Queue
+      Properties:
+        QueueName: TaskPopulation
 
 package:
   individually: true
@@ -484,4 +498,21 @@ functions:
               - Authorization
               - X-Api-Key
               - api-version
- 
+  taskPopulation:
+    handler: src/index.taskPopulation
+    events:
+      - sqs:
+          queueName: TaskPopulation
+          arn:
+            Fn::GetAtt:
+              - TaskPopulation
+              - Arn
+  taskRunner:
+    handler: src/index.taskRunner
+    events:
+      - sqs:
+          queueName: TaskRunner
+          arn:
+            Fn::GetAtt:
+              - TaskRunner
+              - Arn
