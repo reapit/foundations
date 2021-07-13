@@ -1,11 +1,12 @@
 import { reapitConnectBrowserSession } from '@/core/connect-session'
 import { releaseServicePaginate, releaseVersionDeploy } from '@/platform-api/releases'
 import { ReapitConnectSession, useReapitConnect } from '@reapit/connect-session'
-import { FlexContainerBasic, H3, Section, notification } from '@reapit/elements-legacy'
+import { FlexContainerBasic, Section, notification } from '@reapit/elements-legacy'
 import { Button, Table } from '@reapit/elements-legacy'
-import { Loader, StatusIndicator } from '@reapit/elements'
+import { Loader, StatusIndicator, Title } from '@reapit/elements'
 import React, { useEffect, useState } from 'react'
 import { useParams } from 'react-router'
+import { FlexContainer } from '@reapit/elements'
 
 export default () => {
   const { connectSession } = useReapitConnect(reapitConnectBrowserSession)
@@ -29,7 +30,7 @@ export default () => {
     }
   }, [connectSession])
 
-  const deployVersion = ({ id, version, projectName }: { version: string; projectName: string; id: string }) => {
+  const deployVersion = async ({ id, version, projectName }: { version: string; projectName: string; id: string }) => {
     if (deployLoading) {
       notification.info({
         message: 'Release already in progress',
@@ -47,7 +48,14 @@ export default () => {
       message: 'Started deployment',
     })
 
-    releaseVersionDeploy(connectSession, projectName, version)
+    await releaseVersionDeploy(connectSession, projectName, version)
+
+    setReleases([
+      ...releases.map((release) => {
+        release.currentlyDeployed = release.id === id
+        return release
+      }),
+    ])
 
     setDeployLoading(undefined)
     notification.success({
@@ -57,9 +65,12 @@ export default () => {
 
   return (
     <Section>
-      <H3>
-        <StatusIndicator intent={'success'} /> Releases - {projectName}
-      </H3>
+      <Title>
+        <FlexContainer isFlexAlignCenter>
+          <StatusIndicator intent={'success'} />
+          Releases - {projectName}
+        </FlexContainer>
+      </Title>
       <FlexContainerBasic centerContent flexColumn hasBackground hasPadding>
         {loading ? (
           <Loader />
@@ -73,12 +84,23 @@ export default () => {
               },
               {
                 Header: 'Deployed',
-                Cell: ({ row }: { row: { original: any } }) =>
-                  row.original.currentlyDeployed && (
-                    <>
-                      <StatusIndicator intent="success" /> current
-                    </>
-                  ),
+                Cell: ({ row }: { row: { original: any } }) => {
+                  if (deployLoading && deployLoading === row.original.id) {
+                    return (
+                      <FlexContainer isFlexAlignCenter>
+                        <StatusIndicator intent="critical" /> Deploying
+                      </FlexContainer>
+                    )
+                  }
+
+                  return (
+                    row.original.currentlyDeployed && (
+                      <FlexContainer isFlexAlignCenter>
+                        <StatusIndicator intent="success" /> Current
+                      </FlexContainer>
+                    )
+                  )
+                },
               },
               {
                 id: 'Deploy',
