@@ -27,6 +27,8 @@ window.reapit = {
     platformApiUrl: '',
     amlAppId: '',
     amlAppUrl: '',
+    demoUser: '',
+    appId: '',
   },
 }
 
