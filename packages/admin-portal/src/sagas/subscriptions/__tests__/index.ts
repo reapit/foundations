@@ -36,7 +36,8 @@ const fakeResponse = {} as SubscriptionModelPagedResult
 const params = {
   data: {
     page: 1,
-    queryString: '?type=developerEdition&developerId=17e6c3d3-b66d-4eb4-a0fc-f3d76e5809a1',
+    queryString:
+      '?type=developerEdition&developerName=developerName&userEmail=mail@example.com&appName=appName&status=active',
   },
 }
 
@@ -48,7 +49,10 @@ describe('fetchSubscriptionListHandler ', () => {
       pageSize: REVISIONS_PER_PAGE,
       pageNumber: 1,
       subscriptionType: 'developerEdition',
-      developerId: '17e6c3d3-b66d-4eb4-a0fc-f3d76e5809a1',
+      developerName: 'developerName',
+      userEmail: 'mail@example.com',
+      appName: 'appName',
+      status: 'active',
     }),
   )
 

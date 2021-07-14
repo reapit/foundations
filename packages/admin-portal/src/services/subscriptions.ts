@@ -10,6 +10,10 @@ export type FetchSubscriptionsListParams = FetchListCommonParams & {
   developerId?: string
   subscriptionType?: string
   applicationId?: string
+  appName?: string
+  developerName?: string
+  status?: string
+  userEmail?: string
 }
 
 export interface CancelSubscriptionParams {

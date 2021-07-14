@@ -25,13 +25,19 @@ export const fetchSubscriptionListHandler = function* ({ data: { page, queryStri
   try {
     const queryParams = new URLSearchParams(queryString)
     const subscriptionType = queryParams.get('type') || ''
-    const developerId = queryParams.get('developerId') || ''
+    const developerName = queryParams.get('developerName') || ''
+    const userEmail = queryParams.get('userEmail') || ''
+    const appName = queryParams.get('appName') || ''
+    const status = queryParams.get('status') || ''
 
     const response = yield call(fetchSubscriptionListApi, {
       pageSize: REVISIONS_PER_PAGE,
       pageNumber: page,
       subscriptionType,
-      developerId,
+      developerName,
+      userEmail,
+      appName,
+      status,
     })
 
     yield put(fetchSubscriptionListSuccess(response))

@@ -1,5 +1,4 @@
 import * as React from 'react'
-import { useSelector } from 'react-redux'
 import {
   Button,
   Grid,
@@ -9,19 +8,17 @@ import {
   FormSubHeading,
   Formik,
   Form,
-  DropdownSelect,
-  SelectOption,
   SelectBox,
+  Input,
 } from '@reapit/elements-legacy'
-import store from '../../../core/store'
-import { fetchDeveloperList, fetchDeveloperListValues } from '@/actions/devs-management'
-import { selectDeveloperListState } from '@/selector/admin'
-import { DeveloperData } from '@/reducers/developers/list'
 import { subscriptionTypes } from '../../../constants/subscriptionTypes'
 
 export interface SubscriptionsFilterFormValues {
   type: string
-  developerId: string
+  developerName: string
+  userEmail: string
+  appName: string
+  status: string
 }
 
 export interface SubscriptionsFormProps {
@@ -29,25 +26,18 @@ export interface SubscriptionsFormProps {
   onSearch: any
 }
 
-export const prepareDevelopersOptions: (data: DeveloperData[]) => SelectOption[] = (data) =>
-  data.map((developer) => {
-    const { id, name } = developer
-
-    return {
-      label: name,
-      value: id,
-    } as SelectOption
-  })
+const statusFilterOptions = [
+  {
+    label: 'Active',
+    value: 'active',
+  },
+  {
+    label: 'Cancelled',
+    value: 'cancelled',
+  },
+]
 
 const SubscriptionsFilterForm: React.FC<SubscriptionsFormProps> = ({ filterValues, onSearch }) => {
-  React.useEffect(() => {
-    store.dispatch(fetchDeveloperList({ queryString: '?page=1' } as fetchDeveloperListValues))
-  }, [])
-
-  const DeveloperListState = useSelector(selectDeveloperListState)
-  const { data } = DeveloperListState
-  const developers = prepareDevelopersOptions(data)
-
   return (
     <Formik initialValues={filterValues} onSubmit={onSearch}>
       {({ status }) => {
@@ -61,14 +51,22 @@ const SubscriptionsFilterForm: React.FC<SubscriptionsFormProps> = ({ filterValue
                   <SelectBox name="type" options={subscriptionTypes} labelText="Type" id="type" />
                 </GridItem>
                 <GridItem>
-                  <DropdownSelect
-                    mode="multiple"
-                    id="developerId"
-                    placeholder="Please select"
-                    name="developerId"
+                  <Input
+                    type="text"
                     labelText="Developer Name"
-                    options={developers}
+                    id="developerName"
+                    name="developerName"
+                    maxLength={256}
                   />
+                </GridItem>
+                <GridItem>
+                  <Input type="text" labelText="User Email" id="userEmail" name="userEmail" maxLength={256} />
+                </GridItem>
+                <GridItem>
+                  <Input type="text" labelText="App Name" id="appName" name="appName" maxLength={256} />
+                </GridItem>
+                <GridItem>
+                  <SelectBox id="status" name="status" labelText="Status" options={statusFilterOptions} />
                 </GridItem>
                 <GridItem className="mt-4">
                   <Button type="submit" variant="primary">

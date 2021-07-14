@@ -14,7 +14,6 @@ import {
   Section,
   Alert,
   Button,
-  notification,
 } from '@reapit/elements-legacy'
 import Routes from '@/constants/routes'
 import SubscriptionsFilterForm, {
@@ -23,7 +22,7 @@ import SubscriptionsFilterForm, {
 import CancelConfirmModal from '@/components/ui/subscriptions/subscription-cancel-confirm'
 import MemberNameCell from '@/components/ui/subscriptions/subscription-member-name-cell'
 import { selectSubscriptionListState } from '@/selector/admin'
-import { cleanObject, errorMessages } from '@reapit/utils'
+import { cleanObject } from '@reapit/utils'
 import {
   fetchSubscriptionList,
   FetchSubscriptionListQuery,
@@ -34,8 +33,11 @@ import store from '../../../core/store'
 
 export const buildFilterValues = (queryParams: URLSearchParams): SubscriptionsFilterFormValues => {
   const type = queryParams.get('type') || ''
-  const developerId = queryParams.get('developerId') || ''
-  return { type, developerId } as SubscriptionsFilterFormValues
+  const developerName = queryParams.get('developerName') || ''
+  const userEmail = queryParams.get('userEmail') || ''
+  const appName = queryParams.get('appName') || ''
+  const status = queryParams.get('status') || ''
+  return { type, developerName, userEmail, appName, status } as SubscriptionsFilterFormValues
 }
 
 export const onPageChangeHandler = (history: History<any>, queryParams: SubscriptionsFilterFormValues) => (
@@ -54,12 +56,6 @@ export const onSearchHandler = (history: History<any>) => (
   { setStatus },
 ) => {
   const cleanedValues = cleanObject(queryParams)
-  const { developerId } = cleanedValues
-  if (developerId?.length > 1) {
-    return notification.error({
-      message: errorMessages.SUBSCRIPTION_MULTIPLE_DEVELOPER,
-    })
-  }
 
   if (isEmptyObject(cleanedValues)) {
     setStatus('Please enter at least one search criteria')
