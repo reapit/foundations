@@ -72,6 +72,7 @@ exports[`AdminDevManagement should match a snapshot when LOADING false 1`] = `
                 "name": "",
                 "registeredFrom": "",
                 "registeredTo": "",
+                "status": "",
               }
             }
             onSearch={[Function]}
@@ -83,6 +84,7 @@ exports[`AdminDevManagement should match a snapshot when LOADING false 1`] = `
                   "name": "",
                   "registeredFrom": "",
                   "registeredTo": "",
+                  "status": "",
                 }
               }
               onSubmit={[Function]}
@@ -571,6 +573,108 @@ exports[`AdminDevManagement should match a snapshot when LOADING false 1`] = `
                                   </div>
                                 </Field>
                               </DatePicker>
+                            </div>
+                          </GridItem>
+                          <GridItem>
+                            <div
+                              className="column"
+                              data-test=""
+                            >
+                              <SelectBox
+                                id="status"
+                                labelText="Status"
+                                name="status"
+                                options={
+                                  Array [
+                                    Object {
+                                      "label": "Incomplete",
+                                      "value": "incomplete",
+                                    },
+                                    Object {
+                                      "label": "Pending",
+                                      "value": "pending",
+                                    },
+                                    Object {
+                                      "label": "Confirmed",
+                                      "value": "confirmed",
+                                    },
+                                    Object {
+                                      "label": "Under Review",
+                                      "value": "underReview",
+                                    },
+                                    Object {
+                                      "label": "Removed",
+                                      "value": "removed",
+                                    },
+                                  ]
+                                }
+                              >
+                                <Field
+                                  name="status"
+                                  validate={null}
+                                >
+                                  <div
+                                    className="field"
+                                  >
+                                    <div
+                                      className="control"
+                                    >
+                                      <label
+                                        className="label "
+                                        htmlFor="status"
+                                      >
+                                        Status
+                                      </label>
+                                      <select
+                                        className="input is-primary "
+                                        data-test=""
+                                        name="status"
+                                        onBlur={[Function]}
+                                        onChange={[Function]}
+                                        value=""
+                                      >
+                                        <option
+                                          key="incomplete"
+                                          value="incomplete"
+                                        >
+                                          Incomplete
+                                        </option>
+                                        <option
+                                          key="pending"
+                                          value="pending"
+                                        >
+                                          Pending
+                                        </option>
+                                        <option
+                                          key="confirmed"
+                                          value="confirmed"
+                                        >
+                                          Confirmed
+                                        </option>
+                                        <option
+                                          key="underReview"
+                                          value="underReview"
+                                        >
+                                          Under Review
+                                        </option>
+                                        <option
+                                          key="removed"
+                                          value="removed"
+                                        >
+                                          Removed
+                                        </option>
+                                        <option
+                                          disabled={true}
+                                          hidden={true}
+                                          value=""
+                                        >
+                                          Please select
+                                        </option>
+                                      </select>
+                                    </div>
+                                  </div>
+                                </Field>
+                              </SelectBox>
                             </div>
                           </GridItem>
                           <GridItem
@@ -716,6 +820,7 @@ exports[`AdminDevManagement should render blank Info when data is empty 1`] = `
                 "name": "",
                 "registeredFrom": "",
                 "registeredTo": "",
+                "status": "",
               }
             }
             onSearch={[Function]}
@@ -727,6 +832,7 @@ exports[`AdminDevManagement should render blank Info when data is empty 1`] = `
                   "name": "",
                   "registeredFrom": "",
                   "registeredTo": "",
+                  "status": "",
                 }
               }
               onSubmit={[Function]}
@@ -1215,6 +1321,108 @@ exports[`AdminDevManagement should render blank Info when data is empty 1`] = `
                                   </div>
                                 </Field>
                               </DatePicker>
+                            </div>
+                          </GridItem>
+                          <GridItem>
+                            <div
+                              className="column"
+                              data-test=""
+                            >
+                              <SelectBox
+                                id="status"
+                                labelText="Status"
+                                name="status"
+                                options={
+                                  Array [
+                                    Object {
+                                      "label": "Incomplete",
+                                      "value": "incomplete",
+                                    },
+                                    Object {
+                                      "label": "Pending",
+                                      "value": "pending",
+                                    },
+                                    Object {
+                                      "label": "Confirmed",
+                                      "value": "confirmed",
+                                    },
+                                    Object {
+                                      "label": "Under Review",
+                                      "value": "underReview",
+                                    },
+                                    Object {
+                                      "label": "Removed",
+                                      "value": "removed",
+                                    },
+                                  ]
+                                }
+                              >
+                                <Field
+                                  name="status"
+                                  validate={null}
+                                >
+                                  <div
+                                    className="field"
+                                  >
+                                    <div
+                                      className="control"
+                                    >
+                                      <label
+                                        className="label "
+                                        htmlFor="status"
+                                      >
+                                        Status
+                                      </label>
+                                      <select
+                                        className="input is-primary "
+                                        data-test=""
+                                        name="status"
+                                        onBlur={[Function]}
+                                        onChange={[Function]}
+                                        value=""
+                                      >
+                                        <option
+                                          key="incomplete"
+                                          value="incomplete"
+                                        >
+                                          Incomplete
+                                        </option>
+                                        <option
+                                          key="pending"
+                                          value="pending"
+                                        >
+                                          Pending
+                                        </option>
+                                        <option
+                                          key="confirmed"
+                                          value="confirmed"
+                                        >
+                                          Confirmed
+                                        </option>
+                                        <option
+                                          key="underReview"
+                                          value="underReview"
+                                        >
+                                          Under Review
+                                        </option>
+                                        <option
+                                          key="removed"
+                                          value="removed"
+                                        >
+                                          Removed
+                                        </option>
+                                        <option
+                                          disabled={true}
+                                          hidden={true}
+                                          value=""
+                                        >
+                                          Please select
+                                        </option>
+                                      </select>
+                                    </div>
+                                  </div>
+                                </Field>
+                              </SelectBox>
                             </div>
                           </GridItem>
                           <GridItem
@@ -1360,6 +1568,7 @@ exports[`AdminDevManagement should show loader when LOADING true 1`] = `
                 "name": "",
                 "registeredFrom": "",
                 "registeredTo": "",
+                "status": "",
               }
             }
             onSearch={[Function]}
@@ -1371,6 +1580,7 @@ exports[`AdminDevManagement should show loader when LOADING true 1`] = `
                   "name": "",
                   "registeredFrom": "",
                   "registeredTo": "",
+                  "status": "",
                 }
               }
               onSubmit={[Function]}
@@ -1859,6 +2069,108 @@ exports[`AdminDevManagement should show loader when LOADING true 1`] = `
                                   </div>
                                 </Field>
                               </DatePicker>
+                            </div>
+                          </GridItem>
+                          <GridItem>
+                            <div
+                              className="column"
+                              data-test=""
+                            >
+                              <SelectBox
+                                id="status"
+                                labelText="Status"
+                                name="status"
+                                options={
+                                  Array [
+                                    Object {
+                                      "label": "Incomplete",
+                                      "value": "incomplete",
+                                    },
+                                    Object {
+                                      "label": "Pending",
+                                      "value": "pending",
+                                    },
+                                    Object {
+                                      "label": "Confirmed",
+                                      "value": "confirmed",
+                                    },
+                                    Object {
+                                      "label": "Under Review",
+                                      "value": "underReview",
+                                    },
+                                    Object {
+                                      "label": "Removed",
+                                      "value": "removed",
+                                    },
+                                  ]
+                                }
+                              >
+                                <Field
+                                  name="status"
+                                  validate={null}
+                                >
+                                  <div
+                                    className="field"
+                                  >
+                                    <div
+                                      className="control"
+                                    >
+                                      <label
+                                        className="label "
+                                        htmlFor="status"
+                                      >
+                                        Status
+                                      </label>
+                                      <select
+                                        className="input is-primary "
+                                        data-test=""
+                                        name="status"
+                                        onBlur={[Function]}
+                                        onChange={[Function]}
+                                        value=""
+                                      >
+                                        <option
+                                          key="incomplete"
+                                          value="incomplete"
+                                        >
+                                          Incomplete
+                                        </option>
+                                        <option
+                                          key="pending"
+                                          value="pending"
+                                        >
+                                          Pending
+                                        </option>
+                                        <option
+                                          key="confirmed"
+                                          value="confirmed"
+                                        >
+                                          Confirmed
+                                        </option>
+                                        <option
+                                          key="underReview"
+                                          value="underReview"
+                                        >
+                                          Under Review
+                                        </option>
+                                        <option
+                                          key="removed"
+                                          value="removed"
+                                        >
+                                          Removed
+                                        </option>
+                                        <option
+                                          disabled={true}
+                                          hidden={true}
+                                          value=""
+                                        >
+                                          Please select
+                                        </option>
+                                      </select>
+                                    </div>
+                                  </div>
+                                </Field>
+                              </SelectBox>
                             </div>
                           </GridItem>
                           <GridItem

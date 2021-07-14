@@ -30,6 +30,7 @@ export const fetchDeveloperListHandler = function* ({ data: { page, queryString 
     const company = queryParams.get('company') || ''
     const registeredFrom = queryParams.get('registeredFrom')
     const registeredTo = queryParams.get('registeredTo')
+    const status = queryParams.get('status') || ''
     const formattedRegisteredFrom = registeredFrom ? dayjs(registeredFrom).format(DATE_TIME_FORMAT.YYYY_MM_DD) : ''
     const formattedRegisteredTo = registeredTo ? dayjs(registeredTo).format(DATE_TIME_FORMAT.YYYY_MM_DD) : ''
 
@@ -40,6 +41,7 @@ export const fetchDeveloperListHandler = function* ({ data: { page, queryString 
       company,
       registeredFrom: formattedRegisteredFrom,
       registeredTo: formattedRegisteredTo,
+      status,
     })
 
     yield put(fetchDeveloperListSuccess(response))

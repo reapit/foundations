@@ -34,7 +34,8 @@ export const buildFilterValues = (queryParams: URLSearchParams): DevsManagementF
   const company = queryParams.get('company') || ''
   const registeredFrom = queryParams.get('registeredFrom') || ''
   const registeredTo = queryParams.get('registeredTo') || ''
-  return { name, company, registeredFrom, registeredTo } as DevsManagementFilterFormValues
+  const status = queryParams.get('status') || ''
+  return { name, company, registeredFrom, registeredTo, status } as DevsManagementFilterFormValues
 }
 
 export const handleFetchData = (dispatch: Dispatch) => (requestData: fetchDeveloperListValues) => {
