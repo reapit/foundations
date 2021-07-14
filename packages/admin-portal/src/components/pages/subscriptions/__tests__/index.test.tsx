@@ -71,7 +71,10 @@ describe('onPageChangeHandler', () => {
   it('should return a function when executing', () => {
     const onPageChangeHandlerFn = onPageChangeHandler(mockRouterProps.history, {
       type: 'developerEdition',
-      developerId: '36bd47c8-b41c-4724-8848-12056856f344',
+      developerName: 'developerName',
+      userEmail: 'mail@example.com',
+      appName: 'appName',
+      status: 'active',
     } as SubscriptionsFilterFormValues)
     expect(onPageChangeHandlerFn).toBeDefined()
 
@@ -88,7 +91,10 @@ describe('onSearchHandler', () => {
     onSearchHandlerFn(
       {
         type: 'developerEdition',
-        developerId: '36bd47c8-b41c-4724-8848-12056856f344',
+        developerName: 'developerName',
+        userEmail: 'mail@example.com',
+        appName: 'appName',
+        status: 'active',
       } as SubscriptionsFilterFormValues,
       {
         setStatus: jest.fn(),
