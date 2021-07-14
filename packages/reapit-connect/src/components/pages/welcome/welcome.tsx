@@ -29,8 +29,7 @@ export const Welcome: React.FC<WelcomeProps> = () => {
   const isShowAgencyCloudSection = React.useMemo(handleIsShowAgencyCloudSectionMemo(session), [
     session?.connectSession?.loginIdentity?.groups,
   ])
-  const developerId = session?.connectSession?.loginIdentity?.developerId
-  const clientId = session?.connectSession?.loginIdentity?.clientId
+  const isDeveloper = (session?.connectSession?.loginIdentity?.groups || []).includes('FoundationsDeveloper')
 
   return (
     <FlexContainerBasic flexColumn>
@@ -44,7 +43,16 @@ export const Welcome: React.FC<WelcomeProps> = () => {
           description="Reapit Connect is our single sign on solution which allows you to seamlessly access products and services provided by Reapit Ltd."
           image={mainHeadingGraphicImage}
         />
-        {developerId && (
+        {isShowAgencyCloudSection && (
+          <RowSection
+            background="#015b73"
+            heading="Agency Cloud"
+            subheading="Account Successfully Created"
+            description="If you have Agency Cloud already installed on your machine, you can now login via Reapit Connect with your new credentials. If not, please contact your IT Department or Administrator to arrange installation."
+            image={agencyCloudGraphicImage}
+          />
+        )}
+        {isDeveloper && (
           <RowSection
             background="#209bd4"
             heading="Developer Portal"
@@ -60,21 +68,12 @@ export const Welcome: React.FC<WelcomeProps> = () => {
                 rel="noopener noreferrer"
                 href={URLS[appEnv].developerPortal}
               >
-                DEVELOPERS PORTAL
+                DEVELOPER PORTAL
               </a>
             }
           />
         )}
-        {isShowAgencyCloudSection && (
-          <RowSection
-            background="#015b73"
-            heading="Agency Cloud"
-            subheading="Account Successfully Created"
-            description="If you have Agency Cloud already installed on your machine, you can now login via Reapit Connect with your new credentials. If not, please contact your IT Department or Administrator to arrange installation."
-            image={agencyCloudGraphicImage}
-          />
-        )}
-        {clientId && clientId === 'SBOX' && (
+        {(isDeveloper || isShowAgencyCloudSection) && (
           <RowSection
             background="#1e2554"
             heading="Marketplace"
