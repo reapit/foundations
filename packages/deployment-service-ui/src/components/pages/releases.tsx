@@ -1,11 +1,12 @@
 import { reapitConnectBrowserSession } from '@/core/connect-session'
 import { releaseServicePaginate, releaseVersionDeploy } from '@/platform-api/releases'
 import { ReapitConnectSession, useReapitConnect } from '@reapit/connect-session'
-import { FlexContainerBasic, H3, Section } from '@reapit/elements-legacy'
+import { FlexContainerBasic, Section, notification } from '@reapit/elements-legacy'
 import { Button, Table } from '@reapit/elements-legacy'
-import { Loader, SnackProvider } from '@reapit/elements'
+import { Loader, StatusIndicator, Title } from '@reapit/elements'
 import React, { useEffect, useState } from 'react'
 import { useParams } from 'react-router'
+import { FlexContainer } from '@reapit/elements'
 
 export default () => {
   const { connectSession } = useReapitConnect(reapitConnectBrowserSession)
@@ -29,9 +30,11 @@ export default () => {
     }
   }, [connectSession])
 
-  const deployVersion = ({ id, version, projectName }: { version: string; projectName: string; id: string }) => {
+  const deployVersion = async ({ id, version, projectName }: { version: string; projectName: string; id: string }) => {
     if (deployLoading) {
-      // TODO show toast message
+      notification.info({
+        message: 'Release already in progress',
+      })
       return
     }
 
@@ -41,56 +44,82 @@ export default () => {
 
     setDeployLoading(id)
 
-    console.log(id, deployLoading)
+    notification.info({
+      message: 'Started deployment',
+    })
 
-    // snack.info('Started deployment')
+    await releaseVersionDeploy(connectSession, projectName, version)
 
-    releaseVersionDeploy(connectSession, projectName, version)
+    setReleases([
+      ...releases.map((release) => {
+        release.currentlyDeployed = release.id === id
+        return release
+      }),
+    ])
 
     setDeployLoading(undefined)
-    // snack.info('Deployment complete')
-
-    // Set toast
+    notification.success({
+      message: 'Deployment complete',
+    })
   }
 
   return (
-    <SnackProvider>
-      <Section>
-        <H3>Releases</H3>
-        <FlexContainerBasic centerContent flexColumn hasBackground hasPadding>
-          {loading ? (
-            <Loader />
-          ) : (
-            <Table
-              data={releases}
-              columns={[
-                {
-                  Header: 'Version',
-                  accessor: 'version',
+    <Section>
+      <Title>
+        <FlexContainer isFlexAlignCenter>
+          <StatusIndicator intent={'success'} />
+          Releases - {projectName}
+        </FlexContainer>
+      </Title>
+      <FlexContainerBasic centerContent flexColumn hasBackground hasPadding>
+        {loading ? (
+          <Loader />
+        ) : (
+          <Table
+            data={releases}
+            columns={[
+              {
+                Header: 'Version',
+                accessor: 'version',
+              },
+              {
+                Header: 'Deployed',
+                Cell: ({ row }: { row: { original: any } }) => {
+                  if (deployLoading && deployLoading === row.original.id) {
+                    return (
+                      <FlexContainer isFlexAlignCenter>
+                        <StatusIndicator intent="critical" /> Deploying
+                      </FlexContainer>
+                    )
+                  }
+
+                  return (
+                    row.original.currentlyDeployed && (
+                      <FlexContainer isFlexAlignCenter>
+                        <StatusIndicator intent="success" /> Current
+                      </FlexContainer>
+                    )
+                  )
                 },
-                {
-                  Header: 'Deployed',
-                  Cell: ({ row }: { row: { original: any } }) => row.original.currentlyDeployed && 'current',
-                },
-                {
-                  id: 'Deploy',
-                  Cell: ({ row }: { row: { original: any } }) => (
-                    <Button
-                      loading={typeof deployLoading !== 'undefined' && row.original.id === deployLoading}
-                      variant="info"
-                      onClick={() => {
-                        deployVersion(row.original)
-                      }}
-                    >
-                      Release
-                    </Button>
-                  ),
-                },
-              ]}
-            />
-          )}
-        </FlexContainerBasic>
-      </Section>
-    </SnackProvider>
+              },
+              {
+                id: 'Deploy',
+                Cell: ({ row }: { row: { original: any } }) => (
+                  <Button
+                    loading={typeof deployLoading !== 'undefined' && row.original.id === deployLoading}
+                    variant="info"
+                    onClick={() => {
+                      deployVersion(row.original)
+                    }}
+                  >
+                    Release
+                  </Button>
+                ),
+              },
+            ]}
+          />
+        )}
+      </FlexContainerBasic>
+    </Section>
   )
 }

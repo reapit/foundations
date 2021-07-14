@@ -1,7 +1,8 @@
 import { fetcher, notification } from '@reapit/elements-legacy'
 import { ReapitConnectSession } from '@reapit/connect-session'
-import { PipelineModelInterface } from '@reapit/foundations-ts-definitions'
+import { PipelineModelInterface, PipelineRunnerModelInterface } from '@reapit/foundations-ts-definitions'
 import { BASE_HEADERS, URLS } from '../constants/api'
+import { Pagination } from 'nestjs-typeorm-paginate'
 
 export const pipelineServiceCreate = async (
   session: ReapitConnectSession,
@@ -10,7 +11,7 @@ export const pipelineServiceCreate = async (
   try {
     const response: PipelineModelInterface | undefined = await fetcher({
       api: URLS.DEPLOYMENT_SERVICE_HOST,
-      url: '/dev/pipeline',
+      url: '/pipeline',
       method: 'POST',
       headers: {
         ...BASE_HEADERS,
@@ -36,7 +37,7 @@ export const pipelineServiceGet = async (
   try {
     const response: PipelineModelInterface | undefined = await fetcher({
       api: URLS.DEPLOYMENT_SERVICE_HOST,
-      url: `/dev/pipeline/${pipelineId}`,
+      url: `/pipeline/${pipelineId}`,
       method: 'GET',
       headers: {
         ...BASE_HEADERS,
@@ -60,7 +61,7 @@ export const pipelineServicePaginate = async (
   try {
     const response: { items: PipelineModelInterface[] } | undefined = await fetcher({
       api: URLS.DEPLOYMENT_SERVICE_HOST,
-      url: '/dev/pipeline',
+      url: '/pipeline',
       method: 'GET',
       headers: {
         ...BASE_HEADERS,
@@ -85,7 +86,7 @@ export const pipelineServiceDelete = async (
   try {
     const response: PipelineModelInterface | undefined = await fetcher({
       api: URLS.DEPLOYMENT_SERVICE_HOST,
-      url: `/dev/pipeline/${id}`,
+      url: `/pipeline/${id}`,
       method: 'DELETE',
       headers: {
         ...BASE_HEADERS,
@@ -103,6 +104,13 @@ export const pipelineServiceDelete = async (
   }
 }
 
+/**
+ * @deprecated
+ *
+ * @param session
+ * @param id
+ * @returns
+ */
 export const pipelineServiceRun = async (
   session: ReapitConnectSession,
   id: string,
@@ -110,7 +118,59 @@ export const pipelineServiceRun = async (
   try {
     const response: PipelineModelInterface | undefined = await fetcher({
       api: URLS.DEPLOYMENT_SERVICE_HOST,
-      url: `/dev/pipeline/${id}/run`,
+      url: `/pipeline/${id}/run`,
+      method: 'POST',
+      headers: {
+        ...BASE_HEADERS,
+        Authorization: `${session.idToken}`,
+      },
+    })
+
+    if (response) {
+      return response
+    }
+
+    throw new Error('No response returned by API')
+  } catch (err) {
+    console.log(notification.error({ message: 'Pipeline failed to run' }))
+    console.error('Error fetching Configuration Appointment Types', err.message)
+  }
+}
+
+export const pipelineRunnerPaginate = async (
+  session: ReapitConnectSession,
+  pipeline: PipelineModelInterface,
+): Promise<Pagination<PipelineRunnerModelInterface> | undefined> => {
+  try {
+    const response: Pagination<PipelineRunnerModelInterface> | undefined = await fetcher({
+      api: URLS.DEPLOYMENT_SERVICE_HOST,
+      url: `/pipeline/${pipeline.id}/pipeline-runner`,
+      method: 'GET',
+      headers: {
+        ...BASE_HEADERS,
+        Authorization: `${session.idToken}`,
+      },
+    })
+
+    if (response) {
+      return response
+    }
+
+    throw new Error('No response returned by API')
+  } catch (err) {
+    console.log(notification.error({ message: 'Pipeline failed to run' }))
+    console.error('Error fetching Configuration Appointment Types', err.message)
+  }
+}
+
+export const pipelineRunnerCreate = async (
+  session: ReapitConnectSession,
+  pipeline: PipelineModelInterface,
+): Promise<PipelineRunnerModelInterface | undefined> => {
+  try {
+    const response: PipelineRunnerModelInterface = await fetcher({
+      api: URLS.DEPLOYMENT_SERVICE_HOST,
+      url: `/pipeline/${pipeline.id}/pipeline-runner`,
       method: 'POST',
       headers: {
         ...BASE_HEADERS,
