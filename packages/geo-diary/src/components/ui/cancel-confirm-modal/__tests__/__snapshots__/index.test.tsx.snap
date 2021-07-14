@@ -461,6 +461,7 @@ exports[`CancelConfirmModal should match snapshot 1`] = `
           "selling": Object {
             "vendorId": "OXF200001",
           },
+          "viewingArrangements": "Knock three times",
         },
         "propertyConfirmed": false,
         "propertyId": "ALB160019",

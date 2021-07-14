@@ -1,5 +1,6 @@
 fragment PropertyModel on PropertyModel {
   id
+  viewingArrangements
   address {
     buildingName
     buildingNumber
