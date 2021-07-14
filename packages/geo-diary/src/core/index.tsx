@@ -9,6 +9,7 @@ import { Config } from '@/types/global'
 import * as serviceWorker from './service-worker'
 import { logger } from '@reapit/utils'
 import { GoogleMapsError } from '../components/ui/map/google-maps-error'
+import { handleDemoAuth } from '../utils/demo-auth'
 
 injectSwitchModeToWindow()
 
@@ -58,6 +59,8 @@ const run = async () => {
     }
 
     window.reapit.config = config
+
+    await handleDemoAuth()
 
     // I import the app dynamically so that the config is set on window and I avoid any
     // runtime issues where config is undefined
