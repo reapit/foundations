@@ -19,6 +19,8 @@ export type Config = {
   platformApiUrl: string
   amlAppId: string
   amlAppUrl: string
+  demoUser: string
+  appId: string
 }
 
 declare global {
