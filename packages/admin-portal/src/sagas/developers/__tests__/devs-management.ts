@@ -38,7 +38,7 @@ const fakeResponse = {} as DeveloperModelPagedResult
 const params = {
   data: {
     page: 1,
-    queryString: '?name=name&company=company&registeredFrom=2020-03-04&registeredTo=2020-04-04"',
+    queryString: '?name=name&company=company&registeredFrom=2020-03-04&registeredTo=2020-04-04&status=incomplete',
   },
 }
 
@@ -53,6 +53,7 @@ describe('fetchDeveloperListHandler', () => {
       company: 'company',
       registeredFrom: '2020-03-04',
       registeredTo: '2020-04-04',
+      status: 'incomplete',
     }),
   )
 

@@ -11,6 +11,7 @@ import {
   Formik,
   Form,
   DatePicker,
+  SelectBox,
 } from '@reapit/elements-legacy'
 
 export interface DevsManagementFilterFormValues {
@@ -18,12 +19,30 @@ export interface DevsManagementFilterFormValues {
   company: string
   registeredFrom: string
   registeredTo: string
+  status: string
 }
 
 export interface DevsManagementFilterFormProps {
   filterValues: DevsManagementFilterFormValues
   onSearch: any
 }
+
+const statusFilterOptions = [
+  {
+    label: 'Incomplete',
+    value: 'incomplete',
+  },
+  {
+    label: 'Pending',
+    value: 'pending',
+  },
+  {
+    label: 'Confirmed',
+    value: 'confirmed',
+  },
+  { label: 'Under Review', value: 'underReview' },
+  { label: 'Removed', value: 'removed' },
+]
 
 export const DevsManagementFilterForm: React.FC<DevsManagementFilterFormProps> = ({ filterValues, onSearch }) => (
   <Formik initialValues={filterValues} onSubmit={onSearch}>
@@ -60,6 +79,9 @@ export const DevsManagementFilterForm: React.FC<DevsManagementFilterFormProps> =
                     maxDate: dayjs().toDate(),
                   }}
                 />
+              </GridItem>
+              <GridItem>
+                <SelectBox id="status" name="status" labelText="Status" options={statusFilterOptions} />
               </GridItem>
               <GridItem className="mt-4">
                 <Button type="submit" variant="primary">
