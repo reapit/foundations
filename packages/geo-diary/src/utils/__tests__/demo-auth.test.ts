@@ -25,7 +25,7 @@ describe('handleDemoAuth', () => {
   })
 
   it('should return null and set fetched credentials to local storage if demo is in query string', async () => {
-    Object.defineProperty(window = mockConfig
+    ;(window as any).reapit.config = mockConfig
     window.location.search = '?demo=true'
     mockedFetch.mockReturnValueOnce(Promise.resolve(mockSession))
 
