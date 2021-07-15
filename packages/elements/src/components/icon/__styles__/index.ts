@@ -39,22 +39,22 @@ export const ElIcon = styled.span`
   display: flex;
   color: black;
 
-  &${elIntentPrimary} {
+  &.${elIntentPrimary} {
     color: var(--intent-primary);
   }
-  &${elIntentSecondary} {
+  &.${elIntentSecondary} {
     color: var(--intent-secondary);
   }
-  &${elIntentCritical} {
+  &.${elIntentCritical} {
     color: var(--intent-critical);
   }
-  &${elIntentSuccess} {
+  &.${elIntentSuccess} {
     color: var(--intent-success);
   }
-  &${elIntentDanger} {
+  &.${elIntentDanger} {
     color: var(--intent-danger);
   }
-  &${elIntentNeutral} {
+  &.${elIntentNeutral} {
     color: var(--intent-primary-text);
   }
 `

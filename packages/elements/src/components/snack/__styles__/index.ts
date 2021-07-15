@@ -14,27 +14,27 @@ export const ElSnack = styled.div`
   padding: 0.75rem 1.25rem;
   align-items: center;
 
-  &${elIntentPrimary} {
+  &.${elIntentPrimary} {
     background: var(--intent-primary-light);
     color: var(--intent-primary-light-text);
   }
 
-  &${elIntentSecondary} {
+  &.${elIntentSecondary} {
     background: var(--intent-secondary-light);
     color: var(--intent-secondary-light-text);
   }
 
-  &${elIntentCritical} {
+  &.${elIntentCritical} {
     background: var(--intent-critical-light);
     color: var(--intent-critical-light-text);
   }
 
-  &${elIntentSuccess} {
+  &.${elIntentSuccess} {
     background: var(--intent-success-light);
     color: var(--intent-success-light-text);
   }
 
-  &${elIntentDanger} {
+  &.${elIntentDanger} {
     background: var(--intent-danger-light);
     color: var(--intent-danger-light-text);
   }

@@ -41,7 +41,7 @@ export const ElPersistantNotification = styled.div`
   transition: 0.5s;
   z-index: 10;
 
-  &${elIsActive} {
+  &.${elIsActive} {
     right: 0;
     transform: translateX(0);
 
@@ -62,7 +62,7 @@ export const ElPersistantNotification = styled.div`
     right: 2rem; // should be the width of the elPnIcon element (icon is 1rem and padding is 0.5rem each side)
   }
 
-  &${elIntentPrimary} {
+  &.${elIntentPrimary} {
     .${elPnContent} {
       background: var(--intent-primary-light);
       color: var(--intent-primary-light-text);
@@ -72,7 +72,7 @@ export const ElPersistantNotification = styled.div`
       color: var(--intent-primary-text);
     }
   }
-  &${elIntentSecondary} {
+  &.${elIntentSecondary} {
     .${elPnContent} {
       background: var(--intent-secondary-light);
       color: var(--intent-secondary-light-text);
@@ -82,7 +82,7 @@ export const ElPersistantNotification = styled.div`
       color: var(--intent-secondary-text);
     }
   }
-  &${elIntentCritical} {
+  &.${elIntentCritical} {
     .${elPnContent} {
       background: var(--intent-critical-light);
       color: var(--intent-critical-light-text);
@@ -92,7 +92,7 @@ export const ElPersistantNotification = styled.div`
       color: var(--intent-critical-text);
     }
   }
-  &${elIntentSuccess} {
+  &.${elIntentSuccess} {
     .${elPnContent} {
       background: var(--intent-success-light);
       color: var(--intent-success-light-text);
@@ -102,7 +102,7 @@ export const ElPersistantNotification = styled.div`
       color: var(--intent-success-text);
     }
   }
-  &${elIntentDanger} {
+  &.${elIntentDanger} {
     .${elPnContent} {
       background: var(--intent-danger-light);
       color: var(--intent-danger-light-text);

@@ -24,7 +24,7 @@ import {
 } from '@reapit/elements'
 import Routes from '../../../constants/routes'
 import { useHistory, useLocation } from 'react-router'
-import { cx } from 'linaria'
+import { cx } from '@linaria/core'
 import { useReapitConnect } from '@reapit/connect-session'
 import { reapitConnectBrowserSession } from '../../../core/connect-session'
 import { ExternalPages, navigate, openNewPage } from '../../../utils/navigation'

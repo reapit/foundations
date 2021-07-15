@@ -1,5 +1,5 @@
 import React, { FC, HTMLAttributes } from 'react'
-import { cx } from 'linaria'
+import { cx } from '@linaria/core'
 import { Icon } from '../icon'
 import { ElModalBg, ElModal, ElModalHeader, ElModalBody } from './__styles__'
 import { elIsActive } from '../../styles/states'

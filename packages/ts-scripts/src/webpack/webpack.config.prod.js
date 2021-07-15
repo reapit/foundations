@@ -63,22 +63,9 @@ const webpackConfigProd = ({ appName }) => {
           use: [
             {
               loader: 'babel-loader',
-              options: {
-                presets: [
-                  [
-                    '@babel/preset-env',
-                    {
-                      useBuiltIns: 'entry',
-                      corejs: '3',
-                      targets: '> 0.5%, not IE 11, chrome 69',
-                    },
-                  ],
-                  'linaria/babel',
-                ],
-              },
             },
             {
-              loader: 'linaria/loader',
+              loader: '@linaria/webpack-loader',
               options: {
                 sourceMap: process.env.NODE_ENV !== 'production',
               },
@@ -87,7 +74,7 @@ const webpackConfigProd = ({ appName }) => {
               loader: 'esbuild-loader',
               options: {
                 loader: 'tsx',
-                target: 'esnext',
+                target: 'es2015',
               },
             },
           ],
@@ -184,7 +171,7 @@ const webpackConfigProd = ({ appName }) => {
         },
       }),
       new MiniCssExtractPlugin({
-        filename: '[name].[contentHash].css',
+        filename: '[name].[contenthash].css',
       }),
       new FaviconsWebpackPlugin({
         logo: PATHS.logo,
@@ -217,6 +204,7 @@ const webpackConfigProd = ({ appName }) => {
         clientsClaim: true,
         exclude: [/\.map$/, /manifest\.json$/],
         navigateFallback: '/index.html',
+        maximumFileSizeToCacheInBytes: 3000000,
         navigateFallbackDenylist: [
           // Exclude any URLs whose last part seems to be a file extension
           // as they're likely a resource and not a SPA route.

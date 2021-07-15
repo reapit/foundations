@@ -1486,7 +1486,7 @@ exports[`DeveloperWebHooks should match a snapshot where there are subscriptions
                             "Header": "Edit",
                             "accessor": "edit",
                           },
-                        }
+                        ]
                       }
                       data={
                         Array [
@@ -1501,15 +1501,11 @@ exports[`DeveloperWebHooks should match a snapshot where there are subscriptions
                               onClick={[Function]}
                               type="button"
                             >
-                              Please select an App from the list below to view the associated Webhooks:
-                            </label>
-                            <select
-                              className="input is-primary pt-2 pb-2"
-                              data-test=""
-                              name="applicationId"
-                              onBlur={[Function]}
-                              onChange={[Function]}
-                              value=""
+                              Edit
+                            </Button>,
+                            "test": <a
+                              className="hitfwvd-hyperlinked"
+                              onClick={[Function]}
                             >
                               Ping
                             </a>,

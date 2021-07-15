@@ -73,31 +73,31 @@ export const ElButton = styled.button`
   outline-color: var(--intent-primary);
   background-repeat: no-repeat;
 
-  &${elIntentPrimary} {
+  &.${elIntentPrimary} {
     background-image: linear-gradient(to right, var(--intent-primary), var(--intent-primary));
     color: var(--intent-primary-text);
     outline-color: var(--intent-primary-dark);
   }
 
-  &${elIntentSecondary} {
+  &.${elIntentSecondary} {
     background-image: linear-gradient(to right, var(--intent-secondary), var(--intent-secondary));
     color: var(--intent-secondary-text);
     outline-color: var(--intent-secondary-dark);
   }
 
-  &${elIntentCritical} {
+  &.${elIntentCritical} {
     background-image: linear-gradient(to right, var(--intent-critical), var(--intent-critical));
     color: var(--intent-critical-text);
     outline-color: var(--intent-critical-dark);
   }
 
-  &${elIntentSuccess} {
+  &.${elIntentSuccess} {
     background-image: linear-gradient(to right, var(--intent-success), var(--intent-success));
     color: var(--intent-success-text);
     outline-color: var(--intent-success-dark);
   }
 
-  &${elIntentDanger} {
+  &.${elIntentDanger} {
     background-image: linear-gradient(to right, var(--intent-danger), var(--intent-danger));
     color: var(--intent-danger-text);
     outline-color: var(--intent-danger-dark);
@@ -107,7 +107,7 @@ export const ElButton = styled.button`
     opacity: 0.5;
   }
 
-  &${elIsLoading} {
+  &.${elIsLoading} {
     @keyframes spinAround {
       from {
         transform: rotate(0deg);
@@ -136,7 +136,7 @@ export const ElButton = styled.button`
       width: 1rem;
     }
 
-    &${elIntentPrimary}, &${elIntentSecondary}, &${elIntentCritical}, &${elIntentSuccess}, &${elIntentDanger} {
+    &.${elIntentPrimary}, &.${elIntentSecondary}, &.${elIntentCritical}, &.${elIntentSuccess}, &.${elIntentDanger} {
       &::after {
         border-color: transparent transparent #fff #fff;
       }
@@ -166,7 +166,7 @@ export const ElButton = styled.button`
       margin: 0.5rem;
     }
 
-    &${elIsLoading} {
+    &.${elIsLoading} {
       &:after {
         left: inherit;
         top: inherit;
@@ -201,31 +201,31 @@ export const elButtonHasLeftChevron = css`
     background-position: left;
   }
 
-  &${elIntentPrimary} {
+  &.${elIntentPrimary} {
     &::before {
       background-image: url('${chevronLeft(intentPrimary)}');
     }
   }
 
-  &${elIntentSecondary} {
+  &.${elIntentSecondary} {
     &::before {
       background-image: url('${chevronLeft(intentSecondary)}');
     }
   }
 
-  &${elIntentCritical} {
+  &.${elIntentCritical} {
     &::before {
       background-image: url('${chevronLeft(intentCritical)}');
     }
   }
 
-  &${elIntentSuccess} {
+  &.${elIntentSuccess} {
     &::before {
       background-image: url('${chevronLeft(intentSuccess)}');
     }
   }
 
-  &${elIntentDanger} {
+  &.${elIntentDanger} {
     &::before {
       background-image: url('${chevronLeft(intentDanger)}');
     }
@@ -270,31 +270,31 @@ export const elButtonHasRightChevron = css`
     background-position: right;
   }
 
-  &${elIntentPrimary} {
+  &.${elIntentPrimary} {
     &::after {
       background-image: url('${chevronRight(intentPrimary)}');
     }
   }
 
-  &${elIntentSecondary} {
+  &.${elIntentSecondary} {
     &::after {
       background-image: url('${chevronRight(intentSecondary)}');
     }
   }
 
-  &${elIntentCritical} {
+  &.${elIntentCritical} {
     &::after {
       background-image: url('${chevronRight(intentCritical)}');
     }
   }
 
-  &${elIntentSuccess} {
+  &.${elIntentSuccess} {
     &::after {
       background-image: url('${chevronRight(intentSuccess)}');
     }
   }
 
-  &${elIntentDanger} {
+  &.${elIntentDanger} {
     &::after {
       background-image: url('${chevronRight(intentDanger)}');
     }

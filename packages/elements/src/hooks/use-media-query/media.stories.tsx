@@ -8,7 +8,7 @@ export const MediaMobileExample = () => {
 }
 
 export const AllBreakPointExample = () => {
-  const { isMobile, isTablet, isDesktop, isWideScreen, isSuperWideScreen, is4KScreen, } = useMediaQuery()
+  const { isMobile, isTablet, isDesktop, isWideScreen, isSuperWideScreen, is4KScreen } = useMediaQuery()
 
   if (isMobile) {
     return <h1>Is Mobile</h1>

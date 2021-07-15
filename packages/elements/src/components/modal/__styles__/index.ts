@@ -12,7 +12,7 @@ export const ElModalBg = styled.div`
   background: var(--color-grey-dark);
   opacity: 0.2;
 
-  &${elIsActive} {
+  &.${elIsActive} {
     display: block;
     position: fixed;
   }
@@ -31,7 +31,7 @@ export const ElModal = styled.div`
   min-width: 300px;
   max-width: 800px;
 
-  &${elIsActive} {
+  &.${elIsActive} {
     display: block;
     position: fixed;
   }

@@ -7,7 +7,7 @@ export const ElLoaderContainer = styled.div`
   display: flex;
   align-items: center;
 
-  &${elIsFullPage} {
+  &.${elIsFullPage} {
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);

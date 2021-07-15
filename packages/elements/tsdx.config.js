@@ -1,10 +1,10 @@
 const scss = require('rollup-plugin-scss')
 const babel = require('@rollup/plugin-babel').default
-const linaria = require('linaria/rollup')
+const linaria = require('@linaria/rollup').default
 const typescript = require('rollup-plugin-typescript2')
 const svgr = require('@svgr/rollup').default
 
-const EXCLUDE_PACKAGES = ['linaria']
+const EXCLUDE_PACKAGES = ['@linaria/core', '@linaria/react']
 
 const generateRegexExcludePackages = () => {
   const listPackagesString = EXCLUDE_PACKAGES.join('|')

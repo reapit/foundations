@@ -1,4 +1,4 @@
-import cx from 'linaria/lib/core/cx'
+import { cx } from '@linaria/core'
 import React, { FC, Fragment, HTMLAttributes, ReactNode } from 'react'
 import { useNavState } from '../../hooks/use-nav-state'
 import { useMediaQuery } from '../../hooks/use-media-query'
