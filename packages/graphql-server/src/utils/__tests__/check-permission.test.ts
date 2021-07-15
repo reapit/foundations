@@ -1,6 +1,8 @@
 import { checkPermission } from '../check-permission'
 import { ServerContext } from '../../utils'
 
+jest.mock('../../logger')
+
 describe('checkPermission', () => {
   it('should run correctly', () => {
     const input = {

@@ -17,7 +17,13 @@ module.exports = ({ config }) => {
             sourceMap: process.env.NODE_ENV !== 'production',
           },
         },
-        { loader: 'ts-loader', options: { happyPackMode: true, transpileOnly: true } },
+        {
+          loader: 'esbuild-loader',
+          options: {
+            loader: 'tsx',
+            target: 'es2015',
+          },
+        },
         require.resolve('react-docgen-typescript-loader'),
       ],
     },

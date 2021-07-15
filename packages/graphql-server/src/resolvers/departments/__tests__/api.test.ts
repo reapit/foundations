@@ -3,6 +3,8 @@ import { departmentsMock } from '../__stubs__/mock-departments'
 import { mockContext } from '../../../__stubs__/mock-context'
 import { callGetDepartmentByIdAPI, callGetDepartmentsAPI } from '../api'
 
+jest.mock('../../../logger')
+
 jest.mock('apollo-server-lambda', () => {
   return {
     AuthenticationError: jest.fn(),
@@ -34,7 +36,7 @@ describe('departments api', () => {
   describe('callGetDepartmentByIdAPI', () => {
     it('should run correctly', async () => {
       try {
-        const mockArgs = { id: departmentMock.id }
+        const mockArgs = { id: departmentMock.id as string }
         const result = await callGetDepartmentByIdAPI(mockArgs, mockContext)
         expect(result).toEqual(departmentMock)
       } catch (error) {

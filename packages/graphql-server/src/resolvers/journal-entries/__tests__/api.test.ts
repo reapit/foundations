@@ -3,6 +3,8 @@ import { createJournalEntryArgsMock } from '../__stubs__/mock-create-journal-ent
 import { mockContext } from '../../../__stubs__/mock-context'
 import { callGetJournalEntriesAPI, callCreateJournalEntryAPI } from '../api'
 
+jest.mock('../../../logger')
+
 jest.mock('apollo-server-lambda', () => {
   return {
     AuthenticationError: jest.fn(),

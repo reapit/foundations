@@ -33,10 +33,12 @@ const replaceAndReorderPlugins = (plugins) => {
     plugins: ['@babel/plugin-transform-runtime'],
   })
 
-  // I need TS plugin to reference a tsconfig that has EANEXT as target so doesn't remove my liaria strings
-  const typescriptPlugin = typescript({
-    tsconfig: './tsconfig.prod.json',
-  })
+  // // I need TS plugin to reference a tsconfig that has EANEXT as target so doesn't remove my liaria strings
+  // const typescriptPlugin = typescript({
+  //   tsconfig: './tsconfig.prod.json',
+  //   objectHashIgnoreUnknownHack: true,
+  //   clear: true,
+  // })
 
   // export linaria css and main sass project
   const sassPlugin = scss({
@@ -54,7 +56,7 @@ const replaceAndReorderPlugins = (plugins) => {
 
   // Remove the original TsPlugin that stripped out my styles, plus Babel. I add new Babel config back in
   // at the end after extracting styles
-  plugins.splice(plugins.indexOf(tsPlugin), 2, typescriptPlugin, linariaPlugin, sassPlugin, babelPlugin, svgrPlugin)
+  plugins.splice(plugins.indexOf(tsPlugin), 2, tsPlugin, linariaPlugin, sassPlugin, babelPlugin, svgrPlugin)
 
   return plugins
 }
