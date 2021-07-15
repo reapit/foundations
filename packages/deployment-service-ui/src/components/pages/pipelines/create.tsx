@@ -7,6 +7,7 @@ import React, { useState } from 'react'
 import { Link } from 'react-router-dom'
 import { PipelineModelInterface } from '@reapit/foundations-ts-definitions'
 import { pipelineServiceCreate } from '@/platform-api/pipelines'
+import { useHistory } from 'react-router'
 
 const isNull = (value: any): boolean => !value || value === '' || value === null || typeof value === 'undefined'
 
@@ -19,12 +20,13 @@ const isUrl = (value: string): boolean =>
 export default () => {
   const { connectSession } = useReapitConnect(reapitConnectBrowserSession)
   const [loading, setLoading] = useState<boolean>(false)
+  const history = useHistory()
 
-  const createPipeline = async (pipeline: Partial<PipelineModelInterface>): Promise<void> => {
+  const createPipeline = async (pipeline: Partial<PipelineModelInterface>): Promise<PipelineModelInterface | void> => {
     setLoading(true)
     const result = await pipelineServiceCreate(connectSession as ReapitConnectSession, pipeline)
     if (result) {
-      // TODO navigate to display pipeline
+      history.push(Routes.PIPELINES_SHOW.replace(':pipelineId', result.id as string))
     }
     setLoading(false)
   }
@@ -83,29 +85,56 @@ export default () => {
             <Form>
               <InputGroup>
                 <Label>Project Name</Label>
-                <Input id="name" name="name" value={values.name} onChange={event => setFieldValue('name', event.target.value)} />
+                <Input
+                  id="name"
+                  name="name"
+                  value={values.name}
+                  onChange={(event) => setFieldValue('name', event.target.value)}
+                />
                 {touched.name && errors.name && <InputAddOn intent="danger">{errors.name}</InputAddOn>}
               </InputGroup>
               <InputGroup>
                 <Label>Repository</Label>
-                <Input id="repository" name="repository" placeholder="https://github.com/reapit/my-app" value={values.repository} onChange={event => setFieldValue('repository', event.target.value)} />
+                <Input
+                  id="repository"
+                  name="repository"
+                  placeholder="https://github.com/reapit/my-app"
+                  value={values.repository}
+                  onChange={(event) => setFieldValue('repository', event.target.value)}
+                />
                 {touched.repository && errors.repository && (
                   <InputAddOn intent="danger">{errors.repository}</InputAddOn>
                 )}
               </InputGroup>
               <Label>Package Manager</Label>
               <InputGroup>
-                <Input name="package" type="radio" value="yarn" checked={values.package === 'yarn'} onChange={event => setFieldValue('package', event.target.value)} />
+                <Input
+                  name="package"
+                  type="radio"
+                  value="yarn"
+                  checked={values.package === 'yarn'}
+                  onChange={(event) => setFieldValue('package', event.target.value)}
+                />
                 <InputAddOn>yarn</InputAddOn>
               </InputGroup>
               <InputGroup>
-                <Input name="package" type="radio" value="npm" checked={values.package === 'npm'} onChange={event => setFieldValue('package', event.target.value)} />
+                <Input
+                  name="package"
+                  type="radio"
+                  value="npm"
+                  checked={values.package === 'npm'}
+                  onChange={(event) => setFieldValue('package', event.target.value)}
+                />
                 <InputAddOn>npm</InputAddOn>
               </InputGroup>
               {touched.package && errors.package && <InputAddOn intent="danger">{errors.package}</InputAddOn>}
               <InputGroup>
                 <Label>Build Command</Label>
-                <Input id="build" value={values.build} onChange={event => setFieldValue('build', event.target.value)} />
+                <Input
+                  id="build"
+                  value={values.build}
+                  onChange={(event) => setFieldValue('build', event.target.value)}
+                />
                 {touched.build && errors.build && <InputAddOn intent="danger">{errors.build}</InputAddOn>}
               </InputGroup>
               <br />

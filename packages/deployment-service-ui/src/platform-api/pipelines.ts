@@ -17,7 +17,10 @@ export const pipelineServiceCreate = async (
         ...BASE_HEADERS,
         Authorization: `${session.idToken}`,
       },
-      body: pipeline,
+      body: {
+        ...pipeline,
+        appType: 'react',
+      },
     })
 
     if (response) {
