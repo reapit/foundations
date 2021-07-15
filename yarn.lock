@@ -4756,8 +4756,8 @@ __metadata:
     snyk: ^1.661.0
     tsdx: ^0.14.1
   peerDependencies:
-    react: ^16.12.0
-    react-dom: ^16.12.0
+    react: ^17.0.2
+    react-dom: ^17.0.2
   languageName: unknown
   linkType: soft
 
@@ -4858,8 +4858,8 @@ __metadata:
     webpack: ^5.44.0
   peerDependencies:
     dayjs: ^1.8.19
-    react: ^16.11.0
-    react-dom: ^16.11.0
+    react: ^17.0.2
+    react-dom: ^17.0.2
     react-router: ^5.1.2
     react-router-dom: ^5.1.2
   languageName: unknown
@@ -4928,8 +4928,8 @@ __metadata:
     typescript: ^4.3.5
     webpack: ^5.44.0
   peerDependencies:
-    react: ^16.11.0
-    react-dom: ^16.11.0
+    react: ^17.0.2
+    react-dom: ^17.0.2
   languageName: unknown
   linkType: soft
 
@@ -10561,7 +10561,7 @@ __metadata:
     serverless-offline: ^5.12.1
     serverless-webpack: ^5.3.5
     snyk: ^1.661.0
-    typescript: ^4.0.3
+    typescript: ^4.3.5
     webpack: ^5.44.0
   languageName: unknown
   linkType: soft
@@ -37221,7 +37221,7 @@ typescript@^3.7.3:
   languageName: node
   linkType: hard
 
-"typescript@^4.0.3, typescript@^4.3.5":
+typescript@^4.3.5:
   version: 4.3.5
   resolution: "typescript@npm:4.3.5"
   bin:
@@ -37241,7 +37241,7 @@ typescript@^3.7.3:
   languageName: node
   linkType: hard
 
-"typescript@patch:typescript@^4.0.3#builtin<compat/typescript>, typescript@patch:typescript@^4.3.5#builtin<compat/typescript>":
+"typescript@patch:typescript@^4.3.5#builtin<compat/typescript>":
   version: 4.3.5
   resolution: "typescript@patch:typescript@npm%3A4.3.5#builtin<compat/typescript>::version=4.3.5&hash=ddfc1b"
   bin:
