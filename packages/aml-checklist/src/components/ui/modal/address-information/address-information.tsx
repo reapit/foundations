@@ -75,9 +75,11 @@ const optionsDocumentType = [
   { label: DOCUMENT_TYPE.SMART_SEARCH_CCD_REPORT, value: DOCUMENT_TYPE.SMART_SEARCH_CCD_REPORT },
 ]
 
-export const handleMoreThreeYear = ({ setShowMoreThreeYearInput, isShowMoreThreeYearInput }) => () => {
-  setShowMoreThreeYearInput(!isShowMoreThreeYearInput)
-}
+export const handleMoreThreeYear =
+  ({ setShowMoreThreeYearInput, isShowMoreThreeYearInput }) =>
+  () => {
+    setShowMoreThreeYearInput(!isShowMoreThreeYearInput)
+  }
 
 export type AddressType = 'primaryAddress' | 'secondaryAddress'
 
@@ -86,13 +88,11 @@ export interface AddressInputProps {
   documentImage: IdentityDocumentForm
 }
 
-export const handleFilenameClick = (
-  values: IdentityDocumentForm,
-  setModalState: React.Dispatch<SetStateAction<ModalState>>,
-) => (e) => {
-  e.preventDefault()
-  setModalState({ isLoading: false, isVisible: true, image: values.documentId })
-}
+export const handleFilenameClick =
+  (values: IdentityDocumentForm, setModalState: React.Dispatch<SetStateAction<ModalState>>) => (e) => {
+    e.preventDefault()
+    setModalState({ isLoading: false, isVisible: true, image: values.documentId })
+  }
 
 export const AddressInput = ({ addressType, documentImage }: AddressInputProps) => {
   const fields = formFields(addressType)

@@ -39,35 +39,35 @@ export const renderNoResult = (param: string, time: string) => {
 
 // eslint-disable-next-line
 export const renderForm = ({ onPrevHandler, onNextHandler, isSubmitting, pepSearchStatus, contact }) => () => {
-  const { param, result, time } = pepSearchStatus && contact.id && pepSearchStatus[contact.id]
-  return (
-    <Form>
-      <div className={styles.pepSearchInputContainer}>
-        <Input type="text" name="name" id="name" labelText="Enter a name" />
-        <Button type="submit" variant="primary" className="mt-2">
-          Search
-        </Button>
-      </div>
-      {isSubmitting ? renderLoading() : null}
-      {result && result.length === 0 && !isSubmitting ? renderNoResult(param, time) : null}
-      <ButtonGroup hasSpacing isCentered>
-        <Button
-          disabled={isSubmitting}
-          type="button"
-          variant="primary"
-          className="mr-2"
-          dataTest="prev-btn"
-          onClick={onPrevHandler}
-        >
-          Previous
-        </Button>
-        <Button disabled={isSubmitting} type="button" variant="primary" dataTest="next-btn" onClick={onNextHandler}>
-          Finish
-        </Button>
-      </ButtonGroup>
-    </Form>
-  )
-}
+    const { param, result, time } = pepSearchStatus && contact.id && pepSearchStatus[contact.id]
+    return (
+      <Form>
+        <div className={styles.pepSearchInputContainer}>
+          <Input type="text" name="name" id="name" labelText="Enter a name" />
+          <Button type="submit" variant="primary" className="mt-2">
+            Search
+          </Button>
+        </div>
+        {isSubmitting ? renderLoading() : null}
+        {result && result.length === 0 && !isSubmitting ? renderNoResult(param, time) : null}
+        <ButtonGroup hasSpacing isCentered>
+          <Button
+            disabled={isSubmitting}
+            type="button"
+            variant="primary"
+            className="mr-2"
+            dataTest="prev-btn"
+            onClick={onPrevHandler}
+          >
+            Previous
+          </Button>
+          <Button disabled={isSubmitting} type="button" variant="primary" dataTest="next-btn" onClick={onNextHandler}>
+            Finish
+          </Button>
+        </ButtonGroup>
+      </Form>
+    )
+  }
 
 export type PepSearchProps = StateProps & DispatchProps
 

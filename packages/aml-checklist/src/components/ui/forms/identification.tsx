@@ -49,21 +49,19 @@ export interface ModalState {
   isVisible: boolean
 }
 
-export const onSubmitHandler = (onSaveHandler: (formValues: IdentityDocumentForm) => void) => (
-  formValues: IdentityDocumentForm,
-) => onSaveHandler(formValues)
+export const onSubmitHandler =
+  (onSaveHandler: (formValues: IdentityDocumentForm) => void) => (formValues: IdentityDocumentForm) =>
+    onSaveHandler(formValues)
 
-export const handleFilenameClick = (
-  values: IdentityDocumentForm,
-  setModalState: Dispatch<SetStateAction<ModalState>>,
-) => async (e) => {
-  e.preventDefault()
-  setModalState({ isLoading: true, isVisible: true, image: null })
-  const imageURL = await downloadDocument(values.documentId)
-  const image = imageURL ? imageURL : null
-  const visibleState = image ? true : false
-  setModalState({ isLoading: false, isVisible: visibleState, image })
-}
+export const handleFilenameClick =
+  (values: IdentityDocumentForm, setModalState: Dispatch<SetStateAction<ModalState>>) => async (e) => {
+    e.preventDefault()
+    setModalState({ isLoading: true, isVisible: true, image: null })
+    const imageURL = await downloadDocument(values.documentId)
+    const image = imageURL ? imageURL : null
+    const visibleState = image ? true : false
+    setModalState({ isLoading: false, isVisible: visibleState, image })
+  }
 
 export const handleCloseModal = (setModalState: Dispatch<SetStateAction<ModalState>>) => () => {
   setModalState({ isLoading: false, isVisible: false, image: null })
