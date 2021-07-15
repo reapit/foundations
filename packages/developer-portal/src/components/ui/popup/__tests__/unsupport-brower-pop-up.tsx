@@ -6,7 +6,7 @@ import { UnsupportBrowserPopUp, popUp, handleCloseToast, TIMEOUT_DURATION } from
 import appState from '@/reducers/__stubs__/app-state'
 
 const setOpen = jest.fn()
-jest.useFakeTimers()
+jest.useFakeTimers('legacy')
 describe('UnsupportBrowerPopUp popup', () => {
   afterEach(() => {
     jest.clearAllMocks()

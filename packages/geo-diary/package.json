@@ -51,7 +51,7 @@
     "@reapit/ts-types": "workspace:packages/ts-types",
     "apollo-boost": "^0.4.9",
     "apollo-link-error": "^1.1.13",
-    "babel-jest": "^26.6.3",
+    "babel-jest": "^27.0.6",
     "babel-loader": "^8.2.2",
     "concurrently": "^6.2.0",
     "cross-env": "^6.0.3",

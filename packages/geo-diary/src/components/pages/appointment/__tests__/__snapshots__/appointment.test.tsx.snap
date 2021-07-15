@@ -17,7 +17,7 @@ exports[`appointment AppointmentContent should match snapshot when has appointme
   <AppoinmentContainer
     className="mobile-appointments-show"
   >
-    <Component>
+    <FadeIn>
       <AppointmentList
         appointments={
           Array [
@@ -1013,7 +1013,7 @@ exports[`appointment AppointmentContent should match snapshot when has appointme
           ]
         }
       />
-    </Component>
+    </FadeIn>
   </AppoinmentContainer>
   <ContactDrawer />
   <MapContainer>

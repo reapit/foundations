@@ -18,10 +18,6 @@ describe('App', () => {
     }
   })
 
-  afterAll(() => {
-    // @ts-ignore
-    global.window = oldWindow
-  })
   it('should render without crashing', () => {
     const div = document.createElement('div')
     render(<App />, div)

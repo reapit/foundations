@@ -2,7 +2,6 @@ const path = require('path')
 const { defaults } = require('jest-config')
 
 const jestGlobalConfig = {
-  preset: 'ts-jest',
   testEnvironment: 'jsdom',
   testPathIgnorePatterns: ['<rootDir>/src/tests/'],
   setupFiles: [path.join(__dirname, './jest-setup')],
@@ -23,6 +22,7 @@ const jestGlobalConfig = {
   verbose: false,
   projects: ['<rootDir>/jest.config.js'],
   transform: {
+    "\\.[jt]sx?$": "babel-jest",
     '^.+\\.svg$': path.join(__dirname, './svg-transform.js'),
     '\\.(gql|graphql)$': 'jest-transform-graphql',
   },
@@ -36,25 +36,6 @@ const jestGlobalConfig = {
     },
   },
   coverageReporters: ['json-summary', 'text', 'lcov'],
-  globals: {
-    'ts-jest': {
-      babelConfig: {
-        presets: ['@babel/env', '@babel/preset-typescript', '@babel/preset-react', '@linaria'],
-        plugins: [
-          '@babel/plugin-transform-runtime',
-          [
-
-            'module-resolver',
-            {
-              alias: {
-                '@': './src',
-              },
-            },
-          ]
-        ],
-      },
-    },
-  },
 }
 
 module.exports = { jestGlobalConfig }

@@ -27,14 +27,17 @@ jest.mock('../../../../core/app-state')
 const mockGetMarkerPostion = jest.fn()
 const mockSetDirection = jest.fn()
 const mockGetCenter = jest.fn()
+const mockGeoCode = jest.fn()
 const mockMarker = jest.fn(() => ({ getPostition: mockGetMarkerPostion }))
+const mockGeoCoder = jest.fn(() => ({
+  geocode: mockGeoCode,
+}))
 const mockInfoWindow = jest.fn()
 const mockAddListener = jest.fn()
 const mockLatLngBounds = jest.fn(() => ({ getCenter: mockGetCenter }))
 const mockGetPostion = jest.fn()
 const mockFitBounds = jest.fn()
 const mockSetCenter = jest.fn()
-const mockGeoCode = jest.fn()
 const mockLatLng = jest.fn()
 const mockSetMap = jest.fn()
 const mockRoute = jest.fn()
@@ -47,7 +50,7 @@ export const mockDirectionsService = {
 }
 const mockDirectionsRendererConstructor = jest.fn()
 const mockDirectionsServiceConstructor = jest.fn()
-export const mockAppState = ({
+export const mockAppState = {
   ...defaultAppState,
   currentLat: 1234,
   currentLng: 1234,
@@ -68,9 +71,7 @@ export const mockAppState = ({
         LatLng: mockLatLng,
         DirectionsService: mockDirectionsServiceConstructor,
         DirectionsRenderer: mockDirectionsRendererConstructor,
-        Geocoder: () => ({
-          geocode: mockGeoCode,
-        }),
+        Geocoder: mockGeoCoder,
         event: {
           addListener: mockAddListener,
         },
@@ -96,7 +97,7 @@ export const mockAppState = ({
       current: mockDirectionsService,
     },
   },
-} as unknown) as AppState
+} as unknown as AppState
 
 describe('GoogleMapComponent', () => {
   it('should match snapshot with an appointment', () => {
@@ -171,7 +172,7 @@ describe('GoogleMapComponent', () => {
       appState: mockAppState,
       setAppState: mockSetAppState,
     })
-
+    mockGeoCoder.mockImplementation(() => ({ geocode: mockGeoCode }))
     curried()
     expect(mockAppState.mapRefs?.googleMapsRef.current?.Marker).toHaveBeenCalledTimes(1)
     expect(mockGeoCode).toHaveBeenCalledTimes(1)
@@ -180,7 +181,7 @@ describe('GoogleMapComponent', () => {
 
   it('should handle directions service', () => {
     const mockSetAppState = jest.fn()
-    const mockResponse = ({
+    const mockResponse = {
       routes: [
         {
           legs: [
@@ -191,7 +192,7 @@ describe('GoogleMapComponent', () => {
           ],
         },
       ],
-    } as unknown) as DirectionsResult
+    } as unknown as DirectionsResult
     const curried = handleDirectionService({
       appState: mockAppState,
       setAppState: mockSetAppState,
@@ -247,7 +248,7 @@ describe('GoogleMapComponent', () => {
   })
 
   it('should handle map load', () => {
-    const curried = handleOnLoaded(({
+    const curried = handleOnLoaded({
       mapRef: {
         current: {},
       },
@@ -269,7 +270,7 @@ describe('GoogleMapComponent', () => {
       directionsServiceRef: {
         current: {},
       },
-    } as unknown) as MapRefs)
+    } as unknown as MapRefs)
 
     curried(
       mockAppState.mapRefs?.googleMapsRef.current as typeof google.maps,
