@@ -1,15 +1,5 @@
-module.exports = {
-  presets: ['@babel/preset-env', '@babel/preset-typescript', '@babel/preset-react', '@linaria'],
-  plugins: [
-    '@babel/plugin-transform-runtime',
-    [
+const baseBabel = require('@reapit/ts-scripts')
 
-      'module-resolver',
-      {
-        alias: {
-          '@': './src',
-        },
-      },
-    ]
-  ],
+module.exports = {
+  ...baseBabel
 }
