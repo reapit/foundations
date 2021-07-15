@@ -1,4 +1,4 @@
-const baseBabel = require('@reapit/ts-scripts')
+const { baseBabel } = require('@reapit/ts-scripts')
 
 module.exports = {
   ...baseBabel
