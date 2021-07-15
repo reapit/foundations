@@ -6679,13 +6679,13 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "@reapit/cli@workspace:packages/cli"
   dependencies:
+    "@reapit/ts-scripts": "workspace:packages/ts-scripts"
+    "@reapit/ts-types": "workspace:packages/ts-types"
     "@types/adm-zip": ^0.4.34
     "@types/figlet": ^1.5.1
     "@types/inquirer": ^7.3.1
     "@types/semver": ^7.3.6
     "@types/yargs": ^16.0.2
-    "@reapit/ts-scripts": "workspace:packages/ts-scripts"
-    "@reapit/ts-types": "workspace:packages/ts-types"
     axios: ^0.21.1
     babel-jest: ^26.6.3
     chalk: ^4.1.1
@@ -7096,6 +7096,9 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "@reapit/utils@workspace:packages/utils"
   dependencies:
+    "@linaria/core": ^3.0.0-beta.4
+    "@linaria/react": ^3.0.0-beta.7
+    "@linaria/shaker": ^3.0.0-beta.7
     "@reapit/config-manager": "workspace:packages/config-manager"
     "@reapit/foundations-ts-definitions": "workspace:packages/foundations-ts-definitions"
     "@reapit/ts-scripts": "workspace:packages/ts-scripts"
@@ -22852,6 +22855,15 @@ fsevents@^1.2.7:
   languageName: node
   linkType: hard
 
+"glob-parent@npm:~5.1.2":
+  version: 5.1.2
+  resolution: "glob-parent@npm:5.1.2"
+  dependencies:
+    is-glob: ^4.0.1
+  checksum: 82fcaa4ce102a0ae01370ed8fd5299ca32184af0418e1c1b613ed851240160558c0cc9712868eb9ca1924f687b07cd9c70c25f303f39f9f376d9a32f94f28e76
+  languageName: node
+  linkType: hard
+
 "glob-promise@npm:^3.4.0":
   version: 3.4.0
   resolution: "glob-promise@npm:3.4.0"
@@ -32866,6 +32878,13 @@ fsevents@^1.2.7:
   languageName: node
   linkType: hard
 
+"parse5@npm:^5.1.1":
+  version: 5.1.1
+  resolution: "parse5@npm:5.1.1"
+  checksum: fad72ff5010ee8a6f0a38b83fc886b71a54d746d5c4ff5aad74d6ba1fe87b9606585bf32aa200b015ce329e0906f50f2851f29876abeacd5c13567c7a0455362
+  languageName: node
+  linkType: hard
+
 "parseqs@npm:0.0.5":
   version: 0.0.5
   resolution: "parseqs@npm:0.0.5"
@@ -41306,7 +41325,7 @@ resolve@1.17.0:
   languageName: node
   linkType: hard
 
-"tslib@npm:2.3.0, tslib@npm:^2.3.0":
+"tslib@npm:2.3.0, tslib@npm:^2.1.0, tslib@npm:^2.3.0":
   version: 2.3.0
   resolution: "tslib@npm:2.3.0"
   checksum: 7b4fc9feff0f704743c3760f5d8d708f6417fac6458159e63df3a6b1100f0736e3b99edb9fe370f274ad15160a1f49ff05cb49402534c818ff552c48e38c3e6e
@@ -41324,13 +41343,6 @@ resolve@1.17.0:
   version: 2.1.0
   resolution: "tslib@npm:2.1.0"
   checksum: d8f5bdd067611651c6b846c2388f4dc8ba1f5af124e66105f5263d1ad56da17f4b8c6566887ca2f205c5a9758451871ceca87d5d06087af2dca1699c5e33db69
-  languageName: node
-  linkType: hard
-
-"tslib@npm:^2.1.0":
-  version: 2.3.0
-  resolution: "tslib@npm:2.3.0"
-  checksum: 7b4fc9feff0f704743c3760f5d8d708f6417fac6458159e63df3a6b1100f0736e3b99edb9fe370f274ad15160a1f49ff05cb49402534c818ff552c48e38c3e6e
   languageName: node
   linkType: hard
 
@@ -43094,7 +43106,7 @@ typescript@^4.0.3:
   languageName: node
   linkType: hard
 
-"webpack@npm:4":
+"webpack@npm:4, webpack@npm:^4.46.0":
   version: 4.46.0
   resolution: "webpack@npm:4.46.0"
   dependencies:
@@ -43832,22 +43844,7 @@ typescript@^4.0.3:
   languageName: node
   linkType: hard
 
-"ws@npm:^7.4.5":
-  version: 7.5.0
-  resolution: "ws@npm:7.5.0"
-  peerDependencies:
-    bufferutil: ^4.0.1
-    utf-8-validate: ^5.0.2
-  peerDependenciesMeta:
-    bufferutil:
-      optional: true
-    utf-8-validate:
-      optional: true
-  checksum: f9ac36310e795995f13ac7abff9c3b104b2460864de7f0b6233d285f62c6929529e24f386ff87740c3646f818fefa014be587371aa9a5a6fffae2cd9d1e9e008
-  languageName: node
-  linkType: hard
-
-"ws@npm:^7.4.6":
+"ws@npm:^7.4.5, ws@npm:^7.4.6":
   version: 7.5.0
   resolution: "ws@npm:7.5.0"
   peerDependencies:
@@ -44203,7 +44200,7 @@ typescript@^4.0.3:
   languageName: node
   linkType: hard
 
-"yargs@npm:^16.0.3, yargs@npm:^16.2.0":
+"yargs@npm:^16.0.0, yargs@npm:^16.0.3, yargs@npm:^16.2.0":
   version: 16.2.0
   resolution: "yargs@npm:16.2.0"
   dependencies:
