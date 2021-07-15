@@ -1,14 +1,16 @@
 import React from 'react'
 import styled from 'styled-components'
-import { useNode } from '@craftjs/core'
+import { useEditor, useNode } from '@craftjs/core'
 import { ToolbarItem, ToolbarSection } from '../Toolbar'
 
 const ContainerDiv = styled.div`
   display: grid;
-  grid-template-columns: repeat(12, 1fr);
-  grid-column: span ${(props) => props.width};
+  grid-template-columns: repeat(12, minmax(100px, 1fr));
   grid-template-rows: 1fr;
   align-items: center;
+
+  ${(props) => !props.root && `grid-column: span ${props.width};`}
+  ${(props) => props.root && 'width: 100%'}
 
   @media (max-width: 800px) {
     grid-template-rows: repeat(2, 1fr);
@@ -21,7 +23,6 @@ const Container = ({
   width,
   background,
   height,
-  fixedWidth,
   ...props
 }: {
   [key: string]: any
@@ -29,19 +30,24 @@ const Container = ({
 }) => {
   const {
     connectors: { connect, drag },
+    id,
     // actions: { setProp },
   } = useNode()
+  const {
+    query: { node },
+  } = useEditor()
+  const isRoot = node(id).isRoot()
 
   return (
     <ContainerDiv
       {...props}
       ref={(ref) => ref && connect(drag(ref))}
       width={width}
+      isRoot={isRoot}
       style={{
         background,
         height,
         padding: `${padding}px`,
-        width: fixedWidth,
       }}
     >
       {children}
