@@ -87,9 +87,8 @@ export const handleGetRouteInfo = (
           }
 
           const { duration, distance } = response?.routes[0].legs[0] ?? {}
-          
-          if (distance && duration) {
 
+          if (distance && duration) {
             resolve({
               duration,
               distance,

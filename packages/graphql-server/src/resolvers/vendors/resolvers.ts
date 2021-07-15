@@ -45,46 +45,38 @@ export const mutationUpdateVendor = resolverHandler<UpdateVendorArgs, MutationUp
 export const queryGetVendorRelationships = resolverHandler<
   GetVendorRelationshipsArgs,
   QueryGetVendorRelationshipsReturn
->(
-  (_: any, args: GetVendorRelationshipsArgs, context: ServerContext): QueryGetVendorRelationshipsReturn => {
-    const traceId = context.traceId
-    logger.info('queryGetVendorRelationships', { traceId, args })
-    return vendorServices.getVendorRelationships(args, context)
-  },
-)
+>((_: any, args: GetVendorRelationshipsArgs, context: ServerContext): QueryGetVendorRelationshipsReturn => {
+  const traceId = context.traceId
+  logger.info('queryGetVendorRelationships', { traceId, args })
+  return vendorServices.getVendorRelationships(args, context)
+})
 
 export const queryGetVendorRelationshipById = resolverHandler<
   GetVendorRelationshipByIdArgs,
   QueryGetVendorRelationshipByIdReturn
->(
-  (_: any, args: GetVendorRelationshipByIdArgs, context: ServerContext): QueryGetVendorRelationshipByIdReturn => {
-    const traceId = context.traceId
-    logger.info('queryGetVendorRelationshipById', { traceId, args })
-    return vendorServices.getVendorRelationshipById(args, context)
-  },
-)
+>((_: any, args: GetVendorRelationshipByIdArgs, context: ServerContext): QueryGetVendorRelationshipByIdReturn => {
+  const traceId = context.traceId
+  logger.info('queryGetVendorRelationshipById', { traceId, args })
+  return vendorServices.getVendorRelationshipById(args, context)
+})
 
 export const mutationCreateVendorRelationship = resolverHandler<
   CreateVendorRelationshipArgs,
   MutationCreateVendorRelationshipReturn
->(
-  (_: any, args: CreateVendorRelationshipArgs, context: ServerContext): MutationCreateVendorRelationshipReturn => {
-    const traceId = context.traceId
-    logger.info('mutationCreateVendorRelationship', { traceId, args })
-    return vendorServices.createVendorRelationship(args, context)
-  },
-)
+>((_: any, args: CreateVendorRelationshipArgs, context: ServerContext): MutationCreateVendorRelationshipReturn => {
+  const traceId = context.traceId
+  logger.info('mutationCreateVendorRelationship', { traceId, args })
+  return vendorServices.createVendorRelationship(args, context)
+})
 
 export const mutationDeleteVendorRelationship = resolverHandler<
   DeleteVendorRelationshipArgs,
   MutationDeleteVendorRelationshipReturn
->(
-  (_: any, args: DeleteVendorRelationshipArgs, context: ServerContext): MutationDeleteVendorRelationshipReturn => {
-    const traceId = context.traceId
-    logger.info('mutationDeleteVendorRelationship', { traceId, args })
-    return vendorServices.deleteVendorRelationship(args, context)
-  },
-)
+>((_: any, args: DeleteVendorRelationshipArgs, context: ServerContext): MutationDeleteVendorRelationshipReturn => {
+  const traceId = context.traceId
+  logger.info('mutationDeleteVendorRelationship', { traceId, args })
+  return vendorServices.deleteVendorRelationship(args, context)
+})
 
 export default {
   Query: {

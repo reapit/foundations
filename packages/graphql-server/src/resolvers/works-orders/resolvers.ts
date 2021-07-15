@@ -22,14 +22,12 @@ import * as worksOrdersServices from './services'
 export const mutationdeleteWorksOrderItem = resolverHandler<
   DeleteWorksOrderItemArgs,
   MutationDeleteWorksOrderItemReturn
->(
-  (_: any, args: DeleteWorksOrderItemArgs, context: ServerContext): MutationDeleteWorksOrderItemReturn => {
-    const traceId = context.traceId
+>((_: any, args: DeleteWorksOrderItemArgs, context: ServerContext): MutationDeleteWorksOrderItemReturn => {
+  const traceId = context.traceId
 
-    logger.info('mutationdeleteWorksOrderItem', { traceId, args })
-    return worksOrdersServices.deleteWorksOrderItem(args, context)
-  },
-)
+  logger.info('mutationdeleteWorksOrderItem', { traceId, args })
+  return worksOrdersServices.deleteWorksOrderItem(args, context)
+})
 
 export const mutationUpdateWorksOrderItem = resolverHandler<UpdateWorksOrderItemArgs, MutationUpdateWorksOrder>(
   (_: any, args: UpdateWorksOrderItemArgs, context: ServerContext): MutationUpdateWorksOrder => {

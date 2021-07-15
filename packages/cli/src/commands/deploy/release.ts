@@ -93,7 +93,9 @@ export class ReleaseCommand extends AbstractCommand {
   async sendZip(buffer: Buffer, project: string, version: string, spinner: Ora): Promise<void | never> {
     spinner.start('Sending zip')
 
-    const response = await (await this.axios(spinner)).post(`deploy/release/${project}/${version}`, {
+    const response = await (
+      await this.axios(spinner)
+    ).post(`deploy/release/${project}/${version}`, {
       file: buffer.toString('base64'),
     })
 
