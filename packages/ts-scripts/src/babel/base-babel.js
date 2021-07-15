@@ -3,13 +3,12 @@ module.exports = {
   plugins: [
     '@babel/plugin-transform-runtime',
     [
-
       'module-resolver',
       {
         alias: {
           '@': './src',
         },
       },
-    ]
+    ],
   ],
 }

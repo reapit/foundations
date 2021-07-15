@@ -26,7 +26,6 @@ const webpackConfigNode = {
     filename: '[name].js',
   },
   plugins: [
-    new ESBuildPlugin(),
     new ContextReplacementPlugin(/express|encoding/),
     new ResolveTSPathsToWebpackAlias({
       tsconfig: PATHS.tsConfig,
