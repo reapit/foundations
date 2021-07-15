@@ -70,13 +70,11 @@ export const queryGetApplicantRelationshipById = resolverHandler<
 export const queryGetApplicantRelationships = resolverHandler<
   GetApplicantRelationshipsArgs,
   QueryGetApplicantRelationshipsByIdReturn
->(
-  (_: any, args: GetApplicantRelationshipsArgs, context: ServerContext): QueryGetApplicantRelationshipsReturn => {
-    const traceId = context.traceId
-    logger.info('queryGetApplicantRelationships', { traceId, args })
-    return applicantServices.getApplicantRelationships(args, context)
-  },
-)
+>((_: any, args: GetApplicantRelationshipsArgs, context: ServerContext): QueryGetApplicantRelationshipsReturn => {
+  const traceId = context.traceId
+  logger.info('queryGetApplicantRelationships', { traceId, args })
+  return applicantServices.getApplicantRelationships(args, context)
+})
 
 export const mutationCreateApplicantRelationship = resolverHandler<
   CreateApplicantRelationshipArgs,

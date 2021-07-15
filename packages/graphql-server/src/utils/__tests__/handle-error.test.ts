@@ -142,11 +142,11 @@ describe('handleError', () => {
   })
 
   it('should return ApolloError', async () => {
-    const input = ({
+    const input = {
       error: undefined,
       caller: 'mockCaller',
       traceId: 'mockTraceId',
-    } as unknown) as HandleErrorParams
+    } as unknown as HandleErrorParams
     const output = await handleError(input)
     expect(output).toEqual(errors.generateInternalServerError('mockTraceId'))
   })

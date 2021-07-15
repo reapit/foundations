@@ -57,13 +57,11 @@ export const queryGetTenancyChecks = resolverHandler<GetTenancyChecksArgs, Query
 export const queryGetTenancyRelationships = resolverHandler<
   GetTenancyRelationshipsArgs,
   QueryGetTenancyRelationshipsReturn
->(
-  (_: any, args: GetTenancyRelationshipsArgs, context: ServerContext): QueryGetTenancyRelationshipsReturn => {
-    const traceId = context.traceId
-    logger.info('queryGetTenancyRelationships', { traceId, args })
-    return tenancyServices.getTenancyRelationships(args, context)
-  },
-)
+>((_: any, args: GetTenancyRelationshipsArgs, context: ServerContext): QueryGetTenancyRelationshipsReturn => {
+  const traceId = context.traceId
+  logger.info('queryGetTenancyRelationships', { traceId, args })
+  return tenancyServices.getTenancyRelationships(args, context)
+})
 
 export const mutationCreateTenancy = resolverHandler<CreateTenancyArgs, MutationCreateTenancyReturn>(
   (_: any, args: CreateTenancyArgs, context: ServerContext): MutationCreateTenancyReturn => {

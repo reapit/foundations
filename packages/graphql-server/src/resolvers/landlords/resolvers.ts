@@ -39,24 +39,20 @@ export const queryGetLandlords = resolverHandler<GetLandlordsArgs, QueryGetLandl
 export const queryGetLandlordRelationshipById = resolverHandler<
   GetLandlordRelationshipByIdArgs,
   QueryGetLandlordRelationshipByIdReturn
->(
-  (_: any, args: GetLandlordRelationshipByIdArgs, context: ServerContext): QueryGetLandlordRelationshipByIdReturn => {
-    const traceId = context.traceId
-    logger.info('queryGetLandlordRelationshipById', { traceId, args })
-    return landlordServices.getLandlordRelationshipById(args, context)
-  },
-)
+>((_: any, args: GetLandlordRelationshipByIdArgs, context: ServerContext): QueryGetLandlordRelationshipByIdReturn => {
+  const traceId = context.traceId
+  logger.info('queryGetLandlordRelationshipById', { traceId, args })
+  return landlordServices.getLandlordRelationshipById(args, context)
+})
 
 export const queryGetLandlordRelationships = resolverHandler<
   GetLandlordRelationshipsArgs,
   QueryGetLandlordRelationshipsReturn
->(
-  (_: any, args: GetLandlordRelationshipsArgs, context: ServerContext): QueryGetLandlordRelationshipsReturn => {
-    const traceId = context.traceId
-    logger.info('queryGetLandlordRelationships', { traceId, args })
-    return landlordServices.getLandlordRelationships(args, context)
-  },
-)
+>((_: any, args: GetLandlordRelationshipsArgs, context: ServerContext): QueryGetLandlordRelationshipsReturn => {
+  const traceId = context.traceId
+  logger.info('queryGetLandlordRelationships', { traceId, args })
+  return landlordServices.getLandlordRelationships(args, context)
+})
 
 export const mutationCreateLandlord = resolverHandler<CreateLandlordArgs, MutationCreateLandlordReturn>(
   (_: any, args: CreateLandlordArgs, context: ServerContext): MutationCreateLandlordReturn => {
@@ -69,24 +65,20 @@ export const mutationCreateLandlord = resolverHandler<CreateLandlordArgs, Mutati
 export const mutationCreateLandlordRelationship = resolverHandler<
   CreateLandlordRelationshipArgs,
   MutationCreateLandlordRelationshipReturn
->(
-  (_: any, args: CreateLandlordRelationshipArgs, context: ServerContext): MutationCreateLandlordRelationshipReturn => {
-    const traceId = context.traceId
-    logger.info('mutationCreateLandlordRelationship', { traceId, args })
-    return landlordServices.createLandlordRelationship(args, context)
-  },
-)
+>((_: any, args: CreateLandlordRelationshipArgs, context: ServerContext): MutationCreateLandlordRelationshipReturn => {
+  const traceId = context.traceId
+  logger.info('mutationCreateLandlordRelationship', { traceId, args })
+  return landlordServices.createLandlordRelationship(args, context)
+})
 
 export const mutationDeleteLandlordRelationship = resolverHandler<
   DeleteLandlordRelationshipArgs,
   MutationDeleteLandlordRelationshipReturn
->(
-  (_: any, args: DeleteLandlordRelationshipArgs, context: ServerContext): MutationDeleteLandlordRelationshipReturn => {
-    const traceId = context.traceId
-    logger.info('mutationDeleteLandlordRelationship', { traceId, args })
-    return landlordServices.deleteLandlordRelationship(args, context)
-  },
-)
+>((_: any, args: DeleteLandlordRelationshipArgs, context: ServerContext): MutationDeleteLandlordRelationshipReturn => {
+  const traceId = context.traceId
+  logger.info('mutationDeleteLandlordRelationship', { traceId, args })
+  return landlordServices.deleteLandlordRelationship(args, context)
+})
 
 export const mutationUpdateLandlord = resolverHandler<UpdateLandlordArgs, MutationUpdateLandlordReturn>(
   (_: any, args: UpdateLandlordArgs, context: ServerContext): MutationUpdateLandlordReturn => {

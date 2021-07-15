@@ -65,7 +65,9 @@ export class PipelineCreate extends AbstractCommand {
     create: boolean
   }) {
     const spinner = ora('Creating pipeline').start()
-    const response = await (await this.axios(spinner)).post<PipelineModelInterface>('/pipeline', {
+    const response = await (
+      await this.axios(spinner)
+    ).post<PipelineModelInterface>('/pipeline', {
       name: name,
       appType: appType.toLowerCase(),
       repository: repository,
