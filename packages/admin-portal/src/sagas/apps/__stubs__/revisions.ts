@@ -59,8 +59,7 @@ export const revisionsDataStub: AppRevisionModelPagedResult = {
       links: [
         {
           rel: 'self',
-          href:
-            'https://dev.platformmarketplace.reapit.net/apps/1161242a-f650-4d1d-aed7-909853fe7ee1/revisions/d29b62ae-a57b-4ab4-9c37-1365f356d926',
+          href: 'https://dev.platformmarketplace.reapit.net/apps/1161242a-f650-4d1d-aed7-909853fe7ee1/revisions/d29b62ae-a57b-4ab4-9c37-1365f356d926',
           action: 'GET',
         },
         {
@@ -132,8 +131,7 @@ export const revisionsDataStub: AppRevisionModelPagedResult = {
       links: [
         {
           rel: 'self',
-          href:
-            'https://dev.platformmarketplace.reapit.net/apps/1161242a-f650-4d1d-aed7-909853fe7ee1/revisions/04e2dfa6-6581-460c-8168-5f60a4ac1281',
+          href: 'https://dev.platformmarketplace.reapit.net/apps/1161242a-f650-4d1d-aed7-909853fe7ee1/revisions/04e2dfa6-6581-460c-8168-5f60a4ac1281',
           action: 'GET',
         },
         {

@@ -40,35 +40,33 @@ export const buildFilterValues = (queryParams: URLSearchParams): SubscriptionsFi
   return { type, developerName, userEmail, appName, status } as SubscriptionsFilterFormValues
 }
 
-export const onPageChangeHandler = (history: History<any>, queryParams: SubscriptionsFilterFormValues) => (
-  page: number,
-) => {
-  const query = setQueryParams(queryParams)
-  let queryString = `?page=${page}`
-  if (query && query !== '') {
-    queryString = queryString.concat(`&${query}`)
-  }
-  return history.push(`${Routes.SUBSCRIPTIONS}${queryString}`)
-}
-
-export const onSearchHandler = (history: History<any>) => (
-  queryParams: SubscriptionsFilterFormValues,
-  { setStatus },
-) => {
-  const cleanedValues = cleanObject(queryParams)
-
-  if (isEmptyObject(cleanedValues)) {
-    setStatus('Please enter at least one search criteria')
-    return
+export const onPageChangeHandler =
+  (history: History<any>, queryParams: SubscriptionsFilterFormValues) => (page: number) => {
+    const query = setQueryParams(queryParams)
+    let queryString = `?page=${page}`
+    if (query && query !== '') {
+      queryString = queryString.concat(`&${query}`)
+    }
+    return history.push(`${Routes.SUBSCRIPTIONS}${queryString}`)
   }
 
-  setStatus(null)
-  const query = setQueryParams(cleanedValues)
-  if (query && query !== '') {
-    const queryString = `?page=1&${query}`
-    history.push(`${Routes.SUBSCRIPTIONS}${queryString}`)
+export const onSearchHandler =
+  (history: History<any>) =>
+  (queryParams: SubscriptionsFilterFormValues, { setStatus }) => {
+    const cleanedValues = cleanObject(queryParams)
+
+    if (isEmptyObject(cleanedValues)) {
+      setStatus('Please enter at least one search criteria')
+      return
+    }
+
+    setStatus(null)
+    const query = setQueryParams(cleanedValues)
+    if (query && query !== '') {
+      const queryString = `?page=1&${query}`
+      history.push(`${Routes.SUBSCRIPTIONS}${queryString}`)
+    }
   }
-}
 
 const Subscriptions: React.FC = () => {
   const history = useHistory()

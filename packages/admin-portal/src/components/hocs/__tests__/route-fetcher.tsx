@@ -39,5 +39,4 @@ describe('RouteFetcher', () => {
   afterEach(() => {
     jest.resetAllMocks()
   })
-  afterAll(() => (React.useEffect as jest.Mock).mockRestore())
 })

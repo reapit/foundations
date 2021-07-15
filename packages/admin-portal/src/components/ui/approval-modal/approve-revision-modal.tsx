@@ -13,13 +13,15 @@ export type ApproveRevisionModalProps = Pick<ModalProps, 'visible' | 'afterClose
   onApproveSuccess: () => void
 }
 
-export const handleAfterClose = ({ isSuccessed, onApproveSuccess, isLoading, afterClose }) => () => {
-  if (isSuccessed) {
-    onApproveSuccess()
-  } else if (!isLoading && afterClose) {
-    afterClose()
+export const handleAfterClose =
+  ({ isSuccessed, onApproveSuccess, isLoading, afterClose }) =>
+  () => {
+    if (isSuccessed) {
+      onApproveSuccess()
+    } else if (!isLoading && afterClose) {
+      afterClose()
+    }
   }
-}
 
 export const handleOnSubmit = (dispatch: Dispatch, appId?: string, appRevisionId?: string) => (formValues) => {
   if (appId && appRevisionId) {

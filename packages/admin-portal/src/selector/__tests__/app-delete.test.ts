@@ -3,11 +3,11 @@ import { selectAppDeleteFormState } from '../app-delete'
 
 describe('selectAppDeleteFormState', () => {
   it('should run correctly', () => {
-    const input = ({
+    const input = {
       apps: {
         deleteFormState: 'SUCCESS',
       },
-    } as unknown) as ReduxState
+    } as unknown as ReduxState
     const result = selectAppDeleteFormState(input)
     expect(result).toEqual('SUCCESS')
   })

@@ -49,16 +49,18 @@ export const onPageChangeHandler = (history: History<any>, queryParams: URLSearc
   history.push(`${Routes.CUSTOMERS}?${queryParams.toString()}`)
 }
 
-export const onSearchHandler = (history: History<any>): OnSearch => (filterValues, { setStatus }) => {
-  const query = qs.stringify(cleanObject(filterValues))
-  if (!query) {
-    setStatus('Please enter at least one search criteria')
-    return
+export const onSearchHandler =
+  (history: History<any>): OnSearch =>
+  (filterValues, { setStatus }) => {
+    const query = qs.stringify(cleanObject(filterValues))
+    if (!query) {
+      setStatus('Please enter at least one search criteria')
+      return
+    }
+    setStatus('')
+    const queryString = `${query}`
+    history.push(`${Routes.CUSTOMERS}?${queryString}`)
   }
-  setStatus('')
-  const queryString = `${query}`
-  history.push(`${Routes.CUSTOMERS}?${queryString}`)
-}
 
 export const refreshForm = (history) => () => {
   history.push(Routes.CUSTOMERS)

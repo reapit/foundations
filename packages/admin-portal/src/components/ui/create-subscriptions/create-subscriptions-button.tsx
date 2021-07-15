@@ -38,30 +38,31 @@ export interface CancelSubscriptionParams {
   id: string
 }
 
-export const getCurrentSub = ({
-  subsByAppId,
-  subsByDeveloperId,
-  subscriptionType,
-  setCurrentSub,
-}: GetCurrentSubParams) => () => {
-  if (subscriptionType === 'applicationListing') {
-    const sub = subsByAppId.find((sub) => sub.type === 'applicationListing' && !sub.cancelled) ?? null
-    setCurrentSub(sub)
+export const getCurrentSub =
+  ({ subsByAppId, subsByDeveloperId, subscriptionType, setCurrentSub }: GetCurrentSubParams) =>
+  () => {
+    if (subscriptionType === 'applicationListing') {
+      const sub = subsByAppId.find((sub) => sub.type === 'applicationListing' && !sub.cancelled) ?? null
+      setCurrentSub(sub)
+    }
+
+    if (subscriptionType === 'developerRegistration') {
+      const sub = subsByDeveloperId.find((sub) => sub.type === 'developerRegistration' && !sub.cancelled) ?? null
+      setCurrentSub(sub)
+    }
   }
 
-  if (subscriptionType === 'developerRegistration') {
-    const sub = subsByDeveloperId.find((sub) => sub.type === 'developerRegistration' && !sub.cancelled) ?? null
-    setCurrentSub(sub)
+export const createSubscriptionHander =
+  ({ dispatch, createSubscriptionModel }: CreateSubscriptionParams) =>
+  () => {
+    dispatch(createSubscription(createSubscriptionModel))
   }
-}
 
-export const createSubscriptionHander = ({ dispatch, createSubscriptionModel }: CreateSubscriptionParams) => () => {
-  dispatch(createSubscription(createSubscriptionModel))
-}
-
-export const cancelSubscriptionHander = ({ dispatch, id }: CancelSubscriptionParams) => () => {
-  dispatch(cancelSubscription({ id }))
-}
+export const cancelSubscriptionHander =
+  ({ dispatch, id }: CancelSubscriptionParams) =>
+  () => {
+    dispatch(cancelSubscription({ id }))
+  }
 
 export const CreateSubscriptionsButton: React.FC<CreateSubscriptionsButtonProps> = ({
   subscriptionType,

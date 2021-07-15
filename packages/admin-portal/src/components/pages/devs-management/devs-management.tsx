@@ -50,57 +50,54 @@ export const handleToggleVisibleModal = (setModalOpen: React.Dispatch<boolean>, 
   setModalOpen(isVisible)
 }
 
-export const onPageChangeHandler = (history: History<any>, queryParams: DevsManagementFilterFormValues) => (
-  page: number,
-) => {
-  const query = setQueryParams(queryParams)
-  let queryString = `?page=${page}`
-  if (query && query !== '') {
-    queryString = queryString.concat(`&${query}`)
+export const onPageChangeHandler =
+  (history: History<any>, queryParams: DevsManagementFilterFormValues) => (page: number) => {
+    const query = setQueryParams(queryParams)
+    let queryString = `?page=${page}`
+    if (query && query !== '') {
+      queryString = queryString.concat(`&${query}`)
+    }
+    return history.push(`${Routes.DEV_MANAGEMENT}${queryString}`)
   }
-  return history.push(`${Routes.DEV_MANAGEMENT}${queryString}`)
-}
 
-export const onSearchHandler = (history: History<any>) => (
-  queryParams: DevsManagementFilterFormValues,
-  { setStatus },
-) => {
-  const cleanedValues = cleanObject(queryParams)
+export const onSearchHandler =
+  (history: History<any>) =>
+  (queryParams: DevsManagementFilterFormValues, { setStatus }) => {
+    const cleanedValues = cleanObject(queryParams)
 
-  if (isEmptyObject(cleanedValues)) {
-    setStatus('Please enter at least one search criteria')
-    return
+    if (isEmptyObject(cleanedValues)) {
+      setStatus('Please enter at least one search criteria')
+      return
+    }
+    const query = setQueryParams(cleanedValues)
+    if (query && query !== '') {
+      const queryString = `?page=1&${query}`
+      history.push(`${Routes.DEV_MANAGEMENT}${queryString}`)
+    }
   }
-  const query = setQueryParams(cleanedValues)
-  if (query && query !== '') {
-    const queryString = `?page=1&${query}`
-    history.push(`${Routes.DEV_MANAGEMENT}${queryString}`)
+
+export const closeDisableMemberModal =
+  (setDisableMemberModalVisible: React.Dispatch<React.SetStateAction<boolean>>) => () => {
+    setDisableMemberModalVisible(false)
   }
-}
 
-export const closeDisableMemberModal = (
-  setDisableMemberModalVisible: React.Dispatch<React.SetStateAction<boolean>>,
-) => () => {
-  setDisableMemberModalVisible(false)
-}
+export const openDisableMemberModal =
+  (
+    setSelectedUser: React.Dispatch<React.SetStateAction<MemberModel>>,
+    setDisableMemberModalVisible: React.Dispatch<React.SetStateAction<boolean>>,
+    user: MemberModel,
+  ) =>
+  () => {
+    setSelectedUser(user)
+    setDisableMemberModalVisible(true)
+  }
 
-export const openDisableMemberModal = (
-  setSelectedUser: React.Dispatch<React.SetStateAction<MemberModel>>,
-  setDisableMemberModalVisible: React.Dispatch<React.SetStateAction<boolean>>,
-  user: MemberModel,
-) => () => {
-  setSelectedUser(user)
-  setDisableMemberModalVisible(true)
-}
-
-export const onClickStatusButton = (
-  setDeveloper: React.Dispatch<DeveloperModel>,
-  setIsSetStatusModalOpen: React.Dispatch<boolean>,
-  developerData,
-) => () => {
-  setDeveloper({ ...developerData })
-  setIsSetStatusModalOpen(true)
-}
+export const onClickStatusButton =
+  (setDeveloper: React.Dispatch<DeveloperModel>, setIsSetStatusModalOpen: React.Dispatch<boolean>, developerData) =>
+  () => {
+    setDeveloper({ ...developerData })
+    setIsSetStatusModalOpen(true)
+  }
 
 export const DevsManagement: React.FC = () => {
   const dispatch = useDispatch()

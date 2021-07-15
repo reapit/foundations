@@ -20,9 +20,9 @@ import appState from '@/reducers/__stubs__/app-state'
 import { customersList } from '@/sagas/customers/__stubs__/customers-list'
 import { History } from 'history'
 
-const historyMock = ({
+const historyMock = {
   push: jest.fn(),
-} as unknown) as History<any>
+} as unknown as History<any>
 
 describe('Customers', () => {
   let store, mockStore

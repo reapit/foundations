@@ -18,7 +18,10 @@ export type HandleCloseModalParams = {
   setIsModalOpen: React.Dispatch<React.SetStateAction<boolean>>
 }
 
-export const handleCloseModal = ({ setIsModalOpen }: HandleCloseModalParams) => () => setIsModalOpen(false)
+export const handleCloseModal =
+  ({ setIsModalOpen }: HandleCloseModalParams) =>
+  () =>
+    setIsModalOpen(false)
 
 export const handleOnPageChange = (history: { push: (path: string) => void }) => (page: number) =>
   history.push(`${Routes.APPROVALS}?page=${page}`)
@@ -55,10 +58,12 @@ export type RowIdParams = {
   row: { original: { created: string }; index: number }
 }
 // eslint-disable-next-line react/display-name
-export const renderId = ({ page }: RenderIdParams) => ({ row: { index } }: RowIdParams) => {
-  const pageNoTimesRevsions = (page - 1) * REVISIONS_PER_PAGE
-  return <div>{pageNoTimesRevsions + index + 1}</div>
-}
+export const renderId =
+  ({ page }: RenderIdParams) =>
+  ({ row: { index } }: RowIdParams) => {
+    const pageNoTimesRevsions = (page - 1) * REVISIONS_PER_PAGE
+    return <div>{pageNoTimesRevsions + index + 1}</div>
+  }
 
 export type HandleViewDetailOnClickParams = {
   dispatch: Dispatch<any>
@@ -69,25 +74,27 @@ export type HandleViewDetailOnClickParams = {
   currentAppId?: string
 }
 
-export const handleViewDetailOnClick = ({
-  dispatch,
-  appRevisionId,
-  currentRevisionId,
-  appId,
-  currentAppId,
-  setIsModalOpen,
-}: HandleViewDetailOnClickParams) => () => {
-  const isNeedFetchRevision = currentRevisionId !== appRevisionId
-  const isNeedFetchAppDetail = currentAppId !== appId
-  if (appRevisionId && appId && isNeedFetchRevision) {
-    dispatch(fetchRevision({ appId, appRevisionId }))
-  }
+export const handleViewDetailOnClick =
+  ({
+    dispatch,
+    appRevisionId,
+    currentRevisionId,
+    appId,
+    currentAppId,
+    setIsModalOpen,
+  }: HandleViewDetailOnClickParams) =>
+  () => {
+    const isNeedFetchRevision = currentRevisionId !== appRevisionId
+    const isNeedFetchAppDetail = currentAppId !== appId
+    if (appRevisionId && appId && isNeedFetchRevision) {
+      dispatch(fetchRevision({ appId, appRevisionId }))
+    }
 
-  if (appRevisionId && appId && isNeedFetchAppDetail) {
-    dispatch(fetchAppDetail({ id: appId }))
+    if (appRevisionId && appId && isNeedFetchAppDetail) {
+      dispatch(fetchAppDetail({ id: appId }))
+    }
+    setIsModalOpen(true)
   }
-  setIsModalOpen(true)
-}
 
 export type RenderViewDetailButtonParams = {
   revisionDetail: AppRevisionModel
@@ -100,34 +107,36 @@ export type RowDetailButtonParams = {
   row: { original: { appId: string; appRevisionId: string } }
 }
 
-export const renderViewDetailButton = ({
-  revisionDetail,
-  appDetail,
-  setIsModalOpen,
-  dispatch,
-}: // eslint-disable-next-line react/display-name
-RenderViewDetailButtonParams) => ({ row: { original } }: RowDetailButtonParams) => {
-  const { appId, appRevisionId } = original
-  const currentRevisionId = revisionDetail?.id
-  const currentAppId = appDetail?.id
-  return (
-    <Button
-      dataTest={`view-details-button_${appId}`}
-      type="button"
-      variant="primary"
-      onClick={handleViewDetailOnClick({
-        appRevisionId,
-        currentRevisionId,
-        currentAppId,
-        dispatch,
-        setIsModalOpen,
-        appId,
-      })}
-    >
-      View details
-    </Button>
-  )
-}
+export const renderViewDetailButton =
+  ({
+    revisionDetail,
+    appDetail,
+    setIsModalOpen,
+    dispatch,
+  }: // eslint-disable-next-line react/display-name
+  RenderViewDetailButtonParams) =>
+  ({ row: { original } }: RowDetailButtonParams) => {
+    const { appId, appRevisionId } = original
+    const currentRevisionId = revisionDetail?.id
+    const currentAppId = appDetail?.id
+    return (
+      <Button
+        dataTest={`view-details-button_${appId}`}
+        type="button"
+        variant="primary"
+        onClick={handleViewDetailOnClick({
+          appRevisionId,
+          currentRevisionId,
+          currentAppId,
+          dispatch,
+          setIsModalOpen,
+          appId,
+        })}
+      >
+        View details
+      </Button>
+    )
+  }
 
 export const generateTableColumn = ({
   page,

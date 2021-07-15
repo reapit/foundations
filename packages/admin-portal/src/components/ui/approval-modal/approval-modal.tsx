@@ -81,14 +81,12 @@ export type HandleSetIsApproveModalParams = {
   afterClose?: () => void
 }
 
-export const handleSetIsApproveModal = ({
-  setIsApproveModalOpen,
-  isApproveModalOpen,
-  afterClose,
-}: HandleSetIsApproveModalParams) => () => {
-  afterClose && afterClose()
-  setIsApproveModalOpen(isApproveModalOpen)
-}
+export const handleSetIsApproveModal =
+  ({ setIsApproveModalOpen, isApproveModalOpen, afterClose }: HandleSetIsApproveModalParams) =>
+  () => {
+    afterClose && afterClose()
+    setIsApproveModalOpen(isApproveModalOpen)
+  }
 
 export type HandleSetIsDeclineModalParams = {
   setIsDeclineModalOpen: React.Dispatch<React.SetStateAction<boolean>>
@@ -96,14 +94,12 @@ export type HandleSetIsDeclineModalParams = {
   afterClose?: () => void
 }
 
-export const handleSetIsDeclineModal = ({
-  setIsDeclineModalOpen,
-  isDeclineModalOpen,
-  afterClose,
-}: HandleSetIsDeclineModalParams) => () => {
-  afterClose && afterClose()
-  setIsDeclineModalOpen(isDeclineModalOpen)
-}
+export const handleSetIsDeclineModal =
+  ({ setIsDeclineModalOpen, isDeclineModalOpen, afterClose }: HandleSetIsDeclineModalParams) =>
+  () => {
+    afterClose && afterClose()
+    setIsDeclineModalOpen(isDeclineModalOpen)
+  }
 
 export type ApprovalModalProps = Pick<ModalProps, 'visible' | 'afterClose'>
 
