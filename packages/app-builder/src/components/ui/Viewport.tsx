@@ -6,6 +6,8 @@ import Toolbox from '../ui/Toolbox'
 import Header from '../ui/Header'
 import Sidebar from '../ui/Sidebar'
 
+import BREAKPOINT from '../../utils/breakpoints'
+
 const InjectFrameStyles = (props) => {
   const { document } = useContext(FrameContext)
   return <StyleSheetManager target={document.head}>{props.children}</StyleSheetManager>
@@ -14,12 +16,26 @@ const InjectFrameStyles = (props) => {
 const Container = styled.div`
   flex: 1;
   display: flex;
+  flex-direction: column;
   justify-content: center;
+  align-items: center;
   background-color: #e0e0e0;
+`
+
+const Breakpoints = styled.div`
+  height: 75px;
+  display: flex;
+  justify-content: center;
+`
+
+const Breakpoint = styled.button`
+  margin-left: 25px;
+  margin-right: 25px;
 `
 
 const Viewport = ({ children, iframeRef }) => {
   const { connectors } = useEditor()
+  const [breakpoint, setBreakpoint] = React.useState(BREAKPOINT.Desktop)
 
   return (
     <div className="viewport" style={{ flex: 1, flexDirection: 'column', justifyItems: 'stretch', height: '100vh' }}>
@@ -27,8 +43,14 @@ const Viewport = ({ children, iframeRef }) => {
       <div className="flex overflow-hidden flex-row w-full" style={{ height: 'calc(100vh - 45px)' }}>
         <Toolbox />
         <Container>
+          <Breakpoints>
+            <Breakpoint onClick={() => setBreakpoint(BREAKPOINT.Desktop)}>Desktop</Breakpoint>
+            <Breakpoint onClick={() => setBreakpoint(BREAKPOINT.Tablet)}>Tablet</Breakpoint>
+            <Breakpoint onClick={() => setBreakpoint(BREAKPOINT.MobileL)}>Mobile L</Breakpoint>
+            <Breakpoint onClick={() => setBreakpoint(BREAKPOINT.MobileS)}>Mobile S</Breakpoint>
+          </Breakpoints>
           <IFrame
-            style={{ transition: 'width 350ms', width: 600 }}
+            style={{ transition: 'width 350ms', width: breakpoint, flex: 1 }}
             ref={iframeRef}
             head={
               <>

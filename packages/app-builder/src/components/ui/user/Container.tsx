@@ -1,19 +1,29 @@
 import React from 'react'
 import styled from 'styled-components'
 import { useEditor, useNode } from '@craftjs/core'
+import BREAKPOINT from '../../../utils/breakpoints'
 import { ToolbarItem, ToolbarSection } from '../Toolbar'
 
 const ContainerDiv = styled.div`
-  display: grid;
-  grid-template-columns: repeat(12, minmax(100px, 1fr));
-  grid-template-rows: 1fr;
+  display: flex;
+  /* grid-template-columns: repeat(12, minmax(100px, 1fr));
+  grid-template-rows: 1fr; */
   align-items: center;
+  justify-items: space-between;
 
-  ${(props) => !props.root && `grid-column: span ${props.width};`}
+  ${(props) => !props.root && `flex: ${props.width};`}
   ${(props) => props.root && 'width: 100%'}
 
-  @media (max-width: 800px) {
-    grid-template-rows: repeat(2, 1fr);
+  @media (max-width: ${BREAKPOINT.Tablet}px) {
+    ${(props) => !props.root && `flex: ${props.width * 2};`}
+  }
+  @media (max-width: ${BREAKPOINT.MobileL}px) {
+    ${(props) => !props.root && `flex: ${props.width * 3};`}
+  }
+  @media (max-width: ${BREAKPOINT.MobileS}px) {
+    align-items: flex-start;
+    flex-direction: column;
+    ${(props) => !props.root && 'flex: 12;'}
   }
 `
 

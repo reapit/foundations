@@ -39,7 +39,7 @@ const Text = ({ text, ...props }) => {
       onClick={() => selected && setEditable(true)}
       style={{
         fontSize,
-        gridColumn: `span ${width}`,
+        flex: `${width}`,
       }}
     >
       <ContentEditable
