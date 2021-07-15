@@ -10,13 +10,15 @@ const unzip = () => {
   zip.extractAllTo(`${dir}`, true)
 }
 
+const zipLocation = 'zip/refs/heads/master'
+
 export const pull: ExecutableType = async (task: TaskEntity, pipeline: PipelineEntity): Promise<true | never> => {
   console.log('pull...')
   console.log('executable', task)
 
   try {
     await new Promise<void>((resolve) => {
-      request(`https://codeload.github.com/${pipeline.repository}/zip/refs/heads/master`)
+      request(`https://codeload.github.com/${pipeline.repository}/${zipLocation}`)
         .pipe(fs.createWriteStream(`${dir}/${cloneZip}`))
         .on('close', function () {
           resolve()
