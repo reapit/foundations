@@ -5,13 +5,15 @@ import * as service from './../../services/pipeline'
 import { validate } from 'class-validator'
 import { ownership, resolveDeveloperId } from './../../utils'
 import { defaultOutputHeaders } from './../../constants'
+import { plainToClass } from 'class-transformer'
 
 /**
  * Update a given pipeline
  */
 export const pipelineUpdate = httpHandler<PipelineDto, PipelineEntity>({
   defaultOutputHeaders,
-  validator: async (dto: PipelineDto): Promise<PipelineDto> => {
+  validator: async (payload: any): Promise<PipelineDto> => {
+    const dto = plainToClass(PipelineDto, payload)
     const errors = await validate(dto)
 
     if (errors.length >= 1) {
