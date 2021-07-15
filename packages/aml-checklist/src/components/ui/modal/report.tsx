@@ -22,9 +22,11 @@ export const handleTrigger = () => (
   </Button>
 )
 
-export const handleContent = ({ printRef }) => () => {
-  return printRef.current
-}
+export const handleContent =
+  ({ printRef }) =>
+  () => {
+    return printRef.current
+  }
 
 export const mappedIdTypes = (idTypes: ListItemModel[]) => {
   return idTypes.reduce((cur, obj) => {

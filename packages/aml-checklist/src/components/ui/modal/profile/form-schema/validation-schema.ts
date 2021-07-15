@@ -4,15 +4,8 @@ import errorMessages from '@/constants/error-messages'
 
 const { FIELD_REQUIRED } = errorMessages
 
-const {
-  titleField,
-  forenameField,
-  surnameField,
-  homePhoneField,
-  mobilePhoneField,
-  workPhoneField,
-  emailField,
-} = formFields
+const { titleField, forenameField, surnameField, homePhoneField, mobilePhoneField, workPhoneField, emailField } =
+  formFields
 
 const profileValidationSchema = Yup.object().shape({
   [titleField.name]: Yup.string().trim().required(FIELD_REQUIRED),

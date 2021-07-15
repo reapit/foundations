@@ -89,15 +89,12 @@ export const fnChangePage = (setPageNumber: (page: number) => void) => (page: nu
   setPageNumber(page)
 }
 
-export const fnFetchContacts = (
-  search: SearchParams | null,
-  pageNumber: number,
-  fetchContacts: (params: ContactsParams) => void,
-) => () => {
-  if (search) {
-    fetchContacts({ ...search, pageNumber })
+export const fnFetchContacts =
+  (search: SearchParams | null, pageNumber: number, fetchContacts: (params: ContactsParams) => void) => () => {
+    if (search) {
+      fetchContacts({ ...search, pageNumber })
+    }
   }
-}
 
 export const Result: React.FunctionComponent<ResultProps> = ({ resultState, fetchContacts, history }) => {
   const { search, loading } = resultState

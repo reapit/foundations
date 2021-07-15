@@ -42,69 +42,71 @@ const identityCheckList = [
 
 // eslint-disable-next-line
 export const renderForm = ({ connectIsDesktop }) => ({ values }) => {
-  return (
-    <>
-      <H3 isHeadingSection className="mb-0">
-        Client Search
-      </H3>
-      <Section>
-        <FadeIn>
-          <Form>
-            <Input
-              id={nameField.name}
-              type="text"
-              placeholder={nameField.placeHolder}
-              name={nameField.name}
-              labelText={nameField.label}
-            />
-            <Input
-              id={addressField.name}
-              type="text"
-              placeholder={addressField.placeHolder}
-              name={addressField.name}
-              labelText={addressField.label}
-            />
-            <SelectBox
-              id={identityCheckField.name}
-              name={identityCheckField.name}
-              labelText={identityCheckField.label}
-              options={identityCheckList}
-            />
-            <Button className="is-right" type="submit" variant="primary">
-              Search
-            </Button>
-            {connectIsDesktop && (
-              <AcButton
-                dynamicLinkParams={{
-                  entityType: EntityType.CONTACT,
-                  queryParams: {
-                    name: values.name,
-                    address: values.address,
-                    appId: window.reapit.config.appId,
-                    appParam: AppParams.CONTACT_CODE,
-                  },
-                  appMode: connectIsDesktop ? 'DESKTOP' : 'WEB',
-                }}
-                buttonProps={{
-                  type: 'button',
-                  variant: 'primary',
-                  disabled: !values.name && !values.address,
-                }}
-              >
-                Advanced Search
-              </AcButton>
-            )}
-          </Form>
-        </FadeIn>
-      </Section>
-    </>
-  )
-}
+    return (
+      <>
+        <H3 isHeadingSection className="mb-0">
+          Client Search
+        </H3>
+        <Section>
+          <FadeIn>
+            <Form>
+              <Input
+                id={nameField.name}
+                type="text"
+                placeholder={nameField.placeHolder}
+                name={nameField.name}
+                labelText={nameField.label}
+              />
+              <Input
+                id={addressField.name}
+                type="text"
+                placeholder={addressField.placeHolder}
+                name={addressField.name}
+                labelText={addressField.label}
+              />
+              <SelectBox
+                id={identityCheckField.name}
+                name={identityCheckField.name}
+                labelText={identityCheckField.label}
+                options={identityCheckList}
+              />
+              <Button className="is-right" type="submit" variant="primary">
+                Search
+              </Button>
+              {connectIsDesktop && (
+                <AcButton
+                  dynamicLinkParams={{
+                    entityType: EntityType.CONTACT,
+                    queryParams: {
+                      name: values.name,
+                      address: values.address,
+                      appId: window.reapit.config.appId,
+                      appParam: AppParams.CONTACT_CODE,
+                    },
+                    appMode: connectIsDesktop ? 'DESKTOP' : 'WEB',
+                  }}
+                  buttonProps={{
+                    type: 'button',
+                    variant: 'primary',
+                    disabled: !values.name && !values.address,
+                  }}
+                >
+                  Advanced Search
+                </AcButton>
+              )}
+            </Form>
+          </FadeIn>
+        </Section>
+      </>
+    )
+  }
 
-export const searchContacts = ({ setSearchParams, history }) => (values: any) => {
-  setSearchParams(values)
-  history.push(Routes.RESULTS)
-}
+export const searchContacts =
+  ({ setSearchParams, history }) =>
+  (values: any) => {
+    setSearchParams(values)
+    history.push(Routes.RESULTS)
+  }
 
 export const ClientSearch: React.FunctionComponent<ClientSearchProps> = ({ setSearchParams, history }) => {
   const { connectIsDesktop } = useReapitConnect(reapitConnectBrowserSession)
