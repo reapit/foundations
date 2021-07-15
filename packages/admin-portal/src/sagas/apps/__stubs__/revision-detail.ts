@@ -22,8 +22,7 @@ export const revisionDetailDataStub: RevisionDetailItem = {
     links: [
       {
         rel: 'self',
-        href:
-          'http://reapit.cloud.tyk.io/marketplace/apps/029b80f2-dc1c-4f80-adca-86dd6d4ff89b/revisions/1265b090-1113-4f25-ace2-adb19656d3bc',
+        href: 'http://reapit.cloud.tyk.io/marketplace/apps/029b80f2-dc1c-4f80-adca-86dd6d4ff89b/revisions/1265b090-1113-4f25-ace2-adb19656d3bc',
         action: 'GET',
       },
       {

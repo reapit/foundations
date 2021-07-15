@@ -43,22 +43,22 @@ export type DeleteModalData = {
 
 // eslint-disable-next-line
 export const renderIsFeature = (dispatch: Dispatch<any>) => ({ row, cell }) => {
-  const { id } = row.original
-  const { value } = cell
-  return (
-    <div className="field field-checkbox">
-      <input
-        className="checkbox"
-        type="checkbox"
-        id={id}
-        name={id}
-        checked={value}
-        onChange={(evt) => dispatch(requestMarkAppAsFeatured({ id, isFeatured: evt.target.checked }))}
-      />
-      <label className="label" htmlFor={id}></label>
-    </div>
-  )
-}
+    const { id } = row.original
+    const { value } = cell
+    return (
+      <div className="field field-checkbox">
+        <input
+          className="checkbox"
+          type="checkbox"
+          id={id}
+          name={id}
+          checked={value}
+          onChange={(evt) => dispatch(requestMarkAppAsFeatured({ id, isFeatured: evt.target.checked }))}
+        />
+        <label className="label" htmlFor={id}></label>
+      </div>
+    )
+  }
 
 export const renderChecked = ({ cell: { value } }) => {
   return value ? <FaCheck /> : null
@@ -75,80 +75,82 @@ export type RenderDeleteActionParams = {
 
 // eslint-disable-next-line
 export const renderDeleteAction = ({ setDataDeleteModal, deleteModalData }: RenderDeleteActionParams) => ({ row }) => (
-  <Button
-    type="button"
-    variant="danger"
-    onClick={() =>
-      setDataDeleteModal({ ...deleteModalData, visible: true, appId: row.original.id, appName: row.original.name })
-    }
-  >
-    Delete
-  </Button>
-)
+      <Button
+        type="button"
+        variant="danger"
+        onClick={() =>
+          setDataDeleteModal({ ...deleteModalData, visible: true, appId: row.original.id, appName: row.original.name })
+        }
+      >
+        Delete
+      </Button>
+    )
 
 export type GenerateColumnsParams = RenderDeleteActionParams & {
   dispatch: Dispatch<any>
 }
 
-export const generateColumns = ({ dispatch, setDataDeleteModal, deleteModalData }: GenerateColumnsParams) => () => {
-  return [
-    {
-      Header: 'AppID',
-      accessor: 'id',
-    },
-    {
-      Header: 'App Name',
-      accessor: 'name',
-    },
-    {
-      Header: 'App Summary',
-      accessor: 'summary',
-    },
-    {
-      Header: 'Company Name',
-      accessor: 'developer',
-    },
-    {
-      Header: 'Is Listed',
-      accessor: 'isListed',
-      Cell: renderChecked,
-    },
-    {
-      Header: 'Pending Revisions',
-      accessor: 'pendingRevisions',
-      Cell: renderChecked,
-    },
-    {
-      Header: 'Direct API',
-      accessor: 'isDirectApi',
-      Cell: renderChecked,
-    },
-    {
-      Header: 'Created',
-      accessor: 'created',
-      Cell: renderCreatedAt,
-    },
-    {
-      Header: 'Featured',
-      accessor: 'isFeatured',
-      Cell: renderIsFeature(dispatch),
-    },
-    {
-      id: 'Delete',
-      Cell: renderDeleteAction({ setDataDeleteModal, deleteModalData }),
-    },
-    {
-      id: 'Subscribe',
-      Cell: ({ row }: { row: { original: AppSummaryModel } }) => (
-        <CreateSubscriptionsButton
-          subscriptionType="applicationListing"
-          developerId={row.original.developerId as string}
-          appId={row.original.id}
-        />
-      ),
-    },
-  ]
-}
+export const generateColumns =
+  ({ dispatch, setDataDeleteModal, deleteModalData }: GenerateColumnsParams) =>
+  () => {
+    return [
+      {
+        Header: 'AppID',
+        accessor: 'id',
+      },
+      {
+        Header: 'App Name',
+        accessor: 'name',
+      },
+      {
+        Header: 'App Summary',
+        accessor: 'summary',
+      },
+      {
+        Header: 'Company Name',
+        accessor: 'developer',
+      },
+      {
+        Header: 'Is Listed',
+        accessor: 'isListed',
+        Cell: renderChecked,
+      },
+      {
+        Header: 'Pending Revisions',
+        accessor: 'pendingRevisions',
+        Cell: renderChecked,
+      },
+      {
+        Header: 'Direct API',
+        accessor: 'isDirectApi',
+        Cell: renderChecked,
+      },
+      {
+        Header: 'Created',
+        accessor: 'created',
+        Cell: renderCreatedAt,
+      },
+      {
+        Header: 'Featured',
+        accessor: 'isFeatured',
+        Cell: renderIsFeature(dispatch),
+      },
+      {
+        id: 'Delete',
+        Cell: renderDeleteAction({ setDataDeleteModal, deleteModalData }),
+      },
+      {
+        id: 'Subscribe',
+        Cell: ({ row }: { row: { original: AppSummaryModel } }) => (
+          <CreateSubscriptionsButton
+            subscriptionType="applicationListing"
+            developerId={row.original.developerId as string}
+            appId={row.original.id}
+          />
+        ),
+      },
+    ]
+  }
 
 export const refreshForm = (history) => () => {
   history.push(Routes.APPS)
@@ -217,16 +219,18 @@ export const renderForm = ({ values, status }) => {
   )
 }
 
-export const handleCloseAppDeleteModal = ({
-  setDataDeleteModal,
-  dispatch,
-}: {
-  setDataDeleteModal: React.Dispatch<React.SetStateAction<any>>
-  dispatch: Dispatch
-}) => () => {
-  setDataDeleteModal({ visible: false, appId: '', appName: '' })
-  dispatch(setDeleteAppInitFormState())
-}
+export const handleCloseAppDeleteModal =
+  ({
+    setDataDeleteModal,
+    dispatch,
+  }: {
+    setDataDeleteModal: React.Dispatch<React.SetStateAction<any>>
+    dispatch: Dispatch
+  }) =>
+  () => {
+    setDataDeleteModal({ visible: false, appId: '', appName: '' })
+    dispatch(setDeleteAppInitFormState())
+  }
 
 export type FormValues = {
   appName: string
@@ -236,17 +240,19 @@ export type FormValues = {
   registeredTo: string
 }
 
-export const handleOnSubmit = (history) => (formValues: FormValues, { setStatus }) => {
-  const cleanedValues = cleanObject(formValues)
+export const handleOnSubmit =
+  (history) =>
+  (formValues: FormValues, { setStatus }) => {
+    const cleanedValues = cleanObject(formValues)
 
-  if (isEmptyObject(cleanedValues)) {
-    setStatus('Please enter at least one search criteria')
-    return
+    if (isEmptyObject(cleanedValues)) {
+      setStatus('Please enter at least one search criteria')
+      return
+    }
+
+    const queryString = stringifyObjectIntoQueryString({ ...cleanedValues, page: 1 })
+    history.push(`${Routes.APPS}?${queryString}`)
   }
-
-  const queryString = stringifyObjectIntoQueryString({ ...cleanedValues, page: 1 })
-  history.push(`${Routes.APPS}?${queryString}`)
-}
 
 export const handleChangePage = (history) => (page: number) => {
   history.push(addQuery({ page }))

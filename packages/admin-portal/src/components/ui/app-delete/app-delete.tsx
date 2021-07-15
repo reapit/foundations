@@ -15,13 +15,15 @@ export type AppDeleteProps = Pick<ModalProps, 'visible' | 'afterClose'> & {
   onDeleteSuccess: () => void
 }
 
-export const handleAfterClose = ({ isSuccedded, onDeleteSuccess, isLoading, afterClose }) => () => {
-  if (isSuccedded) {
-    onDeleteSuccess()
-  } else if (!isLoading && afterClose) {
-    afterClose()
+export const handleAfterClose =
+  ({ isSuccedded, onDeleteSuccess, isLoading, afterClose }) =>
+  () => {
+    if (isSuccedded) {
+      onDeleteSuccess()
+    } else if (!isLoading && afterClose) {
+      afterClose()
+    }
   }
-}
 
 export const onDeleteButtonClick = (appId: string, dispatch: Dispatch) => {
   return () => {

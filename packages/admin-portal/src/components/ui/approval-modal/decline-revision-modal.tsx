@@ -17,25 +17,29 @@ export type DeclineRevisionModalProps = Pick<ModalProps, 'visible' | 'afterClose
   onDeclineSuccess: () => void
 }
 
-export const handleAfterClose = ({ isSuccessed, onDeclineSuccess, isLoading, afterClose }) => () => {
-  if (isSuccessed) {
-    onDeclineSuccess()
-  } else if (!isLoading && afterClose) {
-    afterClose()
+export const handleAfterClose =
+  ({ isSuccessed, onDeclineSuccess, isLoading, afterClose }) =>
+  () => {
+    if (isSuccessed) {
+      onDeclineSuccess()
+    } else if (!isLoading && afterClose) {
+      afterClose()
+    }
   }
-}
 
-export const handleOnSubmit = (
-  setRejectionReason: React.Dispatch<React.SetStateAction<string>>,
-  dispatch: Dispatch,
-  appId?: string,
-  appRevisionId?: string,
-) => (formValues: RejectRevisionModel) => {
-  if (appId && appRevisionId) {
-    setRejectionReason(formValues.rejectionReason || '')
-    dispatch(requestDeclineRevision({ appId, appRevisionId, ...formValues }))
+export const handleOnSubmit =
+  (
+    setRejectionReason: React.Dispatch<React.SetStateAction<string>>,
+    dispatch: Dispatch,
+    appId?: string,
+    appRevisionId?: string,
+  ) =>
+  (formValues: RejectRevisionModel) => {
+    if (appId && appRevisionId) {
+      setRejectionReason(formValues.rejectionReason || '')
+      dispatch(requestDeclineRevision({ appId, appRevisionId, ...formValues }))
+    }
   }
-}
 
 export const onCancelButtonClick = (afterClose?: () => void) => {
   return () => {
