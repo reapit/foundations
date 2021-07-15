@@ -8,6 +8,7 @@ const cssStub = require('./jest/css-stub')
 const { jestGlobalConfig } = require('./jest/jest.config')
 const svgTransform = require('./jest/svg-transform')
 const baseEslint = require('./eslint/base-eslint')
+const baseBabel = require('./babel/base-babel')
 
 module.exports = {
   webpackConfigDev,
@@ -24,4 +25,5 @@ module.exports = {
   svgTransform,
   jestGlobalConfig,
   baseEslint,
+  baseBabel,
 }
