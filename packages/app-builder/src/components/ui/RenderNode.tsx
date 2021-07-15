@@ -3,6 +3,7 @@ import { ROOT_NODE } from '@craftjs/utils'
 import React, { useEffect, useRef, useCallback } from 'react'
 import ReactDOM from 'react-dom'
 import styled, { createGlobalStyle } from 'styled-components'
+import { intentPrimary } from '@reapit/elements'
 
 import ArrowUp from '../icons/arrow-up'
 import Delete from '../icons/delete'
@@ -13,7 +14,7 @@ const IndicatorDiv = styled.div`
   margin-top: -29px;
   font-size: 12px;
   line-height: 12px;
-  background: var(--intent-primary);
+  background: ${intentPrimary}; /* couldn't get the CSS vars into the iframe on first try :( */
 
   svg {
     fill: #fff;
@@ -54,7 +55,7 @@ const Btn = styled.a`
   }
 `
 
-export const RenderNode = ({ render }) => {
+export const RenderNode = ({ render, iframeRef }) => {
   const { id } = useNode()
   const { actions, query, isActive } = useEditor((state) => ({
     isActive: !!state.nodes[id]?.events.selected,
@@ -116,11 +117,10 @@ export const RenderNode = ({ render }) => {
     }
   }, [scroll])
 
-  const container = document.querySelector('#page-container')
+  const container = iframeRef.node.contentDocument?.body.querySelector('#page-container')
 
   return (
     <>
-      <Globals />
       {(isHover || isActive) && container && dom
         ? ReactDOM.createPortal(
             <IndicatorDiv
@@ -132,6 +132,7 @@ export const RenderNode = ({ render }) => {
                 zIndex: 9999,
               }}
             >
+              <Globals />
               <h2 className="flex-1 mr-4">{name}</h2>
               {moveable && (
                 <>

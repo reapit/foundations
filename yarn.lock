@@ -18528,13 +18528,6 @@ __metadata:
   languageName: node
   linkType: hard
 
-"fast-memoize@npm:^2.5.1":
-  version: 2.5.2
-  resolution: "fast-memoize@npm:2.5.2"
-  checksum: 88bd91488039c0e04131d5382b8ea084268f144ce14ab36c360dd04f7792ac0c419e125b0fe6e6f41e77f03d1f703b31697475b2e95889ca86510623e2f0d904
-  languageName: node
-  linkType: hard
-
 "fast-safe-stringify@npm:^2.0.4":
   version: 2.0.7
   resolution: "fast-safe-stringify@npm:2.0.7"
@@ -31110,6 +31103,17 @@ fsevents@^1.2.7:
   version: 3.2.0
   resolution: "react-fast-compare@npm:3.2.0"
   checksum: 6fe65c889eb4f326e97769135f97b3d63ac68737866f9c37f9625c9de4f5eaa9abed6f748eb3fd6a66808392118842916309cab7cfa99c67991f0c837433d6d2
+  languageName: node
+  linkType: hard
+
+"react-frame-component@npm:^5.1.0":
+  version: 5.1.0
+  resolution: "react-frame-component@npm:5.1.0"
+  peerDependencies:
+    prop-types: ^15.5.9
+    react: ">= 16.3"
+    react-dom: ">= 16.3"
+  checksum: 633c0acc01995bc934eb19d7861f082fccacc7cb4655eb09fa8085de5a5351c382d0eaf8c74f6e9925062f1d516066b4f7fce49db059c3883e53f2c4a52502e3
   languageName: node
   linkType: hard
 

@@ -1,5 +1,5 @@
 // @ts-nocheck
-import React, { FC } from 'react'
+import React, { FC, useRef } from 'react'
 import { Editor, Frame, Element } from '@craftjs/core'
 
 import { RenderNode } from '../ui/RenderNode'
@@ -10,22 +10,24 @@ import Text from '../ui/user/Text'
 export type AuthenticatedProps = {}
 
 export const Authenticated: FC<AuthenticatedProps> = () => {
+  const iframeRef = useRef()
+
   return (
-    <div id="page-container" style={{ width: '100%' }}>
+    <div style={{ width: '100%' }}>
       <Editor
         resolver={{
           Text,
           Container,
         }}
-        onRender={RenderNode}
+        onRender={(props) => <RenderNode {...props} iframeRef={iframeRef.current} />}
       >
-        <Viewport>
+        <Viewport iframeRef={iframeRef}>
           <Frame>
             <Element
               canvas
               is={Container}
               width="12"
-              fixedWidth="1280px"
+              fixedWidth="800px"
               height="auto"
               background="white"
               padding={40}

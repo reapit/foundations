@@ -1,6 +1,19 @@
 import React from 'react'
+import styled from 'styled-components'
 import { useNode } from '@craftjs/core'
 import { ToolbarItem, ToolbarSection } from '../Toolbar'
+
+const ContainerDiv = styled.div`
+  display: grid;
+  grid-template-columns: repeat(12, 1fr);
+  grid-column: span ${(props) => props.width};
+  grid-template-rows: 1fr;
+  align-items: center;
+
+  @media (max-width: 800px) {
+    grid-template-rows: repeat(2, 1fr);
+  }
+`
 
 const Container = ({
   padding,
@@ -20,22 +33,19 @@ const Container = ({
   } = useNode()
 
   return (
-    <div
+    <ContainerDiv
       {...props}
       ref={(ref) => ref && connect(drag(ref))}
+      width={width}
       style={{
         background,
         height,
         padding: `${padding}px`,
-        display: 'grid',
-        gridTemplateColumns: '1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr',
-        gridTemplateRows: '1fr',
-        gridColumn: `span ${width}`,
         width: fixedWidth,
       }}
     >
       {children}
-    </div>
+    </ContainerDiv>
   )
 }
 
