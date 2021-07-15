@@ -19,6 +19,7 @@ const mockSession = {
     developerId: '909dcdc1-6657-4a37-a5cc-05acd79d6a47',
     clientId: 'DXX',
     userCode: 'LJW',
+    groups: ['FoundationsDeveloper', 'ReapitUser'],
   },
 }
 

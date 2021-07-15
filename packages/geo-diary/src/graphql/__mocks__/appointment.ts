@@ -16,6 +16,7 @@ export const appointment = {
   recurring: false,
   cancelled: true,
   property: {
+    viewingArrangements: 'Knock three times',
     address: {
       buildingName: '',
       buildingNumber: '56',

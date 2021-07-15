@@ -9,6 +9,7 @@ const initProps = (): DevsManagementFilterFormProps => ({
     company: 'company',
     registeredFrom: '2020/04/03',
     registeredTo: '2020/04/04',
+    status: 'incomplete',
   },
   onSearch: jest.fn(),
 })

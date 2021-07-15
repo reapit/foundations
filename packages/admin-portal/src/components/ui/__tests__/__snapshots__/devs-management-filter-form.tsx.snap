@@ -8,6 +8,7 @@ exports[`DevsManagementFilterForm should match a snapshot 1`] = `
       "name": "name",
       "registeredFrom": "2020/04/03",
       "registeredTo": "2020/04/04",
+      "status": "incomplete",
     }
   }
   onSubmit={[MockFunction]}

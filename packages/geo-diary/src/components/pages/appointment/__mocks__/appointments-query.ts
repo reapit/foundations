@@ -367,6 +367,7 @@ export const mockAppointmentsQuery = {
           organiserId: 'LJW',
           property: {
             __typename: 'PropertyModel',
+            viewingArrangements: 'Knock three times',
             address: {
               __typename: 'PropertyModelAddress',
               buildingName: 'Yew Tree Cottage',
@@ -490,6 +491,7 @@ export const mockAppointmentsQuery = {
           organiserId: 'LJW',
           property: {
             __typename: 'PropertyModel',
+            viewingArrangements: 'Knock three times',
             address: {
               __typename: 'PropertyModelAddress',
               buildingName: 'Belmont',
@@ -613,6 +615,7 @@ export const mockAppointmentsQuery = {
           organiserId: 'LJW',
           property: {
             __typename: 'PropertyModel',
+            viewingArrangements: 'Knock three times',
             address: {
               __typename: 'PropertyModelAddress',
               buildingName: '',
@@ -730,6 +733,7 @@ export const mockAppointmentsQuery = {
           organiserId: 'LJW',
           property: {
             __typename: 'PropertyModel',
+            viewingArrangements: 'Knock three times',
             address: {
               __typename: 'PropertyModelAddress',
               buildingName: 'Sunnyside',
@@ -942,6 +946,7 @@ export const mockAppointmentsQuery = {
           organiserId: 'LJW',
           property: {
             __typename: 'PropertyModel',
+            viewingArrangements: 'Knock three times',
             address: {
               __typename: 'PropertyModelAddress',
               buildingName: '',

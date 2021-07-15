@@ -18,6 +18,7 @@ export type FetchDevelopersListParams = FetchListCommonParams & {
   isInactive?: boolean
   registeredFrom?: string
   registeredTo?: string
+  status?: string
 }
 
 export type UpdateDeveloperParams = FetchByIdCommonParams & UpdateDeveloperModel

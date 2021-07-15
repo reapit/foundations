@@ -32,6 +32,10 @@ exports[`PropertyDrawer should match snapshot with an appointment in state 1`] =
     }
     label="Address"
   />
+  <TextRow
+    content="Knock three times"
+    label="Viewing Arrangements"
+  />
 </Fragment>
 `;
 
