@@ -4,6 +4,7 @@ const MiniCssExtractPlugin = require('mini-css-extract-plugin')
 const configEnv = require('../config.json')
 
 module.exports = ({ config }) => {
+  // console.log('config.js', JSON.stringify(config.module.rules))
   config.module.rules.push(
     {
       test: /\.(ts|tsx)$/,
@@ -17,28 +18,15 @@ module.exports = ({ config }) => {
             sourceMap: process.env.NODE_ENV !== 'production',
           },
         },
-        { loader: 'ts-loader', options: { happyPackMode: true, transpileOnly: true } },
+        {
+          loader: 'esbuild-loader',
+          options: {
+            loader: 'tsx',
+            target: 'es2015',
+          },
+        },
         require.resolve('react-docgen-typescript-loader'),
       ],
-    },
-    {
-      test: /\.scss$/,
-      use: [
-        {
-          loader: MiniCssExtractPlugin.loader,
-          options: {
-            hmr: process.env.NODE_ENV !== 'production',
-          },
-        },
-        {
-          loader: 'css-loader',
-          options: {
-            sourceMap: process.env.NODE_ENV !== 'production',
-          },
-        },
-        'sass-loader',
-      ],
-      include: path.resolve(__dirname, '../'),
     },
   )
   config.resolve.extensions.push('.ts', '.tsx')

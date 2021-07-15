@@ -9,6 +9,8 @@ import {
 } from '../errors'
 import { AuthenticationError, UserInputError, ApolloError, ForbiddenError, ValidationError } from 'apollo-server-lambda'
 
+jest.mock('../../logger')
+
 jest.mock('apollo-server-lambda', () => {
   return {
     AuthenticationError: jest.fn(),

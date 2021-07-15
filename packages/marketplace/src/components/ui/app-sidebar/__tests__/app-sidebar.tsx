@@ -20,7 +20,7 @@ jest.mock('react-router', () => ({
   ...(jest.requireActual('react-router') as Object),
   useHistory: jest.fn(),
   useLocation: jest.fn(() => ({
-    search: `?${search.name}=app1&${searchBy.name}=appName&page=1`,
+    search: `?search=app1&$searchBy=appName&page=1`,
   })),
 }))
 jest.mock('react-redux', () => ({
