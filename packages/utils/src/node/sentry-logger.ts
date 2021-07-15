@@ -14,33 +14,32 @@ export const stringifyError = (err: any) => JSON.stringify(serializeError(err))
  */
 
 export type WistonLoggerErrorFn = (caller: string, { error: AxiosError, traceId: string, headers: any }) => void
-export const createWistonLoggerErrorFn: (loggerError: LeveledLogMethod) => WistonLoggerErrorFn = (loggerError) => (
-  caller,
-  { error, traceId, headers },
-) =>
-  new Promise((resolve) => {
-    loggerError(caller, { traceId, error: error })
-    console.log({ traceId }, JSON.stringify(error, null, 2))
+export const createWistonLoggerErrorFn: (loggerError: LeveledLogMethod) => WistonLoggerErrorFn =
+  (loggerError) =>
+  (caller, { error, traceId, headers }) =>
+    new Promise((resolve) => {
+      loggerError(caller, { traceId, error: error })
+      console.log({ traceId }, JSON.stringify(error, null, 2))
 
-    if (process.env.NODE_ENV === 'development') {
-      resolve()
-    }
+      if (process.env.NODE_ENV === 'development') {
+        resolve(true)
+      }
 
-    Sentry.withScope((scope) => {
-      scope.setExtra(
-        'Error',
-        cleanObject({
-          caller,
-          traceId,
-          headers,
-          error,
-        }),
-      )
-      Sentry.captureException(error)
-      Sentry.flush(2000)
-        .then(resolve)
-        .catch((err) => {
-          loggerError('logger.error', { error: err, traceId })
-        })
+      Sentry.withScope((scope) => {
+        scope.setExtra(
+          'Error',
+          cleanObject({
+            caller,
+            traceId,
+            headers,
+            error,
+          }),
+        )
+        Sentry.captureException(error)
+        Sentry.flush(2000)
+          .then(resolve)
+          .catch((err) => {
+            loggerError('logger.error', { error: err, traceId })
+          })
+      })
     })
-  })
