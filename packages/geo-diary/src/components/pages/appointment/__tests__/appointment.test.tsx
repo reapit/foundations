@@ -20,10 +20,8 @@ import { mockVendorsQuery } from '../__mocks__/vendors-query'
 import { ExtendedAppointmentModel } from '../../../../types/global'
 import { mockLandlordsQuery } from '../__mocks__/landlords-query'
 
-const mockFadeIn = ({ children }) => <div>{children}</div>
-
 jest.mock('@reapit/elements-legacy', () => ({
-  FadeIn: mockFadeIn,
+  FadeIn: ({ children }) => <div>{children}</div>,
   fetcher: jest.fn(() => ({ totalCount: 1 })),
   DATE_TIME_FORMAT: {
     RFC3339: 'yyyy-MM-dd',

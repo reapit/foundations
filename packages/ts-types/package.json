@@ -39,7 +39,7 @@
     "@types/graphql-depth-limit": "^1.1.2",
     "@types/graphql-type-json": "^0.3.2",
     "@types/inquirer": "^7.3.3",
-    "@types/jest": "^24.9.1",
+    "@types/jest": "^26.0.24",
     "@types/jsonwebtoken": "^8.5.4",
     "@types/just-debounce-it": "^1.1.0",
     "@types/jwk-to-pem": "^2.0.1",

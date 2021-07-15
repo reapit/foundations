@@ -6,7 +6,9 @@ import { popUp, SandboxPopUp, HALF_SECOND } from '../sandbox-pop-up'
 import appState from '@/reducers/__stubs__/app-state'
 
 const setOpen = jest.fn()
-jest.useFakeTimers()
+
+jest.useFakeTimers('legacy')
+
 describe('popUp', () => {
   afterEach(() => {
     jest.clearAllMocks()

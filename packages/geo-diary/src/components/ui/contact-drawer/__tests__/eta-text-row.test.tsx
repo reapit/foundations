@@ -49,22 +49,25 @@ describe('getNegotiator', () => {
   expect(getNegotiator({ appointment, userCode: 'LJW' })).toEqual((appointment?.negotiators as NegotiatorModel[])[0])
 })
 
-describe('handleGenerateUserText', async () => {
-  const result = 'sms:0777777777?&body=Hi Negotiator, this is Liam Jowett from Reapit, I will be with you shortly.'
-  const appState = {
-    ...defaultAppState,
-    appointment,
-  }
+describe('handleGenerateUserText',  () => {
+  it('should handle a generated text', async () => {
 
-  const session = {
-    loginIdentity: {
-      userCode: 'LJW',
-      orgName: 'Reapit',
-    },
-  } as ReapitConnectSession
-
-  const curried = handleGenerateUserText(appState, session, 'DRIVING', 'Negotiator', '0777777777')
-
-  await curried()
-  expect(window.location.href).toEqual(result)
+    const result = 'sms:0777777777?&body=Hi Negotiator, this is Liam Jowett from Reapit, I will be with you shortly.'
+    const appState = {
+      ...defaultAppState,
+      appointment,
+    }
+    
+    const session = {
+      loginIdentity: {
+        userCode: 'LJW',
+        orgName: 'Reapit',
+      },
+    } as ReapitConnectSession
+    
+    const curried = handleGenerateUserText(appState, session, 'DRIVING', 'Negotiator', '0777777777')
+    
+    await curried()
+    expect(window.location.href).toEqual(result)
+  })
 })

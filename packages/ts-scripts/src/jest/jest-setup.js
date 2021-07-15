@@ -165,7 +165,9 @@ const createGoogleMapsMock = (libraries = []) => {
       //@ts-ignore
       createMockFuncsFromArray(this, ['setMap', 'setOptions'])
     }),
-    Geocoder: function () {},
+    Geocoder: jest.fn(() => ({
+      geocode: jest.fn(),
+    })),
     GeocoderLocationType: {
       APPROXIMATE: 'APPROXIMATE',
       GEOMETRIC_CENTER: 'GEOMETRIC_CENTER',

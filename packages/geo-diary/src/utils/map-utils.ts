@@ -15,7 +15,7 @@ export const fetchDestinationInformation = ({
   const { currentLat, currentLng, travelMode } = appState
   return new Promise((resolve) => {
     if (window.google && currentLat && currentLng) {
-      const origins = [new google.maps.LatLng(currentLat, currentLng)]
+      const origins = [new window.google.maps.LatLng(currentLat, currentLng)]
       const destinations = [
         new google.maps.LatLng(
           appointment?.property?.address?.geolocation?.latitude || 1,
@@ -31,7 +31,9 @@ export const fetchDestinationInformation = ({
           travelMode: travelMode as google.maps.TravelMode,
         },
         (response) => {
-          resolve(response)
+          if (response) {
+            resolve(response)
+          }
         },
       )
     }
@@ -79,17 +81,20 @@ export const handleGetRouteInfo = (
           destination,
           travelMode: travelMode as google.maps.TravelMode,
         },
-        (response: DirectionsResult, status: google.maps.DirectionsStatus) => {
-          if (status !== 'OK') {
+        (response: DirectionsResult | null, status: google.maps.DirectionsStatus) => {
+          if (status !== 'OK' || !response) {
             resolve(null)
           }
 
-          const { duration, distance } = response.routes[0].legs[0]
+          const { duration, distance } = response?.routes[0].legs[0] ?? {}
+          
+          if (distance && duration) {
 
-          resolve({
-            duration,
-            distance,
-          })
+            resolve({
+              duration,
+              distance,
+            })
+          }
         },
       )
     }

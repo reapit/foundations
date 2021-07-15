@@ -3,12 +3,10 @@ import { mockAppointmentsQuery } from '../../components/pages/appointment/__mock
 
 describe('resolvers', () => {
   describe('contacts', () => {
-    it('should run correctly', async (done) => {
+    it('should run correctly', async () => {
       const result = await resolvers.Query.getAppointments()
-      setTimeout(() => {
-        expect(result).toEqual(mockAppointmentsQuery.data.GetAppointments)
-        done()
-      }, 2000)
+
+      expect(result).toEqual(mockAppointmentsQuery.data.GetAppointments)
     })
   })
 })

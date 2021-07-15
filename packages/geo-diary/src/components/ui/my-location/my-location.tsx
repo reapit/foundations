@@ -35,7 +35,7 @@ export const fetchLocationResults = ({ appState, setAppState }: AppStateParams) 
     const geocoder = new googleMaps.Geocoder()
 
     geocoder.geocode({ address: locationQueryAddress, region: 'GB' }, (results, status) => {
-      if (status === 'OK') {
+      if (status === 'OK' && results) {
         setAppState((currentState) => ({
           ...currentState,
           locationQueryResults: results,
