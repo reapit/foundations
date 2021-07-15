@@ -1,4 +1,4 @@
-const Adapter = require('enzyme-adapter-react-16')
+const Adapter = require('@wojtekmaj/enzyme-adapter-react-17')
 const Enzyme = require('enzyme')
 const fetchMock = require('jest-fetch-mock')
 const MockDate = require('mockdate')

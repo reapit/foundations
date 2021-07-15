@@ -1,2 +1,3 @@
 packages/foundations-ts-definitions/types/**/*
 packages/**/*.graphql
+packages/**/*.js
