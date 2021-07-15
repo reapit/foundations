@@ -27,7 +27,6 @@
     "@reapit/elements": "workspace:packages/elements",
     "@reapit/elements-legacy": "workspace:packages/elements-legacy",
     "@sentry/browser": "^5.30.0",
-    "linaria": "^2.0.2",
     "powerbi-client": "^2.18.0",
     "react": "^16.14.0",
     "react-dom": "^16.14.0",

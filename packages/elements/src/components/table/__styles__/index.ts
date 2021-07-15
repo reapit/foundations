@@ -297,7 +297,7 @@ export const ElTableRowContainer = styled.div`
     }
   }
 
-  &${elIsActive} {
+  &.${elIsActive} {
     .el-table-row {
       border-radius: var(--default-border-radius) var(--default-border-radius) 0 0;
     }
@@ -416,7 +416,7 @@ export const ElTableExpandableRow = styled.div`
   overflow: hidden;
   padding: 0;
 
-  &${elIsActive} {
+  &.${elIsActive} {
     height: var(--table-expanded-height, 6rem);
     opacity: 1;
     border-top: 1px solid var(--color-grey-medium);

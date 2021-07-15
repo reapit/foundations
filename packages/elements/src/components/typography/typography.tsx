@@ -1,5 +1,5 @@
 import React, { FC, HTMLAttributes } from 'react'
-import { cx } from 'linaria'
+import { cx } from '@linaria/core'
 import { ElTitle, ElSubtitle, ElBodyText, ElSmallText, elHasGreyText, elIsBoldText, elIsItalicText } from './__styles__'
 
 export interface ITypographyProps extends HTMLAttributes<HTMLElement> {

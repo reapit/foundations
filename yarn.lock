@@ -1324,7 +1324,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@babel/plugin-proposal-export-namespace-from@npm:>=7, @babel/plugin-proposal-export-namespace-from@npm:^7.12.13":
+"@babel/plugin-proposal-export-namespace-from@npm:^7.12.13":
   version: 7.12.13
   resolution: "@babel/plugin-proposal-export-namespace-from@npm:7.12.13"
   dependencies:
@@ -2412,20 +2412,6 @@ __metadata:
   peerDependencies:
     "@babel/core": ^7.0.0-0
   checksum: 0d766c642448300c427ac796a3dbad5a507c78dfeebe1dd3376a162cfc5926a98a4fd5b5fb919674f34c25c1d074f7638faf1555513d568ac86f1774f47ad3c9
-  languageName: node
-  linkType: hard
-
-"@babel/plugin-transform-modules-commonjs@npm:>=7":
-  version: 7.13.0
-  resolution: "@babel/plugin-transform-modules-commonjs@npm:7.13.0"
-  dependencies:
-    "@babel/helper-module-transforms": ^7.13.0
-    "@babel/helper-plugin-utils": ^7.13.0
-    "@babel/helper-simple-access": ^7.12.13
-    babel-plugin-dynamic-import-node: ^2.3.3
-  peerDependencies:
-    "@babel/core": ^7.0.0-0
-  checksum: e67d6765afaf70519e56894957c16818a9a59fec2fc381e322f68cb47ea2671d23dddf17b4fae57d2d663fe44bd5792b125037ae2750d82f683211bd6486502c
   languageName: node
   linkType: hard
 
@@ -5958,6 +5944,18 @@ __metadata:
   languageName: node
   linkType: hard
 
+"@linaria/rollup@npm:^3.0.0-beta.7":
+  version: 3.0.0-beta.7
+  resolution: "@linaria/rollup@npm:3.0.0-beta.7"
+  dependencies:
+    "@linaria/babel-preset": ^3.0.0-beta.7
+    "@rollup/pluginutils": ^4.1.0
+  peerDependencies:
+    "@babel/core": ">=7"
+  checksum: bee606afdd95ed16046d1ec30c80b468e83dec4b9da388645ac11f150e74556fbf4ccaa06e72027437da7817a6b0311b426f3dd45644a12cd1f9d5e398246c8f
+  languageName: node
+  linkType: hard
+
 "@linaria/shaker@npm:^3.0.0-beta.7":
   version: 3.0.0-beta.7
   resolution: "@linaria/shaker@npm:3.0.0-beta.7"
@@ -6860,6 +6858,7 @@ __metadata:
     "@linaria/babel-preset": ^3.0.0-beta.4
     "@linaria/core": ^3.0.0-beta.4
     "@linaria/react": ^3.0.0-beta.7
+    "@linaria/rollup": ^3.0.0-beta.7
     "@linaria/shaker": ^3.0.0-beta.7
     "@linaria/webpack-loader": ^3.0.0-beta.7
     "@mdx-js/react": ^1.6.22
@@ -7295,6 +7294,18 @@ __metadata:
   peerDependencies:
     rollup: ^1.20.0||^2.0.0
   checksum: 45da6411e045d1b034242a8144f4a5e8c02ff1b68a2e0857807f5bb4b091c416f2015e075057f0f0dec200e7b35efe6ed4e301b43e365cedea09192f01a6839b
+  languageName: node
+  linkType: hard
+
+"@rollup/pluginutils@npm:^4.1.0":
+  version: 4.1.0
+  resolution: "@rollup/pluginutils@npm:4.1.0"
+  dependencies:
+    estree-walker: ^2.0.1
+    picomatch: ^2.2.2
+  peerDependencies:
+    rollup: ^1.20.0||^2.0.0
+  checksum: 566b8d2bcc0d52877f8c9f364026be40fa921c8d5860b5f2a5f476658dfebf462536632f079aa3f52fafe64d8aea6741c20bb198e67b33eaba8f9fe69b38ae3f
   languageName: node
   linkType: hard
 
@@ -13065,6 +13076,9 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "app-builder@workspace:packages/app-builder"
   dependencies:
+    "@linaria/core": ^3.0.0-beta.4
+    "@linaria/react": ^3.0.0-beta.7
+    "@linaria/shaker": ^3.0.0-beta.7
     "@reapit/config-manager": "workspace:packages/config-manager"
     "@reapit/connect-session": "workspace:packages/connect-session"
     "@reapit/elements": "workspace:packages/elements"
@@ -13079,7 +13093,6 @@ __metadata:
     eslint: 7.23.0
     jest: ^26.6.3
     jest-coverage-badges: ^1.1.2
-    linaria: ^2.0.2
     react: ^16.14.0
     react-dom: ^16.14.0
     react-ga: ^2.7.0
@@ -13092,7 +13105,7 @@ __metadata:
     serverless-single-page-app-plugin: ^1.0.2
     snyk: ^1.463.0
     typescript: ^4.0.3
-    webpack: ^4.46.0
+    webpack: ^5.40.0
     webpack-dev-server: ^3.11.2
     yup: ^0.29.3
   languageName: unknown
@@ -20725,6 +20738,13 @@ __metadata:
   languageName: node
   linkType: hard
 
+"estree-walker@npm:^2.0.1":
+  version: 2.0.2
+  resolution: "estree-walker@npm:2.0.2"
+  checksum: 378cc9d3be56962c5219c55ad1fde732cb7d55a11cde5acbf5995f39ddd0e98c1095a43c0ef15a520d1d6910e816bd3daff5fc5d7d38baaf8b12d5a2970df57c
+  languageName: node
+  linkType: hard
+
 "esutils@npm:^2.0.2":
   version: 2.0.3
   resolution: "esutils@npm:2.0.3"
@@ -20810,7 +20830,6 @@ __metadata:
     jest: ^26.6.3
     jest-coverage-badges: ^1.1.2
     jwt-decode: ^3.1.2
-    linaria: ^2.0.2
     morgan: ^1.10.0
     serialize-error: ^7.0.1
     serverless: ^2.28.0
@@ -24863,7 +24882,6 @@ fsevents@^1.2.7:
     eslint: 7.23.0
     jest: ^26.6.3
     jest-coverage-badges: ^1.1.2
-    linaria: ^2.0.2
     node-polyfill-webpack-plugin: ^1.1.3
     powerbi-client: ^2.18.0
     react: ^16.14.0
@@ -28507,42 +28525,6 @@ fsevents@^1.2.7:
   languageName: node
   linkType: hard
 
-"linaria@npm:^2.0.2":
-  version: 2.0.2
-  resolution: "linaria@npm:2.0.2"
-  dependencies:
-    "@babel/generator": ">=7"
-    "@babel/plugin-proposal-export-namespace-from": ">=7"
-    "@babel/plugin-syntax-dynamic-import": ">=7"
-    "@babel/plugin-transform-modules-commonjs": ">=7"
-    "@babel/plugin-transform-runtime": ">=7"
-    "@babel/plugin-transform-template-literals": ">=7"
-    "@babel/template": ">=7"
-    "@emotion/is-prop-valid": ^0.8.8
-    babel-plugin-transform-react-remove-prop-types: ^0.4.24
-    cosmiconfig: ^5.1.0
-    debug: ^4.1.1
-    enhanced-resolve: ^4.1.0
-    find-yarn-workspace-root: ^1.2.1
-    glob: ^7.1.3
-    loader-utils: ^1.2.3
-    mkdirp: ^0.5.1
-    normalize-path: ^3.0.0
-    postcss: ^7.0.14
-    react-is: ^16.8.3
-    rollup-pluginutils: ^2.4.1
-    source-map: ^0.6.1
-    strip-ansi: ^5.2.0
-    stylis: ^3.5.4
-    yargs: ^13.2.1
-  peerDependencies:
-    "@babel/core": ">=7"
-  bin:
-    linaria: bin/linaria.js
-  checksum: c36b33a5e2dd027c9f45ea8663ba922cdef19c96f38ebf6e276f6c515afcaaa6e62e34ddcd5d15d375db9f5baf2da86c6c781c728e3d26d54592e50bf87fbe62
-  languageName: node
-  linkType: hard
-
 "lines-and-columns@npm:^1.1.6":
   version: 1.1.6
   resolution: "lines-and-columns@npm:1.1.6"
@@ -29718,7 +29700,6 @@ fsevents@^1.2.7:
     jest: ^26.6.3
     jest-coverage-badges: ^1.1.2
     just-debounce-it: ^1.1.0
-    linaria: ^2.0.2
     node-polyfill-webpack-plugin: ^1.1.3
     query-string: 5.1.1
     react: ^16.14.0
@@ -33133,7 +33114,6 @@ fsevents@^1.2.7:
     eslint: 7.23.0
     jest: ^26.6.3
     jest-coverage-badges: ^1.1.2
-    linaria: ^2.0.2
     node-polyfill-webpack-plugin: ^1.1.3
     react: ^16.14.0
     react-dom: ^16.14.0
@@ -35200,7 +35180,7 @@ fsevents@^1.2.7:
   languageName: node
   linkType: hard
 
-"react-is@npm:^16.12.0, react-is@npm:^16.13.1, react-is@npm:^16.6.0, react-is@npm:^16.7.0, react-is@npm:^16.8.1, react-is@npm:^16.8.3, react-is@npm:^16.8.4, react-is@npm:^16.8.6":
+"react-is@npm:^16.12.0, react-is@npm:^16.13.1, react-is@npm:^16.6.0, react-is@npm:^16.7.0, react-is@npm:^16.8.1, react-is@npm:^16.8.4, react-is@npm:^16.8.6":
   version: 16.13.1
   resolution: "react-is@npm:16.13.1"
   checksum: 11bcf1267a314a522615f626f3ce3727a3a24cdbf61c4d452add3550a7875326669631326cfb1ba3e92b6f72244c32ffecf93ad21c0cad8455d3e169d0e3f060
@@ -36802,7 +36782,7 @@ resolve@1.17.0:
   languageName: node
   linkType: hard
 
-"rollup-pluginutils@npm:2, rollup-pluginutils@npm:^2.4.1, rollup-pluginutils@npm:^2.8.2":
+"rollup-pluginutils@npm:2, rollup-pluginutils@npm:^2.8.2":
   version: 2.8.2
   resolution: "rollup-pluginutils@npm:2.8.2"
   dependencies:
@@ -43106,7 +43086,7 @@ typescript@^4.0.3:
   languageName: node
   linkType: hard
 
-"webpack@npm:4, webpack@npm:^4.46.0":
+"webpack@npm:4":
   version: 4.46.0
   resolution: "webpack@npm:4.46.0"
   dependencies:
@@ -44143,7 +44123,7 @@ typescript@^4.0.3:
   languageName: node
   linkType: hard
 
-"yargs@npm:13.3.2, yargs@npm:^13.2.1, yargs@npm:^13.3.0, yargs@npm:^13.3.2":
+"yargs@npm:13.3.2, yargs@npm:^13.3.0, yargs@npm:^13.3.2":
   version: 13.3.2
   resolution: "yargs@npm:13.3.2"
   dependencies:

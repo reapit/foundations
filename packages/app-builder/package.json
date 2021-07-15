@@ -21,12 +21,13 @@
     "commit": "concurrently \"yarn test --coverage --no-cache --silent --forceExit --detectOpenHandles --runInBand --watch=false && jest-coverage-badges --input src/tests/coverage/coverage-summary.json --output src/tests/badges\" \"yarn lint\""
   },
   "dependencies": {
+    "@linaria/core": "^3.0.0-beta.4",
+    "@linaria/react": "^3.0.0-beta.7",
     "@reapit/connect-session": "workspace:packages/connect-session",
     "@reapit/elements": "workspace:packages/elements",
     "@reapit/elements-legacy": "workspace:packages/elements-legacy",
     "@sentry/browser": "^5.30.0",
     "dayjs": "^1.10.4",
-    "linaria": "^2.0.2",
     "react": "^16.14.0",
     "react-dom": "^16.14.0",
     "react-ga": "^2.7.0",
@@ -36,6 +37,7 @@
     "yup": "^0.29.3"
   },
   "devDependencies": {
+    "@linaria/shaker": "^3.0.0-beta.7",
     "@reapit/config-manager": "workspace:packages/config-manager",
     "@reapit/ts-scripts": "workspace:packages/ts-scripts",
     "@reapit/ts-types": "workspace:packages/ts-types",
@@ -51,7 +53,7 @@
     "serverless-s3-remover": "^0.6.0",
     "serverless-single-page-app-plugin": "^1.0.2",
     "typescript": "^4.0.3",
-    "webpack": "^4.46.0",
+    "webpack": "^5.40.0",
     "webpack-dev-server": "^3.11.2"
   }
 }

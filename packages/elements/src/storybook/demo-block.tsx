@@ -1,4 +1,4 @@
-import { styled } from 'linaria/react'
+import { styled } from '@linaria/react'
 
 export const GridDemoBlock = styled.div`
   width: 100%;

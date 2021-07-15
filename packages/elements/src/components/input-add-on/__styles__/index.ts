@@ -11,19 +11,19 @@ export const ElInputAddOn = styled.span`
   font-size: var(--font-size-default);
   color: var(--color-grey-dark);
 
-  &${elIntentPrimary} {
+  &.${elIntentPrimary} {
     color: var(--intent-primary);
   }
-  &${elIntentSecondary} {
+  &.${elIntentSecondary} {
     color: var(--intent-secondary);
   }
-  &${elIntentCritical} {
+  &.${elIntentCritical} {
     color: var(--intent-critical);
   }
-  &${elIntentSuccess} {
+  &.${elIntentSuccess} {
     color: var(--intent-success);
   }
-  &${elIntentDanger} {
+  &.${elIntentDanger} {
     color: var(--intent-danger);
   }
 `

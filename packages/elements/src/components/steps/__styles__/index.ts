@@ -22,11 +22,11 @@ export const ElStep = styled.div`
   transform-origin: top;
   cursor: pointer;
 
-  &${elIsUsed} {
+  &.${elIsUsed} {
     background-color: var(--intent-secondary);
   }
 
-  &${elIsActive} {
+  &.${elIsActive} {
     margin-top: 0rem;
     font-size: 1.5rem;
     width: 2.5rem;

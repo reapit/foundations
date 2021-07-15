@@ -1,5 +1,5 @@
 import React, { ButtonHTMLAttributes, FC } from 'react'
-import { cx } from 'linaria'
+import { cx } from '@linaria/core'
 import { Intent, getIntentClassName } from '../../helpers/intent'
 import { elIsLoading } from '../../styles/states'
 import * as styles from './__styles__'

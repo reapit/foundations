@@ -20,7 +20,7 @@ export const ElSecondaryNavItem = styled.div`
   position: relative;
   border-radius: var(--default-border-radius) 0 0 var(--default-border-radius);
 
-  &${elIsActive} {
+  &.${elIsActive} {
     background-repeat: no-repeat;
     background-image: linear-gradient(to right, var(--color-blue-light), var(--color-blue-light));
     outline-color: var(--color-blue-dark);

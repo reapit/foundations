@@ -1,8 +1,8 @@
 import React, { FC } from 'react'
-import { styled } from 'linaria/react'
+import { styled } from '@linaria/react'
 import { Icon } from '../components/icon'
 import { isTablet } from '../styles/media'
-import { css } from 'linaria'
+import { css } from '@linaria/core'
 import { elMb6 } from '../styles/spacing'
 
 const WelcomeWrapper = styled.div`

@@ -94,7 +94,7 @@ export const connectSessionVerifyDecodeIdTokenWithPublicKeys = async (
     const key = keys[header.kid]
 
     if (!key) throw new Error('Id verification claim made for unknown kid')
-    debugger
+
     const claim = jsonwebtoken.verify(token, key.pem) as Claim
     const currentSeconds = Math.floor(new Date().valueOf() / 1000)
 
