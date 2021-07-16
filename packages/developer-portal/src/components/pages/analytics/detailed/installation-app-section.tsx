@@ -22,18 +22,17 @@ export type InstallationAppsRowType = {
   installation: number
 }
 
-export const handleCountCurrentInstallationForEachApp = (
-  installationAppDataArrayWithName: InstallationModelWithAppName[],
-  developerDataArray: AppSummaryModel[],
-) => (): InstallationAppsRowType[] => {
-  const appsHasInstallation = countAppsHasInstallation(installationAppDataArrayWithName)
-  const appNamesHasInstallation = appsHasInstallation.map((app) => app.appName)
-  const appsHasNoInstallation = developerDataArray
-    .filter((app) => app.name && !appNamesHasInstallation.includes(app.name))
-    .map((app) => ({ appName: app.name, installation: 0 }))
+export const handleCountCurrentInstallationForEachApp =
+  (installationAppDataArrayWithName: InstallationModelWithAppName[], developerDataArray: AppSummaryModel[]) =>
+  (): InstallationAppsRowType[] => {
+    const appsHasInstallation = countAppsHasInstallation(installationAppDataArrayWithName)
+    const appNamesHasInstallation = appsHasInstallation.map((app) => app.appName)
+    const appsHasNoInstallation = developerDataArray
+      .filter((app) => app.name && !appNamesHasInstallation.includes(app.name))
+      .map((app) => ({ appName: app.name, installation: 0 }))
 
-  return [...appsHasNoInstallation, ...appsHasInstallation]
-}
+    return [...appsHasNoInstallation, ...appsHasInstallation]
+  }
 
 export const countAppsHasInstallation = (
   installationsAppDataArrayWithName: InstallationModelWithAppName[],
@@ -53,17 +52,16 @@ export const countAppsHasInstallation = (
   }, [] as InstallationAppsRowType[])
 }
 
-export const handleUseMemoData = (
-  installationsAppDataArrayWithName: InstallationModelWithAppName[],
-  pageNumber: number,
-) => (): InstallationModelWithAppName[] => {
-  const sortedInstallationsAppDataArray = sortAppByDateInstalled(installationsAppDataArrayWithName)
-  const slicedInstallationAppDataArray = sortedInstallationsAppDataArray.slice(
-    (pageNumber - 1) * INSTALLATIONS_PER_PAGE,
-    pageNumber * INSTALLATIONS_PER_PAGE,
-  )
-  return slicedInstallationAppDataArray
-}
+export const handleUseMemoData =
+  (installationsAppDataArrayWithName: InstallationModelWithAppName[], pageNumber: number) =>
+  (): InstallationModelWithAppName[] => {
+    const sortedInstallationsAppDataArray = sortAppByDateInstalled(installationsAppDataArrayWithName)
+    const slicedInstallationAppDataArray = sortedInstallationsAppDataArray.slice(
+      (pageNumber - 1) * INSTALLATIONS_PER_PAGE,
+      pageNumber * INSTALLATIONS_PER_PAGE,
+    )
+    return slicedInstallationAppDataArray
+  }
 
 export const sortAppByDateInstalled = (
   installationsAppDataArrayWithName: InstallationModelWithAppName[],

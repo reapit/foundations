@@ -55,7 +55,7 @@ describe('TransactionHistory', () => {
     const spySaveAsFunc = jest.spyOn(FileSaver, 'saveAs')
 
     beforeAll(() => {
-      jest.spyOn(document, 'createElement').mockImplementation(() => (mockedLinkElem as unknown) as HTMLAnchorElement)
+      jest.spyOn(document, 'createElement').mockImplementation(() => mockedLinkElem as unknown as HTMLAnchorElement)
       document.body.appendChild = mockedAppendChildFn
     })
 

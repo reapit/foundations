@@ -42,30 +42,28 @@ export const handleLoadGQLPlayground = (setLoaded: Dispatch<SetStateAction<boole
   }
 }
 
-export const handleInitGQLPlayground = (
-  loaded: boolean,
-  graphQlRef: MutableRefObject<HTMLDivElement | null>,
-  connectSession: ReapitConnectSession | null,
-) => () => {
-  if (!loaded) {
-    // While the script  is loading, nuke local storage as playground caches access tokens and causes
-    // a 401 by not refreshing them
-    localStorage.removeItem(localStorageKey)
-  }
+export const handleInitGQLPlayground =
+  (loaded: boolean, graphQlRef: MutableRefObject<HTMLDivElement | null>, connectSession: ReapitConnectSession | null) =>
+  () => {
+    if (!loaded) {
+      // While the script  is loading, nuke local storage as playground caches access tokens and causes
+      // a 401 by not refreshing them
+      localStorage.removeItem(localStorageKey)
+    }
 
-  if (loaded && connectSession?.accessToken && connectSession?.idToken) {
-    const { accessToken, idToken } = connectSession
-    // Script has loaded so initialize playground with headers and settings
-    window.GraphQLPlayground.init(graphQlRef.current, {
-      endpoint: window.reapit.config.graphQLUri,
-      headers: {
-        authorization: idToken,
-        ['reapit-connect-token']: accessToken,
-      },
-      settings,
-    })
+    if (loaded && connectSession?.accessToken && connectSession?.idToken) {
+      const { accessToken, idToken } = connectSession
+      // Script has loaded so initialize playground with headers and settings
+      window.GraphQLPlayground.init(graphQlRef.current, {
+        endpoint: window.reapit.config.graphQLUri,
+        headers: {
+          authorization: idToken,
+          ['reapit-connect-token']: accessToken,
+        },
+        settings,
+      })
+    }
   }
-}
 
 export const GraphQLPage: FC = () => {
   const location = useLocation()

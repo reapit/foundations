@@ -98,53 +98,52 @@ export const checkSelectedValid = (list: SelectOption[], items: string[], entity
   return true
 }
 
-export const onCreate = (
-  dispatch: Dispatch,
-  topicOptions: SelectOption[],
-  customerOptions: SelectOption[],
-  appId: string,
-) => (values: FormValuesType) => {
-  const topicsValid = checkSelectedValid(topicOptions, values.topicIds, 'topics')
-  const customersValid = checkSelectedValid(customerOptions, values.customerIds, 'customers')
+export const onCreate =
+  (dispatch: Dispatch, topicOptions: SelectOption[], customerOptions: SelectOption[], appId: string) =>
+  (values: FormValuesType) => {
+    const topicsValid = checkSelectedValid(topicOptions, values.topicIds, 'topics')
+    const customersValid = checkSelectedValid(customerOptions, values.customerIds, 'customers')
 
-  if (!topicsValid || !customersValid) return
+    if (!topicsValid || !customersValid) return
 
-  const params: CreateWebhookParams = {
-    applicationId: appId,
-    url: values.url,
-    description: '',
-    topicIds: values.topicIds,
-    customerIds: values.customerIds,
-    ignoreEtagOnlyChanges: values.ignoreEtagOnlyChanges,
-    active: values.active,
+    const params: CreateWebhookParams = {
+      applicationId: appId,
+      url: values.url,
+      description: '',
+      topicIds: values.topicIds,
+      customerIds: values.customerIds,
+      ignoreEtagOnlyChanges: values.ignoreEtagOnlyChanges,
+      active: values.active,
+    }
+    dispatch(createWebhook(params))
   }
-  dispatch(createWebhook(params))
-}
 
-export const onEdit = (
-  dispatch: Dispatch,
-  topicOptions: SelectOption[],
-  customerOptions: SelectOption[],
-  webhookId: string,
-  appId: string,
-) => (values: FormValuesType) => {
-  const topicsValid = checkSelectedValid(topicOptions, values.topicIds, 'topics')
-  const customersValid = checkSelectedValid(customerOptions, values.customerIds, 'customers')
+export const onEdit =
+  (
+    dispatch: Dispatch,
+    topicOptions: SelectOption[],
+    customerOptions: SelectOption[],
+    webhookId: string,
+    appId: string,
+  ) =>
+  (values: FormValuesType) => {
+    const topicsValid = checkSelectedValid(topicOptions, values.topicIds, 'topics')
+    const customersValid = checkSelectedValid(customerOptions, values.customerIds, 'customers')
 
-  if (!topicsValid || !customersValid) return
+    if (!topicsValid || !customersValid) return
 
-  const params: EditWebhookParams = {
-    applicationId: appId,
-    webhookId,
-    url: values.url,
-    description: '',
-    topicIds: values.topicIds,
-    customerIds: values.customerIds,
-    ignoreEtagOnlyChanges: values.ignoreEtagOnlyChanges,
-    active: values.active,
+    const params: EditWebhookParams = {
+      applicationId: appId,
+      webhookId,
+      url: values.url,
+      description: '',
+      topicIds: values.topicIds,
+      customerIds: values.customerIds,
+      ignoreEtagOnlyChanges: values.ignoreEtagOnlyChanges,
+      active: values.active,
+    }
+    dispatch(editWebhook(params))
   }
-  dispatch(editWebhook(params))
-}
 
 export const WebhookEditModal: React.FunctionComponent<WebhookEditProps> = ({
   isUpdate = false,

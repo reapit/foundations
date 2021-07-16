@@ -79,39 +79,38 @@ export const handleSubmitAppSuccessCallback = (
   }
 }
 
-export const handleSubmit = ({ dispatch, setWizardStep }: HandleSubmitParams) => (
-  values: CustomCreateAppModel,
-  actions: FormikHelpers<CustomCreateAppModel>,
-) => {
-  const { redirectUris, signoutUris, ...otherData } = values
+export const handleSubmit =
+  ({ dispatch, setWizardStep }: HandleSubmitParams) =>
+  (values: CustomCreateAppModel, actions: FormikHelpers<CustomCreateAppModel>) => {
+    const { redirectUris, signoutUris, ...otherData } = values
 
-  const appToSubmit: CreateAppParams = {
-    ...otherData,
-    redirectUris: redirectUris
-      ? redirectUris
-          .split(',')
-          // trim empty spaces
-          .map((url) => url.trim())
-          // filter empty urls
-          .filter((url) => url)
-      : [],
-    signoutUris: signoutUris
-      ? signoutUris
-          // ^ be transformed same as redirectUris
-          .split(',')
-          .map((url) => url.trim())
-          .filter((url) => url)
-      : [],
-    successCallback: handleSubmitAppSuccessCallback(actions.setFieldValue, setWizardStep, dispatch),
+    const appToSubmit: CreateAppParams = {
+      ...otherData,
+      redirectUris: redirectUris
+        ? redirectUris
+            .split(',')
+            // trim empty spaces
+            .map((url) => url.trim())
+            // filter empty urls
+            .filter((url) => url)
+        : [],
+      signoutUris: signoutUris
+        ? signoutUris
+            // ^ be transformed same as redirectUris
+            .split(',')
+            .map((url) => url.trim())
+            .filter((url) => url)
+        : [],
+      successCallback: handleSubmitAppSuccessCallback(actions.setFieldValue, setWizardStep, dispatch),
+    }
+
+    if (appToSubmit.authFlow === AuthFlow.CLIENT_SECRET) {
+      delete appToSubmit[redirectUrisField.name]
+      delete appToSubmit[signoutUrisField.name]
+    }
+
+    dispatch(createApp(appToSubmit))
   }
-
-  if (appToSubmit.authFlow === AuthFlow.CLIENT_SECRET) {
-    delete appToSubmit[redirectUrisField.name]
-    delete appToSubmit[signoutUrisField.name]
-  }
-
-  dispatch(createApp(appToSubmit))
-}
 
 export const onModalClose = (onClose: () => void, setWizardStep: React.Dispatch<React.SetStateAction<WizardStep>>) => {
   return () => {

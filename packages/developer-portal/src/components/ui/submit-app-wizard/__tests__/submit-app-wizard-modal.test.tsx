@@ -15,7 +15,7 @@ jest.mock('react-redux', () => ({
 describe('SubmitAppWizardModal', () => {
   test('handleUseEffect should run correctly', () => {
     const dispatch = jest.fn()
-    handleUseEffect((dispatch as unknown) as Dispatch)()
+    handleUseEffect(dispatch as unknown as Dispatch)()
     expect(dispatch).toHaveBeenCalledWith(fetchScopeList())
   })
 

@@ -234,76 +234,80 @@ export const sanitizeAppData = (appData: CreateAppRevisionModel): CreateAppRevis
   return sanitizedAppData
 }
 
-export const handleSubmitApp = ({
-  appId,
-  dispatch,
-  setSubmitting,
-  onSuccess,
-  onError,
-  currentOrganisation,
-  setIsListing,
-}: {
-  appId: string
-  dispatch: Dispatch
-  setSubmitting: React.Dispatch<React.SetStateAction<boolean>>
-  onSuccess: () => void
-  onError: () => void
-  currentOrganisation?: DeveloperModel
-  setIsListing: React.Dispatch<React.SetStateAction<boolean>>
-}) => (appModel: CustomCreateRevisionModal) => {
-  setSubmitting(true)
+export const handleSubmitApp =
+  ({
+    appId,
+    dispatch,
+    setSubmitting,
+    onSuccess,
+    onError,
+    currentOrganisation,
+    setIsListing,
+  }: {
+    appId: string
+    dispatch: Dispatch
+    setSubmitting: React.Dispatch<React.SetStateAction<boolean>>
+    onSuccess: () => void
+    onError: () => void
+    currentOrganisation?: DeveloperModel
+    setIsListing: React.Dispatch<React.SetStateAction<boolean>>
+  }) =>
+  (appModel: CustomCreateRevisionModal) => {
+    setSubmitting(true)
 
-  const appPreFormat = { ...appModel }
-  delete appPreFormat.authFlow
-  const { limitToClientIds, redirectUris, signoutUris, ...otherData } = appPreFormat
-  let appToSubmit: CreateAppRevisionModel
-  if (appModel.authFlow === CLIENT_SECRET) {
-    appToSubmit = otherData
-  } else {
-    appToSubmit = {
-      ...otherData,
-      redirectUris: redirectUris ? redirectUris.split(',') : [],
-      signoutUris: signoutUris ? signoutUris.split(',') : [],
+    const appPreFormat = { ...appModel }
+    delete appPreFormat.authFlow
+    const { limitToClientIds, redirectUris, signoutUris, ...otherData } = appPreFormat
+    let appToSubmit: CreateAppRevisionModel
+    if (appModel.authFlow === CLIENT_SECRET) {
+      appToSubmit = otherData
+    } else {
+      appToSubmit = {
+        ...otherData,
+        redirectUris: redirectUris ? redirectUris.split(',') : [],
+        signoutUris: signoutUris ? signoutUris.split(',') : [],
+      }
     }
+
+    if (appModel.isPrivateApp === 'yes') {
+      appToSubmit.limitToClientIds = limitToClientIds ? limitToClientIds.replace(/ /g, '').split(',') : []
+    }
+
+    if (appModel.isPrivateApp === 'no') {
+      appToSubmit.limitToClientIds = []
+    }
+    const sanitizeData = sanitizeAppData(appToSubmit)
+
+    const isCanList = currentOrganisation?.status !== 'pending' && currentOrganisation?.status !== 'incomplete'
+
+    if (!isCanList && !sanitizeData.isListed) {
+      setIsListing(false)
+    }
+
+    if (!isCanList && sanitizeData.isListed) {
+      sanitizeData.isListed = false
+      setIsListing(true)
+    }
+
+    dispatch(
+      createAppRevision({
+        ...sanitizeData,
+        id: appId,
+        successCallback: onSuccess,
+        errorCallback: onError,
+      }),
+    )
   }
 
-  if (appModel.isPrivateApp === 'yes') {
-    appToSubmit.limitToClientIds = limitToClientIds ? limitToClientIds.replace(/ /g, '').split(',') : []
+export const handleSubmitAppSuccess =
+  (
+    setSubmitting: React.Dispatch<React.SetStateAction<boolean>>,
+    setIsShowBillingNotification: React.Dispatch<React.SetStateAction<boolean>>,
+  ) =>
+  () => {
+    setSubmitting(false)
+    setIsShowBillingNotification(true)
   }
-
-  if (appModel.isPrivateApp === 'no') {
-    appToSubmit.limitToClientIds = []
-  }
-  const sanitizeData = sanitizeAppData(appToSubmit)
-
-  const isCanList = currentOrganisation?.status !== 'pending' && currentOrganisation?.status !== 'incomplete'
-
-  if (!isCanList && !sanitizeData.isListed) {
-    setIsListing(false)
-  }
-
-  if (!isCanList && sanitizeData.isListed) {
-    sanitizeData.isListed = false
-    setIsListing(true)
-  }
-
-  dispatch(
-    createAppRevision({
-      ...sanitizeData,
-      id: appId,
-      successCallback: onSuccess,
-      errorCallback: onError,
-    }),
-  )
-}
-
-export const handleSubmitAppSuccess = (
-  setSubmitting: React.Dispatch<React.SetStateAction<boolean>>,
-  setIsShowBillingNotification: React.Dispatch<React.SetStateAction<boolean>>,
-) => () => {
-  setSubmitting(false)
-  setIsShowBillingNotification(true)
-}
 
 export const handleSubmitAppError = (setSubmitting: React.Dispatch<React.SetStateAction<boolean>>) => () => {
   setSubmitting(false)
@@ -323,31 +327,27 @@ export type HandleOpenAppPreview = {
   appDetails?: AppDetailModel & { apiKey?: string }
 }
 
-export const handleOpenAppPreview = ({
-  appDetails,
-  values,
-  scopes,
-  categories,
-  appId = 'submit-app',
-}: HandleOpenAppPreview) => () => {
-  const { iconImageUrl, screen1ImageUrl, screen2ImageUrl, screen3ImageUrl, screen4ImageUrl, screen5ImageUrl } = values
+export const handleOpenAppPreview =
+  ({ appDetails, values, scopes, categories, appId = 'submit-app' }: HandleOpenAppPreview) =>
+  () => {
+    const { iconImageUrl, screen1ImageUrl, screen2ImageUrl, screen3ImageUrl, screen4ImageUrl, screen5ImageUrl } = values
 
-  const media = [iconImageUrl, screen1ImageUrl, screen2ImageUrl, screen3ImageUrl, screen4ImageUrl, screen5ImageUrl]
-    .filter((image) => image)
-    .map((image) => ({ uri: image, type: image === iconImageUrl ? 'icon' : 'image' }))
+    const media = [iconImageUrl, screen1ImageUrl, screen2ImageUrl, screen3ImageUrl, screen4ImageUrl, screen5ImageUrl]
+      .filter((image) => image)
+      .map((image) => ({ uri: image, type: image === iconImageUrl ? 'icon' : 'image' }))
 
-  const appDetailState = {
-    ...appDetails,
-    ...values,
-    scopes: scopes.filter((scope) => values.scopes.includes(scope.name)),
-    category: categories.find((category) => values.categoryId === category.id),
-    media,
+    const appDetailState = {
+      ...appDetails,
+      ...values,
+      scopes: scopes.filter((scope) => values.scopes.includes(scope.name)),
+      category: categories.find((category) => values.categoryId === category.id),
+      media,
+    }
+
+    const url = routes.APP_PREVIEW.replace(':appId', appId)
+    localStorage.setItem('developer-preview-app', JSON.stringify(appDetailState))
+    window.open(url, '_blank')
   }
-
-  const url = routes.APP_PREVIEW.replace(':appId', appId)
-  localStorage.setItem('developer-preview-app', JSON.stringify(appDetailState))
-  window.open(url, '_blank')
-}
 
 export const modalContent = {
   admin: {
@@ -489,7 +489,7 @@ export const DeveloperEditApp: React.FC<DeveloperSubmitAppProps> = () => {
               <MarketplaceStatusSection />
               <PermissionSection scopes={scopes} errors={errors} isListed={Boolean(isListed)} />
               <Section>
-                {renderErrors((errors as unknown) as Record<string, string | string[]>)}
+                {renderErrors(errors as unknown as Record<string, string | string[]>)}
                 <LevelRight>
                   <ButtonGroup hasSpacing>
                     <Button onClick={goBackToApps} variant="danger" type="button">

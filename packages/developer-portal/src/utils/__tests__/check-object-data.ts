@@ -40,9 +40,7 @@ describe('checkAtLeastOneKeyHasValueIsNotEmpty', () => {
   })
 
   test('object is null', () => {
-    expect(
-      checkAtLeastOneKeyHasValueIsNotEmpty<null>({ object: null, keys: [] }),
-    ).toBe(false)
+    expect(checkAtLeastOneKeyHasValueIsNotEmpty<null>({ object: null, keys: [] })).toBe(false)
   })
 })
 
@@ -74,8 +72,6 @@ describe('checkAllKeysHasValueNotEmpty', () => {
   })
 
   test('object is null', () => {
-    expect(
-      checkAllKeysHasValueNotEmpty<null>({ object: null, keys: [] }),
-    ).toBe(false)
+    expect(checkAllKeysHasValueNotEmpty<null>({ object: null, keys: [] })).toBe(false)
   })
 })

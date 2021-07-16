@@ -48,15 +48,17 @@ export interface HandleSubmitForm {
   webhookId: string | undefined
 }
 
-export const handleSubmitForm = ({ dispatch, webhookId }: HandleSubmitForm) => (values) => {
-  const { topicId } = values
-  if (!webhookId || !topicId) return
-  const params: PingWebhooksByIdParams = {
-    id: webhookId,
-    topicId: topicId,
+export const handleSubmitForm =
+  ({ dispatch, webhookId }: HandleSubmitForm) =>
+  (values) => {
+    const { topicId } = values
+    if (!webhookId || !topicId) return
+    const params: PingWebhooksByIdParams = {
+      id: webhookId,
+      topicId: topicId,
+    }
+    dispatch(developerWebhookPing(params))
   }
-  dispatch(developerWebhookPing(params))
-}
 export interface WebhookTestModalFooterProps {
   closeModal: (() => void) | undefined
 }

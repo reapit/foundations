@@ -22,9 +22,10 @@ describe('account handlers', () => {
     it('should wait on accounts service and return a successful provision', async () => {
       const accountUri = 'https://some-url/SOME_ID'
       const result = await handlePolling(accountUri)
-      jest.runAllTimers()
+      // Jest types not up to date with 27 version api so doesn't know the legacy flag
+      ;(jest as any).runAllTimers('legacy')
 
-      expect(result).toEqual({ provisioned: true, interval: 3 })
+      expect(result).toEqual({ provisioned: true, interval: 4 })
     })
 
     it('should wait on accounts service and return an unsuccessful provision', async () => {
@@ -33,9 +34,10 @@ describe('account handlers', () => {
         status: 'An error was encountered when creating this account',
       })
       const result = await handlePolling(accountUri)
-      jest.runAllTimers()
+      // Jest types not up to date with 27 version api so doesn't know the legacy flaga
+      ;(jest as any).runAllTimers('legacy')
 
-      expect(result).toEqual({ provisioned: false, interval: 6 })
+      expect(result).toEqual({ provisioned: false, interval: 7 })
     })
 
     afterAll(() => {

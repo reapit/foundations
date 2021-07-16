@@ -69,28 +69,30 @@ export const generateInitialValues = ({
 }
 export const ACCOUNT_REF_MIN_LENGTH = 6
 
-export const onSubmit = ({ dispatch }: { dispatch: Dispatch }) => (values: AccountsInformationFormValues) => {
-  const { status, billingEmail, reapitReference, billingTelephone, billingKeyContact, hasReapitAccountsRef } = values
-  const shouldOpenDebit = hasReapitAccountsRef === 'no' && status === 'incomplete'
-  if (shouldOpenDebit) {
-    window.open(
-      `https://reapit.na1.echosign.com/public/esignWidget?wid=${window.reapit.config.adobeSignApiKey}*&hosted=false`,
-      '_blank',
-    )
-  }
+export const onSubmit =
+  ({ dispatch }: { dispatch: Dispatch }) =>
+  (values: AccountsInformationFormValues) => {
+    const { status, billingEmail, reapitReference, billingTelephone, billingKeyContact, hasReapitAccountsRef } = values
+    const shouldOpenDebit = hasReapitAccountsRef === 'no' && status === 'incomplete'
+    if (shouldOpenDebit) {
+      window.open(
+        `https://reapit.na1.echosign.com/public/esignWidget?wid=${window.reapit.config.adobeSignApiKey}*&hosted=false`,
+        '_blank',
+      )
+    }
 
-  const shouldSetStatusToPending = status !== 'confirmed'
+    const shouldSetStatusToPending = status !== 'confirmed'
 
-  const dataToSubmit: UpdateDeveloperModel = {
-    status: shouldSetStatusToPending ? 'pending' : status,
-    // if user select "NO" in "DO YOU HAVE A REAPIT ACCOUNTS REF?", empty the value
-    reapitReference: hasReapitAccountsRef === 'yes' ? reapitReference : '',
-    billingEmail,
-    billingKeyContact,
-    billingTelephone,
+    const dataToSubmit: UpdateDeveloperModel = {
+      status: shouldSetStatusToPending ? 'pending' : status,
+      // if user select "NO" in "DO YOU HAVE A REAPIT ACCOUNTS REF?", empty the value
+      reapitReference: hasReapitAccountsRef === 'yes' ? reapitReference : '',
+      billingEmail,
+      billingKeyContact,
+      billingTelephone,
+    }
+    dispatch(updateDeveloperData(dataToSubmit))
   }
-  dispatch(updateDeveloperData(dataToSubmit))
-}
 
 export type HandleUseEffectParams = {
   dispatch: Dispatch

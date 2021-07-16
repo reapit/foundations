@@ -43,10 +43,9 @@ import { IFRAME_URLS } from '../../../constants/iframe-urls'
 
 export type SubscribingState = 'INITIAL' | 'SUBSCRIBE_NOW' | 'CONFIRMING'
 
-export const handleSetSubscribingState = (
-  setSubscribingState: Dispatch<SetStateAction<SubscribingState>>,
-  subscribingState: SubscribingState,
-) => () => setSubscribingState(subscribingState)
+export const handleSetSubscribingState =
+  (setSubscribingState: Dispatch<SetStateAction<SubscribingState>>, subscribingState: SubscribingState) => () =>
+    setSubscribingState(subscribingState)
 
 export const handleToggleModal = (setModalVisible: Dispatch<SetStateAction<boolean>>, modalVisible: boolean) => () =>
   setModalVisible(!modalVisible)

@@ -117,9 +117,11 @@ interface HandleFetchMonthlyBilling {
   dispatch: Dispatch
 }
 
-export const handleFetchMonthlyBilling = ({ dispatch, month, developerId }: HandleFetchMonthlyBilling) => () => {
-  developerId && month && dispatch(fetchMonthlyBilling({ month, developerId }))
-}
+export const handleFetchMonthlyBilling =
+  ({ dispatch, month, developerId }: HandleFetchMonthlyBilling) =>
+  () => {
+    developerId && month && dispatch(fetchMonthlyBilling({ month, developerId }))
+  }
 
 export const handleDownloadCSV = (csvData: string) => () => {
   const dataBlob = new Blob([csvData], { type: 'text/csv;charset=utf-8;' })

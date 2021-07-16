@@ -28,13 +28,12 @@ export type ChangePasswordFormProps = {
   changePassword: (values: ChangePasswordValues) => void
 }
 
-export const handleSubmitChangePassword = (changePassword: (values: ChangePasswordValues) => void) => (
-  values: ChangePasswordValues,
-  { setSubmitting }: FormikHelpers<ChangePasswordValues>,
-) => {
-  setSubmitting(true)
-  changePassword(values)
-}
+export const handleSubmitChangePassword =
+  (changePassword: (values: ChangePasswordValues) => void) =>
+  (values: ChangePasswordValues, { setSubmitting }: FormikHelpers<ChangePasswordValues>) => {
+    setSubmitting(true)
+    changePassword(values)
+  }
 
 export const ChangePasswordForm: React.FC<ChangePasswordFormProps> = ({ changePassword }) => {
   return (

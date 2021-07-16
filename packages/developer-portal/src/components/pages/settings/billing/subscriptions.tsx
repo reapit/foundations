@@ -76,13 +76,15 @@ export const handleDeleteSubscription = (dispatch: Dispatch, id: string, handleC
   handleCloseModal()
 }
 
-export const handleOpenConfirmModal = (
-  setIsConfirmModalOpen: React.Dispatch<SetStateAction<boolean>>,
-  setSubscriptionIdToCancel: React.Dispatch<SetStateAction<string>>,
-) => (id: string) => {
-  setIsConfirmModalOpen(true)
-  setSubscriptionIdToCancel(id)
-}
+export const handleOpenConfirmModal =
+  (
+    setIsConfirmModalOpen: React.Dispatch<SetStateAction<boolean>>,
+    setSubscriptionIdToCancel: React.Dispatch<SetStateAction<string>>,
+  ) =>
+  (id: string) => {
+    setIsConfirmModalOpen(true)
+    setSubscriptionIdToCancel(id)
+  }
 
 export const handleCloseConfirmModal = (setIsConfirmModalOpen) => () => {
   setIsConfirmModalOpen(false)

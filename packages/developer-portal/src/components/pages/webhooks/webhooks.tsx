@@ -99,31 +99,31 @@ export const MODAL_TYPE = {
   TEST: 'TEST',
 }
 
-export const handleSubscriptionChange = (history: History, setPageNumber: React.Dispatch<SetStateAction<number>>) => (
-  values: WebhooksFormValues,
-): void => {
-  const { applicationId } = values
-  setPageNumber(1)
-  history.push(`${URLS.webhooks}?applicationId=${applicationId}`)
-}
+export const handleSubscriptionChange =
+  (history: History, setPageNumber: React.Dispatch<SetStateAction<number>>) =>
+  (values: WebhooksFormValues): void => {
+    const { applicationId } = values
+    setPageNumber(1)
+    history.push(`${URLS.webhooks}?applicationId=${applicationId}`)
+  }
 
 export const openCreateModal = (dispatch: Dispatch) => (): void => {
   dispatch(webhookSetOpenModal(MODAL_TYPE.CREATE))
 }
 
-export const openEditModal = (dispatch: Dispatch, setWebhookId: React.Dispatch<string | undefined>) => (
-  webhookId: string,
-): void => {
-  dispatch(webhookSetOpenModal(MODAL_TYPE.EDIT))
-  setWebhookId(webhookId)
-}
+export const openEditModal =
+  (dispatch: Dispatch, setWebhookId: React.Dispatch<string | undefined>) =>
+  (webhookId: string): void => {
+    dispatch(webhookSetOpenModal(MODAL_TYPE.EDIT))
+    setWebhookId(webhookId)
+  }
 
-export const openTestModal = (dispatch: Dispatch, setWebhookId: React.Dispatch<string | undefined>) => (
-  webhookId: string,
-): void => {
-  setWebhookId(webhookId)
-  dispatch(webhookSetOpenModal(MODAL_TYPE.TEST))
-}
+export const openTestModal =
+  (dispatch: Dispatch, setWebhookId: React.Dispatch<string | undefined>) =>
+  (webhookId: string): void => {
+    setWebhookId(webhookId)
+    dispatch(webhookSetOpenModal(MODAL_TYPE.TEST))
+  }
 
 export const handleCloseModal = (dispatch: Dispatch) => {
   return () => {

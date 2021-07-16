@@ -157,7 +157,7 @@ describe('DeveloperSubmitApp', () => {
           onSuccess: onSuccess,
           onError: onError,
           setIsListing: mockedsetIsListing,
-          currentOrganisation: (org as unknown) as DeveloperModel,
+          currentOrganisation: org as unknown as DeveloperModel,
         })
         fn({ ...appModel, isListed })
         expect(spyDispatch).toBeCalledWith(

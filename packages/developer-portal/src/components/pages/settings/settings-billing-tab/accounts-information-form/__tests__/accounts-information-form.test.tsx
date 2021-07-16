@@ -80,13 +80,8 @@ describe('onSubmit', () => {
 describe('generateInitialValues', () => {
   it('should run correctly', () => {
     const result = generateInitialValues({ defaultInitialValues, developerInfo })
-    const {
-      billingEmail,
-      billingTelephone,
-      billingKeyContact,
-      reapitReference,
-      status,
-    } = developerInfo as DeveloperModel
+    const { billingEmail, billingTelephone, billingKeyContact, reapitReference, status } =
+      developerInfo as DeveloperModel
     const expectedResult = {
       billingEmail,
       billingTelephone,

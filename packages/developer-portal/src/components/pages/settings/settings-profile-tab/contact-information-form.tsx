@@ -115,10 +115,10 @@ export const ContactInformationForm: React.FC<ContactInformationFormProps> = () 
   )
 }
 
-export const handleSubmitContactInformation = (
-  updateCurrentMemberInformation: (values: ContactInformationValues) => void,
-) => (values: ContactInformationValues) => {
-  updateCurrentMemberInformation(values)
-}
+export const handleSubmitContactInformation =
+  (updateCurrentMemberInformation: (values: ContactInformationValues) => void) =>
+  (values: ContactInformationValues) => {
+    updateCurrentMemberInformation(values)
+  }
 
 export default ContactInformationForm

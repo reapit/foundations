@@ -176,8 +176,7 @@ describe('getChangedMediaList', () => {
     links: [
       {
         rel: 'self',
-        href:
-          'http://dev.platformmarketplace.reapit.net/apps/3d2c9bb6-fc76-4ba8-a4c0-71bde64824fc/revisions/3a4fbd46-fb26-495a-b7df-932a310f5842',
+        href: 'http://dev.platformmarketplace.reapit.net/apps/3d2c9bb6-fc76-4ba8-a4c0-71bde64824fc/revisions/3a4fbd46-fb26-495a-b7df-932a310f5842',
         action: 'GET',
       },
       {
