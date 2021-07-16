@@ -12,7 +12,7 @@ export const pipelineRunnerGet = httpHandler<void, PipelineRunnerEntity>({
   handler: async ({ event }): Promise<PipelineRunnerEntity> => {
     const developerId = await resolveDeveloperId(event)
 
-    const pipelineRunner = await service.findPipelineRunnerById(event.pathParameters?.id as string)
+    const pipelineRunner = await service.findPipelineRunnerById(event.pathParameters?.pipelineId as string)
 
     if (!pipelineRunner || typeof pipelineRunner.pipeline === 'undefined') {
       throw new NotFoundException()

@@ -26,7 +26,7 @@ export const pipelineUpdate = httpHandler<PipelineDto, PipelineEntity>({
     const developerId = await resolveDeveloperId(event)
 
     // TODO should this be body.toApiKey
-    const pipeline = await service.findPipelineById(event.pathParameters?.id as string)
+    const pipeline = await service.findPipelineById(event.pathParameters?.pipelineId as string)
 
     if (!pipeline) {
       throw new NotFoundException()

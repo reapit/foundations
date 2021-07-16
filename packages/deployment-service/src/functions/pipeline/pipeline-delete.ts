@@ -12,7 +12,7 @@ export const pipelineDelete = httpHandler({
   handler: async ({ event }): Promise<void> => {
     const developerId = await resolveDeveloperId(event)
 
-    const pipeline = await service.findPipelineById(event.pathParameters?.id as string)
+    const pipeline = await service.findPipelineById(event.pathParameters?.pipelineId as string)
 
     if (!pipeline) {
       throw new NotFoundException()
