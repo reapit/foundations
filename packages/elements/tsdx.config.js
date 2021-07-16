@@ -1,7 +1,6 @@
 const scss = require('rollup-plugin-scss')
 const babel = require('@rollup/plugin-babel').default
 const linaria = require('@linaria/rollup').default
-const typescript = require('rollup-plugin-typescript2')
 const svgr = require('@svgr/rollup').default
 
 const EXCLUDE_PACKAGES = ['@linaria/core', '@linaria/react']
@@ -32,13 +31,6 @@ const replaceAndReorderPlugins = (plugins) => {
     babelHelpers: 'runtime',
     plugins: ['@babel/plugin-transform-runtime'],
   })
-
-  // // I need TS plugin to reference a tsconfig that has EANEXT as target so doesn't remove my liaria strings
-  // const typescriptPlugin = typescript({
-  //   tsconfig: './tsconfig.prod.json',
-  //   objectHashIgnoreUnknownHack: true,
-  //   clear: true,
-  // })
 
   // export linaria css and main sass project
   const sassPlugin = scss({

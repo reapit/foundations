@@ -21,9 +21,9 @@ export const appSubmitStub: { data: CreateAppModel } = {
 }
 
 export const appSubmitStubWithActions: { data: CreateAppParams } = {
-  data: ({
+  data: {
     ...appSubmitStub.data,
-  } as unknown) as CreateAppParams,
+  } as unknown as CreateAppParams,
 }
 
 export const appSubmitStubFailed: { data: CreateAppModel } = {

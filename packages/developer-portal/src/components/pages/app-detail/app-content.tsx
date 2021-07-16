@@ -37,24 +37,20 @@ interface HandleUninstallSuccessParams {
   dispatch: Dispatch
 }
 
-export const handleUninstallSuccess = ({
-  handleAfterClose,
-  setUninstallApp,
-  developerId,
-  appId,
-  dispatch,
-}: HandleUninstallSuccessParams) => () => {
-  handleAfterClose({ setUninstallApp })
-  dispatch(
-    fetchInstallationsList({
-      appId: [appId],
-      pageNumber: 1,
-      pageSize: GET_ALL_PAGE_SIZE,
-      isInstalled: true,
-      developerId: [developerId],
-    }),
-  )
-}
+export const handleUninstallSuccess =
+  ({ handleAfterClose, setUninstallApp, developerId, appId, dispatch }: HandleUninstallSuccessParams) =>
+  () => {
+    handleAfterClose({ setUninstallApp })
+    dispatch(
+      fetchInstallationsList({
+        appId: [appId],
+        pageNumber: 1,
+        pageSize: GET_ALL_PAGE_SIZE,
+        isInstalled: true,
+        developerId: [developerId],
+      }),
+    )
+  }
 
 export const handleOpenAppPreview = (appId: string, appDetailState: AppDetailModel) => () => {
   const url = routes.APP_PREVIEW.replace(':appId', appId)
@@ -66,62 +62,60 @@ export const CustomUninstallCell: React.FC<{ onClick: () => void }> = ({ onClick
   <a onClick={onClick}>Uninstall</a>
 )
 
-export const generateInstallationTableColumns = (
-  onUninstall: (app: InstallationModel) => () => void,
-  CustomUninstallCell?: CustomUninstallCell,
-) => () => {
-  const UninstallCell = ({ row }) => {
-    if (CustomUninstallCell) {
-      return <CustomUninstallCell onClick={onUninstall(row.original)} />
+export const generateInstallationTableColumns =
+  (onUninstall: (app: InstallationModel) => () => void, CustomUninstallCell?: CustomUninstallCell) => () => {
+    const UninstallCell = ({ row }) => {
+      if (CustomUninstallCell) {
+        return <CustomUninstallCell onClick={onUninstall(row.original)} />
+      }
+
+      return (
+        <Button type="button" variant="primary" onClick={onUninstall(row.original)}>
+          Uninstall
+        </Button>
+      )
     }
 
-    return (
-      <Button type="button" variant="primary" onClick={onUninstall(row.original)}>
-        Uninstall
-      </Button>
-    )
-  }
-
-  return [
-    {
-      Header: 'Client',
-      accessor: 'client',
-    },
-    {
-      Header: 'Company Name',
-      accessor: 'customerName',
-    },
-    {
-      Header: 'Company Address',
-      accessor: ({ customerAddress = {} }: { customerAddress: InstallationModel['customerAddress'] }) => {
-        const {
-          buildingName = '',
-          buildingNumber = '',
-          line1 = '',
-          line2 = '',
-          line3 = '',
-          line4 = '',
-          postcode = '',
-          countryId = '',
-        } = customerAddress
-
-        return `${buildingName} ${buildingNumber} ${line1} ${line2} ${line3} ${line4} ${postcode} ${countryId}`
+    return [
+      {
+        Header: 'Client',
+        accessor: 'client',
       },
-    },
-    {
-      Header: 'Date Installed',
-      accessor: (d) => dayjs(d.created).format(DATE_TIME_FORMAT.DATE_FORMAT),
-    },
-    {
-      Header: 'Installed By',
-      accessor: 'installedBy',
-    },
-    {
-      Header: 'Uninstall',
-      Cell: UninstallCell,
-    },
-  ]
-}
+      {
+        Header: 'Company Name',
+        accessor: 'customerName',
+      },
+      {
+        Header: 'Company Address',
+        accessor: ({ customerAddress = {} }: { customerAddress: InstallationModel['customerAddress'] }) => {
+          const {
+            buildingName = '',
+            buildingNumber = '',
+            line1 = '',
+            line2 = '',
+            line3 = '',
+            line4 = '',
+            postcode = '',
+            countryId = '',
+          } = customerAddress
+
+          return `${buildingName} ${buildingNumber} ${line1} ${line2} ${line3} ${line4} ${postcode} ${countryId}`
+        },
+      },
+      {
+        Header: 'Date Installed',
+        accessor: (d) => dayjs(d.created).format(DATE_TIME_FORMAT.DATE_FORMAT),
+      },
+      {
+        Header: 'Installed By',
+        accessor: 'installedBy',
+      },
+      {
+        Header: 'Uninstall',
+        Cell: UninstallCell,
+      },
+    ]
+  }
 
 const AppContent: React.FC<AppContentProps> = ({ appDetailState }) => {
   const appDetailData = appDetailState.data || {}

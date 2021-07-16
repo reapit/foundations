@@ -3,20 +3,22 @@ import { useLocation, useHistory } from 'react-router-dom'
 import Routes from '@/constants/routes'
 import { confirmRegistration } from '@/services/cognito-identity'
 
-export const handleUseEffect = ({ userName, verificationCode, replace }) => () => {
-  confirmRegistration({
-    userName,
-    verificationCode,
-    connectClientId: window.reapit.config.connectClientId,
-  })
-    .then(() => {
-      replace(`${Routes.LOGIN}?isSuccess=1`)
+export const handleUseEffect =
+  ({ userName, verificationCode, replace }) =>
+  () => {
+    confirmRegistration({
+      userName,
+      verificationCode,
+      connectClientId: window.reapit.config.connectClientId,
     })
-    .catch((error) => {
-      console.log(error)
-      replace(`${Routes.LOGIN}?confirmError=1`)
-    })
-}
+      .then(() => {
+        replace(`${Routes.LOGIN}?isSuccess=1`)
+      })
+      .catch((error) => {
+        console.log(error)
+        replace(`${Routes.LOGIN}?confirmError=1`)
+      })
+  }
 
 export const RegisterConfirm: React.FC = () => {
   const { search } = useLocation()

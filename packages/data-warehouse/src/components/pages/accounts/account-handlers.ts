@@ -83,49 +83,53 @@ export const updateAccount = async (
   setMessageState({ infoMessage: 'Successfully updated password' })
 }
 
-export const disableAccount = (
-  setMessageState: Dispatch<React.SetStateAction<MessageState>>,
-  setAccounts: Dispatch<SetStateAction<PagedApiResponse<AccountModel> | undefined>>,
-  setDisabling: Dispatch<React.SetStateAction<string>>,
-  value: string,
-) => async () => {
-  setDisabling(value)
+export const disableAccount =
+  (
+    setMessageState: Dispatch<React.SetStateAction<MessageState>>,
+    setAccounts: Dispatch<SetStateAction<PagedApiResponse<AccountModel> | undefined>>,
+    setDisabling: Dispatch<React.SetStateAction<string>>,
+    value: string,
+  ) =>
+  async () => {
+    setDisabling(value)
 
-  const disabled = await disableAccountsService(value)
+    const disabled = await disableAccountsService(value)
 
-  setDisabling('')
+    setDisabling('')
 
-  if (!disabled) {
-    return setMessageState({ errorMessage: 'Something went wrong deleting account, please try again' })
-  }
+    if (!disabled) {
+      return setMessageState({ errorMessage: 'Something went wrong deleting account, please try again' })
+    }
 
-  setMessageState({ infoMessage: 'Account successfully deleted' })
+    setMessageState({ infoMessage: 'Account successfully deleted' })
 
-  const accounts = await getAccountsService()
-
-  if (accounts) {
-    return setAccounts(accounts)
-  }
-
-  return setMessageState({ errorMessage: 'Something went wrong fetching accounts, please try again' })
-}
-
-export const handleGetAccounts = (
-  setAccounts: Dispatch<SetStateAction<PagedApiResponse<AccountModel> | undefined>>,
-  setAccountsLoading: Dispatch<SetStateAction<boolean>>,
-  setMessageState: Dispatch<React.SetStateAction<MessageState>>,
-  currentSubscription: SubscriptionModel | null,
-) => () => {
-  const getAccounts = async () => {
-    setAccountsLoading(true)
     const accounts = await getAccountsService()
-    setAccountsLoading(false)
+
     if (accounts) {
       return setAccounts(accounts)
     }
+
     return setMessageState({ errorMessage: 'Something went wrong fetching accounts, please try again' })
   }
-  if (currentSubscription) {
-    getAccounts()
+
+export const handleGetAccounts =
+  (
+    setAccounts: Dispatch<SetStateAction<PagedApiResponse<AccountModel> | undefined>>,
+    setAccountsLoading: Dispatch<SetStateAction<boolean>>,
+    setMessageState: Dispatch<React.SetStateAction<MessageState>>,
+    currentSubscription: SubscriptionModel | null,
+  ) =>
+  () => {
+    const getAccounts = async () => {
+      setAccountsLoading(true)
+      const accounts = await getAccountsService()
+      setAccountsLoading(false)
+      if (accounts) {
+        return setAccounts(accounts)
+      }
+      return setMessageState({ errorMessage: 'Something went wrong fetching accounts, please try again' })
+    }
+    if (currentSubscription) {
+      getAccounts()
+    }
   }
-}

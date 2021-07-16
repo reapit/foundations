@@ -21,41 +21,44 @@ export type DeveloperEditionModalProps = Pick<ModalProps, 'visible'> & {
   setSubscribingState: React.Dispatch<SetStateAction<SubscribingState>>
 }
 
-export const handleOnCreated = (
-  setSelectedDeveloper: React.Dispatch<React.SetStateAction<DeveloperModel | undefined>>,
-  setSuccess: React.Dispatch<React.SetStateAction<boolean>>,
-) => (developer: DeveloperModel) => () => {
-  setSelectedDeveloper(developer)
-  setSuccess(true)
-}
+export const handleOnCreated =
+  (
+    setSelectedDeveloper: React.Dispatch<React.SetStateAction<DeveloperModel | undefined>>,
+    setSuccess: React.Dispatch<React.SetStateAction<boolean>>,
+  ) =>
+  (developer: DeveloperModel) =>
+  () => {
+    setSelectedDeveloper(developer)
+    setSuccess(true)
+  }
 
-export const handleOnConfirm = (
-  developer: Partial<DeveloperModel>,
-  dispatch: Dispatch,
-  onCreated: (developer: DeveloperModel) => () => void,
-) => () => {
-  dispatch(
-    developerCreateSubscription({
-      params: {
-        developerId: developer.id || '',
-        user: developer.email || '',
-        applicationId: '', // TBC
-        type: 'developerEdition',
-      },
-      onCreated: onCreated(developer),
-    }),
-  )
-}
+export const handleOnConfirm =
+  (developer: Partial<DeveloperModel>, dispatch: Dispatch, onCreated: (developer: DeveloperModel) => () => void) =>
+  () => {
+    dispatch(
+      developerCreateSubscription({
+        params: {
+          developerId: developer.id || '',
+          user: developer.email || '',
+          applicationId: '', // TBC
+          type: 'developerEdition',
+        },
+        onCreated: onCreated(developer),
+      }),
+    )
+  }
 
-export const handleAfterClose = (
-  setSuccess: React.Dispatch<React.SetStateAction<boolean>>,
-  dispatch: Dispatch,
-  setSubscribingState: React.Dispatch<SetStateAction<SubscribingState>>,
-) => () => {
-  setSuccess(false)
-  dispatch(developerCreateSubscriptionClearError())
-  setSubscribingState('INITIAL')
-}
+export const handleAfterClose =
+  (
+    setSuccess: React.Dispatch<React.SetStateAction<boolean>>,
+    dispatch: Dispatch,
+    setSubscribingState: React.Dispatch<SetStateAction<SubscribingState>>,
+  ) =>
+  () => {
+    setSuccess(false)
+    dispatch(developerCreateSubscriptionClearError())
+    setSubscribingState('INITIAL')
+  }
 
 export const DeveloperEditionModal: React.FC<DeveloperEditionModalProps> = ({
   visible = false,

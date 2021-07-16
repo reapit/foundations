@@ -100,11 +100,10 @@ export const handleToggleVisibleModal = (setModalOpen: React.Dispatch<boolean>, 
   setModalOpen(isVisible)
 }
 
-export const closeDisableMemberModal = (
-  setDisableMemberModalVisible: React.Dispatch<React.SetStateAction<boolean>>,
-) => () => {
-  setDisableMemberModalVisible(false)
-}
+export const closeDisableMemberModal =
+  (setDisableMemberModalVisible: React.Dispatch<React.SetStateAction<boolean>>) => () => {
+    setDisableMemberModalVisible(false)
+  }
 
 export const openDisableMemberModal = (setSelectedUser, setDisableMemberModalVisible, user) => () => {
   setSelectedUser(user)

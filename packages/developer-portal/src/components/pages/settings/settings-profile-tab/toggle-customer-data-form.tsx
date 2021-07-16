@@ -98,10 +98,10 @@ export const ToggleCustomerDataForm: React.FC<ToggleCustomerDataFormProps> = () 
   )
 }
 
-export const handleSubmitToggleCustomerData = (
-  updateCurrentMemberInformation: (values: ToggleCustomerDataValues) => void,
-) => (values: ToggleCustomerDataValues) => {
-  updateCurrentMemberInformation(values)
-}
+export const handleSubmitToggleCustomerData =
+  (updateCurrentMemberInformation: (values: ToggleCustomerDataValues) => void) =>
+  (values: ToggleCustomerDataValues) => {
+    updateCurrentMemberInformation(values)
+  }
 
 export default ToggleCustomerDataForm

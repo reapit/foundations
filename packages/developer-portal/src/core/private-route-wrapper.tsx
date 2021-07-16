@@ -43,9 +43,8 @@ export const PrivateRouteWrapper: React.FunctionComponent<PrivateRouteWrapperPro
     return <Redirect to={Routes.LOGIN} />
   }
 
-  const { connectSession, connectLoginRedirect, connectInternalRedirect } = useReapitConnect(
-    reapitConnectBrowserSession,
-  )
+  const { connectSession, connectLoginRedirect, connectInternalRedirect } =
+    useReapitConnect(reapitConnectBrowserSession)
   const [showTermsModal, setShowTermsModal] = useState(false)
   const location = useLocation()
   const dispatch = useDispatch()

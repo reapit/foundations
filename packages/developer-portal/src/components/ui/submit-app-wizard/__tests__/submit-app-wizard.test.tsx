@@ -28,7 +28,7 @@ describe('submit-app-wizard', () => {
     handleSubmit({
       dispatch,
       setWizardStep,
-    })(values, (actions as unknown) as FormikHelpers<CustomCreateAppModel>)
+    })(values, actions as unknown as FormikHelpers<CustomCreateAppModel>)
     expect(dispatch).toHaveBeenCalledWith({
       data: {
         authFlow: values.authFlow,
@@ -54,7 +54,7 @@ describe('submit-app-wizard', () => {
     handleSubmit({
       dispatch,
       setWizardStep,
-    })(values, (actions as unknown) as FormikHelpers<CustomCreateAppModel>)
+    })(values, actions as unknown as FormikHelpers<CustomCreateAppModel>)
     expect(dispatch).toHaveBeenCalledWith({
       data: {
         redirectUris: ['link1', 'link2'],

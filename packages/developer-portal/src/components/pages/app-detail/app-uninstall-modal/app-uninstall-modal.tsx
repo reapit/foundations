@@ -15,18 +15,19 @@ interface HandleAfterClose {
   setUninstallApp: any
   afterClose?: any
 }
-export const handleAfterClose = ({ setUninstallApp, afterClose }: HandleAfterClose) => () => {
-  setUninstallApp(undefined)
-  if (afterClose) {
-    afterClose()
+export const handleAfterClose =
+  ({ setUninstallApp, afterClose }: HandleAfterClose) =>
+  () => {
+    setUninstallApp(undefined)
+    if (afterClose) {
+      afterClose()
+    }
   }
-}
 
-export const handleUninstall = (setUninstallApp: (app: InstallationModel) => void) => (
-  app: InstallationModel,
-) => () => {
-  setUninstallApp(app)
-}
+export const handleUninstall =
+  (setUninstallApp: (app: InstallationModel) => void) => (app: InstallationModel) => () => {
+    setUninstallApp(app)
+  }
 
 export const AppInstallationsModal: React.FC<AppInstallationsModalProps> = ({
   appName,

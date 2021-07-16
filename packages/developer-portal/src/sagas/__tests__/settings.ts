@@ -84,11 +84,11 @@ describe('settings', () => {
       const currentData = { currentData: 'value' }
       expect(clone.next(id).value).toEqual(select(selectSettingsPageDeveloperInformation))
       expect(clone.next(currentData).value).toEqual(
-        call(updateDeveloperById, ({
+        call(updateDeveloperById, {
           ...currentData,
           companyName: '123',
           id,
-        } as unknown) as UpdateDeveloperByIdParams),
+        } as unknown as UpdateDeveloperByIdParams),
       )
       expect(clone.next({ message: 'SUCCESS' }).value).toEqual(
         put(

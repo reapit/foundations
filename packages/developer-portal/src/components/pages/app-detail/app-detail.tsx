@@ -29,11 +29,10 @@ export const closeInstallationsModal = (setIsInstallationsModalOpen: (isVisible:
   setIsInstallationsModalOpen(false)
 }
 
-export const closeAppRevisionComparisonModal = (
-  setIsAppRevisionComparisonModalOpen: (isVisible: boolean) => void,
-) => () => {
-  setIsAppRevisionComparisonModalOpen(false)
-}
+export const closeAppRevisionComparisonModal =
+  (setIsAppRevisionComparisonModalOpen: (isVisible: boolean) => void) => () => {
+    setIsAppRevisionComparisonModalOpen(false)
+  }
 
 export const closeDeleteAppModal = (setIsDeleteModalOpen: (isVisible: boolean) => void) => () => {
   setIsDeleteModalOpen(false)

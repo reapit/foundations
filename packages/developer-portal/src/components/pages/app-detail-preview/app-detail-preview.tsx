@@ -16,31 +16,33 @@ import { getDesktopIntegrationTypes } from '../../../utils/get-desktop-integrati
 
 export type AppDetailPreviewProps = AppDetailData
 
-export const loadAppDetailPreviewDataFromLocalStorage = (
-  appId: string,
-  setAppDetailPreviewData: React.Dispatch<React.SetStateAction<AppDetailPreviewProps | null>>,
-  dispatch: Dispatch,
-) => () => {
-  try {
-    const appDataString = localStorage.getItem('developer-preview-app')
-    if (!appDataString) {
-      throw new Error('No app preview')
-    }
+export const loadAppDetailPreviewDataFromLocalStorage =
+  (
+    appId: string,
+    setAppDetailPreviewData: React.Dispatch<React.SetStateAction<AppDetailPreviewProps | null>>,
+    dispatch: Dispatch,
+  ) =>
+  () => {
+    try {
+      const appDataString = localStorage.getItem('developer-preview-app')
+      if (!appDataString) {
+        throw new Error('No app preview')
+      }
 
-    const appData = JSON.parse(appDataString) as AppDetailData
-    if (appData?.id !== appId) {
-      throw new Error('No app preview')
+      const appData = JSON.parse(appDataString) as AppDetailData
+      if (appData?.id !== appId) {
+        throw new Error('No app preview')
+      }
+      setAppDetailPreviewData(appData)
+    } catch (err) {
+      dispatch(
+        showNotificationMessage({
+          message: err.message,
+          variant: 'danger',
+        }),
+      )
     }
-    setAppDetailPreviewData(appData)
-  } catch (err) {
-    dispatch(
-      showNotificationMessage({
-        message: err.message,
-        variant: 'danger',
-      }),
-    )
   }
-}
 
 const AppDetailPreview: React.FC<AppDetailPreviewProps> = () => {
   const dispatch = useDispatch()

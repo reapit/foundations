@@ -65,10 +65,9 @@ describe('isValidHttpUrl', () => {
 
 describe('isValidRedirectUrls', () => {
   it('valid redirect url test', () => {
-    ;[
-      'https://www.google.com,http://localhost:8080',
-      'https://www.googlee.com,https://www.facebook.com',
-    ].forEach((url) => expect(isValidRedirectUrls(url)).toBeTruthy())
+    ;['https://www.google.com,http://localhost:8080', 'https://www.googlee.com,https://www.facebook.com'].forEach(
+      (url) => expect(isValidRedirectUrls(url)).toBeTruthy(),
+    )
   })
 
   it('invalid https url test', () => {

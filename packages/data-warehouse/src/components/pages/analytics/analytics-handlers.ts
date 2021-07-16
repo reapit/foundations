@@ -264,89 +264,94 @@ export const handleDownloadCSV = (csvData: string) => () => {
   saveAs(dataBlob, 'billing.csv')
 }
 
-export const handleGetBilling = (
-  setBilling: Dispatch<SetStateAction<BillingBreakdownForMonthV2Model | undefined>>,
-  setBillingLoading: Dispatch<SetStateAction<boolean>>,
-  setMessageState: Dispatch<React.SetStateAction<MessageState>>,
-  month: Date,
-) => () => {
-  const getBilling = async () => {
-    setBillingLoading(true)
-    const billing = await getBillingByMonthService(dayjs(month).startOf('month').format(DATE_TIME_FORMAT.YYYY_MM))
-    setBillingLoading(false)
-    if (billing) {
-      return setBilling(billing)
-    }
-    return setMessageState({ errorMessage: 'Something went wrong fetching billing, please try again' })
-  }
-  if (month) {
-    getBilling()
-  }
-}
-
-export const handleGetBillingByPeriod = (
-  setBilling: Dispatch<SetStateAction<BillingOverviewForPeriodV2Model | undefined>>,
-  setBillingLoading: Dispatch<SetStateAction<boolean>>,
-  setMessageState: Dispatch<React.SetStateAction<MessageState>>,
-  orgId: string | null,
-  dateFrom: Date,
-  dateTo: Date,
-) => () => {
-  const getBilling = async () => {
-    setBillingLoading(true)
-    const billing = await getBillingByDatesService(
-      dayjs(dateFrom).format(DATE_TIME_FORMAT.YYYY_MM),
-      dayjs(dateTo).format(DATE_TIME_FORMAT.YYYY_MM),
-    )
-    setBillingLoading(false)
-    if (billing) {
-      return setBilling(billing)
-    }
-    return setMessageState({ errorMessage: 'Something went wrong fetching billing, please try again' })
-  }
-
-  if (orgId) {
-    getBilling()
-  }
-}
-
-export const handleGetSettings = (
-  setSettings: Dispatch<SetStateAction<SettingsModel | undefined>>,
-  connectSession: ReapitConnectSession | null,
-) => () => {
-  const getSettings = async () => {
-    const settings = await getSettingsService()
-    if (settings) {
-      return setSettings(settings)
-    }
-
-    return setSettings({ monthlyUsageCap: 0 } as SettingsModel)
-  }
-  if (connectSession) {
-    getSettings()
-  }
-}
-
-export const handleUpdateSettings = (
-  setSettings: Dispatch<SetStateAction<SettingsModel | undefined>>,
-  setMessageState: Dispatch<React.SetStateAction<MessageState>>,
-  handleClose: () => void,
-) => (settings: Partial<SettingsModel>) => {
-  const updateSettings = async () => {
-    const updated = await updateSettingsService(settings)
-    if (updated) {
-      setMessageState({ infoMessage: 'Usage cap successfully updated' })
-      const settingsRefetch = await getSettingsService()
-      if (settingsRefetch) {
-        setSettings(settingsRefetch)
+export const handleGetBilling =
+  (
+    setBilling: Dispatch<SetStateAction<BillingBreakdownForMonthV2Model | undefined>>,
+    setBillingLoading: Dispatch<SetStateAction<boolean>>,
+    setMessageState: Dispatch<React.SetStateAction<MessageState>>,
+    month: Date,
+  ) =>
+  () => {
+    const getBilling = async () => {
+      setBillingLoading(true)
+      const billing = await getBillingByMonthService(dayjs(month).startOf('month').format(DATE_TIME_FORMAT.YYYY_MM))
+      setBillingLoading(false)
+      if (billing) {
+        return setBilling(billing)
       }
-      return handleClose()
+      return setMessageState({ errorMessage: 'Something went wrong fetching billing, please try again' })
     }
-    setMessageState({ errorMessage: 'Something went wrong updating usage cap' })
+    if (month) {
+      getBilling()
+    }
   }
 
-  updateSettings()
-}
+export const handleGetBillingByPeriod =
+  (
+    setBilling: Dispatch<SetStateAction<BillingOverviewForPeriodV2Model | undefined>>,
+    setBillingLoading: Dispatch<SetStateAction<boolean>>,
+    setMessageState: Dispatch<React.SetStateAction<MessageState>>,
+    orgId: string | null,
+    dateFrom: Date,
+    dateTo: Date,
+  ) =>
+  () => {
+    const getBilling = async () => {
+      setBillingLoading(true)
+      const billing = await getBillingByDatesService(
+        dayjs(dateFrom).format(DATE_TIME_FORMAT.YYYY_MM),
+        dayjs(dateTo).format(DATE_TIME_FORMAT.YYYY_MM),
+      )
+      setBillingLoading(false)
+      if (billing) {
+        return setBilling(billing)
+      }
+      return setMessageState({ errorMessage: 'Something went wrong fetching billing, please try again' })
+    }
+
+    if (orgId) {
+      getBilling()
+    }
+  }
+
+export const handleGetSettings =
+  (setSettings: Dispatch<SetStateAction<SettingsModel | undefined>>, connectSession: ReapitConnectSession | null) =>
+  () => {
+    const getSettings = async () => {
+      const settings = await getSettingsService()
+      if (settings) {
+        return setSettings(settings)
+      }
+
+      return setSettings({ monthlyUsageCap: 0 } as SettingsModel)
+    }
+    if (connectSession) {
+      getSettings()
+    }
+  }
+
+export const handleUpdateSettings =
+  (
+    setSettings: Dispatch<SetStateAction<SettingsModel | undefined>>,
+    setMessageState: Dispatch<React.SetStateAction<MessageState>>,
+    handleClose: () => void,
+  ) =>
+  (settings: Partial<SettingsModel>) => {
+    const updateSettings = async () => {
+      const updated = await updateSettingsService(settings)
+      if (updated) {
+        setMessageState({ infoMessage: 'Usage cap successfully updated' })
+        const settingsRefetch = await getSettingsService()
+        if (settingsRefetch) {
+          setSettings(settingsRefetch)
+        }
+        return handleClose()
+      }
+      setMessageState({ errorMessage: 'Something went wrong updating usage cap' })
+    }
+
+    updateSettings()
+  }
 
 export const getChargableUsageString = (currentSettings?: Partial<SettingsModel>): string => {
   if (!currentSettings) return '£0'

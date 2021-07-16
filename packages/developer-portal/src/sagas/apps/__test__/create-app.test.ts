@@ -24,7 +24,7 @@ export const params: Action<CreateAppParams> = {
   type: 'CREATE_APP',
 }
 
-const castSagas = (submitApp as unknown) as Saga<any>
+const castSagas = submitApp as unknown as Saga<any>
 describe('submit-app post data', () => {
   const gen = cloneableGenerator(castSagas)(params)
   expect(gen.next().value).toEqual(call(getDeveloperId))

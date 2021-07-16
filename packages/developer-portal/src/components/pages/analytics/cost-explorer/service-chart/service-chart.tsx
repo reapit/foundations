@@ -132,9 +132,11 @@ export type HandleUseEffectParams = {
   dispatch: Dispatch
 }
 
-export const handleUseEffect = ({ developerId, dateFrom, dateTo, dispatch }: HandleUseEffectParams) => () => {
-  developerId && dispatch(fetchBilling({ developerId, dateFrom: dateFrom, dateTo: dateTo }))
-}
+export const handleUseEffect =
+  ({ developerId, dateFrom, dateTo, dispatch }: HandleUseEffectParams) =>
+  () => {
+    developerId && dispatch(fetchBilling({ developerId, dateFrom: dateFrom, dateTo: dateTo }))
+  }
 
 export const renderChart = (
   datasets: ChartData<any>,

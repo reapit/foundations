@@ -84,6 +84,7 @@
     "move-file-cli": "^2.0.0",
     "node-polyfill-webpack-plugin": "^1.1.4",
     "postcss": "^8.3.5",
+    "prettier": "2.2.1",
     "react-docgen-typescript-loader": "^3.7.2",
     "react-is": "^16.13.1",
     "rimraf": "^3.0.2",
@@ -112,7 +113,8 @@
     "style-loader": "^2.0.0",
     "terser-webpack-plugin": "^5.0.0",
     "webpack-dev-middleware": "^4.1.0",
-    "webpack-virtual-modules": "^0.4.2"
+    "webpack-virtual-modules": "^0.4.2",
+    "prettier": "2.2.1"
   },
   "snyk": true
 }

@@ -41,30 +41,26 @@ export const selectTransactionHistoryState: (state: ReduxState) => MapState = (s
   }
 }
 
-export const createHandleDownLoadButtonOnClickFn = ({
-  month,
-  developerAppIds,
-}: {
-  month: string
-  developerAppIds: string[]
-}) => async (e) => {
-  e.preventDefault()
+export const createHandleDownLoadButtonOnClickFn =
+  ({ month, developerAppIds }: { month: string; developerAppIds: string[] }) =>
+  async (e) => {
+    e.preventDefault()
 
-  const api =
-    window.reapit.config.appEnv === 'production'
-      ? window.reapit.config.platformApiUrl
-      : window.reapit.config.platformApiUrl
+    const api =
+      window.reapit.config.appEnv === 'production'
+        ? window.reapit.config.platformApiUrl
+        : window.reapit.config.platformApiUrl
 
-  const params = setQueryParams({ applicationId: developerAppIds })
-  const blob = await fetcherWithBlob({
-    url: `${URLS.trafficEventBilling}/${month}/download?${params.toString()}`,
-    api,
-    method: 'GET',
-    headers: await getPlatformHeaders(reapitConnectBrowserSession, 'latest'),
-  })
-  const fileName = `reapit-billing-data-${month}.csv`
-  FileSaver.saveAs(blob, fileName)
-}
+    const params = setQueryParams({ applicationId: developerAppIds })
+    const blob = await fetcherWithBlob({
+      url: `${URLS.trafficEventBilling}/${month}/download?${params.toString()}`,
+      api,
+      method: 'GET',
+      headers: await getPlatformHeaders(reapitConnectBrowserSession, 'latest'),
+    })
+    const fileName = `reapit-billing-data-${month}.csv`
+    FileSaver.saveAs(blob, fileName)
+  }
 
 export const renderTransactionHistoryItem = ({ date, developerAppIds }: { date: Dayjs; developerAppIds: string[] }) => {
   return (

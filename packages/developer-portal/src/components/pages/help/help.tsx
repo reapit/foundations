@@ -61,8 +61,7 @@ export const helpItems = (loginIdentity: LoginIdentity): HelpItem[] => {
     {
       imgSrc: reportBugImg,
       header: 'Report a Bug',
-      text:
-        'Please report details of any bugs in relation to the Reapit Developer portal or Reapit Foundations API here. ',
+      text: 'Please report details of any bugs in relation to the Reapit Developer portal or Reapit Foundations API here. ',
       buttonText: 'REPORT',
       buttonOnClick: handleReportBug,
     },

@@ -19,18 +19,17 @@ import { fetchInstallationsList, fetchInstallationsFilterList } from '@/actions/
 
 export type DetailedTabProps = {}
 
-export const handleMapAppNameToInstallation = (
-  installationsAppDataArray: InstallationModel[] = [],
-  developerDataArray: AppSummaryModel[] = [],
-) => (): InstallationModelWithAppName[] => {
-  return installationsAppDataArray.map((installation) => {
-    const app = developerDataArray.find((app) => app.id === installation.appId)
-    return {
-      ...installation,
-      appName: app?.name,
-    }
-  })
-}
+export const handleMapAppNameToInstallation =
+  (installationsAppDataArray: InstallationModel[] = [], developerDataArray: AppSummaryModel[] = []) =>
+  (): InstallationModelWithAppName[] => {
+    return installationsAppDataArray.map((installation) => {
+      const app = developerDataArray.find((app) => app.id === installation.appId)
+      return {
+        ...installation,
+        appName: app?.name,
+      }
+    })
+  }
 
 export const handleDefaultFilter = (developerAppDataArray: AppSummaryModel[]) => {
   const orderredDeveloperAppDataArray = orderBy(developerAppDataArray, ['created'], ['asc'])
@@ -68,23 +67,22 @@ export const handleFetchAppUsageStatsDataUseEffect = (fetchAppUsageStatsData: ()
   }
 }
 
-export const handleFetchHttpTrafficPerDayDataUseCallback = (
-  developerAppDataArray: AppSummaryModel[] = [],
-  dispatch,
-) => () => {
-  const { appIds } = handleDefaultFilter(developerAppDataArray)
-  const { defaultParams } = prepareDefaultFilterDateParams()
+export const handleFetchHttpTrafficPerDayDataUseCallback =
+  (developerAppDataArray: AppSummaryModel[] = [], dispatch) =>
+  () => {
+    const { appIds } = handleDefaultFilter(developerAppDataArray)
+    const { defaultParams } = prepareDefaultFilterDateParams()
 
-  if (appIds.length) {
-    dispatch(
-      fetchTrafficStatistics({
-        applicationId: appIds,
-        dateFrom: defaultParams.dateFrom,
-        dateTo: defaultParams.dateTo,
-      }),
-    )
+    if (appIds.length) {
+      dispatch(
+        fetchTrafficStatistics({
+          applicationId: appIds,
+          dateFrom: defaultParams.dateFrom,
+          dateTo: defaultParams.dateTo,
+        }),
+      )
+    }
   }
-}
 
 export const handleFetchHttpTrafficPerDayDataUseEffect = (fetchHttpTrafficPerDayData: () => void) => {
   return () => {

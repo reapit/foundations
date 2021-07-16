@@ -14,9 +14,9 @@ describe('openNewPage', () => {
 
 describe('navigate', () => {
   it('should open a new page', () => {
-    const mockHistory = ({
+    const mockHistory = {
       push: jest.fn(),
-    } as unknown) as History
+    } as unknown as History
 
     const curried = navigate(mockHistory, Routes.APPS)
     curried()
