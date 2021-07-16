@@ -5,6 +5,7 @@
   "defaultCommandTimeout": 20000,
   "video": false,
   "chromeWebSecurity": false,
+  "runMode": 3,
   "env": {
     "ADMIN_PORTAL_URL_production": "https://developer-admin.reapit.cloud/login",
     "DEVELOPER_PORTAL_URL_production": "https://developers.reapit.cloud/login",
