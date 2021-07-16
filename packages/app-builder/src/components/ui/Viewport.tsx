@@ -1,4 +1,4 @@
-import React, { useContext } from 'react'
+import React, { useContext, useState } from 'react'
 import { useEditor } from '@craftjs/core'
 import IFrame, { FrameContext } from 'react-frame-component'
 import styled, { StyleSheetManager } from 'styled-components'
@@ -7,6 +7,7 @@ import Header from '../ui/Header'
 import Sidebar from '../ui/Sidebar'
 
 import BREAKPOINT from '../../utils/breakpoints'
+import { ToggleRadio } from '@reapit/elements'
 
 const InjectFrameStyles = (props) => {
   const { document } = useContext(FrameContext)
@@ -23,19 +24,15 @@ const Container = styled.div`
 `
 
 const Breakpoints = styled.div`
-  height: 75px;
+  height: 35px;
   display: flex;
   justify-content: center;
-`
-
-const Breakpoint = styled.button`
-  margin-left: 25px;
-  margin-right: 25px;
+  margin-top: 12px;
 `
 
 const Viewport = ({ children, iframeRef }) => {
   const { connectors } = useEditor()
-  const [breakpoint, setBreakpoint] = React.useState(BREAKPOINT.Desktop)
+  const [breakpoint, setBreakpoint] = useState(BREAKPOINT.Desktop)
 
   return (
     <div className="viewport" style={{ flex: 1, flexDirection: 'column', justifyItems: 'stretch', height: '100vh' }}>
@@ -44,10 +41,37 @@ const Viewport = ({ children, iframeRef }) => {
         <Toolbox />
         <Container>
           <Breakpoints>
-            <Breakpoint onClick={() => setBreakpoint(BREAKPOINT.Desktop)}>Desktop</Breakpoint>
-            <Breakpoint onClick={() => setBreakpoint(BREAKPOINT.Tablet)}>Tablet</Breakpoint>
-            <Breakpoint onClick={() => setBreakpoint(BREAKPOINT.MobileL)}>Mobile L</Breakpoint>
-            <Breakpoint onClick={() => setBreakpoint(BREAKPOINT.MobileS)}>Mobile S</Breakpoint>
+            <ToggleRadio
+              name="responsive preview"
+              isFullWidth
+              onChange={(e) => setBreakpoint(parseInt(e.currentTarget.value, 10))}
+              options={[
+                {
+                  id: BREAKPOINT.Desktop.toString(),
+                  value: BREAKPOINT.Desktop.toString(),
+                  text: 'Desktop',
+                  isChecked: breakpoint === BREAKPOINT.Desktop,
+                },
+                {
+                  id: BREAKPOINT.Tablet.toString(),
+                  value: BREAKPOINT.Tablet.toString(),
+                  text: 'Tablet',
+                  isChecked: breakpoint === BREAKPOINT.Tablet,
+                },
+                {
+                  id: BREAKPOINT.MobileL.toString(),
+                  value: BREAKPOINT.MobileL.toString(),
+                  text: 'Mobile L',
+                  isChecked: breakpoint === BREAKPOINT.MobileL,
+                },
+                {
+                  id: BREAKPOINT.MobileS.toString(),
+                  value: BREAKPOINT.MobileS.toString(),
+                  text: 'Mobile S',
+                  isChecked: breakpoint === BREAKPOINT.MobileS,
+                },
+              ]}
+            />
           </Breakpoints>
           <IFrame
             style={{ transition: 'width 350ms', width: breakpoint, flex: 1 }}

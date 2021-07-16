@@ -5,11 +5,11 @@ import Tooltip from '@material-ui/core/Tooltip'
 
 import SquareSvg from '../icons/square'
 import TypeSvg from '../icons/type'
-import ButtonSvg from '../icons/button'
+// import ButtonSvg from '../icons/button'
 
 import Container from './user/Container'
 import Text from './user/Text'
-import Button from './user/Button'
+// import Button from './user/Button'
 
 const Item = styled.a<{ move?: boolean }>`
   svg {
@@ -60,13 +60,13 @@ const Toolbox = () => {
             </Item>
           </Tooltip>
         </div>
-        <div ref={(ref) => ref && create(ref, <Button text="Click me!" />)}>
+        {/* <div ref={(ref) => ref && create(ref, <Button text="Click me!" />)}>
           <Tooltip title="Button" placement="right">
             <Item className="m-2 pb-2 cursor-pointer block" move>
               <ButtonSvg />
             </Item>
           </Tooltip>
-        </div>
+        </div> */}
       </div>
     </ToolboxDiv>
   )

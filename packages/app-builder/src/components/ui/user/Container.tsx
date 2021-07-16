@@ -6,8 +6,6 @@ import { ToolbarItem, ToolbarSection } from '../Toolbar'
 
 const ContainerDiv = styled.div`
   display: flex;
-  /* grid-template-columns: repeat(12, minmax(100px, 1fr));
-  grid-template-rows: 1fr; */
   align-items: center;
   justify-items: space-between;
 
