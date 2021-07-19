@@ -30,13 +30,8 @@ export const createPaymentReceiptInternal = async (
   config = configJson,
 ) => {
   try {
-    const {
-      receipientEmail,
-      recipientName,
-      paymentReason,
-      paymentCurrency,
-      paymentAmount,
-    }: EmailPaymentReceipt = req.body
+    const { receipientEmail, recipientName, paymentReason, paymentCurrency, paymentAmount }: EmailPaymentReceipt =
+      req.body
     const { traceId } = req
     const clientCode: string | undefined = req.headers['reapit-customer'] as string
     const apiVersion: string | undefined = req.headers['api-version'] as string
