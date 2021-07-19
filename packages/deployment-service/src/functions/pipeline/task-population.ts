@@ -31,27 +31,11 @@ export const taskPopulation: Handler = async (event: any, context: Context, call
 
       const firstTask = tasks[0]
 
-      const queueUrl = await new Promise<string>((resolve, reject) =>
-        sqs.getQueueUrl(
-          {
-            QueueName: QueueNames.TASK_RUNNER,
-          },
-          (error, data) => {
-            if (error) {
-              console.error(error)
-              reject()
-            }
-            typeof data.QueueUrl === 'undefined' ? reject() : resolve(data.QueueUrl)
-          },
-        ),
-      )
-
-      console.log('sending message on queue', queueUrl)
       await new Promise<void>((resolve, reject) =>
         sqs.sendMessage(
           {
             MessageBody: JSON.stringify(firstTask),
-            QueueUrl: queueUrl,
+            QueueUrl: QueueNames.TASK_RUNNER,
           },
           (error) => {
             if (error) {
@@ -63,6 +47,8 @@ export const taskPopulation: Handler = async (event: any, context: Context, call
       )
     }),
   )
+
+  // TODO delete from queue
 
   // TODO start first task exec
   return callback(null, `Successfully processed ${event.Records.length} records.`)
