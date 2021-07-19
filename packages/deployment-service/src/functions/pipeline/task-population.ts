@@ -1,6 +1,6 @@
 import { TaskEntity, PipelineRunnerEntity, PipelineEntity } from './../../entities'
 import { createBatchTasks } from './../../services'
-import { Handler, Context, Callback } from 'aws-lambda'
+import { Context, Callback, SQSEvent, SQSHandler } from 'aws-lambda'
 import { plainToClass } from 'class-transformer'
 import { sqs } from './../../services'
 import { QueueNames } from '../../constants'
@@ -18,7 +18,11 @@ export const workflowCreation = async (pipelineRunner: PipelineRunnerEntity): Pr
 /**
  * SQS event to auto generate tasks on pipeline creation
  */
-export const taskPopulation: Handler = async (event: any, context: Context, callback: Callback): Promise<void> => {
+export const taskPopulation: SQSHandler = async (
+  event: SQSEvent,
+  context: Context,
+  callback: Callback,
+): Promise<void> => {
   // TODO stop all currently running pipelines for pipeline
 
   await Promise.all(
@@ -49,8 +53,8 @@ export const taskPopulation: Handler = async (event: any, context: Context, call
         new Promise<void>((resolve, reject) =>
           sqs.deleteMessage(
             {
-              ReceiptHandle: record.ReceiptHandle,
-              QueueUrl: QueueNames.TASK_RUNNER,
+              ReceiptHandle: record.receiptHandle,
+              QueueUrl: QueueNames.TASK_POPULATION,
             },
             (err) => {
               if (err) {
@@ -64,8 +68,5 @@ export const taskPopulation: Handler = async (event: any, context: Context, call
     }),
   )
 
-  // TODO delete from queue
-
-  // TODO start first task exec
   return callback(null, `Successfully processed ${event.Records.length} records.`)
 }
