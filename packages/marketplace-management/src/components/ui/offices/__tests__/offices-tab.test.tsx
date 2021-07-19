@@ -17,9 +17,9 @@ jest.mock('swr', () =>
   })),
 )
 
-const historyMock = ({
+const historyMock = {
   push: jest.fn(),
-} as unknown) as History<any>
+} as unknown as History<any>
 
 describe('OfficesTab', () => {
   it('should match a snapshot', () => {

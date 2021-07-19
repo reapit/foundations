@@ -53,30 +53,27 @@ export const formFields: Record<FieldType, FormFieldInfo> = {
     label: 'Active',
   },
 }
-export const onHandleSubmit = (
-  handleOnClose: () => void,
-  onRefetchData: () => void,
-  editingGroup: OfficeGroupModel,
-  orgId: string,
-) => async (params: UpdateOfficeGroupModel) => {
-  const { name, officeIds: listId } = params
-  const officeIds = listId.toString()
-  const status = params.status ? 'active' : 'inactive'
-  const updateOffice = await updateOfficeGroup({ name, officeIds, status }, orgId, editingGroup?.id || '')
+export const onHandleSubmit =
+  (handleOnClose: () => void, onRefetchData: () => void, editingGroup: OfficeGroupModel, orgId: string) =>
+  async (params: UpdateOfficeGroupModel) => {
+    const { name, officeIds: listId } = params
+    const officeIds = listId.toString()
+    const status = params.status ? 'active' : 'inactive'
+    const updateOffice = await updateOfficeGroup({ name, officeIds, status }, orgId, editingGroup?.id || '')
 
-  if (updateOffice) {
-    notification.success({
-      message: toastMessages.CHANGES_SAVE_SUCCESS,
+    if (updateOffice) {
+      notification.success({
+        message: toastMessages.CHANGES_SAVE_SUCCESS,
+      })
+      handleOnClose()
+      onRefetchData()
+      return
+    }
+
+    notification.error({
+      message: toastMessages.FAILED_TO_EDIT_OFFICE_GROUP,
     })
-    handleOnClose()
-    onRefetchData()
-    return
   }
-
-  notification.error({
-    message: toastMessages.FAILED_TO_EDIT_OFFICE_GROUP,
-  })
-}
 
 export const UpdateOfficeGroupModal: React.FC<UpdateOfficeGroupModalProps> = ({
   editingGroup,

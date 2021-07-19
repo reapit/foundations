@@ -23,7 +23,10 @@ import { overflowUnset } from '../../ui/app-list/__styles__'
 
 const DEFAULT_SCROLL_THRESHOLD = 0.3
 
-export const handleAfterClose = ({ setVisible }) => () => setVisible(false)
+export const handleAfterClose =
+  ({ setVisible }) =>
+  () =>
+    setVisible(false)
 export const handleOnChange = (history) => (page: number) => {
   history.push(addQuery({ page }))
 }
@@ -32,22 +35,24 @@ export const handleOnCardClick = (history: History) => (app: AppSummaryModel) =>
   history.push(`${Routes.APPS}/${app.id}`)
 }
 
-export const handleLoadMore = ({
-  dispatch,
-  preview,
-  loading,
-  numOfItemsPerPage,
-  pageNumber,
-}: {
-  dispatch: Dispatch
-  preview: boolean
-  loading: boolean
-  numOfItemsPerPage: number
-  pageNumber: number
-}) => () => {
-  !loading &&
-    dispatch(fetchApps({ pageNumber: pageNumber + 1, preview, isInfinite: true, pageSize: numOfItemsPerPage }))
-}
+export const handleLoadMore =
+  ({
+    dispatch,
+    preview,
+    loading,
+    numOfItemsPerPage,
+    pageNumber,
+  }: {
+    dispatch: Dispatch
+    preview: boolean
+    loading: boolean
+    numOfItemsPerPage: number
+    pageNumber: number
+  }) =>
+  () => {
+    !loading &&
+      dispatch(fetchApps({ pageNumber: pageNumber + 1, preview, isInfinite: true, pageSize: numOfItemsPerPage }))
+  }
 
 export const Apps: React.FunctionComponent = () => {
   const history = useHistory()

@@ -8,31 +8,33 @@ export interface AppToggleVisibilityProps {
   reFetchApp: () => Promise<AppDetailModel | undefined>
 }
 
-export const handleOnCheckboxChange = (
-  setChecked: Dispatch<SetStateAction<boolean>>,
-  reFetchApp: () => Promise<AppDetailModel | undefined>,
-  appId: string,
-  checked: boolean,
-) => async () => {
-  setChecked(!checked)
+export const handleOnCheckboxChange =
+  (
+    setChecked: Dispatch<SetStateAction<boolean>>,
+    reFetchApp: () => Promise<AppDetailModel | undefined>,
+    appId: string,
+    checked: boolean,
+  ) =>
+  async () => {
+    setChecked(!checked)
 
-  const updatedAppRestrictions = await updateAppRestrictionsService({
-    appId: appId,
-    status: checked ? 'exclude' : 'include',
-  })
-  if (updatedAppRestrictions) {
-    await reFetchApp()
-    return notification.success({
-      message: 'Successfully updated app restrictions',
+    const updatedAppRestrictions = await updateAppRestrictionsService({
+      appId: appId,
+      status: checked ? 'exclude' : 'include',
     })
+    if (updatedAppRestrictions) {
+      await reFetchApp()
+      return notification.success({
+        message: 'Successfully updated app restrictions',
+      })
+    }
+
+    notification.error({
+      message: 'Failed to update app restrictions',
+    })
+
+    setChecked(checked)
   }
-
-  notification.error({
-    message: 'Failed to update app restrictions',
-  })
-
-  setChecked(checked)
-}
 
 const AppToggleVisibilitySection: React.FC<AppToggleVisibilityProps> = ({
   app,

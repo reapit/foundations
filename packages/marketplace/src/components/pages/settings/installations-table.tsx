@@ -17,23 +17,28 @@ export interface InstallationRowType {
   accessor: string | ((data: InstallationModelWithAppName) => string)
 }
 
-export const handleMemoisedData = (
-  installationsListData: InstallationModelPagedResult | null,
-  appsListData: AppSummaryModel[] | undefined,
-  pageNumber: number,
-) => (): InstallationModelWithAppName[] => {
-  const installationsWithAppName =
-    installationsListData?.data?.map((installation) => {
-      const appName = appsListData?.find((app) => app.id === installation.appId)?.name ?? ''
+export const handleMemoisedData =
+  (
+    installationsListData: InstallationModelPagedResult | null,
+    appsListData: AppSummaryModel[] | undefined,
+    pageNumber: number,
+  ) =>
+  (): InstallationModelWithAppName[] => {
+    const installationsWithAppName =
+      installationsListData?.data?.map((installation) => {
+        const appName = appsListData?.find((app) => app.id === installation.appId)?.name ?? ''
 
-      return {
-        ...installation,
-        appName,
-      }
-    }) || []
+        return {
+          ...installation,
+          appName,
+        }
+      }) || []
 
-  return installationsWithAppName.slice((pageNumber - 1) * INSTALLATIONS_PER_PAGE, pageNumber * INSTALLATIONS_PER_PAGE)
-}
+    return installationsWithAppName.slice(
+      (pageNumber - 1) * INSTALLATIONS_PER_PAGE,
+      pageNumber * INSTALLATIONS_PER_PAGE,
+    )
+  }
 
 export const handleSetPageNumber = (setPageNumber: Dispatch<SetStateAction<number>>) => (pageNumber: number) =>
   setPageNumber(pageNumber)

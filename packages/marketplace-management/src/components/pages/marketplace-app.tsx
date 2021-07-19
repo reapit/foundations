@@ -25,9 +25,11 @@ const MarketplaceAppPage: React.FC = () => {
   const { appId } = parms
   const clientId = connectSession?.loginIdentity?.clientId
 
-  const { data: app, error: appsError, mutate: reFetchApp } = useSWR<AppDetailModel | undefined>(
-    clientId ? `${URLS.APPS}/${appId}?clientId=${clientId}` : null,
-  )
+  const {
+    data: app,
+    error: appsError,
+    mutate: reFetchApp,
+  } = useSWR<AppDetailModel | undefined>(clientId ? `${URLS.APPS}/${appId}?clientId=${clientId}` : null)
   const { data: desktopIntegrationTypes, error: typesError } = useSWR<
     DesktopIntegrationTypeModelPagedResult | undefined
   >(`${URLS.DESKTOP_INTEGRATION_TYPES}`)

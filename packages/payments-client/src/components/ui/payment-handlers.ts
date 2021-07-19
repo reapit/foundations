@@ -18,92 +18,93 @@ import { PaymentWithPropertyModel, UpdateStatusBody, UpdateStatusParams } from '
 import { v4 as uuid } from 'uuid'
 import { PaymentProvider, OpayoProvider } from '@/services/providers'
 
-export const handlePaymentProviderEffect = (
-  setLoading: Dispatch<SetStateAction<boolean>>,
-  setPaymentProvider: Dispatch<SetStateAction<PaymentProvider | null>>,
-  clientCode?: string | null,
-) => () => {
-  if (clientCode) {
-    const fetchmerchantKey = async () => {
-      const fetchedKey = await opayoMerchantKeyService(clientCode)
-      if (fetchedKey) {
-        const provider = new OpayoProvider(fetchedKey)
-        setPaymentProvider(provider)
+export const handlePaymentProviderEffect =
+  (
+    setLoading: Dispatch<SetStateAction<boolean>>,
+    setPaymentProvider: Dispatch<SetStateAction<PaymentProvider | null>>,
+    clientCode?: string | null,
+  ) =>
+  () => {
+    if (clientCode) {
+      const fetchmerchantKey = async () => {
+        const fetchedKey = await opayoMerchantKeyService(clientCode)
+        if (fetchedKey) {
+          const provider = new OpayoProvider(fetchedKey)
+          setPaymentProvider(provider)
+        }
+        setLoading(false)
       }
-      setLoading(false)
+      fetchmerchantKey()
+      setLoading(true)
     }
-    fetchmerchantKey()
-    setLoading(true)
   }
-}
 
-export const handlePaymentRequestSubmit = (
-  setIsLoading: Dispatch<SetStateAction<boolean>>,
-  handleOnClose: () => void,
-) => async ({
-  receipientEmail,
-  recipientName,
-  paymentReason,
-  paymentAmount,
-  paymentCurrency,
-  keyExpiresAt,
-  paymentId,
-  _eTag,
-}: PaymentEmailRequestModel) => {
-  try {
-    setIsLoading(true)
-    const session = await reapitConnectBrowserSession.connectSession()
+export const handlePaymentRequestSubmit =
+  (setIsLoading: Dispatch<SetStateAction<boolean>>, handleOnClose: () => void) =>
+  async ({
+    receipientEmail,
+    recipientName,
+    paymentReason,
+    paymentAmount,
+    paymentCurrency,
+    keyExpiresAt,
+    paymentId,
+    _eTag,
+  }: PaymentEmailRequestModel) => {
+    try {
+      setIsLoading(true)
+      const session = await reapitConnectBrowserSession.connectSession()
 
-    if (!session || !session.loginIdentity.clientId) throw new Error('No Reapit Connect Session is present')
+      if (!session || !session.loginIdentity.clientId) throw new Error('No Reapit Connect Session is present')
 
-    const formattedKeyExpires = dayjs(keyExpiresAt).format(DATE_TIME_FORMAT.RFC3339)
+      const formattedKeyExpires = dayjs(keyExpiresAt).format(DATE_TIME_FORMAT.RFC3339)
 
-    const apiKey = await generatePaymentApiKey({
-      clientCode: session.loginIdentity.clientId,
-      keyExpiresAt: formattedKeyExpires,
-      paymentId,
-    })
+      const apiKey = await generatePaymentApiKey({
+        clientCode: session.loginIdentity.clientId,
+        keyExpiresAt: formattedKeyExpires,
+        paymentId,
+      })
 
-    if (!apiKey) throw new Error('API key request failed')
+      if (!apiKey) throw new Error('API key request failed')
 
-    const updateParams = { paymentId, clientCode: session.loginIdentity.clientId, _eTag, session: apiKey.apiKey }
+      const updateParams = { paymentId, clientCode: session.loginIdentity.clientId, _eTag, session: apiKey.apiKey }
 
-    const emailRequest = await generateEmailPaymentRequest(
-      {
-        receipientEmail,
-        recipientName,
-        paymentReason,
-        paymentAmount,
-        paymentCurrency,
-        paymentExpiry: formattedKeyExpires,
-      },
-      updateParams,
-    )
+      const emailRequest = await generateEmailPaymentRequest(
+        {
+          receipientEmail,
+          recipientName,
+          paymentReason,
+          paymentAmount,
+          paymentCurrency,
+          paymentExpiry: formattedKeyExpires,
+        },
+        updateParams,
+      )
 
-    if (!emailRequest) throw new Error('Email request failed')
+      if (!emailRequest) throw new Error('Email request failed')
 
-    const paymentStatusUpdate = await updatePaymentStatus(
-      {
-        status: 'awaitingPosting',
-      },
-      updateParams,
-    )
+      const paymentStatusUpdate = await updatePaymentStatus(
+        {
+          status: 'awaitingPosting',
+        },
+        updateParams,
+      )
 
-    if (!paymentStatusUpdate) throw new Error('Payment status update request failed')
+      if (!paymentStatusUpdate) throw new Error('Payment status update request failed')
 
-    notification.success({
-      message: 'Payment request was successfully sent by email',
-    })
-    setIsLoading(false)
-    handleOnClose()
-  } catch (err) {
-    notification.error({
-      message: 'Payment email request was unsuccessful',
-    })
+      notification.success({
+        message: 'Payment request was successfully sent by email',
+      })
+      setIsLoading(false)
+      handleOnClose()
+    } catch (err) {
+      notification.error({
+        message: 'Payment email request was unsuccessful',
+      })
 
-    setIsLoading(false)
+      setIsLoading(false)
+    }
   }
-}
 
 export const onUpdateStatus = async (
   updateStatusBody: UpdateStatusBody,
@@ -140,76 +141,80 @@ export const onUpdateStatus = async (
   setPaymentStatus('posted')
 }
 
-export const handleCreateTransaction = (
-  merchantKey: MerchantKey,
-  payment: PaymentWithPropertyModel,
-  cardDetails: CardDetails,
-  paymentId: string,
-  setPaymentStatus: Dispatch<SetStateAction<PaymentStatusType>>,
-  session?: string,
-) => async (result: any) => {
-  const { customerFirstName, customerLastName, address1, city, postalCode, country } = cardDetails
-  const { amount, description, clientCode, _eTag = '', id } = payment
-  const updateStatusParams = { paymentId, clientCode, _eTag, session }
+export const handleCreateTransaction =
+  (
+    merchantKey: MerchantKey,
+    payment: PaymentWithPropertyModel,
+    cardDetails: CardDetails,
+    paymentId: string,
+    setPaymentStatus: Dispatch<SetStateAction<PaymentStatusType>>,
+    session?: string,
+  ) =>
+  async (result: any) => {
+    const { customerFirstName, customerLastName, address1, city, postalCode, country } = cardDetails
+    const { amount, description, clientCode, _eTag = '', id } = payment
+    const updateStatusParams = { paymentId, clientCode, _eTag, session }
 
-  if (result.success && id) {
-    const transaction = await opayoCreateTransactionService(clientCode, {
-      transactionType: 'Payment',
-      paymentMethod: {
-        card: {
-          merchantSessionKey: merchantKey.merchantSessionKey,
-          cardIdentifier: result.cardIdentifier,
-          save: false,
+    if (result.success && id) {
+      const transaction = await opayoCreateTransactionService(clientCode, {
+        transactionType: 'Payment',
+        paymentMethod: {
+          card: {
+            merchantSessionKey: merchantKey.merchantSessionKey,
+            cardIdentifier: result.cardIdentifier,
+            save: false,
+          },
         },
-      },
-      vendorTxCode: window.reapit.config.appEnv === 'production' ? id : `${uuid()}`,
-      amount: amount ? amount * 100 : 0,
-      currency: 'GBP',
-      description: description || '',
-      apply3DSecure: 'Disable',
-      customerFirstName,
-      customerLastName,
-      billingAddress: {
-        address1,
-        city,
-        postalCode,
-        country,
-      },
-      entryMethod: 'Ecommerce',
-    })
+        vendorTxCode: window.reapit.config.appEnv === 'production' ? id : `${uuid()}`,
+        amount: amount ? amount * 100 : 0,
+        currency: 'GBP',
+        description: description || '',
+        apply3DSecure: 'Disable',
+        customerFirstName,
+        customerLastName,
+        billingAddress: {
+          address1,
+          city,
+          postalCode,
+          country,
+        },
+        entryMethod: 'Ecommerce',
+      })
 
-    const status = transaction && transaction?.status?.toLowerCase() === 'ok' ? 'posted' : 'rejected'
-    const externalReference = transaction && transaction.transactionId ? transaction.transactionId : 'rejected'
-    const updateStatusBody = { status, externalReference: externalReference }
+      const status = transaction && transaction?.status?.toLowerCase() === 'ok' ? 'posted' : 'rejected'
+      const externalReference = transaction && transaction.transactionId ? transaction.transactionId : 'rejected'
+      const updateStatusBody = { status, externalReference: externalReference }
+
+      return onUpdateStatus(updateStatusBody, updateStatusParams, cardDetails, payment, setPaymentStatus)
+    }
+
+    const updateStatusBody = { status, externalReference: 'rejected' }
 
     return onUpdateStatus(updateStatusBody, updateStatusParams, cardDetails, payment, setPaymentStatus)
   }
 
-  const updateStatusBody = { status, externalReference: 'rejected' }
-
-  return onUpdateStatus(updateStatusBody, updateStatusParams, cardDetails, payment, setPaymentStatus)
-}
-
-export const onHandleSubmit = (
-  merchantKey: MerchantKey,
-  payment: PaymentWithPropertyModel,
-  paymentId: string,
-  setPaymentStatus: Dispatch<SetStateAction<PaymentStatusType>>,
-  session?: string,
-) => (cardDetails: CardDetails) => {
-  const { cardholderName, cardNumber, expiryDate, securityCode } = cardDetails
-  setPaymentStatus('loading')
-  window
-    .sagepayOwnForm({
-      merchantSessionKey: merchantKey.merchantSessionKey,
-    })
-    .tokeniseCardDetails({
-      cardDetails: {
-        cardholderName,
-        cardNumber: unformatCard(cardNumber),
-        expiryDate: unformatCardExpires(expiryDate),
-        securityCode,
-      },
-      onTokenised: handleCreateTransaction(merchantKey, payment, cardDetails, paymentId, setPaymentStatus, session),
-    })
-}
+export const onHandleSubmit =
+  (
+    merchantKey: MerchantKey,
+    payment: PaymentWithPropertyModel,
+    paymentId: string,
+    setPaymentStatus: Dispatch<SetStateAction<PaymentStatusType>>,
+    session?: string,
+  ) =>
+  (cardDetails: CardDetails) => {
+    const { cardholderName, cardNumber, expiryDate, securityCode } = cardDetails
+    setPaymentStatus('loading')
+    window
+      .sagepayOwnForm({
+        merchantSessionKey: merchantKey.merchantSessionKey,
+      })
+      .tokeniseCardDetails({
+        cardDetails: {
+          cardholderName,
+          cardNumber: unformatCard(cardNumber),
+          expiryDate: unformatCardExpires(expiryDate),
+          securityCode,
+        },
+        onTokenised: handleCreateTransaction(merchantKey, payment, cardDetails, paymentId, setPaymentStatus, session),
+      })
+  }

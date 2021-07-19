@@ -21,9 +21,9 @@ describe('handleSubmitChangePassword', () => {
       confirmPassword: 'Password1',
     }
     const changePassword = jest.fn()
-    const mockFormikProps = ({
+    const mockFormikProps = {
       setSubmitting: jest.fn(),
-    } as unknown) as FormikHelpers<ChangePasswordValues>
+    } as unknown as FormikHelpers<ChangePasswordValues>
     const spy = jest.spyOn(mockFormikProps, 'setSubmitting')
 
     const fn = handleSubmitChangePassword(changePassword)

@@ -28,40 +28,42 @@ import { Loader } from '@reapit/elements'
 
 export type ClientAppDetailProps = {}
 
-export const handleCloseInstallConfirmationModal = (
-  setIsVisibleInstallConfirmation: (isVisible: boolean) => void,
-) => () => {
-  setIsVisibleInstallConfirmation(false)
-}
-export const handleCloseUnInstallConfirmationModal = (
-  setIsVisibleUnInstallConfirmation: (isVisible: boolean) => void,
-) => () => {
-  setIsVisibleUnInstallConfirmation(false)
-}
-
-export const handleInstallAppButtonClick = (
-  setIsVisibleInstallConfirmation: (isVisible: boolean) => void,
-  setNonAdminModalType: React.Dispatch<NonAdminModalType>,
-  isAdmin: boolean,
-) => () => {
-  if (!isAdmin) {
-    setNonAdminModalType('INSTALL')
-    return
+export const handleCloseInstallConfirmationModal =
+  (setIsVisibleInstallConfirmation: (isVisible: boolean) => void) => () => {
+    setIsVisibleInstallConfirmation(false)
   }
-  setIsVisibleInstallConfirmation(true)
-}
-
-export const handleUnInstallAppButtonClick = (
-  setIsVisibleUnInstallConfirmation: (isVisible: boolean) => void,
-  setNonAdminModalType: React.Dispatch<NonAdminModalType>,
-  isAdmin: boolean,
-) => () => {
-  if (!isAdmin) {
-    setNonAdminModalType('UNINSTALL')
-    return
+export const handleCloseUnInstallConfirmationModal =
+  (setIsVisibleUnInstallConfirmation: (isVisible: boolean) => void) => () => {
+    setIsVisibleUnInstallConfirmation(false)
   }
-  setIsVisibleUnInstallConfirmation(true)
-}
+
+export const handleInstallAppButtonClick =
+  (
+    setIsVisibleInstallConfirmation: (isVisible: boolean) => void,
+    setNonAdminModalType: React.Dispatch<NonAdminModalType>,
+    isAdmin: boolean,
+  ) =>
+  () => {
+    if (!isAdmin) {
+      setNonAdminModalType('INSTALL')
+      return
+    }
+    setIsVisibleInstallConfirmation(true)
+  }
+
+export const handleUnInstallAppButtonClick =
+  (
+    setIsVisibleUnInstallConfirmation: (isVisible: boolean) => void,
+    setNonAdminModalType: React.Dispatch<NonAdminModalType>,
+    isAdmin: boolean,
+  ) =>
+  () => {
+    if (!isAdmin) {
+      setNonAdminModalType('UNINSTALL')
+      return
+    }
+    setIsVisibleUnInstallConfirmation(true)
+  }
 
 export const onBackToAppsButtonClick = (history: History) => () => {
   if (canGoBack(history)) {

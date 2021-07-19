@@ -63,22 +63,28 @@ export const handleInstallAppSuccessCallback = (
   }
 }
 
-export const handleInstallButtonClick = (
-  appId: string,
-  clientId: string,
-  dispatch: Dispatch<any>,
-  setIsSuccessAlertVisible: (isVisible: boolean) => void,
-  closeInstallConfirmationModal: () => void,
-  isDesktopMode: boolean,
-) => () => {
-  dispatch(
-    installApp({
-      appId,
-      clientId,
-      callback: handleInstallAppSuccessCallback(setIsSuccessAlertVisible, closeInstallConfirmationModal, isDesktopMode),
-    }),
-  )
-}
+export const handleInstallButtonClick =
+  (
+    appId: string,
+    clientId: string,
+    dispatch: Dispatch<any>,
+    setIsSuccessAlertVisible: (isVisible: boolean) => void,
+    closeInstallConfirmationModal: () => void,
+    isDesktopMode: boolean,
+  ) =>
+  () => {
+    dispatch(
+      installApp({
+        appId,
+        clientId,
+        callback: handleInstallAppSuccessCallback(
+          setIsSuccessAlertVisible,
+          closeInstallConfirmationModal,
+          isDesktopMode,
+        ),
+      }),
+    )
+  }
 
 export const handleSuccessAlertButtonClick = (history: History) => () => {
   if (canGoBack(history)) {

@@ -3,7 +3,7 @@ import { shallow } from 'enzyme'
 import { App, isUserWithDevIdOnly } from '../app'
 import { LoginIdentity, useReapitConnect } from '@reapit/connect-session'
 
-const mockedUseReapitConnect = (useReapitConnect as unknown) as jest.Mock
+const mockedUseReapitConnect = useReapitConnect as unknown as jest.Mock
 
 jest.mock('@reapit/connect-session')
 
@@ -27,7 +27,7 @@ const mockSession = {
   },
 }
 
-const loginIdentitiyWithDeveloperIdOnly = ({ developerId: '1' } as unknown) as LoginIdentity
+const loginIdentitiyWithDeveloperIdOnly = { developerId: '1' } as unknown as LoginIdentity
 
 describe('isUserWithDevIdOnly', () => {
   test('user with developer id only', () => {

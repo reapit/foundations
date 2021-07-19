@@ -56,9 +56,11 @@ exports[`Router should match a snapshot 1`] = `
               component={
                 Object {
                   "$$typeof": Symbol(react.lazy),
-                  "_ctor": [Function],
-                  "_result": null,
-                  "_status": -1,
+                  "_init": [Function],
+                  "_payload": Object {
+                    "_result": [Function],
+                    "_status": -1,
+                  },
                 }
               }
               path="/*"
@@ -74,9 +76,11 @@ exports[`Router should match a snapshot 1`] = `
               component={
                 Object {
                   "$$typeof": Symbol(react.lazy),
-                  "_ctor": [Function],
-                  "_result": null,
-                  "_status": -1,
+                  "_init": [Function],
+                  "_payload": Object {
+                    "_result": [Function],
+                    "_status": -1,
+                  },
                 }
               }
               path="/*"
@@ -89,9 +93,11 @@ exports[`Router should match a snapshot 1`] = `
               component={
                 Object {
                   "$$typeof": Symbol(react.lazy),
-                  "_ctor": [Function],
-                  "_result": null,
-                  "_status": -1,
+                  "_init": [Function],
+                  "_payload": Object {
+                    "_result": [Function],
+                    "_status": -1,
+                  },
                 }
               }
               path="/authentication"
@@ -100,9 +106,11 @@ exports[`Router should match a snapshot 1`] = `
               component={
                 Object {
                   "$$typeof": Symbol(react.lazy),
-                  "_ctor": [Function],
-                  "_result": null,
-                  "_status": -1,
+                  "_init": [Function],
+                  "_payload": Object {
+                    "_result": [Function],
+                    "_status": -1,
+                  },
                 }
               }
               exact={true}
@@ -113,9 +121,11 @@ exports[`Router should match a snapshot 1`] = `
               component={
                 Object {
                   "$$typeof": Symbol(react.lazy),
-                  "_ctor": [Function],
-                  "_result": null,
-                  "_status": -1,
+                  "_init": [Function],
+                  "_payload": Object {
+                    "_result": [Function],
+                    "_status": -1,
+                  },
                 }
               }
               exact={true}
@@ -126,9 +136,11 @@ exports[`Router should match a snapshot 1`] = `
               component={
                 Object {
                   "$$typeof": Symbol(react.lazy),
-                  "_ctor": [Function],
-                  "_result": null,
-                  "_status": -1,
+                  "_init": [Function],
+                  "_payload": Object {
+                    "_result": [Function],
+                    "_status": -1,
+                  },
                 }
               }
               exact={true}
@@ -139,9 +151,11 @@ exports[`Router should match a snapshot 1`] = `
               component={
                 Object {
                   "$$typeof": Symbol(react.lazy),
-                  "_ctor": [Function],
-                  "_result": null,
-                  "_status": -1,
+                  "_init": [Function],
+                  "_payload": Object {
+                    "_result": [Function],
+                    "_status": -1,
+                  },
                 }
               }
               exact={true}
@@ -152,9 +166,11 @@ exports[`Router should match a snapshot 1`] = `
               component={
                 Object {
                   "$$typeof": Symbol(react.lazy),
-                  "_ctor": [Function],
-                  "_result": null,
-                  "_status": -1,
+                  "_init": [Function],
+                  "_payload": Object {
+                    "_result": [Function],
+                    "_status": -1,
+                  },
                 }
               }
               exact={true}
@@ -165,9 +181,11 @@ exports[`Router should match a snapshot 1`] = `
               component={
                 Object {
                   "$$typeof": Symbol(react.lazy),
-                  "_ctor": [Function],
-                  "_result": null,
-                  "_status": -1,
+                  "_init": [Function],
+                  "_payload": Object {
+                    "_result": [Function],
+                    "_status": -1,
+                  },
                 }
               }
               exact={true}

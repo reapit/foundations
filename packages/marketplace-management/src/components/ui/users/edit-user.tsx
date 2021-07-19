@@ -54,35 +54,35 @@ export const sortAddRemoveGroups = (editingUser: UserModel, groupIds: string[]) 
   }
 }
 
-export const onHandleSubmit = (handleOnClose: () => void, onRefetchData: () => void, editingUser?: UserModel) => async (
-  params: UpdateUserModel,
-) => {
-  const { groupIds } = params
-  const userId = editingUser?.id
-  if (!groupIds || !editingUser || !userId) return null
+export const onHandleSubmit =
+  (handleOnClose: () => void, onRefetchData: () => void, editingUser?: UserModel) =>
+  async (params: UpdateUserModel) => {
+    const { groupIds } = params
+    const userId = editingUser?.id
+    if (!groupIds || !editingUser || !userId) return null
 
-  const { removeIds, addIds } = sortAddRemoveGroups(editingUser, groupIds)
-  const totalUpdates = removeIds.length + addIds.length
+    const { removeIds, addIds } = sortAddRemoveGroups(editingUser, groupIds)
+    const totalUpdates = removeIds.length + addIds.length
 
-  const updateUserRes = await Promise.all([
-    ...removeIds.map((id) => removeMemberFromGroup({ id, userId })),
-    ...addIds.map((id) => addMemberToGroup({ id, userId })),
-  ])
+    const updateUserRes = await Promise.all([
+      ...removeIds.map((id) => removeMemberFromGroup({ id, userId })),
+      ...addIds.map((id) => addMemberToGroup({ id, userId })),
+    ])
 
-  const positiveResponses = updateUserRes.filter((res) => Boolean(res))
+    const positiveResponses = updateUserRes.filter((res) => Boolean(res))
 
-  if (positiveResponses && positiveResponses.length === totalUpdates) {
-    notification.success({
-      message: toastMessages.CHANGES_SAVE_SUCCESS,
+    if (positiveResponses && positiveResponses.length === totalUpdates) {
+      notification.success({
+        message: toastMessages.CHANGES_SAVE_SUCCESS,
+      })
+      handleOnClose()
+      return onRefetchData()
+    }
+
+    return notification.error({
+      message: toastMessages.FAILED_TO_EDIT_USER,
     })
-    handleOnClose()
-    return onRefetchData()
   }
-
-  return notification.error({
-    message: toastMessages.FAILED_TO_EDIT_USER,
-  })
-}
 
 export const UpdateUserModal: React.FC<UpdateUserModalProps> = ({
   editingUser,

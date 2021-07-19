@@ -15,13 +15,10 @@ export const toggleWebComponentModal = (setIsOpenConfigModal, isOpen) => () => {
   setIsOpenConfigModal(isOpen)
 }
 
-export const handleFetchWebComponentConfig = (
-  dispatch: Dispatch,
-  customerId?: string,
-  applicationId?: string,
-) => () => {
-  customerId && applicationId && dispatch(fetchWebComponentConfig({ customerId, applicationId }))
-}
+export const handleFetchWebComponentConfig =
+  (dispatch: Dispatch, customerId?: string, applicationId?: string) => () => {
+    customerId && applicationId && dispatch(fetchWebComponentConfig({ customerId, applicationId }))
+  }
 
 export const WebComponentConfig: React.FC = () => {
   const dispatch = useDispatch()

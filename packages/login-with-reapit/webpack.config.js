@@ -2,8 +2,8 @@ const path = require('path')
 const isProd = process.env.NODE_ENV == 'production'
 const HtmlWebpackPlugin = require('html-webpack-plugin')
 const sveltePreprocess = require('svelte-preprocess')
-const { ESBuildPlugin } = require('esbuild-loader')
 const FriendlyErrorsWebpackPlugin = require('friendly-errors-webpack-plugin')
+const NodePolyfillPlugin = require('node-polyfill-webpack-plugin')
 
 module.exports = {
   entry: {
@@ -16,6 +16,7 @@ module.exports = {
   },
   resolve: {
     extensions: ['.mjs', '.ts', '.tsx', '.js', '.svelte'],
+    fallback: { crypto: require.resolve('crypto-browserify') },
   },
   mode: isProd ? 'production' : 'development',
   module: {
@@ -47,8 +48,21 @@ module.exports = {
     ],
   },
   plugins: [
-    new ESBuildPlugin(),
+    new NodePolyfillPlugin(),
     new HtmlWebpackPlugin({ template: 'public/index.html' }),
     new FriendlyErrorsWebpackPlugin(),
   ],
+  devServer: {
+    quiet: true,
+    hot: true,
+    clientLogLevel: 'warning',
+    stats: {
+      cached: false,
+      cachedAssets: false,
+      chunks: false,
+      chunkModules: false,
+      chunkOrigins: false,
+      modules: false,
+    },
+  }
 }

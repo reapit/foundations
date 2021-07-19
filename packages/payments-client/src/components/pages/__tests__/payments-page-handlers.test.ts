@@ -6,11 +6,11 @@ import { history } from '../../../core/router'
 jest.mock(
   '../../../core/router',
   () =>
-    (({
+    ({
       history: {
         push: jest.fn(),
       },
-    } as unknown) as History<any>),
+    } as unknown as History<any>),
 )
 
 jest.mock('react-router', () => ({
