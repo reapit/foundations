@@ -6,7 +6,24 @@ import { DeploymentStatus, TaskRunnerFunctions } from '@reapit/foundations-ts-de
 import { resolveExecutable } from './../../executables'
 import { QueueNames } from '../../constants'
 
-const failure = async (task: TaskEntity, error?: Error): Promise<void> => {
+const deleteMessage = async (ReceiptHandle: string): Promise<void> => {
+  await new Promise<void>((resolve, reject) =>
+    services.sqs.deleteMessage(
+      {
+        ReceiptHandle,
+        QueueUrl: QueueNames.TASK_RUNNER,
+      },
+      (err) => {
+        if (err) {
+          reject(err)
+        }
+        resolve()
+      },
+    ),
+  )
+}
+
+const failure = async (task: TaskEntity, receiptHandle, error?: Error): Promise<void> => {
   console.error(error)
 
   await Promise.all([
@@ -16,10 +33,11 @@ const failure = async (task: TaskEntity, error?: Error): Promise<void> => {
     services.updateTask(task, {
       status: DeploymentStatus.FAILED,
     }),
+    deleteMessage(receiptHandle),
   ])
 }
 
-const overallSuccess = async (task: TaskEntity): Promise<void> => {
+const overallSuccess = async (task: TaskEntity, receiptHandle: string): Promise<void> => {
   await Promise.all([
     services.updatePipelineRunnerEntity(task.pipelineRunner as PipelineRunnerEntity, {
       buildStatus: DeploymentStatus.SUCCESS,
@@ -27,6 +45,7 @@ const overallSuccess = async (task: TaskEntity): Promise<void> => {
     services.updateTask(task, {
       status: DeploymentStatus.SUCCESS,
     }),
+    deleteMessage(receiptHandle),
   ])
 }
 
@@ -36,7 +55,7 @@ const startTask = async (task: TaskEntity): Promise<void> => {
   })
 }
 
-const completeAndStartNext = async (task: TaskEntity, nextTask: TaskEntity): Promise<void> => {
+const completeAndStartNext = async (task: TaskEntity, nextTask: TaskEntity, receiptHandle: string): Promise<void> => {
   await Promise.all([
     new Promise<void>((resolve, reject) =>
       services.sqs.sendMessage(
@@ -55,6 +74,7 @@ const completeAndStartNext = async (task: TaskEntity, nextTask: TaskEntity): Pro
     services.updateTask(task, {
       status: DeploymentStatus.SUCCESS,
     }),
+    deleteMessage(receiptHandle),
   ])
 }
 
@@ -80,6 +100,8 @@ const getNextTask = async (task: TaskEntity): Promise<TaskEntity | undefined> =>
 export const taskRunner: Handler = async (event: any, context: Context, callback: Callback): Promise<void> => {
   await Promise.all(
     event.Records.map(async (record) => {
+      const receiptHandle = record.ReceiptHandle
+
       const cachedTask = plainToClass(TaskEntity, JSON.parse(record.body))
 
       const task = await services.findTaskById(cachedTask.id as string)
@@ -110,17 +132,15 @@ export const taskRunner: Handler = async (event: any, context: Context, callback
         const nextTask = await getNextTask(task)
 
         if (nextTask) {
-          await completeAndStartNext(task, nextTask)
+          await completeAndStartNext(task, nextTask, receiptHandle)
         } else {
-          overallSuccess(task)
+          overallSuccess(task, receiptHandle)
         }
       } catch (e) {
-        await failure(task, e)
+        await failure(task, receiptHandle, e)
       }
     }),
   )
-
-  // TODO delete from queue
 
   return callback(null, `Successfully processed ${event.Records.length} records.`)
 }
