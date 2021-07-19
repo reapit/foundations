@@ -53,7 +53,7 @@ const SidebarItem: React.FC<SidebarItemProps> = ({ visible, icon, title, childre
     <SidebarItemDiv visible={visible} height={height} className="flex flex-col">
       <HeaderDiv
         onClick={() => {
-          if (onChange){
+          if (onChange) {
             onChange(!visible)
           }
         }}
@@ -62,7 +62,7 @@ const SidebarItem: React.FC<SidebarItemProps> = ({ visible, icon, title, childre
         }`}
       >
         <div className="flex-1 flex items-center">
-          <IconContainer>{React.createElement(icon)}</IconContainer>
+          <IconContainer>{icon}</IconContainer>
           <h2 className="text-xs uppercase">{title}</h2>
         </div>
         <Chevron visible={visible}>

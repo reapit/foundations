@@ -2,6 +2,7 @@ import { useNode } from '@craftjs/core'
 import { Accordion, AccordionDetails, AccordionSummary, Grid, Divider } from '@material-ui/core'
 import { makeStyles } from '@material-ui/core/styles'
 import React from 'react'
+
 const usePanelStyles = makeStyles(() => ({
   root: {
     background: 'transparent',
@@ -43,6 +44,7 @@ export const ToolbarSection = ({ title, props, summary, children }: any) => {
         return res
       }, {}),
   }))
+
   return (
     <Accordion classes={panelClasses}>
       <AccordionSummary classes={summaryClasses}>
@@ -53,14 +55,7 @@ export const ToolbarSection = ({ title, props, summary, children }: any) => {
             </Grid>
             {summary && props && (
               <Grid item xs={8}>
-                <h5 className="text-light-gray-2 text-sm text-right text-dark-blue">
-                  {summary(
-                    props.reduce((acc: any, key: any) => {
-                      acc[key] = nodeProps[key]
-                      return acc
-                    }, {}),
-                  )}
-                </h5>
+                <h5 className="text-light-gray-2 text-sm text-right text-dark-blue">{summary(nodeProps)}</h5>
               </Grid>
             )}
           </Grid>

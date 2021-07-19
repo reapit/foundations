@@ -32,7 +32,7 @@ const Breakpoints = styled.div`
 
 const Viewport = ({ children, iframeRef }) => {
   const { connectors } = useEditor()
-  const [breakpoint, setBreakpoint] = useState(BREAKPOINT.Desktop)
+  const [breakpoint, setBreakpoint] = useState(BREAKPOINT.Tablet)
 
   return (
     <div className="viewport" style={{ flex: 1, flexDirection: 'column', justifyItems: 'stretch', height: '100vh' }}>

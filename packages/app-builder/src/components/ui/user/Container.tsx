@@ -2,7 +2,7 @@ import React from 'react'
 import styled from 'styled-components'
 import { useEditor, useNode } from '@craftjs/core'
 import BREAKPOINT from '../../../utils/breakpoints'
-import { ToolbarItem, ToolbarSection } from '../Toolbar'
+import { ToolbarItem, ToolbarItemType, ToolbarSection } from '../Toolbar'
 
 const ContainerDiv = styled.div`
   display: flex;
@@ -75,7 +75,7 @@ const ContainerSettings = () => (
       return `${width || ''} wide`
     }}
   >
-    <ToolbarItem propKey="width" type="number" label="Columns Wide" />
+    <ToolbarItem propKey="width" type={ToolbarItemType.Number} label="Columns Wide" />
   </ToolbarSection>
 )
 

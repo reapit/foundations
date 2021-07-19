@@ -5,6 +5,7 @@ export * from './ToolbarItem'
 export * from './ToolbarSection'
 export * from './ToolbarTextInput'
 export * from './ToolbarDropdown'
+export * from './types'
 
 const Toolbar = () => {
   const { active, related } = useEditor((state) => ({
