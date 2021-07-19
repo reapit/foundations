@@ -49,7 +49,7 @@ export const taskPopulation: Handler = async (event: any, context: Context, call
         new Promise<void>((resolve, reject) =>
           sqs.deleteMessage(
             {
-              ReceiptHandle: record,
+              ReceiptHandle: record.ReceiptHandle,
               QueueUrl: QueueNames.TASK_RUNNER,
             },
             (err) => {
