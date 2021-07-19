@@ -6,8 +6,8 @@ export const defaultOutputHeaders: DefaultHeadersInterface = {
 }
 
 export enum QueueNames {
-  TASK_RUNNER = 'TaskRunner',
-  TASK_POPULATION = 'TaskPopulation',
+  TASK_RUNNER = 'https://sqs.eu-west-2.amazonaws.com/028446965111/TaskRunner',
+  TASK_POPULATION = 'https://sqs.eu-west-2.amazonaws.com/028446965111/TaskPopulation',
 }
 
 export const cloneDir = 'project'
