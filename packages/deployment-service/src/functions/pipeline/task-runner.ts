@@ -1,13 +1,13 @@
 import { PipelineEntity, PipelineRunnerEntity, TaskEntity, TaskWorkflow } from './../../entities'
-import { Handler, Context, Callback } from 'aws-lambda'
+import { SQSHandler, Context, Callback, SQSEvent } from 'aws-lambda'
 import { plainToClass } from 'class-transformer'
 import * as services from './../../services'
 import { DeploymentStatus, TaskRunnerFunctions } from '@reapit/foundations-ts-definitions'
 import { resolveExecutable } from './../../executables'
 import { QueueNames } from '../../constants'
 
-const deleteMessage = async (ReceiptHandle: string): Promise<void> => {
-  await new Promise<void>((resolve, reject) =>
+const deleteMessage = (ReceiptHandle: string): Promise<void> => {
+  return new Promise<void>((resolve, reject) =>
     services.sqs.deleteMessage(
       {
         ReceiptHandle,
@@ -24,14 +24,18 @@ const deleteMessage = async (ReceiptHandle: string): Promise<void> => {
 }
 
 const failure = async (task: TaskEntity, receiptHandle, error?: Error): Promise<void> => {
-  console.error(error)
+  console.error('failure', error)
 
   await Promise.all([
     services.updatePipelineRunnerEntity(task.pipelineRunner as PipelineRunnerEntity, {
+      tasks: [
+        ...(task.pipelineRunner?.tasks as TaskEntity[]).filter((tas) => tas.id !== task.id),
+        {
+          ...task,
+          status: DeploymentStatus.FAILED,
+        },
+      ],
       buildStatus: DeploymentStatus.FAILED,
-    }),
-    services.updateTask(task, {
-      status: DeploymentStatus.FAILED,
     }),
     deleteMessage(receiptHandle),
   ])
@@ -41,21 +45,33 @@ const overallSuccess = async (task: TaskEntity, receiptHandle: string): Promise<
   await Promise.all([
     services.updatePipelineRunnerEntity(task.pipelineRunner as PipelineRunnerEntity, {
       buildStatus: DeploymentStatus.SUCCESS,
-    }),
-    services.updateTask(task, {
-      status: DeploymentStatus.SUCCESS,
+      tasks: [
+        ...(task.pipelineRunner?.tasks as TaskEntity[]).filter((tas) => tas.id !== task.id),
+        {
+          ...task,
+          status: DeploymentStatus.SUCCESS,
+        },
+      ],
     }),
     deleteMessage(receiptHandle),
   ])
 }
 
 const startTask = async (task: TaskEntity): Promise<void> => {
-  await services.updateTask(task, {
-    status: DeploymentStatus.RUNNING,
+  await services.updatePipelineRunnerEntity(task.pipelineRunner as PipelineRunnerEntity, {
+    buildStatus: DeploymentStatus.RUNNING,
+    tasks: [
+      ...(task.pipelineRunner?.tasks as TaskEntity[]).filter((tas) => tas.id !== task.id),
+      {
+        ...task,
+        status: DeploymentStatus.RUNNING,
+      },
+    ],
   })
 }
 
 const completeAndStartNext = async (task: TaskEntity, nextTask: TaskEntity, receiptHandle: string): Promise<void> => {
+  console.log('next', nextTask)
   await Promise.all([
     new Promise<void>((resolve, reject) =>
       services.sqs.sendMessage(
@@ -71,8 +87,15 @@ const completeAndStartNext = async (task: TaskEntity, nextTask: TaskEntity, rece
         },
       ),
     ),
-    services.updateTask(task, {
-      status: DeploymentStatus.SUCCESS,
+    services.updatePipelineRunnerEntity(task.pipelineRunner as PipelineRunnerEntity, {
+      buildStatus: DeploymentStatus.SUCCESS,
+      tasks: [
+        ...(task.pipelineRunner?.tasks as TaskEntity[]).filter((tas) => tas.id !== task.id),
+        {
+          ...task,
+          status: DeploymentStatus.SUCCESS,
+        },
+      ],
     }),
     deleteMessage(receiptHandle),
   ])
@@ -97,10 +120,10 @@ const getNextTask = async (task: TaskEntity): Promise<TaskEntity | undefined> =>
 /**
  * SQS event for running tasks and determining pipeline results
  */
-export const taskRunner: Handler = async (event: any, context: Context, callback: Callback): Promise<void> => {
+export const taskRunner: SQSHandler = async (event: SQSEvent, context: Context, callback: Callback): Promise<void> => {
   await Promise.all(
     event.Records.map(async (record) => {
-      const receiptHandle = record.ReceiptHandle
+      const receiptHandle = record.receiptHandle
 
       const cachedTask = plainToClass(TaskEntity, JSON.parse(record.body))
 
@@ -109,17 +132,6 @@ export const taskRunner: Handler = async (event: any, context: Context, callback
       if (!task || task.pipelineRunner?.buildStatus !== DeploymentStatus.RUNNING) {
         if (!task) {
           return
-        }
-
-        if (task?.pipelineRunner?.buildStatus === DeploymentStatus.PENDING) {
-          await services.updatePipelineRunnerEntity(
-            {
-              ...task.pipelineRunner,
-            },
-            {
-              buildStatus: DeploymentStatus.RUNNING,
-            },
-          )
         }
       }
 
@@ -137,6 +149,7 @@ export const taskRunner: Handler = async (event: any, context: Context, callback
           overallSuccess(task, receiptHandle)
         }
       } catch (e) {
+        console.log('catch, creating failure', e)
         await failure(task, receiptHandle, e)
       }
     }),
