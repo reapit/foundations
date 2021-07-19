@@ -113,6 +113,24 @@ provider:
       Action:
         - secretsmanager:GetSecretValue
       Resource: ${self:custom.env.AURORA_SECRET_ARN}
+    - Effect: Allow
+      Action:
+        - sqs:GetQueueAttributes
+        - sqs:SendMessage
+        - sqs:DeleteMessage
+      Resource:
+        Fn::GetAtt:
+          - TaskPopulation
+          - Arn
+    - Effect: Allow
+      Action:
+        - sqs:GetQueueAttributes
+        - sqs:SendMessage
+        - sqs:DeleteMessage
+      Resource:
+        Fn::GetAtt:
+          - TaskRunner
+          - Arn
 
 resources:
   Resources:
