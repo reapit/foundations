@@ -2,6 +2,7 @@ import { TextField, makeStyles, InputAdornment } from '@material-ui/core'
 import React, { useEffect } from 'react'
 import { useState } from 'react'
 import { ChromePicker } from 'react-color'
+import { ToolbarItemType } from './types'
 
 const useStyles = makeStyles({
   root: {
@@ -47,7 +48,7 @@ const useLabelStyles = makeStyles({
 export type ToolbarTextInputProps = {
   prefix?: string
   label?: string
-  type: string
+  type: ToolbarItemType
   onChange: (value: any) => void
   value?: any
 }
@@ -58,7 +59,7 @@ export const ToolbarTextInput = ({ onChange, value, label, type, ...props }: Too
   const labelClasses = useLabelStyles({})
   useEffect(() => {
     let val = value
-    if (type === 'color' || type === 'bg') val = `rgba(${Object.values(value)})`
+    if (type === ToolbarItemType.Color || type === ToolbarItemType.Bg) val = `rgba(${Object.values(value)})`
     setInternalValue(val)
   }, [value, type])
 
@@ -69,7 +70,7 @@ export const ToolbarTextInput = ({ onChange, value, label, type, ...props }: Too
         setActive(true)
       }}
     >
-      {(type === 'color' || type === 'bg') && active ? (
+      {(type === ToolbarItemType.Color || type === ToolbarItemType.Bg) && active ? (
         <div
           className="absolute"
           style={{
@@ -111,7 +112,7 @@ export const ToolbarTextInput = ({ onChange, value, label, type, ...props }: Too
         InputProps={{
           classes,
           disableUnderline: true,
-          startAdornment: ['color', 'bg'].includes(type) ? (
+          startAdornment: [ToolbarItemType.Color, ToolbarItemType.Bg].includes(type) ? (
             <InputAdornment
               position="start"
               style={{
