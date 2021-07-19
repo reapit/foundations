@@ -53,7 +53,9 @@ const SidebarItem: React.FC<SidebarItemProps> = ({ visible, icon, title, childre
     <SidebarItemDiv visible={visible} height={height} className="flex flex-col">
       <HeaderDiv
         onClick={() => {
-          if (onChange) onChange(!visible)
+          if (onChange){
+            onChange(!visible)
+          }
         }}
         className={`cursor-pointer bg-white border-b last:border-b-0 flex items-center px-2 ${
           visible ? 'shadow-sm' : ''
@@ -67,7 +69,7 @@ const SidebarItem: React.FC<SidebarItemProps> = ({ visible, icon, title, childre
           <Arrow />
         </Chevron>
       </HeaderDiv>
-      {visible ? <div className="w-full flex-1 overflow-auto">{children}</div> : null}
+      {visible && <div className="w-full flex-1 overflow-auto">{children}</div>}
     </SidebarItemDiv>
   )
 }

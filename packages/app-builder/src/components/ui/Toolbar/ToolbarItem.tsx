@@ -102,7 +102,7 @@ export const ToolbarItem = ({ full = false, propKey, type, onChange, index = 0, 
           />
         ) : type === 'slider' ? (
           <>
-            {props.label ? <h4 className="text-sm text-light-gray-2">{props.label}</h4> : null}
+            {props.label && <h4 className="text-sm text-light-gray-2">{props.label}</h4>}
             <SliderStyled
               value={parseInt(value) || 0}
               onChange={

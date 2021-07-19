@@ -168,11 +168,11 @@ export const RenderNode = ({ render, iframeRef }) => {
                   </Btn>
                 </>
               )}
-              {moveable ? (
+              {moveable && (
                 <Btn className="mr-2 cursor-move" ref={drag}>
                   <Move />
                 </Btn>
-              ) : null}
+              )}
               {id !== ROOT_NODE && (
                 <Btn
                   className="mr-2 cursor-pointer"
@@ -183,7 +183,7 @@ export const RenderNode = ({ render, iframeRef }) => {
                   <ArrowUp />
                 </Btn>
               )}
-              {deletable ? (
+              {deletable && (
                 <Btn
                   className="cursor-pointer"
                   onMouseDown={(e: React.MouseEvent) => {
@@ -193,7 +193,7 @@ export const RenderNode = ({ render, iframeRef }) => {
                 >
                   <Delete />
                 </Btn>
-              ) : null}
+              )}
             </IndicatorDiv>,
             container,
           )

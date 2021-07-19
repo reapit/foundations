@@ -51,7 +51,7 @@ export const ToolbarSection = ({ title, props, summary, children }: any) => {
             <Grid item xs={4}>
               <h5 className="text-sm text-light-gray-1 text-left font-medium text-dark-gray">{title}</h5>
             </Grid>
-            {summary && props ? (
+            {summary && props && (
               <Grid item xs={8}>
                 <h5 className="text-light-gray-2 text-sm text-right text-dark-blue">
                   {summary(
@@ -62,7 +62,7 @@ export const ToolbarSection = ({ title, props, summary, children }: any) => {
                   )}
                 </h5>
               </Grid>
-            ) : null}
+            )}
           </Grid>
         </div>
       </AccordionSummary>
