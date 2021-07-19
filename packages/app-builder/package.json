@@ -21,10 +21,10 @@
     "commit": "concurrently \"yarn test --coverage --no-cache --silent --forceExit --detectOpenHandles --runInBand --watch=false && jest-coverage-badges --input src/tests/coverage/coverage-summary.json --output src/tests/badges\" \"yarn lint\""
   },
   "dependencies": {
-    "@linaria/core": "^3.0.0-beta.4",
-    "@linaria/react": "^3.0.0-beta.7",
     "@craftjs/core": "^0.1.0-beta.19",
     "@craftjs/layers": "^0.1.0-beta.19",
+    "@linaria/core": "^3.0.0-beta.4",
+    "@linaria/react": "^3.0.0-beta.7",
     "@material-ui/core": "^4.12.0",
     "@reapit/connect-session": "workspace:packages/connect-session",
     "@reapit/elements": "workspace:packages/elements",
@@ -33,8 +33,8 @@
     "dayjs": "^1.10.6",
     "react": "^17.0.2",
     "react-color": "^2.19.3",
-    "react-dom": "^17.0.2",
     "react-contenteditable": "^3.3.5",
+    "react-dom": "^17.0.2",
     "react-frame-component": "^5.1.0",
     "react-ga": "^2.7.0",
     "react-router": "^5.2.0",
