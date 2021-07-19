@@ -37,26 +37,12 @@ const startTask = async (task: TaskEntity): Promise<void> => {
 }
 
 const completeAndStartNext = async (task: TaskEntity, nextTask: TaskEntity): Promise<void> => {
-  const queueUrl = await new Promise<string>((resolve, reject) =>
-    services.sqs.getQueueUrl(
-      {
-        QueueName: QueueNames.TASK_RUNNER,
-      },
-      (error, data) => {
-        if (error) {
-          reject()
-        }
-        typeof data.QueueUrl === 'undefined' ? reject() : resolve(data.QueueUrl)
-      },
-    ),
-  )
-
   await Promise.all([
     new Promise<void>((resolve, reject) =>
       services.sqs.sendMessage(
         {
           MessageBody: JSON.stringify(nextTask),
-          QueueUrl: queueUrl,
+          QueueUrl: QueueNames.TASK_RUNNER,
         },
         (error) => {
           if (error) {
@@ -133,6 +119,8 @@ export const taskRunner: Handler = async (event: any, context: Context, callback
       }
     }),
   )
+
+  // TODO delete from queue
 
   return callback(null, `Successfully processed ${event.Records.length} records.`)
 }
