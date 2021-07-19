@@ -31,20 +31,36 @@ export const taskPopulation: Handler = async (event: any, context: Context, call
 
       const firstTask = tasks[0]
 
-      await new Promise<void>((resolve, reject) =>
-        sqs.sendMessage(
-          {
-            MessageBody: JSON.stringify(firstTask),
-            QueueUrl: QueueNames.TASK_RUNNER,
-          },
-          (error) => {
-            if (error) {
-              reject(error)
-            }
-            resolve()
-          },
+      await Promise.all([
+        new Promise<void>((resolve, reject) =>
+          sqs.sendMessage(
+            {
+              MessageBody: JSON.stringify(firstTask),
+              QueueUrl: QueueNames.TASK_RUNNER,
+            },
+            (error) => {
+              if (error) {
+                reject(error)
+              }
+              resolve()
+            },
+          ),
         ),
-      )
+        new Promise<void>((resolve, reject) =>
+          sqs.deleteMessage(
+            {
+              ReceiptHandle: record,
+              QueueUrl: QueueNames.TASK_RUNNER,
+            },
+            (err) => {
+              if (err) {
+                reject(err)
+              }
+              resolve()
+            },
+          ),
+        ),
+      ])
     }),
   )
 
