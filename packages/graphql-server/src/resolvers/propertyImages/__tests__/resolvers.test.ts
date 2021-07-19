@@ -8,16 +8,16 @@ import {
   mutationUpdatePropertyImage,
   mutationDeletePropertyImage,
 } from '../resolvers'
-import { createPropertyImageArgsMock } from '../__stubs__/mock-create-property-image'
-import { updatePropertyImageArgsMock } from '../__stubs__/mock-update-property-image'
-import { propertyImageMock } from '../__stubs__/mock-property-image'
-import { propertyImagesMock } from '../__stubs__/mock-property-images'
+import { mockCreatePropertyImageArgs } from '../__stubs__/mock-create-property-image'
+import { mockUpdatePropertyImageArgs } from '../__stubs__/mock-update-property-image'
+import { mockPropertyImage } from '../__stubs__/mock-property-image'
+import { mockPropertyImages } from '../__stubs__/mock-property-images'
 import { mockContext } from '../../../__stubs__/mock-context'
-import { deletePropertyImageArgsMock } from '../__stubs__/mock-delete-property-image'
+import { mockDeletePropertyImageArgs } from '../__stubs__/mock-delete-property-image'
 
 jest.mock('../services', () => ({
-  getPropertyImageById: jest.fn(() => propertyImageMock),
-  getPropertyImages: jest.fn(() => propertyImagesMock),
+  getPropertyImageById: jest.fn(() => mockPropertyImage),
+  getPropertyImages: jest.fn(() => mockPropertyImages),
   createPropertyImage: jest.fn(() => true),
   updatePropertyImage: jest.fn(() => true),
   deletePropertyImage: jest.fn(() => true),
@@ -65,13 +65,13 @@ describe('queryGetPropertyImages', () => {
 describe('mutationCreatePropertyImage', () => {
   it('should return correctly', () => {
     ;(checkPermission as jest.Mock).mockReturnValue(true)
-    const result = mutationCreatePropertyImage(null, createPropertyImageArgsMock, mockContext)
-    expect(result).toEqual(propertyImageServices.createPropertyImage(createPropertyImageArgsMock, mockContext))
+    const result = mutationCreatePropertyImage(null, mockCreatePropertyImageArgs, mockContext)
+    expect(result).toEqual(propertyImageServices.createPropertyImage(mockCreatePropertyImageArgs, mockContext))
   })
 
   it('should return auth error correctly', () => {
     ;(checkPermission as jest.Mock).mockReturnValue(false)
-    const result = mutationCreatePropertyImage(null, createPropertyImageArgsMock, mockContext)
+    const result = mutationCreatePropertyImage(null, mockCreatePropertyImageArgs, mockContext)
     expect(result).toEqual(errors.generateAuthenticationError(mockContext.traceId))
   })
 })
@@ -79,13 +79,13 @@ describe('mutationCreatePropertyImage', () => {
 describe('mutationUpdatePropertyImage', () => {
   it('should return correctly', () => {
     ;(checkPermission as jest.Mock).mockReturnValue(true)
-    const result = mutationUpdatePropertyImage(null, updatePropertyImageArgsMock, mockContext)
-    expect(result).toEqual(propertyImageServices.updatePropertyImage(updatePropertyImageArgsMock, mockContext))
+    const result = mutationUpdatePropertyImage(null, mockUpdatePropertyImageArgs, mockContext)
+    expect(result).toEqual(propertyImageServices.updatePropertyImage(mockUpdatePropertyImageArgs, mockContext))
   })
 
   it('should return auth error correctly', () => {
     ;(checkPermission as jest.Mock).mockReturnValue(false)
-    const result = mutationUpdatePropertyImage(null, updatePropertyImageArgsMock, mockContext)
+    const result = mutationUpdatePropertyImage(null, mockUpdatePropertyImageArgs, mockContext)
     expect(result).toEqual(errors.generateAuthenticationError(mockContext.traceId))
   })
 })
@@ -93,13 +93,13 @@ describe('mutationUpdatePropertyImage', () => {
 describe('mutationDeletePropertyImage', () => {
   it('should return correctly', () => {
     ;(checkPermission as jest.Mock).mockReturnValue(true)
-    const result = mutationDeletePropertyImage(null, deletePropertyImageArgsMock, mockContext)
-    expect(result).toEqual(propertyImageServices.deletePropertyImage(deletePropertyImageArgsMock, mockContext))
+    const result = mutationDeletePropertyImage(null, mockDeletePropertyImageArgs, mockContext)
+    expect(result).toEqual(propertyImageServices.deletePropertyImage(mockDeletePropertyImageArgs, mockContext))
   })
 
   it('should return auth error correctly', () => {
     ;(checkPermission as jest.Mock).mockReturnValue(false)
-    const result = mutationDeletePropertyImage(null, deletePropertyImageArgsMock, mockContext)
+    const result = mutationDeletePropertyImage(null, mockDeletePropertyImageArgs, mockContext)
     expect(result).toEqual(errors.generateAuthenticationError(mockContext.traceId))
   })
 })

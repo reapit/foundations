@@ -1,6 +1,6 @@
 import { CreateEnquiryArgs } from '../enquiries'
 
-export const createEnquiryArgsMock: CreateEnquiryArgs = {
+export const mockCreateEnquiryArgs: CreateEnquiryArgs = {
   title: 'Mr',
   forename: 'John',
   surname: 'Smith',

@@ -1,6 +1,6 @@
 import { OfferModel } from '@reapit/foundations-ts-definitions'
 
-export const offerMock: OfferModel = {
+export const mockOffer: OfferModel = {
   id: 'BCK1600026',
   created: '2016-11-15T10:54:35.0000000Z',
   modified: '2020-03-06T05:54:14.0000000Z',
@@ -37,5 +37,5 @@ export const offerMock: OfferModel = {
 }
 
 export const offersWithId = (id) => {
-  return { ...offerMock, id }
+  return { ...mockOffer, id }
 }

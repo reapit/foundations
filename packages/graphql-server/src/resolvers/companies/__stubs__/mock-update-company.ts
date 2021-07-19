@@ -1,6 +1,6 @@
 import { UpdateCompanyArgs } from '../companies'
 
-export const updateCompanyArgsMock: UpdateCompanyArgs = {
+export const mockUpdateCompanyArgs: UpdateCompanyArgs = {
   id: 'test',
   _eTag: 'test',
   name: 'Reapit',

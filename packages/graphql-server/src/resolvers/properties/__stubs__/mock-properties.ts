@@ -1,6 +1,6 @@
 import { PropertyModelPagedResult } from '@reapit/foundations-ts-definitions'
 
-export const propertiesMock: PropertyModelPagedResult = {
+export const mockProperties: PropertyModelPagedResult = {
   _embedded: [
     {
       id: 'RPT200015',

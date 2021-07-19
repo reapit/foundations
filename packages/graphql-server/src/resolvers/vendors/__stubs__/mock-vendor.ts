@@ -1,6 +1,6 @@
 import { VendorModel } from '@reapit/foundations-ts-definitions'
 
-export const vendorStub: VendorModel = {
+export const mockVendor: VendorModel = {
   id: 'OXF200001',
   created: '2018-12-26T12:30:22.0000000Z',
   modified: '2019-02-15T12:30:23.0000000Z',

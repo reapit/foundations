@@ -11,15 +11,17 @@ export type HandleChangeTravelModeParams = {
   travelMode: AppTravelMode
 }
 
-export const handleChangeTravelMode = ({ setAppState, travelMode }: HandleChangeTravelModeParams) => () => {
-  const newValue = travelMode === 'DRIVING' ? 'WALKING' : 'DRIVING'
-  setAppState((currentState) => {
-    return {
-      ...currentState,
-      travelMode: newValue,
-    }
-  })
-}
+export const handleChangeTravelMode =
+  ({ setAppState, travelMode }: HandleChangeTravelModeParams) =>
+  () => {
+    const newValue = travelMode === 'DRIVING' ? 'WALKING' : 'DRIVING'
+    setAppState((currentState) => {
+      return {
+        ...currentState,
+        travelMode: newValue,
+      }
+    })
+  }
 
 export const TravelMode: FC = () => {
   const { appState, setAppState } = useAppState()

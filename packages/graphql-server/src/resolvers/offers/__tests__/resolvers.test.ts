@@ -2,15 +2,15 @@ import offerServices from '../services'
 import { checkPermission } from '../../../utils/check-permission'
 import errors from '../../../errors'
 import { queryGetOfferById, queryGetOffers, mutationCreateOffer, mutationUpdateOffer } from '../resolvers'
-import { createOfferArgsMock } from '../__stubs__/mock-create-offer'
-import { updateOfferArgsMock } from '../__stubs__/mock-update-offer'
+import { mockCreateOfferArgs } from '../__stubs__/mock-create-offer'
+import { mockUpdateOfferArgs } from '../__stubs__/mock-update-offer'
 import { mockContext } from '../../../__stubs__/mock-context'
-import { offerMock } from '../__stubs__/mock-offer'
-import { offersMock } from '../__stubs__/mock-offers'
+import { mockOffer } from '../__stubs__/mock-offer'
+import { mockOffers } from '../__stubs__/mock-offers'
 
 jest.mock('../services', () => ({
-  getOfferById: jest.fn(() => offerMock),
-  getOffers: jest.fn(() => offersMock),
+  getOfferById: jest.fn(() => mockOffer),
+  getOffers: jest.fn(() => mockOffers),
   createOffer: jest.fn(() => true),
   updateOffer: jest.fn(() => true),
 }))
@@ -57,13 +57,13 @@ describe('queryGetOffers', () => {
 describe('mutationCreateOffer', () => {
   it('should return correctly', () => {
     ;(checkPermission as jest.Mock).mockReturnValue(true)
-    const result = mutationCreateOffer(null, createOfferArgsMock, mockContext)
-    expect(result).toEqual(offerServices.createOffer(createOfferArgsMock, mockContext))
+    const result = mutationCreateOffer(null, mockCreateOfferArgs, mockContext)
+    expect(result).toEqual(offerServices.createOffer(mockCreateOfferArgs, mockContext))
   })
 
   it('should return auth error correctly', () => {
     ;(checkPermission as jest.Mock).mockReturnValue(false)
-    const result = mutationCreateOffer(null, createOfferArgsMock, mockContext)
+    const result = mutationCreateOffer(null, mockCreateOfferArgs, mockContext)
     expect(result).toEqual(errors.generateAuthenticationError(mockContext.traceId))
   })
 })
@@ -71,13 +71,13 @@ describe('mutationCreateOffer', () => {
 describe('mutationUpdateOffer', () => {
   it('should return correctly', () => {
     ;(checkPermission as jest.Mock).mockReturnValue(true)
-    const result = mutationUpdateOffer(null, updateOfferArgsMock, mockContext)
-    expect(result).toEqual(offerServices.updateOffer(updateOfferArgsMock, mockContext))
+    const result = mutationUpdateOffer(null, mockUpdateOfferArgs, mockContext)
+    expect(result).toEqual(offerServices.updateOffer(mockUpdateOfferArgs, mockContext))
   })
 
   it('should return auth error correctly', () => {
     ;(checkPermission as jest.Mock).mockReturnValue(false)
-    const result = mutationUpdateOffer(null, updateOfferArgsMock, mockContext)
+    const result = mutationUpdateOffer(null, mockUpdateOfferArgs, mockContext)
     expect(result).toEqual(errors.generateAuthenticationError(mockContext.traceId))
   })
 })

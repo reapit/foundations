@@ -50,11 +50,11 @@ describe('handleSetAppointmentId', () => {
 })
 
 describe('handleScrollIntoView', () => {
-  const mockTileRef = ({
+  const mockTileRef = {
     current: {
       scrollIntoView: jest.fn(),
     },
-  } as unknown) as MutableRefObject<HTMLDivElement>
+  } as unknown as MutableRefObject<HTMLDivElement>
 
   const curried = handleScrollIntoView(mockTileRef, appointment.id as string, appointment.id)
 

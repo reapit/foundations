@@ -1,6 +1,6 @@
 import { PropertyModel } from '@reapit/foundations-ts-definitions'
 
-export const propertyMock: PropertyModel = {
+export const mockProperty: PropertyModel = {
   id: 'RPT200014',
   _eTag: '"B82C6C5C78B68BD90549FF6ED5816CE3"',
   description: 'We are so so delighted to offer for sale this EXTENDED THREE BEDROOMED SEMI DETACHED PROPERTY.',

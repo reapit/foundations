@@ -1,11 +1,11 @@
 import { mockContext } from '../../../__stubs__/mock-context'
 import { callGetSourcesAPI, callCreateSourceAPI, callUpdateSourceAPI, callGetSourceByIdAPI } from '../api'
 import { createPlatformAxiosInstance } from '../../../utils/axios-instances'
-import { sourcesMock } from '../__stubs__/mock-sources'
-import { sourceMock } from '../__stubs__/mock-source'
+import { mockSources } from '../__stubs__/mock-sources'
+import { mockSource } from '../__stubs__/mock-source'
 import { getIdFromCreateHeaders } from '../../../utils/get-id-from-create-headers'
-import { createSourceArgsMock } from '../__stubs__/mock-create-source'
-import { updateSourceArgsMock } from '../__stubs__/mock-update-source'
+import { mockCreateSourceArgs } from '../__stubs__/mock-create-source'
+import { mockUpdateSourceArgs } from '../__stubs__/mock-update-source'
 
 jest.mock('apollo-server-lambda', () => {
   return {
@@ -29,26 +29,26 @@ jest.mock('../../../utils/axios-instances', () => ({
     get: jest.fn().mockImplementation((value) => {
       if (value === '/sources/id') {
         return {
-          data: sourceMock,
+          data: mockSource,
         }
       }
       return {
-        data: sourcesMock,
+        data: mockSources,
       }
     }),
-    post: jest.fn().mockImplementation(() => sourceMock),
-    patch: jest.fn().mockImplementation(() => sourceMock),
+    post: jest.fn().mockImplementation(() => mockSource),
+    patch: jest.fn().mockImplementation(() => mockSource),
   })),
 }))
 
 describe('callGetSourcesAPI', () => {
   it('should work correctly', async () => {
     ;(createPlatformAxiosInstance as jest.Mocked<any>).mockReturnValueOnce({
-      get: jest.fn(() => Promise.resolve({ data: sourcesMock })),
+      get: jest.fn(() => Promise.resolve({ data: mockSources })),
     })
     const args = { pageSize: 1 }
     const result = await callGetSourcesAPI(args, mockContext)
-    expect(result).toEqual(sourcesMock)
+    expect(result).toEqual(mockSources)
   })
   it('should catch error correctly', async () => {
     ;(createPlatformAxiosInstance as jest.Mocked<any>).mockReturnValueOnce({
@@ -63,18 +63,18 @@ describe('callGetSourcesAPI', () => {
 describe('callGetSourceByIdAPI', () => {
   it('should work correctly', async () => {
     ;(createPlatformAxiosInstance as jest.Mocked<any>).mockReturnValueOnce({
-      get: jest.fn(() => Promise.resolve({ data: sourceMock })),
+      get: jest.fn(() => Promise.resolve({ data: mockSource })),
     })
-    const args = { id: sourceMock.id }
+    const args = { id: mockSource.id }
     const result = await callGetSourceByIdAPI(args, mockContext)
-    expect(result).toEqual(sourceMock)
+    expect(result).toEqual(mockSource)
   })
 
   it('should catch error correctly', async () => {
     ;(createPlatformAxiosInstance as jest.Mocked<any>).mockReturnValueOnce({
       get: jest.fn(() => Promise.reject('error caught')),
     })
-    const args = { id: sourceMock.id }
+    const args = { id: mockSource.id }
     const result = await callGetSourceByIdAPI(args, mockContext)
     expect(result).toEqual('caught error')
   })
@@ -84,17 +84,17 @@ describe('callCreateSourceAPI', () => {
   it('should work correctly', async () => {
     ;(createPlatformAxiosInstance as jest.Mocked<any>).mockReturnValueOnce({
       post: jest.fn(() => Promise.resolve({ headers: 'header' })),
-      get: jest.fn(() => Promise.resolve({ data: sourceMock })),
+      get: jest.fn(() => Promise.resolve({ data: mockSource })),
     })
-    ;(getIdFromCreateHeaders as jest.Mocked<any>).mockReturnValueOnce(sourceMock.id)
-    await callCreateSourceAPI(createSourceArgsMock, mockContext)
+    ;(getIdFromCreateHeaders as jest.Mocked<any>).mockReturnValueOnce(mockSource.id)
+    await callCreateSourceAPI(mockCreateSourceArgs, mockContext)
     expect(getIdFromCreateHeaders).toHaveBeenCalledWith({ headers: 'header' })
   })
   it('should catch error correctly', async () => {
     ;(createPlatformAxiosInstance as jest.Mocked<any>).mockReturnValueOnce({
       post: jest.fn(() => Promise.reject('error caught')),
     })
-    const result = await callCreateSourceAPI(createSourceArgsMock, mockContext)
+    const result = await callCreateSourceAPI(mockCreateSourceArgs, mockContext)
     expect(result).toEqual('caught error')
   })
 })
@@ -104,14 +104,14 @@ describe('callUpdateSourceAPI', () => {
     ;(createPlatformAxiosInstance as jest.Mocked<any>).mockReturnValueOnce({
       patch: jest.fn(() => Promise.resolve({ headers: 'header' })),
     })
-    const result = await callUpdateSourceAPI(updateSourceArgsMock, mockContext)
-    expect(result).toEqual(sourceMock)
+    const result = await callUpdateSourceAPI(mockUpdateSourceArgs, mockContext)
+    expect(result).toEqual(mockSource)
   })
   it('should catch error correctly', async () => {
     ;(createPlatformAxiosInstance as jest.Mocked<any>).mockReturnValueOnce({
       patch: jest.fn(() => Promise.reject('error caught')),
     })
-    const result = await callUpdateSourceAPI(updateSourceArgsMock, mockContext)
+    const result = await callUpdateSourceAPI(mockUpdateSourceArgs, mockContext)
     expect(result).toEqual('caught error')
   })
 })

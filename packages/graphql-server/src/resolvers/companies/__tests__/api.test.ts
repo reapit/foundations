@@ -7,11 +7,11 @@ import {
   callGetCompanyRolesAPI,
 } from '../api'
 import { createPlatformAxiosInstance } from '../../../utils/axios-instances'
-import { companyMock } from '../__stubs__/mock-company'
-import { companiesMock } from '../__stubs__/mock-companies'
-import { companyRolesMock } from '../__stubs__/mock-company-roles'
-import { createCompanyArgsMock } from '../__stubs__/mock-create-company'
-import { updateCompanyArgsMock } from '../__stubs__/mock-update-company'
+import { mockCompany } from '../__stubs__/mock-company'
+import { mockCompanies } from '../__stubs__/mock-companies'
+import { mockCompanyRoles } from '../__stubs__/mock-company-roles'
+import { mockCreateCompanyArgs } from '../__stubs__/mock-create-company'
+import { mockUpdateCompanyArgs } from '../__stubs__/mock-update-company'
 import { getIdFromCreateHeaders } from '../../../utils/get-id-from-create-headers'
 
 jest.mock('apollo-server-lambda', () => {
@@ -45,11 +45,11 @@ jest.mock('../../../utils/axios-instances', () => ({
 describe('callGetCompaniesAPI', () => {
   it('should work correctly', async () => {
     ;(createPlatformAxiosInstance as jest.Mocked<any>).mockReturnValueOnce({
-      get: jest.fn(() => Promise.resolve({ data: companiesMock })),
+      get: jest.fn(() => Promise.resolve({ data: mockCompanies })),
     })
     const args = { pageSize: 1 }
     const result = await callGetCompaniesAPI(args, mockContext)
-    expect(result).toEqual(companiesMock)
+    expect(result).toEqual(mockCompanies)
   })
   it('should catch error correctly', async () => {
     ;(createPlatformAxiosInstance as jest.Mocked<any>).mockReturnValueOnce({
@@ -64,18 +64,18 @@ describe('callGetCompaniesAPI', () => {
 describe('callGetCompanyByIdAPI', () => {
   it('should work correctly', async () => {
     ;(createPlatformAxiosInstance as jest.Mocked<any>).mockReturnValueOnce({
-      get: jest.fn(() => Promise.resolve({ data: companyMock })),
+      get: jest.fn(() => Promise.resolve({ data: mockCompany })),
     })
-    const args = { id: companyMock.id }
+    const args = { id: mockCompany.id }
     const result = await callGetCompanyByIdAPI(args, mockContext)
-    expect(result).toEqual(companyMock)
+    expect(result).toEqual(mockCompany)
   })
 
   it('should catch error correctly', async () => {
     ;(createPlatformAxiosInstance as jest.Mocked<any>).mockReturnValueOnce({
       get: jest.fn(() => Promise.reject('error caught')),
     })
-    const args = { id: companyMock.id }
+    const args = { id: mockCompany.id }
     const result = await callGetCompanyByIdAPI(args, mockContext)
     expect(result).toEqual('caught error')
   })
@@ -84,11 +84,11 @@ describe('callGetCompanyByIdAPI', () => {
 describe('callGetCompanyRolesAPI', () => {
   it('should work correctly', async () => {
     ;(createPlatformAxiosInstance as jest.Mocked<any>).mockReturnValueOnce({
-      get: jest.fn(() => Promise.resolve({ data: companyRolesMock })),
+      get: jest.fn(() => Promise.resolve({ data: mockCompanyRoles })),
     })
     const args = { pageSize: 1, id: ['id'] }
     const result = await callGetCompanyRolesAPI(args, mockContext)
-    expect(result).toEqual(companyRolesMock)
+    expect(result).toEqual(mockCompanyRoles)
   })
   it('should catch error correctly', async () => {
     ;(createPlatformAxiosInstance as jest.Mocked<any>).mockReturnValueOnce({
@@ -105,14 +105,14 @@ describe('callCreateCompanyAPI', () => {
     ;(createPlatformAxiosInstance as jest.Mocked<any>).mockReturnValueOnce({
       post: jest.fn(() => Promise.resolve({ headers: 'header' })),
     })
-    await callCreateCompanyAPI(createCompanyArgsMock, mockContext)
+    await callCreateCompanyAPI(mockCreateCompanyArgs, mockContext)
     expect(getIdFromCreateHeaders).toHaveBeenCalledWith({ headers: 'header' })
   })
   it('should catch error correctly', async () => {
     ;(createPlatformAxiosInstance as jest.Mocked<any>).mockReturnValueOnce({
       post: jest.fn(() => Promise.reject('error caught')),
     })
-    const result = await callCreateCompanyAPI(createCompanyArgsMock, mockContext)
+    const result = await callCreateCompanyAPI(mockCreateCompanyArgs, mockContext)
     expect(result).toEqual('caught error')
   })
 })
@@ -122,13 +122,13 @@ describe('callUpdateCompanyAPI', () => {
     ;(createPlatformAxiosInstance as jest.Mocked<any>).mockReturnValueOnce({
       patch: jest.fn(() => Promise.resolve({ headers: 'header' })),
     })
-    await callUpdateCompanyAPI(updateCompanyArgsMock, mockContext)
+    await callUpdateCompanyAPI(mockUpdateCompanyArgs, mockContext)
   })
   it('should catch error correctly', async () => {
     ;(createPlatformAxiosInstance as jest.Mocked<any>).mockReturnValueOnce({
       patch: jest.fn(() => Promise.reject('error caught')),
     })
-    const result = await callUpdateCompanyAPI(updateCompanyArgsMock, mockContext)
+    const result = await callUpdateCompanyAPI(mockUpdateCompanyArgs, mockContext)
     expect(result).toEqual('caught error')
   })
 })

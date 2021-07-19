@@ -1,6 +1,6 @@
 import { generatePropertyBatchLoaderFn, generatePropertyLoader } from '../dataloader'
-import { propertyMock } from '../__stubs__/mock-property'
-import { propertiesMock } from '../__stubs__/mock-properties'
+import { mockProperty } from '../__stubs__/mock-property'
+import { mockProperties } from '../__stubs__/mock-properties'
 import { mockContext } from '../../../__stubs__/mock-context'
 
 jest.mock('apollo-server-lambda', () => {
@@ -14,8 +14,8 @@ jest.mock('apollo-server-lambda', () => {
 })
 
 jest.mock('../services', () => ({
-  getPropertyById: jest.fn(() => propertyMock),
-  getProperties: jest.fn(() => propertiesMock),
+  getPropertyById: jest.fn(() => mockProperty),
+  getProperties: jest.fn(() => mockProperties),
   createProperty: jest.fn(() => true),
   updateProperty: jest.fn(() => true),
 }))

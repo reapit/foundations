@@ -1,7 +1,7 @@
 import { mockContext } from '../../../__stubs__/mock-context'
 import { callGetConfigurationsByTypeApi, callGetConfigurationsByTypeAndIdApi } from '../api'
 import { createPlatformAxiosInstance } from '../../../utils/axios-instances'
-import { appointmentTypeMock, appointmentTypesMock } from '../__stubs__/mock-appointment-types'
+import { mockAppointmentType, mockAppointmentTypes } from '../__stubs__/mock-appointment-types'
 import { ConfigurationType } from '../configurations'
 
 jest.mock('../../../utils/get-id-from-create-headers', () => ({
@@ -25,11 +25,11 @@ jest.mock('../../../utils/axios-instances', () => ({
 describe('callGetConfigurationsByTypeAndIdApi', () => {
   it('should work correctly', async () => {
     ;(createPlatformAxiosInstance as jest.Mocked<any>).mockReturnValueOnce({
-      get: jest.fn(() => Promise.resolve({ data: appointmentTypeMock })),
+      get: jest.fn(() => Promise.resolve({ data: mockAppointmentType })),
     })
     const args = { id: 'id1', type: '​​appointmentTypes' as ConfigurationType }
     const result = await callGetConfigurationsByTypeAndIdApi(args, mockContext)
-    expect(result).toEqual(appointmentTypeMock)
+    expect(result).toEqual(mockAppointmentType)
   })
   it('should catch error correctly', async () => {
     ;(createPlatformAxiosInstance as jest.Mocked<any>).mockReturnValueOnce({
@@ -44,11 +44,11 @@ describe('callGetConfigurationsByTypeAndIdApi', () => {
 describe('callGetConfigurationsByTypeApi', () => {
   it('should work correctly', async () => {
     ;(createPlatformAxiosInstance as jest.Mocked<any>).mockReturnValueOnce({
-      get: jest.fn(() => Promise.resolve({ data: appointmentTypesMock })),
+      get: jest.fn(() => Promise.resolve({ data: mockAppointmentTypes })),
     })
     const args = { type: '​​appointmentTypes' as ConfigurationType }
     const result = await callGetConfigurationsByTypeApi(args, mockContext)
-    expect(result).toEqual(appointmentTypesMock)
+    expect(result).toEqual(mockAppointmentTypes)
   })
   it('should catch error correctly', async () => {
     ;(createPlatformAxiosInstance as jest.Mocked<any>).mockReturnValueOnce({

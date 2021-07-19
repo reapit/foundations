@@ -10,14 +10,14 @@ import {
   callDeleteApplicantRelationshipAPI,
 } from '../api'
 import { createPlatformAxiosInstance } from '../../../utils/axios-instances'
-import { applicantMock } from '../__stubs__/mock-applicant'
-import { applicantsMock } from '../__stubs__/mock-applicants'
-import { relationshipMock } from '../__stubs__/mock-relationship'
-import { relationshipsMock } from '../__stubs__/mock-relationships'
-import { createApplicantArgsMock } from '../__stubs__/mock-create-applicant'
-import { createRelationshipsArgs } from '../__stubs__/mock-create-relationships'
-import { updateApplicantArgsMock } from '../__stubs__/mock-update-applicant'
-import { deleteRelationshipMockArgs } from '../__stubs__/mock-delete-relatationships'
+import { mockApplicant } from '../__stubs__/mock-applicant'
+import { mockApplicants } from '../__stubs__/mock-applicants'
+import { mockRelationship } from '../__stubs__/mock-relationship'
+import { mockRelationships } from '../__stubs__/mock-relationships'
+import { mockCreateApplicantArgs } from '../__stubs__/mock-create-applicant'
+import { mockCreateRelationshipsArgs } from '../__stubs__/mock-create-relationships'
+import { mockUpdateApplicantArgs } from '../__stubs__/mock-update-applicant'
+import { mockDeleteRelationshipArgs } from '../__stubs__/mock-delete-relatationships'
 import { getIdFromCreateHeaders } from '../../../utils/get-id-from-create-headers'
 
 jest.mock('apollo-server-lambda', () => {
@@ -51,11 +51,11 @@ jest.mock('../../../utils/axios-instances', () => ({
 describe('callGetApplicantsAPI', () => {
   it('should work correctly', async () => {
     ;(createPlatformAxiosInstance as jest.Mocked<any>).mockReturnValueOnce({
-      get: jest.fn(() => Promise.resolve({ data: applicantsMock })),
+      get: jest.fn(() => Promise.resolve({ data: mockApplicants })),
     })
     const args = { pageSize: 1 }
     const result = await callGetApplicantsAPI(args, mockContext)
-    expect(result).toEqual(applicantsMock)
+    expect(result).toEqual(mockApplicants)
   })
   it('should catch error correctly', async () => {
     ;(createPlatformAxiosInstance as jest.Mocked<any>).mockReturnValueOnce({
@@ -70,18 +70,18 @@ describe('callGetApplicantsAPI', () => {
 describe('callGetApplicantByIdAPI', () => {
   it('should work correctly', async () => {
     ;(createPlatformAxiosInstance as jest.Mocked<any>).mockReturnValueOnce({
-      get: jest.fn(() => Promise.resolve({ data: applicantMock })),
+      get: jest.fn(() => Promise.resolve({ data: mockApplicant })),
     })
-    const args = { id: applicantMock.id }
+    const args = { id: mockApplicant.id }
     const result = await callGetApplicantByIdAPI(args, mockContext)
-    expect(result).toEqual(applicantMock)
+    expect(result).toEqual(mockApplicant)
   })
 
   it('should catch error correctly', async () => {
     ;(createPlatformAxiosInstance as jest.Mocked<any>).mockReturnValueOnce({
       get: jest.fn(() => Promise.reject('error caught')),
     })
-    const args = { id: applicantMock.id }
+    const args = { id: mockApplicant.id }
     const result = await callGetApplicantByIdAPI(args, mockContext)
     expect(result).toEqual('caught error')
   })
@@ -90,11 +90,11 @@ describe('callGetApplicantByIdAPI', () => {
 describe('callGetApplicantRelationshipByIdAPI', () => {
   it('should work correctly', async () => {
     ;(createPlatformAxiosInstance as jest.Mocked<any>).mockReturnValueOnce({
-      get: jest.fn(() => Promise.resolve({ data: relationshipMock })),
+      get: jest.fn(() => Promise.resolve({ data: mockRelationship })),
     })
     const args = { id: 'id', relationshipId: 'relationshipId' }
     const result = await callGetApplicantRelationshipByIdAPI(args, mockContext)
-    expect(result).toEqual(relationshipMock)
+    expect(result).toEqual(mockRelationship)
   })
 
   it('should catch error correctly', async () => {
@@ -110,11 +110,11 @@ describe('callGetApplicantRelationshipByIdAPI', () => {
 describe('callGetApplicantRelationshipsAPI', () => {
   it('should work correctly', async () => {
     ;(createPlatformAxiosInstance as jest.Mocked<any>).mockReturnValueOnce({
-      get: jest.fn(() => Promise.resolve({ data: relationshipsMock })),
+      get: jest.fn(() => Promise.resolve({ data: mockRelationships })),
     })
     const args = { pageSize: 1, id: 'id' }
     const result = await callGetApplicantRelationshipsAPI(args, mockContext)
-    expect(result).toEqual(relationshipsMock)
+    expect(result).toEqual(mockRelationships)
   })
   it('should catch error correctly', async () => {
     ;(createPlatformAxiosInstance as jest.Mocked<any>).mockReturnValueOnce({
@@ -130,17 +130,17 @@ describe('callCreateApplicantAPI', () => {
   it('should work correctly', async () => {
     ;(createPlatformAxiosInstance as jest.Mocked<any>).mockReturnValueOnce({
       post: jest.fn(() => Promise.resolve({ headers: 'header' })),
-      get: jest.fn(() => Promise.resolve({ data: applicantMock })),
+      get: jest.fn(() => Promise.resolve({ data: mockApplicant })),
     })
-    ;(getIdFromCreateHeaders as jest.Mocked<any>).mockReturnValueOnce(applicantMock.id)
-    await callCreateApplicantAPI(createApplicantArgsMock, mockContext)
+    ;(getIdFromCreateHeaders as jest.Mocked<any>).mockReturnValueOnce(mockApplicant.id)
+    await callCreateApplicantAPI(mockCreateApplicantArgs, mockContext)
     expect(getIdFromCreateHeaders).toHaveBeenCalledWith({ headers: 'header' })
   })
   it('should catch error correctly', async () => {
     ;(createPlatformAxiosInstance as jest.Mocked<any>).mockReturnValueOnce({
       post: jest.fn(() => Promise.reject('error caught')),
     })
-    const result = await callCreateApplicantAPI(createApplicantArgsMock, mockContext)
+    const result = await callCreateApplicantAPI(mockCreateApplicantArgs, mockContext)
     expect(result).toEqual('caught error')
   })
 })
@@ -150,13 +150,13 @@ describe('callCreateApplicantRelationshipAPI', () => {
     ;(createPlatformAxiosInstance as jest.Mocked<any>).mockReturnValueOnce({
       post: jest.fn(() => Promise.resolve({ headers: 'header' })),
     })
-    await callCreateApplicantRelationshipAPI(createRelationshipsArgs, mockContext)
+    await callCreateApplicantRelationshipAPI(mockCreateRelationshipsArgs, mockContext)
   })
   it('should catch error correctly', async () => {
     ;(createPlatformAxiosInstance as jest.Mocked<any>).mockReturnValueOnce({
       post: jest.fn(() => Promise.reject('error caught')),
     })
-    const result = await callCreateApplicantRelationshipAPI(createRelationshipsArgs, mockContext)
+    const result = await callCreateApplicantRelationshipAPI(mockCreateRelationshipsArgs, mockContext)
     expect(result).toEqual('caught error')
   })
 })
@@ -166,13 +166,13 @@ describe('callUpdateApplicantAPI', () => {
     ;(createPlatformAxiosInstance as jest.Mocked<any>).mockReturnValueOnce({
       patch: jest.fn(() => Promise.resolve({ headers: 'header' })),
     })
-    await callUpdateApplicantAPI(updateApplicantArgsMock, mockContext)
+    await callUpdateApplicantAPI(mockUpdateApplicantArgs, mockContext)
   })
   it('should catch error correctly', async () => {
     ;(createPlatformAxiosInstance as jest.Mocked<any>).mockReturnValueOnce({
       patch: jest.fn(() => Promise.reject('error caught')),
     })
-    const result = await callUpdateApplicantAPI(updateApplicantArgsMock, mockContext)
+    const result = await callUpdateApplicantAPI(mockUpdateApplicantArgs, mockContext)
     expect(result).toEqual('caught error')
   })
 })
@@ -182,13 +182,13 @@ describe('callDeleteApplicantRelationshipAPI', () => {
     ;(createPlatformAxiosInstance as jest.Mocked<any>).mockReturnValueOnce({
       delete: jest.fn(() => Promise.resolve({ headers: 'header' })),
     })
-    await callDeleteApplicantRelationshipAPI(deleteRelationshipMockArgs, mockContext)
+    await callDeleteApplicantRelationshipAPI(mockDeleteRelationshipArgs, mockContext)
   })
   it('should catch error correctly', async () => {
     ;(createPlatformAxiosInstance as jest.Mocked<any>).mockReturnValueOnce({
       delete: jest.fn(() => Promise.reject('error caught')),
     })
-    const result = await callDeleteApplicantRelationshipAPI(deleteRelationshipMockArgs, mockContext)
+    const result = await callDeleteApplicantRelationshipAPI(mockDeleteRelationshipArgs, mockContext)
     expect(result).toEqual('caught error')
   })
 })

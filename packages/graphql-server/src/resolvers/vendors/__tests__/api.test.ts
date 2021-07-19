@@ -9,13 +9,13 @@ import {
   callGetVendorRelationshipByIdAPI,
 } from '../api'
 import { createPlatformAxiosInstance } from '../../../utils/axios-instances'
-import { vendorStub } from '../__stubs__/mock-vendor'
-import { vendorsStub } from '../__stubs__/mock-vendors'
-import { updateVendorArgsStub } from '../__stubs__/mock-update-vendor'
-import { vendorRelationshipStub } from '../__stubs__/mock-vendor-relationship'
-import { vendorRelationshipsStub } from '../__stubs__/mock-vendor-relationships'
-import { createVendorRelationshipArgsStub } from '../__stubs__/mock-create-vendor-relationships'
-import { deleteVendorRelationshipsArgsStub } from '../__stubs__/mock-delete-vendor-relationships'
+import { mockVendor } from '../__stubs__/mock-vendor'
+import { mockVendors } from '../__stubs__/mock-vendors'
+import { mockUpdateVendorArgs } from '../__stubs__/mock-update-vendor'
+import { mockVendorRelationship } from '../__stubs__/mock-vendor-relationship'
+import { mockVendorRelationships } from '../__stubs__/mock-vendor-relationships'
+import { mockCreateVendorRelationshipArgs } from '../__stubs__/mock-create-vendor-relationships'
+import { mockDeleteVendorRelationshipsArgs } from '../__stubs__/mock-delete-vendor-relationships'
 
 jest.mock('apollo-server-lambda', () => {
   return {
@@ -48,11 +48,11 @@ jest.mock('../../../utils/axios-instances', () => ({
 describe('callGetVendorsAPI', () => {
   it('should work correctly', async () => {
     ;(createPlatformAxiosInstance as jest.Mocked<any>).mockReturnValueOnce({
-      get: jest.fn(() => Promise.resolve({ data: vendorsStub })),
+      get: jest.fn(() => Promise.resolve({ data: mockVendors })),
     })
     const args = { pageSize: 1 }
     const result = await callGetVendorsAPI(args, mockContext)
-    expect(result).toEqual(vendorsStub)
+    expect(result).toEqual(mockVendors)
   })
   it('should catch error correctly', async () => {
     ;(createPlatformAxiosInstance as jest.Mocked<any>).mockReturnValueOnce({
@@ -67,18 +67,18 @@ describe('callGetVendorsAPI', () => {
 describe('callGetVendorByIdAPI', () => {
   it('should work correctly', async () => {
     ;(createPlatformAxiosInstance as jest.Mocked<any>).mockReturnValueOnce({
-      get: jest.fn(() => Promise.resolve({ data: vendorStub })),
+      get: jest.fn(() => Promise.resolve({ data: mockVendor })),
     })
-    const args = { id: vendorStub.id } as any
+    const args = { id: mockVendor.id } as any
     const result = await callGetVendorByIdAPI(args, mockContext)
-    expect(result).toEqual(vendorStub)
+    expect(result).toEqual(mockVendor)
   })
 
   it('should catch error correctly', async () => {
     ;(createPlatformAxiosInstance as jest.Mocked<any>).mockReturnValueOnce({
       get: jest.fn(() => Promise.reject('error caught')),
     })
-    const args = { id: vendorStub.id } as any
+    const args = { id: mockVendor.id } as any
     const result = await callGetVendorByIdAPI(args, mockContext)
     expect(result).toEqual('caught error')
   })
@@ -87,11 +87,11 @@ describe('callGetVendorByIdAPI', () => {
 describe('callGetVendorRelationshipByIdAPI', () => {
   it('should work correctly', async () => {
     ;(createPlatformAxiosInstance as jest.Mocked<any>).mockReturnValueOnce({
-      get: jest.fn(() => Promise.resolve({ data: vendorRelationshipStub })),
+      get: jest.fn(() => Promise.resolve({ data: mockVendorRelationship })),
     })
     const args = { id: 'id', relationshipId: 'relationshipId' }
     const result = await callGetVendorRelationshipByIdAPI(args, mockContext)
-    expect(result).toEqual(vendorRelationshipStub)
+    expect(result).toEqual(mockVendorRelationship)
   })
 
   it('should catch error correctly', async () => {
@@ -107,11 +107,11 @@ describe('callGetVendorRelationshipByIdAPI', () => {
 describe('callGetVendorRelationshipsAPI', () => {
   it('should work correctly', async () => {
     ;(createPlatformAxiosInstance as jest.Mocked<any>).mockReturnValueOnce({
-      get: jest.fn(() => Promise.resolve({ data: vendorRelationshipsStub })),
+      get: jest.fn(() => Promise.resolve({ data: mockVendorRelationships })),
     })
     const args = { pageSize: 1, id: 'id' }
     const result = await callGetVendorRelationshipsAPI(args, mockContext)
-    expect(result).toEqual(vendorRelationshipsStub)
+    expect(result).toEqual(mockVendorRelationships)
   })
   it('should catch error correctly', async () => {
     ;(createPlatformAxiosInstance as jest.Mocked<any>).mockReturnValueOnce({
@@ -127,15 +127,15 @@ describe('callCreateVendorRelationshipAPI', () => {
   it('should work correctly', async () => {
     ;(createPlatformAxiosInstance as jest.Mocked<any>).mockReturnValueOnce({
       post: jest.fn(() => Promise.resolve({ headers: 'header' })),
-      get: jest.fn(() => Promise.resolve({ data: vendorRelationshipStub })),
+      get: jest.fn(() => Promise.resolve({ data: mockVendorRelationship })),
     })
-    await callCreateVendorRelationshipAPI(createVendorRelationshipArgsStub, mockContext)
+    await callCreateVendorRelationshipAPI(mockCreateVendorRelationshipArgs, mockContext)
   })
   it('should catch error correctly', async () => {
     ;(createPlatformAxiosInstance as jest.Mocked<any>).mockReturnValueOnce({
       post: jest.fn(() => Promise.reject('error caught')),
     })
-    const result = await callCreateVendorRelationshipAPI(createVendorRelationshipArgsStub, mockContext)
+    const result = await callCreateVendorRelationshipAPI(mockCreateVendorRelationshipArgs, mockContext)
     expect(result).toEqual('caught error')
   })
 })
@@ -145,13 +145,13 @@ describe('callUpdateVendorAPI', () => {
     ;(createPlatformAxiosInstance as jest.Mocked<any>).mockReturnValueOnce({
       patch: jest.fn(() => Promise.resolve({ headers: 'header' })),
     })
-    await callUpdateVendorAPI(updateVendorArgsStub, mockContext)
+    await callUpdateVendorAPI(mockUpdateVendorArgs, mockContext)
   })
   it('should catch error correctly', async () => {
     ;(createPlatformAxiosInstance as jest.Mocked<any>).mockReturnValueOnce({
       patch: jest.fn(() => Promise.reject('error caught')),
     })
-    const result = await callUpdateVendorAPI(updateVendorArgsStub, mockContext)
+    const result = await callUpdateVendorAPI(mockUpdateVendorArgs, mockContext)
     expect(result).toEqual('caught error')
   })
 })
@@ -161,13 +161,13 @@ describe('callDeleteVendorRelationshipAPI', () => {
     ;(createPlatformAxiosInstance as jest.Mocked<any>).mockReturnValueOnce({
       delete: jest.fn(() => Promise.resolve({ headers: 'header' })),
     })
-    await callDeleteVendorRelationshipAPI(deleteVendorRelationshipsArgsStub, mockContext)
+    await callDeleteVendorRelationshipAPI(mockDeleteVendorRelationshipsArgs, mockContext)
   })
   it('should catch error correctly', async () => {
     ;(createPlatformAxiosInstance as jest.Mocked<any>).mockReturnValueOnce({
       delete: jest.fn(() => Promise.reject('error caught')),
     })
-    const result = await callDeleteVendorRelationshipAPI(deleteVendorRelationshipsArgsStub, mockContext)
+    const result = await callDeleteVendorRelationshipAPI(mockDeleteVendorRelationshipsArgs, mockContext)
     expect(result).toEqual('caught error')
   })
 })

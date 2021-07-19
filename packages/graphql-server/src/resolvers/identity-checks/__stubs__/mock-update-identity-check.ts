@@ -1,6 +1,6 @@
 import { UpdateIdentityCheckArgs } from '../identity-checks'
 
-export const updateIdentityCheckArgsMock: UpdateIdentityCheckArgs = {
+export const mockUpdateIdentityCheckArgs: UpdateIdentityCheckArgs = {
   checkDate: '2020-01-22',
   status: 'pending',
   negotiatorId: 'JAS',

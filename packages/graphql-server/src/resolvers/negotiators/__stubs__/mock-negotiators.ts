@@ -1,6 +1,6 @@
 import { NegotiatorModelPagedResult } from '@reapit/foundations-ts-definitions'
 
-export const negotiatorsMock: NegotiatorModelPagedResult = {
+export const mockNegotiators: NegotiatorModelPagedResult = {
   _embedded: [
     {
       id: 'HCJK',

@@ -1,6 +1,6 @@
 import { SourceModel } from '@reapit/foundations-ts-definitions'
 
-export const sourceMock: SourceModel = {
+export const mockSource: SourceModel = {
   id: 'ADV',
   created: '2018-12-12T12:30:23.0000000Z',
   modified: '2019-01-08T12:30:34.0000000Z',

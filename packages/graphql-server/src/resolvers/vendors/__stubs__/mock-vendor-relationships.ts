@@ -1,6 +1,6 @@
 import { VendorContactRelationshipModelPagedResult } from '@reapit/foundations-ts-definitions'
 
-export const vendorRelationshipsStub: VendorContactRelationshipModelPagedResult = {
+export const mockVendorRelationships: VendorContactRelationshipModelPagedResult = {
   pageNumber: 1,
   pageSize: 1,
   pageCount: 1,

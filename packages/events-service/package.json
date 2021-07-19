@@ -42,6 +42,7 @@
     "@typescript-eslint/eslint-plugin": "^4.28.3",
     "@typescript-eslint/parser": "^4.28.3",
     "babel-jest": "^27.0.6",
+    "babel-plugin-transform-typescript-metadata": "^0.3.2",
     "concurrently": "^6.2.0",
     "cross-env": "^7.0.3",
     "eslint": "^7.30.0",

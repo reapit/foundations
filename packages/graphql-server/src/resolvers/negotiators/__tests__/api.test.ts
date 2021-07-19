@@ -6,10 +6,10 @@ import {
   callGetNegotiatorByIdAPI,
 } from '../api'
 import { createPlatformAxiosInstance } from '../../../utils/axios-instances'
-import { negotiatorMock } from '../__stubs__/mock-negotiator'
-import { negotiatorsMock } from '../__stubs__/mock-negotiators'
-import { createNegotiatorArgsMock } from '../__stubs__/mock-create-negotiator'
-import { updateNegotiatorArgsMock } from '../__stubs__/mock-update-negotiator'
+import { mockNegotiator } from '../__stubs__/mock-negotiator'
+import { mockNegotiators } from '../__stubs__/mock-negotiators'
+import { mockCreateNegotiatorArgs } from '../__stubs__/mock-create-negotiator'
+import { mockUpdateNegotiatorArgs } from '../__stubs__/mock-update-negotiator'
 import { getIdFromCreateHeaders } from '../../../utils/get-id-from-create-headers'
 
 jest.mock('apollo-server-lambda', () => {
@@ -43,11 +43,11 @@ jest.mock('../../../utils/axios-instances', () => ({
 describe('callGetNegotiatorsAPI', () => {
   it('should work correctly', async () => {
     ;(createPlatformAxiosInstance as jest.Mocked<any>).mockReturnValueOnce({
-      get: jest.fn(() => Promise.resolve({ data: negotiatorsMock })),
+      get: jest.fn(() => Promise.resolve({ data: mockNegotiators })),
     })
     const args = { pageSize: 1 }
     const result = await callGetNegotiatorsAPI(args, mockContext)
-    expect(result).toEqual(negotiatorsMock)
+    expect(result).toEqual(mockNegotiators)
   })
   it('should catch error correctly', async () => {
     ;(createPlatformAxiosInstance as jest.Mocked<any>).mockReturnValueOnce({
@@ -62,18 +62,18 @@ describe('callGetNegotiatorsAPI', () => {
 describe('callGetNegotiatorByIdAPI', () => {
   it('should work correctly', async () => {
     ;(createPlatformAxiosInstance as jest.Mocked<any>).mockReturnValueOnce({
-      get: jest.fn(() => Promise.resolve({ data: negotiatorMock })),
+      get: jest.fn(() => Promise.resolve({ data: mockNegotiator })),
     })
-    const args = { id: negotiatorMock.id }
+    const args = { id: mockNegotiator.id }
     const result = await callGetNegotiatorByIdAPI(args, mockContext)
-    expect(result).toEqual(negotiatorMock)
+    expect(result).toEqual(mockNegotiator)
   })
 
   it('should catch error correctly', async () => {
     ;(createPlatformAxiosInstance as jest.Mocked<any>).mockReturnValueOnce({
       get: jest.fn(() => Promise.reject('error caught')),
     })
-    const args = { id: negotiatorMock.id }
+    const args = { id: mockNegotiator.id }
     const result = await callGetNegotiatorByIdAPI(args, mockContext)
     expect(result).toEqual('caught error')
   })
@@ -83,17 +83,17 @@ describe('callCreateNegotiatorAPI', () => {
   it('should work correctly', async () => {
     ;(createPlatformAxiosInstance as jest.Mocked<any>).mockReturnValueOnce({
       post: jest.fn(() => Promise.resolve({ headers: 'header' })),
-      get: jest.fn(() => Promise.resolve({ data: negotiatorMock })),
+      get: jest.fn(() => Promise.resolve({ data: mockNegotiator })),
     })
-    ;(getIdFromCreateHeaders as jest.Mocked<any>).mockReturnValueOnce(negotiatorMock.id)
-    await callCreateNegotiatorAPI(createNegotiatorArgsMock, mockContext)
+    ;(getIdFromCreateHeaders as jest.Mocked<any>).mockReturnValueOnce(mockNegotiator.id)
+    await callCreateNegotiatorAPI(mockCreateNegotiatorArgs, mockContext)
     expect(getIdFromCreateHeaders).toHaveBeenCalledWith({ headers: 'header' })
   })
   it('should catch error correctly', async () => {
     ;(createPlatformAxiosInstance as jest.Mocked<any>).mockReturnValueOnce({
       post: jest.fn(() => Promise.reject('error caught')),
     })
-    const result = await callCreateNegotiatorAPI(createNegotiatorArgsMock, mockContext)
+    const result = await callCreateNegotiatorAPI(mockCreateNegotiatorArgs, mockContext)
     expect(result).toEqual('caught error')
   })
 })
@@ -103,13 +103,13 @@ describe('callUpdateNegotiatorAPI', () => {
     ;(createPlatformAxiosInstance as jest.Mocked<any>).mockReturnValueOnce({
       patch: jest.fn(() => Promise.resolve({ headers: 'header' })),
     })
-    await callUpdateNegotiatorAPI(updateNegotiatorArgsMock, mockContext)
+    await callUpdateNegotiatorAPI(mockUpdateNegotiatorArgs, mockContext)
   })
   it('should catch error correctly', async () => {
     ;(createPlatformAxiosInstance as jest.Mocked<any>).mockReturnValueOnce({
       patch: jest.fn(() => Promise.reject('error caught')),
     })
-    const result = await callUpdateNegotiatorAPI(updateNegotiatorArgsMock, mockContext)
+    const result = await callUpdateNegotiatorAPI(mockUpdateNegotiatorArgs, mockContext)
     expect(result).toEqual('caught error')
   })
 })

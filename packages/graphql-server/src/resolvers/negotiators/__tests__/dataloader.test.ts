@@ -1,6 +1,6 @@
 import { generateNegotiatorBatchLoaderFn, generateNegotiatorLoader } from '../dataloader'
-import { negotiatorMock } from '../__stubs__/mock-negotiator'
-import { negotiatorsMock } from '../__stubs__/mock-negotiators'
+import { mockNegotiator } from '../__stubs__/mock-negotiator'
+import { mockNegotiators } from '../__stubs__/mock-negotiators'
 import { mockContext } from '../../../__stubs__/mock-context'
 
 jest.mock('apollo-server-lambda', () => {
@@ -14,8 +14,8 @@ jest.mock('apollo-server-lambda', () => {
 })
 jest.mock('../../../logger')
 jest.mock('../api', () => ({
-  callGetNegotiatorByIdAPI: jest.fn(() => Promise.resolve(negotiatorMock)),
-  callGetNegotiatorsAPI: jest.fn(() => Promise.resolve(negotiatorsMock)),
+  callGetNegotiatorByIdAPI: jest.fn(() => Promise.resolve(mockNegotiator)),
+  callGetNegotiatorsAPI: jest.fn(() => Promise.resolve(mockNegotiators)),
   callCreateNegotiatorAPI: jest.fn(() => Promise.resolve(true)),
   callUpdateNegotiatorAPI: jest.fn(() => Promise.resolve(true)),
 }))

@@ -1,6 +1,6 @@
 import { CreateOfferArgs } from '../offers'
 
-export const createOfferArgsMock: CreateOfferArgs = {
+export const mockCreateOfferArgs: CreateOfferArgs = {
   applicantId: 'applicantId',
   propertyId: 'propertyId',
   negotiatorId: 'negotiatorId',

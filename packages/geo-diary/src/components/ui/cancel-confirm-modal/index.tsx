@@ -25,11 +25,13 @@ export type UpdateAppointmentVariables = {
   _eTag: string
 }
 
-export const handleUpdateAppointment = ({ updateAppointment, appointment }: HandleUpdateAppointmentParams) => () => {
-  updateAppointment({
-    variables: { id: appointment?.id || '', cancelled: true, _eTag: appointment?._eTag || '' },
-  })
-}
+export const handleUpdateAppointment =
+  ({ updateAppointment, appointment }: HandleUpdateAppointmentParams) =>
+  () => {
+    updateAppointment({
+      variables: { id: appointment?.id || '', cancelled: true, _eTag: appointment?._eTag || '' },
+    })
+  }
 
 export const CancelConfirmModal: React.FC<CancelConfirmModalProps> = ({ showModal, appointment, handleHideModal }) => {
   const [updateAppointment, { loading }] = useMutation<UpdateAppointmentData, UpdateAppointmentVariables>(

@@ -35,7 +35,7 @@ describe('fetchLocationResults', () => {
     const mockAppState = {
       ...defaultAppState,
       locationQueryAddress: 'Some address',
-      mapRefs: ({
+      mapRefs: {
         googleMapsRef: {
           current: {
             Geocoder: jest.fn(() => ({
@@ -43,7 +43,7 @@ describe('fetchLocationResults', () => {
             })),
           },
         },
-      } as unknown) as MapRefs,
+      } as unknown as MapRefs,
     } as AppState
 
     fetchLocationResults({ appState: mockAppState, setAppState: mockSetAppState })
@@ -62,9 +62,7 @@ describe('handleFetchLocationResults', () => {
     const curried = handleFetchLocationResults({
       appState: mockAppState,
       setAppState: mockSetAppState,
-      debouncedGeolocate: (mockDebounce as unknown) as DebouncedFunc<
-        ({ appState, setAppState }: AppStateParams) => void
-      >,
+      debouncedGeolocate: mockDebounce as unknown as DebouncedFunc<({ appState, setAppState }: AppStateParams) => void>,
     })
     curried()
 
@@ -74,12 +72,12 @@ describe('handleFetchLocationResults', () => {
 
 describe('handleSetLocationQuery', () => {
   it('should set app state correctly', () => {
-    const mockEvent = ({
+    const mockEvent = {
       persist: jest.fn(),
       target: {
         value: 'SOME_VALUE',
       },
-    } as unknown) as ChangeEvent<HTMLInputElement>
+    } as unknown as ChangeEvent<HTMLInputElement>
     const mockSetAppState = jest.fn()
 
     const curried = handleSetLocationQuery(mockSetAppState)
@@ -94,9 +92,9 @@ describe('handleSetLocationQuery', () => {
 
 describe('handleCloseResults', () => {
   it('should set app state correctly', () => {
-    const mockEvent = ({
+    const mockEvent = {
       stopPropagation: jest.fn(),
-    } as unknown) as MouseEvent<SVGSVGElement>
+    } as unknown as MouseEvent<SVGSVGElement>
     const mockSetAppState = jest.fn()
 
     const curried = handleCloseResults(mockSetAppState)
@@ -112,11 +110,11 @@ describe('handleCloseResults', () => {
 
 describe('handleSelectResult', () => {
   it('should set app state correctly', () => {
-    const mockEvent = ({
+    const mockEvent = {
       stopPropagation: jest.fn(),
-    } as unknown) as MouseEvent<HTMLDivElement>
+    } as unknown as MouseEvent<HTMLDivElement>
     const mockSetAppState = jest.fn()
-    const mockGeoCodeResult = ({
+    const mockGeoCodeResult = {
       formatted_address: 'SOME_ADDRESS',
       geometry: {
         location: {
@@ -124,7 +122,7 @@ describe('handleSelectResult', () => {
           lng: jest.fn(() => 1234),
         },
       },
-    } as unknown) as GeocoderResult
+    } as unknown as GeocoderResult
 
     const curried = handleSelectResult(mockSetAppState, mockGeoCodeResult)
     curried(mockEvent)

@@ -6,7 +6,7 @@ import {
   TenancyCheckModel,
 } from '@reapit/foundations-ts-definitions'
 
-export const tenanciesListMock: TenancyModelPagedResult = {
+export const mockTenanciesList: TenancyModelPagedResult = {
   _embedded: [
     {
       id: 'RPT200113',
@@ -440,7 +440,7 @@ export const tenanciesListMock: TenancyModelPagedResult = {
   totalCount: 294,
 }
 
-export const tenancyMock: TenancyModel = {
+export const mockTenancy: TenancyModel = {
   id: 'RPT200111',
   created: '2020-08-04T06:37:42Z',
   modified: '2020-08-04T15:43:21Z',
@@ -491,7 +491,7 @@ export const tenancyMock: TenancyModel = {
   _embedded: null,
 }
 
-export const tenancyRelationshipsListMock: TenancyContactRelationshipModelPagedResult = {
+export const mockTenancyRelationshipsList: TenancyContactRelationshipModelPagedResult = {
   _embedded: [
     {
       id: 'OXF20002002',
@@ -532,7 +532,7 @@ export const tenancyRelationshipsListMock: TenancyContactRelationshipModelPagedR
   },
 }
 
-export const tenancyChecksListMock: TenancyCheckModelPagedResult = {
+export const mockTenancyChecksList: TenancyCheckModelPagedResult = {
   _embedded: [
     {
       id: 'RPT20000517',
@@ -1099,7 +1099,7 @@ export const tenancyChecksListMock: TenancyCheckModelPagedResult = {
   },
 }
 
-export const tenancyCheckMock: TenancyCheckModel = {
+export const mockTenancyCheck: TenancyCheckModel = {
   id: 'RPT20000517',
   created: '2020-08-11T02:48:55Z',
   modified: '2020-08-11T02:48:55Z',

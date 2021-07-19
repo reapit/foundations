@@ -1,6 +1,6 @@
 import { NegotiatorModel } from '@reapit/foundations-ts-definitions'
 
-export const negotiatorMock: NegotiatorModel = {
+export const mockNegotiator: NegotiatorModel = {
   id: 'HCJK',
   created: '2020-03-06T10:01:43.0000000Z',
   modified: '2020-03-06T10:01:43.0000000Z',

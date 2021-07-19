@@ -2,15 +2,15 @@ import contactServices from '../services'
 import { checkPermission } from '../../../utils/check-permission'
 import errors from '../../../errors'
 import { queryGetContactById, queryGetContacts, mutationCreateContact, mutationUpdateContact } from '../resolvers'
-import { createContactArgsMock } from '../__stubs__/mock-create-contact'
-import { updateContactArgsMock } from '../__stubs__/mock-update-contact'
-import { contactMock } from '../__stubs__/mock-contact'
-import { contactsMock } from '../__stubs__/mock-contacts'
+import { mockCreateContactArgs } from '../__stubs__/mock-create-contact'
+import { mockUpdateContactArgs } from '../__stubs__/mock-update-contact'
+import { mockContact } from '../__stubs__/mock-contact'
+import { mockContacts } from '../__stubs__/mock-contacts'
 import { mockContext } from '../../../__stubs__/mock-context'
 
 jest.mock('../services', () => ({
-  getContactById: jest.fn(() => contactMock),
-  getContacts: jest.fn(() => contactsMock),
+  getContactById: jest.fn(() => mockContact),
+  getContacts: jest.fn(() => mockContacts),
   createContact: jest.fn(() => true),
   updateContact: jest.fn(() => true),
 }))
@@ -57,13 +57,13 @@ describe('queryGetContacts', () => {
 describe('mutationCreateContact', () => {
   it('should return correctly', () => {
     ;(checkPermission as jest.Mock).mockReturnValue(true)
-    const result = mutationCreateContact(null, createContactArgsMock, mockContext)
-    expect(result).toEqual(contactServices.createContact(createContactArgsMock, mockContext))
+    const result = mutationCreateContact(null, mockCreateContactArgs, mockContext)
+    expect(result).toEqual(contactServices.createContact(mockCreateContactArgs, mockContext))
   })
 
   it('should return auth error correctly', () => {
     ;(checkPermission as jest.Mock).mockReturnValue(false)
-    const result = mutationCreateContact(null, createContactArgsMock, mockContext)
+    const result = mutationCreateContact(null, mockCreateContactArgs, mockContext)
     expect(result).toEqual(errors.generateAuthenticationError(mockContext.traceId))
   })
 })
@@ -71,13 +71,13 @@ describe('mutationCreateContact', () => {
 describe('mutationUpdateContact', () => {
   it('should return correctly', () => {
     ;(checkPermission as jest.Mock).mockReturnValue(true)
-    const result = mutationUpdateContact(null, updateContactArgsMock, mockContext)
-    expect(result).toEqual(contactServices.updateContact(updateContactArgsMock, mockContext))
+    const result = mutationUpdateContact(null, mockUpdateContactArgs, mockContext)
+    expect(result).toEqual(contactServices.updateContact(mockUpdateContactArgs, mockContext))
   })
 
   it('should return auth error correctly', () => {
     ;(checkPermission as jest.Mock).mockReturnValue(false)
-    const result = mutationUpdateContact(null, updateContactArgsMock, mockContext)
+    const result = mutationUpdateContact(null, mockUpdateContactArgs, mockContext)
     expect(result).toEqual(errors.generateAuthenticationError(mockContext.traceId))
   })
 })

@@ -1,4 +1,4 @@
-export const tasksMock = {
+export const mockTasks = {
   pageNumber: 1,
   pageSize: 25,
   pageCount: 25,

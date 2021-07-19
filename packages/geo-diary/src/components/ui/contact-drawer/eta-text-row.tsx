@@ -29,25 +29,27 @@ export const getNegotiator = ({ appointment, userCode }: GetNegotiatorParams) =>
   })
 }
 
-export const handleGenerateUserText = (
-  appState: AppState,
-  session: ReapitConnectSession | null,
-  travelMode: AppTravelMode,
-  name?: string,
-  phoneNumber?: string,
-) => async () => {
-  const { appointment } = appState
-  const routeInformation = await handleGetRouteInfo(appState, travelMode)
-  const userCode = session?.loginIdentity.userCode
-  const orgName = session?.loginIdentity.orgName
-  const negotiator = getNegotiator({ appointment, userCode })
-  const customerName = name ? ` ${name}` : ''
-  const negotiatorName = negotiator?.name ?? ''
-  const negotiatorCompany = orgName ? ` from ${orgName}` : ''
-  const duration = routeInformation?.duration ? `in approximately ${routeInformation?.duration.text}.` : 'shortly.'
+export const handleGenerateUserText =
+  (
+    appState: AppState,
+    session: ReapitConnectSession | null,
+    travelMode: AppTravelMode,
+    name?: string,
+    phoneNumber?: string,
+  ) =>
+  async () => {
+    const { appointment } = appState
+    const routeInformation = await handleGetRouteInfo(appState, travelMode)
+    const userCode = session?.loginIdentity.userCode
+    const orgName = session?.loginIdentity.orgName
+    const negotiator = getNegotiator({ appointment, userCode })
+    const customerName = name ? ` ${name}` : ''
+    const negotiatorName = negotiator?.name ?? ''
+    const negotiatorCompany = orgName ? ` from ${orgName}` : ''
+    const duration = routeInformation?.duration ? `in approximately ${routeInformation?.duration.text}.` : 'shortly.'
 
-  window.location.href = `sms:${phoneNumber}?&body=Hi${customerName}, this is ${negotiatorName}${negotiatorCompany}, I will be with you ${duration}`
-}
+    window.location.href = `sms:${phoneNumber}?&body=Hi${customerName}, this is ${negotiatorName}${negotiatorCompany}, I will be with you ${duration}`
+  }
 
 const EtaTextRow: React.FC<EtaTextRowProps> = ({ phoneNumber, name }: EtaTextRowProps) => {
   const { appState } = useAppState()

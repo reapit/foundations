@@ -4,11 +4,11 @@ import errors from '../../../errors'
 import { queryGetConfigurationsByType, queryGetConfigurationsByTypeAndId } from '../resolver'
 import { GetConfigurationByTypeAndIdArgs, GetConfigurationByTypeArgs } from '../configurations'
 import { mockContext } from '../../../__stubs__/mock-context'
-import { appointmentTypeMock, appointmentTypesMock } from '../__stubs__/mock-appointment-types'
+import { mockAppointmentType, mockAppointmentTypes } from '../__stubs__/mock-appointment-types'
 
 jest.mock('../services', () => ({
-  getConfigurationByTypeAndId: jest.fn(() => appointmentTypeMock),
-  getConfigurationsByType: jest.fn(() => appointmentTypesMock),
+  getConfigurationByTypeAndId: jest.fn(() => mockAppointmentType),
+  getConfigurationsByType: jest.fn(() => mockAppointmentTypes),
 }))
 jest.mock('../../../errors', () => ({
   generateAuthenticationError: jest.fn(() => 'authentication error'),

@@ -1,4 +1,4 @@
-export const taskMock = {
+export const mockTask = {
   id: 'MKT2000021',
   created: '2020-07-30T13:46:12Z',
   modified: '2020-08-03T15:59:12Z',

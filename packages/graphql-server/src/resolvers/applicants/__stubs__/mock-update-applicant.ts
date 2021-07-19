@@ -1,4 +1,4 @@
-export const updateApplicantArgsMock = {
+export const mockUpdateApplicantArgs = {
   id: 'MKT200004',
   marketingMode: 'buying',
   active: true,

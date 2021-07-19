@@ -1,6 +1,6 @@
 import { ContactModel } from '@reapit/foundations-ts-definitions'
 
-export const contactMock: ContactModel = {
+export const mockContact: ContactModel = {
   id: 'RPT20000017',
   title: 'Mr',
   forename: 'John',

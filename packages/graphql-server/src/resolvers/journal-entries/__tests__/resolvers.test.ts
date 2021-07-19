@@ -2,12 +2,12 @@ import journalEntryServices from '../services'
 import { checkPermission } from '../../../utils/check-permission'
 import errors from '../../../errors'
 import { queryGetJournalEntries, mutationCreateJournalEntry } from '../resolvers'
-import { createJournalEntryArgsMock } from '../__stubs__/mock-create-journal-entry'
-import { journalEntriesMock } from '../__stubs__/mock-journal-entries'
+import { mockCreateJournalEntryArgs } from '../__stubs__/mock-create-journal-entry'
+import { mockJournalEntries } from '../__stubs__/mock-journal-entries'
 import { mockContext } from '../../../__stubs__/mock-context'
 
 jest.mock('../services', () => ({
-  getJournalEntries: jest.fn(() => journalEntriesMock),
+  getJournalEntries: jest.fn(() => mockJournalEntries),
   createJournalEntry: jest.fn(() => true),
 }))
 jest.mock('../../../errors', () => ({
@@ -37,13 +37,13 @@ describe('queryGetJournalEntries', () => {
 describe('mutationCreateJournalEntry', () => {
   it('should return correctly', () => {
     ;(checkPermission as jest.Mock).mockReturnValue(true)
-    const result = mutationCreateJournalEntry(null, createJournalEntryArgsMock, mockContext)
-    expect(result).toEqual(journalEntryServices.createJournalEntry(createJournalEntryArgsMock, mockContext))
+    const result = mutationCreateJournalEntry(null, mockCreateJournalEntryArgs, mockContext)
+    expect(result).toEqual(journalEntryServices.createJournalEntry(mockCreateJournalEntryArgs, mockContext))
   })
 
   it('should return auth error correctly', () => {
     ;(checkPermission as jest.Mock).mockReturnValue(false)
-    const result = mutationCreateJournalEntry(null, createJournalEntryArgsMock, mockContext)
+    const result = mutationCreateJournalEntry(null, mockCreateJournalEntryArgs, mockContext)
     expect(result).toEqual(errors.generateAuthenticationError(mockContext.traceId))
   })
 })

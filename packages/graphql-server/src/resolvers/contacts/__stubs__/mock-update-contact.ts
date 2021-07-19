@@ -1,6 +1,6 @@
 import { UpdateContactArgs } from '../contacts'
 
-export const updateContactArgsMock: UpdateContactArgs = {
+export const mockUpdateContactArgs: UpdateContactArgs = {
   id: 'RPT20000017',
   title: 'Mr',
   forename: 'John',

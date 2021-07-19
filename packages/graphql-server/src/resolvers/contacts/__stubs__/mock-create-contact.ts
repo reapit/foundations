@@ -1,6 +1,6 @@
 import { CreateContactArgs } from '../contacts'
 
-export const createContactArgsMock: CreateContactArgs = {
+export const mockCreateContactArgs: CreateContactArgs = {
   title: 'Mr',
   forename: 'John',
   surname: 'Smith',

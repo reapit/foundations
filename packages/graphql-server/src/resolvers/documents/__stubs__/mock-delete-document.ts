@@ -1,5 +1,5 @@
 import { DeleteDocumentArgs } from '../documents'
 
-export const deleteDocumentMockArgs: DeleteDocumentArgs = {
+export const mockDeleteDocumentArgs: DeleteDocumentArgs = {
   id: 'MLK110363',
 }

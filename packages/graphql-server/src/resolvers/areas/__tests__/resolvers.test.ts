@@ -2,15 +2,15 @@ import areaServices from '../services'
 import { checkPermission } from '../../../utils/check-permission'
 import errors from '../../../errors'
 import { queryGetAreaById, queryGetAreas, mutationCreateArea, mutationUpdateArea } from '../resolvers'
-import { createAreaArgsMock } from '../__stubs__/mock-create-area'
-import { updateAreaArgsMock } from '../__stubs__/mock-update-area'
-import { areaMock } from '../__stubs__/mock-area'
-import { areasMock } from '../__stubs__/mock-areas'
+import { mockCreateAreaArgs } from '../__stubs__/mock-create-area'
+import { mockUpdateAreaArgs } from '../__stubs__/mock-update-area'
+import { mockArea } from '../__stubs__/mock-area'
+import { mockAreas } from '../__stubs__/mock-areas'
 import { mockContext } from '../../../__stubs__/mock-context'
 
 jest.mock('../services', () => ({
-  getAreaById: jest.fn(() => areaMock),
-  getAreas: jest.fn(() => areasMock),
+  getAreaById: jest.fn(() => mockArea),
+  getAreas: jest.fn(() => mockAreas),
   createArea: jest.fn(() => true),
   updateArea: jest.fn(() => true),
 }))
@@ -57,13 +57,13 @@ describe('queryGetAreas', () => {
 describe('mutationCreateArea', () => {
   it('should return correctly', () => {
     ;(checkPermission as jest.Mock).mockReturnValue(true)
-    const result = mutationCreateArea(null, createAreaArgsMock, mockContext)
-    expect(result).toEqual(areaServices.createArea(createAreaArgsMock, mockContext))
+    const result = mutationCreateArea(null, mockCreateAreaArgs, mockContext)
+    expect(result).toEqual(areaServices.createArea(mockCreateAreaArgs, mockContext))
   })
 
   it('should return auth error correctly', () => {
     ;(checkPermission as jest.Mock).mockReturnValue(false)
-    const result = mutationCreateArea(null, createAreaArgsMock, mockContext)
+    const result = mutationCreateArea(null, mockCreateAreaArgs, mockContext)
     expect(result).toEqual(errors.generateAuthenticationError(mockContext.traceId))
   })
 })
@@ -71,13 +71,13 @@ describe('mutationCreateArea', () => {
 describe('mutationUpdateArea', () => {
   it('should return correctly', () => {
     ;(checkPermission as jest.Mock).mockReturnValue(true)
-    const result = mutationUpdateArea(null, updateAreaArgsMock, mockContext)
-    expect(result).toEqual(areaServices.updateArea(updateAreaArgsMock, mockContext))
+    const result = mutationUpdateArea(null, mockUpdateAreaArgs, mockContext)
+    expect(result).toEqual(areaServices.updateArea(mockUpdateAreaArgs, mockContext))
   })
 
   it('should return auth error correctly', () => {
     ;(checkPermission as jest.Mock).mockReturnValue(false)
-    const result = mutationUpdateArea(null, updateAreaArgsMock, mockContext)
+    const result = mutationUpdateArea(null, mockUpdateAreaArgs, mockContext)
     expect(result).toEqual(errors.generateAuthenticationError(mockContext.traceId))
   })
 })

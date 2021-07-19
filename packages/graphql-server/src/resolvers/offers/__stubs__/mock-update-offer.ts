@@ -1,6 +1,6 @@
 import { UpdateOfferArgs } from '../offers'
 
-export const updateOfferArgsMock: UpdateOfferArgs = {
+export const mockUpdateOfferArgs: UpdateOfferArgs = {
   id: 'string',
   _eTag: 'string',
   negotiatorId: 'negotiatorId',

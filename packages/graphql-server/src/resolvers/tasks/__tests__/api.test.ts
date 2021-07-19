@@ -1,10 +1,10 @@
 import { mockContext } from '../../../__stubs__/mock-context'
 import { callGetTasksAPI, callCreateTaskAPI, callUpdateTaskAPI, callGetTaskByIdAPI } from '../api'
 import { createPlatformAxiosInstance } from '../../../utils/axios-instances'
-import { taskMock } from '../__stubs__/mock-task'
-import { tasksMock } from '../__stubs__/mock-tasks'
-import { createTaskArgsMock } from '../__stubs__/mock-create-task'
-import { updateTaskArgsMock } from '../__stubs__/mock-update-task'
+import { mockTask } from '../__stubs__/mock-task'
+import { mockTasks } from '../__stubs__/mock-tasks'
+import { mockCreateTaskArgs } from '../__stubs__/mock-create-task'
+import { mockUpdateTaskArgs } from '../__stubs__/mock-update-task'
 import { getIdFromCreateHeaders } from '../../../utils/get-id-from-create-headers'
 
 jest.mock('apollo-server-lambda', () => {
@@ -31,11 +31,11 @@ jest.mock('../../../utils/axios-instances', () => ({
 describe('callGetTasksAPI', () => {
   it('should work correctly', async () => {
     ;(createPlatformAxiosInstance as jest.Mocked<any>).mockReturnValueOnce({
-      get: jest.fn(() => Promise.resolve({ data: tasksMock })),
+      get: jest.fn(() => Promise.resolve({ data: mockTasks })),
     })
     const args = { pageSize: 1 }
     const result = await callGetTasksAPI(args, mockContext)
-    expect(result).toEqual(tasksMock)
+    expect(result).toEqual(mockTasks)
   })
   it('should catch error correctly', async () => {
     ;(createPlatformAxiosInstance as jest.Mocked<any>).mockReturnValueOnce({
@@ -50,18 +50,18 @@ describe('callGetTasksAPI', () => {
 describe('callGetTaskByIdAPI', () => {
   it('should work correctly', async () => {
     ;(createPlatformAxiosInstance as jest.Mocked<any>).mockReturnValueOnce({
-      get: jest.fn(() => Promise.resolve({ data: taskMock })),
+      get: jest.fn(() => Promise.resolve({ data: mockTask })),
     })
-    const args = { id: taskMock.id }
+    const args = { id: mockTask.id }
     const result = await callGetTaskByIdAPI(args, mockContext)
-    expect(result).toEqual(taskMock)
+    expect(result).toEqual(mockTask)
   })
 
   it('should catch error correctly', async () => {
     ;(createPlatformAxiosInstance as jest.Mocked<any>).mockReturnValueOnce({
       get: jest.fn(() => Promise.reject('error caught')),
     })
-    const args = { id: taskMock.id }
+    const args = { id: mockTask.id }
     const result = await callGetTaskByIdAPI(args, mockContext)
     expect(result).toEqual('caught error')
   })
@@ -71,17 +71,17 @@ describe('callCreateTaskAPI', () => {
   it('should work correctly', async () => {
     ;(createPlatformAxiosInstance as jest.Mocked<any>).mockReturnValueOnce({
       post: jest.fn(() => Promise.resolve({ headers: 'header' })),
-      get: jest.fn(() => Promise.resolve({ data: taskMock })),
+      get: jest.fn(() => Promise.resolve({ data: mockTask })),
     })
-    ;(getIdFromCreateHeaders as jest.Mocked<any>).mockReturnValueOnce(taskMock.id)
-    await callCreateTaskAPI(createTaskArgsMock, mockContext)
+    ;(getIdFromCreateHeaders as jest.Mocked<any>).mockReturnValueOnce(mockTask.id)
+    await callCreateTaskAPI(mockCreateTaskArgs, mockContext)
     expect(getIdFromCreateHeaders).toHaveBeenCalledWith({ headers: 'header' })
   })
   it('should catch error correctly', async () => {
     ;(createPlatformAxiosInstance as jest.Mocked<any>).mockReturnValueOnce({
       post: jest.fn(() => Promise.reject('error caught')),
     })
-    const result = await callCreateTaskAPI(createTaskArgsMock, mockContext)
+    const result = await callCreateTaskAPI(mockCreateTaskArgs, mockContext)
     expect(result).toEqual('caught error')
   })
 })
@@ -91,13 +91,13 @@ describe('callUpdateTaskAPI', () => {
     ;(createPlatformAxiosInstance as jest.Mocked<any>).mockReturnValueOnce({
       patch: jest.fn(() => Promise.resolve({ headers: 'header' })),
     })
-    await callUpdateTaskAPI(updateTaskArgsMock, mockContext)
+    await callUpdateTaskAPI(mockUpdateTaskArgs, mockContext)
   })
   it('should catch error correctly', async () => {
     ;(createPlatformAxiosInstance as jest.Mocked<any>).mockReturnValueOnce({
       patch: jest.fn(() => Promise.reject('error caught')),
     })
-    const result = await callUpdateTaskAPI(updateTaskArgsMock, mockContext)
+    const result = await callUpdateTaskAPI(mockUpdateTaskArgs, mockContext)
     expect(result).toEqual('caught error')
   })
 })

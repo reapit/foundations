@@ -8,14 +8,16 @@ export type HandleChangeTabModeParams = {
   tab: AppTab
 }
 
-export const handleChangeTabMode = ({ setAppState, tab }: HandleChangeTabModeParams) => () => {
-  setAppState((currentState) => {
-    return {
-      ...currentState,
-      tab,
-    }
-  })
-}
+export const handleChangeTabMode =
+  ({ setAppState, tab }: HandleChangeTabModeParams) =>
+  () => {
+    setAppState((currentState) => {
+      return {
+        ...currentState,
+        tab,
+      }
+    })
+  }
 
 export const TabMode: FC = () => {
   const { appState, setAppState } = useAppState()

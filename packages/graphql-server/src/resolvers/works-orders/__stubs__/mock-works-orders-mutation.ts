@@ -6,12 +6,12 @@ import {
   DeleteWorksOrderItemArgs,
 } from '../works-orders'
 
-export const deleteWorksOrderItemArgsStub: DeleteWorksOrderItemArgs = {
+export const mockDeleteWorksOrderItemArgs: DeleteWorksOrderItemArgs = {
   id: '1',
   itemId: '1',
 }
 
-export const updateWorksOrderItemArgsStub: UpdateWorksOrderItemArgs = {
+export const mockUpdateWorksOrderItemArgs: UpdateWorksOrderItemArgs = {
   id: 'RPT20000022',
   itemId: '1',
   _eTag: '1',
@@ -23,7 +23,7 @@ export const updateWorksOrderItemArgsStub: UpdateWorksOrderItemArgs = {
   vatAmount: 20,
 }
 
-export const createWorksOrderItemArgsStub: CreateWorksOrderItemArgs = {
+export const mockCreateWorksOrderItemArgs: CreateWorksOrderItemArgs = {
   id: 'RPT20000022',
   notes: 'Please book the electrical certificate for either Thursday or Friday.',
   chargeTo: 'landlord',
@@ -33,7 +33,7 @@ export const createWorksOrderItemArgsStub: CreateWorksOrderItemArgs = {
   vatAmount: 20,
 }
 
-export const updateWorkOrderArgsStub: UpdateWorksOrderArgs = {
+export const mockUpdateWorkOrderArgs: UpdateWorksOrderArgs = {
   _eTag: '"B219B9AD4E8EE3088561590FA3A6898E"',
   id: 'RPT20000022',
   companyId: 'OXF18000001',
@@ -53,7 +53,7 @@ export const updateWorkOrderArgsStub: UpdateWorksOrderArgs = {
   },
 }
 
-export const createWorksOrderArgsStub: CreateWorksOrderArgs = {
+export const mockCreateWorksOrderArgs: CreateWorksOrderArgs = {
   companyId: 'OXF18000001',
   propertyId: 'OXF190001',
   tenancyId: 'OXF190022',

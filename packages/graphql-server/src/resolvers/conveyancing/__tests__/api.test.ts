@@ -10,14 +10,14 @@ import {
   callDeleteDownwardLinkModelAPI,
 } from '../api'
 import { createPlatformAxiosInstance } from '../../../utils/axios-instances'
-import { conveyancingChainMock } from '../__stubs__/mock-conveyancing-chain'
-import { conveyancingDetailMock } from '../__stubs__/mock-conveyancing-detail'
-import { conveyancingMock } from '../__stubs__/mock-conveyancing'
-import { createDownwardLinkModelArgsMock } from '../__stubs__/mock-create-downward-link-model'
-import { createUpwardLinkModelArgsMock } from '../__stubs__/mock-create-upward-link-model'
-import { deleteDownwardLinkModelArgsMock } from '../__stubs__/mock-delete-downward-link-model'
-import { deleteUpwardLinkModelArgsMock } from '../__stubs__/mock-delete-upward-link-model'
-import { updateConveyancingArgsMock } from '../__stubs__/mock-update-conveyancing'
+import { mockConveyancingChain } from '../__stubs__/mock-conveyancing-chain'
+import { mockConveyancingDetail } from '../__stubs__/mock-conveyancing-detail'
+import { mockConveyancing } from '../__stubs__/mock-conveyancing'
+import { mockCreateDownwardLinkModelArgs } from '../__stubs__/mock-create-downward-link-model'
+import { mockCreateUpwardLinkModelArgs } from '../__stubs__/mock-create-upward-link-model'
+import { mockDeleteDownwardLinkModelArgs } from '../__stubs__/mock-delete-downward-link-model'
+import { mockDeleteUpwardLinkModelArgs } from '../__stubs__/mock-delete-upward-link-model'
+import { mockUpdateConveyancingArgs } from '../__stubs__/mock-update-conveyancing'
 import { getIdFromCreateHeaders } from '../../../utils/get-id-from-create-headers'
 
 jest.mock('apollo-server-lambda', () => {
@@ -51,11 +51,11 @@ jest.mock('../../../utils/axios-instances', () => ({
 describe('callGetConveyancingAPI', () => {
   it('should work correctly', async () => {
     ;(createPlatformAxiosInstance as jest.Mocked<any>).mockReturnValueOnce({
-      get: jest.fn(() => Promise.resolve({ data: conveyancingMock })),
+      get: jest.fn(() => Promise.resolve({ data: mockConveyancing })),
     })
     const args = { pageSize: 1 }
     const result = await callGetConveyancingAPI(args, mockContext)
-    expect(result).toEqual(conveyancingMock)
+    expect(result).toEqual(mockConveyancing)
   })
   it('should catch error correctly', async () => {
     ;(createPlatformAxiosInstance as jest.Mocked<any>).mockReturnValueOnce({
@@ -70,18 +70,18 @@ describe('callGetConveyancingAPI', () => {
 describe('callGetConveyancingByIdAPI', () => {
   it('should work correctly', async () => {
     ;(createPlatformAxiosInstance as jest.Mocked<any>).mockReturnValueOnce({
-      get: jest.fn(() => Promise.resolve({ data: conveyancingDetailMock })),
+      get: jest.fn(() => Promise.resolve({ data: mockConveyancingDetail })),
     })
-    const args = { id: conveyancingDetailMock.id }
+    const args = { id: mockConveyancingDetail.id }
     const result = await callGetConveyancingByIdAPI(args, mockContext)
-    expect(result).toEqual(conveyancingDetailMock)
+    expect(result).toEqual(mockConveyancingDetail)
   })
 
   it('should catch error correctly', async () => {
     ;(createPlatformAxiosInstance as jest.Mocked<any>).mockReturnValueOnce({
       get: jest.fn(() => Promise.reject('error caught')),
     })
-    const args = { id: conveyancingDetailMock.id }
+    const args = { id: mockConveyancingDetail.id }
     const result = await callGetConveyancingByIdAPI(args, mockContext)
     expect(result).toEqual('caught error')
   })
@@ -90,11 +90,11 @@ describe('callGetConveyancingByIdAPI', () => {
 describe('callGetConveyancingChainAPI', () => {
   it('should work correctly', async () => {
     ;(createPlatformAxiosInstance as jest.Mocked<any>).mockReturnValueOnce({
-      get: jest.fn(() => Promise.resolve({ data: conveyancingChainMock })),
+      get: jest.fn(() => Promise.resolve({ data: mockConveyancingChain })),
     })
     const args = { pageSize: 1 }
     const result = await callGetConveyancingChainAPI(args, mockContext)
-    expect(result).toEqual(conveyancingChainMock)
+    expect(result).toEqual(mockConveyancingChain)
   })
   it('should catch error correctly', async () => {
     ;(createPlatformAxiosInstance as jest.Mocked<any>).mockReturnValueOnce({
@@ -110,16 +110,16 @@ describe('callCreateUpwardLinkModelAPI', () => {
   it('should work correctly', async () => {
     ;(createPlatformAxiosInstance as jest.Mocked<any>).mockReturnValueOnce({
       post: jest.fn(() => Promise.resolve({ headers: 'header' })),
-      get: jest.fn(() => Promise.resolve({ data: conveyancingDetailMock })),
+      get: jest.fn(() => Promise.resolve({ data: mockConveyancingDetail })),
     })
-    ;(getIdFromCreateHeaders as jest.Mocked<any>).mockReturnValueOnce(conveyancingDetailMock.id)
-    await callCreateUpwardLinkModelAPI(createUpwardLinkModelArgsMock, mockContext)
+    ;(getIdFromCreateHeaders as jest.Mocked<any>).mockReturnValueOnce(mockConveyancingDetail.id)
+    await callCreateUpwardLinkModelAPI(mockCreateUpwardLinkModelArgs, mockContext)
   })
   it('should catch error correctly', async () => {
     ;(createPlatformAxiosInstance as jest.Mocked<any>).mockReturnValueOnce({
       post: jest.fn(() => Promise.reject('error caught')),
     })
-    const result = await callCreateUpwardLinkModelAPI(createUpwardLinkModelArgsMock, mockContext)
+    const result = await callCreateUpwardLinkModelAPI(mockCreateUpwardLinkModelArgs, mockContext)
     expect(result).toEqual('caught error')
   })
 })
@@ -128,16 +128,16 @@ describe('callCreateDownwardLinkModelAPI', () => {
   it('should work correctly', async () => {
     ;(createPlatformAxiosInstance as jest.Mocked<any>).mockReturnValueOnce({
       post: jest.fn(() => Promise.resolve({ headers: 'header' })),
-      get: jest.fn(() => Promise.resolve({ data: conveyancingDetailMock })),
+      get: jest.fn(() => Promise.resolve({ data: mockConveyancingDetail })),
     })
-    ;(getIdFromCreateHeaders as jest.Mocked<any>).mockReturnValueOnce(conveyancingDetailMock.id)
-    await callCreateDownwardLinkModelAPI(createDownwardLinkModelArgsMock, mockContext)
+    ;(getIdFromCreateHeaders as jest.Mocked<any>).mockReturnValueOnce(mockConveyancingDetail.id)
+    await callCreateDownwardLinkModelAPI(mockCreateDownwardLinkModelArgs, mockContext)
   })
   it('should catch error correctly', async () => {
     ;(createPlatformAxiosInstance as jest.Mocked<any>).mockReturnValueOnce({
       post: jest.fn(() => Promise.reject('error caught')),
     })
-    const result = await callCreateDownwardLinkModelAPI(createDownwardLinkModelArgsMock, mockContext)
+    const result = await callCreateDownwardLinkModelAPI(mockCreateDownwardLinkModelArgs, mockContext)
     expect(result).toEqual('caught error')
   })
 })
@@ -146,16 +146,16 @@ describe('callCreateDownwardLinkModelAPI', () => {
   it('should work correctly', async () => {
     ;(createPlatformAxiosInstance as jest.Mocked<any>).mockReturnValueOnce({
       post: jest.fn(() => Promise.resolve({ headers: 'header' })),
-      get: jest.fn(() => Promise.resolve({ data: conveyancingDetailMock })),
+      get: jest.fn(() => Promise.resolve({ data: mockConveyancingDetail })),
     })
-    ;(getIdFromCreateHeaders as jest.Mocked<any>).mockReturnValueOnce(conveyancingDetailMock.id)
-    await callCreateDownwardLinkModelAPI(createDownwardLinkModelArgsMock, mockContext)
+    ;(getIdFromCreateHeaders as jest.Mocked<any>).mockReturnValueOnce(mockConveyancingDetail.id)
+    await callCreateDownwardLinkModelAPI(mockCreateDownwardLinkModelArgs, mockContext)
   })
   it('should catch error correctly', async () => {
     ;(createPlatformAxiosInstance as jest.Mocked<any>).mockReturnValueOnce({
       post: jest.fn(() => Promise.reject('error caught')),
     })
-    const result = await callCreateDownwardLinkModelAPI(createDownwardLinkModelArgsMock, mockContext)
+    const result = await callCreateDownwardLinkModelAPI(mockCreateDownwardLinkModelArgs, mockContext)
     expect(result).toEqual('caught error')
   })
 })
@@ -165,13 +165,13 @@ describe('callDeleteUpwardLinkModelAPI', () => {
     ;(createPlatformAxiosInstance as jest.Mocked<any>).mockReturnValueOnce({
       delete: jest.fn(() => Promise.resolve({ headers: 'header' })),
     })
-    await callDeleteUpwardLinkModelAPI(deleteUpwardLinkModelArgsMock, mockContext)
+    await callDeleteUpwardLinkModelAPI(mockDeleteUpwardLinkModelArgs, mockContext)
   })
   it('should catch error correctly', async () => {
     ;(createPlatformAxiosInstance as jest.Mocked<any>).mockReturnValueOnce({
       delete: jest.fn(() => Promise.reject('error caught')),
     })
-    const result = await callDeleteUpwardLinkModelAPI(deleteUpwardLinkModelArgsMock, mockContext)
+    const result = await callDeleteUpwardLinkModelAPI(mockDeleteUpwardLinkModelArgs, mockContext)
     expect(result).toEqual('caught error')
   })
 })
@@ -181,13 +181,13 @@ describe('callDeleteDownwardLinkModelAPI', () => {
     ;(createPlatformAxiosInstance as jest.Mocked<any>).mockReturnValueOnce({
       delete: jest.fn(() => Promise.resolve({ headers: 'header' })),
     })
-    await callDeleteDownwardLinkModelAPI(deleteDownwardLinkModelArgsMock, mockContext)
+    await callDeleteDownwardLinkModelAPI(mockDeleteDownwardLinkModelArgs, mockContext)
   })
   it('should catch error correctly', async () => {
     ;(createPlatformAxiosInstance as jest.Mocked<any>).mockReturnValueOnce({
       delete: jest.fn(() => Promise.reject('error caught')),
     })
-    const result = await callDeleteDownwardLinkModelAPI(deleteDownwardLinkModelArgsMock, mockContext)
+    const result = await callDeleteDownwardLinkModelAPI(mockDeleteDownwardLinkModelArgs, mockContext)
     expect(result).toEqual('caught error')
   })
 })
@@ -197,13 +197,13 @@ describe('callUpdateConveyancingAPI', () => {
     ;(createPlatformAxiosInstance as jest.Mocked<any>).mockReturnValueOnce({
       patch: jest.fn(() => Promise.resolve({ headers: 'header' })),
     })
-    await callUpdateConveyancingAPI(updateConveyancingArgsMock, mockContext)
+    await callUpdateConveyancingAPI(mockUpdateConveyancingArgs, mockContext)
   })
   it('should catch error correctly', async () => {
     ;(createPlatformAxiosInstance as jest.Mocked<any>).mockReturnValueOnce({
       patch: jest.fn(() => Promise.reject('error caught')),
     })
-    const result = await callUpdateConveyancingAPI(updateConveyancingArgsMock, mockContext)
+    const result = await callUpdateConveyancingAPI(mockUpdateConveyancingArgs, mockContext)
     expect(result).toEqual('caught error')
   })
 })

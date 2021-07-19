@@ -1,6 +1,6 @@
 import { CreateDocumentArgs } from '../documents'
 
-export const createDocumentArgsMock: CreateDocumentArgs = {
+export const mockCreateDocumentArgs: CreateDocumentArgs = {
   associatedType: 'property',
   associatedId: 'OXF190347',
   typeId: 'DET',

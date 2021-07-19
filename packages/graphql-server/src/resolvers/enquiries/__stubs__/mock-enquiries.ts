@@ -1,6 +1,6 @@
 import { EnquiryModelPagedResult } from '@reapit/foundations-ts-definitions'
 
-export const enquiriesMock: EnquiryModelPagedResult = {
+export const mockEnquiries: EnquiryModelPagedResult = {
   _embedded: [
     {
       id: 45,

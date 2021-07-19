@@ -6,18 +6,18 @@ import {
   callGetCompanyRolesAPI,
 } from '../api'
 import { mockContext } from '../../../__stubs__/mock-context'
-import { createCompanyArgsMock } from '../__stubs__/mock-create-company'
-import { updateCompanyArgsMock } from '../__stubs__/mock-update-company'
+import { mockCreateCompanyArgs } from '../__stubs__/mock-create-company'
+import { mockUpdateCompanyArgs } from '../__stubs__/mock-update-company'
 import { getCompanyById, getCompanies, createCompany, updateCompany, getCompanyRoles } from '../services'
-import { companyMock } from '../__stubs__/mock-company'
-import { companiesMock } from '../__stubs__/mock-companies'
-import { companyRolesMock } from '../__stubs__/mock-company-roles'
+import { mockCompany } from '../__stubs__/mock-company'
+import { mockCompanies } from '../__stubs__/mock-companies'
+import { mockCompanyRoles } from '../__stubs__/mock-company-roles'
 
 jest.mock('../../../logger')
 jest.mock('../api', () => ({
-  callGetCompanyByIdAPI: jest.fn(() => Promise.resolve(companyMock)),
-  callGetCompaniesAPI: jest.fn(() => Promise.resolve(companiesMock)),
-  callGetCompanyRolesAPI: jest.fn(() => Promise.resolve(companyRolesMock)),
+  callGetCompanyByIdAPI: jest.fn(() => Promise.resolve(mockCompany)),
+  callGetCompaniesAPI: jest.fn(() => Promise.resolve(mockCompanies)),
+  callGetCompanyRolesAPI: jest.fn(() => Promise.resolve(mockCompanyRoles)),
   callCreateCompanyAPI: jest.fn(() => Promise.resolve(true)),
   callUpdateCompanyAPI: jest.fn(() => Promise.resolve(true)),
 }))
@@ -27,7 +27,7 @@ describe('getCompanyById', () => {
     const args = { id: 'id' }
     const result = await getCompanyById(args, mockContext)
     expect(callGetCompanyByIdAPI).toHaveBeenCalledWith(args, mockContext)
-    expect(result).toEqual(companyMock)
+    expect(result).toEqual(mockCompany)
   })
 })
 
@@ -36,7 +36,7 @@ describe('getCompanies', () => {
     const args = { id: ['id1', 'id2'], pageSize: 10, pageNumber: 1 }
     const result = await getCompanies(args, mockContext)
     expect(callGetCompaniesAPI).toHaveBeenCalledWith(args, mockContext)
-    expect(result).toEqual(companiesMock)
+    expect(result).toEqual(mockCompanies)
   })
 })
 
@@ -45,22 +45,22 @@ describe('getCompanyRoles', () => {
     const args = { id: ['id1', 'id2'], pageSize: 10, pageNumber: 1 }
     const result = await getCompanyRoles(args, mockContext)
     expect(callGetCompanyRolesAPI).toHaveBeenCalledWith(args, mockContext)
-    expect(result).toEqual(companyRolesMock)
+    expect(result).toEqual(mockCompanyRoles)
   })
 })
 
 describe('createCompany', () => {
   it('should return correctly', async () => {
-    const result = await createCompany(createCompanyArgsMock, mockContext)
-    expect(callCreateCompanyAPI).toHaveBeenCalledWith(createCompanyArgsMock, mockContext)
+    const result = await createCompany(mockCreateCompanyArgs, mockContext)
+    expect(callCreateCompanyAPI).toHaveBeenCalledWith(mockCreateCompanyArgs, mockContext)
     expect(result).toEqual(true)
   })
 })
 
 describe('updateCompany', () => {
   it('should return correctly', async () => {
-    const result = await updateCompany(updateCompanyArgsMock, mockContext)
-    expect(callUpdateCompanyAPI).toHaveBeenCalledWith(updateCompanyArgsMock, mockContext)
+    const result = await updateCompany(mockUpdateCompanyArgs, mockContext)
+    expect(callUpdateCompanyAPI).toHaveBeenCalledWith(mockUpdateCompanyArgs, mockContext)
     expect(result).toEqual(true)
   })
 })

@@ -8,16 +8,18 @@ export type HandleChangeTimeParams = {
   setAppState: Dispatch<SetStateAction<AppState>>
 }
 
-export const handleChangeTime = ({ setAppState }: HandleChangeTimeParams) => (event: ChangeEvent<HTMLInputElement>) => {
-  const time = (event.currentTarget.value ?? 'TODAY') as AppTimeRange
-  setAppState((currentState) => ({
-    ...currentState,
-    time,
-    destinationLat: null,
-    destinationLng: null,
-    appointmentId: null,
-  }))
-}
+export const handleChangeTime =
+  ({ setAppState }: HandleChangeTimeParams) =>
+  (event: ChangeEvent<HTMLInputElement>) => {
+    const time = (event.currentTarget.value ?? 'TODAY') as AppTimeRange
+    setAppState((currentState) => ({
+      ...currentState,
+      time,
+      destinationLat: null,
+      destinationLng: null,
+      appointmentId: null,
+    }))
+  }
 
 export const AppointmentTime = () => {
   const { appState, setAppState } = useAppState()

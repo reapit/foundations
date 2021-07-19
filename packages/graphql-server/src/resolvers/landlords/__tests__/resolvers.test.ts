@@ -12,28 +12,28 @@ import {
   mutationDeleteLandlordRelationship,
 } from '../resolvers'
 import {
-  landlordMock,
-  landlordsListMock,
-  landlordRelationshipMock,
-  landlordRelationshipsListMock,
+  mockLandlord,
+  mockLandlordsList,
+  mockLandlordRelationship,
+  mockLandlordRelationshipsList,
 } from '../__stubs__/mock-landlord-query'
 import {
-  createLandlordArgsMock,
-  updateLandlordArgsMock,
-  createLandlordRelationshipArgsMock,
-  deleteLandlordRelationshipArgsMock,
+  mockCreateLandlordArgs,
+  mockUpdateLandlordArgs,
+  mockCreateLandlordRelationshipArgs,
+  mockDeleteLandlordRelationshipArgs,
 } from '../__stubs__/mock-landlord-mutation'
 import { mockContext } from '../../../__stubs__/mock-context'
 
 jest.mock('../services', () => ({
-  getLandlordById: jest.fn(() => landlordMock),
-  getLandlords: jest.fn(() => landlordsListMock),
-  getLandlordRelationships: jest.fn(() => landlordRelationshipsListMock),
-  getLandlordRelationshipById: jest.fn(() => landlordRelationshipMock),
-  createLandlord: jest.fn(() => landlordMock),
-  createLandlordRelationship: jest.fn(() => landlordRelationshipsListMock),
-  deleteLandlordRelationship: jest.fn(() => landlordRelationshipMock.id),
-  updateLandlord: jest.fn(() => landlordMock),
+  getLandlordById: jest.fn(() => mockLandlord),
+  getLandlords: jest.fn(() => mockLandlordsList),
+  getLandlordRelationships: jest.fn(() => mockLandlordRelationshipsList),
+  getLandlordRelationshipById: jest.fn(() => mockLandlordRelationship),
+  createLandlord: jest.fn(() => mockLandlord),
+  createLandlordRelationship: jest.fn(() => mockLandlordRelationshipsList),
+  deleteLandlordRelationship: jest.fn(() => mockLandlordRelationship.id),
+  updateLandlord: jest.fn(() => mockLandlord),
 }))
 jest.mock('../../../errors', () => ({
   generateAuthenticationError: jest.fn(() => 'authentication error'),
@@ -110,13 +110,13 @@ describe('queryGetLandlordRelationshipById', () => {
 describe('mutationCreateLandlord', () => {
   it('should return correctly', () => {
     ;(checkPermission as jest.Mock).mockReturnValue(true)
-    const result = mutationCreateLandlord(null, createLandlordArgsMock, mockContext)
-    expect(result).toEqual(landlordServices.createLandlord(createLandlordArgsMock, mockContext))
+    const result = mutationCreateLandlord(null, mockCreateLandlordArgs, mockContext)
+    expect(result).toEqual(landlordServices.createLandlord(mockCreateLandlordArgs, mockContext))
   })
 
   it('should return auth error correctly', () => {
     ;(checkPermission as jest.Mock).mockReturnValue(false)
-    const result = mutationCreateLandlord(null, createLandlordArgsMock, mockContext)
+    const result = mutationCreateLandlord(null, mockCreateLandlordArgs, mockContext)
     expect(result).toEqual(errors.generateAuthenticationError(mockContext.traceId))
   })
 })
@@ -124,13 +124,13 @@ describe('mutationCreateLandlord', () => {
 describe('mutationCreateLandlordRelationship', () => {
   it('should return correctly', () => {
     ;(checkPermission as jest.Mock).mockReturnValue(true)
-    const result = mutationCreateLandlordRelationship(null, createLandlordRelationshipArgsMock, mockContext)
-    expect(result).toEqual(landlordServices.createLandlordRelationship(createLandlordRelationshipArgsMock, mockContext))
+    const result = mutationCreateLandlordRelationship(null, mockCreateLandlordRelationshipArgs, mockContext)
+    expect(result).toEqual(landlordServices.createLandlordRelationship(mockCreateLandlordRelationshipArgs, mockContext))
   })
 
   it('should return auth error correctly', () => {
     ;(checkPermission as jest.Mock).mockReturnValue(false)
-    const result = mutationCreateLandlord(null, createLandlordArgsMock, mockContext)
+    const result = mutationCreateLandlord(null, mockCreateLandlordArgs, mockContext)
     expect(result).toEqual(errors.generateAuthenticationError(mockContext.traceId))
   })
 })
@@ -138,13 +138,13 @@ describe('mutationCreateLandlordRelationship', () => {
 describe('mutationDeleteLandlordRelationship', () => {
   it('should return correctly', () => {
     ;(checkPermission as jest.Mock).mockReturnValue(true)
-    const result = mutationDeleteLandlordRelationship(null, deleteLandlordRelationshipArgsMock, mockContext)
-    expect(result).toEqual(landlordServices.deleteLandlordRelationship(deleteLandlordRelationshipArgsMock, mockContext))
+    const result = mutationDeleteLandlordRelationship(null, mockDeleteLandlordRelationshipArgs, mockContext)
+    expect(result).toEqual(landlordServices.deleteLandlordRelationship(mockDeleteLandlordRelationshipArgs, mockContext))
   })
 
   it('should return auth error correctly', () => {
     ;(checkPermission as jest.Mock).mockReturnValue(false)
-    const result = mutationDeleteLandlordRelationship(null, deleteLandlordRelationshipArgsMock, mockContext)
+    const result = mutationDeleteLandlordRelationship(null, mockDeleteLandlordRelationshipArgs, mockContext)
     expect(result).toEqual(errors.generateAuthenticationError(mockContext.traceId))
   })
 })
@@ -152,13 +152,13 @@ describe('mutationDeleteLandlordRelationship', () => {
 describe('mutationUpdateLandlord', () => {
   it('should return correctly', () => {
     ;(checkPermission as jest.Mock).mockReturnValue(true)
-    const result = mutationUpdateLandlord(null, updateLandlordArgsMock, mockContext)
-    expect(result).toEqual(landlordServices.updateLandlord(updateLandlordArgsMock, mockContext))
+    const result = mutationUpdateLandlord(null, mockUpdateLandlordArgs, mockContext)
+    expect(result).toEqual(landlordServices.updateLandlord(mockUpdateLandlordArgs, mockContext))
   })
 
   it('should return auth error correctly', () => {
     ;(checkPermission as jest.Mock).mockReturnValue(false)
-    const result = mutationUpdateLandlord(null, updateLandlordArgsMock, mockContext)
+    const result = mutationUpdateLandlord(null, mockUpdateLandlordArgs, mockContext)
     expect(result).toEqual(errors.generateAuthenticationError(mockContext.traceId))
   })
 })

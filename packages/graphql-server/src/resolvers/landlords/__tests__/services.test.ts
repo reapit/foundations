@@ -10,16 +10,16 @@ import {
 } from '../api'
 import { mockContext } from '../../../__stubs__/mock-context'
 import {
-  landlordMock,
-  landlordsListMock,
-  landlordRelationshipMock,
-  landlordRelationshipsListMock,
+  mockLandlord,
+  mockLandlordsList,
+  mockLandlordRelationship,
+  mockLandlordRelationshipsList,
 } from '../__stubs__/mock-landlord-query'
 import {
-  createLandlordArgsMock,
-  deleteLandlordRelationshipArgsMock,
-  updateLandlordArgsMock,
-  createLandlordRelationshipArgsMock,
+  mockCreateLandlordArgs,
+  mockDeleteLandlordRelationshipArgs,
+  mockUpdateLandlordArgs,
+  mockCreateLandlordRelationshipArgs,
 } from '../__stubs__/mock-landlord-mutation'
 import {
   getLandlords,
@@ -34,14 +34,14 @@ import {
 
 jest.mock('../../../logger')
 jest.mock('../api', () => ({
-  callGetLandlordsAPI: jest.fn(() => Promise.resolve(landlordsListMock)),
-  callCreateLandlordAPI: jest.fn(() => Promise.resolve(landlordMock)),
-  callUpdateLandlordAPI: jest.fn(() => Promise.resolve(landlordMock)),
-  callGetLandlordByIdAPI: jest.fn(() => Promise.resolve(landlordMock)),
-  callGetLandlordRelationshipsAPI: jest.fn(() => Promise.resolve(landlordRelationshipsListMock)),
-  callCreateLandlordRelationshipAPI: jest.fn(() => Promise.resolve(landlordRelationshipMock)),
-  callDeleteLandlordRelationshipAPI: jest.fn(() => Promise.resolve(landlordRelationshipMock.id)),
-  callGetLandlordRelationshipByIdAPI: jest.fn(() => Promise.resolve(landlordRelationshipMock)),
+  callGetLandlordsAPI: jest.fn(() => Promise.resolve(mockLandlordsList)),
+  callCreateLandlordAPI: jest.fn(() => Promise.resolve(mockLandlord)),
+  callUpdateLandlordAPI: jest.fn(() => Promise.resolve(mockLandlord)),
+  callGetLandlordByIdAPI: jest.fn(() => Promise.resolve(mockLandlord)),
+  callGetLandlordRelationshipsAPI: jest.fn(() => Promise.resolve(mockLandlordRelationshipsList)),
+  callCreateLandlordRelationshipAPI: jest.fn(() => Promise.resolve(mockLandlordRelationship)),
+  callDeleteLandlordRelationshipAPI: jest.fn(() => Promise.resolve(mockLandlordRelationship.id)),
+  callGetLandlordRelationshipByIdAPI: jest.fn(() => Promise.resolve(mockLandlordRelationship)),
 }))
 
 describe('getLandlords', () => {
@@ -49,7 +49,7 @@ describe('getLandlords', () => {
     const args = { pageSize: 1 }
     const result = await getLandlords(args, mockContext)
     expect(callGetLandlordsAPI).toHaveBeenCalledWith(args, mockContext)
-    expect(result).toEqual(landlordsListMock)
+    expect(result).toEqual(mockLandlordsList)
   })
 })
 
@@ -58,7 +58,7 @@ describe('getLandlordById', () => {
     const args = { id: 'RPT200113' }
     const result = await getLandlordById(args, mockContext)
     expect(callGetLandlordByIdAPI).toHaveBeenCalledWith(args, mockContext)
-    expect(result).toEqual(landlordMock)
+    expect(result).toEqual(mockLandlord)
   })
 })
 
@@ -67,7 +67,7 @@ describe('getLandlordRelationships', () => {
     const args = { id: 'RPT200113' }
     const result = await getLandlordRelationships(args, mockContext)
     expect(callGetLandlordRelationshipsAPI).toHaveBeenCalledWith(args, mockContext)
-    expect(result).toEqual(landlordRelationshipsListMock)
+    expect(result).toEqual(mockLandlordRelationshipsList)
   })
 })
 
@@ -79,38 +79,38 @@ describe('getLandlordRelationshipById', () => {
     }
     const result = await getLandlordRelationshipById(args, mockContext)
     expect(callGetLandlordRelationshipByIdAPI).toHaveBeenCalledWith(args, mockContext)
-    expect(result).toEqual(landlordRelationshipMock)
+    expect(result).toEqual(mockLandlordRelationship)
   })
 })
 
 describe('createLandlord', () => {
   it('should return correctly', async () => {
-    const result = await createLandlord(createLandlordArgsMock, mockContext)
-    expect(callCreateLandlordAPI).toHaveBeenCalledWith(createLandlordArgsMock, mockContext)
-    expect(result).toEqual(landlordMock)
+    const result = await createLandlord(mockCreateLandlordArgs, mockContext)
+    expect(callCreateLandlordAPI).toHaveBeenCalledWith(mockCreateLandlordArgs, mockContext)
+    expect(result).toEqual(mockLandlord)
   })
 })
 
 describe('createLandlordRelationship', () => {
   it('should return correctly', async () => {
-    const result = await createLandlordRelationship(createLandlordRelationshipArgsMock, mockContext)
-    expect(callCreateLandlordRelationshipAPI).toHaveBeenCalledWith(createLandlordRelationshipArgsMock, mockContext)
-    expect(result).toEqual(landlordRelationshipMock)
+    const result = await createLandlordRelationship(mockCreateLandlordRelationshipArgs, mockContext)
+    expect(callCreateLandlordRelationshipAPI).toHaveBeenCalledWith(mockCreateLandlordRelationshipArgs, mockContext)
+    expect(result).toEqual(mockLandlordRelationship)
   })
 })
 
 describe('deleteLandlordRelationship', () => {
   it('should return correctly', async () => {
-    const result = await deleteLandlordRelationship(deleteLandlordRelationshipArgsMock, mockContext)
-    expect(callDeleteLandlordRelationshipAPI).toHaveBeenCalledWith(deleteLandlordRelationshipArgsMock, mockContext)
-    expect(result).toEqual(landlordRelationshipMock.id)
+    const result = await deleteLandlordRelationship(mockDeleteLandlordRelationshipArgs, mockContext)
+    expect(callDeleteLandlordRelationshipAPI).toHaveBeenCalledWith(mockDeleteLandlordRelationshipArgs, mockContext)
+    expect(result).toEqual(mockLandlordRelationship.id)
   })
 })
 
 describe('updateLandlord', () => {
   it('should return correctly', async () => {
-    const result = await updateLandlord(updateLandlordArgsMock, mockContext)
-    expect(callUpdateLandlordAPI).toHaveBeenCalledWith(updateLandlordArgsMock, mockContext)
-    expect(result).toEqual(landlordMock)
+    const result = await updateLandlord(mockUpdateLandlordArgs, mockContext)
+    expect(callUpdateLandlordAPI).toHaveBeenCalledWith(mockUpdateLandlordArgs, mockContext)
+    expect(result).toEqual(mockLandlord)
   })
 })

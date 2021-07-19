@@ -1,6 +1,6 @@
 import { UpdateOfficeArgs } from '../offices'
 
-export const updateOfficeArgsMock: UpdateOfficeArgs = {
+export const mockUpdateOfficeArgs: UpdateOfficeArgs = {
   id: 'TCM',
   name: 'Reapit',
   manager: 'Mr John Smith',

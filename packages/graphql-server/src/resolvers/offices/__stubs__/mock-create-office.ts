@@ -1,6 +1,6 @@
 import { CreateOfficeArgs } from '../offices'
 
-export const createOfficeArgsMock: CreateOfficeArgs = {
+export const mockCreateOfficeArgs: CreateOfficeArgs = {
   name: 'Reapit',
   manager: 'Mr John Smith',
   address: {

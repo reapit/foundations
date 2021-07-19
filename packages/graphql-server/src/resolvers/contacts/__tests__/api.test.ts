@@ -1,10 +1,10 @@
 import { mockContext } from '../../../__stubs__/mock-context'
 import { callGetContactByIdAPI, callUpdateContactAPI, callCreateContactAPI, callGetContactsAPI } from '../api'
 import { createPlatformAxiosInstance } from '../../../utils/axios-instances'
-import { contactMock } from '../__stubs__/mock-contact'
-import { contactsMock } from '../__stubs__/mock-contacts'
-import { createContactArgsMock } from '../__stubs__/mock-create-contact'
-import { updateContactArgsMock } from '../__stubs__/mock-update-contact'
+import { mockContact } from '../__stubs__/mock-contact'
+import { mockContacts } from '../__stubs__/mock-contacts'
+import { mockCreateContactArgs } from '../__stubs__/mock-create-contact'
+import { mockUpdateContactArgs } from '../__stubs__/mock-update-contact'
 import { getIdFromCreateHeaders } from '../../../utils/get-id-from-create-headers'
 
 jest.mock('apollo-server-lambda', () => {
@@ -38,11 +38,11 @@ jest.mock('../../../utils/axios-instances', () => ({
 describe('callGetContactsAPI', () => {
   it('should work correctly', async () => {
     ;(createPlatformAxiosInstance as jest.Mocked<any>).mockReturnValueOnce({
-      get: jest.fn(() => Promise.resolve({ data: contactsMock })),
+      get: jest.fn(() => Promise.resolve({ data: mockContacts })),
     })
     const args = { pageSize: 1 }
     const result = await callGetContactsAPI(args, mockContext)
-    expect(result).toEqual(contactsMock)
+    expect(result).toEqual(mockContacts)
   })
   it('should catch error correctly', async () => {
     ;(createPlatformAxiosInstance as jest.Mocked<any>).mockReturnValueOnce({
@@ -57,18 +57,18 @@ describe('callGetContactsAPI', () => {
 describe('callGetContactByIdAPI', () => {
   it('should work correctly', async () => {
     ;(createPlatformAxiosInstance as jest.Mocked<any>).mockReturnValueOnce({
-      get: jest.fn(() => Promise.resolve({ data: contactMock })),
+      get: jest.fn(() => Promise.resolve({ data: mockContact })),
     })
-    const args = { id: contactMock.id } as any
+    const args = { id: mockContact.id } as any
     const result = await callGetContactByIdAPI(args, mockContext)
-    expect(result).toEqual(contactMock)
+    expect(result).toEqual(mockContact)
   })
 
   it('should catch error correctly', async () => {
     ;(createPlatformAxiosInstance as jest.Mocked<any>).mockReturnValueOnce({
       get: jest.fn(() => Promise.reject('error caught')),
     })
-    const args = { id: contactMock.id } as any
+    const args = { id: mockContact.id } as any
     const result = await callGetContactByIdAPI(args, mockContext)
     expect(result).toEqual('caught error')
   })
@@ -78,17 +78,17 @@ describe('callCreateContactAPI', () => {
   it('should work correctly', async () => {
     ;(createPlatformAxiosInstance as jest.Mocked<any>).mockReturnValueOnce({
       post: jest.fn(() => Promise.resolve({ headers: 'header' })),
-      get: jest.fn(() => Promise.resolve({ data: contactMock })),
+      get: jest.fn(() => Promise.resolve({ data: mockContact })),
     })
-    ;(getIdFromCreateHeaders as jest.Mocked<any>).mockReturnValueOnce(contactMock.id)
-    await callCreateContactAPI(createContactArgsMock, mockContext)
+    ;(getIdFromCreateHeaders as jest.Mocked<any>).mockReturnValueOnce(mockContact.id)
+    await callCreateContactAPI(mockCreateContactArgs, mockContext)
     expect(getIdFromCreateHeaders).toHaveBeenCalledWith({ headers: 'header' })
   })
   it('should catch error correctly', async () => {
     ;(createPlatformAxiosInstance as jest.Mocked<any>).mockReturnValueOnce({
       post: jest.fn(() => Promise.reject('error caught')),
     })
-    const result = await callCreateContactAPI(createContactArgsMock, mockContext)
+    const result = await callCreateContactAPI(mockCreateContactArgs, mockContext)
     expect(result).toEqual('caught error')
   })
 })
@@ -98,13 +98,13 @@ describe('callUpdateContactAPI', () => {
     ;(createPlatformAxiosInstance as jest.Mocked<any>).mockReturnValueOnce({
       patch: jest.fn(() => Promise.resolve({ headers: 'header' })),
     })
-    await callUpdateContactAPI(updateContactArgsMock, mockContext)
+    await callUpdateContactAPI(mockUpdateContactArgs, mockContext)
   })
   it('should catch error correctly', async () => {
     ;(createPlatformAxiosInstance as jest.Mocked<any>).mockReturnValueOnce({
       patch: jest.fn(() => Promise.reject('error caught')),
     })
-    const result = await callUpdateContactAPI(updateContactArgsMock, mockContext)
+    const result = await callUpdateContactAPI(mockUpdateContactArgs, mockContext)
     expect(result).toEqual('caught error')
   })
 })

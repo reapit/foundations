@@ -1,4 +1,4 @@
-export const applicantsMock = {
+export const mockApplicants = {
   pageSize: 25,
   pageCount: 25,
   pageNumber: 1,

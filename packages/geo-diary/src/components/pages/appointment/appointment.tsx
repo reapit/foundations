@@ -102,26 +102,25 @@ export const startAndEndTime = {
   },
 }
 
-export const sortAppoinmentsByStartTime = (
-  appointments: ExtendedAppointmentModel[],
-) => (): ExtendedAppointmentModel[] => {
-  const sortedAppoinments = appointments.sort((a, b) => {
-    const aStart = dayjs(a.start)
-    const bStart = dayjs(b.start)
+export const sortAppoinmentsByStartTime =
+  (appointments: ExtendedAppointmentModel[]) => (): ExtendedAppointmentModel[] => {
+    const sortedAppoinments = appointments.sort((a, b) => {
+      const aStart = dayjs(a.start)
+      const bStart = dayjs(b.start)
 
-    if (aStart.isBefore(bStart)) {
-      return -1
-    }
+      if (aStart.isBefore(bStart)) {
+        return -1
+      }
 
-    if (aStart.isAfter(bStart)) {
-      return 1
-    }
+      if (aStart.isAfter(bStart)) {
+        return 1
+      }
 
-    return 0
-  })
+      return 0
+    })
 
-  return sortedAppoinments
-}
+    return sortedAppoinments
+  }
 
 export const getVendorIds = (appointments: ExtendedAppointmentModel[]) => (): string[] =>
   appointments
@@ -133,58 +132,51 @@ export const getLandlordIds = (appointments: ExtendedAppointmentModel[]) => (): 
     .map((appointment) => appointment?.property?.letting?.landlordId)
     .filter((landlordId) => !!landlordId) as string[]
 
-export const handleGetVendors = (
-  vendors: VendorsQueryData | undefined,
-  setAppState: Dispatch<SetStateAction<AppState>>,
-) => (): void => {
-  if (vendors?.GetVendors._embedded.length) {
-    setAppState((currentState) => ({
-      ...currentState,
-      vendors: vendors.GetVendors._embedded,
-    }))
-  }
-}
-
-export const handleGetLandlords = (
-  landlords: LandlordsQueryData | undefined,
-  setAppState: Dispatch<SetStateAction<AppState>>,
-) => (): void => {
-  if (landlords?.GetLandlords._embedded.length) {
-    setAppState((currentState) => ({
-      ...currentState,
-      landlords: landlords.GetLandlords._embedded,
-    }))
-  }
-}
-
-export const handleGetAmlInstallation = (
-  setAppState: Dispatch<SetStateAction<AppState>>,
-  accessToken?: string,
-  clientId?: string | null,
-) => (): void => {
-  const getAmlInstallations = async (): Promise<void> => {
-    const amlAppId = window.reapit.config.amlAppId
-    const amlInstallations: InstallationModelPagedResult | never = await fetcher({
-      api: window.reapit.config.platformApiUrl,
-      url: `/marketplace/installations?appId=${amlAppId}&clientId=${clientId}&isInstalled=true`,
-      method: 'GET',
-      headers: {
-        authorization: `Bearer ${accessToken}`,
-      },
-    })
-
-    if (amlInstallations?.totalCount) {
+export const handleGetVendors =
+  (vendors: VendorsQueryData | undefined, setAppState: Dispatch<SetStateAction<AppState>>) => (): void => {
+    if (vendors?.GetVendors._embedded.length) {
       setAppState((currentState) => ({
         ...currentState,
-        hasAmlApp: true,
+        vendors: vendors.GetVendors._embedded,
       }))
     }
   }
 
-  if (accessToken && clientId) {
-    getAmlInstallations()
+export const handleGetLandlords =
+  (landlords: LandlordsQueryData | undefined, setAppState: Dispatch<SetStateAction<AppState>>) => (): void => {
+    if (landlords?.GetLandlords._embedded.length) {
+      setAppState((currentState) => ({
+        ...currentState,
+        landlords: landlords.GetLandlords._embedded,
+      }))
+    }
   }
-}
+
+export const handleGetAmlInstallation =
+  (setAppState: Dispatch<SetStateAction<AppState>>, accessToken?: string, clientId?: string | null) => (): void => {
+    const getAmlInstallations = async (): Promise<void> => {
+      const amlAppId = window.reapit.config.amlAppId
+      const amlInstallations: InstallationModelPagedResult | never = await fetcher({
+        api: window.reapit.config.platformApiUrl,
+        url: `/marketplace/installations?appId=${amlAppId}&clientId=${clientId}&isInstalled=true`,
+        method: 'GET',
+        headers: {
+          authorization: `Bearer ${accessToken}`,
+        },
+      })
+
+      if (amlInstallations?.totalCount) {
+        setAppState((currentState) => ({
+          ...currentState,
+          hasAmlApp: true,
+        }))
+      }
+    }
+
+    if (accessToken && clientId) {
+      getAmlInstallations()
+    }
+  }
 
 export const AppointmentContent: FC<AppointmentContentProps> = ({ appointmentsSorted, loading }) => {
   const { appState } = useAppState()

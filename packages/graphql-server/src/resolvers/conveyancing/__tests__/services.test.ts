@@ -9,7 +9,7 @@ import {
   callDeleteUpwardLinkModelAPI,
 } from '../api'
 import { mockContext } from '../../../__stubs__/mock-context'
-import { updateConveyancingArgsMock } from '../__stubs__/mock-update-conveyancing'
+import { mockUpdateConveyancingArgs } from '../__stubs__/mock-update-conveyancing'
 import {
   getConveyancingById,
   getConveyancing,
@@ -20,24 +20,24 @@ import {
   deleteDownwardLinkModel,
   deleteUpwardLinkModel,
 } from '../services'
-import { conveyancingDetailMock } from '../__stubs__/mock-conveyancing-detail'
-import { conveyancingMock } from '../__stubs__/mock-conveyancing'
-import { conveyancingChainMock } from '../__stubs__/mock-conveyancing-chain'
-import { createDownwardLinkModelArgsMock } from '../__stubs__/mock-create-downward-link-model'
-import { createUpwardLinkModelArgsMock } from '../__stubs__/mock-create-upward-link-model'
-import { deleteDownwardLinkModelArgsMock } from '../__stubs__/mock-delete-downward-link-model'
-import { deleteUpwardLinkModelArgsMock } from '../__stubs__/mock-delete-upward-link-model'
+import { mockConveyancingDetail } from '../__stubs__/mock-conveyancing-detail'
+import { mockConveyancing } from '../__stubs__/mock-conveyancing'
+import { mockConveyancingChain } from '../__stubs__/mock-conveyancing-chain'
+import { mockCreateDownwardLinkModelArgs } from '../__stubs__/mock-create-downward-link-model'
+import { mockCreateUpwardLinkModelArgs } from '../__stubs__/mock-create-upward-link-model'
+import { mockDeleteDownwardLinkModelArgs } from '../__stubs__/mock-delete-downward-link-model'
+import { mockDeleteUpwardLinkModelArgs } from '../__stubs__/mock-delete-upward-link-model'
 
 jest.mock('../../../logger')
 jest.mock('../api', () => ({
-  callGetConveyancingByIdAPI: jest.fn(() => Promise.resolve(conveyancingDetailMock)),
-  callGetConveyancingAPI: jest.fn(() => Promise.resolve(conveyancingMock)),
-  callGetConveyancingChainAPI: jest.fn(() => Promise.resolve(conveyancingChainMock)),
-  callUpdateConveyancingAPI: jest.fn(() => Promise.resolve(conveyancingDetailMock)),
-  callCreateDownwardLinkModelAPI: jest.fn(() => Promise.resolve(conveyancingDetailMock)),
-  callCreateUpwardLinkModelAPI: jest.fn(() => Promise.resolve(conveyancingDetailMock)),
-  callDeleteDownwardLinkModelAPI: jest.fn(() => Promise.resolve(conveyancingDetailMock.id)),
-  callDeleteUpwardLinkModelAPI: jest.fn(() => Promise.resolve(conveyancingDetailMock.id)),
+  callGetConveyancingByIdAPI: jest.fn(() => Promise.resolve(mockConveyancingDetail)),
+  callGetConveyancingAPI: jest.fn(() => Promise.resolve(mockConveyancing)),
+  callGetConveyancingChainAPI: jest.fn(() => Promise.resolve(mockConveyancingChain)),
+  callUpdateConveyancingAPI: jest.fn(() => Promise.resolve(mockConveyancingDetail)),
+  callCreateDownwardLinkModelAPI: jest.fn(() => Promise.resolve(mockConveyancingDetail)),
+  callCreateUpwardLinkModelAPI: jest.fn(() => Promise.resolve(mockConveyancingDetail)),
+  callDeleteDownwardLinkModelAPI: jest.fn(() => Promise.resolve(mockConveyancingDetail.id)),
+  callDeleteUpwardLinkModelAPI: jest.fn(() => Promise.resolve(mockConveyancingDetail.id)),
 }))
 
 describe('getConveyancingById', () => {
@@ -45,7 +45,7 @@ describe('getConveyancingById', () => {
     const args = { id: 'id' }
     const result = await getConveyancingById(args, mockContext)
     expect(callGetConveyancingByIdAPI).toHaveBeenCalledWith(args, mockContext)
-    expect(result).toEqual(conveyancingDetailMock)
+    expect(result).toEqual(mockConveyancingDetail)
   })
 })
 
@@ -54,7 +54,7 @@ describe('getConveyancing', () => {
     const args = { id: ['id1', 'id2'], pageSize: 10, pageNumber: 1 }
     const result = await getConveyancing(args, mockContext)
     expect(callGetConveyancingAPI).toHaveBeenCalledWith(args, mockContext)
-    expect(result).toEqual(conveyancingMock)
+    expect(result).toEqual(mockConveyancing)
   })
 })
 
@@ -63,46 +63,46 @@ describe('getConveyancingChain', () => {
     const args = { id: ['id1', 'id2'], pageSize: 10, pageNumber: 1 }
     const result = await getConveyancingChain(args, mockContext)
     expect(callGetConveyancingChainAPI).toHaveBeenCalledWith(args, mockContext)
-    expect(result).toEqual(conveyancingChainMock)
+    expect(result).toEqual(mockConveyancingChain)
   })
 })
 
 describe('updateConveyancing', () => {
   it('should return correctly', async () => {
-    const result = await updateConveyancing(updateConveyancingArgsMock, mockContext)
-    expect(callUpdateConveyancingAPI).toHaveBeenCalledWith(updateConveyancingArgsMock, mockContext)
-    expect(result).toEqual(conveyancingDetailMock)
+    const result = await updateConveyancing(mockUpdateConveyancingArgs, mockContext)
+    expect(callUpdateConveyancingAPI).toHaveBeenCalledWith(mockUpdateConveyancingArgs, mockContext)
+    expect(result).toEqual(mockConveyancingDetail)
   })
 })
 
 describe('createDownwardLinkModel', () => {
   it('should return correctly', async () => {
-    const result = await createDownwardLinkModel(createDownwardLinkModelArgsMock, mockContext)
-    expect(callCreateDownwardLinkModelAPI).toHaveBeenCalledWith(createDownwardLinkModelArgsMock, mockContext)
-    expect(result).toEqual(conveyancingDetailMock)
+    const result = await createDownwardLinkModel(mockCreateDownwardLinkModelArgs, mockContext)
+    expect(callCreateDownwardLinkModelAPI).toHaveBeenCalledWith(mockCreateDownwardLinkModelArgs, mockContext)
+    expect(result).toEqual(mockConveyancingDetail)
   })
 })
 
 describe('createUpwardLinkModel', () => {
   it('should return correctly', async () => {
-    const result = await createUpwardLinkModel(createUpwardLinkModelArgsMock, mockContext)
-    expect(callCreateUpwardLinkModelAPI).toHaveBeenCalledWith(createUpwardLinkModelArgsMock, mockContext)
-    expect(result).toEqual(conveyancingDetailMock)
+    const result = await createUpwardLinkModel(mockCreateUpwardLinkModelArgs, mockContext)
+    expect(callCreateUpwardLinkModelAPI).toHaveBeenCalledWith(mockCreateUpwardLinkModelArgs, mockContext)
+    expect(result).toEqual(mockConveyancingDetail)
   })
 })
 
 describe('deleteDownwardLinkModel', () => {
   it('should return correctly', async () => {
-    const result = await deleteDownwardLinkModel(deleteDownwardLinkModelArgsMock, mockContext)
-    expect(callDeleteDownwardLinkModelAPI).toHaveBeenCalledWith(deleteDownwardLinkModelArgsMock, mockContext)
-    expect(result).toEqual(conveyancingDetailMock.id)
+    const result = await deleteDownwardLinkModel(mockDeleteDownwardLinkModelArgs, mockContext)
+    expect(callDeleteDownwardLinkModelAPI).toHaveBeenCalledWith(mockDeleteDownwardLinkModelArgs, mockContext)
+    expect(result).toEqual(mockConveyancingDetail.id)
   })
 })
 
 describe('deleteUpwardLinkModel', () => {
   it('should return correctly', async () => {
-    const result = await deleteUpwardLinkModel(deleteUpwardLinkModelArgsMock, mockContext)
-    expect(callDeleteUpwardLinkModelAPI).toHaveBeenCalledWith(deleteUpwardLinkModelArgsMock, mockContext)
-    expect(result).toEqual(conveyancingDetailMock.id)
+    const result = await deleteUpwardLinkModel(mockDeleteUpwardLinkModelArgs, mockContext)
+    expect(callDeleteUpwardLinkModelAPI).toHaveBeenCalledWith(mockDeleteUpwardLinkModelArgs, mockContext)
+    expect(result).toEqual(mockConveyancingDetail.id)
   })
 })

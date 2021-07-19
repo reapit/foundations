@@ -1,6 +1,6 @@
 import { CreateIdentityCheckArgs } from '../identity-checks'
 
-export const createIdentityCheckArgsMock: CreateIdentityCheckArgs = {
+export const mockCreateIdentityCheckArgs: CreateIdentityCheckArgs = {
   contactId: 'OXF19000001',
   checkDate: '2020-01-22',
   status: 'pending',

@@ -1,6 +1,6 @@
 import { ConveyancingModelPagedResult } from '@reapit/foundations-ts-definitions'
 
-export const conveyancingMock: ConveyancingModelPagedResult = {
+export const mockConveyancing: ConveyancingModelPagedResult = {
   pageNumber: 1,
   pageSize: 10,
   pageCount: 10,

@@ -1,6 +1,6 @@
 import { generatePropertyImageBatchLoaderFn, generatePropertyImageLoader } from '../dataloader'
-import { propertyImageMock } from '../__stubs__/mock-property-image'
-import { propertyImagesMock } from '../__stubs__/mock-property-images'
+import { mockPropertyImage } from '../__stubs__/mock-property-image'
+import { mockPropertyImages } from '../__stubs__/mock-property-images'
 import { mockContext } from '../../../__stubs__/mock-context'
 
 jest.mock('apollo-server-lambda', () => {
@@ -14,8 +14,8 @@ jest.mock('apollo-server-lambda', () => {
 })
 
 jest.mock('../services', () => ({
-  getPropertyImageById: jest.fn(() => propertyImageMock),
-  getPropertyImages: jest.fn(() => propertyImagesMock),
+  getPropertyImageById: jest.fn(() => mockPropertyImage),
+  getPropertyImages: jest.fn(() => mockPropertyImages),
   createPropertyImage: jest.fn(() => true),
   updatePropertyImage: jest.fn(() => true),
 }))

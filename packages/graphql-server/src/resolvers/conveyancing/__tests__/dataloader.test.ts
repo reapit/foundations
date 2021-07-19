@@ -1,6 +1,6 @@
 import { generateConveyancingBatchLoaderFn, generateConveyancingLoader } from '../dataloader'
-import { conveyancingDetailMock } from '../__stubs__/mock-conveyancing-detail'
-import { conveyancingMock } from '../__stubs__/mock-conveyancing'
+import { mockConveyancingDetail } from '../__stubs__/mock-conveyancing-detail'
+import { mockConveyancing } from '../__stubs__/mock-conveyancing'
 import { mockContext } from '../../../__stubs__/mock-context'
 
 jest.mock('apollo-server-lambda', () => {
@@ -14,8 +14,8 @@ jest.mock('apollo-server-lambda', () => {
 })
 
 jest.mock('../services', () => ({
-  getConveyancingById: jest.fn(() => conveyancingDetailMock),
-  getConveyancing: jest.fn(() => conveyancingMock),
+  getConveyancingById: jest.fn(() => mockConveyancingDetail),
+  getConveyancing: jest.fn(() => mockConveyancing),
 }))
 
 describe('conveyancing-dataloader', () => {
