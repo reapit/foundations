@@ -25,6 +25,8 @@ export const pull: ExecutableType = async (task: TaskEntity, pipeline: PipelineE
         })
     })
 
+    unzip()
+
     // console.log(result)
   } catch (e) {
     // console.error(e)
@@ -32,8 +34,6 @@ export const pull: ExecutableType = async (task: TaskEntity, pipeline: PipelineE
     console.log('clone failed')
     throw e
   }
-
-  unzip()
 
   return Promise.resolve(true)
 }
