@@ -26,7 +26,7 @@
     "start": "echo '...skipping...'",
     "test": "cross-env TZ=UTC jest --watch --colors --silent",
     "build": "cross-env NODE_ENV=production tsdx build --format=cjs,esm,umd",
-    "lint": "eslint --cache --ext=ts,tsx src --fix",
+    "lint": "eslint --cache --ext=ts,tsx,js src --fix",
     "release": "echo '...skipping...'",
     "publish": "yarn npm publish --access public",
     "conf": "echo '...skipping...'",

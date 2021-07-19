@@ -14,7 +14,7 @@
     "start": "webpack serve --hot --color --mode development",
     "test": "cross-env TZ=UTC jest --watch --colors --silent",
     "build": "rimraf public/dist && NODE_ENV=production webpack",
-    "lint": "eslint --cache --ext=ts,tsx src --fix",
+    "lint": "eslint --cache --ext=ts,tsx,js src --fix",
     "release": "serverless deploy",
     "publish": "echo '...skipping...'",
     "conf": "yarn config-manager --namespace cloud --entity geo-diary --name local --mode fetch",

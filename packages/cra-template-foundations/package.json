@@ -7,7 +7,7 @@
     "start": "echo '...skipping...'",
     "test": "echo '...skipping...'",
     "build": "echo '...skipping...'",
-    "lint": "eslint --cache --ext=ts,tsx template --fix",
+    "lint": "eslint --cache --ext=ts,tsx,js template --fix",
     "release": "echo '...skipping...'",
     "publish": "yarn npm publish  --access public",
     "conf": "echo '...skipping...'",

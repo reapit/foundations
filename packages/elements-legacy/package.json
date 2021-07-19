@@ -28,7 +28,7 @@
     "build:v3": "cross-env NODE_ENV=production && rimraf ./v3 && yarn workspace @reapit/elements run build:dist && cd ../elements && move-file dist/ ../elements-legacy/v3/",
     "commit": "concurrently \"yarn test --coverage --no-cache --silent --forceExit --detectOpenHandles --runInBand --watch=false && jest-coverage-badges --input src/tests/coverage/coverage-summary.json --output src/tests/badges\" \"yarn lint\"",
     "conf": "yarn config-manager --namespace cloud --entity elements-legacy --name local --mode fetch",
-    "lint": "eslint --cache --ext=ts,tsx src --fix",
+    "lint": "eslint --cache --ext=ts,tsx,js src --fix",
     "publish": "yarn npm publish --access public",
     "release": "serverless deploy",
     "start": "start-storybook -p 6006",

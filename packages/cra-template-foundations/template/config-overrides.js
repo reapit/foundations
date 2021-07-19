@@ -12,8 +12,8 @@ const path = require('path')
  * disable useTypescriptIncrementalApi of react-scripts ForkTsCheckerWebpackPlugin
  * Fix Hanging at 'Files successfully emitted, waiting for typecheck results...' when yarn start on the first time
  */
-const removeOriginalForkTsCheckerWebpackPlugin = config => {
-  config.plugins = config.plugins.filter(plugin => {
+const removeOriginalForkTsCheckerWebpackPlugin = (config) => {
+  config.plugins = config.plugins.filter((plugin) => {
     return plugin.constructor.name !== 'ForkTsCheckerWebpackPlugin'
   })
 
@@ -49,7 +49,7 @@ const patchForkTsCheckerWebpackPlugin = (config, env) => {
 /**
  * Add linaria loader after babel loader
  */
-const transformLoader = loader => {
+const transformLoader = (loader) => {
   const options = loader.options || {}
   const presets = options.presets || []
   options.presets = presets
@@ -76,23 +76,23 @@ const transformLoader = loader => {
   }
 }
 
-const updateJestSetupTestFiles = config => {
+const updateJestSetupTestFiles = (config) => {
   const setupTestFile = path.resolve(__dirname, './src/setup-tests.js')
   config.setupFiles.push(setupTestFile)
   return config
 }
 
-const addLinariaLoader = config => {
+const addLinariaLoader = (config) => {
   /**
    * cra scripts rules atm (version 3)
    * https://github.com/facebook/create-react-app/blob/master/packages/react-scripts/config/webpack.config.js
    */
-  const ruleWithOneOf = config.module.rules.find(rule => rule.oneOf)
+  const ruleWithOneOf = config.module.rules.find((rule) => rule.oneOf)
   if (ruleWithOneOf === null) {
     throw Error('Cant find webpack rule with oneOf')
   }
 
-  let subRuleWithTsxIndex = ruleWithOneOf.oneOf.findIndex(rule => rule.test.toString().includes('tsx'))
+  let subRuleWithTsxIndex = ruleWithOneOf.oneOf.findIndex((rule) => rule.test.toString().includes('tsx'))
   if (subRuleWithTsxIndex === -1) {
     throw Error('Cant find rule match ts/tsx')
   }
@@ -105,13 +105,13 @@ const addLinariaLoader = config => {
 // react-rewired configuration https://github.com/timarney/react-app-rewired
 module.exports = {
   // The Webpack config to use when compiling your react app for development or production.
-  webpack: function(config, env) {
+  webpack: function (config, env) {
     return {
       ...override(addBabelPreset('linaria/babel'), addLinariaLoader, removeOriginalForkTsCheckerWebpackPlugin)(config),
       ...patchForkTsCheckerWebpackPlugin(config, env),
     }
   },
-  jest: function(config) {
+  jest: function (config) {
     return updateJestSetupTestFiles(config)
   },
 }

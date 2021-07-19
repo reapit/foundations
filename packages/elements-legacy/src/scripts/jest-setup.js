@@ -8,13 +8,13 @@ global.fetch = fetchMock
 const mockStorage = (() => {
   let store = {}
   return {
-    getItem: key => {
+    getItem: (key) => {
       return store[key]
     },
     setItem: (key, value) => {
       store[key] = value.toString()
     },
-    removeItem: key => {
+    removeItem: (key) => {
       store[key] = undefined
     },
     clear: () => {
