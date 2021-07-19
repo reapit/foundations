@@ -7,11 +7,11 @@ import {
   callDeleteDocumentAPI,
 } from '../api'
 import { createPlatformAxiosInstance } from '../../../utils/axios-instances'
-import { documentMock } from '../__stubs__/mock-document'
-import { documentsMock } from '../__stubs__/mock-documents'
-import { createDocumentArgsMock } from '../__stubs__/mock-create-document'
-import { updateDocumentArgsMock } from '../__stubs__/mock-update-document'
-import { deleteDocumentMockArgs } from '../__stubs__/mock-delete-document'
+import { mockDocument } from '../__stubs__/mock-document'
+import { mockDocuments } from '../__stubs__/mock-documents'
+import { mockCreateDocumentArgs } from '../__stubs__/mock-create-document'
+import { mockUpdateDocumentArgs } from '../__stubs__/mock-update-document'
+import { mockDeleteDocumentArgs } from '../__stubs__/mock-delete-document'
 import { getIdFromCreateHeaders } from '../../../utils/get-id-from-create-headers'
 
 jest.mock('apollo-server-lambda', () => {
@@ -45,11 +45,11 @@ jest.mock('../../../utils/axios-instances', () => ({
 describe('callGetDocumentsAPI', () => {
   it('should work correctly', async () => {
     ;(createPlatformAxiosInstance as jest.Mocked<any>).mockReturnValueOnce({
-      get: jest.fn(() => Promise.resolve({ data: documentsMock })),
+      get: jest.fn(() => Promise.resolve({ data: mockDocuments })),
     })
     const args = { pageSize: 1 }
     const result = await callGetDocumentsAPI(args, mockContext)
-    expect(result).toEqual(documentsMock)
+    expect(result).toEqual(mockDocuments)
   })
   it('should catch error correctly', async () => {
     ;(createPlatformAxiosInstance as jest.Mocked<any>).mockReturnValueOnce({
@@ -64,18 +64,18 @@ describe('callGetDocumentsAPI', () => {
 describe('callGetDocumentByIdAPI', () => {
   it('should work correctly', async () => {
     ;(createPlatformAxiosInstance as jest.Mocked<any>).mockReturnValueOnce({
-      get: jest.fn(() => Promise.resolve({ data: documentMock })),
+      get: jest.fn(() => Promise.resolve({ data: mockDocument })),
     })
-    const args = { id: documentMock.id }
+    const args = { id: mockDocument.id }
     const result = await callGetDocumentByIdAPI(args, mockContext)
-    expect(result).toEqual(documentMock)
+    expect(result).toEqual(mockDocument)
   })
 
   it('should catch error correctly', async () => {
     ;(createPlatformAxiosInstance as jest.Mocked<any>).mockReturnValueOnce({
       get: jest.fn(() => Promise.reject('error caught')),
     })
-    const args = { id: documentMock.id }
+    const args = { id: mockDocument.id }
     const result = await callGetDocumentByIdAPI(args, mockContext)
     expect(result).toEqual('caught error')
   })
@@ -85,17 +85,17 @@ describe('callCreateDocumentAPI', () => {
   it('should work correctly', async () => {
     ;(createPlatformAxiosInstance as jest.Mocked<any>).mockReturnValueOnce({
       post: jest.fn(() => Promise.resolve({ headers: 'header' })),
-      get: jest.fn(() => Promise.resolve({ data: documentMock })),
+      get: jest.fn(() => Promise.resolve({ data: mockDocument })),
     })
-    ;(getIdFromCreateHeaders as jest.Mocked<any>).mockReturnValueOnce(documentMock.id)
-    await callCreateDocumentAPI(createDocumentArgsMock, mockContext)
+    ;(getIdFromCreateHeaders as jest.Mocked<any>).mockReturnValueOnce(mockDocument.id)
+    await callCreateDocumentAPI(mockCreateDocumentArgs, mockContext)
     expect(getIdFromCreateHeaders).toHaveBeenCalledWith({ headers: 'header' })
   })
   it('should catch error correctly', async () => {
     ;(createPlatformAxiosInstance as jest.Mocked<any>).mockReturnValueOnce({
       post: jest.fn(() => Promise.reject('error caught')),
     })
-    const result = await callCreateDocumentAPI(createDocumentArgsMock, mockContext)
+    const result = await callCreateDocumentAPI(mockCreateDocumentArgs, mockContext)
     expect(result).toEqual('caught error')
   })
 })
@@ -105,13 +105,13 @@ describe('callUpdateDocumentAPI', () => {
     ;(createPlatformAxiosInstance as jest.Mocked<any>).mockReturnValueOnce({
       patch: jest.fn(() => Promise.resolve({ headers: 'header' })),
     })
-    await callUpdateDocumentAPI(updateDocumentArgsMock, mockContext)
+    await callUpdateDocumentAPI(mockUpdateDocumentArgs, mockContext)
   })
   it('should catch error correctly', async () => {
     ;(createPlatformAxiosInstance as jest.Mocked<any>).mockReturnValueOnce({
       patch: jest.fn(() => Promise.reject('error caught')),
     })
-    const result = await callUpdateDocumentAPI(updateDocumentArgsMock, mockContext)
+    const result = await callUpdateDocumentAPI(mockUpdateDocumentArgs, mockContext)
     expect(result).toEqual('caught error')
   })
 })
@@ -121,13 +121,13 @@ describe('callDeleteDocumentAPI', () => {
     ;(createPlatformAxiosInstance as jest.Mocked<any>).mockReturnValueOnce({
       delete: jest.fn(() => Promise.resolve({ headers: 'header' })),
     })
-    await callDeleteDocumentAPI(deleteDocumentMockArgs, mockContext)
+    await callDeleteDocumentAPI(mockDeleteDocumentArgs, mockContext)
   })
   it('should catch error correctly', async () => {
     ;(createPlatformAxiosInstance as jest.Mocked<any>).mockReturnValueOnce({
       delete: jest.fn(() => Promise.reject('error caught')),
     })
-    const result = await callDeleteDocumentAPI(deleteDocumentMockArgs, mockContext)
+    const result = await callDeleteDocumentAPI(mockDeleteDocumentArgs, mockContext)
     expect(result).toEqual('caught error')
   })
 })

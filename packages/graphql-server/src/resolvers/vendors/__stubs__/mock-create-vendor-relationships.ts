@@ -1,6 +1,6 @@
 import { CreateVendorRelationshipArgs } from '../vendors'
 
-export const createVendorRelationshipArgsStub: CreateVendorRelationshipArgs = {
+export const mockCreateVendorRelationshipArgs: CreateVendorRelationshipArgs = {
   id: 'OXF200001',
   associatedId: 'OXF18000001',
   associatedType: 'contact',

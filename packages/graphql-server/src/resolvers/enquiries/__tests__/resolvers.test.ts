@@ -2,14 +2,14 @@ import enquirieServices from '../services'
 import { checkPermission } from '../../../utils/check-permission'
 import errors from '../../../errors'
 import { queryGetEnquiryById, queryGetEnquiries, mutationCreateEnquiry } from '../resolvers'
-import { createEnquiryArgsMock } from '../__stubs__/mock-create-enquiry'
-import { enquiryMock } from '../__stubs__/mock-enquiry'
-import { enquiriesMock } from '../__stubs__/mock-enquiries'
+import { mockCreateEnquiryArgs } from '../__stubs__/mock-create-enquiry'
+import { mockEnquiry } from '../__stubs__/mock-enquiry'
+import { mockEnquiries } from '../__stubs__/mock-enquiries'
 import { mockContext } from '../../../__stubs__/mock-context'
 
 jest.mock('../services', () => ({
-  getEnquiryById: jest.fn(() => enquiryMock),
-  getEnquiries: jest.fn(() => enquiriesMock),
+  getEnquiryById: jest.fn(() => mockEnquiry),
+  getEnquiries: jest.fn(() => mockEnquiries),
   createEnquiry: jest.fn(() => true),
 }))
 jest.mock('../../../errors', () => ({
@@ -55,13 +55,13 @@ describe('queryGetEnquiries', () => {
 describe('mutationCreateEnquiry', () => {
   it('should return correctly', () => {
     ;(checkPermission as jest.Mock).mockReturnValue(true)
-    const result = mutationCreateEnquiry(null, createEnquiryArgsMock, mockContext)
-    expect(result).toEqual(enquirieServices.createEnquiry(createEnquiryArgsMock, mockContext))
+    const result = mutationCreateEnquiry(null, mockCreateEnquiryArgs, mockContext)
+    expect(result).toEqual(enquirieServices.createEnquiry(mockCreateEnquiryArgs, mockContext))
   })
 
   it('should return auth error correctly', () => {
     ;(checkPermission as jest.Mock).mockReturnValue(false)
-    const result = mutationCreateEnquiry(null, createEnquiryArgsMock, mockContext)
+    const result = mutationCreateEnquiry(null, mockCreateEnquiryArgs, mockContext)
     expect(result).toEqual(errors.generateAuthenticationError(mockContext.traceId))
   })
 })

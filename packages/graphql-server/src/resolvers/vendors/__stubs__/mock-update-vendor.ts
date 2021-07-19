@@ -1,6 +1,6 @@
 import { UpdateVendorArgs } from '../vendors'
 
-export const updateVendorArgsStub: UpdateVendorArgs = {
+export const mockUpdateVendorArgs: UpdateVendorArgs = {
   id: 'string',
   _eTag: 'string',
   lastCall: 'lastCall',

@@ -1,6 +1,6 @@
 import { UpdateNegotiatorArgs } from '../negotiators'
 
-export const updateNegotiatorArgsMock: UpdateNegotiatorArgs = {
+export const mockUpdateNegotiatorArgs: UpdateNegotiatorArgs = {
   name: 'Mr John Smith',
   jobTitle: 'Senior Sales Negotiator',
   active: true,

@@ -8,17 +8,17 @@ import {
   mutationUpdateCompany,
   queryGetCompanyRoles,
 } from '../resolvers'
-import { createCompanyArgsMock } from '../__stubs__/mock-create-company'
-import { updateCompanyArgsMock } from '../__stubs__/mock-update-company'
-import { companyMock } from '../__stubs__/mock-company'
-import { companiesMock } from '../__stubs__/mock-companies'
+import { mockCreateCompanyArgs } from '../__stubs__/mock-create-company'
+import { mockUpdateCompanyArgs } from '../__stubs__/mock-update-company'
+import { mockCompany } from '../__stubs__/mock-company'
+import { mockCompanies } from '../__stubs__/mock-companies'
 import { mockContext } from '../../../__stubs__/mock-context'
-import { companyRolesMock } from '../__stubs__/mock-company-roles'
+import { mockCompanyRoles } from '../__stubs__/mock-company-roles'
 
 jest.mock('../services', () => ({
-  getCompanyById: jest.fn(() => companyMock),
-  getCompanies: jest.fn(() => companiesMock),
-  getCompanyRoles: jest.fn(() => companyRolesMock),
+  getCompanyById: jest.fn(() => mockCompany),
+  getCompanies: jest.fn(() => mockCompanies),
+  getCompanyRoles: jest.fn(() => mockCompanyRoles),
   createCompany: jest.fn(() => true),
   updateCompany: jest.fn(() => true),
 }))
@@ -81,13 +81,13 @@ describe('queryGetCompanyRoles', () => {
 describe('mutationCreateCompany', () => {
   it('should return correctly', () => {
     ;(checkPermission as jest.Mock).mockReturnValue(true)
-    const result = mutationCreateCompany(null, createCompanyArgsMock, mockContext)
-    expect(result).toEqual(companyServices.createCompany(createCompanyArgsMock, mockContext))
+    const result = mutationCreateCompany(null, mockCreateCompanyArgs, mockContext)
+    expect(result).toEqual(companyServices.createCompany(mockCreateCompanyArgs, mockContext))
   })
 
   it('should return auth error correctly', () => {
     ;(checkPermission as jest.Mock).mockReturnValue(false)
-    const result = mutationCreateCompany(null, createCompanyArgsMock, mockContext)
+    const result = mutationCreateCompany(null, mockCreateCompanyArgs, mockContext)
     expect(result).toEqual(errors.generateAuthenticationError(mockContext.traceId))
   })
 })
@@ -95,13 +95,13 @@ describe('mutationCreateCompany', () => {
 describe('mutationUpdateCompany', () => {
   it('should return correctly', () => {
     ;(checkPermission as jest.Mock).mockReturnValue(true)
-    const result = mutationUpdateCompany(null, updateCompanyArgsMock, mockContext)
-    expect(result).toEqual(companyServices.updateCompany(updateCompanyArgsMock, mockContext))
+    const result = mutationUpdateCompany(null, mockUpdateCompanyArgs, mockContext)
+    expect(result).toEqual(companyServices.updateCompany(mockUpdateCompanyArgs, mockContext))
   })
 
   it('should return auth error correctly', () => {
     ;(checkPermission as jest.Mock).mockReturnValue(false)
-    const result = mutationUpdateCompany(null, updateCompanyArgsMock, mockContext)
+    const result = mutationUpdateCompany(null, mockUpdateCompanyArgs, mockContext)
     expect(result).toEqual(errors.generateAuthenticationError(mockContext.traceId))
   })
 })

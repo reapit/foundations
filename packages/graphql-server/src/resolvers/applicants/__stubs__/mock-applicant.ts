@@ -1,4 +1,4 @@
-export const applicantMock = {
+export const mockApplicant = {
   id: 'MKT200004',
   created: '2020-07-15T08:22:55Z',
   modified: '2020-07-30T15:40:30Z',

@@ -2,12 +2,12 @@ import { callGetConfigurationsByTypeAndIdApi, callGetConfigurationsByTypeApi } f
 import { GetConfigurationByTypeAndIdArgs, GetConfigurationByTypeArgs } from '../configurations'
 import { mockContext } from '../../../__stubs__/mock-context'
 import { getConfigurationByTypeAndId, getConfigurationsByType } from '../services'
-import { appointmentTypesMock, appointmentTypeMock } from '../__stubs__/mock-appointment-types'
+import { mockAppointmentTypes, mockAppointmentType } from '../__stubs__/mock-appointment-types'
 
 jest.mock('../../../logger')
 jest.mock('../api', () => ({
-  callGetConfigurationsByTypeAndIdApi: jest.fn(() => Promise.resolve(appointmentTypeMock)),
-  callGetConfigurationsByTypeApi: jest.fn(() => Promise.resolve(appointmentTypesMock)),
+  callGetConfigurationsByTypeAndIdApi: jest.fn(() => Promise.resolve(mockAppointmentType)),
+  callGetConfigurationsByTypeApi: jest.fn(() => Promise.resolve(mockAppointmentTypes)),
 }))
 
 describe('getConfigurationByTypeAndId', () => {
@@ -18,7 +18,7 @@ describe('getConfigurationByTypeAndId', () => {
     }
     const result = await getConfigurationByTypeAndId(args, mockContext)
     expect(callGetConfigurationsByTypeAndIdApi).toHaveBeenCalledWith(args, mockContext)
-    expect(result).toEqual(appointmentTypeMock)
+    expect(result).toEqual(mockAppointmentType)
   })
 })
 
@@ -29,6 +29,6 @@ describe('getConfigurationsByType', () => {
     }
     const result = await getConfigurationsByType(args, mockContext)
     expect(callGetConfigurationsByTypeApi).toHaveBeenCalledWith(args, mockContext)
-    expect(result).toEqual(appointmentTypesMock)
+    expect(result).toEqual(mockAppointmentTypes)
   })
 })

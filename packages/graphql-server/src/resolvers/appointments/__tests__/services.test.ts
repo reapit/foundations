@@ -5,16 +5,16 @@ import {
   callUpdateAppointmentAPI,
 } from '../api'
 import { mockContext } from '../../../__stubs__/mock-context'
-import { createAppointmentArgsMock } from '../__stubs__/mock-create-appointment'
-import { updateAppointmentArgsMock } from '../__stubs__/mock-update-appointment'
+import { mockCreateAppointmentArgs } from '../__stubs__/mock-create-appointment'
+import { mockUpdateAppointmentArgs } from '../__stubs__/mock-update-appointment'
 import { getAppointmentById, getAppointments, createAppointment, updateAppointment } from '../services'
-import { appointmentMock } from '../__stubs__/mock-appointment'
-import { appointmentsMock } from '../__stubs__/mock-appointments'
+import { mockAppointment } from '../__stubs__/mock-appointment'
+import { mockAppointments } from '../__stubs__/mock-appointments'
 
 jest.mock('../../../logger')
 jest.mock('../api', () => ({
-  callGetAppointmentByIdAPI: jest.fn(() => Promise.resolve(appointmentMock)),
-  callGetAppointmentsAPI: jest.fn(() => Promise.resolve(appointmentsMock)),
+  callGetAppointmentByIdAPI: jest.fn(() => Promise.resolve(mockAppointment)),
+  callGetAppointmentsAPI: jest.fn(() => Promise.resolve(mockAppointments)),
   callCreateAppointmentAPI: jest.fn(() => Promise.resolve(true)),
   callUpdateAppointmentAPI: jest.fn(() => Promise.resolve(true)),
 }))
@@ -24,7 +24,7 @@ describe('getAppointmentById', () => {
     const args = { id: 'id' }
     const result = await getAppointmentById(args, mockContext)
     expect(callGetAppointmentByIdAPI).toHaveBeenCalledWith(args, mockContext)
-    expect(result).toEqual(appointmentMock)
+    expect(result).toEqual(mockAppointment)
   })
 })
 
@@ -33,22 +33,22 @@ describe('getAppointments', () => {
     const args = { id: ['id1', 'id2'], pageSize: 10, pageNumber: 1 }
     const result = await getAppointments(args, mockContext)
     expect(callGetAppointmentsAPI).toHaveBeenCalledWith(args, mockContext)
-    expect(result).toEqual(appointmentsMock)
+    expect(result).toEqual(mockAppointments)
   })
 })
 
 describe('createAppointment', () => {
   it('should return correctly', async () => {
-    const result = await createAppointment(createAppointmentArgsMock, mockContext)
-    expect(callCreateAppointmentAPI).toHaveBeenCalledWith(createAppointmentArgsMock, mockContext)
+    const result = await createAppointment(mockCreateAppointmentArgs, mockContext)
+    expect(callCreateAppointmentAPI).toHaveBeenCalledWith(mockCreateAppointmentArgs, mockContext)
     expect(result).toEqual(true)
   })
 })
 
 describe('updateAppointment', () => {
   it('should return correctly', async () => {
-    const result = await updateAppointment(updateAppointmentArgsMock, mockContext)
-    expect(callUpdateAppointmentAPI).toHaveBeenCalledWith(updateAppointmentArgsMock, mockContext)
+    const result = await updateAppointment(mockUpdateAppointmentArgs, mockContext)
+    expect(callUpdateAppointmentAPI).toHaveBeenCalledWith(mockUpdateAppointmentArgs, mockContext)
     expect(result).toEqual(true)
   })
 })

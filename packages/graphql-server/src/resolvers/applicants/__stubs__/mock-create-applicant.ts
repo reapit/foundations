@@ -1,4 +1,4 @@
-export const createApplicantArgsMock = {
+export const mockCreateApplicantArgs = {
   marketingMode: 'buying',
   active: true,
   notes: 'Looking to move his mother back into the area',

@@ -2,15 +2,15 @@ import tasksService from '../services'
 import { checkPermission } from '../../../utils/check-permission'
 import errors from '../../../errors'
 import { queryGetTaskById, queryGetTasks, mutationCreateTask, mutationUpdateTask } from '../resolvers'
-import { createTaskArgsMock } from '../__stubs__/mock-create-task'
-import { updateTaskArgsMock } from '../__stubs__/mock-update-task'
-import { taskMock } from '../__stubs__/mock-task'
-import { tasksMock } from '../__stubs__/mock-tasks'
+import { mockCreateTaskArgs } from '../__stubs__/mock-create-task'
+import { mockUpdateTaskArgs } from '../__stubs__/mock-update-task'
+import { mockTask } from '../__stubs__/mock-task'
+import { mockTasks } from '../__stubs__/mock-tasks'
 import { mockContext } from '../../../__stubs__/mock-context'
 
 jest.mock('../services', () => ({
-  getTaskById: jest.fn(() => taskMock),
-  getTasks: jest.fn(() => tasksMock),
+  getTaskById: jest.fn(() => mockTask),
+  getTasks: jest.fn(() => mockTasks),
   createTask: jest.fn(() => true),
   updateTask: jest.fn(() => true),
   deleteTask: jest.fn(() => true),
@@ -58,13 +58,13 @@ describe('queryGetTasks', () => {
 describe('mutationCreateTask', () => {
   it('should return correctly', () => {
     ;(checkPermission as jest.Mock).mockReturnValue(true)
-    const result = mutationCreateTask(null, createTaskArgsMock, mockContext)
-    expect(result).toEqual(tasksService.createTask(createTaskArgsMock, mockContext))
+    const result = mutationCreateTask(null, mockCreateTaskArgs, mockContext)
+    expect(result).toEqual(tasksService.createTask(mockCreateTaskArgs, mockContext))
   })
 
   it('should return auth error correctly', () => {
     ;(checkPermission as jest.Mock).mockReturnValue(false)
-    const result = mutationCreateTask(null, createTaskArgsMock, mockContext)
+    const result = mutationCreateTask(null, mockCreateTaskArgs, mockContext)
     expect(result).toEqual(errors.generateAuthenticationError(mockContext.traceId))
   })
 })
@@ -72,13 +72,13 @@ describe('mutationCreateTask', () => {
 describe('mutationUpdateTask', () => {
   it('should return correctly', () => {
     ;(checkPermission as jest.Mock).mockReturnValue(true)
-    const result = mutationUpdateTask(null, updateTaskArgsMock, mockContext)
-    expect(result).toEqual(tasksService.updateTask(updateTaskArgsMock, mockContext))
+    const result = mutationUpdateTask(null, mockUpdateTaskArgs, mockContext)
+    expect(result).toEqual(tasksService.updateTask(mockUpdateTaskArgs, mockContext))
   })
 
   it('should return auth error correctly', () => {
     ;(checkPermission as jest.Mock).mockReturnValue(false)
-    const result = mutationUpdateTask(null, updateTaskArgsMock, mockContext)
+    const result = mutationUpdateTask(null, mockUpdateTaskArgs, mockContext)
     expect(result).toEqual(errors.generateAuthenticationError(mockContext.traceId))
   })
 })

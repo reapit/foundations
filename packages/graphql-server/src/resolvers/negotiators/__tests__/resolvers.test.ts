@@ -7,15 +7,15 @@ import {
   mutationCreateNegotiator,
   mutationUpdateNegotiator,
 } from '../resolvers'
-import { createNegotiatorArgsMock } from '../__stubs__/mock-create-negotiator'
-import { updateNegotiatorArgsMock } from '../__stubs__/mock-update-negotiator'
-import { negotiatorMock } from '../__stubs__/mock-negotiator'
-import { negotiatorsMock } from '../__stubs__/mock-negotiators'
+import { mockCreateNegotiatorArgs } from '../__stubs__/mock-create-negotiator'
+import { mockUpdateNegotiatorArgs } from '../__stubs__/mock-update-negotiator'
+import { mockNegotiator } from '../__stubs__/mock-negotiator'
+import { mockNegotiators } from '../__stubs__/mock-negotiators'
 import { mockContext } from '../../../__stubs__/mock-context'
 
 jest.mock('../services', () => ({
-  getNegotiatorById: jest.fn(() => negotiatorMock),
-  getNegotiators: jest.fn(() => negotiatorsMock),
+  getNegotiatorById: jest.fn(() => mockNegotiator),
+  getNegotiators: jest.fn(() => mockNegotiators),
   createNegotiator: jest.fn(() => true),
   updateNegotiator: jest.fn(() => true),
 }))
@@ -62,13 +62,13 @@ describe('queryGetNegotiators', () => {
 describe('mutationCreateNegotiator', () => {
   it('should return correctly', () => {
     ;(checkPermission as jest.Mock).mockReturnValue(true)
-    const result = mutationCreateNegotiator(null, createNegotiatorArgsMock, mockContext)
-    expect(result).toEqual(negotiatorServices.createNegotiator(createNegotiatorArgsMock, mockContext))
+    const result = mutationCreateNegotiator(null, mockCreateNegotiatorArgs, mockContext)
+    expect(result).toEqual(negotiatorServices.createNegotiator(mockCreateNegotiatorArgs, mockContext))
   })
 
   it('should return auth error correctly', () => {
     ;(checkPermission as jest.Mock).mockReturnValue(false)
-    const result = mutationCreateNegotiator(null, createNegotiatorArgsMock, mockContext)
+    const result = mutationCreateNegotiator(null, mockCreateNegotiatorArgs, mockContext)
     expect(result).toEqual(errors.generateAuthenticationError(mockContext.traceId))
   })
 })
@@ -76,13 +76,13 @@ describe('mutationCreateNegotiator', () => {
 describe('mutationUpdateNegotiator', () => {
   it('should return correctly', () => {
     ;(checkPermission as jest.Mock).mockReturnValue(true)
-    const result = mutationUpdateNegotiator(null, updateNegotiatorArgsMock, mockContext)
-    expect(result).toEqual(negotiatorServices.updateNegotiator(updateNegotiatorArgsMock, mockContext))
+    const result = mutationUpdateNegotiator(null, mockUpdateNegotiatorArgs, mockContext)
+    expect(result).toEqual(negotiatorServices.updateNegotiator(mockUpdateNegotiatorArgs, mockContext))
   })
 
   it('should return auth error correctly', () => {
     ;(checkPermission as jest.Mock).mockReturnValue(false)
-    const result = mutationUpdateNegotiator(null, updateNegotiatorArgsMock, mockContext)
+    const result = mutationUpdateNegotiator(null, mockUpdateNegotiatorArgs, mockContext)
     expect(result).toEqual(errors.generateAuthenticationError(mockContext.traceId))
   })
 })

@@ -8,7 +8,7 @@ import {
   callDeleteVendorRelationshipAPI,
 } from '../api'
 import { mockContext } from '../../../__stubs__/mock-context'
-import { updateVendorArgsStub } from '../__stubs__/mock-update-vendor'
+import { mockUpdateVendorArgs } from '../__stubs__/mock-update-vendor'
 import {
   getVendorById,
   getVendors,
@@ -18,13 +18,13 @@ import {
   createVendorRelationship,
   deleteVendorRelationship,
 } from '../services'
-import { vendorStub } from '../__stubs__/mock-vendor'
-import { vendorsStub } from '../__stubs__/mock-vendors'
+import { mockVendor } from '../__stubs__/mock-vendor'
+import { mockVendors } from '../__stubs__/mock-vendors'
 
 jest.mock('../../../logger')
 jest.mock('../api', () => ({
-  callGetVendorByIdAPI: jest.fn(() => Promise.resolve(vendorStub)),
-  callGetVendorsAPI: jest.fn(() => Promise.resolve(vendorsStub)),
+  callGetVendorByIdAPI: jest.fn(() => Promise.resolve(mockVendor)),
+  callGetVendorsAPI: jest.fn(() => Promise.resolve(mockVendors)),
   callUpdateVendorAPI: jest.fn(() => Promise.resolve(true)),
   callGetVendorRelationshipsAPI: jest.fn(() => Promise.resolve([])),
   callGetVendorRelationshipByIdAPI: jest.fn(() => Promise.resolve({})),
@@ -37,7 +37,7 @@ describe('getVendorById', () => {
     const args = { id: 'id' }
     const result = await getVendorById(args, mockContext)
     expect(callGetVendorByIdAPI).toHaveBeenCalledWith(args, mockContext)
-    expect(result).toEqual(vendorStub)
+    expect(result).toEqual(mockVendor)
   })
 })
 
@@ -63,14 +63,14 @@ describe('getVendors', () => {
     }
     const result = await getVendors(args, mockContext)
     expect(callGetVendorsAPI).toHaveBeenCalledWith(args, mockContext)
-    expect(result).toEqual(vendorsStub)
+    expect(result).toEqual(mockVendors)
   })
 })
 
 describe('updateVendor', () => {
   it('should return correctly', async () => {
-    const result = await updateVendor(updateVendorArgsStub, mockContext)
-    expect(callUpdateVendorAPI).toHaveBeenCalledWith(updateVendorArgsStub, mockContext)
+    const result = await updateVendor(mockUpdateVendorArgs, mockContext)
+    expect(callUpdateVendorAPI).toHaveBeenCalledWith(mockUpdateVendorArgs, mockContext)
     expect(result).toEqual(true)
   })
 })

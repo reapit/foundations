@@ -1,10 +1,10 @@
 import { mockContext } from '../../../__stubs__/mock-context'
 import { callGetAreasAPI, callCreateAreaAPI, callUpdateAreaAPI, callGetAreaByIdAPI } from '../api'
 import { createPlatformAxiosInstance } from '../../../utils/axios-instances'
-import { areaMock } from '../__stubs__/mock-area'
-import { areasMock } from '../__stubs__/mock-areas'
-import { createAreaArgsMock } from '../__stubs__/mock-create-area'
-import { updateAreaArgsMock } from '../__stubs__/mock-update-area'
+import { mockArea } from '../__stubs__/mock-area'
+import { mockAreas } from '../__stubs__/mock-areas'
+import { mockCreateAreaArgs } from '../__stubs__/mock-create-area'
+import { mockUpdateAreaArgs } from '../__stubs__/mock-update-area'
 import { getIdFromCreateHeaders } from '../../../utils/get-id-from-create-headers'
 
 jest.mock('apollo-server-lambda', () => {
@@ -38,11 +38,11 @@ jest.mock('../../../utils/axios-instances', () => ({
 describe('callGetAreasAPI', () => {
   it('should work correctly', async () => {
     ;(createPlatformAxiosInstance as jest.Mocked<any>).mockReturnValueOnce({
-      get: jest.fn(() => Promise.resolve({ data: areasMock })),
+      get: jest.fn(() => Promise.resolve({ data: mockAreas })),
     })
     const args = { pageSize: 1 }
     const result = await callGetAreasAPI(args, mockContext)
-    expect(result).toEqual(areasMock)
+    expect(result).toEqual(mockAreas)
   })
   it('should catch error correctly', async () => {
     ;(createPlatformAxiosInstance as jest.Mocked<any>).mockReturnValueOnce({
@@ -57,18 +57,18 @@ describe('callGetAreasAPI', () => {
 describe('callGetAreaByIdAPI', () => {
   it('should work correctly', async () => {
     ;(createPlatformAxiosInstance as jest.Mocked<any>).mockReturnValueOnce({
-      get: jest.fn(() => Promise.resolve({ data: areaMock })),
+      get: jest.fn(() => Promise.resolve({ data: mockArea })),
     })
-    const args = { id: areaMock.id }
+    const args = { id: mockArea.id }
     const result = await callGetAreaByIdAPI(args, mockContext)
-    expect(result).toEqual(areaMock)
+    expect(result).toEqual(mockArea)
   })
 
   it('should catch error correctly', async () => {
     ;(createPlatformAxiosInstance as jest.Mocked<any>).mockReturnValueOnce({
       get: jest.fn(() => Promise.reject('error caught')),
     })
-    const args = { id: areaMock.id }
+    const args = { id: mockArea.id }
     const result = await callGetAreaByIdAPI(args, mockContext)
     expect(result).toEqual('caught error')
   })
@@ -78,17 +78,17 @@ describe('callCreateAreaAPI', () => {
   it('should work correctly', async () => {
     ;(createPlatformAxiosInstance as jest.Mocked<any>).mockReturnValueOnce({
       post: jest.fn(() => Promise.resolve({ headers: 'header' })),
-      get: jest.fn(() => Promise.resolve({ data: areaMock })),
+      get: jest.fn(() => Promise.resolve({ data: mockArea })),
     })
-    ;(getIdFromCreateHeaders as jest.Mocked<any>).mockReturnValueOnce(areaMock.id)
-    await callCreateAreaAPI(createAreaArgsMock, mockContext)
+    ;(getIdFromCreateHeaders as jest.Mocked<any>).mockReturnValueOnce(mockArea.id)
+    await callCreateAreaAPI(mockCreateAreaArgs, mockContext)
     expect(getIdFromCreateHeaders).toHaveBeenCalledWith({ headers: 'header' })
   })
   it('should catch error correctly', async () => {
     ;(createPlatformAxiosInstance as jest.Mocked<any>).mockReturnValueOnce({
       post: jest.fn(() => Promise.reject('error caught')),
     })
-    const result = await callCreateAreaAPI(createAreaArgsMock, mockContext)
+    const result = await callCreateAreaAPI(mockCreateAreaArgs, mockContext)
     expect(result).toEqual('caught error')
   })
 })
@@ -98,13 +98,13 @@ describe('callUpdateAreaAPI', () => {
     ;(createPlatformAxiosInstance as jest.Mocked<any>).mockReturnValueOnce({
       patch: jest.fn(() => Promise.resolve({ headers: 'header' })),
     })
-    await callUpdateAreaAPI(updateAreaArgsMock, mockContext)
+    await callUpdateAreaAPI(mockUpdateAreaArgs, mockContext)
   })
   it('should catch error correctly', async () => {
     ;(createPlatformAxiosInstance as jest.Mocked<any>).mockReturnValueOnce({
       patch: jest.fn(() => Promise.reject('error caught')),
     })
-    const result = await callUpdateAreaAPI(updateAreaArgsMock, mockContext)
+    const result = await callUpdateAreaAPI(mockUpdateAreaArgs, mockContext)
     expect(result).toEqual('caught error')
   })
 })

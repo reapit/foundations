@@ -1,6 +1,6 @@
 import { VendorContactRelationshipModel } from '@reapit/foundations-ts-definitions'
 
-export const vendorRelationshipStub: VendorContactRelationshipModel = {
+export const mockVendorRelationship: VendorContactRelationshipModel = {
   id: 'OXF20002002',
   vendorId: 'OXF190001',
   created: '2020-01-25T15:44:28.0000000Z',

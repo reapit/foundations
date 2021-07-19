@@ -1,10 +1,10 @@
 import { mockContext } from '../../../__stubs__/mock-context'
 import { callGetOfficesAPI, callCreateOfficeAPI, callUpdateOfficeAPI, callGetOfficeByIdAPI } from '../api'
 import { createPlatformAxiosInstance } from '../../../utils/axios-instances'
-import { officeMock } from '../__stubs__/mock-office'
-import { officesMock } from '../__stubs__/mock-offices'
-import { createOfficeArgsMock } from '../__stubs__/mock-create-office'
-import { updateOfficeArgsMock } from '../__stubs__/mock-update-office'
+import { mockOffice } from '../__stubs__/mock-office'
+import { mockOffices } from '../__stubs__/mock-offices'
+import { mockCreateOfficeArgs } from '../__stubs__/mock-create-office'
+import { mockUpdateOfficeArgs } from '../__stubs__/mock-update-office'
 import { getIdFromCreateHeaders } from '../../../utils/get-id-from-create-headers'
 
 jest.mock('apollo-server-lambda', () => {
@@ -38,11 +38,11 @@ jest.mock('../../../utils/axios-instances', () => ({
 describe('callGetOfficesAPI', () => {
   it('should work correctly', async () => {
     ;(createPlatformAxiosInstance as jest.Mocked<any>).mockReturnValueOnce({
-      get: jest.fn(() => Promise.resolve({ data: officesMock })),
+      get: jest.fn(() => Promise.resolve({ data: mockOffices })),
     })
     const args = { pageSize: 1 }
     const result = await callGetOfficesAPI(args, mockContext)
-    expect(result).toEqual(officesMock)
+    expect(result).toEqual(mockOffices)
   })
   it('should catch error correctly', async () => {
     ;(createPlatformAxiosInstance as jest.Mocked<any>).mockReturnValueOnce({
@@ -57,18 +57,18 @@ describe('callGetOfficesAPI', () => {
 describe('callGetOfficeByIdAPI', () => {
   it('should work correctly', async () => {
     ;(createPlatformAxiosInstance as jest.Mocked<any>).mockReturnValueOnce({
-      get: jest.fn(() => Promise.resolve({ data: officeMock })),
+      get: jest.fn(() => Promise.resolve({ data: mockOffice })),
     })
-    const args = { id: officeMock.id } as any
+    const args = { id: mockOffice.id } as any
     const result = await callGetOfficeByIdAPI(args, mockContext)
-    expect(result).toEqual(officeMock)
+    expect(result).toEqual(mockOffice)
   })
 
   it('should catch error correctly', async () => {
     ;(createPlatformAxiosInstance as jest.Mocked<any>).mockReturnValueOnce({
       get: jest.fn(() => Promise.reject('error caught')),
     })
-    const args = { id: officeMock.id } as any
+    const args = { id: mockOffice.id } as any
     const result = await callGetOfficeByIdAPI(args, mockContext)
     expect(result).toEqual('caught error')
   })
@@ -78,17 +78,17 @@ describe('callCreateOfficeAPI', () => {
   it('should work correctly', async () => {
     ;(createPlatformAxiosInstance as jest.Mocked<any>).mockReturnValueOnce({
       post: jest.fn(() => Promise.resolve({ headers: 'header' })),
-      get: jest.fn(() => Promise.resolve({ data: officeMock })),
+      get: jest.fn(() => Promise.resolve({ data: mockOffice })),
     })
-    ;(getIdFromCreateHeaders as jest.Mocked<any>).mockReturnValueOnce(officeMock.id)
-    await callCreateOfficeAPI(createOfficeArgsMock, mockContext)
+    ;(getIdFromCreateHeaders as jest.Mocked<any>).mockReturnValueOnce(mockOffice.id)
+    await callCreateOfficeAPI(mockCreateOfficeArgs, mockContext)
     expect(getIdFromCreateHeaders).toHaveBeenCalledWith({ headers: 'header' })
   })
   it('should catch error correctly', async () => {
     ;(createPlatformAxiosInstance as jest.Mocked<any>).mockReturnValueOnce({
       post: jest.fn(() => Promise.reject('error caught')),
     })
-    const result = await callCreateOfficeAPI(createOfficeArgsMock, mockContext)
+    const result = await callCreateOfficeAPI(mockCreateOfficeArgs, mockContext)
     expect(result).toEqual('caught error')
   })
 })
@@ -98,13 +98,13 @@ describe('callUpdateOfficeAPI', () => {
     ;(createPlatformAxiosInstance as jest.Mocked<any>).mockReturnValueOnce({
       patch: jest.fn(() => Promise.resolve({ headers: 'header' })),
     })
-    await callUpdateOfficeAPI(updateOfficeArgsMock, mockContext)
+    await callUpdateOfficeAPI(mockUpdateOfficeArgs, mockContext)
   })
   it('should catch error correctly', async () => {
     ;(createPlatformAxiosInstance as jest.Mocked<any>).mockReturnValueOnce({
       patch: jest.fn(() => Promise.reject('error caught')),
     })
-    const result = await callUpdateOfficeAPI(updateOfficeArgsMock, mockContext)
+    const result = await callUpdateOfficeAPI(mockUpdateOfficeArgs, mockContext)
     expect(result).toEqual('caught error')
   })
 })

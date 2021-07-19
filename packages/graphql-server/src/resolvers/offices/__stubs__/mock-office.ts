@@ -1,6 +1,6 @@
 import { OfficeModel } from '@reapit/foundations-ts-definitions'
 
-export const officeMock: OfficeModel = {
+export const mockOffice: OfficeModel = {
   id: 'TCM',
   created: '2020-03-05T09:20:43.0000000Z',
   modified: '2020-03-05T10:01:53.0000000Z',

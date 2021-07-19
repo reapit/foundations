@@ -86,8 +86,9 @@ export class AutomationExecution {
           )
         const conversationSid = match[0]
         const participants = await twilioClient.conversations.conversations(conversationSid).participants.list()
-        const participantToRemove = participants.find((p) => p.messagingBinding.address === event.object.mobilePhone)
-          .sid
+        const participantToRemove = participants.find(
+          (p) => p.messagingBinding.address === event.object.mobilePhone,
+        ).sid
         await twilioClient.conversations.conversations(conversationSid).participants(participantToRemove).remove()
         this.logInfo(`Removed participant ${participantToRemove} from conversation ${conversationSid}`)
 

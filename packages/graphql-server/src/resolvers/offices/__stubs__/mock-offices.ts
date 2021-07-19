@@ -1,6 +1,6 @@
 import { OfficeModelPagedResult } from '@reapit/foundations-ts-definitions'
 
-export const officesMock: OfficeModelPagedResult = {
+export const mockOffices: OfficeModelPagedResult = {
   _embedded: [
     {
       id: 'TCM',

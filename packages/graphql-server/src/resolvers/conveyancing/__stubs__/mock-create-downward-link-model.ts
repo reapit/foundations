@@ -1,6 +1,6 @@
 import { CreateDownwardLinkModelArgs } from '../conveyancing'
 
-export const createDownwardLinkModelArgsMock: CreateDownwardLinkModelArgs = {
+export const mockCreateDownwardLinkModelArgs: CreateDownwardLinkModelArgs = {
   id: 'RPT20000141',
   offerId: 'RPT200027',
   propertyAddress: '10 Church View Lane, Rugeley, WS15 6PP',

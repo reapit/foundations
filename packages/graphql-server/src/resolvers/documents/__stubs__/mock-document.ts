@@ -1,6 +1,6 @@
 import { DocumentModel } from '@reapit/foundations-ts-definitions'
 
-export const documentMock: DocumentModel = {
+export const mockDocument: DocumentModel = {
   id: 'OXF20000060',
   created: '2020-01-25T15:44:28.0000000Z',
   modified: '2020-01-26T09:24:02.0000000Z',

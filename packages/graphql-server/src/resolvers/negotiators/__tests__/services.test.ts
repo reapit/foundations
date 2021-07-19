@@ -5,16 +5,16 @@ import {
   callUpdateNegotiatorAPI,
 } from '../api'
 import { mockContext } from '../../../__stubs__/mock-context'
-import { createNegotiatorArgsMock } from '../__stubs__/mock-create-negotiator'
-import { updateNegotiatorArgsMock } from '../__stubs__/mock-update-negotiator'
+import { mockCreateNegotiatorArgs } from '../__stubs__/mock-create-negotiator'
+import { mockUpdateNegotiatorArgs } from '../__stubs__/mock-update-negotiator'
 import { getNegotiatorById, getNegotiators, createNegotiator, updateNegotiator } from '../services'
-import { negotiatorMock } from '../__stubs__/mock-negotiator'
-import { negotiatorsMock } from '../__stubs__/mock-negotiators'
+import { mockNegotiator } from '../__stubs__/mock-negotiator'
+import { mockNegotiators } from '../__stubs__/mock-negotiators'
 
 jest.mock('../../../logger')
 jest.mock('../api', () => ({
-  callGetNegotiatorByIdAPI: jest.fn(() => Promise.resolve(negotiatorMock)),
-  callGetNegotiatorsAPI: jest.fn(() => Promise.resolve(negotiatorsMock)),
+  callGetNegotiatorByIdAPI: jest.fn(() => Promise.resolve(mockNegotiator)),
+  callGetNegotiatorsAPI: jest.fn(() => Promise.resolve(mockNegotiators)),
   callCreateNegotiatorAPI: jest.fn(() => Promise.resolve(true)),
   callUpdateNegotiatorAPI: jest.fn(() => Promise.resolve(true)),
 }))
@@ -24,7 +24,7 @@ describe('getNegotiatorById', () => {
     const args = { id: 'id' }
     const result = await getNegotiatorById(args, mockContext)
     expect(callGetNegotiatorByIdAPI).toHaveBeenCalledWith(args, mockContext)
-    expect(result).toEqual(negotiatorMock)
+    expect(result).toEqual(mockNegotiator)
   })
 })
 
@@ -33,22 +33,22 @@ describe('getNegotiators', () => {
     const args = { id: ['id1', 'id2'], pageSize: 10, pageNumber: 1 }
     const result = await getNegotiators(args, mockContext)
     expect(callGetNegotiatorsAPI).toHaveBeenCalledWith(args, mockContext)
-    expect(result).toEqual(negotiatorsMock)
+    expect(result).toEqual(mockNegotiators)
   })
 })
 
 describe('createNegotiator', () => {
   it('should return correctly', async () => {
-    const result = await createNegotiator(createNegotiatorArgsMock, mockContext)
-    expect(callCreateNegotiatorAPI).toHaveBeenCalledWith(createNegotiatorArgsMock, mockContext)
+    const result = await createNegotiator(mockCreateNegotiatorArgs, mockContext)
+    expect(callCreateNegotiatorAPI).toHaveBeenCalledWith(mockCreateNegotiatorArgs, mockContext)
     expect(result).toEqual(true)
   })
 })
 
 describe('updateNegotiator', () => {
   it('should return correctly', async () => {
-    const result = await updateNegotiator(updateNegotiatorArgsMock, mockContext)
-    expect(callUpdateNegotiatorAPI).toHaveBeenCalledWith(updateNegotiatorArgsMock, mockContext)
+    const result = await updateNegotiator(mockUpdateNegotiatorArgs, mockContext)
+    expect(callUpdateNegotiatorAPI).toHaveBeenCalledWith(mockUpdateNegotiatorArgs, mockContext)
     expect(result).toEqual(true)
   })
 })

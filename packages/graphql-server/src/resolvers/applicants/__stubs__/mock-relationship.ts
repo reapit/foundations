@@ -1,4 +1,4 @@
-export const relationshipMock = {
+export const mockRelationship = {
   id: 'MKT20000020',
   created: '2020-07-15T08:22:55Z',
   modified: null,

@@ -1,6 +1,6 @@
 import { CreateAppointmentArgs } from '../appointments'
 
-export const createAppointmentArgsMock: CreateAppointmentArgs = {
+export const mockCreateAppointmentArgs: CreateAppointmentArgs = {
   start: '2018-08-14T12:30:02.0000000Z',
   end: '2018-08-14T13:30:02.0000000Z',
   followUpOn: '2018-10-05',

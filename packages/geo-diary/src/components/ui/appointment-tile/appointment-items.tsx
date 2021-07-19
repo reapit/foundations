@@ -22,27 +22,29 @@ export type RenderModalTitleParams = {
   heading: string
 }
 
-export const handleOpenContactDrawer = (
-  setAppState: Dispatch<SetStateAction<AppState>>,
-  appointment: ExtendedAppointmentModel,
-  contactDrawerType: ContactDrawerType,
-  contactId: string | null,
-) => () => {
-  const isDeskop = Boolean(window['__REAPIT_MARKETPLACE_GLOBALS__'])
-  setAppState((currentState) => ({
-    ...currentState,
-    appointment,
-    appointmentId: appointment.id ?? null,
-    contactDrawerOpen: isDeskop ? false : true,
-    contactDrawerType,
-    contactId,
-  }))
+export const handleOpenContactDrawer =
+  (
+    setAppState: Dispatch<SetStateAction<AppState>>,
+    appointment: ExtendedAppointmentModel,
+    contactDrawerType: ContactDrawerType,
+    contactId: string | null,
+  ) =>
+  () => {
+    const isDeskop = Boolean(window['__REAPIT_MARKETPLACE_GLOBALS__'])
+    setAppState((currentState) => ({
+      ...currentState,
+      appointment,
+      appointmentId: appointment.id ?? null,
+      contactDrawerOpen: isDeskop ? false : true,
+      contactDrawerType,
+      contactId,
+    }))
 
-  if (isDeskop && contactId) {
-    const entity = contactDrawerType === ContactDrawerType.PROPERTY ? 'properties' : 'contacts'
-    window.location.href = `agencycloud://${entity}/${contactId}`
+    if (isDeskop && contactId) {
+      const entity = contactDrawerType === ContactDrawerType.PROPERTY ? 'properties' : 'contacts'
+      window.location.href = `agencycloud://${entity}/${contactId}`
+    }
   }
-}
 
 export const AppointmentItems: FC<RenderIconItemsProps> = ({ appointment }) => {
   return (

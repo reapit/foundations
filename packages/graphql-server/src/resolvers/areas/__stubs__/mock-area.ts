@@ -1,6 +1,6 @@
 import { AreaModel } from '@reapit/foundations-ts-definitions'
 
-export const areaMock: AreaModel = {
+export const mockArea: AreaModel = {
   id: 'BHM',
   created: '2020-02-24T06:59:43.0000000Z',
   modified: '2020-03-03T09:24:59.0000000Z',

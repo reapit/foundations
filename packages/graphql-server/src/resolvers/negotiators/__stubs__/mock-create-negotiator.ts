@@ -1,6 +1,6 @@
 import { CreateNegotiatorArgs } from '../negotiators'
 
-export const createNegotiatorArgsMock: CreateNegotiatorArgs = {
+export const mockCreateNegotiatorArgs: CreateNegotiatorArgs = {
   name: 'Mr John Smith',
   jobTitle: 'Senior Sales Negotiator',
   active: true,

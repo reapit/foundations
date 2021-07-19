@@ -5,7 +5,7 @@ import {
   LandlordContactRelationshipModel,
 } from '@reapit/foundations-ts-definitions'
 
-export const landlordsListMock: LandlordModelPagedResult = {
+export const mockLandlordsList: LandlordModelPagedResult = {
   _embedded: [
     {
       id: 'OXF180001',
@@ -93,7 +93,7 @@ export const landlordsListMock: LandlordModelPagedResult = {
   },
 }
 
-export const landlordMock: LandlordModel = {
+export const mockLandlord: LandlordModel = {
   id: 'OXF180001',
   created: '2018-12-12T12:30:23.0000000Z',
   modified: '2019-01-08T12:30:34.0000000Z',
@@ -159,7 +159,7 @@ export const landlordMock: LandlordModel = {
   _embedded: null,
 }
 
-export const landlordRelationshipsListMock: LandlordContactRelationshipModelPagedResult = {
+export const mockLandlordRelationshipsList: LandlordContactRelationshipModelPagedResult = {
   pageNumber: 1,
   _embedded: [
     {
@@ -183,7 +183,7 @@ export const landlordRelationshipsListMock: LandlordContactRelationshipModelPage
   ],
 }
 
-export const landlordRelationshipMock: LandlordContactRelationshipModel = {
+export const mockLandlordRelationship: LandlordContactRelationshipModel = {
   id: 'OXF20002002',
   landlordId: 'OXF190001',
   created: '2020-01-25T15:44:28.0000000Z',

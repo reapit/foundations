@@ -1,5 +1,5 @@
 import { generateConfigurationBatchLoaderFn, generateConfigurationLoader } from '../dataloader'
-import { appointmentTypesMock, appointmentTypeMock } from '../__stubs__/mock-appointment-types'
+import { mockAppointmentTypes, mockAppointmentType } from '../__stubs__/mock-appointment-types'
 import { ServerContext } from '../../../utils'
 jest.mock('apollo-server-lambda', () => {
   return {
@@ -12,8 +12,8 @@ jest.mock('apollo-server-lambda', () => {
 })
 jest.mock('../../../logger')
 jest.mock('../services', () => ({
-  getConfigurationByTypeAndId: jest.fn(() => appointmentTypeMock),
-  getConfigurationsByType: jest.fn(() => appointmentTypesMock),
+  getConfigurationByTypeAndId: jest.fn(() => mockAppointmentType),
+  getConfigurationsByType: jest.fn(() => mockAppointmentTypes),
 }))
 
 describe('configuration-dataloader', () => {

@@ -1,10 +1,10 @@
 import { mockContext } from '../../../__stubs__/mock-context'
 import { callGetPropertiesAPI, callCreatePropertyAPI, callUpdatePropertyAPI, callGetPropertyByIdAPI } from '../api'
 import { createPlatformAxiosInstance } from '../../../utils/axios-instances'
-import { propertyMock } from '../__stubs__/mock-property'
-import { propertiesMock } from '../__stubs__/mock-properties'
-import { createPropertyArgsMock } from '../__stubs__/mock-create-property'
-import { updatePropertyArgsMock } from '../__stubs__/mock-update-property'
+import { mockProperty } from '../__stubs__/mock-property'
+import { mockProperties } from '../__stubs__/mock-properties'
+import { mockCreatePropertyArgs } from '../__stubs__/mock-create-property'
+import { mockUpdatePropertyArgs } from '../__stubs__/mock-update-property'
 import { getIdFromCreateHeaders } from '../../../utils/get-id-from-create-headers'
 
 jest.mock('apollo-server-lambda', () => {
@@ -38,11 +38,11 @@ jest.mock('../../../utils/axios-instances', () => ({
 describe('callGetPropertiesAPI', () => {
   it('should work correctly', async () => {
     ;(createPlatformAxiosInstance as jest.Mocked<any>).mockReturnValueOnce({
-      get: jest.fn(() => Promise.resolve({ data: propertiesMock })),
+      get: jest.fn(() => Promise.resolve({ data: mockProperties })),
     })
     const args = { pageSize: 1 }
     const result = await callGetPropertiesAPI(args, mockContext)
-    expect(result).toEqual(propertiesMock)
+    expect(result).toEqual(mockProperties)
   })
   it('should catch error correctly', async () => {
     ;(createPlatformAxiosInstance as jest.Mocked<any>).mockReturnValueOnce({
@@ -57,18 +57,18 @@ describe('callGetPropertiesAPI', () => {
 describe('callGetPropertyByIdAPI', () => {
   it('should work correctly', async () => {
     ;(createPlatformAxiosInstance as jest.Mocked<any>).mockReturnValueOnce({
-      get: jest.fn(() => Promise.resolve({ data: propertyMock })),
+      get: jest.fn(() => Promise.resolve({ data: mockProperty })),
     })
-    const args = { id: propertyMock.id } as any
+    const args = { id: mockProperty.id } as any
     const result = await callGetPropertyByIdAPI(args, mockContext)
-    expect(result).toEqual(propertyMock)
+    expect(result).toEqual(mockProperty)
   })
 
   it('should catch error correctly', async () => {
     ;(createPlatformAxiosInstance as jest.Mocked<any>).mockReturnValueOnce({
       get: jest.fn(() => Promise.reject('error caught')),
     })
-    const args = { id: propertyMock.id } as any
+    const args = { id: mockProperty.id } as any
     const result = await callGetPropertyByIdAPI(args, mockContext)
     expect(result).toEqual('caught error')
   })
@@ -78,17 +78,17 @@ describe('callCreatePropertyAPI', () => {
   it('should work correctly', async () => {
     ;(createPlatformAxiosInstance as jest.Mocked<any>).mockReturnValueOnce({
       post: jest.fn(() => Promise.resolve({ headers: 'header' })),
-      get: jest.fn(() => Promise.resolve({ data: propertyMock })),
+      get: jest.fn(() => Promise.resolve({ data: mockProperty })),
     })
-    ;(getIdFromCreateHeaders as jest.Mocked<any>).mockReturnValueOnce(propertyMock.id)
-    await callCreatePropertyAPI(createPropertyArgsMock, mockContext)
+    ;(getIdFromCreateHeaders as jest.Mocked<any>).mockReturnValueOnce(mockProperty.id)
+    await callCreatePropertyAPI(mockCreatePropertyArgs, mockContext)
     expect(getIdFromCreateHeaders).toHaveBeenCalledWith({ headers: 'header' })
   })
   it('should catch error correctly', async () => {
     ;(createPlatformAxiosInstance as jest.Mocked<any>).mockReturnValueOnce({
       post: jest.fn(() => Promise.reject('error caught')),
     })
-    const result = await callCreatePropertyAPI(createPropertyArgsMock, mockContext)
+    const result = await callCreatePropertyAPI(mockCreatePropertyArgs, mockContext)
     expect(result).toEqual('caught error')
   })
 })
@@ -98,13 +98,13 @@ describe('callUpdatePropertyAPI', () => {
     ;(createPlatformAxiosInstance as jest.Mocked<any>).mockReturnValueOnce({
       patch: jest.fn(() => Promise.resolve({ headers: 'header' })),
     })
-    await callUpdatePropertyAPI(updatePropertyArgsMock, mockContext)
+    await callUpdatePropertyAPI(mockUpdatePropertyArgs, mockContext)
   })
   it('should catch error correctly', async () => {
     ;(createPlatformAxiosInstance as jest.Mocked<any>).mockReturnValueOnce({
       patch: jest.fn(() => Promise.reject('error caught')),
     })
-    const result = await callUpdatePropertyAPI(updatePropertyArgsMock, mockContext)
+    const result = await callUpdatePropertyAPI(mockUpdatePropertyArgs, mockContext)
     expect(result).toEqual('caught error')
   })
 })

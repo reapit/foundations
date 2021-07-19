@@ -1,6 +1,6 @@
 import { JournalEntryModelPagedResult } from '@reapit/foundations-ts-definitions'
 
-export const journalEntriesMock: JournalEntryModelPagedResult = {
+export const mockJournalEntries: JournalEntryModelPagedResult = {
   _embedded: [
     {
       created: '2020-08-18T06:57:08.0000000Z',

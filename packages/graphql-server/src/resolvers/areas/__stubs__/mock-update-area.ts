@@ -1,6 +1,6 @@
 import { UpdateAreaArgs } from '../areas'
 
-export const updateAreaArgsMock: UpdateAreaArgs = {
+export const mockUpdateAreaArgs: UpdateAreaArgs = {
   id: 'BHM',
   name: 'Birmingham',
   area: ['51.60009,-0.21789', '51.47025,-0.27282', '51.50445,0.00184'],

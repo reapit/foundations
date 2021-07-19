@@ -1,6 +1,6 @@
 import { IdentityCheckModelPagedResult } from '@reapit/foundations-ts-definitions'
 
-export const identityChecksMock: IdentityCheckModelPagedResult = {
+export const mockIdentityChecks: IdentityCheckModelPagedResult = {
   _embedded: [
     {
       id: 'RPT20000093',

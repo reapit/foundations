@@ -6,10 +6,10 @@ import {
   callGetAppointmentByIdAPI,
 } from '../api'
 import { createPlatformAxiosInstance } from '../../../utils/axios-instances'
-import { appointmentMock } from '../__stubs__/mock-appointment'
-import { appointmentsMock } from '../__stubs__/mock-appointments'
-import { createAppointmentArgsMock } from '../__stubs__/mock-create-appointment'
-import { updateAppointmentArgsMock } from '../__stubs__/mock-update-appointment'
+import { mockAppointment } from '../__stubs__/mock-appointment'
+import { mockAppointments } from '../__stubs__/mock-appointments'
+import { mockCreateAppointmentArgs } from '../__stubs__/mock-create-appointment'
+import { mockUpdateAppointmentArgs } from '../__stubs__/mock-update-appointment'
 import { getIdFromCreateHeaders } from '../../../utils/get-id-from-create-headers'
 
 jest.mock('apollo-server-lambda', () => {
@@ -43,11 +43,11 @@ jest.mock('../../../utils/axios-instances', () => ({
 describe('callGetAppointmentsAPI', () => {
   it('should work correctly', async () => {
     ;(createPlatformAxiosInstance as jest.Mocked<any>).mockReturnValueOnce({
-      get: jest.fn(() => Promise.resolve({ data: appointmentsMock })),
+      get: jest.fn(() => Promise.resolve({ data: mockAppointments })),
     })
     const args = { pageSize: 1 }
     const result = await callGetAppointmentsAPI(args, mockContext)
-    expect(result).toEqual(appointmentsMock)
+    expect(result).toEqual(mockAppointments)
   })
   it('should catch error correctly', async () => {
     ;(createPlatformAxiosInstance as jest.Mocked<any>).mockReturnValueOnce({
@@ -62,18 +62,18 @@ describe('callGetAppointmentsAPI', () => {
 describe('callGetAppointmentByIdAPI', () => {
   it('should work correctly', async () => {
     ;(createPlatformAxiosInstance as jest.Mocked<any>).mockReturnValueOnce({
-      get: jest.fn(() => Promise.resolve({ data: appointmentMock })),
+      get: jest.fn(() => Promise.resolve({ data: mockAppointment })),
     })
-    const args = { id: appointmentMock.id }
+    const args = { id: mockAppointment.id }
     const result = await callGetAppointmentByIdAPI(args, mockContext)
-    expect(result).toEqual(appointmentMock)
+    expect(result).toEqual(mockAppointment)
   })
 
   it('should catch error correctly', async () => {
     ;(createPlatformAxiosInstance as jest.Mocked<any>).mockReturnValueOnce({
       get: jest.fn(() => Promise.reject('error caught')),
     })
-    const args = { id: appointmentMock.id }
+    const args = { id: mockAppointment.id }
     const result = await callGetAppointmentByIdAPI(args, mockContext)
     expect(result).toEqual('caught error')
   })
@@ -83,17 +83,17 @@ describe('callCreateAppointmentAPI', () => {
   it('should work correctly', async () => {
     ;(createPlatformAxiosInstance as jest.Mocked<any>).mockReturnValueOnce({
       post: jest.fn(() => Promise.resolve({ headers: 'header' })),
-      get: jest.fn(() => Promise.resolve({ data: appointmentMock })),
+      get: jest.fn(() => Promise.resolve({ data: mockAppointment })),
     })
-    ;(getIdFromCreateHeaders as jest.Mocked<any>).mockReturnValueOnce(appointmentMock.id)
-    await callCreateAppointmentAPI(createAppointmentArgsMock, mockContext)
+    ;(getIdFromCreateHeaders as jest.Mocked<any>).mockReturnValueOnce(mockAppointment.id)
+    await callCreateAppointmentAPI(mockCreateAppointmentArgs, mockContext)
     expect(getIdFromCreateHeaders).toHaveBeenCalledWith({ headers: 'header' })
   })
   it('should catch error correctly', async () => {
     ;(createPlatformAxiosInstance as jest.Mocked<any>).mockReturnValueOnce({
       post: jest.fn(() => Promise.reject('error caught')),
     })
-    const result = await callCreateAppointmentAPI(createAppointmentArgsMock, mockContext)
+    const result = await callCreateAppointmentAPI(mockCreateAppointmentArgs, mockContext)
     expect(result).toEqual('caught error')
   })
 })
@@ -103,13 +103,13 @@ describe('callUpdateAppointmentAPI', () => {
     ;(createPlatformAxiosInstance as jest.Mocked<any>).mockReturnValueOnce({
       patch: jest.fn(() => Promise.resolve({ headers: 'header' })),
     })
-    await callUpdateAppointmentAPI(updateAppointmentArgsMock, mockContext)
+    await callUpdateAppointmentAPI(mockUpdateAppointmentArgs, mockContext)
   })
   it('should catch error correctly', async () => {
     ;(createPlatformAxiosInstance as jest.Mocked<any>).mockReturnValueOnce({
       patch: jest.fn(() => Promise.reject('error caught')),
     })
-    const result = await callUpdateAppointmentAPI(updateAppointmentArgsMock, mockContext)
+    const result = await callUpdateAppointmentAPI(mockUpdateAppointmentArgs, mockContext)
     expect(result).toEqual('caught error')
   })
 })

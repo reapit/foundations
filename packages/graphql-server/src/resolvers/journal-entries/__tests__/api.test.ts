@@ -1,5 +1,5 @@
-import { journalEntriesMock } from '../__stubs__/mock-journal-entries'
-import { createJournalEntryArgsMock } from '../__stubs__/mock-create-journal-entry'
+import { mockJournalEntries } from '../__stubs__/mock-journal-entries'
+import { mockCreateJournalEntryArgs } from '../__stubs__/mock-create-journal-entry'
 import { mockContext } from '../../../__stubs__/mock-context'
 import { callGetJournalEntriesAPI, callCreateJournalEntryAPI } from '../api'
 
@@ -20,7 +20,7 @@ jest.mock('../../../utils/axios-instances', () => ({
     return {
       get: jest.fn().mockImplementation(() => {
         return {
-          data: journalEntriesMock,
+          data: mockJournalEntries,
         }
       }),
       post: jest.fn(() => {
@@ -38,7 +38,7 @@ describe('journalEntries api', () => {
       try {
         const args = { pageSize: 10 }
         const result = await callGetJournalEntriesAPI(args, mockContext)
-        expect(result).toEqual(journalEntriesMock)
+        expect(result).toEqual(mockJournalEntries)
       } catch (error) {
         expect(error).toBeUndefined()
       }
@@ -47,7 +47,7 @@ describe('journalEntries api', () => {
   describe('callCreateJournalEntryAPI', () => {
     it('should run correctly', async () => {
       try {
-        const result = await callCreateJournalEntryAPI(createJournalEntryArgsMock, mockContext)
+        const result = await callCreateJournalEntryAPI(mockCreateJournalEntryArgs, mockContext)
         expect(result).toEqual(true)
       } catch (error) {
         expect(error).toBeUndefined()

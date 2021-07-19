@@ -1,11 +1,11 @@
 import { ListItemModel } from '@reapit/foundations-ts-definitions'
 
-export const appointmentTypeMock: ListItemModel = {
+export const mockAppointmentType: ListItemModel = {
   id: 'AP',
   value: 'Appointment',
 }
 
-export const appointmentTypesMock: ListItemModel[] = [
+export const mockAppointmentTypes: ListItemModel[] = [
   {
     id: 'AP',
     value: 'Appointment',

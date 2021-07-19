@@ -1,5 +1,5 @@
 import { DeleteUpwardLinkModelArgs } from '../conveyancing'
 
-export const deleteUpwardLinkModelArgsMock: DeleteUpwardLinkModelArgs = {
+export const mockDeleteUpwardLinkModelArgs: DeleteUpwardLinkModelArgs = {
   id: 'RPT20000141',
 }

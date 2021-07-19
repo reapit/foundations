@@ -8,16 +8,16 @@ import {
   mutationUpdateDocument,
   mutationDeleteDocument,
 } from '../resolvers'
-import { createDocumentArgsMock } from '../__stubs__/mock-create-document'
-import { updateDocumentArgsMock } from '../__stubs__/mock-update-document'
-import { deleteDocumentMockArgs } from '../__stubs__/mock-delete-document'
-import { documentMock } from '../__stubs__/mock-document'
-import { documentsMock } from '../__stubs__/mock-documents'
+import { mockCreateDocumentArgs } from '../__stubs__/mock-create-document'
+import { mockUpdateDocumentArgs } from '../__stubs__/mock-update-document'
+import { mockDeleteDocumentArgs } from '../__stubs__/mock-delete-document'
+import { mockDocument } from '../__stubs__/mock-document'
+import { mockDocuments } from '../__stubs__/mock-documents'
 import { mockContext } from '../../../__stubs__/mock-context'
 
 jest.mock('../services', () => ({
-  getDocumentById: jest.fn(() => documentMock),
-  getDocuments: jest.fn(() => documentsMock),
+  getDocumentById: jest.fn(() => mockDocument),
+  getDocuments: jest.fn(() => mockDocuments),
   createDocument: jest.fn(() => true),
   updateDocument: jest.fn(() => true),
   deleteDocument: jest.fn(() => true),
@@ -65,13 +65,13 @@ describe('queryGetDocuments', () => {
 describe('mutationCreateDocument', () => {
   it('should return correctly', () => {
     ;(checkPermission as jest.Mock).mockReturnValue(true)
-    const result = mutationCreateDocument(null, createDocumentArgsMock, mockContext)
-    expect(result).toEqual(documentsServices.createDocument(createDocumentArgsMock, mockContext))
+    const result = mutationCreateDocument(null, mockCreateDocumentArgs, mockContext)
+    expect(result).toEqual(documentsServices.createDocument(mockCreateDocumentArgs, mockContext))
   })
 
   it('should return auth error correctly', () => {
     ;(checkPermission as jest.Mock).mockReturnValue(false)
-    const result = mutationCreateDocument(null, createDocumentArgsMock, mockContext)
+    const result = mutationCreateDocument(null, mockCreateDocumentArgs, mockContext)
     expect(result).toEqual(errors.generateAuthenticationError(mockContext.traceId))
   })
 })
@@ -79,13 +79,13 @@ describe('mutationCreateDocument', () => {
 describe('mutationUpdateDocument', () => {
   it('should return correctly', () => {
     ;(checkPermission as jest.Mock).mockReturnValue(true)
-    const result = mutationUpdateDocument(null, updateDocumentArgsMock, mockContext)
-    expect(result).toEqual(documentsServices.updateDocument(updateDocumentArgsMock, mockContext))
+    const result = mutationUpdateDocument(null, mockUpdateDocumentArgs, mockContext)
+    expect(result).toEqual(documentsServices.updateDocument(mockUpdateDocumentArgs, mockContext))
   })
 
   it('should return auth error correctly', () => {
     ;(checkPermission as jest.Mock).mockReturnValue(false)
-    const result = mutationUpdateDocument(null, updateDocumentArgsMock, mockContext)
+    const result = mutationUpdateDocument(null, mockUpdateDocumentArgs, mockContext)
     expect(result).toEqual(errors.generateAuthenticationError(mockContext.traceId))
   })
 })
@@ -93,13 +93,13 @@ describe('mutationUpdateDocument', () => {
 describe('mutationDeleteDocument', () => {
   it('should return correctly', () => {
     ;(checkPermission as jest.Mock).mockReturnValue(true)
-    const result = mutationDeleteDocument(null, deleteDocumentMockArgs, mockContext)
-    expect(result).toEqual(documentsServices.deleteDocument(deleteDocumentMockArgs, mockContext))
+    const result = mutationDeleteDocument(null, mockDeleteDocumentArgs, mockContext)
+    expect(result).toEqual(documentsServices.deleteDocument(mockDeleteDocumentArgs, mockContext))
   })
 
   it('should return auth error correctly', () => {
     ;(checkPermission as jest.Mock).mockReturnValue(false)
-    const result = mutationDeleteDocument(null, deleteDocumentMockArgs, mockContext)
+    const result = mutationDeleteDocument(null, mockDeleteDocumentArgs, mockContext)
     expect(result).toEqual(errors.generateAuthenticationError(mockContext.traceId))
   })
 })

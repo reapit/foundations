@@ -1,4 +1,4 @@
-import express from 'express'
+import express, { RequestHandler } from 'express'
 import bodyParser from 'body-parser'
 import session from 'express-session'
 import memoryStore from 'memorystore'
@@ -24,7 +24,7 @@ app.use(
 )
 
 app.use(traceIdMiddleware)
-app.use(bodyParser.json())
+app.use(bodyParser.json() as RequestHandler)
 app.get('/ok', (_req, res) => {
   res.status(200).send('ok').end()
 })

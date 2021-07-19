@@ -1,6 +1,6 @@
 import { VendorModelPagedResult } from '@reapit/foundations-ts-definitions'
 
-export const vendorsStub: VendorModelPagedResult = {
+export const mockVendors: VendorModelPagedResult = {
   _embedded: [
     {
       id: 'OXF200001',

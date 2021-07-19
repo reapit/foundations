@@ -7,11 +7,11 @@ import {
   callUpdatePropertyImageAPI,
 } from '../api'
 import { createPlatformAxiosInstance } from '../../../utils/axios-instances'
-import { propertyImageMock } from '../__stubs__/mock-property-image'
-import { propertyImagesMock } from '../__stubs__/mock-property-images'
-import { createPropertyImageArgsMock } from '../__stubs__/mock-create-property-image'
-import { deletePropertyImageArgsMock } from '../__stubs__/mock-delete-property-image'
-import { updatePropertyImageArgsMock } from '../__stubs__/mock-update-property-image'
+import { mockPropertyImage } from '../__stubs__/mock-property-image'
+import { mockPropertyImages } from '../__stubs__/mock-property-images'
+import { mockCreatePropertyImageArgs } from '../__stubs__/mock-create-property-image'
+import { mockDeletePropertyImageArgs } from '../__stubs__/mock-delete-property-image'
+import { mockUpdatePropertyImageArgs } from '../__stubs__/mock-update-property-image'
 import { getIdFromCreateHeaders } from '../../../utils/get-id-from-create-headers'
 
 jest.mock('apollo-server-lambda', () => {
@@ -45,11 +45,11 @@ jest.mock('../../../utils/axios-instances', () => ({
 describe('callGetPropertyImagesAPI', () => {
   it('should work correctly', async () => {
     ;(createPlatformAxiosInstance as jest.Mocked<any>).mockReturnValueOnce({
-      get: jest.fn(() => Promise.resolve({ data: propertyImagesMock })),
+      get: jest.fn(() => Promise.resolve({ data: mockPropertyImages })),
     })
     const args = { pageSize: 1 }
     const result = await callGetPropertyImagesAPI(args, mockContext)
-    expect(result).toEqual(propertyImagesMock)
+    expect(result).toEqual(mockPropertyImages)
   })
   it('should catch error correctly', async () => {
     ;(createPlatformAxiosInstance as jest.Mocked<any>).mockReturnValueOnce({
@@ -64,18 +64,18 @@ describe('callGetPropertyImagesAPI', () => {
 describe('callGetPropertyImageByIdAPI', () => {
   it('should work correctly', async () => {
     ;(createPlatformAxiosInstance as jest.Mocked<any>).mockReturnValueOnce({
-      get: jest.fn(() => Promise.resolve({ data: propertyImageMock })),
+      get: jest.fn(() => Promise.resolve({ data: mockPropertyImage })),
     })
-    const args = { id: propertyImageMock.id }
+    const args = { id: mockPropertyImage.id }
     const result = await callGetPropertyImageByIdAPI(args, mockContext)
-    expect(result).toEqual(propertyImageMock)
+    expect(result).toEqual(mockPropertyImage)
   })
 
   it('should catch error correctly', async () => {
     ;(createPlatformAxiosInstance as jest.Mocked<any>).mockReturnValueOnce({
       get: jest.fn(() => Promise.reject('error caught')),
     })
-    const args = { id: propertyImageMock.id }
+    const args = { id: mockPropertyImage.id }
     const result = await callGetPropertyImageByIdAPI(args, mockContext)
     expect(result).toEqual('caught error')
   })
@@ -85,17 +85,17 @@ describe('callCreatePropertyImageAPI', () => {
   it('should work correctly', async () => {
     ;(createPlatformAxiosInstance as jest.Mocked<any>).mockReturnValueOnce({
       post: jest.fn(() => Promise.resolve({ headers: 'header' })),
-      get: jest.fn(() => Promise.resolve({ data: propertyImageMock })),
+      get: jest.fn(() => Promise.resolve({ data: mockPropertyImage })),
     })
-    ;(getIdFromCreateHeaders as jest.Mocked<any>).mockReturnValueOnce(propertyImageMock.id)
-    await callCreatePropertyImageAPI(createPropertyImageArgsMock, mockContext)
+    ;(getIdFromCreateHeaders as jest.Mocked<any>).mockReturnValueOnce(mockPropertyImage.id)
+    await callCreatePropertyImageAPI(mockCreatePropertyImageArgs, mockContext)
     expect(getIdFromCreateHeaders).toHaveBeenCalledWith({ headers: 'header' })
   })
   it('should catch error correctly', async () => {
     ;(createPlatformAxiosInstance as jest.Mocked<any>).mockReturnValueOnce({
       post: jest.fn(() => Promise.reject('error caught')),
     })
-    const result = await callCreatePropertyImageAPI(createPropertyImageArgsMock, mockContext)
+    const result = await callCreatePropertyImageAPI(mockCreatePropertyImageArgs, mockContext)
     expect(result).toEqual('caught error')
   })
 })
@@ -105,13 +105,13 @@ describe('callUpdatePropertyImageAPI', () => {
     ;(createPlatformAxiosInstance as jest.Mocked<any>).mockReturnValueOnce({
       patch: jest.fn(() => Promise.resolve({ headers: 'header' })),
     })
-    await callUpdatePropertyImageAPI(updatePropertyImageArgsMock, mockContext)
+    await callUpdatePropertyImageAPI(mockUpdatePropertyImageArgs, mockContext)
   })
   it('should catch error correctly', async () => {
     ;(createPlatformAxiosInstance as jest.Mocked<any>).mockReturnValueOnce({
       patch: jest.fn(() => Promise.reject('error caught')),
     })
-    const result = await callUpdatePropertyImageAPI(updatePropertyImageArgsMock, mockContext)
+    const result = await callUpdatePropertyImageAPI(mockUpdatePropertyImageArgs, mockContext)
     expect(result).toEqual('caught error')
   })
 })
@@ -121,13 +121,13 @@ describe('callDeletePropertyImageAPI', () => {
     ;(createPlatformAxiosInstance as jest.Mocked<any>).mockReturnValueOnce({
       delete: jest.fn(() => Promise.resolve({ headers: 'header' })),
     })
-    await callDeletePropertyImageAPI(deletePropertyImageArgsMock, mockContext)
+    await callDeletePropertyImageAPI(mockDeletePropertyImageArgs, mockContext)
   })
   it('should catch error correctly', async () => {
     ;(createPlatformAxiosInstance as jest.Mocked<any>).mockReturnValueOnce({
       delete: jest.fn(() => Promise.reject('error caught')),
     })
-    const result = await callDeletePropertyImageAPI(deletePropertyImageArgsMock, mockContext)
+    const result = await callDeletePropertyImageAPI(mockDeletePropertyImageArgs, mockContext)
     expect(result).toEqual('caught error')
   })
 })

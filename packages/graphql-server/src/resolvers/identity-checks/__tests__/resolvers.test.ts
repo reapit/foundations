@@ -7,15 +7,15 @@ import {
   mutationCreateIdentityCheck,
   mutationUpdateIdentityCheck,
 } from '../resolvers'
-import { createIdentityCheckArgsMock } from '../__stubs__/mock-create-identity-check'
-import { updateIdentityCheckArgsMock } from '../__stubs__/mock-update-identity-check'
-import { identityCheckMock } from '../__stubs__/mock-identity-check'
-import { identityChecksMock } from '../__stubs__/mock-identity-checks'
+import { mockCreateIdentityCheckArgs } from '../__stubs__/mock-create-identity-check'
+import { mockUpdateIdentityCheckArgs } from '../__stubs__/mock-update-identity-check'
+import { mockIdentityCheck } from '../__stubs__/mock-identity-check'
+import { mockIdentityChecks } from '../__stubs__/mock-identity-checks'
 import { mockContext } from '../../../__stubs__/mock-context'
 
 jest.mock('../services', () => ({
-  getIdentityCheckById: jest.fn(() => identityCheckMock),
-  getIdentityChecks: jest.fn(() => identityChecksMock),
+  getIdentityCheckById: jest.fn(() => mockIdentityCheck),
+  getIdentityChecks: jest.fn(() => mockIdentityChecks),
   createIdentityCheck: jest.fn(() => true),
   updateIdentityCheck: jest.fn(() => true),
 }))
@@ -62,13 +62,13 @@ describe('queryGetIdentityChecks', () => {
 describe('mutationCreateIdentityCheck', () => {
   it('should return correctly', () => {
     ;(checkPermission as jest.Mock).mockReturnValue(true)
-    const result = mutationCreateIdentityCheck(null, createIdentityCheckArgsMock, mockContext)
-    expect(result).toEqual(identityCheckServices.createIdentityCheck(createIdentityCheckArgsMock, mockContext))
+    const result = mutationCreateIdentityCheck(null, mockCreateIdentityCheckArgs, mockContext)
+    expect(result).toEqual(identityCheckServices.createIdentityCheck(mockCreateIdentityCheckArgs, mockContext))
   })
 
   it('should return auth error correctly', () => {
     ;(checkPermission as jest.Mock).mockReturnValue(false)
-    const result = mutationCreateIdentityCheck(null, createIdentityCheckArgsMock, mockContext)
+    const result = mutationCreateIdentityCheck(null, mockCreateIdentityCheckArgs, mockContext)
     expect(result).toEqual(errors.generateAuthenticationError(mockContext.traceId))
   })
 })
@@ -76,13 +76,13 @@ describe('mutationCreateIdentityCheck', () => {
 describe('mutationUpdateIdentityCheck', () => {
   it('should return correctly', () => {
     ;(checkPermission as jest.Mock).mockReturnValue(true)
-    const result = mutationUpdateIdentityCheck(null, updateIdentityCheckArgsMock, mockContext)
-    expect(result).toEqual(identityCheckServices.updateIdentityCheck(updateIdentityCheckArgsMock, mockContext))
+    const result = mutationUpdateIdentityCheck(null, mockUpdateIdentityCheckArgs, mockContext)
+    expect(result).toEqual(identityCheckServices.updateIdentityCheck(mockUpdateIdentityCheckArgs, mockContext))
   })
 
   it('should return auth error correctly', () => {
     ;(checkPermission as jest.Mock).mockReturnValue(false)
-    const result = mutationUpdateIdentityCheck(null, updateIdentityCheckArgsMock, mockContext)
+    const result = mutationUpdateIdentityCheck(null, mockUpdateIdentityCheckArgs, mockContext)
     expect(result).toEqual(errors.generateAuthenticationError(mockContext.traceId))
   })
 })

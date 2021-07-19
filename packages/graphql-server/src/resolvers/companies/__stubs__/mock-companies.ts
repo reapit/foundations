@@ -1,6 +1,6 @@
 import { CompanyModelPagedResult } from '@reapit/foundations-ts-definitions'
 
-export const companiesMock: CompanyModelPagedResult = {
+export const mockCompanies: CompanyModelPagedResult = {
   pageNumber: 1,
   pageSize: 10,
   pageCount: 10,

@@ -1,6 +1,6 @@
 import { CreatePropertyArgs } from '../properties'
 
-export const createPropertyArgsMock: CreatePropertyArgs = {
+export const mockCreatePropertyArgs: CreatePropertyArgs = {
   marketingMode: 'sellingAndLetting',
   negotiatorId: 'JAS',
   address: {

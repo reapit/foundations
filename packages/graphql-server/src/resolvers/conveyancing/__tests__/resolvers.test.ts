@@ -11,25 +11,25 @@ import {
   mutationDeleteDownwardLinkModel,
   mutationDeleteUpwardLinkModel,
 } from '../resolvers'
-import { updateConveyancingArgsMock } from '../__stubs__/mock-update-conveyancing'
-import { conveyancingDetailMock } from '../__stubs__/mock-conveyancing-detail'
-import { conveyancingMock } from '../__stubs__/mock-conveyancing'
+import { mockUpdateConveyancingArgs } from '../__stubs__/mock-update-conveyancing'
+import { mockConveyancingDetail } from '../__stubs__/mock-conveyancing-detail'
+import { mockConveyancing } from '../__stubs__/mock-conveyancing'
 import { mockContext } from '../../../__stubs__/mock-context'
-import { conveyancingChainMock } from '../__stubs__/mock-conveyancing-chain'
-import { createDownwardLinkModelArgsMock } from '../__stubs__/mock-create-downward-link-model'
-import { createUpwardLinkModelArgsMock } from '../__stubs__/mock-create-upward-link-model'
-import { deleteDownwardLinkModelArgsMock } from '../__stubs__/mock-delete-downward-link-model'
-import { deleteUpwardLinkModelArgsMock } from '../__stubs__/mock-delete-upward-link-model'
+import { mockConveyancingChain } from '../__stubs__/mock-conveyancing-chain'
+import { mockCreateDownwardLinkModelArgs } from '../__stubs__/mock-create-downward-link-model'
+import { mockCreateUpwardLinkModelArgs } from '../__stubs__/mock-create-upward-link-model'
+import { mockDeleteDownwardLinkModelArgs } from '../__stubs__/mock-delete-downward-link-model'
+import { mockDeleteUpwardLinkModelArgs } from '../__stubs__/mock-delete-upward-link-model'
 
 jest.mock('../services', () => ({
-  getConveyancingById: jest.fn(() => conveyancingDetailMock),
-  getConveyancing: jest.fn(() => conveyancingMock),
-  getConveyancingChain: jest.fn(() => conveyancingChainMock),
-  updateConveyancing: jest.fn(() => updateConveyancingArgsMock),
-  createDownwardLinkModel: jest.fn(() => createDownwardLinkModelArgsMock),
-  createUpwardLinkModel: jest.fn(() => createUpwardLinkModelArgsMock),
-  deleteDownwardLinkModel: jest.fn(() => deleteDownwardLinkModelArgsMock),
-  deleteUpwardLinkModel: jest.fn(() => deleteUpwardLinkModelArgsMock),
+  getConveyancingById: jest.fn(() => mockConveyancingDetail),
+  getConveyancing: jest.fn(() => mockConveyancing),
+  getConveyancingChain: jest.fn(() => mockConveyancingChain),
+  updateConveyancing: jest.fn(() => mockUpdateConveyancingArgs),
+  createDownwardLinkModel: jest.fn(() => mockCreateDownwardLinkModelArgs),
+  createUpwardLinkModel: jest.fn(() => mockCreateUpwardLinkModelArgs),
+  deleteDownwardLinkModel: jest.fn(() => mockDeleteDownwardLinkModelArgs),
+  deleteUpwardLinkModel: jest.fn(() => mockDeleteUpwardLinkModelArgs),
 }))
 jest.mock('../../../errors', () => ({
   generateAuthenticationError: jest.fn(() => 'authentication error'),
@@ -90,13 +90,13 @@ describe('queryGetConveyancingChain', () => {
 describe('mutationUpdateConveyancing', () => {
   it('should return correctly', () => {
     ;(checkPermission as jest.Mock).mockReturnValue(true)
-    const result = mutationUpdateConveyancing(null, updateConveyancingArgsMock, mockContext)
-    expect(result).toEqual(conveyancingServices.updateConveyancing(updateConveyancingArgsMock, mockContext))
+    const result = mutationUpdateConveyancing(null, mockUpdateConveyancingArgs, mockContext)
+    expect(result).toEqual(conveyancingServices.updateConveyancing(mockUpdateConveyancingArgs, mockContext))
   })
 
   it('should return auth error correctly', () => {
     ;(checkPermission as jest.Mock).mockReturnValue(false)
-    const result = mutationUpdateConveyancing(null, updateConveyancingArgsMock, mockContext)
+    const result = mutationUpdateConveyancing(null, mockUpdateConveyancingArgs, mockContext)
     expect(result).toEqual(errors.generateAuthenticationError(mockContext.traceId))
   })
 })
@@ -104,13 +104,13 @@ describe('mutationUpdateConveyancing', () => {
 describe('mutationCreateDownwardLinkModel', () => {
   it('should return correctly', () => {
     ;(checkPermission as jest.Mock).mockReturnValue(true)
-    const result = mutationCreateDownwardLinkModel(null, createDownwardLinkModelArgsMock, mockContext)
-    expect(result).toEqual(conveyancingServices.createDownwardLinkModel(createDownwardLinkModelArgsMock, mockContext))
+    const result = mutationCreateDownwardLinkModel(null, mockCreateDownwardLinkModelArgs, mockContext)
+    expect(result).toEqual(conveyancingServices.createDownwardLinkModel(mockCreateDownwardLinkModelArgs, mockContext))
   })
 
   it('should return auth error correctly', () => {
     ;(checkPermission as jest.Mock).mockReturnValue(false)
-    const result = mutationCreateDownwardLinkModel(null, createDownwardLinkModelArgsMock, mockContext)
+    const result = mutationCreateDownwardLinkModel(null, mockCreateDownwardLinkModelArgs, mockContext)
     expect(result).toEqual(errors.generateAuthenticationError(mockContext.traceId))
   })
 })
@@ -118,13 +118,13 @@ describe('mutationCreateDownwardLinkModel', () => {
 describe('mutationCreateUpwardLinkModel', () => {
   it('should return correctly', () => {
     ;(checkPermission as jest.Mock).mockReturnValue(true)
-    const result = mutationCreateUpwardLinkModel(null, createUpwardLinkModelArgsMock, mockContext)
-    expect(result).toEqual(conveyancingServices.createUpwardLinkModel(createUpwardLinkModelArgsMock, mockContext))
+    const result = mutationCreateUpwardLinkModel(null, mockCreateUpwardLinkModelArgs, mockContext)
+    expect(result).toEqual(conveyancingServices.createUpwardLinkModel(mockCreateUpwardLinkModelArgs, mockContext))
   })
 
   it('should return auth error correctly', () => {
     ;(checkPermission as jest.Mock).mockReturnValue(false)
-    const result = mutationCreateUpwardLinkModel(null, createUpwardLinkModelArgsMock, mockContext)
+    const result = mutationCreateUpwardLinkModel(null, mockCreateUpwardLinkModelArgs, mockContext)
     expect(result).toEqual(errors.generateAuthenticationError(mockContext.traceId))
   })
 })
@@ -132,13 +132,13 @@ describe('mutationCreateUpwardLinkModel', () => {
 describe('mutationCreateDownwardLinkModel', () => {
   it('should return correctly', () => {
     ;(checkPermission as jest.Mock).mockReturnValue(true)
-    const result = mutationCreateDownwardLinkModel(null, createDownwardLinkModelArgsMock, mockContext)
-    expect(result).toEqual(conveyancingServices.createDownwardLinkModel(createDownwardLinkModelArgsMock, mockContext))
+    const result = mutationCreateDownwardLinkModel(null, mockCreateDownwardLinkModelArgs, mockContext)
+    expect(result).toEqual(conveyancingServices.createDownwardLinkModel(mockCreateDownwardLinkModelArgs, mockContext))
   })
 
   it('should return auth error correctly', () => {
     ;(checkPermission as jest.Mock).mockReturnValue(false)
-    const result = mutationCreateDownwardLinkModel(null, createDownwardLinkModelArgsMock, mockContext)
+    const result = mutationCreateDownwardLinkModel(null, mockCreateDownwardLinkModelArgs, mockContext)
     expect(result).toEqual(errors.generateAuthenticationError(mockContext.traceId))
   })
 })
@@ -146,13 +146,13 @@ describe('mutationCreateDownwardLinkModel', () => {
 describe('mutationDeleteDownwardLinkModel', () => {
   it('should return correctly', () => {
     ;(checkPermission as jest.Mock).mockReturnValue(true)
-    const result = mutationDeleteDownwardLinkModel(null, deleteDownwardLinkModelArgsMock, mockContext)
-    expect(result).toEqual(conveyancingServices.deleteDownwardLinkModel(deleteDownwardLinkModelArgsMock, mockContext))
+    const result = mutationDeleteDownwardLinkModel(null, mockDeleteDownwardLinkModelArgs, mockContext)
+    expect(result).toEqual(conveyancingServices.deleteDownwardLinkModel(mockDeleteDownwardLinkModelArgs, mockContext))
   })
 
   it('should return auth error correctly', () => {
     ;(checkPermission as jest.Mock).mockReturnValue(false)
-    const result = mutationDeleteDownwardLinkModel(null, deleteDownwardLinkModelArgsMock, mockContext)
+    const result = mutationDeleteDownwardLinkModel(null, mockDeleteDownwardLinkModelArgs, mockContext)
     expect(result).toEqual(errors.generateAuthenticationError(mockContext.traceId))
   })
 })
@@ -160,13 +160,13 @@ describe('mutationDeleteDownwardLinkModel', () => {
 describe('mutationDeleteUpwardLinkModel', () => {
   it('should return correctly', () => {
     ;(checkPermission as jest.Mock).mockReturnValue(true)
-    const result = mutationDeleteUpwardLinkModel(null, deleteUpwardLinkModelArgsMock, mockContext)
-    expect(result).toEqual(conveyancingServices.deleteUpwardLinkModel(deleteUpwardLinkModelArgsMock, mockContext))
+    const result = mutationDeleteUpwardLinkModel(null, mockDeleteUpwardLinkModelArgs, mockContext)
+    expect(result).toEqual(conveyancingServices.deleteUpwardLinkModel(mockDeleteUpwardLinkModelArgs, mockContext))
   })
 
   it('should return auth error correctly', () => {
     ;(checkPermission as jest.Mock).mockReturnValue(false)
-    const result = mutationDeleteUpwardLinkModel(null, deleteUpwardLinkModelArgsMock, mockContext)
+    const result = mutationDeleteUpwardLinkModel(null, mockDeleteUpwardLinkModelArgs, mockContext)
     expect(result).toEqual(errors.generateAuthenticationError(mockContext.traceId))
   })
 })

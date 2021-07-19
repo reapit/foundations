@@ -1,6 +1,6 @@
 import { DeleteVendorRelationshipArgs } from '../vendors'
 
-export const deleteVendorRelationshipsArgsStub: DeleteVendorRelationshipArgs = {
+export const mockDeleteVendorRelationshipsArgs: DeleteVendorRelationshipArgs = {
   id: 'OXF200001',
   relationshipId: 'relationshipId1',
 }

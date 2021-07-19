@@ -1,4 +1,4 @@
-export const relationshipsMock = {
+export const mockRelationships = {
   _embedded: [
     {
       id: 'MKT20000020',

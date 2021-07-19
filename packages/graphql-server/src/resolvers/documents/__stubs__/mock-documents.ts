@@ -1,6 +1,6 @@
 import { DocumentModelPagedResult } from '@reapit/foundations-ts-definitions'
 
-export const documentsMock: DocumentModelPagedResult = {
+export const mockDocuments: DocumentModelPagedResult = {
   _embedded: [
     {
       id: 'OXF20000060',

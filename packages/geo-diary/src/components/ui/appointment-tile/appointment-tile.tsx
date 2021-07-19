@@ -21,32 +21,27 @@ export type AppointmentTileProps = {
   appointment: ExtendedAppointmentModel
 }
 
-export const handleSetAppointmentId = (
-  setAppState: Dispatch<SetStateAction<AppState>>,
-  appointment: ExtendedAppointmentModel,
-) => () => {
-  const { id, property } = appointment
-  const destinationLat = property?.address?.geolocation?.latitude ?? null
-  const destinationLng = property?.address?.geolocation?.longitude ?? null
-  if (id) {
-    setAppState((currentState) => ({
-      ...currentState,
-      appointmentId: id,
-      destinationLat,
-      destinationLng,
-    }))
+export const handleSetAppointmentId =
+  (setAppState: Dispatch<SetStateAction<AppState>>, appointment: ExtendedAppointmentModel) => () => {
+    const { id, property } = appointment
+    const destinationLat = property?.address?.geolocation?.latitude ?? null
+    const destinationLng = property?.address?.geolocation?.longitude ?? null
+    if (id) {
+      setAppState((currentState) => ({
+        ...currentState,
+        appointmentId: id,
+        destinationLat,
+        destinationLng,
+      }))
+    }
   }
-}
 
-export const handleScrollIntoView = (
-  tileRef: MutableRefObject<HTMLDivElement | null>,
-  appointmentId: string | null,
-  id?: string,
-) => () => {
-  if (tileRef.current && appointmentId && id && appointmentId === id) {
-    tileRef.current.scrollIntoView({ behavior: 'smooth', block: 'nearest' })
+export const handleScrollIntoView =
+  (tileRef: MutableRefObject<HTMLDivElement | null>, appointmentId: string | null, id?: string) => () => {
+    if (tileRef.current && appointmentId && id && appointmentId === id) {
+      tileRef.current.scrollIntoView({ behavior: 'smooth', block: 'nearest' })
+    }
   }
-}
 
 export const handleHideModal = (setShowModal: React.Dispatch<React.SetStateAction<boolean>>) => () => {
   setShowModal(false)

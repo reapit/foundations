@@ -1,4 +1,4 @@
-import express from 'express'
+import express, { RequestHandler } from 'express'
 import bodyParser from 'body-parser'
 import cors from 'cors'
 import { traceIdMiddleware } from '@reapit/node-utils'
@@ -13,7 +13,7 @@ app.get('/ok', (_req, res) => {
 })
 app.use(decodeToken)
 app.use(traceIdMiddleware)
-app.use(bodyParser.json())
+app.use(bodyParser.json() as RequestHandler)
 app.use(router)
 
 export default app

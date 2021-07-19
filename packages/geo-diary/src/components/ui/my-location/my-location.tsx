@@ -47,50 +47,45 @@ export const fetchLocationResults = ({ appState, setAppState }: AppStateParams) 
   }
 }
 
-export const handleFetchLocationResults = ({
-  appState,
-  setAppState,
-  debouncedGeolocate,
-}: HandleFetchLocationResultsParams) => () => {
-  debouncedGeolocate({ appState, setAppState })
+export const handleFetchLocationResults =
+  ({ appState, setAppState, debouncedGeolocate }: HandleFetchLocationResultsParams) =>
+  () => {
+    debouncedGeolocate({ appState, setAppState })
 
-  return debouncedGeolocate.cancel
-}
+    return debouncedGeolocate.cancel
+  }
 
-export const handleSetLocationQuery = (setAppState: Dispatch<SetStateAction<AppState>>) => (
-  event: ChangeEvent<HTMLInputElement>,
-) => {
-  event.persist()
-  setAppState((currentState) => ({
-    ...currentState,
-    locationQueryAddress: event.target.value,
-  }))
-}
+export const handleSetLocationQuery =
+  (setAppState: Dispatch<SetStateAction<AppState>>) => (event: ChangeEvent<HTMLInputElement>) => {
+    event.persist()
+    setAppState((currentState) => ({
+      ...currentState,
+      locationQueryAddress: event.target.value,
+    }))
+  }
 
-export const handleCloseResults = (setAppState: Dispatch<SetStateAction<AppState>>) => (
-  event: MouseEvent<SVGSVGElement>,
-) => {
-  event.stopPropagation()
-  setAppState((currentState) => ({
-    ...currentState,
-    locationQueryAddress: null,
-    locationQueryResults: [],
-  }))
-}
+export const handleCloseResults =
+  (setAppState: Dispatch<SetStateAction<AppState>>) => (event: MouseEvent<SVGSVGElement>) => {
+    event.stopPropagation()
+    setAppState((currentState) => ({
+      ...currentState,
+      locationQueryAddress: null,
+      locationQueryResults: [],
+    }))
+  }
 
-export const handleSelectResult = (setAppState: Dispatch<SetStateAction<AppState>>, result: GeocoderResult) => (
-  event: MouseEvent<HTMLDivElement>,
-) => {
-  event.stopPropagation()
-  setAppState((currentState) => ({
-    ...currentState,
-    locationQueryAddress: null,
-    locationQueryResults: [],
-    locationAddress: result.formatted_address,
-    currentLat: result.geometry.location.lat(),
-    currentLng: result.geometry.location.lng(),
-  }))
-}
+export const handleSelectResult =
+  (setAppState: Dispatch<SetStateAction<AppState>>, result: GeocoderResult) => (event: MouseEvent<HTMLDivElement>) => {
+    event.stopPropagation()
+    setAppState((currentState) => ({
+      ...currentState,
+      locationQueryAddress: null,
+      locationQueryResults: [],
+      locationAddress: result.formatted_address,
+      currentLat: result.geometry.location.lat(),
+      currentLng: result.geometry.location.lng(),
+    }))
+  }
 
 export const handleGeoLocateMe = (setAppState: Dispatch<SetStateAction<AppState>>) => async () => {
   const geoCoords = await getGeoCoords()
@@ -102,14 +97,8 @@ export const handleGeoLocateMe = (setAppState: Dispatch<SetStateAction<AppState>
 
 export const MyLocation: FC = () => {
   const { appState, setAppState } = useAppState()
-  const {
-    locationAddress,
-    hasGeoLocation,
-    locationQueryAddress,
-    locationQueryResults,
-    tab,
-    destinationAddress,
-  } = appState
+  const { locationAddress, hasGeoLocation, locationQueryAddress, locationQueryResults, tab, destinationAddress } =
+    appState
   const debouncedGeolocate = useCallback(debounce(fetchLocationResults, 1000), [locationQueryAddress])
   const hasDesination = tab === 'MAP' && destinationAddress
 

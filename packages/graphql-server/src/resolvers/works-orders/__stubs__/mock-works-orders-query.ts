@@ -6,16 +6,16 @@ import {
 } from '@reapit/foundations-ts-definitions'
 import { GetWorksOrdersByIdArgs, GetWorksOrderItemsArgs, GetWorksOrderItembyIdArgs } from '../works-orders'
 
-export const getWorksOrderItemsArgsStub: GetWorksOrderItemsArgs = {
+export const mockGetWorksOrderItemsArgs: GetWorksOrderItemsArgs = {
   id: '1',
 }
 
-export const getWorksOrderItemByIdArgsStub: GetWorksOrderItembyIdArgs = {
+export const mockGetWorksOrderItemByIdArgs: GetWorksOrderItembyIdArgs = {
   id: '1',
   itemId: '1',
 }
 
-export const worksOrderItemStub: WorksOrderItemModel = {
+export const mockWorksOrderItem: WorksOrderItemModel = {
   id: 'RPT20000038',
   worksOrderId: 'RPT20000022',
   created: '2020-08-18T03:44:38Z',
@@ -39,7 +39,7 @@ export const worksOrderItemStub: WorksOrderItemModel = {
   _embedded: null,
 }
 
-export const worksOrderItemListStub: WorksOrderItemModelPagedResult = {
+export const mockWorksOrderItemList: WorksOrderItemModelPagedResult = {
   _embedded: [
     {
       id: 'RPT20000038',
@@ -80,12 +80,12 @@ export const worksOrderItemListStub: WorksOrderItemModelPagedResult = {
   },
 }
 
-export const getWorksOrderByIdArgsStub: GetWorksOrdersByIdArgs = {
+export const mockGetWorksOrderByIdArgs: GetWorksOrdersByIdArgs = {
   id: 'RPT20000017',
   embed: 'company',
 }
 
-export const worksOrderStub: WorksOrderModel = {
+export const mockWorksOrder: WorksOrderModel = {
   id: 'RPT20000017',
   created: '2020-08-07T13:37:10Z',
   modified: '2020-08-07T13:37:10Z',
@@ -164,7 +164,7 @@ export const worksOrderStub: WorksOrderModel = {
   },
 }
 
-export const worksOrderListStub: WorksOrderModelPagedResult = {
+export const mockWorksOrderList: WorksOrderModelPagedResult = {
   _embedded: [
     {
       id: 'RPT20000017',

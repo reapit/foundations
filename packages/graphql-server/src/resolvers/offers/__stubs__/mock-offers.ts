@@ -1,7 +1,7 @@
 import { OfferModelPagedResult } from '@reapit/foundations-ts-definitions'
 import { offersWithId } from './mock-offer'
 
-export const offersMock: OfferModelPagedResult = {
+export const mockOffers: OfferModelPagedResult = {
   _embedded: [offersWithId(1), offersWithId(2), offersWithId(3), offersWithId(4), offersWithId(5)],
   pageNumber: 1,
   pageSize: 5,

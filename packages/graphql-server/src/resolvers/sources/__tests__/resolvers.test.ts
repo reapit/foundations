@@ -2,15 +2,15 @@ import sourceServices from '../services'
 import { checkPermission } from '../../../utils/check-permission'
 import errors from '../../../errors'
 import { queryGetSourceById, queryGetSources, mutationCreateSource, mutationUpdateSource } from '../resolvers'
-import { createSourceArgsMock } from '../__stubs__/mock-create-source'
-import { updateSourceArgsMock } from '../__stubs__/mock-update-source'
-import { sourceMock } from '../__stubs__/mock-source'
-import { sourcesMock } from '../__stubs__/mock-sources'
+import { mockCreateSourceArgs } from '../__stubs__/mock-create-source'
+import { mockUpdateSourceArgs } from '../__stubs__/mock-update-source'
+import { mockSource } from '../__stubs__/mock-source'
+import { mockSources } from '../__stubs__/mock-sources'
 import { mockContext } from '../../../__stubs__/mock-context'
 
 jest.mock('../services', () => ({
-  getSourceById: jest.fn(() => sourceMock),
-  getSources: jest.fn(() => sourcesMock),
+  getSourceById: jest.fn(() => mockSource),
+  getSources: jest.fn(() => mockSources),
   createSource: jest.fn(() => true),
   updateSource: jest.fn(() => true),
 }))
@@ -57,13 +57,13 @@ describe('queryGetSources', () => {
 describe('mutationCreateSource', () => {
   it('should return correctly', () => {
     ;(checkPermission as jest.Mock).mockReturnValue(true)
-    const result = mutationCreateSource(null, createSourceArgsMock, mockContext)
-    expect(result).toEqual(sourceServices.createSource(createSourceArgsMock, mockContext))
+    const result = mutationCreateSource(null, mockCreateSourceArgs, mockContext)
+    expect(result).toEqual(sourceServices.createSource(mockCreateSourceArgs, mockContext))
   })
 
   it('should return auth error correctly', () => {
     ;(checkPermission as jest.Mock).mockReturnValue(false)
-    const result = mutationCreateSource(null, createSourceArgsMock, mockContext)
+    const result = mutationCreateSource(null, mockCreateSourceArgs, mockContext)
     expect(result).toEqual(errors.generateAuthenticationError(mockContext.traceId))
   })
 })
@@ -71,13 +71,13 @@ describe('mutationCreateSource', () => {
 describe('mutationUpdateSource', () => {
   it('should return correctly', () => {
     ;(checkPermission as jest.Mock).mockReturnValue(true)
-    const result = mutationUpdateSource(null, updateSourceArgsMock, mockContext)
-    expect(result).toEqual(sourceServices.updateSource(updateSourceArgsMock, mockContext))
+    const result = mutationUpdateSource(null, mockUpdateSourceArgs, mockContext)
+    expect(result).toEqual(sourceServices.updateSource(mockUpdateSourceArgs, mockContext))
   })
 
   it('should return auth error correctly', () => {
     ;(checkPermission as jest.Mock).mockReturnValue(false)
-    const result = mutationUpdateSource(null, updateSourceArgsMock, mockContext)
+    const result = mutationUpdateSource(null, mockUpdateSourceArgs, mockContext)
     expect(result).toEqual(errors.generateAuthenticationError(mockContext.traceId))
   })
 })

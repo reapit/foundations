@@ -1,6 +1,6 @@
 import { IdentityCheckModel } from '@reapit/foundations-ts-definitions'
 
-export const identityCheckMock: IdentityCheckModel = {
+export const mockIdentityCheck: IdentityCheckModel = {
   id: 'RPT20000093',
   contactId: 'RPT20000207',
   created: '2020-03-06T10:01:38.0000000Z',

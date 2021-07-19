@@ -10,14 +10,14 @@ import {
   mutationCreateVendorRelationship,
   mutationDeleteVendorRelationship,
 } from '../resolvers'
-import { updateVendorArgsStub } from '../__stubs__/mock-update-vendor'
-import { vendorStub } from '../__stubs__/mock-vendor'
-import { vendorsStub } from '../__stubs__/mock-vendors'
+import { mockUpdateVendorArgs } from '../__stubs__/mock-update-vendor'
+import { mockVendor } from '../__stubs__/mock-vendor'
+import { mockVendors } from '../__stubs__/mock-vendors'
 import { mockContext } from '../../../__stubs__/mock-context'
 
 jest.mock('../services', () => ({
-  getVendorById: jest.fn(() => vendorStub),
-  getVendors: jest.fn(() => vendorsStub),
+  getVendorById: jest.fn(() => mockVendor),
+  getVendors: jest.fn(() => mockVendors),
   createVendor: jest.fn(() => true),
   updateVendor: jest.fn(() => true),
   getVendorRelationships: jest.fn(() => []),
@@ -102,13 +102,13 @@ describe('queryGetVendors', () => {
 describe('mutationUpdateVendor', () => {
   it('should return correctly', () => {
     ;(checkPermission as jest.Mock).mockReturnValue(true)
-    const result = mutationUpdateVendor(null, updateVendorArgsStub, mockContext)
-    expect(result).toEqual(vendorServices.updateVendor(updateVendorArgsStub, mockContext))
+    const result = mutationUpdateVendor(null, mockUpdateVendorArgs, mockContext)
+    expect(result).toEqual(vendorServices.updateVendor(mockUpdateVendorArgs, mockContext))
   })
 
   it('should return auth error correctly', () => {
     ;(checkPermission as jest.Mock).mockReturnValue(false)
-    const result = mutationUpdateVendor(null, updateVendorArgsStub, mockContext)
+    const result = mutationUpdateVendor(null, mockUpdateVendorArgs, mockContext)
     expect(result).toEqual(errors.generateAuthenticationError(mockContext.traceId))
   })
 })

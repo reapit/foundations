@@ -1,4 +1,4 @@
-export const createTaskArgsMock = {
+export const mockCreateTaskArgs = {
   activates: '2020-07-30',
   completed: '',
   typeId: 'RM',

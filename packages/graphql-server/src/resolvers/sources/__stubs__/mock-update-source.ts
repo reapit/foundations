@@ -1,6 +1,6 @@
 import { UpdateSourceArgs } from '../sources'
 
-export const updateSourceArgsMock: UpdateSourceArgs = {
+export const mockUpdateSourceArgs: UpdateSourceArgs = {
   id: 'id',
   name: 'Birmingham',
   departmentIds: ['G'],

@@ -1,6 +1,6 @@
 import { EnquiryModel } from '@reapit/foundations-ts-definitions'
 
-export const enquiryMock: EnquiryModel = {
+export const mockEnquiry: EnquiryModel = {
   id: 45,
   created: '2018-12-12T12:30:23.0000000Z',
   modified: '2019-01-08T12:30:34.0000000Z',

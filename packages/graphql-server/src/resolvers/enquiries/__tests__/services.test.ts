@@ -1,14 +1,14 @@
 import { callGetEnquiryByIdAPI, callGetEnquiriesAPI, callCreateEnquiryAPI } from '../api'
 import { mockContext } from '../../../__stubs__/mock-context'
-import { createEnquiryArgsMock } from '../__stubs__/mock-create-enquiry'
+import { mockCreateEnquiryArgs } from '../__stubs__/mock-create-enquiry'
 import { getEnquiryById, getEnquiries, createEnquiry } from '../services'
-import { enquiryMock } from '../__stubs__/mock-enquiry'
-import { enquiriesMock } from '../__stubs__/mock-enquiries'
+import { mockEnquiry } from '../__stubs__/mock-enquiry'
+import { mockEnquiries } from '../__stubs__/mock-enquiries'
 
 jest.mock('../../../logger')
 jest.mock('../api', () => ({
-  callGetEnquiryByIdAPI: jest.fn(() => Promise.resolve(enquiryMock)),
-  callGetEnquiriesAPI: jest.fn(() => Promise.resolve(enquiriesMock)),
+  callGetEnquiryByIdAPI: jest.fn(() => Promise.resolve(mockEnquiry)),
+  callGetEnquiriesAPI: jest.fn(() => Promise.resolve(mockEnquiries)),
   callCreateEnquiryAPI: jest.fn(() => Promise.resolve(true)),
 }))
 
@@ -17,7 +17,7 @@ describe('getEnquirieById', () => {
     const args = { id: 5 }
     const result = await getEnquiryById(args, mockContext)
     expect(callGetEnquiryByIdAPI).toHaveBeenCalledWith(args, mockContext)
-    expect(result).toEqual(enquiryMock)
+    expect(result).toEqual(mockEnquiry)
   })
 })
 
@@ -26,14 +26,14 @@ describe('getEnquiries', () => {
     const args = { id: ['id1', 'id2'], pageSize: 10, pageNumber: 1 }
     const result = await getEnquiries(args, mockContext)
     expect(callGetEnquiriesAPI).toHaveBeenCalledWith(args, mockContext)
-    expect(result).toEqual(enquiriesMock)
+    expect(result).toEqual(mockEnquiries)
   })
 })
 
 describe('createEnquirie', () => {
   it('should return correctly', async () => {
-    const result = await createEnquiry(createEnquiryArgsMock, mockContext)
-    expect(callCreateEnquiryAPI).toHaveBeenCalledWith(createEnquiryArgsMock, mockContext)
+    const result = await createEnquiry(mockCreateEnquiryArgs, mockContext)
+    expect(callCreateEnquiryAPI).toHaveBeenCalledWith(mockCreateEnquiryArgs, mockContext)
     expect(result).toEqual(true)
   })
 })

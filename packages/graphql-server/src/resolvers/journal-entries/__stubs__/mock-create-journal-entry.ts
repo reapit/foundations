@@ -1,6 +1,6 @@
 import { CreateJournalEntryArgs } from '../journal-entries'
 
-export const createJournalEntryArgsMock: CreateJournalEntryArgs = {
+export const mockCreateJournalEntryArgs: CreateJournalEntryArgs = {
   propertyId: 'OXF190022',
   associatedType: 'applicant',
   associatedId: 'OXF190001',

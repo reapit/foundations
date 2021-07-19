@@ -1,6 +1,6 @@
 import { PropertyImageModel } from '@reapit/foundations-ts-definitions'
 
-export const propertyImageMock: PropertyImageModel = {
+export const mockPropertyImage: PropertyImageModel = {
   id: 'OXF100008_10.png',
   created: '2020-08-11T02:52:05Z',
   modified: '2020-08-11T02:59:14Z',

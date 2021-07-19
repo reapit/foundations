@@ -1,6 +1,6 @@
 import { CreateCompanyArgs } from '../companies'
 
-export const createCompanyArgsMock: CreateCompanyArgs = {
+export const mockCreateCompanyArgs: CreateCompanyArgs = {
   name: 'Reapit',
   branch: 'Oxford',
   notes:

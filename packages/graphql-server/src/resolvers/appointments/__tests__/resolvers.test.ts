@@ -11,15 +11,15 @@ import {
   queryNegotiators,
   queryOffices,
 } from '../resolvers'
-import { createAppointmentArgsMock } from '../__stubs__/mock-create-appointment'
-import { updateAppointmentArgsMock } from '../__stubs__/mock-update-appointment'
-import { appointmentMock } from '../__stubs__/mock-appointment'
-import { appointmentsMock } from '../__stubs__/mock-appointments'
+import { mockCreateAppointmentArgs } from '../__stubs__/mock-create-appointment'
+import { mockUpdateAppointmentArgs } from '../__stubs__/mock-update-appointment'
+import { mockAppointment } from '../__stubs__/mock-appointment'
+import { mockAppointments } from '../__stubs__/mock-appointments'
 import { mockContext } from '../../../__stubs__/mock-context'
 
 jest.mock('../services', () => ({
-  getAppointmentById: jest.fn(() => appointmentMock),
-  getAppointments: jest.fn(() => appointmentsMock),
+  getAppointmentById: jest.fn(() => mockAppointment),
+  getAppointments: jest.fn(() => mockAppointments),
   createAppointment: jest.fn(() => true),
   updateAppointment: jest.fn(() => true),
 }))
@@ -66,13 +66,13 @@ describe('queryGetAppointments', () => {
 describe('mutationCreateAppointment', () => {
   it('should return correctly', () => {
     ;(checkPermission as jest.Mock).mockReturnValue(true)
-    const result = mutationCreateAppointment(null, createAppointmentArgsMock, mockContext)
-    expect(result).toEqual(appointmentServices.createAppointment(createAppointmentArgsMock, mockContext))
+    const result = mutationCreateAppointment(null, mockCreateAppointmentArgs, mockContext)
+    expect(result).toEqual(appointmentServices.createAppointment(mockCreateAppointmentArgs, mockContext))
   })
 
   it('should return auth error correctly', () => {
     ;(checkPermission as jest.Mock).mockReturnValue(false)
-    const result = mutationCreateAppointment(null, createAppointmentArgsMock, mockContext)
+    const result = mutationCreateAppointment(null, mockCreateAppointmentArgs, mockContext)
     expect(result).toEqual(errors.generateAuthenticationError(mockContext.traceId))
   })
 })
@@ -80,41 +80,41 @@ describe('mutationCreateAppointment', () => {
 describe('mutationUpdateAppointment', () => {
   it('should return correctly', () => {
     ;(checkPermission as jest.Mock).mockReturnValue(true)
-    const result = mutationUpdateAppointment(null, updateAppointmentArgsMock, mockContext)
-    expect(result).toEqual(appointmentServices.updateAppointment(updateAppointmentArgsMock, mockContext))
+    const result = mutationUpdateAppointment(null, mockUpdateAppointmentArgs, mockContext)
+    expect(result).toEqual(appointmentServices.updateAppointment(mockUpdateAppointmentArgs, mockContext))
   })
 
   it('should return auth error correctly', () => {
     ;(checkPermission as jest.Mock).mockReturnValue(false)
-    const result = mutationUpdateAppointment(null, updateAppointmentArgsMock, mockContext)
+    const result = mutationUpdateAppointment(null, mockUpdateAppointmentArgs, mockContext)
     expect(result).toEqual(errors.generateAuthenticationError(mockContext.traceId))
   })
 })
 
 describe('queryConfiguration', () => {
   it('should run correctly', () => {
-    const result = queryConfiguration(appointmentMock, undefined, mockContext)
+    const result = queryConfiguration(mockAppointment, undefined, mockContext)
     expect(result).toEqual(expect.any(Object))
   })
 })
 
 describe('queryProperty', () => {
   it('should run correctly', () => {
-    const result = queryProperty(appointmentMock, undefined, mockContext)
+    const result = queryProperty(mockAppointment, undefined, mockContext)
     expect(result).toEqual(expect.any(Object))
   })
 })
 
 describe('queryNegotiators', () => {
   it('should run correctly', () => {
-    const result = queryNegotiators(appointmentMock, undefined, mockContext)
+    const result = queryNegotiators(mockAppointment, undefined, mockContext)
     expect(result).toEqual(expect.any(Object))
   })
 })
 
 describe('queryOffices', () => {
   it('should run correctly', () => {
-    const result = queryOffices(appointmentMock, undefined, mockContext)
+    const result = queryOffices(mockAppointment, undefined, mockContext)
     expect(result).toEqual(expect.any(Object))
   })
 })
