@@ -84,30 +84,33 @@ export const getCurrentLocation = ({ googleMaps, position, map }) => {
   return currentLocation
 }
 
-export const handleRequestDirectionServiceResponse =
-  ({ currentLocation, onLoadedDirection, directionsRenderer, destinationAddress }) =>
-  (response, status) => {
-    if (status === 'OK') {
-      currentLocation.setMap(null)
-      if (onLoadedDirection) {
-        onLoadedDirection(response)
-      }
-      if (destinationAddress) {
-        if (response && response.routes) {
-          response.routes.forEach((route) => {
-            route.legs.forEach((leg) => {
-              leg.end_address = destinationAddress
-            })
-          })
-        }
-      }
-      directionsRenderer.setDirections(response)
-    } else {
-      notification.error({
-        message: 'Directions request failed due to ' + status,
-      })
+export const handleRequestDirectionServiceResponse = ({
+  currentLocation,
+  onLoadedDirection,
+  directionsRenderer,
+  destinationAddress,
+}) => (response, status) => {
+  if (status === 'OK') {
+    currentLocation.setMap(null)
+    if (onLoadedDirection) {
+      onLoadedDirection(response)
     }
+    if (destinationAddress) {
+      if (response && response.routes) {
+        response.routes.forEach((route) => {
+          route.legs.forEach((leg) => {
+            leg.end_address = destinationAddress
+          })
+        })
+      }
+    }
+    directionsRenderer.setDirections(response)
+  } else {
+    notification.error({
+      message: 'Directions request failed due to ' + status,
+    })
   }
+}
 
 export const renderDirection = ({
   destinationPoint,
@@ -191,7 +194,7 @@ export const renderDirectionAndMarkers = ({
   let markers = []
   if (googleMaps && map) {
     return navigator.geolocation.getCurrentPosition(
-      (position: GeolocationPosition) => {
+      (position) => {
         const currentLocation = getCurrentLocation({ googleMaps, position, map })
         const isDrawDrirection = destinationPoint && destinationPoint.lat && destinationPoint.lng
         if (isDrawDrirection) {
@@ -303,130 +306,139 @@ export const createGoogleMapDrawingManager = (googleMaps, drawingOptions) => {
   return drawingManager
 }
 
-export const handleOnLoaded =
-  ({
-    googleMapsRef,
-    mapRef,
-    directionsServiceRef,
-    directionsRendererRef,
-    drawingManagerRef,
-    libraries,
-    boundsRef,
-    onLoaded,
-    drawingOptions,
-    onDrawingMarkerClick,
-    onDrawingMarkerComplete,
-    onDrawingPolygonClick,
-    onDrawingPolygonComplete,
-  }) =>
-  (googleMaps, map) => {
-    googleMapsRef.current = googleMaps
-    mapRef.current = map
-    const bounds = new googleMaps.LatLngBounds()
-    const directionsService = new googleMaps.DirectionsService()
-    const directionsRenderer = new googleMaps.DirectionsRenderer()
+export const handleOnLoaded = ({
+  googleMapsRef,
+  mapRef,
+  directionsServiceRef,
+  directionsRendererRef,
+  drawingManagerRef,
+  libraries,
+  boundsRef,
+  onLoaded,
+  drawingOptions,
+  onDrawingMarkerClick,
+  onDrawingMarkerComplete,
+  onDrawingPolygonClick,
+  onDrawingPolygonComplete,
+}) => (googleMaps, map) => {
+  googleMapsRef.current = googleMaps
+  mapRef.current = map
+  const bounds = new googleMaps.LatLngBounds()
+  const directionsService = new googleMaps.DirectionsService()
+  const directionsRenderer = new googleMaps.DirectionsRenderer()
 
-    boundsRef.current = bounds
-    directionsServiceRef.current = directionsService
-    directionsRendererRef.current = directionsRenderer
+  boundsRef.current = bounds
+  directionsServiceRef.current = directionsService
+  directionsRendererRef.current = directionsRenderer
 
-    if (libraries?.indexOf('drawing') > -1) {
-      const drawingManager = createGoogleMapDrawingManager(googleMaps, drawingOptions)
-      initMapDrawingManager(
-        drawingManager,
-        drawingManagerRef,
-        googleMaps,
-        map,
-        onDrawingMarkerClick,
-        onDrawingMarkerComplete,
-        onDrawingPolygonClick,
-        onDrawingPolygonComplete,
-      )
-    }
-
-    if (onLoaded) {
-      onLoaded({ googleMaps, map, bounds, directionsService, directionsRenderer })
-    }
+  if (libraries?.indexOf('drawing') > -1) {
+    const drawingManager = createGoogleMapDrawingManager(googleMaps, drawingOptions)
+    initMapDrawingManager(
+      drawingManager,
+      drawingManagerRef,
+      googleMaps,
+      map,
+      onDrawingMarkerClick,
+      onDrawingMarkerComplete,
+      onDrawingPolygonClick,
+      onDrawingPolygonComplete,
+    )
   }
+
+  if (onLoaded) {
+    onLoaded({ googleMaps, map, bounds, directionsService, directionsRenderer })
+  }
+}
 
 export type MarkerContentProps = {
   coordinates: CoordinateProps<any>[]
   component: any
 }
 
-export const renderMap =
-  ({
-    googleMapsRef,
-    mapRef,
-    onLoaded,
-    directionsRendererRef,
-    boundsRef,
-    directionsServiceRef,
-    drawingManagerRef,
-    center,
-    zoom,
-    libraries,
-    drawingOptions,
-    onDrawingMarkerClick,
-    onDrawingMarkerComplete,
-    onDrawingPolygonClick,
-    onDrawingPolygonComplete,
-    mapContainerStyles,
-    ...restProps
-    // eslint-disable-next-line react/display-name
-  }) =>
-  (googleMaps, error) => {
-    if (googleMaps && !error) {
-      return (
-        <div style={{ height: '90vh', ...mapContainerStyles }}>
-          <GoogleMap
-            googleMaps={googleMaps}
-            onLoaded={handleOnLoaded({
-              googleMapsRef,
-              mapRef,
-              onLoaded,
-              directionsRendererRef,
-              boundsRef,
-              directionsServiceRef,
-              drawingManagerRef,
-              libraries,
-              drawingOptions,
-              onDrawingMarkerClick,
-              onDrawingMarkerComplete,
-              onDrawingPolygonClick,
-              onDrawingPolygonComplete,
-            })}
-            center={center}
-            zoom={zoom}
-            {...restProps}
-          />
-        </div>
-      )
-    }
-    if (error === 'Network Error') {
-      return <div>{error === 'Network Error' ? <p>{error}</p> : <p>isLoading...</p>}</div>
-    }
-    if (error) {
-      return <div>{error}</div>
-    }
-    return null
+export const renderMap = ({
+  googleMapsRef,
+  mapRef,
+  onLoaded,
+  directionsRendererRef,
+  boundsRef,
+  directionsServiceRef,
+  drawingManagerRef,
+  center,
+  zoom,
+  libraries,
+  drawingOptions,
+  onDrawingMarkerClick,
+  onDrawingMarkerComplete,
+  onDrawingPolygonClick,
+  onDrawingPolygonComplete,
+  mapContainerStyles,
+  ...restProps
+  // eslint-disable-next-line react/display-name
+}) => (googleMaps, error) => {
+  if (googleMaps && !error) {
+    return (
+      <div style={{ height: '90vh', ...mapContainerStyles }}>
+        <GoogleMap
+          googleMaps={googleMaps}
+          onLoaded={handleOnLoaded({
+            googleMapsRef,
+            mapRef,
+            onLoaded,
+            directionsRendererRef,
+            boundsRef,
+            directionsServiceRef,
+            drawingManagerRef,
+            libraries,
+            drawingOptions,
+            onDrawingMarkerClick,
+            onDrawingMarkerComplete,
+            onDrawingPolygonClick,
+            onDrawingPolygonComplete,
+          })}
+          center={center}
+          zoom={zoom}
+          {...restProps}
+        />
+      </div>
+    )
   }
-
-export const clearMap =
-  ({ directionsRendererRef, markersRef }) =>
-  () => {
-    if (directionsRendererRef && directionsRendererRef.current) {
-      // @ts-ignore
-      directionsRendererRef.current.setMap(null)
-    }
-    if (markersRef && markersRef.current) {
-      // @ts-ignore
-      markersRef.current.forEach((marker) => marker.setMap(null))
-    }
+  if (error === 'Network Error') {
+    return <div>{error === 'Network Error' ? <p>{error}</p> : <p>isLoading...</p>}</div>
   }
+  if (error) {
+    return <div>{error}</div>
+  }
+  return null
+}
 
-export const handleUseEffect =
-  ({
+export const clearMap = ({ directionsRendererRef, markersRef }) => () => {
+  if (directionsRendererRef && directionsRendererRef.current) {
+    // @ts-ignore
+    directionsRendererRef.current.setMap(null)
+  }
+  if (markersRef && markersRef.current) {
+    // @ts-ignore
+    markersRef.current.forEach((marker) => marker.setMap(null))
+  }
+}
+
+export const handleUseEffect = ({
+  googleMapsRef,
+  mapRef,
+  coordinates,
+  center,
+  zoom,
+  destinationPoint,
+  travelMode,
+  onLoadedDirection,
+  markersRef,
+  directionsRendererRef,
+  directionsServiceRef,
+  boundsRef,
+  markerCallBack,
+  destinationAddress,
+}) => () => {
+  renderDirectionAndMarkers({
     googleMapsRef,
     mapRef,
     coordinates,
@@ -441,26 +453,9 @@ export const handleUseEffect =
     boundsRef,
     markerCallBack,
     destinationAddress,
-  }) =>
-  () => {
-    renderDirectionAndMarkers({
-      googleMapsRef,
-      mapRef,
-      coordinates,
-      center,
-      zoom,
-      destinationPoint,
-      travelMode,
-      onLoadedDirection,
-      markersRef,
-      directionsRendererRef,
-      directionsServiceRef,
-      boundsRef,
-      markerCallBack,
-      destinationAddress,
-    })
-    return clearMap({ directionsRendererRef, markersRef })
-  }
+  })
+  return clearMap({ directionsRendererRef, markersRef })
+}
 
 export const Map: React.FC<MapProps<any>> = ({
   apiKey,

@@ -13,9 +13,6 @@ module.exports = {
     'src/styles-v3',
   ],
   modulePathIgnorePatterns: ['<rootDir>[/\\\\](node_modules|public|v3|dist)[/\\\\]'],
-  transform: {
-    '^.+\\.svg$': '<rootDir>/src/scripts/svg-transform.js',
-  },
   moduleNameMapper: {
     '\\.(css|less|scss|sass)$': '<rootDir>/src/scripts/style-mock.js',
   },

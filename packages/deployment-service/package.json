@@ -37,7 +37,6 @@
     "concurrently": "^6.2.0",
     "eslint": "^7.30.0",
     "eslint-plugin-prettier": "^3.4.0",
-    "prettier": "^2.3.2",
     "serverless": "^2.48.0",
     "serverless-webpack": "^5.5.1",
     "ts-node": "^10.1.0"

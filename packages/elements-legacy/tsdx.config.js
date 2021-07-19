@@ -1,10 +1,9 @@
 const scss = require('rollup-plugin-scss')
 const babel = require('@rollup/plugin-babel').default
-const linaria = require('linaria/rollup')
-const typescript = require('rollup-plugin-typescript2')
+const linaria = require('@linaria/rollup').default
 const svgr = require('@svgr/rollup').default
 
-const EXCLUDE_PACKAGES = ['linaria']
+const EXCLUDE_PACKAGES = ['@linaria/core', '@linaria/react']
 
 const generateRegexExcludePackages = () => {
   const listPackagesString = EXCLUDE_PACKAGES.join('|')
@@ -33,11 +32,6 @@ const replaceAndReorderPlugins = (plugins) => {
     plugins: ['@babel/plugin-transform-runtime'],
   })
 
-  // I need TS plugin to reference a tsconfig that has EANEXT as target so doesn't remove my liaria strings
-  const typescriptPlugin = typescript({
-    tsconfig: './tsconfig.prod.json',
-  })
-
   // export linaria css and main sass project
   const sassPlugin = scss({
     output: 'dist/index.css',
@@ -52,9 +46,8 @@ const replaceAndReorderPlugins = (plugins) => {
 
   const svgrPlugin = svgr({ icon: true })
 
-  // Remove the original TsPlugin that stripped out my styles, plus Babel. I add new Babel config back in
-  // at the end after extracting styles
-  plugins.splice(plugins.indexOf(tsPlugin), 2, typescriptPlugin, linariaPlugin, sassPlugin, babelPlugin, svgrPlugin)
+  // Add linaria and sass plugins in between TS and Babel
+  plugins.splice(plugins.indexOf(tsPlugin), 2, tsPlugin, linariaPlugin, sassPlugin, babelPlugin, svgrPlugin)
 
   return plugins
 }

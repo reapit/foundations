@@ -77,32 +77,36 @@ export interface CardProps extends HTMLAttributes<HTMLDivElement> {
   isSelected?: boolean // Does the card have the blue selected border
 }
 
-export const handleToggleContextMenu =
-  (contextMenuOpen: boolean, setContextMenuOpen: Dispatch<SetStateAction<boolean>>) => () => {
-    setContextMenuOpen(!contextMenuOpen)
-  }
+export const handleToggleContextMenu = (
+  contextMenuOpen: boolean,
+  setContextMenuOpen: Dispatch<SetStateAction<boolean>>,
+) => () => {
+  setContextMenuOpen(!contextMenuOpen)
+}
 
-export const handleToggleMainMobileOpen =
-  (mainMobileOpen: boolean, setMainMobileOpen: Dispatch<SetStateAction<boolean>>) => () => {
-    setMainMobileOpen(!mainMobileOpen)
-  }
+export const handleToggleMainMobileOpen = (
+  mainMobileOpen: boolean,
+  setMainMobileOpen: Dispatch<SetStateAction<boolean>>,
+) => () => {
+  setMainMobileOpen(!mainMobileOpen)
+}
 
-export const handleToggleListMobileOpen =
-  (listMobileOpen: boolean, setListMobileOpen: Dispatch<SetStateAction<boolean>>) => () => {
-    setListMobileOpen(!listMobileOpen)
-  }
+export const handleToggleListMobileOpen = (
+  listMobileOpen: boolean,
+  setListMobileOpen: Dispatch<SetStateAction<boolean>>,
+) => () => {
+  setListMobileOpen(!listMobileOpen)
+}
 
-export const handleToggleBothMobileOpen =
-  (
-    mainMobileOpen: boolean,
-    setMainMobileOpen: Dispatch<SetStateAction<boolean>>,
-    listMobileOpen: boolean,
-    setListMobileOpen: Dispatch<SetStateAction<boolean>>,
-  ) =>
-  () => {
-    setMainMobileOpen(!mainMobileOpen)
-    setListMobileOpen(!listMobileOpen)
-  }
+export const handleToggleBothMobileOpen = (
+  mainMobileOpen: boolean,
+  setMainMobileOpen: Dispatch<SetStateAction<boolean>>,
+  listMobileOpen: boolean,
+  setListMobileOpen: Dispatch<SetStateAction<boolean>>,
+) => () => {
+  setMainMobileOpen(!mainMobileOpen)
+  setListMobileOpen(!listMobileOpen)
+}
 
 export const CardContextMenu: FC<CardContextMenuProps> = ({ className, contextMenuItems, ...rest }) => {
   const [contextMenuOpen, setContextMenuOpen] = useState<boolean>(false)

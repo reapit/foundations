@@ -46,8 +46,7 @@ const replaceAndReorderPlugins = (plugins) => {
 
   const svgrPlugin = svgr({ icon: true })
 
-  // Remove the original TsPlugin that stripped out my styles, plus Babel. I add new Babel config back in
-  // at the end after extracting styles
+  // Add linaria and sass plugins in between TS and Babel
   plugins.splice(plugins.indexOf(tsPlugin), 2, tsPlugin, linariaPlugin, sassPlugin, babelPlugin, svgrPlugin)
 
   return plugins
