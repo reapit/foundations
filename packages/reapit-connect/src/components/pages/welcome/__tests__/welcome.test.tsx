@@ -25,7 +25,7 @@ const mockSession = {
 
 describe('handleIsShowAgencyCloudSectionMemo', () => {
   test('return false when groups empty', () => {
-    expect(handleIsShowAgencyCloudSectionMemo((mockSession as unknown) as ReapitConnectHook)()).toBeFalsy()
+    expect(handleIsShowAgencyCloudSectionMemo(mockSession as unknown as ReapitConnectHook)()).toBeFalsy()
   })
   test('return true when groups include showHandleAgencyCloudSectionGroups group', () => {
     const inputs = [
@@ -39,7 +39,7 @@ describe('handleIsShowAgencyCloudSectionMemo', () => {
     ]
 
     for (const input of inputs) {
-      expect(handleIsShowAgencyCloudSectionMemo((input as unknown) as ReapitConnectHook)()).toBeTruthy()
+      expect(handleIsShowAgencyCloudSectionMemo(input as unknown as ReapitConnectHook)()).toBeTruthy()
     }
   })
 })

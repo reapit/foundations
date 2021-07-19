@@ -24,14 +24,13 @@ export type InstalledAppListProps = {
   pagination?: PaginationProps
 }
 
-export const onClickHandler = (onCardClick: ((app: AppSummaryModel) => void) | undefined, app: AppSummaryModel) => (
-  event: React.MouseEvent,
-) => {
-  if (onCardClick) {
-    event.stopPropagation()
-    onCardClick(app)
+export const onClickHandler =
+  (onCardClick: ((app: AppSummaryModel) => void) | undefined, app: AppSummaryModel) => (event: React.MouseEvent) => {
+    if (onCardClick) {
+      event.stopPropagation()
+      onCardClick(app)
+    }
   }
-}
 
 export const ListMobileScreen = ({
   list,

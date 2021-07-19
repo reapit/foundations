@@ -28,24 +28,26 @@ export const handleNavigation = (appId: string) => () => {
   history.push(`${Routes.MARKETPLACE}/${appId}`)
 }
 
-export const handleInstallationsStringEffect = (
-  setInstallationString: Dispatch<SetStateAction<string | null>>,
-  installations: InstallationModelPagedResult | undefined,
-  clientId?: string | null,
-) => () => {
-  if (installations?.data && clientId) {
-    const clientIdFirstPart = getClientIdFirstPart(clientId)
-    const orgInstallations = getInstallationsForWholeOrg(installations, clientIdFirstPart)
-    const groupInstallations = getInstallationsForOfficeGroups(installations, clientIdFirstPart)
+export const handleInstallationsStringEffect =
+  (
+    setInstallationString: Dispatch<SetStateAction<string | null>>,
+    installations: InstallationModelPagedResult | undefined,
+    clientId?: string | null,
+  ) =>
+  () => {
+    if (installations?.data && clientId) {
+      const clientIdFirstPart = getClientIdFirstPart(clientId)
+      const orgInstallations = getInstallationsForWholeOrg(installations, clientIdFirstPart)
+      const groupInstallations = getInstallationsForOfficeGroups(installations, clientIdFirstPart)
 
-    if (orgInstallations.length) return setInstallationString(`Installed for organisation ${clientIdFirstPart}`)
-    if (groupInstallations.length)
-      return setInstallationString(
-        `Installed for ${groupInstallations.length} office group${groupInstallations.length > 1 ? 's' : ''}`,
-      )
-    return setInstallationString('Not installed')
+      if (orgInstallations.length) return setInstallationString(`Installed for organisation ${clientIdFirstPart}`)
+      if (groupInstallations.length)
+        return setInstallationString(
+          `Installed for ${groupInstallations.length} office group${groupInstallations.length > 1 ? 's' : ''}`,
+        )
+      return setInstallationString('Not installed')
+    }
   }
-}
 
 const AppCard: React.FC<AppCardProps> = ({ app }: AppCardProps) => {
   const [installationString, setInstallationString] = useState<string | null>(null)

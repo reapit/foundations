@@ -58,7 +58,7 @@ describe('handleFetchApps', () => {
 
 describe('onPageChangeHandler', () => {
   it('should update the history object', async () => {
-    const mockHistory = ({ push: jest.fn() } as unknown) as History
+    const mockHistory = { push: jest.fn() } as unknown as History
     const mockPage = 2
 
     const curried = onPageChangeHandler(mockHistory)

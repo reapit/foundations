@@ -13,9 +13,9 @@ import { AppSummaryModel } from '@reapit/foundations-ts-definitions'
 
 const app = appsDataStub.data?.[0] as AppSummaryModel
 
-const event = ({
+const event = {
   stopPropagation: jest.fn(),
-} as unknown) as React.MouseEvent
+} as unknown as React.MouseEvent
 
 const props: InstalledAppListProps = {
   list: appsDataStub.data as AppSummaryModel[],

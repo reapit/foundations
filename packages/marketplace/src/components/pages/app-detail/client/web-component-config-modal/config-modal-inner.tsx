@@ -26,11 +26,10 @@ import { Dispatch } from 'redux'
 import { selectAppDetailData } from '@/selector/apps'
 import { Loader } from '@reapit/elements'
 
-export const handleUpdateWebComponentConfig = (dispatch: Dispatch, appId: string, callback) => (
-  params: FormikValues,
-) => {
-  dispatch(updateWebComponentConfig({ ...params, appId, callback } as UpdateWebComponentConfigParams))
-}
+export const handleUpdateWebComponentConfig =
+  (dispatch: Dispatch, appId: string, callback) => (params: FormikValues) => {
+    dispatch(updateWebComponentConfig({ ...params, appId, callback } as UpdateWebComponentConfigParams))
+  }
 
 export const genarateNegotiatorOptions = (negotiators: NegotiatorModel[]): SelectOption[] => {
   return negotiators.map(

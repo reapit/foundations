@@ -12,22 +12,24 @@ export const onPageChangeHandler = (history: History<any>) => (page: number) => 
   return history.push(`${Routes.MARKETPLACE}${queryString}`)
 }
 
-export const handleFetchApps = (
-  setApps: Dispatch<SetStateAction<AppSummaryModelPagedResult | undefined>>,
-  setAppsLoading: Dispatch<SetStateAction<boolean>>,
-  search: string,
-) => () => {
-  const fetchApps = async () => {
-    setAppsLoading(true)
-    const fetchedAppApps = await getAppsService(search)
-    if (fetchedAppApps) {
-      setApps(fetchedAppApps)
+export const handleFetchApps =
+  (
+    setApps: Dispatch<SetStateAction<AppSummaryModelPagedResult | undefined>>,
+    setAppsLoading: Dispatch<SetStateAction<boolean>>,
+    search: string,
+  ) =>
+  () => {
+    const fetchApps = async () => {
+      setAppsLoading(true)
+      const fetchedAppApps = await getAppsService(search)
+      if (fetchedAppApps) {
+        setApps(fetchedAppApps)
+      }
+      setAppsLoading(false)
     }
-    setAppsLoading(false)
-  }
 
-  fetchApps()
-}
+    fetchApps()
+  }
 
 const MarketplacePage: React.FC = () => {
   const history = useHistory()

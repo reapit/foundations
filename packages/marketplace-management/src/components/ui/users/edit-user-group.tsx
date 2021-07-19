@@ -67,46 +67,48 @@ const removeUserFromGroup = async (id: string, userId: string) => {
   return removeUserRes
 }
 
-export const onHandleSubmit = (
-  handleOnClose: () => void,
-  onRefetchData: () => void,
-  mutate: () => void,
-  removeUser: string[],
-  listUserGroupMember?: GroupMembershipModel[],
-  editingUserGroup?: GroupModel,
-) => async (params: UpdateUserGroupModel) => {
-  const id = editingUserGroup?.id || ''
-  const userId = params.userId
+export const onHandleSubmit =
+  (
+    handleOnClose: () => void,
+    onRefetchData: () => void,
+    mutate: () => void,
+    removeUser: string[],
+    listUserGroupMember?: GroupMembershipModel[],
+    editingUserGroup?: GroupModel,
+  ) =>
+  async (params: UpdateUserGroupModel) => {
+    const id = editingUserGroup?.id || ''
+    const userId = params.userId
 
-  for (const user of userId) {
-    if (!listUserGroupMember?.find((userGroup: UserModel) => userGroup.id === user)) {
-      const addUserRes = await addUserToGroup(id, user)
-      if (!addUserRes) {
-        return notification.error({
-          message: toastMessages.FAILED_TO_EDIT_USER_GROUP,
-        })
+    for (const user of userId) {
+      if (!listUserGroupMember?.find((userGroup: UserModel) => userGroup.id === user)) {
+        const addUserRes = await addUserToGroup(id, user)
+        if (!addUserRes) {
+          return notification.error({
+            message: toastMessages.FAILED_TO_EDIT_USER_GROUP,
+          })
+        }
       }
     }
-  }
 
-  for (const user of removeUser) {
-    if (!userId.find((addUser: string) => addUser === user)) {
-      const removeUserRes = await removeUserFromGroup(id, user)
-      if (!removeUserRes) {
-        return notification.error({
-          message: toastMessages.FAILED_TO_EDIT_USER_GROUP,
-        })
+    for (const user of removeUser) {
+      if (!userId.find((addUser: string) => addUser === user)) {
+        const removeUserRes = await removeUserFromGroup(id, user)
+        if (!removeUserRes) {
+          return notification.error({
+            message: toastMessages.FAILED_TO_EDIT_USER_GROUP,
+          })
+        }
       }
     }
-  }
 
-  notification.success({
-    message: toastMessages.CHANGES_SAVE_SUCCESS,
-  })
-  handleOnClose()
-  mutate()
-  return onRefetchData()
-}
+    notification.success({
+      message: toastMessages.CHANGES_SAVE_SUCCESS,
+    })
+    handleOnClose()
+    mutate()
+    return onRefetchData()
+  }
 
 export const getUserOptions = (listUserGroup: UserModel[], listUserGroupMember: UserModel[]) =>
   listUserGroup.filter(

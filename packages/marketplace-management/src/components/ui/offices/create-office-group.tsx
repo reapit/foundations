@@ -41,25 +41,24 @@ interface FormChangeEffectProps {
   options: SelectOptions
 }
 
-export const onHandleSubmit = (handleOnClose: () => void, onRefetchData: () => void, orgId: string) => async (
-  params: CreateOfficeGroupModel,
-) => {
-  const { name, officeIds: listId } = params
-  const officeIds = listId.toString()
-  const createdOffice = await createOfficeGroup({ name, officeIds }, orgId)
-  if (createdOffice) {
-    notification.success({
-      message: toastMessages.CREATE_OFFICE_GROUP_SUCCESS,
-    })
-    handleOnClose()
-    onRefetchData()
-    return
-  }
+export const onHandleSubmit =
+  (handleOnClose: () => void, onRefetchData: () => void, orgId: string) => async (params: CreateOfficeGroupModel) => {
+    const { name, officeIds: listId } = params
+    const officeIds = listId.toString()
+    const createdOffice = await createOfficeGroup({ name, officeIds }, orgId)
+    if (createdOffice) {
+      notification.success({
+        message: toastMessages.CREATE_OFFICE_GROUP_SUCCESS,
+      })
+      handleOnClose()
+      onRefetchData()
+      return
+    }
 
-  notification.error({
-    message: toastMessages.FAILED_TO_CREATE_OFFICE_GROUP,
-  })
-}
+    notification.error({
+      message: toastMessages.FAILED_TO_CREATE_OFFICE_GROUP,
+    })
+  }
 
 export const FormChangeEffect: React.FC<FormChangeEffectProps> = ({ setSelectedOffice, options }) => {
   const formik: { values: { officeIds: string[] } } = useFormikContext()

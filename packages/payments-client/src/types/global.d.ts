@@ -26,9 +26,7 @@ declare global {
     reapit: {
       config: Config
     }
-    sagepayOwnForm: ({
-      merchantSessionKey: string,
-    }) => {
+    sagepayOwnForm: ({ merchantSessionKey: string }) => {
       tokeniseCardDetails: (params: any) => void
     }
   }
