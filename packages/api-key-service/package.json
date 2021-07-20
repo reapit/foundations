@@ -16,10 +16,10 @@
     "babel-jest": "^27.0.6",
     "concurrently": "^6.2.0",
     "cross-env": "^7.0.3",
-    "eslint": "^7.30.0",
+    "eslint": "^7.31.0",
     "eslint-plugin-prettier": "^3.4.0",
     "jest": "27.0.6",
-    "serverless": "^2.43.1"
+    "serverless": "^2.52.0"
   },
   "scripts": {
     "start": "reapit-fetch-public-keys && yarn build && yarn serverless offline start --runtime nodejs12.x --stage local",

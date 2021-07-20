@@ -4,6 +4,7 @@ import resolvers from './resolvers'
 import depthLimit from 'graphql-depth-limit'
 import * as Sentry from '@sentry/node'
 import { handleContext, formatError } from './utils'
+import { ApolloServerPluginLandingPageGraphQLPlayground } from 'apollo-server-core'
 
 if (process.env.NODE_ENV !== 'development') {
   Sentry.init({
@@ -18,17 +19,11 @@ const typeDefs = importSchema('./src/schema.graphql')
 const server = new ApolloServer({
   typeDefs,
   resolvers,
-  playground: true,
   introspection: true,
   formatError,
-  uploads: false,
   context: handleContext,
   validationRules: [depthLimit(10)],
+  plugins: [ApolloServerPluginLandingPageGraphQLPlayground()],
 })
 
-export const graphqlHandler = server.createHandler({
-  cors: {
-    origin: '*',
-    credentials: true,
-  },
-})
+export const graphqlHandler = server.createHandler()

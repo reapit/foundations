@@ -6,6 +6,8 @@ const nodeExternals = require('webpack-node-externals')
 const { EnvironmentPlugin } = require('webpack')
 const SentryWebpackPlugin = require('@sentry/webpack-plugin')
 const { getVersionTag, PATHS } = require('@reapit/ts-scripts')
+const { ContextReplacementPlugin } = require('webpack')
+const ForkTsCheckerWebpackPlugin = require('fork-ts-checker-webpack-plugin')
 
 const getServerlessEnvPlugins = () => {
   const tagName = getVersionTag()
@@ -37,18 +39,18 @@ const getServerlessEnvPlugins = () => {
 }
 
 const isLocal = slsw.lib.webpack.isLocal
-
+console.log(path.resolve(__dirname, '../..'))
 module.exports = {
   entry: slsw.lib.entries,
   target: 'node',
   stats: 'minimal',
-  mode: isLocal ? 'development' : 'production',
+  mode: 'development',
   node: false,
-  externals: isLocal ? [nodeExternals({ modulesDir: path.resolve(__dirname, '../..', 'node_modules') })] : undefined,
+  externals: nodeExternals({ modulesDir: path.resolve(__dirname, '../..', 'node_modules') }),
   optimization: {
-    minimize: true,
+    minimize: false,
   },
-  devtool: isLocal ? 'inline-cheap-module-source-map' : 'sourcemap',
+  devtool: 'inline-cheap-module-source-map',
   output: {
     libraryTarget: 'commonjs',
     path: path.resolve(__dirname, 'dist'),
@@ -57,20 +59,6 @@ module.exports = {
   },
   module: {
     rules: [
-      {
-        test: /\.js$/,
-        exclude: /node_modules/,
-        use: [
-          {
-            loader: 'babel-loader',
-            options: {
-              presets: [
-                ['@babel/preset-env', { targets: { node: isLocal ? '12' : '14' }, useBuiltIns: 'usage', corejs: 3 }],
-              ],
-            },
-          },
-        ],
-      },
       {
         test: /.ts?$/,
         exclude: /node_modules/,
@@ -89,6 +77,7 @@ module.exports = {
     ],
   },
   plugins: [
+    new ContextReplacementPlugin(/express|@graphql-toolkit|import-from/),
     new CopyPlugin({
       patterns: [
         {
@@ -100,6 +89,11 @@ module.exports = {
     }),
     new ResolveTSPathsToWebpackAlias({
       tsconfig: PATHS.tsConfig,
+    }),
+    new ForkTsCheckerWebpackPlugin({
+      eslint: {
+        files: './src/**/*.ts',
+      },
     }),
     ...getServerlessEnvPlugins(),
   ],

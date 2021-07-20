@@ -3,7 +3,7 @@ const { ContextReplacementPlugin } = require('webpack')
 const ResolveTSPathsToWebpackAlias = require('ts-paths-to-webpack-alias')
 const { PATHS } = require('./constants')
 const ForkTsCheckerWebpackPlugin = require('fork-ts-checker-webpack-plugin')
-const { ESBuildPlugin, ESBuildMinifyPlugin } = require('esbuild-loader')
+const { ESBuildMinifyPlugin } = require('esbuild-loader')
 
 const webpackConfigNode = {
   entry: slsw.lib.entries,
@@ -32,7 +32,7 @@ const webpackConfigNode = {
     }),
     new ForkTsCheckerWebpackPlugin({
       eslint: {
-        files: './src/**/*.{ts,tsx,js,jsx}',
+        files: './src/**/*.ts',
       },
     }),
   ],
