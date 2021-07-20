@@ -1,4 +1,4 @@
-import { TextField, makeStyles, InputAdornment } from '@material-ui/core'
+import { TextField, makeStyles } from '@material-ui/core'
 import React, { useEffect } from 'react'
 import { useState } from 'react'
 import { ToolbarItemType } from './types'
@@ -56,9 +56,7 @@ export const ToolbarTextInput = ({ onChange, value, label, type, ...props }: Too
   const classes = useStyles({})
   const labelClasses = useLabelStyles({})
   useEffect(() => {
-    let val = value
-    if (type === ToolbarItemType.Color || type === ToolbarItemType.Bg) val = `rgba(${Object.values(value)})`
-    setInternalValue(val)
+    setInternalValue(value)
   }, [value, type])
 
   return (
@@ -80,24 +78,6 @@ export const ToolbarTextInput = ({ onChange, value, label, type, ...props }: Too
         InputProps={{
           classes,
           disableUnderline: true,
-          startAdornment: [ToolbarItemType.Color, ToolbarItemType.Bg].includes(type) ? (
-            <InputAdornment
-              position="start"
-              style={{
-                position: 'absolute',
-                marginTop: '2px',
-                marginRight: '8px',
-              }}
-            >
-              <div
-                className="w-2 h-2 inline-block rounded-full relative"
-                style={{
-                  left: '15px',
-                  background: internalValue,
-                }}
-              />
-            </InputAdornment>
-          ) : null,
         }}
         InputLabelProps={{
           classes: {

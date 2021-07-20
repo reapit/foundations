@@ -83,8 +83,6 @@ const ToolbarItemInput = ({ propKey, type, index = 0, ...props }: ToolbarItemPro
 
   switch (type) {
     case ToolbarItemType.Text:
-    case ToolbarItemType.Color:
-    case ToolbarItemType.Bg:
     case ToolbarItemType.Number:
       return (
         <ToolbarTextInput
