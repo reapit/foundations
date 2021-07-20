@@ -13826,7 +13826,6 @@ __metadata:
     cypress-file-upload: ^5.0.8
     cypress-plugin-snapshots: ^1.4.4
     eslint: ^7.30.0
-    eslint-config-prettier: ^8.3.0
     eslint-plugin-prettier: ^3.4.0
     jest: ^27.0.6
     node-polyfill-webpack-plugin: ^1.1.4
@@ -15317,7 +15316,7 @@ __metadata:
     cross-env: ^6.0.3
     dayjs: ^1.10.6
     diff: ^4.0.2
-    eslint: 7.30.0
+    eslint: ^7.30.0
     eslint-plugin-prettier: ^3.4.0
     jest: ^27.0.6
     jest-coverage-badges: ^1.1.2
