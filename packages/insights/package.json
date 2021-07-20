@@ -27,7 +27,7 @@
     "@reapit/elements": "workspace:packages/elements",
     "@reapit/elements-legacy": "workspace:packages/elements-legacy",
     "@sentry/browser": "^6.9.0",
-    "powerbi-client": "^2.18.2",
+    "powerbi-client": "^2.18.0",
     "react": "^17.0.2",
     "react-dom": "^17.0.2",
     "react-ga": "^2.7.0",
@@ -36,7 +36,7 @@
     "snyk": "^1.662.0"
   },
   "devDependencies": {
-    "@linaria/shaker": "^3.0.0-beta.7",
+    "@linaria/shaker": "^3.0.0-beta.8",
     "@reapit/config-manager": "workspace:packages/config-manager",
     "@reapit/ts-scripts": "workspace:packages/ts-scripts",
     "@reapit/ts-types": "workspace:packages/ts-types",
@@ -46,19 +46,19 @@
     "babel-loader": "^8.2.2",
     "concurrently": "^6.2.0",
     "cross-env": "^6.0.3",
-    "eslint": "7.30.0",
+    "eslint": "7.31.0",
     "eslint-plugin-prettier": "^3.4.0",
     "jest": "^27.0.6",
     "jest-coverage-badges": "^1.1.2",
     "node-polyfill-webpack-plugin": "^1.1.4",
     "rimraf": "^3.0.2",
-    "serverless": "^2.28.0",
-    "serverless-s3-deploy": "^0.10.0",
+    "serverless": "^2.52.0",
+    "serverless-s3-deploy": "^0.10.1",
     "serverless-s3-remover": "^0.6.0",
     "serverless-single-page-app-plugin": "^1.0.2",
     "ts-jest": "^27.0.3",
     "typescript": "^4.3.5",
-    "webpack": "^5.44.0",
+    "webpack": "^5.45.1",
     "webpack-dev-server": "^3.11.2"
   }
 }

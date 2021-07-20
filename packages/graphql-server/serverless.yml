@@ -9,10 +9,8 @@ custom:
   env: ${file(./config.json)}
   webpack:
     webpackConfig: 'webpack.config.js'
-    includeModules: true
-    packager: 'yarn'
-    packagerOptions:
-      noFrozenLockFile: false
+    includeModules:
+      nodeModulesRelativeDir: '../../'
     excludeFiles: src/**/*.test.ts
     keepOutputDirectory: true
 
