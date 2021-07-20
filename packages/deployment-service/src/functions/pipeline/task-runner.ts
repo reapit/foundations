@@ -1,12 +1,29 @@
 import { PipelineEntity, PipelineRunnerEntity, TaskEntity, TaskWorkflow } from './../../entities'
-import { Handler, Context, Callback } from 'aws-lambda'
+import { SQSHandler, Context, Callback, SQSEvent } from 'aws-lambda'
 import { plainToClass } from 'class-transformer'
 import * as services from './../../services'
 import { DeploymentStatus, TaskRunnerFunctions } from '@reapit/foundations-ts-definitions'
 import { resolveExecutable } from './../../executables'
 import { QueueNames } from '../../constants'
 
-const failure = async (task: TaskEntity, error?: Error): Promise<void> => {
+const deleteMessage = (ReceiptHandle: string): Promise<void> => {
+  return new Promise<void>((resolve, reject) =>
+    services.sqs.deleteMessage(
+      {
+        ReceiptHandle,
+        QueueUrl: QueueNames.TASK_RUNNER,
+      },
+      (err) => {
+        if (err) {
+          reject(err)
+        }
+        resolve()
+      },
+    ),
+  )
+}
+
+const failure = async (task: TaskEntity, receiptHandle, error?: Error): Promise<void> => {
   console.error(error)
 
   await Promise.all([
@@ -16,10 +33,11 @@ const failure = async (task: TaskEntity, error?: Error): Promise<void> => {
     services.updateTask(task, {
       status: DeploymentStatus.FAILED,
     }),
+    deleteMessage(receiptHandle),
   ])
 }
 
-const overallSuccess = async (task: TaskEntity): Promise<void> => {
+const overallSuccess = async (task: TaskEntity, receiptHandle: string): Promise<void> => {
   await Promise.all([
     services.updatePipelineRunnerEntity(task.pipelineRunner as PipelineRunnerEntity, {
       buildStatus: DeploymentStatus.SUCCESS,
@@ -27,6 +45,7 @@ const overallSuccess = async (task: TaskEntity): Promise<void> => {
     services.updateTask(task, {
       status: DeploymentStatus.SUCCESS,
     }),
+    deleteMessage(receiptHandle),
   ])
 }
 
@@ -36,27 +55,13 @@ const startTask = async (task: TaskEntity): Promise<void> => {
   })
 }
 
-const completeAndStartNext = async (task: TaskEntity, nextTask: TaskEntity): Promise<void> => {
-  const queueUrl = await new Promise<string>((resolve, reject) =>
-    services.sqs.getQueueUrl(
-      {
-        QueueName: QueueNames.TASK_RUNNER,
-      },
-      (error, data) => {
-        if (error) {
-          reject()
-        }
-        typeof data.QueueUrl === 'undefined' ? reject() : resolve(data.QueueUrl)
-      },
-    ),
-  )
-
+const completeAndStartNext = async (task: TaskEntity, nextTask: TaskEntity, receiptHandle: string): Promise<void> => {
   await Promise.all([
     new Promise<void>((resolve, reject) =>
       services.sqs.sendMessage(
         {
           MessageBody: JSON.stringify(nextTask),
-          QueueUrl: queueUrl,
+          QueueUrl: QueueNames.TASK_RUNNER,
         },
         (error) => {
           if (error) {
@@ -69,6 +74,7 @@ const completeAndStartNext = async (task: TaskEntity, nextTask: TaskEntity): Pro
     services.updateTask(task, {
       status: DeploymentStatus.SUCCESS,
     }),
+    deleteMessage(receiptHandle),
   ])
 }
 
@@ -91,9 +97,11 @@ const getNextTask = async (task: TaskEntity): Promise<TaskEntity | undefined> =>
 /**
  * SQS event for running tasks and determining pipeline results
  */
-export const taskRunner: Handler = async (event: any, context: Context, callback: Callback): Promise<void> => {
+export const taskRunner: SQSHandler = async (event: SQSEvent, context: Context, callback: Callback): Promise<void> => {
   await Promise.all(
     event.Records.map(async (record) => {
+      const receiptHandle = record.receiptHandle
+
       const cachedTask = plainToClass(TaskEntity, JSON.parse(record.body))
 
       const task = await services.findTaskById(cachedTask.id as string)
@@ -124,12 +132,13 @@ export const taskRunner: Handler = async (event: any, context: Context, callback
         const nextTask = await getNextTask(task)
 
         if (nextTask) {
-          await completeAndStartNext(task, nextTask)
+          await completeAndStartNext(task, nextTask, receiptHandle)
         } else {
-          overallSuccess(task)
+          overallSuccess(task, receiptHandle)
         }
       } catch (e) {
-        await failure(task, e)
+        console.log('catch, creating failure', e)
+        await failure(task, receiptHandle, e)
       }
     }),
   )

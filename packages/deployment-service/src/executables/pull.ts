@@ -17,23 +17,23 @@ export const pull: ExecutableType = async (task: TaskEntity, pipeline: PipelineE
   console.log('executable', task)
 
   try {
-    await new Promise<void>((resolve) => {
+    await new Promise<void>((resolve, reject) => {
       request(`https://codeload.github.com/${pipeline.repository}/${zipLocation}`)
         .pipe(fs.createWriteStream(`${dir}/${cloneZip}`))
-        .on('close', function () {
+        .on('close', () => {
           resolve()
+        })
+        .on('error', (error) => {
+          reject(error)
         })
     })
 
-    // console.log(result)
+    unzip()
   } catch (e) {
-    // console.error(e)
     console.log('message', e.message)
     console.log('clone failed')
     throw e
   }
-
-  unzip()
 
   return Promise.resolve(true)
 }

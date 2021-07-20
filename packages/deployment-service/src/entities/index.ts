@@ -48,7 +48,9 @@ export class PipelineRunnerEntity extends AbstractEntity implements PipelineRunn
   tasks?: TaskEntity[]
 
   @Type(() => PipelineEntity)
-  @ManyToOne(() => PipelineEntity, (pipeline) => pipeline.runners)
+  @ManyToOne(() => PipelineEntity, (pipeline) => pipeline.runners, {
+    cascade: false,
+  })
   pipeline?: PipelineEntity
 }
 
