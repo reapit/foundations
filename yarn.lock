@@ -13850,6 +13850,7 @@ __metadata:
     ts-jest: ^27.0.3
     ts-loader: ^9.2.3
     typescript: ^4.3.5
+    typescript-eslint: ^0.0.1-alpha.0
     webpack: ^5.45.1
   languageName: unknown
   linkType: soft
@@ -14545,7 +14546,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"core-js-pure@npm:^3.15.0":
+"core-js-pure@npm:^3.10.2, core-js-pure@npm:^3.15.0":
   version: 3.15.2
   resolution: "core-js-pure@npm:3.15.2"
   checksum: 098de70a85d245422046c8859d699f8d1a5e971d12074f26e108a3db539430e641af4bb311888efbb944cfdc747d4b56ec8a1970458a2ce444cc834cabdf1772
@@ -15346,7 +15347,7 @@ __metadata:
     cross-env: ^6.0.3
     dayjs: ^1.10.6
     diff: ^4.0.2
-    eslint: 7.31.0
+    eslint: ^7.31.0
     eslint-plugin-prettier: ^3.4.0
     jest: ^27.0.6
     jest-coverage-badges: ^1.1.2
@@ -35582,13 +35583,6 @@ resolve@^2.0.0-next.3:
   languageName: node
   linkType: hard
 
-"symbol-observable@npm:^1.0.3":
-  version: 1.2.0
-  resolution: "symbol-observable@npm:1.2.0"
-  checksum: 268834a1d4cba19d40f367e5c2755f612969c8418e43a3be17408e392802a667f8bb542893440d58a080a8ea8da05ea98e27e472b9f4ff6fbda78a21a1a41c53
-  languageName: node
-  linkType: hard
-
 "symbol-observable@npm:^4.0.0":
   version: 4.0.0
   resolution: "symbol-observable@npm:4.0.0"
@@ -37103,6 +37097,13 @@ resolve@^2.0.0-next.3:
   languageName: node
   linkType: hard
 
+"typescript-eslint@npm:^0.0.1-alpha.0":
+  version: 0.0.1-alpha.0
+  resolution: "typescript-eslint@npm:0.0.1-alpha.0"
+  checksum: 0c8023f91e82a8712b6ed7701b67c33943a080a6a3dd1a7f1c7ef643660be75fe54aa72ff9d8ff5f97ec94053c320d305ce88e937f184656daa677c8aa4cb11a
+  languageName: node
+  linkType: hard
+
 "typescript-logic@npm:^0.0.0":
   version: 0.0.0
   resolution: "typescript-logic@npm:0.0.0"
@@ -38611,6 +38612,13 @@ typescript@^4.3.5:
   version: 2.0.4
   resolution: "whatwg-fetch@npm:2.0.4"
   checksum: 47339b6d2919a71459bef766d32cf54e678391cafdf334a40722320abfe156262f034654e296daa598b9e5f70ffd1ff1037212edc78eed347038ba30e9287a46
+  languageName: node
+  linkType: hard
+
+"whatwg-fetch@npm:3.0.0":
+  version: 3.0.0
+  resolution: "whatwg-fetch@npm:3.0.0"
+  checksum: 56ffff2db0908b2180830c1c543b16b3cb93f07c771f15af9ce1a31f426c4b843e0a22cb0afd9de585d7583c07f4b84cb5dbf42fe22bcf6ad34f96103b456aaf
   languageName: node
   linkType: hard
 
