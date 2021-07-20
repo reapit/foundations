@@ -15,8 +15,8 @@
   "devDependencies": {
     "@reapit/ts-scripts": "workspace:packages/ts-scripts",
     "@reapit/ts-types": "workspace:packages/ts-types",
-    "@typescript-eslint/eslint-plugin": "^4.28.3",
-    "@typescript-eslint/parser": "^4.28.3",
+    "@typescript-eslint/eslint-plugin": "^4.28.4",
+    "@typescript-eslint/parser": "^4.28.4",
     "babel-jest": "^27.0.6",
     "cross-env": "^7.0.3",
     "eslint-plugin-prettier": "^3.4.0",

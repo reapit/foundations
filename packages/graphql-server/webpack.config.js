@@ -7,7 +7,6 @@ const { EnvironmentPlugin } = require('webpack')
 const SentryWebpackPlugin = require('@sentry/webpack-plugin')
 const { getVersionTag, PATHS } = require('@reapit/ts-scripts')
 const { ContextReplacementPlugin } = require('webpack')
-const ForkTsCheckerWebpackPlugin = require('fork-ts-checker-webpack-plugin')
 
 const getServerlessEnvPlugins = () => {
   const tagName = getVersionTag()
@@ -39,7 +38,7 @@ const getServerlessEnvPlugins = () => {
 }
 
 const isLocal = slsw.lib.webpack.isLocal
-console.log(path.resolve(__dirname, '../..'))
+
 module.exports = {
   entry: slsw.lib.entries,
   target: 'node',
@@ -48,7 +47,7 @@ module.exports = {
   node: false,
   externals: nodeExternals({ modulesDir: path.resolve(__dirname, '../..', 'node_modules') }),
   optimization: {
-    minimize: false,
+    minimize: !isLocal,
   },
   devtool: 'inline-cheap-module-source-map',
   output: {
@@ -62,7 +61,7 @@ module.exports = {
       {
         test: /.ts?$/,
         exclude: /node_modules/,
-        use: [{ loader: 'ts-loader', options: { transpileOnly: true } }],
+        use: [{ loader: 'ts-loader' }],
       },
       {
         test: /\.(graphql|gql)$/,
@@ -89,11 +88,6 @@ module.exports = {
     }),
     new ResolveTSPathsToWebpackAlias({
       tsconfig: PATHS.tsConfig,
-    }),
-    new ForkTsCheckerWebpackPlugin({
-      eslint: {
-        files: './src/**/*.ts',
-      },
     }),
     ...getServerlessEnvPlugins(),
   ],
