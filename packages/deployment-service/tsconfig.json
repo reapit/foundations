@@ -22,7 +22,8 @@
     "baseUrl": "./",
     "paths": {
       "@reapit/connect-session": ["../connect-session/src"]
-    }
+    },
+    "skipLibCheck": true
   },
   "exclude": ["public", "dist", "scripts", "**/node_modules", "coverage", "archive/**/*", "**/__tests__/**/*"]
 }

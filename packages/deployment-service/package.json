@@ -8,6 +8,8 @@
     "adm-zip": "^0.5.5",
     "class-transformer": "^0.4.0",
     "class-validator": "^0.13.1",
+    "cors": "^2.8.5",
+    "express": "^4.17.1",
     "jsonwebtoken": "^8.5.1",
     "mysql": "^2.18.1",
     "nestjs-typeorm-paginate": "^2.5.3",
@@ -19,7 +21,7 @@
   "scripts": {
     "start": "reapit-fetch-public-keys yarn build && yarn serverless offline start --runtime nodejs12.x --stage local",
     "test": "reapit-fetch-public-keys --test && echo '...skipping...'",
-    "build": "echo '...skipping...'",
+    "build": "tsc -p .",
     "lint": "eslint --cache --ext=ts,tsx,js src --fix",
     "release": "yarn reapit-fetch-public-keys && serverless deploy",
     "publish": "echo '...skipping...'",
