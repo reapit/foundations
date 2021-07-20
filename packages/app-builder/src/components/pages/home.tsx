@@ -1,30 +1,45 @@
-import React, { FC, useEffect, useState } from 'react'
-import { useReapitConnect, ReapitConnectSession } from '@reapit/connect-session'
-import { reapitConnectBrowserSession } from '../../core/connect-session'
-import { configurationAppointmentsApiService } from '../../platform-api/configuration-api'
-import { ListItemModel } from '@reapit/foundations-ts-definitions'
-import { Title } from '@reapit/elements'
+// @ts-nocheck
+import React, { FC, useRef } from 'react'
+import { Editor, Frame, Element } from '@craftjs/core'
+
+import { RenderNode } from '../ui/RenderNode'
+import Viewport from '../ui/Viewport'
+import Container from '../ui/user/Container'
+import Text from '../ui/user/Text'
 
 export type AuthenticatedProps = {}
 
 export const Authenticated: FC<AuthenticatedProps> = () => {
-  const { connectSession } = useReapitConnect(reapitConnectBrowserSession)
-  const [appointmentConfigTypes, setAppointmentConfigTypes] = useState([] as ListItemModel[])
+  const iframeRef = useRef()
 
-  useEffect(() => {
-    const fetchAppoinmentConfigs = async () => {
-      const serviceResponse = await configurationAppointmentsApiService(connectSession as ReapitConnectSession)
-      if (serviceResponse) {
-        setAppointmentConfigTypes(serviceResponse)
-      }
-    }
-    if (connectSession) {
-      fetchAppoinmentConfigs()
-    }
-  }, [connectSession])
-
-  console.log('Appointment Config Types are: ', appointmentConfigTypes)
-  return <Title>App Builder</Title>
+  return (
+    <div style={{ width: '100%' }}>
+      <Editor
+        resolver={{
+          Text,
+          Container,
+        }}
+        onRender={(props) => <RenderNode {...props} iframeRef={iframeRef.current} />}
+      >
+        <Viewport iframeRef={iframeRef}>
+          <Frame>
+            <Element
+              canvas
+              is={Container}
+              width="12"
+              fixedWidth="800px"
+              height="auto"
+              background="white"
+              padding={40}
+              custom={{ displayName: 'App' }}
+            >
+              <Text text="I'm here by default!" />
+            </Element>
+          </Frame>
+        </Viewport>
+      </Editor>
+    </div>
+  )
 }
 
 export default Authenticated

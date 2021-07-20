@@ -3,17 +3,13 @@
 exports[`PrivateRouter should match a snapshot 1`] = `
 <MainContainer>
   <Nav />
-  <PageContainer>
-    <PageContainer>
-      <Suspense
-        fallback={
-          <Loader
-            fullPage={true}
-            label="Loading"
-          />
-        }
+  <Suspense
+    fallback={
+      <Loader
+        fullPage={true}
+        label="Loading"
       />
-    </PageContainer>
-  </PageContainer>
+    }
+  />
 </MainContainer>
 `;

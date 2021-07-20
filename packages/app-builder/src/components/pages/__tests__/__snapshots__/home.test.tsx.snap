@@ -1,7 +1,50 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`Home should match a snapshot 1`] = `
-<Title>
-  App Builder
-</Title>
+<div
+  style={
+    Object {
+      "width": "100%",
+    }
+  }
+>
+  <Editor
+    onRender={[Function]}
+    resolver={
+      Object {
+        "Container": [Function],
+        "Text": [Function],
+      }
+    }
+  >
+    <Viewport
+      iframeRef={
+        Object {
+          "current": undefined,
+        }
+      }
+    >
+      <Frame>
+        <Element
+          background="white"
+          canvas={true}
+          custom={
+            Object {
+              "displayName": "App",
+            }
+          }
+          fixedWidth="800px"
+          height="auto"
+          is={[Function]}
+          padding={40}
+          width="12"
+        >
+          <Text
+            text="I'm here by default!"
+          />
+        </Element>
+      </Frame>
+    </Viewport>
+  </Editor>
+</div>
 `;
