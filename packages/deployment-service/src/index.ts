@@ -1,1 +1,3 @@
-export * from './functions'
+import server from './core/server'
+
+server.listen(3000)

@@ -1,8 +1,17 @@
 version: '3'
 
 services:
-  elastic:
-    image: softwaremill/elasticmq
+
+  # elastic:
+  #   image: softwaremill/elasticmq
+  #   ports:
+  #     - 9324:9324
+  #     - 9325:9325
+
+  app:
+    build:
+      context: ../../
+      dockerfile: $PWD/Dockerfile
     ports:
-      - 9324:9324
-      - 9325:9325
+      - 3000:3000
+      
