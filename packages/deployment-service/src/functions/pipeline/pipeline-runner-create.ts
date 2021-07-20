@@ -33,25 +33,11 @@ export const pipelineRunnerCreate = httpHandler<void, PipelineRunnerEntity>({
       pipeline,
     })
 
-    const queueUrl = await new Promise<string>((resolve, reject) =>
-      service.sqs.getQueueUrl(
-        {
-          QueueName: QueueNames.TASK_POPULATION,
-        },
-        (error, data) => {
-          if (error) {
-            reject()
-          }
-          typeof data.QueueUrl === 'undefined' ? reject() : resolve(data.QueueUrl)
-        },
-      ),
-    )
-
     await new Promise<void>((resolve, reject) =>
       service.sqs.sendMessage(
         {
           MessageBody: JSON.stringify(pipelineRunner),
-          QueueUrl: queueUrl,
+          QueueUrl: QueueNames.TASK_POPULATION,
         },
         (error) => {
           if (error) {
