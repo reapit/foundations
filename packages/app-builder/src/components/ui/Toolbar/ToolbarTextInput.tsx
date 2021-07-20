@@ -1,7 +1,6 @@
 import { TextField, makeStyles, InputAdornment } from '@material-ui/core'
 import React, { useEffect } from 'react'
 import { useState } from 'react'
-import { ChromePicker } from 'react-color'
 import { ToolbarItemType } from './types'
 
 const useStyles = makeStyles({
@@ -54,7 +53,6 @@ export type ToolbarTextInputProps = {
 }
 export const ToolbarTextInput = ({ onChange, value, label, type, ...props }: ToolbarTextInputProps) => {
   const [internalValue, setInternalValue] = useState(value)
-  const [active, setActive] = useState(false)
   const classes = useStyles({})
   const labelClasses = useLabelStyles({})
   useEffect(() => {
@@ -64,37 +62,7 @@ export const ToolbarTextInput = ({ onChange, value, label, type, ...props }: Too
   }, [value, type])
 
   return (
-    <div
-      style={{ width: '100%', position: 'relative' }}
-      onClick={() => {
-        setActive(true)
-      }}
-    >
-      {(type === ToolbarItemType.Color || type === ToolbarItemType.Bg) && active ? (
-        <div
-          className="absolute"
-          style={{
-            zIndex: 99999,
-            top: 'calc(100% + 10px)',
-            left: '-5%',
-          }}
-        >
-          <div
-            className="fixed top-0 left-0 w-full h-full cursor-pointer"
-            onClick={(e) => {
-              e.preventDefault()
-              e.stopPropagation()
-              setActive(false)
-            }}
-          ></div>
-          <ChromePicker
-            color={value}
-            onChange={(color: any) => {
-              onChange(color.rgb)
-            }}
-          />
-        </div>
-      ) : null}
+    <div style={{ width: '100%', position: 'relative' }}>
       <TextField
         label={label}
         style={{ margin: 0, width: '100%' }}
