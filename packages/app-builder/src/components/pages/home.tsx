@@ -1,4 +1,3 @@
-// @ts-nocheck
 import React, { FC, useRef } from 'react'
 import { Editor, Frame, Element } from '@craftjs/core'
 
