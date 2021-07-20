@@ -1,6 +1,6 @@
 import React from 'react'
 import { Button, ModalV2, ButtonGroup } from '@reapit/elements-legacy'
-import { useMutation } from '@apollo/react-hooks'
+import { useMutation } from '@apollo/client'
 import UPDATE_APPOINTMENT_BY_ID from '../../../graphql/mutations/update-appointment-by-id.graphql'
 import { ExtendedAppointmentModel } from '../../../types/global'
 

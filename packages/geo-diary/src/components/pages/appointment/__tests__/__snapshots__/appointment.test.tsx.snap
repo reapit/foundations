@@ -2054,34 +2054,167 @@ exports[`appointment Apppointment should match snapshot with an empty query 1`] 
     ApolloClient {
       "cache": InMemoryCache {
         "addTypename": false,
-        "cacheKeyRoot": KeyTrie {
-          "weakness": true,
-        },
         "config": Object {
           "addTypename": false,
           "dataIdFromObject": [Function],
-          "fragmentMatcher": HeuristicFragmentMatcher {},
-          "freezeResults": false,
           "resultCaching": true,
+          "typePolicies": Object {},
         },
-        "data": DepTrackingCache {
+        "data": Root {
+          "canRead": [Function],
           "data": Object {},
-          "depend": [Function],
+          "getFieldValue": [Function],
+          "group": CacheGroup {
+            "caching": true,
+            "d": [Function],
+            "keyMaker": Trie {
+              "makeData": [Function],
+              "weakness": true,
+            },
+          },
+          "policies": Policies {
+            "cache": [Circular],
+            "config": Object {
+              "cache": [Circular],
+              "dataIdFromObject": [Function],
+              "possibleTypes": undefined,
+              "typePolicies": Object {},
+            },
+            "fuzzySubtypes": Map {},
+            "rootIdsByTypename": Object {
+              "Mutation": "ROOT_MUTATION",
+              "Query": "ROOT_QUERY",
+              "Subscription": "ROOT_SUBSCRIPTION",
+            },
+            "rootTypenamesById": Object {
+              "ROOT_MUTATION": "Mutation",
+              "ROOT_QUERY": "Query",
+              "ROOT_SUBSCRIPTION": "Subscription",
+            },
+            "supertypeMap": Map {},
+            "toBeAdded": Object {},
+            "typePolicies": Object {},
+            "usingPossibleTypes": false,
+          },
+          "refs": Object {},
+          "rootIds": Object {},
+          "sharedLayerGroup": CacheGroup {
+            "caching": true,
+            "d": [Function],
+            "keyMaker": Trie {
+              "makeData": [Function],
+              "weakness": true,
+            },
+          },
+          "storageTrie": Trie {
+            "makeData": [Function],
+            "weakness": true,
+          },
+          "toReference": [Function],
         },
+        "getFragmentDoc": [Function],
+        "makeVar": [Function],
         "maybeBroadcastWatch": [Function],
-        "optimisticData": DepTrackingCache {
+        "optimisticData": Root {
+          "canRead": [Function],
           "data": Object {},
-          "depend": [Function],
+          "getFieldValue": [Function],
+          "group": CacheGroup {
+            "caching": true,
+            "d": [Function],
+            "keyMaker": Trie {
+              "makeData": [Function],
+              "weakness": true,
+            },
+          },
+          "policies": Policies {
+            "cache": [Circular],
+            "config": Object {
+              "cache": [Circular],
+              "dataIdFromObject": [Function],
+              "possibleTypes": undefined,
+              "typePolicies": Object {},
+            },
+            "fuzzySubtypes": Map {},
+            "rootIdsByTypename": Object {
+              "Mutation": "ROOT_MUTATION",
+              "Query": "ROOT_QUERY",
+              "Subscription": "ROOT_SUBSCRIPTION",
+            },
+            "rootTypenamesById": Object {
+              "ROOT_MUTATION": "Mutation",
+              "ROOT_QUERY": "Query",
+              "ROOT_SUBSCRIPTION": "Subscription",
+            },
+            "supertypeMap": Map {},
+            "toBeAdded": Object {},
+            "typePolicies": Object {},
+            "usingPossibleTypes": false,
+          },
+          "refs": Object {},
+          "rootIds": Object {},
+          "sharedLayerGroup": CacheGroup {
+            "caching": true,
+            "d": [Function],
+            "keyMaker": Trie {
+              "makeData": [Function],
+              "weakness": true,
+            },
+          },
+          "storageTrie": Trie {
+            "makeData": [Function],
+            "weakness": true,
+          },
+          "toReference": [Function],
         },
-        "silenceBroadcast": false,
+        "policies": Policies {
+          "cache": [Circular],
+          "config": Object {
+            "cache": [Circular],
+            "dataIdFromObject": [Function],
+            "possibleTypes": undefined,
+            "typePolicies": Object {},
+          },
+          "fuzzySubtypes": Map {},
+          "rootIdsByTypename": Object {
+            "Mutation": "ROOT_MUTATION",
+            "Query": "ROOT_QUERY",
+            "Subscription": "ROOT_SUBSCRIPTION",
+          },
+          "rootTypenamesById": Object {
+            "ROOT_MUTATION": "Mutation",
+            "ROOT_QUERY": "Query",
+            "ROOT_SUBSCRIPTION": "Subscription",
+          },
+          "supertypeMap": Map {},
+          "toBeAdded": Object {},
+          "typePolicies": Object {},
+          "usingPossibleTypes": false,
+        },
         "storeReader": StoreReader {
+          "config": Object {
+            "addTypename": false,
+            "cache": [Circular],
+          },
           "executeSelectionSet": [Function],
-          "executeStoreQuery": [Function],
           "executeSubSelectedArray": [Function],
-          "freezeResults": false,
+          "knownResults": WeakMap {},
         },
-        "storeWriter": StoreWriter {},
+        "storeWriter": StoreWriter {
+          "cache": [Circular],
+          "reader": StoreReader {
+            "config": Object {
+              "addTypename": false,
+              "cache": [Circular],
+            },
+            "executeSelectionSet": [Function],
+            "executeSubSelectedArray": [Function],
+            "knownResults": WeakMap {},
+          },
+        },
+        "txCount": 0,
         "typenameDocumentCache": Map {},
+        "watchDep": [Function],
         "watches": Set {},
       },
       "clearStoreCallbacks": Array [],
@@ -2094,34 +2227,167 @@ exports[`appointment Apppointment should match snapshot with an empty query 1`] 
       "localState": LocalState {
         "cache": InMemoryCache {
           "addTypename": false,
-          "cacheKeyRoot": KeyTrie {
-            "weakness": true,
-          },
           "config": Object {
             "addTypename": false,
             "dataIdFromObject": [Function],
-            "fragmentMatcher": HeuristicFragmentMatcher {},
-            "freezeResults": false,
             "resultCaching": true,
+            "typePolicies": Object {},
           },
-          "data": DepTrackingCache {
+          "data": Root {
+            "canRead": [Function],
             "data": Object {},
-            "depend": [Function],
+            "getFieldValue": [Function],
+            "group": CacheGroup {
+              "caching": true,
+              "d": [Function],
+              "keyMaker": Trie {
+                "makeData": [Function],
+                "weakness": true,
+              },
+            },
+            "policies": Policies {
+              "cache": [Circular],
+              "config": Object {
+                "cache": [Circular],
+                "dataIdFromObject": [Function],
+                "possibleTypes": undefined,
+                "typePolicies": Object {},
+              },
+              "fuzzySubtypes": Map {},
+              "rootIdsByTypename": Object {
+                "Mutation": "ROOT_MUTATION",
+                "Query": "ROOT_QUERY",
+                "Subscription": "ROOT_SUBSCRIPTION",
+              },
+              "rootTypenamesById": Object {
+                "ROOT_MUTATION": "Mutation",
+                "ROOT_QUERY": "Query",
+                "ROOT_SUBSCRIPTION": "Subscription",
+              },
+              "supertypeMap": Map {},
+              "toBeAdded": Object {},
+              "typePolicies": Object {},
+              "usingPossibleTypes": false,
+            },
+            "refs": Object {},
+            "rootIds": Object {},
+            "sharedLayerGroup": CacheGroup {
+              "caching": true,
+              "d": [Function],
+              "keyMaker": Trie {
+                "makeData": [Function],
+                "weakness": true,
+              },
+            },
+            "storageTrie": Trie {
+              "makeData": [Function],
+              "weakness": true,
+            },
+            "toReference": [Function],
           },
+          "getFragmentDoc": [Function],
+          "makeVar": [Function],
           "maybeBroadcastWatch": [Function],
-          "optimisticData": DepTrackingCache {
+          "optimisticData": Root {
+            "canRead": [Function],
             "data": Object {},
-            "depend": [Function],
+            "getFieldValue": [Function],
+            "group": CacheGroup {
+              "caching": true,
+              "d": [Function],
+              "keyMaker": Trie {
+                "makeData": [Function],
+                "weakness": true,
+              },
+            },
+            "policies": Policies {
+              "cache": [Circular],
+              "config": Object {
+                "cache": [Circular],
+                "dataIdFromObject": [Function],
+                "possibleTypes": undefined,
+                "typePolicies": Object {},
+              },
+              "fuzzySubtypes": Map {},
+              "rootIdsByTypename": Object {
+                "Mutation": "ROOT_MUTATION",
+                "Query": "ROOT_QUERY",
+                "Subscription": "ROOT_SUBSCRIPTION",
+              },
+              "rootTypenamesById": Object {
+                "ROOT_MUTATION": "Mutation",
+                "ROOT_QUERY": "Query",
+                "ROOT_SUBSCRIPTION": "Subscription",
+              },
+              "supertypeMap": Map {},
+              "toBeAdded": Object {},
+              "typePolicies": Object {},
+              "usingPossibleTypes": false,
+            },
+            "refs": Object {},
+            "rootIds": Object {},
+            "sharedLayerGroup": CacheGroup {
+              "caching": true,
+              "d": [Function],
+              "keyMaker": Trie {
+                "makeData": [Function],
+                "weakness": true,
+              },
+            },
+            "storageTrie": Trie {
+              "makeData": [Function],
+              "weakness": true,
+            },
+            "toReference": [Function],
           },
-          "silenceBroadcast": false,
+          "policies": Policies {
+            "cache": [Circular],
+            "config": Object {
+              "cache": [Circular],
+              "dataIdFromObject": [Function],
+              "possibleTypes": undefined,
+              "typePolicies": Object {},
+            },
+            "fuzzySubtypes": Map {},
+            "rootIdsByTypename": Object {
+              "Mutation": "ROOT_MUTATION",
+              "Query": "ROOT_QUERY",
+              "Subscription": "ROOT_SUBSCRIPTION",
+            },
+            "rootTypenamesById": Object {
+              "ROOT_MUTATION": "Mutation",
+              "ROOT_QUERY": "Query",
+              "ROOT_SUBSCRIPTION": "Subscription",
+            },
+            "supertypeMap": Map {},
+            "toBeAdded": Object {},
+            "typePolicies": Object {},
+            "usingPossibleTypes": false,
+          },
           "storeReader": StoreReader {
+            "config": Object {
+              "addTypename": false,
+              "cache": [Circular],
+            },
             "executeSelectionSet": [Function],
-            "executeStoreQuery": [Function],
             "executeSubSelectedArray": [Function],
-            "freezeResults": false,
+            "knownResults": WeakMap {},
           },
-          "storeWriter": StoreWriter {},
+          "storeWriter": StoreWriter {
+            "cache": [Circular],
+            "reader": StoreReader {
+              "config": Object {
+                "addTypename": false,
+                "cache": [Circular],
+              },
+              "executeSelectionSet": [Function],
+              "executeSubSelectedArray": [Function],
+              "knownResults": WeakMap {},
+            },
+          },
+          "txCount": 0,
           "typenameDocumentCache": Map {},
+          "watchDep": [Function],
           "watches": Set {},
         },
         "client": [Circular],
@@ -2131,46 +2397,176 @@ exports[`appointment Apppointment should match snapshot with an empty query 1`] 
       "queryDeduplication": true,
       "queryManager": QueryManager {
         "assumeImmutableResults": false,
+        "cache": InMemoryCache {
+          "addTypename": false,
+          "config": Object {
+            "addTypename": false,
+            "dataIdFromObject": [Function],
+            "resultCaching": true,
+            "typePolicies": Object {},
+          },
+          "data": Root {
+            "canRead": [Function],
+            "data": Object {},
+            "getFieldValue": [Function],
+            "group": CacheGroup {
+              "caching": true,
+              "d": [Function],
+              "keyMaker": Trie {
+                "makeData": [Function],
+                "weakness": true,
+              },
+            },
+            "policies": Policies {
+              "cache": [Circular],
+              "config": Object {
+                "cache": [Circular],
+                "dataIdFromObject": [Function],
+                "possibleTypes": undefined,
+                "typePolicies": Object {},
+              },
+              "fuzzySubtypes": Map {},
+              "rootIdsByTypename": Object {
+                "Mutation": "ROOT_MUTATION",
+                "Query": "ROOT_QUERY",
+                "Subscription": "ROOT_SUBSCRIPTION",
+              },
+              "rootTypenamesById": Object {
+                "ROOT_MUTATION": "Mutation",
+                "ROOT_QUERY": "Query",
+                "ROOT_SUBSCRIPTION": "Subscription",
+              },
+              "supertypeMap": Map {},
+              "toBeAdded": Object {},
+              "typePolicies": Object {},
+              "usingPossibleTypes": false,
+            },
+            "refs": Object {},
+            "rootIds": Object {},
+            "sharedLayerGroup": CacheGroup {
+              "caching": true,
+              "d": [Function],
+              "keyMaker": Trie {
+                "makeData": [Function],
+                "weakness": true,
+              },
+            },
+            "storageTrie": Trie {
+              "makeData": [Function],
+              "weakness": true,
+            },
+            "toReference": [Function],
+          },
+          "getFragmentDoc": [Function],
+          "makeVar": [Function],
+          "maybeBroadcastWatch": [Function],
+          "optimisticData": Root {
+            "canRead": [Function],
+            "data": Object {},
+            "getFieldValue": [Function],
+            "group": CacheGroup {
+              "caching": true,
+              "d": [Function],
+              "keyMaker": Trie {
+                "makeData": [Function],
+                "weakness": true,
+              },
+            },
+            "policies": Policies {
+              "cache": [Circular],
+              "config": Object {
+                "cache": [Circular],
+                "dataIdFromObject": [Function],
+                "possibleTypes": undefined,
+                "typePolicies": Object {},
+              },
+              "fuzzySubtypes": Map {},
+              "rootIdsByTypename": Object {
+                "Mutation": "ROOT_MUTATION",
+                "Query": "ROOT_QUERY",
+                "Subscription": "ROOT_SUBSCRIPTION",
+              },
+              "rootTypenamesById": Object {
+                "ROOT_MUTATION": "Mutation",
+                "ROOT_QUERY": "Query",
+                "ROOT_SUBSCRIPTION": "Subscription",
+              },
+              "supertypeMap": Map {},
+              "toBeAdded": Object {},
+              "typePolicies": Object {},
+              "usingPossibleTypes": false,
+            },
+            "refs": Object {},
+            "rootIds": Object {},
+            "sharedLayerGroup": CacheGroup {
+              "caching": true,
+              "d": [Function],
+              "keyMaker": Trie {
+                "makeData": [Function],
+                "weakness": true,
+              },
+            },
+            "storageTrie": Trie {
+              "makeData": [Function],
+              "weakness": true,
+            },
+            "toReference": [Function],
+          },
+          "policies": Policies {
+            "cache": [Circular],
+            "config": Object {
+              "cache": [Circular],
+              "dataIdFromObject": [Function],
+              "possibleTypes": undefined,
+              "typePolicies": Object {},
+            },
+            "fuzzySubtypes": Map {},
+            "rootIdsByTypename": Object {
+              "Mutation": "ROOT_MUTATION",
+              "Query": "ROOT_QUERY",
+              "Subscription": "ROOT_SUBSCRIPTION",
+            },
+            "rootTypenamesById": Object {
+              "ROOT_MUTATION": "Mutation",
+              "ROOT_QUERY": "Query",
+              "ROOT_SUBSCRIPTION": "Subscription",
+            },
+            "supertypeMap": Map {},
+            "toBeAdded": Object {},
+            "typePolicies": Object {},
+            "usingPossibleTypes": false,
+          },
+          "storeReader": StoreReader {
+            "config": Object {
+              "addTypename": false,
+              "cache": [Circular],
+            },
+            "executeSelectionSet": [Function],
+            "executeSubSelectedArray": [Function],
+            "knownResults": WeakMap {},
+          },
+          "storeWriter": StoreWriter {
+            "cache": [Circular],
+            "reader": StoreReader {
+              "config": Object {
+                "addTypename": false,
+                "cache": [Circular],
+              },
+              "executeSelectionSet": [Function],
+              "executeSubSelectedArray": [Function],
+              "knownResults": WeakMap {},
+            },
+          },
+          "txCount": 0,
+          "typenameDocumentCache": Map {},
+          "watchDep": [Function],
+          "watches": Set {},
+        },
         "clientAwareness": Object {
           "name": undefined,
           "version": undefined,
         },
-        "dataStore": DataStore {
-          "cache": InMemoryCache {
-            "addTypename": false,
-            "cacheKeyRoot": KeyTrie {
-              "weakness": true,
-            },
-            "config": Object {
-              "addTypename": false,
-              "dataIdFromObject": [Function],
-              "fragmentMatcher": HeuristicFragmentMatcher {},
-              "freezeResults": false,
-              "resultCaching": true,
-            },
-            "data": DepTrackingCache {
-              "data": Object {},
-              "depend": [Function],
-            },
-            "maybeBroadcastWatch": [Function],
-            "optimisticData": DepTrackingCache {
-              "data": Object {},
-              "depend": [Function],
-            },
-            "silenceBroadcast": false,
-            "storeReader": StoreReader {
-              "executeSelectionSet": [Function],
-              "executeStoreQuery": [Function],
-              "executeSubSelectedArray": [Function],
-              "freezeResults": false,
-            },
-            "storeWriter": StoreWriter {},
-            "typenameDocumentCache": Map {},
-            "watches": Set {},
-          },
-        },
-        "fetchQueryRejectFns": Map {},
-        "idCounter": 1,
+        "fetchCancelFns": Map {},
         "inFlightLinkObservables": Map {},
         "link": MockLink {
           "addTypename": false,
@@ -2179,90 +2575,186 @@ exports[`appointment Apppointment should match snapshot with an empty query 1`] 
         "localState": LocalState {
           "cache": InMemoryCache {
             "addTypename": false,
-            "cacheKeyRoot": KeyTrie {
-              "weakness": true,
-            },
             "config": Object {
               "addTypename": false,
               "dataIdFromObject": [Function],
-              "fragmentMatcher": HeuristicFragmentMatcher {},
-              "freezeResults": false,
               "resultCaching": true,
+              "typePolicies": Object {},
             },
-            "data": DepTrackingCache {
+            "data": Root {
+              "canRead": [Function],
               "data": Object {},
-              "depend": [Function],
+              "getFieldValue": [Function],
+              "group": CacheGroup {
+                "caching": true,
+                "d": [Function],
+                "keyMaker": Trie {
+                  "makeData": [Function],
+                  "weakness": true,
+                },
+              },
+              "policies": Policies {
+                "cache": [Circular],
+                "config": Object {
+                  "cache": [Circular],
+                  "dataIdFromObject": [Function],
+                  "possibleTypes": undefined,
+                  "typePolicies": Object {},
+                },
+                "fuzzySubtypes": Map {},
+                "rootIdsByTypename": Object {
+                  "Mutation": "ROOT_MUTATION",
+                  "Query": "ROOT_QUERY",
+                  "Subscription": "ROOT_SUBSCRIPTION",
+                },
+                "rootTypenamesById": Object {
+                  "ROOT_MUTATION": "Mutation",
+                  "ROOT_QUERY": "Query",
+                  "ROOT_SUBSCRIPTION": "Subscription",
+                },
+                "supertypeMap": Map {},
+                "toBeAdded": Object {},
+                "typePolicies": Object {},
+                "usingPossibleTypes": false,
+              },
+              "refs": Object {},
+              "rootIds": Object {},
+              "sharedLayerGroup": CacheGroup {
+                "caching": true,
+                "d": [Function],
+                "keyMaker": Trie {
+                  "makeData": [Function],
+                  "weakness": true,
+                },
+              },
+              "storageTrie": Trie {
+                "makeData": [Function],
+                "weakness": true,
+              },
+              "toReference": [Function],
             },
+            "getFragmentDoc": [Function],
+            "makeVar": [Function],
             "maybeBroadcastWatch": [Function],
-            "optimisticData": DepTrackingCache {
+            "optimisticData": Root {
+              "canRead": [Function],
               "data": Object {},
-              "depend": [Function],
+              "getFieldValue": [Function],
+              "group": CacheGroup {
+                "caching": true,
+                "d": [Function],
+                "keyMaker": Trie {
+                  "makeData": [Function],
+                  "weakness": true,
+                },
+              },
+              "policies": Policies {
+                "cache": [Circular],
+                "config": Object {
+                  "cache": [Circular],
+                  "dataIdFromObject": [Function],
+                  "possibleTypes": undefined,
+                  "typePolicies": Object {},
+                },
+                "fuzzySubtypes": Map {},
+                "rootIdsByTypename": Object {
+                  "Mutation": "ROOT_MUTATION",
+                  "Query": "ROOT_QUERY",
+                  "Subscription": "ROOT_SUBSCRIPTION",
+                },
+                "rootTypenamesById": Object {
+                  "ROOT_MUTATION": "Mutation",
+                  "ROOT_QUERY": "Query",
+                  "ROOT_SUBSCRIPTION": "Subscription",
+                },
+                "supertypeMap": Map {},
+                "toBeAdded": Object {},
+                "typePolicies": Object {},
+                "usingPossibleTypes": false,
+              },
+              "refs": Object {},
+              "rootIds": Object {},
+              "sharedLayerGroup": CacheGroup {
+                "caching": true,
+                "d": [Function],
+                "keyMaker": Trie {
+                  "makeData": [Function],
+                  "weakness": true,
+                },
+              },
+              "storageTrie": Trie {
+                "makeData": [Function],
+                "weakness": true,
+              },
+              "toReference": [Function],
             },
-            "silenceBroadcast": false,
+            "policies": Policies {
+              "cache": [Circular],
+              "config": Object {
+                "cache": [Circular],
+                "dataIdFromObject": [Function],
+                "possibleTypes": undefined,
+                "typePolicies": Object {},
+              },
+              "fuzzySubtypes": Map {},
+              "rootIdsByTypename": Object {
+                "Mutation": "ROOT_MUTATION",
+                "Query": "ROOT_QUERY",
+                "Subscription": "ROOT_SUBSCRIPTION",
+              },
+              "rootTypenamesById": Object {
+                "ROOT_MUTATION": "Mutation",
+                "ROOT_QUERY": "Query",
+                "ROOT_SUBSCRIPTION": "Subscription",
+              },
+              "supertypeMap": Map {},
+              "toBeAdded": Object {},
+              "typePolicies": Object {},
+              "usingPossibleTypes": false,
+            },
             "storeReader": StoreReader {
+              "config": Object {
+                "addTypename": false,
+                "cache": [Circular],
+              },
               "executeSelectionSet": [Function],
-              "executeStoreQuery": [Function],
               "executeSubSelectedArray": [Function],
-              "freezeResults": false,
+              "knownResults": WeakMap {},
             },
-            "storeWriter": StoreWriter {},
+            "storeWriter": StoreWriter {
+              "cache": [Circular],
+              "reader": StoreReader {
+                "config": Object {
+                  "addTypename": false,
+                  "cache": [Circular],
+                },
+                "executeSelectionSet": [Function],
+                "executeSubSelectedArray": [Function],
+                "knownResults": WeakMap {},
+              },
+            },
+            "txCount": 0,
             "typenameDocumentCache": Map {},
+            "watchDep": [Function],
             "watches": Set {},
           },
           "client": [Circular],
         },
-        "mutationStore": MutationStore {
-          "store": Object {},
-        },
+        "mutationIdCounter": 1,
+        "mutationStore": Object {},
         "onBroadcast": [Function],
-        "pollingInfoByQueryId": Map {},
         "queries": Map {},
         "queryDeduplication": true,
-        "queryStore": QueryStore {
-          "store": Object {},
-        },
+        "queryIdCounter": 1,
+        "requestIdCounter": 1,
         "ssrMode": false,
         "transformCache": WeakMap {},
       },
       "reFetchObservableQueries": [Function],
       "resetStore": [Function],
       "resetStoreCallbacks": Array [],
-      "store": DataStore {
-        "cache": InMemoryCache {
-          "addTypename": false,
-          "cacheKeyRoot": KeyTrie {
-            "weakness": true,
-          },
-          "config": Object {
-            "addTypename": false,
-            "dataIdFromObject": [Function],
-            "fragmentMatcher": HeuristicFragmentMatcher {},
-            "freezeResults": false,
-            "resultCaching": true,
-          },
-          "data": DepTrackingCache {
-            "data": Object {},
-            "depend": [Function],
-          },
-          "maybeBroadcastWatch": [Function],
-          "optimisticData": DepTrackingCache {
-            "data": Object {},
-            "depend": [Function],
-          },
-          "silenceBroadcast": false,
-          "storeReader": StoreReader {
-            "executeSelectionSet": [Function],
-            "executeStoreQuery": [Function],
-            "executeSubSelectedArray": [Function],
-            "freezeResults": false,
-          },
-          "storeWriter": StoreWriter {},
-          "typenameDocumentCache": Map {},
-          "watches": Set {},
-        },
-      },
       "typeDefs": undefined,
-      "version": "2.6.10",
+      "version": "3.3.21",
       "watchQuery": [Function],
     }
   }
@@ -2277,34 +2769,167 @@ exports[`appointment Apppointment should match snapshot with data 1`] = `
     ApolloClient {
       "cache": InMemoryCache {
         "addTypename": false,
-        "cacheKeyRoot": KeyTrie {
-          "weakness": true,
-        },
         "config": Object {
           "addTypename": false,
           "dataIdFromObject": [Function],
-          "fragmentMatcher": HeuristicFragmentMatcher {},
-          "freezeResults": false,
           "resultCaching": true,
+          "typePolicies": Object {},
         },
-        "data": DepTrackingCache {
+        "data": Root {
+          "canRead": [Function],
           "data": Object {},
-          "depend": [Function],
+          "getFieldValue": [Function],
+          "group": CacheGroup {
+            "caching": true,
+            "d": [Function],
+            "keyMaker": Trie {
+              "makeData": [Function],
+              "weakness": true,
+            },
+          },
+          "policies": Policies {
+            "cache": [Circular],
+            "config": Object {
+              "cache": [Circular],
+              "dataIdFromObject": [Function],
+              "possibleTypes": undefined,
+              "typePolicies": Object {},
+            },
+            "fuzzySubtypes": Map {},
+            "rootIdsByTypename": Object {
+              "Mutation": "ROOT_MUTATION",
+              "Query": "ROOT_QUERY",
+              "Subscription": "ROOT_SUBSCRIPTION",
+            },
+            "rootTypenamesById": Object {
+              "ROOT_MUTATION": "Mutation",
+              "ROOT_QUERY": "Query",
+              "ROOT_SUBSCRIPTION": "Subscription",
+            },
+            "supertypeMap": Map {},
+            "toBeAdded": Object {},
+            "typePolicies": Object {},
+            "usingPossibleTypes": false,
+          },
+          "refs": Object {},
+          "rootIds": Object {},
+          "sharedLayerGroup": CacheGroup {
+            "caching": true,
+            "d": [Function],
+            "keyMaker": Trie {
+              "makeData": [Function],
+              "weakness": true,
+            },
+          },
+          "storageTrie": Trie {
+            "makeData": [Function],
+            "weakness": true,
+          },
+          "toReference": [Function],
         },
+        "getFragmentDoc": [Function],
+        "makeVar": [Function],
         "maybeBroadcastWatch": [Function],
-        "optimisticData": DepTrackingCache {
+        "optimisticData": Root {
+          "canRead": [Function],
           "data": Object {},
-          "depend": [Function],
+          "getFieldValue": [Function],
+          "group": CacheGroup {
+            "caching": true,
+            "d": [Function],
+            "keyMaker": Trie {
+              "makeData": [Function],
+              "weakness": true,
+            },
+          },
+          "policies": Policies {
+            "cache": [Circular],
+            "config": Object {
+              "cache": [Circular],
+              "dataIdFromObject": [Function],
+              "possibleTypes": undefined,
+              "typePolicies": Object {},
+            },
+            "fuzzySubtypes": Map {},
+            "rootIdsByTypename": Object {
+              "Mutation": "ROOT_MUTATION",
+              "Query": "ROOT_QUERY",
+              "Subscription": "ROOT_SUBSCRIPTION",
+            },
+            "rootTypenamesById": Object {
+              "ROOT_MUTATION": "Mutation",
+              "ROOT_QUERY": "Query",
+              "ROOT_SUBSCRIPTION": "Subscription",
+            },
+            "supertypeMap": Map {},
+            "toBeAdded": Object {},
+            "typePolicies": Object {},
+            "usingPossibleTypes": false,
+          },
+          "refs": Object {},
+          "rootIds": Object {},
+          "sharedLayerGroup": CacheGroup {
+            "caching": true,
+            "d": [Function],
+            "keyMaker": Trie {
+              "makeData": [Function],
+              "weakness": true,
+            },
+          },
+          "storageTrie": Trie {
+            "makeData": [Function],
+            "weakness": true,
+          },
+          "toReference": [Function],
         },
-        "silenceBroadcast": false,
+        "policies": Policies {
+          "cache": [Circular],
+          "config": Object {
+            "cache": [Circular],
+            "dataIdFromObject": [Function],
+            "possibleTypes": undefined,
+            "typePolicies": Object {},
+          },
+          "fuzzySubtypes": Map {},
+          "rootIdsByTypename": Object {
+            "Mutation": "ROOT_MUTATION",
+            "Query": "ROOT_QUERY",
+            "Subscription": "ROOT_SUBSCRIPTION",
+          },
+          "rootTypenamesById": Object {
+            "ROOT_MUTATION": "Mutation",
+            "ROOT_QUERY": "Query",
+            "ROOT_SUBSCRIPTION": "Subscription",
+          },
+          "supertypeMap": Map {},
+          "toBeAdded": Object {},
+          "typePolicies": Object {},
+          "usingPossibleTypes": false,
+        },
         "storeReader": StoreReader {
+          "config": Object {
+            "addTypename": false,
+            "cache": [Circular],
+          },
           "executeSelectionSet": [Function],
-          "executeStoreQuery": [Function],
           "executeSubSelectedArray": [Function],
-          "freezeResults": false,
+          "knownResults": WeakMap {},
         },
-        "storeWriter": StoreWriter {},
+        "storeWriter": StoreWriter {
+          "cache": [Circular],
+          "reader": StoreReader {
+            "config": Object {
+              "addTypename": false,
+              "cache": [Circular],
+            },
+            "executeSelectionSet": [Function],
+            "executeSubSelectedArray": [Function],
+            "knownResults": WeakMap {},
+          },
+        },
+        "txCount": 0,
         "typenameDocumentCache": Map {},
+        "watchDep": [Function],
         "watches": Set {},
       },
       "clearStoreCallbacks": Array [],
@@ -2313,7 +2938,7 @@ exports[`appointment Apppointment should match snapshot with data 1`] = `
       "link": MockLink {
         "addTypename": false,
         "mockedResponsesByKey": Object {
-          "{\\"query\\":\\"query GET_APPOINTMENTS($negotiatorId: [String!], $start: String!, $end: String!, $includeCancelled: Boolean, $includeUnconfirmed: Boolean, $embed: [AppointmentQueryEmbed]) {\\\\n  GetAppointments(negotiatorId: $negotiatorId, start: $start, end: $end, includeCancelled: $includeCancelled, includeUnconfirmed: $includeUnconfirmed, embed: $embed) {\\\\n    pageNumber\\\\n    pageSize\\\\n    pageCount\\\\n    totalCount\\\\n    _links\\\\n    _embedded {\\\\n      ...AppointmentModel\\\\n      property {\\\\n        ...PropertyModel\\\\n      }\\\\n      negotiators {\\\\n        ...NegotiatorModel\\\\n      }\\\\n      followUp {\\\\n        ...AppointmentModelFollowUp\\\\n      }\\\\n      attendee {\\\\n        ...AppointmentAttendeeModel\\\\n        contacts {\\\\n          ...AppointmentContactModel\\\\n        }\\\\n      }\\\\n      appointmentType {\\\\n        ...ListItemModel\\\\n      }\\\\n      _embedded {\\\\n        offices {\\\\n          ...OfficeModel\\\\n        }\\\\n      }\\\\n    }\\\\n  }\\\\n}\\\\n\\\\nfragment AppointmentAttendeeModel on AppointmentAttendeeModel {\\\\n  id\\\\n  type\\\\n}\\\\n\\\\nfragment AppointmentContactModel on AppointmentContactModel {\\\\n  id\\\\n  name\\\\n  homePhone\\\\n  workPhone\\\\n  mobilePhone\\\\n  email\\\\n}\\\\n\\\\nfragment AppointmentModelFollowUp on AppointmentModelFollowUp {\\\\n  due\\\\n  responseId\\\\n  notes\\\\n}\\\\n\\\\nfragment AppointmentModel on AppointmentModel {\\\\n  id\\\\n  created\\\\n  modified\\\\n  start\\\\n  end\\\\n  typeId\\\\n  description\\\\n  recurring\\\\n  cancelled\\\\n  propertyId\\\\n  organiserId\\\\n  negotiatorIds\\\\n  officeIds\\\\n  accompanied\\\\n  negotiatorConfirmed\\\\n  attendeeConfirmed\\\\n  propertyConfirmed\\\\n  metadata\\\\n  _eTag\\\\n  _links\\\\n}\\\\n\\\\nfragment ListItemModel on ListItemModel {\\\\n  id\\\\n  value\\\\n}\\\\n\\\\nfragment NegotiatorModel on NegotiatorModel {\\\\n  id\\\\n  created\\\\n  modified\\\\n  name\\\\n  jobTitle\\\\n  active\\\\n  officeId\\\\n  workPhone\\\\n  mobilePhone\\\\n  email\\\\n  metadata\\\\n  _eTag\\\\n  _links\\\\n}\\\\n\\\\nfragment OfficeModel on OfficeModel {\\\\n  id\\\\n  created\\\\n  modified\\\\n  name\\\\n  manager\\\\n  address {\\\\n    buildingName\\\\n    buildingNumber\\\\n    line1\\\\n    line2\\\\n    line3\\\\n    line4\\\\n    postcode\\\\n    countryId\\\\n  }\\\\n  workPhone\\\\n  email\\\\n  metadata\\\\n  _eTag\\\\n  _links\\\\n}\\\\n\\\\nfragment PropertyModel on PropertyModel {\\\\n  id\\\\n  viewingArrangements\\\\n  address {\\\\n    buildingName\\\\n    buildingNumber\\\\n    line1\\\\n    line2\\\\n    line3\\\\n    line4\\\\n    postcode\\\\n    countryId\\\\n    geolocation {\\\\n      latitude\\\\n      longitude\\\\n    }\\\\n  }\\\\n  selling {\\\\n    vendorId\\\\n  }\\\\n  letting {\\\\n    landlordId\\\\n  }\\\\n}\\\\n\\"}": Array [
+          "{\\"query\\":\\"query GET_APPOINTMENTS($negotiatorId: [String!], $start: String!, $end: String!, $includeCancelled: Boolean, $includeUnconfirmed: Boolean, $embed: [AppointmentQueryEmbed]) {\\\\n  GetAppointments(\\\\n    negotiatorId: $negotiatorId\\\\n    start: $start\\\\n    end: $end\\\\n    includeCancelled: $includeCancelled\\\\n    includeUnconfirmed: $includeUnconfirmed\\\\n    embed: $embed\\\\n  ) {\\\\n    pageNumber\\\\n    pageSize\\\\n    pageCount\\\\n    totalCount\\\\n    _links\\\\n    _embedded {\\\\n      ...AppointmentModel\\\\n      property {\\\\n        ...PropertyModel\\\\n      }\\\\n      negotiators {\\\\n        ...NegotiatorModel\\\\n      }\\\\n      followUp {\\\\n        ...AppointmentModelFollowUp\\\\n      }\\\\n      attendee {\\\\n        ...AppointmentAttendeeModel\\\\n        contacts {\\\\n          ...AppointmentContactModel\\\\n        }\\\\n      }\\\\n      appointmentType {\\\\n        ...ListItemModel\\\\n      }\\\\n      _embedded {\\\\n        offices {\\\\n          ...OfficeModel\\\\n        }\\\\n      }\\\\n    }\\\\n  }\\\\n}\\\\n\\\\nfragment AppointmentAttendeeModel on AppointmentAttendeeModel {\\\\n  id\\\\n  type\\\\n}\\\\n\\\\nfragment AppointmentContactModel on AppointmentContactModel {\\\\n  id\\\\n  name\\\\n  homePhone\\\\n  workPhone\\\\n  mobilePhone\\\\n  email\\\\n}\\\\n\\\\nfragment AppointmentModelFollowUp on AppointmentModelFollowUp {\\\\n  due\\\\n  responseId\\\\n  notes\\\\n}\\\\n\\\\nfragment AppointmentModel on AppointmentModel {\\\\n  id\\\\n  created\\\\n  modified\\\\n  start\\\\n  end\\\\n  typeId\\\\n  description\\\\n  recurring\\\\n  cancelled\\\\n  propertyId\\\\n  organiserId\\\\n  negotiatorIds\\\\n  officeIds\\\\n  accompanied\\\\n  negotiatorConfirmed\\\\n  attendeeConfirmed\\\\n  propertyConfirmed\\\\n  metadata\\\\n  _eTag\\\\n  _links\\\\n}\\\\n\\\\nfragment ListItemModel on ListItemModel {\\\\n  id\\\\n  value\\\\n}\\\\n\\\\nfragment NegotiatorModel on NegotiatorModel {\\\\n  id\\\\n  created\\\\n  modified\\\\n  name\\\\n  jobTitle\\\\n  active\\\\n  officeId\\\\n  workPhone\\\\n  mobilePhone\\\\n  email\\\\n  metadata\\\\n  _eTag\\\\n  _links\\\\n}\\\\n\\\\nfragment OfficeModel on OfficeModel {\\\\n  id\\\\n  created\\\\n  modified\\\\n  name\\\\n  manager\\\\n  address {\\\\n    buildingName\\\\n    buildingNumber\\\\n    line1\\\\n    line2\\\\n    line3\\\\n    line4\\\\n    postcode\\\\n    countryId\\\\n  }\\\\n  workPhone\\\\n  email\\\\n  metadata\\\\n  _eTag\\\\n  _links\\\\n}\\\\n\\\\nfragment PropertyModel on PropertyModel {\\\\n  id\\\\n  viewingArrangements\\\\n  address {\\\\n    buildingName\\\\n    buildingNumber\\\\n    line1\\\\n    line2\\\\n    line3\\\\n    line4\\\\n    postcode\\\\n    countryId\\\\n    geolocation {\\\\n      latitude\\\\n      longitude\\\\n    }\\\\n  }\\\\n  selling {\\\\n    vendorId\\\\n  }\\\\n  letting {\\\\n    landlordId\\\\n  }\\\\n}\\\\n\\"}": Array [
             Object {
               "request": Object {
                 "query": Object {
@@ -7247,34 +7872,167 @@ query GET_VENDORS($id: [String!]) {
       "localState": LocalState {
         "cache": InMemoryCache {
           "addTypename": false,
-          "cacheKeyRoot": KeyTrie {
-            "weakness": true,
-          },
           "config": Object {
             "addTypename": false,
             "dataIdFromObject": [Function],
-            "fragmentMatcher": HeuristicFragmentMatcher {},
-            "freezeResults": false,
             "resultCaching": true,
+            "typePolicies": Object {},
           },
-          "data": DepTrackingCache {
+          "data": Root {
+            "canRead": [Function],
             "data": Object {},
-            "depend": [Function],
+            "getFieldValue": [Function],
+            "group": CacheGroup {
+              "caching": true,
+              "d": [Function],
+              "keyMaker": Trie {
+                "makeData": [Function],
+                "weakness": true,
+              },
+            },
+            "policies": Policies {
+              "cache": [Circular],
+              "config": Object {
+                "cache": [Circular],
+                "dataIdFromObject": [Function],
+                "possibleTypes": undefined,
+                "typePolicies": Object {},
+              },
+              "fuzzySubtypes": Map {},
+              "rootIdsByTypename": Object {
+                "Mutation": "ROOT_MUTATION",
+                "Query": "ROOT_QUERY",
+                "Subscription": "ROOT_SUBSCRIPTION",
+              },
+              "rootTypenamesById": Object {
+                "ROOT_MUTATION": "Mutation",
+                "ROOT_QUERY": "Query",
+                "ROOT_SUBSCRIPTION": "Subscription",
+              },
+              "supertypeMap": Map {},
+              "toBeAdded": Object {},
+              "typePolicies": Object {},
+              "usingPossibleTypes": false,
+            },
+            "refs": Object {},
+            "rootIds": Object {},
+            "sharedLayerGroup": CacheGroup {
+              "caching": true,
+              "d": [Function],
+              "keyMaker": Trie {
+                "makeData": [Function],
+                "weakness": true,
+              },
+            },
+            "storageTrie": Trie {
+              "makeData": [Function],
+              "weakness": true,
+            },
+            "toReference": [Function],
           },
+          "getFragmentDoc": [Function],
+          "makeVar": [Function],
           "maybeBroadcastWatch": [Function],
-          "optimisticData": DepTrackingCache {
+          "optimisticData": Root {
+            "canRead": [Function],
             "data": Object {},
-            "depend": [Function],
+            "getFieldValue": [Function],
+            "group": CacheGroup {
+              "caching": true,
+              "d": [Function],
+              "keyMaker": Trie {
+                "makeData": [Function],
+                "weakness": true,
+              },
+            },
+            "policies": Policies {
+              "cache": [Circular],
+              "config": Object {
+                "cache": [Circular],
+                "dataIdFromObject": [Function],
+                "possibleTypes": undefined,
+                "typePolicies": Object {},
+              },
+              "fuzzySubtypes": Map {},
+              "rootIdsByTypename": Object {
+                "Mutation": "ROOT_MUTATION",
+                "Query": "ROOT_QUERY",
+                "Subscription": "ROOT_SUBSCRIPTION",
+              },
+              "rootTypenamesById": Object {
+                "ROOT_MUTATION": "Mutation",
+                "ROOT_QUERY": "Query",
+                "ROOT_SUBSCRIPTION": "Subscription",
+              },
+              "supertypeMap": Map {},
+              "toBeAdded": Object {},
+              "typePolicies": Object {},
+              "usingPossibleTypes": false,
+            },
+            "refs": Object {},
+            "rootIds": Object {},
+            "sharedLayerGroup": CacheGroup {
+              "caching": true,
+              "d": [Function],
+              "keyMaker": Trie {
+                "makeData": [Function],
+                "weakness": true,
+              },
+            },
+            "storageTrie": Trie {
+              "makeData": [Function],
+              "weakness": true,
+            },
+            "toReference": [Function],
           },
-          "silenceBroadcast": false,
+          "policies": Policies {
+            "cache": [Circular],
+            "config": Object {
+              "cache": [Circular],
+              "dataIdFromObject": [Function],
+              "possibleTypes": undefined,
+              "typePolicies": Object {},
+            },
+            "fuzzySubtypes": Map {},
+            "rootIdsByTypename": Object {
+              "Mutation": "ROOT_MUTATION",
+              "Query": "ROOT_QUERY",
+              "Subscription": "ROOT_SUBSCRIPTION",
+            },
+            "rootTypenamesById": Object {
+              "ROOT_MUTATION": "Mutation",
+              "ROOT_QUERY": "Query",
+              "ROOT_SUBSCRIPTION": "Subscription",
+            },
+            "supertypeMap": Map {},
+            "toBeAdded": Object {},
+            "typePolicies": Object {},
+            "usingPossibleTypes": false,
+          },
           "storeReader": StoreReader {
+            "config": Object {
+              "addTypename": false,
+              "cache": [Circular],
+            },
             "executeSelectionSet": [Function],
-            "executeStoreQuery": [Function],
             "executeSubSelectedArray": [Function],
-            "freezeResults": false,
+            "knownResults": WeakMap {},
           },
-          "storeWriter": StoreWriter {},
+          "storeWriter": StoreWriter {
+            "cache": [Circular],
+            "reader": StoreReader {
+              "config": Object {
+                "addTypename": false,
+                "cache": [Circular],
+              },
+              "executeSelectionSet": [Function],
+              "executeSubSelectedArray": [Function],
+              "knownResults": WeakMap {},
+            },
+          },
+          "txCount": 0,
           "typenameDocumentCache": Map {},
+          "watchDep": [Function],
           "watches": Set {},
         },
         "client": [Circular],
@@ -7284,51 +8042,181 @@ query GET_VENDORS($id: [String!]) {
       "queryDeduplication": true,
       "queryManager": QueryManager {
         "assumeImmutableResults": false,
+        "cache": InMemoryCache {
+          "addTypename": false,
+          "config": Object {
+            "addTypename": false,
+            "dataIdFromObject": [Function],
+            "resultCaching": true,
+            "typePolicies": Object {},
+          },
+          "data": Root {
+            "canRead": [Function],
+            "data": Object {},
+            "getFieldValue": [Function],
+            "group": CacheGroup {
+              "caching": true,
+              "d": [Function],
+              "keyMaker": Trie {
+                "makeData": [Function],
+                "weakness": true,
+              },
+            },
+            "policies": Policies {
+              "cache": [Circular],
+              "config": Object {
+                "cache": [Circular],
+                "dataIdFromObject": [Function],
+                "possibleTypes": undefined,
+                "typePolicies": Object {},
+              },
+              "fuzzySubtypes": Map {},
+              "rootIdsByTypename": Object {
+                "Mutation": "ROOT_MUTATION",
+                "Query": "ROOT_QUERY",
+                "Subscription": "ROOT_SUBSCRIPTION",
+              },
+              "rootTypenamesById": Object {
+                "ROOT_MUTATION": "Mutation",
+                "ROOT_QUERY": "Query",
+                "ROOT_SUBSCRIPTION": "Subscription",
+              },
+              "supertypeMap": Map {},
+              "toBeAdded": Object {},
+              "typePolicies": Object {},
+              "usingPossibleTypes": false,
+            },
+            "refs": Object {},
+            "rootIds": Object {},
+            "sharedLayerGroup": CacheGroup {
+              "caching": true,
+              "d": [Function],
+              "keyMaker": Trie {
+                "makeData": [Function],
+                "weakness": true,
+              },
+            },
+            "storageTrie": Trie {
+              "makeData": [Function],
+              "weakness": true,
+            },
+            "toReference": [Function],
+          },
+          "getFragmentDoc": [Function],
+          "makeVar": [Function],
+          "maybeBroadcastWatch": [Function],
+          "optimisticData": Root {
+            "canRead": [Function],
+            "data": Object {},
+            "getFieldValue": [Function],
+            "group": CacheGroup {
+              "caching": true,
+              "d": [Function],
+              "keyMaker": Trie {
+                "makeData": [Function],
+                "weakness": true,
+              },
+            },
+            "policies": Policies {
+              "cache": [Circular],
+              "config": Object {
+                "cache": [Circular],
+                "dataIdFromObject": [Function],
+                "possibleTypes": undefined,
+                "typePolicies": Object {},
+              },
+              "fuzzySubtypes": Map {},
+              "rootIdsByTypename": Object {
+                "Mutation": "ROOT_MUTATION",
+                "Query": "ROOT_QUERY",
+                "Subscription": "ROOT_SUBSCRIPTION",
+              },
+              "rootTypenamesById": Object {
+                "ROOT_MUTATION": "Mutation",
+                "ROOT_QUERY": "Query",
+                "ROOT_SUBSCRIPTION": "Subscription",
+              },
+              "supertypeMap": Map {},
+              "toBeAdded": Object {},
+              "typePolicies": Object {},
+              "usingPossibleTypes": false,
+            },
+            "refs": Object {},
+            "rootIds": Object {},
+            "sharedLayerGroup": CacheGroup {
+              "caching": true,
+              "d": [Function],
+              "keyMaker": Trie {
+                "makeData": [Function],
+                "weakness": true,
+              },
+            },
+            "storageTrie": Trie {
+              "makeData": [Function],
+              "weakness": true,
+            },
+            "toReference": [Function],
+          },
+          "policies": Policies {
+            "cache": [Circular],
+            "config": Object {
+              "cache": [Circular],
+              "dataIdFromObject": [Function],
+              "possibleTypes": undefined,
+              "typePolicies": Object {},
+            },
+            "fuzzySubtypes": Map {},
+            "rootIdsByTypename": Object {
+              "Mutation": "ROOT_MUTATION",
+              "Query": "ROOT_QUERY",
+              "Subscription": "ROOT_SUBSCRIPTION",
+            },
+            "rootTypenamesById": Object {
+              "ROOT_MUTATION": "Mutation",
+              "ROOT_QUERY": "Query",
+              "ROOT_SUBSCRIPTION": "Subscription",
+            },
+            "supertypeMap": Map {},
+            "toBeAdded": Object {},
+            "typePolicies": Object {},
+            "usingPossibleTypes": false,
+          },
+          "storeReader": StoreReader {
+            "config": Object {
+              "addTypename": false,
+              "cache": [Circular],
+            },
+            "executeSelectionSet": [Function],
+            "executeSubSelectedArray": [Function],
+            "knownResults": WeakMap {},
+          },
+          "storeWriter": StoreWriter {
+            "cache": [Circular],
+            "reader": StoreReader {
+              "config": Object {
+                "addTypename": false,
+                "cache": [Circular],
+              },
+              "executeSelectionSet": [Function],
+              "executeSubSelectedArray": [Function],
+              "knownResults": WeakMap {},
+            },
+          },
+          "txCount": 0,
+          "typenameDocumentCache": Map {},
+          "watchDep": [Function],
+          "watches": Set {},
+        },
         "clientAwareness": Object {
           "name": undefined,
           "version": undefined,
         },
-        "dataStore": DataStore {
-          "cache": InMemoryCache {
-            "addTypename": false,
-            "cacheKeyRoot": KeyTrie {
-              "weakness": true,
-            },
-            "config": Object {
-              "addTypename": false,
-              "dataIdFromObject": [Function],
-              "fragmentMatcher": HeuristicFragmentMatcher {},
-              "freezeResults": false,
-              "resultCaching": true,
-            },
-            "data": DepTrackingCache {
-              "data": Object {},
-              "depend": [Function],
-            },
-            "maybeBroadcastWatch": [Function],
-            "optimisticData": DepTrackingCache {
-              "data": Object {},
-              "depend": [Function],
-            },
-            "silenceBroadcast": false,
-            "storeReader": StoreReader {
-              "executeSelectionSet": [Function],
-              "executeStoreQuery": [Function],
-              "executeSubSelectedArray": [Function],
-              "freezeResults": false,
-            },
-            "storeWriter": StoreWriter {},
-            "typenameDocumentCache": Map {},
-            "watches": Set {},
-          },
-        },
-        "fetchQueryRejectFns": Map {},
-        "idCounter": 1,
+        "fetchCancelFns": Map {},
         "inFlightLinkObservables": Map {},
         "link": MockLink {
           "addTypename": false,
           "mockedResponsesByKey": Object {
-            "{\\"query\\":\\"query GET_APPOINTMENTS($negotiatorId: [String!], $start: String!, $end: String!, $includeCancelled: Boolean, $includeUnconfirmed: Boolean, $embed: [AppointmentQueryEmbed]) {\\\\n  GetAppointments(negotiatorId: $negotiatorId, start: $start, end: $end, includeCancelled: $includeCancelled, includeUnconfirmed: $includeUnconfirmed, embed: $embed) {\\\\n    pageNumber\\\\n    pageSize\\\\n    pageCount\\\\n    totalCount\\\\n    _links\\\\n    _embedded {\\\\n      ...AppointmentModel\\\\n      property {\\\\n        ...PropertyModel\\\\n      }\\\\n      negotiators {\\\\n        ...NegotiatorModel\\\\n      }\\\\n      followUp {\\\\n        ...AppointmentModelFollowUp\\\\n      }\\\\n      attendee {\\\\n        ...AppointmentAttendeeModel\\\\n        contacts {\\\\n          ...AppointmentContactModel\\\\n        }\\\\n      }\\\\n      appointmentType {\\\\n        ...ListItemModel\\\\n      }\\\\n      _embedded {\\\\n        offices {\\\\n          ...OfficeModel\\\\n        }\\\\n      }\\\\n    }\\\\n  }\\\\n}\\\\n\\\\nfragment AppointmentAttendeeModel on AppointmentAttendeeModel {\\\\n  id\\\\n  type\\\\n}\\\\n\\\\nfragment AppointmentContactModel on AppointmentContactModel {\\\\n  id\\\\n  name\\\\n  homePhone\\\\n  workPhone\\\\n  mobilePhone\\\\n  email\\\\n}\\\\n\\\\nfragment AppointmentModelFollowUp on AppointmentModelFollowUp {\\\\n  due\\\\n  responseId\\\\n  notes\\\\n}\\\\n\\\\nfragment AppointmentModel on AppointmentModel {\\\\n  id\\\\n  created\\\\n  modified\\\\n  start\\\\n  end\\\\n  typeId\\\\n  description\\\\n  recurring\\\\n  cancelled\\\\n  propertyId\\\\n  organiserId\\\\n  negotiatorIds\\\\n  officeIds\\\\n  accompanied\\\\n  negotiatorConfirmed\\\\n  attendeeConfirmed\\\\n  propertyConfirmed\\\\n  metadata\\\\n  _eTag\\\\n  _links\\\\n}\\\\n\\\\nfragment ListItemModel on ListItemModel {\\\\n  id\\\\n  value\\\\n}\\\\n\\\\nfragment NegotiatorModel on NegotiatorModel {\\\\n  id\\\\n  created\\\\n  modified\\\\n  name\\\\n  jobTitle\\\\n  active\\\\n  officeId\\\\n  workPhone\\\\n  mobilePhone\\\\n  email\\\\n  metadata\\\\n  _eTag\\\\n  _links\\\\n}\\\\n\\\\nfragment OfficeModel on OfficeModel {\\\\n  id\\\\n  created\\\\n  modified\\\\n  name\\\\n  manager\\\\n  address {\\\\n    buildingName\\\\n    buildingNumber\\\\n    line1\\\\n    line2\\\\n    line3\\\\n    line4\\\\n    postcode\\\\n    countryId\\\\n  }\\\\n  workPhone\\\\n  email\\\\n  metadata\\\\n  _eTag\\\\n  _links\\\\n}\\\\n\\\\nfragment PropertyModel on PropertyModel {\\\\n  id\\\\n  viewingArrangements\\\\n  address {\\\\n    buildingName\\\\n    buildingNumber\\\\n    line1\\\\n    line2\\\\n    line3\\\\n    line4\\\\n    postcode\\\\n    countryId\\\\n    geolocation {\\\\n      latitude\\\\n      longitude\\\\n    }\\\\n  }\\\\n  selling {\\\\n    vendorId\\\\n  }\\\\n  letting {\\\\n    landlordId\\\\n  }\\\\n}\\\\n\\"}": Array [
+            "{\\"query\\":\\"query GET_APPOINTMENTS($negotiatorId: [String!], $start: String!, $end: String!, $includeCancelled: Boolean, $includeUnconfirmed: Boolean, $embed: [AppointmentQueryEmbed]) {\\\\n  GetAppointments(\\\\n    negotiatorId: $negotiatorId\\\\n    start: $start\\\\n    end: $end\\\\n    includeCancelled: $includeCancelled\\\\n    includeUnconfirmed: $includeUnconfirmed\\\\n    embed: $embed\\\\n  ) {\\\\n    pageNumber\\\\n    pageSize\\\\n    pageCount\\\\n    totalCount\\\\n    _links\\\\n    _embedded {\\\\n      ...AppointmentModel\\\\n      property {\\\\n        ...PropertyModel\\\\n      }\\\\n      negotiators {\\\\n        ...NegotiatorModel\\\\n      }\\\\n      followUp {\\\\n        ...AppointmentModelFollowUp\\\\n      }\\\\n      attendee {\\\\n        ...AppointmentAttendeeModel\\\\n        contacts {\\\\n          ...AppointmentContactModel\\\\n        }\\\\n      }\\\\n      appointmentType {\\\\n        ...ListItemModel\\\\n      }\\\\n      _embedded {\\\\n        offices {\\\\n          ...OfficeModel\\\\n        }\\\\n      }\\\\n    }\\\\n  }\\\\n}\\\\n\\\\nfragment AppointmentAttendeeModel on AppointmentAttendeeModel {\\\\n  id\\\\n  type\\\\n}\\\\n\\\\nfragment AppointmentContactModel on AppointmentContactModel {\\\\n  id\\\\n  name\\\\n  homePhone\\\\n  workPhone\\\\n  mobilePhone\\\\n  email\\\\n}\\\\n\\\\nfragment AppointmentModelFollowUp on AppointmentModelFollowUp {\\\\n  due\\\\n  responseId\\\\n  notes\\\\n}\\\\n\\\\nfragment AppointmentModel on AppointmentModel {\\\\n  id\\\\n  created\\\\n  modified\\\\n  start\\\\n  end\\\\n  typeId\\\\n  description\\\\n  recurring\\\\n  cancelled\\\\n  propertyId\\\\n  organiserId\\\\n  negotiatorIds\\\\n  officeIds\\\\n  accompanied\\\\n  negotiatorConfirmed\\\\n  attendeeConfirmed\\\\n  propertyConfirmed\\\\n  metadata\\\\n  _eTag\\\\n  _links\\\\n}\\\\n\\\\nfragment ListItemModel on ListItemModel {\\\\n  id\\\\n  value\\\\n}\\\\n\\\\nfragment NegotiatorModel on NegotiatorModel {\\\\n  id\\\\n  created\\\\n  modified\\\\n  name\\\\n  jobTitle\\\\n  active\\\\n  officeId\\\\n  workPhone\\\\n  mobilePhone\\\\n  email\\\\n  metadata\\\\n  _eTag\\\\n  _links\\\\n}\\\\n\\\\nfragment OfficeModel on OfficeModel {\\\\n  id\\\\n  created\\\\n  modified\\\\n  name\\\\n  manager\\\\n  address {\\\\n    buildingName\\\\n    buildingNumber\\\\n    line1\\\\n    line2\\\\n    line3\\\\n    line4\\\\n    postcode\\\\n    countryId\\\\n  }\\\\n  workPhone\\\\n  email\\\\n  metadata\\\\n  _eTag\\\\n  _links\\\\n}\\\\n\\\\nfragment PropertyModel on PropertyModel {\\\\n  id\\\\n  viewingArrangements\\\\n  address {\\\\n    buildingName\\\\n    buildingNumber\\\\n    line1\\\\n    line2\\\\n    line3\\\\n    line4\\\\n    postcode\\\\n    countryId\\\\n    geolocation {\\\\n      latitude\\\\n      longitude\\\\n    }\\\\n  }\\\\n  selling {\\\\n    vendorId\\\\n  }\\\\n  letting {\\\\n    landlordId\\\\n  }\\\\n}\\\\n\\"}": Array [
               Object {
                 "request": Object {
                   "query": Object {
@@ -12262,90 +13150,185 @@ query GET_VENDORS($id: [String!]) {
         "localState": LocalState {
           "cache": InMemoryCache {
             "addTypename": false,
-            "cacheKeyRoot": KeyTrie {
-              "weakness": true,
-            },
             "config": Object {
               "addTypename": false,
               "dataIdFromObject": [Function],
-              "fragmentMatcher": HeuristicFragmentMatcher {},
-              "freezeResults": false,
               "resultCaching": true,
+              "typePolicies": Object {},
             },
-            "data": DepTrackingCache {
+            "data": Root {
+              "canRead": [Function],
               "data": Object {},
-              "depend": [Function],
+              "getFieldValue": [Function],
+              "group": CacheGroup {
+                "caching": true,
+                "d": [Function],
+                "keyMaker": Trie {
+                  "makeData": [Function],
+                  "weakness": true,
+                },
+              },
+              "policies": Policies {
+                "cache": [Circular],
+                "config": Object {
+                  "cache": [Circular],
+                  "dataIdFromObject": [Function],
+                  "possibleTypes": undefined,
+                  "typePolicies": Object {},
+                },
+                "fuzzySubtypes": Map {},
+                "rootIdsByTypename": Object {
+                  "Mutation": "ROOT_MUTATION",
+                  "Query": "ROOT_QUERY",
+                  "Subscription": "ROOT_SUBSCRIPTION",
+                },
+                "rootTypenamesById": Object {
+                  "ROOT_MUTATION": "Mutation",
+                  "ROOT_QUERY": "Query",
+                  "ROOT_SUBSCRIPTION": "Subscription",
+                },
+                "supertypeMap": Map {},
+                "toBeAdded": Object {},
+                "typePolicies": Object {},
+                "usingPossibleTypes": false,
+              },
+              "refs": Object {},
+              "rootIds": Object {},
+              "sharedLayerGroup": CacheGroup {
+                "caching": true,
+                "d": [Function],
+                "keyMaker": Trie {
+                  "makeData": [Function],
+                  "weakness": true,
+                },
+              },
+              "storageTrie": Trie {
+                "makeData": [Function],
+                "weakness": true,
+              },
+              "toReference": [Function],
             },
+            "getFragmentDoc": [Function],
+            "makeVar": [Function],
             "maybeBroadcastWatch": [Function],
-            "optimisticData": DepTrackingCache {
+            "optimisticData": Root {
+              "canRead": [Function],
               "data": Object {},
-              "depend": [Function],
+              "getFieldValue": [Function],
+              "group": CacheGroup {
+                "caching": true,
+                "d": [Function],
+                "keyMaker": Trie {
+                  "makeData": [Function],
+                  "weakness": true,
+                },
+              },
+              "policies": Policies {
+                "cache": [Circular],
+                "config": Object {
+                  "cache": [Circular],
+                  "dataIdFromObject": [Function],
+                  "possibleTypes": undefined,
+                  "typePolicies": Object {},
+                },
+                "fuzzySubtypes": Map {},
+                "rootIdsByTypename": Object {
+                  "Mutation": "ROOT_MUTATION",
+                  "Query": "ROOT_QUERY",
+                  "Subscription": "ROOT_SUBSCRIPTION",
+                },
+                "rootTypenamesById": Object {
+                  "ROOT_MUTATION": "Mutation",
+                  "ROOT_QUERY": "Query",
+                  "ROOT_SUBSCRIPTION": "Subscription",
+                },
+                "supertypeMap": Map {},
+                "toBeAdded": Object {},
+                "typePolicies": Object {},
+                "usingPossibleTypes": false,
+              },
+              "refs": Object {},
+              "rootIds": Object {},
+              "sharedLayerGroup": CacheGroup {
+                "caching": true,
+                "d": [Function],
+                "keyMaker": Trie {
+                  "makeData": [Function],
+                  "weakness": true,
+                },
+              },
+              "storageTrie": Trie {
+                "makeData": [Function],
+                "weakness": true,
+              },
+              "toReference": [Function],
             },
-            "silenceBroadcast": false,
+            "policies": Policies {
+              "cache": [Circular],
+              "config": Object {
+                "cache": [Circular],
+                "dataIdFromObject": [Function],
+                "possibleTypes": undefined,
+                "typePolicies": Object {},
+              },
+              "fuzzySubtypes": Map {},
+              "rootIdsByTypename": Object {
+                "Mutation": "ROOT_MUTATION",
+                "Query": "ROOT_QUERY",
+                "Subscription": "ROOT_SUBSCRIPTION",
+              },
+              "rootTypenamesById": Object {
+                "ROOT_MUTATION": "Mutation",
+                "ROOT_QUERY": "Query",
+                "ROOT_SUBSCRIPTION": "Subscription",
+              },
+              "supertypeMap": Map {},
+              "toBeAdded": Object {},
+              "typePolicies": Object {},
+              "usingPossibleTypes": false,
+            },
             "storeReader": StoreReader {
+              "config": Object {
+                "addTypename": false,
+                "cache": [Circular],
+              },
               "executeSelectionSet": [Function],
-              "executeStoreQuery": [Function],
               "executeSubSelectedArray": [Function],
-              "freezeResults": false,
+              "knownResults": WeakMap {},
             },
-            "storeWriter": StoreWriter {},
+            "storeWriter": StoreWriter {
+              "cache": [Circular],
+              "reader": StoreReader {
+                "config": Object {
+                  "addTypename": false,
+                  "cache": [Circular],
+                },
+                "executeSelectionSet": [Function],
+                "executeSubSelectedArray": [Function],
+                "knownResults": WeakMap {},
+              },
+            },
+            "txCount": 0,
             "typenameDocumentCache": Map {},
+            "watchDep": [Function],
             "watches": Set {},
           },
           "client": [Circular],
         },
-        "mutationStore": MutationStore {
-          "store": Object {},
-        },
-        "onBroadcast": [Function],
-        "pollingInfoByQueryId": Map {},
+        "mutationIdCounter": 1,
+        "onBroadcast": undefined,
         "queries": Map {},
         "queryDeduplication": true,
-        "queryStore": QueryStore {
-          "store": Object {},
-        },
+        "queryIdCounter": 1,
+        "requestIdCounter": 1,
         "ssrMode": false,
         "transformCache": WeakMap {},
       },
       "reFetchObservableQueries": [Function],
       "resetStore": [Function],
       "resetStoreCallbacks": Array [],
-      "store": DataStore {
-        "cache": InMemoryCache {
-          "addTypename": false,
-          "cacheKeyRoot": KeyTrie {
-            "weakness": true,
-          },
-          "config": Object {
-            "addTypename": false,
-            "dataIdFromObject": [Function],
-            "fragmentMatcher": HeuristicFragmentMatcher {},
-            "freezeResults": false,
-            "resultCaching": true,
-          },
-          "data": DepTrackingCache {
-            "data": Object {},
-            "depend": [Function],
-          },
-          "maybeBroadcastWatch": [Function],
-          "optimisticData": DepTrackingCache {
-            "data": Object {},
-            "depend": [Function],
-          },
-          "silenceBroadcast": false,
-          "storeReader": StoreReader {
-            "executeSelectionSet": [Function],
-            "executeStoreQuery": [Function],
-            "executeSubSelectedArray": [Function],
-            "freezeResults": false,
-          },
-          "storeWriter": StoreWriter {},
-          "typenameDocumentCache": Map {},
-          "watches": Set {},
-        },
-      },
       "typeDefs": undefined,
-      "version": "2.6.10",
+      "version": "3.3.21",
       "watchQuery": [Function],
     }
   }

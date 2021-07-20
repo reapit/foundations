@@ -1,5 +1,5 @@
 import React, { Dispatch, FC, memo, SetStateAction, useEffect, useMemo } from 'react'
-import { useQuery } from '@apollo/react-hooks'
+import { useQuery } from '@apollo/client'
 import dayjs from 'dayjs'
 import { FadeIn, fetcher, DATE_TIME_FORMAT } from '@reapit/elements-legacy'
 import { ExtendedAppointmentModel } from '@/types/global'
