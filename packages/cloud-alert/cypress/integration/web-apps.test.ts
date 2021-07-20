@@ -14,7 +14,7 @@ Cypress.on('fail', (error, runnable) => {
 })
 
 describe('Web Apps Dev', () => {
-  webAppsDev.forEach(app => {
+  webAppsDev.forEach((app) => {
     it(`Healthcheck for Dev ${app.appName} ${app.url}/ok`, () => {
       cy.visit(`${app.url}/ok`).then(() => {
         cy.get('#ok-content').should('contain', "It's ok, everything's fine 👍")
@@ -24,7 +24,7 @@ describe('Web Apps Dev', () => {
 })
 
 describe('Web Apps Prod', () => {
-  webAppsProd.forEach(app => {
+  webAppsProd.forEach((app) => {
     it.skip(`Healthcheck for Prod ${app.appName} ${app.url}/ok`, () => {
       cy.visit(`${app.url}/ok`).then(() => {
         cy.get('#ok-content').should('contain', "It's ok, everything's fine 👍")
