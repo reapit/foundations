@@ -16,6 +16,10 @@ export const pull: ExecutableType = async (task: TaskEntity, pipeline: PipelineE
   console.log('pull...')
   console.log('executable', task)
 
+  if (!fs.existsSync(dir)) {
+    fs.mkdirSync(dir)
+  }
+
   try {
     await new Promise<void>((resolve, reject) => {
       request(`https://codeload.github.com/${pipeline.repository}/${zipLocation}`)
