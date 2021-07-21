@@ -1,25 +1,27 @@
-import { PipelineRunnerEntity } from './../../entities'
 import { ownership, resolveDeveloperId } from './../../utils'
-import { httpHandler, NotFoundException } from '@homeservenow/serverless-aws-handler'
+import { HttpStatusCode } from '@homeservenow/serverless-aws-handler'
 import * as service from '../../services'
-import { defaultOutputHeaders } from './../../constants'
+import { RequestHandler, Request, Response } from 'express'
 
 /**
  * Get a pipeline by id
  */
-export const pipelineRunnerGet = httpHandler<void, PipelineRunnerEntity>({
-  defaultOutputHeaders,
-  handler: async ({ event }): Promise<PipelineRunnerEntity> => {
-    const developerId = await resolveDeveloperId(event)
+export const pipelineRunnerGet: RequestHandler = async (request: Request, response: Response): Promise<Response> => {
+  const pipelineRunnerId = request.params.pipelineRunnerId
+  const developerId = await resolveDeveloperId(request.headers)
 
-    const pipelineRunner = await service.findPipelineRunnerById(event.pathParameters?.pipelineId as string)
+  const pipelineRunner = await service.findPipelineRunnerById(pipelineRunnerId)
 
-    if (!pipelineRunner || typeof pipelineRunner.pipeline === 'undefined') {
-      throw new NotFoundException()
-    }
+  if (!pipelineRunner || typeof pipelineRunner.pipeline === 'undefined') {
+    response.status(HttpStatusCode.NOT_FOUND)
+    return response
+  }
 
-    await ownership(pipelineRunner.pipeline.id as string, developerId)
+  await ownership(pipelineRunner.pipeline.id, developerId)
 
-    return pipelineRunner
-  },
-})
+  response.status(HttpStatusCode.OK)
+  response.send(pipelineRunner)
+  response.setHeader('Access-Control-Allow-Origin', '*')
+
+  return response
+}

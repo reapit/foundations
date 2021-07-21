@@ -1,14 +1,14 @@
 import { UnauthorizedException } from '@homeservenow/serverless-aws-handler'
 import { connectSessionVerifyDecodeIdTokenWithPublicKeys, LoginIdentity } from '@reapit/connect-session'
 import publicKeys from './../../public-keys.json'
-import { APIGatewayEvent } from 'aws-lambda'
+import { IncomingHttpHeaders } from 'http'
 
-export const resolveCustomer = async (event: APIGatewayEvent): Promise<LoginIdentity | never> => {
+export const resolveCustomer = async (headers: IncomingHttpHeaders): Promise<LoginIdentity | never> => {
   let customer: LoginIdentity | undefined
 
   try {
     customer = await connectSessionVerifyDecodeIdTokenWithPublicKeys(
-      event.headers['Authorization'] as string,
+      headers['Authorization'] as string,
       process.env.CONNECT_USER_POOL as string,
       publicKeys,
     )

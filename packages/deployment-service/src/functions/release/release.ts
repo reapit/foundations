@@ -1,10 +1,9 @@
 import { resolveDeveloperId } from '../../utils'
-import { BadRequestException, httpHandler } from '@homeservenow/serverless-aws-handler'
 import { s3Client } from '../../services'
 import { release } from './../../executables'
-import { defaultOutputHeaders } from '../../constants'
 import * as services from './../../services/release'
-import { ReleaseEntity } from './../../entities'
+import { RequestHandler, Request, Response } from 'express'
+import { HttpStatusCode } from '@homeservenow/serverless-aws-handler'
 
 /**
  * For separation of parameters. Currently {delpoymentId}/{project-name}/{version}.zip
@@ -20,51 +19,53 @@ const fileName = (developerId: string, project: string, version: string): string
 /**
  * Deploy a new release
  */
-export const deployRelease = httpHandler<any, ReleaseEntity>({
-  defaultOutputHeaders,
-  handler: async ({ event, body }) => {
-    const developerId = await resolveDeveloperId(event)
+export const deployRelease: RequestHandler = async (request: Request, response: Response): Promise<Response> => {
+  const developerId = await resolveDeveloperId(request.headers)
 
-    const s3FileName = fileName(
-      developerId,
-      event.pathParameters?.project as string,
-      event.pathParameters?.version as string,
-    )
+  const { projectName, version } = request.params
 
-    const file = Buffer.from(body.file, 'base64')
+  const s3FileName = fileName(developerId, projectName, version)
 
-    if (!file) {
-      throw new BadRequestException('File not provided')
-    }
+  const file = Buffer.from(request.body, 'base64')
 
-    await new Promise<void>((resolve, reject) =>
-      s3Client.putObject(
-        {
-          Body: file,
-          Bucket: process.env.DEPLOYMENT_BUCKET_NAME as string,
-          Key: s3FileName,
-        },
-        (error) => {
-          if (error) {
-            console.error(error)
-            reject()
-          }
-          resolve()
-        },
-      ),
-    )
+  if (!file) {
+    response.status(HttpStatusCode.BAD_REQUEST)
+    response.setHeader('Access-Control-Allow-Origin', '*')
 
-    await release(file)
-    await services.resetDeploymentStatus(event.pathParameters?.project as string, developerId)
+    return response
+  }
 
-    const releaseEntity = await services.createRelease({
-      projectName: event.pathParameters?.project,
-      version: event.pathParameters?.version,
-      developerId,
-      currentlyDeployed: true,
-      zipLocation: s3FileName,
-    })
+  await new Promise<void>((resolve, reject) =>
+    s3Client.putObject(
+      {
+        Body: file,
+        Bucket: process.env.DEPLOYMENT_BUCKET_NAME as string,
+        Key: s3FileName,
+      },
+      (error) => {
+        if (error) {
+          console.error(error)
+          reject()
+        }
+        resolve()
+      },
+    ),
+  )
 
-    return releaseEntity
-  },
-})
+  await release(file)
+  await services.resetDeploymentStatus(projectName, developerId)
+
+  const releaseEntity = await services.createRelease({
+    projectName,
+    version,
+    developerId,
+    currentlyDeployed: true,
+    zipLocation: s3FileName,
+  })
+
+  response.status(HttpStatusCode.CREATED)
+  response.setHeader('Access-Control-Allow-Origin', '*')
+  response.send(releaseEntity)
+
+  return response
+}

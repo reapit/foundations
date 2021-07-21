@@ -1,53 +1,59 @@
-import { PipelineRunnerEntity } from './../../entities'
 import { ownership, resolveDeveloperId } from './../../utils'
-import { httpHandler, NotFoundException } from '@homeservenow/serverless-aws-handler'
 import * as service from '../../services'
-import { defaultOutputHeaders } from './../../constants'
 import { QueueNames } from './../../constants'
+import { Response, Request, RequestHandler } from 'express'
+import { HttpStatusCode } from '@homeservenow/serverless-aws-handler'
 
 /**
  * Create a new pipeline runner for deployment
  *
  * Cancels all existing running pipelines
  */
-export const pipelineRunnerCreate = httpHandler<void, PipelineRunnerEntity>({
-  defaultOutputHeaders,
-  handler: async ({ event }): Promise<PipelineRunnerEntity> => {
-    const pipelineId = event.pathParameters?.pipelineId
+export const pipelineRunnerCreate: RequestHandler = async (request: Request, response: Response): Promise<Response> => {
+  const pipelineId = request.params.pipelineId
 
-    if (!pipelineId) {
-      throw new NotFoundException()
-    }
+  if (!pipelineId) {
+    response.status(HttpStatusCode.NOT_FOUND)
+    response.setHeader('Access-Control-Allow-Origin', '*')
 
-    const developerId = await resolveDeveloperId(event)
+    return response
+  }
 
-    const pipeline = await service.findPipelineById(pipelineId)
+  const developerId = await resolveDeveloperId(request.headers)
 
-    if (!pipeline) {
-      throw new NotFoundException()
-    }
+  const pipeline = await service.findPipelineById(pipelineId)
 
-    await ownership(pipeline.developerId, developerId)
+  if (!pipeline) {
+    response.status(HttpStatusCode.NOT_FOUND)
+    response.setHeader('Access-Control-Allow-Origin', '*')
 
-    const pipelineRunner = await service.createPipelineRunnerEntity({
-      pipeline,
-    })
+    return response
+  }
 
-    await new Promise<void>((resolve, reject) =>
-      service.sqs.sendMessage(
-        {
-          MessageBody: JSON.stringify(pipelineRunner),
-          QueueUrl: QueueNames.TASK_POPULATION,
-        },
-        (error) => {
-          if (error) {
-            reject(error)
-          }
-          resolve()
-        },
-      ),
-    )
+  await ownership(pipeline.developerId, developerId)
 
-    return pipelineRunner
-  },
-})
+  const pipelineRunner = await service.createPipelineRunnerEntity({
+    pipeline,
+  })
+
+  await new Promise<void>((resolve, reject) =>
+    service.sqs.sendMessage(
+      {
+        MessageBody: JSON.stringify(pipelineRunner),
+        QueueUrl: QueueNames.TASK_POPULATION,
+      },
+      (error) => {
+        if (error) {
+          reject(error)
+        }
+        resolve()
+      },
+    ),
+  )
+
+  response.status(HttpStatusCode.CREATED)
+  response.setHeader('Access-Control-Allow-Origin', '*')
+  response.send(pipelineRunner)
+
+  return response
+}

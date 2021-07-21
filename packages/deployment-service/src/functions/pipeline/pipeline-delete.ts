@@ -1,25 +1,29 @@
-import { httpHandler, NotFoundException, HttpStatusCode } from '@homeservenow/serverless-aws-handler'
 import * as service from './../../services/pipeline'
 import { ownership, resolveDeveloperId } from './../../utils'
-import { defaultOutputHeaders } from './../../constants'
+import { Request, Response, RequestHandler } from 'express'
+import { HttpStatusCode } from '@homeservenow/serverless-aws-handler'
 
 /**
  * Delete a pipeline
  */
-export const pipelineDelete = httpHandler({
-  defaultOutputHeaders,
-  defaultStatusCode: HttpStatusCode.NO_CONTENT,
-  handler: async ({ event }): Promise<void> => {
-    const developerId = await resolveDeveloperId(event)
+export const pipelineDelete: RequestHandler = async (request: Request, response: Response): Promise<Response> => {
+  const developerId = await resolveDeveloperId(request.headers)
 
-    const pipeline = await service.findPipelineById(event.pathParameters?.pipelineId as string)
+  const pipelineId = request.params.pipelineId
 
-    if (!pipeline) {
-      throw new NotFoundException()
-    }
+  const pipeline = await service.findPipelineById(pipelineId as string)
 
-    await ownership(pipeline.developerId, developerId)
+  if (!pipeline) {
+    response.status(HttpStatusCode.NOT_FOUND)
+    response.setHeader('Access-Control-Allow-Origin', '*')
+    return response
+  }
 
-    await service.deletePipelineEntity(pipeline)
-  },
-})
+  await ownership(pipeline.developerId, developerId)
+
+  await service.deletePipelineEntity(pipeline)
+
+  response.setHeader('Access-Control-Allow-Origin', '*')
+  response.status(HttpStatusCode.NO_CONTENT)
+  return response
+}

@@ -1,39 +1,50 @@
-import { httpHandler, NotFoundException, ValidationException } from '@homeservenow/serverless-aws-handler'
 import { PipelineDto } from './../../dto'
-import { PipelineEntity } from './../../entities'
 import * as service from './../../services/pipeline'
 import { validate } from 'class-validator'
 import { ownership, resolveDeveloperId } from './../../utils'
-import { defaultOutputHeaders } from './../../constants'
 import { plainToClass } from 'class-transformer'
+import { Request, Response } from 'express'
+import { HttpStatusCode } from '@homeservenow/serverless-aws-handler'
 
 /**
  * Update a given pipeline
  */
-export const pipelineUpdate = httpHandler<PipelineDto, PipelineEntity>({
-  defaultOutputHeaders,
-  validator: async (payload: any): Promise<PipelineDto> => {
-    const dto = plainToClass(PipelineDto, payload)
-    const errors = await validate(dto)
+export const pipelineUpdate = async (request: Request, response: Response): Promise<Response> => {
+  const developerId = await resolveDeveloperId(request.headers)
+  const pipelineId = request.params.pipelineId
 
-    if (errors.length >= 1) {
-      throw new ValidationException(errors as any)
-    }
+  // TODO should this be body.toApiKey
+  const pipeline = await service.findPipelineById(pipelineId)
 
-    return dto
-  },
-  handler: async ({ body, event }): Promise<PipelineEntity> => {
-    const developerId = await resolveDeveloperId(event)
+  if (!pipeline) {
+    response.status(HttpStatusCode.NOT_FOUND)
+    return response
+  }
 
-    // TODO should this be body.toApiKey
-    const pipeline = await service.findPipelineById(event.pathParameters?.pipelineId as string)
+  await ownership(pipeline.developerId, developerId)
 
-    if (!pipeline) {
-      throw new NotFoundException()
-    }
+  const body = await validator(request.body, response)
 
-    await ownership(pipeline.developerId, developerId)
+  const updatedPipeline = await service.updatePipelineEntity(pipeline, body)
 
-    return service.updatePipelineEntity(pipeline, body)
-  },
-})
+  response.status(HttpStatusCode.OK)
+  response.send(updatedPipeline)
+  response.setHeader('Access-Control-Allow-Origin', '*')
+
+  return response
+}
+
+const validator = async (payload: any, response: Response): Promise<PipelineDto> => {
+  const dto = plainToClass(PipelineDto, payload)
+  const errors = await validate(dto)
+
+  if (errors.length >= 1) {
+    response.status(HttpStatusCode.BAD_REQUEST)
+    response.setHeader('Access-Control-Allow-Origin', '*')
+    response.send(errors)
+
+    throw new Error('validation errors')
+  }
+
+  return dto
+}

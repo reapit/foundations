@@ -1,38 +1,54 @@
-import { PipelineRunnerEntity } from './../../entities'
 import { ownership, resolveDeveloperId } from './../../utils'
-import { httpHandler, BadRequestException, NotFoundException } from '@homeservenow/serverless-aws-handler'
+import { HttpStatusCode } from '@homeservenow/serverless-aws-handler'
 import { DeploymentStatus } from '@reapit/foundations-ts-definitions'
 import * as service from '../../services'
-import { defaultOutputHeaders } from './../../constants'
+import { RequestHandler, Request, Response } from 'express'
 
 /**
  * Update a pipelineRunner (cancel)
  */
 // TODO refactor to delete method instead?
-export const pipelineRunnerUpdate = httpHandler<{ buildStatus: DeploymentStatus.CANCELED }, PipelineRunnerEntity>({
-  defaultOutputHeaders,
-  validator: (payload) => {
-    if (payload.buildSTatus && payload.buildSTatus !== DeploymentStatus.CANCELED) {
-      throw new BadRequestException('Validation errors: Status can only be canceled')
-    }
+export const pipelineRunnerUpdate: RequestHandler = async (request: Request, response: Response): Promise<Response> => {
+  const developerId = await resolveDeveloperId(request.headers)
+  const pipelineRunnerId = request.params.id
 
-    return payload
-  },
-  handler: async ({ event, body }): Promise<PipelineRunnerEntity> => {
-    const developerId = await resolveDeveloperId(event)
+  const pipelineRunner = await service.findPipelineRunnerById(pipelineRunnerId)
 
-    const pipelineRunner = await service.findPipelineRunnerById(event.pathParameters?.id as string)
+  if (!pipelineRunner || typeof pipelineRunner.pipeline === 'undefined') {
+    response.setHeader('Access-Control-Allow-Origin', '*')
+    response.status(HttpStatusCode.NOT_FOUND)
 
-    if (!pipelineRunner || typeof pipelineRunner.pipeline === 'undefined') {
-      throw new NotFoundException()
-    }
+    return response
+  }
 
-    await ownership(pipelineRunner.pipeline.id as string, developerId)
+  await ownership(pipelineRunner.pipeline.id as string, developerId)
 
-    if (pipelineRunner.buildStatus !== DeploymentStatus.RUNNING) {
-      return pipelineRunner
-    }
+  const body = validator(request.body, response)
 
-    return service.updatePipelineRunnerEntity(pipelineRunner, body)
-  },
-})
+  if (pipelineRunner.buildStatus !== DeploymentStatus.RUNNING) {
+    response.status(HttpStatusCode.OK)
+    response.setHeader('Access-Control-Allow-Origin', '*')
+    response.send(pipelineRunner)
+
+    return response
+  }
+
+  const updatedPipelineRunner = await service.updatePipelineRunnerEntity(pipelineRunner, body)
+
+  response.send(updatedPipelineRunner)
+  response.setHeader('Access-Control-Allow-Origin', '*')
+
+  return response
+}
+
+const validator = (payload: any, response: Response) => {
+  if (payload.buildSTatus && payload.buildSTatus !== DeploymentStatus.CANCELED) {
+    response.status(HttpStatusCode.BAD_REQUEST)
+    response.setHeader('Access-Control-Allow-Origin', '*')
+    response.send()
+
+    throw new Error('Validation errors: Status can only be canceled')
+  }
+
+  return payload
+}
