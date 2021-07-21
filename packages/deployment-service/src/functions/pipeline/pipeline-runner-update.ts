@@ -9,7 +9,7 @@ import { RequestHandler, Request, Response } from 'express'
  */
 // TODO refactor to delete method instead?
 export const pipelineRunnerUpdate: RequestHandler = async (request: Request, response: Response): Promise<Response> => {
-  const developerId = await resolveDeveloperId(request.headers)
+  const developerId = await resolveDeveloperId(request.headers, response)
   const pipelineRunnerId = request.params.id
 
   const pipelineRunner = await service.findPipelineRunnerById(pipelineRunnerId)
@@ -21,7 +21,7 @@ export const pipelineRunnerUpdate: RequestHandler = async (request: Request, res
     return response
   }
 
-  await ownership(pipelineRunner.pipeline.id as string, developerId)
+  await ownership(pipelineRunner.pipeline.id as string, developerId, response)
 
   const body = validator(request.body, response)
 

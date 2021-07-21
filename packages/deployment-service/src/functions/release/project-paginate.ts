@@ -3,7 +3,7 @@ import * as service from './../../services/release'
 import { Request, Response, RequestHandler } from 'express'
 
 export const projectPaginate: RequestHandler = async (request: Request, response: Response): Promise<Response> => {
-  const developerId = await resolveDeveloperId(request.headers)
+  const developerId = await resolveDeveloperId(request.headers, response)
 
   const { page } = request.query
 

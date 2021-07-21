@@ -10,7 +10,7 @@ import { Request, Response, RequestHandler } from 'express'
  * Create a deployment pipeline configuration
  */
 export const pipelineCreate: RequestHandler = async (request: Request, response: Response): Promise<Response> => {
-  const developerId = await resolveDeveloperId(request.headers)
+  const developerId = await resolveDeveloperId(request.headers, response)
 
   const body = await validator(request.body, response)
 
