@@ -1,5 +1,5 @@
 # Snyk (https://snyk.io) policy file, patches or ignores known vulnerabilities.
-version: v1.15.0
+version: v1.21.5
 ignore: {}
 # patches apply the minimum changes required to fix a vulnerability
 patch:
@@ -16,3 +16,9 @@ patch:
         patched: '2020-06-03T14:07:06.621Z'
     - merge-graphql-schemas > @graphql-toolkit/schema-merging > @graphql-toolkit/common > lodash:
         patched: '2020-06-03T14:07:06.621Z'
+    - graphql-import > @graphql-toolkit/core > lodash:
+        patched: '2021-07-21T10:03:02.490Z'
+    - graphql-import > @graphql-toolkit/url-loader > @graphql-toolkit/common > lodash:
+        patched: '2021-07-21T10:03:02.490Z'
+    - graphql-import > @graphql-toolkit/core > @graphql-toolkit/schema-merging > @graphql-toolkit/common > lodash:
+        patched: '2021-07-21T10:03:02.490Z'
