@@ -37,6 +37,7 @@ export const getApiKey: ApiKeyResolveFunction =
 
       return apiKeys.filter((key) => typeof key !== 'undefined')[0]
     } catch (e) {
+      console.error(e)
       // TODO only return undefined on not found response
       return undefined
     }

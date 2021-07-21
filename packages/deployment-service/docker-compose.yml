@@ -10,8 +10,9 @@ services:
 
   app:
     build:
-      context: ../../
       dockerfile: $PWD/Dockerfile
+      context: ../../
     ports:
       - 3000:3000
-      
+    env_file:
+      .env
