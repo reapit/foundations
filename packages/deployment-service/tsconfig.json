@@ -21,7 +21,9 @@
     "emitDecoratorMetadata": true,
     "baseUrl": "./",
     "paths": {
-      "@reapit/connect-session": ["../connect-session/src"]
+      "@reapit/connect-session": ["../connect-session/src"],
+      "@reapit/api-key-verify": ["../api-key-verify/src"],
+      "@reapit/utils": ["../utils/src"]
     },
     "skipLibCheck": true
   },
