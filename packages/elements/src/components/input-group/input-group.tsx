@@ -1,4 +1,4 @@
-import React, { FC, HTMLAttributes, useMemo } from 'react'
+import React, { FC, useMemo } from 'react'
 import { ElInputGroup } from './__styles__'
 import { Input } from '../input'
 import { Icon, IconNames } from '../icon'
