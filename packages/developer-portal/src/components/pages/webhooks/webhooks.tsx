@@ -250,7 +250,7 @@ export const DeveloperWebhooks = () => {
               GraphQL
             </SecondaryNavItem>
           </SecondaryNav>
-          <Icon icon="webhooksInfographic" iconSize="large" />
+          <Icon className={elMb3} icon="webhooksInfographic" iconSize="large" />
           <Subtitle>Webhooks Documentation</Subtitle>
           <BodyText hasGreyText>
             This system is designed to flexibly work with how your application is built and deployed. If you wish, you
@@ -272,7 +272,7 @@ export const DeveloperWebhooks = () => {
                 created to allow Reapit Foundations to send a HTTP request directly to your endpoints that you configure
                 here.
               </BodyText>
-              <PersistantNotification isFullWidth isExpanded intent="secondary">
+              <PersistantNotification isFullWidth isExpanded intent="secondary" isInline>
                 Please note that apps and integrations developed using Webhooks for topics other than application
                 install/uninstall will only be visible in the Marketplace to customers who have been migrated to AWS.
               </PersistantNotification>

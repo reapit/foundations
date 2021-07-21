@@ -131,11 +131,12 @@ exports[`Login should match a snapshot 1`] = `
                           </ElSecondaryNav>
                         </SecondaryNav>
                         <Icon
+                          className="etuand5-el-mb3"
                           icon="myAppsInfographic"
                           iconSize="large"
                         >
                           <ElIcon
-                            className="e143qafr-el-icon-size-large"
+                            className="etuand5-el-mb3 e143qafr-el-icon-size-large"
                             style={
                               Object {
                                 "fontSize": undefined,
@@ -143,7 +144,7 @@ exports[`Login should match a snapshot 1`] = `
                             }
                           >
                             <span
-                              className="e143qafr-el-icon-size-large ej9yrfo-el-icon"
+                              className="etuand5-el-mb3 e143qafr-el-icon-size-large ej9yrfo-el-icon"
                               style={
                                 Object {
                                   "fontSize": undefined,

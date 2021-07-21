@@ -20,6 +20,26 @@ exports[`PersistantNotification component should match a snapshot 1`] = `
 </ElPersistantNotification>
 `;
 
+exports[`PersistantNotification component should match a snapshot for an inline notification 1`] = `
+<ElPersistantNotification
+  className="el-intent-primary el-is-active el-pn-is-full-width el-pn-is-inline"
+>
+  <div
+    className="el-pn-icon"
+    onClick={[Function]}
+  >
+    <Icon
+      icon="infoSolidSystem"
+    />
+  </div>
+  <div
+    className="el-pn-content"
+  >
+    I am notification
+  </div>
+</ElPersistantNotification>
+`;
+
 exports[`PersistantNotification component should match a snapshot when expanded 1`] = `
 <ElPersistantNotification
   className="el-intent-secondary el-is-active"
