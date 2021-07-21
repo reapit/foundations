@@ -1,10 +1,10 @@
 {
   "name": "deployment-service",
   "dependencies": {
-    "@homeservenow/serverless-aws-handler": "^0.2.4",
     "@reapit/api-key-verify": "workspace:packages/api-key-verify",
     "@reapit/connect-session": "workspace:packages/connect-session",
     "@reapit/utils": "workspace:packages/utils",
+    "@homeservenow/serverless-aws-handler": "^0.2.4",
     "adm-zip": "^0.5.5",
     "class-transformer": "^0.4.0",
     "class-validator": "^0.13.1",
@@ -21,7 +21,7 @@
   "scripts": {
     "start": "reapit-fetch-public-keys yarn build && yarn serverless offline start --runtime nodejs12.x --stage local",
     "test": "reapit-fetch-public-keys --test && echo '...skipping...'",
-    "build": "tsc -p .",
+    "build": "webpack --config webpack.config.js",
     "lint": "eslint --cache --ext=ts,tsx,js src --fix",
     "release": "yarn reapit-fetch-public-keys && serverless deploy",
     "publish": "echo '...skipping...'",

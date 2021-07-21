@@ -7,11 +7,9 @@ COPY . /var/task/
 
 # RUN npm i -g yarn
 
-RUN ls -la /var/task/packages/deployment-service/dist/deployment-service/src/
-
 RUN cd /var/task/packages/deployment-service/
 # RUN yarn build
 
-ENTRYPOINT ["node", "/var/task/packages/deployment-service/dist/deployment-service/src/index.js"]
+ENTRYPOINT ["node", "/var/task/packages/deployment-service/dist/main.js"]
 
 EXPOSE 3000
