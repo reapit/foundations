@@ -1,18 +1,16 @@
-import { httpHandler } from '@homeservenow/serverless-aws-handler'
-import { Pagination } from 'nestjs-typeorm-paginate'
 import { resolveDeveloperId } from './../../utils'
 import * as service from './../../services/release'
+import { Request, Response, RequestHandler } from 'express'
 
-export const projectPaginate = httpHandler<void, Pagination<string>>({
-  defaultOutputHeaders: {
-    'Access-Control-Allow-Origin': '*',
-  },
-  handler: async ({ event }) => {
-    const developerId = await resolveDeveloperId(event)
+export const projectPaginate: RequestHandler = async (request: Request, response: Response): Promise<Response> => {
+  const developerId = await resolveDeveloperId(request.headers)
 
-    return service.paginateProjects(
-      developerId,
-      event?.queryStringParameters?.page ? Number(event?.queryStringParameters?.page) : undefined,
-    )
-  },
-})
+  const { page } = request.query
+
+  const pagination = await service.paginateProjects(developerId, page ? Number(page) : undefined)
+
+  response.setHeader('Access-Control-Allow-Origin', '*')
+  response.send(pagination)
+
+  return response
+}

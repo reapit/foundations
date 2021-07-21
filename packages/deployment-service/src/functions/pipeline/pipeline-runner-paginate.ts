@@ -1,33 +1,42 @@
-import { ForbiddenException, httpHandler, NotFoundException } from '@homeservenow/serverless-aws-handler'
-import { PipelineRunnerEntity } from './../../entities'
+import { HttpStatusCode } from '@homeservenow/serverless-aws-handler'
 import * as pipelineService from './../../services/pipeline'
 import * as service from './../../services/pipeline-runner'
 import { resolveDeveloperId } from './../../utils'
-import { Pagination } from 'nestjs-typeorm-paginate'
+import { RequestHandler, Request, Response } from 'express'
 
 /**
  * Return pagination response for signed in user
  */
-export const pipelineRunnerPaginate = httpHandler({
-  defaultOutputHeaders: {
-    'Access-Control-Allow-Origin': '*',
-  },
-  handler: async ({ event }): Promise<Pagination<PipelineRunnerEntity>> => {
-    const developerId = await resolveDeveloperId(event)
+export const pipelineRunnerPaginate: RequestHandler = async (
+  request: Request,
+  response: Response,
+): Promise<Response> => {
+  const developerId = await resolveDeveloperId(request.headers)
+  const pipelineId = request.params.pipelineId
 
-    const pipeline = await pipelineService.findPipelineById(event.pathParameters?.pipelineId as string)
+  const pipeline = await pipelineService.findPipelineById(pipelineId)
 
-    if (!pipeline) {
-      throw new NotFoundException()
-    }
+  if (!pipeline) {
+    response.setHeader('Access-Control-Allow-Origin', '*')
+    response.status(HttpStatusCode.NOT_FOUND)
 
-    if (pipeline.developerId !== developerId) {
-      throw new ForbiddenException()
-    }
+    return response
+  }
 
-    return service.paginatePipelineRunners(
-      pipeline.id as string,
-      event?.queryStringParameters?.page ? Number(event?.queryStringParameters?.page) : undefined,
-    )
-  },
-})
+  if (pipeline.developerId !== developerId) {
+    response.setHeader('Access-Control-Allow-Origin', '*')
+    response.status(HttpStatusCode.FORBIDDEN)
+
+    return response
+  }
+
+  const { page } = request.query
+
+  const pagination = await service.paginatePipelineRunners(pipeline.id as string, page ? Number(page) : undefined)
+
+  response.setHeader('Access-Control-Allow-Origin', '*')
+  response.status(HttpStatusCode.OK)
+  response.send(pagination)
+
+  return response
+}
