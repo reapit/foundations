@@ -6,7 +6,7 @@ import { Label } from '../label'
 import { InputAddOn } from '../input-add-on'
 import { Intent } from '../../helpers/intent'
 
-export interface InputGroupProps extends HTMLAttributes<HTMLInputElement> {
+export interface InputGroupProps extends React.InputHTMLAttributes<HTMLInputElement> {
   icon?: IconNames
   label?: string
   inputAddOnText?: string
