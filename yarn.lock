@@ -10230,6 +10230,7 @@ __metadata:
     chart.js: ^2.9.4
     concurrently: ^6.2.0
     cross-env: ^6.0.3
+    css-loader: ^6.2.0
     dayjs: ^1.10.6
     diff: ^4.0.2
     eslint: 7.31.0
@@ -10416,6 +10417,7 @@ __metadata:
     babel-loader: ^8.2.2
     concurrently: ^6.2.0
     cross-env: ^6.0.3
+    css-loader: ^6.2.0
     dayjs: ^1.10.6
     eslint: 7.31.0
     eslint-plugin-prettier: ^3.4.0
@@ -10911,6 +10913,7 @@ __metadata:
     babel-loader: ^8.2.2
     concurrently: ^6.2.0
     cross-env: ^6.0.3
+    css-loader: ^6.2.0
     dayjs: ^1.10.6
     eslint: 7.31.0
     eslint-plugin-prettier: ^3.4.0
@@ -13842,7 +13845,6 @@ __metadata:
     cypress-file-upload: ^5.0.8
     cypress-plugin-snapshots: ^1.4.4
     eslint: ^7.31.0
-    eslint-config-prettier: ^8.3.0
     eslint-plugin-prettier: ^3.4.0
     jest: ^27.0.6
     node-polyfill-webpack-plugin: ^1.1.4
@@ -13850,7 +13852,6 @@ __metadata:
     ts-jest: ^27.0.3
     ts-loader: ^9.2.3
     typescript: ^4.3.5
-    typescript-eslint: ^0.0.1-alpha.0
     webpack: ^5.45.1
   languageName: unknown
   linkType: soft
@@ -15345,6 +15346,7 @@ __metadata:
     babel-loader: ^8.2.2
     concurrently: ^6.2.0
     cross-env: ^6.0.3
+    css-loader: ^6.2.0
     dayjs: ^1.10.6
     diff: ^4.0.2
     eslint: ^7.31.0
@@ -15850,6 +15852,7 @@ __metadata:
     babel-loader: ^8.2.2
     concurrently: ^6.2.0
     cross-env: ^6.0.3
+    css-loader: ^6.2.0
     dayjs: ^1.10.6
     eslint: 7.31.0
     eslint-plugin-prettier: ^3.4.0
@@ -16037,6 +16040,7 @@ __metadata:
     chart.js: ^2.9.4
     concurrently: ^6.2.0
     cross-env: ^6.0.3
+    css-loader: ^6.2.0
     dayjs: ^1.10.6
     diff: ^4.0.2
     eslint: 7.31.0
@@ -19585,6 +19589,7 @@ fsevents@^1.2.7:
     babel-loader: ^8.2.2
     concurrently: ^6.2.0
     cross-env: ^6.0.3
+    css-loader: ^6.2.0
     dayjs: ^1.10.6
     eslint: 7.31.0
     eslint-plugin-prettier: ^3.4.0
@@ -25906,6 +25911,7 @@ fsevents@^1.2.7:
     babel-loader: ^8.2.2
     concurrently: ^6.2.0
     cross-env: ^6.0.3
+    css-loader: ^6.2.0
     dayjs: ^1.10.6
     eslint: 7.31.0
     eslint-plugin-prettier: ^3.4.0
@@ -25957,6 +25963,7 @@ fsevents@^1.2.7:
     chart.js: ^2.9.4
     concurrently: ^6.2.0
     cross-env: ^6.0.3
+    css-loader: ^6.2.0
     dayjs: ^1.10.6
     diff: ^4.0.2
     eslint: 7.31.0
@@ -29008,6 +29015,7 @@ fsevents@^1.2.7:
     babel-loader: ^8.2.2
     concurrently: ^6.2.0
     cross-env: ^6.0.3
+    css-loader: ^6.2.0
     dayjs: ^1.10.6
     eslint: 7.31.0
     eslint-plugin-prettier: ^3.4.0
@@ -31593,6 +31601,7 @@ fsevents@^1.2.7:
     babel-loader: ^8.2.2
     concurrently: ^6.2.0
     cross-env: ^6.0.3
+    css-loader: ^6.2.0
     dayjs: ^1.10.6
     eslint: 7.31.0
     eslint-plugin-prettier: ^3.4.0
@@ -37094,13 +37103,6 @@ resolve@^2.0.0-next.3:
   dependencies:
     typescript-logic: ^0.0.0
   checksum: 7c4044a05631d8df045863c2547e5f2621a3f91af017220d125d76f2753f8b0bc36581a6d3cf56ac55cadb945854e9174a146e2ccc1be937285d5b87f2b21c16
-  languageName: node
-  linkType: hard
-
-"typescript-eslint@npm:^0.0.1-alpha.0":
-  version: 0.0.1-alpha.0
-  resolution: "typescript-eslint@npm:0.0.1-alpha.0"
-  checksum: 0c8023f91e82a8712b6ed7701b67c33943a080a6a3dd1a7f1c7ef643660be75fe54aa72ff9d8ff5f97ec94053c320d305ce88e937f184656daa677c8aa4cb11a
   languageName: node
   linkType: hard
 
