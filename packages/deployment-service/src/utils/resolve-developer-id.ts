@@ -19,6 +19,8 @@ export const resolveDeveloperId = async (headers: IncomingHttpHeaders, response:
     const dataMapper = new DataMapper({
       client: new DynamoDB({
         region: 'eu-west-2',
+        accessKeyId: process.env.AWS_ACCESS_ID,
+        secretAccessKey: process.env.AWS_SECRET_ACCESS_KEY,
       }),
     })
 
