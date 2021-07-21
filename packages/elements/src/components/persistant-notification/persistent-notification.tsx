@@ -1,6 +1,13 @@
 import { cx } from '@linaria/core'
 import React, { FC, HTMLAttributes } from 'react'
-import { ElPersistantNotification, elPnIcon, elPnContent, elPnIsFullWidth, elPnIsFixed } from './__styles__'
+import {
+  ElPersistantNotification,
+  elPnIcon,
+  elPnContent,
+  elPnIsFullWidth,
+  elPnIsFixed,
+  elPnIsInline,
+} from './__styles__'
 import { Icon, IconNames } from '../icon'
 import { elIsActive } from '../../styles/states'
 import { Intent, getIntentClassName } from '../../helpers/intent'
@@ -12,6 +19,7 @@ export interface IPersistantNotification extends HTMLAttributes<HTMLDivElement> 
   isExpanded?: boolean
   isFullWidth?: boolean
   isFixed?: boolean
+  isInline?: boolean
   onExpansionToggle?: (newState: boolean) => void
 }
 
@@ -22,6 +30,7 @@ export const PersistantNotification: FC<IPersistantNotification> = ({
   isExpanded = false,
   isFullWidth = false,
   isFixed = false,
+  isInline = false,
   onExpansionToggle,
   children,
   ...rest
@@ -33,6 +42,7 @@ export const PersistantNotification: FC<IPersistantNotification> = ({
     isExpanded && elIsActive,
     isFullWidth && elPnIsFullWidth,
     isFixed && elPnIsFixed,
+    isInline && elPnIsInline,
   )
 
   return (

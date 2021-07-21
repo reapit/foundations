@@ -92,7 +92,7 @@ export const GraphQLPage: FC = () => {
             GraphQL
           </SecondaryNavItem>
         </SecondaryNav>
-        <Icon icon="graphQlInfographic" iconSize="large" />
+        <Icon className={elMb3} icon="graphQlInfographic" iconSize="large" />
         <Subtitle>GraphQL Playground</Subtitle>
         <BodyText hasGreyText>
           GraphQL is a query language for APIs and a runtime for fulfilling those queries with your existing data.

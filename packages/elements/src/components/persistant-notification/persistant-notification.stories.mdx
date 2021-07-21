@@ -21,7 +21,7 @@ The element uses CSS position fixed by default, which means the component "float
       const [isExpanded, setIsExpanded] = useState(false)
       return (
         <>
-          <PersistantNotification isExpanded={isExpanded} onExpansionToggle={setIsExpanded}>
+          <PersistantNotification isExpanded={isExpanded} onExpansionToggle={setIsExpanded} isFixed>
             Here is a persistant notification. Here is more content. Here is more content. Here is more content. Here is
             more content. Here is more content.
           </PersistantNotification>
@@ -33,13 +33,15 @@ The element uses CSS position fixed by default, which means the component "float
 
 ## Inline examples
 
-These stories have been given a custom CSS positon (`position: relative`) so that they appear inline. This makes it easier to preview these examples, but in normal usage they will pin to the top right of the screen as in the above example.
+These stories do not have the isFixed property meaning they are positioned relative and sit inline. 
+
+This makes it easier to preview these examples, but if the isFixed property is set they will pin to the top right of the screen as in the above example.
 
 ## Default usage
 
 <Canvas>
   <Story name="Default Usage">
-    <PersistantNotification isExpanded={true} style={{ position: 'relative' }}>
+    <PersistantNotification isExpanded={true} >
       Here is a persistant notification
     </PersistantNotification>
   </Story>
@@ -53,7 +55,7 @@ The notification is set to a max-width of 50% of the parent element (in normal u
 
 <Canvas>
   <Story name="Long text">
-    <PersistantNotification isExpanded={true} style={{ position: 'relative' }}>
+    <PersistantNotification isExpanded={true} >
       Here is a persistant notification. Here is more content. Here is more content. Here is more content. Here is more
       content. Here is more content.
     </PersistantNotification>
@@ -66,7 +68,7 @@ The notification is set to a max-width of 50% of the parent element (in normal u
 
 <Canvas>
   <Story name="With a different icon">
-    <PersistantNotification isExpanded={true} icon="warning" style={{ position: 'relative' }}>
+    <PersistantNotification isExpanded={true} icon="warningSolidSystem" >
       Here's some infomation about the thing you should be warned about, so bad things don't happen.
     </PersistantNotification>
   </Story>
@@ -78,27 +80,27 @@ The notification is set to a max-width of 50% of the parent element (in normal u
 
 <Canvas>
   <Story name="Intent: primary">
-    <PersistantNotification isExpanded={true} intent="primary" style={{ position: 'relative' }}>
+    <PersistantNotification isExpanded={true} intent="primary" >
       Here's a notification with a primary intent.
     </PersistantNotification>
   </Story>
   <Story name="Intent: secondary (default)">
-    <PersistantNotification isExpanded={true} intent="secondary" style={{ position: 'relative' }}>
+    <PersistantNotification isExpanded={true} intent="secondary" >
       Here's a notification with a secondary intent.
     </PersistantNotification>
   </Story>
   <Story name="Intent: critical">
-    <PersistantNotification isExpanded={true} intent="critical" style={{ position: 'relative' }}>
+    <PersistantNotification isExpanded={true} intent="critical" >
       Here's a notification with a critical intent.
     </PersistantNotification>
   </Story>
   <Story name="Intent: success">
-    <PersistantNotification isExpanded={true} intent="success" style={{ position: 'relative' }}>
+    <PersistantNotification isExpanded={true} intent="success" >
       Here's a notification with a success intent.
     </PersistantNotification>
   </Story>
   <Story name="Intent: danger">
-    <PersistantNotification isExpanded={true} intent="danger" style={{ position: 'relative' }}>
+    <PersistantNotification isExpanded={true} intent="danger" >
       Here's a notification with a danger intent.
     </PersistantNotification>
   </Story>
@@ -108,6 +110,49 @@ The notification is set to a max-width of 50% of the parent element (in normal u
   component="PersistantNotification"
   story={['Intent: primary', 'Intent: secondary (default)', 'Intent: critical', 'Intent: success', 'Intent: danger']}
 />
+
+
+## Inline helpers with different intents 
+
+Typically when you are not displaying the notification with an isFixed prop / helper, you are showing an inline helper ie in the main body flow. In this instance, you should apply an `isInline` prop or the corresponding css class in the rendered markup, to give a softer tone to the notification.
+
+When using the notifiction inline, you may also wish to add the isFullWidth prop / helper class to make the notification span the width of it's content.
+
+Below you can see examples of inline helpers, full width, in each of the different intent shades.
+
+<Canvas>
+  <Story name="Inline notifcation, intent: primary">
+    <PersistantNotification isExpanded={true} intent="primary" isInline isFullWidth>
+      Here's an inline full width notification with a primary intent.
+    </PersistantNotification>
+  </Story>
+  <Story name="Inline notifcation, intent: secondary (default)">
+    <PersistantNotification isExpanded={true} intent="secondary" isInline isFullWidth>
+      Here's an inline full width notification with a secondary intent.
+    </PersistantNotification>
+  </Story>
+  <Story name="Inline notifcation, intent: critical">
+    <PersistantNotification isExpanded={true} intent="critical" isInline isFullWidth>
+      Here's an inline full width notification with a critical intent.
+    </PersistantNotification>
+  </Story>
+  <Story name="Inline notifcation, intent: success">
+    <PersistantNotification isExpanded={true} intent="success" isInline isFullWidth>
+      Here's an inline full width notification with a success intent.
+    </PersistantNotification>
+  </Story>
+  <Story name="Inline notifcation, intent: danger">
+    <PersistantNotification isExpanded={true} intent="danger" isInline isFullWidth>
+      Here's an inline full width notification with a danger intent.
+    </PersistantNotification>
+  </Story>
+</Canvas>
+
+<RenderHtmlMarkup
+  component="PersistantNotification"
+  story={['Inline notifcation, intent: primary', 'Inline notifcation, intent: secondary (default)', 'Inline notifcation, intent: critical', 'Inline notifcation, intent: success', 'Inline notifcation, intent: danger']}
+/>
+
 
 ## Collapsed/Expanded state
 
