@@ -7,7 +7,7 @@ import { HttpStatusCode } from '@homeservenow/serverless-aws-handler'
  * Get a pipeline by id
  */
 export const pipelineGet: RequestHandler = async (request: Request, response: Response): Promise<Response> => {
-  const developerId = await resolveDeveloperId(request.headers)
+  const developerId = await resolveDeveloperId(request.headers, response)
 
   const pipelineId = request.params.pipelineId
 
@@ -19,7 +19,7 @@ export const pipelineGet: RequestHandler = async (request: Request, response: Re
     return response
   }
 
-  await ownership(pipeline.developerId, developerId)
+  await ownership(pipeline.developerId, developerId, response)
 
   response.setHeader('Access-Control-Allow-Origin', '*')
   response.send(pipeline)

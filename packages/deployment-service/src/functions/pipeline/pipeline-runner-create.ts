@@ -19,7 +19,7 @@ export const pipelineRunnerCreate: RequestHandler = async (request: Request, res
     return response
   }
 
-  const developerId = await resolveDeveloperId(request.headers)
+  const developerId = await resolveDeveloperId(request.headers, response)
 
   const pipeline = await service.findPipelineById(pipelineId)
 
@@ -30,7 +30,7 @@ export const pipelineRunnerCreate: RequestHandler = async (request: Request, res
     return response
   }
 
-  await ownership(pipeline.developerId, developerId)
+  await ownership(pipeline.developerId, developerId, response)
 
   const pipelineRunner = await service.createPipelineRunnerEntity({
     pipeline,

@@ -20,7 +20,7 @@ const fileName = (developerId: string, project: string, version: string): string
  * Deploy a new release
  */
 export const deployRelease: RequestHandler = async (request: Request, response: Response): Promise<Response> => {
-  const developerId = await resolveDeveloperId(request.headers)
+  const developerId = await resolveDeveloperId(request.headers, response)
 
   const { projectName, version } = request.params
 

@@ -10,7 +10,7 @@ import { HttpStatusCode } from '@homeservenow/serverless-aws-handler'
  * Update a given pipeline
  */
 export const pipelineUpdate = async (request: Request, response: Response): Promise<Response> => {
-  const developerId = await resolveDeveloperId(request.headers)
+  const developerId = await resolveDeveloperId(request.headers, response)
   const pipelineId = request.params.pipelineId
 
   // TODO should this be body.toApiKey
@@ -21,7 +21,7 @@ export const pipelineUpdate = async (request: Request, response: Response): Prom
     return response
   }
 
-  await ownership(pipeline.developerId, developerId)
+  await ownership(pipeline.developerId, developerId, response)
 
   const body = await validator(request.body, response)
 

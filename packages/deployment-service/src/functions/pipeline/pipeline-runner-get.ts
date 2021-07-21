@@ -8,7 +8,7 @@ import { RequestHandler, Request, Response } from 'express'
  */
 export const pipelineRunnerGet: RequestHandler = async (request: Request, response: Response): Promise<Response> => {
   const pipelineRunnerId = request.params.pipelineRunnerId
-  const developerId = await resolveDeveloperId(request.headers)
+  const developerId = await resolveDeveloperId(request.headers, response)
 
   const pipelineRunner = await service.findPipelineRunnerById(pipelineRunnerId)
 
@@ -17,7 +17,7 @@ export const pipelineRunnerGet: RequestHandler = async (request: Request, respon
     return response
   }
 
-  await ownership(pipelineRunner.pipeline.id, developerId)
+  await ownership(pipelineRunner.pipeline.id, developerId, response)
 
   response.status(HttpStatusCode.OK)
   response.send(pipelineRunner)

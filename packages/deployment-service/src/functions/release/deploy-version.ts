@@ -9,7 +9,7 @@ import { RequestHandler, Request, Response } from 'express'
  * Release a particular version
  */
 export const deployVersion: RequestHandler = async (request: Request, response: Response): Promise<Response> => {
-  const developerId = await resolveDeveloperId(request.headers)
+  const developerId = await resolveDeveloperId(request.headers, response)
   const { projectName, version } = request.params
 
   if (!projectName || !version) {
