@@ -12,7 +12,7 @@ const mockConfigurationAppointments = [
 
 describe('configurationAppointmentsApiService', () => {
   it('should return a response from the config service', async () => {
-    mockedFetch.mockReturnValueOnce(new Promise(() => mockConfigurationAppointments))
+    mockedFetch.mockReturnValueOnce({ json: jest.fn(() => mockConfigurationAppointments) } as any)
     expect(await configurationAppointmentsApiService(mockBrowserSession)).toEqual(mockConfigurationAppointments)
     expect(mockedFetch).toHaveBeenCalledTimes(1)
   })
