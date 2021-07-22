@@ -3,17 +3,20 @@ import { ROOT_NODE } from '@craftjs/utils'
 import React, { useEffect, useRef, useCallback } from 'react'
 import ReactDOM from 'react-dom'
 import styled, { createGlobalStyle } from 'styled-components'
-import { intentPrimary } from '@reapit/elements'
+import { elFlex, elFlexAlignCenter, elP2, intentPrimary } from '@reapit/elements'
 
 import ArrowUp from '../icons/arrow-up'
 import Delete from '../icons/delete'
 import Move from '../icons/move'
+import { cx } from '@linaria/core'
 
 const IndicatorDiv = styled.div`
   height: 30px;
   margin-top: -29px;
   font-size: 12px;
   line-height: 12px;
+  color: white;
+  position: fixed;
   background: ${intentPrimary}; /* couldn't get the CSS vars into the iframe on first try :( */
 
   svg {
@@ -125,7 +128,7 @@ export const RenderNode = ({ render, iframeRef }) => {
         ? ReactDOM.createPortal(
             <IndicatorDiv
               ref={currentRef}
-              className="px-2 py-2 text-white bg-primary fixed flex items-center"
+              className={cx(elP2, elFlex, elFlexAlignCenter)}
               style={{
                 left: getPos(dom).left,
                 top: getPos(dom).top,
