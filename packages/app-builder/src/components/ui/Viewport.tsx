@@ -1,17 +1,49 @@
-import React, { useContext, useState } from 'react'
+import React, { useContext, useEffect, useState } from 'react'
 import { useEditor } from '@craftjs/core'
+import { ToggleRadio } from '@reapit/elements'
 import IFrame, { FrameContext } from 'react-frame-component'
 import styled, { StyleSheetManager } from 'styled-components'
+
 import Toolbox from '../ui/Toolbox'
 import Header from '../ui/Header'
 import Sidebar from '../ui/Sidebar'
 
 import BREAKPOINT from '../../utils/breakpoints'
-import { ToggleRadio } from '@reapit/elements'
+
+const isLocal = window.reapit.config.appEnv === 'local'
 
 const InjectFrameStyles = (props) => {
-  const { document } = useContext(FrameContext)
-  return <StyleSheetManager target={document.head}>{props.children}</StyleSheetManager>
+  const { document: frame } = useContext(FrameContext)
+  useEffect(() => {
+    const links = Array.from(document.querySelectorAll('link')).filter(({ rel }) => rel === 'stylesheet')
+    const styles = Array.from(document.querySelectorAll('style'))
+    const stylesheets = [...links, ...styles]
+
+    stylesheets.forEach((style) => {
+      frame.head.appendChild(style.cloneNode(true))
+    })
+
+    const observer = new MutationObserver((mutationsList) => {
+      mutationsList.forEach((mutation) => {
+        if (mutation.type === 'childList') {
+          mutation.addedNodes.forEach((node) => {
+            frame.head.appendChild(node.cloneNode(true))
+          })
+        }
+      })
+    })
+    if (isLocal) {
+      observer.observe(document.head, { childList: true, subtree: true })
+    }
+
+    return () => {
+      if (!isLocal) {
+        observer.disconnect()
+      }
+    }
+  }, [frame])
+
+  return <StyleSheetManager target={frame.head}>{props.children}</StyleSheetManager>
 }
 
 const Container = styled.div`
@@ -79,7 +111,6 @@ const Viewport = ({ children, iframeRef }) => {
             head={
               <>
                 <meta name="viewport" content="width=device-width, initial-scale=1" />
-                <link href="https://unpkg.com/tailwindcss@^2/dist/tailwind.min.css" rel="stylesheet" />
               </>
             }
           >
