@@ -1,7 +1,6 @@
 import { useNode } from '@craftjs/core'
-import { RadioGroup } from '@material-ui/core'
 import { elMb2, Label } from '@reapit/elements'
-import React from 'react'
+import React, { ReactNodeArray } from 'react'
 
 import { ToolbarDropdown } from './ToolbarDropdown'
 import { ToolbarTextInput } from './ToolbarTextInput'
@@ -13,7 +12,7 @@ export type ToolbarItemProps = {
   full?: boolean
   propKey: string
   index?: number
-  children?: React.ReactNode
+  children?: ReactNodeArray
   type: ToolbarItemType
   title?: string
 }
@@ -54,17 +53,19 @@ const ToolbarItemInput = ({ propKey, type, index = 0, ...props }: ToolbarItemPro
       return (
         <>
           {props.label ? <Label>{props.label}</Label> : null}
-          <RadioGroup
-            value={value || 0}
-            onChange={(e) => {
-              const value = e.target.value
-              setProp((props) => {
-                props[propKey] = value
+          {React.Children.map(props.children, (child: React.ReactNode) => {
+            React.isValidElement(child) &&
+              React.cloneElement(child, {
+                onChange: (e: React.ChangeEvent<HTMLInputElement>) => {
+                  const { value, checked } = e.currentTarget
+                  if (checked) {
+                    setProp((props) => {
+                      props[propKey] = value
+                    })
+                  }
+                },
               })
-            }}
-          >
-            {props.children}
-          </RadioGroup>
+          })}
         </>
       )
     case ToolbarItemType.Select:
