@@ -1,12 +1,23 @@
-import * as React from 'react'
+import React, { FC, useEffect, useState } from 'react'
 import { Button, Level, FlexContainerBasic, Section, notification } from '@reapit/elements-legacy'
 import { getDefaultRoute } from '@/utils/auth-route'
 import messages from '@/constants/messages'
-import * as loginStyles from './__styles__'
 import connectImage from '@/assets/images/reapit-connect.png'
 import { reapitConnectBrowserSession } from '@/core/connect-session'
-
-const { wrapper, container, imageContainer, loginImage, registerLevel, loginButton } = loginStyles
+import {
+  wrapper,
+  container,
+  registerLevel,
+  loginButton,
+  loginImages,
+  imageContainer,
+  loginImage,
+  loginImageVisible,
+} from './__styles__'
+import stepOne from '../../../assets/images/login/step-1.svg'
+import stepTwo from '../../../assets/images/login/step-2.svg'
+import stepThree from '../../../assets/images/login/step-3.svg'
+import { cx } from '@linaria/core'
 
 export type LoginProps = {}
 
@@ -24,17 +35,37 @@ export const onLoginButtonClick = () => {
   reapitConnectBrowserSession.connectLoginRedirect(redirectRoute)
 }
 
-export const Login: React.FunctionComponent<LoginProps> = () => {
+export const Login: FC<LoginProps> = () => {
   const isPasswordChanged = localStorage.getItem('isPasswordChanged') === 'true'
-  React.useEffect(handleShowNotificationAfterPasswordChanged(isPasswordChanged, localStorage), [
+  const [imageShown, setImageShown] = useState(1)
+
+  useEffect(handleShowNotificationAfterPasswordChanged(isPasswordChanged, localStorage), [
     isPasswordChanged,
     localStorage,
   ])
 
+  useEffect(() => {
+    const interval = window.setInterval(() => {
+      setImageShown((prev) => {
+        if (prev < 3) {
+          return prev + 1
+        }
+
+        return prev
+      })
+    }, 1000)
+
+    return () => window.clearInterval(interval)
+  }, [imageShown])
+
   return (
     <div className={container}>
       <div className={imageContainer}>
-        <div className={loginImage}></div>
+        <div className={loginImages}>
+          <img className={cx(loginImage, imageShown === 1 && loginImageVisible)} src={stepOne} />
+          <img className={cx(loginImage, imageShown === 2 && loginImageVisible)} src={stepTwo} />
+          <img className={cx(loginImage, imageShown === 3 && loginImageVisible)} src={stepThree} />
+        </div>
       </div>
       <div className={wrapper}>
         <Level>

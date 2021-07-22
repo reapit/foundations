@@ -30,7 +30,7 @@ describe('createWistonLoggerErrorFn', () => {
     loggerErrorFn(caller, meta)
 
     expect(spyWithScope).toHaveBeenCalled()
-    spyWithScope.mock.calls[0][0]((mockScope as unknown) as Sentry.Scope)
+    spyWithScope.mock.calls[0][0](mockScope as unknown as Sentry.Scope)
     expect(mockScope.setExtra).toHaveBeenCalled()
     expect(spyCaptureException).toHaveBeenCalledWith(error)
   })

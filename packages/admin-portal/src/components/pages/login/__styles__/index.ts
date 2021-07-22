@@ -67,27 +67,22 @@ export const loginLevel = css`
   flex-direction: column;
 `
 
+export const loginImageVisible = css``
+
 export const loginImage = css`
+  transition: opacity 1s ease-in-out;
+  position: absolute;
+  height: 100%;
+  opacity: 0;
+  z-index: 1;
+
+  &.${loginImageVisible} {
+    opacity: 1;
+  }
+`
+
+export const loginImages = css`
   height: 100%;
   width: auto;
-  background-repeat: no-repeat;
-  background-size: contain;
-  animation-duration: 3s;
-  animation-name: image;
-  animation-fill-mode: forwards;
-  animation-timing-function: ease-in-out;
-
-  @keyframes image {
-    from {
-      background-image: url('../../../../assets/images/login/step-1.svg');
-    }
-
-    50% {
-      background-image: url('../../../../assets/images/login/step-2.svg');
-    }
-
-    to {
-      background-image: url('../../../../assets/images/login/step-3.svg');
-    }
-  }
+  position: relative;
 `

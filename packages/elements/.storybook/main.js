@@ -24,19 +24,16 @@ module.exports = {
       test: /\.(ts|tsx)$/,
       use: [
         {
-          loader: 'babel-loader',
+          loader: 'esbuild-loader',
+          options: {
+            loader: 'tsx',
+            target: 'es2019',
+          },
         },
         {
           loader: '@linaria/webpack-loader',
           options: {
             sourceMap: configType !== 'PRODUCTION',
-          },
-        },
-        {
-          loader: 'esbuild-loader',
-          options: {
-            loader: 'tsx',
-            target: 'es2019',
           },
         },
       ],

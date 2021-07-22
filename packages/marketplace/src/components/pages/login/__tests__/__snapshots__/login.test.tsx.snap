@@ -63,8 +63,21 @@ exports[`Login should match a snapshot 1`] = `
             className="ifr3uqd-image-container"
           >
             <div
-              className="luljy5f-login-image"
-            />
+              className="lfdul3t-login-images"
+            >
+              <img
+                className="l1sxbys5-login-image luljy5f-login-image-visible"
+                src={Object {}}
+              />
+              <img
+                className="l1sxbys5-login-image"
+                src={Object {}}
+              />
+              <img
+                className="l1sxbys5-login-image"
+                src={Object {}}
+              />
+            </div>
           </div>
           <div
             className="wwd52pe-wrapper"

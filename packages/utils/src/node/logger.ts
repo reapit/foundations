@@ -12,28 +12,30 @@ export type AppRequest = express.Request & {
  * create fn
  * forward log to wiston
  */
-export const createParseLog = (logger: Logger) => (tokens, req: AppRequest, res: AppResponse): string => {
-  const log = {
-    traceId: req.traceId,
-    method: tokens.method(req, res),
-    endpoint: tokens.url(req, res),
-    status: tokens.status(req, res),
-    contentLength: String(tokens.res(req, res, 'content-length')),
-    responseTime: tokens['response-time'](req, res),
-    reqHeader: JSON.stringify(req.headers),
-    reqBody: JSON.stringify(req.body),
+export const createParseLog =
+  (logger: Logger) =>
+  (tokens, req: AppRequest, res: AppResponse): string => {
+    const log = {
+      traceId: req.traceId,
+      method: tokens.method(req, res),
+      endpoint: tokens.url(req, res),
+      status: tokens.status(req, res),
+      contentLength: String(tokens.res(req, res, 'content-length')),
+      responseTime: tokens['response-time'](req, res),
+      reqHeader: JSON.stringify(req.headers),
+      reqBody: JSON.stringify(req.body),
+    }
+    logger.info(log)
+    return [
+      tokens.method(req, res),
+      tokens.url(req, res),
+      tokens.status(req, res),
+      tokens.res(req, res, 'content-length'),
+      '-',
+      tokens['response-time'](req, res),
+      'ms',
+    ].join(' ')
   }
-  logger.info(log)
-  return [
-    tokens.method(req, res),
-    tokens.url(req, res),
-    tokens.status(req, res),
-    tokens.res(req, res, 'content-length'),
-    '-',
-    tokens['response-time'](req, res),
-    'ms',
-  ].join(' ')
-}
 
 export const traceIdMiddleware = (req, res, next) => {
   const traceId = uuid()
