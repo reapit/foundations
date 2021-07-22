@@ -1,7 +1,6 @@
 import React from 'react'
 import { render } from 'react-dom'
 import { Config } from './types/global'
-import { getMarketplaceGlobalsByKey } from '@reapit/elements'
 import config from './reapit.config.json'
 
 // Init global config
@@ -12,12 +11,13 @@ window.reapit = {
     connectOAuthUrl: '',
     connectUserPoolId: '',
     platformApiUrl: '',
+    marketplaceUrl: '',
   },
 }
 
 export const renderApp = (Component: React.ComponentType) => {
   const rootElement = document.querySelector('#root') as Element
-  const isDesktop = getMarketplaceGlobalsByKey()
+  const isDesktop = Boolean(window['__REAPIT_MARKETPLACE_GLOBALS__'])
   const html = document.querySelector('html')
   if (isDesktop && html) {
     html.classList.add('is-desktop')
