@@ -9,10 +9,8 @@ custom:
   env: ${file(./config.json)}
   webpack:
     webpackConfig: 'webpack.config.js'
-    includeModules: true
-    packager: 'yarn'
-    packagerOptions:
-      noFrozenLockFile: false
+    includeModules:
+      nodeModulesRelativeDir: '../../'
     excludeFiles: src/**/*.test.ts
     keepOutputDirectory: true
 
@@ -22,6 +20,7 @@ provider:
   stage: ${opt:stage, 'dev'}
   endpointType: REGIONAL
   region: eu-west-2
+  lambdaHashingVersion: '20201221'
   deploymentBucket:
     name: ${self:custom.s3CloudFormBucket}
     blockPublicAccess: false
@@ -55,19 +54,18 @@ resources:
 
 package:
   individually: true
-  include:
-    - dist/**
-  exclude:
-    - package.json
-    - node_modules/**
-    - error.log
-    - info.log
-    - jest.config.js
-    - nodemon.json
-    - serverless.yml
-    - src/**
-    - tsconfig.json
-    - yml-helpers.js
+  patterns:
+    - 'dist/**'
+    - '!package.json'
+    - '!node_modules/**'
+    - '!error.log'
+    - '!info.log'
+    - '!jest.config.js'
+    - '!nodemon.json'
+    - '!serverless.yml'
+    - '!src/**'
+    - '!tsconfig.json'
+    - '!yml-helpers.js'
 
 functions:
   graphqlHandler:

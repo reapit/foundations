@@ -30,7 +30,7 @@ const ApiDocsPage: React.FC = () => {
       <FlexContainer isFlexAuto>
         <SecondaryNavContainer>
           <Title>Docs</Title>
-          <Icon icon="apiDocsInfographic" iconSize="large" />
+          <Icon className={elMb3} icon="apiDocsInfographic" iconSize="large" />
           <Subtitle>Welcome</Subtitle>
           <BodyText hasGreyText>
             We have provided comprehensive documentation for all of our APIs, services, tooling and open source packages

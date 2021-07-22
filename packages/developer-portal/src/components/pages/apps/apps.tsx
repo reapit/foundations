@@ -76,7 +76,7 @@ export const Apps: React.FC = () => {
               Create New App
             </SecondaryNavItem>
           </SecondaryNav>
-          <Icon icon="myAppsInfographic" iconSize="large" />
+          <Icon className={elMb3} icon="myAppsInfographic" iconSize="large" />
           <Subtitle>Apps Documentation</Subtitle>
           <BodyText hasGreyText>
             This is the dashboard for your applications created using the Reapit Foundations platform. If you have not

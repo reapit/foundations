@@ -8,7 +8,7 @@
     "start": "cypress run",
     "test": "echo '...skipping...'",
     "build": "echo '...skipping...'",
-    "lint": "echo '...skipping...'",
+    "lint": "eslint --cache --ext=ts,tsx,js cypress --fix",
     "release": "echo '...skipping...'",
     "publish": "echo '...skipping...'",
     "conf": "echo '...skipping...'",
@@ -23,8 +23,8 @@
     "@reapit/ts-types": "workspace:packages/ts-types",
     "@slack/web-api": "^5.15.0",
     "@slack/webhook": "^5.0.4",
-    "@typescript-eslint/eslint-plugin": "^4.28.3",
-    "@typescript-eslint/parser": "^4.28.3",
+    "@typescript-eslint/eslint-plugin": "^4.28.4",
+    "@typescript-eslint/parser": "^4.28.4",
     "babel-jest": "^27.0.6",
     "babel-loader": "^8.2.2",
     "concurrently": "^6.2.0",
@@ -32,8 +32,7 @@
     "cypress": "^7.7.0",
     "cypress-file-upload": "^5.0.8",
     "cypress-plugin-snapshots": "^1.4.4",
-    "eslint": "^7.30.0",
-    "eslint-config-prettier": "^8.3.0",
+    "eslint": "^7.31.0",
     "eslint-plugin-prettier": "^3.4.0",
     "jest": "^27.0.6",
     "node-polyfill-webpack-plugin": "^1.1.4",
@@ -41,7 +40,6 @@
     "ts-jest": "^27.0.3",
     "ts-loader": "^9.2.3",
     "typescript": "^4.3.5",
-    "typescript-eslint": "^0.0.1-alpha.0",
-    "webpack": "^5.44.0"
+    "webpack": "^5.45.1"
   }
 }

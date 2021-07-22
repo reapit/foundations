@@ -194,6 +194,7 @@ exports[`AppointmentList should match snapshot with no appointments 1`] = `
 <PersistantNotification
   isExpanded={true}
   isFullWidth={true}
+  isInline={true}
 >
   No appointments
 </PersistantNotification>

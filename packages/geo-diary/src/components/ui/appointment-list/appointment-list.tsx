@@ -21,7 +21,7 @@ export interface AppointmentTypeQueryVariables {
 export const AppointmentList: React.FC<AppointmentListProps> = ({ appointments }: AppointmentListProps) => {
   if (!appointments.length) {
     return (
-      <PersistantNotification isExpanded isFullWidth>
+      <PersistantNotification isExpanded isFullWidth isInline>
         No appointments
       </PersistantNotification>
     )

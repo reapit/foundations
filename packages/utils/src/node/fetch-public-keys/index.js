@@ -4,7 +4,7 @@ const syncKeys = require('./fetch-public-keys')
 const fs = require('fs')
 const constants = require('./constants')
 
-const isTest = (process.argv[2] && process.argv[2] === '--test')
+const isTest = process.argv[2] && process.argv[2] === '--test'
 
 if (!isTest) {
   syncKeys()

@@ -77,7 +77,7 @@ export const SwaggerPage: FC = () => {
               GraphQL
             </SecondaryNavItem>
           </SecondaryNav>
-          <Icon icon="apiInfographic" iconSize="large" />
+          <Icon className={elMb3} icon="apiInfographic" iconSize="large" />
           <Subtitle>Open API Specification</Subtitle>
           <div>
             <Label>API Version</Label>

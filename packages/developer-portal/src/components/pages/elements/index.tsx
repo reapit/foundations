@@ -19,7 +19,7 @@ export const ElementsPage: FC = () => {
     <FlexContainer isFlexAuto>
       <SecondaryNavContainer>
         <Title>UI</Title>
-        <Icon icon="elementsInfographic" iconSize="large" />
+        <Icon className={elMb3} icon="elementsInfographic" iconSize="large" />
         <Subtitle>Reapit Elements</Subtitle>
         <BodyText hasGreyText>
           Elements is a UI toolkit built in React JS, exporting a library of CSS classes to help you build clean,

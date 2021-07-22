@@ -20,5 +20,12 @@
     "inlineSources": true,
     "resolveJsonModule": true
   },
-  "exclude": ["public", "dist", "scripts", "node_modules", "coverage", "archive/**/*"]
+  "exclude": [
+    "**/public/**/*",
+    "**/dist/**/*",
+    ".yarn/**/*",
+    "**/node_modules/**/*",
+    "**/coverage/**/*",
+    "archive/**/*"
+  ]
 }

@@ -5,9 +5,9 @@ import ErrorBoundary from './error-boundary'
 import { Redirect, useLocation } from 'react-router'
 import { reapitConnectBrowserSession } from '@/core/connect-session'
 import { useReapitConnect } from '@reapit/connect-session'
-import { ApolloProvider } from '@apollo/react-hooks'
-import getClient from '@/graphql/client'
+import { ApolloProvider } from '@apollo/client'
 import { Loader, MainContainer } from '@reapit/elements'
+import client from '../graphql/client'
 
 export const PrivateRouteWrapper: FC = ({ children }) => {
   const { connectSession, connectInternalRedirect } = useReapitConnect(reapitConnectBrowserSession)
@@ -45,9 +45,7 @@ export const PrivateRouteWrapper: FC = ({ children }) => {
       <Nav />
       <Suspense fallback={<Loader label="Loading" fullPage />}>
         <ErrorBoundary>
-          <ApolloProvider client={getClient(connectSession, window.reapit.config.graphqlUri)}>
-            {children}
-          </ApolloProvider>
+          <ApolloProvider client={client}>{children}</ApolloProvider>
         </ErrorBoundary>
       </Suspense>
     </MainContainer>

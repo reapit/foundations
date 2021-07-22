@@ -13,7 +13,7 @@
     "start": "echo '...skipping...'",
     "test": "cross-env TZ=UTC jest --watch --colors",
     "build": "echo '...skipping...'",
-    "lint": "eslint --cache --ext=ts,tsx src --fix",
+    "lint": "eslint --cache --ext=ts,tsx,js src --fix",
     "release": "echo '...skipping...'",
     "publish": "yarn npm publish --access public",
     "conf": "echo '...skipping...'",
@@ -28,12 +28,12 @@
   "devDependencies": {
     "@reapit/ts-scripts": "workspace:packages/ts-scripts",
     "@reapit/ts-types": "workspace:packages/ts-types",
-    "@typescript-eslint/eslint-plugin": "^4.28.3",
-    "@typescript-eslint/parser": "^4.28.3",
+    "@typescript-eslint/eslint-plugin": "^4.28.4",
+    "@typescript-eslint/parser": "^4.28.4",
     "babel-jest": "^27.0.6",
     "concurrently": "^6.2.0",
     "cross-env": "^7.0.3",
-    "eslint": "7.30.0",
+    "eslint": "7.31.0",
     "eslint-plugin-prettier": "^3.4.0",
     "jest": "^27.0.6"
   }

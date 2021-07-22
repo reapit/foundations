@@ -168,19 +168,18 @@ resources:
 
 package:
   individually: true
-  include:
-    - dist/**
-  exclude:
-    - package.json
-    - node_modules/**
-    - error.log
-    - info.log
-    - jest.config.js
-    - nodemon.json
-    - serverless.yml
-    - src/**
-    - tsconfig.json
-    - yml-helpers.js
+  patterns:
+    - 'dist/**'
+    - '!package.json'
+    - '!node_modules/**'
+    - '!error.log'
+    - '!info.log'
+    - '!jest.config.js'
+    - '!serverless.yml'
+    - '!src/**'
+    - '!tsconfig.json'
+    - '!yml-helpers.js'
+    - '!public/**''
 
 functions:
   pipelineCreate:

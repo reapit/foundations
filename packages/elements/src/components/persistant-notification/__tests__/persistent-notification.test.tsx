@@ -29,4 +29,13 @@ describe('PersistantNotification component', () => {
     wrapper.find(`.${elPnIcon}`).first().simulate('click')
     expect(spy).toHaveBeenCalledTimes(1)
   })
+
+  it('should match a snapshot for an inline notification', () => {
+    const wrapper = shallow(
+      <PersistantNotification isExpanded isInline isFullWidth intent="primary">
+        I am notification
+      </PersistantNotification>,
+    )
+    expect(wrapper).toMatchSnapshot()
+  })
 })
