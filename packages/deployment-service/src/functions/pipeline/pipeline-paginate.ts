@@ -8,7 +8,7 @@ import { Request, Response, RequestHandler } from 'express'
 export const pipelinePaginate: RequestHandler = async (request: Request, response: Response): Promise<Response> => {
   const developerId = await resolveDeveloperId(request.headers, response)
 
-  const page = request.query.page ? Number(request.query.page) : 0
+  const page = request.query.page ? Number(request.query.page) : undefined
 
   const result = await service.paginatePipelines(developerId, page)
 
