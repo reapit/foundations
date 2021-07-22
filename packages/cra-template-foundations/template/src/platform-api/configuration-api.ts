@@ -6,7 +6,7 @@ export const configurationAppointmentsApiService = async (
   session: ReapitConnectSession,
 ): Promise<ListItemModel[] | undefined> => {
   try {
-    const response = await fetch(`${window.reapit.config.platformApiUrl}/${URLS.CONFIGURATION_APPOINTMENT_TYPES}`, {
+    const response = await fetch(`${window.reapit.config.platformApiUrl}${URLS.CONFIGURATION_APPOINTMENT_TYPES}`, {
       method: 'GET',
       headers: {
         ...BASE_HEADERS,

@@ -9,7 +9,7 @@ export type AuthenticatedProps = {}
 
 export const Authenticated: FC<AuthenticatedProps> = () => {
   const { connectSession } = useReapitConnect(reapitConnectBrowserSession)
-  const [appointmentConfigTypes, setAppointmentConfigTypes] = useState([] as ListItemModel[])
+  const [appointmentConfigTypes, setAppointmentConfigTypes] = useState<ListItemModel[]>([])
 
   useEffect(() => {
     const fetchAppoinmentConfigs = async () => {

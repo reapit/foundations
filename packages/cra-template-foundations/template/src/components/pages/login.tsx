@@ -1,5 +1,5 @@
 import React, { FC, useEffect, useState } from 'react'
-import { Button, FlexContainerBasic, Level } from '@reapit/elements-legacy'
+import { BodyText, Button, FlexContainer } from '@reapit/elements'
 import connectImage from '../../assets/images/reapit-connect.png'
 import { reapitConnectBrowserSession } from '../../core/connect-session'
 import {
@@ -45,23 +45,17 @@ export const Login: FC = () => {
         </div>
       </div>
       <div className={wrapper}>
-        <Level>
+        <BodyText>
           <img src={connectImage} alt="Reapit Connect Graphic" />
-        </Level>
-        <Level className={loginLevel}>
-          <Button
-            type="button"
-            onClick={loginHandler}
-            loading={false}
-            variant="primary"
-            disabled={false}
-            fullWidth
-            dataTest="login-button"
-          >
+        </BodyText>
+        <BodyText className={loginLevel}>
+          <Button type="button" onClick={loginHandler} loading={false} intent="primary" disabled={false} fullWidth>
             Login
           </Button>
-        </Level>
-        <FlexContainerBasic centerContent>{process.env.APP_VERSION}</FlexContainerBasic>
+        </BodyText>
+        <FlexContainer isFlexAlignCenter isFlexJustifyCenter>
+          {process.env.APP_VERSION}
+        </FlexContainer>
       </div>
     </div>
   )

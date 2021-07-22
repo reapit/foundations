@@ -50,8 +50,6 @@ export interface TableProps extends HTMLAttributes<HTMLDivElement> {
   expandableContentSize?: 'small' | 'medium' | 'large'
 }
 
-export * from './molecules'
-
 export const Table: FC<TableProps> = ({ rows, children, expandableContentSize, ...rest }) => {
   if (!rows)
     return (
