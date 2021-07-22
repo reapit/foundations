@@ -4845,6 +4845,7 @@ __metadata:
     eslint: 7.31.0
     eslint-plugin-prettier: ^3.4.0
     jest: ^27.0.6
+    jest-coverage-badges: ^1.1.2
   languageName: unknown
   linkType: soft
 
@@ -5195,7 +5196,6 @@ __metadata:
     "@linaria/shaker": ^3.0.0-beta.8
     "@linaria/webpack-loader": ^3.0.0-beta.7
     "@octokit/rest": ^16.43.2
-    "@pmmmwh/react-refresh-webpack-plugin": ^0.4.3
     "@sentry/webpack-plugin": ^1.16.0
     "@svgr/webpack": ^5.5.0
     "@typescript-eslint/eslint-plugin": ^4.28.4
@@ -5242,7 +5242,6 @@ __metadata:
     postcss-loader: ^6.1.1
     prettier: ^2.3.2
     prettier-plugin-packagejson: ^2.2.11
-    react-refresh: ^0.10.0
     regenerator-runtime: ^0.13.8
     rimraf: ^3.0.2
     sass-loader: ^12.1.0
@@ -31131,13 +31130,6 @@ fsevents@^1.2.7:
     react-native:
       optional: true
   checksum: 24c4dd26dc55c498d0dcec2e2ef1678aa8cb3f2e1c31704363d072b045460c1f60f5b89b508d3984ae680779cba00ee65f1344a4c4c02768a6bec132e33ee815
-  languageName: node
-  linkType: hard
-
-"react-refresh@npm:^0.10.0":
-  version: 0.10.0
-  resolution: "react-refresh@npm:0.10.0"
-  checksum: 09a59d2732d8f2e9df3f59670146a507ea027f6b35a18b5a2116919f18ef056cfcc0455bed2f6b916ac154e4af78e3c57748cfbf9383930729624f7b8c672b91
   languageName: node
   linkType: hard
 
