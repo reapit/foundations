@@ -1,7 +1,7 @@
 import { Element, useEditor } from '@craftjs/core'
 import React from 'react'
 import styled from 'styled-components'
-import Tooltip from '@material-ui/core/Tooltip'
+import ReactTooltip from 'react-tooltip'
 
 import SquareSvg from '../icons/square'
 import TypeSvg from '../icons/type'
@@ -47,18 +47,14 @@ const Toolbox = () => {
             create(ref, <Element canvas is={Container} background="white" padding={12} height="auto" width={12} />)
           }
         >
-          <Tooltip title="Container" placement="right">
-            <Item className="m-2 pb-2 cursor-pointer block" move>
-              <SquareSvg />
-            </Item>
-          </Tooltip>
+          <Item data-tip="Container" className="m-2 pb-2 cursor-pointer block" move>
+            <SquareSvg />
+          </Item>
         </div>
         <div ref={(ref) => ref && create(ref, <Text fontSize="12" textAlign="left" text="Hi there" />)}>
-          <Tooltip title="Text" placement="right">
-            <Item className="m-2 pb-2 cursor-pointer block" move>
-              <TypeSvg />
-            </Item>
-          </Tooltip>
+          <Item data-tip="Text" className="m-2 pb-2 cursor-pointer block" move>
+            <TypeSvg />
+          </Item>
         </div>
         {/* <div ref={(ref) => ref && create(ref, <Button text="Click me!" />)}>
           <Tooltip title="Button" placement="right">
@@ -67,6 +63,7 @@ const Toolbox = () => {
             </Item>
           </Tooltip>
         </div> */}
+        <ReactTooltip place="bottom" />
       </div>
     </ToolboxDiv>
   )

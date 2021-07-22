@@ -11075,6 +11075,7 @@ __metadata:
     react-ga: ^2.7.0
     react-router: ^5.2.0
     react-router-dom: ^5.2.0
+    react-tooltip: ^4.2.21
     rimraf: ^3.0.2
     serverless: ^2.28.0
     serverless-s3-deploy: ^0.10.0
@@ -31787,6 +31788,19 @@ fsevents@^1.2.7:
     react: ^15.0.0 || ^16.0.0 || ^17.0.0
     react-dom: ^15.0.0 || ^16.0.0 || ^17.0.0
   checksum: af2432fb1d4cab6fbe898198f14222f33ddae80933168aec14dc46faa4f1e216d2e1b701ee4ae2f736be5e6a99efb756397912d995ef483c7a0345ae7ad6d9d4
+  languageName: node
+  linkType: hard
+
+"react-tooltip@npm:^4.2.21":
+  version: 4.2.21
+  resolution: "react-tooltip@npm:4.2.21"
+  dependencies:
+    prop-types: ^15.7.2
+    uuid: ^7.0.3
+  peerDependencies:
+    react: ">=16.0.0"
+    react-dom: ">=16.0.0"
+  checksum: 2dab4ae832b336b709ab48d2e17208ae5dffbb62565be13ec428944a9f66e5605027ae2f5d3658e0752c49332d1e73a3b317495235ffd9d0dcae6dde9dcc24a7
   languageName: node
   linkType: hard
 

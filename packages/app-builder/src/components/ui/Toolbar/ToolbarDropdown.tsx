@@ -1,5 +1,5 @@
-import { FormControl, InputLabel, Select } from '@material-ui/core'
 import React from 'react'
+import { Label, Select } from '@reapit/elements'
 
 interface TollBarDropdownProps {
   title: string
@@ -9,11 +9,11 @@ interface TollBarDropdownProps {
 
 export const ToolbarDropdown: React.FC<TollBarDropdownProps> = ({ title, value, onChange, children }) => {
   return (
-    <FormControl>
-      <InputLabel>{title}</InputLabel>
-      <Select native value={value} onChange={(e) => onChange(e.target.value)}>
+    <div>
+      <Label>{title}</Label>
+      <Select value={value} onChange={(e) => onChange(e.target.value)}>
         {children}
       </Select>
-    </FormControl>
+    </div>
   )
 }

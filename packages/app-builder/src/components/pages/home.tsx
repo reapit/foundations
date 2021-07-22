@@ -1,5 +1,6 @@
 import React, { FC, useRef } from 'react'
 import { Editor, Frame, Element } from '@craftjs/core'
+import { MainContainer } from '@reapit/elements'
 
 import { RenderNode } from '../ui/RenderNode'
 import Viewport from '../ui/Viewport'
@@ -12,7 +13,7 @@ export const Authenticated: FC<AuthenticatedProps> = () => {
   const iframeRef = useRef()
 
   return (
-    <div style={{ width: '100%' }}>
+    <MainContainer>
       <Editor
         resolver={{
           Text,
@@ -37,7 +38,7 @@ export const Authenticated: FC<AuthenticatedProps> = () => {
           </Frame>
         </Viewport>
       </Editor>
-    </div>
+    </MainContainer>
   )
 }
 

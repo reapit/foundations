@@ -1,43 +1,38 @@
 import { useEditor } from '@craftjs/core'
-import { Tooltip } from '@material-ui/core'
-import { Button, ButtonGroup } from '@reapit/elements'
-import cx from 'classnames'
+import { css, cx } from '@linaria/core'
+import { Button, ButtonGroup, elFlex, elFlex1, elMTAuto, elPr1, FlexContainer } from '@reapit/elements'
 import React from 'react'
-import styled from 'styled-components'
+import ReactTooltip from 'react-tooltip'
 
 import Checkmark from '../icons/check'
 import Customize from '../icons/customize'
 import RedoSvg from '../icons/redo'
 import UndoSvg from '../icons/undo'
 
-const HeaderDiv = styled.div`
-  width: 100%;
-  height: 45px;
-  z-index: 99999;
-  position: relative;
-  padding: 0px 10px;
+const header = css`
   background: var(--nav-menu-background-dark);
-  display: flex;
+  height: 45px;
 `
 
-const Item = styled.a<{ disabled?: boolean }>`
+const item = css`
   margin-right: 10px;
   cursor: pointer;
+
   svg {
     width: 20px;
     height: 20px;
     fill: #707070;
   }
-  ${(props) =>
-    props.disabled &&
-    `
-    opacity:0.5;
-    cursor: not-allowed;
-  `}
 `
 
-const ButtonIcon = styled.div`
+const disabled = css`
+  opacity: 0.5;
+  cursor: not-allowed;
+`
+
+const buttonIcon = css`
   display: inline;
+
   svg {
     fill: white;
     width: 18px;
@@ -55,20 +50,16 @@ const Header = () => {
   }))
 
   return (
-    <HeaderDiv className="header text-white transition w-full">
-      <div className="items-center flex w-full px-4 justify-end">
+    <FlexContainer className={header} isFlexJustifyCenter>
+      <FlexContainer isFlexAlignCenter isFlexJustifyEnd className={cx(elFlex1, elMTAuto, elPr1)}>
         {enabled && (
-          <div className="flex-1 flex">
-            <Tooltip title="Undo" placement="bottom">
-              <Item disabled={!canUndo} onClick={() => actions.history.undo()}>
-                <UndoSvg />
-              </Item>
-            </Tooltip>
-            <Tooltip title="Redo" placement="bottom">
-              <Item disabled={!canRedo} onClick={() => actions.history.redo()}>
-                <RedoSvg />
-              </Item>
-            </Tooltip>
+          <div className={cx(elFlex, elFlex1)}>
+            <a className={cx(item, !canUndo && disabled)} data-tip="Undo" onClick={() => actions.history.undo()}>
+              <UndoSvg />
+            </a>
+            <a className={cx(item, !canRedo && disabled)} data-tip="Redo" onClick={() => actions.history.redo()}>
+              <RedoSvg />
+            </a>
           </div>
         )}
         <ButtonGroup>
@@ -104,23 +95,18 @@ const Header = () => {
             size={2}
             style={{ zoom: 0.8 }}
             intent="success"
-            className={cx([
-              'transition cursor-pointer',
-              {
-                'bg-green-400': enabled,
-                'bg-primary': !enabled,
-              },
-            ])}
+            className={cx('transition cursor-pointer', enabled ? 'bg-green-400' : 'bg-primary')}
             onClick={() => {
               actions.setOptions((options) => (options.enabled = !enabled))
             }}
           >
-            <ButtonIcon>{enabled ? <Checkmark /> : <Customize />}</ButtonIcon>
+            <div className={buttonIcon}>{enabled ? <Checkmark /> : <Customize />}</div>
             {enabled ? 'Preview' : 'Edit'}
           </Button>
         </ButtonGroup>
-      </div>
-    </HeaderDiv>
+      </FlexContainer>
+      <ReactTooltip place="bottom" effect="solid" />
+    </FlexContainer>
   )
 }
 

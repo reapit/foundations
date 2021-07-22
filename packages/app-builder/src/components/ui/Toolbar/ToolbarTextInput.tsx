@@ -1,48 +1,7 @@
-import { TextField, makeStyles } from '@material-ui/core'
-import React, { useEffect } from 'react'
-import { useState } from 'react'
+import { Input, InputGroup, Label } from '@reapit/elements'
+import React from 'react'
+
 import { ToolbarItemType } from './types'
-
-const useStyles = makeStyles({
-  root: {
-    padding: 0,
-    width: '100%',
-    // background:"#efeff1",
-    borderRadius: '100px',
-    border: 'none',
-    margin: 0,
-    marginTop: 7,
-    position: 'relative',
-  },
-  input: {
-    background: '#efeff1',
-    borderRadius: '100px',
-    fontSize: '12px',
-    paddingLeft: '28px',
-    paddingBottom: '8px',
-    paddingTop: '8px',
-    margin: 0,
-  }, // a style rule
-  // notchedOutline: {
-  //   borderColor:'transparent',
-  //   borderRadius: "100px"
-  // }
-})
-
-const useLabelStyles = makeStyles({
-  root: {
-    color: 'rgb(128,128,128)',
-  },
-  formControl: {
-    fontSize: '18px',
-    borderRadius: '100px',
-    paddingLeft: '0px',
-    paddingTop: '3px',
-    marginBottom: '3px',
-    position: 'relative',
-    left: '-12px',
-  }, // a style rule
-})
 
 export type ToolbarTextInputProps = {
   prefix?: string
@@ -51,42 +10,16 @@ export type ToolbarTextInputProps = {
   onChange: (value: any) => void
   value?: any
 }
-export const ToolbarTextInput = ({ onChange, value, label, type, ...props }: ToolbarTextInputProps) => {
-  const [internalValue, setInternalValue] = useState(value)
-  const classes = useStyles({})
-  const labelClasses = useLabelStyles({})
-  useEffect(() => {
-    setInternalValue(value)
-  }, [value, type])
 
-  return (
-    <div style={{ width: '100%', position: 'relative' }}>
-      <TextField
-        label={label}
-        style={{ margin: 0, width: '100%' }}
-        value={internalValue || ''}
-        onKeyDown={(e) => {
-          if (e.key === 'Enter') {
-            onChange((e.target as any).value)
-          }
-        }}
-        onChange={(e) => {
-          setInternalValue(e.target.value)
-        }}
-        margin="dense"
-        variant="filled"
-        InputProps={{
-          classes,
-          disableUnderline: true,
-        }}
-        InputLabelProps={{
-          classes: {
-            ...labelClasses,
-          },
-          shrink: true,
-        }}
-        {...props}
-      />
-    </div>
-  )
-}
+export const ToolbarTextInput = ({ onChange, value, label, type }: ToolbarTextInputProps) => (
+  <InputGroup>
+    <Label>{label}</Label>
+    <Input
+      type={type === ToolbarItemType.Text ? 'text' : 'number'}
+      value={value || ''}
+      onChange={(e) => {
+        onChange(e.target.value)
+      }}
+    />
+  </InputGroup>
+)
