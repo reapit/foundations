@@ -1,4 +1,4 @@
-const { override, addBabelPreset } = require('customize-cra')
+const { override } = require('customize-cra')
 const ForkTsCheckerWebpackPlugin = require('fork-ts-checker-webpack-plugin')
 const paths = require.resolve('react-scripts/config/paths')
 const typescriptFormatter = require('react-dev-utils/typescriptFormatter')
@@ -63,7 +63,7 @@ const transformLoader = (loader) => {
         options,
       },
       {
-        loader: 'linaria/loader',
+        loader: '@linaria/webpack-loader',
         options: {
           cacheDirectory: 'src/.linaria_cache',
           sourceMap: process.env.NODE_ENV !== 'production',
@@ -107,7 +107,7 @@ module.exports = {
   // The Webpack config to use when compiling your react app for development or production.
   webpack: function (config, env) {
     return {
-      ...override(addBabelPreset('linaria/babel'), addLinariaLoader, removeOriginalForkTsCheckerWebpackPlugin)(config),
+      ...override(addLinariaLoader, removeOriginalForkTsCheckerWebpackPlugin)(config),
       ...patchForkTsCheckerWebpackPlugin(config, env),
     }
   },

@@ -1,21 +1,25 @@
-import * as React from 'react'
+import React, { FC, Suspense } from 'react'
 import { useReapitConnect } from '@reapit/connect-session'
-import { Loader, Section, FlexContainerResponsive, AppNavContainer, FlexContainerBasic } from '@reapit/elements'
-import Menu from '../components/ui/menu'
+import Nav from '../components/ui/nav'
 import { reapitConnectBrowserSession } from '../core/connect-session'
 import { useLocation, Redirect } from 'react-router'
-
-const { Suspense } = React
+import { Loader, MainContainer, PageContainer } from '@reapit/elements'
 
 export type PrivateRouteWrapperProps = {}
 
-export const PrivateRouteWrapper: React.FunctionComponent<PrivateRouteWrapperProps> = ({ children }) => {
+export const PrivateRouteWrapper: FC<PrivateRouteWrapperProps> = ({ children }) => {
   const { connectSession, connectInternalRedirect } = useReapitConnect(reapitConnectBrowserSession)
   const location = useLocation()
-  const currentUri = `${location?.pathname}${location?.search}`
+  const currentUri = `${location.pathname}${location.search}`
 
   if (!connectSession) {
-    return null
+    return (
+      <MainContainer>
+        <PageContainer>
+          <Loader label="Loading" fullPage />
+        </PageContainer>
+      </MainContainer>
+    )
   }
 
   if (connectInternalRedirect && currentUri !== connectInternalRedirect) {
@@ -23,22 +27,14 @@ export const PrivateRouteWrapper: React.FunctionComponent<PrivateRouteWrapperPro
   }
 
   return (
-    <AppNavContainer>
-      <Menu />
-      <FlexContainerBasic flexColumn isScrollable>
-        <FlexContainerResponsive hasPadding flexColumn>
-          <Suspense
-            fallback={
-              <Section>
-                <Loader />
-              </Section>
-            }
-          >
-            {children}
-          </Suspense>
-        </FlexContainerResponsive>
-      </FlexContainerBasic>
-    </AppNavContainer>
+    <MainContainer>
+      <Nav />
+      <PageContainer>
+        <PageContainer>
+          <Suspense fallback={<Loader label="Loading" fullPage />}>{children}</Suspense>
+        </PageContainer>
+      </PageContainer>
+    </MainContainer>
   )
 }
 

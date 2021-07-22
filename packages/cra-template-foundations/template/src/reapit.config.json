@@ -3,5 +3,6 @@
   "connectClientId": "",
   "connectOAuthUrl": "https://connect.reapit.cloud",
   "platformApiUrl": "https://platform.reapit.cloud",
-  "connectUserPoolId": ""
+  "connectUserPoolId": "",
+  "marketplaceUrl": "https://marketplace.reapit.cloud/installed"
 }
