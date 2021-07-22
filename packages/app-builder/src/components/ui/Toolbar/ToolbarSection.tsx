@@ -1,10 +1,10 @@
 import { useNode } from '@craftjs/core'
 import React from 'react'
-import { css } from '@linaria/core'
+import { css, cx } from '@linaria/core'
+import { elFlex, elFlexJustifyBetween, elMt4, elMt2, elPx2 } from '@reapit/elements'
 
-const summaryClass = css`
-  display: flex;
-  justify-content: space-between;
+const pointer = css`
+  cursor: pointer;
 `
 
 export const ToolbarSection = ({ title, props, summary, children }: any) => {
@@ -19,10 +19,11 @@ export const ToolbarSection = ({ title, props, summary, children }: any) => {
 
   return (
     <details>
-      <summary className={summaryClass}>
-        {title} {summary && props && summary(nodeProps)}
+      <summary className={cx(elFlex, elFlexJustifyBetween, elPx2, elMt4, pointer)}>
+        <span>{title}</span>
+        <span>{summary && props && summary(nodeProps)}</span>
       </summary>
-      {children}
+      <div className={cx(elMt2)}>{children}</div>
     </details>
   )
 }
