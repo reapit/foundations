@@ -1,6 +1,6 @@
 {
   "name": "@reapit/elements",
-  "version": "3.1.0",
+  "version": "3.2.0",
   "description": "A collection of React components and utilities for building apps for Reapit Marketplace",
   "homepage": "https://github.com/reapit/foundations#readme",
   "bugs": {
@@ -12,8 +12,9 @@
   },
   "license": "MIT",
   "author": "Will McVay <wmcvay@reapit.com>",
-  "main": "dist/index.js",
-  "typings": "dist/index.d.ts",
+  "main": "dist/cjs/index.js",
+  "module": "dist/esm/index.js",
+  "typings": "dist/esm/index.d.ts",
   "files": [
     "dist/",
     "assets/",
@@ -22,7 +23,7 @@
   "scripts": {
     "build": "yarn build:dist && yarn build:storybook",
     "build:storybook": "cross-env NODE_ENV=production && build-storybook -o public/dist",
-    "build:dist": "cross-env NODE_ENV=production && rimraf public/dist && rollup -c",
+    "build:dist": "cross-env NODE_ENV=production && rimraf public/dist && rimraf dist && rollup -c",
     "commit": "concurrently \"yarn test --coverage --no-cache --silent --forceExit --detectOpenHandles --runInBand --watch=false && jest-coverage-badges --input src/tests/coverage/coverage-summary.json --output src/tests/badges\" \"yarn lint\"",
     "conf": "yarn config-manager --namespace cloud --entity elements --name local --mode fetch",
     "lint": "eslint --cache --ext=ts,tsx,js src --fix",
