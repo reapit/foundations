@@ -1,9 +1,9 @@
-const Adapter = require('enzyme-adapter-react-16')
+const Adapter = require('@wojtekmaj/enzyme-adapter-react-17')
 const Enzyme = require('enzyme')
 
 Enzyme.configure({ adapter: new Adapter() })
 
-jest.mock('linaria', () => {
+jest.mock('@linaria/core', () => {
   return {
     css: jest.fn(() => ''),
     cx: jest.fn(() => ''),

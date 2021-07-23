@@ -12,7 +12,7 @@
       "@/*": ["src/*"]
     },
     "lib": ["es2015", "es2017", "dom", "es5", "es6", "esnext"],
-    "outDir": "public",
+    "outDir": "dist",
     "sourceRoot": "/"
   },
   "include": ["src"]
