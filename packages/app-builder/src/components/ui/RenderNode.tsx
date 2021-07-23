@@ -2,23 +2,22 @@ import { useNode, useEditor } from '@craftjs/core'
 import { ROOT_NODE } from '@craftjs/utils'
 import React, { useEffect, useRef, useCallback } from 'react'
 import ReactDOM from 'react-dom'
-import styled, { createGlobalStyle } from 'styled-components'
-import { elFlex, elFlex1, elFlexAlignCenter, elMr2, elMr4, elP2, intentPrimary } from '@reapit/elements'
+import { elFlex, elFlex1, elFlexAlignCenter, elMr2, elMr4, elP2 } from '@reapit/elements'
 
 import ArrowUp from '../icons/arrow-up'
 import Delete from '../icons/delete'
 import Move from '../icons/move'
-import { cx } from '@linaria/core'
+import { css, cx } from '@linaria/core'
 import { cursorMove, cursorPointer, textWhite } from './styles'
 
-const IndicatorDiv = styled.div`
+const indicator = css`
   height: 30px;
   margin-top: -29px;
   font-size: 12px;
   line-height: 12px;
   color: white;
   position: fixed;
-  background: ${intentPrimary}; /* couldn't get the CSS vars into the iframe on first try :( */
+  background: var(--intent-primary);
 
   svg {
     fill: #fff;
@@ -27,13 +26,11 @@ const IndicatorDiv = styled.div`
   }
 `
 
-const Globals = createGlobalStyle`
-  .component-selected {
-    position: relative;
-  }
-  .component-selected:after {
-    content: " ";
-    border: 1px dashed #2680eb;
+const componentSelected = css`
+  position: relative;
+  &:after {
+    content: ' ';
+    border: 1px dashed var(--intent-primary);
     width: 100%;
     height: 100%;
     position: absolute;
@@ -44,7 +41,7 @@ const Globals = createGlobalStyle`
   }
 `
 
-const Btn = styled.a`
+const button = css`
   padding: 0 0px;
   opacity: 0.9;
   display: flex;
@@ -88,9 +85,9 @@ export const RenderNode = ({ render, iframeRef }) => {
 
   useEffect(() => {
     if (isActive || isHover) {
-      dom?.classList.add('component-selected')
+      dom?.classList.add(componentSelected)
     } else {
-      dom?.classList.remove('component-selected')
+      dom?.classList.remove(componentSelected)
     }
   }, [dom, isActive, isHover])
 
@@ -127,22 +124,21 @@ export const RenderNode = ({ render, iframeRef }) => {
     <>
       {(isHover || isActive) && container && dom
         ? ReactDOM.createPortal(
-            <IndicatorDiv
+            <div
               ref={currentRef}
-              className={cx(elP2, elFlex, elFlexAlignCenter)}
+              className={cx(indicator, elP2, elFlex, elFlexAlignCenter)}
               style={{
                 left: getPos(dom).left,
                 top: getPos(dom).top,
                 zIndex: 9999,
               }}
             >
-              <Globals />
               <h2 className={cx(elFlex1, elMr4)}>{name}</h2>
               {moveable && (
                 <>
-                  <Btn
+                  <button
                     title="Increase block width"
-                    className={cx(elMr2, textWhite)}
+                    className={cx(button, elMr2, textWhite)}
                     style={{ fontSize: 18, fontWeight: 800 }}
                     onClick={() => {
                       setProp((props) => {
@@ -154,10 +150,10 @@ export const RenderNode = ({ render, iframeRef }) => {
                     }}
                   >
                     +
-                  </Btn>
-                  <Btn
+                  </button>
+                  <button
                     title="Decrease block width"
-                    className={cx(elMr2, textWhite)}
+                    className={cx(button, elMr2, textWhite)}
                     style={{ fontSize: 18, fontWeight: 800 }}
                     onClick={() => {
                       setProp((props) => {
@@ -169,36 +165,36 @@ export const RenderNode = ({ render, iframeRef }) => {
                     }}
                   >
                     —
-                  </Btn>
+                  </button>
                 </>
               )}
               {moveable && (
-                <Btn className={cx(elMr2, cursorMove)} ref={drag}>
+                <div className={cx(button, elMr2, cursorMove)} ref={drag}>
                   <Move />
-                </Btn>
+                </div>
               )}
               {id !== ROOT_NODE && (
-                <Btn
-                  className={cx(elMr2, cursorPointer)}
+                <button
+                  className={cx(button, elMr2, cursorPointer)}
                   onClick={() => {
                     actions.selectNode(parent)
                   }}
                 >
                   <ArrowUp />
-                </Btn>
+                </button>
               )}
               {deletable && (
-                <Btn
-                  className={cx(cursorPointer)}
+                <button
+                  className={cx(button, cursorPointer)}
                   onMouseDown={(e: React.MouseEvent) => {
                     e.stopPropagation()
                     actions.delete(id)
                   }}
                 >
                   <Delete />
-                </Btn>
+                </button>
               )}
-            </IndicatorDiv>,
+            </div>,
             container,
           )
         : null}

@@ -1,4 +1,5 @@
 import { cx } from '@linaria/core'
+import { styled } from '@linaria/react'
 import {
   elBorderB,
   elFlex,
@@ -10,7 +11,6 @@ import {
   elWFull,
 } from '@reapit/elements'
 import React, { FC } from 'react'
-import styled from 'styled-components'
 
 import Arrow from '../icons/arrow'
 import { bgWhite, cursorPointer, overflowAuto, uppercase } from './styles'
@@ -69,16 +69,15 @@ const SidebarItem: React.FC<SidebarItemProps> = ({ visible, icon, title, childre
             onChange(!visible)
           }
         }}
-        // `cursor-pointer bg-white border-b last:border-b-0 flex items-center px-2 ${
-        //  visible ? 'shadow-sm' : ''
-        // }`
         className={cx(cursorPointer, bgWhite, elBorderB, elFlex, elFlexAlignCenter, elPx2)}
       >
         <div className={cx(elFlex, elFlex1, elFlexAlignCenter)}>
           <IconContainer>{icon}</IconContainer>
-          <ElSmallText className={cx(uppercase)} style={{ marginBottom: 0 }} >{title}</ElSmallText>
+          <ElSmallText className={cx(uppercase)} style={{ marginBottom: 0 }}>
+            {title}
+          </ElSmallText>
         </div>
-        <Chevron visible={visible}>
+        <Chevron visible={!!visible}>
           <Arrow />
         </Chevron>
       </HeaderDiv>

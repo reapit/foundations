@@ -12,20 +12,20 @@ import {
   elWFull,
   ToggleRadio,
 } from '@reapit/elements'
+import { cx } from '@linaria/core'
+import { styled } from '@linaria/react'
 import IFrame, { FrameContext } from 'react-frame-component'
-import styled, { StyleSheetManager } from 'styled-components'
 
 import Toolbox from '../ui/Toolbox'
 import Header from '../ui/Header'
 import Sidebar from '../ui/Sidebar'
 
 import BREAKPOINT from '../../utils/breakpoints'
-import { cx } from '@linaria/core'
 import { flexAlignStretch, hScreen, justifyStretch, overflowAuto, overflowHidden, relative, transition } from './styles'
 
 const isLocal = window.reapit.config.appEnv === 'local'
 
-const InjectFrameStyles = (props) => {
+const InjectFrameStyles = ({ children }: { children: React.ReactChildren }) => {
   const { document: frame } = useContext(FrameContext)
   useEffect(() => {
     const links = Array.from(document.querySelectorAll('link')).filter(({ rel }) => rel === 'stylesheet')
@@ -58,7 +58,7 @@ const InjectFrameStyles = (props) => {
     }
   }, [frame])
 
-  return <StyleSheetManager target={frame.head}>{props.children}</StyleSheetManager>
+  return <>{children}</>
 }
 
 const Container = styled.div`

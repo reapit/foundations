@@ -1,5 +1,5 @@
 import React from 'react'
-import styled from 'styled-components'
+import { styled } from '@linaria/react'
 import { useEditor, useNode } from '@craftjs/core'
 import BREAKPOINT from '../../../utils/breakpoints'
 import { ToolbarItem, ToolbarItemType, ToolbarSection } from '../Toolbar'
@@ -9,19 +9,18 @@ const ContainerDiv = styled.div`
   align-items: center;
   justify-items: space-between;
 
-  ${(props) => !props.root && `flex: ${props.width};`}
-  ${(props) => props.root && 'width: 100%'}
+  flex: var(--width);
 
   @media (max-width: ${BREAKPOINT.Tablet}px) {
-    ${(props) => !props.root && `flex: ${props.width * 2};`}
+    flex: calc(var(--width) * 2);
   }
   @media (max-width: ${BREAKPOINT.MobileL}px) {
-    ${(props) => !props.root && `flex: ${props.width * 3};`}
+    flex: calc(var(--width) * 3);
   }
   @media (max-width: ${BREAKPOINT.MobileS}px) {
     align-items: flex-start;
     flex-direction: column;
-    ${(props) => !props.root && 'flex: 12;'}
+    flex: 12;
   }
 `
 
@@ -50,12 +49,15 @@ const Container = ({
     <ContainerDiv
       {...props}
       ref={(ref) => ref && connect(drag(ref))}
-      width={width}
       isRoot={isRoot}
       style={{
         background,
         height,
         padding: `${padding}px`,
+        // @ts-ignore
+        '--width': width,
+        flex: isRoot ? 'unset' : undefined,
+        width: isRoot ? '100%' : undefined,
       }}
     >
       {children}

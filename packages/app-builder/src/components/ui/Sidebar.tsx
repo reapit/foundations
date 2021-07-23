@@ -1,8 +1,8 @@
 import { useEditor } from '@craftjs/core'
 import { Layers } from '@craftjs/layers'
-import styled from 'styled-components'
 import React, { useState } from 'react'
 import { cx } from '@linaria/core'
+import { styled } from '@linaria/react'
 import { elFlex, elFlexColumn, elW2 } from '@reapit/elements'
 import { bgWhite, transition } from './styles'
 
