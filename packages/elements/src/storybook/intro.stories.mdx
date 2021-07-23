@@ -108,6 +108,20 @@ We understand that because v3 is a ground-up re-write, migration will be some wo
 import { Button } from "@reapit/elements/v3"
 ```
 
+You will also need to import the v3 stylesheet **in addtion** to the v2 stylesheet already in your project. Exporting the v3 stylesheet from v2 is done like this;
+
+```ts
+import '@reapit/elements/v3/index.css'
+
+// CommonJS 
+
+require('@reapit/elements/v3/index.css')
+```
+
+```css
+@import '~@reapit/elements/v3/index.css';
+```
+
 This will mean you can update from v2 to v3 at your own pace.
 
 The elements v2 components are detailed on a [separate Storybook here](https://elements-legacy.prod.paas.reapit.cloud). v2 will have a long term support for at least the next year and we will provide a deprecation notice at install 6 months prior to the end of official support for v2.
