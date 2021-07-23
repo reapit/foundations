@@ -39,9 +39,9 @@ export const Login: FC = () => {
     <div className={loginContainer}>
       <div className={imageContainer}>
         <div className={loginImages}>
-          <img className={cx(loginImage, imageShown === 1 && loginImageVisible)} src={stepOne} />
-          <img className={cx(loginImage, imageShown === 2 && loginImageVisible)} src={stepTwo} />
-          <img className={cx(loginImage, imageShown === 3 && loginImageVisible)} src={stepThree} />
+          <img className={cx(loginImage, imageShown === 1 && loginImageVisible)} src={stepOne} alt="login graphic" />
+          <img className={cx(loginImage, imageShown === 2 && loginImageVisible)} src={stepTwo} alt="login graphic" />
+          <img className={cx(loginImage, imageShown === 3 && loginImageVisible)} src={stepThree} alt="login graphic" />
         </div>
       </div>
       <div className={wrapper}>

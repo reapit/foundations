@@ -1,8 +1,8 @@
 import * as React from 'react'
 import Router from './router'
 import ErrorBoundary from '../components/hocs/error-boundary'
-import { MediaStateProvider, NavStateProvider } from '@reapit/elements' // eslint-disable-line
-import '@reapit/elements/dist/index.css'
+import { MediaStateProvider, NavStateProvider } from '@reapit/elements'
+import '@reapit/elements/dist/esm/index.css'
 
 const App = () => {
   return (
