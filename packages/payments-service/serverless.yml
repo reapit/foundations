@@ -114,7 +114,7 @@ package:
     - '!src/**'
     - '!tsconfig.json'
     - '!yml-helpers.js'
-    - '!public/**''
+    - '!public/**'
 
 functions:
   expressServer:
