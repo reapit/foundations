@@ -18,6 +18,7 @@ provider:
   name: aws
   runtime: ${opt:runtime, 'nodejs12.x' }
   region: 'eu-west-2'
+  lambdaHashingVersion: '20201221'
   deploymentBucket:
     name: cloud-api-docs-lambda
     blockPublicAccess: false
