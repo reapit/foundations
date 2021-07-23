@@ -40,6 +40,8 @@ import devEditionImgOne from '../../../assets/images/desktop/developer-edition/d
 import devEditionImgTwo from '../../../assets/images/desktop/developer-edition/developer-edition-02.svg'
 import devEditionImgThree from '../../../assets/images/desktop/developer-edition/developer-edition-03.svg'
 import { IFRAME_URLS } from '../../../constants/iframe-urls'
+import { useReapitConnect } from '@reapit/connect-session'
+import { reapitConnectBrowserSession } from '../../../core/connect-session'
 
 export type SubscribingState = 'INITIAL' | 'SUBSCRIBE_NOW' | 'CONFIRMING'
 
@@ -135,6 +137,9 @@ export const VideoSection: FC = () => {
 
 export const SubscribeSection: FC = () => {
   const [subscribingState, setSubscribingState] = useState<SubscribingState>('INITIAL')
+  const { connectSession } = useReapitConnect(reapitConnectBrowserSession)
+  const clientId = connectSession?.loginIdentity?.clientId
+  const desktopIsFree = clientId && clientId !== 'SBOX'
   const isInitial = subscribingState === 'INITIAL'
   return (
     <FadeIn>
@@ -160,7 +165,7 @@ export const SubscribeSection: FC = () => {
             >
               {subscribingState === 'INITIAL' ? (
                 <PriceSection>
-                  <h3>£300</h3>
+                  <h3>{desktopIsFree ? 'FREE' : '£300'}</h3>
                   <div>per licence / per month</div>
                   <Button
                     onClick={handleSetSubscribingState(setSubscribingState, 'SUBSCRIBE_NOW')}
