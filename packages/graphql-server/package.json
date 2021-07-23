@@ -21,6 +21,7 @@
   },
   "dependencies": {
     "@reapit/utils": "workspace:packages/utils",
+    "@snyk/protect": "latest",
     "apollo-server-core": "^3.0.1",
     "apollo-server-lambda": "^3.0.1",
     "axios": "^0.21.1",
@@ -39,8 +40,7 @@
     "tslib": "2.3.0",
     "uuid": "^3.4.0",
     "vue": "^2.6.14",
-    "winston": "^3.3.3",
-    "@snyk/protect": "latest"
+    "winston": "^3.3.3"
   },
   "devDependencies": {
     "@babel/core": "^7.14.6",

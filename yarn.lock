@@ -5095,15 +5095,12 @@ __metadata:
     rimraf: ^3.0.2
     rollup: ^2.53.3
     rollup-plugin-css-only: ^3.1.0
-    rollup-plugin-scss: ^3.0.0
     rollup-plugin-terser: ^7.0.2
-    rollup-plugin-typescript2: ^0.30.0
     serverless: ^2.52.0
     serverless-s3-deploy: ^0.10.1
     serverless-s3-remover: ^0.6.0
     serverless-single-page-app-plugin: ^1.0.2
     snyk: ^1.662.0
-    tsdx: ^0.14.1
     tslib: ^2.3.0
     typescript: ^4.3.5
     webpack: ^5.45.1
@@ -6343,6 +6340,15 @@ __metadata:
     "@snyk/dep-graph": ^1.28.0
     tslib: ^2.0.0
   checksum: 20b6a04db3d30702523317e031a191fa91a46fcf4bbbd5de3c38791b1a990fea9746c7aa2d38346643ad80264ca842780d13f2fa200070e579b257048d70a6de
+  languageName: node
+  linkType: hard
+
+"@snyk/protect@npm:latest":
+  version: 1.666.0
+  resolution: "@snyk/protect@npm:1.666.0"
+  bin:
+    snyk-protect: dist/index.js
+  checksum: e840cdd8e99de67575a91c5ce5dc7bd934da0718448443c6fc2995084211d7efaff7239a2b7def984b5d694c04c8d7ce2e389878d20cf202c7980825251da207
   languageName: node
   linkType: hard
 
@@ -20385,6 +20391,7 @@ fsevents@^1.2.7:
     "@reapit/ts-scripts": "workspace:packages/ts-scripts"
     "@reapit/ts-types": "workspace:packages/ts-types"
     "@reapit/utils": "workspace:packages/utils"
+    "@snyk/protect": latest
     "@typescript-eslint/eslint-plugin": ^4.28.4
     "@typescript-eslint/parser": ^4.28.4
     apollo-server-core: ^3.0.1
@@ -20418,7 +20425,6 @@ fsevents@^1.2.7:
     serverless-deployment-bucket: ^1.5.1
     serverless-offline: ^7.0.0
     serverless-webpack: ^5.5.1
-    snyk: ^1.662.0
     tslib: 2.3.0
     uuid: ^3.4.0
     vue: ^2.6.14
