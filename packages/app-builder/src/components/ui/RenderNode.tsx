@@ -3,12 +3,13 @@ import { ROOT_NODE } from '@craftjs/utils'
 import React, { useEffect, useRef, useCallback } from 'react'
 import ReactDOM from 'react-dom'
 import styled, { createGlobalStyle } from 'styled-components'
-import { elFlex, elFlexAlignCenter, elP2, intentPrimary } from '@reapit/elements'
+import { elFlex, elFlex1, elFlexAlignCenter, elMr2, elMr4, elP2, intentPrimary } from '@reapit/elements'
 
 import ArrowUp from '../icons/arrow-up'
 import Delete from '../icons/delete'
 import Move from '../icons/move'
 import { cx } from '@linaria/core'
+import { cursorMove, cursorPointer, textWhite } from './styles'
 
 const IndicatorDiv = styled.div`
   height: 30px;
@@ -113,10 +114,10 @@ export const RenderNode = ({ render, iframeRef }) => {
   }, [dom, getPos])
 
   useEffect(() => {
-    document.querySelector('.craftjs-renderer')?.addEventListener('scroll', scroll)
+    document.querySelector('#craftjs-renderer')?.addEventListener('scroll', scroll)
 
     return () => {
-      document.querySelector('.craftjs-renderer')?.removeEventListener('scroll', scroll)
+      document.querySelector('#craftjs-renderer')?.removeEventListener('scroll', scroll)
     }
   }, [scroll])
 
@@ -136,12 +137,12 @@ export const RenderNode = ({ render, iframeRef }) => {
               }}
             >
               <Globals />
-              <h2 className="flex-1 mr-4">{name}</h2>
+              <h2 className={cx(elFlex1, elMr4)}>{name}</h2>
               {moveable && (
                 <>
                   <Btn
                     title="Increase block width"
-                    className="mr-2 text-white"
+                    className={cx(elMr2, textWhite)}
                     style={{ fontSize: 18, fontWeight: 800 }}
                     onClick={() => {
                       setProp((props) => {
@@ -156,7 +157,7 @@ export const RenderNode = ({ render, iframeRef }) => {
                   </Btn>
                   <Btn
                     title="Decrease block width"
-                    className="mr-2 text-white"
+                    className={cx(elMr2, textWhite)}
                     style={{ fontSize: 18, fontWeight: 800 }}
                     onClick={() => {
                       setProp((props) => {
@@ -172,13 +173,13 @@ export const RenderNode = ({ render, iframeRef }) => {
                 </>
               )}
               {moveable && (
-                <Btn className="mr-2 cursor-move" ref={drag}>
+                <Btn className={cx(elMr2, cursorMove)} ref={drag}>
                   <Move />
                 </Btn>
               )}
               {id !== ROOT_NODE && (
                 <Btn
-                  className="mr-2 cursor-pointer"
+                  className={cx(elMr2, cursorPointer)}
                   onClick={() => {
                     actions.selectNode(parent)
                   }}
@@ -188,7 +189,7 @@ export const RenderNode = ({ render, iframeRef }) => {
               )}
               {deletable && (
                 <Btn
-                  className="cursor-pointer"
+                  className={cx(cursorPointer)}
                   onMouseDown={(e: React.MouseEvent) => {
                     e.stopPropagation()
                     actions.delete(id)

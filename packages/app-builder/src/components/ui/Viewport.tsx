@@ -1,6 +1,17 @@
 import React, { useContext, useEffect, useState } from 'react'
 import { useEditor } from '@craftjs/core'
-import { ToggleRadio } from '@reapit/elements'
+import {
+  elFlex,
+  elFlex1,
+  elFlexColumn,
+  elFlexRow,
+  elHFull,
+  elMAuto,
+  elPb4,
+  elPt4,
+  elWFull,
+  ToggleRadio,
+} from '@reapit/elements'
 import IFrame, { FrameContext } from 'react-frame-component'
 import styled, { StyleSheetManager } from 'styled-components'
 
@@ -9,6 +20,8 @@ import Header from '../ui/Header'
 import Sidebar from '../ui/Sidebar'
 
 import BREAKPOINT from '../../utils/breakpoints'
+import { cx } from '@linaria/core'
+import { flexAlignStretch, hScreen, justifyStretch, overflowAuto, overflowHidden, relative, transition } from './styles'
 
 const isLocal = window.reapit.config.appEnv === 'local'
 
@@ -36,6 +49,8 @@ const InjectFrameStyles = (props) => {
       observer.observe(document.head, { childList: true, subtree: true })
     }
 
+    frame.body.style.background = '#e0e0e0'
+
     return () => {
       if (!isLocal) {
         observer.disconnect()
@@ -59,7 +74,7 @@ const Breakpoints = styled.div`
   height: 35px;
   display: flex;
   justify-content: center;
-  margin-top: 12px;
+  margin-top: 8px;
 `
 
 const Viewport = ({ children, iframeRef }) => {
@@ -67,9 +82,9 @@ const Viewport = ({ children, iframeRef }) => {
   const [breakpoint, setBreakpoint] = useState(BREAKPOINT.Tablet)
 
   return (
-    <div className="viewport" style={{ flex: 1, flexDirection: 'column', justifyItems: 'stretch', height: '100vh' }}>
+    <div className={cx(elFlex1, elFlexColumn, justifyStretch, hScreen)}>
       <Header />
-      <div className="flex overflow-hidden flex-row w-full" style={{ height: 'calc(100vh - 45px)' }}>
+      <div className={cx(elFlex, overflowHidden, elFlexRow, elWFull)} style={{ height: 'calc(100vh - 45px)' }}>
         <Toolbox />
         <Container>
           <Breakpoints>
@@ -114,16 +129,17 @@ const Viewport = ({ children, iframeRef }) => {
               </>
             }
           >
-            <div id="page-container" className="page-container flex flex-1 h-full flex-col">
+            <div id="page-container" className={cx(elFlex, elFlex1, elHFull, elFlexColumn, elPt4)}>
               <div
-                className="craftjs-renderer flex-1 h-full w-full transition pb-8 overflow-auto"
+                id="craftjs-renderer"
+                className={cx(elFlex1, elHFull, elWFull, transition, elPb4, overflowAuto)}
                 ref={(ref) =>
                   ref &&
                   // @ts-ignore
                   connectors.select(connectors.hover(ref, null), null)
                 }
               >
-                <div className="relative flex-row flex items-stretch pt-8 m-auto">
+                <div className={cx(elFlex, elFlexRow, flexAlignStretch, relative, elPt4, elMAuto)}>
                   <InjectFrameStyles>{children}</InjectFrameStyles>
                 </div>
               </div>

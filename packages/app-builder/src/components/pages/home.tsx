@@ -27,7 +27,6 @@ export const Authenticated: FC<AuthenticatedProps> = () => {
               canvas
               is={Container}
               width="12"
-              fixedWidth="800px"
               height="auto"
               background="white"
               padding={40}

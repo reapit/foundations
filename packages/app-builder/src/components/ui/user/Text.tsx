@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react'
 import ContentEditable from 'react-contenteditable'
 import { useNode } from '@craftjs/core'
 import { ToolbarItem, ToolbarSection, ToolbarItemType } from '../Toolbar'
+import { elFlexAuto } from '@reapit/elements'
 
 const defaultProps = {
   fontSize: 12,
@@ -34,7 +35,7 @@ const Text = ({ text, ...props }) => {
   return (
     <div
       {...props}
-      className="el-flex-auto"
+      className={elFlexAuto}
       ref={(ref) => ref && connect(drag(ref))}
       onClick={() => selected && setEditable(true)}
       style={{

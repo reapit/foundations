@@ -35,10 +35,11 @@ const buttonIcon = css`
 
   svg {
     fill: white;
-    width: 18px;
-    height: 18px;
+    width: 21px;
+    height: 21px;
     display: inline;
     margin-right: 9px;
+    margin-bottom: -4px;
   }
 `
 

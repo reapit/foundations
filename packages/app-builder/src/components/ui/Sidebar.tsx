@@ -2,6 +2,9 @@ import { useEditor } from '@craftjs/core'
 import { Layers } from '@craftjs/layers'
 import styled from 'styled-components'
 import React, { useState } from 'react'
+import { cx } from '@linaria/core'
+import { elFlex, elFlexColumn, elW2 } from '@reapit/elements'
+import { bgWhite, transition } from './styles'
 
 import SidebarItem from './SidebarItem'
 import CustomizeIcon from '../icons/customize'
@@ -27,8 +30,8 @@ const Sidebar = () => {
   const [toolbarVisible, setToolbarVisible] = useState(true)
 
   return (
-    <SidebarDiv enabled={enabled} className="sidebar transition bg-white w-2">
-      <div className="flex flex-col" style={{ height: 'calc(100vh - 45px)' }}>
+    <SidebarDiv enabled={enabled} className={cx(transition, bgWhite, elW2)}>
+      <div className={cx(elFlex, elFlexColumn)} style={{ height: 'calc(100vh - 45px)' }}>
         <SidebarItem
           icon={CustomizeIcon}
           title="Customize"

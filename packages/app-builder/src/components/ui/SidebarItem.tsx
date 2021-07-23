@@ -1,7 +1,19 @@
+import { cx } from '@linaria/core'
+import {
+  elBorderB,
+  elFlex,
+  elFlex1,
+  elFlexAlignCenter,
+  elFlexColumn,
+  elPx2,
+  ElSmallText,
+  elWFull,
+} from '@reapit/elements'
 import React, { FC } from 'react'
 import styled from 'styled-components'
 
 import Arrow from '../icons/arrow'
+import { bgWhite, cursorPointer, overflowAuto, uppercase } from './styles'
 
 const SidebarItemDiv = styled.div<{ visible?: boolean; height?: string }>`
   height: ${(props) => {
@@ -50,26 +62,27 @@ const IconContainer = styled.div`
 
 const SidebarItem: React.FC<SidebarItemProps> = ({ visible, icon, title, children, height, onChange }) => {
   return (
-    <SidebarItemDiv visible={visible} height={height} className="flex flex-col">
+    <SidebarItemDiv visible={visible} height={height} className={cx(elFlex, elFlexColumn)}>
       <HeaderDiv
         onClick={() => {
           if (onChange) {
             onChange(!visible)
           }
         }}
-        className={`cursor-pointer bg-white border-b last:border-b-0 flex items-center px-2 ${
-          visible ? 'shadow-sm' : ''
-        }`}
+        // `cursor-pointer bg-white border-b last:border-b-0 flex items-center px-2 ${
+        //  visible ? 'shadow-sm' : ''
+        // }`
+        className={cx(cursorPointer, bgWhite, elBorderB, elFlex, elFlexAlignCenter, elPx2)}
       >
-        <div className="flex-1 flex items-center">
+        <div className={cx(elFlex, elFlex1, elFlexAlignCenter)}>
           <IconContainer>{icon}</IconContainer>
-          <h2 className="text-xs uppercase">{title}</h2>
+          <ElSmallText className={cx(uppercase)} style={{ marginBottom: 0 }} >{title}</ElSmallText>
         </div>
         <Chevron visible={visible}>
           <Arrow />
         </Chevron>
       </HeaderDiv>
-      {visible && <div className="w-full flex-1 overflow-auto">{children}</div>}
+      {visible && <div className={cx(elWFull, elFlex1, overflowAuto)}>{children}</div>}
     </SidebarItemDiv>
   )
 }
