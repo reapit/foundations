@@ -1,6 +1,4 @@
 import { resolveApiKey } from '@reapit/api-key-verify'
-import { DataMapper } from '@aws/dynamodb-data-mapper'
-import { DynamoDB } from 'aws-sdk'
 import { resolveCustomer } from './resolve-customer'
 import { IncomingHttpHeaders } from 'http'
 import { Response } from 'express'
@@ -16,16 +14,8 @@ export const resolveDeveloperId = async (headers: IncomingHttpHeaders, response:
   }
 
   if (headers['x-api-key']) {
-    const dataMapper = new DataMapper({
-      client: new DynamoDB({
-        region: 'eu-west-2',
-        accessKeyId: process.env.AWS_ACCESS_ID,
-        secretAccessKey: process.env.AWS_SECRET_ACCESS_KEY,
-      }),
-    })
-
     try {
-      const apiKey = await resolveApiKey(dataMapper)(headers['x-api-key'] as string)
+      const apiKey = await resolveApiKey(headers['x-api-key'] as string)
       return apiKey?.developerId as string
     } catch (e) {
       response.status(HttpStatusCode.UNAUTHORIZED)
