@@ -11,36 +11,36 @@ export type ApiKeyResolveFunction = (dbConfig: DataMapper) => GetApiKeyFunction
  * @param dbConfig
  * @returns GetApiKeyFunction
  */
-export const getApiKey: ApiKeyResolveFunction = (db: DataMapper): GetApiKeyFunction => async (
-  apiKeyHeader: string,
-): Promise<ApiKeyModel | undefined> => {
-  try {
-    const result = await db.query(
-      ApiKeyModel,
-      {
-        apiKey: apiKeyHeader,
-      },
-      {
-        indexName: 'apiKey',
-      },
-    )
+export const getApiKey: ApiKeyResolveFunction =
+  (db: DataMapper): GetApiKeyFunction =>
+  async (apiKeyHeader: string): Promise<ApiKeyModel | undefined> => {
+    try {
+      const result = await db.query(
+        ApiKeyModel,
+        {
+          apiKey: apiKeyHeader,
+        },
+        {
+          indexName: 'apiKey',
+        },
+      )
 
-    const apiKeys: ApiKeyModel[] = []
+      const apiKeys: ApiKeyModel[] = []
 
-    for await (const key of result) {
-      apiKeys.push(key)
+      for await (const key of result) {
+        apiKeys.push(key)
+      }
+
+      apiKeys
+        .sort((a, b) => new Date(a.keyExpiresAt as string).getDate() - new Date(b.keyExpiresAt as string).getDate())
+        .reverse()
+
+      return apiKeys.filter((key) => typeof key !== 'undefined')[0]
+    } catch (e) {
+      // TODO only return undefined on not found response
+      return undefined
     }
-
-    apiKeys
-      .sort((a, b) => new Date(a.keyExpiresAt as string).getDate() - new Date(b.keyExpiresAt as string).getDate())
-      .reverse()
-
-    return apiKeys.filter((key) => typeof key !== 'undefined')[0]
-  } catch (e) {
-    // TODO only return undefined on not found response
-    return undefined
   }
-}
 
 /**
  * use dynamoDB to resolve apiKey and throw exceptions if key does not exist or is expired
@@ -48,16 +48,16 @@ export const getApiKey: ApiKeyResolveFunction = (db: DataMapper): GetApiKeyFunct
  * @param dbConfig
  * @returns GetApiKeyFunction
  */
-export const resolveApiKey: ApiKeyResolveFunction = (db: DataMapper): GetApiKeyFunction => async (
-  apiKeyHeader: string,
-): Promise<ApiKeyModel | never> => {
-  const apiKey = await getApiKey(db)(apiKeyHeader)
+export const resolveApiKey: ApiKeyResolveFunction =
+  (db: DataMapper): GetApiKeyFunction =>
+  async (apiKeyHeader: string): Promise<ApiKeyModel | never> => {
+    const apiKey = await getApiKey(db)(apiKeyHeader)
 
-  if (!apiKey) {
-    throw new ApiKeyNotFoundException()
-  } else if (!apiKey.keyExpiresAt || (apiKey as ApiKeyModel).expired) {
-    throw new ApiKeyExpiredException()
+    if (!apiKey) {
+      throw new ApiKeyNotFoundException()
+    } else if (!apiKey.keyExpiresAt || (apiKey as ApiKeyModel).expired) {
+      throw new ApiKeyExpiredException()
+    }
+
+    return apiKey
   }
-
-  return apiKey
-}

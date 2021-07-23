@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react'
+import React, { useEffect, useState } from 'react'
 import { Link } from 'react-router-dom'
 import { Dispatch } from 'redux'
 import { useDispatch } from 'react-redux'
@@ -15,9 +15,15 @@ import {
   register,
   registerLevel,
   loginButton,
-  loginImage,
+  loginImages,
   imageContainer,
+  loginImage,
+  loginImageVisible,
 } from './__styles__/login'
+import stepOne from '../../../assets/images/login/step-1.svg'
+import stepTwo from '../../../assets/images/login/step-2.svg'
+import stepThree from '../../../assets/images/login/step-3.svg'
+import { cx } from '@linaria/core'
 
 export type LoginProps = {}
 
@@ -43,6 +49,7 @@ export const onLoginButtonClick = () => {
 export const Login: React.FunctionComponent<LoginProps> = () => {
   const dispatch = useDispatch()
   const isPasswordChanged = localStorage.getItem('isPasswordChanged') === 'true'
+  const [imageShown, setImageShown] = useState(1)
 
   useEffect(handleShowNotificationAfterPasswordChanged(isPasswordChanged, localStorage, dispatch), [
     isPasswordChanged,
@@ -50,10 +57,28 @@ export const Login: React.FunctionComponent<LoginProps> = () => {
     dispatch,
   ])
 
+  useEffect(() => {
+    const interval = window.setInterval(() => {
+      setImageShown((prev) => {
+        if (prev < 3) {
+          return prev + 1
+        }
+
+        return prev
+      })
+    }, 1000)
+
+    return () => window.clearInterval(interval)
+  }, [imageShown])
+
   return (
     <div className={container}>
       <div className={imageContainer}>
-        <div className={loginImage}></div>
+        <div className={loginImages}>
+          <img className={cx(loginImage, imageShown === 1 && loginImageVisible)} src={stepOne} />
+          <img className={cx(loginImage, imageShown === 2 && loginImageVisible)} src={stepTwo} />
+          <img className={cx(loginImage, imageShown === 3 && loginImageVisible)} src={stepThree} />
+        </div>
       </div>
       <div className={wrapper}>
         <Level>

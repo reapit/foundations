@@ -22,7 +22,7 @@ describe('createParseLog', () => {
       headers: {},
     } as AppRequest
     const mockRes = {} as AppResponse
-    const mockLogger = ({ info: jest.fn() } as unknown) as Logger
+    const mockLogger = { info: jest.fn() } as unknown as Logger
     const result = createParseLog(mockLogger)(mockToken, mockReq, mockRes)
     expect(mockLogger.info).toBeCalledWith({
       traceId: mockReq.traceId,

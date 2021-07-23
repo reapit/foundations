@@ -1,6 +1,6 @@
 import { css } from '@linaria/core'
 
-export const container = css`
+export const loginContainer = css`
   min-width: 100vw;
   min-height: 100vh;
   display: flex;
@@ -9,15 +9,15 @@ export const container = css`
   flex-direction: row;
   background-color: #fff;
 
-  @media screen and (max-width: 900px) {
+  @media screen and (max-width: 768px) {
     flex-direction: column-reverse;
   }
 `
 
 export const wrapper = css`
   background-color: #fff;
-  width: 33.33%;
-  padding: 1rem;
+  width: 40%;
+  padding: 2rem;
   pointer-events: auto;
 
   &.disabled {
@@ -30,18 +30,19 @@ export const wrapper = css`
     text-align: center;
   }
 
-  div > img {
+  img {
     margin: 0 auto;
     max-width: 200px;
     display: block;
   }
 
-  button {
-    margin: 0 auto;
+  button,
+  .tabsContainer {
+    margin: 0 auto 2rem auto;
     max-width: 400px;
   }
 
-  @media screen and (max-width: 900px) {
+  @media screen and (max-width: 768px) {
     width: 100%;
   }
 
@@ -50,20 +51,37 @@ export const wrapper = css`
   }
 `
 
-export const image = css`
+export const imageContainer = css`
   background-color: #fff;
-  width: 66.66%;
+  width: 60%;
   height: 100vh;
   font-size: 0;
 
-  img {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
+  @media screen and (max-width: 768px) {
+    display: none;
   }
+`
 
-  @media screen and (max-width: 900px) {
-    width: 100%;
-    height: 300px;
+export const loginLevel = css`
+  flex-direction: column;
+`
+
+export const loginImageVisible = css``
+
+export const loginImage = css`
+  transition: opacity 1s ease-in-out;
+  position: absolute;
+  height: 100%;
+  opacity: 0;
+  z-index: 1;
+
+  &.${loginImageVisible} {
+    opacity: 1;
   }
+`
+
+export const loginImages = css`
+  height: 100%;
+  width: auto;
+  position: relative;
 `
