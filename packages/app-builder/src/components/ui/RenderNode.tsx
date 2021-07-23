@@ -41,13 +41,13 @@ const componentSelected = css`
   }
 `
 
-const button = css`
+const littleButton = css`
   padding: 0 0px;
   opacity: 0.9;
   display: flex;
   align-items: center;
   :hover {
-    color: white;
+    color: white !important;
   }
   > div {
     position: relative;
@@ -125,6 +125,8 @@ export const RenderNode = ({ render, iframeRef }) => {
       {(isHover || isActive) && container && dom
         ? ReactDOM.createPortal(
             <div
+              /*
+              // @ts-ignore */
               ref={currentRef}
               className={cx(indicator, elP2, elFlex, elFlexAlignCenter)}
               style={{
@@ -136,9 +138,9 @@ export const RenderNode = ({ render, iframeRef }) => {
               <h2 className={cx(elFlex1, elMr4)}>{name}</h2>
               {moveable && (
                 <>
-                  <button
+                  <a
                     title="Increase block width"
-                    className={cx(button, elMr2, textWhite)}
+                    className={cx(littleButton, elMr2, textWhite)}
                     style={{ fontSize: 18, fontWeight: 800 }}
                     onClick={() => {
                       setProp((props) => {
@@ -150,10 +152,10 @@ export const RenderNode = ({ render, iframeRef }) => {
                     }}
                   >
                     +
-                  </button>
-                  <button
+                  </a>
+                  <a
                     title="Decrease block width"
-                    className={cx(button, elMr2, textWhite)}
+                    className={cx(littleButton, elMr2, textWhite)}
                     style={{ fontSize: 18, fontWeight: 800 }}
                     onClick={() => {
                       setProp((props) => {
@@ -165,34 +167,39 @@ export const RenderNode = ({ render, iframeRef }) => {
                     }}
                   >
                     —
-                  </button>
+                  </a>
                 </>
               )}
               {moveable && (
-                <div className={cx(button, elMr2, cursorMove)} ref={drag}>
+                <div
+                  className={cx(littleButton, elMr2, cursorMove)}
+                  /*
+                  // @ts-ignore */
+                  ref={drag}
+                >
                   <Move />
                 </div>
               )}
               {id !== ROOT_NODE && (
-                <button
-                  className={cx(button, elMr2, cursorPointer)}
+                <a
+                  className={cx(littleButton, elMr2, cursorPointer)}
                   onClick={() => {
                     actions.selectNode(parent)
                   }}
                 >
                   <ArrowUp />
-                </button>
+                </a>
               )}
               {deletable && (
-                <button
-                  className={cx(button, cursorPointer)}
+                <a
+                  className={cx(littleButton, cursorPointer)}
                   onMouseDown={(e: React.MouseEvent) => {
                     e.stopPropagation()
                     actions.delete(id)
                   }}
                 >
                   <Delete />
-                </button>
+                </a>
               )}
             </div>,
             container,
