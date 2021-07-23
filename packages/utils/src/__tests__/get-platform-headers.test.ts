@@ -1,12 +1,12 @@
 import { getPlatformHeaders } from '../get-platform-headers'
 import { ReapitConnectBrowserSession } from '@reapit/connect-session'
 
-const mockSession = ({
+const mockSession = {
   connectSession: jest.fn(() => ({
     accessToken: 'SOME_TOKEN',
   })),
   connectLoginRedirect: jest.fn(),
-} as unknown) as ReapitConnectBrowserSession
+} as unknown as ReapitConnectBrowserSession
 
 const mockApiVersion = 'latest'
 
@@ -23,10 +23,10 @@ describe('getPlatformHeaders', () => {
   })
 
   it('should redirect to login if no valid session', async () => {
-    const invalidSession = ({
+    const invalidSession = {
       ...mockSession,
       connectSession: jest.fn(() => null),
-    } as unknown) as ReapitConnectBrowserSession
+    } as unknown as ReapitConnectBrowserSession
 
     const result = await getPlatformHeaders(invalidSession, mockApiVersion)
     expect(result).toEqual({})

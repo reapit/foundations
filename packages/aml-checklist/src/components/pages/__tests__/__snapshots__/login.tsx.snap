@@ -3,7 +3,20 @@
 exports[`Login should match a snapshot 1`] = `
 <div>
   <div>
-    <div />
+    <div>
+      <img
+        className=""
+        src={Object {}}
+      />
+      <img
+        className=""
+        src={Object {}}
+      />
+      <img
+        className=""
+        src={Object {}}
+      />
+    </div>
   </div>
   <div>
     <Level>

@@ -4889,6 +4889,7 @@ __metadata:
     eslint: 7.31.0
     eslint-plugin-prettier: ^3.4.0
     jest: ^27.0.6
+    jest-coverage-badges: ^1.1.2
   languageName: unknown
   linkType: soft
 
@@ -5100,6 +5101,9 @@ __metadata:
     "@reapit/ts-scripts": "workspace:packages/ts-scripts"
     "@reapit/ts-types": "workspace:packages/ts-types"
     "@rollup/plugin-babel": ^5.3.0
+    "@rollup/plugin-commonjs": ^19.0.1
+    "@rollup/plugin-node-resolve": ^13.0.2
+    "@rollup/plugin-typescript": ^8.2.3
     "@storybook/addon-actions": ^6.4.0-alpha.18
     "@storybook/addon-docs": ^6.4.0-alpha.18
     "@storybook/addon-essentials": ^6.4.0-alpha.18
@@ -5133,15 +5137,14 @@ __metadata:
     react-docgen-typescript-loader: ^3.7.2
     react-is: ^16.13.1
     rimraf: ^3.0.2
-    rollup: 1.32.1
-    rollup-plugin-scss: ^3.0.0
-    rollup-plugin-typescript2: ^0.30.0
+    rollup: ^2.53.3
+    rollup-plugin-css-only: ^3.1.0
+    rollup-plugin-terser: ^7.0.2
     serverless: ^2.52.0
     serverless-s3-deploy: ^0.10.1
     serverless-s3-remover: ^0.6.0
     serverless-single-page-app-plugin: ^1.0.2
     snyk: ^1.662.0
-    tsdx: ^0.14.1
     tslib: ^2.3.0
     typescript: ^4.3.5
     webpack: ^5.45.1
@@ -5239,7 +5242,6 @@ __metadata:
     "@linaria/shaker": ^3.0.0-beta.8
     "@linaria/webpack-loader": ^3.0.0-beta.7
     "@octokit/rest": ^16.43.2
-    "@pmmmwh/react-refresh-webpack-plugin": ^0.4.3
     "@sentry/webpack-plugin": ^1.16.0
     "@svgr/webpack": ^5.5.0
     "@typescript-eslint/eslint-plugin": ^4.28.4
@@ -5286,7 +5288,6 @@ __metadata:
     postcss-loader: ^6.1.1
     prettier: ^2.3.2
     prettier-plugin-packagejson: ^2.2.11
-    react-refresh: ^0.10.0
     regenerator-runtime: ^0.13.8
     rimraf: ^3.0.2
     sass-loader: ^12.1.0
@@ -5478,6 +5479,23 @@ __metadata:
   languageName: node
   linkType: hard
 
+"@rollup/plugin-commonjs@npm:^19.0.1":
+  version: 19.0.1
+  resolution: "@rollup/plugin-commonjs@npm:19.0.1"
+  dependencies:
+    "@rollup/pluginutils": ^3.1.0
+    commondir: ^1.0.1
+    estree-walker: ^2.0.1
+    glob: ^7.1.6
+    is-reference: ^1.2.1
+    magic-string: ^0.25.7
+    resolve: ^1.17.0
+  peerDependencies:
+    rollup: ^2.38.3
+  checksum: 34058a0d444f74cb7cfc422473a50b3ad488e084adb34947bbecc5ddaecc8f3bca69c18c970e797806a59285a4ece67bcce92c3cf0fb73d860ca99d4977dc933
+  languageName: node
+  linkType: hard
+
 "@rollup/plugin-json@npm:^4.0.0":
   version: 4.1.0
   resolution: "@rollup/plugin-json@npm:4.1.0"
@@ -5502,6 +5520,22 @@ __metadata:
   peerDependencies:
     rollup: ^1.20.0||^2.0.0
   checksum: ae1bed46a949a1d8c077e021751c0140a523f731bea464ed0bfc3d335096493d1638be2a756f72d96f1f3a00fbdad8ba8fad8e86381d3eafce5ea2dffd62f175
+  languageName: node
+  linkType: hard
+
+"@rollup/plugin-node-resolve@npm:^13.0.2":
+  version: 13.0.2
+  resolution: "@rollup/plugin-node-resolve@npm:13.0.2"
+  dependencies:
+    "@rollup/pluginutils": ^3.1.0
+    "@types/resolve": 1.17.1
+    builtin-modules: ^3.1.0
+    deepmerge: ^4.2.2
+    is-module: ^1.0.0
+    resolve: ^1.19.0
+  peerDependencies:
+    rollup: ^2.42.0
+  checksum: 7f3397e32e4e73e7bf7682c7e8de02abe87bec0acc8923cc2b93f6cebe6b07afa50aee934b3dd0a9a5cacdca3a7f1ed6dd8ee809f53d5fec9ce5e96b818e52fa
   languageName: node
   linkType: hard
 
@@ -5530,6 +5564,30 @@ __metadata:
   peerDependencies:
     rollup: ^1.20.0 || ^2.0.0
   checksum: b8532ce34011d6384b697e351c6ca6863aeb08b02dfc968efde84dc397d77c7efdff7623c4d05562d21ef62c8a598e765deb9608d6a6bf65835a956325ef20e7
+  languageName: node
+  linkType: hard
+
+"@rollup/plugin-typescript@npm:^8.2.3":
+  version: 8.2.3
+  resolution: "@rollup/plugin-typescript@npm:8.2.3"
+  dependencies:
+    "@rollup/pluginutils": ^3.1.0
+    resolve: ^1.17.0
+  peerDependencies:
+    rollup: ^2.14.0
+    tslib: "*"
+    typescript: ">=3.7.0"
+  checksum: c4683eb31e421c837a640d6677e6fa91d2dc56e287920280a6bfa1b4a5c0c4d6ad57fc4780fd3bc847e05cb0247032c2b3886fc56cbd2ac0e4ecdf3d6ae256bb
+  languageName: node
+  linkType: hard
+
+"@rollup/pluginutils@npm:4":
+  version: 4.1.1
+  resolution: "@rollup/pluginutils@npm:4.1.1"
+  dependencies:
+    estree-walker: ^2.0.1
+    picomatch: ^2.2.2
+  checksum: 218d681f54ce2b372647124a7da260c8e4ff1ec2888ab128a71f67857ef791ca773d5fd122398fdc3cd652245d997bcf5f04dbad299f6df050bf3d62c3811bc3
   languageName: node
   linkType: hard
 
@@ -6326,6 +6384,15 @@ __metadata:
     "@snyk/dep-graph": ^1.28.0
     tslib: ^2.0.0
   checksum: 20b6a04db3d30702523317e031a191fa91a46fcf4bbbd5de3c38791b1a990fea9746c7aa2d38346643ad80264ca842780d13f2fa200070e579b257048d70a6de
+  languageName: node
+  linkType: hard
+
+"@snyk/protect@npm:latest":
+  version: 1.666.0
+  resolution: "@snyk/protect@npm:1.666.0"
+  bin:
+    snyk-protect: dist/index.js
+  checksum: e840cdd8e99de67575a91c5ce5dc7bd934da0718448443c6fc2995084211d7efaff7239a2b7def984b5d694c04c8d7ce2e389878d20cf202c7980825251da207
   languageName: node
   linkType: hard
 
@@ -20452,6 +20519,7 @@ fsevents@^1.2.7:
     "@reapit/ts-scripts": "workspace:packages/ts-scripts"
     "@reapit/ts-types": "workspace:packages/ts-types"
     "@reapit/utils": "workspace:packages/utils"
+    "@snyk/protect": latest
     "@typescript-eslint/eslint-plugin": ^4.28.4
     "@typescript-eslint/parser": ^4.28.4
     apollo-server-core: ^3.0.1
@@ -20485,7 +20553,6 @@ fsevents@^1.2.7:
     serverless-deployment-bucket: ^1.5.1
     serverless-offline: ^7.0.0
     serverless-webpack: ^5.5.1
-    snyk: ^1.662.0
     tslib: 2.3.0
     uuid: ^3.4.0
     vue: ^2.6.14
@@ -22560,6 +22627,15 @@ fsevents@^1.2.7:
   dependencies:
     "@types/estree": 0.0.44
   checksum: 22aff976372e9879de9ee1718fb57b9402853f5c8659f75d252a4fb827c85507c3fa47e436b20792b420154dd52d7c754590c971fccce08befb977aef3ffb577
+  languageName: node
+  linkType: hard
+
+"is-reference@npm:^1.2.1":
+  version: 1.2.1
+  resolution: "is-reference@npm:1.2.1"
+  dependencies:
+    "@types/estree": "*"
+  checksum: 9daa3d7c4dc159e326be68c025a43bf714b36a6d065c2cc6907f7c44d010867dd10ec7f74bff37cb5d2000ac8b03c94cde3d69c85dc9a56a887ce576200ad01f
   languageName: node
   linkType: hard
 
@@ -31322,13 +31398,6 @@ fsevents@^1.2.7:
   languageName: node
   linkType: hard
 
-"react-refresh@npm:^0.10.0":
-  version: 0.10.0
-  resolution: "react-refresh@npm:0.10.0"
-  checksum: 09a59d2732d8f2e9df3f59670146a507ea027f6b35a18b5a2116919f18ef056cfcc0455bed2f6b916ac154e4af78e3c57748cfbf9383930729624f7b8c672b91
-  languageName: node
-  linkType: hard
-
 "react-refresh@npm:^0.8.3":
   version: 0.8.3
   resolution: "react-refresh@npm:0.8.3"
@@ -32666,6 +32735,17 @@ resolve@^2.0.0-next.3:
   languageName: node
   linkType: hard
 
+"rollup-plugin-css-only@npm:^3.1.0":
+  version: 3.1.0
+  resolution: "rollup-plugin-css-only@npm:3.1.0"
+  dependencies:
+    "@rollup/pluginutils": 4
+  peerDependencies:
+    rollup: 1 || 2
+  checksum: 8a7d81d583bb3d2e0ccc29ddec4af94328e72f79421474613aafdf1363de7bb8ea0d5498b21f01b8db69c881db903310142397e60dd919e57a7bd6f2a889e20d
+  languageName: node
+  linkType: hard
+
 "rollup-plugin-scss@npm:^3.0.0":
   version: 3.0.0
   resolution: "rollup-plugin-scss@npm:3.0.0"
@@ -32706,7 +32786,7 @@ resolve@^2.0.0-next.3:
   languageName: node
   linkType: hard
 
-"rollup-plugin-terser@npm:^7.0.0":
+"rollup-plugin-terser@npm:^7.0.0, rollup-plugin-terser@npm:^7.0.2":
   version: 7.0.2
   resolution: "rollup-plugin-terser@npm:7.0.2"
   dependencies:
@@ -32785,6 +32865,20 @@ resolve@^2.0.0-next.3:
   bin:
     rollup: dist/bin/rollup
   checksum: b08f33d8e8813d99a223658d951395be939d187afbc7af079afb3e695d47dd7664514a8379380953903683fe59a0133ee2c595e5ed680947e40c110c0641a6f3
+  languageName: node
+  linkType: hard
+
+"rollup@npm:^2.53.3":
+  version: 2.53.3
+  resolution: "rollup@npm:2.53.3"
+  dependencies:
+    fsevents: ~2.3.2
+  dependenciesMeta:
+    fsevents:
+      optional: true
+  bin:
+    rollup: dist/bin/rollup
+  checksum: 6734aa795875ae0add3e11b5b03bbcc391bb2a6b7c7393274e1cb21edc05c481b68b75a9a3fddc99e0cd8a201c4cd520449ffbf04d2861f82661d16b8d03ced0
   languageName: node
   linkType: hard
 

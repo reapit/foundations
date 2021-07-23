@@ -5,7 +5,7 @@ export const ElMainContainer = styled.main`
   display: flex;
   flex-direction: column;
   width: 100vw;
-  height: 100%;
+  height: 100vh;
   overflow-y: visible;
   overflow-x: hidden;
   background: var(--color-grey-light);

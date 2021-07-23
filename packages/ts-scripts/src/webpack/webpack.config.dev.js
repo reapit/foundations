@@ -7,7 +7,6 @@ const { PATHS } = require('./constants')
 const { getVersionTag } = require('./utils')
 const FriendlyErrorsWebpackPlugin = require('friendly-errors-webpack-plugin')
 const ForkTsCheckerWebpackPlugin = require('fork-ts-checker-webpack-plugin')
-const ReactRefreshWebpackPlugin = require('@pmmmwh/react-refresh-webpack-plugin')
 const NodePolyfillPlugin = require('node-polyfill-webpack-plugin')
 const EXCLUDE_PACKAGES = ['linaria']
 
@@ -20,6 +19,7 @@ const tagName = getVersionTag()
 
 const webpackConfigDev = ({ appName }) => ({
   mode: 'development',
+  target: 'web',
   bail: true,
   devtool: 'inline-source-map',
   context: process.cwd(),
@@ -31,7 +31,6 @@ const webpackConfigDev = ({ appName }) => ({
   },
   plugins: [
     new NodePolyfillPlugin(),
-    new ReactRefreshWebpackPlugin(),
     new ForkTsCheckerWebpackPlugin({
       eslint: {
         files: './src/**/*.{ts,tsx,js,jsx}',
@@ -88,22 +87,16 @@ const webpackConfigDev = ({ appName }) => ({
         exclude: generateRegexExcludePackages(),
         use: [
           {
-            loader: 'babel-loader',
+            loader: 'esbuild-loader',
             options: {
-              plugins: [require.resolve('react-refresh/babel')],
+              loader: 'tsx',
+              target: 'es2019',
             },
           },
           {
             loader: '@linaria/webpack-loader',
             options: {
               sourceMap: process.env.NODE_ENV !== 'production',
-            },
-          },
-          {
-            loader: 'esbuild-loader',
-            options: {
-              loader: 'tsx',
-              target: 'es2019',
             },
           },
         ],
@@ -157,7 +150,6 @@ const webpackConfigDev = ({ appName }) => ({
   },
   devServer: {
     contentBase: [path.join(process.cwd(), 'public'), path.join(process.cwd())],
-    compress: true,
     clientLogLevel: 'warning',
     historyApiFallback: true,
     hot: true,

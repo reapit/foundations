@@ -15,10 +15,13 @@
     "release": "serverless deploy",
     "publish": "echo '...skipping...'",
     "conf": "yarn config-manager --namespace cloud --entity graphql-server --name local --mode fetch",
-    "commit": "concurrently \"yarn test --coverage --no-cache --silent --forceExit --detectOpenHandles --runInBand --watch=false && jest-coverage-badges --input src/tests/coverage/coverage-summary.json --output src/tests/badges\" \"yarn lint\""
+    "commit": "concurrently \"yarn test --coverage --no-cache --silent --forceExit --detectOpenHandles --runInBand --watch=false && jest-coverage-badges --input src/tests/coverage/coverage-summary.json --output src/tests/badges\" \"yarn lint\"",
+    "prepublish": "npm run snyk-protect",
+    "snyk-protect": "snyk-protect"
   },
   "dependencies": {
     "@reapit/utils": "workspace:packages/utils",
+    "@snyk/protect": "latest",
     "apollo-server-core": "^3.0.1",
     "apollo-server-lambda": "^3.0.1",
     "axios": "^0.21.1",
@@ -34,7 +37,6 @@
     "merge-graphql-schemas": "^1.7.8",
     "query-string": "^6.14.1",
     "serialize-error": "^7.0.1",
-    "snyk": "^1.662.0",
     "tslib": "2.3.0",
     "uuid": "^3.4.0",
     "vue": "^2.6.14",
