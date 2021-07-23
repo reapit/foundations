@@ -152,6 +152,8 @@ functions:
               - User-Agent
           authorizer:
             arn: arn:aws:cognito-idp:${self:provider.region}:${self:custom.env.AWS_ACCOUNT_ID}:userpool/${self:custom.env.CONNECT_USER_POOL}
+  getApiKeyViaInvoke:
+    handler: src/index.getApiKeyViaInvoke
   getApiKey:
     handler: src/index.getApiKey
     events:
