@@ -1,7 +1,7 @@
 import * as cdk from '@aws-cdk/core';
 import { DeploymentStack } from './deployment-stack';
 
-const prefix = 'cloud_'
+const prefix = 'cloud-'
 
 export class CdkStack extends cdk.Stack {
   constructor(scope: cdk.Construct, id: string, props?: cdk.StackProps) {
