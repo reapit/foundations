@@ -7,6 +7,7 @@ const defaultDbConfig = {
   entities: [PipelineEntity, PipelineRunnerEntity, TaskEntity, ReleaseEntity],
 }
 
+// TODO change this so that production doesn't use data-api as VPC allows us to use mysql by default
 export const dbConfig: ConnectionOptions =
   process.env.NODE_ENV === 'prod' // TODO solve this condition
     ? {
