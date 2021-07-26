@@ -1,4 +1,3 @@
-# API Docs Lambda
+# Seed Data Workflow
 
-Super simple proxy to [https://foundations-documentation.reapit.cloud] to allow [https://marketplace.reapit.cloud] to load the documentation in an iframe by setting a 'Content-Security-Policy' header.
-
+Seeds data on a cron job to support Geo Diary demo env
