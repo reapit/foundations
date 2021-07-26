@@ -1,6 +1,6 @@
 import { useNode } from '@craftjs/core'
 import { elMb2, Label } from '@reapit/elements'
-import React, { ReactNodeArray } from 'react'
+import React, { FC, ReactNodeArray } from 'react'
 
 import { ToolbarDropdown } from './toolbar-dropdown'
 import { ToolbarTextInput } from './toolbar-text-input'
@@ -17,7 +17,7 @@ export type ToolbarItemProps = {
   title?: string
 }
 
-const ToolbarItemInput = ({ propKey, type, index = 0, ...props }: ToolbarItemProps) => {
+const ToolbarItemInput: FC<ToolbarItemProps> = ({ propKey, type, index = 0, ...props }: ToolbarItemProps) => {
   const {
     actions: { setProp },
     propValue,

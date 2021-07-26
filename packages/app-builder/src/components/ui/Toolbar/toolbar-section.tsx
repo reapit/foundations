@@ -1,13 +1,17 @@
 import { useNode } from '@craftjs/core'
-import React from 'react'
-import { css, cx } from '@linaria/core'
+import React, { FC } from 'react'
+import { cx } from '@linaria/core'
 import { elFlex, elFlexJustifyBetween, elMt4, elMt2, elPx2 } from '@reapit/elements'
+import { cursorPointer } from '../styles'
 
-const pointer = css`
-  cursor: pointer;
-`
+interface ToolbarSectionProps {
+  children: React.ReactNode
+  title: string
+  summary: (nodeProps: any) => React.ReactNode
+  props: any
+}
 
-export const ToolbarSection = ({ title, props, summary, children }: any) => {
+export const ToolbarSection: FC<ToolbarSectionProps> = ({ title, props, summary, children }: ToolbarSectionProps) => {
   const { nodeProps } = useNode((node) => ({
     nodeProps:
       props &&
@@ -19,7 +23,7 @@ export const ToolbarSection = ({ title, props, summary, children }: any) => {
 
   return (
     <details>
-      <summary className={cx(elFlex, elFlexJustifyBetween, elPx2, elMt4, pointer)}>
+      <summary className={cx(elFlex, elFlexJustifyBetween, elPx2, elMt4, cursorPointer)}>
         <span>{title}</span>
         <span>{summary && props && summary(nodeProps)}</span>
       </summary>

@@ -1,5 +1,5 @@
 import { Input, InputGroup, Label } from '@reapit/elements'
-import React from 'react'
+import React, { FC } from 'react'
 
 import { ToolbarItemType } from './types'
 
@@ -11,7 +11,12 @@ export type ToolbarTextInputProps = {
   value?: any
 }
 
-export const ToolbarTextInput = ({ onChange, value, label, type }: ToolbarTextInputProps) => (
+export const ToolbarTextInput: FC<ToolbarTextInputProps> = ({
+  onChange,
+  value,
+  label,
+  type,
+}: ToolbarTextInputProps) => (
   <InputGroup>
     <Label>{label}</Label>
     <Input

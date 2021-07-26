@@ -1,47 +1,14 @@
 import { useEditor } from '@craftjs/core'
-import { css, cx } from '@linaria/core'
+import { cx } from '@linaria/core'
 import { Button, ButtonGroup, elFlex, elFlex1, elMTAuto, elPr1, FlexContainer } from '@reapit/elements'
 import React from 'react'
 import ReactTooltip from 'react-tooltip'
 
-import Checkmark from '../icons/check'
-import Customize from '../icons/customize'
-import RedoSvg from '../icons/redo'
-import UndoSvg from '../icons/undo'
-
-const header = css`
-  background: var(--nav-menu-background-dark);
-  height: 45px;
-`
-
-const item = css`
-  margin-right: 10px;
-  cursor: pointer;
-
-  svg {
-    width: 20px;
-    height: 20px;
-    fill: #707070;
-  }
-`
-
-const disabled = css`
-  opacity: 0.5;
-  cursor: not-allowed;
-`
-
-const buttonIcon = css`
-  display: inline;
-
-  svg {
-    fill: white;
-    width: 21px;
-    height: 21px;
-    display: inline;
-    margin-right: 9px;
-    margin-bottom: -4px;
-  }
-`
+import Checkmark from '../../icons/check'
+import Customize from '../../icons/customize'
+import RedoSvg from '../../icons/redo'
+import UndoSvg from '../../icons/undo'
+import { buttonIcon, disabled, header, item } from './styles'
 
 const Header = () => {
   const { enabled, canUndo, canRedo, actions, query } = useEditor((state, query) => ({

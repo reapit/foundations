@@ -12,7 +12,7 @@ import {
   elPy2,
   elTextCenter,
 } from '@reapit/elements'
-import React from 'react'
+import React, { FC } from 'react'
 
 export * from './toolbar-item'
 export * from './toolbar-section'
@@ -20,7 +20,7 @@ export * from './toolbar-text-input'
 export * from './toolbar-dropdown'
 export * from './types'
 
-const Toolbar = () => {
+const Toolbar: FC = () => {
   const { active, related } = useEditor((state) => ({
     active: state.events.selected,
     related: state.events.selected && state.nodes[state.events.selected].related,

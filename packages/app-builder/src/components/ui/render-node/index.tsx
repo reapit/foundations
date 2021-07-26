@@ -4,57 +4,12 @@ import React, { useEffect, useRef, useCallback } from 'react'
 import ReactDOM from 'react-dom'
 import { elFlex, elFlex1, elFlexAlignCenter, elMr2, elMr4, elP2 } from '@reapit/elements'
 
-import ArrowUp from '../icons/arrow-up'
-import Delete from '../icons/delete'
-import Move from '../icons/move'
-import { css, cx } from '@linaria/core'
-import { cursorMove, cursorPointer, textWhite } from './styles'
-
-const indicator = css`
-  height: 30px;
-  margin-top: -29px;
-  font-size: 12px;
-  line-height: 12px;
-  color: white;
-  position: fixed;
-  background: var(--intent-primary);
-
-  svg {
-    fill: #fff;
-    width: 15px;
-    height: 15px;
-  }
-`
-
-const componentSelected = css`
-  position: relative;
-  &:after {
-    content: ' ';
-    border: 1px dashed var(--intent-primary);
-    width: 100%;
-    height: 100%;
-    position: absolute;
-    left: 0;
-    top: 0;
-    pointer-events: none;
-    display: block;
-  }
-`
-
-const littleButton = css`
-  padding: 0 0px;
-  opacity: 0.9;
-  display: flex;
-  align-items: center;
-  :hover {
-    color: white !important;
-  }
-  > div {
-    position: relative;
-    top: -50%;
-    left: -50%;
-  }
-`
+import ArrowUp from '../../icons/arrow-up'
+import Delete from '../../icons/delete'
+import Move from '../../icons/move'
+import { cx } from '@linaria/core'
+import { cursorMove, cursorPointer, textWhite } from '../styles'
+import { componentSelected, indicator, littleButton } from './styles'
 
 export const RenderNode = ({ render, iframeRef }) => {
   const { id } = useNode()

@@ -1,6 +1,11 @@
 import { InputGroup } from '@reapit/elements'
-import React from 'react'
+import React, { FC } from 'react'
 
-export const ToolbarRadio = ({ value, name }: { value: string; name: string }) => {
+interface ToolbarRadioProps {
+  value: string
+  name: string
+}
+
+export const ToolbarRadio: FC<ToolbarRadioProps> = ({ value, name }: ToolbarRadioProps) => {
   return <InputGroup type="radio" name={name} value={value} />
 }
