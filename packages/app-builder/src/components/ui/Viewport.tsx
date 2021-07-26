@@ -16,9 +16,9 @@ import { cx } from '@linaria/core'
 import { styled } from '@linaria/react'
 import IFrame, { FrameContext } from 'react-frame-component'
 
-import Toolbox from '../ui/Toolbox'
-import Header from '../ui/Header'
-import Sidebar from '../ui/Sidebar'
+import Toolbox from './toolbox'
+import Header from './header'
+import Sidebar from './sidebar'
 
 import BREAKPOINT from '../../utils/breakpoints'
 import { flexAlignStretch, hScreen, justifyStretch, overflowAuto, overflowHidden, relative, transition } from './styles'

@@ -6,10 +6,10 @@ import { styled } from '@linaria/react'
 import { elFlex, elFlexColumn, elW2 } from '@reapit/elements'
 import { bgWhite, transition } from './styles'
 
-import SidebarItem from './SidebarItem'
+import SidebarItem from './sidebar-item'
 import CustomizeIcon from '../icons/customize'
 import LayerIcon from '../icons/layer'
-import Toolbar from './Toolbar'
+import Toolbar from './toolbar'
 
 export const SidebarDiv = styled.div<{ enabled: boolean }>`
   width: 280px;

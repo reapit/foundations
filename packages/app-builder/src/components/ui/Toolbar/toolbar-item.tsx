@@ -2,8 +2,8 @@ import { useNode } from '@craftjs/core'
 import { elMb2, Label } from '@reapit/elements'
 import React, { ReactNodeArray } from 'react'
 
-import { ToolbarDropdown } from './ToolbarDropdown'
-import { ToolbarTextInput } from './ToolbarTextInput'
+import { ToolbarDropdown } from './toolbar-dropdown'
+import { ToolbarTextInput } from './toolbar-text-input'
 import { ToolbarItemType } from './types'
 
 export type ToolbarItemProps = {

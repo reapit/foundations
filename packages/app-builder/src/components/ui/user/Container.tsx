@@ -2,7 +2,7 @@ import React from 'react'
 import { styled } from '@linaria/react'
 import { useEditor, useNode } from '@craftjs/core'
 import BREAKPOINT from '../../../utils/breakpoints'
-import { ToolbarItem, ToolbarItemType, ToolbarSection } from '../Toolbar'
+import { ToolbarItem, ToolbarItemType, ToolbarSection } from '../toolbar'
 
 const ContainerDiv = styled.div`
   display: flex;

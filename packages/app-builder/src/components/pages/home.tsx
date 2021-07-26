@@ -2,10 +2,10 @@ import React, { FC, useRef } from 'react'
 import { Editor, Frame, Element } from '@craftjs/core'
 import { MainContainer } from '@reapit/elements'
 
-import { RenderNode } from '../ui/RenderNode'
-import Viewport from '../ui/Viewport'
-import Container from '../ui/user/Container'
-import Text from '../ui/user/Text'
+import { RenderNode } from '../ui/render-node'
+import Viewport from '../ui/viewport'
+import Container from '../ui/user/container'
+import Text from '../ui/user/text'
 
 export type AuthenticatedProps = {}
 

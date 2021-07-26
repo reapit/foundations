@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react'
 import ContentEditable from 'react-contenteditable'
 import { useNode } from '@craftjs/core'
-import { ToolbarItem, ToolbarSection, ToolbarItemType } from '../Toolbar'
+import { ToolbarItem, ToolbarSection, ToolbarItemType } from '../toolbar'
 import { elFlexAuto } from '@reapit/elements'
 
 const defaultProps = {

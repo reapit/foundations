@@ -14,10 +14,10 @@ import {
 } from '@reapit/elements'
 import React from 'react'
 
-export * from './ToolbarItem'
-export * from './ToolbarSection'
-export * from './ToolbarTextInput'
-export * from './ToolbarDropdown'
+export * from './toolbar-item'
+export * from './toolbar-section'
+export * from './toolbar-text-input'
+export * from './toolbar-dropdown'
 export * from './types'
 
 const Toolbar = () => {
