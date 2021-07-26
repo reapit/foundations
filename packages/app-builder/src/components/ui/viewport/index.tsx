@@ -1,4 +1,4 @@
-import React, { useContext, useEffect, useState } from 'react'
+import React, { useState } from 'react'
 import { useEditor } from '@craftjs/core'
 import {
   elFlex,
@@ -14,52 +14,23 @@ import {
 } from '@reapit/elements'
 import { cx } from '@linaria/core'
 import { styled } from '@linaria/react'
-import IFrame, { FrameContext } from 'react-frame-component'
+import IFrame from 'react-frame-component'
 
-import Toolbox from './toolbox'
-import Header from './header'
-import Sidebar from './sidebar'
+import Toolbox from '../toolbox'
+import Header from '../header'
+import Sidebar from '../sidebar'
 
-import BREAKPOINT from '../../utils/breakpoints'
-import { flexAlignStretch, hScreen, justifyStretch, overflowAuto, overflowHidden, relative, transition } from './styles'
-
-const isLocal = window.reapit.config.appEnv === 'local'
-
-const InjectFrameStyles = ({ children }: { children: React.ReactChildren }) => {
-  const { document: frame } = useContext(FrameContext)
-  useEffect(() => {
-    const links = Array.from(document.querySelectorAll('link')).filter(({ rel }) => rel === 'stylesheet')
-    const styles = Array.from(document.querySelectorAll('style'))
-    const stylesheets = [...links, ...styles]
-
-    stylesheets.forEach((style) => {
-      frame.head.appendChild(style.cloneNode(true))
-    })
-
-    const observer = new MutationObserver((mutationsList) => {
-      mutationsList.forEach((mutation) => {
-        if (mutation.type === 'childList') {
-          mutation.addedNodes.forEach((node) => {
-            frame.head.appendChild(node.cloneNode(true))
-          })
-        }
-      })
-    })
-    if (isLocal) {
-      observer.observe(document.head, { childList: true, subtree: true })
-    }
-
-    frame.body.style.background = '#e0e0e0'
-
-    return () => {
-      if (!isLocal) {
-        observer.disconnect()
-      }
-    }
-  }, [frame])
-
-  return <>{children}</>
-}
+import BREAKPOINT from '../../../utils/breakpoints'
+import {
+  flexAlignStretch,
+  hScreen,
+  justifyStretch,
+  overflowAuto,
+  overflowHidden,
+  relative,
+  transition,
+} from '../styles'
+import { InjectFrameStyles } from './InjectFrameStyles'
 
 const Container = styled.div`
   flex: 1;
