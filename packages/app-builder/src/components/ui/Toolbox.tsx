@@ -40,8 +40,7 @@ const Toolbox = () => {
       <div className={cx(elFlex, elFlex1, elFlexColumn, elFlexAlignCenter, elPt3)}>
         <div
           ref={(ref) =>
-            ref &&
-            create(ref, <Element canvas is={Container} background="white" padding={12} height="auto" width={12} />)
+            ref && create(ref, <Element canvas is={Container} background="white" padding={12} width={12} />)
           }
         >
           <Item data-tip="Container" className={cx(elM2, elPb2, block, cursorMove)}>

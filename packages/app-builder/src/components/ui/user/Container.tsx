@@ -1,21 +1,21 @@
 import React from 'react'
 import { styled } from '@linaria/react'
 import { useEditor, useNode } from '@craftjs/core'
-import BREAKPOINT from '../../../utils/breakpoints'
+import { BREAKPOINT } from '../../../utils/breakpoints'
 import { ToolbarItem, ToolbarItemType, ToolbarSection } from '../toolbar'
 
-const ContainerDiv = styled.div`
+const ContainerDiv = styled.div<{ width: number }>`
   display: flex;
   align-items: center;
   justify-items: space-between;
 
-  flex: var(--width);
+  flex: ${(props) => props.width};
 
   @media (max-width: ${BREAKPOINT.Tablet}px) {
-    flex: calc(var(--width) * 2);
+    flex: ${(props) => props.width * 2};
   }
   @media (max-width: ${BREAKPOINT.MobileL}px) {
-    flex: calc(var(--width) * 3);
+    flex: ${(props) => props.width * 3};
   }
   @media (max-width: ${BREAKPOINT.MobileS}px) {
     align-items: flex-start;
@@ -32,7 +32,10 @@ const Container = ({
   height,
   ...props
 }: {
-  [key: string]: any
+  padding?: number
+  background?: string
+  height?: number
+  width: number
   children?: React.ReactNode
 }) => {
   const {
@@ -48,14 +51,12 @@ const Container = ({
   return (
     <ContainerDiv
       {...props}
+      width={width}
       ref={(ref) => ref && connect(drag(ref))}
-      isRoot={isRoot}
       style={{
         background,
         height,
         padding: `${padding}px`,
-        // @ts-ignore
-        '--width': width,
         flex: isRoot ? 'unset' : undefined,
         width: isRoot ? '100%' : undefined,
       }}

@@ -20,7 +20,7 @@ import Toolbox from '../toolbox'
 import Header from '../header'
 import Sidebar from '../sidebar'
 
-import BREAKPOINT from '../../../utils/breakpoints'
+import { BREAKPOINT } from '../../../utils/breakpoints'
 import {
   flexAlignStretch,
   hScreen,
@@ -104,11 +104,7 @@ const Viewport = ({ children, iframeRef }) => {
               <div
                 id="craftjs-renderer"
                 className={cx(elFlex1, elHFull, elWFull, transition, elPb4, overflowAuto)}
-                ref={(ref) =>
-                  ref &&
-                  // @ts-ignore
-                  connectors.select(connectors.hover(ref, null), null)
-                }
+                ref={(ref) => ref && connectors.select(connectors.hover(ref, ''), '')}
               >
                 <div className={cx(elFlex, elFlexRow, flexAlignStretch, relative, elPt4, elMAuto)}>
                   <InjectFrameStyles>{children}</InjectFrameStyles>

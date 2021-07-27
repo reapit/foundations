@@ -25,7 +25,7 @@ export const ToolbarSection: FC<ToolbarSectionProps> = ({ title, props, summary,
     <details>
       <summary className={cx(elFlex, elFlexJustifyBetween, elPx2, elMt4, cursorPointer)}>
         <span>{title}</span>
-        <span>{summary && props && summary(nodeProps)}</span>
+        {summary && props && <span>{summary(nodeProps)}</span>}
       </summary>
       <div className={cx(elMt2)}>{children}</div>
     </details>

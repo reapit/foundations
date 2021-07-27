@@ -77,89 +77,90 @@ export const RenderNode = ({ render, iframeRef }) => {
 
   return (
     <>
-      {(isHover || isActive) && container && dom
-        ? ReactDOM.createPortal(
-            <div
-              /*
+      {(isHover || isActive) &&
+        container &&
+        dom &&
+        ReactDOM.createPortal(
+          <div
+            /*
               // @ts-ignore */
-              ref={currentRef}
-              className={cx(indicator, elP2, elFlex, elFlexAlignCenter)}
-              style={{
-                left: getPos(dom).left,
-                top: getPos(dom).top,
-                zIndex: 9999,
-              }}
-            >
-              <h2 className={cx(elFlex1, elMr4)}>{name}</h2>
-              {moveable && (
-                <>
-                  <a
-                    title="Increase block width"
-                    className={cx(littleButton, elMr2, textWhite)}
-                    style={{ fontSize: 18, fontWeight: 800 }}
-                    onClick={() => {
-                      setProp((props) => {
-                        props.width++
-                        if (props.width > 12) {
-                          props.width = 12
-                        }
-                      })
-                    }}
-                  >
-                    +
-                  </a>
-                  <a
-                    title="Decrease block width"
-                    className={cx(littleButton, elMr2, textWhite)}
-                    style={{ fontSize: 18, fontWeight: 800 }}
-                    onClick={() => {
-                      setProp((props) => {
-                        props.width--
-                        if (props.width < 1) {
-                          props.width = 1
-                        }
-                      })
-                    }}
-                  >
-                    —
-                  </a>
-                </>
-              )}
-              {moveable && (
-                <div
-                  className={cx(littleButton, elMr2, cursorMove)}
-                  /*
-                  // @ts-ignore */
-                  ref={drag}
-                >
-                  <Move />
-                </div>
-              )}
-              {id !== ROOT_NODE && (
+            ref={currentRef}
+            className={cx(indicator, elP2, elFlex, elFlexAlignCenter)}
+            style={{
+              left: getPos(dom).left,
+              top: getPos(dom).top,
+              zIndex: 9999,
+            }}
+          >
+            <h2 className={cx(elFlex1, elMr4)}>{name}</h2>
+            {moveable && (
+              <>
                 <a
-                  className={cx(littleButton, elMr2, cursorPointer)}
+                  title="Increase block width"
+                  className={cx(littleButton, elMr2, textWhite)}
+                  style={{ fontSize: 18, fontWeight: 800 }}
                   onClick={() => {
-                    actions.selectNode(parent)
+                    setProp((props) => {
+                      props.width++
+                      if (props.width > 12) {
+                        props.width = 12
+                      }
+                    })
                   }}
                 >
-                  <ArrowUp />
+                  +
                 </a>
-              )}
-              {deletable && (
                 <a
-                  className={cx(littleButton, cursorPointer)}
-                  onMouseDown={(e: React.MouseEvent) => {
-                    e.stopPropagation()
-                    actions.delete(id)
+                  title="Decrease block width"
+                  className={cx(littleButton, elMr2, textWhite)}
+                  style={{ fontSize: 18, fontWeight: 800 }}
+                  onClick={() => {
+                    setProp((props) => {
+                      props.width--
+                      if (props.width < 1) {
+                        props.width = 1
+                      }
+                    })
                   }}
                 >
-                  <Delete />
+                  —
                 </a>
-              )}
-            </div>,
-            container,
-          )
-        : null}
+              </>
+            )}
+            {moveable && (
+              <div
+                className={cx(littleButton, elMr2, cursorMove)}
+                /*
+                  // @ts-ignore */
+                ref={drag}
+              >
+                <Move />
+              </div>
+            )}
+            {id !== ROOT_NODE && (
+              <a
+                className={cx(littleButton, elMr2, cursorPointer)}
+                onClick={() => {
+                  actions.selectNode(parent)
+                }}
+              >
+                <ArrowUp />
+              </a>
+            )}
+            {deletable && (
+              <a
+                className={cx(littleButton, cursorPointer)}
+                onMouseDown={(e: React.MouseEvent) => {
+                  e.stopPropagation()
+                  actions.delete(id)
+                }}
+              >
+                <Delete />
+              </a>
+            )}
+          </div>,
+          container,
+        )}
       {render}
     </>
   )

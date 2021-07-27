@@ -36,7 +36,7 @@ const Sidebar = () => {
           icon={CustomizeIcon}
           title="Customize"
           height={!layersVisible ? 'full' : '55%'}
-          visible={toolbarVisible}
+          expanded={toolbarVisible}
           onChange={(val) => setToolbarVisible(val)}
         >
           <Toolbar />
@@ -45,7 +45,7 @@ const Sidebar = () => {
           icon={LayerIcon}
           title="Layers"
           height={!toolbarVisible ? 'full' : '45%'}
-          visible={layersVisible}
+          expanded={layersVisible}
           onChange={(val) => setLayerVisible(val)}
         >
           <Layers expandRootOnLoad={true} />

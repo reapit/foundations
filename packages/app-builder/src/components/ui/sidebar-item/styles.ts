@@ -1,19 +1,19 @@
 import { styled } from '@linaria/react'
 
-export const SidebarItemDiv = styled.div<{ visible?: boolean; height?: string }>`
+export const SidebarItemDiv = styled.div<{ expanded?: boolean; height?: string }>`
   height: ${(props) => {
-    return props.visible && props.height && props.height !== 'full' ? `${props.height}` : 'auto'
+    return props.expanded && props.height && props.height !== 'full' ? `${props.height}` : 'auto'
   }};
   flex: ${(props) => {
-    return props.visible && props.height && props.height === 'full' ? '1' : 'unset'
+    return props.expanded && props.height && props.height === 'full' ? '1' : 'unset'
   }};
   color: #545454;
 `
 
-export const Chevron = styled.a<{ visible: boolean }>`
+export const Chevron = styled.a<{ expanded: boolean }>`
   transform: rotate(
     ${(props) => {
-      return props.visible ? 180 : 0
+      return props.expanded ? 180 : 0
     }}deg
   );
   svg {

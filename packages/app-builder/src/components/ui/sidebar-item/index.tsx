@@ -19,17 +19,17 @@ type SidebarItemProps = {
   title: string
   height?: string
   icon: FC
-  visible?: boolean
+  expanded?: boolean
   onChange?: (bool: boolean) => void
 }
 
-const SidebarItem: React.FC<SidebarItemProps> = ({ visible, icon, title, children, height, onChange }) => {
+const SidebarItem: React.FC<SidebarItemProps> = ({ expanded, icon, title, children, height, onChange }) => {
   return (
-    <SidebarItemDiv visible={visible} height={height} className={cx(elFlex, elFlexColumn)}>
+    <SidebarItemDiv expanded={expanded} height={height} className={cx(elFlex, elFlexColumn)}>
       <HeaderDiv
         onClick={() => {
           if (onChange) {
-            onChange(!visible)
+            onChange(!expanded)
           }
         }}
         className={cx(cursorPointer, bgWhite, elBorderB, elFlex, elFlexAlignCenter, elPx2)}
@@ -40,11 +40,11 @@ const SidebarItem: React.FC<SidebarItemProps> = ({ visible, icon, title, childre
             {title}
           </ElSmallText>
         </div>
-        <Chevron visible={!!visible}>
+        <Chevron expanded={!!expanded}>
           <Arrow />
         </Chevron>
       </HeaderDiv>
-      {visible && <div className={cx(elWFull, elFlex1, overflowAuto)}>{children}</div>}
+      {expanded && <div className={cx(elWFull, elFlex1, overflowAuto)}>{children}</div>}
     </SidebarItemDiv>
   )
 }

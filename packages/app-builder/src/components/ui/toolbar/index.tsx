@@ -6,11 +6,12 @@ import {
   elFlexColumn,
   elFlexJustifyCenter,
   elHFull,
-  elPb1,
+  elIsBoldText,
   elPx4,
   elPy1,
   elPy2,
   elTextCenter,
+  SmallText,
 } from '@reapit/elements'
 import React, { FC } from 'react'
 
@@ -49,7 +50,7 @@ const Toolbar: FC = () => {
             fontSize: '11px',
           }}
         >
-          <h2 className={elPb1}>Click on a component to start editing.</h2>
+          <SmallText className={elIsBoldText}>Click on a component to start editing.</SmallText>
           <h2>You could also double click on the layers below to edit their names, like in Photoshop</h2>
         </div>
       )}
