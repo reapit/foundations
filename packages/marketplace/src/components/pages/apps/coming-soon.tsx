@@ -27,6 +27,16 @@ import comingSoonLifeTimeLegal from '@/assets/images/coming-soon/lifetimelegal.j
 import comingSoonRealMedia from '@/assets/images/coming-soon/RealMediaGroup.jpg'
 import comingSoonRentProfile from '@/assets/images/coming-soon/Rentprofile.jpg'
 import comingSoonTheBunch from '@/assets/images/coming-soon/TheBunch.jpg'
+import comingSoonAcaboom from '@/assets/images/coming-soon/Acaboom.jpeg'
+import comingSoonAgentPoint from '@/assets/images/coming-soon/AgentPoint.png'
+import comingSoonCannellSigns from '@/assets/images/coming-soon/CannellSigns.png'
+import comingSoonHelpTheMove from '@/assets/images/coming-soon/HelpTheMove.png'
+import comingSoonHummTech from '@/assets/images/coming-soon/HumTech.png'
+import comingSoonIAmMoving from '@/assets/images/coming-soon/IAmMoving.png'
+import comingSoonLawFirmServices from '@/assets/images/coming-soon/LawFirmServices.png'
+import comingSoonUSeeHomes from '@/assets/images/coming-soon/USeeHomes.png'
+import comingSoonViewber from '@/assets/images/coming-soon/Viewber.png'
+import comingSoonWhat3Words from '@/assets/images/coming-soon/What3Words.png'
 import { ComingSoonApp } from '@/types/global'
 import {
   CategoryTitle,
@@ -78,6 +88,16 @@ const comingSoonImagesMap = {
   comingSoonRealMedia,
   comingSoonRentProfile,
   comingSoonTheBunch,
+  comingSoonAcaboom,
+  comingSoonAgentPoint,
+  comingSoonCannellSigns,
+  comingSoonHelpTheMove,
+  comingSoonHummTech,
+  comingSoonIAmMoving,
+  comingSoonLawFirmServices,
+  comingSoonUSeeHomes,
+  comingSoonViewber,
+  comingSoonWhat3Words,
 }
 
 export const getComingAppLinkHref = (isDesktop: boolean, email?: string) => {

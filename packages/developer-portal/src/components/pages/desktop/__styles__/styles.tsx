@@ -70,10 +70,10 @@ export const SubscribeContainer = styled.div`
 `
 
 export const SubscribeInnerContainer = styled.div`
-  padding: 2rem 1.5rem;
+  padding: 1.5rem;
   border-radius: 4px;
   background-color: var(--color-white);
-  margin: 0 auto 2rem auto;
+  margin: 0 auto 1rem auto;
 `
 
 export const subscribeContainerExpanded = css`
@@ -94,13 +94,13 @@ export const subscribeContainerExpanded = css`
   @media (min-width: 1025px) {
     height: 29.5rem;
     width: 17rem;
-    padding: 2rem 1rem;
+    padding: 1.5rem 1rem;
   }
 
   @media (min-width: 1115px) {
     height: 28.5rem;
     width: 19rem;
-    padding: 2rem 1.5rem;
+    padding: 1.5rem;
   }
 
   @media (min-width: 1400px) {
@@ -116,7 +116,7 @@ export const subscribeContainerExpanded = css`
 
 export const subscribeContainerContracted = css`
   transition: height 0.3s linear, width 0.3s linear;
-  height: 15rem;
+  height: 13em;
   width: 15rem;
 `
 
@@ -415,7 +415,6 @@ export const PriceSection = styled.div`
     font-size: 3rem;
     font-weight: normal;
     text-align: center;
-    margin-bottom: 1.5rem;
   }
 
   div {

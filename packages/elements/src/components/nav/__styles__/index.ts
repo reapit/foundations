@@ -107,7 +107,9 @@ export const elNavItemExpanded = css`
 
 export const elNavItemHideDesktop = css`
   @media screen and (min-width: 768px) {
-    display: none;
+    height: 0;
+    width: 0;
+    visibility: hidden;
   }
 `
 

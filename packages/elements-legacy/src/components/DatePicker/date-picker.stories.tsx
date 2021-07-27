@@ -1,5 +1,5 @@
 import * as React from 'react'
-import { Story } from '@storybook/react/types-6-0'
+import { Story } from '@storybook/react'
 import { action } from '@storybook/addon-actions'
 import { Form, Formik } from 'formik'
 import { DatePicker, DatePickerProps } from '.'
@@ -9,7 +9,7 @@ export default {
   component: DatePicker,
   // NOTE: this component doesn't work without Formik, so it's purely a react component.
   // How do we want to show the CSS part of it?
-  decorators: [(Story: Story) => <Story />],
+  decorators: [(Story) => <Story />],
 }
 
 export const Primary: Story<DatePickerProps> = (args) => (
