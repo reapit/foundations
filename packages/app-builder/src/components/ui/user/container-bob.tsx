@@ -1,7 +1,7 @@
 import React from 'react'
 import { styled } from '@linaria/react'
 import { useEditor, useNode } from '@craftjs/core'
-import { MOBILE_BREAKPOINT, TABLET_BREAKPOINT } from '@reapit/elements'
+import { MOBILE_BREAKPOINT, TABLET_BREAKPOINT } from '../viewport/__styles__/media'
 import { ToolbarItem, ToolbarItemType, ToolbarSection } from '../toolbar'
 
 const ContainerDiv = styled.div<{ width: number }>`

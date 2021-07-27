@@ -1,7 +1,6 @@
 import React, { useState } from 'react'
 import { useEditor } from '@craftjs/core'
 import {
-  DESKTOP_BREAKPOINT,
   elFlex,
   elFlex1,
   elFlexColumn,
@@ -11,17 +10,16 @@ import {
   elPb4,
   elPt4,
   elWFull,
-  MOBILE_BREAKPOINT,
-  TABLET_BREAKPOINT,
   ToggleRadio,
 } from '@reapit/elements'
 import { cx } from '@linaria/core'
 import { styled } from '@linaria/react'
 import IFrame from 'react-frame-component'
+import { DESKTOP_BREAKPOINT, MOBILE_BREAKPOINT, TABLET_BREAKPOINT } from './__styles__/media'
 
-import Toolbox from '../toolbox'
+import Toolbox from '../toolbox-bob'
 import Header from '../header'
-import Sidebar from '../sidebar'
+import Sidebar from '../sidebar-bob'
 
 import {
   flexAlignStretch,
@@ -32,7 +30,7 @@ import {
   relative,
   transition,
 } from '../styles'
-import { InjectFrameStyles } from './InjectFrameStyles'
+import { InjectFrameStyles } from './inject-frame-styles'
 
 const Container = styled.div`
   flex: 1;
