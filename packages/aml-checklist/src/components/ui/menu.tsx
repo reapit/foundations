@@ -8,13 +8,16 @@ import {
   ResultsIcon,
   AppsIcon,
   ProfileIcon,
+  MenuItem,
 } from '@reapit/elements-legacy'
 import Routes from '@/constants/routes'
 import { Location } from 'history'
 import { useReapitConnect } from '@reapit/connect-session'
 import { reapitConnectBrowserSession } from '@/core/connect-session'
+import { DEMO_STORAGE_KEY } from '../../constants/demo-storage'
 
 export const generateMenuConfig = (logoutCallback: () => void, location: Location<any>): MenuConfig => {
+  const isDemo = Boolean(window.sessionStorage.getItem(DEMO_STORAGE_KEY))
   return {
     defaultActiveKey: 'CLIENT_SEARCH',
     location,
@@ -38,21 +41,21 @@ export const generateMenuConfig = (logoutCallback: () => void, location: Locatio
         url: Routes.RESULTS,
         type: 'PRIMARY',
       },
-      {
+      !isDemo && {
         title: 'Apps',
         key: 'APPS',
         icon: <AppsIcon />,
         callback: () => (window.location.href = window.reapit.config.marketplaceUrl),
         type: 'PRIMARY',
       },
-      {
+      !isDemo && {
         title: 'Logout',
         key: 'LOGOUT',
         callback: logoutCallback,
         icon: <ProfileIcon />,
         type: 'SECONDARY',
       },
-    ],
+    ].filter(Boolean) as MenuItem[],
   }
 }
 

@@ -5,7 +5,8 @@ import { render } from 'react-dom'
 import ReactGA from 'react-ga'
 import { Config } from '@/types/global'
 import { getMarketplaceGlobalsByKey } from '@reapit/elements-legacy'
-import { logger } from '@reapit/utils'
+import { isDemo, logger } from '@reapit/utils'
+import { DEMO_STORAGE_KEY } from '../constants/demo-storage'
 
 // Init global config
 window.reapit = {
@@ -41,6 +42,7 @@ const run = async () => {
     const configRes = await fetch('config.json')
     const config = (await configRes.json()) as Config
     const isLocal = config.appEnv === 'local'
+    const demoEnv = isDemo()
 
     if (!isLocal && config.sentryDns && !window.location.hostname.includes('prod.paas')) {
       Sentry.init({
@@ -53,6 +55,10 @@ const run = async () => {
     if (!isLocal && config.googleAnalyticsKey) {
       ReactGA.initialize(config.googleAnalyticsKey)
       ReactGA.pageview(window.location.pathname + window.location.search)
+    }
+
+    if (demoEnv) {
+      window.sessionStorage.setItem(DEMO_STORAGE_KEY, 'true')
     }
 
     window.reapit.config = config
