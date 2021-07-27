@@ -1,7 +1,7 @@
 import { useEditor } from '@craftjs/core'
 import { cx } from '@linaria/core'
 import { Button, ButtonGroup, elFlex, elFlex1, elMTAuto, elPr1, FlexContainer } from '@reapit/elements'
-import React from 'react'
+import React, { useState } from 'react'
 import ReactTooltip from 'react-tooltip'
 
 import Checkmark from '../../icons/check'
@@ -10,7 +10,10 @@ import RedoSvg from '../../icons/redo'
 import UndoSvg from '../../icons/undo'
 import { buttonIcon, disabled, header, item } from './styles'
 
+import { PageSelector } from './PageSelector'
+
 const Header = () => {
+  const [pageId, setPageId] = useState<string>()
   const { enabled, canUndo, canRedo, actions, query } = useEditor((state, query) => ({
     enabled: state.options.enabled,
     canUndo: query.history.canUndo(),
@@ -19,7 +22,7 @@ const Header = () => {
 
   return (
     <FlexContainer className={header} isFlexJustifyCenter>
-      <FlexContainer isFlexAlignCenter isFlexJustifyEnd className={cx(elFlex1, elMTAuto, elPr1)}>
+      <FlexContainer isFlexAlignCenter isFlexJustifyBetween className={cx(elFlex1, elMTAuto, elPr1)}>
         {enabled && (
           <div className={cx(elFlex, elFlex1)}>
             <a className={cx(item, !canUndo && disabled)} data-tip="Undo" onClick={() => actions.history.undo()}>
@@ -30,6 +33,7 @@ const Header = () => {
             </a>
           </div>
         )}
+        <PageSelector pageId={pageId} onChange={setPageId} />
         <ButtonGroup>
           {enabled && (
             <>
