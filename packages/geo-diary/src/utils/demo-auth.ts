@@ -1,11 +1,9 @@
 import { ReapitConnectBrowserSession, ReapitConnectSession } from '@reapit/connect-session'
 import { fetcher } from '@reapit/elements-legacy'
+import { isDemo } from '@reapit/utils'
 
 export const handleDemoAuth = async (): Promise<null> => {
-  const queryParams = new URLSearchParams(window.location.search)
-  const isDemo = queryParams.get('demo')
-
-  if (!isDemo) return null
+  if (!isDemo()) return null
 
   const { appId, connectClientId, demoUser, platformApiUrl } = window.reapit.config
   const reapitConnectSession: ReapitConnectSession | never = await fetcher({

@@ -104,7 +104,7 @@ export const startAndEndTime = {
 
 export const sortAppoinmentsByStartTime =
   (appointments: ExtendedAppointmentModel[]) => (): ExtendedAppointmentModel[] => {
-    const sortedAppoinments = appointments.sort((a, b) => {
+    const sortedAppoinments = [...appointments].sort((a, b) => {
       const aStart = dayjs(a.start)
       const bStart = dayjs(b.start)
 
