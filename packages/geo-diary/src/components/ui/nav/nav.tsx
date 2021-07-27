@@ -3,6 +3,7 @@ import { useReapitConnect } from '@reapit/connect-session'
 import { reapitConnectBrowserSession } from '@/core/connect-session'
 import { NavResponsive, NavResponsiveOption } from '@reapit/elements'
 import { MARKETPLACE_DEV_URL, MARKETPLACE_PROD_URL } from '../../../core/constants'
+import { isDemo } from '@reapit/utils'
 
 export const callbackAppClick = () =>
   (window.location.href =
@@ -12,13 +13,14 @@ export const callbackAppClick = () =>
 
 export const Nav: React.FC = () => {
   const { connectLogoutRedirect, connectIsDesktop } = useReapitConnect(reapitConnectBrowserSession)
+  const demoEnv = isDemo()
   const navOptions: NavResponsiveOption[] = [
     {
       itemIndex: 0,
     },
   ]
 
-  if (!connectIsDesktop) {
+  if (!connectIsDesktop && !demoEnv) {
     navOptions.push(
       {
         itemIndex: 1,
