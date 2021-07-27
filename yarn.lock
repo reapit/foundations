@@ -33177,6 +33177,25 @@ resolve@^2.0.0-next.3:
   languageName: node
   linkType: hard
 
+"seed-data-workflow@workspace:packages/seed-data-workflow":
+  version: 0.0.0-use.local
+  resolution: "seed-data-workflow@workspace:packages/seed-data-workflow"
+  dependencies:
+    "@reapit/config-manager": "workspace:packages/config-manager"
+    "@reapit/ts-scripts": "workspace:packages/ts-scripts"
+    "@reapit/ts-types": "workspace:packages/ts-types"
+    "@typescript-eslint/eslint-plugin": ^4.28.4
+    "@typescript-eslint/parser": ^4.28.4
+    axios: ^0.21.1
+    dayjs: ^1.10.6
+    eslint: ^7.31.0
+    eslint-plugin-prettier: ^3.4.0
+    snyk: ^1.662.0
+    ts-node: ^10.1.0
+    typescript: ^4.3.5
+  languageName: unknown
+  linkType: soft
+
 "seek-bzip@npm:^1.0.5":
   version: 1.0.5
   resolution: "seek-bzip@npm:1.0.5"
