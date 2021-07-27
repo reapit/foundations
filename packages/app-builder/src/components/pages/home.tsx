@@ -3,8 +3,8 @@ import { Editor, Frame, Element } from '@craftjs/core'
 
 import { RenderNode } from '../ui/render-node'
 import Viewport from '../ui/viewport'
-import Container from '../ui/user/container-bob'
-import Text from '../ui/user/text-bob'
+import Container from '../ui/user/container'
+import Text from '../ui/user/text'
 
 export type AuthenticatedProps = {}
 

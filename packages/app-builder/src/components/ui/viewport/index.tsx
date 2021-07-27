@@ -17,9 +17,9 @@ import { styled } from '@linaria/react'
 import IFrame from 'react-frame-component'
 import { DESKTOP_BREAKPOINT, MOBILE_BREAKPOINT, TABLET_BREAKPOINT } from './__styles__/media'
 
-import Toolbox from '../toolbox-bob'
+import Toolbox from '../toolbox'
 import Header from '../header'
-import Sidebar from '../sidebar-bob'
+import Sidebar from '../sidebar'
 
 import {
   flexAlignStretch,
