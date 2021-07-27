@@ -1,7 +1,7 @@
 import React from 'react'
 import { styled } from '@linaria/react'
 import { useEditor, useNode } from '@craftjs/core'
-import { BREAKPOINT } from '../../../utils/breakpoints'
+import { MOBILE_BREAKPOINT, TABLET_BREAKPOINT } from '@reapit/elements'
 import { ToolbarItem, ToolbarItemType, ToolbarSection } from '../toolbar'
 
 const ContainerDiv = styled.div<{ width: number }>`
@@ -11,13 +11,10 @@ const ContainerDiv = styled.div<{ width: number }>`
 
   flex: ${(props) => props.width};
 
-  @media (max-width: ${BREAKPOINT.Tablet}px) {
+  @media (max-width: ${TABLET_BREAKPOINT}px) {
     flex: ${(props) => props.width * 2};
   }
-  @media (max-width: ${BREAKPOINT.MobileL}px) {
-    flex: ${(props) => props.width * 3};
-  }
-  @media (max-width: ${BREAKPOINT.MobileS}px) {
+  @media (max-width: ${MOBILE_BREAKPOINT}px) {
     align-items: flex-start;
     flex-direction: column;
     flex: 12;

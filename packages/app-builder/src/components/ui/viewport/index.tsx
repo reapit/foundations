@@ -1,6 +1,7 @@
 import React, { useState } from 'react'
 import { useEditor } from '@craftjs/core'
 import {
+  DESKTOP_BREAKPOINT,
   elFlex,
   elFlex1,
   elFlexColumn,
@@ -10,6 +11,8 @@ import {
   elPb4,
   elPt4,
   elWFull,
+  MOBILE_BREAKPOINT,
+  TABLET_BREAKPOINT,
   ToggleRadio,
 } from '@reapit/elements'
 import { cx } from '@linaria/core'
@@ -20,7 +23,6 @@ import Toolbox from '../toolbox'
 import Header from '../header'
 import Sidebar from '../sidebar'
 
-import { BREAKPOINT } from '../../../utils/breakpoints'
 import {
   flexAlignStretch,
   hScreen,
@@ -50,7 +52,7 @@ const Breakpoints = styled.div`
 
 const Viewport = ({ children, iframeRef }) => {
   const { connectors } = useEditor()
-  const [breakpoint, setBreakpoint] = useState(BREAKPOINT.Tablet)
+  const [breakpoint, setBreakpoint] = useState(TABLET_BREAKPOINT)
 
   return (
     <div className={cx(elFlex1, elFlexColumn, justifyStretch, hScreen)}>
@@ -65,28 +67,22 @@ const Viewport = ({ children, iframeRef }) => {
               onChange={(e) => setBreakpoint(parseInt(e.currentTarget.value, 10))}
               options={[
                 {
-                  id: BREAKPOINT.Desktop.toString(),
-                  value: BREAKPOINT.Desktop.toString(),
+                  id: DESKTOP_BREAKPOINT.toString(),
+                  value: DESKTOP_BREAKPOINT.toString(),
                   text: 'Desktop',
-                  isChecked: breakpoint === BREAKPOINT.Desktop,
+                  isChecked: breakpoint === DESKTOP_BREAKPOINT,
                 },
                 {
-                  id: BREAKPOINT.Tablet.toString(),
-                  value: BREAKPOINT.Tablet.toString(),
+                  id: TABLET_BREAKPOINT.toString(),
+                  value: TABLET_BREAKPOINT.toString(),
                   text: 'Tablet',
-                  isChecked: breakpoint === BREAKPOINT.Tablet,
+                  isChecked: breakpoint === TABLET_BREAKPOINT,
                 },
                 {
-                  id: BREAKPOINT.MobileL.toString(),
-                  value: BREAKPOINT.MobileL.toString(),
-                  text: 'Mobile L',
-                  isChecked: breakpoint === BREAKPOINT.MobileL,
-                },
-                {
-                  id: BREAKPOINT.MobileS.toString(),
-                  value: BREAKPOINT.MobileS.toString(),
-                  text: 'Mobile S',
-                  isChecked: breakpoint === BREAKPOINT.MobileS,
+                  id: MOBILE_BREAKPOINT.toString(),
+                  value: MOBILE_BREAKPOINT.toString(),
+                  text: 'Mobile',
+                  isChecked: breakpoint === MOBILE_BREAKPOINT,
                 },
               ]}
             />
