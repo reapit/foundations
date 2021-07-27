@@ -13,6 +13,7 @@ import * as eventSource from '@aws-cdk/aws-lambda-event-sources'
 import * as assets from '@aws-cdk/aws-s3-assets'
 import * as config from '../../config.json'
 import * as path from 'path'
+import { Duration } from '@aws-cdk/core'
 
 const maxAzs = 2
 
@@ -33,14 +34,18 @@ export class DeploymentStack extends cdk.Stack {
     ingressSecurityGroup.addIngressRule(Peer.ipv4('0.0.0.0/0'), Port.tcp(80))
     ingressSecurityGroup.addIngressRule(Peer.ipv4('0.0.0.0/0'), Port.tcp(443))
 
-    new rds.DatabaseInstance(this, `${name}dev`, {
+    new rds.ServerlessCluster(this, `${name}dev`, {
       vpc,
-      engine: rds.DatabaseInstanceEngine.mysql({
-        version: rds.MysqlEngineVersion.VER_8_0_25,
-      }),
+      engine: rds.DatabaseClusterEngine.AURORA_MYSQL,
+      parameterGroup: rds.ParameterGroup.fromParameterGroupName(this, `${name}aurora-mysql-${stage}`, 'default.aurora-mysql5.7'),
       vpcSubnets: {
 				subnetType: ec2.SubnetType.PRIVATE,
 			},
+      scaling: {
+        autoPause: Duration.minutes(10),
+        minCapacity: rds.AuroraCapacityUnit.ACU_8,
+        maxCapacity: rds.AuroraCapacityUnit.ACU_32,
+      },
     })
 
     const deployReleaseS3Bucket = new Bucket(this, `${name}deploy-release`)
@@ -52,6 +57,7 @@ export class DeploymentStack extends cdk.Stack {
       stageName: 'dev',
     });
 
+    // TODO resolve build context as docker-compose has context of entire monorepo
     const lith = new lambda.DockerImageFunction(this, `${name}lith`, {
       code: lambda.DockerImageCode.fromImageAsset(path.join(__dirname, '../../')),
       vpc,
@@ -69,7 +75,7 @@ export class DeploymentStack extends cdk.Stack {
     })
 
     httpApi.addRoutes({
-      path: '/*',
+      path: '/{proxy+}',
       methods: [api.HttpMethod.ANY],
       integration: lithProxy,
       authorizer,
@@ -77,7 +83,7 @@ export class DeploymentStack extends cdk.Stack {
 
     // api authorization for api-service interaction
     httpApi.addRoutes({
-      path: '/api/*',
+      path: '/api/{proxy+}',
       methods: [api.HttpMethod.ANY],
       integration: lithProxy,
     })
@@ -86,11 +92,11 @@ export class DeploymentStack extends cdk.Stack {
     deployReleaseS3Bucket.grantReadWrite(lith)
 
     const taskPopulationAsset = new assets.Asset(this, `${name}taskPopulationAsset`, {
-      path: path.resolve(__dirname, '..', '..', 'dist', 'taskPopulation.js'),
+      path: path.resolve(__dirname, '..', '..', 'dist'),
     })
 
     const taskRunnerAsset = new assets.Asset(this, `${name}taskRunnerAsset`, {
-      path: path.resolve(__dirname, '..', '..', 'dist', 'taskRunner.js'),
+      path: path.resolve(__dirname, '..', '..', 'dist'),
     })
 
     const taskPopulationLambda = new lambda.Function(this, `${name}taskPopulation-${stage}`, {
