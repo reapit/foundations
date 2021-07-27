@@ -19,7 +19,7 @@ export const indicator = css`
 export const componentSelected = css`
   position: relative;
   &:after {
-    content: ' ';
+    content: '';
     border: 1px dashed var(--intent-primary);
     width: 100%;
     height: 100%;
