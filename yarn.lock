@@ -183,7 +183,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@aws-cdk/aws-apigatewayv2-authorizers@npm:^1.115.0":
+"@aws-cdk/aws-apigatewayv2-authorizers@npm:1.115.0":
   version: 1.115.0
   resolution: "@aws-cdk/aws-apigatewayv2-authorizers@npm:1.115.0"
   dependencies:
@@ -204,7 +204,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@aws-cdk/aws-apigatewayv2-integrations@npm:^1.115.0":
+"@aws-cdk/aws-apigatewayv2-integrations@npm:1.115.0":
   version: 1.115.0
   resolution: "@aws-cdk/aws-apigatewayv2-integrations@npm:1.115.0"
   dependencies:
@@ -229,7 +229,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@aws-cdk/aws-apigatewayv2@npm:1.115.0, @aws-cdk/aws-apigatewayv2@npm:^1.115.0":
+"@aws-cdk/aws-apigatewayv2@npm:1.115.0":
   version: 1.115.0
   resolution: "@aws-cdk/aws-apigatewayv2@npm:1.115.0"
   dependencies:
@@ -371,7 +371,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@aws-cdk/aws-cognito@npm:1.115.0, @aws-cdk/aws-cognito@npm:^1.115.0":
+"@aws-cdk/aws-cognito@npm:1.115.0":
   version: 1.115.0
   resolution: "@aws-cdk/aws-cognito@npm:1.115.0"
   dependencies:
@@ -616,7 +616,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@aws-cdk/aws-lambda-event-sources@npm:^1.115.0":
+"@aws-cdk/aws-lambda-event-sources@npm:1.115.0":
   version: 1.115.0
   resolution: "@aws-cdk/aws-lambda-event-sources@npm:1.115.0"
   dependencies:
@@ -721,7 +721,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@aws-cdk/aws-rds@npm:^1.115.0":
+"@aws-cdk/aws-rds@npm:1.115.0":
   version: 1.115.0
   resolution: "@aws-cdk/aws-rds@npm:1.115.0"
   dependencies:
@@ -775,7 +775,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@aws-cdk/aws-s3-assets@npm:1.115.0":
+"@aws-cdk/aws-s3-assets@npm:1.115.0, @aws-cdk/aws-s3-assets@npm:^1.115.0":
   version: 1.115.0
   resolution: "@aws-cdk/aws-s3-assets@npm:1.115.0"
   dependencies:
@@ -821,7 +821,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@aws-cdk/aws-s3@npm:1.115.0, @aws-cdk/aws-s3@npm:^1.115.0":
+"@aws-cdk/aws-s3@npm:1.115.0":
   version: 1.115.0
   resolution: "@aws-cdk/aws-s3@npm:1.115.0"
   dependencies:
@@ -960,7 +960,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@aws-cdk/aws-sqs@npm:1.115.0, @aws-cdk/aws-sqs@npm:^1.115.0":
+"@aws-cdk/aws-sqs@npm:1.115.0":
   version: 1.115.0
   resolution: "@aws-cdk/aws-sqs@npm:1.115.0"
   dependencies:
@@ -17154,17 +17154,18 @@ __metadata:
   resolution: "deployment-service@workspace:packages/deployment-service"
   dependencies:
     "@aws-cdk/assert": 1.115.0
-    "@aws-cdk/aws-apigatewayv2": ^1.115.0
-    "@aws-cdk/aws-apigatewayv2-authorizers": ^1.115.0
-    "@aws-cdk/aws-apigatewayv2-integrations": ^1.115.0
-    "@aws-cdk/aws-cognito": ^1.115.0
+    "@aws-cdk/aws-apigatewayv2": 1.115.0
+    "@aws-cdk/aws-apigatewayv2-authorizers": 1.115.0
+    "@aws-cdk/aws-apigatewayv2-integrations": 1.115.0
+    "@aws-cdk/aws-cognito": 1.115.0
     "@aws-cdk/aws-ec2": 1.115.0
     "@aws-cdk/aws-ecr-assets": 1.115.0
     "@aws-cdk/aws-lambda": 1.115.0
-    "@aws-cdk/aws-lambda-event-sources": ^1.115.0
-    "@aws-cdk/aws-rds": ^1.115.0
-    "@aws-cdk/aws-s3": ^1.115.0
-    "@aws-cdk/aws-sqs": ^1.115.0
+    "@aws-cdk/aws-lambda-event-sources": 1.115.0
+    "@aws-cdk/aws-rds": 1.115.0
+    "@aws-cdk/aws-s3": 1.115.0
+    "@aws-cdk/aws-s3-assets": ^1.115.0
+    "@aws-cdk/aws-sqs": 1.115.0
     "@homeservenow/serverless-aws-handler": ^0.2.4
     "@reapit/api-key-verify": "workspace:packages/api-key-verify"
     "@reapit/config-manager": "workspace:packages/config-manager"
