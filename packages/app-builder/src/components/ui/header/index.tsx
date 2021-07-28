@@ -11,7 +11,7 @@ import UndoSvg from '../../icons/undo'
 import { buttonIcon, disabled, header, item } from './styles'
 
 import { PageSelector } from './PageSelector'
-import { getPage, setPageNodes } from './saveState'
+import { deletePage, getPage, setPageNodes } from './saveState'
 
 const usePageId = () => {
   const [pageId, setPageId] = useState<string>()
@@ -58,7 +58,17 @@ const Header = () => {
                 }}
                 intent="primary"
               >
-                save
+                save page
+              </Button>
+              <Button
+                size={2}
+                style={{ zoom: 0.8 }}
+                onClick={() => {
+                  pageId && deletePage(pageId)
+                }}
+                intent="danger"
+              >
+                delete page
               </Button>
             </>
           )}

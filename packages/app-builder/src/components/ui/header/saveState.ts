@@ -25,6 +25,16 @@ export const getPage = (id: string): Page => {
   return page
 }
 
+export const deletePage = (id: string): void => {
+  const pages = getPages()
+  const page = pages.find((p) => p.id === id)
+  if (!page) {
+    throw new Error('page not found')
+  }
+  pages.splice(pages.indexOf(page), 1)
+  window.localStorage.setItem(KEY, JSON.stringify(pages))
+}
+
 export const setPageNodes = (id: string, nodes: string) => {
   const pages = getPages()
   const page = pages.find((p) => p.id === id)
