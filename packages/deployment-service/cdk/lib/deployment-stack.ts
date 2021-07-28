@@ -13,7 +13,7 @@ import * as eventSource from '@aws-cdk/aws-lambda-event-sources'
 import * as assets from '@aws-cdk/aws-s3-assets'
 import * as config from '../../config.json'
 import * as path from 'path'
-import { Duration } from '@aws-cdk/core'
+import { Duration, IgnoreMode } from '@aws-cdk/core'
 import { HttpMethod } from '@aws-cdk/aws-apigatewayv2'
 
 const maxAzs = 2
@@ -60,7 +60,13 @@ export class DeploymentStack extends cdk.Stack {
 
     // TODO resolve build context as docker-compose has context of entire monorepo
     const lith = new lambda.DockerImageFunction(this, `${name}lith`, {
-      code: lambda.DockerImageCode.fromImageAsset(path.join(__dirname, '../../')),
+      code: lambda.DockerImageCode.fromImageAsset(path.join(__dirname, '../../../../'), {
+        file: 'packages/deployment-service/Dockerfile',
+        ignoreMode: IgnoreMode.DOCKER,
+        exclude: [
+          'packages/deployment-service/cdk',
+        ],
+      }),
       vpc,
     })
     const lithProxy = new LambdaProxyIntegration({
