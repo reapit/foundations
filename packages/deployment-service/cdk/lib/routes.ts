@@ -3,55 +3,55 @@ import { HttpUserPoolAuthorizer } from "@aws-cdk/aws-apigatewayv2-authorizers";
 
 const routes: {
   path: string,
-  method: HttpMethod[],
+  methods: HttpMethod[],
 }[] = [
   {
     path: '/pipeline',
-    method: [HttpMethod.GET],
+    methods: [HttpMethod.GET],
   },
   {
     path: '/pipeline/{pipelineId}',
-    method: [HttpMethod.GET],
+    methods: [HttpMethod.GET],
   },
   {
     path: '/pipeline/{pipelineId}',
-    method: [HttpMethod.PUT],
+    methods: [HttpMethod.PUT],
   },
   {
     path: '/pipeline/{pipelineId}',
-    method: [HttpMethod.DELETE],
+    methods: [HttpMethod.DELETE],
   },
   {
     path: '/pipeline/{pipelineId}/pipeline-runner',
-    method: [HttpMethod.POST],
+    methods: [HttpMethod.POST],
   },
   {
     path: '/pipeline/{pipelineId}/pipeline-runner',
-    method: [HttpMethod.GET],
+    methods: [HttpMethod.GET],
   },
   {
     path: '/pipeline/{pipelineId}/pipeline-runner/{pipelineRunnerId}',
-    method: [HttpMethod.PUT],
+    methods: [HttpMethod.PUT],
   },
   {
     path: '/pipeline/{pipelineId}/pipeline-runner/{pipelineRunnerId}',
-    method: [HttpMethod.GET],
+    methods: [HttpMethod.GET],
   },
   {
     path: '/deploy/release/{project}/{version}',
-    method: [HttpMethod.POST],
+    methods: [HttpMethod.POST],
   },
   {
     path: '/deploy/release/{project}',
-    method: [HttpMethod.GET],
+    methods: [HttpMethod.GET],
   },
   {
     path: '/deploy/version/{project}/{version}',
-    method: [HttpMethod.POST],
+    methods: [HttpMethod.POST],
   },
   {
     path: '/deploy/project',
-    method: [HttpMethod.GET],
+    methods: [HttpMethod.GET],
   },
 ]
 
