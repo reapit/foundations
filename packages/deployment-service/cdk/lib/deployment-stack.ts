@@ -14,6 +14,7 @@ import * as assets from '@aws-cdk/aws-s3-assets'
 import * as config from '../../config.json'
 import * as path from 'path'
 import { Duration } from '@aws-cdk/core'
+import { generateRoutes } from './routes'
 
 const maxAzs = 2
 
@@ -50,7 +51,7 @@ export class DeploymentStack extends cdk.Stack {
 
     const deployReleaseS3Bucket = new Bucket(this, `${name}deploy-release`)
 
-    const httpApi = new api.HttpApi(this, `${name}http-api`)
+    const httpApi = new api.HttpApi(this, `${name}deployment-api`)
 
     new api.HttpStage(this, 'Stage', {
       httpApi,
@@ -74,22 +75,9 @@ export class DeploymentStack extends cdk.Stack {
       userPoolClient,
     })
 
-    httpApi.addRoutes({
-      path: '/{proxy+}',
-      methods: [api.HttpMethod.ANY],
-      integration: lithProxy,
-      authorizer,
-    })
+    const routes = generateRoutes(lithProxy, authorizer)
 
-    // api authorization for api-service interaction
-    httpApi.addRoutes({
-      path: '/api/{proxy+}',
-      methods: [api.HttpMethod.ANY],
-      integration: lithProxy,
-    })
-
-    // TODO grant access to created resources
-    deployReleaseS3Bucket.grantReadWrite(lith)
+    routes.forEach(route => httpApi.addRoutes(route))
 
     const taskPopulationAsset = new assets.Asset(this, `${name}taskPopulationAsset`, {
       path: path.resolve(__dirname, '..', '..', 'dist'),
@@ -118,6 +106,10 @@ export class DeploymentStack extends cdk.Stack {
     const taskRunnerQueue = new sqs.Queue(this, `${name}TaskRunner-${stage}`, {
       queueName: 'TaskRunner',
     })
+
+    deployReleaseS3Bucket.grantReadWrite(lith)
+    taskPopulationQueue.grantSendMessages(lith)
+    taskRunnerQueue.grantSendMessages(lith)
 
     taskPopulationLambda.addEventSource(new eventSource.SqsEventSource(taskPopulationQueue))
     taskRunnerLambda.addEventSource(new eventSource.SqsEventSource(taskRunnerQueue))
