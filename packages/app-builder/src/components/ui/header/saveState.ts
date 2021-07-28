@@ -1,9 +1,9 @@
-import { EditorState } from '@craftjs/core'
+import DEFAULT_STATE from './emptyState'
 
 type Page = {
   id: string
   name: string
-  nodes: EditorState
+  nodes: string
 }
 
 const KEY = 'rpt_savestate'
@@ -25,6 +25,16 @@ export const getPage = (id: string): Page => {
   return page
 }
 
+export const setPageNodes = (id: string, nodes: string) => {
+  const pages = getPages()
+  const page = pages.find((p) => p.id === id)
+  if (!page) {
+    throw new Error('page not found')
+  }
+  page.nodes = nodes
+  window.localStorage.setItem(KEY, JSON.stringify(pages))
+}
+
 export const setPage = (id: string, page: Page) => {
   const pages = getPages()
   const index = pages.findIndex((p) => p.id === id)
@@ -34,4 +44,14 @@ export const setPage = (id: string, page: Page) => {
     pages[index] = page
   }
   window.localStorage.setItem(KEY, JSON.stringify(pages))
+}
+
+export const newPage = (name: string) => {
+  const page = {
+    id: Date.now().toString(),
+    name,
+    nodes: JSON.stringify(DEFAULT_STATE),
+  }
+  setPage(page.id, page)
+  return page
 }

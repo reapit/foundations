@@ -1,7 +1,7 @@
 import { useEditor } from '@craftjs/core'
 import { cx } from '@linaria/core'
 import { Button, ButtonGroup, elFlex, elFlex1, elMTAuto, elPr1, FlexContainer } from '@reapit/elements'
-import React, { useState } from 'react'
+import React, { useEffect, useState } from 'react'
 import ReactTooltip from 'react-tooltip'
 
 import Checkmark from '../../icons/check'
@@ -11,9 +11,22 @@ import UndoSvg from '../../icons/undo'
 import { buttonIcon, disabled, header, item } from './styles'
 
 import { PageSelector } from './PageSelector'
+import { getPage, setPageNodes } from './saveState'
+
+const usePageId = () => {
+  const [pageId, setPageId] = useState<string>()
+  const { actions } = useEditor()
+  useEffect(() => {
+    if (pageId) {
+      const page = getPage(pageId)
+      actions.deserialize(page.nodes)
+    }
+  }, [pageId])
+  return { pageId, setPageId }
+}
 
 const Header = () => {
-  const [pageId, setPageId] = useState<string>()
+  const { pageId, setPageId } = usePageId()
   const { enabled, canUndo, canRedo, actions, query } = useEditor((state, query) => ({
     enabled: state.options.enabled,
     canUndo: query.history.canUndo(),
@@ -41,25 +54,11 @@ const Header = () => {
                 size={2}
                 style={{ zoom: 0.8 }}
                 onClick={() => {
-                  window.localStorage.saveState = query.serialize()
+                  pageId && setPageNodes(pageId, query.serialize())
                 }}
                 intent="primary"
               >
                 save
-              </Button>
-              <Button
-                size={2}
-                style={{ zoom: 0.8 }}
-                onClick={() => {
-                  const state = window.localStorage.saveState
-                  if (!state) {
-                    return alert('nothing to load')
-                  }
-                  actions.deserialize(state)
-                }}
-                intent="secondary"
-              >
-                load
               </Button>
             </>
           )}
