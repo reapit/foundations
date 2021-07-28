@@ -14,7 +14,7 @@ import * as assets from '@aws-cdk/aws-s3-assets'
 import * as config from '../../config.json'
 import * as path from 'path'
 import { Duration } from '@aws-cdk/core'
-import { generateRoutes } from './routes'
+import { HttpMethod } from '@aws-cdk/aws-apigatewayv2'
 
 const maxAzs = 2
 
@@ -75,9 +75,18 @@ export class DeploymentStack extends cdk.Stack {
       userPoolClient,
     })
 
-    const routes = generateRoutes(lithProxy, authorizer)
+    httpApi.addRoutes({
+      path: '/{proxy+}',
+      methods: [HttpMethod.ANY],
+      integration: lithProxy,
+      authorizer,
+    })
 
-    routes.forEach(route => httpApi.addRoutes(route))
+    httpApi.addRoutes({
+      path: '/api/{proxy+}',
+      methods: [HttpMethod.ANY],
+      integration: lithProxy,
+    })
 
     const taskPopulationAsset = new assets.Asset(this, `${name}taskPopulationAsset`, {
       path: path.resolve(__dirname, '..', '..', 'dist'),
