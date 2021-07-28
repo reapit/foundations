@@ -1,0 +1,14 @@
+
+.dynamodb
+*/.dynamodb
+
+.github
+archive
+
+.yarn
+*/.yarn
+
+.git
+*/.git
+cdk
+*/cdk
