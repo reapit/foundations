@@ -3,6 +3,7 @@ import IconButton from '../icon-button'
 import Grid, { Col } from '../grid'
 import * as styles from './__styles__'
 import { Label } from '@reapit/elements'
+import { isDemo } from '@reapit/utils'
 
 interface AmlCheckContentProps {
   contactId: string
@@ -10,7 +11,8 @@ interface AmlCheckContentProps {
 }
 
 export const AmlCheckRow: FC<AmlCheckContentProps> = ({ contactId, name }) => {
-  const amlAppUrl = `${window.reapit.config.amlAppUrl}/${contactId}`
+  const demoQuery = isDemo() ? '/?demo=true' : ''
+  const amlAppUrl = `${window.reapit.config.amlAppUrl}/${contactId}${demoQuery}`
   return (
     <div className={styles.contactOptionRow}>
       <Grid>
