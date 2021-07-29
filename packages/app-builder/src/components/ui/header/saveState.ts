@@ -1,3 +1,4 @@
+import slugify from 'slugify'
 import { emptyState } from './emptyState'
 
 type Page = {
@@ -58,7 +59,7 @@ export const setPage = (id: string, page: Page) => {
 
 export const newPage = (name: string) => {
   const page = {
-    id: Date.now().toString(),
+    id: slugify(name),
     name,
     nodes: JSON.stringify(emptyState),
   }
