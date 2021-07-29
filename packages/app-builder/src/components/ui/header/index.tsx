@@ -1,7 +1,7 @@
 import { useEditor } from '@craftjs/core'
 import { cx } from '@linaria/core'
 import { Button, ButtonGroup, elFlex, elFlex1, elMTAuto, elPr1, FlexContainer } from '@reapit/elements'
-import React, { useEffect, useState } from 'react'
+import React, { useEffect } from 'react'
 import ReactTooltip from 'react-tooltip'
 
 import Checkmark from '../../icons/check'
@@ -12,9 +12,12 @@ import { buttonIcon, disabled, header, item } from './styles'
 
 import { PageSelector } from './PageSelector'
 import { deletePage, getPage, setPageNodes } from './saveState'
+import { useHistory, useParams } from 'react-router'
 
 const usePageId = () => {
-  const [pageId, setPageId] = useState<string>()
+  const { pageId } = useParams<{ pageId?: string }>()
+  const history = useHistory()
+  const setPageId = (pageId) => history.push(`/${pageId}`)
   const { actions } = useEditor()
   useEffect(() => {
     if (pageId) {
@@ -46,7 +49,7 @@ const Header = () => {
             </a>
           </div>
         )}
-        <PageSelector pageId={pageId} onChange={setPageId} />
+        {enabled && <PageSelector pageId={pageId} onChange={setPageId} />}
         <ButtonGroup>
           {enabled && (
             <>

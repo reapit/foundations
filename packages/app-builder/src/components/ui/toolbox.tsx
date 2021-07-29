@@ -11,7 +11,7 @@ import { cx } from '@linaria/core'
 import { styled } from '@linaria/react'
 import { bgWhite, block, cursorMove, transition } from './styles'
 import { elFlex, elFlex1, elFlexAlignCenter, elFlexColumn, elHFull, elM2, elPb2, elPt3, elW12 } from '@reapit/elements'
-import { Link } from './user/link'
+import Link from './user/link'
 
 const Item = styled.a`
   svg {

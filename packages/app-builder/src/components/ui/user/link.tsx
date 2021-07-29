@@ -1,3 +1,4 @@
+import { useEditor } from '@craftjs/core'
 import React from 'react'
 import { Link as RRLink } from 'react-router-dom'
 import { getPages } from '../header/saveState'
@@ -8,9 +9,22 @@ const defaultProps = {
   destination: '/',
 }
 
-export const Link = (props) => {
+const Link = (props) => {
+  const { enabled } = useEditor((staste) => ({
+    enabled: staste.options.enabled,
+  }))
   return (
-    <RRLink to={props.destination}>
+    <RRLink
+      to={props.destination}
+      onClick={
+        enabled
+          ? (e) => {
+              e.preventDefault()
+              return false
+            }
+          : undefined
+      }
+    >
       <Container {...props} />
     </RRLink>
   )
@@ -49,3 +63,5 @@ Link.craft = {
     toolbar: LinkSettings,
   },
 }
+
+export default Link
