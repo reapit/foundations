@@ -1,4 +1,4 @@
-export default {
+export const emptyState = {
   ROOT: {
     type: { resolvedName: 'Container' },
     isCanvas: true,

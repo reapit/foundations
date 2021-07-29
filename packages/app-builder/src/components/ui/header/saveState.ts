@@ -1,4 +1,4 @@
-import DEFAULT_STATE from './emptyState'
+import { emptyState } from './emptyState'
 
 type Page = {
   id: string
@@ -60,7 +60,7 @@ export const newPage = (name: string) => {
   const page = {
     id: Date.now().toString(),
     name,
-    nodes: JSON.stringify(DEFAULT_STATE),
+    nodes: JSON.stringify(emptyState),
   }
   setPage(page.id, page)
   return page
