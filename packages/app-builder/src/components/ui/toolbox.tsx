@@ -1,6 +1,5 @@
 import { Element, useEditor } from '@craftjs/core'
 import React from 'react'
-import ReactTooltip from 'react-tooltip'
 
 import SquareSvg from '../icons/square'
 import TypeSvg from '../icons/type'
@@ -52,7 +51,6 @@ const Toolbox = () => {
             <TypeSvg />
           </Item>
         </div>
-        <ReactTooltip place="bottom" />
       </div>
     </ToolboxDiv>
   )
