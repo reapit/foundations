@@ -9,8 +9,8 @@ RUN mkdir /var/task
 
 COPY . /var/task
 
-RUN ls -la /var/task/
+RUN ["chmod", "+x", "/var/task/packages/deployment-service/dist/main.js"]
 
-ENTRYPOINT ["node", "/var/task/packages/deployment-service/dist/main.js"]
+ENTRYPOINT ["/var/task/packages/deployment-service/dist/main.js"]
 
-EXPOSE 3000
+EXPOSE 80
