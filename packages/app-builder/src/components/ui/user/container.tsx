@@ -38,7 +38,6 @@ const Container = ({
   const {
     connectors: { connect, drag },
     id,
-    // actions: { setProp },
   } = useNode()
   const {
     query: { node },

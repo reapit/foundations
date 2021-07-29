@@ -3,6 +3,7 @@ import React from 'react'
 
 import SquareSvg from '../icons/square'
 import TypeSvg from '../icons/type'
+import LinkSVG from '../icons/link'
 
 import Container from './user/container'
 import Text from './user/text'
@@ -10,6 +11,7 @@ import { cx } from '@linaria/core'
 import { styled } from '@linaria/react'
 import { bgWhite, block, cursorMove, transition } from './styles'
 import { elFlex, elFlex1, elFlexAlignCenter, elFlexColumn, elHFull, elM2, elPb2, elPt3, elW12 } from '@reapit/elements'
+import { Link } from './user/link'
 
 const Item = styled.a`
   svg {
@@ -49,6 +51,11 @@ const Toolbox = () => {
         <div ref={(ref) => ref && create(ref, <Text fontSize="12" textAlign="left" text="Hi there" />)}>
           <Item data-tip="Text" className={cx(elM2, elPb2, cursorMove, block)}>
             <TypeSvg />
+          </Item>
+        </div>
+        <div ref={(ref) => ref && create(ref, <Element canvas is={Link} background="white" padding={12} width={12} />)}>
+          <Item data-tip="Link" className={cx(elM2, elPb2, cursorMove, block)}>
+            <LinkSVG />
           </Item>
         </div>
       </div>
