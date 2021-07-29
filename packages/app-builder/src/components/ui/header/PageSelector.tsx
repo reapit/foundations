@@ -15,8 +15,7 @@ export const PageSelector = ({ pageId, onChange }: { pageId?: string; onChange: 
       }}
     >
       {getPages()
-        .map((p) => ({ value: p.id, label: p.name }))
-        .map(({ value, label }) => (
+        .map(({ id: value, name: label }) => (
           <option key={value} value={value}>
             {label}
           </option>
@@ -28,7 +27,9 @@ export const PageSelector = ({ pageId, onChange }: { pageId?: string; onChange: 
       className={elM1}
       onClick={() => {
         const pageName = prompt('Page name?')
-        if (!pageName) return
+        if (!pageName) {
+            return
+        }
         const page = newPage(pageName)
         onChange(page.id)
       }}
