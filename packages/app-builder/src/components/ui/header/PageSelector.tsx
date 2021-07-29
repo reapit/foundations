@@ -14,12 +14,11 @@ export const PageSelector = ({ pageId, onChange }: { pageId?: string; onChange: 
         onChange(e.target.value)
       }}
     >
-      {getPages()
-        .map(({ id: value, name: label }) => (
-          <option key={value} value={value}>
-            {label}
-          </option>
-        ))}
+      {getPages().map(({ id: value, name: label }) => (
+        <option key={value} value={value}>
+          {label}
+        </option>
+      ))}
       <option value="">Select a page</option>
     </Select>
     <Button
@@ -28,7 +27,7 @@ export const PageSelector = ({ pageId, onChange }: { pageId?: string; onChange: 
       onClick={() => {
         const pageName = prompt('Page name?')
         if (!pageName) {
-            return
+          return
         }
         const page = newPage(pageName)
         onChange(page.id)
