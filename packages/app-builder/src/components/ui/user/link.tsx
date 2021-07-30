@@ -10,7 +10,7 @@ const defaultProps = {
 }
 
 interface LinkProps extends ContainerProps {
-  destination: string
+  destination?: string
   context?: { [key: string]: any }
 }
 
