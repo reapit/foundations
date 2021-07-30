@@ -69,7 +69,7 @@ export class DeploymentStack extends cdk.Stack {
         exclude: [
           'packages/deployment-service/cdk',
         ],
-        entrypoint: ["/var/task/packages/deployment-service/dist/main.js",],
+        // entrypoint: ["node", "/var/task/packages/deployment-service/dist/main.js",],
         // forcing entry point. Dockerfile is ignored :face_with_rolling_eyes:
       }),
       vpc,
