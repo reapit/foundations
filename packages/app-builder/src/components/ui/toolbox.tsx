@@ -12,6 +12,7 @@ import { styled } from '@linaria/react'
 import { bgWhite, block, cursorMove, transition } from './styles'
 import { elFlex, elFlex1, elFlexAlignCenter, elFlexColumn, elHFull, elM2, elPb2, elPt3, elW12 } from '@reapit/elements'
 import Link from './user/link'
+import Context from './user/context'
 
 const Item = styled.a`
   svg {
@@ -56,6 +57,11 @@ const Toolbox = () => {
         <div ref={(ref) => ref && create(ref, <Element canvas is={Link} background="white" padding={12} width={12} />)}>
           <Item data-tip="Link" className={cx(elM2, elPb2, cursorMove, block)}>
             <LinkSVG />
+          </Item>
+        </div>
+        <div ref={(ref) => ref && create(ref, <Element is={Context} />)}>
+          <Item data-tip="Context" className={cx(elM2, elPb2, block, cursorMove)}>
+            <SquareSvg />
           </Item>
         </div>
       </div>
