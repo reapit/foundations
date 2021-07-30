@@ -1,3 +1,4 @@
+import qs from 'query-string'
 import { useEditor } from '@craftjs/core'
 import React from 'react'
 import { Link as RRLink } from 'react-router-dom'
@@ -14,12 +15,6 @@ interface LinkProps extends ContainerProps {
   context?: { [key: string]: any }
 }
 
-const qs = (query: { [key: string]: string }) => {
-  return Object.keys(query)
-    .map((key) => `${key}=${query[key]}`)
-    .join('&')
-}
-
 const Link = (props: LinkProps) => {
   const { enabled } = useEditor((state) => ({
     enabled: state.options.enabled,
@@ -29,7 +24,7 @@ const Link = (props: LinkProps) => {
     <RRLink
       to={{
         pathname: props.destination,
-        search: props.context ? qs(props.context) : '',
+        search: props.context ? qs.stringify(props.context) : '',
       }}
       onClick={
         enabled
