@@ -16,5 +16,8 @@
   },
   "devDependencies": {
     "husky": "^7.0.1"
+  },
+  "dependencies": {
+    "slugify": "^1.6.0"
   }
 }

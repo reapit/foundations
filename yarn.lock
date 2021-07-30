@@ -32866,6 +32866,7 @@ resolve@^2.0.0-next.3:
   resolution: "root@workspace:."
   dependencies:
     husky: ^7.0.1
+    slugify: ^1.6.0
   languageName: unknown
   linkType: soft
 
@@ -33987,6 +33988,13 @@ resolve@^2.0.0-next.3:
     astral-regex: ^2.0.0
     is-fullwidth-code-point: ^3.0.0
   checksum: f411aa051802605c3dc8523edee42d39ef59d7c36e6bef6bf1e61d9d2a83894187f6af56911a43ec8e58b921996722d75b354a4c3050b924426ffd1b05da33f9
+  languageName: node
+  linkType: hard
+
+"slugify@npm:^1.6.0":
+  version: 1.6.0
+  resolution: "slugify@npm:1.6.0"
+  checksum: 713908ecd3eb924852665a154aa4c6b788af3c01f1b3522e46abfe8d0dfe407b03c9cd46d9e95d535494b6946a6af663ba00dceab57a90bd696eaf5e059de497
   languageName: node
   linkType: hard
 
