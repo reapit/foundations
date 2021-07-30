@@ -3,19 +3,34 @@ import React from 'react'
 import { Link as RRLink } from 'react-router-dom'
 import { getPages } from '../header/saveState'
 import { ToolbarItem, ToolbarItemType, ToolbarSection } from '../toolbar'
-import Container from './container'
+import Container, { ContainerProps } from './container'
 
 const defaultProps = {
   destination: '/',
 }
 
-const Link = (props) => {
-  const { enabled } = useEditor((staste) => ({
-    enabled: staste.options.enabled,
+interface LinkProps extends ContainerProps {
+  destination: string
+  context?: { [key: string]: any }
+}
+
+const qs = (query: { [key: string]: string }) => {
+  return Object.keys(query)
+    .map((key) => `${key}=${query[key]}`)
+    .join('&')
+}
+
+const Link = (props: LinkProps) => {
+  const { enabled } = useEditor((state) => ({
+    enabled: state.options.enabled,
   }))
+
   return (
     <RRLink
-      to={props.destination}
+      to={{
+        pathname: props.destination,
+        search: props.context ? qs(props.context) : '',
+      }}
       onClick={
         enabled
           ? (e) => {

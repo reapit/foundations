@@ -21,20 +21,15 @@ const ContainerDiv = styled.div<{ width: number }>`
   }
 `
 
-const Container = ({
-  padding,
-  children,
-  width,
-  background,
-  height,
-  ...props
-}: {
+export interface ContainerProps {
   padding?: number
   background?: string
   height?: number
   width: number
   children?: React.ReactNode
-}) => {
+}
+
+const Container = ({ padding, children, width, background, height, ...props }: ContainerProps) => {
   const {
     connectors: { connect, drag },
     id,
