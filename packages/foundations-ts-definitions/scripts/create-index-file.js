@@ -13,8 +13,6 @@ module.exports = () => {
       '// @ts-ignore\n' +
         'export * from "../traffic-schema/marketplace-traffic-event-schema"' +
         '// @ts-ignore\n' +
-        'export * from "../deployment-schema"' +
-        '// @ts-ignore\n' +
         'export * from "../api-key-schema"' +
         '// @ts-ignore\n' +
         files
