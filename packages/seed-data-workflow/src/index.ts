@@ -1,4 +1,5 @@
-import { ReapitConnectServerSession } from '@reapit/connect-session'
+// Not ideal but ts-node doesn't like the paths alias provided so doesn't find the src directory of connect-session
+import { ReapitConnectServerSession } from '../../connect-session/src'
 import config from '../config.json'
 import { appointmentsCreate } from './entities/appointments-create'
 
