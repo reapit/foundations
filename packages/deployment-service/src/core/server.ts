@@ -21,7 +21,7 @@ app.use(
   }),
 )
 
-app.use(urlencoded() as any)
+app.use(urlencoded({ extended: true }) as any)
 app.use(json() as any)
 app.get('/ok', (_req, res) => {
   res.status(200).send('ok').end()

@@ -17,19 +17,26 @@ import {
 
 const router = Router()
 
-router.get('/pipeline', pipelinePaginate)
-router.get('/pipeline/:pipelineId', pipelineGet)
-router.put('/pipeline/:pipelineId', pipelineUpdate)
-router.post('/pipeline', pipelineCreate)
-router.delete('/pipeline/:pipelineId', pipelineDelete)
-router.get('/pipeline/:pipelineId/pipelinerunner', pipelineRunnerPaginate)
-router.get('/pipeline/:pipelineId/pipelinerunner/:pipelineRunnerId', pipelineRunnerGet)
-router.post('/pipeline/:pipelineId/pipelinerunner', pipelineRunnerCreate)
-router.put('/pipeline/:pipelineId/pipelinerunner/:pipelineRunnerId', pipelineRunnerUpdate)
+router.get('/dev/pipeline', pipelinePaginate)
+router.get('/dev/pipeline/:pipelineId', pipelineGet)
+router.put('/dev/pipeline/:pipelineId', pipelineUpdate)
+router.post('/dev/pipeline', pipelineCreate)
+router.delete('/dev/pipeline/:pipelineId', pipelineDelete)
+router.get('/dev/pipeline/:pipelineId/pipelinerunner', pipelineRunnerPaginate)
+router.get('/dev/pipeline/:pipelineId/pipelinerunner/:pipelineRunnerId', pipelineRunnerGet)
+router.post('/dev/pipeline/:pipelineId/pipelinerunner', pipelineRunnerCreate)
+router.put('/dev/pipeline/:pipelineId/pipelinerunner/:pipelineRunnerId', pipelineRunnerUpdate)
 
-router.post('/deploy/release/:projectName/:version', deployRelease)
-router.post('/deploy/version/:projectName/:version', deployVersion)
-router.get('/deploy/release/:projectName/', projectPaginate)
-router.get('/deploy/release', releasePaginate)
+router.post('/dev/deploy/release/:projectName/:version', deployRelease)
+router.post('/dev/deploy/version/:projectName/:version', deployVersion)
+router.get('/dev/deploy/release/:projectName/', projectPaginate)
+router.get('/dev/deploy/release', releasePaginate)
+
+router.get('/*', (request, response) => {
+  console.log(request)
+
+  response.status(200)
+  response.send('goodbye')
+})
 
 export default router
