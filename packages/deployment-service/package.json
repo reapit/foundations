@@ -18,6 +18,7 @@
     "@reapit/api-key-verify": "workspace:packages/api-key-verify",
     "@reapit/connect-session": "workspace:packages/connect-session",
     "@reapit/utils": "workspace:packages/utils",
+    "@vendia/serverless-express": "^4.3.9",
     "adm-zip": "^0.5.5",
     "aws-cdk": "1.115.0",
     "cdk-ecr-deployment": "^0.0.57",

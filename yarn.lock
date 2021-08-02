@@ -17645,6 +17645,7 @@ __metadata:
     "@reapit/utils": "workspace:packages/utils"
     "@typescript-eslint/eslint-plugin": ^4.28.4
     "@typescript-eslint/parser": ^4.28.4
+    "@vendia/serverless-express": ^4.3.9
     adm-zip: ^0.5.5
     aws-cdk: 1.115.0
     babel-jest: ^27.0.6
