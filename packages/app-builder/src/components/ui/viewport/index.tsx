@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React, { useEffect, useState } from 'react'
 import { useEditor } from '@craftjs/core'
 import {
   elFlex,
@@ -31,6 +31,8 @@ import {
   transition,
 } from '../styles'
 import { InjectFrameStyles } from './inject-frame-styles'
+import { getPage } from '../header/saveState'
+import { usePageId } from '@/core/usePageId'
 
 const Container = styled.div`
   flex: 1;
@@ -49,8 +51,16 @@ const Breakpoints = styled.div`
 `
 
 const Viewport = ({ children, iframeRef }) => {
-  const { connectors } = useEditor()
+  const { connectors, actions } = useEditor()
   const [breakpoint, setBreakpoint] = useState(TABLET_BREAKPOINT)
+  const { pageId } = usePageId()
+
+  useEffect(() => {
+    if (pageId) {
+      const page = getPage(pageId)
+      actions.deserialize(page.nodes)
+    }
+  }, [pageId])
 
   return (
     <div className={cx(elFlex1, elFlexColumn, justifyStretch, hScreen)}>

@@ -6,6 +6,7 @@ import Viewport from '../ui/viewport'
 import Container from '../ui/user/container'
 import Text from '../ui/user/text'
 import Link from '../ui/user/link'
+import Context from '../ui/user/context'
 
 export type AuthenticatedProps = {}
 
@@ -18,6 +19,7 @@ export const Authenticated: FC<AuthenticatedProps> = () => {
         Text,
         Container,
         Link,
+        Context,
       }}
       onRender={(props) => <RenderNode {...props} iframeRef={iframeRef.current} />}
     >
