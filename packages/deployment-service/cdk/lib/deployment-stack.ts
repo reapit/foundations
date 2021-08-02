@@ -73,6 +73,7 @@ export class DeploymentStack extends cdk.Stack {
         // forcing entry point. Dockerfile is ignored :face_with_rolling_eyes:
       }),
       vpc,
+      memorySize: 516,
     })
     const lithProxy = new LambdaProxyIntegration({
       handler: lith,
@@ -106,6 +107,9 @@ export class DeploymentStack extends cdk.Stack {
     const taskRunnerAsset = new assets.Asset(this, `${name}taskRunnerAsset`, {
       path: path.resolve(__dirname, '..', '..', 'dist'),
     })
+
+    // TODO add docker image to SQS lambdas for executables
+    // TODO [optional] remove express lith lambda for http methods
 
     const taskPopulationLambda = new lambda.Function(this, `${name}taskPopulation-${stage}`, {
       code: lambda.Code.fromBucket(taskPopulationAsset.bucket, taskPopulationAsset.s3ObjectKey),
