@@ -39,6 +39,7 @@
     "react-router": "^5.2.0",
     "react-router-dom": "^5.2.0",
     "react-tooltip": "^4.2.21",
+    "slugify": "^1.6.0",
     "snyk": "^1.662.0",
     "yup": "^0.29.3"
   },
