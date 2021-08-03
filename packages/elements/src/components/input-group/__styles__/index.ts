@@ -3,6 +3,7 @@ import { ElIcon } from '../../icon/__styles__'
 import { ElLabel } from '../../label/__styles__'
 import { ElInput } from '../../input/__styles__'
 import { ElTextArea } from '../../textarea/__styles__'
+import { ElSelect } from '../../select/__styles__'
 import { ElInputAddOn } from '../../input-add-on/__styles__'
 
 export const ElInputGroup = styled.div`
@@ -24,11 +25,11 @@ export const ElInputGroup = styled.div`
     order: 2;
   }
 
-  ${ElInput}, ${ElTextArea} {
+  ${ElInput}, ${ElTextArea}, ${ElSelect} {
     order: 3;
   }
 
-  ${ElInput}:not([type='checkbox']):not([type='radio']), ${ElTextArea} {
+  ${ElInput}:not([type='checkbox']):not([type='radio']), ${ElTextArea}, ${ElSelect} {
     &:focus {
       ~ ${ElIcon}, ~ ${ElLabel}, ~ ${ElInputAddOn} {
         background: var(--component-input-focus-bg);
