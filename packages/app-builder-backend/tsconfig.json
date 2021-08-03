@@ -1,0 +1,25 @@
+{
+  "extends": "../../tsconfig.json",
+  "compilerOptions": {
+    "typeRoots": ["./src/core/definitions.d.ts", "node_modules/@types", "../../node_modules/@types"],
+    "baseUrl": "./",
+    "sourceRoot": "/",
+    "paths": {
+      "@/*": ["src/*"],
+      "@reapit/elements": ["../elements/src"],
+      "@reapit/connect-session": ["../connect-session/src"]
+    },
+    "declaration": true,
+    "declarationDir": "dist",
+    "experimentalDecorators": true,
+    "emitDecoratorMetadata": true,
+    "strictPropertyInitialization": false
+  },
+  "ts-node": {
+    "compilerOptions": {
+      "module": "commonjs"
+    }
+  },
+  "include": ["src"],
+  "exclude": ["public", "dist", "src/scripts", "node_modules", "src/tests/coverage"]
+}
