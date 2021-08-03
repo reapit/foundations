@@ -1,34 +1,35 @@
 import { PipelineEntity, TaskEntity } from './../entities'
 import { ExecutableType } from './executable'
-import fs from 'fs'
-import request from 'request'
-import AdmZip from 'adm-zip'
-import { dir, cloneZip } from '../constants'
-
-const unzip = () => {
-  const zip = new AdmZip(`${dir}/${cloneZip}`)
-  zip.extractAllTo(`${dir}`, true)
-}
-
-const zipLocation = 'zip/refs/heads/master'
+import { exec } from 'child_process'
 
 export const pull: ExecutableType = async (task: TaskEntity, pipeline: PipelineEntity): Promise<true | never> => {
   console.log('pull...')
   console.log('executable', task)
 
   try {
-    await new Promise<void>((resolve, reject) => {
-      request(`https://codeload.github.com/${pipeline.repository}/${zipLocation}`)
-        .pipe(fs.createWriteStream(`${dir}/${cloneZip}`))
-        .on('close', () => {
-          resolve()
-        })
-        .on('error', (error) => {
-          reject(error)
-        })
+    const result = await exec(`git pull ${pipeline.repository} /tmp/project`, (error, stdout) => {
+      if (error) {
+        console.error(error)
+        throw error
+      }
+
+      stdout && console.log(stdout.toString())
     })
 
-    unzip()
+    console.log('pull - result', result)
+
+    // await new Promise<void>((resolve, reject) => {
+    //   request(`https://codeload.github.com/${pipeline.repository}/${zipLocation}`)
+    //     .pipe(fs.createWriteStream(`${dir}/${cloneZip}`))
+    //     .on('close', () => {
+    //       resolve()
+    //     })
+    //     .on('error', (error) => {
+    //       reject(error)
+    //     })
+    // })
+
+    // unzip()
   } catch (e) {
     console.log('message', e.message)
     console.log('clone failed')
