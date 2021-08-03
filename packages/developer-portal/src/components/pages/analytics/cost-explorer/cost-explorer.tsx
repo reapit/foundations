@@ -1,5 +1,6 @@
 import * as React from 'react'
-import CostCalculator from './cost-calculator'
+// Removing as part of https://github.com/reapit/foundations/issues/4692 may need to re-instate later
+// import CostCalculator from './cost-calculator'
 import TransactionHistory from './transaction-history'
 import { Grid, GridItem } from '@reapit/elements-legacy'
 import ErrorBoundary from '@/components/hocs/error-boundary'
@@ -24,7 +25,7 @@ export const CostExplorerTab: React.FC<CostExplorerTabProps> = () => {
           <CostExplorer />
         </GridItem>
       </Grid>
-      <CostCalculator />
+      {/* <CostCalculator /> */}
     </ErrorBoundary>
   )
 }

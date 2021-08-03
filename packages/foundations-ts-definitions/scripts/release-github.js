@@ -19,7 +19,7 @@ module.exports = async () => {
 
     execSync(`git checkout -b ${branchName}`)
     runCommand('git', ['add', '.'])
-    execSync('git commit -m "chore: update ts definitions"')
+    execSync('git commit -m "chore: update ts definitions" --no-verify')
     execSync(`git push -u sshOrigin ${branchName} -f`)
 
     const octokit = new Octokit({

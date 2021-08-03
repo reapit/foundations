@@ -246,6 +246,59 @@ export interface AppRestrictionModelPagedResult {
   totalCount?: number // int32
 }
 /**
+ * Model to expose the app revision consent
+ */
+export interface AppRevisionConsentModel {
+  /**
+   * Gets the links associated to this model
+   */
+  readonly links?: LinkModel[]
+  /**
+   * Gets the unique identifier of the consent
+   */
+  id?: string // uuid
+  /**
+   * The timestamp of entity creation
+   */
+  created?: string // date-time
+  /**
+   * The email of the user who actioned the consent
+   */
+  actionedBy?: string
+  /**
+   * The email of the user who installed the app the consent relates to
+   */
+  installedBy?: string
+  /**
+   * Gets the unique identifier of the installation associated to the consent
+   */
+  installationId?: string // uuid
+  /**
+   * Gets the unique identifier of the application associated to the consent
+   */
+  applicationId?: string // uuid
+  /**
+   * Gets the unique identifier of the app revision associated to the consent
+   */
+  revisionId?: string // uuid
+  /**
+   * The timestamp of when the email was sent
+   */
+  sentDate?: string // date-time
+  /**
+   * Gets the status of the consent
+   */
+  status?: string
+  /**
+   * The timestamp of when the consent was approved
+   */
+  approvalDate?: string // date-time
+  /**
+   * The timestamp of when the app was uninstalled
+   */
+  uninstallDate?: string // date-time
+}
+/**
  * App revision detailed representation
  */
 export interface AppRevisionModel {
@@ -509,6 +562,15 @@ export interface ApprovalModelPagedResult {
   totalCount?: number // int32
 }
 /**
+ * The model responsible for approving a consent
+ */
+export interface ApproveAppRevisionConsentModel {
+  /**
+   * Sets the email of the user approving the consent
+   */
+  approvedBy?: string
+}
+/**
  * The model responsible for the approval of an app revision
  */
 export interface ApproveModel {
@@ -765,6 +827,15 @@ export interface CreateAppRestrictionModel {
   status?: string
 }
 /**
+ * The model responsible for creation of app revision consents
+ */
+export interface CreateAppRevisionConsentsModel {
+  /**
+   * Sets the email of the user creating the app revision consents
+   */
+  actionedBy?: string
+}
+/**
  * The model responsible for creation of an app revision
  */
 export interface CreateAppRevisionModel {
@@ -956,6 +1027,10 @@ export interface CreateDeveloperModel {
    * Sets the registration number of the developers organisation
    */
   registrationNumber?: string
+  /**
+   * Alternative email address for marketplace developer notifications
+   */
+  notificationsEmail?: string
   companyAddress?: CreateAddressModel
 }
 /**
@@ -1046,6 +1121,27 @@ export interface CustomerModelPagedResult {
   pageSize?: number // int32
   pageCount?: number // int32
   totalCount?: number // int32
+}
+/**
+ * Model representing an Apps demonstration details
+ */
+export interface DemonstrationModel {
+  /**
+   * The external app identifier
+   */
+  externalAppId?: string
+  /**
+   * The access token
+   */
+  accessToken?: string
+  /**
+   * The id token
+   */
+  idToken?: string
+  /**
+   * The refresh token
+   */
+  refreshToken?: string
 }
 /**
  * Model that represents a desktop integration type
@@ -1181,6 +1277,10 @@ export interface DeveloperModel {
    * The status of the developer (incomplete/pending/confirmed/underReview/removed)
    */
   status?: string
+  /**
+   * Alternative email address for marketplace developer notifications
+   */
+  notificationsEmail?: string
   companyAddress?: CompanyAddressModel
 }
 /**
@@ -1195,6 +1295,15 @@ export interface DeveloperModelPagedResult {
   pageSize?: number // int32
   pageCount?: number // int32
   totalCount?: number // int32
+}
+/**
+ * Payload used to generate demonstration details for a given app
+ */
+export interface GenerateDemonstrationDetailsModel {
+  /**
+   * The external identifier of the app to generate demonstration details for (the app Ids stored in third party IdP)
+   */
+  externalAppId?: string
 }
 /**
  * Installation representation
@@ -1442,6 +1551,15 @@ export interface RejectRevisionModel {
   rejectedByDeveloper?: boolean
 }
 /**
+ * The model responsible for resending consent emails
+ */
+export interface ResendAppRevisionConsentModel {
+  /**
+   * Sets the email of the user resending the consent emails
+   */
+  actionedBy?: string
+}
+/**
  * Model that represents a scope
  */
 export interface ScopeModel {
@@ -1672,6 +1790,10 @@ export interface UpdateDeveloperModel {
    * Sets the status of the developer
    */
   status?: string
+  /**
+   * Alternative email address for marketplace developer notifications
+   */
+  notificationsEmail?: string
   companyAddress?: UpdateAddressModel
 }
 /**

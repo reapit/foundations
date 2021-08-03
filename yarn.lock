@@ -4948,7 +4948,7 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@reapit/connect-session@^2.0.9, @reapit/connect-session@workspace:packages/connect-session":
+"@reapit/connect-session@^2.0.9, @reapit/connect-session@workspace:*, @reapit/connect-session@workspace:packages/connect-session":
   version: 0.0.0-use.local
   resolution: "@reapit/connect-session@workspace:packages/connect-session"
   dependencies:
@@ -33290,6 +33290,7 @@ resolve@^2.0.0-next.3:
   resolution: "seed-data-workflow@workspace:packages/seed-data-workflow"
   dependencies:
     "@reapit/config-manager": "workspace:packages/config-manager"
+    "@reapit/connect-session": "workspace:*"
     "@reapit/ts-scripts": "workspace:packages/ts-scripts"
     "@reapit/ts-types": "workspace:packages/ts-types"
     "@typescript-eslint/eslint-plugin": ^4.28.4
