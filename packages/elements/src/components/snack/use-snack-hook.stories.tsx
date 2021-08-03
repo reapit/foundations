@@ -1,6 +1,6 @@
 import React from 'react'
 import { Button } from '../button'
-import useSnack from '../../hooks/use-snack'
+import { useSnack } from '../../hooks/use-snack'
 import { elM1 } from '../../styles/spacing'
 
 export const UseSnackHookStory = () => {

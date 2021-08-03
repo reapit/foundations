@@ -2,6 +2,7 @@ import { styled } from '@linaria/react'
 import { ElIcon } from '../../icon/__styles__'
 import { ElLabel } from '../../label/__styles__'
 import { ElInput } from '../../input/__styles__'
+import { ElTextArea } from '../../textarea/__styles__'
 import { ElInputAddOn } from '../../input-add-on/__styles__'
 
 export const ElInputGroup = styled.div`
@@ -23,11 +24,11 @@ export const ElInputGroup = styled.div`
     order: 2;
   }
 
-  ${ElInput} {
+  ${ElInput}, ${ElTextArea} {
     order: 3;
   }
 
-  ${ElInput}:not([type='checkbox']):not([type='radio']) {
+  ${ElInput}:not([type='checkbox']):not([type='radio']), ${ElTextArea} {
     &:focus {
       ~ ${ElIcon}, ~ ${ElLabel}, ~ ${ElInputAddOn} {
         background: var(--component-input-focus-bg);

@@ -1,4 +1,4 @@
-import React, { FC, useMemo } from 'react'
+import React, { forwardRef, useMemo } from 'react'
 import { ElInputGroup } from './__styles__'
 import { Input } from '../input'
 import { Icon, IconNames } from '../icon'
@@ -27,6 +27,10 @@ export interface InputGroupProps extends React.InputHTMLAttributes<HTMLInputElem
   className?: string
 }
 
+export type InputGroupWrapped = React.ForwardRefExoticComponent<
+  InputGroupProps & React.RefAttributes<React.InputHTMLAttributes<HTMLInputElement>>
+>
+
 const generateRandomId = (): string => {
   try {
     return `random-${Math.random().toString(36).substring(7)}`
@@ -35,30 +39,30 @@ const generateRandomId = (): string => {
   }
 }
 
-export const InputGroup: FC<InputGroupProps> = ({
-  icon,
-  label,
-  className,
-  id,
-  intent,
-  inputAddOnText,
-  children,
-  ...rest
-}) => {
-  const groupId = useMemo(() => {
-    if (id) return id
-    return generateRandomId()
-  }, [id])
+export const InputGroup = forwardRef(
+  (
+    { icon, label, className, id, intent, inputAddOnText, children, ...rest }: InputGroupProps,
+    ref: React.ForwardedRef<React.InputHTMLAttributes<HTMLInputElement>>,
+  ) => {
+    const groupId = useMemo(() => {
+      if (id) return id
+      return generateRandomId()
+    }, [id])
 
-  if (!children)
+    if (!children)
+      return (
+        <ElInputGroup className={className}>
+          <Input id={groupId} {...rest} ref={ref} />
+          {icon && <Icon intent={intent} icon={icon} />}
+          {label && <Label htmlFor={groupId}>{label}</Label>}
+          {inputAddOnText && <InputAddOn intent={intent}>{inputAddOnText}</InputAddOn>}
+        </ElInputGroup>
+      )
+
     return (
-      <ElInputGroup className={className}>
-        <Input id={groupId} {...rest} />
-        {icon && <Icon intent={intent} icon={icon} />}
-        {label && <Label htmlFor={groupId}>{label}</Label>}
-        {inputAddOnText && <InputAddOn intent={intent}>{inputAddOnText}</InputAddOn>}
+      <ElInputGroup className={className} {...rest}>
+        {children}
       </ElInputGroup>
     )
-
-  return <ElInputGroup {...rest}>{children}</ElInputGroup>
-}
+  },
+)

@@ -1,0 +1,11 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Portal should match a snapshot and render children 1`] = `
+<Portal
+  containerInfo={<div />}
+>
+  I am some content
+</Portal>
+`;
+
+exports[`usePortal should return a target  div correctly 1`] = `<div />`;
