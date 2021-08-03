@@ -525,6 +525,8 @@ functions:
               - TaskPopulation
               - Arn
   taskRunner:
+    layers:
+      - arn:aws:lambda:${self:provider.region}:553035198032:layer:git:14
     handler: src/index.taskRunner
     events:
       - sqs:
