@@ -1,0 +1,9 @@
+.git
+cdk.out
+node_modules
+dist
+test
+.github
+.nyc_output
+yarn-error.log
+cdk
