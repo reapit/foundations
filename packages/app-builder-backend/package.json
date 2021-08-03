@@ -12,7 +12,7 @@
   "scripts": {
     "start": "ts-node .",
     "test": "cross-env TZ=UTC jest --watch --colors",
-    "build": "echo '...skipping...'",
+    "build": "tsc",
     "lint": "eslint --cache --ext=ts,tsx,js src --fix",
     "release": "echo '...skipping...'",
     "publish": "yarn npm publish --access public",
@@ -23,7 +23,8 @@
     "apollo-server": "^3.1.1",
     "graphql": "^15.5.1",
     "slugify": "^1.6.0",
-    "type-graphql": "^1.1.1"
+    "type-graphql": "^1.1.1",
+    "typescript": "^4.3.5"
   },
   "devDependencies": {
     "@aws-cdk/aws-apigateway": "1.116.0",
@@ -33,7 +34,7 @@
     "@reapit/ts-types": "workspace:packages/ts-types",
     "@typescript-eslint/eslint-plugin": "^4.28.4",
     "@typescript-eslint/parser": "^4.28.4",
-    "aws-cdk":"1.116.0",
+    "aws-cdk": "1.116.0",
     "babel-jest": "^27.0.6",
     "concurrently": "^6.2.0",
     "cross-env": "^7.0.3",
