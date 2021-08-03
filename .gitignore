@@ -89,3 +89,4 @@ credentials.json
 !.yarn/versions
 
 .docz/
+dist
