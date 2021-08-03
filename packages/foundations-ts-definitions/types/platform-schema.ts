@@ -334,7 +334,7 @@ export interface ApplicantModel {
    */
   nextCall?: string // date
   /**
-   * The unique identifier of the department that the applicant requirements are associated with. The applicant will only match to properties with the same value
+   * The unique identifier of the department the applicant is associated with. The applicant will only match to properties with the same values set. See the [Platform Glossary](https://foundations-documentation.reapit.cloud/platform-glossary#department) for more information about departments
    */
   departmentId?: string
   /**
@@ -342,27 +342,27 @@ export interface ApplicantModel {
    */
   solicitorId?: string
   /**
-   * A list of property type requirements taken from the full listing of the associated department
+   * The applicant's property type requirements (eg house, bungalow, land), as defined by the applicant's [department](https://foundations-documentation.reapit.cloud/platform-glossary#department)
    */
   type?: string[]
   /**
-   * A list of property style requirements taken from the full listing of the associated department
+   * The applicant's property style requirements (eg detached, semiDetached), as defined by the applicant's [department](https://foundations-documentation.reapit.cloud/platform-glossary#department)
    */
   style?: string[]
   /**
-   * A list of property situation requirements taken from the full listing of the associated department
+   * The applicant's requirements for other aspects of prospective properties - such as outside space - as defined by the applicant's [department](https://foundations-documentation.reapit.cloud/platform-glossary#department)
    */
   situation?: string[]
   /**
-   * A list of property parking requirements taken from the full listing of the associated department
+   * The applicant's parking requirements (eg garage), as defined by the applicant's [department](https://foundations-documentation.reapit.cloud/platform-glossary#department)
    */
   parking?: string[]
   /**
-   * A list of property age requirements taken from the full listing of the associated department
+   * The applicant's property age requirements (eg new, period), as defined by the applicant's [department](https://foundations-documentation.reapit.cloud/platform-glossary#department)
    */
   age?: string[]
   /**
-   * A list of property locality requirements taken from the full listing of the associated department
+   * The applicant's general property location requirements (eg rural, townCity), as defined by the applicant's [department](https://foundations-documentation.reapit.cloud/platform-glossary#department)
    */
   locality?: string[]
   /**
@@ -660,7 +660,7 @@ export interface ApplicantModelPagedResult {
      */
     nextCall?: string // date
     /**
-     * The unique identifier of the department that the applicant requirements are associated with. The applicant will only match to properties with the same value
+     * The unique identifier of the department the applicant is associated with. The applicant will only match to properties with the same values set. See the [Platform Glossary](https://foundations-documentation.reapit.cloud/platform-glossary#department) for more information about departments
      */
     departmentId?: string
     /**
@@ -668,27 +668,27 @@ export interface ApplicantModelPagedResult {
      */
     solicitorId?: string
     /**
-     * A list of property type requirements taken from the full listing of the associated department
+     * The applicant's property type requirements (eg house, bungalow, land), as defined by the applicant's [department](https://foundations-documentation.reapit.cloud/platform-glossary#department)
      */
     type?: string[]
     /**
-     * A list of property style requirements taken from the full listing of the associated department
+     * The applicant's property style requirements (eg detached, semiDetached), as defined by the applicant's [department](https://foundations-documentation.reapit.cloud/platform-glossary#department)
      */
     style?: string[]
     /**
-     * A list of property situation requirements taken from the full listing of the associated department
+     * The applicant's requirements for other aspects of prospective properties - such as outside space - as defined by the applicant's [department](https://foundations-documentation.reapit.cloud/platform-glossary#department)
      */
     situation?: string[]
     /**
-     * A list of property parking requirements taken from the full listing of the associated department
+     * The applicant's parking requirements (eg garage), as defined by the applicant's [department](https://foundations-documentation.reapit.cloud/platform-glossary#department)
      */
     parking?: string[]
     /**
-     * A list of property age requirements taken from the full listing of the associated department
+     * The applicant's property age requirements (eg new, period), as defined by the applicant's [department](https://foundations-documentation.reapit.cloud/platform-glossary#department)
      */
     age?: string[]
     /**
-     * A list of property locality requirements taken from the full listing of the associated department
+     * The applicant's general property location requirements (eg rural, townCity), as defined by the applicant's [department](https://foundations-documentation.reapit.cloud/platform-glossary#department)
      */
     locality?: string[]
     /**
@@ -1039,7 +1039,7 @@ export interface Applicants {
   )[]
   address?: string
   departmentId?: string
-  marketingMode?: ('selling' | 'letting' | 'sellingAndLetting')[]
+  marketingMode?: ('buying' | 'renting')[]
   name?: string
   priceFrom?: number
   priceTo?: number
@@ -1049,6 +1049,7 @@ export interface Applicants {
   bedroomsFrom?: number
   bedroomsTo?: number
   active?: boolean
+  fromArchive?: boolean
   createdFrom?: string
   createdTo?: string
   modifiedFrom?: string
@@ -1260,11 +1261,11 @@ export interface AppointmentModel {
    */
   organiserId?: string
   /**
-   * A collection of unique identifiers of negotiators attached to the appointment
+   * A collection of unique identifiers of negotiators attached to the appointment. The first item in the collection is considered the primary negotiator
    */
   negotiatorIds?: string[]
   /**
-   * A collection of unique identifiers of offices attached to the appointment
+   * A collection of unique identifiers of offices attached to the appointment. The first item in the collection is considered the primary office
    */
   officeIds?: string[]
   /**
@@ -1449,11 +1450,11 @@ export interface AppointmentModelPagedResult {
      */
     organiserId?: string
     /**
-     * A collection of unique identifiers of negotiators attached to the appointment
+     * A collection of unique identifiers of negotiators attached to the appointment. The first item in the collection is considered the primary negotiator
      */
     negotiatorIds?: string[]
     /**
-     * A collection of unique identifiers of offices attached to the appointment
+     * A collection of unique identifiers of offices attached to the appointment. The first item in the collection is considered the primary office
      */
     officeIds?: string[]
     /**
@@ -1564,6 +1565,7 @@ export interface Appointments {
   end?: string
   includeCancelled?: boolean
   includeUnconfirmed?: boolean
+  fromArchive?: boolean
   createdFrom?: string
   createdTo?: string
   modifiedFrom?: string
@@ -1619,7 +1621,7 @@ export interface AreaModel {
    */
   departmentIds?: string[]
   /**
-   * A collection of unique identifiers of offices associated to the area
+   * A collection of unique identifiers of offices attached to the area. The first item in the collection is considered the primary office
    */
   officeIds?: string[]
   /**
@@ -1674,7 +1676,7 @@ export interface AreaModelPagedResult {
      */
     departmentIds?: string[]
     /**
-     * A collection of unique identifiers of offices associated to the area
+     * A collection of unique identifiers of offices attached to the area. The first item in the collection is considered the primary office
      */
     officeIds?: string[]
     /**
@@ -1717,6 +1719,7 @@ export interface Companies {
   branch?: string
   name?: string
   typeId?: string
+  fromArchive?: boolean
   createdFrom?: string
   createdTo?: string
   modifiedFrom?: string
@@ -2385,11 +2388,11 @@ export interface ContactModel {
     countryId?: string
   }
   /**
-   * A collection of unique identifiers of offices attached to the contact
+   * A collection of unique identifiers of offices attached to the contact. The first item in the collection is considered the primary office
    */
   officeIds?: string[]
   /**
-   * A collection of unique identifiers of negotiators attached to the contact
+   * A collection of unique identifiers of negotiators attached to the contact. The first item in the collection is considered the primary negotiator
    */
   negotiatorIds?: string[]
   /**
@@ -2638,11 +2641,11 @@ export interface ContactModelPagedResult {
       countryId?: string
     }
     /**
-     * A collection of unique identifiers of offices attached to the contact
+     * A collection of unique identifiers of offices attached to the contact. The first item in the collection is considered the primary office
      */
     officeIds?: string[]
     /**
-     * A collection of unique identifiers of negotiators attached to the contact
+     * A collection of unique identifiers of negotiators attached to the contact. The first item in the collection is considered the primary negotiator
      */
     negotiatorIds?: string[]
     /**
@@ -2916,6 +2919,7 @@ export interface Contacts {
   name?: string
   marketingConsent?: ('grant' | 'deny' | 'notAsked')[]
   active?: boolean
+  fromArchive?: boolean
   createdFrom?: string
   createdTo?: string
   modifiedFrom?: string
@@ -3509,7 +3513,7 @@ export interface CreateApplicantModel {
    */
   nextCall?: string // date
   /**
-   * The unique identifier of the department that the applicant requirements are associated with. The applicant will only match to properties with the same value
+   * The unique identifier of the department the applicant is associated with. The applicant will only match to properties with the same values set. See the [Platform Glossary](https://foundations-documentation.reapit.cloud/platform-glossary#department) for more information about departments
    */
   departmentId: string
   /**
@@ -3517,27 +3521,27 @@ export interface CreateApplicantModel {
    */
   solicitorId?: string
   /**
-   * A list of property type requirements taken from the full listing of the associated department
+   * The applicant's property type requirements (eg house, bungalow, land), as defined by the applicant's [department](https://foundations-documentation.reapit.cloud/platform-glossary#department)
    */
   type?: string[]
   /**
-   * A list of property style requirements taken from the full listing of the associated department
+   * The applicant's property style requirements (eg detached, semiDetached), as defined by the applicant's [department](https://foundations-documentation.reapit.cloud/platform-glossary#department)
    */
   style?: string[]
   /**
-   * A list of property situation requirements taken from the full listing of the associated department
+   * The applicant's requirements for other aspects of prospective properties - such as outside space - as defined by the applicant's [department](https://foundations-documentation.reapit.cloud/platform-glossary#department)
    */
   situation?: string[]
   /**
-   * A list of property parking requirements taken from the full listing of the associated department
+   * The applicant's parking requirements (eg garage), as defined by the applicant's [department](https://foundations-documentation.reapit.cloud/platform-glossary#department)
    */
   parking?: string[]
   /**
-   * A list of property age requirements taken from the full listing of the associated department
+   * The applicant's property age requirements (eg new, period), as defined by the applicant's [department](https://foundations-documentation.reapit.cloud/platform-glossary#department)
    */
   age?: string[]
   /**
-   * A list of property locality requirements taken from the full listing of the associated department
+   * The applicant's general property location requirements (eg rural, townCity), as defined by the applicant's [department](https://foundations-documentation.reapit.cloud/platform-glossary#department)
    */
   locality?: string[]
   /**
@@ -3781,11 +3785,11 @@ export interface CreateAppointmentModel {
    */
   organiserId?: string
   /**
-   * A collection of unique identifiers of negotiators attached to the appointment
+   * A collection of unique identifiers of negotiators attached to the appointment. The first item in the collection is considered the primary negotiator
    */
   negotiatorIds?: string[]
   /**
-   * A collection of unique identifiers of offices attached to the appointment
+   * A collection of unique identifiers of offices attached to the appointment. The first item in the collection is considered the primary office
    */
   officeIds?: string[]
   /**
@@ -3893,7 +3897,7 @@ export interface CreateAreaModel {
    */
   departmentIds?: string[]
   /**
-   * A collection of unique identifiers of offices associated to the area
+   * A collection of unique identifiers of offices attached to the area. The first item in the collection is considered the primary office
    */
   officeIds?: string[]
   /**
@@ -4139,11 +4143,11 @@ export interface CreateContactModel {
    */
   email?: string
   /**
-   * A collection of unique identifiers of offices attached to the contact
+   * A collection of unique identifiers of offices attached to the contact. The first item in the collection is considered the primary office
    */
   officeIds: string[]
   /**
-   * A collection of unique identifiers of negotiators attached to the contact
+   * A collection of unique identifiers of negotiators attached to the contact. The first item in the collection is considered the primary negotiator
    */
   negotiatorIds: string[]
   /**
@@ -5218,7 +5222,7 @@ export interface CreatePropertyModel {
    */
   marketingMode: string
   /**
-   * The unique identifier of the department
+   * The unique identifier of the department the property is associated with. The property will only match to applicants with the same values set. See the [Platform Glossary](https://foundations-documentation.reapit.cloud/platform-glossary#department) for more information about departments
    */
   departmentId: string
   /**
@@ -5335,6 +5339,20 @@ export interface CreatePropertyModel {
    * The long description of the property
    */
   longDescription?: string
+  /**
+   * The status of the advertising board sited outside or near to the property
+   */
+  boardStatus?: string
+  /**
+   * Any notes relevant to the advertising board sited outside or near to the property
+   */
+  boardNotes?: string
+  /**
+   * The date the advertising board was last updated (or should be updated when the date is in the future)
+   * example:
+   * 2019-08-14
+   */
+  boardUpdated?: string // date
   /**
    * Request body used to set the EPC statistic of a new property
    */
@@ -5553,27 +5571,27 @@ export interface CreatePropertyModel {
     }
   }
   /**
-   * The property type attributes
+   * The attributes describing the overall type of the property (eg house, bungalow, land), as defined by the property's [department](https://foundations-documentation.reapit.cloud/platform-glossary#department)
    */
   type?: string[]
   /**
-   * The property style attributes
+   * The attributes describing the style of property (eg detached, semiDetached), defined by the property's [department](https://foundations-documentation.reapit.cloud/platform-glossary#department)
    */
   style?: string[]
   /**
-   * The property situation attributes
+   * The attributes describing other aspects of the property - such as outside space - as defined by the property's [department](https://foundations-documentation.reapit.cloud/platform-glossary#department)
    */
   situation?: string[]
   /**
-   * The property parking attributes
+   * The attributes describing the parking available at the property (eg garage), as defined by the property's [department](https://foundations-documentation.reapit.cloud/platform-glossary#department)
    */
   parking?: string[]
   /**
-   * The property age attributes
+   * The attributes describing the age of the property (eg new, period), as defined by the property's [department](https://foundations-documentation.reapit.cloud/platform-glossary#department)
    */
   age?: string[]
   /**
-   * The property locality attributes
+   * The attributes describing the general location of the property (eg rural, townCity), as defined by the property's [department](https://foundations-documentation.reapit.cloud/platform-glossary#department)
    */
   locality?: string[]
   /**
@@ -5999,6 +6017,8 @@ export interface CreateUpwardLinkModel {
 }
 /**
  * Request body used to create a new webhook subscription
+ * example:
+ * [object Object]
  */
 export interface CreateWebhookModel {
   /**
@@ -8805,6 +8825,7 @@ export interface Properties {
   )[]
   locality?: ('rural' | 'village' | 'townCity')[]
   marketingMode?: ('selling' | 'letting' | 'sellingAndLetting')[]
+  masterId?: string[]
   officeId?: string[]
   parking?: ('residents' | 'offStreet' | 'secure' | 'underground' | 'garage' | 'doubleGarage' | 'tripleGarage')[]
   sellingStatus?: (
@@ -8859,6 +8880,9 @@ export interface Properties {
   rentTo?: number
   rentFrequency?: ('weekly' | 'monthly' | 'annually')[]
   internetAdvertising?: boolean
+  fromArchive?: boolean
+  createdFrom?: string
+  createdTo?: string
   modifiedFrom?: string
   modifiedTo?: string
   metadata?: string[]
@@ -9320,7 +9344,7 @@ export interface PropertyModel {
    */
   summary?: string
   /**
-   * The unique identifier of the department
+   * The unique identifier of the department the property is associated with. The property will only match to applicants with the same values set. See the [Platform Glossary](https://foundations-documentation.reapit.cloud/platform-glossary#department) for more information about departments
    */
   departmentId?: string
   /**
@@ -9371,6 +9395,20 @@ export interface PropertyModel {
    * Any general notes regarding the property. These are not usually exposed to end users and may contain sensitive information about a sale
    */
   notes?: string
+  /**
+   * The status of the advertising board sited outside or near to the property
+   */
+  boardStatus?: string
+  /**
+   * Any notes relevant to the advertising board sited outside or near to the property
+   */
+  boardNotes?: string
+  /**
+   * The date the advertising board was last updated (or should be updated when the date is in the future)
+   * example:
+   * 2019-08-14
+   */
+  boardUpdated?: string // date
   /**
    * The date and time the property was archived
    * example:
@@ -9521,6 +9559,10 @@ export interface PropertyModel {
       amount?: number // double
     }
     /**
+     * The actual fee amount to be collected by the agent - often based on the exchange price of the property
+     */
+    exchangedCompanyFee?: number // double
+    /**
      * The agent's recommended asking price
      */
     recommendedPrice?: number // int32
@@ -9619,27 +9661,27 @@ export interface PropertyModel {
     }
   }
   /**
-   * The property type attributes
+   * The attributes describing the overall type of the property (eg house, bungalow, land), as defined by the property's [department](https://foundations-documentation.reapit.cloud/platform-glossary#department)
    */
   type?: string[]
   /**
-   * The property style attributes
+   * The attributes describing the style of property (eg detached, semiDetached), defined by the property's [department](https://foundations-documentation.reapit.cloud/platform-glossary#department)
    */
   style?: string[]
   /**
-   * The property situation attributes
+   * The attributes describing other aspects of the property - such as outside space - as defined by the property's [department](https://foundations-documentation.reapit.cloud/platform-glossary#department)
    */
   situation?: string[]
   /**
-   * The property parking attributes
+   * The attributes describing the parking available at the property (eg garage), as defined by the property's [department](https://foundations-documentation.reapit.cloud/platform-glossary#department)
    */
   parking?: string[]
   /**
-   * The property age attributes
+   * The attributes describing the age of the property (eg new, period), as defined by the property's [department](https://foundations-documentation.reapit.cloud/platform-glossary#department)
    */
   age?: string[]
   /**
-   * The property locality attributes
+   * The attributes describing the general location of the property (eg rural, townCity), as defined by the property's [department](https://foundations-documentation.reapit.cloud/platform-glossary#department)
    */
   locality?: string[]
   /**
@@ -9689,6 +9731,14 @@ export interface PropertyModel {
    * The ETag for the current version of the property. Used for managing update concurrency
    */
   readonly _eTag?: string
+  /**
+   * Hidden identifier for the properties master plot
+   */
+  masterId?: string
+  /**
+   * Hidden flag to display if a property is a master plot
+   */
+  isMaster?: boolean
 }
 export interface PropertyModelPagedResult {
   _embedded?: {
@@ -9799,7 +9849,7 @@ export interface PropertyModelPagedResult {
      */
     summary?: string
     /**
-     * The unique identifier of the department
+     * The unique identifier of the department the property is associated with. The property will only match to applicants with the same values set. See the [Platform Glossary](https://foundations-documentation.reapit.cloud/platform-glossary#department) for more information about departments
      */
     departmentId?: string
     /**
@@ -9850,6 +9900,20 @@ export interface PropertyModelPagedResult {
      * Any general notes regarding the property. These are not usually exposed to end users and may contain sensitive information about a sale
      */
     notes?: string
+    /**
+     * The status of the advertising board sited outside or near to the property
+     */
+    boardStatus?: string
+    /**
+     * Any notes relevant to the advertising board sited outside or near to the property
+     */
+    boardNotes?: string
+    /**
+     * The date the advertising board was last updated (or should be updated when the date is in the future)
+     * example:
+     * 2019-08-14
+     */
+    boardUpdated?: string // date
     /**
      * The date and time the property was archived
      * example:
@@ -10000,6 +10064,10 @@ export interface PropertyModelPagedResult {
         amount?: number // double
       }
       /**
+       * The actual fee amount to be collected by the agent - often based on the exchange price of the property
+       */
+      exchangedCompanyFee?: number // double
+      /**
        * The agent's recommended asking price
        */
       recommendedPrice?: number // int32
@@ -10098,27 +10166,27 @@ export interface PropertyModelPagedResult {
       }
     }
     /**
-     * The property type attributes
+     * The attributes describing the overall type of the property (eg house, bungalow, land), as defined by the property's [department](https://foundations-documentation.reapit.cloud/platform-glossary#department)
      */
     type?: string[]
     /**
-     * The property style attributes
+     * The attributes describing the style of property (eg detached, semiDetached), defined by the property's [department](https://foundations-documentation.reapit.cloud/platform-glossary#department)
      */
     style?: string[]
     /**
-     * The property situation attributes
+     * The attributes describing other aspects of the property - such as outside space - as defined by the property's [department](https://foundations-documentation.reapit.cloud/platform-glossary#department)
      */
     situation?: string[]
     /**
-     * The property parking attributes
+     * The attributes describing the parking available at the property (eg garage), as defined by the property's [department](https://foundations-documentation.reapit.cloud/platform-glossary#department)
      */
     parking?: string[]
     /**
-     * The property age attributes
+     * The attributes describing the age of the property (eg new, period), as defined by the property's [department](https://foundations-documentation.reapit.cloud/platform-glossary#department)
      */
     age?: string[]
     /**
-     * The property locality attributes
+     * The attributes describing the general location of the property (eg rural, townCity), as defined by the property's [department](https://foundations-documentation.reapit.cloud/platform-glossary#department)
      */
     locality?: string[]
     /**
@@ -10168,6 +10236,14 @@ export interface PropertyModelPagedResult {
      * The ETag for the current version of the property. Used for managing update concurrency
      */
     readonly _eTag?: string
+    /**
+     * Hidden identifier for the properties master plot
+     */
+    masterId?: string
+    /**
+     * Hidden flag to display if a property is a master plot
+     */
+    isMaster?: boolean
   }[]
   pageNumber?: number // int32
   pageSize?: number // int32
@@ -10277,6 +10353,10 @@ export interface PropertySellingModel {
      */
     amount?: number // double
   }
+  /**
+   * The actual fee amount to be collected by the agent - often based on the exchange price of the property
+   */
+  exchangedCompanyFee?: number // double
   /**
    * The agent's recommended asking price
    */
@@ -10720,6 +10800,7 @@ export interface Tenancies {
   pageSize?: number
   pageNumber?: number
   sortBy?: string
+  fromArchive?: boolean
   embed?: ('appointments' | 'applicant' | 'documents' | 'negotiator' | 'property' | 'source' | 'tasks' | 'type')[]
   id?: string[]
   negotiatorId?: string[]
@@ -11916,27 +11997,27 @@ export interface UpdateApplicantModel {
    */
   solicitorId?: string
   /**
-   * A list of property type requirements taken from the full listing of the associated department
+   * The applicant's property type requirements (eg house, bungalow, land), as defined by the applicant's [department](https://foundations-documentation.reapit.cloud/platform-glossary#department)
    */
   type?: string[]
   /**
-   * A list of property style requirements taken from the full listing of the associated department
+   * The applicant's property style requirements (eg detached, semiDetached), as defined by the applicant's [department](https://foundations-documentation.reapit.cloud/platform-glossary#department)
    */
   style?: string[]
   /**
-   * A list of property situation requirements taken from the full listing of the associated department
+   * The applicant's requirements for other aspects of prospective properties - such as outside space - as defined by the applicant's [department](https://foundations-documentation.reapit.cloud/platform-glossary#department)
    */
   situation?: string[]
   /**
-   * A list of property parking requirements taken from the full listing of the associated department
+   * The applicant's parking requirements (eg garage), as defined by the applicant's [department](https://foundations-documentation.reapit.cloud/platform-glossary#department)
    */
   parking?: string[]
   /**
-   * A list of property age requirements taken from the full listing of the associated department
+   * The applicant's property age requirements (eg new, period), as defined by the applicant's [department](https://foundations-documentation.reapit.cloud/platform-glossary#department)
    */
   age?: string[]
   /**
-   * A list of property locality requirements taken from the full listing of the associated department
+   * The applicant's general property location requirements (eg rural, townCity), as defined by the applicant's [department](https://foundations-documentation.reapit.cloud/platform-glossary#department)
    */
   locality?: string[]
   /**
@@ -12192,11 +12273,11 @@ export interface UpdateAppointmentModel {
    */
   cancelled?: boolean
   /**
-   * A collection of unique identifiers of negotiators attached to the appointment
+   * A collection of unique identifiers of negotiators attached to the appointment. The first item in the collection is considered the primary negotiator
    */
   negotiatorIds?: string[]
   /**
-   * A collection of unique identifiers of offices attached to the appointment
+   * A collection of unique identifiers of offices attached to the appointment. The first item in the collection is considered the primary office
    */
   officeIds?: string[]
   /**
@@ -12313,7 +12394,7 @@ export interface UpdateAreaModel {
    */
   departmentIds?: string[]
   /**
-   * A collection of unique identifiers of offices associated to the area
+   * A collection of unique identifiers of offices attached to the area. The first item in the collection is considered the primary office
    */
   officeIds?: string[]
 }
@@ -12555,11 +12636,11 @@ export interface UpdateContactModel {
    */
   email?: string
   /**
-   * A collection of unique identifiers of offices attached to the contact
+   * A collection of unique identifiers of offices attached to the contact. The first item in the collection is considered the primary office
    */
   officeIds?: string[]
   /**
-   * A collection of unique identifiers of negotiators attached to the contact
+   * A collection of unique identifiers of negotiators attached to the contact. The first item in the collection is considered the primary negotiator
    */
   negotiatorIds?: string[]
   /**
@@ -12723,6 +12804,8 @@ export interface UpdateContactSourceModel {
 }
 /**
  * Request body used to update an existing contact subscription
+ * example:
+ * [object Object]
  */
 export interface UpdateContactSubscriptionModel {
   /**
@@ -13642,6 +13725,20 @@ export interface UpdatePropertyModel {
    */
   longDescription?: string
   /**
+   * The status of the advertising board sited outside or near to the property
+   */
+  boardStatus?: string
+  /**
+   * Any notes relevant to the advertising board sited outside or near to the property
+   */
+  boardNotes?: string
+  /**
+   * The date the advertising board was last updated (or should be updated when the date is in the future)
+   * example:
+   * 2019-08-14
+   */
+  boardUpdated?: string // date
+  /**
    * Request body used to update the EPC statistics of an existing property
    */
   epc?: {
@@ -13867,27 +13964,27 @@ export interface UpdatePropertyModel {
     }
   }
   /**
-   * The property type attributes
+   * The attributes describing the overall type of the property (eg house, bungalow, land), as defined by the property's [department](https://foundations-documentation.reapit.cloud/platform-glossary#department)
    */
   type?: string[]
   /**
-   * The property style attributes
+   * The attributes describing the style of property (eg detached, semiDetached), defined by the property's [department](https://foundations-documentation.reapit.cloud/platform-glossary#department)
    */
   style?: string[]
   /**
-   * The property situation attributes
+   * The attributes describing other aspects of the property - such as outside space - as defined by the property's [department](https://foundations-documentation.reapit.cloud/platform-glossary#department)
    */
   situation?: string[]
   /**
-   * The property parking attributes
+   * The attributes describing the parking available at the property (eg garage), as defined by the property's [department](https://foundations-documentation.reapit.cloud/platform-glossary#department)
    */
   parking?: string[]
   /**
-   * The property age attributes
+   * The attributes describing the age of the property (eg new, period), as defined by the property's [department](https://foundations-documentation.reapit.cloud/platform-glossary#department)
    */
   age?: string[]
   /**
-   * The property locality attributes
+   * The attributes describing the general location of the property (eg rural, townCity), as defined by the property's [department](https://foundations-documentation.reapit.cloud/platform-glossary#department)
    */
   locality?: string[]
   /**
@@ -14298,6 +14395,8 @@ export interface UpdateVendorModel {
 }
 /**
  * Request body used to update a webhook subscription
+ * example:
+ * [object Object]
  */
 export interface UpdateWebhookModel {
   /**
@@ -15067,6 +15166,7 @@ export interface Vendors {
   id?: string[]
   negotiatorId?: string[]
   officeId?: string[]
+  fromArchive?: boolean
   address?: string
   name?: string
   createdFrom?: string
