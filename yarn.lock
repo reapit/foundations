@@ -14880,6 +14880,16 @@ __metadata:
   languageName: node
   linkType: hard
 
+"create-react-class@npm:^15.5.1":
+  version: 15.7.0
+  resolution: "create-react-class@npm:15.7.0"
+  dependencies:
+    loose-envify: ^1.3.1
+    object-assign: ^4.1.1
+  checksum: b961a66896ff89ad5451e6cf6a686c03716ecb50f7c61b24864cda5aa18d52ce817b94bbeace3e126b19a1cc926c75f34c0777a6f4004fc947221836b13d4479
+  languageName: node
+  linkType: hard
+
 "create-react-context@npm:0.3.0, create-react-context@npm:^0.3.0":
   version: 0.3.0
   resolution: "create-react-context@npm:0.3.0"
@@ -16235,7 +16245,7 @@ __metadata:
     serverless-s3-remover: ^0.6.0
     serverless-single-page-app-plugin: ^1.0.2
     snyk: ^1.662.0
-    swagger-ui-react: ^4.0.0-beta.0
+    swagger-ui-react: ^3.51.2
     typescript: ^4.3.5
     webpack: ^5.45.1
     webpack-dev-server: ^3.11.2
@@ -18786,6 +18796,16 @@ __metadata:
   languageName: node
   linkType: hard
 
+"fetch-blob@npm:2.1.2":
+  version: 2.1.2
+  resolution: "fetch-blob@npm:2.1.2"
+  peerDependenciesMeta:
+    domexception:
+      optional: true
+  checksum: c11ab96a1961c61b4f200fa1bf8da2feb48e999ed661bf792469a0dc1e4cc4ee4fa5da1e0091687ca34cabb91b4f4f3fcc5177019709b0ea7fbc28cc07f55b9f
+  languageName: node
+  linkType: hard
+
 "figgy-pudding@npm:^3.5.1":
   version: 3.5.2
   resolution: "figgy-pudding@npm:3.5.2"
@@ -19324,7 +19344,23 @@ __metadata:
   languageName: node
   linkType: hard
 
-"form-data@npm:^2.3.1, form-data@npm:^2.3.2, form-data@npm:^2.5.0":
+"form-data-encoder@npm:1.0.1":
+  version: 1.0.1
+  resolution: "form-data-encoder@npm:1.0.1"
+  dependencies:
+    nanoid: 3.1.23
+  checksum: 298bbf826b0fad1294de9b52979f0e7aad2dd22ddfae491413ababd28b0afe2217cddc5ba3fd8bf426553db4297f854f6e3f109cb9c1a0321d75d84ab57d8c62
+  languageName: node
+  linkType: hard
+
+"form-data-encoder@npm:^1.0.1":
+  version: 1.3.0
+  resolution: "form-data-encoder@npm:1.3.0"
+  checksum: da90867b1eaeade2beb61e52105f969a17d53d20e973c612f28fe6f6e76a4c48cf95bef452854c230ba24259c7cc7b9f86ff8eb59e04131d72b4990795832f7f
+  languageName: node
+  linkType: hard
+
+"form-data@npm:^2.3.1, form-data@npm:^2.5.0":
   version: 2.5.1
   resolution: "form-data@npm:2.5.1"
   dependencies:
@@ -19361,6 +19397,17 @@ __metadata:
   version: 0.2.2
   resolution: "format@npm:0.2.2"
   checksum: 0740f5212144e63dad4b3b2156d84a875c0649f4976ecfa91f21b086ad007e9af575e88cf782b202c5f5783fb6d4ee3cebcd357b79aa82d556f8401dc1762f55
+  languageName: node
+  linkType: hard
+
+"formdata-node@npm:^3.6.2":
+  version: 3.6.2
+  resolution: "formdata-node@npm:3.6.2"
+  dependencies:
+    fetch-blob: 2.1.2
+    form-data-encoder: 1.0.1
+    node-domexception: 1.0.0
+  checksum: d1508f13a93d5ce38642a6699073013733ff92e12236abbc064d19463e1bcbeebb53181e060c73689be9603686ac2e242fa90346ec1d9749b0f54fcb541c83fc
   languageName: node
   linkType: hard
 
@@ -21583,7 +21630,7 @@ fsevents@^1.2.7:
   languageName: node
   linkType: hard
 
-"immutable@npm:^3.x.x":
+"immutable@npm:^3.8.1, immutable@npm:^3.x.x":
   version: 3.8.2
   resolution: "immutable@npm:3.8.2"
   checksum: 08e65dd0579e7d274e0959872aa3cda7b0da30ed2efebbd23fc2cff26ff7a5416f47e21dbf9b56d337c94b98399a15511df1b7a5db2fadae3e77cd60483c4205
@@ -21946,7 +21993,7 @@ fsevents@^1.2.7:
   languageName: node
   linkType: hard
 
-"invariant@npm:^2.2.2, invariant@npm:^2.2.3, invariant@npm:^2.2.4":
+"invariant@npm:^2.0.0, invariant@npm:^2.2.2, invariant@npm:^2.2.3, invariant@npm:^2.2.4":
   version: 2.2.4
   resolution: "invariant@npm:2.2.4"
   dependencies:
@@ -22236,7 +22283,7 @@ fsevents@^1.2.7:
   languageName: node
   linkType: hard
 
-"is-dom@npm:^1.0.0":
+"is-dom@npm:^1.0.0, is-dom@npm:^1.0.9":
   version: 1.1.0
   resolution: "is-dom@npm:1.1.0"
   dependencies:
@@ -22884,15 +22931,6 @@ fsevents@^1.2.7:
     node-fetch: ^2.6.1
     whatwg-fetch: ^3.4.1
   checksum: 999c2845d440a6d53755d7954af40e55b38a25140a81f782aced55d56698f05aae8a0528ba6fd5630cc1040ecbf330c9858340a63b25645c0f81fa2f057fd0bb
-  languageName: node
-  linkType: hard
-
-"isomorphic-form-data@npm:~2.0.0":
-  version: 2.0.0
-  resolution: "isomorphic-form-data@npm:2.0.0"
-  dependencies:
-    form-data: ^2.3.2
-  checksum: 80879065faf31574f096d422c527352773dbf3d0f60844224419a4c76e0bd9c465d1801fe621d3d7d746ad1629b79109ac36de5a2515f6b1a83bfc3b5f4dffb6
   languageName: node
   linkType: hard
 
@@ -25211,6 +25249,13 @@ fsevents@^1.2.7:
   languageName: node
   linkType: hard
 
+"lodash-es@npm:^4.2.1":
+  version: 4.17.21
+  resolution: "lodash-es@npm:4.17.21"
+  checksum: ff0e7bb9595594d8b9c32fbe15912eaeefd83266f6e6872fbc498533cf8c2f039d12d37034b33965f1c04ef66ec1d6da83377c77e84e14c51a137901bb50865e
+  languageName: node
+  linkType: hard
+
 "lodash.assign@npm:^4.2.0":
   version: 4.2.0
   resolution: "lodash.assign@npm:4.2.0"
@@ -25624,7 +25669,7 @@ fsevents@^1.2.7:
   languageName: node
   linkType: hard
 
-"lodash@npm:4.17.x, lodash@npm:4.x, lodash@npm:^4.0.0, lodash@npm:^4.15.0, lodash@npm:^4.17.0, lodash@npm:^4.17.10, lodash@npm:^4.17.11, lodash@npm:^4.17.12, lodash@npm:^4.17.13, lodash@npm:^4.17.14, lodash@npm:^4.17.15, lodash@npm:^4.17.19, lodash@npm:^4.17.20, lodash@npm:^4.17.21, lodash@npm:^4.17.4, lodash@npm:^4.3.0, lodash@npm:^4.7.0, lodash@npm:~4.17.10":
+"lodash@npm:4.17.x, lodash@npm:4.x, lodash@npm:^4.0.0, lodash@npm:^4.15.0, lodash@npm:^4.17.0, lodash@npm:^4.17.10, lodash@npm:^4.17.11, lodash@npm:^4.17.12, lodash@npm:^4.17.13, lodash@npm:^4.17.14, lodash@npm:^4.17.15, lodash@npm:^4.17.19, lodash@npm:^4.17.20, lodash@npm:^4.17.21, lodash@npm:^4.17.4, lodash@npm:^4.2.1, lodash@npm:^4.3.0, lodash@npm:^4.7.0, lodash@npm:~4.17.10":
   version: 4.17.21
   resolution: "lodash@npm:4.17.21"
   checksum: 4983720b9abca930a4a46f18db163d7dad8dd00dbed6db0cc7b499b33b717cce69f80928b27bbb1ff2cbd3b19d251ee90669a8b5ea466072ca81c2ebe91e7468
@@ -27214,19 +27259,19 @@ fsevents@^1.2.7:
   languageName: node
   linkType: hard
 
-"nanoid@npm:^2.1.0":
-  version: 2.1.11
-  resolution: "nanoid@npm:2.1.11"
-  checksum: 41453e344e3abb189cd3baa3ab52685601d7220f86ce73f6a1d9594ebae286c2acf47a20b5aa9cf11933b587b69c6007e88f190ca266450c2fbe20be6db43a29
-  languageName: node
-  linkType: hard
-
-"nanoid@npm:^3.1.23":
+"nanoid@npm:3.1.23, nanoid@npm:^3.1.23":
   version: 3.1.23
   resolution: "nanoid@npm:3.1.23"
   bin:
     nanoid: bin/nanoid.cjs
   checksum: e6dea1da5a593ffdc8cf2676d1d02f0626f07a54a5947a7a1f5ff1fd07901b2f53044c285e98b87eb367f016fde285fd8785d54a2dceeab9c3721f4e618f8326
+  languageName: node
+  linkType: hard
+
+"nanoid@npm:^2.1.0":
+  version: 2.1.11
+  resolution: "nanoid@npm:2.1.11"
+  checksum: 41453e344e3abb189cd3baa3ab52685601d7220f86ce73f6a1d9594ebae286c2acf47a20b5aa9cf11933b587b69c6007e88f190ca266450c2fbe20be6db43a29
   languageName: node
   linkType: hard
 
@@ -27429,6 +27474,13 @@ fsevents@^1.2.7:
   dependencies:
     minimatch: ^3.0.2
   checksum: 80c61dbf8da20a8820fd9ab1e4d78d3973a247389f4667147a18ffce77adbc71b42520914064cc23b6a1c9a0b8efcf8c6a360b109e327ed93a3f52d944c1b314
+  languageName: node
+  linkType: hard
+
+"node-domexception@npm:1.0.0":
+  version: 1.0.0
+  resolution: "node-domexception@npm:1.0.0"
+  checksum: b014e8200542bfa2a811d6bea6f7766b9c64884e8f219369986af1a5726abfc76186e72e612cd606df4040b298781a454fea1c7152d2c7515c37f388c8a5d67e
   languageName: node
   linkType: hard
 
@@ -30978,14 +31030,14 @@ fsevents@^1.2.7:
   linkType: hard
 
 "react-debounce-input@npm:^3.2.3":
-  version: 3.2.3
-  resolution: "react-debounce-input@npm:3.2.3"
+  version: 3.2.4
+  resolution: "react-debounce-input@npm:3.2.4"
   dependencies:
     lodash.debounce: ^4
     prop-types: ^15.7.2
   peerDependencies:
-    react: ^15.3.0 || ^16.0.0
-  checksum: 4816c963fb4d81d59ee84aee96011ba6a4e68cbe1906866454477e939fbf63aa3f5e4519544ba3ddc1e61f7154f218a0bd7ca8415ca0bfc5da0625c5626dbd8e
+    react: ^15.3.0 || ^16.0.0 || ^17.0.0
+  checksum: e2851cf6c4a3526c441f787a8c874e3f65e140facc3a1b2753c2f03fc2e8bf2803e4ef51d75989275e937c6bd2953bc1a944eacd9da3943deff6a07c0c70caf7
   languageName: node
   linkType: hard
 
@@ -31234,14 +31286,14 @@ fsevents@^1.2.7:
   languageName: node
   linkType: hard
 
-"react-immutable-pure-component@npm:^2.2.0":
-  version: 2.2.2
-  resolution: "react-immutable-pure-component@npm:2.2.2"
+"react-immutable-pure-component@npm:^1.1.1":
+  version: 1.2.4
+  resolution: "react-immutable-pure-component@npm:1.2.4"
   peerDependencies:
-    immutable: ">= 2 || >= 4.0.0-rc"
-    react: ">= 16.6"
-    react-dom: ">= 16.6"
-  checksum: aff94194d3e04e0f2740e9f97bdc65ec7c521a23886497d81d7177172dde2f1d0a1a9f6b22c47d9c4817a246130d0ef02cd467a54b6c5a15f3dcd2625ab26f55
+    immutable: ">= 3"
+    react: ">= 15"
+    react-dom: ">= 15"
+  checksum: bd8e6f75dd34e57b96c3208e4e58187d6a6b7457c8cb154b84277d8c3eff8995630914c49dde044763817f654d272990a33a769a9f093784a46c3bbb76baa85d
   languageName: node
   linkType: hard
 
@@ -31256,7 +31308,20 @@ fsevents@^1.2.7:
   languageName: node
   linkType: hard
 
-"react-inspector@npm:^5.1.0, react-inspector@npm:^5.1.1":
+"react-inspector@npm:^2.3.0":
+  version: 2.3.1
+  resolution: "react-inspector@npm:2.3.1"
+  dependencies:
+    babel-runtime: ^6.26.0
+    is-dom: ^1.0.9
+    prop-types: ^15.6.1
+  peerDependencies:
+    react: ^0.14.0 || ^15.0.0 || ^16.0.0
+  checksum: e75d933a80a0d6c698569525d1c689c74756bda5fefe76f285b429852ee3e91107a189b4e450c10e0ab777a3974ac2afffef42ff4e965128f5a321a6a9b976bf
+  languageName: node
+  linkType: hard
+
+"react-inspector@npm:^5.1.0":
   version: 5.1.1
   resolution: "react-inspector@npm:5.1.1"
   dependencies:
@@ -31373,6 +31438,23 @@ fsevents@^1.2.7:
     "@popperjs/core": ^2.0.0
     react: ^16.8.0 || ^17
   checksum: 0b1303d3285e93245fb7e0460996c4dfd53b66152d09e41b1dcb6c9f99932513bf891b4359511aeb3b17eaa2ae8555129631ca2f61337d461e691104cc454898
+  languageName: node
+  linkType: hard
+
+"react-redux@npm:=4.4.10":
+  version: 4.4.10
+  resolution: "react-redux@npm:4.4.10"
+  dependencies:
+    create-react-class: ^15.5.1
+    hoist-non-react-statics: ^3.3.0
+    invariant: ^2.0.0
+    lodash: ^4.17.11
+    loose-envify: ^1.4.0
+    prop-types: ^15.7.2
+  peerDependencies:
+    react: ^0.14.0 || ^15.0.0-0 || ^15.4.0-0 || ^16.0.0-0
+    redux: ^2.0.0 || ^3.0.0
+  checksum: 506cc35773213cfa96c55fa8bf1339e33551c70a489b663d31d49ae973512d887c15bd72ef8c5734a8ea28ed6c7e8e3d8a3ffc83c45d4e2de1356f4d75e22f5c
   languageName: node
   linkType: hard
 
@@ -31978,12 +32060,12 @@ fsevents@^1.2.7:
   languageName: node
   linkType: hard
 
-"redux-immutable@npm:^4.0.0":
-  version: 4.0.0
-  resolution: "redux-immutable@npm:4.0.0"
-  peerDependencies:
-    immutable: ^3.8.1 || ^4.0.0-rc.1
-  checksum: 8cf7c303cd9c221a0b3cb138cbe770dd108b7dae10072af2e2268a011d1a38734af5190784990d3aa1c592eb1e889fabe843d6d625cb1dba1632cf5e72c8b664
+"redux-immutable@npm:3.1.0":
+  version: 3.1.0
+  resolution: "redux-immutable@npm:3.1.0"
+  dependencies:
+    immutable: ^3.8.1
+  checksum: 4a7a86f62743a9e44fcdc1b8400af3a5d4fd3280db8e2ca6592992a73201c277319b4360097201254c7286af20b256742f5b428caac1f5846b8f8f09ebcf5c28
   languageName: node
   linkType: hard
 
@@ -32002,6 +32084,18 @@ fsevents@^1.2.7:
   dependencies:
     "@redux-saga/core": ^1.1.3
   checksum: eef6cb6661b1a333c40fb24910029846e650621a77106281996b71c3eb283b2ba0d7f53c3e6d0e8e2711226d1a9840c3efb43d6319978524dc4fd7072dfa26c8
+  languageName: node
+  linkType: hard
+
+"redux@npm:=3.7.2":
+  version: 3.7.2
+  resolution: "redux@npm:3.7.2"
+  dependencies:
+    lodash: ^4.2.1
+    lodash-es: ^4.2.1
+    loose-envify: ^1.1.0
+    symbol-observable: ^1.0.3
+  checksum: 3adb0672320b41c001cd39a7a95627b9d60323f59d01bafa5581db14346fee173a64a4ec5f9e03a8933d780867ec3605cc9fa43752a735fff054a68b595379b3
   languageName: node
   linkType: hard
 
@@ -35860,9 +35954,9 @@ resolve@^2.0.0-next.3:
   languageName: node
   linkType: hard
 
-"swagger-client@npm:^3.13.6":
-  version: 3.13.7
-  resolution: "swagger-client@npm:3.13.7"
+"swagger-client@npm:=3.14.1":
+  version: 3.14.1
+  resolution: "swagger-client@npm:3.14.1"
   dependencies:
     "@babel/runtime-corejs3": ^7.11.2
     btoa: ^1.2.1
@@ -35871,20 +35965,21 @@ resolve@^2.0.0-next.3:
     cross-fetch: ^3.1.4
     deep-extend: ~0.6.0
     fast-json-patch: ^3.0.0-1
-    isomorphic-form-data: ~2.0.0
+    form-data-encoder: ^1.0.1
+    formdata-node: ^3.6.2
     js-yaml: ^3.14.0
     lodash: ^4.17.19
     qs: ^6.9.4
     querystring-browser: ^1.0.4
     traverse: ~0.6.6
     url: ~0.11.0
-  checksum: 4e00989d5cb4ef9a71020d99115fcbe804d50e855f180632be69ffb837e6b9643e5c2695b7c29309888dc24a470053c854d465bd9f5654093f5b897334d4c06f
+  checksum: c42dd2947a886a6905b4cf86ba83383e26371ff834b984136c597d170c5270ff80cf9105458c9f1698d7588bffe191f65efe40d1278f098ff9fab55e16c94817
   languageName: node
   linkType: hard
 
-"swagger-ui-react@npm:^4.0.0-beta.0":
-  version: 4.0.0-beta.0
-  resolution: "swagger-ui-react@npm:4.0.0-beta.0"
+"swagger-ui-react@npm:^3.51.2":
+  version: 3.51.2
+  resolution: "swagger-ui-react@npm:3.51.2"
   dependencies:
     "@babel/runtime-corejs3": ^7.14.7
     "@braintree/sanitize-url": ^5.0.2
@@ -35906,25 +36001,25 @@ resolve@^2.0.0-next.3:
     react-copy-to-clipboard: 5.0.3
     react-debounce-input: ^3.2.3
     react-immutable-proptypes: 2.2.0
-    react-immutable-pure-component: ^2.2.0
-    react-inspector: ^5.1.1
+    react-immutable-pure-component: ^1.1.1
+    react-inspector: ^2.3.0
     react-motion: ^0.5.2
-    react-redux: ^7.2.4
+    react-redux: =4.4.10
     react-syntax-highlighter: ^15.4.3
-    redux: ^4.1.0
-    redux-immutable: ^4.0.0
+    redux: =3.7.2
+    redux-immutable: 3.1.0
     remarkable: ^2.0.1
     reselect: ^4.0.0
     serialize-error: ^8.1.0
     sha.js: ^2.4.11
-    swagger-client: ^3.13.6
+    swagger-client: =3.14.1
     url-parse: ^1.5.1
     xml-but-prettier: ^1.0.1
     zenscroll: ^4.0.2
   peerDependencies:
-    react: ">=17.0.0"
-    react-dom: ">=17.0.0"
-  checksum: 79d5a45acaa6c56afd612d6ebd41cae4c75e229805efd8d221f41e8d58e0320dc5f4d50739e0c94cc1098f0a1f75840e31f1a14f24e3cae4352aa7d8c8425f49
+    react: ">=15.6.2"
+    react-dom: ">=15.6.2"
+  checksum: e2c399c7083e78bbc4fa78aef99baa44ef17869611a6c758d0c176d4bad3d34596651cd6c76cdad8cdd7ab145ff881d321070e59aced5f4dd0e364afc6ee9397
   languageName: node
   linkType: hard
 
@@ -35936,6 +36031,13 @@ resolve@^2.0.0-next.3:
   peerDependencies:
     react: ^16.11.0 || ^17.0.0
   checksum: 3522cc3de9200d4209b97ac333181d7b3c040fba770b03ff41b226a2839551141c7e71080aa700b442ff8a6537d11abdf4182a4272b8e5fe57df6a1e9c2fb7fa
+  languageName: node
+  linkType: hard
+
+"symbol-observable@npm:^1.0.3":
+  version: 1.2.0
+  resolution: "symbol-observable@npm:1.2.0"
+  checksum: 268834a1d4cba19d40f367e5c2755f612969c8418e43a3be17408e392802a667f8bb542893440d58a080a8ea8da05ea98e27e472b9f4ff6fbda78a21a1a41c53
   languageName: node
   linkType: hard
 
