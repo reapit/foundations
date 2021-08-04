@@ -526,7 +526,7 @@ functions:
               - Arn
   taskRunner:
     layers:
-      - arn:aws:lambda:${self:provider.region}:553035198032:layer:git:14
+      - arn:aws:lambda:${self:provider.region}:553035198032:layer:git-lambda2:8
     handler: src/index.taskRunner
     events:
       - sqs:
