@@ -1,13 +1,7 @@
 import React, { MutableRefObject } from 'react'
 import { shallow } from 'enzyme'
 import { appointment } from '@/graphql/__mocks__/appointment'
-import {
-  AppointmentTile,
-  handleHideModal,
-  handleShowModal,
-  handleSetAppointmentId,
-  handleScrollIntoView,
-} from '../appointment-tile'
+import { AppointmentTile, handleSetAppointmentId, handleScrollIntoView } from '../appointment-tile'
 
 jest.mock('../../../../core/app-state')
 
@@ -19,22 +13,6 @@ describe('AppointmentTile', () => {
     const wrapper = shallow(<AppointmentTile {...mockProps} />)
     expect(wrapper).toMatchSnapshot()
   })
-})
-
-describe('handleHideModal', () => {
-  const mockSetShowModal = jest.fn()
-  const curried = handleHideModal(mockSetShowModal)
-  curried()
-
-  expect(mockSetShowModal).toHaveBeenCalledWith(false)
-})
-
-describe('handleShowModal', () => {
-  const mockSetShowModal = jest.fn()
-  const curried = handleShowModal(mockSetShowModal)
-  curried()
-
-  expect(mockSetShowModal).toHaveBeenCalledWith(true)
 })
 
 describe('handleSetAppointmentId', () => {

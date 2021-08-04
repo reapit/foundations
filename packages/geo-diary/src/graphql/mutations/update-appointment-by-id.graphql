@@ -7,8 +7,8 @@
 #import "../fragments/office-model.graphql"
 #import "../fragments/property-model.graphql"
 
-mutation UPDATE_APPOINTMENT_BY_ID($id: String!, $cancelled: Boolean $_eTag: String!) {
-  UpdateAppointment(id: $id, cancelled: $cancelled, _eTag: $_eTag) {
+mutation UPDATE_APPOINTMENT_BY_ID($id: String!, $cancelled: Boolean, $_eTag: String!, $followUp: UpdateAppointmentModelFollowUpInput, $followUpOn: String) {
+  UpdateAppointment(id: $id, cancelled: $cancelled, _eTag: $_eTag, followUp: $followUp, followUpOn: $followUpOn) {
     ...AppointmentModel
     property{
       ...PropertyModel

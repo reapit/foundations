@@ -1,6 +1,6 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`CancelConfirmModal should match snapshot 1`] = `
+exports[`FollowUpNotesModal should match snapshot 1`] = `
 <ApolloProvider
   client={
     ApolloClient {
@@ -711,7 +711,7 @@ exports[`CancelConfirmModal should match snapshot 1`] = `
     }
   }
 >
-  <CancelConfirmModal
+  <FollowUpNotesModal
     appointment={
       Object {
         "__typename": "AppointmentModel",

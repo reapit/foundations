@@ -34,7 +34,8 @@ export const SnackProvider: React.FC = ({ children }) => {
     </SnackContext.Provider>
   )
 }
-interface IUseSnack {
+
+export interface UseSnack {
   custom: (snack: SnackProps, timeout?: number) => void
   success: (text: string, timeout?: number) => void
   info: (text: string, timeout?: number) => void
@@ -42,7 +43,7 @@ interface IUseSnack {
   warning: (text: string, timeout?: number) => void
 }
 
-export default (): IUseSnack => {
+export const useSnack = (): UseSnack => {
   const { addSnackWithTimeout } = useContext(SnackContext)
   const DEFAULT_TIMEOUT = 3000
 
