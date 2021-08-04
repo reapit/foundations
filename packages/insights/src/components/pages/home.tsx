@@ -1,5 +1,5 @@
 import React, { FC, MutableRefObject, useEffect, useRef, useState } from 'react'
-import { H3, Section, Helper, Loader } from '@reapit/elements-legacy'
+import { Title, Loader, FlexContainer, PersistantNotification, PageContainer, elHFull } from '@reapit/elements'
 import { useReapitConnect, ReapitConnectSession } from '@reapit/connect-session'
 import { reapitConnectBrowserSession } from '@/core/connect-session'
 import { CredentialsModel, powerBiApiService } from '@/platform-api/power-bi-api'
@@ -49,25 +49,39 @@ export const embedPowerBi = (
   })
 }
 
+enum LoadingStatus {
+  Incomplete = 'incomplete',
+  Complete = 'complete',
+  Failed = 'failed',
+}
+
 export const Home: FC<HomeProps> = () => {
   const { connectSession } = useReapitConnect(reapitConnectBrowserSession)
   const [powerBiReport, setPowerBiReport] = useState<CredentialsModel | undefined>()
-  const [loading, setLoading] = useState<boolean>(false)
+  const [loadingStatus, setLoadingStatus] = useState<LoadingStatus>(LoadingStatus.Incomplete)
   const reportRef = useRef<HTMLDivElement | null>(null)
 
   useEffect(() => {
-    const fetchAppoinmentConfigs = async () => {
-      const serviceResponse = await powerBiApiService(connectSession as ReapitConnectSession)
-      setLoading(false)
-      if (serviceResponse) {
-        setPowerBiReport(serviceResponse)
-      }
+    if (connectSession && loadingStatus === LoadingStatus.Incomplete && !powerBiReport) {
+      const interval = window.setInterval(() => {
+        const fetchAppoinmentConfigs = async () => {
+          const serviceResponse = await powerBiApiService(connectSession as ReapitConnectSession)
+
+          if (serviceResponse?.status === LoadingStatus.Complete) {
+            setLoadingStatus(LoadingStatus.Complete)
+            setPowerBiReport(serviceResponse)
+          }
+
+          if (serviceResponse?.status === LoadingStatus.Failed) {
+            setLoadingStatus(LoadingStatus.Failed)
+          }
+        }
+
+        fetchAppoinmentConfigs()
+      }, 5000)
+      return () => window.clearInterval(interval)
     }
-    if (connectSession) {
-      setLoading(true)
-      fetchAppoinmentConfigs()
-    }
-  }, [connectSession])
+  }, [connectSession, powerBiReport])
 
   useEffect(() => {
     if (reportRef.current && powerBiReport) {
@@ -76,28 +90,35 @@ export const Home: FC<HomeProps> = () => {
   }, [reportRef, powerBiReport])
 
   return (
-    <>
-      <H3>Reapit Insights</H3>
-      <Section isFlex isFlexColumn hasPadding={false} hasMargin={false} isFullHeight>
-        {loading ? (
-          <Loader />
-        ) : powerBiReport && powerBiReport.status === 'failed' ? (
-          <Helper>
-            It looks like we have encountered an issue setting up your account. Please contact our support team
-            <a href="mailto:foundationssupport@reapit.com">foundationssupport@reapit.com</a> for further assistance.
-          </Helper>
-        ) : powerBiReport && powerBiReport.status === 'incomplete' ? (
-          <Helper>
-            We are currently in the process of setting up your account. We will automatically send you an email once
-            this has been completed.
-          </Helper>
-        ) : powerBiReport && !powerBiReport.report ? (
-          <Helper>No credentials found to load the application</Helper>
-        ) : (
+    <PageContainer>
+      <Title>Reapit Insights</Title>
+      {loadingStatus === LoadingStatus.Incomplete ? (
+        <>
+          <PersistantNotification isFullWidth isExpanded intent="secondary">
+            Loading your Power BI account. On the first login, this could take up to a minute.
+          </PersistantNotification>
+          <Loader fullPage label="Loading" />
+        </>
+      ) : (powerBiReport && powerBiReport.status === 'failed') || loadingStatus === LoadingStatus.Failed ? (
+        <PersistantNotification isFullWidth isExpanded intent="danger">
+          It looks like we have encountered an issue setting up your account. Please contact our support team
+          <a href="mailto:foundationssupport@reapit.com">foundationssupport@reapit.com</a> for further assistance.
+        </PersistantNotification>
+      ) : powerBiReport && powerBiReport.status === 'incomplete' ? (
+        <PersistantNotification isFullWidth isExpanded intent="secondary">
+          We are currently in the process of setting up your account. We will automatically send you an email once this
+          has been completed.
+        </PersistantNotification>
+      ) : powerBiReport && !powerBiReport.report ? (
+        <PersistantNotification isFullWidth isExpanded intent="danger">
+          No credentials found to load the application
+        </PersistantNotification>
+      ) : (
+        <FlexContainer className={elHFull} isFlexColumn>
           <MetabaseContainer id="reportContainer" ref={reportRef} />
-        )}
-      </Section>
-    </>
+        </FlexContainer>
+      )}
+    </PageContainer>
   )
 }
 

@@ -2,6 +2,10 @@
 
 exports[`App should match a snapshot 1`] = `
 <ErrorBoundary>
-  <_default />
+  <NavStateProvider>
+    <MediaStateProvider>
+      <_default />
+    </MediaStateProvider>
+  </NavStateProvider>
 </ErrorBoundary>
 `;
