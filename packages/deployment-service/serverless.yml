@@ -392,21 +392,6 @@ functions:
               - Authorization
               - X-Api-Key
               - api-version
-  # pipelineRun:
-  #   handler: src/index.pipelineRun
-  #   events:
-  #     - http:
-  #         path: /pipeline/{pipelineId}/run
-  #         method: post
-  #         cors:
-  #           origin: '*'
-  #           headers:
-  #             - Content-Type
-  #             - Authorization
-  #             - X-Api-Key
-  #             - api-version
-  #         authorizer:
-  #           arn: arn:aws:cognito-idp:${self:provider.region}:${self:custom.env.AWS_ACCOUNT_ID}:userpool/${self:custom.env.CONNECT_USER_POOL}
   deployRelease:
     handler: src/index.deployRelease
     events:
