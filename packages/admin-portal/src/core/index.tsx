@@ -14,6 +14,7 @@ window.reapit = {
     connectOAuthUrl: '',
     platformApiUrl: '',
     connectUserPoolId: '',
+    limitedUserAccessWhitelist: [],
   },
 }
 

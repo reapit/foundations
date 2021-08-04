@@ -1,9 +1,10 @@
 import * as React from 'react'
-import { Route, RouteProps } from 'react-router'
+import { Route, RouteProps, useLocation } from 'react-router'
 import RouteFetcher from '../components/hocs/route-fetcher'
 import { reapitConnectBrowserSession } from './connect-session'
 import { useReapitConnect } from '@reapit/connect-session'
-import { Info } from '@reapit/elements-legacy'
+import { getAccess } from '../utils/get-access'
+import { FlexContainer, PersistantNotification } from '@reapit/elements'
 
 export interface PrivateRouteProps {
   component: React.FunctionComponent | React.LazyExoticComponent<any>
@@ -12,15 +13,22 @@ export interface PrivateRouteProps {
 }
 
 export const PrivateRoute = ({ component, fetcher = false, ...rest }: PrivateRouteProps & RouteProps) => {
+  const location = useLocation()
   const { connectSession } = useReapitConnect(reapitConnectBrowserSession)
-  const adminId = connectSession?.loginIdentity?.groups.includes('ReapitEmployeeFoundationsAdmin')
+  const hasAccess = getAccess(connectSession, location.pathname)
 
   return (
     <Route
       {...rest}
       render={(props) => {
-        if (!adminId) {
-          return <Info infoType="404" />
+        if (!hasAccess) {
+          return (
+            <FlexContainer>
+              <PersistantNotification isFullWidth isExpanded intent="danger">
+                You do not have permission to view this page.
+              </PersistantNotification>
+            </FlexContainer>
+          )
         }
 
         if (fetcher) {

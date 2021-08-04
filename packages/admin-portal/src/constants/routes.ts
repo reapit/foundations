@@ -1,4 +1,5 @@
 const Routes = {
+  ROOT: '/',
   LOGIN: '/login',
   APPROVALS: '/approvals',
   BILLING: '/billing',
