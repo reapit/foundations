@@ -1,0 +1,12 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`useModal should return UseModal type correctly 1`] = `
+<Portal
+  id="some-div"
+>
+  <Modal
+    isOpen={false}
+    onModalClose={[Function]}
+  />
+</Portal>
+`;

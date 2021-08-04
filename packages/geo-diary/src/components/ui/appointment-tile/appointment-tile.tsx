@@ -1,4 +1,4 @@
-import React, { Dispatch, FC, MutableRefObject, SetStateAction, useEffect, useRef, useState } from 'react'
+import React, { Dispatch, FC, MutableRefObject, SetStateAction, useEffect, useRef } from 'react'
 import { getTime } from '@reapit/elements-legacy'
 import { ExtendedAppointmentModel } from '@/types/global'
 import { AppointmentItems } from './appointment-items'
@@ -13,9 +13,11 @@ import {
   elCardFocussed,
   elCardListMainWrapExpanded,
   elMb4,
+  useModal,
 } from '@reapit/elements'
 import { CancelConfirmModal } from '../cancel-confirm-modal'
 import { cancelledTile } from './__styles__/styles'
+import { FollowUpNotesModal } from '../follow-up-notes-modal'
 
 export type AppointmentTileProps = {
   appointment: ExtendedAppointmentModel
@@ -43,17 +45,10 @@ export const handleScrollIntoView =
     }
   }
 
-export const handleHideModal = (setShowModal: React.Dispatch<React.SetStateAction<boolean>>) => () => {
-  setShowModal(false)
-}
-
-export const handleShowModal = (setShowModal: React.Dispatch<React.SetStateAction<boolean>>) => () => {
-  setShowModal(true)
-}
-
 export const AppointmentTile: FC<AppointmentTileProps> = ({ appointment }) => {
   const { appState, setAppState } = useAppState()
-  const [showModal, setShowModal] = useState<boolean>(false)
+  const { Modal: FollowUpModal, openModal: openFollowUpModal, closeModal: closeFollowUpModal } = useModal()
+  const { Modal: CancelModal, openModal: openCancelModal, closeModal: closeCancelModal } = useModal()
   const { appointmentId } = appState
   const tileRef = useRef<HTMLDivElement>(null)
   const { id } = appointment
@@ -76,8 +71,13 @@ export const AppointmentTile: FC<AppointmentTileProps> = ({ appointment }) => {
             <CardContextMenu
               contextMenuItems={[
                 {
+                  icon: 'editSystem',
+                  onClick: openFollowUpModal,
+                  intent: 'primary',
+                },
+                {
                   icon: 'trashSystem',
-                  onClick: handleShowModal(setShowModal),
+                  onClick: openCancelModal,
                   intent: 'danger',
                 },
               ]}
@@ -87,11 +87,12 @@ export const AppointmentTile: FC<AppointmentTileProps> = ({ appointment }) => {
           <CardListSubHeading>{appointmentType}</CardListSubHeading>
         </CardListMainWrap>
         <AppointmentItems appointment={appointment} />
-        <CancelConfirmModal
-          showModal={showModal}
-          handleHideModal={handleHideModal(setShowModal)}
-          appointment={appointment}
-        />
+        <FollowUpModal title="Follow up notes">
+          <FollowUpNotesModal closeModal={closeFollowUpModal} appointment={appointment} />
+        </FollowUpModal>
+        <CancelModal title="Cancel appointment?">
+          <CancelConfirmModal closeModal={closeCancelModal} appointment={appointment} />
+        </CancelModal>
       </CardWrap>
     </div>
   )
