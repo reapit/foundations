@@ -36,10 +36,19 @@ export const paginatePipelineRunners = async (
   const connection = await connect()
   const repo = connection.getRepository(PipelineRunnerEntity)
 
-  const qb = repo.createQueryBuilder('r')
-  qb.innerJoin('r.pipeline', 'p')
-  qb.where('p.id = :pipelineId', { pipelineId })
-  qb.orderBy('r.created', 'DESC')
-
-  return paginate(qb, { limit: 10, page })
+  return paginate(
+    repo,
+    { limit: 10, page },
+    {
+      relations: ['pipeline'],
+      where: {
+        pipeline: {
+          id: pipelineId,
+        },
+      },
+      order: {
+        created: 'DESC',
+      },
+    },
+  )
 }
