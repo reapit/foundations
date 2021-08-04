@@ -5590,6 +5590,7 @@ __metadata:
     apollo-server: ^3.1.1
     aws-cdk: 1.116.0
     babel-jest: ^27.0.6
+    class-validator: ^0.13.1
     concurrently: ^6.2.0
     cross-env: ^7.0.3
     eslint: 7.31.0
