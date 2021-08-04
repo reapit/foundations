@@ -59,6 +59,7 @@ provider:
     AURORA_RESOURCE_ARN: ${self:custom.env.AURORA_RESOURCE_ARN}
     AURORA_SECRET_ARN: ${self:custom.env.AURORA_SECRET_ARN}
     AURORA_DATABASE: ${self:custom.env.AURORA_DATABASE}
+    EFS_ARN: ${self:custom.env.EFS_ARN}
   iamRoleStatements:
     - Effect: Allow
       Action:
@@ -513,6 +514,9 @@ functions:
     layers:
       - arn:aws:lambda:${self:provider.region}:553035198032:layer:git-lambda2:8
     handler: src/index.taskRunner
+    filesystem:
+    - arn: ${self:custom.env.EFS_ARN}
+      localMountPath: /mnt/efs1
     events:
       - sqs:
           queueName: TaskRunner
