@@ -5589,6 +5589,7 @@ __metadata:
     "@typescript-eslint/parser": ^4.28.4
     apollo-server: ^3.1.1
     aws-cdk: 1.116.0
+    aws-lambda-ric: ^1.1.0
     babel-jest: ^27.0.6
     class-validator: ^0.13.1
     concurrently: ^6.2.0
@@ -12499,6 +12500,18 @@ __metadata:
   bin:
     cdk: bin/cdk
   checksum: da3625b2a6af272c51a2215fe6d3444aa445fb9dac0609554604566d12b6f5212208989ef2a6a1b45f7ddac84e587ae9da454b8f603de0a36a7a7371462e0d59
+  languageName: node
+  linkType: hard
+
+"aws-lambda-ric@npm:^1.1.0":
+  version: 1.1.0
+  resolution: "aws-lambda-ric@npm:1.1.0"
+  dependencies:
+    node-addon-api: 3.2.1
+    node-gyp: 8.1.0
+  bin:
+    aws-lambda-ric: bin/index.js
+  checksum: 28f8509ba35ff8b7f8d1a959ead7658e629aacfcdad8ca6626a7f2fc439b4d69459114ab2b37b8db45b720599cdead2d78f67692438f060ab8d869bc4971e95b
   languageName: node
   linkType: hard
 
@@ -27061,7 +27074,7 @@ fsevents@^1.2.7:
   languageName: node
   linkType: hard
 
-"make-fetch-happen@npm:^8.0.9":
+"make-fetch-happen@npm:^8.0.14, make-fetch-happen@npm:^8.0.9":
   version: 8.0.14
   resolution: "make-fetch-happen@npm:8.0.14"
   dependencies:
@@ -28514,7 +28527,7 @@ fsevents@^1.2.7:
   languageName: node
   linkType: hard
 
-"node-addon-api@npm:^3.2.0":
+"node-addon-api@npm:3.2.1, node-addon-api@npm:^3.2.0":
   version: 3.2.1
   resolution: "node-addon-api@npm:3.2.1"
   dependencies:
@@ -28578,6 +28591,26 @@ fsevents@^1.2.7:
     node-gyp-build-optional: optional.js
     node-gyp-build-test: build-test.js
   checksum: 8512c25498b1605dbe9d2605cac7f8996d18c35097b3079b232674b0f3b8f1559be6f531ec3a00a94f90a0a69ccc452edb62f8f6dfff8caa3abe4b729cc21b06
+  languageName: node
+  linkType: hard
+
+"node-gyp@npm:8.1.0":
+  version: 8.1.0
+  resolution: "node-gyp@npm:8.1.0"
+  dependencies:
+    env-paths: ^2.2.0
+    glob: ^7.1.4
+    graceful-fs: ^4.2.6
+    make-fetch-happen: ^8.0.14
+    nopt: ^5.0.0
+    npmlog: ^4.1.2
+    rimraf: ^3.0.2
+    semver: ^7.3.5
+    tar: ^6.1.0
+    which: ^2.0.2
+  bin:
+    node-gyp: bin/node-gyp.js
+  checksum: 6e014ff491cc4fdd25c41e38f9f92ab665d3b2e1ef7cd18e292aff9b293ef485c6bb93194461a5538d3bfa4b678258df974800660dd7d40865866ef3188c5481
   languageName: node
   linkType: hard
 

@@ -22,6 +22,6 @@
       "module": "commonjs"
     }
   },
-  "include": ["src"],
+  "include": ["src", "cdk"],
   "exclude": ["public", "dist", "src/scripts", "node_modules", "src/tests/coverage"]
 }

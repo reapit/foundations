@@ -10,7 +10,7 @@ const output = (stack: cdk.Stack, name: string, value: string) => {
   })
 }
 
-const repoRoot = path.join('..', '..', '..')
+const repoRoot = path.join('..', '..')
 
 export const createStack = (scope: cdk.App, name: string) => {
   const stack = new cdk.Stack(scope, name)
