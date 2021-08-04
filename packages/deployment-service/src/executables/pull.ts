@@ -21,6 +21,10 @@ export const pull: ExecutableType = async (task: TaskEntity, pipeline: PipelineE
       })
     }
 
+    if (fs.existsSync(cloneDir)) {
+      fs.rmdirSync(cloneDir)
+    }
+
     const child = exec(`git clone ${pipeline.repository} ${cloneDir}`, (error, stdout) => {
       if (error) {
         console.log('errored in callback')
