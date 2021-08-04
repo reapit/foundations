@@ -3,10 +3,12 @@ import { styled } from '@linaria/react'
 export const ElTextArea = styled.textarea`
   display: flex;
   color: black;
+  flex-grow: 1;
   background: var(--component-input-bg);
   padding: 0.5rem;
   border: 0;
   border-bottom: var(--component-input-border-bottom);
+  min-height: 8rem;
 
   &:focus {
     outline: none;

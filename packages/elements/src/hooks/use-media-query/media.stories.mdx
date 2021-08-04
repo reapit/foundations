@@ -12,6 +12,18 @@ Add the provider to the root of your project and using the `useMediaQuery` hook,
 
 ## Programmatic media queries
 
+This example shows how the `useMediaQuery` hook when wrapped in the provider will return the value of one of the breakpoint variables below.
+
+The underlying code in the `MediaMobileExample` component is shown below:
+
+```tsx
+export const MediaMobileExample = () => {
+  const { isMobile } = useMediaQuery()
+
+  return isMobile ? <h1>Is Mobile</h1> : <h1>Not Mobile</h1>
+}
+```
+
 <Canvas>
   <Story name="MediaStateProvider usage">
     <MediaStateProvider>
@@ -22,7 +34,42 @@ Add the provider to the root of your project and using the `useMediaQuery` hook,
 
 ## Available break points
 
+This example shows how the `useMediaQuery` will return the relevant code depending on which of the breakpoints is current.
+
 > Note: all breakpoints viewed here are calculated from the iframe width
+
+The underlying code in the `AllBreakPointExample` component is shown below:
+
+```tsx
+export const AllBreakPointExample = () => {
+  const { isMobile, isTablet, isDesktop, isWideScreen, isSuperWideScreen, is4KScreen } = useMediaQuery()
+
+  if (isMobile) {
+    return <h1>Is Mobile</h1>
+  }
+
+  if (isTablet) {
+    return <h1>Is Tablet</h1>
+  }
+
+  if (isDesktop) {
+    return <h1>Is Tablet</h1>
+  }
+
+  if (isWideScreen) {
+    return <h1>Is Tablet</h1>
+  }
+
+  if (isSuperWideScreen) {
+    return <h1>Is Tablet</h1>
+  }
+
+  if (is4KScreen) {
+    return <h1>Is Tablet</h1>
+  }
+
+}
+```
 
 <Canvas>
   <Story name="MediaStateProvider breakpoints">
@@ -40,4 +87,3 @@ Variable | breakpoint sum
 `isWideScreen` | >= 1440 && < 1920
 `isSuperWideScreen` | >= 1920 && < 2560
 `is4KScreen` | >= 2560
-

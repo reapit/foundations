@@ -14,6 +14,13 @@ We will publish release version history and changes here. Where possible, we wil
 
 Beta versions should be relatively stable but subject to occssional breaking changes.
 
+### **3.3.0 - 03/08/21**
+  - Fixes `useModal` hook export from main manifest
+  - `useModal` hook now accepts an `id` param for use with `usePortal`
+  - Improves `Modal` docs and examples
+  - Exports new `<Portal />` component leveraging a `usePortal` hook
+  - Wraps `Input`, `InputGroup`, `Select` and `Textarea` in `forwardRef` helper to allow refs to be passes from form libs like `react-hook-form`
+
 ### **3.2.0 - 23/07/21**
   - Now outputs ESM as well as CommonJS for better tree shaking
 

@@ -1,8 +1,14 @@
-import React, { FC, InputHTMLAttributes } from 'react'
+import React, { forwardRef, LegacyRef } from 'react'
 import { ElInput } from './__styles__'
 
-export interface InputProps extends InputHTMLAttributes<HTMLInputElement> {}
+export interface InputProps extends React.InputHTMLAttributes<HTMLInputElement> {}
 
-export const Input: FC<InputProps> = ({ ...rest }) => {
-  return <ElInput {...rest} />
-}
+export type InputWrapped = React.ForwardRefExoticComponent<
+  InputProps & React.RefAttributes<React.InputHTMLAttributes<HTMLInputElement>>
+>
+
+export const Input: InputWrapped = forwardRef(
+  ({ ...rest }, ref: React.ForwardedRef<React.InputHTMLAttributes<HTMLInputElement>>) => {
+    return <ElInput {...rest} ref={ref as LegacyRef<HTMLInputElement>} />
+  },
+)
