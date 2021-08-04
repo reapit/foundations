@@ -10583,6 +10583,73 @@ export interface Sources {
   modifiedTo?: string
 }
 /**
+ * Representation of a staff member
+ */
+export interface StaffModel {
+  /**
+   * The staff member's name
+   */
+  name?: string
+  /**
+   * A flag determining whether or not the staff member is currently active
+   */
+  active?: boolean
+  /**
+   * The staff member's job title
+   */
+  jobTitle?: string
+  /**
+   * The staff member's work phone
+   */
+  workPhone?: string
+  /**
+   * The staff member's mobile phone
+   */
+  mobilePhone?: string
+  /**
+   * The staff member's email
+   */
+  email?: string
+}
+export interface StaffModelPagedResult {
+  _embedded?: {
+    /**
+     * The staff member's name
+     */
+    name?: string
+    /**
+     * A flag determining whether or not the staff member is currently active
+     */
+    active?: boolean
+    /**
+     * The staff member's job title
+     */
+    jobTitle?: string
+    /**
+     * The staff member's work phone
+     */
+    workPhone?: string
+    /**
+     * The staff member's mobile phone
+     */
+    mobilePhone?: string
+    /**
+     * The staff member's email
+     */
+    email?: string
+  }[]
+  pageNumber?: number // int32
+  pageSize?: number // int32
+  pageCount?: number // int32
+  totalPageCount?: number // int32
+  totalCount?: number // int32
+  _links?: {
+    [name: string]: {
+      href?: string
+    }
+  }
+}
+/**
  * Representation of a task, which can also be an internal message
  */
 export interface TaskModel {
