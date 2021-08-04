@@ -2,6 +2,7 @@ import { PipelineEntity, TaskEntity } from './../entities'
 import { ExecutableType } from './executable'
 import { exec } from 'child_process'
 import fs from 'fs'
+import { developerDir, cloneDir } from '../utils'
 
 export const pull: ExecutableType = async (task: TaskEntity, pipeline: PipelineEntity): Promise<true | never> => {
   console.log('pull...')
@@ -12,20 +13,19 @@ export const pull: ExecutableType = async (task: TaskEntity, pipeline: PipelineE
 
     // TODO solve SSH usage
 
-    const developerDir = `/tmp/project/${pipeline.developerId}/`
-    const cloneDir = `${developerDir}${pipeline.repository?.split('/').pop()}`
-
-    if (!fs.existsSync(developerDir)) {
-      fs.mkdirSync(developerDir, {
+    if (!fs.existsSync(developerDir(pipeline))) {
+      fs.mkdirSync(developerDir(pipeline), {
         recursive: true,
       })
     }
 
-    if (fs.existsSync(cloneDir)) {
-      fs.rmdirSync(cloneDir)
+    if (fs.existsSync(cloneDir(pipeline))) {
+      fs.rmSync(cloneDir(pipeline), {
+        recursive: true,
+      })
     }
 
-    const child = exec(`git clone ${pipeline.repository} ${cloneDir}`, (error, stdout) => {
+    const child = exec(`git clone ${pipeline.repository} ${cloneDir(pipeline)}`, (error, stdout) => {
       if (error) {
         console.log('errored in callback')
         console.error(error)

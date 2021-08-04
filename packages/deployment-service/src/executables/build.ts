@@ -1,8 +1,7 @@
 import { PipelineEntity, TaskEntity } from './../entities'
 import { ExecutableType } from './executable'
 import { execSync } from 'child_process'
-import { projectDir } from './../utils/project-dir'
-import { dir } from './../constants'
+import { cloneDir } from './../utils/project-dir'
 
 export const build: ExecutableType = (task: TaskEntity, pipeline: PipelineEntity): Promise<true | never> => {
   //TODO get codebase from S3 bucket
@@ -10,11 +9,9 @@ export const build: ExecutableType = (task: TaskEntity, pipeline: PipelineEntity
 
   console.log('executable', task)
 
-  const projectDirName = projectDir(dir, pipeline)
-
   try {
     const build = execSync('npm run build', {
-      cwd: projectDirName,
+      cwd: cloneDir(pipeline),
     })
     console.log('yarn build', build.toString())
   } catch (e) {
