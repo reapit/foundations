@@ -33295,6 +33295,27 @@ resolve@^2.0.0-next.3:
   languageName: node
   linkType: hard
 
+"security-header-lambda@workspace:packages/security-header-lambda":
+  version: 0.0.0-use.local
+  resolution: "security-header-lambda@workspace:packages/security-header-lambda"
+  dependencies:
+    "@reapit/config-manager": "workspace:packages/config-manager"
+    "@reapit/ts-scripts": "workspace:packages/ts-scripts"
+    "@reapit/ts-types": "workspace:packages/ts-types"
+    "@typescript-eslint/eslint-plugin": ^4.28.4
+    "@typescript-eslint/parser": ^4.28.4
+    eslint: 7.31.0
+    eslint-plugin-prettier: ^3.4.0
+    serverless: ^2.52.0
+    serverless-deployment-bucket: ^1.5.1
+    serverless-lambda-edge-pre-existing-cloudfront: ^1.1.5
+    serverless-webpack: ^5.5.1
+    snyk: ^1.662.0
+    typescript: ^4.3.5
+    webpack: ^5.45.1
+  languageName: unknown
+  linkType: soft
+
 "seed-data-workflow@workspace:packages/seed-data-workflow":
   version: 0.0.0-use.local
   resolution: "seed-data-workflow@workspace:packages/seed-data-workflow"
@@ -33608,6 +33629,13 @@ resolve@^2.0.0-next.3:
     "@types/aws-lambda":
       optional: true
   checksum: 96b9b0d33af37c4c22c4009e0e15e7d2ab0bad5b5ccdd7c53f0439a405544862dd47e7ec9a87fcf4233539a8815bc0a8b48800974b5471e8034a0f79084f6f31
+  languageName: node
+  linkType: hard
+
+"serverless-lambda-edge-pre-existing-cloudfront@npm:^1.1.5":
+  version: 1.1.5
+  resolution: "serverless-lambda-edge-pre-existing-cloudfront@npm:1.1.5"
+  checksum: ea5116132282bb3f17d6e64a7e8c7c55d11919f45092777b9fb1f5b376068b2ea002362cad8ef2b504e7eb4d7369c13c1afe61752a0888b0380a167c6446de40
   languageName: node
   linkType: hard
 
