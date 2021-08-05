@@ -1709,6 +1709,153 @@ export interface Areas {
   modifiedFrom?: string
   modifiedTo?: string
 }
+/**
+ * Representation of a cerificate
+ */
+export interface CertificateModel {
+  readonly _links?: {
+    [name: string]: {
+      href?: string
+    }
+  }
+  readonly _embedded?: {
+    [name: string]: any
+  }
+  /**
+   * The unique identifier of the certificate
+   */
+  id?: string
+  /**
+   * The date and time when the certificate was created
+   * example:
+   * 2019-08-14T12:30:02.0000000Z
+   */
+  created?: string // date-time
+  /**
+   * The date and time when the certificate was last modified
+   * example:
+   * 2019-08-14T12:30:02.0000000Z
+   */
+  modified?: string // date-time
+  /**
+   * The certificate's category (safetyCertificate/insurancePolicy/warranty)
+   */
+  category?: string
+  /**
+   * The certificate's type
+   */
+  typeId?: string
+  /**
+   * The certificate's start date
+   * example:
+   * 2019-08-14T12:30:02.0000000Z
+   */
+  start?: string // date-time
+  /**
+   * The certificate's expiry date
+   * example:
+   * 2019-08-14T12:30:02.0000000Z
+   */
+  expiry?: string // date-time
+  /**
+   * The unique identifier of the property
+   */
+  propertyId?: string
+  /**
+   * The unique identifier of the company
+   */
+  companyId?: string
+  /**
+   * Any general notes regarding the certificate
+   */
+  notes?: string
+  /**
+   * The certificate's reference number
+   */
+  referenceNumber?: string
+  /**
+   * The ETag for the current version of the property. Used for managing update concurrency
+   */
+  readonly _eTag?: string
+}
+export interface CertificateModelPagedResult {
+  _embedded?: {
+    readonly _links?: {
+      [name: string]: {
+        href?: string
+      }
+    }
+    readonly _embedded?: {
+      [name: string]: any
+    }
+    /**
+     * The unique identifier of the certificate
+     */
+    id?: string
+    /**
+     * The date and time when the certificate was created
+     * example:
+     * 2019-08-14T12:30:02.0000000Z
+     */
+    created?: string // date-time
+    /**
+     * The date and time when the certificate was last modified
+     * example:
+     * 2019-08-14T12:30:02.0000000Z
+     */
+    modified?: string // date-time
+    /**
+     * The certificate's category (safetyCertificate/insurancePolicy/warranty)
+     */
+    category?: string
+    /**
+     * The certificate's type
+     */
+    typeId?: string
+    /**
+     * The certificate's start date
+     * example:
+     * 2019-08-14T12:30:02.0000000Z
+     */
+    start?: string // date-time
+    /**
+     * The certificate's expiry date
+     * example:
+     * 2019-08-14T12:30:02.0000000Z
+     */
+    expiry?: string // date-time
+    /**
+     * The unique identifier of the property
+     */
+    propertyId?: string
+    /**
+     * The unique identifier of the company
+     */
+    companyId?: string
+    /**
+     * Any general notes regarding the certificate
+     */
+    notes?: string
+    /**
+     * The certificate's reference number
+     */
+    referenceNumber?: string
+    /**
+     * The ETag for the current version of the property. Used for managing update concurrency
+     */
+    readonly _eTag?: string
+  }[]
+  pageNumber?: number // int32
+  pageSize?: number // int32
+  pageCount?: number // int32
+  totalPageCount?: number // int32
+  totalCount?: number // int32
+  _links?: {
+    [name: string]: {
+      href?: string
+    }
+  }
+}
 export interface Companies {
   pageSize?: number
   pageNumber?: number
@@ -2421,6 +2568,51 @@ export interface ContactModel {
    * The ETag for the current version of the contact. Used for managing update concurrency
    */
   readonly _eTag?: string
+  /**
+   * A list of relationships belonging to the contact. This is later removed from the response
+   */
+  relationships?: {
+    readonly _links?: {
+      [name: string]: {
+        href?: string
+      }
+    }
+    readonly _embedded?: {
+      [name: string]: any
+    }
+    /**
+     * The unique identifier of the relationship
+     */
+    id?: string
+    /**
+     * The date and time when the relationship was created
+     * example:
+     * 2019-08-14T12:30:02.0000000Z
+     */
+    created?: string // date-time
+    /**
+     * The date and time when the relationship was last modified
+     * example:
+     * 2019-08-14T12:30:02.0000000Z
+     */
+    modified?: string // date-time
+    /**
+     * The unique identifier of the related contact
+     */
+    contactId?: string
+    /**
+     * The type of related entity (applicant/landlord/offer/tenancy/vendor)
+     */
+    associatedType?: string
+    /**
+     * The unique identifier of the related entity
+     */
+    associatedId?: string
+    /**
+     * Flag to determine if this role on the system is now archived
+     */
+    fromArchive?: boolean
+  }[]
 }
 export interface ContactModelPagedResult {
   _embedded?: {
@@ -2674,6 +2866,51 @@ export interface ContactModelPagedResult {
      * The ETag for the current version of the contact. Used for managing update concurrency
      */
     readonly _eTag?: string
+    /**
+     * A list of relationships belonging to the contact. This is later removed from the response
+     */
+    relationships?: {
+      readonly _links?: {
+        [name: string]: {
+          href?: string
+        }
+      }
+      readonly _embedded?: {
+        [name: string]: any
+      }
+      /**
+       * The unique identifier of the relationship
+       */
+      id?: string
+      /**
+       * The date and time when the relationship was created
+       * example:
+       * 2019-08-14T12:30:02.0000000Z
+       */
+      created?: string // date-time
+      /**
+       * The date and time when the relationship was last modified
+       * example:
+       * 2019-08-14T12:30:02.0000000Z
+       */
+      modified?: string // date-time
+      /**
+       * The unique identifier of the related contact
+       */
+      contactId?: string
+      /**
+       * The type of related entity (applicant/landlord/offer/tenancy/vendor)
+       */
+      associatedType?: string
+      /**
+       * The unique identifier of the related entity
+       */
+      associatedId?: string
+      /**
+       * Flag to determine if this role on the system is now archived
+       */
+      fromArchive?: boolean
+    }[]
   }[]
   pageNumber?: number // int32
   pageSize?: number // int32
@@ -2909,7 +3146,7 @@ export interface Contacts {
   pageSize?: number
   pageNumber?: number
   sortBy?: string
-  embed?: ('documents' | 'identityChecks' | 'negotiators' | 'offices' | 'source')[]
+  embed?: ('documents' | 'identityChecks' | 'negotiators' | 'offices' | 'relationships' | 'source')[]
   id?: string[]
   email?: string[]
   negotiatorId?: string[]
