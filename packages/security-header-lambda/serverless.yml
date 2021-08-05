@@ -1,0 +1,114 @@
+service: cloud-security-header-lambda
+plugins:
+  - serverless-webpack
+  - serverless-offline
+  - serverless-deployment-bucket
+  - serverless-lambda-edge-pre-existing-cloudfront
+
+custom:
+  env: ${file(./config.json)}
+  webpack:
+    webpackConfig: 'webpack.config.js'
+    includeModules: true
+    packager: 'yarn'
+    packagerOptions:
+      noFrozenLockFile: false
+    excludeFiles: src/**/*.test.ts
+    keepOutputDirectory: true
+
+provider:
+  name: aws
+  runtime: ${opt:runtime, 'nodejs12.x' }
+  region: 'us-east-1'
+  lambdaHashingVersion: '20201221'
+  deploymentBucket:
+    name: cloud-security-header-lambda
+    blockPublicAccess: false
+
+resources:
+  Resources:
+    IamRoleLambdaExecution:
+      Type: "AWS::IAM::Role"
+      Properties:
+        AssumeRolePolicyDocument:
+          Version: '2012-10-17'
+          Statement:
+            - Effect: Allow
+              Principal:
+                Service:
+                  - lambda.amazonaws.com
+                  - edgelambda.amazonaws.com
+              Action: sts:AssumeRole
+
+package:
+  individually: true
+  patterns:
+    - 'dist/**'
+    - '!package.json'
+    - '!node_modules/**'
+    - '!error.log'
+    - '!info.log'
+    - '!jest.config.js'
+    - '!serverless.yml'
+    - '!src/**'
+    - '!tsconfig.json'
+    - '!yml-helpers.js'
+
+functions:
+  securityHeaderLambda:
+    handler: src/index.securityHeaderLambda
+    events:
+      - preExistingCloudFront:
+          distributionId: ${self:custom.env.developerPortalCfDistId}
+          eventType: origin-response
+          pathPattern: '*'
+          includeBody: false
+          stage: ${opt:stage, 'dev'}
+      - preExistingCloudFront:
+          distributionId: ${self:custom.env.marketplaceCfDistId}
+          eventType: origin-response
+          pathPattern: '*'
+          includeBody: false
+          stage: ${opt:stage, 'dev'}
+      - preExistingCloudFront:
+          distributionId: ${self:custom.env.geoDiaryCfDistId}
+          eventType: origin-response
+          pathPattern: '*'
+          includeBody: false
+          stage: ${opt:stage, 'dev'}
+      - preExistingCloudFront:
+          distributionId: ${self:custom.env.amlCheckListCfDistId}
+          eventType: origin-response
+          pathPattern: '*'
+          includeBody: false
+          stage: ${opt:stage, 'dev'}
+      - preExistingCloudFront:
+          distributionId: ${self:custom.env.marketplaceManagementCfDistId}
+          eventType: origin-response
+          pathPattern: '*'
+          includeBody: false
+          stage: ${opt:stage, 'dev'}
+      - preExistingCloudFront:
+          distributionId: ${self:custom.env.developerAdminCfDistId}
+          eventType: origin-response
+          pathPattern: '*'
+          includeBody: false
+          stage: ${opt:stage, 'dev'}
+      - preExistingCloudFront:
+          distributionId: ${self:custom.env.dataWarehouseCfDistId}
+          eventType: origin-response
+          pathPattern: '*'
+          includeBody: false
+          stage: ${opt:stage, 'dev'}
+      - preExistingCloudFront:
+          distributionId: ${self:custom.env.paymentsCfDistId}
+          eventType: origin-response
+          pathPattern: '*'
+          includeBody: false
+          stage: ${opt:stage, 'dev'}
+      - preExistingCloudFront:
+          distributionId: ${self:custom.env.reapitConnectCfDistId}
+          eventType: origin-response
+          pathPattern: '*'
+          includeBody: false
+          stage: ${opt:stage, 'dev'}
