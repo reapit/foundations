@@ -9,6 +9,7 @@ export interface PipelineModelInterface {
   buildCommand?: string
   packageManager?: PackageManagerEnum
   repository?: string
+  outDir?: string
 }
 
 export interface PipelineRunnerModelInterface {
