@@ -1,8 +1,8 @@
 import { PipelineEntity, TaskEntity } from './../entities'
 import { ExecutableType } from './executable'
-import { exec } from 'child_process'
 import fs from 'fs'
 import { developerDir, cloneDir } from '../utils'
+import { spawn } from 'child_process'
 
 export const pull: ExecutableType = async (task: TaskEntity, pipeline: PipelineEntity): Promise<true | never> => {
   console.log('pull...')
@@ -10,8 +10,6 @@ export const pull: ExecutableType = async (task: TaskEntity, pipeline: PipelineE
 
   try {
     process.env.GIT_SSH_COMMAND = 'ssh -o StrictHostKeyChecking=no'
-
-    // TODO solve SSH usage
 
     if (!fs.existsSync(developerDir(pipeline))) {
       fs.mkdirSync(developerDir(pipeline), {
@@ -25,24 +23,18 @@ export const pull: ExecutableType = async (task: TaskEntity, pipeline: PipelineE
       })
     }
 
-    const child = exec(`git clone ${pipeline.repository} ${cloneDir(pipeline)}`, (error, stdout) => {
-      if (error) {
-        console.log('errored in callback')
-        console.error(error)
-        throw error
-      }
+    const returned = await new Promise((resolve, reject) => {
+      const result = spawn('git', ['clone', pipeline.repository as string, cloneDir(pipeline)])
 
-      console.log('callback stdout:=> ', stdout)
+      result.on('message', (message) => console.log('message', message))
+      result.on('error', (code) => reject({ code, result: 'error' }))
+      result.on('exit', (code) => resolve({ code, result: 'exit' }))
+      result.on('close', (code) => resolve({ code, result: 'close' }))
+      result.stdout.on('data', (s) => console.log('stdout', s))
+      result.stderr.on('data', (e) => console.log('error message', e.toString()))
     })
 
-    child.on('message', (message) => console.log('stdout:=> ', message))
-
-    const result = await new Promise<any>((resolve, reject) => {
-      child.addListener('error', reject)
-      child.addListener('exit', (code, signal) => resolve({ code, signal }))
-    })
-
-    console.log('pull - result', result)
+    console.log('returned', returned)
   } catch (e) {
     console.log('message', e.message)
     console.log('clone failed')
