@@ -24,6 +24,7 @@ const deleteMessage = (ReceiptHandle: string): Promise<void> => {
 }
 
 const failure = async (task: TaskEntity, receiptHandle, error?: Error): Promise<void> => {
+  console.log(`Task [${task.functionName}] failed.`)
   console.error(error)
 
   await Promise.all([
@@ -50,12 +51,16 @@ const overallSuccess = async (task: TaskEntity, receiptHandle: string): Promise<
 }
 
 const startTask = async (task: TaskEntity): Promise<void> => {
+  console.log(`Starting task [${task.functionName}]`)
+
   await services.updateTask(task, {
     status: DeploymentStatus.RUNNING,
   })
 }
 
 const completeAndStartNext = async (task: TaskEntity, nextTask: TaskEntity, receiptHandle: string): Promise<void> => {
+  console.log(`Task [${task.functionName}] completed. Starting [${nextTask.functionName}]`)
+
   await Promise.all([
     new Promise<void>((resolve, reject) =>
       services.sqs.sendMessage(

@@ -45,6 +45,11 @@ provider:
   s3:
     deploymentReleaseBucket:
       name: ${self:custom.env.DEPLOYMENT_BUCKET_NAME}
+  vpc:
+    subnetIds:
+      - ${self:custom.env.SUB_NET}
+    securityGroupIds:
+      - ${self:custom.env.SECURITY_GROUP}
   
   environment:
     NODE_ENV: 'production'
@@ -59,6 +64,12 @@ provider:
     AURORA_RESOURCE_ARN: ${self:custom.env.AURORA_RESOURCE_ARN}
     AURORA_SECRET_ARN: ${self:custom.env.AURORA_SECRET_ARN}
     AURORA_DATABASE: ${self:custom.env.AURORA_DATABASE}
+    EFS_ARN: ${self:custom.env.EFS_ARN}
+    MYSQL_HOST: ${self:custom.env.MYSQL_HOST}
+    MYSQL_DATABASE: ${self:custom.env.MYSQL_DATABASE}
+    MYSQL_USERNAME: ${self:custom.env.MYSQL_USERNAME}
+    MYSQL_PASSWORD: ${self:custom.env.MYSQL_PASSWORD}
+    SQS_ENDPOINT: ${self:custom.env.SQS_ENDPOINT}
   iamRoleStatements:
     - Effect: Allow
       Action:
@@ -392,21 +403,6 @@ functions:
               - Authorization
               - X-Api-Key
               - api-version
-  # pipelineRun:
-  #   handler: src/index.pipelineRun
-  #   events:
-  #     - http:
-  #         path: /pipeline/{pipelineId}/run
-  #         method: post
-  #         cors:
-  #           origin: '*'
-  #           headers:
-  #             - Content-Type
-  #             - Authorization
-  #             - X-Api-Key
-  #             - api-version
-  #         authorizer:
-  #           arn: arn:aws:cognito-idp:${self:provider.region}:${self:custom.env.AWS_ACCOUNT_ID}:userpool/${self:custom.env.CONNECT_USER_POOL}
   deployRelease:
     handler: src/index.deployRelease
     events:
@@ -525,7 +521,13 @@ functions:
               - TaskPopulation
               - Arn
   taskRunner:
+    layers:
+      - arn:aws:lambda:${self:provider.region}:553035198032:layer:git-lambda2:8
     handler: src/index.taskRunner
+    timeout: 300
+    filesystem:
+      - arn: ${self:custom.env.EFS_ARN}
+        localMountPath: /mnt/efs1
     events:
       - sqs:
           queueName: TaskRunner

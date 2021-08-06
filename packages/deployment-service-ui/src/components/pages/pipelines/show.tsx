@@ -50,6 +50,7 @@ export default () => {
   const params = useParams<{ pipelineId: string }>()
   const [runnerLoading, setRunnerLoading] = useState<boolean>(false)
   const [pipelineRunners, setPipelineRunners] = useState<Pagination<PipelineRunnerModelInterface>>()
+  const [deployLoading, setDeployLoading] = useState<boolean>(false)
 
   useEffect(() => {
     const fetchPipeline = async () => {
@@ -84,10 +85,20 @@ export default () => {
   }, [pipeline])
 
   const deployPipeline = async () => {
-    if (!pipeline) {
+    if (!pipeline || deployLoading) {
       return
     }
-    await pipelineRunnerCreate(connectSession as ReapitConnectSession, pipeline)
+    setDeployLoading(true)
+    const runner = await pipelineRunnerCreate(connectSession as ReapitConnectSession, pipeline)
+    setDeployLoading(false)
+    if (pipelineRunners && runner) {
+      setPipelineRunners({
+        ...pipelineRunners,
+        items: [runner, ...pipelineRunners.items],
+      })
+    }
+
+    console.log('runner', runner)
   }
 
   const pipelineRunnerMapped = pipelineRunners?.items.map((pipeline) => ({
@@ -146,7 +157,7 @@ export default () => {
       <Section>
         <H1>Pipeline {pipeline?.name}</H1>
         <div>
-          <Button onClick={() => deployPipeline()} intent="success">
+          <Button loading={deployLoading} onClick={() => deployPipeline()} intent="success">
             Deploy
           </Button>
         </div>

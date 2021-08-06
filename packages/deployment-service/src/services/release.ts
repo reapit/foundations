@@ -10,7 +10,7 @@ export const paginateReleases = async (
   const connection = await connect()
   const repo = connection.getRepository(ReleaseEntity)
 
-  return paginate(repo, { limit: 10, page }, { developerId, projectName })
+  return paginate(repo, { limit: 10, page }, { where: { developerId, projectName }, order: { version: 'DESC' } })
 }
 
 export const createRelease = async (dto: Partial<ReleaseEntity>): Promise<ReleaseEntity> => {
