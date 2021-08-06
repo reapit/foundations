@@ -5727,16 +5727,16 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@reapit/elements@npm:3.2.0":
-  version: 3.2.0
-  resolution: "@reapit/elements@npm:3.2.0"
+"@reapit/elements@npm:3.3.0":
+  version: 3.3.0
+  resolution: "@reapit/elements@npm:3.3.0"
   dependencies:
     "@linaria/core": ^3.0.0-beta.4
     "@linaria/react": ^3.0.0-beta.7
   peerDependencies:
     react: ^17.0.2
     react-dom: ^17.0.2
-  checksum: 8ebe1f7472f82ff5863f9e87d928dd3b61e9fce5c665c1ada884afdbb85ba6ce387d10a84aafc9a700b8e7d50dd9a985f29b44fdcd9ac99f9e717836d93d7438
+  checksum: f48c2d7b3a515c101e20c5d8e00bbd84ba91fa95a39b13aede3703b5957597903b9466c6b315ad41febdbefd89997c895b69169ad0bef9b867275868a1b55f75
   languageName: node
   linkType: hard
 
@@ -21042,16 +21042,21 @@ fsevents@^1.2.7:
   version: 0.0.0-use.local
   resolution: "geo-diary-marketing@workspace:packages/geo-diary-marketing"
   dependencies:
-    "@reapit/elements": 3.2.0
+    "@reapit/elements": 3.3.0
     "@sveltejs/adapter-static": next
     "@sveltejs/kit": next
     "@typescript-eslint/eslint-plugin": ^4.29.0
     "@typescript-eslint/parser": ^4.29.0
+    concurrently: ^6.2.0
     eslint: ^7.32.0
     eslint-config-prettier: ^8.3.0
     eslint-plugin-svelte3: ^3.2.0
     prettier: ^2.3.2
     prettier-plugin-svelte: ^2.3.1
+    serverless: ^2.52.0
+    serverless-s3-deploy: ^0.10.1
+    serverless-s3-remover: ^0.6.0
+    serverless-single-page-app-plugin: ^1.0.2
     svelte: ^3.34.0
     svelte-check: ^2.0.0
     svelte-preprocess: ^4.0.0

@@ -1,5 +1,6 @@
 <script lang="ts">
   import IntroSlide from '../components/intro-slide.svelte'
+  import CrmSlide from '../components/crm-slide.svelte'
 </script>
 
 <svelte:head>
@@ -8,8 +9,9 @@
 
 <main>
   <IntroSlide />
+  <CrmSlide />
 </main>
 
 <style>
-  @import '~@reapit/elements/dist/index.css';
+  @import '../../node_modules/@reapit/elements/dist/index.css';
 </style>
