@@ -10,6 +10,7 @@ export const build: ExecutableType = (task: TaskEntity, pipeline: PipelineEntity
   console.log('executable', task)
 
   try {
+    // TODO use pipeline.buildCommand
     const build = execSync('npm run build', {
       cwd: cloneDir(pipeline),
     })

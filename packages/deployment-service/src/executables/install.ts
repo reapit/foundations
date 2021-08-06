@@ -1,6 +1,6 @@
-import { PipelineEntity, TaskEntity } from 'src/entities'
+import { PipelineEntity, TaskEntity } from '../entities'
 import { ExecutableType } from './executable'
-import { execSync } from 'child_process'
+import { exec } from 'child_process'
 import { cloneDir } from '../utils'
 
 export const install: ExecutableType = async (task: TaskEntity, pipeline: PipelineEntity): Promise<true | never> => {
@@ -9,13 +9,18 @@ export const install: ExecutableType = async (task: TaskEntity, pipeline: Pipeli
 
   try {
     // TODO optional yarn usage
-    const yarn = execSync('npm i', {
-      cwd: cloneDir(pipeline),
+    await exec(`HOME="${cloneDir(pipeline)}" npm install --prefix="${cloneDir(pipeline)}"`, (error, stdout) => {
+      if (error) {
+        throw error
+      }
+
+      console.log('npm stdout:=> ', stdout)
     })
-    yarn && console.log('yarn', yarn.toString())
+    // result && console.log('npm', result.toString())
   } catch (e) {
-    console.log('yarn errors', e)
-    console.log(e.output.toString())
+    console.log('npm errors')
+    console.error(e)
+    console.log(e?.output?.toString())
     throw e
   }
 

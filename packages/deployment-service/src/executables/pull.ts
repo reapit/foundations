@@ -35,8 +35,9 @@ export const pull: ExecutableType = async (task: TaskEntity, pipeline: PipelineE
       console.log('callback stdout:=> ', stdout)
     })
 
+    child.on('message', (message) => console.log('stdout:=> ', message))
+
     const result = await new Promise<any>((resolve, reject) => {
-      child.addListener('message', (message) => console.log('stdout:=> ', message))
       child.addListener('error', reject)
       child.addListener('exit', (code, signal) => resolve({ code, signal }))
     })
