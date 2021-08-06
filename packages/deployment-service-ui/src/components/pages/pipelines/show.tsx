@@ -2,7 +2,7 @@ import Routes from '@/constants/routes'
 import { reapitConnectBrowserSession } from '@/core/connect-session'
 import { pipelineRunnerCreate, pipelineRunnerPaginate, pipelineServiceGet } from '@/platform-api/pipelines'
 import { ReapitConnectSession, useReapitConnect } from '@reapit/connect-session'
-import { Breadcrumb, BreadcrumbItem, FlexContainerBasic, H1, Section, H3 } from '@reapit/elements-legacy'
+import { Breadcrumb, BreadcrumbItem, FlexContainerBasic, H1, Section, H3, ButtonGroup } from '@reapit/elements-legacy'
 import { Button, Label, Loader, StatusIndicator, Table, Intent } from '@reapit/elements'
 import React, { useEffect, useState } from 'react'
 import { Link, useParams } from 'react-router-dom'
@@ -97,8 +97,6 @@ export default () => {
         items: [runner, ...pipelineRunners.items],
       })
     }
-
-    console.log('runner', runner)
   }
 
   const pipelineRunnerMapped = pipelineRunners?.items.map((pipeline) => ({
@@ -156,11 +154,14 @@ export default () => {
       </Breadcrumb>
       <Section>
         <H1>Pipeline {pipeline?.name}</H1>
-        <div>
+        <ButtonGroup>
           <Button loading={deployLoading} onClick={() => deployPipeline()} intent="success">
             Deploy
           </Button>
-        </div>
+          <Button loading={deployLoading} onClick={() => deployPipeline()} intent="success">
+            <Link to={Routes.PIPELINES_UPDATE.replace(':pipelineId', pipeline.id as string)}>Update</Link>
+          </Button>
+        </ButtonGroup>
         <Label>Package Manager</Label>
         <p>{pipeline?.packageManager}</p>
         <Label>Build Command</Label>
