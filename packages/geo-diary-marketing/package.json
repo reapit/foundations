@@ -1,0 +1,37 @@
+{
+  "name": "geo-diary-marketing",
+  "version": "0.0.1",
+  "scripts": {
+    "start": "svelte-kit dev && svelte-check --tsconfig ./tsconfig.json --watch",
+    "build": "svelte-kit build",
+    "test": "echo '...skipping...'",
+    "preview": "svelte-kit preview",
+    "check": "svelte-check --tsconfig ./tsconfig.json",
+    "check:watch": "svelte-check --tsconfig ./tsconfig.json --watch",
+    "lint": "eslint --ignore-path .gitignore . --cache --ext=ts,tsx,js,svelte src --fix",
+    "release": "echo '...skipping...'",
+    "publish": "echo '...skipping...'",
+    "conf": "echo '...skipping...'",
+    "commit": "yarn lint"
+  },
+  "dependencies": {
+    "@reapit/elements": "3.2.0"
+  },
+  "devDependencies": {
+    "@sveltejs/adapter-static": "next",
+    "@sveltejs/kit": "next",
+    "@typescript-eslint/eslint-plugin": "^4.29.0",
+    "@typescript-eslint/parser": "^4.29.0",
+    "eslint": "^7.32.0",
+    "eslint-config-prettier": "^8.3.0",
+    "eslint-plugin-svelte3": "^3.2.0",
+    "prettier": "^2.3.2",
+    "prettier-plugin-svelte": "^2.3.1",
+    "svelte": "^3.34.0",
+    "svelte-check": "^2.0.0",
+    "svelte-preprocess": "^4.0.0",
+    "tslib": "^2.3.0",
+    "typescript": "^4.3.5"
+  },
+  "type": "module"
+}

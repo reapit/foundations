@@ -1,0 +1,28 @@
+.gd-page-one-container-gradient {
+  background: linear-gradient(180deg, #edfaff 0%, #ffffff 26.56%, #ffffff 100%);
+}
+
+.gd-page-one-inner-container {
+  display: flex;
+  padding: 2rem;
+  width: 100%;
+  max-width: 1200px;
+  margin: 0 auto;
+  height: 100%;
+}
+
+.gd-page-one-inner-container-item {
+  width: 50%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.gd-page-one-inner-container-item img {
+  width: 100%;
+}
+
+.gd-logo-image {
+  margin-bottom: 4.5rem;
+  max-width: 400px;
+}
