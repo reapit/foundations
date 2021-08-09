@@ -39,12 +39,13 @@
     padding: 2rem;
     max-width: 1200px;
     height: 100vh;
-    overflow: hidden;
   }
 
   img {
-    width: auto;
-    height: 100%;
+    max-height: 100%;
+    max-width: 100%;
+    min-width: 0;
+    min-height: 0;
     margin: -2.5rem 0 auto 0;
   }
 
