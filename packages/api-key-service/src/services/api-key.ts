@@ -17,7 +17,6 @@ export const updateApiKey = (apiKey: ApiKeyModel, dto: Partial<ApiKeyModel>): Pr
 }
 
 export const getApiKey = (apiKey: Partial<ApiKeyModel>): Promise<ApiKeyModel | undefined> => {
-  console.log('partial', apiKey)
   return db.get(Object.assign(new ApiKeyModel(), apiKey))
 }
 
