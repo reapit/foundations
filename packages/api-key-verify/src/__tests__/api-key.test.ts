@@ -1,7 +1,5 @@
 import { ApiKeyModel } from '../api-key-model'
-import { getApiKey, resolveApiKey } from '../api-key'
 import { DataMapper, QueryIterator, StringToAnyObjectMap } from '@aws/dynamodb-data-mapper'
-import { ApiKeyExpiredException, ApiKeyNotFoundException } from '@/exceptions'
 import { DynamoDB } from 'aws-sdk'
 
 const SUCCESS_API_KEY = 'success-api-key'
@@ -75,58 +73,5 @@ describe('ApiKey', () => {
 
   afterAll(() => {
     jest.restoreAllMocks()
-  })
-
-  describe('getApiKey', () => {
-    it('Can get apiKey', async () => {
-      const result = await getApiKey(db)(SUCCESS_API_KEY)
-
-      expect(result?.apiKey).toBe(SUCCESS_API_KEY)
-      expect(new Date(result?.keyExpiresAt as string) > new Date()).toBeTruthy()
-    })
-
-    it('Can get expired apiKey', async () => {
-      const result = await getApiKey(db)(EXPIRED_API_KEY)
-
-      expect(result?.apiKey).toBe(EXPIRED_API_KEY)
-      expect(new Date(result?.keyExpiresAt as string) < new Date()).toBeTruthy()
-    })
-
-    it('Returns undefined on no apiKey', async () => {
-      const result = await getApiKey(db)(NOT_FOUND_API_KEY)
-
-      expect(typeof result).toBe('undefined')
-    })
-
-    it('Can get latest apiKey', async () => {
-      const result = await getApiKey(db)(MIXED_API_KEY)
-
-      const expiresDate = new Date()
-      expiresDate.setDate(expiresDate.getDate() + 10)
-
-      expect(result?.apiKey).toBe(MIXED_API_KEY)
-      expect(result?.expired).toBeFalsy()
-      expect(new Date(result?.keyExpiresAt as string).getDate()).toBe(expiresDate.getDate())
-    })
-  })
-
-  describe('resolveApiKey', () => {
-    it('Throws not found exception on no apiKey', async () => {
-      try {
-        await resolveApiKey(db)(NOT_FOUND_API_KEY)
-        expect(true).toBeFalsy()
-      } catch (e) {
-        expect(e).toBeInstanceOf(ApiKeyNotFoundException)
-      }
-    })
-
-    it('Throws expired exception on expired apiKey', async () => {
-      try {
-        await resolveApiKey(db)(EXPIRED_API_KEY)
-        expect(true).toBeFalsy()
-      } catch (e) {
-        expect(e).toBeInstanceOf(ApiKeyExpiredException)
-      }
-    })
   })
 })
