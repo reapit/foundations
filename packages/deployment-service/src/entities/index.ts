@@ -86,6 +86,9 @@ export class PipelineEntity extends AbstractEntity implements PipelineModelInter
 
   @Column()
   developerId?: string
+
+  @Column()
+  outDir?: string
 }
 
 export type TaskWorkflow = TaskRunnerFunctions[]

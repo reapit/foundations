@@ -35,6 +35,7 @@ const ApiKeyListPage = React.lazy(() => catchChunkError(() => import('../compone
 const ReleasesPage = React.lazy(() => catchChunkError(() => import('../components/pages/releases')))
 const ReleaseProjectPage = React.lazy(() => catchChunkError(() => import('../components/pages/release-projects')))
 const PipelineCreatePage = React.lazy(() => catchChunkError(() => import('../components/pages/pipelines/create')))
+const PipelineUpdatePage = React.lazy(() => catchChunkError(() => import('../components/pages/pipelines/update')))
 const PipelineShowPage = React.lazy(() => catchChunkError(() => import('../components/pages/pipelines/show')))
 
 const Router = () => (
@@ -50,6 +51,7 @@ const Router = () => (
             <Route path={Routes.RELEASES} exact component={ReleasesPage} />
             <Route path={Routes.API_KEYS} exact component={ApiKeyListPage} />
             <Route path={Routes.PIPELINES_CREATION} exact component={PipelineCreatePage} />
+            <Route path={Routes.PIPELINES_UPDATE} exact component={PipelineUpdatePage} />
             <Route path={Routes.PIPELINES_SHOW} exact component={PipelineShowPage} />
           </Switch>
         </PrivateRouteWrapper>
