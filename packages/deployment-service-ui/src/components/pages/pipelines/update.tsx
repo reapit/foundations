@@ -1,17 +1,27 @@
 import Routes from '@/constants/routes'
 import { reapitConnectBrowserSession } from '@/core/connect-session'
 import { ReapitConnectSession, useReapitConnect } from '@reapit/connect-session'
-import { Breadcrumb, BreadcrumbItem, Section, Formik, Form } from '@reapit/elements-legacy'
+import {
+  Breadcrumb,
+  BreadcrumbItem,
+  Section,
+  Formik,
+  Form,
+  FlexContainerBasic,
+  Loader,
+  H1,
+} from '@reapit/elements-legacy'
 import { InputAddOn, Button, Input, InputGroup, Label, Title } from '@reapit/elements'
-import React, { useState } from 'react'
+import React, { useEffect, useState } from 'react'
 import { Link } from 'react-router-dom'
 import { PackageManagerEnum, PipelineModelInterface } from '@reapit/foundations-ts-definitions'
-import { pipelineServiceCreate } from '@/platform-api/pipelines'
-import { useHistory } from 'react-router'
+import { pipelineServiceGet, pipelineServiceUpdate } from '@/platform-api/pipelines'
+import { useParams } from 'react-router'
 
 const isNull = (value: any): boolean => !value || value === '' || value === null || typeof value === 'undefined'
 
-const isUrl = (value: string): boolean =>
+const isUrl = (value?: string): boolean =>
+  typeof value !== 'undefined' &&
   new RegExp(
     // eslint-disable-next-line max-len
     /(https?:\/\/(?:www\.|(?!www))[a-zA-Z0-9][a-zA-Z0-9-]+[a-zA-Z0-9]\.[^\s]{2,}|www\.[a-zA-Z0-9][a-zA-Z0-9-]+[a-zA-Z0-9]\.[^\s]{2,}|https?:\/\/(?:www\.|(?!www))[a-zA-Z0-9]+\.[^\s]{2,}|www\.[a-zA-Z0-9]+\.[^\s]{2,})/,
@@ -20,37 +30,51 @@ const isUrl = (value: string): boolean =>
 export default () => {
   const { connectSession } = useReapitConnect(reapitConnectBrowserSession)
   const [loading, setLoading] = useState<boolean>(false)
-  const history = useHistory()
+  const [pipeline, setPipeline] = useState<PipelineModelInterface | undefined>()
+  const params = useParams<{ pipelineId: string }>()
+  const [updateLoading, setUpdateLoading] = useState<boolean>(false)
 
-  const createPipeline = async (pipeline: Partial<PipelineModelInterface>): Promise<PipelineModelInterface | void> => {
-    setLoading(true)
-    const result = await pipelineServiceCreate(connectSession as ReapitConnectSession, pipeline)
-    if (result) {
-      history.push(Routes.PIPELINES_SHOW.replace(':pipelineId', result.id as string))
+  useEffect(() => {
+    const fetchPipeline = async () => {
+      setLoading(true)
+      const serviceResponse = await pipelineServiceGet(connectSession as ReapitConnectSession, params.pipelineId)
+      setLoading(false)
+      if (serviceResponse) {
+        setPipeline(serviceResponse)
+      }
     }
-    setLoading(false)
+    if (connectSession) {
+      fetchPipeline()
+    }
+  }, [connectSession])
+
+  const updatePipeline = async (pipeline: Partial<PipelineModelInterface>): Promise<PipelineModelInterface | void> => {
+    setUpdateLoading(true)
+    const result = await pipelineServiceUpdate(connectSession as ReapitConnectSession, pipeline)
+    if (result) {
+      // history.push(Routes.PIPELINES_SHOW.replace(':pipelineId', result.id as string))
+    }
+    setUpdateLoading(false)
   }
 
-  return (
+  return loading ? (
+    <FlexContainerBasic centerContent flexColumn hasBackground hasPadding>
+      <Loader />
+    </FlexContainerBasic>
+  ) : pipeline ? (
     <>
       <Breadcrumb>
         <BreadcrumbItem>
           <Link to={Routes.PIPELINES}>Pipelines</Link>
         </BreadcrumbItem>
         <BreadcrumbItem isCurrent={true}>
-          <a href="#">Create</a>
+          <a href="#">Update</a>
         </BreadcrumbItem>
       </Breadcrumb>
       <Section>
-        <Title>Pipeline Creation</Title>
+        <Title>Pipeline Update</Title>
         <Formik
-          initialValues={{
-            buildCommand: 'build',
-            packageManager: PackageManagerEnum.YARN,
-            name: '',
-            repository: '',
-            outDir: 'dist',
-          }}
+          initialValues={pipeline}
           validate={(values) => {
             const errors: { [s: string]: string } = {}
 
@@ -75,15 +99,17 @@ export default () => {
             }
 
             if (isNull(values.outDir)) {
-              errors.outDir = 'Please enter an our Directory'
+              errors.outDir = 'Please enter an out dir'
             }
+
+            console.log('errors', errors)
 
             if (Object.keys(errors).length >= 1) {
               return errors
             }
           }}
           onSubmit={async (values) => {
-            await createPipeline(values)
+            await updatePipeline(values)
           }}
         >
           {({ errors, values, setFieldValue }) => (
@@ -150,13 +176,18 @@ export default () => {
                 {errors.outDir && <InputAddOn intent="danger">{errors.outDir}</InputAddOn>}
               </InputGroup>
               <br />
-              <Button type="submit" loading={loading} intent="primary">
-                Create
+              <Button type="submit" loading={updateLoading} intent="primary">
+                Update
               </Button>
             </Form>
           )}
         </Formik>
       </Section>
+    </>
+  ) : (
+    <>
+      <H1>No pipeline found</H1>
+      <Link to={Routes.PIPELINES}>Back</Link>
     </>
   )
 }
