@@ -16,7 +16,7 @@ const lambda = new AWS.Lambda()
 ): Promise<ApiKeyModel | never> => {
 
   const apiKey = await new Promise<ApiKeyModel | undefined>((resolve, reject) => lambda.invoke({
-    FunctionName: 'getApiKeyViaInvoke',
+    FunctionName: 'cloud-api-key-service-dev-getApiKeyViaInvoke',
     InvocationType: 'RequestResponse',
     LogType: 'Tail',
     Payload: JSON.stringify({ apiKey: apiKeyHeader }),
