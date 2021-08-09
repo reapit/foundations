@@ -5621,22 +5621,15 @@ __metadata:
     "@aws-cdk/aws-apigateway": 1.116.0
     "@aws-cdk/aws-lambda": 1.116.0
     "@aws-cdk/core": 1.116.0
-    "@reapit/ts-scripts": "workspace:packages/ts-scripts"
-    "@reapit/ts-types": "workspace:packages/ts-types"
     "@typescript-eslint/eslint-plugin": ^4.28.4
     "@typescript-eslint/parser": ^4.28.4
     apollo-server: ^3.1.1
     apollo-server-lambda: ^3.1.2
     aws-cdk: 1.116.0
-    babel-jest: ^27.0.6
     class-validator: ^0.13.1
-    concurrently: ^6.2.0
-    cross-env: ^7.0.3
     eslint: 7.31.0
     eslint-plugin-prettier: ^3.4.0
     graphql: ^15.5.1
-    jest: ^27.0.6
-    jest-coverage-badges: ^1.1.2
     reflect-metadata: ^0.1.13
     slugify: ^1.6.0
     ts-node: ^10.1.0
