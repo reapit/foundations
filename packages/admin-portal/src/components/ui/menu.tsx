@@ -12,13 +12,15 @@ import {
   ResultsIcon,
   UsersIcon,
   ProfileIcon,
+  MenuItem,
 } from '@reapit/elements-legacy'
 import Routes from '../../constants/routes'
 import { Location } from 'history'
 import { useReapitConnect } from '@reapit/connect-session'
 import { reapitConnectBrowserSession } from '@/core/connect-session'
+import { getAccess } from '../../utils/get-access'
 
-export const generateMenuConfig = (logoutCallback: () => void, location: Location<any>): MenuConfig => {
+export const generateMenuConfig = (logoutCallback: () => void, location: Location<any>, connectSession): MenuConfig => {
   return {
     defaultActiveKey: 'APPROVALS',
     location,
@@ -26,6 +28,7 @@ export const generateMenuConfig = (logoutCallback: () => void, location: Locatio
       {
         key: 'LOGO',
         icon: <ReapitHouseIcon />,
+        url: Routes.ROOT,
         type: 'LOGO',
       },
       {
@@ -84,7 +87,7 @@ export const generateMenuConfig = (logoutCallback: () => void, location: Locatio
         icon: <ProfileIcon />,
         type: 'SECONDARY',
       },
-    ],
+    ].filter((menuItem) => getAccess(connectSession, menuItem.url ?? '') || menuItem.key === 'LOGOUT') as MenuItem[],
   }
 }
 
@@ -92,8 +95,8 @@ export type MenuProps = {}
 
 export const Menu: React.FunctionComponent<MenuProps> = () => {
   const location = useLocation()
-  const { connectLogoutRedirect } = useReapitConnect(reapitConnectBrowserSession)
-  const menuConfigs = generateMenuConfig(() => connectLogoutRedirect(), location)
+  const { connectLogoutRedirect, connectSession } = useReapitConnect(reapitConnectBrowserSession)
+  const menuConfigs = generateMenuConfig(() => connectLogoutRedirect(), location, connectSession)
 
   return <Sidebar {...menuConfigs} location={location} />
 }

@@ -17,16 +17,6 @@ custom:
       noFrozenLockFile: false
     excludeFiles: src/**/*.test.ts
     keepOutputDirectory: true
-  dynamodb:
-    stages:
-      - local
-    start:
-      port: 8000
-      inMemory: true
-      heapInitial: 200m
-      heapMax: 1g
-      migrate: true
-      convertEmptyValues: true
   serverless-offline-sqs:
     autoCreate: true
     region: eu-west-2
@@ -45,58 +35,26 @@ provider:
   s3:
     deploymentReleaseBucket:
       name: ${self:custom.env.DEPLOYMENT_BUCKET_NAME}
+  vpc:
+    subnetIds:
+      - ${self:custom.env.SUB_NET}
+    securityGroupIds:
+      - ${self:custom.env.SECURITY_GROUP}
   
   environment:
     NODE_ENV: 'production'
     CONNECT_USER_POOL: ${self:custom.env.CONNECT_USER_POOL}
     SENTRY_DSN: ${self:custom.env.SENTRY_DSN}
-    DYNAMO_DB_REGION: ${self:custom.env.DYNAMO_DB_REGION}
-    DYNAMO_DB_ENDPOINT: ${self:custom.env.DYNAMO_DB_ENDPOINT}
-    DYNAMO_DB_PIPELINE_TABLE_NAME: ${self:custom.env.DYNAMO_DB_PIPELINE_TABLE_NAME}
-    DYNAMO_DB_PIPELINE_RUNNER_TABLE_NAME: ${self:custom.env.DYNAMO_DB_PIPELINE_RUNNER_TABLE_NAME}
-    DYNAMO_DB_TASK_TABLE_NAME: ${self:custom.env.DYNAMO_DB_TASK_TABLE_NAME}
-    DEPLOYMENT_BUCKET_NAME: ${self:custom.env.DEPLOYMENT_BUCKET_NAME}
     AURORA_RESOURCE_ARN: ${self:custom.env.AURORA_RESOURCE_ARN}
     AURORA_SECRET_ARN: ${self:custom.env.AURORA_SECRET_ARN}
     AURORA_DATABASE: ${self:custom.env.AURORA_DATABASE}
+    EFS_ARN: ${self:custom.env.EFS_ARN}
+    MYSQL_HOST: ${self:custom.env.MYSQL_HOST}
+    MYSQL_DATABASE: ${self:custom.env.MYSQL_DATABASE}
+    MYSQL_USERNAME: ${self:custom.env.MYSQL_USERNAME}
+    MYSQL_PASSWORD: ${self:custom.env.MYSQL_PASSWORD}
+    SQS_ENDPOINT: ${self:custom.env.SQS_ENDPOINT}
   iamRoleStatements:
-    - Effect: Allow
-      Action:
-        - dynamodb:Query
-        - dynamodb:Scan
-        - dynamodb:GetItem
-        - dynamodb:PutItem
-        - dynamodb:UpdateItem
-        - dynamodb:DeleteItem
-      Resource: 'arn:aws:dynamodb:${self:provider.region}:${self:custom.env.AWS_ACCOUNT_ID}:table/${self:custom.env.DYNAMO_DB_PIPELINE_TABLE_NAME}'
-    - Effect: Allow
-      Action:
-        - dynamodb:Query
-        - dynamodb:Scan
-      Resource: 'arn:aws:dynamodb:${self:provider.region}:${self:custom.env.AWS_ACCOUNT_ID}:table/${self:custom.env.DYNAMO_DB_PIPELINE_TABLE_NAME}/index/*'
-    - Effect: Allow
-      Action:
-        - dynamodb:Query
-        - dynamodb:Scan
-        - dynamodb:GetItem
-        - dynamodb:PutItem
-        - dynamodb:UpdateItem
-        - dynamodb:DeleteItem
-      Resource: 'arn:aws:dynamodb:${self:provider.region}:${self:custom.env.AWS_ACCOUNT_ID}:table/${self:custom.env.DYNAMO_DB_PIPELINE_RUNNER_TABLE_NAME}'
-    - Effect: Allow
-      Action:
-        - dynamodb:Query
-        - dynamodb:Scan
-      Resource: 'arn:aws:dynamodb:${self:provider.region}:${self:custom.env.AWS_ACCOUNT_ID}:table/${self:custom.env.DYNAMO_DB_PIPELINE_RUNNER_TABLE_NAME}/index/*'
-    - Effect: Allow
-      Action:
-        - dynamodb:Query
-        - dynamodb:Scan
-        - dynamodb:GetItem
-        - dynamodb:PutItem
-        - dynamodb:UpdateItem
-        - dynamodb:DeleteItem
-      Resource: 'arn:aws:dynamodb:${self:provider.region}:${self:custom.env.AWS_ACCOUNT_ID}:table/${self:custom.env.DYNAMO_DB_TASK_TABLE_NAME}'
     - Effect: Allow
       Action:
         - s3:PutObject
@@ -131,6 +89,10 @@ provider:
         Fn::GetAtt:
           - TaskRunner
           - Arn
+    - Effect: Allow
+      Action:
+        - lambda:InvokeFunction
+      Resource: arn:aws:lambda:${self:provider.region}:${self:custom.env.AWS_ACCOUNT_ID}:function:cloud-api-key-service-dev-getApiKeyViaInvoke
 
 resources:
   Resources:
@@ -392,21 +354,6 @@ functions:
               - Authorization
               - X-Api-Key
               - api-version
-  # pipelineRun:
-  #   handler: src/index.pipelineRun
-  #   events:
-  #     - http:
-  #         path: /pipeline/{pipelineId}/run
-  #         method: post
-  #         cors:
-  #           origin: '*'
-  #           headers:
-  #             - Content-Type
-  #             - Authorization
-  #             - X-Api-Key
-  #             - api-version
-  #         authorizer:
-  #           arn: arn:aws:cognito-idp:${self:provider.region}:${self:custom.env.AWS_ACCOUNT_ID}:userpool/${self:custom.env.CONNECT_USER_POOL}
   deployRelease:
     handler: src/index.deployRelease
     events:
@@ -525,7 +472,13 @@ functions:
               - TaskPopulation
               - Arn
   taskRunner:
+    layers:
+      - arn:aws:lambda:${self:provider.region}:553035198032:layer:git-lambda2:8
     handler: src/index.taskRunner
+    timeout: 300
+    filesystem:
+      - arn: ${self:custom.env.EFS_ARN}
+        localMountPath: /mnt/efs1
     events:
       - sqs:
           queueName: TaskRunner

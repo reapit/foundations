@@ -1,20 +1,20 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`Home should match a snapshot 1`] = `
-<Fragment>
-  <H3>
+<PageContainer>
+  <Title>
     Reapit Insights
-  </H3>
-  <Section
-    hasMargin={false}
-    hasPadding={false}
-    isFlex={true}
-    isFlexColumn={true}
-    isFullHeight={true}
+  </Title>
+  <PersistantNotification
+    intent="secondary"
+    isExpanded={true}
+    isFullWidth={true}
   >
-    <MetabaseContainer
-      id="reportContainer"
-    />
-  </Section>
-</Fragment>
+    Loading your Power BI account. On the first login, this could take up to a minute.
+  </PersistantNotification>
+  <Loader
+    fullPage={true}
+    label="Loading"
+  />
+</PageContainer>
 `;

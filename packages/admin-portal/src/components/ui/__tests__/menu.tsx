@@ -33,7 +33,8 @@ describe('Menu', () => {
   })
 
   describe('generateMenuConfig', () => {
-    it('should return config', () => {
+    it('should return full config when user has access permissions', () => {
+      window.reapit.config.limitedUserAccessWhitelist = []
       const location = {
         hash: 'mockHash',
         key: 'mockKey',
@@ -41,9 +42,55 @@ describe('Menu', () => {
         search: '',
         state: {},
       }
+      const session = {
+        loginIdentity: {
+          email: '',
+          groups: ['ReapitEmployeeFoundationsAdmin'],
+        },
+      }
       const logout = jest.fn()
-      const result = generateMenuConfig(logout, location)
-      expect(result).toBeDefined()
+      const result = generateMenuConfig(logout, location, session)
+      expect(result.menu.length).toBe(9)
+    })
+
+    it('should return config with just a login button when user has no access permissions', () => {
+      window.reapit.config.limitedUserAccessWhitelist = []
+      const location = {
+        hash: 'mockHash',
+        key: 'mockKey',
+        pathname: 'mockPathname',
+        search: '',
+        state: {},
+      }
+      const session = {
+        loginIdentity: {
+          email: '',
+          groups: [],
+        },
+      }
+      const logout = jest.fn()
+      const result = generateMenuConfig(logout, location, session)
+      expect(result.menu.length).toBe(1)
+    })
+
+    it('should return config with limited access when the user is on a whitelist', () => {
+      window.reapit.config.limitedUserAccessWhitelist = ['foo@bar.com']
+      const location = {
+        hash: 'mockHash',
+        key: 'mockKey',
+        pathname: 'mockPathname',
+        search: '',
+        state: {},
+      }
+      const session = {
+        loginIdentity: {
+          email: 'foo@bar.com',
+          groups: ['ReapitEmployeeFoundationsAdmin'],
+        },
+      }
+      const logout = jest.fn()
+      const result = generateMenuConfig(logout, location, session)
+      expect(result.menu.length).toBe(5)
     })
   })
 })

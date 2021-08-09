@@ -1,7 +1,7 @@
 import { ApiKeyModel } from '@reapit/api-key-verify'
 import { httpHandler, UnauthorizedException } from '@homeservenow/serverless-aws-handler'
 import { connectSessionVerifyDecodeIdTokenWithPublicKeys, LoginIdentity } from '@reapit/connect-session'
-import { getApiKey as get } from '../services'
+import { getApiKey as get, getApiKeyByKey } from '../services'
 import publicKeys from '../../public-keys.json'
 import { defaultOutputHeaders } from './../constants'
 
@@ -30,3 +30,15 @@ export const getApiKey = httpHandler<void, ApiKeyModel>({
     })
   },
 })
+
+export const getApiKeyViaInvoke = async ({
+  apiKey: apiKeyHeader,
+}: {
+  apiKey?: string
+}): Promise<ApiKeyModel | undefined> => {
+  if (!apiKeyHeader) {
+    return undefined
+  }
+
+  return getApiKeyByKey(apiKeyHeader)
+}

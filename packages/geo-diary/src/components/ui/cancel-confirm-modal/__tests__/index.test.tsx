@@ -12,7 +12,7 @@ describe('CancelConfirmModal', () => {
     expect(
       shallow(
         <MockedProvider mocks={[]} addTypename={false}>
-          <CancelConfirmModal appointment={appointment} showModal={true} handleHideModal={jest.fn()} />
+          <CancelConfirmModal appointment={appointment} closeModal={jest.fn()} />
         </MockedProvider>,
       ),
     ).toMatchSnapshot()

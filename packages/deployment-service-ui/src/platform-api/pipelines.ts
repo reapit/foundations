@@ -107,39 +107,6 @@ export const pipelineServiceDelete = async (
   }
 }
 
-/**
- * @deprecated
- *
- * @param session
- * @param id
- * @returns
- */
-export const pipelineServiceRun = async (
-  session: ReapitConnectSession,
-  id: string,
-): Promise<PipelineModelInterface | undefined> => {
-  try {
-    const response: PipelineModelInterface | undefined = await fetcher({
-      api: URLS.DEPLOYMENT_SERVICE_HOST,
-      url: `/pipeline/${id}/run`,
-      method: 'POST',
-      headers: {
-        ...BASE_HEADERS,
-        Authorization: `${session.idToken}`,
-      },
-    })
-
-    if (response) {
-      return response
-    }
-
-    throw new Error('No response returned by API')
-  } catch (err) {
-    console.log(notification.error({ message: 'Pipeline failed to run' }))
-    console.error('Error fetching Configuration Appointment Types', err.message)
-  }
-}
-
 export const pipelineRunnerPaginate = async (
   session: ReapitConnectSession,
   pipeline: PipelineModelInterface,
@@ -188,6 +155,34 @@ export const pipelineRunnerCreate = async (
     throw new Error('No response returned by API')
   } catch (err) {
     console.log(notification.error({ message: 'Pipeline failed to run' }))
+    console.error('Error fetching Configuration Appointment Types', err.message)
+  }
+}
+
+export const pipelineServiceUpdate = async (
+  session: ReapitConnectSession,
+  pipeline: PipelineModelInterface,
+): Promise<PipelineRunnerModelInterface | undefined> => {
+  try {
+    const response: PipelineRunnerModelInterface = await fetcher({
+      api: URLS.DEPLOYMENT_SERVICE_HOST,
+      url: `/pipeline/${pipeline.id}`,
+      method: 'PUT',
+      headers: {
+        ...BASE_HEADERS,
+        Authorization: `${session.idToken}`,
+      },
+      body: pipeline,
+    })
+
+    if (response) {
+      notification.success({ message: 'Pipeline updated' })
+      return response
+    }
+
+    throw new Error('No response returned by API')
+  } catch (err) {
+    console.log(notification.error({ message: 'Pipeline failed to update' }))
     console.error('Error fetching Configuration Appointment Types', err.message)
   }
 }
