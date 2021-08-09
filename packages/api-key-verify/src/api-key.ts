@@ -22,8 +22,8 @@ const lambda = new AWS.Lambda()
     Payload: JSON.stringify({ apiKey: apiKeyHeader }),
   }, (err, data) => {
     if (err) {
+      console.error(err)
       reject(err)
-      
     }
     resolve(data.Payload ? plainToClass(ApiKeyModel, JSON.parse(data.Payload.toString())) : undefined)
   }))
