@@ -1,7 +1,7 @@
-import { Genre } from '@/entities/Genre'
+import { Genre } from '@/entities/genre'
 import { Resolver, Query, Mutation } from 'type-graphql'
-import { Book } from '../entities/Book'
-import { authors } from './AuthorResolver'
+import { Book } from '../entities/book'
+import { authors } from './author-resolver'
 
 const books: Array<Book> = [
   {

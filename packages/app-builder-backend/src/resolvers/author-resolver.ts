@@ -1,5 +1,5 @@
 import { Resolver, Query } from 'type-graphql'
-import { Author } from '../entities/Author'
+import { Author } from '../entities/author'
 
 export const authors = [
   {
