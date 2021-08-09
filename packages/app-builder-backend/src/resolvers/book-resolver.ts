@@ -1,5 +1,5 @@
-import { Genre } from '@/entities/genre'
 import { Resolver, Query, Mutation } from 'type-graphql'
+import { Genre } from '../entities/genre'
 import { Book } from '../entities/book'
 import { authors } from './author-resolver'
 
