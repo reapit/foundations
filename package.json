@@ -12,7 +12,8 @@
     "conf-all": "yarn workspaces foreach --parallel --verbose run conf",
     "lint-all": "yarn workspaces foreach --parallel --verbose run lint",
     "upgrade-all": "yarn upgrade-interactive",
-    "postinstall": "husky install"
+    "postinstall": "husky install",
+    "aws-lambda-ric": "aws-lambda-ric"
   },
   "devDependencies": {
     "husky": "^7.0.1"

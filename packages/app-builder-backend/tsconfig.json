@@ -1,6 +1,7 @@
 {
   "extends": "../../tsconfig.json",
   "compilerOptions": {
+    "module": "commonjs",
     "target": "ES2018",
     "typeRoots": ["./src/core/definitions.d.ts", "node_modules/@types", "../../node_modules/@types"],
     "baseUrl": "./",
@@ -16,11 +17,6 @@
     "emitDecoratorMetadata": true,
     "strictPropertyInitialization": false,
     "outDir": "./dist"
-  },
-  "ts-node": {
-    "compilerOptions": {
-      "module": "commonjs"
-    }
   },
   "include": ["src", "cdk"],
   "exclude": ["public", "dist", "src/scripts", "node_modules", "src/tests/coverage"]

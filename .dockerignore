@@ -1,9 +1,10 @@
 .git
-cdk.out
+**/cdk.out
+**/node_modules
+**/cdk
 node_modules
 dist
 test
 .github
 .nyc_output
 yarn-error.log
-cdk
