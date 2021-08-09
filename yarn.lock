@@ -10788,6 +10788,7 @@ __metadata:
     "@reapit/utils": "workspace:packages/utils"
     "@typescript-eslint/eslint-plugin": ^4.28.4
     "@typescript-eslint/parser": ^4.28.4
+    aws-lambda: ^1.0.6
     babel-jest: ^27.0.6
     class-transformer: ^0.4.0
     class-validator: ^0.13.1

@@ -16,5 +16,5 @@
   },
 
   "include": ["src"],
-  "exclude": ["public", "dist", "src/scripts", "node_modules", "src/tests/coverage"]
+  "exclude": ["public", "dist/*", "src/scripts", "node_modules", "src/tests/coverage"]
 }
