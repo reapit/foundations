@@ -7,8 +7,7 @@ console.log(`Cronjob executed at ${new Date().toDateString()} - ${new Date().toT
 
 if (!gitStatus) {
   console.log('No changes')
-  return
+} else {
+  // updateNPM()
+  releaseGithub()
 }
-
-// updateNPM()
-releaseGithub()

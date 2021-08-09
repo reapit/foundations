@@ -1,13 +1,12 @@
 import React from 'react'
-import { Button, ModalV2, ButtonGroup } from '@reapit/elements-legacy'
 import { useMutation } from '@apollo/client'
 import UPDATE_APPOINTMENT_BY_ID from '../../../graphql/mutations/update-appointment-by-id.graphql'
 import { ExtendedAppointmentModel } from '../../../types/global'
+import { BodyText, Button, elMb6, elTextCenter, FlexContainer } from '@reapit/elements'
 
 export type CancelConfirmModalProps = {
-  showModal: boolean
   appointment: ExtendedAppointmentModel
-  handleHideModal: () => void
+  closeModal: () => void
 }
 
 export type UpdateAppointmentData = {
@@ -28,35 +27,39 @@ export type UpdateAppointmentVariables = {
 export const handleUpdateAppointment =
   ({ updateAppointment, appointment }: HandleUpdateAppointmentParams) =>
   () => {
+    const { id, _eTag } = appointment
     updateAppointment({
-      variables: { id: appointment?.id || '', cancelled: true, _eTag: appointment?._eTag || '' },
+      variables: { id, cancelled: true, _eTag },
     })
   }
 
-export const CancelConfirmModal: React.FC<CancelConfirmModalProps> = ({ showModal, appointment, handleHideModal }) => {
+export const CancelConfirmModal: React.FC<CancelConfirmModalProps> = ({ appointment, closeModal }) => {
   const [updateAppointment, { loading }] = useMutation<UpdateAppointmentData, UpdateAppointmentVariables>(
     UPDATE_APPOINTMENT_BY_ID,
     {
-      onCompleted: handleHideModal,
+      onCompleted: closeModal,
     },
   )
 
   return (
-    <ModalV2 visible={showModal} destroyOnClose={true} isCentered onClose={handleHideModal} title="Cancel Appointment?">
-      <p className="mb-4">Are you sure you want to cancel this appointment?</p>
-      <ButtonGroup isCentered hasSpacing>
-        <Button variant="secondary" disabled={loading} onClick={handleHideModal} type="button">
+    <>
+      <div className={elMb6}>
+        <BodyText className={elTextCenter}>Are you sure you want to cancel this appointment?</BodyText>
+      </div>
+      <FlexContainer isFlexJustifyEvenly>
+        <Button intent="secondary" size={2} disabled={loading} onClick={closeModal} type="button">
           No
         </Button>
         <Button
-          variant="danger"
+          intent="critical"
+          size={2}
           loading={loading}
           onClick={handleUpdateAppointment({ updateAppointment, appointment })}
           type="button"
         >
           Yes
         </Button>
-      </ButtonGroup>
-    </ModalV2>
+      </FlexContainer>
+    </>
   )
 }

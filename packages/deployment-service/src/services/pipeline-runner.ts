@@ -36,5 +36,19 @@ export const paginatePipelineRunners = async (
   const connection = await connect()
   const repo = connection.getRepository(PipelineRunnerEntity)
 
-  return paginate(repo, { limit: 10, page }, { pipeline: { id: pipelineId }, order: { created: 'DESC' } })
+  return paginate(
+    repo,
+    { limit: 10, page },
+    {
+      relations: ['pipeline'],
+      where: {
+        pipeline: {
+          id: pipelineId,
+        },
+      },
+      order: {
+        created: 'DESC',
+      },
+    },
+  )
 }

@@ -962,8 +962,7 @@ exports[`CancelConfirmModal should match snapshot 1`] = `
         "typeId": "VW",
       }
     }
-    handleHideModal={[MockFunction]}
-    showModal={true}
+    closeModal={[MockFunction]}
   />
 </ApolloProvider>
 `;

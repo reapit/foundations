@@ -5,7 +5,7 @@ import { Breadcrumb, BreadcrumbItem, Section, Formik, Form } from '@reapit/eleme
 import { InputAddOn, Button, Input, InputGroup, Label, Title } from '@reapit/elements'
 import React, { useState } from 'react'
 import { Link } from 'react-router-dom'
-import { PipelineModelInterface } from '@reapit/foundations-ts-definitions'
+import { PackageManagerEnum, PipelineModelInterface } from '@reapit/foundations-ts-definitions'
 import { pipelineServiceCreate } from '@/platform-api/pipelines'
 import { useHistory } from 'react-router'
 
@@ -45,10 +45,11 @@ export default () => {
         <Title>Pipeline Creation</Title>
         <Formik
           initialValues={{
-            build: 'build',
-            package: 'yarn',
+            buildCommand: 'build',
+            packageManager: PackageManagerEnum.YARN,
             name: '',
             repository: '',
+            outDir: 'dist',
           }}
           validate={(values) => {
             const errors: { [s: string]: string } = {}
@@ -65,12 +66,16 @@ export default () => {
               errors.repository = 'Please enter a valid repository url'
             }
 
-            if (isNull(values.package)) {
-              errors.package = 'Please select a package manager'
+            if (isNull(values.packageManager)) {
+              errors.packageManager = 'Please select a package manager'
             }
 
-            if (isNull(values.build)) {
-              errors.package = 'Please a a build command'
+            if (isNull(values.buildCommand)) {
+              errors.buildCommand = 'Please enter a build command'
+            }
+
+            if (isNull(values.outDir)) {
+              errors.outDir = 'Please enter an our Directory'
             }
 
             if (Object.keys(errors).length >= 1) {
@@ -81,7 +86,7 @@ export default () => {
             await createPipeline(values)
           }}
         >
-          {({ errors, touched, values, setFieldValue }) => (
+          {({ errors, values, setFieldValue }) => (
             <Form>
               <InputGroup>
                 <Label>Project Name</Label>
@@ -91,7 +96,7 @@ export default () => {
                   value={values.name}
                   onChange={(event) => setFieldValue('name', event.target.value)}
                 />
-                {touched.name && errors.name && <InputAddOn intent="danger">{errors.name}</InputAddOn>}
+                {errors.name && <InputAddOn intent="danger">{errors.name}</InputAddOn>}
               </InputGroup>
               <InputGroup>
                 <Label>Repository</Label>
@@ -102,17 +107,15 @@ export default () => {
                   value={values.repository}
                   onChange={(event) => setFieldValue('repository', event.target.value)}
                 />
-                {touched.repository && errors.repository && (
-                  <InputAddOn intent="danger">{errors.repository}</InputAddOn>
-                )}
+                {errors.repository && <InputAddOn intent="danger">{errors.repository}</InputAddOn>}
               </InputGroup>
               <Label>Package Manager</Label>
               <InputGroup>
                 <Input
                   name="package"
                   type="radio"
-                  value="yarn"
-                  checked={values.package === 'yarn'}
+                  value={PackageManagerEnum.YARN}
+                  checked={values.packageManager === PackageManagerEnum.YARN}
                   onChange={(event) => setFieldValue('package', event.target.value)}
                 />
                 <InputAddOn>yarn</InputAddOn>
@@ -121,21 +124,30 @@ export default () => {
                 <Input
                   name="package"
                   type="radio"
-                  value="npm"
-                  checked={values.package === 'npm'}
+                  value={PackageManagerEnum.NPM}
+                  checked={values.packageManager === PackageManagerEnum.NPM}
                   onChange={(event) => setFieldValue('package', event.target.value)}
                 />
                 <InputAddOn>npm</InputAddOn>
               </InputGroup>
-              {touched.package && errors.package && <InputAddOn intent="danger">{errors.package}</InputAddOn>}
+              {errors.packageManager && <InputAddOn intent="danger">{errors.packageManager}</InputAddOn>}
               <InputGroup>
                 <Label>Build Command</Label>
                 <Input
                   id="build"
-                  value={values.build}
+                  value={values.buildCommand}
                   onChange={(event) => setFieldValue('build', event.target.value)}
                 />
-                {touched.build && errors.build && <InputAddOn intent="danger">{errors.build}</InputAddOn>}
+                {errors.buildCommand && <InputAddOn intent="danger">{errors.buildCommand}</InputAddOn>}
+              </InputGroup>
+              <InputGroup>
+                <Label>Out Directory</Label>
+                <Input
+                  id="outDir"
+                  value={values.outDir}
+                  onChange={(event) => setFieldValue('outDir', event.target.value)}
+                />
+                {errors.outDir && <InputAddOn intent="danger">{errors.outDir}</InputAddOn>}
               </InputGroup>
               <br />
               <Button type="submit" loading={loading} intent="primary">

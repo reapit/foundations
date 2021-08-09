@@ -3,6 +3,7 @@ const Routes = {
   LOGIN: '/login',
   PIPELINES: '/pipelines',
   PIPELINES_CREATION: '/pipelines/create',
+  PIPELINES_UPDATE: '/pipelines/:pipelineId/update',
   PIPELINES_SHOW: '/pipelines/:pipelineId',
   API_KEYS: '/api-keys',
   RELEASES: '/releases/:projectName',

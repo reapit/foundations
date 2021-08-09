@@ -15,22 +15,19 @@ const daysSinceJanFirstTwentyOne = Number(dayjs.duration(today.diff(janFirstTwen
 const isOddDay = Boolean(daysSinceJanFirstTwentyOne % 2)
 const { appointmentsPayloadOddDays, appointmentsPayloadEvenDays } = APP_CONSTANTS
 export const appointmentsCreate = async (accessToken: string) => {
-  const payloads = isOddDay ? appointmentsPayloadOddDays : appointmentsPayloadEvenDays
+  const payloads = !isOddDay ? appointmentsPayloadOddDays : appointmentsPayloadEvenDays
   console.log('Creating appointments')
 
   try {
-    await axios.all(
-      payloads.map((payload: CreateAppointmentModel) =>
-        axios.post<AppointmentModelPagedResult>(`${platformBaseUri}/appointments`, payload, {
-          headers: {
-            ...BASE_HEADERS,
-            Authorization: `Bearer ${accessToken}`,
-          },
-        }),
-      ),
-    )
-    console.log('Appointments created')
-    process.exit(0)
+    payloads.forEach(async (payload: CreateAppointmentModel) => {
+      await axios.post<AppointmentModelPagedResult>(`${platformBaseUri}/appointments`, payload, {
+        headers: {
+          ...BASE_HEADERS,
+          Authorization: `Bearer ${accessToken}`,
+        },
+      })
+      console.log(`Appointment for property ${payload.propertyId} created`)
+    })
   } catch (error) {
     console.error('Error creating appointments', error.message)
     process.exit(1)
