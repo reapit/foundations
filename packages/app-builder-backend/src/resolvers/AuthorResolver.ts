@@ -19,7 +19,7 @@ export class AuthorResolver {
   constructor() {}
 
   @Query(() => [Author])
-  async authors() {
+  async listAuthors() {
     return authors
   }
 }

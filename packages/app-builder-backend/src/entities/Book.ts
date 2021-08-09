@@ -1,5 +1,6 @@
 import { ObjectType, Field, ID } from 'type-graphql'
 import { Author } from './Author'
+import { Genre } from './Genre'
 
 @ObjectType()
 export class Book {
@@ -10,7 +11,7 @@ export class Book {
   title: string
 
   @Field()
-  genre: string
+  genre: Genre
 
   @Field({ nullable: true })
   description?: string

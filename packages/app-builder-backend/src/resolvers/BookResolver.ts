@@ -1,3 +1,4 @@
+import { Genre } from '@/entities/Genre'
 import { Resolver, Query, Mutation } from 'type-graphql'
 import { Book } from '../entities/Book'
 import { authors } from './AuthorResolver'
@@ -7,14 +8,14 @@ const books: Array<Book> = [
     id: 1,
     title: 'The Awakening',
     description: 'Really scary i think',
-    genre: 'horror',
+    genre: Genre.Horror,
     author: authors[0],
   },
   {
     id: 2,
     title: 'City of Glass',
     description: 'Really scary i think',
-    genre: 'thriller',
+    genre: Genre.Thriller,
     author: authors[1],
   },
 ]
@@ -24,7 +25,7 @@ export class BookResolver {
   constructor() {}
 
   @Query(() => [Book])
-  async books() {
+  async listBooks() {
     return books
   }
 
