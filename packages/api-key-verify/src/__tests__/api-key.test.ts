@@ -39,10 +39,6 @@ describe('ApiKey', () => {
       })
   })
 
-  afterAll(() => {
-    jest.restoreAllMocks()
-  })
-
   describe('resolveApiKey', () => {
     it('Can get apiKey', async () => {
       const result = await resolveApiKey(SUCCESS_API_KEY)
@@ -63,5 +59,9 @@ describe('ApiKey', () => {
 
       expect(typeof result).toBe('undefined')
     })
+  })
+
+  afterAll(() => {
+    jest.restoreAllMocks()
   })
 })
