@@ -505,6 +505,10 @@ export interface AppSummaryModel {
    * Gets a flag to determing if the app is marked as hidden
    */
   isHidden?: boolean
+  /**
+   * Gets the unique identifier of clients that the app is visible to
+   */
+  limitToClientIds?: string[]
 }
 /**
  * Model to handle paged data and information
