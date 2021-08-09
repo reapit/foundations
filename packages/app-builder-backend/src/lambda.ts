@@ -5,7 +5,6 @@ import { BookResolver } from './resolvers/BookResolver'
 import { AuthorResolver } from './resolvers/AuthorResolver'
 
 const createHandler = async () => {
-  console.log('createHandler')
   const schema = await buildSchema({
     resolvers: [BookResolver, AuthorResolver],
   })
@@ -17,10 +16,8 @@ const createHandler = async () => {
   return server.createHandler()
 }
 
-console.log('booted')
 export const handler = async (event, context) => {
   const server = await createHandler()
-  console.log('server', server)
   // @ts-ignore until https://github.com/apollographql/apollo-server/issues/5592 is resolved
   return server(event, context)
 }
