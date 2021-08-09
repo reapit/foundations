@@ -1,11 +1,14 @@
 {
   "name": "deployment-service",
   "dependencies": {
+    "@aws-cdk/aws-route53": "^1.117.0",
+    "@aws-cdk/aws-s3": "^1.117.0",
     "@homeservenow/serverless-aws-handler": "^0.2.4",
     "@reapit/api-key-verify": "workspace:packages/api-key-verify",
     "@reapit/connect-session": "workspace:packages/connect-session",
     "@reapit/utils": "workspace:packages/utils",
     "adm-zip": "^0.5.5",
+    "aws-cdk": "^1.117.0",
     "class-transformer": "^0.4.0",
     "class-validator": "^0.13.1",
     "jsonwebtoken": "^8.5.1",
