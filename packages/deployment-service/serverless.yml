@@ -89,6 +89,10 @@ provider:
         Fn::GetAtt:
           - TaskRunner
           - Arn
+    - Effect: Allow
+      Action:
+        - lambda:InvokeFunction
+      Resource: arn:aws:lambda:${self:provider.region}:${self:custom.env.AWS_ACCOUNT_ID}:function:getApiKeyViaInvoke
 
 resources:
   Resources:
