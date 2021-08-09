@@ -11,6 +11,7 @@ import {
   selectLoginIdentity,
 } from '../auth'
 import { auth } from '../__mocks__/auth'
+import { selectIsCustomer } from '../auth'
 
 const connectSession = {
   loginIdentity: {
@@ -91,5 +92,29 @@ describe('selectIsUserOrUserAdmin', () => {
       },
     }
     expect(selectIsUserOrUserAdmin(authWithoutUser)).toBe(false)
+  })
+})
+
+describe('selectIsCustomer', () => {
+  it('should return true if user', () => {
+    const authWithUser = {
+      ...auth,
+      loginIdentity: {
+        ...auth.loginIdentity,
+        groups: [COGNITO_GROUP_USERS],
+      },
+    }
+    expect(selectIsCustomer(authWithUser)).toBe(true)
+  })
+
+  it('should return false if not a user', () => {
+    const authWithoutUser = {
+      ...auth,
+      loginIdentity: {
+        ...auth.loginIdentity,
+        groups: [],
+      },
+    }
+    expect(selectIsCustomer(authWithoutUser)).toBe(false)
   })
 })

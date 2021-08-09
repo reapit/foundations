@@ -33,3 +33,9 @@ export const selectIsUserOrUserAdmin = (state: ReapitConnectSession | null): boo
     Boolean(loginIdentity?.groups?.includes(COGNITO_GROUP_ADMIN_USERS_LEGACY))
   )
 }
+
+export const selectIsCustomer = (state: ReapitConnectSession | null): boolean => {
+  const loginIdentity = selectLoginIdentity(state)
+
+  return Boolean(loginIdentity?.groups?.includes(COGNITO_GROUP_USERS))
+}
