@@ -45,9 +45,10 @@ export class BookResolver {
     return book
   }
 
-  @Mutation()
+  @Mutation(() => [Book])
   async deleteBook(id: number) {
     const index = books.findIndex((b) => b.id === id)
     books.splice(index, 1)
+    return books
   }
 }
