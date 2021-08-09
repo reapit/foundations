@@ -17,7 +17,37 @@ export const updateApiKey = (apiKey: ApiKeyModel, dto: Partial<ApiKeyModel>): Pr
 }
 
 export const getApiKey = (apiKey: Partial<ApiKeyModel>): Promise<ApiKeyModel | undefined> => {
+  console.log('partial', apiKey)
   return db.get(Object.assign(new ApiKeyModel(), apiKey))
+}
+
+export const getApiKeyByKey = async (apiKey: string): Promise<ApiKeyModel | never> => {
+  try {
+    const result = await db.query(
+      ApiKeyModel,
+      {
+        apiKey,
+      },
+      {
+        indexName: 'apiKey',
+      },
+    )
+
+    const apiKeys: ApiKeyModel[] = []
+
+    for await (const key of result) {
+      apiKeys.push(key)
+    }
+
+    apiKeys
+      .sort((a, b) => new Date(a.keyExpiresAt as string).getDate() - new Date(b.keyExpiresAt as string).getDate())
+      .reverse()
+
+    return apiKeys.filter((key) => typeof key !== 'undefined')[0]
+  } catch (e) {
+    console.error(e)
+    throw e
+  }
 }
 
 export const batchGetApiKeys = async (
