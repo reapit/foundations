@@ -1,0 +1,51 @@
+{
+  "name": "@reapit/app-builder-backend",
+  "version": "0.0.1",
+  "description": "Common Package for Reapit Foundation",
+  "repository": {
+    "type": "git",
+    "url": "git+git@github.com:reapit/foundations.git"
+  },
+  "license": "MIT",
+  "author": "Reapit Ltd",
+  "main": "./src/index.ts",
+  "scripts": {
+    "start": "ts-node .",
+    "test": "echo '...skipping...'",
+    "build": "tsc",
+    "lint": "eslint --cache --ext=ts,tsx,js src --fix",
+    "release": "cdk deploy --require-approval never",
+    "publish": "yarn npm publish --access public",
+    "conf": "echo '...skipping...'",
+    "synth": "cdk synth",
+    "commit": "concurrently \"yarn test --coverage --no-cache --silent --forceExit --detectOpenHandles --runInBand --watch=false && jest-coverage-badges --input src/tests/coverage/coverage-summary.json --output src/tests/badges\" \"yarn lint\""
+  },
+  "dependencies": {
+    "apollo-server": "^3.1.1",
+    "apollo-server-lambda": "^3.1.2",
+    "class-validator": "^0.13.1",
+    "graphql": "^15.5.1",
+    "reflect-metadata": "^0.1.13",
+    "slugify": "^1.6.0",
+    "type-graphql": "^1.1.1",
+    "typescript": "^4.3.5"
+  },
+  "devDependencies": {
+    "@aws-cdk/aws-apigateway": "1.116.0",
+    "@aws-cdk/aws-lambda": "1.116.0",
+    "@aws-cdk/core": "1.116.0",
+    "@reapit/ts-scripts": "workspace:packages/ts-scripts",
+    "@reapit/ts-types": "workspace:packages/ts-types",
+    "@typescript-eslint/eslint-plugin": "^4.28.4",
+    "@typescript-eslint/parser": "^4.28.4",
+    "aws-cdk": "1.116.0",
+    "babel-jest": "^27.0.6",
+    "concurrently": "^6.2.0",
+    "cross-env": "^7.0.3",
+    "eslint": "7.31.0",
+    "eslint-plugin-prettier": "^3.4.0",
+    "jest": "^27.0.6",
+    "jest-coverage-badges": "^1.1.2",
+    "ts-node": "^10.1.0"
+  }
+}

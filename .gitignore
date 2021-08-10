@@ -89,3 +89,5 @@ credentials.json
 !.yarn/versions
 
 .docz/
+dist
+cdk.out
