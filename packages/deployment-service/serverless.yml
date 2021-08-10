@@ -98,7 +98,7 @@ provider:
         - route53:GetHostedZone
         - route53:ChangeResourceRecordSets
         - route53:GetChange
-      Resource: arn:aws:route53:${self:profiver.region}:${self:custom.env.AWS_ACCOUNT_ID}:hostedzone/Z02367201ZA0CZPSM3N2H
+      Resource: arn:aws:route53:::hostedzone/Z02367201ZA0CZPSM3N2H
 
 
 resources:
@@ -483,9 +483,9 @@ functions:
       - arn:aws:lambda:${self:provider.region}:553035198032:layer:git-lambda2:8
     handler: src/index.taskRunner
     timeout: 300
-    filesystem:
-      - arn: ${self:custom.env.EFS_ARN}
-        localMountPath: /mnt/efs1
+    fileSystemConfig:
+      arn: ${self:custom.env.EFS_ARN}
+      localMountPath: /mnt/efs1
     events:
       - sqs:
           queueName: TaskRunner
