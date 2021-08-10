@@ -3,7 +3,7 @@
     <h2 class="el-title el-text-center">Agency Cloud - Diary Appointment Features</h2>
     <h5 class="el-subtitle el-text-center">Instant access to your daily & weekly appointments.</h5>
     <div class="tile-container el-flex-container el-flex-wrap">
-      <div class="tile">
+      <div class="tile tile-border-blue-lightest">
         <div class="image-container el-flex-container el-flex-column el-flex-align-center el-flex-justify-center">
           <img class="" src="./images/stopwatch.svg" alt="stopwatch" />
         </div>
@@ -15,7 +15,7 @@
           </p>
         </div>
       </div>
-      <div class="tile">
+      <div class="tile tile-border-blue-dark">
         <div class="image-container el-flex-container el-flex-column el-flex-align-center el-flex-justify-center">
           <img class="" src="./images/location.svg" alt="" />
         </div>
@@ -27,7 +27,7 @@
           </p>
         </div>
       </div>
-      <div class="tile">
+      <div class="tile tile-border-blue-light">
         <div class="image-container el-flex-container el-flex-column el-flex-align-center el-flex-justify-center">
           <img class="" src="./images/maps.svg" alt="" />
         </div>
@@ -39,7 +39,7 @@
           </p>
         </div>
       </div>
-      <div class="tile">
+      <div class="tile tile-border-green">
         <div class="image-container el-flex-container el-flex-column el-flex-align-center el-flex-justify-center">
           <img class="" src="./images/whatsapp.svg" alt="" />
         </div>
@@ -51,7 +51,7 @@
           </p>
         </div>
       </div>
-      <div class="tile">
+      <div class="tile tile-border-orange">
         <div class="image-container el-flex-container el-flex-column el-flex-align-center el-flex-justify-center">
           <img class="" src="./images/email.svg" alt="" />
         </div>
@@ -63,7 +63,7 @@
           </p>
         </div>
       </div>
-      <div class="tile">
+      <div class="tile tile-border-blue-med">
         <div class="image-container el-flex-container el-flex-column el-flex-align-center el-flex-justify-center">
           <img class="" src="./images/checklist.svg" alt="" />
         </div>
@@ -98,6 +98,30 @@
     border-style: solid;
     margin: 0.625rem;
     width: calc(50% - 1.25rem);
+  }
+
+  .tile-border-blue-lightest {
+    border-color: #7BC9EB;
+  }
+
+  .tile-border-blue-light {
+    border-color: #23A4DE ;
+  }
+
+  .tile-border-orange {
+    border-color: #FFB71B;
+  }
+
+  .tile-border-blue-dark {
+    border-color: #262F69;
+  }
+
+  .tile-border-green {
+    border-color: #A0C862;
+  }
+
+  .tile-border-blue-med {
+    border-color: #0061A8;
   }
 
   .tile-content {

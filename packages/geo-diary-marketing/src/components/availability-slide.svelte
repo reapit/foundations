@@ -7,7 +7,16 @@
   </div>
   <div class="image-footer-container">
     <img src="./images/availablity-hero.svg" alt="flow of data to various devices" />
-    <div class="footer">© Copyright Reapit. All rights reserved. 2021</div>
+    <div class="footer">
+      <p>© Copyright Reapit. All rights reserved. 2021</p>
+      <p>
+        By submitting your email, you agree to Reapit processing your data in accordance with our <a
+          href="https://www.reapit.com/privacy-policy"
+          target="_blank"
+          rel="noopener noreferrer">Privacy Policy.
+        </a>
+      </p>
+    </div>
   </div>
 </div>
 
@@ -31,13 +40,14 @@
 
   .image-footer-container {
     line-height: 0;
+    margin: 0 auto;
+    width: 100%;
   }
 
   img {
     max-height: 100%;
-    max-width: 100%;
-    min-width: 0;
     min-height: 0;
+    width: 100%;
   }
 
   h2 {
@@ -48,5 +58,9 @@
   h5 {
     margin-bottom: 2.5rem;
     color: #fff;
+  }
+
+  a {
+    color: var(--intent-primary);
   }
 </style>
