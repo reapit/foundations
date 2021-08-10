@@ -158,7 +158,7 @@ export default () => {
           <Button loading={deployLoading} onClick={() => deployPipeline()} intent="success">
             Deploy
           </Button>
-          <Button loading={deployLoading} onClick={() => deployPipeline()} intent="success">
+          <Button intent="critical">
             <Link to={Routes.PIPELINES_UPDATE.replace(':pipelineId', pipeline.id as string)}>Update</Link>
           </Button>
         </ButtonGroup>
