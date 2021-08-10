@@ -14,7 +14,7 @@
     "test": "echo '...skipping...'",
     "build": "tsc",
     "lint": "eslint --cache --ext=ts,tsx,js src --fix",
-    "release": "cdk deploy --require-approval never",
+    "release": "DOCKER_BUILDKIT=1 cdk deploy --require-approval never",
     "publish": "yarn npm publish --access public",
     "conf": "echo '...skipping...'",
     "synth": "cdk synth",
