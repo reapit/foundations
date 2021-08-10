@@ -93,6 +93,13 @@ provider:
       Action:
         - lambda:InvokeFunction
       Resource: arn:aws:lambda:${self:provider.region}:${self:custom.env.AWS_ACCOUNT_ID}:function:cloud-api-key-service-dev-getApiKeyViaInvoke
+    - Effect: Allow
+      Action:
+        - route53:GetHostedZone
+        - route53:ChangeResourceRecordSets
+        - route53:GetChange
+      Resource: arn:aws:route53:${self:profiver.region}:${self:custom.env.AWS_ACCOUNT_ID}:hostedzone/Z02367201ZA0CZPSM3N2H
+
 
 resources:
   Resources:

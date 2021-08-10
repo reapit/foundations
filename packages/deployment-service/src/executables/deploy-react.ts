@@ -5,17 +5,27 @@ import { developerDir, cloneDir } from '../utils'
 import { Bucket } from '@aws-cdk/aws-s3'
 import * as bucketDeploy from '@aws-cdk/aws-s3-deployment'
 import * as r53 from '@aws-cdk/aws-route53'
+import { SdkProvider } from 'aws-cdk'
+import { CloudFormationDeployments } from 'aws-cdk/lib/api/cloudformation-deployments'
 
 const buildDir = 'build'
+const hostingZone = {
+  hostedZoneId: 'Z02367201ZA0CZPSM3N2H',
+  zoneName: 'dev.paas.reapit.cloud',
+}
 
-export const deployReact: ExecutableType = async (task: TaskEntity, pipeline: PipelineEntity): Promise<true | never> => {
+export const deployReact: ExecutableType = async (
+  task: TaskEntity,
+  pipeline: PipelineEntity,
+): Promise<true | never> => {
   console.log('deploying react...')
   console.log('executable', task)
 
   const repoName = pipeline.repository?.split('/').pop()
+  const cdkDir = `${developerDir(pipeline)}/${repoName}/cdk`
 
   const cdkApp = new cdk.App({
-    outdir: `${developerDir(pipeline)}cdk`,
+    outdir: cdkDir,
   })
 
   const stack = new cdk.Stack(cdkApp, `${pipeline.developerId}-${repoName}`, {
@@ -34,23 +44,28 @@ export const deployReact: ExecutableType = async (task: TaskEntity, pipeline: Pi
     destinationBucket: bucket,
   })
 
-  const zone = r53.HostedZone.fromHostedZoneAttributes(stack, `main-zone`, {
-    hostedZoneId: 'Z02367201ZA0CZPSM3N2H',
-    zoneName: 'dev.paas.reapit.cloud',
-  })
+  const zone = r53.HostedZone.fromHostedZoneAttributes(stack, 'main-zone', hostingZone)
 
-  const cName = new r53.CnameRecord(stack, `${repoName}-cname`, {
+  new r53.CnameRecord(stack, `${repoName}-cname`, {
     zone: zone,
     recordName: repoName,
-    domainName: bucket.bucketWebsiteDomainName
+    domainName: bucket.bucketWebsiteDomainName,
   })
 
-  cdkApp.synth()
+  const stackName = cdkApp.synth().getStackByName(stack.stackName)
 
-  return Promise.resolve(true)
+  const sdkProvider = await SdkProvider.withAwsCliCompatibleDefaults()
+  const cloudFormation = new CloudFormationDeployments({ sdkProvider })
+
+  try {
+    await cloudFormation.deployStack({
+      stack: stackName,
+    })
+  } catch (e) {
+    console.error(e)
+
+    throw new Error('Deployment failed. CDK error')
+  }
+
+  return true
 }
-
-deployReact({}, {
-  developerId: 'test',
-  repository: 'test/reapit-react-test',
-} as PipelineEntity)
