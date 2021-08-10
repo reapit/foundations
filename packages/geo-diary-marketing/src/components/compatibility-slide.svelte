@@ -1,13 +1,11 @@
 <div class="container el-wscreen">
   <div class="inner-container el-flex-container el-flex-column el-flex-align-center el-mxauto">
-    <h2 class="el-title el-text-center">Intuitive CRM and Client Accounting Software</h2>
-    <h5 class="el-subtitle el-text-center">Available for iOS, Android, Chrome and Web</h5>
-    <div class="el-flex-container el-flex-align-center">
-      <h6 class="el-subtitle el-mr3">How it works</h6>
-      <button class="el-intent-primary el-button el-mr3 el-mb3">Watch Video</button>
+    <div class="padded-container">
+      <h2 class="el-title el-text-center">Compatibility</h2>
+      <h5 class="el-subtitle el-text-center">Instant access to your daily & weekly appointments.</h5>
     </div>
-    <img src="./images/page-two-hero.svg" alt="View of calendar and mobile app overlaid" />
-    <div class="el-flex-container">
+    <img src="./images/compatibility-hero.svg" alt="flow of data to various devices" />
+    <div class="padded-container el-flex-container white-bg-container">
       <div class="el-flex-container el-flex-column el-w1_2 el-px2">
         <p class="el-body-text el-has-grey-text">
           <strong
@@ -32,12 +30,22 @@
 
 <style>
   .container {
-    background: linear-gradient(180deg, #f2f2f2 0%, rgba(242, 242, 242, 0) 100%);
+    background-color: #fafafa;
   }
 
   .inner-container {
-    padding: 2rem;
     max-width: 1200px;
+  }
+
+  .padded-container {
+    padding: 2rem;
+  }
+
+  .white-bg-container {
+    background-color: #fff;
+    margin-bottom: 0;
+    max-height: 100%;
+    flex-grow: 1;
   }
 
   img {
@@ -45,7 +53,7 @@
     max-width: 100%;
     min-width: 0;
     min-height: 0;
-    margin: -2.5rem 0 auto 0;
+    margin: -2.5rem 0 0 0;
   }
 
   h2 {
@@ -54,9 +62,5 @@
 
   h5 {
     margin-bottom: 2.5rem;
-  }
-
-  h6 {
-    font-weight: bold;
   }
 </style>
