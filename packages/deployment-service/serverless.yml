@@ -98,8 +98,8 @@ provider:
         - route53:GetHostedZone
         - route53:ChangeResourceRecordSets
         - route53:GetChange
+        - route53:ListResourceRecordSets
       Resource: arn:aws:route53:::hostedzone/Z02367201ZA0CZPSM3N2H
-
 
 resources:
   Resources:
