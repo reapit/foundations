@@ -4143,6 +4143,45 @@ export interface CreateAreaModel {
   parentId?: string
 }
 /**
+ * Request body used to create a new certificate
+ * example:
+ * [object Object]
+ */
+export interface CreateCertificateModel {
+  /**
+   * The certificate's category (safetyCertificate/insurancePolicy/warranty)
+   */
+  category?: string
+  /**
+   * The certificate's type
+   */
+  typeId?: string
+  /**
+   * The certificate's start date
+   * example:
+   * 2019-08-14
+   */
+  start?: string // date
+  /**
+   * The certificate's expiry date
+   * example:
+   * 2019-08-14
+   */
+  expiry?: string // date
+  /**
+   * The unique identifier of the company that supplied, or is supplying, the certificate
+   */
+  companyId?: string
+  /**
+   * Any general notes regarding the certificate
+   */
+  notes?: string
+  /**
+   * The certificate's reference number
+   */
+  referenceNumber?: string
+}
+/**
  * Request body to set the address of a new company
  */
 export interface CreateCompanyAddressModel {
@@ -12701,6 +12740,37 @@ export interface UpdateAreaModel {
    * A collection of unique identifiers of offices attached to the area. The first item in the collection is considered the primary office
    */
   officeIds?: string[]
+}
+/**
+ * Request body used to update an existing certificate
+ * example:
+ * [object Object]
+ */
+export interface UpdateCertificateModel {
+  /**
+   * The certificate's start date
+   * example:
+   * 2019-08-14T12:30:02.0000000Z
+   */
+  start?: string // date-time
+  /**
+   * The certificate's expiry date
+   * example:
+   * 2019-08-14T12:30:02.0000000Z
+   */
+  expiry?: string // date-time
+  /**
+   * The unique identifier of the company
+   */
+  companyId?: string
+  /**
+   * Any general notes regarding the certificate
+   */
+  notes?: string
+  /**
+   * The certificate's reference number
+   */
+  referenceNumber?: string
 }
 /**
  * Request body to set the address of an existing company
