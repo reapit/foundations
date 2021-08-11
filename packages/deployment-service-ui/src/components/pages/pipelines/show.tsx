@@ -13,6 +13,7 @@ import {
   TaskModelInterface,
 } from '@reapit/foundations-ts-definitions'
 import { Pagination } from 'nestjs-typeorm-paginate'
+import { PipelineTask } from '@/components/task'
 
 const pipelineStatusToIntent = (status: DeploymentStatus): Intent => {
   switch (status) {
@@ -129,9 +130,7 @@ export default () => {
         <H3>Tasks</H3>
         <ul>
           {pipeline.tasks?.map((task) => (
-            <li key={task.id}>
-              <StatusIndicator intent={pipelineStatusToIntent(task.status as DeploymentStatus)} /> {task.functionName}
-            </li>
+            <PipelineTask task={task} key={task.id} />
           ))}
         </ul>
       </div>
@@ -175,7 +174,7 @@ export default () => {
             <Loader />
           </FlexContainerBasic>
         ) : pipelineRunners ? (
-          <Table rows={pipelineRunnerMapped} expandableContentSize="small" />
+          <Table rows={pipelineRunnerMapped} expandableContentSize="medium" />
         ) : (
           <H1>Error loading pipelines</H1>
         )}
