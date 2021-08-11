@@ -5,8 +5,9 @@ import { Intent, getIntentClassName } from '../../helpers/intent'
 
 export interface StatusIndicatorProps extends HTMLAttributes<HTMLSpanElement> {
   intent?: Intent
+  shape?: 'circle' | 'tag'
 }
 
-export const StatusIndicator: FC<StatusIndicatorProps> = ({ intent, className, ...rest }) => (
-  <ElStatusIndicator className={cx(intent && getIntentClassName(intent), className)} {...rest} />
+export const StatusIndicator: FC<StatusIndicatorProps> = ({ intent, shape, className, ...rest }) => (
+  <ElStatusIndicator className={cx(intent && getIntentClassName(intent), shape && `shape-${shape}`, className)} {...rest} />
 )

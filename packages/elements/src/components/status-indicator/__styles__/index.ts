@@ -44,4 +44,10 @@ export const ElStatusIndicator = styled.span`
     color: var(--intent-danger-text);
     outline-color: var(--intent-danger-dark);
   }
+
+  &.shape-tag {
+    border-radius: 1rem .2rem .2rem 1rem;
+    height: 2rem;
+    width: .5rem;
+  }
 `
