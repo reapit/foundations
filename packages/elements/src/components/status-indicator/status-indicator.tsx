@@ -1,6 +1,6 @@
 import React, { FC, HTMLAttributes } from 'react'
 import { cx } from '@linaria/core'
-import { ElStatusIndicator } from './__styles__'
+import { elShapeTag, ElStatusIndicator } from './__styles__'
 import { Intent, getIntentClassName } from '../../helpers/intent'
 
 export interface StatusIndicatorProps extends HTMLAttributes<HTMLSpanElement> {
@@ -9,5 +9,5 @@ export interface StatusIndicatorProps extends HTMLAttributes<HTMLSpanElement> {
 }
 
 export const StatusIndicator: FC<StatusIndicatorProps> = ({ intent, shape, className, ...rest }) => (
-  <ElStatusIndicator className={cx(intent && getIntentClassName(intent), shape && `shape-${shape}`, className)} {...rest} />
+  <ElStatusIndicator className={cx(intent && getIntentClassName(intent), shape && shape === 'tag' && elShapeTag, className)} {...rest} />
 )
