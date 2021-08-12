@@ -15,33 +15,35 @@ const hostingZone = {
   hostedZoneId: 'Z02367201ZA0CZPSM3N2H', // TODO env this
   zoneName: 'dev.paas.reapit.cloud', // TODO env this
 }
-const bucketName = (pipeline: PipelineEntity, repoName: string): string => `deployment-${pipeline.developerId}-${repoName}`
+const bucketName = (pipeline: PipelineEntity, repoName: string): string =>
+  `deployment-${pipeline.developerId}-${repoName}`
 
 type SendToS3Params = {
-  filePath: string,
-  pipeline: PipelineEntity,
-  repoName: string,
-  buildLocation: string,
+  filePath: string
+  pipeline: PipelineEntity
+  repoName: string
+  buildLocation: string
 }
 
-const sendToS3 = async ({
-  filePath,
-  repoName,
-  pipeline,
-  buildLocation,
-}: SendToS3Params): Promise<void> => new Promise<void>((resolve, reject) => s3Client.upload({
-    Bucket: bucketName(pipeline, repoName), // bucket.bucketName?
-    Key: filePath.substring(buildLocation.length), // /path/filename?
-    Body: fs.readFileSync(filePath),
-    ACL: 'public-read',
-  }, (error, data) => {
-    if (error) {
-      console.error(error)
-      reject(error)
-    }
+const sendToS3 = async ({ filePath, repoName, pipeline, buildLocation }: SendToS3Params): Promise<void> =>
+  new Promise<void>((resolve, reject) =>
+    s3Client.upload(
+      {
+        Bucket: bucketName(pipeline, repoName), // bucket.bucketName?
+        Key: filePath.substring(buildLocation.length), // /path/filename?
+        Body: fs.readFileSync(filePath),
+        ACL: 'public-read',
+      },
+      (error) => {
+        if (error) {
+          console.error(error)
+          reject(error)
+        }
 
-    resolve()
-  }))
+        resolve()
+      },
+    ),
+  )
 
 export const deployReact: ExecutableType = async (
   task: TaskEntity,
@@ -78,6 +80,11 @@ export const deployReact: ExecutableType = async (
     domainName: bucket.bucketWebsiteDomainName,
   })
 
+  // create cloudfront entry with origin as singular bucket and path to index
+  // create singular zip bucket for all repos built and zipped
+  // create deployment bucket to transfer zipped repos for cloudfront
+  // deadletter channels for failed deployments and handling retries
+
   const stackName = cdkApp.synth().getStackByName(stack.stackName)
 
   const sdkProvider = await SdkProvider.withAwsCliCompatibleDefaults()
@@ -87,7 +94,6 @@ export const deployReact: ExecutableType = async (
     await cloudFormation.deployStack({
       stack: stackName,
     })
-
   } catch (e) {
     console.error(e)
 
@@ -96,15 +102,18 @@ export const deployReact: ExecutableType = async (
 
   const recurseDir = async (currentDirPath: string, callback: (params: SendToS3Params) => Promise<void>) => {
     const entries = fs.readdirSync(currentDirPath)
-    await Promise.all(entries.map((name) => { // [Promise<[Promise<[Promise<[] | void>] | void>] | void>] | void>... or Promise<void>
-      const filePath = path.join(currentDirPath, name)
-      const stat = fs.statSync(filePath)
-      if (stat.isFile()) {
-        return callback({filePath, buildLocation, pipeline, repoName})
-      } else if (stat.isDirectory()) {
-        return recurseDir(filePath, callback)
-      }
-    }))
+    await Promise.all(
+      entries.map((name) => {
+        // [Promise<[Promise<[Promise<[] | void>] | void>] | void>] | void>... or Promise<void>
+        const filePath = path.join(currentDirPath, name)
+        const stat = fs.statSync(filePath)
+        if (stat.isFile()) {
+          return callback({ filePath, buildLocation, pipeline, repoName })
+        } else if (stat.isDirectory()) {
+          return recurseDir(filePath, callback)
+        }
+      }),
+    )
   }
 
   await recurseDir(buildLocation, sendToS3)
