@@ -15,8 +15,9 @@ const hostingZone = {
   hostedZoneId: 'Z02367201ZA0CZPSM3N2H', // TODO env this
   zoneName: 'dev.paas.reapit.cloud', // TODO env this
 }
+
 const bucketName = (pipeline: PipelineEntity, repoName: string): string =>
-  `deployment-${pipeline.developerId}-${repoName}`
+  `deployment-${pipeline.clientId}-${repoName}`
 
 type SendToS3Params = {
   filePath: string

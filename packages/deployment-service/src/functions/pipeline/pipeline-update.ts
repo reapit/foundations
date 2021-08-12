@@ -3,7 +3,7 @@ import { PipelineDto } from './../../dto'
 import { PipelineEntity } from './../../entities'
 import * as service from './../../services/pipeline'
 import { validate } from 'class-validator'
-import { ownership, resolveDeveloperId } from './../../utils'
+import { ownership, resolveCreds } from './../../utils'
 import { defaultOutputHeaders } from './../../constants'
 import { plainToClass } from 'class-transformer'
 
@@ -23,7 +23,7 @@ export const pipelineUpdate = httpHandler<PipelineDto, PipelineEntity>({
     return dto
   },
   handler: async ({ body, event }): Promise<PipelineEntity> => {
-    const developerId = await resolveDeveloperId(event)
+    const { developerId } = await resolveCreds(event)
 
     // TODO should this be body.toApiKey
     const pipeline = await service.findPipelineById(event.pathParameters?.pipelineId as string)
