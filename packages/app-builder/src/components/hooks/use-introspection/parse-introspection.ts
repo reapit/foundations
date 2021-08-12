@@ -27,7 +27,7 @@ export const parseIntrospectionResult = (introspection: IntrospectionQuery) => {
 
     return {
       object,
-      list: getListQuery(queries, all, queryName),
+      list: getListQuery(queries, all),
       // TODO: check if below are correct
       create: mutationType.find(({ args }) => args.length === 1 && args[0].name === object.name),
       update: mutationType.find(({ args }) => args.length === 2 && args[0].name === object.name),

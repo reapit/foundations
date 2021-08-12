@@ -16,3 +16,11 @@ export const useIntrospection = () => {
     data: parsedIntrospection,
   }
 }
+
+export const dummyQuery = gql`
+  {
+    __type(name: "Query") {
+      name
+    }
+  }
+`

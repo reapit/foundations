@@ -12,14 +12,7 @@ import { buttonIcon, disabled, header, item } from './styles'
 
 import { PageSelector } from './PageSelector'
 import { deletePage, setPageNodes } from './saveState'
-import { useHistory, useParams } from 'react-router'
-
-const usePageId = () => {
-  const { pageId } = useParams<{ pageId?: string }>()
-  const history = useHistory()
-  const setPageId = (pageId) => history.push(`/${pageId}`)
-  return { pageId, setPageId }
-}
+import { usePageId } from '@/core/usePageId'
 
 const Header = () => {
   const { pageId, setPageId } = usePageId()
