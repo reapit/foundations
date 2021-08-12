@@ -1,16 +1,11 @@
-import { PipelineEntity } from "../entities"
-import { cloneDir } from "../utils"
-import { s3Client } from "./../services"
+import { PipelineEntity } from '../entities'
+import { cloneDir } from '../utils'
+import { s3Client } from './../services'
 import admZip from 'adm-zip'
 
 const zipper = new admZip()
 
-export const storeVersion = async ({
-  pipeline,
-}: {
-  pipeline: PipelineEntity,
-}): Promise<void> => {
-  
+export const storeVersion = async ({ pipeline }: { pipeline: PipelineEntity }): Promise<void> => {
   const location = pipeline.uniqueRepoName
   const storageLocation = `${pipeline.uniqueRepoName}/${pipeline.id}`
 
