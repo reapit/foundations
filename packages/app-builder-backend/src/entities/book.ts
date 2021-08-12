@@ -1,4 +1,4 @@
-import { ObjectType, Field, ID } from 'type-graphql'
+import { ObjectType, Field, ID, InputType } from 'type-graphql'
 import { Author } from './author'
 import { Genre } from './genre'
 
@@ -18,4 +18,19 @@ export class Book {
 
   @Field(() => Author)
   author: Author
+}
+
+@InputType()
+export class BookInput {
+  @Field()
+  title: string
+
+  @Field()
+  genre: Genre
+
+  @Field({ nullable: true })
+  description?: string
+
+  @Field(() => ID)
+  authorId: number
 }

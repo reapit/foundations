@@ -1,5 +1,5 @@
 import { IntrospectionObjectType } from 'graphql'
-
+import { gql } from '@apollo/client'
 import { nestedFieldsToString, queryableFieldToNestedDict } from './nested-fields'
 import { LIST, QueryableField } from './types'
 
@@ -13,5 +13,7 @@ export const getListQuery = (
   const listTypeStr = listDict && nestedFieldsToString(listDict)
   const listQuery = list && `${queryName} { ${list.name}${listTypeStr ? ` ${listTypeStr}` : ''} }`
 
-  return listQuery
+  return gql`
+    ${listQuery}
+  `
 }
