@@ -89,6 +89,9 @@ export class PipelineEntity extends AbstractEntity implements PipelineModelInter
 
   @Column()
   outDir?: string
+
+  @Column()
+  clientId?: string
 }
 
 export type TaskWorkflow = TaskRunnerFunctions[]
@@ -118,9 +121,6 @@ export class TaskEntity extends AbstractEntity implements TaskModelInterface {
     type: 'varchar',
   })
   functionName?: TaskRunnerFunctions
-
-  @TreeChildren()
-  children?: TaskEntity[]
 
   @TreeParent()
   parent?: TaskEntity
