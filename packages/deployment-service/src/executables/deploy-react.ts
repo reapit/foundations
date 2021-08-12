@@ -66,10 +66,10 @@ export const deployReact: ExecutableType = async (
     },
   })
 
-  const bucket = new Bucket(stack, `deployment-${pipeline.developerId}-${repoName}`, {
+  const bucket = new Bucket(stack, bucketName(pipeline, repoName), {
     publicReadAccess: true,
     websiteIndexDocument: 'index.html',
-    bucketName: `deployment-${pipeline.developerId}-${repoName}`,
+    bucketName: bucketName(pipeline, repoName),
   })
 
   const zone = r53.HostedZone.fromHostedZoneAttributes(stack, 'main-zone', hostingZone)
