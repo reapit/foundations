@@ -10,7 +10,7 @@ import { defaultOutputHeaders } from './../../constants'
 export const pipelineGet = httpHandler({
   defaultOutputHeaders,
   handler: async ({ event }): Promise<PipelineEntity> => {
-    const developerId = await resolveCreds(event)
+    const { developerId } = await resolveCreds(event)
 
     const pipeline = await service.findPipelineById(event.pathParameters?.pipelineId as string)
 

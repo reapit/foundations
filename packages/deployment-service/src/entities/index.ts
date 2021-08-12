@@ -7,7 +7,6 @@ import {
   OneToMany,
   ManyToOne,
   TreeParent,
-  TreeChildren,
   Tree,
 } from 'typeorm'
 import {
