@@ -1,25 +1,33 @@
 <div class="container el-wscreen">
   <div class="inner-container el-flex-container el-flex-align-center el-mxauto">
     <div class="el-flex-container no-margin">
-      <div class="el-flex-container el-flex-column el-flex-justify-center el-w1_2">
-        <img src="./images/page-one-hero.svg" alt="Happy man holding a phone and a key" />
-      </div>
       <div class="el-flex-container el-flex-column el-flex-justify-evenly el-w1_2 el-flex-grow no-margin">
         <img class="logo-image" src="./images/page-one-title.svg" alt="Geo Diary logo" />
-        <div>
+        <div class="el-mb6">
+          <h6 class="el-subtitle">Lets get started!</h6>
           <p class="el-body-text el-has-grey-text">
-            You can also use the listing preview to see how your app will display in the Marketplace to potential clients.
+            You can also use the listing preview to see how your app will display in the Marketplace to potential
+            clients.
           </p>
-          <button class="el-intent-primary el-button el-mr3 el-mb3">Watch Video</button>
-          <button class="el-intent-critical el-button-has-right-chevron el-button el-mb3">Try It Now</button>
+          <button class="el-intent-critical el-button-has-right-chevron el-button el-mb3">Watch Video</button>
         </div>
-        <div class="el-mtauto">
-          <h6 class="el-subtitle">Get in contact</h6>
-          <div class="el-flex-container">
-            <img class="el-mr3" src="./images/phone.svg" alt="Phone" />
-            <img class="el-mr3" src="./images/envelope.svg" alt="Email" />
-          </div>
+        <div class="el-mtauto form-container">
+          <h6 class="el-subtitle">Existing Customer</h6>
+          <h6 class="el-subtitle">New Customer</h6>
+          <iframe
+            src="https://go.reapit.com/l/894351/2021-08-03/2lny5"
+            title="Email Form"
+            width="100%"
+            height="500"
+            type="text/html"
+            frameborder="0"
+            allowTransparency
+            style="border: 0"
+          />
         </div>
+      </div>
+      <div class="el-flex-container el-flex-column el-flex-justify-center el-w1_2">
+        <img src="./images/page-one-hero.svg" alt="Happy man holding a phone and a key" />
       </div>
     </div>
   </div>
@@ -34,6 +42,12 @@
     padding: 2rem;
     max-width: 1200px;
     height: 100vh;
+  }
+
+  .form-container {
+    box-shadow: 3px 4px 24px rgba(0, 0, 0, 0.07);
+    border-radius: 0.5rem;
+    padding: 2rem;
   }
 
   .logo-image {
