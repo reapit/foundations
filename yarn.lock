@@ -52,6 +52,35 @@ __metadata:
   languageName: node
   linkType: hard
 
+"@apollo/client@npm:^3.4.7":
+  version: 3.4.7
+  resolution: "@apollo/client@npm:3.4.7"
+  dependencies:
+    "@graphql-typed-document-node/core": ^3.0.0
+    "@wry/context": ^0.6.0
+    "@wry/equality": ^0.5.0
+    "@wry/trie": ^0.3.0
+    graphql-tag: ^2.12.3
+    hoist-non-react-statics: ^3.3.2
+    optimism: ^0.16.1
+    prop-types: ^15.7.2
+    symbol-observable: ^4.0.0
+    ts-invariant: ^0.9.0
+    tslib: ^2.3.0
+    zen-observable-ts: ^1.1.0
+  peerDependencies:
+    graphql: ^14.0.0 || ^15.0.0
+    react: ^16.8.0 || ^17.0.0
+    subscriptions-transport-ws: ^0.9.0
+  peerDependenciesMeta:
+    react:
+      optional: true
+    subscriptions-transport-ws:
+      optional: true
+  checksum: b209622aa80fd099c18e9f7957313d4c4251ad613985d14bb02824136b4d5dc0735db4ccc65258785cccd5784f7dd1ae90c6d5d73e6779acc1dd2ebc47882232
+  languageName: node
+  linkType: hard
+
 "@apollo/protobufjs@npm:1.2.2":
   version: 1.2.2
   resolution: "@apollo/protobufjs@npm:1.2.2"
@@ -10207,7 +10236,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@types/zen-observable@npm:^0.8.0, @types/zen-observable@npm:^0.8.2":
+"@types/zen-observable@npm:0.8.3, @types/zen-observable@npm:^0.8.0, @types/zen-observable@npm:^0.8.2":
   version: 0.8.3
   resolution: "@types/zen-observable@npm:0.8.3"
   checksum: ec75e17c7737e509e5b580fbeda853d8d54392281fba614be0fb86c97c517dc148ef8473b4cd45e547f2492af1c5104ce27fbd58dbded6e6e205122148e344d7
@@ -11961,6 +11990,7 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "app-builder@workspace:packages/app-builder"
   dependencies:
+    "@apollo/client": ^3.4.7
     "@craftjs/core": ^0.1.0-beta.19
     "@craftjs/layers": ^0.1.0-beta.19
     "@linaria/core": ^3.0.0-beta.4
@@ -11982,6 +12012,7 @@ __metadata:
     dayjs: ^1.10.6
     eslint: 7.31.0
     eslint-plugin-prettier: ^3.4.0
+    graphql: ^15.5.1
     jest: ^27.0.6
     jest-coverage-badges: ^1.1.2
     query-string: ^7.0.1
@@ -21769,7 +21800,7 @@ fsevents@^1.2.7:
   languageName: node
   linkType: hard
 
-"graphql-tag@npm:^2.12.0, graphql-tag@npm:^2.12.5":
+"graphql-tag@npm:^2.12.0, graphql-tag@npm:^2.12.3, graphql-tag@npm:^2.12.5":
   version: 2.12.5
   resolution: "graphql-tag@npm:2.12.5"
   dependencies:
@@ -29487,7 +29518,7 @@ fsevents@^1.2.7:
   languageName: node
   linkType: hard
 
-"optimism@npm:^0.16.0":
+"optimism@npm:^0.16.0, optimism@npm:^0.16.1":
   version: 0.16.1
   resolution: "optimism@npm:0.16.1"
   dependencies:
@@ -38363,6 +38394,15 @@ resolve@^2.0.0-next.3:
   languageName: node
   linkType: hard
 
+"ts-invariant@npm:^0.9.0":
+  version: 0.9.1
+  resolution: "ts-invariant@npm:0.9.1"
+  dependencies:
+    tslib: ^2.1.0
+  checksum: a8f37248fc69c85198e495ec1894a670a6978bc03ef110dfe1e48eef9b73f2d4fb111df9b25f02fd33ab8cc64ba9476607200c3e617e89dc77fd8dcc6bb45476
+  languageName: node
+  linkType: hard
+
 "ts-is-defined@npm:^1.0.0":
   version: 1.0.0
   resolution: "ts-is-defined@npm:1.0.0"
@@ -41588,7 +41628,17 @@ typescript@^4.3.5:
   languageName: node
   linkType: hard
 
-"zen-observable@npm:^0.8.0, zen-observable@npm:^0.8.14, zen-observable@npm:^0.8.15":
+"zen-observable-ts@npm:^1.1.0":
+  version: 1.1.0
+  resolution: "zen-observable-ts@npm:1.1.0"
+  dependencies:
+    "@types/zen-observable": 0.8.3
+    zen-observable: 0.8.15
+  checksum: daae0a5afd658f699e0dca8ede85caad61a5aa42f39f8053beb940bd17dd60c0e63ffc90435ccea1bcd243a65aa3780d115482a3e025a9dd64bf18ee8eea52a7
+  languageName: node
+  linkType: hard
+
+"zen-observable@npm:0.8.15, zen-observable@npm:^0.8.0, zen-observable@npm:^0.8.14, zen-observable@npm:^0.8.15":
   version: 0.8.15
   resolution: "zen-observable@npm:0.8.15"
   checksum: 7d155f8a75b9314f9f31e70a31edcd897b0e8a1313737502ab84a573e49d2c333b738e415c156334a6e910c363ce546b59fa7921eff61440285caa99c843df74

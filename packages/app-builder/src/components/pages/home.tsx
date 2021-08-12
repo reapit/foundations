@@ -7,11 +7,16 @@ import Container from '../ui/user/container'
 import Text from '../ui/user/text'
 import Link from '../ui/user/link'
 import Context from '../ui/user/context'
+import { useIntrospection } from '../hooks/use-introspection'
 
 export type AuthenticatedProps = {}
 
 export const Authenticated: FC<AuthenticatedProps> = () => {
   const iframeRef = useRef()
+
+  const { data } = useIntrospection()
+
+  console.log(data?.__schema.queryType.name)
 
   return (
     <Editor
