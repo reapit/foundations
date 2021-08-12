@@ -126,6 +126,16 @@ resources:
       Properties:
         BucketName: ${self:custom.env.DEPLOYMENT_BUCKET_NAME}
         AccessControl: Private
+    DeploymentVersionBucket:
+      Type: AWS::S3::Bucket
+      Properties:
+        BucketName: ${self:custom.env.DEPLOYMENT_VERSION_BUCKET_NAME}
+        AccessControl: Private
+    DeploymentLiveBucket:
+      Type: AWS::S3::Bucket
+      Properties:
+        BucketName: ${self:custom.env.DEPLOYMENT_LIVE_BUCKET_NAME}
+        AccessControl: Private
     TaskRunner:
       Type: AWS::SQS::Queue
       Properties:
