@@ -93,6 +93,13 @@ provider:
       Action:
         - lambda:InvokeFunction
       Resource: arn:aws:lambda:${self:provider.region}:${self:custom.env.AWS_ACCOUNT_ID}:function:cloud-api-key-service-dev-getApiKeyViaInvoke
+    - Effect: Allow
+      Action:
+        - route53:GetHostedZone
+        - route53:ChangeResourceRecordSets
+        - route53:GetChange
+        - route53:ListResourceRecordSets
+      Resource: arn:aws:route53:::hostedzone/Z02367201ZA0CZPSM3N2H
 
 resources:
   Resources:
@@ -476,9 +483,9 @@ functions:
       - arn:aws:lambda:${self:provider.region}:553035198032:layer:git-lambda2:8
     handler: src/index.taskRunner
     timeout: 300
-    filesystem:
-      - arn: ${self:custom.env.EFS_ARN}
-        localMountPath: /mnt/efs1
+    fileSystemConfig:
+      arn: ${self:custom.env.EFS_ARN}
+      localMountPath: /mnt/efs1
     events:
       - sqs:
           queueName: TaskRunner

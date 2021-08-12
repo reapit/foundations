@@ -1,4 +1,4 @@
-import { resolveDeveloperId } from '../../utils'
+import { resolveCreds } from '../../utils'
 import { BadRequestException, httpHandler } from '@homeservenow/serverless-aws-handler'
 import { s3Client } from '../../services'
 import { release } from './../../executables'
@@ -23,7 +23,7 @@ const fileName = (developerId: string, project: string, version: string): string
 export const deployRelease = httpHandler<any, ReleaseEntity>({
   defaultOutputHeaders,
   handler: async ({ event, body }) => {
-    const developerId = await resolveDeveloperId(event)
+    const { developerId } = await resolveCreds(event)
 
     const s3FileName = fileName(
       developerId,

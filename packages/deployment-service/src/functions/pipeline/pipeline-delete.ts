@@ -1,6 +1,6 @@
 import { httpHandler, NotFoundException, HttpStatusCode } from '@homeservenow/serverless-aws-handler'
 import * as service from './../../services/pipeline'
-import { ownership, resolveDeveloperId } from './../../utils'
+import { ownership, resolveCreds } from './../../utils'
 import { defaultOutputHeaders } from './../../constants'
 
 /**
@@ -10,7 +10,7 @@ export const pipelineDelete = httpHandler({
   defaultOutputHeaders,
   defaultStatusCode: HttpStatusCode.NO_CONTENT,
   handler: async ({ event }): Promise<void> => {
-    const developerId = await resolveDeveloperId(event)
+    const { developerId } = await resolveCreds(event)
 
     const pipeline = await service.findPipelineById(event.pathParameters?.pipelineId as string)
 

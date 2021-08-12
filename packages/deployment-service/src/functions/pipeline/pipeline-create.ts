@@ -4,7 +4,7 @@ import { PipelineEntity } from './../../entities'
 import * as service from './../../services/pipeline'
 import { plainToClass } from 'class-transformer'
 import { validate } from 'class-validator'
-import { resolveDeveloperId } from '../../utils'
+import { resolveCreds } from '../../utils'
 import { defaultOutputHeaders } from '../../constants'
 
 /**
@@ -24,12 +24,13 @@ export const pipelineCreate = httpHandler<PipelineDto, PipelineEntity>({
     return dto
   },
   handler: async ({ event }): Promise<PipelineEntity> => {
-    const developerId = await resolveDeveloperId(event)
+    const { developerId, clientCode } = await resolveCreds(event)
 
     const dto = event.body
       ? plainToClass(PipelineDto, {
           ...JSON.parse(event.body),
           developerId,
+          clientId: clientCode,
         })
       : new PipelineDto()
 

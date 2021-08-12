@@ -1,5 +1,5 @@
 import { PipelineRunnerEntity } from './../../entities'
-import { ownership, resolveDeveloperId } from './../../utils'
+import { ownership, resolveCreds } from './../../utils'
 import { httpHandler, BadRequestException, NotFoundException } from '@homeservenow/serverless-aws-handler'
 import { DeploymentStatus } from '@reapit/foundations-ts-definitions'
 import * as service from '../../services'
@@ -19,7 +19,7 @@ export const pipelineRunnerUpdate = httpHandler<{ buildStatus: DeploymentStatus.
     return payload
   },
   handler: async ({ event, body }): Promise<PipelineRunnerEntity> => {
-    const developerId = await resolveDeveloperId(event)
+    const { developerId } = await resolveCreds(event)
 
     const pipelineRunner = await service.findPipelineRunnerById(event.pathParameters?.id as string)
 

@@ -1,4 +1,4 @@
-import { IsString, IsNotEmpty, IsOptional, IsEnum } from 'class-validator'
+import { IsString, IsNotEmpty, IsOptional, IsEnum, MaxLength } from 'class-validator'
 
 export enum AppTypeEnum {
   REACT = 'react',
@@ -27,4 +27,8 @@ export class PipelineDto {
 
   @IsEnum(PackageManagerEnum)
   packageManager: PackageManagerEnum = PackageManagerEnum.YARN
+
+  @IsString()
+  @MaxLength(10)
+  outDir: string = 'build'
 }

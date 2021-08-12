@@ -1,5 +1,5 @@
 import { PipelineRunnerEntity } from './../../entities'
-import { ownership, resolveDeveloperId } from './../../utils'
+import { ownership, resolveCreds } from './../../utils'
 import { httpHandler, NotFoundException } from '@homeservenow/serverless-aws-handler'
 import * as service from '../../services'
 import { defaultOutputHeaders } from './../../constants'
@@ -19,7 +19,7 @@ export const pipelineRunnerCreate = httpHandler<void, PipelineRunnerEntity>({
       throw new NotFoundException()
     }
 
-    const developerId = await resolveDeveloperId(event)
+    const { developerId } = await resolveCreds(event)
 
     const pipeline = await service.findPipelineById(pipelineId)
 
