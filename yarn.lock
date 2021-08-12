@@ -993,7 +993,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@aws-cdk/aws-s3@npm:1.117.0, @aws-cdk/aws-s3@npm:^1.117.0":
+"@aws-cdk/aws-s3@npm:1.117.0":
   version: 1.117.0
   resolution: "@aws-cdk/aws-s3@npm:1.117.0"
   dependencies:
@@ -17916,7 +17916,6 @@ __metadata:
   resolution: "deployment-service@workspace:packages/deployment-service"
   dependencies:
     "@aws-cdk/aws-route53": ^1.117.0
-    "@aws-cdk/aws-s3": ^1.117.0
     "@aws-cdk/core": ^1.117.0
     "@homeservenow/serverless-aws-handler": ^0.2.4
     "@reapit/api-key-verify": "workspace:packages/api-key-verify"
