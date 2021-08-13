@@ -15,6 +15,7 @@
     "mysql": "^2.18.1",
     "nestjs-typeorm-paginate": "^2.5.3",
     "original-fs": "^1.1.0",
+    "rimraf": "^3.0.2",
     "serverless-offline-sqs": "^4.1.1",
     "typeorm": "^0.2.34",
     "typeorm-aurora-data-api-driver": "^2.2.0"
@@ -34,6 +35,7 @@
     "@reapit/config-manager": "workspace:packages/config-manager",
     "@reapit/ts-scripts": "workspace:packages/ts-scripts",
     "@reapit/ts-types": "workspace:packages/ts-types",
+    "@types/rimraf": "^3.0.1",
     "@typescript-eslint/eslint-plugin": "^4.28.4",
     "@typescript-eslint/parser": "^4.28.4",
     "babel-jest": "^27.0.6",
