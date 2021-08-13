@@ -5486,6 +5486,10 @@ export interface CreatePropertyLettingModel {
      */
     amount?: number // double
   }
+  /**
+   * The rent qualifier (rentOnApplication/askingRent)
+   */
+  qualifier?: string
 }
 /**
  * Request body used to create a new property
@@ -5845,6 +5849,10 @@ export interface CreatePropertyModel {
        */
       amount?: number // double
     }
+    /**
+     * The rent qualifier (rentOnApplication/askingRent)
+     */
+    qualifier?: string
   }
   /**
    * The attributes describing the overall type of the property (eg house, bungalow, land), as defined by the property's [department](https://foundations-documentation.reapit.cloud/platform-glossary#department)
@@ -9508,6 +9516,10 @@ export interface PropertyLettingModel {
      */
     amount?: number // double
   }
+  /**
+   * The rent qualifier (rentOnApplication/askingRent)
+   */
+  qualifier?: string
 }
 /**
  * Representation of a property
@@ -9935,6 +9947,10 @@ export interface PropertyModel {
        */
       amount?: number // double
     }
+    /**
+     * The rent qualifier (rentOnApplication/askingRent)
+     */
+    qualifier?: string
   }
   /**
    * The attributes describing the overall type of the property (eg house, bungalow, land), as defined by the property's [department](https://foundations-documentation.reapit.cloud/platform-glossary#department)
@@ -10440,6 +10456,10 @@ export interface PropertyModelPagedResult {
          */
         amount?: number // double
       }
+      /**
+       * The rent qualifier (rentOnApplication/askingRent)
+       */
+      qualifier?: string
     }
     /**
      * The attributes describing the overall type of the property (eg house, bungalow, land), as defined by the property's [department](https://foundations-documentation.reapit.cloud/platform-glossary#department)
@@ -13977,6 +13997,10 @@ export interface UpdatePropertyLettingModel {
      */
     amount?: number // double
   }
+  /**
+   * The rent qualifier (rentOnApplication/askingRent)
+   */
+  qualifier?: string
 }
 /**
  * Request body used to update an existing property
@@ -14336,6 +14360,10 @@ export interface UpdatePropertyModel {
        */
       amount?: number // double
     }
+    /**
+     * The rent qualifier (rentOnApplication/askingRent)
+     */
+    qualifier?: string
   }
   /**
    * The attributes describing the overall type of the property (eg house, bungalow, land), as defined by the property's [department](https://foundations-documentation.reapit.cloud/platform-glossary#department)
