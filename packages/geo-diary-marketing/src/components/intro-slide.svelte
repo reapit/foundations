@@ -6,7 +6,7 @@
   <div class="inner-container el-flex-container el-flex-align-center el-mxauto">
     <div class="content-wrapper el-flex-container no-margin">
       <div class="column el-flex-container el-flex-column el-flex-justify-evenly el-flex-grow no-margin">
-        <img class="logo-image" src="./images/page-one-title.svg" alt="Geo Diary logo" />
+        <img class="logo-image" src="./images/intro-title.svg" alt="Geo Diary logo" />
         <div class="el-mb6">
           <h6 class="el-subtitle">Lets get started!</h6>
           <p class="el-body-text el-has-grey-text">
@@ -14,6 +14,9 @@
             clients.
           </p>
           <button class="el-intent-critical el-button-has-right-chevron el-button el-mb3">Watch Video</button>
+        </div>
+        <div class="column el-flex-container el-flex-column el-flex-justify-center is-hidden-desktop">
+          <img src="./images/intro-hero.svg" alt="Happy man holding a phone and a key" />
         </div>
         <div class="el-mtauto form-container">
           <h6 class="el-subtitle">Existing Customer</h6>
@@ -27,7 +30,6 @@
               src="https://go.reapit.com/l/894351/2021-08-03/2lny5"
               title="Email Form"
               width="100%"
-              height="500"
               type="text/html"
               frameborder="0"
               allowTransparency
@@ -36,8 +38,8 @@
           </div>
         </div>
       </div>
-      <div class="column el-flex-container el-flex-column el-flex-justify-center">
-        <img src="./images/page-one-hero.svg" alt="Happy man holding a phone and a key" />
+      <div class="column el-flex-container el-flex-column el-flex-justify-center is-hidden-mobile">
+        <img src="./images/intro-hero.svg" alt="Happy man holding a phone and a key" />
       </div>
     </div>
   </div>
@@ -49,14 +51,12 @@
   }
 
   .inner-container {
-    padding: 2rem;
+    padding: 1rem;
     max-width: 1200px;
   }
 
   .form-container {
-    box-shadow: 3px 4px 24px rgba(0, 0, 0, 0.07);
-    border-radius: 0.5rem;
-    padding: 2rem;
+    padding: 1rem;
   }
 
   .column {
@@ -65,6 +65,7 @@
 
   .content-wrapper {
     flex-direction: column;
+    padding: 1rem;
   }
 
   .frame-container {
@@ -74,7 +75,8 @@
   }
 
   .logo-image {
-    max-width: 400px;
+    max-width: 66%;
+    margin: 0 0 2rem 0;
   }
 
   .login-reapit-button-container {
@@ -100,22 +102,54 @@
     font-weight: bold;
   }
 
+  p {
+    font-size: 14px;
+  }
+
+  @media screen and (max-width: 767px) {
+    .is-hidden-mobile {
+      display: none;
+    }
+  }
+
   @media screen and (min-width: 768px) {
+    .is-hidden-desktop {
+      display: none;
+    }
+
     .column {
       width: 50%;
-      /* flex-direction: row; */
+    }
+
+    .column:first-child {
+      margin-right: 1rem;
+    }
+
+    .column:last-child {
+      margin-left: 1rem;
     }
 
     .inner-container {
       height: 100vh;
+      padding: 2rem;
     }
 
     .logo-image {
       margin: 4.5rem 0;
     }
 
+    .form-container {
+      box-shadow: 3px 4px 24px rgba(0, 0, 0, 0.07);
+      border-radius: 0.5rem;
+      padding: 2rem;
+    }
+
     .content-wrapper {
       flex-direction: row;
+    }
+
+    p {
+      font-size: 16px;
     }
   }
 </style>

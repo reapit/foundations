@@ -9,7 +9,7 @@
         </div>
         <div class="tile-content">
           <h6 class="el-subtitle el-w1_2_2 el-text-center">Send ETA</h6>
-          <p class="el-body-text el-has-grey-text">
+          <p class="el-body-text el-has-grey-text is-hidden-mobile">
             When you are ready to publish your app you will need to add some additional information such as a Summary,
             Description & Images and you will also need to make it 'Listed'.
           </p>
@@ -20,8 +20,8 @@
           <img class="" src="./images/location.svg" alt="" />
         </div>
         <div class="tile-content">
-          <h6 class="el-subtitle el-w1_2_2 el-text-center">Send ETA</h6>
-          <p class="el-body-text el-has-grey-text">
+          <h6 class="el-subtitle el-w1_2_2 el-text-center">Location Settings</h6>
+          <p class="el-body-text el-has-grey-text is-hidden-mobile">
             When you are ready to publish your app you will need to add some additional information such as a Summary,
             Description & Images and you will also need to make it 'Listed'.
           </p>
@@ -32,8 +32,8 @@
           <img class="" src="./images/maps.svg" alt="" />
         </div>
         <div class="tile-content">
-          <h6 class="el-subtitle el-w1_2_2 el-text-center">Send ETA</h6>
-          <p class="el-body-text el-has-grey-text">
+          <h6 class="el-subtitle el-w1_2_2 el-text-center">Map Integration</h6>
+          <p class="el-body-text el-has-grey-text is-hidden-mobile">
             When you are ready to publish your app you will need to add some additional information such as a Summary,
             Description & Images and you will also need to make it 'Listed'.
           </p>
@@ -44,8 +44,8 @@
           <img class="" src="./images/whatsapp.svg" alt="" />
         </div>
         <div class="tile-content">
-          <h6 class="el-subtitle el-w1_2_2 el-text-center">Send ETA</h6>
-          <p class="el-body-text el-has-grey-text">
+          <h6 class="el-subtitle el-w1_2_2 el-text-center">WhatsApp Integration</h6>
+          <p class="el-body-text el-has-grey-text is-hidden-mobile">
             When you are ready to publish your app you will need to add some additional information such as a Summary,
             Description & Images and you will also need to make it 'Listed'.
           </p>
@@ -56,8 +56,8 @@
           <img class="" src="./images/email.svg" alt="" />
         </div>
         <div class="tile-content">
-          <h6 class="el-subtitle el-w1_2_2 el-text-center">Send ETA</h6>
-          <p class="el-body-text el-has-grey-text">
+          <h6 class="el-subtitle el-w1_2_2 el-text-center">Email Integration</h6>
+          <p class="el-body-text el-has-grey-text is-hidden-mobile">
             When you are ready to publish your app you will need to add some additional information such as a Summary,
             Description & Images and you will also need to make it 'Listed'.
           </p>
@@ -68,8 +68,8 @@
           <img class="" src="./images/checklist.svg" alt="" />
         </div>
         <div class="tile-content">
-          <h6 class="el-subtitle el-w1_2_2 el-text-center">Send ETA</h6>
-          <p class="el-body-text el-has-grey-text">
+          <h6 class="el-subtitle el-w1_2_2 el-text-center">Online Checklist</h6>
+          <p class="el-body-text el-has-grey-text is-hidden-mobile">
             When you are ready to publish your app you will need to add some additional information such as a Summary,
             Description & Images and you will also need to make it 'Listed'.
           </p>
@@ -78,7 +78,7 @@
     </div>
     <div class="el-flex-container el-flex-align-center">
       <h6 class="el-subtitle el-mr3">Already a customer?</h6>
-      <button class="el-intent-critical el-button el-button-has-right-chevron el-mr3 el-mb3">Install now</button>
+      <button class="el-intent-primary el-button el-button-has-right-chevron el-mr3">Install now</button>
     </div>
   </div>
 </div>
@@ -96,57 +96,119 @@
     display: flex;
     border-left-width: 1rem;
     border-style: solid;
-    margin: 0.625rem;
-    width: calc(50% - 1.25rem);
+    margin: 0.625rem 0;
+    width: 100%;
+    height: 88px;
   }
 
   .tile-border-blue-lightest {
-    border-color: #7BC9EB;
+    border-color: #7bc9eb;
   }
 
   .tile-border-blue-light {
-    border-color: #23A4DE ;
+    border-color: #23a4de;
   }
 
   .tile-border-orange {
-    border-color: #FFB71B;
+    border-color: #ffb71b;
   }
 
   .tile-border-blue-dark {
-    border-color: #262F69;
+    border-color: #262f69;
   }
 
   .tile-border-green {
-    border-color: #A0C862;
+    border-color: #a0c862;
   }
 
   .tile-border-blue-med {
-    border-color: #0061A8;
+    border-color: #0061a8;
   }
 
   .tile-content {
-    padding: 1.5rem 2rem 1.5rem 0;
+    display: flex;
+    align-items: center;
   }
 
   .tile-container {
     margin-bottom: 2.25rem;
+    flex-direction: column;
+    width: 100%;
   }
 
   .image-container {
-    width: 10.75rem;
+    width: 5.75rem;
+    height: 3.5rem;
     flex-shrink: 0;
     margin-bottom: 0;
+    align-self: center;
   }
 
   h2 {
     margin-bottom: 0.5rem;
+    font-size: 1.625rem;
+    line-height: 1.75rem;
   }
 
   h5 {
     margin-bottom: 2.5rem;
+    font-size: 1rem;
+    line-height: 1.25rem;
   }
 
   h6 {
     font-weight: bold;
+    margin-bottom: 0;
+    text-align: initial;
+  }
+
+  img {
+    height: 100%;
+  }
+
+  @media screen and (max-width: 767px) {
+    .is-hidden-mobile {
+      display: none;
+    }
+  }
+
+  @media screen and (min-width: 768px) {
+    .tile {
+      width: calc(50% - 1.25rem);
+      margin: 0.625rem;
+      height: auto;
+    }
+
+    .image-container {
+      width: 10.75rem;
+      height: auto;
+    }
+
+    .tile-container {
+      flex-direction: row;
+    }
+
+    .tile-content {
+      padding: 1.5rem 2rem 1.5rem 0;
+      display: block;
+    }
+
+    img {
+      height: auto;
+    }
+
+    h6 {
+      margin-bottom: 1.25rem;
+    }
+
+    h5 {
+      font-size: 1.25rem;
+      line-height: 1.5rem;
+    }
+
+    h2 {
+      font-size: 2rem;
+      line-height: 2.25rem;
+    }
   }
 </style>

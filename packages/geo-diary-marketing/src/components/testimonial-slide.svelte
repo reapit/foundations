@@ -119,7 +119,6 @@
     border-radius: 0.5rem;
     display: flex;
     margin: 0.625rem;
-    width: calc(50% - 1.25rem);
     height: fit-content;
     padding: 2rem 2rem 1rem 2rem;
   }
@@ -127,16 +126,19 @@
   .tile-container {
     margin-bottom: 2.25rem;
     flex-flow: column wrap;
-    max-height: 800px;
     width: 100%;
   }
 
   h2 {
     margin-bottom: 0.5rem;
+    font-size: 1.625rem;
+    line-height: 1.75rem;
   }
 
   h4 {
     margin-bottom: 2.5rem;
+    font-size: 1rem;
+    line-height: 1.25rem;
   }
 
   h5 {
@@ -145,5 +147,33 @@
 
   h6 {
     justify-self: flex-start;
+  }
+
+  p {
+    font-size: 0.875rem;
+  }
+
+  @media screen and (min-width: 768px) {
+    .tile-container {
+      max-height: 800px;
+    }
+
+    .tile {
+      width: calc(50% - 1.25rem);
+    }
+
+    p {
+      font-size: 1rem;
+    }
+
+    h4 {
+      font-size: 1.25rem;
+      line-height: 1.5rem;
+    }
+
+    h2 {
+      font-size: 2rem;
+      line-height: 2.25rem;
+    }
   }
 </style>

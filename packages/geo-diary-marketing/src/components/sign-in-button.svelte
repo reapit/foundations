@@ -116,8 +116,4 @@
     border-radius: 4px;
     margin-bottom: 2rem;
   }
-
-  .login-reapit-button:hover {
-    background-color: #23a4de;
-  }
 </style>
