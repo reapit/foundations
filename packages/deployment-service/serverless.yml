@@ -54,6 +54,9 @@ provider:
     MYSQL_USERNAME: ${self:custom.env.MYSQL_USERNAME}
     MYSQL_PASSWORD: ${self:custom.env.MYSQL_PASSWORD}
     SQS_ENDPOINT: ${self:custom.env.SQS_ENDPOINT}
+    DEPLOYMENT_VERSION_BUCKET_NAME: ${self:custom.env.DEPLOYMENT_VERSION_BUCKET_NAME}
+    DEPLOYMENT_LIVE_BUCKET_NAME: ${self:custom.env.DEPLOYMENT_LIVE_BUCKET_NAME}
+    DEPLOYMENT_BUCKET_NAME: ${self:custom.env.DEPLOYMENT_BUCKET_NAME}
   iamRoleStatements:
     - Effect: Allow
       Action:
@@ -61,6 +64,18 @@ provider:
         - s3:GetObject
         - s3:ListBucket
       Resource: 'arn:aws:s3:::${self:custom.env.DEPLOYMENT_BUCKET_NAME}'
+    - Effect: Allow
+      Action:
+        - s3:PutObject
+        - s3:GetObject
+        - s3:ListBucket
+      Resource: 'arn:aws:s3:::${self:custom.env.DEPLOYMENT_VERSION_BUCKET_NAME}'
+    - Effect: Allow
+      Action:
+        - s3:PutObject
+        - s3:GetObject
+        - s3:ListBucket
+      Resource: 'arn:aws:s3:::${self:custom.env.DEPLOYMENT_LIVE_BUCKET_NAME}'
     - Effect: Allow
       Action:
         - rds-data:BeginTransaction
