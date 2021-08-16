@@ -13,7 +13,7 @@ export const build: ExecutableType = async (task: TaskEntity, pipeline: Pipeline
     // TODO use pipeline.buildCommand
 
     const returned = await new Promise((resolve, reject) => {
-      const result = spawn('npm', [pipeline.buildCommand as string], {
+      const result = spawn('npm run', [pipeline.buildCommand as string], {
         cwd: cloneDir(pipeline),
       })
 
