@@ -9,6 +9,11 @@
 
 <svelte:head>
   <title>Geo Diary</title>
+  <style>
+    body {
+      overflow-x: hidden;
+    }
+  </style>
 </svelte:head>
 
 <main>
