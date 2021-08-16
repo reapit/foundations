@@ -10,5 +10,5 @@ export const usePageId = () => {
     history.push(`/${pageId}${context ? `?${qs.stringify(context)}` : ''}`)
   }
 
-  return { pageId, setPageId, context }
+  return { pageId: pageId || '', setPageId, context }
 }

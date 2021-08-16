@@ -7,11 +7,15 @@ import Container from '../ui/user/container'
 import Text from '../ui/user/text'
 import Link from '../ui/user/link'
 import Context from '../ui/user/context'
+import Table from '../ui/user/table'
+import { setPageNodes } from '../ui/header/saveState'
+import { usePageId } from '@/core/usePageId'
 
 export type AuthenticatedProps = {}
 
 export const Authenticated: FC<AuthenticatedProps> = () => {
   const iframeRef = useRef()
+  const { pageId } = usePageId()
 
   return (
     <Editor
@@ -20,8 +24,14 @@ export const Authenticated: FC<AuthenticatedProps> = () => {
         Container,
         Link,
         Context,
+        Table,
       }}
       onRender={(props) => <RenderNode {...props} iframeRef={iframeRef.current} />}
+      onNodesChange={(query) => {
+        if (query.serialize() !== '{}') {
+          setPageNodes(pageId, query.serialize())
+        }
+      }}
     >
       <Viewport iframeRef={iframeRef}>
         <Frame>

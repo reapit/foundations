@@ -11,12 +11,12 @@ import UndoSvg from '../../icons/undo'
 import { buttonIcon, disabled, header, item } from './styles'
 
 import { PageSelector } from './PageSelector'
-import { deletePage, setPageNodes } from './saveState'
+import { deletePage } from './saveState'
 import { usePageId } from '@/core/usePageId'
 
 const Header = () => {
   const { pageId, setPageId } = usePageId()
-  const { enabled, canUndo, canRedo, actions, query } = useEditor((state, query) => ({
+  const { enabled, canUndo, canRedo, actions } = useEditor((state, query) => ({
     enabled: state.options.enabled,
     canUndo: query.history.canUndo(),
     canRedo: query.history.canRedo(),
@@ -24,7 +24,7 @@ const Header = () => {
 
   return (
     <FlexContainer className={header} isFlexJustifyCenter>
-      <FlexContainer isFlexAlignCenter isFlexJustifyBetween className={cx(elFlex1, elMTAuto, elPr1)}>
+      <FlexContainer isFlexAlignCenter isFlexJustifyEnd className={cx(elFlex1, elMTAuto, elPr1)}>
         {enabled && (
           <div className={cx(elFlex, elFlex1)}>
             <a className={cx(item, !canUndo && disabled)} data-tip="Undo" onClick={() => actions.history.undo()}>
@@ -43,17 +43,10 @@ const Header = () => {
                 size={2}
                 style={{ zoom: 0.8 }}
                 onClick={() => {
-                  pageId && setPageNodes(pageId, query.serialize())
-                }}
-                intent="primary"
-              >
-                save page
-              </Button>
-              <Button
-                size={2}
-                style={{ zoom: 0.8 }}
-                onClick={() => {
-                  pageId && deletePage(pageId)
+                  if (pageId) {
+                    deletePage(pageId)
+                    window.location.reload()
+                  }
                 }}
                 intent="danger"
               >
