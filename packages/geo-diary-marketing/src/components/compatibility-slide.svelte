@@ -42,8 +42,14 @@
 </div>
 
 <style>
-  .inner-container {
+  .white-bg-container {
     max-width: 1200px;
+  }
+
+  .padded-container {
+    padding-top: 2rem;
+    background: rgb(248, 248, 248);
+    width: 100%;
   }
 
   .white-bg-container {
@@ -113,13 +119,17 @@
     .image-tablet-hero {
       display: none;
     }
+
+    .padded-container {
+      background: #fff;
+    }
   }
 
   @media screen and (min-width: 768px) {
     .image-mobile-hero {
       display: none;
     }
-    
+
     .column {
       width: 50%;
     }

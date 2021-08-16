@@ -77,7 +77,7 @@
       </div>
     </div>
     <div class="el-flex-container el-flex-align-center">
-      <h6 class="el-subtitle el-mr3">Already a customer?</h6>
+      <h6 class="el-subtitle el-mr3 footer-heading">Already a customer?</h6>
       <button class="el-intent-primary el-button el-button-has-right-chevron el-mr3">Install now</button>
     </div>
   </div>
@@ -144,6 +144,10 @@
     align-self: center;
   }
 
+  .footer-heading {
+    margin-bottom: 0;
+  }
+
   h2 {
     margin-bottom: 0.5rem;
     font-size: 1.625rem;
@@ -166,13 +170,17 @@
     height: 100%;
   }
 
-  @media screen and (max-width: 767px) {
+  p {
+    margin-bottom: 0;
+  }
+
+  @media screen and (max-width: 899px) {
     .is-hidden-mobile {
       display: none;
     }
   }
 
-  @media screen and (min-width: 768px) {
+  @media screen and (min-width: 900px) {
     .tile {
       width: calc(50% - 1.25rem);
       margin: 0.625rem;

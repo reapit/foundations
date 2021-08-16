@@ -30,7 +30,6 @@
         developed by Reapit’s growing range of partnerships.
       </p>
     </div>
-
     <div class="footer">
       <p>© Copyright Reapit. All rights reserved. 2021</p>
       <p>
@@ -74,6 +73,8 @@
   .image-desktop-hero {
     position: relative;
     line-height: 0;
+    display: flex;
+    justify-content: center;
   }
 
   .image-text {
@@ -116,25 +117,25 @@
     color: var(--intent-primary);
   }
 
-  @media screen and (max-width: 1100px) {
+  @media screen and (max-width: 1440px) {
     .image-desktop-hero {
       display: none;
     }
   }
 
-  @media screen and (min-width: 1099px) {
+  @media screen and (min-width: 1439px) {
     .image-tablet-hero {
       display: none;
     }
   }
 
-  @media screen and (max-width: 767px) {
+  @media screen and (max-width: 499px) {
     .image-tablet-hero {
       display: none;
     }
   }
 
-  @media screen and (min-width: 768px) {
+  @media screen and (min-width: 500px) {
     .image-mobile-hero {
       display: none;
     }

@@ -16,6 +16,9 @@
             <h6 class="el-card-sub-heading el-mb3">Executive Assistant</h6>
             <h6 class="el-card-sub-heading-additional-expanded el-card-sub-heading-additional">Countrywide PLC</h6>
           </div>
+          <div class="quotes-container-mobile el-flex-container el-flex-align-center el-flex-justify-center">
+            <img class="" src="./images/quotes.svg" alt="" />
+          </div>
           <p class="el-body-text el-has-grey-text">
             When you are ready to publish your app you will need to add some additional information such as a Summary,
             Description & Images and you will also need to make it 'Listed'.
@@ -35,28 +38,8 @@
             <h6 class="el-card-sub-heading el-mb3">Executive Assistant</h6>
             <h6 class="el-card-sub-heading-additional-expanded el-card-sub-heading-additional">Countrywide PLC</h6>
           </div>
-          <p class="el-body-text el-has-grey-text">
-            When you are ready to publish your app you will need to add some additional information such as a Summary,
-            Description & Images and you will also need to make it 'Listed'.
-          </p>
-          <p class="el-body-text el-has-grey-text">
-            When you are ready to publish your app you will need to add some additional information such as a Summary,
-            Description & Images and you will also need to make it 'Listed'.
-          </p>
-        </div>
-      </div>
-      <div class="tile">
-        <div class="tile-content el-flex-container el-flex-wrap">
-          <div class="quotes-container image-container el-flex-container el-flex-align-center el-flex-justify-center">
+          <div class="quotes-container-mobile el-flex-container el-flex-align-center el-flex-justify-center">
             <img class="" src="./images/quotes.svg" alt="" />
-          </div>
-          <div class="image-container el-flex-container el-flex-align-center el-flex-justify-center">
-            <img class="" src="./images/avatar.svg" alt="" />
-          </div>
-          <div class="el-card-heading-wrap">
-            <h5 class="el-subtitle">John Smith</h5>
-            <h6 class="el-card-sub-heading el-mb3">Executive Assistant</h6>
-            <h6 class="el-card-sub-heading-additional-expanded el-card-sub-heading-additional">Countrywide PLC</h6>
           </div>
           <p class="el-body-text el-has-grey-text">
             When you are ready to publish your app you will need to add some additional information such as a Summary,
@@ -80,6 +63,35 @@
             <h5 class="el-subtitle">John Smith</h5>
             <h6 class="el-card-sub-heading el-mb3">Executive Assistant</h6>
             <h6 class="el-card-sub-heading-additional-expanded el-card-sub-heading-additional">Countrywide PLC</h6>
+          </div>
+          <div class="quotes-container-mobile el-flex-container el-flex-align-center el-flex-justify-center">
+            <img class="" src="./images/quotes.svg" alt="" />
+          </div>
+          <p class="el-body-text el-has-grey-text">
+            When you are ready to publish your app you will need to add some additional information such as a Summary,
+            Description & Images and you will also need to make it 'Listed'.
+          </p>
+          <p class="el-body-text el-has-grey-text">
+            When you are ready to publish your app you will need to add some additional information such as a Summary,
+            Description & Images and you will also need to make it 'Listed'.
+          </p>
+        </div>
+      </div>
+      <div class="tile">
+        <div class="tile-content el-flex-container el-flex-wrap">
+          <div class="quotes-container image-container el-flex-container el-flex-align-center el-flex-justify-center">
+            <img class="" src="./images/quotes.svg" alt="" />
+          </div>
+          <div class="image-container el-flex-container el-flex-align-center el-flex-justify-center">
+            <img class="" src="./images/avatar.svg" alt="" />
+          </div>
+          <div class="el-card-heading-wrap">
+            <h5 class="el-subtitle">John Smith</h5>
+            <h6 class="el-card-sub-heading el-mb3">Executive Assistant</h6>
+            <h6 class="el-card-sub-heading-additional-expanded el-card-sub-heading-additional">Countrywide PLC</h6>
+          </div>
+          <div class="quotes-container-mobile el-flex-container el-flex-align-center el-flex-justify-center">
+            <img class="" src="./images/quotes.svg" alt="" />
           </div>
           <p class="el-body-text el-has-grey-text">
             When you are ready to publish your app you will need to add some additional information such as a Summary,
@@ -97,13 +109,21 @@
   }
 
   .inner-container {
-    padding: 2rem;
+    padding: 1rem;
     max-width: 1200px;
   }
 
   .quotes-container {
     border-right: 1px solid #e3e3e3;
     width: 5rem;
+  }
+
+  .quotes-container-mobile {
+    margin-left: auto;
+  }
+
+  .quotes-container-mobile img {
+    height: 2.5rem;
   }
 
   .image-container {
@@ -120,7 +140,7 @@
     display: flex;
     margin: 0.625rem;
     height: fit-content;
-    padding: 2rem 2rem 1rem 2rem;
+    padding: 1rem 1rem 0 1rem;
   }
 
   .tile-container {
@@ -153,13 +173,28 @@
     font-size: 0.875rem;
   }
 
+  @media screen and (max-width: 767px) {
+    .quotes-container {
+      display: none;
+    }
+  }
+
   @media screen and (min-width: 768px) {
+    .inner-container {
+      padding: 2rem;
+    }
+
+    .quotes-container-mobile {
+      display: none;
+    }
+
     .tile-container {
       max-height: 800px;
     }
 
     .tile {
       width: calc(50% - 1.25rem);
+      padding: 2rem 2rem 1rem 2rem;
     }
 
     p {
