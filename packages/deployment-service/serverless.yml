@@ -35,6 +35,10 @@ provider:
   s3:
     deploymentReleaseBucket:
       name: ${self:custom.env.DEPLOYMENT_BUCKET_NAME}
+    deploymentVersionBucket:
+      name: ${self:custom.env.DEPLOYMENT_VERSION_BUCKET_NAME}
+    deploymentLiveBucket:
+      name: ${self:custom.env.DEPLOYMENT_LIVE_BUCKET_NAME}
   vpc:
     subnetIds:
       - ${self:custom.env.SUB_NET}
@@ -63,19 +67,46 @@ provider:
         - s3:PutObject
         - s3:GetObject
         - s3:ListBucket
-      Resource: 'arn:aws:s3:::${self:custom.env.DEPLOYMENT_BUCKET_NAME}'
+        - s3:PutObjectAcl
+        - s3:GetBucketAcl
+        - s3:GetObjectAcl
+        - s3:GetBucketLocation
+        - s3:GetObjectRetention
+        - s3:GetObjectVerison
+        - s3:GetObjectVersionAcl
+        - s3:DeleteObject
+        - s3:DeleteObjectVersion
+      Resource: 'arn:aws:s3:::${self:custom.env.DEPLOYMENT_BUCKET_NAME}/*'
     - Effect: Allow
       Action:
         - s3:PutObject
         - s3:GetObject
         - s3:ListBucket
-      Resource: 'arn:aws:s3:::${self:custom.env.DEPLOYMENT_VERSION_BUCKET_NAME}'
+        - s3:PutObjectAcl
+        - s3:GetBucketAcl
+        - s3:GetObjectAcl
+        - s3:GetBucketLocation
+        - s3:GetObjectRetention
+        - s3:GetObjectVerison
+        - s3:GetObjectVersionAcl
+        - s3:DeleteObject
+        - s3:DeleteObjectVersion
+      Resource: 'arn:aws:s3:::${self:custom.env.DEPLOYMENT_VERSION_BUCKET_NAME}/*'
     - Effect: Allow
       Action:
         - s3:PutObject
         - s3:GetObject
         - s3:ListBucket
-      Resource: 'arn:aws:s3:::${self:custom.env.DEPLOYMENT_LIVE_BUCKET_NAME}'
+        - s3:PutObjectAcl
+        - s3:GetBucketAcl
+        - s3:GetObjectAcl
+        - s3:GetBucketLocation
+        - s3:GetObjectRetention
+        - s3:GetObjectVerison
+        - s3:GetObjectVersionAcl
+        - s3:DeleteObject
+        - s3:DeleteObjectVersion
+      Resource: 'arn:aws:s3:::${self:custom.env.DEPLOYMENT_LIVE_BUCKET_NAME}/*'
     - Effect: Allow
       Action:
         - rds-data:BeginTransaction
@@ -150,7 +181,7 @@ resources:
       Type: AWS::S3::Bucket
       Properties:
         BucketName: ${self:custom.env.DEPLOYMENT_LIVE_BUCKET_NAME}
-        AccessControl: Private
+        AccessControl: PublicRead
     TaskRunner:
       Type: AWS::SQS::Queue
       Properties:
@@ -507,7 +538,7 @@ functions:
     layers:
       - arn:aws:lambda:${self:provider.region}:553035198032:layer:git-lambda2:8
     handler: src/index.taskRunner
-    timeout: 300
+    timeout: 30
     fileSystemConfig:
       arn: ${self:custom.env.EFS_ARN}
       localMountPath: /mnt/efs1
