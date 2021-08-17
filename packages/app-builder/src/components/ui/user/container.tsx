@@ -50,6 +50,7 @@ const Container = ({ padding, children, width, background, height, ...props }: C
         padding: `${padding}px`,
         flex: isRoot ? 'unset' : undefined,
         width: isRoot ? '100%' : undefined,
+        display: isRoot ? 'block' : undefined,
       }}
     >
       {children}
