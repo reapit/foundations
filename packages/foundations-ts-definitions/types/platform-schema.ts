@@ -4813,6 +4813,7 @@ export interface CreateIdentityCheckModel {
   negotiatorId: string
   /**
    * Request body to attach an identity document to a new contact identity check
+   * A second identity document is not required and can be ignored by being set to null
    */
   identityDocument1: {
     /**
@@ -4845,6 +4846,7 @@ export interface CreateIdentityCheckModel {
   }
   /**
    * Request body to attach an identity document to a new contact identity check
+   * A second identity document is not required and can be ignored by being set to null
    */
   identityDocument2?: {
     /**
@@ -4884,6 +4886,7 @@ export interface CreateIdentityCheckModel {
 }
 /**
  * Request body to attach an identity document to a new contact identity check
+ * A second identity document is not required and can be ignored by being set to null
  */
 export interface CreateIdentityDocumentModel {
   /**
