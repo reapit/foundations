@@ -87,7 +87,7 @@ export class PipelineEntity extends AbstractEntity implements PipelineModelInter
   developerId?: string
 
   @Column()
-  outDir?: string
+  outDir?: string = 'build'
 
   @Column()
   clientId?: string
