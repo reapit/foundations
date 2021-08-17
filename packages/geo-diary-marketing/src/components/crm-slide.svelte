@@ -4,7 +4,9 @@
     <h5 class="el-subtitle el-text-center">Intuitive CRM and Client Accounting Software</h5>
     <div class="el-flex-container el-flex-align-center">
       <h6 class="el-subtitle el-mr3">How it works</h6>
-      <button class="el-intent-critical el-button el-mr3 el-mb3">Watch Video</button>
+      <a href="https://www.youtube.com/watch?v=iKdil7liAts&amp;t=3s" rel="noopener noreferrer" target="_blank">
+        <button class="el-intent-critical el-button el-mr3 el-mb3">Watch Video</button>
+      </a>
     </div>
     <img class="is-hidden-mobile" src="./images/crm-desktop-hero.svg" alt="View of calendar and mobile app overlaid" />
     <img class="is-hidden-desktop" src="./images/crm-mobile-hero.svg" alt="View of calendar and mobile app overlaid" />
