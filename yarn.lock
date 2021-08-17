@@ -993,7 +993,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@aws-cdk/aws-s3@npm:1.117.0, @aws-cdk/aws-s3@npm:^1.117.0":
+"@aws-cdk/aws-s3@npm:1.117.0":
   version: 1.117.0
   resolution: "@aws-cdk/aws-s3@npm:1.117.0"
   dependencies:
@@ -10590,6 +10590,16 @@ __metadata:
   languageName: node
   linkType: hard
 
+"@types/rimraf@npm:^3.0.1":
+  version: 3.0.1
+  resolution: "@types/rimraf@npm:3.0.1"
+  dependencies:
+    "@types/glob": "*"
+    "@types/node": "*"
+  checksum: 7af952cc9368dad228a88264ffc89efef4dc202ff71556981ded7a461cc53c0e656e5c6a63a4fa46fc94364badbcb715b48c8d633dcd1c2af4a4a78854c1d9f0
+  languageName: node
+  linkType: hard
+
 "@types/sarif@npm:^2.1.3":
   version: 2.1.4
   resolution: "@types/sarif@npm:2.1.4"
@@ -17916,7 +17926,6 @@ __metadata:
   resolution: "deployment-service@workspace:packages/deployment-service"
   dependencies:
     "@aws-cdk/aws-route53": ^1.117.0
-    "@aws-cdk/aws-s3": ^1.117.0
     "@aws-cdk/core": ^1.117.0
     "@homeservenow/serverless-aws-handler": ^0.2.4
     "@reapit/api-key-verify": "workspace:packages/api-key-verify"
@@ -17925,6 +17934,7 @@ __metadata:
     "@reapit/ts-scripts": "workspace:packages/ts-scripts"
     "@reapit/ts-types": "workspace:packages/ts-types"
     "@reapit/utils": "workspace:packages/utils"
+    "@types/rimraf": ^3.0.1
     "@typescript-eslint/eslint-plugin": ^4.28.4
     "@typescript-eslint/parser": ^4.28.4
     adm-zip: ^0.5.5
@@ -17939,6 +17949,7 @@ __metadata:
     mysql: ^2.18.1
     nestjs-typeorm-paginate: ^2.5.3
     original-fs: ^1.1.0
+    rimraf: ^3.0.2
     serverless: ^2.52.0
     serverless-offline-sqs: ^4.1.1
     serverless-webpack: ^5.5.1

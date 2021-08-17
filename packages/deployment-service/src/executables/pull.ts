@@ -3,6 +3,7 @@ import { ExecutableType } from './executable'
 import fs from 'fs'
 import { developerDir, cloneDir } from '../utils'
 import { spawn } from 'child_process'
+import rimraf from 'rimraf'
 
 export const pull: ExecutableType = async (task: TaskEntity, pipeline: PipelineEntity): Promise<true | never> => {
   console.log('pull...')
@@ -18,9 +19,12 @@ export const pull: ExecutableType = async (task: TaskEntity, pipeline: PipelineE
     }
 
     if (fs.existsSync(cloneDir(pipeline))) {
-      fs.rmSync(cloneDir(pipeline), {
-        recursive: true,
-      })
+      await new Promise<void>((resolve, reject) =>
+        rimraf(cloneDir(pipeline), (error) => {
+          error && reject(error)
+          resolve()
+        }),
+      )
     }
 
     const returned = await new Promise((resolve, reject) => {
