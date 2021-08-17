@@ -87,10 +87,14 @@ export class PipelineEntity extends AbstractEntity implements PipelineModelInter
   developerId?: string
 
   @Column()
-  outDir?: string
+  outDir?: string = 'build'
 
   @Column()
   clientId?: string
+
+  get uniqueRepoName(): string {
+    return `${this.developerId}/${this.repository?.split('/').pop()}`
+  }
 }
 
 export type TaskWorkflow = TaskRunnerFunctions[]
