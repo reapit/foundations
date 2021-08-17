@@ -2,14 +2,16 @@
   <div class="padded-container">
     <h2 class="el-title el-text-center">Available now!</h2>
     <h5 class="el-subtitle el-text-center">
-      Immediate access to all eligible Enterprise clients of Reapit’s Agency Cloud CRM software
+      If you are an existing Reapit Customer, you can access all apps and integrations now from the AppMarket
     </h5>
   </div>
   <div class="image-footer-container">
     <div class="image-mobile-hero">
       <img src="./images/availability-mobile-hero.svg" alt="flow of data to various devices" />
       <p class="el-body-text el-has-grey-text image-text">
-        <button class="el-intent-critical el-button el-mr3 el-mb3 button">App Marketplace</button>
+        <a href="https://marketplace.reapit.cloud/apps" rel="noopener noreferrer" target="_blank">
+          <button class="el-intent-critical el-button el-mr3 el-mb3 button">App Marketplace</button>
+        </a>
         Reapit customers can now adopt and deploy powerful new apps and integrations from a continually evolving library
         developed by Reapit’s growing range of partnerships.
       </p>
@@ -17,7 +19,9 @@
     <div class="image-tablet-hero">
       <img src="./images/availability-hero.svg" alt="flow of data to various devices" />
       <p class="el-body-text el-has-grey-text image-text">
-        <button class="el-intent-critical el-button el-mr3 el-mb3 button">App Marketplace</button>
+        <a href="https://marketplace.reapit.cloud/apps" rel="noopener noreferrer" target="_blank">
+          <button class="el-intent-critical el-button el-mr3 el-mb3 button">App Marketplace</button>
+        </a>
         Reapit customers can now adopt and deploy powerful new apps and integrations from a continually evolving library
         developed by Reapit’s growing range of partnerships.
       </p>
@@ -25,7 +29,9 @@
     <div class="image-desktop-hero">
       <img src="./images/availability-desktop-hero.svg" alt="flow of data to various devices" />
       <p class="el-body-text el-has-grey-text image-text">
-        <button class="el-intent-critical el-button el-mr3 el-mb3 button">App Marketplace</button>
+        <a href="https://marketplace.reapit.cloud/apps" rel="noopener noreferrer" target="_blank">
+          <button class="el-intent-critical el-button el-mr3 el-mb3 button">App Marketplace</button>
+        </a>
         Reapit customers can now adopt and deploy powerful new apps and integrations from a continually evolving library
         developed by Reapit’s growing range of partnerships.
       </p>

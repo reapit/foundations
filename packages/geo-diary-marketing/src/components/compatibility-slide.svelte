@@ -2,7 +2,7 @@
   <div class="inner-container el-flex-container el-flex-column el-flex-align-center el-mxauto">
     <div class="padded-container">
       <h2 class="el-title el-text-center">Compatibility</h2>
-      <h5 class="el-subtitle el-text-center">Instant access to your daily & weekly appointments.</h5>
+      <h5 class="el-subtitle el-text-center">Available on IOS, Windows, Mobile & Web</h5>
     </div>
     <img class="image-mobile-hero" src="./images/compatibility-mobile-hero.svg" alt="flow of data to various devices" />
     <img class="image-tablet-hero" src="./images/compatibility-hero.svg" alt="flow of data to various devices" />
@@ -22,19 +22,19 @@
       <div class="column el-flex-container el-flex-column el-px2">
         <p class="el-body-text el-has-grey-text">
           <strong
-            >You can embed some of the most well-known, specialised PropTech solutions into your CRM for a truly
-            seamless experience.
+            >The GEO Diary app is a progressive web application and can be saved and launched as an app on your phone,
+            accessed via a web browser or launched through Agency Cloud.
           </strong>
         </p>
         <p class="el-body-text el-has-grey-text">
-          When you are ready to publish your app you will need to add some additional information such as a Summary,
-          Description & Images.
+          Supporting multiple platforms, you can access your weekly diary appointments in the office on a web browser or
+          on the go on your mobile or tab.
         </p>
       </div>
       <div class="column el-px2">
         <p class="el-body-text el-has-grey-text">
-          When you are ready to publish your app you will need to add some additional information such as a Summary,
-          Description & Images and you will also need to make it 'Listed' so it is visible in the Marketplace.
+          With our email and WhatsApp integrations, you can easily stay connected to your applicants, vendors, tenants,
+          and landlords.
         </p>
       </div>
     </div>

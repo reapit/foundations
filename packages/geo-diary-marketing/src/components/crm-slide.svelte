@@ -1,7 +1,7 @@
 <div class="container el-wscreen">
   <div class="inner-container el-flex-container el-flex-column el-flex-align-center el-mxauto">
-    <h2 class="el-title el-text-center">Intuitive CRM and Client Accounting Software</h2>
-    <h5 class="el-subtitle el-text-center">Available for iOS, Android, Chrome and Web</h5>
+    <h2 class="el-title el-text-center">Do more with AgencyCloud</h2>
+    <h5 class="el-subtitle el-text-center">Intuitive CRM and Client Accounting Software</h5>
     <div class="el-flex-container el-flex-align-center">
       <h6 class="el-subtitle el-mr3">How it works</h6>
       <button class="el-intent-critical el-button el-mr3 el-mb3">Watch Video</button>
@@ -12,19 +12,27 @@
       <div class="column el-flex-container el-flex-column el-px2">
         <p class="el-body-text el-has-grey-text">
           <strong
-            >You can embed some of the most well-known, specialised PropTech solutions into your CRM for a truly
-            seamless experience.
+            >Combining the power of our intuitive CRM ‘Agency Cloud’, the GEO Diary app provides you with the ability to
+            access diary appointments from anywhere!
           </strong>
         </p>
         <p class="el-body-text el-has-grey-text">
-          When you are ready to publish your app you will need to add some additional information such as a Summary,
-          Description & Images.
+          You can view your appointments for today, tomorrow or for the whole week, direct from an app on your phone or
+          via a web browser.
+        </p>
+        <p class="el-body-text el-has-grey-text">
+          Easy to install and simple to use, GEO Diary is a progressive web application that integrates with What’s App,
+          Email and other applications from the AppMarket.
         </p>
       </div>
       <div class="column el-px2">
         <p class="el-body-text el-has-grey-text">
-          When you are ready to publish your app you will need to add some additional information such as a Summary,
-          Description & Images and you will also need to make it 'Listed' so it is visible in the Marketplace.
+          Running late for an appointment? send an automated ETA text message. Carried out a viewing? Enter your follow
+          up notes direct on the appointment and they will be instantly stored against that record in Agency Cloud.
+        </p>
+        <p class="el-body-text el-has-grey-text">
+          Using the very latest in technology, we have integrated with Google Maps and Apple Maps for turn-by-turn
+          directions.
         </p>
       </div>
     </div>

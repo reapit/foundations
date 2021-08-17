@@ -8,22 +8,24 @@
       <div class="column el-flex-container el-flex-column el-flex-justify-evenly el-flex-grow no-margin">
         <img class="logo-image" src="./images/intro-title.svg" alt="Geo Diary logo" />
         <div class="el-mb6">
-          <h6 class="el-subtitle">Lets get started!</h6>
+          <h6 class="el-subtitle">Access your appointments, anywhere!</h6>
           <p class="el-body-text el-has-grey-text">
-            You can also use the listing preview to see how your app will display in the Marketplace to potential
-            clients.
+            Simple and easy to use. The GEO Diary app allows you to easily access your diary appointments dire¬ct from
+            your mobile or web browser. Why not see it for yourself?
           </p>
-          <button class="el-intent-critical el-button-has-right-chevron el-button el-mb3">Watch Video</button>
+          <a href="https://geo-diary-beta.prod.paas.reapit.cloud/?demo=true" target="_blank" rel="noopener noreferrer">
+            <button class="el-intent-critical el-button-has-right-chevron el-button el-mb3">Try it now</button>
+          </a>
         </div>
         <div class="column el-flex-container el-flex-column el-flex-justify-center is-hidden-desktop">
           <img src="./images/intro-hero.svg" alt="Happy man holding a phone and a key" />
         </div>
         <div class="el-mtauto form-container">
-          <h6 class="el-subtitle">Existing Customer</h6>
+          <h6 class="el-subtitle">Existing Customer? Install Now</h6>
           <div class="login-reapit-button-container">
             <SignInButton />
           </div>
-          <h6 class="el-subtitle">New Customer</h6>
+          <h6 class="el-subtitle">New Customer? Find out more</h6>
           <div class="frame-container">
             <iframe
               id="form-frame"

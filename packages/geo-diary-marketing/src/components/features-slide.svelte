@@ -1,3 +1,11 @@
+<script lang="ts">
+  import SignInButton from './sign-in-button.svelte'
+
+  $: modalVisible = false
+
+  const setModalVisible = () => (modalVisible = !modalVisible)
+</script>
+
 <div class="container el-wscreen">
   <div class="inner-container el-flex-container el-flex-column el-flex-align-center el-mxauto">
     <h2 class="el-title el-text-center">Agency Cloud - Diary Appointment Features</h2>
@@ -10,8 +18,8 @@
         <div class="tile-content">
           <h6 class="el-subtitle el-w1_2_2 el-text-center">Send ETA</h6>
           <p class="el-body-text el-has-grey-text is-hidden-mobile">
-            When you are ready to publish your app you will need to add some additional information such as a Summary,
-            Description & Images and you will also need to make it 'Listed'.
+            Send a prepopulated text message with your exact time of arrival. GEO Diary will automatically calculate
+            your current location and the time to your next appointment.
           </p>
         </div>
       </div>
@@ -22,8 +30,8 @@
         <div class="tile-content">
           <h6 class="el-subtitle el-w1_2_2 el-text-center">Location Settings</h6>
           <p class="el-body-text el-has-grey-text is-hidden-mobile">
-            When you are ready to publish your app you will need to add some additional information such as a Summary,
-            Description & Images and you will also need to make it 'Listed'.
+            Get turn by turn directions from any starting location. The app will automatically detect your current
+            location but it also provides the ability to set a new location.
           </p>
         </div>
       </div>
@@ -34,8 +42,8 @@
         <div class="tile-content">
           <h6 class="el-subtitle el-w1_2_2 el-text-center">Map Integration</h6>
           <p class="el-body-text el-has-grey-text is-hidden-mobile">
-            When you are ready to publish your app you will need to add some additional information such as a Summary,
-            Description & Images and you will also need to make it 'Listed'.
+            Seamless integration with Google Maps and Apple Maps. From any appointment you can see turn by turn
+            directions using your default map application.
           </p>
         </div>
       </div>
@@ -46,8 +54,8 @@
         <div class="tile-content">
           <h6 class="el-subtitle el-w1_2_2 el-text-center">WhatsApp Integration</h6>
           <p class="el-body-text el-has-grey-text is-hidden-mobile">
-            When you are ready to publish your app you will need to add some additional information such as a Summary,
-            Description & Images and you will also need to make it 'Listed'.
+            Our integration with WhatsApp provides you the ability to easily start a conversation on any contact record
+            that has a mobile telephone number.
           </p>
         </div>
       </div>
@@ -58,8 +66,8 @@
         <div class="tile-content">
           <h6 class="el-subtitle el-w1_2_2 el-text-center">Email Integration</h6>
           <p class="el-body-text el-has-grey-text is-hidden-mobile">
-            When you are ready to publish your app you will need to add some additional information such as a Summary,
-            Description & Images and you will also need to make it 'Listed'.
+            Prepopulated emails using your default mail client. If an email address is present on any contact record GEO
+            Diary will open an email draft
           </p>
         </div>
       </div>
@@ -70,15 +78,50 @@
         <div class="tile-content">
           <h6 class="el-subtitle el-w1_2_2 el-text-center">Online Checklist</h6>
           <p class="el-body-text el-has-grey-text is-hidden-mobile">
-            When you are ready to publish your app you will need to add some additional information such as a Summary,
-            Description & Images and you will also need to make it 'Listed'.
+            Access identity and address history for any contact. If you have the Online Check List app installed, you
+            can access and update identity information for any contact.
           </p>
         </div>
       </div>
     </div>
     <div class="el-flex-container el-flex-align-center">
-      <h6 class="el-subtitle el-mr3 footer-heading">Already a customer?</h6>
-      <button class="el-intent-primary el-button el-button-has-right-chevron el-mr3">Install now</button>
+      <h6 class="el-subtitle el-mr3 footer-heading">Existing customer or new to Reapit?</h6>
+      <button
+        class="el-intent-primary el-button el-button-has-right-chevron el-mr3"
+        on:click|preventDefault={setModalVisible}>Find out more</button
+      >
+    </div>
+  </div>
+  <div class="el-modal-bg" class:el-is-active={modalVisible} on:click|preventDefault={setModalVisible} />
+  <div class="el-modal" class:el-is-active={modalVisible}>
+    <div class="column-container el-flex-container">
+      <div class="column el-flex-container el-flex-column el-px2">
+        <img class="modal-image" src="./images/existing-customer.svg" alt="existing customer" />
+        <p class="el-body-text el-has-grey-text modal-text">
+          You can install GEO Diary now direct from the AppMarket, just sign in below:
+        </p>
+        <div class="login-reapit-button-container">
+          <SignInButton />
+        </div>
+      </div>
+      <div class="column el-flex-container el-flex-column el-px2">
+        <img class="modal-image" src="./images/new-customer.svg" alt="existing customer" />
+        <p class="el-body-text el-has-grey-text modal-text">
+          To find out more about GEO Diary and the AppMarket, just enter your email address and we will be in touch:
+        </p>
+        <div class="frame-container">
+          <iframe
+            id="form-frame"
+            src="https://go.reapit.com/l/894351/2021-08-03/2lny5"
+            title="Email Form"
+            width="100%"
+            type="text/html"
+            frameborder="0"
+            allowTransparency
+            style="border: 0"
+          />
+        </div>
+      </div>
     </div>
   </div>
 </div>
@@ -136,6 +179,31 @@
     width: 100%;
   }
 
+  .column {
+    width: 100%;
+  }
+
+  .column-container {
+    flex-direction: column;
+    padding: 1rem;
+  }
+
+  .modal-image {
+    height: 7.5rem;
+    margin-bottom: 1.5rem;
+  }
+
+  .modal-text {
+    height: 5rem;
+    margin-bottom: 2rem;
+  }
+
+  .frame-container {
+    position: relative;
+    height: 38px;
+    width: 115%;
+  }
+
   .image-container {
     width: 5.75rem;
     height: 3.5rem;
@@ -174,9 +242,21 @@
     margin-bottom: 0;
   }
 
+  iframe {
+    position: absolute;
+    top: -1.3rem;
+    left: -1.4rem;
+  }
+
   @media screen and (max-width: 899px) {
     .is-hidden-mobile {
       display: none;
+    }
+  }
+
+  @media screen and (min-width: 600px) {
+    .frame-container {
+      width: 108%;
     }
   }
 
@@ -201,6 +281,28 @@
       display: block;
     }
 
+    .column {
+      width: 50%;
+    }
+
+    .column:first-child {
+      border-right: 1px solid #e3e3e3;
+      padding-right: 2rem;
+    }
+
+    .column:last-child {
+      padding-left: 2rem;
+    }
+
+    .column-container {
+      flex-direction: row;
+      padding: 2rem 2rem 0 2rem;
+    }
+
+    .frame-container {
+      width: 120%;
+    }
+
     img {
       height: auto;
     }
@@ -217,6 +319,12 @@
     h2 {
       font-size: 2rem;
       line-height: 2.25rem;
+    }
+  }
+
+  @media screen and (min-width: 1200px) {
+    .frame-container {
+      width: 115%;
     }
   }
 </style>
