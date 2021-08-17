@@ -1,5 +1,10 @@
 /* File not used by the app directly - these styles are used by the Pardot form we embed as an iframe for 
 email capture - uploaded manually via salesforce - just storing them here for future editing */
+body {
+  margin: 0;
+  padding: 0;
+}
+
 #pardot-form {
   position: relative;
 }
@@ -10,10 +15,12 @@ email capture - uploaded manually via salesforce - just storing them here for fu
 }
 
 #pardot-form input[type="text"]  {
-  padding: 0.5rem;
   border: none;
   border-radius: 0;
-  border-bottom:  1px solid #e3e3e3;
+  height: 40px;
+  padding: 0 0.5rem;
+  box-sizing: border-box;
+  border-bottom: 1px solid #e3e3e3;
 }
 
 #pardot-form input[type="text"]:focus {
@@ -31,16 +38,25 @@ email capture - uploaded manually via salesforce - just storing them here for fu
   position: absolute;
   right: 0;
   display: inline-block;
-  height: auto;
-  border-radius: 0 4px 4px 0;
-  padding: 0.53rem 1.5rem;
+  height: 40px;
+  border-radius: 4px;
+  padding: 0 1.5rem;
   justify-content: center;
   text-align: center;
   top: 13px;
   white-space: nowrap;
   cursor: pointer;
+  box-sizing: border-box;
   text-transform: uppercase;
   background-image: linear-gradient(to right, #0061a8, #0061a8);
   color: white;
   outline-color: #262f69;
+}
+
+#pardot-form .errors {
+  display: none;
+}
+
+#pardot-form .error {
+  display: none;
 }

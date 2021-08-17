@@ -39,12 +39,8 @@
     <div class="footer">
       <p>© Copyright Reapit. All rights reserved. 2021</p>
       <p>
-        By submitting your email, you agree to Reapit processing your data in accordance with our <a
-          href="https://www.reapit.com/privacy-policy"
-          target="_blank"
-          rel="noopener noreferrer"
-          >Privacy Policy.
-        </a>
+        By submitting your email, you agree to Reapit processing your data in accordance with our
+        <a href="https://www.reapit.com/privacy-policy" target="_blank" rel="noopener noreferrer">Privacy Policy.</a>
       </p>
     </div>
   </div>
@@ -66,6 +62,7 @@
     color: var(--color-grey-dark);
     margin-top: -2px;
     text-align: center;
+    border-top: 1rem solid #fff;
   }
 
   .image-footer-container {

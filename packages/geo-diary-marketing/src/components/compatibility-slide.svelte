@@ -42,14 +42,14 @@
 </div>
 
 <style>
-  .white-bg-container {
-    max-width: 1200px;
+  .container {
+    margin-bottom: 2rem;
   }
 
   .padded-container {
     padding-top: 2rem;
     background: rgb(248, 248, 248);
-    width: 100%;
+    max-width: 1440px;
   }
 
   .white-bg-container {
@@ -70,6 +70,11 @@
     transform: translateX(-50%);
   }
 
+  .image-tablet-hero {
+    margin-top: -140px;
+    z-index: -1;
+  }
+
   .column {
     width: 100%;
   }
@@ -77,6 +82,7 @@
   .column-container {
     padding: 2rem;
     flex-direction: column;
+    max-width: 1200px;
   }
 
   img {
@@ -103,13 +109,13 @@
     font-size: 0.875rem;
   }
 
-  @media screen and (max-width: 1100px) {
+  @media screen and (max-width: 2880px) {
     .image-desktop-hero-container {
       display: none;
     }
   }
 
-  @media screen and (min-width: 1099px) {
+  @media screen and (min-width: 2879px) {
     .image-tablet-hero {
       display: none;
     }

@@ -44,6 +44,7 @@
 <style>
   .container {
     background: linear-gradient(180deg, #f2f2f2 0%, rgba(242, 242, 242, 0) 100%);
+    margin-bottom: 2rem;
   }
 
   .inner-container {

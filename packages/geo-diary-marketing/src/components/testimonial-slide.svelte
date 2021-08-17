@@ -76,6 +76,7 @@
 <style>
   .container {
     background: linear-gradient(0deg, #fff7f1 0%, rgba(255, 255, 255, 0) 100%);
+    padding-bottom: 2rem;
   }
 
   .inner-container {

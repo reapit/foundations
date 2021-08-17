@@ -96,7 +96,10 @@
   <div class="el-modal" class:el-is-active={modalVisible}>
     <div class="column-container el-flex-container">
       <div class="column el-flex-container el-flex-column el-px2">
-        <img class="modal-image" src="./images/existing-customer.svg" alt="existing customer" />
+        <div class="el-flex-container el-flex-align-center">
+          <img class="modal-image" src="./images/existing-customer.svg" alt="existing customer" />
+          <h6 class="modal-heading">Existing Customer</h6>
+        </div>
         <p class="el-body-text el-has-grey-text modal-text">
           You can install GEO Diary now direct from the AppMarket, just sign in below:
         </p>
@@ -105,7 +108,10 @@
         </div>
       </div>
       <div class="column el-flex-container el-flex-column el-px2">
-        <img class="modal-image" src="./images/new-customer.svg" alt="existing customer" />
+        <div class="el-flex-container el-flex-align-center">
+          <img class="modal-image" src="./images/new-customer.svg" alt="existing customer" />
+          <h6 class="modal-heading">New Customer</h6>
+        </div>
         <p class="el-body-text el-has-grey-text modal-text">
           To find out more about GEO Diary and the AppMarket, just enter your email address and we will be in touch:
         </p>
@@ -127,6 +133,10 @@
 </div>
 
 <style>
+  .container {
+    margin-bottom: 2rem;
+  }
+
   .inner-container {
     padding: 2rem;
     max-width: 1200px;
@@ -191,6 +201,11 @@
   .modal-image {
     height: 7.5rem;
     margin-bottom: 1.5rem;
+    margin-right: 0.5rem;
+  }
+
+  .modal-heading {
+    font-size: 1.25rem;
   }
 
   .modal-text {
@@ -201,7 +216,8 @@
   .frame-container {
     position: relative;
     height: 38px;
-    width: 115%;
+    width: calc(100% + 34px);
+    overflow-y: scroll;
   }
 
   .image-container {
@@ -254,12 +270,6 @@
     }
   }
 
-  @media screen and (min-width: 600px) {
-    .frame-container {
-      width: 108%;
-    }
-  }
-
   @media screen and (min-width: 900px) {
     .tile {
       width: calc(50% - 1.25rem);
@@ -299,10 +309,6 @@
       padding: 2rem 2rem 0 2rem;
     }
 
-    .frame-container {
-      width: 120%;
-    }
-
     img {
       height: auto;
     }
@@ -319,12 +325,6 @@
     h2 {
       font-size: 2rem;
       line-height: 2.25rem;
-    }
-  }
-
-  @media screen and (min-width: 1200px) {
-    .frame-container {
-      width: 115%;
     }
   }
 </style>

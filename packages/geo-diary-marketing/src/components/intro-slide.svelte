@@ -40,7 +40,7 @@
           </div>
         </div>
       </div>
-      <div class="column el-flex-container el-flex-column el-flex-justify-center is-hidden-mobile">
+      <div class="column el-flex-container el-flex-column el-flex-justify-center is-hidden-mobile no-margin">
         <img src="./images/intro-hero.svg" alt="Happy man holding a phone and a key" />
       </div>
     </div>
@@ -50,6 +50,7 @@
 <style>
   .container {
     background: linear-gradient(180deg, #edfaff 0%, #ffffff 26.56%, #ffffff 100%);
+    margin-bottom: 2rem;
   }
 
   .inner-container {
@@ -73,7 +74,7 @@
   .frame-container {
     position: relative;
     height: 38px;
-    width: 108%;
+    width: calc(100% + 27px);
   }
 
   .logo-image {
@@ -93,7 +94,7 @@
   iframe {
     position: absolute;
     top: -1.3rem;
-    left: -1.4rem;
+    left: -1rem;
   }
 
   button {
@@ -134,10 +135,6 @@
     .inner-container {
       min-height: 100vh;
       padding: 2rem;
-    }
-
-    .logo-image {
-      margin: 4.5rem 0;
     }
 
     .form-container {
