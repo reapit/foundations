@@ -10,7 +10,10 @@ export const storeVersion = async ({ pipeline }: { pipeline: PipelineEntity }): 
   const storageLocation = `${pipeline.uniqueRepoName}/${pipeline.id}`
 
   console.log('store', `${cloneDir(pipeline)}/${pipeline.outDir || 'build'}`)
-  console.log(fs.existsSync(`${cloneDir(pipeline)}/${pipeline.outDir || 'build'}`), fs.readdirSync(`${cloneDir(pipeline)}/${pipeline.outDir || 'build'}`))
+  console.log(
+    fs.existsSync(`${cloneDir(pipeline)}/${pipeline.outDir || 'build'}`),
+    fs.readdirSync(`${cloneDir(pipeline)}/${pipeline.outDir || 'build'}`),
+  )
 
   zipper.addLocalFolder(`${cloneDir(pipeline)}/${pipeline.outDir || 'build'}`)
 
