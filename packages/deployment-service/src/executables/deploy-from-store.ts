@@ -4,6 +4,7 @@ import fs from 'fs'
 import { GetObjectOutput } from 'aws-sdk/clients/s3'
 import AdmZip from 'adm-zip'
 import path from 'path'
+import rimraf from 'rimraf'
 
 type SendToS3Params = {
   filePath: string
@@ -108,8 +109,9 @@ const recurseDir = async (
 }
 
 export const deployFromStore = async ({ pipeline }: { pipeline: PipelineEntity }): Promise<void> => {
-  const storageLocation = `${pipeline.uniqueRepoName}/${pipeline.id}`
+  const storageLocation = `${pipeline.uniqueRepoName}/${pipeline.id}.zip`
 
+  console.log('fetching version from s3', storageLocation)
   const zip = await getFromVersionS3(storageLocation)
 
   if (!zip.Body) {
@@ -119,6 +121,7 @@ export const deployFromStore = async ({ pipeline }: { pipeline: PipelineEntity }
   const deploymentZipDir = `/mnt/efs1/deployment/${pipeline.uniqueRepoName}`
 
   if (!fs.existsSync(deploymentZipDir)) {
+    console.log('making zip location', deploymentZipDir)
     fs.mkdirSync(deploymentZipDir, {
       recursive: true,
     })
@@ -129,6 +132,7 @@ export const deployFromStore = async ({ pipeline }: { pipeline: PipelineEntity }
   await fs.promises.writeFile(zipLocation, zip.Body)
   const admZip = new AdmZip(zipLocation)
 
+  console.log('extracting zip to loc', zipLocation, '=>', deploymentZipDir)
   await new Promise<void>((resolve, reject) =>
     admZip.extractAllToAsync(`${deploymentZipDir}/out`, true, (error) => {
       if (error) {
@@ -138,6 +142,10 @@ export const deployFromStore = async ({ pipeline }: { pipeline: PipelineEntity }
     }),
   )
 
+  console.log('deleting current live deployment in s3')
+  await deleteCurrentLiveVersion(pipeline.uniqueRepoName)
+
+  console.log('recursively uploading files', fs.readdirSync(`${deploymentZipDir}/out`))
   await recurseDir(
     {
       dir: `${deploymentZipDir}/out`,
@@ -145,5 +153,11 @@ export const deployFromStore = async ({ pipeline }: { pipeline: PipelineEntity }
       buildLocation: `${deploymentZipDir}/out`,
     },
     sendToLiveS3,
+  )
+
+  await new Promise<void>((resolve) =>
+    rimraf(deploymentZipDir, () => {
+      resolve()
+    }),
   )
 }
