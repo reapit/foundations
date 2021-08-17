@@ -2,7 +2,7 @@ import { ForbiddenException, httpHandler, NotFoundException } from '@homeserveno
 import { PipelineRunnerEntity } from './../../entities'
 import * as pipelineService from './../../services/pipeline'
 import * as service from './../../services/pipeline-runner'
-import { resolveDeveloperId } from './../../utils'
+import { resolveCreds } from './../../utils'
 import { Pagination } from 'nestjs-typeorm-paginate'
 
 /**
@@ -13,7 +13,7 @@ export const pipelineRunnerPaginate = httpHandler({
     'Access-Control-Allow-Origin': '*',
   },
   handler: async ({ event }): Promise<Pagination<PipelineRunnerEntity>> => {
-    const developerId = await resolveDeveloperId(event)
+    const { developerId } = await resolveCreds(event)
 
     const pipeline = await pipelineService.findPipelineById(event.pathParameters?.pipelineId as string)
 

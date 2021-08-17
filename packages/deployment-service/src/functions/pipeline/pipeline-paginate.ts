@@ -1,7 +1,7 @@
 import { httpHandler } from '@homeservenow/serverless-aws-handler'
 import { PipelineEntity } from './../../entities'
 import * as service from './../../services/pipeline'
-import { resolveDeveloperId } from './../../utils'
+import { resolveCreds } from './../../utils'
 import { Pagination } from 'nestjs-typeorm-paginate'
 
 /**
@@ -12,7 +12,7 @@ export const pipelinePaginate = httpHandler({
     'Access-Control-Allow-Origin': '*',
   },
   handler: async ({ event }): Promise<Pagination<PipelineEntity>> => {
-    const developerId = await resolveDeveloperId(event)
+    const { developerId } = await resolveCreds(event)
 
     return service.paginatePipelines(
       developerId,

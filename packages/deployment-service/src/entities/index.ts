@@ -7,7 +7,6 @@ import {
   OneToMany,
   ManyToOne,
   TreeParent,
-  TreeChildren,
   Tree,
 } from 'typeorm'
 import {
@@ -88,7 +87,14 @@ export class PipelineEntity extends AbstractEntity implements PipelineModelInter
   developerId?: string
 
   @Column()
-  outDir?: string
+  outDir?: string = 'build'
+
+  @Column()
+  clientId?: string
+
+  get uniqueRepoName(): string {
+    return `${this.developerId}/${this.repository?.split('/').pop()}`
+  }
 }
 
 export type TaskWorkflow = TaskRunnerFunctions[]
@@ -118,9 +124,6 @@ export class TaskEntity extends AbstractEntity implements TaskModelInterface {
     type: 'varchar',
   })
   functionName?: TaskRunnerFunctions
-
-  @TreeChildren()
-  children?: TaskEntity[]
 
   @TreeParent()
   parent?: TaskEntity

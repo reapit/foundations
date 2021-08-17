@@ -1,0 +1,46 @@
+/* File not used by the app directly - these styles are used by the Pardot form we embed as an iframe for 
+email capture - uploaded manually via salesforce - just storing them here for future editing */
+#pardot-form {
+  position: relative;
+}
+
+#pardot-form * {
+  font-family: 'PT Sans', 'Roboto', Helvetica , Arial, sans-serif;
+  font-size: 16px;
+}
+
+#pardot-form input[type="text"]  {
+  padding: 0.5rem;
+  border: none;
+  border-radius: 0;
+  border-bottom:  1px solid #e3e3e3;
+}
+
+#pardot-form input[type="text"]:focus {
+  outline: none;
+  background: #f2f2f2;
+  border-bottom:  1px solid black;
+}
+
+#pardot-form input[type="text"]::placeholder {
+  color: black;
+  font-family: 'PT Sans', 'Roboto', Helvetica , Arial, sans-serif;
+}
+
+#pardot-form input[type="submit"] {
+  position: absolute;
+  right: 0;
+  display: inline-block;
+  height: auto;
+  border-radius: 0 4px 4px 0;
+  padding: 0.53rem 1.5rem;
+  justify-content: center;
+  text-align: center;
+  top: 13px;
+  white-space: nowrap;
+  cursor: pointer;
+  text-transform: uppercase;
+  background-image: linear-gradient(to right, #0061a8, #0061a8);
+  color: white;
+  outline-color: #262f69;
+}

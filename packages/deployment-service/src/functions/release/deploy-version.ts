@@ -1,4 +1,4 @@
-import { resolveDeveloperId } from '../../utils'
+import { resolveCreds } from '../../utils'
 import { BadRequestException, httpHandler, NotFoundException } from '@homeservenow/serverless-aws-handler'
 import { s3Client } from '../../services'
 import { release } from './../../executables'
@@ -12,7 +12,7 @@ import { ReleaseEntity } from './../../entities'
 export const deployVersion = httpHandler<void, ReleaseEntity>({
   defaultOutputHeaders,
   handler: async ({ event }) => {
-    const developerId = await resolveDeveloperId(event)
+    const { developerId } = await resolveCreds(event)
     const projectName = event.pathParameters?.projectName
     const version = event.pathParameters?.version
 

@@ -1,4 +1,5 @@
 import { styled } from '@linaria/react'
+import { css } from '@linaria/core'
 import {
   elIntentPrimary,
   elIntentSecondary,
@@ -6,6 +7,8 @@ import {
   elIntentSuccess,
   elIntentDanger,
 } from '../../../styles/intent'
+
+export const elShapeTag = css``
 
 export const ElStatusIndicator = styled.span`
   border-radius: 3rem;
@@ -43,5 +46,11 @@ export const ElStatusIndicator = styled.span`
     background-image: linear-gradient(to right, var(--intent-danger), var(--intent-danger));
     color: var(--intent-danger-text);
     outline-color: var(--intent-danger-dark);
+  }
+
+  &.${elShapeTag} {
+    border-radius: 1rem .2rem .2rem 1rem;
+    height: 2rem;
+    width: .5rem;
   }
 `

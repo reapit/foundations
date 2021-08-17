@@ -4143,6 +4143,45 @@ export interface CreateAreaModel {
   parentId?: string
 }
 /**
+ * Request body used to create a new certificate
+ * example:
+ * [object Object]
+ */
+export interface CreateCertificateModel {
+  /**
+   * The certificate's category (safetyCertificate/insurancePolicy/warranty)
+   */
+  category?: string
+  /**
+   * The certificate's type
+   */
+  typeId?: string
+  /**
+   * The certificate's start date
+   * example:
+   * 2019-08-14
+   */
+  start?: string // date
+  /**
+   * The certificate's expiry date
+   * example:
+   * 2019-08-14
+   */
+  expiry?: string // date
+  /**
+   * The unique identifier of the company that supplied, or is supplying, the certificate
+   */
+  companyId?: string
+  /**
+   * Any general notes regarding the certificate
+   */
+  notes?: string
+  /**
+   * The certificate's reference number
+   */
+  referenceNumber?: string
+}
+/**
  * Request body to set the address of a new company
  */
 export interface CreateCompanyAddressModel {
@@ -4774,6 +4813,7 @@ export interface CreateIdentityCheckModel {
   negotiatorId: string
   /**
    * Request body to attach an identity document to a new contact identity check
+   * A second identity document is not required and can be ignored by being set to null
    */
   identityDocument1: {
     /**
@@ -4806,6 +4846,7 @@ export interface CreateIdentityCheckModel {
   }
   /**
    * Request body to attach an identity document to a new contact identity check
+   * A second identity document is not required and can be ignored by being set to null
    */
   identityDocument2?: {
     /**
@@ -4845,6 +4886,7 @@ export interface CreateIdentityCheckModel {
 }
 /**
  * Request body to attach an identity document to a new contact identity check
+ * A second identity document is not required and can be ignored by being set to null
  */
 export interface CreateIdentityDocumentModel {
   /**
@@ -5447,6 +5489,10 @@ export interface CreatePropertyLettingModel {
      */
     amount?: number // double
   }
+  /**
+   * The rent qualifier (rentOnApplication/askingRent)
+   */
+  qualifier?: string
 }
 /**
  * Request body used to create a new property
@@ -5806,6 +5852,10 @@ export interface CreatePropertyModel {
        */
       amount?: number // double
     }
+    /**
+     * The rent qualifier (rentOnApplication/askingRent)
+     */
+    qualifier?: string
   }
   /**
    * The attributes describing the overall type of the property (eg house, bungalow, land), as defined by the property's [department](https://foundations-documentation.reapit.cloud/platform-glossary#department)
@@ -9469,6 +9519,10 @@ export interface PropertyLettingModel {
      */
     amount?: number // double
   }
+  /**
+   * The rent qualifier (rentOnApplication/askingRent)
+   */
+  qualifier?: string
 }
 /**
  * Representation of a property
@@ -9896,6 +9950,10 @@ export interface PropertyModel {
        */
       amount?: number // double
     }
+    /**
+     * The rent qualifier (rentOnApplication/askingRent)
+     */
+    qualifier?: string
   }
   /**
    * The attributes describing the overall type of the property (eg house, bungalow, land), as defined by the property's [department](https://foundations-documentation.reapit.cloud/platform-glossary#department)
@@ -10401,6 +10459,10 @@ export interface PropertyModelPagedResult {
          */
         amount?: number // double
       }
+      /**
+       * The rent qualifier (rentOnApplication/askingRent)
+       */
+      qualifier?: string
     }
     /**
      * The attributes describing the overall type of the property (eg house, bungalow, land), as defined by the property's [department](https://foundations-documentation.reapit.cloud/platform-glossary#department)
@@ -12703,6 +12765,37 @@ export interface UpdateAreaModel {
   officeIds?: string[]
 }
 /**
+ * Request body used to update an existing certificate
+ * example:
+ * [object Object]
+ */
+export interface UpdateCertificateModel {
+  /**
+   * The certificate's start date
+   * example:
+   * 2019-08-14T12:30:02.0000000Z
+   */
+  start?: string // date-time
+  /**
+   * The certificate's expiry date
+   * example:
+   * 2019-08-14T12:30:02.0000000Z
+   */
+  expiry?: string // date-time
+  /**
+   * The unique identifier of the company
+   */
+  companyId?: string
+  /**
+   * Any general notes regarding the certificate
+   */
+  notes?: string
+  /**
+   * The certificate's reference number
+   */
+  referenceNumber?: string
+}
+/**
  * Request body to set the address of an existing company
  */
 export interface UpdateCompanyAddressModel {
@@ -13907,6 +14000,10 @@ export interface UpdatePropertyLettingModel {
      */
     amount?: number // double
   }
+  /**
+   * The rent qualifier (rentOnApplication/askingRent)
+   */
+  qualifier?: string
 }
 /**
  * Request body used to update an existing property
@@ -14266,6 +14363,10 @@ export interface UpdatePropertyModel {
        */
       amount?: number // double
     }
+    /**
+     * The rent qualifier (rentOnApplication/askingRent)
+     */
+    qualifier?: string
   }
   /**
    * The attributes describing the overall type of the property (eg house, bungalow, land), as defined by the property's [department](https://foundations-documentation.reapit.cloud/platform-glossary#department)

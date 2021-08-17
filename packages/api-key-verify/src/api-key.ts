@@ -16,12 +16,13 @@ const lambda = new AWS.Lambda()
 ): Promise<ApiKeyModel | never> => {
 
   const apiKey = await new Promise<ApiKeyModel | undefined>((resolve, reject) => lambda.invoke({
-    FunctionName: 'cloud-api-key-service-dev-getApiKeyViaInvoke',
+    FunctionName: 'cloud-api-key-service-dev-getApiKeyViaInvoke', // TODO make env?
     InvocationType: 'RequestResponse',
     LogType: 'Tail',
     Payload: JSON.stringify({ apiKey: apiKeyHeader }),
   }, (err, data) => {
     if (err) {
+      console.log('cannot call api')
       console.error(err)
       reject(err)
     }

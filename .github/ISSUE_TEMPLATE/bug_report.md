@@ -21,7 +21,7 @@ Steps to reproduce the behaviour eg:
 A clear and concise description of what you expected to happen.
 
 **Screenshots**
-If applicable, add screenshots to help explain your problem.
+If applicable, add screenshots to help explain your problem. Please ensure that screenshots do not include sensitive data such as personally identifiable information.
 
 **Device (please complete the following information for web issues):**
  - Device: [e.g. iPhone6, PC, Mac]
