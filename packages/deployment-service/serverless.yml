@@ -186,6 +186,7 @@ resources:
       Type: AWS::SQS::Queue
       Properties:
         QueueName: TaskRunner
+        VisibilityTimeout: 300
     TaskPopulation:
       Type: AWS::SQS::Queue
       Properties:
@@ -538,7 +539,7 @@ functions:
     layers:
       - arn:aws:lambda:${self:provider.region}:553035198032:layer:git-lambda2:8
     handler: src/index.taskRunner
-    timeout: 30
+    timeout: 300
     fileSystemConfig:
       arn: ${self:custom.env.EFS_ARN}
       localMountPath: /mnt/efs1
