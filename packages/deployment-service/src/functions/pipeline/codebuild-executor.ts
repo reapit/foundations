@@ -1,11 +1,11 @@
-import { PipelineRunnerEntity } from '../../entities'
+import { PipelineRunnerEntity, TaskEntity } from '../../entities'
 import { Context, Callback, SQSEvent, SQSHandler } from 'aws-lambda'
 import { plainToClass } from 'class-transformer'
 import { CodeBuild } from 'aws-sdk'
 import yaml from 'yaml'
 import { PackageManagerEnum } from '../../../../foundations-ts-definitions/deployment-schema'
 import { QueueNames } from '../../constants'
-import { sqs } from '../../services'
+import { sqs, savePipelineRunnerEntity } from '../../services'
 
 const codebuild = new CodeBuild({
   region: process.env.REGION,
@@ -59,7 +59,7 @@ export const codebuildExecutor: SQSHandler = async (
           },
         })
 
-        const result = await new Promise<any>((resolve, reject) => {
+        const result = await new Promise<CodeBuild.StartBuildOutput>((resolve, reject) => {
           start.send((error, data) => {
             if (error) {
               reject(error)
@@ -68,6 +68,18 @@ export const codebuildExecutor: SQSHandler = async (
             resolve(data)
           })
         })
+
+        pipelineRunner.codebuildId = result.build?.id
+
+        pipelineRunner.tasks = result.build?.phases?.map<TaskEntity>((phase) => {
+          const task = new TaskEntity()
+          task.status = phase.phaseStatus
+          task.functionName = phase.phaseType
+
+          return task
+        })
+
+        await savePipelineRunnerEntity(pipelineRunner)
 
         console.log('result', result)
       } catch (e) {
