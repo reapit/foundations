@@ -10,8 +10,8 @@
         <div class="el-mb6">
           <h6 class="el-subtitle">Access your appointments, anywhere!</h6>
           <p class="el-body-text el-has-grey-text">
-            Simple and easy to use. The GEO Diary app allows you to easily access your diary appointments dire¬ct from
-            your mobile or web browser. Why not see it for yourself?
+            Simple and easy to use. The GEO Diary app allows you to easily access your diary appointments direct from
+            your mobile or web browser. Why not see for yourself?
           </p>
           <a href="https://geo-diary-beta.prod.paas.reapit.cloud/?demo=true" target="_blank" rel="noopener noreferrer">
             <button class="el-intent-critical el-button-has-right-chevron el-button el-mb3">Try it now</button>

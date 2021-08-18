@@ -49,7 +49,7 @@
   .padded-container {
     padding-top: 2rem;
     background: rgb(248, 248, 248);
-    max-width: 1440px;
+    max-width: var(--max-screen-width-desktop);
   }
 
   .white-bg-container {

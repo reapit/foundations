@@ -1,3 +1,11 @@
+<script lang="ts">
+  import SignInModal from './sign-in-modal.svelte'
+
+  $: modalVisible = false
+
+  const setModalVisible = () => (modalVisible = !modalVisible)
+</script>
+
 <div class="container el-wscreen el-flex-container el-flex-column el-flex-justify-between">
   <div class="padded-container">
     <h2 class="el-title el-text-center">Available now!</h2>
@@ -9,9 +17,9 @@
     <div class="image-mobile-hero">
       <img src="./images/availability-mobile-hero.svg" alt="flow of data to various devices" />
       <p class="el-body-text el-has-grey-text image-text">
-        <a href="https://marketplace.reapit.cloud/apps" rel="noopener noreferrer" target="_blank">
-          <button class="el-intent-critical el-button el-mr3 el-mb3 button">App Marketplace</button>
-        </a>
+        <button class="el-intent-critical el-button el-mr3 el-mb3 button" on:click|preventDefault={setModalVisible}
+          >App Marketplace</button
+        >
         Reapit customers can now adopt and deploy powerful new apps and integrations from a continually evolving library
         developed by Reapit’s growing range of partnerships.
       </p>
@@ -19,9 +27,9 @@
     <div class="image-tablet-hero">
       <img src="./images/availability-hero.svg" alt="flow of data to various devices" />
       <p class="el-body-text el-has-grey-text image-text">
-        <a href="https://marketplace.reapit.cloud/apps" rel="noopener noreferrer" target="_blank">
-          <button class="el-intent-critical el-button el-mr3 el-mb3 button">App Marketplace</button>
-        </a>
+        <button class="el-intent-critical el-button el-mr3 el-mb3 button" on:click|preventDefault={setModalVisible}
+          >App Marketplace</button
+        >
         Reapit customers can now adopt and deploy powerful new apps and integrations from a continually evolving library
         developed by Reapit’s growing range of partnerships.
       </p>
@@ -29,9 +37,9 @@
     <div class="image-desktop-hero">
       <img src="./images/availability-desktop-hero.svg" alt="flow of data to various devices" />
       <p class="el-body-text el-has-grey-text image-text">
-        <a href="https://marketplace.reapit.cloud/apps" rel="noopener noreferrer" target="_blank">
-          <button class="el-intent-critical el-button el-mr3 el-mb3 button">App Marketplace</button>
-        </a>
+        <button class="el-intent-critical el-button el-mr3 el-mb3 button" on:click|preventDefault={setModalVisible}
+          >App Marketplace</button
+        >
         Reapit customers can now adopt and deploy powerful new apps and integrations from a continually evolving library
         developed by Reapit’s growing range of partnerships.
       </p>
@@ -44,6 +52,7 @@
       </p>
     </div>
   </div>
+  <SignInModal {modalVisible} {setModalVisible} />
 </div>
 
 <style>
