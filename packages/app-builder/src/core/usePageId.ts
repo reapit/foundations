@@ -7,8 +7,8 @@ export const usePageId = () => {
   const context = qs.parse(location.search)
   const history = useHistory()
   const setPageId = (pageId: string, context?: { [key: string]: string }) => {
-    history.push(`/${pageId}${context && `?${qs.stringify(context)}`}`)
+    history.push(`/${pageId}${context ? `?${qs.stringify(context)}` : ''}`)
   }
 
-  return { pageId, setPageId, context }
+  return { pageId: pageId || '', setPageId, context }
 }

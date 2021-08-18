@@ -16,10 +16,9 @@ export const PageSelector = ({ pageId, onChange }: { pageId?: string; onChange: 
     >
       {getPages().map(({ id: value, name: label }) => (
         <option key={value} value={value}>
-          {label}
+          {label || 'Home'}
         </option>
       ))}
-      <option value="">Select a page</option>
     </Select>
     <Button
       style={{ zoom: 0.78 }}

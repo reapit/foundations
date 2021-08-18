@@ -55,7 +55,7 @@ const LinkSettings = () => (
       <ToolbarItem type={ToolbarItemType.Select} propKey="destination" title="Link to">
         {getPages().map(({ id: value, name: label }) => (
           <option key={value} value={value}>
-            {label}
+            {label || 'Home'}
           </option>
         ))}
         <option value="">Select a page</option>

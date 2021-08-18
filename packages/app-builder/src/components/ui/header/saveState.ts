@@ -17,12 +17,9 @@ export const getPages = (): Array<Page> => {
   return JSON.parse(str) as Array<Page>
 }
 
-export const getPage = (id: string): Page => {
+export const getPage = (id: string): Page | undefined => {
   const pages = getPages()
   const page = pages.find((p) => p.id === id)
-  if (!page) {
-    throw new Error('page not found')
-  }
   return page
 }
 
@@ -40,7 +37,11 @@ export const setPageNodes = (id: string, nodes: string) => {
   const pages = getPages()
   const page = pages.find((p) => p.id === id)
   if (!page) {
-    throw new Error('page not found')
+    return setPage(id, {
+      id,
+      name: slugify(id),
+      nodes: JSON.stringify(emptyState),
+    })
   }
   page.nodes = nodes
   window.localStorage.setItem(KEY, JSON.stringify(pages))

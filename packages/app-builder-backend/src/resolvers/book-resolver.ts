@@ -1,6 +1,6 @@
-import { Resolver, Query, Mutation } from 'type-graphql'
+import { Resolver, Query, Mutation, Arg } from 'type-graphql'
 import { Genre } from '../entities/genre'
-import { Book } from '../entities/book'
+import { Book, BookInput } from '../entities/book'
 import { authors } from './author-resolver'
 
 const books: Array<Book> = [
@@ -30,9 +30,14 @@ export class BookResolver {
   }
 
   @Mutation(() => Book)
-  async createBook(book: Book) {
+  async createBook(@Arg('book', { nullable: false }) book: BookInput) {
+    const author = authors.find((a) => a.id === book.authorId)
+    if (!author) {
+      throw new Error('Author not found')
+    }
     const newBook = {
       ...book,
+      author,
       id: books[books.length + 1].id + 1,
     }
     books.push(newBook)
@@ -40,14 +45,18 @@ export class BookResolver {
   }
 
   @Mutation(() => Book)
-  async updateBook(book: Book) {
-    const index = books.findIndex((b) => b.id === book.id)
-    books[index] = book
+  async updateBook(@Arg('id') id: number, @Arg('book', { nullable: false }) book: BookInput) {
+    const index = books.findIndex((b) => b.id === id)
+    const author = authors.find((a) => a.id === book.authorId)
+    if (!author) {
+      throw new Error('Author not found')
+    }
+    books[index] = { ...book, author, id }
     return book
   }
 
   @Mutation(() => [Book])
-  async deleteBook(id: number) {
+  async deleteBook(@Arg('id', { nullable: false }) id: number) {
     const index = books.findIndex((b) => b.id === id)
     books.splice(index, 1)
     return books

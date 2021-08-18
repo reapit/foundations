@@ -56,10 +56,10 @@ const Viewport = ({ children, iframeRef }) => {
   const { pageId } = usePageId()
 
   useEffect(() => {
-    if (pageId) {
+    setTimeout(() => {
       const page = getPage(pageId)
-      actions.deserialize(page.nodes)
-    }
+      page && actions.deserialize(page.nodes)
+    }, 100)
   }, [pageId])
 
   return (

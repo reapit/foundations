@@ -21,6 +21,7 @@
     "commit": "concurrently \"yarn test --coverage --no-cache --silent --forceExit --detectOpenHandles --runInBand --watch=false && jest-coverage-badges --input src/tests/coverage/coverage-summary.json --output src/tests/badges\" \"yarn lint\""
   },
   "dependencies": {
+    "@apollo/client": "^3.4.7",
     "@craftjs/core": "^0.1.0-beta.19",
     "@craftjs/layers": "^0.1.0-beta.19",
     "@linaria/core": "^3.0.0-beta.4",
@@ -30,6 +31,7 @@
     "@reapit/elements-legacy": "workspace:packages/elements-legacy",
     "@sentry/browser": "^6.9.0",
     "dayjs": "^1.10.6",
+    "graphql": "^15.5.1",
     "query-string": "^7.0.1",
     "react": "^17.0.2",
     "react-contenteditable": "^3.3.5",
