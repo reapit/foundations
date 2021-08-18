@@ -51,7 +51,7 @@ export class PipelineRunnerEntity extends AbstractEntity implements PipelineRunn
   })
   pipeline?: PipelineEntity
 
-  @Column({ nullable: true })
+  @Column({ nullable: true, type: 'varchar' })
   codebuildId?: string
 }
 
@@ -90,8 +90,8 @@ export class PipelineEntity extends AbstractEntity implements PipelineModelInter
   @Column()
   clientId?: string
 
-  @Column()
-  status?: CodeBuild.StatusType
+  @Column({ type: 'varchar' })
+  buildStatus?: CodeBuild.StatusType
 
   get uniqueRepoName(): string {
     return `${this.developerId}/${this.repository?.split('/').pop()}`
