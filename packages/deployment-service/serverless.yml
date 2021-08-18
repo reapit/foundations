@@ -61,6 +61,7 @@ provider:
     DEPLOYMENT_VERSION_BUCKET_NAME: ${self:custom.env.DEPLOYMENT_VERSION_BUCKET_NAME}
     DEPLOYMENT_LIVE_BUCKET_NAME: ${self:custom.env.DEPLOYMENT_LIVE_BUCKET_NAME}
     DEPLOYMENT_BUCKET_NAME: ${self:custom.env.DEPLOYMENT_BUCKET_NAME}
+    REGION: ${self:provider.region}
   iamRoleStatements:
     - Effect: Allow
       Action:
@@ -124,16 +125,7 @@ provider:
         - sqs:DeleteMessage
       Resource:
         Fn::GetAtt:
-          - TaskPopulation
-          - Arn
-    - Effect: Allow
-      Action:
-        - sqs:GetQueueAttributes
-        - sqs:SendMessage
-        - sqs:DeleteMessage
-      Resource:
-        Fn::GetAtt:
-          - TaskRunner
+          - CodebuildExecutor
           - Arn
     - Effect: Allow
       Action:
@@ -182,15 +174,10 @@ resources:
       Properties:
         BucketName: ${self:custom.env.DEPLOYMENT_LIVE_BUCKET_NAME}
         AccessControl: PublicRead
-    TaskRunner:
+    CodebuildExecutor:
       Type: AWS::SQS::Queue
       Properties:
-        QueueName: TaskRunner
-        VisibilityTimeout: 300
-    TaskPopulation:
-      Type: AWS::SQS::Queue
-      Properties:
-        QueueName: TaskPopulation
+        QueueName: CodebuildExecutor
 
 package:
   individually: true
@@ -526,27 +513,13 @@ functions:
               - Authorization
               - X-Api-Key
               - api-version
-  taskPopulation:
-    handler: src/index.taskPopulation
+  codebuildExecutor:
+    handler: src/index.codebuildExecutor
     events:
       - sqs:
-          queueName: TaskPopulation
+          queueName: CodebuildExecutor
           arn:
             Fn::GetAtt:
-              - TaskPopulation
+              - CodebuildExecutor
               - Arn
-  taskRunner:
-    layers:
-      - arn:aws:lambda:${self:provider.region}:553035198032:layer:git-lambda2:8
-    handler: src/index.taskRunner
-    timeout: 300
-    fileSystemConfig:
-      arn: ${self:custom.env.EFS_ARN}
-      localMountPath: /mnt/efs1
-    events:
-      - sqs:
-          queueName: TaskRunner
-          arn:
-            Fn::GetAtt:
-              - TaskRunner
-              - Arn
+  
