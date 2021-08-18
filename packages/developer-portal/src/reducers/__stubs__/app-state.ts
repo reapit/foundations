@@ -79,6 +79,7 @@ const appState: ReduxState = {
       company: 'REAPIT Ltd.2123znww',
       jobTitle: 'Head of Platform2z1',
       email: 'cbryan@reapit.com',
+      notificationsEmail: 'wmcvay@reapit.com',
       telephone: '08261826162',
       isInactive: false,
       about: '',
