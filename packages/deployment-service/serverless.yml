@@ -138,6 +138,10 @@ provider:
         - route53:GetChange
         - route53:ListResourceRecordSets
       Resource: arn:aws:route53:::hostedzone/Z02367201ZA0CZPSM3N2H
+    - Effect: Allow
+      Action:
+        - codebuild:StartBuild
+      Resource: arn:aws:codebuild:eu-west-2:028446965111:build/test:6ba39722-77b9-4214-90a3-97eaa54f46d1
 
 resources:
   Resources:
