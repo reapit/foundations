@@ -1774,7 +1774,7 @@ export interface CertificateModel {
    */
   referenceNumber?: string
   /**
-   * The ETag for the current version of the property. Used for managing update concurrency
+   * The ETag for the current version of the certificate. Used for managing update concurrency
    */
   readonly _eTag?: string
 }
@@ -1841,7 +1841,7 @@ export interface CertificateModelPagedResult {
      */
     referenceNumber?: string
     /**
-     * The ETag for the current version of the property. Used for managing update concurrency
+     * The ETag for the current version of the certificate. Used for managing update concurrency
      */
     readonly _eTag?: string
   }[]
@@ -7307,6 +7307,15 @@ export interface IdentityDocumentModel {
   details?: string
 }
 /**
+ * Representation of an individual key included in a key set
+ */
+export interface IndividualKeyModel {
+  /**
+   * The name of the individual key in the set
+   */
+  name?: string
+}
+/**
  * Request body used to create or update a relationship between an applicant and a contact or company
  * example:
  * [object Object]
@@ -7459,6 +7468,131 @@ export interface JournalEntryModelPagedResult {
      * The textual description of the journal entry event
      */
     description?: string
+  }[]
+  pageNumber?: number // int32
+  pageSize?: number // int32
+  pageCount?: number // int32
+  totalPageCount?: number // int32
+  totalCount?: number // int32
+  _links?: {
+    [name: string]: {
+      href?: string
+    }
+  }
+}
+/**
+ * Representation of a set of keys
+ */
+export interface KeysModel {
+  readonly _links?: {
+    [name: string]: {
+      href?: string
+    }
+  }
+  readonly _embedded?: {
+    [name: string]: any
+  }
+  /**
+   * The unique identifier of the key
+   */
+  id?: string
+  /**
+   * The date and time when the key was created
+   * example:
+   * 2019-08-14T12:30:02.0000000Z
+   */
+  created?: string // date-time
+  /**
+   * The date and time when the key was last modified
+   * example:
+   * 2019-08-14T12:30:02.0000000Z
+   */
+  modified?: string // date-time
+  /**
+   * The key's number
+   */
+  number?: string
+  /**
+   * The type of key (sales/lettings/management)
+   */
+  type?: string
+  /**
+   * The unique identifier of the office responsible for the key
+   */
+  officeId?: string
+  /**
+   * The unique identifier of the property that the key belongs to
+   */
+  propertyId?: string
+  /**
+   * A listing of the individual keys included in the set
+   */
+  keysInSet?: {
+    /**
+     * The name of the individual key in the set
+     */
+    name?: string
+  }[]
+  /**
+   * The ETag for the current version of the keys. Used for managing update concurrency
+   */
+  readonly _eTag?: string
+}
+export interface KeysModelPagedResult {
+  _embedded?: {
+    readonly _links?: {
+      [name: string]: {
+        href?: string
+      }
+    }
+    readonly _embedded?: {
+      [name: string]: any
+    }
+    /**
+     * The unique identifier of the key
+     */
+    id?: string
+    /**
+     * The date and time when the key was created
+     * example:
+     * 2019-08-14T12:30:02.0000000Z
+     */
+    created?: string // date-time
+    /**
+     * The date and time when the key was last modified
+     * example:
+     * 2019-08-14T12:30:02.0000000Z
+     */
+    modified?: string // date-time
+    /**
+     * The key's number
+     */
+    number?: string
+    /**
+     * The type of key (sales/lettings/management)
+     */
+    type?: string
+    /**
+     * The unique identifier of the office responsible for the key
+     */
+    officeId?: string
+    /**
+     * The unique identifier of the property that the key belongs to
+     */
+    propertyId?: string
+    /**
+     * A listing of the individual keys included in the set
+     */
+    keysInSet?: {
+      /**
+       * The name of the individual key in the set
+       */
+      name?: string
+    }[]
+    /**
+     * The ETag for the current version of the keys. Used for managing update concurrency
+     */
+    readonly _eTag?: string
   }[]
   pageNumber?: number // int32
   pageSize?: number // int32
