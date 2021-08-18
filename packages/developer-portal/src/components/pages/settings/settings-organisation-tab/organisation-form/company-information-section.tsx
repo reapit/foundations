@@ -13,6 +13,7 @@ const {
   taxNumberField,
   noTaxRegistrationField,
   emailField,
+  notificationsEmailField,
   registrationNumberField,
   noRegistrationNumberField,
   telephoneField,
@@ -95,7 +96,14 @@ const CompanyInformationSection: React.FC<CompanyInformationSectionProps> = ({ f
         <GridItem>
           <TextArea labelText={aboutField.label} name={aboutField.name} id={aboutField.name} />
         </GridItem>
-        <GridItem />
+        <GridItem>
+          <Input
+            type="text"
+            labelText={notificationsEmailField.label}
+            id={notificationsEmailField.name}
+            name={notificationsEmailField.name}
+          />
+        </GridItem>
         {/* <GridItem>
           <div className="control">
             <label className="label">Logo</label>

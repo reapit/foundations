@@ -5,6 +5,7 @@ export type FieldKeys =
   | 'noTaxRegistrationField'
   | 'nationalInsuranceField'
   | 'emailField'
+  | 'notificationsEmailField'
   | 'companyNameField'
   | 'telephoneField'
   | 'websiteField'
@@ -27,6 +28,7 @@ export type OrganisationFormValues = {
   noTaxRegistration: boolean
   nationalInsurance: string
   email: string
+  notificationsEmail: string
   about: string
   companyName: string
   countryId: string
@@ -61,6 +63,11 @@ export const formFields: Record<FieldKeys, FormFieldInfo> = {
     name: 'email',
     label: 'Office Email',
     errorMessage: 'Office email is not valid',
+  },
+  notificationsEmailField: {
+    name: 'notificationsEmail',
+    label: 'Enter an alternative email address below for email notifications',
+    errorMessage: 'Notifications email is not valid',
   },
   aboutField: {
     name: 'about',
