@@ -17,12 +17,9 @@ export const getPages = (): Array<Page> => {
   return JSON.parse(str) as Array<Page>
 }
 
-export const getPage = (id: string): Page => {
+export const getPage = (id: string): Page | undefined => {
   const pages = getPages()
   const page = pages.find((p) => p.id === id)
-  if (!page) {
-    throw new Error('page not found')
-  }
   return page
 }
 
