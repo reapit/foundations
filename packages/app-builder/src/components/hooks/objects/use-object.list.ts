@@ -1,8 +1,6 @@
 import { useQuery } from '@apollo/client'
 import { useIntrospection, dummyQuery } from '../use-introspection'
 
-const getOnlyKey = (obj: any) => obj[Object.keys(obj)[0]]
-
 export const useObjectList = (typeName?: string) => {
   const { data: introspectionResult, error, loading } = useIntrospection()
   const object = typeName && introspectionResult?.find(({ object }) => object.name === typeName)
@@ -10,7 +8,7 @@ export const useObjectList = (typeName?: string) => {
   const query = useQuery(listQuery || dummyQuery, { skip: !listQuery })
 
   return {
-    data: query.data && getOnlyKey(query.data),
+    data: query.data && Object.values(query.data)[0],
     loading: loading || query.loading,
     error: error || query.error,
   }
