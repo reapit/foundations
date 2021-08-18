@@ -3,7 +3,7 @@ import { flatKind, getObjectType } from './helpers'
 import { QueryableField } from './types'
 
 type NestedDict = {
-  [key: string]?: NestedDict
+  [key: string]: NestedDict | undefined
 }
 
 export const nestedFieldsToString = (nestedFields?: NestedDict) => {
