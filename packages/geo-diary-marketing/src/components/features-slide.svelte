@@ -1,3 +1,11 @@
+<script lang="ts">
+  import SignInModal from './sign-in-modal.svelte'
+
+  $: modalVisible = false
+
+  const setModalVisible = () => (modalVisible = !modalVisible)
+</script>
+
 <div class="container el-wscreen">
   <div class="inner-container el-flex-container el-flex-column el-flex-align-center el-mxauto">
     <h2 class="el-title el-text-center">Agency Cloud - Diary Appointment Features</h2>
@@ -10,8 +18,8 @@
         <div class="tile-content">
           <h6 class="el-subtitle el-w1_2_2 el-text-center">Send ETA</h6>
           <p class="el-body-text el-has-grey-text is-hidden-mobile">
-            When you are ready to publish your app you will need to add some additional information such as a Summary,
-            Description & Images and you will also need to make it 'Listed'.
+            Send a prepopulated text message with your exact time of arrival. GEO Diary will automatically calculate
+            your current location and time to your next appointment.
           </p>
         </div>
       </div>
@@ -22,8 +30,8 @@
         <div class="tile-content">
           <h6 class="el-subtitle el-w1_2_2 el-text-center">Location Settings</h6>
           <p class="el-body-text el-has-grey-text is-hidden-mobile">
-            When you are ready to publish your app you will need to add some additional information such as a Summary,
-            Description & Images and you will also need to make it 'Listed'.
+            Get turn by turn directions from any starting location. The app will automatically detect your current
+            location but it also provides the ability to set a different location.
           </p>
         </div>
       </div>
@@ -34,8 +42,8 @@
         <div class="tile-content">
           <h6 class="el-subtitle el-w1_2_2 el-text-center">Map Integration</h6>
           <p class="el-body-text el-has-grey-text is-hidden-mobile">
-            When you are ready to publish your app you will need to add some additional information such as a Summary,
-            Description & Images and you will also need to make it 'Listed'.
+            Seamless integration with Google Maps and Apple Maps. From any appointment you can see turn by turn
+            directions using your default map application.
           </p>
         </div>
       </div>
@@ -46,8 +54,8 @@
         <div class="tile-content">
           <h6 class="el-subtitle el-w1_2_2 el-text-center">WhatsApp Integration</h6>
           <p class="el-body-text el-has-grey-text is-hidden-mobile">
-            When you are ready to publish your app you will need to add some additional information such as a Summary,
-            Description & Images and you will also need to make it 'Listed'.
+            Our integration with WhatsApp provides you the ability to easily start a conversation on any contact record
+            that has a mobile telephone number.
           </p>
         </div>
       </div>
@@ -58,8 +66,8 @@
         <div class="tile-content">
           <h6 class="el-subtitle el-w1_2_2 el-text-center">Email Integration</h6>
           <p class="el-body-text el-has-grey-text is-hidden-mobile">
-            When you are ready to publish your app you will need to add some additional information such as a Summary,
-            Description & Images and you will also need to make it 'Listed'.
+            Prepopulated emails using your default mail client. If an email address is present on any contact record GEO
+            Diary will open an email draft
           </p>
         </div>
       </div>
@@ -70,20 +78,28 @@
         <div class="tile-content">
           <h6 class="el-subtitle el-w1_2_2 el-text-center">Online Checklist</h6>
           <p class="el-body-text el-has-grey-text is-hidden-mobile">
-            When you are ready to publish your app you will need to add some additional information such as a Summary,
-            Description & Images and you will also need to make it 'Listed'.
+            Access identity and address history for any contact. If you have the Online Check List app installed, you
+            can access and update identity information for any contact.
           </p>
         </div>
       </div>
     </div>
     <div class="el-flex-container el-flex-align-center">
-      <h6 class="el-subtitle el-mr3 footer-heading">Already a customer?</h6>
-      <button class="el-intent-primary el-button el-button-has-right-chevron el-mr3">Install now</button>
+      <h6 class="el-subtitle el-mr3 footer-heading">Existing customer or new to Reapit?</h6>
+      <button
+        class="el-intent-primary el-button el-button-has-right-chevron el-mr3"
+        on:click|preventDefault={setModalVisible}>Find out more</button
+      >
     </div>
   </div>
+  <SignInModal {modalVisible} {setModalVisible} />
 </div>
 
 <style>
+  .container {
+    margin-bottom: 2rem;
+  }
+
   .inner-container {
     padding: 2rem;
     max-width: 1200px;

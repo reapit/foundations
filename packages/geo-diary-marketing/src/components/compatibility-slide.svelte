@@ -2,7 +2,7 @@
   <div class="inner-container el-flex-container el-flex-column el-flex-align-center el-mxauto">
     <div class="padded-container">
       <h2 class="el-title el-text-center">Compatibility</h2>
-      <h5 class="el-subtitle el-text-center">Instant access to your daily & weekly appointments.</h5>
+      <h5 class="el-subtitle el-text-center">Available on IOS, Windows, Mobile & Web</h5>
     </div>
     <img class="image-mobile-hero" src="./images/compatibility-mobile-hero.svg" alt="flow of data to various devices" />
     <img class="image-tablet-hero" src="./images/compatibility-hero.svg" alt="flow of data to various devices" />
@@ -22,19 +22,19 @@
       <div class="column el-flex-container el-flex-column el-px2">
         <p class="el-body-text el-has-grey-text">
           <strong
-            >You can embed some of the most well-known, specialised PropTech solutions into your CRM for a truly
-            seamless experience.
+            >The GEO Diary app is a progressive web application and can be saved and launched as an app on your phone,
+            accessed via a web browser or launched through Agency Cloud.
           </strong>
         </p>
         <p class="el-body-text el-has-grey-text">
-          When you are ready to publish your app you will need to add some additional information such as a Summary,
-          Description & Images.
+          Supporting multiple platforms, you can access your weekly diary appointments in the office on a web browser or
+          on the go on your mobile or tab.
         </p>
       </div>
       <div class="column el-px2">
         <p class="el-body-text el-has-grey-text">
-          When you are ready to publish your app you will need to add some additional information such as a Summary,
-          Description & Images and you will also need to make it 'Listed' so it is visible in the Marketplace.
+          With our email and WhatsApp integrations, you can easily stay connected to your applicants, vendors, tenants,
+          and landlords.
         </p>
       </div>
     </div>
@@ -42,14 +42,14 @@
 </div>
 
 <style>
-  .white-bg-container {
-    max-width: 1200px;
+  .container {
+    margin-bottom: 2rem;
   }
 
   .padded-container {
     padding-top: 2rem;
     background: rgb(248, 248, 248);
-    width: 100%;
+    max-width: var(--max-screen-width-desktop);
   }
 
   .white-bg-container {
@@ -70,6 +70,11 @@
     transform: translateX(-50%);
   }
 
+  .image-tablet-hero {
+    margin-top: -140px;
+    z-index: -1;
+  }
+
   .column {
     width: 100%;
   }
@@ -77,6 +82,7 @@
   .column-container {
     padding: 2rem;
     flex-direction: column;
+    max-width: 1200px;
   }
 
   img {
@@ -103,13 +109,13 @@
     font-size: 0.875rem;
   }
 
-  @media screen and (max-width: 1100px) {
+  @media screen and (max-width: 2880px) {
     .image-desktop-hero-container {
       display: none;
     }
   }
 
-  @media screen and (min-width: 1099px) {
+  @media screen and (min-width: 2879px) {
     .image-tablet-hero {
       display: none;
     }
