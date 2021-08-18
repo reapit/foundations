@@ -17,6 +17,6 @@ export const getObjectType = (type: IntrospectionOutputTypeRef): string => {
   return type.name
 }
 
-export const notEmpty = <TValue>(value: TValue | null | undefined): value is TValue => {
+export const notEmpty = <TValue>(value?: TValue | null): value is TValue => {
   return value !== null && value !== undefined
 }
