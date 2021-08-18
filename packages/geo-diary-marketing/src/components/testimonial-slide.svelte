@@ -1,7 +1,7 @@
 <div class="container el-wscreen">
   <div class="inner-container el-flex-container el-flex-column el-flex-align-center el-mxauto">
     <h2 class="el-title el-text-center">Don’t Take Our Word for It</h2>
-    <h4 class="el-subtitle el-text-center">Instant access to your daily & weekly appointments.</h4>
+    <h4 class="el-subtitle el-text-center">See what others had to say...</h4>
     <div class="tile-container el-flex-container el-flex-wrap">
       <div class="tile">
         <div class="tile-content el-flex-container el-flex-wrap">
@@ -12,16 +12,33 @@
             <img class="" src="./images/avatar.svg" alt="" />
           </div>
           <div class="el-card-heading-wrap">
-            <h5 class="el-subtitle">John Smith</h5>
-            <h6 class="el-card-sub-heading el-mb3">Executive Assistant</h6>
-            <h6 class="el-card-sub-heading-additional-expanded el-card-sub-heading-additional">Countrywide PLC</h6>
+            <h5 class="el-subtitle">Steven Shepherd</h5>
+            <h6 class="el-card-sub-heading el-mb3">Agent</h6>
+            <h6 class="el-card-sub-heading-additional-expanded el-card-sub-heading-additional">
+              Homes of Bath (Fine & Country)
+            </h6>
           </div>
           <div class="quotes-container-mobile el-flex-container el-flex-align-center el-flex-justify-center">
             <img class="" src="./images/quotes.svg" alt="" />
           </div>
           <p class="el-body-text el-has-grey-text">
-            When you are ready to publish your app you will need to add some additional information such as a Summary,
-            Description & Images and you will also need to make it 'Listed'.
+            AppMarket is simple to use and puts all your potential prop tech solutions in one location. Apps are simple
+            to download, one click and the process begins. Whether you are already utilising the third-party app
+            provider or not, it can all be handled through the AppMarket.
+          </p>
+          <p class="el-body-text el-has-grey-text">
+            The AppMarket allows us to make both cost & time savings that we can re-invest into our business, and
+            alongside the third-party app offerings there are also a selection of apps that Reapit have developed
+            themselves. One of these is GeoDiary, which allows our negotiators to quickly access their diary from the
+            app on their mobiles whilst out of the office on appointments. The app allows you to plan your journey,
+            contact your clients and access valuable information in seconds. It is a live connection with Reapit which
+            means if an appointment is cancelled while you’re on the road, your GeoDiary app will update with this live
+            information.
+          </p>
+          <p class="el-body-text el-has-grey-text">
+            Using the App Market has saved us 10 hours a month versus our previous integration processes, and we have
+            been able to re-invest this time into generating more valuations and conducting more viewings to generate
+            additional business.
           </p>
         </div>
       </div>
@@ -42,60 +59,13 @@
             <img class="" src="./images/quotes.svg" alt="" />
           </div>
           <p class="el-body-text el-has-grey-text">
-            When you are ready to publish your app you will need to add some additional information such as a Summary,
-            Description & Images and you will also need to make it 'Listed'.
+            Lorem ipsum dolor sit amet consectetur adipisicing elit. Blanditiis quas recusandae, facilis atque doloremque commodi est necessitatibus, sunt repellat illum id eos et pariatur magnam perferendis adipisci tempora eum! Maiores.
           </p>
           <p class="el-body-text el-has-grey-text">
-            When you are ready to publish your app you will need to add some additional information such as a Summary,
-            Description & Images and you will also need to make it 'Listed'.
-          </p>
-        </div>
-      </div>
-      <div class="tile">
-        <div class="tile-content el-flex-container el-flex-wrap">
-          <div class="quotes-container image-container el-flex-container el-flex-align-center el-flex-justify-center">
-            <img class="" src="./images/quotes.svg" alt="" />
-          </div>
-          <div class="image-container el-flex-container el-flex-align-center el-flex-justify-center">
-            <img class="" src="./images/avatar.svg" alt="" />
-          </div>
-          <div class="el-card-heading-wrap">
-            <h5 class="el-subtitle">John Smith</h5>
-            <h6 class="el-card-sub-heading el-mb3">Executive Assistant</h6>
-            <h6 class="el-card-sub-heading-additional-expanded el-card-sub-heading-additional">Countrywide PLC</h6>
-          </div>
-          <div class="quotes-container-mobile el-flex-container el-flex-align-center el-flex-justify-center">
-            <img class="" src="./images/quotes.svg" alt="" />
-          </div>
-          <p class="el-body-text el-has-grey-text">
-            When you are ready to publish your app you will need to add some additional information such as a Summary,
-            Description & Images and you will also need to make it 'Listed'.
+            Lorem, ipsum dolor sit amet consectetur adipisicing elit. Eum illum officiis praesentium. Consectetur voluptates ex labore sed omnis dignissimos, natus amet est facilis beatae voluptate quis, ipsum, atque consequatur aliquam.
           </p>
           <p class="el-body-text el-has-grey-text">
-            When you are ready to publish your app you will need to add some additional information such as a Summary,
-            Description & Images and you will also need to make it 'Listed'.
-          </p>
-        </div>
-      </div>
-      <div class="tile">
-        <div class="tile-content el-flex-container el-flex-wrap">
-          <div class="quotes-container image-container el-flex-container el-flex-align-center el-flex-justify-center">
-            <img class="" src="./images/quotes.svg" alt="" />
-          </div>
-          <div class="image-container el-flex-container el-flex-align-center el-flex-justify-center">
-            <img class="" src="./images/avatar.svg" alt="" />
-          </div>
-          <div class="el-card-heading-wrap">
-            <h5 class="el-subtitle">John Smith</h5>
-            <h6 class="el-card-sub-heading el-mb3">Executive Assistant</h6>
-            <h6 class="el-card-sub-heading-additional-expanded el-card-sub-heading-additional">Countrywide PLC</h6>
-          </div>
-          <div class="quotes-container-mobile el-flex-container el-flex-align-center el-flex-justify-center">
-            <img class="" src="./images/quotes.svg" alt="" />
-          </div>
-          <p class="el-body-text el-has-grey-text">
-            When you are ready to publish your app you will need to add some additional information such as a Summary,
-            Description & Images and you will also need to make it 'Listed'.
+            Lorem ipsum dolor sit amet consectetur adipisicing elit. Numquam eius error eum quam, veritatis praesentium minima, facilis aperiam sed cumque odit voluptate dolorem libero repudiandae. Id fugiat suscipit voluptatibus nostrum?
           </p>
         </div>
       </div>
@@ -106,6 +76,7 @@
 <style>
   .container {
     background: linear-gradient(0deg, #fff7f1 0%, rgba(255, 255, 255, 0) 100%);
+    padding-bottom: 2rem;
   }
 
   .inner-container {
@@ -189,7 +160,7 @@
     }
 
     .tile-container {
-      max-height: 800px;
+      max-height: 900px;
     }
 
     .tile {

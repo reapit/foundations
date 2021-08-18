@@ -1,10 +1,27 @@
+<script lang="ts">
+  $: modalVisible = false
+
+  const setModalVisible = () => (modalVisible = !modalVisible)
+</script>
+
 <div class="container el-wscreen">
   <div class="inner-container el-flex-container el-flex-column el-flex-align-center el-mxauto">
-    <h2 class="el-title el-text-center">Intuitive CRM and Client Accounting Software</h2>
-    <h5 class="el-subtitle el-text-center">Available for iOS, Android, Chrome and Web</h5>
+    <h2 class="el-title el-text-center">Do more with AgencyCloud</h2>
+    <h5 class="el-subtitle el-text-center">Intuitive CRM and Client Accounting Software</h5>
     <div class="el-flex-container el-flex-align-center">
       <h6 class="el-subtitle el-mr3">How it works</h6>
-      <button class="el-intent-critical el-button el-mr3 el-mb3">Watch Video</button>
+      <a
+        class="is-hidden-desktop"
+        href="https://www.youtube.com/watch?v=iKdil7liAts&amp;t=3s"
+        rel="noopener noreferrer"
+        target="_blank"
+      >
+        <button class="el-intent-critical el-button el-mr3 el-mb3">Watch Video</button>
+      </a>
+      <button
+        class="el-intent-critical el-button el-mr3 el-mb3 is-hidden-mobile"
+        on:click|preventDefault={setModalVisible}>Watch Video</button
+      >
     </div>
     <img class="is-hidden-mobile" src="./images/crm-desktop-hero.svg" alt="View of calendar and mobile app overlaid" />
     <img class="is-hidden-desktop" src="./images/crm-mobile-hero.svg" alt="View of calendar and mobile app overlaid" />
@@ -12,28 +29,57 @@
       <div class="column el-flex-container el-flex-column el-px2">
         <p class="el-body-text el-has-grey-text">
           <strong
-            >You can embed some of the most well-known, specialised PropTech solutions into your CRM for a truly
-            seamless experience.
+            >Combining the power of our intuitive CRM ‘Agency Cloud’, the GEO Diary app provides you with the ability to
+            access diary appointments from anywhere!
           </strong>
         </p>
         <p class="el-body-text el-has-grey-text">
-          When you are ready to publish your app you will need to add some additional information such as a Summary,
-          Description & Images.
+          You can view your appointments for today, tomorrow or for the whole week, direct from an app on your phone or
+          via a web browser.
+        </p>
+        <p class="el-body-text el-has-grey-text">
+          Easy to install and simple to use, GEO Diary is a progressive web application that integrates with What’s App,
+          Email and other applications from the AppMarket.
         </p>
       </div>
       <div class="column el-px2">
         <p class="el-body-text el-has-grey-text">
-          When you are ready to publish your app you will need to add some additional information such as a Summary,
-          Description & Images and you will also need to make it 'Listed' so it is visible in the Marketplace.
+          Running late for an appointment? send an automated ETA text message. Carried out a viewing? Enter your follow
+          up notes direct on the appointment and they will be instantly stored against that record in Agency Cloud.
+        </p>
+        <p class="el-body-text el-has-grey-text">
+          Using the very latest in technology, we have integrated with Google Maps and Apple Maps for turn-by-turn
+          directions.
         </p>
       </div>
     </div>
+  </div>
+  <div class="el-modal-bg" class:el-is-active={modalVisible} on:click|preventDefault={setModalVisible} />
+  <div class="el-modal modal-wrapper" class:el-is-active={modalVisible}>
+    <svg class="close-icon" width="1em" height="1em" on:click|preventDefault={setModalVisible} viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+      <path
+        fill-rule="evenodd"
+        clip-rule="evenodd"
+        d="M15.8336 17.2478C16.1265 17.5407 16.6014 17.5407 16.8943 17.2478C17.1872 16.955 17.1872 16.4801 16.8943 16.1872L10.7071 10L16.8943 3.81282C17.1872 3.51992 17.1872 3.04505 16.8943 2.75216C16.6014 2.45926 16.1265 2.45926 15.8336 2.75216L9.64643 8.93934L3.8128 3.10571C3.51991 2.81282 3.04503 2.81282 2.75214 3.10571C2.45925 3.3986 2.45925 3.87348 2.75214 4.16637L8.58577 10L2.75214 15.8336C2.45925 16.1265 2.45925 16.6014 2.75214 16.8943C3.04503 17.1872 3.51991 17.1872 3.8128 16.8943L9.64643 11.0607L15.8336 17.2478Z"
+        fill="currentColor"
+      />
+    </svg>
+    <iframe
+      width="100%"
+      height="100%"
+      src={modalVisible ? "https://www.youtube.com/embed/iKdil7liAts" : ""}
+      title="YouTube video player"
+      frameborder="0"
+      allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+      allowfullscreen
+    />
   </div>
 </div>
 
 <style>
   .container {
     background: linear-gradient(180deg, #f2f2f2 0%, rgba(242, 242, 242, 0) 100%);
+    margin-bottom: 2rem;
   }
 
   .inner-container {
@@ -47,6 +93,25 @@
 
   .column-container {
     flex-direction: column;
+  }
+
+  .close-icon {
+    top: 0.5rem;
+    right: 0.5rem;
+    position: absolute;
+    height: 1.5rem;
+    cursor: pointer;
+    color: white;
+    font-size: 1.5rem;
+  }
+
+  .modal-wrapper {
+    overflow-y: scroll;
+    width: 90vw;
+    height: 90vh;
+    max-width: 90vw;
+    max-height: 90vh;
+    transform: translate(-50%, -40%);
   }
 
   img {

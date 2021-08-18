@@ -10,6 +10,10 @@
 <svelte:head>
   <title>Geo Diary</title>
   <style>
+    :root {
+      --max-screen-width-desktop: 1440px;
+    }
+  
     body {
       overflow-x: hidden;
     }
