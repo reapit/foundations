@@ -64,10 +64,6 @@ export class PipelineEntity extends AbstractEntity implements PipelineModelInter
   })
   appType?: AppTypeEnum
 
-  get workflow(): TaskWorkflow {
-    return taskWorkflows[this.appType as AppTypeEnum]
-  }
-
   @Column()
   buildCommand?: string = 'build'
 
@@ -95,23 +91,6 @@ export class PipelineEntity extends AbstractEntity implements PipelineModelInter
   get uniqueRepoName(): string {
     return `${this.developerId}/${this.repository?.split('/').pop()}`
   }
-}
-
-export type TaskWorkflow = TaskRunnerFunctions[]
-
-export const taskWorkflows: { [key in AppTypeEnum]: TaskWorkflow } = {
-  [AppTypeEnum.NODE]: [
-    TaskRunnerFunctions.PULL,
-    TaskRunnerFunctions.INSTALL,
-    TaskRunnerFunctions.BUILD,
-    TaskRunnerFunctions.DEPLOY_LAMBDAS,
-  ],
-  [AppTypeEnum.REACT]: [
-    TaskRunnerFunctions.PULL,
-    TaskRunnerFunctions.INSTALL,
-    TaskRunnerFunctions.BUILD,
-    TaskRunnerFunctions.DEPLOY_REACT,
-  ],
 }
 
 @Entity('tasks')
