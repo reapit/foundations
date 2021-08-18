@@ -4,12 +4,8 @@ import {
   IntrospectionNonNullTypeRef,
   IntrospectionListTypeRef,
   IntrospectionField,
+  TypeKind,
 } from 'graphql'
-
-export const OBJECT = 'OBJECT'
-export const NON_NULL = 'NON_NULL'
-export const LIST = 'LIST'
-export const SCALAR = 'SCALAR'
 
 export type QueryableField = IntrospectionField & {
   nestedKinds: Array<string>
@@ -17,13 +13,13 @@ export type QueryableField = IntrospectionField & {
 }
 
 export const isIntrospectionObjectType = (type: any): type is IntrospectionObjectType => {
-  return type.kind === OBJECT
+  return type.kind === TypeKind.OBJECT
 }
 
 export const isNonNullType = (type: IntrospectionOutputTypeRef): type is IntrospectionNonNullTypeRef<any> => {
-  return type.kind === NON_NULL
+  return type.kind === TypeKind.NON_NULL
 }
 
 export const isListType = (type: IntrospectionOutputTypeRef): type is IntrospectionListTypeRef<any> => {
-  return type.kind === LIST
+  return type.kind === TypeKind.LIST
 }

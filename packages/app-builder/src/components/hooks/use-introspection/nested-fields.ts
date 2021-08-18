@@ -1,6 +1,6 @@
-import { IntrospectionOutputTypeRef, IntrospectionObjectType } from 'graphql'
+import { IntrospectionOutputTypeRef, IntrospectionObjectType, TypeKind } from 'graphql'
 import { flatKind, getObjectType } from './helpers'
-import { LIST, NON_NULL, OBJECT, QueryableField, SCALAR } from './types'
+import { QueryableField } from './types'
 
 type NestedDict = {
   [key: string]: NestedDict | undefined
@@ -25,15 +25,15 @@ export const queryableFieldToNestedDict = (
 ): NestedDict | undefined => {
   const nestedDict: NestedDict = {}
 
-  if (type.kind === NON_NULL || type.kind === LIST) {
+  if (type.kind === TypeKind.NON_NULL || type.kind === TypeKind.LIST) {
     return queryableFieldToNestedDict(type.ofType, queryableObjectTypes)
   }
 
-  if (type.kind === SCALAR) {
+  if (type.kind === TypeKind.SCALAR) {
     return undefined
   }
 
-  if (type.kind === OBJECT) {
+  if (type.kind === TypeKind.OBJECT) {
     const objectType = queryableObjectTypes.find(({ name }) => name === type.name)
     if (objectType) {
       objectType.fields.forEach((field) => {
