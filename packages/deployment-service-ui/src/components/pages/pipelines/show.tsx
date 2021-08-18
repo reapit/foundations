@@ -7,7 +7,6 @@ import { Button, Label, Loader, StatusIndicator, Table, Intent } from '@reapit/e
 import React, { useEffect, useState } from 'react'
 import { Link, useParams } from 'react-router-dom'
 import {
-  DeploymentStatus,
   PipelineModelInterface,
   PipelineRunnerModelInterface,
   TaskModelInterface,
@@ -15,15 +14,15 @@ import {
 import { Pagination } from 'nestjs-typeorm-paginate'
 import { PipelineTask } from '@/components/task'
 
-const pipelineStatusToIntent = (status: DeploymentStatus): Intent => {
+const pipelineStatusToIntent = (status: string): Intent => {
   switch (status) {
-    case DeploymentStatus.CANCELED:
+    case 'CANCELED':
       return 'neutral'
-    case DeploymentStatus.FAILED:
+    case 'FAILED':
       return 'danger'
-    case DeploymentStatus.RUNNING:
+    case 'IN_PROGRESS':
       return 'critical'
-    case DeploymentStatus.SUCCESS:
+    case 'SUCCESS':
       return 'success'
     default:
       return 'neutral'
@@ -31,16 +30,16 @@ const pipelineStatusToIntent = (status: DeploymentStatus): Intent => {
 }
 
 const findRelevantTask = (tasks: TaskModelInterface[]): TaskModelInterface => {
-  const priority: { [key in DeploymentStatus]: number } = {
-    [DeploymentStatus.CANCELED]: 1,
-    [DeploymentStatus.FAILED]: 4,
-    [DeploymentStatus.SUCCESS]: 3,
-    [DeploymentStatus.RUNNING]: 5,
-    [DeploymentStatus.PENDING]: 2,
+  const priority: { [s: string]: number } = {
+    ['CANCELED']: 1,
+    ['FAILED']: 4,
+    ['SUCCESS']: 3,
+    ['RUNNING']: 5,
+    ['PENDING']: 2,
   }
 
   return tasks.sort((a, b) => {
-    return priority[a.status as DeploymentStatus] - priority[b.status as DeploymentStatus]
+    return priority[a.status as string] - priority[b.status as string]
   })[0]
 }
 
@@ -109,8 +108,8 @@ export default () => {
       {
         label: 'Tasks',
         value: Array.isArray(pipeline.tasks)
-          ? pipeline.buildStatus === DeploymentStatus.RUNNING
-            ? (findRelevantTask(pipeline.tasks).status as DeploymentStatus)
+          ? pipeline.buildStatus === 'IN_PROGRESS'
+            ? (findRelevantTask(pipeline.tasks).status as string)
             : pipeline.tasks.length.toString()
           : '0',
       },
@@ -119,8 +118,7 @@ export default () => {
         value: pipeline.buildStatus?.toString() || '',
         children: (
           <>
-            <StatusIndicator intent={pipelineStatusToIntent(pipeline.buildStatus as DeploymentStatus)} />{' '}
-            {pipeline.buildStatus}
+            <StatusIndicator intent={pipelineStatusToIntent(pipeline.buildStatus as string)} /> {pipeline.buildStatus}
           </>
         ),
       },

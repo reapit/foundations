@@ -1,17 +1,17 @@
 import { Intent, StatusIndicator } from '@reapit/elements'
 import React from 'react'
-import { DeploymentStatus, TaskModelInterface } from '@reapit/foundations-ts-definitions/deployment-schema'
+import { TaskModelInterface } from '@reapit/foundations-ts-definitions/deployment-schema'
 import { ElPipelineTask } from './task.element'
 
-const pipelineStatusToIntent = (status: DeploymentStatus): Intent => {
+const pipelineStatusToIntent = (status: string): Intent => {
   switch (status) {
-    case DeploymentStatus.CANCELED:
+    case 'CANCELED':
       return 'neutral'
-    case DeploymentStatus.FAILED:
+    case 'FAILED':
       return 'danger'
-    case DeploymentStatus.RUNNING:
+    case 'IN_PROGRESS':
       return 'critical'
-    case DeploymentStatus.SUCCESS:
+    case 'SUCCESS':
       return 'success'
     default:
       return 'neutral'
@@ -21,8 +21,7 @@ const pipelineStatusToIntent = (status: DeploymentStatus): Intent => {
 export const PipelineTask = ({ task }: { task: TaskModelInterface }) => {
   return (
     <ElPipelineTask>
-      <StatusIndicator intent={pipelineStatusToIntent(task.status as DeploymentStatus)} shape="tag" />{' '}
-      {task.functionName}
+      <StatusIndicator intent={pipelineStatusToIntent(task.status as string)} shape="tag" /> {task.functionName}
     </ElPipelineTask>
   )
 }
