@@ -1,26 +1,12 @@
-import { PipelineEntity, PipelineRunnerEntity, TaskEntity, TaskWorkflow } from './../../entities'
+import { PipelineRunnerEntity, TaskEntity, TaskWorkflow } from './../../entities'
 import { SQSHandler, Context, Callback, SQSEvent } from 'aws-lambda'
 import { plainToClass } from 'class-transformer'
 import * as services from './../../services'
 import { DeploymentStatus, TaskRunnerFunctions } from '@reapit/foundations-ts-definitions'
-import { resolveExecutable } from './../../executables'
-import { QueueNames } from '../../constants'
 
-const deleteMessage = (ReceiptHandle: string): Promise<void> => {
-  return new Promise<void>((resolve, reject) =>
-    services.sqs.deleteMessage(
-      {
-        ReceiptHandle,
-        QueueUrl: QueueNames.TASK_RUNNER,
-      },
-      (err) => {
-        if (err) {
-          reject(err)
-        }
-        resolve()
-      },
-    ),
-  )
+const deleteMessage = (receiptHandle: string): Promise<void> => {
+  console.log('receipt', receiptHandle)
+  return Promise.resolve()
 }
 
 const failure = async (task: TaskEntity, receiptHandle, error?: Error): Promise<void> => {
@@ -62,20 +48,6 @@ const completeAndStartNext = async (task: TaskEntity, nextTask: TaskEntity, rece
   console.log(`Task [${task.functionName}] completed. Starting [${nextTask.functionName}]`)
 
   await Promise.all([
-    new Promise<void>((resolve, reject) =>
-      services.sqs.sendMessage(
-        {
-          MessageBody: JSON.stringify(nextTask),
-          QueueUrl: QueueNames.TASK_RUNNER,
-        },
-        (error) => {
-          if (error) {
-            reject(error)
-          }
-          resolve()
-        },
-      ),
-    ),
     services.updateTask(task, {
       status: DeploymentStatus.SUCCESS,
     }),
@@ -129,10 +101,7 @@ export const taskRunner: SQSHandler = async (event: SQSEvent, context: Context, 
       }
 
       try {
-        const executable = resolveExecutable(task)
-
         await startTask(task)
-        await executable(task, task.pipelineRunner?.pipeline as PipelineEntity)
 
         const nextTask = await getNextTask(task)
 
