@@ -19,10 +19,11 @@ custom:
 provider:
   name: aws
   runtime: ${opt:runtime, 'nodejs12.x' }
+  stage: ${opt:stage, 'dev'}
   region: 'us-east-1'
   lambdaHashingVersion: '20201221'
   deploymentBucket:
-    name: cloud-security-header-lambda
+    name: cloud-security-header-lambda-${opt:stage, 'dev'}
     blockPublicAccess: false
 
 resources:
@@ -108,6 +109,12 @@ functions:
           stage: ${opt:stage, 'dev'}
       - preExistingCloudFront:
           distributionId: ${self:custom.env.reapitConnectCfDistId}
+          eventType: origin-response
+          pathPattern: '*'
+          includeBody: false
+          stage: ${opt:stage, 'dev'}
+      - preExistingCloudFront:
+          distributionId: ${self:custom.env.insightsCfDistId}
           eventType: origin-response
           pathPattern: '*'
           includeBody: false
