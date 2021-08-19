@@ -10,6 +10,7 @@ export const forgotPasswordTemplate = ({ userName }: ForgottenPasswordTemplatePa
         <p>We have received a request to reset your Reapit Connect password.</p>
         <p>Here is your single use verification code: {####}</p>
         <p>If you did not make this request, please ignore this email.</p>
+        <p>Please do not reply to this email as this mailbox is not monitored. If you are a Reapit Customer and you are having an issue or if you have a question about Reapit Connect, please visit the Reapit Service Desk Portal.</p>
         <p>Best Regards,</p>
         <p>Reapit Team</p>
       </div>
@@ -31,6 +32,7 @@ export const confirmRegistrationTemplate = ({ url }: ConfirmPasswordTemplatePara
           <a style="border: solid thin #0061a8;padding: 10px;background-color: #0061a8;color: white;z-index: 1;text-decoration: none; font-style: normal;" href=${url}?userName={username}&verificationCode={####}>VERIFY ACCOUNT</a>
         </div>
         <p>Once your account has been verified, you will be redirected to the login page.</p>
+        <p>Please do not reply to this email as this mailbox is not monitored. If you are a Reapit Customer and you are having an issue or if you have a question about Reapit Connect, please visit the Reapit Service Desk Portal.</p>
         <p>Best Regards,</p>
         <p>Reapit Team</p>
       </div>
@@ -54,6 +56,7 @@ export const adminUserInviteTemplate = ({ url }: ConfirmPasswordTemplateParams) 
           <a style="border: solid thin #0061a8;padding: 10px;background-color: #0061a8;color: white;z-index: 1;text-decoration: none; font-style: normal;" href=${url}>LOGIN</a>
         </div>
         <p>When you have successfully changed your password, you will then be presented with a list of products and services available to you.</p>
+        <p>Please do not reply to this email as this mailbox is not monitored. If you are a Reapit Customer and you are having an issue or if you have a question about Reapit Connect, please visit the Reapit Service Desk Portal.</p>
         <p>Best Regards,</p>
         <p>Reapit Team</p>
       </div>
