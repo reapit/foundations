@@ -69,7 +69,7 @@ export const codebuildExecutor: SQSHandler = async (
           })
         })
 
-        pipelineRunner.codebuildId = result.build?.id
+        pipelineRunner.codebuildId = result.build?.id?.split(':').pop()
 
         pipelineRunner.tasks = result.build?.phases?.map<TaskEntity>((phase) => {
           const task = new TaskEntity()
