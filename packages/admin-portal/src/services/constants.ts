@@ -11,4 +11,5 @@ export const URLS = {
   customers: '/marketplace/customers',
   desktopIntegrationTypes: '/marketplace/DesktopIntegrationTypes',
   subscriptions: '/marketplace/subscriptions',
+  webhookSubscriptions: '/webhooks/subscriptions',
 }
