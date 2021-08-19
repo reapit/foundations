@@ -1,5 +1,5 @@
 import { Context, Callback, SNSEvent, SNSHandler } from 'aws-lambda'
-import { findPipelineRunnerByCodeBuildId, savePipelineRunnerEntity } from '../../services'
+import { batchUpdateTask, findPipelineRunnerByCodeBuildId, savePipelineRunnerEntity } from '../../services'
 import { CodeBuild } from 'aws-sdk'
 import { TaskEntity } from '../../entities'
 
@@ -38,6 +38,10 @@ export const codebuildPipelineUpdater: SNSHandler = async (
 
       if (!buildId) {
         throw new Error('no buildId found')
+      }
+
+      if (message['detail-type'] !== 'CodeBuild Build Phase Change') {
+        throw new Error(`detail type [${message['detail-type']}] not supported`)
       }
 
       const phases = message.detail['additional-information'].phases.filter((phase) =>
@@ -89,7 +93,13 @@ export const codebuildPipelineUpdater: SNSHandler = async (
 
       console.log('updated', pipelineRunner)
 
-      await savePipelineRunnerEntity(pipelineRunner)
+      const promises: Array<Promise<any>> = [savePipelineRunnerEntity(pipelineRunner)]
+
+      if (pipelineRunner.tasks) {
+        promises.push(batchUpdateTask(pipelineRunner.tasks))
+      }
+
+      await Promise.all(promises)
     }),
   )
 
