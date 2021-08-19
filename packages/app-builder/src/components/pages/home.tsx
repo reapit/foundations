@@ -1,5 +1,5 @@
 import React, { FC, useRef } from 'react'
-import { Editor, Frame, Element } from '@craftjs/core'
+import { Editor, Frame, Element, SerializedNode } from '@craftjs/core'
 
 import { RenderNode } from '../ui/render-node'
 import Viewport from '../ui/viewport'
@@ -12,6 +12,14 @@ import { setPageNodes } from '../ui/header/saveState'
 import { usePageId } from '@/core/usePageId'
 
 export type AuthenticatedProps = {}
+
+const isInitialLoad = (nodes: Record<string, SerializedNode>) => {
+  if (Object.keys(nodes).length === 2) {
+    const nonRootKey = Object.keys(nodes).find((key) => key !== 'ROOT')
+    return nonRootKey && nodes[nonRootKey].props.text === "I'm here by default!"
+  }
+  return false
+}
 
 export const Authenticated: FC<AuthenticatedProps> = () => {
   const iframeRef = useRef()
@@ -28,7 +36,7 @@ export const Authenticated: FC<AuthenticatedProps> = () => {
       }}
       onRender={(props) => <RenderNode {...props} iframeRef={iframeRef.current} />}
       onNodesChange={(query) => {
-        if (query.serialize() !== '{}') {
+        if (query.serialize() !== '{}' && !isInitialLoad(query.getSerializedNodes())) {
           setPageNodes(pageId, query.serialize())
         }
       }}

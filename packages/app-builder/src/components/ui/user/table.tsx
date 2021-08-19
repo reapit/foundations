@@ -53,7 +53,8 @@ const Table = ({ typeName, ...props }: TableProps) => {
   return (
     <Container {...props}>
       {loading && <Loader label="Loading" />}
-      <ELTable style={{ flex: 1 }} rows={rows} />
+      {typeName && <ELTable style={{ flex: 1 }} rows={rows} />}
+      {!loading && !typeName && <div>No type selected</div>}
     </Container>
   )
 }
@@ -61,7 +62,7 @@ const Table = ({ typeName, ...props }: TableProps) => {
 const ContainerSettings = Container.craft.related.toolbar
 
 const TableSettings = () => {
-  const { data } = useTypeList()
+  const { data, loading } = useTypeList()
 
   return (
     <>
@@ -79,7 +80,9 @@ const TableSettings = () => {
               {typeName}
             </option>
           ))}
-          <option value="">Select a page</option>
+          <option value="" disabled>
+            {loading ? 'Loading...' : 'Select a Type'}
+          </option>
         </ToolbarItem>
       </ToolbarSection>
     </>
