@@ -39,7 +39,7 @@ const findRelevantTask = (tasks: TaskModelInterface[]): TaskModelInterface => {
   }
 
   return tasks.sort((a, b) => {
-    return priority[a.status as string] - priority[b.status as string]
+    return priority[a.buildStatus as string] - priority[b.buildStatus as string]
   })[0]
 }
 
@@ -109,7 +109,7 @@ export default () => {
         label: 'Tasks',
         value: Array.isArray(pipeline.tasks)
           ? pipeline.buildStatus === 'IN_PROGRESS'
-            ? (findRelevantTask(pipeline.tasks).status as string)
+            ? (findRelevantTask(pipeline.tasks).buildStatus as string)
             : pipeline.tasks.length.toString()
           : '0',
       },

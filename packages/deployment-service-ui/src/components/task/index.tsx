@@ -21,7 +21,7 @@ const pipelineStatusToIntent = (status: string): Intent => {
 export const PipelineTask = ({ task }: { task: TaskModelInterface }) => {
   return (
     <ElPipelineTask>
-      <StatusIndicator intent={pipelineStatusToIntent(task.status as string)} shape="tag" /> {task.functionName}
+      <StatusIndicator intent={pipelineStatusToIntent(task.buildStatus as string)} shape="tag" /> {task.functionName}
     </ElPipelineTask>
   )
 }

@@ -32,7 +32,7 @@ export interface TaskModelInterface {
   created?: string
   modified?: string
   functionName?: CodeBuild.BuildPhaseType
-  status?: CodeBuild.StatusType
+  buildStatus?: CodeBuild.StatusType
 }
 
 export enum PackageManagerEnum {
