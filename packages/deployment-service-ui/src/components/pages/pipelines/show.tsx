@@ -22,7 +22,7 @@ const pipelineStatusToIntent = (status: string): Intent => {
       return 'danger'
     case 'IN_PROGRESS':
       return 'critical'
-    case 'SUCCESS':
+    case 'SUCCEEDED':
       return 'success'
     default:
       return 'neutral'
@@ -33,7 +33,7 @@ const findRelevantTask = (tasks: TaskModelInterface[]): TaskModelInterface => {
   const priority: { [s: string]: number } = {
     ['CANCELED']: 1,
     ['FAILED']: 4,
-    ['SUCCESS']: 3,
+    ['SUCCEEDED']: 3,
     ['RUNNING']: 5,
     ['PENDING']: 2,
   }

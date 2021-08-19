@@ -11,7 +11,7 @@ const pipelineStatusToIntent = (status: string): Intent => {
       return 'danger'
     case 'IN_PROGRESS':
       return 'critical'
-    case 'SUCCESS':
+    case 'SUCCEEDED':
       return 'success'
     default:
       return 'neutral'
