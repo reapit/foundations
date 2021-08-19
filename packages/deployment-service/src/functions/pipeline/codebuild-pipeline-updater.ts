@@ -4,6 +4,7 @@ import { CodeBuild } from 'aws-sdk'
 import { TaskEntity } from '../../entities'
 
 const acceptedPhases = ['BUILD', 'INSTALL', 'DOWNLOAD_SOURCE']
+const acceptedEvents = ['CodeBuild Build State Change', 'CodeBuild Build Phase Change']
 
 type BuildPhase = {
   ['phase-type']: CodeBuild.BuildPhaseType
@@ -30,8 +31,6 @@ export const codebuildPipelineUpdater: SNSHandler = async (
 ): Promise<void> => {
   await Promise.all(
     event.Records.map(async (record) => {
-      console.log('record', record.Sns)
-
       const message: BuildStatusEvent = JSON.parse(record.Sns.Message)
       console.log('message', message)
       const buildId = message.detail['build-id'].split(':').pop()
@@ -40,7 +39,7 @@ export const codebuildPipelineUpdater: SNSHandler = async (
         throw new Error('no buildId found')
       }
 
-      if (message['detail-type'] !== 'CodeBuild Build Phase Change') {
+      if (!acceptedEvents.includes(message['detail-type'])) {
         throw new Error(`detail type [${message['detail-type']}] not supported`)
       }
 
@@ -54,11 +53,11 @@ export const codebuildPipelineUpdater: SNSHandler = async (
         throw new Error('pipelineRunner not found')
       }
 
-      console.log('pipelineRunner', pipelineRunner)
-
       // update existing tasks
       pipelineRunner.tasks?.map((task) => {
         const phase = phases.find((phase) => phase['phase-type'] === task.functionName)
+
+        console.log('phase', phase)
 
         if (!phase) {
           return task
