@@ -92,7 +92,7 @@
     "ts-paths-to-webpack-alias": "^0.3.1",
     "webpack": "^5.45.1",
     "webpack-cli": "^4.7.2",
-    "webpack-dev-server": "^3.11.2",
+    "webpack-dev-server": "^4.0.0",
     "workbox-webpack-plugin": "^6.1.5"
   }
 }
