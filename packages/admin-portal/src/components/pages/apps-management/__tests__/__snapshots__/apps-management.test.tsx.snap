@@ -726,6 +726,67 @@ exports[`admin-apps AdminApprovals should match a snapshot 1`] = `
                           className="column"
                           data-test=""
                         >
+                          <Checkbox
+                            id="isListed"
+                            labelText="Is Listed"
+                            name="isListed"
+                          >
+                            <div
+                              className="field "
+                            >
+                              <div
+                                className="control"
+                              >
+                                <Field
+                                  name="isListed"
+                                  type="checkbox"
+                                >
+                                  <div
+                                    className="field field-checkbox"
+                                  >
+                                    <input
+                                      checked={false}
+                                      className="checkbox"
+                                      data-test=""
+                                      disabled={false}
+                                      id="isListed"
+                                      onChange={[Function]}
+                                      type="checkbox"
+                                      value=""
+                                    />
+                                    <label
+                                      className="label"
+                                      htmlFor="isListed"
+                                    >
+                                      Is Listed
+                                    </label>
+                                  </div>
+                                </Field>
+                              </div>
+                            </div>
+                          </Checkbox>
+                        </div>
+                      </GridItem>
+                    </div>
+                  </Grid>
+                  <Grid>
+                    <div
+                      className="columns"
+                      data-test=""
+                    >
+                      <GridItem>
+                        <div
+                          className="column"
+                          data-test=""
+                        >
+                           
+                        </div>
+                      </GridItem>
+                      <GridItem>
+                        <div
+                          className="column"
+                          data-test=""
+                        >
                           <LevelRight
                             className="mt-5 pt-2"
                           >
@@ -827,6 +888,8 @@ exports[`admin-apps AdminApprovals should match a snapshot 1`] = `
 
 exports[`admin-apps generateColumns should match snapshot 1`] = `
 <div>
+  <Component />
+  <Component />
   <Component />
   <Component />
   <Component />
@@ -956,6 +1019,18 @@ exports[`admin-apps renderForm should return correctly 1`] = `
             }
           }
         />
+      </GridItem>
+      <GridItem>
+        <Checkbox
+          id="isListed"
+          labelText="Is Listed"
+          name="isListed"
+        />
+      </GridItem>
+    </Grid>
+    <Grid>
+      <GridItem>
+         
       </GridItem>
       <GridItem>
         <LevelRight
