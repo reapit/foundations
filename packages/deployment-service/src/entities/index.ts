@@ -32,7 +32,7 @@ abstract class AbstractEntity {
 
 @Entity('pipeline_runners')
 export class PipelineRunnerEntity extends AbstractEntity implements PipelineRunnerModelInterface {
-  @Column({ type: 'varchar' })
+  @Column({ type: 'varchar', default: 'QUEUED' })
   buildStatus?: CodeBuild.BuildPhaseType
 
   @Column({
@@ -113,7 +113,7 @@ export class TaskEntity extends AbstractEntity implements TaskModelInterface {
   parent?: TaskEntity
 
   @Column({ type: 'varchar' })
-  status?: CodeBuild.StatusType
+  buildStatus?: CodeBuild.StatusType
 
   @Column({ type: 'timestamp' })
   startTime?: Date
