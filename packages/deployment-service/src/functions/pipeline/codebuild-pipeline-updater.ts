@@ -1,7 +1,7 @@
 import { Context, Callback, SNSEvent, SNSHandler } from 'aws-lambda'
-import { findPipelineRunnerByCodeBuildId } from '../../services'
+import { findPipelineRunnerByCodeBuildId, savePipelineRunnerEntity } from '../../services'
 import { CodeBuild } from 'aws-sdk'
-import { TaskEntity } from 'src/entities'
+import { TaskEntity } from '../../entities'
 
 const acceptedPhases = ['BUILD', 'INSTALL', 'DOWNLOAD_SOURCE']
 
@@ -15,8 +15,11 @@ type BuildPhase = {
 
 type BuildStatusEvent = {
   id: string
-  details: {
-    phases: BuildPhase[]
+  detail: {
+    ['build-id']: string
+    ['additional-information']: {
+      phases: BuildPhase[]
+    }
   }
 }
 
@@ -30,10 +33,18 @@ export const codebuildPipelineUpdater: SNSHandler = async (
       console.log('record', record.Sns)
 
       const message: BuildStatusEvent = JSON.parse(record.Sns.Message)
+      console.log('message', message)
+      const buildId = message.detail['build-id'].split(':').pop()
 
-      const phases = message.details.phases.filter((phase) => acceptedPhases.includes(phase['phase-type']))
+      if (!buildId) {
+        throw new Error('no buildId found')
+      }
 
-      const pipelineRunner = await findPipelineRunnerByCodeBuildId(message.id)
+      const phases = message.detail['additional-information'].phases.filter((phase) =>
+        acceptedPhases.includes(phase['phase-type']),
+      )
+
+      const pipelineRunner = await findPipelineRunnerByCodeBuildId(buildId)
 
       if (!pipelineRunner) {
         throw new Error('pipelineRunner not found')
@@ -75,6 +86,10 @@ export const codebuildPipelineUpdater: SNSHandler = async (
           pipelineRunner.tasks?.push(newTask)
         }
       })
+
+      console.log('updated', pipelineRunner)
+
+      await savePipelineRunnerEntity(pipelineRunner)
     }),
   )
 
