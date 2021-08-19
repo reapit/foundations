@@ -141,7 +141,7 @@ provider:
     - Effect: Allow
       Action:
         - codebuild:StartBuild
-      Resource: arn:aws:codebuild:eu-west-2:028446965111:build/test:6ba39722-77b9-4214-90a3-97eaa54f46d1
+      Resource: arn:aws:codebuild:eu-west-2:028446965111:project/test
 
 resources:
   Resources:
@@ -526,3 +526,7 @@ functions:
             Fn::GetAtt:
               - CodebuildExecutor
               - Arn
+  codebuildUpdate:
+    handler: src/index.codebuildPipelineUpdater
+    events:
+      - sns: arn:aws:sns:eu-west-2:028446965111:codebuild
