@@ -5,6 +5,12 @@ import {
   IntrospectionListTypeRef,
   IntrospectionField,
   TypeKind,
+  IntrospectionInputTypeRef,
+  IntrospectionInputObjectType,
+  IntrospectionScalarType,
+  IntrospectionOutputType,
+  IntrospectionInputType,
+  IntrospectionEnumType,
 } from 'graphql'
 
 export type QueryableField = IntrospectionField & {
@@ -16,7 +22,27 @@ export const isIntrospectionObjectType = (type: any): type is IntrospectionObjec
   return type.kind === TypeKind.OBJECT
 }
 
-export const isNonNullType = (type: IntrospectionOutputTypeRef): type is IntrospectionNonNullTypeRef<any> => {
+export const isIntrospectionScalarType = (type: any): type is IntrospectionScalarType => {
+  return type.kind === TypeKind.SCALAR
+}
+
+export const isIntrospectionInputObjectType = (type: any): type is IntrospectionInputObjectType => {
+  return type.kind === TypeKind.INPUT_OBJECT
+}
+
+export const isIntrospectionEnumType = (type: any): type is IntrospectionEnumType => {
+  return type.kind === TypeKind.ENUM
+}
+
+export const isNonNullInputType = (
+  type: IntrospectionInputTypeRef,
+): type is IntrospectionNonNullTypeRef<IntrospectionInputType> => {
+  return type.kind === TypeKind.NON_NULL
+}
+
+export const isNonNullType = (
+  type: IntrospectionOutputTypeRef,
+): type is IntrospectionNonNullTypeRef<IntrospectionOutputType> => {
   return type.kind === TypeKind.NON_NULL
 }
 

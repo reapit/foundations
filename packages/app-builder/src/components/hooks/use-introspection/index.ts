@@ -9,7 +9,7 @@ export const useIntrospection = () => {
   `
   const { loading, data, error } = useQuery(introspectionQuery)
   const parsedIntrospection = useMemo(() => parseIntrospectionResult(data), [data])
-
+  console.log(parsedIntrospection)
   return {
     loading,
     error,
