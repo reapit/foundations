@@ -54,7 +54,6 @@ export const codebuildPipelineUpdater: SNSHandler = async (
   await Promise.all(
     event.Records.map(async (record) => {
       const event: BuildPhaseChangeStatusEvent | BuildStateChangeEvent = JSON.parse(record.Sns.Message)
-      console.log('event', event)
       const buildId = event.detail['build-id']?.split(':')?.pop()
 
       switch (event['detail-type']) {
@@ -94,7 +93,6 @@ const handlePhaseChange = async ({
   event: BuildPhaseChangeStatusEvent
   buildId: string
 }): Promise<any | never> => {
-  console.log('all phases', event.detail['additional-information'].phases)
   const phases = event.detail['additional-information'].phases.filter((phase) =>
     acceptedPhases.includes(phase['phase-type']),
   )
@@ -145,8 +143,6 @@ const handlePhaseChange = async ({
   })
 
   pipelineRunner.tasks = tasks
-
-  console.log('updated', pipelineRunner)
 
   const promises: Array<Promise<any>> = [savePipelineRunnerEntity(pipelineRunner)]
 
