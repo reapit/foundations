@@ -55,20 +55,24 @@ export const codebuildPipelineUpdater: SNSHandler = async (
     event.Records.map(async (record) => {
       const event: BuildPhaseChangeStatusEvent | BuildStateChangeEvent = JSON.parse(record.Sns.Message)
       console.log('event', event)
-      const buildId = event.detail['build-id'].split(':').pop()
-
-      if (!buildId) {
-        throw new Error('no buildId found')
-      }
+      const buildId = event.detail['build-id']?.split(':')?.pop()
 
       switch (event['detail-type']) {
         case EventEnum.PHASE_CHANGE:
+          if (!buildId) {
+            throw new Error('no buildId found')
+          }
+
           await handlePhaseChange({
             event,
             buildId,
           })
           break
         case EventEnum.STATE_CHANGE:
+          if (!buildId) {
+            throw new Error('no buildId found')
+          }
+
           await handleStateChange({
             event,
             buildId,
@@ -90,6 +94,7 @@ const handlePhaseChange = async ({
   event: BuildPhaseChangeStatusEvent
   buildId: string
 }): Promise<any | never> => {
+  console.log('all phases', event.detail['additional-information'].phases)
   const phases = event.detail['additional-information'].phases.filter((phase) =>
     acceptedPhases.includes(phase['phase-type']),
   )
@@ -110,15 +115,13 @@ const handlePhaseChange = async ({
   tasks.map((task) => {
     const phase = phases.find((phase) => phase['phase-type'] === task.functionName)
 
-    console.log('phase', phase)
-
     if (!phase) {
       return task
     }
 
     return {
       ...task,
-      status: phase?.['phase-status'],
+      buildStatus: phase?.['phase-status'],
       start: phase?.['start-time'],
       end: phase?.['end-time'],
       elapsedTime: phase?.['duration-in-seconds']?.toString(),
@@ -127,10 +130,6 @@ const handlePhaseChange = async ({
 
   // Create new tasks for new phases
   phases.forEach((phase) => {
-    if (!pipelineRunner.tasks) {
-      pipelineRunner.tasks = []
-    }
-
     if (!tasks.find((task) => task.functionName === phase['phase-type'])) {
       const newTask = new TaskEntity()
 
@@ -138,11 +137,14 @@ const handlePhaseChange = async ({
       newTask.startTime = phase['start-time']
       newTask.endTime = phase['end-time']
       newTask.elapsedTime = phase['duration-in-seconds']?.toString()
+      newTask.buildStatus = phase['phase-status']
       newTask.pipelineRunner = pipelineRunner
 
       tasks.push(newTask)
     }
   })
+
+  pipelineRunner.tasks = tasks
 
   console.log('updated', pipelineRunner)
 

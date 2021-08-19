@@ -73,7 +73,7 @@ export const codebuildExecutor: SQSHandler = async (
 
         pipelineRunner.tasks = result.build?.phases?.map<TaskEntity>((phase) => {
           const task = new TaskEntity()
-          task.status = phase.phaseStatus
+          task.buildStatus = phase.phaseStatus
           task.functionName = phase.phaseType
 
           return task
