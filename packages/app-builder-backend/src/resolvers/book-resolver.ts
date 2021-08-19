@@ -1,4 +1,4 @@
-import { Resolver, Query, Mutation, Arg } from 'type-graphql'
+import { Resolver, Query, Mutation, Arg, ID } from 'type-graphql'
 import { Genre } from '../entities/genre'
 import { Book, BookInput } from '../entities/book'
 import { authors } from './author-resolver'
@@ -45,7 +45,10 @@ export class BookResolver {
   }
 
   @Mutation(() => Book)
-  async updateBook(@Arg('id') id: number, @Arg('book', { nullable: false }) book: BookInput) {
+  async updateBook(
+    @Arg('id', () => ID, { nullable: false }) id: number,
+    @Arg('book', { nullable: false }) book: BookInput,
+  ) {
     const index = books.findIndex((b) => b.id === id)
     const author = authors.find((a) => a.id === book.authorId)
     if (!author) {
@@ -56,7 +59,7 @@ export class BookResolver {
   }
 
   @Mutation(() => [Book])
-  async deleteBook(@Arg('id', { nullable: false }) id: number) {
+  async deleteBook(@Arg('id', () => ID, { nullable: false }) id: number) {
     const index = books.findIndex((b) => b.id === id)
     books.splice(index, 1)
     return books

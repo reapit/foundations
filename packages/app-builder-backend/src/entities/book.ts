@@ -10,7 +10,7 @@ export class Book {
   @Field()
   title: string
 
-  @Field()
+  @Field(() => Genre)
   genre: Genre
 
   @Field({ nullable: true })
@@ -25,7 +25,7 @@ export class BookInput {
   @Field()
   title: string
 
-  @Field()
+  @Field(() => Genre)
   genre: Genre
 
   @Field({ nullable: true })
