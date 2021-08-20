@@ -543,7 +543,7 @@ functions:
     handler: src/index.codebuildPipelineUpdater
     events:
       - sns: arn:aws:sns:eu-west-2:028446965111:codebuild
-    timeout: 30
+    timeout: 300
   codebuildDeploy:
     handler: src/index.versionDeploy
     events:
@@ -553,3 +553,4 @@ functions:
             Fn::GetAtt:
               - CodebuildDeploy
               - Arn
+    timeout: 300
