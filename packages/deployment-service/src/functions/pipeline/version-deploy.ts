@@ -20,20 +20,32 @@ export const versionDeploy: SQSHandler = async (event: SQSEvent, context: Contex
       }
 
       const deployTaskIndex = pipelineRunner.tasks?.findIndex((task) => task.functionName === 'DEPLOY')
+      
+      console.log('index', deployTaskIndex, pipelineRunner.tasks ? pipelineRunner.tasks[deployTaskIndex as number] : 'no tasks')
 
       // TODO check status
-      if (!deployTaskIndex) {
+      if (deployTaskIndex === -1 || typeof deployTaskIndex === 'undefined') {
         throw new Error('No deploy task')
       }
 
       console.log('deploying')
-      await deployFromStore({
-        pipeline: pipelineRunner.pipeline as PipelineEntity,
-      })
+      try {
+        await deployFromStore({
+          pipeline: pipelineRunner.pipeline as PipelineEntity,
+          pipelineRunner,
+        })
 
-      pipelineRunner.buildStatus = 'SUCCEEDED'
-      if (pipelineRunner.tasks) {
-        pipelineRunner.tasks[deployTaskIndex].buildStatus = 'SUCCEEDED'
+        pipelineRunner.buildStatus = 'SUCCEEDED'
+        if (pipelineRunner.tasks) {
+          pipelineRunner.tasks[deployTaskIndex].buildStatus = 'SUCCEEDED'
+        }
+      } catch (e) {
+        console.error(e)
+
+        pipelineRunner.buildStatus = 'FAILED'
+        if (pipelineRunner.tasks) {
+          pipelineRunner.tasks[deployTaskIndex].buildStatus = 'FAILED'
+        }
       }
 
       console.log('saving')
