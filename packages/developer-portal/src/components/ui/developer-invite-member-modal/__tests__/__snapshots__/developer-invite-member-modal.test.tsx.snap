@@ -1142,7 +1142,7 @@ exports[`developer-invite-member-modal InviteMemberModal should match snapshot w
                                               >
                                                 <Field
                                                   name="message"
-                                                  validate={null}
+                                                  validate={[Function]}
                                                 >
                                                   <div
                                                     className="field"

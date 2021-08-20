@@ -1382,7 +1382,7 @@ exports[`DeveloperSubmitApp should match a snapshot when pendingRevisions = fals
                             >
                               <Field
                                 name="summary"
-                                validate={null}
+                                validate={[Function]}
                               >
                                 <div
                                   className="field"

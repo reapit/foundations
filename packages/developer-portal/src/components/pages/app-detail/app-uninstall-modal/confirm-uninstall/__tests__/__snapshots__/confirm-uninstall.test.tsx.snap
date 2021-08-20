@@ -191,7 +191,7 @@ exports[`ConfirmUninstall should match a snapshot 1`] = `
               >
                 <Field
                   name="terminatedReason"
-                  validate={null}
+                  validate={[Function]}
                 >
                   <div
                     className="field"
