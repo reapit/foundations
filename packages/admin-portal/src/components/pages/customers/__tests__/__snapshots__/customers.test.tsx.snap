@@ -218,7 +218,7 @@ exports[`Customers should match a snapshot when LOADING false 1`] = `
                               >
                                 <Field
                                   name="name"
-                                  validate={null}
+                                  validate={[Function]}
                                 >
                                   <div
                                     className="field"
@@ -551,7 +551,7 @@ exports[`Customers should match a snapshot when data is empty 1`] = `
                               >
                                 <Field
                                   name="name"
-                                  validate={null}
+                                  validate={[Function]}
                                 >
                                   <div
                                     className="field"

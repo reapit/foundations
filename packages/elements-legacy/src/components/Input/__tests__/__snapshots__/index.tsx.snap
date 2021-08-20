@@ -3,7 +3,7 @@
 exports[`Input should match a snapshot 1`] = `
 <Field
   name="username"
-  validate={null}
+  validate={[Function]}
 >
   <Component />
 </Field>
@@ -21,7 +21,7 @@ exports[`Input should match a snapshot if field is required 1`] = `
 exports[`Input should match a snapshot if helperText is a component 1`] = `
 <Field
   name="username"
-  validate={null}
+  validate={[Function]}
 >
   <Component />
 </Field>
@@ -30,7 +30,7 @@ exports[`Input should match a snapshot if helperText is a component 1`] = `
 exports[`Input should match a snapshot with right icon 1`] = `
 <Field
   name="username"
-  validate={null}
+  validate={[Function]}
 >
   <Component />
 </Field>

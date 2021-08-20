@@ -6,6 +6,7 @@ import {
   isValidHttpsUrl,
   isValidHttpUrl,
   whiteListLocalhostAndIsValidUrl,
+  hasSpecialChars,
 } from '../string'
 
 describe('isImageType', () => {
@@ -117,5 +118,25 @@ describe('isValidHttpUrl', () => {
 
   it('invalid https url test', () => {
     ;['htt://google.com', 'http://www'].forEach((url) => expect(isValidHttpUrl(url)).toBeFalsy())
+  })
+})
+
+describe('hasSpecialChars', () => {
+  it('should return false if the string is empty', () => {
+    expect(hasSpecialChars('')).toBe(false)
+  })
+
+  it('it should return false for a string with safe characters', () => {
+    expect(hasSpecialChars('1aA !@£$%^&*()_-+=\'";:~#.,')).toBe(false)
+  })
+
+  it('it should return true where a string has special characters', () => {
+    ;['{', '}', '|', '[', ']', '<', '>', '±', '§'].forEach((testString) =>
+      expect(hasSpecialChars(testString)).toBe(true),
+    )
+  })
+
+  it('it should return true where a string has javascript keyword', () => {
+    ;['javascript', 'JAVASCRIPT'].forEach((testString) => expect(hasSpecialChars(testString)).toBe(true))
   })
 })

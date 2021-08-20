@@ -9,5 +9,8 @@ export interface StatusIndicatorProps extends HTMLAttributes<HTMLSpanElement> {
 }
 
 export const StatusIndicator: FC<StatusIndicatorProps> = ({ intent, shape, className, ...rest }) => (
-  <ElStatusIndicator className={cx(intent && getIntentClassName(intent), shape && shape === 'tag' && elShapeTag, className)} {...rest} />
+  <ElStatusIndicator
+    className={cx(intent && getIntentClassName(intent), shape && shape === 'tag' && elShapeTag, className)}
+    {...rest}
+  />
 )
