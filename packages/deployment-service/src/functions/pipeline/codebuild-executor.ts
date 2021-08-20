@@ -71,10 +71,11 @@ export const codebuildExecutor: SQSHandler = async (
 
         pipelineRunner.codebuildId = result.build?.id?.split(':').pop()
 
-        pipelineRunner.tasks = result.build?.phases?.map<TaskEntity>((phase) => {
+        pipelineRunner.tasks = ['INSTALL', 'BUILD', 'DOWNLOAD_SOURCE', 'DEPLOY'].map((phase) => {
           const task = new TaskEntity()
-          task.buildStatus = phase.phaseStatus
-          task.functionName = phase.phaseType
+
+          task.functionName = phase
+          task.pipelineRunner = pipelineRunner
 
           return task
         })
