@@ -129,6 +129,15 @@ provider:
           - Arn
     - Effect: Allow
       Action:
+        - sqs:GetQueueAttributes
+        - sqs:SendMessage
+        - sqs:DeleteMessage
+      Resource:
+        Fn::GetAtt:
+          - CodebuildDeploy
+          - Arn
+    - Effect: Allow
+      Action:
         - lambda:InvokeFunction
       Resource: arn:aws:lambda:${self:provider.region}:${self:custom.env.AWS_ACCOUNT_ID}:function:cloud-api-key-service-dev-getApiKeyViaInvoke
     - Effect: Allow
@@ -182,6 +191,10 @@ resources:
       Type: AWS::SQS::Queue
       Properties:
         QueueName: CodebuildExecutor
+    CodebuildDeploy:
+      Type: AWS::SQS::Queue
+      Properties:
+        QueueName: CodebuildDeploy
 
 package:
   individually: true
@@ -530,3 +543,13 @@ functions:
     handler: src/index.codebuildPipelineUpdater
     events:
       - sns: arn:aws:sns:eu-west-2:028446965111:codebuild
+    timeout: 30
+  codebuildDeploy:
+    handler: src/index.versionDeploy
+    events:
+      - sqs:
+          queueName: CodebuildDeploy
+          arn:
+            Fn::GetAtt:
+              - CodebuildDeploy
+              - Arn

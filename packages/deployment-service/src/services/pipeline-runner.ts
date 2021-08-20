@@ -29,11 +29,21 @@ export const savePipelineRunnerEntity = async (model: PipelineRunnerEntity): Pro
   return repo.save(model)
 }
 
-export const findPipelineRunnerById = async (id: string): Promise<PipelineRunnerEntity | undefined> => {
+export const findPipelineRunnerById = async (
+  id: string,
+  extras?: {
+    relations: string[]
+  },
+): Promise<PipelineRunnerEntity | undefined> => {
   const connection = await connect()
   const repo = connection.getRepository(PipelineRunnerEntity)
 
-  return repo.findOne(id)
+  return repo.findOne({
+    where: {
+      id,
+    },
+    ...extras,
+  })
 }
 
 export const paginatePipelineRunners = async (
