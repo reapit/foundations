@@ -42,6 +42,18 @@ describe('checkIsAws', () => {
     expect(checkIsAws(subs)).toBe(true)
   })
 
+  it('should return true when has data topics with no customers specified (implicit all customers) and active webhook', () => {
+    const subs = [
+      {
+        topicIds: ['applicants.update'],
+        customerIds: [],
+        active: true,
+      },
+    ]
+
+    expect(checkIsAws(subs)).toBe(true)
+  })
+
   it('should return false when has data topics with real customers and inactive webhook', () => {
     const subs = [
       {
