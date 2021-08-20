@@ -18,6 +18,9 @@ export type Config = {
   adminRestrictedAppIds: string[]
   reapitConnectManagementUri: string
   comingSoonApps: ComingSoonApp[]
+  clientHiddenAppIds: {
+    [key: string]: string[]
+  }
 }
 
 declare global {
