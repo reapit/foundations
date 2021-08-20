@@ -18,6 +18,8 @@ export type QueryableField = IntrospectionField & {
   nestedType: string
 }
 
+export type MutationType = 'create' | 'update' | 'delete'
+
 export const isIntrospectionObjectType = (type: any): type is IntrospectionObjectType => {
   return type.kind === TypeKind.OBJECT
 }
