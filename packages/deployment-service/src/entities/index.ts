@@ -42,6 +42,7 @@ export class PipelineRunnerEntity extends AbstractEntity implements PipelineRunn
 
   @OneToMany(() => TaskEntity, (task) => task.pipelineRunner, {
     eager: true,
+    cascade: true,
   })
   tasks?: TaskEntity[]
 
