@@ -46,7 +46,8 @@ export const codebuildExecutor: SQSHandler = async (
               },
             },
             artifacts: {
-              files: `${pipeline.outDir}/*`,
+              packaging: 'ZIP',
+              files: `${pipeline.outDir}/**/*`,
             },
           }),
           sourceTypeOverride: 'GITHUB',
