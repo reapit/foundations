@@ -21,6 +21,7 @@ window.reapit = {
     adminRestrictedAppIds: [],
     reapitConnectManagementUri: '',
     comingSoonApps: [],
+    clientHiddenAppIds: {},
   },
 }
 
