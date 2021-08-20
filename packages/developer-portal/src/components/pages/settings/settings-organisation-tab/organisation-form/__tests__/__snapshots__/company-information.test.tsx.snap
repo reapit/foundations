@@ -56,6 +56,17 @@ exports[`CompanyInformationSection should match a snapshot when no error 1`] = `
     </GridItem>
     <GridItem>
       <Input
+        id="notificationsEmail"
+        labelText="Notifications Email"
+        name="notificationsEmail"
+        placeholder="Enter an alternative email address for email notifications"
+        type="text"
+      />
+    </GridItem>
+  </Grid>
+  <Grid>
+    <GridItem>
+      <Input
         disabled={false}
         id="registrationNumber"
         labelText="Company registration number*"
@@ -68,21 +79,11 @@ exports[`CompanyInformationSection should match a snapshot when no error 1`] = `
         name="noRegistrationNumber"
       />
     </GridItem>
-  </Grid>
-  <Grid>
     <GridItem>
       <TextArea
         id="about"
         labelText="About*"
         name="about"
-      />
-    </GridItem>
-    <GridItem>
-      <Input
-        id="notificationsEmail"
-        labelText="Enter an alternative email address below for email notifications"
-        name="notificationsEmail"
-        type="text"
       />
     </GridItem>
   </Grid>

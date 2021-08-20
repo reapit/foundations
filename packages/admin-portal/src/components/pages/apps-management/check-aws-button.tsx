@@ -25,7 +25,9 @@ export const checkIsAws = (subscriptions: WebhookModel[]): boolean => {
   const filtered = subscriptions.filter((subscription) => {
     const { topicIds, customerIds, active } = subscription
     const hasDataTopics = Boolean(topicIds?.filter((topic: string) => !INSTALL_TOPICS.includes(topic)).length)
-    const hasCustomerSubs = Boolean(customerIds?.filter((id: string) => !FILTERED_CLIENT_IDS.includes(id)).length)
+    const hasCustomerSubs = Boolean(
+      !customerIds?.length || customerIds?.filter((id: string) => !FILTERED_CLIENT_IDS.includes(id)).length,
+    )
 
     return hasDataTopics && hasCustomerSubs && active
   })
