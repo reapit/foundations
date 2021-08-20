@@ -68,15 +68,10 @@ const CompanyInformationSection: React.FC<CompanyInformationSectionProps> = ({ f
         <GridItem>
           <Input
             type="text"
-            labelText={registrationNumberField.label}
-            id={registrationNumberField.name}
-            name={registrationNumberField.name}
-            disabled={isRegFieldDisabled}
-          />
-          <Checkbox
-            name={noRegistrationNumberField.name}
-            id={noRegistrationNumberField.name}
-            labelText={noRegistrationNumberField.label || ''}
+            labelText={notificationsEmailField.label}
+            id={notificationsEmailField.name}
+            name={notificationsEmailField.name}
+            placeholder="Enter an alternative email address for email notifications"
           />
         </GridItem>
       </Grid>
@@ -94,15 +89,21 @@ const CompanyInformationSection: React.FC<CompanyInformationSectionProps> = ({ f
       )}
       <Grid>
         <GridItem>
-          <TextArea labelText={aboutField.label} name={aboutField.name} id={aboutField.name} />
-        </GridItem>
-        <GridItem>
           <Input
             type="text"
-            labelText={notificationsEmailField.label}
-            id={notificationsEmailField.name}
-            name={notificationsEmailField.name}
+            labelText={registrationNumberField.label}
+            id={registrationNumberField.name}
+            name={registrationNumberField.name}
+            disabled={isRegFieldDisabled}
           />
+          <Checkbox
+            name={noRegistrationNumberField.name}
+            id={noRegistrationNumberField.name}
+            labelText={noRegistrationNumberField.label || ''}
+          />
+        </GridItem>
+        <GridItem>
+          <TextArea labelText={aboutField.label} name={aboutField.name} id={aboutField.name} />
         </GridItem>
         {/* <GridItem>
           <div className="control">

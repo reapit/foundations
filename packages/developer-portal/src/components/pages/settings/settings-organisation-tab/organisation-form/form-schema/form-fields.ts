@@ -66,7 +66,7 @@ export const formFields: Record<FieldKeys, FormFieldInfo> = {
   },
   notificationsEmailField: {
     name: 'notificationsEmail',
-    label: 'Enter an alternative email address below for email notifications',
+    label: 'Notifications Email',
     errorMessage: 'Notifications email is not valid',
   },
   aboutField: {
