@@ -1,7 +1,8 @@
 import { Context, Callback, SNSEvent, SNSHandler } from 'aws-lambda'
-import { batchUpdateTask, findPipelineRunnerByCodeBuildId, savePipelineRunnerEntity } from '../../services'
+import { batchUpdateTask, findPipelineRunnerByCodeBuildId, savePipelineRunnerEntity, sqs } from '../../services'
 import { CodeBuild } from 'aws-sdk'
-import { PipelineRunnerEntity, TaskEntity } from '../../entities'
+import { TaskEntity } from '../../entities'
+import { QueueNames } from '../../constants'
 
 const acceptedPhases = ['BUILD', 'INSTALL', 'DOWNLOAD_SOURCE']
 enum EventEnum {
@@ -159,14 +160,32 @@ const handleStateChange = async ({
 }: {
   event: BuildStateChangeEvent
   buildId: string
-}): Promise<PipelineRunnerEntity | never> => {
+}): Promise<void | never> => {
   const pipelineRunner = await findPipelineRunnerByCodeBuildId(buildId)
 
   if (!pipelineRunner) {
     throw new Error('pipelineRunner not found')
   }
 
-  pipelineRunner.buildStatus = event.detail['build-status']
+  console.log('event', event, event.detail)
 
-  return savePipelineRunnerEntity(pipelineRunner)
+  if (event.detail['build-status'] === 'SUCCEEDED') {
+    return new Promise<void>((resolve, reject) =>
+      sqs.sendMessage(
+        {
+          MessageBody: JSON.stringify(pipelineRunner),
+          QueueUrl: QueueNames.CODE_BUILD_VERSION_DEPLOY,
+        },
+        (error) => {
+          if (error) {
+            reject(error)
+          }
+
+          resolve()
+        },
+      ),
+    )
+  } else {
+    console.log('shit, it broken')
+  }
 }
