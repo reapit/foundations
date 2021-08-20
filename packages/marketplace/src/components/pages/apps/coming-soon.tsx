@@ -12,13 +12,10 @@ import comingSoonSmsSpeedWayIdVerification from '@/assets/images/coming-soon/SMS
 import comingSoonOnTheMarket from '@/assets/images/coming-soon/OnTheMarket.jpg'
 import comingSoonPerfectPortal from '@/assets/images/coming-soon/PerfectPortal.jpg'
 import comingSoonRightMove from '@/assets/images/coming-soon/RightMove.jpg'
-import comingSoonDataWarehouse from '@/assets/images/coming-soon/DataWarehouse.jpg'
 import comingSoonNotify from '@/assets/images/coming-soon/Notify.jpg'
-import comingSoonPropoly from '@/assets/images/coming-soon/Propoly.jpg'
 import comingSoonBarbuck from '@/assets/images/coming-soon/Barbuck.jpg'
 import comingSoonFacebook from '@/assets/images/coming-soon/Facebook.jpg'
 import comingSoonOffr from '@/assets/images/coming-soon/Offr.jpg'
-import comingSoonAddland from '@/assets/images/coming-soon/Addland.jpg'
 import comingSoonApex from '@/assets/images/coming-soon/Apex.jpg'
 import comingSoonBricksAndAgent from '@/assets/images/coming-soon/BricksandAgent.jpg'
 import comingSoonDocuSign from '@/assets/images/coming-soon/Docusign.jpg'
@@ -73,13 +70,10 @@ const comingSoonImagesMap = {
   comingSoonOnTheMarket,
   comingSoonPerfectPortal,
   comingSoonRightMove,
-  comingSoonDataWarehouse,
   comingSoonNotify,
-  comingSoonPropoly,
   comingSoonBarbuck,
   comingSoonFacebook,
   comingSoonOffr,
-  comingSoonAddland,
   comingSoonApex,
   comingSoonBricksAndAgent,
   comingSoonDocuSign,
