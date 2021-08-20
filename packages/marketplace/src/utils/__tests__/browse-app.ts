@@ -3,6 +3,7 @@ import { AppSummaryModel, AppSummaryModelPagedResult } from '@reapit/foundations
 import { COGNITO_GROUP_ADMIN_USERS, COGNITO_GROUP_ORGANISATION_ADMIN } from '../../constants/api'
 import {
   filterAdminRestrictedApps,
+  filterClientHiddenApps,
   filterOrgAdminRestrictedApps,
   getNumberOfItems,
   mergeAppsWithoutDuplicateId,
@@ -436,6 +437,70 @@ describe('filterAdminRestrictedApps', () => {
       },
     } as ReapitConnectSession
     const result = filterAdminRestrictedApps(stubApps, stubSession) as AppSummaryModelPagedResult
+    expect(result.data?.length).toBeUndefined()
+  })
+})
+
+describe('filterClientHiddenApps', () => {
+  it('should correctly filter apps if user is not part of client in config and appId is in config', () => {
+    window.reapit.config.clientHiddenAppIds = {
+      RES: ['ID_IN_CONFIG'],
+    }
+    const idInConfig = 'ID_IN_CONFIG'
+    const idNotInConfig = 'ID_NOT_IN_CONFIG'
+    const stubApps = {
+      data: [
+        {
+          id: idInConfig,
+        },
+        { id: idNotInConfig },
+      ],
+    }
+    const stubSession = {
+      loginIdentity: {
+        clientId: ['RES'],
+      },
+    } as unknown as ReapitConnectSession
+    const result = filterClientHiddenApps(stubApps, stubSession) as AppSummaryModelPagedResult
+    expect(result.data?.length).toBe(1)
+    expect((result?.data as AppSummaryModel[])[0].id).toEqual(idNotInConfig)
+  })
+
+  it('should correctly not filter apps if user is part of client in config and appId is in config', () => {
+    window.reapit.config.clientHiddenAppIds = {
+      RES: ['ID_IN_CONFIG'],
+    }
+    const idInConfig = 'ID_IN_CONFIG'
+    const idNotInConfig = 'ID_NOT_IN_CONFIG'
+    const stubApps = {
+      data: [
+        {
+          id: idInConfig,
+        },
+        { id: idNotInConfig },
+      ],
+    }
+    const stubSession = {
+      loginIdentity: {
+        clientId: ['SBOX'],
+      },
+    } as unknown as ReapitConnectSession
+    const result = filterClientHiddenApps(stubApps, stubSession) as AppSummaryModelPagedResult
+    expect(result.data?.length).toBe(2)
+    expect((result?.data as AppSummaryModel[])[0].id).toEqual(idInConfig)
+  })
+
+  it('should correctly not filter apps if data is undefined', () => {
+    window.reapit.config.clientHiddenAppIds = {
+      RES: ['ID_IN_CONFIG'],
+    }
+    const stubApps = {}
+    const stubSession = {
+      loginIdentity: {
+        clientId: ['RES'],
+      },
+    } as unknown as ReapitConnectSession
+    const result = filterClientHiddenApps(stubApps, stubSession) as AppSummaryModelPagedResult
     expect(result.data?.length).toBeUndefined()
   })
 })

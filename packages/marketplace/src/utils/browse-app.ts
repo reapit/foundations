@@ -1,7 +1,7 @@
 import { ReapitConnectSession } from '@reapit/connect-session'
 import { AppSummaryModel, AppSummaryModelPagedResult } from '@reapit/foundations-ts-definitions'
 import { COGNITO_GROUP_ORGANISATION_ADMIN } from '../constants/api'
-import { selectIsAdmin } from '../selector/auth'
+import { selectClientId, selectIsAdmin } from '../selector/auth'
 
 export const HEADER_HEIGHT = 68
 export const FEATURED_APP_HEIGHT = 200
@@ -51,6 +51,20 @@ export const filterAdminRestrictedApps = (
   const filtered = appsResponse.data.filter(
     (app) => app.id && !window.reapit.config.adminRestrictedAppIds.includes(app.id),
   )
+  return {
+    ...appsResponse,
+    data: filtered,
+  }
+}
+
+export const filterClientHiddenApps = (
+  appsResponse: AppSummaryModelPagedResult,
+  connectSession: ReapitConnectSession,
+) => {
+  const clientId = selectClientId(connectSession)
+  if (!clientId || !appsResponse || !appsResponse.data || !window.reapit) return appsResponse
+  const clientHiddenAppIds = window.reapit.config.clientHiddenAppIds[clientId] ?? []
+  const filtered = appsResponse.data.filter((app) => app.id && !clientHiddenAppIds.includes(app.id))
   return {
     ...appsResponse,
     data: filtered,
