@@ -46,7 +46,6 @@ export const codebuildExecutor: SQSHandler = async (
               },
             },
             artifacts: {
-              packaging: 'ZIP',
               files: `${pipeline.outDir}/**/*`,
             },
           }),
@@ -54,6 +53,7 @@ export const codebuildExecutor: SQSHandler = async (
           sourceLocationOverride: pipeline.repository,
           artifactsOverride: {
             type: 'S3',
+            packaging: 'ZIP',
             location: process.env.DEPLOYMENT_VERSION_BUCKET_NAME,
             name: `${pipelineRunner.id}.zip`,
             path: `${pipeline.uniqueRepoName}/`,
