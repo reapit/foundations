@@ -11,14 +11,13 @@ import {
 } from 'typeorm'
 import {
   PipelineRunnerModelInterface,
-  DeploymentStatus,
   AppTypeEnum,
   PipelineModelInterface,
   PackageManagerEnum,
   TaskModelInterface,
-  TaskRunnerFunctions,
 } from '@reapit/foundations-ts-definitions'
 import { Type } from 'class-transformer'
+import { CodeBuild } from 'aws-sdk'
 
 abstract class AbstractEntity {
   @PrimaryGeneratedColumn('uuid')
@@ -33,8 +32,8 @@ abstract class AbstractEntity {
 
 @Entity('pipeline_runners')
 export class PipelineRunnerEntity extends AbstractEntity implements PipelineRunnerModelInterface {
-  @Column({ default: DeploymentStatus.PENDING, type: 'varchar' })
-  buildStatus?: DeploymentStatus
+  @Column({ type: 'varchar', default: 'QUEUED' })
+  buildStatus?: CodeBuild.BuildPhaseType
 
   @Column({
     nullable: true,
@@ -43,6 +42,7 @@ export class PipelineRunnerEntity extends AbstractEntity implements PipelineRunn
 
   @OneToMany(() => TaskEntity, (task) => task.pipelineRunner, {
     eager: true,
+    cascade: true,
   })
   tasks?: TaskEntity[]
 
@@ -51,6 +51,9 @@ export class PipelineRunnerEntity extends AbstractEntity implements PipelineRunn
     cascade: false,
   })
   pipeline?: PipelineEntity
+
+  @Column({ nullable: true, type: 'varchar' })
+  codebuildId?: string
 }
 
 @Entity('pipelines')
@@ -63,10 +66,6 @@ export class PipelineEntity extends AbstractEntity implements PipelineModelInter
     type: 'varchar',
   })
   appType?: AppTypeEnum
-
-  get workflow(): TaskWorkflow {
-    return taskWorkflows[this.appType as AppTypeEnum]
-  }
 
   @Column()
   buildCommand?: string = 'build'
@@ -92,26 +91,12 @@ export class PipelineEntity extends AbstractEntity implements PipelineModelInter
   @Column()
   clientId?: string
 
+  @Column({ type: 'varchar' })
+  buildStatus?: CodeBuild.StatusType
+
   get uniqueRepoName(): string {
     return `${this.developerId}/${this.repository?.split('/').pop()}`
   }
-}
-
-export type TaskWorkflow = TaskRunnerFunctions[]
-
-export const taskWorkflows: { [key in AppTypeEnum]: TaskWorkflow } = {
-  [AppTypeEnum.NODE]: [
-    TaskRunnerFunctions.PULL,
-    TaskRunnerFunctions.INSTALL,
-    TaskRunnerFunctions.BUILD,
-    TaskRunnerFunctions.DEPLOY_LAMBDAS,
-  ],
-  [AppTypeEnum.REACT]: [
-    TaskRunnerFunctions.PULL,
-    TaskRunnerFunctions.INSTALL,
-    TaskRunnerFunctions.BUILD,
-    TaskRunnerFunctions.DEPLOY_REACT,
-  ],
 }
 
 @Entity('tasks')
@@ -123,13 +108,22 @@ export class TaskEntity extends AbstractEntity implements TaskModelInterface {
   @Column({
     type: 'varchar',
   })
-  functionName?: TaskRunnerFunctions
+  functionName?: CodeBuild.BuildPhaseType
 
   @TreeParent()
   parent?: TaskEntity
 
-  @Column({ default: DeploymentStatus.PENDING, type: 'varchar' })
-  status?: DeploymentStatus
+  @Column({ type: 'varchar' })
+  buildStatus?: CodeBuild.StatusType
+
+  @Column({ type: 'timestamp' })
+  startTime?: Date
+
+  @Column({ type: 'timestamp' })
+  endTime?: Date
+
+  @Column()
+  elapsedTime?: string
 }
 
 @Entity('releases')

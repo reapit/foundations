@@ -37,7 +37,7 @@ export const pipelineRunnerCreate = httpHandler<void, PipelineRunnerEntity>({
       service.sqs.sendMessage(
         {
           MessageBody: JSON.stringify(pipelineRunner),
-          QueueUrl: QueueNames.TASK_POPULATION,
+          QueueUrl: QueueNames.CODE_BUILD_EXECUTOR,
         },
         (error) => {
           if (error) {
