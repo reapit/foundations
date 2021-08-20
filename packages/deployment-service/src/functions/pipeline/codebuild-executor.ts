@@ -82,8 +82,6 @@ export const codebuildExecutor: SQSHandler = async (
         })
 
         await savePipelineRunnerEntity(pipelineRunner)
-
-        console.log('result', result)
       } catch (e) {
         console.error(e)
         console.log('codebuild config failure')

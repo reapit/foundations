@@ -9,8 +9,6 @@ export const versionDeploy: SQSHandler = async (event: SQSEvent, context: Contex
     event.Records.map(async (record) => {
       const payload = JSON.parse(record.body)
 
-      console.log('payload', payload)
-
       const pipelineRunner = await findPipelineRunnerById(payload.id, {
         relations: ['pipeline'],
       })
@@ -20,15 +18,12 @@ export const versionDeploy: SQSHandler = async (event: SQSEvent, context: Contex
       }
 
       const deployTaskIndex = pipelineRunner.tasks?.findIndex((task) => task.functionName === 'DEPLOY')
-      
-      console.log('index', deployTaskIndex, pipelineRunner.tasks ? pipelineRunner.tasks[deployTaskIndex as number] : 'no tasks')
 
       // TODO check status
       if (deployTaskIndex === -1 || typeof deployTaskIndex === 'undefined') {
         throw new Error('No deploy task')
       }
 
-      console.log('deploying')
       try {
         await deployFromStore({
           pipeline: pipelineRunner.pipeline as PipelineEntity,
@@ -47,8 +42,6 @@ export const versionDeploy: SQSHandler = async (event: SQSEvent, context: Contex
           pipelineRunner.tasks[deployTaskIndex].buildStatus = 'FAILED'
         }
       }
-
-      console.log('saving')
 
       await savePipelineRunnerEntity(pipelineRunner)
 

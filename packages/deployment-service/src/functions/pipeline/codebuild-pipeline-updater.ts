@@ -56,8 +56,6 @@ export const codebuildPipelineUpdater: SNSHandler = async (
     event.Records.map(async (record) => {
       const event: BuildPhaseChangeStatusEvent | BuildStateChangeEvent = JSON.parse(record.Sns.Message)
 
-      console.log('event', event, event.detail)
-
       const buildId = event.detail['build-id']?.split(':')?.pop()
 
       switch (event['detail-type']) {
