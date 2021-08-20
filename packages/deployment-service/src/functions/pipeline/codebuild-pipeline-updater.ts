@@ -1,5 +1,5 @@
 import { Context, Callback, SNSEvent, SNSHandler } from 'aws-lambda'
-import { batchUpdateTask, findPipelineRunnerByCodeBuildId, savePipelineRunnerEntity, sqs } from '../../services'
+import { findPipelineRunnerByCodeBuildId, savePipelineRunnerEntity, sqs } from '../../services'
 import { CodeBuild } from 'aws-sdk'
 import { TaskEntity } from '../../entities'
 import { QueueNames } from '../../constants'
@@ -55,6 +55,9 @@ export const codebuildPipelineUpdater: SNSHandler = async (
   await Promise.all(
     event.Records.map(async (record) => {
       const event: BuildPhaseChangeStatusEvent | BuildStateChangeEvent = JSON.parse(record.Sns.Message)
+
+      console.log('event', event, event.detail)
+
       const buildId = event.detail['build-id']?.split(':')?.pop()
 
       switch (event['detail-type']) {
@@ -145,13 +148,7 @@ const handlePhaseChange = async ({
 
   pipelineRunner.tasks = tasks
 
-  const promises: Array<Promise<any>> = [savePipelineRunnerEntity(pipelineRunner)]
-
-  if (pipelineRunner.tasks) {
-    promises.push(batchUpdateTask(pipelineRunner.tasks))
-  }
-
-  return Promise.all(promises)
+  return savePipelineRunnerEntity(pipelineRunner)
 }
 
 const handleStateChange = async ({
@@ -160,16 +157,14 @@ const handleStateChange = async ({
 }: {
   event: BuildStateChangeEvent
   buildId: string
-}): Promise<void | never> => {
+}): Promise<any | never> => {
   const pipelineRunner = await findPipelineRunnerByCodeBuildId(buildId)
 
   if (!pipelineRunner) {
     throw new Error('pipelineRunner not found')
   }
 
-  console.log('event', event, event.detail)
-
-  if (event.detail['build-status'] === 'SUCCEEDED') {
+  if (event.detail['additional-information']['build-complete']) {
     return new Promise<void>((resolve, reject) =>
       sqs.sendMessage(
         {
@@ -186,6 +181,7 @@ const handleStateChange = async ({
       ),
     )
   } else {
-    console.log('shit, it broken')
+    pipelineRunner.buildStatus = 'IN_PROGRESS'
+    return savePipelineRunnerEntity(pipelineRunner)
   }
 }
