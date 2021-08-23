@@ -8,6 +8,7 @@ import Text from '../ui/user/text'
 import Link from '../ui/user/link'
 import Context from '../ui/user/context'
 import Table from '../ui/user/table'
+import Form from '../ui/user/form'
 import { setPageNodes } from '../ui/header/saveState'
 import { usePageId } from '@/core/usePageId'
 
@@ -33,6 +34,7 @@ export const Authenticated: FC<AuthenticatedProps> = () => {
         Link,
         Context,
         Table,
+        Form,
       }}
       onRender={(props) => <RenderNode {...props} iframeRef={iframeRef.current} />}
       onNodesChange={(query) => {

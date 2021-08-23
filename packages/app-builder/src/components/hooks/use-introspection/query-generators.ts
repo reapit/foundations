@@ -7,7 +7,13 @@ import {
 } from 'graphql'
 import { gql } from '@apollo/client'
 import { nestedFieldsToString, queryableFieldToNestedDict } from './nested-fields'
-import { QueryableField, isIntrospectionInputObjectType, isIntrospectionScalarType, isNonNullInputType, MutationType } from './types'
+import {
+  QueryableField,
+  isIntrospectionInputObjectType,
+  isIntrospectionScalarType,
+  isNonNullInputType,
+  MutationType,
+} from './types'
 
 export const getListQuery = (queries: Array<QueryableField>, queryableObjectTypes: Array<IntrospectionObjectType>) => {
   const list = queries.find(({ nestedKinds }) => nestedKinds.includes(TypeKind.LIST))

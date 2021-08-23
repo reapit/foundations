@@ -3,7 +3,7 @@ import { dummyMutation } from '../use-introspection'
 import { MutationType } from '../use-introspection/types'
 import { useObject } from './use-object'
 
-const useObjectMutate = (mutateType: MutationType, typeName?: string) => {
+export const useObjectMutate = (mutateType: MutationType, typeName?: string) => {
   const { object, error, loading } = useObject(typeName)
   const mutate = object && typeName ? object[mutateType] : undefined
   const [mutateFunction, mutationResult] = useMutation(mutate?.mutation || dummyMutation)

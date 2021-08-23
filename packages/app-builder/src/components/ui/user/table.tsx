@@ -3,7 +3,7 @@ import { ToolbarItem, ToolbarItemType, ToolbarSection } from '../toolbar'
 import Container, { ContainerProps } from './container'
 import { Button, Loader, Table as ELTable } from '@reapit/elements'
 import { useTypeList } from '@/components/hooks/objects/use-type-list'
-import { useObjectList } from '@/components/hooks/objects/use-object.list'
+import { useObjectList } from '@/components/hooks/objects/use-object-list'
 
 const defaultProps = {
   destination: '/',
