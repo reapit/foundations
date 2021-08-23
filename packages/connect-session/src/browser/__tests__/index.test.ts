@@ -206,6 +206,18 @@ describe('ReapitConnectBrowserSession', () => {
     expect(mockedLoginEndpoint).toHaveBeenCalledTimes(1)
   })
 
+  it('should redirect to logout if a user is idle', async () => {
+    const mockedLoginEndpoint = jest.spyOn(ReapitConnectBrowserSession.prototype, 'connectLogoutRedirect')
+    new ReapitConnectBrowserSession({
+      ...mockBrowserInitializers,
+      connectApplicationTimeout: 0,
+    })
+
+    await setTimeout(() => {
+      expect(mockedLoginEndpoint).toHaveBeenCalledTimes(1)
+    }, 1)
+  })
+
   afterEach(() => {
     jest.resetAllMocks()
     window.localStorage.clear()

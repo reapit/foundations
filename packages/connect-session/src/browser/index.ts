@@ -14,6 +14,7 @@ export class ReapitConnectBrowserSession {
   static GLOBAL_KEY = '__REAPIT_MARKETPLACE_GLOBALS__'
   static REFRESH_TOKEN_KEY = 'REAPIT_REFRESH_TOKEN'
   static USER_NAME_KEY = 'REAPIT_LAST_AUTH_USER'
+  static APP_DEFAULT_TIMEOUT = 10800000 // 3hrs in ms
 
   // Private cached variables, I don't want users to reference these directly or it will get confusing.
   // and cause bugs
@@ -23,6 +24,9 @@ export class ReapitConnectBrowserSession {
   private session: ReapitConnectSession | null
   private connectLoginRedirectPath: string
   private connectLogoutRedirectPath: string
+  private connectApplicationTimeout: number
+  private idleTimeoutCountdown: number
+  private refreshTokenStorage: Storage
   private fetching: boolean
 
   constructor({
@@ -31,6 +35,7 @@ export class ReapitConnectBrowserSession {
     connectUserPoolId,
     connectLoginRedirectPath,
     connectLogoutRedirectPath,
+    connectApplicationTimeout,
   }: ReapitConnectBrowserSessionInitializers) {
     // Instantiate my private variables from the constructor params
     this.connectOAuthUrl = connectOAuthUrl
@@ -40,9 +45,13 @@ export class ReapitConnectBrowserSession {
     this.connectLogoutRedirectPath = `${window.location.origin}${
       connectLogoutRedirectPath || connectLogoutRedirectPath === '' ? connectLogoutRedirectPath : '/login'
     }`
+    this.connectApplicationTimeout = connectApplicationTimeout ?? ReapitConnectBrowserSession.APP_DEFAULT_TIMEOUT
+    this.refreshTokenStorage = this.connectIsDesktop ? window.localStorage : window.sessionStorage
     this.fetching = false
     this.session = null
+    this.idleTimeoutCountdown = this.connectApplicationTimeout
     this.connectBindPublicMethods()
+    this.setIdleTimeoutListeners()
   }
 
   // I bind the public methods to the class on instantiation, in the case they are called in a new
@@ -54,10 +63,21 @@ export class ReapitConnectBrowserSession {
     this.connectLogoutRedirect = this.connectLogoutRedirect.bind(this)
   }
 
+  private setIdleTimeoutListeners() {
+    const resetTimer = () => {
+      clearTimeout(this.idleTimeoutCountdown)
+      this.idleTimeoutCountdown = setTimeout(this.connectLogoutRedirect, this.connectApplicationTimeout)
+    }
+
+    document.onmousemove = resetTimer
+    document.onkeypress = resetTimer
+    document.ontouchstart = resetTimer
+  }
+
   private get refreshToken(): string | null {
     return (
       this.session?.refreshToken ??
-      window.localStorage.getItem(
+      this.refreshTokenStorage.getItem(
         `${ReapitConnectBrowserSession.REFRESH_TOKEN_KEY}_${this.userName}_${this.connectClientId}`,
       )
     )
@@ -66,19 +86,19 @@ export class ReapitConnectBrowserSession {
   private get userName(): string | null {
     return (
       this.session?.loginIdentity.email ??
-      window.localStorage.getItem(`${ReapitConnectBrowserSession.USER_NAME_KEY}_${this.connectClientId}`)
+      this.refreshTokenStorage.getItem(`${ReapitConnectBrowserSession.USER_NAME_KEY}_${this.connectClientId}`)
     )
   }
 
   private setRefreshToken(session: ReapitConnectSession) {
     if (session.refreshToken && session.loginIdentity && session.loginIdentity.email) {
-      window.localStorage.setItem(
+      this.refreshTokenStorage.setItem(
         `${ReapitConnectBrowserSession.REFRESH_TOKEN_KEY}_${session.loginIdentity.email}_${this.connectClientId}`,
         session.refreshToken,
       )
     }
     if (session.loginIdentity && session.loginIdentity.email) {
-      window.localStorage.setItem(
+      this.refreshTokenStorage.setItem(
         `${ReapitConnectBrowserSession.USER_NAME_KEY}_${this.connectClientId}`,
         session.loginIdentity.email,
       )
@@ -86,10 +106,10 @@ export class ReapitConnectBrowserSession {
   }
 
   private clearRefreshToken() {
-    window.localStorage.removeItem(
+    this.refreshTokenStorage.removeItem(
       `${ReapitConnectBrowserSession.REFRESH_TOKEN_KEY}_${this.userName}_${this.connectClientId}`,
     )
-    window.localStorage.removeItem(`${ReapitConnectBrowserSession.USER_NAME_KEY}_${this.connectClientId}`)
+    this.refreshTokenStorage.removeItem(`${ReapitConnectBrowserSession.USER_NAME_KEY}_${this.connectClientId}`)
   }
 
   // See below, used to refresh session if I have a refresh token in local storage
