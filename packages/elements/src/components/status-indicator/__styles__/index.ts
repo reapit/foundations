@@ -49,8 +49,8 @@ export const ElStatusIndicator = styled.span`
   }
 
   &.${elShapeTag} {
-    border-radius: 1rem .2rem .2rem 1rem;
+    border-radius: 1rem 0.2rem 0.2rem 1rem;
     height: 2rem;
-    width: .5rem;
+    width: 0.5rem;
   }
 `

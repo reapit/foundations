@@ -3,7 +3,7 @@
 exports[`Input should match a snapshot 1`] = `
 <Field
   name="username"
-  validate={null}
+  validate={[Function]}
 >
   <Component />
 </Field>
@@ -12,6 +12,7 @@ exports[`Input should match a snapshot 1`] = `
 exports[`Input should match a snapshot when required 1`] = `
 <Field
   name="username"
+  validate={[Function]}
 >
   <Component />
 </Field>

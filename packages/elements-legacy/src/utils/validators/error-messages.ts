@@ -13,6 +13,7 @@ const errorMessages = {
   FIELD_WRONG_URI_FORMAT: 'Invalid URI format',
   MINIMUM_CHARACTER_LENGTH: minCharLengthErrMessage,
   MAXIMUM_CHARACTER_LENGTH: maxCharLengthErrMessage,
+  SPECIAL_CHARS: 'Special characters are not permitted',
 }
 
 export default errorMessages

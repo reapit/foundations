@@ -2,6 +2,7 @@ import * as React from 'react'
 import { Field, FieldProps } from 'formik'
 import { cx } from '@linaria/core'
 import { checkError } from '../../utils/form'
+import { validateSpecialChars } from '../../utils/validators/validate-special-chars'
 
 export interface TextAreaProps {
   placeholder?: string
@@ -25,7 +26,7 @@ export const TextArea = ({
   required = false,
   validate,
 }: TextAreaProps) => (
-  <Field name={name} validate={required ? validate : null}>
+  <Field name={name} validate={validateSpecialChars(required, validate)}>
     {({ field, meta }: FieldProps<string>) => {
       const hasError = checkError(meta)
       const className = cx(hasError ? textareaError : textareaPrimary)
