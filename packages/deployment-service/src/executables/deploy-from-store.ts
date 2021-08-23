@@ -1,5 +1,5 @@
 import { s3Client } from '../services'
-import { PipelineEntity } from './../entities'
+import { PipelineEntity, PipelineRunnerEntity } from './../entities'
 import fs from 'fs'
 import { GetObjectOutput } from 'aws-sdk/clients/s3'
 import AdmZip from 'adm-zip'
@@ -108,8 +108,14 @@ const recurseDir = async (
   )
 }
 
-export const deployFromStore = async ({ pipeline }: { pipeline: PipelineEntity }): Promise<void> => {
-  const storageLocation = `${pipeline.uniqueRepoName}/${pipeline.id}.zip`
+export const deployFromStore = async ({
+  pipeline,
+  pipelineRunner,
+}: {
+  pipeline: PipelineEntity
+  pipelineRunner: PipelineRunnerEntity
+}): Promise<void> => {
+  const storageLocation = `${pipeline.uniqueRepoName}/${pipelineRunner.id}.zip`
 
   console.log('fetching version from s3', storageLocation)
   const zip = await getFromVersionS3(storageLocation)
@@ -118,7 +124,7 @@ export const deployFromStore = async ({ pipeline }: { pipeline: PipelineEntity }
     throw new Error('Failed to find stored version')
   }
 
-  const deploymentZipDir = `/mnt/efs1/deployment/${pipeline.uniqueRepoName}`
+  const deploymentZipDir = `/tmp/deployment/${pipeline.uniqueRepoName}`
 
   if (!fs.existsSync(deploymentZipDir)) {
     console.log('making zip location', deploymentZipDir)

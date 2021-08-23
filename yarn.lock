@@ -10831,6 +10831,15 @@ __metadata:
   languageName: node
   linkType: hard
 
+"@types/yaml@npm:^1.9.7":
+  version: 1.9.7
+  resolution: "@types/yaml@npm:1.9.7"
+  dependencies:
+    yaml: "*"
+  checksum: d17c643192ec7d1e3dd29350f5032814469fa1069f6a19c173615e1c109f173e210fb352aea4a9b6ba3047b768071a4f64548c33d68ea17cc663104d6b79778b
+  languageName: node
+  linkType: hard
+
 "@types/yargs-parser@npm:*":
   version: 15.0.0
   resolution: "@types/yargs-parser@npm:15.0.0"
@@ -17940,6 +17949,7 @@ __metadata:
     "@reapit/ts-types": "workspace:packages/ts-types"
     "@reapit/utils": "workspace:packages/utils"
     "@types/rimraf": ^3.0.1
+    "@types/yaml": ^1.9.7
     "@typescript-eslint/eslint-plugin": ^4.28.4
     "@typescript-eslint/parser": ^4.28.4
     adm-zip: ^0.5.5
@@ -17961,6 +17971,7 @@ __metadata:
     ts-node: ^10.1.0
     typeorm: ^0.2.34
     typeorm-aurora-data-api-driver: ^2.2.0
+    yaml: next
   languageName: unknown
   linkType: soft
 
@@ -42251,10 +42262,17 @@ typescript@^3.7.3:
   languageName: node
   linkType: hard
 
-"yaml@npm:1.10.2, yaml@npm:^1.10.0, yaml@npm:^1.10.2, yaml@npm:^1.7.2":
+"yaml@npm:*, yaml@npm:1.10.2, yaml@npm:^1.10.0, yaml@npm:^1.10.2, yaml@npm:^1.7.2":
   version: 1.10.2
   resolution: "yaml@npm:1.10.2"
   checksum: 8d72062ea3dbfd8fae3d6ddd5b741c2aeb5835a31b0719bf14fac71dd84adde0829763d6fbac46387309da00af1440194c796da5efc349b0baf9de39d82ae69e
+  languageName: node
+  linkType: hard
+
+"yaml@npm:next":
+  version: 2.0.0-7
+  resolution: "yaml@npm:2.0.0-7"
+  checksum: 0d693c77c57a0e3db2601cf014d3be61bc6cee05c006cc2cdf805434df76e3f3af2aff5f18e2b04e610f4d5df2de20687442115e97c33e3d214bccb5fecf3d02
   languageName: node
   linkType: hard
 

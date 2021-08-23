@@ -1,7 +1,6 @@
 import { PipelineRunnerEntity } from './../../entities'
 import { ownership, resolveCreds } from './../../utils'
 import { httpHandler, BadRequestException, NotFoundException } from '@homeservenow/serverless-aws-handler'
-import { DeploymentStatus } from '@reapit/foundations-ts-definitions'
 import * as service from '../../services'
 import { defaultOutputHeaders } from './../../constants'
 
@@ -9,10 +8,10 @@ import { defaultOutputHeaders } from './../../constants'
  * Update a pipelineRunner (cancel)
  */
 // TODO refactor to delete method instead?
-export const pipelineRunnerUpdate = httpHandler<{ buildStatus: DeploymentStatus.CANCELED }, PipelineRunnerEntity>({
+export const pipelineRunnerUpdate = httpHandler<{ buildStatus: 'CANCEL' }, PipelineRunnerEntity>({
   defaultOutputHeaders,
   validator: (payload) => {
-    if (payload.buildSTatus && payload.buildSTatus !== DeploymentStatus.CANCELED) {
+    if (payload.buildSTatus && payload.buildSTatus !== 'CANCEL') {
       throw new BadRequestException('Validation errors: Status can only be canceled')
     }
 
@@ -29,7 +28,7 @@ export const pipelineRunnerUpdate = httpHandler<{ buildStatus: DeploymentStatus.
 
     await ownership(pipelineRunner.pipeline.id as string, developerId)
 
-    if (pipelineRunner.buildStatus !== DeploymentStatus.RUNNING) {
+    if (pipelineRunner.buildStatus !== 'IN_PROGRESS') {
       return pipelineRunner
     }
 

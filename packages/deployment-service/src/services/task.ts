@@ -1,4 +1,3 @@
-import { TaskRunnerFunctions } from '../../../foundations-ts-definitions/types'
 import { connect } from './../core'
 import { PipelineRunnerEntity, TaskEntity } from './../entities'
 
@@ -62,21 +61,5 @@ export const findTaskById = async (taskId: string): Promise<TaskEntity | undefin
 
   return repo.findOne(taskId, {
     relations: ['pipelineRunner', 'pipelineRunner.pipeline'],
-  })
-}
-
-export const findTaskByPipelineRunnerAndFunction = async (
-  pipelineRunner: PipelineRunnerEntity,
-  functionName: TaskRunnerFunctions,
-): Promise<TaskEntity | undefined> => {
-  const connection = await connect()
-  const repo = connection.getTreeRepository(TaskEntity)
-
-  return repo.findOne({
-    where: {
-      pipelineRunner,
-      functionName,
-    },
-    relations: ['pipelineRunner'],
   })
 }

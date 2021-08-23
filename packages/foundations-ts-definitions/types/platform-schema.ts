@@ -4918,6 +4918,15 @@ export interface CreateIdentityDocumentModel {
   name?: string
 }
 /**
+ * Request body used to create an individual key included in a key set
+ */
+export interface CreateIndividualKeyModel {
+  /**
+   * The name of the individual key in the set
+   */
+  name?: string
+}
+/**
  * Request body to create a journal entry
  * example:
  * [object Object]
@@ -4943,6 +4952,34 @@ export interface CreateJournalEntryModel {
    * The identifier of the negotiator recording the journal entry
    */
   negotiatorId?: string
+}
+/**
+ * Request body used to create a new set of keys
+ * example:
+ * [object Object]
+ */
+export interface CreateKeyModel {
+  /**
+   * The key's number
+   */
+  number?: string
+  /**
+   * The type of key (sales/lettings/management)
+   */
+  type?: string
+  /**
+   * The unique identifier of the office responsible for the key
+   */
+  officeId?: string
+  /**
+   * A listing of the individual keys included in the set
+   */
+  keysInSet?: {
+    /**
+     * The name of the individual key in the set
+     */
+    name?: string
+  }[]
 }
 /**
  * Request body used to create a new relationship between a landlord and a contact or company
