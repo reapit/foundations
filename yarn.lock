@@ -17925,6 +17925,7 @@ __metadata:
     jest-coverage-badges: ^1.1.2
     nestjs-typeorm-paginate: ^2.5.3
     node-polyfill-webpack-plugin: ^1.1.4
+    pusher-js: ^7.0.3
     react: ^17.0.2
     react-dom: ^17.0.2
     react-ga: ^2.7.0
@@ -32736,6 +32737,15 @@ fsevents@^1.2.7:
   languageName: node
   linkType: hard
 
+"pusher-js@npm:^7.0.3":
+  version: 7.0.3
+  resolution: "pusher-js@npm:7.0.3"
+  dependencies:
+    tweetnacl: ^1.0.3
+  checksum: 87a440e931d0707add3dd0e1a7204a85ce655a24b90b1a5aa9d826b4d2c2d069886be3a05df1febabbc89fba208e791057e0bab8579e0309c13ec7363b450a11
+  languageName: node
+  linkType: hard
+
 "pusher@npm:^5.0.0":
   version: 5.0.0
   resolution: "pusher@npm:5.0.0"
@@ -39748,7 +39758,7 @@ resolve@^2.0.0-next.3:
   languageName: node
   linkType: hard
 
-"tweetnacl@npm:^1.0.0":
+"tweetnacl@npm:^1.0.0, tweetnacl@npm:^1.0.3":
   version: 1.0.3
   resolution: "tweetnacl@npm:1.0.3"
   checksum: 1188f3ef85db04d6dba632d211e481ae0a5805974491633ff60bd56ae3362312dfea1515e0d200685867b69ff212e8778e26923f8203e3c335064b07f620a6c7

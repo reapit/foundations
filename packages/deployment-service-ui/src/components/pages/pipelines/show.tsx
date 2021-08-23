@@ -13,6 +13,8 @@ import {
 } from '@reapit/foundations-ts-definitions'
 import { Pagination } from 'nestjs-typeorm-paginate'
 import { PipelineTask } from '@/components/task'
+import { channelCreator } from '@/services'
+import { Channel } from 'pusher-js'
 
 const pipelineStatusToIntent = (status: string): Intent => {
   switch (status) {
@@ -52,7 +54,13 @@ export default () => {
   const [pipelineRunners, setPipelineRunners] = useState<Pagination<PipelineRunnerModelInterface>>()
   const [deployLoading, setDeployLoading] = useState<boolean>(false)
 
+  let channel: Channel
+
   useEffect(() => {
+    channel = channelCreator(connectSession?.loginIdentity.developerId as string)
+    channel.bind('pipeline-runner-update', (data) => {
+      console.log('pusher info', data)
+    })
     const fetchPipeline = async () => {
       setLoading(true)
       const serviceResponse = await pipelineServiceGet(connectSession as ReapitConnectSession, params.pipelineId)
