@@ -32,5 +32,5 @@ export class BookInput {
   description?: string
 
   @Field(() => ID)
-  authorId: number
+  authorId: string | number
 }
