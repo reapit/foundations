@@ -4,6 +4,7 @@ export interface ReapitConnectBrowserSessionInitializers {
   connectUserPoolId: string
   connectLoginRedirectPath?: string
   connectLogoutRedirectPath?: string
+  connectApplicationTimeout?: number
 }
 
 export interface ReapitConnectServerSessionInitializers {
