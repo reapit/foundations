@@ -1,5 +1,5 @@
 import { Context, Callback, SNSEvent, SNSHandler } from 'aws-lambda'
-import { findPipelineRunnerByCodeBuildId, savePipelineRunnerEntity, sqs } from '../../services'
+import { findPipelineRunnerByCodeBuildId, savePipelineRunnerEntity, sqs, pusher } from '../../services'
 import { CodeBuild } from 'aws-sdk'
 import { TaskEntity } from '../../entities'
 import { QueueNames } from '../../constants'
@@ -146,7 +146,10 @@ const handlePhaseChange = async ({
 
   pipelineRunner.tasks = tasks
 
-  return savePipelineRunnerEntity(pipelineRunner)
+  return Promise.all([
+    savePipelineRunnerEntity(pipelineRunner),
+    pusher.trigger(pipelineRunner.pipeline?.developerId as string, 'pipeline-runner-update', pipelineRunner),
+  ])
 }
 
 const handleStateChange = async ({
@@ -180,6 +183,9 @@ const handleStateChange = async ({
     )
   } else {
     pipelineRunner.buildStatus = 'IN_PROGRESS'
-    return savePipelineRunnerEntity(pipelineRunner)
+    return Promise.all([
+      savePipelineRunnerEntity(pipelineRunner),
+      pusher.trigger(pipelineRunner.pipeline?.developerId as string, 'pipeline-runner-update', pipelineRunner),
+    ])
   }
 }

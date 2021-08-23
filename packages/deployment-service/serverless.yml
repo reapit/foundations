@@ -62,6 +62,9 @@ provider:
     DEPLOYMENT_LIVE_BUCKET_NAME: ${self:custom.env.DEPLOYMENT_LIVE_BUCKET_NAME}
     DEPLOYMENT_BUCKET_NAME: ${self:custom.env.DEPLOYMENT_BUCKET_NAME}
     REGION: ${self:provider.region}
+    PUSHER_APPID: ${self:custom.env.PUSHER_APPID}
+    PUSHER_KEY: ${self:custom.env.PUSHER_KEY}
+    PUSHER_SECRET: ${self:custome.env.PUSHER_SECRET}
   iamRoleStatements:
     - Effect: Allow
       Action:

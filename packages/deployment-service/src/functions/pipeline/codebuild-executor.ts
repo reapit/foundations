@@ -5,7 +5,7 @@ import { CodeBuild } from 'aws-sdk'
 import yaml from 'yaml'
 import { PackageManagerEnum } from '../../../../foundations-ts-definitions/deployment-schema'
 import { QueueNames } from '../../constants'
-import { sqs, savePipelineRunnerEntity } from '../../services'
+import { sqs, savePipelineRunnerEntity, pusher } from '../../services'
 
 const codebuild = new CodeBuild({
   region: process.env.REGION,
@@ -82,6 +82,7 @@ export const codebuildExecutor: SQSHandler = async (
         })
 
         await savePipelineRunnerEntity(pipelineRunner)
+        await pusher.trigger(pipelineRunner.pipeline?.developerId as string, 'pipeline-runner-update', pipelineRunner)
       } catch (e) {
         console.error(e)
         console.log('codebuild config failure')

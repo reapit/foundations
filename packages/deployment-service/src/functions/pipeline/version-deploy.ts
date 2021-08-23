@@ -2,7 +2,7 @@ import { SQSEvent, SQSHandler, Context, Callback } from 'aws-lambda'
 import { QueueNames } from '../../constants'
 import { PipelineEntity } from '../../entities'
 import { deployFromStore } from '../../executables/deploy-from-store'
-import { findPipelineRunnerById, savePipelineRunnerEntity, sqs } from '../../services'
+import { findPipelineRunnerById, pusher, savePipelineRunnerEntity, sqs } from '../../services'
 
 export const versionDeploy: SQSHandler = async (event: SQSEvent, context: Context, callback: Callback) => {
   await Promise.all(
@@ -44,6 +44,7 @@ export const versionDeploy: SQSHandler = async (event: SQSEvent, context: Contex
       }
 
       await savePipelineRunnerEntity(pipelineRunner)
+      await pusher.trigger(pipelineRunner.pipeline?.developerId as string, 'pipeline-runner-update', pipelineRunner)
 
       await new Promise<void>((resolve, reject) =>
         sqs.deleteMessage(
