@@ -4039,6 +4039,19 @@ __metadata:
   languageName: node
   linkType: hard
 
+"@harelpls/use-pusher@npm:^7.2.1":
+  version: 7.2.1
+  resolution: "@harelpls/use-pusher@npm:7.2.1"
+  dependencies:
+    dequal: ^2.0.1
+    invariant: ^2.2.4
+    pusher-js: ^7.0.0
+  peerDependencies:
+    react: ^16.9.0
+  checksum: d062957149ac0c5e0ebf570d1a5806079ff09c95bfb6a32166c1b15e7cde9a55d629caa025d034a49242bc1413ef2fd1e0d217709b887e775efec6f367781a88
+  languageName: node
+  linkType: hard
+
 "@homeservenow/serverless-aws-handler@npm:^0.2.4":
   version: 0.2.4
   resolution: "@homeservenow/serverless-aws-handler@npm:0.2.4"
@@ -17900,6 +17913,7 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "deployment-service-ui@workspace:packages/deployment-service-ui"
   dependencies:
+    "@harelpls/use-pusher": ^7.2.1
     "@linaria/core": ^3.0.0-beta.4
     "@linaria/react": ^3.0.0-beta.7
     "@linaria/shaker": ^3.0.0-beta.8
@@ -17925,7 +17939,6 @@ __metadata:
     jest-coverage-badges: ^1.1.2
     nestjs-typeorm-paginate: ^2.5.3
     node-polyfill-webpack-plugin: ^1.1.4
-    pusher-js: ^7.0.3
     react: ^17.0.2
     react-dom: ^17.0.2
     react-ga: ^2.7.0
@@ -18000,7 +18013,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"dequal@npm:2.0.2":
+"dequal@npm:2.0.2, dequal@npm:^2.0.1":
   version: 2.0.2
   resolution: "dequal@npm:2.0.2"
   checksum: 3b5b019a873da282a25512c632c077e5e8e2a019e71c5b6968836443b861e44176ee3934facfecdc14994d553c1ff4a6c7232278d6aef87baf65e2413d41760c
@@ -32737,7 +32750,7 @@ fsevents@^1.2.7:
   languageName: node
   linkType: hard
 
-"pusher-js@npm:^7.0.3":
+"pusher-js@npm:^7.0.0":
   version: 7.0.3
   resolution: "pusher-js@npm:7.0.3"
   dependencies:
