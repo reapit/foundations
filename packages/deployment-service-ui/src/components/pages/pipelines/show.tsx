@@ -13,6 +13,8 @@ import {
 } from '@reapit/foundations-ts-definitions'
 import { Pagination } from 'nestjs-typeorm-paginate'
 import { PipelineTask } from '@/components/task'
+import { useChannel, useEvent } from '@harelpls/use-pusher'
+import { shleemy } from 'shleemy'
 
 const pipelineStatusToIntent = (status: string): Intent => {
   switch (status) {
@@ -43,14 +45,130 @@ const findRelevantTask = (tasks: TaskModelInterface[]): TaskModelInterface => {
   })[0]
 }
 
+const DeploymentTable = ({
+  connectSession,
+  pipeline,
+  setPipelineRunnerPagination,
+  pipelineRunnerPagination,
+}: {
+  connectSession: ReapitConnectSession
+  pipeline: PipelineModelInterface
+  setPipelineRunnerPagination: (runners: Pagination<PipelineModelInterface>) => void
+  pipelineRunnerPagination?: Pagination<PipelineRunnerModelInterface>
+}) => {
+  const channel = useChannel(pipeline?.developerId)
+  const [runnerLoading, setRunnerLoading] = useState<boolean>(false)
+
+  useEvent<PipelineModelInterface>(channel, 'pipeline-runner-update', (event) => {
+    if (!pipelineRunnerPagination || !event) {
+      return
+    }
+
+    setPipelineRunnerPagination({
+      ...pipelineRunnerPagination,
+      items: pipelineRunnerPagination.items.map((item) => {
+        if (item.id !== event.id) {
+          return item
+        }
+
+        return event
+      }),
+    })
+  })
+
+  useEffect(() => {
+    const fetchPipelineRunners = async () => {
+      setRunnerLoading(true)
+
+      const response = await pipelineRunnerPaginate(
+        connectSession as ReapitConnectSession,
+        pipeline as PipelineModelInterface,
+      )
+
+      if (response) {
+        setPipelineRunnerPagination(response)
+      }
+      setRunnerLoading(false)
+    }
+
+    if (pipeline) {
+      fetchPipelineRunners()
+    }
+  }, [pipeline])
+
+  const pipelineRunnerMapped = pipelineRunnerPagination?.items.map((pipeline) => {
+    const started = shleemy(pipeline.created as string)
+
+    return {
+      cells: [
+        {
+          label: 'Started',
+          value: started.forHumans,
+        },
+        {
+          label: 'Tasks',
+          value: Array.isArray(pipeline.tasks)
+            ? pipeline.buildStatus === 'IN_PROGRESS'
+              ? (findRelevantTask(pipeline.tasks).buildStatus as string)
+              : pipeline.tasks.length.toString()
+            : '0',
+        },
+        {
+          label: 'Status',
+          value: pipeline.buildStatus?.toString() || '',
+          children: (
+            <>
+              <StatusIndicator intent={pipelineStatusToIntent(pipeline.buildStatus as string)} /> {pipeline.buildStatus}
+            </>
+          ),
+        },
+      ],
+      expandableContent: (
+        <div>
+          <H3>Tasks</H3>
+          <ul>
+            {pipeline.tasks?.map((task) => (
+              <PipelineTask task={task} key={task.id} />
+            ))}
+          </ul>
+        </div>
+      ),
+    }
+  })
+
+  return runnerLoading ? (
+    <FlexContainerBasic centerContent flexColumn hasBackground hasPadding>
+      <Loader />
+    </FlexContainerBasic>
+  ) : pipelineRunnerPagination ? (
+    <Table rows={pipelineRunnerMapped} expandableContentSize="large" />
+  ) : (
+    <H1>Error loading pipelines</H1>
+  )
+}
+
 export default () => {
   const { connectSession } = useReapitConnect(reapitConnectBrowserSession)
   const [loading, setLoading] = useState<boolean>(false)
   const [pipeline, setPipeline] = useState<PipelineModelInterface | undefined>()
   const params = useParams<{ pipelineId: string }>()
-  const [runnerLoading, setRunnerLoading] = useState<boolean>(false)
-  const [pipelineRunners, setPipelineRunners] = useState<Pagination<PipelineRunnerModelInterface>>()
+  const [pipelineRunnerPagination, setPipelineRunnerPagination] = useState<Pagination<PipelineRunnerModelInterface>>()
   const [deployLoading, setDeployLoading] = useState<boolean>(false)
+
+  const deployPipeline = async () => {
+    if (!pipeline || deployLoading) {
+      return
+    }
+    setDeployLoading(true)
+    const runner = await pipelineRunnerCreate(connectSession as ReapitConnectSession, pipeline)
+    setDeployLoading(false)
+    if (pipelineRunnerPagination && runner) {
+      setPipelineRunnerPagination({
+        ...pipelineRunnerPagination,
+        items: [runner, ...pipelineRunnerPagination.items],
+      })
+    }
+  }
 
   useEffect(() => {
     const fetchPipeline = async () => {
@@ -66,80 +184,11 @@ export default () => {
     }
   }, [connectSession])
 
-  useEffect(() => {
-    const fetchPipelineRunners = async () => {
-      setRunnerLoading(true)
-
-      const response = await pipelineRunnerPaginate(
-        connectSession as ReapitConnectSession,
-        pipeline as PipelineModelInterface,
-      )
-
-      setPipelineRunners(response)
-      setRunnerLoading(false)
-    }
-
-    if (pipeline) {
-      fetchPipelineRunners()
-    }
-  }, [pipeline])
-
-  const deployPipeline = async () => {
-    if (!pipeline || deployLoading) {
-      return
-    }
-    setDeployLoading(true)
-    const runner = await pipelineRunnerCreate(connectSession as ReapitConnectSession, pipeline)
-    setDeployLoading(false)
-    if (pipelineRunners && runner) {
-      setPipelineRunners({
-        ...pipelineRunners,
-        items: [runner, ...pipelineRunners.items],
-      })
-    }
-  }
-
-  const pipelineRunnerMapped = pipelineRunners?.items.map((pipeline) => ({
-    cells: [
-      {
-        label: 'Started',
-        value: pipeline.created as string,
-      },
-      {
-        label: 'Tasks',
-        value: Array.isArray(pipeline.tasks)
-          ? pipeline.buildStatus === 'IN_PROGRESS'
-            ? (findRelevantTask(pipeline.tasks).buildStatus as string)
-            : pipeline.tasks.length.toString()
-          : '0',
-      },
-      {
-        label: 'Status',
-        value: pipeline.buildStatus?.toString() || '',
-        children: (
-          <>
-            <StatusIndicator intent={pipelineStatusToIntent(pipeline.buildStatus as string)} /> {pipeline.buildStatus}
-          </>
-        ),
-      },
-    ],
-    expandableContent: (
-      <div>
-        <H3>Tasks</H3>
-        <ul>
-          {pipeline.tasks?.map((task) => (
-            <PipelineTask task={task} key={task.id} />
-          ))}
-        </ul>
-      </div>
-    ),
-  }))
-
   return loading ? (
     <FlexContainerBasic centerContent flexColumn hasBackground hasPadding>
       <Loader />
     </FlexContainerBasic>
-  ) : pipeline ? (
+  ) : connectSession && pipeline ? (
     <>
       <Breadcrumb>
         <BreadcrumbItem>
@@ -167,15 +216,12 @@ export default () => {
         <p>{pipeline?.repository}</p>
       </Section>
       <Section>
-        {runnerLoading ? (
-          <FlexContainerBasic centerContent flexColumn hasBackground hasPadding>
-            <Loader />
-          </FlexContainerBasic>
-        ) : pipelineRunners ? (
-          <Table rows={pipelineRunnerMapped} expandableContentSize="medium" />
-        ) : (
-          <H1>Error loading pipelines</H1>
-        )}
+        <DeploymentTable
+          connectSession={connectSession}
+          pipeline={pipeline}
+          pipelineRunnerPagination={pipelineRunnerPagination}
+          setPipelineRunnerPagination={setPipelineRunnerPagination}
+        />
       </Section>
     </>
   ) : (

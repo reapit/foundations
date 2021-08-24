@@ -1,10 +1,9 @@
 import { Context, Callback, SNSEvent, SNSHandler } from 'aws-lambda'
-import { findPipelineRunnerByCodeBuildId, savePipelineRunnerEntity, sqs } from '../../services'
+import { findPipelineRunnerByCodeBuildId, savePipelineRunnerEntity, sqs, pusher } from '../../services'
 import { CodeBuild } from 'aws-sdk'
-import { TaskEntity } from '../../entities'
 import { QueueNames } from '../../constants'
 
-const acceptedPhases = ['BUILD', 'INSTALL', 'DOWNLOAD_SOURCE']
+const acceptedPhases = ['BUILD', 'PRE_BUILD', 'INSTALL', 'DOWNLOAD_SOURCE']
 enum EventEnum {
   STATE_CHANGE = 'CodeBuild Build State Change',
   PHASE_CHANGE = 'CodeBuild Build Phase Change',
@@ -64,21 +63,19 @@ export const codebuildPipelineUpdater: SNSHandler = async (
             throw new Error('no buildId found')
           }
 
-          await handlePhaseChange({
+          return handlePhaseChange({
             event,
             buildId,
           })
-          break
         case EventEnum.STATE_CHANGE:
           if (!buildId) {
             throw new Error('no buildId found')
           }
 
-          await handleStateChange({
+          return handleStateChange({
             event,
             buildId,
           })
-          break
         default:
           throw new Error(`Event type [${event['detail-type']}] not supported`)
       }
@@ -99,6 +96,8 @@ const handlePhaseChange = async ({
     acceptedPhases.includes(phase['phase-type']),
   )
 
+  let changesMade: boolean = false
+
   const pipelineRunner = await findPipelineRunnerByCodeBuildId(buildId)
 
   if (!pipelineRunner) {
@@ -109,44 +108,40 @@ const handlePhaseChange = async ({
     throw new Error('no phases')
   }
 
-  const tasks = pipelineRunner.tasks || []
+  if (pipelineRunner.buildStatus === 'QUEUED') {
+    changesMade = true
+    pipelineRunner.buildStatus = 'IN_PROGRESS'
+  }
 
-  // update existing tasks
-  tasks.map((task) => {
+  pipelineRunner.tasks = pipelineRunner.tasks?.map((task) => {
     const phase = phases.find((phase) => phase['phase-type'] === task.functionName)
 
     if (!phase) {
       return task
     }
 
-    return {
-      ...task,
-      buildStatus: phase?.['phase-status'],
-      start: phase?.['start-time'],
-      end: phase?.['end-time'],
-      elapsedTime: phase?.['duration-in-seconds']?.toString(),
+    const buildStatus = phase['phase-status'] || 'IN_PROGRESS'
+
+    if (buildStatus !== task.buildStatus) {
+      changesMade = true
     }
+
+    task.buildStatus = buildStatus
+    task.startTime = phase['start-time']
+    task.endTime = phase['end-time']
+    task.elapsedTime = phase['duration-in-seconds']?.toString()
+
+    return task
   })
 
-  // Create new tasks for new phases
-  phases.forEach((phase) => {
-    if (!tasks.find((task) => task.functionName === phase['phase-type'])) {
-      const newTask = new TaskEntity()
+  if (!changesMade) {
+    return Promise.resolve()
+  }
 
-      newTask.functionName = phase['phase-type']
-      newTask.startTime = phase['start-time']
-      newTask.endTime = phase['end-time']
-      newTask.elapsedTime = phase['duration-in-seconds']?.toString()
-      newTask.buildStatus = phase['phase-status']
-      newTask.pipelineRunner = pipelineRunner
-
-      tasks.push(newTask)
-    }
-  })
-
-  pipelineRunner.tasks = tasks
-
-  return savePipelineRunnerEntity(pipelineRunner)
+  return Promise.all([
+    savePipelineRunnerEntity(pipelineRunner),
+    pusher.trigger(pipelineRunner.pipeline?.developerId as string, 'pipeline-runner-update', pipelineRunner),
+  ])
 }
 
 const handleStateChange = async ({
@@ -178,8 +173,11 @@ const handleStateChange = async ({
         },
       ),
     )
-  } else {
+  } else if (pipelineRunner.buildStatus === 'QUEUED') {
     pipelineRunner.buildStatus = 'IN_PROGRESS'
-    return savePipelineRunnerEntity(pipelineRunner)
+    return Promise.all([
+      savePipelineRunnerEntity(pipelineRunner),
+      pusher.trigger(pipelineRunner.pipeline?.developerId as string, 'pipeline-runner-update', pipelineRunner),
+    ])
   }
 }

@@ -10,6 +10,7 @@ export type Config = {
   marketplaceUrl: string
   API_KEY_SERVICE_HOST: string
   DEPLOYMENT_SERVICE_HOST: string
+  PUSHER_KEY: string
 }
 
 declare global {

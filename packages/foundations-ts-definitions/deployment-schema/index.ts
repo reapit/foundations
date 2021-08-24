@@ -33,6 +33,9 @@ export interface TaskModelInterface {
   modified?: string
   functionName?: CodeBuild.BuildPhaseType
   buildStatus?: CodeBuild.StatusType
+  startTime?: string
+  endTime?: string
+  elapsedTime?: string
 }
 
 export enum PackageManagerEnum {

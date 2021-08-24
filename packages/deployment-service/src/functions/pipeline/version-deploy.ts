@@ -2,7 +2,7 @@ import { SQSEvent, SQSHandler, Context, Callback } from 'aws-lambda'
 import { QueueNames } from '../../constants'
 import { PipelineEntity } from '../../entities'
 import { deployFromStore } from '../../executables/deploy-from-store'
-import { findPipelineRunnerById, savePipelineRunnerEntity, sqs } from '../../services'
+import { findPipelineRunnerById, pusher, savePipelineRunnerEntity, sqs, updateTask } from '../../services'
 
 export const versionDeploy: SQSHandler = async (event: SQSEvent, context: Context, callback: Callback) => {
   await Promise.all(
@@ -20,9 +20,25 @@ export const versionDeploy: SQSHandler = async (event: SQSEvent, context: Contex
       const deployTaskIndex = pipelineRunner.tasks?.findIndex((task) => task.functionName === 'DEPLOY')
 
       // TODO check status
-      if (deployTaskIndex === -1 || typeof deployTaskIndex === 'undefined') {
+      if (deployTaskIndex === -1 || typeof deployTaskIndex === 'undefined' || !pipelineRunner.tasks) {
         throw new Error('No deploy task')
       }
+
+      const deployTask = pipelineRunner.tasks[deployTaskIndex]
+      deployTask.startTime = (new Date()).toISOString()
+      deployTask.buildStatus = 'IN_PROGRESS'
+
+      pipelineRunner.tasks[deployTaskIndex] = deployTask
+
+      await Promise.all([
+        updateTask(deployTask, {
+          startTime: (new Date()).toISOString(),
+          buildStatus: 'IN_PROGRESS',
+        }),
+        pusher.trigger(pipelineRunner.pipeline?.developerId as string, 'pipeline-runner-update', pipelineRunner),
+      ])
+
+      // TODO start a timer for elapsedSeconds
 
       try {
         await deployFromStore({
@@ -33,6 +49,7 @@ export const versionDeploy: SQSHandler = async (event: SQSEvent, context: Contex
         pipelineRunner.buildStatus = 'SUCCEEDED'
         if (pipelineRunner.tasks) {
           pipelineRunner.tasks[deployTaskIndex].buildStatus = 'SUCCEEDED'
+          pipelineRunner.tasks[deployTaskIndex].endTime = (new Date()).toISOString()
         }
       } catch (e) {
         console.error(e)
@@ -40,10 +57,16 @@ export const versionDeploy: SQSHandler = async (event: SQSEvent, context: Contex
         pipelineRunner.buildStatus = 'FAILED'
         if (pipelineRunner.tasks) {
           pipelineRunner.tasks[deployTaskIndex].buildStatus = 'FAILED'
+          pipelineRunner.tasks[deployTaskIndex].endTime = (new Date()).toISOString()
         }
       }
 
-      await savePipelineRunnerEntity(pipelineRunner)
+      const updatedPipelineRunner = await savePipelineRunnerEntity(pipelineRunner)
+      await pusher.trigger(
+        pipelineRunner.pipeline?.developerId as string,
+        'pipeline-runner-update',
+        updatedPipelineRunner,
+      )
 
       await new Promise<void>((resolve, reject) =>
         sqs.deleteMessage(

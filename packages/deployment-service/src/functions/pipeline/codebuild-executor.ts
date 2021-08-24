@@ -72,11 +72,10 @@ export const codebuildExecutor: SQSHandler = async (
 
         pipelineRunner.codebuildId = result.build?.id?.split(':').pop()
 
-        pipelineRunner.tasks = ['INSTALL', 'BUILD', 'DOWNLOAD_SOURCE', 'DEPLOY'].map((phase) => {
+        pipelineRunner.tasks = ['INSTALL', 'BUILD', 'PRE_BUILD', 'DOWNLOAD_SOURCE', 'DEPLOY'].map((phase) => {
           const task = new TaskEntity()
 
           task.functionName = phase
-          task.pipelineRunner = pipelineRunner
 
           return task
         })
@@ -85,10 +84,10 @@ export const codebuildExecutor: SQSHandler = async (
       } catch (e) {
         console.error(e)
         console.log('codebuild config failure')
-        throw e
+        Promise.reject(e)
       }
 
-      await new Promise<void>((resolve, reject) =>
+      return new Promise<void>((resolve, reject) =>
         sqs.deleteMessage(
           {
             ReceiptHandle: record.receiptHandle,
