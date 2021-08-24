@@ -3,6 +3,7 @@ import { Field, FieldProps } from 'formik'
 import { checkError } from '../../utils/form'
 import { fieldValidateRequire } from '../../utils/validators'
 import { cx } from '@linaria/core'
+import { validateSpecialChars } from '../../utils/validators/validate-special-chars'
 
 export interface InputProps {
   type: 'text' | 'password' | 'email' | 'tel' | 'hidden' | 'time' | 'date'
@@ -35,7 +36,7 @@ export const Input = ({
   helperText,
   className = '',
 }: InputProps) => (
-  <Field name={name} validate={required ? validate : null}>
+  <Field name={name} validate={validateSpecialChars(required, validate)}>
     {({ field, meta }: FieldProps<string | number>) => {
       const hasError = checkError(meta)
       const inputClassName = hasError ? 'input is-danger' : 'input is-primary'

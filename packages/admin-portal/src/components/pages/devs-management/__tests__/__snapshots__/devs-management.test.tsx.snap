@@ -137,7 +137,7 @@ exports[`AdminDevManagement should match a snapshot when LOADING false 1`] = `
                               >
                                 <Field
                                   name="name"
-                                  validate={null}
+                                  validate={[Function]}
                                 >
                                   <div
                                     className="field"
@@ -184,7 +184,7 @@ exports[`AdminDevManagement should match a snapshot when LOADING false 1`] = `
                               >
                                 <Field
                                   name="company"
-                                  validate={null}
+                                  validate={[Function]}
                                 >
                                   <div
                                     className="field"
@@ -885,7 +885,7 @@ exports[`AdminDevManagement should render blank Info when data is empty 1`] = `
                               >
                                 <Field
                                   name="name"
-                                  validate={null}
+                                  validate={[Function]}
                                 >
                                   <div
                                     className="field"
@@ -932,7 +932,7 @@ exports[`AdminDevManagement should render blank Info when data is empty 1`] = `
                               >
                                 <Field
                                   name="company"
-                                  validate={null}
+                                  validate={[Function]}
                                 >
                                   <div
                                     className="field"
@@ -1633,7 +1633,7 @@ exports[`AdminDevManagement should show loader when LOADING true 1`] = `
                               >
                                 <Field
                                   name="name"
-                                  validate={null}
+                                  validate={[Function]}
                                 >
                                   <div
                                     className="field"
@@ -1680,7 +1680,7 @@ exports[`AdminDevManagement should show loader when LOADING true 1`] = `
                               >
                                 <Field
                                   name="company"
-                                  validate={null}
+                                  validate={[Function]}
                                 >
                                   <div
                                     className="field"

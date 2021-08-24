@@ -221,7 +221,7 @@ exports[`admin-apps AdminApprovals should match a snapshot 1`] = `
                           >
                             <Field
                               name="appName"
-                              validate={null}
+                              validate={[Function]}
                             >
                               <div
                                 className="field"
@@ -268,7 +268,7 @@ exports[`admin-apps AdminApprovals should match a snapshot 1`] = `
                           >
                             <Field
                               name="developerName"
-                              validate={null}
+                              validate={[Function]}
                             >
                               <div
                                 className="field"
@@ -315,7 +315,7 @@ exports[`admin-apps AdminApprovals should match a snapshot 1`] = `
                           >
                             <Field
                               name="companyName"
-                              validate={null}
+                              validate={[Function]}
                             >
                               <div
                                 className="field"

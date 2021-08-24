@@ -179,7 +179,7 @@ exports[`ContactInformationForm should match snapshot 1`] = `
                           >
                             <Field
                               name="name"
-                              validate={null}
+                              validate={[Function]}
                             >
                               <div
                                 className="field"
@@ -226,7 +226,7 @@ exports[`ContactInformationForm should match snapshot 1`] = `
                           >
                             <Field
                               name="jobTitle"
-                              validate={null}
+                              validate={[Function]}
                             >
                               <div
                                 className="field"

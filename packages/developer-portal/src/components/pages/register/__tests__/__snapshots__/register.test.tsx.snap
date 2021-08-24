@@ -306,7 +306,7 @@ exports[`Register should match a snapshot 1`] = `
                       >
                         <Field
                           name="name"
-                          validate={null}
+                          validate={[Function]}
                         >
                           <div
                             className="field"
@@ -346,7 +346,7 @@ exports[`Register should match a snapshot 1`] = `
                       >
                         <Field
                           name="companyName"
-                          validate={null}
+                          validate={[Function]}
                         >
                           <div
                             className="field"
@@ -386,7 +386,7 @@ exports[`Register should match a snapshot 1`] = `
                       >
                         <Field
                           name="email"
-                          validate={null}
+                          validate={[Function]}
                         >
                           <div
                             className="field"
@@ -426,7 +426,7 @@ exports[`Register should match a snapshot 1`] = `
                       >
                         <Field
                           name="telephone"
-                          validate={null}
+                          validate={[Function]}
                         >
                           <div
                             className="field"

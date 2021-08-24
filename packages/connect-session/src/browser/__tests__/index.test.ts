@@ -206,6 +206,26 @@ describe('ReapitConnectBrowserSession', () => {
     expect(mockedLoginEndpoint).toHaveBeenCalledTimes(1)
   })
 
+  it('should redirect to logout if a user is idle', (done) => {
+    const mockedLogoutEndpoint = jest.spyOn(ReapitConnectBrowserSession.prototype, 'connectLogoutRedirect')
+
+    new ReapitConnectBrowserSession({
+      ...mockBrowserInitializers,
+      // Set the session inactivity timeout to zero - by default it is 3 hours
+      connectApplicationTimeout: 0,
+    })
+
+    // Trigger a mousemove event which starts the idle timer
+    const event = new MouseEvent('mousemove')
+    document.dispatchEvent(event)
+
+    // Wrap the test in a timeout of 1ms because the logout is executed in the next tick of the event loop
+    setTimeout(() => {
+      expect(mockedLogoutEndpoint).toHaveBeenCalledTimes(1)
+      done()
+    }, 1)
+  })
+
   afterEach(() => {
     jest.resetAllMocks()
     window.localStorage.clear()
