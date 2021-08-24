@@ -177,10 +177,7 @@ const handleStateChange = async ({
     pipelineRunner.buildStatus = 'IN_PROGRESS'
     return Promise.all([
       savePipelineRunnerEntity(pipelineRunner),
-      pusher.trigger(pipelineRunner.pipeline?.developerId as string, 'pipeline-runner-update', {
-        ...pipelineRunner,
-        from: 'state update',
-      }),
+      pusher.trigger(pipelineRunner.pipeline?.developerId as string, 'pipeline-runner-update', pipelineRunner),
     ])
   }
 }

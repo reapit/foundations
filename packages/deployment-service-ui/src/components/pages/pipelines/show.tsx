@@ -59,7 +59,7 @@ const DeploymentTable = ({
   const channel = useChannel(pipeline?.developerId)
   const [runnerLoading, setRunnerLoading] = useState<boolean>(false)
 
-  useEvent<PipelineModelInterface & { from?: string }>(channel, 'pipeline-runner-update', (event) => {
+  useEvent<PipelineModelInterface>(channel, 'pipeline-runner-update', (event) => {
     if (!pipelineRunnerPagination || !event) {
       return
     }
