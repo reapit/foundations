@@ -77,6 +77,9 @@ export const findPipelineRunnerByCodeBuildId = async (
   const repo = connection.getRepository(PipelineRunnerEntity)
 
   return repo.findOne({
-    codebuildId,
+    where: {
+      codebuildId,
+    },
+    relations: ['pipeline', 'tasks'],
   })
 }

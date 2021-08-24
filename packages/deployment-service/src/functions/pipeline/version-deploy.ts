@@ -43,8 +43,12 @@ export const versionDeploy: SQSHandler = async (event: SQSEvent, context: Contex
         }
       }
 
-      await savePipelineRunnerEntity(pipelineRunner)
-      await pusher.trigger(pipelineRunner.pipeline?.developerId as string, 'pipeline-runner-update', pipelineRunner)
+      const updatedPipelineRunner = await savePipelineRunnerEntity(pipelineRunner)
+      await pusher.trigger(
+        pipelineRunner.pipeline?.developerId as string,
+        'pipeline-runner-update',
+        updatedPipelineRunner,
+      )
 
       await new Promise<void>((resolve, reject) =>
         sqs.deleteMessage(
