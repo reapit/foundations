@@ -2,6 +2,7 @@ import { Intent, StatusIndicator } from '@reapit/elements'
 import React from 'react'
 import { TaskModelInterface } from '@reapit/foundations-ts-definitions/deployment-schema'
 import { ElPipelineTask } from './task.element'
+import { shleemy } from 'shleemy'
 
 const pipelineStatusToIntent = (status: string): Intent => {
   switch (status) {
@@ -19,9 +20,13 @@ const pipelineStatusToIntent = (status: string): Intent => {
 }
 
 export const PipelineTask = ({ task }: { task: TaskModelInterface }) => {
+  const started =
+    task.startTime && task.startTime.substr(0, 1) !== '0' ? shleemy(task.startTime).forHumans : 'not started'
+
   return (
     <ElPipelineTask>
-      <StatusIndicator intent={pipelineStatusToIntent(task.buildStatus as string)} shape="tag" /> {task.functionName} 🕒 {task.elapsedTime}s
+      <StatusIndicator intent={pipelineStatusToIntent(task.buildStatus as string)} shape="tag" /> {task.functionName} 🕒{' '}
+      {task.elapsedTime}s {started}
     </ElPipelineTask>
   )
 }

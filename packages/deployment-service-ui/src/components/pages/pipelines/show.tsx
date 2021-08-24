@@ -14,6 +14,7 @@ import {
 import { Pagination } from 'nestjs-typeorm-paginate'
 import { PipelineTask } from '@/components/task'
 import { useChannel, useEvent } from '@harelpls/use-pusher'
+import { shleemy } from 'shleemy'
 
 const pipelineStatusToIntent = (status: string): Intent => {
   switch (status) {
@@ -95,41 +96,45 @@ const DeploymentTable = ({
     }
   }, [pipeline])
 
-  const pipelineRunnerMapped = pipelineRunnerPagination?.items.map((pipeline) => ({
-    cells: [
-      {
-        label: 'Started',
-        value: pipeline.created as string,
-      },
-      {
-        label: 'Tasks',
-        value: Array.isArray(pipeline.tasks)
-          ? pipeline.buildStatus === 'IN_PROGRESS'
-            ? (findRelevantTask(pipeline.tasks).buildStatus as string)
-            : pipeline.tasks.length.toString()
-          : '0',
-      },
-      {
-        label: 'Status',
-        value: pipeline.buildStatus?.toString() || '',
-        children: (
-          <>
-            <StatusIndicator intent={pipelineStatusToIntent(pipeline.buildStatus as string)} /> {pipeline.buildStatus}
-          </>
-        ),
-      },
-    ],
-    expandableContent: (
-      <div>
-        <H3>Tasks</H3>
-        <ul>
-          {pipeline.tasks?.map((task) => (
-            <PipelineTask task={task} key={task.id} />
-          ))}
-        </ul>
-      </div>
-    ),
-  }))
+  const pipelineRunnerMapped = pipelineRunnerPagination?.items.map((pipeline) => {
+    const started = shleemy(pipeline.created as string)
+
+    return {
+      cells: [
+        {
+          label: 'Started',
+          value: started.forHumans,
+        },
+        {
+          label: 'Tasks',
+          value: Array.isArray(pipeline.tasks)
+            ? pipeline.buildStatus === 'IN_PROGRESS'
+              ? (findRelevantTask(pipeline.tasks).buildStatus as string)
+              : pipeline.tasks.length.toString()
+            : '0',
+        },
+        {
+          label: 'Status',
+          value: pipeline.buildStatus?.toString() || '',
+          children: (
+            <>
+              <StatusIndicator intent={pipelineStatusToIntent(pipeline.buildStatus as string)} /> {pipeline.buildStatus}
+            </>
+          ),
+        },
+      ],
+      expandableContent: (
+        <div>
+          <H3>Tasks</H3>
+          <ul>
+            {pipeline.tasks?.map((task) => (
+              <PipelineTask task={task} key={task.id} />
+            ))}
+          </ul>
+        </div>
+      ),
+    }
+  })
 
   return runnerLoading ? (
     <FlexContainerBasic centerContent flexColumn hasBackground hasPadding>
