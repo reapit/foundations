@@ -53,15 +53,13 @@ const DeploymentTable = ({
 }: {
   connectSession: ReapitConnectSession
   pipeline: PipelineModelInterface
-  setPipelineRunnerPagination: (runners: any) => void
+  setPipelineRunnerPagination: (runners: Pagination<PipelineModelInterface>) => void
   pipelineRunnerPagination?: Pagination<PipelineRunnerModelInterface>
 }) => {
   const channel = useChannel(pipeline?.developerId)
   const [runnerLoading, setRunnerLoading] = useState<boolean>(false)
 
   useEvent<PipelineModelInterface & { from?: string }>(channel, 'pipeline-runner-update', (event) => {
-    console.log('event', event?.from, event)
-
     if (!pipelineRunnerPagination || !event) {
       return
     }
@@ -87,7 +85,9 @@ const DeploymentTable = ({
         pipeline as PipelineModelInterface,
       )
 
-      setPipelineRunnerPagination(response)
+      if (response) {
+        setPipelineRunnerPagination(response)
+      }
       setRunnerLoading(false)
     }
 
