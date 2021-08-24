@@ -13,8 +13,7 @@ import {
 } from '@reapit/foundations-ts-definitions'
 import { Pagination } from 'nestjs-typeorm-paginate'
 import { PipelineTask } from '@/components/task'
-import { channelCreator } from '@/services'
-import { Channel } from 'pusher-js'
+import { useChannel, useEvent } from '@harelpls/use-pusher'
 
 const pipelineStatusToIntent = (status: string): Intent => {
   switch (status) {
@@ -45,34 +44,38 @@ const findRelevantTask = (tasks: TaskModelInterface[]): TaskModelInterface => {
   })[0]
 }
 
-export default () => {
-  const { connectSession } = useReapitConnect(reapitConnectBrowserSession)
-  const [loading, setLoading] = useState<boolean>(false)
-  const [pipeline, setPipeline] = useState<PipelineModelInterface | undefined>()
-  const params = useParams<{ pipelineId: string }>()
+const DeploymentTable = ({
+  connectSession,
+  pipeline,
+  setPipelineRunnerPagination,
+  pipelineRunnerPagination,
+}: {
+  connectSession: ReapitConnectSession
+  pipeline: PipelineModelInterface
+  setPipelineRunnerPagination: (runners: any) => void
+  pipelineRunnerPagination?: Pagination<PipelineRunnerModelInterface>
+}) => {
+  const channel = useChannel(pipeline?.developerId)
   const [runnerLoading, setRunnerLoading] = useState<boolean>(false)
-  const [pipelineRunners, setPipelineRunners] = useState<Pagination<PipelineRunnerModelInterface>>()
-  const [deployLoading, setDeployLoading] = useState<boolean>(false)
 
-  let channel: Channel
+  useEvent<PipelineModelInterface & { from?: string }>(channel, 'pipeline-runner-update', (event) => {
+    console.log('event', event?.from, event)
 
-  useEffect(() => {
-    channel = channelCreator(connectSession?.loginIdentity.developerId as string)
-    channel.bind('pipeline-runner-update', (data) => {
-      console.log('pusher info', data)
+    if (!pipelineRunnerPagination || !event) {
+      return
+    }
+
+    setPipelineRunnerPagination({
+      ...pipelineRunnerPagination,
+      items: pipelineRunnerPagination.items.map((item) => {
+        if (item.id !== event.id) {
+          return item
+        }
+
+        return event
+      }),
     })
-    const fetchPipeline = async () => {
-      setLoading(true)
-      const serviceResponse = await pipelineServiceGet(connectSession as ReapitConnectSession, params.pipelineId)
-      setLoading(false)
-      if (serviceResponse) {
-        setPipeline(serviceResponse)
-      }
-    }
-    if (connectSession) {
-      fetchPipeline()
-    }
-  }, [connectSession])
+  })
 
   useEffect(() => {
     const fetchPipelineRunners = async () => {
@@ -83,7 +86,7 @@ export default () => {
         pipeline as PipelineModelInterface,
       )
 
-      setPipelineRunners(response)
+      setPipelineRunnerPagination(response)
       setRunnerLoading(false)
     }
 
@@ -92,22 +95,7 @@ export default () => {
     }
   }, [pipeline])
 
-  const deployPipeline = async () => {
-    if (!pipeline || deployLoading) {
-      return
-    }
-    setDeployLoading(true)
-    const runner = await pipelineRunnerCreate(connectSession as ReapitConnectSession, pipeline)
-    setDeployLoading(false)
-    if (pipelineRunners && runner) {
-      setPipelineRunners({
-        ...pipelineRunners,
-        items: [runner, ...pipelineRunners.items],
-      })
-    }
-  }
-
-  const pipelineRunnerMapped = pipelineRunners?.items.map((pipeline) => ({
+  const pipelineRunnerMapped = pipelineRunnerPagination?.items.map((pipeline) => ({
     cells: [
       {
         label: 'Started',
@@ -143,11 +131,59 @@ export default () => {
     ),
   }))
 
+  return runnerLoading ? (
+    <FlexContainerBasic centerContent flexColumn hasBackground hasPadding>
+      <Loader />
+    </FlexContainerBasic>
+  ) : pipelineRunnerPagination ? (
+    <Table rows={pipelineRunnerMapped} expandableContentSize="large" />
+  ) : (
+    <H1>Error loading pipelines</H1>
+  )
+}
+
+export default () => {
+  const { connectSession } = useReapitConnect(reapitConnectBrowserSession)
+  const [loading, setLoading] = useState<boolean>(false)
+  const [pipeline, setPipeline] = useState<PipelineModelInterface | undefined>()
+  const params = useParams<{ pipelineId: string }>()
+  const [pipelineRunnerPagination, setPipelineRunnerPagination] = useState<Pagination<PipelineRunnerModelInterface>>()
+  const [deployLoading, setDeployLoading] = useState<boolean>(false)
+
+  const deployPipeline = async () => {
+    if (!pipeline || deployLoading) {
+      return
+    }
+    setDeployLoading(true)
+    const runner = await pipelineRunnerCreate(connectSession as ReapitConnectSession, pipeline)
+    setDeployLoading(false)
+    if (pipelineRunnerPagination && runner) {
+      setPipelineRunnerPagination({
+        ...pipelineRunnerPagination,
+        items: [runner, ...pipelineRunnerPagination.items],
+      })
+    }
+  }
+
+  useEffect(() => {
+    const fetchPipeline = async () => {
+      setLoading(true)
+      const serviceResponse = await pipelineServiceGet(connectSession as ReapitConnectSession, params.pipelineId)
+      setLoading(false)
+      if (serviceResponse) {
+        setPipeline(serviceResponse)
+      }
+    }
+    if (connectSession) {
+      fetchPipeline()
+    }
+  }, [connectSession])
+
   return loading ? (
     <FlexContainerBasic centerContent flexColumn hasBackground hasPadding>
       <Loader />
     </FlexContainerBasic>
-  ) : pipeline ? (
+  ) : connectSession && pipeline ? (
     <>
       <Breadcrumb>
         <BreadcrumbItem>
@@ -175,15 +211,12 @@ export default () => {
         <p>{pipeline?.repository}</p>
       </Section>
       <Section>
-        {runnerLoading ? (
-          <FlexContainerBasic centerContent flexColumn hasBackground hasPadding>
-            <Loader />
-          </FlexContainerBasic>
-        ) : pipelineRunners ? (
-          <Table rows={pipelineRunnerMapped} expandableContentSize="medium" />
-        ) : (
-          <H1>Error loading pipelines</H1>
-        )}
+        <DeploymentTable
+          connectSession={connectSession}
+          pipeline={pipeline}
+          pipelineRunnerPagination={pipelineRunnerPagination}
+          setPipelineRunnerPagination={setPipelineRunnerPagination}
+        />
       </Section>
     </>
   ) : (
