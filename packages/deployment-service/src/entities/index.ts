@@ -117,10 +117,10 @@ export class TaskEntity extends AbstractEntity implements TaskModelInterface {
   buildStatus?: CodeBuild.StatusType
 
   @Column({ type: 'timestamp' })
-  startTime?: Date
+  startTime?: string
 
   @Column({ type: 'timestamp' })
-  endTime?: Date
+  endTime?: string
 
   @Column()
   elapsedTime?: string
