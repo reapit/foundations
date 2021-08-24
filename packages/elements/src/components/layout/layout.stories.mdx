@@ -187,7 +187,7 @@ So the summarise `Atom => Molecule => Organisum`.
 The `PageContainer` should be the body of your content, it will typically contain a `Grid` component.
 
 <Canvas>
-  <Story name="PageContainer">
+  <Story name="Page Container">
     <PageContainer>
       <GridDemoBlock />
       <FlexContainer isFlexGrow1>
@@ -202,14 +202,14 @@ The `PageContainer` should be the body of your content, it will typically contai
   </Story>
 </Canvas>
 
-<RenderHtmlMarkup component="Layouts" story="PageContainer" />
+<RenderHtmlMarkup component="Layouts" story="Page Container" />
 
 ## MainContainer
 
 In this example you can see the `MainContainer` component - used to wrap the whole application and will handle the `Nav` and main content positioning.
 
 <Canvas>
-  <Story name="MainContainer">
+  <Story name="Main Container">
     <MainContainer>
       <FlexContainer isFlexGrow1>
         <PageContainer>
@@ -228,19 +228,19 @@ In this example you can see the `MainContainer` component - used to wrap the who
   </Story>
 </Canvas>
 
-<RenderHtmlMarkup component="Layouts" story="MainContainer" />
+<RenderHtmlMarkup component="Layouts" story="Main Container" />
 
 ## SecondaryNavContainer
 
 The `SecondaryNavContainer` is fixed width and used to contain secondary navigation as well as controls like filters.
 
 <Canvas>
-  <Story name="SecondaryNavContainer">
+  <Story name="Secondary Nav Container">
     <SecondaryNavContainer></SecondaryNavContainer>
   </Story>
 </Canvas>
 
-<RenderHtmlMarkup component="Layouts" story="SecondaryNavContainer" />
+<RenderHtmlMarkup component="Layouts" story="Secondary Nav Container" />
 
 ## FlexContainer
 
@@ -249,7 +249,7 @@ The previous two containers are postioned using the `FlexContainer` component. T
 <ArgsTable of={FlexContainer} />
 
 <Canvas>
-  <Story name="FlexContainer">
+  <Story name="Flex Container">
     <FlexContainer>
       <Molecule>
         <GridDemoBlock />
@@ -261,4 +261,4 @@ The previous two containers are postioned using the `FlexContainer` component. T
   </Story>
 </Canvas>
 
-<RenderHtmlMarkup component="Layouts" story="FlexContainer" />
+<RenderHtmlMarkup component="Layouts" story="Flex Container" />

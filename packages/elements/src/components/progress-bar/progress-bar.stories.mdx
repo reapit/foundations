@@ -7,7 +7,6 @@ import {
   ProgressBarInner,
   ProgressBarItem,
 } from './progress-bar'
-import { RenderHtmlMarkup } from '../../storybook/render-html-markup'
 import {
   elProgressBarLabelRight,
   elProgressBarItemDarkBlue,
@@ -15,7 +14,7 @@ import {
   elProgressBarItemLightestBlue,
   elProgressBarItemMediumBlue,
   elProgressBarItemOrange,
-  elProgressBarLabelLeft
+  elProgressBarLabelLeft,
 } from './__styles__'
 
 <Meta title="ProgressBar" />
@@ -49,8 +48,6 @@ In this example we add the width as an inline style so we can control progress b
   </Story>
 </Canvas>
 
-<RenderHtmlMarkup component="ProgressBar" story="Basic Example - ProgressBarPercentage" />
-
 ## Basic Example - ProgressBarSteps
 
 The progress bar steps example is very similar in terms of markup with the exception that the steps are rendered right and the percentage complete value should be determined by the number of steps completed against the total number.
@@ -65,14 +62,10 @@ The progress bar steps example is very similar in terms of markup with the excep
         <ProgressBarItem className={elProgressBarItemLightestBlue} />
         <ProgressBarItem className={elProgressBarItemOrange} />
       </ProgressBarInner>
-      <ProgressBarLabel className={elProgressBarLabelLeft}>
-        5/10 Completed
-      </ProgressBarLabel>
+      <ProgressBarLabel className={elProgressBarLabelLeft}>5/10 Completed</ProgressBarLabel>
     </ProgressBarContainer>
   </Story>
 </Canvas>
-
-<RenderHtmlMarkup component="ProgressBar" story="Basic Example - ProgressBarSteps" />
 
 ## React Example - ProgressBarPercentage
 
@@ -83,8 +76,6 @@ In the React Example, we do the calculations of width and timing for you - simpl
     <ProgressBarPercentage duration={20} />
   </Story>
 </Canvas>
-
-<RenderHtmlMarkup component="ProgressBar" story="React Example - ProgressBarPercentage" />
 
 ## React Example - ProgressBarSteps
 
@@ -97,5 +88,3 @@ Similarly for steps in the React component, you just need to specify the total n
     <ProgressBarSteps currentStep={7} numberSteps={7} />
   </Story>
 </Canvas>
-
-<RenderHtmlMarkup component="ProgressBar" story="React Example - ProgressBarSteps" />
