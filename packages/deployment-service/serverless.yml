@@ -64,7 +64,7 @@ provider:
     REGION: ${self:provider.region}
     PUSHER_APPID: ${self:custom.env.PUSHER_APPID}
     PUSHER_KEY: ${self:custom.env.PUSHER_KEY}
-    PUSHER_SECRET: ${self:custome.env.PUSHER_SECRET}
+    PUSHER_SECRET: ${self:custom.env.PUSHER_SECRET}
   iamRoleStatements:
     - Effect: Allow
       Action:
