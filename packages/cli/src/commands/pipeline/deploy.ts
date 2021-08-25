@@ -1,10 +1,13 @@
-import { Command } from "../../decorators";
-import { AbstractCommand } from "../../abstract.command"
-import { PipelineModelInterface, PipelineRunnerModelInterface } from "../../../../foundations-ts-definitions/deployment-schema"
-import ora from "ora"
-import { REAPIT_PIPELINE_CONFIG_FILE } from "./constants"
+import { Command } from '../../decorators'
+import { AbstractCommand } from '../../abstract.command'
+import {
+  PipelineModelInterface,
+  PipelineRunnerModelInterface,
+} from '../../../../foundations-ts-definitions/deployment-schema'
+import ora from 'ora'
+import { REAPIT_PIPELINE_CONFIG_FILE } from './constants'
 import Pusher from 'pusher-js'
-import Multispinner from 'multispinner'
+import { Multispinner, SpinnerState } from '../../utils/multispinner'
 
 @Command({
   name: 'deploy',
@@ -12,7 +15,6 @@ import Multispinner from 'multispinner'
 })
 export class DeployPipelineCommand extends AbstractCommand {
   async run() {
-
     // TODO fire off http post for deployment
     // TODO start websocket pusher listeners
     // TODO update websocket results to cli (hopefully update inline)
@@ -25,10 +27,12 @@ export class DeployPipelineCommand extends AbstractCommand {
 
     const spinner = ora('Creating deployment...').start()
 
-    const response = await (await this.axios(spinner)).post<PipelineRunnerModelInterface>(`/pipeline/${pipeline.id}/pipeline-runner`)
+    const response = await (
+      await this.axios(spinner)
+    ).post<PipelineRunnerModelInterface>(`/pipeline/${pipeline.id}/pipeline-runner`)
 
     if (response.status === 200) {
-      spinner.succeed(`Deployment started`) 
+      spinner.succeed('Deployment started')
     } else {
       spinner.fail('Deployment creation failed')
     }
@@ -43,7 +47,7 @@ export class DeployPipelineCommand extends AbstractCommand {
 
     await new Promise<void>((resolve) => {
       pusher.connection.bind('state_change', (states) => {
-        switch(states.current) {
+        switch (states.current) {
           case 'connected':
             resolve()
             break
@@ -58,19 +62,9 @@ export class DeployPipelineCommand extends AbstractCommand {
     const channel = pusher.subscribe(pipeline.developerId as string)
     channel.subscribe()
 
-    const taskSpinners = new Multispinner([
-      'DOWNLOAD_SOURCE',
-      'INSTALL',
-      'PRE_BUILD',
-      'BUILD',
-      'DEPLOY',
-    ], {
-      color: {
-        incomplete: 'grey',
-        processing: 'yellow',
-      },
-      autoStart: false,
-    })
+    const taskSpinners = new Multispinner(['DOWNLOAD_SOURCE', 'INSTALL', 'PRE_BUILD', 'BUILD', 'DEPLOY'])
+
+    console.log('Watching deploying... ...streaming results')
 
     channel.bind('pipeline-runner-update', (event) => {
       if (event.id !== deploymentId) {
@@ -91,17 +85,17 @@ export class DeployPipelineCommand extends AbstractCommand {
     })
   }
 
-  updateTaskSpinners(event, taskSpinners) {
-    event.tasks.forEach(task => {
-      switch(task.buildStatus) {
+  updateTaskSpinners(event, taskSpinners: Multispinner) {
+    event.tasks.forEach((task) => {
+      switch (task.buildStatus) {
         case 'IN_PROGRESS':
-          taskSpinners.complete(task.functionName, 'processing')
+          taskSpinners.changeState(task.functionName, SpinnerState.IN_PROGRESS)
           break
         case 'SUCCEEDED':
-          taskSpinners.success(task.functionName)
-        break
+          taskSpinners.changeState(task.functionName, SpinnerState.SUCCESS)
+          break
         case 'FAILED':
-          taskSpinners.error(task.functionName)
+          taskSpinners.changeState(task.functionName, SpinnerState.FAIL)
           break
       }
     })
