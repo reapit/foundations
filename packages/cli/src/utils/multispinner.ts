@@ -61,7 +61,13 @@ export class Multispinner {
     const block = Object.keys(this.lines)
       .map(
         (lineKey) =>
-          `${this.lines[lineKey] === SpinnerState.IN_PROGRESS ? frame : ' '} ${lineKey} ${chalk[
+          `${
+            this.lines[lineKey] === SpinnerState.IN_PROGRESS
+              ? `${frame} `
+              : this.lines[lineKey] === SpinnerState.SUCCESS
+              ? '🚀'
+              : '  '
+          } ${lineKey} ${chalk[
             this.lines[lineKey] === SpinnerState.FAIL
               ? 'red'
               : this.lines[lineKey] === SpinnerState.IN_PROGRESS
