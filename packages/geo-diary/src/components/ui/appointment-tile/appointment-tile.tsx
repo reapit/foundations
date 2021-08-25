@@ -12,7 +12,7 @@ import {
   CardWrap,
   elCardFocussed,
   elCardListMainWrapExpanded,
-  elMb4,
+  elMb6,
   useModal,
 } from '@reapit/elements'
 import { CancelConfirmModal } from '../cancel-confirm-modal'
@@ -63,7 +63,7 @@ export const AppointmentTile: FC<AppointmentTileProps> = ({ appointment }) => {
   return (
     <div ref={tileRef}>
       <CardWrap
-        className={cx(appointmentId === id && elCardFocussed, appointment.cancelled && cancelledTile, elMb4)}
+        className={cx(appointmentId === id && elCardFocussed, appointment.cancelled && cancelledTile, elMb6)}
         onClick={handleSetAppointmentId(setAppState, appointment)}
       >
         <CardListMainWrap className={elCardListMainWrapExpanded}>

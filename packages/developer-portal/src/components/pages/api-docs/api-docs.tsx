@@ -7,7 +7,7 @@ import {
   BodyText,
   Button,
   elHFull,
-  elMb3,
+  elMb5,
   FlexContainer,
   Icon,
   PageContainer,
@@ -30,7 +30,7 @@ const ApiDocsPage: React.FC = () => {
       <FlexContainer isFlexAuto>
         <SecondaryNavContainer>
           <Title>Docs</Title>
-          <Icon className={elMb3} icon="apiDocsInfographic" iconSize="large" />
+          <Icon className={elMb5} icon="apiDocsInfographic" iconSize="large" />
           <Subtitle>Welcome</Subtitle>
           <BodyText hasGreyText>
             We have provided comprehensive documentation for all of our APIs, services, tooling and open source packages
@@ -40,10 +40,10 @@ const ApiDocsPage: React.FC = () => {
             You can also visit us on Github where you can raise and track issues, look at code examples and view our
             milestones.
           </BodyText>
-          <Button className={elMb3} intent="neutral" onClick={openNewPage(ExternalPages.github)}>
+          <Button className={elMb5} intent="neutral" onClick={openNewPage(ExternalPages.github)}>
             Go to Github
           </Button>
-          <Button className={elMb3} intent="critical" onClick={openNewPage(ExternalPages.baseDocs)}>
+          <Button className={elMb5} intent="critical" onClick={openNewPage(ExternalPages.baseDocs)}>
             Open New
           </Button>
         </SecondaryNavContainer>

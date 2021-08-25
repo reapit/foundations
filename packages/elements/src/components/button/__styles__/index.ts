@@ -53,7 +53,7 @@ export const ElButton = styled.button`
   display: inline-block;
   position: relative;
   height: auto;
-  padding: 0.75rem ${buttonXPadding}rem;
+  padding: 0.625rem ${buttonXPadding}rem;
   justify-content: center;
   text-align: center;
   white-space: nowrap;

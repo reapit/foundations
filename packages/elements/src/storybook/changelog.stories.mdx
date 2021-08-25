@@ -10,40 +10,65 @@ We are also open to feature requests - in the same way please request [here](htt
 
 ## Version History
 
-We will publish release version history and changes here. Where possible, we will adhere to Semver versioning. 
+We will publish release version history and changes here. Where possible, we will adhere to Semver versioning.
 
 Beta versions should be relatively stable but subject to occssional breaking changes.
 
+### **3.4.0 - 26/08/21**
+
+- Button height reduced in line with style guide.
+- Spacing helpers aligned with styleguide and added to new `Utilities` story. Some spacing helpers have been removed, and units altered - some small breaking changes possible.
+- Sizing helpers added to new `Utilities` - percentage sizing
+- `FlexContainer` component now does not have a margin by default
+- `ToggleSelect` component brought into line with style guide
+- `Toggle` component height fixed
+- Safari bugfix for secondary nav button heights
+- `TableHeader` now fixed height in line with style guide
+- HTML output fixed for some stories where it was not rendering correctly
+- Args Tables fixed where broken for some stories
+- `MultiSelect` icons not rendering fixed
+- Border, border radius and box shadow helpers added to `Utilities`
+- `Typography` components now support style modifiers
+
 ### **3.3.1 - 06/08/21**
-  - Version bump for internal use only
+
+- Version bump for internal use only
 
 ### **3.3.0 - 06/08/21**
-  - Fixes `useModal` hook export from main manifest
-  - `useModal` hook now accepts an `id` param for use with `usePortal`
-  - Improves `Modal` docs and examples
-  - Exports new `<Portal />` component leveraging a `usePortal` hook
-  - Wraps `Input`, `InputGroup`, `Select` and `Textarea` in `forwardRef` helper to allow refs to be passes from form libs like `react-hook-form`
+
+- Fixes `useModal` hook export from main manifest
+- `useModal` hook now accepts an `id` param for use with `usePortal`
+- Improves `Modal` docs and examples
+- Exports new `<Portal />` component leveraging a `usePortal` hook
+- Wraps `Input`, `InputGroup`, `Select` and `Textarea` in `forwardRef` helper to allow refs to be passes from form libs like `react-hook-form`
 
 ### **3.2.0 - 23/07/21**
-  - Now outputs ESM as well as CommonJS for better tree shaking
+
+- Now outputs ESM as well as CommonJS for better tree shaking
 
 ### **3.1.0 - 23/07/21**
-  - Stable version of below bug fix
-  - Main container is now 100vh
+
+- Stable version of below bug fix
+- Main container is now 100vh
 
 ### **3.1.0-beta.3 - 22/07/21**
-  - Fixes production bug effecting bundling introduced at v3.0.1. Users should upgrade to this version with no breaking changes and significant fix.
-  - Switches bundling of lib from TSDX to Rollup
+
+- Fixes production bug effecting bundling introduced at v3.0.1. Users should upgrade to this version with no breaking changes and significant fix.
+- Switches bundling of lib from TSDX to Rollup
 
 ### **3.0.2 - 21/07/21**
-  - InputGroup supports HTML input element attributes
+
+- InputGroup supports HTML input element attributes
 
 ### **3.0.1 - 21/07/21**
-  - PersistentNotification component adds inline variant and style modifiers
+
+- PersistentNotification component adds inline variant and style modifiers
 
 ### **3.0.0 - 06/07/21**
-  - Production release of initial beta with improved docs
+
+- Production release of initial beta with improved docs
 
 ### **3.0.0-beta.1 - 05/07/21**
-  - Initial 3.x.x full ground up re-build with zero compat from v2.x.x
-  - For migration information see above
+
+- Initial 3.x.x full ground up re-build with zero compat from v2.x.x
+- For migration information see above

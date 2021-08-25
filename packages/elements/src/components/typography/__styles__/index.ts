@@ -2,6 +2,11 @@ import { css } from '@linaria/core'
 import { styled } from '@linaria/react'
 
 export const elHasGreyText = css``
+export const elHasNoMargin = css``
+export const elHasRegularText = css``
+export const elHasBoldText = css``
+export const elHasItalicText = css``
+export const elHasCenteredText = css``
 
 export const ElTitle = styled.h1`
   font-family: var(--font-sans-serif);
@@ -14,6 +19,22 @@ export const ElTitle = styled.h1`
 
   &.${elHasGreyText} {
     color: var(--color-grey-dark);
+  }
+
+  &.${elHasRegularText} {
+    font-weight: normal;
+  }
+
+  &.${elHasItalicText} {
+    font-style: italic;
+  }
+
+  &.${elHasNoMargin} {
+    margin-bottom: 0;
+  }
+
+  &.${elHasCenteredText} {
+    text-align: center;
   }
 `
 
@@ -29,6 +50,22 @@ export const ElSubtitle = styled.h2`
   &.${elHasGreyText} {
     color: var(--color-grey-dark);
   }
+
+  &.${elHasBoldText} {
+    font-weight: bold;
+  }
+
+  &.${elHasItalicText} {
+    font-style: italic;
+  }
+
+  &.${elHasNoMargin} {
+    margin-bottom: 0;
+  }
+
+  &.${elHasCenteredText} {
+    text-align: center;
+  }
 `
 
 export const ElBodyText = styled.p`
@@ -42,6 +79,22 @@ export const ElBodyText = styled.p`
 
   &.${elHasGreyText} {
     color: var(--color-grey-dark);
+  }
+
+  &.${elHasBoldText} {
+    font-weight: bold;
+  }
+
+  &.${elHasItalicText} {
+    font-style: italic;
+  }
+
+  &.${elHasNoMargin} {
+    margin-bottom: 0;
+  }
+
+  &.${elHasCenteredText} {
+    text-align: center;
   }
 `
 
@@ -57,12 +110,20 @@ export const ElSmallText = styled.p`
   &.${elHasGreyText} {
     color: var(--color-grey-dark);
   }
-`
 
-export const elIsBoldText = css`
-  font-weight: bold;
-`
+  &.${elHasBoldText} {
+    font-weight: bold;
+  }
 
-export const elIsItalicText = css`
-  font-style: italic;
+  &.${elHasItalicText} {
+    font-style: italic;
+  }
+
+  &.${elHasNoMargin} {
+    margin-bottom: 0;
+  }
+
+  &.${elHasCenteredText} {
+    text-align: center;
+  }
 `

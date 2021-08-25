@@ -12,7 +12,7 @@ Props available for the React version of the component;
 
 <ArgsTable of={Title} />
 
-## Titles
+### Titles
 
 <Canvas>
   <Story name="Title">
@@ -22,7 +22,7 @@ Props available for the React version of the component;
 
 <RenderHtmlMarkup component="Typography" story="Title" />
 
-## SubTitle
+### SubTitle
 
 <Canvas>
   <Story name="Subtitle">
@@ -32,11 +32,11 @@ Props available for the React version of the component;
 
 <RenderHtmlMarkup component="Typography" story="Subtitle" />
 
-## Body Text
+### Body Text
 
 <Canvas>
   <Story name="Body Text">
-    <BodyText hasGreyText>
+    <BodyText>
       Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur non pulvinar tellus, quis pulvinar dui. Nunc
       enim libero, ullamcorper ac ex id, tincidunt dapibus lectus. Vestibulum at porta quam, ac condimentum dui. Duis
       ornare enim sed magna tincidunt volutpat. Vestibulum ultrices ipsum interdum, rhoncus ante eu, suscipit justo.
@@ -49,7 +49,7 @@ Props available for the React version of the component;
 
 <RenderHtmlMarkup component="Typography" story="Body Text" />
 
-## Small Text
+### Small Text
 
 <Canvas>
   <Story name="Small Text">
@@ -62,7 +62,7 @@ Props available for the React version of the component;
 
 <RenderHtmlMarkup component="Typography" story="Small Text" />
 
-## Title and Subtitle
+### Title and Subtitle
 
 <Canvas>
   <Story name="Title and Subtitle">
@@ -73,7 +73,7 @@ Props available for the React version of the component;
 
 <RenderHtmlMarkup component="Typography" story="Title and Subtitle" />
 
-## Subtitle and Body text
+### Subtitle and Body text
 
 <Canvas>
   <Story name="Subtitle and Body text">
@@ -88,7 +88,7 @@ Props available for the React version of the component;
 
 <RenderHtmlMarkup component="Typography" story="Subtitle and Body text" />
 
-## Body text and Small text
+### Body text and Small text
 
 <Canvas>
   <Story name="Body text and Small text">
@@ -101,3 +101,33 @@ Props available for the React version of the component;
 </Canvas>
 
 <RenderHtmlMarkup component="Typography" story="Body text and Small text" />
+
+### Modifiers
+
+We support a number of modifier to override the default typography, specifically bold, italic, grey coloured and centered text. Also, removing the bottom margin when you want to manually group your text items.
+
+See the table below for details of these modifiers;
+
+<ArgsTable of={Title} />
+
+In all cases they map to css classes you can see in the rendered markup. Below you can see each of the typography types, with all modifiers applied.
+
+<Canvas>
+  <Story name="Bold, Italic, Grey, Margin, Centered, Modifiers">
+    <Title hasGreyText hasItalicText hasRegularText hasNoMargin hasCenteredText>
+      Create a New App
+    </Title>
+    <Subtitle hasGreyText hasItalicText hasBoldText hasNoMargin hasCenteredText>
+      Do you intend for your app to be launched within Agency Cloud?
+    </Subtitle>
+    <BodyText hasGreyText hasItalicText hasBoldText hasNoMargin hasCenteredText>
+      Have you had a look at the documentation?
+    </BodyText>
+    <SmallText hasGreyText hasItalicText hasBoldText hasNoMargin hasCenteredText>
+      Before continuing with registering your first app, we strongly advise that you read the "Step-by-step" guide on
+      how best to complete the following form.
+    </SmallText>
+  </Story>
+</Canvas>
+
+<RenderHtmlMarkup component="Typography" story="Bold, Italic, Grey, Margin, Centered, Modifiers" />

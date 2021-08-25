@@ -1,7 +1,7 @@
 import React from 'react'
 import { MapPanelContainer, mapPanelContainerExpanded, MapPanelItem } from './__styles__'
 import { isIOS } from '@reapit/elements-legacy'
-import { Button, elIsBoldText, Subtitle, useMediaQuery } from '@reapit/elements'
+import { Button, Subtitle, useMediaQuery } from '@reapit/elements'
 import { AppState, useAppState } from '../../../core/app-state'
 import { cx } from '@linaria/core'
 import { TravelMode } from '../travel-mode/travel-mode'
@@ -53,11 +53,11 @@ export const MapPanel: React.FC<MapPanelProps> = ({ routeInformation }: MapPanel
         </MapPanelItem>
       )}
       <MapPanelItem>
-        <Subtitle className={elIsBoldText}>ETA</Subtitle>
+        <Subtitle hasBoldText>ETA</Subtitle>
         <p>{routeInformation?.duration?.text}</p>
       </MapPanelItem>
       <MapPanelItem>
-        <Subtitle className={elIsBoldText}>Distance</Subtitle>
+        <Subtitle hasBoldText>Distance</Subtitle>
         <p>{routeInformation?.distance?.text}</p>
       </MapPanelItem>
       <MapPanelItem>

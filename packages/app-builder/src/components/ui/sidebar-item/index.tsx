@@ -1,11 +1,11 @@
 import { cx } from '@linaria/core'
 import {
-  elBorderB,
+  elBorderGreyB,
   elFlex,
   elFlex1,
   elFlexAlignCenter,
   elFlexColumn,
-  elPx2,
+  elPx3,
   ElSmallText,
   elWFull,
 } from '@reapit/elements'
@@ -32,7 +32,7 @@ const SidebarItem: React.FC<SidebarItemProps> = ({ expanded, icon, title, childr
             onChange(!expanded)
           }
         }}
-        className={cx(cursorPointer, bgWhite, elBorderB, elFlex, elFlexAlignCenter, elPx2)}
+        className={cx(cursorPointer, bgWhite, elBorderGreyB, elFlex, elFlexAlignCenter, elPx3)}
       >
         <div className={cx(elFlex, elFlex1, elFlexAlignCenter)}>
           <IconContainer>{icon}</IconContainer>

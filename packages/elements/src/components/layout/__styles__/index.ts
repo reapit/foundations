@@ -52,6 +52,6 @@ export const ElMolecule = styled.div`
 
 export const ElFlexContainer = styled.div`
   display: flex;
-  margin-bottom: auto;
+  min-height: 0;
   min-width: 0;
 `

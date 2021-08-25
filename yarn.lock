@@ -6311,7 +6311,23 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@reapit/connect-session@^2.0.9, @reapit/connect-session@workspace:packages/connect-session":
+"@reapit/connect-session@npm:^2.0.9":
+  version: 2.3.1
+  resolution: "@reapit/connect-session@npm:2.3.1"
+  dependencies:
+    axios: ^0.21.1
+    isomorphic-fetch: ^3.0.0
+    jsonwebtoken: ^8.5.1
+    jwk-to-pem: ^2.0.4
+    snyk: ^1.463.0
+  peerDependencies:
+    react: ^16.12.0
+    react-dom: ^16.12.0
+  checksum: 35ce814b805f6ac9d7b6da777fd04c39f5db568c5738277c15ea316a828c3cc160aa982b3f310694e72765354f68c0635d5b47429b17a36e38b148d5b359e1e8
+  languageName: node
+  linkType: hard
+
+"@reapit/connect-session@workspace:packages/connect-session":
   version: 0.0.0-use.local
   resolution: "@reapit/connect-session@workspace:packages/connect-session"
   dependencies:
@@ -26923,7 +26939,7 @@ fsevents@^1.2.7:
   languageName: node
   linkType: hard
 
-"jwk-to-pem@npm:^2.0.5":
+"jwk-to-pem@npm:^2.0.4, jwk-to-pem@npm:^2.0.5":
   version: 2.0.5
   resolution: "jwk-to-pem@npm:2.0.5"
   dependencies:
@@ -36811,6 +36827,15 @@ resolve@^2.0.0-next.3:
     lodash.clonedeep: ^4.3.0
     lru-cache: ^5.1.1
   checksum: 6b8ecf571300a43b6851fe07208209312089d11c3c046dbf20b4dfbdee0be06416b065e213797e8ef9d4e11e0c7e913518966cb646031892d534b5851af7ab0d
+  languageName: node
+  linkType: hard
+
+"snyk@npm:^1.463.0":
+  version: 1.688.0
+  resolution: "snyk@npm:1.688.0"
+  bin:
+    snyk: bin/snyk
+  checksum: 9fb85a780c39071f93141c1dd343fb6898d3949b8456860392a3531761f0ab4fad949d5b4f0ad15c160b2cff0b88b6d2172d7de99df7652f12927a5786e0a18c
   languageName: node
   linkType: hard
 

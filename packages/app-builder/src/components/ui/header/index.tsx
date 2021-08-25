@@ -1,6 +1,6 @@
 import { useEditor } from '@craftjs/core'
 import { cx } from '@linaria/core'
-import { Button, ButtonGroup, elFlex, elFlex1, elMTAuto, elPr1, FlexContainer } from '@reapit/elements'
+import { Button, ButtonGroup, elFlex, elFlex1, elMtAuto, elPr1, FlexContainer } from '@reapit/elements'
 import React from 'react'
 import ReactTooltip from 'react-tooltip'
 
@@ -24,7 +24,7 @@ const Header = () => {
 
   return (
     <FlexContainer className={header} isFlexJustifyCenter>
-      <FlexContainer isFlexAlignCenter isFlexJustifyEnd className={cx(elFlex1, elMTAuto, elPr1)}>
+      <FlexContainer isFlexAlignCenter isFlexJustifyEnd className={cx(elFlex1, elMtAuto, elPr1)}>
         {enabled && (
           <div className={cx(elFlex, elFlex1)}>
             <a className={cx(item, !canUndo && disabled)} data-tip="Undo" onClick={() => actions.history.undo()}>
