@@ -1,4 +1,4 @@
-import { Command } from './../../decorators'
+import { Command } from '../../decorators'
 import { AbstractCommand } from '../../abstract.command'
 import fs from 'fs'
 import path from 'path'
@@ -8,10 +8,10 @@ import ora, { Ora } from 'ora'
 import chalk from 'chalk'
 
 @Command({
-  name: 'release',
-  description: 'Release a simple deployment',
+  name: 'deploy',
+  description: 'Deploy a simple release',
 })
-export class ReleaseCommand extends AbstractCommand {
+export class DeployCommand extends AbstractCommand {
   /**
    * bump package version
    *

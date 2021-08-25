@@ -1,4 +1,4 @@
-import { Command, Param } from './../../decorators'
+import { Command, Param } from '../../decorators'
 import { AbstractCommand } from '../../abstract.command'
 import fs from 'fs'
 import path from 'path'
