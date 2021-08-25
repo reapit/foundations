@@ -8,6 +8,7 @@ import ora from 'ora'
 import { REAPIT_PIPELINE_CONFIG_FILE } from './constants'
 import Pusher from 'pusher-js'
 import { Multispinner, SpinnerState } from '../../utils/multispinner'
+import chalk from 'chalk'
 
 @Command({
   name: 'deploy',
@@ -64,23 +65,23 @@ export class DeployPipelineCommand extends AbstractCommand {
 
     const taskSpinners = new Multispinner(['DOWNLOAD_SOURCE', 'INSTALL', 'PRE_BUILD', 'BUILD', 'DEPLOY'])
 
-    console.log('Watching deploying... ...streaming results')
+    console.log('Watching deployment stream...')
 
     channel.bind('pipeline-runner-update', (event) => {
       if (event.id !== deploymentId) {
         console.log('ignoring deployment I dont care about')
         return
       }
-      // console.log('event', event)
+      this.updateTaskSpinners(event, taskSpinners)
+
       if (event.buildStatus === 'IN_PROGRESS') {
-        this.updateTaskSpinners(event, taskSpinners)
+        // Do nothing. continuing in progress
       } else if (event.buildStatus === 'SUCCEEDED') {
-        this.updateTaskSpinners(event, taskSpinners)
-        spinner.succeed('Deployment successful')
+        console.log(chalk.green('Deployment successful'))
+        // wait before exiting?
         process.exit(0)
       } else {
-        console.log('event', event)
-        spinner.fail('none resolved event')
+        // TODO resolve other status'
       }
     })
   }
