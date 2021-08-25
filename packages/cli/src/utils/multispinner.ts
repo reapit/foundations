@@ -31,11 +31,10 @@ export class Multispinner {
   private readonly lines: { [s: string]: SpinnerState } = {}
   private stream: WriteStream
   private interval: any
-  private linesToClear: number = 0
-  private lineCount: number = 0
   private indent: number = 0
   private spinner: Spinner = cliSpinners.dots
   private frameIndex: number = 0
+  private linesToClear: number = 0
 
   constructor(lines: string[]) {
     lines.forEach((line) => (this.lines[line] = SpinnerState.PENDING))
@@ -60,21 +59,21 @@ export class Multispinner {
     const frame = frames[this.frameIndex]
 
     const block = Object.keys(this.lines)
-    .map(
-      (lineKey) =>
-        `${this.lines[lineKey] === SpinnerState.IN_PROGRESS ? frame : '  '} ${lineKey} ${chalk[
-          this.lines[lineKey] === SpinnerState.FAIL
-            ? 'red'
-            : this.lines[lineKey] === SpinnerState.IN_PROGRESS
-            ? 'yellow'
-            : this.lines[lineKey] === SpinnerState.SUCCESS
-            ? 'green'
-            : 'grey'
-        ](this.lines[lineKey])}`,
-    )
-    .join('\n')
+      .map(
+        (lineKey) =>
+          `${this.lines[lineKey] === SpinnerState.IN_PROGRESS ? frame : ' '} ${lineKey} ${chalk[
+            this.lines[lineKey] === SpinnerState.FAIL
+              ? 'red'
+              : this.lines[lineKey] === SpinnerState.IN_PROGRESS
+              ? 'yellow'
+              : this.lines[lineKey] === SpinnerState.SUCCESS
+              ? 'green'
+              : 'grey'
+          ](this.lines[lineKey])}`,
+      )
+      .join('\n')
 
-    this.updateLineCount(block)
+    this.linesToClear = this.getLineCount(block)
 
     return block
   }
@@ -83,20 +82,15 @@ export class Multispinner {
     // TODO check all lines completed?
     this.clear()
     this.stream.write(this.frame())
-    this.linesToClear = this.lineCount
 
     return this
   }
 
-  updateLineCount(block: string) {
-    const columns = this.stream.columns || 80
-    this.lineCount = 0
-    for (const line of stripAnsi(block).split('\n')) {
-      this.lineCount += Math.max(1, Math.ceil(wcwidth(line) / columns))
-    }
-  }
-
   clear() {
+    if (!this.stream.isTTY) {
+      return this
+    }
+
     for (let i = 0; i < this.linesToClear; i++) {
       if (i > 0) {
         this.stream.moveCursor(0, -1)
@@ -105,10 +99,16 @@ export class Multispinner {
       this.stream.clearLine(1)
       this.stream.cursorTo(this.indent)
     }
+  }
 
-    this.linesToClear = 0
+  getLineCount(block: string): number {
+    const columns = this.stream.columns || 80
+    let lineCount = 0
+    for (const line of stripAnsi(block).split('\n')) {
+      lineCount += Math.max(1, Math.ceil(wcwidth(line) / columns))
+    }
 
-    return this
+    return lineCount
   }
 
   get allCompleted(): boolean {
