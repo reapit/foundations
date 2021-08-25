@@ -9,6 +9,7 @@ import { REAPIT_PIPELINE_CONFIG_FILE } from './constants'
 import Pusher from 'pusher-js'
 import { Multispinner, SpinnerState } from '../../utils/multispinner'
 import chalk from 'chalk'
+import config from '../../../config.json'
 
 @Command({
   name: 'deploy',
@@ -16,10 +17,6 @@ import chalk from 'chalk'
 })
 export class DeployPipelineCommand extends AbstractCommand {
   async run() {
-    // TODO fire off http post for deployment
-    // TODO start websocket pusher listeners
-    // TODO update websocket results to cli (hopefully update inline)
-
     const pipeline = await this.resolveConfigFile<PipelineModelInterface>(REAPIT_PIPELINE_CONFIG_FILE)
 
     if (!pipeline) {
@@ -40,9 +37,9 @@ export class DeployPipelineCommand extends AbstractCommand {
 
     const deploymentId = response.data.id
 
-    const pusher = new Pusher('5702a681b8ece2c3b7b7', {
+    const pusher = new Pusher(config.PUSHER_KEY, {
       cluster: 'eu',
-    }) // TODO make config or wherever that works?
+    })
 
     spinner.start('Connecting to socket...')
 
