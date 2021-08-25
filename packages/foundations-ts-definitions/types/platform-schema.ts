@@ -1856,6 +1856,17 @@ export interface CertificateModelPagedResult {
     }
   }
 }
+/**
+ * Request body used for checking in a key
+ * example:
+ * [object Object]
+ */
+export interface CheckInKeyModel {
+  /**
+   * The unique identifier of negotiator checking in the key
+   */
+  checkInByNegotiatorId?: string
+}
 export interface Companies {
   pageSize?: number
   pageNumber?: number
