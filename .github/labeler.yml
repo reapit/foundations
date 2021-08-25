@@ -101,6 +101,9 @@ api-key-service:
 deployment-service:
   - packages/deployment-service/**
 
+deployment-service-ui:
+  - packages/deployment-service-ui/**
+
 api-key-verify:
   - packages/api-key-verify/**
 

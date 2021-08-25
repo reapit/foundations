@@ -529,7 +529,7 @@ exports[`Settings should match snapshot 1`] = `
                                     >
                                       <Field
                                         name="currentPassword"
-                                        validate={null}
+                                        validate={[Function]}
                                       >
                                         <div
                                           className="field"
@@ -575,7 +575,7 @@ exports[`Settings should match snapshot 1`] = `
                                     >
                                       <Field
                                         name="password"
-                                        validate={null}
+                                        validate={[Function]}
                                       >
                                         <div
                                           className="field"
@@ -630,7 +630,7 @@ exports[`Settings should match snapshot 1`] = `
                                     >
                                       <Field
                                         name="confirmPassword"
-                                        validate={null}
+                                        validate={[Function]}
                                       >
                                         <div
                                           className="field"

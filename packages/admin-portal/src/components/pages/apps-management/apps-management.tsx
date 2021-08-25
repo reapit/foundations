@@ -22,6 +22,7 @@ import {
   isEmptyObject,
   Section,
   LevelRight,
+  Checkbox,
 } from '@reapit/elements-legacy'
 import { selectAppsData, selectAppsLoading } from '@/selector/admin'
 import { requestMarkAppAsFeatured } from '@/actions/apps-management'
@@ -29,10 +30,11 @@ import AppDeleteModal from '@/components/ui/app-delete'
 import { addQuery, stringifyObjectIntoQueryString, getParamsFromPath } from '@/utils/client-url-params'
 import { cleanObject } from '@reapit/utils'
 import Routes from '@/constants/routes'
-import { FaCheck } from 'react-icons/fa'
+import { FaCheck, FaTimes } from 'react-icons/fa'
 import { setDeleteAppInitFormState } from '@/actions/app-delete'
 import { CreateSubscriptionsButton } from '../../ui/create-subscriptions/create-subscriptions-button'
-import { AppSummaryModel } from '../../../../../aml-checklist/src/types/api-2020-01-31/marketplace-api-schema'
+import { AppSummaryModel } from '@reapit/foundations-ts-definitions'
+import { CheckAWSButton } from './check-aws-button'
 
 export type DeleteModalData = {
   visible: boolean
@@ -136,10 +138,24 @@ export const generateColumns =
         Cell: renderIsFeature(dispatch),
       },
       {
+        Header: 'Private',
+        id: 'private',
+        Cell: ({ row }: { row: { original: AppSummaryModel } }) => (
+          <>{row.original.limitToClientIds?.length ? <FaCheck /> : <FaTimes />}</>
+        ),
+      },
+      {
+        Header: 'Check Is AWS',
+        id: 'check-aws',
+        Cell: ({ row }: { row: { original: AppSummaryModel } }) => <CheckAWSButton appId={row.original.id ?? ''} />,
+      },
+      {
+        Header: 'Delete App',
         id: 'Delete',
         Cell: renderDeleteAction({ setDataDeleteModal, deleteModalData }),
       },
       {
+        Header: 'Subscribe Listing',
         id: 'Subscribe',
         Cell: ({ row }: { row: { original: AppSummaryModel } }) => (
           <CreateSubscriptionsButton
@@ -203,6 +219,12 @@ export const renderForm = ({ values, status }) => {
             />
           </GridItem>
           <GridItem>
+            <Checkbox name="isListed" id="isListed" labelText="Is Listed" />
+          </GridItem>
+        </Grid>
+        <Grid>
+          <GridItem> {status && <p className="has-text-danger">{status}</p>}</GridItem>
+          <GridItem>
             <LevelRight className="mt-5 pt-2">
               <Button type="submit" variant="primary">
                 Search
@@ -213,7 +235,6 @@ export const renderForm = ({ values, status }) => {
             </LevelRight>
           </GridItem>
         </Grid>
-        {status && <p className="has-text-danger">{status}</p>}
       </FormSection>
     </Form>
   )

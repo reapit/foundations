@@ -6,4 +6,5 @@ export const reapitConnectBrowserSession = new ReapitConnectBrowserSession({
   connectOAuthUrl: window.reapit.config.connectOAuthUrl,
   connectLoginRedirectPath: '/apps',
   connectUserPoolId: window.reapit.config.connectUserPoolId,
+  connectApplicationTimeout: 86400000, // 24hrs in ms
 })

@@ -219,7 +219,7 @@ exports[`Subscriptions should match a snapshot when LOADING false 1`] = `
                               >
                                 <Field
                                   name="developerName"
-                                  validate={null}
+                                  validate={[Function]}
                                 >
                                   <div
                                     className="field"
@@ -266,7 +266,7 @@ exports[`Subscriptions should match a snapshot when LOADING false 1`] = `
                               >
                                 <Field
                                   name="userEmail"
-                                  validate={null}
+                                  validate={[Function]}
                                 >
                                   <div
                                     className="field"
@@ -313,7 +313,7 @@ exports[`Subscriptions should match a snapshot when LOADING false 1`] = `
                               >
                                 <Field
                                   name="appName"
-                                  validate={null}
+                                  validate={[Function]}
                                 >
                                   <div
                                     className="field"
@@ -719,7 +719,7 @@ exports[`Subscriptions should render blank Info when data is empty 1`] = `
                               >
                                 <Field
                                   name="developerName"
-                                  validate={null}
+                                  validate={[Function]}
                                 >
                                   <div
                                     className="field"
@@ -766,7 +766,7 @@ exports[`Subscriptions should render blank Info when data is empty 1`] = `
                               >
                                 <Field
                                   name="userEmail"
-                                  validate={null}
+                                  validate={[Function]}
                                 >
                                   <div
                                     className="field"
@@ -813,7 +813,7 @@ exports[`Subscriptions should render blank Info when data is empty 1`] = `
                               >
                                 <Field
                                   name="appName"
-                                  validate={null}
+                                  validate={[Function]}
                                 >
                                   <div
                                     className="field"
@@ -1219,7 +1219,7 @@ exports[`Subscriptions should show loader when LOADING true 1`] = `
                               >
                                 <Field
                                   name="developerName"
-                                  validate={null}
+                                  validate={[Function]}
                                 >
                                   <div
                                     className="field"
@@ -1266,7 +1266,7 @@ exports[`Subscriptions should show loader when LOADING true 1`] = `
                               >
                                 <Field
                                   name="userEmail"
-                                  validate={null}
+                                  validate={[Function]}
                                 >
                                   <div
                                     className="field"
@@ -1313,7 +1313,7 @@ exports[`Subscriptions should show loader when LOADING true 1`] = `
                               >
                                 <Field
                                   name="appName"
-                                  validate={null}
+                                  validate={[Function]}
                                 >
                                   <div
                                     className="field"

@@ -209,7 +209,7 @@ exports[`SubscriptionsFilterForm should render developer filter form 1`] = `
                           >
                             <Field
                               name="developerName"
-                              validate={null}
+                              validate={[Function]}
                             >
                               <div
                                 className="field"
@@ -256,7 +256,7 @@ exports[`SubscriptionsFilterForm should render developer filter form 1`] = `
                           >
                             <Field
                               name="userEmail"
-                              validate={null}
+                              validate={[Function]}
                             >
                               <div
                                 className="field"
@@ -303,7 +303,7 @@ exports[`SubscriptionsFilterForm should render developer filter form 1`] = `
                           >
                             <Field
                               name="appName"
-                              validate={null}
+                              validate={[Function]}
                             >
                               <div
                                 className="field"

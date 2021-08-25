@@ -1,3 +1,5 @@
+import { CodeBuild } from 'aws-sdk'
+
 export interface PipelineModelInterface {
   id?: string
   name?: string
@@ -21,7 +23,7 @@ export interface PipelineRunnerModelInterface {
   buildCommand?: string
   packageManager?: PackageManagerEnum
   tasks?: TaskModelInterface[]
-  buildStatus?: DeploymentStatus
+  buildStatus?: CodeBuild.StatusType
 }
 
 export interface TaskModelInterface {
@@ -29,8 +31,11 @@ export interface TaskModelInterface {
   pipelineRunnerId?: string
   created?: string
   modified?: string
-  functionName?: TaskRunnerFunctions
-  status?: DeploymentStatus
+  functionName?: CodeBuild.BuildPhaseType
+  buildStatus?: CodeBuild.StatusType
+  startTime?: string
+  endTime?: string
+  elapsedTime?: string
 }
 
 export enum PackageManagerEnum {
@@ -41,20 +46,4 @@ export enum PackageManagerEnum {
 export enum AppTypeEnum {
   NODE = 'node',
   REACT = 'react',
-}
-
-export enum DeploymentStatus {
-  FAILED = 'failed',
-  SUCCESS = 'success',
-  CANCELED = 'canceled',
-  PENDING = 'pending',
-  RUNNING = 'running',
-}
-
-export enum TaskRunnerFunctions {
-  INSTALL = 'install',
-  BUILD = 'build',
-  DEPLOY_LAMBDAS = 'deploy lambdas',
-  DEPLOY_REACT = 'deploy react',
-  PULL = 'pull',
 }

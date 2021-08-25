@@ -20,6 +20,7 @@ window.reapit = {
     marketplaceUrl: '',
     API_KEY_SERVICE_HOST: '',
     DEPLOYMENT_SERVICE_HOST: '',
+    PUSHER_KEY: '',
   },
 }
 

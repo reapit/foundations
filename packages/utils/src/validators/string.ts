@@ -49,3 +49,13 @@ export const isValidHttpUrl = (url: string) => {
 export const whiteListLocalhostAndIsValidUrl = (url: string) => {
   return isValidHttpsUrl(url) || /http?:\/\/localhost/.test(url)
 }
+
+export const hasSpecialChars = (value: string): boolean => {
+  if (!value) return false
+
+  if (/^[\w\-\s£$@%&*()?!%/=+'"~^,.#;:]+$/.test(value) && /^((?!javascript).)*$/.test(value.toLowerCase())) {
+    return false
+  }
+
+  return true
+}

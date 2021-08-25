@@ -41,6 +41,7 @@ describe('apps', () => {
 
     it('api call success', () => {
       window.reapit.config.orgAdminRestrictedAppIds = []
+      window.reapit.config.clientHiddenAppIds = {}
       const clone = gen.clone()
       expect(clone.next(auth.loginIdentity.clientId).value).toEqual(
         call(fetchAppsApi, {

@@ -22,11 +22,28 @@ export const updatePipelineRunnerEntity = async (
   })
 }
 
-export const findPipelineRunnerById = async (id: string): Promise<PipelineRunnerEntity | undefined> => {
+export const savePipelineRunnerEntity = async (model: PipelineRunnerEntity): Promise<PipelineRunnerEntity> => {
   const connection = await connect()
   const repo = connection.getRepository(PipelineRunnerEntity)
 
-  return repo.findOne(id)
+  return repo.save(model)
+}
+
+export const findPipelineRunnerById = async (
+  id: string,
+  extras?: {
+    relations: string[]
+  },
+): Promise<PipelineRunnerEntity | undefined> => {
+  const connection = await connect()
+  const repo = connection.getRepository(PipelineRunnerEntity)
+
+  return repo.findOne({
+    where: {
+      id,
+    },
+    ...extras,
+  })
 }
 
 export const paginatePipelineRunners = async (
@@ -51,4 +68,18 @@ export const paginatePipelineRunners = async (
       },
     },
   )
+}
+
+export const findPipelineRunnerByCodeBuildId = async (
+  codebuildId: string,
+): Promise<PipelineRunnerEntity | undefined> => {
+  const connection = await connect()
+  const repo = connection.getRepository(PipelineRunnerEntity)
+
+  return repo.findOne({
+    where: {
+      codebuildId,
+    },
+    relations: ['pipeline', 'tasks'],
+  })
 }

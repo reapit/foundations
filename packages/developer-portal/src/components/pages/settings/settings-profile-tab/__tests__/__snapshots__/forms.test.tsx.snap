@@ -217,7 +217,7 @@ exports[`ProfileTab should match snapshot 1`] = `
                             >
                               <Field
                                 name="name"
-                                validate={null}
+                                validate={[Function]}
                               >
                                 <div
                                   className="field"
@@ -264,7 +264,7 @@ exports[`ProfileTab should match snapshot 1`] = `
                             >
                               <Field
                                 name="jobTitle"
-                                validate={null}
+                                validate={[Function]}
                               >
                                 <div
                                   className="field"
@@ -538,7 +538,7 @@ exports[`ProfileTab should match snapshot 1`] = `
                             >
                               <Field
                                 name="currentPassword"
-                                validate={null}
+                                validate={[Function]}
                               >
                                 <div
                                   className="field"
@@ -584,7 +584,7 @@ exports[`ProfileTab should match snapshot 1`] = `
                             >
                               <Field
                                 name="password"
-                                validate={null}
+                                validate={[Function]}
                               >
                                 <div
                                   className="field"
@@ -639,7 +639,7 @@ exports[`ProfileTab should match snapshot 1`] = `
                             >
                               <Field
                                 name="confirmPassword"
-                                validate={null}
+                                validate={[Function]}
                               >
                                 <div
                                   className="field"

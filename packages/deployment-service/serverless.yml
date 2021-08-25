@@ -61,6 +61,10 @@ provider:
     DEPLOYMENT_VERSION_BUCKET_NAME: ${self:custom.env.DEPLOYMENT_VERSION_BUCKET_NAME}
     DEPLOYMENT_LIVE_BUCKET_NAME: ${self:custom.env.DEPLOYMENT_LIVE_BUCKET_NAME}
     DEPLOYMENT_BUCKET_NAME: ${self:custom.env.DEPLOYMENT_BUCKET_NAME}
+    REGION: ${self:provider.region}
+    PUSHER_APPID: ${self:custom.env.PUSHER_APPID}
+    PUSHER_KEY: ${self:custom.env.PUSHER_KEY}
+    PUSHER_SECRET: ${self:custom.env.PUSHER_SECRET}
   iamRoleStatements:
     - Effect: Allow
       Action:
@@ -124,7 +128,7 @@ provider:
         - sqs:DeleteMessage
       Resource:
         Fn::GetAtt:
-          - TaskPopulation
+          - CodebuildExecutor
           - Arn
     - Effect: Allow
       Action:
@@ -133,7 +137,7 @@ provider:
         - sqs:DeleteMessage
       Resource:
         Fn::GetAtt:
-          - TaskRunner
+          - CodebuildDeploy
           - Arn
     - Effect: Allow
       Action:
@@ -146,6 +150,10 @@ provider:
         - route53:GetChange
         - route53:ListResourceRecordSets
       Resource: arn:aws:route53:::hostedzone/Z02367201ZA0CZPSM3N2H
+    - Effect: Allow
+      Action:
+        - codebuild:StartBuild
+      Resource: arn:aws:codebuild:eu-west-2:028446965111:project/test
 
 resources:
   Resources:
@@ -182,15 +190,14 @@ resources:
       Properties:
         BucketName: ${self:custom.env.DEPLOYMENT_LIVE_BUCKET_NAME}
         AccessControl: PublicRead
-    TaskRunner:
+    CodebuildExecutor:
       Type: AWS::SQS::Queue
       Properties:
-        QueueName: TaskRunner
-        VisibilityTimeout: 300
-    TaskPopulation:
+        QueueName: CodebuildExecutor
+    CodebuildDeploy:
       Type: AWS::SQS::Queue
       Properties:
-        QueueName: TaskPopulation
+        QueueName: CodebuildDeploy
 
 package:
   individually: true
@@ -526,27 +533,27 @@ functions:
               - Authorization
               - X-Api-Key
               - api-version
-  taskPopulation:
-    handler: src/index.taskPopulation
+  codebuildExecutor:
+    handler: src/index.codebuildExecutor
     events:
       - sqs:
-          queueName: TaskPopulation
+          queueName: CodebuildExecutor
           arn:
             Fn::GetAtt:
-              - TaskPopulation
+              - CodebuildExecutor
               - Arn
-  taskRunner:
-    layers:
-      - arn:aws:lambda:${self:provider.region}:553035198032:layer:git-lambda2:8
-    handler: src/index.taskRunner
+  codebuildUpdate:
+    handler: src/index.codebuildPipelineUpdater
+    events:
+      - sns: arn:aws:sns:eu-west-2:028446965111:codebuild
     timeout: 300
-    fileSystemConfig:
-      arn: ${self:custom.env.EFS_ARN}
-      localMountPath: /mnt/efs1
+  codebuildDeploy:
+    handler: src/index.versionDeploy
     events:
       - sqs:
-          queueName: TaskRunner
+          queueName: CodebuildDeploy
           arn:
             Fn::GetAtt:
-              - TaskRunner
+              - CodebuildDeploy
               - Arn
+    timeout: 300
