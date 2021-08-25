@@ -7518,6 +7518,153 @@ export interface JournalEntryModelPagedResult {
   }
 }
 /**
+ * Representation of a key movement
+ */
+export interface KeyMovementModel {
+  readonly _links?: {
+    [name: string]: {
+      href?: string
+    }
+  }
+  readonly _embedded?: {
+    [name: string]: any
+  }
+  /**
+   * The unique identifier of the key movement
+   */
+  id?: string
+  /**
+   * The date and time when the key movement was created
+   * example:
+   * 2019-08-14T12:30:02.0000000Z
+   */
+  created?: string // date-time
+  /**
+   * The date and time when the key movement was last modified
+   * example:
+   * 2019-08-14T12:30:02.0000000Z
+   */
+  modified?: string // date-time
+  /**
+   * The unique identifier of the key set this movement belongs to
+   */
+  keyId?: string
+  /**
+   * The unique identifier of the property that the key set belongs to
+   */
+  propertyId?: string
+  /**
+   * The unique identifier of the contact/negotiator that the key is checked out with
+   */
+  checkOutToId?: string
+  /**
+   * The type of of entity that checked out the key (contact/negotiator)
+   */
+  checkOutToType?: string
+  /**
+   * The date and time of when the key set was checked out
+   * example:
+   * 2019-08-14T12:30:02.0000000Z
+   */
+  checkOutAt?: string // date-time
+  /**
+   * The unique identifier of the negotiator that checked out the key set
+   */
+  checkOutNegotiatorId?: string
+  /**
+   * The date and time of when the key set was checked in
+   * example:
+   * 2019-08-14T12:30:02.0000000Z
+   */
+  checkInAt?: string // date-time
+  /**
+   * The unique identifier of the negotiator that checked in the key set
+   */
+  checkInNegotiatorId?: string
+  /**
+   * The ETag for the current version of the key movement. Used for managing update concurrency
+   */
+  readonly _eTag?: string
+}
+export interface KeyMovementModelPagedResult {
+  _embedded?: {
+    readonly _links?: {
+      [name: string]: {
+        href?: string
+      }
+    }
+    readonly _embedded?: {
+      [name: string]: any
+    }
+    /**
+     * The unique identifier of the key movement
+     */
+    id?: string
+    /**
+     * The date and time when the key movement was created
+     * example:
+     * 2019-08-14T12:30:02.0000000Z
+     */
+    created?: string // date-time
+    /**
+     * The date and time when the key movement was last modified
+     * example:
+     * 2019-08-14T12:30:02.0000000Z
+     */
+    modified?: string // date-time
+    /**
+     * The unique identifier of the key set this movement belongs to
+     */
+    keyId?: string
+    /**
+     * The unique identifier of the property that the key set belongs to
+     */
+    propertyId?: string
+    /**
+     * The unique identifier of the contact/negotiator that the key is checked out with
+     */
+    checkOutToId?: string
+    /**
+     * The type of of entity that checked out the key (contact/negotiator)
+     */
+    checkOutToType?: string
+    /**
+     * The date and time of when the key set was checked out
+     * example:
+     * 2019-08-14T12:30:02.0000000Z
+     */
+    checkOutAt?: string // date-time
+    /**
+     * The unique identifier of the negotiator that checked out the key set
+     */
+    checkOutNegotiatorId?: string
+    /**
+     * The date and time of when the key set was checked in
+     * example:
+     * 2019-08-14T12:30:02.0000000Z
+     */
+    checkInAt?: string // date-time
+    /**
+     * The unique identifier of the negotiator that checked in the key set
+     */
+    checkInNegotiatorId?: string
+    /**
+     * The ETag for the current version of the key movement. Used for managing update concurrency
+     */
+    readonly _eTag?: string
+  }[]
+  pageNumber?: number // int32
+  pageSize?: number // int32
+  pageCount?: number // int32
+  totalPageCount?: number // int32
+  totalCount?: number // int32
+  _links?: {
+    [name: string]: {
+      href?: string
+    }
+  }
+}
+/**
  * Representation of a set of keys
  */
 export interface KeysModel {
