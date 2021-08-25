@@ -12,3 +12,9 @@ export const usePageId = () => {
 
   return { pageId: pageId || '', setPageId, context }
 }
+
+export const getPageId = () => {
+  const parts = window.location.pathname.split('/')
+  const pageId = parts[parts.length - 1]
+  return pageId
+}

@@ -1,10 +1,12 @@
+import { SerializedNode } from '@craftjs/core'
+import { writeStorage, useLocalStorage } from '@rehooks/local-storage'
 import slugify from 'slugify'
 import { emptyState } from './emptyState'
 
 type Page = {
   id: string
   name: string
-  nodes: string
+  nodes: Record<string, SerializedNode>
 }
 
 const KEY = 'rpt_savestate'
@@ -30,21 +32,21 @@ export const deletePage = (id: string): void => {
     throw new Error('page not found')
   }
   pages.splice(pages.indexOf(page), 1)
-  window.localStorage.setItem(KEY, JSON.stringify(pages))
+  writeStorage(KEY, JSON.stringify(pages))
 }
 
-export const setPageNodes = (id: string, nodes: string) => {
+export const setPageNodes = (id: string, nodes: Record<string, SerializedNode>) => {
   const pages = getPages()
   const page = pages.find((p) => p.id === id)
   if (!page) {
     return setPage(id, {
       id,
       name: slugify(id),
-      nodes: JSON.stringify(emptyState),
+      nodes: emptyState,
     })
   }
   page.nodes = nodes
-  window.localStorage.setItem(KEY, JSON.stringify(pages))
+  writeStorage(KEY, JSON.stringify(pages))
 }
 
 export const setPage = (id: string, page: Page) => {
@@ -55,15 +57,26 @@ export const setPage = (id: string, page: Page) => {
   } else {
     pages[index] = page
   }
-  window.localStorage.setItem(KEY, JSON.stringify(pages))
+  writeStorage(KEY, JSON.stringify(pages))
 }
 
 export const newPage = (name: string) => {
   const page = {
     id: slugify(name),
     name,
-    nodes: JSON.stringify(emptyState),
+    nodes: emptyState,
   }
   setPage(page.id, page)
   return page
+}
+
+export const usePages = () => {
+  const [pages] = useLocalStorage<Array<Page>>(KEY)
+  if (!pages) {
+    return []
+  }
+  if (typeof pages === 'string') {
+    return JSON.parse(pages)
+  }
+  return pages
 }

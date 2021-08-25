@@ -71,7 +71,7 @@ const Toolbox = () => {
             <SquareSvg />
           </Item>
         </div>
-        <div ref={(ref) => ref && create(ref, <Element is={Form} formType="create" padding={12} width={12} />)}>
+        <div ref={(ref) => ref && create(ref, <Element is={Form} padding={12} width={12} />)}>
           <Item data-tip="Form" className={cx(elM2, elPb2, block, cursorMove)}>
             <SquareSvg />
           </Item>

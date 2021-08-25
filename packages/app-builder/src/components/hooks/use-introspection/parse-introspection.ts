@@ -2,7 +2,7 @@ import { IntrospectionQuery } from 'graphql'
 
 import { notEmpty } from './helpers'
 import { getTopLevelFields } from './nested-fields'
-import { getMutation, getListQuery } from './query-generators'
+import { getMutation, getListQuery, getGetQuery } from './query-generators'
 import { isIntrospectionEnumType, isIntrospectionInputObjectType, isIntrospectionObjectType } from './types'
 
 export const parseIntrospectionResult = (introspection: IntrospectionQuery) => {
@@ -30,6 +30,7 @@ export const parseIntrospectionResult = (introspection: IntrospectionQuery) => {
     return {
       object,
       list: getListQuery(queries, all),
+      get: getGetQuery(queries, all),
       create: getMutation('create', mutations, all, inputObjectTypes, enums),
       update: getMutation('update', mutations, all, inputObjectTypes, enums),
       delete: getMutation('delete', mutations, all, inputObjectTypes, enums),

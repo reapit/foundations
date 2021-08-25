@@ -1,11 +1,16 @@
-import React, { useState } from 'react'
+import React, { useEffect, useState } from 'react'
 import { ToolbarItem, ToolbarItemType, ToolbarSection } from '../toolbar'
 import Container, { ContainerProps } from './container'
-import { Button, InputGroup, Label, Loader, Select } from '@reapit/elements'
+import { Button, InputGroup, Label, Loader, Select, useSnack } from '@reapit/elements'
 import { useTypeList } from '@/components/hooks/objects/use-type-list'
-import { MutationType } from '@/components/hooks/use-introspection/types'
 import { useObjectMutate } from '@/components/hooks/objects/use-object-mutate'
 import { useObjectList } from '@/components/hooks/objects/use-object-list'
+import { useEditor } from '@craftjs/core'
+import { DestinationPage } from './link'
+import { useHistory } from 'react-router'
+import { usePageId } from '@/core/usePageId'
+import { useObjectGet } from '@/components/hooks/objects/use-object-get'
+import { uppercaseSentence } from './utils'
 
 const defaultProps = {
   destination: '/',
@@ -13,7 +18,7 @@ const defaultProps = {
 
 interface FormProps extends ContainerProps {
   typeName?: string
-  formType: MutationType
+  destination?: string
 }
 
 const SelectIDofType = ({ typeName, value, onChange }) => {
@@ -37,31 +42,77 @@ const SelectIDofType = ({ typeName, value, onChange }) => {
   return null
 }
 
-const Form = ({ typeName, formType, ...props }: FormProps) => {
-  const { loading, args, mutateFunction } = useObjectMutate(formType, typeName)
+const Form = ({ typeName, destination, ...props }: FormProps) => {
+  const { context } = usePageId()
+  const formType = context.editObjectId ? 'update' : 'create'
+  const { data, loading: getLoading } = useObjectGet(typeName, context.editObjectId as string | undefined)
+  const { args, mutateFunction, mutationLoading } = useObjectMutate(formType, typeName)
   const [formState, setFormState] = useState({})
+  const { success, error } = useSnack()
+  const { isEditing } = useEditor((state) => ({
+    isEditing: state.options.enabled,
+  }))
+  const history = useHistory()
+
+  useEffect(() => {
+    if (data && args) {
+      const dataCopy = {}
+      args[0].fields?.map((arg) => {
+        const { name, idOfType } = arg
+        if (data[name]) {
+          dataCopy[name] = data[name]
+        }
+        if (idOfType) {
+          const obj = data[idOfType.toLowerCase()]
+          if (obj) {
+            dataCopy[name] = obj.id
+          }
+        }
+      })
+      setFormState(dataCopy)
+    }
+  }, [data])
 
   return (
     <Container {...props}>
-      {loading && <Loader label="Loading" />}
-      {!loading && !typeName && <div>No type selected</div>}
+      {!typeName && <div>No type selected</div>}
       <form
-        onSubmit={() => {
+        onSubmit={(e) => {
           if (!args) return
-          mutateFunction({
-            variables: {
+          e.preventDefault()
+          let variables
+          if (formType === 'create') {
+            variables = {
               [args[0].name]: formState,
-            },
+            }
+          } else {
+            variables = {
+              [args[0].name]: formState,
+              [args[1].name]: context.editObjectId,
+            }
+          }
+          mutateFunction({
+            variables,
           })
+            .then(() => {
+              success(`Successfully ${formType}d ${typeName}`)
+              if (destination) {
+                history.push(destination)
+              }
+            })
+            .catch(() => {
+              error(`Error ${formType}ing ${typeName}`)
+            })
         }}
       >
+        {getLoading && <Loader label="Loading" />}
         {args &&
           args[0].fields?.map((arg) => {
             const { name, isRequired, typeName, enumValues, idOfType } = arg
             if (enumValues) {
               return (
                 <>
-                  <Label>{name}</Label>
+                  <Label>{uppercaseSentence(name)}</Label>
                   <Select
                     onChange={(e) => {
                       setFormState({
@@ -106,7 +157,7 @@ const Form = ({ typeName, formType, ...props }: FormProps) => {
               <InputGroup
                 required={isRequired}
                 key={name}
-                label={name}
+                label={uppercaseSentence(name)}
                 type="text"
                 value={formState[name]}
                 onChange={(e) => {
@@ -118,7 +169,9 @@ const Form = ({ typeName, formType, ...props }: FormProps) => {
               />
             )
           })}
-        <Button>Save</Button>
+        <Button disabled={isEditing} loading={mutationLoading}>
+          {formType === 'create' ? 'Create' : 'Save'}
+        </Button>
       </form>
     </Container>
   )
@@ -160,6 +213,7 @@ const FormSettings = () => {
           </option>
         </ToolbarItem>
       </ToolbarSection>
+      <DestinationPage propKey="destination" title="Redirect To" />
     </>
   )
 }

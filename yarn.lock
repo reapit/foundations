@@ -6810,6 +6810,15 @@ __metadata:
   languageName: node
   linkType: hard
 
+"@rehooks/local-storage@npm:2.4.0":
+  version: 2.4.0
+  resolution: "@rehooks/local-storage@npm:2.4.0"
+  peerDependencies:
+    react: "*"
+  checksum: 07f82b148bb27431ad8a808bf6dff550f9f5e103796ad4886378df9a747b58358f03b3ef105a6111aed1513b7b0b484cc8138233a91027b79327f716b5526729
+  languageName: node
+  linkType: hard
+
 "@rollup/plugin-babel@npm:^5.1.0, @rollup/plugin-babel@npm:^5.2.0, @rollup/plugin-babel@npm:^5.3.0":
   version: 5.3.0
   resolution: "@rollup/plugin-babel@npm:5.3.0"
@@ -12713,6 +12722,7 @@ __metadata:
     "@reapit/elements-legacy": "workspace:packages/elements-legacy"
     "@reapit/ts-scripts": "workspace:packages/ts-scripts"
     "@reapit/ts-types": "workspace:packages/ts-types"
+    "@rehooks/local-storage": 2.4.0
     "@sentry/browser": ^6.9.0
     "@typescript-eslint/eslint-plugin": ^4.28.4
     "@typescript-eslint/parser": ^4.28.4

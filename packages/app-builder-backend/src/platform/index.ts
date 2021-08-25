@@ -11,7 +11,7 @@ export const getMetadataObject = async (id: string, accessToken: string) => {
     },
   })
   const data = await res.json()
-  console.log('get', data)
+
   if (data.statusCode !== 200) {
     return
   }
@@ -26,7 +26,7 @@ export const findMetadataObject = async (entityType: string, accessToken: string
     },
   })
   const data = await res.json()
-  console.log('find', data)
+
   return data._embedded
 }
 
@@ -55,7 +55,7 @@ export const createMetadataObject = async (entityType: string, metadata: any, ac
     body: JSON.stringify({ entityType, metadata }),
   })
   const data = await res.json()
-  console.log('create', data)
+
   return data.metadata
 }
 
@@ -67,7 +67,7 @@ export const getSchema = async (id: string, accessToken: string) => {
     },
   })
   const data = await res.json()
-  console.log('getSchema', data)
+
   return data
 }
 

@@ -5,7 +5,7 @@ import Router from './router'
 import ErrorBoundary from '../components/hocs/error-boundary'
 import { injectSwitchModeToWindow } from '@reapit/elements-legacy'
 // Global styles import
-import { elGlobals, MediaStateProvider, NavStateProvider } from '@reapit/elements' // eslint-disable-line
+import { elGlobals, MediaStateProvider, NavStateProvider, SnackProvider } from '@reapit/elements' // eslint-disable-line
 import { reapitConnectBrowserSession } from './connect-session'
 
 const httpLink = createHttpLink({
@@ -38,7 +38,9 @@ const App = () => {
       <ApolloProvider client={client}>
         <NavStateProvider>
           <MediaStateProvider>
-            <Router />
+            <SnackProvider>
+              <Router />
+            </SnackProvider>
           </MediaStateProvider>
         </NavStateProvider>
       </ApolloProvider>

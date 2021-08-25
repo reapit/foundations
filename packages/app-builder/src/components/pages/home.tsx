@@ -10,7 +10,7 @@ import Context from '../ui/user/context'
 import Table from '../ui/user/table'
 import Form from '../ui/user/form'
 import { setPageNodes } from '../ui/header/saveState'
-import { usePageId } from '@/core/usePageId'
+import { getPageId } from '../../core/usePageId'
 
 export type AuthenticatedProps = {}
 
@@ -24,7 +24,6 @@ const isInitialLoad = (nodes: Record<string, SerializedNode>) => {
 
 export const Authenticated: FC<AuthenticatedProps> = () => {
   const iframeRef = useRef()
-  const { pageId } = usePageId()
 
   return (
     <Editor
@@ -38,8 +37,9 @@ export const Authenticated: FC<AuthenticatedProps> = () => {
       }}
       onRender={(props) => <RenderNode {...props} iframeRef={iframeRef.current} />}
       onNodesChange={(query) => {
+        const pageId = getPageId()
         if (query.serialize() !== '{}' && !isInitialLoad(query.getSerializedNodes())) {
-          setPageNodes(pageId, query.serialize())
+          setPageNodes(pageId, query.getSerializedNodes())
         }
       }}
     >

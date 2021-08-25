@@ -26,6 +26,25 @@ export const getListQuery = (queries: Array<QueryableField>, queryableObjectType
   `
 }
 
+export const getGetQuery = (queries: Array<QueryableField>, queryableObjectTypes: Array<IntrospectionObjectType>) => {
+  const list = queries.find(({ nestedKinds }) => !nestedKinds.includes(TypeKind.LIST))
+  if (!list) {
+    return null
+  }
+  const listDict = list && queryableFieldToNestedDict(list.type, queryableObjectTypes)
+  const listTypeStr = listDict && nestedFieldsToString(listDict)
+  const args = parseArgs(list.args, [], queryableObjectTypes, [])
+  const listQuery =
+    list &&
+    `query ${list.name}(${stringifyArgs(args, true)}){ ${list.name}(${stringifyArgs(args, false)})${
+      listTypeStr ? ` ${listTypeStr}` : ''
+    } }`
+
+  return gql`
+    ${listQuery}
+  `
+}
+
 type ParsedArg = {
   name: string
   isRequired: boolean

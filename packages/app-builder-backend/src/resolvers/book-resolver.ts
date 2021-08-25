@@ -2,7 +2,7 @@ import { Resolver, Query, Mutation, Arg, ID, Ctx } from 'type-graphql'
 import { Book, BookInput } from '../entities/book'
 import { authors } from './author-resolver'
 import { Context } from '../types'
-import { createBook, deleteBook, listBooks, updateBook } from '../platform/books'
+import { createBook, deleteBook, listBooks, updateBook, getBook } from '../platform/books'
 
 @Resolver(() => Book)
 export class BookResolver {
@@ -14,6 +14,14 @@ export class BookResolver {
       throw new Error('unauthorized')
     }
     return listBooks(ctx.accessToken)
+  }
+
+  @Query(() => Book)
+  async getBook(@Arg('id', () => ID) id: number, @Ctx() ctx: Context) {
+    if (!ctx.accessToken) {
+      throw new Error('unauthorized')
+    }
+    return getBook(id, ctx.accessToken)
   }
 
   @Mutation(() => Book)
@@ -50,7 +58,7 @@ export class BookResolver {
       throw new Error('unauthorized')
     }
     await updateBook(id, newBook, ctx.accessToken)
-    return book
+    return newBook
   }
 
   @Mutation(() => [Book])
