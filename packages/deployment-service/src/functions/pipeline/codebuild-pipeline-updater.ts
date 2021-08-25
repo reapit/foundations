@@ -127,8 +127,8 @@ const handlePhaseChange = async ({
     }
 
     task.buildStatus = buildStatus
-    task.startTime = phase['start-time']
-    task.endTime = phase['end-time']
+    task.startTime = phase['start-time']?.toISOString()
+    task.endTime = phase['end-time']?.toISOString()
     task.elapsedTime = phase['duration-in-seconds']?.toString()
 
     return task

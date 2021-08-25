@@ -25,14 +25,14 @@ export const versionDeploy: SQSHandler = async (event: SQSEvent, context: Contex
       }
 
       const deployTask = pipelineRunner.tasks[deployTaskIndex]
-      deployTask.startTime = (new Date()).toISOString()
+      deployTask.startTime = new Date().toISOString()
       deployTask.buildStatus = 'IN_PROGRESS'
 
       pipelineRunner.tasks[deployTaskIndex] = deployTask
 
       await Promise.all([
         updateTask(deployTask, {
-          startTime: (new Date()).toISOString(),
+          startTime: new Date().toISOString(),
           buildStatus: 'IN_PROGRESS',
         }),
         pusher.trigger(pipelineRunner.pipeline?.developerId as string, 'pipeline-runner-update', pipelineRunner),
@@ -49,7 +49,7 @@ export const versionDeploy: SQSHandler = async (event: SQSEvent, context: Contex
         pipelineRunner.buildStatus = 'SUCCEEDED'
         if (pipelineRunner.tasks) {
           pipelineRunner.tasks[deployTaskIndex].buildStatus = 'SUCCEEDED'
-          pipelineRunner.tasks[deployTaskIndex].endTime = (new Date()).toISOString()
+          pipelineRunner.tasks[deployTaskIndex].endTime = new Date().toISOString()
         }
       } catch (e) {
         console.error(e)
@@ -57,7 +57,7 @@ export const versionDeploy: SQSHandler = async (event: SQSEvent, context: Contex
         pipelineRunner.buildStatus = 'FAILED'
         if (pipelineRunner.tasks) {
           pipelineRunner.tasks[deployTaskIndex].buildStatus = 'FAILED'
-          pipelineRunner.tasks[deployTaskIndex].endTime = (new Date()).toISOString()
+          pipelineRunner.tasks[deployTaskIndex].endTime = new Date().toISOString()
         }
       }
 
