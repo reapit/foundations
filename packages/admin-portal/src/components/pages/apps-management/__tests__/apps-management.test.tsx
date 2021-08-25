@@ -87,16 +87,33 @@ describe('admin-apps', () => {
   })
 
   describe('generateColumns', () => {
+    window.reapit.config.limitedUserAccessWhitelist = []
     it('should match snapshot', () => {
       const dispatch = jest.fn()
       const setDataDeleteModal = jest.fn()
+      const hasLimitedAccess = false
       const deleteModalData = {
         visible: true,
         appId: '123',
         appName: '123',
         developerName: '123',
       }
-      const fn = generateColumns({ dispatch, setDataDeleteModal, deleteModalData })
+      const fn = generateColumns({ dispatch, setDataDeleteModal, deleteModalData, hasLimitedAccess })
+      const wrapper = shallow(<div>{fn()}</div>)
+      expect(wrapper).toMatchSnapshot()
+    })
+
+    it('should match snapshot if the user has limited access', () => {
+      const dispatch = jest.fn()
+      const setDataDeleteModal = jest.fn()
+      const hasLimitedAccess = true
+      const deleteModalData = {
+        visible: true,
+        appId: '123',
+        appName: '123',
+        developerName: '123',
+      }
+      const fn = generateColumns({ dispatch, setDataDeleteModal, deleteModalData, hasLimitedAccess })
       const wrapper = shallow(<div>{fn()}</div>)
       expect(wrapper).toMatchSnapshot()
     })
