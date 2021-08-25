@@ -1,6 +1,5 @@
 import { css } from '@linaria/core'
 
-// Text align
 export const elTextLeft = css`
   text-align: left;
 `
@@ -17,7 +16,14 @@ export const elTextJustify = css`
   text-align: justify;
 `
 
-// Font weight
 export const elFontBold = css`
   font-weight: 700;
+`
+
+export const elFontItalic = css`
+  font-style: italic;
+`
+
+export const elFontUppercase = css`
+  font-style: uppercase;
 `

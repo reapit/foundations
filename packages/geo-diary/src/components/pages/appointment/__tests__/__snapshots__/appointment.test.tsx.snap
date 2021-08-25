@@ -4,9 +4,7 @@ exports[`appointment AppointmentContent should match snapshot when has appointme
 <Fragment>
   <ControlsContainer>
     <ControlsTitleWrapper>
-      <Subtitle
-        className="el-is-bold-text"
-      >
+      <Subtitle>
         Location
       </Subtitle>
       <TabMode />
@@ -2020,9 +2018,7 @@ exports[`appointment AppointmentContent should match snapshot when loading 1`] =
 <Fragment>
   <ControlsContainer>
     <ControlsTitleWrapper>
-      <Subtitle
-        className="el-is-bold-text"
-      >
+      <Subtitle>
         Location
       </Subtitle>
       <TabMode />

@@ -2,7 +2,7 @@ import { useNode, useEditor } from '@craftjs/core'
 import { ROOT_NODE } from '@craftjs/utils'
 import React, { useEffect, useRef, useCallback } from 'react'
 import ReactDOM from 'react-dom'
-import { elFlex, elFlex1, elFlexAlignCenter, elMr2, elMr4, elP2 } from '@reapit/elements'
+import { elFlex, elFlex1, elFlexAlignCenter, elMr3, elMr6, elP3 } from '@reapit/elements'
 
 import ArrowUp from '../../icons/arrow-up'
 import Delete from '../../icons/delete'
@@ -85,19 +85,19 @@ export const RenderNode = ({ render, iframeRef }) => {
             /*
               // @ts-ignore */
             ref={currentRef}
-            className={cx(indicator, elP2, elFlex, elFlexAlignCenter)}
+            className={cx(indicator, elP3, elFlex, elFlexAlignCenter)}
             style={{
               left: getPos(dom).left,
               top: getPos(dom).top,
               zIndex: 9999,
             }}
           >
-            <h2 className={cx(elFlex1, elMr4)}>{name}</h2>
+            <h2 className={cx(elFlex1, elMr6)}>{name}</h2>
             {moveable && (
               <>
                 <a
                   title="Increase block width"
-                  className={cx(littleButton, elMr2, textWhite)}
+                  className={cx(littleButton, elMr3, textWhite)}
                   style={{ fontSize: 18, fontWeight: 800 }}
                   onClick={() => {
                     setProp((props) => {
@@ -112,7 +112,7 @@ export const RenderNode = ({ render, iframeRef }) => {
                 </a>
                 <a
                   title="Decrease block width"
-                  className={cx(littleButton, elMr2, textWhite)}
+                  className={cx(littleButton, elMr3, textWhite)}
                   style={{ fontSize: 18, fontWeight: 800 }}
                   onClick={() => {
                     setProp((props) => {
@@ -129,7 +129,7 @@ export const RenderNode = ({ render, iframeRef }) => {
             )}
             {moveable && (
               <div
-                className={cx(littleButton, elMr2, cursorMove)}
+                className={cx(littleButton, elMr3, cursorMove)}
                 /*
                   // @ts-ignore */
                 ref={drag}
@@ -139,7 +139,7 @@ export const RenderNode = ({ render, iframeRef }) => {
             )}
             {id !== ROOT_NODE && (
               <a
-                className={cx(littleButton, elMr2, cursorPointer)}
+                className={cx(littleButton, elMr3, cursorPointer)}
                 onClick={() => {
                   actions.selectNode(parent)
                 }}

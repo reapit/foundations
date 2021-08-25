@@ -2,8 +2,8 @@ import {
   BodyText,
   Button,
   elHFull,
-  elMb3,
-  elMb8,
+  elMb5,
+  elMb9,
   FlexContainer,
   Icon,
   Loader,
@@ -81,7 +81,7 @@ export const GraphQLPage: FC = () => {
     <FlexContainer isFlexAuto>
       <SecondaryNavContainer>
         <Title>API</Title>
-        <SecondaryNav className={elMb8}>
+        <SecondaryNav className={elMb9}>
           <SecondaryNavItem onClick={navigate(history, Routes.SWAGGER)} active={pathname === Routes.SWAGGER}>
             REST API
           </SecondaryNavItem>
@@ -92,17 +92,17 @@ export const GraphQLPage: FC = () => {
             GraphQL
           </SecondaryNavItem>
         </SecondaryNav>
-        <Icon className={elMb3} icon="graphQlInfographic" iconSize="large" />
+        <Icon className={elMb5} icon="graphQlInfographic" iconSize="large" />
         <Subtitle>GraphQL Playground</Subtitle>
         <BodyText hasGreyText>
           GraphQL is a query language for APIs and a runtime for fulfilling those queries with your existing data.
           GraphQL gives clients the power to ask for exactly what they need and nothing more, makes it easier to evolve
           APIs over time, and enables powerful developer tools.
         </BodyText>
-        <Button className={elMb3} intent="neutral" onClick={openNewPage(ExternalPages.graphQLDocs)}>
+        <Button className={elMb5} intent="neutral" onClick={openNewPage(ExternalPages.graphQLDocs)}>
           View Docs
         </Button>
-        <Button className={elMb3} intent="critical" onClick={openNewPage(window.reapit.config.graphQLUri)}>
+        <Button className={elMb5} intent="critical" onClick={openNewPage(window.reapit.config.graphQLUri)}>
           Open New
         </Button>
       </SecondaryNavContainer>

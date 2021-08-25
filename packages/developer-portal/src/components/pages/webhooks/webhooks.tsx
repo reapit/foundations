@@ -35,8 +35,8 @@ import { WebhooksLogsTable } from './webhook-logs-table'
 import {
   BodyText,
   Button,
-  elMb3,
-  elMb8,
+  elMb5,
+  elMb9,
   elWFull,
   FlexContainer,
   Icon,
@@ -239,7 +239,7 @@ export const DeveloperWebhooks = () => {
       <FlexContainer className={elWFull} isFlexInitial>
         <SecondaryNavContainer>
           <Title>API</Title>
-          <SecondaryNav className={elMb8}>
+          <SecondaryNav className={elMb9}>
             <SecondaryNavItem onClick={navigate(history, Routes.SWAGGER)} active={pathname === Routes.SWAGGER}>
               REST API
             </SecondaryNavItem>
@@ -250,7 +250,7 @@ export const DeveloperWebhooks = () => {
               GraphQL
             </SecondaryNavItem>
           </SecondaryNav>
-          <Icon className={elMb3} icon="webhooksInfographic" iconSize="large" />
+          <Icon className={elMb5} icon="webhooksInfographic" iconSize="large" />
           <Subtitle>Webhooks Documentation</Subtitle>
           <BodyText hasGreyText>
             This system is designed to flexibly work with how your application is built and deployed. If you wish, you
@@ -258,7 +258,7 @@ export const DeveloperWebhooks = () => {
             different webhook subscription per topic or per customer. For more information about Webhooks, please see
             our documentation.
           </BodyText>
-          <Button className={elMb3} intent="neutral" onClick={openNewPage(ExternalPages.webhooksDocs)}>
+          <Button className={elMb5} intent="neutral" onClick={openNewPage(ExternalPages.webhooksDocs)}>
             View Docs
           </Button>
         </SecondaryNavContainer>

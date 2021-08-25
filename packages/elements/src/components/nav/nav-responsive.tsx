@@ -14,7 +14,7 @@ import {
   elNavSubItemActive,
   elNavSubItemExpanded,
 } from './__styles__'
-import { elMLAuto, elMr2 } from '../../styles/spacing'
+import { elMlAuto, elMr2 } from '../../styles/spacing'
 
 export type NavResponsiveItemType = 'ICON' | 'ITEM' | 'SECONDARY'
 
@@ -78,7 +78,7 @@ export const NavResponsive: FC<NavResponsiveProps> = ({
                 )}
                 {text}
                 <Icon
-                  className={cx(elIntentNeutral, elMLAuto, elMr2, elNavItemHideDesktop)}
+                  className={cx(elIntentNeutral, elMlAuto, elMr2, elNavItemHideDesktop)}
                   icon={navMenuOpen ? 'hamburgerOpenMenu' : 'hamburgerMenu'}
                   fontSize="2rem"
                   onClick={setNavState({
@@ -111,7 +111,7 @@ export const NavResponsive: FC<NavResponsiveProps> = ({
                 {text}
                 {isMobile && subItems && (
                   <Icon
-                    className={cx(elIntentNeutral, elMLAuto)}
+                    className={cx(elIntentNeutral, elMlAuto)}
                     icon={navSubMenuIndex === itemIndex ? 'arrowUpSystem' : 'arrowDownSystem'}
                   />
                 )}

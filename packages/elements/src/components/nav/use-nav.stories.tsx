@@ -13,7 +13,7 @@ import { Nav, NavItem, NavSubNavItem, NavSubNav } from './nav'
 import { Icon } from '../icon'
 import { cx } from '@linaria/core'
 import { elIntentNeutral } from '../../styles/intent'
-import { elMLAuto, elMr2 } from '../../styles/spacing'
+import { elMlAuto, elMr2 } from '../../styles/spacing'
 
 export const UseNavStory = () => {
   const { navState, setNavState } = useNavState(1)
@@ -32,7 +32,7 @@ export const UseNavStory = () => {
       >
         <Icon iconSize="medium" className={elNavItemIcon} icon="reapitLogoMenu" />
         <Icon
-          className={cx(elIntentNeutral, elMLAuto, elMr2, elNavItemHideDesktop)}
+          className={cx(elIntentNeutral, elMlAuto, elMr2, elNavItemHideDesktop)}
           icon={navMenuOpen ? 'hamburgerOpenMenu' : 'hamburgerMenu'}
           fontSize="2rem"
           onClick={setNavState({
@@ -92,7 +92,7 @@ export const UseNavMobileSubMenuStory = () => {
           fontSize={isMobile ? '7rem' : '2.5rem'}
         />
         <Icon
-          className={cx(elIntentNeutral, elMLAuto, elMr2, elNavItemHideDesktop)}
+          className={cx(elIntentNeutral, elMlAuto, elMr2, elNavItemHideDesktop)}
           icon={navMenuOpen ? 'hamburgerOpenMenu' : 'hamburgerMenu'}
           fontSize="2rem"
           onClick={setNavState({
@@ -116,7 +116,7 @@ export const UseNavMobileSubMenuStory = () => {
         Apps
         {isMobile && (
           <Icon
-            className={cx(elIntentNeutral, elMLAuto)}
+            className={cx(elIntentNeutral, elMlAuto)}
             icon={navSubMenuIndex === 0 ? 'arrowUpSystem' : 'arrowDownSystem'}
           />
         )}
@@ -150,7 +150,7 @@ export const UseNavMobileSubMenuStory = () => {
         Analytics
         {isMobile && (
           <Icon
-            className={cx(elIntentNeutral, elMLAuto)}
+            className={cx(elIntentNeutral, elMlAuto)}
             icon={navSubMenuIndex === 1 ? 'arrowUpSystem' : 'arrowDownSystem'}
           />
         )}
