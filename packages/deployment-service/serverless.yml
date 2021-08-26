@@ -297,7 +297,7 @@ functions:
               - X-Api-Key
               - api-version
   pipelineDelete:
-    handler: src/index.deletePipeline
+    handler: src/index.pipelineDelete
     events:
       - http:
           path: /pipeline/{pipelineId}
@@ -311,7 +311,7 @@ functions:
           authorizer:
             arn: arn:aws:cognito-idp:${self:provider.region}:${self:custom.env.AWS_ACCOUNT_ID}:userpool/${self:custom.env.CONNECT_USER_POOL}
   apiPipelineDelete:
-    handler: src/index.deletePipeline
+    handler: src/index.pipelineDelete
     events:
       - http:
           path: /api/pipeline/{pipelineId}
