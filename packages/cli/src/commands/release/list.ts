@@ -1,4 +1,4 @@
-import { Command } from './../../decorators'
+import { Command } from '../../decorators'
 import { AbstractCommand } from '../../abstract.command'
 import ora, { Ora } from 'ora'
 import { Pagination } from 'nestjs-typeorm-paginate'
