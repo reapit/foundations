@@ -36,9 +36,10 @@ export const getGetQuery = (queries: Array<QueryableField>, queryableObjectTypes
   const args = parseArgs(list.args, [], queryableObjectTypes, [])
   const listQuery =
     list &&
-    `query ${list.name}(${stringifyArgs(args, true)}){ ${list.name}(${stringifyArgs(args, false)})${
-      listTypeStr ? ` ${listTypeStr}` : ''
-    } }`
+    `query ${list.name}(${stringifyArgs(args, true)}) {
+        ${list.name}(${stringifyArgs(args, false)})
+          ${listTypeStr ? ` ${listTypeStr}` : ''}
+    }`
 
   return gql`
     ${listQuery}
@@ -119,10 +120,12 @@ export const getMutation = (
   const mutationDict = mutation && queryableFieldToNestedDict(mutation.type, queryableObjectTypes)
   const mutationTypeStr = mutationDict && nestedFieldsToString(mutationDict)
   const args = parseArgs(mutation.args, inputObjectTypes, queryableObjectTypes, enums)
-  const mutationStr = `mutation ${mutation.name}(${stringifyArgs(args, true)}) { ${mutation.name}(${stringifyArgs(
-    args,
-    false,
-  )})${mutationTypeStr ? ` ${mutationTypeStr}` : ''} }`
+  const mutationStr = `
+    mutation ${mutation.name}(${stringifyArgs(args, true)}) {
+      ${mutation.name}(${stringifyArgs(args, false)})
+        ${mutationTypeStr ? ` ${mutationTypeStr}` : ''}
+    }
+  `
 
   return {
     mutation: gql`
