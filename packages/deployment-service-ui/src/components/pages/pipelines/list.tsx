@@ -1,10 +1,10 @@
 import Routes from '@/constants/routes'
 import { reapitConnectBrowserSession } from '@/core/connect-session'
 import { ReapitConnectSession, useReapitConnect } from '@reapit/connect-session'
-import { notification } from '@reapit/elements-legacy'
-import { Button, Table } from '@reapit/elements-legacy'
 import {
   BodyText,
+  Button,
+  Table,
   Icon,
   Loader,
   PageContainer,
@@ -22,11 +22,12 @@ import {
   PaginationButton,
   elPaginationPrimary,
   elFlexGrow,
+  StatusIndicator,
 } from '@reapit/elements'
 import { PipelineModelInterface } from '@reapit/foundations-ts-definitions'
 import React, { useEffect, useState } from 'react'
 import { Link, useHistory, useLocation } from 'react-router-dom'
-import { pipelineServiceDelete, pipelineServicePaginate } from '../../../platform-api/pipelines'
+import { pipelineServicePaginate } from '../../../platform-api/pipelines'
 import { Pagination } from 'nestjs-typeorm-paginate'
 import { cx } from '@linaria/core'
 
@@ -34,7 +35,6 @@ export default () => {
   const { connectSession } = useReapitConnect(reapitConnectBrowserSession)
   const [pipelinePagination, setPipelinePagination] = useState<Pagination<PipelineModelInterface>>()
   const [loading, setLoading] = useState<boolean>(false)
-  const [deletionLoading, setDeletionLoading] = useState<string[]>([])
 
   const history = useHistory()
   const location = useLocation()
@@ -56,23 +56,6 @@ export default () => {
       fetchPipelines()
     }
   }, [connectSession])
-
-  const deletePipeline = async (id: string) => {
-    if (!pipelinePagination) {
-      return
-    }
-
-    setDeletionLoading([...deletionLoading, id])
-
-    await pipelineServiceDelete(connectSession as ReapitConnectSession, id)
-
-    setDeletionLoading(deletionLoading.filter((del) => del !== id))
-    setPipelinePagination({
-      ...pipelinePagination,
-      items: pipelinePagination.items.filter((pipeline) => pipeline.id !== id),
-    })
-    notification.success({ message: 'Pipeline deleted' })
-  }
 
   return (
     <FlexContainer isFlexAuto>
@@ -102,34 +85,37 @@ export default () => {
               <section className={cx(elFlexGrow)}>
                 <Title>My Pipelines</Title>
                 <Table
-                  data={pipelinePagination.items}
-                  columns={[
-                    {
-                      Header: 'Name',
-                      accessor: 'name',
-                    },
-                    {
-                      Header: 'Repository',
-                      accessor: 'repository',
-                    },
-                    {
-                      id: 'Delete',
-                      Cell: ({ row }: { row: { original: any } }) => (
-                        <>
-                          <Button variant="secondary">
-                            <Link to={Routes.PIPELINES_SHOW.replace(':pipelineId', row.original.id)}>Manage</Link>
+                  rows={pipelinePagination.items.map((pipeline) => ({
+                    cells: [
+                      {
+                        label: 'Status',
+                        value: pipeline.buildStatus as string,
+                        children: (
+                          <>
+                            <StatusIndicator intent={'primary'} />
+                            {pipeline.buildStatus}
+                          </>
+                        ),
+                      },
+                      {
+                        label: 'Name',
+                        value: pipeline.name as string,
+                      },
+                      {
+                        label: 'repository',
+                        value: pipeline.repository as string,
+                      },
+                      {
+                        label: '',
+                        value: '',
+                        children: (
+                          <Button intent="secondary">
+                            <Link to={Routes.PIPELINES_SHOW.replace(':pipelineId', pipeline.id as string)}>Manage</Link>
                           </Button>
-                          <Button
-                            loading={deletionLoading.includes(row.original.id)}
-                            onClick={() => deletePipeline(row.original.id)}
-                            variant="danger"
-                          >
-                            Delete
-                          </Button>
-                        </>
-                      ),
-                    },
-                  ]}
+                        ),
+                      },
+                    ],
+                  }))}
                 />
                 <PaginationWrap>
                   <PaginationText>

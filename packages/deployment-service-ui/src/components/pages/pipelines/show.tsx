@@ -1,11 +1,16 @@
 import Routes from '@/constants/routes'
 import { reapitConnectBrowserSession } from '@/core/connect-session'
-import { pipelineRunnerCreate, pipelineRunnerPaginate, pipelineServiceGet } from '@/platform-api/pipelines'
+import {
+  pipelineRunnerCreate,
+  pipelineRunnerPaginate,
+  pipelineServiceGet,
+  pipelineServiceDelete,
+} from '@/platform-api/pipelines'
 import { ReapitConnectSession, useReapitConnect } from '@reapit/connect-session'
 import { Breadcrumb, BreadcrumbItem, FlexContainerBasic, H1, Section, H3, ButtonGroup } from '@reapit/elements-legacy'
 import { Button, Label, Loader, StatusIndicator, Table, Intent } from '@reapit/elements'
 import React, { useEffect, useState } from 'react'
-import { Link, useParams } from 'react-router-dom'
+import { Link, useHistory, useParams } from 'react-router-dom'
 import {
   PipelineModelInterface,
   PipelineRunnerModelInterface,
@@ -154,6 +159,19 @@ export default () => {
   const params = useParams<{ pipelineId: string }>()
   const [pipelineRunnerPagination, setPipelineRunnerPagination] = useState<Pagination<PipelineRunnerModelInterface>>()
   const [deployLoading, setDeployLoading] = useState<boolean>(false)
+  const [deletionLoading, setDeletionLoading] = useState<boolean>(false)
+
+  const history = useHistory()
+
+  const deletePipeline = async (id: string) => {
+    setDeletionLoading(true)
+
+    await pipelineServiceDelete(connectSession as ReapitConnectSession, id)
+
+    setDeletionLoading(false)
+
+    history.push(Routes.PIPELINES)
+  }
 
   const deployPipeline = async () => {
     if (!pipeline || deployLoading) {
@@ -206,6 +224,9 @@ export default () => {
           </Button>
           <Button intent="critical">
             <Link to={Routes.PIPELINES_UPDATE.replace(':pipelineId', pipeline.id as string)}>Update</Link>
+          </Button>
+          <Button intent="danger" loading={deletionLoading} onClick={() => deletePipeline(pipeline.id as string)}>
+            Delete
           </Button>
         </ButtonGroup>
         <Label>Package Manager</Label>
