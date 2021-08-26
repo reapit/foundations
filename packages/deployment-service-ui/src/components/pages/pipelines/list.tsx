@@ -32,7 +32,7 @@ import { cx } from '@linaria/core'
 
 export default () => {
   const { connectSession } = useReapitConnect(reapitConnectBrowserSession)
-  const [pipelines, setPipelines] = useState<Pagination<PipelineModelInterface>>()
+  const [pipelinePagination, setPipelinePagination] = useState<Pagination<PipelineModelInterface>>()
   const [loading, setLoading] = useState<boolean>(false)
   const [deletionLoading, setDeletionLoading] = useState<string[]>([])
 
@@ -45,8 +45,10 @@ export default () => {
     const serviceResponse = await pipelineServicePaginate(connectSession as ReapitConnectSession, page)
     setLoading(false)
     if (serviceResponse) {
-      setPipelines(serviceResponse)
+      setPipelinePagination(serviceResponse)
     }
+
+    // TODO add page to location as query
   }
 
   useEffect(() => {
@@ -56,7 +58,7 @@ export default () => {
   }, [connectSession])
 
   const deletePipeline = async (id: string) => {
-    if (!pipelines) {
+    if (!pipelinePagination) {
       return
     }
 
@@ -65,9 +67,9 @@ export default () => {
     await pipelineServiceDelete(connectSession as ReapitConnectSession, id)
 
     setDeletionLoading(deletionLoading.filter((del) => del !== id))
-    setPipelines({
-      ...pipelines,
-      items: pipelines.items.filter((pipeline) => pipeline.id !== id),
+    setPipelinePagination({
+      ...pipelinePagination,
+      items: pipelinePagination.items.filter((pipeline) => pipeline.id !== id),
     })
     notification.success({ message: 'Pipeline deleted' })
   }
@@ -96,11 +98,11 @@ export default () => {
           <FlexContainer isFlexAlignCenter isFlexJustifyCenter>
             {loading ? (
               <Loader />
-            ) : pipelines ? (
+            ) : pipelinePagination ? (
               <section className={cx(elFlexGrow)}>
                 <Title>My Pipelines</Title>
                 <Table
-                  data={pipelines.items}
+                  data={pipelinePagination.items}
                   columns={[
                     {
                       Header: 'Name',
@@ -131,24 +133,24 @@ export default () => {
                 />
                 <PaginationWrap>
                   <PaginationText>
-                    <strong>{pipelines.meta.currentPage}</strong> of {pipelines?.meta.totalPages}
+                    <strong>{pipelinePagination.meta.currentPage}</strong> of {pipelinePagination?.meta.totalPages}
                   </PaginationText>
                   <PaginationButton
                     onClick={async () => {
-                      if (pipelines.meta.currentPage <= 1) {
+                      if (pipelinePagination.meta.currentPage <= 1) {
                         return
                       }
-                      await fetchPipelines(pipelines.meta.currentPage - 1)
+                      await fetchPipelines(pipelinePagination.meta.currentPage - 1)
                     }}
                   >
                     <Icon icon="backSystem" />
                   </PaginationButton>
                   <PaginationButton
                     onClick={async () => {
-                      if (pipelines.meta.currentPage >= pipelines.meta.totalPages) {
+                      if (pipelinePagination.meta.currentPage >= pipelinePagination.meta.totalPages) {
                         return
                       }
-                      await fetchPipelines(pipelines.meta.currentPage + 1)
+                      await fetchPipelines(pipelinePagination.meta.currentPage + 1)
                     }}
                   >
                     <Icon icon="nextSystem" className={elPaginationPrimary} />
