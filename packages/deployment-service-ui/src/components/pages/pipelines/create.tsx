@@ -1,13 +1,30 @@
 import Routes from '@/constants/routes'
 import { reapitConnectBrowserSession } from '@/core/connect-session'
 import { ReapitConnectSession, useReapitConnect } from '@reapit/connect-session'
-import { Breadcrumb, BreadcrumbItem, Section, Formik, Form } from '@reapit/elements-legacy'
-import { InputAddOn, Button, Input, InputGroup, Label, Title } from '@reapit/elements'
+import { Formik, Form } from '@reapit/elements-legacy'
+import {
+  InputAddOn,
+  Button,
+  Input,
+  InputGroup,
+  Label,
+  Title,
+  FlexContainer,
+  SecondaryNavContainer,
+  elMb5,
+  elMb8,
+  elHFull,
+  Icon,
+  Subtitle,
+  BodyText,
+  SecondaryNav,
+  SecondaryNavItem,
+  PageContainer,
+} from '@reapit/elements'
 import React, { useState } from 'react'
-import { Link } from 'react-router-dom'
 import { PackageManagerEnum, PipelineModelInterface } from '@reapit/foundations-ts-definitions'
 import { pipelineServiceCreate } from '@/platform-api/pipelines'
-import { useHistory } from 'react-router'
+import { useHistory, useLocation } from 'react-router'
 
 const isNull = (value: any): boolean => !value || value === '' || value === null || typeof value === 'undefined'
 
@@ -21,6 +38,8 @@ export default () => {
   const { connectSession } = useReapitConnect(reapitConnectBrowserSession)
   const [loading, setLoading] = useState<boolean>(false)
   const history = useHistory()
+  const location = useLocation()
+  const { pathname } = location
 
   const createPipeline = async (pipeline: Partial<PipelineModelInterface>): Promise<PipelineModelInterface | void> => {
     setLoading(true)
@@ -32,17 +51,26 @@ export default () => {
   }
 
   return (
-    <>
-      <Breadcrumb>
-        <BreadcrumbItem>
-          <Link to={Routes.PIPELINES}>Pipelines</Link>
-        </BreadcrumbItem>
-        <BreadcrumbItem isCurrent={true}>
-          <a href="#">Create</a>
-        </BreadcrumbItem>
-      </Breadcrumb>
-      <Section>
-        <Title>Pipeline Creation</Title>
+    <FlexContainer isFlexAuto>
+      <SecondaryNavContainer>
+        <Title>Pipelines</Title>
+        <Icon className={elMb5} icon="developersMenu" iconSize="large" />
+        <Subtitle>Deployment pipeline manager</Subtitle>
+        <BodyText hasGreyText>description about the pipeline service</BodyText>
+        <SecondaryNav className={elMb8}>
+          <SecondaryNavItem onClick={() => history.push(Routes.PIPELINES)} active={pathname === Routes.PIPELINES}>
+            My Pipelines
+          </SecondaryNavItem>
+          <SecondaryNavItem
+            onClick={() => history.push(Routes.PIPELINES_CREATION)}
+            active={pathname === Routes.PIPELINES_CREATION}
+          >
+            Create new Pipeline
+          </SecondaryNavItem>
+        </SecondaryNav>
+      </SecondaryNavContainer>
+      <PageContainer className={elHFull}>
+        <Title>Create new Pipeline</Title>
         <Formik
           initialValues={{
             buildCommand: 'build',
@@ -156,7 +184,7 @@ export default () => {
             </Form>
           )}
         </Formik>
-      </Section>
-    </>
+      </PageContainer>
+    </FlexContainer>
   )
 }

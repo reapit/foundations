@@ -1,6 +1,6 @@
 import * as React from 'react'
 import { useReapitConnect } from '@reapit/connect-session'
-import { Loader, Section, FlexContainerResponsive, AppNavContainer, FlexContainerBasic } from '@reapit/elements-legacy'
+import { Loader, Section, AppNavContainer } from '@reapit/elements-legacy'
 import Menu from '@/components/ui/menu'
 import { reapitConnectBrowserSession } from '@/core/connect-session'
 import { useLocation, Redirect } from 'react-router'
@@ -17,11 +17,7 @@ export const PrivateRouteWrapper: React.FunctionComponent<PrivateRouteWrapperPro
   if (!connectSession) {
     return (
       <AppNavContainer>
-        <FlexContainerBasic flexColumn isScrollable>
-          <FlexContainerResponsive hasPadding flexColumn>
-            <Loader />
-          </FlexContainerResponsive>
-        </FlexContainerBasic>
+        <Loader />
       </AppNavContainer>
     )
   }
@@ -32,19 +28,15 @@ export const PrivateRouteWrapper: React.FunctionComponent<PrivateRouteWrapperPro
   return (
     <AppNavContainer>
       <Menu />
-      <FlexContainerBasic flexColumn isScrollable>
-        <FlexContainerResponsive hasPadding flexColumn>
-          <Suspense
-            fallback={
-              <Section>
-                <Loader />
-              </Section>
-            }
-          >
-            {children}
-          </Suspense>
-        </FlexContainerResponsive>
-      </FlexContainerBasic>
+      <Suspense
+        fallback={
+          <Section>
+            <Loader />
+          </Section>
+        }
+      >
+        {children}
+      </Suspense>
     </AppNavContainer>
   )
 }
