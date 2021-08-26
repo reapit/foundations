@@ -2,8 +2,8 @@ import { IntrospectionQuery } from 'graphql'
 
 import { notEmpty } from './helpers'
 import { getTopLevelFields } from './nested-fields'
-import { getListQuery } from './query-generators'
-import { isIntrospectionObjectType } from './types'
+import { getMutation, getListQuery, getGetQuery } from './query-generators'
+import { isIntrospectionEnumType, isIntrospectionInputObjectType, isIntrospectionObjectType } from './types'
 
 export const parseIntrospectionResult = (introspection: IntrospectionQuery) => {
   if (!introspection) {
@@ -14,6 +14,8 @@ export const parseIntrospectionResult = (introspection: IntrospectionQuery) => {
   const mutationName = schema.mutationType?.name
 
   const objectTypes = schema.types.filter(isIntrospectionObjectType)
+  const inputObjectTypes = schema.types.filter(isIntrospectionInputObjectType)
+  const enums = schema.types.filter(isIntrospectionEnumType)
 
   const queryType = getTopLevelFields(objectTypes, queryName)
   const mutationType = mutationName ? getTopLevelFields(objectTypes, mutationName) : []
@@ -24,14 +26,14 @@ export const parseIntrospectionResult = (introspection: IntrospectionQuery) => {
 
   return queryableObjectTypes.map((object, _, all) => {
     const queries = queryType.filter(({ nestedType }) => object.name === nestedType)
-
+    const mutations = mutationType.filter(({ nestedType }) => object.name === nestedType)
     return {
       object,
       list: getListQuery(queries, all),
-      // TODO: check if below are correct
-      create: mutationType.find(({ args }) => args.length === 1 && args[0].name === object.name),
-      update: mutationType.find(({ args }) => args.length === 2 && args[0].name === object.name),
-      delete: mutationType.find(({ args }) => args.length === 1 && args[0].name === 'id'),
+      get: getGetQuery(queries, all),
+      create: getMutation('create', mutations, all, inputObjectTypes, enums),
+      update: getMutation('update', mutations, all, inputObjectTypes, enums),
+      delete: getMutation('delete', mutations, all, inputObjectTypes, enums),
     }
   })
 }

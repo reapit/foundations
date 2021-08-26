@@ -24,3 +24,11 @@ export const dummyQuery = gql`
     }
   }
 `
+
+export const dummyMutation = gql`
+  mutation {
+    doSomething {
+      __typename
+    }
+  }
+`

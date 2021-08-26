@@ -14,6 +14,7 @@ import { elFlex, elFlex1, elFlexAlignCenter, elFlexColumn, elHFull, elM3, elPb3,
 import Link from './user/link'
 import Context from './user/context'
 import Table from './user/table'
+import Form from './user/form'
 
 const Item = styled.a`
   svg {
@@ -67,6 +68,11 @@ const Toolbox = () => {
         </div>
         <div ref={(ref) => ref && create(ref, <Element is={Table} padding={12} width={12} />)}>
           <Item data-tip="Table" className={cx(elM3, elPb3, block, cursorMove)}>
+            <SquareSvg />
+          </Item>
+        </div>
+        <div ref={(ref) => ref && create(ref, <Element is={Form} padding={12} width={12} />)}>
+          <Item data-tip="Form" className={cx(elM3, elPb3, block, cursorMove)}>
             <SquareSvg />
           </Item>
         </div>

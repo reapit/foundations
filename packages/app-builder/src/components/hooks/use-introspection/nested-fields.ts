@@ -29,7 +29,7 @@ export const queryableFieldToNestedDict = (
     return queryableFieldToNestedDict(type.ofType, queryableObjectTypes)
   }
 
-  if (type.kind === TypeKind.SCALAR) {
+  if (type.kind === TypeKind.SCALAR || type.kind === TypeKind.ENUM) {
     return undefined
   }
 

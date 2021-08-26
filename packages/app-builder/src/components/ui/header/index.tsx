@@ -45,7 +45,7 @@ const Header = () => {
                 onClick={() => {
                   if (pageId) {
                     deletePage(pageId)
-                    window.location.reload()
+                    setPageId('')
                   }
                 }}
                 intent="danger"

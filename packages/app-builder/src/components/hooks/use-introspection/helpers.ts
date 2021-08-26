@@ -1,4 +1,4 @@
-import { IntrospectionOutputTypeRef } from 'graphql'
+import { IntrospectionOutputType, IntrospectionOutputTypeRef } from 'graphql'
 import { isListType, isNonNullType } from './types'
 
 export const flatKind = (type: IntrospectionOutputTypeRef, kinds: Array<string> = []): Array<string> => {
@@ -9,11 +9,12 @@ export const flatKind = (type: IntrospectionOutputTypeRef, kinds: Array<string> 
   return [...kinds, type.kind]
 }
 
-export const getObjectType = (type: IntrospectionOutputTypeRef): string => {
+export const getObjectType = (type: IntrospectionOutputType | IntrospectionOutputTypeRef): string => {
   if (isNonNullType(type) || isListType(type)) {
     return getObjectType(type.ofType)
   }
 
+  // @ts-ignore
   return type.name
 }
 

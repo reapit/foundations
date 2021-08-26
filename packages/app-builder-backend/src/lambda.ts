@@ -1,8 +1,10 @@
 import 'reflect-metadata'
 import { ApolloServer } from 'apollo-server-lambda'
 import { buildSchema } from 'type-graphql'
+
 import { BookResolver } from './resolvers/book-resolver'
 import { AuthorResolver } from './resolvers/author-resolver'
+import { Context } from './types'
 
 const createHandler = async () => {
   const schema = await buildSchema({
@@ -11,6 +13,15 @@ const createHandler = async () => {
 
   const server = new ApolloServer({
     schema,
+    context: ({ event }): Context => {
+      const { authorization } = event.headers
+      if (!authorization) {
+        throw new Error('Must have the authorization header')
+      }
+      return {
+        accessToken: authorization.split(' ')[1],
+      }
+    },
   })
 
   return server.createHandler()

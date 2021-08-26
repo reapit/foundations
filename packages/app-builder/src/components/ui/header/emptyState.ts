@@ -1,10 +1,13 @@
-export const emptyState = {
+import { SerializedNode } from '@craftjs/core'
+
+export const emptyState: Record<string, SerializedNode> = {
   ROOT: {
     type: { resolvedName: 'Container' },
     isCanvas: true,
     props: { width: 12, background: 'white', padding: 40 },
     displayName: 'Container',
     custom: { displayName: 'App' },
+    // @ts-ignore until they update their types
     parent: null,
     hidden: false,
     nodes: ['tPwDk5SDAg'],

@@ -2,7 +2,7 @@ import qs from 'query-string'
 import { useEditor } from '@craftjs/core'
 import React from 'react'
 import { Link as RRLink } from 'react-router-dom'
-import { getPages } from '../header/saveState'
+import { usePages } from '../header/saveState'
 import { ToolbarItem, ToolbarItemType, ToolbarSection } from '../toolbar'
 import Container, { ContainerProps } from './container'
 
@@ -42,18 +42,26 @@ const Link = (props: LinkProps) => {
 
 const ContainerSettings = Container.craft.related.toolbar
 
-const LinkSettings = () => (
-  <>
-    <ContainerSettings />
+export const DestinationPage = ({
+  sectionTitle,
+  propKey,
+  title,
+}: {
+  sectionTitle?: string
+  propKey: string
+  title: string
+}) => {
+  const pages = usePages()
+  return (
     <ToolbarSection
-      title="Destination"
+      title={sectionTitle || 'Destination'}
       props={['destination']}
       summary={({ destination }: any) => {
         return `link to ${destination || ''}`
       }}
     >
-      <ToolbarItem type={ToolbarItemType.Select} propKey="destination" title="Link to">
-        {getPages().map(({ id: value, name: label }) => (
+      <ToolbarItem type={ToolbarItemType.Select} propKey={propKey} title={title}>
+        {pages.map(({ id: value, name: label }) => (
           <option key={value} value={value}>
             {label || 'Home'}
           </option>
@@ -61,6 +69,13 @@ const LinkSettings = () => (
         <option value="">Select a page</option>
       </ToolbarItem>
     </ToolbarSection>
+  )
+}
+
+const LinkSettings = () => (
+  <>
+    <DestinationPage title="Link to" propKey="destination" />
+    <ContainerSettings />
   </>
 )
 

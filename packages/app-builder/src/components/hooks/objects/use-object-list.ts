@@ -1,9 +1,9 @@
 import { useQuery } from '@apollo/client'
-import { useIntrospection, dummyQuery } from '../use-introspection'
+import { dummyQuery } from '../use-introspection'
+import { useObject } from './use-object'
 
 export const useObjectList = (typeName?: string) => {
-  const { data: introspectionResult, error, loading } = useIntrospection()
-  const object = typeName && introspectionResult?.find(({ object }) => object.name === typeName)
+  const { object, error, loading } = useObject(typeName)
   const listQuery = object && typeName ? object.list : undefined
   const query = useQuery(listQuery || dummyQuery, { skip: !listQuery })
 

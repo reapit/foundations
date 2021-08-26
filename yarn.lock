@@ -6232,6 +6232,7 @@ __metadata:
     "@aws-cdk/aws-apigateway": 1.116.0
     "@aws-cdk/aws-lambda": 1.116.0
     "@aws-cdk/core": 1.116.0
+    "@reapit/config-manager": "workspace:packages/config-manager"
     "@reapit/ts-scripts": "workspace:packages/ts-scripts"
     "@reapit/ts-types": "workspace:packages/ts-types"
     "@typescript-eslint/eslint-plugin": ^4.28.4
@@ -6248,6 +6249,7 @@ __metadata:
     graphql: ^15.5.1
     jest: ^27.0.6
     jest-coverage-badges: ^1.1.2
+    node-fetch: ^2.6.1
     reflect-metadata: ^0.1.13
     slugify: ^1.6.0
     ts-node: ^10.1.0
@@ -6838,6 +6840,15 @@ __metadata:
   version: 1.1.0
   resolution: "@redux-saga/types@npm:1.1.0"
   checksum: 2097b2633194608cc1ec1daf51025241a928e9f1b71be3dec6a6cd340fe36754e5bf4f58a95f4ff29bb6047803f781d8b4be5be5ae70215e853f75cf56ffa94d
+  languageName: node
+  linkType: hard
+
+"@rehooks/local-storage@npm:2.4.0":
+  version: 2.4.0
+  resolution: "@rehooks/local-storage@npm:2.4.0"
+  peerDependencies:
+    react: "*"
+  checksum: 07f82b148bb27431ad8a808bf6dff550f9f5e103796ad4886378df9a747b58358f03b3ef105a6111aed1513b7b0b484cc8138233a91027b79327f716b5526729
   languageName: node
   linkType: hard
 
@@ -12769,6 +12780,7 @@ __metadata:
     "@reapit/elements-legacy": "workspace:packages/elements-legacy"
     "@reapit/ts-scripts": "workspace:packages/ts-scripts"
     "@reapit/ts-types": "workspace:packages/ts-types"
+    "@rehooks/local-storage": 2.4.0
     "@sentry/browser": ^6.9.0
     "@typescript-eslint/eslint-plugin": ^4.28.4
     "@typescript-eslint/parser": ^4.28.4
