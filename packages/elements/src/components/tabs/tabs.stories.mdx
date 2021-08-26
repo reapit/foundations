@@ -1,0 +1,95 @@
+import { Story, Canvas, ArgsTable } from '@storybook/addon-docs/blocks'
+import { Tabs } from './index'
+import { RenderHtmlMarkup } from '../../storybook/render-html-markup'
+
+<Meta title="Tabs" component={Tabs} />
+
+## Multi Tabs - Tabs
+
+The `Tabs` component uses an underlying radio button to manage toggling without JavaScript. As such, you can manage state using any Form library or by referencing the `onChange` input event.
+
+For react users, the component does not render children, rather it accepts a list of options and maps through them on render.
+
+As always, for non React users, you can just apply the classes in the rendered markup to your input and label elements.
+
+Typically you will use this component as a tertiary in-page navigation.
+
+Props available for the React version of the component;
+
+<ArgsTable of={Tabs} />
+
+Where `TabsOption` is defined as;
+
+```tsx
+export interface TabsOption {
+  id: string
+  value: string
+  text: string
+  isChecked: boolean
+}
+```
+
+<Canvas>
+  <Story name="Tabs - Default">
+    <Tabs
+      name="my-cool-tabs"
+      options={[
+        {
+          id: 'tab-1',
+          value: 'tab-1',
+          text: 'Tab Content 1',
+          isChecked: true,
+        },
+        {
+          id: 'tab-2',
+          value: 'tab-2',
+          text: 'Tab Content 2',
+          isChecked: false,
+        },
+        {
+          id: 'tab-3',
+          value: 'tab-3',
+          text: 'Tab Content 3',
+          isChecked: false,
+        },
+      ]}
+    />
+  </Story>
+</Canvas>
+
+<RenderHtmlMarkup component="Tabs" story="Tabs - Default" />
+
+## Tabs - Full Width
+
+Slight variation on the above where the Tabs spans the full width of it's container.
+
+<Canvas>
+  <Story name="Tabs - Full Width">
+    <Tabs
+      name="my-cool-tabs-full-width"
+      isFullWidth
+      options={[
+        {
+          id: 'tab-1-fw',
+          value: 'tab-1-fw',
+          text: 'Tab Content 1',
+          isChecked: true,
+        },
+        {
+          id: 'tab-2-fw',
+          value: 'tab-2-fw',
+          text: 'Tab Content 2',
+          isChecked: false,
+        },
+        {
+          id: 'tab-3-fw',
+          value: 'tab-3-fw',
+          text: 'Tab Content 3',
+          isChecked: false,
+        },
+      ]}
+    />
+  </Story>
+</Canvas>
+
+<RenderHtmlMarkup component="Tabs" story="Tabs - Full Width" />
