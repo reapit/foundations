@@ -1,3 +1,4 @@
+import Routes from '@/constants/routes'
 import { reapitConnectBrowserSession } from '@/core/connect-session'
 import {
   configurationApiKeyApiCreateService,
@@ -5,11 +6,26 @@ import {
   configurationApiKeyApiService,
 } from '@/platform-api/configuration-api'
 import { ReapitConnectSession, useReapitConnect } from '@reapit/connect-session'
-import { H3, Section } from '@reapit/elements-legacy'
-import { Button, Table } from '@reapit/elements-legacy'
-import { Loader } from '@reapit/elements'
+import {
+  FlexContainer,
+  Loader,
+  SecondaryNavContainer,
+  elMb5,
+  elMb8,
+  elHFull,
+  Title,
+  Subtitle,
+  Icon,
+  BodyText,
+  SecondaryNav,
+  SecondaryNavItem,
+  PageContainer,
+  Button,
+  Table,
+} from '@reapit/elements'
 import { ApiKeyInterface } from '@reapit/foundations-ts-definitions'
 import React, { useEffect, useState } from 'react'
+import { useHistory, useLocation } from 'react-router'
 import { shleemy } from 'shleemy'
 
 export default () => {
@@ -18,6 +34,9 @@ export default () => {
   const [loading, setLoading] = useState<boolean>(false)
   const [creationLoading, setCreationLoading] = useState<boolean>(false)
   const [deletionLoading, setDeletionLoading] = useState<string[]>([])
+  const history = useHistory()
+  const location = useLocation()
+  const { pathname } = location
 
   useEffect(() => {
     const fetchApiKeys = async () => {
@@ -54,57 +73,65 @@ export default () => {
   }
 
   return (
-    <Section>
-      <H3>Api Keys</H3>
-      <Button onClick={createApiKey} loading={creationLoading} type="button" variant="primary">
-        Create new ApiKey
-      </Button>
-      {loading ? (
-        <Loader />
-      ) : (
-        <Table
-          data={apiKeys}
-          columns={[
-            {
-              Header: 'ApiKey',
-              accessor: 'apiKey',
-            },
-            {
-              Header: 'Expires',
-              accessor: 'keyExpiresAt',
-              Cell: (cell: { value }) => {
-                const int = shleemy(cell.value)
-                return (
-                  <span>
-                    {int.date} {int.time}
-                  </span>
-                )
-              },
-            },
-            {
-              Header: 'Created',
-              accessor: 'keyCreatedAt',
-              Cell: (cell: { value }) => {
-                const int = shleemy(cell.value)
-
-                return <span>{int.forHumans}</span>
-              },
-            },
-            {
-              id: 'Delete',
-              Cell: ({ row }: { row: { original: any } }) => (
-                <Button
-                  loading={deletionLoading.includes(row.original.id)}
-                  onClick={() => deleteApiKey(row.original.id)}
-                  variant="danger"
-                >
-                  Delete
-                </Button>
-              ),
-            },
-          ]}
-        />
-      )}
-    </Section>
+    <FlexContainer isFlexAuto>
+      <SecondaryNavContainer>
+        <Title>Api Keys</Title>
+        <Icon className={elMb5} icon="developersMenu" iconSize="large" />
+        <Subtitle>Api Keys</Subtitle>
+        <BodyText hasGreyText>description about the api Keys</BodyText>
+        <SecondaryNav className={elMb8}>
+          <SecondaryNavItem onClick={() => history.push(Routes.API_KEYS)} active={pathname === Routes.API_KEYS}>
+            My Api Keys
+          </SecondaryNavItem>
+          <SecondaryNavItem onClick={createApiKey} active={creationLoading}>
+            Create Api Key
+          </SecondaryNavItem>
+        </SecondaryNav>
+      </SecondaryNavContainer>
+      <PageContainer className={elHFull}>
+        <Title>Your Api Keys</Title>
+        {loading ? (
+          <Loader />
+        ) : (
+          <Table
+            rows={apiKeys.map((apiKey) => ({
+              cells: [
+                {
+                  label: 'ApiKey',
+                  value: apiKey.apiKey as string,
+                },
+                {
+                  label: 'Expires',
+                  value: apiKey.keyExpiresAt as string,
+                  children: (
+                    <>
+                      {shleemy(apiKey.keyCreatedAt as string).date} {shleemy(apiKey.keyCreatedAt as string).time}
+                    </>
+                  ),
+                },
+                {
+                  label: 'Created',
+                  value: apiKey.keyCreatedAt as string,
+                  children: <>{shleemy(apiKey.keyCreatedAt as string).forHumans}</>,
+                },
+                {
+                  label: '',
+                  value: 'delete',
+                  children: (
+                    <Button
+                      loading={deletionLoading.includes(apiKey.id as string)}
+                      onClick={() => deleteApiKey(apiKey.id as string)}
+                      intent="danger"
+                    >
+                      Delete
+                    </Button>
+                  ),
+                },
+              ],
+            }))}
+          />
+        )}
+      </PageContainer>
+    </FlexContainer>
   )
 }
