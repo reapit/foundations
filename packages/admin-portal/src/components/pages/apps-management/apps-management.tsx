@@ -35,6 +35,8 @@ import { setDeleteAppInitFormState } from '@/actions/app-delete'
 import { CreateSubscriptionsButton } from '../../ui/create-subscriptions/create-subscriptions-button'
 import { AppSummaryModel } from '@reapit/foundations-ts-definitions'
 import { CheckAWSButton } from './check-aws-button'
+import { useReapitConnect } from '@reapit/connect-session'
+import { reapitConnectBrowserSession } from '../../../core/connect-session'
 
 export type DeleteModalData = {
   visible: boolean
@@ -44,7 +46,9 @@ export type DeleteModalData = {
 }
 
 // eslint-disable-next-line
-export const renderIsFeature = (dispatch: Dispatch<any>) => ({ row, cell }) => {
+export const renderIsFeature =
+  (dispatch: Dispatch<any>) =>
+  ({ row, cell }) => {
     const { id } = row.original
     const { value } = cell
     return (
@@ -76,7 +80,10 @@ export type RenderDeleteActionParams = {
 }
 
 // eslint-disable-next-line
-export const renderDeleteAction = ({ setDataDeleteModal, deleteModalData }: RenderDeleteActionParams) => ({ row }) => (
+export const renderDeleteAction =
+  ({ setDataDeleteModal, deleteModalData }: RenderDeleteActionParams) =>
+  ({ row }) =>
+    (
       <Button
         type="button"
         variant="danger"
@@ -90,10 +97,11 @@ export const renderDeleteAction = ({ setDataDeleteModal, deleteModalData }: Rend
 
 export type GenerateColumnsParams = RenderDeleteActionParams & {
   dispatch: Dispatch<any>
+  hasLimitedAccess: boolean
 }
 
 export const generateColumns =
-  ({ dispatch, setDataDeleteModal, deleteModalData }: GenerateColumnsParams) =>
+  ({ dispatch, setDataDeleteModal, deleteModalData, hasLimitedAccess }: GenerateColumnsParams) =>
   () => {
     return [
       {
@@ -132,7 +140,7 @@ export const generateColumns =
         accessor: 'created',
         Cell: renderCreatedAt,
       },
-      {
+      !hasLimitedAccess && {
         Header: 'Featured',
         accessor: 'isFeatured',
         Cell: renderIsFeature(dispatch),
@@ -149,12 +157,12 @@ export const generateColumns =
         id: 'check-aws',
         Cell: ({ row }: { row: { original: AppSummaryModel } }) => <CheckAWSButton appId={row.original.id ?? ''} />,
       },
-      {
+      !hasLimitedAccess && {
         Header: 'Delete App',
         id: 'Delete',
         Cell: renderDeleteAction({ setDataDeleteModal, deleteModalData }),
       },
-      {
+      !hasLimitedAccess && {
         Header: 'Subscribe Listing',
         id: 'Subscribe',
         Cell: ({ row }: { row: { original: AppSummaryModel } }) => (
@@ -165,7 +173,7 @@ export const generateColumns =
           />
         ),
       },
-    ]
+    ].filter(Boolean)
   }
 
 export const refreshForm = (history) => () => {
@@ -303,9 +311,12 @@ export const AppsManagement: React.FC = () => {
   const dispatch = useDispatch()
   const loading = useSelector(selectAppsLoading)
   const adminAppsData = useSelector(selectAppsData)
+  const { connectSession } = useReapitConnect(reapitConnectBrowserSession)
   const { page = 1, ...queryParams } = getParamsFromPath(location.search) as any
+  const userEmail = connectSession?.loginIdentity?.email ?? ''
+  const hasLimitedAccess = window.reapit.config.limitedUserAccessWhitelist.includes(userEmail)
 
-  const columns = React.useMemo(generateColumns({ dispatch, setDataDeleteModal, deleteModalData }), [
+  const columns = React.useMemo(generateColumns({ dispatch, setDataDeleteModal, deleteModalData, hasLimitedAccess }), [
     adminAppsData?.data,
   ])
 

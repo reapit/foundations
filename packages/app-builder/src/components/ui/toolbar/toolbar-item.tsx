@@ -1,5 +1,5 @@
 import { useNode } from '@craftjs/core'
-import { elMb2, Label } from '@reapit/elements'
+import { elMb3, Label } from '@reapit/elements'
 import React, { FC, ReactNodeArray } from 'react'
 
 import { ToolbarDropdown } from './toolbar-dropdown'
@@ -83,7 +83,7 @@ const ToolbarItemInput: FC<ToolbarItemProps> = ({ propKey, type, index = 0, ...p
 }
 
 export const ToolbarItem = (props: ToolbarItemProps) => (
-  <div className={elMb2}>
+  <div className={elMb3}>
     <ToolbarItemInput {...props} />
   </div>
 )

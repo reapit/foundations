@@ -157,6 +157,7 @@ const handleStateChange = async ({
     throw new Error('pipelineRunner not found')
   }
 
+  // Double check this is fired AFTER codebuild has completed
   if (event.detail['additional-information']['build-complete']) {
     return new Promise<void>((resolve, reject) =>
       sqs.sendMessage(

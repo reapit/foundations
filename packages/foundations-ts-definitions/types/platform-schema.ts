@@ -4975,9 +4975,9 @@ export interface CreateKeyModel {
    */
   number?: string
   /**
-   * The type of key (sales/lettings/management)
+   * The identifier of the key type
    */
-  type?: string
+  typeId?: string
   /**
    * The unique identifier of the office responsible for the key
    */
@@ -4991,6 +4991,25 @@ export interface CreateKeyModel {
      */
     name?: string
   }[]
+}
+/**
+ * Request body used to create a new key movement
+ * example:
+ * [object Object]
+ */
+export interface CreateKeyMovementModel {
+  /**
+   * The unique identifier of the contact or negotiator to check out the key with - this person will be recorded as holding the key
+   */
+  checkOutToId?: string
+  /**
+   * The type of entity that checked out the key (contact/negotiator)
+   */
+  checkOutToType?: string
+  /**
+   * The unique identifier of the negotiator that approved checking out the key - this may not be the same person recorded as holding the key
+   */
+  checkOutNegotiatorId?: string
 }
 /**
  * Request body used to create a new relationship between a landlord and a contact or company
@@ -7569,7 +7588,7 @@ export interface KeyMovementModel {
    */
   checkOutToId?: string
   /**
-   * The type of of entity that checked out the key (contact/negotiator)
+   * The type of entity that checked out the key (contact/negotiator)
    */
   checkOutToType?: string
   /**
@@ -7636,7 +7655,7 @@ export interface KeyMovementModelPagedResult {
      */
     checkOutToId?: string
     /**
-     * The type of of entity that checked out the key (contact/negotiator)
+     * The type of entity that checked out the key (contact/negotiator)
      */
     checkOutToType?: string
     /**
@@ -7708,9 +7727,9 @@ export interface KeysModel {
    */
   number?: string
   /**
-   * The type of key (sales/lettings/management)
+   * The identifier of the key type
    */
-  type?: string
+  typeId?: string
   /**
    * The unique identifier of the office responsible for the key
    */
@@ -7719,6 +7738,10 @@ export interface KeysModel {
    * The unique identifier of the property that the key belongs to
    */
   propertyId?: string
+  /**
+   * The status of the key (checkedIn/checkedOut/noLongerHeld)
+   */
+  status?: string
   /**
    * A listing of the individual keys included in the set
    */
@@ -7764,9 +7787,9 @@ export interface KeysModelPagedResult {
      */
     number?: string
     /**
-     * The type of key (sales/lettings/management)
+     * The identifier of the key type
      */
-    type?: string
+    typeId?: string
     /**
      * The unique identifier of the office responsible for the key
      */
@@ -7775,6 +7798,10 @@ export interface KeysModelPagedResult {
      * The unique identifier of the property that the key belongs to
      */
     propertyId?: string
+    /**
+     * The status of the key (checkedIn/checkedOut/noLongerHeld)
+     */
+    status?: string
     /**
      * A listing of the individual keys included in the set
      */

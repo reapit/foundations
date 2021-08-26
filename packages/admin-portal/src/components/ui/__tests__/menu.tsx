@@ -90,7 +90,7 @@ describe('Menu', () => {
       }
       const logout = jest.fn()
       const result = generateMenuConfig(logout, location, session)
-      expect(result.menu.length).toBe(5)
+      expect(result.menu.length).toBe(7)
     })
   })
 })

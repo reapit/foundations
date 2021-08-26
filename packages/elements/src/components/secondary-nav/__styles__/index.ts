@@ -13,7 +13,7 @@ export const ElSecondaryNav = styled.div`
   border-radius: var(--default-border-radius);
 `
 export const ElSecondaryNavItem = styled.div`
-  padding: 0.75rem;
+  padding: 0.625rem;
   color: var(--color-white);
   font-size: 1rem;
   cursor: pointer;
@@ -24,7 +24,7 @@ export const ElSecondaryNavItem = styled.div`
     background-repeat: no-repeat;
     background-image: linear-gradient(to right, var(--color-blue-light), var(--color-blue-light));
     outline-color: var(--color-blue-dark);
-    background-size: calc(100% - 0.6rem);
+    background-size: calc(100% - 0.6rem) 2.5rem;
     background-position-x: left;
     padding-right: 0.5rem;
 

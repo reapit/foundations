@@ -5,7 +5,7 @@ exports[`appointment AppointmentContent should match snapshot when has appointme
   <ControlsContainer>
     <ControlsTitleWrapper>
       <Subtitle
-        className="el-is-bold-text"
+        hasBoldText={true}
       >
         Location
       </Subtitle>
@@ -2021,7 +2021,7 @@ exports[`appointment AppointmentContent should match snapshot when loading 1`] =
   <ControlsContainer>
     <ControlsTitleWrapper>
       <Subtitle
-        className="el-is-bold-text"
+        hasBoldText={true}
       >
         Location
       </Subtitle>

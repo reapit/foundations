@@ -6262,6 +6262,7 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "@reapit/cli@workspace:packages/cli"
   dependencies:
+    "@reapit/config-manager": "workspace:packages/config-manager"
     "@reapit/ts-scripts": "workspace:packages/ts-scripts"
     "@reapit/ts-types": "workspace:packages/ts-types"
     "@types/adm-zip": ^0.4.34
@@ -6271,9 +6272,11 @@ __metadata:
     "@types/yargs": ^16.0.4
     "@typescript-eslint/eslint-plugin": ^4.28.4
     "@typescript-eslint/parser": ^4.28.4
+    ansi-regex: ^6.0.0
     axios: ^0.21.1
     babel-jest: ^27.0.6
     chalk: ^4.1.1
+    cli-spinners: ^2.6.0
     concurrently: ^6.2.0
     create-react-app: ^4.0.3
     eslint: ^7.31.0
@@ -6284,6 +6287,7 @@ __metadata:
     nestjs-typeorm-paginate: ^2.5.3
     ora: ^5.4.1
     process.argv: ^0.6.0
+    pusher-js: ^7.0.3
     reflect-metadata: ^0.1.13
     semver: ^7.3.5
     shleemy: ^1.2.2
@@ -6313,7 +6317,23 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@reapit/connect-session@^2.0.9, @reapit/connect-session@workspace:packages/connect-session":
+"@reapit/connect-session@npm:^2.0.9":
+  version: 2.3.1
+  resolution: "@reapit/connect-session@npm:2.3.1"
+  dependencies:
+    axios: ^0.21.1
+    isomorphic-fetch: ^3.0.0
+    jsonwebtoken: ^8.5.1
+    jwk-to-pem: ^2.0.4
+    snyk: ^1.463.0
+  peerDependencies:
+    react: ^16.12.0
+    react-dom: ^16.12.0
+  checksum: 35ce814b805f6ac9d7b6da777fd04c39f5db568c5738277c15ea316a828c3cc160aa982b3f310694e72765354f68c0635d5b47429b17a36e38b148d5b359e1e8
+  languageName: node
+  linkType: hard
+
+"@reapit/connect-session@workspace:packages/connect-session":
   version: 0.0.0-use.local
   resolution: "@reapit/connect-session@workspace:packages/connect-session"
   dependencies:
@@ -12238,6 +12258,13 @@ __metadata:
   languageName: node
   linkType: hard
 
+"ansi-regex@npm:^6.0.0":
+  version: 6.0.0
+  resolution: "ansi-regex@npm:6.0.0"
+  checksum: 69b395ba2c6b38957a0540561c5db0dc1a7f55d9432752628a59942645c0f145dabe2963bc4e57a1c921cd15a90722a46be2cea0b556ae74e16e09548c3f7ffc
+  languageName: node
+  linkType: hard
+
 "ansi-styles@npm:^2.2.1":
   version: 2.2.1
   resolution: "ansi-styles@npm:2.2.1"
@@ -15665,7 +15692,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"cli-spinners@npm:^2.2.0, cli-spinners@npm:^2.5.0":
+"cli-spinners@npm:^2.2.0, cli-spinners@npm:^2.5.0, cli-spinners@npm:^2.6.0":
   version: 2.6.0
   resolution: "cli-spinners@npm:2.6.0"
   checksum: 653ba6818e0091d4ad7aa052022f6c6a0df0d4674ff6069f6ae366e6130c1eb91a6c332ddfdd2029d234411632ff6428950aa3311872daf515ce54da498c1357
@@ -26935,7 +26962,7 @@ fsevents@^1.2.7:
   languageName: node
   linkType: hard
 
-"jwk-to-pem@npm:^2.0.5":
+"jwk-to-pem@npm:^2.0.4, jwk-to-pem@npm:^2.0.5":
   version: 2.0.5
   resolution: "jwk-to-pem@npm:2.0.5"
   dependencies:
@@ -32762,7 +32789,7 @@ fsevents@^1.2.7:
   languageName: node
   linkType: hard
 
-"pusher-js@npm:^7.0.0":
+"pusher-js@npm:^7.0.0, pusher-js@npm:^7.0.3":
   version: 7.0.3
   resolution: "pusher-js@npm:7.0.3"
   dependencies:
@@ -36823,6 +36850,15 @@ resolve@^2.0.0-next.3:
     lodash.clonedeep: ^4.3.0
     lru-cache: ^5.1.1
   checksum: 6b8ecf571300a43b6851fe07208209312089d11c3c046dbf20b4dfbdee0be06416b065e213797e8ef9d4e11e0c7e913518966cb646031892d534b5851af7ab0d
+  languageName: node
+  linkType: hard
+
+"snyk@npm:^1.463.0":
+  version: 1.688.0
+  resolution: "snyk@npm:1.688.0"
+  bin:
+    snyk: bin/snyk
+  checksum: 9fb85a780c39071f93141c1dd343fb6898d3949b8456860392a3531761f0ab4fad949d5b4f0ad15c160b2cff0b88b6d2172d7de99df7652f12927a5786e0a18c
   languageName: node
   linkType: hard
 

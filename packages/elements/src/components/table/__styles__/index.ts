@@ -243,7 +243,7 @@ export const ElTableHeader = styled.div`
   margin-right: 2px;
   display: flex;
   align-items: center;
-  max-height: calc(${MAX_HEADER_HEIGHT} - 1.5rem);
+  height: ${MAX_HEADER_HEIGHT};
   overflow: hidden;
   text-overflow: ellipsis;
 

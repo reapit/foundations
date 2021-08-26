@@ -10,7 +10,7 @@ import Text from './user/text'
 import { cx } from '@linaria/core'
 import { styled } from '@linaria/react'
 import { bgWhite, block, cursorMove, transition } from './styles'
-import { elFlex, elFlex1, elFlexAlignCenter, elFlexColumn, elHFull, elM2, elPb2, elPt3, elW12 } from '@reapit/elements'
+import { elFlex, elFlex1, elFlexAlignCenter, elFlexColumn, elHFull, elM3, elPb3, elPt6, elW12 } from '@reapit/elements'
 import Link from './user/link'
 import Context from './user/context'
 import Table from './user/table'
@@ -41,33 +41,33 @@ const Toolbox = () => {
       style={{ width: enabled ? undefined : 0, opacity: enabled ? undefined : 0 }}
       className={cx(transition, elW12, elHFull, elFlex, elFlexColumn, bgWhite)}
     >
-      <div className={cx(elFlex, elFlex1, elFlexColumn, elFlexAlignCenter, elPt3)}>
+      <div className={cx(elFlex, elFlex1, elFlexColumn, elFlexAlignCenter, elPt6)}>
         <div
           ref={(ref) =>
             ref && create(ref, <Element canvas is={Container} background="white" padding={12} width={12} />)
           }
         >
-          <Item data-tip="Container" className={cx(elM2, elPb2, block, cursorMove)}>
+          <Item data-tip="Container" className={cx(elM3, elPb3, block, cursorMove)}>
             <SquareSvg />
           </Item>
         </div>
         <div ref={(ref) => ref && create(ref, <Text fontSize="12" textAlign="left" text="Hi there" />)}>
-          <Item data-tip="Text" className={cx(elM2, elPb2, cursorMove, block)}>
+          <Item data-tip="Text" className={cx(elM3, elPb3, cursorMove, block)}>
             <TypeSvg />
           </Item>
         </div>
         <div ref={(ref) => ref && create(ref, <Element canvas is={Link} background="white" padding={12} width={12} />)}>
-          <Item data-tip="Link" className={cx(elM2, elPb2, cursorMove, block)}>
+          <Item data-tip="Link" className={cx(elM3, elPb3, cursorMove, block)}>
             <LinkSVG />
           </Item>
         </div>
         <div ref={(ref) => ref && create(ref, <Element is={Context} />)}>
-          <Item data-tip="Context" className={cx(elM2, elPb2, block, cursorMove)}>
+          <Item data-tip="Context" className={cx(elM3, elPb3, block, cursorMove)}>
             <SquareSvg />
           </Item>
         </div>
         <div ref={(ref) => ref && create(ref, <Element is={Table} padding={12} width={12} />)}>
-          <Item data-tip="Table" className={cx(elM2, elPb2, block, cursorMove)}>
+          <Item data-tip="Table" className={cx(elM3, elPb3, block, cursorMove)}>
             <SquareSvg />
           </Item>
         </div>

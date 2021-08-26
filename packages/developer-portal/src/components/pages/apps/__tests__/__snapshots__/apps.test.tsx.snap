@@ -80,20 +80,20 @@ exports[`Login should match a snapshot 1`] = `
                             className=""
                           >
                             <h1
-                              className="ewfctk4-el-title"
+                              className="etrchfm-el-title"
                             >
                               Apps
                             </h1>
                           </ElTitle>
                         </Title>
                         <SecondaryNav
-                          className="e1sh6b64-el-mb8"
+                          className="e5lndhu-el-mb8"
                         >
                           <ElSecondaryNav
-                            className="e1sh6b64-el-mb8"
+                            className="e5lndhu-el-mb8"
                           >
                             <div
-                              className="e1sh6b64-el-mb8 e125gftx-el-secondary-nav"
+                              className="e5lndhu-el-mb8 e125gftx-el-secondary-nav"
                             >
                               <SecondaryNavItem
                                 active={true}
@@ -131,12 +131,12 @@ exports[`Login should match a snapshot 1`] = `
                           </ElSecondaryNav>
                         </SecondaryNav>
                         <Icon
-                          className="etuand5-el-mb3"
+                          className="esplruv-el-mb3"
                           icon="myAppsInfographic"
                           iconSize="large"
                         >
                           <ElIcon
-                            className="etuand5-el-mb3 e143qafr-el-icon-size-large"
+                            className="esplruv-el-mb3 e143qafr-el-icon-size-large"
                             style={
                               Object {
                                 "fontSize": undefined,
@@ -144,7 +144,7 @@ exports[`Login should match a snapshot 1`] = `
                             }
                           >
                             <span
-                              className="etuand5-el-mb3 e143qafr-el-icon-size-large ej9yrfo-el-icon"
+                              className="esplruv-el-mb3 e143qafr-el-icon-size-large ej9yrfo-el-icon"
                               style={
                                 Object {
                                   "fontSize": undefined,
@@ -250,7 +250,7 @@ exports[`Login should match a snapshot 1`] = `
                             className=""
                           >
                             <h2
-                              className="edjan3k-el-subtitle"
+                              className="e2dm5rh-el-subtitle"
                             >
                               Apps Documentation
                             </h2>
@@ -263,23 +263,23 @@ exports[`Login should match a snapshot 1`] = `
                             className="e11jaxfn-el-has-grey-text"
                           >
                             <p
-                              className="e11jaxfn-el-has-grey-text eh96l6x-el-body-text"
+                              className="e11jaxfn-el-has-grey-text evblxhy-el-body-text"
                             >
                               This is the dashboard for your applications created using the Reapit Foundations platform. If you have not created an app before or you need help, please take the time to view our getting started guide.
                             </p>
                           </ElBodyText>
                         </BodyText>
                         <Button
-                          className="etuand5-el-mb3"
+                          className="esplruv-el-mb3"
                           intent="neutral"
                           onClick={[Function]}
                         >
                           <ElButton
-                            className="etuand5-el-mb3 e1fle5tm-el-intent-neutral"
+                            className="esplruv-el-mb3 e1fle5tm-el-intent-neutral"
                             onClick={[Function]}
                           >
                             <button
-                              className="etuand5-el-mb3 e1fle5tm-el-intent-neutral e1cpt8yd-el-button"
+                              className="esplruv-el-mb3 e1fle5tm-el-intent-neutral e1cpt8yd-el-button"
                               onClick={[Function]}
                             >
                               View Docs
@@ -290,20 +290,20 @@ exports[`Login should match a snapshot 1`] = `
                     </ElSecondaryNavContainer>
                   </SecondaryNavContainer>
                   <PageContainer
-                    className="e138mv0t-el-hfull"
+                    className="e12d7zo5-el-hfull"
                   >
                     <ElPageContainer
-                      className="e138mv0t-el-hfull"
+                      className="e12d7zo5-el-hfull"
                     >
                       <section
-                        className="e138mv0t-el-hfull eukst9x-el-page-container"
+                        className="e12d7zo5-el-hfull eukst9x-el-page-container"
                       >
                         <Title>
                           <ElTitle
                             className=""
                           >
                             <h1
-                              className="ewfctk4-el-title"
+                              className="etrchfm-el-title"
                             >
                               My Apps
                             </h1>

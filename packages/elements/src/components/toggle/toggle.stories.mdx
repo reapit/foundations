@@ -3,7 +3,7 @@ import { Toggle, ToggleRadio } from './index'
 import { RenderHtmlMarkup } from '../../storybook/render-html-markup'
 import { elToggleItem } from './__styles__'
 
-<Meta title="Toggle" />
+<Meta title="Toggle" component={Toggle} />
 
 # Toggle
 
@@ -15,9 +15,7 @@ For non React users, you can just apply the classes in the rendered markup to yo
 
 Typically you will use this component when you want the user to select binary options like off/on or active/inactive.
 
-Props available for the React version of the component;
-
-<ArgsTable component={Toggle} />
+Props available for the React version of the component are just those of a standard React checkbox
 
 <Canvas>
   <Story name="Basic Usage">
@@ -36,6 +34,16 @@ The `ToggleRadio` component uses very similar markup as the binary toggle but ex
 
 For react users, the component does not render children, rather it accepts a list of options in the following interface and maps through them on render.
 
+As per the previous example, for non React users, you can just apply the classes in the rendered markup to your input and label elements.
+
+Typically you will use this component when you want the user to select from a number of options, possibly filters or similar select options where a dropdown is not appropriate.
+
+Props available for the React version of the component;
+
+<ArgsTable of={ToggleRadio} />
+
+Where `ToggleRadioOption` is defined as;
+
 ```tsx
 export interface ToggleRadioOption {
   id: string
@@ -43,27 +51,12 @@ export interface ToggleRadioOption {
   text: string
   isChecked: boolean
 }
-
-export interface ToggleRadioProps extends HTMLAttributes<HTMLInputElement> {
-  options: ToggleRadioOption[]
-  name: string
-  isFullWidth?: boolean
-}
 ```
 
-As per the previous example, for non React users, you can just apply the classes in the rendered markup to your input and label elements.
-
-Typically you will use this component when you want the user to select from a number of options, possibly filters or similar select options where a dropdown is not appropriate.
-
-Props available for the React version of the component;
-
-<ArgsTable component={ToggleRadio} />
-
 <Canvas>
-  <Story name="Multi Toggle - ToggleRadio">
+  <Story name="Toggle Radio - Default">
     <ToggleRadio
       name="my-cool-toggle-radio"
-      isFullWidth
       options={[
         {
           id: 'option-1',
@@ -88,4 +81,39 @@ Props available for the React version of the component;
   </Story>
 </Canvas>
 
-<RenderHtmlMarkup component="Toggle" story="Multi Toggle - ToggleRadio" />
+<RenderHtmlMarkup component="Toggle" story="Toggle Radio - Default" />
+
+## Toggle Radio - Full Width
+
+Slight variation on the above where the toggle spans the full width of it's container.
+
+<Canvas>
+  <Story name="Toggle Radio - Full Width">
+    <ToggleRadio
+      name="my-cool-toggle-radio-full-width"
+      isFullWidth
+      options={[
+        {
+          id: 'option-1-fw',
+          value: 'option-1-fw',
+          text: 'Option 1',
+          isChecked: true,
+        },
+        {
+          id: 'option-2-fw',
+          value: 'option-2-fw',
+          text: 'Option 2',
+          isChecked: false,
+        },
+        {
+          id: 'option-3-fw',
+          value: 'option-3-fw',
+          text: 'Option 3',
+          isChecked: false,
+        },
+      ]}
+    />
+  </Story>
+</Canvas>
+
+<RenderHtmlMarkup component="Toggle" story="Toggle Radio - Full Width" />
