@@ -40,15 +40,16 @@ export default () => {
   const location = useLocation()
   const { pathname } = location
 
-  useEffect(() => {
-    const fetchPipelines = async () => {
-      setLoading(true)
-      const serviceResponse = await pipelineServicePaginate(connectSession as ReapitConnectSession)
-      setLoading(false)
-      if (serviceResponse) {
-        setPipelines(serviceResponse)
-      }
+  const fetchPipelines = async (page?: number) => {
+    setLoading(true)
+    const serviceResponse = await pipelineServicePaginate(connectSession as ReapitConnectSession, page)
+    setLoading(false)
+    if (serviceResponse) {
+      setPipelines(serviceResponse)
     }
+  }
+
+  useEffect(() => {
     if (connectSession) {
       fetchPipelines()
     }
@@ -132,10 +133,24 @@ export default () => {
                   <PaginationText>
                     <strong>{pipelines.meta.currentPage}</strong> of {pipelines?.meta.totalPages}
                   </PaginationText>
-                  <PaginationButton>
+                  <PaginationButton
+                    onClick={async () => {
+                      if (pipelines.meta.currentPage <= 1) {
+                        return
+                      }
+                      await fetchPipelines(pipelines.meta.currentPage - 1)
+                    }}
+                  >
                     <Icon icon="backSystem" />
                   </PaginationButton>
-                  <PaginationButton>
+                  <PaginationButton
+                    onClick={async () => {
+                      if (pipelines.meta.currentPage >= pipelines.meta.totalPages) {
+                        return
+                      }
+                      await fetchPipelines(pipelines.meta.currentPage + 1)
+                    }}
+                  >
                     <Icon icon="nextSystem" className={elPaginationPrimary} />
                   </PaginationButton>
                 </PaginationWrap>

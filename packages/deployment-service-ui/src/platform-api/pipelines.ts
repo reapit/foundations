@@ -60,11 +60,12 @@ export const pipelineServiceGet = async (
 
 export const pipelineServicePaginate = async (
   session: ReapitConnectSession,
+  page: number = 1,
 ): Promise<Pagination<PipelineModelInterface> | undefined> => {
   try {
     const response: Pagination<PipelineModelInterface> = await fetcher({
       api: URLS.DEPLOYMENT_SERVICE_HOST,
-      url: '/pipeline',
+      url: `/pipeline?page=${page}`,
       method: 'GET',
       headers: {
         ...BASE_HEADERS,
