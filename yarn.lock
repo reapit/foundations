@@ -6260,6 +6260,7 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "@reapit/cli@workspace:packages/cli"
   dependencies:
+    "@reapit/config-manager": "workspace:packages/config-manager"
     "@reapit/ts-scripts": "workspace:packages/ts-scripts"
     "@reapit/ts-types": "workspace:packages/ts-types"
     "@types/adm-zip": ^0.4.34
