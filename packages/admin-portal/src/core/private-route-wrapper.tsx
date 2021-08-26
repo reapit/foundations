@@ -36,7 +36,7 @@ export const PrivateRouteWrapper: React.FunctionComponent<PrivateRouteWrapperPro
   }
 
   if (isRoot) {
-    return <Redirect to={Routes.APPROVALS} />
+    return <Redirect to={Routes.APPS} />
   }
 
   if (connectInternalRedirect && currentUri !== connectInternalRedirect) {
