@@ -4,68 +4,82 @@
     <h4 class="el-subtitle el-text-center">See what others had to say...</h4>
     <div class="tile-container el-flex-container el-flex-wrap">
       <div class="tile">
-        <div class="tile-content el-flex-container el-flex-wrap">
-          <div class="quotes-container image-container el-flex-container el-flex-align-center el-flex-justify-center">
-            <img class="" src="./images/quotes.svg" alt="" />
-          </div>
-          <div class="image-container el-flex-container el-flex-align-center el-flex-justify-center">
-            <img class="" src="./images/avatar.svg" alt="" />
-          </div>
-          <div class="el-card-heading-wrap">
-            <h5 class="el-subtitle">Steven Shepherd</h5>
-            <h6 class="el-card-sub-heading el-mb3">Agent</h6>
-            <h6 class="el-card-sub-heading-additional-expanded el-card-sub-heading-additional">
-              Homes of Bath (Fine & Country)
-            </h6>
-          </div>
-          <div class="quotes-container-mobile el-flex-container el-flex-align-center el-flex-justify-center">
-            <img class="" src="./images/quotes.svg" alt="" />
+        <div class="tile-content el-flex-container el-flex-column">
+          <div class="el-flex-container">
+            <div class="quotes-container image-container el-flex-container el-flex-align-center el-flex-justify-center">
+              <img class="" src="./images/quotes.svg" alt="" />
+            </div>
+            <div class="image-container el-flex-container el-flex-align-center el-flex-justify-center">
+              <img class="" src="./images/avatar.svg" alt="" />
+            </div>
+            <div class="el-card-heading-wrap">
+              <h5 class="el-subtitle">Steven Shepherd</h5>
+              <h6 class="el-card-sub-heading el-mb3">Owner</h6>
+              <h6 class="el-card-sub-heading-additional-expanded el-card-sub-heading-additional">Homes of Bath</h6>
+            </div>
+            <div class="quotes-container-mobile el-flex-container el-flex-align-center el-flex-justify-center">
+              <img class="" src="./images/quotes.svg" alt="" />
+            </div>
           </div>
           <p class="el-body-text el-has-grey-text">
-            AppMarket is simple to use and puts all your potential prop tech solutions in one location. Apps are simple
-            to download, one click and the process begins. Whether you are already utilising the third-party app
-            provider or not, it can all be handled through the AppMarket.
-          </p>
-          <p class="el-body-text el-has-grey-text">
-            The AppMarket allows us to make both cost & time savings that we can re-invest into our business, and
-            alongside the third-party app offerings there are also a selection of apps that Reapit have developed
-            themselves. One of these is GeoDiary, which allows our negotiators to quickly access their diary from the
-            app on their mobiles whilst out of the office on appointments. The app allows you to plan your journey,
-            contact your clients and access valuable information in seconds. It is a live connection with Reapit which
-            means if an appointment is cancelled while you’re on the road, your GeoDiary app will update with this live
-            information.
-          </p>
-          <p class="el-body-text el-has-grey-text">
-            Using the App Market has saved us 10 hours a month versus our previous integration processes, and we have
-            been able to re-invest this time into generating more valuations and conducting more viewings to generate
-            additional business.
+            “…One of these is GEO Diary, which allows our negotiators to quickly access their diary from the app on
+            their mobiles whilst out of the office on appointments. The app allows you to plan your journey, contact
+            your clients and access valuable information in seconds. It is a live connection with Reapit which means if
+            an appointment is cancelled while you’re on the road, your GEO Diary app will update with this live
+            information…”
           </p>
         </div>
       </div>
       <div class="tile">
-        <div class="tile-content el-flex-container el-flex-wrap">
-          <div class="quotes-container image-container el-flex-container el-flex-align-center el-flex-justify-center">
-            <img class="" src="./images/quotes.svg" alt="" />
-          </div>
-          <div class="image-container el-flex-container el-flex-align-center el-flex-justify-center">
-            <img class="" src="./images/avatar.svg" alt="" />
-          </div>
-          <div class="el-card-heading-wrap">
-            <h5 class="el-subtitle">John Smith</h5>
-            <h6 class="el-card-sub-heading el-mb3">Executive Assistant</h6>
-            <h6 class="el-card-sub-heading-additional-expanded el-card-sub-heading-additional">Countrywide PLC</h6>
-          </div>
-          <div class="quotes-container-mobile el-flex-container el-flex-align-center el-flex-justify-center">
-            <img class="" src="./images/quotes.svg" alt="" />
+        <div class="tile-content el-flex-container el-flex-column">
+          <div class="el-flex-container">
+            <div class="quotes-container image-container el-flex-container el-flex-align-center el-flex-justify-center">
+              <img class="" src="./images/quotes.svg" alt="" />
+            </div>
+            <div class="image-container el-flex-container el-flex-align-center el-flex-justify-center">
+              <img class="" src="./images/avatar.svg" alt="" />
+            </div>
+            <div class="el-card-heading-wrap">
+              <h5 class="el-subtitle">Jessica Bichard</h5>
+              <h6 class="el-card-sub-heading el-mb3">Local Market Negotiator</h6>
+              <h6 class="el-card-sub-heading-additional-expanded el-card-sub-heading-additional">Swoffers</h6>
+            </div>
+            <div class="quotes-container-mobile el-flex-container el-flex-align-center el-flex-justify-center">
+              <img class="" src="./images/quotes.svg" alt="" />
+            </div>
           </div>
           <p class="el-body-text el-has-grey-text">
-            Lorem ipsum dolor sit amet consectetur adipisicing elit. Blanditiis quas recusandae, facilis atque doloremque commodi est necessitatibus, sunt repellat illum id eos et pariatur magnam perferendis adipisci tempora eum! Maiores.
+            “…Having access to our Agency Cloud diaries on the move with updates being sent through as and when they
+            happen is a massive benefit to our teams. It has moved us away from printed copies and manually having to
+            call our team if there were any updates to appointments…”
           </p>
+        </div>
+      </div>
+      <div class="tile">
+        <div class="tile-content el-flex-container el-flex-column">
+          <div class="el-flex-container">
+            <div class="quotes-container image-container el-flex-container el-flex-align-center el-flex-justify-center">
+              <img class="" src="./images/quotes.svg" alt="" />
+            </div>
+            <div class="image-container el-flex-container el-flex-align-center el-flex-justify-center">
+              <img class="" src="./images/avatar.svg" alt="" />
+            </div>
+            <div class="el-card-heading-wrap">
+              <h5 class="el-subtitle">Marco Olival</h5>
+              <h6 class="el-card-sub-heading el-mb3">HUB & Business Development Manager</h6>
+              <h6 class="el-card-sub-heading-additional-expanded el-card-sub-heading-additional">
+                Bridges Estate Agents
+              </h6>
+            </div>
+            <div class="quotes-container-mobile el-flex-container el-flex-align-center el-flex-justify-center">
+              <img class="" src="./images/quotes.svg" alt="" />
+            </div>
+          </div>
           <p class="el-body-text el-has-grey-text">
-            Lorem, ipsum dolor sit amet consectetur adipisicing elit. Eum illum officiis praesentium. Consectetur voluptates ex labore sed omnis dignissimos, natus amet est facilis beatae voluptate quis, ipsum, atque consequatur aliquam.
-          </p>
-          <p class="el-body-text el-has-grey-text">
-            Lorem ipsum dolor sit amet consectetur adipisicing elit. Numquam eius error eum quam, veritatis praesentium minima, facilis aperiam sed cumque odit voluptate dolorem libero repudiandae. Id fugiat suscipit voluptatibus nostrum?
+            “…GEO Diary has made this transition easier for them as the App allows them to plan out their route for the
+            day between appointments. With the ability to write feedback on appointments straight back into Reapit from
+            the app, we can be more proactive in updating appointments which means we can save the negotiators time at
+            the end of the day inputting feedback into the diary…”
           </p>
         </div>
       </div>
@@ -160,7 +174,7 @@
     }
 
     .tile-container {
-      max-height: 900px;
+      max-height: 800px;
     }
 
     .tile {
