@@ -13,9 +13,15 @@ const createHandler = async () => {
 
   const server = new ApolloServer({
     schema,
-    context: ({ event }): Context => ({
-      accessToken: event.headers.authorization?.split(' ')[1],
-    }),
+    context: ({ event }): Context => {
+      const { authorization } = event.headers
+      if (!authorization) {
+        throw new Error('Must have the authorization header')
+      }
+      return {
+        accessToken: authorization.split(' ')[1],
+      }
+    },
   })
 
   return server.createHandler()
