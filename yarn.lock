@@ -6260,6 +6260,7 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "@reapit/cli@workspace:packages/cli"
   dependencies:
+    "@reapit/config-manager": "workspace:packages/config-manager"
     "@reapit/ts-scripts": "workspace:packages/ts-scripts"
     "@reapit/ts-types": "workspace:packages/ts-types"
     "@types/adm-zip": ^0.4.34
@@ -6269,9 +6270,11 @@ __metadata:
     "@types/yargs": ^16.0.4
     "@typescript-eslint/eslint-plugin": ^4.28.4
     "@typescript-eslint/parser": ^4.28.4
+    ansi-regex: ^6.0.0
     axios: ^0.21.1
     babel-jest: ^27.0.6
     chalk: ^4.1.1
+    cli-spinners: ^2.6.0
     concurrently: ^6.2.0
     create-react-app: ^4.0.3
     eslint: ^7.31.0
@@ -6282,6 +6285,7 @@ __metadata:
     nestjs-typeorm-paginate: ^2.5.3
     ora: ^5.4.1
     process.argv: ^0.6.0
+    pusher-js: ^7.0.3
     reflect-metadata: ^0.1.13
     semver: ^7.3.5
     shleemy: ^1.2.2
@@ -12243,6 +12247,13 @@ __metadata:
   languageName: node
   linkType: hard
 
+"ansi-regex@npm:^6.0.0":
+  version: 6.0.0
+  resolution: "ansi-regex@npm:6.0.0"
+  checksum: 69b395ba2c6b38957a0540561c5db0dc1a7f55d9432752628a59942645c0f145dabe2963bc4e57a1c921cd15a90722a46be2cea0b556ae74e16e09548c3f7ffc
+  languageName: node
+  linkType: hard
+
 "ansi-styles@npm:^2.2.1":
   version: 2.2.1
   resolution: "ansi-styles@npm:2.2.1"
@@ -15669,7 +15680,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"cli-spinners@npm:^2.2.0, cli-spinners@npm:^2.5.0":
+"cli-spinners@npm:^2.2.0, cli-spinners@npm:^2.5.0, cli-spinners@npm:^2.6.0":
   version: 2.6.0
   resolution: "cli-spinners@npm:2.6.0"
   checksum: 653ba6818e0091d4ad7aa052022f6c6a0df0d4674ff6069f6ae366e6130c1eb91a6c332ddfdd2029d234411632ff6428950aa3311872daf515ce54da498c1357
@@ -32766,7 +32777,7 @@ fsevents@^1.2.7:
   languageName: node
   linkType: hard
 
-"pusher-js@npm:^7.0.0":
+"pusher-js@npm:^7.0.0, pusher-js@npm:^7.0.3":
   version: 7.0.3
   resolution: "pusher-js@npm:7.0.3"
   dependencies:

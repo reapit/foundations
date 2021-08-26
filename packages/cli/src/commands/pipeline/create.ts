@@ -81,7 +81,7 @@ export class PipelineCreate extends AbstractCommand {
         fs.writeFileSync(resolve(process.cwd(), REAPIT_PIPELINE_CONFIG_FILE), JSON.stringify(response.data, null, 2))
         spinner.succeed('Created local pipeline config')
       }
-      console.log('Now use reapit pipeline run to start a pipeline')
+      console.log('Now make a commit to your project or use `reapit pipeline deploy` to start a deployment manually')
     } else {
       spinner.fail('Failed to create pipeline')
       console.log(chalk.red('Check your internet connection'))
