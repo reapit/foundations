@@ -303,6 +303,8 @@ export default () => {
                 <p>{pipeline?.buildCommand}</p>
                 <Label>Repository</Label>
                 <p>{pipeline?.repository}</p>
+                <Label>outDir</Label>
+                <p>{pipeline?.outDir}</p>
               </>
             ) : (
               <DeploymentTable
