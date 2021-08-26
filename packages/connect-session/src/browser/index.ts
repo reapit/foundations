@@ -66,7 +66,7 @@ export class ReapitConnectBrowserSession {
   private setIdleTimeoutListeners() {
     const resetTimer = () => {
       clearTimeout(this.idleTimeoutCountdown)
-      this.idleTimeoutCountdown = setTimeout(this.connectLogoutRedirect, this.connectApplicationTimeout)
+      this.idleTimeoutCountdown = window.setTimeout(this.connectLogoutRedirect, this.connectApplicationTimeout)
     }
 
     document.onmousemove = resetTimer
