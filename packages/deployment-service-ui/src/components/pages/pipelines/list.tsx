@@ -1,19 +1,44 @@
 import Routes from '@/constants/routes'
 import { reapitConnectBrowserSession } from '@/core/connect-session'
 import { ReapitConnectSession, useReapitConnect } from '@reapit/connect-session'
-import { ButtonGroup, FlexContainerBasic, H3, notification, Section } from '@reapit/elements-legacy'
+import { notification } from '@reapit/elements-legacy'
 import { Button, Table } from '@reapit/elements-legacy'
-import { Loader } from '@reapit/elements'
+import {
+  BodyText,
+  Icon,
+  Loader,
+  PageContainer,
+  SecondaryNavContainer,
+  Subtitle,
+  Title,
+  elHFull,
+  elMb5,
+  FlexContainer,
+  SecondaryNav,
+  SecondaryNavItem,
+  elMb8,
+  PaginationWrap,
+  PaginationText,
+  PaginationButton,
+  elPaginationPrimary,
+  elFlexGrow,
+} from '@reapit/elements'
 import { PipelineModelInterface } from '@reapit/foundations-ts-definitions'
 import React, { useEffect, useState } from 'react'
-import { Link } from 'react-router-dom'
+import { Link, useHistory, useLocation } from 'react-router-dom'
 import { pipelineServiceDelete, pipelineServicePaginate } from '../../../platform-api/pipelines'
+import { Pagination } from 'nestjs-typeorm-paginate'
+import { cx } from '@linaria/core'
 
 export default () => {
   const { connectSession } = useReapitConnect(reapitConnectBrowserSession)
-  const [pipelines, setPipelines] = useState<PipelineModelInterface[]>([])
+  const [pipelines, setPipelines] = useState<Pagination<PipelineModelInterface>>()
   const [loading, setLoading] = useState<boolean>(false)
   const [deletionLoading, setDeletionLoading] = useState<string[]>([])
+
+  const history = useHistory()
+  const location = useLocation()
+  const { pathname } = location
 
   useEffect(() => {
     const fetchPipelines = async () => {
@@ -21,7 +46,7 @@ export default () => {
       const serviceResponse = await pipelineServicePaginate(connectSession as ReapitConnectSession)
       setLoading(false)
       if (serviceResponse) {
-        setPipelines([...pipelines, ...serviceResponse])
+        setPipelines(serviceResponse)
       }
     }
     if (connectSession) {
@@ -30,59 +55,97 @@ export default () => {
   }, [connectSession])
 
   const deletePipeline = async (id: string) => {
+    if (!pipelines) {
+      return
+    }
+
     setDeletionLoading([...deletionLoading, id])
 
     await pipelineServiceDelete(connectSession as ReapitConnectSession, id)
 
     setDeletionLoading(deletionLoading.filter((del) => del !== id))
-    setPipelines(pipelines.filter((pipeline) => pipeline.id !== id))
+    setPipelines({
+      ...pipelines,
+      items: pipelines.items.filter((pipeline) => pipeline.id !== id),
+    })
     notification.success({ message: 'Pipeline deleted' })
   }
 
   return (
-    <Section>
-      <H3>Pipelines</H3>
-      <Link to={Routes.PIPELINES_CREATION}>
-        <Button type="button" variant="primary">
-          Create new Pipeline
-        </Button>
-      </Link>
-      <FlexContainerBasic centerContent flexColumn hasBackground hasPadding>
-        {loading ? (
-          <Loader />
-        ) : (
-          <Table
-            data={pipelines}
-            columns={[
-              {
-                Header: 'Name',
-                accessor: 'name',
-              },
-              {
-                Header: 'Repository',
-                accessor: 'repository',
-              },
-              {
-                id: 'Delete',
-                Cell: ({ row }: { row: { original: any } }) => (
-                  <ButtonGroup>
-                    <Button variant="secondary">
-                      <Link to={Routes.PIPELINES_SHOW.replace(':pipelineId', row.original.id)}>Manage</Link>
-                    </Button>
-                    <Button
-                      loading={deletionLoading.includes(row.original.id)}
-                      onClick={() => deletePipeline(row.original.id)}
-                      variant="danger"
-                    >
-                      Delete
-                    </Button>
-                  </ButtonGroup>
-                ),
-              },
-            ]}
-          />
-        )}
-      </FlexContainerBasic>
-    </Section>
+    <FlexContainer isFlexAuto>
+      <SecondaryNavContainer>
+        <Title>Pipelines</Title>
+        <Icon className={elMb5} icon="developersMenu" iconSize="large" />
+        <Subtitle>Deployment pipeline manager</Subtitle>
+        <BodyText hasGreyText>description about the pipeline service</BodyText>
+        <SecondaryNav className={elMb8}>
+          <SecondaryNavItem onClick={() => history.push(Routes.PIPELINES)} active={pathname === Routes.PIPELINES}>
+            My Pipelines
+          </SecondaryNavItem>
+          <SecondaryNavItem
+            onClick={() => history.push(Routes.PIPELINES_CREATION)}
+            active={pathname === Routes.PIPELINES_CREATION}
+          >
+            Create new Pipeline
+          </SecondaryNavItem>
+        </SecondaryNav>
+      </SecondaryNavContainer>
+      <PageContainer className={elHFull}>
+        <div>
+          <FlexContainer isFlexAlignCenter isFlexJustifyCenter>
+            {loading ? (
+              <Loader />
+            ) : pipelines ? (
+              <section className={cx(elFlexGrow)}>
+                <Title>My Pipelines</Title>
+                <Table
+                  data={pipelines.items}
+                  columns={[
+                    {
+                      Header: 'Name',
+                      accessor: 'name',
+                    },
+                    {
+                      Header: 'Repository',
+                      accessor: 'repository',
+                    },
+                    {
+                      id: 'Delete',
+                      Cell: ({ row }: { row: { original: any } }) => (
+                        <>
+                          <Button variant="secondary">
+                            <Link to={Routes.PIPELINES_SHOW.replace(':pipelineId', row.original.id)}>Manage</Link>
+                          </Button>
+                          <Button
+                            loading={deletionLoading.includes(row.original.id)}
+                            onClick={() => deletePipeline(row.original.id)}
+                            variant="danger"
+                          >
+                            Delete
+                          </Button>
+                        </>
+                      ),
+                    },
+                  ]}
+                />
+                <PaginationWrap>
+                  <PaginationText>
+                    <strong>{pipelines.meta.currentPage}</strong> of {pipelines?.meta.totalPages}
+                  </PaginationText>
+                  <PaginationButton>
+                    <Icon icon="backSystem" />
+                  </PaginationButton>
+                  <PaginationButton>
+                    <Icon icon="nextSystem" className={elPaginationPrimary} />
+                  </PaginationButton>
+                </PaginationWrap>
+              </section>
+            ) : (
+              <Title>Something went wrong</Title>
+            )}
+          </FlexContainer>
+        </div>
+      </PageContainer>
+    </FlexContainer>
   )
 }

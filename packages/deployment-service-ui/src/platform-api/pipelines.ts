@@ -60,9 +60,9 @@ export const pipelineServiceGet = async (
 
 export const pipelineServicePaginate = async (
   session: ReapitConnectSession,
-): Promise<PipelineModelInterface[] | undefined> => {
+): Promise<Pagination<PipelineModelInterface> | undefined> => {
   try {
-    const response: { items: PipelineModelInterface[] } | undefined = await fetcher({
+    const response: Pagination<PipelineModelInterface> = await fetcher({
       api: URLS.DEPLOYMENT_SERVICE_HOST,
       url: '/pipeline',
       method: 'GET',
@@ -73,7 +73,7 @@ export const pipelineServicePaginate = async (
     })
 
     if (response) {
-      return response.items
+      return response
     }
 
     throw new Error('No response returned by API')
