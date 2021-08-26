@@ -28,6 +28,8 @@ import DisableMemberModal from '@/components/ui/disable-member-modal'
 import SetAsAdminModal from '@/components/ui/set-as-admin-modal'
 import { FetchDeveloperMembersParams } from '@/services/developers'
 import { CreateSubscriptionsButton } from '../../ui/create-subscriptions/create-subscriptions-button'
+import { useReapitConnect } from '@reapit/connect-session'
+import { reapitConnectBrowserSession } from '../../../core/connect-session'
 
 export const buildFilterValues = (queryParams: URLSearchParams): DevsManagementFilterFormValues => {
   const name = queryParams.get('name') || ''
@@ -105,6 +107,7 @@ export const DevsManagement: React.FC = () => {
   const location = useLocation()
   const fetchData = handleFetchData(dispatch)
   const fetchMemberData = handleFetchMemberData(dispatch)
+  const { connectSession } = useReapitConnect(reapitConnectBrowserSession)
   const queryParams = new URLSearchParams(location.search)
   const filterValues = buildFilterValues(queryParams)
   const onPageChange = React.useCallback(onPageChangeHandler(history, filterValues), [history, filterValues])
@@ -116,6 +119,8 @@ export const DevsManagement: React.FC = () => {
   const [disableMemberModalVisible, setDisableMemberModalVisible] = React.useState<boolean>(false)
   const handleOpenSetAdminModal = handleToggleVisibleModal(setIsSetAdminModalOpen, true)
   const handleCloseSetAdminModal = handleToggleVisibleModal(setIsSetAdminModalOpen, false)
+  const userEmail = connectSession?.loginIdentity?.email ?? ''
+  const hasLimitedAccess = window.reapit.config.limitedUserAccessWhitelist.includes(userEmail)
 
   const DeveloperListState = useSelector(selectDeveloperListState)
   const { data, totalCount, pageSize, pageNumber = 1, isLoading } = DeveloperListState
@@ -197,23 +202,23 @@ export const DevsManagement: React.FC = () => {
         className: 'capitalize',
       },
     },
-    {
+    !hasLimitedAccess && {
       Header: '',
       id: 'buttonColumn',
       Cell: StatusBtnCell,
     },
-    {
+    !hasLimitedAccess && {
       Header: '',
       id: 'membersColumn',
       Cell: MembersBtnCell,
     },
-    {
+    !hasLimitedAccess && {
       id: 'Subscribe',
       Cell: ({ row }: { row: { original: DeveloperModel } }) => (
         <CreateSubscriptionsButton subscriptionType="developerRegistration" developerId={row.original.id as string} />
       ),
     },
-  ]
+  ].filter(Boolean)
 
   if (isLoading || !data) {
     return <Loader />

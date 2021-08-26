@@ -7,7 +7,14 @@ export interface UserAccess {
 }
 
 const ADMIN_USER_GROUP = ['ReapitEmployeeFoundationsAdmin']
-const ADMIN_LIMITED_ROUTES = [Routes.ROOT, Routes.BILLING, Routes.STATS, Routes.CUSTOMERS, Routes.APPS]
+const ADMIN_LIMITED_ROUTES = [
+  Routes.ROOT,
+  Routes.BILLING,
+  Routes.STATS,
+  Routes.CUSTOMERS,
+  Routes.APPS,
+  Routes.DEV_MANAGEMENT,
+]
 
 export const getAccess = (session: ReapitConnectSession | null, route: string): boolean => {
   const permissionGroups = session?.loginIdentity?.groups ?? []
