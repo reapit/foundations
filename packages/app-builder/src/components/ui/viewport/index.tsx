@@ -7,8 +7,8 @@ import {
   elFlexRow,
   elHFull,
   elMAuto,
-  elPb4,
-  elPt4,
+  elPb6,
+  elPt6,
   elWFull,
   ToggleRadio,
 } from '@reapit/elements'
@@ -104,13 +104,13 @@ const Viewport = ({ children, iframeRef }) => {
               </>
             }
           >
-            <div id="page-container" className={cx(elFlex, elFlex1, elHFull, elFlexColumn, elPt4)}>
+            <div id="page-container" className={cx(elFlex, elFlex1, elHFull, elFlexColumn, elPt6)}>
               <div
                 id="craftjs-renderer"
-                className={cx(elFlex1, elHFull, elWFull, transition, elPb4, overflowAuto)}
+                className={cx(elFlex1, elHFull, elWFull, transition, elPb6, overflowAuto)}
                 ref={(ref) => ref && connectors.select(connectors.hover(ref, ''), '')}
               >
-                <div className={cx(elFlex, elFlexRow, flexAlignStretch, relative, elPt4, elMAuto)}>
+                <div className={cx(elFlex, elFlexRow, flexAlignStretch, relative, elPt6, elMAuto)}>
                   <InjectFrameStyles>{children}</InjectFrameStyles>
                 </div>
               </div>

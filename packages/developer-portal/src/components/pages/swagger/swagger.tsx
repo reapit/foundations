@@ -17,8 +17,8 @@ import {
   Title,
   Subtitle,
   Icon,
-  elMb8,
-  elMb3,
+  elMb9,
+  elMb5,
   Button,
   Label,
 } from '@reapit/elements'
@@ -66,7 +66,7 @@ export const SwaggerPage: FC = () => {
       <FlexContainer className={elWFull} isFlexInitial>
         <SecondaryNavContainer>
           <Title>API</Title>
-          <SecondaryNav className={elMb8}>
+          <SecondaryNav className={elMb9}>
             <SecondaryNavItem onClick={navigate(history, Routes.SWAGGER)} active={pathname === Routes.SWAGGER}>
               REST API
             </SecondaryNavItem>
@@ -77,35 +77,35 @@ export const SwaggerPage: FC = () => {
               GraphQL
             </SecondaryNavItem>
           </SecondaryNav>
-          <Icon className={elMb3} icon="apiInfographic" iconSize="large" />
+          <Icon className={elMb5} icon="apiInfographic" iconSize="large" />
           <Subtitle>Open API Specification</Subtitle>
           <div>
             <Label>API Version</Label>
-            <p className={elMb3}>2020-01-31</p>
+            <p className={elMb5}>2020-01-31</p>
           </div>
           <div>
             <Label>API Location</Label>
-            <p className={elMb3}>https://platform.reapit.cloud</p>
+            <p className={elMb5}>https://platform.reapit.cloud</p>
           </div>
           <BodyText hasGreyText>
             This tool is interactive and provides instant access to data hosted in our sandbox environment with
             authentication and versioning headers pre-populated. Example requests and responses are shown by default but
             you can switch to view a fully documented schema - look for the model link.
           </BodyText>
-          <Button className={elMb3} intent="neutral" onClick={openNewPage(ExternalPages.platformAPIDocs)}>
+          <Button className={elMb5} intent="neutral" onClick={openNewPage(ExternalPages.platformAPIDocs)}>
             View Docs
           </Button>
           <Button
-            className={elMb3}
+            className={elMb5}
             intent="neutral"
             onClick={openNewPage(`${window.reapit.config.platformApiUrl}/docs`)}
           >
             Download Spec
           </Button>
-          <Button className={elMb3} intent="neutral" onClick={navigate(history, Routes.HELP)}>
+          <Button className={elMb5} intent="neutral" onClick={navigate(history, Routes.HELP)}>
             See Help
           </Button>
-          <Button className={elMb3} intent="neutral" onClick={openNewPage(ExternalPages.glossaryDocs)}>
+          <Button className={elMb5} intent="neutral" onClick={openNewPage(ExternalPages.glossaryDocs)}>
             See Glossary
           </Button>
         </SecondaryNavContainer>

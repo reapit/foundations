@@ -1,7 +1,7 @@
 import React, { Dispatch, FC, SetStateAction, useState } from 'react'
 import ErrorBoundary from '@/components/hocs/error-boundary'
 import { FadeIn, Modal } from '@reapit/elements-legacy'
-import { Title, Subtitle, BodyText, elMb4, elMb6, SmallText, Button, elMx4, PageContainer } from '@reapit/elements'
+import { Title, Subtitle, BodyText, elMb6, elMb8, SmallText, Button, elMx4, PageContainer } from '@reapit/elements'
 import DeveloperEditonModal from '@/components/ui/developer-edition-modal'
 import {
   hasGreyText,
@@ -54,12 +54,12 @@ export const handleToggleModal = (setModalVisible: Dispatch<SetStateAction<boole
 
 export const BannerSection: FC = () => (
   <FadeIn>
-    <BodyText className={cx(elMb4, hasGreyText)}>
+    <BodyText className={cx(elMb6, hasGreyText)}>
       Reapit&#39;s Agency Cloud is a desktop application that offers estate agencies a comprehensive range of market
       leading agency products, including a Sales CRM, Lettings CRM, Client Accounts, Property Management and real-time
       Analytics.
     </BodyText>
-    <Grid className={elMb6}>
+    <Grid className={elMb8}>
       <BannerCol>
         <ImageTextPair>
           <img src={crmImage} />
@@ -85,18 +85,18 @@ export const BannerSection: FC = () => (
 export const AboutSection: FC = () => (
   <FadeIn>
     <Subtitle>About Foundations Desktop API</Subtitle>
-    <BodyText className={cx(elMb4, hasGreyText)}>
+    <BodyText className={cx(elMb6, hasGreyText)}>
       Developers that would like to integrate with or extend the functionality of Agency Cloud can use the Foundations
       Desktop API to build web applications for Reapit&#39;s app Marketplace that trigger events in the Agency Cloud
       desktop application, as well as associating their apps with common actions in Agency Cloud to replace default
       behaviours and screens.
     </BodyText>
-    <BodyText className={cx(elMb4, hasGreyText)}>
+    <BodyText className={cx(elMb6, hasGreyText)}>
       For example, a developer building a Marketplace app that provides AML and ID checking, can use the Desktop API to
       associate their app with the default ID checking screen in Agency Cloud. When a customer clicks the default button
       to launch the ID check screen, the developer&#39;s associated app would be presented instead.
     </BodyText>
-    <BodyText className={cx(elMb4, hasGreyText)}>
+    <BodyText className={cx(elMb6, hasGreyText)}>
       To learn more about what’s possible with the Desktop API, please visit the{' '}
       <a target="_blank" rel="noreferrer" href="https://foundations-documentation.reapit.cloud/api/desktop-api">
         documentation.
@@ -178,16 +178,16 @@ export const SubscribeSection: FC = () => {
                 </PriceSection>
               ) : (
                 <FadeIn>
-                  <BodyText className={cx(elMb4, hasGreyText)}>
+                  <BodyText className={cx(elMb6, hasGreyText)}>
                     The Developer Edition of Agency Cloud allows developers using the Desktop API to test their apps
                     within the desktop application using sandbox data.
                   </BodyText>
-                  <BodyText className={cx(elMb4, hasGreyText)}>
+                  <BodyText className={cx(elMb6, hasGreyText)}>
                     From 1st April, the Developer Edition of Agency Cloud will no longer be a free subscription. If you
                     had subscribed during the Beta Phase and still wish to continue to use the software, please re
                     subscribe.
                   </BodyText>
-                  <BodyText className={cx(elMb4, hasGreyText)}>
+                  <BodyText className={cx(elMb6, hasGreyText)}>
                     The application is licenced per user/developer of an organisation and will require a Windows machine
                     to install it.
                   </BodyText>

@@ -1,7 +1,7 @@
 import { useNode } from '@craftjs/core'
 import React, { FC } from 'react'
 import { cx } from '@linaria/core'
-import { elFlex, elFlexJustifyBetween, elMt4, elMt2, elPx2 } from '@reapit/elements'
+import { elFlex, elFlexJustifyBetween, elMt6, elMt3, elPx3 } from '@reapit/elements'
 import { cursorPointer } from '../styles'
 
 interface ToolbarSectionProps {
@@ -23,11 +23,11 @@ export const ToolbarSection: FC<ToolbarSectionProps> = ({ title, props, summary,
 
   return (
     <details>
-      <summary className={cx(elFlex, elFlexJustifyBetween, elPx2, elMt4, cursorPointer)}>
+      <summary className={cx(elFlex, elFlexJustifyBetween, elPx3, elMt6, cursorPointer)}>
         <span>{title}</span>
         {summary && props && <span>{summary(nodeProps)}</span>}
       </summary>
-      <div className={cx(elMt2)}>{children}</div>
+      <div className={cx(elMt3)}>{children}</div>
     </details>
   )
 }

@@ -6,7 +6,7 @@ exports[`MapPanel should match snapshot without an appointment in state 1`] = `
 >
   <MapPanelItem>
     <Subtitle
-      className="el-is-bold-text"
+      hasBoldText={true}
     >
       ETA
     </Subtitle>
@@ -16,7 +16,7 @@ exports[`MapPanel should match snapshot without an appointment in state 1`] = `
   </MapPanelItem>
   <MapPanelItem>
     <Subtitle
-      className="el-is-bold-text"
+      hasBoldText={true}
     >
       Distance
     </Subtitle>

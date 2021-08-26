@@ -11,7 +11,7 @@ A collection of simple flex modifiers
 
 ## Flex
 
-Basic definition of a flex layout. 
+Basic definition of a flex layout.
 
 <Canvas>
   <Story name="flex">
@@ -23,7 +23,6 @@ Basic definition of a flex layout.
 </Canvas>
 
 <RenderHtmlMarkup component="Flexbox" story="flex" />
-
 
 ## Is Flex Column
 
@@ -76,7 +75,6 @@ A reversed row layout
 
 <RenderHtmlMarkup component="Flexbox" story="flex-row-reverse" />
 
-
 ## Column
 
 A column layout
@@ -118,10 +116,10 @@ Wrap is used to force fixed sized components onto the next row or column.
 <Canvas>
   <Story name="flex-wrap">
     <div className="el-flex el-flex-row el-flex-wrap">
-      <GridDemoBlockWithMargin style={{width: '300px'}}>1</GridDemoBlockWithMargin>
-      <GridDemoBlockWithMargin style={{width: '300px'}}>2</GridDemoBlockWithMargin>
-      <GridDemoBlockWithMargin style={{width: '300px'}}>3</GridDemoBlockWithMargin>
-      <GridDemoBlockWithMargin style={{width: '300px'}}>4</GridDemoBlockWithMargin>
+      <GridDemoBlockWithMargin style={{ width: '300px' }}>1</GridDemoBlockWithMargin>
+      <GridDemoBlockWithMargin style={{ width: '300px' }}>2</GridDemoBlockWithMargin>
+      <GridDemoBlockWithMargin style={{ width: '300px' }}>3</GridDemoBlockWithMargin>
+      <GridDemoBlockWithMargin style={{ width: '300px' }}>4</GridDemoBlockWithMargin>
     </div>
   </Story>
 </Canvas>
@@ -135,10 +133,10 @@ No wrap will force fixed sized elements to be forced onto one row or column.
 <Canvas>
   <Story name="flex-no-wrap">
     <div className="el-flex el-flex-row el-flex-no-wrap">
-      <GridDemoBlockWithMargin style={{width: '300px'}}>1</GridDemoBlockWithMargin>
-      <GridDemoBlockWithMargin style={{width: '300px'}}>2</GridDemoBlockWithMargin>
-      <GridDemoBlockWithMargin style={{width: '300px'}}>3</GridDemoBlockWithMargin>
-      <GridDemoBlockWithMargin style={{width: '300px'}}>4</GridDemoBlockWithMargin>
+      <GridDemoBlockWithMargin style={{ width: '300px' }}>1</GridDemoBlockWithMargin>
+      <GridDemoBlockWithMargin style={{ width: '300px' }}>2</GridDemoBlockWithMargin>
+      <GridDemoBlockWithMargin style={{ width: '300px' }}>3</GridDemoBlockWithMargin>
+      <GridDemoBlockWithMargin style={{ width: '300px' }}>4</GridDemoBlockWithMargin>
     </div>
   </Story>
 </Canvas>
@@ -152,10 +150,10 @@ A reverse wrap will reverse the elements and wrap them
 <Canvas>
   <Story name="flex-wrap-reverse">
     <div className="el-flex el-flex-row el-flex-wrap-reverse">
-      <GridDemoBlockWithMargin style={{width: '300px'}}>1</GridDemoBlockWithMargin>
-      <GridDemoBlockWithMargin style={{width: '300px'}}>2</GridDemoBlockWithMargin>
-      <GridDemoBlockWithMargin style={{width: '300px'}}>3</GridDemoBlockWithMargin>
-      <GridDemoBlockWithMargin style={{width: '300px'}}>4</GridDemoBlockWithMargin>
+      <GridDemoBlockWithMargin style={{ width: '300px' }}>1</GridDemoBlockWithMargin>
+      <GridDemoBlockWithMargin style={{ width: '300px' }}>2</GridDemoBlockWithMargin>
+      <GridDemoBlockWithMargin style={{ width: '300px' }}>3</GridDemoBlockWithMargin>
+      <GridDemoBlockWithMargin style={{ width: '300px' }}>4</GridDemoBlockWithMargin>
     </div>
   </Story>
 </Canvas>
@@ -185,7 +183,6 @@ flex-basis: 0%;
 
 <RenderHtmlMarkup component="Flexbox" story="flex1" />
 
-
 ## Flex auto
 
 Flex auto will set the basis to be `auto` meaning the element will fill the avaiable space.
@@ -202,7 +199,6 @@ Flex auto will set the basis to be `auto` meaning the element will fill the avai
 </Canvas>
 
 <RenderHtmlMarkup component="Flexbox" story="flex-auto" />
-
 
 ## Flex Initial
 
@@ -221,10 +217,9 @@ Flex initial is the default flex value. Setting grow to 0 to prevent the element
 
 <RenderHtmlMarkup component="Flexbox" story="flex-initial" />
 
-
 ## Flex Grow
 
-use flex-grow to specify that the element should be overall larger and fill the overall empty space.
+Use flex-grow to specify that the element should be overall larger and fill the overall empty space.
 
 <Canvas>
   <Story name="flex-grow">
@@ -239,8 +234,6 @@ use flex-grow to specify that the element should be overall larger and fill the 
 
 ## Flex Grow 0
 
-
-
 <Canvas>
   <Story name="flex-grow0">
     <div className="el-flex el-flex-row">
@@ -252,10 +245,9 @@ use flex-grow to specify that the element should be overall larger and fill the 
 
 <RenderHtmlMarkup component="Flexbox" story="flex-grow0" />
 
-
 ## Flex Shrink
 
-use flex-shrink to specify that the element should be overall smaller.
+Use flex-shrink to specify that the element should be overall smaller.
 
 <Canvas>
   <Story name="flex-shrink">
@@ -270,10 +262,9 @@ use flex-shrink to specify that the element should be overall smaller.
 
 <RenderHtmlMarkup component="Flexbox" story="flex-shrink" />
 
-
 ## Flex Shrink 0
 
-use flex-shrink0 to remove the shrink setting
+Use flex-shrink0 to remove the shrink setting
 
 <Canvas>
   <Story name="flex-shrink0">
@@ -395,8 +386,8 @@ Center elements in the center of the container along the opposite axis
 <Canvas>
   <Story name="flex-align-center">
     <div className="el-flex el-flex-column el-flex-align-center">
-      <GridDemoBlockWithMargin style={{width: '300px'}}>1</GridDemoBlockWithMargin>
-      <GridDemoBlockWithMargin style={{width: '300px'}}>2</GridDemoBlockWithMargin>
+      <GridDemoBlockWithMargin style={{ width: '300px' }}>1</GridDemoBlockWithMargin>
+      <GridDemoBlockWithMargin style={{ width: '300px' }}>2</GridDemoBlockWithMargin>
     </div>
   </Story>
 </Canvas>
@@ -410,8 +401,8 @@ Position items to the start of the opposite axis
 <Canvas>
   <Story name="flex-align-start">
     <div className="el-flex el-flex-column el-flex-align-start">
-      <GridDemoBlockWithMargin style={{width: '300px'}}>1</GridDemoBlockWithMargin>
-      <GridDemoBlockWithMargin style={{width: '300px'}}>2</GridDemoBlockWithMargin>
+      <GridDemoBlockWithMargin style={{ width: '300px' }}>1</GridDemoBlockWithMargin>
+      <GridDemoBlockWithMargin style={{ width: '300px' }}>2</GridDemoBlockWithMargin>
     </div>
   </Story>
 </Canvas>
@@ -425,8 +416,8 @@ Position items to the end of the opposite axis
 <Canvas>
   <Story name="flex-align-end">
     <div className="el-flex el-flex-column el-flex-align-end">
-      <GridDemoBlockWithMargin style={{width: '300px'}}>1</GridDemoBlockWithMargin>
-      <GridDemoBlockWithMargin style={{width: '300px'}}>2</GridDemoBlockWithMargin>
+      <GridDemoBlockWithMargin style={{ width: '300px' }}>1</GridDemoBlockWithMargin>
+      <GridDemoBlockWithMargin style={{ width: '300px' }}>2</GridDemoBlockWithMargin>
     </div>
   </Story>
 </Canvas>

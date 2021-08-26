@@ -21,7 +21,7 @@ import {
   mobileAppointmentsShow,
 } from './__styles__'
 import AppointmentList from '../../ui/appointment-list'
-import { elIsBoldText, Loader, Subtitle } from '@reapit/elements'
+import { Loader, Subtitle } from '@reapit/elements'
 import GoogleMapComponent from '@/components/ui/map'
 import ErrorBoundary from '../../../core/error-boundary'
 import { MyLocation } from '../../ui/my-location/my-location'
@@ -185,7 +185,7 @@ export const AppointmentContent: FC<AppointmentContentProps> = ({ appointmentsSo
     <>
       <ControlsContainer>
         <ControlsTitleWrapper>
-          <Subtitle className={elIsBoldText}>Location</Subtitle>
+          <Subtitle hasBoldText>Location</Subtitle>
           <TabMode />
         </ControlsTitleWrapper>
         <MyLocation />

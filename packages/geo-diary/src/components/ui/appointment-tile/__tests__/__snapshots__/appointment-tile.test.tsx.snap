@@ -3,7 +3,7 @@
 exports[`AppointmentTile should match snapshot 1`] = `
 <div>
   <CardWrap
-    className="cancelled-tile el-mb4"
+    className="cancelled-tile el-mb6"
     onClick={[Function]}
   >
     <CardListMainWrap
