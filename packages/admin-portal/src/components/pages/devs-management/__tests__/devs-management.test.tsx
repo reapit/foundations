@@ -34,6 +34,9 @@ const createStore = (loading: boolean, data?: DeveloperModelPagedResult) => {
 
 describe('AdminDevManagement', () => {
   let store, mockStore
+
+  window.reapit.config.limitedUserAccessWhitelist = []
+
   beforeEach(() => {
     mockStore = configureStore()
   })
