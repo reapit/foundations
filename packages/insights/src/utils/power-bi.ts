@@ -1,3 +1,4 @@
+/* istanbul ignore file */
 import { service, factories, models, IEmbedConfiguration } from 'powerbi-client'
 import { logger } from '@reapit/utils'
 import { MutableRefObject } from 'react'
