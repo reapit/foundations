@@ -1,5 +1,6 @@
 const Routes = {
-  HOME: '/:pageId?',
+  APP_SELECT: '/',
+  HOME: '/:appId/:pageId?',
   LOGIN: '/login',
 }
 

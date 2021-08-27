@@ -30,6 +30,7 @@ export const catchChunkError = (
 
 const LoginPage = React.lazy(() => catchChunkError(() => import('../components/pages/login')))
 const HomePage = React.lazy(() => catchChunkError(() => import('../components/pages/home')))
+const AppSelect = React.lazy(() => catchChunkError(() => import('../components/pages/app-select')))
 
 const Router = () => (
   <BrowserRouter history={history}>
@@ -38,6 +39,7 @@ const Router = () => (
         <Route path={Routes.LOGIN} component={LoginPage} />
         <PrivateRouteWrapper>
           <Switch>
+            <Route path={Routes.APP_SELECT} component={AppSelect} />
             <Route path={Routes.HOME} component={HomePage} />
           </Switch>
         </PrivateRouteWrapper>

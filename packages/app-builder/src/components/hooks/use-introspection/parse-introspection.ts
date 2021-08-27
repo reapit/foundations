@@ -23,6 +23,7 @@ export const parseIntrospectionResult = (introspection: IntrospectionQuery) => {
   const queryableObjectTypes = Array.from(new Set(queryType.map((type) => type.nestedType)))
     .map((objectName) => objectTypes.find(({ name }) => name === objectName))
     .filter(notEmpty)
+    .filter(({ name }) => !name.startsWith('_'))
 
   return queryableObjectTypes.map((object, _, all) => {
     const queries = queryType.filter(({ nestedType }) => object.name === nestedType)
