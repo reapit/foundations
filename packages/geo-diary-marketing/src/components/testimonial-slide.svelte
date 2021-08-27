@@ -22,11 +22,10 @@
             </div>
           </div>
           <p class="el-body-text el-has-grey-text">
-            “…One of these is GEO Diary, which allows our negotiators to quickly access their diary from the app on
-            their mobiles whilst out of the office on appointments. The app allows you to plan your journey, contact
-            your clients and access valuable information in seconds. It is a live connection with Reapit which means if
-            an appointment is cancelled while you’re on the road, your GEO Diary app will update with this live
-            information…”
+            “...GEO Diary allows our negotiators to quickly access their diary from the app on their mobiles whilst out
+            of the office on appointments. The app allows you to plan your journey, contact your clients and access
+            valuable information in seconds. It is a live connection with Reapit which means if an appointment is
+            cancelled while you’re on the road, your GEO Diary app will update with this live information…”
           </p>
         </div>
       </div>
@@ -49,9 +48,9 @@
             </div>
           </div>
           <p class="el-body-text el-has-grey-text">
-            “…Having access to our Agency Cloud diaries on the move with updates being sent through as and when they
+            “…Having access to our AgencyCloud diaries on the move with updates being sent through as and when they
             happen is a massive benefit to our teams. It has moved us away from printed copies and manually having to
-            call our team if there were any updates to appointments…”
+            call our team to check if there are any updates to appointments…”
           </p>
         </div>
       </div>
@@ -76,10 +75,10 @@
             </div>
           </div>
           <p class="el-body-text el-has-grey-text">
-            “…GEO Diary has made this transition easier for them as the App allows them to plan out their route for the
-            day between appointments. With the ability to write feedback on appointments straight back into Reapit from
-            the app, we can be more proactive in updating appointments which means we can save the negotiators time at
-            the end of the day inputting feedback into the diary…”
+            “…GEO Diary makes it easy for us to plan out routes for the day between appointments. With the ability to
+            write feedback on appointments straight back into Reapit from the app, we can be more proactive in updating
+            appointments which means we can save our negotiators time at the end of the day inputting feedback into the
+            diary…”
           </p>
         </div>
       </div>
