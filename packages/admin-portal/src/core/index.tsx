@@ -15,6 +15,7 @@ window.reapit = {
     platformApiUrl: '',
     connectUserPoolId: '',
     limitedUserAccessWhitelist: [],
+    developerPortalUri: '',
   },
 }
 
