@@ -4999,6 +4999,10 @@ export interface CreateKeyModel {
  */
 export interface CreateKeyMovementModel {
   /**
+   * Indicates whether the key is expected to be checked back in. Set to true when the key is no longer held (eg. returned to the landlord)
+   */
+  checkInRequired?: boolean
+  /**
    * The unique identifier of the contact or negotiator to check out the key with - this person will be recorded as holding the key
    */
   checkOutToId?: string
