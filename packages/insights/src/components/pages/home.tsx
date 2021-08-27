@@ -1,124 +1,133 @@
-import React, { FC, MutableRefObject, useEffect, useRef, useState } from 'react'
-import { Title, Loader, FlexContainer, PersistantNotification, PageContainer, elHFull } from '@reapit/elements'
+import React, { ChangeEvent, Dispatch, FC, MutableRefObject, SetStateAction, useEffect, useRef, useState } from 'react'
+import {
+  Title,
+  Loader,
+  FlexContainer,
+  PersistantNotification,
+  PageContainer,
+  elHFull,
+  BodyText,
+  Button,
+  elMb5,
+  Icon,
+  Subtitle,
+  Select,
+  Label,
+  elBorderRadius,
+} from '@reapit/elements'
 import { useReapitConnect, ReapitConnectSession } from '@reapit/connect-session'
-import { reapitConnectBrowserSession } from '@/core/connect-session'
-import { CredentialsModel, powerBiApiService } from '@/platform-api/power-bi-api'
-import { service, factories, models, IEmbedConfiguration } from 'powerbi-client'
-import { logger } from '@reapit/utils'
-import { MetabaseContainer } from './__styles__/styles'
+import { reapitConnectBrowserSession } from '../../core/connect-session'
+import { ControlsContainer, MetabaseContainer } from './__styles__/styles'
+import { embedPowerBi, PowerBIParams } from '../../utils/power-bi'
+import { getInstalledReportsService, InstalledReport } from '../../platform-api/installed-reports'
+import { SecondaryNavContainer } from '@reapit/elements'
+import { InputGroup } from '@reapit/elements'
+import { elWFull } from '../../../../elements/src/styles/sizing'
 
-const powerbi = new service.Service(factories.hpmFactory, factories.wpmpFactory, factories.routerFactory)
-
-export type HomeProps = {}
-
-// Adapted from https://github.com/microsoft/PowerBI-Developer-Samples/blob/master/React-TS/Embed%20for%20your%20organization/UserOwnsData/src/App.tsx
-export const embedPowerBi = (
-  { token, report }: CredentialsModel,
-  containerRef: MutableRefObject<HTMLDivElement | null>,
-) => {
-  if (!report || !containerRef.current) return null
-
-  const { reportId, embeddedUrl } = report
-  const embedConfiguration: IEmbedConfiguration = {
-    type: 'report',
-    tokenType: models.TokenType.Embed,
-    accessToken: token,
-    embedUrl: embeddedUrl,
-    id: reportId,
-    settings: {
-      background: models.BackgroundType.Transparent,
-    },
+export const handleSelectReport =
+  (setInstalledReports: Dispatch<SetStateAction<PowerBIParams | null>>, installedReports: InstalledReport[] | null) =>
+  (event: ChangeEvent<HTMLSelectElement>) => {
+    const report = installedReports?.find((report) => report.id === event.target.value)
+    if (report) {
+      const { token, id: reportId, embeddedUrl } = report
+      const credentials: PowerBIParams = {
+        reportId,
+        embeddedUrl,
+        token,
+      }
+      setInstalledReports(credentials)
+    } else {
+      setInstalledReports(null)
+    }
   }
 
-  const powerBiReport = powerbi.embed(containerRef.current, embedConfiguration)
+export const handleEmbedReport =
+  (reportRef: MutableRefObject<HTMLDivElement | null>, selectedReport: PowerBIParams | null) => () => {
+    if (reportRef.current && selectedReport) {
+      embedPowerBi(selectedReport, reportRef)
+    }
+  }
 
-  powerBiReport.off('loaded')
-  powerBiReport.on('loaded', () => {
-    console.log('Report load successful')
-  })
+export const handleInstalledReports =
+  (
+    connectSession: ReapitConnectSession | null,
+    shouldFetchReports: boolean,
+    setLoading: Dispatch<SetStateAction<boolean>>,
+    setInstalledReports: Dispatch<SetStateAction<InstalledReport[] | null>>,
+  ) =>
+  () => {
+    if (connectSession && shouldFetchReports) {
+      setLoading(true)
+      const fetchInstalledReports = async () => {
+        const installedReports = await getInstalledReportsService(connectSession as ReapitConnectSession)
+        setLoading(false)
+        setInstalledReports(installedReports ?? null)
+      }
 
-  powerBiReport.off('rendered')
-  powerBiReport.on('rendered', () => {
-    console.log('Report render successful')
-  })
+      fetchInstalledReports()
+    }
+  }
 
-  powerBiReport.off('error')
-  powerBiReport.on('error', (event) => {
-    const errorMsg = JSON.stringify(event.detail)
-    logger(new Error(errorMsg))
-  })
-}
-
-enum LoadingStatus {
-  Incomplete = 'incomplete',
-  Complete = 'complete',
-  Failed = 'failed',
-}
-
-export const Home: FC<HomeProps> = () => {
+export const Home: FC = () => {
   const { connectSession } = useReapitConnect(reapitConnectBrowserSession)
-  const [powerBiReport, setPowerBiReport] = useState<CredentialsModel | undefined>()
-  const [loadingStatus, setLoadingStatus] = useState<LoadingStatus>(LoadingStatus.Incomplete)
+  const [selectedReport, setSelectedReport] = useState<PowerBIParams | null>(null)
+  const [installedReports, setInstalledReports] = useState<InstalledReport[] | null>(null)
+  const [loading, setLoading] = useState<boolean>(false)
   const reportRef = useRef<HTMLDivElement | null>(null)
+  const shouldFetchReports = !loading && !selectedReport && !installedReports
 
-  useEffect(() => {
-    if (connectSession && loadingStatus === LoadingStatus.Incomplete && !powerBiReport) {
-      const interval = window.setInterval(() => {
-        const fetchAppoinmentConfigs = async () => {
-          const serviceResponse = await powerBiApiService(connectSession as ReapitConnectSession)
+  useEffect(handleInstalledReports(connectSession, shouldFetchReports, setLoading, setInstalledReports), [
+    connectSession,
+    selectedReport,
+    installedReports,
+    loading,
+  ])
 
-          if (serviceResponse?.status === LoadingStatus.Complete) {
-            setLoadingStatus(LoadingStatus.Complete)
-            setPowerBiReport(serviceResponse)
-          }
-
-          if (serviceResponse?.status === LoadingStatus.Failed) {
-            setLoadingStatus(LoadingStatus.Failed)
-          }
-        }
-
-        fetchAppoinmentConfigs()
-      }, 5000)
-      return () => window.clearInterval(interval)
-    }
-  }, [connectSession, powerBiReport])
-
-  useEffect(() => {
-    if (reportRef.current && powerBiReport) {
-      embedPowerBi(powerBiReport, reportRef)
-    }
-  }, [reportRef, powerBiReport])
+  useEffect(handleEmbedReport(reportRef, selectedReport), [reportRef, selectedReport])
 
   return (
-    <PageContainer>
-      <Title>Reapit Insights</Title>
-      {loadingStatus === LoadingStatus.Incomplete ? (
-        <>
-          <PersistantNotification isFullWidth isExpanded intent="secondary">
-            Loading your Power BI account. On the first login, this could take up to a minute.
-          </PersistantNotification>
-          <Loader fullPage label="Loading" />
-        </>
-      ) : (powerBiReport && powerBiReport.status === 'failed') || loadingStatus === LoadingStatus.Failed ? (
-        <PersistantNotification isFullWidth isExpanded intent="danger">
-          It looks like we have encountered an issue setting up your account. Please contact our support team
-          <a href="mailto:foundationssupport@reapit.com">foundationssupport@reapit.com</a> for further assistance.
-        </PersistantNotification>
-      ) : powerBiReport && powerBiReport.status === 'incomplete' ? (
-        <PersistantNotification isFullWidth isExpanded intent="secondary">
-          We are currently in the process of setting up your account. We will automatically send you an email once this
-          has been completed.
-        </PersistantNotification>
-      ) : powerBiReport && !powerBiReport.report ? (
-        <PersistantNotification isFullWidth isExpanded intent="danger">
-          No credentials found to load the application
-        </PersistantNotification>
-      ) : (
-        <FlexContainer className={elHFull} isFlexColumn>
-          <MetabaseContainer id="reportContainer" ref={reportRef} />
-        </FlexContainer>
-      )}
-    </PageContainer>
+    <FlexContainer isFlexAuto>
+      <SecondaryNavContainer>
+        <Title>Reports</Title>
+        <Icon className={elMb5} icon="apiInfographic" iconSize="large" />
+        <Subtitle>Welcome</Subtitle>
+        <BodyText hasGreyText>
+          We have provided comprehensive documentation for the Insights Services. Please click below to view before
+          getting started
+        </BodyText>
+        <Button className={elMb5} intent="neutral">
+          View Docs
+        </Button>
+        <ControlsContainer className={elBorderRadius}>
+          <InputGroup>
+            <Select className={elWFull} onChange={handleSelectReport(setSelectedReport, installedReports)}>
+              <option key="default-option">Please Select</option>
+              {installedReports?.map((report) => (
+                <option key={report.id} value={report.id}>
+                  {report.name}
+                </option>
+              ))}
+            </Select>
+            <Label htmlFor="myId">Select Report</Label>
+          </InputGroup>
+        </ControlsContainer>
+      </SecondaryNavContainer>
+      <PageContainer>
+        <Title>Reapit Insights</Title>
+        {!selectedReport ? (
+          <>
+            <PersistantNotification isFullWidth isExpanded intent="secondary">
+              {loading ? 'Loading your Power BI Reports.' : 'Please select a report from the left hand side menu'}
+            </PersistantNotification>
+            {loading && <Loader fullPage label="Loading" />}
+          </>
+        ) : (
+          <FlexContainer className={elHFull} isFlexColumn>
+            <MetabaseContainer id="reportContainer" ref={reportRef} />
+          </FlexContainer>
+        )}
+      </PageContainer>
+    </FlexContainer>
   )
 }
 
