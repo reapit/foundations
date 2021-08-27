@@ -90,3 +90,8 @@ export const loginImages = css`
 export const MetabaseContainer = styled.div`
   height: 100%;
 `
+
+export const ControlsContainer = styled.div`
+  padding: 0.75rem 0.5rem;
+  background-color: #fff;
+`

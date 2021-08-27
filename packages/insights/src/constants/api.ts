@@ -5,4 +5,5 @@ export const BASE_HEADERS = {
 
 export const URLS = {
   POWER_BI: '/powerbi',
+  INSTALLED_REPORTS: '/powerbi/installedReports',
 }
