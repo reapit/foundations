@@ -25,7 +25,9 @@ export const ElTabs = styled.input`
 
   + label .${elTabsItem} {
     transition: all 0.1s linear;
+  }
 
+  &:not(:checked) + label .${elTabsItem} {
     &:hover {
       color: var(--intent-secondary);
     }
@@ -51,7 +53,6 @@ export const ElTabsLabel = styled.label`
 export const ElTabsWrap = styled.div`
   display: flex;
   flex-direction: column;
-  /* border: 1px solid var(--color-grey-medium); */
   background: var(--color-white);
   border-radius: 1rem;
   overflow: hidden;
