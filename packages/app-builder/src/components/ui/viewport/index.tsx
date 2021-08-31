@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react'
-import { useEditor } from '@craftjs/core'
+import { SerializedNode, useEditor } from '@craftjs/core'
 import {
   elFlex,
   elFlex1,
@@ -31,8 +31,9 @@ import {
   transition,
 } from '../styles'
 import { InjectFrameStyles } from './inject-frame-styles'
-import { getPage } from '../header/saveState'
 import { usePageId } from '@/core/usePageId'
+import { useApp } from '@/components/hooks/apps/use-app'
+import { Page } from '@/components/hooks/apps/fragments'
 
 const Container = styled.div`
   flex: 1;
@@ -50,17 +51,31 @@ const Breakpoints = styled.div`
   margin-top: 8px;
 `
 
+const nodesArrToObj = (nodes: Page['nodes']): Record<string, SerializedNode> => {
+  const obj = {}
+  nodes.forEach((node) => {
+    obj[node.id] = {
+      ...node,
+      id: undefined,
+    }
+  })
+  return obj
+}
+
 const Viewport = ({ children, iframeRef }) => {
   const { connectors, actions } = useEditor()
   const [breakpoint, setBreakpoint] = useState(TABLET_BREAKPOINT)
-  const { pageId } = usePageId()
+  const { pageId, appId } = usePageId()
+  const { data } = useApp(appId)
 
   useEffect(() => {
-    setTimeout(() => {
-      const page = getPage(pageId)
-      page && actions.deserialize(page.nodes)
-    }, 100)
-  }, [pageId])
+    if (data) {
+      const page = data.pages.find((page) => page.id === pageId)
+      if (page) {
+        actions.deserialize(nodesArrToObj(page.nodes))
+      }
+    }
+  }, [data, pageId])
 
   return (
     <div className={cx(elFlex1, elFlexColumn, justifyStretch, hScreen)}>

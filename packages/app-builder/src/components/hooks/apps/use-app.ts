@@ -1,7 +1,7 @@
 import { useQuery, gql } from '@apollo/client'
 import { App, AppFragment } from './fragments'
 
-const GetAppQuery = gql`
+export const GetAppQuery = gql`
   ${AppFragment}
   query GetAppQuery($id: String!) {
     _getApp(id: $id) {

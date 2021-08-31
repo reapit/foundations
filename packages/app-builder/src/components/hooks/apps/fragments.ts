@@ -39,7 +39,7 @@ type Node = {
   }
 }
 
-type Page = {
+export type Page = {
   id: string
   name: string
   nodes: Array<Node>
@@ -49,7 +49,7 @@ export type App = {
   id: string
   name: string
   userId: string
-  createdAt: Date
-  updatedAt: Date
+  createdAt: string
+  updatedAt: string
   pages: Array<Page>
 }

@@ -1,13 +1,15 @@
-import { ObjectType, Field, ID } from 'type-graphql'
+import { ObjectType, Field, ID, InputType } from 'type-graphql'
 import { GraphQLJSONObject } from 'graphql-type-json'
 
 @ObjectType('_NodeType')
+@InputType('_NodeTypeInput')
 export class NodeType {
   @Field()
   resolvedName: string
 }
 
 @ObjectType('_Node')
+@InputType('_NodeInput')
 export class Node {
   @Field(() => ID)
   id: string
@@ -35,6 +37,7 @@ export class Node {
 }
 
 @ObjectType('_Page')
+@InputType('_PageInput')
 export class Page {
   @Field(() => ID)
   id: string

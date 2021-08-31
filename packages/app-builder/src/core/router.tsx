@@ -39,8 +39,8 @@ const Router = () => (
         <Route path={Routes.LOGIN} component={LoginPage} />
         <PrivateRouteWrapper>
           <Switch>
-            <Route path={Routes.APP_SELECT} component={AppSelect} />
             <Route path={Routes.HOME} component={HomePage} />
+            <Route path={Routes.APP_SELECT} component={AppSelect} />
           </Switch>
         </PrivateRouteWrapper>
         <Redirect to={Routes.LOGIN} />

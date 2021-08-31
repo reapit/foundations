@@ -22,8 +22,14 @@ export const ddb = new DynamoDBClient({
 const getCreateTableCommand = (tableName: string): CreateTableCommand => {
   return new CreateTableCommand({
     TableName: tableName,
-    AttributeDefinitions: [{ AttributeName: 'id', AttributeType: 'S' }],
-    KeySchema: [{ AttributeName: 'id', KeyType: 'HASH' }],
+    AttributeDefinitions: [
+      { AttributeName: 'id', AttributeType: 'S' },
+      { AttributeName: 'userId', AttributeType: 'S' },
+    ],
+    KeySchema: [
+      { AttributeName: 'userId', KeyType: 'HASH' },
+      { AttributeName: 'id', KeyType: 'RANGE' },
+    ],
     BillingMode: 'PAY_PER_REQUEST',
   })
 }
@@ -43,25 +49,26 @@ const ensureTable = async (tableName: string) => {
 export const ensureTables = async () => {
   const tables = [APPS_TABLE_NAME]
 
-  await Promise.all(tables.map(ensureTable))
+  return Promise.all(tables.map(ensureTable))
 }
 
 const ddbItemToApp = (item: { [key: string]: AttributeValue }): App => {
   const { id, name, userId, createdAt, updatedAt, pages } = item
+
   return {
-    id: id.S as string,
-    name: name.S as string,
-    userId: userId.S as string,
-    createdAt: new Date(createdAt.N as string),
-    updatedAt: new Date(updatedAt.N as string),
-    pages: JSON.parse(pages.S as string) as Array<Page>,
+    id: id?.S as string,
+    name: name?.S as string,
+    userId: userId?.S as string,
+    createdAt: new Date(parseInt(createdAt?.N as string)),
+    updatedAt: new Date(parseInt(updatedAt?.N as string)),
+    pages: (pages?.S && (JSON.parse(pages.S as string) as Array<Page>)) || [],
   }
 }
 
 export const getUserApps = async (userId: string): Promise<Array<App>> => {
   const d = new QueryCommand({
     TableName: APPS_TABLE_NAME,
-    KeyConditionExpression: 'begins_with(id, :userId)',
+    KeyConditionExpression: 'userId = :userId',
     ExpressionAttributeValues: { ':userId': { S: userId } },
   })
   const { Items } = await ddb.send(d)

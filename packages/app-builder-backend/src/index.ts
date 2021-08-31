@@ -8,7 +8,7 @@ import { ensureTables } from './ddb'
 import { AppResolver } from './resolvers/app-resolver'
 
 const start = async () => {
-  await ensureTables()
+  console.log(await ensureTables())
   const schema = await buildSchema({
     resolvers: [BookResolver, AuthorResolver, AppResolver],
   })
