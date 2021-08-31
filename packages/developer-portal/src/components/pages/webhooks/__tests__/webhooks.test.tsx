@@ -12,7 +12,7 @@ import {
   openCreateModal,
   openTestModal,
   handleSetPageNumber,
-} from '../webhooks'
+} from '../webhooks-old'
 import { mount } from 'enzyme'
 import { AppSummaryModel } from '@reapit/foundations-ts-definitions'
 import { SelectBoxOptions } from '@reapit/elements-legacy'

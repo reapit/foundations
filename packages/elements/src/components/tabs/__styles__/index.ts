@@ -58,7 +58,7 @@ export const ElTabsWrap = styled.div`
   overflow: hidden;
   padding: 0.25rem 0;
   width: fit-content;
-  align-items: center;
+  align-items: flex-start;
   height: auto;
 
   &.${elTabsFullWidth} {

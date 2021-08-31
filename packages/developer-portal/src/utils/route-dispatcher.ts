@@ -9,7 +9,6 @@ import { fetchInstallationsList } from '../actions/installations'
 import { requestDeveloperData } from '@/actions/settings'
 import { fetchOrganisationMembers } from '@/actions/developers'
 import { getDeveloperId, getClientId } from './session'
-import { FetchAppListParams } from '@/reducers/apps/app-list'
 import { fetchDesktopIntegrationTypeList } from '@/actions/desktop-integration-types'
 import { fetchCategoryList } from '@/actions/categories'
 import { fetchScopeList } from '@/actions/scopes'
@@ -90,9 +89,6 @@ const routeDispatcher = async (route: RouteValue, params?: StringMap, search?: s
       store.dispatch(requestDeveloperData())
       break
     }
-    case Routes.WEBHOOKS:
-      store.dispatch(fetchAppList({ page: 1, appsPerPage: GET_ALL_PAGE_SIZE } as FetchAppListParams))
-      break
     case Routes.DESKTOP:
       store.dispatch(requestDeveloperData())
       store.dispatch(fetchCurrentMember())

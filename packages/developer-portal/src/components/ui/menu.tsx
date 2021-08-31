@@ -50,7 +50,10 @@ export const getDefaultNavIndex = (pathname: string) => {
     case Routes.ANALYTICS_TAB:
       return 2
     case Routes.SWAGGER:
-    case Routes.WEBHOOKS:
+    case Routes.WEBHOOKS_ABOUT:
+    case Routes.WEBHOOKS_LOGS:
+    case Routes.WEBHOOKS_MANAGE:
+    case Routes.WEBHOOKS_NEW:
     case Routes.GRAPHQL:
       return 3
     case Routes.ELEMENTS:
@@ -109,7 +112,7 @@ export const Menu: React.FunctionComponent = () => {
             },
             {
               itemIndex: 1,
-              callback: navigate(history, Routes.WEBHOOKS),
+              callback: navigate(history, Routes.WEBHOOKS_ABOUT),
               iconId: 'webhooksMenu',
               text: 'Webhooks',
             },

@@ -73,7 +73,19 @@ describe('getDefaultNavIndex', () => {
       index: 3,
     },
     {
-      route: Routes.WEBHOOKS,
+      route: Routes.WEBHOOKS_ABOUT,
+      index: 3,
+    },
+    {
+      route: Routes.WEBHOOKS_NEW,
+      index: 3,
+    },
+    {
+      route: Routes.WEBHOOKS_MANAGE,
+      index: 3,
+    },
+    {
+      route: Routes.WEBHOOKS_LOGS,
       index: 3,
     },
     {
