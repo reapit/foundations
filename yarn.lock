@@ -13501,6 +13501,7 @@ __metadata:
     concurrently: ^6.2.0
     cross-env: ^6.0.3
     css-loader: ^6.2.0
+    date-fns: ^2.23.0
     dayjs: ^1.10.6
     eslint: 7.31.0
     eslint-plugin-prettier: ^3.4.0
@@ -18196,6 +18197,13 @@ __metadata:
   version: 2.17.0
   resolution: "date-fns@npm:2.17.0"
   checksum: 51ee9e264aac54d2a16471691d560838bad681f729573f520b03ec0c21f28904c73bf98ec2d33603e71bdabf8506140449c2b50d0db6fdd042faed9fe5467b92
+  languageName: node
+  linkType: hard
+
+"date-fns@npm:^2.23.0":
+  version: 2.23.0
+  resolution: "date-fns@npm:2.23.0"
+  checksum: 5b23cf7f08a27d0c1633e81304c95ac2bacb1160d86a25d36c40c84853796e442e597a4d75acec3f0920a71f3a65dd55b37565d356fa3fb4c2345225df42d930
   languageName: node
   linkType: hard
 
