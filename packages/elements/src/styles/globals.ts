@@ -193,6 +193,7 @@ export const elGlobals = css`
       --intent-critical: #ffb71b;
       --intent-success: #a0c862;
       --intent-danger: #d3033d;
+      --intent-low: #f2f2f2;
       /* colors of text that would sit on top of the intent when used as a background */
       --intent-primary-text: var(--color-white);
       --intent-secondary-text: var(--color-white);

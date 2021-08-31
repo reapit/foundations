@@ -7,6 +7,7 @@ import {
   elIntentCritical,
   elIntentSuccess,
   elIntentDanger,
+  elIntentLow,
 } from '../../../styles/intent'
 import { elIsLoading } from '../../../styles/states'
 import { intentPrimary, intentSecondary, intentCritical, intentSuccess, intentDanger } from '../../../styles/globals'
@@ -101,6 +102,11 @@ export const ElButton = styled.button`
     background-image: linear-gradient(to right, var(--intent-danger), var(--intent-danger));
     color: var(--intent-danger-text);
     outline-color: var(--intent-danger-dark);
+  }
+
+  &.${elIntentLow} {
+    background-image: linear-gradient(to right, var(--intent-low), var(--intent-low));
+    outline-color: var(--intent-low);
   }
 
   &[disabled] {

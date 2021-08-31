@@ -11,3 +11,5 @@ export const elIntentSuccess = css``
 export const elIntentDanger = css``
 
 export const elIntentNeutral = css``
+
+export const elIntentLow = css``
