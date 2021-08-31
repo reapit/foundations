@@ -29,6 +29,10 @@ export const elColGap8 = css`
   grid-column-gap: 2rem;
 `
 
+export const elColGap10 = css`
+  grid-column-gap: 2rem;
+`
+
 export const elColGap12 = css`
   grid-column-gap: 3rem;
 `
@@ -61,6 +65,10 @@ export const elRowGap6 = css`
 
 export const elRowGap8 = css`
   grid-row-gap: 2rem;
+`
+
+export const elRowGap10 = css`
+  grid-row-gap: 2.5rem;
 `
 
 export const elRowGap12 = css`
