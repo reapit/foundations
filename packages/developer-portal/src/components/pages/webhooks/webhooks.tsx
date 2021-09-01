@@ -84,25 +84,25 @@ export const WebhooksWrapper: FC = () => {
               id: 'webhook-tab-about',
               value: Routes.WEBHOOKS_ABOUT,
               text: 'About Webhooks',
-              isChecked: true,
+              isChecked: pathname === Routes.WEBHOOKS_ABOUT,
             },
             {
               id: 'webhook-tab-new',
               value: Routes.WEBHOOKS_NEW,
               text: 'Add Webhook',
-              isChecked: false,
+              isChecked: pathname === Routes.WEBHOOKS_NEW,
             },
             {
               id: 'webhook-tab-manage',
               value: Routes.WEBHOOKS_MANAGE,
               text: 'Manage Webhooks',
-              isChecked: false,
+              isChecked: pathname === Routes.WEBHOOKS_MANAGE,
             },
             {
               id: 'webhook-tab-logs',
               value: Routes.WEBHOOKS_LOGS,
               text: 'Transaction Logs',
-              isChecked: false,
+              isChecked: pathname === Routes.WEBHOOKS_LOGS,
             },
           ]}
         />
