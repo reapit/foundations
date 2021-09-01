@@ -312,19 +312,17 @@ export const ElButtonGroup = styled.div`
   grid-auto-flow: column;
   column-gap: 1rem;
   row-gap: 1rem;
+  width: fit-content;
 
   .${elButtonSize2} {
-    min-width: auto;
     grid-column: span 2;
   }
 
   .${elButtonSize3} {
-    min-width: auto;
     grid-column: span 3;
   }
 
   .${elButtonSize4} {
-    min-width: auto;
     grid-column: span 4;
   }
 
