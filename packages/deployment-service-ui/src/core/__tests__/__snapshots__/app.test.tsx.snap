@@ -2,10 +2,14 @@
 
 exports[`App should match a snapshot 1`] = `
 <ErrorBoundary>
-  <PusherProvider
-    cluster="eu"
-  >
-    <_default />
-  </PusherProvider>
+  <NavStateProvider>
+    <MediaStateProvider>
+      <PusherProvider
+        cluster="eu"
+      >
+        <_default />
+      </PusherProvider>
+    </MediaStateProvider>
+  </NavStateProvider>
 </ErrorBoundary>
 `;

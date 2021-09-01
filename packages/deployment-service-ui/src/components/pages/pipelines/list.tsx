@@ -14,19 +14,18 @@ import {
   elHFull,
   elMb5,
   FlexContainer,
-  SecondaryNav,
-  SecondaryNavItem,
-  elMb8,
   PaginationWrap,
   PaginationText,
   PaginationButton,
   elPaginationPrimary,
   elFlexGrow,
   StatusIndicator,
+  PersistantNotification,
+  elMb8,
 } from '@reapit/elements'
 import { PipelineModelInterface } from '@reapit/foundations-ts-definitions'
 import React, { useEffect, useState } from 'react'
-import { useHistory, useLocation } from 'react-router-dom'
+import { useHistory } from 'react-router-dom'
 import { pipelineServicePaginate } from '../../../platform-api/pipelines'
 import { Pagination } from 'nestjs-typeorm-paginate'
 import { cx } from '@linaria/core'
@@ -38,8 +37,6 @@ export default () => {
   const [loading, setLoading] = useState<boolean>(false)
 
   const history = useHistory()
-  const location = useLocation()
-  const { pathname } = location
 
   const fetchPipelines = async (page?: number) => {
     setLoading(true)
@@ -62,30 +59,29 @@ export default () => {
     <FlexContainer isFlexAuto>
       <SecondaryNavContainer>
         <Title>Pipelines</Title>
-        <Icon className={elMb5} icon="developersMenu" iconSize="large" />
-        <Subtitle>Deployment pipeline manager</Subtitle>
-        <BodyText hasGreyText>description about the pipeline service</BodyText>
-        <SecondaryNav className={elMb8}>
-          <SecondaryNavItem onClick={() => history.push(Routes.PIPELINES)} active={pathname === Routes.PIPELINES}>
-            My Pipelines
-          </SecondaryNavItem>
-          <SecondaryNavItem
-            onClick={() => history.push(Routes.PIPELINES_CREATION)}
-            active={pathname === Routes.PIPELINES_CREATION}
-          >
-            Create new Pipeline
-          </SecondaryNavItem>
-        </SecondaryNav>
+        <Icon className={elMb5} icon="apiDocsInfographic" iconSize="large" />
+        <Subtitle>Pipeline Manager</Subtitle>
+        <BodyText hasGreyText>
+          Here you can monitor your created pipelines and see progress against deployments in live time. For more
+          information read the documentation below:
+        </BodyText>
+        <Button className={elMb5} intent="neutral">
+          View Docs
+        </Button>
+        <Button className={elMb5} intent="critical" onClick={() => history.push(Routes.PIPELINES_CREATION)}>
+          New Pipeline
+        </Button>
       </SecondaryNavContainer>
       <PageContainer className={elHFull}>
         <div>
           <FlexContainer isFlexAlignCenter isFlexJustifyCenter>
             {loading ? (
-              <Loader />
+              <Loader label="Loading" fullPage />
             ) : pipelinePagination ? (
               <section className={cx(elFlexGrow)}>
                 <Title>My Pipelines</Title>
                 <Table
+                  className={elMb8}
                   rows={pipelinePagination.items.map((pipeline) => ({
                     cells: [
                       {
@@ -125,31 +121,37 @@ export default () => {
                     ],
                   }))}
                 />
-                <PaginationWrap>
-                  <PaginationText>
-                    <strong>{pipelinePagination.meta.currentPage}</strong> of {pipelinePagination?.meta.totalPages}
-                  </PaginationText>
-                  <PaginationButton
-                    onClick={async () => {
-                      if (pipelinePagination.meta.currentPage <= 1) {
-                        return
-                      }
-                      await fetchPipelines(pipelinePagination.meta.currentPage - 1)
-                    }}
-                  >
-                    <Icon icon="backSystem" />
-                  </PaginationButton>
-                  <PaginationButton
-                    onClick={async () => {
-                      if (pipelinePagination.meta.currentPage >= pipelinePagination.meta.totalPages) {
-                        return
-                      }
-                      await fetchPipelines(pipelinePagination.meta.currentPage + 1)
-                    }}
-                  >
-                    <Icon icon="nextSystem" className={elPaginationPrimary} />
-                  </PaginationButton>
-                </PaginationWrap>
+                {pipelinePagination.items.length ? (
+                  <PaginationWrap>
+                    <PaginationText>
+                      <strong>{pipelinePagination.meta.currentPage}</strong> of {pipelinePagination?.meta.totalPages}
+                    </PaginationText>
+                    <PaginationButton
+                      onClick={async () => {
+                        if (pipelinePagination.meta.currentPage <= 1) {
+                          return
+                        }
+                        await fetchPipelines(pipelinePagination.meta.currentPage - 1)
+                      }}
+                    >
+                      <Icon icon="backSystem" />
+                    </PaginationButton>
+                    <PaginationButton
+                      onClick={async () => {
+                        if (pipelinePagination.meta.currentPage >= pipelinePagination.meta.totalPages) {
+                          return
+                        }
+                        await fetchPipelines(pipelinePagination.meta.currentPage + 1)
+                      }}
+                    >
+                      <Icon icon="nextSystem" className={elPaginationPrimary} />
+                    </PaginationButton>
+                  </PaginationWrap>
+                ) : (
+                  <PersistantNotification intent="secondary" isExpanded isInline isFullWidth>
+                    No pipelines retrieved. You will need to create a new pipeline from the left hand side menu.
+                  </PersistantNotification>
+                )}
               </section>
             ) : (
               <Title>Something went wrong</Title>

@@ -15,11 +15,8 @@ import {
   StatusIndicator,
   Table,
   FlexContainer,
-  SecondaryNav,
   SecondaryNavContainer,
-  SecondaryNavItem,
   elMb5,
-  elMb8,
   elHFull,
   Title,
   Subtitle,
@@ -28,9 +25,10 @@ import {
   PageContainer,
   Tabs,
   elM1,
+  PersistantNotification,
 } from '@reapit/elements'
 import React, { useEffect, useState } from 'react'
-import { Link, useHistory, useLocation, useParams } from 'react-router-dom'
+import { Link, useHistory, useParams } from 'react-router-dom'
 import {
   PipelineModelInterface,
   PipelineRunnerModelInterface,
@@ -41,7 +39,7 @@ import { PipelineTask } from '@/components/task'
 import { useChannel, useEvent } from '@harelpls/use-pusher'
 import { shleemy } from 'shleemy'
 import { cx } from '@linaria/core'
-import { pipelineStatusToIntent } from './../../../utils'
+import { pipelineStatusToIntent, pipelineStatusToName } from './../../../utils'
 
 const findRelevantTask = (tasks: TaskModelInterface[]): TaskModelInterface => {
   const priority: { [s: string]: number } = {
@@ -130,7 +128,8 @@ const DeploymentTable = ({
           value: pipeline.buildStatus?.toString() || '',
           children: (
             <>
-              <StatusIndicator intent={pipelineStatusToIntent(pipeline.buildStatus as string)} /> {pipeline.buildStatus}
+              <StatusIndicator intent={pipelineStatusToIntent(pipeline.buildStatus as string)} />{' '}
+              {pipelineStatusToName(pipeline.buildStatus ?? '')}
             </>
           ),
         },
@@ -152,10 +151,12 @@ const DeploymentTable = ({
     <FlexContainerBasic centerContent flexColumn hasBackground hasPadding>
       <Loader />
     </FlexContainerBasic>
-  ) : pipelineRunnerPagination ? (
+  ) : pipelineRunnerPagination && pipelineRunnerMapped?.length ? (
     <Table rows={pipelineRunnerMapped} expandableContentSize="large" />
   ) : (
-    <Title>Error loading pipelines</Title>
+    <PersistantNotification intent="secondary" isExpanded isInline isFullWidth>
+      No pipleline runs found
+    </PersistantNotification>
   )
 }
 
@@ -170,8 +171,6 @@ export default () => {
   const [tabIndex, setTabIndex] = useState<string>('deployments')
 
   const history = useHistory()
-  const location = useLocation()
-  const { pathname } = location
 
   const deletePipeline = async (id: string) => {
     setDeletionLoading(true)
@@ -216,20 +215,37 @@ export default () => {
     <FlexContainer isFlexAuto>
       <SecondaryNavContainer>
         <Title>Pipelines</Title>
-        <Icon className={elMb5} icon="developersMenu" iconSize="large" />
-        <Subtitle>Deployment pipeline manager</Subtitle>
-        <BodyText hasGreyText>description about the pipeline service</BodyText>
-        <SecondaryNav className={elMb8}>
-          <SecondaryNavItem onClick={() => history.push(Routes.PIPELINES)} active={pathname === Routes.PIPELINES}>
-            My Pipelines
-          </SecondaryNavItem>
-          <SecondaryNavItem
-            onClick={() => history.push(Routes.PIPELINES_CREATION)}
-            active={pathname === Routes.PIPELINES_CREATION}
-          >
-            Create new Pipeline
-          </SecondaryNavItem>
-        </SecondaryNav>
+        <Icon className={elMb5} icon="apiDocsInfographic" iconSize="large" />
+        <Subtitle>Pipeline Manager</Subtitle>
+        <BodyText hasGreyText>
+          For information on pipleine controls and deploying your app, read the documentation below:
+        </BodyText>
+        <Button className={elMb5} intent="neutral">
+          View Docs
+        </Button>
+        <Button className={elMb5} intent="critical" onClick={() => history.push(Routes.PIPELINES)}>
+          View Pipelines
+        </Button>
+        <Subtitle>Pipeline Actions</Subtitle>
+        <BodyText hasGreyText>Control your pipleine here by performing one of the operations below.</BodyText>
+        <Button className={cx(elM1)} loading={deployLoading} onClick={() => deployPipeline()} intent="success">
+          Deploy
+        </Button>
+        <Button
+          className={cx(elM1)}
+          intent="critical"
+          onClick={() => history.push(Routes.PIPELINES_UPDATE.replace(':pipelineId', pipeline?.id as string))}
+        >
+          Update
+        </Button>
+        <Button
+          className={cx(elM1)}
+          intent="danger"
+          loading={deletionLoading}
+          onClick={() => deletePipeline(pipeline?.id as string)}
+        >
+          Delete
+        </Button>
       </SecondaryNavContainer>
       <PageContainer className={elHFull}>
         {loading ? (
@@ -238,30 +254,7 @@ export default () => {
           </FlexContainerBasic>
         ) : connectSession && pipeline ? (
           <>
-            <Title>
-              <StatusIndicator intent={pipelineStatusToIntent(pipeline?.buildStatus as string)} /> Pipeline{' '}
-              {pipeline?.name}
-            </Title>
-            <FlexContainer>
-              <Button className={cx(elM1)} loading={deployLoading} onClick={() => deployPipeline()} intent="success">
-                Deploy
-              </Button>
-              <Button
-                className={cx(elM1)}
-                intent="critical"
-                onClick={() => history.push(Routes.PIPELINES_UPDATE.replace(':pipelineId', pipeline.id as string))}
-              >
-                Update
-              </Button>
-              <Button
-                className={cx(elM1)}
-                intent="danger"
-                loading={deletionLoading}
-                onClick={() => deletePipeline(pipeline.id as string)}
-              >
-                Delete
-              </Button>
-            </FlexContainer>
+            <Title>{pipeline?.name}</Title>
             <Tabs
               name="pipeline-tabs"
               isFullWidth
@@ -287,13 +280,13 @@ export default () => {
             {tabIndex === 'details' ? (
               <>
                 <Label>Package Manager</Label>
-                <p>{pipeline?.packageManager}</p>
+                <BodyText>{pipeline?.packageManager}</BodyText>
                 <Label>Build Command</Label>
-                <p>{pipeline?.buildCommand}</p>
+                <BodyText>{pipeline?.buildCommand}</BodyText>
                 <Label>Repository</Label>
-                <p>{pipeline?.repository}</p>
-                <Label>outDir</Label>
-                <p>{pipeline?.outDir}</p>
+                <BodyText>{pipeline?.repository}</BodyText>
+                <Label>Out Dir</Label>
+                <BodyText>{pipeline?.outDir}</BodyText>
               </>
             ) : (
               <DeploymentTable

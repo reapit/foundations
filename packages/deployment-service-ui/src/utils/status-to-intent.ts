@@ -14,3 +14,18 @@ export const pipelineStatusToIntent = (status: string): Intent => {
       return 'neutral'
   }
 }
+
+export const pipelineStatusToName = (status: string): string => {
+  switch (status) {
+    case 'CANCELED':
+      return 'Cancelled'
+    case 'FAILED':
+      return 'Failed'
+    case 'IN_PROGRESS':
+      return 'In Progress'
+    case 'SUCCEEDED':
+      return 'Succeeded'
+    default:
+      return 'Creating Architecture'
+  }
+}
