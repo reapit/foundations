@@ -19651,6 +19651,7 @@ __metadata:
     react-copy-to-clipboard: ^5.0.3
     react-dom: ^17.0.2
     react-ga: ^2.7.0
+    react-hook-form: ^7.14.2
     react-redux: ^7.2.4
     react-responsive: 8.2.0
     react-router: ^5.2.0
@@ -35113,6 +35114,15 @@ fsevents@^1.2.7:
   peerDependencies:
     react: ^16.8.0 || ^17
   checksum: 23cc1d5c6c718faa01c2fc950a4a4e944f971708051bc072f6ffbe9738bedbefa7755d0d1d691fca72271628eb127f736e3b7b181554f0479f9ed0e53bc725e7
+  languageName: node
+  linkType: hard
+
+"react-hook-form@npm:^7.14.2":
+  version: 7.14.2
+  resolution: "react-hook-form@npm:7.14.2"
+  peerDependencies:
+    react: ^16.8.0 || ^17
+  checksum: 5715182d4cb9f5f7d32f638a057e2a59972ceea0d267503099ceb3851905e7f62660c41bad52502e79e2d279e26343709c84bc885e09808106e98caef5c779da
   languageName: node
   linkType: hard
 
