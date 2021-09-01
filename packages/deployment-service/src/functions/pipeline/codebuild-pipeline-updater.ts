@@ -111,6 +111,10 @@ const handlePhaseChange = async ({
   if (pipelineRunner.buildStatus === 'QUEUED') {
     changesMade = true
     pipelineRunner.buildStatus = 'IN_PROGRESS'
+
+    if (pipelineRunner.pipeline) {
+      pipelineRunner.pipeline.buildStatus = 'IN_PROGRESS'
+    }
   }
 
   pipelineRunner.tasks = pipelineRunner.tasks?.map((task) => {
@@ -176,6 +180,11 @@ const handleStateChange = async ({
     )
   } else if (pipelineRunner.buildStatus === 'QUEUED') {
     pipelineRunner.buildStatus = 'IN_PROGRESS'
+
+    if (pipelineRunner.pipeline) {
+      pipelineRunner.pipeline.buildStatus = 'IN_PROGRESS'
+    }
+
     return Promise.all([
       savePipelineRunnerEntity(pipelineRunner),
       pusher.trigger(pipelineRunner.pipeline?.developerId as string, 'pipeline-runner-update', pipelineRunner),
