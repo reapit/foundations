@@ -14,7 +14,6 @@ import {
   Loader,
   StatusIndicator,
   Table,
-  Intent,
   FlexContainer,
   SecondaryNav,
   SecondaryNavContainer,
@@ -42,21 +41,7 @@ import { PipelineTask } from '@/components/task'
 import { useChannel, useEvent } from '@harelpls/use-pusher'
 import { shleemy } from 'shleemy'
 import { cx } from '@linaria/core'
-
-const pipelineStatusToIntent = (status: string): Intent => {
-  switch (status) {
-    case 'CANCELED':
-      return 'neutral'
-    case 'FAILED':
-      return 'danger'
-    case 'IN_PROGRESS':
-      return 'critical'
-    case 'SUCCEEDED':
-      return 'success'
-    default:
-      return 'neutral'
-  }
-}
+import { pipelineStatusToIntent } from './../../../utils'
 
 const findRelevantTask = (tasks: TaskModelInterface[]): TaskModelInterface => {
   const priority: { [s: string]: number } = {
@@ -261,8 +246,12 @@ export default () => {
               <Button className={cx(elM1)} loading={deployLoading} onClick={() => deployPipeline()} intent="success">
                 Deploy
               </Button>
-              <Button className={cx(elM1)} intent="critical">
-                <Link to={Routes.PIPELINES_UPDATE.replace(':pipelineId', pipeline.id as string)}>Update</Link>
+              <Button
+                className={cx(elM1)}
+                intent="critical"
+                onClick={() => history.push(Routes.PIPELINES_UPDATE.replace(':pipelineId', pipeline.id as string))}
+              >
+                Update
               </Button>
               <Button
                 className={cx(elM1)}

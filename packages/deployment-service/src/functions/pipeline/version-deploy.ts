@@ -47,6 +47,9 @@ export const versionDeploy: SQSHandler = async (event: SQSEvent, context: Contex
         })
 
         pipelineRunner.buildStatus = 'SUCCEEDED'
+        if (pipelineRunner.pipeline) {
+          pipelineRunner.pipeline.buildStatus = 'SUCCEEDED'
+        }
         if (pipelineRunner.tasks) {
           pipelineRunner.tasks[deployTaskIndex].buildStatus = 'SUCCEEDED'
           pipelineRunner.tasks[deployTaskIndex].endTime = new Date().toISOString()
@@ -55,6 +58,9 @@ export const versionDeploy: SQSHandler = async (event: SQSEvent, context: Contex
         console.error(e)
 
         pipelineRunner.buildStatus = 'FAILED'
+        if (pipelineRunner.pipeline) {
+          pipelineRunner.pipeline.buildStatus = 'FAILED'
+        }
         if (pipelineRunner.tasks) {
           pipelineRunner.tasks[deployTaskIndex].buildStatus = 'FAILED'
           pipelineRunner.tasks[deployTaskIndex].endTime = new Date().toISOString()
