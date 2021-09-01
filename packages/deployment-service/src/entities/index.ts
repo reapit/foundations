@@ -52,6 +52,9 @@ export class PipelineRunnerEntity extends AbstractEntity implements PipelineRunn
 
   @Column({ nullable: true, type: 'varchar' })
   codebuildId?: string
+
+  @Column({ nullable: true })
+  s3BuildLogsLocation?: string
 }
 
 @Entity('pipelines')
