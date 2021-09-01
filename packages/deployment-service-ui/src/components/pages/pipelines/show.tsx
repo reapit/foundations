@@ -261,8 +261,12 @@ export default () => {
               <Button className={cx(elM1)} loading={deployLoading} onClick={() => deployPipeline()} intent="success">
                 Deploy
               </Button>
-              <Button className={cx(elM1)} intent="critical">
-                <Link to={Routes.PIPELINES_UPDATE.replace(':pipelineId', pipeline.id as string)}>Update</Link>
+              <Button
+                className={cx(elM1)}
+                intent="critical"
+                onClick={() => history.push(Routes.PIPELINES_UPDATE.replace(':pipelineId', pipeline.id as string))}
+              >
+                Update
               </Button>
               <Button
                 className={cx(elM1)}

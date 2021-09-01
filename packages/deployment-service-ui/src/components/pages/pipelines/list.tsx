@@ -26,7 +26,7 @@ import {
 } from '@reapit/elements'
 import { PipelineModelInterface } from '@reapit/foundations-ts-definitions'
 import React, { useEffect, useState } from 'react'
-import { Link, useHistory, useLocation } from 'react-router-dom'
+import { useHistory, useLocation } from 'react-router-dom'
 import { pipelineServicePaginate } from '../../../platform-api/pipelines'
 import { Pagination } from 'nestjs-typeorm-paginate'
 import { cx } from '@linaria/core'
@@ -109,8 +109,13 @@ export default () => {
                         label: '',
                         value: '',
                         children: (
-                          <Button intent="secondary">
-                            <Link to={Routes.PIPELINES_SHOW.replace(':pipelineId', pipeline.id as string)}>Manage</Link>
+                          <Button
+                            intent="secondary"
+                            onClick={() => {
+                              history.push(Routes.PIPELINES_SHOW.replace(':pipelineId', pipeline.id as string))
+                            }}
+                          >
+                            Manage
                           </Button>
                         ),
                       },
