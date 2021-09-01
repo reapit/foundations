@@ -13,19 +13,22 @@ import {
   SecondaryNavContainer,
   Subtitle,
   BodyText,
-  SecondaryNav,
-  SecondaryNavItem,
   PageContainer,
   elHFull,
   elMb5,
-  elMb8,
   Icon,
+  elW6,
+  elP6,
+  elW3,
+  ButtonGroup,
 } from '@reapit/elements'
 import React, { useEffect, useState } from 'react'
 import { Link } from 'react-router-dom'
 import { PackageManagerEnum, PipelineModelInterface } from '@reapit/foundations-ts-definitions'
 import { pipelineServiceGet, pipelineServiceUpdate } from '@/platform-api/pipelines'
-import { useHistory, useLocation, useParams } from 'react-router'
+import { useHistory, useParams } from 'react-router'
+import { cx } from '@linaria/core'
+import { elMlAuto } from '@reapit/elements'
 
 const isNull = (value: any): boolean => !value || value === '' || value === null || typeof value === 'undefined'
 
@@ -42,10 +45,7 @@ export default () => {
   const [pipeline, setPipeline] = useState<PipelineModelInterface | undefined>()
   const params = useParams<{ pipelineId: string }>()
   const [updateLoading, setUpdateLoading] = useState<boolean>(false)
-
   const history = useHistory()
-  const location = useLocation()
-  const { pathname } = location
 
   useEffect(() => {
     const fetchPipeline = async () => {
@@ -74,20 +74,18 @@ export default () => {
     <FlexContainer isFlexAuto>
       <SecondaryNavContainer>
         <Title>Pipelines</Title>
-        <Icon className={elMb5} icon="developersMenu" iconSize="large" />
-        <Subtitle>Deployment pipeline manager</Subtitle>
-        <BodyText hasGreyText>description about the pipeline service</BodyText>
-        <SecondaryNav className={elMb8}>
-          <SecondaryNavItem onClick={() => history.push(Routes.PIPELINES)} active={pathname === Routes.PIPELINES}>
-            My Pipelines
-          </SecondaryNavItem>
-          <SecondaryNavItem
-            onClick={() => history.push(Routes.PIPELINES_CREATION)}
-            active={pathname === Routes.PIPELINES_CREATION}
-          >
-            Create new Pipeline
-          </SecondaryNavItem>
-        </SecondaryNav>
+        <Icon className={elMb5} icon="apiDocsInfographic" iconSize="large" />
+        <Subtitle>Pipeline Manager</Subtitle>
+        <BodyText hasGreyText>
+          Create your live time pipleline here by providing a target for your build. For more information read the
+          documentation below:
+        </BodyText>
+        <Button className={elMb5} intent="neutral">
+          View Docs
+        </Button>
+        <Button className={elMb5} intent="critical" onClick={() => history.push(Routes.PIPELINES)}>
+          View Pipelines
+        </Button>
       </SecondaryNavContainer>
       <PageContainer className={elHFull}>
         {loading ? (
@@ -138,71 +136,73 @@ export default () => {
             >
               {({ errors, values, setFieldValue }) => (
                 <Form>
-                  <InputGroup>
-                    <Label>Project Name</Label>
-                    <Input
-                      id="name"
-                      name="name"
-                      value={values.name}
-                      onChange={(event) => setFieldValue('name', event.target.value)}
-                    />
-                    {errors.name && <InputAddOn intent="danger">{errors.name}</InputAddOn>}
-                  </InputGroup>
-                  <InputGroup>
-                    <Label>Repository</Label>
-                    <Input
-                      id="repository"
-                      name="repository"
-                      placeholder="https://github.com/reapit/my-app"
-                      value={values.repository}
-                      onChange={(event) => setFieldValue('repository', event.target.value)}
-                    />
-                    {errors.repository && <InputAddOn intent="danger">{errors.repository}</InputAddOn>}
-                  </InputGroup>
-                  <Label>Package Manager</Label>
-                  <InputGroup>
-                    <Input
-                      name="package"
-                      type="radio"
-                      value={PackageManagerEnum.YARN}
-                      checked={values.packageManager === PackageManagerEnum.YARN}
-                      onChange={(event) => setFieldValue('package', event.target.value)}
-                    />
-                    <InputAddOn>yarn</InputAddOn>
-                  </InputGroup>
-                  <InputGroup>
-                    <Input
-                      name="package"
-                      type="radio"
-                      value={PackageManagerEnum.NPM}
-                      checked={values.packageManager === PackageManagerEnum.NPM}
-                      onChange={(event) => setFieldValue('package', event.target.value)}
-                    />
-                    <InputAddOn>npm</InputAddOn>
-                  </InputGroup>
-                  {errors.packageManager && <InputAddOn intent="danger">{errors.packageManager}</InputAddOn>}
-                  <InputGroup>
-                    <Label>Build Command</Label>
-                    <Input
-                      id="build"
-                      value={values.buildCommand}
-                      onChange={(event) => setFieldValue('build', event.target.value)}
-                    />
-                    {errors.buildCommand && <InputAddOn intent="danger">{errors.buildCommand}</InputAddOn>}
-                  </InputGroup>
-                  <InputGroup>
-                    <Label>Out Directory</Label>
-                    <Input
-                      id="outDir"
-                      value={values.outDir}
-                      onChange={(event) => setFieldValue('outDir', event.target.value)}
-                    />
-                    {errors.outDir && <InputAddOn intent="danger">{errors.outDir}</InputAddOn>}
-                  </InputGroup>
-                  <br />
-                  <Button type="submit" loading={updateLoading} intent="primary">
-                    Update
-                  </Button>
+                  <FlexContainer isFlexWrap>
+                    <InputGroup className={cx(elW6, elP6)}>
+                      <Label>Project Name</Label>
+                      <Input
+                        id="name"
+                        name="name"
+                        value={values.name}
+                        onChange={(event) => setFieldValue('name', event.target.value)}
+                      />
+                      {errors.name && <InputAddOn intent="danger">{errors.name}</InputAddOn>}
+                    </InputGroup>
+                    <InputGroup className={cx(elW6, elP6)}>
+                      <Label>Repository</Label>
+                      <Input
+                        id="repository"
+                        name="repository"
+                        placeholder="https://github.com/reapit/my-app"
+                        value={values.repository}
+                        onChange={(event) => setFieldValue('repository', event.target.value)}
+                      />
+                      {errors.repository && <InputAddOn intent="danger">{errors.repository}</InputAddOn>}
+                    </InputGroup>
+                    <InputGroup className={cx(elW3, elP6)}>
+                      <Label>Yarn</Label>
+                      <Input
+                        name="package"
+                        type="radio"
+                        value={PackageManagerEnum.YARN}
+                        checked={values.packageManager === PackageManagerEnum.YARN}
+                        onChange={(event) => setFieldValue('package', event.target.value)}
+                      />
+                    </InputGroup>
+                    <InputGroup className={cx(elW3, elP6)}>
+                      <Label>NPM</Label>
+                      <Input
+                        name="package"
+                        type="radio"
+                        value={PackageManagerEnum.NPM}
+                        checked={values.packageManager === PackageManagerEnum.NPM}
+                        onChange={(event) => setFieldValue('package', event.target.value)}
+                      />
+                    </InputGroup>
+                    {errors.packageManager && <InputAddOn intent="danger">{errors.packageManager}</InputAddOn>}
+                    <InputGroup className={cx(elW6, elP6)}>
+                      <Label>Build Command</Label>
+                      <Input
+                        id="build"
+                        value={values.buildCommand}
+                        onChange={(event) => setFieldValue('build', event.target.value)}
+                      />
+                      {errors.buildCommand && <InputAddOn intent="danger">{errors.buildCommand}</InputAddOn>}
+                    </InputGroup>
+                    <InputGroup className={cx(elW6, elP6)}>
+                      <Label>Out Directory</Label>
+                      <Input
+                        id="outDir"
+                        value={values.outDir}
+                        onChange={(event) => setFieldValue('outDir', event.target.value)}
+                      />
+                      {errors.outDir && <InputAddOn intent="danger">{errors.outDir}</InputAddOn>}
+                    </InputGroup>
+                  </FlexContainer>
+                  <ButtonGroup>
+                    <Button className={elMlAuto} type="submit" loading={updateLoading} intent="primary">
+                      Update
+                    </Button>
+                  </ButtonGroup>
                 </Form>
               )}
             </Formik>
