@@ -47,9 +47,7 @@ export class PipelineRunnerEntity extends AbstractEntity implements PipelineRunn
   tasks?: TaskEntity[]
 
   @Type(() => PipelineEntity)
-  @ManyToOne(() => PipelineEntity, (pipeline) => pipeline.runners, {
-    cascade: false,
-  })
+  @ManyToOne(() => PipelineEntity, (pipeline) => pipeline.runners)
   pipeline?: PipelineEntity
 
   @Column({ nullable: true, type: 'varchar' })
@@ -92,7 +90,7 @@ export class PipelineEntity extends AbstractEntity implements PipelineModelInter
   clientId?: string
 
   @Column({ type: 'varchar' })
-  buildStatus?: CodeBuild.StatusType
+  buildStatus?: CodeBuild.StatusType = 'CREATING_ARCHITECTURE'
 
   get uniqueRepoName(): string {
     return `${this.developerId}/${this.repository?.split('/').pop()}`
