@@ -7,7 +7,7 @@ import {
   pipelineServiceDelete,
 } from '@/platform-api/pipelines'
 import { ReapitConnectSession, useReapitConnect } from '@reapit/connect-session'
-import { FlexContainerBasic } from '@reapit/elements-legacy'
+import { FlexContainerBasic, notification } from '@reapit/elements-legacy'
 import {
   Button,
   Label,
@@ -142,6 +142,19 @@ const DeploymentTable = ({
               <PipelineTask task={task} key={task.id} />
             ))}
           </ul>
+          <Button
+            intent="primary"
+            disabled={!['SUCCEEDED', 'FAILED'].includes(pipeline.buildStatus as string)}
+            onClick={() => {
+              if (pipeline.s3BuildLogsLocation) {
+                window.open(pipeline.s3BuildLogsLocation as string)
+              } else {
+                notification.error({ message: 'Unable to download logs' })
+              }
+            }}
+          >
+            Download logs
+          </Button>
         </div>
       ),
     }
