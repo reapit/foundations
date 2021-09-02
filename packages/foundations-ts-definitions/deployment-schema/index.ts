@@ -25,6 +25,7 @@ export interface PipelineRunnerModelInterface {
   packageManager?: PackageManagerEnum
   tasks?: TaskModelInterface[]
   buildStatus?: CodeBuild.StatusType
+  s3BuildLogsLocation?: string
 }
 
 export interface TaskModelInterface {
