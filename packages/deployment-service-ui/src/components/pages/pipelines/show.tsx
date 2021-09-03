@@ -1,11 +1,34 @@
 import Routes from '@/constants/routes'
 import { reapitConnectBrowserSession } from '@/core/connect-session'
-import { pipelineRunnerCreate, pipelineRunnerPaginate, pipelineServiceGet } from '@/platform-api/pipelines'
+import {
+  pipelineRunnerCreate,
+  pipelineRunnerPaginate,
+  pipelineServiceGet,
+  pipelineServiceDelete,
+} from '@/platform-api/pipelines'
 import { ReapitConnectSession, useReapitConnect } from '@reapit/connect-session'
-import { Breadcrumb, BreadcrumbItem, FlexContainerBasic, H1, Section, H3, ButtonGroup } from '@reapit/elements-legacy'
-import { Button, Label, Loader, StatusIndicator, Table, Intent } from '@reapit/elements'
+import { FlexContainerBasic, notification } from '@reapit/elements-legacy'
+import {
+  Button,
+  Label,
+  Loader,
+  StatusIndicator,
+  Table,
+  FlexContainer,
+  SecondaryNavContainer,
+  elMb5,
+  elHFull,
+  Title,
+  Subtitle,
+  Icon,
+  BodyText,
+  PageContainer,
+  Tabs,
+  elM1,
+  PersistantNotification,
+} from '@reapit/elements'
 import React, { useEffect, useState } from 'react'
-import { Link, useParams } from 'react-router-dom'
+import { Link, useHistory, useParams } from 'react-router-dom'
 import {
   PipelineModelInterface,
   PipelineRunnerModelInterface,
@@ -15,21 +38,9 @@ import { Pagination } from 'nestjs-typeorm-paginate'
 import { PipelineTask } from '@/components/task'
 import { useChannel, useEvent } from '@harelpls/use-pusher'
 import { shleemy } from 'shleemy'
-
-const pipelineStatusToIntent = (status: string): Intent => {
-  switch (status) {
-    case 'CANCELED':
-      return 'neutral'
-    case 'FAILED':
-      return 'danger'
-    case 'IN_PROGRESS':
-      return 'critical'
-    case 'SUCCEEDED':
-      return 'success'
-    default:
-      return 'neutral'
-  }
-}
+import { cx } from '@linaria/core'
+import { pipelineStatusToIntent, pipelineStatusToName } from './../../../utils'
+import { ElPipelineTaskContainer } from '@/components/task/task.element'
 
 const findRelevantTask = (tasks: TaskModelInterface[]): TaskModelInterface => {
   const priority: { [s: string]: number } = {
@@ -43,6 +54,23 @@ const findRelevantTask = (tasks: TaskModelInterface[]): TaskModelInterface => {
   return tasks.sort((a, b) => {
     return priority[a.buildStatus as string] - priority[b.buildStatus as string]
   })[0]
+}
+
+const functionToIndex = (name: string): number => {
+  switch (name) {
+    case 'DOWNLOAD_SOURCE':
+      return 1
+    case 'INSTALL':
+      return 2
+    case 'PRE_BUILD':
+      return 3
+    case 'BUILD':
+      return 4
+    case 'DEPLOY':
+      return 5
+    default:
+      return 6
+  }
 }
 
 const DeploymentTable = ({
@@ -118,19 +146,33 @@ const DeploymentTable = ({
           value: pipeline.buildStatus?.toString() || '',
           children: (
             <>
-              <StatusIndicator intent={pipelineStatusToIntent(pipeline.buildStatus as string)} /> {pipeline.buildStatus}
+              <StatusIndicator intent={pipelineStatusToIntent(pipeline.buildStatus as string)} />{' '}
+              {pipelineStatusToName(pipeline.buildStatus ?? '')}
             </>
           ),
         },
       ],
       expandableContent: (
         <div>
-          <H3>Tasks</H3>
-          <ul>
+          <Subtitle>Tasks</Subtitle>
+          <ElPipelineTaskContainer className={cx('flex')}>
             {pipeline.tasks?.map((task) => (
-              <PipelineTask task={task} key={task.id} />
+              <PipelineTask index={functionToIndex(task.functionName as string)} task={task} key={task.id} />
             ))}
-          </ul>
+          </ElPipelineTaskContainer>
+          <Button
+            intent="primary"
+            disabled={!['SUCCEEDED', 'FAILED'].includes(pipeline.buildStatus as string)}
+            onClick={() => {
+              if (pipeline.s3BuildLogsLocation) {
+                window.open(pipeline.s3BuildLogsLocation as string)
+              } else {
+                notification.error({ message: 'Unable to download logs' })
+              }
+            }}
+          >
+            Download logs
+          </Button>
         </div>
       ),
     }
@@ -140,10 +182,12 @@ const DeploymentTable = ({
     <FlexContainerBasic centerContent flexColumn hasBackground hasPadding>
       <Loader />
     </FlexContainerBasic>
-  ) : pipelineRunnerPagination ? (
+  ) : pipelineRunnerPagination && pipelineRunnerMapped?.length ? (
     <Table rows={pipelineRunnerMapped} expandableContentSize="large" />
   ) : (
-    <H1>Error loading pipelines</H1>
+    <PersistantNotification intent="secondary" isExpanded isInline isFullWidth>
+      No pipleline runs found
+    </PersistantNotification>
   )
 }
 
@@ -154,6 +198,20 @@ export default () => {
   const params = useParams<{ pipelineId: string }>()
   const [pipelineRunnerPagination, setPipelineRunnerPagination] = useState<Pagination<PipelineRunnerModelInterface>>()
   const [deployLoading, setDeployLoading] = useState<boolean>(false)
+  const [deletionLoading, setDeletionLoading] = useState<boolean>(false)
+  const [tabIndex, setTabIndex] = useState<string>('deployments')
+
+  const history = useHistory()
+
+  const deletePipeline = async (id: string) => {
+    setDeletionLoading(true)
+
+    await pipelineServiceDelete(connectSession as ReapitConnectSession, id)
+
+    setDeletionLoading(false)
+
+    history.push(Routes.PIPELINES)
+  }
 
   const deployPipeline = async () => {
     if (!pipeline || deployLoading) {
@@ -184,50 +242,99 @@ export default () => {
     }
   }, [connectSession])
 
-  return loading ? (
-    <FlexContainerBasic centerContent flexColumn hasBackground hasPadding>
-      <Loader />
-    </FlexContainerBasic>
-  ) : connectSession && pipeline ? (
-    <>
-      <Breadcrumb>
-        <BreadcrumbItem>
-          <Link to={Routes.PIPELINES}>Pipelines</Link>
-        </BreadcrumbItem>
-        <BreadcrumbItem isCurrent={true}>
-          <a href="#">{pipeline?.name}</a>
-        </BreadcrumbItem>
-      </Breadcrumb>
-      <Section>
-        <H1>Pipeline {pipeline?.name}</H1>
-        <ButtonGroup>
-          <Button loading={deployLoading} onClick={() => deployPipeline()} intent="success">
-            Deploy
-          </Button>
-          <Button intent="critical">
-            <Link to={Routes.PIPELINES_UPDATE.replace(':pipelineId', pipeline.id as string)}>Update</Link>
-          </Button>
-        </ButtonGroup>
-        <Label>Package Manager</Label>
-        <p>{pipeline?.packageManager}</p>
-        <Label>Build Command</Label>
-        <p>{pipeline?.buildCommand}</p>
-        <Label>Repository</Label>
-        <p>{pipeline?.repository}</p>
-      </Section>
-      <Section>
-        <DeploymentTable
-          connectSession={connectSession}
-          pipeline={pipeline}
-          pipelineRunnerPagination={pipelineRunnerPagination}
-          setPipelineRunnerPagination={setPipelineRunnerPagination}
-        />
-      </Section>
-    </>
-  ) : (
-    <>
-      <H1>No pipeline found</H1>
-      <Link to={Routes.PIPELINES}>Back</Link>
-    </>
+  return (
+    <FlexContainer isFlexAuto>
+      <SecondaryNavContainer>
+        <Title>Pipelines</Title>
+        <Icon className={elMb5} icon="apiDocsInfographic" iconSize="large" />
+        <Subtitle>Pipeline Manager</Subtitle>
+        <BodyText hasGreyText>
+          For information on pipleine controls and deploying your app, read the documentation below:
+        </BodyText>
+        <Button className={elMb5} intent="neutral">
+          View Docs
+        </Button>
+        <Button className={elMb5} intent="critical" onClick={() => history.push(Routes.PIPELINES)}>
+          View Pipelines
+        </Button>
+        <Subtitle>Pipeline Actions</Subtitle>
+        <BodyText hasGreyText>Control your pipleine here by performing one of the operations below.</BodyText>
+        <Button className={cx(elM1)} loading={deployLoading} onClick={() => deployPipeline()} intent="success">
+          Deploy
+        </Button>
+        <Button
+          className={cx(elM1)}
+          intent="critical"
+          onClick={() => history.push(Routes.PIPELINES_UPDATE.replace(':pipelineId', pipeline?.id as string))}
+        >
+          Update
+        </Button>
+        <Button
+          className={cx(elM1)}
+          intent="danger"
+          loading={deletionLoading}
+          onClick={() => deletePipeline(pipeline?.id as string)}
+        >
+          Delete
+        </Button>
+      </SecondaryNavContainer>
+      <PageContainer className={elHFull}>
+        {loading ? (
+          <FlexContainerBasic centerContent flexColumn hasBackground hasPadding>
+            <Loader />
+          </FlexContainerBasic>
+        ) : connectSession && pipeline ? (
+          <>
+            <Title>{pipeline?.name}</Title>
+            <Tabs
+              name="pipeline-tabs"
+              isFullWidth
+              onChange={(event) => {
+                // @ts-ignore
+                setTabIndex(event.target.value)
+              }}
+              options={[
+                {
+                  id: 'deployments',
+                  value: 'deployments',
+                  text: 'Deployments',
+                  isChecked: tabIndex === 'deployments',
+                },
+                {
+                  id: 'details',
+                  value: 'details',
+                  text: 'Details',
+                  isChecked: tabIndex === 'details',
+                },
+              ]}
+            />
+            {tabIndex === 'details' ? (
+              <>
+                <Label>Package Manager</Label>
+                <BodyText>{pipeline?.packageManager}</BodyText>
+                <Label>Build Command</Label>
+                <BodyText>{pipeline?.buildCommand}</BodyText>
+                <Label>Repository</Label>
+                <BodyText>{pipeline?.repository}</BodyText>
+                <Label>Out Dir</Label>
+                <BodyText>{pipeline?.outDir}</BodyText>
+              </>
+            ) : (
+              <DeploymentTable
+                connectSession={connectSession}
+                pipeline={pipeline}
+                pipelineRunnerPagination={pipelineRunnerPagination}
+                setPipelineRunnerPagination={setPipelineRunnerPagination}
+              />
+            )}
+          </>
+        ) : (
+          <>
+            <Title>No pipeline found</Title>
+            <Link to={Routes.PIPELINES}>Back</Link>
+          </>
+        )}
+      </PageContainer>
+    </FlexContainer>
   )
 }

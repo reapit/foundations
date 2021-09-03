@@ -157,6 +157,17 @@ export const generateColumns =
         id: 'check-aws',
         Cell: ({ row }: { row: { original: AppSummaryModel } }) => <CheckAWSButton appId={row.original.id ?? ''} />,
       },
+      {
+        Header: 'Preview',
+        id: 'preview',
+        Cell: ({ row }: { row: { original: AppSummaryModel } }) => (
+          <Button
+            onClick={() => window.open(`${window.reapit.config.developerPortalUri}/apps/${row.original.id}`, '_blank')}
+          >
+            Preview
+          </Button>
+        ),
+      },
       !hasLimitedAccess && {
         Header: 'Delete App',
         id: 'Delete',

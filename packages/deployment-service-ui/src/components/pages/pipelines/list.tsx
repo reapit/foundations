@@ -1,88 +1,164 @@
 import Routes from '@/constants/routes'
 import { reapitConnectBrowserSession } from '@/core/connect-session'
 import { ReapitConnectSession, useReapitConnect } from '@reapit/connect-session'
-import { ButtonGroup, FlexContainerBasic, H3, notification, Section } from '@reapit/elements-legacy'
-import { Button, Table } from '@reapit/elements-legacy'
-import { Loader } from '@reapit/elements'
+import {
+  BodyText,
+  Button,
+  Table,
+  Icon,
+  Loader,
+  PageContainer,
+  SecondaryNavContainer,
+  Subtitle,
+  Title,
+  elHFull,
+  elMb5,
+  FlexContainer,
+  PaginationWrap,
+  PaginationText,
+  PaginationButton,
+  elPaginationPrimary,
+  elFlexGrow,
+  StatusIndicator,
+  PersistantNotification,
+  elMb8,
+} from '@reapit/elements'
 import { PipelineModelInterface } from '@reapit/foundations-ts-definitions'
 import React, { useEffect, useState } from 'react'
-import { Link } from 'react-router-dom'
-import { pipelineServiceDelete, pipelineServicePaginate } from '../../../platform-api/pipelines'
+import { useHistory } from 'react-router-dom'
+import { pipelineServicePaginate } from '../../../platform-api/pipelines'
+import { Pagination } from 'nestjs-typeorm-paginate'
+import { cx } from '@linaria/core'
+import { pipelineStatusToIntent } from './../../../utils'
 
 export default () => {
   const { connectSession } = useReapitConnect(reapitConnectBrowserSession)
-  const [pipelines, setPipelines] = useState<PipelineModelInterface[]>([])
+  const [pipelinePagination, setPipelinePagination] = useState<Pagination<PipelineModelInterface>>()
   const [loading, setLoading] = useState<boolean>(false)
-  const [deletionLoading, setDeletionLoading] = useState<string[]>([])
+
+  const history = useHistory()
+
+  const fetchPipelines = async (page?: number) => {
+    setLoading(true)
+    const serviceResponse = await pipelineServicePaginate(connectSession as ReapitConnectSession, page)
+    setLoading(false)
+    if (serviceResponse) {
+      setPipelinePagination(serviceResponse)
+    }
+
+    // TODO add page to location as query
+  }
 
   useEffect(() => {
-    const fetchPipelines = async () => {
-      setLoading(true)
-      const serviceResponse = await pipelineServicePaginate(connectSession as ReapitConnectSession)
-      setLoading(false)
-      if (serviceResponse) {
-        setPipelines([...pipelines, ...serviceResponse])
-      }
-    }
     if (connectSession) {
       fetchPipelines()
     }
   }, [connectSession])
 
-  const deletePipeline = async (id: string) => {
-    setDeletionLoading([...deletionLoading, id])
-
-    await pipelineServiceDelete(connectSession as ReapitConnectSession, id)
-
-    setDeletionLoading(deletionLoading.filter((del) => del !== id))
-    setPipelines(pipelines.filter((pipeline) => pipeline.id !== id))
-    notification.success({ message: 'Pipeline deleted' })
-  }
-
   return (
-    <Section>
-      <H3>Pipelines</H3>
-      <Link to={Routes.PIPELINES_CREATION}>
-        <Button type="button" variant="primary">
-          Create new Pipeline
+    <FlexContainer isFlexAuto>
+      <SecondaryNavContainer>
+        <Title>Pipelines</Title>
+        <Icon className={elMb5} icon="apiDocsInfographic" iconSize="large" />
+        <Subtitle>Pipeline Manager</Subtitle>
+        <BodyText hasGreyText>
+          Here you can monitor your created pipelines and see progress against deployments in live time. For more
+          information read the documentation below:
+        </BodyText>
+        <Button className={elMb5} intent="neutral">
+          View Docs
         </Button>
-      </Link>
-      <FlexContainerBasic centerContent flexColumn hasBackground hasPadding>
-        {loading ? (
-          <Loader />
-        ) : (
-          <Table
-            data={pipelines}
-            columns={[
-              {
-                Header: 'Name',
-                accessor: 'name',
-              },
-              {
-                Header: 'Repository',
-                accessor: 'repository',
-              },
-              {
-                id: 'Delete',
-                Cell: ({ row }: { row: { original: any } }) => (
-                  <ButtonGroup>
-                    <Button variant="secondary">
-                      <Link to={Routes.PIPELINES_SHOW.replace(':pipelineId', row.original.id)}>Manage</Link>
-                    </Button>
-                    <Button
-                      loading={deletionLoading.includes(row.original.id)}
-                      onClick={() => deletePipeline(row.original.id)}
-                      variant="danger"
+        <Button className={elMb5} intent="critical" onClick={() => history.push(Routes.PIPELINES_CREATION)}>
+          New Pipeline
+        </Button>
+      </SecondaryNavContainer>
+      <PageContainer className={elHFull}>
+        <div>
+          <FlexContainer isFlexAlignCenter isFlexJustifyCenter>
+            {loading ? (
+              <Loader label="Loading" fullPage />
+            ) : pipelinePagination ? (
+              <section className={cx(elFlexGrow)}>
+                <Title>My Pipelines</Title>
+                <Table
+                  className={elMb8}
+                  rows={pipelinePagination.items.map((pipeline) => ({
+                    cells: [
+                      {
+                        label: 'Status',
+                        value: pipeline.buildStatus as string,
+                        children: (
+                          <>
+                            <StatusIndicator
+                              intent={pipelineStatusToIntent(pipeline.buildStatus || 'AWAITING DEPLOYMENT')}
+                            />
+                            {pipeline.buildStatus}
+                          </>
+                        ),
+                      },
+                      {
+                        label: 'Name',
+                        value: pipeline.name as string,
+                      },
+                      {
+                        label: 'repository',
+                        value: pipeline.repository as string,
+                      },
+                      {
+                        label: '',
+                        value: '',
+                        children: (
+                          <Button
+                            intent="secondary"
+                            onClick={() => {
+                              history.push(Routes.PIPELINES_SHOW.replace(':pipelineId', pipeline.id as string))
+                            }}
+                          >
+                            Manage
+                          </Button>
+                        ),
+                      },
+                    ],
+                  }))}
+                />
+                {pipelinePagination.items.length ? (
+                  <PaginationWrap>
+                    <PaginationText>
+                      <strong>{pipelinePagination.meta.currentPage}</strong> of {pipelinePagination?.meta.totalPages}
+                    </PaginationText>
+                    <PaginationButton
+                      onClick={async () => {
+                        if (pipelinePagination.meta.currentPage <= 1) {
+                          return
+                        }
+                        await fetchPipelines(pipelinePagination.meta.currentPage - 1)
+                      }}
                     >
-                      Delete
-                    </Button>
-                  </ButtonGroup>
-                ),
-              },
-            ]}
-          />
-        )}
-      </FlexContainerBasic>
-    </Section>
+                      <Icon icon="backSystem" />
+                    </PaginationButton>
+                    <PaginationButton
+                      onClick={async () => {
+                        if (pipelinePagination.meta.currentPage >= pipelinePagination.meta.totalPages) {
+                          return
+                        }
+                        await fetchPipelines(pipelinePagination.meta.currentPage + 1)
+                      }}
+                    >
+                      <Icon icon="nextSystem" className={elPaginationPrimary} />
+                    </PaginationButton>
+                  </PaginationWrap>
+                ) : (
+                  <PersistantNotification intent="secondary" isExpanded isInline isFullWidth>
+                    No pipelines retrieved. You will need to create a new pipeline from the left hand side menu.
+                  </PersistantNotification>
+                )}
+              </section>
+            ) : (
+              <Title>Something went wrong</Title>
+            )}
+          </FlexContainer>
+        </div>
+      </PageContainer>
+    </FlexContainer>
   )
 }

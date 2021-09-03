@@ -5,7 +5,8 @@ import { CodeBuild } from 'aws-sdk'
 import yaml from 'yaml'
 import { PackageManagerEnum } from '../../../../foundations-ts-definitions/deployment-schema'
 import { QueueNames } from '../../constants'
-import { sqs, savePipelineRunnerEntity } from '../../services'
+import { sqs, savePipelineRunnerEntity, s3Client } from '../../services'
+import { closeDb } from '../../core'
 
 const codebuild = new CodeBuild({
   region: process.env.REGION,
@@ -27,6 +28,8 @@ export const codebuildExecutor: SQSHandler = async (
       if (!pipeline) {
         throw new Error('pipeline not found')
       }
+
+      const s3BuildLogsLocation = `arn:aws:s3:::${process.env.DEPLOYMENT_LOG_BUCKET_NAME}`
 
       try {
         const start = codebuild.startBuild({
@@ -58,6 +61,12 @@ export const codebuildExecutor: SQSHandler = async (
             name: `${pipelineRunner.id}.zip`,
             path: `${pipeline.uniqueRepoName}/`,
           },
+          logsConfigOverride: {
+            s3Logs: {
+              status: 'ENABLED',
+              location: s3BuildLogsLocation,
+            },
+          },
         })
 
         const result = await new Promise<CodeBuild.StartBuildOutput>((resolve, reject) => {
@@ -71,6 +80,14 @@ export const codebuildExecutor: SQSHandler = async (
         })
 
         pipelineRunner.codebuildId = result.build?.id?.split(':').pop()
+
+        const signedUrl = await s3Client.getSignedUrlPromise('getObject', {
+          Key: `${pipelineRunner.codebuildId}.gz`,
+          Bucket: process.env.DEPLOYMENT_LOG_BUCKET_NAME,
+          Expires: 60 * 60 * 24 * 7,
+        })
+
+        pipelineRunner.s3BuildLogsLocation = signedUrl
 
         pipelineRunner.tasks = ['INSTALL', 'BUILD', 'PRE_BUILD', 'DOWNLOAD_SOURCE', 'DEPLOY'].map((phase) => {
           const task = new TaskEntity()
@@ -103,6 +120,8 @@ export const codebuildExecutor: SQSHandler = async (
       )
     }),
   )
+
+  await closeDb()
 
   return callback(null, `Successfully processed ${event.Records.length} records.`)
 }

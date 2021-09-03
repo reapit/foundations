@@ -6,6 +6,7 @@ export type Config = {
   connectUserPoolId: string
   platformApiUrl: string
   limitedUserAccessWhitelist: string[]
+  developerPortalUri: string
 }
 
 declare global {

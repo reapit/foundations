@@ -58,11 +58,17 @@ export class PipelineCreate extends AbstractCommand {
     appType,
     repository,
     create,
+    outDir,
+    buildCommand,
+    packageManager,
   }: {
     name: string
     appType: string
     repository: string
     create: boolean
+    outDir: string
+    buildCommand: string
+    packageManager: string
   }) {
     const spinner = ora('Creating pipeline').start()
     const response = await (
@@ -71,6 +77,9 @@ export class PipelineCreate extends AbstractCommand {
       name: name,
       appType: appType.toLowerCase(),
       repository: repository,
+      outDir,
+      buildCommand,
+      packageManager,
     })
 
     if (response.status === 200) {
@@ -123,6 +132,27 @@ export class PipelineCreate extends AbstractCommand {
         name: 'repository',
       })
     }
+
+    questions.push({
+      type: 'input',
+      name: 'outDir',
+      message: 'outDir - The output of your build command',
+      default: 'build',
+    })
+
+    questions.push({
+      type: 'input',
+      name: 'buildCommand',
+      message: 'buildCommand - The build command of your project',
+      default: 'build',
+    })
+
+    questions.push({
+      type: 'list',
+      name: 'packageManager',
+      message: 'packageManager',
+      choices: ['yarn', 'npm'],
+    })
 
     const answers = await inquirer.prompt([
       ...questions,
