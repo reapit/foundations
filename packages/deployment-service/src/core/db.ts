@@ -14,9 +14,3 @@ export const connect = async (): Promise<Connection | never> => {
 
   return connection
 }
-
-export const closeDb = async () => {
-  const connection = await connect()
-
-  await connection.close()
-}
