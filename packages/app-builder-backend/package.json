@@ -22,6 +22,7 @@
     "commit": "concurrently \"yarn test --coverage --no-cache --silent --forceExit --detectOpenHandles --runInBand --watch=false && jest-coverage-badges --input src/tests/coverage/coverage-summary.json --output src/tests/badges\" \"yarn lint\""
   },
   "dependencies": {
+    "@aws-cdk/aws-dynamodb": "^1.121.0",
     "@aws-sdk/client-dynamodb": "^3.27.0",
     "apollo-server": "^3.1.1",
     "apollo-server-lambda": "^3.1.2",

@@ -10,14 +10,12 @@ import {
 import { App } from './entities/app'
 import { Page } from './entities/page'
 
-const { APPS_TABLE_NAME = 'apps' } = process.env
+const { APPS_TABLE_NAME = 'apps', GSI_NAME = 'userId-index', DYNAMODB_ENDPOINT, AWS_REGION = 'eu-west-2' } = process.env
 
 export const ddb = new DynamoDBClient({
-  endpoint: process.env.DYNAMODB_ENDPOINT,
-  region: process.env.AWS_REGION || 'eu-west-2',
+  endpoint: DYNAMODB_ENDPOINT,
+  region: AWS_REGION,
 })
-
-const GSIname = 'userId-index'
 
 const getCreateTableCommand = (tableName: string): CreateTableCommand => {
   return new CreateTableCommand({
@@ -29,7 +27,7 @@ const getCreateTableCommand = (tableName: string): CreateTableCommand => {
     KeySchema: [{ AttributeName: 'id', KeyType: 'HASH' }],
     GlobalSecondaryIndexes: [
       {
-        IndexName: GSIname,
+        IndexName: GSI_NAME,
         KeySchema: [{ AttributeName: 'userId', KeyType: 'HASH' }],
         Projection: {
           ProjectionType: 'ALL',
@@ -76,7 +74,7 @@ export const getUserApps = async (userId: string): Promise<Array<App>> => {
     TableName: APPS_TABLE_NAME,
     KeyConditionExpression: 'userId = :userId',
     ExpressionAttributeValues: { ':userId': { S: userId } },
-    IndexName: GSIname,
+    IndexName: GSI_NAME,
   })
   const { Items } = await ddb.send(d)
 

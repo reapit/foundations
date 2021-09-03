@@ -40,7 +40,6 @@ export class AppResolver {
   @Query(() => [App], { name: '_getUserApps' })
   async getUserApps(@Arg('userId') userId: string) {
     const apps = await getUserApps(userId)
-    console.log(apps)
     return apps
   }
 
