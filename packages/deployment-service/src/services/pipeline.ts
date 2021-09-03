@@ -23,7 +23,7 @@ export const deletePipelineEntity = async (model: PipelineEntity): Promise<void>
   const connection = await connect()
   const repo = connection.getRepository(PipelineEntity)
 
-  await repo.delete(model)
+  await repo.delete(model.id as string)
 }
 
 export const findPipelineById = async (id: string): Promise<PipelineEntity | undefined> => {
