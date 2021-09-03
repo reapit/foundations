@@ -1863,9 +1863,9 @@ export interface CertificateModelPagedResult {
  */
 export interface CheckInKeyModel {
   /**
-   * The unique identifier of negotiator checking in the key
+   * The unique identifier of the negotiator who performed the key check in
    */
-  checkInByNegotiatorId?: string
+  checkInNegotiatorId?: string
 }
 export interface Companies {
   pageSize?: number
@@ -4971,11 +4971,11 @@ export interface CreateJournalEntryModel {
  */
 export interface CreateKeyModel {
   /**
-   * The key's number
+   * The number assigned to the key - key numbers can only be occupied by a single property within an office concurrently
    */
   number?: string
   /**
-   * The identifier of the key type
+   * The unique identifier of the key type
    */
   typeId?: string
   /**
@@ -4999,6 +4999,10 @@ export interface CreateKeyModel {
  */
 export interface CreateKeyMovementModel {
   /**
+   * Indicates whether the key is expected to be checked back in. Set to true when the key is no longer held (eg. returned to the landlord)
+   */
+  checkInRequired?: boolean
+  /**
    * The unique identifier of the contact or negotiator to check out the key with - this person will be recorded as holding the key
    */
   checkOutToId?: string
@@ -5007,7 +5011,7 @@ export interface CreateKeyMovementModel {
    */
   checkOutToType?: string
   /**
-   * The unique identifier of the negotiator that approved checking out the key - this may not be the same person recorded as holding the key
+   * The unique identifier of the negotiator who performed the key check out
    */
   checkOutNegotiatorId?: string
 }
@@ -7598,7 +7602,7 @@ export interface KeyMovementModel {
    */
   checkOutAt?: string // date-time
   /**
-   * The unique identifier of the negotiator that checked out the key set
+   * The unique identifier of the negotiator who performed the key check out
    */
   checkOutNegotiatorId?: string
   /**
@@ -7608,7 +7612,7 @@ export interface KeyMovementModel {
    */
   checkInAt?: string // date-time
   /**
-   * The unique identifier of the negotiator that checked in the key set
+   * The unique identifier of the negotiator who performed the key check in
    */
   checkInNegotiatorId?: string
   /**
@@ -7665,7 +7669,7 @@ export interface KeyMovementModelPagedResult {
      */
     checkOutAt?: string // date-time
     /**
-     * The unique identifier of the negotiator that checked out the key set
+     * The unique identifier of the negotiator who performed the key check out
      */
     checkOutNegotiatorId?: string
     /**
@@ -7675,7 +7679,7 @@ export interface KeyMovementModelPagedResult {
      */
     checkInAt?: string // date-time
     /**
-     * The unique identifier of the negotiator that checked in the key set
+     * The unique identifier of the negotiator who performed the key check in
      */
     checkInNegotiatorId?: string
     /**
@@ -7723,11 +7727,11 @@ export interface KeysModel {
    */
   modified?: string // date-time
   /**
-   * The key's number
+   * The number assigned to the key - key numbers can only be occupied by a single property within an office concurrently
    */
   number?: string
   /**
-   * The identifier of the key type
+   * The unique identifier of the key type
    */
   typeId?: string
   /**
@@ -7783,11 +7787,11 @@ export interface KeysModelPagedResult {
      */
     modified?: string // date-time
     /**
-     * The key's number
+     * The number assigned to the key - key numbers can only be occupied by a single property within an office concurrently
      */
     number?: string
     /**
-     * The identifier of the key type
+     * The unique identifier of the key type
      */
     typeId?: string
     /**

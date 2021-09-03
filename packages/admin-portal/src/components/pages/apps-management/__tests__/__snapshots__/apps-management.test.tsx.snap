@@ -901,11 +901,13 @@ exports[`admin-apps generateColumns should match snapshot 1`] = `
   <Component />
   <Component />
   <Component />
+  <Component />
 </div>
 `;
 
 exports[`admin-apps generateColumns should match snapshot if the user has limited access 1`] = `
 <div>
+  <Component />
   <Component />
   <Component />
   <Component />

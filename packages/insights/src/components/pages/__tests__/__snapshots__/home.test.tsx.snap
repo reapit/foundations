@@ -1,20 +1,65 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`Home should match a snapshot 1`] = `
-<PageContainer>
-  <Title>
-    Reapit Insights
-  </Title>
-  <PersistantNotification
-    intent="secondary"
-    isExpanded={true}
-    isFullWidth={true}
-  >
-    Loading your Power BI account. On the first login, this could take up to a minute.
-  </PersistantNotification>
-  <Loader
-    fullPage={true}
-    label="Loading"
-  />
-</PageContainer>
+<FlexContainer
+  isFlexAuto={true}
+>
+  <SecondaryNavContainer>
+    <Title>
+      Reports
+    </Title>
+    <Icon
+      className="el-mb5"
+      icon="apiInfographic"
+      iconSize="large"
+    />
+    <Subtitle>
+      Welcome
+    </Subtitle>
+    <BodyText
+      hasGreyText={true}
+    >
+      We have provided comprehensive documentation for the Insights Services. Please click below to view before getting started
+    </BodyText>
+    <Button
+      className="el-mb5"
+      intent="neutral"
+    >
+      View Docs
+    </Button>
+    <ControlsContainer
+      className="el-border-radius"
+    >
+      <ForwardRef>
+        <ForwardRef
+          className="el-wfull"
+          onChange={[Function]}
+        >
+          <option
+            key="default-option"
+          >
+            Please Select
+          </option>
+        </ForwardRef>
+        <Label
+          htmlFor="myId"
+        >
+          Select Report
+        </Label>
+      </ForwardRef>
+    </ControlsContainer>
+  </SecondaryNavContainer>
+  <PageContainer>
+    <Title>
+      Reapit Insights
+    </Title>
+    <PersistantNotification
+      intent="secondary"
+      isExpanded={true}
+      isFullWidth={true}
+    >
+      Please select a report from the left hand side menu
+    </PersistantNotification>
+  </PageContainer>
+</FlexContainer>
 `;

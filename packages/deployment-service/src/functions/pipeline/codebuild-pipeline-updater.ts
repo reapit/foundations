@@ -2,6 +2,7 @@ import { Context, Callback, SNSEvent, SNSHandler } from 'aws-lambda'
 import { findPipelineRunnerByCodeBuildId, savePipelineRunnerEntity, sqs, pusher } from '../../services'
 import { CodeBuild } from 'aws-sdk'
 import { QueueNames } from '../../constants'
+import { closeDb } from '../../core'
 
 const acceptedPhases = ['BUILD', 'PRE_BUILD', 'INSTALL', 'DOWNLOAD_SOURCE']
 enum EventEnum {
@@ -82,6 +83,8 @@ export const codebuildPipelineUpdater: SNSHandler = async (
     }),
   )
 
+  await closeDb()
+
   return callback(null, `Successfully processed ${event.Records.length} records.`)
 }
 
@@ -111,6 +114,10 @@ const handlePhaseChange = async ({
   if (pipelineRunner.buildStatus === 'QUEUED') {
     changesMade = true
     pipelineRunner.buildStatus = 'IN_PROGRESS'
+
+    if (pipelineRunner.pipeline) {
+      pipelineRunner.pipeline.buildStatus = 'IN_PROGRESS'
+    }
   }
 
   pipelineRunner.tasks = pipelineRunner.tasks?.map((task) => {
@@ -127,8 +134,8 @@ const handlePhaseChange = async ({
     }
 
     task.buildStatus = buildStatus
-    task.startTime = phase['start-time']?.toISOString()
-    task.endTime = phase['end-time']?.toISOString()
+    task.startTime = phase['start-time'] ? new Date(phase['start-time']).toISOString() : undefined
+    task.endTime = phase['end-time'] ? new Date(phase['end-time']).toISOString() : undefined
     task.elapsedTime = phase['duration-in-seconds']?.toString()
 
     return task
@@ -176,6 +183,11 @@ const handleStateChange = async ({
     )
   } else if (pipelineRunner.buildStatus === 'QUEUED') {
     pipelineRunner.buildStatus = 'IN_PROGRESS'
+
+    if (pipelineRunner.pipeline) {
+      pipelineRunner.pipeline.buildStatus = 'IN_PROGRESS'
+    }
+
     return Promise.all([
       savePipelineRunnerEntity(pipelineRunner),
       pusher.trigger(pipelineRunner.pipeline?.developerId as string, 'pipeline-runner-update', pipelineRunner),

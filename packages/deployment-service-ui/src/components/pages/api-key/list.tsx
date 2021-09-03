@@ -5,9 +5,20 @@ import {
   configurationApiKeyApiService,
 } from '@/platform-api/configuration-api'
 import { ReapitConnectSession, useReapitConnect } from '@reapit/connect-session'
-import { H3, Section } from '@reapit/elements-legacy'
-import { Button, Table } from '@reapit/elements-legacy'
-import { Loader } from '@reapit/elements'
+import {
+  FlexContainer,
+  Loader,
+  SecondaryNavContainer,
+  elMb5,
+  elHFull,
+  Title,
+  Subtitle,
+  Icon,
+  BodyText,
+  PageContainer,
+  Button,
+  Table,
+} from '@reapit/elements'
 import { ApiKeyInterface } from '@reapit/foundations-ts-definitions'
 import React, { useEffect, useState } from 'react'
 import { shleemy } from 'shleemy'
@@ -54,57 +65,73 @@ export default () => {
   }
 
   return (
-    <Section>
-      <H3>Api Keys</H3>
-      <Button onClick={createApiKey} loading={creationLoading} type="button" variant="primary">
-        Create new ApiKey
-      </Button>
-      {loading ? (
-        <Loader />
-      ) : (
-        <Table
-          data={apiKeys}
-          columns={[
-            {
-              Header: 'ApiKey',
-              accessor: 'apiKey',
-            },
-            {
-              Header: 'Expires',
-              accessor: 'keyExpiresAt',
-              Cell: (cell: { value }) => {
-                const int = shleemy(cell.value)
-                return (
-                  <span>
-                    {int.date} {int.time}
-                  </span>
-                )
-              },
-            },
-            {
-              Header: 'Created',
-              accessor: 'keyCreatedAt',
-              Cell: (cell: { value }) => {
-                const int = shleemy(cell.value)
-
-                return <span>{int.forHumans}</span>
-              },
-            },
-            {
-              id: 'Delete',
-              Cell: ({ row }: { row: { original: any } }) => (
-                <Button
-                  loading={deletionLoading.includes(row.original.id)}
-                  onClick={() => deleteApiKey(row.original.id)}
-                  variant="danger"
-                >
-                  Delete
-                </Button>
-              ),
-            },
-          ]}
-        />
-      )}
-    </Section>
+    <FlexContainer isFlexAuto>
+      <SecondaryNavContainer>
+        <Title>API Keys</Title>
+        <Icon className={elMb5} icon="apiInfographic" iconSize="large" />
+        <Subtitle>Pipeline Authentication</Subtitle>
+        <BodyText hasGreyText>
+          You will need to have a valid API key to access our deployments as a service infrastructure via the CLI tools.
+          For more information read the documentation below:
+        </BodyText>
+        <Button className={elMb5} intent="neutral">
+          View Docs
+        </Button>
+        <Button
+          className={elMb5}
+          intent="critical"
+          onClick={createApiKey}
+          loading={creationLoading}
+          disabled={creationLoading}
+        >
+          New API Key
+        </Button>
+      </SecondaryNavContainer>
+      <PageContainer className={elHFull}>
+        <Title>Your API Keys</Title>
+        {loading ? (
+          <Loader label="Loading" fullPage />
+        ) : (
+          <Table
+            rows={apiKeys.map((apiKey) => ({
+              cells: [
+                {
+                  label: 'ApiKey',
+                  value: apiKey.apiKey as string,
+                },
+                {
+                  label: 'Expires',
+                  value: apiKey.keyExpiresAt as string,
+                  children: (
+                    <>
+                      {shleemy(apiKey.keyCreatedAt as string).date} {shleemy(apiKey.keyCreatedAt as string).time}
+                    </>
+                  ),
+                },
+                {
+                  label: 'Created',
+                  value: apiKey.keyCreatedAt as string,
+                  children: <>{shleemy(apiKey.keyCreatedAt as string).forHumans}</>,
+                },
+                {
+                  label: 'Delete Key',
+                  value: 'delete',
+                  children: (
+                    <Button
+                      loading={deletionLoading.includes(apiKey.id as string)}
+                      disabled={deletionLoading.includes(apiKey.id as string)}
+                      onClick={() => deleteApiKey(apiKey.id as string)}
+                      intent="danger"
+                    >
+                      Delete
+                    </Button>
+                  ),
+                },
+              ],
+            }))}
+          />
+        )}
+      </PageContainer>
+    </FlexContainer>
   )
 }

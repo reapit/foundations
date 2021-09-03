@@ -23,7 +23,7 @@ export const deletePipelineEntity = async (model: PipelineEntity): Promise<void>
   const connection = await connect()
   const repo = connection.getRepository(PipelineEntity)
 
-  await repo.delete(model)
+  await repo.delete(model.id as string)
 }
 
 export const findPipelineById = async (id: string): Promise<PipelineEntity | undefined> => {
@@ -37,5 +37,5 @@ export const paginatePipelines = async (developerId: string, page: number = 1): 
   const connection = await connect()
   const repo = connection.getRepository(PipelineEntity)
 
-  return paginate(repo, { limit: 10, page }, { developerId, order: { created: 'DESC' } })
+  return paginate(repo, { limit: 10, page }, { where: { developerId }, order: { created: 'DESC' } })
 }

@@ -4,6 +4,7 @@ export enum ApiKeyEntityType {
 }
 
 export interface ApiKeyInterface {
+  id?: string
   apiKey?: string
   keyCreatedAt?: string
   keyExpiresAt?: string

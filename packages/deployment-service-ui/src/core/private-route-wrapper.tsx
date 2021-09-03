@@ -1,9 +1,10 @@
 import * as React from 'react'
 import { useReapitConnect } from '@reapit/connect-session'
-import { Loader, Section, FlexContainerResponsive, AppNavContainer, FlexContainerBasic } from '@reapit/elements-legacy'
-import Menu from '@/components/ui/menu'
 import { reapitConnectBrowserSession } from '@/core/connect-session'
 import { useLocation, Redirect } from 'react-router'
+import Nav from '../components/ui/nav'
+import Routes from '../constants/routes'
+import { MainContainer, Loader } from '@reapit/elements'
 
 const { Suspense } = React
 
@@ -16,36 +17,25 @@ export const PrivateRouteWrapper: React.FunctionComponent<PrivateRouteWrapperPro
 
   if (!connectSession) {
     return (
-      <AppNavContainer>
-        <FlexContainerBasic flexColumn isScrollable>
-          <FlexContainerResponsive hasPadding flexColumn>
-            <Loader />
-          </FlexContainerResponsive>
-        </FlexContainerBasic>
-      </AppNavContainer>
+      <MainContainer>
+        <Loader label="Loading" fullPage />
+      </MainContainer>
     )
+  }
+
+  if (currentUri === '/') {
+    return <Redirect to={Routes.PIPELINES} />
   }
 
   if (connectInternalRedirect && currentUri !== connectInternalRedirect) {
     return <Redirect to={connectInternalRedirect} />
   }
+
   return (
-    <AppNavContainer>
-      <Menu />
-      <FlexContainerBasic flexColumn isScrollable>
-        <FlexContainerResponsive hasPadding flexColumn>
-          <Suspense
-            fallback={
-              <Section>
-                <Loader />
-              </Section>
-            }
-          >
-            {children}
-          </Suspense>
-        </FlexContainerResponsive>
-      </FlexContainerBasic>
-    </AppNavContainer>
+    <MainContainer>
+      <Nav />
+      <Suspense fallback={<Loader label="Loading" fullPage />}>{children}</Suspense>
+    </MainContainer>
   )
 }
 
