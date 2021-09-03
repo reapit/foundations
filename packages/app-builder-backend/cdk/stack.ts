@@ -50,8 +50,8 @@ export const createStack = (scope: cdk.App, name: string) => {
   const lambdaFunction = createFunction(stack, 'graphql', code, {
     APPS_TABLE_NAME: appsTable.tableName,
     GSI_NAME,
-    AWS_REGION: stack.region,
   })
+  appsTable.grantReadWriteData(lambdaFunction)
   const api = createApi(stack, 'api', lambdaFunction)
 
   output(stack, 'api-url', api.url)
