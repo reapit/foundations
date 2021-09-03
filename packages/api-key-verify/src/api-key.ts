@@ -11,25 +11,23 @@ const lambda = new AWS.Lambda()
  * @param apiKeyHeader String
  * @returns GetApiKeyFunction
  */
-export const resolveApiKey = async (apiKeyHeader: string): Promise<ApiKeyModel | never> => {
-  const apiKey = await new Promise<ApiKeyModel | undefined>((resolve, reject) =>
-    lambda.invoke(
-      {
-        FunctionName: 'cloud-api-key-service-dev-getApiKeyViaInvoke', // TODO make env?
-        InvocationType: 'RequestResponse',
-        LogType: 'Tail',
-        Payload: JSON.stringify({ apiKey: apiKeyHeader }),
-      },
-      (err, data) => {
-        if (err) {
-          console.log('cannot call api')
-          console.error(err)
-          reject(err)
-        }
-        resolve(data.Payload ? plainToClass(ApiKeyModel, JSON.parse(data.Payload.toString())) : undefined)
-      },
-    ),
-  )
+ export const resolveApiKey = async (
+  apiKeyHeader: string,
+): Promise<ApiKeyModel | never> => {
+
+  const apiKey = await new Promise<ApiKeyModel | undefined>((resolve, reject) => lambda.invoke({
+    FunctionName: 'cloud-api-key-service-dev-getApiKeyViaInvoke', // TODO make env?
+    InvocationType: 'RequestResponse',
+    LogType: 'Tail',
+    Payload: JSON.stringify({ apiKey: apiKeyHeader }),
+  }, (err, data) => {
+    if (err) {
+      console.log('cannot call api')
+      console.error(err)
+      reject(err)
+    }
+    resolve(data.Payload ? plainToClass(ApiKeyModel, JSON.parse(data.Payload.toString())) : undefined)
+  }))
 
   if (!apiKey) {
     throw new ApiKeyNotFoundException()
