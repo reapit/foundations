@@ -6,6 +6,7 @@ import yaml from 'yaml'
 import { PackageManagerEnum } from '../../../../foundations-ts-definitions/deployment-schema'
 import { QueueNames } from '../../constants'
 import { sqs, savePipelineRunnerEntity, s3Client } from '../../services'
+import { closeDb } from 'src/core'
 
 const codebuild = new CodeBuild({
   region: process.env.REGION,
@@ -76,6 +77,22 @@ export const codebuildExecutor: SQSHandler = async (
 
             resolve(data)
           })
+        }).catch(async (error) => {
+          await new Promise<void>((resolve, reject) =>
+              sqs.deleteMessage(
+                {
+                  ReceiptHandle: record.receiptHandle,
+                  QueueUrl: QueueNames.CODE_BUILD_EXECUTOR,
+                },
+                (err) => {
+                  if (err) {
+                    reject(err)
+                  }
+                  resolve()
+                },
+              )
+            )
+          throw error
         })
 
         pipelineRunner.codebuildId = result.build?.id?.split(':').pop()
@@ -88,7 +105,7 @@ export const codebuildExecutor: SQSHandler = async (
 
         pipelineRunner.s3BuildLogsLocation = signedUrl
 
-        pipelineRunner.tasks = ['INSTALL', 'BUILD', 'PRE_BUILD', 'DOWNLOAD_SOURCE', 'DEPLOY'].map((phase) => {
+        pipelineRunner.tasks = ['INSTALL', 'BUILD', 'DOWNLOAD_SOURCE', 'DEPLOY'].map((phase) => {
           const task = new TaskEntity()
 
           task.functionName = phase
@@ -100,7 +117,21 @@ export const codebuildExecutor: SQSHandler = async (
       } catch (e) {
         console.error(e)
         console.log('codebuild config failure')
-        Promise.reject(e)
+        await new Promise<void>((resolve, reject) =>
+          sqs.deleteMessage(
+            {
+              ReceiptHandle: record.receiptHandle,
+              QueueUrl: QueueNames.CODE_BUILD_EXECUTOR,
+            },
+            (err) => {
+              if (err) {
+                reject(err)
+              }
+              resolve()
+            },
+          ),
+        )
+        return Promise.reject(e)
       }
 
       return new Promise<void>((resolve, reject) =>
@@ -119,6 +150,8 @@ export const codebuildExecutor: SQSHandler = async (
       )
     }),
   )
+
+  await closeDb()
 
   return callback(null, `Successfully processed ${event.Records.length} records.`)
 }
