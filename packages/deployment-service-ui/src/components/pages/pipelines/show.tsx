@@ -41,6 +41,7 @@ import { shleemy } from 'shleemy'
 import { cx } from '@linaria/core'
 import { pipelineStatusToIntent, pipelineStatusToName } from './../../../utils'
 import { ElPipelineTaskContainer } from '@/components/task/task.element'
+import { taskFunctionToFriendlyName } from '@/utils/friendly-function-name'
 
 const findRelevantTask = (tasks: TaskModelInterface[]): TaskModelInterface => {
   const priority: { [s: string]: number } = {
@@ -62,8 +63,6 @@ const functionToIndex = (name: string): number => {
       return 1
     case 'INSTALL':
       return 2
-    case 'PRE_BUILD':
-      return 3
     case 'BUILD':
       return 4
     case 'DEPLOY':
@@ -137,7 +136,7 @@ const DeploymentTable = ({
           label: 'Tasks',
           value: Array.isArray(pipeline.tasks)
             ? pipeline.buildStatus === 'IN_PROGRESS'
-              ? (findRelevantTask(pipeline.tasks).buildStatus as string)
+              ? `${taskFunctionToFriendlyName(findRelevantTask(pipeline.tasks).functionName as string)}ing`
               : pipeline.tasks.length.toString()
             : '0',
         },
