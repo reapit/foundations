@@ -41,9 +41,13 @@ export const iconFadeOut = css`
 `
 
 export const StepContentContainer = styled.div`
-  min-height: 350px;
+  min-height: 400px;
 `
 
 export const gridControlsMinHeight = css`
   min-height: 2.5rem;
+`
+
+export const searchMinWidth = css`
+  min-width: 210px;
 `

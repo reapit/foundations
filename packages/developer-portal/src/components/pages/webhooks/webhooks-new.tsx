@@ -1,6 +1,6 @@
 import React, { Dispatch, FC, SetStateAction, useState } from 'react'
 import { Button, Steps, ButtonGroup, ColSplit, Grid, elMlAuto } from '@reapit/elements'
-import { useForm, UseFormRegister } from 'react-hook-form'
+import { Control, useForm, UseFormRegister } from 'react-hook-form'
 import { WebhooksNewApp } from './webhooks-new-app'
 import { WebhooksNewUrl } from './webhooks-new-url'
 import { WebhooksNewTopics } from './webhooks-new-topics'
@@ -19,16 +19,20 @@ export const handleSubmitWebhook = () => (values: CreateWebhookParams) => {
   console.log('submitting', values)
 }
 
-export const getStepContent = (step: string, register: UseFormRegister<CreateWebhookParams>) => {
+export const getStepContent = (
+  step: string,
+  register: UseFormRegister<CreateWebhookParams>,
+  control: Control<CreateWebhookParams, object>,
+) => {
   switch (step) {
     case '1':
       return <WebhooksNewApp register={register} />
     case '2':
       return <WebhooksNewUrl register={register} />
     case '3':
-      return <WebhooksNewTopics register={register} />
+      return <WebhooksNewTopics control={control} />
     case '4':
-      return <WebhooksNewCustomers register={register} />
+      return <WebhooksNewCustomers control={control} />
     case '5':
       return <WebhooksNewStatus register={register} />
     default:
@@ -37,7 +41,7 @@ export const getStepContent = (step: string, register: UseFormRegister<CreateWeb
 }
 
 export const WebhooksNew: FC = () => {
-  const { register, handleSubmit } = useForm<CreateWebhookParams>()
+  const { register, control, handleSubmit } = useForm<CreateWebhookParams>()
   const [selectedStep, setSelectedStep] = useState<string>('1')
   const currentStepIndex = steps.indexOf(selectedStep)
   const nextStep = currentStepIndex < 4 ? String(currentStepIndex + 2) : null
@@ -45,7 +49,7 @@ export const WebhooksNew: FC = () => {
 
   return (
     <form onSubmit={handleSubmit(handleSubmitWebhook())}>
-      <StepContentContainer>{getStepContent(selectedStep, register)}</StepContentContainer>
+      <StepContentContainer>{getStepContent(selectedStep, register, control)}</StepContentContainer>
       <Grid className={gridControlsMinHeight}>
         <ColSplit>
           <Steps steps={steps} selectedStep={selectedStep} onStepClick={setSelectedStep} />
