@@ -1,4 +1,3 @@
-import Routes from '@/constants/routes'
 import { reapitConnectBrowserSession } from '@/core/connect-session'
 import {
   configurationApiKeyApiCreateService,
@@ -11,21 +10,17 @@ import {
   Loader,
   SecondaryNavContainer,
   elMb5,
-  elMb8,
   elHFull,
   Title,
   Subtitle,
   Icon,
   BodyText,
-  SecondaryNav,
-  SecondaryNavItem,
   PageContainer,
   Button,
   Table,
 } from '@reapit/elements'
 import { ApiKeyInterface } from '@reapit/foundations-ts-definitions'
 import React, { useEffect, useState } from 'react'
-import { useHistory, useLocation } from 'react-router'
 import { shleemy } from 'shleemy'
 
 export default () => {
@@ -34,9 +29,6 @@ export default () => {
   const [loading, setLoading] = useState<boolean>(false)
   const [creationLoading, setCreationLoading] = useState<boolean>(false)
   const [deletionLoading, setDeletionLoading] = useState<string[]>([])
-  const history = useHistory()
-  const location = useLocation()
-  const { pathname } = location
 
   useEffect(() => {
     const fetchApiKeys = async () => {
@@ -75,23 +67,30 @@ export default () => {
   return (
     <FlexContainer isFlexAuto>
       <SecondaryNavContainer>
-        <Title>Api Keys</Title>
-        <Icon className={elMb5} icon="developersMenu" iconSize="large" />
-        <Subtitle>Api Keys</Subtitle>
-        <BodyText hasGreyText>description about the api Keys</BodyText>
-        <SecondaryNav className={elMb8}>
-          <SecondaryNavItem onClick={() => history.push(Routes.API_KEYS)} active={pathname === Routes.API_KEYS}>
-            My Api Keys
-          </SecondaryNavItem>
-          <SecondaryNavItem onClick={createApiKey} active={creationLoading}>
-            Create Api Key
-          </SecondaryNavItem>
-        </SecondaryNav>
+        <Title>API Keys</Title>
+        <Icon className={elMb5} icon="apiInfographic" iconSize="large" />
+        <Subtitle>Pipeline Authentication</Subtitle>
+        <BodyText hasGreyText>
+          You will need to have a valid API key to access our deployments as a service infrastructure via the CLI tools.
+          For more information read the documentation below:
+        </BodyText>
+        <Button className={elMb5} intent="neutral">
+          View Docs
+        </Button>
+        <Button
+          className={elMb5}
+          intent="critical"
+          onClick={createApiKey}
+          loading={creationLoading}
+          disabled={creationLoading}
+        >
+          New API Key
+        </Button>
       </SecondaryNavContainer>
       <PageContainer className={elHFull}>
-        <Title>Your Api Keys</Title>
+        <Title>Your API Keys</Title>
         {loading ? (
-          <Loader />
+          <Loader label="Loading" fullPage />
         ) : (
           <Table
             rows={apiKeys.map((apiKey) => ({
@@ -115,11 +114,12 @@ export default () => {
                   children: <>{shleemy(apiKey.keyCreatedAt as string).forHumans}</>,
                 },
                 {
-                  label: '',
+                  label: 'Delete Key',
                   value: 'delete',
                   children: (
                     <Button
                       loading={deletionLoading.includes(apiKey.id as string)}
+                      disabled={deletionLoading.includes(apiKey.id as string)}
                       onClick={() => deleteApiKey(apiKey.id as string)}
                       intent="danger"
                     >

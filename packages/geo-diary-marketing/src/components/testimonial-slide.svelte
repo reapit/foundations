@@ -9,9 +9,6 @@
             <div class="quotes-container image-container el-flex-container el-flex-align-center el-flex-justify-center">
               <img class="" src="./images/quotes.svg" alt="" />
             </div>
-            <div class="image-container el-flex-container el-flex-align-center el-flex-justify-center">
-              <img class="" src="./images/avatar.svg" alt="" />
-            </div>
             <div class="el-card-heading-wrap">
               <h5 class="el-subtitle">Steven Shepherd</h5>
               <h6 class="el-card-sub-heading el-mb3">Owner</h6>
@@ -35,9 +32,6 @@
             <div class="quotes-container image-container el-flex-container el-flex-align-center el-flex-justify-center">
               <img class="" src="./images/quotes.svg" alt="" />
             </div>
-            <div class="image-container el-flex-container el-flex-align-center el-flex-justify-center">
-              <img class="" src="./images/avatar.svg" alt="" />
-            </div>
             <div class="el-card-heading-wrap">
               <h5 class="el-subtitle">Jessica Bichard</h5>
               <h6 class="el-card-sub-heading el-mb3">Local Market Negotiator</h6>
@@ -59,9 +53,6 @@
           <div class="el-flex-container">
             <div class="quotes-container image-container el-flex-container el-flex-align-center el-flex-justify-center">
               <img class="" src="./images/quotes.svg" alt="" />
-            </div>
-            <div class="image-container el-flex-container el-flex-align-center el-flex-justify-center">
-              <img class="" src="./images/avatar.svg" alt="" />
             </div>
             <div class="el-card-heading-wrap">
               <h5 class="el-subtitle">Marco Olival</h5>

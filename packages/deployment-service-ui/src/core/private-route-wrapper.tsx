@@ -1,9 +1,10 @@
 import * as React from 'react'
 import { useReapitConnect } from '@reapit/connect-session'
-import { Loader, Section, AppNavContainer } from '@reapit/elements-legacy'
-import Menu from '@/components/ui/menu'
 import { reapitConnectBrowserSession } from '@/core/connect-session'
 import { useLocation, Redirect } from 'react-router'
+import Nav from '../components/ui/nav'
+import Routes from '../constants/routes'
+import { MainContainer, Loader } from '@reapit/elements'
 
 const { Suspense } = React
 
@@ -16,28 +17,25 @@ export const PrivateRouteWrapper: React.FunctionComponent<PrivateRouteWrapperPro
 
   if (!connectSession) {
     return (
-      <AppNavContainer>
-        <Loader />
-      </AppNavContainer>
+      <MainContainer>
+        <Loader label="Loading" fullPage />
+      </MainContainer>
     )
+  }
+
+  if (currentUri === '/') {
+    return <Redirect to={Routes.PIPELINES} />
   }
 
   if (connectInternalRedirect && currentUri !== connectInternalRedirect) {
     return <Redirect to={connectInternalRedirect} />
   }
+
   return (
-    <AppNavContainer>
-      <Menu />
-      <Suspense
-        fallback={
-          <Section>
-            <Loader />
-          </Section>
-        }
-      >
-        {children}
-      </Suspense>
-    </AppNavContainer>
+    <MainContainer>
+      <Nav />
+      <Suspense fallback={<Loader label="Loading" fullPage />}>{children}</Suspense>
+    </MainContainer>
   )
 }
 
