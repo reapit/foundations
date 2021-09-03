@@ -1,5 +1,4 @@
 import { SQSEvent, SQSHandler, Context, Callback } from 'aws-lambda'
-import { closeDb } from 'src/core'
 import { QueueNames } from '../../constants'
 import { PipelineEntity } from '../../entities'
 import { deployFromStore } from '../../executables/deploy-from-store'
@@ -91,8 +90,6 @@ export const versionDeploy: SQSHandler = async (event: SQSEvent, context: Contex
       )
     }),
   )
-
-  await closeDb()
 
   return callback(null, `Successfully processed ${event.Records.length} records.`)
 }

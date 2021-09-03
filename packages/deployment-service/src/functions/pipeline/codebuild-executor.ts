@@ -6,7 +6,6 @@ import yaml from 'yaml'
 import { PackageManagerEnum } from '../../../../foundations-ts-definitions/deployment-schema'
 import { QueueNames } from '../../constants'
 import { sqs, savePipelineRunnerEntity, s3Client } from '../../services'
-import { closeDb } from 'src/core'
 
 const codebuild = new CodeBuild({
   region: process.env.REGION,
@@ -79,19 +78,19 @@ export const codebuildExecutor: SQSHandler = async (
           })
         }).catch(async (error) => {
           await new Promise<void>((resolve, reject) =>
-              sqs.deleteMessage(
-                {
-                  ReceiptHandle: record.receiptHandle,
-                  QueueUrl: QueueNames.CODE_BUILD_EXECUTOR,
-                },
-                (err) => {
-                  if (err) {
-                    reject(err)
-                  }
-                  resolve()
-                },
-              )
-            )
+            sqs.deleteMessage(
+              {
+                ReceiptHandle: record.receiptHandle,
+                QueueUrl: QueueNames.CODE_BUILD_EXECUTOR,
+              },
+              (err) => {
+                if (err) {
+                  reject(err)
+                }
+                resolve()
+              },
+            ),
+          )
           throw error
         })
 
@@ -150,8 +149,6 @@ export const codebuildExecutor: SQSHandler = async (
       )
     }),
   )
-
-  await closeDb()
 
   return callback(null, `Successfully processed ${event.Records.length} records.`)
 }
