@@ -4,10 +4,13 @@ import { ApolloServer } from 'apollo-server'
 import { BookResolver } from './resolvers/book-resolver'
 import { AuthorResolver } from './resolvers/author-resolver'
 import { Context } from './types'
+import { ensureTables } from './ddb'
+import { AppResolver } from './resolvers/app-resolver'
 
 const start = async () => {
+  console.log(await ensureTables())
   const schema = await buildSchema({
-    resolvers: [BookResolver, AuthorResolver],
+    resolvers: [BookResolver, AuthorResolver, AppResolver],
   })
 
   const server = new ApolloServer({

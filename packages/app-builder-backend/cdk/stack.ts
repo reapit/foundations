@@ -3,6 +3,8 @@ import * as lambda from '@aws-cdk/aws-lambda'
 import path from 'path'
 import { createApi } from './components/api'
 import { createFunction } from './components/function'
+import { createTable } from './components/ddb-table'
+import { AttributeType, ProjectionType } from '@aws-cdk/aws-dynamodb'
 
 const output = (stack: cdk.Stack, name: string, value: string) => {
   stack.exportValue(value, {
@@ -28,7 +30,28 @@ export const createStack = (scope: cdk.App, name: string) => {
     },
     cmd: [`packages/${PACKAGE}/dist/${HANDLER}`],
   })
-  const lambdaFunction = createFunction(stack, 'graphql', code)
+  const GSI_NAME = 'gsi-userId'
+  const appsTable = createTable(
+    stack,
+    'apps',
+    {
+      name: 'id',
+      type: AttributeType.STRING,
+    },
+    {
+      indexName: GSI_NAME,
+      projectionType: ProjectionType.ALL,
+      partitionKey: {
+        name: 'userId',
+        type: AttributeType.STRING,
+      },
+    },
+  )
+  const lambdaFunction = createFunction(stack, 'graphql', code, {
+    APPS_TABLE_NAME: appsTable.tableName,
+    GSI_NAME,
+  })
+  appsTable.grantReadWriteData(lambdaFunction)
   const api = createApi(stack, 'api', lambdaFunction)
 
   output(stack, 'api-url', api.url)

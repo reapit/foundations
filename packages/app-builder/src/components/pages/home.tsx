@@ -1,5 +1,6 @@
-import React, { FC, useRef } from 'react'
-import { Editor, Frame, Element, SerializedNode } from '@craftjs/core'
+import React, { FC, useRef, useState } from 'react'
+import { Editor, Frame } from '@craftjs/core'
+import { debounce } from 'throttle-debounce'
 
 import { RenderNode } from '../ui/render-node'
 import Viewport from '../ui/viewport'
@@ -9,22 +10,23 @@ import Link from '../ui/user/link'
 import Context from '../ui/user/context'
 import Table from '../ui/user/table'
 import Form from '../ui/user/form'
-import { setPageNodes } from '../ui/header/saveState'
-import { getPageId } from '../../core/usePageId'
+import { getPageId, usePageId } from '../../core/usePageId'
+import { useUpdatePage } from '../hooks/apps/use-update-app'
+import { isInitialLoad, nodesObjtoToArr } from '../hooks/apps/node-helpers'
+import { Page } from '../hooks/apps/fragments'
 
 export type AuthenticatedProps = {}
 
-const isInitialLoad = (nodes: Record<string, SerializedNode>) => {
-  if (Object.keys(nodes).length === 2) {
-    const nonRootKey = Object.keys(nodes).find((key) => key !== 'ROOT')
-    return nonRootKey && nodes[nonRootKey].props.text === "I'm here by default!"
-  }
-  return false
-}
-
 export const Authenticated: FC<AuthenticatedProps> = () => {
   const iframeRef = useRef()
-
+  const { updatePage } = useUpdatePage()
+  const [isSaving, setIsSaving] = useState(false)
+  const { pageId } = usePageId()
+  const debouncedUpdatePage = debounce(1000, async (appId: string, page: Partial<Page>) => {
+    setIsSaving(true)
+    await Promise.all([updatePage(appId, page), new Promise((resolve) => setTimeout(resolve, 750))])
+    setIsSaving(false)
+  })
   return (
     <Editor
       resolver={{
@@ -37,17 +39,19 @@ export const Authenticated: FC<AuthenticatedProps> = () => {
       }}
       onRender={(props) => <RenderNode {...props} iframeRef={iframeRef.current} />}
       onNodesChange={(query) => {
-        const pageId = getPageId()
-        if (query.serialize() !== '{}' && !isInitialLoad(query.getSerializedNodes())) {
-          setPageNodes(pageId, query.getSerializedNodes())
+        const { pageId, appId } = getPageId()
+        const nodesObj = query.getSerializedNodes()
+        if (query.serialize() !== '{}' && !isInitialLoad(nodesObj)) {
+          debouncedUpdatePage(appId, {
+            id: pageId,
+            nodes: nodesObjtoToArr(appId, pageId, nodesObj),
+          })
         }
       }}
     >
-      <Viewport iframeRef={iframeRef}>
+      <Viewport isSaving={isSaving} iframeRef={iframeRef} key={pageId}>
         <Frame>
-          <Element canvas is={Container} width={12} background="white" padding={40} custom={{ displayName: 'App' }}>
-            <Text text="I'm here by default!" />
-          </Element>
+          <div />
         </Frame>
       </Viewport>
     </Editor>

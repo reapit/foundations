@@ -31,8 +31,9 @@ import {
   transition,
 } from '../styles'
 import { InjectFrameStyles } from './inject-frame-styles'
-import { getPage } from '../header/saveState'
 import { usePageId } from '@/core/usePageId'
+import { useApp } from '@/components/hooks/apps/use-app'
+import { nodesArrToObj } from '@/components/hooks/apps/node-helpers'
 
 const Container = styled.div`
   flex: 1;
@@ -50,21 +51,27 @@ const Breakpoints = styled.div`
   margin-top: 8px;
 `
 
-const Viewport = ({ children, iframeRef }) => {
+const Viewport = ({ children, isSaving, iframeRef }) => {
   const { connectors, actions } = useEditor()
   const [breakpoint, setBreakpoint] = useState(TABLET_BREAKPOINT)
-  const { pageId } = usePageId()
 
+  const { pageId, appId } = usePageId()
+  const { app } = useApp(appId)
+  const page = app?.pages.find((p) => p.id === pageId)
+  const [loaded, setLoaded] = useState(false)
   useEffect(() => {
-    setTimeout(() => {
-      const page = getPage(pageId)
-      page && actions.deserialize(page.nodes)
-    }, 100)
-  }, [pageId])
+    if (page && !loaded) {
+      setTimeout(() => {
+        // console.log(page.nodes)
+        actions.deserialize(nodesArrToObj(page.nodes))
+        setLoaded(true)
+      }, 300)
+    }
+  }, [page, loaded])
 
   return (
     <div className={cx(elFlex1, elFlexColumn, justifyStretch, hScreen)}>
-      <Header />
+      <Header isSaving={isSaving} />
       <div className={cx(elFlex, overflowHidden, elFlexRow, elWFull)} style={{ height: 'calc(100vh - 45px)' }}>
         <Toolbox />
         <Container>

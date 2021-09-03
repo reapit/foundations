@@ -2,10 +2,11 @@ import React from 'react'
 import { useReapitConnect } from '@reapit/connect-session'
 import { reapitConnectBrowserSession } from '@/core/connect-session'
 import { NavResponsive } from '@reapit/elements'
+import { useHistory } from 'react-router'
 
 export const Nav: React.FC = () => {
   const { connectLogoutRedirect } = useReapitConnect(reapitConnectBrowserSession)
-
+  const history = useHistory()
   return (
     <NavResponsive
       options={[
@@ -14,9 +15,12 @@ export const Nav: React.FC = () => {
         },
         {
           itemIndex: 1,
-          href: window.reapit.config.marketplaceUrl,
+          href: '/',
           iconId: 'appsMenu',
           text: 'Apps',
+          callback: () => {
+            history.push('/')
+          },
         },
         {
           itemIndex: 2,

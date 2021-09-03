@@ -1,6 +1,17 @@
 import { useEditor } from '@craftjs/core'
 import { cx } from '@linaria/core'
-import { Button, ButtonGroup, elFlex, elFlex1, elMtAuto, elPr1, FlexContainer } from '@reapit/elements'
+import {
+  Button,
+  ButtonGroup,
+  elFlex,
+  elFlex1,
+  elMbAuto,
+  elMr4,
+  elMtAuto,
+  elPr1,
+  elTextRight,
+  FlexContainer,
+} from '@reapit/elements'
 import React from 'react'
 import ReactTooltip from 'react-tooltip'
 
@@ -11,11 +22,12 @@ import UndoSvg from '../../icons/undo'
 import { buttonIcon, disabled, header, item } from './styles'
 
 import { PageSelector } from './PageSelector'
-import { deletePage } from './saveState'
 import { usePageId } from '@/core/usePageId'
+import { useDeletePage } from '@/components/hooks/apps/use-update-app'
 
-const Header = () => {
-  const { pageId, setPageId } = usePageId()
+const Header = ({ isSaving }) => {
+  const { pageId, appId, setPageId } = usePageId()
+  const { deletePage } = useDeletePage()
   const { enabled, canUndo, canRedo, actions } = useEditor((state, query) => ({
     enabled: state.options.enabled,
     canUndo: query.history.canUndo(),
@@ -24,7 +36,7 @@ const Header = () => {
 
   return (
     <FlexContainer className={header} isFlexJustifyCenter>
-      <FlexContainer isFlexAlignCenter isFlexJustifyEnd className={cx(elFlex1, elMtAuto, elPr1)}>
+      <FlexContainer isFlexAlignCenter isFlexJustifyEnd className={cx(elFlex1, elMtAuto, elMbAuto, elPr1)}>
         {enabled && (
           <div className={cx(elFlex, elFlex1)}>
             <a className={cx(item, !canUndo && disabled)} data-tip="Undo" onClick={() => actions.history.undo()}>
@@ -36,6 +48,9 @@ const Header = () => {
           </div>
         )}
         {enabled && <PageSelector pageId={pageId} onChange={setPageId} />}
+        <span className={cx(elMr4, elTextRight)} style={{ color: 'white', width: 100 }}>
+          {isSaving ? 'Saving...' : 'Saved'}
+        </span>
         <ButtonGroup>
           {enabled && (
             <>
@@ -44,7 +59,7 @@ const Header = () => {
                 style={{ zoom: 0.8 }}
                 onClick={() => {
                   if (pageId) {
-                    deletePage(pageId)
+                    deletePage(appId, pageId)
                     setPageId('')
                   }
                 }}

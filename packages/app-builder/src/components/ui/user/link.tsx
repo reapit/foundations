@@ -2,9 +2,10 @@ import qs from 'query-string'
 import { useEditor } from '@craftjs/core'
 import React from 'react'
 import { Link as RRLink } from 'react-router-dom'
-import { usePages } from '../header/saveState'
 import { ToolbarItem, ToolbarItemType, ToolbarSection } from '../toolbar'
 import Container, { ContainerProps } from './container'
+import { usePageId } from '@/core/usePageId'
+import { useApp } from '@/components/hooks/apps/use-app'
 
 const defaultProps = {
   destination: '/',
@@ -51,7 +52,9 @@ export const DestinationPage = ({
   propKey: string
   title: string
 }) => {
-  const pages = usePages()
+  const { appId } = usePageId()
+  const { app } = useApp(appId)
+
   return (
     <ToolbarSection
       title={sectionTitle || 'Destination'}
@@ -61,7 +64,7 @@ export const DestinationPage = ({
       }}
     >
       <ToolbarItem type={ToolbarItemType.Select} propKey={propKey} title={title}>
-        {pages.map(({ id: value, name: label }) => (
+        {app?.pages.map(({ id: value, name: label }) => (
           <option key={value} value={value}>
             {label || 'Home'}
           </option>

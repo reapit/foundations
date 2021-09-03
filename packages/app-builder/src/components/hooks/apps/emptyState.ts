@@ -18,7 +18,7 @@ export const emptyState: Record<string, SerializedNode> = {
     isCanvas: false,
     props: { fontSize: 12, width: 12, text: "I'm here by default!" },
     displayName: 'Text',
-    custom: {},
+    custom: null,
     parent: 'ROOT',
     hidden: false,
     nodes: [],
