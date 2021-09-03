@@ -99,7 +99,7 @@ const AppSelector = () => {
   return (
     <div className={elP6} style={{ width: 'calc(100vw - 80px)' }}>
       <Title className={cx(elFlexAlignCenter, elFlex)}>
-        My Apps <CreateNew className={elMl4} />
+        My Apps {!!data?.length && <CreateNew className={elMl4} />}
       </Title>
       <div className={cx(elFlex, elFlex1, elFlexRow, elFlexJustifyStart, elFlexAlignStart, elFlexWrap)}>
         {!data?.length && (

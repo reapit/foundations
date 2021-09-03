@@ -7556,15 +7556,6 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@rehooks/local-storage@npm:2.4.0":
-  version: 2.4.0
-  resolution: "@rehooks/local-storage@npm:2.4.0"
-  peerDependencies:
-    react: "*"
-  checksum: 07f82b148bb27431ad8a808bf6dff550f9f5e103796ad4886378df9a747b58358f03b3ef105a6111aed1513b7b0b484cc8138233a91027b79327f716b5526729
-  languageName: node
-  linkType: hard
-
 "@rollup/plugin-babel@npm:^5.1.0, @rollup/plugin-babel@npm:^5.2.0, @rollup/plugin-babel@npm:^5.3.0":
   version: 5.3.0
   resolution: "@rollup/plugin-babel@npm:5.3.0"
@@ -13493,11 +13484,11 @@ __metadata:
     "@reapit/elements-legacy": "workspace:packages/elements-legacy"
     "@reapit/ts-scripts": "workspace:packages/ts-scripts"
     "@reapit/ts-types": "workspace:packages/ts-types"
-    "@rehooks/local-storage": 2.4.0
     "@sentry/browser": ^6.9.0
     "@typescript-eslint/eslint-plugin": ^4.28.4
     "@typescript-eslint/parser": ^4.28.4
     babel-loader: ^8.2.2
+    clone-deep: ^4.0.1
     concurrently: ^6.2.0
     cross-env: ^6.0.3
     css-loader: ^6.2.0
@@ -13508,6 +13499,7 @@ __metadata:
     graphql: ^15.5.1
     jest: ^27.0.6
     jest-coverage-badges: ^1.1.2
+    omit-deep: ^0.3.0
     query-string: ^7.0.1
     react: ^17.0.2
     react-contenteditable: ^3.3.5
@@ -13524,6 +13516,7 @@ __metadata:
     serverless-single-page-app-plugin: ^1.0.2
     slugify: ^1.6.0
     snyk: ^1.662.0
+    throttle-debounce: ^3.0.1
     typescript: ^4.3.5
     webpack: ^5.45.1
     webpack-dev-server: ^3.11.2
@@ -25511,7 +25504,7 @@ fsevents@^1.2.7:
   languageName: node
   linkType: hard
 
-"is-plain-object@npm:^2.0.3, is-plain-object@npm:^2.0.4":
+"is-plain-object@npm:^2.0.1, is-plain-object@npm:^2.0.3, is-plain-object@npm:^2.0.4":
   version: 2.0.4
   resolution: "is-plain-object@npm:2.0.4"
   dependencies:
@@ -31128,6 +31121,16 @@ fsevents@^1.2.7:
   version: 1.0.10
   resolution: "omggif@npm:1.0.10"
   checksum: a871594f9e90eaf467b1d3047bf541bedb07ba8a83ba9a097ae4e6343889e0ab494a8581bc34e522ae5513834af55edfaca7d16e3df7b48110c49b46526f215c
+  languageName: node
+  linkType: hard
+
+"omit-deep@npm:^0.3.0":
+  version: 0.3.0
+  resolution: "omit-deep@npm:0.3.0"
+  dependencies:
+    is-plain-object: ^2.0.1
+    unset-value: ^0.1.1
+  checksum: ba529ad48e7da9accbb2c96d1bc6c106133569c20a9d20ea57f1d3107d47be1c08ed50d6703de2d0e88cc27a808b1b666bc7772b3de442e2b7ffd499ca89e1c1
   languageName: node
   linkType: hard
 
@@ -41180,6 +41183,16 @@ typescript@^3.7.3:
   version: 1.1.1
   resolution: "unquote@npm:1.1.1"
   checksum: 468981e4547c46bd4ebafd5555b6b1e6bd5433f52fcbc99f6868f29ecb1581dde472ee02a0e42ecbadd52012d03b0ad90ee94edf660a921f6a6608b8884e290a
+  languageName: node
+  linkType: hard
+
+"unset-value@npm:^0.1.1":
+  version: 0.1.2
+  resolution: "unset-value@npm:0.1.2"
+  dependencies:
+    has-value: ^0.3.1
+    isobject: ^3.0.0
+  checksum: 5387038da1321b46233ab798cc171cf416fc159b50072ae04b5d1f12ae7ff7b2ad9b3a14d879cee6d4a0831acbba10db488692b182dc35df31a717f01fc8401b
   languageName: node
   linkType: hard
 

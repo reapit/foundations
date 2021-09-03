@@ -29,11 +29,12 @@
     "@reapit/connect-session": "workspace:packages/connect-session",
     "@reapit/elements": "workspace:packages/elements",
     "@reapit/elements-legacy": "workspace:packages/elements-legacy",
-    "@rehooks/local-storage": "2.4.0",
     "@sentry/browser": "^6.9.0",
+    "clone-deep": "^4.0.1",
     "date-fns": "^2.23.0",
     "dayjs": "^1.10.6",
     "graphql": "^15.5.1",
+    "omit-deep": "^0.3.0",
     "query-string": "^7.0.1",
     "react": "^17.0.2",
     "react-contenteditable": "^3.3.5",
@@ -45,6 +46,7 @@
     "react-tooltip": "^4.2.21",
     "slugify": "^1.6.0",
     "snyk": "^1.662.0",
+    "throttle-debounce": "^3.0.1",
     "yup": "^0.29.3"
   },
   "devDependencies": {

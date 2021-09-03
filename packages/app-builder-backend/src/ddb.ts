@@ -5,9 +5,7 @@ import {
   QueryCommand,
   PutItemCommand,
   AttributeValue,
-  GetItemCommand,
 } from '@aws-sdk/client-dynamodb'
-import * as uuid from 'uuid'
 
 import { App } from './entities/app'
 import { Page } from './entities/page'
@@ -19,6 +17,8 @@ export const ddb = new DynamoDBClient({
   region: process.env.AWS_REGION || 'eu-west-2',
 })
 
+const GSIname = 'userId-index'
+
 const getCreateTableCommand = (tableName: string): CreateTableCommand => {
   return new CreateTableCommand({
     TableName: tableName,
@@ -26,9 +26,15 @@ const getCreateTableCommand = (tableName: string): CreateTableCommand => {
       { AttributeName: 'id', AttributeType: 'S' },
       { AttributeName: 'userId', AttributeType: 'S' },
     ],
-    KeySchema: [
-      { AttributeName: 'userId', KeyType: 'HASH' },
-      { AttributeName: 'id', KeyType: 'RANGE' },
+    KeySchema: [{ AttributeName: 'id', KeyType: 'HASH' }],
+    GlobalSecondaryIndexes: [
+      {
+        IndexName: GSIname,
+        KeySchema: [{ AttributeName: 'userId', KeyType: 'HASH' }],
+        Projection: {
+          ProjectionType: 'ALL',
+        },
+      },
     ],
     BillingMode: 'PAY_PER_REQUEST',
   })
@@ -70,6 +76,7 @@ export const getUserApps = async (userId: string): Promise<Array<App>> => {
     TableName: APPS_TABLE_NAME,
     KeyConditionExpression: 'userId = :userId',
     ExpressionAttributeValues: { ':userId': { S: userId } },
+    IndexName: GSIname,
   })
   const { Items } = await ddb.send(d)
 
@@ -77,17 +84,16 @@ export const getUserApps = async (userId: string): Promise<Array<App>> => {
 }
 
 export const getApp = async (appId: string): Promise<App | undefined> => {
-  const d = new GetItemCommand({
+  const d = new QueryCommand({
     TableName: APPS_TABLE_NAME,
-    Key: { id: { S: appId } },
+    KeyConditionExpression: 'id = :id',
+    ExpressionAttributeValues: { ':id': { S: appId } },
   })
-  const { Item } = await ddb.send(d)
-  return Item && ddbItemToApp(Item)
+  const { Items } = await ddb.send(d)
+  return Items && Items[0] && ddbItemToApp(Items[0])
 }
 
-export const createApp = async (userId: string, name: string): Promise<App> => {
-  const uid = uuid.v4()
-  const id = `${userId}-${uid}`
+export const createApp = async (id: string, userId: string, name: string, pages: Array<Page>): Promise<App> => {
   const date = new Date()
   const d = new PutItemCommand({
     TableName: APPS_TABLE_NAME,
@@ -97,6 +103,7 @@ export const createApp = async (userId: string, name: string): Promise<App> => {
       name: { S: name },
       createdAt: { N: date.getTime().toString() },
       updatedAt: { N: date.getTime().toString() },
+      pages: { S: JSON.stringify(pages) },
     },
   })
   await ddb.send(d)
@@ -127,11 +134,7 @@ export const updateApp = async (app: App): Promise<App> => {
   await ddb.send(d)
 
   return {
-    id: app.id,
-    userId: app.userId,
-    name: app.name,
-    createdAt: app.createdAt,
+    ...app,
     updatedAt: date,
-    pages: app.pages,
   }
 }

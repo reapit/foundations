@@ -15,10 +15,16 @@ export class Node {
   id: string
 
   @Field()
+  nodeId: string
+
+  @Field()
   displayName: string
 
   @Field()
   hidden: boolean
+
+  @Field(() => String, { nullable: true })
+  parent: string | null
 
   @Field()
   isCanvas: boolean
@@ -30,10 +36,13 @@ export class Node {
   linkedNodes: Record<string, string>
 
   @Field(() => GraphQLJSONObject)
-  props: Record<string, string | number>
+  props: Record<string, string | number | undefined>
 
   @Field(() => NodeType)
   type: NodeType
+
+  @Field(() => GraphQLJSONObject, { nullable: true })
+  custom: Record<string, any>
 }
 
 @ObjectType('_Page')

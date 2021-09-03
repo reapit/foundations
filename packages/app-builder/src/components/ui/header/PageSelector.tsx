@@ -1,11 +1,27 @@
+import { nodesObjtoToArr } from '@/components/hooks/apps/node-helpers'
+import { useApp } from '@/components/hooks/apps/use-app'
+import { useUpdatePage } from '@/components/hooks/apps/use-update-app'
+import { usePageId } from '@/core/usePageId'
 import { cx } from '@linaria/core'
 import { Button, elFlex, elFlex1, elFlexAlignCenter, elFlexJustifyStart, elM1, Select } from '@reapit/elements'
 import React from 'react'
+import slugify from 'slugify'
+import { emptyState } from '../../hooks/apps/emptyState'
 
-import { newPage, usePages } from './saveState'
+export const newPage = (name: string) => {
+  const page = {
+    id: slugify(name),
+    name,
+    nodes: emptyState,
+  }
+  return page
+}
 
 export const PageSelector = ({ pageId, onChange }: { pageId?: string; onChange: (id: string) => void }) => {
-  const pages = usePages()
+  const { appId } = usePageId()
+  const { app } = useApp(appId)
+  const pages = app?.pages || []
+  const { updatePage } = useUpdatePage()
 
   return (
     <div className={cx(elFlex1, elFlex, elFlexAlignCenter, elFlexJustifyStart)}>
@@ -33,6 +49,10 @@ export const PageSelector = ({ pageId, onChange }: { pageId?: string; onChange: 
             return
           }
           const page = newPage(pageName)
+          updatePage(appId, {
+            ...page,
+            nodes: nodesObjtoToArr(appId, page.id, page.nodes),
+          })
           onChange(page.id)
         }}
       >

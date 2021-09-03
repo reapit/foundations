@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react'
-import { SerializedNode, useEditor } from '@craftjs/core'
+import { useEditor } from '@craftjs/core'
 import {
   elFlex,
   elFlex1,
@@ -33,7 +33,7 @@ import {
 import { InjectFrameStyles } from './inject-frame-styles'
 import { usePageId } from '@/core/usePageId'
 import { useApp } from '@/components/hooks/apps/use-app'
-import { Page } from '@/components/hooks/apps/fragments'
+import { nodesArrToObj } from '@/components/hooks/apps/node-helpers'
 
 const Container = styled.div`
   flex: 1;
@@ -51,35 +51,27 @@ const Breakpoints = styled.div`
   margin-top: 8px;
 `
 
-const nodesArrToObj = (nodes: Page['nodes']): Record<string, SerializedNode> => {
-  const obj = {}
-  nodes.forEach((node) => {
-    obj[node.id] = {
-      ...node,
-      id: undefined,
-    }
-  })
-  return obj
-}
-
-const Viewport = ({ children, iframeRef }) => {
+const Viewport = ({ children, isSaving, iframeRef }) => {
   const { connectors, actions } = useEditor()
   const [breakpoint, setBreakpoint] = useState(TABLET_BREAKPOINT)
-  const { pageId, appId } = usePageId()
-  const { data } = useApp(appId)
 
+  const { pageId, appId } = usePageId()
+  const { app } = useApp(appId)
+  const page = app?.pages.find((p) => p.id === pageId)
+  const [loaded, setLoaded] = useState(false)
   useEffect(() => {
-    if (data) {
-      const page = data.pages.find((page) => page.id === pageId)
-      if (page) {
+    if (page && !loaded) {
+      setTimeout(() => {
+        // console.log(page.nodes)
         actions.deserialize(nodesArrToObj(page.nodes))
-      }
+        setLoaded(true)
+      }, 300)
     }
-  }, [data, pageId])
+  }, [page, loaded])
 
   return (
     <div className={cx(elFlex1, elFlexColumn, justifyStretch, hScreen)}>
-      <Header />
+      <Header isSaving={isSaving} />
       <div className={cx(elFlex, overflowHidden, elFlexRow, elWFull)} style={{ height: 'calc(100vh - 45px)' }}>
         <Toolbox />
         <Container>

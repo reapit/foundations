@@ -12,12 +12,15 @@ export const AppFragment = gql`
       name
       nodes {
         id
+        nodeId
         displayName
         hidden
         isCanvas
         nodes
         linkedNodes
         props
+        parent
+        custom
         type {
           resolvedName
         }
@@ -28,12 +31,14 @@ export const AppFragment = gql`
 
 type Node = {
   id: string
+  nodeId: string
   displayName: string
   hidden: boolean
   isCanvas: boolean
   nodes: Array<string>
   linkedNodes: Record<string, string>
   props: any
+  custom?: any
   type: {
     resolvedName: string
   }
