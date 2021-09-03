@@ -2,6 +2,7 @@ import { Context, Callback, SNSEvent, SNSHandler } from 'aws-lambda'
 import { findPipelineRunnerByCodeBuildId, savePipelineRunnerEntity, sqs, pusher } from '../../services'
 import { CodeBuild } from 'aws-sdk'
 import { QueueNames } from '../../constants'
+import { closeDb } from '../../core'
 
 const acceptedPhases = ['BUILD', 'PRE_BUILD', 'INSTALL', 'DOWNLOAD_SOURCE']
 enum EventEnum {
@@ -81,6 +82,8 @@ export const codebuildPipelineUpdater: SNSHandler = async (
       }
     }),
   )
+
+  await closeDb()
 
   return callback(null, `Successfully processed ${event.Records.length} records.`)
 }
