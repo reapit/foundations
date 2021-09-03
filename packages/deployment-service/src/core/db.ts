@@ -14,3 +14,11 @@ export const connect = async (): Promise<Connection | never> => {
 
   return connection
 }
+
+export const closeDb = async (): Promise<void> => {
+  if (connection) {
+    return connection.close()
+  }
+
+  return Promise.resolve()
+}
