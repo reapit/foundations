@@ -26,6 +26,6 @@ export const pipelineStatusToName = (status: string): string => {
     case 'SUCCEEDED':
       return 'Succeeded'
     default:
-      return 'Creating Architecture'
+      return 'Queued'
   }
 }

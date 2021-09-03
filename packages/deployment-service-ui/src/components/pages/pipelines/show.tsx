@@ -7,7 +7,7 @@ import {
   pipelineServiceDelete,
 } from '@/platform-api/pipelines'
 import { ReapitConnectSession, useReapitConnect } from '@reapit/connect-session'
-import { FlexContainerBasic } from '@reapit/elements-legacy'
+import { FlexContainerBasic, notification } from '@reapit/elements-legacy'
 import {
   Button,
   Label,
@@ -40,6 +40,7 @@ import { useChannel, useEvent } from '@harelpls/use-pusher'
 import { shleemy } from 'shleemy'
 import { cx } from '@linaria/core'
 import { pipelineStatusToIntent, pipelineStatusToName } from './../../../utils'
+import { ElPipelineTaskContainer } from '@/components/task/task.element'
 
 const findRelevantTask = (tasks: TaskModelInterface[]): TaskModelInterface => {
   const priority: { [s: string]: number } = {
@@ -53,6 +54,23 @@ const findRelevantTask = (tasks: TaskModelInterface[]): TaskModelInterface => {
   return tasks.sort((a, b) => {
     return priority[a.buildStatus as string] - priority[b.buildStatus as string]
   })[0]
+}
+
+const functionToIndex = (name: string): number => {
+  switch (name) {
+    case 'DOWNLOAD_SOURCE':
+      return 1
+    case 'INSTALL':
+      return 2
+    case 'PRE_BUILD':
+      return 3
+    case 'BUILD':
+      return 4
+    case 'DEPLOY':
+      return 5
+    default:
+      return 6
+  }
 }
 
 const DeploymentTable = ({
@@ -137,11 +155,24 @@ const DeploymentTable = ({
       expandableContent: (
         <div>
           <Subtitle>Tasks</Subtitle>
-          <ul>
+          <ElPipelineTaskContainer className={cx('flex')}>
             {pipeline.tasks?.map((task) => (
-              <PipelineTask task={task} key={task.id} />
+              <PipelineTask index={functionToIndex(task.functionName as string)} task={task} key={task.id} />
             ))}
-          </ul>
+          </ElPipelineTaskContainer>
+          <Button
+            intent="primary"
+            disabled={!['SUCCEEDED', 'FAILED'].includes(pipeline.buildStatus as string)}
+            onClick={() => {
+              if (pipeline.s3BuildLogsLocation) {
+                window.open(pipeline.s3BuildLogsLocation as string)
+              } else {
+                notification.error({ message: 'Unable to download logs' })
+              }
+            }}
+          >
+            Download logs
+          </Button>
         </div>
       ),
     }

@@ -1,5 +1,10 @@
 import { styled } from '@linaria/react'
 
+export const ElPipelineTaskContainer = styled.ul`
+  display: flex;
+  flex-direction: column;
+`
+
 export const ElPipelineTask = styled.li`
   display: flex;
   align-items: center;
@@ -17,5 +22,33 @@ export const ElPipelineTask = styled.li`
 
   .shape-tag {
     margin-left: 0;
+  }
+
+  &.order-1 {
+    order: 1;
+  }
+
+  &.order-2 {
+    order: 2;
+  }
+
+  &.order-3 {
+    order: 3;
+  }
+
+  &.order-4 {
+    order: 4;
+  }
+
+  &.order-5 {
+    order: 5;
+  }
+
+  &.order-6 {
+    order: 6;
+  }
+
+  &.order-7 {
+    order: 7;
   }
 `
