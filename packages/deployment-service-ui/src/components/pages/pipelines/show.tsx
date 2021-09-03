@@ -62,8 +62,6 @@ const functionToIndex = (name: string): number => {
       return 1
     case 'INSTALL':
       return 2
-    case 'PRE_BUILD':
-      return 3
     case 'BUILD':
       return 4
     case 'DEPLOY':
@@ -137,7 +135,7 @@ const DeploymentTable = ({
           label: 'Tasks',
           value: Array.isArray(pipeline.tasks)
             ? pipeline.buildStatus === 'IN_PROGRESS'
-              ? (findRelevantTask(pipeline.tasks).buildStatus as string)
+              ? (findRelevantTask(pipeline.tasks).functionName as string)
               : pipeline.tasks.length.toString()
             : '0',
         },

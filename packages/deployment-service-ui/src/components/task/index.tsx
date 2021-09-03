@@ -4,6 +4,7 @@ import { TaskModelInterface } from '@reapit/foundations-ts-definitions/deploymen
 import { ElPipelineTask } from './task.element'
 import { shleemy } from 'shleemy'
 import { cx } from '@linaria/core'
+import { CodeBuild } from 'aws-sdk'
 
 const pipelineStatusToIntent = (status: string): Intent => {
   switch (status) {
@@ -20,14 +21,33 @@ const pipelineStatusToIntent = (status: string): Intent => {
   }
 }
 
+const taskFunctionToFriendlyName = (functionName: CodeBuild.BuildPhaseType): string => {
+  switch (functionName) {
+    case 'INSTALL':
+      return 'install'
+    case 'BUILD':
+      return 'Build'
+    case 'DOWNLOAD_SOURCE':
+      return 'Download'
+    case 'DEPLOY':
+      return 'Deploy'
+    default:
+      return ''
+  }
+}
+
+const toElapsedTime = (task: TaskModelInterface) => {
+  return task.elapsedTime ? `🕒 ${task.elapsedTime}secs` : ''
+}
+
 export const PipelineTask = ({ task, index }: { task: TaskModelInterface; index: number }) => {
   const started =
     task.startTime && task.startTime.substr(0, 1) !== '0' ? shleemy(task.startTime).forHumans : 'not started'
 
   return (
     <ElPipelineTask className={cx(`order-${index + 1}`)}>
-      <StatusIndicator intent={pipelineStatusToIntent(task.buildStatus as string)} shape="tag" /> {task.functionName} 🕒{' '}
-      {task.elapsedTime}s {started}
+      <StatusIndicator intent={pipelineStatusToIntent(task.buildStatus as string)} shape="tag" />{' '}
+      {taskFunctionToFriendlyName(task.functionName as string)} {toElapsedTime(task)} - {started}
     </ElPipelineTask>
   )
 }
