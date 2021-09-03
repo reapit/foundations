@@ -3,7 +3,7 @@ import { findPipelineRunnerByCodeBuildId, savePipelineRunnerEntity, sqs, pusher 
 import { CodeBuild } from 'aws-sdk'
 import { QueueNames } from '../../constants'
 
-const acceptedPhases = ['BUILD', 'PRE_BUILD', 'INSTALL', 'DOWNLOAD_SOURCE']
+const acceptedPhases = ['BUILD', 'INSTALL', 'DOWNLOAD_SOURCE']
 enum EventEnum {
   STATE_CHANGE = 'CodeBuild Build State Change',
   PHASE_CHANGE = 'CodeBuild Build Phase Change',

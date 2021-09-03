@@ -76,6 +76,22 @@ export const codebuildExecutor: SQSHandler = async (
 
             resolve(data)
           })
+        }).catch(async (error) => {
+          await new Promise<void>((resolve, reject) =>
+            sqs.deleteMessage(
+              {
+                ReceiptHandle: record.receiptHandle,
+                QueueUrl: QueueNames.CODE_BUILD_EXECUTOR,
+              },
+              (err) => {
+                if (err) {
+                  reject(err)
+                }
+                resolve()
+              },
+            ),
+          )
+          throw error
         })
 
         pipelineRunner.codebuildId = result.build?.id?.split(':').pop()
@@ -88,7 +104,7 @@ export const codebuildExecutor: SQSHandler = async (
 
         pipelineRunner.s3BuildLogsLocation = signedUrl
 
-        pipelineRunner.tasks = ['INSTALL', 'BUILD', 'PRE_BUILD', 'DOWNLOAD_SOURCE', 'DEPLOY'].map((phase) => {
+        pipelineRunner.tasks = ['INSTALL', 'BUILD', 'DOWNLOAD_SOURCE', 'DEPLOY'].map((phase) => {
           const task = new TaskEntity()
 
           task.functionName = phase
@@ -100,7 +116,21 @@ export const codebuildExecutor: SQSHandler = async (
       } catch (e) {
         console.error(e)
         console.log('codebuild config failure')
-        Promise.reject(e)
+        await new Promise<void>((resolve, reject) =>
+          sqs.deleteMessage(
+            {
+              ReceiptHandle: record.receiptHandle,
+              QueueUrl: QueueNames.CODE_BUILD_EXECUTOR,
+            },
+            (err) => {
+              if (err) {
+                reject(err)
+              }
+              resolve()
+            },
+          ),
+        )
+        return Promise.reject(e)
       }
 
       return new Promise<void>((resolve, reject) =>
