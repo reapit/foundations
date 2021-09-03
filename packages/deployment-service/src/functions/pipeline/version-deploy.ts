@@ -3,7 +3,6 @@ import { QueueNames } from '../../constants'
 import { PipelineEntity } from '../../entities'
 import { deployFromStore } from '../../executables/deploy-from-store'
 import { findPipelineRunnerById, pusher, savePipelineRunnerEntity, sqs, updateTask } from '../../services'
-import { closeDb } from '../../core'
 
 export const versionDeploy: SQSHandler = async (event: SQSEvent, context: Context, callback: Callback) => {
   await Promise.all(
@@ -91,8 +90,6 @@ export const versionDeploy: SQSHandler = async (event: SQSEvent, context: Contex
       )
     }),
   )
-
-  await closeDb()
 
   return callback(null, `Successfully processed ${event.Records.length} records.`)
 }
