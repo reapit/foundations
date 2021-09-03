@@ -6,7 +6,6 @@ import yaml from 'yaml'
 import { PackageManagerEnum } from '../../../../foundations-ts-definitions/deployment-schema'
 import { QueueNames } from '../../constants'
 import { sqs, savePipelineRunnerEntity, s3Client } from '../../services'
-import { closeDb } from '../../core'
 
 const codebuild = new CodeBuild({
   region: process.env.REGION,
@@ -37,7 +36,7 @@ export const codebuildExecutor: SQSHandler = async (
           buildspecOverride: yaml.stringify({
             version: 0.2,
             phases: {
-              pre_build: {
+              install: {
                 commands: [
                   pipeline.packageManager === PackageManagerEnum.YARN
                     ? pipeline.packageManager
@@ -120,8 +119,6 @@ export const codebuildExecutor: SQSHandler = async (
       )
     }),
   )
-
-  await closeDb()
 
   return callback(null, `Successfully processed ${event.Records.length} records.`)
 }
