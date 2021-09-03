@@ -4,7 +4,7 @@ import { TaskModelInterface } from '@reapit/foundations-ts-definitions/deploymen
 import { ElPipelineTask } from './task.element'
 import { shleemy } from 'shleemy'
 import { cx } from '@linaria/core'
-import { CodeBuild } from 'aws-sdk'
+import { taskFunctionToFriendlyName } from '../../utils/friendly-function-name'
 
 const pipelineStatusToIntent = (status: string): Intent => {
   switch (status) {
@@ -18,21 +18,6 @@ const pipelineStatusToIntent = (status: string): Intent => {
       return 'success'
     default:
       return 'neutral'
-  }
-}
-
-const taskFunctionToFriendlyName = (functionName: CodeBuild.BuildPhaseType): string => {
-  switch (functionName) {
-    case 'INSTALL':
-      return 'install'
-    case 'BUILD':
-      return 'Build'
-    case 'DOWNLOAD_SOURCE':
-      return 'Download'
-    case 'DEPLOY':
-      return 'Deploy'
-    default:
-      return ''
   }
 }
 
