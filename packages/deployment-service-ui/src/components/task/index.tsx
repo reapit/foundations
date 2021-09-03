@@ -3,6 +3,7 @@ import React from 'react'
 import { TaskModelInterface } from '@reapit/foundations-ts-definitions/deployment-schema'
 import { ElPipelineTask } from './task.element'
 import { shleemy } from 'shleemy'
+import { cx } from '@linaria/core'
 
 const pipelineStatusToIntent = (status: string): Intent => {
   switch (status) {
@@ -19,12 +20,12 @@ const pipelineStatusToIntent = (status: string): Intent => {
   }
 }
 
-export const PipelineTask = ({ task }: { task: TaskModelInterface }) => {
+export const PipelineTask = ({ task, index }: { task: TaskModelInterface; index: number }) => {
   const started =
     task.startTime && task.startTime.substr(0, 1) !== '0' ? shleemy(task.startTime).forHumans : 'not started'
 
   return (
-    <ElPipelineTask>
+    <ElPipelineTask className={cx(`order-${index + 1}`)}>
       <StatusIndicator intent={pipelineStatusToIntent(task.buildStatus as string)} shape="tag" /> {task.functionName} 🕒{' '}
       {task.elapsedTime}s {started}
     </ElPipelineTask>
