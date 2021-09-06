@@ -3,10 +3,9 @@ import { PipelineEntity, PipelineRunnerEntity } from './../entities'
 import fs from 'fs'
 import { GetObjectOutput } from 'aws-sdk/clients/s3'
 import AdmZip from 'adm-zip'
-import path from 'path'
 import rimraf from 'rimraf'
-import { sendToLiveS3, SendToLiveS3Func } from './deploy-to-live'
-import { recurseDir } from 'src/utils'
+import { sendToLiveS3 } from './deploy-to-live'
+import { recurseDir } from '../utils'
 
 const getFromVersionS3 = async (location: string): Promise<GetObjectOutput | never> =>
   new Promise<GetObjectOutput>((resolve, reject) =>

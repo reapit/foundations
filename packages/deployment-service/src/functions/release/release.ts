@@ -1,7 +1,7 @@
 import { resolveCreds } from '../../utils'
 import { BadRequestException, httpHandler } from '@homeservenow/serverless-aws-handler'
 import { s3Client } from '../../services'
-import { release } from './../../executables'
+import { releaseToLive } from './../../executables'
 import { defaultOutputHeaders } from '../../constants'
 import * as services from './../../services/release'
 import { ReleaseEntity } from './../../entities'
@@ -25,10 +25,12 @@ export const deployRelease = httpHandler<any, ReleaseEntity>({
   handler: async ({ event, body }) => {
     const { developerId } = await resolveCreds(event)
 
+    const { project, version } = event.pathParameters as {project: string, version: string}
+
     const s3FileName = fileName(
       developerId,
-      event.pathParameters?.project as string,
-      event.pathParameters?.version as string,
+      project,
+      version,
     )
 
     const file = Buffer.from(body.file, 'base64')
@@ -54,7 +56,7 @@ export const deployRelease = httpHandler<any, ReleaseEntity>({
       ),
     )
 
-    await release(file)
+    await releaseToLive(file, `/tmp/release/${project}/${version}`, 'release')
     await services.resetDeploymentStatus(event.pathParameters?.project as string, developerId)
 
     const releaseEntity = await services.createRelease({

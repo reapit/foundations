@@ -1,7 +1,7 @@
 import { SQSEvent, SQSHandler, Context, Callback } from 'aws-lambda'
 import { QueueNames } from '../../constants'
 import { PipelineEntity } from '../../entities'
-import { deployFromStore } from '../../executables/deploy-from-store'
+import { deployFromStore } from '../../executables'
 import { findPipelineRunnerById, pusher, savePipelineRunnerEntity, sqs, updateTask } from '../../services'
 
 export const versionDeploy: SQSHandler = async (event: SQSEvent, context: Context, callback: Callback) => {
