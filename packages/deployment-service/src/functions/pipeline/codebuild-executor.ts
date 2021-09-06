@@ -58,7 +58,7 @@ export const codebuildExecutor: SQSHandler = async (
             packaging: 'ZIP',
             location: process.env.DEPLOYMENT_VERSION_BUCKET_NAME,
             name: `${pipelineRunner.id}.zip`,
-            path: `${pipeline.uniqueRepoName}/`,
+            path: `pipeline/${pipeline.uniqueRepoName}/`,
           },
           logsConfigOverride: {
             s3Logs: {

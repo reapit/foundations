@@ -1,7 +1,7 @@
 import { resolveCreds } from '../../utils'
 import { BadRequestException, httpHandler, NotFoundException } from '@homeservenow/serverless-aws-handler'
 import { s3Client } from '../../services'
-import { release } from './../../executables'
+import { releaseToLiveFromZip } from './../../executables'
 import { defaultOutputHeaders } from '../../constants'
 import * as services from './../../services/release'
 import { ReleaseEntity } from './../../entities'
@@ -23,7 +23,7 @@ export const deployVersion = httpHandler<void, ReleaseEntity>({
     const releaseEntity = await services.findByProjectNameAndVersion(projectName, version, developerId)
 
     if (!releaseEntity) {
-      throw new NotFoundException()
+      throw new NotFoundException(`version [${version}] did not previously exist`)
     }
 
     const file = await new Promise<AWS.S3.Body>((resolve, reject) =>
@@ -46,7 +46,12 @@ export const deployVersion = httpHandler<void, ReleaseEntity>({
       throw new NotFoundException()
     }
 
-    await release(file as Buffer)
+    await releaseToLiveFromZip({
+      file: file as Buffer,
+      localLocation: `/tmp/release/${projectName}/${version}`,
+      deploymentType: 'release',
+      projectLocation: projectName, // TODO add developerId prefix
+    })
 
     await services.resetDeploymentStatus(projectName, developerId)
 
