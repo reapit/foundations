@@ -72,15 +72,9 @@ export class DeployCommand extends AbstractCommand {
       process.exit(1)
     }
 
-    const files = ['serverless.yml', 'package.json', 'yarn.lock', 'package-lock.json']
-
     const zip = new AdmZip()
-    zip.addLocalFolder(path.resolve(process.cwd(), 'build'), 'build')
-    files.forEach((file) => {
-      if (fs.existsSync(path.resolve(process.cwd(), file))) {
-        zip.addLocalFile(path.resolve(process.cwd(), file))
-      }
-    })
+    // TODO make build dir optional as it could be `dist`
+    zip.addLocalFolder(path.resolve(process.cwd(), 'build'), '')
 
     spinner.succeed('Successfully packed project')
     return zip.toBuffer()
