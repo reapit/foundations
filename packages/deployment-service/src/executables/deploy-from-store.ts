@@ -1,11 +1,7 @@
 import { s3Client } from '../services'
 import { PipelineEntity, PipelineRunnerEntity } from './../entities'
-import fs from 'fs'
 import { GetObjectOutput } from 'aws-sdk/clients/s3'
-import AdmZip from 'adm-zip'
-import rimraf from 'rimraf'
-import { sendToLiveS3 } from './deploy-to-live'
-import { recurseDir } from '../utils'
+import { releaseToLiveFromZip } from './release-to-live'
 
 const getFromVersionS3 = async (location: string): Promise<GetObjectOutput | never> =>
   new Promise<GetObjectOutput>((resolve, reject) =>
@@ -59,48 +55,12 @@ export const deployFromStore = async ({
     throw new Error('Failed to find stored version')
   }
 
-  const deploymentZipDir = `/tmp/deployment/${pipeline.uniqueRepoName}`
+  await deleteCurrentLiveVersion(`pipeline/${pipeline.uniqueRepoName}`)
 
-  if (!fs.existsSync(deploymentZipDir)) {
-    console.log('making zip location', deploymentZipDir)
-    fs.mkdirSync(deploymentZipDir, {
-      recursive: true,
-    })
-  }
-
-  const zipLocation = `${deploymentZipDir}/deployment.zip`
-
-  await fs.promises.writeFile(zipLocation, zip.Body)
-  const admZip = new AdmZip(zipLocation)
-
-  // TODO refactor: add releaseToLive here
-
-  console.log('extracting zip to loc', zipLocation, '=>', deploymentZipDir)
-  await new Promise<void>((resolve, reject) =>
-    admZip.extractAllToAsync(`${deploymentZipDir}/out`, true, (error) => {
-      if (error) {
-        reject(error)
-      }
-      resolve()
-    }),
-  )
-
-  console.log('deleting current live deployment in s3')
-  await deleteCurrentLiveVersion(pipeline.uniqueRepoName)
-
-  console.log('recursively uploading files', fs.readdirSync(`${deploymentZipDir}/out`))
-  await recurseDir(
-    {
-      dir: `${deploymentZipDir}/out`,
-      prefix: `pipeline/${pipeline.uniqueRepoName}`,
-      buildLocation: `${deploymentZipDir}/out`,
-    },
-    sendToLiveS3,
-  )
-
-  await new Promise<void>((resolve) =>
-    rimraf(deploymentZipDir, () => {
-      resolve()
-    }),
-  )
+  await releaseToLiveFromZip({
+    file: zip.Body as Buffer,
+    localLocation: `/tmp/deployment/${pipeline.uniqueRepoName}/deployment.zip`,
+    deploymentType: 'pipeline',
+    projectLocation: pipeline.uniqueRepoName,
+  })
 }

@@ -1,7 +1,7 @@
 import { resolveCreds } from '../../utils'
 import { BadRequestException, httpHandler, NotFoundException } from '@homeservenow/serverless-aws-handler'
 import { s3Client } from '../../services'
-import { releaseToLive } from './../../executables'
+import { releaseToLiveFromZip } from './../../executables'
 import { defaultOutputHeaders } from '../../constants'
 import * as services from './../../services/release'
 import { ReleaseEntity } from './../../entities'
@@ -46,7 +46,12 @@ export const deployVersion = httpHandler<void, ReleaseEntity>({
       throw new NotFoundException()
     }
 
-    await releaseToLive(file as Buffer, `/tmp/release/${projectName}/${version}`, 'release', projectName)
+    await releaseToLiveFromZip({
+      file: file as Buffer,
+      localLocation: `/tmp/release/${projectName}/${version}`,
+      deploymentType: 'release',
+      projectLocation: projectName, // TODO add developerId prefix
+    })
 
     await services.resetDeploymentStatus(projectName, developerId)
 
