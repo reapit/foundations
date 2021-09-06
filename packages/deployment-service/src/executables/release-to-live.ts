@@ -9,7 +9,7 @@ import { sendToLiveS3 } from './deploy-to-live'
 export const releaseToLive = async (
   file: Buffer,
   localLocation: string,
-  prefix: 'release' | 'pipeline',
+  deploymentType: 'release' | 'pipeline',
   projectLocation: string,
 ): Promise<void> => {
   const zip = new AdmZip(file)
@@ -27,7 +27,7 @@ export const releaseToLive = async (
   await recurseDir(
     {
       dir: localLocation,
-      prefix: `${prefix}/${projectLocation}`,
+      prefix: `${deploymentType}/${projectLocation}`,
       buildLocation: localLocation,
     },
     sendToLiveS3,
