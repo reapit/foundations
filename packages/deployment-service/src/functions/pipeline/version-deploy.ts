@@ -38,8 +38,6 @@ export const versionDeploy: SQSHandler = async (event: SQSEvent, context: Contex
         pusher.trigger(pipelineRunner.pipeline?.developerId as string, 'pipeline-runner-update', pipelineRunner),
       ])
 
-      // TODO start a timer for elapsedSeconds
-
       try {
         await deployFromStore({
           pipeline: pipelineRunner.pipeline as PipelineEntity,
@@ -53,6 +51,10 @@ export const versionDeploy: SQSHandler = async (event: SQSEvent, context: Contex
         if (pipelineRunner.tasks) {
           pipelineRunner.tasks[deployTaskIndex].buildStatus = 'SUCCEEDED'
           pipelineRunner.tasks[deployTaskIndex].endTime = new Date().toISOString()
+          pipelineRunner.tasks[deployTaskIndex].elapsedTime = Math.floor(
+            (new Date().getTime() - new Date(pipelineRunner.tasks[deployTaskIndex].startTime as string).getTime()) /
+              1000,
+          ).toString()
         }
       } catch (e) {
         console.error(e)
@@ -64,6 +66,10 @@ export const versionDeploy: SQSHandler = async (event: SQSEvent, context: Contex
         if (pipelineRunner.tasks) {
           pipelineRunner.tasks[deployTaskIndex].buildStatus = 'FAILED'
           pipelineRunner.tasks[deployTaskIndex].endTime = new Date().toISOString()
+          pipelineRunner.tasks[deployTaskIndex].elapsedTime = Math.floor(
+            (new Date().getTime() - new Date(pipelineRunner.tasks[deployTaskIndex].startTime as string).getTime()) /
+              1000,
+          ).toString()
         }
       }
 
