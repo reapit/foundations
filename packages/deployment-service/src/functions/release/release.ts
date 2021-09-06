@@ -41,8 +41,8 @@ export const deployRelease = httpHandler<any, ReleaseEntity>({
       s3Client.putObject(
         {
           Body: file,
-          Bucket: process.env.DEPLOYMENT_BUCKET_NAME as string,
-          Key: s3FileName,
+          Bucket: process.env.DEPLOYMENT_VERSION_BUCKET_NAME as string,
+          Key: `release/${s3FileName}`,
         },
         (error) => {
           if (error) {

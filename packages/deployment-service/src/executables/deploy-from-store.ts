@@ -43,7 +43,7 @@ const getFromVersionS3 = async (location: string): Promise<GetObjectOutput | nev
     s3Client.getObject(
       {
         Bucket: process.env.DEPLOYMENT_VERSION_BUCKET_NAME as string,
-        Key: location,
+        Key: `pipeline/${location}`,
       },
       (error, data) => {
         if (error) {
@@ -97,7 +97,7 @@ const recurseDir = async (
       } else if (stat.isDirectory()) {
         return recurseDir(
           {
-            dir: filePath,
+            dir: `pipeline/${filePath}`,
             prefix,
             buildLocation,
           },

@@ -23,7 +23,7 @@ export const deployVersion = httpHandler<void, ReleaseEntity>({
     const releaseEntity = await services.findByProjectNameAndVersion(projectName, version, developerId)
 
     if (!releaseEntity) {
-      throw new NotFoundException()
+      throw new NotFoundException(`version [${version}] did not previously exist`)
     }
 
     const file = await new Promise<AWS.S3.Body>((resolve, reject) =>
