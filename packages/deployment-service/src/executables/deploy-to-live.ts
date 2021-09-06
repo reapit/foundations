@@ -1,4 +1,4 @@
-import { s3Client } from "../services"
+import { s3Client } from '../services'
 import fs from 'fs'
 
 export type SendToS3Params = {

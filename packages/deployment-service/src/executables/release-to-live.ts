@@ -6,8 +6,11 @@ import { sendToLiveS3 } from './deploy-to-live'
 /**
  * Method for releasing built package
  */
-export const releaseToLive = async (file: Buffer, localLocation: string, prefix: 'release' | 'pipeline'): Promise<void> => {
-
+export const releaseToLive = async (
+  file: Buffer,
+  localLocation: string,
+  prefix: 'release' | 'pipeline',
+): Promise<void> => {
   const zip = new AdmZip(file)
 
   await new Promise<void>((resolve, reject) =>

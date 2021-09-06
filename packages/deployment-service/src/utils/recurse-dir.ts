@@ -2,9 +2,9 @@ import fs from 'fs'
 import * as path from 'path'
 
 export type recurseDirProps = {
-  filePath: string,
-  buildLocation: string,
-  prefix: string,
+  filePath: string
+  buildLocation: string
+  prefix: string
 }
 
 export const recurseDir = async (

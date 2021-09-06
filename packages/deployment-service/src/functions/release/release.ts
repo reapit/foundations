@@ -25,13 +25,9 @@ export const deployRelease = httpHandler<any, ReleaseEntity>({
   handler: async ({ event, body }) => {
     const { developerId } = await resolveCreds(event)
 
-    const { project, version } = event.pathParameters as {project: string, version: string}
+    const { project, version } = event.pathParameters as { project: string; version: string }
 
-    const s3FileName = fileName(
-      developerId,
-      project,
-      version,
-    )
+    const s3FileName = fileName(developerId, project, version)
 
     const file = Buffer.from(body.file, 'base64')
 
