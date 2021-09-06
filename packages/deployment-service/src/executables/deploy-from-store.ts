@@ -73,6 +73,8 @@ export const deployFromStore = async ({
   await fs.promises.writeFile(zipLocation, zip.Body)
   const admZip = new AdmZip(zipLocation)
 
+  // TODO refactor: add releaseToLive here
+
   console.log('extracting zip to loc', zipLocation, '=>', deploymentZipDir)
   await new Promise<void>((resolve, reject) =>
     admZip.extractAllToAsync(`${deploymentZipDir}/out`, true, (error) => {
@@ -90,7 +92,7 @@ export const deployFromStore = async ({
   await recurseDir(
     {
       dir: `${deploymentZipDir}/out`,
-      prefix: pipeline.uniqueRepoName,
+      prefix: `pipeline/${pipeline.uniqueRepoName}`,
       buildLocation: `${deploymentZipDir}/out`,
     },
     sendToLiveS3,

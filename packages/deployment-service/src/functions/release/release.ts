@@ -52,7 +52,7 @@ export const deployRelease = httpHandler<any, ReleaseEntity>({
       ),
     )
 
-    await releaseToLive(file, `/tmp/release/${project}/${version}`, 'release')
+    await releaseToLive(file, `/tmp/release/${project}/${version}`, 'release', project)
     await services.resetDeploymentStatus(event.pathParameters?.project as string, developerId)
 
     const releaseEntity = await services.createRelease({
