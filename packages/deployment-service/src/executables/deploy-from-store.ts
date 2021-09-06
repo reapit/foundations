@@ -97,7 +97,7 @@ const recurseDir = async (
       } else if (stat.isDirectory()) {
         return recurseDir(
           {
-            dir: `pipeline/${filePath}`,
+            dir: filePath,
             prefix,
             buildLocation,
           },
@@ -117,7 +117,7 @@ export const deployFromStore = async ({
 }): Promise<void> => {
   const storageLocation = `${pipeline.uniqueRepoName}/${pipelineRunner.id}.zip`
 
-  console.log('fetching version from s3', storageLocation)
+  console.log('fetching version from s3', `pipeline/${storageLocation}`)
   const zip = await getFromVersionS3(storageLocation)
 
   if (!zip.Body) {
