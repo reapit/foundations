@@ -17,13 +17,13 @@ export const pipelineSetup: SQSHandler = async (event: SQSEvent, context: Contex
         const r53Client = new Route53Client({})
 
         const cnameCommand = new ChangeResourceRecordSetsCommand({
-          HostedZoneId: '',
+          HostedZoneId: process.env.HOSTED_ZONE_ID,
           ChangeBatch: {
             Changes: [
               {
                 Action: 'CREATE',
                 ResourceRecordSet: {
-                  Type: 'CNAME',
+                  Type: 'A',
                   Name: pipeline.subDomain,
                 },
               },
@@ -55,9 +55,9 @@ export const pipelineSetup: SQSHandler = async (event: SQSEvent, context: Contex
                 `${pipeline.subDomain}`, // not sure what this is suppose to be?
               ],
             },
-            Comment: 'Cloudfront distribution for project ...',
+            Comment: `Cloudfront distribution for project [${pipeline.id}]`,
             Enabled: true,
-            CallerReference: 'project-name', // another unique reference to prevent distribution duplication
+            CallerReference: `${pipeline.subDomain}`, // another unique reference to prevent distribution duplication
             DefaultCacheBehavior: {
               TargetOriginId: '', // no idea
               ViewerProtocolPolicy: 'redirect-to-https', // no idea
