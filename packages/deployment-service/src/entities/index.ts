@@ -8,6 +8,7 @@ import {
   ManyToOne,
   TreeParent,
   Tree,
+  BeforeInsert,
 } from 'typeorm'
 import {
   PipelineRunnerModelInterface,
@@ -18,6 +19,7 @@ import {
 } from '@reapit/foundations-ts-definitions'
 import { Type } from 'class-transformer'
 import { CodeBuild } from 'aws-sdk'
+import generate from 'project-name-generator'
 
 abstract class AbstractEntity {
   @PrimaryGeneratedColumn('uuid')
@@ -95,8 +97,16 @@ export class PipelineEntity extends AbstractEntity implements PipelineModelInter
   @Column({ type: 'varchar' })
   buildStatus?: CodeBuild.StatusType = 'CREATING_ARCHITECTURE'
 
+  @Column()
+  subDomain?: string
+
+  @BeforeInsert()
+  beforeInsert() {
+    this.subDomain = generate().dashed
+  }
+
   get uniqueRepoName(): string {
-    return `${this.developerId}/${this.repository?.split('/').pop()}`
+    return `${this.developerId}/${this.subDomain}`
   }
 }
 

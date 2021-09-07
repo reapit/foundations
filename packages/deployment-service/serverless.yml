@@ -68,6 +68,7 @@ provider:
     PUSHER_KEY: ${self:custom.env.PUSHER_KEY}
     PUSHER_SECRET: ${self:custom.env.PUSHER_SECRET}
     DEPLOYMENT_LOG_BUCKET_NAME: ${self:custom.env.DEPLOYMENT_LOG_BUCKET_NAME}
+    HOSTED_ZONE_ID: ${self:custom.env.HOSTED_ZONE_ID}
   iamRoleStatements:
     - Effect: Allow
       Action:
@@ -159,6 +160,15 @@ provider:
           - Arn
     - Effect: Allow
       Action:
+        - sqs:GetQueueAttributes
+        - sqs:SendMessage
+        - sqs:DeleteMessage
+      Resource:
+        Fn::GetAtt:
+          - PipelineSetup
+          - Arn
+    - Effect: Allow
+      Action:
         - lambda:InvokeFunction
       Resource: arn:aws:lambda:${self:provider.region}:${self:custom.env.AWS_ACCOUNT_ID}:function:cloud-api-key-service-dev-getApiKeyViaInvoke
     - Effect: Allow
@@ -221,6 +231,10 @@ resources:
       Type: AWS::SQS::Queue
       Properties:
         QueueName: CodebuildDeploy
+    PipelineSetup:
+      Type: AWS::SQS::Queue
+      Properties:
+        QueueName: PipelineSetup
 
 package:
   individually: true
@@ -578,5 +592,15 @@ functions:
           arn:
             Fn::GetAtt:
               - CodebuildDeploy
+              - Arn
+    timeout: 300
+  pipelineSetup:
+    handler: src/index.pipelineSetup
+    events:
+      - sqs:
+          queueName: PipelineSetup
+          arn:
+            Fn::GetAtt:
+              - PipelineSetup
               - Arn
     timeout: 300
