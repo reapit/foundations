@@ -8,6 +8,7 @@ const Routes = {
   DESKTOP: '/desktop',
   APPS_EDIT: '/apps/:appid/edit',
   API_DOCS: '/api-docs',
+  ANALYTICS_SCHEMA_DOCS: '/analytics-schema-docs',
   ANALYTICS: '/analytics',
   ANALYTICS_TAB: '/analytics/:activeTab?',
   RESET_PASSWORD: '/reset-password',

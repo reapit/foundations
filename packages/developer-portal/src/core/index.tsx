@@ -23,6 +23,7 @@ window.reapit = {
     liveChatWhitelist: [],
     elementsUri: '',
     graphQLUri: '',
+    analyticsSchemaDocsUrl: '',
   },
 }
 
