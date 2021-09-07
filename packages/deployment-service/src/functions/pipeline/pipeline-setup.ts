@@ -5,7 +5,7 @@ import { PipelineEntity } from '../../entities'
 import { v4 as uuid } from 'uuid'
 import { Route53Client, ChangeResourceRecordSetsCommand } from '@aws-sdk/client-route-53'
 import { sqs } from '../../services'
-import { QueueNames } from 'src/constants'
+import { QueueNames } from '../../constants'
 
 export const pipelineSetup: SQSHandler = async (event: SQSEvent, context: Context, callback: Callback) => {
   await Promise.all(
