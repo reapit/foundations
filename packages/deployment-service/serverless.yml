@@ -159,6 +159,15 @@ provider:
           - Arn
     - Effect: Allow
       Action:
+        - sqs:GetQueueAttributes
+        - sqs:SendMessage
+        - sqs:DeleteMessage
+      Resource:
+        Fn::GetAtt:
+          - PipelineSetup
+          - Arn
+    - Effect: Allow
+      Action:
         - lambda:InvokeFunction
       Resource: arn:aws:lambda:${self:provider.region}:${self:custom.env.AWS_ACCOUNT_ID}:function:cloud-api-key-service-dev-getApiKeyViaInvoke
     - Effect: Allow
@@ -221,6 +230,10 @@ resources:
       Type: AWS::SQS::Queue
       Properties:
         QueueName: CodebuildDeploy
+    PipelineSetup:
+      Type: AWS::SQS::Queue
+      Properties:
+        QueueName: PipelineSetup
 
 package:
   individually: true
@@ -578,5 +591,15 @@ functions:
           arn:
             Fn::GetAtt:
               - CodebuildDeploy
+              - Arn
+    timeout: 300
+  pipelineSetup:
+    handler: src/index.pipelineSetup
+    events:
+      - sqs:
+          queueName: PipelineSetup
+          arn:
+            Fn::GetAtt:
+              - PipelineSetup
               - Arn
     timeout: 300
