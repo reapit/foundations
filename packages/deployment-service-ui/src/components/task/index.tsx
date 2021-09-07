@@ -31,30 +31,24 @@ const AutoTimer = () => {
     autoStart: true,
   })
 
-  const calculatedSeconds = (minutes * 60) + seconds
+  const calculatedSeconds = minutes * 60 + seconds
 
   return <>{toElapsedTime(calculatedSeconds.toString())}</>
 }
 
 const Timer = ({ started, elapsedTime }: { started: boolean; elapsedTime?: string }) => {
-  return <>{started ? <AutoTimer />: elapsedTime ? toElapsedTime(elapsedTime) : null}</>
+  return <>{started ? <AutoTimer /> : elapsedTime ? toElapsedTime(elapsedTime) : null}</>
 }
 
 export const PipelineTask = ({ task, index }: { task: TaskModelInterface; index: number }) => {
   const startedAt =
     task.startTime && task.startTime.substr(0, 1) !== '0' ? shleemy(task.startTime).forHumans : 'not started'
 
-  let started = false
-
-  if (task.buildStatus === 'IN_PROGRESS') {
-    started = true
-  }
-
   return (
     <ElPipelineTask className={cx(`order-${index + 1}`)}>
       <StatusIndicator intent={pipelineStatusToIntent(task.buildStatus as string)} shape="tag" />{' '}
       {taskFunctionToFriendlyName(task.functionName as string)}{' '}
-      <Timer elapsedTime={task.elapsedTime} started={started} /> - {startedAt}
+      <Timer elapsedTime={task.elapsedTime} started={task.buildStatus === 'IN_PROGRESS'} /> - {startedAt}
     </ElPipelineTask>
   )
 }
