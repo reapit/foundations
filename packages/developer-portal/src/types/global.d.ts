@@ -13,6 +13,7 @@ export type Config = {
   liveChatWhitelist: string[]
   elementsUri: string
   graphQLUri: string
+  analyticsSchemaDocsUrl: string
 }
 
 declare global {

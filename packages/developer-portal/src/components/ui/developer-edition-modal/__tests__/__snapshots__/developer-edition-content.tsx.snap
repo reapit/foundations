@@ -33,6 +33,55 @@ exports[`DeveloperEditionContent should match snapshot 1`] = `
   }
 >
   <DeveloperEditionContent
+    desktopIsFree={true}
+    developer={
+      Object {
+        "description": "description",
+        "label": "label",
+        "value": "value",
+      }
+    }
+    handleOnConfirm={[MockFunction]}
+    loading={false}
+  />
+  ,
+</ContextProvider>
+`;
+
+exports[`DeveloperEditionContent should match snapshot where desktop is not free 1`] = `
+<ContextProvider
+  value={
+    Object {
+      "store": Object {
+        "clearActions": [Function],
+        "dispatch": [Function],
+        "getActions": [Function],
+        "getState": [Function],
+        "replaceReducer": [Function],
+        "subscribe": [Function],
+      },
+      "subscription": Subscription {
+        "handleChangeWrapper": [Function],
+        "listeners": Object {
+          "notify": [Function],
+        },
+        "onStateChange": [Function],
+        "parentSub": undefined,
+        "store": Object {
+          "clearActions": [Function],
+          "dispatch": [Function],
+          "getActions": [Function],
+          "getState": [Function],
+          "replaceReducer": [Function],
+          "subscribe": [Function],
+        },
+        "unsubscribe": null,
+      },
+    }
+  }
+>
+  <DeveloperEditionContent
+    desktopIsFree={false}
     developer={
       Object {
         "description": "description",

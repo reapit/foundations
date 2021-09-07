@@ -11,18 +11,23 @@ export type DeveloperEditionContentProps = Pick<ModalProps, 'afterClose'> & {
   developer: Partial<DeveloperModel>
   loading: boolean
   handleOnConfirm: () => void
+  desktopIsFree: boolean
 }
 
 export const DeveloperEditionContent: React.FC<DeveloperEditionContentProps> = ({
   developer,
   loading,
   afterClose,
+  desktopIsFree,
   handleOnConfirm,
 }) => {
   const currentUser = useSelector(selectCurrentMemberData)
   const currentUserLoading = useSelector(selectCurrentMemberIsLoading)
   const currentDeveloper = useSelector(selectSettingsPageDeveloperInformation)
   const currentDeveloperLoading = useSelector(selectSettingsPageIsLoading)
+  const costText = desktopIsFree
+    ? 'By confirming the subscription below, a subscription will be added to your developer account but you will not be charged as an existing Reapit customer.'
+    : 'By confirming the subscription below, a subscription of £300 will automatically be added to your monthly billing.'
 
   const billingContent =
     currentUser?.role &&
@@ -44,9 +49,8 @@ export const DeveloperEditionContent: React.FC<DeveloperEditionContentProps> = (
     ) : (
       <>
         <SubTitleH6 className="has-text-weight-normal">
-          The Agency Cloud Developer Edition is a licensed product. By confirming the subscription below, a subscription
-          of £300 will automatically be added to your monthly billing. For more information regarding the Developer
-          Edition licence please refer to your Developer Registration{' '}
+          The Agency Cloud Developer Edition is a licensed product. {costText} For more information regarding the
+          Developer Edition licence please refer to your Developer Registration{' '}
           <a href="/api-docs/developer-terms-and-conditions" rel="noreferrer" target="_blank">
             Terms and Conditions.
           </a>

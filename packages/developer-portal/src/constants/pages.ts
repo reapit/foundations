@@ -8,4 +8,5 @@ export const ELEMENTS_V3_PAGES = [
   Routes.API_DOCS,
   Routes.APPS,
   Routes.WEBHOOKS,
+  Routes.ANALYTICS_SCHEMA_DOCS,
 ]
