@@ -5,23 +5,24 @@ import {
   FlexContainer,
   Grid,
   InputGroup,
-  MultiSelect,
-  MultiSelectChip,
   PersistantNotification,
   Subtitle,
+  MultiSelectInput,
+  elMb7,
 } from '@reapit/elements'
 import React, { ChangeEvent, Dispatch, FC, SetStateAction, useEffect, useState } from 'react'
-import { Control, Controller } from 'react-hook-form'
+import { UseFormGetValues, UseFormRegister } from 'react-hook-form'
 import { useDispatch, useSelector } from 'react-redux'
 import { Dispatch as ReduxDispatch } from 'redux'
-import { CreateWebhookParams } from '../../../actions/webhooks-subscriptions'
 import { fetchWebhooksTopics } from '../../../actions/webhooks-topics'
 import { selectTopicsData, selectTopicsLoading } from '../../../selector/webhooks-topics'
 import { TopicModel } from '../../../services/webhooks'
 import { searchMinWidth } from './__styles__/index'
+import { CreateWebhookFormSchema } from './webhooks-new'
 
 interface WebhooksNewTopicsProps {
-  control: Control<CreateWebhookParams, object>
+  register: UseFormRegister<CreateWebhookFormSchema>
+  getValues: UseFormGetValues<CreateWebhookFormSchema>
 }
 
 export const handleFetchTopics =
@@ -54,14 +55,15 @@ export const handleSelectedTopics =
     onChange({ target: { value } })
   }
 
-export const WebhooksNewTopics: FC<WebhooksNewTopicsProps> = ({ control }) => {
+export const WebhooksNewTopics: FC<WebhooksNewTopicsProps> = ({ register, getValues }) => {
   const dispatch = useDispatch()
   const [filteredTopics, setFilteredTopics] = useState<TopicModel[]>([])
   const [search, setSearch] = useState<string>('')
   const topics = useSelector(selectTopicsData)
   const isLoading = useSelector(selectTopicsLoading)
 
-  const applicationId: string | undefined = control._formValues.applicationId
+  const { applicationId } = getValues()
+  const multiSelectOptions = filteredTopics.map((topic) => ({ name: topic.name ?? '', value: topic.id ?? '' }))
 
   useEffect(handleFetchTopics(dispatch, isLoading, applicationId, topics), [applicationId, topics])
 
@@ -75,7 +77,7 @@ export const WebhooksNewTopics: FC<WebhooksNewTopicsProps> = ({ control }) => {
             notifications for multiple topics so long as your application has been granted the required permissions.
           </BodyText>
         </div>
-        <FlexContainer isFlexAlignCenter isFlexJustifyBetween isFlexWrap>
+        <FlexContainer className={elMb7} isFlexAlignCenter isFlexJustifyBetween isFlexWrap>
           <Subtitle hasNoMargin>Subscription topics</Subtitle>
           <InputGroup
             className={searchMinWidth}
@@ -84,25 +86,12 @@ export const WebhooksNewTopics: FC<WebhooksNewTopicsProps> = ({ control }) => {
             placeholder="Search"
           />
         </FlexContainer>
-        <Controller
-          control={control}
-          name="topicIds"
-          render={({ field: { onChange, value: topicIds = [] } }) => {
-            return (
-              <MultiSelect>
-                {filteredTopics.map((topic) => (
-                  <MultiSelectChip
-                    onChange={handleSelectedTopics(topic.id ?? '', onChange, topicIds)}
-                    key={topic.id}
-                    id={topic.id}
-                    defaultChecked={topicIds.includes(topic.id ?? '')}
-                  >
-                    {topic.name}
-                  </MultiSelectChip>
-                ))}
-              </MultiSelect>
-            )
-          }}
+        <MultiSelectInput
+          className={elMb7}
+          id="topic-ids"
+          hasGreyChips
+          options={multiSelectOptions}
+          {...register('topicIds')}
         />
         {!filteredTopics.length && search && (
           <PersistantNotification isFullWidth isExpanded intent="secondary" isInline>

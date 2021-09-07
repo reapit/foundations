@@ -1,6 +1,8 @@
 import { styled } from '@linaria/react'
 import { css } from '@linaria/core'
 
+export const elHasGreyBg = css``
+
 export const elToggleItem = css`
   width: 50%;
   height: 100%;
@@ -10,7 +12,7 @@ export const elToggleItem = css`
   display: flex;
   justify-content: center;
   align-items: center;
-  padding: 0.25rem 0;
+  padding: 0.25rem;
 `
 
 export const elToggleRadioItem = css`
@@ -23,7 +25,6 @@ export const elToggleRadioItem = css`
   display: flex;
   justify-content: center;
   align-items: center;
-  margin-right: 0.375rem;
 `
 
 export const elToggleFullWidth = css`
@@ -70,6 +71,14 @@ export const ElToggleLabel = styled.label`
   justify-content: space-evenly;
   align-items: center;
   padding: 0.25rem;
+
+  &.${elHasGreyBg} {
+    background: var(--color-grey-medium);
+  }
+
+  &.${elToggleFullWidth} {
+    width: 100%;
+  }
 `
 
 export const ElToggleRadio = styled.input`
@@ -93,9 +102,13 @@ export const ElToggleRadioLabel = styled.label`
   background: var(--color-white);
   display: flex;
   align-items: center;
-  margin: 0 auto;
   height: 100%;
   border-radius: 1.5rem;
+  margin-right: 0.375rem;
+
+  &.${elHasGreyBg} {
+    background: var(--color-grey-medium);
+  }
 `
 
 export const ElToggleRadioWrap = styled.div`
@@ -111,5 +124,9 @@ export const ElToggleRadioWrap = styled.div`
 
   &.${elToggleFullWidth} {
     width: 100%;
+  }
+
+  &.${elHasGreyBg} {
+    background: var(--color-grey-medium);
   }
 `

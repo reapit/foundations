@@ -23,6 +23,7 @@ export interface TypographyProps extends HTMLAttributes<HTMLElement> {
 }
 
 export const Title: FC<TypographyProps> = ({
+  className,
   hasGreyText,
   children,
   hasItalicText,
@@ -34,6 +35,7 @@ export const Title: FC<TypographyProps> = ({
   return (
     <ElTitle
       className={cx(
+        className && className,
         hasGreyText && elHasGreyText,
         hasRegularText && elHasRegularText,
         hasItalicText && elHasItalicText,
@@ -48,6 +50,7 @@ export const Title: FC<TypographyProps> = ({
 }
 
 export const Subtitle: FC<TypographyProps> = ({
+  className,
   hasGreyText,
   children,
   hasBoldText,
@@ -59,6 +62,7 @@ export const Subtitle: FC<TypographyProps> = ({
   return (
     <ElSubtitle
       className={cx(
+        className && className,
         hasGreyText && elHasGreyText,
         hasBoldText && elHasBoldText,
         hasItalicText && elHasItalicText,
@@ -73,6 +77,7 @@ export const Subtitle: FC<TypographyProps> = ({
 }
 
 export const BodyText: FC<TypographyProps> = ({
+  className,
   hasGreyText,
   children,
   hasBoldText,
@@ -84,6 +89,7 @@ export const BodyText: FC<TypographyProps> = ({
   return (
     <ElBodyText
       className={cx(
+        className && className,
         hasGreyText && elHasGreyText,
         hasBoldText && elHasBoldText,
         hasItalicText && elHasItalicText,
@@ -98,6 +104,7 @@ export const BodyText: FC<TypographyProps> = ({
 }
 
 export const SmallText: FC<TypographyProps> = ({
+  className,
   hasGreyText,
   children,
   hasBoldText,
@@ -109,6 +116,7 @@ export const SmallText: FC<TypographyProps> = ({
   return (
     <ElSmallText
       className={cx(
+        className && className,
         hasGreyText && elHasGreyText,
         hasBoldText && elHasBoldText,
         hasItalicText && elHasItalicText,

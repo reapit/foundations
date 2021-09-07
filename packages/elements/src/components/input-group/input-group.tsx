@@ -39,7 +39,7 @@ const generateRandomId = (): string => {
   }
 }
 
-export const InputGroup = forwardRef(
+export const InputGroup: InputGroupWrapped = forwardRef(
   (
     { icon, label, className, id, intent, inputAddOnText, children, ...rest }: InputGroupProps,
     ref: React.ForwardedRef<React.InputHTMLAttributes<HTMLInputElement>>,

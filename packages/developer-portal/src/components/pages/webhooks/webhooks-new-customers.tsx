@@ -1,94 +1,79 @@
-import {
-  Grid,
-  elMb11,
-  BodyText,
-  Subtitle,
-  MultiSelect,
-  MultiSelectChip,
-  PersistantNotification,
-} from '@reapit/elements'
-import { ColSplit } from '@reapit/elements/src'
-import React, { ChangeEvent, FC, useEffect } from 'react'
-import { Control, Controller } from 'react-hook-form'
+import { Grid, elMb11, BodyText, Subtitle, ColSplit, MultiSelectInput, Loader, elMb7 } from '@reapit/elements'
+import React, { FC, useEffect, useMemo } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
-import { CreateWebhookParams, fetchWebhooksSubscriptions } from '../../../actions/webhooks-subscriptions'
+import { requestWebhookSubcriptionData } from '../../../actions/webhooks-subscriptions'
 import { Dispatch as ReduxDispatch } from 'redux'
-import { selectSubscriptionsData, selectSubscriptionsLoading } from '../../../selector/webhooks-subscriptions'
-import { WebhookModel } from '@reapit/foundations-ts-definitions'
+import { selectCustomers, selectLoading } from '../../../selector/webhooks-subscriptions'
+import { UseFormGetValues, UseFormRegister } from 'react-hook-form'
+import { InstallationModel } from '@reapit/foundations-ts-definitions'
+import { CreateWebhookFormSchema } from './webhooks-new'
 
 interface WebhooksNewCustomersProps {
-  control: Control<CreateWebhookParams, object>
+  register: UseFormRegister<CreateWebhookFormSchema>
+  getValues: UseFormGetValues<CreateWebhookFormSchema>
 }
 
-export const handleFetchSubscriptions =
-  (dispatch: ReduxDispatch, isLoading: boolean, applicationId?: string, subscriptions?: WebhookModel[]) => () => {
-    if (subscriptions?.length || isLoading) return
+export const SANDBOX_CLIENT = {
+  name: 'Sandbox Estates',
+  value: 'SBOX',
+}
 
-    dispatch(fetchWebhooksSubscriptions({ applicationId: [applicationId] as string[], pageNumber: 1 }))
-  }
+export const handleFetchSubscriptions = (dispatch: ReduxDispatch, applicationId?: string) => () => {
+  if (!applicationId) return
 
-export const handleSelectedCustomers =
-  (newCustomerIds: string[], onChange: (...event: any[]) => void, existingCustomerIds: string[]) =>
-  (event: ChangeEvent<HTMLInputElement>) => {
-    const isChecked = event.target.checked
-    const newIds = isChecked
-      ? [...newCustomerIds, ...existingCustomerIds]
-      : existingCustomerIds.filter((id) => !newCustomerIds.includes(id))
-    const value = [...new Set(newIds)]
+  dispatch(requestWebhookSubcriptionData(applicationId))
+}
 
-    onChange({ target: { value } })
-  }
+export const handleCustomersToOptions = (installations: InstallationModel[]) => () => {
+  const customers = installations
+    .map(({ customerName, customerId, status }) => {
+      if (status === 'Active') {
+        return {
+          name: customerName ?? '',
+          value: customerId ?? '',
+        }
+      }
+    })
+    .filter(Boolean)
 
-export const WebhooksNewCustomers: FC<WebhooksNewCustomersProps> = ({ control }) => {
+  const jsonCustomers = [JSON.stringify(SANDBOX_CLIENT), ...customers.map((customer) => JSON.stringify(customer))]
+  const uniqueCustomers = [...new Set(jsonCustomers)].map((customer) => JSON.parse(customer))
+
+  return uniqueCustomers
+}
+
+export const WebhooksNewCustomers: FC<WebhooksNewCustomersProps> = ({ register, getValues }) => {
   const dispatch = useDispatch()
-  const subscriptionsData = useSelector(selectSubscriptionsData)
-  const isLoading = useSelector(selectSubscriptionsLoading)
+  const customers = useSelector(selectCustomers)
+  const isLoading = useSelector(selectLoading)
+  const customerOptions = useMemo(handleCustomersToOptions(customers), [customers])
 
-  const subscriptions = subscriptionsData?._embedded
+  const { applicationId } = getValues()
 
-  const applicationId: string | undefined = control._formValues.applicationId
-
-  useEffect(handleFetchSubscriptions(dispatch, isLoading, applicationId, subscriptions), [applicationId, subscriptions])
+  useEffect(handleFetchSubscriptions(dispatch, applicationId), [applicationId])
 
   return (
     <Grid>
       <ColSplit>
         <div className={elMb11}>
           <BodyText hasNoMargin hasGreyText>
-            Select topics for your webhook from the list below.
+            Select customers from the list below. If you leave this option blank, your webhook will default to
+            &rdquo;All Customers&ldquo; that have installed your application including Sandbox (SBOX). If you select one
+            customer, you will need to specify each customer individually. In this case, you will also need to specify
+            SBOX explicity.
           </BodyText>
         </div>
-        <Subtitle hasNoMargin>Subscription Customers</Subtitle>
-        <Controller
-          control={control}
-          name="customerIds"
-          render={({ field: { onChange, value: customerIds = [] } }) => {
-            return (
-              <MultiSelect>
-                {subscriptions?.map((sub) => (
-                  <MultiSelectChip
-                    onChange={handleSelectedCustomers(sub.customerIds ?? [], onChange, customerIds)}
-                    key={sub.id}
-                    id={sub.id}
-                    defaultChecked={customerIds.includes(sub.id ?? '')}
-                  >
-                    {sub.name}
-                  </MultiSelectChip>
-                ))}
-              </MultiSelect>
-            )
-          }}
-        />
-        {!filteredTopics.length && search && (
-          <PersistantNotification isFullWidth isExpanded intent="secondary" isInline>
-            No topics found for your search. We only show topics that are relevant to the scopes of your selected
-            application.
-          </PersistantNotification>
-        )}
-        {!search && (
-          <PersistantNotification isFullWidth isExpanded intent="secondary" isInline>
-            You need to enter a search to get started.
-          </PersistantNotification>
+        <Subtitle>Subscription Customers</Subtitle>
+        {isLoading ? (
+          <Loader label="Loading" />
+        ) : (
+          <MultiSelectInput
+            className={elMb7}
+            id="customer-ids"
+            hasGreyChips
+            options={customerOptions}
+            {...register('customerIds')}
+          />
         )}
       </ColSplit>
     </Grid>
