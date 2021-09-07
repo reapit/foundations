@@ -32,20 +32,18 @@ const client = new ApolloClient({
 
 injectSwitchModeToWindow()
 
-const App = () => {
-  return (
-    <ErrorBoundary>
-      <ApolloProvider client={client}>
-        <NavStateProvider>
-          <MediaStateProvider>
-            <SnackProvider>
-              <Router />
-            </SnackProvider>
-          </MediaStateProvider>
-        </NavStateProvider>
-      </ApolloProvider>
-    </ErrorBoundary>
-  )
-}
+const App = () => (
+  <ErrorBoundary>
+    <ApolloProvider client={client}>
+      <NavStateProvider>
+        <MediaStateProvider>
+          <SnackProvider>
+            <Router />
+          </SnackProvider>
+        </MediaStateProvider>
+      </NavStateProvider>
+    </ApolloProvider>
+  </ErrorBoundary>
+)
 
 export default App

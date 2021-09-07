@@ -5,7 +5,8 @@ import { BookResolver } from './resolvers/book-resolver'
 import { AuthorResolver } from './resolvers/author-resolver'
 import { Context } from './types'
 import { ensureTables } from './ddb'
-import { AppResolver } from './resolvers/app-resolver'
+import { AppResolver, defaultNodes } from './resolvers/app-resolver'
+import { ejectApp } from './eject'
 
 const start = async () => {
   console.log(await ensureTables())
@@ -23,4 +24,28 @@ const start = async () => {
   console.log(`GraphQL Server is listening at ${url}`)
 }
 
-start().catch(console.error)
+// start().catch(console.error)
+
+ejectApp({
+  name: 'test',
+  createdAt: new Date(),
+  updatedAt: new Date(),
+  id: 'test',
+  userId: 'test',
+  pages: [
+    {
+      id: '~',
+      name: 'test',
+      nodes: defaultNodes.map((node) => ({
+        ...node,
+        id: `test~${node.nodeId}`,
+      })),
+    },
+  ],
+}).then((ejection) => {
+  ejection.forEach(({ fileLoc, text }) => {
+    console.log('====', fileLoc, '===')
+    console.log(text)
+    console.log('===========\n')
+  })
+})

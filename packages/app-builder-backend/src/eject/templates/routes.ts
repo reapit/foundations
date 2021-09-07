@@ -1,0 +1,29 @@
+import { Pages } from '../types'
+import { slugToCamel, lint } from './format'
+import { js } from './js'
+
+export const generateRoutes = (pages: Pages) =>
+  lint(js`
+    import { Router, Route } from 'react-router-dom'
+    ${pages.map(
+      (page) => js`
+      import ${slugToCamel(page.id === '~' ? 'index' : page.id)} from '${page.fileLoc.replace('src', '.')}'
+    `,
+    )}
+
+    const Routes = () => (
+      <Router>
+          ${pages.map(
+            (page) => js`
+              <Route
+                ${page.id === '~' ? 'exact' : ''}
+                path="${page.id === '~' ? '/' : page.id}"
+                component={${slugToCamel(page.id === '~' ? 'index' : page.id)}}
+              />
+            `,
+          )}
+      </Router>
+    )
+    
+    export default Routes
+  `)

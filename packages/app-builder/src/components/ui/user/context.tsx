@@ -1,4 +1,4 @@
-import { usePageId } from '@/core/usePageId'
+import { usePageId } from '@/components/hooks/use-page-id'
 import React from 'react'
 
 const Context = () => {

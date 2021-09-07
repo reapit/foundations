@@ -1,19 +1,13 @@
-import qs from 'query-string'
 import { useEditor } from '@craftjs/core'
 import React from 'react'
-import { Link as RRLink } from 'react-router-dom'
 import { ToolbarItem, ToolbarItemType, ToolbarSection } from '../toolbar'
-import Container, { ContainerProps } from './container'
-import { usePageId } from '@/core/usePageId'
+import Container from './container'
+import { usePageId } from '@/components/hooks/use-page-id'
 import { useApp } from '@/components/hooks/apps/use-app'
+import { LinkProps, Link as ELink } from './ejectable/link'
 
 const defaultProps = {
   destination: '/',
-}
-
-interface LinkProps extends ContainerProps {
-  destination?: string
-  context?: { [key: string]: any }
 }
 
 const Link = (props: LinkProps) => {
@@ -21,24 +15,7 @@ const Link = (props: LinkProps) => {
     enabled: state.options.enabled,
   }))
 
-  return (
-    <RRLink
-      to={{
-        pathname: props.destination,
-        search: props.context ? qs.stringify(props.context) : '',
-      }}
-      onClick={
-        enabled
-          ? (e) => {
-              e.preventDefault()
-              return false
-            }
-          : undefined
-      }
-    >
-      <Container {...props} />
-    </RRLink>
-  )
+  return <ELink {...props} disabled={!enabled} />
 }
 
 const ContainerSettings = Container.craft.related.toolbar
