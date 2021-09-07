@@ -1,5 +1,5 @@
 import * as React from 'react'
-import { useLocation } from 'react-router'
+import { useHistory, useLocation } from 'react-router'
 import ErrorBoundary from '@/components/hocs/error-boundary'
 import Routes from '@/constants/routes'
 import { IFRAME_URLS } from '@/constants/iframe-urls'
@@ -8,15 +8,18 @@ import {
   Button,
   elHFull,
   elMb5,
+  elMb9,
   FlexContainer,
   Icon,
   PageContainer,
+  SecondaryNav,
   SecondaryNavContainer,
+  SecondaryNavItem,
   Subtitle,
   Title,
 } from '@reapit/elements'
 import { iframeWrapper } from './__styles__/index'
-import { openNewPage, ExternalPages } from '../../../utils/navigation'
+import { openNewPage, ExternalPages, navigate } from '../../../utils/navigation'
 
 export const parseIframeUrl = (pathname: string, hash: string): string => {
   const documentPagePath = pathname.split(Routes.API_DOCS)[1]
@@ -25,11 +28,30 @@ export const parseIframeUrl = (pathname: string, hash: string): string => {
 
 const ApiDocsPage: React.FC = () => {
   const location = useLocation()
+  const history = useHistory()
+  const { pathname } = location
+  const isDevEnv = window.reapit.config.appEnv !== 'production' // Feature flagging until prod is ready
+  const isDocsPage = pathname.includes(Routes.API_DOCS)
+  const isSchemaPage = pathname.includes(Routes.ANALYTICS_SCHEMA_DOCS)
+  const iframeUri = isDocsPage
+    ? `${IFRAME_URLS.documentation}${parseIframeUrl(location.pathname, location.hash)}`
+    : window.reapit.config.analyticsSchemaDocsUrl
+
   return (
     <ErrorBoundary>
       <FlexContainer isFlexAuto>
         <SecondaryNavContainer>
           <Title>Docs</Title>
+          {isDevEnv && (
+            <SecondaryNav className={elMb9}>
+              <SecondaryNavItem onClick={navigate(history, Routes.API_DOCS)} active={isDocsPage}>
+                API Docs
+              </SecondaryNavItem>
+              <SecondaryNavItem onClick={navigate(history, Routes.ANALYTICS_SCHEMA_DOCS)} active={isSchemaPage}>
+                Schema Docs
+              </SecondaryNavItem>
+            </SecondaryNav>
+          )}
           <Icon className={elMb5} icon="apiDocsInfographic" iconSize="large" />
           <Subtitle>Welcome</Subtitle>
           <BodyText hasGreyText>
@@ -43,17 +65,24 @@ const ApiDocsPage: React.FC = () => {
           <Button className={elMb5} intent="neutral" onClick={openNewPage(ExternalPages.github)}>
             Go to Github
           </Button>
-          <Button className={elMb5} intent="critical" onClick={openNewPage(ExternalPages.baseDocs)}>
-            Open New
-          </Button>
+          {isDocsPage && (
+            <Button className={elMb5} intent="critical" onClick={openNewPage(ExternalPages.baseDocs)}>
+              Open New
+            </Button>
+          )}
+          {isSchemaPage && isDevEnv && (
+            <Button
+              className={elMb5}
+              intent="critical"
+              onClick={openNewPage(window.reapit.config.analyticsSchemaDocsUrl)}
+            >
+              Open New
+            </Button>
+          )}
         </SecondaryNavContainer>
         <PageContainer className={elHFull}>
-          <Title>API Docs</Title>
-          <iframe
-            className={iframeWrapper}
-            frameBorder="0"
-            src={`${IFRAME_URLS.documentation}${parseIframeUrl(location.pathname, location.hash)}`}
-          />
+          <Title>{isDocsPage ? 'API Docs' : 'Analytics Schema Docs'}</Title>
+          <iframe className={iframeWrapper} frameBorder="0" src={iframeUri} />
         </PageContainer>
       </FlexContainer>
     </ErrorBoundary>

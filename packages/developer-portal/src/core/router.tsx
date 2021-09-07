@@ -63,6 +63,7 @@ const Router = () => {
                 <PrivateRoute path={Routes.APP_DETAIL} component={AppDetail} exact fetcher />
                 <PrivateRoute path={Routes.APPS_EDIT} component={EditApp} exact fetcher />
                 <PrivateRoute path={Routes.API_DOCS} component={ApiDocsPage} />
+                <PrivateRoute path={Routes.ANALYTICS_SCHEMA_DOCS} component={ApiDocsPage} />
                 <PrivateRoute path={Routes.WEBHOOKS} fetcher component={WebhooksPage} />
                 <PrivateRoute path={Routes.SWAGGER} exact component={SwaggerPage} />
                 <PrivateRoute path={Routes.DESKTOP} exact component={DesktopPage} fetcher />
