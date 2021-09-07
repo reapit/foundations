@@ -3,6 +3,7 @@
   "dependencies": {
     "@aws-cdk/aws-route53": "^1.117.0",
     "@aws-cdk/core": "^1.117.0",
+    "@aws-sdk/client-cloudfront": "^3.29.0",
     "@homeservenow/serverless-aws-handler": "^0.2.4",
     "@reapit/api-key-verify": "workspace:packages/api-key-verify",
     "@reapit/connect-session": "workspace:packages/connect-session",

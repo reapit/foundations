@@ -34,6 +34,8 @@ export const pipelineCreate = httpHandler<PipelineDto, PipelineEntity>({
         })
       : new PipelineDto()
 
+    // TODO start cloudformation creation
+
     return service.createPipelineEntity(dto)
   },
 })
