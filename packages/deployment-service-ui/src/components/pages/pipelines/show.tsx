@@ -185,7 +185,7 @@ const DeploymentTable = ({
     <Table rows={pipelineRunnerMapped} expandableContentSize="large" />
   ) : (
     <PersistantNotification intent="secondary" isExpanded isInline isFullWidth>
-      No pipleline runs found
+      No deployments found
     </PersistantNotification>
   )
 }
