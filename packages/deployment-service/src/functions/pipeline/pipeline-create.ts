@@ -5,7 +5,8 @@ import * as service from './../../services/pipeline'
 import { plainToClass } from 'class-transformer'
 import { validate } from 'class-validator'
 import { resolveCreds } from '../../utils'
-import { defaultOutputHeaders } from '../../constants'
+import { defaultOutputHeaders, QueueNames } from '../../constants'
+import { sqs } from '../../services'
 
 /**
  * Create a deployment pipeline configuration
@@ -34,8 +35,23 @@ export const pipelineCreate = httpHandler<PipelineDto, PipelineEntity>({
         })
       : new PipelineDto()
 
-    // TODO start cloudformation creation
+    const pipeline = await service.createPipelineEntity(dto)
 
-    return service.createPipelineEntity(dto)
+    await new Promise<void>((resolve, reject) =>
+      sqs.sendMessage(
+        {
+          MessageBody: JSON.stringify(pipeline),
+          QueueUrl: QueueNames.PIPELINE_SETUP,
+        },
+        (error) => {
+          if (error) {
+            reject(error)
+          }
+          resolve()
+        },
+      ),
+    )
+
+    return pipeline
   },
 })
