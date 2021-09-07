@@ -3,7 +3,7 @@ import { CodeBuild } from 'aws-sdk'
 export const taskFunctionToFriendlyName = (functionName: CodeBuild.BuildPhaseType): string => {
   switch (functionName) {
     case 'INSTALL':
-      return 'install'
+      return 'Install'
     case 'BUILD':
       return 'Build'
     case 'DOWNLOAD_SOURCE':
