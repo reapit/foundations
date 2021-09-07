@@ -96,7 +96,11 @@ export class PipelineEntity extends AbstractEntity implements PipelineModelInter
   buildStatus?: CodeBuild.StatusType = 'CREATING_ARCHITECTURE'
 
   get uniqueRepoName(): string {
-    return `${this.developerId}/${this.repository?.split('/').pop()}`
+    return `${this.developerId}/${this.subDomain}`
+  }
+
+  get subDomain(): string | undefined {
+    return this.repository?.split('/').pop()
   }
 }
 
