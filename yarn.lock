@@ -1590,6 +1590,50 @@ __metadata:
   languageName: node
   linkType: hard
 
+"@aws-sdk/client-route-53@npm:^3.29.0":
+  version: 3.29.0
+  resolution: "@aws-sdk/client-route-53@npm:3.29.0"
+  dependencies:
+    "@aws-crypto/sha256-browser": ^1.0.0
+    "@aws-crypto/sha256-js": ^1.0.0
+    "@aws-sdk/client-sts": 3.29.0
+    "@aws-sdk/config-resolver": 3.29.0
+    "@aws-sdk/credential-provider-node": 3.29.0
+    "@aws-sdk/fetch-http-handler": 3.29.0
+    "@aws-sdk/hash-node": 3.29.0
+    "@aws-sdk/invalid-dependency": 3.29.0
+    "@aws-sdk/middleware-content-length": 3.29.0
+    "@aws-sdk/middleware-host-header": 3.29.0
+    "@aws-sdk/middleware-logger": 3.29.0
+    "@aws-sdk/middleware-retry": 3.29.0
+    "@aws-sdk/middleware-sdk-route53": 3.29.0
+    "@aws-sdk/middleware-serde": 3.29.0
+    "@aws-sdk/middleware-signing": 3.29.0
+    "@aws-sdk/middleware-stack": 3.29.0
+    "@aws-sdk/middleware-user-agent": 3.29.0
+    "@aws-sdk/node-config-provider": 3.29.0
+    "@aws-sdk/node-http-handler": 3.29.0
+    "@aws-sdk/protocol-http": 3.29.0
+    "@aws-sdk/smithy-client": 3.29.0
+    "@aws-sdk/types": 3.29.0
+    "@aws-sdk/url-parser": 3.29.0
+    "@aws-sdk/util-base64-browser": 3.29.0
+    "@aws-sdk/util-base64-node": 3.29.0
+    "@aws-sdk/util-body-length-browser": 3.29.0
+    "@aws-sdk/util-body-length-node": 3.29.0
+    "@aws-sdk/util-user-agent-browser": 3.29.0
+    "@aws-sdk/util-user-agent-node": 3.29.0
+    "@aws-sdk/util-utf8-browser": 3.29.0
+    "@aws-sdk/util-utf8-node": 3.29.0
+    "@aws-sdk/util-waiter": 3.29.0
+    "@aws-sdk/xml-builder": 3.29.0
+    entities: 2.2.0
+    fast-xml-parser: 3.19.0
+    tslib: ^2.3.0
+  checksum: b35e983ed45a72a263e5f623fc3a4c04a878e23d97cdc4dbe41bc9c5e00e96f56ba30721198a552da61667ccc424c0017af68e7f910b6c28e029cba64f4b3604
+  languageName: node
+  linkType: hard
+
 "@aws-sdk/client-sso@npm:3.27.0":
   version: 3.27.0
   resolution: "@aws-sdk/client-sso@npm:3.27.0"
@@ -2158,6 +2202,16 @@ __metadata:
     tslib: ^2.3.0
     uuid: ^8.3.2
   checksum: 2fdb9f0629117fb50ad64095638bfff52affc50fb999941d95a1357864022199a769d2fe13e19f35604171c98cdfa7205e752db6933bbfb3d5cf84218c47d9b3
+  languageName: node
+  linkType: hard
+
+"@aws-sdk/middleware-sdk-route53@npm:3.29.0":
+  version: 3.29.0
+  resolution: "@aws-sdk/middleware-sdk-route53@npm:3.29.0"
+  dependencies:
+    "@aws-sdk/types": 3.29.0
+    tslib: ^2.3.0
+  checksum: bcfaf880ee35d15414ff0cfdbe2fa2f11435f6ab71b4bbf438726ef750bb433cd5a60db9f9c9cb85e444c69f7248360e6ce87671179d3ba545e8940e98bc758d
   languageName: node
   linkType: hard
 
@@ -19419,6 +19473,7 @@ __metadata:
     "@aws-cdk/aws-route53": ^1.117.0
     "@aws-cdk/core": ^1.117.0
     "@aws-sdk/client-cloudfront": ^3.29.0
+    "@aws-sdk/client-route-53": ^3.29.0
     "@homeservenow/serverless-aws-handler": ^0.2.4
     "@reapit/api-key-verify": "workspace:packages/api-key-verify"
     "@reapit/config-manager": "workspace:packages/config-manager"
