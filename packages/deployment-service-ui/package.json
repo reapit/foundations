@@ -36,6 +36,7 @@
     "react-ga": "^2.7.0",
     "react-router": "^5.2.0",
     "react-router-dom": "^5.2.0",
+    "react-timer-hook": "^3.0.4",
     "shleemy": "^1.2.2",
     "snyk": "^1.662.0",
     "yup": "^0.29.3"

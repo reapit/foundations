@@ -18753,6 +18753,7 @@ __metadata:
     react-ga: ^2.7.0
     react-router: ^5.2.0
     react-router-dom: ^5.2.0
+    react-timer-hook: ^3.0.4
     rimraf: ^3.0.2
     serverless: ^2.52.0
     serverless-s3-deploy: ^0.10.1
@@ -23494,7 +23495,7 @@ fsevents@^1.2.7:
     serverless-deployment-bucket: ^1.5.1
     serverless-offline: ^7.0.0
     serverless-webpack: ^5.5.1
-    tslib: 2.3.0
+    tslib: 2.3.1
     uuid: ^3.4.0
     vue: ^2.6.14
     webpack: ^5.45.1
@@ -34771,6 +34772,16 @@ fsevents@^1.2.7:
   languageName: node
   linkType: hard
 
+"react-timer-hook@npm:^3.0.4":
+  version: 3.0.4
+  resolution: "react-timer-hook@npm:3.0.4"
+  peerDependencies:
+    react: ">=16.8.0"
+    react-dom: ">=16.8.0"
+  checksum: 9f5c846b47527ec884c8f5a64cea8e220b3871051ea73163e13f76bb64eead2a138bc661aaa5b56933ce5a6b69b1f7a51d35989dee3dbd78280bfef3c6887b29
+  languageName: node
+  linkType: hard
+
 "react-to-print@npm:^2.12.6":
   version: 2.12.6
   resolution: "react-to-print@npm:2.12.6"
@@ -40541,10 +40552,10 @@ resolve@^2.0.0-next.3:
   languageName: node
   linkType: hard
 
-"tslib@npm:2.3.0, tslib@npm:^2.0.0, tslib@npm:^2.0.1, tslib@npm:^2.0.3, tslib@npm:^2.1.0, tslib@npm:^2.3.0, tslib@npm:~2.3.0":
-  version: 2.3.0
-  resolution: "tslib@npm:2.3.0"
-  checksum: 7b4fc9feff0f704743c3760f5d8d708f6417fac6458159e63df3a6b1100f0736e3b99edb9fe370f274ad15160a1f49ff05cb49402534c818ff552c48e38c3e6e
+"tslib@npm:2.3.1":
+  version: 2.3.1
+  resolution: "tslib@npm:2.3.1"
+  checksum: 5ae2f209c5127bad284974c78916f02c72082615f65889a7ed0c7ca6d5f935c30338a0ee7310e1d9652dabc7b7507fd2905035487446d09d45fc1f19de71cf05
   languageName: node
   linkType: hard
 
@@ -40552,6 +40563,13 @@ resolve@^2.0.0-next.3:
   version: 1.14.1
   resolution: "tslib@npm:1.14.1"
   checksum: f44fe7f216946b17d3e3074df3746372703cf24e9127b4c045511456e8e4bf25515fb0a1bb3937676cc305651c5d4fcb6377b0588a4c6a957e748c4c28905d17
+  languageName: node
+  linkType: hard
+
+"tslib@npm:^2.0.0, tslib@npm:^2.0.1, tslib@npm:^2.0.3, tslib@npm:^2.1.0, tslib@npm:^2.3.0, tslib@npm:~2.3.0":
+  version: 2.3.0
+  resolution: "tslib@npm:2.3.0"
+  checksum: 7b4fc9feff0f704743c3760f5d8d708f6417fac6458159e63df3a6b1100f0736e3b99edb9fe370f274ad15160a1f49ff05cb49402534c818ff552c48e38c3e6e
   languageName: node
   linkType: hard
 
