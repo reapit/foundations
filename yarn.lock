@@ -11870,6 +11870,13 @@ __metadata:
   languageName: node
   linkType: hard
 
+"@types/project-name-generator@npm:^2.1.1":
+  version: 2.1.1
+  resolution: "@types/project-name-generator@npm:2.1.1"
+  checksum: 8074f0d6ea673ee6b508d93c21d213757b38bc94ff586bed76549c69a0ba700833e677d5c64b61eb710388eaf6f20a320ff90c39886bfb75766a4d78aa02268f
+  languageName: node
+  linkType: hard
+
 "@types/prop-types@npm:*":
   version: 15.7.3
   resolution: "@types/prop-types@npm:15.7.3"
@@ -17619,7 +17626,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"commander@npm:^6.2.1":
+"commander@npm:^6.1.0, commander@npm:^6.2.1":
   version: 6.2.1
   resolution: "commander@npm:6.2.1"
   checksum: 47856aae6f194404122e359d8463e5e1a18f7cbab26722ce69f1379be8514bd49a160ef81a983d3d2091e3240022643354101d1276c797dcdd0b5bfc3c3f04a3
@@ -19481,6 +19488,7 @@ __metadata:
     "@reapit/ts-scripts": "workspace:packages/ts-scripts"
     "@reapit/ts-types": "workspace:packages/ts-types"
     "@reapit/utils": "workspace:packages/utils"
+    "@types/project-name-generator": ^2.1.1
     "@types/rimraf": ^3.0.1
     "@types/yaml": ^1.9.7
     "@typescript-eslint/eslint-plugin": ^4.28.4
@@ -19497,6 +19505,7 @@ __metadata:
     mysql: ^2.18.1
     nestjs-typeorm-paginate: ^2.5.3
     original-fs: ^1.1.0
+    project-name-generator: ^2.1.9
     pusher: ^5.0.0
     rimraf: ^3.0.2
     serverless: ^2.52.0
@@ -33935,6 +33944,18 @@ fsevents@^1.2.7:
   version: 2.0.3
   resolution: "progress@npm:2.0.3"
   checksum: c46ef5a1de4d527dfd32fe56a7df0c1c8b420a4c02617196813bf7f10ac7c2a929afc265d44fdd68f5c439a7e7cb3d70d569716c82d6b4148ec72089860a1312
+  languageName: node
+  linkType: hard
+
+"project-name-generator@npm:^2.1.9":
+  version: 2.1.9
+  resolution: "project-name-generator@npm:2.1.9"
+  dependencies:
+    commander: ^6.1.0
+    lodash: ^4.17.20
+  bin:
+    project-name-generator: src/generator-bin.js
+  checksum: b2a1c29dd015d0e0801eae566de84803503a1ee42d936dc6e64e70dd3a5678a4479b0ec942445c0775e3c8a4fd633696961a37103fea714022f9a8905083681e
   languageName: node
   linkType: hard
 
