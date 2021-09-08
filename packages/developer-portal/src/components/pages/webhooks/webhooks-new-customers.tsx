@@ -1,27 +1,18 @@
 import { Grid, elMb11, BodyText, Subtitle, ColSplit, MultiSelectInput, Loader, elMb7 } from '@reapit/elements'
-import React, { FC, useEffect, useMemo } from 'react'
-import { useDispatch, useSelector } from 'react-redux'
-import { requestWebhookSubcriptionData } from '../../../actions/webhooks-subscriptions'
-import { Dispatch as ReduxDispatch } from 'redux'
+import React, { FC, useMemo } from 'react'
+import { useSelector } from 'react-redux'
 import { selectCustomers, selectLoading } from '../../../selector/webhooks-subscriptions'
-import { UseFormGetValues, UseFormRegister } from 'react-hook-form'
+import { UseFormRegister } from 'react-hook-form'
 import { InstallationModel } from '@reapit/foundations-ts-definitions'
 import { CreateWebhookFormSchema } from './webhooks-new'
 
 interface WebhooksNewCustomersProps {
   register: UseFormRegister<CreateWebhookFormSchema>
-  getValues: UseFormGetValues<CreateWebhookFormSchema>
 }
 
 export const SANDBOX_CLIENT = {
   name: 'Sandbox Estates',
   value: 'SBOX',
-}
-
-export const handleFetchSubscriptions = (dispatch: ReduxDispatch, applicationId?: string) => () => {
-  if (!applicationId) return
-
-  dispatch(requestWebhookSubcriptionData(applicationId))
 }
 
 export const handleCustomersToOptions = (installations: InstallationModel[]) => () => {
@@ -42,15 +33,10 @@ export const handleCustomersToOptions = (installations: InstallationModel[]) => 
   return uniqueCustomers
 }
 
-export const WebhooksNewCustomers: FC<WebhooksNewCustomersProps> = ({ register, getValues }) => {
-  const dispatch = useDispatch()
+export const WebhooksNewCustomers: FC<WebhooksNewCustomersProps> = ({ register }) => {
   const customers = useSelector(selectCustomers)
   const isLoading = useSelector(selectLoading)
   const customerOptions = useMemo(handleCustomersToOptions(customers), [customers])
-
-  const { applicationId } = getValues()
-
-  useEffect(handleFetchSubscriptions(dispatch, applicationId), [applicationId])
 
   return (
     <Grid>

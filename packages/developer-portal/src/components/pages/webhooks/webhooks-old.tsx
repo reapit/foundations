@@ -31,7 +31,7 @@ import { useHistory } from 'react-router-dom'
 import { TopicModel, WebhookModel } from '@/services/webhooks'
 import { URLS } from '@/services/constants'
 import FadeIn from '../../../styles/fade-in'
-import { WebhooksLogsTable } from './webhook-logs-table'
+import { WebhooksLogs } from './webhooks-logs'
 import {
   BodyText,
   Button,
@@ -54,6 +54,7 @@ import { navigate, openNewPage, ExternalPages } from '../../../utils/navigation'
 import { fetchAppList } from '../../../actions/apps'
 import { FetchAppListParams } from '../../../reducers/apps/app-list'
 import { GET_ALL_PAGE_SIZE } from '../../../constants/paginator'
+import { WebhookQueryParams } from './webhooks'
 
 export const WEBHOOK_PAGE_SIZE = 5
 
@@ -334,7 +335,7 @@ export const DeveloperWebhooks = () => {
                 totalCount={totalCount ?? 0}
               />
             </Section>
-            <WebhooksLogsTable applicationOptions={applicationOptions} />
+            <WebhooksLogs webhookQueryParams={{} as WebhookQueryParams} />
           </FadeIn>
           {isShowDetailModal && (
             <WebhookEditModal

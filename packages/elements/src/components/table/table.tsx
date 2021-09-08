@@ -13,17 +13,6 @@ import {
 } from './molecules'
 import { Intent } from '../../helpers/intent'
 
-const getHeadersFromRows = (rows: Row[]): string[] => {
-  const headers = new Set()
-  rows.forEach((row) =>
-    row.cells.forEach((cell) => {
-      // add all labels and the set will ensure uniqueness
-      headers.add(cell.label)
-    }),
-  )
-  return Array.from(headers) as string[]
-}
-
 export type NarrowOptionsType = {
   showLabel?: boolean
   isFullWidth?: boolean
@@ -35,6 +24,7 @@ export type Cell = {
   value: string
   children?: ReactNode
   icon?: IconNames
+  className?: string
   statusCircleIntent?: Intent
   cellHasDarkText?: boolean
   narrowTable?: NarrowOptionsType
@@ -42,16 +32,25 @@ export type Cell = {
 
 export type Row = {
   cells: Cell[]
-  expandableContent?: ReactNode
+  expandableContent?: {
+    content?: ReactNode
+    cellContent?: ReactNode
+    headerContent?: ReactNode
+    isCallToAction?: boolean
+    onClick?: () => void
+    className?: string
+  }
 }
 
 export interface TableProps extends HTMLAttributes<HTMLDivElement> {
   rows?: Row[]
+  numberColumns?: number
   expandableContentSize?: 'small' | 'medium' | 'large'
 }
 
-export const Table: FC<TableProps> = ({ rows, children, expandableContentSize, ...rest }) => {
-  if (!rows)
+export const Table: FC<TableProps> = ({ rows, children, numberColumns, expandableContentSize, ...rest }) => {
+  const firstRow = rows?.[0]
+  if (!rows || !firstRow)
     return (
       <ElTable data-expandable-content-size={expandableContentSize} {...rest}>
         {children}
@@ -59,9 +58,8 @@ export const Table: FC<TableProps> = ({ rows, children, expandableContentSize, .
     )
 
   const [expandedRow, setExpandedRow] = useState<false | number>(false)
-
-  const headers = getHeadersFromRows(rows)
-  const hasExpandableRows = rows.some((row) => !!row.expandableContent)
+  const hasExpandableRows = rows.some((row) => Boolean(row.expandableContent))
+  const hasCallToAction = rows.some((row) => Boolean(row.expandableContent?.isCallToAction))
   const toggleExpandedRow = (index: number) => {
     expandedRow === index ? setExpandedRow(false) : setExpandedRow(index)
   }
@@ -69,17 +67,32 @@ export const Table: FC<TableProps> = ({ rows, children, expandableContentSize, .
   return (
     <ElTable
       {...rest}
-      data-num-columns-excl-expandable-row-trigger-col={hasExpandableRows ? headers.length : undefined}
+      data-num-columns-excl-expandable-row-trigger-col={
+        hasExpandableRows && numberColumns
+          ? numberColumns - 1
+          : numberColumns
+          ? numberColumns - 1
+          : hasExpandableRows
+          ? firstRow.cells.length
+          : undefined
+      }
       data-has-expandable-action={hasExpandableRows}
+      data-has-call-to-action={hasCallToAction}
       data-expandable-content-size={expandableContentSize}
     >
       <TableHeadersRow>
-        {headers.map((header) => (
-          <TableHeader key={header}>{header}</TableHeader>
+        {firstRow.cells.map((cell) => (
+          <TableHeader className={cell.className} key={cell.label}>
+            {cell.label}
+          </TableHeader>
         ))}
         {hasExpandableRows && (
           <TableHeader>
-            <Icon icon="editSolidSystem" fontSize="1.2rem" />
+            {firstRow.expandableContent?.headerContent ? (
+              <>{firstRow.expandableContent?.headerContent}</>
+            ) : (
+              <Icon icon="settingsSystem" fontSize="1.2rem" />
+            )}
           </TableHeader>
         )}
       </TableHeadersRow>
@@ -88,13 +101,13 @@ export const Table: FC<TableProps> = ({ rows, children, expandableContentSize, .
         return (
           <TableRowContainer key={index} isOpen={expandableRowIsOpen}>
             <TableRow>
-              {headers.map((header, headerIndex) => {
-                const cell = row.cells.find((c) => c.label === header)
+              {row.cells.map((cell, cellIndex) => {
                 if (!cell) return <TableCell />
 
                 return (
                   <TableCell
-                    key={`${headerIndex}-${index}`}
+                    className={cell.className}
+                    key={`${cellIndex}-${index}`}
                     icon={cell.icon}
                     darkText={cell.cellHasDarkText}
                     narrowLabel={cell.narrowTable?.showLabel ? cell.label : undefined}
@@ -106,11 +119,19 @@ export const Table: FC<TableProps> = ({ rows, children, expandableContentSize, .
                 )
               })}
               {row.expandableContent && (
-                <TableExpandableRowTriggerCell isOpen={expandableRowIsOpen} onClick={() => toggleExpandedRow(index)} />
+                <TableExpandableRowTriggerCell
+                  className={row.expandableContent.className}
+                  isOpen={expandableRowIsOpen}
+                  onClick={
+                    row.expandableContent.onClick ? row.expandableContent.onClick : () => toggleExpandedRow(index)
+                  }
+                >
+                  {row.expandableContent.cellContent}
+                </TableExpandableRowTriggerCell>
               )}
             </TableRow>
-            {row.expandableContent && (
-              <TableExpandableRow isOpen={expandableRowIsOpen}>{row.expandableContent}</TableExpandableRow>
+            {row.expandableContent && row.expandableContent.content && (
+              <TableExpandableRow isOpen={expandableRowIsOpen}>{row.expandableContent.content}</TableExpandableRow>
             )}
           </TableRowContainer>
         )

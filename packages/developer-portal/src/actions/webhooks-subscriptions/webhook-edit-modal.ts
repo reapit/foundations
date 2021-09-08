@@ -1,6 +1,10 @@
 import { actionCreator } from '@/utils/actions'
 import ActionTypes from '@/constants/action-types'
-import { WebhookModal, WebhookSubscription } from '@/reducers/webhooks-subscriptions/webhook-edit-modal'
+import {
+  WebhookCreateEditState,
+  WebhookModal,
+  WebhookSubscription,
+} from '@/reducers/webhooks-subscriptions/webhook-edit-modal'
 
 export interface SubscriptionCustomersRequestParams {
   AppId: string
@@ -65,3 +69,6 @@ export const requestWebhookReceiveData = actionCreator<WebhookModal>(ActionTypes
 export const requestWebhookReceiveDataFailure = actionCreator<void>(ActionTypes.WEBHOOK_RECEIVE_DATA_FAILURE)
 export const webhookDataClear = actionCreator<void>(ActionTypes.WEBHOOK_DATA_CLEAR)
 export const webhookSetOpenModal = actionCreator<string>(ActionTypes.WEBHOOK_SET_OPEN_MODAL)
+export const updateWebhookCreateEditState = actionCreator<WebhookCreateEditState>(
+  ActionTypes.WEBHOOK_UPDATE_CREATE_EDIT_STATE,
+)

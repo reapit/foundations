@@ -5,7 +5,7 @@ import { Action } from '../../types/core'
 import errorMessages from '../../constants/error-messages'
 import { fetchWebhookLogsError, fetchWebhookLogsSuccess } from '../../actions/webhook-logs/webhook-logs'
 import { fetchWebhookLogsApi, fetchWebhooksTopicsListApi } from '../../services/webhooks'
-import { WebhookLogsQuery } from '../../components/pages/webhooks/webhook-logs-table'
+import { WebhookLogsQuery } from '../../components/pages/webhooks/webhooks-logs'
 
 export const fetchWebhookLogs = function* ({ data }: Action<WebhookLogsQuery>) {
   try {

@@ -1,4 +1,5 @@
 import { ReduxState } from '@/types/core'
+import { WebhookCreateEditState } from '../webhooks-subscriptions/webhook-edit-modal'
 
 const appState: ReduxState = {
   apps: {
@@ -135,6 +136,7 @@ const appState: ReduxState = {
     edit: {
       loading: false,
       modalType: '',
+      webhookCreateEditState: WebhookCreateEditState.INITIAL,
       subcriptionCustomers: {
         data: [],
         pageNumber: 0,

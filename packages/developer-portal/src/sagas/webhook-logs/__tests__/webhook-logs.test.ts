@@ -6,7 +6,7 @@ import { mockWebhookLogs, topics } from '../../__stubs__/webhooks'
 import { fetchWebhookLogsError, fetchWebhookLogsSuccess } from '../../../actions/webhook-logs/webhook-logs'
 import ActionTypes from '../../../constants/action-types'
 import { fetchWebhooksTopicsListApi, fetchWebhookLogsApi, TopicModel } from '../../../services/webhooks'
-import { WebhookLogsQuery } from '../../../components/pages/webhooks/webhook-logs-table'
+import { WebhookLogsQuery } from '../../../components/pages/webhooks/webhooks-logs'
 
 jest.mock('../../../services/webhooks')
 jest.mock('@reapit/elements')

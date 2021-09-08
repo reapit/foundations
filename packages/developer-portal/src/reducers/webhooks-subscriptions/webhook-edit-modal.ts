@@ -8,6 +8,7 @@ import {
   webhookSetOpenModal,
   requestWebhookSubcriptionData,
   requestWebhookData,
+  updateWebhookCreateEditState,
 } from '@/actions/webhooks-subscriptions'
 import { InstallationModelPagedResult } from '@reapit/foundations-ts-definitions'
 
@@ -43,6 +44,13 @@ export interface SubcriptionTopics {
   _links?: []
 }
 
+export enum WebhookCreateEditState {
+  'INITIAL',
+  'LOADING',
+  'SUCCESS',
+  'ERROR',
+}
+
 export interface WebhookSubscription {
   subcriptionCustomers: InstallationModelPagedResult
   subcriptionTopics: SubcriptionTopics
@@ -52,11 +60,13 @@ export type WebhookEditState = WebhookSubscription & {
   loading: boolean
   modalType: string
   webhookData: WebhookModal
+  webhookCreateEditState: WebhookCreateEditState
 }
 
 export const defaultState: WebhookEditState = {
   loading: false,
   modalType: '',
+  webhookCreateEditState: WebhookCreateEditState.INITIAL,
   subcriptionCustomers: {
     data: [],
     pageNumber: 0,
@@ -116,6 +126,13 @@ export const webhookEditReducer = (state: WebhookEditState = defaultState, actio
     return {
       ...state,
       modalType: action.data as any,
+    }
+  }
+
+  if (isType(action, updateWebhookCreateEditState)) {
+    return {
+      ...state,
+      webhookCreateEditState: action.data,
     }
   }
   return state

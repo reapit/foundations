@@ -3,10 +3,11 @@ import { Provider } from 'react-redux'
 import configureStore from 'redux-mock-store'
 import appState from '../../../../reducers/__stubs__/app-state'
 import { mount } from 'enzyme'
-import { handleDownloadPayload, handleFilterChange, WebhooksLogsTable } from '../webhook-logs-table'
+import { handleDownloadPayload, handleFilterChange, WebhooksLogs } from '../webhooks-logs'
 import { mockWebhookLogs, topics } from '../../../../sagas/__stubs__/webhooks'
 import { fetchWebhookLogs } from '../../../../actions/webhook-logs/webhook-logs'
 import FileSaver from 'file-saver'
+import { WebhookQueryParams } from '../webhooks'
 
 describe('WebhooksLogsTable', () => {
   it('should match a snapshot where there are logs', () => {
@@ -21,12 +22,11 @@ describe('WebhooksLogsTable', () => {
         },
       },
     })
-    const applicationOptions = [{ name: 'Some App Name', value: 'SOME_ID', label: 'Some label' }]
 
     expect(
       mount(
         <Provider store={store}>
-          <WebhooksLogsTable applicationOptions={applicationOptions} />
+          <WebhooksLogs webhookQueryParams={{} as WebhookQueryParams} />
         </Provider>,
       ),
     ).toMatchSnapshot()
@@ -34,18 +34,18 @@ describe('WebhooksLogsTable', () => {
 
   it('should handle filter changes', () => {
     const mockDispatch = jest.fn()
-    const curried = handleFilterChange(mockDispatch)
-    const mockFormValues = {
+    const curried = handleFilterChange(mockDispatch, {
       applicationId: 'SOME_ID',
-      to: new Date('2021-04-01'),
-      from: new Date('2021-03-01'),
-    }
+      to: '2021-04-01',
+      from: '2021-03-01',
+    } as WebhookQueryParams)
+
     const formatted = {
       applicationId: 'SOME_ID',
       to: '2021-04-01T00:00:00',
       from: '2021-03-01T00:00:00',
     }
-    curried(mockFormValues)
+    curried()
     expect(mockDispatch).toHaveBeenCalledWith(fetchWebhookLogs(formatted))
   })
 

@@ -1,5 +1,5 @@
-import React, { Dispatch, FC, SetStateAction, useState } from 'react'
-import { Button, Steps, ButtonGroup, ColSplit, Grid, elMlAuto } from '@reapit/elements'
+import React, { Dispatch, FC, SetStateAction, useEffect, useState } from 'react'
+import { Button, Steps, ButtonGroup, ColSplit, Grid, elMlAuto, useSnack } from '@reapit/elements'
 import { DeepMap, FieldError, useForm, UseFormGetValues, UseFormRegister, UseFormTrigger } from 'react-hook-form'
 import { WebhooksNewApp } from './webhooks-new-app'
 import { WebhooksNewUrl } from './webhooks-new-url'
@@ -7,11 +7,27 @@ import { WebhooksNewTopics } from './webhooks-new-topics'
 import { WebhooksNewCustomers } from './webhooks-new-customers'
 import { WebhooksNewStatus } from './webhooks-new-status'
 import { gridControlsMinHeight, StepContentContainer } from './__styles__'
-import { CreateWebhookParams } from '../../../actions/webhooks-subscriptions'
+import {
+  createWebhook,
+  CreateWebhookParams,
+  updateWebhookCreateEditState,
+} from '../../../actions/webhooks-subscriptions'
 import { yupResolver } from '@hookform/resolvers/yup'
 import { boolean, object, string } from 'yup'
 import errorMessages from '../../../constants/error-messages'
 import { httpsUrlRegex } from '@reapit/utils'
+import { Dispatch as ReduxDispatch } from 'redux'
+import { useDispatch, useSelector } from 'react-redux'
+import { WebhookCreateEditState } from '../../../reducers/webhooks-subscriptions/webhook-edit-modal'
+import { selectWebhookCreateEditState } from '../../../selector/webhooks-subscriptions'
+import { History } from 'history'
+import Routes from '../../../constants/routes'
+import { useHistory } from 'react-router'
+import { WebhookQueryParams } from './webhooks'
+
+export interface WebhooksNewProps {
+  webhookQueryParams: WebhookQueryParams
+}
 
 export interface CreateWebhookFormSchema {
   applicationId: string
@@ -69,7 +85,7 @@ export const handleSwitchStep =
     validateStep()
   }
 
-export const handleSubmitWebhook = () => (values: CreateWebhookFormSchema) => {
+export const handleSubmitWebhook = (dispatch: ReduxDispatch) => (values: CreateWebhookFormSchema) => {
   const { applicationId, url, topicIds, customerIds, ignoreEtagOnlyChanges, active } = values
   const createWebhookParams: CreateWebhookParams = {
     applicationId,
@@ -79,7 +95,8 @@ export const handleSubmitWebhook = () => (values: CreateWebhookFormSchema) => {
     ignoreEtagOnlyChanges,
     active,
   }
-  console.log('submitting', createWebhookParams)
+  dispatch(updateWebhookCreateEditState(WebhookCreateEditState.LOADING))
+  dispatch(createWebhook(createWebhookParams))
 }
 
 export const getStepContent = (
@@ -87,24 +104,47 @@ export const getStepContent = (
   register: UseFormRegister<CreateWebhookFormSchema>,
   getValues: UseFormGetValues<CreateWebhookFormSchema>,
   errors: DeepMap<CreateWebhookFormSchema, FieldError>,
+  webhookQueryParams: WebhookQueryParams,
 ) => {
   switch (step) {
     case '1':
-      return <WebhooksNewApp register={register} errors={errors} />
+      return <WebhooksNewApp register={register} errors={errors} webhookQueryParams={webhookQueryParams} />
     case '2':
       return <WebhooksNewUrl register={register} errors={errors} />
     case '3':
       return <WebhooksNewTopics register={register} getValues={getValues} />
     case '4':
-      return <WebhooksNewCustomers register={register} getValues={getValues} />
+      return <WebhooksNewCustomers register={register} />
     case '5':
       return <WebhooksNewStatus register={register} />
     default:
-      return <WebhooksNewApp register={register} errors={errors} />
+      return <WebhooksNewApp register={register} errors={errors} webhookQueryParams={webhookQueryParams} />
   }
 }
 
-export const WebhooksNew: FC = () => {
+export const handleWebhookCreation =
+  (
+    success: (text: string, timeout?: number | undefined) => void,
+    error: (text: string, timeout?: number | undefined) => void,
+    webhookCreateEditState: WebhookCreateEditState,
+    applicationId: string,
+    dispatch: ReduxDispatch,
+    history: History,
+  ) =>
+  () => {
+    if (webhookCreateEditState === WebhookCreateEditState.SUCCESS) {
+      success('Webhook was successfully created')
+      dispatch(updateWebhookCreateEditState(WebhookCreateEditState.INITIAL))
+      history.push(`${Routes.WEBHOOKS_MANAGE}?applicationId=${applicationId}`)
+    }
+
+    if (webhookCreateEditState === WebhookCreateEditState.ERROR) {
+      error('Webhook failed to correct, check the details supplied and try again')
+      dispatch(updateWebhookCreateEditState(WebhookCreateEditState.INITIAL))
+    }
+  }
+
+export const WebhooksNew: FC<WebhooksNewProps> = ({ webhookQueryParams }) => {
   const {
     register,
     getValues,
@@ -114,14 +154,25 @@ export const WebhooksNew: FC = () => {
   } = useForm<CreateWebhookFormSchema>({
     resolver: yupResolver(schema),
   })
+  const dispatch = useDispatch()
+  const history = useHistory()
+  const { success, error } = useSnack()
   const [selectedStep, setSelectedStep] = useState<string>('1')
+  const webhookCreateEditState = useSelector(selectWebhookCreateEditState)
   const currentStepIndex = steps.indexOf(selectedStep)
   const nextStep = currentStepIndex < 4 ? String(currentStepIndex + 2) : null
   const prevStep = currentStepIndex > 0 ? String(currentStepIndex) : null
+  const { applicationId } = getValues()
+
+  useEffect(handleWebhookCreation(success, error, webhookCreateEditState, applicationId, dispatch, history), [
+    webhookCreateEditState,
+  ])
 
   return (
-    <form onSubmit={handleSubmit(handleSubmitWebhook())}>
-      <StepContentContainer>{getStepContent(selectedStep, register, getValues, errors)}</StepContentContainer>
+    <form onSubmit={handleSubmit(handleSubmitWebhook(dispatch))}>
+      <StepContentContainer>
+        {getStepContent(selectedStep, register, getValues, errors, webhookQueryParams)}
+      </StepContentContainer>
       <Grid className={gridControlsMinHeight}>
         <ColSplit>
           <Steps steps={steps} selectedStep={selectedStep} onStepClick={setSelectedStep} />
@@ -149,7 +200,13 @@ export const WebhooksNew: FC = () => {
                 Next
               </Button>
             ) : (
-              <Button intent="critical" size={2} chevronRight type="submit">
+              <Button
+                intent="critical"
+                size={2}
+                chevronRight
+                type="submit"
+                disabled={webhookCreateEditState === WebhookCreateEditState.LOADING}
+              >
                 Create
               </Button>
             )}

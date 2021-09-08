@@ -30,7 +30,7 @@ The Snack component can be used for UI purposes only, but won't have the functio
 
 <Canvas>
   <Story name="With an icon">
-    <Snack icon="infoSystem">Message goes here</Snack>
+    <Snack icon="infoSolidSystem">Message goes here</Snack>
   </Story>
 </Canvas>
 
@@ -39,28 +39,28 @@ The Snack component can be used for UI purposes only, but won't have the functio
 ## With intents
 
 <Canvas>
-  <Story name="Intent: primary">
-    <Snack icon="infoSystem" intent="primary">
+  <Story name="Intent: Primary">
+    <Snack icon="infoSolidSystem" intent="primary">
       Primary message goes here
     </Snack>
   </Story>
-  <Story name="Intent: secondary">
-    <Snack intent="secondary" icon="infoSystem">
+  <Story name="Intent: Secondary">
+    <Snack intent="secondary" icon="infoSolidSystem">
       Secondary message goes here
     </Snack>
   </Story>
   <Story name="Intent: Critical">
-    <Snack intent="critical" icon="warningSystem">
+    <Snack intent="critical" icon="warningSolidSystem">
       Critical message goes here
     </Snack>
   </Story>
-  <Story name="Intent: success">
+  <Story name="Intent: Success">
     <Snack intent="success" icon="tickSystem">
       Success message goes here
     </Snack>
   </Story>
-  <Story name="Intent: danger">
-    <Snack intent="danger" icon="errorSystem">
+  <Story name="Intent: Danger">
+    <Snack intent="danger" icon="errorSolidSystem">
       Danger message goes here
     </Snack>
   </Story>
@@ -68,7 +68,7 @@ The Snack component can be used for UI purposes only, but won't have the functio
 
 <RenderHtmlMarkup
   component="Snack"
-  story={['Intent: primary', 'Intent: secondary', 'Intent: Critical', 'Intent: success', 'Intent: danger']}
+  story={['Intent: Primary', 'Intent: Secondary', 'Intent: Critical', 'Intent: Success', 'Intent: Danger']}
 />
 
 ## SnackHolder

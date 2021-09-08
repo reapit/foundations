@@ -3,7 +3,7 @@ import { URLS } from './constants'
 import { getPlatformHeaders, logger } from '@reapit/utils'
 import { FetchListCommonParams, FetchByIdCommonParams } from './types'
 import { reapitConnectBrowserSession } from '../core/connect-session'
-import { WebhookLogsQuery } from '../components/pages/webhooks/webhook-logs-table'
+import { WebhookLogsQuery } from '../components/pages/webhooks/webhooks-logs'
 
 // Manual defined Model
 

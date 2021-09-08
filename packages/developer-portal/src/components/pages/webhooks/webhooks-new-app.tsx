@@ -10,32 +10,21 @@ import {
   Select,
   Subtitle,
 } from '@reapit/elements'
-import React, { FC, useEffect } from 'react'
+import React, { FC } from 'react'
 import { DeepMap, FieldError, UseFormRegister } from 'react-hook-form'
-import { useDispatch, useSelector } from 'react-redux'
-import { Dispatch as ReduxDispatch } from 'redux'
+import { useSelector } from 'react-redux'
 import { selectAppListState } from '../../../selector/apps/app-list'
-import { fetchAppList } from '../../../actions/apps'
-import { GET_ALL_PAGE_SIZE } from '../../../constants/paginator'
-import { FetchAppListParams } from '../../../reducers/apps/app-list'
-import { AppSummaryModel } from '@reapit/foundations-ts-definitions'
 import { CreateWebhookFormSchema } from './webhooks-new'
+import { WebhookQueryParams } from './webhooks'
 
 interface WebhooksNewAppProps {
   register: UseFormRegister<CreateWebhookFormSchema>
   errors: DeepMap<CreateWebhookFormSchema, FieldError>
+  webhookQueryParams: WebhookQueryParams
 }
 
-export const handleFetchApps = (dispatch: ReduxDispatch, apps?: AppSummaryModel[], totalCount?: number) => () => {
-  if (apps?.length && totalCount === apps.length) return
-  dispatch(fetchAppList({ page: 1, appsPerPage: GET_ALL_PAGE_SIZE } as FetchAppListParams))
-}
-
-export const WebhooksNewApp: FC<WebhooksNewAppProps> = ({ register, errors }) => {
-  const dispatch = useDispatch()
-  const { data: apps, isLoading, totalCount } = useSelector(selectAppListState)
-
-  useEffect(handleFetchApps(dispatch, apps, totalCount), [totalCount, apps])
+export const WebhooksNewApp: FC<WebhooksNewAppProps> = ({ register, errors, webhookQueryParams }) => {
+  const { data: apps, isLoading } = useSelector(selectAppListState)
 
   const errorMessage = errors?.applicationId?.message
   return (
@@ -53,7 +42,7 @@ export const WebhooksNewApp: FC<WebhooksNewAppProps> = ({ register, errors }) =>
           <>
             <Subtitle>Plese select an app</Subtitle>
             <InputGroup>
-              <Select {...register('applicationId')}>
+              <Select {...register('applicationId')} defaultValue={webhookQueryParams.applicationId ?? ''}>
                 <option key="default-option" value="">
                   None selected
                 </option>
