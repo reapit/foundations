@@ -16,7 +16,15 @@ export interface FormProps extends ContainerProps {
   destination?: string
 }
 
-const SelectIDofType = ({ typeName, value, onChange }) => {
+const SelectIDofType = ({
+  typeName,
+  value,
+  onChange,
+}: {
+  typeName: string
+  value: React.SelectHTMLAttributes<HTMLSelectElement>['value']
+  onChange: React.ChangeEventHandler<HTMLSelectElement>
+}) => {
   const { data, loading } = useObjectList(typeName)
   if (data) {
     return (
@@ -49,7 +57,7 @@ export const Form = ({ typeName, destination, disabled, ...props }: FormProps & 
   useEffect(() => {
     if (data && args) {
       const dataCopy = {}
-      args[0].fields?.map((arg) => {
+      args[0].fields?.forEach((arg) => {
         const { name, idOfType } = arg
         if (data[name]) {
           dataCopy[name] = data[name]
@@ -63,7 +71,7 @@ export const Form = ({ typeName, destination, disabled, ...props }: FormProps & 
       })
       setFormState(dataCopy)
     }
-  }, [data])
+  }, [data, args])
 
   return (
     <Container {...props}>

@@ -4,10 +4,12 @@ import { js } from './js'
 
 export const generateRoutes = (pages: Pages) =>
   lint(js`
-    import { Router, Route } from 'react-router-dom'
+    import { BrowserRouter as Router, Route } from 'react-router-dom'
     ${pages.map(
       (page) => js`
-      import ${slugToCamel(page.id === '~' ? 'index' : page.id)} from '${page.fileLoc.replace('src', '.')}'
+      import ${slugToCamel(page.id === '~' ? 'index' : page.id)} from '${page.fileLoc
+        .replace('src', '.')
+        .replace('.tsx', '')}'
     `,
     )}
 

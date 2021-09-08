@@ -7,6 +7,8 @@ import { Context } from './types'
 import { ensureTables } from './ddb'
 import { AppResolver, defaultNodes } from './resolvers/app-resolver'
 import { ejectApp } from './eject'
+import { writeFile } from 'fs-extra'
+import { generateIndex } from './eject/templates'
 
 const start = async () => {
   console.log(await ensureTables())
@@ -42,10 +44,10 @@ ejectApp({
       })),
     },
   ],
-}).then((ejection) => {
-  ejection.forEach(({ fileLoc, text }) => {
-    console.log('====', fileLoc, '===')
-    console.log(text)
-    console.log('===========\n')
-  })
 })
+  .then((ejection) => {
+    return writeFile('output.zip', ejection)
+  })
+  .then(() => {
+    console.log('done')
+  })

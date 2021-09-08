@@ -1,11 +1,19 @@
 import fse from 'fs-extra'
 import path from 'path'
+import JSZip from 'jszip'
 
 import { Node, Page } from '../entities/page'
 import { App } from '../entities/app'
-import { generatePage } from './templates/page'
 import { Pages } from './types'
+
+import { generatePage } from './templates/page'
 import { generateRoutes } from './templates/routes'
+import { generateApp } from './templates/app'
+import { generateIndex } from './templates'
+import { generateIndexHtml } from './templates/indexHtml'
+import { generatePackageJson } from './templates/packageJson'
+import { generateTsconfigJson } from './templates/tsconfigJson'
+import { generateEslintrc } from './templates/eslintrc'
 
 const propsToAttributes = (props: Record<string, any>) =>
   Object.keys(props)
@@ -63,11 +71,11 @@ const generatePages = (app: App): Promise<Pages> =>
     }),
   )
 
-const getFiles = async (dir: string) => {
+const getFiles = async (dir: string, exclude: Array<string> = []) => {
   // get all files in folder
   const files = await fse.readdir(dir)
   // filter out files that are not .ts(x)
-  const tsxFiles = files.filter((file) => file.endsWith('.tsx') || file.endsWith('.ts'))
+  const tsxFiles = files.filter((file) => (file.endsWith('.tsx') || file.endsWith('.ts')) && !exclude.includes(file))
   // map to file paths
   const filePaths = tsxFiles.map((file) => `${dir}/${file}`)
   // map to file contents
@@ -86,28 +94,82 @@ const getComponentsAndHooks = async () => {
   const hooks = (
     await Promise.all([
       getFiles(`${appBuilderDir}/src/components/hooks`),
-      getFiles(`${appBuilderDir}/src/components/hooks/apps`),
+      getFiles(`${appBuilderDir}/src/components/hooks/apps`, [
+        'emptyState.ts',
+        'use-create-app.ts',
+        'node-helpers.ts',
+        'use-update-app.ts',
+      ]),
       getFiles(`${appBuilderDir}/src/components/hooks/objects`),
       getFiles(`${appBuilderDir}/src/components/hooks/use-introspection`),
     ])
   ).flat()
 
   return [...components, ...hooks].map((file) => ({
-    fileLoc: file.fileLoc.replace(`${appBuilderDir}/`, ''),
-    text: file.text,
+    fileLoc: file.fileLoc
+      .replace(`${appBuilderDir}/`, '') // remove app-builder root
+      .replace('ui/user/ejectable/', '') // move components to src/components
+      .replace('components/hooks', 'hooks'), // move hooks to src/hooks
+    text: file.text
+      .replaceAll('../../../hooks', '../hooks') // replace relative path to hooks
+      .replaceAll("import { styled } from '@linaria/react'", "import styled from 'styled-components'"),
   }))
+}
+
+const zipFiles = async (files: Array<{ fileLoc: string; text: string }>) => {
+  const zip = new JSZip()
+  files.forEach((file) => {
+    zip.file(file.fileLoc, file.text)
+  })
+  return zip.generateAsync({ type: 'nodebuffer' })
 }
 
 export const ejectApp = async (app: App) => {
   const pages = await generatePages(app)
   const routesText = await generateRoutes(pages)
+  const appFile = {
+    fileLoc: 'src/app.tsx',
+    text: await generateApp(),
+  }
 
   const routesFile = {
     text: routesText,
-    fileLoc: 'src/routes.ts',
+    fileLoc: 'src/router.tsx',
+  }
+  const indexFile = {
+    text: await generateIndex(),
+    fileLoc: 'src/index.tsx',
+  }
+  const indexHtml = {
+    text: generateIndexHtml(),
+    fileLoc: 'public/index.html',
+  }
+  const packageJson = {
+    text: generatePackageJson(app.name),
+    fileLoc: 'package.json',
+  }
+  const tsConfigJson = {
+    text: generateTsconfigJson(),
+    fileLoc: 'tsconfig.json',
+  }
+  const eslintRc = {
+    text: generateEslintrc(),
+    fileLoc: '.eslintrc',
   }
 
   const componentsAndHooks = await getComponentsAndHooks()
 
-  return [routesFile, ...pages, ...componentsAndHooks]
+  const files = [
+    routesFile,
+    ...pages,
+    ...componentsAndHooks,
+    appFile,
+    indexFile,
+    indexHtml,
+    packageJson,
+    tsConfigJson,
+    eslintRc,
+  ]
+
+  return zipFiles(files)
 }

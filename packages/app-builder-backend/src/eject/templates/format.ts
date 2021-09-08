@@ -16,5 +16,5 @@ export const lint = async (code: string): Promise<string> => {
     fix: true,
   })
   const fixed = await eslint.lintText(code)
-  return fixed[0].output || ''
+  return fixed[0].output || fixed[0].source || ''
 }

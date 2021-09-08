@@ -6998,6 +6998,7 @@ __metadata:
     "@reapit/ts-scripts": "workspace:packages/ts-scripts"
     "@reapit/ts-types": "workspace:packages/ts-types"
     "@types/fs-extra": ^9.0.12
+    "@types/jszip": ^3.4.1
     "@typescript-eslint/eslint-plugin": ^4.28.4
     "@typescript-eslint/parser": ^4.28.4
     apollo-server: ^3.1.1
@@ -7014,6 +7015,7 @@ __metadata:
     graphql-type-json: ^0.3.2
     jest: ^27.0.6
     jest-coverage-badges: ^1.1.2
+    jszip: ^3.7.1
     node-fetch: ^2.6.1
     reflect-metadata: ^0.1.13
     slugify: ^1.6.0
@@ -10982,6 +10984,15 @@ __metadata:
   dependencies:
     "@types/node": "*"
   checksum: 605ab698b007f04a1d1665b6af0dd31b0787c700c44dbca4474cebff6ae0e8435cc1166ae7d6895de3b6241f5a9ab62bea154ae5fdc7ac09cb13ab59dea4864d
+  languageName: node
+  linkType: hard
+
+"@types/jszip@npm:^3.4.1":
+  version: 3.4.1
+  resolution: "@types/jszip@npm:3.4.1"
+  dependencies:
+    jszip: "*"
+  checksum: 0406e7d49e027af22603f4ed0ff6f1f3010cc1bf084889af7de51a749f2c42d8c08c0715e53003a16198e28a692ca7aee78c8bba92269a83fd8ef52d9cf005a8
   languageName: node
   linkType: hard
 
@@ -27706,6 +27717,18 @@ fsevents@^1.2.7:
     array-includes: ^3.1.1
     object.assign: ^4.1.1
   checksum: 189ef9aed8dae620376a3f164c7aac9caaa906e6ecc460f175b3910dadc28f472f0e8c171c3355f9c6a1fc448282926f3f3e42da993880d5a9d57408c03ed85a
+  languageName: node
+  linkType: hard
+
+"jszip@npm:*, jszip@npm:^3.7.1":
+  version: 3.7.1
+  resolution: "jszip@npm:3.7.1"
+  dependencies:
+    lie: ~3.3.0
+    pako: ~1.0.2
+    readable-stream: ~2.3.6
+    set-immediate-shim: ~1.0.1
+  checksum: e5b3a57ef295ac198fbc4b2021906abdeb0192e07ebf05edad9b4941a31dfa6d4f9e994f354f1c8a4cdf4ed13bfdb28293009355f38acd84c258e374412367b6
   languageName: node
   linkType: hard
 
