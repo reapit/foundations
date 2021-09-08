@@ -182,6 +182,10 @@ provider:
       Action:
         - codebuild:StartBuild
       Resource: arn:aws:codebuild:eu-west-2:028446965111:project/test
+    - Effect: Allow
+      Action:
+        - cloudfront:CreateDistribution
+      Resource: "*"
 
 resources:
   Resources:
