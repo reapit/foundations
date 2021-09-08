@@ -231,10 +231,12 @@ resources:
       Type: AWS::SQS::Queue
       Properties:
         QueueName: CodebuildDeploy
+        VisibilityTimeout: 300
     PipelineSetup:
       Type: AWS::SQS::Queue
       Properties:
         QueueName: PipelineSetup
+        VisibilityTimeout: 300
 
 package:
   individually: true
