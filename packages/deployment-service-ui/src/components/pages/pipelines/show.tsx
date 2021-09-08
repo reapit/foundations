@@ -309,6 +309,8 @@ export default () => {
             />
             {tabIndex === 'details' ? (
               <>
+                <Label>Pipeline generated name</Label>
+                <BodyText>{pipeline?.subDomain}</BodyText>
                 <Label>Package Manager</Label>
                 <BodyText>{pipeline?.packageManager}</BodyText>
                 <Label>Build Command</Label>

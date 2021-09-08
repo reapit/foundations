@@ -13,6 +13,7 @@ export interface PipelineModelInterface {
   repository?: string
   outDir?: string
   buildStatus?: string
+  subDomain?: string
 }
 
 export interface PipelineRunnerModelInterface {
