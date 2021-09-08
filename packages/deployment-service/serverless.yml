@@ -80,7 +80,6 @@ provider:
         - s3:GetObjectAcl
         - s3:GetBucketLocation
         - s3:GetObjectRetention
-        - s3:GetObjectVerison
         - s3:GetObjectVersionAcl
         - s3:DeleteObject
         - s3:DeleteObjectVersion
@@ -95,7 +94,6 @@ provider:
         - s3:GetObjectAcl
         - s3:GetBucketLocation
         - s3:GetObjectRetention
-        - s3:GetObjectVerison
         - s3:GetObjectVersionAcl
         - s3:DeleteObject
         - s3:DeleteObjectVersion
@@ -110,7 +108,6 @@ provider:
         - s3:GetObjectAcl
         - s3:GetBucketLocation
         - s3:GetObjectRetention
-        - s3:GetObjectVerison
         - s3:GetObjectVersionAcl
         - s3:DeleteObject
         - s3:DeleteObjectVersion
@@ -125,7 +122,6 @@ provider:
         - s3:GetObjectAcl
         - s3:GetBucketLocation
         - s3:GetObjectRetention
-        - s3:GetObjectVerison
         - s3:GetObjectVersionAcl
         - s3:DeleteObject
         - s3:DeleteObjectVersion
