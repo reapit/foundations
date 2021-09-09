@@ -129,9 +129,6 @@ export const pipelineSetup: SQSHandler = async (event: SQSEvent, context: Contex
         console.error(e)
         throw e
       } finally {
-        // TODO save distro id + r53 id to pipeline
-        // Update status to read for deployment
-
         await new Promise<void>((resolve, reject) =>
           sqs.deleteMessage(
             {
@@ -178,6 +175,6 @@ export const pipelineSetup: SQSHandler = async (event: SQSEvent, context: Contex
 // }, {} as Context, () => {})
 
 // TODO list
-// bucket needs to be static website
-// bucket policy needs to be set, use webapp.serverless s3 policy
-// files need content type headers set in S3
+// [ ] bucket needs to be static website
+// [ ] bucket policy needs to be set, use webapp.serverless s3 policy
+// [x] files need content type headers set in S3
