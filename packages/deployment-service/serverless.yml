@@ -588,7 +588,7 @@ functions:
       - sns: arn:aws:sns:eu-west-2:028446965111:codebuild
     timeout: 300
   codebuildDeploy:
-    handler: src/index.versionDeploy
+    handler: src/index.codebuildDeploy
     events:
       - sqs:
           queueName: CodebuildDeploy
