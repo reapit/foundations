@@ -4,7 +4,7 @@ import { plainToClass } from 'class-transformer'
 import { PipelineEntity } from '../../entities'
 import { v4 as uuid } from 'uuid'
 import { Route53Client, ChangeResourceRecordSetsCommand } from '@aws-sdk/client-route-53'
-import { s3Client, sqs } from '../../services'
+import { s3Client, sqs, updatePipelineEntity } from '../../services'
 import { QueueNames } from '../../constants'
 
 export const pipelineSetup: SQSHandler = async (event: SQSEvent, context: Context, callback: Callback) => {
@@ -14,16 +14,21 @@ export const pipelineSetup: SQSHandler = async (event: SQSEvent, context: Contex
         const message = JSON.parse(record.body)
         const pipeline = plainToClass(PipelineEntity, message)
 
-        await new Promise<void>((resolve, reject) => s3Client.putObject({
-          Bucket: process.env.DEPLOYMENT_LIVE_BUCKET_NAME as string,
-          Key: `pipeline/${pipeline.uniqueRepoName}/index.html`,
-          Body: '<html><body>Deployment required</body></html>',
-          Metadata: {
-            ['Content-Type']: 'text/html',
-          },
-        }, (error) => {
-          error ? reject(error) : resolve()
-        }))
+        await new Promise<void>((resolve, reject) =>
+          s3Client.putObject(
+            {
+              Bucket: process.env.DEPLOYMENT_LIVE_BUCKET_NAME as string,
+              Key: `pipeline/${pipeline.uniqueRepoName}/index.html`,
+              Body: '<html><body>Deployment required</body></html>',
+              Metadata: {
+                ['Content-Type']: 'text/html',
+              },
+            },
+            (error) => {
+              error ? reject(error) : resolve()
+            },
+          ),
+        )
 
         const frontClient = new CloudFrontClient({
           region: process.env.REGION,
@@ -55,9 +60,7 @@ export const pipelineSetup: SQSHandler = async (event: SQSEvent, context: Contex
             },
             Aliases: {
               Quantity: 1,
-              Items: [
-                `${pipeline.subDomain}.dev.paas.reapit.cloud`,
-              ],
+              Items: [`${pipeline.subDomain}.dev.paas.reapit.cloud`],
             },
             Comment: `Cloudfront distribution for pipeline [${pipeline.id}]`,
             Enabled: true,
@@ -83,6 +86,7 @@ export const pipelineSetup: SQSHandler = async (event: SQSEvent, context: Contex
         }
 
         const frontDomain = distroResult.Distribution?.DomainName
+        const cloudFrontId = distroResult.Distribution?.Id
 
         const r53Client = new Route53Client({
           region: 'us-east-1',
@@ -113,14 +117,24 @@ export const pipelineSetup: SQSHandler = async (event: SQSEvent, context: Contex
 
         const r53Result = await r53Client.send(ACommand)
         console.log('result', r53Result)
+
+
+        const aRecordId = r53Result.ChangeInfo?.Id
+
+        await updatePipelineEntity(pipeline, {
+          buildStatus: 'READY_FOR_DEPLOYMENT',
+          cloudFrontId,
+          aRecordId,
+        })
+
       } catch (e) {
         console.error(e)
         throw e
       } finally {
-
         // TODO save distro id + r53 id to pipeline
+        // Update status to read for deployment
 
-        await new Promise<void>((resolve, reject) =>
+          await new Promise<void>((resolve, reject) =>
           sqs.deleteMessage(
             {
               ReceiptHandle: record.receiptHandle,
