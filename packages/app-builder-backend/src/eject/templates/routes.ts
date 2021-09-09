@@ -22,7 +22,7 @@ export const generateRoutes = (pages: Pages) =>
               (page) => js`
               <Route
                 ${page.id === '~' ? 'exact' : ''}
-                path="${page.id === '~' ? '/' : page.id}"
+                path="/${page.id === '~' ? '' : page.id}"
                 component={${slugToCamel(page.id === '~' ? 'index' : page.id)}}
               />
             `,

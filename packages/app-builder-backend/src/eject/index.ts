@@ -14,6 +14,8 @@ import { generateIndexHtml } from './templates/indexHtml'
 import { generatePackageJson } from './templates/packageJson'
 import { generateTsconfigJson } from './templates/tsconfigJson'
 import { generateEslintrc } from './templates/eslintrc'
+import { generatePrivateRouterWrapper } from './templates/private-router-wrapper'
+import { generateSession } from './templates/session'
 
 const propsToAttributes = (props: Record<string, any>) =>
   Object.keys(props)
@@ -44,12 +46,16 @@ const pageToString = (page: Page) => {
     throw new Error(`No root node found for page ${page.id}`)
   }
   const jsx = nodeToString(rootNode, page.nodes)
-  const components = page.nodes
-    .filter((node) => {
-      const firstLetter = node.type.resolvedName[0]
-      return firstLetter.toUpperCase() === firstLetter
-    })
-    .map((node) => node.type.resolvedName)
+  const components = [
+    ...new Set(
+      page.nodes
+        .filter((node) => {
+          const firstLetter = node.type.resolvedName[0]
+          return firstLetter.toUpperCase() === firstLetter
+        })
+        .map((node) => node.type.resolvedName),
+    ),
+  ]
 
   return {
     jsx,
@@ -157,12 +163,23 @@ export const ejectApp = async (app: App) => {
     fileLoc: '.eslintrc',
   }
 
+  const privateRouterWrapper = {
+    text: await generatePrivateRouterWrapper(),
+    fileLoc: 'src/private-router-wrapper.tsx',
+  }
+  const session = {
+    text: await generateSession(),
+    fileLoc: 'src/session.ts',
+  }
+
   const componentsAndHooks = await getComponentsAndHooks()
 
   const files = [
     routesFile,
     ...pages,
     ...componentsAndHooks,
+    privateRouterWrapper,
+    session,
     appFile,
     indexFile,
     indexHtml,

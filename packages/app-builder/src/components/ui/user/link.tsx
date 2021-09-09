@@ -38,9 +38,9 @@ export const DestinationPage = ({
   return (
     <ToolbarSection
       title={sectionTitle || 'Destination'}
-      props={['destination']}
-      summary={({ destination }: any) => {
-        return `link to ${destination || ''}`
+      props={[propKey]}
+      summary={(obj: any) => {
+        return `link to ${obj[propKey] || ''}`
       }}
     >
       <ToolbarItem type={ToolbarItemType.Select} propKey={propKey} title={title}>

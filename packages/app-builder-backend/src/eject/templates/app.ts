@@ -9,20 +9,14 @@ export const generateApp = () => {
     import Router from './router'
     // Global styles import
     import { elGlobals, MediaStateProvider, NavStateProvider, SnackProvider } from '@reapit/elements' // eslint-disable-line
-    import { ReapitConnectBrowserSession } from '@reapit/connect-session'
-
-    const reapitConnectBrowserSession = new ReapitConnectBrowserSession({
-      connectClientId: "qe2hl0f1cmr1a9eotu1dp4ror",
-      connectUserPoolId: "eu-west-2_kiftR4qFc",
-      connectOAuthUrl: "https://connect.dev.paas.reapit.cloud",
-    })
+    import session from './session'
 
     const httpLink = createHttpLink({
       uri: 'https://zbtuirnf0g.execute-api.eu-west-2.amazonaws.com/prod/',
     })
 
     const authLink = setContext(async (_, { headers }) => {
-      const token = await reapitConnectBrowserSession.connectSession()
+      const token = await session.connectSession()
       // return the headers to the context so httpLink can read them
       return {
         headers: {
