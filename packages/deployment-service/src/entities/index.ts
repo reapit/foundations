@@ -100,6 +100,12 @@ export class PipelineEntity extends AbstractEntity implements PipelineModelInter
   @Column()
   subDomain?: string
 
+  @Column()
+  cloudFrontId?: string
+
+  @Column()
+  aRecordId?: string
+
   @BeforeInsert()
   beforeInsert() {
     this.subDomain = generate().dashed
