@@ -11721,6 +11721,13 @@ __metadata:
   languageName: node
   linkType: hard
 
+"@types/mime-types@npm:^2.1.1":
+  version: 2.1.1
+  resolution: "@types/mime-types@npm:2.1.1"
+  checksum: d282f89f3a492cb04a0cf73a8dc933abca9c598ae8dc15ec77a23c36b658dbd4bddbc8b6afa10ca618839020ca890de0c1c11fca3704e2c47fb6a3d753cfc1ae
+  languageName: node
+  linkType: hard
+
 "@types/mime@npm:*":
   version: 2.0.2
   resolution: "@types/mime@npm:2.0.2"
@@ -19488,6 +19495,7 @@ __metadata:
     "@reapit/ts-scripts": "workspace:packages/ts-scripts"
     "@reapit/ts-types": "workspace:packages/ts-types"
     "@reapit/utils": "workspace:packages/utils"
+    "@types/mime-types": ^2.1.1
     "@types/project-name-generator": ^2.1.1
     "@types/rimraf": ^3.0.1
     "@types/yaml": ^1.9.7
@@ -19502,6 +19510,7 @@ __metadata:
     eslint: ^7.31.0
     eslint-plugin-prettier: ^3.4.0
     jsonwebtoken: ^8.5.1
+    mime-types: ^2.1.32
     mysql: ^2.18.1
     nestjs-typeorm-paginate: ^2.5.3
     original-fs: ^1.1.0
@@ -30356,12 +30365,28 @@ fsevents@^1.2.7:
   languageName: node
   linkType: hard
 
+"mime-db@npm:1.49.0":
+  version: 1.49.0
+  resolution: "mime-db@npm:1.49.0"
+  checksum: c5ac8ff35fad969136dd07da73dc5d13a121a9e444954a9f4afb7ebf988989f5a502e35c29ac8a590276f7d0443330d0014cfbbc98eaffc487c3b7c5b005af60
+  languageName: node
+  linkType: hard
+
 "mime-types@npm:^2.1.12, mime-types@npm:^2.1.25, mime-types@npm:^2.1.27, mime-types@npm:^2.1.30, mime-types@npm:^2.1.31, mime-types@npm:~2.1.17, mime-types@npm:~2.1.19, mime-types@npm:~2.1.24":
   version: 2.1.31
   resolution: "mime-types@npm:2.1.31"
   dependencies:
     mime-db: 1.48.0
   checksum: 0373e58e3826802e462cf0c180ca5556fd0990acaf123d421d5f8643f0ca61d2126ea57eb6f4ba96f9ef07d3e627c06261825418a6549b0671261cc1bb4219b4
+  languageName: node
+  linkType: hard
+
+"mime-types@npm:^2.1.32":
+  version: 2.1.32
+  resolution: "mime-types@npm:2.1.32"
+  dependencies:
+    mime-db: 1.49.0
+  checksum: 91addbdc0c2a91bb142ecfe13bffe6b1d41f2ec12931756c54c9d85737f022f507d1e5a441ec50c21d59ae8e6f2a118a55a7f6d8467d49fe06ef6d25151d9657
   languageName: node
   linkType: hard
 

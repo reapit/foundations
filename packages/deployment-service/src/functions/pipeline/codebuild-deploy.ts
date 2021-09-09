@@ -4,7 +4,7 @@ import { PipelineEntity } from '../../entities'
 import { deployFromStore } from '../../executables'
 import { findPipelineRunnerById, pusher, savePipelineRunnerEntity, sqs, updateTask } from '../../services'
 
-export const versionDeploy: SQSHandler = async (event: SQSEvent, context: Context, callback: Callback) => {
+export const codebuildDeploy: SQSHandler = async (event: SQSEvent, context: Context, callback: Callback) => {
   await Promise.all(
     event.Records.map(async (record) => {
       const payload = JSON.parse(record.body)

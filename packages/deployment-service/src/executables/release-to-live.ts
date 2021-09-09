@@ -42,6 +42,7 @@ export const releaseToLiveFromZip = async ({
       dir: localLocation,
       prefix: `${deploymentType}/${projectLocation}`,
       buildLocation: localLocation,
+      fileNameTransformer: (filePath: string) => filePath.replace('/build/', ''),
     },
     sendToLiveS3,
   )

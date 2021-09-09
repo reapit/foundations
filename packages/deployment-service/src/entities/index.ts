@@ -49,7 +49,9 @@ export class PipelineRunnerEntity extends AbstractEntity implements PipelineRunn
   tasks?: TaskEntity[]
 
   @Type(() => PipelineEntity)
-  @ManyToOne(() => PipelineEntity, (pipeline) => pipeline.runners)
+  @ManyToOne(() => PipelineEntity, (pipeline) => pipeline.runners, {
+    cascade: true,
+  })
   pipeline?: PipelineEntity
 
   @Column({ nullable: true, type: 'varchar' })
@@ -99,6 +101,12 @@ export class PipelineEntity extends AbstractEntity implements PipelineModelInter
 
   @Column()
   subDomain?: string
+
+  @Column()
+  cloudFrontId?: string
+
+  @Column()
+  aRecordId?: string
 
   @BeforeInsert()
   beforeInsert() {
