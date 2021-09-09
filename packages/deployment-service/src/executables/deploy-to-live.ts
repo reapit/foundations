@@ -7,6 +7,7 @@ export type SendToS3Params = {
   filePath: string
   prefix: string
   buildLocation: string
+  fileNameTransformer?: (string) => string
 }
 
 export type SendToLiveS3Func = (params: SendToS3Params) => Promise<void | never>
@@ -15,13 +16,17 @@ export const sendToLiveS3: SendToLiveS3Func = async ({
   filePath,
   prefix,
   buildLocation,
+  fileNameTransformer,
 }: SendToS3Params): Promise<void | never> =>
   new Promise<void>((resolve, reject) =>
-    // TODO find metadata for content-type, text/html, application/javascript, text/css
     s3Client.upload(
       {
         Bucket: process.env.DEPLOYMENT_LIVE_BUCKET_NAME as string,
-        Key: `${prefix}/${filePath.substring(buildLocation.length)}`,
+        Key: `${prefix}/${
+          fileNameTransformer
+            ? fileNameTransformer(filePath.substring(buildLocation.length))
+            : filePath.substring(buildLocation.length)
+        }`,
         Body: fs.readFileSync(filePath),
         ACL: 'public-read',
         Metadata: {
