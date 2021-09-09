@@ -118,7 +118,6 @@ export const pipelineSetup: SQSHandler = async (event: SQSEvent, context: Contex
         const r53Result = await r53Client.send(ACommand)
         console.log('result', r53Result)
 
-
         const aRecordId = r53Result.ChangeInfo?.Id
 
         await updatePipelineEntity(pipeline, {
@@ -126,7 +125,6 @@ export const pipelineSetup: SQSHandler = async (event: SQSEvent, context: Contex
           cloudFrontId,
           aRecordId,
         })
-
       } catch (e) {
         console.error(e)
         throw e
@@ -134,7 +132,7 @@ export const pipelineSetup: SQSHandler = async (event: SQSEvent, context: Contex
         // TODO save distro id + r53 id to pipeline
         // Update status to read for deployment
 
-          await new Promise<void>((resolve, reject) =>
+        await new Promise<void>((resolve, reject) =>
           sqs.deleteMessage(
             {
               ReceiptHandle: record.receiptHandle,
