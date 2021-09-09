@@ -9,10 +9,10 @@ export const generatePage = (id: string, jsx: string, components: Array<string>)
 
     import { ${components.join(', ')} } from '../components'
 
-    const ${name} = () => (
+    const ${name}Page = () => (
       ${jsx}
     )
 
-    export default ${name}
+    export default ${name}Page
   `)
 }

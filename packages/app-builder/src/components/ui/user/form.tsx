@@ -2,7 +2,7 @@ import React from 'react'
 import Container from './container'
 import { ToolbarItem, ToolbarItemType, ToolbarSection } from '../toolbar'
 import { useTypeList } from '@/components/hooks/objects/use-type-list'
-import { useEditor } from '@craftjs/core'
+import { useEditor, useNode } from '@craftjs/core'
 import { DestinationPage } from './link'
 import { FormProps, Form as EForm } from './ejectable/form'
 const defaultProps = {
@@ -13,7 +13,11 @@ const Form = (props: FormProps) => {
   const { isEditing } = useEditor((state) => ({
     isEditing: state.options.enabled,
   }))
-  return <EForm {...defaultProps} {...props} disabled={isEditing} />
+  const {
+    connectors: { connect, drag },
+  } = useNode()
+
+  return <EForm {...defaultProps} {...props} ref={(ref) => ref && connect(drag(ref))} disabled={isEditing} />
 }
 
 const ContainerSettings = Container.craft.related.toolbar

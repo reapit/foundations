@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { forwardRef } from 'react'
 import { styled } from '@linaria/react'
 
 const MOBILE_BREAKPOINT = 768
@@ -27,23 +27,24 @@ export interface ContainerProps {
   height?: number
   width: number
   children?: React.ReactNode
-  ref?: React.Ref<any>
   isRoot?: boolean
 }
 
-export const Container = ({ padding, children, width, background, height, ref, isRoot }: ContainerProps) => (
-  <ContainerDiv
-    width={width}
-    ref={ref}
-    style={{
-      background,
-      height,
-      padding: `${padding}px`,
-      flex: isRoot ? 'unset' : undefined,
-      width: isRoot ? '100%' : undefined,
-      display: isRoot ? 'block' : undefined,
-    }}
-  >
-    {children}
-  </ContainerDiv>
+export const Container = forwardRef<HTMLDivElement, ContainerProps>(
+  ({ padding, children, width, background, height, isRoot }, ref) => (
+    <ContainerDiv
+      width={width}
+      ref={ref}
+      style={{
+        background,
+        height,
+        padding: `${padding}px`,
+        flex: isRoot ? 'unset' : undefined,
+        width: isRoot ? '100%' : undefined,
+        display: isRoot ? 'block' : undefined,
+      }}
+    >
+      {children}
+    </ContainerDiv>
+  )
 )

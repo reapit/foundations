@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { forwardRef } from 'react'
 import qs from 'query-string'
 import { Link as RRLink } from 'react-router-dom'
 import { Container, ContainerProps } from './container'
@@ -8,7 +8,7 @@ export interface LinkProps extends ContainerProps {
   context?: { [key: string]: any }
 }
 
-export const Link = ({ disabled, ...props }: LinkProps & { disabled?: boolean }) => {
+export const Link = forwardRef<HTMLDivElement, LinkProps & { disabled?: boolean }>(({ disabled, ...props }, ref) => {
   return (
     <RRLink
       to={{
@@ -24,7 +24,7 @@ export const Link = ({ disabled, ...props }: LinkProps & { disabled?: boolean })
           : undefined
       }
     >
-      <Container {...props} />
+      <Container {...props} ref={ref} />
     </RRLink>
   )
-}
+})

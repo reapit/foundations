@@ -2,7 +2,7 @@ import React from 'react'
 import { ToolbarItem, ToolbarItemType, ToolbarSection } from '../toolbar'
 import { useTypeList } from '@/components/hooks/objects/use-type-list'
 import Container from './container'
-import { useEditor } from '@craftjs/core'
+import { useEditor, useNode } from '@craftjs/core'
 import { DestinationPage } from './link'
 import { TableProps, Table as ETable } from './ejectable/table'
 
@@ -14,8 +14,11 @@ const Table = (props: TableProps) => {
   const { isEditing } = useEditor((state) => ({
     isEditing: state.options.enabled,
   }))
+  const {
+    connectors: { connect, drag },
+  } = useNode()
 
-  return <ETable {...props} disabled={isEditing} />
+  return <ETable {...props} ref={(ref) => ref && connect(drag(ref))} disabled={isEditing} />
 }
 
 const ContainerSettings = Container.craft.related.toolbar

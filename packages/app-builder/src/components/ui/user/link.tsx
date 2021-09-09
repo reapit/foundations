@@ -1,4 +1,4 @@
-import { useEditor } from '@craftjs/core'
+import { useEditor, useNode } from '@craftjs/core'
 import React from 'react'
 import { ToolbarItem, ToolbarItemType, ToolbarSection } from '../toolbar'
 import Container from './container'
@@ -14,8 +14,11 @@ const Link = (props: LinkProps) => {
   const { enabled } = useEditor((state) => ({
     enabled: state.options.enabled,
   }))
+  const {
+    connectors: { connect, drag },
+  } = useNode()
 
-  return <ELink {...props} disabled={!enabled} />
+  return <ELink {...props} ref={(ref) => ref && connect(drag(ref))} disabled={!enabled} />
 }
 
 const ContainerSettings = Container.craft.related.toolbar

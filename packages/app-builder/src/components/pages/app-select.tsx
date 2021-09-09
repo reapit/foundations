@@ -36,6 +36,7 @@ import formatDistance from 'date-fns/formatDistance'
 
 import { useCreateApp } from '../hooks/apps/use-create-app'
 import { useGetUserApps } from '../hooks/apps/use-user-apps'
+import { ejectUri } from '@/core/config'
 
 const getUserId = async () => {
   const session = await reapitConnectBrowserSession.connectSession()
@@ -138,6 +139,14 @@ const AppSelector = () => {
                   }}
                 >
                   Edit
+                </Button>
+                <Button
+                  intent="secondary"
+                  onClick={() => {
+                    window.open(`${ejectUri}eject/${app.id}`)
+                  }}
+                >
+                  Eject
                 </Button>
               </CardListItem>
             </CardListMainWrap>
