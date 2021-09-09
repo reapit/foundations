@@ -29,6 +29,7 @@ export const sendToLiveS3: SendToLiveS3Func = async ({
         }`,
         Body: fs.readFileSync(filePath),
         ACL: 'public-read',
+        ContentType: String(mime.lookup(path.extname(filePath))),
         Metadata: {
           ['Content-Type']: String(mime.lookup(path.extname(filePath))),
         },
