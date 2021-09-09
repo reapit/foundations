@@ -14,22 +14,16 @@ export const pipelineSetup: SQSHandler = async (event: SQSEvent, context: Contex
         const message = JSON.parse(record.body)
         const pipeline = plainToClass(PipelineEntity, message)
 
-        console.log('pushing to s3')
         await new Promise<void>((resolve, reject) => s3Client.putObject({
           Bucket: process.env.DEPLOYMENT_LIVE_BUCKET_NAME as string,
           Key: `pipeline/${pipeline.uniqueRepoName}/index.html`,
           Body: '<html><body>Deployment required</body></html>',
+          Metadata: {
+            ['Content-Type']: 'text/html',
+          },
         }, (error) => {
           error ? reject(error) : resolve()
         }))
-
-        console.log('creating distro', {
-          repoName: pipeline.uniqueRepoName,
-          Origins: {
-            DomainName: `${process.env.DEPLOYMENT_LIVE_BUCKET_NAME}.s3.${process.env.REGION}.amazonaws.com`, // url of S3 bucket
-            OriginPath: `/pipeline/${pipeline.uniqueRepoName}`, // path to directory in bucket to view
-          },
-        })
 
         const frontClient = new CloudFrontClient({
           region: process.env.REGION,
@@ -37,9 +31,15 @@ export const pipelineSetup: SQSHandler = async (event: SQSEvent, context: Contex
 
         const id = uuid()
 
+        console.log('creating distro')
+
         const distroCommand = new CreateDistributionCommand({
           DistributionConfig: {
             DefaultRootObject: 'index.html',
+            ViewerCertificate: {
+              ACMCertificateArn: process.env.CERT_ARN,
+              SSLSupportMethod: 'vip',
+            },
             Origins: {
               Quantity: 1,
               Items: [
@@ -47,77 +47,79 @@ export const pipelineSetup: SQSHandler = async (event: SQSEvent, context: Contex
                   Id: id,
                   DomainName: `${process.env.DEPLOYMENT_LIVE_BUCKET_NAME}.s3.${process.env.REGION}.amazonaws.com`, // url of S3 bucket
                   OriginPath: `/pipeline/${pipeline.uniqueRepoName}`, // path to directory in bucket to view
+                  S3OriginConfig: {
+                    OriginAccessIdentity: '',
+                  },
                 },
               ],
             },
             Aliases: {
               Quantity: 1,
               Items: [
-                `${pipeline.subDomain}.reapit.cloud`, // not sure what this is suppose to be?
+                `${pipeline.subDomain}.dev.paas.reapit.cloud`,
               ],
             },
             Comment: `Cloudfront distribution for pipeline [${pipeline.id}]`,
             Enabled: true,
             CallerReference: `${pipeline.subDomain}`, // another unique reference to prevent distribution duplication
             DefaultCacheBehavior: {
+              ForwardedValues: {
+                Cookies: {
+                  Forward: 'all',
+                },
+                QueryString: true,
+              },
+              MinTTL: 3600,
               TargetOriginId: id, // has to be the same as origin id :eyes_roll:
               ViewerProtocolPolicy: 'redirect-to-https', // no idea
             },
           },
         })
 
-        const result2 = await frontClient.send(distroCommand)
-        console.log('result2', result2)
+        const distroResult = await frontClient.send(distroCommand)
+
+        if (!distroResult) {
+          throw new Error('cloudfront failed :shrug:')
+        }
+
+        const frontDomain = distroResult.Distribution?.DomainName
 
         const r53Client = new Route53Client({
-          region: 'eu-west-2',
+          region: 'us-east-1',
         })
 
-        console.log(
-          'creating A record',
-          JSON.stringify({
-            HostedZoneId: process.env.HOSTED_ZONE_ID,
-            ChangeBatch: {
-              Changes: [
-                {
-                  Action: 'CREATE',
-                  ResourceRecordSet: {
-                    Type: 'A',
-                    Name: `${pipeline.subDomain}.reapit.cloud`,
-                    Region: process.env.REGION,
-                  },
-                },
-              ],
-              Comment: `Adding additional A record for pipeline [${pipeline.id}]`,
-            },
-          }),
-        )
+        console.log('creating A record')
 
         const ACommand = new ChangeResourceRecordSetsCommand({
           HostedZoneId: process.env.HOSTED_ZONE_ID,
           ChangeBatch: {
             Changes: [
               {
-                Action: 'CREATE',
+                Action: 'UPSERT',
                 ResourceRecordSet: {
                   Type: 'A',
-                  Name: `${pipeline.subDomain}.reapit.cloud`,
-                  Region: process.env.REGION,
+                  Name: `${pipeline.subDomain}.dev.paas.reapit.cloud`,
+                  AliasTarget: {
+                    DNSName: frontDomain,
+                    EvaluateTargetHealth: false,
+                    HostedZoneId: 'Z2FDTNDATAQYW2',
+                  },
                 },
               },
             ],
-            Comment: `Adding additional cname for pipeline [${pipeline.id}]`,
+            Comment: `Adding additional A record for pipeline [${pipeline.id}]`,
           },
         })
 
-        console.log('sending...')
-
-        const result = await r53Client.send(ACommand)
-        console.log('result', result)
+        const r53Result = await r53Client.send(ACommand)
+        console.log('result', r53Result)
       } catch (e) {
         console.error(e)
         throw e
       } finally {
+
+        // TODO save distro id + r53 id to pipeline
+
         await new Promise<void>((resolve, reject) =>
           sqs.deleteMessage(
             {
@@ -162,3 +164,8 @@ export const pipelineSetup: SQSHandler = async (event: SQSEvent, context: Contex
 //     }),
 //   }],
 // }, {} as Context, () => {})
+
+// TODO list
+// bucket needs to be static website
+// bucket policy needs to be set, use webapp.serverless s3 policy
+// files need content type headers set in S3
