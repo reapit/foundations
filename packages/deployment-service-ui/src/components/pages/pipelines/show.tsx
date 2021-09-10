@@ -285,6 +285,19 @@ export default () => {
         ) : connectSession && pipeline ? (
           <>
             <Title>{pipeline?.name}</Title>
+            <BodyText>
+              <StatusIndicator intent={pipelineStatusToIntent(pipeline.buildStatus as string)} />
+              {pipelineStatusToName(pipeline.buildStatus as string)}
+            </BodyText>
+            {pipeline.buildStatus !== 'CREATING_ARCHITECTURE' && (
+              <BodyText>
+                <a
+                  target="_blank"
+                  rel="noreferrer"
+                  href={`https://${pipeline.subDomain}.dev.paas.reapit.cloud`}
+                >{`https://${pipeline.subDomain}.dev.paas.reapit.cloud`}</a>
+              </BodyText>
+            )}
             <Tabs
               name="pipeline-tabs"
               isFullWidth

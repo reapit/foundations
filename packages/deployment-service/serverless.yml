@@ -191,6 +191,7 @@ provider:
     - Effect: Allow
       Action:
         - cloudfront:CreateDistribution
+        - cloudfront:CreateInvalidation
       Resource: "*"
 
 resources:
