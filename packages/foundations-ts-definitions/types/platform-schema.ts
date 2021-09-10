@@ -12001,7 +12001,7 @@ export interface TenancyModel {
    */
   propertyId?: string
   /**
-   * The unique identifier of the applicant who has applied to be a tenant
+   * The unique identifier of the applicant who has applied to be a tenant. Whilst the tenancy is an in arranging state, information about the individual such as name and contact details can be obtained from GET /applicants/{id}. Use the link in the _links collection for a relative URI
    */
   applicantId?: string
   /**
@@ -12018,7 +12018,7 @@ export interface TenancyModel {
     type?: string
   }
   /**
-   * A collection of contact / company tenants associated to the tenancy. The first item in the collection is considered the primary relationship
+   * A collection of contact / company tenants associated to the tenancy. The first item in the collection is considered the primary relationship. This collection is only populated once a tenant moves into a property and the tenancy status becomes current
    */
   related?: {
     /**
@@ -12235,7 +12235,7 @@ export interface TenancyModelPagedResult {
      */
     propertyId?: string
     /**
-     * The unique identifier of the applicant who has applied to be a tenant
+     * The unique identifier of the applicant who has applied to be a tenant. Whilst the tenancy is an in arranging state, information about the individual such as name and contact details can be obtained from GET /applicants/{id}. Use the link in the _links collection for a relative URI
      */
     applicantId?: string
     /**
@@ -12252,7 +12252,7 @@ export interface TenancyModelPagedResult {
       type?: string
     }
     /**
-     * A collection of contact / company tenants associated to the tenancy. The first item in the collection is considered the primary relationship
+     * A collection of contact / company tenants associated to the tenancy. The first item in the collection is considered the primary relationship. This collection is only populated once a tenant moves into a property and the tenancy status becomes current
      */
     related?: {
       /**
