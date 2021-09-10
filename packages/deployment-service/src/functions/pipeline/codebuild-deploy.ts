@@ -1,10 +1,11 @@
 import { SQSEvent, SQSHandler, Context, Callback } from 'aws-lambda'
 import { QueueNames } from '../../constants'
 import { PipelineEntity } from '../../entities'
-import { deployFromStore } from '../../executables/deploy-from-store'
+import { deployFromStore } from '../../executables'
 import { findPipelineRunnerById, pusher, savePipelineRunnerEntity, sqs, updateTask } from '../../services'
+import { CloudFrontClient, CreateInvalidationCommand } from '@aws-sdk/client-cloudfront'
 
-export const versionDeploy: SQSHandler = async (event: SQSEvent, context: Context, callback: Callback) => {
+export const codebuildDeploy: SQSHandler = async (event: SQSEvent, context: Context, callback: Callback) => {
   await Promise.all(
     event.Records.map(async (record) => {
       const payload = JSON.parse(record.body)
@@ -38,13 +39,25 @@ export const versionDeploy: SQSHandler = async (event: SQSEvent, context: Contex
         pusher.trigger(pipelineRunner.pipeline?.developerId as string, 'pipeline-runner-update', pipelineRunner),
       ])
 
-      // TODO start a timer for elapsedSeconds
-
       try {
         await deployFromStore({
           pipeline: pipelineRunner.pipeline as PipelineEntity,
           pipelineRunner,
         })
+
+        const cloudFrontClient = new CloudFrontClient({})
+        const invalidateCommand = new CreateInvalidationCommand({
+          DistributionId: pipelineRunner.pipeline?.cloudFrontId,
+          InvalidationBatch: {
+            Paths: {
+              Items: ['/*'],
+              Quantity: 1,
+            },
+            CallerReference: `deployment refresh for pipeline runner [${pipelineRunner.id}]`,
+          },
+        })
+
+        await cloudFrontClient.send(invalidateCommand)
 
         pipelineRunner.buildStatus = 'SUCCEEDED'
         if (pipelineRunner.pipeline) {
@@ -53,6 +66,10 @@ export const versionDeploy: SQSHandler = async (event: SQSEvent, context: Contex
         if (pipelineRunner.tasks) {
           pipelineRunner.tasks[deployTaskIndex].buildStatus = 'SUCCEEDED'
           pipelineRunner.tasks[deployTaskIndex].endTime = new Date().toISOString()
+          pipelineRunner.tasks[deployTaskIndex].elapsedTime = Math.floor(
+            (new Date().getTime() - new Date(pipelineRunner.tasks[deployTaskIndex].startTime as string).getTime()) /
+              1000,
+          ).toString()
         }
       } catch (e) {
         console.error(e)
@@ -64,6 +81,10 @@ export const versionDeploy: SQSHandler = async (event: SQSEvent, context: Contex
         if (pipelineRunner.tasks) {
           pipelineRunner.tasks[deployTaskIndex].buildStatus = 'FAILED'
           pipelineRunner.tasks[deployTaskIndex].endTime = new Date().toISOString()
+          pipelineRunner.tasks[deployTaskIndex].elapsedTime = Math.floor(
+            (new Date().getTime() - new Date(pipelineRunner.tasks[deployTaskIndex].startTime as string).getTime()) /
+              1000,
+          ).toString()
         }
       }
 

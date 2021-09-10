@@ -101,6 +101,10 @@ export default () => {
                         value: pipeline.name as string,
                       },
                       {
+                        label: 'Domain',
+                        value: pipeline.subDomain as string,
+                      },
+                      {
                         label: 'repository',
                         value: pipeline.repository as string,
                       },

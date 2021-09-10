@@ -15,7 +15,25 @@ describe('DeveloperEditionContent', () => {
 
     const wrapper = shallow(
       <Provider store={store}>
-        <DeveloperEditionContent developer={developer} loading={false} handleOnConfirm={jest.fn()} />,
+        <DeveloperEditionContent developer={developer} loading={false} handleOnConfirm={jest.fn()} desktopIsFree />,
+      </Provider>,
+    )
+    expect(wrapper).toMatchSnapshot()
+  })
+
+  it('should match snapshot where desktop is not free', () => {
+    const mockStore = configureStore()
+    const store = mockStore(appState)
+
+    const wrapper = shallow(
+      <Provider store={store}>
+        <DeveloperEditionContent
+          developer={developer}
+          loading={false}
+          handleOnConfirm={jest.fn()}
+          desktopIsFree={false}
+        />
+        ,
       </Provider>,
     )
     expect(wrapper).toMatchSnapshot()

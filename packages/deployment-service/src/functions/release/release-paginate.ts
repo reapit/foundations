@@ -11,11 +11,11 @@ export const releasePaginate = httpHandler<void, Pagination<ReleaseEntity>>({
   handler: async ({ event }) => {
     const { developerId } = await resolveCreds(event)
 
-    const projectName = event.pathParameters?.projectName
+    const project = event.pathParameters?.project
 
     return service.paginateReleases(
       developerId,
-      projectName,
+      project,
       event?.queryStringParameters?.page ? Number(event?.queryStringParameters?.page) : undefined,
     )
   },

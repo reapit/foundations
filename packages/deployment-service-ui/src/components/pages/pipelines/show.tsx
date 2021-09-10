@@ -41,6 +41,7 @@ import { shleemy } from 'shleemy'
 import { cx } from '@linaria/core'
 import { pipelineStatusToIntent, pipelineStatusToName } from './../../../utils'
 import { ElPipelineTaskContainer } from '@/components/task/task.element'
+import { taskFunctionToFriendlyName } from '@/utils/friendly-function-name'
 
 const findRelevantTask = (tasks: TaskModelInterface[]): TaskModelInterface => {
   const priority: { [s: string]: number } = {
@@ -62,8 +63,6 @@ const functionToIndex = (name: string): number => {
       return 1
     case 'INSTALL':
       return 2
-    case 'PRE_BUILD':
-      return 3
     case 'BUILD':
       return 4
     case 'DEPLOY':
@@ -137,7 +136,7 @@ const DeploymentTable = ({
           label: 'Tasks',
           value: Array.isArray(pipeline.tasks)
             ? pipeline.buildStatus === 'IN_PROGRESS'
-              ? (findRelevantTask(pipeline.tasks).buildStatus as string)
+              ? `${taskFunctionToFriendlyName(findRelevantTask(pipeline.tasks).functionName as string)}ing`
               : pipeline.tasks.length.toString()
             : '0',
         },
@@ -186,7 +185,7 @@ const DeploymentTable = ({
     <Table rows={pipelineRunnerMapped} expandableContentSize="large" />
   ) : (
     <PersistantNotification intent="secondary" isExpanded isInline isFullWidth>
-      No pipleline runs found
+      No deployments found
     </PersistantNotification>
   )
 }
@@ -286,6 +285,19 @@ export default () => {
         ) : connectSession && pipeline ? (
           <>
             <Title>{pipeline?.name}</Title>
+            <BodyText>
+              <StatusIndicator intent={pipelineStatusToIntent(pipeline.buildStatus as string)} />
+              {pipelineStatusToName(pipeline.buildStatus as string)}
+            </BodyText>
+            {pipeline.buildStatus !== 'CREATING_ARCHITECTURE' && (
+              <BodyText>
+                <a
+                  target="_blank"
+                  rel="noreferrer"
+                  href={`https://${pipeline.subDomain}.dev.paas.reapit.cloud`}
+                >{`https://${pipeline.subDomain}.dev.paas.reapit.cloud`}</a>
+              </BodyText>
+            )}
             <Tabs
               name="pipeline-tabs"
               isFullWidth
@@ -310,6 +322,8 @@ export default () => {
             />
             {tabIndex === 'details' ? (
               <>
+                <Label>Pipeline generated name</Label>
+                <BodyText>{pipeline?.subDomain}</BodyText>
                 <Label>Package Manager</Label>
                 <BodyText>{pipeline?.packageManager}</BodyText>
                 <Label>Build Command</Label>

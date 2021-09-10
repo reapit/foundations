@@ -1,4 +1,4 @@
-import { PipelineRunnerEntity } from '../entities'
+import { PipelineEntity, PipelineRunnerEntity } from '../entities'
 import { connect } from './../core'
 import { Pagination, paginate } from 'nestjs-typeorm-paginate'
 
@@ -81,5 +81,14 @@ export const findPipelineRunnerByCodeBuildId = async (
       codebuildId,
     },
     relations: ['pipeline', 'tasks'],
+  })
+}
+
+export const deletePipelineRunners = async (pipeline: PipelineEntity) => {
+  const connection = await connect()
+  const repo = connection.getRepository(PipelineRunnerEntity)
+
+  await repo.delete({
+    pipeline,
   })
 }

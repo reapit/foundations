@@ -52,5 +52,6 @@ export const ElStatusIndicator = styled.span`
     border-radius: 1rem 0.2rem 0.2rem 1rem;
     height: 2rem;
     width: 0.5rem;
+    margin-left: 0;
   }
 `

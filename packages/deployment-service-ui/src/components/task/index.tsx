@@ -4,6 +4,8 @@ import { TaskModelInterface } from '@reapit/foundations-ts-definitions/deploymen
 import { ElPipelineTask } from './task.element'
 import { shleemy } from 'shleemy'
 import { cx } from '@linaria/core'
+import { taskFunctionToFriendlyName } from '../../utils/friendly-function-name'
+import { useStopwatch } from 'react-timer-hook'
 
 const pipelineStatusToIntent = (status: string): Intent => {
   switch (status) {
@@ -20,14 +22,33 @@ const pipelineStatusToIntent = (status: string): Intent => {
   }
 }
 
+const toElapsedTime = (seconds?: string) => {
+  return seconds ? `🕒 ${seconds}secs` : ''
+}
+
+const AutoTimer = () => {
+  const { seconds, minutes } = useStopwatch({
+    autoStart: true,
+  })
+
+  const calculatedSeconds = minutes * 60 + seconds
+
+  return <>{toElapsedTime(calculatedSeconds.toString())}</>
+}
+
+const Timer = ({ started, elapsedTime }: { started: boolean; elapsedTime?: string }) => {
+  return <>{started ? <AutoTimer /> : elapsedTime ? toElapsedTime(elapsedTime) : null}</>
+}
+
 export const PipelineTask = ({ task, index }: { task: TaskModelInterface; index: number }) => {
-  const started =
+  const startedAt =
     task.startTime && task.startTime.substr(0, 1) !== '0' ? shleemy(task.startTime).forHumans : 'not started'
 
   return (
     <ElPipelineTask className={cx(`order-${index + 1}`)}>
-      <StatusIndicator intent={pipelineStatusToIntent(task.buildStatus as string)} shape="tag" /> {task.functionName} 🕒{' '}
-      {task.elapsedTime}s {started}
+      <StatusIndicator intent={pipelineStatusToIntent(task.buildStatus as string)} shape="tag" />{' '}
+      {taskFunctionToFriendlyName(task.functionName as string)}{' '}
+      <Timer elapsedTime={task.elapsedTime} started={task.buildStatus === 'IN_PROGRESS'} /> - {startedAt}
     </ElPipelineTask>
   )
 }

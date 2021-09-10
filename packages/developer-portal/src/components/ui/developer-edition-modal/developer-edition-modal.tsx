@@ -72,8 +72,10 @@ export const DeveloperEditionModal: React.FC<DeveloperEditionModalProps> = ({
   const developerName = loginIdentity?.name
   const developerId = loginIdentity?.developerId || ''
   const developerEmail = loginIdentity?.email
+  const clientId = loginIdentity.clientId
 
   const developer: Partial<DeveloperModel> = { id: developerId, name: developerName, email: developerEmail }
+  const desktopIsFree = Boolean(clientId && clientId !== 'SBOX')
 
   const [isSuccess, setSuccess] = React.useState<boolean>(false)
   const [selectedDeveloper, setSelectedDeveloper] = React.useState<DeveloperModel | undefined>()
@@ -96,6 +98,7 @@ export const DeveloperEditionModal: React.FC<DeveloperEditionModalProps> = ({
     content = (
       <DeveloperEditionContent
         developer={developer}
+        desktopIsFree={desktopIsFree}
         loading={loading}
         afterClose={handleAfterClose(setSuccess, dispatch, setSubscribingState)}
         handleOnConfirm={handleOnConfirm(developer, dispatch, handleOnCreated(setSelectedDeveloper, setSuccess))}

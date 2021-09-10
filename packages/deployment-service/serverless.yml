@@ -68,6 +68,8 @@ provider:
     PUSHER_KEY: ${self:custom.env.PUSHER_KEY}
     PUSHER_SECRET: ${self:custom.env.PUSHER_SECRET}
     DEPLOYMENT_LOG_BUCKET_NAME: ${self:custom.env.DEPLOYMENT_LOG_BUCKET_NAME}
+    HOSTED_ZONE_ID: ${self:custom.env.HOSTED_ZONE_ID}
+    CERT_ARN: ${self:custom.env.CERT_ARN}
   iamRoleStatements:
     - Effect: Allow
       Action:
@@ -79,7 +81,6 @@ provider:
         - s3:GetObjectAcl
         - s3:GetBucketLocation
         - s3:GetObjectRetention
-        - s3:GetObjectVerison
         - s3:GetObjectVersionAcl
         - s3:DeleteObject
         - s3:DeleteObjectVersion
@@ -94,7 +95,6 @@ provider:
         - s3:GetObjectAcl
         - s3:GetBucketLocation
         - s3:GetObjectRetention
-        - s3:GetObjectVerison
         - s3:GetObjectVersionAcl
         - s3:DeleteObject
         - s3:DeleteObjectVersion
@@ -109,7 +109,6 @@ provider:
         - s3:GetObjectAcl
         - s3:GetBucketLocation
         - s3:GetObjectRetention
-        - s3:GetObjectVerison
         - s3:GetObjectVersionAcl
         - s3:DeleteObject
         - s3:DeleteObjectVersion
@@ -124,7 +123,6 @@ provider:
         - s3:GetObjectAcl
         - s3:GetBucketLocation
         - s3:GetObjectRetention
-        - s3:GetObjectVerison
         - s3:GetObjectVersionAcl
         - s3:DeleteObject
         - s3:DeleteObjectVersion
@@ -159,6 +157,24 @@ provider:
           - Arn
     - Effect: Allow
       Action:
+        - sqs:GetQueueAttributes
+        - sqs:SendMessage
+        - sqs:DeleteMessage
+      Resource:
+        Fn::GetAtt:
+          - PipelineSetup
+          - Arn
+    - Effect: Allow
+      Action:
+        - sqs:GetQueueAttributes
+        - sqs:SendMessage
+        - sqs:DeleteMessage
+      Resource:
+        Fn::GetAtt:
+          - PipelineTearDown
+          - Arn
+    - Effect: Allow
+      Action:
         - lambda:InvokeFunction
       Resource: arn:aws:lambda:${self:provider.region}:${self:custom.env.AWS_ACCOUNT_ID}:function:cloud-api-key-service-dev-getApiKeyViaInvoke
     - Effect: Allow
@@ -172,6 +188,11 @@ provider:
       Action:
         - codebuild:StartBuild
       Resource: arn:aws:codebuild:eu-west-2:028446965111:project/test
+    - Effect: Allow
+      Action:
+        - cloudfront:CreateDistribution
+        - cloudfront:CreateInvalidation
+      Resource: "*"
 
 resources:
   Resources:
@@ -221,6 +242,17 @@ resources:
       Type: AWS::SQS::Queue
       Properties:
         QueueName: CodebuildDeploy
+        VisibilityTimeout: 300
+    PipelineSetup:
+      Type: AWS::SQS::Queue
+      Properties:
+        QueueName: PipelineSetup
+        VisibilityTimeout: 300
+    PipelineTearDown:
+      Type: AWS::SQS::Queue
+      Properties:
+        QueueName: PipelineTearDown
+        VisibilityTimeout: 300
 
 package:
   individually: true
@@ -571,12 +603,32 @@ functions:
       - sns: arn:aws:sns:eu-west-2:028446965111:codebuild
     timeout: 300
   codebuildDeploy:
-    handler: src/index.versionDeploy
+    handler: src/index.codebuildDeploy
     events:
       - sqs:
           queueName: CodebuildDeploy
           arn:
             Fn::GetAtt:
               - CodebuildDeploy
+              - Arn
+    timeout: 300
+  pipelineSetup:
+    handler: src/index.pipelineSetup
+    events:
+      - sqs:
+          queueName: PipelineSetup
+          arn:
+            Fn::GetAtt:
+              - PipelineSetup
+              - Arn
+    timeout: 300
+  pipelineTearDown:
+    handler: src/index.pipelineTearDown
+    events:
+      - sqs:
+          queueName: PipelineTearDown
+          arn:
+            Fn::GetAtt:
+              - PipelineTearDown
               - Arn
     timeout: 300
