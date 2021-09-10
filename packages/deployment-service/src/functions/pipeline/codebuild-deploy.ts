@@ -45,19 +45,6 @@ export const codebuildDeploy: SQSHandler = async (event: SQSEvent, context: Cont
           pipelineRunner,
         })
 
-        pipelineRunner.buildStatus = 'SUCCEEDED'
-        if (pipelineRunner.pipeline) {
-          pipelineRunner.pipeline.buildStatus = 'SUCCEEDED'
-        }
-        if (pipelineRunner.tasks) {
-          pipelineRunner.tasks[deployTaskIndex].buildStatus = 'SUCCEEDED'
-          pipelineRunner.tasks[deployTaskIndex].endTime = new Date().toISOString()
-          pipelineRunner.tasks[deployTaskIndex].elapsedTime = Math.floor(
-            (new Date().getTime() - new Date(pipelineRunner.tasks[deployTaskIndex].startTime as string).getTime()) /
-              1000,
-          ).toString()
-        }
-
         const cloudFrontClient = new CloudFrontClient({})
         const invalidateCommand = new CreateInvalidationCommand({
           DistributionId: pipelineRunner.pipeline?.cloudFrontId,
@@ -71,6 +58,20 @@ export const codebuildDeploy: SQSHandler = async (event: SQSEvent, context: Cont
         })
 
         await cloudFrontClient.send(invalidateCommand)
+
+        pipelineRunner.buildStatus = 'SUCCEEDED'
+        if (pipelineRunner.pipeline) {
+          pipelineRunner.pipeline.buildStatus = 'SUCCEEDED'
+        }
+        if (pipelineRunner.tasks) {
+          pipelineRunner.tasks[deployTaskIndex].buildStatus = 'SUCCEEDED'
+          pipelineRunner.tasks[deployTaskIndex].endTime = new Date().toISOString()
+          pipelineRunner.tasks[deployTaskIndex].elapsedTime = Math.floor(
+            (new Date().getTime() - new Date(pipelineRunner.tasks[deployTaskIndex].startTime as string).getTime()) /
+              1000,
+          ).toString()
+        }
+
       } catch (e) {
         console.error(e)
 
