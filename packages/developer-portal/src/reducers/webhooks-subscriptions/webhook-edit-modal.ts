@@ -11,6 +11,7 @@ import {
   updateWebhookCreateEditState,
 } from '@/actions/webhooks-subscriptions'
 import { InstallationModelPagedResult } from '@reapit/foundations-ts-definitions'
+import { TopicModel } from '../../services/webhooks'
 
 export interface WebhookModal {
   id: string
@@ -23,20 +24,8 @@ export interface WebhookModal {
   active: boolean
 }
 
-export interface TopicItem {
-  id: string
-  created: string
-  modified?: boolean
-  name: string
-  description: string
-  url: string
-  active: boolean
-  example: string
-  associatedScope: string
-}
-
 export interface SubcriptionTopics {
-  _embedded: TopicItem[]
+  _embedded: TopicModel[]
   pageNumber: number
   pageSize: number
   pageCount: number

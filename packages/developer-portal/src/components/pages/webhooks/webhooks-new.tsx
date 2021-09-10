@@ -1,6 +1,6 @@
 import React, { Dispatch, FC, SetStateAction, useEffect, useState } from 'react'
 import { Button, Steps, ButtonGroup, ColSplit, Grid, elMlAuto, useSnack } from '@reapit/elements'
-import { DeepMap, FieldError, useForm, UseFormGetValues, UseFormRegister, UseFormTrigger } from 'react-hook-form'
+import { DeepMap, FieldError, useForm, UseFormRegister, UseFormTrigger } from 'react-hook-form'
 import { WebhooksNewApp } from './webhooks-new-app'
 import { WebhooksNewUrl } from './webhooks-new-url'
 import { WebhooksNewTopics } from './webhooks-new-topics'
@@ -102,7 +102,6 @@ export const handleSubmitWebhook = (dispatch: ReduxDispatch) => (values: CreateW
 export const getStepContent = (
   step: string,
   register: UseFormRegister<CreateWebhookFormSchema>,
-  getValues: UseFormGetValues<CreateWebhookFormSchema>,
   errors: DeepMap<CreateWebhookFormSchema, FieldError>,
   webhookQueryParams: WebhookQueryParams,
 ) => {
@@ -112,7 +111,7 @@ export const getStepContent = (
     case '2':
       return <WebhooksNewUrl register={register} errors={errors} />
     case '3':
-      return <WebhooksNewTopics register={register} getValues={getValues} />
+      return <WebhooksNewTopics register={register} />
     case '4':
       return <WebhooksNewCustomers register={register} />
     case '5':
@@ -170,9 +169,7 @@ export const WebhooksNew: FC<WebhooksNewProps> = ({ webhookQueryParams }) => {
 
   return (
     <form onSubmit={handleSubmit(handleSubmitWebhook(dispatch))}>
-      <StepContentContainer>
-        {getStepContent(selectedStep, register, getValues, errors, webhookQueryParams)}
-      </StepContentContainer>
+      <StepContentContainer>{getStepContent(selectedStep, register, errors, webhookQueryParams)}</StepContentContainer>
       <Grid className={gridControlsMinHeight}>
         <ColSplit>
           <Steps steps={steps} selectedStep={selectedStep} onStepClick={setSelectedStep} />

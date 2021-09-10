@@ -5,7 +5,7 @@ import { cloneableGenerator } from '@redux-saga/testing-utils'
 import { mockWebhookLogs, topics } from '../../__stubs__/webhooks'
 import { fetchWebhookLogsError, fetchWebhookLogsSuccess } from '../../../actions/webhook-logs/webhook-logs'
 import ActionTypes from '../../../constants/action-types'
-import { fetchWebhooksTopicsListApi, fetchWebhookLogsApi, TopicModel } from '../../../services/webhooks'
+import { fetchWebhookLogsApi } from '../../../services/webhooks'
 import { WebhookLogsQuery } from '../../../components/pages/webhooks/webhooks-logs'
 
 jest.mock('../../../services/webhooks')
@@ -19,18 +19,12 @@ describe('webhook logs', () => {
     }
 
     const gen = cloneableGenerator(fetchWebhookLogs as any)(params)
-    expect(gen.next().value).toEqual(
-      all([
-        call(fetchWebhookLogsApi, { ...params.data }),
-        call(fetchWebhooksTopicsListApi, { applicationId: params.data.applicationId }),
-      ]),
-    )
+    expect(gen.next().value).toEqual(call(fetchWebhookLogsApi, { ...params.data }))
 
-    it('should successfully call the topic and logs api', () => {
+    it('should successfully call the logs api', () => {
       const clone = gen.clone()
       expect(clone.next([{ topics }, { logs: mockWebhookLogs }]).value).toEqual
-      put(fetchWebhookLogsSuccess({ topics: topics._embedded as TopicModel[], logs: mockWebhookLogs })),
-        expect(clone.next().done).toBe(true)
+      put(fetchWebhookLogsSuccess({ logs: mockWebhookLogs })), expect(clone.next().done).toBe(true)
     })
 
     it('should correctly handle an error', () => {

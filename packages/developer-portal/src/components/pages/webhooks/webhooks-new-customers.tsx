@@ -1,4 +1,14 @@
-import { Grid, elMb11, BodyText, Subtitle, ColSplit, MultiSelectInput, Loader, elMb7 } from '@reapit/elements'
+import {
+  Grid,
+  elMb11,
+  BodyText,
+  Subtitle,
+  ColSplit,
+  MultiSelectInput,
+  Loader,
+  elMb7,
+  MultiSelectOption,
+} from '@reapit/elements'
 import React, { FC, useMemo } from 'react'
 import { useSelector } from 'react-redux'
 import { selectCustomers, selectLoading } from '../../../selector/webhooks-subscriptions'
@@ -28,7 +38,7 @@ export const handleCustomersToOptions = (installations: InstallationModel[]) => 
     .filter(Boolean)
 
   const jsonCustomers = [JSON.stringify(SANDBOX_CLIENT), ...customers.map((customer) => JSON.stringify(customer))]
-  const uniqueCustomers = [...new Set(jsonCustomers)].map((customer) => JSON.parse(customer))
+  const uniqueCustomers: MultiSelectOption[] = [...new Set(jsonCustomers)].map((customer) => JSON.parse(customer))
 
   return uniqueCustomers
 }
@@ -57,7 +67,8 @@ export const WebhooksNewCustomers: FC<WebhooksNewCustomersProps> = ({ register }
             className={elMb7}
             id="customer-ids"
             hasGreyChips
-            options={customerOptions}
+            selectedOptions={[]}
+            deselectedOptions={customerOptions}
             {...register('customerIds')}
           />
         )}

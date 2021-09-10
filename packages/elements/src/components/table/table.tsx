@@ -42,10 +42,12 @@ export type Row = {
   }
 }
 
+export type ExpandableContentSize = 'small' | 'medium' | 'large'
+
 export interface TableProps extends HTMLAttributes<HTMLDivElement> {
   rows?: Row[]
   numberColumns?: number
-  expandableContentSize?: 'small' | 'medium' | 'large'
+  expandableContentSize?: ExpandableContentSize
 }
 
 export const Table: FC<TableProps> = ({ rows, children, numberColumns, expandableContentSize, ...rest }) => {

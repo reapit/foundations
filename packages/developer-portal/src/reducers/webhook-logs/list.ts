@@ -5,13 +5,12 @@ import {
   fetchWebhookLogsError,
   fetchWebhookLogsSuccess,
 } from '../../actions/webhook-logs/webhook-logs'
-import { TopicModel, WebhookLogModel } from '../../services/webhooks'
+import { WebhookLogModel } from '../../services/webhooks'
 
 export type WebhookLogsListState = {
   isLoading: boolean
   errorMessage: string
   logs: WebhookLogModel[]
-  topics: TopicModel[]
 }
 
 export const defaultWebhooksLogsState = {

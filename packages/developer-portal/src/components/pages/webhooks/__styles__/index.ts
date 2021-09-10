@@ -66,3 +66,9 @@ export const inputFullWidth = css`
 export const overflowHidden = css`
   overflow: hidden;
 `
+
+export const DownloadButtonContainer = styled.div`
+  padding: 1rem;
+  background-color: var(--color-grey-light);
+  border-radius: 0.25rem;
+`

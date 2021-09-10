@@ -16,21 +16,21 @@ import { useDispatch, useSelector } from 'react-redux'
 import { Dispatch } from 'redux'
 import { requestWebhookData } from '@/actions/webhooks-subscriptions'
 import { selectWebhookTopicsSubcription, selectTopics, selectLoading } from '@/selector/webhooks-subscriptions'
-import { TopicItem } from '@/reducers/webhooks-subscriptions/webhook-edit-modal'
 import { PingWebhooksByIdParams } from '@/services/webhooks'
 import { developerWebhookPing, developerSetWebhookPingStatus } from '@/actions/developer'
 import { selectWebhookTestStatus } from '@/selector'
 import { link } from '@/styles/elements/link'
 import Routes from '@/constants/routes'
 import { Loader } from '@reapit/elements'
+import { TopicModel } from '../../../services/webhooks'
 
 export interface GenerateTopicOptions {
-  topics: TopicItem[]
+  topics: TopicModel[]
   subcriptionTopicIds: string[]
 }
 export const generateTopicOptions = ({ topics, subcriptionTopicIds }: GenerateTopicOptions): SelectOption[] => {
   return subcriptionTopicIds.map((topicId) => {
-    const topicData: TopicItem | undefined = topics.find((topic: TopicItem) => topic.id === topicId)
+    const topicData: TopicModel | undefined = topics.find((topic: TopicModel) => topic.id === topicId)
     return {
       value: topicData?.id,
       label: topicData?.name,

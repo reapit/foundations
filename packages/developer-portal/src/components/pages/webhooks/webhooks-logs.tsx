@@ -1,5 +1,5 @@
 import React, { FC, useEffect, useMemo } from 'react'
-import { elSpan2, Row, Table } from '@reapit/elements'
+import { elSpan2, Icon, PersistantNotification, Row, Table } from '@reapit/elements'
 import { Dispatch } from 'redux'
 import { useDispatch, useSelector } from 'react-redux'
 import dayjs from 'dayjs'
@@ -9,7 +9,9 @@ import { saveAs } from 'file-saver'
 import { logger } from '../../../../../utils'
 import { Loader } from '@reapit/elements'
 import { WebhookQueryParams } from './webhooks'
-import { WebhookLogModel } from '../../../services/webhooks'
+import { TopicModel, WebhookLogModel } from '../../../services/webhooks'
+import { selectWebhookSubscriptionTopics } from '../../../selector/webhooks-subscriptions'
+import { DownloadButtonContainer } from './__styles__'
 
 interface WebhooksLogsProps {
   webhookQueryParams: WebhookQueryParams
@@ -40,16 +42,21 @@ export const handleFilterChange = (dispatch: Dispatch, webhookQueryParams: Webho
   dispatch(fetchWebhookLogs(payload))
 }
 
-export const handleDownloadPayload = (payload: string) => () => {
+export const handleDownloadPayload = (payload: string, timestamp: string) => () => {
   try {
     const dataBlob = new Blob([payload], { type: 'application/json;charset=utf-8;' })
-    saveAs(dataBlob, 'webhook-logs-payload.json')
+    saveAs(dataBlob, `reapit-webhook-logs-payload-${timestamp}.json`)
   } catch (err) {
     logger(err)
   }
 }
 
-export const handleSortTableData = (logs: WebhookLogModel[]) => (): Row[] =>
+export const renderTopicName = (topics: TopicModel[], topicId?: string): string => {
+  const subscriptionTopic = topics.find((topic) => topic.id === topicId)
+  return subscriptionTopic && subscriptionTopic.name ? subscriptionTopic.name : topicId ? topicId : ''
+}
+
+export const handleSortTableData = (logs: WebhookLogModel[], topics: TopicModel[]) => (): Row[] =>
   logs.map((log: WebhookLogModel) => ({
     cells: [
       {
@@ -71,7 +78,7 @@ export const handleSortTableData = (logs: WebhookLogModel[]) => (): Row[] =>
       },
       {
         label: 'Topic',
-        value: log.topicId,
+        value: renderTopicName(topics, log.topicId),
         narrowTable: {
           showLabel: true,
         },
@@ -85,24 +92,41 @@ export const handleSortTableData = (logs: WebhookLogModel[]) => (): Row[] =>
       },
     ],
     expandableContent: {
-      cellContent: 'blah',
+      cellContent: (
+        <DownloadButtonContainer>
+          <Icon icon="downloadSystem" fontSize="1.2rem" intent="primary" />
+        </DownloadButtonContainer>
+      ),
       headerContent: 'Download Payload',
       isCallToAction: true,
-      onClick: () => console.log('hi'),
+      onClick: handleDownloadPayload(log.payload, log.timeStamp),
     },
   }))
 
 export const WebhooksLogs: FC<WebhooksLogsProps> = ({ webhookQueryParams }) => {
   const dispatch = useDispatch()
   const webhookLogs = useSelector(selectWebhookLogs)
-  const { logs } = webhookLogs
-  useEffect(handleFilterChange(dispatch, webhookQueryParams), [webhookQueryParams])
-  const rows = useMemo(handleSortTableData(logs), [logs])
+  const topics = useSelector(selectWebhookSubscriptionTopics)
+  const { logs, isLoading } = webhookLogs
+  const { applicationId, from, to } = webhookQueryParams
 
-  return (
-    <>
-      {webhookLogs.logs.length ? <Table rows={rows} numberColumns={7} /> : null}
-      {webhookLogs.isLoading && <Loader label="Loading" />}
-    </>
-  )
+  useEffect(handleFilterChange(dispatch, webhookQueryParams), [webhookQueryParams])
+  const rows = useMemo(handleSortTableData(logs, topics), [logs, topics])
+
+  if (!applicationId || !from || !to)
+    return (
+      <PersistantNotification isFullWidth isExpanded intent="secondary" isInline>
+        One or more filters not selected from the left hand side menu. Select an app and a date range to get started.
+      </PersistantNotification>
+    )
+  if (isLoading) return <Loader label="loading" />
+  if (!logs.length || !rows.length)
+    return (
+      <PersistantNotification isFullWidth isExpanded intent="secondary" isInline>
+        No logs found for this application. Select another app, date range or trigger a webhook to see the logs appear
+        here.
+      </PersistantNotification>
+    )
+
+  return <Table rows={rows} numberColumns={7} />
 }

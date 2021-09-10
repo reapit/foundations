@@ -10,19 +10,18 @@ import {
   MultiSelectInput,
   elMb7,
 } from '@reapit/elements'
-import React, { ChangeEvent, Dispatch, FC, SetStateAction, useEffect, useState } from 'react'
-import { UseFormGetValues, UseFormRegister } from 'react-hook-form'
-import { useDispatch, useSelector } from 'react-redux'
+import React, { ChangeEvent, Dispatch, FC, SetStateAction, useState } from 'react'
+import { UseFormRegister } from 'react-hook-form'
+import { useSelector } from 'react-redux'
 import { Dispatch as ReduxDispatch } from 'redux'
 import { fetchWebhooksTopics } from '../../../actions/webhooks-topics'
-import { selectTopicsData, selectTopicsLoading } from '../../../selector/webhooks-topics'
 import { TopicModel } from '../../../services/webhooks'
 import { searchMinWidth } from './__styles__/index'
 import { CreateWebhookFormSchema } from './webhooks-new'
+import { selectWebhookSubscriptionTopics } from '../../../selector/webhooks-subscriptions'
 
 interface WebhooksNewTopicsProps {
   register: UseFormRegister<CreateWebhookFormSchema>
-  getValues: UseFormGetValues<CreateWebhookFormSchema>
 }
 
 export const handleFetchTopics =
@@ -45,28 +44,13 @@ export const handleSearchTopics =
     setFilteredTopics(filteredTopics)
   }
 
-export const handleSelectedTopics =
-  (topicId: string, onChange: (...event: any[]) => void, topicIds: string[]) =>
-  (event: ChangeEvent<HTMLInputElement>) => {
-    const isChecked = event.target.checked
-    const newIds = isChecked ? [...topicIds, topicId] : topicIds.filter((id) => id !== topicId)
-    const value = [...new Set(newIds)]
-
-    onChange({ target: { value } })
-  }
-
-export const WebhooksNewTopics: FC<WebhooksNewTopicsProps> = ({ register, getValues }) => {
-  const dispatch = useDispatch()
+export const WebhooksNewTopics: FC<WebhooksNewTopicsProps> = ({ register }) => {
   const [filteredTopics, setFilteredTopics] = useState<TopicModel[]>([])
   const [search, setSearch] = useState<string>('')
-  const topics = useSelector(selectTopicsData)
-  const isLoading = useSelector(selectTopicsLoading)
-
-  const { applicationId } = getValues()
+  const topics = useSelector(selectWebhookSubscriptionTopics)
   const multiSelectOptions = filteredTopics.map((topic) => ({ name: topic.name ?? '', value: topic.id ?? '' }))
 
-  useEffect(handleFetchTopics(dispatch, isLoading, applicationId, topics), [applicationId, topics])
-
+  console.log(multiSelectOptions)
   return (
     <Grid>
       <ColSplit>
@@ -90,7 +74,7 @@ export const WebhooksNewTopics: FC<WebhooksNewTopicsProps> = ({ register, getVal
           className={elMb7}
           id="topic-ids"
           hasGreyChips
-          options={multiSelectOptions}
+          deselectedOptions={multiSelectOptions}
           {...register('topicIds')}
         />
         {!filteredTopics.length && search && (

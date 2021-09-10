@@ -171,22 +171,24 @@ export const ElTable = styled.div`
 
   &[data-has-expandable-action='true'] {
     --component-table-expandable-trigger-width: ${EXPANDABLE_TRIGGER_CELL_WIDTH};
+    --component-table-trigger-cell-color: var(--color-grey-light);
   }
 
   &[data-has-call-to-action='true'] {
     --component-table-expandable-trigger-width: ${CALL_TO_ACTION_CELL_WIDTH};
+    --component-table-trigger-cell-color: var(--color-white);
   }
 
   &[data-expandable-content-size='small'] {
-    --table-expanded-height: 12rem;
+    --table-expanded-height: 4rem;
   }
 
   &[data-expandable-content-size='medium'] {
-    --table-expanded-height: 18rem;
+    --table-expanded-height: 16rem;
   }
 
   &[data-expandable-content-size='large'] {
-    --table-expanded-height: 24rem;
+    --table-expanded-height: 26rem;
   }
 `
 
@@ -355,7 +357,7 @@ export const ElTableCellContent = styled.div`
 `
 
 export const ElTableExpandableRowTriggerCell = styled.div`
-  background: var(--color-grey-light);
+  background: var(--component-table-trigger-cell-color);
   display: flex;
   align-items: center;
   justify-content: center;
@@ -382,7 +384,7 @@ export const ElTableExpandableRow = styled.div`
   opacity: 0;
   transition: height var(--table-expanded-animation-speed, 0.2s) linear, opacity 0.2s linear;
   border: none;
-  overflow: hidden;
+  overflow-y: scroll;
   padding: 0;
 
   &.${elIsActive} {
@@ -393,6 +395,5 @@ export const ElTableExpandableRow = styled.div`
 `
 
 export const ElTableExpandableContainer = styled.div`
-  padding: 2.5rem;
-  overflow-y: scroll;
+  padding: 0.75rem;
 `

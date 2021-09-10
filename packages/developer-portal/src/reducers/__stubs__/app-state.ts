@@ -175,7 +175,6 @@ const appState: ReduxState = {
       isLoading: false,
       errorMessage: '',
       logs: [],
-      topics: [],
     },
   },
   developerSubscriptions: {

@@ -1,13 +1,18 @@
-import { Row, StatusIndicator, Table } from '@reapit/elements'
-import React, { FC, useEffect, useMemo, useState } from 'react'
+import { ExpandableContentSize, Loader, PersistantNotification, Row, StatusIndicator, Table } from '@reapit/elements'
+import React, { Dispatch, FC, SetStateAction, useEffect, useMemo, useState } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
 import { InstallationModel } from '@reapit/foundations-ts-definitions'
 import { fetchWebhooksSubscriptions } from '../../../actions/webhooks-subscriptions'
-import { fetchWebhooksTopics } from '../../../actions/webhooks-topics'
-import { selectCustomers, selectSubscriptionsData } from '../../../selector/webhooks-subscriptions'
-import { selectTopicsData } from '../../../selector/webhooks-topics'
+import {
+  selectCustomers,
+  selectLoading,
+  selectSubscriptionsData,
+  selectSubscriptionsLoading,
+  selectWebhookSubscriptionTopics,
+} from '../../../selector/webhooks-subscriptions'
 import { TopicModel, WebhookModel } from '../../../services/webhooks'
 import { WebhookQueryParams } from './webhooks'
+import { WebhooksEditControls } from './webhooks-edit-controls'
 
 export interface WebhooksManageProps {
   webhookQueryParams: WebhookQueryParams
@@ -36,7 +41,14 @@ export const renderCustomerName = (customers: InstallationModel[], customerIds?:
 }
 
 export const handleSortTableData =
-  (subscriptions: WebhookModel[], topics: TopicModel[], customers: InstallationModel[]) => (): Row[] => {
+  (
+    setExpandableContentSize: Dispatch<SetStateAction<ExpandableContentSize>>,
+    expandableContentSize: ExpandableContentSize,
+    subscriptions: WebhookModel[],
+    topics: TopicModel[],
+    customers: InstallationModel[],
+  ) =>
+  (): Row[] => {
     return subscriptions.map((subscription: WebhookModel) => ({
       cells: [
         {
@@ -64,7 +76,13 @@ export const handleSortTableData =
         },
       ],
       expandableContent: {
-        content: 'Some Content here',
+        content: (
+          <WebhooksEditControls
+            expandableContentSize={expandableContentSize}
+            setExpandableContentSize={setExpandableContentSize}
+            webhookModel={subscription}
+          />
+        ),
       },
     }))
   }
@@ -72,23 +90,43 @@ export const handleSortTableData =
 export const WebhooksManage: FC<WebhooksManageProps> = ({ webhookQueryParams }) => {
   const dispatch = useDispatch()
   const [pageNumber] = useState<number>(1)
+  const [expandableContentSize, setExpandableContentSize] = useState<ExpandableContentSize>('small')
   const subscriptionsData = useSelector(selectSubscriptionsData)
+  const subscriptionsLoading = useSelector(selectSubscriptionsLoading)
   const customers = useSelector(selectCustomers)
-  const topics = useSelector(selectTopicsData)
+  const customersLoading = useSelector(selectLoading)
+  const topics = useSelector(selectWebhookSubscriptionTopics)
   const { applicationId } = webhookQueryParams
 
-  const rows = useMemo(handleSortTableData(subscriptionsData?._embedded ?? [], topics, customers), [
-    subscriptionsData,
-    topics,
-    customers,
-  ])
-  console.log(rows)
+  const rows = useMemo(
+    handleSortTableData(
+      setExpandableContentSize,
+      expandableContentSize,
+      subscriptionsData?._embedded ?? [],
+      topics,
+      customers,
+    ),
+    [subscriptionsData, topics, customers, expandableContentSize],
+  )
+
   useEffect(() => {
     if (applicationId) {
       dispatch(fetchWebhooksSubscriptions({ applicationId: [applicationId] as string[], pageNumber }))
-      dispatch(fetchWebhooksTopics({ applicationId, pageNumber }))
     }
   }, [applicationId, pageNumber])
 
-  return <Table rows={rows} expandableContentSize="large" />
+  if (!webhookQueryParams.applicationId)
+    return (
+      <PersistantNotification isFullWidth isExpanded intent="secondary" isInline>
+        No app selected from the left hand side menu. Select an app to get started.
+      </PersistantNotification>
+    )
+  if (subscriptionsLoading || customersLoading) return <Loader label="loading" />
+  if (!rows.length)
+    return (
+      <PersistantNotification isFullWidth isExpanded intent="secondary" isInline>
+        No webhooks found for your application. You can create one from the New Webhook wizard.
+      </PersistantNotification>
+    )
+  return <Table rows={rows} expandableContentSize={expandableContentSize} />
 }

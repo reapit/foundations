@@ -4,16 +4,13 @@ import ActionTypes from '../../constants/action-types'
 import { Action } from '../../types/core'
 import errorMessages from '../../constants/error-messages'
 import { fetchWebhookLogsError, fetchWebhookLogsSuccess } from '../../actions/webhook-logs/webhook-logs'
-import { fetchWebhookLogsApi, fetchWebhooksTopicsListApi } from '../../services/webhooks'
+import { fetchWebhookLogsApi } from '../../services/webhooks'
 import { WebhookLogsQuery } from '../../components/pages/webhooks/webhooks-logs'
 
 export const fetchWebhookLogs = function* ({ data }: Action<WebhookLogsQuery>) {
   try {
-    const [logs, topics] = yield all([
-      call(fetchWebhookLogsApi, { ...data }),
-      call(fetchWebhooksTopicsListApi, { applicationId: data.applicationId }),
-    ])
-    yield put(fetchWebhookLogsSuccess({ logs: logs ?? [], topics: topics?._embedded ?? [] }))
+    const logs = yield call(fetchWebhookLogsApi, { ...data })
+    yield put(fetchWebhookLogsSuccess({ logs: logs ?? [] }))
   } catch (err) {
     yield put(fetchWebhookLogsError(err.description))
     // Weirdly the API returns a 404 when no logs are found - this is intended not an error so handling

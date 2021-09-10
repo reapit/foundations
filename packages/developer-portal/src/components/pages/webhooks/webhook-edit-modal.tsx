@@ -27,13 +27,13 @@ import {
   webhookDataClear,
   deleteWebhook,
 } from '@/actions/webhooks-subscriptions'
-import { TopicItem } from '@/reducers/webhooks-subscriptions/webhook-edit-modal'
 import { selectTopics, selectWebhookData, selectLoading, selectCustomers } from '@/selector/webhooks-subscriptions'
 import { validationSchema } from './form-schema/validation-schema'
 import { formFields } from './form-schema/form-fields'
 import { InstallationModel } from '@reapit/foundations-ts-definitions'
 import { SANDBOX_CLIENT } from '@/constants/api'
 import { Loader } from '@reapit/elements'
+import { TopicModel } from '../../../services/webhooks'
 
 const { activeField, topicIdsField, webhookUrlField, customerIdsField, ignoreEtagOnlyChangesField } = formFields
 
@@ -56,7 +56,7 @@ export type WebhookEditProps = {
   afterClose?: () => void
 }
 
-export const generateTopicOptions = (topics: TopicItem[]) => {
+export const generateTopicOptions = (topics: TopicModel[]) => {
   return topics.map(
     (topic) =>
       ({

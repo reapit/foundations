@@ -24,6 +24,10 @@ export const selectWebhookTopicsSubcription = (state: ReduxState) => {
   return state.webhooksSubscriptions?.edit?.webhookData?.topicIds
 }
 
+export const selectWebhookSubscriptionTopics = (state: ReduxState) => {
+  return state.webhooksSubscriptions?.edit?.subcriptionTopics._embedded
+}
+
 export const selectWebhookEditModalType = (state: ReduxState): string => {
   return state.webhooksSubscriptions?.edit.modalType
 }

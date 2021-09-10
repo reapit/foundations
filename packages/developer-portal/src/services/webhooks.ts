@@ -26,6 +26,7 @@ export type WebhookModel = {
   topicIds?: string[]
   customerIds?: string[]
   active?: boolean
+  ignoreEtagOnlyChanges?: boolean
 }
 
 export type PagingLinkModel = {

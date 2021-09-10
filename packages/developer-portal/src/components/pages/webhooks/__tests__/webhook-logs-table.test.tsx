@@ -53,10 +53,11 @@ describe('WebhooksLogsTable', () => {
     const spySaveAsFunc = jest.spyOn(FileSaver, 'saveAs')
     const payload = JSON.stringify({ applicationId: 'SOME_ID' })
     const dataBlob = new Blob([payload], { type: 'application/json;charset=utf-8;' })
-    const curried = handleDownloadPayload(payload)
+    const timestamp = 'some-date-time'
+    const curried = handleDownloadPayload(payload, timestamp)
 
     curried()
 
-    expect(spySaveAsFunc).toHaveBeenCalledWith(dataBlob, 'webhook-logs-payload.json')
+    expect(spySaveAsFunc).toHaveBeenCalledWith(dataBlob, `webhook-logs-payload-${timestamp}.json`)
   })
 })

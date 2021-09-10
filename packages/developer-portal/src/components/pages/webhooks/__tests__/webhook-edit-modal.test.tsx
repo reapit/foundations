@@ -11,10 +11,10 @@ import WebhookCreateModal, {
   generateTopicOptions,
   FormValuesType,
 } from '../webhook-edit-modal'
-import { TopicItem } from '@/reducers/webhooks-subscriptions/webhook-edit-modal'
 import { editWebhook, createWebhook } from '@/actions/webhooks-subscriptions'
 import { InstallationModel } from '@reapit/foundations-ts-definitions'
 import { SANDBOX_CLIENT_ID, SANDBOX_CLIENT_NAME } from '@/constants/api'
+import { TopicModel } from '../../../../services/webhooks'
 
 const mockProps: WebhookEditProps = {
   appId: '',
@@ -148,12 +148,11 @@ describe('WebhookEditModal', () => {
     )
   })
 
-  it('should return TopicItem Options', () => {
-    const data: TopicItem[] = [
+  it('should return TopicModel Options', () => {
+    const data: TopicModel[] = [
       {
         id: 'id',
         created: 'string',
-        modified: false,
         name: 'string',
         description: 'string',
         url: 'string',
@@ -164,7 +163,6 @@ describe('WebhookEditModal', () => {
       {
         id: 'id',
         created: 'string',
-        modified: false,
         name: 'name',
         description: 'description',
         url: 'string',
