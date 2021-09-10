@@ -9,7 +9,7 @@ const defaultProps = {
   width: 12,
 }
 
-const Text = ({ text, ...props }) => {
+const Text = ({ text, ...props }: { fontSize?: number; width?: number; text: string }) => {
   const {
     connectors: { connect, drag },
     selected,

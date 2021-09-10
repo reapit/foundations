@@ -17,13 +17,16 @@ import { generateEslintrc } from './templates/eslintrc'
 import { generatePrivateRouterWrapper } from './templates/private-router-wrapper'
 import { generateSession } from './templates/session'
 
-const propsToAttributes = (props: Record<string, any>) =>
+const propsToAttributes = (props: Object) =>
   Object.keys(props)
     .map((key) => `${key}={${JSON.stringify(props[key])}}`)
     .join(' ')
 
 const nodeToString = (node: Node, allNodes: Array<Node>) => {
   const { type, props, nodes } = node
+  if (node.nodeId === 'ROOT') {
+    props.isRoot = true
+  }
   const attributes = propsToAttributes(props)
   const children = nodes
     .map((nodeId) => {

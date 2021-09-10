@@ -5,7 +5,7 @@ import { js } from './js'
 export const generateRoutes = (pages: Pages) =>
   lint(js`
     import { BrowserRouter as Router, Route } from 'react-router-dom'
-    import { PrivateRouterWrapper } from './private-router-wrapper'
+    import { PrivateRouteWrapper } from './private-router-wrapper'
     ${pages
       .map(
         (page) => js`
@@ -18,7 +18,7 @@ export const generateRoutes = (pages: Pages) =>
 
     const Routes = () => (
       <Router>
-          <PrivateRouterWrapper>
+          <PrivateRouteWrapper>
             ${pages
               .map(
                 (page) => js`
@@ -30,7 +30,7 @@ export const generateRoutes = (pages: Pages) =>
               `,
               )
               .join('\n')}
-          </PrivateRouterWrapper>
+          </PrivateRouteWrapper>
       </Router>
     )
     

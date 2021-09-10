@@ -1,8 +1,7 @@
 import React from 'react'
 import { useEditor, useNode } from '@craftjs/core'
 import { ToolbarItem, ToolbarItemType, ToolbarSection } from '../toolbar'
-import { ContainerProps, Container as Econtainer } from './ejectable/container'
-export { ContainerProps } from './ejectable/container'
+import * as EContainer from './ejectable/container'
 
 const Container = (props: ContainerProps) => {
   const {
@@ -14,7 +13,7 @@ const Container = (props: ContainerProps) => {
   } = useEditor()
   const isRoot = node(id).isRoot()
 
-  return <Econtainer {...props} ref={(ref) => ref && connect(drag(ref))} isRoot={isRoot} />
+  return <EContainer.Container {...props} ref={(ref) => ref && connect(drag(ref))} isRoot={isRoot} />
 }
 
 const defaultProps = {
@@ -39,5 +38,5 @@ Container.craft = {
     toolbar: ContainerSettings,
   },
 }
-
+export type ContainerProps = EContainer.ContainerProps
 export default Container

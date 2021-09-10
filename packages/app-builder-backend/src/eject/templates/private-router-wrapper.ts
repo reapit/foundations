@@ -5,7 +5,7 @@ export const generatePrivateRouterWrapper = () => {
   return lint(js`
   import * as React from 'react'
   import { useReapitConnect } from '@reapit/connect-session'
-  import { reapitConnectBrowserSession } from './session'
+  import session from './session'
   import { useLocation, Redirect } from 'react-router'
   import { Loader, MainContainer, PageContainer } from '@reapit/elements'
   
@@ -14,7 +14,7 @@ export const generatePrivateRouterWrapper = () => {
   export type PrivateRouteWrapperProps = {}
   
   export const PrivateRouteWrapper: React.FunctionComponent<PrivateRouteWrapperProps> = ({ children }) => {
-    const { connectSession, connectInternalRedirect } = useReapitConnect(reapitConnectBrowserSession)
+    const { connectSession, connectInternalRedirect } = useReapitConnect(session)
     const location = useLocation()
     const currentUri = [location.pathname, location.search].join('')
   
@@ -33,7 +33,6 @@ export const generatePrivateRouterWrapper = () => {
     }
     return (
       <MainContainer>
-        <Menu />
         <Suspense fallback={<Loader label="Loading" fullPage />}>{children}</Suspense>
       </MainContainer>
     )
