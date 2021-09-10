@@ -24,7 +24,6 @@ export const pipelineStatusToName = (status: string): string => {
     case 'CANCELED':
       return 'Cancelled'
     case 'FAILED':
-    case 'DELETING':
       return 'Failed'
     case 'IN_PROGRESS':
       return 'In Progress'
@@ -34,6 +33,10 @@ export const pipelineStatusToName = (status: string): string => {
       return 'Creating architecture'
     case 'AWAITING_DEPLOYMENT':
       return 'Awaiting deployment'
+    case 'READY_FOR_DEPLOYMENT':
+      return 'Ready for deployment'
+    case 'DELETING':
+      return 'Destroying'
     default:
       return 'Queued'
   }
