@@ -5,7 +5,7 @@ import { deletePipelineEntity, deletePipelineRunners, deleteTasksFromPipeline, s
 import { PipelineEntity } from '../../entities'
 import { QueueNames } from '../../constants'
 
-const tearDownCloudFront = async (Id: string): Promise<any> => {
+const tearDownCloudFront = async (Id: string): Promise<string> => {
   const frontClient = new CloudFrontClient({})
 
   const cloudFrontDistro = await frontClient.send(
@@ -14,12 +14,14 @@ const tearDownCloudFront = async (Id: string): Promise<any> => {
     }),
   )
 
-  return frontClient.send(
+  await frontClient.send(
     new DeleteDistributionCommand({
       Id,
       IfMatch: cloudFrontDistro.ETag,
     }),
   )
+
+  return cloudFrontDistro.Distribution?.DomainName as string
 }
 
 const tearDownLiveBucketLocation = (location: string): Promise<void> => {
@@ -36,7 +38,7 @@ const tearDownLiveBucketLocation = (location: string): Promise<void> => {
   )
 }
 
-const tearDownR53 = (pipeline: PipelineEntity): Promise<any> => {
+const tearDownR53 = (domain: string, pipelineId: string, subDomain: string): Promise<any> => {
   const r53Client = new Route53Client({})
   return r53Client.send(
     new ChangeResourceRecordSetsCommand({
@@ -47,16 +49,16 @@ const tearDownR53 = (pipeline: PipelineEntity): Promise<any> => {
             Action: 'DELETE',
             ResourceRecordSet: {
               Type: 'A',
-              Name: `${pipeline.subDomain}.dev.paas.reapit.cloud`,
+              Name: `${subDomain}.dev.paas.reapit.cloud`,
               AliasTarget: {
-                DNSName: '',
+                DNSName: domain,
                 EvaluateTargetHealth: false,
                 HostedZoneId: 'Z2FDTNDATAQYW2',
               },
             },
           },
         ],
-        Comment: `Adding additional A record for pipeline [${pipeline.id}]`,
+        Comment: `Adding additional A record for pipeline [${pipelineId}]`,
       },
     }),
   )
@@ -73,10 +75,11 @@ export const pipelineTearDown: SQSHandler = async (event: SQSEvent, context: Con
     event.Records.map(async (record) => {
       const pipeline: PipelineEntity = JSON.parse(record.body) as PipelineEntity
 
+      const domainName = await tearDownCloudFront(pipeline.cloudFrontId as string)
+
       await Promise.all([
-        tearDownCloudFront(pipeline.cloudFrontId as string),
         tearDownLiveBucketLocation(`pipeline/${pipeline.uniqueRepoName}`),
-        tearDownR53(pipeline),
+        tearDownR53(domainName, pipeline.id as string, pipeline.subDomain as string),
       ])
 
       await deleteAllFromDb(pipeline)
