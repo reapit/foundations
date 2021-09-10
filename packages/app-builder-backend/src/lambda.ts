@@ -32,7 +32,7 @@ const createHandler = async () => {
       app.get('/eject/:appId', ejectAppRoute)
       app.use(middleware)
       return app
-    }
+    },
   })
 }
 

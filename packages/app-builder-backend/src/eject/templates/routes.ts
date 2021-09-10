@@ -5,6 +5,7 @@ import { js } from './js'
 export const generateRoutes = (pages: Pages) =>
   lint(js`
     import { BrowserRouter as Router, Route } from 'react-router-dom'
+    import { PrivateRouterWrapper } from './private-router-wrapper'
     ${pages
       .map(
         (page) => js`
@@ -17,17 +18,19 @@ export const generateRoutes = (pages: Pages) =>
 
     const Routes = () => (
       <Router>
-          ${pages
-            .map(
-              (page) => js`
-              <Route
-                ${page.id === '~' ? 'exact' : ''}
-                path="/${page.id === '~' ? '' : page.id}"
-                component={${slugToCamel(page.id === '~' ? 'index' : page.id)}}
-              />
-            `,
-            )
-            .join('\n')}
+          <PrivateRouterWrapper>
+            ${pages
+              .map(
+                (page) => js`
+                <Route
+                  ${page.id === '~' ? 'exact' : ''}
+                  path="/${page.id === '~' ? '' : page.id}"
+                  component={${slugToCamel(page.id === '~' ? 'index' : page.id)}}
+                />
+              `,
+              )
+              .join('\n')}
+          </PrivateRouterWrapper>
       </Router>
     )
     
