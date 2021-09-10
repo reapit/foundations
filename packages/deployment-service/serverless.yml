@@ -166,6 +166,15 @@ provider:
           - Arn
     - Effect: Allow
       Action:
+        - sqs:GetQueueAttributes
+        - sqs:SendMessage
+        - sqs:DeleteMessage
+      Resource:
+        Fn::GetAtt:
+          - PipelineTearDown
+          - Arn
+    - Effect: Allow
+      Action:
         - lambda:InvokeFunction
       Resource: arn:aws:lambda:${self:provider.region}:${self:custom.env.AWS_ACCOUNT_ID}:function:cloud-api-key-service-dev-getApiKeyViaInvoke
     - Effect: Allow
@@ -237,6 +246,11 @@ resources:
       Type: AWS::SQS::Queue
       Properties:
         QueueName: PipelineSetup
+        VisibilityTimeout: 300
+    PipelineTearDown:
+      Type: AWS::SQS::Queue
+      Properties:
+        QueueName: PipelineTearDown
         VisibilityTimeout: 300
 
 package:
