@@ -621,7 +621,7 @@ functions:
               - PipelineSetup
               - Arn
     timeout: 300
- pipelineTearDown:
+  pipelineTearDown:
     handler: src/index.pipelineTearDown
     events:
       - sqs:
