@@ -3,6 +3,7 @@ import { QueueNames } from '../../constants'
 import { PipelineEntity } from '../../entities'
 import { deployFromStore } from '../../executables'
 import { findPipelineRunnerById, pusher, savePipelineRunnerEntity, sqs, updateTask } from '../../services'
+import { CloudFrontClient, CreateInvalidationCommand } from '@aws-sdk/client-cloudfront'
 
 export const codebuildDeploy: SQSHandler = async (event: SQSEvent, context: Context, callback: Callback) => {
   await Promise.all(
@@ -56,6 +57,20 @@ export const codebuildDeploy: SQSHandler = async (event: SQSEvent, context: Cont
               1000,
           ).toString()
         }
+
+        const cloudFrontClient = new CloudFrontClient({})
+        const invalidateCommand = new CreateInvalidationCommand({
+          DistributionId: pipelineRunner.pipeline?.cloudFrontId,
+          InvalidationBatch: {
+            Paths: {
+              Items: ['/*'],
+              Quantity: 1,
+            },
+            CallerReference: `deployment refresh for pipeline runner [${pipelineRunner.id}]`,
+          },
+        })
+
+        await cloudFrontClient.send(invalidateCommand)
       } catch (e) {
         console.error(e)
 
