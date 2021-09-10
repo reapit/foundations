@@ -36,8 +36,6 @@ export const pipelineSetup: SQSHandler = async (event: SQSEvent, context: Contex
 
         const id = uuid()
 
-        console.log('creating distro')
-
         const distroCommand = new CreateDistributionCommand({
           DistributionConfig: {
             DefaultRootObject: 'index.html',
@@ -92,8 +90,6 @@ export const pipelineSetup: SQSHandler = async (event: SQSEvent, context: Contex
           region: 'us-east-1',
         })
 
-        console.log('creating A record')
-
         const ACommand = new ChangeResourceRecordSetsCommand({
           HostedZoneId: process.env.HOSTED_ZONE_ID,
           ChangeBatch: {
@@ -116,7 +112,6 @@ export const pipelineSetup: SQSHandler = async (event: SQSEvent, context: Contex
         })
 
         const r53Result = await r53Client.send(ACommand)
-        console.log('result', r53Result)
 
         const aRecordId = r53Result.ChangeInfo?.Id
 

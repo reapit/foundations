@@ -1,7 +1,8 @@
 import { httpHandler, NotFoundException, HttpStatusCode } from '@homeservenow/serverless-aws-handler'
 import * as service from './../../services/pipeline'
 import { ownership, resolveCreds } from './../../utils'
-import { defaultOutputHeaders } from './../../constants'
+import { defaultOutputHeaders, QueueNames } from './../../constants'
+import { sqs } from '../../services'
 
 /**
  * Delete a pipeline
@@ -20,6 +21,20 @@ export const pipelineDelete = httpHandler({
 
     await ownership(pipeline.developerId, developerId)
 
-    await service.deletePipelineEntity(pipeline)
+    await service.updatePipelineEntity(pipeline, {
+      buildStatus: 'DELETING',
+    })
+
+    await new Promise<void>((resolve, reject) =>
+      sqs.sendMessage(
+        {
+          QueueUrl: QueueNames.PIPELINE_TEAR_DOWN,
+          MessageBody: JSON.stringify(pipeline),
+        },
+        (error) => {
+          error ? reject(error) : resolve()
+        },
+      ),
+    )
   },
 })

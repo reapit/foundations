@@ -71,7 +71,6 @@ export const codebuildDeploy: SQSHandler = async (event: SQSEvent, context: Cont
               1000,
           ).toString()
         }
-
       } catch (e) {
         console.error(e)
 
