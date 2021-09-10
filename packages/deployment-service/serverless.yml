@@ -192,6 +192,7 @@ provider:
       Action:
         - cloudfront:CreateDistribution
         - cloudfront:CreateInvalidation
+        - cloudfront:DeleteDistribution
       Resource: "*"
 
 resources:
