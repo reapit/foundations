@@ -292,6 +292,8 @@ export default () => {
             {pipeline.buildStatus !== 'CREATING_ARCHITECTURE' && (
               <BodyText>
                 <a
+                  target="_blank"
+                  rel="noreferrer"
                   href={`https://${pipeline.subDomain}.dev.paas.reapit.cloud`}
                 >{`https://${pipeline.subDomain}.dev.paas.reapit.cloud`}</a>
               </BodyText>
