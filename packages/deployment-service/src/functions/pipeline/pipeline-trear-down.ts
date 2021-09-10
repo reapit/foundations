@@ -1,16 +1,23 @@
-import { CloudFrontClient, DeleteDistributionCommand } from '@aws-sdk/client-cloudfront'
+import { CloudFrontClient, DeleteDistributionCommand, GetDistributionCommand } from '@aws-sdk/client-cloudfront'
 import { ChangeResourceRecordSetsCommand, Route53Client } from '@aws-sdk/client-route-53'
 import { SQSEvent, SQSHandler, Context, Callback } from 'aws-lambda'
 import { deletePipelineEntity, deletePipelineRunners, deleteTasksFromPipeline, s3Client, sqs } from '../../services'
 import { PipelineEntity } from '../../entities'
 import { QueueNames } from '../../constants'
 
-const tearDownCloudFront = (Id: string): Promise<any> => {
+const tearDownCloudFront = async (Id: string): Promise<any> => {
   const frontClient = new CloudFrontClient({})
+
+  const cloudFrontDistro = await frontClient.send(
+    new GetDistributionCommand({
+      Id,
+    }),
+  )
 
   return frontClient.send(
     new DeleteDistributionCommand({
       Id,
+      IfMatch: cloudFrontDistro.ETag,
     }),
   )
 }
