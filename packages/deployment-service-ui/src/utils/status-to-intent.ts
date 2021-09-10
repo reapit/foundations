@@ -7,7 +7,10 @@ export const pipelineStatusToIntent = (status: string): Intent => {
     case 'FAILED':
       return 'danger'
     case 'IN_PROGRESS':
+    case 'CREATING_ARCHITECTURE':
       return 'critical'
+    case 'AWAITING_DEPLOYMENT':
+      return 'primary'
     case 'SUCCEEDED':
       return 'success'
     default:
@@ -25,6 +28,10 @@ export const pipelineStatusToName = (status: string): string => {
       return 'In Progress'
     case 'SUCCEEDED':
       return 'Succeeded'
+    case 'CREATING_ARCHITECTURE':
+      return 'Creating architecture'
+    case 'AWAITING_DEPLOYMENT':
+      return 'Awaiting deployment'
     default:
       return 'Queued'
   }
