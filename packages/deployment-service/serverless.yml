@@ -621,3 +621,13 @@ functions:
               - PipelineSetup
               - Arn
     timeout: 300
+ pipelineTearDown:
+    handler: src/index.pipelineTearDown
+    events:
+      - sqs:
+          queueName: PipelineTearDown
+          arn:
+            Fn::GetAtt:
+              - PipelineTearDown
+              - Arn
+    timeout: 300
