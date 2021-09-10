@@ -7,11 +7,10 @@ import { injectSwitchModeToWindow } from '@reapit/elements-legacy'
 // Global styles import
 import { elGlobals, MediaStateProvider, NavStateProvider, SnackProvider } from '@reapit/elements' // eslint-disable-line
 import { reapitConnectBrowserSession } from './connect-session'
+import { graphqlUri } from './config'
 
 const httpLink = createHttpLink({
-  uri: window.location.hostname.includes('localhost')
-    ? 'http://localhost:4000'
-    : 'https://zbtuirnf0g.execute-api.eu-west-2.amazonaws.com/prod/',
+  uri: graphqlUri,
 })
 
 const authLink = setContext(async (_, { headers }) => {
@@ -32,20 +31,18 @@ const client = new ApolloClient({
 
 injectSwitchModeToWindow()
 
-const App = () => {
-  return (
-    <ErrorBoundary>
-      <ApolloProvider client={client}>
-        <NavStateProvider>
-          <MediaStateProvider>
-            <SnackProvider>
-              <Router />
-            </SnackProvider>
-          </MediaStateProvider>
-        </NavStateProvider>
-      </ApolloProvider>
-    </ErrorBoundary>
-  )
-}
+const App = () => (
+  <ErrorBoundary>
+    <ApolloProvider client={client}>
+      <NavStateProvider>
+        <MediaStateProvider>
+          <SnackProvider>
+            <Router />
+          </SnackProvider>
+        </MediaStateProvider>
+      </NavStateProvider>
+    </ApolloProvider>
+  </ErrorBoundary>
+)
 
 export default App

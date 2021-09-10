@@ -1,8 +1,9 @@
 import React from 'react'
 import { useReapitConnect } from '@reapit/connect-session'
-import { reapitConnectBrowserSession } from '@/core/connect-session'
 import { NavResponsive } from '@reapit/elements'
 import { useHistory } from 'react-router'
+
+import { reapitConnectBrowserSession } from '@/core/connect-session'
 
 export const Nav: React.FC = () => {
   const { connectLogoutRedirect } = useReapitConnect(reapitConnectBrowserSession)

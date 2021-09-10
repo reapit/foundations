@@ -1,44 +1,24 @@
-import qs from 'query-string'
-import { useEditor } from '@craftjs/core'
+import { useEditor, useNode } from '@craftjs/core'
 import React from 'react'
-import { Link as RRLink } from 'react-router-dom'
 import { ToolbarItem, ToolbarItemType, ToolbarSection } from '../toolbar'
-import Container, { ContainerProps } from './container'
-import { usePageId } from '@/core/usePageId'
+import Container from './container'
+import { usePageId } from '@/components/hooks/use-page-id'
 import { useApp } from '@/components/hooks/apps/use-app'
+import { LinkProps, Link as ELink } from './ejectable/link'
 
 const defaultProps = {
   destination: '/',
-}
-
-interface LinkProps extends ContainerProps {
-  destination?: string
-  context?: { [key: string]: any }
 }
 
 const Link = (props: LinkProps) => {
   const { enabled } = useEditor((state) => ({
     enabled: state.options.enabled,
   }))
+  const {
+    connectors: { connect, drag },
+  } = useNode()
 
-  return (
-    <RRLink
-      to={{
-        pathname: props.destination,
-        search: props.context ? qs.stringify(props.context) : '',
-      }}
-      onClick={
-        enabled
-          ? (e) => {
-              e.preventDefault()
-              return false
-            }
-          : undefined
-      }
-    >
-      <Container {...props} />
-    </RRLink>
-  )
+  return <ELink {...props} ref={(ref) => ref && connect(drag(ref))} disabled={!enabled} />
 }
 
 const ContainerSettings = Container.craft.related.toolbar
@@ -58,9 +38,9 @@ export const DestinationPage = ({
   return (
     <ToolbarSection
       title={sectionTitle || 'Destination'}
-      props={['destination']}
-      summary={({ destination }: any) => {
-        return `link to ${destination || ''}`
+      props={[propKey]}
+      summary={(obj: any) => {
+        return `link to ${obj[propKey] || ''}`
       }}
     >
       <ToolbarItem type={ToolbarItemType.Select} propKey={propKey} title={title}>

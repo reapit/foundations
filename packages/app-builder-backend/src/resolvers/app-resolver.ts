@@ -3,9 +3,9 @@ import { Resolver, Query, Arg, Mutation, ID } from 'type-graphql'
 import { App } from '../entities/app'
 import { getUserApps, getApp, createApp, updateApp } from '../ddb'
 import { Page } from '../entities/page'
-import uuid from 'uuid'
+import * as uuid from 'uuid'
 
-const defaultNodes = [
+export const defaultNodes = [
   {
     nodeId: 'ROOT',
     type: { resolvedName: 'Container' },
