@@ -10,6 +10,7 @@ export const generateApp = () => {
     // Global styles import
     import { elGlobals, MediaStateProvider, NavStateProvider, SnackProvider } from '@reapit/elements' // eslint-disable-line
     import session from './session'
+    import '@reapit/elements/dist/index.css'
 
     const httpLink = createHttpLink({
       uri: 'https://zbtuirnf0g.execute-api.eu-west-2.amazonaws.com/prod/',
