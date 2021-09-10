@@ -5,6 +5,7 @@ export const pipelineStatusToIntent = (status: string): Intent => {
     case 'CANCELED':
       return 'neutral'
     case 'FAILED':
+    case 'DELETING':
       return 'danger'
     case 'IN_PROGRESS':
     case 'CREATING_ARCHITECTURE':
@@ -23,6 +24,7 @@ export const pipelineStatusToName = (status: string): string => {
     case 'CANCELED':
       return 'Cancelled'
     case 'FAILED':
+    case 'DELETING':
       return 'Failed'
     case 'IN_PROGRESS':
       return 'In Progress'
