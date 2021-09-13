@@ -55,16 +55,23 @@ export const ElInputGroup = styled.div`
       box-shadow: none;
       padding-left: 0;
       padding-right: 0.5rem;
+      border-bottom: none;
     }
+
     ~ ${ElInputAddOn} {
       box-shadow: none;
       padding-left: 0.5rem;
       flex-grow: 1;
+      border-bottom: none;
     }
 
     &:checked {
       ~ ${ElIcon}, ~ ${ElLabel}, ~ ${ElInputAddOn} {
-        background: var(--component-input-focus-bg);
+        background: var(--color-white);
+      }
+
+      ~ ${ElInputAddOn} {
+        color: var(--color-black);
       }
     }
   }

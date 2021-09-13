@@ -22,6 +22,7 @@ import {
   requestWebhookSubcriptionData,
   requestWebhookReceiveDataFailure,
   webhookSetOpenModal,
+  updateWebhookCreateEditState,
 } from '@/actions/webhooks-subscriptions'
 import { cloneableGenerator } from '@redux-saga/testing-utils'
 import { webhookDataStub, webhookItemDataStub } from '@/sagas/__stubs__/webhook-edit'
@@ -38,6 +39,7 @@ import {
   fetchWebhooksSubscriptionById,
 } from '@/services/webhooks'
 import { fetchInstallationsList } from '@/services/installations'
+import { WebhookCreateEditState } from '../../../reducers/webhooks-subscriptions/webhook-edit-modal'
 
 jest.mock('@/services/webhooks')
 jest.mock('@/services/installations')
@@ -163,12 +165,16 @@ describe('deleteWebhook', () => {
     const clone = gen.clone()
     expect(clone.next(true).value).toEqual(put(webhookSetOpenModal('')))
     expect(clone.next().value).toEqual(call(fetchWebhooksSubscriptionsListApi, { applicationId: [applicationId] }))
+    expect(clone.next(subscriptions).value).toEqual(put(updateWebhookCreateEditState(WebhookCreateEditState.SUCCESS)))
     expect(clone.next(subscriptions).value).toEqual(put(fetchWebhooksSubscriptionsSuccess(subscriptions)))
     expect(clone.next().done).toBe(true)
   })
   it('api call error', () => {
     const clone = gen.clone()
-    expect(clone.throw && clone.throw('Call API Failed').done).toBe(true)
+    expect(clone.throw && clone.throw('Call API Failed').value).toEqual(
+      put(updateWebhookCreateEditState(WebhookCreateEditState.ERROR)),
+    )
+    expect(clone.next().done).toBe(true)
   })
 })
 
@@ -188,12 +194,16 @@ describe('editWebhook', () => {
     const clone = gen.clone()
     expect(clone.next(true).value).toEqual(put(webhookSetOpenModal('')))
     expect(clone.next().value).toEqual(call(fetchWebhooksSubscriptionsListApi, { applicationId: [data.applicationId] }))
+    expect(clone.next(subscriptions).value).toEqual(put(updateWebhookCreateEditState(WebhookCreateEditState.SUCCESS)))
     expect(clone.next(subscriptions).value).toEqual(put(fetchWebhooksSubscriptionsSuccess(subscriptions)))
     expect(clone.next().done).toBe(true)
   })
   it('api call error', () => {
     const clone = gen.clone()
-    expect(clone.throw && clone.throw('Call API Failed').done).toBe(true)
+    expect(clone.throw && clone.throw('Call API Failed').value).toEqual(
+      put(updateWebhookCreateEditState(WebhookCreateEditState.ERROR)),
+    )
+    expect(clone.next().done).toBe(true)
   })
 })
 
@@ -213,12 +223,15 @@ describe('createNewWebhook', () => {
     const clone = gen.clone()
     expect(clone.next(true).value).toEqual(put(webhookSetOpenModal('')))
     expect(clone.next().value).toEqual(call(fetchWebhooksSubscriptionsListApi, { applicationId: [data.applicationId] }))
+    expect(clone.next(subscriptions).value).toEqual(put(updateWebhookCreateEditState(WebhookCreateEditState.SUCCESS)))
     expect(clone.next(subscriptions).value).toEqual(put(fetchWebhooksSubscriptionsSuccess(subscriptions)))
     expect(clone.next().done).toBe(true)
   })
   it('api call error', () => {
     const clone = gen.clone()
-    if (!clone.throw) throw new Error('Generator object cannot throw')
-    expect(clone.throw && clone.throw('Call API Failed').done).toBe(true)
+    expect(clone.throw && clone.throw('Call API Failed').value).toEqual(
+      put(updateWebhookCreateEditState(WebhookCreateEditState.ERROR)),
+    )
+    expect(clone.next().done).toBe(true)
   })
 })

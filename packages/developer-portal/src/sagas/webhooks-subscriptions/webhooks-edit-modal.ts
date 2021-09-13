@@ -1,7 +1,7 @@
 import { put, fork, takeLatest, all, call } from '@redux-saga/core/effects'
 import { Action } from '@/types/core'
 import ActionTypes from '@/constants/action-types'
-import { WebhookModal } from '@/reducers/webhooks-subscriptions/webhook-edit-modal'
+import { WebhookCreateEditState, WebhookModal } from '@/reducers/webhooks-subscriptions/webhook-edit-modal'
 import {
   requestWebhookSubcriptionReceiveFailure,
   requestWebhookSubcriptionReceiveData,
@@ -12,6 +12,7 @@ import {
   requestWebhookSubcriptionData,
   DeleteWebhookParams,
   webhookSetOpenModal,
+  updateWebhookCreateEditState,
 } from '@/actions/webhooks-subscriptions'
 import errorMessages from '@/constants/error-messages'
 import { fetchWebhooksSubscriptionsSuccess, setApplicationId } from '@/actions/webhooks-subscriptions'
@@ -59,14 +60,13 @@ export const createNewWebhook = function* ({ data }: Action<CreateWebhookParams>
       yield put(webhookSetOpenModal(''))
       const { applicationId } = data
       newListResponse = yield call(fetchWebhooksSubscriptionsListApi, { applicationId: [applicationId] })
+      yield put(updateWebhookCreateEditState(WebhookCreateEditState.SUCCESS))
     }
     if (newListResponse) {
       yield put(fetchWebhooksSubscriptionsSuccess(newListResponse as PagedResultWebhookModel_))
     }
   } catch (err) {
-    notification.error({
-      message: err?.description || errorMessages.DEFAULT_SERVER_ERROR,
-    })
+    yield put(updateWebhookCreateEditState(WebhookCreateEditState.ERROR))
   }
 }
 
@@ -78,14 +78,13 @@ export const editWebhook = function* ({ data }: Action<EditWebhookParams>) {
       yield put(webhookSetOpenModal(''))
       const { applicationId } = data
       newListResponse = yield call(fetchWebhooksSubscriptionsListApi, { applicationId: [applicationId] })
+      yield put(updateWebhookCreateEditState(WebhookCreateEditState.SUCCESS))
     }
     if (newListResponse) {
       yield put(fetchWebhooksSubscriptionsSuccess(newListResponse as PagedResultWebhookModel_))
     }
   } catch (err) {
-    notification.error({
-      message: err?.description || errorMessages.DEFAULT_SERVER_ERROR,
-    })
+    yield put(updateWebhookCreateEditState(WebhookCreateEditState.ERROR))
   }
 }
 
@@ -97,14 +96,13 @@ export const deleteWebhook = function* ({ data }: Action<DeleteWebhookParams>) {
     if (deleteResponse) {
       yield put(webhookSetOpenModal(''))
       newListResponse = yield call(fetchWebhooksSubscriptionsListApi, { applicationId: [applicationId] })
+      yield put(updateWebhookCreateEditState(WebhookCreateEditState.SUCCESS))
     }
     if (newListResponse) {
       yield put(fetchWebhooksSubscriptionsSuccess(newListResponse as PagedResultWebhookModel_))
     }
   } catch (err) {
-    notification.error({
-      message: err?.description || errorMessages.DEFAULT_SERVER_ERROR,
-    })
+    yield put(updateWebhookCreateEditState(WebhookCreateEditState.ERROR))
   }
 }
 

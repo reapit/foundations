@@ -35,12 +35,16 @@ exports[`ColResponsive should render with the correct classNames when supplied a
   }
 >
   <ColResponsive
+    offset4KScreen={1}
     offsetDesktop={1}
     offsetMobile={1}
+    offsetSuperWideScreen={1}
     offsetTablet={1}
     offsetWideScreen={1}
+    span4KScreen={1}
     spanDesktop={1}
     spanMobile={1}
+    spanSuperWideScreen={1}
     spanTablet={1}
     spanWideScreen={1}
   >
@@ -65,12 +69,16 @@ exports[`GridResponsive hould render with the correct classNames when supplied a
   }
 >
   <GridResponsive
+    colGap4KScreen={8}
     colGapDesktop={3}
     colGapMobile={1}
+    colGapSuperWideScreen={6}
     colGapTablet={2}
     colGapWideScreen={4}
+    rowGap4KScreen={8}
     rowGapDesktop={3}
     rowGapMobile={1}
+    rowGapSuperWideScreen={6}
     rowGapTablet={2}
     rowGapWideScreen={4}
   >

@@ -1,4 +1,4 @@
-import React, { ButtonHTMLAttributes, FC } from 'react'
+import React, { ButtonHTMLAttributes, FC, HTMLAttributes } from 'react'
 import { cx } from '@linaria/core'
 import { Intent, getIntentClassName } from '../../helpers/intent'
 import { elIsLoading } from '../../styles/states'
@@ -58,8 +58,8 @@ export const Button: FC<ButtonProps> = ({
   )
 }
 
-export const ButtonGroup: FC = ({ children }) => {
-  return <ElButtonGroup>{children}</ElButtonGroup>
+export const ButtonGroup: FC<HTMLAttributes<HTMLDivElement>> = ({ children, ...rest }) => {
+  return <ElButtonGroup {...rest}>{children}</ElButtonGroup>
 }
 
 export interface IFloatingButton extends ButtonProps {

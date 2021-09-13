@@ -5,7 +5,7 @@ import { MultiSelectChip, MultiSelect } from '../index'
 describe('MultiSelectChip', () => {
   it('should match a snapshot and render children', () => {
     const wrapper = shallow(
-      <MultiSelectChip>
+      <MultiSelectChip id="test-id">
         <span>Some Value</span>
       </MultiSelectChip>,
     )

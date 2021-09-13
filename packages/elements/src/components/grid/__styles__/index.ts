@@ -1,19 +1,22 @@
 import { styled } from '@linaria/react'
-import { is4KScreen, isDesktop, isMobile, isSuperWideScreen, isTablet, isWideScreen } from '../../../styles/media'
+import { is4KScreen, isDesktop, isSuperWideScreen, isTablet, isWideScreen } from '../../../styles/media'
 
 export const ElGrid = styled.div`
   display: grid;
-  grid-template-columns: repeat(8, 1fr);
+  grid-template-columns: repeat(4, 1fr);
   grid-column-gap: 1rem;
   grid-row-gap: 1.5rem;
 
   ${isTablet} {
-    grid-template-columns: repeat(8, 1fr);
     grid-column-gap: 2rem;
     grid-row-gap: 2.5rem;
   }
 
   ${isDesktop} {
+    grid-template-columns: repeat(8, 1fr);
+  }
+
+  ${isWideScreen} {
     grid-template-columns: repeat(12, 1fr);
   }
 
@@ -27,25 +30,21 @@ export const ElGrid = styled.div`
 `
 
 export const ElCol = styled.div`
-  grid-column-end: span 8;
+  grid-column-end: span 4;
+`
 
-  ${isMobile} {
-    grid-column-end: span 4;
-  }
-
-  ${isTablet} {
-    grid-column-end: span 4;
-  }
-
-  ${isDesktop} {
-    grid-column-end: span 4;
-  }
+export const ElColSplit = styled.div`
+  grid-column-end: span 4;
 
   ${isWideScreen} {
-    grid-column-end: span 3;
+    grid-column-end: span 6;
+  }
+
+  ${isSuperWideScreen} {
+    grid-column-end: span 8;
   }
 
   ${is4KScreen} {
-    grid-column-end: span 2;
+    grid-column-end: span 10;
   }
 `

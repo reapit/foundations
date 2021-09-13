@@ -172,8 +172,46 @@ exports[`Router should match a snapshot 1`] = `
                   },
                 }
               }
-              fetcher={true}
-              path="/webhooks"
+              path="/webhooks/manage"
+            />
+            <PrivateRoute
+              component={
+                Object {
+                  "$$typeof": Symbol(react.lazy),
+                  "_init": [Function],
+                  "_payload": Object {
+                    "_result": [Function],
+                    "_status": -1,
+                  },
+                }
+              }
+              path="/webhooks/about"
+            />
+            <PrivateRoute
+              component={
+                Object {
+                  "$$typeof": Symbol(react.lazy),
+                  "_init": [Function],
+                  "_payload": Object {
+                    "_result": [Function],
+                    "_status": -1,
+                  },
+                }
+              }
+              path="/webhooks/new"
+            />
+            <PrivateRoute
+              component={
+                Object {
+                  "$$typeof": Symbol(react.lazy),
+                  "_init": [Function],
+                  "_payload": Object {
+                    "_result": [Function],
+                    "_status": -1,
+                  },
+                }
+              }
+              path="/webhooks/logs"
             />
             <PrivateRoute
               component={

@@ -5517,6 +5517,15 @@ __metadata:
   languageName: node
   linkType: hard
 
+"@hookform/resolvers@npm:^2.8.0":
+  version: 2.8.0
+  resolution: "@hookform/resolvers@npm:2.8.0"
+  peerDependencies:
+    react-hook-form: ^7.0.0
+  checksum: 07211099568dfd02855d4d0e355dd95bcbeaf31dadfa8ca24f7eeb5d869e40ab32042a0619d91381b3001b655608d6929dc371e2ff893092dbadb5919734e673
+  languageName: node
+  linkType: hard
+
 "@humanwhocodes/config-array@npm:^0.5.0":
   version: 0.5.0
   resolution: "@humanwhocodes/config-array@npm:0.5.0"
@@ -19612,6 +19621,7 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "developer-portal@workspace:packages/developer-portal"
   dependencies:
+    "@hookform/resolvers": ^2.8.0
     "@linaria/core": ^3.0.0-beta.4
     "@linaria/react": ^3.0.0-beta.7
     "@linaria/shaker": ^3.0.0-beta.8
@@ -19651,6 +19661,7 @@ __metadata:
     react-copy-to-clipboard: ^5.0.3
     react-dom: ^17.0.2
     react-ga: ^2.7.0
+    react-hook-form: ^7.14.2
     react-redux: ^7.2.4
     react-responsive: 8.2.0
     react-router: ^5.2.0
@@ -35113,6 +35124,15 @@ fsevents@^1.2.7:
   peerDependencies:
     react: ^16.8.0 || ^17
   checksum: 23cc1d5c6c718faa01c2fc950a4a4e944f971708051bc072f6ffbe9738bedbefa7755d0d1d691fca72271628eb127f736e3b7b181554f0479f9ed0e53bc725e7
+  languageName: node
+  linkType: hard
+
+"react-hook-form@npm:^7.14.2":
+  version: 7.14.2
+  resolution: "react-hook-form@npm:7.14.2"
+  peerDependencies:
+    react: ^16.8.0 || ^17
+  checksum: 5715182d4cb9f5f7d32f638a057e2a59972ceea0d267503099ceb3851905e7f62660c41bad52502e79e2d279e26343709c84bc885e09808106e98caef5c779da
   languageName: node
   linkType: hard
 

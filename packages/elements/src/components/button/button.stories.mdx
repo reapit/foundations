@@ -45,11 +45,25 @@ Different intents are supported, to enable buttons to be used in different conte
   <Story name="Intent: Danger">
     <Button intent="danger">Danger</Button>
   </Story>
+  <Story name="Intent: Neutral">
+    <Button intent="neutral">Neutral</Button>
+  </Story>
+  <Story name="Intent: Low">
+    <Button intent="low">Low</Button>
+  </Story>
 </Canvas>
 
 <RenderHtmlMarkup
   component="Button"
-  story={['Intent: Primary', 'Intent: Secondary', 'Intent: Critical', 'Intent: Success', 'Intent: Danger']}
+  story={[
+    'Intent: Primary',
+    'Intent: Secondary',
+    'Intent: Critical',
+    'Intent: Success',
+    'Intent: Danger',
+    'Intent: Neutral',
+    'Intent: Low',
+  ]}
   label="HTML of different intents"
 />
 

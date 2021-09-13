@@ -2,82 +2,84 @@ import { css } from '@linaria/core'
 import { styled } from '@linaria/react'
 import { ElIcon } from '../../icon/__styles__'
 import { elIsActive } from '../../../styles/states'
-import { isMobile } from './../../../styles/media'
+
+export const isNarrow = '@media only screen and (max-width: 1024px)'
 
 const EXPANDABLE_TRIGGER_CELL_WIDTH = '40px'
+const CALL_TO_ACTION_CELL_WIDTH = '100px'
 
 const MAX_HEADER_HEIGHT = '40px'
 const MAX_TABLE_CONTENT_HEIGHT = '60px'
 const MAX_LINE_LENGTH = 2
 
 export const ElTableCellNarrowOrder1 = css`
-  ${isMobile} {
+  ${isNarrow} {
     order: 0;
   }
 `
 
 export const ElTableCellNarrowOrder2 = css`
-  ${isMobile} {
+  ${isNarrow} {
     order: 1;
   }
 `
 
 export const ElTableCellNarrowOrder3 = css`
-  ${isMobile} {
+  ${isNarrow} {
     order: 2;
   }
 `
 
 export const ElTableCellNarrowOrder4 = css`
-  ${isMobile} {
+  ${isNarrow} {
     order: 3;
   }
 `
 
 export const ElTableCellNarrowOrder5 = css`
-  ${isMobile} {
+  ${isNarrow} {
     order: 4;
   }
 `
 
 export const ElTableCellNarrowOrder6 = css`
-  ${isMobile} {
+  ${isNarrow} {
     order: 5;
   }
 `
 
 export const ElTableCellNarrowOrder7 = css`
-  ${isMobile} {
+  ${isNarrow} {
     order: 6;
   }
 `
 
 export const ElTableCellNarrowOrder8 = css`
-  ${isMobile} {
+  ${isNarrow} {
     order: 7;
   }
 `
 
 export const ElTableCellNarrowOrder9 = css`
-  ${isMobile} {
+  ${isNarrow} {
     order: 8;
   }
 `
 
 export const ElTableCellNarrowOrder10 = css`
-  ${isMobile} {
+  ${isNarrow} {
     order: 9;
   }
 `
 
 export const ElTableCellNarrowOrder11 = css`
-  ${isMobile} {
+  ${isNarrow} {
     order: 10;
   }
 `
 
 export const ElTableCellNarrowOrder12 = css`
-  ${isMobile} {
+  ${isNarrow} {
     order: 11;
   }
 `
@@ -167,26 +169,32 @@ export const ElTable = styled.div`
     --component-table-num-columns: 12;
   }
 
-  &[data-has-expandable-action] {
+  &[data-has-expandable-action='true'] {
     --component-table-expandable-trigger-width: ${EXPANDABLE_TRIGGER_CELL_WIDTH};
+    --component-table-trigger-cell-color: var(--color-grey-light);
+  }
+
+  &[data-has-call-to-action='true'] {
+    --component-table-expandable-trigger-width: ${CALL_TO_ACTION_CELL_WIDTH};
+    --component-table-trigger-cell-color: var(--color-white);
   }
 
   &[data-expandable-content-size='small'] {
-    --table-expanded-height: 12rem;
+    --table-expanded-height: 4rem;
   }
 
   &[data-expandable-content-size='medium'] {
-    --table-expanded-height: 18rem;
+    --table-expanded-height: 16rem;
   }
 
   &[data-expandable-content-size='large'] {
-    --table-expanded-height: 24rem;
+    --table-expanded-height: 26rem;
   }
 `
 
 // modifiers
 export const elTableNarrowCellIsFullWidth = css`
-  ${isMobile} {
+  ${isNarrow} {
     grid-column-end: span 2;
     text-align: center;
   }
@@ -271,11 +279,7 @@ export const ElTableRow = styled.div`
   box-shadow: 0px 2px 9px rgba(0, 0, 0, 0.08);
   border-radius: var(--default-border-radius);
 
-  @media only screen and (max-width: 1024px) {
-    grid-template-columns: 1fr 1fr 1fr 1fr;
-  }
-
-  ${isMobile} {
+  ${isNarrow} {
     grid-template-columns: 1fr 1fr;
   }
 
@@ -315,6 +319,7 @@ export const ElTableCell = styled.div`
   flex-wrap: wrap;
   color: var(--color-grey-dark);
   margin-right: 2px;
+  word-break: break-word;
 
   &:last-child {
     margin-right: 0;
@@ -341,7 +346,7 @@ export const ElTableCellContent = styled.div`
   line-height: 1.5rem;
   text-overflow: ellipsis;
 
-  ${isMobile} {
+  ${isNarrow} {
     &::before {
       display: block;
       content: attr(data-narrow-label);
@@ -352,56 +357,22 @@ export const ElTableCellContent = styled.div`
 `
 
 export const ElTableExpandableRowTriggerCell = styled.div`
-  background: var(--color-grey-light);
+  background: var(--component-table-trigger-cell-color);
   display: flex;
   align-items: center;
   justify-content: center;
   cursor: pointer;
   padding: 0.75rem;
   order: 12;
+  border-radius: 0 var(--default-border-radius) var(--default-border-radius) 0;
 
-  &:last-child {
-    border-radius: 0 var(--default-border-radius) var(--default-border-radius) 0;
-  }
-
-  &:first-child {
-    border-radius: var(--default-border-radius) 0 0 var(--default-border-radius);
-  }
-
-  @media only screen and (max-width: 1024px) {
-    &:not(.el-table-narrow-cell-is-full-width) {
-      grid-column-end: span 4;
-      text-align: center;
-      width: 40px;
-      justify-self: end;
-      grid-column-end: 5;
-    }
-
-    &:last-child {
-      border-radius: 0 0 var(--default-border-radius) var(--default-border-radius);
-    }
-
-    &:first-child {
-      border-radius: var(--default-border-radius) var(--default-border-radius) 0 0;
-    }
-  }
-
-  ${isMobile} {
-    &:not(.el-table-narrow-cell-is-full-width) {
-      grid-column-end: span 2;
-      text-align: center;
-      width: 40px;
-      justify-self: end;
-      grid-column-end: 3;
-    }
-
-    &:last-child {
-      border-radius: 0 0 var(--default-border-radius) var(--default-border-radius);
-    }
-
-    &:first-child {
-      border-radius: var(--default-border-radius) var(--default-border-radius) 0 0;
-    }
+  ${isNarrow} {
+    grid-column-end: span 2;
+    text-align: center;
+    width: var(--component-table-expandable-trigger-width);
+    justify-self: end;
+    grid-column-end: 3;
+    border-radius: var(--default-border-radius) 0 var(--default-border-radius) 0;
   }
 `
 
@@ -413,7 +384,7 @@ export const ElTableExpandableRow = styled.div`
   opacity: 0;
   transition: height var(--table-expanded-animation-speed, 0.2s) linear, opacity 0.2s linear;
   border: none;
-  overflow: hidden;
+  overflow-y: scroll;
   padding: 0;
 
   &.${elIsActive} {
@@ -424,6 +395,5 @@ export const ElTableExpandableRow = styled.div`
 `
 
 export const ElTableExpandableContainer = styled.div`
-  padding: 2.5rem;
-  overflow-y: scroll;
+  padding: 0.75rem;
 `

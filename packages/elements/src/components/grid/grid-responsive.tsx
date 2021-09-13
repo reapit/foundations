@@ -12,10 +12,14 @@ export interface GridResponsiveProps extends HTMLAttributes<HTMLElement> {
   colGapTablet?: GridUnitType
   colGapDesktop?: GridUnitType
   colGapWideScreen?: GridUnitType
+  colGapSuperWideScreen?: GridUnitType
+  colGap4KScreen?: GridUnitType
   rowGapMobile?: GridUnitType
   rowGapTablet?: GridUnitType
   rowGapDesktop?: GridUnitType
   rowGapWideScreen?: GridUnitType
+  rowGapSuperWideScreen?: GridUnitType
+  rowGap4KScreen?: GridUnitType
 }
 
 export interface ColResponsiveProps extends HTMLAttributes<HTMLElement> {
@@ -23,10 +27,14 @@ export interface ColResponsiveProps extends HTMLAttributes<HTMLElement> {
   spanTablet?: ColUnitType
   spanDesktop?: ColUnitType
   spanWideScreen?: ColUnitType
+  spanSuperWideScreen?: ColUnitType
+  span4KScreen?: ColUnitType
   offsetMobile?: ColUnitType
   offsetTablet?: ColUnitType
   offsetDesktop?: ColUnitType
   offsetWideScreen?: ColUnitType
+  offsetSuperWideScreen?: ColUnitType
+  offset4KScreen?: ColUnitType
 }
 
 export const getGridClasses = (props: GridResponsiveProps, mediaType: MediaType): string | null => {
@@ -35,13 +43,17 @@ export const getGridClasses = (props: GridResponsiveProps, mediaType: MediaType)
     colGapTablet,
     colGapDesktop,
     colGapWideScreen,
+    colGapSuperWideScreen,
+    colGap4KScreen,
     rowGapMobile,
     rowGapTablet,
     rowGapDesktop,
     rowGapWideScreen,
+    rowGapSuperWideScreen,
+    rowGap4KScreen,
   } = props
 
-  const { isMobile, isTablet, isDesktop, isWideScreen } = mediaType
+  const { isMobile, isTablet, isDesktop, isWideScreen, isSuperWideScreen, is4KScreen } = mediaType
 
   if (isMobile) {
     return cx(colGapMobile && units[`elColGap${colGapMobile}`], rowGapMobile && units[`elRowGap${rowGapMobile}`])
@@ -62,6 +74,20 @@ export const getGridClasses = (props: GridResponsiveProps, mediaType: MediaType)
     )
   }
 
+  if (isSuperWideScreen) {
+    return cx(
+      colGapSuperWideScreen && units[`elColGap${colGapSuperWideScreen}`],
+      rowGapSuperWideScreen && units[`elRowGap${rowGapSuperWideScreen}`],
+    )
+  }
+
+  if (is4KScreen) {
+    return cx(
+      colGap4KScreen && units[`elColGap${colGap4KScreen}`],
+      rowGap4KScreen && units[`elRowGap${rowGap4KScreen}`],
+    )
+  }
+
   return null
 }
 
@@ -71,13 +97,17 @@ export const getColClasses = (props: ColResponsiveProps, mediaType: MediaType): 
     spanTablet,
     spanDesktop,
     spanWideScreen,
+    spanSuperWideScreen,
+    span4KScreen,
     offsetMobile,
     offsetTablet,
     offsetDesktop,
     offsetWideScreen,
+    offsetSuperWideScreen,
+    offset4KScreen,
   } = props
 
-  const { isMobile, isTablet, isDesktop, isWideScreen } = mediaType
+  const { isMobile, isTablet, isDesktop, isWideScreen, isSuperWideScreen, is4KScreen } = mediaType
 
   if (isMobile) {
     return cx(spanMobile && units[`elSpan${spanMobile}`], offsetMobile && units[`elOffset${offsetMobile}`])
@@ -96,6 +126,17 @@ export const getColClasses = (props: ColResponsiveProps, mediaType: MediaType): 
       spanWideScreen && units[`elSpan${spanWideScreen}`],
       offsetWideScreen && units[`elOffset${offsetWideScreen}`],
     )
+  }
+
+  if (isSuperWideScreen) {
+    return cx(
+      spanSuperWideScreen && units[`elSpan${spanSuperWideScreen}`],
+      offsetSuperWideScreen && units[`elOffset${offsetSuperWideScreen}`],
+    )
+  }
+
+  if (is4KScreen) {
+    return cx(span4KScreen && units[`elSpan${span4KScreen}`], offset4KScreen && units[`elOffset${offset4KScreen}`])
   }
 
   return null

@@ -4,6 +4,7 @@ exports[`Table Component should match a snapshot 1`] = `<ElTable />`;
 
 exports[`Table Component should match a snapshot 2`] = `
 <ElTable
+  data-has-call-to-action={false}
   data-has-expandable-action={true}
   data-num-columns-excl-expandable-row-trigger-col={7}
 >
@@ -46,7 +47,7 @@ exports[`Table Component should match a snapshot 2`] = `
     <TableHeader>
       <Icon
         fontSize="1.2rem"
-        icon="editSolidSystem"
+        icon="settingsSystem"
       />
     </TableHeader>
   </TableHeadersRow>

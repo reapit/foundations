@@ -30,10 +30,14 @@ describe('GridResponsive', () => {
           colGapTablet={2}
           colGapDesktop={3}
           colGapWideScreen={4}
+          colGapSuperWideScreen={6}
+          colGap4KScreen={8}
           rowGapMobile={1}
           rowGapTablet={2}
           rowGapDesktop={3}
           rowGapWideScreen={4}
+          rowGapSuperWideScreen={6}
+          rowGap4KScreen={8}
         >
           <p>I am child</p>
         </GridResponsive>
@@ -63,10 +67,14 @@ describe('ColResponsive', () => {
           spanTablet={1}
           spanDesktop={1}
           spanWideScreen={1}
+          spanSuperWideScreen={1}
+          span4KScreen={1}
           offsetMobile={1}
           offsetTablet={1}
           offsetDesktop={1}
           offsetWideScreen={1}
+          offsetSuperWideScreen={1}
+          offset4KScreen={1}
         >
           <p>I am child</p>
         </ColResponsive>
@@ -82,10 +90,14 @@ describe('getGridClasses', () => {
     colGapTablet: 2,
     colGapDesktop: 3,
     colGapWideScreen: 4,
+    colGapSuperWideScreen: 6,
+    colGap4KScreen: 8,
     rowGapMobile: 1,
     rowGapTablet: 2,
     rowGapDesktop: 3,
     rowGapWideScreen: 4,
+    rowGapSuperWideScreen: 6,
+    rowGap4KScreen: 8,
   } as GridResponsiveProps
 
   it('should get the grid classes for isMobile', () => {
@@ -104,6 +116,14 @@ describe('getGridClasses', () => {
     expect(getGridClasses(props, { isWideScreen: true } as MediaType)).toEqual('el-col-gap4 el-row-gap4')
   })
 
+  it('should get the grid classes for isSuperWideScreen', () => {
+    expect(getGridClasses(props, { isSuperWideScreen: true } as MediaType)).toEqual('el-col-gap6 el-row-gap6')
+  })
+
+  it('should get the grid classes for is4kScreen', () => {
+    expect(getGridClasses(props, { is4KScreen: true } as MediaType)).toEqual('el-col-gap8 el-row-gap8')
+  })
+
   it('should get the grid classes for unknown', () => {
     expect(getGridClasses(props, {} as MediaType)).toBeNull()
   })
@@ -115,10 +135,14 @@ describe('getColClasses', () => {
     spanTablet: 2,
     spanDesktop: 3,
     spanWideScreen: 4,
+    spanSuperWideScreen: 6,
+    span4KScreen: 8,
     offsetMobile: 1,
     offsetTablet: 2,
     offsetDesktop: 3,
     offsetWideScreen: 4,
+    offsetSuperWideScreen: 6,
+    offset4KScreen: 8,
   } as ColResponsiveProps
 
   it('should get the grid classes for isMobile', () => {
@@ -135,6 +159,14 @@ describe('getColClasses', () => {
 
   it('should get the grid classes for isWideScreen', () => {
     expect(getColClasses(props, { isWideScreen: true } as MediaType)).toEqual('el-span4 el-offset4')
+  })
+
+  it('should get the grid classes for isSuperWideScreen', () => {
+    expect(getColClasses(props, { isSuperWideScreen: true } as MediaType)).toEqual('el-span6 el-offset6')
+  })
+
+  it('should get the grid classes for is4KScreen', () => {
+    expect(getColClasses(props, { is4KScreen: true } as MediaType)).toEqual('el-span8 el-offset8')
   })
 
   it('should get the grid classes for unknown', () => {

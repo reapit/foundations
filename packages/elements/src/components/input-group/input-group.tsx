@@ -5,6 +5,7 @@ import { Icon, IconNames } from '../icon'
 import { Label } from '../label'
 import { InputAddOn } from '../input-add-on'
 import { Intent } from '../../helpers/intent'
+import { generateRandomId } from '../../storybook/random-id'
 
 export interface InputGroupProps extends React.InputHTMLAttributes<HTMLInputElement> {
   icon?: IconNames
@@ -31,15 +32,7 @@ export type InputGroupWrapped = React.ForwardRefExoticComponent<
   InputGroupProps & React.RefAttributes<React.InputHTMLAttributes<HTMLInputElement>>
 >
 
-const generateRandomId = (): string => {
-  try {
-    return `random-${Math.random().toString(36).substring(7)}`
-  } catch (e) {
-    return ''
-  }
-}
-
-export const InputGroup = forwardRef(
+export const InputGroup: InputGroupWrapped = forwardRef(
   (
     { icon, label, className, id, intent, inputAddOnText, children, ...rest }: InputGroupProps,
     ref: React.ForwardedRef<React.InputHTMLAttributes<HTMLInputElement>>,

@@ -13,10 +13,12 @@ exports[`MultiSelect should match a snapshot and render children 1`] = `
 exports[`MultiSelectChip should match a snapshot and render children 1`] = `
 <Fragment>
   <ElMultiSelectCheckbox
+    id="test-id"
     type="checkbox"
   />
   <ElMultiSelectLabel
     className=""
+    htmlFor="test-id"
   >
     <span>
       Some Value
