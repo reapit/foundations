@@ -41,10 +41,9 @@ export const WebhooksAbout: FC = () => {
           </IconContainer>
           <Subtitle>Webhooks Documentation</Subtitle>
           <BodyText hasGreyText>
-            This system is designed to work flexibly with your application. If you wish, you
-            can set up a single endpoint to catch all topics for all customers. Alternatively, you may wish to set up a
-            different webhook subscription per topic or per customer. For more information about Webhooks, please see
-            our{' '}
+            This system is designed to work flexibly with your application. If you wish, you can set up a single
+            endpoint to catch all topics for all customers. Alternatively, you may wish to set up a different webhook
+            subscription per topic or per customer. For more information about Webhooks, please see our{' '}
             <a href={ExternalPages.webhooksDocs} target="_blank" rel="noreferrer">
               webhooks documentation.
             </a>
