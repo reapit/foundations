@@ -29,7 +29,7 @@ export const Tabs: FC<TabsProps> = ({ className, isFullWidth, name, options, ...
       <ElTabsOptionsWrap>
         {options.map(({ id, value, text, isChecked }) => (
           <Fragment key={id}>
-            <ElTabs id={id} name={name} value={value} type="radio" {...rest} defaultChecked={isChecked} />
+            <ElTabs id={id} name={name} value={value} type="radio" {...rest} checked={isChecked} />
             <ElTabsLabel htmlFor={id}>
               <span className={elTabsItem}>{text}</span>
             </ElTabsLabel>

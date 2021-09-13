@@ -4,40 +4,10 @@ import { styled } from '@linaria/react'
 export const IconContainer = styled.div`
   position: relative;
   height: 140px;
-`
 
-export const iconFadeIn = css`
-  @keyframes icon-fade-in {
-    from {
-      opacity: 0;
-    }
-
-    to {
-      opacity: 1;
-    }
+  object {
+    height: 140px;
   }
-  animation-duration: 1s;
-  animation-fill-mode: both;
-  animation-delay: 0.1s;
-  animation-name: icon-fade-in;
-  position: absolute;
-`
-
-export const iconFadeOut = css`
-  @keyframes icon-fade-out {
-    from {
-      opacity: 1;
-    }
-
-    to {
-      opacity: 0;
-    }
-  }
-  animation-duration: 1s;
-  animation-fill-mode: both;
-  animation-delay: 0.1s;
-  animation-name: icon-fade-out;
-  position: absolute;
 `
 
 export const StepContentContainer = styled.div`

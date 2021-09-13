@@ -1,19 +1,11 @@
-import {
-  BodyText,
-  ColSplit,
-  Grid,
-  PersistantNotification,
-  elMb11,
-  elMb10,
-  Button,
-  Icon,
-  Subtitle,
-} from '@reapit/elements'
+import { BodyText, ColSplit, Grid, PersistantNotification, elMb11, elMb10, Button, Subtitle } from '@reapit/elements'
 import React, { FC } from 'react'
 import { useHistory } from 'react-router'
 import Routes from '../../../constants/routes'
 import { ExternalPages, navigate, openNewPage } from '../../../utils/navigation'
-import { IconContainer, iconFadeIn, iconFadeOut } from './__styles__/index'
+import { IconContainer } from './__styles__/index'
+import webhookDocsImage from '../../../assets/images/webhook-docs.svg'
+import webhookNewImage from '../../../assets/images/webhook-new.svg'
 
 export const WebhooksAbout: FC = () => {
   const history = useHistory()
@@ -27,8 +19,9 @@ export const WebhooksAbout: FC = () => {
       <Grid>
         <ColSplit>
           <IconContainer className={elMb10}>
-            <Icon className={iconFadeOut} icon="webhooksAnimated2" iconSize="largest" />
-            <Icon className={iconFadeIn} icon="webhooksAnimated1" iconSize="largest" />
+            <object type="image/svg+xml" data={webhookNewImage}>
+              svg-animation
+            </object>
           </IconContainer>
           <Subtitle>Manage Webhooks Subscriptions</Subtitle>
           <BodyText hasGreyText>
@@ -42,8 +35,9 @@ export const WebhooksAbout: FC = () => {
         </ColSplit>
         <ColSplit>
           <IconContainer className={elMb10}>
-            <Icon className={iconFadeOut} icon="webhooksDocsAnimated2" iconSize="largest" />
-            <Icon className={iconFadeIn} icon="webhooksDocsAnimated1" iconSize="largest" />
+            <object type="image/svg+xml" data={webhookDocsImage}>
+              svg-animation
+            </object>
           </IconContainer>
           <Subtitle>Webhooks Documentation</Subtitle>
           <BodyText hasGreyText>

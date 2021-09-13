@@ -78,14 +78,13 @@ export const editWebhook = function* ({ data }: Action<EditWebhookParams>) {
       yield put(webhookSetOpenModal(''))
       const { applicationId } = data
       newListResponse = yield call(fetchWebhooksSubscriptionsListApi, { applicationId: [applicationId] })
+      yield put(updateWebhookCreateEditState(WebhookCreateEditState.SUCCESS))
     }
     if (newListResponse) {
       yield put(fetchWebhooksSubscriptionsSuccess(newListResponse as PagedResultWebhookModel_))
     }
   } catch (err) {
-    notification.error({
-      message: err?.description || errorMessages.DEFAULT_SERVER_ERROR,
-    })
+    yield put(updateWebhookCreateEditState(WebhookCreateEditState.ERROR))
   }
 }
 
@@ -97,14 +96,13 @@ export const deleteWebhook = function* ({ data }: Action<DeleteWebhookParams>) {
     if (deleteResponse) {
       yield put(webhookSetOpenModal(''))
       newListResponse = yield call(fetchWebhooksSubscriptionsListApi, { applicationId: [applicationId] })
+      yield put(updateWebhookCreateEditState(WebhookCreateEditState.SUCCESS))
     }
     if (newListResponse) {
       yield put(fetchWebhooksSubscriptionsSuccess(newListResponse as PagedResultWebhookModel_))
     }
   } catch (err) {
-    notification.error({
-      message: err?.description || errorMessages.DEFAULT_SERVER_ERROR,
-    })
+    yield put(updateWebhookCreateEditState(WebhookCreateEditState.ERROR))
   }
 }
 

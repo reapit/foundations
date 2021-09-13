@@ -34,6 +34,7 @@ exports[`ToggleRadio should match a snapshot and render children 1`] = `
     value="option-1"
   />
   <ElToggleRadioLabel
+    className="el-toggle-full-width"
     htmlFor="option-1"
   >
     <span
@@ -50,6 +51,7 @@ exports[`ToggleRadio should match a snapshot and render children 1`] = `
     value="option-2"
   />
   <ElToggleRadioLabel
+    className="el-toggle-full-width"
     htmlFor="option-2"
   >
     <span
@@ -66,6 +68,7 @@ exports[`ToggleRadio should match a snapshot and render children 1`] = `
     value="option-3"
   />
   <ElToggleRadioLabel
+    className="el-toggle-full-width"
     htmlFor="option-3"
   >
     <span

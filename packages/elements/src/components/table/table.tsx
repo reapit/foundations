@@ -1,4 +1,4 @@
-import React, { FC, HTMLAttributes, ReactNode, useState } from 'react'
+import React, { Dispatch, FC, HTMLAttributes, ReactNode, SetStateAction, useState } from 'react'
 import { ElTable } from './__styles__'
 import { Icon, IconNames } from '../icon'
 import {
@@ -48,9 +48,19 @@ export interface TableProps extends HTMLAttributes<HTMLDivElement> {
   rows?: Row[]
   numberColumns?: number
   expandableContentSize?: ExpandableContentSize
+  indexExpandedRow?: number | null
+  setIndexExpandedRow?: Dispatch<SetStateAction<number | null>>
 }
 
-export const Table: FC<TableProps> = ({ rows, children, numberColumns, expandableContentSize, ...rest }) => {
+export const Table: FC<TableProps> = ({
+  rows,
+  children,
+  numberColumns,
+  indexExpandedRow,
+  setIndexExpandedRow,
+  expandableContentSize,
+  ...rest
+}) => {
   const firstRow = rows?.[0]
   if (!rows || !firstRow)
     return (
@@ -59,11 +69,15 @@ export const Table: FC<TableProps> = ({ rows, children, numberColumns, expandabl
       </ElTable>
     )
 
-  const [expandedRow, setExpandedRow] = useState<false | number>(false)
+  const [expandedRow, setExpandedRow] = useState<null | number>(null)
   const hasExpandableRows = rows.some((row) => Boolean(row.expandableContent))
   const hasCallToAction = rows.some((row) => Boolean(row.expandableContent?.isCallToAction))
   const toggleExpandedRow = (index: number) => {
-    expandedRow === index ? setExpandedRow(false) : setExpandedRow(index)
+    if (indexExpandedRow !== undefined && setIndexExpandedRow) {
+      indexExpandedRow === index ? setIndexExpandedRow(null) : setIndexExpandedRow(index)
+    } else {
+      expandedRow === index ? setExpandedRow(null) : setExpandedRow(index)
+    }
   }
 
   return (
@@ -99,7 +113,7 @@ export const Table: FC<TableProps> = ({ rows, children, numberColumns, expandabl
         )}
       </TableHeadersRow>
       {rows.map((row, index) => {
-        const expandableRowIsOpen = expandedRow === index
+        const expandableRowIsOpen = indexExpandedRow !== undefined ? indexExpandedRow === index : expandedRow === index
         return (
           <TableRowContainer key={index} isOpen={expandableRowIsOpen}>
             <TableRow>

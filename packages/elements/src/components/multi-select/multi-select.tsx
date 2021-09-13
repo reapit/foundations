@@ -29,15 +29,10 @@ export interface MultiSelectOption {
   name: string
 }
 
-export interface MultiSelectInputState {
-  selectedOptions: MultiSelectOption[]
-  deselectedOptions: MultiSelectOption[]
-}
-
 export interface MultiSelectInputProps extends InputHTMLAttributes<HTMLInputElement> {
   id: string
-  selectedOptions?: MultiSelectOption[]
-  deselectedOptions?: MultiSelectOption[]
+  options: MultiSelectOption[]
+  defaultValues?: string[]
   hasGreyChips?: boolean
 }
 
@@ -61,26 +56,16 @@ const setNativeInputValue = (element: HTMLElement, value: string | string[]) => 
 
 export const handleSelectedOptions = (
   value: string,
-  options: MultiSelectInputState,
-  setOptions: Dispatch<SetStateAction<MultiSelectInputState>>,
+  selectedOptionValues: string[],
+  setSelectedOptionValues: Dispatch<SetStateAction<string[]>>,
 ) => (event: ChangeEvent<HTMLInputElement>) => {
   const isChecked = event.target.checked
-  const { selectedOptions, deselectedOptions } = options
-  const foundOption = isChecked
-    ? deselectedOptions.find((option) => option.value === value)
-    : selectedOptions.find((option) => option.value === value)
-
-  if (!foundOption) return
 
   const newSelected = isChecked
-    ? [...selectedOptions, foundOption]
-    : selectedOptions.filter((option) => option.value !== value)
+    ? [...selectedOptionValues, value]
+    : selectedOptionValues.filter((option) => option !== value)
 
-  const newDeselected = isChecked
-    ? deselectedOptions.filter((option) => option.value !== value)
-    : [...deselectedOptions, foundOption]
-
-  setOptions({ selectedOptions: newSelected, deselectedOptions: newDeselected })
+  setSelectedOptionValues(newSelected)
 }
 
 export const MultiSelectChip: FC<MultiSelectChipProps> = ({ className, children, id, ...rest }) => {
@@ -115,57 +100,50 @@ export const MultiSelect: FC<MultiSelectProps> = ({ className, children, ...rest
  *  https://github.com/facebook/react/issues/11095#issuecomment-334305739  */
 export const MultiSelectInput: MultiSelectInputWrapped = forwardRef(
   (
-    {
-      className,
-      deselectedOptions: defaultDeselectedOptions,
-      selectedOptions: defaultSelectedOptions,
-      hasGreyChips,
-      id,
-      ...rest
-    },
+    { className, options, defaultValues, hasGreyChips, id, ...rest },
     ref: React.ForwardedRef<React.InputHTMLAttributes<HTMLInputElement>>,
   ) => {
-    const [options, setOptions] = useState<MultiSelectInputState>({
-      selectedOptions: defaultSelectedOptions ?? [],
-      deselectedOptions: defaultDeselectedOptions ?? [],
-    })
+    const [selectedOptionValues, setSelectedOptionValues] = useState<string[]>(defaultValues ?? [])
 
     useEffect(() => {
       const input = document.getElementById(id)
       if (input) {
-        const selectedOptionValues = options.selectedOptions.map((option) => option.value)
         setNativeInputValue(input, selectedOptionValues)
         const changeEvent = new Event('change', { bubbles: true })
         input.dispatchEvent(changeEvent)
       }
-    }, [options])
+    }, [selectedOptionValues])
 
     return (
       <>
         <ElMultiSelectInput id={id} {...rest} ref={ref as LegacyRef<HTMLInputElement>} />
         <MultiSelect className={className}>
-          {options.selectedOptions.map((option) => (
-            <MultiSelectChip
-              className={cx(hasGreyChips && elHasGreyChips)}
-              onChange={handleSelectedOptions(option.value, options, setOptions)}
-              key={option.value}
-              defaultChecked
-            >
-              {option.name}
-            </MultiSelectChip>
-          ))}
+          {options.map((option) => {
+            return selectedOptionValues.includes(option.value) ? (
+              <MultiSelectChip
+                className={cx(hasGreyChips && elHasGreyChips)}
+                onChange={handleSelectedOptions(option.value, selectedOptionValues, setSelectedOptionValues)}
+                key={option.value}
+                defaultChecked
+              >
+                {option.name}
+              </MultiSelectChip>
+            ) : null
+          })}
         </MultiSelect>
         <MultiSelect className={className}>
-          {options.deselectedOptions.map((option) => (
-            <MultiSelectChip
-              className={cx(hasGreyChips && elHasGreyChips)}
-              onChange={handleSelectedOptions(option.value, options, setOptions)}
-              key={option.value}
-              defaultChecked={false}
-            >
-              {option.name}
-            </MultiSelectChip>
-          ))}
+          {options.map((option) => {
+            return !selectedOptionValues.includes(option.value) ? (
+              <MultiSelectChip
+                className={cx(hasGreyChips && elHasGreyChips)}
+                onChange={handleSelectedOptions(option.value, selectedOptionValues, setSelectedOptionValues)}
+                key={option.value}
+                defaultChecked={false}
+              >
+                {option.name}
+              </MultiSelectChip>
+            ) : null
+          })}
         </MultiSelect>
       </>
     )

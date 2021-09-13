@@ -12,12 +12,13 @@ import {
 import React, { FC, useMemo } from 'react'
 import { useSelector } from 'react-redux'
 import { selectCustomers, selectLoading } from '../../../selector/webhooks-subscriptions'
-import { UseFormRegister } from 'react-hook-form'
+import { UseFormGetValues, UseFormRegister } from 'react-hook-form'
 import { InstallationModel } from '@reapit/foundations-ts-definitions'
 import { CreateWebhookFormSchema } from './webhooks-new'
 
 interface WebhooksNewCustomersProps {
   register: UseFormRegister<CreateWebhookFormSchema>
+  getValues: UseFormGetValues<CreateWebhookFormSchema>
 }
 
 export const SANDBOX_CLIENT = {
@@ -43,10 +44,11 @@ export const handleCustomersToOptions = (installations: InstallationModel[]) => 
   return uniqueCustomers
 }
 
-export const WebhooksNewCustomers: FC<WebhooksNewCustomersProps> = ({ register }) => {
+export const WebhooksNewCustomers: FC<WebhooksNewCustomersProps> = ({ register, getValues }) => {
   const customers = useSelector(selectCustomers)
   const isLoading = useSelector(selectLoading)
   const customerOptions = useMemo(handleCustomersToOptions(customers), [customers])
+  const selectedCustomers = getValues().customerIds?.split(',')
 
   return (
     <Grid>
@@ -67,8 +69,8 @@ export const WebhooksNewCustomers: FC<WebhooksNewCustomersProps> = ({ register }
             className={elMb7}
             id="customer-ids"
             hasGreyChips
-            selectedOptions={[]}
-            deselectedOptions={customerOptions}
+            options={customerOptions}
+            defaultValues={selectedCustomers}
             {...register('customerIds')}
           />
         )}

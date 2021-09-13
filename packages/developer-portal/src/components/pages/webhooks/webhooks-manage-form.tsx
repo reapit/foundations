@@ -1,6 +1,7 @@
 import {
   ColSplit,
   elMb7,
+  elMl3,
   elMt1,
   elToggleItem,
   FlexContainer,
@@ -8,28 +9,47 @@ import {
   InputGroup,
   Label,
   MultiSelectInput,
-  MultiSelectOption,
   Subtitle,
   Toggle,
+  elP8,
+  elMb11,
+  ButtonGroup,
+  Button,
+  elMlAuto,
+  useSnack,
+  ExpandableContentSize,
+  useModal,
+  BodyText,
 } from '@reapit/elements'
-import React, { ChangeEvent, Dispatch, FC, SetStateAction, useMemo, useState } from 'react'
+import React, { ChangeEvent, Dispatch, FC, SetStateAction, useEffect, useMemo, useState } from 'react'
 import { yupResolver } from '@hookform/resolvers/yup'
 import { boolean, object, string } from 'yup'
 import errorMessages from '../../../constants/error-messages'
 import { httpsUrlRegex } from '@reapit/utils'
-import { useForm } from 'react-hook-form'
-
+import { useForm, UseFormGetValues } from 'react-hook-form'
 import { Dispatch as ReduxDispatch } from 'redux'
-import { editWebhook, EditWebhookParams, updateWebhookCreateEditState } from '../../../actions/webhooks-subscriptions'
+import {
+  deleteWebhook,
+  editWebhook,
+  EditWebhookParams,
+  updateWebhookCreateEditState,
+} from '../../../actions/webhooks-subscriptions'
 import { WebhookCreateEditState } from '../../../reducers/webhooks-subscriptions/webhook-edit-modal'
 import { useDispatch, useSelector } from 'react-redux'
 import { TopicModel, WebhookModel } from '../../../services/webhooks'
 import { searchMinWidth } from './__styles__'
-import { selectCustomers, selectWebhookSubscriptionTopics } from '../../../selector/webhooks-subscriptions'
+import {
+  selectCustomers,
+  selectWebhookCreateEditState,
+  selectWebhookSubscriptionTopics,
+} from '../../../selector/webhooks-subscriptions'
 import { handleCustomersToOptions } from './webhooks-new-customers'
+import { cx } from '@linaria/core'
 
 interface WebhooksManageFormProps {
   webhookModel: WebhookModel
+  setIndexExpandedRow: Dispatch<SetStateAction<number | null>>
+  setExpandableContentSize: Dispatch<SetStateAction<ExpandableContentSize>>
 }
 
 export interface EditWebhookFormSchema {
@@ -49,14 +69,27 @@ const schema = object().shape<EditWebhookFormSchema>({
 })
 
 export const handleSearchTopics =
-  (topics: TopicModel[], setFilteredTopics: Dispatch<SetStateAction<TopicModel[]>>) =>
+  (
+    topics: TopicModel[],
+    getValues: UseFormGetValues<EditWebhookFormSchema>,
+    setFilteredTopics: Dispatch<SetStateAction<TopicModel[]>>,
+  ) =>
   (event: ChangeEvent<HTMLInputElement>) => {
     const search = event.target.value
+    const selectedTopics = getValues().topicIds?.split(',')
     const filteredTopics = search
-      ? topics.filter((topic) => (topic.name?.toLowerCase() ?? '').includes(search.toLowerCase()))
-      : []
+      ? topics.filter(
+          (topic) =>
+            (topic.name?.toLowerCase() ?? '').includes(search.toLowerCase()) ||
+            selectedTopics?.includes(topic.id ?? ''),
+        )
+      : topics.filter((topic) => selectedTopics?.includes(topic.id ?? ''))
     setFilteredTopics(filteredTopics)
   }
+
+export const getInitialTopics = (topics: TopicModel[], topicIds?: string[]) => {
+  return topics.filter((topic) => topicIds?.includes(topic.id ?? ''))
+}
 
 export const handleSubmitWebhook =
   (dispatch: ReduxDispatch, webhookModel: WebhookModel) => (values: EditWebhookFormSchema) => {
@@ -78,59 +111,71 @@ export const handleSubmitWebhook =
     dispatch(editWebhook(editWebhookParams))
   }
 
-export const handleSelectedDeselected =
+export const handleWebhookEditing =
   (
-    customerOptions: MultiSelectOption[],
-    topicOptions: MultiSelectOption[],
-    customerIds: string[],
-    topicIds: string[],
+    success: (text: string, timeout?: number | undefined) => void,
+    error: (text: string, timeout?: number | undefined) => void,
+    webhookCreateEditState: WebhookCreateEditState,
+    dispatch: ReduxDispatch,
+    setIndexExpandedRow: Dispatch<SetStateAction<number | null>>,
+    setExpandableContentSize: Dispatch<SetStateAction<ExpandableContentSize>>,
   ) =>
   () => {
-    const selectedTopics: MultiSelectOption[] = []
-    const deselectedTopics: MultiSelectOption[] = []
-    const selectedCustomers: MultiSelectOption[] = []
-    const deselectedCustomers: MultiSelectOption[] = []
+    if (webhookCreateEditState === WebhookCreateEditState.SUCCESS) {
+      success('Webhook was successfully updated')
+      dispatch(updateWebhookCreateEditState(WebhookCreateEditState.INITIAL))
+      setIndexExpandedRow(null)
+      setExpandableContentSize('small')
+    }
 
-    customerOptions.forEach((option) => {
-      if (customerIds.includes(option.value)) {
-        selectedCustomers.push(option)
-        return
-      }
-      deselectedCustomers.push(option)
-    })
-
-    topicOptions.forEach((option) => {
-      if (topicIds.includes(option.value)) {
-        selectedTopics.push(option)
-        return
-      }
-      deselectedTopics.push(option)
-    })
-
-    return {
-      selectedCustomers,
-      deselectedCustomers,
-      selectedTopics,
-      deselectedTopics,
+    if (webhookCreateEditState === WebhookCreateEditState.ERROR) {
+      error('Webhook failed to update, check the details supplied and try again')
+      dispatch(updateWebhookCreateEditState(WebhookCreateEditState.INITIAL))
     }
   }
 
-export const WebhooksManageForm: FC<WebhooksManageFormProps> = ({ webhookModel }) => {
+export const handleWebhookDelete =
+  (dispatch: ReduxDispatch, webhookModel: WebhookModel, closeModal: () => void) => () => {
+    const { id: webhookId, applicationId } = webhookModel
+    if (!webhookId || !applicationId) return
+    dispatch(deleteWebhook({ webhookId, applicationId }))
+    closeModal()
+  }
+
+export const handleCollapseRow =
+  (
+    setIndexExpandedRow: Dispatch<SetStateAction<number | null>>,
+    setExpandableContentSize: Dispatch<SetStateAction<ExpandableContentSize>>,
+  ) =>
+  () => {
+    setIndexExpandedRow(null)
+    setExpandableContentSize('small')
+  }
+
+export const WebhooksManageForm: FC<WebhooksManageFormProps> = ({
+  webhookModel,
+  setIndexExpandedRow,
+  setExpandableContentSize,
+}) => {
   const dispatch = useDispatch()
-  const [filteredTopics, setFilteredTopics] = useState<TopicModel[]>([])
   const topics = useSelector(selectWebhookSubscriptionTopics)
   const customers = useSelector(selectCustomers)
+  const webhookCreateEditState = useSelector(selectWebhookCreateEditState)
+  const { success, error } = useSnack()
   const { id, url, topicIds, customerIds, ignoreEtagOnlyChanges, active } = webhookModel
+  const [filteredTopics, setFilteredTopics] = useState<TopicModel[]>(getInitialTopics(topics, topicIds))
+  const { Modal: DeleteConfirmModal, openModal, closeModal } = useModal()
   const {
     register,
     handleSubmit,
+    getValues,
     formState: { errors },
   } = useForm<EditWebhookFormSchema>({
     resolver: yupResolver(schema),
     defaultValues: {
       url,
-      topicIds: topicIds?.toString(),
-      customerIds: customerIds?.toString(),
+      topicIds: [...new Set(topicIds)].toString(),
+      customerIds: [...new Set(customerIds)].toString(),
       ignoreEtagOnlyChanges,
       active,
     },
@@ -138,15 +183,24 @@ export const WebhooksManageForm: FC<WebhooksManageFormProps> = ({ webhookModel }
 
   const customerOptions = useMemo(handleCustomersToOptions(customers), [customers])
   const topicOptions = filteredTopics.map((topic) => ({ name: topic.name ?? '', value: topic.id ?? '' }))
-  const topicsCustomers = useMemo(
-    handleSelectedDeselected(customerOptions, topicOptions, customerIds ?? [], topicIds ?? []),
-    [customerOptions, topicOptions, customerIds, topicIds],
+
+  useEffect(
+    handleWebhookEditing(
+      success,
+      error,
+      webhookCreateEditState,
+      dispatch,
+      setIndexExpandedRow,
+      setExpandableContentSize,
+    ),
+    [webhookCreateEditState],
   )
 
   return (
-    <form onSubmit={handleSubmit(handleSubmitWebhook(dispatch, webhookModel))}>
-      <Subtitle>Edit Webhook</Subtitle>
+    <form className={elP8} onSubmit={handleSubmit(handleSubmitWebhook(dispatch, webhookModel))}>
+      <Subtitle className={elMl3}>Edit Webhook</Subtitle>
       <InputGroup
+        className={elMb11}
         placeholder="Enter secure https:// url"
         label="Webhook URL"
         {...register('url')}
@@ -156,10 +210,10 @@ export const WebhooksManageForm: FC<WebhooksManageFormProps> = ({ webhookModel }
       <Grid>
         <ColSplit>
           <FlexContainer className={elMb7} isFlexAlignCenter isFlexJustifyBetween isFlexWrap>
-            <Label>Subscription topics</Label>
+            <Label className={elMl3}>Subscription topics</Label>
             <InputGroup
               className={searchMinWidth}
-              onChange={handleSearchTopics(topics, setFilteredTopics)}
+              onChange={handleSearchTopics(topics, getValues, setFilteredTopics)}
               icon="searchSystem"
               placeholder="Search"
             />
@@ -168,17 +222,17 @@ export const WebhooksManageForm: FC<WebhooksManageFormProps> = ({ webhookModel }
             className={elMb7}
             id={`topic-edit-ids-${id}`}
             hasGreyChips
-            deselectedOptions={topicsCustomers.deselectedTopics}
-            selectedOptions={topicsCustomers.selectedTopics}
+            defaultValues={[...new Set(topicIds)]}
+            options={topicOptions}
             {...register('topicIds')}
           />
-          <Label>Subscription customers</Label>
+          <Label className={elMl3}>Subscription customers</Label>
           <MultiSelectInput
             className={elMb7}
             id={`customer-edit-ids-${id}`}
             hasGreyChips
-            deselectedOptions={topicsCustomers.deselectedCustomers}
-            selectedOptions={topicsCustomers.selectedCustomers}
+            defaultValues={[...new Set(customerIds)]}
+            options={customerOptions}
             {...register('customerIds')}
           />
         </ColSplit>
@@ -186,18 +240,69 @@ export const WebhooksManageForm: FC<WebhooksManageFormProps> = ({ webhookModel }
           <Grid>
             <ColSplit>
               <Label>Status</Label>
-              <Toggle className={elMt1} id={`status-edit-toggle-${id}`} hasGreyBg isFullWidth {...register('active')}>
+              <Toggle
+                className={cx(elMt1, elMb11)}
+                id={`status-edit-toggle-${id}`}
+                hasGreyBg
+                isFullWidth
+                {...register('active')}
+              >
                 <span className={elToggleItem}>Active</span>
                 <span className={elToggleItem}>Inactive</span>
               </Toggle>
             </ColSplit>
           </Grid>
           <InputGroup
+            className={elMb11}
             type="checkbox"
             label="Ignore where only the etag has been modified"
             inputAddOnText="Ignore"
             {...register('ignoreEtagOnlyChanges')}
           />
+          <ButtonGroup className={elMlAuto}>
+            <Button
+              intent="danger"
+              type="button"
+              disabled={webhookCreateEditState === WebhookCreateEditState.LOADING}
+              onClick={openModal}
+            >
+              Delete
+            </Button>
+            <Button
+              intent="secondary"
+              type="button"
+              disabled={webhookCreateEditState === WebhookCreateEditState.LOADING}
+              onClick={handleCollapseRow(setIndexExpandedRow, setExpandableContentSize)}
+            >
+              Cancel
+            </Button>
+            <Button
+              intent="primary"
+              chevronRight
+              type="submit"
+              disabled={webhookCreateEditState === WebhookCreateEditState.LOADING}
+            >
+              Update
+            </Button>
+          </ButtonGroup>
+          <DeleteConfirmModal title="Delete Webhook">
+            <BodyText hasGreyText>Are you sure you want to delete this webhook?</BodyText>
+            <BodyText>{url}</BodyText>
+            <BodyText hasGreyText>
+              By clicking ‘Delete’ it will remove the webhook and all its data Please click ‘Delete’ to continue with
+              deletion.
+            </BodyText>
+            <FlexContainer isFlexJustifyCenter>
+              <ButtonGroup>
+                <Button intent="secondary" onClick={closeModal}>
+                  Cancel
+                </Button>
+                <Button intent="danger" onClick={handleWebhookDelete(dispatch, webhookModel, closeModal)}>
+                  Confirm
+                </Button>
+              </ButtonGroup>
+            </FlexContainer>
+          </DeleteConfirmModal>
         </ColSplit>
       </Grid>
     </form>

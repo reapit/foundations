@@ -12,12 +12,14 @@ exports[`App should match a snapshot 1`] = `
     }
   }
 >
-  <NavStateProvider>
-    <MediaStateProvider>
-      <_default />
-      <Toast />
-      <ToastMessage />
-    </MediaStateProvider>
-  </NavStateProvider>
+  <SnackProvider>
+    <NavStateProvider>
+      <MediaStateProvider>
+        <_default />
+        <Toast />
+        <ToastMessage />
+      </MediaStateProvider>
+    </NavStateProvider>
+  </SnackProvider>
 </Provider>
 `;

@@ -43,6 +43,7 @@ export const renderCustomerName = (customers: InstallationModel[], customerIds?:
 export const handleSortTableData =
   (
     setExpandableContentSize: Dispatch<SetStateAction<ExpandableContentSize>>,
+    setIndexExpandedRow: Dispatch<SetStateAction<number | null>>,
     expandableContentSize: ExpandableContentSize,
     subscriptions: WebhookModel[],
     topics: TopicModel[],
@@ -78,6 +79,7 @@ export const handleSortTableData =
       expandableContent: {
         content: (
           <WebhooksEditControls
+            setIndexExpandedRow={setIndexExpandedRow}
             expandableContentSize={expandableContentSize}
             setExpandableContentSize={setExpandableContentSize}
             webhookModel={subscription}
@@ -91,6 +93,7 @@ export const WebhooksManage: FC<WebhooksManageProps> = ({ webhookQueryParams }) 
   const dispatch = useDispatch()
   const [pageNumber] = useState<number>(1)
   const [expandableContentSize, setExpandableContentSize] = useState<ExpandableContentSize>('small')
+  const [indexExpandedRow, setIndexExpandedRow] = useState<number | null>(null)
   const subscriptionsData = useSelector(selectSubscriptionsData)
   const subscriptionsLoading = useSelector(selectSubscriptionsLoading)
   const customers = useSelector(selectCustomers)
@@ -101,6 +104,7 @@ export const WebhooksManage: FC<WebhooksManageProps> = ({ webhookQueryParams }) 
   const rows = useMemo(
     handleSortTableData(
       setExpandableContentSize,
+      setIndexExpandedRow,
       expandableContentSize,
       subscriptionsData?._embedded ?? [],
       topics,
@@ -128,5 +132,12 @@ export const WebhooksManage: FC<WebhooksManageProps> = ({ webhookQueryParams }) 
         No webhooks found for your application. You can create one from the New Webhook wizard.
       </PersistantNotification>
     )
-  return <Table rows={rows} expandableContentSize={expandableContentSize} />
+  return (
+    <Table
+      indexExpandedRow={indexExpandedRow}
+      setIndexExpandedRow={setIndexExpandedRow}
+      rows={rows}
+      expandableContentSize={expandableContentSize}
+    />
+  )
 }

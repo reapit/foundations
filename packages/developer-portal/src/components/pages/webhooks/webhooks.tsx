@@ -47,14 +47,28 @@ export interface WebhookQueryParams {
   to: string
 }
 
+export type SelectAppIdHandler = (
+  setWebhookQueryParams: Dispatch<SetStateAction<WebhookQueryParams>>,
+  history: History,
+) => SelectAppIdEventHandler
+
+export type SelectAppIdEventHandler = (
+  event?: React.ChangeEvent<HTMLSelectElement | HTMLInputElement> | undefined,
+  applicationId?: string | undefined,
+) => void
+
 export const handleChangeTab = (history: History) => (event: ChangeEvent<HTMLInputElement>) => {
   history.push(`${event.target.value}${history.location.search}`)
 }
 
-export const getTabContent = (pathname: string, webhookQueryParams: WebhookQueryParams) => {
+export const getTabContent = (
+  pathname: string,
+  webhookQueryParams: WebhookQueryParams,
+  selectAppIdHandler: SelectAppIdEventHandler,
+) => {
   switch (pathname) {
     case Routes.WEBHOOKS_NEW:
-      return <WebhooksNew webhookQueryParams={webhookQueryParams} />
+      return <WebhooksNew webhookQueryParams={webhookQueryParams} selectAppIdHandler={selectAppIdHandler} />
     case Routes.WEBHOOKS_MANAGE:
       return <WebhooksManage webhookQueryParams={webhookQueryParams} />
     case Routes.WEBHOOKS_LOGS:
@@ -86,25 +100,27 @@ export const handleHistoryToQueryParams = (history: History): WebhookQueryParams
   }
 }
 
-export const handleSelectAppId =
-  (setWebhookQueryParams: Dispatch<SetStateAction<WebhookQueryParams>>, history: History) =>
-  (event: ChangeEvent<HTMLSelectElement | HTMLInputElement>) => {
-    const { name, value } = event.target
-    const queryParams = handleHistoryToQueryParams(history)
-    const newParams = {
-      ...queryParams,
-      [name]: value,
-    }
-    const cleanedParams = Object.keys(newParams).reduce((prev: StringMap | undefined, next: string) => {
-      if (newParams[next] && prev) {
-        prev[next] = newParams[next]
-      }
-      return prev
-    }, {})
-    const newQueryString = new URLSearchParams(cleanedParams).toString()
-    setWebhookQueryParams(newParams)
-    history.push(`${history.location.pathname}?${newQueryString}`)
+export const handleSelectAppId: SelectAppIdHandler = (setWebhookQueryParams, history) => (event, applicationId) => {
+  const value = applicationId ? applicationId : event?.target.value
+  const name = applicationId ? 'applicationId' : event?.target.name
+
+  if (!value || !name) return
+
+  const queryParams = handleHistoryToQueryParams(history)
+  const newParams = {
+    ...queryParams,
+    [name]: value,
   }
+  const cleanedParams = Object.keys(newParams).reduce((prev: StringMap | undefined, next: string) => {
+    if (newParams[next] && prev) {
+      prev[next] = newParams[next]
+    }
+    return prev
+  }, {})
+  const newQueryString = new URLSearchParams(cleanedParams).toString()
+  setWebhookQueryParams(newParams)
+  history.push(`${history.location.pathname}?${newQueryString}`)
+}
 
 export const WebhooksWrapper: FC = () => {
   const history = useHistory()
@@ -114,7 +130,7 @@ export const WebhooksWrapper: FC = () => {
   const isAboutPage = pathname === Routes.WEBHOOKS_ABOUT
   const isManagePage = pathname === Routes.WEBHOOKS_MANAGE
   const isLogsPage = pathname === Routes.WEBHOOKS_LOGS
-
+  const selectAppIdHandler = handleSelectAppId(setWebhookQueryParams, history)
   const { data: apps, totalCount } = useSelector(selectAppListState)
 
   useEffect(handleFetchApps(dispatch, apps, totalCount), [totalCount, apps])
@@ -169,7 +185,7 @@ export const WebhooksWrapper: FC = () => {
                       type="date"
                       name="from"
                       label="Date From"
-                      onChange={handleSelectAppId(setWebhookQueryParams, history)}
+                      onChange={selectAppIdHandler}
                     />
                   </ControlsContainer>
                   <ControlsContainer>
@@ -179,7 +195,7 @@ export const WebhooksWrapper: FC = () => {
                       type="date"
                       name="to"
                       label="Date To"
-                      onChange={handleSelectAppId(setWebhookQueryParams, history)}
+                      onChange={selectAppIdHandler}
                     />
                   </ControlsContainer>
                 </>
@@ -190,7 +206,7 @@ export const WebhooksWrapper: FC = () => {
                     className={elWFull}
                     value={webhookQueryParams.applicationId ?? ''}
                     name="applicationId"
-                    onChange={handleSelectAppId(setWebhookQueryParams, history)}
+                    onChange={selectAppIdHandler}
                   >
                     <option key="default-option" value="">
                       None selected
@@ -241,7 +257,7 @@ export const WebhooksWrapper: FC = () => {
             },
           ]}
         />
-        {getTabContent(pathname, webhookQueryParams)}
+        {getTabContent(pathname, webhookQueryParams, selectAppIdHandler)}
       </PageContainer>
     </FlexContainer>
   )

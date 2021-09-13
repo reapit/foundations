@@ -1,6 +1,6 @@
-import React, { Dispatch, FC, SetStateAction, useEffect, useState } from 'react'
+import React, { Dispatch, FC, SetStateAction, useEffect, useState, MouseEvent } from 'react'
 import { Button, Steps, ButtonGroup, ColSplit, Grid, elMlAuto, useSnack } from '@reapit/elements'
-import { DeepMap, FieldError, useForm, UseFormRegister, UseFormTrigger } from 'react-hook-form'
+import { DeepMap, FieldError, useForm, UseFormGetValues, UseFormRegister, UseFormTrigger } from 'react-hook-form'
 import { WebhooksNewApp } from './webhooks-new-app'
 import { WebhooksNewUrl } from './webhooks-new-url'
 import { WebhooksNewTopics } from './webhooks-new-topics'
@@ -23,10 +23,11 @@ import { selectWebhookCreateEditState } from '../../../selector/webhooks-subscri
 import { History } from 'history'
 import Routes from '../../../constants/routes'
 import { useHistory } from 'react-router'
-import { WebhookQueryParams } from './webhooks'
+import { SelectAppIdEventHandler, WebhookQueryParams } from './webhooks'
 
 export interface WebhooksNewProps {
   webhookQueryParams: WebhookQueryParams
+  selectAppIdHandler: SelectAppIdEventHandler
 }
 
 export interface CreateWebhookFormSchema {
@@ -56,7 +57,9 @@ export const handleSwitchStep =
     trigger: UseFormTrigger<CreateWebhookFormSchema>,
     setSelectedStep: Dispatch<SetStateAction<string>>,
   ) =>
-  () => {
+  (event: MouseEvent<HTMLButtonElement>) => {
+    event.preventDefault()
+    event.stopPropagation()
     const validateStep = async () => {
       let isValid = false
 
@@ -102,6 +105,7 @@ export const handleSubmitWebhook = (dispatch: ReduxDispatch) => (values: CreateW
 export const getStepContent = (
   step: string,
   register: UseFormRegister<CreateWebhookFormSchema>,
+  getValues: UseFormGetValues<CreateWebhookFormSchema>,
   errors: DeepMap<CreateWebhookFormSchema, FieldError>,
   webhookQueryParams: WebhookQueryParams,
 ) => {
@@ -111,9 +115,9 @@ export const getStepContent = (
     case '2':
       return <WebhooksNewUrl register={register} errors={errors} />
     case '3':
-      return <WebhooksNewTopics register={register} />
+      return <WebhooksNewTopics register={register} getValues={getValues} />
     case '4':
-      return <WebhooksNewCustomers register={register} />
+      return <WebhooksNewCustomers register={register} getValues={getValues} />
     case '5':
       return <WebhooksNewStatus register={register} />
     default:
@@ -143,7 +147,7 @@ export const handleWebhookCreation =
     }
   }
 
-export const WebhooksNew: FC<WebhooksNewProps> = ({ webhookQueryParams }) => {
+export const WebhooksNew: FC<WebhooksNewProps> = ({ webhookQueryParams, selectAppIdHandler }) => {
   const {
     register,
     getValues,
@@ -167,9 +171,13 @@ export const WebhooksNew: FC<WebhooksNewProps> = ({ webhookQueryParams }) => {
     webhookCreateEditState,
   ])
 
+  useEffect(() => selectAppIdHandler(undefined, applicationId), [applicationId])
+
   return (
     <form onSubmit={handleSubmit(handleSubmitWebhook(dispatch))}>
-      <StepContentContainer>{getStepContent(selectedStep, register, errors, webhookQueryParams)}</StepContentContainer>
+      <StepContentContainer>
+        {getStepContent(selectedStep, register, getValues, errors, webhookQueryParams)}
+      </StepContentContainer>
       <Grid className={gridControlsMinHeight}>
         <ColSplit>
           <Steps steps={steps} selectedStep={selectedStep} onStepClick={setSelectedStep} />
