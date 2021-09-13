@@ -194,6 +194,7 @@ provider:
         - cloudfront:CreateInvalidation
         - cloudfront:DeleteDistribution
         - cloudfront:GetDistribution
+        - cloudfront:UpdateDistribution
       Resource: "*"
 
 resources:

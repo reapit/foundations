@@ -1,4 +1,10 @@
-import { CloudFrontClient, DeleteDistributionCommand, GetDistributionCommand } from '@aws-sdk/client-cloudfront'
+import {
+  CloudFrontClient,
+  DeleteDistributionCommand,
+  DistributionConfig,
+  GetDistributionCommand,
+  UpdateDistributionCommand,
+} from '@aws-sdk/client-cloudfront'
 import { ChangeResourceRecordSetsCommand, Route53Client } from '@aws-sdk/client-route-53'
 import { SQSEvent, SQSHandler, Context, Callback } from 'aws-lambda'
 import { deletePipelineEntity, deletePipelineRunners, deleteTasksFromPipeline, s3Client, sqs } from '../../services'
@@ -14,10 +20,41 @@ const tearDownCloudFront = async (Id: string): Promise<string> => {
     }),
   )
 
+  console.log('distro conf', cloudFrontDistro.Distribution?.DistributionConfig)
+  console.log('etag', cloudFrontDistro.ETag)
+
+  const config = cloudFrontDistro.Distribution?.DistributionConfig as DistributionConfig
+
+  const result = await frontClient.send(
+    new UpdateDistributionCommand({
+      Id,
+      DistributionConfig: {
+        Enabled: false,
+        DefaultRootObject: config.DefaultRootObject,
+        Origins: config.Origins,
+        Comment: config.Comment,
+        DefaultCacheBehavior: config.DefaultCacheBehavior,
+        CallerReference: config.CallerReference,
+        PriceClass: config.PriceClass,
+        Aliases: config.Aliases,
+        Logging: config.Logging,
+        WebACLId: config.WebACLId,
+        HttpVersion: config.HttpVersion,
+        CacheBehaviors: config.CacheBehaviors,
+        CustomErrorResponses: config.CustomErrorResponses,
+        ViewerCertificate: config.ViewerCertificate,
+        Restrictions: config.Restrictions,
+      },
+      IfMatch: cloudFrontDistro.ETag,
+    }),
+  )
+
+  console.log('res', result)
+
   await frontClient.send(
     new DeleteDistributionCommand({
       Id,
-      IfMatch: cloudFrontDistro.ETag,
+      IfMatch: result.ETag,
     }),
   )
 
