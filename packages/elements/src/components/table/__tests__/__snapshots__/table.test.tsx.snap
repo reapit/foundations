@@ -104,6 +104,13 @@ exports[`Table Component should match a snapshot 2`] = `
         onClick={[Function]}
       />
     </TableRow>
+    <TableExpandableRow
+      isOpen={false}
+    >
+      <p>
+        I am the content that is only visible when expanded
+      </p>
+    </TableExpandableRow>
   </TableRowContainer>
 </ElTable>
 `;
