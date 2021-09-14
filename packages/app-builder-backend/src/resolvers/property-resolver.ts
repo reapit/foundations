@@ -7,19 +7,6 @@ import { Context } from '@/types'
 import { graphqlUri } from '../config.json'
 import { DocumentNode } from 'graphql'
 
-export const authors = [
-  {
-    id: 1,
-    firstName: 'Kate',
-    lastName: 'Chopin',
-  },
-  {
-    id: 2,
-    firstName: 'Paul',
-    lastName: 'Gauguin',
-  },
-]
-
 const getPropertiesQuery = gql`
   ${PropertyFragment}
   query getProperties {
