@@ -19,7 +19,8 @@ const authLink = setContext(async (_, { headers }) => {
   return {
     headers: {
       ...headers,
-      authorization: token ? `Bearer ${token.accessToken}` : '',
+      authorization: token ? `Bearer ${token.idToken}` : '',
+      'reapit-connect-token': token ? token.accessToken : '',
     },
   }
 })
