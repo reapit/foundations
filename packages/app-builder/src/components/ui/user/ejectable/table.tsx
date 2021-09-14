@@ -14,10 +14,13 @@ export interface TableProps extends ContainerProps {
   showControls?: string
 }
 
-const ObjectTableCell = ({ firstName, lastName }: any) => {
+const ObjectTableCell = (obj: any) => {
   return (
     <span>
-      {firstName} {lastName}
+      {Object.entries(obj)
+        .filter(([key, value]) => !key.startsWith('_') && typeof value !== 'object')
+        .map((kv) => kv[1])
+        .join(' ')}
     </span>
   )
 }

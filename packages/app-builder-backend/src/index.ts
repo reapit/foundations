@@ -1,29 +1,25 @@
 import 'reflect-metadata'
-import { buildSchema } from 'type-graphql'
 import { ApolloServer } from 'apollo-server-express'
 import express from 'express'
 import http from 'http'
 import { ApolloServerPluginDrainHttpServer } from 'apollo-server-core'
 
-import { BookResolver } from './resolvers/book-resolver'
-import { AuthorResolver } from './resolvers/author-resolver'
 import { Context } from './types'
 import { ensureTables } from './ddb'
-import { AppResolver } from './resolvers/app-resolver'
 import { ejectAppRoute } from './eject/route'
+import { getSchema } from './get-schema'
 
 const start = async () => {
   await ensureTables()
-  const schema = await buildSchema({
-    resolvers: [BookResolver, AuthorResolver, AppResolver],
-  })
+  const schema = await getSchema()
 
   const app = express()
   const httpServer = http.createServer(app)
   const server = new ApolloServer({
     schema,
     context: ({ req }): Context => ({
-      accessToken: req.headers.authorization?.split(' ')[1],
+      idToken: req.headers.authorization?.split(' ')[1],
+      accessToken: req.headers['reapit-connect-token'] as string,
     }),
     plugins: [ApolloServerPluginDrainHttpServer({ httpServer })],
   })

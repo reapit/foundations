@@ -25,16 +25,16 @@ export const parseIntrospectionResult = (introspection: IntrospectionQuery) => {
     .filter(notEmpty)
     .filter(({ name }) => !name.startsWith('_'))
 
-  return queryableObjectTypes.map((object, _, all) => {
+  return queryableObjectTypes.map((object) => {
     const queries = queryType.filter(({ nestedType }) => object.name === nestedType)
     const mutations = mutationType.filter(({ nestedType }) => object.name === nestedType)
     return {
       object,
-      list: getListQuery(queries, all),
-      get: getGetQuery(queries, all),
-      create: getMutation('create', mutations, all, inputObjectTypes, enums),
-      update: getMutation('update', mutations, all, inputObjectTypes, enums),
-      delete: getMutation('delete', mutations, all, inputObjectTypes, enums),
+      list: getListQuery(queries, objectTypes),
+      get: getGetQuery(queries, objectTypes),
+      create: getMutation('create', mutations, objectTypes, inputObjectTypes, enums),
+      update: getMutation('update', mutations, objectTypes, inputObjectTypes, enums),
+      delete: getMutation('delete', mutations, objectTypes, inputObjectTypes, enums),
     }
   })
 }
