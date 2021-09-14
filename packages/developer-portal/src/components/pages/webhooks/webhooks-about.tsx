@@ -4,8 +4,8 @@ import { useHistory } from 'react-router'
 import Routes from '../../../constants/routes'
 import { ExternalPages, navigate, openNewPage } from '../../../utils/navigation'
 import { IconContainer } from './__styles__/index'
-import webhookDocsImage from '../../../assets/images/webhook-docs.svg'
-import webhookNewImage from '../../../assets/images/webhook-new.svg'
+import { WebhooksAnimatedDocsIcon } from './webhooks-animated-docs-icon'
+import { WebhooksAnimatedNewIcon } from './webhooks-animated-new-icon'
 
 export const WebhooksAbout: FC = () => {
   const history = useHistory()
@@ -19,9 +19,7 @@ export const WebhooksAbout: FC = () => {
       <Grid>
         <ColSplit>
           <IconContainer className={elMb10}>
-            <object type="image/svg+xml" data={webhookNewImage}>
-              svg-animation
-            </object>
+            <WebhooksAnimatedNewIcon />
           </IconContainer>
           <Subtitle>Manage Webhooks Subscriptions</Subtitle>
           <BodyText hasGreyText>
@@ -35,9 +33,7 @@ export const WebhooksAbout: FC = () => {
         </ColSplit>
         <ColSplit>
           <IconContainer className={elMb10}>
-            <object type="image/svg+xml" data={webhookDocsImage}>
-              svg-animation
-            </object>
+            <WebhooksAnimatedDocsIcon />
           </IconContainer>
           <Subtitle>Webhooks Documentation</Subtitle>
           <BodyText hasGreyText>

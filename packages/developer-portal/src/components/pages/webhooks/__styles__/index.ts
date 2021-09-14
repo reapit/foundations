@@ -5,7 +5,7 @@ export const IconContainer = styled.div`
   position: relative;
   height: 140px;
 
-  object {
+  svg {
     height: 140px;
   }
 `

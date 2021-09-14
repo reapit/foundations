@@ -33,7 +33,6 @@ import { selectAppListState } from '../../../selector/apps/app-list'
 import { fetchAppList } from '../../../actions/apps'
 import { GET_ALL_PAGE_SIZE } from '../../../constants/paginator'
 import { FetchAppListParams } from '../../../reducers/apps/app-list'
-import { AppSummaryModel } from '@reapit/foundations-ts-definitions'
 import { Dispatch as ReduxDispatch } from 'redux'
 import { ControlsContainer, inputFullWidth, overflowHidden } from './__styles__'
 import { requestWebhookSubcriptionData } from '../../../actions/webhooks-subscriptions'
@@ -79,8 +78,7 @@ export const getTabContent = (
   }
 }
 
-export const handleFetchApps = (dispatch: ReduxDispatch, apps?: AppSummaryModel[], totalCount?: number) => () => {
-  if (apps?.length && totalCount === apps.length) return
+export const handleFetchApps = (dispatch: ReduxDispatch) => () => {
   dispatch(fetchAppList({ page: 1, appsPerPage: GET_ALL_PAGE_SIZE } as FetchAppListParams))
 }
 
@@ -131,9 +129,9 @@ export const WebhooksWrapper: FC = () => {
   const isManagePage = pathname === Routes.WEBHOOKS_MANAGE
   const isLogsPage = pathname === Routes.WEBHOOKS_LOGS
   const selectAppIdHandler = handleSelectAppId(setWebhookQueryParams, history)
-  const { data: apps, totalCount } = useSelector(selectAppListState)
+  const { data: apps } = useSelector(selectAppListState)
 
-  useEffect(handleFetchApps(dispatch, apps, totalCount), [totalCount, apps])
+  useEffect(handleFetchApps(dispatch), [])
   useEffect(handleFetchSubscriptions(dispatch, webhookQueryParams), [webhookQueryParams])
 
   return (
