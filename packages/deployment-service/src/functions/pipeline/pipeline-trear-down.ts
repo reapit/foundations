@@ -125,6 +125,7 @@ export const pipelineTearDownStart: SQSHandler = async (event: SQSEvent, context
             {
               QueueUrl: QueueNames.PIPELINE_TEAR_DOWN,
               MessageBody: JSON.stringify(pipeline),
+              DelaySeconds: 300,
             },
             (error, data) => {
               error ? reject(error) : resolve(data)
