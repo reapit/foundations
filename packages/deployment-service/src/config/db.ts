@@ -1,3 +1,4 @@
+import { SubDomainSubscriber } from '../subscribers/sub-domain'
 import { ConnectionOptions } from 'typeorm'
 import { TaskEntity, PipelineEntity, PipelineRunnerEntity, ReleaseEntity } from './../entities'
 
@@ -10,4 +11,5 @@ export const dbConfig: ConnectionOptions = {
   logging: true,
   synchronize: false,
   entities: [PipelineEntity, PipelineRunnerEntity, TaskEntity, ReleaseEntity],
+  subscribers: [SubDomainSubscriber],
 }
