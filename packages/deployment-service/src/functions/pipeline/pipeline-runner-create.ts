@@ -1,6 +1,6 @@
 import { PipelineRunnerEntity } from './../../entities'
 import { ownership, resolveCreds } from './../../utils'
-import { httpHandler, NotFoundException } from '@homeservenow/serverless-aws-handler'
+import { BadRequestException, httpHandler, NotFoundException } from '@homeservenow/serverless-aws-handler'
 import * as service from '../../services'
 import { defaultOutputHeaders } from './../../constants'
 import { QueueNames } from './../../constants'
@@ -28,6 +28,10 @@ export const pipelineRunnerCreate = httpHandler<void, PipelineRunnerEntity>({
     }
 
     await ownership(pipeline.developerId, developerId)
+
+    if (pipeline.buildStatus && ['IN_PROGRESS', 'DELETING', 'CREATING_ARCHITECTURE'].includes(pipeline.buildStatus)) {
+      throw new BadRequestException('Cannot deploy in current state')
+    }
 
     const pipelineRunner = await service.createPipelineRunnerEntity({
       pipeline,
