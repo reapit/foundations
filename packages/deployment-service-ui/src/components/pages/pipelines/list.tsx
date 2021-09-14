@@ -29,7 +29,7 @@ import { useHistory } from 'react-router-dom'
 import { pipelineServicePaginate } from '../../../platform-api/pipelines'
 import { Pagination } from 'nestjs-typeorm-paginate'
 import { cx } from '@linaria/core'
-import { pipelineStatusToIntent } from './../../../utils'
+import { pipelineStatusToIntent, pipelineStatusToName } from './../../../utils'
 
 export default () => {
   const { connectSession } = useReapitConnect(reapitConnectBrowserSession)
@@ -92,7 +92,7 @@ export default () => {
                             <StatusIndicator
                               intent={pipelineStatusToIntent(pipeline.buildStatus || 'AWAITING DEPLOYMENT')}
                             />
-                            {pipeline.buildStatus}
+                            {pipelineStatusToName(pipeline.buildStatus as string)}
                           </>
                         ),
                       },

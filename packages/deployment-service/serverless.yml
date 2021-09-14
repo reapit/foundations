@@ -175,6 +175,15 @@ provider:
           - Arn
     - Effect: Allow
       Action:
+        - sqs:GetQueueAttributes
+        - sqs:SendMessage
+        - sqs:DeleteMessage
+      Resource:
+        Fn::GetAtt:
+          - PipelineTearDownStart
+          - Arn
+    - Effect: Allow
+      Action:
         - lambda:InvokeFunction
       Resource: arn:aws:lambda:${self:provider.region}:${self:custom.env.AWS_ACCOUNT_ID}:function:cloud-api-key-service-dev-getApiKeyViaInvoke
     - Effect: Allow
@@ -192,6 +201,9 @@ provider:
       Action:
         - cloudfront:CreateDistribution
         - cloudfront:CreateInvalidation
+        - cloudfront:DeleteDistribution
+        - cloudfront:GetDistribution
+        - cloudfront:UpdateDistribution
       Resource: "*"
 
 resources:
@@ -247,6 +259,11 @@ resources:
       Type: AWS::SQS::Queue
       Properties:
         QueueName: PipelineSetup
+        VisibilityTimeout: 300
+    PipelineTearDownStart:
+      Type: AWS::SQS::Queue
+      Properties:
+        QueueName: PipelineTearDownStart
         VisibilityTimeout: 300
     PipelineTearDown:
       Type: AWS::SQS::Queue
@@ -620,6 +637,16 @@ functions:
           arn:
             Fn::GetAtt:
               - PipelineSetup
+              - Arn
+    timeout: 300
+  pipelineTearDownStart:
+    handler: src/index.pipelineTearDownStart
+    events:
+      - sqs:
+          queueName: PipelineTearDownStart
+          arn:
+            Fn::GetAtt:
+              - PipelineTearDownStart
               - Arn
     timeout: 300
   pipelineTearDown:

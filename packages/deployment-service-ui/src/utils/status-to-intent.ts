@@ -5,6 +5,7 @@ export const pipelineStatusToIntent = (status: string): Intent => {
     case 'CANCELED':
       return 'neutral'
     case 'FAILED':
+    case 'DELETING':
       return 'danger'
     case 'IN_PROGRESS':
     case 'CREATING_ARCHITECTURE':
@@ -32,6 +33,10 @@ export const pipelineStatusToName = (status: string): string => {
       return 'Creating architecture'
     case 'AWAITING_DEPLOYMENT':
       return 'Awaiting deployment'
+    case 'READY_FOR_DEPLOYMENT':
+      return 'Ready for deployment'
+    case 'DELETING':
+      return 'Destroying'
     default:
       return 'Queued'
   }
