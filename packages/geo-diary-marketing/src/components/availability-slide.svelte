@@ -28,7 +28,7 @@
       <img src="./images/availability-hero.svg" alt="flow of data to various devices" />
       <p class="el-body-text el-has-grey-text image-text">
         <button class="el-intent-critical el-button el-mr3 el-mb3 button" on:click|preventDefault={setModalVisible}
-          >App Marketplace</button
+          >AppMarket</button
         >
         Reapit customers can now adopt and deploy powerful new apps and integrations from a continually evolving library
         developed by Reapit’s growing range of partnerships.
