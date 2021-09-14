@@ -1,10 +1,6 @@
 import { PipelineRunnerEntity } from './../../entities'
 import { ownership, resolveCreds } from './../../utils'
-import {
-  BadRequestException,
-  httpHandler,
-  NotFoundException,
-} from '@homeservenow/serverless-aws-handler'
+import { BadRequestException, httpHandler, NotFoundException } from '@homeservenow/serverless-aws-handler'
 import * as service from '../../services'
 import { defaultOutputHeaders } from './../../constants'
 import { QueueNames } from './../../constants'
