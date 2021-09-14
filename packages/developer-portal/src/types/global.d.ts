@@ -14,6 +14,7 @@ export type Config = {
   elementsUri: string
   graphQLUri: string
   analyticsSchemaDocsUrl: string
+  swaggerUri: string
 }
 
 declare global {
