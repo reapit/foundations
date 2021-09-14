@@ -24,6 +24,7 @@ window.reapit = {
     elementsUri: '',
     graphQLUri: '',
     analyticsSchemaDocsUrl: '',
+    swaggerUri: '',
   },
 }
 

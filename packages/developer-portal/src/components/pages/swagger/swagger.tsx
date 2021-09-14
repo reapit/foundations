@@ -5,7 +5,6 @@ import { swagger, titleWrap, swaggerHidden } from './__styles__/swagger'
 import ErrorBoundary from '@/components/hocs/error-boundary'
 import { StringMap } from '@reapit/elements-legacy'
 import { SandboxPopUp } from '@/components/ui/popup/sandbox-pop-up'
-import { URLS } from '../../../services/constants'
 import {
   BodyText,
   elWFull,
@@ -113,7 +112,7 @@ export const SwaggerPage: FC = () => {
         <div className={cx(swagger, loading && swaggerHidden)}>
           <Title className={titleWrap}>Foundations API</Title>
           <SwaggerUI
-            url={`${window.reapit.config.platformApiUrl}${URLS.docs}`}
+            url={window.reapit.config.swaggerUri}
             onComplete={handleOnComplete(setLoading)}
             docExpansion="none"
             requestInterceptor={requestInterceptor}
