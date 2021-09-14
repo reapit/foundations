@@ -15,7 +15,9 @@ For non React users, you can just apply the classes in the rendered markup to yo
 
 Typically you will use this component when you want the user to select binary options like off/on or active/inactive.
 
-Props available for the React version of the component are just those of a standard React checkbox
+Props available for the React version of the component are just those of a standard React checkbox with some variant props as per below.
+
+<ArgsTable of={Toggle} />
 
 <Canvas>
   <Story name="Basic Usage">
@@ -27,6 +29,21 @@ Props available for the React version of the component are just those of a stand
 </Canvas>
 
 <RenderHtmlMarkup component="Toggle" story="Basic Usage" />
+
+## Toggle - Full Width - Grey Bg
+
+Slight variation on the above where the toggle spans the full width of it's container and `hasGreyBg` props
+
+<Canvas>
+  <Story name="Toggle - Full Width - Grey Bg">
+    <Toggle id="my-cool-toggle-variants" isFullWidth hasGreyBg>
+      <span className={elToggleItem}>On</span>
+      <span className={elToggleItem}>Off</span>
+    </Toggle>
+  </Story>
+</Canvas>
+
+<RenderHtmlMarkup component="Toggle" story="Toggle - Full Width - Grey Bg" />
 
 ## Multi Toggle - ToggleRadio
 
@@ -83,15 +100,16 @@ export interface ToggleRadioOption {
 
 <RenderHtmlMarkup component="Toggle" story="Toggle Radio - Default" />
 
-## Toggle Radio - Full Width
+## Toggle Radio - Full Width - Grey Bg
 
-Slight variation on the above where the toggle spans the full width of it's container.
+Slight variation on the above where the toggle spans the full width of it's container and `hasGreyBg` props
 
 <Canvas>
-  <Story name="Toggle Radio - Full Width">
+  <Story name="Toggle Radio - Full Width - Grey Bg">
     <ToggleRadio
       name="my-cool-toggle-radio-full-width"
       isFullWidth
+      hasGreyBg
       options={[
         {
           id: 'option-1-fw',
@@ -116,4 +134,4 @@ Slight variation on the above where the toggle spans the full width of it's cont
   </Story>
 </Canvas>
 
-<RenderHtmlMarkup component="Toggle" story="Toggle Radio - Full Width" />
+<RenderHtmlMarkup component="Toggle" story="Toggle Radio - Full Width - Grey Bg" />

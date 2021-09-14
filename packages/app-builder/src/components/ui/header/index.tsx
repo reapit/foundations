@@ -22,7 +22,7 @@ import UndoSvg from '../../icons/undo'
 import { buttonIcon, disabled, header, item } from './styles'
 
 import { PageSelector } from './PageSelector'
-import { usePageId } from '@/core/usePageId'
+import { usePageId } from '@/components/hooks/use-page-id'
 import { useDeletePage } from '@/components/hooks/apps/use-update-app'
 
 const Header = ({ isSaving }) => {

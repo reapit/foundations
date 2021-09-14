@@ -2,6 +2,7 @@ import {
   WebhookSubscription,
   WebhookModal,
   WebhookEditState,
+  WebhookCreateEditState,
 } from '@/reducers/webhooks-subscriptions/webhook-edit-modal'
 import { CreateWebhookParams } from '@/actions/webhooks-subscriptions'
 
@@ -37,6 +38,7 @@ export const webhookEditDataStub: WebhookEditState = {
   webhookData: webhookItemDataStub,
   loading: false,
   modalType: '',
+  webhookCreateEditState: WebhookCreateEditState.INITIAL,
 }
 
 export const createWebhookItem: CreateWebhookParams = {

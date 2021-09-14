@@ -1,7 +1,7 @@
 import { nodesObjtoToArr } from '@/components/hooks/apps/node-helpers'
 import { useApp } from '@/components/hooks/apps/use-app'
 import { useUpdatePage } from '@/components/hooks/apps/use-update-app'
-import { usePageId } from '@/core/usePageId'
+import { usePageId } from '@/components/hooks/use-page-id'
 import { cx } from '@linaria/core'
 import { Button, elFlex, elFlex1, elFlexAlignCenter, elFlexJustifyStart, elM1, Select } from '@reapit/elements'
 import React from 'react'

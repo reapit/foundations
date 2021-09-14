@@ -36,7 +36,7 @@ export class Node {
   linkedNodes: Record<string, string>
 
   @Field(() => GraphQLJSONObject)
-  props: Record<string, string | number | undefined>
+  props: Record<string, string | number | boolean | undefined>
 
   @Field(() => NodeType)
   type: NodeType

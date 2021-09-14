@@ -52,7 +52,7 @@ const Toolbox = () => {
             <SquareSvg />
           </Item>
         </div>
-        <div ref={(ref) => ref && create(ref, <Text fontSize="12" textAlign="left" text="Hi there" />)}>
+        <div ref={(ref) => ref && create(ref, <Text fontSize={12} text="Hi there" />)}>
           <Item data-tip="Text" className={cx(elM3, elPb3, cursorMove, block)}>
             <TypeSvg />
           </Item>

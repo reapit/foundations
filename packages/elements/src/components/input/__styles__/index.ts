@@ -23,28 +23,30 @@ export const ElInput = styled.input`
   }
 
   &::placeholder {
-    color: var(--color-black);
+    color: var(--color-grey-dark);
     font-family: var(--font-sans-serif);
   }
 
   &[type='checkbox'] {
     appearance: none;
-    border: 1px solid var(--color-black);
+    border: 1px solid var(--color-grey-medium);
+    border-radius: 0.25rem;
     width: 1.5rem;
     height: 1.5rem;
 
     &:checked {
-      background-image: url('data:image/svg+xml;utf8,<svg width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M19.7072 2.94916C19.3166 2.55861 18.6835 2.55861 18.2929 2.94916L6.31229 14.9299L1.70713 10.3247C1.31662 9.9342 0.683497 9.93424 0.292911 10.3247C-0.0976369 10.7153 -0.0976369 11.3484 0.292911 11.7389L5.60518 17.0511C5.99558 17.4416 6.62917 17.4413 7.0194 17.0511L19.7072 4.36338C20.0977 3.97287 20.0977 3.33971 19.7072 2.94916Z" fill="currentColor"/></svg>');
+      background-image: url('data:image/svg+xml;utf8,<svg width="1em" height="1em" viewBox="0 0 12 12" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M11.2529 2.25459C10.9205 1.91513 10.3795 1.91515 10.0471 2.25457L4.03736 8.41347L1.45291 5.77405C1.12054 5.43458 0.579492 5.43467 0.247127 5.77403C-0.0823813 6.11051 -0.0823676 6.65391 0.24712 6.99041L3.43448 10.2455C3.76682 10.585 4.30815 10.5847 4.64026 10.2455L11.2529 3.47098C11.5824 3.13448 11.5823 2.59107 11.2529 2.25459Z" fill="white"/></svg>');
       background-position: center center;
       background-repeat: no-repeat;
-      background-size: 1rem;
-      background-color: var(--component-input-focus-bg);
+      background-size: 0.75rem;
+      background-color: var(--intent-primary);
+      border: 1px solid var(--intent-primary);
     }
   }
 
   &[type='radio'] {
     appearance: none;
-    border: 1px solid var(--color-black);
+    border: 1px solid var(--color-grey-medium);
     border-radius: 100%;
     width: 1.5rem;
     height: 1.5rem;
@@ -56,7 +58,8 @@ export const ElInput = styled.input`
         display: block;
         position: absolute;
         border-radius: 100%;
-        background-color: var(--color-black);
+        border: 1px solid var(--intent-primary);
+        background-color: var(--intent-primary);
         width: 0.75rem;
         height: 0.75rem;
         left: 50%;

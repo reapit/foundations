@@ -7,6 +7,7 @@ import {
   elIntentSuccess,
 } from '../../styles/intent'
 import { getIntentClassName } from '../intent'
+import { elIntentLow } from '../../styles/intent'
 
 describe('getIntentClassName', () => {
   it('should get the correct class for primary intent', () => {
@@ -31,5 +32,9 @@ describe('getIntentClassName', () => {
 
   it('should get the correct class for neutral intent', () => {
     expect(getIntentClassName('neutral')).toEqual(elIntentNeutral)
+  })
+
+  it('should get the correct class for low intent', () => {
+    expect(getIntentClassName('low')).toEqual(elIntentLow)
   })
 })

@@ -1,5 +1,5 @@
 {
-  "name": "app-builder",
+  "name": "@reapit/app-builder",
   "description": "Description",
   "version": "0.0.1",
   "private": true,

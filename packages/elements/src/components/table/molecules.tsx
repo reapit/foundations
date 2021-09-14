@@ -32,7 +32,7 @@ export const TableHeadersRow: FC = ({ children, ...rest }) => {
   return <ElTableHeadersRow {...rest}>{children}</ElTableHeadersRow>
 }
 
-export const TableHeader: FC = ({ children, ...rest }) => {
+export const TableHeader: FC<HTMLAttributes<HTMLDivElement>> = ({ children, ...rest }) => {
   return <ElTableHeader {...rest}>{children}</ElTableHeader>
 }
 
@@ -90,7 +90,7 @@ export const TableCell: FC<ITableCell> = ({
   ...rest
 }) => {
   const combinedClassname = cx(
-    className,
+    className && className,
     darkText && elTableCellHasDarkText,
     narrowIsFullWidth && elTableNarrowCellIsFullWidth,
     narrowOrder && resolveNarrowOrderClass(narrowOrder),
@@ -119,8 +119,11 @@ export const TableExpandableRowTriggerCell: FC<ITableExpandableRowTriggerCell> =
       className={cx(className, narrowIsFullWidth && elTableNarrowCellIsFullWidth)}
       {...rest}
     >
-      <Icon intent={isOpen ? 'primary' : 'secondary'} icon={isOpen ? 'upSolidSystem' : 'downSolidSystem'} />
-      {children}
+      {children ? (
+        children
+      ) : (
+        <Icon intent={isOpen ? 'primary' : 'secondary'} icon={isOpen ? 'upSolidSystem' : 'downSolidSystem'} />
+      )}
     </ElTableExpandableRowTriggerCell>
   )
 }

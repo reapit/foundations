@@ -638,7 +638,7 @@ Simply supply a `rows` prop, and no children, to use the Table component like th
               ),
             },
           ],
-          expandableContent: <p>I am the content that is only visible when expanded</p>,
+          expandableContent: { content: <p>I am the content that is only visible when expanded</p> },
         },
         {
           cells: [
@@ -683,7 +683,7 @@ Simply supply a `rows` prop, and no children, to use the Table component like th
               ),
             },
           ],
-          expandableContent: <p>I am more content that is only visible when the 2nd row is expanded</p>,
+          expandableContent: { content: <p>I am more content that is only visible when the 2nd row is expanded</p> },
         },
       ]}
     />

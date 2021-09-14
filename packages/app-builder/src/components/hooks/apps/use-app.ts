@@ -1,5 +1,4 @@
 import { useQuery, gql } from '@apollo/client'
-import { useEffect } from 'react'
 import { App, AppFragment } from './fragments'
 
 export const GetAppQuery = gql`
@@ -18,10 +17,6 @@ export const useApp = (id: string) => {
     },
     skip: !id,
   })
-
-  useEffect(() => {
-    console.log('useApp', data?._getApp)
-  }, [data])
 
   return {
     loading,

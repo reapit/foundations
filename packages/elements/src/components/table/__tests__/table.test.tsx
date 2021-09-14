@@ -69,7 +69,7 @@ describe('Table Component', () => {
                 },
               },
             ],
-            expandableContent: <p>I am the content that is only visible when expanded</p>,
+            expandableContent: { content: <p>I am the content that is only visible when expanded</p> },
           },
         ]}
       />,

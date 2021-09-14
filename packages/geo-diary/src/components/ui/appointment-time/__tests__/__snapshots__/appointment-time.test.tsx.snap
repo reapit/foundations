@@ -7,7 +7,7 @@ exports[`appointment-time AppointmentTime should match snapshot 1`] = `
   <FlexContainer
     isFlexJustifyCenter={true}
   >
-    <ToggleRadio
+    <ForwardRef
       isFullWidth={true}
       name="appointment-time"
       onChange={[Function]}

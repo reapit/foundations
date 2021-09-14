@@ -151,29 +151,31 @@ const DeploymentTable = ({
           ),
         },
       ],
-      expandableContent: (
-        <div>
-          <Subtitle>Tasks</Subtitle>
-          <ElPipelineTaskContainer className={cx('flex')}>
-            {pipeline.tasks?.map((task) => (
-              <PipelineTask index={functionToIndex(task.functionName as string)} task={task} key={task.id} />
-            ))}
-          </ElPipelineTaskContainer>
-          <Button
-            intent="primary"
-            disabled={!['SUCCEEDED', 'FAILED'].includes(pipeline.buildStatus as string)}
-            onClick={() => {
-              if (pipeline.s3BuildLogsLocation) {
-                window.open(pipeline.s3BuildLogsLocation as string)
-              } else {
-                notification.error({ message: 'Unable to download logs' })
-              }
-            }}
-          >
-            Download logs
-          </Button>
-        </div>
-      ),
+      expandableContent: {
+        content: (
+          <div>
+            <Subtitle>Tasks</Subtitle>
+            <ElPipelineTaskContainer className={cx('flex')}>
+              {pipeline.tasks?.map((task) => (
+                <PipelineTask index={functionToIndex(task.functionName as string)} task={task} key={task.id} />
+              ))}
+            </ElPipelineTaskContainer>
+            <Button
+              intent="primary"
+              disabled={!['SUCCEEDED', 'FAILED'].includes(pipeline.buildStatus as string)}
+              onClick={() => {
+                if (pipeline.s3BuildLogsLocation) {
+                  window.open(pipeline.s3BuildLogsLocation as string)
+                } else {
+                  notification.error({ message: 'Unable to download logs' })
+                }
+              }}
+            >
+              Download logs
+            </Button>
+          </div>
+        ),
+      },
     }
   })
 

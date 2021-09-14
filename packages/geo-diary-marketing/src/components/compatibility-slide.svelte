@@ -23,7 +23,7 @@
         <p class="el-body-text el-has-grey-text">
           <strong
             >The GEO Diary app is a progressive web application and can be saved and launched as an app on your phone,
-            accessed via a web browser or launched through Agency Cloud.
+            accessed via a web browser or launched through AgencyCloud.
           </strong>
         </p>
         <p class="el-body-text el-has-grey-text">

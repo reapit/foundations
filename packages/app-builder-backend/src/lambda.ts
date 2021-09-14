@@ -1,15 +1,13 @@
 import 'reflect-metadata'
 import { ApolloServer } from 'apollo-server-lambda'
-import { buildSchema } from 'type-graphql'
+import express from 'express'
 
-import { BookResolver } from './resolvers/book-resolver'
-import { AuthorResolver } from './resolvers/author-resolver'
 import { Context } from './types'
+import { ejectAppRoute } from './eject/route'
+import { getSchema } from './get-schema'
 
 const createHandler = async () => {
-  const schema = await buildSchema({
-    resolvers: [BookResolver, AuthorResolver],
-  })
+  const schema = await getSchema()
 
   const server = new ApolloServer({
     schema,
@@ -19,12 +17,20 @@ const createHandler = async () => {
         throw new Error('Must have the authorization header')
       }
       return {
-        accessToken: authorization.split(' ')[1],
+        idToken: authorization?.split(' ')[1],
+        accessToken: event.headers['reapit-connect-token'] as string,
       }
     },
   })
 
-  return server.createHandler()
+  return server.createHandler({
+    expressAppFromMiddleware(middleware) {
+      const app = express()
+      app.get('/eject/:appId', ejectAppRoute)
+      app.use(middleware)
+      return app
+    },
+  })
 }
 
 export const handler = async (event, context) => {

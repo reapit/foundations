@@ -1,359 +1,264 @@
-import React, { ReactElement, SetStateAction, useEffect, useState } from 'react'
-import qs from 'query-string'
-import { History } from 'history'
-import {
-  SelectBoxOptions,
-  Section,
-  Pagination,
-  Grid,
-  GridItem,
-  SelectBox,
-  LevelRight,
-  Table,
-} from '@reapit/elements-legacy'
-import { useSelector, useDispatch } from 'react-redux'
-import { AppSummaryModel } from '@reapit/foundations-ts-definitions'
-import { Dispatch } from 'redux'
-import { Form, Formik } from 'formik'
-import { fetchWebhooksSubscriptions } from '@/actions/webhooks-subscriptions'
-import { webhookSetOpenModal } from '@/actions/webhooks-subscriptions'
-import { selectSubscriptionsData, selectSubscriptionsLoading } from '@/selector/webhooks-subscriptions'
-import { selectWebhookEditModalType } from '@/selector/webhooks-subscriptions'
-import { selectTopicsData } from '@/selector/webhooks-topics'
-import FormikAutoSave from '@/components/hocs/formik-auto-save'
-import WebhookEditModal from './webhook-edit-modal'
-import { selectDeveloper } from '@/selector/developer'
-import WebhookTestModal from './webhook-test-modal'
-import { hyperlinked } from '@/styles/elements/link'
-import { selectAppListState } from '@/selector/apps/app-list'
-import { fetchWebhooksTopics } from '@/actions/webhooks-topics'
+import React, { FC, ChangeEvent, useEffect, useState, SetStateAction, Dispatch } from 'react'
 import { useHistory } from 'react-router-dom'
-import { TopicModel, WebhookModel } from '@/services/webhooks'
-import { URLS } from '@/services/constants'
-import FadeIn from '../../../styles/fade-in'
-import { WebhooksLogsTable } from './webhook-logs-table'
+import { History } from 'history'
 import {
   BodyText,
   Button,
+  elBorderRadius,
   elMb5,
+  elMb8,
   elMb9,
   elWFull,
   FlexContainer,
   Icon,
-  Loader,
+  InputGroup,
+  Label,
   PageContainer,
-  PersistantNotification,
   SecondaryNav,
   SecondaryNavContainer,
   SecondaryNavItem,
+  Select,
   Subtitle,
+  Tabs,
   Title,
 } from '@reapit/elements'
 import Routes from '../../../constants/routes'
 import { navigate, openNewPage, ExternalPages } from '../../../utils/navigation'
+import { WebhooksAbout } from './webhooks-about'
+import { WebhooksManage } from './webhooks-manage'
+import { WebhooksLogs } from './webhooks-logs'
+import { WebhooksNew } from './webhooks-new'
+import { useDispatch, useSelector } from 'react-redux'
+import { selectAppListState } from '../../../selector/apps/app-list'
+import { fetchAppList } from '../../../actions/apps'
+import { GET_ALL_PAGE_SIZE } from '../../../constants/paginator'
+import { FetchAppListParams } from '../../../reducers/apps/app-list'
+import { Dispatch as ReduxDispatch } from 'redux'
+import { ControlsContainer, inputFullWidth, overflowHidden } from './__styles__'
+import { requestWebhookSubcriptionData } from '../../../actions/webhooks-subscriptions'
+import { cx } from '@linaria/core'
+import { StringMap } from '../../../types/core'
+import dayjs from 'dayjs'
 
-export const WEBHOOK_PAGE_SIZE = 5
-
-export type DeveloperWebhooksProps = {}
-
-export type WebhooksFormValues = {
+export interface WebhookQueryParams {
   applicationId: string
+  from: string
+  to: string
 }
 
-export const CreatedCell = ({ cell: { value } }): ReactElement[] => {
-  return value.map((line, index) => <p key={index}>{line}</p>)
+export type SelectAppIdHandler = (
+  setWebhookQueryParams: Dispatch<SetStateAction<WebhookQueryParams>>,
+  history: History,
+) => SelectAppIdEventHandler
+
+export type SelectAppIdEventHandler = (
+  event?: React.ChangeEvent<HTMLSelectElement | HTMLInputElement> | undefined,
+  applicationId?: string | undefined,
+) => void
+
+export const handleChangeTab = (history: History) => (event: ChangeEvent<HTMLInputElement>) => {
+  history.push(`${event.target.value}${history.location.search}`)
 }
 
-export const columns = [
-  {
-    Header: 'URL',
-    accessor: 'url',
-  },
-  {
-    Header: 'Topics',
-    accessor: 'topics',
-    Cell: CreatedCell,
-  },
-  {
-    Header: 'Customer',
-    accessor: 'customer',
-    Cell: CreatedCell,
-  },
-  {
-    Header: 'Test Webhook',
-    accessor: 'test',
-  },
-  {
-    Header: 'Status',
-    accessor: 'active',
-  },
-  {
-    Header: 'Edit',
-    accessor: 'edit',
-  },
-]
-
-export const MODAL_TYPE = {
-  EDIT: 'EDIT',
-  CREATE: 'CREATE',
-  TEST: 'TEST',
-}
-
-export const handleSubscriptionChange =
-  (history: History, setPageNumber: React.Dispatch<SetStateAction<number>>) =>
-  (values: WebhooksFormValues): void => {
-    const { applicationId } = values
-    setPageNumber(1)
-    history.push(`${URLS.webhooks}?applicationId=${applicationId}`)
-  }
-
-export const openCreateModal = (dispatch: Dispatch) => (): void => {
-  dispatch(webhookSetOpenModal(MODAL_TYPE.CREATE))
-}
-
-export const openEditModal =
-  (dispatch: Dispatch, setWebhookId: React.Dispatch<string | undefined>) =>
-  (webhookId: string): void => {
-    dispatch(webhookSetOpenModal(MODAL_TYPE.EDIT))
-    setWebhookId(webhookId)
-  }
-
-export const openTestModal =
-  (dispatch: Dispatch, setWebhookId: React.Dispatch<string | undefined>) =>
-  (webhookId: string): void => {
-    setWebhookId(webhookId)
-    dispatch(webhookSetOpenModal(MODAL_TYPE.TEST))
-  }
-
-export const handleCloseModal = (dispatch: Dispatch) => {
-  return () => {
-    dispatch(webhookSetOpenModal(''))
-  }
-}
-export const handleAfterClose = (dispatch: Dispatch, setWebhookId: React.Dispatch<string | undefined>) => {
-  return () => {
-    dispatch(webhookSetOpenModal(''))
-    setWebhookId(undefined)
+export const getTabContent = (
+  pathname: string,
+  webhookQueryParams: WebhookQueryParams,
+  selectAppIdHandler: SelectAppIdEventHandler,
+) => {
+  switch (pathname) {
+    case Routes.WEBHOOKS_NEW:
+      return <WebhooksNew webhookQueryParams={webhookQueryParams} selectAppIdHandler={selectAppIdHandler} />
+    case Routes.WEBHOOKS_MANAGE:
+      return <WebhooksManage webhookQueryParams={webhookQueryParams} />
+    case Routes.WEBHOOKS_LOGS:
+      return <WebhooksLogs webhookQueryParams={webhookQueryParams} />
+    case Routes.WEBHOOKS_ABOUT:
+    default:
+      return <WebhooksAbout />
   }
 }
 
-export const renderTopicName = (topics: TopicModel[], subscriptionTopicIds: string[]) => {
-  const subscriptionTopics = topics.filter((topic) => subscriptionTopicIds.includes(topic.id as string))
-  const subscriptionTopicsName = subscriptionTopics.map((topic) => topic.name)
-  return subscriptionTopicsName
+export const handleFetchApps = (dispatch: ReduxDispatch) => () => {
+  dispatch(fetchAppList({ page: 1, appsPerPage: GET_ALL_PAGE_SIZE } as FetchAppListParams))
 }
 
-export const renderCustomerName = (subscriptionCustomerIds: string[]) => {
-  if (subscriptionCustomerIds.length) {
-    return subscriptionCustomerIds
+export const handleFetchSubscriptions = (dispatch: ReduxDispatch, webhookQueryParams: WebhookQueryParams) => () => {
+  const { applicationId } = webhookQueryParams
+  if (!applicationId) return
+
+  dispatch(requestWebhookSubcriptionData(applicationId))
+}
+
+export const handleHistoryToQueryParams = (history: History): WebhookQueryParams => {
+  const queryParams = new URLSearchParams(history.location.search)
+  return {
+    applicationId: queryParams.get('applicationId') ?? '',
+    from: queryParams.get('from') ?? dayjs().subtract(1, 'day').format('YYYY-MM-DD'),
+    to: queryParams.get('to') ?? dayjs().format('YYYY-MM-DD'),
   }
-  return ['All Customers (*)']
 }
 
-export const handleSetPageNumber = (setPageNumber: React.Dispatch<SetStateAction<number>>) => (pageNumber: number) =>
-  setPageNumber(pageNumber)
+export const handleSelectAppId: SelectAppIdHandler = (setWebhookQueryParams, history) => (event, applicationId) => {
+  const value = applicationId ? applicationId : event?.target.value
+  const name = applicationId ? 'applicationId' : event?.target.name
 
-type GetTableTopicsDataParams = {
-  subscriptions: WebhookModel[]
-  topics: TopicModel[]
-  handleOpenEditModal: (webhookId: string) => void
-  handleOpenTestModal: (webhookId: string) => void
-}
+  if (!value || !name) return
 
-export const getTableTopicsData = ({
-  subscriptions,
-  topics,
-  handleOpenEditModal,
-  handleOpenTestModal,
-}: GetTableTopicsDataParams) => {
-  return subscriptions?.map((subscription: WebhookModel) => ({
-    url: subscription.url,
-    topics: renderTopicName(topics, subscription.topicIds as string[]),
-    customer: renderCustomerName(subscription.customerIds as string[]),
-    test: (
-      <a className={hyperlinked} onClick={() => handleOpenTestModal(subscription.id as string)}>
-        Ping
-      </a>
-    ),
-    active: subscription.active ? 'Active' : 'Inactive',
-    edit: (
-      <Button
-        data-test="edit-btn"
-        intent="primary"
-        type="button"
-        onClick={() => {
-          handleOpenEditModal(subscription.id as string)
-        }}
-      >
-        Edit
-      </Button>
-    ),
-  }))
-}
-
-export const mapDeveloperAppsToAppSelectBoxOptions: (developerApps: AppSummaryModel[]) => SelectBoxOptions[] = (
-  developerApps,
-) =>
-  developerApps.map(({ name, id }) => ({
-    label: name || '',
-    value: id || '',
-  }))
-
-export const DeveloperWebhooks = () => {
-  const dispatch = useDispatch()
-  const history = useHistory()
-  const queryParams = qs.parse(history.location.search)
-  const applicationId = queryParams.applicationId
-  const [webhookId, setWebhookId] = useState<string | undefined>()
-  const [pageNumber, setPageNumber] = useState<number>(1)
-  const { pathname } = location
-  useEffect(() => {
-    if (applicationId) {
-      dispatch(fetchWebhooksSubscriptions({ applicationId: [applicationId] as string[], pageNumber }))
-      dispatch(fetchWebhooksTopics({ applicationId, pageNumber }))
+  const queryParams = handleHistoryToQueryParams(history)
+  const newParams = {
+    ...queryParams,
+    [name]: value,
+  }
+  const cleanedParams = Object.keys(newParams).reduce((prev: StringMap | undefined, next: string) => {
+    if (newParams[next] && prev) {
+      prev[next] = newParams[next]
     }
-  }, [dispatch, applicationId, pageNumber])
+    return prev
+  }, {})
+  const newQueryString = new URLSearchParams(cleanedParams).toString()
+  setWebhookQueryParams(newParams)
+  history.push(`${history.location.pathname}?${newQueryString}`)
+}
 
-  const subscriptionsData = useSelector(selectSubscriptionsData)
-  const subscriptionsLoading = useSelector(selectSubscriptionsLoading)
-  const topics = useSelector(selectTopicsData)
-  const developerState = useSelector(selectDeveloper)
+export const WebhooksWrapper: FC = () => {
+  const history = useHistory()
+  const dispatch = useDispatch()
+  const { pathname } = location
+  const [webhookQueryParams, setWebhookQueryParams] = useState<WebhookQueryParams>(handleHistoryToQueryParams(history))
+  const isAboutPage = pathname === Routes.WEBHOOKS_ABOUT
+  const isManagePage = pathname === Routes.WEBHOOKS_MANAGE
+  const isLogsPage = pathname === Routes.WEBHOOKS_LOGS
+  const selectAppIdHandler = handleSelectAppId(setWebhookQueryParams, history)
   const { data: apps } = useSelector(selectAppListState)
-  const modalType = useSelector(selectWebhookEditModalType)
 
-  const handleOpenCreateModal = openCreateModal(dispatch)
-  const handleOpenEditModal = openEditModal(dispatch, setWebhookId)
-  const handleOpenTestModal = openTestModal(dispatch, setWebhookId)
-  const onCloseModal = React.useCallback(handleCloseModal(dispatch), [dispatch])
-  const afterClose = React.useCallback(handleAfterClose(dispatch, setWebhookId), [dispatch])
-
-  const applicationOptions = mapDeveloperAppsToAppSelectBoxOptions(apps || [])
-  const unfetched = !apps
-  const loading = developerState.loading
-  const isShowDetailModal = modalType === MODAL_TYPE.EDIT || modalType === MODAL_TYPE.CREATE
-  const isShowTestModal = modalType === MODAL_TYPE.TEST
-  const { _embedded: subscriptions, totalCount } = subscriptionsData ?? {}
+  useEffect(handleFetchApps(dispatch), [])
+  useEffect(handleFetchSubscriptions(dispatch, webhookQueryParams), [webhookQueryParams])
 
   return (
-    <>
-      <FlexContainer className={elWFull} isFlexInitial>
-        <SecondaryNavContainer>
-          <Title>API</Title>
-          <SecondaryNav className={elMb9}>
-            <SecondaryNavItem onClick={navigate(history, Routes.SWAGGER)} active={pathname === Routes.SWAGGER}>
-              REST API
-            </SecondaryNavItem>
-            <SecondaryNavItem onClick={navigate(history, Routes.WEBHOOKS)} active={pathname === Routes.WEBHOOKS}>
-              Webhooks
-            </SecondaryNavItem>
-            <SecondaryNavItem onClick={navigate(history, Routes.GRAPHQL)} active={pathname === Routes.GRAPHQL}>
-              GraphQL
-            </SecondaryNavItem>
-          </SecondaryNav>
-          <Icon className={elMb5} icon="webhooksInfographic" iconSize="large" />
-          <Subtitle>Webhooks Documentation</Subtitle>
-          <BodyText hasGreyText>
-            This system is designed to flexibly work with how your application is built and deployed. If you wish, you
-            can set up a single endpoint to catch all topics for all customers. Alternatively, you may wish to set up a
-            different webhook subscription per topic or per customer. For more information about Webhooks, please see
-            our documentation.
-          </BodyText>
-          <Button className={elMb5} intent="neutral" onClick={openNewPage(ExternalPages.webhooksDocs)}>
-            View Docs
-          </Button>
-        </SecondaryNavContainer>
-        <PageContainer>
-          <Title>Webhooks</Title>
-          <FadeIn>
-            <Section hasPadding={false}>
-              <BodyText hasGreyText>
-                Our webhooks system allows your application to directly subscribe to events happening in our customers
-                data. Rather than needing to make API calls to poll for new information, a webhook subscription can be
-                created to allow Reapit Foundations to send a HTTP request directly to your endpoints that you configure
-                here.
-              </BodyText>
-              <PersistantNotification isFullWidth isExpanded intent="secondary" isInline>
-                Please note that apps and integrations developed using Webhooks for topics other than application
-                install/uninstall will only be visible in the Marketplace to customers who have been migrated to AWS.
-              </PersistantNotification>
-            </Section>
-            <Subtitle>Manage Webhook Subscriptions</Subtitle>
-            <Grid>
-              <GridItem>
-                <Formik
-                  initialValues={{
-                    applicationId: applicationId || '',
-                  }}
-                  enableReinitialize={true}
-                  onSubmit={() => {}}
-                >
-                  {() => (
-                    <Form>
-                      <SelectBox
-                        className="pt-2 pb-2"
-                        name="applicationId"
-                        options={applicationOptions}
-                        labelText="Please select an App from the list below to view the associated Webhooks:"
-                        id="subscription"
-                      />
-                      <FormikAutoSave onSave={handleSubscriptionChange(history, setPageNumber)} />
-                    </Form>
-                  )}
-                </Formik>
-              </GridItem>
-              <GridItem>
-                {applicationId && (
-                  <LevelRight>
-                    <Button data-test="logout-btn" intent="primary" type="button" onClick={handleOpenCreateModal}>
-                      Add New Webhook
-                    </Button>
-                  </LevelRight>
-                )}
-              </GridItem>
-            </Grid>
-            {unfetched || loading || subscriptionsLoading ? (
-              <Loader label="Loading" fullPage />
-            ) : subscriptions?.length ? (
-              <Table
-                scrollable
-                columns={columns}
-                data={getTableTopicsData({ subscriptions, handleOpenEditModal, topics, handleOpenTestModal })}
-                loading={false}
-              />
-            ) : null}
-            <Section hasPadding={false}>
-              <Pagination
-                className="mb-0 pb-0"
-                pageNumber={pageNumber}
-                onChange={handleSetPageNumber(setPageNumber)}
-                pageSize={WEBHOOK_PAGE_SIZE}
-                totalCount={totalCount ?? 0}
-              />
-            </Section>
-            <WebhooksLogsTable applicationOptions={applicationOptions} />
-          </FadeIn>
-          {isShowDetailModal && (
-            <WebhookEditModal
-              visible={isShowDetailModal}
-              isUpdate={modalType === MODAL_TYPE.EDIT}
-              appId={applicationId}
-              webhookId={webhookId}
-              afterClose={afterClose}
-              closeModal={onCloseModal}
-            />
-          )}
-          {isShowTestModal && (
-            <WebhookTestModal
-              visible={isShowTestModal}
-              webhookId={webhookId}
-              afterClose={afterClose}
-              closeModal={onCloseModal}
-            />
-          )}
-        </PageContainer>
-      </FlexContainer>
-    </>
+    <FlexContainer className={elWFull} isFlexInitial>
+      <SecondaryNavContainer>
+        <Title>API</Title>
+        <SecondaryNav className={elMb9}>
+          <SecondaryNavItem onClick={navigate(history, Routes.SWAGGER)} active={pathname === Routes.SWAGGER}>
+            REST API
+          </SecondaryNavItem>
+          <SecondaryNavItem onClick={navigate(history, Routes.WEBHOOKS_ABOUT)} active={pathname.includes('webhooks')}>
+            Webhooks
+          </SecondaryNavItem>
+          <SecondaryNavItem onClick={navigate(history, Routes.GRAPHQL)} active={pathname === Routes.GRAPHQL}>
+            GraphQL
+          </SecondaryNavItem>
+        </SecondaryNav>
+        {isAboutPage && (
+          <>
+            <Icon className={elMb5} icon="webhooksInfographic" iconSize="large" />
+            <Subtitle>Webhooks Documentation</Subtitle>
+            <BodyText hasGreyText>
+              This system is designed to flexibly work with how your application is built and deployed. If you wish, you
+              can set up a single endpoint to catch all topics for all customers. Alternatively, you may wish to set up
+              a different webhook subscription per topic or per customer. For more information about Webhooks, please
+              see our documentation.
+            </BodyText>
+            <Button className={elMb5} intent="neutral" onClick={openNewPage(ExternalPages.webhooksDocs)}>
+              View Docs
+            </Button>
+          </>
+        )}
+        {(isManagePage || isLogsPage) && (
+          <>
+            <div className={elMb8}>
+              <Label>
+                {isManagePage
+                  ? 'Please select an App from the list below to view the associated Webhooks'
+                  : 'Please select a Time slot and an App from the list below to view the associated Webhooks:'}
+              </Label>
+            </div>
+            <div className={cx(elBorderRadius, overflowHidden)}>
+              {isLogsPage && (
+                <>
+                  <ControlsContainer>
+                    <InputGroup
+                      className={inputFullWidth}
+                      value={webhookQueryParams.from}
+                      type="date"
+                      name="from"
+                      label="Date From"
+                      onChange={selectAppIdHandler}
+                    />
+                  </ControlsContainer>
+                  <ControlsContainer>
+                    <InputGroup
+                      className={inputFullWidth}
+                      value={webhookQueryParams.to}
+                      type="date"
+                      name="to"
+                      label="Date To"
+                      onChange={selectAppIdHandler}
+                    />
+                  </ControlsContainer>
+                </>
+              )}
+              <ControlsContainer>
+                <InputGroup>
+                  <Select
+                    className={elWFull}
+                    value={webhookQueryParams.applicationId ?? ''}
+                    name="applicationId"
+                    onChange={selectAppIdHandler}
+                  >
+                    <option key="default-option" value="">
+                      None selected
+                    </option>
+                    {apps?.map((app) => (
+                      <option key={app.id} value={app.id}>
+                        {app.name}
+                      </option>
+                    ))}
+                  </Select>
+                  <Label>App Name</Label>
+                </InputGroup>
+              </ControlsContainer>
+            </div>
+          </>
+        )}
+      </SecondaryNavContainer>
+      <PageContainer>
+        <Title>Webhooks</Title>
+        <Tabs
+          name="webhook-tabs"
+          isFullWidth
+          onChange={handleChangeTab(history)}
+          options={[
+            {
+              id: 'webhook-tab-about',
+              value: Routes.WEBHOOKS_ABOUT,
+              text: 'About Webhooks',
+              isChecked: pathname === Routes.WEBHOOKS_ABOUT,
+            },
+            {
+              id: 'webhook-tab-new',
+              value: Routes.WEBHOOKS_NEW,
+              text: 'Add Webhook',
+              isChecked: pathname === Routes.WEBHOOKS_NEW,
+            },
+            {
+              id: 'webhook-tab-manage',
+              value: Routes.WEBHOOKS_MANAGE,
+              text: 'Manage Webhooks',
+              isChecked: pathname === Routes.WEBHOOKS_MANAGE,
+            },
+            {
+              id: 'webhook-tab-logs',
+              value: Routes.WEBHOOKS_LOGS,
+              text: 'Transaction Logs',
+              isChecked: pathname === Routes.WEBHOOKS_LOGS,
+            },
+          ]}
+        />
+        {getTabContent(pathname, webhookQueryParams, selectAppIdHandler)}
+      </PageContainer>
+    </FlexContainer>
   )
 }
 
-export default DeveloperWebhooks
+export default WebhooksWrapper

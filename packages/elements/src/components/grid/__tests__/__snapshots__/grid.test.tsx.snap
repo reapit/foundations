@@ -10,6 +10,16 @@ exports[`Col should match a snapshot and render children 1`] = `
 </ElCol>
 `;
 
+exports[`ColSplit should match a snapshot and render children 1`] = `
+<ElColSplit
+  className=""
+>
+  <p>
+    I am child
+  </p>
+</ElColSplit>
+`;
+
 exports[`Grid should match a snapshot and render children 1`] = `
 <ElGrid
   className=""

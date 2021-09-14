@@ -7,6 +7,7 @@ import {
   elIntentCritical,
   elIntentSuccess,
   elIntentDanger,
+  elIntentLow,
 } from '../../../styles/intent'
 import { elIsLoading } from '../../../styles/states'
 import { intentPrimary, intentSecondary, intentCritical, intentSuccess, intentDanger } from '../../../styles/globals'
@@ -101,6 +102,11 @@ export const ElButton = styled.button`
     background-image: linear-gradient(to right, var(--intent-danger), var(--intent-danger));
     color: var(--intent-danger-text);
     outline-color: var(--intent-danger-dark);
+  }
+
+  &.${elIntentLow} {
+    background-image: linear-gradient(to right, var(--intent-low), var(--intent-low));
+    outline-color: var(--intent-low);
   }
 
   &[disabled] {
@@ -306,19 +312,17 @@ export const ElButtonGroup = styled.div`
   grid-auto-flow: column;
   column-gap: 1rem;
   row-gap: 1rem;
+  width: fit-content;
 
   .${elButtonSize2} {
-    min-width: auto;
     grid-column: span 2;
   }
 
   .${elButtonSize3} {
-    min-width: auto;
     grid-column: span 3;
   }
 
   .${elButtonSize4} {
-    min-width: auto;
     grid-column: span 4;
   }
 

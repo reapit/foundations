@@ -31,7 +31,7 @@ import {
   transition,
 } from '../styles'
 import { InjectFrameStyles } from './inject-frame-styles'
-import { usePageId } from '@/core/usePageId'
+import { usePageId } from '@/components/hooks/use-page-id'
 import { useApp } from '@/components/hooks/apps/use-app'
 import { nodesArrToObj } from '@/components/hooks/apps/node-helpers'
 
