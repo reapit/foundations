@@ -72,8 +72,8 @@ export const deleteTasksFromPipeline = async (pipeline: PipelineEntity): Promise
     .createQueryBuilder('t')
     .leftJoin('t.pipelineRunner', 'pr')
     .leftJoin('pr.pipeline', 'p')
-    .where('p.id = :pipelineId', {pipelineId: pipeline.id})
+    .where('p.id = :pipelineId', { pipelineId: pipeline.id })
     .getMany()
 
-  if (tasks) await repo.delete(tasks.map(task => task.id as string))
+  if (tasks.length >= 1) await repo.delete(tasks.map((task) => task.id as string))
 }
