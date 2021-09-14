@@ -68,13 +68,12 @@ export const deleteTasksFromPipeline = async (pipeline: PipelineEntity): Promise
   const connection = await connect()
   const repo = connection.getTreeRepository(TaskEntity)
 
-  await repo
+  const tasks = await repo
     .createQueryBuilder('t')
-    .leftJoin('t.pipelineRunner', 'pr', 'pr.id = t.pipeline_runner_id')
-    .leftJoin('pr.pipeline', 'p', 'p.id = pr.pipeline_id')
-    .where('p.id = :pipelineId', {
-      pipelineId: pipeline.id,
-    })
-    .delete()
-    .execute()
+    .leftJoin('t.pipelineRunner', 'pr')
+    .leftJoin('pr.pipeline', 'p')
+    .where('p.id = :pipelineId', {pipelineId: pipeline.id})
+    .getMany()
+
+  if (tasks) await repo.delete(tasks.map(task => task.id as string))
 }
