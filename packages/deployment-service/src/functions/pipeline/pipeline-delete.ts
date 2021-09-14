@@ -28,7 +28,7 @@ export const pipelineDelete = httpHandler({
     await new Promise<void>((resolve, reject) =>
       sqs.sendMessage(
         {
-          QueueUrl: QueueNames.PIPELINE_TEAR_DOWN,
+          QueueUrl: QueueNames.PIPELINE_TEAR_DOWN_START,
           MessageBody: JSON.stringify(pipeline),
         },
         (error) => {

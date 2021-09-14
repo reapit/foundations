@@ -20,12 +20,28 @@ const tearDownCloudFront = async (Id: string): Promise<string> => {
     }),
   )
 
-  console.log('distro conf', cloudFrontDistro.Distribution?.DistributionConfig)
-  console.log('etag', cloudFrontDistro.ETag)
+  await frontClient.send(
+    new DeleteDistributionCommand({
+      Id,
+      IfMatch: cloudFrontDistro.ETag,
+    }),
+  )
+
+  return cloudFrontDistro.Distribution?.DomainName as string
+}
+
+const disableCloudFront = async (Id: string): Promise<any> => {
+  const frontClient = new CloudFrontClient({})
+
+  const cloudFrontDistro = await frontClient.send(
+    new GetDistributionCommand({
+      Id,
+    }),
+  )
 
   const config = cloudFrontDistro.Distribution?.DistributionConfig as DistributionConfig
 
-  const result = await frontClient.send(
+  return frontClient.send(
     new UpdateDistributionCommand({
       Id,
       DistributionConfig: {
@@ -48,17 +64,6 @@ const tearDownCloudFront = async (Id: string): Promise<string> => {
       IfMatch: cloudFrontDistro.ETag,
     }),
   )
-
-  console.log('res', result)
-
-  await frontClient.send(
-    new DeleteDistributionCommand({
-      Id,
-      IfMatch: result.ETag,
-    }),
-  )
-
-  return cloudFrontDistro.Distribution?.DomainName as string
 }
 
 const tearDownLiveBucketLocation = (location: string): Promise<void> => {
@@ -107,6 +112,43 @@ const deleteAllFromDb = async (pipeline: PipelineEntity) => {
   await deletePipelineEntity(pipeline)
 }
 
+export const pipelineTearDownStart: SQSHandler = async (event: SQSEvent, context: Context, callback: Callback) => {
+  await Promise.all(
+    event.Records.map(async (record) => {
+      const pipeline: PipelineEntity = JSON.parse(record.body) as PipelineEntity
+
+      await disableCloudFront(pipeline.cloudFrontId as string)
+
+      await Promise.all([
+        new Promise<any>((resolve, reject) =>
+          sqs.sendMessage(
+            {
+              QueueUrl: QueueNames.PIPELINE_TEAR_DOWN,
+              MessageBody: JSON.stringify(pipeline),
+            },
+            (error, data) => {
+              error ? reject(error) : resolve(data)
+            },
+          ),
+        ),
+        new Promise<any>((resolve, reject) =>
+          sqs.deleteMessage(
+            {
+              QueueUrl: QueueNames.PIPELINE_TEAR_DOWN_START,
+              ReceiptHandle: record.receiptHandle,
+            },
+            (error, data) => {
+              error ? reject(error) : resolve(data)
+            },
+          ),
+        ),
+      ])
+    }),
+  )
+
+  return callback(undefined, 'Resolved all messages')
+}
+
 export const pipelineTearDown: SQSHandler = async (event: SQSEvent, context: Context, callback: Callback) => {
   await Promise.all(
     event.Records.map(async (record) => {
@@ -138,5 +180,5 @@ export const pipelineTearDown: SQSHandler = async (event: SQSEvent, context: Con
     }),
   )
 
-  return callback('Successfully processed all records')
+  return callback(undefined, 'Successfully processed all records')
 }
