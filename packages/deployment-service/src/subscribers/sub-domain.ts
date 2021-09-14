@@ -1,16 +1,17 @@
-import { EntitySubscriberInterface, InsertEvent } from 'typeorm'
+import { EntitySubscriberInterface, InsertEvent, EventSubscriber } from 'typeorm'
 import { PipelineEntity } from './../entities'
 import generate from 'project-name-generator'
 
-export class SubDomainSubscriber implements EntitySubscriberInterface {
+@EventSubscriber()
+export class SubDomainSubscriber implements EntitySubscriberInterface<PipelineEntity> {
   listenTo() {
     return PipelineEntity
   }
-  
+
   async beforeInsert(event: InsertEvent<PipelineEntity>) {
     let unique = false
 
-    while (unique === false) {
+    do {
       event.entity.subDomain = generate().dashed
 
       const result = await event.manager.getRepository(PipelineEntity).count({
@@ -20,6 +21,6 @@ export class SubDomainSubscriber implements EntitySubscriberInterface {
       })
 
       unique = result === 0
-    }
+    } while (unique === false)
   }
 }
