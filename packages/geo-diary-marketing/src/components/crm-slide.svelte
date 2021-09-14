@@ -29,7 +29,7 @@
       <div class="column el-flex-container el-flex-column el-px2">
         <p class="el-body-text el-has-grey-text">
           <strong
-            >Combining the power of our intuitive CRM ‘Agency Cloud’, the GEO Diary app provides you with the ability to
+            >Combining the power of our intuitive CRM ‘AgencyCloud’, the GEO Diary app provides you with the ability to
             access diary appointments from anywhere!
           </strong>
         </p>
@@ -45,7 +45,7 @@
       <div class="column el-px2">
         <p class="el-body-text el-has-grey-text">
           Running late for an appointment? send an automated ETA text message. Carried out a viewing? Enter your follow
-          up notes direct on the appointment and they will be instantly stored against that record in Agency Cloud.
+          up notes direct on the appointment and they will be instantly stored against that record in AgencyCloud.
         </p>
         <p class="el-body-text el-has-grey-text">
           Using the very latest in technology, we have integrated with Google Maps and Apple Maps for turn-by-turn
@@ -56,7 +56,15 @@
   </div>
   <div class="el-modal-bg" class:el-is-active={modalVisible} on:click|preventDefault={setModalVisible} />
   <div class="el-modal modal-wrapper" class:el-is-active={modalVisible}>
-    <svg class="close-icon" width="1em" height="1em" on:click|preventDefault={setModalVisible} viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+    <svg
+      class="close-icon"
+      width="1em"
+      height="1em"
+      on:click|preventDefault={setModalVisible}
+      viewBox="0 0 20 20"
+      fill="none"
+      xmlns="http://www.w3.org/2000/svg"
+    >
       <path
         fill-rule="evenodd"
         clip-rule="evenodd"
@@ -67,7 +75,7 @@
     <iframe
       width="100%"
       height="100%"
-      src={modalVisible ? "https://www.youtube.com/embed/iKdil7liAts" : ""}
+      src={modalVisible ? 'https://www.youtube.com/embed/iKdil7liAts' : ''}
       title="YouTube video player"
       frameborder="0"
       allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"

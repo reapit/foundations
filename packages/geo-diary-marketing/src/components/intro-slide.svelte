@@ -18,7 +18,7 @@
           </a>
         </div>
         <div class="column el-flex-container el-flex-column el-flex-justify-center is-hidden-desktop">
-          <img src="./images/intro-hero.svg" alt="Happy man holding a phone and a key" />
+          <img src="./images/intro-hero-animated.svg" alt="Happy man holding a phone and a key" />
         </div>
         <div class="el-mtauto form-container">
           <h6 class="el-subtitle">Existing Customer? Install Now</h6>
@@ -41,7 +41,7 @@
         </div>
       </div>
       <div class="column el-flex-container el-flex-column el-flex-justify-center is-hidden-mobile no-margin">
-        <img src="./images/intro-hero.svg" alt="Happy man holding a phone and a key" />
+        <img src="./images/intro-hero-animated.svg" alt="Happy man holding a phone and a key" />
       </div>
     </div>
   </div>
