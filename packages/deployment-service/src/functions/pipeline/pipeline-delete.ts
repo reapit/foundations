@@ -2,7 +2,7 @@ import { httpHandler, NotFoundException, HttpStatusCode } from '@homeservenow/se
 import * as service from './../../services/pipeline'
 import { ownership, resolveCreds } from './../../utils'
 import { defaultOutputHeaders, QueueNames } from './../../constants'
-import { sqs } from '../../services'
+import { sqs, pusher } from '../../services'
 
 /**
  * Delete a pipeline
@@ -24,6 +24,8 @@ export const pipelineDelete = httpHandler({
     await service.updatePipelineEntity(pipeline, {
       buildStatus: 'DELETING',
     })
+
+    await pusher.trigger(`private-${pipeline?.developerId}`, 'pipeline-delete', pipeline)
 
     await new Promise<void>((resolve, reject) =>
       sqs.sendMessage(
