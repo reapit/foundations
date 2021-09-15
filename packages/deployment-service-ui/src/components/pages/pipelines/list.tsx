@@ -31,22 +31,20 @@ import { Pagination } from 'nestjs-typeorm-paginate'
 import { cx } from '@linaria/core'
 import { pipelineStatusToIntent, pipelineStatusToName } from './../../../utils'
 import { useChannel, useEvent } from '@harelpls/use-pusher'
-import * as H from 'history'
 
 const PipelineList = ({
   connection,
   pipelinePagination,
   setPipelinePagination,
   fetchPipelines,
-  history,
 }: {
   connection: ReapitConnectSession
   pipelinePagination: Pagination<PipelineModelInterface>
   setPipelinePagination: (pagination: Pagination<PipelineModelInterface>) => void
   fetchPipelines: (page?: number) => void
-  history: H.History
 }) => {
   const channel = useChannel(`private-${connection.loginIdentity.developerId}`)
+  const history = useHistory()
 
   useEvent<{ pipeline: PipelineModelInterface }>(channel, 'pipeline-runner-update', (event) => {
     if (!event) {
@@ -150,7 +148,6 @@ export default () => {
   const { connectSession } = useReapitConnect(reapitConnectBrowserSession)
   const [pipelinePagination, setPipelinePagination] = useState<Pagination<PipelineModelInterface>>()
   const [loading, setLoading] = useState<boolean>(false)
-
   const history = useHistory()
 
   const fetchPipelines = async (page?: number) => {
@@ -198,7 +195,6 @@ export default () => {
                 connection={connectSession as ReapitConnectSession}
                 pipelinePagination={pipelinePagination}
                 fetchPipelines={fetchPipelines}
-                history={history}
               />
             ) : (
               <Title>Something went wrong</Title>
