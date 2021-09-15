@@ -4,11 +4,16 @@ exports[`App should match a snapshot 1`] = `
 <ErrorBoundary>
   <NavStateProvider>
     <MediaStateProvider>
-      <PusherProvider
-        cluster="eu"
+      <FlexContainerBasic
+        centerContent={true}
+        flexColumn={true}
+        hasBackground={true}
+        hasPadding={true}
       >
-        <_default />
-      </PusherProvider>
+        <Loader
+          label="authorizing"
+        />
+      </FlexContainerBasic>
     </MediaStateProvider>
   </NavStateProvider>
 </ErrorBoundary>
