@@ -664,7 +664,7 @@ functions:
     events:
       - http:
           path: /pusher/auth
-          method: get
+          method: post
           cors:
             origin: '*'
             headers:
@@ -672,3 +672,5 @@ functions:
               - Authorization
               - X-Api-Key
               - api-version
+          authorizer:
+            arn: arn:aws:cognito-idp:${self:provider.region}:${self:custom.env.AWS_ACCOUNT_ID}:userpool/${self:custom.env.CONNECT_USER_POOL}
