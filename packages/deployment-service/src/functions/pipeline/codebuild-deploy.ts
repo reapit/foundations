@@ -36,7 +36,7 @@ export const codebuildDeploy: SQSHandler = async (event: SQSEvent, context: Cont
           startTime: new Date().toISOString(),
           buildStatus: 'IN_PROGRESS',
         }),
-        pusher.trigger(pipelineRunner.pipeline?.developerId as string, 'pipeline-runner-update', pipelineRunner),
+        pusher.trigger(`${pipelineRunner.pipeline?.developerId}`, 'pipeline-runner-update', pipelineRunner),
       ])
 
       try {
@@ -90,7 +90,7 @@ export const codebuildDeploy: SQSHandler = async (event: SQSEvent, context: Cont
 
       const updatedPipelineRunner = await savePipelineRunnerEntity(pipelineRunner)
       await pusher.trigger(
-        pipelineRunner.pipeline?.developerId as string,
+        `private-${pipelineRunner.pipeline?.developerId}`,
         'pipeline-runner-update',
         updatedPipelineRunner,
       )

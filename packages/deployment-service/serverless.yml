@@ -659,3 +659,18 @@ functions:
               - PipelineTearDown
               - Arn
     timeout: 300
+  pusherAuth:
+    handler: src/index.pusherAuthentication
+    events:
+      - http:
+          path: /pusher/auth
+          method: post
+          cors:
+            origin: '*'
+            headers:
+              - Content-Type
+              - Authorization
+              - X-Api-Key
+              - api-version
+          authorizer:
+            arn: arn:aws:cognito-idp:${self:provider.region}:${self:custom.env.AWS_ACCOUNT_ID}:userpool/${self:custom.env.CONNECT_USER_POOL}
