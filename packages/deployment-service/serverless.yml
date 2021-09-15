@@ -659,3 +659,16 @@ functions:
               - PipelineTearDown
               - Arn
     timeout: 300
+  pusherAuth:
+    handler: src/index.pusherAuthentication
+    events:
+      - http:
+          path: /pusher/auth
+          method: get
+          cors:
+            origin: '*'
+            headers:
+              - Content-Type
+              - Authorization
+              - X-Api-Key
+              - api-version
