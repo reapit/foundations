@@ -144,32 +144,3 @@ export const pipelineSetup: SQSHandler = async (event: SQSEvent, context: Contex
 
   return callback(null, `Successfully processed ${event.Records.length} records.`)
 }
-
-// pipelineSetup({
-//   Records: [{
-//     messageId: '',
-//     receiptHandle: '',
-//     messageAttributes: {},
-//     awsRegion: 'eu-west-2',
-//     md5OfBody: '',
-//     attributes: {
-//       ApproximateReceiveCount: 'string',
-//       SentTimestamp: 'string',
-//       SenderId: 'string',
-//       ApproximateFirstReceiveTimestamp: '',
-//     },
-//     eventSource: '',
-//     eventSourceARN: '',
-//     body: JSON.stringify({
-//       id: '105fc8aa-aa6a-4854-9720-940661bad776',
-//       subDomain: 'simple-roll',
-//       developerId: '614d8827-93c0-485b-839d-da4d103ba767',
-//       repository: "https://github.com/bashleigh/reapit-react-test"
-//     }),
-//   }],
-// }, {} as Context, () => {})
-
-// TODO list
-// [ ] bucket needs to be static website
-// [ ] bucket policy needs to be set, use webapp.serverless s3 policy
-// [x] files need content type headers set in S3
