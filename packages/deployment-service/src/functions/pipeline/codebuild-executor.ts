@@ -11,12 +11,18 @@ const codebuild = new CodeBuild({
   region: process.env.REGION,
 })
 
-const deleteMessage = (ReceiptHandle: string): Promise<void> => new Promise((resolve, reject) => sqs.deleteMessage({
-  ReceiptHandle,
-  QueueUrl: QueueNames.CODE_BUILD_EXECUTOR,
-}, (error) => {
-  error ? reject(error) : resolve()
-}))
+const deleteMessage = (ReceiptHandle: string): Promise<void> =>
+  new Promise((resolve, reject) =>
+    sqs.deleteMessage(
+      {
+        ReceiptHandle,
+        QueueUrl: QueueNames.CODE_BUILD_EXECUTOR,
+      },
+      (error) => {
+        error ? reject(error) : resolve()
+      },
+    ),
+  )
 
 /**
  * SQS event to start codebuild process with custom overrides

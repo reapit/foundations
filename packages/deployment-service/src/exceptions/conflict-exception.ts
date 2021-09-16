@@ -1,4 +1,4 @@
-import { HttpErrorException, HttpStatusCode } from '@homeservenow/serverless-aws-handler'
+import { HttpErrorException } from '@homeservenow/serverless-aws-handler'
 
 export class ConflictException extends HttpErrorException {
   constructor(message?: string) {

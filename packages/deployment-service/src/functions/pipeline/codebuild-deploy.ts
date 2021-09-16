@@ -5,12 +5,18 @@ import { deployFromStore } from '../../executables'
 import { findPipelineRunnerById, pusher, savePipelineRunnerEntity, sqs, updateTask } from '../../services'
 import { CloudFrontClient, CreateInvalidationCommand } from '@aws-sdk/client-cloudfront'
 
-const deleteMessage = (ReceiptHandle: string): Promise<void> => new Promise((resolve, reject) => sqs.deleteMessage({
-  ReceiptHandle,
-  QueueUrl: QueueNames.CODE_BUILD_VERSION_DEPLOY,
-}, (error) => {
-  error ? reject(error) : resolve()
-}))
+const deleteMessage = (ReceiptHandle: string): Promise<void> =>
+  new Promise((resolve, reject) =>
+    sqs.deleteMessage(
+      {
+        ReceiptHandle,
+        QueueUrl: QueueNames.CODE_BUILD_VERSION_DEPLOY,
+      },
+      (error) => {
+        error ? reject(error) : resolve()
+      },
+    ),
+  )
 
 export const codebuildDeploy: SQSHandler = async (event: SQSEvent, context: Context, callback: Callback) => {
   await Promise.all(
@@ -33,11 +39,7 @@ export const codebuildDeploy: SQSHandler = async (event: SQSEvent, context: Cont
         await Promise.all([
           deleteMessage(record.receiptHandle),
           savePipelineRunnerEntity(pipelineRunner),
-          pusher.trigger(
-            `private-${pipelineRunner.pipeline?.developerId}`,
-            'pipeline-runner-update',
-            pipelineRunner,
-          ),
+          pusher.trigger(`private-${pipelineRunner.pipeline?.developerId}`, 'pipeline-runner-update', pipelineRunner),
         ])
       }
 
