@@ -37,6 +37,10 @@ export const pipelineRunnerCreate = httpHandler<void, PipelineRunnerEntity>({
       pipeline,
     })
 
+    if (!pipelineRunner) {
+      throw new BadRequestException('Invalid pipeline runner payload')
+    }
+
     await new Promise<void>((resolve, reject) =>
       service.sqs.sendMessage(
         {

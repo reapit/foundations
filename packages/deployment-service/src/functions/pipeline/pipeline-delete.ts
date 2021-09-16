@@ -3,6 +3,7 @@ import * as service from './../../services/pipeline'
 import { ownership, resolveCreds } from './../../utils'
 import { defaultOutputHeaders, QueueNames } from './../../constants'
 import { sqs, pusher } from '../../services'
+import { ConflictException } from '../../exceptions'
 
 /**
  * Delete a pipeline
@@ -20,6 +21,10 @@ export const pipelineDelete = httpHandler({
     }
 
     await ownership(pipeline.developerId, developerId)
+
+    if (['IN_PROGRESS', 'DELETING', 'CREATING_ARCHITECTURE', 'QUEUED'].includes(pipeline.buildStatus as string)) {
+      throw new ConflictException('Cannot delete pipeline in current build status')
+    }
 
     await service.updatePipelineEntity(pipeline, {
       buildStatus: 'DELETING',

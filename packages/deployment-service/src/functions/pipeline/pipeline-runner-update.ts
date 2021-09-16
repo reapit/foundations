@@ -8,11 +8,11 @@ import { defaultOutputHeaders } from './../../constants'
  * Update a pipelineRunner (cancel)
  */
 // TODO refactor to delete method instead?
-export const pipelineRunnerUpdate = httpHandler<{ buildStatus: 'CANCEL' }, PipelineRunnerEntity>({
+export const pipelineRunnerUpdate = httpHandler<{ buildStatus: string }, PipelineRunnerEntity>({
   defaultOutputHeaders,
   validator: (payload) => {
-    if (payload.buildSTatus && payload.buildSTatus !== 'CANCEL') {
-      throw new BadRequestException('Validation errors: Status can only be canceled')
+    if (payload.buildStatus && payload.buildStatus !== 'CANCEL') {
+      throw new BadRequestException('Validation errors: Status can only be [CANCEL]')
     }
 
     return payload
