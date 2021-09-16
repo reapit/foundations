@@ -4,6 +4,7 @@ import { BadRequestException, httpHandler, NotFoundException } from '@homeserven
 import * as service from '../../services'
 import { defaultOutputHeaders } from './../../constants'
 import { QueueNames } from './../../constants'
+import { ConflictException } from 'src/exceptions'
 
 /**
  * Create a new pipeline runner for deployment
@@ -29,8 +30,11 @@ export const pipelineRunnerCreate = httpHandler<void, PipelineRunnerEntity>({
 
     await ownership(pipeline.developerId, developerId)
 
-    if (pipeline.buildStatus && ['IN_PROGRESS', 'DELETING', 'CREATING_ARCHITECTURE'].includes(pipeline.buildStatus)) {
-      throw new BadRequestException('Cannot deploy in current state')
+    if (
+      (pipeline.buildStatus && 'CREATING_ARCHITECTURE' === pipeline.buildStatus) ||
+      (await service.pipelineRunnerCountRunning(pipeline)) >= 1
+    ) {
+      throw new ConflictException('Cannot create deployment, deployment already running or queued')
     }
 
     const pipelineRunner = await service.createPipelineRunnerEntity({

@@ -1,6 +1,7 @@
 import { PipelineEntity, PipelineRunnerEntity } from '../entities'
 import { connect } from './../core'
 import { Pagination, paginate } from 'nestjs-typeorm-paginate'
+import { In } from 'typeorm'
 
 export const createPipelineRunnerEntity = async (dto: Partial<PipelineRunnerEntity>): Promise<PipelineRunnerEntity> => {
   const connection = await connect()
@@ -90,5 +91,17 @@ export const deletePipelineRunners = async (pipeline: PipelineEntity) => {
 
   await repo.delete({
     pipeline,
+  })
+}
+
+export const pipelineRunnerCountRunning = async (pipeline: PipelineEntity) => {
+  const connection = await connect()
+  const repo = connection.getRepository(PipelineEntity)
+
+  return repo.count({
+    where: {
+      pipeline,
+      buildStatus: In(['IN_PROGRESS', 'QUEUED']),
+    },
   })
 }
