@@ -32,15 +32,15 @@ type KeyMovementModel {
 }
 
 type KeyModel {
-    id: ID!
-    created: String
-    modified: String
-    number: String
-    type: KeyType
-    office: OfficeModel
-    status: KeyStatus
-    keysInSet: [IndividualKeyModel]
-    movements: [KeyMovementModel]
+  id: ID!
+  created: String
+  modified: String
+  number: String
+  type: KeyType
+  office: OfficeModel
+  status: KeyStatus
+  keysInSet: [IndividualKeyModel]
+  movements: [KeyMovementModel]
 }
 
 enum KeyEmbed {
