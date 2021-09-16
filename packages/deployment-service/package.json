@@ -42,7 +42,6 @@
     "@reapit/config-manager": "workspace:packages/config-manager",
     "@reapit/ts-scripts": "workspace:packages/ts-scripts",
     "@reapit/ts-types": "workspace:packages/ts-types",
-    "@reapit/utils": "workspace:packages/utils",
     "@types/mime-types": "^2.1.1",
     "@types/project-name-generator": "^2.1.1",
     "@types/rimraf": "^3.0.1",
