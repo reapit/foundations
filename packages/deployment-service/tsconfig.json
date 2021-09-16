@@ -19,6 +19,7 @@
     "resolveJsonModule": true,
     "experimentalDecorators": true,
     "emitDecoratorMetadata": true,
+    "jsx": "react",
     "baseUrl": "./",
     "paths": {
       "@reapit/connect-session": ["../connect-session/src"],
