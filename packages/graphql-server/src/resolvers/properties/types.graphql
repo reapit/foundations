@@ -190,6 +190,7 @@ type PropertyModel {
   lostInstructionDate: String
   lostInstructionNote: String
   metadata: JSON
+  keys: [KeyModel]
   _eTag: String
   _links: JSON
   _embedded: EmbeddedPropertyModel
