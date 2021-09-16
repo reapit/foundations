@@ -96,7 +96,7 @@ export const deletePipelineRunners = async (pipeline: PipelineEntity) => {
 
 export const pipelineRunnerCountRunning = async (pipeline: PipelineEntity) => {
   const connection = await connect()
-  const repo = connection.getRepository(PipelineEntity)
+  const repo = connection.getRepository(PipelineRunnerEntity)
 
   return repo.count({
     where: {
