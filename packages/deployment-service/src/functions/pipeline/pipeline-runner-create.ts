@@ -4,7 +4,7 @@ import { BadRequestException, httpHandler, NotFoundException } from '@homeserven
 import * as service from '../../services'
 import { defaultOutputHeaders } from './../../constants'
 import { QueueNames } from './../../constants'
-import { ConflictException } from 'src/exceptions'
+import { ConflictException } from '../../exceptions'
 
 /**
  * Create a new pipeline runner for deployment
