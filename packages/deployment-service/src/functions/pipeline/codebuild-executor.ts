@@ -6,6 +6,7 @@ import yaml from 'yaml'
 import { PackageManagerEnum } from '../../../../foundations-ts-definitions/deployment-schema'
 import { QueueNames } from '../../constants'
 import { sqs, savePipelineRunnerEntity, s3Client } from '../../services'
+import { logger } from '@reapit/utils'
 
 const codebuild = new CodeBuild({
   region: process.env.REGION,
@@ -90,7 +91,8 @@ export const codebuildExecutor: SQSHandler = async (
             resolve(data)
           })
         }).catch(async (error) => {
-          await await deleteMessage(record.receiptHandle)
+          logger(error)
+          await deleteMessage(record.receiptHandle)
           throw error
         })
 
@@ -113,11 +115,12 @@ export const codebuildExecutor: SQSHandler = async (
         })
 
         await savePipelineRunnerEntity(pipelineRunner)
-      } catch (e) {
-        console.error(e)
+      } catch (error: any) {
+        console.error(error)
+        logger(error)
         console.log('codebuild config failure')
         await deleteMessage(record.receiptHandle)
-        return Promise.reject(e)
+        return Promise.reject(error)
       }
 
       return deleteMessage(record.receiptHandle)

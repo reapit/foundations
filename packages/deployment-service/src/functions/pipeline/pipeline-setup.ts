@@ -6,6 +6,7 @@ import { v4 as uuid } from 'uuid'
 import { Route53Client, ChangeResourceRecordSetsCommand } from '@aws-sdk/client-route-53'
 import { s3Client, sqs, updatePipelineEntity } from '../../services'
 import { QueueNames } from '../../constants'
+import { logger } from '@reapit/utils'
 
 export const pipelineSetup: SQSHandler = async (event: SQSEvent, context: Context, callback: Callback) => {
   await Promise.all(
@@ -120,9 +121,10 @@ export const pipelineSetup: SQSHandler = async (event: SQSEvent, context: Contex
           cloudFrontId,
           aRecordId,
         })
-      } catch (e) {
-        console.error(e)
-        throw e
+      } catch (error: any) {
+        console.error(error)
+        logger(error)
+        throw error
       } finally {
         await new Promise<void>((resolve, reject) =>
           sqs.deleteMessage(

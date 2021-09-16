@@ -4,6 +4,7 @@ import { PipelineEntity } from '../../entities'
 import { deployFromStore } from '../../executables'
 import { findPipelineRunnerById, pusher, savePipelineRunnerEntity, sqs, updateTask } from '../../services'
 import { CloudFrontClient, CreateInvalidationCommand } from '@aws-sdk/client-cloudfront'
+import { logger } from '@reapit/utils'
 
 const deleteMessage = (ReceiptHandle: string): Promise<void> =>
   new Promise((resolve, reject) =>
@@ -93,8 +94,9 @@ export const codebuildDeploy: SQSHandler = async (event: SQSEvent, context: Cont
               1000,
           ).toString()
         }
-      } catch (e) {
-        console.error(e)
+      } catch (error: any) {
+        console.error(error)
+        logger(error)
 
         pipelineRunner.buildStatus = 'FAILED'
         if (pipelineRunner.pipeline) {
