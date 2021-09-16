@@ -154,8 +154,8 @@ export const pipelineRunnerCreate = async (
     }
 
     throw new Error('No response returned by API')
-  } catch (err) {
-    console.log(notification.error({ message: 'Pipeline failed to run' }))
+  } catch (err: any) {
+    console.log(notification.error({ message: err?.response?.message || 'Pipeline failed to run' }))
     console.error('Error fetching Configuration Appointment Types', err.message)
   }
 }
