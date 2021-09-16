@@ -5,6 +5,13 @@ import { deployFromStore } from '../../executables'
 import { findPipelineRunnerById, pusher, savePipelineRunnerEntity, sqs, updateTask } from '../../services'
 import { CloudFrontClient, CreateInvalidationCommand } from '@aws-sdk/client-cloudfront'
 
+const deleteMessage = (ReceiptHandle: string): Promise<void> => new Promise((resolve, reject) => sqs.deleteMessage({
+  ReceiptHandle,
+  QueueUrl: QueueNames.CODE_BUILD_VERSION_DEPLOY,
+}, (error) => {
+  error ? reject(error) : resolve()
+}))
+
 export const codebuildDeploy: SQSHandler = async (event: SQSEvent, context: Context, callback: Callback) => {
   await Promise.all(
     event.Records.map(async (record) => {
@@ -20,9 +27,22 @@ export const codebuildDeploy: SQSHandler = async (event: SQSEvent, context: Cont
 
       const deployTaskIndex = pipelineRunner.tasks?.findIndex((task) => task.functionName === 'DEPLOY')
 
-      // TODO check status
+      if (pipelineRunner.buildStatus === 'CANCEL') {
+        pipelineRunner.buildStatus = 'CANCELED'
+
+        await Promise.all([
+          deleteMessage(record.receiptHandle),
+          savePipelineRunnerEntity(pipelineRunner),
+          pusher.trigger(
+            `private-${pipelineRunner.pipeline?.developerId}`,
+            'pipeline-runner-update',
+            pipelineRunner,
+          ),
+        ])
+      }
+
       if (deployTaskIndex === -1 || typeof deployTaskIndex === 'undefined' || !pipelineRunner.tasks) {
-        throw new Error('No deploy task')
+        throw new Error('No deployable task')
       }
 
       const deployTask = pipelineRunner.tasks[deployTaskIndex]
@@ -95,20 +115,7 @@ export const codebuildDeploy: SQSHandler = async (event: SQSEvent, context: Cont
         updatedPipelineRunner,
       )
 
-      await new Promise<void>((resolve, reject) =>
-        sqs.deleteMessage(
-          {
-            ReceiptHandle: record.receiptHandle,
-            QueueUrl: QueueNames.CODE_BUILD_VERSION_DEPLOY,
-          },
-          (err) => {
-            if (err) {
-              reject(err)
-            }
-            resolve()
-          },
-        ),
-      )
+      await deleteMessage(record.receiptHandle)
     }),
   )
 

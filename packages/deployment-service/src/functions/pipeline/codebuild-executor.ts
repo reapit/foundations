@@ -11,6 +11,13 @@ const codebuild = new CodeBuild({
   region: process.env.REGION,
 })
 
+const deleteMessage = (ReceiptHandle: string): Promise<void> => new Promise((resolve, reject) => sqs.deleteMessage({
+  ReceiptHandle,
+  QueueUrl: QueueNames.CODE_BUILD_EXECUTOR,
+}, (error) => {
+  error ? reject(error) : resolve()
+}))
+
 /**
  * SQS event to start codebuild process with custom overrides
  */
@@ -77,20 +84,7 @@ export const codebuildExecutor: SQSHandler = async (
             resolve(data)
           })
         }).catch(async (error) => {
-          await new Promise<void>((resolve, reject) =>
-            sqs.deleteMessage(
-              {
-                ReceiptHandle: record.receiptHandle,
-                QueueUrl: QueueNames.CODE_BUILD_EXECUTOR,
-              },
-              (err) => {
-                if (err) {
-                  reject(err)
-                }
-                resolve()
-              },
-            ),
-          )
+          await await deleteMessage(record.receiptHandle)
           throw error
         })
 
@@ -116,37 +110,11 @@ export const codebuildExecutor: SQSHandler = async (
       } catch (e) {
         console.error(e)
         console.log('codebuild config failure')
-        await new Promise<void>((resolve, reject) =>
-          sqs.deleteMessage(
-            {
-              ReceiptHandle: record.receiptHandle,
-              QueueUrl: QueueNames.CODE_BUILD_EXECUTOR,
-            },
-            (err) => {
-              if (err) {
-                reject(err)
-              }
-              resolve()
-            },
-          ),
-        )
+        await deleteMessage(record.receiptHandle)
         return Promise.reject(e)
       }
 
-      return new Promise<void>((resolve, reject) =>
-        sqs.deleteMessage(
-          {
-            ReceiptHandle: record.receiptHandle,
-            QueueUrl: QueueNames.CODE_BUILD_EXECUTOR,
-          },
-          (err) => {
-            if (err) {
-              reject(err)
-            }
-            resolve()
-          },
-        ),
-      )
+      return deleteMessage(record.receiptHandle)
     }),
   )
 
