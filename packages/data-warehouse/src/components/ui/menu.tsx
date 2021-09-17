@@ -9,7 +9,6 @@ import {
   UsersIcon,
   DataIcon,
   // AnalyticsIcon,
-  AccountIcon,
 } from '@reapit/elements-legacy'
 import { reapitConnectBrowserSession } from '@/core/connect-session'
 import { useReapitConnect } from '@reapit/connect-session'
@@ -30,13 +29,6 @@ export const generateMenuConfig = (
         key: 'LOGO',
         icon: <ReapitHouseIcon />,
         type: 'LOGO',
-      },
-      {
-        title: 'Account',
-        key: 'SUBSCRIPTIONS',
-        icon: <AccountIcon />,
-        url: Routes.SUBSCRIPTIONS,
-        type: 'PRIMARY',
       },
       {
         title: 'Users',

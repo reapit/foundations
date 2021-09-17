@@ -4,8 +4,8 @@ import {
   createSubscriptionsService,
   deleteSubscriptionsService,
   getSubscriptionsService,
-} from '../../../services/subscriptions'
-import { MessageState } from '../../../context/message-context'
+} from '../../services/subscriptions'
+import { MessageState } from '../../context/message-context'
 import { SubscriptionModel, SubscriptionModelPagedResult } from '@reapit/foundations-ts-definitions'
 
 export const createSubscription = async (
