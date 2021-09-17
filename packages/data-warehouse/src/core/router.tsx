@@ -47,7 +47,6 @@ const Router = () => (
           <SubscriptionRouteWrapper>
             <Switch>
               <Route path={Routes.ACCOUNTS} component={AccountsPage} />
-
               <Route path={Routes.DATA} component={DataPage} />
               <Route path={Routes.HEALTH} component={HealthPage} />
               <Route path={Routes.SETTINGS} component={SettingsPage} />

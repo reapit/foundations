@@ -8,7 +8,6 @@ import {
   ProfileIcon,
   UsersIcon,
   DataIcon,
-  // AnalyticsIcon,
 } from '@reapit/elements-legacy'
 import { reapitConnectBrowserSession } from '@/core/connect-session'
 import { useReapitConnect } from '@reapit/connect-session'
@@ -44,13 +43,6 @@ export const generateMenuConfig = (
         url: Routes.DATA,
         type: 'PRIMARY',
       },
-      // {
-      //   title: 'Analytics',
-      //   key: 'ANALYTICS',
-      //   url: Routes.ANALYTICS,
-      //   type: 'PRIMARY',
-      //   icon: <AnalyticsIcon />,
-      // },
       {
         title: 'Apps',
         key: 'APPS',
