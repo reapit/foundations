@@ -10,7 +10,7 @@ import FadeIn from '../../../styles/fade-in'
 import { SubscriptionModelPagedResult } from '@reapit/foundations-ts-definitions'
 import { reapitConnectBrowserSession } from '../../../core/connect-session'
 import { useReapitConnect } from '@reapit/connect-session'
-import { getCurrentSubscription, handleGetSubscriptions } from '../subscriptions/subscriptions-handlers'
+import { getCurrentSubscription, handleGetSubscriptions } from '../../hooks/subscriptions-handlers'
 import { handleGetAccounts } from './account-handlers'
 
 export const Accounts: React.FC = () => {
