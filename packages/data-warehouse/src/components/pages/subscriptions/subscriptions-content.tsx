@@ -1,4 +1,4 @@
-import React, { useContext, useEffect, useState } from 'react'
+import React, { useCallback, useContext, useEffect, useState } from 'react'
 import { H5, Grid, GridItem, Content, Section, Button, FadeIn, Loader } from '@reapit/elements-legacy'
 import { PricingTile } from './__styles__/pricing-tile'
 import { MessageContext } from '../../../context/message-context'
@@ -7,7 +7,7 @@ import { reapitConnectBrowserSession } from '../../../core/connect-session'
 import { useReapitConnect } from '@reapit/connect-session'
 import { getCurrentSubscription, handleGetSubscriptions, handleSubscriptionToggle } from './subscriptions-handlers'
 
-const SubscriptionsContent: React.FC = () => {
+const useSubscriptions = () => {
   const [subscriptions, setSubscriptions] = useState<SubscriptionModelPagedResult>()
   const [subscriptionsLoading, setSubscriptionsLoading] = useState<boolean>(false)
   const { setMessageState } = useContext(MessageContext)
@@ -22,6 +22,23 @@ const SubscriptionsContent: React.FC = () => {
     connectSession,
   ])
 
+  const subscriptionToggle = useCallback(
+    () =>
+      loginIdentity && handleSubscriptionToggle(currentSubscription, loginIdentity, setMessageState, setSubscriptions),
+    [currentSubscription, loginIdentity, setMessageState, setSubscriptions],
+  )
+
+  return {
+    subscriptionsLoading,
+    currentSubscription,
+    subscriptionToggle,
+    loginIdentity,
+    clientId,
+  }
+}
+
+const SubscriptionsContent: React.FC = () => {
+  const { subscriptionsLoading, currentSubscription, subscriptionToggle, loginIdentity, clientId } = useSubscriptions()
   return (
     <FadeIn>
       <Content>
@@ -77,12 +94,7 @@ const SubscriptionsContent: React.FC = () => {
                           variant="primary"
                           fullWidth
                           disabled={!clientId}
-                          onClick={handleSubscriptionToggle(
-                            currentSubscription,
-                            loginIdentity,
-                            setMessageState,
-                            setSubscriptions,
-                          )}
+                          onClick={subscriptionToggle}
                         >
                           {currentSubscription ? 'Unsubscribe' : 'Subscribe'} now
                         </Button>
