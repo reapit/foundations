@@ -1310,6 +1310,10 @@ export interface GenerateDemonstrationDetailsModel {
   externalAppId?: string
 }
 /**
+ * Query object for requesting a list of products in the Reapit Group that marketplace applications can be published to
+ */
+export interface GetProductsQuery {}
+/**
  * Installation representation
  */
 export interface InstallationModel {
@@ -1532,6 +1536,40 @@ export interface ProblemDetails {
   status?: number // int32
   detail?: string
   instance?: string
+}
+/**
+ * Model to expose details of products across the Reapit Group that marketplace applications can be published to
+ */
+export interface ProductModel {
+  /**
+   * Gets the links associated to this model
+   */
+  readonly links?: LinkModel[]
+  /**
+   * The unique product identifier
+   */
+  id?: string
+  /**
+   * The product name
+   */
+  name?: string
+  /**
+   * The URL at which the OpenAPI specification JSON document for the product can be obtained
+   */
+  openApiUrl?: string
+}
+/**
+ * Model to handle paged data and information
+ */
+export interface ProductModelPagedResult {
+  /**
+   * List of paged data
+   */
+  data?: ProductModel[]
+  pageNumber?: number // int32
+  pageSize?: number // int32
+  pageCount?: number // int32
+  totalCount?: number // int32
 }
 /**
  * The model responsible for rejection of a revision
