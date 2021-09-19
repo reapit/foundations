@@ -5564,6 +5564,47 @@ export interface CreatePropertyLettingModel {
    * The rent qualifier (rentOnApplication/askingRent)
    */
   qualifier?: string
+  /**
+   * Representation of property details specific to utilities
+   */
+  utilities?: {
+    /**
+     * The unique identifier of the company supplying the gas to the property
+     */
+    gasCompanyId?: string
+    /**
+     * The gas meter point number
+     */
+    gasMeterPoint?: string
+    /**
+     * The unique identifier of the company supplying the electricity to the property
+     */
+    electricityCompanyId?: string
+    /**
+     * The electricity meter point number
+     */
+    electricityMeterPoint?: string
+    /**
+     * The unique identifier of the company supplying the water to the property
+     */
+    waterCompanyId?: string
+    /**
+     * The water meter point number
+     */
+    waterMeterPoint?: string
+    /**
+     * The unique identifier of the company supplying the telephone to the property
+     */
+    telephoneCompanyId?: string
+    /**
+     * The unique identifier of the company supplying the internet to the property
+     */
+    internetCompanyId?: string
+    /**
+     * The unique identifier of the company supplying the cable tv to the property
+     */
+    cableTvCompanyId?: string
+  }
 }
 /**
  * Request body used to create a new property
@@ -5927,6 +5968,47 @@ export interface CreatePropertyModel {
      * The rent qualifier (rentOnApplication/askingRent)
      */
     qualifier?: string
+    /**
+     * Representation of property details specific to utilities
+     */
+    utilities?: {
+      /**
+       * The unique identifier of the company supplying the gas to the property
+       */
+      gasCompanyId?: string
+      /**
+       * The gas meter point number
+       */
+      gasMeterPoint?: string
+      /**
+       * The unique identifier of the company supplying the electricity to the property
+       */
+      electricityCompanyId?: string
+      /**
+       * The electricity meter point number
+       */
+      electricityMeterPoint?: string
+      /**
+       * The unique identifier of the company supplying the water to the property
+       */
+      waterCompanyId?: string
+      /**
+       * The water meter point number
+       */
+      waterMeterPoint?: string
+      /**
+       * The unique identifier of the company supplying the telephone to the property
+       */
+      telephoneCompanyId?: string
+      /**
+       * The unique identifier of the company supplying the internet to the property
+       */
+      internetCompanyId?: string
+      /**
+       * The unique identifier of the company supplying the cable tv to the property
+       */
+      cableTvCompanyId?: string
+    }
   }
   /**
    * The attributes describing the overall type of the property (eg house, bungalow, land), as defined by the property's [department](https://foundations-documentation.reapit.cloud/platform-glossary#department)
@@ -6372,6 +6454,47 @@ export interface CreateUpwardLinkModel {
    * The unique identifier of the solicitor / conveyancer that the vendor has instructed. (Required when 'offerId' is not provided)
    */
   vendorSolicitorId?: string
+}
+/**
+ * Representation of property details specific to utilities
+ */
+export interface CreateUtilityModel {
+  /**
+   * The unique identifier of the company supplying the gas to the property
+   */
+  gasCompanyId?: string
+  /**
+   * The gas meter point number
+   */
+  gasMeterPoint?: string
+  /**
+   * The unique identifier of the company supplying the electricity to the property
+   */
+  electricityCompanyId?: string
+  /**
+   * The electricity meter point number
+   */
+  electricityMeterPoint?: string
+  /**
+   * The unique identifier of the company supplying the water to the property
+   */
+  waterCompanyId?: string
+  /**
+   * The water meter point number
+   */
+  waterMeterPoint?: string
+  /**
+   * The unique identifier of the company supplying the telephone to the property
+   */
+  telephoneCompanyId?: string
+  /**
+   * The unique identifier of the company supplying the internet to the property
+   */
+  internetCompanyId?: string
+  /**
+   * The unique identifier of the company supplying the cable tv to the property
+   */
+  cableTvCompanyId?: string
 }
 /**
  * Request body used to create a new webhook subscription
@@ -9883,6 +10006,47 @@ export interface PropertyLettingModel {
    * The rent qualifier (rentOnApplication/askingRent)
    */
   qualifier?: string
+  /**
+   * Representation of property details specific to utilities
+   */
+  utilities?: {
+    /**
+     * The unique identifier of the company supplying the gas to the property
+     */
+    gasCompanyId?: string
+    /**
+     * The gas meter point number
+     */
+    gasMeterPoint?: string
+    /**
+     * The unique identifier of the company supplying the electricity to the property
+     */
+    electricityCompanyId?: string
+    /**
+     * The electricity meter point number
+     */
+    electricityMeterPoint?: string
+    /**
+     * The unique identifier of the company supplying the water to the property
+     */
+    waterCompanyId?: string
+    /**
+     * The water meter point number
+     */
+    waterMeterPoint?: string
+    /**
+     * The unique identifier of the company supplying the telephone to the property
+     */
+    telephoneCompanyId?: string
+    /**
+     * The unique identifier of the company supplying the internet to the property
+     */
+    internetCompanyId?: string
+    /**
+     * The unique identifier of the company supplying the cable tv to the property
+     */
+    cableTvCompanyId?: string
+  }
 }
 /**
  * Representation of a property
@@ -10314,6 +10478,47 @@ export interface PropertyModel {
      * The rent qualifier (rentOnApplication/askingRent)
      */
     qualifier?: string
+    /**
+     * Representation of property details specific to utilities
+     */
+    utilities?: {
+      /**
+       * The unique identifier of the company supplying the gas to the property
+       */
+      gasCompanyId?: string
+      /**
+       * The gas meter point number
+       */
+      gasMeterPoint?: string
+      /**
+       * The unique identifier of the company supplying the electricity to the property
+       */
+      electricityCompanyId?: string
+      /**
+       * The electricity meter point number
+       */
+      electricityMeterPoint?: string
+      /**
+       * The unique identifier of the company supplying the water to the property
+       */
+      waterCompanyId?: string
+      /**
+       * The water meter point number
+       */
+      waterMeterPoint?: string
+      /**
+       * The unique identifier of the company supplying the telephone to the property
+       */
+      telephoneCompanyId?: string
+      /**
+       * The unique identifier of the company supplying the internet to the property
+       */
+      internetCompanyId?: string
+      /**
+       * The unique identifier of the company supplying the cable tv to the property
+       */
+      cableTvCompanyId?: string
+    }
   }
   /**
    * The attributes describing the overall type of the property (eg house, bungalow, land), as defined by the property's [department](https://foundations-documentation.reapit.cloud/platform-glossary#department)
@@ -10823,6 +11028,47 @@ export interface PropertyModelPagedResult {
        * The rent qualifier (rentOnApplication/askingRent)
        */
       qualifier?: string
+      /**
+       * Representation of property details specific to utilities
+       */
+      utilities?: {
+        /**
+         * The unique identifier of the company supplying the gas to the property
+         */
+        gasCompanyId?: string
+        /**
+         * The gas meter point number
+         */
+        gasMeterPoint?: string
+        /**
+         * The unique identifier of the company supplying the electricity to the property
+         */
+        electricityCompanyId?: string
+        /**
+         * The electricity meter point number
+         */
+        electricityMeterPoint?: string
+        /**
+         * The unique identifier of the company supplying the water to the property
+         */
+        waterCompanyId?: string
+        /**
+         * The water meter point number
+         */
+        waterMeterPoint?: string
+        /**
+         * The unique identifier of the company supplying the telephone to the property
+         */
+        telephoneCompanyId?: string
+        /**
+         * The unique identifier of the company supplying the internet to the property
+         */
+        internetCompanyId?: string
+        /**
+         * The unique identifier of the company supplying the cable tv to the property
+         */
+        cableTvCompanyId?: string
+      }
     }
     /**
      * The attributes describing the overall type of the property (eg house, bungalow, land), as defined by the property's [department](https://foundations-documentation.reapit.cloud/platform-glossary#department)
@@ -14364,6 +14610,47 @@ export interface UpdatePropertyLettingModel {
    * The rent qualifier (rentOnApplication/askingRent)
    */
   qualifier?: string
+  /**
+   * Representation of property details specific to utilities
+   */
+  utilities?: {
+    /**
+     * The unique identifier of the company supplying the gas to the property
+     */
+    gasCompanyId?: string
+    /**
+     * The gas meter point number
+     */
+    gasMeterPoint?: string
+    /**
+     * The unique identifier of the company supplying the electricity to the property
+     */
+    electricityCompanyId?: string
+    /**
+     * The electricity meter point number
+     */
+    electricityMeterPoint?: string
+    /**
+     * The unique identifier of the company supplying the water to the property
+     */
+    waterCompanyId?: string
+    /**
+     * The water meter point number
+     */
+    waterMeterPoint?: string
+    /**
+     * The unique identifier of the company supplying the telephone to the property
+     */
+    telephoneCompanyId?: string
+    /**
+     * The unique identifier of the company supplying the internet to the property
+     */
+    internetCompanyId?: string
+    /**
+     * The unique identifier of the company supplying the cable tv to the property
+     */
+    cableTvCompanyId?: string
+  }
 }
 /**
  * Request body used to update an existing property
@@ -14727,6 +15014,47 @@ export interface UpdatePropertyModel {
      * The rent qualifier (rentOnApplication/askingRent)
      */
     qualifier?: string
+    /**
+     * Representation of property details specific to utilities
+     */
+    utilities?: {
+      /**
+       * The unique identifier of the company supplying the gas to the property
+       */
+      gasCompanyId?: string
+      /**
+       * The gas meter point number
+       */
+      gasMeterPoint?: string
+      /**
+       * The unique identifier of the company supplying the electricity to the property
+       */
+      electricityCompanyId?: string
+      /**
+       * The electricity meter point number
+       */
+      electricityMeterPoint?: string
+      /**
+       * The unique identifier of the company supplying the water to the property
+       */
+      waterCompanyId?: string
+      /**
+       * The water meter point number
+       */
+      waterMeterPoint?: string
+      /**
+       * The unique identifier of the company supplying the telephone to the property
+       */
+      telephoneCompanyId?: string
+      /**
+       * The unique identifier of the company supplying the internet to the property
+       */
+      internetCompanyId?: string
+      /**
+       * The unique identifier of the company supplying the cable tv to the property
+       */
+      cableTvCompanyId?: string
+    }
   }
   /**
    * The attributes describing the overall type of the property (eg house, bungalow, land), as defined by the property's [department](https://foundations-documentation.reapit.cloud/platform-glossary#department)
@@ -15109,6 +15437,47 @@ export interface UpdateTenancySourceModel {
   type?: string
 }
 /**
+ * Representation of property details specific to utilities
+ */
+export interface UpdateUtilityModel {
+  /**
+   * The unique identifier of the company supplying the gas to the property
+   */
+  gasCompanyId?: string
+  /**
+   * The gas meter point number
+   */
+  gasMeterPoint?: string
+  /**
+   * The unique identifier of the company supplying the electricity to the property
+   */
+  electricityCompanyId?: string
+  /**
+   * The electricity meter point number
+   */
+  electricityMeterPoint?: string
+  /**
+   * The unique identifier of the company supplying the water to the property
+   */
+  waterCompanyId?: string
+  /**
+   * The water meter point number
+   */
+  waterMeterPoint?: string
+  /**
+   * The unique identifier of the company supplying the telephone to the property
+   */
+  telephoneCompanyId?: string
+  /**
+   * The unique identifier of the company supplying the internet to the property
+   */
+  internetCompanyId?: string
+  /**
+   * The unique identifier of the company supplying the cable tv to the property
+   */
+  cableTvCompanyId?: string
+}
+/**
  * Request body used to update an existing vendor
  * example:
  * [object Object]
@@ -15279,6 +15648,47 @@ export interface UpdateWorksOrderModel {
   metadata?: {
     [name: string]: any
   }
+}
+/**
+ * Representation of property details specific to utilities
+ */
+export interface UtilityModel {
+  /**
+   * The unique identifier of the company supplying the gas to the property
+   */
+  gasCompanyId?: string
+  /**
+   * The gas meter point number
+   */
+  gasMeterPoint?: string
+  /**
+   * The unique identifier of the company supplying the electricity to the property
+   */
+  electricityCompanyId?: string
+  /**
+   * The electricity meter point number
+   */
+  electricityMeterPoint?: string
+  /**
+   * The unique identifier of the company supplying the water to the property
+   */
+  waterCompanyId?: string
+  /**
+   * The water meter point number
+   */
+  waterMeterPoint?: string
+  /**
+   * The unique identifier of the company supplying the telephone to the property
+   */
+  telephoneCompanyId?: string
+  /**
+   * The unique identifier of the company supplying the internet to the property
+   */
+  internetCompanyId?: string
+  /**
+   * The unique identifier of the company supplying the cable tv to the property
+   */
+  cableTvCompanyId?: string
 }
 /**
  * Representation of the physical address of a building or premise
