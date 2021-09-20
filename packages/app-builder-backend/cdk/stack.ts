@@ -21,14 +21,14 @@ export const createStack = (scope: cdk.App, name: string) => {
   }
 
   const PACKAGE = 'app-builder-backend'
-  const HANDLER = 'lambda.handler'
+  const HANDLER = `${PACKAGE}/src/lambda.handler`
 
   const code = lambda.DockerImageCode.fromImageAsset(repoRoot, {
     buildArgs: {
       PACKAGE,
       NPM_TOKEN: process.env.NPM_TOKEN,
     },
-    cmd: [`packages/${PACKAGE}/dist/${HANDLER}`],
+    cmd: [`packages/${PACKAGE}/dist/${PACKAGE}/${HANDLER}`],
   })
   const GSI_NAME = 'gsi-userId'
   const appsTable = createTable(

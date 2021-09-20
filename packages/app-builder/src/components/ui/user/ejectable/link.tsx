@@ -1,6 +1,7 @@
 import React, { forwardRef } from 'react'
+import path from 'path'
 import qs from 'query-string'
-import { Link as RRLink } from 'react-router-dom'
+import { Link as RRLink, useParams } from 'react-router-dom'
 import { Container, ContainerProps } from './container'
 
 export interface LinkProps extends ContainerProps {
@@ -9,10 +10,12 @@ export interface LinkProps extends ContainerProps {
 }
 
 export const Link = forwardRef<HTMLDivElement, LinkProps & { disabled?: boolean }>(({ disabled, ...props }, ref) => {
+  const { appId } = useParams<{ appId?: string }>()
+  const dest = props.destination || ''
   return (
     <RRLink
       to={{
-        pathname: props.destination,
+        pathname: path.join('/', appId || '', dest === '~' ? '' : dest),
         search: props.context ? qs.stringify(props.context) : '',
       }}
       onClick={

@@ -6,9 +6,7 @@ import { useEditor, useNode } from '@craftjs/core'
 import { DestinationPage } from './link'
 import { TableProps, Table as ETable } from './ejectable/table'
 
-const defaultProps = {
-  destination: '/',
-}
+const defaultProps = {}
 
 const Table = (props: TableProps) => {
   const { isEditing } = useEditor((state) => ({

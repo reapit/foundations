@@ -45,7 +45,7 @@ const FormSettings = () => {
             {loading ? 'Loading...' : 'Select a Type'}
           </option>
         </ToolbarItem>
-        <ToolbarItem type={ToolbarItemType.Select} propKey="formType" title="Form Type">
+        {/* <ToolbarItem type={ToolbarItemType.Select} propKey="formType" title="Form Type">
           {['create', 'update'].map((typeName) => (
             <option key={typeName} value={typeName}>
               {typeName}
@@ -54,7 +54,7 @@ const FormSettings = () => {
           <option value="" disabled>
             Select a Type
           </option>
-        </ToolbarItem>
+        </ToolbarItem> */}
       </ToolbarSection>
       <DestinationPage propKey="destination" title="Redirect To" />
     </>

@@ -13,7 +13,7 @@ export const generateApp = () => {
     import '@reapit/elements/dist/index.css'
 
     const httpLink = createHttpLink({
-      uri: 'https://zbtuirnf0g.execute-api.eu-west-2.amazonaws.com/prod/',
+      uri: 'http://localhost:4000/graphql/',
     })
 
     const authLink = setContext(async (_, { headers }) => {
@@ -22,7 +22,8 @@ export const generateApp = () => {
       return {
         headers: {
           ...headers,
-          authorization: token ? ['Bearer', token.accessToken].join(' ') : '',
+          authorization: token ? ['Bearer', token.idToken].join(' ') : '',
+          'reapit-connect-token': token ? token.accessToken : '',
         },
       }
     })

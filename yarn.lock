@@ -7716,6 +7716,7 @@ __metadata:
     babel-jest: ^27.0.6
     class-validator: ^0.13.1
     concurrently: ^6.2.0
+    cors: ^2.8.5
     cross-env: ^7.0.3
     eslint: 7.31.0
     eslint-plugin-prettier: ^3.4.0

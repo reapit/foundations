@@ -1,5 +1,4 @@
 import { ESLint } from 'eslint'
-import { baseEslint } from '@reapit/ts-scripts'
 
 export const slugToCamel = (str) =>
   capitalize(
@@ -9,6 +8,7 @@ export const slugToCamel = (str) =>
 const capitalize = (s) => s && s[0].toUpperCase() + s.slice(1)
 
 export const lint = async (code: string): Promise<string> => {
+  const baseEslint = require('@reapit/ts-scripts/src/eslint/base-eslint') // inline import because ts-scripts has dependency issues
   const eslint = new ESLint({
     // @ts-ignore
     baseConfig: baseEslint,

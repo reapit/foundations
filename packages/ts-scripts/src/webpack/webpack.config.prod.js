@@ -19,12 +19,12 @@ const generateRegexExcludePackages = () => {
   return new RegExp(`node_modules/(?!(${listPackagesString})/).*`)
 }
 
-const tagName = getVersionTag()
-const hashOfCommit = getRef()
-const APP_VERSION = `${tagName.packageName}_${tagName.version}`
-const outputFileName = `[name].${hashOfCommit}.js`
-
 const webpackConfigProd = ({ appName }) => {
+  const tagName = getVersionTag()
+  const hashOfCommit = getRef()
+  const APP_VERSION = `${tagName.packageName}_${tagName.version}`
+  const outputFileName = `[name].${hashOfCommit}.js`
+
   const config = {
     mode: 'production',
     bail: true,

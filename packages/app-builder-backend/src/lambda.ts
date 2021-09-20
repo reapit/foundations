@@ -1,6 +1,7 @@
 import 'reflect-metadata'
 import { ApolloServer } from 'apollo-server-lambda'
 import express from 'express'
+import cors from 'cors'
 
 import { Context } from './types'
 import { ejectAppRoute } from './eject/route'
@@ -26,6 +27,7 @@ const createHandler = async () => {
   return server.createHandler({
     expressAppFromMiddleware(middleware) {
       const app = express()
+      app.use(cors())
       app.get('/eject/:appId', ejectAppRoute)
       app.use(middleware)
       return app
