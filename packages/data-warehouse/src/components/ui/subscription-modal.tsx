@@ -14,7 +14,10 @@ export const SubscriptionModal = ({ visible }: { visible: boolean }) => {
         <Button
           className={elMAuto}
           intent="primary"
-          onClick={createSubscription}
+          onClick={async () => {
+            await createSubscription()
+            window.location.reload() // todo: this is a hack to reload the data and send them to /user-accounts
+          }}
           disabled={subscriptionsLoading}
           loading={subscriptionsLoading}
         >

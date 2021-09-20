@@ -1,4 +1,4 @@
-import { httpHandler, ValidationException } from '@homeservenow/serverless-aws-handler'
+import { BadRequestException, httpHandler, ValidationException } from '@homeservenow/serverless-aws-handler'
 import { PipelineDto } from './../../dto'
 import { PipelineEntity } from './../../entities'
 import * as service from './../../services/pipeline'
@@ -36,6 +36,10 @@ export const pipelineCreate = httpHandler<PipelineDto, PipelineEntity>({
       : new PipelineDto()
 
     const pipeline = await service.createPipelineEntity(dto)
+
+    if (!pipeline) {
+      throw new BadRequestException('Invalid pipeline properties')
+    }
 
     await new Promise<void>((resolve, reject) =>
       sqs.sendMessage(

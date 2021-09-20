@@ -42,16 +42,14 @@ const ApiDocsPage: React.FC = () => {
       <FlexContainer isFlexAuto>
         <SecondaryNavContainer>
           <Title>Docs</Title>
-          {isDevEnv && (
-            <SecondaryNav className={elMb9}>
-              <SecondaryNavItem onClick={navigate(history, Routes.API_DOCS)} active={isDocsPage}>
-                APIs
-              </SecondaryNavItem>
-              <SecondaryNavItem onClick={navigate(history, Routes.ANALYTICS_SCHEMA_DOCS)} active={isSchemaPage}>
-                Warehouse
-              </SecondaryNavItem>
-            </SecondaryNav>
-          )}
+          <SecondaryNav className={elMb9}>
+            <SecondaryNavItem onClick={navigate(history, Routes.API_DOCS)} active={isDocsPage}>
+              APIs
+            </SecondaryNavItem>
+            <SecondaryNavItem onClick={navigate(history, Routes.ANALYTICS_SCHEMA_DOCS)} active={isSchemaPage}>
+              Warehouse
+            </SecondaryNavItem>
+          </SecondaryNav>
           <Icon className={elMb5} icon="apiDocsInfographic" iconSize="large" />
           <Subtitle>Welcome</Subtitle>
           <BodyText hasGreyText>

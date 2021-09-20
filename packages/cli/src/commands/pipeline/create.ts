@@ -21,8 +21,9 @@ export class PipelineCreate extends AbstractCommand {
         return repositories.split('\n').reduce<string[]>((repos: string[], repo: string) => {
           const urlParts = repo.split(' ')
           const gitUrl = urlParts[0].split('\t')
-          if (!repos.includes(gitUrl[gitUrl.length - 1])) {
-            repos.push(gitUrl[gitUrl.length - 1])
+          const repoUrl = `https://github.com/${gitUrl[gitUrl.length - 1].split(':').pop()?.replace('.git', '')}`
+          if (!repos.includes(repoUrl) && gitUrl[gitUrl.length - 1] !== '') {
+            repos.push(repoUrl)
           }
           return repos
         }, [])

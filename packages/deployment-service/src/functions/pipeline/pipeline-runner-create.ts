@@ -1,6 +1,12 @@
 import { PipelineRunnerEntity } from './../../entities'
 import { ownership, resolveCreds } from './../../utils'
-import { BadRequestException, httpHandler, NotFoundException } from '@homeservenow/serverless-aws-handler'
+import {
+  BadRequestException,
+  HttpErrorException,
+  httpHandler,
+  HttpStatusCode,
+  NotFoundException,
+} from '@homeservenow/serverless-aws-handler'
 import * as service from '../../services'
 import { defaultOutputHeaders } from './../../constants'
 import { QueueNames } from './../../constants'
@@ -29,13 +35,20 @@ export const pipelineRunnerCreate = httpHandler<void, PipelineRunnerEntity>({
 
     await ownership(pipeline.developerId, developerId)
 
-    if (pipeline.buildStatus && ['IN_PROGRESS', 'DELETING', 'CREATING_ARCHITECTURE'].includes(pipeline.buildStatus)) {
-      throw new BadRequestException('Cannot deploy in current state')
+    if (
+      (pipeline.buildStatus && 'CREATING_ARCHITECTURE' === pipeline.buildStatus) ||
+      (await service.pipelineRunnerCountRunning(pipeline)) >= 1
+    ) {
+      throw new HttpErrorException('Cannot create deployment in current state', 409 as HttpStatusCode)
     }
 
     const pipelineRunner = await service.createPipelineRunnerEntity({
       pipeline,
     })
+
+    if (!pipelineRunner) {
+      throw new BadRequestException('Invalid pipeline runner payload')
+    }
 
     await new Promise<void>((resolve, reject) =>
       service.sqs.sendMessage(
