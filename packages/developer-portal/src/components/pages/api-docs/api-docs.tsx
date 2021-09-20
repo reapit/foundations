@@ -44,7 +44,7 @@ const ApiDocsPage: React.FC = () => {
           <Title>Docs</Title>
           <SecondaryNav className={elMb9}>
             <SecondaryNavItem onClick={navigate(history, Routes.API_DOCS)} active={isDocsPage}>
-              API
+              APIs
             </SecondaryNavItem>
             <SecondaryNavItem onClick={navigate(history, Routes.ANALYTICS_SCHEMA_DOCS)} active={isSchemaPage}>
               Warehouse
