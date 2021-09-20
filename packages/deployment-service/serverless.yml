@@ -241,6 +241,29 @@ resources:
       Properties:
         BucketName: ${self:custom.env.DEPLOYMENT_LIVE_BUCKET_NAME}
         AccessControl: PublicRead
+        WebsiteConfiguration:
+          IndexDocument: index.html
+          ErrorDocument: error.html
+    LiveWebAppS3BucketPolicy:
+      Type: AWS::S3::BucketPolicy
+      Properties:
+        Bucket:
+          Ref: DeploymentLiveBucket
+        PolicyDocument:
+          Statement:
+            - Sid: PublicReadGetObject
+              Effect: Allow
+              Principal: "*"
+              Action:
+              - s3:GetObject
+              Resource:
+                Fn::Join: [
+                  "", [
+                    "arn:aws:s3:::",
+                    { "Ref": "DeploymentLiveBucket" },
+                    "/*"
+                  ]
+                ]
     DeploymentLogBucket:
       Type: AWS::S3::Bucket
       Properties:
