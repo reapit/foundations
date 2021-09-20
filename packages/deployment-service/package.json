@@ -31,9 +31,11 @@
     "test": "echo '...skipping...'",
     "build": "echo '...skipping...'",
     "lint": "eslint --cache --ext=ts,tsx,js src --fix",
-    "release": "reapit-fetch-public-keys && serverless deploy",
+    "deploy": "serverless deploy",
+    "release": "reapit-fetch-public-keys && yarn db-conf && yarn migration:run && yarn deploy",
     "publish": "echo '...skipping...'",
     "conf": "yarn config-manager --namespace cloud --entity deployment-service --name local --mode fetch",
+    "db-conf": "yarn config-manager --namespace cloud --entity deployment-service --name db-config --mode fetch",
     "migration:generate": "ts-node -P ./tsconfig.json ../../node_modules/.bin/typeorm migration:generate",
     "migration:run": "ts-node -P ./tsconfig.json ../../node_modules/.bin/typeorm migration:run",
     "migration:revert": "ts-node -P ./tsconfig.json ../../node_modules/.bin/typeorm migration:revert"
