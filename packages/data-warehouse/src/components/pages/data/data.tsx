@@ -11,7 +11,7 @@ import { AccountModel } from '../../../types/accounts'
 import { SubscriptionModelPagedResult } from '@reapit/foundations-ts-definitions'
 import { useReapitConnect } from '@reapit/connect-session'
 import { reapitConnectBrowserSession } from '../../../core/connect-session'
-import { getCurrentSubscription, handleGetSubscriptions } from '../subscriptions/subscriptions-handlers'
+import { getCurrentSubscription, handleGetSubscriptions } from '../../hooks/subscriptions-handlers'
 import { handleGetAccounts } from '../accounts/account-handlers'
 import { handleGetDataSets, handleGetShares } from './data-handlers'
 
