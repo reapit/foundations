@@ -25,7 +25,6 @@ export const pipelineUpdate = httpHandler<PipelineDto, PipelineEntity>({
   handler: async ({ body, event }): Promise<PipelineEntity> => {
     const { developerId } = await resolveCreds(event)
 
-    // TODO should this be body.toApiKey
     const pipeline = await service.findPipelineById(event.pathParameters?.pipelineId as string)
 
     if (!pipeline) {

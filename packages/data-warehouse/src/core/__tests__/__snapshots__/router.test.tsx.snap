@@ -44,86 +44,75 @@ exports[`Router should match a snapshot 1`] = `
         path="/login"
       />
       <PrivateRouteWrapper>
-        <Switch>
-          <Route
-            component={
-              Object {
-                "$$typeof": Symbol(react.lazy),
-                "_init": [Function],
-                "_payload": Object {
-                  "_result": [Function],
-                  "_status": -1,
-                },
+        <SubscriptionRouteWrapper>
+          <Switch>
+            <Route
+              component={
+                Object {
+                  "$$typeof": Symbol(react.lazy),
+                  "_init": [Function],
+                  "_payload": Object {
+                    "_result": [Function],
+                    "_status": -1,
+                  },
+                }
               }
-            }
-            path="/user-accounts"
-          />
-          <Route
-            component={
-              Object {
-                "$$typeof": Symbol(react.lazy),
-                "_init": [Function],
-                "_payload": Object {
-                  "_result": [Function],
-                  "_status": -1,
-                },
+              path="/user-accounts"
+            />
+            <Route
+              component={
+                Object {
+                  "$$typeof": Symbol(react.lazy),
+                  "_init": [Function],
+                  "_payload": Object {
+                    "_result": [Function],
+                    "_status": -1,
+                  },
+                }
               }
-            }
-            path="/account"
-          />
-          <Route
-            component={
-              Object {
-                "$$typeof": Symbol(react.lazy),
-                "_init": [Function],
-                "_payload": Object {
-                  "_result": [Function],
-                  "_status": -1,
-                },
+              path="/data"
+            />
+            <Route
+              component={
+                Object {
+                  "$$typeof": Symbol(react.lazy),
+                  "_init": [Function],
+                  "_payload": Object {
+                    "_result": [Function],
+                    "_status": -1,
+                  },
+                }
               }
-            }
-            path="/data"
-          />
-          <Route
-            component={
-              Object {
-                "$$typeof": Symbol(react.lazy),
-                "_init": [Function],
-                "_payload": Object {
-                  "_result": [Function],
-                  "_status": -1,
-                },
+              path="/health"
+            />
+            <Route
+              component={
+                Object {
+                  "$$typeof": Symbol(react.lazy),
+                  "_init": [Function],
+                  "_payload": Object {
+                    "_result": [Function],
+                    "_status": -1,
+                  },
+                }
               }
-            }
-            path="/health"
-          />
-          <Route
-            component={
-              Object {
-                "$$typeof": Symbol(react.lazy),
-                "_init": [Function],
-                "_payload": Object {
-                  "_result": [Function],
-                  "_status": -1,
-                },
+              path="/settings"
+            />
+            <Route
+              component={
+                Object {
+                  "$$typeof": Symbol(react.lazy),
+                  "_init": [Function],
+                  "_payload": Object {
+                    "_result": [Function],
+                    "_status": -1,
+                  },
+                }
               }
-            }
-            path="/settings"
-          />
-          <Route
-            component={
-              Object {
-                "$$typeof": Symbol(react.lazy),
-                "_init": [Function],
-                "_payload": Object {
-                  "_result": [Function],
-                  "_status": -1,
-                },
-              }
-            }
-            path="/analytics"
-          />
-        </Switch>
+              path="/analytics"
+            />
+          </Switch>
+        </SubscriptionRouteWrapper>
       </PrivateRouteWrapper>
       <Redirect
         to="/login"

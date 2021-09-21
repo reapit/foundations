@@ -175,6 +175,15 @@ provider:
           - Arn
     - Effect: Allow
       Action:
+        - sqs:GetQueueAttributes
+        - sqs:SendMessage
+        - sqs:DeleteMessage
+      Resource:
+        Fn::GetAtt:
+          - PipelineTearDownStart
+          - Arn
+    - Effect: Allow
+      Action:
         - lambda:InvokeFunction
       Resource: arn:aws:lambda:${self:provider.region}:${self:custom.env.AWS_ACCOUNT_ID}:function:cloud-api-key-service-dev-getApiKeyViaInvoke
     - Effect: Allow
@@ -192,6 +201,9 @@ provider:
       Action:
         - cloudfront:CreateDistribution
         - cloudfront:CreateInvalidation
+        - cloudfront:DeleteDistribution
+        - cloudfront:GetDistribution
+        - cloudfront:UpdateDistribution
       Resource: "*"
 
 resources:
@@ -229,6 +241,29 @@ resources:
       Properties:
         BucketName: ${self:custom.env.DEPLOYMENT_LIVE_BUCKET_NAME}
         AccessControl: PublicRead
+        WebsiteConfiguration:
+          IndexDocument: index.html
+          ErrorDocument: error.html
+    LiveWebAppS3BucketPolicy:
+      Type: AWS::S3::BucketPolicy
+      Properties:
+        Bucket:
+          Ref: DeploymentLiveBucket
+        PolicyDocument:
+          Statement:
+            - Sid: PublicReadGetObject
+              Effect: Allow
+              Principal: "*"
+              Action:
+              - s3:GetObject
+              Resource:
+                Fn::Join: [
+                  "", [
+                    "arn:aws:s3:::",
+                    { "Ref": "DeploymentLiveBucket" },
+                    "/*"
+                  ]
+                ]
     DeploymentLogBucket:
       Type: AWS::S3::Bucket
       Properties:
@@ -247,6 +282,11 @@ resources:
       Type: AWS::SQS::Queue
       Properties:
         QueueName: PipelineSetup
+        VisibilityTimeout: 300
+    PipelineTearDownStart:
+      Type: AWS::SQS::Queue
+      Properties:
+        QueueName: PipelineTearDownStart
         VisibilityTimeout: 300
     PipelineTearDown:
       Type: AWS::SQS::Queue
@@ -622,6 +662,16 @@ functions:
               - PipelineSetup
               - Arn
     timeout: 300
+  pipelineTearDownStart:
+    handler: src/index.pipelineTearDownStart
+    events:
+      - sqs:
+          queueName: PipelineTearDownStart
+          arn:
+            Fn::GetAtt:
+              - PipelineTearDownStart
+              - Arn
+    timeout: 300
   pipelineTearDown:
     handler: src/index.pipelineTearDown
     events:
@@ -632,3 +682,18 @@ functions:
               - PipelineTearDown
               - Arn
     timeout: 300
+  pusherAuth:
+    handler: src/index.pusherAuthentication
+    events:
+      - http:
+          path: /pusher/auth
+          method: post
+          cors:
+            origin: '*'
+            headers:
+              - Content-Type
+              - Authorization
+              - X-Api-Key
+              - api-version
+          authorizer:
+            arn: arn:aws:cognito-idp:${self:provider.region}:${self:custom.env.AWS_ACCOUNT_ID}:userpool/${self:custom.env.CONNECT_USER_POOL}

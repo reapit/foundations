@@ -6,10 +6,24 @@ import yaml from 'yaml'
 import { PackageManagerEnum } from '../../../../foundations-ts-definitions/deployment-schema'
 import { QueueNames } from '../../constants'
 import { sqs, savePipelineRunnerEntity, s3Client } from '../../services'
+import { logger } from '../../core'
 
 const codebuild = new CodeBuild({
   region: process.env.REGION,
 })
+
+const deleteMessage = (ReceiptHandle: string): Promise<void> =>
+  new Promise((resolve, reject) =>
+    sqs.deleteMessage(
+      {
+        ReceiptHandle,
+        QueueUrl: QueueNames.CODE_BUILD_EXECUTOR,
+      },
+      (error) => {
+        error ? reject(error) : resolve()
+      },
+    ),
+  )
 
 /**
  * SQS event to start codebuild process with custom overrides
@@ -77,20 +91,8 @@ export const codebuildExecutor: SQSHandler = async (
             resolve(data)
           })
         }).catch(async (error) => {
-          await new Promise<void>((resolve, reject) =>
-            sqs.deleteMessage(
-              {
-                ReceiptHandle: record.receiptHandle,
-                QueueUrl: QueueNames.CODE_BUILD_EXECUTOR,
-              },
-              (err) => {
-                if (err) {
-                  reject(err)
-                }
-                resolve()
-              },
-            ),
-          )
+          logger.error(error)
+          await deleteMessage(record.receiptHandle)
           throw error
         })
 
@@ -113,40 +115,14 @@ export const codebuildExecutor: SQSHandler = async (
         })
 
         await savePipelineRunnerEntity(pipelineRunner)
-      } catch (e) {
-        console.error(e)
+      } catch (error: any) {
+        logger.error(error)
         console.log('codebuild config failure')
-        await new Promise<void>((resolve, reject) =>
-          sqs.deleteMessage(
-            {
-              ReceiptHandle: record.receiptHandle,
-              QueueUrl: QueueNames.CODE_BUILD_EXECUTOR,
-            },
-            (err) => {
-              if (err) {
-                reject(err)
-              }
-              resolve()
-            },
-          ),
-        )
-        return Promise.reject(e)
+        await deleteMessage(record.receiptHandle)
+        return Promise.reject(error)
       }
 
-      return new Promise<void>((resolve, reject) =>
-        sqs.deleteMessage(
-          {
-            ReceiptHandle: record.receiptHandle,
-            QueueUrl: QueueNames.CODE_BUILD_EXECUTOR,
-          },
-          (err) => {
-            if (err) {
-              reject(err)
-            }
-            resolve()
-          },
-        ),
-      )
+      return deleteMessage(record.receiptHandle)
     }),
   )
 

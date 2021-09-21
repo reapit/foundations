@@ -19,9 +19,11 @@
     "resolveJsonModule": true,
     "experimentalDecorators": true,
     "emitDecoratorMetadata": true,
+    "jsx": "react",
     "baseUrl": "./",
     "paths": {
-      "@reapit/connect-session": ["../connect-session/src"]
+      "@reapit/connect-session": ["../connect-session/src"],
+      "@reapit/node-utils": ["../utils/src/node/index.ts"]
     }
   },
   "exclude": ["public", "dist", "scripts", "**/node_modules", "coverage", "archive/**/*", "**/__tests__/**/*"]

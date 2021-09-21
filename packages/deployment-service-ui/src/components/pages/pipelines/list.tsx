@@ -29,13 +29,125 @@ import { useHistory } from 'react-router-dom'
 import { pipelineServicePaginate } from '../../../platform-api/pipelines'
 import { Pagination } from 'nestjs-typeorm-paginate'
 import { cx } from '@linaria/core'
-import { pipelineStatusToIntent } from './../../../utils'
+import { pipelineStatusToIntent, pipelineStatusToName } from './../../../utils'
+import { useChannel, useEvent } from '@harelpls/use-pusher'
+
+const PipelineList = ({
+  connection,
+  pipelinePagination,
+  setPipelinePagination,
+  fetchPipelines,
+}: {
+  connection: ReapitConnectSession
+  pipelinePagination: Pagination<PipelineModelInterface>
+  setPipelinePagination: (pagination: Pagination<PipelineModelInterface>) => void
+  fetchPipelines: (page?: number) => void
+}) => {
+  const channel = useChannel(`private-${connection.loginIdentity.developerId}`)
+  const history = useHistory()
+
+  useEvent<{ pipeline: PipelineModelInterface }>(channel, 'pipeline-runner-update', (event) => {
+    if (!event) {
+      return
+    }
+
+    setPipelinePagination({
+      ...pipelinePagination,
+      items: pipelinePagination.items.map((item) => {
+        if (item.id !== event.pipeline.id) {
+          return item
+        }
+
+        return event.pipeline
+      }),
+    })
+  })
+
+  return (
+    <section className={cx(elFlexGrow)}>
+      <Title>My Pipelines</Title>
+      <Table
+        className={elMb8}
+        rows={pipelinePagination.items.map((pipeline) => ({
+          cells: [
+            {
+              label: 'Status',
+              value: pipeline.buildStatus as string,
+              children: (
+                <>
+                  <StatusIndicator intent={pipelineStatusToIntent(pipeline.buildStatus || 'AWAITING DEPLOYMENT')} />
+                  {pipelineStatusToName(pipeline.buildStatus as string)}
+                </>
+              ),
+            },
+            {
+              label: 'Name',
+              value: pipeline.name as string,
+            },
+            {
+              label: 'Domain',
+              value: pipeline.subDomain as string,
+            },
+            {
+              label: 'repository',
+              value: pipeline.repository as string,
+            },
+            {
+              label: '',
+              value: '',
+              children: (
+                <Button
+                  intent="secondary"
+                  onClick={() => {
+                    history.push(Routes.PIPELINES_SHOW.replace(':pipelineId', pipeline.id as string))
+                  }}
+                >
+                  Manage
+                </Button>
+              ),
+            },
+          ],
+        }))}
+      />
+      {pipelinePagination.items.length ? (
+        <PaginationWrap>
+          <PaginationText>
+            <strong>{pipelinePagination.meta.currentPage}</strong> of {pipelinePagination?.meta.totalPages}
+          </PaginationText>
+          <PaginationButton
+            onClick={async () => {
+              if (pipelinePagination.meta.currentPage <= 1) {
+                return
+              }
+              await fetchPipelines(pipelinePagination.meta.currentPage - 1)
+            }}
+          >
+            <Icon icon="backSystem" />
+          </PaginationButton>
+          <PaginationButton
+            onClick={async () => {
+              if (pipelinePagination.meta.currentPage >= pipelinePagination.meta.totalPages) {
+                return
+              }
+              await fetchPipelines(pipelinePagination.meta.currentPage + 1)
+            }}
+          >
+            <Icon icon="nextSystem" className={elPaginationPrimary} />
+          </PaginationButton>
+        </PaginationWrap>
+      ) : (
+        <PersistantNotification intent="secondary" isExpanded isInline isFullWidth>
+          No pipelines retrieved. You will need to create a new pipeline from the left hand side menu.
+        </PersistantNotification>
+      )}
+    </section>
+  )
+}
 
 export default () => {
   const { connectSession } = useReapitConnect(reapitConnectBrowserSession)
   const [pipelinePagination, setPipelinePagination] = useState<Pagination<PipelineModelInterface>>()
   const [loading, setLoading] = useState<boolean>(false)
-
   const history = useHistory()
 
   const fetchPipelines = async (page?: number) => {
@@ -78,85 +190,12 @@ export default () => {
             {loading ? (
               <Loader label="Loading" fullPage />
             ) : pipelinePagination ? (
-              <section className={cx(elFlexGrow)}>
-                <Title>My Pipelines</Title>
-                <Table
-                  className={elMb8}
-                  rows={pipelinePagination.items.map((pipeline) => ({
-                    cells: [
-                      {
-                        label: 'Status',
-                        value: pipeline.buildStatus as string,
-                        children: (
-                          <>
-                            <StatusIndicator
-                              intent={pipelineStatusToIntent(pipeline.buildStatus || 'AWAITING DEPLOYMENT')}
-                            />
-                            {pipeline.buildStatus}
-                          </>
-                        ),
-                      },
-                      {
-                        label: 'Name',
-                        value: pipeline.name as string,
-                      },
-                      {
-                        label: 'Domain',
-                        value: pipeline.subDomain as string,
-                      },
-                      {
-                        label: 'repository',
-                        value: pipeline.repository as string,
-                      },
-                      {
-                        label: '',
-                        value: '',
-                        children: (
-                          <Button
-                            intent="secondary"
-                            onClick={() => {
-                              history.push(Routes.PIPELINES_SHOW.replace(':pipelineId', pipeline.id as string))
-                            }}
-                          >
-                            Manage
-                          </Button>
-                        ),
-                      },
-                    ],
-                  }))}
-                />
-                {pipelinePagination.items.length ? (
-                  <PaginationWrap>
-                    <PaginationText>
-                      <strong>{pipelinePagination.meta.currentPage}</strong> of {pipelinePagination?.meta.totalPages}
-                    </PaginationText>
-                    <PaginationButton
-                      onClick={async () => {
-                        if (pipelinePagination.meta.currentPage <= 1) {
-                          return
-                        }
-                        await fetchPipelines(pipelinePagination.meta.currentPage - 1)
-                      }}
-                    >
-                      <Icon icon="backSystem" />
-                    </PaginationButton>
-                    <PaginationButton
-                      onClick={async () => {
-                        if (pipelinePagination.meta.currentPage >= pipelinePagination.meta.totalPages) {
-                          return
-                        }
-                        await fetchPipelines(pipelinePagination.meta.currentPage + 1)
-                      }}
-                    >
-                      <Icon icon="nextSystem" className={elPaginationPrimary} />
-                    </PaginationButton>
-                  </PaginationWrap>
-                ) : (
-                  <PersistantNotification intent="secondary" isExpanded isInline isFullWidth>
-                    No pipelines retrieved. You will need to create a new pipeline from the left hand side menu.
-                  </PersistantNotification>
-                )}
-              </section>
+              <PipelineList
+                setPipelinePagination={setPipelinePagination}
+                connection={connectSession as ReapitConnectSession}
+                pipelinePagination={pipelinePagination}
+                fetchPipelines={fetchPipelines}
+              />
             ) : (
               <Title>Something went wrong</Title>
             )}

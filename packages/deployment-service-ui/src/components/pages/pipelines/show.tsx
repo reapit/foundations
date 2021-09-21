@@ -83,7 +83,7 @@ const DeploymentTable = ({
   setPipelineRunnerPagination: (runners: Pagination<PipelineModelInterface>) => void
   pipelineRunnerPagination?: Pagination<PipelineRunnerModelInterface>
 }) => {
-  const channel = useChannel(pipeline?.developerId)
+  const channel = useChannel(`private-${pipeline?.developerId}`)
   const [runnerLoading, setRunnerLoading] = useState<boolean>(false)
 
   useEvent<PipelineModelInterface>(channel, 'pipeline-runner-update', (event) => {
