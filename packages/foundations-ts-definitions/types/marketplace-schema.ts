@@ -1112,6 +1112,10 @@ export interface CustomerModel {
    */
   name?: string
   address?: AddressModel
+  /**
+   * The Reapit billing reference number for the customer
+   */
+  billingReference?: string
 }
 /**
  * Model to handle paged data and information
