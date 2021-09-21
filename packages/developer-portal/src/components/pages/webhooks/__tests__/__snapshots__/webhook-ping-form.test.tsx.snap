@@ -1,0 +1,227 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`WebhooksPingForm should match a snapshot 1`] = `
+<Provider
+  store={
+    Object {
+      "clearActions": [Function],
+      "dispatch": [Function],
+      "getActions": [Function],
+      "getState": [Function],
+      "replaceReducer": [Function],
+      "subscribe": [Function],
+    }
+  }
+>
+  <WebhooksPingForm
+    setExpandableContentSize={[MockFunction]}
+    setIndexExpandedRow={[MockFunction]}
+    webhookModel={
+      Object {
+        "active": false,
+        "applicationId": "SOME_APP_ID",
+        "customerIds": Array [
+          "SOME_ID",
+        ],
+        "description": "SOME_DESCRIPTION",
+        "id": "SOME_ID",
+        "ignoreEtagOnlyChanges": true,
+        "topicIds": Array [
+          "SOME_ID",
+        ],
+        "url": "https://example.com",
+      }
+    }
+  >
+    <form
+      className="el6khyg-el-p8"
+      onSubmit={[Function]}
+    >
+      <Subtitle
+        className="ek1d8t2-el-ml3"
+      >
+        <ElSubtitle
+          className="ek1d8t2-el-ml3"
+        >
+          <h2
+            className="ek1d8t2-el-ml3 e2dm5rh-el-subtitle"
+          >
+            Test Webhook Subscription
+          </h2>
+        </ElSubtitle>
+      </Subtitle>
+      <Grid>
+        <ElGrid
+          className=""
+        >
+          <div
+            className="e20pb60-el-grid"
+          >
+            <ColSplit>
+              <ElColSplit
+                className=""
+              >
+                <div
+                  className="eb3z2eu-el-col-split"
+                >
+                  <Label
+                    className="ek1d8t2-el-ml3"
+                  >
+                    <ElLabel
+                      className="ek1d8t2-el-ml3"
+                    >
+                      <label
+                        className="ek1d8t2-el-ml3 e1nbkkrq-el-label"
+                      >
+                        Subscription topics
+                      </label>
+                    </ElLabel>
+                  </Label>
+                  <ForwardRef>
+                    <ElInputGroup>
+                      <div
+                        className="e1979rmu-el-input-group"
+                      >
+                        <ForwardRef
+                          name="topicId"
+                          onBlur={[Function]}
+                          onChange={[Function]}
+                        >
+                          <ElSelect
+                            name="topicId"
+                            onBlur={[Function]}
+                            onChange={[Function]}
+                          >
+                            <select
+                              className="e60u3kb-el-select"
+                              name="topicId"
+                              onBlur={[Function]}
+                              onChange={[Function]}
+                            >
+                              <option
+                                key="default-option"
+                                value=""
+                              >
+                                None selected
+                              </option>
+                              <option
+                                key="SOME_ID"
+                                value="SOME_ID"
+                              >
+                                SOME_NAME
+                              </option>
+                            </select>
+                          </ElSelect>
+                        </ForwardRef>
+                      </div>
+                    </ElInputGroup>
+                  </ForwardRef>
+                </div>
+              </ElColSplit>
+            </ColSplit>
+            <ColSplit>
+              <ElColSplit
+                className=""
+              >
+                <div
+                  className="eb3z2eu-el-col-split"
+                >
+                  <BodyText>
+                    <ElBodyText
+                      className=""
+                    >
+                      <p
+                        className="evblxhy-el-body-text"
+                      >
+                        To test your Webhook subscription, please select a subscription topic and an example payload for that topic will be sent to the configured URL. For more information, please
+                         
+                        <a
+                          className="l3gjl5x-link"
+                          onClick={[Function]}
+                        >
+                          click here
+                        </a>
+                      </p>
+                    </ElBodyText>
+                  </BodyText>
+                  <ButtonGroup
+                    className="et0k7gk-el-ml-auto"
+                  >
+                    <ElButtonGroup
+                      className="et0k7gk-el-ml-auto"
+                    >
+                      <div
+                        className="et0k7gk-el-ml-auto e1f2ikqj-el-button-group"
+                      >
+                        <Button
+                          disabled={false}
+                          intent="secondary"
+                          onClick={[Function]}
+                          type="button"
+                        >
+                          <ElButton
+                            className="epibvz0-el-intent-secondary"
+                            disabled={false}
+                            onClick={[Function]}
+                            type="button"
+                          >
+                            <button
+                              className="epibvz0-el-intent-secondary e1cpt8yd-el-button"
+                              disabled={false}
+                              onClick={[Function]}
+                              type="button"
+                            >
+                              Cancel
+                            </button>
+                          </ElButton>
+                        </Button>
+                        <Button
+                          chevronRight={true}
+                          disabled={false}
+                          intent="primary"
+                          type="submit"
+                        >
+                          <ElButton
+                            className="ebee6r1-el-intent-primary ej73pla-el-button-has-right-chevron"
+                            disabled={false}
+                            type="submit"
+                          >
+                            <button
+                              className="ebee6r1-el-intent-primary ej73pla-el-button-has-right-chevron e1cpt8yd-el-button"
+                              disabled={false}
+                              type="submit"
+                            >
+                              Test
+                            </button>
+                          </ElButton>
+                        </Button>
+                      </div>
+                    </ElButtonGroup>
+                  </ButtonGroup>
+                  <ModalComponent
+                    title="Connection Unsuccessful"
+                  >
+                    <Portal
+                      id="root"
+                    >
+                      <Portal
+                        containerInfo={<div />}
+                      >
+                        <Modal
+                          isOpen={false}
+                          onModalClose={[Function]}
+                          title="Connection Unsuccessful"
+                        />
+                      </Portal>
+                    </Portal>
+                  </ModalComponent>
+                </div>
+              </ElColSplit>
+            </ColSplit>
+          </div>
+        </ElGrid>
+      </Grid>
+    </form>
+  </WebhooksPingForm>
+</Provider>
+`;

@@ -1,0 +1,68 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`WebhooksAbout should match a snapshot 1`] = `
+<Fragment>
+  <PersistantNotification
+    className="ec47sgk-el-mb11"
+    intent="secondary"
+    isExpanded={true}
+    isFullWidth={true}
+    isInline={true}
+  >
+    Please note that apps and integrations developed using Webhooks for topics other than application install/uninstall will only be visible in the Marketplace to customers who have been migrated to AWS.
+  </PersistantNotification>
+  <Grid>
+    <ColSplit>
+      <IconContainer
+        className="e1ffzzrg-el-mb10"
+      >
+        <WebhooksAnimatedNewIcon />
+      </IconContainer>
+      <Subtitle>
+        Manage Webhooks Subscriptions
+      </Subtitle>
+      <BodyText
+        hasGreyText={true}
+      >
+        Our webhooks system allows your application to directly subscribe to events happening in our customers data. Rather than needing to make API calls to poll for new information, a webhook subscription can be created to allow Reapit Foundations to send a HTTP request directly to your endpoints that you configure here.
+      </BodyText>
+      <Button
+        chevronRight={true}
+        intent="critical"
+        onClick={[Function]}
+      >
+        Add new webhook
+      </Button>
+    </ColSplit>
+    <ColSplit>
+      <IconContainer
+        className="e1ffzzrg-el-mb10"
+      >
+        <WebhooksAnimatedDocsIcon />
+      </IconContainer>
+      <Subtitle>
+        Webhooks Documentation
+      </Subtitle>
+      <BodyText
+        hasGreyText={true}
+      >
+        This system is designed to work flexibly with your application. If you wish, you can set up a single endpoint to catch all topics for all customers. Alternatively, you may wish to set up a different webhook subscription per topic or per customer. For more information about Webhooks, please see our
+         
+        <a
+          href="https://foundations-documentation.reapit.cloud/api/webhooks"
+          rel="noreferrer"
+          target="_blank"
+        >
+          webhooks documentation.
+        </a>
+      </BodyText>
+      <Button
+        intent="low"
+        onClick={[Function]}
+      >
+        View Docs
+      </Button>
+    </ColSplit>
+  </Grid>
+</Fragment>
+`;

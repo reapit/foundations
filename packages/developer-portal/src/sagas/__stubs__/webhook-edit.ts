@@ -19,17 +19,25 @@ export const webhookDataStub: WebhookSubscription = {
     pageNumber: 1,
     pageSize: 25,
     totalCount: 0,
-    _embedded: [],
+    _embedded: [
+      {
+        id: 'SOME_ID',
+        name: 'SOME_NAME',
+        description: 'SOME_DESCRIPTION',
+        url: 'https://example.com',
+        active: true,
+      },
+    ],
   },
 }
 
 export const webhookItemDataStub: WebhookModal = {
-  id: '',
-  applicationId: '',
-  url: '',
-  description: '',
-  topicIds: [],
-  customerIds: [],
+  id: 'SOME_ID',
+  applicationId: 'SOME_APP_ID',
+  url: 'https://example.com',
+  description: 'SOME_DESCRIPTION',
+  topicIds: ['SOME_ID'],
+  customerIds: ['SOME_ID'],
   ignoreEtagOnlyChanges: true,
   active: false,
 }

@@ -1,0 +1,74 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`WebhooksEditControls should match a snapshot with large content 1`] = `
+<Fragment>
+  <WebhooksManageForm
+    setExpandableContentSize={[MockFunction]}
+    setIndexExpandedRow={[MockFunction]}
+    webhookModel={
+      Object {
+        "active": false,
+        "applicationId": "SOME_APP_ID",
+        "customerIds": Array [
+          "SOME_ID",
+        ],
+        "description": "SOME_DESCRIPTION",
+        "id": "SOME_ID",
+        "ignoreEtagOnlyChanges": true,
+        "topicIds": Array [
+          "SOME_ID",
+        ],
+        "url": "https://example.com",
+      }
+    }
+  />
+</Fragment>
+`;
+
+exports[`WebhooksEditControls should match a snapshot with medium content 1`] = `
+<Fragment>
+  <WebhooksPingForm
+    setExpandableContentSize={[MockFunction]}
+    setIndexExpandedRow={[MockFunction]}
+    webhookModel={
+      Object {
+        "active": false,
+        "applicationId": "SOME_APP_ID",
+        "customerIds": Array [
+          "SOME_ID",
+        ],
+        "description": "SOME_DESCRIPTION",
+        "id": "SOME_ID",
+        "ignoreEtagOnlyChanges": true,
+        "topicIds": Array [
+          "SOME_ID",
+        ],
+        "url": "https://example.com",
+      }
+    }
+  />
+</Fragment>
+`;
+
+exports[`WebhooksEditControls should match a snapshot with small content 1`] = `
+<Fragment>
+  <FlexContainer
+    isFlexJustifyCenter={true}
+  >
+    <ButtonGroup>
+      <Button
+        intent="primary"
+        onClick={[Function]}
+      >
+        Edit
+      </Button>
+      <Button
+        intent="primary"
+        onClick={[Function]}
+      >
+        Ping
+      </Button>
+    </ButtonGroup>
+  </FlexContainer>
+</Fragment>
+`;
