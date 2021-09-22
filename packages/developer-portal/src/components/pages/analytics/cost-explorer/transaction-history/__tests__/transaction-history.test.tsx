@@ -1,6 +1,6 @@
 import * as React from 'react'
 import * as ReactRedux from 'react-redux'
-import { URLS } from '@/services/constants'
+import { URLS } from '../../../../../../services/constants'
 import { fetcherWithBlob } from '@reapit/elements-legacy'
 import { shallow } from 'enzyme'
 import TransactionHistory, {
@@ -9,10 +9,10 @@ import TransactionHistory, {
   handleLaterClick,
   handleEarlierClick,
 } from '../transaction-history'
-import { developerIdentity } from '@/sagas/__stubs__/developer-identity'
-import { ReduxState } from '@/types/core'
+import { developerIdentity } from '../../../../../../sagas/__stubs__/developer-identity'
+import { ReduxState } from '../../../../../../types/core'
 import FileSaver from 'file-saver'
-import appState from '@/reducers/__stubs__/app-state'
+import appState from '../../../../../../reducers/__stubs__/app-state'
 import { getPlatformHeaders } from '@reapit/utils'
 import { reapitConnectBrowserSession } from '../../../../../../core/connect-session'
 

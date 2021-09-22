@@ -2,7 +2,7 @@ import { fetchDestinationInformation, getGeoCoords, handleGetRouteInfo } from '.
 import { mockAppointmentsQuery } from '../../components/pages/appointment/__mocks__/appointments-query'
 import { AppState, defaultAppState } from '../../core/app-state'
 import { ExtendedAppointmentModel } from '../../types/global'
-import { mockAppState, mockDirectionsService } from '../../components/ui/map/__test__/google-map-component.test'
+import { mockAppState, mockDirectionsService } from '../../components/ui/map/__tests__/google-map-component.test'
 
 describe('fetchDestinationInformation', () => {
   it('should call the fetch distance matrix', () => {
