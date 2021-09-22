@@ -34,7 +34,7 @@ jest.mock('../api', () => ({
 }))
 
 jest.mock('../../configurations/api', () => ({
-  callGetConfigurationsByTypeApi: jest.fn(() => []),
+  callGetConfigurationsByTypeApi: jest.fn(() => [{ id: '123' }]),
 }))
 
 describe('getKeyById', () => {

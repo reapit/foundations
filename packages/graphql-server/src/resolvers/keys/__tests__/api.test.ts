@@ -104,6 +104,15 @@ describe('callCreateKeyAPI', () => {
     await callCreateKeyAPI(mockKey, mockContext)
     expect(getIdFromCreateHeaders).toHaveBeenCalledWith({ headers: 'header' })
   })
+  it('should work correctly - no key id returned', async () => {
+    ;(createPlatformAxiosInstance as jest.Mocked<any>).mockReturnValueOnce({
+      post: jest.fn(() => Promise.resolve({ headers: 'header' })),
+      get: jest.fn(() => Promise.resolve({ data: mockKey })),
+    })
+    ;(getIdFromCreateHeaders as jest.Mocked<any>).mockReturnValueOnce(null)
+    const result = await callCreateKeyAPI(mockKey, mockContext)
+    expect(result).toBeNull()
+  })
   it('should throw correctly', async () => {
     ;(createPlatformAxiosInstance as jest.Mocked<any>).mockReturnValueOnce({
       get: jest.fn(async () => {
@@ -201,6 +210,19 @@ describe('callUpdateKeyMovementAPI', () => {
     ;(getIdFromCreateHeaders as jest.Mocked<any>).mockReturnValueOnce('a')
     await callUpdateKeyMovementAPI(mockKeyMovementUpdate, mockContext)
     expect(getIdFromCreateHeaders).toHaveBeenCalledWith({ headers: 'header' })
+  })
+  it('should throw correctly', async () => {
+    ;(createPlatformAxiosInstance as jest.Mocked<any>).mockReturnValueOnce({
+      patch: jest.fn(() => Promise.resolve({ headers: 'header', status: 200 })),
+      get: jest.fn(() => Promise.resolve({ data: mockKeyMovement })),
+    })
+    let err
+    try {
+      await callUpdateKeyMovementAPI(mockKeyMovementUpdate, mockContext)
+    } catch (e) {
+      err = e
+    }
+    expect(err).toEqual('caught error')
   })
   it('should throw correctly', async () => {
     ;(createPlatformAxiosInstance as jest.Mocked<any>).mockReturnValueOnce({

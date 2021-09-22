@@ -66,7 +66,7 @@ export const queryGetKeyMovements = resolverHandler<any, QueryGetPropertyKeyMove
 export const queryGetPropertyKeysResolver = resolverHandler<any, QueryGetPropertyKeysReturn>(
   (parent: PropertyModel, args: any, context: ServerContext) => {
     return keyServices.getKeysByPropertyId({ propertyId: parent.id }, context)
-  }
+  },
 )
 
 export default {
