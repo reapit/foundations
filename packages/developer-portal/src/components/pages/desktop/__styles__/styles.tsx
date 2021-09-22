@@ -74,6 +74,9 @@ export const SubscribeInnerContainer = styled.div`
   border-radius: 4px;
   background-color: var(--color-white);
   margin: 0 auto 1rem auto;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
 `
 
 export const subscribeContainerExpanded = css`
@@ -129,6 +132,7 @@ export const SubscribeHeadingContainer = styled.div`
 export const SubscribeButtonContainer = styled.div`
   display: flex;
   justify-content: space-between;
+  margin-top: 3rem;
 
   button:first-child {
     margin-right: 0.5rem;

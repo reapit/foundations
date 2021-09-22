@@ -183,11 +183,6 @@ export const SubscribeSection: FC = () => {
                     within the desktop application using sandbox data.
                   </BodyText>
                   <BodyText className={cx(elMb6, hasGreyText)}>
-                    From 1st April, the Developer Edition of Agency Cloud will no longer be a free subscription. If you
-                    had subscribed during the Beta Phase and still wish to continue to use the software, please re
-                    subscribe.
-                  </BodyText>
-                  <BodyText className={cx(elMb6, hasGreyText)}>
                     The application is licenced per user/developer of an organisation and will require a Windows machine
                     to install it.
                   </BodyText>
