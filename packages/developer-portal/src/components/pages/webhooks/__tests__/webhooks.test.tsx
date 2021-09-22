@@ -4,6 +4,7 @@ import { reduxTestState, render } from '../../../../tests/react-testing'
 import Routes from '../../../../constants/routes'
 import { History } from 'history'
 import { appsDataStub } from '../../../../sagas/__stubs__/apps'
+import appState from '../../../../reducers/__stubs__/app-state'
 
 const routes = [Routes.WEBHOOKS_NEW, Routes.WEBHOOKS_MANAGE, Routes.WEBHOOKS_LOGS, Routes.WEBHOOKS_ABOUT]
 
@@ -16,7 +17,9 @@ jest.mock('react-router-dom', () => ({
 describe('WebhooksWrapper', () => {
   reduxTestState.setState({
     apps: {
+      ...appState.apps,
       list: {
+        ...appState.apps.list,
         ...appsDataStub.data,
       },
     },

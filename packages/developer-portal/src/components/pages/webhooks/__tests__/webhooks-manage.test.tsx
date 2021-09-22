@@ -23,6 +23,7 @@ describe('WebhooksManage', () => {
   it('should match a snapshot where there are no subscriptions', () => {
     reduxTestState.setState({
       webhooksSubscriptions: {
+        ...appState.webhooksSubscriptions,
         list: {
           ...appState.webhooksSubscriptions.list,
           _embedded: [],
