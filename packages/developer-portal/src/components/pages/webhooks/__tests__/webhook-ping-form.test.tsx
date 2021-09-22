@@ -1,35 +1,20 @@
 import React from 'react'
-import { mount } from 'enzyme'
-import { Provider } from 'react-redux'
 import { handlePingWebhook, handleWebhookPing, WebhooksPingForm } from '../webhook-ping-form'
-import appState from '../../../../reducers/__stubs__/app-state'
-import { ReduxState } from '../../../../types/core'
-import configureStore from 'redux-mock-store'
-import { webhookDataStub, webhookItemDataStub } from '../../../../sagas/__stubs__/webhook-edit'
+import { webhookItemDataStub } from '../../../../sagas/__stubs__/webhook-edit'
 import { updateWebhookCreateEditState } from '../../../../actions/webhooks-subscriptions'
 import { WebhookCreateEditState } from '../../../../reducers/webhooks-subscriptions/webhook-edit-modal'
 import { developerSetWebhookPingStatus, developerWebhookPing } from '../../../../actions/developer'
-
-const mockState = {
-  ...appState,
-  webhooksSubscriptions: {
-    edit: webhookDataStub,
-  },
-} as ReduxState
+import { render } from '../../../../tests/react-testing'
 
 describe('WebhooksPingForm', () => {
   it('should match a snapshot', () => {
-    const mockStore = configureStore()
-    const store = mockStore(mockState)
     expect(
-      mount(
-        <Provider store={store}>
-          <WebhooksPingForm
-            webhookModel={webhookItemDataStub}
-            setIndexExpandedRow={jest.fn()}
-            setExpandableContentSize={jest.fn()}
-          />
-        </Provider>,
+      render(
+        <WebhooksPingForm
+          webhookModel={webhookItemDataStub}
+          setIndexExpandedRow={jest.fn()}
+          setExpandableContentSize={jest.fn()}
+        />,
       ),
     ).toMatchSnapshot()
   })

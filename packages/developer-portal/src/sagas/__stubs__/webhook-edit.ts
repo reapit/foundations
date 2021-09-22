@@ -5,14 +5,11 @@ import {
   WebhookCreateEditState,
 } from '@/reducers/webhooks-subscriptions/webhook-edit-modal'
 import { CreateWebhookParams } from '@/actions/webhooks-subscriptions'
+import { installationsStub } from './installations'
 
 export const webhookDataStub: WebhookSubscription = {
   subcriptionCustomers: {
-    data: [],
-    pageCount: 1,
-    pageNumber: 1,
-    pageSize: 15,
-    totalCount: 1,
+    ...installationsStub,
   },
   subcriptionTopics: {
     pageCount: 0,

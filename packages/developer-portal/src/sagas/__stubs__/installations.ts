@@ -8,6 +8,8 @@ export const installationsStub: InstallationModelPagedResult = {
       created: '2019-12-03T05:33:20',
       client: 'DXX',
       status: 'Active',
+      customerId: 'SOME_ID',
+      customerName: 'SOME_NAME',
       links: [
         {
           rel: 'self',

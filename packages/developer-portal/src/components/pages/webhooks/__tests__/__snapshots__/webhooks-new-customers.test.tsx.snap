@@ -1,0 +1,184 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`WebhooksNewCustomers should match a snapshot where there are customers 1`] = `
+Object {
+  "asFragment": [Function],
+  "baseElement": <body>
+    <div>
+      <div
+        class="ecbqyq6-el-snack-holder"
+      />
+      <div
+        class="e20pb60-el-grid"
+      >
+        <div
+          class="eb3z2eu-el-col-split"
+        >
+          <div
+            class="ec47sgk-el-mb11"
+          >
+            <p
+              class="e11jaxfn-el-has-grey-text ewfctk4-el-has-no-margin evblxhy-el-body-text"
+            >
+              Select customers from the list below. If you leave this option blank, your webhook will default to ”All Customers“ that have installed your application including Sandbox (SBOX). If you select one customer, you will need to specify each customer individually. In this case, you will also need to specify SBOX explicity.
+            </p>
+          </div>
+          <h2
+            class="e2dm5rh-el-subtitle"
+          >
+            Subscription Customers
+          </h2>
+          <input
+            class="e12c6sou-el-multi-select-input"
+            id="customer-ids"
+          />
+          <div
+            class="e1g28qe3-el-mb7 ev1ec47-el-multi-select"
+          >
+            <input
+              checked=""
+              class="e1wdkc9j-el-multi-select-checkbox"
+              id="test-static-id"
+              type="checkbox"
+            />
+            <label
+              class="ehgp5gp-el-has-grey-chips e1x92nc7-el-multi-select-label"
+              for="test-static-id"
+            >
+              SOME_NAME
+            </label>
+          </div>
+          <div
+            class="e1g28qe3-el-mb7 ev1ec47-el-multi-select"
+          >
+            <input
+              class="e1wdkc9j-el-multi-select-checkbox"
+              id="test-static-id"
+              type="checkbox"
+            />
+            <label
+              class="ehgp5gp-el-has-grey-chips e1x92nc7-el-multi-select-label"
+              for="test-static-id"
+            >
+              Sandbox Estates
+            </label>
+          </div>
+        </div>
+      </div>
+    </div>
+  </body>,
+  "container": <div>
+    <div
+      class="ecbqyq6-el-snack-holder"
+    />
+    <div
+      class="e20pb60-el-grid"
+    >
+      <div
+        class="eb3z2eu-el-col-split"
+      >
+        <div
+          class="ec47sgk-el-mb11"
+        >
+          <p
+            class="e11jaxfn-el-has-grey-text ewfctk4-el-has-no-margin evblxhy-el-body-text"
+          >
+            Select customers from the list below. If you leave this option blank, your webhook will default to ”All Customers“ that have installed your application including Sandbox (SBOX). If you select one customer, you will need to specify each customer individually. In this case, you will also need to specify SBOX explicity.
+          </p>
+        </div>
+        <h2
+          class="e2dm5rh-el-subtitle"
+        >
+          Subscription Customers
+        </h2>
+        <input
+          class="e12c6sou-el-multi-select-input"
+          id="customer-ids"
+        />
+        <div
+          class="e1g28qe3-el-mb7 ev1ec47-el-multi-select"
+        >
+          <input
+            checked=""
+            class="e1wdkc9j-el-multi-select-checkbox"
+            id="test-static-id"
+            type="checkbox"
+          />
+          <label
+            class="ehgp5gp-el-has-grey-chips e1x92nc7-el-multi-select-label"
+            for="test-static-id"
+          >
+            SOME_NAME
+          </label>
+        </div>
+        <div
+          class="e1g28qe3-el-mb7 ev1ec47-el-multi-select"
+        >
+          <input
+            class="e1wdkc9j-el-multi-select-checkbox"
+            id="test-static-id"
+            type="checkbox"
+          />
+          <label
+            class="ehgp5gp-el-has-grey-chips e1x92nc7-el-multi-select-label"
+            for="test-static-id"
+          >
+            Sandbox Estates
+          </label>
+        </div>
+      </div>
+    </div>
+  </div>,
+  "debug": [Function],
+  "findAllByAltText": [Function],
+  "findAllByDisplayValue": [Function],
+  "findAllByLabelText": [Function],
+  "findAllByPlaceholderText": [Function],
+  "findAllByRole": [Function],
+  "findAllByTestId": [Function],
+  "findAllByText": [Function],
+  "findAllByTitle": [Function],
+  "findByAltText": [Function],
+  "findByDisplayValue": [Function],
+  "findByLabelText": [Function],
+  "findByPlaceholderText": [Function],
+  "findByRole": [Function],
+  "findByTestId": [Function],
+  "findByText": [Function],
+  "findByTitle": [Function],
+  "getAllByAltText": [Function],
+  "getAllByDisplayValue": [Function],
+  "getAllByLabelText": [Function],
+  "getAllByPlaceholderText": [Function],
+  "getAllByRole": [Function],
+  "getAllByTestId": [Function],
+  "getAllByText": [Function],
+  "getAllByTitle": [Function],
+  "getByAltText": [Function],
+  "getByDisplayValue": [Function],
+  "getByLabelText": [Function],
+  "getByPlaceholderText": [Function],
+  "getByRole": [Function],
+  "getByTestId": [Function],
+  "getByText": [Function],
+  "getByTitle": [Function],
+  "queryAllByAltText": [Function],
+  "queryAllByDisplayValue": [Function],
+  "queryAllByLabelText": [Function],
+  "queryAllByPlaceholderText": [Function],
+  "queryAllByRole": [Function],
+  "queryAllByTestId": [Function],
+  "queryAllByText": [Function],
+  "queryAllByTitle": [Function],
+  "queryByAltText": [Function],
+  "queryByDisplayValue": [Function],
+  "queryByLabelText": [Function],
+  "queryByPlaceholderText": [Function],
+  "queryByRole": [Function],
+  "queryByTestId": [Function],
+  "queryByText": [Function],
+  "queryByTitle": [Function],
+  "rerender": [Function],
+  "unmount": [Function],
+}
+`;

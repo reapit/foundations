@@ -1,9 +1,9 @@
 import React from 'react'
-import { shallow } from 'enzyme'
+import { render } from '../../../../tests/react-testing'
 import { WebhooksAbout } from '../webhooks-about'
 
 describe('WebhooksAbout', () => {
   it('should match a snapshot', () => {
-    expect(shallow(<WebhooksAbout />)).toMatchSnapshot()
+    expect(render(<WebhooksAbout />)).toMatchSnapshot()
   })
 })

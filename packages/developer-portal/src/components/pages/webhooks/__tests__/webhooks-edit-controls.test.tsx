@@ -1,12 +1,12 @@
 import React from 'react'
-import { shallow } from 'enzyme'
 import { handleSetContentType, WebhooksEditControls } from '../webhooks-edit-controls'
 import { webhookItemDataStub } from '../../../../sagas/__stubs__/webhook-edit'
+import { render } from '../../../../tests/react-testing'
 
 describe('WebhooksEditControls', () => {
   it('should match a snapshot with small content', () => {
     expect(
-      shallow(
+      render(
         <WebhooksEditControls
           webhookModel={webhookItemDataStub}
           expandableContentSize="small"
@@ -19,7 +19,7 @@ describe('WebhooksEditControls', () => {
 
   it('should match a snapshot with medium content', () => {
     expect(
-      shallow(
+      render(
         <WebhooksEditControls
           webhookModel={webhookItemDataStub}
           expandableContentSize="medium"
@@ -32,7 +32,7 @@ describe('WebhooksEditControls', () => {
 
   it('should match a snapshot with large content', () => {
     expect(
-      shallow(
+      render(
         <WebhooksEditControls
           webhookModel={webhookItemDataStub}
           expandableContentSize="large"

@@ -123,7 +123,7 @@ export const handleSelectAppId: SelectAppIdHandler = (setWebhookQueryParams, his
 export const WebhooksWrapper: FC = () => {
   const history = useHistory()
   const dispatch = useDispatch()
-  const { pathname } = location
+  const { pathname } = window.location
   const [webhookQueryParams, setWebhookQueryParams] = useState<WebhookQueryParams>(handleHistoryToQueryParams(history))
   const isAboutPage = pathname === Routes.WEBHOOKS_ABOUT
   const isManagePage = pathname === Routes.WEBHOOKS_MANAGE
