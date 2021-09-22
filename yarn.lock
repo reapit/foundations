@@ -6313,6 +6313,19 @@ __metadata:
   languageName: node
   linkType: hard
 
+"@jest/types@npm:^27.1.1":
+  version: 27.1.1
+  resolution: "@jest/types@npm:27.1.1"
+  dependencies:
+    "@types/istanbul-lib-coverage": ^2.0.0
+    "@types/istanbul-reports": ^3.0.0
+    "@types/node": "*"
+    "@types/yargs": ^16.0.0
+    chalk: ^4.0.0
+  checksum: c310ebf3ec0724a6e933ccd9eb3ee46d4da0bcc87b4572b9a2734d4e534ac130a724be9f8eedbd6aa9cff5df0d5844cb16550f3d10d467d71838cf38ccb534f9
+  languageName: node
+  linkType: hard
+
 "@jimp/bmp@npm:^0.10.3":
   version: 0.10.3
   resolution: "@jimp/bmp@npm:0.10.3"
@@ -11392,6 +11405,22 @@ __metadata:
   languageName: node
   linkType: hard
 
+"@testing-library/dom@npm:^8.0.0":
+  version: 8.5.0
+  resolution: "@testing-library/dom@npm:8.5.0"
+  dependencies:
+    "@babel/code-frame": ^7.10.4
+    "@babel/runtime": ^7.12.5
+    "@types/aria-query": ^4.2.0
+    aria-query: ^4.2.2
+    chalk: ^4.1.0
+    dom-accessibility-api: ^0.5.6
+    lz-string: ^1.4.4
+    pretty-format: ^27.0.2
+  checksum: 97b53d0354237e25f6be3552e482ef89aaf8abf7e5255419d80a0f6b8a796f76310113cfe5cc1fd7e037938dc1d3ef43a6c31850366f640fe0c1cbfbb03b1beb
+  languageName: node
+  linkType: hard
+
 "@testing-library/react-hooks@npm:^7.0.1":
   version: 7.0.1
   resolution: "@testing-library/react-hooks@npm:7.0.1"
@@ -11411,6 +11440,19 @@ __metadata:
     react-test-renderer:
       optional: true
   checksum: 9f7aefee16e6b56c379b91fc0de9c5625957da8ff0c292664f482892ca89e7280dfe1734abf8286aa7cc3f81ad28c457b40513180a079463cff763e678ae5650
+  languageName: node
+  linkType: hard
+
+"@testing-library/react@npm:^12.1.0":
+  version: 12.1.0
+  resolution: "@testing-library/react@npm:12.1.0"
+  dependencies:
+    "@babel/runtime": ^7.12.5
+    "@testing-library/dom": ^8.0.0
+  peerDependencies:
+    react: "*"
+    react-dom: "*"
+  checksum: 9e38ede76ca511a3bdeeeac6db14900ec3326c36ad35004bcd729d856683ac0a403249fc00eb157f31f14abcb2ff98c7b90b2e5a498decf471bb4c64a4fe8326
   languageName: node
   linkType: hard
 
@@ -19992,6 +20034,7 @@ __metadata:
     "@reapit/utils": "workspace:packages/utils"
     "@redux-saga/testing-utils": ^1.1.3
     "@sentry/browser": ^6.9.0
+    "@testing-library/react": ^12.1.0
     "@typescript-eslint/eslint-plugin": ^4.28.4
     "@typescript-eslint/parser": ^4.28.4
     amazon-cognito-identity-js: ^4.6.3
@@ -20253,6 +20296,13 @@ __metadata:
   version: 0.5.4
   resolution: "dom-accessibility-api@npm:0.5.4"
   checksum: 39351d26a3732312f14411effef698204bf6c79a7d5eb0664441897541243f2cdf2e508aca52684ccf3b10df6708a6c265d1fde323eebcb8363a1093f5927b10
+  languageName: node
+  linkType: hard
+
+"dom-accessibility-api@npm:^0.5.6":
+  version: 0.5.7
+  resolution: "dom-accessibility-api@npm:0.5.7"
+  checksum: 93b146130150c4f484489522cda4c6866fe807b0c1647d67fe2e1cdfe67808cfe4abac18de794a016e644f6cd5d96749d7344c6b32b1cc5cd41ccd5882c6aa47
   languageName: node
   linkType: hard
 
@@ -34218,6 +34268,18 @@ fsevents@^1.2.7:
     ansi-styles: ^4.0.0
     react-is: ^17.0.1
   checksum: 5ad34fc128218485732cf0271d396158a00584708fc97bf063c1c3c000fe14da572e9a1d3d7b92d95c5e24965434656c56ed0e45804dea2435ca59a1f86f1b07
+  languageName: node
+  linkType: hard
+
+"pretty-format@npm:^27.0.2":
+  version: 27.2.0
+  resolution: "pretty-format@npm:27.2.0"
+  dependencies:
+    "@jest/types": ^27.1.1
+    ansi-regex: ^5.0.0
+    ansi-styles: ^5.0.0
+    react-is: ^17.0.1
+  checksum: 40195914b7ada7a5acc3a85ae7e1bed1cca38f88d8901004f7abfd685ebf20357933d43b6c47614f53a4045f81265d9edf1bc0b318db5d07a21891a3776d704d
   languageName: node
   linkType: hard
 

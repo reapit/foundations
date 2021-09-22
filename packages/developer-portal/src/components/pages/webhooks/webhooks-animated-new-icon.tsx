@@ -2,10 +2,10 @@ import React, { FC } from 'react'
 import { css } from '@linaria/core'
 
 export const newWebhookSvgStyle = css`
-  #eYmCOrjogMB7_ts {
-    animation: eYmCOrjogMB7_ts__ts 300ms linear 1 normal forwards;
+  #webhooks-new-svg-element-one {
+    animation: webhooks-new-svg-element-one 300ms linear 1 normal forwards;
   }
-  @keyframes eYmCOrjogMB7_ts__ts {
+  @keyframes webhooks-new-svg-element-one {
     0% {
       transform: translate(69px, 24px) scale(1, 1);
     }
@@ -13,10 +13,10 @@ export const newWebhookSvgStyle = css`
       transform: translate(69px, 24px) scale(0.8, 0.8);
     }
   }
-  #eYmCOrjogMB10_ts {
-    animation: eYmCOrjogMB10_ts__ts 300ms linear 1 normal forwards;
+  #webhooks-new-svg-element-two {
+    animation: webhooks-new-svg-element-two 300ms linear 1 normal forwards;
   }
-  @keyframes eYmCOrjogMB10_ts__ts {
+  @keyframes webhooks-new-svg-element-two {
     0% {
       transform: translate(24px, 107px) scale(1, 1);
     }
@@ -24,10 +24,10 @@ export const newWebhookSvgStyle = css`
       transform: translate(24px, 107px) scale(0.8, 0.8);
     }
   }
-  #eYmCOrjogMB13_ts {
-    animation: eYmCOrjogMB13_ts__ts 300ms linear 1 normal forwards;
+  #webhooks-new-svg-element-three {
+    animation: webhooks-new-svg-element-three 300ms linear 1 normal forwards;
   }
-  @keyframes eYmCOrjogMB13_ts__ts {
+  @keyframes webhooks-new-svg-element-three {
     0% {
       transform: translate(117px, 106px) scale(1, 1);
     }
@@ -35,10 +35,10 @@ export const newWebhookSvgStyle = css`
       transform: translate(117px, 106px) scale(0.8, 0.8);
     }
   }
-  #eYmCOrjogMB16_ts {
-    animation: eYmCOrjogMB16_ts__ts 300ms linear 1 normal forwards;
+  #webhooks-new-svg-element-four {
+    animation: webhooks-new-svg-element-four 300ms linear 1 normal forwards;
   }
-  @keyframes eYmCOrjogMB16_ts__ts {
+  @keyframes webhooks-new-svg-element-four {
     0% {
       transform: translate(69.3825px, 75.303001px) scale(1, 1);
     }
@@ -88,7 +88,7 @@ export const WebhooksAnimatedNewIcon: FC = () => (
         strokeWidth="1"
       />
     </g>
-    <g id="eYmCOrjogMB7_ts" transform="translate(69,24) scale(1,1)">
+    <g id="webhooks-new-svg-element-one" transform="translate(69,24) scale(1,1)">
       <g id="eYmCOrjogMB7" transform="translate(-69,-24)">
         <circle
           id="eYmCOrjogMB8"
@@ -109,7 +109,7 @@ export const WebhooksAnimatedNewIcon: FC = () => (
         />
       </g>
     </g>
-    <g id="eYmCOrjogMB10_ts" transform="translate(24,107) scale(1,1)">
+    <g id="webhooks-new-svg-element-two" transform="translate(24,107) scale(1,1)">
       <g id="eYmCOrjogMB10" transform="translate(-24,-107)">
         <circle
           id="eYmCOrjogMB11"
@@ -130,7 +130,7 @@ export const WebhooksAnimatedNewIcon: FC = () => (
         />
       </g>
     </g>
-    <g id="eYmCOrjogMB13_ts" transform="translate(117,106) scale(1,1)">
+    <g id="webhooks-new-svg-element-three" transform="translate(117,106) scale(1,1)">
       <g id="eYmCOrjogMB13" transform="translate(-117,-106)">
         <circle
           id="eYmCOrjogMB14"
@@ -152,7 +152,7 @@ export const WebhooksAnimatedNewIcon: FC = () => (
         />
       </g>
     </g>
-    <g id="eYmCOrjogMB16_ts" transform="translate(69.3825,75.303001) scale(1,1)">
+    <g id="webhooks-new-svg-element-four" transform="translate(69.3825,75.303001) scale(1,1)">
       <path
         id="eYmCOrjogMB16"
         d="M69.0599,82.8133L69.0509,82.8097C68.1124,83.1967,64.7244,83.1896,62.2644,83.1844C61.2546,83.1822,60.4012,83.1804,59.9377,83.2063C55.5647,83.251,51.9503,79.7116,51.9056,75.341C51.9056,70.97,55.4837,67.3572,59.8568,67.3125L66.5311,67.2444C66.5761,67.2439,66.5946,67.3022,66.5572,67.3273C65.2163,68.2248,63.8624,69.77,63.1367,71.1968C63.0708,71.3263,62.9394,71.4089,62.7942,71.411L59.5887,71.4558C57.494,71.4772,55.7977,73.2075,55.8191,75.301C55.8405,77.3945,57.5718,79.0899,59.6664,79.0685C60.1792,79.063,61.0287,79.0546,61.9174,79.0457C63.0521,79.0344,64.2508,79.0224,64.8944,79.0152L64.8944,79.0145C65.0592,79.0121,65.2273,79.0109,65.3974,79.0098C66.7884,79.0005,68.3109,78.9904,69.246,78.2711L69.2463,78.2714C70.0763,77.701,70.528,76.8496,70.6684,76.3033L70.6677,76.3032C70.8934,75.5567,70.8706,74.8017,70.6898,74.121C70.6416,73.9394,70.7414,73.7524,70.9191,73.6913C72.0511,73.3022,73.2099,73.2688,74.2497,73.3788C74.4151,73.3963,74.5786,73.5446,74.6107,73.7077C74.9838,75.6035,74.582,77.6755,73.6403,79.2254L73.6412,79.2277L73.6442,79.2276C72.5658,80.9466,70.9957,82.2465,69.0599,82.8133ZM64.1517,76.9509C63.2099,72.2891,66.8776,67.5559,71.8566,67.4712C71.8619,67.4711,71.8673,67.4709,71.8726,67.4707C71.8765,67.4705,71.8804,67.4704,71.8844,67.4703L78.8274,67.3994C83.2449,67.3543,86.8594,70.9301,86.8594,75.3455C86.8594,79.6721,83.3176,83.2482,78.9889,83.2924L72.2126,83.3616C72.1673,83.3621,72.1491,83.3029,72.1873,83.2783C73.5511,82.4012,74.9453,80.8294,75.6346,79.4153C75.6994,79.2824,75.8324,79.1967,75.9803,79.1946L79.1763,79.15C81.271,79.1286,82.9673,77.3983,82.9459,75.3047C82.9459,73.211,81.232,71.5155,79.1372,71.5369L73.8809,71.5905L73.8837,71.5964C73.6489,71.602,73.4066,71.6034,73.1612,71.6048C71.9192,71.6119,70.5952,71.6195,69.7423,72.1802C68.929,72.6894,68.3867,73.4272,68.1023,74.285C67.883,74.9829,67.8742,75.8422,68.0701,76.5011C68.1215,76.674,68.0221,76.8565,67.8465,76.8982C66.6991,77.1713,65.6413,77.2305,64.4746,77.217C64.3178,77.2152,64.1827,77.1046,64.1517,76.9509Z"

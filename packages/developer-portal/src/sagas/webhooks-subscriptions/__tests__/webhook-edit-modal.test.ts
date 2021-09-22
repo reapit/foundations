@@ -79,7 +79,7 @@ describe('developer fetch subscription data', () => {
 
 describe('developer fetch webhook data', () => {
   const webhookId = ''
-  const applicationId = ''
+  const applicationId = 'SOME_APP_ID'
   const gen = cloneableGenerator(requestWebhookData as any)({ data: webhookId })
   expect(gen.next().value).toEqual(call(fetchWebhooksSubscriptionById, { id: webhookId }))
 

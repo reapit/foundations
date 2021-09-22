@@ -1,0 +1,13 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`GoogleMapsError should match snapshot 1`] = `
+<AppNavContainer>
+  <FlexContainerResponsive>
+    <Section>
+      <Helper>
+        There was a problem loading Google Maps. Please try refreshing your page
+      </Helper>
+    </Section>
+  </FlexContainerResponsive>
+</AppNavContainer>
+`;
