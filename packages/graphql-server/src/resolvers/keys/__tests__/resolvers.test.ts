@@ -7,10 +7,12 @@ import {
   mutationCreateKey,
   mutationCreateKeyMovement,
   mutationUpdateKeyMovement,
+  queryGetKeyMovements,
+  queryGetPropertyKeysResolver,
 } from '../resolvers'
 import { mockKey } from '../__stubs__/mock-key'
 import { mockKeys } from '../__stubs__/mock-keys'
-import { mockKeyMovement, mockKeyMovementUpdate } from '../__stubs__/mock-key-movement'
+import { mockKeyMovement, mockKeyMovements, mockKeyMovementUpdate } from '../__stubs__/mock-key-movement'
 import { mockContext } from '../../../__stubs__/mock-context'
 
 jest.mock('../services', () => ({
@@ -19,6 +21,7 @@ jest.mock('../services', () => ({
   createKey: jest.fn(() => mockKey),
   createKeyMovement: jest.fn(() => mockKeyMovement),
   updateKeyMovement: jest.fn(() => mockKeyMovement),
+  getKeyMovements: jest.fn(() => mockKeyMovements),
 }))
 jest.mock('../../../errors', () => ({
   generateAuthenticationError: jest.fn(() => 'authentication error'),
@@ -57,6 +60,30 @@ describe('queryGetPropertyKeys', () => {
     const args = { propertyId: 'a' }
     const result = queryGetPropertyKeys(null, args, mockContext)
     expect(result).toEqual(errors.generateAuthenticationError(mockContext.traceId))
+  })
+})
+
+describe('queryGetKeyMovements', () => {
+  it('should return correctly', () => {
+    ;(checkPermission as jest.Mock).mockReturnValue(true)
+    const parent = { propertyId: 'a', id: 'b' }
+    const result = queryGetKeyMovements(parent, {}, mockContext)
+    expect(result).toEqual(keyServices.getKeyMovements({ propertyId: 'a', keyId: 'b' }, mockContext))
+  })
+
+  it('should return auth error correctly', () => {
+    ;(checkPermission as jest.Mock).mockReturnValue(false)
+    const parent = { propertyId: 'a', id: 'b' }
+    const result = queryGetKeyMovements(parent, {}, mockContext)
+    expect(result).toEqual(errors.generateAuthenticationError(mockContext.traceId))
+  })
+})
+
+describe('queryGetPropertyKeysResolver', () => {
+  it('should return correctly', () => {
+    ;(checkPermission as jest.Mock).mockReturnValue(true)
+    const result = queryGetPropertyKeysResolver({ id: 'a' }, {}, mockContext)
+    expect(result).toEqual(keyServices.getKeysByPropertyId({ propertyId: 'a' }, mockContext))
   })
 })
 

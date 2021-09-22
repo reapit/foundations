@@ -13,6 +13,7 @@ import {
   CreateKeyMovementReturn,
   UpdateKeyMovementArgs,
   UpdateKeyMovementReturn,
+  QueryGetPropertyKeyMovementsReturn,
 } from './keys'
 import { PropertyModel } from '@reapit/foundations-ts-definitions'
 
@@ -56,6 +57,18 @@ export const mutationUpdateKeyMovement = resolverHandler<UpdateKeyMovementArgs, 
   },
 )
 
+export const queryGetKeyMovements = resolverHandler<any, QueryGetPropertyKeyMovementsReturn>(
+  (parent: PropertyKey, args: any, context: ServerContext) => {
+    return keyServices.getKeyMovements({ keyId: parent.id, propertyId: parent.propertyId }, context)
+  },
+)
+
+export const queryGetPropertyKeysResolver = resolverHandler<any, QueryGetPropertyKeysReturn>(
+  (parent: PropertyModel, args: any, context: ServerContext) => {
+    return keyServices.getKeysByPropertyId({ propertyId: parent.id }, context)
+  }
+)
+
 export default {
   Query: {
     GetPropertyKeys: queryGetPropertyKeys,
@@ -67,13 +80,9 @@ export default {
     UpdateKeyMovement: mutationUpdateKeyMovement,
   },
   KeyModel: {
-    movements(parent: PropertyKey, args: any, context: ServerContext) {
-      return keyServices.getKeyMovements({ keyId: parent.id, propertyId: parent.propertyId }, context)
-    },
+    movements: queryGetKeyMovements,
   },
   PropertyModel: {
-    keys(parent: PropertyModel, args: any, context: ServerContext) {
-      return keyServices.getKeysByPropertyId({ propertyId: parent.id }, context)
-    },
+    keys: queryGetPropertyKeysResolver,
   },
 }
