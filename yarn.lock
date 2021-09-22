@@ -15350,6 +15350,28 @@ __metadata:
   languageName: node
   linkType: hard
 
+"axios-mock-adapter@npm:^1.20.0":
+  version: 1.20.0
+  resolution: "axios-mock-adapter@npm:1.20.0"
+  dependencies:
+    fast-deep-equal: ^3.1.3
+    is-blob: ^2.1.0
+    is-buffer: ^2.0.5
+  peerDependencies:
+    axios: ">= 0.9.0"
+  checksum: 949a01ace50205d4051f22d83fd85ba5b2624a35bd473ef85ab4f6f1ab5480698d08e2a28b62c0a9fd2a728e9414b79ba000de344300b61e4cfd945bf159c41f
+  languageName: node
+  linkType: hard
+
+"axios-retry@npm:^3.1.9":
+  version: 3.1.9
+  resolution: "axios-retry@npm:3.1.9"
+  dependencies:
+    is-retry-allowed: ^1.1.0
+  checksum: 1e6a4df3089bd08377734e2dcb58a6895b272ca9facd6e8b2d0388c342b31d39a1ec4592abe171d9f596bbab374fbc4de6e845d4eb6d7440c874e97933f29888
+  languageName: node
+  linkType: hard
+
 "axios@npm:^0.21.1":
   version: 0.21.1
   resolution: "axios@npm:0.21.1"
@@ -24529,6 +24551,8 @@ fsevents@^1.2.7:
     apollo-server-core: ^3.0.1
     apollo-server-lambda: ^3.0.1
     axios: ^0.21.1
+    axios-mock-adapter: ^1.20.0
+    axios-retry: ^3.1.9
     babel-loader: ^8.2.2
     babel-runtime: ^6.26.0
     bufferutil: ^4.0.3
@@ -26127,6 +26151,13 @@ fsevents@^1.2.7:
   languageName: node
   linkType: hard
 
+"is-blob@npm:^2.1.0":
+  version: 2.1.0
+  resolution: "is-blob@npm:2.1.0"
+  checksum: 29f1e31a613f2a1fd6055a2bc0bd0870ce3f32719e8c024d7582d1a6ba8d3346394664e2888adb3dfbd31abd6e2ab834a1ccdd499f79ff7d9071900814ae3647
+  languageName: node
+  linkType: hard
+
 "is-boolean-object@npm:^1.0.1, is-boolean-object@npm:^1.1.0":
   version: 1.1.1
   resolution: "is-boolean-object@npm:1.1.1"
@@ -26143,7 +26174,7 @@ fsevents@^1.2.7:
   languageName: node
   linkType: hard
 
-"is-buffer@npm:^2.0.0, is-buffer@npm:~2.0.3":
+"is-buffer@npm:^2.0.0, is-buffer@npm:^2.0.5, is-buffer@npm:~2.0.3":
   version: 2.0.5
   resolution: "is-buffer@npm:2.0.5"
   checksum: 1a6dc68206e834887d3b0d8e8ec6c95e0d780314479526a5a2cf458838d1bc441a105c4cebf95d8cc16e383238f66c41761ec622f6154043186e3d9439d56970
