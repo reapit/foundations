@@ -51,13 +51,6 @@ describe('callGetKeyAPI', () => {
     const result = await callGetKeyAPI(args, mockContext)
     expect(result).toEqual(mockKey)
   })
-  it('should catch error correctly', async () => {
-    ;(createPlatformAxiosInstance as jest.Mocked<any>).mockReturnValueOnce({
-      get: jest.fn(() => Promise.reject('error caught')),
-    })
-    const args = { propertyId: 'a', keyId: 'b' }
-    await expect(callGetKeyAPI(args, mockContext)).rejects.toThrow('caught error')
-  })
 })
 
 describe('callGetPropertyKeysAPI', () => {
@@ -68,14 +61,6 @@ describe('callGetPropertyKeysAPI', () => {
     const args = { propertyId: 'a' } as any
     const result = await callGetPropertyKeysAPI(args, mockContext)
     expect(result).toEqual(mockKeys)
-  })
-
-  it('should catch error correctly', async () => {
-    ;(createPlatformAxiosInstance as jest.Mocked<any>).mockReturnValueOnce({
-      get: jest.fn(() => Promise.reject('error caught')),
-    })
-    const args = { propertyId: 'a' } as any
-    await expect(callGetPropertyKeysAPI(args, mockContext)).rejects.toThrow('caught error')
   })
 })
 
@@ -89,12 +74,6 @@ describe('callCreateKeyAPI', () => {
     await callCreateKeyAPI(mockKey, mockContext)
     expect(getIdFromCreateHeaders).toHaveBeenCalledWith({ headers: 'header' })
   })
-  it('should catch error correctly', async () => {
-    ;(createPlatformAxiosInstance as jest.Mocked<any>).mockReturnValueOnce({
-      post: jest.fn(() => Promise.reject('error caught')),
-    })
-    await expect(callCreateKeyAPI(mockKey, mockContext)).rejects.toThrow('caught error')
-  })
 })
 
 describe('callGetKeyMovementsAPI', () => {
@@ -104,12 +83,6 @@ describe('callGetKeyMovementsAPI', () => {
     })
     await callGetKeyMovementsAPI({ propertyId: 'a', keyId: 'b' }, mockContext)
   })
-  it('should catch error correctly', async () => {
-    ;(createPlatformAxiosInstance as jest.Mocked<any>).mockReturnValueOnce({
-      patch: jest.fn(() => Promise.reject('error caught')),
-    })
-    await expect(callGetKeyMovementsAPI({ propertyId: 'a', keyId: 'b' }, mockContext)).rejects.toThrow('caught error')
-  })
 })
 
 describe('callGetKeyMovementAPI', () => {
@@ -118,14 +91,6 @@ describe('callGetKeyMovementAPI', () => {
       get: jest.fn(() => Promise.resolve({ data: mockKeyMovement })),
     })
     await callGetKeyMovementAPI({ propertyId: 'a', keyId: 'b', movementId: 'c' }, mockContext)
-  })
-  it('should catch error correctly', async () => {
-    ;(createPlatformAxiosInstance as jest.Mocked<any>).mockReturnValueOnce({
-      get: jest.fn(() => Promise.reject('error caught')),
-    })
-    await expect(callGetKeyMovementAPI({ propertyId: 'a', keyId: 'b', movementId: 'c' }, mockContext)).rejects.toThrow(
-      'error caught',
-    )
   })
 })
 
@@ -139,12 +104,6 @@ describe('callCreateKeyMovementAPI', () => {
     await callCreateKeyMovementAPI(mockKeyMovement, mockContext)
     expect(getIdFromCreateHeaders).toHaveBeenCalledWith({ headers: 'header' })
   })
-  it('should catch error correctly', async () => {
-    ;(createPlatformAxiosInstance as jest.Mocked<any>).mockReturnValueOnce({
-      post: jest.fn(() => Promise.reject('error caught')),
-    })
-    await expect(callCreateKeyMovementAPI(mockKeyMovement, mockContext)).rejects.toThrow('error caught')
-  })
 })
 
 describe('callUpdateKeyMovementAPI', () => {
@@ -156,11 +115,5 @@ describe('callUpdateKeyMovementAPI', () => {
     ;(getIdFromCreateHeaders as jest.Mocked<any>).mockReturnValueOnce('a')
     await callUpdateKeyMovementAPI(mockKeyMovementUpdate, mockContext)
     expect(getIdFromCreateHeaders).toHaveBeenCalledWith({ headers: 'header' })
-  })
-  it('should catch error correctly', async () => {
-    ;(createPlatformAxiosInstance as jest.Mocked<any>).mockReturnValueOnce({
-      patch: jest.fn(() => Promise.reject('error caught')),
-    })
-    await expect(callUpdateKeyMovementAPI(mockKeyMovementUpdate, mockContext)).rejects.toThrow('caught error')
   })
 })
