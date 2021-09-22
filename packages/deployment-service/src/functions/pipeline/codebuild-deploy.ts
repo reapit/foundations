@@ -109,6 +109,7 @@ export const codebuildDeploy: SQSHandler = async (event: SQSEvent, context: Cont
               1000,
           ).toString()
         }
+        await deleteMessage(record.receiptHandle)
       }
 
       const updatedPipelineRunner = await savePipelineRunnerEntity(pipelineRunner)
