@@ -1,7 +1,17 @@
 {
   "name": "deployment-service",
   "dependencies": {
+    "@aws-cdk/aws-codebuild": "^1.124.0",
+    "@aws-cdk/aws-ec2": "^1.124.0",
+    "@aws-cdk/aws-iam": "^1.124.0",
+    "@aws-cdk/aws-lambda": "^1.124.0",
+    "@aws-cdk/aws-rds": "^1.124.0",
     "@aws-cdk/aws-route53": "^1.117.0",
+    "@aws-cdk/aws-s3": "^1.124.0",
+    "@aws-cdk/aws-secretsmanager": "^1.124.0",
+    "@aws-cdk/aws-sns": "^1.124.0",
+    "@aws-cdk/aws-sns-subscriptions": "^1.124.0",
+    "@aws-cdk/aws-sqs": "^1.124.0",
     "@aws-cdk/core": "^1.117.0",
     "@aws-sdk/client-cloudfront": "^3.29.0",
     "@aws-sdk/client-route-53": "^3.29.0",
