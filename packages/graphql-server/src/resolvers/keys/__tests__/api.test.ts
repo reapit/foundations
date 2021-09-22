@@ -109,7 +109,7 @@ describe('callCreateKeyMovementAPI', () => {
 describe('callUpdateKeyMovementAPI', () => {
   it('should work correctly', async () => {
     ;(createPlatformAxiosInstance as jest.Mocked<any>).mockReturnValueOnce({
-      patch: jest.fn(() => Promise.resolve({ headers: 'header' })),
+      patch: jest.fn(() => Promise.resolve({ headers: 'header', status: 201 })),
       get: jest.fn(() => Promise.resolve({ data: mockKeyMovement })),
     })
     ;(getIdFromCreateHeaders as jest.Mocked<any>).mockReturnValueOnce('a')
