@@ -74,7 +74,7 @@ exports[`Client should match a snapshot when LOADING false 1`] = `
                   className="title is-3"
                   id=""
                 >
-                  Marketplace
+                  AppMarket
                 </h3>
               </H3>
               <InfiniteScroll
@@ -206,7 +206,7 @@ exports[`Client should match a snapshot when LOADING false 2`] = `
                   className="title is-3"
                   id=""
                 >
-                  Marketplace
+                  AppMarket
                 </h3>
               </H3>
               <InfiniteScroll
