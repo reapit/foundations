@@ -3,7 +3,9 @@ import axiosRetry from 'axios-retry'
 
 import { API_VERSION } from '../constants/api'
 
-const retryConfig: AxiosRequestConfig['axios-retry'] = {
+type RetryConfig = AxiosRequestConfig['axios-retry']
+
+const retryConfig: RetryConfig = {
   retries: 10,
   retryDelay: axiosRetry.exponentialDelay,
   retryCondition: (error) => {
@@ -11,7 +13,7 @@ const retryConfig: AxiosRequestConfig['axios-retry'] = {
   },
 }
 
-export const createPlatformAxiosInstance = () => {
+export const createPlatformAxiosInstance = (customRetryConfig?: Partial<RetryConfig>) => {
   const instance = axios.create({
     baseURL: process.env.PLATFORM_API_BASE_URL,
     headers: {
@@ -19,6 +21,6 @@ export const createPlatformAxiosInstance = () => {
       'api-version': API_VERSION,
     },
   })
-  axiosRetry(instance, retryConfig)
+  axiosRetry(instance, { ...retryConfig, ...customRetryConfig })
   return instance
 }
