@@ -6,6 +6,7 @@ import { generateNegotiatorLoader } from './../resolvers/negotiators/dataloader'
 import { v4 as uuid } from 'uuid'
 import { Context } from 'apollo-server-core'
 import { ServerDataLoader } from './server.data.loader'
+import { generateContactLoader } from '@/resolvers/contacts/dataloader'
 
 export type ServerContext = Context<{ traceId: string; authorization: string; dataLoader: ServerDataLoader }>
 
@@ -29,6 +30,7 @@ export const handleContext = ({ event, context }) => {
     propertyLoader: generatePropertyLoader(newContext),
     officeLoader: generateOfficeLoader(newContext),
     negotiatorLoader: generateNegotiatorLoader(newContext),
+    contactLoader: generateContactLoader(newContext),
   } as ServerDataLoader
   newContext.dataLoader = dataLoader
   return newContext
