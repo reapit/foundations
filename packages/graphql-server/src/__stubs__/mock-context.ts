@@ -20,6 +20,10 @@ export const mockContext = {
       load: jest.fn().mockResolvedValue(() => mockOffices) as any,
       loadMany: jest.fn().mockResolvedValue(() => mockOffices) as any,
     },
+    contactLoader: {
+      load: jest.fn().mockResolvedValue(() => mockNegotiators) as any,
+      loadMany: jest.fn().mockResolvedValue(() => mockNegotiators) as any,
+    },
     negotiatorLoader: {
       load: jest.fn().mockResolvedValue(() => mockNegotiators) as any,
       loadMany: jest.fn().mockResolvedValue(() => mockNegotiators) as any,

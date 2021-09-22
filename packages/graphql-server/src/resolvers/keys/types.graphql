@@ -1,0 +1,75 @@
+type IndividualKeyModel {
+  description: String
+  name: String
+}
+
+input IndividualKeyModelInput {
+  description: String
+  name: String
+}
+
+type KeyType {
+  value: String
+  id: String
+}
+
+enum KeyStatus {
+  checkedIn
+  checkedOut
+  noLongerHeld
+}
+
+type KeyMovementModel {
+  id: ID!
+  created: String
+  modified: String
+  checkOutToContact: ContactModel
+  checkOutToNegotiator: NegotiatorModel
+  checkOutAt: String
+  checkOutNegotiator: NegotiatorModel
+  checkInAt: String
+  checkInNegotiator: NegotiatorModel
+}
+
+type KeyModel {
+  id: ID!
+  created: String
+  modified: String
+  number: String
+  type: KeyType
+  office: OfficeModel
+  status: KeyStatus
+  keysInSet: [IndividualKeyModel]
+  movements: [KeyMovementModel]
+}
+
+enum KeyEmbed {
+  movements
+}
+
+input KeyModelInput {
+  number: String!
+  typeId: String!
+  officeId: String!
+  keysInSet: [IndividualKeyModelInput]
+}
+
+input KeyMovementModelInput {
+  checkInRequired: Boolean!
+  checkOutToId: String!
+  checkOutToType: String!
+  checkOutNegotiatorId: String!
+}
+
+type Query {
+  GetPropertyKeys(propertyId: String!): [KeyModel]
+  GetKey(id: ID!): KeyModel
+  GetKeyMovements(propertyId: ID!, keyId: ID!): [KeyMovementModel]
+  GetKeyMovement(propertyId: ID!, keyId: ID!, movementId: ID!): KeyMovementModel
+}
+
+type Mutation {
+  CreateKey(propertyId: ID!, key: KeyModelInput): KeyModel
+  CreateKeyMovement(propertyId: ID!, keyId: ID!, movement: KeyMovementModelInput): KeyMovementModel
+  UpdateKeyMovement(propertyId: ID!, keyId: ID!, movementId: ID!, checkInNegotiatorId: String!): KeyMovementModel
+}

@@ -294,6 +294,10 @@ type Query {
     createdFrom: String
     createdTo: String
   ): JournalEntryModelPagedResult!
+  GetPropertyKeys(propertyId: String!): [KeyModel]
+  GetKey(id: ID!): KeyModel
+  GetKeyMovements(propertyId: ID!, keyId: ID!): [KeyMovementModel]
+  GetKeyMovement(propertyId: ID!, keyId: ID!, movementId: ID!): KeyMovementModel
   GetLandlordById(id: String!, embed: [LandlordQueryEmbed]): LandlordModel!
   GetLandlords(
     pageSize: Int
@@ -847,6 +851,9 @@ type Mutation {
     metadata: JSON
   ): IdentityCheckModel!
   CreateJournalEntry(propertyId: String, associatedType: String, associatedId: String, description: String!): Boolean!
+  CreateKey(propertyId: ID!, key: KeyModelInput): KeyModel
+  CreateKeyMovement(propertyId: ID!, keyId: ID!, movement: KeyMovementModelInput): KeyMovementModel
+  UpdateKeyMovement(propertyId: ID!, keyId: ID!, movementId: ID!, checkInNegotiatorId: String!): KeyMovementModel
   UpdateLandlord(
     id: String!
     _eTag: String!
@@ -1351,6 +1358,7 @@ enum ConfigurationType {
   tenancyTypes
   vendorTypes
   worksOrderTypes
+  keyTypes
 }
 
 type ContactModel {
@@ -1720,6 +1728,69 @@ type JournalEntryModelPagedResult {
   totalPageCount: Int
   totalCount: Int
   _links: JSON
+}
+
+type IndividualKeyModel {
+  description: String
+  name: String
+}
+
+input IndividualKeyModelInput {
+  description: String
+  name: String
+}
+
+type KeyType {
+  value: String
+  id: String
+}
+
+enum KeyStatus {
+  checkedIn
+  checkedOut
+  noLongerHeld
+}
+
+type KeyMovementModel {
+  id: ID!
+  created: String
+  modified: String
+  checkOutToContact: ContactModel
+  checkOutToNegotiator: NegotiatorModel
+  checkOutAt: String
+  checkOutNegotiator: NegotiatorModel
+  checkInAt: String
+  checkInNegotiator: NegotiatorModel
+}
+
+type KeyModel {
+  id: ID!
+  created: String
+  modified: String
+  number: String
+  type: KeyType
+  office: OfficeModel
+  status: KeyStatus
+  keysInSet: [IndividualKeyModel]
+  movements: [KeyMovementModel]
+}
+
+enum KeyEmbed {
+  movements
+}
+
+input KeyModelInput {
+  number: String!
+  typeId: String!
+  officeId: String!
+  keysInSet: [IndividualKeyModelInput]
+}
+
+input KeyMovementModelInput {
+  checkInRequired: Boolean!
+  checkOutToId: String!
+  checkOutToType: String!
+  checkOutNegotiatorId: String!
 }
 
 enum LandlordQueryEmbed {
@@ -2107,6 +2178,7 @@ type PropertyModel {
   lostInstructionDate: String
   lostInstructionNote: String
   metadata: JSON
+  keys: [KeyModel]
   _eTag: String
   _links: JSON
   _embedded: EmbeddedPropertyModel
