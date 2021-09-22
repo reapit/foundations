@@ -11,7 +11,7 @@
     "@reapit/utils-common": "workspace:packages/utils-common",
     "@reapit/utils-node": "workspace:packages/utils-node",
     "adm-zip": "^0.5.5",
-    "aws-cdk": "^1.117.0",
+    "aws-cdk": "^1.124.0",
     "class-transformer": "^0.4.0",
     "class-validator": "^0.13.1",
     "jsonwebtoken": "^8.5.1",
