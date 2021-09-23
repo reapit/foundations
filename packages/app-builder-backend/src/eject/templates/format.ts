@@ -1,4 +1,8 @@
 import { ESLint } from 'eslint'
+// need to use require here as can't import this on it's own from ts-scripts, and importing ts-scripts
+// will cause execution of git commands for the ts-scripts webpack config which we don't want because
+// in prod we don't have git in the path
+const baseEslint = require('@reapit/ts-scripts/src/eslint/base-eslint')
 
 export const slugToCamel = (str) =>
   capitalize(
@@ -8,7 +12,6 @@ export const slugToCamel = (str) =>
 const capitalize = (s) => s && s[0].toUpperCase() + s.slice(1)
 
 export const lint = async (code: string): Promise<string> => {
-  const baseEslint = require('@reapit/ts-scripts/src/eslint/base-eslint') // inline import because ts-scripts has dependency issues
   const eslint = new ESLint({
     // @ts-ignore
     baseConfig: baseEslint,
