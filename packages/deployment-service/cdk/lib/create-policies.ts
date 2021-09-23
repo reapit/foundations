@@ -1,7 +1,8 @@
 import { Project } from "@aws-cdk/aws-codebuild";
 import { Effect, PolicyStatement } from "@aws-cdk/aws-iam";
-import { DatabaseSecret, ServerlessCluster } from "@aws-cdk/aws-rds";
+import { ServerlessCluster } from "@aws-cdk/aws-rds";
 import { Bucket } from "@aws-cdk/aws-s3";
+import { ISecret } from "@aws-cdk/aws-secretsmanager";
 import { Queue } from "@aws-cdk/aws-sqs";
 
 export enum PolicyNames {
@@ -36,7 +37,7 @@ export const createPolicies = (
   }:  {
     buckets: {[s: string]: Bucket},
     queues: {[s: string]: Queue},
-    secretManager: DatabaseSecret,
+    secretManager: ISecret,
     codeBuild: Project,
     aurora: ServerlessCluster,
   }
