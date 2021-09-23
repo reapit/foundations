@@ -7,16 +7,17 @@ import { Queue } from '@aws-cdk/aws-sqs'
 import { createS3Buckets } from './create-S3-bucket'
 import { createSqsQueues } from './create-sqs'
 import { createAurora } from './create-aurora'
-import { Connections, Peer, Port, Protocol, SecurityGroup, Subnet, Vpc } from '@aws-cdk/aws-ec2'
+import { Peer, Port, SecurityGroup, Subnet, Vpc } from '@aws-cdk/aws-ec2'
 import { createCodeBuildProject } from './create-code-build'
 import { createApigateway } from './create-apigateway'
-import { v4 as uuid } from 'uuid'
+import { SqsEventSource } from '@aws-cdk/aws-lambda-event-sources'
+import { LambdaRestApi } from '@aws-cdk/aws-apigateway'
 
 type FunctionSetup = {
   policies: PolicyStatement[],
   api?: {
-    method: 'string',
-    path: 'string',
+    method: string,
+    path: string,
   },
   queue?: Queue,
 }
@@ -41,8 +42,8 @@ export class CdkStack extends cdk.Stack {
     // TODO try to make components reusable
 
     const vpc = new Vpc(scope as any, `deployment-service-vpc`)
-    const securityGroup = new SecurityGroup(scope, ``, {
-
+    const securityGroup = new SecurityGroup(scope as any, ``, {
+      vpc,
     })
     securityGroup.addIngressRule(
       Peer.ipv4('0.0.0.0/0'),
@@ -53,22 +54,22 @@ export class CdkStack extends cdk.Stack {
     // TODO add egress? outbound?
 
     const subnets = [
-      new Subnet(scope, ``, {
+      new Subnet(scope as any, ``, {
         vpcId: vpc.vpcId,
         cidrBlock: '172.31.16.0/20',
         availabilityZone: 'eu-west-2a',
       }),
-      new Subnet(scope, ``, {
+      new Subnet(scope as any, ``, {
         vpcId: vpc.vpcId,
         cidrBlock: '172.31.32.0/20',
         availabilityZone: 'eu-west-2b',
       }),
-      new Subnet(scope, ``, {
+      new Subnet(scope as any, ``, {
         vpcId: vpc.vpcId,
         cidrBlock: '172.31.0.0/20',
         availabilityZone: 'eu-west-2c',
       }),
-      new Subnet(scope, ``, {
+      new Subnet(scope as any, ``, {
         vpcId: vpc.vpcId,
         cidrBlock: '172.31.128.0/24',
         availabilityZone: 'eu-west-2d',
@@ -222,83 +223,15 @@ export class CdkStack extends cdk.Stack {
       const lambda = createLambda(scope, handler, AssetCode.fromAsset(path.resolve('..', '..', 'dist', handler)), vpc)
       // TODO add required triggers?
 
-
-
+      if (options.queue) {
+        lambda.addEventSource(new SqsEventSource(options.queue))
+      } else if (options.api) {
+        const api = new LambdaRestApi(scope as any, ``, {
+          handler: lambda,
+        })
+        const item = api.root.addResource(options.api.path)
+        item.addMethod(options.api.method)
+      } // TODO sns trigger
     }
-
-
-
-    // add triggers to functions
   }
 }
-
-
-    // Policies
-
-    /**
-     * bucket policies for funcs
-     * 
-     * - s3:PutObject
-        - s3:GetObject
-        - s3:ListBucket
-        - s3:PutObjectAcl
-        - s3:GetBucketAcl
-        - s3:GetObjectAcl
-        - s3:GetBucketLocation
-        - s3:GetObjectRetention
-        - s3:GetObjectVersionAcl
-        - s3:DeleteObject
-        - s3:DeleteObjectVersion
-     */
-
-    /**
-     * RDS
-     * 
-     * - rds-data:BeginTransaction
-        - rds-data:CommitTransaction
-        - rds-data:ExecuteStatement
-     */
-
-    /**
-     * secret manager
-     * 
-     *  - secretsmanager:GetSecretValue
-     */
-
-    /**
-     * SQS
-     * 
-     * - sqs:GetQueueAttributes
-        - sqs:SendMessage
-        - sqs:DeleteMessage
-     */
-
-    /**
-     * lambdaInvoke
-     * - lambda:InvokeFunction
-     */
-
-    /**
-     * Route53
-     * 
-     * - route53:GetHostedZone
-        - route53:ChangeResourceRecordSets
-        - route53:GetChange
-        - route53:ListResourceRecordSets
-     */
-
-    /**
-     * codebuild 
-     * 
-     * - codebuild:StartBuild
-     */
-
-    /**
-     * cloudfront
-     * 
-     * - cloudfront:CreateDistribution
-        - cloudfront:CreateInvalidation
-        - cloudfront:DeleteDistribution
-        - cloudfront:GetDistribution
-        - cloudfront:UpdateDistribution
-     */
