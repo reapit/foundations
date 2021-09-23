@@ -28,7 +28,7 @@ export const createStack = (scope: cdk.App, name: string) => {
       PACKAGE,
       NPM_TOKEN: process.env.NPM_TOKEN,
     },
-    cmd: [`packages/${PACKAGE}/dist/${PACKAGE}/${HANDLER}`],
+    cmd: [`packages/${PACKAGE}/dist/${HANDLER}`],
   })
   const GSI_NAME = 'gsi-userId'
   const appsTable = createTable(
