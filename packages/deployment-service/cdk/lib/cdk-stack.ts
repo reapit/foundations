@@ -7,8 +7,10 @@ import { Queue } from '@aws-cdk/aws-sqs'
 import { createS3Buckets } from './create-S3-bucket'
 import { createSqsQueues } from './create-sqs'
 import { createAurora } from './create-aurora'
-import { Vpc } from '@aws-cdk/aws-ec2'
+import { Connections, Peer, Port, Protocol, SecurityGroup, Subnet, Vpc } from '@aws-cdk/aws-ec2'
 import { createCodeBuildProject } from './create-code-build'
+import { createApigateway } from './create-apigateway'
+import { v4 as uuid } from 'uuid'
 
 type FunctionSetup = {
   policies: PolicyStatement[],
@@ -39,11 +41,46 @@ export class CdkStack extends cdk.Stack {
     // TODO try to make components reusable
 
     const vpc = new Vpc(scope as any, `deployment-service-vpc`)
+    const securityGroup = new SecurityGroup(scope, ``, {
+
+    })
+    securityGroup.addIngressRule(
+      Peer.ipv4('0.0.0.0/0'),
+      Port.tcp(443),
+      'cloud-deployment-service',
+    )
+
+    // TODO add egress? outbound?
+
+    const subnets = [
+      new Subnet(scope, ``, {
+        vpcId: vpc.vpcId,
+        cidrBlock: '172.31.16.0/20',
+        availabilityZone: 'eu-west-2a',
+      }),
+      new Subnet(scope, ``, {
+        vpcId: vpc.vpcId,
+        cidrBlock: '172.31.32.0/20',
+        availabilityZone: 'eu-west-2b',
+      }),
+      new Subnet(scope, ``, {
+        vpcId: vpc.vpcId,
+        cidrBlock: '172.31.0.0/20',
+        availabilityZone: 'eu-west-2c',
+      }),
+      new Subnet(scope, ``, {
+        vpcId: vpc.vpcId,
+        cidrBlock: '172.31.128.0/24',
+        availabilityZone: 'eu-west-2d',
+      })
+    ]
 
     const buckets = createS3Buckets(scope)
     const queues = createSqsQueues(scope)
     const [secretManager, aurora] = createAurora(scope, vpc)
     const codeBuild = createCodeBuildProject(scope)
+    const apiGateway = createApigateway(scope) // add vpc for this?
+    // TODO add apiGateway resource
 
     const S3BucketPolicy = new PolicyStatement({
       effect: Effect.ALLOW,
@@ -153,26 +190,42 @@ export class CdkStack extends cdk.Stack {
     ]
 
     const functionSetups: { [s: string]: FunctionSetup } = {
-      'test': {
+      'src.test': {
         policies: [
           ...commonBackendPolicies,
           route53Policy,
           cloudFrontPolicy,
           codebuildExecPolicy,
         ],
+        api: {
+          method: 'POST',
+          path: '',
+        },
+      },
+      'src.pipelineDeploy': {
+        policies: [
+          ...commonBackendPolicies,
+          route53Policy,
+          cloudFrontPolicy,
+          codebuildExecPolicy,
+        ],
+        queue: queues['CodebuildExecutor'],
       },
     }
 
     for (const [handler, options] of Object.entries(functionSetups)) {
-      const role = new Role(scope, 'Role', {
+      const role = new Role(scope as any, 'Role', {
         assumedBy: new ServicePrincipal('ec2.amazonaws.com'),
       })
 
       options.policies.forEach(policy => role.addToPolicy(policy))
-      const lambda = createLambda(scope, handler, AssetCode.fromAsset(path.resolve('..', '..', 'dist', handler)))
+      const lambda = createLambda(scope, handler, AssetCode.fromAsset(path.resolve('..', '..', 'dist', handler)), vpc)
       // TODO add required triggers?
 
+
+
     }
+
 
 
     // add triggers to functions
