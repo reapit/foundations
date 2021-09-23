@@ -3,7 +3,7 @@ import * as sns from '@aws-cdk/aws-sns'
 import * as subs from '@aws-cdk/aws-sns-subscriptions'
 
 
-export const createSns = (app: Construct) => {
+export const createSnsTopic = (app: Construct) => {
   const topic = new sns.Topic(app as any, 'cloud-deployment-service-codebuild-topic', {
     contentBasedDeduplication: true,
     displayName: 'codebuild topic sns for deployment-service',
