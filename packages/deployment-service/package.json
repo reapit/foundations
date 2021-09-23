@@ -42,7 +42,7 @@
   "scripts": {
     "start": "reapit-fetch-public-keys && yarn build && yarn serverless offline start --runtime nodejs12.x --stage local",
     "test": "echo '...skipping...'",
-    "build": "echo '...skipping...'",
+    "build": "webpack --config webpack.config.js",
     "lint": "eslint --cache --ext=ts,tsx,js src --fix",
     "deploy": "serverless deploy",
     "release": "echo 'reapit-fetch-public-keys && yarn db-conf && yarn migration:run && yarn deploy'",
