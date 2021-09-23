@@ -1,5 +1,5 @@
 import { Queue } from "@aws-cdk/aws-sqs";
-import { Construct } from "@aws-cdk/core";
+import { Construct, Duration } from "@aws-cdk/core";
 
 export const createSqsQueues = (app: Construct) => {
   const queueConfig: {[s: string]: {
@@ -22,9 +22,11 @@ export const createSqsQueues = (app: Construct) => {
 
   return Object.keys(queueConfig).reduce<{[s: string]: Queue}>((queues, queueName) => {
 
-    queues[queueName] = new Queue(app, `cloud-deployment-${queueName}`, {
+    const duration = typeof queueConfig[queueName].visibilityTimeout !== 'undefined' ? Duration.seconds(queueConfig[queueName].visibilityTimeout as number) : undefined
+
+    queues[queueName] = new Queue(app as any, `cloud-deployment-${queueName}`, {
       queueName,
-      visibilityTimeout: queueConfig[queueName].visibilityTimeout,
+      visibilityTimeout: duration as any,
     })
 
     return queues

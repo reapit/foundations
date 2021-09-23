@@ -24,7 +24,7 @@ export const createS3Buckets = (app: Construct) => {
 
   return Object.keys(bucketOptions).reduce<{[s: string]: Bucket}>((buckets, bucketName) => {
 
-    buckets[bucketName] = new Bucket(app, bucketName, {
+    buckets[bucketName] = new Bucket(app as any, bucketName, {
       bucketName,
       publicReadAccess: bucketOptions[bucketName]?.public,
       websiteIndexDocument: bucketOptions[bucketName]?.public ? 'index.html' : undefined,
@@ -33,7 +33,7 @@ export const createS3Buckets = (app: Construct) => {
 
     if (bucketOptions[bucketName].get || bucketOptions[bucketName].list || bucketOptions[bucketName].put) {
       // TODO work out how to enable get and put requests in policy for code build
-      const policy = new BucketPolicy(app, `${bucketName}-policy`, {
+      const policy = new BucketPolicy(app as any, `${bucketName}-policy`, {
         bucket: buckets[bucketName],
       })
     }

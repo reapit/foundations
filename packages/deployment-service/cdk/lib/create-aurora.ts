@@ -4,14 +4,14 @@ import { Construct } from "@aws-cdk/core"
 import { Vpc } from '@aws-cdk/aws-ec2'
 
 export const createAurora = (app: Construct, vpc: Vpc): [Secret, ServerlessCluster] => {
-  const secretManager = new DatabaseSecret(app, 'cloud-deployment-aurora-secret', {
+  const secretManager = new DatabaseSecret(app as any, 'cloud-deployment-aurora-secret', {
     username: 'cloud-deployment', // TODO add to config somewhere
     secretName: 'cloud-deployment-aurora-secret',
   })
 
   // TODO need ec2 + vpc
 
-  const aurora = new ServerlessCluster(app, 'Database', {
+  const aurora = new ServerlessCluster(app as any, 'Database', {
     engine: DatabaseClusterEngine.auroraMysql({ version: AuroraMysqlEngineVersion.VER_2_08_1 }),
     credentials: secretManager,
     vpc,
