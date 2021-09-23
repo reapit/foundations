@@ -8,7 +8,7 @@ export const subscriptions: PagedResultWebhookModel_ = {
       modified: '2020-04-22T08:43:52',
       applicationId: '313f831d-f589-415e-b778-b1a28b6778b8',
       url: 'https://en7u51gyc2mf7.x.pipedream.net',
-      topicIds: ['contacts.created', 'contacts.modified'],
+      topicIds: ['contacts.created', 'contacts.modified', 'SOME_ID'],
       customerIds: ['KNS'],
       active: true,
     },

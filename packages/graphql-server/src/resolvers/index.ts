@@ -24,6 +24,7 @@ import JournalEntries from './journal-entries/resolvers'
 import Enquiries from './enquiries/resolvers'
 import WorkOrders from './works-orders/resolvers'
 import Documents from './documents/resolvers'
+import Keys from './keys/resolvers'
 
 export const resolvers = merge(
   {
@@ -53,5 +54,6 @@ export const resolvers = merge(
   Enquiries,
   WorkOrders,
   Documents,
+  Keys,
 )
 export default resolvers

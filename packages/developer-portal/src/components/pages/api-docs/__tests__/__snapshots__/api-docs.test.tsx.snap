@@ -1,65 +1,67 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`ApiDocs should match a snapshot 1`] = `
-<ContextProvider
-  value={
-    Object {
-      "history": Object {
-        "action": "POP",
-        "block": [Function],
-        "createHref": [Function],
-        "go": [Function],
-        "goBack": [Function],
-        "goForward": [Function],
-        "length": 1,
-        "listen": [Function],
-        "location": Object {
-          "hash": "",
-          "pathname": "/",
-          "search": "",
-        },
-        "push": [Function],
-        "replace": [Function],
-      },
-      "location": Object {
-        "hash": "",
-        "pathname": "/",
-        "search": "",
-      },
-      "match": Object {
-        "isExact": true,
-        "params": Object {},
-        "path": "/",
-        "url": "/",
-      },
-      "staticContext": undefined,
-    }
-  }
->
-  <ContextProvider
-    value={
-      Object {
-        "action": "POP",
-        "block": [Function],
-        "createHref": [Function],
-        "go": [Function],
-        "goBack": [Function],
-        "goForward": [Function],
-        "length": 1,
-        "listen": [Function],
-        "location": Object {
-          "hash": "",
-          "pathname": "/",
-          "search": "",
-        },
-        "push": [Function],
-        "replace": [Function],
-      }
-    }
+<Connect(ErrorBoundary)>
+  <FlexContainer
+    isFlexAuto={true}
   >
-    <Route>
-      <ApiDocsPage />
-    </Route>
-  </ContextProvider>
-</ContextProvider>
+    <SecondaryNavContainer>
+      <Title>
+        Docs
+      </Title>
+      <SecondaryNav
+        className="e1w1lp2k-el-mb9"
+      >
+        <SecondaryNavItem
+          active={false}
+          onClick={[Function]}
+        >
+          APIs
+        </SecondaryNavItem>
+        <SecondaryNavItem
+          active={false}
+          onClick={[Function]}
+        >
+          Warehouse
+        </SecondaryNavItem>
+      </SecondaryNav>
+      <Icon
+        className="ehvkknk-el-mb5"
+        icon="apiDocsInfographic"
+        iconSize="large"
+      />
+      <Subtitle>
+        Welcome
+      </Subtitle>
+      <BodyText
+        hasGreyText={true}
+      >
+        We have provided comprehensive documentation for all of our APIs, services, tooling and open source packages accross these pages.
+      </BodyText>
+      <BodyText
+        hasGreyText={true}
+      >
+        You can also visit us on Github where you can raise and track issues, look at code examples and view our milestones.
+      </BodyText>
+      <Button
+        className="ehvkknk-el-mb5"
+        intent="neutral"
+        onClick={[Function]}
+      >
+        Go to Github
+      </Button>
+    </SecondaryNavContainer>
+    <PageContainer
+      className="e12d7zo5-el-hfull"
+    >
+      <Title>
+        Analytics Schema Docs
+      </Title>
+      <iframe
+        className="i1uahple-iframe-wrapper"
+        frameBorder="0"
+      />
+    </PageContainer>
+  </FlexContainer>
+</Connect(ErrorBoundary)>
 `;

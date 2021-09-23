@@ -14,6 +14,7 @@ export type ConfigurationType =
   | '​​tenancyTypes'
   | '​​vendorTypes'
   | '​​worksOrderTypes'
+  | 'keyTypes'
 
 export type GetConfigurationByTypeArgs = {
   type: ConfigurationType

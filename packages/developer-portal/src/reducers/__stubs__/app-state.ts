@@ -1,7 +1,9 @@
-import { ReduxState } from '@/types/core'
+import { ReduxState } from '../../types/core'
+import { mockWebhookLogs, subscriptions } from '../../sagas/__stubs__/webhooks'
 import { WebhookCreateEditState } from '../webhooks-subscriptions/webhook-edit-modal'
+import { webhookDataStub, webhookItemDataStub } from '../../sagas/__stubs__/webhook-edit'
 
-const appState: ReduxState = {
+export const appState: ReduxState = {
   apps: {
     list: {
       data: [],
@@ -127,40 +129,15 @@ const appState: ReduxState = {
     list: {
       isLoading: false,
       errorMessage: '',
-      _embedded: [],
-      pageNumber: 0,
-      pageSize: 0,
-      pageCount: 0,
-      totalCount: 0,
+      ...subscriptions,
     },
     edit: {
       loading: false,
       modalType: '',
       webhookCreateEditState: WebhookCreateEditState.INITIAL,
-      subcriptionCustomers: {
-        data: [],
-        pageNumber: 0,
-        pageSize: 0,
-        pageCount: 0,
-        totalCount: 0,
-      },
-      subcriptionTopics: {
-        _embedded: [],
-        pageNumber: 0,
-        pageSize: 0,
-        pageCount: 0,
-        totalCount: 0,
-      },
-      webhookData: {
-        id: '',
-        applicationId: '',
-        url: '',
-        description: '',
-        topicIds: [],
-        customerIds: [],
-        ignoreEtagOnlyChanges: true,
-        active: false,
-      },
+      subcriptionCustomers: webhookDataStub.subcriptionCustomers,
+      subcriptionTopics: webhookDataStub.subcriptionTopics,
+      webhookData: webhookItemDataStub,
     },
   },
   webhooksTopics: {
@@ -174,7 +151,7 @@ const appState: ReduxState = {
     list: {
       isLoading: false,
       errorMessage: '',
-      logs: [],
+      logs: mockWebhookLogs,
     },
   },
   developerSubscriptions: {

@@ -1,0 +1,25 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`CostExplorerTab should match a snapshot 1`] = `
+<Connect(ErrorBoundary)>
+  <Grid
+    isMultiLine={true}
+  >
+    <GridItem
+      className="is-half"
+    >
+      <ServiceChart />
+    </GridItem>
+    <GridItem
+      className="is-half"
+    >
+      <TransactionHistory />
+    </GridItem>
+  </Grid>
+  <Grid>
+    <GridItem>
+      <CostExplorer />
+    </GridItem>
+  </Grid>
+</Connect(ErrorBoundary)>
+`;

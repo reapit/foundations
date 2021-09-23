@@ -152,7 +152,7 @@ export const Menu: React.FunctionComponent = () => {
           itemIndex: 7,
           callback: () => (window.location.href = window.reapit.config.marketplaceUrl),
           iconId: 'marketplaceMenu',
-          text: 'Marketplace',
+          text: 'AppMarket',
         },
         {
           itemIndex: 8,

@@ -92,7 +92,7 @@ export const Apps: React.FunctionComponent = () => {
         hasBackground={false}
       >
         {/* <AppSidebar /> */}
-        <H3>Marketplace</H3>
+        <H3>AppMarket</H3>
         {!hasParams && featuredApps.length > 0 && <FeaturedApps apps={featuredApps} />}
         <InfiniteScroll
           dataLength={apps.length}

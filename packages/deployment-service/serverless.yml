@@ -236,6 +236,29 @@ resources:
       Properties:
         BucketName: ${self:custom.env.DEPLOYMENT_VERSION_BUCKET_NAME}
         AccessControl: Private
+    VersionS3BucketPolicy:
+      Type: AWS::S3::BucketPolicy
+      Properties:
+        Bucket:
+          Ref: DeploymentVersionBucket
+        PolicyDocument:
+          Statement:
+            - Sid: PublicReadGetObject
+              Effect: Allow
+              Principal: "*"
+              Action:
+              - s3:GetObject
+              - s3:GetObjectAcl
+              - s3:PutObject
+              - s3:PutObjectAcl
+              Resource:
+                Fn::Join: [
+                  "", [
+                    "arn:aws:s3:::",
+                    { "Ref": "DeploymentVersionBucket" },
+                    "/*"
+                  ]
+                ]
     DeploymentLiveBucket:
       Type: AWS::S3::Bucket
       Properties:

@@ -1,20 +1,16 @@
 import * as React from 'react'
 import { shallow } from 'enzyme'
-import { createBrowserHistory } from 'history'
 import ApiDocs, { parseIframeUrl } from '../api-docs'
 import Routes from '@/constants/routes'
-import { Router, Route } from 'react-router-dom'
+
+jest.mock('react-router', () => ({
+  ...(jest.requireActual('react-router') as Object),
+  useLocation: jest.fn(() => ({ search: '', pathname: '/test' })),
+}))
 
 describe('ApiDocs', () => {
   it('should match a snapshot', () => {
-    const history = createBrowserHistory()
-    const wrapper = shallow(
-      <Router history={history}>
-        <Route>
-          <ApiDocs />
-        </Route>
-      </Router>,
-    )
+    const wrapper = shallow(<ApiDocs />)
     expect(wrapper).toMatchSnapshot()
   })
 
