@@ -36,7 +36,7 @@ import formatDistance from 'date-fns/formatDistance'
 
 import { useCreateApp } from '../hooks/apps/use-create-app'
 import { useGetUserApps } from '../hooks/apps/use-user-apps'
-import { ejectUri } from '@/core/config'
+import { useEjectApp } from '../hooks/apps/use-eject-app'
 
 const getUserId = async () => {
   const session = await reapitConnectBrowserSession.connectSession()
@@ -95,6 +95,7 @@ const AppSelector = () => {
   const userId = useUserId()
   const { loading, error, data } = useGetUserApps(userId)
   const history = useHistory()
+  const { loading: ejectLoading, ejectApp } = useEjectApp()
   if (error) return <div>Error</div>
 
   return (
@@ -142,8 +143,9 @@ const AppSelector = () => {
                 </Button>
                 <Button
                   intent="secondary"
+                  loading={ejectLoading}
                   onClick={() => {
-                    window.open(`${ejectUri}eject/${app.id}`)
+                    ejectApp(app.id, app.name)
                   }}
                 >
                   Eject

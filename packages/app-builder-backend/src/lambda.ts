@@ -1,11 +1,8 @@
 import 'reflect-metadata'
 import { ApolloServer } from 'apollo-server-lambda'
 import { APIGatewayEvent } from 'aws-lambda'
-import express from 'express'
-import cors from 'cors'
 
 import { Context } from './types'
-import { ejectAppRoute } from './eject/route'
 import { getSchema } from './get-schema'
 
 const lowerCaseKeys = (obj: Record<string, string | undefined>): Record<string, string> => {
@@ -36,18 +33,10 @@ const createHandler = async () => {
     },
   })
 
-  return server.createHandler({
-    expressAppFromMiddleware(middleware) {
-      const app = express()
-      app.use(cors())
-      app.get('/eject/:appId', ejectAppRoute)
-      app.use(middleware)
-      return app
-    },
-  })
+  return server.createHandler()
 }
 
-export const handler = async (event, context) => {
+export const handler = async (event: APIGatewayEvent, context) => {
   const server = await createHandler()
   // @ts-ignore until https://github.com/apollographql/apollo-server/issues/5592 is resolved
   return server(event, context)

@@ -130,7 +130,9 @@ const zipFiles = async (files: Array<{ fileLoc: string; text: string }>) => {
   files.forEach((file) => {
     zip.file(file.fileLoc, file.text)
   })
-  return zip.generateAsync({ type: 'nodebuffer' })
+  return zip.generateAsync({
+    type: 'base64',
+  })
 }
 
 export const ejectApp = async (app: App) => {
