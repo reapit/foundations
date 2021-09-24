@@ -16,7 +16,7 @@
         <h6 class="modal-heading">Existing Customer</h6>
       </div>
       <p class="el-body-text el-has-grey-text modal-text">
-        You can install GEO Diary now direct from the AppMarket, just sign in below:
+        You can now install GEO Diary direct from the AppMarket, just sign in below:
       </p>
       <div class="login-reapit-button-container">
         <SignInButton />

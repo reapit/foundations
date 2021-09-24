@@ -23,18 +23,14 @@
         <p class="el-body-text el-has-grey-text">
           <strong
             >The GEO Diary app is a progressive web application and can be saved and launched as an app on your phone,
-            accessed via a web browser or launched through AgencyCloud.
+            accessed via a web browser or launched through Agency Cloud.
           </strong>
-        </p>
-        <p class="el-body-text el-has-grey-text">
-          Supporting multiple platforms, you can access your weekly diary appointments in the office on a web browser or
-          on the go on your mobile or tab.
         </p>
       </div>
       <div class="column el-px2">
         <p class="el-body-text el-has-grey-text">
-          With our email and WhatsApp integrations, you can easily stay connected to your applicants, vendors, tenants,
-          and landlords.
+          Supporting multiple platforms, you can access your weekly diary appointments in the office on a web browser or
+          on the go on your mobile or tab.
         </p>
       </div>
     </div>
