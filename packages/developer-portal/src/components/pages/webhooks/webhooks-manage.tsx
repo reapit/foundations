@@ -1,4 +1,4 @@
-import { ExpandableContentSize, Loader, PersistantNotification, Row, StatusIndicator, Table } from '@reapit/elements'
+import { Loader, PersistantNotification, RowProps, StatusIndicator, Table } from '@reapit/elements'
 import React, { Dispatch, FC, SetStateAction, useEffect, useMemo, useState } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
 import { InstallationModel } from '@reapit/foundations-ts-definitions'
@@ -16,6 +16,12 @@ import { WebhooksEditControls } from './webhooks-edit-controls'
 
 export interface WebhooksManageProps {
   webhookQueryParams: WebhookQueryParams
+}
+
+export enum ExpandableContentType {
+  Controls,
+  Manage,
+  Ping,
 }
 
 export const renderTopicName = (topics: TopicModel[], subscriptionTopicIds?: string[]): string => {
@@ -42,14 +48,14 @@ export const renderCustomerName = (customers: InstallationModel[], customerIds?:
 
 export const handleSortTableData =
   (
-    setExpandableContentSize: Dispatch<SetStateAction<ExpandableContentSize>>,
+    setExpandableContentType: Dispatch<SetStateAction<ExpandableContentType>>,
     setIndexExpandedRow: Dispatch<SetStateAction<number | null>>,
-    expandableContentSize: ExpandableContentSize,
+    expandableContentType: ExpandableContentType,
     subscriptions: WebhookModel[],
     topics: TopicModel[],
     customers: InstallationModel[],
   ) =>
-  (): Row[] => {
+  (): RowProps[] => {
     return subscriptions.map((subscription: WebhookModel) => ({
       cells: [
         {
@@ -80,8 +86,8 @@ export const handleSortTableData =
         content: (
           <WebhooksEditControls
             setIndexExpandedRow={setIndexExpandedRow}
-            expandableContentSize={expandableContentSize}
-            setExpandableContentSize={setExpandableContentSize}
+            expandableContentType={expandableContentType}
+            setExpandableContentType={setExpandableContentType}
             webhookModel={subscription}
           />
         ),
@@ -92,7 +98,9 @@ export const handleSortTableData =
 export const WebhooksManage: FC<WebhooksManageProps> = ({ webhookQueryParams }) => {
   const dispatch = useDispatch()
   const [pageNumber] = useState<number>(1)
-  const [expandableContentSize, setExpandableContentSize] = useState<ExpandableContentSize>('small')
+  const [expandableContentType, setExpandableContentType] = useState<ExpandableContentType>(
+    ExpandableContentType.Controls,
+  )
   const [indexExpandedRow, setIndexExpandedRow] = useState<number | null>(null)
   const subscriptionsData = useSelector(selectSubscriptionsData)
   const subscriptionsLoading = useSelector(selectSubscriptionsLoading)
@@ -103,14 +111,14 @@ export const WebhooksManage: FC<WebhooksManageProps> = ({ webhookQueryParams }) 
 
   const rows = useMemo(
     handleSortTableData(
-      setExpandableContentSize,
+      setExpandableContentType,
       setIndexExpandedRow,
-      expandableContentSize,
+      expandableContentType,
       subscriptionsData?._embedded ?? [],
       topics,
       customers,
     ),
-    [subscriptionsData, topics, customers, expandableContentSize],
+    [subscriptionsData, topics, customers, expandableContentType],
   )
 
   useEffect(() => {
@@ -132,12 +140,5 @@ export const WebhooksManage: FC<WebhooksManageProps> = ({ webhookQueryParams }) 
         No webhooks found for your application. You can create one from the New Webhook wizard.
       </PersistantNotification>
     )
-  return (
-    <Table
-      indexExpandedRow={indexExpandedRow}
-      setIndexExpandedRow={setIndexExpandedRow}
-      rows={rows}
-      expandableContentSize={expandableContentSize}
-    />
-  )
+  return <Table indexExpandedRow={indexExpandedRow} setIndexExpandedRow={setIndexExpandedRow} rows={rows} />
 }

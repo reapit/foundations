@@ -15,9 +15,7 @@ import {
   elMb11,
   ButtonGroup,
   Button,
-  elMlAuto,
   useSnack,
-  ExpandableContentSize,
   useModal,
   BodyText,
 } from '@reapit/elements'
@@ -45,11 +43,12 @@ import {
 } from '../../../selector/webhooks-subscriptions'
 import { handleCustomersToOptions } from './webhooks-new-customers'
 import { cx } from '@linaria/core'
+import { ExpandableContentType } from './webhooks-manage'
 
 interface WebhooksManageFormProps {
   webhookModel: WebhookModel
   setIndexExpandedRow: Dispatch<SetStateAction<number | null>>
-  setExpandableContentSize: Dispatch<SetStateAction<ExpandableContentSize>>
+  setExpandableContentType: Dispatch<SetStateAction<ExpandableContentType>>
 }
 
 export interface EditWebhookFormSchema {
@@ -118,14 +117,14 @@ export const handleWebhookEditing =
     webhookCreateEditState: WebhookCreateEditState,
     dispatch: ReduxDispatch,
     setIndexExpandedRow: Dispatch<SetStateAction<number | null>>,
-    setExpandableContentSize: Dispatch<SetStateAction<ExpandableContentSize>>,
+    setExpandableContentType: Dispatch<SetStateAction<ExpandableContentType>>,
   ) =>
   () => {
     if (webhookCreateEditState === WebhookCreateEditState.SUCCESS) {
       success('Webhook was successfully updated')
       dispatch(updateWebhookCreateEditState(WebhookCreateEditState.INITIAL))
       setIndexExpandedRow(null)
-      setExpandableContentSize('small')
+      setExpandableContentType(ExpandableContentType.Controls)
     } else if (webhookCreateEditState === WebhookCreateEditState.ERROR) {
       error('Webhook failed to update, check the details supplied and try again')
       dispatch(updateWebhookCreateEditState(WebhookCreateEditState.INITIAL))
@@ -143,17 +142,17 @@ export const handleWebhookDelete =
 export const handleCollapseRow =
   (
     setIndexExpandedRow: Dispatch<SetStateAction<number | null>>,
-    setExpandableContentSize: Dispatch<SetStateAction<ExpandableContentSize>>,
+    setExpandableContentType: Dispatch<SetStateAction<ExpandableContentType>>,
   ) =>
   () => {
     setIndexExpandedRow(null)
-    setExpandableContentSize('small')
+    setExpandableContentType(ExpandableContentType.Controls)
   }
 
 export const WebhooksManageForm: FC<WebhooksManageFormProps> = ({
   webhookModel,
   setIndexExpandedRow,
-  setExpandableContentSize,
+  setExpandableContentType,
 }) => {
   const dispatch = useDispatch()
   const topics = useSelector(selectWebhookSubscriptionTopics)
@@ -189,7 +188,7 @@ export const WebhooksManageForm: FC<WebhooksManageFormProps> = ({
       webhookCreateEditState,
       dispatch,
       setIndexExpandedRow,
-      setExpandableContentSize,
+      setExpandableContentType,
     ),
     [webhookCreateEditState],
   )
@@ -257,7 +256,7 @@ export const WebhooksManageForm: FC<WebhooksManageFormProps> = ({
             inputAddOnText="Ignore"
             {...register('ignoreEtagOnlyChanges')}
           />
-          <ButtonGroup className={elMlAuto}>
+          <ButtonGroup alignment="right">
             <Button
               intent="danger"
               type="button"
@@ -270,7 +269,7 @@ export const WebhooksManageForm: FC<WebhooksManageFormProps> = ({
               intent="secondary"
               type="button"
               disabled={webhookCreateEditState === WebhookCreateEditState.LOADING}
-              onClick={handleCollapseRow(setIndexExpandedRow, setExpandableContentSize)}
+              onClick={handleCollapseRow(setIndexExpandedRow, setExpandableContentType)}
             >
               Cancel
             </Button>

@@ -210,26 +210,30 @@ Object {
               </span>
             </div>
             <div
-              class="et0k7gk-el-ml-auto e1f2ikqj-el-button-group"
+              class="e19a1osy-el-button-group"
             >
-              <button
-                class="e1vxext9-el-intent-danger e1cpt8yd-el-button"
-                type="button"
+              <div
+                class="e1i2en9o-el-button-group-align-right eay05y4-el-button-group-inner"
               >
-                Delete
-              </button>
-              <button
-                class="epibvz0-el-intent-secondary e1cpt8yd-el-button"
-                type="button"
-              >
-                Cancel
-              </button>
-              <button
-                class="ebee6r1-el-intent-primary ej73pla-el-button-has-right-chevron e1cpt8yd-el-button"
-                type="submit"
-              >
-                Update
-              </button>
+                <button
+                  class="e1vxext9-el-intent-danger e1f2ikqj-el-button"
+                  type="button"
+                >
+                  Delete
+                </button>
+                <button
+                  class="epibvz0-el-intent-secondary e1f2ikqj-el-button"
+                  type="button"
+                >
+                  Cancel
+                </button>
+                <button
+                  class="ebee6r1-el-intent-primary e1tqqdf9-el-button-has-right-chevron e1f2ikqj-el-button"
+                  type="submit"
+                >
+                  Update
+                </button>
+              </div>
             </div>
           </div>
         </div>
@@ -442,26 +446,30 @@ Object {
             </span>
           </div>
           <div
-            class="et0k7gk-el-ml-auto e1f2ikqj-el-button-group"
+            class="e19a1osy-el-button-group"
           >
-            <button
-              class="e1vxext9-el-intent-danger e1cpt8yd-el-button"
-              type="button"
+            <div
+              class="e1i2en9o-el-button-group-align-right eay05y4-el-button-group-inner"
             >
-              Delete
-            </button>
-            <button
-              class="epibvz0-el-intent-secondary e1cpt8yd-el-button"
-              type="button"
-            >
-              Cancel
-            </button>
-            <button
-              class="ebee6r1-el-intent-primary ej73pla-el-button-has-right-chevron e1cpt8yd-el-button"
-              type="submit"
-            >
-              Update
-            </button>
+              <button
+                class="e1vxext9-el-intent-danger e1f2ikqj-el-button"
+                type="button"
+              >
+                Delete
+              </button>
+              <button
+                class="epibvz0-el-intent-secondary e1f2ikqj-el-button"
+                type="button"
+              >
+                Cancel
+              </button>
+              <button
+                class="ebee6r1-el-intent-primary e1tqqdf9-el-button-has-right-chevron e1f2ikqj-el-button"
+                type="submit"
+              >
+                Update
+              </button>
+            </div>
           </div>
         </div>
       </div>

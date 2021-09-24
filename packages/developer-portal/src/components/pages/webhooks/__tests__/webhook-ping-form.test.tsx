@@ -5,6 +5,7 @@ import { updateWebhookCreateEditState } from '../../../../actions/webhooks-subsc
 import { WebhookCreateEditState } from '../../../../reducers/webhooks-subscriptions/webhook-edit-modal'
 import { developerSetWebhookPingStatus, developerWebhookPing } from '../../../../actions/developer'
 import { render } from '../../../../tests/react-testing'
+import { ExpandableContentType } from '../webhooks-manage'
 
 describe('WebhooksPingForm', () => {
   it('should match a snapshot', () => {
@@ -13,7 +14,7 @@ describe('WebhooksPingForm', () => {
         <WebhooksPingForm
           webhookModel={webhookItemDataStub}
           setIndexExpandedRow={jest.fn()}
-          setExpandableContentSize={jest.fn()}
+          setExpandableContentType={jest.fn()}
         />,
       ),
     ).toMatchSnapshot()
@@ -25,7 +26,7 @@ describe('handleWebhookPing', () => {
     const success = jest.fn()
     const dispatch = jest.fn()
     const setIndexExpandedRow = jest.fn()
-    const setExpandableContentSize = jest.fn()
+    const setExpandableContentType = jest.fn()
     const setWebhookPingId = jest.fn()
     const openModal = jest.fn()
     const webhookPingTestStatus = 'SUCCESS'
@@ -35,7 +36,7 @@ describe('handleWebhookPing', () => {
       success,
       dispatch,
       setIndexExpandedRow,
-      setExpandableContentSize,
+      setExpandableContentType,
       setWebhookPingId,
       openModal,
       webhookPingTestStatus,
@@ -47,7 +48,7 @@ describe('handleWebhookPing', () => {
     expect(success).toHaveBeenCalledWith('Webhook was successfully pinged')
     expect(dispatch).toHaveBeenCalledWith(updateWebhookCreateEditState(WebhookCreateEditState.INITIAL))
     expect(setIndexExpandedRow).toHaveBeenCalledWith(null)
-    expect(setExpandableContentSize).toHaveBeenCalledWith('small')
+    expect(setExpandableContentType).toHaveBeenCalledWith(ExpandableContentType.Controls)
     expect(setWebhookPingId).toHaveBeenCalledWith(null)
     expect(dispatch).toHaveBeenLastCalledWith(developerSetWebhookPingStatus(null))
     expect(openModal).not.toHaveBeenCalled()
@@ -57,7 +58,7 @@ describe('handleWebhookPing', () => {
     const success = jest.fn()
     const dispatch = jest.fn()
     const setIndexExpandedRow = jest.fn()
-    const setExpandableContentSize = jest.fn()
+    const setExpandableContentType = jest.fn()
     const setWebhookPingId = jest.fn()
     const openModal = jest.fn()
     const webhookPingTestStatus = 'FAILED'
@@ -67,7 +68,7 @@ describe('handleWebhookPing', () => {
       success,
       dispatch,
       setIndexExpandedRow,
-      setExpandableContentSize,
+      setExpandableContentType,
       setWebhookPingId,
       openModal,
       webhookPingTestStatus,
@@ -79,7 +80,7 @@ describe('handleWebhookPing', () => {
     expect(success).not.toHaveBeenCalled()
     expect(dispatch).toHaveBeenCalledWith(developerSetWebhookPingStatus(null))
     expect(setIndexExpandedRow).not.toHaveBeenCalled()
-    expect(setExpandableContentSize).not.toHaveBeenCalled()
+    expect(setExpandableContentType).not.toHaveBeenCalled()
     expect(setWebhookPingId).toHaveBeenCalledWith(null)
     expect(openModal).toHaveBeenCalled()
   })

@@ -62,20 +62,24 @@ Object {
               </a>
             </p>
             <div
-              class="et0k7gk-el-ml-auto e1f2ikqj-el-button-group"
+              class="et0k7gk-el-ml-auto e19a1osy-el-button-group"
             >
-              <button
-                class="epibvz0-el-intent-secondary e1cpt8yd-el-button"
-                type="button"
+              <div
+                class="eay05y4-el-button-group-inner"
               >
-                Cancel
-              </button>
-              <button
-                class="ebee6r1-el-intent-primary ej73pla-el-button-has-right-chevron e1cpt8yd-el-button"
-                type="submit"
-              >
-                Test
-              </button>
+                <button
+                  class="epibvz0-el-intent-secondary e1f2ikqj-el-button"
+                  type="button"
+                >
+                  Cancel
+                </button>
+                <button
+                  class="ebee6r1-el-intent-primary e1tqqdf9-el-button-has-right-chevron e1f2ikqj-el-button"
+                  type="submit"
+                >
+                  Test
+                </button>
+              </div>
             </div>
           </div>
         </div>
@@ -140,20 +144,24 @@ Object {
             </a>
           </p>
           <div
-            class="et0k7gk-el-ml-auto e1f2ikqj-el-button-group"
+            class="et0k7gk-el-ml-auto e19a1osy-el-button-group"
           >
-            <button
-              class="epibvz0-el-intent-secondary e1cpt8yd-el-button"
-              type="button"
+            <div
+              class="eay05y4-el-button-group-inner"
             >
-              Cancel
-            </button>
-            <button
-              class="ebee6r1-el-intent-primary ej73pla-el-button-has-right-chevron e1cpt8yd-el-button"
-              type="submit"
-            >
-              Test
-            </button>
+              <button
+                class="epibvz0-el-intent-secondary e1f2ikqj-el-button"
+                type="button"
+              >
+                Cancel
+              </button>
+              <button
+                class="ebee6r1-el-intent-primary e1tqqdf9-el-button-has-right-chevron e1f2ikqj-el-button"
+                type="submit"
+              >
+                Test
+              </button>
+            </div>
           </div>
         </div>
       </div>

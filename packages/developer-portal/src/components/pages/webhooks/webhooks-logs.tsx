@@ -1,5 +1,5 @@
 import React, { FC, useEffect, useMemo } from 'react'
-import { elSpan2, Icon, PersistantNotification, Row, Table } from '@reapit/elements'
+import { elSpan2, PersistantNotification, RowProps, Table } from '@reapit/elements'
 import { Dispatch } from 'redux'
 import { useDispatch, useSelector } from 'react-redux'
 import dayjs from 'dayjs'
@@ -11,7 +11,6 @@ import { Loader } from '@reapit/elements'
 import { WebhookQueryParams } from './webhooks'
 import { TopicModel, WebhookLogModel } from '../../../services/webhooks'
 import { selectWebhookSubscriptionTopics } from '../../../selector/webhooks-subscriptions'
-import { DownloadButtonContainer } from './__styles__'
 
 interface WebhooksLogsProps {
   webhookQueryParams: WebhookQueryParams
@@ -56,7 +55,7 @@ export const renderTopicName = (topics: TopicModel[], topicId?: string): string 
   return subscriptionTopic && subscriptionTopic.name ? subscriptionTopic.name : topicId ?? ''
 }
 
-export const handleSortTableData = (logs: WebhookLogModel[], topics: TopicModel[]) => (): Row[] =>
+export const handleSortTableData = (logs: WebhookLogModel[], topics: TopicModel[]) => (): RowProps[] =>
   logs.map((log: WebhookLogModel) => ({
     cells: [
       {
@@ -91,12 +90,8 @@ export const handleSortTableData = (logs: WebhookLogModel[], topics: TopicModel[
         },
       },
     ],
-    expandableContent: {
-      cellContent: (
-        <DownloadButtonContainer>
-          <Icon icon="downloadSystem" fontSize="1.2rem" intent="primary" />
-        </DownloadButtonContainer>
-      ),
+    ctaContent: {
+      icon: 'downloadSystem',
       headerContent: 'Download Payload',
       isCallToAction: true,
       onClick: handleDownloadPayload(log.payload, log.timeStamp),

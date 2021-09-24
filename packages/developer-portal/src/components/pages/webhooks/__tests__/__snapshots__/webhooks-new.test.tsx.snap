@@ -99,14 +99,18 @@ Object {
             class="eb3z2eu-el-col-split"
           >
             <div
-              class="et0k7gk-el-ml-auto e1f2ikqj-el-button-group"
+              class="et0k7gk-el-ml-auto e19a1osy-el-button-group"
             >
-              <button
-                class="ebee6r1-el-intent-primary ej73pla-el-button-has-right-chevron edjrbxy-el-button-size2 e1cpt8yd-el-button"
-                type="button"
+              <div
+                class="eay05y4-el-button-group-inner"
               >
-                Next
-              </button>
+                <button
+                  class="ebee6r1-el-intent-primary e1tqqdf9-el-button-has-right-chevron edjrbxy-el-button-size2 e1f2ikqj-el-button"
+                  type="button"
+                >
+                  Next
+                </button>
+              </div>
             </div>
           </div>
         </div>
@@ -208,14 +212,18 @@ Object {
           class="eb3z2eu-el-col-split"
         >
           <div
-            class="et0k7gk-el-ml-auto e1f2ikqj-el-button-group"
+            class="et0k7gk-el-ml-auto e19a1osy-el-button-group"
           >
-            <button
-              class="ebee6r1-el-intent-primary ej73pla-el-button-has-right-chevron edjrbxy-el-button-size2 e1cpt8yd-el-button"
-              type="button"
+            <div
+              class="eay05y4-el-button-group-inner"
             >
-              Next
-            </button>
+              <button
+                class="ebee6r1-el-intent-primary e1tqqdf9-el-button-has-right-chevron edjrbxy-el-button-size2 e1f2ikqj-el-button"
+                type="button"
+              >
+                Next
+              </button>
+            </div>
           </div>
         </div>
       </div>

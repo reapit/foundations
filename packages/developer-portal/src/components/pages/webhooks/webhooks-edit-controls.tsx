@@ -1,56 +1,60 @@
-import { Button, ButtonGroup, ExpandableContentSize, FlexContainer } from '@reapit/elements'
+import { Button, ButtonGroup, FlexContainer } from '@reapit/elements'
 import React, { Dispatch, FC, SetStateAction } from 'react'
 import { WebhookModel } from '../../../services/webhooks'
 import { WebhooksPingForm } from './webhook-ping-form'
+import { ExpandableContentType } from './webhooks-manage'
 import { WebhooksManageForm } from './webhooks-manage-form'
 
 interface WebhooksEditControlsProps {
   webhookModel: WebhookModel
-  expandableContentSize: ExpandableContentSize
-  setExpandableContentSize: Dispatch<SetStateAction<ExpandableContentSize>>
+  expandableContentType: ExpandableContentType
+  setExpandableContentType: Dispatch<SetStateAction<ExpandableContentType>>
   setIndexExpandedRow: Dispatch<SetStateAction<number | null>>
 }
 
 export const handleSetContentType =
   (
-    expandableContentSize: ExpandableContentSize,
-    setExpandableContentSize: Dispatch<SetStateAction<ExpandableContentSize>>,
+    expandableContentType: ExpandableContentType,
+    setExpandableContentType: Dispatch<SetStateAction<ExpandableContentType>>,
   ) =>
   () => {
-    setExpandableContentSize(expandableContentSize)
+    setExpandableContentType(expandableContentType)
   }
 
 export const WebhooksEditControls: FC<WebhooksEditControlsProps> = ({
   webhookModel,
-  expandableContentSize,
-  setExpandableContentSize,
+  expandableContentType,
+  setExpandableContentType,
   setIndexExpandedRow,
 }) => (
   <>
-    {expandableContentSize === 'small' && (
+    {expandableContentType === ExpandableContentType.Controls && (
       <FlexContainer isFlexJustifyCenter>
         <ButtonGroup>
-          <Button intent="primary" onClick={handleSetContentType('large', setExpandableContentSize)}>
+          <Button
+            intent="primary"
+            onClick={handleSetContentType(ExpandableContentType.Manage, setExpandableContentType)}
+          >
             Edit
           </Button>
-          <Button intent="primary" onClick={handleSetContentType('medium', setExpandableContentSize)}>
+          <Button intent="primary" onClick={handleSetContentType(ExpandableContentType.Ping, setExpandableContentType)}>
             Ping
           </Button>
         </ButtonGroup>
       </FlexContainer>
     )}
-    {expandableContentSize === 'medium' && (
+    {expandableContentType === ExpandableContentType.Ping && (
       <WebhooksPingForm
         webhookModel={webhookModel}
         setIndexExpandedRow={setIndexExpandedRow}
-        setExpandableContentSize={setExpandableContentSize}
+        setExpandableContentType={setExpandableContentType}
       />
     )}
-    {expandableContentSize === 'large' && (
+    {expandableContentType === ExpandableContentType.Manage && (
       <WebhooksManageForm
         webhookModel={webhookModel}
         setIndexExpandedRow={setIndexExpandedRow}
-        setExpandableContentSize={setExpandableContentSize}
+        setExpandableContentType={setExpandableContentType}
       />
     )}
   </>
