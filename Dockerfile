@@ -1,7 +1,7 @@
 ARG LAMBDA_TASK_ROOT=/var/task
 
 ############ builder ###################
-FROM node:14-buster as builder
+FROM node:16-buster as builder
 
 ARG LAMBDA_TASK_ROOT
 
@@ -42,7 +42,7 @@ RUN --mount=type=cache,target=/tmp/stub cd $LAMBDA_TASK_ROOT && \
     rsync -a /tmp/stub/node_modules/ $old_path/node_modules/
 
 ############ runner ###################
-FROM node:14-buster-slim as runner
+FROM node:16-buster-slim as runner
 
 ARG LAMBDA_TASK_ROOT
 
