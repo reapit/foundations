@@ -163,7 +163,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@aws-cdk/assets@npm:1.124.0":
+"@aws-cdk/assets@npm:1.124.0, @aws-cdk/assets@npm:^1.124.0":
   version: 1.124.0
   resolution: "@aws-cdk/assets@npm:1.124.0"
   dependencies:
@@ -14360,10 +14360,17 @@ __metadata:
   languageName: node
   linkType: hard
 
-"adm-zip@npm:^0.5.1, adm-zip@npm:^0.5.4, adm-zip@npm:^0.5.5":
+"adm-zip@npm:^0.5.1, adm-zip@npm:^0.5.4":
   version: 0.5.5
   resolution: "adm-zip@npm:0.5.5"
   checksum: ad9514161538bcf29137c55326fb71494977eba4642d1c87cd92929fff97683f106917561c3b6aba3cb7b1919586cfb5008f4cf381fcb4af0ed7c6f02a4ef295
+  languageName: node
+  linkType: hard
+
+"adm-zip@npm:^0.5.6":
+  version: 0.5.6
+  resolution: "adm-zip@npm:0.5.6"
+  checksum: 0cbec9718850c5db3db467a85c9eec5049b48acd5edbf0315c1b01f0eefd687685cb37e53267d5187899f7eda0a678e1909cc0c24b92cc21e62f1038e62c853c
   languageName: node
   linkType: hard
 
@@ -20508,6 +20515,7 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "deployment-service@workspace:packages/deployment-service"
   dependencies:
+    "@aws-cdk/assets": ^1.124.0
     "@aws-cdk/aws-apigateway": ^1.124.0
     "@aws-cdk/aws-codebuild": ^1.124.0
     "@aws-cdk/aws-ec2": ^1.124.0
@@ -20532,13 +20540,14 @@ __metadata:
     "@reapit/ts-types": "workspace:packages/ts-types"
     "@reapit/utils-common": "workspace:packages/utils-common"
     "@reapit/utils-node": "workspace:packages/utils-node"
+    "@types/adm-zip": ^0.4.34
     "@types/mime-types": ^2.1.1
     "@types/project-name-generator": ^2.1.1
     "@types/rimraf": ^3.0.1
     "@types/yaml": ^1.9.7
     "@typescript-eslint/eslint-plugin": ^4.28.4
     "@typescript-eslint/parser": ^4.28.4
-    adm-zip: ^0.5.5
+    adm-zip: ^0.5.6
     aws-cdk: ^1.124.0
     babel-jest: ^27.0.6
     class-transformer: ^0.4.0

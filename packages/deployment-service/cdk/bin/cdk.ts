@@ -2,17 +2,23 @@
 import 'source-map-support/register';
 import * as cdk from '@aws-cdk/core';
 import { CdkStack } from '../lib/cdk-stack';
-import { exec } from 'child_process';
+import * as util from 'util'
+const exec = util.promisify(require('child_process').exec)
 import * as path from 'path'
+import * as AdmZip from 'adm-zip'
 
 const bootstrap = async () => {
 
-  await exec.__promisify__('yarn build', {
+  const result = await exec('yarn build', {
     cwd: path.resolve(__dirname, '..', '..'),
   })
 
+  const zipper = new AdmZip()
+  zipper.addLocalFile(path.resolve(__dirname, '..', '..', 'dist', 'main.js'))
+  zipper.writeZip(path.resolve(__dirname, '..', '..', 'dist', 'main.zip'))
+
   const app = new cdk.App();
-  new CdkStack(app, 'CdkStack', {
+  new CdkStack(app, 'cloud-deployment-service', {
     /* If you don't specify 'env', this stack will be environment-agnostic.
     * Account/Region-dependent features and context lookups will not work,
     * but a single synthesized template can be deployed anywhere. */

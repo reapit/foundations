@@ -1,9 +1,9 @@
-import { Construct } from "@aws-cdk/core"
 import { Topic } from '@aws-cdk/aws-sns'
+import { CdkStack } from "./cdk-stack"
 
 
-export const createSnsTopic = (app: Construct): Topic => {
-  return new Topic(app as any, 'cloud-deployment-service-codebuild-topic', {
+export const createSnsTopic = (stack: CdkStack): Topic => {
+  return new Topic(stack as any, 'cloud-deployment-service-codebuild-topic', {
     contentBasedDeduplication: true,
     displayName: 'codebuild topic sns for deployment-service',
     fifo: true,

@@ -52,8 +52,8 @@ export class CdkStack extends cdk.Stack {
 
     // TODO try to make components reusable
 
-    const vpc = new Vpc(scope as any, `deployment-service-vpc`)
-    const securityGroup = new SecurityGroup(scope as any, ``, {
+    const vpc = new Vpc(this as any, `deployment-service-vpc`)
+    const securityGroup = new SecurityGroup(this as any, `deployment-service-security-group`, {
       vpc,
     })
     securityGroup.addIngressRule(
@@ -65,33 +65,33 @@ export class CdkStack extends cdk.Stack {
     // TODO add egress? outbound?
 
     const subnets = [
-      new Subnet(scope as any, ``, {
+      new Subnet(this as any, `deployment-service-subnet-a`, {
         vpcId: vpc.vpcId,
         cidrBlock: '172.31.16.0/20',
         availabilityZone: 'eu-west-2a',
       }),
-      new Subnet(scope as any, ``, {
+      new Subnet(this as any, `deployment-service-subnet-b`, {
         vpcId: vpc.vpcId,
         cidrBlock: '172.31.32.0/20',
         availabilityZone: 'eu-west-2b',
       }),
-      new Subnet(scope as any, ``, {
+      new Subnet(this as any, `deployment-service-subnet-c`, {
         vpcId: vpc.vpcId,
         cidrBlock: '172.31.0.0/20',
         availabilityZone: 'eu-west-2c',
       }),
-      new Subnet(scope as any, ``, {
+      new Subnet(this as any, `deployment-service-subnet-d`, {
         vpcId: vpc.vpcId,
         cidrBlock: '172.31.128.0/24',
         availabilityZone: 'eu-west-2d',
       })
     ]
 
-    const buckets = createS3Buckets(scope)
-    const queues = createSqsQueues(scope)
-    const [secretManager, aurora] = createAurora(scope, vpc)
-    const [codeBuild, topic] = createCodeBuildProject(scope)
-    const apiGateway = createApigateway(scope) // add vpc for this?
+    const buckets = createS3Buckets(this)
+    const queues = createSqsQueues(this)
+    const [secretManager, aurora] = createAurora(this, vpc)
+    const [codeBuild, topic] = createCodeBuildProject(this)
+    const apiGateway = createApigateway(this) // add vpc for this?
     // TODO add apiGateway resource
     // TODO create sns trigger
 
@@ -103,19 +103,19 @@ export class CdkStack extends cdk.Stack {
       aurora,
     })
 
-    const authorizer = new CognitoUserPoolsAuthorizer(scope as any, `cloud-deployment-authorizer`, {
+    const authorizer = new CognitoUserPoolsAuthorizer(this as any, `cloud-deployment-authorizer`, {
       cognitoUserPools: [],
     })
 
     const functionSetups: { [s: string]: FunctionSetup } = {
       'pipelineCreate': {
-        handler: 'src/index.pipelineCreate',
+        handler: 'main.pipelineCreate',
         policies: [
           ...policies.commonBackendPolicies,
         ],
         api: {
           method: 'POST',
-          path: '/pipeline',
+          path: 'pipeline',
           cors: { 
             origin: '*',
           },
@@ -128,13 +128,13 @@ export class CdkStack extends cdk.Stack {
         },
       },
       'apiPipelineCreate': {
-        handler: 'src/index.pipelineCreate',
+        handler: 'main.pipelineCreate',
         policies: [
           ...policies.commonBackendPolicies,
         ],
         api: {
           method: 'POST',
-          path: '/api/pipeline',
+          path: 'api/pipeline',
           cors: { 
             origin: '*',
           },
@@ -147,13 +147,13 @@ export class CdkStack extends cdk.Stack {
         },
       },
       'pipelineUpdate': {
-        handler: 'src/index.pipelineUpdate',
+        handler: 'main.pipelineUpdate',
         policies: [
           ...policies.commonBackendPolicies,
         ],
         api: {
           method: 'PUT',
-          path: '/api/pipeline/{pipelineId}',
+          path: 'api/pipeline/{pipelineId}',
           cors: { 
             origin: '*',
           },
@@ -166,13 +166,13 @@ export class CdkStack extends cdk.Stack {
         },
       },
       'apiPipelineUpdate': {
-        handler: 'src/index.pipelineUpdate',
+        handler: 'main.pipelineUpdate',
         policies: [
           ...policies.commonBackendPolicies,
         ],
         api: {
           method: 'PUT',
-          path: '/api/pipeline/{pipelineId}',
+          path: 'api/pipeline/{pipelineId}',
           cors: { 
             origin: '*',
           },
@@ -185,13 +185,13 @@ export class CdkStack extends cdk.Stack {
         },
       },
       'pipelineGet': {
-        handler: 'src/index.pipelineGet',
+        handler: 'main.pipelineGet',
         policies: [
           ...policies.commonBackendPolicies,
         ],
         api: {
           method: 'GET',
-          path: '/pipeline/{pipelineId}',
+          path: 'pipeline/{pipelineId}',
           cors: { 
             origin: '*',
           },
@@ -204,7 +204,7 @@ export class CdkStack extends cdk.Stack {
         },
       },
       'apiPipelineGet': {
-        handler: 'src/index.pipelineGet',
+        handler: 'main.pipelineGet',
         policies: [
           ...policies.commonBackendPolicies,
         ],
@@ -223,7 +223,7 @@ export class CdkStack extends cdk.Stack {
         },
       },
       'pipelineDelete': {
-        handler: 'src/index.pipelineDelete',
+        handler: 'main.pipelineDelete',
         policies: [
           ...policies.commonBackendPolicies,
         ],
@@ -242,7 +242,7 @@ export class CdkStack extends cdk.Stack {
         },
       },
       'apiPipelineDelete': {
-        handler: 'src/index.pipelineDelete',
+        handler: 'main.pipelineDelete',
         policies: [
           ...policies.commonBackendPolicies,
         ],
@@ -261,7 +261,7 @@ export class CdkStack extends cdk.Stack {
         },
       },
       'pipelinePaginate': {
-        handler: 'src/index.pipelinePaginate',
+        handler: 'main.pipelinePaginate',
         policies: [
           ...policies.commonBackendPolicies,
         ],
@@ -280,7 +280,7 @@ export class CdkStack extends cdk.Stack {
         },
       },
       'apiPipelinePaginate': {
-        handler: 'src/index.pipelinePaginate',
+        handler: 'main.pipelinePaginate',
         policies: [
           ...policies.commonBackendPolicies,
         ],
@@ -299,13 +299,13 @@ export class CdkStack extends cdk.Stack {
         },
       },
       'pipelineRunnerCreate': {
-        handler: 'src/index.pipelineRunnerCreate',
+        handler: 'main.pipelineRunnerCreate',
         policies: [
           ...policies.commonBackendPolicies,
         ],
         api: {
           method: 'POST',
-          path: '/pipeline/{pipelineId}/pipeline-runner',
+          path: 'pipeline/{pipelineId}/pipeline-runner',
           cors: { 
             origin: '*',
           },
@@ -318,13 +318,13 @@ export class CdkStack extends cdk.Stack {
         },
       },
       'apiPipelineRunnerCreate': {
-        handler: 'src/index.pipelineRunnerCreate',
+        handler: 'main.pipelineRunnerCreate',
         policies: [
           ...policies.commonBackendPolicies,
         ],
         api: {
           method: 'POST',
-          path: '/api/pipeline/{pipelineId}/pipeline-runner',
+          path: 'api/pipeline/{pipelineId}/pipeline-runner',
           cors: { 
             origin: '*',
           },
@@ -337,13 +337,13 @@ export class CdkStack extends cdk.Stack {
         },
       },
       'pipelineRunnerUpdate': {
-        handler: 'src/index.pipelineRunnerUpdate',
+        handler: 'main.pipelineRunnerUpdate',
         policies: [
           ...policies.commonBackendPolicies,
         ],
         api: {
           method: 'PUT',
-          path: '/pipeline/{pipelineId}/pipeline-runner',
+          path: 'pipeline/{pipelineId}/pipeline-runner',
           cors: { 
             origin: '*',
           },
@@ -356,13 +356,13 @@ export class CdkStack extends cdk.Stack {
         },
       },
       'apiPipelineRunnerUpdate': {
-        handler: 'src/index.pipelineRunnerUpdate',
+        handler: 'main.pipelineRunnerUpdate',
         policies: [
           ...policies.commonBackendPolicies,
         ],
         api: {
           method: 'PUT',
-          path: '/api/pipeline/{pipelineId}/pipeline-runner',
+          path: 'api/pipeline/{pipelineId}/pipeline-runner',
           cors: { 
             origin: '*',
           },
@@ -375,13 +375,13 @@ export class CdkStack extends cdk.Stack {
         },
       },
       'pipelineRunnerPaginate': {
-        handler: 'src/index.pipelineRunnerPaginate',
+        handler: 'main.pipelineRunnerPaginate',
         policies: [
           ...policies.commonBackendPolicies,
         ],
         api: {
           method: 'GET',
-          path: '/pipeline/{pipelineId}/pipeline-runner',
+          path: 'pipeline/{pipelineId}/pipeline-runner',
           cors: { 
             origin: '*',
           },
@@ -394,13 +394,13 @@ export class CdkStack extends cdk.Stack {
         },
       },
       'apiPipelineRunnerPaginate': {
-        handler: 'src/index.pipelineRunnerPaginate',
+        handler: 'main.pipelineRunnerPaginate',
         policies: [
           ...policies.commonBackendPolicies,
         ],
         api: {
           method: 'GET',
-          path: '/api/pipeline/{pipelineId}/pipeline-runner',
+          path: 'api/pipeline/{pipelineId}/pipeline-runner',
           cors: { 
             origin: '*',
           },
@@ -413,13 +413,13 @@ export class CdkStack extends cdk.Stack {
         },
       },
       'deployRelease': {
-        handler: 'src/index.deployRelease',
+        handler: 'main.deployRelease',
         policies: [
           ...policies.commonBackendPolicies,
         ],
         api: {
           method: 'POST',
-          path: '/deploy/release/{project}/{version}',
+          path: 'deploy/release/{project}/{version}',
           cors: { 
             origin: '*',
           },
@@ -432,13 +432,13 @@ export class CdkStack extends cdk.Stack {
         },
       },
       'apiDeployRelease': {
-        handler: 'src/index.deployRelease',
+        handler: 'main.deployRelease',
         policies: [
           ...policies.commonBackendPolicies,
         ],
         api: {
           method: 'POST',
-          path: '/api/deploy/release/{project}/{version}',
+          path: 'api/deploy/release/{project}/{version}',
           cors: { 
             origin: '*',
           },
@@ -451,13 +451,13 @@ export class CdkStack extends cdk.Stack {
         },
       },
       'releasePaginate': {
-        handler: 'src/index.releasePaginate',
+        handler: 'main.releasePaginate',
         policies: [
           ...policies.commonBackendPolicies,
         ],
         api: {
           method: 'GET',
-          path: '/deploy/release/{project}',
+          path: 'deploy/release/{project}',
           cors: { 
             origin: '*',
           },
@@ -470,13 +470,13 @@ export class CdkStack extends cdk.Stack {
         },
       },
       'apiReleasePaginate': {
-        handler: 'src/index.releasePaginate',
+        handler: 'main.releasePaginate',
         policies: [
           ...policies.commonBackendPolicies,
         ],
         api: {
           method: 'GET',
-          path: '/api/deploy/release/{project}',
+          path: 'api/deploy/release/{project}',
           cors: { 
             origin: '*',
           },
@@ -489,13 +489,13 @@ export class CdkStack extends cdk.Stack {
         },
       },
       'deployVersion': {
-        handler: 'src/index.deployVersion',
+        handler: 'main.deployVersion',
         policies: [
           ...policies.commonBackendPolicies,
         ],
         api: {
           method: 'POST',
-          path: '/deploy/version/{projectName}/{version}',
+          path: 'deploy/version/{projectName}/{version}',
           cors: { 
             origin: '*',
           },
@@ -508,13 +508,13 @@ export class CdkStack extends cdk.Stack {
         },
       },
       'apiDeployVersion': {
-        handler: 'src/index.deployVersion',
+        handler: 'main.deployVersion',
         policies: [
           ...policies.commonBackendPolicies,
         ],
         api: {
           method: 'POST',
-          path: '/api/deploy/version/{projectName}/{version}',
+          path: 'api/deploy/version/{projectName}/{version}',
           cors: { 
             origin: '*',
           },
@@ -527,13 +527,13 @@ export class CdkStack extends cdk.Stack {
         },
       },
       'releaseProjectPagination': {
-        handler: 'src/index.projectPaginate',
+        handler: 'main.projectPaginate',
         policies: [
           ...policies.commonBackendPolicies,
         ],
         api: {
           method: 'GET',
-          path: '/deploy/project',
+          path: 'deploy/project',
           cors: { 
             origin: '*',
           },
@@ -546,13 +546,13 @@ export class CdkStack extends cdk.Stack {
         },
       },
       'apiReleaseProjectPagination': {
-        handler: 'src/index.projectPaginate',
+        handler: 'main.projectPaginate',
         policies: [
           ...policies.commonBackendPolicies,
         ],
         api: {
           method: 'GET',
-          path: '/api/deploy/project',
+          path: 'api/deploy/project',
           cors: { 
             origin: '*',
           },
@@ -565,7 +565,7 @@ export class CdkStack extends cdk.Stack {
         },
       },
       'codebuildExecutor': {
-        handler: 'src/index.codebuildExecutor',
+        handler: 'main.codebuildExecutor',
         policies: [
           ...policies.commonBackendPolicies,
           policies.codebuildExecPolicy,
@@ -573,7 +573,7 @@ export class CdkStack extends cdk.Stack {
         queue: queues['CodebuildExecutor'],
       },
       'codebuildUpdate': {
-        handler: 'src/index.codebuildUpdate',
+        handler: 'main.codebuildUpdate',
         policies: [
           ...policies.commonBackendPolicies,
         ],
@@ -581,7 +581,7 @@ export class CdkStack extends cdk.Stack {
         timeout: 300,
       },
       'codebuildDeploy': {
-        handler: 'src/index.codebuildDeploy',
+        handler: 'main.codebuildDeploy',
         policies: [
           ...policies.commonBackendPolicies,
         ],
@@ -589,7 +589,7 @@ export class CdkStack extends cdk.Stack {
         queue: queues['CodebuildDeploy'],
       },
       'pipelineSetup': {
-        handler: 'src/index.pipelineSetup',
+        handler: 'main.pipelineSetup',
         policies: [
           ...policies.commonBackendPolicies,
         ],
@@ -597,7 +597,7 @@ export class CdkStack extends cdk.Stack {
         queue: queues['PipelineSetup'],
       },
       'pipelineTearDownStart': {
-        handler: 'src/index.pipelineTearDownStart',
+        handler: 'main.pipelineTearDownStart',
         queue: queues['PipelineTearDownStart'],
         timeout: 300,
         policies: [
@@ -605,7 +605,7 @@ export class CdkStack extends cdk.Stack {
         ],
       },
       'pipelineTearDown': {
-        handler: 'src/index.pipelineTearDown',
+        handler: 'main.pipelineTearDown',
         queue: queues['pipelineTearDown'],
         timeout: 300,
         policies: [
@@ -613,13 +613,13 @@ export class CdkStack extends cdk.Stack {
         ],
       },
       'pusherAuth': {
-        handler: 'src/index.pusherAuth',
+        handler: 'main.pusherAuth',
         policies: [
           ...policies.commonBackendPolicies,
         ],
         api: {
           method: 'GET',
-          path: '/deploy/project',
+          path: 'deploy/project',
           cors: { 
             origin: '*',
           },
@@ -634,22 +634,24 @@ export class CdkStack extends cdk.Stack {
     }
 
     for (const [name, options] of Object.entries(functionSetups)) {
-      const role = new Role(scope as any, 'Role', {
+      const role = new Role(this as any, `deployment-service-${name}-role`, {
         assumedBy: new ServicePrincipal('ec2.amazonaws.com'),
       })
 
       options.policies.forEach(policy => role.addToPolicy(policy))
-      const lambda = createLambda(scope, `cloud-deployment-${name}`, AssetCode.fromAsset(path.resolve('..', '..', 'dist', options.handler)), vpc)
+      const lambda = createLambda(this, `cloud-deployment-${name}`, AssetCode.fromAsset(path.resolve('dist', 'main.zip')), vpc)
 
       if (options.queue) {
         lambda.addEventSource(new SqsEventSource(options.queue))
       } else if (options.api) {
-        const api = new LambdaRestApi(scope as any, `cloud-deployment-${name}`, {
+        const api = new LambdaRestApi(this as any, `cloud-deployment-${name}`, {
           handler: lambda,
           defaultCorsPreflightOptions: {
+            allowHeaders: options.api.headers,
             allowOrigins: Cors.ALL_ORIGINS,
             allowMethods: Cors.ALL_ORIGINS,
           },
+          proxy: false,
         })
         const item = api.root.addResource(options.api.path)
         item.addMethod(options.api.method, new HttpIntegration('http://amazon.com'), {

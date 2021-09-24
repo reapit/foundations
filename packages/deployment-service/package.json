@@ -6,7 +6,7 @@
     "@reapit/connect-session": "workspace:packages/connect-session",
     "@reapit/utils-common": "workspace:packages/utils-common",
     "@reapit/utils-node": "workspace:packages/utils-node",
-    "adm-zip": "^0.5.5",
+    "adm-zip": "^0.5.6",
     "aws-cdk": "^1.124.0",
     "class-transformer": "^0.4.0",
     "class-validator": "^0.13.1",
@@ -40,6 +40,7 @@
     "cdk": "cdk/bin/cdk.js"
   },
   "devDependencies": {
+    "@aws-cdk/assets": "^1.124.0",
     "@aws-cdk/aws-apigateway": "^1.124.0",
     "@aws-cdk/aws-codebuild": "^1.124.0",
     "@aws-cdk/aws-ec2": "^1.124.0",
@@ -59,6 +60,7 @@
     "@reapit/config-manager": "workspace:packages/config-manager",
     "@reapit/ts-scripts": "workspace:packages/ts-scripts",
     "@reapit/ts-types": "workspace:packages/ts-types",
+    "@types/adm-zip": "^0.4.34",
     "@types/mime-types": "^2.1.1",
     "@types/project-name-generator": "^2.1.1",
     "@types/rimraf": "^3.0.1",

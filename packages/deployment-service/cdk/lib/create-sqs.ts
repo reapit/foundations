@@ -1,7 +1,8 @@
 import { Queue } from "@aws-cdk/aws-sqs";
-import { Construct, Duration } from "@aws-cdk/core";
+import { Duration } from "@aws-cdk/core";
+import { CdkStack } from "./cdk-stack";
 
-export const createSqsQueues = (app: Construct) => {
+export const createSqsQueues = (stack: CdkStack) => {
   const queueConfig: {[s: string]: {
     visibilityTimeout?: number,
   }} = {
@@ -24,7 +25,7 @@ export const createSqsQueues = (app: Construct) => {
 
     const duration = typeof queueConfig[queueName].visibilityTimeout !== 'undefined' ? Duration.seconds(queueConfig[queueName].visibilityTimeout as number) : undefined
 
-    queues[queueName] = new Queue(app as any, `cloud-deployment-${queueName}`, {
+    queues[queueName] = new Queue(stack as any, `cloud-deployment-${queueName}`, {
       queueName,
       visibilityTimeout: duration as any,
     })

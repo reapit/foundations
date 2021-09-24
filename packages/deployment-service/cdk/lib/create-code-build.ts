@@ -2,10 +2,11 @@ import * as codebuild from '@aws-cdk/aws-codebuild'
 import { Project } from '@aws-cdk/aws-codebuild';
 import { Topic } from '@aws-cdk/aws-sns';
 import { Construct } from '@aws-cdk/core';
+import { CdkStack } from './cdk-stack';
 import { createSnsTopic } from './create-sns';
 
-export const createCodeBuildProject = (app: Construct): [Project, Topic] => {
-  const project = new codebuild.Project(app as any, 'MyProject', {
+export const createCodeBuildProject = (stack: CdkStack): [Project, Topic] => {
+  const project = new codebuild.Project(stack as any, 'MyProject', {
     buildSpec: codebuild.BuildSpec.fromObject({
       version: '0.2',
       phases: {
@@ -18,7 +19,7 @@ export const createCodeBuildProject = (app: Construct): [Project, Topic] => {
     }),
   })
 
-  const topic = createSnsTopic(app)
+  const topic = createSnsTopic(stack)
 
   return [project, topic]
 }

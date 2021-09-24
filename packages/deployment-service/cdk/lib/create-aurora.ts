@@ -1,10 +1,10 @@
 import { AuroraMysqlEngineVersion, ServerlessCluster, DatabaseClusterEngine } from "@aws-cdk/aws-rds"
 import { ISecret } from "@aws-cdk/aws-secretsmanager"
-import { Construct } from "@aws-cdk/core"
 import { Vpc } from '@aws-cdk/aws-ec2'
+import { CdkStack } from "./cdk-stack"
 
-export const createAurora = (app: Construct, vpc: Vpc): [ISecret, ServerlessCluster] => {
-  const aurora = new ServerlessCluster(app as any, 'Database', {
+export const createAurora = (stack: CdkStack, vpc: Vpc): [ISecret, ServerlessCluster] => {
+  const aurora = new ServerlessCluster(stack as any, 'Database', {
     engine: DatabaseClusterEngine.auroraMysql({ version: AuroraMysqlEngineVersion.VER_2_08_1 }),
     vpc,
   })

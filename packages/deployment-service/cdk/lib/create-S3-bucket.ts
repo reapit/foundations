@@ -1,7 +1,7 @@
 import { Bucket, BucketPolicy } from '@aws-cdk/aws-s3'
-import { Construct } from '@aws-cdk/core'
+import { CdkStack } from './cdk-stack'
 
-export const createS3Buckets = (app: Construct) => {
+export const createS3Buckets = (stack: CdkStack) => {
   const bucketOptions: {
     [s: string]: {
       public?: boolean,
@@ -24,7 +24,7 @@ export const createS3Buckets = (app: Construct) => {
 
   return Object.keys(bucketOptions).reduce<{[s: string]: Bucket}>((buckets, bucketName) => {
 
-    buckets[bucketName] = new Bucket(app as any, bucketName, {
+    buckets[bucketName] = new Bucket(stack as any, bucketName, {
       bucketName,
       publicReadAccess: bucketOptions[bucketName]?.public,
       websiteIndexDocument: bucketOptions[bucketName]?.public ? 'index.html' : undefined,
@@ -33,7 +33,7 @@ export const createS3Buckets = (app: Construct) => {
 
     if (bucketOptions[bucketName].get || bucketOptions[bucketName].list || bucketOptions[bucketName].put) {
       // TODO work out how to enable get and put requests in policy for code build
-      const policy = new BucketPolicy(app as any, `${bucketName}-policy`, {
+      const policy = new BucketPolicy(stack as any, `${bucketName}-policy`, {
         bucket: buckets[bucketName],
       })
     }

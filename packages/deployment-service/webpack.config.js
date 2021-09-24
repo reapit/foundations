@@ -1,8 +1,9 @@
-const slsw = require('serverless-webpack')
 const { webpackConfigNode, PATHS } = require('@reapit/ts-scripts')
 const CopyPlugin = require('copy-webpack-plugin')
 
-webpackConfigNode.entry = slsw.lib.entries
+console.log('running webpack')
+
+webpackConfigNode.entry = ['./src/index.ts']
 webpackConfigNode.optimization.minimize = false //slsw.lib.webpack.isLocal ? false : true
 
 webpackConfigNode.plugins.push(new CopyPlugin({ 
