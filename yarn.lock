@@ -15835,7 +15835,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"aws-sdk@npm:*, aws-sdk@npm:^2.7.0, aws-sdk@npm:^2.757.0":
+"aws-sdk@npm:*, aws-sdk@npm:^2.7.0":
   version: 2.943.0
   resolution: "aws-sdk@npm:2.943.0"
   dependencies:
@@ -20563,9 +20563,6 @@ __metadata:
     project-name-generator: ^2.1.9
     pusher: ^5.0.0
     rimraf: ^3.0.2
-    serverless: ^2.52.0
-    serverless-offline-sqs: ^4.1.1
-    serverless-webpack: ^5.5.1
     ts-node: ^10.1.0
     typeorm: ^0.2.34
     typeorm-aurora-data-api-driver: ^2.2.0
@@ -38769,19 +38766,6 @@ resolve@^2.0.0-next.3:
   version: 1.1.5
   resolution: "serverless-lambda-edge-pre-existing-cloudfront@npm:1.1.5"
   checksum: ea5116132282bb3f17d6e64a7e8c7c55d11919f45092777b9fb1f5b376068b2ea002362cad8ef2b504e7eb4d7369c13c1afe61752a0888b0380a167c6446de40
-  languageName: node
-  linkType: hard
-
-"serverless-offline-sqs@npm:^4.1.1":
-  version: 4.1.1
-  resolution: "serverless-offline-sqs@npm:4.1.1"
-  dependencies:
-    aws-sdk: ^2.757.0
-    lodash: ^4.17.20
-    p-queue: ^6.6.1
-  peerDependencies:
-    serverless-offline: ^6.7.0
-  checksum: a17e5325e3f81b0611230759470518c0c27cfadd2b70b7a6b0e11cb9eeda353d1bf372682df4684c5bd8822498fa49a5d44bc13a8b8c8ee9a226be3e22f83081
   languageName: node
   linkType: hard
 
