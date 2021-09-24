@@ -29,7 +29,7 @@ export const AppFragment = gql`
   }
 `
 
-type Node = {
+export type Node = {
   id: string
   nodeId: string
   displayName: string
