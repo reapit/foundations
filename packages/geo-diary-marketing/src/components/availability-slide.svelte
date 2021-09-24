@@ -16,34 +16,21 @@
   <div class="image-footer-container">
     <div class="image-mobile-hero">
       <img src="./images/availability-mobile-hero.svg" alt="flow of data to various devices" />
-      <p class="el-body-text el-has-grey-text image-text">
-        <button class="el-intent-critical el-button el-mr3 el-mb3 button" on:click|preventDefault={setModalVisible}
-          >App Marketplace</button
-        >
-        Reapit customers can now adopt and deploy powerful new apps and integrations from a continually evolving library
-        developed by Reapit’s growing range of partnerships.
-      </p>
     </div>
     <div class="image-tablet-hero">
       <img src="./images/availability-hero.svg" alt="flow of data to various devices" />
-      <p class="el-body-text el-has-grey-text image-text">
-        <button class="el-intent-critical el-button el-mr3 el-mb3 button" on:click|preventDefault={setModalVisible}
-          >AppMarket</button
-        >
-        Reapit customers can now adopt and deploy powerful new apps and integrations from a continually evolving library
-        developed by Reapit’s growing range of partnerships.
-      </p>
     </div>
     <div class="image-desktop-hero">
       <img src="./images/availability-desktop-hero.svg" alt="flow of data to various devices" />
-      <p class="el-body-text el-has-grey-text image-text">
-        <button class="el-intent-critical el-button el-mr3 el-mb3 button" on:click|preventDefault={setModalVisible}
-          >App Marketplace</button
-        >
-        Reapit customers can now adopt and deploy powerful new apps and integrations from a continually evolving library
-        developed by Reapit’s growing range of partnerships.
-      </p>
     </div>
+    <p class="el-body-text el-has-grey-text image-text">
+      If you are an existing Reapit Customer, you can access all apps and integrations now from the AppMarket
+      <button class="el-intent-critical el-button el-mr3 button" on:click|preventDefault={setModalVisible}
+        >AppMarket</button
+      >
+      Reapit customers can now adopt and deploy powerful new apps and integrations from a continually evolving library developed
+      by Reapit’s growing range of partnerships.
+    </p>
     <div class="footer">
       <p>© Copyright Reapit. All rights reserved. 2021</p>
       <p>
@@ -90,15 +77,18 @@
   }
 
   .image-text {
-    position: absolute;
-    bottom: 0;
-    padding: 0 2rem;
+    padding: 0 2rem 1rem 2rem;
     text-align: center;
+    background: #fff;
+    margin-bottom: 0;
+    margin-top: -3rem;
+    z-index: 1;
+    position: relative;
   }
 
   .button {
     display: block;
-    margin: 0 auto 1.5rem auto;
+    margin: 1.5rem auto;
   }
 
   img {

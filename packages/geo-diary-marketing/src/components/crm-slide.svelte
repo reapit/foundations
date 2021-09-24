@@ -6,8 +6,7 @@
 
 <div class="container el-wscreen">
   <div class="inner-container el-flex-container el-flex-column el-flex-align-center el-mxauto">
-    <h2 class="el-title el-text-center">Do more with AgencyCloud</h2>
-    <h5 class="el-subtitle el-text-center">Intuitive CRM and Client Accounting Software</h5>
+    <h2 class="el-title el-text-center">Anywhere, Anytime, Any Device</h2>
     <div class="el-flex-container el-flex-align-center">
       <h6 class="el-subtitle el-mr3">How it works</h6>
       <a
@@ -29,27 +28,25 @@
       <div class="column el-flex-container el-flex-column el-px2">
         <p class="el-body-text el-has-grey-text">
           <strong
-            >Combining the power of our intuitive CRM ‘AgencyCloud’, the GEO Diary app provides you with the ability to
-            access diary appointments from anywhere!
+            >Quick and easy to install, the GEO Diary app lets you access your AgencyCloud diary appointments from
+            anywhere. You can view your appointments for today, tomorrow or the whole week, direct from an app on your
+            phone or via a web browser.
           </strong>
         </p>
         <p class="el-body-text el-has-grey-text">
           You can view your appointments for today, tomorrow or for the whole week, direct from an app on your phone or
           via a web browser.
         </p>
-        <p class="el-body-text el-has-grey-text">
-          Easy to install and simple to use, GEO Diary is a progressive web application that integrates with What’s App,
-          Email and other applications from the AppMarket.
-        </p>
       </div>
       <div class="column el-px2">
         <p class="el-body-text el-has-grey-text">
-          Running late for an appointment? send an automated ETA text message. Carried out a viewing? Enter your follow
-          up notes direct on the appointment and they will be instantly stored against that record in AgencyCloud.
+          Running late for an appointment? Send an automated ETA text message. Carried out a viewing? Enter your follow
+          up notes direct on the appointment to have it instantly stored in the AgencyCloud record.
         </p>
+
         <p class="el-body-text el-has-grey-text">
-          Using the very latest in technology, we have integrated with Google Maps and Apple Maps for turn-by-turn
-          directions.
+          With Geo Diary you have full control – so there’s no reason to ever worry about your appointment management
+          again.
         </p>
       </div>
     </div>
@@ -136,12 +133,6 @@
     line-height: 1.75rem;
   }
 
-  h5 {
-    margin-bottom: 2.5rem;
-    font-size: 1rem;
-    line-height: 1.25rem;
-  }
-
   h6 {
     font-weight: bold;
   }
@@ -171,11 +162,6 @@
 
     p {
       font-size: 1rem;
-    }
-
-    h5 {
-      font-size: 1.25rem;
-      line-height: 1.5rem;
     }
 
     h2 {
