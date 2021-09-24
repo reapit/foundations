@@ -5,7 +5,7 @@ import { CdkStack } from '../lib/cdk-stack';
 import * as util from 'util'
 const exec = util.promisify(require('child_process').exec)
 import * as path from 'path'
-import * as AdmZip from 'adm-zip'
+import AdmZip from 'adm-zip'
 
 const bootstrap = async () => {
 
