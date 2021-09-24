@@ -25,7 +25,7 @@
   "scripts": {
     "start": "reapit-fetch-public-keys",
     "test": "echo '...skipping...'",
-    "build": "webpack --config webpack.config.js",
+    "build": "reapit-fetch-public-keys && webpack --config webpack.config.js",
     "lint": "eslint --cache --ext=ts,tsx,js src --fix",
     "deploy": "cdk synth",
     "release": "echo 'reapit-fetch-public-keys && yarn db-conf && yarn migration:run && yarn deploy'",
