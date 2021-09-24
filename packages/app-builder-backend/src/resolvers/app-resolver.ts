@@ -4,6 +4,7 @@ import { App } from '../entities/app'
 import { getUserApps, getApp, createApp, updateApp } from '../ddb'
 import { Page } from '../entities/page'
 import * as uuid from 'uuid'
+import { ejectApp } from '../eject'
 
 export const defaultNodes = [
   {
@@ -81,5 +82,14 @@ export class AppResolver {
       app.pages = pages
     }
     return updateApp(app)
+  }
+
+  @Mutation(() => String, { name: '_ejectApp' })
+  async ejectApp(@Arg('id', () => ID) id: string) {
+    const app = await getApp(id)
+    if (!app) {
+      throw new Error('App not found')
+    }
+    return ejectApp(app)
   }
 }

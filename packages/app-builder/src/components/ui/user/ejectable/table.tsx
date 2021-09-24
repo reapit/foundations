@@ -18,7 +18,7 @@ const ObjectTableCell = (obj: any) => {
   return (
     <span>
       {Object.entries(obj)
-        .filter(([key, value]) => !key.startsWith('_') && typeof value !== 'object')
+        .filter(([key, value]) => !key.startsWith('_') && typeof value !== 'object' && key !== 'id')
         .map((kv) => kv[1])
         .join(' ')}
     </span>

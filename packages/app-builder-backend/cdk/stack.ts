@@ -21,7 +21,7 @@ export const createStack = (scope: cdk.App, name: string) => {
   }
 
   const PACKAGE = 'app-builder-backend'
-  const HANDLER = 'lambda.handler'
+  const HANDLER = `${PACKAGE}/src/lambda.handler`
 
   const code = lambda.DockerImageCode.fromImageAsset(repoRoot, {
     buildArgs: {
@@ -53,6 +53,7 @@ export const createStack = (scope: cdk.App, name: string) => {
   })
   appsTable.grantReadWriteData(lambdaFunction)
   const api = createApi(stack, 'api', lambdaFunction)
+  lambdaFunction.addEnvironment('API_URL', api.url)
 
   output(stack, 'api-url', api.url)
 }

@@ -1,5 +1,6 @@
 import { ESLint } from 'eslint'
-import { baseEslint } from '@reapit/ts-scripts'
+// require instead of import to avoid exec of git commands by webpack config which is exported by ts-scripts
+const baseEslint = require('@reapit/ts-scripts/src/eslint/base-eslint')
 
 export const slugToCamel = (str) =>
   capitalize(
@@ -8,10 +9,15 @@ export const slugToCamel = (str) =>
 
 const capitalize = (s) => s && s[0].toUpperCase() + s.slice(1)
 
+const baseConfig = {
+  ...baseEslint,
+  extends: baseEslint.extends.filter((extend) => !extend.startsWith('prettier/')),
+}
+
 export const lint = async (code: string): Promise<string> => {
   const eslint = new ESLint({
     // @ts-ignore
-    baseConfig: baseEslint,
+    baseConfig,
     useEslintrc: false,
     fix: true,
   })

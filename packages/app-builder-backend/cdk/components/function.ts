@@ -12,5 +12,6 @@ export const createFunction = (
     tracing: Tracing.ACTIVE,
     timeout: cdk.Duration.minutes(15),
     environment,
+    memorySize: 512,
   })
 }

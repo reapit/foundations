@@ -7,7 +7,7 @@ import { useApp } from '@/components/hooks/apps/use-app'
 import { LinkProps, Link as ELink } from './ejectable/link'
 
 const defaultProps = {
-  destination: '/',
+  destination: '',
 }
 
 const Link = (props: LinkProps) => {

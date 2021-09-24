@@ -8049,6 +8049,7 @@ __metadata:
     babel-jest: ^27.0.6
     class-validator: ^0.13.1
     concurrently: ^6.2.0
+    cors: ^2.8.5
     cross-env: ^7.0.3
     eslint: 7.31.0
     eslint-plugin-prettier: ^3.4.0
@@ -24614,7 +24615,7 @@ fsevents@^1.2.7:
     dayjs: ^1.10.6
     eslint: 7.31.0
     eslint-plugin-prettier: ^3.4.0
-    graphql: 15.5.1
+    graphql: 15.5.2
     graphql-depth-limit: ^1.1.0
     graphql-import: ^1.0.2
     graphql-tag: ^2.12.5
@@ -24722,6 +24723,13 @@ fsevents@^1.2.7:
   version: 15.5.1
   resolution: "graphql@npm:15.5.1"
   checksum: 509cdc2fc072e7cd1b5a25cf3fe13838d41892b035434f02419c209608f89e323f5234ca7e2bde77e9371e629339cbd8435f1dbc8c250910e4e9ac0babfa6c64
+  languageName: node
+  linkType: hard
+
+"graphql@npm:15.5.2":
+  version: 15.5.2
+  resolution: "graphql@npm:15.5.2"
+  checksum: cc76d066cae03e7f55967b4a612aafc3a2ad78494f3f6912c468b2240752a6643958f96f06d32bea2dacca712f2a315ea8075181a8f06ff68db39bb9ceb66c8f
   languageName: node
   linkType: hard
 

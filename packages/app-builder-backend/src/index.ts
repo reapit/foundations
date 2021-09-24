@@ -2,11 +2,11 @@ import 'reflect-metadata'
 import { ApolloServer } from 'apollo-server-express'
 import express from 'express'
 import http from 'http'
+import cors from 'cors'
 import { ApolloServerPluginDrainHttpServer } from 'apollo-server-core'
 
 import { Context } from './types'
 import { ensureTables } from './ddb'
-import { ejectAppRoute } from './eject/route'
 import { getSchema } from './get-schema'
 
 const start = async () => {
@@ -14,6 +14,7 @@ const start = async () => {
   const schema = await getSchema()
 
   const app = express()
+  app.use(cors())
   const httpServer = http.createServer(app)
   const server = new ApolloServer({
     schema,
@@ -24,7 +25,6 @@ const start = async () => {
     plugins: [ApolloServerPluginDrainHttpServer({ httpServer })],
   })
 
-  app.get('/eject/:appId', ejectAppRoute)
   await server.start()
   server.applyMiddleware({ app })
 
