@@ -2,32 +2,38 @@ import { ArnPrincipal, Effect, PolicyStatement } from '@aws-cdk/aws-iam'
 import { Bucket } from '@aws-cdk/aws-s3'
 import { CdkStack } from './cdk-stack'
 
+export enum BucketNames {
+  LIVE = 'cloud-deployment-live-dev',
+  LOG = 'cloud-deployment-log-dev',
+  VERSION = 'cloud-deployment-version-dev',
+}
+
 export const createS3Buckets = (stack: CdkStack) => {
   const bucketOptions: {
-    [s: string]: {
+    [k in BucketNames]: {
       public?: boolean,
       get?: boolean,
       list?: boolean,
       put?: boolean,
     }
   } = {
-    [process.env.DEPLOYMENT_LIVE_BUCKET_NAME as string]: {
+    [BucketNames.LIVE]: {
       public: true,
       get: true,
       list: true,
       put: true,
     },
-    [process.env.DEPLOYMENT_LOG_BUCKET_NAME as string]: {
+    [BucketNames.LOG]: {
       put: true,
     },
-    [process.env.DEPLOYMENT_VERSION_BUCKET_NAME as string]: {
+    [BucketNames.VERSION]: {
       get: true,
       list: true,
       put: true,
     },
   }
 
-  return Object.keys(bucketOptions).reduce<{[s: string]: Bucket}>((buckets, bucketName) => {
+  return (Object.keys(bucketOptions) as Array<BucketNames>).reduce<{[k in BucketNames]: Bucket}>((buckets, bucketName) => {
 
     buckets[bucketName] = new Bucket(stack as any, bucketName, {
       bucketName,
@@ -59,5 +65,5 @@ export const createS3Buckets = (stack: CdkStack) => {
     }
 
     return buckets
-  }, {})
+  }, {} as any)
 }

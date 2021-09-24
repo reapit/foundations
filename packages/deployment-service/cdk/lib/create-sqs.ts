@@ -2,26 +2,34 @@ import { Queue } from "@aws-cdk/aws-sqs";
 import { Duration } from "@aws-cdk/core";
 import { CdkStack } from "./cdk-stack";
 
+export enum QueueNames {
+  CODEBUILD_EXECUTOR = 'CodebuildExecutor',
+  CODEBUILD_DEPLOY = 'CodebuildDeploy',
+  PIPELINE_SETUP = 'PipelineSetup',
+  PIPELINE_TEAR_DOWN_START = 'PipelineTearDownStart',
+  PIPELINE_TEAR_DOWN = 'PipelineTearDown',
+}
+
 export const createSqsQueues = (stack: CdkStack) => {
-  const queueConfig: {[s: string]: {
+  const queueConfig: {[k in QueueNames]: {
     visibilityTimeout?: number,
   }} = {
-    ['CodebuildExecutor']: {},
-    ['CodebuildDeploy']: {
+    [QueueNames.CODEBUILD_EXECUTOR]: {},
+    [QueueNames.CODEBUILD_DEPLOY]: {
       visibilityTimeout: 300,
     },
-    ['PipelineSetup']: {
+    [QueueNames.PIPELINE_SETUP]: {
       visibilityTimeout: 300,
     },
-    ['PipelineTearDownStart']: {
+    [QueueNames.PIPELINE_TEAR_DOWN_START]: {
       visibilityTimeout: 300,
     },
-    ['PipelineTearDown']: {
+    [QueueNames.PIPELINE_TEAR_DOWN]: {
       visibilityTimeout: 300, // Determine if this needs a delay?
     },
   }
 
-  return Object.keys(queueConfig).reduce<{[s: string]: Queue}>((queues, queueName) => {
+  return (Object.keys(queueConfig) as Array<QueueNames>).reduce<{[k in QueueNames]: Queue}>((queues, queueName) => {
 
     const duration = typeof queueConfig[queueName].visibilityTimeout !== 'undefined' ? Duration.seconds(queueConfig[queueName].visibilityTimeout as number) : undefined
 
@@ -31,5 +39,5 @@ export const createSqsQueues = (stack: CdkStack) => {
     })
 
     return queues
-  }, {})
+  }, {} as any)
 }

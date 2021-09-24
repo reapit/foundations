@@ -5,13 +5,13 @@ import * as path from 'path'
 import { PolicyStatement, Role, ServicePrincipal } from '@aws-cdk/aws-iam'
 import { Queue } from '@aws-cdk/aws-sqs'
 import { createS3Buckets } from './create-S3-bucket'
-import { createSqsQueues } from './create-sqs'
+import { createSqsQueues, QueueNames } from './create-sqs'
 import { createAurora } from './create-aurora'
 import { Peer, Port, SecurityGroup, Subnet, Vpc } from '@aws-cdk/aws-ec2'
 import { createCodeBuildProject } from './create-code-build'
 import { createApigateway } from './create-apigateway'
 import { SqsEventSource } from '@aws-cdk/aws-lambda-event-sources'
-import { AuthorizationType, Cors, HttpIntegration, LambdaRestApi, CognitoUserPoolsAuthorizer, LambdaIntegration } from '@aws-cdk/aws-apigateway'
+import { AuthorizationType, CognitoUserPoolsAuthorizer, LambdaIntegration } from '@aws-cdk/aws-apigateway'
 import { createPolicies } from './create-policies'
 import { Topic } from '@aws-cdk/aws-sns'
 import { LambdaSubscription } from '@aws-cdk/aws-sns-subscriptions'
@@ -570,7 +570,7 @@ export class CdkStack extends cdk.Stack {
           ...policies.commonBackendPolicies,
           policies.codebuildExecPolicy,
         ],
-        queue: queues['CodebuildExecutor'],
+        queue: queues[QueueNames.CODEBUILD_EXECUTOR],
       },
       'codebuildUpdate': {
         handler: 'main.codebuildUpdate',
@@ -586,7 +586,7 @@ export class CdkStack extends cdk.Stack {
           ...policies.commonBackendPolicies,
         ],
         timeout: 300,
-        queue: queues['CodebuildDeploy'],
+        queue: queues[QueueNames.CODEBUILD_DEPLOY],
       },
       'pipelineSetup': {
         handler: 'main.pipelineSetup',
@@ -594,11 +594,11 @@ export class CdkStack extends cdk.Stack {
           ...policies.commonBackendPolicies,
         ],
         timeout: 300,
-        queue: queues['PipelineSetup'],
+        queue: queues[QueueNames.PIPELINE_SETUP],
       },
       'pipelineTearDownStart': {
         handler: 'main.pipelineTearDownStart',
-        queue: queues['PipelineTearDownStart'],
+        queue: queues[QueueNames.PIPELINE_TEAR_DOWN_START],
         timeout: 300,
         policies: [
           ...policies.commonBackendPolicies,
@@ -606,7 +606,7 @@ export class CdkStack extends cdk.Stack {
       },
       'pipelineTearDown': {
         handler: 'main.pipelineTearDown',
-        queue: queues['pipelineTearDown'],
+        queue: queues[QueueNames.PIPELINE_TEAR_DOWN],
         timeout: 300,
         policies: [
           ...policies.commonBackendPolicies,
