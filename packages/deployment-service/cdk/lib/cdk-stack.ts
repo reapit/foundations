@@ -11,7 +11,7 @@ import { Peer, Port, SecurityGroup, Subnet, Vpc } from '@aws-cdk/aws-ec2'
 import { createCodeBuildProject } from './create-code-build'
 import { createApigateway } from './create-apigateway'
 import { SqsEventSource } from '@aws-cdk/aws-lambda-event-sources'
-import { AuthorizationType, CognitoUserPoolsAuthorizer, Cors, HttpIntegration, IAuthorizer, LambdaRestApi } from '@aws-cdk/aws-apigateway'
+import { AuthorizationType, Cors, HttpIntegration, LambdaRestApi, CognitoUserPoolsAuthorizer } from '@aws-cdk/aws-apigateway'
 import { createPolicies } from './create-policies'
 import { Topic } from '@aws-cdk/aws-sns'
 import { LambdaSubscription } from '@aws-cdk/aws-sns-subscriptions'
@@ -27,7 +27,7 @@ type FunctionSetup = {
       origin: string,
     },
     headers: string[],
-    authorizer?: IAuthorizer,
+    authorizer?: boolean,
   },
   queue?: Queue,
   topic?: Topic,
@@ -103,10 +103,6 @@ export class CdkStack extends cdk.Stack {
       aurora,
     })
 
-    const authorizer = new CognitoUserPoolsAuthorizer(this as any, `cloud-deployment-authorizer`, {
-      cognitoUserPools: [],
-    })
-
     const functionSetups: { [s: string]: FunctionSetup } = {
       'pipelineCreate': {
         handler: 'main.pipelineCreate',
@@ -124,7 +120,7 @@ export class CdkStack extends cdk.Stack {
             'Authorization',
             'api-version',
           ],
-          authorizer,
+          authorizer: true,
         },
       },
       'apiPipelineCreate': {
@@ -162,7 +158,7 @@ export class CdkStack extends cdk.Stack {
             'Authorization',
             'api-version',
           ],
-          authorizer,
+          authorizer: true,
         },
       },
       'apiPipelineUpdate': {
@@ -200,7 +196,7 @@ export class CdkStack extends cdk.Stack {
             'Authorization',
             'api-version',
           ],
-          authorizer,
+          authorizer: true,
         },
       },
       'apiPipelineGet': {
@@ -238,7 +234,7 @@ export class CdkStack extends cdk.Stack {
             'Authorization',
             'api-version',
           ],
-          authorizer,
+          authorizer: true,
         },
       },
       'apiPipelineDelete': {
@@ -276,7 +272,7 @@ export class CdkStack extends cdk.Stack {
             'Authorization',
             'api-version',
           ],
-          authorizer,
+          authorizer: true,
         },
       },
       'apiPipelinePaginate': {
@@ -314,7 +310,7 @@ export class CdkStack extends cdk.Stack {
             'Authorization',
             'api-version',
           ],
-          authorizer,
+          authorizer: true,
         },
       },
       'apiPipelineRunnerCreate': {
@@ -352,7 +348,7 @@ export class CdkStack extends cdk.Stack {
             'Authorization',
             'api-version',
           ],
-          authorizer,
+          authorizer: true,
         },
       },
       'apiPipelineRunnerUpdate': {
@@ -390,7 +386,7 @@ export class CdkStack extends cdk.Stack {
             'Authorization',
             'api-version',
           ],
-          authorizer,
+          authorizer: true,
         },
       },
       'apiPipelineRunnerPaginate': {
@@ -428,7 +424,7 @@ export class CdkStack extends cdk.Stack {
             'Authorization',
             'api-version',
           ],
-          authorizer,
+          authorizer: true,
         },
       },
       'apiDeployRelease': {
@@ -466,7 +462,7 @@ export class CdkStack extends cdk.Stack {
             'Authorization',
             'api-version',
           ],
-          authorizer,
+          authorizer: true,
         },
       },
       'apiReleasePaginate': {
@@ -504,7 +500,7 @@ export class CdkStack extends cdk.Stack {
             'Authorization',
             'api-version',
           ],
-          authorizer,
+          authorizer: true,
         },
       },
       'apiDeployVersion': {
@@ -542,7 +538,7 @@ export class CdkStack extends cdk.Stack {
             'Authorization',
             'api-version',
           ],
-          authorizer,
+          authorizer: true,
         },
       },
       'apiReleaseProjectPagination': {
@@ -628,7 +624,7 @@ export class CdkStack extends cdk.Stack {
             'Authorization',
             'api-version',
           ],
-          authorizer,
+          authorizer: true,
         },
       },
     }
@@ -653,9 +649,12 @@ export class CdkStack extends cdk.Stack {
           },
           proxy: false,
         })
-        const item = api.root.addResource(options.api.path)
-        item.addMethod(options.api.method, new HttpIntegration('http://amazon.com'), {
-          authorizer: options.api.authorizer ? authorizer : undefined,
+
+        api.root.resourceForPath(options.api.path)
+          .addMethod(options.api.method, new HttpIntegration('http://amazon.com'), {
+          authorizer: options.api.authorizer ? new CognitoUserPoolsAuthorizer(this as any, `cloud-deployment-service-${name}-authorizer`, {
+            cognitoUserPools: [],
+          }) : undefined,
           authorizationType: options.api.authorizer ? AuthorizationType.COGNITO : undefined,
         })
       } else if (options.topic) {
