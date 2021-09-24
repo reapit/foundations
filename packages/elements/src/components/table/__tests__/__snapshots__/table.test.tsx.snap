@@ -193,9 +193,7 @@ exports[`Table Component should match a snapshot 3`] = `
 `;
 
 exports[`Table Component should match a snapshot 4`] = `
-<ElTable
-  data-expandable-content-size="medium"
->
+<ElTable>
   <TableHeadersRow>
     <TableHeader>
       Property

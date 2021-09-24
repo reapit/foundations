@@ -19,7 +19,7 @@ export type NarrowOptionsType = {
   order?: NarrowOrderType
 }
 
-export type Cell = {
+export interface CellProps {
   label: string
   value: string
   children?: ReactNode
@@ -30,8 +30,8 @@ export type Cell = {
   narrowTable?: NarrowOptionsType
 }
 
-export type Row = {
-  cells: Cell[]
+export interface RowProps {
+  cells: CellProps[]
   expandableContent?: {
     content?: ReactNode
     cellContent?: ReactNode
@@ -42,12 +42,9 @@ export type Row = {
   }
 }
 
-export type ExpandableContentSize = 'small' | 'medium' | 'large'
-
 export interface TableProps extends HTMLAttributes<HTMLDivElement> {
-  rows?: Row[]
+  rows?: RowProps[]
   numberColumns?: number
-  expandableContentSize?: ExpandableContentSize
   indexExpandedRow?: number | null
   setIndexExpandedRow?: Dispatch<SetStateAction<number | null>>
 }
@@ -58,16 +55,10 @@ export const Table: FC<TableProps> = ({
   numberColumns,
   indexExpandedRow,
   setIndexExpandedRow,
-  expandableContentSize,
   ...rest
 }) => {
   const firstRow = rows?.[0]
-  if (!rows || !firstRow)
-    return (
-      <ElTable data-expandable-content-size={expandableContentSize} {...rest}>
-        {children}
-      </ElTable>
-    )
+  if (!rows || !firstRow) return <ElTable {...rest}>{children}</ElTable>
 
   const [expandedRow, setExpandedRow] = useState<null | number>(null)
   const hasExpandableRows = rows.some((row) => Boolean(row.expandableContent))
@@ -94,7 +85,6 @@ export const Table: FC<TableProps> = ({
       }
       data-has-expandable-action={hasExpandableRows}
       data-has-call-to-action={hasCallToAction}
-      data-expandable-content-size={expandableContentSize}
     >
       <TableHeadersRow>
         {firstRow.cells.map((cell) => (

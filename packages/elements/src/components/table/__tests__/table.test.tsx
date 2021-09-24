@@ -118,7 +118,7 @@ describe('Table Component', () => {
 
   it('should match a snapshot', () => {
     const wrapper = shallow(
-      <Table expandableContentSize="medium">
+      <Table>
         <TableHeadersRow>
           <TableHeader>Property</TableHeader>
           <TableHeader>Customer</TableHeader>

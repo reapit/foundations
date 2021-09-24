@@ -26,3 +26,39 @@ exports[`MultiSelectChip should match a snapshot and render children 1`] = `
   </ElMultiSelectLabel>
 </Fragment>
 `;
+
+exports[`MultiSelectInput should match a snapshot and render children 1`] = `
+<Fragment>
+  <ElMultiSelectInput
+    id="react-example"
+  />
+  <MultiSelect>
+    <MultiSelectChip
+      className=""
+      defaultChecked={true}
+      key="item-one"
+      onChange={[Function]}
+    >
+      Item one
+    </MultiSelectChip>
+  </MultiSelect>
+  <MultiSelect>
+    <MultiSelectChip
+      className=""
+      defaultChecked={false}
+      key="item-two"
+      onChange={[Function]}
+    >
+      Item two
+    </MultiSelectChip>
+    <MultiSelectChip
+      className=""
+      defaultChecked={false}
+      key="item-three"
+      onChange={[Function]}
+    >
+      Item three
+    </MultiSelectChip>
+  </MultiSelect>
+</Fragment>
+`;
