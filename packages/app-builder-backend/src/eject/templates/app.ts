@@ -2,6 +2,7 @@ import { js } from './js'
 import { lint } from './format'
 
 export const generateApp = () => {
+  const apiUrl = process.env.API_URL || 'http://localhost:4000/'
   return lint(js`
     import * as React from 'react'
     import { ApolloClient, InMemoryCache, ApolloProvider, createHttpLink } from '@apollo/client'
@@ -13,7 +14,7 @@ export const generateApp = () => {
     import '@reapit/elements/dist/index.css'
 
     const httpLink = createHttpLink({
-      uri: 'http://localhost:4000/graphql/',
+      uri: '${apiUrl}/graphql/',
     })
 
     const authLink = setContext(async (_, { headers }) => {

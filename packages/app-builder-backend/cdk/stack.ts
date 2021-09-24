@@ -53,6 +53,7 @@ export const createStack = (scope: cdk.App, name: string) => {
   })
   appsTable.grantReadWriteData(lambdaFunction)
   const api = createApi(stack, 'api', lambdaFunction)
+  lambdaFunction.addEnvironment('API_URL', api.url)
 
   output(stack, 'api-url', api.url)
 }
