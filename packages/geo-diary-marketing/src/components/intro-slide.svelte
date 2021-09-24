@@ -13,7 +13,7 @@
             Simple and easy to use. The GEO Diary app allows you to easily access your diary appointments in AgencyCloud
             CRM, direct from your mobile or web browser. Why not see it for yourself?
           </p>
-          <a href="https://geo-diary-beta.prod.paas.reapit.cloud/?demo=true" target="_blank" rel="noopener noreferrer">
+          <a href="https://geo-diary-app.reapit.cloud/?demo=true" target="_blank" rel="noopener noreferrer">
             <button class="el-intent-critical el-button-has-right-chevron el-button el-mb3">Try it now</button>
           </a>
         </div>
