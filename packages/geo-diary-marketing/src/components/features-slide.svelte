@@ -19,7 +19,7 @@
           <h6 class="el-subtitle el-w1_2_2 el-text-center">Send ETA</h6>
           <p class="el-body-text el-has-grey-text is-hidden-mobile">
             Send a prepopulated text message with your exact time of arrival. GEO Diary will automatically calculate
-            your current location and time to your next appointment.
+            your current location and the travel time to your next appointment.
           </p>
         </div>
       </div>
@@ -31,7 +31,7 @@
           <h6 class="el-subtitle el-w1_2_2 el-text-center">Location Settings</h6>
           <p class="el-body-text el-has-grey-text is-hidden-mobile">
             Get turn by turn directions from any starting location. The app will automatically detect your current
-            location but it also provides the ability to set a different location.
+            location but it also provides the ability to set a new location.
           </p>
         </div>
       </div>
@@ -42,8 +42,8 @@
         <div class="tile-content">
           <h6 class="el-subtitle el-w1_2_2 el-text-center">Map Integration</h6>
           <p class="el-body-text el-has-grey-text is-hidden-mobile">
-            Seamless integration with Google Maps and Apple Maps. From any appointment you can see turn by turn
-            directions using your default map application.
+            Seamless integration with Google Maps and Apple Maps to get turn by turn directions, using your default map
+            application.
           </p>
         </div>
       </div>
@@ -54,8 +54,8 @@
         <div class="tile-content">
           <h6 class="el-subtitle el-w1_2_2 el-text-center">WhatsApp Integration</h6>
           <p class="el-body-text el-has-grey-text is-hidden-mobile">
-            Our integration with WhatsApp provides you the ability to easily start a conversation on any contact record
-            that has a mobile telephone number.
+            Our integration with WhatsApp lets you start a conversation on any contact record that has a mobile
+            telephone number.
           </p>
         </div>
       </div>
@@ -67,7 +67,7 @@
           <h6 class="el-subtitle el-w1_2_2 el-text-center">Email Integration</h6>
           <p class="el-body-text el-has-grey-text is-hidden-mobile">
             Prepopulated emails using your default mail client. If an email address is present on any contact record GEO
-            Diary will open an email draft
+            Diary will open an email draft.
           </p>
         </div>
       </div>
