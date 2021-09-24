@@ -9,7 +9,7 @@ import * as AdmZip from 'adm-zip'
 
 const bootstrap = async () => {
 
-  const result = await exec('yarn build', {
+  await exec('yarn build', {
     cwd: path.resolve(__dirname, '..', '..'),
   })
 

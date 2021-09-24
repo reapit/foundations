@@ -1,4 +1,5 @@
-import { Bucket, BucketPolicy } from '@aws-cdk/aws-s3'
+import { ArnPrincipal, Effect, PolicyStatement } from '@aws-cdk/aws-iam'
+import { Bucket } from '@aws-cdk/aws-s3'
 import { CdkStack } from './cdk-stack'
 
 export const createS3Buckets = (stack: CdkStack) => {
@@ -12,8 +13,12 @@ export const createS3Buckets = (stack: CdkStack) => {
   } = {
     [process.env.DEPLOYMENT_LIVE_BUCKET_NAME as string]: {
       public: true,
+      get: true,
+      list: true,
+      put: true,
     },
     [process.env.DEPLOYMENT_LOG_BUCKET_NAME as string]: {
+      put: true,
     },
     [process.env.DEPLOYMENT_VERSION_BUCKET_NAME as string]: {
       get: true,
@@ -28,14 +33,29 @@ export const createS3Buckets = (stack: CdkStack) => {
       bucketName,
       publicReadAccess: bucketOptions[bucketName]?.public,
       websiteIndexDocument: bucketOptions[bucketName]?.public ? 'index.html' : undefined,
-      
     })
 
     if (bucketOptions[bucketName].get || bucketOptions[bucketName].list || bucketOptions[bucketName].put) {
-      // TODO work out how to enable get and put requests in policy for code build
-      const policy = new BucketPolicy(stack as any, `${bucketName}-policy`, {
-        bucket: buckets[bucketName],
-      })
+      const actions = []
+
+      if (bucketOptions[bucketName].get) {
+        actions.push('s3:Get*')
+      }
+      if (bucketOptions[bucketName].list) {
+        actions.push('s3:List*')
+      }
+      if (bucketOptions[bucketName].put) {
+        actions.push('s3:Put*')
+      }
+
+      buckets[bucketName].addToResourcePolicy(new PolicyStatement({
+        effect: Effect.ALLOW,
+        actions,
+        resources: [buckets[bucketName].arnForObjects('*')],
+        principals: [
+          new ArnPrincipal('*'),
+        ],
+      }))
     }
 
     return buckets

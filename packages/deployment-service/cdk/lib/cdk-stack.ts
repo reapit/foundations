@@ -11,7 +11,7 @@ import { Peer, Port, SecurityGroup, Subnet, Vpc } from '@aws-cdk/aws-ec2'
 import { createCodeBuildProject } from './create-code-build'
 import { createApigateway } from './create-apigateway'
 import { SqsEventSource } from '@aws-cdk/aws-lambda-event-sources'
-import { AuthorizationType, Cors, HttpIntegration, LambdaRestApi, CognitoUserPoolsAuthorizer } from '@aws-cdk/aws-apigateway'
+import { AuthorizationType, Cors, HttpIntegration, LambdaRestApi, CognitoUserPoolsAuthorizer, LambdaIntegration } from '@aws-cdk/aws-apigateway'
 import { createPolicies } from './create-policies'
 import { Topic } from '@aws-cdk/aws-sns'
 import { LambdaSubscription } from '@aws-cdk/aws-sns-subscriptions'
@@ -58,11 +58,16 @@ export class CdkStack extends cdk.Stack {
     })
     securityGroup.addIngressRule(
       Peer.ipv4('0.0.0.0/0'),
-      Port.tcp(443),
+      Port.allTcp(),
       'cloud-deployment-service',
     )
+    securityGroup.addEgressRule(
+      Peer.ipv4('0.0.0.0/0'),
+      Port.allTcp(),
+      `cloud-deployment-service`,
+    )
 
-    // TODO add egress? outbound?
+    // VPC, security group, ingress/egress, subnets, aurora db vpc settings, lambda vpc settings, gateway
 
     const subnets = [
       new Subnet(this as any, `deployment-service-subnet-a`, {
@@ -89,9 +94,10 @@ export class CdkStack extends cdk.Stack {
 
     const buckets = createS3Buckets(this)
     const queues = createSqsQueues(this)
-    const [secretManager, aurora] = createAurora(this, vpc)
+    const [secretManager, aurora] = createAurora(this, vpc, subnets, securityGroup)
     const [codeBuild, topic] = createCodeBuildProject(this)
-    const apiGateway = createApigateway(this) // add vpc for this?
+    const api = createApigateway(this)
+    // const apiGateway = createApigateway(this)
 
     const policies = createPolicies({
       buckets,
@@ -147,7 +153,7 @@ export class CdkStack extends cdk.Stack {
         ],
         api: {
           method: 'PUT',
-          path: 'api/pipeline/{pipelineId}',
+          path: 'pipeline/{pipelineId}',
           cors: { 
             origin: '*',
           },
@@ -613,7 +619,7 @@ export class CdkStack extends cdk.Stack {
         ],
         api: {
           method: 'GET',
-          path: 'deploy/project',
+          path: 'pusher/auth',
           cors: { 
             origin: '*',
           },
@@ -638,26 +644,19 @@ export class CdkStack extends cdk.Stack {
       if (options.queue) {
         lambda.addEventSource(new SqsEventSource(options.queue))
       } else if (options.api) {
-        const api = new LambdaRestApi(this as any, `cloud-deployment-${name}`, {
-          handler: lambda,
-          defaultCorsPreflightOptions: {
-            allowHeaders: options.api.headers,
-            allowOrigins: Cors.ALL_ORIGINS,
-            allowMethods: Cors.ALL_ORIGINS,
-          },
-          proxy: false,
-        })
-
         api.root.resourceForPath(options.api.path)
-          .addMethod(options.api.method, new HttpIntegration('http://amazon.com'), {
-          authorizer: options.api.authorizer ? new CognitoUserPoolsAuthorizer(this as any, `cloud-deployment-service-${name}-authorizer`, {
-            cognitoUserPools: [],
-          }) : undefined,
-          authorizationType: options.api.authorizer ? AuthorizationType.COGNITO : undefined,
-        })
+          .addMethod(options.api.method, new LambdaIntegration(lambda), {
+            authorizer: options.api.authorizer ? new CognitoUserPoolsAuthorizer(this as any, `cloud-deployment-service-${name}-authorizer`, {
+              cognitoUserPools: [],
+            }) : undefined,
+            authorizationType: options.api.authorizer ? AuthorizationType.COGNITO : undefined,
+          })
       } else if (options.topic) {
         topic.addSubscription(new LambdaSubscription(lambda))
       }
     }
   }
 }
+
+// deleting cloudformation - delete VPCs, subnets + security group
+// figure out how to use apigateway with funcs without multiple gateways

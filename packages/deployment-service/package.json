@@ -36,8 +36,7 @@
     "migration:generate": "ts-node -P ./tsconfig.json ../../node_modules/.bin/typeorm migration:generate",
     "migration:run": "ts-node -P ./tsconfig.json ../../node_modules/.bin/typeorm migration:run",
     "migration:revert": "ts-node -P ./tsconfig.json ../../node_modules/.bin/typeorm migration:revert",
-    "cdk:build": "tsc -p cdk/tsconfig.json",
-    "cdk": "cdk/bin/cdk.js"
+    "cdk:build": "tsc -p cdk/tsconfig.json"
   },
   "devDependencies": {
     "@aws-cdk/assets": "^1.124.0",
