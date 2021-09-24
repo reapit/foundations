@@ -92,8 +92,6 @@ export class CdkStack extends cdk.Stack {
     const [secretManager, aurora] = createAurora(this, vpc)
     const [codeBuild, topic] = createCodeBuildProject(this)
     const apiGateway = createApigateway(this) // add vpc for this?
-    // TODO add apiGateway resource
-    // TODO create sns trigger
 
     const policies = createPolicies({
       buckets,
@@ -660,8 +658,6 @@ export class CdkStack extends cdk.Stack {
       } else if (options.topic) {
         topic.addSubscription(new LambdaSubscription(lambda))
       }
-
-      // TODO add cors + headers
     }
   }
 }
