@@ -42,7 +42,7 @@ export interface CreateWebhookFormSchema {
 const schema = object().shape<CreateWebhookFormSchema>({
   applicationId: string().trim().required(errorMessages.FIELD_REQUIRED),
   url: string().trim().required(errorMessages.FIELD_REQUIRED).matches(httpsUrlRegex, 'Should be a secure https url'),
-  topicIds: string(),
+  topicIds: string().trim().required('At least one topic is required'),
   customerIds: string(),
   ignoreEtagOnlyChanges: boolean(),
   active: boolean(),
@@ -90,11 +90,15 @@ export const handleSwitchStep =
 
 export const handleSubmitWebhook = (dispatch: ReduxDispatch) => (values: CreateWebhookFormSchema) => {
   const { applicationId, url, topicIds, customerIds, ignoreEtagOnlyChanges, active } = values
+  const splitCustomerIds = customerIds.split(',').filter(Boolean)
+  const customers = customerIds.includes('ALL') ? [] : splitCustomerIds
+  const topics = topicIds.split(',').filter(Boolean)
+
   const createWebhookParams: CreateWebhookParams = {
     applicationId,
     url,
-    topicIds: topicIds.split(','),
-    customerIds: customerIds.split(','),
+    topicIds: topics,
+    customerIds: customers,
     ignoreEtagOnlyChanges,
     active,
   }
@@ -115,7 +119,7 @@ export const getStepContent = (
     case '2':
       return <WebhooksNewUrl register={register} errors={errors} />
     case '3':
-      return <WebhooksNewTopics register={register} getValues={getValues} />
+      return <WebhooksNewTopics register={register} errors={errors} getValues={getValues} />
     case '4':
       return <WebhooksNewCustomers register={register} getValues={getValues} />
     case '5':

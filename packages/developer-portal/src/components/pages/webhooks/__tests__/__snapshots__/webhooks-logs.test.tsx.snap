@@ -11,8 +11,8 @@ Object {
       <div
         class="elkdvoz-el-table"
         data-has-call-to-action="true"
-        data-has-expandable-action="true"
-        data-num-columns-excl-expandable-row-trigger-col="6"
+        data-has-expandable-action="false"
+        data-num-columns-excl-action-col="6"
       >
         <div
           class="e1co3p83-el-table-headers-row"
@@ -90,10 +90,10 @@ Object {
               </div>
             </div>
             <div
-              class="ewmoxzc-el-table-expandable-row-trigger-cell"
+              class="e1fmntjl-el-table-cta-cell"
             >
               <div
-                class="dwcetdf-download-button-container"
+                class="ewmoxzc-el-table-cta-icon-container"
               >
                 <span
                   class="ebee6r1-el-intent-primary ej9yrfo-el-icon"
@@ -157,8 +157,8 @@ Object {
     <div
       class="elkdvoz-el-table"
       data-has-call-to-action="true"
-      data-has-expandable-action="true"
-      data-num-columns-excl-expandable-row-trigger-col="6"
+      data-has-expandable-action="false"
+      data-num-columns-excl-action-col="6"
     >
       <div
         class="e1co3p83-el-table-headers-row"
@@ -236,10 +236,10 @@ Object {
             </div>
           </div>
           <div
-            class="ewmoxzc-el-table-expandable-row-trigger-cell"
+            class="e1fmntjl-el-table-cta-cell"
           >
             <div
-              class="dwcetdf-download-button-container"
+              class="ewmoxzc-el-table-cta-icon-container"
             >
               <span
                 class="ebee6r1-el-intent-primary ej9yrfo-el-icon"

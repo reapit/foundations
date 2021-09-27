@@ -135,60 +135,46 @@ const cellOrders = `
 `
 
 export const ElTable = styled.div`
-  &[data-num-columns-excl-expandable-row-trigger-col='2'] {
+  &[data-num-columns-excl-action-col='2'] {
     --component-table-num-columns: 2;
   }
-  &[data-num-columns-excl-expandable-row-trigger-col='3'] {
+  &[data-num-columns-excl-action-col='3'] {
     --component-table-num-columns: 3;
   }
-  &[data-num-columns-excl-expandable-row-trigger-col='4'] {
+  &[data-num-columns-excl-action-col='4'] {
     --component-table-num-columns: 4;
   }
-  &[data-num-columns-excl-expandable-row-trigger-col='5'] {
+  &[data-num-columns-excl-action-col='5'] {
     --component-table-num-columns: 5;
   }
-  &[data-num-columns-excl-expandable-row-trigger-col='6'] {
+  &[data-num-columns-excl-action-col='6'] {
     --component-table-num-columns: 6;
   }
-  &[data-num-columns-excl-expandable-row-trigger-col='7'] {
+  &[data-num-columns-excl-action-col='7'] {
     --component-table-num-columns: 7;
   }
-  &[data-num-columns-excl-expandable-row-trigger-col='8'] {
+  &[data-num-columns-excl-action-col='8'] {
     --component-table-num-columns: 8;
   }
-  &[data-num-columns-excl-expandable-row-trigger-col='9'] {
+  &[data-num-columns-excl-action-col='9'] {
     --component-table-num-columns: 9;
   }
-  &[data-num-columns-excl-expandable-row-trigger-col='10'] {
+  &[data-num-columns-excl-action-col='10'] {
     --component-table-num-columns: 10;
   }
-  &[data-num-columns-excl-expandable-row-trigger-col='11'] {
+  &[data-num-columns-excl-action-col='11'] {
     --component-table-num-columns: 11;
   }
-  &[data-num-columns-excl-expandable-row-trigger-col='12'] {
+  &[data-num-columns-excl-action-col='12'] {
     --component-table-num-columns: 12;
   }
 
   &[data-has-expandable-action='true'] {
     --component-table-expandable-trigger-width: ${EXPANDABLE_TRIGGER_CELL_WIDTH};
-    --component-table-trigger-cell-color: var(--color-grey-light);
   }
 
   &[data-has-call-to-action='true'] {
     --component-table-expandable-trigger-width: ${CALL_TO_ACTION_CELL_WIDTH};
-    --component-table-trigger-cell-color: var(--color-white);
-  }
-
-  &[data-expandable-content-size='small'] {
-    --table-expanded-height: 4rem;
-  }
-
-  &[data-expandable-content-size='medium'] {
-    --table-expanded-height: 16rem;
-  }
-
-  &[data-expandable-content-size='large'] {
-    --table-expanded-height: 26rem;
   }
 `
 
@@ -306,7 +292,7 @@ export const ElTableRowContainer = styled.div`
       border-radius: var(--default-border-radius) var(--default-border-radius) 0 0;
     }
 
-    .el-table-expandable-row-trigger-cell {
+    .el-table-action-cell {
       border-radius: 0 var(--default-border-radius) 0 0;
     }
   }
@@ -356,8 +342,19 @@ export const ElTableCellContent = styled.div`
   }
 `
 
-export const ElTableExpandableRowTriggerCell = styled.div`
-  background: var(--component-table-trigger-cell-color);
+export const ElTableCtaIconContainer = styled.div`
+  padding: 1rem;
+  background-color: var(--color-grey-light);
+  border-radius: 0.25rem;
+
+  ${isNarrow} {
+    padding: 0.75rem;
+    border-radius: var(--default-border-radius) 0 var(--default-border-radius) 0;
+  }
+`
+
+export const ElTableCtaCell = styled.div`
+  background: var(--color-white);
   display: flex;
   align-items: center;
   justify-content: center;
@@ -369,7 +366,27 @@ export const ElTableExpandableRowTriggerCell = styled.div`
   ${isNarrow} {
     grid-column-end: span 2;
     text-align: center;
-    width: var(--component-table-expandable-trigger-width);
+    justify-content: right;
+    justify-self: end;
+    padding: 0;
+    grid-column-end: 3;
+    border-radius: var(--default-border-radius) 0 var(--default-border-radius) 0;
+  }
+`
+
+export const ElTableExpandableRowTriggerCell = styled.div`
+  background: var(--color-grey-light);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  padding: 0.75rem;
+  order: 12;
+  border-radius: 0 var(--default-border-radius) var(--default-border-radius) 0;
+
+  ${isNarrow} {
+    grid-column-end: span 2;
+    text-align: center;
     justify-self: end;
     grid-column-end: 3;
     border-radius: var(--default-border-radius) 0 var(--default-border-radius) 0;
@@ -382,13 +399,12 @@ export const ElTableExpandableRow = styled.div`
   box-shadow: 0px 2px 9px rgba(0, 0, 0, 0.08);
   border-radius: 0 0 var(--default-border-radius) var(--default-border-radius);
   opacity: 0;
-  transition: height var(--table-expanded-animation-speed, 0.2s) linear, opacity 0.2s linear;
   border: none;
   overflow-y: scroll;
   padding: 0;
 
   &.${elIsActive} {
-    height: var(--table-expanded-height, 6rem);
+    height: auto;
     opacity: 1;
     border-top: 1px solid var(--color-grey-medium);
   }

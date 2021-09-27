@@ -11,7 +11,7 @@ import {
   elMb7,
 } from '@reapit/elements'
 import React, { ChangeEvent, Dispatch, FC, SetStateAction, useState } from 'react'
-import { UseFormGetValues, UseFormRegister } from 'react-hook-form'
+import { DeepMap, FieldError, UseFormGetValues, UseFormRegister } from 'react-hook-form'
 import { useSelector } from 'react-redux'
 import { Dispatch as ReduxDispatch } from 'redux'
 import { fetchWebhooksTopics } from '../../../actions/webhooks-topics'
@@ -24,6 +24,7 @@ import { getInitialTopics } from './webhooks-manage-form'
 interface WebhooksNewTopicsProps {
   register: UseFormRegister<CreateWebhookFormSchema>
   getValues: UseFormGetValues<CreateWebhookFormSchema>
+  errors: DeepMap<CreateWebhookFormSchema, FieldError>
 }
 
 export const handleFetchTopics =
@@ -56,7 +57,7 @@ export const handleSearchTopics =
     setFilteredTopics(filteredTopics)
   }
 
-export const WebhooksNewTopics: FC<WebhooksNewTopicsProps> = ({ register, getValues }) => {
+export const WebhooksNewTopics: FC<WebhooksNewTopicsProps> = ({ register, getValues, errors }) => {
   const [search, setSearch] = useState<string>('')
   const topics = useSelector(selectWebhookSubscriptionTopics)
   const selectedTopics = getValues().topicIds?.split(',')
@@ -90,6 +91,11 @@ export const WebhooksNewTopics: FC<WebhooksNewTopicsProps> = ({ register, getVal
           options={multiSelectOptions}
           {...register('topicIds')}
         />
+        {errors.topicIds && (
+          <PersistantNotification isFullWidth isExpanded intent="danger" isInline>
+            {errors.topicIds.message}
+          </PersistantNotification>
+        )}
         {(!filteredTopics.length || filteredTopics.length === selectedTopics.length) && search && (
           <PersistantNotification isFullWidth isExpanded intent="secondary" isInline>
             No topics found for your search. We only show topics that are relevant to the scopes of your selected

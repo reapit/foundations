@@ -279,7 +279,7 @@ exports[`Login should match a snapshot 1`] = `
                             onClick={[Function]}
                           >
                             <button
-                              className="esplruv-el-mb3 e1fle5tm-el-intent-neutral e1cpt8yd-el-button"
+                              className="esplruv-el-mb3 e1fle5tm-el-intent-neutral e1f2ikqj-el-button"
                               onClick={[Function]}
                             >
                               View Docs

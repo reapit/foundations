@@ -4,36 +4,32 @@ exports[`appointment-time AppointmentTime should match snapshot 1`] = `
 <AppointmentTimeContainer
   className="appointment-time-container-expanded"
 >
-  <FlexContainer
-    isFlexJustifyCenter={true}
-  >
-    <ForwardRef
-      isFullWidth={true}
-      name="appointment-time"
-      onChange={[Function]}
-      options={
-        Array [
-          Object {
-            "id": "today",
-            "isChecked": true,
-            "text": "Today",
-            "value": "TODAY",
-          },
-          Object {
-            "id": "tomorrow",
-            "isChecked": false,
-            "text": "Tomorrow",
-            "value": "TOMORROW",
-          },
-          Object {
-            "id": "week",
-            "isChecked": false,
-            "text": "Week",
-            "value": "WEEK",
-          },
-        ]
-      }
-    />
-  </FlexContainer>
+  <ForwardRef
+    isFullWidth={true}
+    name="appointment-time"
+    onChange={[Function]}
+    options={
+      Array [
+        Object {
+          "id": "today",
+          "isChecked": true,
+          "text": "Today",
+          "value": "TODAY",
+        },
+        Object {
+          "id": "tomorrow",
+          "isChecked": false,
+          "text": "Tomorrow",
+          "value": "TOMORROW",
+        },
+        Object {
+          "id": "week",
+          "isChecked": false,
+          "text": "Week",
+          "value": "WEEK",
+        },
+      ]
+    }
+  />
 </AppointmentTimeContainer>
 `;

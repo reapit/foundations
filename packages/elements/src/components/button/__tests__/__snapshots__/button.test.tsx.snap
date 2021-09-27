@@ -28,16 +28,67 @@ exports[`Button should match a snapshot 2`] = `
 </Button>
 `;
 
-exports[`Button should match a snapshot 3`] = `
+exports[`Button should match a snapshot with all modifiers 1`] = `
+<ElButton
+  className="some-class el-intent-primary el-button-has-left-chevron el-button-has-right-chevron el-is-loading"
+  disabled={true}
+  onClick={[MockFunction]}
+  type="submit"
+>
+  button text
+</ElButton>
+`;
+
+exports[`ButtonGroup should match a snapshot for align center 1`] = `
 <ElButtonGroup>
-  <Button>
-    1
-  </Button>
-  <Button>
-    2
-  </Button>
-  <Button>
-    3
-  </Button>
+  <ElButtonGroupInner
+    className="el-button-group-align-center"
+  >
+    <Button>
+      1
+    </Button>
+    <Button>
+      2
+    </Button>
+    <Button>
+      3
+    </Button>
+  </ElButtonGroupInner>
+</ElButtonGroup>
+`;
+
+exports[`ButtonGroup should match a snapshot for align left 1`] = `
+<ElButtonGroup>
+  <ElButtonGroupInner
+    className="el-button-group-align-left"
+  >
+    <Button>
+      1
+    </Button>
+    <Button>
+      2
+    </Button>
+    <Button>
+      3
+    </Button>
+  </ElButtonGroupInner>
+</ElButtonGroup>
+`;
+
+exports[`ButtonGroup should match a snapshot for align right 1`] = `
+<ElButtonGroup>
+  <ElButtonGroupInner
+    className="el-button-group-align-right"
+  >
+    <Button>
+      1
+    </Button>
+    <Button>
+      2
+    </Button>
+    <Button>
+      3
+    </Button>
+  </ElButtonGroupInner>
 </ElButtonGroup>
 `;

@@ -16,7 +16,19 @@ describe('WebhooksNewTopics', () => {
   })) as unknown as UseFormGetValues<CreateWebhookFormSchema>
 
   it('should match a snapshot where there are topics', () => {
-    expect(render(<WebhooksNewTopics register={jest.fn()} getValues={getValues} />)).toMatchSnapshot()
+    expect(render(<WebhooksNewTopics register={jest.fn()} getValues={getValues} errors={{}} />)).toMatchSnapshot()
+  })
+
+  it('should match a snapshot where there are errors', () => {
+    expect(
+      render(
+        <WebhooksNewTopics
+          register={jest.fn()}
+          getValues={getValues}
+          errors={{ topicIds: { message: 'At lease one topic should be selected', type: 'error' } }}
+        />,
+      ),
+    ).toMatchSnapshot()
   })
 })
 

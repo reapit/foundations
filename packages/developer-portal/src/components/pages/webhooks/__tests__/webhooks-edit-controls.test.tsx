@@ -2,41 +2,42 @@ import React from 'react'
 import { handleSetContentType, WebhooksEditControls } from '../webhooks-edit-controls'
 import { webhookItemDataStub } from '../../../../sagas/__stubs__/webhook-edit'
 import { render } from '../../../../tests/react-testing'
+import { ExpandableContentType } from '../webhooks-manage'
 
 describe('WebhooksEditControls', () => {
-  it('should match a snapshot with small content', () => {
+  it('should match a snapshot with controls content', () => {
     expect(
       render(
         <WebhooksEditControls
           webhookModel={webhookItemDataStub}
-          expandableContentSize="small"
-          setExpandableContentSize={jest.fn()}
+          expandableContentType={ExpandableContentType.Controls}
+          setExpandableContentType={jest.fn()}
           setIndexExpandedRow={jest.fn()}
         />,
       ),
     ).toMatchSnapshot()
   })
 
-  it('should match a snapshot with medium content', () => {
+  it('should match a snapshot with ping content', () => {
     expect(
       render(
         <WebhooksEditControls
           webhookModel={webhookItemDataStub}
-          expandableContentSize="medium"
-          setExpandableContentSize={jest.fn()}
+          expandableContentType={ExpandableContentType.Ping}
+          setExpandableContentType={jest.fn()}
           setIndexExpandedRow={jest.fn()}
         />,
       ),
     ).toMatchSnapshot()
   })
 
-  it('should match a snapshot with large content', () => {
+  it('should match a snapshot with manage content', () => {
     expect(
       render(
         <WebhooksEditControls
           webhookModel={webhookItemDataStub}
-          expandableContentSize="large"
-          setExpandableContentSize={jest.fn()}
+          expandableContentType={ExpandableContentType.Manage}
+          setExpandableContentType={jest.fn()}
           setIndexExpandedRow={jest.fn()}
         />,
       ),
@@ -46,10 +47,10 @@ describe('WebhooksEditControls', () => {
 
 describe('handleSetContentType', () => {
   it('should set expandable content size', () => {
-    const expandableContentSize = 'large'
-    const setExpandableContentSize = jest.fn()
-    const curried = handleSetContentType(expandableContentSize, setExpandableContentSize)
+    const expandableContentType = ExpandableContentType.Manage
+    const setExpandableContentType = jest.fn()
+    const curried = handleSetContentType(expandableContentType, setExpandableContentType)
     curried()
-    expect(setExpandableContentSize).toHaveBeenCalledWith('large')
+    expect(setExpandableContentType).toHaveBeenCalledWith(ExpandableContentType.Manage)
   })
 })

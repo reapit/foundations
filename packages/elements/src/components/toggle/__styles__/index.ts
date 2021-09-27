@@ -85,6 +85,7 @@ export const ElToggleRadio = styled.input`
   height: 0;
   width: 0;
   visibility: hidden;
+  position: absolute;
 
   + label .${elToggleRadioItem} {
     transition: all 0.2s linear;
@@ -117,10 +118,11 @@ export const ElToggleRadioWrap = styled.div`
   background: var(--color-white);
   border-radius: 1rem;
   overflow: hidden;
-  padding: 0.25rem 0;
+  padding: 0.25rem 0 0.25rem 0.25rem;
   width: fit-content;
   align-items: center;
   height: 2rem;
+  position: relative;
 
   &.${elToggleFullWidth} {
     width: 100%;

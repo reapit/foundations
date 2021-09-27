@@ -1,6 +1,119 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`WebhooksEditControls should match a snapshot with large content 1`] = `
+exports[`WebhooksEditControls should match a snapshot with controls content 1`] = `
+Object {
+  "asFragment": [Function],
+  "baseElement": <body>
+    <div>
+      <div
+        class="ecbqyq6-el-snack-holder"
+      />
+      <div
+        class="e1de2pym-el-flex-justify-center e2kmzjs-el-flex-container"
+      >
+        <div
+          class="e19a1osy-el-button-group"
+        >
+          <div
+            class="eay05y4-el-button-group-inner"
+          >
+            <button
+              class="ebee6r1-el-intent-primary e1f2ikqj-el-button"
+            >
+              Edit
+            </button>
+            <button
+              class="ebee6r1-el-intent-primary e1f2ikqj-el-button"
+            >
+              Ping
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </body>,
+  "container": <div>
+    <div
+      class="ecbqyq6-el-snack-holder"
+    />
+    <div
+      class="e1de2pym-el-flex-justify-center e2kmzjs-el-flex-container"
+    >
+      <div
+        class="e19a1osy-el-button-group"
+      >
+        <div
+          class="eay05y4-el-button-group-inner"
+        >
+          <button
+            class="ebee6r1-el-intent-primary e1f2ikqj-el-button"
+          >
+            Edit
+          </button>
+          <button
+            class="ebee6r1-el-intent-primary e1f2ikqj-el-button"
+          >
+            Ping
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>,
+  "debug": [Function],
+  "findAllByAltText": [Function],
+  "findAllByDisplayValue": [Function],
+  "findAllByLabelText": [Function],
+  "findAllByPlaceholderText": [Function],
+  "findAllByRole": [Function],
+  "findAllByTestId": [Function],
+  "findAllByText": [Function],
+  "findAllByTitle": [Function],
+  "findByAltText": [Function],
+  "findByDisplayValue": [Function],
+  "findByLabelText": [Function],
+  "findByPlaceholderText": [Function],
+  "findByRole": [Function],
+  "findByTestId": [Function],
+  "findByText": [Function],
+  "findByTitle": [Function],
+  "getAllByAltText": [Function],
+  "getAllByDisplayValue": [Function],
+  "getAllByLabelText": [Function],
+  "getAllByPlaceholderText": [Function],
+  "getAllByRole": [Function],
+  "getAllByTestId": [Function],
+  "getAllByText": [Function],
+  "getAllByTitle": [Function],
+  "getByAltText": [Function],
+  "getByDisplayValue": [Function],
+  "getByLabelText": [Function],
+  "getByPlaceholderText": [Function],
+  "getByRole": [Function],
+  "getByTestId": [Function],
+  "getByText": [Function],
+  "getByTitle": [Function],
+  "queryAllByAltText": [Function],
+  "queryAllByDisplayValue": [Function],
+  "queryAllByLabelText": [Function],
+  "queryAllByPlaceholderText": [Function],
+  "queryAllByRole": [Function],
+  "queryAllByTestId": [Function],
+  "queryAllByText": [Function],
+  "queryAllByTitle": [Function],
+  "queryByAltText": [Function],
+  "queryByDisplayValue": [Function],
+  "queryByLabelText": [Function],
+  "queryByPlaceholderText": [Function],
+  "queryByRole": [Function],
+  "queryByTestId": [Function],
+  "queryByText": [Function],
+  "queryByTitle": [Function],
+  "rerender": [Function],
+  "unmount": [Function],
+}
+`;
+
+exports[`WebhooksEditControls should match a snapshot with manage content 1`] = `
 Object {
   "asFragment": [Function],
   "baseElement": <body>
@@ -147,6 +260,17 @@ Object {
                 class="ehgp5gp-el-has-grey-chips e1x92nc7-el-multi-select-label"
                 for="test-static-id"
               >
+                All Customers
+              </label>
+              <input
+                class="e1wdkc9j-el-multi-select-checkbox"
+                id="test-static-id"
+                type="checkbox"
+              />
+              <label
+                class="ehgp5gp-el-has-grey-chips e1x92nc7-el-multi-select-label"
+                for="test-static-id"
+              >
                 Sandbox Estates
               </label>
             </div>
@@ -210,26 +334,30 @@ Object {
               </span>
             </div>
             <div
-              class="et0k7gk-el-ml-auto e1f2ikqj-el-button-group"
+              class="e19a1osy-el-button-group"
             >
-              <button
-                class="e1vxext9-el-intent-danger e1cpt8yd-el-button"
-                type="button"
+              <div
+                class="e1i2en9o-el-button-group-align-right eay05y4-el-button-group-inner"
               >
-                Delete
-              </button>
-              <button
-                class="epibvz0-el-intent-secondary e1cpt8yd-el-button"
-                type="button"
-              >
-                Cancel
-              </button>
-              <button
-                class="ebee6r1-el-intent-primary ej73pla-el-button-has-right-chevron e1cpt8yd-el-button"
-                type="submit"
-              >
-                Update
-              </button>
+                <button
+                  class="e1vxext9-el-intent-danger e1f2ikqj-el-button"
+                  type="button"
+                >
+                  Delete
+                </button>
+                <button
+                  class="epibvz0-el-intent-secondary e1f2ikqj-el-button"
+                  type="button"
+                >
+                  Cancel
+                </button>
+                <button
+                  class="ebee6r1-el-intent-primary e1tqqdf9-el-button-has-right-chevron e1f2ikqj-el-button"
+                  type="submit"
+                >
+                  Update
+                </button>
+              </div>
             </div>
           </div>
         </div>
@@ -379,6 +507,17 @@ Object {
               class="ehgp5gp-el-has-grey-chips e1x92nc7-el-multi-select-label"
               for="test-static-id"
             >
+              All Customers
+            </label>
+            <input
+              class="e1wdkc9j-el-multi-select-checkbox"
+              id="test-static-id"
+              type="checkbox"
+            />
+            <label
+              class="ehgp5gp-el-has-grey-chips e1x92nc7-el-multi-select-label"
+              for="test-static-id"
+            >
               Sandbox Estates
             </label>
           </div>
@@ -442,26 +581,30 @@ Object {
             </span>
           </div>
           <div
-            class="et0k7gk-el-ml-auto e1f2ikqj-el-button-group"
+            class="e19a1osy-el-button-group"
           >
-            <button
-              class="e1vxext9-el-intent-danger e1cpt8yd-el-button"
-              type="button"
+            <div
+              class="e1i2en9o-el-button-group-align-right eay05y4-el-button-group-inner"
             >
-              Delete
-            </button>
-            <button
-              class="epibvz0-el-intent-secondary e1cpt8yd-el-button"
-              type="button"
-            >
-              Cancel
-            </button>
-            <button
-              class="ebee6r1-el-intent-primary ej73pla-el-button-has-right-chevron e1cpt8yd-el-button"
-              type="submit"
-            >
-              Update
-            </button>
+              <button
+                class="e1vxext9-el-intent-danger e1f2ikqj-el-button"
+                type="button"
+              >
+                Delete
+              </button>
+              <button
+                class="epibvz0-el-intent-secondary e1f2ikqj-el-button"
+                type="button"
+              >
+                Cancel
+              </button>
+              <button
+                class="ebee6r1-el-intent-primary e1tqqdf9-el-button-has-right-chevron e1f2ikqj-el-button"
+                type="submit"
+              >
+                Update
+              </button>
+            </div>
           </div>
         </div>
       </div>
@@ -521,7 +664,7 @@ Object {
 }
 `;
 
-exports[`WebhooksEditControls should match a snapshot with medium content 1`] = `
+exports[`WebhooksEditControls should match a snapshot with ping content 1`] = `
 Object {
   "asFragment": [Function],
   "baseElement": <body>
@@ -583,20 +726,24 @@ Object {
               </a>
             </p>
             <div
-              class="et0k7gk-el-ml-auto e1f2ikqj-el-button-group"
+              class="et0k7gk-el-ml-auto e19a1osy-el-button-group"
             >
-              <button
-                class="epibvz0-el-intent-secondary e1cpt8yd-el-button"
-                type="button"
+              <div
+                class="eay05y4-el-button-group-inner"
               >
-                Cancel
-              </button>
-              <button
-                class="ebee6r1-el-intent-primary ej73pla-el-button-has-right-chevron e1cpt8yd-el-button"
-                type="submit"
-              >
-                Test
-              </button>
+                <button
+                  class="epibvz0-el-intent-secondary e1f2ikqj-el-button"
+                  type="button"
+                >
+                  Cancel
+                </button>
+                <button
+                  class="ebee6r1-el-intent-primary e1tqqdf9-el-button-has-right-chevron e1f2ikqj-el-button"
+                  type="submit"
+                >
+                  Test
+                </button>
+              </div>
             </div>
           </div>
         </div>
@@ -661,129 +808,28 @@ Object {
             </a>
           </p>
           <div
-            class="et0k7gk-el-ml-auto e1f2ikqj-el-button-group"
+            class="et0k7gk-el-ml-auto e19a1osy-el-button-group"
           >
-            <button
-              class="epibvz0-el-intent-secondary e1cpt8yd-el-button"
-              type="button"
+            <div
+              class="eay05y4-el-button-group-inner"
             >
-              Cancel
-            </button>
-            <button
-              class="ebee6r1-el-intent-primary ej73pla-el-button-has-right-chevron e1cpt8yd-el-button"
-              type="submit"
-            >
-              Test
-            </button>
+              <button
+                class="epibvz0-el-intent-secondary e1f2ikqj-el-button"
+                type="button"
+              >
+                Cancel
+              </button>
+              <button
+                class="ebee6r1-el-intent-primary e1tqqdf9-el-button-has-right-chevron e1f2ikqj-el-button"
+                type="submit"
+              >
+                Test
+              </button>
+            </div>
           </div>
         </div>
       </div>
     </form>
-  </div>,
-  "debug": [Function],
-  "findAllByAltText": [Function],
-  "findAllByDisplayValue": [Function],
-  "findAllByLabelText": [Function],
-  "findAllByPlaceholderText": [Function],
-  "findAllByRole": [Function],
-  "findAllByTestId": [Function],
-  "findAllByText": [Function],
-  "findAllByTitle": [Function],
-  "findByAltText": [Function],
-  "findByDisplayValue": [Function],
-  "findByLabelText": [Function],
-  "findByPlaceholderText": [Function],
-  "findByRole": [Function],
-  "findByTestId": [Function],
-  "findByText": [Function],
-  "findByTitle": [Function],
-  "getAllByAltText": [Function],
-  "getAllByDisplayValue": [Function],
-  "getAllByLabelText": [Function],
-  "getAllByPlaceholderText": [Function],
-  "getAllByRole": [Function],
-  "getAllByTestId": [Function],
-  "getAllByText": [Function],
-  "getAllByTitle": [Function],
-  "getByAltText": [Function],
-  "getByDisplayValue": [Function],
-  "getByLabelText": [Function],
-  "getByPlaceholderText": [Function],
-  "getByRole": [Function],
-  "getByTestId": [Function],
-  "getByText": [Function],
-  "getByTitle": [Function],
-  "queryAllByAltText": [Function],
-  "queryAllByDisplayValue": [Function],
-  "queryAllByLabelText": [Function],
-  "queryAllByPlaceholderText": [Function],
-  "queryAllByRole": [Function],
-  "queryAllByTestId": [Function],
-  "queryAllByText": [Function],
-  "queryAllByTitle": [Function],
-  "queryByAltText": [Function],
-  "queryByDisplayValue": [Function],
-  "queryByLabelText": [Function],
-  "queryByPlaceholderText": [Function],
-  "queryByRole": [Function],
-  "queryByTestId": [Function],
-  "queryByText": [Function],
-  "queryByTitle": [Function],
-  "rerender": [Function],
-  "unmount": [Function],
-}
-`;
-
-exports[`WebhooksEditControls should match a snapshot with small content 1`] = `
-Object {
-  "asFragment": [Function],
-  "baseElement": <body>
-    <div>
-      <div
-        class="ecbqyq6-el-snack-holder"
-      />
-      <div
-        class="e1de2pym-el-flex-justify-center e2kmzjs-el-flex-container"
-      >
-        <div
-          class="e1f2ikqj-el-button-group"
-        >
-          <button
-            class="ebee6r1-el-intent-primary e1cpt8yd-el-button"
-          >
-            Edit
-          </button>
-          <button
-            class="ebee6r1-el-intent-primary e1cpt8yd-el-button"
-          >
-            Ping
-          </button>
-        </div>
-      </div>
-    </div>
-  </body>,
-  "container": <div>
-    <div
-      class="ecbqyq6-el-snack-holder"
-    />
-    <div
-      class="e1de2pym-el-flex-justify-center e2kmzjs-el-flex-container"
-    >
-      <div
-        class="e1f2ikqj-el-button-group"
-      >
-        <button
-          class="ebee6r1-el-intent-primary e1cpt8yd-el-button"
-        >
-          Edit
-        </button>
-        <button
-          class="ebee6r1-el-intent-primary e1cpt8yd-el-button"
-        >
-          Ping
-        </button>
-      </div>
-    </div>
   </div>,
   "debug": [Function],
   "findAllByAltText": [Function],
