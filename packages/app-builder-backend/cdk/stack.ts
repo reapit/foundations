@@ -31,6 +31,7 @@ export const createStack = (scope: cdk.App, name: string) => {
     cmd: [`packages/${PACKAGE}/dist/${HANDLER}`],
   })
   const GSI_NAME = 'gsi-userId'
+  const SUBDOMAIN_IDX_NAME = 'gsi-subdomain'
   const appsTable = createTable(
     stack,
     'apps',
@@ -38,18 +39,29 @@ export const createStack = (scope: cdk.App, name: string) => {
       name: 'id',
       type: AttributeType.STRING,
     },
-    {
-      indexName: GSI_NAME,
-      projectionType: ProjectionType.ALL,
-      partitionKey: {
-        name: 'userId',
-        type: AttributeType.STRING,
+    [
+      {
+        indexName: GSI_NAME,
+        projectionType: ProjectionType.ALL,
+        partitionKey: {
+          name: 'userId',
+          type: AttributeType.STRING,
+        },
       },
-    },
+      {
+        indexName: SUBDOMAIN_IDX_NAME,
+        projectionType: ProjectionType.ALL,
+        partitionKey: {
+          name: 'subdomain',
+          type: AttributeType.STRING,
+        },
+      },
+    ],
   )
   const lambdaFunction = createFunction(stack, 'graphql', code, {
     APPS_TABLE_NAME: appsTable.tableName,
     GSI_NAME,
+    SUBDOMAIN_IDX_NAME,
   })
   appsTable.grantReadWriteData(lambdaFunction)
   const api = createApi(stack, 'api', lambdaFunction)

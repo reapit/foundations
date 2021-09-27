@@ -1,9 +1,8 @@
 import * as React from 'react'
 import { useReapitConnect } from '@reapit/connect-session'
-import Menu from '../components/ui/nav'
 import { reapitConnectBrowserSession } from '../core/connect-session'
 import { useLocation, Redirect } from 'react-router'
-import { Loader, MainContainer, PageContainer } from '@reapit/elements'
+import { Loader, PageContainer } from '@reapit/elements'
 
 const { Suspense } = React
 
@@ -16,23 +15,16 @@ export const PrivateRouteWrapper: React.FunctionComponent<PrivateRouteWrapperPro
 
   if (!connectSession) {
     return (
-      <MainContainer>
-        <PageContainer>
-          <Loader label="Loading" fullPage />
-        </PageContainer>
-      </MainContainer>
+      <PageContainer>
+        <Loader label="Loading" fullPage />
+      </PageContainer>
     )
   }
 
   if (connectInternalRedirect && currentUri !== connectInternalRedirect) {
     return <Redirect to={connectInternalRedirect} />
   }
-  return (
-    <MainContainer>
-      <Menu />
-      <Suspense fallback={<Loader label="Loading" fullPage />}>{children}</Suspense>
-    </MainContainer>
-  )
+  return <Suspense fallback={<Loader label="Loading" fullPage />}>{children}</Suspense>
 }
 
 export default PrivateRouteWrapper

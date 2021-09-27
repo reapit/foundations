@@ -10,6 +10,9 @@ export class App {
   name: string
 
   @Field()
+  subdomain: string
+
+  @Field()
   userId: string
 
   @Field(() => [Page])

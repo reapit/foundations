@@ -35,7 +35,7 @@ export const useUpdatePage = () => {
   const { updateApp } = useUpdateApp()
 
   const updatePage = async (appId: string, page: Partial<Page>) => {
-    const { data } = await client.query<{ _getApp: App }>({ query: GetAppQuery, variables: { id: appId } })
+    const { data } = await client.query<{ _getApp: App }>({ query: GetAppQuery, variables: { idOrSubdomain: appId } })
     const app: App = data?._getApp
     if (app) {
       const pages = app.pages.map((p: Page) => {
@@ -58,7 +58,7 @@ export const useDeletePage = () => {
   const { updateApp } = useUpdateApp()
 
   const deletePage = async (appId: string, pageId: string) => {
-    const { data } = await client.query({ query: GetAppQuery, variables: { id: appId } })
+    const { data } = await client.query({ query: GetAppQuery, variables: { idOrSubdomain: appId } })
     const app = data?.getApp
     if (app) {
       const pages = app.pages.filter((p: Page) => p.id !== pageId)

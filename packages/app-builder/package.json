@@ -11,7 +11,7 @@
   "author": "Author",
   "main": "./src/index.ts",
   "scripts": {
-    "start": "webpack serve --hot --color --mode development",
+    "start": "webpack serve --hot --color --mode development --disable-host-check",
     "test": "echo '...skipping...'",
     "build": "rimraf public/dist && NODE_ENV=production webpack",
     "lint": "eslint --cache --ext=ts,tsx,js src --fix",
