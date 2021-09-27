@@ -17,14 +17,11 @@ import comingSoonBarbuck from '@/assets/images/coming-soon/Barbuck.jpg'
 import comingSoonFacebook from '@/assets/images/coming-soon/Facebook.jpg'
 import comingSoonOffr from '@/assets/images/coming-soon/Offr.jpg'
 import comingSoonApex from '@/assets/images/coming-soon/Apex.jpg'
-import comingSoonBricksAndAgent from '@/assets/images/coming-soon/BricksandAgent.jpg'
 import comingSoonDocuSign from '@/assets/images/coming-soon/Docusign.jpg'
 import comingSoonJustMoveIn from '@/assets/images/coming-soon/Justmovein.jpg'
 import comingSoonLifeTimeLegal from '@/assets/images/coming-soon/lifetimelegal.jpg'
 import comingSoonRealMedia from '@/assets/images/coming-soon/RealMediaGroup.jpg'
-import comingSoonRentProfile from '@/assets/images/coming-soon/Rentprofile.jpg'
 import comingSoonTheBunch from '@/assets/images/coming-soon/TheBunch.jpg'
-import comingSoonAcaboom from '@/assets/images/coming-soon/Acaboom.jpeg'
 import comingSoonAgentPoint from '@/assets/images/coming-soon/AgentPoint.png'
 import comingSoonCannellSigns from '@/assets/images/coming-soon/CannellSigns.png'
 import comingSoonHelpTheMove from '@/assets/images/coming-soon/HelpTheMove.png'
@@ -75,14 +72,11 @@ const comingSoonImagesMap = {
   comingSoonFacebook,
   comingSoonOffr,
   comingSoonApex,
-  comingSoonBricksAndAgent,
   comingSoonDocuSign,
   comingSoonJustMoveIn,
   comingSoonLifeTimeLegal,
   comingSoonRealMedia,
-  comingSoonRentProfile,
   comingSoonTheBunch,
-  comingSoonAcaboom,
   comingSoonAgentPoint,
   comingSoonCannellSigns,
   comingSoonHelpTheMove,
@@ -120,7 +114,7 @@ export const ComingSoonAppComponent: React.FC<ComingSoonAppProps> = ({
     <GridFourColItem>
       <FadeIn>
         <ComingSoonItem>
-          <ComingSoonTitle>Coming soon</ComingSoonTitle>
+          <ComingSoonTitle>In Development</ComingSoonTitle>
           <ComingSoonInner>
             <ComingSoonImageWrap>
               <ComingSoonImage>

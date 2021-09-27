@@ -36,7 +36,12 @@ export const ElSecondaryNavContainer = styled.aside`
   padding: 2rem 1.5rem;
   overflow-y: scroll;
   overflow-x: hidden;
+  scrollbar-width: none;
   background: var(--color-grey-light);
+
+  &::-webkit-scrollbar {
+    display: none;
+  }
 
   ${isMobile} {
     display: none;

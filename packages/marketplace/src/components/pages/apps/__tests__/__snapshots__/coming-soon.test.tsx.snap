@@ -5,7 +5,7 @@ exports[`ComingSoonAppComponent should match a snapshot 1`] = `
   <FadeIn>
     <ComingSoonItem>
       <ComingSoonTitle>
-        Coming soon
+        In Development
       </ComingSoonTitle>
       <ComingSoonInner>
         <ComingSoonImageWrap>
