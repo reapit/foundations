@@ -15,6 +15,7 @@ import { AuthorizationType, CognitoUserPoolsAuthorizer, LambdaIntegration } from
 import { createPolicies } from './create-policies'
 import { Topic } from '@aws-cdk/aws-sns'
 import { LambdaSubscription } from '@aws-cdk/aws-sns-subscriptions'
+import { UserPool } from '@aws-cdk/aws-cognito'
 
 type FunctionSetup = {
   handler: string,
@@ -647,7 +648,9 @@ export class CdkStack extends cdk.Stack {
         api.root.resourceForPath(options.api.path)
           .addMethod(options.api.method, new LambdaIntegration(lambda), {
             authorizer: options.api.authorizer ? new CognitoUserPoolsAuthorizer(this as any, `cloud-deployment-service-${name}-authorizer`, {
-              cognitoUserPools: [],
+              cognitoUserPools: [
+                UserPool.fromUserPoolId(scope, `${name}-user-pool`, 'kiftR4qFc'),
+              ],
             }) : undefined,
             authorizationType: options.api.authorizer ? AuthorizationType.COGNITO : undefined,
           })
@@ -660,3 +663,5 @@ export class CdkStack extends cdk.Stack {
 
 // deleting cloudformation - delete VPCs, subnets + security group
 // figure out how to use apigateway with funcs without multiple gateways
+// add user pool for cognito
+// ARNS as options

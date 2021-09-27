@@ -574,7 +574,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@aws-cdk/aws-cognito@npm:1.124.0":
+"@aws-cdk/aws-cognito@npm:1.124.0, @aws-cdk/aws-cognito@npm:^1.124.0":
   version: 1.124.0
   resolution: "@aws-cdk/aws-cognito@npm:1.124.0"
   dependencies:
@@ -20518,6 +20518,7 @@ __metadata:
     "@aws-cdk/assets": 1.124.0
     "@aws-cdk/aws-apigateway": 1.124.0
     "@aws-cdk/aws-codebuild": 1.124.0
+    "@aws-cdk/aws-cognito": ^1.124.0
     "@aws-cdk/aws-ec2": 1.124.0
     "@aws-cdk/aws-iam": 1.124.0
     "@aws-cdk/aws-lambda": 1.124.0
