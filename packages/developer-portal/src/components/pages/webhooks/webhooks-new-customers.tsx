@@ -26,6 +26,11 @@ export const SANDBOX_CLIENT = {
   value: 'SBOX',
 }
 
+export const ALL_CLIENTS = {
+  name: 'All Customers',
+  value: 'ALL',
+}
+
 export const handleCustomersToOptions = (installations: InstallationModel[]) => () => {
   const customers = installations
     .map(({ customerName, customerId, status }) => {
@@ -38,7 +43,11 @@ export const handleCustomersToOptions = (installations: InstallationModel[]) => 
     })
     .filter(Boolean)
 
-  const jsonCustomers = [JSON.stringify(SANDBOX_CLIENT), ...customers.map((customer) => JSON.stringify(customer))]
+  const jsonCustomers = [
+    JSON.stringify(ALL_CLIENTS),
+    JSON.stringify(SANDBOX_CLIENT),
+    ...customers.map((customer) => JSON.stringify(customer)),
+  ]
   const uniqueCustomers: MultiSelectOption[] = [...new Set(jsonCustomers)].map((customer) => JSON.parse(customer))
 
   return uniqueCustomers
@@ -48,7 +57,7 @@ export const WebhooksNewCustomers: FC<WebhooksNewCustomersProps> = ({ register, 
   const customers = useSelector(selectCustomers)
   const isLoading = useSelector(selectLoading)
   const customerOptions = useMemo(handleCustomersToOptions(customers), [customers])
-  const selectedCustomers = getValues().customerIds?.split(',')
+  const selectedCustomers = getValues().customerIds?.split(',') ?? ['ALL']
 
   return (
     <Grid>

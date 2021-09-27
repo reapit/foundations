@@ -42,7 +42,7 @@ export type MultiSelectInputWrapped = React.ForwardRefExoticComponent<
 
 export interface MultiSelectChipProps extends HTMLAttributes<HTMLInputElement> {}
 
-const setNativeInputValue = (element: HTMLElement, value: string | string[]) => {
+const setNativeInputValue = (element: HTMLElement, value: string[], testFunc?: (value: string[]) => void) => {
   const valueSetter = Object.getOwnPropertyDescriptor(element, 'value')?.set
   const prototype = Object.getPrototypeOf(element)
   const prototypeValueSetter = Object.getOwnPropertyDescriptor(prototype, 'value')?.set
@@ -51,6 +51,20 @@ const setNativeInputValue = (element: HTMLElement, value: string | string[]) => 
     prototypeValueSetter?.call(element, value)
   } else {
     valueSetter?.call(element, value)
+    if (testFunc) testFunc(value)
+  }
+}
+
+export const handleSetNativeInput = (
+  id: string,
+  selectedOptionValues: string[],
+  testFunc?: (value: string[]) => void,
+) => () => {
+  const input = document.getElementById(id)
+  if (input) {
+    setNativeInputValue(input, selectedOptionValues, testFunc)
+    const changeEvent = new Event('change', { bubbles: true })
+    input.dispatchEvent(changeEvent)
   }
 }
 
@@ -105,14 +119,7 @@ export const MultiSelectInput: MultiSelectInputWrapped = forwardRef(
   ) => {
     const [selectedOptionValues, setSelectedOptionValues] = useState<string[]>(defaultValues ?? [])
 
-    useEffect(() => {
-      const input = document.getElementById(id)
-      if (input) {
-        setNativeInputValue(input, selectedOptionValues)
-        const changeEvent = new Event('change', { bubbles: true })
-        input.dispatchEvent(changeEvent)
-      }
-    }, [selectedOptionValues])
+    useEffect(handleSetNativeInput(id, selectedOptionValues), [selectedOptionValues])
 
     return (
       <>

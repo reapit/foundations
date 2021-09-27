@@ -1,12 +1,12 @@
 import React from 'react'
-import { shallow } from 'enzyme'
+import { mount } from 'enzyme'
 import { NavResponsive } from '../nav-responsive'
 import { NavStateProvider } from '../../../hooks/use-nav-state'
 import { MediaStateProvider } from '../../../hooks/use-media-query'
 
 describe('NavResponsive component', () => {
   it('should match a snapshot', () => {
-    const wrapper = shallow(
+    const wrapper = mount(
       <NavStateProvider>
         <MediaStateProvider>
           <NavResponsive

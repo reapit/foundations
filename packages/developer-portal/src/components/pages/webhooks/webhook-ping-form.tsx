@@ -7,7 +7,6 @@ import { PingWebhooksByIdParams, WebhookModel } from '../../../services/webhooks
 import { developerSetWebhookPingStatus, developerWebhookPing } from '../../../actions/developer'
 import Routes from '../../../constants/routes'
 import {
-  ExpandableContentSize,
   elP8,
   Subtitle,
   elMl3,
@@ -37,11 +36,12 @@ import { link } from '../../../styles/elements/link'
 import { openNewPage } from '../../../utils/navigation'
 import { selectWebhookTestStatus } from '../../../selector'
 import { WebhookPingTestStatus } from '../../../reducers/developer'
+import { ExpandableContentType } from './webhooks-manage'
 
 interface WebhooksPingFormProps {
   webhookModel: WebhookModel
   setIndexExpandedRow: Dispatch<SetStateAction<number | null>>
-  setExpandableContentSize: Dispatch<SetStateAction<ExpandableContentSize>>
+  setExpandableContentType: Dispatch<SetStateAction<ExpandableContentType>>
 }
 
 export const handlePingWebhook =
@@ -63,7 +63,7 @@ export const handleWebhookPing =
     success: (text: string, timeout?: number | undefined) => void,
     dispatch: ReduxDispatch,
     setIndexExpandedRow: Dispatch<SetStateAction<number | null>>,
-    setExpandableContentSize: Dispatch<SetStateAction<ExpandableContentSize>>,
+    setExpandableContentType: Dispatch<SetStateAction<ExpandableContentType>>,
     setWebhookPingId: Dispatch<SetStateAction<string | null>>,
     openModal: () => void,
     webhookPingTestStatus: WebhookPingTestStatus,
@@ -74,7 +74,7 @@ export const handleWebhookPing =
       success('Webhook was successfully pinged')
       dispatch(updateWebhookCreateEditState(WebhookCreateEditState.INITIAL))
       setIndexExpandedRow(null)
-      setExpandableContentSize('small')
+      setExpandableContentType(ExpandableContentType.Controls)
       setWebhookPingId(null)
       dispatch(developerSetWebhookPingStatus(null))
     }
@@ -97,7 +97,7 @@ const schema = object().shape<PingWebhookFormSchema>({
 export const WebhooksPingForm: FC<WebhooksPingFormProps> = ({
   webhookModel,
   setIndexExpandedRow,
-  setExpandableContentSize,
+  setExpandableContentType,
 }) => {
   const dispatch = useDispatch()
   const topics = useSelector(selectWebhookSubscriptionTopics)
@@ -132,7 +132,7 @@ export const WebhooksPingForm: FC<WebhooksPingFormProps> = ({
       success,
       dispatch,
       setIndexExpandedRow,
-      setExpandableContentSize,
+      setExpandableContentType,
       setWebhookPingId,
       openModal,
       webhookPingTestStatus,
@@ -174,7 +174,7 @@ export const WebhooksPingForm: FC<WebhooksPingFormProps> = ({
               intent="secondary"
               type="button"
               disabled={webhookPingTestStatus === 'LOADING'}
-              onClick={handleCollapseRow(setIndexExpandedRow, setExpandableContentSize)}
+              onClick={handleCollapseRow(setIndexExpandedRow, setExpandableContentType)}
             >
               Cancel
             </Button>

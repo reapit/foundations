@@ -3,11 +3,21 @@ import { cx } from '@linaria/core'
 import { Intent, getIntentClassName } from '../../helpers/intent'
 import { elIsLoading } from '../../styles/states'
 import * as styles from './__styles__'
-import { ElButton, ElButtonGroup } from './__styles__'
+import {
+  ElButton,
+  ElButtonGroup,
+  elButtonGroupAlignCenter,
+  elButtonGroupAlignLeft,
+  elButtonGroupAlignRight,
+  ElButtonGroupInner,
+} from './__styles__'
 import { elWFull } from '../../styles/sizing'
 import { Icon, IconNames } from '../icon'
 
 export type ButtonSizeType = 2 | 3 | 4
+
+export type ButtonGroupAlignment = 'left' | 'right' | 'center'
+
 export interface ButtonProps extends ButtonHTMLAttributes<HTMLButtonElement> {
   intent?: Intent
   loading?: boolean
@@ -16,6 +26,14 @@ export interface ButtonProps extends ButtonHTMLAttributes<HTMLButtonElement> {
   fullWidth?: boolean
   className?: string
   size?: ButtonSizeType
+}
+
+export interface FloatingButtonProps extends ButtonProps {
+  icon: IconNames
+}
+
+export interface ButtonGroupProps extends HTMLAttributes<HTMLDivElement> {
+  alignment?: ButtonGroupAlignment
 }
 
 export const resolveButtonSize = (size: ButtonSizeType): string => {
@@ -58,15 +76,20 @@ export const Button: FC<ButtonProps> = ({
   )
 }
 
-export const ButtonGroup: FC<HTMLAttributes<HTMLDivElement>> = ({ children, ...rest }) => {
-  return <ElButtonGroup {...rest}>{children}</ElButtonGroup>
+export const ButtonGroup: FC<ButtonGroupProps> = ({ children, alignment, ...rest }) => {
+  const alignmentClass = cx(
+    alignment === 'left' && elButtonGroupAlignLeft,
+    alignment === 'right' && elButtonGroupAlignRight,
+    alignment === 'center' && elButtonGroupAlignCenter,
+  )
+  return (
+    <ElButtonGroup {...rest}>
+      <ElButtonGroupInner className={alignmentClass}>{children}</ElButtonGroupInner>
+    </ElButtonGroup>
+  )
 }
 
-export interface IFloatingButton extends ButtonProps {
-  icon: IconNames
-}
-
-export const FloatingButton: FC<IFloatingButton> = ({ icon, intent, ...rest }) => {
+export const FloatingButton: FC<FloatingButtonProps> = ({ icon, intent, ...rest }) => {
   return (
     <Button className={styles.elFloatingButton} intent={intent} {...rest}>
       <Icon icon={icon} intent={intent ? 'neutral' : undefined} iconSize="small" />

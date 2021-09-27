@@ -19,6 +19,7 @@ import {
   updateWebhookCreateEditState,
 } from '../../../../actions/webhooks-subscriptions'
 import { WebhookCreateEditState } from '../../../../reducers/webhooks-subscriptions/webhook-edit-modal'
+import { ExpandableContentType } from '../webhooks-manage'
 
 describe('WebhooksManageForm', () => {
   it('should match a snapshot', () => {
@@ -27,7 +28,7 @@ describe('WebhooksManageForm', () => {
         <WebhooksManageForm
           webhookModel={webhookItemDataStub}
           setIndexExpandedRow={jest.fn()}
-          setExpandableContentSize={jest.fn()}
+          setExpandableContentType={jest.fn()}
         />,
       ),
     ).toMatchSnapshot()
@@ -116,8 +117,8 @@ describe('handleSubmitWebhook', () => {
       ...values,
       applicationId: webhookItemDataStub.applicationId,
       webhookId: webhookItemDataStub.id,
-      topicIds: values.topicIds.split(','),
-      customerIds: values.customerIds.split(','),
+      topicIds: values.topicIds.split(',').filter(Boolean),
+      customerIds: values.customerIds.split(',').filter(Boolean),
     }
     const curried = handleSubmitWebhook(dispatch, webhookItemDataStub)
     curried(values)
@@ -133,7 +134,7 @@ describe('handleWebhookEditing', () => {
     const webhookCreateEditState = WebhookCreateEditState.SUCCESS
     const dispatch = jest.fn()
     const setIndexExpandedRow = jest.fn()
-    const setExpandableContentSize = jest.fn()
+    const setExpandableContentType = jest.fn()
 
     const curried = handleWebhookEditing(
       success,
@@ -141,7 +142,7 @@ describe('handleWebhookEditing', () => {
       webhookCreateEditState,
       dispatch,
       setIndexExpandedRow,
-      setExpandableContentSize,
+      setExpandableContentType,
     )
     curried()
 
@@ -149,7 +150,7 @@ describe('handleWebhookEditing', () => {
     expect(error).not.toHaveBeenCalled()
     expect(dispatch).toHaveBeenCalledWith(updateWebhookCreateEditState(WebhookCreateEditState.INITIAL))
     expect(setIndexExpandedRow).toHaveBeenCalledWith(null)
-    expect(setExpandableContentSize).toHaveBeenCalledWith('small')
+    expect(setExpandableContentType).toHaveBeenCalledWith(ExpandableContentType.Controls)
   })
 
   it('should handle a failed edit state', () => {
@@ -158,7 +159,7 @@ describe('handleWebhookEditing', () => {
     const webhookCreateEditState = WebhookCreateEditState.ERROR
     const dispatch = jest.fn()
     const setIndexExpandedRow = jest.fn()
-    const setExpandableContentSize = jest.fn()
+    const setExpandableContentType = jest.fn()
 
     const curried = handleWebhookEditing(
       success,
@@ -166,7 +167,7 @@ describe('handleWebhookEditing', () => {
       webhookCreateEditState,
       dispatch,
       setIndexExpandedRow,
-      setExpandableContentSize,
+      setExpandableContentType,
     )
     curried()
 
@@ -174,7 +175,7 @@ describe('handleWebhookEditing', () => {
     expect(error).toHaveBeenCalledWith('Webhook failed to update, check the details supplied and try again')
     expect(dispatch).toHaveBeenCalledWith(updateWebhookCreateEditState(WebhookCreateEditState.INITIAL))
     expect(setIndexExpandedRow).not.toHaveBeenCalled()
-    expect(setExpandableContentSize).not.toHaveBeenCalled()
+    expect(setExpandableContentType).not.toHaveBeenCalled()
   })
 })
 
@@ -196,12 +197,12 @@ describe('handleWebhookDelete', () => {
 describe('handleCollapseRow', () => {
   it('should handle row collapse', () => {
     const setIndexExpandedRow = jest.fn()
-    const setExpandableContentSize = jest.fn()
+    const setExpandableContentType = jest.fn()
 
-    const curried = handleCollapseRow(setIndexExpandedRow, setExpandableContentSize)
+    const curried = handleCollapseRow(setIndexExpandedRow, setExpandableContentType)
     curried()
 
-    expect(setExpandableContentSize).toHaveBeenCalledWith('small')
+    expect(setExpandableContentType).toHaveBeenCalledWith(ExpandableContentType.Controls)
     expect(setIndexExpandedRow).toHaveBeenCalledWith(null)
   })
 })

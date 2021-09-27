@@ -49,6 +49,9 @@ export const elButtonSize4 = css`
 `
 
 export const elFloatingButton = css``
+export const elButtonGroupAlignLeft = css``
+export const elButtonGroupAlignRight = css``
+export const elButtonGroupAlignCenter = css``
 
 export const ElButton = styled.button`
   display: inline-block;
@@ -309,6 +312,11 @@ export const elButtonHasRightChevron = css`
 
 export const ElButtonGroup = styled.div`
   display: grid;
+`
+
+export const ElButtonGroupInner = styled.div`
+  display: flex;
+  flex-wrap: wrap;
   grid-auto-flow: column;
   column-gap: 1rem;
   row-gap: 1rem;
@@ -324,6 +332,18 @@ export const ElButtonGroup = styled.div`
 
   .${elButtonSize4} {
     grid-column: span 4;
+  }
+
+  &.${elButtonGroupAlignLeft} {
+    margin-right: auto;
+  }
+
+  &.${elButtonGroupAlignRight} {
+    margin-left: auto;
+  }
+
+  &.${elButtonGroupAlignCenter} {
+    margin: 0 auto;
   }
 
   ${isMobile} {

@@ -24,23 +24,42 @@ import {
   ElTableCellNarrowOrder10,
   ElTableCellNarrowOrder11,
   ElTableCellNarrowOrder12,
+  ElTableCtaIconContainer,
+  ElTableCtaCell,
 } from './__styles__'
 import { Icon, IconNames } from '../icon'
 import { elIsActive } from '../../styles/states'
 
-export const TableHeadersRow: FC = ({ children, ...rest }) => {
-  return <ElTableHeadersRow {...rest}>{children}</ElTableHeadersRow>
+export type NarrowOrderType = 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9 | 10 | 11 | 12
+
+export interface TableCellProps extends HTMLAttributes<HTMLDivElement> {
+  icon?: IconNames
+  darkText?: boolean
+  narrowLabel?: string
+  narrowIsFullWidth?: boolean
+  className?: string
+  narrowOrder?: NarrowOrderType
 }
 
-export const TableHeader: FC<HTMLAttributes<HTMLDivElement>> = ({ children, ...rest }) => {
-  return <ElTableHeader {...rest}>{children}</ElTableHeader>
+export interface TableExpandableRowTriggerCellProps extends HTMLAttributes<HTMLDivElement> {
+  isOpen?: boolean
+  narrowIsFullWidth?: boolean
 }
 
-export const TableRow: FC = ({ children, ...rest }) => {
-  return <ElTableRow {...rest}>{children}</ElTableRow>
+export interface TableExpandableRowProps extends HTMLAttributes<HTMLDivElement> {
+  isOpen?: boolean
+  className?: string
 }
 
-const resolveNarrowOrderClass = (order: number): string | undefined => {
+export interface TableRowContainerProps extends HTMLAttributes<HTMLDivElement> {
+  isOpen?: boolean
+}
+
+export interface TableCtaTriggerCellProps extends HTMLAttributes<HTMLDivElement> {
+  icon?: IconNames
+}
+
+export const resolveNarrowOrderClass = (order: number): string | undefined => {
   switch (order) {
     case 1:
       return ElTableCellNarrowOrder1
@@ -69,17 +88,19 @@ const resolveNarrowOrderClass = (order: number): string | undefined => {
   }
 }
 
-export type NarrowOrderType = 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9 | 10 | 11 | 12
-
-export interface ITableCell extends HTMLAttributes<HTMLDivElement> {
-  icon?: IconNames
-  darkText?: boolean
-  narrowLabel?: string
-  narrowIsFullWidth?: boolean
-  className?: string
-  narrowOrder?: NarrowOrderType
+export const TableHeadersRow: FC = ({ children, ...rest }) => {
+  return <ElTableHeadersRow {...rest}>{children}</ElTableHeadersRow>
 }
-export const TableCell: FC<ITableCell> = ({
+
+export const TableHeader: FC<HTMLAttributes<HTMLDivElement>> = ({ children, ...rest }) => {
+  return <ElTableHeader {...rest}>{children}</ElTableHeader>
+}
+
+export const TableRow: FC = ({ children, ...rest }) => {
+  return <ElTableRow {...rest}>{children}</ElTableRow>
+}
+
+export const TableCell: FC<TableCellProps> = ({
   icon,
   darkText,
   narrowLabel,
@@ -103,11 +124,7 @@ export const TableCell: FC<ITableCell> = ({
   )
 }
 
-export interface ITableExpandableRowTriggerCell extends HTMLAttributes<HTMLDivElement> {
-  isOpen?: boolean
-  narrowIsFullWidth?: boolean
-}
-export const TableExpandableRowTriggerCell: FC<ITableExpandableRowTriggerCell> = ({
+export const TableExpandableRowTriggerCell: FC<TableExpandableRowTriggerCellProps> = ({
   isOpen,
   narrowIsFullWidth,
   className,
@@ -128,11 +145,23 @@ export const TableExpandableRowTriggerCell: FC<ITableExpandableRowTriggerCell> =
   )
 }
 
-export interface ITableExpandableRow extends HTMLAttributes<HTMLDivElement> {
-  isOpen?: boolean
-  className?: string
+export const TableCtaTriggerCell: FC<TableCtaTriggerCellProps> = ({ icon, children, ...rest }) => {
+  return (
+    <ElTableCtaCell {...rest}>
+      {children ? (
+        children
+      ) : icon ? (
+        <ElTableCtaIconContainer>
+          <Icon icon={icon} fontSize="1.2rem" intent="primary" />
+        </ElTableCtaIconContainer>
+      ) : (
+        ''
+      )}
+    </ElTableCtaCell>
+  )
 }
-export const TableExpandableRow: FC<ITableExpandableRow> = ({ isOpen, className, children, ...rest }) => {
+
+export const TableExpandableRow: FC<TableExpandableRowProps> = ({ isOpen, className, children, ...rest }) => {
   const combinedClassname = cx(className, isOpen && elIsActive)
   return (
     <ElTableExpandableRow className={combinedClassname} {...rest}>
@@ -141,11 +170,7 @@ export const TableExpandableRow: FC<ITableExpandableRow> = ({ isOpen, className,
   )
 }
 
-export interface ITableRowContainer extends HTMLAttributes<HTMLDivElement> {
-  isOpen?: boolean
-}
-
-export const TableRowContainer: FC<ITableRowContainer> = ({ isOpen, className, children, ...rest }) => {
+export const TableRowContainer: FC<TableRowContainerProps> = ({ isOpen, className, children, ...rest }) => {
   return (
     <ElTableRowContainer className={cx(className, isOpen && elIsActive)} {...rest}>
       {children}

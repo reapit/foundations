@@ -19,7 +19,7 @@
     "conf": "yarn config-manager --namespace cloud --entity app-builder --mode fetch",
     "synth": "cdk synth",
     "ddb": "docker run -d -p 8000:8000 amazon/dynamodb-local",
-    "commit": "concurrently \"yarn test --coverage --no-cache --silent --forceExit --detectOpenHandles --runInBand --watch=false && jest-coverage-badges --input src/tests/coverage/coverage-summary.json --output src/tests/badges\" \"yarn lint\""
+    "commit": "concurrently \"yarn test --coverage --no-cache --silent --forceExit --detectOpenHandles --runInBand --watch=false\" \"yarn lint\""
   },
   "dependencies": {
     "@aws-sdk/client-dynamodb": "^3.27.0",

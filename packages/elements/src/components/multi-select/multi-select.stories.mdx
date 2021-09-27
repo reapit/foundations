@@ -70,6 +70,8 @@ The value property returned is a string of the selected values of the chips, whe
 
 To pre-select some options, you can pass in an array of values to be selected as a prop.
 
+On selection of a chip, the chips are sorted so that selected items render in a row above the de-selected items. In the example, we have pre-selected item one by setting the `defaultValues` prop to illustrate this behaviour.
+
 <ArgsTable of={MultiSelectInput} />
 
 In the above table, `MultiSelectOption` is defined as:
@@ -90,7 +92,7 @@ export interface MultiSelectOption {
         { name: 'Item two', value: 'item-two' },
         { name: 'Item three', value: 'item-three' },
       ]}
-      selectedOptions={['item-one']}
+      defaultValues={['item-one']}
     />
   </Story>
 </Canvas>

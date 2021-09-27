@@ -15,11 +15,11 @@ import {
   elMb11,
   ButtonGroup,
   Button,
-  elMlAuto,
   useSnack,
-  ExpandableContentSize,
   useModal,
   BodyText,
+  PersistantNotification,
+  elMb6,
 } from '@reapit/elements'
 import React, { ChangeEvent, Dispatch, FC, SetStateAction, useEffect, useMemo, useState } from 'react'
 import { yupResolver } from '@hookform/resolvers/yup'
@@ -45,11 +45,12 @@ import {
 } from '../../../selector/webhooks-subscriptions'
 import { handleCustomersToOptions } from './webhooks-new-customers'
 import { cx } from '@linaria/core'
+import { ExpandableContentType } from './webhooks-manage'
 
 interface WebhooksManageFormProps {
   webhookModel: WebhookModel
   setIndexExpandedRow: Dispatch<SetStateAction<number | null>>
-  setExpandableContentSize: Dispatch<SetStateAction<ExpandableContentSize>>
+  setExpandableContentType: Dispatch<SetStateAction<ExpandableContentType>>
 }
 
 export interface EditWebhookFormSchema {
@@ -62,7 +63,7 @@ export interface EditWebhookFormSchema {
 
 const schema = object().shape<EditWebhookFormSchema>({
   url: string().trim().required(errorMessages.FIELD_REQUIRED).matches(httpsUrlRegex, 'Should be a secure https url'),
-  topicIds: string(),
+  topicIds: string().trim().required('At least one topic is required'),
   customerIds: string(),
   ignoreEtagOnlyChanges: boolean(),
   active: boolean(),
@@ -98,12 +99,16 @@ export const handleSubmitWebhook =
 
     if (!webhookId || !applicationId) return
 
+    const splitCustomerIds = customerIds.split(',').filter(Boolean)
+    const customers = customerIds.includes('ALL') ? [] : splitCustomerIds
+    const topics = topicIds.split(',').filter(Boolean)
+
     const editWebhookParams: EditWebhookParams = {
       webhookId,
       applicationId,
       url,
-      topicIds: topicIds.split(','),
-      customerIds: customerIds.split(','),
+      topicIds: topics,
+      customerIds: customers,
       ignoreEtagOnlyChanges,
       active,
     }
@@ -118,14 +123,14 @@ export const handleWebhookEditing =
     webhookCreateEditState: WebhookCreateEditState,
     dispatch: ReduxDispatch,
     setIndexExpandedRow: Dispatch<SetStateAction<number | null>>,
-    setExpandableContentSize: Dispatch<SetStateAction<ExpandableContentSize>>,
+    setExpandableContentType: Dispatch<SetStateAction<ExpandableContentType>>,
   ) =>
   () => {
     if (webhookCreateEditState === WebhookCreateEditState.SUCCESS) {
       success('Webhook was successfully updated')
       dispatch(updateWebhookCreateEditState(WebhookCreateEditState.INITIAL))
       setIndexExpandedRow(null)
-      setExpandableContentSize('small')
+      setExpandableContentType(ExpandableContentType.Controls)
     } else if (webhookCreateEditState === WebhookCreateEditState.ERROR) {
       error('Webhook failed to update, check the details supplied and try again')
       dispatch(updateWebhookCreateEditState(WebhookCreateEditState.INITIAL))
@@ -143,17 +148,17 @@ export const handleWebhookDelete =
 export const handleCollapseRow =
   (
     setIndexExpandedRow: Dispatch<SetStateAction<number | null>>,
-    setExpandableContentSize: Dispatch<SetStateAction<ExpandableContentSize>>,
+    setExpandableContentType: Dispatch<SetStateAction<ExpandableContentType>>,
   ) =>
   () => {
     setIndexExpandedRow(null)
-    setExpandableContentSize('small')
+    setExpandableContentType(ExpandableContentType.Controls)
   }
 
 export const WebhooksManageForm: FC<WebhooksManageFormProps> = ({
   webhookModel,
   setIndexExpandedRow,
-  setExpandableContentSize,
+  setExpandableContentType,
 }) => {
   const dispatch = useDispatch()
   const topics = useSelector(selectWebhookSubscriptionTopics)
@@ -189,7 +194,7 @@ export const WebhooksManageForm: FC<WebhooksManageFormProps> = ({
       webhookCreateEditState,
       dispatch,
       setIndexExpandedRow,
-      setExpandableContentSize,
+      setExpandableContentType,
     ),
     [webhookCreateEditState],
   )
@@ -224,12 +229,17 @@ export const WebhooksManageForm: FC<WebhooksManageFormProps> = ({
             options={topicOptions}
             {...register('topicIds')}
           />
+          {errors.topicIds && (
+            <PersistantNotification className={elMb6} isFullWidth isExpanded intent="danger" isInline>
+              {errors.topicIds.message}
+            </PersistantNotification>
+          )}
           <Label className={elMl3}>Subscription customers</Label>
           <MultiSelectInput
             className={elMb7}
             id={`customer-edit-ids-${id}`}
             hasGreyChips
-            defaultValues={[...new Set(customerIds)]}
+            defaultValues={customerIds?.length ? [...new Set(customerIds)] : ['ALL']}
             options={customerOptions}
             {...register('customerIds')}
           />
@@ -257,7 +267,7 @@ export const WebhooksManageForm: FC<WebhooksManageFormProps> = ({
             inputAddOnText="Ignore"
             {...register('ignoreEtagOnlyChanges')}
           />
-          <ButtonGroup className={elMlAuto}>
+          <ButtonGroup alignment="right">
             <Button
               intent="danger"
               type="button"
@@ -270,7 +280,7 @@ export const WebhooksManageForm: FC<WebhooksManageFormProps> = ({
               intent="secondary"
               type="button"
               disabled={webhookCreateEditState === WebhookCreateEditState.LOADING}
-              onClick={handleCollapseRow(setIndexExpandedRow, setExpandableContentSize)}
+              onClick={handleCollapseRow(setIndexExpandedRow, setExpandableContentType)}
             >
               Cancel
             </Button>

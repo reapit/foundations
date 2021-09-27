@@ -137,10 +137,9 @@ Object {
       />
       <div
         class="elkdvoz-el-table"
-        data-expandable-content-size="small"
         data-has-call-to-action="false"
         data-has-expandable-action="true"
-        data-num-columns-excl-expandable-row-trigger-col="4"
+        data-num-columns-excl-action-col="4"
       >
         <div
           class="e1co3p83-el-table-headers-row"
@@ -234,7 +233,7 @@ Object {
               </div>
             </div>
             <div
-              class="ewmoxzc-el-table-expandable-row-trigger-cell"
+              class="e3q521i-el-table-expandable-row-trigger-cell"
             >
               <span
                 class="epibvz0-el-intent-secondary ej9yrfo-el-icon"
@@ -257,27 +256,31 @@ Object {
             </div>
           </div>
           <div
-            class="e1fmntjl-el-table-expandable-row"
+            class="eygkx5t-el-table-expandable-row"
           >
             <div
-              class="e3q521i-el-table-expandable-container"
+              class="ejadz4k-el-table-expandable-container"
             >
               <div
                 class="e1de2pym-el-flex-justify-center e2kmzjs-el-flex-container"
               >
                 <div
-                  class="e1f2ikqj-el-button-group"
+                  class="e19a1osy-el-button-group"
                 >
-                  <button
-                    class="ebee6r1-el-intent-primary e1cpt8yd-el-button"
+                  <div
+                    class="eay05y4-el-button-group-inner"
                   >
-                    Edit
-                  </button>
-                  <button
-                    class="ebee6r1-el-intent-primary e1cpt8yd-el-button"
-                  >
-                    Ping
-                  </button>
+                    <button
+                      class="ebee6r1-el-intent-primary e1f2ikqj-el-button"
+                    >
+                      Edit
+                    </button>
+                    <button
+                      class="ebee6r1-el-intent-primary e1f2ikqj-el-button"
+                    >
+                      Ping
+                    </button>
+                  </div>
                 </div>
               </div>
             </div>
@@ -292,10 +295,9 @@ Object {
     />
     <div
       class="elkdvoz-el-table"
-      data-expandable-content-size="small"
       data-has-call-to-action="false"
       data-has-expandable-action="true"
-      data-num-columns-excl-expandable-row-trigger-col="4"
+      data-num-columns-excl-action-col="4"
     >
       <div
         class="e1co3p83-el-table-headers-row"
@@ -389,7 +391,7 @@ Object {
             </div>
           </div>
           <div
-            class="ewmoxzc-el-table-expandable-row-trigger-cell"
+            class="e3q521i-el-table-expandable-row-trigger-cell"
           >
             <span
               class="epibvz0-el-intent-secondary ej9yrfo-el-icon"
@@ -412,27 +414,31 @@ Object {
           </div>
         </div>
         <div
-          class="e1fmntjl-el-table-expandable-row"
+          class="eygkx5t-el-table-expandable-row"
         >
           <div
-            class="e3q521i-el-table-expandable-container"
+            class="ejadz4k-el-table-expandable-container"
           >
             <div
               class="e1de2pym-el-flex-justify-center e2kmzjs-el-flex-container"
             >
               <div
-                class="e1f2ikqj-el-button-group"
+                class="e19a1osy-el-button-group"
               >
-                <button
-                  class="ebee6r1-el-intent-primary e1cpt8yd-el-button"
+                <div
+                  class="eay05y4-el-button-group-inner"
                 >
-                  Edit
-                </button>
-                <button
-                  class="ebee6r1-el-intent-primary e1cpt8yd-el-button"
-                >
-                  Ping
-                </button>
+                  <button
+                    class="ebee6r1-el-intent-primary e1f2ikqj-el-button"
+                  >
+                    Edit
+                  </button>
+                  <button
+                    class="ebee6r1-el-intent-primary e1f2ikqj-el-button"
+                  >
+                    Ping
+                  </button>
+                </div>
               </div>
             </div>
           </div>
