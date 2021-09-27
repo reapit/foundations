@@ -1,7 +1,7 @@
 #!/usr/bin/env node
 import 'source-map-support/register';
 import * as cdk from '@aws-cdk/core';
-import { CdkStack } from '../lib/cdk-stack';
+import { CdkStack } from './lib/cdk-stack';
 import * as util from 'util'
 const exec = util.promisify(require('child_process').exec)
 import * as path from 'path'

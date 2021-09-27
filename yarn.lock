@@ -163,7 +163,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@aws-cdk/assets@npm:1.124.0, @aws-cdk/assets@npm:^1.124.0":
+"@aws-cdk/assets@npm:1.124.0":
   version: 1.124.0
   resolution: "@aws-cdk/assets@npm:1.124.0"
   dependencies:
@@ -213,7 +213,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@aws-cdk/aws-apigateway@npm:1.124.0, @aws-cdk/aws-apigateway@npm:^1.124.0":
+"@aws-cdk/aws-apigateway@npm:1.124.0":
   version: 1.124.0
   resolution: "@aws-cdk/aws-apigateway@npm:1.124.0"
   dependencies:
@@ -434,7 +434,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@aws-cdk/aws-codebuild@npm:^1.124.0":
+"@aws-cdk/aws-codebuild@npm:1.124.0":
   version: 1.124.0
   resolution: "@aws-cdk/aws-codebuild@npm:1.124.0"
   dependencies:
@@ -683,7 +683,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@aws-cdk/aws-ec2@npm:1.124.0, @aws-cdk/aws-ec2@npm:^1.124.0":
+"@aws-cdk/aws-ec2@npm:1.124.0":
   version: 1.124.0
   resolution: "@aws-cdk/aws-ec2@npm:1.124.0"
   dependencies:
@@ -951,7 +951,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@aws-cdk/aws-iam@npm:1.124.0, @aws-cdk/aws-iam@npm:^1.124.0":
+"@aws-cdk/aws-iam@npm:1.124.0":
   version: 1.124.0
   resolution: "@aws-cdk/aws-iam@npm:1.124.0"
   dependencies:
@@ -1044,7 +1044,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@aws-cdk/aws-lambda-event-sources@npm:^1.124.0":
+"@aws-cdk/aws-lambda-event-sources@npm:1.124.0":
   version: 1.124.0
   resolution: "@aws-cdk/aws-lambda-event-sources@npm:1.124.0"
   dependencies:
@@ -1128,7 +1128,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@aws-cdk/aws-lambda@npm:1.124.0, @aws-cdk/aws-lambda@npm:^1.124.0":
+"@aws-cdk/aws-lambda@npm:1.124.0":
   version: 1.124.0
   resolution: "@aws-cdk/aws-lambda@npm:1.124.0"
   dependencies:
@@ -1217,7 +1217,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@aws-cdk/aws-rds@npm:^1.124.0":
+"@aws-cdk/aws-rds@npm:1.124.0":
   version: 1.124.0
   resolution: "@aws-cdk/aws-rds@npm:1.124.0"
   dependencies:
@@ -1271,7 +1271,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@aws-cdk/aws-route53@npm:1.124.0, @aws-cdk/aws-route53@npm:^1.124.0":
+"@aws-cdk/aws-route53@npm:1.124.0":
   version: 1.124.0
   resolution: "@aws-cdk/aws-route53@npm:1.124.0"
   dependencies:
@@ -1384,7 +1384,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@aws-cdk/aws-s3@npm:1.124.0, @aws-cdk/aws-s3@npm:^1.124.0":
+"@aws-cdk/aws-s3@npm:1.124.0":
   version: 1.124.0
   resolution: "@aws-cdk/aws-s3@npm:1.124.0"
   dependencies:
@@ -1418,7 +1418,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@aws-cdk/aws-secretsmanager@npm:1.124.0, @aws-cdk/aws-secretsmanager@npm:^1.124.0":
+"@aws-cdk/aws-secretsmanager@npm:1.124.0":
   version: 1.124.0
   resolution: "@aws-cdk/aws-secretsmanager@npm:1.124.0"
   dependencies:
@@ -1469,7 +1469,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@aws-cdk/aws-sns-subscriptions@npm:1.124.0, @aws-cdk/aws-sns-subscriptions@npm:^1.124.0":
+"@aws-cdk/aws-sns-subscriptions@npm:1.124.0":
   version: 1.124.0
   resolution: "@aws-cdk/aws-sns-subscriptions@npm:1.124.0"
   dependencies:
@@ -1517,7 +1517,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@aws-cdk/aws-sns@npm:1.124.0, @aws-cdk/aws-sns@npm:^1.124.0":
+"@aws-cdk/aws-sns@npm:1.124.0":
   version: 1.124.0
   resolution: "@aws-cdk/aws-sns@npm:1.124.0"
   dependencies:
@@ -1561,7 +1561,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@aws-cdk/aws-sqs@npm:1.124.0, @aws-cdk/aws-sqs@npm:^1.124.0":
+"@aws-cdk/aws-sqs@npm:1.124.0":
   version: 1.124.0
   resolution: "@aws-cdk/aws-sqs@npm:1.124.0"
   dependencies:
@@ -1707,7 +1707,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@aws-cdk/core@npm:1.124.0, @aws-cdk/core@npm:^1.124.0":
+"@aws-cdk/core@npm:1.124.0":
   version: 1.124.0
   resolution: "@aws-cdk/core@npm:1.124.0"
   dependencies:
@@ -15787,7 +15787,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"aws-cdk@npm:^1.124.0":
+"aws-cdk@npm:1.124.0":
   version: 1.124.0
   resolution: "aws-cdk@npm:1.124.0"
   dependencies:
@@ -20515,21 +20515,21 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "deployment-service@workspace:packages/deployment-service"
   dependencies:
-    "@aws-cdk/assets": ^1.124.0
-    "@aws-cdk/aws-apigateway": ^1.124.0
-    "@aws-cdk/aws-codebuild": ^1.124.0
-    "@aws-cdk/aws-ec2": ^1.124.0
-    "@aws-cdk/aws-iam": ^1.124.0
-    "@aws-cdk/aws-lambda": ^1.124.0
-    "@aws-cdk/aws-lambda-event-sources": ^1.124.0
-    "@aws-cdk/aws-rds": ^1.124.0
-    "@aws-cdk/aws-route53": ^1.124.0
-    "@aws-cdk/aws-s3": ^1.124.0
-    "@aws-cdk/aws-secretsmanager": ^1.124.0
-    "@aws-cdk/aws-sns": ^1.124.0
-    "@aws-cdk/aws-sns-subscriptions": ^1.124.0
-    "@aws-cdk/aws-sqs": ^1.124.0
-    "@aws-cdk/core": ^1.124.0
+    "@aws-cdk/assets": 1.124.0
+    "@aws-cdk/aws-apigateway": 1.124.0
+    "@aws-cdk/aws-codebuild": 1.124.0
+    "@aws-cdk/aws-ec2": 1.124.0
+    "@aws-cdk/aws-iam": 1.124.0
+    "@aws-cdk/aws-lambda": 1.124.0
+    "@aws-cdk/aws-lambda-event-sources": 1.124.0
+    "@aws-cdk/aws-rds": 1.124.0
+    "@aws-cdk/aws-route53": 1.124.0
+    "@aws-cdk/aws-s3": 1.124.0
+    "@aws-cdk/aws-secretsmanager": 1.124.0
+    "@aws-cdk/aws-sns": 1.124.0
+    "@aws-cdk/aws-sns-subscriptions": 1.124.0
+    "@aws-cdk/aws-sqs": 1.124.0
+    "@aws-cdk/core": 1.124.0
     "@aws-sdk/client-cloudfront": ^3.33.0
     "@aws-sdk/client-route-53": ^3.33.0
     "@homeservenow/serverless-aws-handler": ^0.2.4
@@ -20548,7 +20548,7 @@ __metadata:
     "@typescript-eslint/eslint-plugin": ^4.28.4
     "@typescript-eslint/parser": ^4.28.4
     adm-zip: ^0.5.6
-    aws-cdk: ^1.124.0
+    aws-cdk: 1.124.0
     babel-jest: ^27.0.6
     class-transformer: ^0.4.0
     class-validator: ^0.13.1
@@ -20556,6 +20556,7 @@ __metadata:
     eslint: ^7.31.0
     eslint-plugin-prettier: ^3.4.0
     jsonwebtoken: ^8.5.1
+    mime: 2.5.2
     mime-types: ^2.1.32
     mysql: ^2.18.1
     nestjs-typeorm-paginate: ^2.5.3
@@ -31566,7 +31567,7 @@ fsevents@^1.2.7:
   languageName: node
   linkType: hard
 
-"mime@npm:^2.0.3, mime@npm:^2.3.1, mime@npm:^2.4.4, mime@npm:^2.5.2":
+"mime@npm:2.5.2, mime@npm:^2.0.3, mime@npm:^2.3.1, mime@npm:^2.4.4, mime@npm:^2.5.2":
   version: 2.5.2
   resolution: "mime@npm:2.5.2"
   bin:
