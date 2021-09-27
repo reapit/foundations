@@ -2,7 +2,11 @@ import { useHistory, useParams, useLocation } from 'react-router'
 import qs from 'query-string'
 
 export const usePageId = () => {
-  const { pageId, appId } = useParams<{ appId: string; pageId?: string }>()
+  const { pageId } = useParams<{ pageId?: string }>()
+  let { appId } = useParams<{ appId?: string }>()
+  if (!appId) {
+    appId = window.location.hostname.split('.')[0]
+  }
   const location = useLocation()
   const context = qs.parse(location.search)
   const history = useHistory()

@@ -1,7 +1,7 @@
 import { Resolver, Query, Arg, Mutation, ID } from 'type-graphql'
 
 import { App } from '../entities/app'
-import { getUserApps, getApp, createApp, updateApp } from '../ddb'
+import { getUserApps, getApp, createApp, updateApp, getDomainApps } from '../ddb'
 import { Page } from '../entities/page'
 import * as uuid from 'uuid'
 import { ejectApp } from '../eject'
@@ -45,8 +45,16 @@ export class AppResolver {
   }
 
   @Query(() => App, { nullable: true, name: '_getApp' })
-  async getApp(@Arg('id') id: string) {
-    return getApp(id)
+  async getApp(@Arg('idOrSubdomain') idOrSubdomain: string) {
+    const app = await getApp(idOrSubdomain)
+    if (app) {
+      return app
+    }
+    const apps = await getDomainApps(idOrSubdomain)
+    if (apps.length) {
+      return apps[0]
+    }
+    throw new Error(`App ${idOrSubdomain} not found`)
   }
 
   @Mutation(() => App, { name: '_createApp' })

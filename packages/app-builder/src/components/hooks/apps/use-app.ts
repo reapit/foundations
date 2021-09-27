@@ -3,19 +3,19 @@ import { App, AppFragment } from './fragments'
 
 export const GetAppQuery = gql`
   ${AppFragment}
-  query GetAppQuery($id: String!) {
-    _getApp(id: $id) {
+  query GetAppQuery($idOrSubdomain: String!) {
+    _getApp(idOrDomain: $idOrSubdomain) {
       ...AppFragment
     }
   }
 `
 
-export const useApp = (id: string) => {
+export const useApp = (idOrSubdomain: string) => {
   const { loading, error, data } = useQuery(GetAppQuery, {
     variables: {
-      id,
+      idOrSubdomain,
     },
-    skip: !id,
+    skip: !idOrSubdomain,
   })
 
   return {
