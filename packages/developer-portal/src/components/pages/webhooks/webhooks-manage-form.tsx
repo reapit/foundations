@@ -18,6 +18,8 @@ import {
   useSnack,
   useModal,
   BodyText,
+  PersistantNotification,
+  elMb6,
 } from '@reapit/elements'
 import React, { ChangeEvent, Dispatch, FC, SetStateAction, useEffect, useMemo, useState } from 'react'
 import { yupResolver } from '@hookform/resolvers/yup'
@@ -61,7 +63,7 @@ export interface EditWebhookFormSchema {
 
 const schema = object().shape<EditWebhookFormSchema>({
   url: string().trim().required(errorMessages.FIELD_REQUIRED).matches(httpsUrlRegex, 'Should be a secure https url'),
-  topicIds: string(),
+  topicIds: string().trim().required('At least one topic is required'),
   customerIds: string(),
   ignoreEtagOnlyChanges: boolean(),
   active: boolean(),
@@ -97,12 +99,16 @@ export const handleSubmitWebhook =
 
     if (!webhookId || !applicationId) return
 
+    const splitCustomerIds = customerIds.split(',').filter(Boolean)
+    const customers = customerIds.includes('ALL') ? [] : splitCustomerIds
+    const topics = topicIds.split(',').filter(Boolean)
+
     const editWebhookParams: EditWebhookParams = {
       webhookId,
       applicationId,
       url,
-      topicIds: topicIds.split(','),
-      customerIds: customerIds.split(','),
+      topicIds: topics,
+      customerIds: customers,
       ignoreEtagOnlyChanges,
       active,
     }
@@ -223,12 +229,17 @@ export const WebhooksManageForm: FC<WebhooksManageFormProps> = ({
             options={topicOptions}
             {...register('topicIds')}
           />
+          {errors.topicIds && (
+            <PersistantNotification className={elMb6} isFullWidth isExpanded intent="danger" isInline>
+              {errors.topicIds.message}
+            </PersistantNotification>
+          )}
           <Label className={elMl3}>Subscription customers</Label>
           <MultiSelectInput
             className={elMb7}
             id={`customer-edit-ids-${id}`}
             hasGreyChips
-            defaultValues={[...new Set(customerIds)]}
+            defaultValues={customerIds?.length ? [...new Set(customerIds)] : ['ALL']}
             options={customerOptions}
             {...register('customerIds')}
           />

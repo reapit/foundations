@@ -1,6 +1,6 @@
 import React, { ChangeEvent, Dispatch, memo, SetStateAction } from 'react'
 import { AppState, useAppState, AppTimeRange } from '../../../core/app-state'
-import { FlexContainer, ToggleRadio } from '@reapit/elements'
+import { ToggleRadio } from '@reapit/elements'
 import { cx } from '@linaria/core'
 import { AppointmentTimeContainer, appointmentTimeContainerExpanded } from './__styles__/index'
 
@@ -27,33 +27,31 @@ export const AppointmentTime = () => {
   const isExpanded = tab === 'LIST'
   return (
     <AppointmentTimeContainer className={cx(isExpanded && appointmentTimeContainerExpanded)}>
-      <FlexContainer isFlexJustifyCenter>
-        <ToggleRadio
-          name="appointment-time"
-          isFullWidth
-          onChange={handleChangeTime({ setAppState })}
-          options={[
-            {
-              id: 'today',
-              value: 'TODAY',
-              text: 'Today',
-              isChecked: time === 'TODAY',
-            },
-            {
-              id: 'tomorrow',
-              value: 'TOMORROW',
-              text: 'Tomorrow',
-              isChecked: time === 'TOMORROW',
-            },
-            {
-              id: 'week',
-              value: 'WEEK',
-              text: 'Week',
-              isChecked: time === 'WEEK',
-            },
-          ]}
-        />
-      </FlexContainer>
+      <ToggleRadio
+        name="appointment-time"
+        isFullWidth
+        onChange={handleChangeTime({ setAppState })}
+        options={[
+          {
+            id: 'today',
+            value: 'TODAY',
+            text: 'Today',
+            isChecked: time === 'TODAY',
+          },
+          {
+            id: 'tomorrow',
+            value: 'TOMORROW',
+            text: 'Tomorrow',
+            isChecked: time === 'TOMORROW',
+          },
+          {
+            id: 'week',
+            value: 'WEEK',
+            text: 'Week',
+            isChecked: time === 'WEEK',
+          },
+        ]}
+      />
     </AppointmentTimeContainer>
   )
 }

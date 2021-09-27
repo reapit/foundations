@@ -16,24 +16,24 @@ describe('Button', () => {
     expect(shallow(<Button {...props}>button text</Button>)).toMatchSnapshot()
   })
 
+  it('should match a snapshot with all modifiers', () => {
+    const fullProps = {
+      ...props,
+      loading: true,
+      disabled: true,
+      chevronLeft: true,
+      chevronRight: true,
+      className: 'some-class',
+    }
+    expect(shallow(<Button {...fullProps}>button text</Button>)).toMatchSnapshot()
+  })
+
   it('should match a snapshot', () => {
     expect(
       shallow(
         <FloatingButton icon="addSystem" {...props}>
           button text
         </FloatingButton>,
-      ),
-    ).toMatchSnapshot()
-  })
-
-  it('should match a snapshot', () => {
-    expect(
-      shallow(
-        <ButtonGroup>
-          <Button>1</Button>
-          <Button>2</Button>
-          <Button>3</Button>
-        </ButtonGroup>,
       ),
     ).toMatchSnapshot()
   })
@@ -52,5 +52,43 @@ describe('Button', () => {
 
   afterEach(() => {
     jest.resetAllMocks()
+  })
+})
+
+describe('ButtonGroup', () => {
+  it('should match a snapshot for align left', () => {
+    expect(
+      shallow(
+        <ButtonGroup alignment="left">
+          <Button>1</Button>
+          <Button>2</Button>
+          <Button>3</Button>
+        </ButtonGroup>,
+      ),
+    ).toMatchSnapshot()
+  })
+
+  it('should match a snapshot for align right', () => {
+    expect(
+      shallow(
+        <ButtonGroup alignment="right">
+          <Button>1</Button>
+          <Button>2</Button>
+          <Button>3</Button>
+        </ButtonGroup>,
+      ),
+    ).toMatchSnapshot()
+  })
+
+  it('should match a snapshot for align center', () => {
+    expect(
+      shallow(
+        <ButtonGroup alignment="center">
+          <Button>1</Button>
+          <Button>2</Button>
+          <Button>3</Button>
+        </ButtonGroup>,
+      ),
+    ).toMatchSnapshot()
   })
 })

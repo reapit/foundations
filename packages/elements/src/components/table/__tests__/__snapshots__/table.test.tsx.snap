@@ -2,14 +2,181 @@
 
 exports[`Table Component should match a snapshot 1`] = `<ElTable />`;
 
-exports[`Table Component should match a snapshot 2`] = `
+exports[`Table Component should match a snapshot for cta content alternate settings 1`] = `
+<ElTable
+  data-has-call-to-action={true}
+  data-has-expandable-action={false}
+>
+  <TableHeadersRow>
+    <TableHeader>
+      <Icon
+        fontSize="1.2rem"
+        icon="settingsSystem"
+      />
+    </TableHeader>
+  </TableHeadersRow>
+  <TableRowContainer
+    isOpen={false}
+    key="0"
+  >
+    <TableRow>
+      <TableCtaTriggerCell
+        className="foo-bar"
+        icon="homeSystem"
+        onClick={[MockFunction]}
+      />
+    </TableRow>
+  </TableRowContainer>
+</ElTable>
+`;
+
+exports[`Table Component should match a snapshot for expandable content alternate settings 1`] = `
 <ElTable
   data-has-call-to-action={false}
   data-has-expandable-action={true}
-  data-num-columns-excl-expandable-row-trigger-col={7}
+  data-num-columns-excl-action-col={0}
+>
+  <TableHeadersRow>
+    <TableHeader>
+      Some Content
+    </TableHeader>
+  </TableHeadersRow>
+  <TableRowContainer
+    isOpen={false}
+    key="0"
+  >
+    <TableRow>
+      <TableExpandableRowTriggerCell
+        className="foo-bar"
+        isOpen={false}
+        onClick={[MockFunction]}
+      />
+    </TableRow>
+    <TableExpandableRow
+      isOpen={false}
+    >
+      <p>
+        I am the content that is only visible when expanded
+      </p>
+    </TableExpandableRow>
+  </TableRowContainer>
+</ElTable>
+`;
+
+exports[`Table Component should match a snapshot with full props and cta content 1`] = `
+<ElTable
+  data-has-call-to-action={true}
+  data-has-expandable-action={false}
+  data-num-columns-excl-action-col={8}
 >
   <TableHeadersRow>
     <TableHeader
+      className="el-span2"
+      key="Property"
+    >
+      Property
+    </TableHeader>
+    <TableHeader
+      key="Customer"
+    >
+      Customer
+    </TableHeader>
+    <TableHeader
+      key="Client A/C"
+    >
+      Client A/C
+    </TableHeader>
+    <TableHeader
+      key="Description"
+    >
+      Description
+    </TableHeader>
+    <TableHeader
+      key="Request Date"
+    >
+      Request Date
+    </TableHeader>
+    <TableHeader
+      key="Amount"
+    >
+      Amount
+    </TableHeader>
+    <TableHeader
+      key="Payment Status"
+    >
+      Payment Status
+    </TableHeader>
+    <TableHeader>
+      Some Action
+    </TableHeader>
+  </TableHeadersRow>
+  <TableRowContainer
+    isOpen={true}
+    key="0"
+  >
+    <TableRow>
+      <TableCell
+        className="el-span2"
+        darkText={true}
+        icon="homeSystem"
+        key="0-0"
+        narrowLabel="Property"
+      >
+        Mt Ash Jacket, Brassey Road
+      </TableCell>
+      <TableCell
+        icon="usernameSystem"
+        key="1-0"
+        narrowLabel="Customer"
+      >
+        Mr Johnny Corrigan
+      </TableCell>
+      <TableCell
+        key="2-0"
+      >
+        Alternate Lettings Client Acc
+      </TableCell>
+      <TableCell
+        key="3-0"
+      >
+        Tenant Payment Request
+      </TableCell>
+      <TableCell
+        key="4-0"
+        narrowLabel="Request Date"
+      >
+        19 Apr 2021
+      </TableCell>
+      <TableCell
+        darkText={true}
+        key="5-0"
+      >
+        £50.00
+      </TableCell>
+      <TableCell
+        key="6-0"
+      >
+        Not Requested
+      </TableCell>
+      <TableCtaTriggerCell
+        className="foo-bar"
+        icon="homeSystem"
+        onClick={[MockFunction]}
+      />
+    </TableRow>
+  </TableRowContainer>
+</ElTable>
+`;
+
+exports[`Table Component should match a snapshot with full props and expandable content 1`] = `
+<ElTable
+  data-has-call-to-action={false}
+  data-has-expandable-action={true}
+  data-num-columns-excl-action-col={8}
+>
+  <TableHeadersRow>
+    <TableHeader
+      className="el-span2"
       key="Property"
     >
       Property
@@ -52,11 +219,12 @@ exports[`Table Component should match a snapshot 2`] = `
     </TableHeader>
   </TableHeadersRow>
   <TableRowContainer
-    isOpen={false}
+    isOpen={true}
     key="0"
   >
     <TableRow>
       <TableCell
+        className="el-span2"
         darkText={true}
         icon="homeSystem"
         key="0-0"
@@ -95,17 +263,16 @@ exports[`Table Component should match a snapshot 2`] = `
       </TableCell>
       <TableCell
         key="6-0"
-        narrowIsFullWidth={true}
       >
         Not Requested
       </TableCell>
       <TableExpandableRowTriggerCell
-        isOpen={false}
+        isOpen={true}
         onClick={[Function]}
       />
     </TableRow>
     <TableExpandableRow
-      isOpen={false}
+      isOpen={true}
     >
       <p>
         I am the content that is only visible when expanded
@@ -115,274 +282,4 @@ exports[`Table Component should match a snapshot 2`] = `
 </ElTable>
 `;
 
-exports[`Table Component should match a snapshot 3`] = `
-<ElTable>
-  <TableHeadersRow>
-    <TableHeader>
-      Property
-    </TableHeader>
-    <TableHeader>
-      Customer
-    </TableHeader>
-    <TableHeader>
-      Client A/C
-    </TableHeader>
-    <TableHeader>
-      Description
-    </TableHeader>
-    <TableHeader>
-      Request Date
-    </TableHeader>
-    <TableHeader>
-      Amount
-    </TableHeader>
-    <TableHeader>
-      Payment Status
-    </TableHeader>
-    <TableHeader>
-      <Icon
-        fontSize="1.2rem"
-        icon="editSystem"
-      />
-    </TableHeader>
-  </TableHeadersRow>
-  <TableRowContainer>
-    <TableRow>
-      <TableCell
-        darkText={true}
-        icon="homeSystem"
-      >
-        Mt Ash Jacket
-        <br />
-        Brassey Road
-      </TableCell>
-      <TableCell
-        icon="usernameSystem"
-        narrowLabel="N_Customer"
-      >
-        Mr Johnny Corrigan
-      </TableCell>
-      <TableCell>
-        Alternate Lettings Client Acc
-      </TableCell>
-      <TableCell>
-        Tenant Payment Request
-      </TableCell>
-      <TableCell
-        narrowLabel="Request Date"
-      >
-        19 Apr 2021
-      </TableCell>
-      <TableCell
-        darkText={true}
-      >
-        £50.00
-      </TableCell>
-      <TableCell
-        narrowIsFullWidth={true}
-      >
-        Not Requested
-      </TableCell>
-      <TableExpandableRowTriggerCell />
-    </TableRow>
-    <TableExpandableRow>
-      I am the content that is only visible when expanded
-    </TableExpandableRow>
-  </TableRowContainer>
-</ElTable>
-`;
-
-exports[`Table Component should match a snapshot 4`] = `
-<ElTable>
-  <TableHeadersRow>
-    <TableHeader>
-      Property
-    </TableHeader>
-    <TableHeader>
-      Customer
-    </TableHeader>
-    <TableHeader>
-      Client A/C
-    </TableHeader>
-    <TableHeader>
-      Description
-    </TableHeader>
-    <TableHeader>
-      Request Date
-    </TableHeader>
-    <TableHeader>
-      Amount
-    </TableHeader>
-    <TableHeader>
-      Payment Status
-    </TableHeader>
-    <TableHeader>
-      <Icon
-        fontSize="1.2rem"
-        icon="editSystem"
-      />
-    </TableHeader>
-  </TableHeadersRow>
-  <TableRowContainer>
-    <TableRow>
-      <TableCell
-        darkText={true}
-        icon="homeSystem"
-      >
-        Mt Ash Jacket
-        <br />
-        Brassey Road
-      </TableCell>
-      <TableCell
-        icon="usernameSystem"
-        narrowLabel="N_Customer"
-      >
-        Mr Johnny Corrigan
-      </TableCell>
-      <TableCell>
-        Alternate Lettings Client Acc
-      </TableCell>
-      <TableCell>
-        Tenant Payment Request
-      </TableCell>
-      <TableCell
-        narrowLabel="Request Date"
-      >
-        19 Apr 2021
-      </TableCell>
-      <TableCell
-        darkText={true}
-      >
-        £50.00
-      </TableCell>
-      <TableCell
-        narrowIsFullWidth={true}
-      >
-        Not Requested
-      </TableCell>
-      <TableExpandableRowTriggerCell />
-    </TableRow>
-    <TableExpandableRow>
-      I am the content that is only visible when expanded
-    </TableExpandableRow>
-  </TableRowContainer>
-</ElTable>
-`;
-
-exports[`Table Component should match a snapshot 5`] = `
-<ElTableHeadersRow>
-  <TableHeader>
-    Property
-  </TableHeader>
-  <TableHeader>
-    Customer
-  </TableHeader>
-  <TableHeader>
-    Client A/C
-  </TableHeader>
-  <TableHeader>
-    Description
-  </TableHeader>
-  <TableHeader>
-    Request Date
-  </TableHeader>
-  <TableHeader>
-    Amount
-  </TableHeader>
-  <TableHeader>
-    Payment Status
-  </TableHeader>
-  <TableHeader>
-    <Icon
-      fontSize="1.2rem"
-      icon="editSystem"
-    />
-  </TableHeader>
-</ElTableHeadersRow>
-`;
-
-exports[`Table Component should match a snapshot 6`] = `
-<ElTableCell
-  className="el-table-cell-has-dark-text"
->
-  <Icon
-    icon="homeSystem"
-    intent="secondary"
-  />
-  <ElTableCellContent>
-    Mt Ash Jacket
-    <br />
-    Brassey Road
-  </ElTableCellContent>
-</ElTableCell>
-`;
-
-exports[`Table Component should match a snapshot 7`] = `
-<ElTableCell
-  className="el-table-cell-narrow-order4"
->
-  <ElTableCellContent>
-    Mt Ash Jacket
-    <br />
-    Brassey Road
-  </ElTableCellContent>
-</ElTableCell>
-`;
-
-exports[`Table Component should match a snapshot 8`] = `
-<ElTableRowContainer
-  className="el-is-active"
->
-  <TableRow>
-    <TableCell
-      darkText={true}
-      icon="homeSystem"
-    >
-      Mt Ash Jacket
-      <br />
-      Brassey Road
-    </TableCell>
-    <TableCell
-      icon="usernameSystem"
-      narrowLabel="N_Customer"
-    >
-      Mr Johnny Corrigan
-    </TableCell>
-    <TableCell>
-      Alternate Lettings Client Acc
-    </TableCell>
-    <TableCell>
-      Tenant Payment Request
-    </TableCell>
-    <TableCell
-      narrowLabel="Request Date"
-    >
-      19 Apr 2021
-    </TableCell>
-    <TableCell
-      darkText={true}
-    >
-      £50.00
-    </TableCell>
-    <TableCell>
-      Not Requested
-    </TableCell>
-    <TableExpandableRowTriggerCell
-      isOpen={true}
-    />
-  </TableRow>
-  <TableExpandableRow
-    isOpen={true}
-  >
-    I am the content that is only visible when expanded
-  </TableExpandableRow>
-</ElTableRowContainer>
-`;
-
-exports[`Table Component should match a snapshot 9`] = `
-<ElTableHeader>
-  Property
-</ElTableHeader>
-`;
-
-exports[`Table Component should match a snapshot 10`] = `<ElTableRow />`;
+exports[`Table Component should match a snapshot with varied number columns 1`] = `<ElTable />`;

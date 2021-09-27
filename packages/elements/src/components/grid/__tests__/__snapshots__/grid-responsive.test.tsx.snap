@@ -1,39 +1,25 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`ColResponsive should match a snapshot and render children with no props 1`] = `
-<ContextProvider
-  value={
-    Object {
-      "is4KScreen": false,
-      "isDesktop": true,
-      "isMobile": false,
-      "isSuperWideScreen": false,
-      "isTablet": false,
-      "isWideScreen": false,
-    }
-  }
->
+<MediaStateProvider>
   <ColResponsive>
-    <p>
-      I am child
-    </p>
+    <ElCol
+      className=""
+    >
+      <div
+        className="el-col"
+      >
+        <p>
+          I am child
+        </p>
+      </div>
+    </ElCol>
   </ColResponsive>
-</ContextProvider>
+</MediaStateProvider>
 `;
 
 exports[`ColResponsive should render with the correct classNames when supplied all props 1`] = `
-<ContextProvider
-  value={
-    Object {
-      "is4KScreen": false,
-      "isDesktop": true,
-      "isMobile": false,
-      "isSuperWideScreen": false,
-      "isTablet": false,
-      "isWideScreen": false,
-    }
-  }
->
+<MediaStateProvider>
   <ColResponsive
     offset4KScreen={1}
     offsetDesktop={1}
@@ -48,26 +34,35 @@ exports[`ColResponsive should render with the correct classNames when supplied a
     spanTablet={1}
     spanWideScreen={1}
   >
-    <p>
-      I am child
-    </p>
+    <ElCol
+      className="el-span1 el-offset1"
+      offset4KScreen={1}
+      offsetDesktop={1}
+      offsetMobile={1}
+      offsetSuperWideScreen={1}
+      offsetTablet={1}
+      offsetWideScreen={1}
+      span4KScreen={1}
+      spanDesktop={1}
+      spanMobile={1}
+      spanSuperWideScreen={1}
+      spanTablet={1}
+      spanWideScreen={1}
+    >
+      <div
+        className="el-span1 el-offset1 el-col"
+      >
+        <p>
+          I am child
+        </p>
+      </div>
+    </ElCol>
   </ColResponsive>
-</ContextProvider>
+</MediaStateProvider>
 `;
 
 exports[`GridResponsive hould render with the correct classNames when supplied all props 1`] = `
-<ContextProvider
-  value={
-    Object {
-      "is4KScreen": false,
-      "isDesktop": true,
-      "isMobile": false,
-      "isSuperWideScreen": false,
-      "isTablet": false,
-      "isWideScreen": false,
-    }
-  }
->
+<MediaStateProvider>
   <GridResponsive
     colGap4KScreen={8}
     colGapDesktop={3}
@@ -82,30 +77,47 @@ exports[`GridResponsive hould render with the correct classNames when supplied a
     rowGapTablet={2}
     rowGapWideScreen={4}
   >
-    <p>
-      I am child
-    </p>
+    <ElGrid
+      className="el-col-gap3 el-row-gap3"
+      colGap4KScreen={8}
+      colGapDesktop={3}
+      colGapMobile={1}
+      colGapSuperWideScreen={6}
+      colGapTablet={2}
+      colGapWideScreen={4}
+      rowGap4KScreen={8}
+      rowGapDesktop={3}
+      rowGapMobile={1}
+      rowGapSuperWideScreen={6}
+      rowGapTablet={2}
+      rowGapWideScreen={4}
+    >
+      <div
+        className="el-col-gap3 el-row-gap3 el-grid"
+      >
+        <p>
+          I am child
+        </p>
+      </div>
+    </ElGrid>
   </GridResponsive>
-</ContextProvider>
+</MediaStateProvider>
 `;
 
 exports[`GridResponsive should match a snapshot and render children with no props 1`] = `
-<ContextProvider
-  value={
-    Object {
-      "is4KScreen": false,
-      "isDesktop": true,
-      "isMobile": false,
-      "isSuperWideScreen": false,
-      "isTablet": false,
-      "isWideScreen": false,
-    }
-  }
->
+<MediaStateProvider>
   <GridResponsive>
-    <p>
-      I am child
-    </p>
+    <ElGrid
+      className=""
+    >
+      <div
+        className="el-grid"
+      >
+        <p>
+          I am child
+        </p>
+      </div>
+    </ElGrid>
   </GridResponsive>
-</ContextProvider>
+</MediaStateProvider>
 `;

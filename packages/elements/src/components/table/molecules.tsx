@@ -24,6 +24,8 @@ import {
   ElTableCellNarrowOrder10,
   ElTableCellNarrowOrder11,
   ElTableCellNarrowOrder12,
+  ElTableCtaIconContainer,
+  ElTableCtaCell,
 } from './__styles__'
 import { Icon, IconNames } from '../icon'
 import { elIsActive } from '../../styles/states'
@@ -53,7 +55,11 @@ export interface TableRowContainerProps extends HTMLAttributes<HTMLDivElement> {
   isOpen?: boolean
 }
 
-const resolveNarrowOrderClass = (order: number): string | undefined => {
+export interface TableCtaTriggerCellProps extends HTMLAttributes<HTMLDivElement> {
+  icon?: IconNames
+}
+
+export const resolveNarrowOrderClass = (order: number): string | undefined => {
   switch (order) {
     case 1:
       return ElTableCellNarrowOrder1
@@ -136,6 +142,22 @@ export const TableExpandableRowTriggerCell: FC<TableExpandableRowTriggerCellProp
         <Icon intent={isOpen ? 'primary' : 'secondary'} icon={isOpen ? 'upSolidSystem' : 'downSolidSystem'} />
       )}
     </ElTableExpandableRowTriggerCell>
+  )
+}
+
+export const TableCtaTriggerCell: FC<TableCtaTriggerCellProps> = ({ icon, children, ...rest }) => {
+  return (
+    <ElTableCtaCell {...rest}>
+      {children ? (
+        children
+      ) : icon ? (
+        <ElTableCtaIconContainer>
+          <Icon icon={icon} fontSize="1.2rem" intent="primary" />
+        </ElTableCtaIconContainer>
+      ) : (
+        ''
+      )}
+    </ElTableCtaCell>
   )
 }
 

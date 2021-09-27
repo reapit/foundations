@@ -1,5 +1,6 @@
 import { Meta, Story, Canvas, ArgsTable } from '@storybook/addon-docs/blocks'
 import { cx } from '@linaria/core'
+import { useState } from 'react'
 import { Table, Cell, Row } from './index'
 import {
   TableHeadersRow,
@@ -9,10 +10,11 @@ import {
   TableExpandableRowTriggerCell,
   TableExpandableRow,
   TableRowContainer,
+  TableCtaTriggerCell,
 } from './molecules'
 import { Icon } from '../icon'
 import { RenderHtmlMarkup } from '../../storybook/render-html-markup'
-import { Grid, Col, elSpan6, elOffset7 } from '../grid'
+import { Grid, Col, elSpan6, elOffset7, elSpan2 } from '../grid'
 import { Molecule } from '../layout'
 import { Subtitle } from '../typography'
 import { InputGroup } from '../input-group'
@@ -141,12 +143,19 @@ Typically with a table, you will want to perform an action on the data as displa
 
 The below two examples show the additional markup required firstly, to show an expandable container and secondly, a call to action cell.
 
-For the call to action, you will need to add your own action to toggle the `isOpen` modifier or the underlying active class for non-React users.
+For the call to action, you will need to add your own action to toggle the `isOpen` modifier or the underlying `.el-is-active` class for non-React users.
+
+For all users note the data attributes applied to the table.
+
+- `data-num-columns-excl-action-col` Should be the number of expected table columns, less the call to action cell.
+
+#### Expandable version
+
+For this version the `data-has-expandable-action` attribute should additionally be applied to show the call to action column.
 
 <Canvas>
-  <Story name="Expandable Content
-  ">
-    <Table data-num-columns-excl-expandable-row-trigger-col="7" data-has-expandable-action>
+  <Story name="Expandable Content">
+    <Table data-num-columns-excl-action-col="7" data-has-expandable-action>
       <TableHeadersRow>
         <TableHeader>Property</TableHeader>
         <TableHeader>Customer</TableHeader>
@@ -205,27 +214,93 @@ For the call to action, you will need to add your own action to toggle the `isOp
   </Story>
 </Canvas>
 
-<RenderHtmlMarkup component="Table" story="Expandable Content
-" />
+<RenderHtmlMarkup component="Table" story="Expandable Content" />
 
-## Advanced Customisation - React
+#### Call to action version
 
-Props available for the React version of the component;
+For this version the `data-has-call-to-action` attribute should additionally be applied to show the call to action column.
 
-<ArgsTable of={Table} />
+<Canvas>
+  <Story name="Call To Action Content">
+    <Table data-num-columns-excl-action-col="7" data-has-call-to-action>
+      <TableHeadersRow>
+        <TableHeader>Property</TableHeader>
+        <TableHeader>Customer</TableHeader>
+        <TableHeader>Client A/C</TableHeader>
+        <TableHeader>Description</TableHeader>
+        <TableHeader>Request Date</TableHeader>
+        <TableHeader>Amount</TableHeader>
+        <TableHeader>Payment Status</TableHeader>
+        <TableHeader>Download Content</TableHeader>
+      </TableHeadersRow>
+      <TableRowContainer>
+        <TableRow>
+          <TableCell darkText icon="homeSystem" narrowIsFullWidth>
+            Mt Ash Jacket Brassey Road
+          </TableCell>
+          <TableCell narrowLabel="Name Customer" icon="usernameSystem">
+            Mr Johnny Corrigan
+          </TableCell>
+          <TableCell narrowLabel="Account">Alternate Lettings Client Acc</TableCell>
+          <TableCell narrowLabel="Type">Tenant Payment Request</TableCell>
+          <TableCell narrowLabel="Request Date">19 Apr 2021</TableCell>
+          <TableCell darkText narrowLabel="Amount">
+            £50.00
+          </TableCell>
+          <TableCell narrowLabel="Status">
+            <StatusIndicator intent="critical" /> Pending
+          </TableCell>
+          <TableCtaTriggerCell icon="downloadSystem" />
+        </TableRow>
+      </TableRowContainer>
+    </Table>
+  </Story>
+</Canvas>
 
-To explain these props (for non React / basic usage, skip this section);
-
-- `rows` A list of table rows - when using this React shorthand, the label is used as the header and value / or children can be specified to render content. See table cells below for other options.
-- `numberColums` The table defaults to fill the available space evenly for each column. If you want to customise this, increase the number of table columns and add a column span modifier as a className to your table cell. E.g. by increasing the number of columns by one more than the number of cells then applying an `elSpan2` className to one cell, this cell will span two columns.
-- `indexExpandedRow` See expandable content below. This allows you to programatically toggle open a row's expandable content by passing the row index as a prop. The default React behaviour handles a toggle onClick however, you may wish to override this for example, when you wish to close a row on an API callback or form submission.
-- `setIndexExpandedRow` See above, if you are using your own expanded row state, pass your setter (eg a React useState setter), to the component so that the on click expansion keeps your `indexExpandedRow` in sync.
-
-## Table built from molecule components
+<RenderHtmlMarkup component="Table" story="Call To Action Content" />
 
 ## React Shorthand
 
-Simply supply a `rows` prop, and no children, to use the Table component like this.
+When using React, we can achieve the same effect using the shorthand "rows" prop. We also handle expand and contract behaviour of the expnadable content for you as well as addigng the relevant data attributes.
+
+To understand the options available, it is worth looking at the available props of the relevant components.
+
+The `rows` prop consists of a list of cells as well as optional `expandableContent` and `ctaContent` props.
+
+Options for a cell are shown below and map to the keys in the cells array.
+
+```ts
+export interface CellProps {
+  label: string // The header label
+  value: string // The cell content
+  children?: ReactNode // Children to render if required
+  icon?: IconNames // An icon name if required
+  className?: string // Any custom css class for the cell
+  statusCircleIntent?: Intent // If there is a status cell, what intent should it have
+  cellHasDarkText?: boolean // Should the cell have dark text for emphasis
+  narrowTable?: NarrowOptionsType // Narrow table options see below type
+}
+
+export type NarrowOptionsType = {
+  showLabel?: boolean // Should the header be shown as a label when in narrow mode
+  isFullWidth?: boolean // Should the cell be full width in narrow mode
+  order?: 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9 | 10 | 11 | 12 // The grid order of the cell when in narrow  mode
+```
+
+For `expandableContent` and `ctaContent` the interface is the same;
+
+**Only one of `expandableContent` and `ctaContent` should be used - the table will only expect one to be supplied**
+
+```ts
+export interface RowActionProps {
+  content?: ReactNode // The main content for an expandable cell, not relevant to a CTA
+  cellContent?: ReactNode // The trigger cell's content - defaults to an icon
+  headerContent?: ReactNode // The header's content - defaults to an icon
+  onClick?: () => void // Optional click event. This will override the default "open expandable" behaviour so typically, for use with the CTA variant
+  className?: string // Any custom css class for the cell
+  icon?: IconNames // An icon to render in the cell if no cell content supplied
+}
+```
 
 <Canvas>
   <Story name="React shorthand usage">
@@ -267,11 +342,7 @@ Simply supply a `rows` prop, and no children, to use the Table component like th
             {
               label: 'Payment Status',
               value: 'Not Requested',
-              children: (
-                <>
-                  <StatusIndicator intent="danger" /> Not Requested
-                </>
-              ),
+              statusCircleIntent: 'danger',
             },
           ],
           expandableContent: { content: <p>I am the content that is only visible when expanded</p> },
@@ -326,35 +397,126 @@ Simply supply a `rows` prop, and no children, to use the Table component like th
   </Story>
 </Canvas>
 
-## The `rows` prop
+## Advanced Customisation - React
+
+For React users, we also expose some advanced customisation options via prop modifiers. These allow us both to control the number and span of columns as well as override the default toggle behaviour for expandable content. See below for the available options;
 
 <ArgsTable of={Table} />
 
-```ts
-type Row = {
-  cells: Cell[]
-  /* The content that should be hidden within the expandable row underneath this row */
-  expandableContent: ReactNode
-}
-```
+To explain these props;
 
-```ts
-type Cell = {
-  /* the label of the cell (AKA, the header) */
-  label: string
-  /* the value of the cell */
-  value: string
-  /* if supplied, children will be rendered in place of value. If a value and children are both supplied, only children will be rendered */
-  children: ReactNode
-  /* an icon to go within the cell */
-  icon?: IconNames
-  /* whether to make the text in the cell darker */
-  cellHasDarkText?: boolean
-  /* properties that apply when the table is in narrow view mode */
-  narrowTable?: {
-    showLabel?: boolean
-    isFullWidth?: boolean
-    order?: 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9 | 10 | 11 | 12
-  }
-}
-```
+- `rows` A list of table rows - when using this React shorthand, the label is used as the header and value / or children can be specified to render content. See table cells below for other options.
+- `numberColums` The table defaults to fill the available space evenly for each column. If you want to customise this, increase the number of table columns and add a column span modifier as a className to your table cell. E.g. by increasing the number of columns by one more than the number of cells then applying an `elSpan2` className to one cell, this cell will span two columns.
+- `indexExpandedRow` See expandable content below. This allows you to programatically toggle open a row's expandable content by passing the row index as a prop. The default React behaviour handles a toggle onClick however, you may wish to override this for example, when you wish to close a row on an API callback or form submission.
+- `setIndexExpandedRow` See above, if you are using your own expanded row state, pass your setter (eg a React useState setter), to the component so that the on click expansion keeps your `indexExpandedRow` in sync.
+
+In the below example we pull this behaviour together by adding an extra column to the table to allow more space for the "property" column. To do this, we also add a custom `elSpan2` class, imported from the `Grid` component. See the `Grid` story for available span props, or write your own custom class that adds a desired column span eg `grid-column-end: span 2;`
+
+We also specify that the first row is expanded by passing an `indexExpandedRow` prop and control this using `useState`, passing the setter as a `setIndexExpandedRow` prop. As per above explanation, this is useful if you want to expand and collapse your expandable rows, depending on some condition rather than a simple `onClick`.
+
+<Canvas>
+  <Story name="Advanced Customisation - React">
+    {() => {
+      const [indexExpandedRow, setIndexExpandedRow] = useState(0)
+      return (
+        <Table
+          numberColumns={9}
+          indexExpandedRow={indexExpandedRow}
+          setIndexExpandedRow={setIndexExpandedRow}
+          rows={[
+            {
+              cells: [
+                {
+                  label: 'Property',
+                  value: 'Mt Ash Jacket, Brassey Road',
+                  className: elSpan2,
+                  icon: 'homeSystem',
+                  cellHasDarkText: true,
+                  narrowTable: { showLabel: true },
+                },
+                {
+                  label: 'Customer',
+                  value: 'Mr Johnny Corrigan',
+                  icon: 'usernameSystem',
+                  narrowTable: { showLabel: true },
+                },
+                {
+                  label: 'Client A/C',
+                  value: 'Alternate Lettings Client Acc',
+                },
+                {
+                  label: 'Description',
+                  value: 'Tenant Payment Request',
+                },
+                {
+                  label: 'Request Date',
+                  value: '19 Apr 2021',
+                  narrowTable: { showLabel: true },
+                },
+                {
+                  label: 'Amount',
+                  value: '£50.00',
+                  cellHasDarkText: true,
+                },
+                {
+                  label: 'Payment Status',
+                  value: 'Not Requested',
+                  statusCircleIntent: 'danger',
+                },
+              ],
+              expandableContent: { content: <p>I am the content that is only visible when expanded</p> },
+            },
+            {
+              cells: [
+                {
+                  label: 'Property',
+                  value: 'Property Name, Road Name',
+                  className: elSpan2,
+                  icon: 'homeSystem',
+                  cellHasDarkText: true,
+                  narrowTable: { showLabel: true },
+                },
+                {
+                  label: 'Customer',
+                  value: 'Mrs Davina Corrigan',
+                  icon: 'usernameSystem',
+                  narrowTable: { showLabel: true },
+                },
+                {
+                  label: 'Client A/C',
+                  value: 'Alternate Lettings Client Acc',
+                },
+                {
+                  label: 'Description',
+                  value: 'Another descriptions',
+                },
+                {
+                  label: 'Request Date',
+                  value: '23rd Apr 2021',
+                  narrowTable: { showLabel: true },
+                },
+                {
+                  label: 'Amount',
+                  value: '£665.21',
+                  cellHasDarkText: true,
+                },
+                {
+                  label: 'Payment Status',
+                  value: 'Pending',
+                  children: (
+                    <>
+                      <StatusIndicator intent="critical" /> Pending
+                    </>
+                  ),
+                },
+              ],
+              expandableContent: {
+                content: <p>I am more content that is only visible when the 2nd row is expanded</p>,
+              },
+            },
+          ]}
+        />
+      )
+    }}
+  </Story>
+</Canvas>

@@ -184,7 +184,7 @@ const DeploymentTable = ({
       <Loader />
     </FlexContainerBasic>
   ) : pipelineRunnerPagination && pipelineRunnerMapped?.length ? (
-    <Table rows={pipelineRunnerMapped} expandableContentSize="large" />
+    <Table rows={pipelineRunnerMapped} />
   ) : (
     <PersistantNotification intent="secondary" isExpanded isInline isFullWidth>
       No deployments found

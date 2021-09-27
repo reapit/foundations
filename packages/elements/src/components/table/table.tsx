@@ -10,6 +10,7 @@ import {
   TableExpandableRowTriggerCell,
   TableRowContainer,
   NarrowOrderType,
+  TableCtaTriggerCell,
 } from './molecules'
 import { Intent } from '../../helpers/intent'
 
@@ -30,16 +31,19 @@ export interface CellProps {
   narrowTable?: NarrowOptionsType
 }
 
+export interface RowActionProps {
+  content?: ReactNode
+  cellContent?: ReactNode
+  headerContent?: ReactNode
+  onClick?: () => void
+  className?: string
+  icon?: IconNames
+}
+
 export interface RowProps {
   cells: CellProps[]
-  expandableContent?: {
-    content?: ReactNode
-    cellContent?: ReactNode
-    headerContent?: ReactNode
-    isCallToAction?: boolean
-    onClick?: () => void
-    className?: string
-  }
+  expandableContent?: RowActionProps
+  ctaContent?: RowActionProps
 }
 
 export interface TableProps extends HTMLAttributes<HTMLDivElement> {
@@ -47,6 +51,20 @@ export interface TableProps extends HTMLAttributes<HTMLDivElement> {
   numberColumns?: number
   indexExpandedRow?: number | null
   setIndexExpandedRow?: Dispatch<SetStateAction<number | null>>
+}
+
+export const handleToggleExpandedRow = (
+  index: number | null,
+  expandedRow: number | null,
+  setExpandedRow: Dispatch<SetStateAction<number | null>>,
+  indexExpandedRow?: number | null,
+  setIndexExpandedRow?: Dispatch<SetStateAction<number | null>>,
+) => () => {
+  if (indexExpandedRow !== undefined && setIndexExpandedRow) {
+    indexExpandedRow === index ? setIndexExpandedRow(null) : setIndexExpandedRow(index)
+  } else {
+    expandedRow === index ? setExpandedRow(null) : setExpandedRow(index)
+  }
 }
 
 export const Table: FC<TableProps> = ({
@@ -62,20 +80,13 @@ export const Table: FC<TableProps> = ({
 
   const [expandedRow, setExpandedRow] = useState<null | number>(null)
   const hasExpandableRows = rows.some((row) => Boolean(row.expandableContent))
-  const hasCallToAction = rows.some((row) => Boolean(row.expandableContent?.isCallToAction))
-  const toggleExpandedRow = (index: number) => {
-    if (indexExpandedRow !== undefined && setIndexExpandedRow) {
-      indexExpandedRow === index ? setIndexExpandedRow(null) : setIndexExpandedRow(index)
-    } else {
-      expandedRow === index ? setExpandedRow(null) : setExpandedRow(index)
-    }
-  }
+  const hasCallToAction = rows.some((row) => Boolean(row.ctaContent))
 
   return (
     <ElTable
       {...rest}
-      data-num-columns-excl-expandable-row-trigger-col={
-        hasExpandableRows && numberColumns
+      data-num-columns-excl-action-col={
+        (hasExpandableRows || hasCallToAction) && numberColumns
           ? numberColumns - 1
           : numberColumns
           ? numberColumns - 1
@@ -96,6 +107,15 @@ export const Table: FC<TableProps> = ({
           <TableHeader>
             {firstRow.expandableContent?.headerContent ? (
               <>{firstRow.expandableContent?.headerContent}</>
+            ) : (
+              <Icon icon="settingsSystem" fontSize="1.2rem" />
+            )}
+          </TableHeader>
+        )}
+        {hasCallToAction && (
+          <TableHeader>
+            {firstRow.ctaContent?.headerContent ? (
+              <>{firstRow.ctaContent?.headerContent}</>
             ) : (
               <Icon icon="settingsSystem" fontSize="1.2rem" />
             )}
@@ -129,11 +149,28 @@ export const Table: FC<TableProps> = ({
                   className={row.expandableContent.className}
                   isOpen={expandableRowIsOpen}
                   onClick={
-                    row.expandableContent.onClick ? row.expandableContent.onClick : () => toggleExpandedRow(index)
+                    row.expandableContent.onClick
+                      ? row.expandableContent.onClick
+                      : handleToggleExpandedRow(
+                          index,
+                          expandedRow,
+                          setExpandedRow,
+                          indexExpandedRow,
+                          setIndexExpandedRow,
+                        )
                   }
                 >
                   {row.expandableContent.cellContent}
                 </TableExpandableRowTriggerCell>
+              )}
+              {row.ctaContent && (
+                <TableCtaTriggerCell
+                  className={row.ctaContent.className}
+                  icon={row.ctaContent.icon}
+                  onClick={row.ctaContent.onClick}
+                >
+                  {row.ctaContent.cellContent}
+                </TableCtaTriggerCell>
               )}
             </TableRow>
             {row.expandableContent && row.expandableContent.content && (

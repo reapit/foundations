@@ -117,8 +117,8 @@ describe('handleSubmitWebhook', () => {
       ...values,
       applicationId: webhookItemDataStub.applicationId,
       webhookId: webhookItemDataStub.id,
-      topicIds: values.topicIds.split(','),
-      customerIds: values.customerIds.split(','),
+      topicIds: values.topicIds.split(',').filter(Boolean),
+      customerIds: values.customerIds.split(',').filter(Boolean),
     }
     const curried = handleSubmitWebhook(dispatch, webhookItemDataStub)
     curried(values)
