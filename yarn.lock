@@ -8061,6 +8061,7 @@ __metadata:
     jest-coverage-badges: ^1.1.2
     jszip: ^3.7.1
     node-fetch: ^2.6.1
+    project-name-generator: ^2.1.9
     reflect-metadata: ^0.1.13
     slugify: ^1.6.0
     ts-node-dev: ^1.1.8

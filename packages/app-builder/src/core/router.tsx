@@ -3,6 +3,8 @@ import { Route, Router as BrowserRouter, Switch } from 'react-router-dom'
 import { createBrowserHistory } from 'history'
 import Routes from '../constants/routes'
 import PrivateRouteWrapper from './private-route-wrapper'
+import { MainContainer } from '@reapit/elements'
+import Menu from '../components/ui/nav'
 
 export const history = createBrowserHistory()
 
@@ -30,18 +32,42 @@ export const catchChunkError = (
 
 const HomePage = React.lazy(() => catchChunkError(() => import('../components/pages/home')))
 const AppSelect = React.lazy(() => catchChunkError(() => import('../components/pages/app-select')))
+const AppView = React.lazy(() => catchChunkError(() => import('../components/pages/app-view')))
+
+const AppEditor = () => (
+  <PrivateRouteWrapper>
+    <MainContainer>
+      <Menu />
+      <Switch>
+        <Route path={Routes.APP_VIEW} component={AppView} />
+        <Route path={Routes.APP_EDIT} component={HomePage} />
+        <Route path={Routes.APP_SELECT} component={AppSelect} />
+      </Switch>
+    </MainContainer>
+  </PrivateRouteWrapper>
+)
+
+const AppViewer = () => (
+  <PrivateRouteWrapper>
+    <MainContainer>
+      <Route path={Routes.APP_VIEW_ROOT} component={AppView} />
+    </MainContainer>
+  </PrivateRouteWrapper>
+)
+
+const EditorOrViewer = () => {
+  const { location } = window
+  if (location.hostname.includes('app-builder') || location.hostname.includes('localhost')) {
+    return <AppEditor />
+  } else {
+    return <AppViewer />
+  }
+}
 
 const Router = () => (
   <BrowserRouter history={history}>
     <React.Suspense fallback={null}>
-      <Switch>
-        <PrivateRouteWrapper>
-          <Switch>
-            <Route path={Routes.HOME} component={HomePage} />
-            <Route path={Routes.APP_SELECT} component={AppSelect} />
-          </Switch>
-        </PrivateRouteWrapper>
-      </Switch>
+      <EditorOrViewer />
     </React.Suspense>
   </BrowserRouter>
 )
