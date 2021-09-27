@@ -13,14 +13,14 @@ export function isValidHttpUrl(url: string) {
 }
 
 export function whiteListLocalhostAndIsValidUrl(url: string) {
-  return isValidHttpsUrl(url) || /http?:\/\/localhost/.test(url)
+  return isValidHttpsUrl(url) || url.indexOf('localhost') > -1
 }
 
 export function isValidRedirectUrls(urls: string) {
   return urls
     .split(',')
     .filter((url) => !!url)
-    .every((url) => isValidHttpsUrl(url) || /http?:\/\/localhost/.test(url))
+    .every(whiteListLocalhostAndIsValidUrl)
 }
 
 export function checkValidCustomScheme(url: string): boolean {
@@ -31,7 +31,7 @@ export function checkValidCustomScheme(url: string): boolean {
   const [, protocol, link] = result
   // allow http only for localhost
   if (protocol === 'http') {
-    return link.indexOf('localhost') === 0
+    return link.indexOf('localhost') > -1
   }
 
   return !!protocol && !!link

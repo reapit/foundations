@@ -28,8 +28,10 @@ describe('checkValidCustomScheme', () => {
   it('should return true with localhost', () => {
     const url1 = 'http://localhost'
     const url2 = 'http://localhost:8080'
+    const url3 = 'http://asdf.localhost:8080'
     expect(checkValidCustomScheme(url1)).toBe(true)
     expect(checkValidCustomScheme(url2)).toBe(true)
+    expect(checkValidCustomScheme(url3)).toBe(true)
   })
   it('should return false with invalid url', () => {
     const url1 = 'app:invalid'
@@ -49,10 +51,12 @@ describe('isValidUrlWithCustomScheme', () => {
     const urls2 = 'myapp://link.com, http://localhost'
     const urls3 = 'https://link.com, http://localhost:9090'
     const urls4 = 'https://link.com,    https://localhost'
+    const urls5 = 'https://link.com, http://asdf.localhost:9090'
     expect(isValidUrlWithCustomScheme(urls1)).toBe(true)
     expect(isValidUrlWithCustomScheme(urls2)).toBe(true)
     expect(isValidUrlWithCustomScheme(urls3)).toBe(true)
     expect(isValidUrlWithCustomScheme(urls4)).toBe(true)
+    expect(isValidUrlWithCustomScheme(urls5)).toBe(true)
   })
   it('should return false with invalid urls', () => {
     const urls1 = 'myapp:link.com, myapp://link2'

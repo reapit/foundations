@@ -24,7 +24,7 @@ export const checkValidCustomScheme = (url: string): boolean => {
   const [, protocol, link] = result
   // allow http only for localhost
   if (protocol === 'http') {
-    return link.indexOf('localhost') === 0
+    return link.indexOf('localhost') > -1
   }
 
   return !!protocol && !!link
@@ -47,7 +47,7 @@ export const isValidHttpUrl = (url: string) => {
 }
 
 export const whiteListLocalhostAndIsValidUrl = (url: string) => {
-  return isValidHttpsUrl(url) || /http?:\/\/localhost/.test(url)
+  return isValidHttpsUrl(url) || (url.indexOf('localhost') > -1 && isValidHttpUrl(url))
 }
 
 export const hasSpecialChars = (value: string): boolean => {
