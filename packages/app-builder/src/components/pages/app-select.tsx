@@ -91,6 +91,14 @@ const CreateNew = ({ className }: { className?: string }) => {
   )
 }
 
+const generateAppUrl = (subdomain: string) => {
+  const { port, hostname } = window.location
+  if (parseInt(port, 10) !== 443) {
+    return `http://${subdomain}.${hostname}:${port}`
+  }
+  return `https://${subdomain}.${hostname}`
+}
+
 const AppSelector = () => {
   const userId = useUserId()
   const { loading, error, data } = useGetUserApps(userId)
@@ -133,6 +141,15 @@ const AppSelector = () => {
             </CardMainWrap>
             <CardListMainWrap className={cx(elFlexJustifyEnd)}>
               <CardListItem>
+                <Button
+                  intent="secondary"
+                  loading={ejectLoading}
+                  onClick={() => {
+                    window.open(generateAppUrl(app.subdomain))
+                  }}
+                >
+                  View Live
+                </Button>
                 <Button
                   intent="primary"
                   onClick={() => {
