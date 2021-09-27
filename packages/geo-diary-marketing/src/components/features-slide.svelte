@@ -8,7 +8,7 @@
 
 <div class="container el-wscreen">
   <div class="inner-container el-flex-container el-flex-column el-flex-align-center el-mxauto">
-    <h2 class="el-title el-text-center">AgencyCloud - Diary Appointment Features</h2>
+    <h2 class="el-title el-text-center">Amazing Diary Appointment Features</h2>
     <h5 class="el-subtitle el-text-center">Instant access to your daily & weekly appointments.</h5>
     <div class="tile-container el-flex-container el-flex-wrap">
       <div class="tile tile-border-blue-lightest">
