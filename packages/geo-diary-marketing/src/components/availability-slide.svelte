@@ -12,6 +12,9 @@
     <h5 class="el-subtitle el-text-center">
       If you are an existing Reapit Customer, you can access all apps and integrations now from the AppMarket
     </h5>
+    <button class="el-intent-critical el-button el-mr3 button" on:click|preventDefault={setModalVisible}
+      >AppMarket</button
+    >
   </div>
   <div class="image-footer-container">
     <div class="image-mobile-hero">
@@ -24,12 +27,8 @@
       <img src="./images/availability-desktop-hero.svg" alt="flow of data to various devices" />
     </div>
     <p class="el-body-text el-has-grey-text image-text">
-      If you are an existing Reapit Customer, you can access all apps and integrations now from the AppMarket
-      <button class="el-intent-critical el-button el-mr3 button" on:click|preventDefault={setModalVisible}
-        >AppMarket</button
-      >
-      Reapit customers can now adopt and deploy powerful new apps and integrations from a continually evolving library developed
-      by Reapit’s growing range of partnerships.
+      Reapit customers can now adopt and deploy powerful new apps and integrations from a continually evolving library
+      developed by Reapit’s growing range of partnerships.
     </p>
     <div class="footer">
       <p>© Copyright Reapit. All rights reserved. 2021</p>
