@@ -634,6 +634,12 @@ export class CdkStack extends cdk.Stack {
       },
     }
 
+    const authorizer = new CognitoUserPoolsAuthorizer(this as any, `cloud-deployment-service-authorizer`, {
+      cognitoUserPools: [
+        UserPool.fromUserPoolId(this, `user-pool-authorizer`, 'kiftR4qFc'),
+      ],
+    })
+
     for (const [name, options] of Object.entries(functionSetups)) {
       const role = new Role(this as any, `deployment-service-${name}-role`, {
         assumedBy: new ServicePrincipal('ec2.amazonaws.com'),
@@ -647,11 +653,7 @@ export class CdkStack extends cdk.Stack {
       } else if (options.api) {
         api.root.resourceForPath(options.api.path)
           .addMethod(options.api.method, new LambdaIntegration(lambda), {
-            authorizer: options.api.authorizer ? new CognitoUserPoolsAuthorizer(this as any, `cloud-deployment-service-${name}-authorizer`, {
-              cognitoUserPools: [
-                UserPool.fromUserPoolId(scope, `${name}-user-pool`, 'kiftR4qFc'),
-              ],
-            }) : undefined,
+            authorizer: options.api.authorizer ? authorizer : undefined,
             authorizationType: options.api.authorizer ? AuthorizationType.COGNITO : undefined,
           })
       } else if (options.topic) {
