@@ -10,12 +10,12 @@ import AdmZip from 'adm-zip'
 const bootstrap = async () => {
 
   await exec('yarn build', {
-    cwd: path.resolve(__dirname, '..', '..'),
+    cwd: path.resolve(__dirname, '..'),
   })
 
   const zipper = new AdmZip()
-  zipper.addLocalFile(path.resolve(__dirname, '..', '..', 'dist', 'main.js'))
-  zipper.writeZip(path.resolve(__dirname, '..', '..', 'dist', 'main.zip'))
+  zipper.addLocalFile(path.resolve(__dirname, '..', 'dist', 'main.js'))
+  zipper.writeZip(path.resolve(__dirname, '..', 'dist', 'main.zip'))
 
   const app = new cdk.App();
   new CdkStack(app, 'cloud-deployment-service', {
