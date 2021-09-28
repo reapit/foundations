@@ -60,8 +60,8 @@ export const handleInstalledReports =
       setLoading(true)
       const fetchInstalledReports = async () => {
         const installedReports = await getInstalledReportsService(connectSession as ReapitConnectSession)
-        setLoading(false)
         setInstalledReports(installedReports ?? null)
+        setLoading(false)
       }
 
       fetchInstalledReports()
