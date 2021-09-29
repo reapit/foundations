@@ -7,7 +7,7 @@ import {
   isValidHttpUrl,
   whiteListLocalhostAndIsValidUrl,
   hasSpecialChars,
-} from '../string'
+} from '..'
 
 describe('isImageType', () => {
   it('should return true', () => {

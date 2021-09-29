@@ -26,8 +26,8 @@
   "dependencies": {
     "@linaria/core": "^3.0.0-beta.4",
     "@linaria/react": "^3.0.0-beta.7",
-    "@reapit/utils-common": "workspace:packages/utils-common",
     "@reapit/foundations-ts-definitions": "workspace:packages/foundations-ts-definitions",
+    "@reapit/utils-common": "workspace:packages/utils-common",
     "@sentry/node": "^6.9.0",
     "error-polyfill": "^0.1.2",
     "uuid": "^8.3.2"

@@ -18,13 +18,13 @@
     "commit": "concurrently \"yarn test --coverage --no-cache --silent --forceExit --detectOpenHandles --runInBand --watch=false && jest-coverage-badges --input src/tests/coverage/coverage-summary.json --output src/tests/badges\" \"yarn lint\""
   },
   "dependencies": {
+    "@reapit/utils-node": "workspace:packages/utils-node",
     "@sentry/node": "^6.9.0",
     "aws-sdk": "^2.949.0",
     "axios": "^0.21.1",
     "body-parser": "^1.19.0",
     "cors": "^2.8.5",
     "ejs": "^3.1.6",
-    "@reapit/utils-node": "workspace:packages/utils-node",
     "express": "^4.17.1",
     "express-session": "^1.17.2",
     "memorystore": "^1.6.6",

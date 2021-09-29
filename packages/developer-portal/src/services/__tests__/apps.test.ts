@@ -1,4 +1,4 @@
-import { fetcher, fetcherWithRawUrl, fetcherWithReturnHeader } from '@reapit/elements-legacy'
+import { fetcher, fetcherWithRawUrl, fetcherWithReturnHeader } from '@reapit/utils-common'
 import {
   approveAppRevisionById,
   createAppAPI,
@@ -18,8 +18,8 @@ import {
   unfeatureAppById,
 } from '../apps'
 
-jest.mock('@reapit/elements-legacy')
-jest.mock('@reapit/utils')
+jest.mock('@reapit/utils-common')
+jest.mock('@reapit/utils-react')
 
 const mockedFetch = fetcher as jest.Mock
 const mockedFetcherWithRawUrl = fetcherWithRawUrl as jest.Mock

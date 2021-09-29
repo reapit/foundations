@@ -1,6 +1,6 @@
 /* istanbul ignore file */
 import { service, factories, models, IEmbedConfiguration } from 'powerbi-client'
-import { logger } from '@reapit/utils'
+import { logger } from '@reapit/utils-react'
 import { MutableRefObject } from 'react'
 
 const powerbi = new service.Service(factories.hpmFactory, factories.wpmpFactory, factories.routerFactory)

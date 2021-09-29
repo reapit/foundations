@@ -28,7 +28,6 @@
     "@reapit/elements": "workspace:packages/elements",
     "@reapit/elements-legacy": "workspace:packages/elements-legacy",
     "@reapit/foundations-ts-definitions": "workspace:packages/foundations-ts-definitions",
-    "@reapit/utils": "workspace:packages/utils",
     "@reapit/utils-common": "workspace:packages/utils-common",
     "@sentry/browser": "^6.9.0",
     "dayjs": "^1.10.6",

@@ -1,9 +1,9 @@
 import { configurationAppointmentsApiService } from '../configuration-api'
 import { ListItemModel } from '@reapit/foundations-ts-definitions'
 import { mockBrowserSession } from '../__mocks__/session'
-import { fetcher } from '@reapit/elements'
+import { fetcher } from '@reapit/utils-common'
 
-jest.mock('@reapit/elements')
+jest.mock('@reapit/utils-common')
 
 const mockedFetch = fetcher as jest.Mock
 const mockConfigurationAppointments = [

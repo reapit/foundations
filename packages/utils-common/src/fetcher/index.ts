@@ -1,3 +1,5 @@
+import { errorMessages } from '../constants/error-messages'
+
 export interface StringMap {
   [key: string]: string
 }
@@ -9,6 +11,13 @@ export interface FetcherParams<T> {
   headers: StringMap
   body?: T
 }
+export type FetchDetailResult<T> = {
+  isLoading: boolean
+  data: T | null
+  errorMessage: string
+}
+
+export type FetchListResult<T> = T & Pick<FetchDetailResult<any>, 'isLoading' | 'errorMessage'>
 
 export class FetchError extends Error {
   public name: string
@@ -154,4 +163,44 @@ export const fetcher = async <T, B>({
 
   const err = await genErr(res, { url, method })
   throw err
+}
+
+export const getDefaultFetchListValue = () => ({
+  ...getDefaultFetchDetailValue(),
+  data: [],
+  totalCount: 0,
+  pageSize: 0,
+  pageNumber: 0,
+  pageCount: 0,
+})
+
+export const getDefaultFetchDetailValue: <T>() => FetchDetailResult<T> = () => ({
+  isLoading: false,
+  errorMessage: '',
+  data: null,
+})
+
+/**
+ * return standard description error string
+ * or DEFAULT_SERVER_ERROR
+ */
+export const extractNetworkErrString = (err) => {
+  /**
+   * response contain standard error object
+   * {
+   *   dataTime,
+   *   description,
+   *   statusCode
+   * }
+   */
+  const standardErrDescriptionData = err?.response?.description
+  if (err?.response?.description) {
+    return standardErrDescriptionData
+  }
+
+  if (typeof err === 'string') {
+    return err
+  }
+
+  return errorMessages.DEFAULT_SERVER_ERROR
 }

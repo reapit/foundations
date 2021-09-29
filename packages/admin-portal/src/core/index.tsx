@@ -3,7 +3,7 @@ import React from 'react'
 import { render } from 'react-dom'
 import { Config } from '@/types/global'
 import { getMarketplaceGlobalsByKey } from '@reapit/elements-legacy'
-import { logger } from '@reapit/utils'
+import { logger } from '@reapit/utils-react'
 
 // Init global config
 window.reapit = {

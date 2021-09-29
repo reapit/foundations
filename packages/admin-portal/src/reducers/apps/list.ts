@@ -2,7 +2,7 @@ import { Action } from '@/types/core'
 import { isType } from '@/utils/actions'
 import { fetchAppListSuccess, fetchAppList, fetchAppListFailed } from '@/actions/apps-management'
 import { AppSummaryModelPagedResult } from '@reapit/foundations-ts-definitions'
-import { FetchDetailResult, getDefaultFetchListValue } from '@reapit/utils'
+import { FetchDetailResult, getDefaultFetchListValue } from '@reapit/utils-common'
 
 export type AppListState = AppSummaryModelPagedResult & Pick<FetchDetailResult<any>, 'isLoading' | 'errorMessage'>
 

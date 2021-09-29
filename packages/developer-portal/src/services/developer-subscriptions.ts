@@ -1,4 +1,4 @@
-import { fetcher, setQueryParams } from '@reapit/elements-legacy'
+import { fetcher, setQueryParams } from '@reapit/utils-common'
 import {
   SubscriptionModel,
   SubscriptionModelPagedResult,
@@ -6,7 +6,7 @@ import {
 } from '@reapit/foundations-ts-definitions'
 import { stringify } from 'query-string'
 import { URLS } from './constants'
-import { getPlatformHeaders, logger } from '@reapit/utils'
+import { getPlatformHeaders, logger } from '@reapit/utils-react'
 import { FetchListCommonParams } from './types'
 import { reapitConnectBrowserSession } from '../core/connect-session'
 

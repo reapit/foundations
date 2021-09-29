@@ -1,4 +1,4 @@
-import { currencySymbolMapper } from '../currency'
+import { currencySymbolMapper } from '..'
 
 describe('currencySymbolMapper', () => {
   const options = [

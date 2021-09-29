@@ -8,7 +8,7 @@ import { notification } from '@reapit/elements-legacy'
 import { initAuthorizedRequestHeaders } from '@/utils/api'
 import { identityTypes } from '../__stubs__/identity-types'
 import { fetchIdentityDocumentTypes } from '../api'
-import { extractNetworkErrString } from '@reapit/utils'
+import { extractNetworkErrString } from '@reapit/utils-common'
 
 const mockHeaders = {
   Authorization: '123',

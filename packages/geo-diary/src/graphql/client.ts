@@ -4,7 +4,7 @@ import { onError } from '@apollo/client/link/error'
 import typeDefs from './schema.graphql'
 import resolvers from './resolvers'
 import { notification } from '@reapit/elements-legacy'
-import { logger } from '@reapit/utils'
+import { logger } from '@reapit/utils-react'
 import { reapitConnectBrowserSession } from '../core/connect-session'
 
 export const errorLink = onError(({ graphQLErrors, networkError }) => {

@@ -8,7 +8,7 @@ import { Action } from '@/types/core'
 import { contacts } from '../__stubs__/contacts'
 import { initAuthorizedRequestHeaders } from '@/utils/api'
 import { fetchContact } from '../api'
-import { extractNetworkErrString } from '@reapit/utils'
+import { extractNetworkErrString } from '@reapit/utils-common'
 
 const mockHeaders = {
   Authorization: '123',

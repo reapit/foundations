@@ -1,4 +1,4 @@
-import { getPlatformHeaders } from '../get-platform-headers'
+import { getPlatformHeaders } from '..'
 import { ReapitConnectBrowserSession } from '@reapit/connect-session'
 
 const mockSession = {

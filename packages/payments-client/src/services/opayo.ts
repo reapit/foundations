@@ -1,5 +1,6 @@
-import { fetcher, notification } from '@reapit/elements-legacy'
-import { logger } from '@reapit/utils'
+import { notification } from '@reapit/elements-legacy'
+import { fetcher } from '@reapit/utils-common'
+import { logger } from '@reapit/utils-react'
 import { URLS } from '../constants/api'
 import { genPaymentsHeaders } from '../utils/headers'
 import { CreateTransactionModel, MerchantKey, Transaction } from '../types/opayo'

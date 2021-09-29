@@ -27,7 +27,7 @@ import { fetchScopesList } from '@/services/scopes'
 import { fetchDesktopIntegrationTypesList } from '@/services/desktop-integration-types'
 import { selectApprovalListPageNumber } from '@/selector/approvals'
 import { notification } from '@reapit/elements-legacy'
-import { errorMessages } from '@reapit/utils'
+import { errorMessages } from '@reapit/utils-common'
 
 jest.mock('@/services/apps')
 jest.mock('@/services/scopes')

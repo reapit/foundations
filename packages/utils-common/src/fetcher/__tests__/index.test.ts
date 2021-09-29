@@ -1,4 +1,12 @@
-import { fetcher, FetchError, fetcherWithBlob, fetcherWithReturnHeader, fetcherWithRawUrl } from '..'
+import {
+  fetcher,
+  FetchError,
+  fetcherWithBlob,
+  fetcherWithReturnHeader,
+  fetcherWithRawUrl,
+  extractNetworkErrString,
+} from '..'
+import { errorMessages } from '../../constants/error-messages'
 
 const stub = {
   name: 'bob',
@@ -165,5 +173,32 @@ describe('fetcher', () => {
       expect(err).toBeInstanceOf(FetchError)
       expect(err.message).toEqual(`Foundations API error: Status: 400 Method: GET Path: ${url} {"status":400}`)
     }
+  })
+})
+
+describe('extractNetworkErrString', () => {
+  it('should run correctly with error type string', () => {
+    const mockError = 'err'
+    expect(extractNetworkErrString(mockError)).toBe(mockError)
+  })
+
+  it('should run correctly with non standard network error object', () => {
+    const mockError = 'err'
+    expect(
+      extractNetworkErrString({
+        description: mockError,
+      }),
+    ).toBe(errorMessages.DEFAULT_SERVER_ERROR)
+  })
+
+  it('should run correctly with standard network error object', () => {
+    const mockError = 'err'
+    expect(
+      extractNetworkErrString({
+        response: {
+          description: mockError,
+        },
+      }),
+    ).toBe(mockError)
   })
 })

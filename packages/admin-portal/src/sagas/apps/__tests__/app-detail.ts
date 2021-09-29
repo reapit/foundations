@@ -8,7 +8,7 @@ import { cloneableGenerator } from '@redux-saga/testing-utils'
 import { fetchAppById } from '@/services/apps'
 import { fetchApiKeyInstallationById } from '@/services/installations'
 import { notification } from '@reapit/elements-legacy'
-import { errorMessages } from '@reapit/utils'
+import { errorMessages } from '@reapit/utils-common'
 
 jest.mock('@reapit/elements')
 jest.mock('@/services/apps')

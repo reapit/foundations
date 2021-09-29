@@ -5,7 +5,7 @@ import { ActionType } from '../../../types/core'
 import ActionTypes from '../../../constants/action-types'
 import { developerStub } from '@/sagas/developers/__stubs__/developer'
 import { memberStub } from '@/sagas/developers/__stubs__/member'
-import { errorMessages } from '@reapit/utils'
+import { errorMessages } from '@reapit/utils-common'
 
 describe('developersReducer reducer', () => {
   it('should return default state if action not matched', () => {

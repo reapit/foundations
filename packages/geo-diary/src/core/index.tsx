@@ -7,7 +7,7 @@ import { render } from 'react-dom'
 import ReactGA from 'react-ga'
 import { Config } from '@/types/global'
 import * as serviceWorker from './service-worker'
-import { logger } from '@reapit/utils'
+import { logger } from '@reapit/utils-react'
 import { GoogleMapsError } from '../components/ui/map/google-maps-error'
 import { handleDemoAuth } from '../utils/demo-auth'
 

@@ -1,5 +1,5 @@
 import React from 'react'
-import { catchChunkError } from '../catch-chunk-error'
+import { catchChunkError } from '..'
 describe('catchChunkError', () => {
   it('should return promise', (done) => {
     const fn = jest.fn().mockResolvedValue(<div>Test</div>)

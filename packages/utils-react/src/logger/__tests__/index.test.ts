@@ -1,5 +1,5 @@
 import * as Sentry from '@sentry/browser'
-import { logger } from '../sentry-logger'
+import { logger } from '..'
 
 describe('sentryLogger', () => {
   const spyWithScope = jest.spyOn(Sentry, 'withScope')

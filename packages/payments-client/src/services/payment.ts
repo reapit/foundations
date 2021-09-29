@@ -1,8 +1,9 @@
 import { PAYMENTS_HEADERS, URLS } from '../constants/api'
-import { fetcher, notification } from '@reapit/elements-legacy'
+import { notification } from '@reapit/elements-legacy'
+import { fetcher } from '@reapit/utils-common'
 import { genPlatformHeaders, genPaymentsUpdateStatusHeaders } from '../utils/headers'
 import { reapitConnectBrowserSession } from '../core/connect-session'
-import { logger } from '@reapit/utils'
+import { logger } from '@reapit/utils-react'
 import {
   ApiKeyRequest,
   ApiKeyResponse,

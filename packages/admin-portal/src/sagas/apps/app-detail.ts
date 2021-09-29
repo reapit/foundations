@@ -2,7 +2,7 @@ import { fetchAppDetailSuccess, fetchAppDetailFailed, AppDetailParams } from '@/
 import { put, call, fork, takeLatest, all } from '@redux-saga/core/effects'
 import ActionTypes from '@/constants/action-types'
 import { Action } from '@/types/core'
-import { extractNetworkErrString } from '@reapit/utils'
+import { extractNetworkErrString } from '@reapit/utils-common'
 import { fetchAppById } from '@/services/apps'
 import { fetchApiKeyInstallationById } from '@/services/installations'
 import { notification } from '@reapit/elements-legacy'
