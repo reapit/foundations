@@ -7,7 +7,7 @@ import { Queue } from '@aws-cdk/aws-sqs'
 import { createS3Buckets } from './create-S3-bucket'
 import { createSqsQueues, QueueNames } from './create-sqs'
 import { createAurora } from './create-aurora'
-import { Vpc } from '@aws-cdk/aws-ec2'
+import { Port, Vpc } from '@aws-cdk/aws-ec2'
 import { createCodeBuildProject } from './create-code-build'
 import { createApigateway } from './create-apigateway'
 import { SqsEventSource } from '@aws-cdk/aws-lambda-event-sources'
@@ -592,6 +592,8 @@ export class CdkStack extends cdk.Stack {
 
       options.policies.forEach(policy => role.addToPolicy(policy))
       const lambda = createLambda(this, `cloud-deployment-${name}`, AssetCode.fromAsset(path.resolve('dist', 'main.zip')), vpc)
+      lambda.connections.allowTo(aurora.connections, Port.tcp(3306))
+      aurora.connections.allowFrom(lambda.connections, Port.tcp(3306))
 
       if (options.queue) {
         lambda.addEventSource(new SqsEventSource(options.queue))
