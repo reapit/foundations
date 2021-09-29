@@ -3,8 +3,8 @@ import { Vpc } from "@aws-cdk/aws-ec2"
 import { CdkStack } from "./cdk-stack"
 import environment from '../../config.json'
 
-export const createLambda = (stack: CdkStack, handler: string, code: AssetCode, vpc: Vpc): Function => {
-  return new Function(stack as any, `deployment-service-${handler.replace('.', '-')}`, {
+export const createLambda = (stack: CdkStack, name: string, code: AssetCode, vpc: Vpc, handler: string): Function => {
+  return new Function(stack as any, name, {
     code,
     handler,
     runtime: Runtime.NODEJS_14_X,
