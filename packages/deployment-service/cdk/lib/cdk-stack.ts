@@ -591,7 +591,13 @@ export class CdkStack extends cdk.Stack {
       })
 
       options.policies.forEach(policy => role.addToPolicy(policy))
-      const lambda = createLambda(this, `cloud-deployment-${name}`, AssetCode.fromAsset(path.resolve('dist', 'main.zip')), vpc, options.handler)
+      const lambda = createLambda({
+        stack: this,
+        name: `cloud-deployment-${name}`,
+        code: AssetCode.fromAsset(path.resolve('dist', 'main.zip')),
+        vpc,
+        handler: options.handler,
+      })
       lambda.connections.allowTo(aurora.connections, Port.tcp(3306))
       aurora.connections.allowFrom(lambda.connections, Port.tcp(3306))
 
