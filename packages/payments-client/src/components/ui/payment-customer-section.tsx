@@ -1,7 +1,8 @@
 import React from 'react'
-import { GridItem, combineAddress, IconList, H5, FadeIn } from '@reapit/elements-legacy'
+import { GridItem, IconList, H5, FadeIn } from '@reapit/elements-legacy'
 import { PaymentCustomerModel } from '@reapit/foundations-ts-definitions'
 import { FaHome, FaUserAlt, FaEnvelope, FaStickyNote } from 'react-icons/fa'
+import { combineAddress } from '@reapit/utils-common'
 
 const PaymentCustomerSection: React.FC<{ customer?: PaymentCustomerModel }> = ({ customer }) => {
   if (!customer) {
