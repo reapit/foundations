@@ -7,7 +7,7 @@ import { Queue } from '@aws-cdk/aws-sqs'
 import { createS3Buckets } from './create-S3-bucket'
 import { createSqsQueues, QueueNames } from './create-sqs'
 import { createAurora } from './create-aurora'
-import { Peer, Port, SecurityGroup, Subnet, Vpc } from '@aws-cdk/aws-ec2'
+import { Peer, Port, SecurityGroup, Subnet, SubnetType, Vpc } from '@aws-cdk/aws-ec2'
 import { createCodeBuildProject } from './create-code-build'
 import { createApigateway } from './create-apigateway'
 import { SqsEventSource } from '@aws-cdk/aws-lambda-event-sources'
@@ -33,27 +33,30 @@ type FunctionSetup = {
   queue?: Queue,
   topic?: Topic,
 }
-// TODO add authorizers here, api-key + cognito ^^^
 
 export class CdkStack extends cdk.Stack {
   constructor(scope: cdk.Construct, id: string, props?: cdk.StackProps) {
     super(scope, id, props)
 
-    // TODO run webpack with exec
-
-    // TODO create s3 buckets
-    // TODO open s3 buckets for codebuild and cloudfront
-    // TODO create codebuild
-    // TODO create sns for codebuild
-    // TODO make api gateway
-    // TODO make sqs queues
-    // TODO create lambda functions
-    // TODO lambda policies
-    // TODO create lambda triggers
-
-    // TODO try to make components reusable
-
-    const vpc = new Vpc(this as any, `deployment-service-vpc`)
+    const vpc = new Vpc(this as any, `deployment-service-vpc`, {
+      subnetConfiguration: [
+        {
+          name: 'private-subnet-1',
+          subnetType: SubnetType.PRIVATE,
+          cidrMask: 24,
+        },
+        {
+          name: 'public-subnet-1',
+          subnetType: SubnetType.PUBLIC,
+          cidrMask: 24,
+        },
+        {
+          name: 'isolated-subnet-1',
+          subnetType: SubnetType.ISOLATED,
+          cidrMask: 28,
+        },
+      ],
+    })
     const securityGroup = new SecurityGroup(this as any, `deployment-service-security-group`, {
       vpc,
     })
@@ -68,34 +71,9 @@ export class CdkStack extends cdk.Stack {
       `cloud-deployment-service`,
     )
 
-    // VPC, security group, ingress/egress, subnets, aurora db vpc settings, lambda vpc settings, gateway
-
-    const subnets = [
-      new Subnet(this as any, `deployment-service-subnet-a`, {
-        vpcId: vpc.vpcId,
-        cidrBlock: '172.31.16.0/20',
-        availabilityZone: 'eu-west-2a',
-      }),
-      new Subnet(this as any, `deployment-service-subnet-b`, {
-        vpcId: vpc.vpcId,
-        cidrBlock: '172.31.32.0/20',
-        availabilityZone: 'eu-west-2b',
-      }),
-      new Subnet(this as any, `deployment-service-subnet-c`, {
-        vpcId: vpc.vpcId,
-        cidrBlock: '172.31.0.0/20',
-        availabilityZone: 'eu-west-2c',
-      }),
-      new Subnet(this as any, `deployment-service-subnet-d`, {
-        vpcId: vpc.vpcId,
-        cidrBlock: '172.31.128.0/24',
-        availabilityZone: 'eu-west-2d',
-      })
-    ]
-
     const buckets = createS3Buckets(this)
     const queues = createSqsQueues(this)
-    const [secretManager, aurora] = createAurora(this, vpc, subnets, securityGroup)
+    const [secretManager, aurora] = createAurora(this, vpc, vpc.privateSubnets, securityGroup)
     const [codeBuild, topic] = createCodeBuildProject(this)
     const api = createApigateway(this)
     // const apiGateway = createApigateway(this)
@@ -663,7 +641,4 @@ export class CdkStack extends cdk.Stack {
   }
 }
 
-// deleting cloudformation - delete VPCs, subnets + security group
-// figure out how to use apigateway with funcs without multiple gateways
-// add user pool for cognito
 // ARNS as options
