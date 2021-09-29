@@ -7,7 +7,7 @@ import { Queue } from '@aws-cdk/aws-sqs'
 import { createS3Buckets } from './create-S3-bucket'
 import { createSqsQueues, QueueNames } from './create-sqs'
 import { createAurora } from './create-aurora'
-import { Peer, Port, SecurityGroup, Subnet, SubnetType, Vpc } from '@aws-cdk/aws-ec2'
+import { Vpc } from '@aws-cdk/aws-ec2'
 import { createCodeBuildProject } from './create-code-build'
 import { createApigateway } from './create-apigateway'
 import { SqsEventSource } from '@aws-cdk/aws-lambda-event-sources'
@@ -38,45 +38,12 @@ export class CdkStack extends cdk.Stack {
   constructor(scope: cdk.Construct, id: string, props?: cdk.StackProps) {
     super(scope, id, props)
 
-    const vpc = new Vpc(this as any, `deployment-service-vpc`, {
-      subnetConfiguration: [
-        {
-          name: 'private-subnet-1',
-          subnetType: SubnetType.PRIVATE,
-          cidrMask: 24,
-        },
-        {
-          name: 'public-subnet-1',
-          subnetType: SubnetType.PUBLIC,
-          cidrMask: 24,
-        },
-        {
-          name: 'isolated-subnet-1',
-          subnetType: SubnetType.ISOLATED,
-          cidrMask: 28,
-        },
-      ],
-    })
-    const securityGroup = new SecurityGroup(this as any, `deployment-service-security-group`, {
-      vpc,
-    })
-    securityGroup.addIngressRule(
-      Peer.ipv4('0.0.0.0/0'),
-      Port.allTcp(),
-      'cloud-deployment-service',
-    )
-    securityGroup.addEgressRule(
-      Peer.ipv4('0.0.0.0/0'),
-      Port.allTcp(),
-      `cloud-deployment-service`,
-    )
-
+    const vpc = new Vpc(this as any, `deployment-service-vpc`)
     const buckets = createS3Buckets(this)
     const queues = createSqsQueues(this)
-    const [secretManager, aurora] = createAurora(this, vpc, vpc.privateSubnets, securityGroup)
+    const [secretManager, aurora] = createAurora(this, vpc, vpc.privateSubnets)
     const [codeBuild, topic] = createCodeBuildProject(this)
     const api = createApigateway(this)
-    // const apiGateway = createApigateway(this)
 
     const policies = createPolicies({
       buckets,
