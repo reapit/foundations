@@ -1,7 +1,7 @@
 import * as Sentry from '@sentry/node'
 import { LeveledLogMethod } from 'winston'
 import { serializeError } from 'serialize-error'
-import { cleanObject } from '../object'
+import { cleanObject } from '@reapit/utils-common'
 
 /**
  * convert any know error properties to object

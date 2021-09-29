@@ -1,7 +1,7 @@
 import express, { RequestHandler } from 'express'
 import bodyParser from 'body-parser'
 import cors from 'cors'
-import { traceIdMiddleware } from '@reapit/node-utils'
+import { traceIdMiddleware } from '@reapit/utils-node'
 import router from './router'
 import decodeToken from '../middlewares/decode-token'
 

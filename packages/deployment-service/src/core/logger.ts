@@ -1,4 +1,4 @@
-import { createLogger } from '@reapit/node-utils'
+import { createLogger } from '@reapit/utils-node'
 
 export const logger = createLogger('deployment-service')
 

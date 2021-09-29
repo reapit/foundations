@@ -22,7 +22,7 @@ import Routes from '@/constants/routes'
 import qs from 'querystring'
 import { selectCustomersList } from '@/selector/customers'
 import { FaCheck, FaTimes } from 'react-icons/fa'
-import { cleanObject } from '@reapit/utils'
+import { cleanObject } from '@reapit/utils-common'
 import { CustomerModel } from '@reapit/foundations-ts-definitions'
 
 export type FilterValues = {

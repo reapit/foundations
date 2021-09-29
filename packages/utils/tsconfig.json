@@ -13,6 +13,6 @@
     "declarationDir": "dist"
   },
 
-  "include": ["src"],
+  "include": ["src", "../utils-common/src/object/index.ts", "../utils-node/node"],
   "exclude": ["public", "dist", "src/scripts", "node_modules", "src/tests/coverage"]
 }

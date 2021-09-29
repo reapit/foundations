@@ -28,6 +28,7 @@
     "@reapit/utils": "workspace:packages/utils",
     "@sentry/browser": "^6.9.0",
     "dayjs": "^1.10.6",
+    "@reapit/utils-common": "workspace:packages/utils-common",
     "query-string": "5.1.1",
     "react": "^17.0.2",
     "react-dom": "^17.0.2",

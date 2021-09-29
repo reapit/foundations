@@ -20,7 +20,7 @@
     "snyk-protect": "snyk-protect"
   },
   "dependencies": {
-    "@reapit/utils": "workspace:packages/utils",
+    "@reapit/utils-node": "workspace:packages/utils-node",
     "@snyk/protect": "latest",
     "apollo-server-core": "^3.0.1",
     "apollo-server-lambda": "^3.0.1",

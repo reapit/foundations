@@ -1,6 +1,6 @@
 import { Response } from 'express'
 import uuidv4 from 'uuid/v4'
-import { stringifyError } from '@reapit/node-utils'
+import { stringifyError } from '@reapit/utils-node'
 import { logger } from '../../core/logger'
 import { AppRequest } from '../../types/request'
 import { db } from '../../core/db'

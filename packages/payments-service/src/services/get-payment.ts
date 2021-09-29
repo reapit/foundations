@@ -1,7 +1,7 @@
 import reapitConnectSession from '../core/connect-session'
 import { ApiKey } from '../core/schema'
 import axios from 'axios'
-import { stringifyError } from '@reapit/node-utils'
+import { stringifyError } from '@reapit/utils-node'
 
 export const getPlatformPayment = async (result: ApiKey, apiVersion: string) => {
   const accessToken = await reapitConnectSession.connectAccessToken()

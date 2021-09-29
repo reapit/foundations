@@ -1,4 +1,4 @@
-import { AppRequest } from '@reapit/node-utils'
+import { AppRequest } from '@reapit/utils-node'
 import { Response } from 'express'
 import { db } from '../core/db'
 import { logger } from '../core/logger'

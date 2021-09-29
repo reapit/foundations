@@ -8,24 +8,25 @@
     "url": "git+git@github.com:reapit/foundations.git"
   },
   "bin": {
-    "reapit-fetch-public-keys": "./src/node/fetch-public-keys/index.js"
+    "reapit-fetch-public-keys": "./src/fetch-public-keys/index.js"
   },
   "license": "MIT",
   "author": "Reapit Ltd",
   "main": "./src/index.ts",
   "scripts": {
     "start": "echo '...skipping...'",
-    "test": "echo '...skipping...'",
+    "test": "cross-env TZ=UTC jest --watch --colors --silent",
     "build": "echo '...skipping...'",
-    "lint": "echo '...skipping...'",
+    "lint": "eslint --cache --ext=ts,tsx,js src --fix",
     "release": "echo '...skipping...'",
     "publish": "echo '...skipping...'",
     "conf": "echo '...skipping...'",
-    "commit": "echo '...skipping...'"
+    "commit": "concurrently \"yarn test --coverage --no-cache --silent --forceExit --detectOpenHandles --runInBand --watch=false && jest-coverage-badges --input src/tests/coverage/coverage-summary.json --output src/tests/badges\" \"yarn lint\""
   },
   "dependencies": {
     "@linaria/core": "^3.0.0-beta.4",
     "@linaria/react": "^3.0.0-beta.7",
+    "@reapit/utils-common": "workspace:packages/utils-common",
     "@reapit/foundations-ts-definitions": "workspace:packages/foundations-ts-definitions",
     "@sentry/node": "^6.9.0",
     "error-polyfill": "^0.1.2",

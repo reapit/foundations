@@ -1,6 +1,6 @@
 import { NextFunction, Response } from 'express'
 import { sendEmail } from '../core/ses-client'
-import { AppRequest } from '@reapit/node-utils'
+import { AppRequest } from '@reapit/utils-node'
 import { ClientConfig, EmailPaymentRequest } from '../types/payments'
 import configJson from '../../config.json'
 import { createPaymentRequestTemplate } from '../core/templates'

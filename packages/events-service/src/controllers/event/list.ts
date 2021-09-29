@@ -1,5 +1,5 @@
 import { Response } from 'express'
-import { stringifyError } from '@reapit/node-utils'
+import { stringifyError } from '@reapit/utils-node'
 import { between, equals } from '@aws/dynamodb-expressions'
 import { logger } from '../../core/logger'
 import { db } from '../../core/db'

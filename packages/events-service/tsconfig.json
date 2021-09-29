@@ -15,7 +15,7 @@
     "typeRoots": ["./node_modules/@types", "../../node_modules/@types"],
     "paths": {
       "@/*": ["src/*"],
-      "@reapit/node-utils": ["../utils/src/node/index.ts"]
+      "@reapit/utils-node": ["../utils-node"]
     }
   },
   "include": ["./src/**/*"],

@@ -1,5 +1,5 @@
 import { Response } from 'express'
-import { AppRequest } from '@reapit/node-utils'
+import { AppRequest } from '@reapit/utils-node'
 import { fetchConfigValue } from '../services/fetch-ssm-config'
 import { connectSessionVerifyDecodeIdToken } from '@reapit/connect-session'
 import logger from '../core/logger'

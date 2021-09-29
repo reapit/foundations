@@ -1,4 +1,4 @@
-import { cleanObject } from '../object'
+import { cleanObject } from '..'
 
 describe('cleanObject', () => {
   it('should run correctly', () => {

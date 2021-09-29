@@ -1,5 +1,3 @@
-// All utilities relate to object
-
 /**
  * Trim string values, then remove falsy values from Object.
  * @param {Object} obj - The object to clean.

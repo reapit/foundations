@@ -1,5 +1,5 @@
 import { Response } from 'express'
-import { stringifyError } from '@reapit/node-utils'
+import { stringifyError } from '@reapit/utils-node'
 import { logger } from '../../core/logger'
 import { AppRequest } from '../../types/request'
 import { EventStatus, generateStatusItem } from '../../schemas/event-status.schema'

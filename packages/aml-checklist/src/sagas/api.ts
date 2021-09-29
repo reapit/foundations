@@ -8,7 +8,7 @@ import {
 } from '@/utils/datetime'
 import { logger } from '@reapit/utils'
 import { CONTACTS_PER_PAGE } from '@/constants/paginator'
-import { cleanObject } from '@reapit/utils'
+import { cleanObject } from '@reapit/utils-common'
 
 export const fetchChecklist = async ({ id, headers }) => {
   try {
