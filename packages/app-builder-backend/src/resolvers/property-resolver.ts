@@ -1,11 +1,9 @@
 import { gql } from 'apollo-server-core'
 import { Resolver, Query, Ctx } from 'type-graphql'
-import fetch from 'node-fetch'
 import { Property, PropertyFragment } from '../entities/property'
 import { PropertyModelPagedResult } from '../../../foundations-ts-definitions/types'
 import { Context } from '@/types'
-import { graphqlUri } from '../config.json'
-import { DocumentNode } from 'graphql'
+import { query } from '../utils/graphqlFetch'
 
 const getPropertiesQuery = gql`
   ${PropertyFragment}
@@ -21,31 +19,8 @@ const getPropertiesQuery = gql`
   }
 `
 
-const getGqlString = (doc: DocumentNode) => doc.loc && doc.loc.source.body
-
 const getProperties = async (accessToken: string, idToken: string) => {
-  const res = await fetch(graphqlUri || 'https://graphql.dev.paas.reapit.cloud/graphql', {
-    method: 'POST',
-    headers: {
-      'Content-Type': 'application/json',
-      authorization: idToken,
-      'reapit-connect-token': accessToken,
-    },
-    body: JSON.stringify({
-      query: getGqlString(getPropertiesQuery),
-    }),
-  })
-  const json = (await res.json()) as any
-  if (json.message) {
-    throw new Error(json.message)
-  }
-  if (json.data) {
-    return json.data.GetProperties as PropertyModelPagedResult
-  }
-  if (json.errors) {
-    throw new Error(json.errors[0].message)
-  }
-  throw new Error('Invalid response')
+  return query<PropertyModelPagedResult>(getPropertiesQuery, {}, 'GetProperties', { accessToken, idToken })
 }
 
 @Resolver(() => Property)
