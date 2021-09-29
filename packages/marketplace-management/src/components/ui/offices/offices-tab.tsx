@@ -5,6 +5,7 @@ import { History } from 'history'
 import { OfficeModelPagedResult, OfficeModel } from '@reapit/foundations-ts-definitions'
 import ErrorBoundary from '@/components/hocs/error-boundary'
 import { cleanObject } from '@reapit/utils'
+import { combineAddress } from '@reapit/utils-common'
 import {
   Pagination,
   Table,
@@ -14,7 +15,6 @@ import {
   Section,
   FadeIn,
   Helper,
-  combineAddress,
   toLocalTime,
   DATE_TIME_FORMAT,
   H5,

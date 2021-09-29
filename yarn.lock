@@ -8617,6 +8617,84 @@ __metadata:
   languageName: unknown
   linkType: soft
 
+"@reapit/utils-common@workspace:packages/utils-common":
+  version: 0.0.0-use.local
+  resolution: "@reapit/utils-common@workspace:packages/utils-common"
+  dependencies:
+    "@linaria/shaker": ^3.0.0-beta.8
+    "@reapit/config-manager": "workspace:packages/config-manager"
+    "@reapit/foundations-ts-definitions": "workspace:packages/foundations-ts-definitions"
+    "@reapit/ts-scripts": "workspace:packages/ts-scripts"
+    "@reapit/ts-types": "workspace:packages/ts-types"
+    "@typescript-eslint/eslint-plugin": ^4.28.4
+    "@typescript-eslint/parser": ^4.28.4
+    babel-jest: ^27.0.6
+    concurrently: ^6.2.0
+    cross-env: ^7.0.3
+    eslint: 7.31.0
+    eslint-plugin-prettier: ^3.4.0
+    jest: ^27.0.6
+    jest-coverage-badges: ^1.1.2
+    serialize-error: ^7.0.1
+  languageName: unknown
+  linkType: soft
+
+"@reapit/utils-node@workspace:packages/utils-node":
+  version: 0.0.0-use.local
+  resolution: "@reapit/utils-node@workspace:packages/utils-node"
+  dependencies:
+    "@linaria/core": ^3.0.0-beta.4
+    "@linaria/react": ^3.0.0-beta.7
+    "@linaria/shaker": ^3.0.0-beta.8
+    "@reapit/config-manager": "workspace:packages/config-manager"
+    "@reapit/foundations-ts-definitions": "workspace:packages/foundations-ts-definitions"
+    "@reapit/ts-scripts": "workspace:packages/ts-scripts"
+    "@reapit/ts-types": "workspace:packages/ts-types"
+    "@sentry/node": ^6.9.0
+    "@typescript-eslint/eslint-plugin": ^4.28.4
+    "@typescript-eslint/parser": ^4.28.4
+    babel-jest: ^27.0.6
+    concurrently: ^6.2.0
+    cross-env: ^7.0.3
+    error-polyfill: ^0.1.2
+    eslint: 7.31.0
+    eslint-plugin-prettier: ^3.4.0
+    jest: ^27.0.6
+    jest-coverage-badges: ^1.1.2
+    serialize-error: ^7.0.1
+    uuid: ^8.3.2
+  bin:
+    reapit-fetch-public-keys: ./src/node/fetch-public-keys/index.js
+  languageName: unknown
+  linkType: soft
+
+"@reapit/utils-react@workspace:packages/utils-react":
+  version: 0.0.0-use.local
+  resolution: "@reapit/utils-react@workspace:packages/utils-react"
+  dependencies:
+    "@linaria/core": ^3.0.0-beta.4
+    "@linaria/react": ^3.0.0-beta.7
+    "@linaria/shaker": ^3.0.0-beta.8
+    "@reapit/config-manager": "workspace:packages/config-manager"
+    "@reapit/foundations-ts-definitions": "workspace:packages/foundations-ts-definitions"
+    "@reapit/ts-scripts": "workspace:packages/ts-scripts"
+    "@reapit/ts-types": "workspace:packages/ts-types"
+    "@sentry/node": ^6.9.0
+    "@typescript-eslint/eslint-plugin": ^4.28.4
+    "@typescript-eslint/parser": ^4.28.4
+    babel-jest: ^27.0.6
+    concurrently: ^6.2.0
+    cross-env: ^7.0.3
+    error-polyfill: ^0.1.2
+    eslint: 7.31.0
+    eslint-plugin-prettier: ^3.4.0
+    jest: ^27.0.6
+    jest-coverage-badges: ^1.1.2
+    serialize-error: ^7.0.1
+    uuid: ^8.3.2
+  languageName: unknown
+  linkType: soft
+
 "@reapit/utils@workspace:packages/utils":
   version: 0.0.0-use.local
   resolution: "@reapit/utils@workspace:packages/utils"
@@ -13859,6 +13937,7 @@ __metadata:
     "@reapit/ts-scripts": "workspace:packages/ts-scripts"
     "@reapit/ts-types": "workspace:packages/ts-types"
     "@reapit/utils": "workspace:packages/utils"
+    "@reapit/utils-common": "workspace:packages/utils-common"
     "@redux-saga/testing-utils": ^1.1.3
     "@sentry/browser": ^6.9.0
     "@typescript-eslint/eslint-plugin": ^4.28.4
@@ -23829,6 +23908,7 @@ fsevents@^1.2.7:
     "@reapit/ts-scripts": "workspace:packages/ts-scripts"
     "@reapit/ts-types": "workspace:packages/ts-types"
     "@reapit/utils": "workspace:packages/utils"
+    "@reapit/utils-common": "workspace:packages/utils-common"
     "@sentry/browser": ^6.9.0
     "@typescript-eslint/eslint-plugin": ^4.28.4
     "@typescript-eslint/parser": ^4.28.4
@@ -30274,6 +30354,7 @@ fsevents@^1.2.7:
     "@reapit/elements-legacy": "workspace:packages/elements-legacy"
     "@reapit/ts-scripts": "workspace:packages/ts-scripts"
     "@reapit/ts-types": "workspace:packages/ts-types"
+    "@reapit/utils-common": "workspace:packages/utils-common"
     "@sentry/browser": ^6.9.0
     "@typescript-eslint/eslint-plugin": ^4.28.4
     "@typescript-eslint/parser": ^4.28.4
@@ -33489,6 +33570,7 @@ fsevents@^1.2.7:
     "@reapit/elements-legacy": "workspace:packages/elements-legacy"
     "@reapit/ts-scripts": "workspace:packages/ts-scripts"
     "@reapit/ts-types": "workspace:packages/ts-types"
+    "@reapit/utils-common": "workspace:packages/utils-common"
     "@sentry/browser": ^6.9.0
     "@typescript-eslint/eslint-plugin": ^4.28.4
     "@typescript-eslint/parser": ^4.28.4
