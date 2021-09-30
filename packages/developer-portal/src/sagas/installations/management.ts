@@ -18,8 +18,8 @@ export const createInstallationSaga = function* (options) {
   try {
     yield put(setInstallationsFormState('SUBMITTING'))
 
-    const email = yield getLoggedUserEmail()
-    const clientId = yield getClientId()
+    const email = yield call(getLoggedUserEmail)
+    const clientId = yield call(getClientId)
 
     if (!clientId) {
       const error = {
@@ -45,7 +45,7 @@ export const requestInstallationTerminateSaga = function* (options) {
   const data: UninstallParams = options.data
   try {
     yield put(setInstallationsFormState('SUBMITTING'))
-    const email = yield getLoggedUserEmail()
+    const email = yield call(getLoggedUserEmail)
 
     yield call(removeAccessToAppById, { ...data, terminatedBy: email } as RemoveAccessToAppByIdParams)
     yield put(setInstallationsFormState('SUCCESS'))

@@ -9,7 +9,7 @@ import { notification } from '@reapit/elements-legacy'
 
 export const fetchInstallationsListSaga = function* ({ data }) {
   try {
-    const developerId = yield getDeveloperId()
+    const developerId = yield call(getDeveloperId)
     const response = yield call(fetchInstallationsList, { ...data, developerId })
     yield put(fetchInstallationsListSuccess(response))
   } catch (err) {
