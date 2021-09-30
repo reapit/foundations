@@ -86,7 +86,6 @@ export const WebhooksNewTopics: FC<WebhooksNewTopicsProps> = ({ register, getVal
         <MultiSelectInput
           className={elMb7}
           id="topic-ids"
-          hasGreyChips
           defaultValues={selectedTopics}
           options={multiSelectOptions}
           {...register('topicIds')}
