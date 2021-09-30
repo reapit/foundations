@@ -19,8 +19,12 @@ import {
   ElMultiSelectLabel,
   ElMultiSelectInput,
   elHasGreyChips,
+  ElMultiSelectSelected,
+  ElMultiSelectUnSelected,
 } from './__styles__/index'
 import { generateRandomId } from '../../storybook/random-id'
+import { Icon } from '../icon'
+import { elMl2 } from '../../styles/spacing'
 
 export interface MultiSelectProps extends HTMLAttributes<HTMLDivElement> {}
 
@@ -33,7 +37,7 @@ export interface MultiSelectInputProps extends InputHTMLAttributes<HTMLInputElem
   id: string
   options: MultiSelectOption[]
   defaultValues?: string[]
-  hasGreyChips?: boolean
+  noneSelectedLabel?: string
 }
 
 export type MultiSelectInputWrapped = React.ForwardRefExoticComponent<
@@ -104,6 +108,18 @@ export const MultiSelect: FC<MultiSelectProps> = ({ className, children, ...rest
   </ElMultiSelect>
 )
 
+export const MultiSelectSelected: FC<MultiSelectProps> = ({ className, children, ...rest }) => (
+  <ElMultiSelectSelected className={cx(className && className)} {...rest}>
+    {children}
+  </ElMultiSelectSelected>
+)
+
+export const MultiSelectUnSelected: FC<MultiSelectProps> = ({ className, children, ...rest }) => (
+  <ElMultiSelectUnSelected className={cx(className && className)} {...rest}>
+    {children}
+  </ElMultiSelectUnSelected>
+)
+
 /** This looks like I have had a bit of a meltdown but promise it makes sense!
  * I want the component to behave like an input ie accept refs and onChange handlers and respond as a standard
  * input would. To do this, I have a hidden input apply all the input props to (onChange included) and I forward
@@ -114,7 +130,7 @@ export const MultiSelect: FC<MultiSelectProps> = ({ className, children, ...rest
  *  https://github.com/facebook/react/issues/11095#issuecomment-334305739  */
 export const MultiSelectInput: MultiSelectInputWrapped = forwardRef(
   (
-    { className, options, defaultValues, hasGreyChips, id, ...rest },
+    { className, options, defaultValues, noneSelectedLabel, id, ...rest },
     ref: React.ForwardedRef<React.InputHTMLAttributes<HTMLInputElement>>,
   ) => {
     const [selectedOptionValues, setSelectedOptionValues] = useState<string[]>(defaultValues ?? [])
@@ -124,34 +140,42 @@ export const MultiSelectInput: MultiSelectInputWrapped = forwardRef(
     return (
       <>
         <ElMultiSelectInput id={id} {...rest} ref={ref as LegacyRef<HTMLInputElement>} />
-        <MultiSelect className={className}>
-          {options.map((option) => {
-            return selectedOptionValues.includes(option.value) ? (
-              <MultiSelectChip
-                className={cx(hasGreyChips && elHasGreyChips)}
-                onChange={handleSelectedOptions(option.value, selectedOptionValues, setSelectedOptionValues)}
-                key={option.value}
-                defaultChecked
-              >
-                {option.name}
-              </MultiSelectChip>
-            ) : null
-          })}
-        </MultiSelect>
-        <MultiSelect className={className}>
-          {options.map((option) => {
-            return !selectedOptionValues.includes(option.value) ? (
-              <MultiSelectChip
-                className={cx(hasGreyChips && elHasGreyChips)}
-                onChange={handleSelectedOptions(option.value, selectedOptionValues, setSelectedOptionValues)}
-                key={option.value}
-                defaultChecked={false}
-              >
-                {option.name}
-              </MultiSelectChip>
-            ) : null
-          })}
-        </MultiSelect>
+        <MultiSelectSelected className={className}>
+          {selectedOptionValues.length ? (
+            options.map((option) => {
+              return selectedOptionValues.includes(option.value) ? (
+                <MultiSelectChip
+                  onChange={handleSelectedOptions(option.value, selectedOptionValues, setSelectedOptionValues)}
+                  key={option.value}
+                  defaultChecked
+                >
+                  {option.name}
+                </MultiSelectChip>
+              ) : null
+            })
+          ) : (
+            <>
+              <Icon className={elMl2} icon="selectInfographic" iconSize="medium" />
+              <p>{noneSelectedLabel ? noneSelectedLabel : 'Please select from the options below'}</p>
+            </>
+          )}
+        </MultiSelectSelected>
+        {selectedOptionValues.length < options.length && (
+          <MultiSelectUnSelected className={className}>
+            {options.map((option) => {
+              return !selectedOptionValues.includes(option.value) ? (
+                <MultiSelectChip
+                  className={elHasGreyChips}
+                  onChange={handleSelectedOptions(option.value, selectedOptionValues, setSelectedOptionValues)}
+                  key={option.value}
+                  defaultChecked={false}
+                >
+                  {option.name}
+                </MultiSelectChip>
+              ) : null
+            })}
+          </MultiSelectUnSelected>
+        )}
       </>
     )
   },
