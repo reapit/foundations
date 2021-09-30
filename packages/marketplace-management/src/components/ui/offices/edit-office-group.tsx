@@ -1,5 +1,5 @@
 import React, { useCallback, useEffect, useState } from 'react'
-import { FormFieldInfo } from '@reapit/utils'
+import { FormFieldInfo } from '@reapit/utils-common'
 import { OfficeGroupModel } from '../../../types/organisations-schema'
 import {
   Button,

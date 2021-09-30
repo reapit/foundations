@@ -22,7 +22,7 @@ import SubscriptionsFilterForm, {
 import CancelConfirmModal from '@/components/ui/subscriptions/subscription-cancel-confirm'
 import MemberNameCell from '@/components/ui/subscriptions/subscription-member-name-cell'
 import { selectSubscriptionListState } from '@/selector/admin'
-import { cleanObject } from '@reapit/utils'
+import { cleanObject } from '@reapit/utils-common'
 import {
   fetchSubscriptionList,
   FetchSubscriptionListQuery,

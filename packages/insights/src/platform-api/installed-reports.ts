@@ -1,7 +1,7 @@
-import { fetcher } from '@reapit/elements-legacy'
+import { fetcher } from '@reapit/utils-common'
 import { ReapitConnectSession } from '@reapit/connect-session'
 import { URLS, BASE_HEADERS } from '../constants/api'
-import { logger } from '@reapit/utils'
+import { logger } from '@reapit/utils-react'
 
 export interface InstalledReport {
   created: string

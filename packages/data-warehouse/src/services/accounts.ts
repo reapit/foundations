@@ -1,8 +1,8 @@
-import { fetcher, fetcherWithReturnHeader } from '@reapit/elements-legacy'
+import { fetcher, fetcherWithReturnHeader } from '@reapit/utils-common'
 import { URLS } from '../constants/api'
 import { AccountCreateModel, PagedAccountsModel, AccountModel } from '../types/accounts'
 import { reapitConnectBrowserSession } from '../core/connect-session'
-import { getPlatformHeaders, logger } from '@reapit/utils'
+import { getPlatformHeaders, logger } from '@reapit/utils-react'
 
 export const getAccountsService = async (): Promise<PagedAccountsModel | undefined | void> => {
   try {

@@ -25,7 +25,7 @@ import React, { ChangeEvent, Dispatch, FC, SetStateAction, useEffect, useMemo, u
 import { yupResolver } from '@hookform/resolvers/yup'
 import { boolean, object, string } from 'yup'
 import errorMessages from '../../../constants/error-messages'
-import { httpsUrlRegex } from '@reapit/utils'
+import { httpsUrlRegex } from '@reapit/utils-common'
 import { useForm, UseFormGetValues } from 'react-hook-form'
 import { Dispatch as ReduxDispatch } from 'redux'
 import {

@@ -1,7 +1,7 @@
 import React, { useContext } from 'react'
 import { Button, Form, Formik, FormSection, FormSubHeading, Input, LevelRight, Modal } from '@reapit/elements-legacy'
 import * as Yup from 'yup'
-import { passwordRegex } from '@reapit/utils'
+import { passwordRegex } from '@reapit/utils-common'
 import { AccountCreateModel } from '../../../types/accounts'
 import { MessageContext } from '../../../context/message-context'
 import { updateAccount } from './account-handlers'

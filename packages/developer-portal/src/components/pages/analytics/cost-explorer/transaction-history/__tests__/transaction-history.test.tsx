@@ -13,7 +13,7 @@ import { developerIdentity } from '../../../../../../sagas/__stubs__/developer-i
 import { ReduxState } from '../../../../../../types/core'
 import FileSaver from 'file-saver'
 import appState from '../../../../../../reducers/__stubs__/app-state'
-import { getPlatformHeaders } from '@reapit/utils'
+import { getPlatformHeaders } from '@reapit/utils-react'
 import { reapitConnectBrowserSession } from '../../../../../../core/connect-session'
 
 const mockState: ReduxState = {
@@ -25,7 +25,7 @@ const mockState: ReduxState = {
   },
 }
 
-jest.mock('@reapit/utils')
+jest.mock('@reapit/utils-common')
 
 jest.mock('file-saver')
 

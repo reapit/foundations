@@ -1,9 +1,10 @@
-import { fetcher, notification } from '@reapit/elements-legacy'
+import { notification } from '@reapit/elements-legacy'
+import { fetcher } from '@reapit/utils-common'
 import { AppSummaryModelPagedResult } from '@reapit/foundations-ts-definitions'
 import { reapitConnectBrowserSession } from '../core/connect-session'
 import { URLS } from '../constants/api'
 import { AppRestriction } from '../types/app-restrictions'
-import { getPlatformHeaders, logger } from '@reapit/utils'
+import { getPlatformHeaders, logger } from '@reapit/utils-react'
 
 export const getAppsService = async (search: string): Promise<AppSummaryModelPagedResult | undefined | void> => {
   const session = await reapitConnectBrowserSession.connectSession()

@@ -4,7 +4,7 @@ import { db } from '../../core/db'
 import { Response } from 'express'
 import { updatePlatformPayment } from '../../services/update-payment'
 import { validateApiKey, validatePaymentUpdate } from '../../core/validators'
-import { AppRequest } from '@reapit/node-utils'
+import { AppRequest } from '@reapit/utils-node'
 
 jest.mock('../../services/update-payment', () => ({
   updatePlatformPayment: jest.fn(),

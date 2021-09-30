@@ -1,5 +1,5 @@
 import { requestDeleteAppSaga, requestDeleteAppListen } from '../app-delete'
-import { errorMessages } from '@reapit/utils'
+import { errorMessages } from '@reapit/utils-common'
 
 import ActionTypes from '@/constants/action-types'
 import { put, takeLatest, call } from '@redux-saga/core/effects'

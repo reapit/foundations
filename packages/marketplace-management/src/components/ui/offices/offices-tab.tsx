@@ -4,7 +4,7 @@ import { useHistory, useLocation } from 'react-router'
 import { History } from 'history'
 import { OfficeModelPagedResult, OfficeModel } from '@reapit/foundations-ts-definitions'
 import ErrorBoundary from '@/components/hocs/error-boundary'
-import { cleanObject } from '@reapit/utils'
+import { cleanObject } from '@reapit/utils-common'
 import { combineAddress } from '@reapit/utils-common'
 import {
   Pagination,

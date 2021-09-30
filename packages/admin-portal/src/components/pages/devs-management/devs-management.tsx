@@ -22,7 +22,7 @@ import { fetchDeveloperList, fetchDeveloperListValues, fetchDeveloperMemberList 
 import qs from 'querystring'
 import { selectDeveloperListState } from '@/selector/admin'
 import { Dispatch } from 'redux'
-import { cleanObject } from '@reapit/utils'
+import { cleanObject } from '@reapit/utils-common'
 import StatusModal from './set-status-modal/status-modal'
 import DisableMemberModal from '@/components/ui/disable-member-modal'
 import SetAsAdminModal from '@/components/ui/set-as-admin-modal'

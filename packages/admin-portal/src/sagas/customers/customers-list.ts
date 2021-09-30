@@ -6,7 +6,7 @@ import { notification } from '@reapit/elements-legacy'
 import { Action } from '@/types/core'
 import ActionTypes from '@/constants/action-types'
 import { CUSTOMERS_PER_PAGE } from '@/constants/paginator'
-import { extractNetworkErrString } from '@reapit/utils'
+import { extractNetworkErrString } from '@reapit/utils-common'
 
 export const DEFAULT_PAGE = 1
 export const FETCH_LIST_ERROR_MESSAGE = 'Can not fetch customers list !'

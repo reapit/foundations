@@ -11,7 +11,7 @@ import { fetchCustomersListFailed, fetchCustomersListSuccess, FetchCustomersList
 
 jest.mock('@/services/approvals')
 jest.mock('@reapit/elements')
-jest.mock('@reapit/utils', () => ({
+jest.mock('@reapit/utils-common', () => ({
   extractNetworkErrString: jest.fn(() => 'ERROR'),
 }))
 const params = { data: { queryString: '?name=test' } }

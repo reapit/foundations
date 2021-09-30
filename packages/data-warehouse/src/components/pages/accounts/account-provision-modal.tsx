@@ -11,7 +11,7 @@ import {
   Modal,
 } from '@reapit/elements-legacy'
 import * as Yup from 'yup'
-import { passwordRegex } from '@reapit/utils'
+import { passwordRegex } from '@reapit/utils-common'
 import { reapitConnectBrowserSession } from '../../../core/connect-session'
 import { useReapitConnect } from '@reapit/connect-session'
 import { AccountCreateModel, AccountModel } from '../../../types/accounts'

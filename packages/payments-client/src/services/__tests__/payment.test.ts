@@ -6,10 +6,10 @@ import {
   generateEmailPaymentReceiptInternal,
   generateEmailPaymentReceiptExternal,
 } from '../payment'
-import { fetcher } from '@reapit/elements-legacy'
+import { fetcher } from '@reapit/utils-common'
 import { body, params } from '../__stubs__/payment'
 
-jest.mock('@reapit/elements-legacy')
+jest.mock('@reapit/utils-common')
 jest.mock('../../core/connect-session')
 const mockResponse = 'success'
 const mockedFetch = fetcher as jest.Mock

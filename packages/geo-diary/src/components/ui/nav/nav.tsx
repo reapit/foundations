@@ -3,7 +3,7 @@ import { useReapitConnect } from '@reapit/connect-session'
 import { reapitConnectBrowserSession } from '@/core/connect-session'
 import { NavResponsive, NavResponsiveOption } from '@reapit/elements'
 import { MARKETPLACE_DEV_URL, MARKETPLACE_PROD_URL } from '../../../core/constants'
-import { isDemo } from '@reapit/utils'
+import { isDemo } from '@reapit/utils-react'
 
 export const callbackAppClick = () =>
   (window.location.href =

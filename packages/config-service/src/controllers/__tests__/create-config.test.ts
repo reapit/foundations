@@ -1,6 +1,6 @@
 import { Response } from 'express'
 import { createConfig } from '../create-config'
-import { AppRequest } from '@reapit/node-utils'
+import { AppRequest } from '@reapit/utils-node'
 import { createConfigValue } from '../../services/create-ssm-config'
 import logger from '../../core/logger'
 

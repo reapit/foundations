@@ -7,7 +7,7 @@ import {
 import ActionTypes from '@/constants/action-types'
 import { Action } from '@/types/core'
 import { DeveloperModel } from '@reapit/foundations-ts-definitions'
-import { extractNetworkErrString } from '@reapit/utils'
+import { extractNetworkErrString } from '@reapit/utils-common'
 import { updateDeveloperById } from '@/services/developers'
 import { notification } from '@reapit/elements-legacy'
 

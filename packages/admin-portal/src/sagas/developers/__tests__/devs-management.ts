@@ -28,7 +28,7 @@ import {
   disableMemberApi,
 } from '@/services/developers'
 import { notification } from '@reapit/elements-legacy'
-import { errorMessages } from '@reapit/utils'
+import { errorMessages } from '@reapit/utils-common'
 import { Action, ActionType } from '../../../types/core'
 import ActionTypes from '../../../constants/action-types'
 

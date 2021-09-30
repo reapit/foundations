@@ -1,5 +1,26 @@
 import * as React from 'react'
-import { FileInputProps } from '../FileInput'
+
+export interface FileInputTestProps {
+  waitUntilDataReaderLoadResolver?: any
+}
+
+export interface FileInputProps {
+  name: string
+  labelText?: string
+  id?: string
+  dataTest?: string
+  accept?: string
+  allowClear?: boolean
+  isNarrowWidth?: boolean
+  // props specialized for unit test
+  testProps?: FileInputTestProps
+  inputProps?: Record<string, any>
+  required?: boolean
+  onFilenameClick?: (event: React.MouseEvent<HTMLAnchorElement, MouseEvent>) => void
+  // to integrate with other components
+  afterLoadedFile?: (base64: string, handleClearFile: () => void) => any
+  croppedImage?: string | null
+}
 
 export type CropBase = {
   width: number

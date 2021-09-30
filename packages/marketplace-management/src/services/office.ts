@@ -1,7 +1,7 @@
-import { fetcher } from '@reapit/elements-legacy'
+import { fetcher } from '@reapit/utils-common'
 import { reapitConnectBrowserSession } from '../core/connect-session'
 import { URLS } from '../constants/api'
-import { getPlatformHeaders, logger } from '@reapit/utils'
+import { getPlatformHeaders, logger } from '@reapit/utils-react'
 
 interface CreateOfficeGroupParams {
   name: string

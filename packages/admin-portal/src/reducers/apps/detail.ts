@@ -1,4 +1,4 @@
-import { FetchDetailResult, getDefaultFetchDetailValue } from '@reapit/utils'
+import { FetchDetailResult, getDefaultFetchDetailValue } from '@reapit/utils-common'
 import { AppDetailModel } from '@reapit/foundations-ts-definitions'
 import { Action } from '@/types/core'
 import errorMessages from '@/constants/error-messages'

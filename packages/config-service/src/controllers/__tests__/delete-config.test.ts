@@ -1,6 +1,6 @@
 import { Response } from 'express'
 import { deleteConfig } from '../delete-config'
-import { AppRequest } from '@reapit/node-utils'
+import { AppRequest } from '@reapit/utils-node'
 import { deleteConfigValue } from '../../services/delete-ssm-config'
 import logger from '../../core/logger'
 

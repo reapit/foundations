@@ -13,7 +13,7 @@ import { DATE_TIME_FORMAT, notification } from '@reapit/elements-legacy'
 import { Action } from '@/types/core'
 import ActionTypes from '@/constants/action-types'
 import { REVISIONS_PER_PAGE } from '@/constants/paginator'
-import { extractNetworkErrString, errorMessages } from '@reapit/utils'
+import { extractNetworkErrString, errorMessages } from '@reapit/utils-common'
 import dayjs from 'dayjs'
 import {
   fetchDevelopersList,

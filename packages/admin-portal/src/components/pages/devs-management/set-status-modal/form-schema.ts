@@ -1,6 +1,6 @@
 import * as Yup from 'yup'
 import errorMessages from '@/constants/error-messages'
-import { FormFieldInfo, reapitRefRegex } from '@reapit/utils'
+import { FormFieldInfo, reapitRefRegex } from '@reapit/utils-common'
 
 export type FieldKey = 'status' | 'reapitReference'
 export const formFields: Record<FieldKey, FormFieldInfo> = {

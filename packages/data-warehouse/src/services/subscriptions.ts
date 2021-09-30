@@ -1,8 +1,8 @@
-import { fetcher } from '@reapit/elements-legacy'
+import { fetcher } from '@reapit/utils-common'
 import { URLS } from '../constants/api'
 import { reapitConnectBrowserSession } from '../core/connect-session'
 import { CreateSubscriptionModel, SubscriptionModelPagedResult } from '@reapit/foundations-ts-definitions'
-import { getPlatformHeaders, logger } from '@reapit/utils'
+import { getPlatformHeaders, logger } from '@reapit/utils-react'
 
 export const getSubscriptionsService = async (): Promise<SubscriptionModelPagedResult | undefined | void> => {
   try {

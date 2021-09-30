@@ -5,7 +5,7 @@ import { render } from 'react-dom'
 import ReactGA from 'react-ga'
 import { Config } from '@/types/global'
 import { getMarketplaceGlobalsByKey } from '@reapit/elements-legacy'
-import { isDemo, logger } from '@reapit/utils'
+import { isDemo, logger } from '@reapit/utils-react'
 import { DEMO_STORAGE_KEY } from '../constants/demo-storage'
 
 // Init global config
