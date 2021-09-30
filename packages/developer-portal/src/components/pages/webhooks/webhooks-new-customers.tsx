@@ -77,7 +77,6 @@ export const WebhooksNewCustomers: FC<WebhooksNewCustomersProps> = ({ register, 
           <MultiSelectInput
             className={elMb7}
             id="customer-ids"
-            hasGreyChips
             options={customerOptions}
             defaultValues={selectedCustomers}
             {...register('customerIds')}
