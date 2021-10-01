@@ -9,6 +9,7 @@ export interface ReapitConnectInitializers {
   connectLogoutRedirectPath: string
   connectContainerId: string
   connectHasSessionCallback: (session: ReapitConnectBrowserSession) => any
+  companyName: string
 }
 
 export const reapitConnectComponent = ({
@@ -19,6 +20,7 @@ export const reapitConnectComponent = ({
   connectLogoutRedirectPath,
   connectContainerId,
   connectHasSessionCallback,
+  companyName,
 }: ReapitConnectInitializers) => {
   const reapitConnectBrowserSession = new ReapitConnectBrowserSession({
     connectClientId,
@@ -33,6 +35,7 @@ export const reapitConnectComponent = ({
     props: {
       reapitConnectBrowserSession,
       connectHasSessionCallback,
+      companyName,
     },
   })
 }
