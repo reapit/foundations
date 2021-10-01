@@ -6,6 +6,7 @@
 
   export let reapitConnectBrowserSession: ReapitConnectBrowserSession
   export let connectHasSessionCallback: (session: ReapitConnectBrowserSession) => any
+  export let companyName: string
 
   let hasSession: boolean
   let isFetching: boolean
@@ -44,7 +45,7 @@
       <Logout reapitConnectBrowserSession={reapitConnectBrowserSession} />
     {/if}
     {#if !hasSession}
-      <PermissionBlock reapitConnectBrowserSession={reapitConnectBrowserSession} />
+      <PermissionBlock companyName={companyName} reapitConnectBrowserSession={reapitConnectBrowserSession} />
     {/if}
   {/if}
 </div>

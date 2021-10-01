@@ -5,6 +5,7 @@ import { ReapitConnectBrowserSession } from '@reapit/connect-session';
   
   let showPermissionBlock: boolean = false
   export let reapitConnectBrowserSession: ReapitConnectBrowserSession
+  export let companyName: string
 
   $: handler = () => showPermissionBlock = !showPermissionBlock
   $: agreeHandler = () => reapitConnectBrowserSession.connectAuthorizeRedirect()
@@ -133,7 +134,7 @@ import { ReapitConnectBrowserSession } from '@reapit/connect-session';
       </div>
       <hr />
       <div class="permission-content">
-        <p>COMPANY would like to share the following information from your reapit identity:</p>
+        <p>{companyName} would like to share the following information from your reapit identity:</p>
         <ul>
           <li>Your name</li>
           <li>Your email</li>
