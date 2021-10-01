@@ -26,6 +26,7 @@
     border-radius: 1rem 1rem 0rem 0rem;
     max-width: 290px;
     padding: .5rem;
+    position: relative;
   }
   .reapit-connect-permission-container .permission-info .header {
     display: flex;
@@ -35,6 +36,10 @@
   .reapit-connect-permission-container .permission-info .permission-close-container {
     display: flex;
     flex-direction: row-reverse;
+    position: absolute;
+    top: 0;
+    right: 0;
+    padding: .5rem;
   }
 
   .reapit-connect-permission-container .permission-info hr {
@@ -46,7 +51,6 @@
   .reapit-connect-permission-container .title {
     margin: 0;
     padding: .5rem;
-    padding-top: 0;
     flex-grow: 1;
     font-size: 1.2rem;
     text-align: center;
