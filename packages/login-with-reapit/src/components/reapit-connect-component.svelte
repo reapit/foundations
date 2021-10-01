@@ -1,28 +1,17 @@
 <script lang="ts">
   import { ReapitConnectBrowserSession } from '@reapit/connect-session'
-  import SignInButton from './sign-in-button.svelte'
-  import SignOutButton from './sign-out-button.svelte'
   import { onMount } from 'svelte'
+  import Logout from './logout.svelte'
+  import PermissionBlock from './permission.svelte'
 
   export let reapitConnectBrowserSession: ReapitConnectBrowserSession
   export let connectHasSessionCallback: (session: ReapitConnectBrowserSession) => any
 
   let hasSession: boolean
   let isFetching: boolean
-  let clickHandler: () => void
 
   $: hasSession = reapitConnectBrowserSession.connectHasSession
   $: isFetching = false
-
-  const handleLoginClick = () => {
-    reapitConnectBrowserSession.connectAuthorizeRedirect()
-  }
-
-  const handleLogoutClick = () => {
-    reapitConnectBrowserSession.connectLogoutRedirect()
-  }
-
-  $: clickHandler = hasSession ? handleLogoutClick : handleLoginClick
 
   $: if (hasSession) {
     connectHasSessionCallback(reapitConnectBrowserSession)
@@ -46,25 +35,16 @@
 </script>
 
 <style>
-  .reapit-connect-component {
-    display: inline-block;
-    background-color: #0061a8;
-    max-height: 48px;
-    max-width: 290px;
-  }
 
-  .reapit-connect-component:hover {
-    background-color: #23a4de;
-  }
 </style>
 
-<div class="reapit-connect-component" on:click={clickHandler}>
+<div class="reapit-connect-component">
   {#if !isFetching}
     {#if hasSession}
-      <SignOutButton />
+      <Logout reapitConnectBrowserSession={reapitConnectBrowserSession} />
     {/if}
     {#if !hasSession}
-      <SignInButton />
+      <PermissionBlock reapitConnectBrowserSession={reapitConnectBrowserSession} />
     {/if}
   {/if}
 </div>
