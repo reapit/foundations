@@ -117,6 +117,7 @@
     cursor: pointer;
     color: lightgray;
     background: none;
+    padding: 0;
   }
 
 </style>
