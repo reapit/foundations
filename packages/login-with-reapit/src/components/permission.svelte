@@ -1,7 +1,8 @@
 <script lang="ts">
+  import { slide } from 'svelte/transition'
   import SignInButton from './sign-in-button.svelte'
   import CloseIcon from './close-icon.svelte'
-import { ReapitConnectBrowserSession } from '@reapit/connect-session';
+  import { ReapitConnectBrowserSession } from '@reapit/connect-session'
   
   let showPermissionBlock: boolean = false
   export let reapitConnectBrowserSession: ReapitConnectBrowserSession
@@ -20,17 +21,12 @@ import { ReapitConnectBrowserSession } from '@reapit/connect-session';
   }
 
   .reapit-connect-permission-container .permission-info {
-    display: none;
+    /* display: none; */
     border: 1px solid lightgrey;
     border-radius: 1rem 1rem 0rem 0rem;
-  }
-
-  .reapit-connect-permission-container.is-active .permission-info {
-    display: block;
     max-width: 290px;
     padding: .5rem;
   }
-
   .reapit-connect-permission-container .permission-info .header {
     display: flex;
     flex-direction: row;
@@ -127,22 +123,24 @@ import { ReapitConnectBrowserSession } from '@reapit/connect-session';
 
 <div class="reapit-connect-session">
   <div class={`reapit-connect-permission-container${showPermissionBlock ? ' is-active' : ''}`}>
-    <div class="permission-info">
-      <div class="header">
-        <button class="reapit-connect-button is-close" on:click={() => showPermissionBlock = false}><CloseIcon /></button>
-        <h3 class="title">Login With Reapit</h3>
+    {#if showPermissionBlock}
+      <div class="permission-info" transition:slide>
+        <div class="header">
+          <button class="reapit-connect-button is-close" on:click={() => showPermissionBlock = false}><CloseIcon /></button>
+          <h3 class="title">Login With Reapit</h3>
+        </div>
+        <hr />
+        <div class="permission-content">
+          <p>{companyName} would like to share the following information from your reapit identity:</p>
+          <ul>
+            <li>Your name</li>
+            <li>Your email</li>
+            <li>Information about your company</li>
+            <li>Permissions and other meta information about you in the Reapit system.</li>
+          </ul>
+        </div>
       </div>
-      <hr />
-      <div class="permission-content">
-        <p>{companyName} would like to share the following information from your reapit identity:</p>
-        <ul>
-          <li>Your name</li>
-          <li>Your email</li>
-          <li>Information about your company</li>
-          <li>Permissions and other meta information about you in the Reapit system.</li>
-        </ul>
-      </div>
-    </div>
+    {/if}
     {#if showPermissionBlock}
       <button class="reapit-connect-button is-primary no-svg" on:click={agreeHandler}>Agree</button>
     {/if}
