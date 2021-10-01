@@ -26,11 +26,20 @@
     border-radius: 1rem 1rem 0rem 0rem;
     max-width: 290px;
     padding: .5rem;
+    position: relative;
   }
   .reapit-connect-permission-container .permission-info .header {
     display: flex;
-    flex-direction: row;
     align-items: center;
+  }
+
+  .reapit-connect-permission-container .permission-info .permission-close-container {
+    display: flex;
+    flex-direction: row-reverse;
+    position: absolute;
+    top: 0;
+    right: 0;
+    padding: .5rem;
   }
 
   .reapit-connect-permission-container .permission-info hr {
@@ -42,7 +51,7 @@
   .reapit-connect-permission-container .title {
     margin: 0;
     padding: .5rem;
-    width: 100%;
+    flex-grow: 1;
     font-size: 1.2rem;
     text-align: center;
   }
@@ -126,8 +135,10 @@
   <div class={`reapit-connect-permission-container${showPermissionBlock ? ' is-active' : ''}`}>
     {#if showPermissionBlock}
       <div class="permission-info" transition:slide>
-        <div class="header">
+        <div class="permission-close-container">
           <button class="reapit-connect-button is-close" on:click={() => showPermissionBlock = false}><CloseIcon /></button>
+        </div>
+        <div class="header">
           <h3 class="title">Login With Reapit</h3>
         </div>
         <hr />
