@@ -10049,14 +10049,10 @@ export interface PropertyLettingModel {
   }
 }
 /**
- * Representation of a property
+ * Representation of a property. Properties can be grouped into developments in the source data, functionality that is typically used by New Homes departments.
+ * The _links collection will expose specific links to allow developers to navigate through a particular development, should a property be configured in this manner. Refer to commentary on the _links collection for more details
  */
 export interface PropertyModel {
-  readonly _links?: {
-    [name: string]: {
-      href?: string
-    }
-  }
   readonly _embedded?: {
     [name: string]: any
   }
@@ -10592,21 +10588,20 @@ export interface PropertyModel {
    */
   readonly _eTag?: string
   /**
-   * Hidden identifier for the properties master plot
+   * Collection containing relative URLs to data associated with the property.
+   * In the case of a development - where a property is grouped with, or associated to another property by way of a parent/child relationship,
+   * the collection will contain a _master_ or _subPlot_ link depending on the property type. Where the property is the master record in a development (the parent),
+   * a _subPlots_ link will be included in the collection giving you access to all the plots (the children) within the development. Where the property is a sub plot that forms part of a
+   * development, a _master_ link will be included in the collection giving you access to the master record.
    */
-  masterId?: string
-  /**
-   * Hidden flag to display if a property is a master plot
-   */
-  isMaster?: boolean
+  readonly _links?: {
+    [name: string]: {
+      href?: string
+    }
+  }
 }
 export interface PropertyModelPagedResult {
   _embedded?: {
-    readonly _links?: {
-      [name: string]: {
-        href?: string
-      }
-    }
     readonly _embedded?: {
       [name: string]: any
     }
@@ -11142,13 +11137,17 @@ export interface PropertyModelPagedResult {
      */
     readonly _eTag?: string
     /**
-     * Hidden identifier for the properties master plot
+     * Collection containing relative URLs to data associated with the property.
+     * In the case of a development - where a property is grouped with, or associated to another property by way of a parent/child relationship,
+     * the collection will contain a _master_ or _subPlot_ link depending on the property type. Where the property is the master record in a development (the parent),
+     * a _subPlots_ link will be included in the collection giving you access to all the plots (the children) within the development. Where the property is a sub plot that forms part of a
+     * development, a _master_ link will be included in the collection giving you access to the master record.
      */
-    masterId?: string
-    /**
-     * Hidden flag to display if a property is a master plot
-     */
-    isMaster?: boolean
+    readonly _links?: {
+      [name: string]: {
+        href?: string
+      }
+    }
   }[]
   pageNumber?: number // int32
   pageSize?: number // int32
@@ -12129,6 +12128,40 @@ export interface TenancyContactRelationshipModelPagedResult {
   }
 }
 /**
+ * Representation of the tenancy letting fee
+ */
+export interface TenancyLettingFeeModel {
+  /**
+   * The letting fee type (percentage/fixed)
+   */
+  type?: string
+  /**
+   * The fee amount
+   */
+  amount?: number // double
+  /**
+   * The frequency of when the fee is to be collected (upfront/upfrontOver2Months/monthly/quarterly/halfYearly/yearly/28days/other/notApplicable)
+   */
+  frequency?: string
+}
+/**
+ * Representation of the tenancy management fee
+ */
+export interface TenancyManagementFeeModel {
+  /**
+   * The management fee type (percentage/fixed)
+   */
+  type?: string
+  /**
+   * The fee amount
+   */
+  amount?: number // double
+  /**
+   * The frequency of when the fee is to be collected (monthly/quarterly/halfYearly/yearly/28days/sameAsLettingFee)
+   */
+  frequency?: string
+}
+/**
  * Representation of a tenancy
  */
 export interface TenancyModel {
@@ -12250,6 +12283,40 @@ export interface TenancyModel {
    * The unique identifier of the applicant who has applied to be a tenant. Whilst the tenancy is an in arranging state, information about the individual such as name and contact details can be obtained from GET /applicants/{id}. Use the link in the _links collection for a relative URI
    */
   applicantId?: string
+  /**
+   * Representation of the tenancy letting fee
+   */
+  lettingFee?: {
+    /**
+     * The letting fee type (percentage/fixed)
+     */
+    type?: string
+    /**
+     * The fee amount
+     */
+    amount?: number // double
+    /**
+     * The frequency of when the fee is to be collected (upfront/upfrontOver2Months/monthly/quarterly/halfYearly/yearly/28days/other/notApplicable)
+     */
+    frequency?: string
+  }
+  /**
+   * Representation of the tenancy management fee
+   */
+  managementFee?: {
+    /**
+     * The management fee type (percentage/fixed)
+     */
+    type?: string
+    /**
+     * The fee amount
+     */
+    amount?: number // double
+    /**
+     * The frequency of when the fee is to be collected (monthly/quarterly/halfYearly/yearly/28days/sameAsLettingFee)
+     */
+    frequency?: string
+  }
   /**
    * A tenancy source of enquiry
    */
@@ -12484,6 +12551,40 @@ export interface TenancyModelPagedResult {
      * The unique identifier of the applicant who has applied to be a tenant. Whilst the tenancy is an in arranging state, information about the individual such as name and contact details can be obtained from GET /applicants/{id}. Use the link in the _links collection for a relative URI
      */
     applicantId?: string
+    /**
+     * Representation of the tenancy letting fee
+     */
+    lettingFee?: {
+      /**
+       * The letting fee type (percentage/fixed)
+       */
+      type?: string
+      /**
+       * The fee amount
+       */
+      amount?: number // double
+      /**
+       * The frequency of when the fee is to be collected (upfront/upfrontOver2Months/monthly/quarterly/halfYearly/yearly/28days/other/notApplicable)
+       */
+      frequency?: string
+    }
+    /**
+     * Representation of the tenancy management fee
+     */
+    managementFee?: {
+      /**
+       * The management fee type (percentage/fixed)
+       */
+      type?: string
+      /**
+       * The fee amount
+       */
+      amount?: number // double
+      /**
+       * The frequency of when the fee is to be collected (monthly/quarterly/halfYearly/yearly/28days/sameAsLettingFee)
+       */
+      frequency?: string
+    }
     /**
      * A tenancy source of enquiry
      */
