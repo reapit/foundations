@@ -5,6 +5,7 @@
     "types": ["svelte", "jest", "node"],
     "module": "esNext",
     "target": "esnext",
+    "declaration": true,
     "typeRoots": ["./node_modules/@types", "../../node_modules/@types", "./src/types"],
     "esModuleInterop": true,
     "allowSyntheticDefaultImports": true,
