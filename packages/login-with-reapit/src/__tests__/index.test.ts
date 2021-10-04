@@ -9,8 +9,9 @@ describe('reapitConnectComponent', () => {
         connectOAuthUrl: 'https://some-url.com',
         connectLoginRedirectPath: '/some-path',
         connectLogoutRedirectPath: '/some-logout-path',
-        connectContainerId: '#containerId',
+        rootElement: '#containerId',
         connectHasSessionCallback: () => true,
+        companyName: 'Test Company',
       }),
     ).toMatchSnapshot()
   })

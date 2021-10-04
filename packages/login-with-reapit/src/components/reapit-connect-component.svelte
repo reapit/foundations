@@ -35,17 +35,13 @@
   })
 </script>
 
-<style>
-
-</style>
-
 <div class="reapit-connect-component">
   {#if !isFetching}
     {#if hasSession}
-      <Logout reapitConnectBrowserSession={reapitConnectBrowserSession} />
+      <Logout {reapitConnectBrowserSession} />
     {/if}
     {#if !hasSession}
-      <PermissionBlock companyName={companyName} reapitConnectBrowserSession={reapitConnectBrowserSession} />
+      <PermissionBlock {companyName} {reapitConnectBrowserSession} />
     {/if}
   {/if}
 </div>

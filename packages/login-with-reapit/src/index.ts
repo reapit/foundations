@@ -31,7 +31,7 @@ export const reapitConnectComponent = ({
   })
 
   new ReapitConnectButtonComponent({
-    target: typeof rootElement === 'string' ? document.querySelector(rootElement) : rootElement,
+    target: typeof rootElement === 'string' ? document.querySelector(rootElement) : (rootElement as Element),
     props: {
       reapitConnectBrowserSession,
       connectHasSessionCallback,
