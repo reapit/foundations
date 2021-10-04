@@ -224,7 +224,6 @@ export const WebhooksManageForm: FC<WebhooksManageFormProps> = ({
           <MultiSelectInput
             className={elMb7}
             id={`topic-edit-ids-${id}`}
-            hasGreyChips
             defaultValues={[...new Set(topicIds)]}
             options={topicOptions}
             {...register('topicIds')}
@@ -238,7 +237,6 @@ export const WebhooksManageForm: FC<WebhooksManageFormProps> = ({
           <MultiSelectInput
             className={elMb7}
             id={`customer-edit-ids-${id}`}
-            hasGreyChips
             defaultValues={customerIds?.length ? [...new Set(customerIds)] : ['ALL']}
             options={customerOptions}
             {...register('customerIds')}
