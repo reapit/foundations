@@ -6,7 +6,7 @@
   </head>
   <body>
     <div id="reapit-connect-component"></div>
-    <script src="./login-with-reapit.js"></script>
+    <script src="./dist/login-with-reapit.js"></script>
     <script>
       const connectHasSessionCallback = (reapitConnectBrowserSession) => {
         reapitConnectBrowserSession.connectSession().then(session => {
@@ -15,8 +15,8 @@
       }
 
       reapitConnectComponent && reapitConnectComponent({
-        connectClientId: '',
-        connectOAuthUrl: 'https://dev.connect.reapit.cloud',
+        connectClientId: '4kr750gbarufkanl2ceasofmpk',
+        connectOAuthUrl: 'https://connect.dev.paas.reapit.cloud',
         connectLoginRedirectPath: '',
         connectLogoutRedirectPath: '/login',
         rootElement: document.querySelector('#reapit-connect-component'),

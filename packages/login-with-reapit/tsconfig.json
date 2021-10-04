@@ -6,11 +6,13 @@
     "module": "esNext",
     "target": "esnext",
     "declaration": true,
+    "emitDeclarationOnly": true,
     "typeRoots": ["./node_modules/@types", "../../node_modules/@types", "./src/types"],
     "esModuleInterop": true,
     "allowSyntheticDefaultImports": true,
     "importsNotUsedAsValues": "remove",
     "baseUrl": ".",
+    "outDir": "public/dist",
     "paths": {
       "@reapit/connect-session": ["../connect-session/src"]
     }
