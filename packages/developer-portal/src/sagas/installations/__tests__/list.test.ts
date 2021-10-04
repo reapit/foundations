@@ -18,7 +18,7 @@ describe('fetchInstallationsListSaga sagas', () => {
 
   describe('fetchInstallationsListSaga', () => {
     const gen = cloneableGenerator(fetchInstallationsListSaga)(installationsParams)
-    expect(gen.next().value).toEqual(getDeveloperId())
+    expect(gen.next().value).toEqual(call(getDeveloperId))
     expect(gen.next().value).toEqual(call(fetchInstallationsList, { ...installationsParams.data }))
 
     test('api call success', () => {

@@ -18,9 +18,10 @@ export const ElMultiSelectCheckbox = styled.input`
   height: 0;
   width: 0;
   visibility: hidden;
+  position: absolute;
 
   :checked + label {
-    background: var(--color-grey-light);
+    background: var(--color-white);
     padding: 0.2rem 2rem 0.2rem 1rem;
 
     &::before {
@@ -41,18 +42,35 @@ export const ElMultiSelectCheckbox = styled.input`
       }
     }
   }
+
+  :not(:checked) + label {
+    &:hover {
+      padding: 0.2rem 2rem 0.2rem 1rem;
+      &:before {
+        content: '';
+        position: absolute;
+        background-image: url('${checked(intentPrimary)}');
+        background-position: center center;
+        background-repeat: no-repeat;
+        height: 1rem;
+        width: 1rem;
+        right: 0.5rem;
+        margin-top: 2px;
+      }
+    }
+  }
 `
 
 export const ElMultiSelectLabel = styled.label`
   cursor: pointer;
   min-width: 75px;
   width: auto;
-  margin: 0.375rem;
+  margin: 0.25rem 0.375rem;
   height: 28px;
   background: var(--color-white);
   border-radius: 1rem;
   border: 1px solid var(--color-grey-light);
-  padding: 0.2rem 1rem;
+  padding: 0.2rem 1.5rem;
   position: relative;
   font-size: 14px;
   transition: all 0.2s linear;
@@ -69,6 +87,37 @@ export const ElMultiSelect = styled.div`
   display: flex;
   flex-wrap: wrap;
   background-color: var(--color-white);
+  padding: 0.25rem 0.5rem;
+  position: relative;
+`
+
+export const ElMultiSelectSelected = styled.div`
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  padding: 0.25rem 0.5rem;
+  background-color: var(--color-grey-light);
+  border: 1px solid var(--color-grey-light);
+  border-radius: 4px 4px 0 0;
+  min-height: 3rem;
+  padding: 0.25rem 0.5rem;
+  position: relative;
+
+  p {
+    margin-left: 0.375rem;
+    font-size: 14px;
+  }
+`
+
+export const ElMultiSelectUnSelected = styled.div`
+  display: flex;
+  flex-wrap: wrap;
+  padding: 0.25rem 0.5rem;
+  background-color: var(--color-white);
+  border: 1px solid var(--color-grey-light);
+  border-radius: 0 0 4px 4px;
+  padding: 0.25rem 0.5rem;
+  position: relative;
 `
 
 export const ElMultiSelectInput = styled.input`

@@ -31,6 +31,7 @@ import designInfographic from './infographic-icons/designInfographic'
 import apiDocsInfographic from './infographic-icons/apiDocsInfographic'
 import myAppsInfographic from './infographic-icons/myAppsInfographic'
 import webhooksInfographic from './infographic-icons/webhooksInfographic'
+import selectInfographic from './infographic-icons/selectInfographic'
 import accountMenu from './menu-icons/accountMenu'
 import analyticsMenu from './menu-icons/analyticsMenu'
 import apiMenu from './menu-icons/apiMenu'
@@ -220,4 +221,5 @@ export const iconSet = {
   apiDocsInfographic,
   myAppsInfographic,
   webhooksInfographic,
+  selectInfographic,
 }
