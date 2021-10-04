@@ -1,20 +1,42 @@
 import React, { forwardRef } from 'react'
 import { Button, Loader, Table as ELTable, useSnack } from '@reapit/elements'
 import { useHistory } from 'react-router'
+import qs from 'query-string'
+import path from 'path'
 
 import { Container, ContainerProps } from './container'
 import { uppercaseSentence } from './utils'
 
 import { useObjectList } from '../../../hooks/objects/use-object-list'
-import { useObjectDelete } from '../../../hooks/objects/use-object-mutate'
+import { useObjectDelete, useObjectUpdate } from '../../../hooks/objects/use-object-mutate'
+import { lowercaseFirstLetter, useSubObjects } from '@/components/hooks/objects/use-sub-objects'
+import { notEmpty } from '@/components/hooks/use-introspection/helpers'
+import { usePageId } from '@/components/hooks/use-page-id'
+import { useObjectSpecials } from '@/components/hooks/objects/use-object-specials'
 
 export interface TableProps extends ContainerProps {
   typeName?: string
   editPageId?: string
   showControls?: string
+  [key: string]: any
 }
 
-const ObjectTableCell = (obj: any) => {
+const ObjectTableCell = ({ obj }) => {
+  if (!obj) {
+    return null
+  }
+  if (Array.isArray(obj)) {
+    return (
+      <>
+        {obj.map((item: any, i: number) => (
+          <>
+            <ObjectTableCell key={item.id} obj={item} />
+            {i !== obj.length - 1 && <span>, </span>}
+          </>
+        ))}
+      </>
+    )
+  }
   return (
     <span>
       {Object.entries(obj)
@@ -49,26 +71,80 @@ const DeleteButton = ({ disabled, typeName, id }: { disabled?: boolean; typeName
   )
 }
 
+const shouldDisplay = ([key, value]: [string, any | undefined | null], subobjectNames: string[]) => {
+  const isHidden = key.startsWith('_')
+  const isId = key === 'id'
+  const isArray = value && Array.isArray(value)
+  const isSubObject = isArray
+    ? value.length > 0 && subobjectNames.includes(value[0].__typename)
+    : value && notEmpty(value) && subobjectNames.includes(value.__typename)
+
+  return !isHidden && !isId && !isSubObject
+}
+
 export const Table = forwardRef<HTMLDivElement, TableProps & { disabled?: boolean }>(
   ({ typeName, editPageId, showControls, disabled, ...props }, ref) => {
     const { data, loading } = useObjectList(typeName)
+    const { available: deletionAvailable } = useObjectDelete(typeName)
+    const { available: updateAvailable } = useObjectUpdate(typeName)
+    const subobjects = useSubObjects(typeName)
+    const { specials } = useObjectSpecials(typeName)
     const history = useHistory()
+    const { context, appId } = usePageId()
+
+    const subobjectNames = subobjects.data.map(({ object: { name } }) => name)
+
     const rows =
       data &&
       typeName &&
       data.map((row) => {
-        const cells = Object.entries(row)
+        let cells = Object.entries(row)
+          .filter((entry) => shouldDisplay(entry, subobjectNames))
           .map(([label, value]) => ({
             label: uppercaseSentence(label),
-            value: typeof value === 'object' ? undefined : value,
-            children: typeof value === 'object' ? <ObjectTableCell {...value} /> : undefined,
+            value: (typeof value === 'object' ? undefined : value) as string,
+            children: typeof value === 'object' ? <ObjectTableCell obj={value} /> : undefined,
             narrowTable: {
               showLabel: true,
             },
           }))
-          .filter((cell) => {
-            return !cell.label.startsWith('__') && cell.label.toLowerCase() !== 'id'
-          })
+
+        const specialsAndSubobjects = [
+          ...specials.map(({ name }) => ({ name, label: uppercaseSentence(name) })),
+          ...subobjects.data.map(({ object }) => ({
+            name: object.name,
+            label: `View ${uppercaseSentence(object.name)}s`,
+          })),
+        ]
+
+        cells = [
+          ...cells,
+          ...specialsAndSubobjects.map(({ name, label }) => {
+            const pageId = props[`${name}Page`]
+            if (!pageId) return null
+            return {
+              label,
+              value: '',
+              children: (
+                <Button
+                  onClick={() => {
+                    const pathname = path.join('/', appId || '', pageId === '~' ? '' : pageId)
+                    const ctx = {
+                      ...context,
+                      [lowercaseFirstLetter(`${typeName}Id`)]: row.id,
+                    }
+                    history.push(`${pathname}?${qs.stringify(ctx)}`)
+                  }}
+                >
+                  {label}
+                </Button>
+              ),
+              narrowTable: {
+                showLabel: true,
+              },
+            }
+          }),
+        ].filter(notEmpty)
 
         if (!showControls) {
           return { cells }
@@ -77,34 +153,40 @@ export const Table = forwardRef<HTMLDivElement, TableProps & { disabled?: boolea
         return {
           cells: [
             ...cells,
-            {
-              label: 'Edit',
-              children: (
-                <Button
-                  disabled={disabled}
-                  intent="secondary"
-                  onClick={() => {
-                    if (editPageId) {
-                      history.push(`${editPageId}?editObjectId=${row.id}`)
-                    }
-                  }}
-                >
-                  Edit
-                </Button>
-              ),
-            },
-            {
-              label: 'Delete',
-              children: <DeleteButton disabled={disabled} id={row.id} typeName={typeName} />,
-            },
-          ],
+            updateAvailable
+              ? {
+                  label: 'Edit',
+                  value: '',
+                  children: (
+                    <Button
+                      disabled={disabled}
+                      intent="secondary"
+                      onClick={() => {
+                        if (editPageId) {
+                          history.push(`${appId}/${editPageId}?editObjectId=${row.id}`)
+                        }
+                      }}
+                    >
+                      Edit
+                    </Button>
+                  ),
+                }
+              : undefined,
+            deletionAvailable
+              ? {
+                  label: 'Delete',
+                  value: '',
+                  children: <DeleteButton disabled={disabled} id={row.id} typeName={typeName} />,
+                }
+              : undefined,
+          ].filter(notEmpty),
         }
       })
 
     return (
       <Container {...props} ref={ref}>
         {loading && <Loader label="Loading" />}
-        {typeName && <ELTable style={{ flex: 1 }} rows={rows} />}
+        {typeName && <ELTable style={{ flex: 1 }} rows={rows || undefined} />}
         {!loading && !typeName && <div>No type selected</div>}
       </Container>
     )

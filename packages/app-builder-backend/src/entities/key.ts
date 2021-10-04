@@ -46,6 +46,7 @@ export const KeyFragment = gql`
   fragment KeyFragment on KeyModel {
     id
     status
+    number
     type {
       value
     }
@@ -62,6 +63,7 @@ export const KeyFragment = gql`
 export type APIKey = {
   id: string
   status: KeyStatus
+  number: string
   type: {
     value: string
   }
@@ -147,6 +149,9 @@ export class IndividualKey {
 export class Key {
   @Field(() => ID)
   id: string
+
+  @Field()
+  number: string
 
   @Field(() => KeyStatus)
   status: KeyStatus

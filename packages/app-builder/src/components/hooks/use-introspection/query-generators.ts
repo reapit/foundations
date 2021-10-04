@@ -13,37 +13,62 @@ import {
   isIntrospectionScalarType,
   isNonNullInputType,
   MutationType,
+  stringIsMutationType,
 } from './types'
 
-export const getListQuery = (queries: Array<QueryableField>, queryableObjectTypes: Array<IntrospectionObjectType>) => {
+export const getListQuery = (
+  queries: Array<QueryableField>,
+  queryableObjectTypes: Array<IntrospectionObjectType>,
+  inputObjectTypes: Array<IntrospectionInputTypeRef>,
+  enums: Array<IntrospectionEnumType>,
+) => {
   const list = queries.find(({ nestedKinds }) => nestedKinds.includes(TypeKind.LIST))
   const listDict = list && queryableFieldToNestedDict(list.type, queryableObjectTypes)
   const listTypeStr = listDict && nestedFieldsToString(listDict)
-  const listQuery = list && `{ ${list.name}${listTypeStr ? ` ${listTypeStr}` : ''} }`
+  if (!list) {
+    return null
+  }
+  const args = parseArgs(list.args, inputObjectTypes, queryableObjectTypes, enums)
+  const listQuery = !args?.length
+    ? `{ ${list.name}${listTypeStr ? ` ${listTypeStr}` : ''} }`
+    : `query ${list.name}(${stringifyArgs(args, true)}) {
+        ${list.name}(${stringifyArgs(args, false)})
+          ${listTypeStr ? ` ${listTypeStr}` : ''}
+      }`
 
-  return gql`
-    ${listQuery}
-  `
+  return {
+    query: gql`
+      ${listQuery}
+    `,
+    args,
+  }
 }
 
-export const getGetQuery = (queries: Array<QueryableField>, queryableObjectTypes: Array<IntrospectionObjectType>) => {
+export const getGetQuery = (
+  queries: Array<QueryableField>,
+  queryableObjectTypes: Array<IntrospectionObjectType>,
+  inputObjectTypes: Array<IntrospectionInputTypeRef>,
+  enums: Array<IntrospectionEnumType>,
+) => {
   const list = queries.find(({ nestedKinds }) => !nestedKinds.includes(TypeKind.LIST))
   if (!list) {
     return null
   }
   const listDict = list && queryableFieldToNestedDict(list.type, queryableObjectTypes)
   const listTypeStr = listDict && nestedFieldsToString(listDict)
-  const args = parseArgs(list.args, [], queryableObjectTypes, [])
+  const args = parseArgs(list.args, inputObjectTypes, queryableObjectTypes, enums)
   const listQuery =
     list &&
     `query ${list.name}(${stringifyArgs(args, true)}) {
         ${list.name}(${stringifyArgs(args, false)})
           ${listTypeStr ? ` ${listTypeStr}` : ''}
     }`
-
-  return gql`
-    ${listQuery}
-  `
+  return {
+    query: gql`
+      ${listQuery}
+    `,
+    args,
+  }
 }
 
 type ParsedArg = {
@@ -62,7 +87,7 @@ const parseArgs = (
   enums: Array<IntrospectionEnumType>,
 ): Array<ParsedArg> => {
   return args.map((arg) => {
-    const { name, type } = arg
+    const { name, description, type } = arg
     let typeName = isIntrospectionScalarType(type) ? type.name : ''
     let actualType = type
     let idOfType
@@ -80,9 +105,13 @@ const parseArgs = (
       const idName = name.replace('Id', '')
       idOfType = queryableObjectTypes.find((a) => a.name.toLowerCase() === idName)?.name
     }
+    if (description && description.includes('@idOf')) {
+      const idName = description.split('@idOf(')[1].split(')')[0]
+      console.log(idName)
+      idOfType = queryableObjectTypes.find((a) => a.name.toLowerCase() === idName)?.name
+    }
 
     const enumValues = enums.find(({ name }) => name === typeName)?.enumValues.map((e) => e.name)
-
     return {
       name,
       isRequired: isNonNullInputType(type),
@@ -117,6 +146,15 @@ export const getMutation = (
   if (!mutation) {
     return undefined
   }
+  return getMutationObject(mutation, queryableObjectTypes, inputObjectTypes, enums)
+}
+
+const getMutationObject = (
+  mutation: QueryableField,
+  queryableObjectTypes: Array<IntrospectionObjectType>,
+  inputObjectTypes: Array<IntrospectionInputTypeRef>,
+  enums: Array<IntrospectionEnumType>,
+) => {
   const mutationDict = mutation && queryableFieldToNestedDict(mutation.type, queryableObjectTypes)
   const mutationTypeStr = mutationDict && nestedFieldsToString(mutationDict)
   const args = parseArgs(mutation.args, inputObjectTypes, queryableObjectTypes, enums)
@@ -133,4 +171,17 @@ export const getMutation = (
     `,
     args,
   }
+}
+
+export const getSpecials = (
+  mutations: Array<QueryableField>,
+  queryableObjectTypes: Array<IntrospectionObjectType>,
+  inputObjectTypes: Array<IntrospectionInputTypeRef>,
+  enums: Array<IntrospectionEnumType>,
+) => {
+  const specials = mutations.filter(({ name }) => !stringIsMutationType(name))
+  return specials.map((mutation) => ({
+    ...getMutationObject(mutation, queryableObjectTypes, inputObjectTypes, enums),
+    name: mutation.name,
+  }))
 }

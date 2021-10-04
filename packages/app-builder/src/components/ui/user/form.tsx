@@ -5,6 +5,7 @@ import { useTypeList } from '@/components/hooks/objects/use-type-list'
 import { useEditor, useNode } from '@craftjs/core'
 import { DestinationPage } from './link'
 import { FormProps, Form as EForm } from './ejectable/form'
+import { useObjectSpecials } from '@/components/hooks/objects/use-object-specials'
 const defaultProps = {
   destination: '/',
 }
@@ -24,6 +25,8 @@ const ContainerSettings = Container.craft.related.toolbar
 
 const FormSettings = () => {
   const { data, loading } = useTypeList()
+  const { typeName } = useNode((node) => node.data.props)
+  const { specials } = useObjectSpecials(typeName)
 
   return (
     <>
@@ -45,16 +48,16 @@ const FormSettings = () => {
             {loading ? 'Loading...' : 'Select a Type'}
           </option>
         </ToolbarItem>
-        {/* <ToolbarItem type={ToolbarItemType.Select} propKey="formType" title="Form Type">
-          {['create', 'update'].map((typeName) => (
-            <option key={typeName} value={typeName}>
-              {typeName}
+        <ToolbarItem type={ToolbarItemType.Select} propKey="formType" title="Form Type">
+          {['create', 'update', ...specials.map(({ name }) => name)].map((formType) => (
+            <option key={formType} value={formType}>
+              {formType}
             </option>
           ))}
           <option value="" disabled>
             Select a Type
           </option>
-        </ToolbarItem> */}
+        </ToolbarItem>
       </ToolbarSection>
       <DestinationPage propKey="destination" title="Redirect To" />
     </>
