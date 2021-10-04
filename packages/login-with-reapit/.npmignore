@@ -1,4 +1,4 @@
-public/*
+public/index.html
 webpack.config.js
 rollup.config.js
 tsconfig.cjs.json
