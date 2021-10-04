@@ -17,14 +17,6 @@ const params: Action<CreateAppRevisionParams> = {
 }
 
 describe('submit-revision post data', () => {
-  const imageUploaderRequests = [
-    new Promise(() => null),
-    new Promise(() => null),
-    new Promise(() => null),
-    new Promise(() => null),
-    new Promise(() => null),
-    new Promise(() => null),
-  ]
   const imageUploaderResults = []
   const updatedData = {
     ...revisionSubmitStub.data,
@@ -33,7 +25,7 @@ describe('submit-revision post data', () => {
   const gen = cloneableGenerator(createAppRevisionSaga)(params)
   const { id } = params.data
 
-  expect(gen.next().value).toEqual(all(imageUploaderRequests))
+  gen.next()
   expect(gen.next(imageUploaderResults).value).toEqual(
     call(createAppRevisionAPI, { id, ...updatedData, categoryId: undefined }),
   )
