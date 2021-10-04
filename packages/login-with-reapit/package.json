@@ -1,7 +1,7 @@
 {
   "name": "@reapit/login-with-reapit",
   "description": "Login with reapit button",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "scripts": {
     "start": "concurrently \"webpack -w\" \"sirv public/dist --dev -s --port 8080\"",
     "test": "echo '...skipping...issue with svelte testing library that needs fixing with an update https://github.com/testing-library/dom-testing-library/pull/916'",
