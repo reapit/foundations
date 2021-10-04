@@ -6,7 +6,9 @@
   "scripts": {
     "start": "concurrently \"webpack -w\" \"sirv public/dist --dev -s --port 8080\"",
     "test": "echo '...skipping...issue with svelte testing library that needs fixing with an update https://github.com/testing-library/dom-testing-library/pull/916'",
-    "build": "echo '...skipping...'",
+    "build": "yarn build:dist && yarn build:storybook",
+    "build:storybook": "cross-env NODE_ENV=production && build-storybook -o public/dist",
+    "build:dist": "cross-env NODE_ENV=production && rimraf public/dist && rimraf dist && rollup -c",
     "lint": "eslint --cache --ext=ts,tsx,js src --fix",
     "release": "echo '...skipping...'",
     "publish": "yarn npm publish --access public",
@@ -18,8 +20,12 @@
     "svelte": "^3.34.0"
   },
   "devDependencies": {
+    "@linaria/rollup": "^3.0.0-beta.13",
     "@reapit/ts-scripts": "workspace:packages/ts-scripts",
     "@reapit/ts-types": "workspace:packages/ts-types",
+    "@rollup/plugin-json": "^4.1.0",
+    "@rollup/plugin-typescript": "^8.2.5",
+    "@svgr/rollup": "^5.5.0",
     "@testing-library/svelte": "^3.0.3",
     "@typescript-eslint/eslint-plugin": "^4.28.4",
     "@typescript-eslint/parser": "^4.28.4",
@@ -32,10 +38,14 @@
     "jest": "^27.0.6",
     "jest-coverage-badges": "^1.1.2",
     "node-polyfill-webpack-plugin": "^1.1.4",
+    "rimraf": "^3.0.2",
+    "rollup": "^2.58.0",
+    "rollup-plugin-css-only": "^3.1.0",
+    "rollup-plugin-svelte": "^7.1.0",
     "sirv-cli": "^1.0.12",
     "svelte-jester": "^1.7.0",
     "svelte-loader": "^2.13.6",
-    "svelte-preprocess": "^4.6.9",
+    "svelte-preprocess": "^4.9.8",
     "webpack": "^5.45.1",
     "webpack-cli": "^4.7.2"
   }
