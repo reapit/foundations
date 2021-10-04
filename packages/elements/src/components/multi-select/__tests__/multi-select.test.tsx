@@ -1,6 +1,14 @@
 import React, { ChangeEvent } from 'react'
 import { shallow } from 'enzyme'
-import { MultiSelectChip, MultiSelect, MultiSelectInput, handleSetNativeInput, handleSelectedOptions } from '../index'
+import {
+  MultiSelectChip,
+  MultiSelect,
+  MultiSelectInput,
+  handleSetNativeInput,
+  handleSelectedOptions,
+  MultiSelectSelected,
+  MultiSelectUnSelected,
+} from '../index'
 
 describe('MultiSelectChip', () => {
   it('should match a snapshot and render children', () => {
@@ -24,6 +32,28 @@ describe('MultiSelect', () => {
   })
 })
 
+describe('MultiSelectSelected', () => {
+  it('should match a snapshot and render children', () => {
+    const wrapper = shallow(
+      <MultiSelectSelected>
+        <span>Some Value</span>
+      </MultiSelectSelected>,
+    )
+    expect(wrapper).toMatchSnapshot()
+  })
+})
+
+describe('MultiSelectUnSelected', () => {
+  it('should match a snapshot and render children', () => {
+    const wrapper = shallow(
+      <MultiSelectUnSelected>
+        <span>Some Value</span>
+      </MultiSelectUnSelected>,
+    )
+    expect(wrapper).toMatchSnapshot()
+  })
+})
+
 describe('MultiSelectInput', () => {
   it('should match a snapshot and render children', () => {
     const wrapper = shallow(
@@ -35,6 +65,21 @@ describe('MultiSelectInput', () => {
           { name: 'Item three', value: 'item-three' },
         ]}
         defaultValues={['item-one']}
+      />,
+    )
+    expect(wrapper).toMatchSnapshot()
+  })
+
+  it('should match a snapshot and render non selected message where there are no selected items', () => {
+    const wrapper = shallow(
+      <MultiSelectInput
+        id="react-example"
+        noneSelectedLabel="No items selected"
+        options={[
+          { name: 'Item one', value: 'item-one' },
+          { name: 'Item two', value: 'item-two' },
+          { name: 'Item three', value: 'item-three' },
+        ]}
       />,
     )
     expect(wrapper).toMatchSnapshot()

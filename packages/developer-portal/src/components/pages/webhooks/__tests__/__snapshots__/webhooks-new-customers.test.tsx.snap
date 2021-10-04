@@ -29,11 +29,11 @@ Object {
             Subscription Customers
           </h2>
           <input
-            class="e12c6sou-el-multi-select-input"
+            class="eg4njbl-el-multi-select-input"
             id="customer-ids"
           />
           <div
-            class="e1g28qe3-el-mb7 ev1ec47-el-multi-select"
+            class="e1g28qe3-el-mb7 e12c6sou-el-multi-select-selected"
           >
             <input
               checked=""
@@ -42,14 +42,14 @@ Object {
               type="checkbox"
             />
             <label
-              class="ehgp5gp-el-has-grey-chips e1x92nc7-el-multi-select-label"
+              class="e1x92nc7-el-multi-select-label"
               for="test-static-id"
             >
               SOME_NAME
             </label>
           </div>
           <div
-            class="e1g28qe3-el-mb7 ev1ec47-el-multi-select"
+            class="e1g28qe3-el-mb7 ef7odf0-el-multi-select-un-selected"
           >
             <input
               class="e1wdkc9j-el-multi-select-checkbox"
@@ -103,11 +103,11 @@ Object {
           Subscription Customers
         </h2>
         <input
-          class="e12c6sou-el-multi-select-input"
+          class="eg4njbl-el-multi-select-input"
           id="customer-ids"
         />
         <div
-          class="e1g28qe3-el-mb7 ev1ec47-el-multi-select"
+          class="e1g28qe3-el-mb7 e12c6sou-el-multi-select-selected"
         >
           <input
             checked=""
@@ -116,14 +116,14 @@ Object {
             type="checkbox"
           />
           <label
-            class="ehgp5gp-el-has-grey-chips e1x92nc7-el-multi-select-label"
+            class="e1x92nc7-el-multi-select-label"
             for="test-static-id"
           >
             SOME_NAME
           </label>
         </div>
         <div
-          class="e1g28qe3-el-mb7 ev1ec47-el-multi-select"
+          class="e1g28qe3-el-mb7 ef7odf0-el-multi-select-un-selected"
         >
           <input
             class="e1wdkc9j-el-multi-select-checkbox"
