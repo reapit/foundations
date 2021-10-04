@@ -8259,23 +8259,7 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@reapit/connect-session@npm:^2.0.9":
-  version: 2.3.1
-  resolution: "@reapit/connect-session@npm:2.3.1"
-  dependencies:
-    axios: ^0.21.1
-    isomorphic-fetch: ^3.0.0
-    jsonwebtoken: ^8.5.1
-    jwk-to-pem: ^2.0.4
-    snyk: ^1.463.0
-  peerDependencies:
-    react: ^16.12.0
-    react-dom: ^16.12.0
-  checksum: 35ce814b805f6ac9d7b6da777fd04c39f5db568c5738277c15ea316a828c3cc160aa982b3f310694e72765354f68c0635d5b47429b17a36e38b148d5b359e1e8
-  languageName: node
-  linkType: hard
-
-"@reapit/connect-session@workspace:packages/connect-session":
+"@reapit/connect-session@^3.0.0, @reapit/connect-session@workspace:packages/connect-session":
   version: 0.0.0-use.local
   resolution: "@reapit/connect-session@workspace:packages/connect-session"
   dependencies:
@@ -8303,6 +8287,22 @@ __metadata:
     react-dom: ^17.0.2
   languageName: unknown
   linkType: soft
+
+"@reapit/connect-session@npm:^2.0.9":
+  version: 2.3.1
+  resolution: "@reapit/connect-session@npm:2.3.1"
+  dependencies:
+    axios: ^0.21.1
+    isomorphic-fetch: ^3.0.0
+    jsonwebtoken: ^8.5.1
+    jwk-to-pem: ^2.0.4
+    snyk: ^1.463.0
+  peerDependencies:
+    react: ^16.12.0
+    react-dom: ^16.12.0
+  checksum: 35ce814b805f6ac9d7b6da777fd04c39f5db568c5738277c15ea316a828c3cc160aa982b3f310694e72765354f68c0635d5b47429b17a36e38b148d5b359e1e8
+  languageName: node
+  linkType: hard
 
 "@reapit/cra-template-foundations@workspace:packages/cra-template-foundations":
   version: 0.0.0-use.local
@@ -8525,7 +8525,7 @@ __metadata:
   resolution: "@reapit/login-with-reapit@workspace:packages/login-with-reapit"
   dependencies:
     "@linaria/rollup": ^3.0.0-beta.13
-    "@reapit/connect-session": "workspace:packages/connect-session"
+    "@reapit/connect-session": ^3.0.0
     "@reapit/ts-scripts": "workspace:packages/ts-scripts"
     "@reapit/ts-types": "workspace:packages/ts-types"
     "@testing-library/svelte": ^3.0.3

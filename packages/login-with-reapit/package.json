@@ -5,6 +5,8 @@
   "scripts": {
     "start": "concurrently \"webpack -w\" \"sirv ./public --dev -s --port 8080\"",
     "test": "echo '...skipping...issue with svelte testing library that needs fixing with an update https://github.com/testing-library/dom-testing-library/pull/916'",
+    "prebuild": "yarn workspaces @reapit/connect-session run build",
+    "prestart": "yarn prebuild",
     "build": "cross-env NODE_ENV=production && rimraf public/dist && webpack && tsc",
     "lint": "eslint --cache --ext=ts,tsx,js src --fix",
     "release": "echo '...skipping...'",
@@ -15,12 +17,12 @@
   "main": "public/dist/login-with-reapit.js",
   "umd": "public/dist/login-with-reapit.js",
   "module": "public/dist/login-with-reapit.js",
-  "typings": "public/dist/index.d.ts",
+  "typings": "public/dist/login-with-reapit/src/index.d.ts",
   "files": [
     "public/dist/"
   ],
   "dependencies": {
-    "@reapit/connect-session": "workspace:packages/connect-session",
+    "@reapit/connect-session": "^3.0.0",
     "svelte": "^3.34.0"
   },
   "devDependencies": {
