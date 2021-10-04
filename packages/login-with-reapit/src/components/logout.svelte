@@ -9,6 +9,8 @@
   }
 </script>
 
+<button on:click={handleLogoutClick}><SignOutButton /></button>
+
 <style>
   button {
     display: inline-block;
@@ -23,5 +25,3 @@
     background-color: #23a4de;
   }
 </style>
-
-<button on:click={handleLogoutClick}><SignOutButton /></button>

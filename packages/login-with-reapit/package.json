@@ -1,20 +1,24 @@
 {
   "name": "@reapit/login-with-reapit",
-  "main": "index.ts",
   "description": "Login with reapit button",
   "version": "1.0.0",
   "scripts": {
     "start": "concurrently \"webpack -w\" \"sirv public/dist --dev -s --port 8080\"",
     "test": "echo '...skipping...issue with svelte testing library that needs fixing with an update https://github.com/testing-library/dom-testing-library/pull/916'",
-    "build": "yarn build:dist && yarn build:storybook",
-    "build:storybook": "cross-env NODE_ENV=production && build-storybook -o public/dist",
-    "build:dist": "cross-env NODE_ENV=production && rimraf public/dist && rimraf dist && rollup -c",
+    "build": "cross-env NODE_ENV=production && rimraf public/dist && rimraf dist && rollup -c",
     "lint": "eslint --cache --ext=ts,tsx,js src --fix",
     "release": "echo '...skipping...'",
     "publish": "yarn npm publish --access public",
     "conf": "echo '...skipping...'",
     "commit": "concurrently \"yarn test --coverage --no-cache --silent --forceExit --detectOpenHandles --runInBand --watch=false && jest-coverage-badges --input src/tests/coverage/coverage-summary.json --output src/tests/badges\" \"yarn lint\""
   },
+  "main": "dist/cjs/index.js",
+  "umd": "dist/umd/index.js",
+  "module": "dist/esm/index.js",
+  "typings": "dist/esm/index.d.ts",
+  "files": [
+    "dist/"
+  ],
   "dependencies": {
     "@reapit/connect-session": "workspace:packages/connect-session",
     "svelte": "^3.34.0"
@@ -41,6 +45,7 @@
     "rimraf": "^3.0.2",
     "rollup": "^2.58.0",
     "rollup-plugin-css-only": "^3.1.0",
+    "rollup-plugin-node-polyfills": "^0.2.1",
     "rollup-plugin-svelte": "^7.1.0",
     "sirv-cli": "^1.0.12",
     "svelte-jester": "^1.7.0",
