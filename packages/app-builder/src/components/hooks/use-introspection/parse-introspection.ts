@@ -1,13 +1,31 @@
-import { IntrospectionQuery } from 'graphql'
+import { IntrospectionObjectType, IntrospectionQuery } from 'graphql'
 
 import { notEmpty } from './helpers'
 import { getTopLevelFields } from './nested-fields'
-import { getMutation, getListQuery, getGetQuery, getSpecials } from './query-generators'
+import {
+  getMutation,
+  getListQuery,
+  getGetQuery,
+  getSpecials,
+  GeneratedSpecial,
+  GeneratedMutation,
+  GeneratedQuery,
+} from './query-generators'
 import { isIntrospectionEnumType, isIntrospectionInputObjectType, isIntrospectionObjectType } from './types'
 
-export const parseIntrospectionResult = (introspection: IntrospectionQuery) => {
+export type IntrospectionResult = {
+  object: IntrospectionObjectType
+  list?: GeneratedQuery
+  get?: GeneratedQuery
+  create?: GeneratedMutation
+  update?: GeneratedMutation
+  delete?: GeneratedMutation
+  specials: GeneratedSpecial[]
+}
+
+export const parseIntrospectionResult = (introspection: IntrospectionQuery): IntrospectionResult[] | undefined => {
   if (!introspection) {
-    return null
+    return undefined
   }
   const schema = introspection.__schema
   const queryName = schema.queryType.name

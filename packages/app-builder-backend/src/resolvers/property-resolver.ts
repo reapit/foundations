@@ -3,7 +3,7 @@ import { Resolver, Query, Ctx, Authorized } from 'type-graphql'
 import { Property, PropertyFragment } from '../entities/property'
 import { PropertyModelPagedResult } from '../../../foundations-ts-definitions/types'
 import { Context } from '@/types'
-import { query } from '../utils/graphqlFetch'
+import { query } from '../utils/graphql-fetch'
 
 const getPropertiesQuery = gql`
   ${PropertyFragment}

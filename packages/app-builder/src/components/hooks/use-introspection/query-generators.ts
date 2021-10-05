@@ -1,4 +1,5 @@
 import {
+  DocumentNode,
   IntrospectionEnumType,
   IntrospectionInputTypeRef,
   IntrospectionInputValue,
@@ -16,17 +17,29 @@ import {
   stringIsMutationType,
 } from './types'
 
+export type GeneratedQuery = {
+  query: DocumentNode
+  args: ParsedArg[]
+}
+export type GeneratedMutation = {
+  mutation: DocumentNode
+  args: ParsedArg[]
+}
+export type GeneratedSpecial = GeneratedMutation & {
+  name: string
+}
+
 export const getListQuery = (
   queries: Array<QueryableField>,
   queryableObjectTypes: Array<IntrospectionObjectType>,
   inputObjectTypes: Array<IntrospectionInputTypeRef>,
   enums: Array<IntrospectionEnumType>,
-) => {
+): GeneratedQuery | undefined => {
   const list = queries.find(({ nestedKinds }) => nestedKinds.includes(TypeKind.LIST))
   const listDict = list && queryableFieldToNestedDict(list.type, queryableObjectTypes)
   const listTypeStr = listDict && nestedFieldsToString(listDict)
   if (!list) {
-    return null
+    return undefined
   }
   const args = parseArgs(list.args, inputObjectTypes, queryableObjectTypes, enums)
   const listQuery = !args?.length
@@ -49,10 +62,10 @@ export const getGetQuery = (
   queryableObjectTypes: Array<IntrospectionObjectType>,
   inputObjectTypes: Array<IntrospectionInputTypeRef>,
   enums: Array<IntrospectionEnumType>,
-) => {
+): GeneratedQuery | undefined => {
   const list = queries.find(({ nestedKinds }) => !nestedKinds.includes(TypeKind.LIST))
   if (!list) {
-    return null
+    return undefined
   }
   const listDict = list && queryableFieldToNestedDict(list.type, queryableObjectTypes)
   const listTypeStr = listDict && nestedFieldsToString(listDict)
@@ -141,7 +154,7 @@ export const getMutation = (
   queryableObjectTypes: Array<IntrospectionObjectType>,
   inputObjectTypes: Array<IntrospectionInputTypeRef>,
   enums: Array<IntrospectionEnumType>,
-) => {
+): GeneratedMutation | undefined => {
   const mutation = mutations.find(({ name }) => name.includes(mutationType))
   if (!mutation) {
     return undefined
@@ -154,7 +167,7 @@ const getMutationObject = (
   queryableObjectTypes: Array<IntrospectionObjectType>,
   inputObjectTypes: Array<IntrospectionInputTypeRef>,
   enums: Array<IntrospectionEnumType>,
-) => {
+): GeneratedMutation => {
   const mutationDict = mutation && queryableFieldToNestedDict(mutation.type, queryableObjectTypes)
   const mutationTypeStr = mutationDict && nestedFieldsToString(mutationDict)
   const args = parseArgs(mutation.args, inputObjectTypes, queryableObjectTypes, enums)
@@ -178,7 +191,7 @@ export const getSpecials = (
   queryableObjectTypes: Array<IntrospectionObjectType>,
   inputObjectTypes: Array<IntrospectionInputTypeRef>,
   enums: Array<IntrospectionEnumType>,
-) => {
+): GeneratedSpecial[] => {
   const specials = mutations.filter(({ name }) => !stringIsMutationType(name))
   return specials.map((mutation) => ({
     ...getMutationObject(mutation, queryableObjectTypes, inputObjectTypes, enums),

@@ -4,7 +4,7 @@ import { AuthorResolver } from './resolvers/author-resolver'
 import { BookResolver } from './resolvers/book-resolver'
 import { KeyResolver } from './resolvers/key-resolver'
 import { PropertyResolver } from './resolvers/property-resolver'
-import { customAuthChecker } from './utils/authChecker'
+import { customAuthChecker } from './utils/auth-checker'
 
 export const getSchema = async () => {
   const schema = await buildSchema({

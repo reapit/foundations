@@ -1,9 +1,17 @@
+import { ApolloError } from '@apollo/client'
 import { useIntrospection } from '../use-introspection'
+import { IntrospectionResult } from '../use-introspection/parse-introspection'
 import { usePageId } from '../use-page-id'
 
 export const lowercaseFirstLetter = (string: string) => string.charAt(0).toLowerCase() + string.slice(1)
 
-export const useSubObjects = (typeName?: string) => {
+type SubObjects = {
+  loading: boolean
+  error?: ApolloError
+  data: IntrospectionResult[]
+}
+
+export const useSubObjects = (typeName?: string): SubObjects => {
   const { data, error, loading } = useIntrospection()
   const { context } = usePageId()
   if (!typeName || !data) {
