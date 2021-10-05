@@ -44,7 +44,7 @@ export function encodeString(str) {
 
 export function decodeToString(str) {
   str = padding(str)
-    .replace(/\-/g, '+') // Convert '-' to '+'
+    .replace(/-/g, '+') // Convert '-' to '+'
     .replace(/_/g, '/') // Convert '_' to '/'
 
   return decodeURIComponent(
