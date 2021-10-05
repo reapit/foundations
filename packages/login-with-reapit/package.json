@@ -5,8 +5,6 @@
   "scripts": {
     "start": "concurrently \"webpack -w\" \"sirv ./public --dev -s --port 8080\"",
     "test": "echo '...skipping...issue with svelte testing library that needs fixing with an update https://github.com/testing-library/dom-testing-library/pull/916'",
-    "prebuild": "yarn workspaces @reapit/connect-session run build",
-    "prestart": "yarn prebuild",
     "build": "cross-env NODE_ENV=production && rimraf public/dist && webpack && tsc",
     "lint": "eslint --cache --ext=ts,tsx,js src --fix",
     "release": "echo '...skipping...'",
