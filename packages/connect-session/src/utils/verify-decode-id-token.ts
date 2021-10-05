@@ -33,11 +33,10 @@ export const connectSessionVerifyDecodeIdTokenWithPublicKeys = async (
 
     const decodedToken = decode<DecodedToken<any>>(token)
 
-    console.log('decodedToken', decodedToken)
-
     const verifier = new IdTokenVerifier({
       issuer: cognitoIssuer,
       audience: decodedToken.aud,
+      leeway: 300,
     })
 
     // TODO what is state?
