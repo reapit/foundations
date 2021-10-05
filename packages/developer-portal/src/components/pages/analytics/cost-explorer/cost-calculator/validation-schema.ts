@@ -1,7 +1,7 @@
 import * as Yup from 'yup'
 import { formFields } from './form-fields'
 import errorMessages from '@/constants/error-messages'
-import { numberOnlyRegex } from '@reapit/utils'
+import { numberOnlyRegex } from '@reapit/utils-common'
 
 const { apiCallsField, endpointsUsedField } = formFields
 

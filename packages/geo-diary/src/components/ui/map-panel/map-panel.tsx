@@ -1,6 +1,6 @@
 import React from 'react'
 import { MapPanelContainer, mapPanelContainerExpanded, MapPanelItem } from './__styles__'
-import { isIOS } from '@reapit/elements-legacy'
+import { isIOS } from '@reapit/utils-common'
 import { Button, Subtitle, useMediaQuery } from '@reapit/elements'
 import { AppState, useAppState } from '../../../core/app-state'
 import { cx } from '@linaria/core'

@@ -5,7 +5,7 @@ import { SWRConfig } from 'swr'
 import { Routes } from '../constants/routes'
 import PrivateRouteWrapper from './private-route-wrapper'
 import { platformFetcher } from '../utils/fetcher'
-import { OkayPage } from '@reapit/utils'
+import { OkayPage } from '@reapit/utils-react'
 
 export const history = createBrowserHistory()
 

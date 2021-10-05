@@ -2,7 +2,7 @@ import reapitConnectSession from '../core/connect-session'
 import { ApiKey } from '../core/schema'
 import { UpdatePaymentModel } from '../types/payment'
 import axios from 'axios'
-import { stringifyError } from '@reapit/node-utils'
+import { stringifyError } from '@reapit/utils-node'
 
 export const updatePlatformPayment = async (
   result: ApiKey,

@@ -14,7 +14,7 @@ export const useSubObjects = (typeName?: string) => {
     }
   }
 
-  const subobjects = data.filter((type) => {
+  const subObjects = data.filter((type) => {
     const { list } = type
     if (!list) return false
     const { args } = list
@@ -26,7 +26,7 @@ export const useSubObjects = (typeName?: string) => {
   })
 
   return {
-    data: subobjects,
+    data: subObjects,
     error,
     loading,
   }

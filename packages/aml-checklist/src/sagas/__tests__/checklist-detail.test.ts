@@ -40,7 +40,7 @@ import { ContactModel, IdentityCheckModel } from '@reapit/foundations-ts-definit
 import { selectCheckListDetailContact, selectCheckListDetailIdCheck } from '@/selectors/checklist-detail'
 import { handlePepSearchStatus } from '@/utils/pep-search'
 import { EntityType, DynamicLinkParams, notification } from '@reapit/elements-legacy'
-import { extractNetworkErrString } from '@reapit/utils'
+import { extractNetworkErrString } from '@reapit/utils-common'
 
 const mockHeaders = {
   Authorization: '123',

@@ -1,8 +1,8 @@
-import { fetcher } from '@reapit/elements-legacy'
+import { fetcher } from '@reapit/utils-common'
 import { SettingsModel } from '../../types/settings'
 import { getSettingsService, updateSettingsService } from '../settings'
 
-jest.mock('@reapit/elements-legacy')
+jest.mock('@reapit/utils-common')
 jest.mock('../../core/connect-session')
 
 const mockedFetch = fetcher as jest.Mock

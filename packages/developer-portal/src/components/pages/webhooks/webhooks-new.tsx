@@ -15,7 +15,7 @@ import {
 import { yupResolver } from '@hookform/resolvers/yup'
 import { boolean, object, string } from 'yup'
 import errorMessages from '../../../constants/error-messages'
-import { httpsUrlRegex } from '@reapit/utils'
+import { httpsUrlRegex } from '@reapit/utils-common'
 import { Dispatch as ReduxDispatch } from 'redux'
 import { useDispatch, useSelector } from 'react-redux'
 import { WebhookCreateEditState } from '../../../reducers/webhooks-subscriptions/webhook-edit-modal'

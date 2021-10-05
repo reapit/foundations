@@ -1,7 +1,7 @@
 import { createPaymentReceiptInternal } from '../create-payment-receipt-internal'
 import { Response } from 'express'
 import { createPaymentReceiptTemplate } from '../../core/templates'
-import { AppRequest } from '@reapit/node-utils'
+import { AppRequest } from '@reapit/utils-node'
 
 jest.mock('../../core/ses-client', () => ({
   sendEmail: jest.fn(() => true),

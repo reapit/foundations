@@ -1,6 +1,6 @@
 import { Response } from 'express'
 import { logger } from '../../core/logger'
-import { AppRequest, stringifyError } from '@reapit/node-utils'
+import { AppRequest, stringifyError } from '@reapit/utils-node'
 import { FunctionExpression, AttributePath, equals } from '@aws/dynamodb-expressions'
 import { db } from '../../core/db'
 import { Automation } from '../../schemas/automation.schema'

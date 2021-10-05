@@ -8,7 +8,6 @@ import {
   toLocalTime,
   DATE_TIME_FORMAT,
   FadeIn,
-  combineAddress,
   Section,
   Helper,
   Table,
@@ -21,6 +20,7 @@ import { PaymentLogo } from '../ui/payment-logo'
 import PaymentsFilterForm from '../ui/payments-filter-form'
 import PaymentRequestModal from '../ui/payment-request-modal'
 import { buildFilterValues, handleTakePayment, onPageChangeHandler, onSearchHandler } from './payment-page-handlers'
+import { combineAddress } from '@reapit/utils-common'
 
 export const RequestedCell = ({ cell: { value } }) => <p>{toLocalTime(value, DATE_TIME_FORMAT.DATE_FORMAT)}</p>
 

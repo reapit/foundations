@@ -1,4 +1,4 @@
-import { AppRequest, stringifyError } from '@reapit/node-utils'
+import { AppRequest, stringifyError } from '@reapit/utils-node'
 import { Response, NextFunction } from 'express'
 import { db } from '../core/db'
 import { logger } from '../core/logger'

@@ -2,7 +2,7 @@ import { createApiKey } from '../create-api-key'
 import { logger } from '../../core/logger'
 import { db } from '../../core/db'
 import { Response } from 'express'
-import { AppRequest } from '@reapit/node-utils'
+import { AppRequest } from '@reapit/utils-node'
 
 jest.mock('../../core/logger')
 jest.mock('../../core/db')

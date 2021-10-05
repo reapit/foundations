@@ -5,9 +5,9 @@ import {
   ApproveModel,
   RejectRevisionModel,
 } from '@reapit/foundations-ts-definitions'
-import { fetcher, setQueryParams } from '@reapit/elements-legacy'
+import { fetcher, setQueryParams } from '@reapit/utils-common'
 import { URLS } from './constants'
-import { getPlatformHeaders, logger } from '@reapit/utils'
+import { getPlatformHeaders, logger } from '@reapit/utils-react'
 import { FetchByIdCommonParams, FetchListCommonParams } from './types'
 import { reapitConnectBrowserSession } from '../core/connect-session'
 

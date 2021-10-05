@@ -2,7 +2,7 @@ import { fetchApprovalListSuccess, fetchApprovalListFailed } from '@/actions/app
 import { put, fork, takeLatest, all, call } from '@redux-saga/core/effects'
 import ActionTypes from '@/constants/action-types'
 import { Action } from '@/types/core'
-import { extractNetworkErrString } from '@reapit/utils'
+import { extractNetworkErrString } from '@reapit/utils-common'
 import { fetchApprovalsList } from '@/services/approvals'
 import { notification } from '@reapit/elements-legacy'
 

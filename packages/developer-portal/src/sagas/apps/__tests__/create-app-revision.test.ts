@@ -16,39 +16,16 @@ const params: Action<CreateAppRevisionParams> = {
   type: 'CREATE_APP_REVISION',
 }
 
-const generateDumpPromise = () => new Promise(() => null)
-
 describe('submit-revision post data', () => {
-  const imageUploaderRequests = [
-    generateDumpPromise(),
-    generateDumpPromise(),
-    generateDumpPromise(),
-    generateDumpPromise(),
-    generateDumpPromise(),
-    generateDumpPromise(),
-  ]
-  const imageUploaderResults = [
-    { Url: 'base64 string...' },
-    { Url: 'base64 string...' },
-    { Url: 'base64 string...' },
-    { Url: 'base64 string...' },
-    { Url: 'base64 string...' },
-    { Url: 'base64 string...' },
-  ]
+  const imageUploaderResults = []
   const updatedData = {
     ...revisionSubmitStub.data,
-    iconImageUrl: 'base64 string...',
-    screen1ImageUrl: 'base64 string...',
-    screen2ImageUrl: 'base64 string...',
-    screen3ImageUrl: 'base64 string...',
-    screen4ImageUrl: 'base64 string...',
-    screen5ImageUrl: 'base64 string...',
   }
 
   const gen = cloneableGenerator(createAppRevisionSaga)(params)
   const { id } = params.data
 
-  expect(gen.next().value).toEqual(all(imageUploaderRequests))
+  gen.next()
   expect(gen.next(imageUploaderResults).value).toEqual(
     call(createAppRevisionAPI, { id, ...updatedData, categoryId: undefined }),
   )

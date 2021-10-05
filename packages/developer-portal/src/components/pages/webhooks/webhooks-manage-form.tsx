@@ -25,7 +25,7 @@ import React, { ChangeEvent, Dispatch, FC, SetStateAction, useEffect, useMemo, u
 import { yupResolver } from '@hookform/resolvers/yup'
 import { boolean, object, string } from 'yup'
 import errorMessages from '../../../constants/error-messages'
-import { httpsUrlRegex } from '@reapit/utils'
+import { httpsUrlRegex } from '@reapit/utils-common'
 import { useForm, UseFormGetValues } from 'react-hook-form'
 import { Dispatch as ReduxDispatch } from 'redux'
 import {
@@ -224,7 +224,6 @@ export const WebhooksManageForm: FC<WebhooksManageFormProps> = ({
           <MultiSelectInput
             className={elMb7}
             id={`topic-edit-ids-${id}`}
-            hasGreyChips
             defaultValues={[...new Set(topicIds)]}
             options={topicOptions}
             {...register('topicIds')}
@@ -238,7 +237,6 @@ export const WebhooksManageForm: FC<WebhooksManageFormProps> = ({
           <MultiSelectInput
             className={elMb7}
             id={`customer-edit-ids-${id}`}
-            hasGreyChips
             defaultValues={customerIds?.length ? [...new Set(customerIds)] : ['ALL']}
             options={customerOptions}
             {...register('customerIds')}

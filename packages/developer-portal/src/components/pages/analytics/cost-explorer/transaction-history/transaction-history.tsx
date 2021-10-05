@@ -15,7 +15,7 @@ import { URLS } from '@/services/constants'
 import FileSaver from 'file-saver'
 import { selectAppListState } from '@/selector/apps/app-list'
 import FadeIn from '../../../../../styles/fade-in'
-import { getPlatformHeaders } from '@reapit/utils'
+import { getPlatformHeaders } from '@reapit/utils-react'
 import { reapitConnectBrowserSession } from '../../../../../core/connect-session'
 import { Loader } from '@reapit/elements'
 

@@ -1,5 +1,5 @@
 import * as Yup from 'yup'
-import { emailRegex, telephoneRegex } from '@reapit/utils'
+import { emailRegex, telephoneRegex } from '@reapit/utils-common'
 import errorMessages from '@/constants/error-messages'
 import formFields from './form-fields'
 

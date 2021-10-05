@@ -6,8 +6,7 @@ import {
   DeveloperModelPagedResult,
   InstallationModelPagedResult,
 } from '@reapit/foundations-ts-definitions'
-import { getDefaultFetchListValue } from '@reapit/utils'
-import { FetchListResult } from '@reapit/utils'
+import { getDefaultFetchListValue, FetchListResult } from '@reapit/utils-common'
 
 export type StatisticsState = FetchListResult<
   AppSummaryModelPagedResult | DeveloperModelPagedResult | InstallationModelPagedResult

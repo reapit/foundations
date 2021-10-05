@@ -1,7 +1,8 @@
-jest.mock('@reapit/elements-legacy')
-import { fetcher } from '@reapit/elements-legacy'
+import { fetcher } from '@reapit/utils-common'
 import { CreateTransactionModel } from '../../types/opayo'
 import { opayoCreateTransactionService, opayoMerchantKeyService } from '../opayo'
+
+jest.mock('@reapit/utils-common')
 
 const mockResponse = 'success'
 const mockedFetch = fetcher as jest.Mock

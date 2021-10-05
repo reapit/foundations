@@ -1,5 +1,5 @@
-import { fetcher, isBase64 } from '@reapit/elements-legacy'
-import { getPlatformHeaders } from '@reapit/utils'
+import { fetcher, isBase64 } from '@reapit/utils-common'
+import { getPlatformHeaders } from '@reapit/utils-react'
 import { reapitConnectBrowserSession } from '../core/connect-session'
 import { URLS } from './constants'
 

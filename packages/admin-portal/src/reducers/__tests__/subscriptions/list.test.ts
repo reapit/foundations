@@ -4,7 +4,7 @@ import { defaultState as subscriptionListState } from '../../subscriptions/list'
 import { ActionType } from '../../../types/core'
 import ActionTypes from '../../../constants/action-types'
 import { subscriptionStub } from '@/sagas/subscriptions/__stubs__'
-import { errorMessages } from '@reapit/utils'
+import { errorMessages } from '@reapit/utils-common'
 
 describe('subscriptionsReducer reducer', () => {
   it('should return default state if action not matched', () => {

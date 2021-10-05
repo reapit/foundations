@@ -1,6 +1,6 @@
 import { ReapitConnectBrowserSession, ReapitConnectSession } from '@reapit/connect-session'
-import { fetcher } from '@reapit/elements-legacy'
-import { isDemo } from '@reapit/utils'
+import { fetcher } from '@reapit/utils-common'
+import { isDemo } from '@reapit/utils-react'
 
 export const handleDemoAuth = async (): Promise<null> => {
   if (!isDemo()) return null

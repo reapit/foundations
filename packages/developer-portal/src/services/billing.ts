@@ -1,6 +1,6 @@
-import { fetcher, setQueryParams } from '@reapit/elements-legacy'
+import { fetcher, setQueryParams } from '@reapit/utils-common'
 import { URLS } from './constants'
-import { getPlatformHeaders, logger } from '@reapit/utils'
+import { getPlatformHeaders, logger } from '@reapit/utils-react'
 import { BillingBreakdownForMonthV2Model } from '@reapit/foundations-ts-definitions'
 import { reapitConnectBrowserSession } from '../core/connect-session'
 

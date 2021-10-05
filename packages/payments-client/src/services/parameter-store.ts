@@ -1,7 +1,7 @@
 import { URLS } from '../constants/api'
-import { fetcher } from '@reapit/elements-legacy'
+import { fetcher } from '@reapit/utils-common'
 import { reapitConnectBrowserSession } from '../core/connect-session'
-import { logger } from '@reapit/utils'
+import { logger } from '@reapit/utils-react'
 
 export const fetchConfigWithKey = async (configKey: string): Promise<any | undefined> => {
   try {

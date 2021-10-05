@@ -1,4 +1,4 @@
-import { fetcher } from '@reapit/elements-legacy'
+import { fetcher } from '@reapit/utils-common'
 import { WebhookLogsQuery } from '../../components/pages/webhooks/webhooks-logs'
 import { mockWebhookLogs } from '../../sagas/__stubs__/webhooks'
 import { createWebhooksTopic, fetchWebhooksTopicById, updateWebhooksTopicById } from '../webhooks'
@@ -12,8 +12,8 @@ import {
   fetchWebhooksTopicsListApi,
 } from '../webhooks'
 
-jest.mock('@reapit/elements-legacy')
-jest.mock('@reapit/utils')
+jest.mock('@reapit/utils-common')
+jest.mock('@reapit/utils-react')
 
 const mockedFetch = fetcher as jest.Mock
 

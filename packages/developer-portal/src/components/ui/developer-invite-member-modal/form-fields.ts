@@ -1,4 +1,4 @@
-import { FormFieldInfo } from '@reapit/utils'
+import { FormFieldInfo } from '@reapit/utils-common'
 
 export type FieldKey = 'inviteNameField' | 'inviteEmailField' | 'inviteMessageField' | 'inviteJobTitleField'
 

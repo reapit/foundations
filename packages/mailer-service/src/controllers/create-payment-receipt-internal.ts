@@ -1,11 +1,11 @@
 import { NextFunction, Response } from 'express'
 import { sendEmail } from '../core/ses-client'
-import { AppRequest } from '@reapit/node-utils'
+import { AppRequest } from '@reapit/utils-node'
 import { ClientConfig, EmailPaymentReceipt } from '../types/payments'
 import configJson from '../../config.json'
 import { createPaymentReceiptTemplate } from '../core/templates'
 import logger from '../../../payments-service/src/core/logger'
-import { currencySymbolMapper } from '@reapit/utils/src/currency'
+import { currencySymbolMapper } from '@reapit/utils-common'
 
 export const getValuesFromConfig = (clientCode: string, config = configJson) => {
   try {

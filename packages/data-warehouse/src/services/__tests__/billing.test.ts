@@ -1,7 +1,7 @@
-import { fetcher } from '@reapit/elements-legacy'
+import { fetcher } from '@reapit/utils-common'
 import { getBillingByDatesService, getBillingByMonthService } from '../billing'
 
-jest.mock('@reapit/elements-legacy')
+jest.mock('@reapit/utils-common')
 jest.mock('../../core/connect-session')
 
 const mockedFetch = fetcher as jest.Mock

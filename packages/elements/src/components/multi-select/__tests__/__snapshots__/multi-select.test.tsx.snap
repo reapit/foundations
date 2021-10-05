@@ -32,19 +32,18 @@ exports[`MultiSelectInput should match a snapshot and render children 1`] = `
   <ElMultiSelectInput
     id="react-example"
   />
-  <MultiSelect>
+  <MultiSelectSelected>
     <MultiSelectChip
-      className=""
       defaultChecked={true}
       key="item-one"
       onChange={[Function]}
     >
       Item one
     </MultiSelectChip>
-  </MultiSelect>
-  <MultiSelect>
+  </MultiSelectSelected>
+  <MultiSelectUnSelected>
     <MultiSelectChip
-      className=""
+      className="el-has-grey-chips"
       defaultChecked={false}
       key="item-two"
       onChange={[Function]}
@@ -52,13 +51,77 @@ exports[`MultiSelectInput should match a snapshot and render children 1`] = `
       Item two
     </MultiSelectChip>
     <MultiSelectChip
-      className=""
+      className="el-has-grey-chips"
       defaultChecked={false}
       key="item-three"
       onChange={[Function]}
     >
       Item three
     </MultiSelectChip>
-  </MultiSelect>
+  </MultiSelectUnSelected>
 </Fragment>
+`;
+
+exports[`MultiSelectInput should match a snapshot and render non selected message where there are no selected items 1`] = `
+<Fragment>
+  <ElMultiSelectInput
+    id="react-example"
+  />
+  <MultiSelectSelected>
+    <Icon
+      className="el-ml2"
+      icon="selectInfographic"
+      iconSize="medium"
+    />
+    <p>
+      No items selected
+    </p>
+  </MultiSelectSelected>
+  <MultiSelectUnSelected>
+    <MultiSelectChip
+      className="el-has-grey-chips"
+      defaultChecked={false}
+      key="item-one"
+      onChange={[Function]}
+    >
+      Item one
+    </MultiSelectChip>
+    <MultiSelectChip
+      className="el-has-grey-chips"
+      defaultChecked={false}
+      key="item-two"
+      onChange={[Function]}
+    >
+      Item two
+    </MultiSelectChip>
+    <MultiSelectChip
+      className="el-has-grey-chips"
+      defaultChecked={false}
+      key="item-three"
+      onChange={[Function]}
+    >
+      Item three
+    </MultiSelectChip>
+  </MultiSelectUnSelected>
+</Fragment>
+`;
+
+exports[`MultiSelectSelected should match a snapshot and render children 1`] = `
+<ElMultiSelectSelected
+  className=""
+>
+  <span>
+    Some Value
+  </span>
+</ElMultiSelectSelected>
+`;
+
+exports[`MultiSelectUnSelected should match a snapshot and render children 1`] = `
+<ElMultiSelectUnSelected
+  className=""
+>
+  <span>
+    Some Value
+  </span>
+</ElMultiSelectUnSelected>
 `;

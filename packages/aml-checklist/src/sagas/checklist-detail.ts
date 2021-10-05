@@ -29,7 +29,7 @@ import {
   updateIdentityCheck,
   uploadImage,
 } from './api'
-import { extractNetworkErrString } from '@reapit/utils'
+import { extractNetworkErrString } from '@reapit/utils-common'
 
 export const fetchInitialData = function* ({ data: id }) {
   yield put(checklistDetailLoading(true))

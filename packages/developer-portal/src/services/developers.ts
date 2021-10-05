@@ -8,9 +8,9 @@ import {
   AcceptInviteModel,
   UpdateMemberModel,
 } from '@reapit/foundations-ts-definitions'
-import { fetcher } from '@reapit/elements-legacy'
+import { fetcher } from '@reapit/utils-common'
 import { URLS } from './constants'
-import { getPlatformHeaders, logger } from '@reapit/utils'
+import { getPlatformHeaders, logger } from '@reapit/utils-react'
 import { FetchListCommonParams, FetchByIdCommonParams } from './types'
 import { stringify } from 'query-string'
 import Routes from '../constants/routes'

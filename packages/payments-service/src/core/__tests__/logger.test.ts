@@ -1,7 +1,7 @@
 import { logger } from '../logger'
-import { createLogger } from '@reapit/node-utils'
+import { createLogger } from '@reapit/utils-node'
 
-jest.mock('@reapit/node-utils', () => ({
+jest.mock('@reapit/utils-node', () => ({
   createLogger: jest.fn(),
 }))
 

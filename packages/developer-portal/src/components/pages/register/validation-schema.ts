@@ -1,7 +1,7 @@
 import * as Yup from 'yup'
 import { formFields } from './form-fields'
 import errorMessages from '@/constants/error-messages'
-import { personNameRegex, telephoneRegex, emailRegex } from '@reapit/utils'
+import { personNameRegex, telephoneRegex, emailRegex } from '@reapit/utils-common'
 
 const { nameField, companyNameField, emailField, telephoneField } = formFields
 

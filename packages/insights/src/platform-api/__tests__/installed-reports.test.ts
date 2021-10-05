@@ -1,8 +1,8 @@
 import { getInstalledReportsService, InstalledReportPagedModel } from '../installed-reports'
 import { mockBrowserSession } from '../__mocks__/session'
-import { fetcher } from '@reapit/elements-legacy'
+import { fetcher } from '@reapit/utils-common'
 
-jest.mock('@reapit/elements-legacy')
+jest.mock('@reapit/utils-common')
 
 const mockedFetch = fetcher as jest.Mock
 const mockCredentialsResponse: InstalledReportPagedModel = {

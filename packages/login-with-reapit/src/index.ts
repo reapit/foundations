@@ -7,8 +7,9 @@ export interface ReapitConnectInitializers {
   connectUserPoolId: string
   connectLoginRedirectPath: string
   connectLogoutRedirectPath: string
-  connectContainerId: string
+  rootElement: Element | ShadowRoot | string
   connectHasSessionCallback: (session: ReapitConnectBrowserSession) => any
+  companyName: string
 }
 
 export const reapitConnectComponent = ({
@@ -17,8 +18,9 @@ export const reapitConnectComponent = ({
   connectUserPoolId,
   connectLoginRedirectPath,
   connectLogoutRedirectPath,
-  connectContainerId,
+  rootElement,
   connectHasSessionCallback,
+  companyName,
 }: ReapitConnectInitializers) => {
   const reapitConnectBrowserSession = new ReapitConnectBrowserSession({
     connectClientId,
@@ -29,10 +31,11 @@ export const reapitConnectComponent = ({
   })
 
   new ReapitConnectButtonComponent({
-    target: document.querySelector(connectContainerId) || document.body,
+    target: typeof rootElement === 'string' ? document.querySelector(rootElement) : (rootElement as Element),
     props: {
       reapitConnectBrowserSession,
       connectHasSessionCallback,
+      companyName,
     },
   })
 }

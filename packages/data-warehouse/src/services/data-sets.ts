@@ -1,5 +1,5 @@
-import { fetcher } from '@reapit/elements-legacy'
-import { getPlatformHeaders, logger } from '@reapit/utils'
+import { fetcher } from '@reapit/utils-common'
+import { getPlatformHeaders, logger } from '@reapit/utils-react'
 import { URLS } from '../constants/api'
 import { reapitConnectBrowserSession } from '../core/connect-session'
 import { PagedDatasetsModel } from '../types/data-sets'

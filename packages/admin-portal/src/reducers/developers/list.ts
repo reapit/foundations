@@ -7,7 +7,7 @@ import {
   fetchDeveloperMembersListSuccess,
 } from '../../actions/devs-management'
 import { DeveloperModelPagedResult, DeveloperModel, MemberModel } from '@reapit/foundations-ts-definitions'
-import { FetchDetailResult, getDefaultFetchListValue } from '@reapit/utils'
+import { FetchDetailResult, getDefaultFetchListValue } from '@reapit/utils-common'
 
 export type DeveloperData = DeveloperModel & {
   subRows?: MemberModel[]

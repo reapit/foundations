@@ -4,7 +4,7 @@ import ActionTypes from '@/constants/action-types'
 import { Action } from '@/types/core'
 import { fetchAppListSuccess } from '@/actions/apps-management'
 import { getParamsFromPath } from '@/utils/client-url-params'
-import { extractNetworkErrString } from '@reapit/utils'
+import { extractNetworkErrString } from '@reapit/utils-common'
 import { deleteAppById, fetchAppsList } from '@/services/apps'
 import { notification } from '@reapit/elements-legacy'
 

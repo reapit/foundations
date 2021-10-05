@@ -3,7 +3,7 @@ import IconButton from '../icon-button'
 import Grid, { Col } from '../grid'
 import * as styles from './__styles__'
 import { Label } from '@reapit/elements'
-import { isDemo } from '@reapit/utils'
+import { isDemo } from '@reapit/utils-react'
 
 interface AmlCheckContentProps {
   contactId: string

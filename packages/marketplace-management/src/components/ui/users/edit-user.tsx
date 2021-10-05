@@ -1,7 +1,7 @@
 import React, { useCallback } from 'react'
 import useSWR from 'swr'
 import qs from 'query-string'
-import { FormFieldInfo } from '@reapit/utils'
+import { FormFieldInfo } from '@reapit/utils-common'
 import {
   Button,
   Section,

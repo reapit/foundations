@@ -1,7 +1,8 @@
-import { fetcher, notification } from '@reapit/elements-legacy'
+import { notification } from '@reapit/elements-legacy'
+import { fetcher } from '@reapit/utils-common'
 import { reapitConnectBrowserSession } from '../core/connect-session'
 import { URLS } from '../constants/api'
-import { getPlatformHeaders, logger } from '@reapit/utils'
+import { getPlatformHeaders, logger } from '@reapit/utils-react'
 
 export const bulkInstall = async (
   installFor: (string | undefined)[],

@@ -1,13 +1,13 @@
 import * as React from 'react'
 import { Route, Router as BrowserRouter, Switch, Redirect } from 'react-router-dom'
-import { catchChunkError } from '@reapit/utils'
+import { catchChunkError } from '@reapit/utils-react'
 import Routes from '../constants/routes'
 import PrivateRoute from './private-route'
 import PrivateRouteWrapper from './private-route-wrapper'
 import { createBrowserHistory } from 'history'
 import { Info } from '@reapit/elements-legacy'
 import { PortalProvider } from '@reapit/elements-legacy'
-import { OkayPage } from '@reapit/utils'
+import { OkayPage } from '@reapit/utils-react'
 
 export const history = createBrowserHistory()
 const AppDetail = React.lazy(() => catchChunkError(() => import('../components/pages/app-detail/client')))
