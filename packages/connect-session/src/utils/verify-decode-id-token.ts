@@ -36,8 +36,6 @@ export const connectSessionVerifyDecodeIdTokenWithPublicKeys = async (
 
     const tokenSections = verifier.decode(token)
 
-    if (!tokenSections.header.key) throw new Error('Id verification claim made for unknown kid')
-
     // TODO what is state?
     const claim = (await new Promise<Claim>((resolve, reject) =>
       verifier.verify(token, undefined, (err: Error | null, payload: object | null) => {
