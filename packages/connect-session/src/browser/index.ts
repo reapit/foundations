@@ -177,8 +177,8 @@ export class ReapitConnectBrowserSession {
         idToken: id_token,
         loginIdentity,
       }
-    } catch (err: any) {
-      return this.handleError(`Reapit Connect Token Error ${err.message}`)
+    } catch (error: any) {
+      return this.handleError(error)
     }
   }
 
@@ -275,8 +275,8 @@ export class ReapitConnectBrowserSession {
 
       // The token endpoint failed to get a session so send me to login to get a new session
       this.connectAuthorizeRedirect()
-    } catch (err: any) {
-      return this.handleError(`Reapit Connect Session error ${err.message}`)
+    } catch (error: any) {
+      return this.handleError(error)
     }
   }
 }
