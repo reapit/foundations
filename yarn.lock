@@ -8542,7 +8542,6 @@ __metadata:
     eslint-plugin-prettier: ^3.4.0
     jest: ^27.0.6
     jest-coverage-badges: ^1.1.2
-    jwt-decode: ^3.1.2
     node-polyfill-webpack-plugin: ^1.1.4
     rimraf: ^3.0.2
     sirv-cli: ^1.0.12
