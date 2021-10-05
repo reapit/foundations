@@ -83,3 +83,122 @@ exports[`Steps should match a snapshot when selectedStep is different 1`] = `
   </ElStep>
 </ElSteps>
 `;
+
+exports[`StepsVertical should match a snapshot 1`] = `
+<ElStepsVertical
+  className=""
+>
+  <ElStepVertical
+    key="1"
+  >
+    <ElStepVerticalItem>
+      <ElStep
+        className=""
+        onClick={[Function]}
+      >
+        1
+      </ElStep>
+    </ElStepVerticalItem>
+    <ElStepVerticalContent>
+      Lorem, ipsum dolor
+    </ElStepVerticalContent>
+  </ElStepVertical>
+  <ElStepVertical
+    key="2"
+  >
+    <ElStepVerticalItem>
+      <ElStep
+        className=""
+        onClick={[Function]}
+      >
+        2
+      </ElStep>
+    </ElStepVerticalItem>
+    <ElStepVerticalContent>
+      Lorem, ipsum dolor
+    </ElStepVerticalContent>
+  </ElStepVertical>
+  <ElStepVertical
+    key="3"
+  >
+    <ElStepVerticalItem>
+      <ElStep
+        className=""
+        onClick={[Function]}
+      >
+        3
+      </ElStep>
+    </ElStepVerticalItem>
+    <ElStepVerticalContent>
+      Lorem, ipsum dolor
+    </ElStepVerticalContent>
+  </ElStepVertical>
+  <ElStepVertical
+    key="4"
+  >
+    <ElStepVerticalItem>
+      <ElStep
+        className=""
+        onClick={[Function]}
+      >
+        4
+      </ElStep>
+    </ElStepVerticalItem>
+    <ElStepVerticalContent>
+      Lorem, ipsum dolor
+    </ElStepVerticalContent>
+  </ElStepVertical>
+  <ElStepVertical
+    key="5"
+  >
+    <ElStepVerticalItem>
+      <ElStep
+        className="el-is-active"
+        onClick={[Function]}
+      >
+        5
+      </ElStep>
+    </ElStepVerticalItem>
+    <ElStepVerticalContent>
+      Lorem, ipsum dolor
+    </ElStepVerticalContent>
+  </ElStepVertical>
+</ElStepsVertical>
+`;
+
+exports[`StepsVertical should match a snapshot when selectedStep is different 1`] = `
+<ElStepsVertical
+  className=""
+>
+  <ElStepVertical
+    key="1"
+  >
+    <ElStepVerticalItem>
+      <ElStep
+        className=""
+        onClick={[Function]}
+      >
+        1
+      </ElStep>
+    </ElStepVerticalItem>
+    <ElStepVerticalContent>
+      Lorem, ipsum dolor
+    </ElStepVerticalContent>
+  </ElStepVertical>
+  <ElStepVertical
+    key="2"
+  >
+    <ElStepVerticalItem>
+      <ElStep
+        className="el-is-active"
+        onClick={[Function]}
+      >
+        2
+      </ElStep>
+    </ElStepVerticalItem>
+    <ElStepVerticalContent>
+      Lorem, ipsum dolor
+    </ElStepVerticalContent>
+  </ElStepVertical>
+</ElStepsVertical>
+`;
