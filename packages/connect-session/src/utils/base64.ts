@@ -38,14 +38,14 @@ export function encodeString(str) {
         }),
       ),
     )
-    .replace(/\+/g, '-') // Convert '+' to '-'
-    .replace(/\//g, '_') // Convert '/' to '_';
+    .replace(/\+/g, '-')
+    .replace(/\//g, '_')
 }
 
 export function decodeToString(str) {
   str = padding(str)
-    .replace(/-/g, '+') // Convert '-' to '+'
-    .replace(/_/g, '/') // Convert '_' to '/'
+    .replace(/-/g, '+')
+    .replace(/_/g, '/')
 
   return decodeURIComponent(
     byteArrayToString(base64.toByteArray(str))
