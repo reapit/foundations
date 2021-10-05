@@ -1,8 +1,8 @@
 import { ReapitConnectServerSession } from '../index'
-import { mockTokenResponse, mockServerInitializers } from '../../__mocks__/session'
+import { mockTokenResponse, mockServerInitializers, createMockToken } from '../../__mocks__/session'
 import axios from 'axios'
 
-jest.mock('jsonwebtoken', () => ({
+jest.mock('idtoken-verifier', () => ({
   decode: (token: string) => {
     return JSON.parse(token)
   },
@@ -43,7 +43,7 @@ describe('ReapitConnectServerSession', () => {
   })
 
   it('should make a second call and fetch a new session from endpoint if a cached session has expired', async () => {
-    const expiringAccessToken = JSON.stringify({
+    const expiringAccessToken = createMockToken({
       exp: Math.round(new Date().getTime() / 1000), // time now, token is expiring
     })
     ;(axios.post as jest.Mock).mockReturnValueOnce({

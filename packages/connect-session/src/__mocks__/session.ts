@@ -4,6 +4,12 @@ import {
   ReapitConnectServerSessionInitializers,
   CoginitoSession,
 } from '../types'
+import * as base64 from './../utils/base64'
+
+export const createMockToken = (token: { [s: string]: any } | string): string =>
+  `${base64.encodeString('{}')}.${base64.encodeString(
+    typeof token === 'string' ? token : JSON.stringify(token),
+  )}.${base64.encodeString('{}')}`
 
 export const mockLoginIdentity = {
   email: 'name@mail.com',
@@ -22,11 +28,11 @@ export const mockLoginIdentity = {
 }
 
 export const mockBrowserSession: ReapitConnectSession = {
-  accessToken: JSON.stringify({
+  accessToken: createMockToken({
     exp: Math.round(new Date().getTime() / 1000) + 360, // time now + 6mins - we refresh session if expiry within 5mins
   }),
   refreshToken: 'SOME_REFRESH_TOKEN',
-  idToken: JSON.stringify({
+  idToken: createMockToken({
     name: mockLoginIdentity.name,
     email: mockLoginIdentity.email,
     'custom:reapit:developerId': mockLoginIdentity.developerId,

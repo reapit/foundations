@@ -34,8 +34,8 @@
   },
   "dependencies": {
     "axios": "^0.21.1",
+    "idtoken-verifier": "^2.2.1",
     "isomorphic-fetch": "^3.0.0",
-    "jsonwebtoken": "^8.5.1",
     "jwk-to-pem": "^2.0.5",
     "snyk": "^1.662.0"
   },

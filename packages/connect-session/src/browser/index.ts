@@ -1,5 +1,4 @@
 import 'isomorphic-fetch'
-import jwt from 'jsonwebtoken'
 import {
   ReapitConnectBrowserSessionInitializers,
   ReapitConnectSession,
@@ -8,6 +7,7 @@ import {
   CoginitoSession,
 } from '../types'
 import { connectSessionVerifyDecodeIdToken } from '../utils/verify-decode-id-token'
+import { decodeJWT } from '../utils'
 
 export class ReapitConnectBrowserSession {
   // Static constants
@@ -125,7 +125,7 @@ export class ReapitConnectBrowserSession {
   // Check on access token to see if has expired - they last 1hr only before I need to refresh
   private get sessionExpired() {
     if (this.session) {
-      const decoded = jwt.decode(this.session.accessToken) as CoginitoAccess
+      const decoded = decodeJWT(this.session.accessToken).payload as CoginitoAccess
       const expiry = decoded['exp']
       const fiveMinsFromNow = Math.round(new Date().getTime() / 1000) + 300
       return expiry ? expiry < fiveMinsFromNow : true
@@ -177,7 +177,7 @@ export class ReapitConnectBrowserSession {
         idToken: id_token,
         loginIdentity,
       }
-    } catch (err) {
+    } catch (err: any) {
       return this.handleError(`Reapit Connect Token Error ${err.message}`)
     }
   }
@@ -275,7 +275,7 @@ export class ReapitConnectBrowserSession {
 
       // The token endpoint failed to get a session so send me to login to get a new session
       this.connectAuthorizeRedirect()
-    } catch (err) {
+    } catch (err: any) {
       return this.handleError(`Reapit Connect Session error ${err.message}`)
     }
   }

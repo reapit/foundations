@@ -1,10 +1,11 @@
 import { FetchMock } from 'jest-fetch-mock'
 import { ReapitConnectBrowserSession } from '../index'
-import { mockTokenResponse, mockBrowserSession } from '../../__mocks__/session'
+import { mockTokenResponse, mockBrowserSession, createMockToken } from '../../__mocks__/session'
 import { mockBrowserInitializers } from '../../__mocks__/session'
 
-jest.mock('jsonwebtoken', () => ({
+jest.mock('idtoken-verifier', () => ({
   decode: (token: string) => {
+    console.log('token from modk', token)
     return JSON.parse(token)
   },
 }))
@@ -47,7 +48,7 @@ describe('ReapitConnectBrowserSession', () => {
   it('should return false from connectHasSession if session has expired', () => {
     const expiredSession = {
       ...mockBrowserSession,
-      accessToken: JSON.stringify({ exp: Math.round(new Date().getTime() / 1000) }),
+      accessToken: createMockToken({ exp: Math.round(new Date().getTime() / 1000) }),
     }
 
     const session = getSession()
@@ -106,7 +107,7 @@ describe('ReapitConnectBrowserSession', () => {
 
     const expiredSession = {
       ...mockBrowserSession,
-      accessToken: JSON.stringify({ exp: Math.round(new Date().getTime() / 1000) }),
+      accessToken: createMockToken({ exp: Math.round(new Date().getTime() / 1000) }),
     }
 
     const session = getSession()
@@ -133,7 +134,7 @@ describe('ReapitConnectBrowserSession', () => {
 
     const expiredSession = {
       ...mockBrowserSession,
-      accessToken: JSON.stringify({ exp: Math.round(new Date().getTime() / 1000) }),
+      accessToken: createMockToken({ exp: Math.round(new Date().getTime() / 1000) }),
       refreshToken: '',
     }
 
