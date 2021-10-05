@@ -82,6 +82,53 @@ const shouldDisplay = ([key, value]: [string, any | undefined | null], subobject
   return !isHidden && !isId && !isSubObject
 }
 
+const getDataCells = (row: any, subobjectNames: string[]) =>
+  Object.entries(row)
+    .filter((entry) => shouldDisplay(entry, subobjectNames))
+    .map(([label, value]) => ({
+      label: uppercaseSentence(label),
+      value: (typeof value === 'object' ? undefined : value) as string,
+      children: typeof value === 'object' ? <ObjectTableCell obj={value} /> : undefined,
+      narrowTable: {
+        showLabel: true,
+      },
+    }))
+
+const getAdditionalCells = (
+  specialsAndSubobjects: { name: string; label: string }[],
+  props: Record<string, any>,
+  rowId: string,
+  typeName: string,
+  context: any,
+  historyPush: (dest: string) => void,
+  appId?: string,
+) =>
+  specialsAndSubobjects.map(({ name, label }) => {
+    const pageId = props[`${name}Page`]
+    if (!pageId) return null
+    return {
+      label,
+      value: '',
+      children: (
+        <Button
+          onClick={() => {
+            const pathname = path.join('/', appId || '', pageId === '~' ? '' : pageId)
+            const ctx = {
+              ...context,
+              [lowercaseFirstLetter(`${typeName}Id`)]: rowId,
+            }
+            historyPush(`${pathname}?${qs.stringify(ctx)}`)
+          }}
+        >
+          {label}
+        </Button>
+      ),
+      narrowTable: {
+        showLabel: true,
+      },
+    }
+  })
+
 export const Table = forwardRef<HTMLDivElement, TableProps & { disabled?: boolean }>(
   ({ typeName, editPageId, showControls, disabled, ...props }, ref) => {
     const { data, loading } = useObjectList(typeName)
@@ -93,57 +140,21 @@ export const Table = forwardRef<HTMLDivElement, TableProps & { disabled?: boolea
     const { context, appId } = usePageId()
 
     const subobjectNames = subobjects.data.map(({ object: { name } }) => name)
+    const specialsAndSubobjects = [
+      ...specials.map(({ name }) => ({ name, label: uppercaseSentence(name) })),
+      ...subobjects.data.map(({ object }) => ({
+        name: object.name,
+        label: `View ${uppercaseSentence(object.name)}s`,
+      })),
+    ]
 
     const rows =
       data &&
       typeName &&
       data.map((row) => {
-        let cells = Object.entries(row)
-          .filter((entry) => shouldDisplay(entry, subobjectNames))
-          .map(([label, value]) => ({
-            label: uppercaseSentence(label),
-            value: (typeof value === 'object' ? undefined : value) as string,
-            children: typeof value === 'object' ? <ObjectTableCell obj={value} /> : undefined,
-            narrowTable: {
-              showLabel: true,
-            },
-          }))
-
-        const specialsAndSubobjects = [
-          ...specials.map(({ name }) => ({ name, label: uppercaseSentence(name) })),
-          ...subobjects.data.map(({ object }) => ({
-            name: object.name,
-            label: `View ${uppercaseSentence(object.name)}s`,
-          })),
-        ]
-
-        cells = [
-          ...cells,
-          ...specialsAndSubobjects.map(({ name, label }) => {
-            const pageId = props[`${name}Page`]
-            if (!pageId) return null
-            return {
-              label,
-              value: '',
-              children: (
-                <Button
-                  onClick={() => {
-                    const pathname = path.join('/', appId || '', pageId === '~' ? '' : pageId)
-                    const ctx = {
-                      ...context,
-                      [lowercaseFirstLetter(`${typeName}Id`)]: row.id,
-                    }
-                    history.push(`${pathname}?${qs.stringify(ctx)}`)
-                  }}
-                >
-                  {label}
-                </Button>
-              ),
-              narrowTable: {
-                showLabel: true,
-              },
-            }
-          }),
+        const cells = [
+          ...getDataCells(row, subobjectNames),
+          ...getAdditionalCells(specialsAndSubobjects, props, row.id, typeName, context, history.push, appId),
         ].filter(notEmpty)
 
         if (!showControls) {
