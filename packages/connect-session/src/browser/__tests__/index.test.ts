@@ -5,7 +5,6 @@ import { mockBrowserInitializers } from '../../__mocks__/session'
 
 jest.mock('idtoken-verifier', () => ({
   decode: (token: string) => {
-    console.log('token from modk', token)
     return JSON.parse(token)
   },
 }))
