@@ -6,7 +6,7 @@ export const createSnsTopic = (stack: CdkStack): Topic => {
   return new Topic(stack as any, 'cloud-deployment-service-codebuild-topic', {
     contentBasedDeduplication: true,
     displayName: 'codebuild topic sns for deployment-service',
-    fifo: true,
+    fifo: false,
     topicName: 'cloud-deployment-service-codebuild-topic',
   })
 }
