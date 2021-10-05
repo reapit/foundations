@@ -9,21 +9,21 @@ import { Button, ButtonGroup } from '../button'
 
 # Steps
 
-Used to indicate position in a process - for example a Wizard.
+Used to indicate position in a process. There are two flavours of steps - the basic one is inline, for use as progress indicator or to toggle a transition between elements. The second is vertical and allows content to be inserted alongside each step - useful for vertical in page wizards.
 
-Props available for the React version of the component;
+Props available for the React version of the basic inline `Steps` component.
 
 <ArgsTable component={ArgsTable} />
 
-## Basic Usage
+## Basic Steps Usage
 
 <Canvas>
-  <Story name="Basic Usage">
+  <Story name="Basic Steps Usage">
     <Steps steps={['1', '2', '3', '4', '5']} />
   </Story>
 </Canvas>
 
-<RenderHtmlMarkup component="Steps" story="Basic Usage" />
+<RenderHtmlMarkup component="Steps" story="Basic Steps Usage" />
 
 <ArgsTable of={Steps} />
 
@@ -55,6 +55,8 @@ Be aware though, steps with long text **aren't supported** and will not render v
 
 ## React example with `useState`
 
+In the react example we have used the `useState` hook to keep track of the current selected step, passing the setter to the component so that the transition can be managed onClick.
+
 <Canvas>
   <Story name="React example">
     {() => {
@@ -64,7 +66,22 @@ Be aware though, steps with long text **aren't supported** and will not render v
   </Story>
 </Canvas>
 
-## React example with `useState`
+## Steps Vertical
+
+The vertical steps component lays the steps to the right of content containers. In the example, we use the `useState` hook to hide and show each step onClick. The HTML container as always, shows the rendered markup for non React users.
+
+The available React props are;
+
+<ArgsTable of={StepsVertical} />
+
+Were `StepsVerticalStep` is defined below;
+
+```ts
+export interface StepsVerticalStep {
+  item: string
+  content?: ReactNode
+}
+```
 
 <Canvas>
   <Story name="Steps Vertical">
@@ -166,3 +183,5 @@ Be aware though, steps with long text **aren't supported** and will not render v
     }}
   </Story>
 </Canvas>
+
+<RenderHtmlMarkup component="Steps" story="Steps Vertical" />
