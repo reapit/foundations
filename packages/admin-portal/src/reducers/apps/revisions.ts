@@ -9,7 +9,7 @@ import {
   fetchRevision,
 } from '@/actions/revision-detail'
 import { PagedResultDesktopIntegrationTypeModel_ } from '@/types/desktop-integration-types'
-import { FetchDetailResult, getDefaultFetchDetailValue } from '@reapit/utils'
+import { FetchDetailResult, getDefaultFetchDetailValue } from '@reapit/utils-common'
 
 export interface RevisionDetailItem {
   data: AppRevisionModel

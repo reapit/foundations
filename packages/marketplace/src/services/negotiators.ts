@@ -1,5 +1,5 @@
-import { getPlatformHeaders, logger } from '@reapit/utils'
-import { fetcher, setQueryParams } from '@reapit/elements-legacy'
+import { getPlatformHeaders, logger } from '@reapit/utils-react'
+import { fetcher, setQueryParams } from '@reapit/utils-common'
 import { NegotiatorModelPagedResult } from '@reapit/foundations-ts-definitions'
 import { URLS, API_VERSION } from './constants'
 import { reapitConnectBrowserSession } from '../core/connect-session'

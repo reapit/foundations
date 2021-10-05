@@ -1,4 +1,4 @@
-import { fetcher, fetcherWithReturnHeader } from '@reapit/elements-legacy'
+import { fetcher, fetcherWithReturnHeader } from '@reapit/utils-common'
 import { AccountCreateModel } from '../../types/accounts'
 import {
   createAccountsService,
@@ -9,7 +9,7 @@ import {
 } from '../accounts'
 import { stubAccounts } from '../__stubs__/accounts'
 
-jest.mock('@reapit/elements-legacy')
+jest.mock('@reapit/utils-common')
 jest.mock('../../core/connect-session')
 
 const mockedFetch = fetcher as jest.Mock

@@ -7,7 +7,7 @@ import {
 import { cloneableGenerator } from '@redux-saga/testing-utils'
 import { setInstallationsFormState, UninstallParams, InstallParams } from '@/actions/installations'
 import { put, call, takeLatest, fork, all } from 'redux-saga/effects'
-import { getLoggedUserEmail, getDeveloperId } from '@/utils/session'
+import { getLoggedUserEmail, getClientId } from '@/utils/session'
 import errorMessages from '@/constants/error-messages'
 import { createInstallation, removeAccessToAppById, RemoveAccessToAppByIdParams } from '@/services/installations'
 import { Action } from '@/types/core'
@@ -29,8 +29,8 @@ const uninstallParams = {
 describe('createInstallationSaga', () => {
   const gen = cloneableGenerator(createInstallationSaga)(installParams)
   expect(gen.next().value).toEqual(put(setInstallationsFormState('SUBMITTING')))
-  expect(gen.next().value).toEqual(getLoggedUserEmail())
-  expect(gen.next('1').value).toEqual(getDeveloperId())
+  expect(gen.next().value).toEqual(call(getLoggedUserEmail))
+  expect(gen.next('1').value).toEqual(call(getClientId))
 
   test('clientId not exist', () => {
     const clone = gen.clone()
@@ -49,7 +49,7 @@ describe('createInstallationSaga', () => {
 describe('appUninstallSaga', () => {
   const gen = cloneableGenerator(requestInstallationTerminateSaga)(uninstallParams)
   expect(gen.next().value).toEqual(put(setInstallationsFormState('SUBMITTING')))
-  expect(gen.next().value).toEqual(getLoggedUserEmail())
+  expect(gen.next().value).toEqual(call(getLoggedUserEmail))
 
   expect(gen.next('1').value).toEqual(
     call(removeAccessToAppById, { ...uninstallParams.data, terminatedBy: '1' } as RemoveAccessToAppByIdParams),

@@ -8,7 +8,7 @@ import { FaSearch } from 'react-icons/fa'
 import { CategoryModel } from '@reapit/foundations-ts-definitions'
 import { selectCategories } from '@/selector/categories'
 import { addQuery, removeQuery, getParamValueFromPath } from '@/utils/client-url-params'
-import { cleanObject } from '@reapit/utils'
+import { cleanObject } from '@reapit/utils-common'
 import { validationSchema } from './validation-schema'
 import { FormFields, formFields } from './form-fields'
 

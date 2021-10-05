@@ -1,5 +1,5 @@
 import dayjs from 'dayjs'
-import { cleanObject } from '@reapit/utils'
+import { cleanObject } from '@reapit/utils-common'
 import { PaymentsFilterFormValues } from '../ui/payments-filter-form'
 import { DATE_TIME_FORMAT, isEmptyObject, setQueryParams } from '@reapit/elements-legacy'
 import { History } from 'history'

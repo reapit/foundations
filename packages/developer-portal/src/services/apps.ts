@@ -9,9 +9,9 @@ import {
   RejectRevisionModel,
   AppClientSecretModel,
 } from '@reapit/foundations-ts-definitions'
-import { fetcher, fetcherWithReturnHeader, fetcherWithRawUrl, setQueryParams } from '@reapit/elements-legacy'
+import { fetcher, fetcherWithReturnHeader, fetcherWithRawUrl, setQueryParams } from '@reapit/utils-common'
 import { URLS } from './constants'
-import { logger, getPlatformHeaders } from '@reapit/utils'
+import { logger, getPlatformHeaders } from '@reapit/utils-react'
 import { FetchByIdCommonParams, FetchListCommonParams } from './types'
 import { reapitConnectBrowserSession } from '../core/connect-session'
 

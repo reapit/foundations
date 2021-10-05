@@ -1,6 +1,6 @@
 import * as React from 'react'
 import { notification, Helper } from '@reapit/elements-legacy'
-import { logger } from '@reapit/utils'
+import { logger } from '@reapit/utils-react'
 
 export interface ErrorState {
   hasFailed: boolean

@@ -1,6 +1,6 @@
 import React, { useState } from 'react'
 import useSWR from 'swr'
-import { FormFieldInfo } from '@reapit/utils'
+import { FormFieldInfo } from '@reapit/utils-common'
 import {
   Button,
   Section,

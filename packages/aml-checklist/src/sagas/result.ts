@@ -5,7 +5,7 @@ import { Action } from '@/types/core'
 import { resultReceiveData, resultRequestDataFailure, ContactsParams } from '@/actions/result'
 import { initAuthorizedRequestHeaders } from '@/utils/api'
 import { fetchContact } from './api'
-import { extractNetworkErrString } from '@reapit/utils'
+import { extractNetworkErrString } from '@reapit/utils-common'
 
 export const resultFetch = function* (params: Action<ContactsParams>) {
   try {

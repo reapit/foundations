@@ -11,7 +11,7 @@ import { put, call, fork, takeLatest, all, select } from '@redux-saga/core/effec
 import ActionTypes from '@/constants/action-types'
 import { Action } from '@/types/core'
 import { approvalsDataFetch } from '../approvals/approvals'
-import { extractNetworkErrString, errorMessages } from '@reapit/utils'
+import { extractNetworkErrString, errorMessages } from '@reapit/utils-common'
 import { fetchAppRevisionsById, approveAppRevisionById, rejectAppRevisionById } from '@/services/apps'
 import { fetchScopesList } from '@/services/scopes'
 import { fetchDesktopIntegrationTypesList } from '@/services/desktop-integration-types'

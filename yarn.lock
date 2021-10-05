@@ -6275,6 +6275,29 @@ __metadata:
   languageName: node
   linkType: hard
 
+"@jest/transform@npm:^27.1.0":
+  version: 27.2.4
+  resolution: "@jest/transform@npm:27.2.4"
+  dependencies:
+    "@babel/core": ^7.1.0
+    "@jest/types": ^27.2.4
+    babel-plugin-istanbul: ^6.0.0
+    chalk: ^4.0.0
+    convert-source-map: ^1.4.0
+    fast-json-stable-stringify: ^2.0.0
+    graceful-fs: ^4.2.4
+    jest-haste-map: ^27.2.4
+    jest-regex-util: ^27.0.6
+    jest-util: ^27.2.4
+    micromatch: ^4.0.4
+    pirates: ^4.0.1
+    slash: ^3.0.0
+    source-map: ^0.6.1
+    write-file-atomic: ^3.0.0
+  checksum: 8732959e09df1dde798eb7fa6ac6b5ad67b59f800d95151e8f96125d65e940c74d81ffb5a16d5c79c44f188ad61ec612ba55739883b844513c9ed088cf7214e6
+  languageName: node
+  linkType: hard
+
 "@jest/types@npm:^25.5.0":
   version: 25.5.0
   resolution: "@jest/types@npm:25.5.0"
@@ -6310,6 +6333,19 @@ __metadata:
     "@types/yargs": ^16.0.0
     chalk: ^4.0.0
   checksum: 86c1d8707ffcf8fb3574fa6865e1768d771c83494df5bfdc81199cac81fdbe947c69a7c113d03b7bf21c926bbfefffcfe7253138d6e52bb61a1386e05aff2a6b
+  languageName: node
+  linkType: hard
+
+"@jest/types@npm:^27.1.0, @jest/types@npm:^27.2.4":
+  version: 27.2.4
+  resolution: "@jest/types@npm:27.2.4"
+  dependencies:
+    "@types/istanbul-lib-coverage": ^2.0.0
+    "@types/istanbul-reports": ^3.0.0
+    "@types/node": "*"
+    "@types/yargs": ^16.0.0
+    chalk: ^4.0.0
+  checksum: 1e753c4fef7fed4bb9f3a9c2c2cd7d97317851a065c95aa8461dacdf7bdb5c6fa7a319d011869086dc5a45226280a844a4a6696dbe4a14b2e2449250db10fd46
   languageName: node
   linkType: hard
 
@@ -7243,6 +7279,24 @@ __metadata:
   languageName: node
   linkType: hard
 
+"@linaria/babel-preset@npm:^3.0.0-beta.13":
+  version: 3.0.0-beta.13
+  resolution: "@linaria/babel-preset@npm:3.0.0-beta.13"
+  dependencies:
+    "@babel/generator": ">=7"
+    "@babel/plugin-syntax-dynamic-import": ">=7"
+    "@babel/template": ">=7"
+    "@linaria/core": ^3.0.0-beta.13
+    "@linaria/logger": ^3.0.0-beta.3
+    cosmiconfig: ^5.1.0
+    source-map: ^0.7.3
+    stylis: ^3.5.4
+  peerDependencies:
+    "@babel/core": ">=7"
+  checksum: db1ff09504f0ba6c563f4b4ccc6dfa2895aa4cb9ed4b2cf97d2c161a8e513739ae4311d9c1e3756871294d4ef6d1c3e54b9bc6a6258e041961f88363381aa970
+  languageName: node
+  linkType: hard
+
 "@linaria/babel-preset@npm:^3.0.0-beta.4, @linaria/babel-preset@npm:^3.0.0-beta.7":
   version: 3.0.0-beta.7
   resolution: "@linaria/babel-preset@npm:3.0.0-beta.7"
@@ -7258,6 +7312,13 @@ __metadata:
   peerDependencies:
     "@babel/core": ">=7"
   checksum: 97f6641af35caebe74bf8e0ee51e3cf0a58841558dbcfb69c56709f61cd43c3b70b7db30f3b30b04e60cd5aa5b7b1e2592a6795887c39f18cc1f162415ed9340
+  languageName: node
+  linkType: hard
+
+"@linaria/core@npm:^3.0.0-beta.13":
+  version: 3.0.0-beta.13
+  resolution: "@linaria/core@npm:3.0.0-beta.13"
+  checksum: 52f6b3849d0c5e1e4e26ca5cefb2f50f3db92dabf619af431f8cded70fd4e58479bfc17e1362391c05eeb7a08110d390a728b18ad350720ffb36576ab091d690
   languageName: node
   linkType: hard
 
@@ -7297,6 +7358,18 @@ __metadata:
   peerDependencies:
     react: ">=16"
   checksum: 1f2eee0f8c764cae9b858a7582a1b6d43fa760634f4ab5dc4e603124fd27f1052051e20c15611407c4d4971c4d04ea6a5ae69c6b1eb7ba33ccf04989e2dbec6f
+  languageName: node
+  linkType: hard
+
+"@linaria/rollup@npm:^3.0.0-beta.13":
+  version: 3.0.0-beta.13
+  resolution: "@linaria/rollup@npm:3.0.0-beta.13"
+  dependencies:
+    "@linaria/babel-preset": ^3.0.0-beta.13
+    "@rollup/pluginutils": ^4.1.0
+  peerDependencies:
+    "@babel/core": ">=7"
+  checksum: fda80c50ee354731bc6f231cede503bc9f1100bda7182b7abdf8b8e207e6a4e3a1af258f7505708d7f54c281e364af26c9e9af52b704d7f385015e0207ff5495
   languageName: node
   linkType: hard
 
@@ -8451,9 +8524,13 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "@reapit/login-with-reapit@workspace:packages/login-with-reapit"
   dependencies:
+    "@linaria/rollup": ^3.0.0-beta.13
     "@reapit/connect-session": "workspace:packages/connect-session"
     "@reapit/ts-scripts": "workspace:packages/ts-scripts"
     "@reapit/ts-types": "workspace:packages/ts-types"
+    "@rollup/plugin-json": ^4.1.0
+    "@rollup/plugin-typescript": ^8.2.5
+    "@svgr/rollup": ^5.5.0
     "@testing-library/svelte": ^3.0.3
     "@typescript-eslint/eslint-plugin": ^4.28.4
     "@typescript-eslint/parser": ^4.28.4
@@ -8466,11 +8543,16 @@ __metadata:
     jest: ^27.0.6
     jest-coverage-badges: ^1.1.2
     node-polyfill-webpack-plugin: ^1.1.4
+    rimraf: ^3.0.2
+    rollup: ^2.58.0
+    rollup-plugin-css-only: ^3.1.0
+    rollup-plugin-node-polyfills: ^0.2.1
+    rollup-plugin-svelte: ^7.1.0
     sirv-cli: ^1.0.12
     svelte: ^3.34.0
     svelte-jester: ^1.7.0
     svelte-loader: ^2.13.6
-    svelte-preprocess: ^4.6.9
+    svelte-preprocess: ^4.9.8
     webpack: ^5.45.1
     webpack-cli: ^4.7.2
   languageName: unknown
@@ -8515,7 +8597,7 @@ __metadata:
     "@typescript-eslint/parser": ^4.28.4
     "@wojtekmaj/enzyme-adapter-react-17": ^0.6.3
     autoprefixer: ^10.3.1
-    babel-jest: 27.0.6
+    babel-jest: 27.1.0
     babel-loader: ^8.2.2
     babel-plugin-module-resolver: ^4.1.0
     concurrently: ^6.2.0
@@ -8617,9 +8699,31 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@reapit/utils@workspace:packages/utils":
+"@reapit/utils-common@workspace:packages/utils-common":
   version: 0.0.0-use.local
-  resolution: "@reapit/utils@workspace:packages/utils"
+  resolution: "@reapit/utils-common@workspace:packages/utils-common"
+  dependencies:
+    "@linaria/shaker": ^3.0.0-beta.8
+    "@reapit/config-manager": "workspace:packages/config-manager"
+    "@reapit/foundations-ts-definitions": "workspace:packages/foundations-ts-definitions"
+    "@reapit/ts-scripts": "workspace:packages/ts-scripts"
+    "@reapit/ts-types": "workspace:packages/ts-types"
+    "@typescript-eslint/eslint-plugin": ^4.28.4
+    "@typescript-eslint/parser": ^4.28.4
+    babel-jest: ^27.0.6
+    concurrently: ^6.2.0
+    cross-env: ^7.0.3
+    eslint: 7.31.0
+    eslint-plugin-prettier: ^3.4.0
+    jest: ^27.0.6
+    jest-coverage-badges: ^1.1.2
+    serialize-error: ^7.0.1
+  languageName: unknown
+  linkType: soft
+
+"@reapit/utils-node@workspace:packages/utils-node":
+  version: 0.0.0-use.local
+  resolution: "@reapit/utils-node@workspace:packages/utils-node"
   dependencies:
     "@linaria/core": ^3.0.0-beta.4
     "@linaria/react": ^3.0.0-beta.7
@@ -8628,6 +8732,7 @@ __metadata:
     "@reapit/foundations-ts-definitions": "workspace:packages/foundations-ts-definitions"
     "@reapit/ts-scripts": "workspace:packages/ts-scripts"
     "@reapit/ts-types": "workspace:packages/ts-types"
+    "@reapit/utils-common": "workspace:packages/utils-common"
     "@sentry/node": ^6.9.0
     "@typescript-eslint/eslint-plugin": ^4.28.4
     "@typescript-eslint/parser": ^4.28.4
@@ -8642,7 +8747,35 @@ __metadata:
     serialize-error: ^7.0.1
     uuid: ^8.3.2
   bin:
-    reapit-fetch-public-keys: ./src/node/fetch-public-keys/index.js
+    reapit-fetch-public-keys: ./src/fetch-public-keys/index.js
+  languageName: unknown
+  linkType: soft
+
+"@reapit/utils-react@workspace:packages/utils-react":
+  version: 0.0.0-use.local
+  resolution: "@reapit/utils-react@workspace:packages/utils-react"
+  dependencies:
+    "@linaria/core": ^3.0.0-beta.4
+    "@linaria/react": ^3.0.0-beta.7
+    "@linaria/shaker": ^3.0.0-beta.8
+    "@reapit/config-manager": "workspace:packages/config-manager"
+    "@reapit/foundations-ts-definitions": "workspace:packages/foundations-ts-definitions"
+    "@reapit/ts-scripts": "workspace:packages/ts-scripts"
+    "@reapit/ts-types": "workspace:packages/ts-types"
+    "@reapit/utils-common": "workspace:packages/utils-common"
+    "@sentry/node": ^6.9.0
+    "@typescript-eslint/eslint-plugin": ^4.28.4
+    "@typescript-eslint/parser": ^4.28.4
+    babel-jest: ^27.0.6
+    concurrently: ^6.2.0
+    cross-env: ^7.0.3
+    error-polyfill: ^0.1.2
+    eslint: 7.31.0
+    eslint-plugin-prettier: ^3.4.0
+    jest: ^27.0.6
+    jest-coverage-badges: ^1.1.2
+    serialize-error: ^7.0.1
+    uuid: ^8.3.2
   languageName: unknown
   linkType: soft
 
@@ -8763,7 +8896,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@rollup/plugin-json@npm:^4.0.0":
+"@rollup/plugin-json@npm:^4.0.0, @rollup/plugin-json@npm:^4.1.0":
   version: 4.1.0
   resolution: "@rollup/plugin-json@npm:4.1.0"
   dependencies:
@@ -8845,6 +8978,20 @@ __metadata:
     tslib: "*"
     typescript: ">=3.7.0"
   checksum: c4683eb31e421c837a640d6677e6fa91d2dc56e287920280a6bfa1b4a5c0c4d6ad57fc4780fd3bc847e05cb0247032c2b3886fc56cbd2ac0e4ecdf3d6ae256bb
+  languageName: node
+  linkType: hard
+
+"@rollup/plugin-typescript@npm:^8.2.5":
+  version: 8.2.5
+  resolution: "@rollup/plugin-typescript@npm:8.2.5"
+  dependencies:
+    "@rollup/pluginutils": ^3.1.0
+    resolve: ^1.17.0
+  peerDependencies:
+    rollup: ^2.14.0
+    tslib: "*"
+    typescript: ">=3.7.0"
+  checksum: 31e26d13f32f02b27c667f5e372ca8b02297346fbe11af5757b3427eff77a7adb00e9d9e54f0c4107fec2bfada5c5c458db04a62b5d52a1b9ea878c4de6212f2
   languageName: node
   linkType: hard
 
@@ -13858,7 +14005,7 @@ __metadata:
     "@reapit/foundations-ts-definitions": "workspace:packages/foundations-ts-definitions"
     "@reapit/ts-scripts": "workspace:packages/ts-scripts"
     "@reapit/ts-types": "workspace:packages/ts-types"
-    "@reapit/utils": "workspace:packages/utils"
+    "@reapit/utils-common": "workspace:packages/utils-common"
     "@redux-saga/testing-utils": ^1.1.3
     "@sentry/browser": ^6.9.0
     "@typescript-eslint/eslint-plugin": ^4.28.4
@@ -14055,7 +14202,7 @@ __metadata:
     "@reapit/foundations-ts-definitions": "workspace:packages/foundations-ts-definitions"
     "@reapit/ts-scripts": "workspace:packages/ts-scripts"
     "@reapit/ts-types": "workspace:packages/ts-types"
-    "@reapit/utils": "workspace:packages/utils"
+    "@reapit/utils-common": "workspace:packages/utils-common"
     "@sentry/browser": ^6.9.0
     "@typescript-eslint/eslint-plugin": ^4.28.4
     "@typescript-eslint/parser": ^4.28.4
@@ -14301,7 +14448,8 @@ __metadata:
     "@reapit/foundations-ts-definitions": "workspace:packages/foundations-ts-definitions"
     "@reapit/ts-scripts": "workspace:packages/ts-scripts"
     "@reapit/ts-types": "workspace:packages/ts-types"
-    "@reapit/utils": "workspace:packages/utils"
+    "@reapit/utils-common": "workspace:packages/utils-common"
+    "@reapit/utils-node": "workspace:packages/utils-node"
     "@typescript-eslint/eslint-plugin": ^4.28.4
     "@typescript-eslint/parser": ^4.28.4
     aws-lambda: ^1.0.6
@@ -15457,12 +15605,12 @@ __metadata:
   languageName: node
   linkType: hard
 
-"babel-jest@npm:27.0.6, babel-jest@npm:^27.0.6":
-  version: 27.0.6
-  resolution: "babel-jest@npm:27.0.6"
+"babel-jest@npm:27.1.0":
+  version: 27.1.0
+  resolution: "babel-jest@npm:27.1.0"
   dependencies:
-    "@jest/transform": ^27.0.6
-    "@jest/types": ^27.0.6
+    "@jest/transform": ^27.1.0
+    "@jest/types": ^27.1.0
     "@types/babel__core": ^7.1.14
     babel-plugin-istanbul: ^6.0.0
     babel-preset-jest: ^27.0.6
@@ -15471,7 +15619,7 @@ __metadata:
     slash: ^3.0.0
   peerDependencies:
     "@babel/core": ^7.8.0
-  checksum: 49a9c0e4f0bb6126c3448c8d2316d0a98a8bec49e62f890dc11a8c8f9e0554f1f812f88457a550c8c421d417f96808889123ed880edc2b1a49ad2264b083b395
+  checksum: 5f2eac1a52c1180ffa93f51d1e6b7b62124eacd648cf0ddb056f985a66d52001bf4844a46f5a056a428465ad97df07df91116a6a9c3275b66a8400ffde9d0dba
   languageName: node
   linkType: hard
 
@@ -15490,6 +15638,24 @@ __metadata:
   peerDependencies:
     "@babel/core": ^7.0.0
   checksum: c52979392d6c759f0aa20970b1b50c5385d67353bd64e708edd4f168d823077730182e282595d46a01935373fba8861bd7fd723d0731939e467f0e4a7db6a122
+  languageName: node
+  linkType: hard
+
+"babel-jest@npm:^27.0.6":
+  version: 27.0.6
+  resolution: "babel-jest@npm:27.0.6"
+  dependencies:
+    "@jest/transform": ^27.0.6
+    "@jest/types": ^27.0.6
+    "@types/babel__core": ^7.1.14
+    babel-plugin-istanbul: ^6.0.0
+    babel-preset-jest: ^27.0.6
+    chalk: ^4.0.0
+    graceful-fs: ^4.2.4
+    slash: ^3.0.0
+  peerDependencies:
+    "@babel/core": ^7.8.0
+  checksum: 49a9c0e4f0bb6126c3448c8d2316d0a98a8bec49e62f890dc11a8c8f9e0554f1f812f88457a550c8c421d417f96808889123ed880edc2b1a49ad2264b083b395
   languageName: node
   linkType: hard
 
@@ -16516,7 +16682,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"buffer-crc32@npm:^0.2.1, buffer-crc32@npm:^0.2.13, buffer-crc32@npm:~0.2.3, buffer-crc32@npm:~0.2.5":
+"buffer-crc32@npm:^0.2.1, buffer-crc32@npm:^0.2.13, buffer-crc32@npm:^0.2.5, buffer-crc32@npm:~0.2.3, buffer-crc32@npm:~0.2.5":
   version: 0.2.13
   resolution: "buffer-crc32@npm:0.2.13"
   checksum: 0340e848d6fd87e49ef6f1067f31b2a8d2e71b433e9bb62ff3d9bc2499146f0be586b5b80b0d099c7110a226161b21cb6cd80162dd5a51d9ebdb03da58b99637
@@ -17810,6 +17976,7 @@ __metadata:
     "@reapit/config-manager": "workspace:packages/config-manager"
     "@reapit/ts-scripts": "workspace:packages/ts-scripts"
     "@reapit/ts-types": "workspace:packages/ts-types"
+    "@reapit/utils-node": "workspace:packages/utils-node"
     "@typescript-eslint/eslint-plugin": ^4.28.4
     "@typescript-eslint/parser": ^4.28.4
     aws-lambda: ^1.0.6
@@ -18211,6 +18378,7 @@ __metadata:
     "@reapit/config-manager": "workspace:packages/config-manager"
     "@reapit/ts-scripts": "workspace:packages/ts-scripts"
     "@reapit/ts-types": "workspace:packages/ts-types"
+    "@reapit/utils-node": "workspace:packages/utils-node"
     "@sentry/node": ^6.9.0
     "@typescript-eslint/eslint-plugin": ^4.28.4
     "@typescript-eslint/parser": ^4.28.4
@@ -19882,7 +20050,8 @@ __metadata:
     "@reapit/connect-session": "workspace:packages/connect-session"
     "@reapit/ts-scripts": "workspace:packages/ts-scripts"
     "@reapit/ts-types": "workspace:packages/ts-types"
-    "@reapit/utils": "workspace:packages/utils"
+    "@reapit/utils-common": "workspace:packages/utils-common"
+    "@reapit/utils-node": "workspace:packages/utils-node"
     "@types/mime-types": ^2.1.1
     "@types/project-name-generator": ^2.1.1
     "@types/rimraf": ^3.0.1
@@ -20033,7 +20202,7 @@ __metadata:
     "@reapit/foundations-ts-definitions": "workspace:packages/foundations-ts-definitions"
     "@reapit/ts-scripts": "workspace:packages/ts-scripts"
     "@reapit/ts-types": "workspace:packages/ts-types"
-    "@reapit/utils": "workspace:packages/utils"
+    "@reapit/utils-common": "workspace:packages/utils-common"
     "@redux-saga/testing-utils": ^1.1.3
     "@sentry/browser": ^6.9.0
     "@testing-library/react": ^12.1.0
@@ -22087,7 +22256,8 @@ __metadata:
     "@reapit/config-manager": "workspace:packages/config-manager"
     "@reapit/ts-scripts": "workspace:packages/ts-scripts"
     "@reapit/ts-types": "workspace:packages/ts-types"
-    "@reapit/utils": "workspace:packages/utils"
+    "@reapit/utils-common": "workspace:packages/utils-common"
+    "@reapit/utils-node": "workspace:packages/utils-node"
     "@sentry/node": ^6.9.0
     "@typescript-eslint/eslint-plugin": ^4.28.4
     "@typescript-eslint/parser": ^4.28.4
@@ -23828,7 +23998,7 @@ fsevents@^1.2.7:
     "@reapit/foundations-ts-definitions": "workspace:packages/foundations-ts-definitions"
     "@reapit/ts-scripts": "workspace:packages/ts-scripts"
     "@reapit/ts-types": "workspace:packages/ts-types"
-    "@reapit/utils": "workspace:packages/utils"
+    "@reapit/utils-common": "workspace:packages/utils-common"
     "@sentry/browser": ^6.9.0
     "@typescript-eslint/eslint-plugin": ^4.28.4
     "@typescript-eslint/parser": ^4.28.4
@@ -23840,7 +24010,7 @@ fsevents@^1.2.7:
     dayjs: ^1.10.6
     eslint: 7.31.0
     eslint-plugin-prettier: ^3.4.0
-    graphql: 15.5.1
+    graphql: 15.5.2
     jest: ^27.0.6
     jest-coverage-badges: ^1.1.2
     little-loader: ^0.2.0
@@ -24526,6 +24696,13 @@ fsevents@^1.2.7:
   languageName: node
   linkType: hard
 
+"graceful-fs@npm:^4.1.3":
+  version: 4.2.8
+  resolution: "graceful-fs@npm:4.2.8"
+  checksum: b07e032c0a17e928d3e8ab0f0fea1492efd4568b55a3d2675aaaccf1619eca91156edfa0cb05e99b923e24edf5e26fdce22ffa58ec14d5b13a3b1392460f37f0
+  languageName: node
+  linkType: hard
+
 "graceful-readlink@npm:>= 1.0.0":
   version: 1.0.1
   resolution: "graceful-readlink@npm:1.0.1"
@@ -24596,7 +24773,7 @@ fsevents@^1.2.7:
     "@reapit/config-manager": "workspace:packages/config-manager"
     "@reapit/ts-scripts": "workspace:packages/ts-scripts"
     "@reapit/ts-types": "workspace:packages/ts-types"
-    "@reapit/utils": "workspace:packages/utils"
+    "@reapit/utils-node": "workspace:packages/utils-node"
     "@snyk/protect": latest
     "@typescript-eslint/eslint-plugin": ^4.28.4
     "@typescript-eslint/parser": ^4.28.4
@@ -24720,13 +24897,6 @@ fsevents@^1.2.7:
   languageName: node
   linkType: hard
 
-"graphql@npm:15.5.1, graphql@npm:^15.5.1":
-  version: 15.5.1
-  resolution: "graphql@npm:15.5.1"
-  checksum: 509cdc2fc072e7cd1b5a25cf3fe13838d41892b035434f02419c209608f89e323f5234ca7e2bde77e9371e629339cbd8435f1dbc8c250910e4e9ac0babfa6c64
-  languageName: node
-  linkType: hard
-
 "graphql@npm:15.5.2":
   version: 15.5.2
   resolution: "graphql@npm:15.5.2"
@@ -24740,6 +24910,13 @@ fsevents@^1.2.7:
   dependencies:
     iterall: ^1.2.2
   checksum: 3b7d50f98f5c66db36327d6dd331367c6da166d701b5bad669664e8602a180ee50dcb5ae3e1f9874e7fa59c1217f50a52a922fc77b5a1e04276426e67815b0ed
+  languageName: node
+  linkType: hard
+
+"graphql@npm:^15.5.1":
+  version: 15.5.1
+  resolution: "graphql@npm:15.5.1"
+  checksum: 509cdc2fc072e7cd1b5a25cf3fe13838d41892b035434f02419c209608f89e323f5234ca7e2bde77e9371e629339cbd8435f1dbc8c250910e4e9ac0babfa6c64
   languageName: node
   linkType: hard
 
@@ -27580,6 +27757,30 @@ fsevents@^1.2.7:
   languageName: node
   linkType: hard
 
+"jest-haste-map@npm:^27.2.4":
+  version: 27.2.4
+  resolution: "jest-haste-map@npm:27.2.4"
+  dependencies:
+    "@jest/types": ^27.2.4
+    "@types/graceful-fs": ^4.1.2
+    "@types/node": "*"
+    anymatch: ^3.0.3
+    fb-watchman: ^2.0.0
+    fsevents: ^2.3.2
+    graceful-fs: ^4.2.4
+    jest-regex-util: ^27.0.6
+    jest-serializer: ^27.0.6
+    jest-util: ^27.2.4
+    jest-worker: ^27.2.4
+    micromatch: ^4.0.4
+    walker: ^1.0.7
+  dependenciesMeta:
+    fsevents:
+      optional: true
+  checksum: 5c904ee25193746ae0edec12dd48d4e085ff6cf7bd76437337962d01cd8e0bf57891dc2476be9aa96ee9fb2398a2302f82707e6c57a8083b50f812aa4bf3e5f1
+  languageName: node
+  linkType: hard
+
 "jest-jasmine2@npm:^25.5.4":
   version: 25.5.4
   resolution: "jest-jasmine2@npm:25.5.4"
@@ -28077,6 +28278,20 @@ fsevents@^1.2.7:
   languageName: node
   linkType: hard
 
+"jest-util@npm:^27.2.4":
+  version: 27.2.4
+  resolution: "jest-util@npm:27.2.4"
+  dependencies:
+    "@jest/types": ^27.2.4
+    "@types/node": "*"
+    chalk: ^4.0.0
+    graceful-fs: ^4.2.4
+    is-ci: ^3.0.0
+    picomatch: ^2.2.3
+  checksum: ae8b7d816d0d955e814edaf42a4e275ac1972dd442aa0397b9630b592aff228fb836ee15b36a81758b4e8e98d98f075ef9c0da5e5bd779f324dc12b023b67f67
+  languageName: node
+  linkType: hard
+
 "jest-validate@npm:^25.5.0":
   version: 25.5.0
   resolution: "jest-validate@npm:25.5.0"
@@ -28188,6 +28403,17 @@ fsevents@^1.2.7:
     merge-stream: ^2.0.0
     supports-color: ^8.0.0
   checksum: 8d7ab8cdf6e66fd676b933f142191158be3541bcdc29c4f839e4b9e03ef755dc8741623645758f75ee23acc98038b28f6e9141e49ec7ffef56c51561f7db06f6
+  languageName: node
+  linkType: hard
+
+"jest-worker@npm:^27.2.4":
+  version: 27.2.4
+  resolution: "jest-worker@npm:27.2.4"
+  dependencies:
+    "@types/node": "*"
+    merge-stream: ^2.0.0
+    supports-color: ^8.0.0
+  checksum: 38a5f42f2415ce1e021c0c91afcf01f9f630c21af61965209c51b4251887afdf6522d7b64c026f33791ddb3c4781e3ffd1c73ac239bb0de4552c6ba2e03f0f2d
   languageName: node
   linkType: hard
 
@@ -30060,7 +30286,7 @@ fsevents@^1.2.7:
   languageName: node
   linkType: hard
 
-"magic-string@npm:^0.25.0, magic-string@npm:^0.25.2, magic-string@npm:^0.25.7":
+"magic-string@npm:^0.25.0, magic-string@npm:^0.25.2, magic-string@npm:^0.25.3, magic-string@npm:^0.25.7":
   version: 0.25.7
   resolution: "magic-string@npm:0.25.7"
   dependencies:
@@ -30076,6 +30302,7 @@ fsevents@^1.2.7:
     "@reapit/config-manager": "workspace:packages/config-manager"
     "@reapit/ts-scripts": "workspace:packages/ts-scripts"
     "@reapit/ts-types": "workspace:packages/ts-types"
+    "@reapit/utils-node": "workspace:packages/utils-node"
     "@sentry/node": ^6.9.0
     "@typescript-eslint/eslint-plugin": ^4.28.4
     "@typescript-eslint/parser": ^4.28.4
@@ -30274,6 +30501,7 @@ fsevents@^1.2.7:
     "@reapit/elements-legacy": "workspace:packages/elements-legacy"
     "@reapit/ts-scripts": "workspace:packages/ts-scripts"
     "@reapit/ts-types": "workspace:packages/ts-types"
+    "@reapit/utils-common": "workspace:packages/utils-common"
     "@sentry/browser": ^6.9.0
     "@typescript-eslint/eslint-plugin": ^4.28.4
     "@typescript-eslint/parser": ^4.28.4
@@ -30322,7 +30550,7 @@ fsevents@^1.2.7:
     "@reapit/foundations-ts-definitions": "workspace:packages/foundations-ts-definitions"
     "@reapit/ts-scripts": "workspace:packages/ts-scripts"
     "@reapit/ts-types": "workspace:packages/ts-types"
-    "@reapit/utils": "workspace:packages/utils"
+    "@reapit/utils-common": "workspace:packages/utils-common"
     "@redux-saga/testing-utils": ^1.1.3
     "@sentry/browser": ^6.9.0
     "@typescript-eslint/eslint-plugin": ^4.28.4
@@ -33489,6 +33717,7 @@ fsevents@^1.2.7:
     "@reapit/elements-legacy": "workspace:packages/elements-legacy"
     "@reapit/ts-scripts": "workspace:packages/ts-scripts"
     "@reapit/ts-types": "workspace:packages/ts-types"
+    "@reapit/utils-common": "workspace:packages/utils-common"
     "@sentry/browser": ^6.9.0
     "@typescript-eslint/eslint-plugin": ^4.28.4
     "@typescript-eslint/parser": ^4.28.4
@@ -33534,6 +33763,7 @@ fsevents@^1.2.7:
     "@reapit/connect-session": ^2.0.9
     "@reapit/ts-scripts": "workspace:packages/ts-scripts"
     "@reapit/ts-types": "workspace:packages/ts-types"
+    "@reapit/utils-node": "workspace:packages/utils-node"
     "@sentry/node": ^6.9.0
     "@typescript-eslint/eslint-plugin": ^4.28.4
     "@typescript-eslint/parser": ^4.28.4
@@ -37118,7 +37348,7 @@ resolve@^2.0.0-next.3:
   languageName: node
   linkType: hard
 
-"rimraf@npm:2, rimraf@npm:2.x.x, rimraf@npm:^2.2.8, rimraf@npm:^2.5.1, rimraf@npm:^2.5.4, rimraf@npm:^2.6.1, rimraf@npm:^2.6.3":
+"rimraf@npm:2, rimraf@npm:2.x.x, rimraf@npm:^2.2.8, rimraf@npm:^2.5.1, rimraf@npm:^2.5.2, rimraf@npm:^2.5.4, rimraf@npm:^2.6.1, rimraf@npm:^2.6.3":
   version: 2.7.1
   resolution: "rimraf@npm:2.7.1"
   dependencies:
@@ -37186,6 +37416,26 @@ resolve@^2.0.0-next.3:
   languageName: node
   linkType: hard
 
+"rollup-plugin-inject@npm:^3.0.0":
+  version: 3.0.2
+  resolution: "rollup-plugin-inject@npm:3.0.2"
+  dependencies:
+    estree-walker: ^0.6.1
+    magic-string: ^0.25.3
+    rollup-pluginutils: ^2.8.1
+  checksum: c043f4eba75145d39e6732aac0420cad12045e3eaa3cb78905083382d0315c026a0af289a803287ba466f3a6470ac3dc8dd8731b1cc93969752682fae5b96152
+  languageName: node
+  linkType: hard
+
+"rollup-plugin-node-polyfills@npm:^0.2.1":
+  version: 0.2.1
+  resolution: "rollup-plugin-node-polyfills@npm:0.2.1"
+  dependencies:
+    rollup-plugin-inject: ^3.0.0
+  checksum: ece17e6ff9d6a5e08f444719dc5aeba62ea64998a32abd70a6fc7a3ea1649042f1223b6621faa0d9777b18fec2888f42133188551b32d1f1821f79694827c4ed
+  languageName: node
+  linkType: hard
+
 "rollup-plugin-scss@npm:^3.0.0":
   version: 3.0.0
   resolution: "rollup-plugin-scss@npm:3.0.0"
@@ -37208,6 +37458,19 @@ resolve@^2.0.0-next.3:
     "@types/node":
       optional: true
   checksum: 73e8d02fa8ade508fb0b9c74ec273aad557d1e7f32a71c156df85337cc277834922734601233103f7a6e398fbddd53bc9105288f7b54d5e3b6dd88c2a882079e
+  languageName: node
+  linkType: hard
+
+"rollup-plugin-svelte@npm:^7.1.0":
+  version: 7.1.0
+  resolution: "rollup-plugin-svelte@npm:7.1.0"
+  dependencies:
+    require-relative: ^0.8.7
+    rollup-pluginutils: ^2.8.2
+  peerDependencies:
+    rollup: ">=2.0.0"
+    svelte: ">=3.5.0"
+  checksum: fa19a0cbed6e706d0206c58f9c5877a32a4c24b231f5b2f948c6062c8e0c3e15fe18551ff030af42d4198e79879e4e100d99329842e771e6c0d224527121039f
   languageName: node
   linkType: hard
 
@@ -37256,7 +37519,7 @@ resolve@^2.0.0-next.3:
   languageName: node
   linkType: hard
 
-"rollup-pluginutils@npm:^2.3.3, rollup-pluginutils@npm:^2.8.2":
+"rollup-pluginutils@npm:^2.3.3, rollup-pluginutils@npm:^2.8.1, rollup-pluginutils@npm:^2.8.2":
   version: 2.8.2
   resolution: "rollup-pluginutils@npm:2.8.2"
   dependencies:
@@ -37317,6 +37580,20 @@ resolve@^2.0.0-next.3:
   bin:
     rollup: dist/bin/rollup
   checksum: b08f33d8e8813d99a223658d951395be939d187afbc7af079afb3e695d47dd7664514a8379380953903683fe59a0133ee2c595e5ed680947e40c110c0641a6f3
+  languageName: node
+  linkType: hard
+
+"rollup@npm:^2.58.0":
+  version: 2.58.0
+  resolution: "rollup@npm:2.58.0"
+  dependencies:
+    fsevents: ~2.3.2
+  dependenciesMeta:
+    fsevents:
+      optional: true
+  bin:
+    rollup: dist/bin/rollup
+  checksum: f3151d0d9949ada746c64395d9f9b393636a26257cac2c9b5b2e69d84cf70a24a14e8ba4e3670084e05f15ccac94faa9cc5b077614f7596eba7d3c03f4a84174
   languageName: node
   linkType: hard
 
@@ -37469,6 +37746,18 @@ resolve@^2.0.0-next.3:
   version: 2.1.2
   resolution: "safer-buffer@npm:2.1.2"
   checksum: 549ba83f5b314b59898efe3422120ce1ca7987a6eae5925a5fa5db930dc414d4a9dde0a5594f89638cd6ea60b6840ea961872908933ac2428d1726489db46fa5
+  languageName: node
+  linkType: hard
+
+"sander@npm:^0.5.0":
+  version: 0.5.1
+  resolution: "sander@npm:0.5.1"
+  dependencies:
+    es6-promise: ^3.1.2
+    graceful-fs: ^4.1.3
+    mkdirp: ^0.5.1
+    rimraf: ^2.5.2
+  checksum: 68a55ccd145a7e85c561e78c2edf22a9c2c4cadda38d5c3132cfb7ed864105288e65c159241cf1dfdd72b0150fa021da43a6f97b53426b2d01554a0b5861852f
   languageName: node
   linkType: hard
 
@@ -39139,6 +39428,20 @@ resolve@^2.0.0-next.3:
   languageName: node
   linkType: hard
 
+"sorcery@npm:^0.10.0":
+  version: 0.10.0
+  resolution: "sorcery@npm:0.10.0"
+  dependencies:
+    buffer-crc32: ^0.2.5
+    minimist: ^1.2.0
+    sander: ^0.5.0
+    sourcemap-codec: ^1.3.0
+  bin:
+    sorcery: bin/index.js
+  checksum: 21b7ee292cf5a85b4810fbddd7ef357bd4a0b1a9ade47fd1cd085e35746d438d73b028fd36ec3e3c353ca74bc9c78a6aee6037dce0494e46dd733b657ef95ec9
+  languageName: node
+  linkType: hard
+
 "sort-keys-length@npm:^1.0.0":
   version: 1.0.1
   resolution: "sort-keys-length@npm:1.0.1"
@@ -39309,7 +39612,7 @@ resolve@^2.0.0-next.3:
   languageName: node
   linkType: hard
 
-"sourcemap-codec@npm:^1.4.4":
+"sourcemap-codec@npm:^1.3.0, sourcemap-codec@npm:^1.4.4":
   version: 1.4.8
   resolution: "sourcemap-codec@npm:1.4.8"
   checksum: 4d56d1232a45af813606d1755f11e7ae6b3542c615a7e3f904382f0134a9412ba8d090e83749254d78449eafdfcc62d5158b8f35e6241480b51b74b5c46b99f9
@@ -40403,13 +40706,15 @@ resolve@^2.0.0-next.3:
   languageName: node
   linkType: hard
 
-"svelte-preprocess@npm:^4.6.9":
-  version: 4.6.9
-  resolution: "svelte-preprocess@npm:4.6.9"
+"svelte-preprocess@npm:^4.9.8":
+  version: 4.9.8
+  resolution: "svelte-preprocess@npm:4.9.8"
   dependencies:
     "@types/pug": ^2.0.4
     "@types/sass": ^1.16.0
     detect-indent: ^6.0.0
+    magic-string: ^0.25.7
+    sorcery: ^0.10.0
     strip-indent: ^3.0.0
   peerDependencies:
     "@babel/core": ^7.10.2
@@ -40446,7 +40751,7 @@ resolve@^2.0.0-next.3:
       optional: true
     typescript:
       optional: true
-  checksum: a227290640d185e22d23a6f2dd5b583e3fb0fbb2d4681c01aaf909bfc0996898f54688095b5951d4cf8d5fe6b7fd46ed7d7d5d4acbcf22a871cc38f14d668ac6
+  checksum: 7f98afa2aef440593c5e89ad588d304b3267ec45ca34f7e36bc8c182482d7b0fcfec7ffbfb0a828b5931e4331b64b0fc66b21403ea7d555e058902788ca18762
   languageName: node
   linkType: hard
 

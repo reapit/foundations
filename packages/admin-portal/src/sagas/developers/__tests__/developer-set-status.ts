@@ -9,7 +9,7 @@ import {
 
 import { developerStub } from '../__stubs__/developer'
 import { updateDeveloperById } from '@/services/developers'
-import { errorMessages } from '@reapit/utils'
+import { errorMessages } from '@reapit/utils-common'
 import { notification } from '@reapit/elements-legacy'
 
 jest.mock('@/services/developers')

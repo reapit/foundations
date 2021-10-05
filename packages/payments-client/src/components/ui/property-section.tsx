@@ -1,7 +1,8 @@
 import React from 'react'
-import { combineAddress, FadeIn, GridItem, H5, IconList } from '@reapit/elements-legacy'
+import { FadeIn, GridItem, H5, IconList } from '@reapit/elements-legacy'
 import { PropertyModel } from '@reapit/foundations-ts-definitions'
 import { FaHome, FaStickyNote } from 'react-icons/fa'
+import { combineAddress } from '@reapit/utils-common'
 
 const PropertySection: React.FC<{ property: PropertyModel }> = ({ property }) => {
   if (!property) {

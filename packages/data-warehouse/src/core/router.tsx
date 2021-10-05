@@ -3,7 +3,7 @@ import { Route, Router as BrowserRouter, Switch, Redirect } from 'react-router-d
 import { createBrowserHistory } from 'history'
 import Routes from '../constants/routes'
 import PrivateRouteWrapper from './private-route-wrapper'
-import { OkayPage } from '@reapit/utils'
+import { OkayPage } from '@reapit/utils-react'
 import { SubscriptionRouteWrapper } from '@/components/hocs/subscription-route-wrapper'
 
 export const history = createBrowserHistory()

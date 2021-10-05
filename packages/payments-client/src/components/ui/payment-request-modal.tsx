@@ -14,7 +14,7 @@ import {
 import { PaymentModel } from '@reapit/foundations-ts-definitions'
 import * as Yup from 'yup'
 import { handlePaymentRequestSubmit } from './payment-handlers'
-import { emailRegex } from '@reapit/utils'
+import { emailRegex } from '@reapit/utils-common'
 
 export type PaymentRequestModalProps = {
   payment: PaymentModel | null

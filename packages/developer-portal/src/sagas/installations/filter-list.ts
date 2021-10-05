@@ -9,7 +9,7 @@ import { notification } from '@reapit/elements-legacy'
 
 export const fetchInstallationsFilterListSaga = function* ({ data }) {
   try {
-    const developerId = yield getDeveloperId()
+    const developerId = yield call(getDeveloperId)
     const uniqueClientIds = [...new Set(data.clientId)]
     const response = yield call(fetchInstallationsList, { ...data, clientId: uniqueClientIds, developerId })
     yield put(fetchInstallationsFilterListSuccess(response))

@@ -1,7 +1,7 @@
 import { configurationAppointmentsApiService } from '../configuration-api'
 import { ListItemModel } from '@reapit/foundations-ts-definitions'
 import { mockBrowserSession } from '../__mocks__/session'
-import { fetcher } from '@reapit/elements-legacy'
+import { fetcher } from '@reapit/utils-common'
 
 jest.mock('@reapit/elements')
 

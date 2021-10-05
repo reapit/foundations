@@ -9,7 +9,7 @@ import { fetchStatisticsSucces, StatisticsRequestParams, fetchStatisticsFailed }
 import { getDateRange } from '@/utils/statistics'
 import { fetchAppsList } from '@/services/apps'
 import { notification } from '@reapit/elements-legacy'
-import { errorMessages } from '@reapit/utils'
+import { errorMessages } from '@reapit/utils-common'
 
 jest.mock('@reapit/elements')
 jest.mock('@/services/apps')

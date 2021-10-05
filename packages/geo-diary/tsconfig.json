@@ -7,7 +7,8 @@
       "@reapit/elements": ["../elements/src"],
       "@reapit/elements-legacy": ["../elements-legacy/src"],
       "@reapit/connect-session": ["../connect-session/src"],
-      "@reapit/utils": ["../utils/index.ts"]
+      "@reapit/utils-common": ["../utils-common/src"],
+      "@reapit/utils-common": ["../utils-common/src"]
     }
   },
   "include": ["src"],

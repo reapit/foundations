@@ -3,8 +3,8 @@ import React from 'react'
 import * as Sentry from '@sentry/browser'
 import { render } from 'react-dom'
 import { Config } from '@/types/global'
-import { logger } from '@reapit/utils'
-import { OkayPage } from '@reapit/utils'
+import { logger } from '@reapit/utils-react'
+import { OkayPage } from '@reapit/utils-react'
 
 // Init global config
 window.reapit = {

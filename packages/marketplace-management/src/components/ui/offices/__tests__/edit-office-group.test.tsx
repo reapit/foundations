@@ -1,10 +1,10 @@
 import React from 'react'
-import { fetcher } from '@reapit/elements-legacy'
+import { fetcher } from '@reapit/utils-common'
 import { shallow } from 'enzyme'
 import { notification } from '@reapit/elements-legacy'
 import EditOfficeGroupModal, { UpdateOfficeGroupModalProps, onHandleSubmit } from '../edit-office-group'
 
-jest.mock('@reapit/elements-legacy')
+jest.mock('@reapit/utils-common')
 jest.mock('../../../../core/connect-session')
 const mockedFetch = fetcher as jest.Mock
 

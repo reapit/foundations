@@ -11,7 +11,7 @@ import {
   whiteListLocalhostAndIsValidUrl,
   isValidHttpUrl,
   isValidHttpsUrl,
-} from '@reapit/utils'
+} from '@reapit/utils-common'
 
 const { USER_SESSION, CLIENT_SECRET } = authFlows
 const { FIELD_REQUIRED, MAXIMUM_CHARACTER_LENGTH, FIELD_WRONG_EMAIL_FORMAT } = errorMessages

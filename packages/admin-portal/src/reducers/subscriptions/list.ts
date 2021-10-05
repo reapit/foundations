@@ -12,7 +12,7 @@ import {
   createSubscriptionFailed,
 } from '../../actions/subscriptions'
 import { SubscriptionModelPagedResult } from '@reapit/foundations-ts-definitions'
-import { FetchDetailResult, getDefaultFetchListValue } from '@reapit/utils'
+import { FetchDetailResult, getDefaultFetchListValue } from '@reapit/utils-common'
 
 export type SubscriptionListState = SubscriptionModelPagedResult &
   Pick<FetchDetailResult<any>, 'isLoading' | 'errorMessage'> & {

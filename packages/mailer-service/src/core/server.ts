@@ -4,7 +4,7 @@ import session from 'express-session'
 import memoryStore from 'memorystore'
 import { v4 as uuid } from 'uuid'
 import cors from 'cors'
-import { traceIdMiddleware } from '@reapit/node-utils'
+import { traceIdMiddleware } from '@reapit/utils-node'
 import router from './router'
 const MemoryStore = memoryStore(session as any)
 

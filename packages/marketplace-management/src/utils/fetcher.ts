@@ -1,5 +1,5 @@
 import { StringMap } from '@reapit/elements-legacy'
-import { logger } from '@reapit/utils'
+import { logger } from '@reapit/utils-react'
 import { genPlatformHeaders } from './headers'
 
 export const fetcher = async (path: string) =>

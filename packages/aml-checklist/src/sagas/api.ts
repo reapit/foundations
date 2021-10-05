@@ -1,4 +1,4 @@
-import { fetcher } from '@reapit/elements-legacy'
+import { fetcher } from '@reapit/utils-common'
 import qs from 'query-string'
 import { URLS } from '@/constants/api'
 import {
@@ -6,9 +6,9 @@ import {
   changeTimeZoneUTCForIdentityCheck,
   formatDateForContact,
 } from '@/utils/datetime'
-import { logger } from '@reapit/utils'
+import { logger } from '@reapit/utils-react'
 import { CONTACTS_PER_PAGE } from '@/constants/paginator'
-import { cleanObject } from '@reapit/utils'
+import { cleanObject } from '@reapit/utils-common'
 
 export const fetchChecklist = async ({ id, headers }) => {
   try {

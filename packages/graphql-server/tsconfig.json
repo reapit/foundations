@@ -12,20 +12,12 @@
     "baseUrl": ".",
     "typeRoots": ["./node_modules/@types", "../../node_modules/@types"],
     "paths": {
-      "@/*": [
-        "src/*"
-      ],
-      "@reapit/node-utils": [
-        "../utils/src/node/index.ts"
-      ],
-      "@reapit/foundations-ts-definitions": [
-        "../foundations-ts-definitions/src"
-      ]
+      "@/*": ["src/*"],
+      "@reapit/utils-node": ["../utils-node"],
+      "@reapit/foundations-ts-definitions": ["../foundations-ts-definitions/src"]
     }
   },
-  "include": [
-    "./src/**/*"
-  ],
+  "include": ["./src/**/*"],
   "exclude": [
     "./public",
     "./dist",

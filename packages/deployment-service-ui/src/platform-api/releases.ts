@@ -1,6 +1,6 @@
 import { BASE_HEADERS, URLS } from './../constants/api'
 import { ReapitConnectSession } from '@reapit/connect-session'
-import { fetcher } from '@reapit/elements-legacy'
+import { fetcher } from '@reapit/utils-common'
 import { Pagination } from 'nestjs-typeorm-paginate'
 
 export const releaseServicePaginate = async (

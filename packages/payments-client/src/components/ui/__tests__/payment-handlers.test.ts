@@ -1,4 +1,4 @@
-import { fetcher } from '@reapit/elements-legacy'
+import { fetcher } from '@reapit/utils-common'
 import {
   generateEmailPaymentReceiptExternal,
   generateEmailPaymentReceiptInternal,
@@ -16,7 +16,7 @@ import { stubCardDetails, stubPaymentWithPropertyModel } from '../__stubs__/paym
 import * as Handlers from '../payment-handlers'
 import { PaymentEmailRequestModel } from '../payment-request-modal'
 
-jest.mock('@reapit/elements-legacy')
+jest.mock('@reapit/utils-common')
 
 const session = '475625c2-af01-4e64-a948-c504992f5e'
 const paymentId = 'MKT20000010'

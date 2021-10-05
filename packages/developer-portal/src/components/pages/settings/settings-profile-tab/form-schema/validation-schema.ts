@@ -1,5 +1,5 @@
 import * as Yup from 'yup'
-import { personNameRegex, letterNumberSpaceRegex, passwordRegex } from '@reapit/utils'
+import { personNameRegex, letterNumberSpaceRegex, passwordRegex } from '@reapit/utils-common'
 import errorMessages from '@/constants/error-messages'
 import { formFieldsContactInfomation, formFieldsChangePassword } from './form-fields'
 

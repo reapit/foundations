@@ -1,7 +1,7 @@
 import * as Yup from 'yup'
 import { formFields } from './form-fields'
 import errorMessages from '@/constants/error-messages'
-import { personNameRegex, emailRegex } from '@reapit/utils'
+import { personNameRegex, emailRegex } from '@reapit/utils-common'
 
 export const MAX_MESSAGE_LENGTH = 150
 
