@@ -27,17 +27,6 @@ export function stringToByteArray(str) {
   return arr
 }
 
-export function byteArrayToHex(raw) {
-  let HEX = ''
-
-  for (let i = 0; i < raw.length; i++) {
-    const _hex = raw[i].toString(16)
-    HEX += _hex.length === 2 ? _hex : '0' + _hex
-  }
-
-  return HEX
-}
-
 export function encodeString(str) {
   return base64
     .fromByteArray(
@@ -66,20 +55,4 @@ export function decodeToString(str) {
       })
       .join(''),
   )
-}
-
-export function decodeToHEX(str) {
-  return byteArrayToHex(base64.toByteArray(padding(str)))
-}
-
-export function base64ToBase64Url(base64String) {
-  const SAFE_URL_ENCODING_MAPPING = {
-    '+': '-',
-    '/': '_',
-    '=': '',
-  }
-
-  return base64String.replace(/[+/=]/g, function (m) {
-    return SAFE_URL_ENCODING_MAPPING[m]
-  })
 }
