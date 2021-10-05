@@ -69,3 +69,23 @@ export const ElStep = styled.div`
     }
   }
 `
+
+export const ElStepsVertical = styled.div`
+  display: flex;
+  flex-wrap: wrap;
+`
+
+export const ElStepVertical = styled.div`
+  display: flex;
+  width: 100%;
+`
+
+export const ElStepVerticalItem = styled.div`
+  width: 6.5rem;
+  display: flex;
+  justify-content: center;
+`
+
+export const ElStepVerticalContent = styled.div`
+  width: 100%;
+`

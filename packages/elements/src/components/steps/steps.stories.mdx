@@ -1,7 +1,9 @@
 import { useState } from 'react'
 import { Meta, Story, Canvas, ArgsTable } from '@storybook/addon-docs/blocks'
-import { Steps } from './index'
+import { Steps, StepsVertical } from './index'
 import { RenderHtmlMarkup } from '../../storybook/render-html-markup'
+import { BodyText, Subtitle } from '../typography'
+import { Button, ButtonGroup } from '../button'
 
 <Meta title="Steps" component={Steps} />
 
@@ -58,6 +60,109 @@ Be aware though, steps with long text **aren't supported** and will not render v
     {() => {
       const [selectedStep, setSelectedStep] = useState('1')
       return <Steps steps={['1', '2', '3', '4', '5']} selectedStep={selectedStep} onStepClick={setSelectedStep} />
+    }}
+  </Story>
+</Canvas>
+
+## React example with `useState`
+
+<Canvas>
+  <Story name="Steps Vertical">
+    {() => {
+      const [selectedStep, setSelectedStep] = useState('1')
+      const steps = [
+        {
+          item: '1',
+          content: (
+            <>
+              <Subtitle>Step 1</Subtitle>
+              <BodyText hasGreyText>
+                Lorem, ipsum dolor sit amet consectetur adipisicing elit. Ab dolorem, asperiores ipsam odio perferendis,
+                explicabo veritatis voluptatibus iusto quo amet, similique ad! Excepturi impedit culpa repellat
+                cupiditate quam. Aut, enim?
+              </BodyText>
+              <ButtonGroup alignment="right">
+                <Button intent="critical" size={2} chevronRight type="submit" onClick={() => setSelectedStep('2')}>
+                  Complete Step 1
+                </Button>
+              </ButtonGroup>
+            </>
+          ),
+        },
+        {
+          item: '2',
+          content: (
+            <>
+              <Subtitle>Step 2</Subtitle>
+              <BodyText hasGreyText>
+                Lorem, ipsum dolor sit amet consectetur adipisicing elit. Ab dolorem, asperiores ipsam odio perferendis,
+                explicabo veritatis voluptatibus iusto quo amet, similique ad! Excepturi impedit culpa repellat
+                cupiditate quam. Aut, enim?
+              </BodyText>
+              <ButtonGroup alignment="right">
+                <Button intent="critical" size={2} chevronRight type="submit" onClick={() => setSelectedStep('3')}>
+                  Complete Step 2
+                </Button>
+              </ButtonGroup>
+            </>
+          ),
+        },
+        {
+          item: '3',
+          content: (
+            <>
+              <Subtitle>Step 3</Subtitle>
+              <BodyText hasGreyText>
+                Lorem, ipsum dolor sit amet consectetur adipisicing elit. Ab dolorem, asperiores ipsam odio perferendis,
+                explicabo veritatis voluptatibus iusto quo amet, similique ad! Excepturi impedit culpa repellat
+                cupiditate quam. Aut, enim?
+              </BodyText>
+              <ButtonGroup alignment="right">
+                <Button intent="critical" size={2} chevronRight type="submit" onClick={() => setSelectedStep('4')}>
+                  Complete Step 3
+                </Button>
+              </ButtonGroup>
+            </>
+          ),
+        },
+        {
+          item: '4',
+          content: (
+            <>
+              <Subtitle>Step 4</Subtitle>
+              <BodyText hasGreyText>
+                Lorem, ipsum dolor sit amet consectetur adipisicing elit. Ab dolorem, asperiores ipsam odio perferendis,
+                explicabo veritatis voluptatibus iusto quo amet, similique ad! Excepturi impedit culpa repellat
+                cupiditate quam. Aut, enim?
+              </BodyText>
+              <ButtonGroup alignment="right">
+                <Button intent="critical" size={2} chevronRight type="submit" onClick={() => setSelectedStep('5')}>
+                  Complete Step 4
+                </Button>
+              </ButtonGroup>
+            </>
+          ),
+        },
+        {
+          item: '5',
+          content: (
+            <>
+              <Subtitle>Step 5</Subtitle>
+              <BodyText hasGreyText>
+                Lorem, ipsum dolor sit amet consectetur adipisicing elit. Ab dolorem, asperiores ipsam odio perferendis,
+                explicabo veritatis voluptatibus iusto quo amet, similique ad! Excepturi impedit culpa repellat
+                cupiditate quam. Aut, enim?
+              </BodyText>
+              <ButtonGroup alignment="right">
+                <Button intent="critical" size={2} chevronRight type="submit" onClick={() => setSelectedStep('1')}>
+                  Restart Steps
+                </Button>
+              </ButtonGroup>
+            </>
+          ),
+        },
+      ]
+      return <StepsVertical steps={steps} selectedStep={selectedStep} onStepClick={setSelectedStep} />
     }}
   </Story>
 </Canvas>
