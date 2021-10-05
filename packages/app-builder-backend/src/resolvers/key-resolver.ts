@@ -2,7 +2,7 @@ import { gql } from 'apollo-server-core'
 import { Resolver, Query, Ctx, Arg, Mutation, registerEnumType, Field, InputType, Authorized } from 'type-graphql'
 import { Context } from '../types'
 import { Key, APIKey, KeyFragment, KeyMovement } from '../entities/key'
-import { query } from '../utils/graphqlFetch'
+import { query } from '../utils/graphql-fetch'
 
 const getPropertyKeysQuery = gql`
   ${KeyFragment}
