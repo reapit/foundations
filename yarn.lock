@@ -8267,10 +8267,12 @@ __metadata:
     "@reapit/ts-scripts": "workspace:packages/ts-scripts"
     "@reapit/ts-types": "workspace:packages/ts-types"
     "@testing-library/react-hooks": ^7.0.1
+    "@types/base-64": ^1.0.0
     "@typescript-eslint/eslint-plugin": ^4.28.4
     "@typescript-eslint/parser": ^4.28.4
     axios: ^0.21.1
     babel-jest: ^27.0.6
+    base-64: ^1.0.0
     concurrently: ^6.2.0
     cross-env: ^7.0.3
     eslint: ^7.31.0
@@ -8280,6 +8282,7 @@ __metadata:
     jest: ^27.0.6
     jest-coverage-badges: ^1.1.2
     jwk-to-pem: ^2.0.5
+    jwt-decode: ^3.1.2
     snyk: ^1.662.0
     tsdx: ^0.14.1
   peerDependencies:
@@ -8539,6 +8542,7 @@ __metadata:
     eslint-plugin-prettier: ^3.4.0
     jest: ^27.0.6
     jest-coverage-badges: ^1.1.2
+    jwt-decode: ^3.1.2
     node-polyfill-webpack-plugin: ^1.1.4
     rimraf: ^3.0.2
     sirv-cli: ^1.0.12
@@ -11715,6 +11719,13 @@ __metadata:
   dependencies:
     "@babel/types": ^7.3.0
   checksum: 70c4bcc395738a6cf64e413095985b6863d34e81cd7c1c767715ecabbb3120bd6fc38f2dddfa8b30787a903f716a625ecdc93e0d5dd1d62935a016b2a07ab17d
+  languageName: node
+  linkType: hard
+
+"@types/base-64@npm:^1.0.0":
+  version: 1.0.0
+  resolution: "@types/base-64@npm:1.0.0"
+  checksum: 7f533e39122a1f3dc7db740fd27e27a95f377b75556756a429567b01435e278f316be694ad44e7327ba44e0a8ce727d0ffd114da6c59318cf71a3e09b2a1f29e
   languageName: node
   linkType: hard
 
@@ -16016,6 +16027,13 @@ __metadata:
   version: 1.0.0
   resolution: "balanced-match@npm:1.0.0"
   checksum: f515a605fe1b59f476f7477c5e1d53ad55b4f42982fca1d57b6701906f4ad1f1ac90fd6587d92cc1af2edb43eecf979214dd847ee410a6de9db4ebf0dd128d62
+  languageName: node
+  linkType: hard
+
+"base-64@npm:^1.0.0":
+  version: 1.0.0
+  resolution: "base-64@npm:1.0.0"
+  checksum: 7ff7383b2c341c5c7ec55c2ea0c19157e86ef0484a3d5f27fe165158f42c271ddc9049b98f3c5c09f38c240c5d46177d4ea7e000b7457d3591aa212fb18e6f7c
   languageName: node
   linkType: hard
 

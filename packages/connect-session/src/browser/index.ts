@@ -7,7 +7,8 @@ import {
   CoginitoSession,
 } from '../types'
 import { connectSessionVerifyDecodeIdToken } from '../utils/verify-decode-id-token'
-import { decodeJWT } from '../utils'
+import decode from 'jwt-decode'
+import { DecodedToken } from '../utils'
 
 export class ReapitConnectBrowserSession {
   // Static constants
@@ -125,7 +126,7 @@ export class ReapitConnectBrowserSession {
   // Check on access token to see if has expired - they last 1hr only before I need to refresh
   private get sessionExpired() {
     if (this.session) {
-      const decoded = decodeJWT(this.session.accessToken).payload as CoginitoAccess
+      const decoded = decode<DecodedToken<CoginitoAccess>>(this.session.accessToken)
       const expiry = decoded['exp']
       const fiveMinsFromNow = Math.round(new Date().getTime() / 1000) + 300
       return expiry ? expiry < fiveMinsFromNow : true
@@ -177,14 +178,14 @@ export class ReapitConnectBrowserSession {
         idToken: id_token,
         loginIdentity,
       }
-    } catch (error: any) {
-      return this.handleError(error)
+    } catch (err) {
+      return this.handleError(`Reapit Connect Token Error ${err.message}`)
     }
   }
 
-  private handleError(error: string) {
+  private handleError(error: string | Error) {
     this.clearRefreshToken()
-    console.error('Reapit Connect Error:', error)
+    typeof error === 'string' ? console.error('Reapit Connect Error:', error) : console.error(error)
   }
 
   // set a redirect URI to my page where I instantiated the flow, by decoding the state object
@@ -275,8 +276,8 @@ export class ReapitConnectBrowserSession {
 
       // The token endpoint failed to get a session so send me to login to get a new session
       this.connectAuthorizeRedirect()
-    } catch (error: any) {
-      return this.handleError(error)
+    } catch (err) {
+      return this.handleError(`Reapit Connect Session error ${err.message}`)
     }
   }
 }

@@ -4,12 +4,12 @@ import {
   ReapitConnectServerSessionInitializers,
   CoginitoSession,
 } from '../types'
-import * as base64 from './../utils/base64'
+import base64 from 'base-64'
 
 export const createMockToken = (token: { [s: string]: any } | string): string =>
-  `${base64.encodeString('{}')}.${base64.encodeString(
+  `${base64.encode('{}')}.${base64.encode(
     typeof token === 'string' ? token : JSON.stringify(token),
-  )}.${base64.encodeString('{}')}`
+  )}.${base64.encode('{}')}`
 
 export const mockLoginIdentity = {
   email: 'name@mail.com',

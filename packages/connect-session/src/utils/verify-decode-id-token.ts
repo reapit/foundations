@@ -5,7 +5,7 @@
 import 'isomorphic-fetch'
 import { LoginIdentity } from '../types'
 import IdTokenVerifier from 'idtoken-verifier'
-import { decodeJWT } from './decodeJWT'
+import decode from 'jwt-decode'
 
 // Util to verify integrity of AWS tokens for client side applications. Allows Connect Session module to check a
 // ID Token for validity of claims. See Connect Session for usage, not intended for external users.
@@ -20,6 +20,10 @@ interface Claim {
   client_id: string
 }
 
+export type DecodedToken<T extends any> = {
+  aud: string,
+}& T
+
 export const connectSessionVerifyDecodeIdTokenWithPublicKeys = async (
   token: string,
   connectUserPoolId: string,
@@ -27,14 +31,14 @@ export const connectSessionVerifyDecodeIdTokenWithPublicKeys = async (
   try {
     const cognitoIssuer = `https://cognito-idp.eu-west-2.amazonaws.com/${connectUserPoolId}`
 
-    const decodedToken = decodeJWT(token)
+    const decodedToken = decode<DecodedToken<any>>(token)
+
+    console.log('decodedToken', decodedToken)
 
     const verifier = new IdTokenVerifier({
       issuer: cognitoIssuer,
-      audience: decodedToken.payload.aud,
+      audience: decodedToken.aud,
     })
-
-    const tokenSections = verifier.decode(token)
 
     // TODO what is state?
     const claim = (await new Promise<Claim>((resolve, reject) =>
