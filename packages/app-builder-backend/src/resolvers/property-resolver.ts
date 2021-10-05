@@ -1,5 +1,5 @@
 import { gql } from 'apollo-server-core'
-import { Resolver, Query, Ctx } from 'type-graphql'
+import { Resolver, Query, Ctx, Authorized } from 'type-graphql'
 import { Property, PropertyFragment } from '../entities/property'
 import { PropertyModelPagedResult } from '../../../foundations-ts-definitions/types'
 import { Context } from '@/types'
@@ -27,12 +27,10 @@ const getProperties = async (accessToken: string, idToken: string) => {
 export class PropertyResolver {
   constructor() {}
 
+  @Authorized()
   @Query(() => [Property])
   async listProperties(@Ctx() ctx: Context): Promise<Array<Property>> {
     const { accessToken, idToken } = ctx
-    if (!accessToken || !idToken) {
-      throw new Error('unauthorized')
-    }
     const properties = await getProperties(accessToken, idToken)
     return (
       properties._embedded?.map((property) => ({

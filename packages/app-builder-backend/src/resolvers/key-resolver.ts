@@ -1,5 +1,5 @@
 import { gql } from 'apollo-server-core'
-import { Resolver, Query, Ctx, Arg, Mutation, registerEnumType, Field, InputType } from 'type-graphql'
+import { Resolver, Query, Ctx, Arg, Mutation, registerEnumType, Field, InputType, Authorized } from 'type-graphql'
 import { Context } from '../types'
 import { Key, APIKey, KeyFragment, KeyMovement } from '../entities/key'
 import { query } from '../utils/graphqlFetch'
@@ -139,15 +139,14 @@ export class KeyResolver {
   constructor() {}
 
   @Query(() => [Key])
+  @Authorized()
   async listPropertyKeys(@Arg('propertyId') propertyId: string, @Ctx() ctx: Context): Promise<Key[]> {
     const { accessToken, idToken } = ctx
-    if (!accessToken || !idToken) {
-      throw new Error('unauthorized')
-    }
     const keys = await getPropertyKeys(propertyId, accessToken, idToken)
     return keys?.map(APIKeyToKey) || []
   }
 
+  @Authorized()
   @Query(() => [KeyMovement])
   async listPropertyKeyMovements(
     @Arg('propertyId') propertyId: string,
@@ -155,13 +154,11 @@ export class KeyResolver {
     @Ctx() ctx: Context,
   ): Promise<KeyMovement[]> {
     const { accessToken, idToken } = ctx
-    if (!accessToken || !idToken) {
-      throw new Error('unauthorized')
-    }
     const key = await getPropertyKey(propertyId, keyId, accessToken, idToken)
     return key.movements.map(cleanMovement)
   }
 
+  @Authorized()
   @Query(() => KeyMovement)
   async getPropertyKeyMovement(
     @Arg('propertyId') propertyId: string,
@@ -170,9 +167,6 @@ export class KeyResolver {
     @Ctx() ctx: Context,
   ): Promise<KeyMovement> {
     const { accessToken, idToken } = ctx
-    if (!accessToken || !idToken) {
-      throw new Error('unauthorized')
-    }
     const key = await getPropertyKey(propertyId, keyId, accessToken, idToken)
     const movement = key.movements.find((m) => m.id === movementId)
     if (!movement) {
@@ -181,6 +175,7 @@ export class KeyResolver {
     return cleanMovement(movement)
   }
 
+  @Authorized()
   @Query(() => Key)
   async getPropertyKey(
     @Arg('propertyId') propertyId: string,
@@ -188,13 +183,11 @@ export class KeyResolver {
     @Ctx() ctx: Context,
   ): Promise<Key> {
     const { accessToken, idToken } = ctx
-    if (!accessToken || !idToken) {
-      throw new Error('unauthorized')
-    }
     const key = await getPropertyKey(propertyId, keyId, accessToken, idToken)
     return APIKeyToKey(key)
   }
 
+  @Authorized()
   @Mutation(() => Key)
   async checkOutKey(
     @Arg('propertyId') propertyId: string,
@@ -203,9 +196,6 @@ export class KeyResolver {
     @Ctx() ctx: Context,
   ): Promise<Key> {
     const { accessToken, idToken } = ctx
-    if (!accessToken || !idToken) {
-      throw new Error('unauthorized')
-    }
     const checkOutToId = movement.checkOutToContactId || movement.checkOutToNegotiatorId
     if (!checkOutToId) {
       throw new Error('checkOutToId is required')
@@ -225,6 +215,7 @@ export class KeyResolver {
     return APIKeyToKey(key)
   }
 
+  @Authorized()
   @Mutation(() => Key)
   async checkInKey(
     @Arg('propertyId') propertyId: string,
@@ -234,9 +225,6 @@ export class KeyResolver {
     @Ctx() ctx: Context,
   ): Promise<Key> {
     const { accessToken, idToken } = ctx
-    if (!accessToken || !idToken) {
-      throw new Error('unauthorized')
-    }
     await updatePropertyKeyMovement(propertyId, keyId, movementId, checkInNegotiatorId, accessToken, idToken)
     const key = await getPropertyKey(propertyId, keyId, accessToken, idToken)
     return APIKeyToKey(key)
