@@ -1,4 +1,4 @@
-import { Resolver, Query, Arg, Mutation, ID } from 'type-graphql'
+import { Resolver, Query, Arg, Mutation, ID, Authorized } from 'type-graphql'
 
 import { App } from '../entities/app'
 import { getUserApps, getApp, createApp, updateApp, getDomainApps } from '../ddb'
@@ -38,6 +38,7 @@ export const defaultNodes = [
 export class AppResolver {
   constructor() {}
 
+  @Authorized()
   @Query(() => [App], { name: '_getUserApps' })
   async getUserApps(@Arg('userId') userId: string) {
     const apps = await getUserApps(userId)
@@ -57,6 +58,7 @@ export class AppResolver {
     throw new Error(`App ${idOrSubdomain} not found`)
   }
 
+  @Authorized()
   @Mutation(() => App, { name: '_createApp' })
   async createApp(@Arg('name') name: string, @Arg('userId') userId: string) {
     const id = uuid.v4()
@@ -73,6 +75,7 @@ export class AppResolver {
     return app
   }
 
+  @Authorized()
   @Mutation(() => App, { name: '_updateApp' })
   async updateApp(
     @Arg('id', () => ID) id: string,
@@ -92,6 +95,7 @@ export class AppResolver {
     return updateApp(app)
   }
 
+  @Authorized()
   @Mutation(() => String, { name: '_ejectApp' })
   async ejectApp(@Arg('id', () => ID) id: string) {
     const app = await getApp(id)

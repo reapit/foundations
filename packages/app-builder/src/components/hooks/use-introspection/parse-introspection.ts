@@ -1,13 +1,31 @@
-import { IntrospectionQuery } from 'graphql'
+import { IntrospectionObjectType, IntrospectionQuery } from 'graphql'
 
 import { notEmpty } from './helpers'
 import { getTopLevelFields } from './nested-fields'
-import { getMutation, getListQuery, getGetQuery } from './query-generators'
+import {
+  getMutation,
+  getListQuery,
+  getGetQuery,
+  getSpecials,
+  GeneratedSpecial,
+  GeneratedMutation,
+  GeneratedQuery,
+} from './query-generators'
 import { isIntrospectionEnumType, isIntrospectionInputObjectType, isIntrospectionObjectType } from './types'
 
-export const parseIntrospectionResult = (introspection: IntrospectionQuery) => {
+export type IntrospectionResult = {
+  object: IntrospectionObjectType
+  list?: GeneratedQuery
+  get?: GeneratedQuery
+  create?: GeneratedMutation
+  update?: GeneratedMutation
+  delete?: GeneratedMutation
+  specials: GeneratedSpecial[]
+}
+
+export const parseIntrospectionResult = (introspection: IntrospectionQuery): IntrospectionResult[] | undefined => {
   if (!introspection) {
-    return null
+    return undefined
   }
   const schema = introspection.__schema
   const queryName = schema.queryType.name
@@ -30,11 +48,12 @@ export const parseIntrospectionResult = (introspection: IntrospectionQuery) => {
     const mutations = mutationType.filter(({ nestedType }) => object.name === nestedType)
     return {
       object,
-      list: getListQuery(queries, objectTypes),
-      get: getGetQuery(queries, objectTypes),
+      list: getListQuery(queries, objectTypes, inputObjectTypes, enums),
+      get: getGetQuery(queries, objectTypes, inputObjectTypes, enums),
       create: getMutation('create', mutations, objectTypes, inputObjectTypes, enums),
       update: getMutation('update', mutations, objectTypes, inputObjectTypes, enums),
       delete: getMutation('delete', mutations, objectTypes, inputObjectTypes, enums),
+      specials: getSpecials(mutations, objectTypes, inputObjectTypes, enums),
     }
   })
 }

@@ -12,10 +12,12 @@ export interface LinkProps extends ContainerProps {
 export const Link = forwardRef<HTMLDivElement, LinkProps & { disabled?: boolean }>(({ disabled, ...props }, ref) => {
   const { appId } = useParams<{ appId?: string }>()
   const dest = props.destination || ''
+  const pathname = path.join('/', appId || '', dest === '~' ? '' : dest)
+
   return (
     <RRLink
       to={{
-        pathname: path.join('/', appId || '', dest === '~' ? '' : dest),
+        pathname,
         search: props.context ? qs.stringify(props.context) : '',
       }}
       onClick={

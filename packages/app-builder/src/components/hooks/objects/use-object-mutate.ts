@@ -4,15 +4,17 @@ import { notEmpty } from '../use-introspection/helpers'
 import { MutationType } from '../use-introspection/types'
 import { useObject } from './use-object'
 
-export const useObjectMutate = (mutateType: MutationType, typeName?: string) => {
+export const useObjectMutate = (mutateType: MutationType | string, typeName?: string) => {
   const { object, error, loading } = useObject(typeName)
   const listQuery = object && typeName ? object.list : undefined
-  const mutate = object && typeName ? object[mutateType] : undefined
+  const mutate =
+    object && typeName ? object[mutateType] || object.specials.find(({ name }) => name === mutateType) : undefined
   const [mutateFunction, mutationResult] = useMutation(mutate?.mutation || dummyMutation, {
-    refetchQueries: [listQuery && { query: listQuery }].filter(notEmpty),
+    refetchQueries: [listQuery?.query && { query: listQuery.query }].filter(notEmpty),
   })
 
   return {
+    available: !!mutate,
     mutateFunction,
     args: mutate?.args,
     data: mutationResult.data,
@@ -25,3 +27,4 @@ export const useObjectMutate = (mutateType: MutationType, typeName?: string) => 
 export const useObjectCreate = (typeName?: string) => useObjectMutate('create', typeName)
 export const useObjectUpdate = (typeName?: string) => useObjectMutate('update', typeName)
 export const useObjectDelete = (typeName?: string) => useObjectMutate('delete', typeName)
+export const useObjectSpecial = (typeName: string, specialName: string) => useObjectMutate(specialName, typeName)

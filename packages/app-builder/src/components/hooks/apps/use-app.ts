@@ -4,7 +4,7 @@ import { App, AppFragment } from './fragments'
 export const GetAppQuery = gql`
   ${AppFragment}
   query GetAppQuery($idOrSubdomain: String!) {
-    _getApp(idOrDomain: $idOrSubdomain) {
+    _getApp(idOrSubdomain: $idOrSubdomain) {
       ...AppFragment
     }
   }
