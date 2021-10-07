@@ -14,7 +14,7 @@ import {
   elToggleFullWidth,
   ElToggleLabel,
   ElToggleRadio,
-  elToggleRadioItem,
+  ElToggleRadioItem,
   ElToggleRadioLabel,
   ElToggleRadioWrap,
 } from './__styles__/index'
@@ -86,7 +86,7 @@ export const ToggleRadio: ToggleRadioWrapped = forwardRef(
               ref={ref as LegacyRef<HTMLInputElement>}
             />
             <ElToggleRadioLabel htmlFor={id} className={cx(hasGreyBg && elHasGreyBg, isFullWidth && elToggleFullWidth)}>
-              <span className={elToggleRadioItem}>{text}</span>
+              <ElToggleRadioItem>{text}</ElToggleRadioItem>
             </ElToggleRadioLabel>
           </Fragment>
         ))}

@@ -8,14 +8,10 @@ exports[`Toggle should match a snapshot and render children 1`] = `
   <ElToggleLabel
     className=""
   >
-    <span
-      className="el-toggle-item"
-    >
+    <span>
       On
     </span>
-    <span
-      className="el-toggle-item"
-    >
+    <span>
       Off
     </span>
   </ElToggleLabel>
@@ -37,11 +33,9 @@ exports[`ToggleRadio should match a snapshot and render children 1`] = `
     className="el-toggle-full-width"
     htmlFor="option-1"
   >
-    <span
-      className="el-toggle-radio-item"
-    >
+    <ElToggleRadioItem>
       Option 1
-    </span>
+    </ElToggleRadioItem>
   </ElToggleRadioLabel>
   <ElToggleRadio
     defaultChecked={false}
@@ -54,11 +48,9 @@ exports[`ToggleRadio should match a snapshot and render children 1`] = `
     className="el-toggle-full-width"
     htmlFor="option-2"
   >
-    <span
-      className="el-toggle-radio-item"
-    >
+    <ElToggleRadioItem>
       Option 2
-    </span>
+    </ElToggleRadioItem>
   </ElToggleRadioLabel>
   <ElToggleRadio
     defaultChecked={false}
@@ -71,11 +63,9 @@ exports[`ToggleRadio should match a snapshot and render children 1`] = `
     className="el-toggle-full-width"
     htmlFor="option-3"
   >
-    <span
-      className="el-toggle-radio-item"
-    >
+    <ElToggleRadioItem>
       Option 3
-    </span>
+    </ElToggleRadioItem>
   </ElToggleRadioLabel>
 </ElToggleRadioWrap>
 `;

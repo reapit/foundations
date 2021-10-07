@@ -1,0 +1,9 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`FormLayout component should match a snapshot 1`] = `<ElFormLayout />`;
+
+exports[`InputWrap component should match a snapshot 1`] = `<ElInputWrap />`;
+
+exports[`InputWrapFull component should match a snapshot 1`] = `<ElInputWrapFull />`;
+
+exports[`InputWrapMed component should match a snapshot 1`] = `<ElInputWrapMed />`;
