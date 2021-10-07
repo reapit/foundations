@@ -25,7 +25,6 @@
     max-width: 290px;
     padding: .5rem;
     position: relative;
-    margin-top: -.33rem;
   }
   .reapit-connect-permission-container .permission-content {
     padding-left: 1rem;
@@ -132,11 +131,7 @@
       </div>
     {/if}
     {#if showPermissionBlock}
-<<<<<<< HEAD
       <button class="reapit-connect-button is-primary is-agree" on:click={agreeHandler}>Agree</button>
-=======
-      <button class="reapit-connect-button is-primary no-svg" on:click={agreeHandler}>Agree</button>
->>>>>>> db7dafebc (feat: converted to slide toggle button layout)
     {/if}
   </div>
 </div>
