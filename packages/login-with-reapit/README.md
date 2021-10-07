@@ -32,10 +32,3 @@ reapitConnectComponent({
   companyName: "Test Company", // Your Company name
 })
 ```
-
-## Shadow Root Element
-
-
-```ts
-
-```
