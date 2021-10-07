@@ -1,14 +1,13 @@
 <script lang="ts">
   import { slide } from 'svelte/transition'
   import SignInButton from './sign-in-button.svelte'
-  import CloseIcon from './close-icon.svelte'
   import { ReapitConnectBrowserSession } from '@reapit/connect-session'
   
   let showPermissionBlock: boolean = false
   export let reapitConnectBrowserSession: ReapitConnectBrowserSession
   export let companyName: string
 
-  $: handler = () => showPermissionBlock = !showPermissionBlock
+  $: permissionToggle = () => showPermissionBlock = !showPermissionBlock
   $: agreeHandler = () => reapitConnectBrowserSession.connectAuthorizeRedirect()
 </script>
 
@@ -23,39 +22,11 @@
   .reapit-connect-permission-container .permission-info {
     /* display: none; */
     border: 1px solid lightgrey;
-    border-radius: 1rem 1rem 0rem 0rem;
     max-width: 290px;
     padding: .5rem;
     position: relative;
+    margin-top: -.25rem;
   }
-  .reapit-connect-permission-container .permission-info .header {
-    display: flex;
-    align-items: center;
-  }
-
-  .reapit-connect-permission-container .permission-info .permission-close-container {
-    display: flex;
-    flex-direction: row-reverse;
-    position: absolute;
-    top: 0;
-    right: 0;
-    padding: .5rem;
-  }
-
-  .reapit-connect-permission-container .permission-info hr {
-    border: 0;
-    border-top: 1px solid lightgray;
-    margin-top: .1rem;
-  }
-
-  .reapit-connect-permission-container .title {
-    margin: 0;
-    padding: .5rem;
-    flex-grow: 1;
-    font-size: 1.2rem;
-    text-align: center;
-  }
-
   .reapit-connect-permission-container .permission-content {
     padding-left: 1rem;
     padding-right: 1rem;
@@ -120,28 +91,13 @@
     max-height: 48px;
   }
 
-  .reapit-connect-permission-container .reapit-connect-button.is-close {
-    border-radius: 100%;
-    border: none;
-    cursor: pointer;
-    color: lightgray;
-    background: none;
-    padding: 0;
-  }
-
 </style>
 
 <div class="reapit-connect-session">
   <div class={`reapit-connect-permission-container${showPermissionBlock ? ' is-active' : ''}`}>
+    <button class="reapit-connect-button is-primary" on:click={permissionToggle}><SignInButton/></button>
     {#if showPermissionBlock}
       <div class="permission-info" transition:slide>
-        <div class="permission-close-container">
-          <button class="reapit-connect-button is-close" on:click={() => showPermissionBlock = false}><CloseIcon /></button>
-        </div>
-        <div class="header">
-          <h3 class="title">Login With Reapit</h3>
-        </div>
-        <hr />
         <div class="permission-content">
           <p>{companyName} would like to share the following information from your reapit identity:</p>
           <ul>
@@ -155,9 +111,6 @@
     {/if}
     {#if showPermissionBlock}
       <button class="reapit-connect-button is-primary no-svg" on:click={agreeHandler}>Agree</button>
-    {/if}
-    {#if !showPermissionBlock}
-      <button class="reapit-connect-button is-primary" on:click={handler}><SignInButton/></button>
     {/if}
   </div>
 </div>
