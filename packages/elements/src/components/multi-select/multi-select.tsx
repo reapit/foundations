@@ -21,6 +21,7 @@ import {
   elHasGreyChips,
   ElMultiSelectSelected,
   ElMultiSelectUnSelected,
+  ElMultiSelectInputWrapper,
 } from './__styles__/index'
 import { generateRandomId } from '../../storybook/random-id'
 import { Icon } from '../icon'
@@ -138,7 +139,7 @@ export const MultiSelectInput: MultiSelectInputWrapped = forwardRef(
     useEffect(handleSetNativeInput(id, selectedOptionValues), [selectedOptionValues])
 
     return (
-      <>
+      <ElMultiSelectInputWrapper>
         <ElMultiSelectInput id={id} {...rest} ref={ref as LegacyRef<HTMLInputElement>} />
         <MultiSelectSelected className={className}>
           {selectedOptionValues.length ? (
@@ -176,7 +177,7 @@ export const MultiSelectInput: MultiSelectInputWrapped = forwardRef(
             })}
           </MultiSelectUnSelected>
         )}
-      </>
+      </ElMultiSelectInputWrapper>
     )
   },
 )

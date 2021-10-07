@@ -5,6 +5,8 @@ import { ElInput } from '../../input/__styles__'
 import { ElTextArea } from '../../textarea/__styles__'
 import { ElSelect } from '../../select/__styles__'
 import { ElInputAddOn } from '../../input-add-on/__styles__'
+import { ElToggleRadioWrap, ElToggleLabel } from '../../toggle/__styles__'
+import { ElMultiSelectInputWrapper } from '../../multi-select/__styles__'
 
 export const ElInputGroup = styled.div`
   display: flex;
@@ -23,6 +25,13 @@ export const ElInputGroup = styled.div`
     padding-left: 0.5rem;
     align-items: center;
     order: 2;
+  }
+
+  ${ElMultiSelectInputWrapper} ${ElIcon} {
+    background: var(--color-grey-light);
+    border-bottom: none;
+    order: 0;
+    padding-left: 0;
   }
 
   ${ElInput}, ${ElTextArea}, ${ElSelect} {
@@ -77,9 +86,17 @@ export const ElInputGroup = styled.div`
   }
 
   ${ElInput}[type='checkbox'] {
+    margin-left: 0.5rem;
     ~ ${ElLabel} {
-      padding-left: 0;
-      padding-bottom: 0.5rem;
+      padding-bottom: 0.25rem;
+    }
+  }
+
+  ${ElToggleRadioWrap}, ${ElToggleLabel}, ${ElMultiSelectInputWrapper} {
+    order: 2;
+    ~ ${ElLabel} {
+      order: 1;
+      padding-bottom: 0.25rem;
     }
   }
 

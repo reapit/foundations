@@ -3,7 +3,7 @@ import {
   BodyText,
   ColSplit,
   elMb11,
-  elToggleItem,
+  ElToggleItem,
   Grid,
   InputGroup,
   Subtitle,
@@ -36,8 +36,8 @@ export const WebhooksNewStatus: FC<WebhooksNewStatusProps> = ({ register }) => (
         <FlexContainer isFlexColumn className={cx(elW6, elMr5)}>
           <Subtitle>Status</Subtitle>
           <Toggle className={elMt1} id="status-toggle" hasGreyBg isFullWidth {...register('active')}>
-            <span className={elToggleItem}>Active</span>
-            <span className={elToggleItem}>Inactive</span>
+            <ElToggleItem>Active</ElToggleItem>
+            <ElToggleItem>Inactive</ElToggleItem>
           </Toggle>
         </FlexContainer>
         <div className={cx(elW6, elMl5)}>

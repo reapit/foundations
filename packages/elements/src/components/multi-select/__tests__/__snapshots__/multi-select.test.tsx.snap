@@ -28,7 +28,7 @@ exports[`MultiSelectChip should match a snapshot and render children 1`] = `
 `;
 
 exports[`MultiSelectInput should match a snapshot and render children 1`] = `
-<Fragment>
+<ElMultiSelectInputWrapper>
   <ElMultiSelectInput
     id="react-example"
   />
@@ -59,11 +59,11 @@ exports[`MultiSelectInput should match a snapshot and render children 1`] = `
       Item three
     </MultiSelectChip>
   </MultiSelectUnSelected>
-</Fragment>
+</ElMultiSelectInputWrapper>
 `;
 
 exports[`MultiSelectInput should match a snapshot and render non selected message where there are no selected items 1`] = `
-<Fragment>
+<ElMultiSelectInputWrapper>
   <ElMultiSelectInput
     id="react-example"
   />
@@ -103,7 +103,7 @@ exports[`MultiSelectInput should match a snapshot and render non selected messag
       Item three
     </MultiSelectChip>
   </MultiSelectUnSelected>
-</Fragment>
+</ElMultiSelectInputWrapper>
 `;
 
 exports[`MultiSelectSelected should match a snapshot and render children 1`] = `

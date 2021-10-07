@@ -126,3 +126,7 @@ export const ElMultiSelectInput = styled.input`
   position: absolute;
   visibility: hidden;
 `
+
+export const ElMultiSelectInputWrapper = styled.div`
+  width: 100%;
+`
