@@ -41,6 +41,8 @@
 
   .reapit-connect-permission-container .permission-content ul li {
     margin-top: .5rem;
+    display: flex;
+    flex-direction: row;
   }
 
   .reapit-connect-permission-container .permission-content ul li:before {
@@ -48,6 +50,7 @@
     padding: 0px 0 3px 24px;
     background-repeat: no-repeat;
     color: rgb(35, 164, 222);
+    display: inline-block;
   }
 
   .reapit-connect-permission-container .permission-content ul li:nth-child(1):before {
