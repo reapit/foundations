@@ -8260,6 +8260,38 @@ __metadata:
   languageName: unknown
   linkType: soft
 
+"@reapit/connect-session@^3.0.0, @reapit/connect-session@workspace:packages/connect-session":
+  version: 0.0.0-use.local
+  resolution: "@reapit/connect-session@workspace:packages/connect-session"
+  dependencies:
+    "@reapit/config-manager": "workspace:packages/config-manager"
+    "@reapit/ts-scripts": "workspace:packages/ts-scripts"
+    "@reapit/ts-types": "workspace:packages/ts-types"
+    "@testing-library/react-hooks": ^7.0.1
+    "@types/base-64": ^1.0.0
+    "@typescript-eslint/eslint-plugin": ^4.28.4
+    "@typescript-eslint/parser": ^4.28.4
+    axios: ^0.21.1
+    babel-jest: ^27.0.6
+    base-64: ^1.0.0
+    bashleigh-idtoken-verifier: 2.2.3
+    concurrently: ^6.2.0
+    cross-env: ^7.0.3
+    eslint: ^7.31.0
+    eslint-plugin-prettier: ^3.4.0
+    isomorphic-fetch: ^3.0.0
+    jest: ^27.0.6
+    jest-coverage-badges: ^1.1.2
+    jwk-to-pem: ^2.0.5
+    jwt-decode: ^3.1.2
+    snyk: ^1.662.0
+    tsdx: ^0.14.1
+  peerDependencies:
+    react: ^17.0.2
+    react-dom: ^17.0.2
+  languageName: unknown
+  linkType: soft
+
 "@reapit/connect-session@npm:^2.0.9":
   version: 2.3.1
   resolution: "@reapit/connect-session@npm:2.3.1"
@@ -8275,35 +8307,6 @@ __metadata:
   checksum: 35ce814b805f6ac9d7b6da777fd04c39f5db568c5738277c15ea316a828c3cc160aa982b3f310694e72765354f68c0635d5b47429b17a36e38b148d5b359e1e8
   languageName: node
   linkType: hard
-
-"@reapit/connect-session@workspace:packages/connect-session":
-  version: 0.0.0-use.local
-  resolution: "@reapit/connect-session@workspace:packages/connect-session"
-  dependencies:
-    "@reapit/config-manager": "workspace:packages/config-manager"
-    "@reapit/ts-scripts": "workspace:packages/ts-scripts"
-    "@reapit/ts-types": "workspace:packages/ts-types"
-    "@testing-library/react-hooks": ^7.0.1
-    "@typescript-eslint/eslint-plugin": ^4.28.4
-    "@typescript-eslint/parser": ^4.28.4
-    axios: ^0.21.1
-    babel-jest: ^27.0.6
-    concurrently: ^6.2.0
-    cross-env: ^7.0.3
-    eslint: ^7.31.0
-    eslint-plugin-prettier: ^3.4.0
-    isomorphic-fetch: ^3.0.0
-    jest: ^27.0.6
-    jest-coverage-badges: ^1.1.2
-    jsonwebtoken: ^8.5.1
-    jwk-to-pem: ^2.0.5
-    snyk: ^1.662.0
-    tsdx: ^0.14.1
-  peerDependencies:
-    react: ^17.0.2
-    react-dom: ^17.0.2
-  languageName: unknown
-  linkType: soft
 
 "@reapit/cra-template-foundations@workspace:packages/cra-template-foundations":
   version: 0.0.0-use.local
@@ -8526,12 +8529,9 @@ __metadata:
   resolution: "@reapit/login-with-reapit@workspace:packages/login-with-reapit"
   dependencies:
     "@linaria/rollup": ^3.0.0-beta.13
-    "@reapit/connect-session": "workspace:packages/connect-session"
+    "@reapit/connect-session": ^3.0.0
     "@reapit/ts-scripts": "workspace:packages/ts-scripts"
     "@reapit/ts-types": "workspace:packages/ts-types"
-    "@rollup/plugin-json": ^4.1.0
-    "@rollup/plugin-typescript": ^8.2.5
-    "@svgr/rollup": ^5.5.0
     "@testing-library/svelte": ^3.0.3
     "@typescript-eslint/eslint-plugin": ^4.28.4
     "@typescript-eslint/parser": ^4.28.4
@@ -8545,15 +8545,12 @@ __metadata:
     jest-coverage-badges: ^1.1.2
     node-polyfill-webpack-plugin: ^1.1.4
     rimraf: ^3.0.2
-    rollup: ^2.58.0
-    rollup-plugin-css-only: ^3.1.0
-    rollup-plugin-node-polyfills: ^0.2.1
-    rollup-plugin-svelte: ^7.1.0
     sirv-cli: ^1.0.12
     svelte: ^3.34.0
     svelte-jester: ^1.7.0
     svelte-loader: ^2.13.6
     svelte-preprocess: ^4.9.8
+    typescript: ^4.3.5
     webpack: ^5.45.1
     webpack-cli: ^4.7.2
   languageName: unknown
@@ -8897,7 +8894,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@rollup/plugin-json@npm:^4.0.0, @rollup/plugin-json@npm:^4.1.0":
+"@rollup/plugin-json@npm:^4.0.0":
   version: 4.1.0
   resolution: "@rollup/plugin-json@npm:4.1.0"
   dependencies:
@@ -8979,20 +8976,6 @@ __metadata:
     tslib: "*"
     typescript: ">=3.7.0"
   checksum: c4683eb31e421c837a640d6677e6fa91d2dc56e287920280a6bfa1b4a5c0c4d6ad57fc4780fd3bc847e05cb0247032c2b3886fc56cbd2ac0e4ecdf3d6ae256bb
-  languageName: node
-  linkType: hard
-
-"@rollup/plugin-typescript@npm:^8.2.5":
-  version: 8.2.5
-  resolution: "@rollup/plugin-typescript@npm:8.2.5"
-  dependencies:
-    "@rollup/pluginutils": ^3.1.0
-    resolve: ^1.17.0
-  peerDependencies:
-    rollup: ^2.14.0
-    tslib: "*"
-    typescript: ">=3.7.0"
-  checksum: 31e26d13f32f02b27c667f5e372ca8b02297346fbe11af5757b3427eff77a7adb00e9d9e54f0c4107fec2bfada5c5c458db04a62b5d52a1b9ea878c4de6212f2
   languageName: node
   linkType: hard
 
@@ -11736,6 +11719,13 @@ __metadata:
   dependencies:
     "@babel/types": ^7.3.0
   checksum: 70c4bcc395738a6cf64e413095985b6863d34e81cd7c1c767715ecabbb3120bd6fc38f2dddfa8b30787a903f716a625ecdc93e0d5dd1d62935a016b2a07ab17d
+  languageName: node
+  linkType: hard
+
+"@types/base-64@npm:^1.0.0":
+  version: 1.0.0
+  resolution: "@types/base-64@npm:1.0.0"
+  checksum: 7f533e39122a1f3dc7db740fd27e27a95f377b75556756a429567b01435e278f316be694ad44e7327ba44e0a8ce727d0ffd114da6c59318cf71a3e09b2a1f29e
   languageName: node
   linkType: hard
 
@@ -16040,6 +16030,13 @@ __metadata:
   languageName: node
   linkType: hard
 
+"base-64@npm:^1.0.0":
+  version: 1.0.0
+  resolution: "base-64@npm:1.0.0"
+  checksum: 7ff7383b2c341c5c7ec55c2ea0c19157e86ef0484a3d5f27fe165158f42c271ddc9049b98f3c5c09f38c240c5d46177d4ea7e000b7457d3591aa212fb18e6f7c
+  languageName: node
+  linkType: hard
+
 "base64-arraybuffer@npm:0.1.5":
   version: 0.1.5
   resolution: "base64-arraybuffer@npm:0.1.5"
@@ -16073,6 +16070,20 @@ __metadata:
     mixin-deep: ^1.2.0
     pascalcase: ^0.1.1
   checksum: 84e30392fd028df388b209cfb800e1ab4156b3cc499bd46f96ce6271fd17f10302ba6b87d4a56c6946cc77b6571502d45d73c7948a63a84f9ffd421f81232dd5
+  languageName: node
+  linkType: hard
+
+"bashleigh-idtoken-verifier@npm:2.2.3":
+  version: 2.2.3
+  resolution: "bashleigh-idtoken-verifier@npm:2.2.3"
+  dependencies:
+    base64-js: ^1.5.1
+    crypto-js: ^4.1.1
+    es6-promise: ^4.2.8
+    jsbn: ^1.1.0
+    unfetch: ^4.2.0
+    url-join: ^4.0.1
+  checksum: 5bf60f3ddb13baa757417d80df569fb1daee38188f9583fc36aba3b3a19bd043696fcedcb16f32232de683783db0ba016a18bdfe1720c2fb816e9af2a7ec32ed
   languageName: node
   linkType: hard
 
@@ -19003,6 +19014,13 @@ __metadata:
   languageName: node
   linkType: hard
 
+"crypto-js@npm:^4.1.1":
+  version: 4.1.1
+  resolution: "crypto-js@npm:4.1.1"
+  checksum: c12bbf7372534a8889737791eb8d1851a90b5afbbf86e013636fb782c32c05e3e3eab5dfc511ca9020a275a43d0e4138d0e95612b99595f336ccf54180b68a00
+  languageName: node
+  linkType: hard
+
 "crypto-random-string@npm:^1.0.0":
   version: 1.0.0
   resolution: "crypto-random-string@npm:1.0.0"
@@ -21477,7 +21495,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"es6-promise@npm:^4.2.5":
+"es6-promise@npm:^4.2.5, es6-promise@npm:^4.2.8":
   version: 4.2.8
   resolution: "es6-promise@npm:4.2.8"
   checksum: b85e5faab1b3785b8bf1a6c91b5f176cf3e5e4550359508ef54dd58b19ad2b831e04607e2a0a464f2a1407bf02897d5c88daf6e3d94c2ee4510e8191b44b64ef
@@ -28619,6 +28637,13 @@ fsevents@^1.2.7:
   languageName: node
   linkType: hard
 
+"jsbn@npm:^1.1.0":
+  version: 1.1.0
+  resolution: "jsbn@npm:1.1.0"
+  checksum: 1400c412cdb40a703be30ec4faaaba99cdc63cb61caf8b8d5898d968d3ec50c2154fca5a7e4b950d1f55ee50668221001cf4054da5f49f73a05616361ff0a1c1
+  languageName: node
+  linkType: hard
+
 "jsbn@npm:~0.1.0":
   version: 0.1.1
   resolution: "jsbn@npm:0.1.1"
@@ -30287,7 +30312,7 @@ fsevents@^1.2.7:
   languageName: node
   linkType: hard
 
-"magic-string@npm:^0.25.0, magic-string@npm:^0.25.2, magic-string@npm:^0.25.3, magic-string@npm:^0.25.7":
+"magic-string@npm:^0.25.0, magic-string@npm:^0.25.2, magic-string@npm:^0.25.7":
   version: 0.25.7
   resolution: "magic-string@npm:0.25.7"
   dependencies:
@@ -37417,26 +37442,6 @@ resolve@^2.0.0-next.3:
   languageName: node
   linkType: hard
 
-"rollup-plugin-inject@npm:^3.0.0":
-  version: 3.0.2
-  resolution: "rollup-plugin-inject@npm:3.0.2"
-  dependencies:
-    estree-walker: ^0.6.1
-    magic-string: ^0.25.3
-    rollup-pluginutils: ^2.8.1
-  checksum: c043f4eba75145d39e6732aac0420cad12045e3eaa3cb78905083382d0315c026a0af289a803287ba466f3a6470ac3dc8dd8731b1cc93969752682fae5b96152
-  languageName: node
-  linkType: hard
-
-"rollup-plugin-node-polyfills@npm:^0.2.1":
-  version: 0.2.1
-  resolution: "rollup-plugin-node-polyfills@npm:0.2.1"
-  dependencies:
-    rollup-plugin-inject: ^3.0.0
-  checksum: ece17e6ff9d6a5e08f444719dc5aeba62ea64998a32abd70a6fc7a3ea1649042f1223b6621faa0d9777b18fec2888f42133188551b32d1f1821f79694827c4ed
-  languageName: node
-  linkType: hard
-
 "rollup-plugin-scss@npm:^3.0.0":
   version: 3.0.0
   resolution: "rollup-plugin-scss@npm:3.0.0"
@@ -37459,19 +37464,6 @@ resolve@^2.0.0-next.3:
     "@types/node":
       optional: true
   checksum: 73e8d02fa8ade508fb0b9c74ec273aad557d1e7f32a71c156df85337cc277834922734601233103f7a6e398fbddd53bc9105288f7b54d5e3b6dd88c2a882079e
-  languageName: node
-  linkType: hard
-
-"rollup-plugin-svelte@npm:^7.1.0":
-  version: 7.1.0
-  resolution: "rollup-plugin-svelte@npm:7.1.0"
-  dependencies:
-    require-relative: ^0.8.7
-    rollup-pluginutils: ^2.8.2
-  peerDependencies:
-    rollup: ">=2.0.0"
-    svelte: ">=3.5.0"
-  checksum: fa19a0cbed6e706d0206c58f9c5877a32a4c24b231f5b2f948c6062c8e0c3e15fe18551ff030af42d4198e79879e4e100d99329842e771e6c0d224527121039f
   languageName: node
   linkType: hard
 
@@ -37520,7 +37512,7 @@ resolve@^2.0.0-next.3:
   languageName: node
   linkType: hard
 
-"rollup-pluginutils@npm:^2.3.3, rollup-pluginutils@npm:^2.8.1, rollup-pluginutils@npm:^2.8.2":
+"rollup-pluginutils@npm:^2.3.3, rollup-pluginutils@npm:^2.8.2":
   version: 2.8.2
   resolution: "rollup-pluginutils@npm:2.8.2"
   dependencies:
@@ -37581,20 +37573,6 @@ resolve@^2.0.0-next.3:
   bin:
     rollup: dist/bin/rollup
   checksum: b08f33d8e8813d99a223658d951395be939d187afbc7af079afb3e695d47dd7664514a8379380953903683fe59a0133ee2c595e5ed680947e40c110c0641a6f3
-  languageName: node
-  linkType: hard
-
-"rollup@npm:^2.58.0":
-  version: 2.58.0
-  resolution: "rollup@npm:2.58.0"
-  dependencies:
-    fsevents: ~2.3.2
-  dependenciesMeta:
-    fsevents:
-      optional: true
-  bin:
-    rollup: dist/bin/rollup
-  checksum: f3151d0d9949ada746c64395d9f9b393636a26257cac2c9b5b2e69d84cf70a24a14e8ba4e3670084e05f15ccac94faa9cc5b077614f7596eba7d3c03f4a84174
   languageName: node
   linkType: hard
 
@@ -43007,6 +42985,13 @@ typescript@^3.7.3:
   version: 0.1.0
   resolution: "urix@npm:0.1.0"
   checksum: 6bdfca4e7fb7d035537068a47a04ace1bacfa32e6b1aaf54c5a0340c83125a186d59109a19b9a3a1c1f986d3eb718b82faf9ad03d53cb99cf868068580b15b3b
+  languageName: node
+  linkType: hard
+
+"url-join@npm:^4.0.1":
+  version: 4.0.1
+  resolution: "url-join@npm:4.0.1"
+  checksum: 278de41c66a739862dd3b0d8f01c18a72d1bdfbc1e1f0d3d72e68aeba54193c3c740c07cc9d32a81491d59cc1c09e38763ab7cc72c6f685549ec98e5c9cd9cc1
   languageName: node
   linkType: hard
 

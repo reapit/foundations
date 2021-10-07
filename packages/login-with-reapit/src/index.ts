@@ -30,8 +30,14 @@ export const reapitConnectComponent = ({
     connectLogoutRedirectPath,
   })
 
+  const element = typeof rootElement === 'string' ? document.querySelector(rootElement) : (rootElement as Element)
+
+  if (element === null) {
+    throw new Error('Element is null')
+  }
+
   new ReapitConnectButtonComponent({
-    target: typeof rootElement === 'string' ? document.querySelector(rootElement) : (rootElement as Element),
+    target: element,
     props: {
       reapitConnectBrowserSession,
       connectHasSessionCallback,

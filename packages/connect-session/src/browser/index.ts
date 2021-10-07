@@ -1,5 +1,4 @@
 import 'isomorphic-fetch'
-import jwt from 'jsonwebtoken'
 import {
   ReapitConnectBrowserSessionInitializers,
   ReapitConnectSession,
@@ -8,6 +7,8 @@ import {
   CoginitoSession,
 } from '../types'
 import { connectSessionVerifyDecodeIdToken } from '../utils/verify-decode-id-token'
+import decode from 'jwt-decode'
+import { DecodedToken } from '../utils'
 
 export class ReapitConnectBrowserSession {
   // Static constants
@@ -125,7 +126,7 @@ export class ReapitConnectBrowserSession {
   // Check on access token to see if has expired - they last 1hr only before I need to refresh
   private get sessionExpired() {
     if (this.session) {
-      const decoded = jwt.decode(this.session.accessToken) as CoginitoAccess
+      const decoded = decode<DecodedToken<CoginitoAccess>>(this.session.accessToken)
       const expiry = decoded['exp']
       const fiveMinsFromNow = Math.round(new Date().getTime() / 1000) + 300
       return expiry ? expiry < fiveMinsFromNow : true
@@ -182,9 +183,9 @@ export class ReapitConnectBrowserSession {
     }
   }
 
-  private handleError(error: string) {
+  private handleError(error: string | Error) {
     this.clearRefreshToken()
-    console.error('Reapit Connect Error:', error)
+    typeof error === 'string' ? console.error('Reapit Connect Error:', error) : console.error(error)
   }
 
   // set a redirect URI to my page where I instantiated the flow, by decoding the state object

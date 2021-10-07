@@ -1,6 +1,7 @@
-import jwt from 'jsonwebtoken'
 import axios from 'axios'
 import { CoginitoAccess, ReapitConnectServerSessionInitializers } from '../types'
+import decode from 'jwt-decode'
+import { DecodedToken } from '../utils'
 
 export class ReapitConnectServerSession {
   // Static constants
@@ -25,7 +26,7 @@ export class ReapitConnectServerSession {
   // Check on access token to see if has expired - they last 1hr only before I need to refresh
   private get accessTokenExpired() {
     if (this.accessToken) {
-      const decoded = jwt.decode(this.accessToken) as CoginitoAccess
+      const decoded = decode<DecodedToken<CoginitoAccess>>(this.accessToken)
       const expiry = decoded['exp']
 
       return expiry ? expiry < ReapitConnectServerSession.TOKEN_EXPIRY : true
@@ -57,8 +58,8 @@ export class ReapitConnectServerSession {
         return session.data.access_token
       }
       throw new Error('No access token returned by Reapit Connect')
-    } catch (err) {
-      console.error('Reapit Connect Token Error', err.message)
+    } catch (error) {
+      console.error('Reapit Connect Token Error', error.message)
     }
   }
 
@@ -79,8 +80,8 @@ export class ReapitConnectServerSession {
       }
 
       throw new Error('No session returned from Reapit Connect')
-    } catch (err) {
-      console.error('Reapit Connect Session error', err.message)
+    } catch (error) {
+      console.error('Reapit Connect Session error', error.message)
     }
   }
 }

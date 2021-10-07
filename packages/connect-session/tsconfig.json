@@ -12,7 +12,6 @@
     "declaration": true,
     "declarationDir": "dist"
   },
-
   "include": ["src"],
   "exclude": ["public", "dist", "src/scripts", "node_modules", "src/tests/coverage"]
 }

@@ -1,18 +1,21 @@
 const path = require('path')
 const isProd = process.env.NODE_ENV == 'production'
-const HtmlWebpackPlugin = require('html-webpack-plugin')
 const sveltePreprocess = require('svelte-preprocess')
 const FriendlyErrorsWebpackPlugin = require('friendly-errors-webpack-plugin')
 const NodePolyfillPlugin = require('node-polyfill-webpack-plugin')
+const ResolveTSPathsToWebpackAlias = require('ts-paths-to-webpack-alias')
 
 module.exports = {
   entry: {
     ['login-with-reapit']: './src/index.ts',
   },
   output: {
-    filename: '[name].js',
+    filename: 'login-with-reapit.js',
     path: path.resolve(__dirname, 'public/dist'),
     publicPath: '/public/dist/',
+    library: {
+      type: 'umd',
+    },
   },
   resolve: {
     extensions: ['.mjs', '.ts', '.tsx', '.js', '.svelte'],
@@ -49,8 +52,10 @@ module.exports = {
   },
   plugins: [
     new NodePolyfillPlugin(),
-    new HtmlWebpackPlugin({ template: 'public/index.html' }),
     new FriendlyErrorsWebpackPlugin(),
+    new ResolveTSPathsToWebpackAlias({
+      tsconfig: './tsconfig.json',
+    }),
   ],
   devServer: {
     quiet: true,
@@ -64,5 +69,5 @@ module.exports = {
       chunkOrigins: false,
       modules: false,
     },
-  }
+  },
 }

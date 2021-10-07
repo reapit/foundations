@@ -3,40 +3,15 @@
 // project for security reasons and using random strings would be basically worthless as a test.
 // Given code comes from AWS, seems reasonable to trust the implementation.
 import 'isomorphic-fetch'
-import jsonwebtoken from 'jsonwebtoken'
-import jwkToPem, { RSA } from 'jwk-to-pem'
 import { LoginIdentity } from '../types'
+// We wanted to use idtoken-verifier, currently using bashleigh-idtoken-verifier 
+// as the types are incorrect in root package
+import IdTokenVerifier from 'bashleigh-idtoken-verifier'
+import decode from 'jwt-decode'
 
 // Util to verify integrity of AWS tokens for client side applications. Allows Connect Session module to check a
 // ID Token for validity of claims. See Connect Session for usage, not intended for external users.
 // See AWS Docs https://github.com/awslabs/aws-support-tools/tree/master/Cognito/decode-verify-jwt), code adapted from here.
-
-interface TokenHeader {
-  kid: string
-  alg: string
-}
-
-interface PublicKey {
-  alg: string
-  e: string
-  kid: string
-  kty: string
-  n: string
-  use: string
-}
-
-interface PublicKeyMeta {
-  instance: PublicKey
-  pem: string
-}
-
-interface PublicKeys {
-  keys: PublicKey[]
-}
-
-interface MapOfKidToPublicKey {
-  [key: string]: PublicKeyMeta
-}
 
 interface Claim {
   token_use: string
@@ -47,55 +22,34 @@ interface Claim {
   client_id: string
 }
 
-let cacheKeys: MapOfKidToPublicKey | undefined
-
-const getPublicKeys = async (connectUserPoolId: string): Promise<MapOfKidToPublicKey | undefined> => {
-  if (cacheKeys) return cacheKeys
-
-  try {
-    const cognitoIssuer = `https://cognito-idp.eu-west-2.amazonaws.com/${connectUserPoolId}/.well-known/jwks.json`
-    const res = await fetch(cognitoIssuer, {
-      method: 'GET',
-      headers: { 'Content-Type': 'application/json' },
-    })
-
-    const publicKeys: PublicKeys = await res.json()
-
-    if (!publicKeys) throw new Error('Public keys not returned from Reapit Connect')
-
-    cacheKeys = publicKeys.keys.reduce((agg, current) => {
-      const pem = jwkToPem(current as RSA)
-
-      agg[current.kid] = { instance: current, pem }
-
-      return agg
-    }, {} as MapOfKidToPublicKey)
-    return cacheKeys as MapOfKidToPublicKey
-  } catch (error) {
-    console.error('Reapit Connect Session error:', error.message)
-  }
-}
+export type DecodedToken<T extends any> = {
+  aud: string
+} & T
 
 export const connectSessionVerifyDecodeIdTokenWithPublicKeys = async (
   token: string,
   connectUserPoolId: string,
-  keys: MapOfKidToPublicKey,
 ): Promise<LoginIdentity | undefined> => {
   try {
-    const tokenSections = token.split('.')
     const cognitoIssuer = `https://cognito-idp.eu-west-2.amazonaws.com/${connectUserPoolId}`
 
-    if (tokenSections.length < 2) throw new Error('Id token is invalid')
+    const decodedToken = decode<DecodedToken<any>>(token)
 
-    const headerJSON = Buffer.from(tokenSections[0], 'base64').toString('utf8')
+    const verifier = new IdTokenVerifier({
+      issuer: cognitoIssuer,
+      audience: decodedToken.aud,
+      leeway: 300,
+    })
 
-    const header = JSON.parse(headerJSON) as TokenHeader
-
-    const key = keys[header.kid]
-
-    if (!key) throw new Error('Id verification claim made for unknown kid')
-
-    const claim = jsonwebtoken.verify(token, key.pem) as Claim
+    // TODO what is state?
+    const claim = (await new Promise<Claim>((resolve, reject) =>
+      verifier.verify(token, undefined, (err: Error | null, payload: object | null) => {
+        if (err) {
+          reject(err)
+        }
+        resolve(payload as Claim)
+      }),
+    )) as Claim
     const currentSeconds = Math.floor(new Date().valueOf() / 1000)
 
     // Allow 5 minutes to avoid CPU clock latency issues. See: https://github.com/reapit/foundations/issues/2467
@@ -131,14 +85,5 @@ export const connectSessionVerifyDecodeIdToken = async (
   token: string,
   connectUserPoolId: string,
 ): Promise<LoginIdentity | undefined> => {
-  let keys
-  try {
-    keys = await getPublicKeys(connectUserPoolId)
-    if (!keys) {
-      if (!keys) throw new Error('Error fetching public keys')
-    }
-  } catch (error) {
-    console.error('Reapit Connect Session error:', error.message)
-  }
-  return connectSessionVerifyDecodeIdTokenWithPublicKeys(token, connectUserPoolId, keys)
+  return connectSessionVerifyDecodeIdTokenWithPublicKeys(token, connectUserPoolId)
 }
