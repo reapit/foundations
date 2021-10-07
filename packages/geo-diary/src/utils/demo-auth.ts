@@ -19,11 +19,11 @@ export const handleDemoAuth = async (): Promise<null> => {
   })
 
   if (reapitConnectSession.refreshToken) {
-    window.localStorage.setItem(
+    window.sessionStorage.setItem(
       `${ReapitConnectBrowserSession.REFRESH_TOKEN_KEY}_${demoUser}_${connectClientId}`,
       reapitConnectSession.refreshToken,
     )
-    window.localStorage.setItem(`${ReapitConnectBrowserSession.USER_NAME_KEY}_${connectClientId}`, demoUser)
+    window.sessionStorage.setItem(`${ReapitConnectBrowserSession.USER_NAME_KEY}_${connectClientId}`, demoUser)
   }
 
   return null
