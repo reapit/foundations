@@ -8274,11 +8274,11 @@ __metadata:
     axios: ^0.21.1
     babel-jest: ^27.0.6
     base-64: ^1.0.0
+    bashleigh-idtoken-verifier: 2.2.3
     concurrently: ^6.2.0
     cross-env: ^7.0.3
     eslint: ^7.31.0
     eslint-plugin-prettier: ^3.4.0
-    idtoken-verifier: ^2.2.1
     isomorphic-fetch: ^3.0.0
     jest: ^27.0.6
     jest-coverage-badges: ^1.1.2
@@ -16070,6 +16070,20 @@ __metadata:
     mixin-deep: ^1.2.0
     pascalcase: ^0.1.1
   checksum: 84e30392fd028df388b209cfb800e1ab4156b3cc499bd46f96ce6271fd17f10302ba6b87d4a56c6946cc77b6571502d45d73c7948a63a84f9ffd421f81232dd5
+  languageName: node
+  linkType: hard
+
+"bashleigh-idtoken-verifier@npm:2.2.3":
+  version: 2.2.3
+  resolution: "bashleigh-idtoken-verifier@npm:2.2.3"
+  dependencies:
+    base64-js: ^1.5.1
+    crypto-js: ^4.1.1
+    es6-promise: ^4.2.8
+    jsbn: ^1.1.0
+    unfetch: ^4.2.0
+    url-join: ^4.0.1
+  checksum: 5bf60f3ddb13baa757417d80df569fb1daee38188f9583fc36aba3b3a19bd043696fcedcb16f32232de683783db0ba016a18bdfe1720c2fb816e9af2a7ec32ed
   languageName: node
   linkType: hard
 
@@ -25790,20 +25804,6 @@ fsevents@^1.2.7:
   peerDependencies:
     postcss: ^8.1.0
   checksum: 4bf5c2e25b106a6c1f58d5f7b35134810aa785455f0c30e31939d873d4110964c5e470862026e0af51608b6d64853c614d9c724018f73cd59974106c0927e982
-  languageName: node
-  linkType: hard
-
-"idtoken-verifier@npm:^2.2.1":
-  version: 2.2.1
-  resolution: "idtoken-verifier@npm:2.2.1"
-  dependencies:
-    base64-js: ^1.5.1
-    crypto-js: ^4.1.1
-    es6-promise: ^4.2.8
-    jsbn: ^1.1.0
-    unfetch: ^4.2.0
-    url-join: ^4.0.1
-  checksum: e73af86ae11ae561204debb4173d3ba2fc944ce7e6370addfb6d1e188b98e0b45886b5f7773d6e809d41722061d627904325d605dfdfe309e3b6dc6fda85a4f8
   languageName: node
   linkType: hard
 

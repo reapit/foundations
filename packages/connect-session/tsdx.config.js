@@ -32,7 +32,7 @@ module.exports = {
         globals: {
           ...config.output.globals,
           'isomorphic-fetch': 'isomorphic-fetch',
-          jsonwebtoken: 'jsonwebtoken',
+          'idtoken-verifier': 'idtoken-verifier',
           'jwk-to-pem': 'jwk-to-pem',
           axios: 'axios',
         },
