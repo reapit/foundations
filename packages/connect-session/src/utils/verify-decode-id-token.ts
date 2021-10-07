@@ -4,7 +4,8 @@
 // Given code comes from AWS, seems reasonable to trust the implementation.
 import 'isomorphic-fetch'
 import { LoginIdentity } from '../types'
-// We wanted to use idtoken-verifier, currently using bashleigh-idtoken-verifier as the types are incorrect in root package
+// We wanted to use idtoken-verifier, currently using bashleigh-idtoken-verifier 
+// as the types are incorrect in root package
 import IdTokenVerifier from 'bashleigh-idtoken-verifier'
 import decode from 'jwt-decode'
 
@@ -22,8 +23,8 @@ interface Claim {
 }
 
 export type DecodedToken<T extends any> = {
-  aud: string,
-}& T
+  aud: string
+} & T
 
 export const connectSessionVerifyDecodeIdTokenWithPublicKeys = async (
   token: string,

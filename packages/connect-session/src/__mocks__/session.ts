@@ -7,9 +7,9 @@ import {
 import base64 from 'base-64'
 
 export const createMockToken = (token: { [s: string]: any } | string): string =>
-  `${base64.encode('{}')}.${base64.encode(
-    typeof token === 'string' ? token : JSON.stringify(token),
-  )}.${base64.encode('{}')}`
+  `${base64.encode('{}')}.${base64.encode(typeof token === 'string' ? token : JSON.stringify(token))}.${base64.encode(
+    '{}',
+  )}`
 
 export const mockLoginIdentity = {
   email: 'name@mail.com',
