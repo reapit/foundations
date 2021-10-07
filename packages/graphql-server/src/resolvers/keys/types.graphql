@@ -63,7 +63,7 @@ input KeyMovementModelInput {
 
 type Query {
   GetPropertyKeys(propertyId: String!): [KeyModel]
-  GetKey(id: ID!): KeyModel
+  GetKey(propertyId: ID!, keyId: ID!): KeyModel
   GetKeyMovements(propertyId: ID!, keyId: ID!): [KeyMovementModel]
   GetKeyMovement(propertyId: ID!, keyId: ID!, movementId: ID!): KeyMovementModel
 }

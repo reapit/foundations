@@ -5,6 +5,8 @@ import Container from './container'
 import { useEditor, useNode } from '@craftjs/core'
 import { DestinationPage } from './link'
 import { TableProps, Table as ETable } from './ejectable/table'
+import { useSubObjects } from '@/components/hooks/objects/use-sub-objects'
+import { useObjectSpecials } from '@/components/hooks/objects/use-object-specials'
 
 const defaultProps = {}
 
@@ -23,6 +25,9 @@ const ContainerSettings = Container.craft.related.toolbar
 
 const TableSettings = () => {
   const { data, loading } = useTypeList()
+  const { typeName } = useNode((node) => node.data.props)
+  const subobjects = useSubObjects(typeName)
+  const { specials } = useObjectSpecials(typeName)
 
   return (
     <>
@@ -46,6 +51,22 @@ const TableSettings = () => {
         </ToolbarItem>
       </ToolbarSection>
       <DestinationPage sectionTitle="Edit Page" propKey="editPageId" title="Edit Page" />
+      {subobjects.data.map((subobject) => (
+        <DestinationPage
+          sectionTitle={`${subobject.object.name} page`}
+          propKey={`${subobject.object.name}Page`}
+          key={subobject.object.name}
+          title={`${subobject.object.name} page`}
+        />
+      ))}
+      {specials.map((special) => (
+        <DestinationPage
+          sectionTitle={`${special.name} page`}
+          propKey={`${special.name}Page`}
+          key={special.name}
+          title={`${special.name} page`}
+        />
+      ))}
       <ToolbarSection
         title="Controls"
         props={['showControls']}

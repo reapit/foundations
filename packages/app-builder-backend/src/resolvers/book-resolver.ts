@@ -1,4 +1,4 @@
-import { Resolver, Query, Mutation, Arg, ID, Ctx } from 'type-graphql'
+import { Resolver, Query, Mutation, Arg, ID, Ctx, Authorized } from 'type-graphql'
 import { Book, BookInput } from '../entities/book'
 import { authors } from './author-resolver'
 import { Context } from '../types'
@@ -17,18 +17,14 @@ export class BookResolver {
   }
 
   @Query(() => Book)
+  @Authorized()
   async getBook(@Arg('id', () => ID) id: number, @Ctx() ctx: Context) {
-    if (!ctx.accessToken) {
-      throw new Error('unauthorized')
-    }
     return getBook(id, ctx.accessToken)
   }
 
   @Mutation(() => Book)
+  @Authorized()
   async createBook(@Arg('book', { nullable: false }) book: BookInput, @Ctx() ctx: Context) {
-    if (!ctx.accessToken) {
-      throw new Error('unauthorized')
-    }
     const author = authors.find((a) => a.id.toString() === book.authorId.toString())
     if (!author) {
       throw new Error('Author not found')
@@ -44,6 +40,7 @@ export class BookResolver {
   }
 
   @Mutation(() => Book)
+  @Authorized()
   async updateBook(
     @Arg('id', () => ID, { nullable: false }) id: number,
     @Arg('book', { nullable: false }) book: BookInput,
@@ -54,18 +51,13 @@ export class BookResolver {
       throw new Error('Author not found')
     }
     const newBook = { ...book, author, id }
-    if (!ctx.accessToken) {
-      throw new Error('unauthorized')
-    }
     await updateBook(id, newBook, ctx.accessToken)
     return newBook
   }
 
+  @Authorized()
   @Mutation(() => [Book])
   async deleteBook(@Arg('id', () => ID, { nullable: false }) id: number, @Ctx() ctx: Context) {
-    if (!ctx.accessToken) {
-      throw new Error('unauthorized')
-    }
     await deleteBook(id, ctx.accessToken)
     return listBooks(ctx.accessToken)
   }

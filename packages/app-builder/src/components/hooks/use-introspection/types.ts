@@ -18,7 +18,11 @@ export type QueryableField = IntrospectionField & {
   nestedType: string
 }
 
-export type MutationType = 'create' | 'update' | 'delete'
+const mutationTypes = ['create', 'update', 'delete']
+export type MutationType = typeof mutationTypes[number]
+export const stringIsMutationType = (str: string): str is MutationType => {
+  return mutationTypes.includes(str)
+}
 
 export const isIntrospectionObjectType = (type: any): type is IntrospectionObjectType => {
   return type.kind === TypeKind.OBJECT

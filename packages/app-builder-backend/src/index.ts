@@ -19,7 +19,7 @@ const start = async () => {
   const server = new ApolloServer({
     schema,
     context: ({ req }): Context => ({
-      idToken: req.headers.authorization?.split(' ')[1],
+      idToken: req.headers.authorization?.split(' ')[1] || '',
       accessToken: req.headers['reapit-connect-token'] as string,
     }),
     plugins: [ApolloServerPluginDrainHttpServer({ httpServer })],

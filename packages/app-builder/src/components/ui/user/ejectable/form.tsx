@@ -14,6 +14,7 @@ import { usePageId } from '../../../hooks/use-page-id'
 export interface FormProps extends ContainerProps {
   typeName?: string
   destination?: string
+  formType?: string
 }
 
 const SelectIDofType = ({
@@ -46,9 +47,8 @@ const SelectIDofType = ({
 }
 
 export const Form = forwardRef<HTMLDivElement, FormProps & { disabled?: boolean }>(
-  ({ typeName, destination, disabled, ...props }, ref) => {
+  ({ typeName, destination, disabled, formType = 'create', ...props }, ref) => {
     const { context } = usePageId()
-    const formType = context.editObjectId ? 'update' : 'create'
     const { data, loading: getLoading } = useObjectGet(typeName, context.editObjectId as string | undefined)
     const { args, mutateFunction, mutationLoading } = useObjectMutate(formType, typeName)
     const [formState, setFormState] = useState({})
@@ -154,12 +154,13 @@ export const Form = forwardRef<HTMLDivElement, FormProps & { disabled?: boolean 
                   </>
                 )
               }
+
               return (
                 <InputGroup
                   required={isRequired}
                   key={name}
                   label={uppercaseSentence(name)}
-                  type="text"
+                  type={typeName === 'Boolean' ? 'checkbox' : 'text'}
                   value={formState[name]}
                   onChange={(e) => {
                     setFormState({
