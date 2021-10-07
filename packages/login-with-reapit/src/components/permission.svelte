@@ -1,14 +1,13 @@
 <script lang="ts">
   import { slide } from 'svelte/transition'
   import SignInButton from './sign-in-button.svelte'
-  import CloseIcon from './close-icon.svelte'
   import { ReapitConnectBrowserSession } from '@reapit/connect-session'
   
   let showPermissionBlock: boolean = false
   export let reapitConnectBrowserSession: ReapitConnectBrowserSession
   export let companyName: string
 
-  $: handler = () => showPermissionBlock = !showPermissionBlock
+  $: permissionToggle = () => showPermissionBlock = !showPermissionBlock
   $: agreeHandler = () => reapitConnectBrowserSession.connectAuthorizeRedirect()
 </script>
 
@@ -21,46 +20,18 @@
   }
 
   .reapit-connect-permission-container .permission-info {
-    /* display: none; */
     border: 1px solid lightgrey;
-    border-radius: 1rem 1rem 0rem 0rem;
+    border-top: 0;
     max-width: 290px;
     padding: .5rem;
     position: relative;
   }
-  .reapit-connect-permission-container .permission-info .header {
-    display: flex;
-    align-items: center;
-  }
-
-  .reapit-connect-permission-container .permission-info .permission-close-container {
-    display: flex;
-    flex-direction: row-reverse;
-    position: absolute;
-    top: 0;
-    right: 0;
-    padding: .5rem;
-  }
-
-  .reapit-connect-permission-container .permission-info hr {
-    border: 0;
-    border-top: 1px solid lightgray;
-    margin-top: .1rem;
-  }
-
-  .reapit-connect-permission-container .title {
-    margin: 0;
-    padding: .5rem;
-    flex-grow: 1;
-    font-size: 1.2rem;
-    text-align: center;
-  }
-
   .reapit-connect-permission-container .permission-content {
     padding-left: 1rem;
     padding-right: 1rem;
     font-size: 1rem;
     line-height: 1.25rem;
+    color: #646464;
   }
 
   .reapit-connect-permission-container .permission-content ul {
@@ -70,6 +41,8 @@
 
   .reapit-connect-permission-container .permission-content ul li {
     margin-top: .5rem;
+    display: flex;
+    flex-direction: row;
   }
 
   .reapit-connect-permission-container .permission-content ul li:before {
@@ -77,6 +50,7 @@
     padding: 0px 0 3px 24px;
     background-repeat: no-repeat;
     color: rgb(35, 164, 222);
+    display: inline-block;
   }
 
   .reapit-connect-permission-container .permission-content ul li:nth-child(1):before {
@@ -100,48 +74,51 @@
     background-color: #0061a8;
     max-height: 48px;
     max-width: 290px;
+    width: 290px;
     cursor: pointer;
     border: 0;
     padding: 0;
     color: white;
     padding: 0;
     font-weight: bold;
+    border-radius: 4px;
+    padding: .75rem;
+    font-size: 1.25rem;
+    font-style: normal;
+    font-weight: bold;
+  }
+
+  .reapit-connect-permission-container .reapit-connect-button.has-icon {
+    padding-left: 2rem;
+    position: relative;
+  }
+
+  .reapit-connect-permission-container .reapit-connect-button.has-icon .icon {
+    position: absolute;
+    left: 1.25rem;
+    top: .5rem;
+  }
+  .reapit-connect-permission-container .reapit-connect-button.is-primary.is-active {
+    border-radius: 4px 4px 0 0;
+    background-color: #23a4de;
   }
 
   .reapit-connect-permission-container .reapit-connect-button.is-primary:hover {
     background-color: #23a4de;
   }
 
-  .reapit-connect-permission-container .reapit-connect-button.is-primary.no-svg {
-    max-width: 290px;
-    width: 290px;
-    padding: .75rem;
-    font-size: 1.25rem;
-    max-height: 48px;
-  }
-
-  .reapit-connect-permission-container .reapit-connect-button.is-close {
-    border-radius: 100%;
-    border: none;
-    cursor: pointer;
-    color: lightgray;
-    background: none;
-    padding: 0;
+  .reapit-connect-permission-container .reapit-connect-button.is-primary.is-agree {
+    border-radius: 0 0 4px 4px;
+    background: #A0C862;
   }
 
 </style>
 
 <div class="reapit-connect-session">
   <div class={`reapit-connect-permission-container${showPermissionBlock ? ' is-active' : ''}`}>
+    <button class={`reapit-connect-button has-icon is-primary${showPermissionBlock ? ' is-active' : ''}`} on:click={permissionToggle}><span class="icon"><SignInButton/></span>Sign In With Reapit</button>
     {#if showPermissionBlock}
       <div class="permission-info" transition:slide>
-        <div class="permission-close-container">
-          <button class="reapit-connect-button is-close" on:click={() => showPermissionBlock = false}><CloseIcon /></button>
-        </div>
-        <div class="header">
-          <h3 class="title">Login With Reapit</h3>
-        </div>
-        <hr />
         <div class="permission-content">
           <p>{companyName} would like to share the following information from your reapit identity:</p>
           <ul>
@@ -154,10 +131,7 @@
       </div>
     {/if}
     {#if showPermissionBlock}
-      <button class="reapit-connect-button is-primary no-svg" on:click={agreeHandler}>Agree</button>
-    {/if}
-    {#if !showPermissionBlock}
-      <button class="reapit-connect-button is-primary" on:click={handler}><SignInButton/></button>
+      <button class="reapit-connect-button is-primary is-agree" on:click={agreeHandler}>Agree</button>
     {/if}
   </div>
 </div>
