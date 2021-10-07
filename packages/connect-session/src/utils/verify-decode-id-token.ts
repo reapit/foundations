@@ -74,7 +74,7 @@ export const connectSessionVerifyDecodeIdTokenWithPublicKeys = async (
       offGroupName: claim['custom:reapit:offGroupName'] || null,
       officeId: claim['custom:reapit:officeId'] || null,
     }
-  } catch (error: any) {
+  } catch (error) {
     console.error('Reapit Connect Session error:', error.message)
   }
 }
