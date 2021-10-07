@@ -25,7 +25,7 @@
     max-width: 290px;
     padding: .5rem;
     position: relative;
-    margin-top: -.25rem;
+    margin-top: -.33rem;
   }
   .reapit-connect-permission-container .permission-content {
     padding-left: 1rem;
