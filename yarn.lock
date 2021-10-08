@@ -5427,8 +5427,8 @@ __metadata:
   linkType: hard
 
 "@hapi/hapi@npm:^20.1.3":
-  version: 20.1.5
-  resolution: "@hapi/hapi@npm:20.1.5"
+  version: 20.2.0
+  resolution: "@hapi/hapi@npm:20.2.0"
   dependencies:
     "@hapi/accept": ^5.0.1
     "@hapi/ammo": ^5.0.1
@@ -5448,7 +5448,7 @@ __metadata:
     "@hapi/teamwork": ^5.1.0
     "@hapi/topo": ^5.0.0
     "@hapi/validate": ^1.1.1
-  checksum: 9906ee813102401600ff230582509e05a2c087e73e870e437ead6238d37b11ae1c6b57c47baf32d75ce9fa5865cdc1c27edc6b96fcce0bee9e8dcf60b8384523
+  checksum: 84751ef80de13c921288071553526b4b2c4ee47bbc63e7fde5fe33dfbe355cfa91d0b815cc1c03014a2b2cb76dc6cd4cc1fc08508b254f0ab4f779765b88e6b6
   languageName: node
   linkType: hard
 
@@ -5482,9 +5482,9 @@ __metadata:
   linkType: hard
 
 "@hapi/hoek@npm:9.x.x, @hapi/hoek@npm:^9.0.0, @hapi/hoek@npm:^9.0.4":
-  version: 9.2.0
-  resolution: "@hapi/hoek@npm:9.2.0"
-  checksum: c68d43f3fa7de4d53362c38ed5927e7872394bd80cd8d500a8b6c705da92ad9d37106df72d97a63417270fb186e2ad0b147bc31d61b9cdba614987bf8f1ba1ae
+  version: 9.2.1
+  resolution: "@hapi/hoek@npm:9.2.1"
+  checksum: add39a9d0f0094af390ede6fef465be8948cd7e572d525952c2d5a6648df0a50c89dd4988da134040dfe47f22ee228f36372af8d717ea04ca92da6c809b3c0a9
   languageName: node
   linkType: hard
 
@@ -24812,7 +24812,7 @@ fsevents@^1.2.7:
     dayjs: ^1.10.6
     eslint: 7.31.0
     eslint-plugin-prettier: ^3.4.0
-    graphql: 15.5.2
+    graphql: 15.5.3
     graphql-depth-limit: ^1.1.0
     graphql-import: ^1.0.2
     graphql-tag: ^2.12.5
@@ -24913,13 +24913,6 @@ fsevents@^1.2.7:
   peerDependencies:
     graphql: ">=0.8.0"
   checksum: dbc2ca9b003788012b278209a92d9b084ab5061da8c596d0ffd65dce2e770c29d26dded1812186293bb0bf33b476369dcda1576a10cd4e5b12d2458c878977f3
-  languageName: node
-  linkType: hard
-
-"graphql@npm:15.5.2":
-  version: 15.5.2
-  resolution: "graphql@npm:15.5.2"
-  checksum: cc76d066cae03e7f55967b4a612aafc3a2ad78494f3f6912c468b2240752a6643958f96f06d32bea2dacca712f2a315ea8075181a8f06ff68db39bb9ceb66c8f
   languageName: node
   linkType: hard
 
