@@ -1,5 +1,5 @@
 import React, { forwardRef } from 'react'
-import { Button, Loader, Table as ELTable, useSnack } from '@reapit/elements'
+import { Button, elFlex, elFlex1, elFlexColumn, Input, Loader, Table as ELTable, useSnack } from '@reapit/elements'
 import { useHistory } from 'react-router'
 import qs from 'query-string'
 import path from 'path'
@@ -8,16 +8,19 @@ import { Container, ContainerProps } from './container'
 import { uppercaseSentence } from './utils'
 
 import { useObjectList } from '../../../hooks/objects/use-object-list'
+import { useObjectSearch } from '../../../hooks/objects/use-object-search'
 import { useObjectDelete, useObjectUpdate } from '../../../hooks/objects/use-object-mutate'
 import { lowercaseFirstLetter, useSubObjects } from '@/components/hooks/objects/use-sub-objects'
 import { notEmpty } from '@/components/hooks/use-introspection/helpers'
 import { usePageId } from '@/components/hooks/use-page-id'
 import { useObjectSpecials } from '@/components/hooks/objects/use-object-specials'
+import { cx } from '@linaria/core'
 
 export interface TableProps extends ContainerProps {
   typeName?: string
   editPageId?: string
   showControls?: string
+  showSearch?: string
   [key: string]: any
 }
 
@@ -36,6 +39,9 @@ const ObjectTableCell = ({ obj }) => {
         ))}
       </>
     )
+  }
+  if (typeof obj !== 'object') {
+    return obj
   }
   return (
     <span>
@@ -130,14 +136,21 @@ const getAdditionalCells = (
   })
 
 export const Table = forwardRef<HTMLDivElement, TableProps & { disabled?: boolean }>(
-  ({ typeName, editPageId, showControls, disabled, ...props }, ref) => {
-    const { data, loading } = useObjectList(typeName)
+  ({ typeName, editPageId, showControls, disabled, showSearch, ...props }, ref) => {
+    const { data: listResults, loading: listLoading } = useObjectList(typeName)
     const { available: deletionAvailable } = useObjectDelete(typeName)
     const { available: updateAvailable } = useObjectUpdate(typeName)
     const subobjects = useSubObjects(typeName)
+    const [queryStr, setQueryStr] = React.useState('')
+    const {
+      available: searchAvailable,
+      data: searchResults,
+      loading: searchLoading,
+    } = useObjectSearch(typeName, queryStr)
     const { specials } = useObjectSpecials(typeName)
     const history = useHistory()
     const { context, appId } = usePageId()
+    const loading = listLoading || searchLoading
 
     const subobjectNames = subobjects.data.map(({ object: { name } }) => name)
     const specialsAndSubobjects = [
@@ -147,6 +160,8 @@ export const Table = forwardRef<HTMLDivElement, TableProps & { disabled?: boolea
         label: `View ${uppercaseSentence(object.name)}s`,
       })),
     ]
+
+    const data = searchResults || listResults
 
     const rows =
       data &&
@@ -196,9 +211,22 @@ export const Table = forwardRef<HTMLDivElement, TableProps & { disabled?: boolea
 
     return (
       <Container {...props} ref={ref}>
-        {loading && <Loader label="Loading" />}
-        {typeName && <ELTable style={{ flex: 1 }} rows={rows || undefined} />}
-        {!loading && !typeName && <div>No type selected</div>}
+        <div className={cx(elFlex, elFlex1, elFlexColumn)}>
+          {searchAvailable && showSearch && (
+            <Input type="text" placeholder="Search" value={queryStr} onChange={(e) => setQueryStr(e.target.value)} />
+          )}
+          {loading && <Loader label="Loading" />}
+          {typeName && (
+            <ELTable
+              style={{ flex: 1, opacity: searchLoading ? 0.5 : 1, transition: '300ms opacity' }}
+              rows={rows || undefined}
+            />
+          )}
+          {!loading && !rows?.length ? (
+            <span>{searchAvailable && queryStr ? 'No results found' : 'Nothing found'}</span>
+          ) : null}
+          {!loading && !typeName && <div>No type selected</div>}
+        </div>
       </Container>
     )
   },

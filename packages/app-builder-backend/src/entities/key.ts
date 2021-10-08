@@ -1,20 +1,7 @@
 import { ObjectType, Field, ID, registerEnumType } from 'type-graphql'
 import { gql } from 'apollo-server-core'
-
-export const NegotiatorFragment = gql`
-  fragment NegotiatorFragment on NegotiatorModel {
-    id
-    name
-  }
-`
-
-export const ContactFragment = gql`
-  fragment ContactFragment on ContactModel {
-    id
-    forename
-    surname
-  }
-`
+import { Contact, ContactFragment } from './contact'
+import { Negotiator, NegotiatorFragment } from './negotiator'
 
 export const MovementFragment = gql`
   ${NegotiatorFragment}
@@ -84,27 +71,6 @@ registerEnumType(KeyStatus, {
   name: 'KeyStatus',
   description: 'The status of a key',
 })
-
-@ObjectType()
-export class Negotiator {
-  @Field(() => ID)
-  id: string
-
-  @Field()
-  name: string
-}
-
-@ObjectType()
-export class Contact {
-  @Field(() => ID)
-  id: string
-
-  @Field()
-  forename: string
-
-  @Field()
-  surname: string
-}
 
 @ObjectType()
 export class KeyMovement {

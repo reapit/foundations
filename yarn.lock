@@ -8570,6 +8570,7 @@ __metadata:
     react-ga: ^2.7.0
     react-router: ^5.2.0
     react-router-dom: ^5.2.0
+    react-select-search: ^3.0.8
     react-tooltip: ^4.2.21
     rimraf: ^3.0.2
     serverless: ^2.52.0
@@ -24392,7 +24393,7 @@ fsevents@^1.2.7:
   languageName: node
   linkType: hard
 
-"fuse.js@npm:^3.6.1":
+"fuse.js@npm:^3.4.5, fuse.js@npm:^3.6.1":
   version: 3.6.1
   resolution: "fuse.js@npm:3.6.1"
   checksum: 2eebc6f8f74abdbf65557f2fe81679ddfb20890482343892bfef43742ad3b7146cc9b89f5b12a40b35ecdfb1d8401848d567fc727261fa90fa87e899e8ec6112
@@ -36641,6 +36642,22 @@ fsevents@^1.2.7:
   peerDependencies:
     react: ">=15"
   checksum: 4437eaa9bab02d46a7d6ea4915731c1f31642d6c3e3f7b9f951f5c6a9a73f35d4deb43a2d6b4be85f27816a20de96c3b9a9239f4b7e9136742106794ad20e95c
+  languageName: node
+  linkType: hard
+
+"react-select-search@npm:^3.0.8":
+  version: 3.0.8
+  resolution: "react-select-search@npm:3.0.8"
+  dependencies:
+    fuse.js: ^3.4.5
+  peerDependencies:
+    prop-types: ^15.7.2
+    react: ^17.0.1
+    react-dom: ^17.0.1
+  dependenciesMeta:
+    fuse.js:
+      optional: true
+  checksum: 7b50f674dada14874763c1bbdd0901403b829670b0a3883ba385f8e7d2b0f22d88bb1fe27bd6f8b3163fa51a10c5e113a855c33975c14f9d9278cb1bc43e4b65
   languageName: node
   linkType: hard
 

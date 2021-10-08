@@ -7,6 +7,7 @@ import { DestinationPage } from './link'
 import { TableProps, Table as ETable } from './ejectable/table'
 import { useSubObjects } from '@/components/hooks/objects/use-sub-objects'
 import { useObjectSpecials } from '@/components/hooks/objects/use-object-specials'
+import { useObjectSearch } from '@/components/hooks/objects/use-object-search'
 
 const defaultProps = {}
 
@@ -28,6 +29,7 @@ const TableSettings = () => {
   const { typeName } = useNode((node) => node.data.props)
   const subobjects = useSubObjects(typeName)
   const { specials } = useObjectSpecials(typeName)
+  const { available: searchAvailable } = useObjectSearch(typeName)
 
   return (
     <>
@@ -79,6 +81,20 @@ const TableSettings = () => {
           <option value="">No</option>
         </ToolbarItem>
       </ToolbarSection>
+      {searchAvailable && (
+        <ToolbarSection
+          title="Search"
+          props={['showSearch']}
+          summary={({ showSearch }: any) => {
+            return `${showSearch ? 'Show' : 'Hide'} Search`
+          }}
+        >
+          <ToolbarItem type={ToolbarItemType.Select} propKey="showSearch" title="Show Search?">
+            <option value="true">Yes</option>
+            <option value="">No</option>
+          </ToolbarItem>
+        </ToolbarSection>
+      )}
     </>
   )
 }

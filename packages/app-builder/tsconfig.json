@@ -3,6 +3,7 @@
   "compilerOptions": {
     "baseUrl": "./",
     "sourceRoot": "/",
+    "jsx": "react-jsx",
     "typeRoots": ["./node_modules/@types", "../../node_modules/@types"],
     "paths": {
       "@/*": ["src/*"],

@@ -34,8 +34,11 @@ export const getListQuery = (
   queryableObjectTypes: Array<IntrospectionObjectType>,
   inputObjectTypes: Array<IntrospectionInputTypeRef>,
   enums: Array<IntrospectionEnumType>,
+  isSearch: boolean,
 ): GeneratedQuery | undefined => {
-  const list = queries.find(({ nestedKinds }) => nestedKinds.includes(TypeKind.LIST))
+  const list = queries.find(
+    ({ nestedKinds, name }) => nestedKinds.includes(TypeKind.LIST) && (name.includes('search') || !isSearch),
+  )
   const listDict = list && queryableFieldToNestedDict(list.type, queryableObjectTypes)
   const listTypeStr = listDict && nestedFieldsToString(listDict)
   if (!list) {
@@ -120,8 +123,7 @@ const parseArgs = (
     }
     if (description && description.includes('@idOf')) {
       const idName = description.split('@idOf(')[1].split(')')[0]
-      console.log(idName)
-      idOfType = queryableObjectTypes.find((a) => a.name.toLowerCase() === idName)?.name
+      idOfType = queryableObjectTypes.find((a) => a.name.toLowerCase() === idName.toLowerCase())?.name
     }
 
     const enumValues = enums.find(({ name }) => name === typeName)?.enumValues.map((e) => e.name)

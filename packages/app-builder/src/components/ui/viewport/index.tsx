@@ -62,7 +62,6 @@ const Viewport = ({ children, isSaving, iframeRef }) => {
   useEffect(() => {
     if (page && !loaded) {
       setTimeout(() => {
-        // console.log(page.nodes)
         actions.deserialize(nodesArrToObj(page.nodes))
         setLoaded(true)
       }, 300)

@@ -1,6 +1,7 @@
 import React, { forwardRef, useEffect, useState } from 'react'
 import { useHistory } from 'react-router'
 import { Button, InputGroup, Label, Loader, Select, useSnack } from '@reapit/elements'
+import SelectSearch from 'react-select-search'
 
 import { Container, ContainerProps } from './container'
 import { uppercaseSentence } from './utils'
@@ -10,11 +11,20 @@ import { useObjectList } from '../../../hooks/objects/use-object-list'
 import { useObjectGet } from '../../../hooks/objects/use-object-get'
 
 import { usePageId } from '../../../hooks/use-page-id'
+import { useObject } from '@/components/hooks/objects/use-object'
+import { useLazyObjectSearch } from '@/components/hooks/objects/use-object-search'
 
 export interface FormProps extends ContainerProps {
   typeName?: string
   destination?: string
   formType?: string
+}
+
+const getLabel = (obj: any, labelKeys?: string[]) => {
+  if (labelKeys) {
+    return labelKeys.map((key) => obj[key]).join(' ')
+  }
+  return obj.id
 }
 
 const SelectIDofType = ({
@@ -27,12 +37,32 @@ const SelectIDofType = ({
   onChange: React.ChangeEventHandler<HTMLSelectElement>
 }) => {
   const { data, loading } = useObjectList(typeName)
+  const { object } = useObject(typeName)
+  const { available, search } = useLazyObjectSearch(typeName)
+
+  if (available) {
+    return (
+      <SelectSearch
+        placeholder={`Search ${typeName}`}
+        options={[]}
+        getOptions={async (searchTerm: string) => {
+          const results = await search(searchTerm)
+          return results.map((obj) => ({
+            name: getLabel(obj, object?.labelKeys),
+            value: obj.id,
+          }))
+        }}
+        search
+      />
+    )
+  }
+
   if (data) {
     return (
       <Select value={value} onChange={onChange}>
-        {data.map(({ id, firstName, lastName }) => (
-          <option key={id} value={id}>
-            {firstName} {lastName}
+        {data.map((obj) => (
+          <option key={obj.id} value={obj.id}>
+            {getLabel(obj, object?.labelKeys)}
           </option>
         ))}
         <option selected disabled>
@@ -44,6 +74,15 @@ const SelectIDofType = ({
 
   if (loading) return <Loader />
   return null
+}
+
+const camelCaseToSentence = (camelCase: string) => {
+  return uppercaseSentence(camelCase.replace(/([A-Z])/g, ' $1'))
+}
+
+const friendlyIdName = (idName: string) => {
+  const words = idName.replaceAll('Id', '').split('_')
+  return words.map(camelCaseToSentence).join(' ')
 }
 
 export const Form = forwardRef<HTMLDivElement, FormProps & { disabled?: boolean }>(
@@ -139,8 +178,8 @@ export const Form = forwardRef<HTMLDivElement, FormProps & { disabled?: boolean 
               }
               if (idOfType) {
                 return (
-                  <>
-                    <Label>{idOfType}</Label>
+                  <div>
+                    <Label>{friendlyIdName(name)}</Label>
                     <SelectIDofType
                       typeName={idOfType}
                       onChange={(e) => {
@@ -151,7 +190,7 @@ export const Form = forwardRef<HTMLDivElement, FormProps & { disabled?: boolean 
                       }}
                       value={formState[name]}
                     />
-                  </>
+                  </div>
                 )
               }
 
@@ -159,7 +198,7 @@ export const Form = forwardRef<HTMLDivElement, FormProps & { disabled?: boolean 
                 <InputGroup
                   required={isRequired}
                   key={name}
-                  label={uppercaseSentence(name)}
+                  label={camelCaseToSentence(name)}
                   type={typeName === 'Boolean' ? 'checkbox' : 'text'}
                   value={formState[name]}
                   onChange={(e) => {
