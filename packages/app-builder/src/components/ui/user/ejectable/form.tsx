@@ -1,7 +1,7 @@
 import React, { forwardRef, useEffect, useState } from 'react'
 import { useHistory } from 'react-router'
-import { Button, InputGroup, Label, Loader, Select, useSnack } from '@reapit/elements'
-import SelectSearch from 'react-select-search'
+import { Button, InputGroup, Label, Loader, Select, useSnack, Input } from '@reapit/elements'
+import ReactSelect from 'react-select/async'
 
 import { Container, ContainerProps } from './container'
 import { uppercaseSentence } from './utils'
@@ -42,17 +42,22 @@ const SelectIDofType = ({
 
   if (available) {
     return (
-      <SelectSearch
+      <ReactSelect
         placeholder={`Search ${typeName}`}
-        options={[]}
-        getOptions={async (searchTerm: string) => {
-          const results = await search(searchTerm)
-          return results.map((obj) => ({
-            name: getLabel(obj, object?.labelKeys),
-            value: obj.id,
-          }))
+        loadOptions={search}
+        onChange={(id) => onChange({ target: { value: id } })}
+        getOptionLabel={(obj: any) => getLabel(obj, object?.labelKeys)}
+        getOptionValue={(obj: any) => obj.id}
+        value={value}
+        
+        components={{
+          IndicatorSeparator: () => null,
+          DropdownIndicator: () => null,
+          ClearIndicator: () => null,
+          LoadingIndicator: () => <Loader />,
+          NoOptionsMessage: () => null,
+          Placeholder: () => null,
         }}
-        search
       />
     )
   }
