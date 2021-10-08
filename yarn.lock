@@ -6275,7 +6275,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@jest/transform@npm:^27.1.0":
+"@jest/transform@npm:^27.2.0":
   version: 27.2.4
   resolution: "@jest/transform@npm:27.2.4"
   dependencies:
@@ -6336,19 +6336,6 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@jest/types@npm:^27.1.0, @jest/types@npm:^27.2.4":
-  version: 27.2.4
-  resolution: "@jest/types@npm:27.2.4"
-  dependencies:
-    "@types/istanbul-lib-coverage": ^2.0.0
-    "@types/istanbul-reports": ^3.0.0
-    "@types/node": "*"
-    "@types/yargs": ^16.0.0
-    chalk: ^4.0.0
-  checksum: 1e753c4fef7fed4bb9f3a9c2c2cd7d97317851a065c95aa8461dacdf7bdb5c6fa7a319d011869086dc5a45226280a844a4a6696dbe4a14b2e2449250db10fd46
-  languageName: node
-  linkType: hard
-
 "@jest/types@npm:^27.1.1":
   version: 27.1.1
   resolution: "@jest/types@npm:27.1.1"
@@ -6359,6 +6346,19 @@ __metadata:
     "@types/yargs": ^16.0.0
     chalk: ^4.0.0
   checksum: c310ebf3ec0724a6e933ccd9eb3ee46d4da0bcc87b4572b9a2734d4e534ac130a724be9f8eedbd6aa9cff5df0d5844cb16550f3d10d467d71838cf38ccb534f9
+  languageName: node
+  linkType: hard
+
+"@jest/types@npm:^27.2.4":
+  version: 27.2.4
+  resolution: "@jest/types@npm:27.2.4"
+  dependencies:
+    "@types/istanbul-lib-coverage": ^2.0.0
+    "@types/istanbul-reports": ^3.0.0
+    "@types/node": "*"
+    "@types/yargs": ^16.0.0
+    chalk: ^4.0.0
+  checksum: 1e753c4fef7fed4bb9f3a9c2c2cd7d97317851a065c95aa8461dacdf7bdb5c6fa7a319d011869086dc5a45226280a844a4a6696dbe4a14b2e2449250db10fd46
   languageName: node
   linkType: hard
 
@@ -8595,7 +8595,7 @@ __metadata:
     "@typescript-eslint/parser": ^4.28.4
     "@wojtekmaj/enzyme-adapter-react-17": ^0.6.3
     autoprefixer: ^10.3.1
-    babel-jest: 27.1.0
+    babel-jest: 27.2.0
     babel-loader: ^8.2.2
     babel-plugin-module-resolver: ^4.1.0
     concurrently: ^6.2.0
@@ -15596,21 +15596,21 @@ __metadata:
   languageName: node
   linkType: hard
 
-"babel-jest@npm:27.1.0":
-  version: 27.1.0
-  resolution: "babel-jest@npm:27.1.0"
+"babel-jest@npm:27.2.0":
+  version: 27.2.0
+  resolution: "babel-jest@npm:27.2.0"
   dependencies:
-    "@jest/transform": ^27.1.0
-    "@jest/types": ^27.1.0
+    "@jest/transform": ^27.2.0
+    "@jest/types": ^27.1.1
     "@types/babel__core": ^7.1.14
     babel-plugin-istanbul: ^6.0.0
-    babel-preset-jest: ^27.0.6
+    babel-preset-jest: ^27.2.0
     chalk: ^4.0.0
     graceful-fs: ^4.2.4
     slash: ^3.0.0
   peerDependencies:
     "@babel/core": ^7.8.0
-  checksum: 5f2eac1a52c1180ffa93f51d1e6b7b62124eacd648cf0ddb056f985a66d52001bf4844a46f5a056a428465ad97df07df91116a6a9c3275b66a8400ffde9d0dba
+  checksum: 099f874df00e17ecd7a71c33a3ff01a0c0105baf4a9d6eeb56c07083ca8d836e68f80d3b15ed9cb6dc71d45ad7b024946f6588049c92391495b3aeb29ab5ef80
   languageName: node
   linkType: hard
 
@@ -15771,6 +15771,18 @@ __metadata:
     "@types/babel__core": ^7.0.0
     "@types/babel__traverse": ^7.0.6
   checksum: e827ace2c517577c50ebc7d062161885de7419172e044ca3709fa245806d94f72e93c4614649b1ba9a083fa3648f9c830d3bc4ff823e452d7f70e577282ff14e
+  languageName: node
+  linkType: hard
+
+"babel-plugin-jest-hoist@npm:^27.2.0":
+  version: 27.2.0
+  resolution: "babel-plugin-jest-hoist@npm:27.2.0"
+  dependencies:
+    "@babel/template": ^7.3.3
+    "@babel/types": ^7.3.3
+    "@types/babel__core": ^7.0.0
+    "@types/babel__traverse": ^7.0.6
+  checksum: 02f00ccc36810af19daf07493fe9425c8c43cf19857b4c7955da32c46ebc6ed4a460c47ca00550590fd1d767346682b090a8cbebbcd00deb1b22956e3324e5ec
   languageName: node
   linkType: hard
 
@@ -15996,6 +16008,18 @@ __metadata:
   peerDependencies:
     "@babel/core": ^7.0.0
   checksum: db64161f1dc95c6b81a91dab3a1c24da79b9fa66dc65223f0bc72d23aa8e0af6d46492eed02e094fd099806036f0711066c4a843ef9223909e757c4be4d19895
+  languageName: node
+  linkType: hard
+
+"babel-preset-jest@npm:^27.2.0":
+  version: 27.2.0
+  resolution: "babel-preset-jest@npm:27.2.0"
+  dependencies:
+    babel-plugin-jest-hoist: ^27.2.0
+    babel-preset-current-node-syntax: ^1.0.0
+  peerDependencies:
+    "@babel/core": ^7.0.0
+  checksum: c72628922737d425f646224a7dd655dd4b0fd745608d7478430add0515ec1733a1f12547980a9fd9607e47c4673626bf917295dad74d12f6c1f63cd09188e0fb
   languageName: node
   linkType: hard
 
