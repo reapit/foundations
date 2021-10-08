@@ -1,4 +1,5 @@
 import { styled } from '@linaria/react'
+import { isDesktop } from '../../../styles/media'
 import { elIsActive, elIsUsed } from '../../../styles/states'
 
 export const ElSteps = styled.div`
@@ -77,13 +78,24 @@ export const ElStepsVertical = styled.div`
 
 export const ElStepVertical = styled.div`
   display: flex;
+  flex-direction: column;
   width: 100%;
+
+  ${isDesktop} {
+    flex-direction: row;
+  }
 `
 
 export const ElStepVerticalItem = styled.div`
-  width: 6.5rem;
   display: flex;
-  justify-content: center;
+  width: 100%;
+  margin: 2.5rem 0 1.25rem 0;
+
+  ${isDesktop} {
+    width: 6.5rem;
+    justify-content: center;
+    margin: 0;
+  }
 `
 
 export const ElStepVerticalContent = styled.div`
