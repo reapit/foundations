@@ -1,6 +1,6 @@
 # Login With Reapit
 
-A button component for logging in via reapit
+A button component for logging in with reapit-connect-session.
 
 ## Install
 
