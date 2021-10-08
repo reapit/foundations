@@ -1,5 +1,6 @@
 # Login With Reapit
 
+A button component for logging in via reapit
 
 ## Install
 
@@ -8,7 +9,7 @@ $ yarn add @reapit/login-with-reapit
 ```
 
 ```bash
-$ npm i @reapit/login-with-reapit
+$ npm i --save @reapit/login-with-reapit
 ```
 
 ## Usage
