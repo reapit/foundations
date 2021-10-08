@@ -1,14 +1,16 @@
 import {
   BodyText,
-  ColSplit,
+  InputWrap,
   elMb11,
-  Grid,
+  InputWrapFull,
   InputAddOn,
   InputGroup,
+  Label,
   Loader,
   PersistantNotification,
   Select,
-  Subtitle,
+  FormLayout,
+  elFadeIn,
 } from '@reapit/elements'
 import React, { FC } from 'react'
 import { DeepMap, FieldError, UseFormRegister } from 'react-hook-form'
@@ -16,6 +18,7 @@ import { useSelector } from 'react-redux'
 import { selectAppListState } from '../../../selector/apps/app-list'
 import { CreateWebhookFormSchema } from './webhooks-new'
 import { WebhookQueryParams } from './webhooks'
+import { cx } from '@linaria/core'
 
 interface WebhooksNewAppProps {
   register: UseFormRegister<CreateWebhookFormSchema>
@@ -28,19 +31,18 @@ export const WebhooksNewApp: FC<WebhooksNewAppProps> = ({ register, errors, webh
 
   const errorMessage = errors?.applicationId?.message
   return (
-    <Grid>
-      <ColSplit>
-        <div className={elMb11}>
-          <BodyText hasGreyText hasNoMargin>
-            Webhooks subscriptions can be set up for any customer who has installed your application. Additionally, you
-            can choose ‘SBOX’ to listen for sandbox environment notifications.
-          </BodyText>
-        </div>
+    <FormLayout className={cx(elFadeIn, elMb11)}>
+      <InputWrapFull>
+        <BodyText hasGreyText hasNoMargin>
+          Webhooks subscriptions can be set up for any customer who has installed your application. Additionally, you
+          can choose ‘SBOX’ to listen for sandbox environment notifications.
+        </BodyText>
+      </InputWrapFull>
+      <InputWrap>
         {isLoading ? (
           <Loader label="Loading" />
         ) : apps && apps.length ? (
           <>
-            <Subtitle>Plese select an app</Subtitle>
             <InputGroup>
               <Select {...register('applicationId')} defaultValue={webhookQueryParams.applicationId ?? ''}>
                 <option key="default-option" value="">
@@ -52,6 +54,7 @@ export const WebhooksNewApp: FC<WebhooksNewAppProps> = ({ register, errors, webh
                   </option>
                 ))}
               </Select>
+              <Label>Please select an app</Label>
               {errorMessage && <InputAddOn intent="danger">{errorMessage}</InputAddOn>}
             </InputGroup>
           </>
@@ -61,7 +64,7 @@ export const WebhooksNewApp: FC<WebhooksNewAppProps> = ({ register, errors, webh
             created your first app, you will be able to add a webhook here.
           </PersistantNotification>
         )}
-      </ColSplit>
-    </Grid>
+      </InputWrap>
+    </FormLayout>
   )
 }

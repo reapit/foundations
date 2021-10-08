@@ -1,14 +1,12 @@
 import {
   BodyText,
-  ColSplit,
   elMb11,
-  FlexContainer,
-  Grid,
   InputGroup,
-  PersistantNotification,
-  Subtitle,
   MultiSelectInput,
-  elMb7,
+  FormLayout,
+  InputWrapFull,
+  InputWrapMed,
+  elFadeIn,
 } from '@reapit/elements'
 import React, { ChangeEvent, Dispatch, FC, SetStateAction, useState } from 'react'
 import { DeepMap, FieldError, UseFormGetValues, UseFormRegister } from 'react-hook-form'
@@ -16,10 +14,10 @@ import { useSelector } from 'react-redux'
 import { Dispatch as ReduxDispatch } from 'redux'
 import { fetchWebhooksTopics } from '../../../actions/webhooks-topics'
 import { TopicModel } from '../../../services/webhooks'
-import { searchMinWidth } from './__styles__/index'
 import { CreateWebhookFormSchema } from './webhooks-new'
 import { selectWebhookSubscriptionTopics } from '../../../selector/webhooks-subscriptions'
 import { getInitialTopics } from './webhooks-manage-form'
+import { cx } from '@linaria/core'
 
 interface WebhooksNewTopicsProps {
   register: UseFormRegister<CreateWebhookFormSchema>
@@ -63,50 +61,42 @@ export const WebhooksNewTopics: FC<WebhooksNewTopicsProps> = ({ register, getVal
   const selectedTopics = getValues().topicIds?.split(',')
   const [filteredTopics, setFilteredTopics] = useState<TopicModel[]>(getInitialTopics(topics, selectedTopics))
   const multiSelectOptions = filteredTopics.map((topic) => ({ name: topic.name ?? '', value: topic.id ?? '' }))
+  const inputAddOnText =
+    !filteredTopics.length && !search
+      ? 'Search to get started'
+      : (!filteredTopics.length || filteredTopics.length === selectedTopics.length) && search
+      ? 'No topics found for your search.'
+      : errors.topicIds && search
+      ? errors.topicIds.message
+      : ''
 
   return (
-    <Grid>
-      <ColSplit>
-        <div className={elMb11}>
-          <BodyText hasNoMargin hasGreyText>
-            Select topics for your webhook from the list below to allow your application to receive real-time
-            notifications about the topics you choose to subscribe to. A single webhook subscription can receive
-            notifications for multiple topics so long as your application has been granted the required permissions.
-          </BodyText>
-        </div>
-        <FlexContainer className={elMb7} isFlexAlignCenter isFlexJustifyBetween isFlexWrap>
-          <Subtitle hasNoMargin>Subscription topics</Subtitle>
-          <InputGroup
-            className={searchMinWidth}
-            onChange={handleSearchTopics(topics, getValues, setFilteredTopics, setSearch)}
-            icon="searchSystem"
-            placeholder="Search"
-          />
-        </FlexContainer>
+    <FormLayout className={cx(elFadeIn, elMb11)}>
+      <InputWrapFull>
+        <BodyText hasNoMargin hasGreyText>
+          Select topics for your webhook from the list below to allow your application to receive real-time
+          notifications about the topics you choose to subscribe to. A single webhook subscription can receive
+          notifications for multiple topics so long as your application has been granted the required permissions.
+        </BodyText>
+      </InputWrapFull>
+      <InputWrapMed>
+        <InputGroup
+          label="Subscription Topics"
+          onChange={handleSearchTopics(topics, getValues, setFilteredTopics, setSearch)}
+          icon="searchSystem"
+          placeholder="Search"
+          inputAddOnText={inputAddOnText}
+          intent={errors.topicIds && search ? 'danger' : 'low'}
+        />
+      </InputWrapMed>
+      <InputWrapFull>
         <MultiSelectInput
-          className={elMb7}
           id="topic-ids"
           defaultValues={selectedTopics}
           options={multiSelectOptions}
           {...register('topicIds')}
         />
-        {errors.topicIds && (
-          <PersistantNotification isFullWidth isExpanded intent="danger" isInline>
-            {errors.topicIds.message}
-          </PersistantNotification>
-        )}
-        {(!filteredTopics.length || filteredTopics.length === selectedTopics.length) && search && (
-          <PersistantNotification isFullWidth isExpanded intent="secondary" isInline>
-            No topics found for your search. We only show topics that are relevant to the scopes of your selected
-            application.
-          </PersistantNotification>
-        )}
-        {!filteredTopics.length && !search && (
-          <PersistantNotification isFullWidth isExpanded intent="secondary" isInline>
-            You need to enter a search to get started.
-          </PersistantNotification>
-        )}
-      </ColSplit>
-    </Grid>
+      </InputWrapFull>
+    </FormLayout>
   )
 }

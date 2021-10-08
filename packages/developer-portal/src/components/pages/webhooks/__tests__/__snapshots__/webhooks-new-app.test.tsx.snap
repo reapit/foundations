@@ -9,25 +9,20 @@ Object {
         class="ecbqyq6-el-snack-holder"
       />
       <div
-        class="e20pb60-el-grid"
+        class="e6p05ya-el-fade-in ec47sgk-el-mb11 e1fwulnz-el-form-layout"
       >
         <div
-          class="eb3z2eu-el-col-split"
+          class="ee8eqmp-el-input-wrap-full"
         >
-          <div
-            class="ec47sgk-el-mb11"
+          <p
+            class="e11jaxfn-el-has-grey-text ewfctk4-el-has-no-margin evblxhy-el-body-text"
           >
-            <p
-              class="e11jaxfn-el-has-grey-text ewfctk4-el-has-no-margin evblxhy-el-body-text"
-            >
-              Webhooks subscriptions can be set up for any customer who has installed your application. Additionally, you can choose ‘SBOX’ to listen for sandbox environment notifications.
-            </p>
-          </div>
-          <h2
-            class="e2dm5rh-el-subtitle"
-          >
-            Plese select an app
-          </h2>
+            Webhooks subscriptions can be set up for any customer who has installed your application. Additionally, you can choose ‘SBOX’ to listen for sandbox environment notifications.
+          </p>
+        </div>
+        <div
+          class="ee6e7by-el-input-wrap"
+        >
           <div
             class="e1979rmu-el-input-group"
           >
@@ -50,6 +45,11 @@ Object {
                 asd
               </option>
             </select>
+            <label
+              class="e1nbkkrq-el-label"
+            >
+              Please select an app
+            </label>
           </div>
         </div>
       </div>
@@ -60,25 +60,20 @@ Object {
       class="ecbqyq6-el-snack-holder"
     />
     <div
-      class="e20pb60-el-grid"
+      class="e6p05ya-el-fade-in ec47sgk-el-mb11 e1fwulnz-el-form-layout"
     >
       <div
-        class="eb3z2eu-el-col-split"
+        class="ee8eqmp-el-input-wrap-full"
       >
-        <div
-          class="ec47sgk-el-mb11"
+        <p
+          class="e11jaxfn-el-has-grey-text ewfctk4-el-has-no-margin evblxhy-el-body-text"
         >
-          <p
-            class="e11jaxfn-el-has-grey-text ewfctk4-el-has-no-margin evblxhy-el-body-text"
-          >
-            Webhooks subscriptions can be set up for any customer who has installed your application. Additionally, you can choose ‘SBOX’ to listen for sandbox environment notifications.
-          </p>
-        </div>
-        <h2
-          class="e2dm5rh-el-subtitle"
-        >
-          Plese select an app
-        </h2>
+          Webhooks subscriptions can be set up for any customer who has installed your application. Additionally, you can choose ‘SBOX’ to listen for sandbox environment notifications.
+        </p>
+      </div>
+      <div
+        class="ee6e7by-el-input-wrap"
+      >
         <div
           class="e1979rmu-el-input-group"
         >
@@ -101,6 +96,11 @@ Object {
               asd
             </option>
           </select>
+          <label
+            class="e1nbkkrq-el-label"
+          >
+            Please select an app
+          </label>
         </div>
       </div>
     </div>
@@ -168,20 +168,20 @@ Object {
         class="ecbqyq6-el-snack-holder"
       />
       <div
-        class="e20pb60-el-grid"
+        class="e6p05ya-el-fade-in ec47sgk-el-mb11 e1fwulnz-el-form-layout"
       >
         <div
-          class="eb3z2eu-el-col-split"
+          class="ee8eqmp-el-input-wrap-full"
         >
-          <div
-            class="ec47sgk-el-mb11"
+          <p
+            class="e11jaxfn-el-has-grey-text ewfctk4-el-has-no-margin evblxhy-el-body-text"
           >
-            <p
-              class="e11jaxfn-el-has-grey-text ewfctk4-el-has-no-margin evblxhy-el-body-text"
-            >
-              Webhooks subscriptions can be set up for any customer who has installed your application. Additionally, you can choose ‘SBOX’ to listen for sandbox environment notifications.
-            </p>
-          </div>
+            Webhooks subscriptions can be set up for any customer who has installed your application. Additionally, you can choose ‘SBOX’ to listen for sandbox environment notifications.
+          </p>
+        </div>
+        <div
+          class="ee6e7by-el-input-wrap"
+        >
           <div
             class="epibvz0-el-intent-secondary evmehgn-el-is-active e1rlwnim-el-pn-is-full-width e10l30r1-el-pn-is-inline eiq7urd-el-persistant-notification"
           >
@@ -220,20 +220,20 @@ Object {
       class="ecbqyq6-el-snack-holder"
     />
     <div
-      class="e20pb60-el-grid"
+      class="e6p05ya-el-fade-in ec47sgk-el-mb11 e1fwulnz-el-form-layout"
     >
       <div
-        class="eb3z2eu-el-col-split"
+        class="ee8eqmp-el-input-wrap-full"
       >
-        <div
-          class="ec47sgk-el-mb11"
+        <p
+          class="e11jaxfn-el-has-grey-text ewfctk4-el-has-no-margin evblxhy-el-body-text"
         >
-          <p
-            class="e11jaxfn-el-has-grey-text ewfctk4-el-has-no-margin evblxhy-el-body-text"
-          >
-            Webhooks subscriptions can be set up for any customer who has installed your application. Additionally, you can choose ‘SBOX’ to listen for sandbox environment notifications.
-          </p>
-        </div>
+          Webhooks subscriptions can be set up for any customer who has installed your application. Additionally, you can choose ‘SBOX’ to listen for sandbox environment notifications.
+        </p>
+      </div>
+      <div
+        class="ee6e7by-el-input-wrap"
+      >
         <div
           class="epibvz0-el-intent-secondary evmehgn-el-is-active e1rlwnim-el-pn-is-full-width e10l30r1-el-pn-is-inline eiq7urd-el-persistant-notification"
         >

@@ -1,10 +1,9 @@
-import React, { MouseEvent } from 'react'
+import React, { ReactElement } from 'react'
 import {
   CreateWebhookFormSchema,
   getStepContent,
   handleSubmitWebhook,
   handleSwitchStep,
-  steps,
   WebhooksNew,
 } from '../webhooks-new'
 import { render } from '../../../../tests/react-testing'
@@ -22,6 +21,8 @@ const webhookQueryParams = {
   from: 'FROM',
 }
 
+const steps = ['1', '2', '3', '4', '5']
+
 describe('WebhooksNew', () => {
   it('should match a snapshot', () => {
     expect(
@@ -31,20 +32,21 @@ describe('WebhooksNew', () => {
 })
 
 describe('handleSwitchStep', () => {
-  steps.forEach((selectedStep) => {
+  const expectedResults = ['2', '3', '4', '5']
+  steps.forEach((selectedStep, index) => {
     it(`should handle switching step for ${selectedStep}`, async () => {
-      const event = {
-        preventDefault: jest.fn(),
-        stopPropagation: jest.fn(),
-      } as unknown as MouseEvent<HTMLButtonElement>
       const trigger = jest.fn(() => new Promise<boolean>((resolve) => resolve(true)))
       const setSelectedStep = jest.fn()
 
-      const curried = handleSwitchStep(selectedStep, selectedStep, trigger, setSelectedStep)
+      const curried = handleSwitchStep(selectedStep, trigger, setSelectedStep)
 
-      await curried(event)
+      await curried()
 
-      expect(setSelectedStep).toHaveBeenCalledWith(selectedStep)
+      if (index < 4) {
+        expect(setSelectedStep).toHaveBeenCalledWith(expectedResults[index])
+      } else {
+        expect(setSelectedStep).not.toHaveBeenCalled()
+      }
     })
   })
 })
@@ -66,8 +68,10 @@ describe('getStepContent', () => {
         to: 'TO',
         from: 'FROM',
       }
-
-      expect(render(getStepContent(selectedStep, register, getValues, errors, webhookQueryParams))).toMatchSnapshot()
+      const steps = getStepContent(register, getValues, errors, webhookQueryParams)
+      steps.forEach(({ content }) => {
+        expect(render(content as ReactElement)).toMatchSnapshot()
+      })
     })
   })
 })
