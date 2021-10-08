@@ -9,25 +9,20 @@ Object {
         class="ecbqyq6-el-snack-holder"
       />
       <div
-        class="e20pb60-el-grid"
+        class="e6p05ya-el-fade-in ec47sgk-el-mb11 e1fwulnz-el-form-layout"
       >
         <div
-          class="eb3z2eu-el-col-split"
+          class="ee8eqmp-el-input-wrap-full"
         >
-          <div
-            class="ec47sgk-el-mb11"
+          <p
+            class="e11jaxfn-el-has-grey-text ewfctk4-el-has-no-margin evblxhy-el-body-text"
           >
-            <p
-              class="e11jaxfn-el-has-grey-text ewfctk4-el-has-no-margin evblxhy-el-body-text"
-            >
-              Add a url to receive your webhook payload here. The url must be a secure https endpoint.
-            </p>
-          </div>
-          <h2
-            class="e2dm5rh-el-subtitle"
-          >
-            Webhook URL
-          </h2>
+            Add a url to receive your webhook payload here. The url must be a secure https endpoint.
+          </p>
+        </div>
+        <div
+          class="e1ksxx4v-el-input-wrap-med"
+        >
           <div
             class="e1979rmu-el-input-group"
           >
@@ -36,6 +31,12 @@ Object {
               id="test-static-id"
               placeholder="Enter secure https:// url"
             />
+            <label
+              class="e1nbkkrq-el-label"
+              for="test-static-id"
+            >
+              Webhook Url
+            </label>
           </div>
         </div>
       </div>
@@ -46,25 +47,20 @@ Object {
       class="ecbqyq6-el-snack-holder"
     />
     <div
-      class="e20pb60-el-grid"
+      class="e6p05ya-el-fade-in ec47sgk-el-mb11 e1fwulnz-el-form-layout"
     >
       <div
-        class="eb3z2eu-el-col-split"
+        class="ee8eqmp-el-input-wrap-full"
       >
-        <div
-          class="ec47sgk-el-mb11"
+        <p
+          class="e11jaxfn-el-has-grey-text ewfctk4-el-has-no-margin evblxhy-el-body-text"
         >
-          <p
-            class="e11jaxfn-el-has-grey-text ewfctk4-el-has-no-margin evblxhy-el-body-text"
-          >
-            Add a url to receive your webhook payload here. The url must be a secure https endpoint.
-          </p>
-        </div>
-        <h2
-          class="e2dm5rh-el-subtitle"
-        >
-          Webhook URL
-        </h2>
+          Add a url to receive your webhook payload here. The url must be a secure https endpoint.
+        </p>
+      </div>
+      <div
+        class="e1ksxx4v-el-input-wrap-med"
+      >
         <div
           class="e1979rmu-el-input-group"
         >
@@ -73,6 +69,12 @@ Object {
             id="test-static-id"
             placeholder="Enter secure https:// url"
           />
+          <label
+            class="e1nbkkrq-el-label"
+            for="test-static-id"
+          >
+            Webhook Url
+          </label>
         </div>
       </div>
     </div>

@@ -1,12 +1,22 @@
-import React, { Dispatch, FC, SetStateAction, useEffect, useState, MouseEvent } from 'react'
-import { Button, Steps, ButtonGroup, ColSplit, Grid, elMlAuto, useSnack } from '@reapit/elements'
+import React, { Dispatch, FC, SetStateAction, useEffect, useState } from 'react'
+import {
+  Button,
+  StepsVertical,
+  ButtonGroup,
+  useSnack,
+  elMt11,
+  StepsVerticalStep,
+  elMb11,
+  FormLayout,
+  InputWrapFull,
+  elFadeIn,
+} from '@reapit/elements'
 import { DeepMap, FieldError, useForm, UseFormGetValues, UseFormRegister, UseFormTrigger } from 'react-hook-form'
 import { WebhooksNewApp } from './webhooks-new-app'
 import { WebhooksNewUrl } from './webhooks-new-url'
 import { WebhooksNewTopics } from './webhooks-new-topics'
 import { WebhooksNewCustomers } from './webhooks-new-customers'
 import { WebhooksNewStatus } from './webhooks-new-status'
-import { gridControlsMinHeight, StepContentContainer } from './__styles__'
 import {
   createWebhook,
   CreateWebhookParams,
@@ -24,6 +34,7 @@ import { History } from 'history'
 import Routes from '../../../constants/routes'
 import { useHistory } from 'react-router'
 import { SelectAppIdEventHandler, WebhookQueryParams } from './webhooks'
+import { cx } from '@linaria/core'
 
 export interface WebhooksNewProps {
   webhookQueryParams: WebhookQueryParams
@@ -43,45 +54,46 @@ const schema = object().shape<CreateWebhookFormSchema>({
   applicationId: string().trim().required(errorMessages.FIELD_REQUIRED),
   url: string().trim().required(errorMessages.FIELD_REQUIRED).matches(httpsUrlRegex, 'Should be a secure https url'),
   topicIds: string().trim().required('At least one topic is required'),
-  customerIds: string(),
+  customerIds: string().trim().required('At least one customer or "All customers" should be selected'),
   ignoreEtagOnlyChanges: boolean(),
   active: boolean(),
 })
 
-export const steps = ['1', '2', '3', '4', '5']
-
 export const handleSwitchStep =
   (
     selectedStep: string,
-    step: string,
     trigger: UseFormTrigger<CreateWebhookFormSchema>,
     setSelectedStep: Dispatch<SetStateAction<string>>,
   ) =>
-  (event: MouseEvent<HTMLButtonElement>) => {
-    event.preventDefault()
-    event.stopPropagation()
+  () => {
     const validateStep = async () => {
       let isValid = false
+      let step: string | null = '1'
 
       switch (selectedStep) {
         case '1':
           isValid = await trigger('applicationId')
+          step = '2'
           break
         case '2':
           isValid = await trigger('url')
+          step = '3'
           break
         case '3':
           isValid = await trigger('topicIds')
+          step = '4'
           break
         case '4':
           isValid = await trigger('customerIds')
+          step = '5'
           break
         case '5':
         default:
           isValid = await trigger(['active', 'ignoreEtagOnlyChanges'])
+          step = null
           break
       }
-      if (isValid) {
+      if (isValid && step) {
         setSelectedStep(step)
       }
     }
@@ -107,26 +119,33 @@ export const handleSubmitWebhook = (dispatch: ReduxDispatch) => (values: CreateW
 }
 
 export const getStepContent = (
-  step: string,
   register: UseFormRegister<CreateWebhookFormSchema>,
   getValues: UseFormGetValues<CreateWebhookFormSchema>,
   errors: DeepMap<CreateWebhookFormSchema, FieldError>,
   webhookQueryParams: WebhookQueryParams,
-) => {
-  switch (step) {
-    case '1':
-      return <WebhooksNewApp register={register} errors={errors} webhookQueryParams={webhookQueryParams} />
-    case '2':
-      return <WebhooksNewUrl register={register} errors={errors} />
-    case '3':
-      return <WebhooksNewTopics register={register} errors={errors} getValues={getValues} />
-    case '4':
-      return <WebhooksNewCustomers register={register} getValues={getValues} />
-    case '5':
-      return <WebhooksNewStatus register={register} />
-    default:
-      return <WebhooksNewApp register={register} errors={errors} webhookQueryParams={webhookQueryParams} />
-  }
+): StepsVerticalStep[] => {
+  return [
+    {
+      item: '1',
+      content: <WebhooksNewApp register={register} errors={errors} webhookQueryParams={webhookQueryParams} />,
+    },
+    {
+      item: '2',
+      content: <WebhooksNewUrl register={register} errors={errors} />,
+    },
+    {
+      item: '3',
+      content: <WebhooksNewTopics register={register} errors={errors} getValues={getValues} />,
+    },
+    {
+      item: '4',
+      content: <WebhooksNewCustomers register={register} errors={errors} getValues={getValues} />,
+    },
+    {
+      item: '5',
+      content: <WebhooksNewStatus register={register} />,
+    },
+  ]
 }
 
 export const handleWebhookCreation =
@@ -166,10 +185,12 @@ export const WebhooksNew: FC<WebhooksNewProps> = ({ webhookQueryParams, selectAp
   const { success, error } = useSnack()
   const [selectedStep, setSelectedStep] = useState<string>('1')
   const webhookCreateEditState = useSelector(selectWebhookCreateEditState)
-  const currentStepIndex = steps.indexOf(selectedStep)
+  const steps = getStepContent(register, getValues, errors, webhookQueryParams)
+  const currentStep = steps.find((step) => step.item === selectedStep)
+  const currentStepIndex = currentStep ? steps.indexOf(currentStep) : 0
   const nextStep = currentStepIndex < 4 ? String(currentStepIndex + 2) : null
-  const prevStep = currentStepIndex > 0 ? String(currentStepIndex) : null
-  const { applicationId } = getValues()
+  const formValues = getValues()
+  const { applicationId } = formValues
 
   useEffect(handleWebhookCreation(success, error, webhookCreateEditState, applicationId, dispatch, history), [
     webhookCreateEditState,
@@ -178,37 +199,16 @@ export const WebhooksNew: FC<WebhooksNewProps> = ({ webhookQueryParams, selectAp
   useEffect(() => selectAppIdHandler(undefined, applicationId), [applicationId])
 
   return (
-    <form onSubmit={handleSubmit(handleSubmitWebhook(dispatch))}>
-      <StepContentContainer>
-        {getStepContent(selectedStep, register, getValues, errors, webhookQueryParams)}
-      </StepContentContainer>
-      <Grid className={gridControlsMinHeight}>
-        <ColSplit>
-          <Steps steps={steps} selectedStep={selectedStep} onStepClick={setSelectedStep} />
-        </ColSplit>
-        <ColSplit>
-          <ButtonGroup className={elMlAuto}>
-            {prevStep && (
-              <Button
-                intent="secondary"
-                size={2}
-                onClick={handleSwitchStep(selectedStep, prevStep, trigger, setSelectedStep)}
-                type="button"
-              >
-                Prev
-              </Button>
-            )}
-            {nextStep ? (
-              <Button
-                intent="primary"
-                size={2}
-                chevronRight
-                onClick={handleSwitchStep(selectedStep, nextStep, trigger, setSelectedStep)}
-                type="button"
-              >
-                Next
-              </Button>
-            ) : (
+    <form
+      className={elMt11}
+      onSubmit={handleSubmit(handleSubmitWebhook(dispatch))}
+      onChange={handleSwitchStep(selectedStep, trigger, setSelectedStep)}
+    >
+      <StepsVertical steps={steps} selectedStep={selectedStep} onStepClick={setSelectedStep} />
+      {!nextStep && (
+        <FormLayout className={cx(elFadeIn, elMb11)}>
+          <InputWrapFull>
+            <ButtonGroup alignment="right">
               <Button
                 intent="critical"
                 size={2}
@@ -218,10 +218,10 @@ export const WebhooksNew: FC<WebhooksNewProps> = ({ webhookQueryParams, selectAp
               >
                 Create
               </Button>
-            )}
-          </ButtonGroup>
-        </ColSplit>
-      </Grid>
+            </ButtonGroup>
+          </InputWrapFull>
+        </FormLayout>
+      )}
     </form>
   )
 }

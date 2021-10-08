@@ -1,24 +1,27 @@
 import {
-  Grid,
   elMb11,
   BodyText,
-  Subtitle,
-  ColSplit,
   MultiSelectInput,
   Loader,
-  elMb7,
   MultiSelectOption,
+  FormLayout,
+  InputGroup,
+  InputWrapFull,
+  Label,
+  elFadeIn,
 } from '@reapit/elements'
 import React, { FC, useMemo } from 'react'
 import { useSelector } from 'react-redux'
 import { selectCustomers, selectLoading } from '../../../selector/webhooks-subscriptions'
-import { UseFormGetValues, UseFormRegister } from 'react-hook-form'
+import { DeepMap, FieldError, UseFormGetValues, UseFormRegister } from 'react-hook-form'
 import { InstallationModel } from '@reapit/foundations-ts-definitions'
 import { CreateWebhookFormSchema } from './webhooks-new'
+import { cx } from '@linaria/core'
 
 interface WebhooksNewCustomersProps {
   register: UseFormRegister<CreateWebhookFormSchema>
   getValues: UseFormGetValues<CreateWebhookFormSchema>
+  errors: DeepMap<CreateWebhookFormSchema, FieldError>
 }
 
 export const SANDBOX_CLIENT = {
@@ -53,36 +56,38 @@ export const handleCustomersToOptions = (installations: InstallationModel[]) => 
   return uniqueCustomers
 }
 
-export const WebhooksNewCustomers: FC<WebhooksNewCustomersProps> = ({ register, getValues }) => {
+export const WebhooksNewCustomers: FC<WebhooksNewCustomersProps> = ({ register, getValues, errors }) => {
   const customers = useSelector(selectCustomers)
   const isLoading = useSelector(selectLoading)
   const customerOptions = useMemo(handleCustomersToOptions(customers), [customers])
-  const selectedCustomers = getValues().customerIds?.split(',') ?? ['ALL']
+  const selectedCustomers = getValues().customerIds?.split(',') ?? []
 
   return (
-    <Grid>
-      <ColSplit>
-        <div className={elMb11}>
-          <BodyText hasNoMargin hasGreyText>
-            Select customers from the list below. If you leave this option blank, your webhook will default to
-            &rdquo;All Customers&ldquo; that have installed your application including Sandbox (SBOX). If you select one
-            customer, you will need to specify each customer individually. In this case, you will also need to specify
-            SBOX explicity.
-          </BodyText>
-        </div>
-        <Subtitle>Subscription Customers</Subtitle>
+    <FormLayout className={cx(elFadeIn, elMb11)}>
+      <InputWrapFull>
+        <BodyText hasNoMargin hasGreyText>
+          Select customers from the list below. If you leave this option blank, your webhook will default to &rdquo;All
+          Customers&ldquo; that have installed your application including Sandbox (SBOX). If you select one customer,
+          you will need to specify each customer individually. In this case, you will also need to specify SBOX
+          explicity.
+        </BodyText>
+      </InputWrapFull>
+      <InputWrapFull>
         {isLoading ? (
           <Loader label="Loading" />
         ) : (
-          <MultiSelectInput
-            className={elMb7}
-            id="customer-ids"
-            options={customerOptions}
-            defaultValues={selectedCustomers}
-            {...register('customerIds')}
-          />
+          <InputGroup>
+            <MultiSelectInput
+              id="customer-ids"
+              noneSelectedLabel={errors.customerIds ? errors.customerIds.message : 'Please select from the list below'}
+              options={customerOptions}
+              defaultValues={selectedCustomers}
+              {...register('customerIds')}
+            />
+            <Label>Subscription Customers</Label>
+          </InputGroup>
         )}
-      </ColSplit>
-    </Grid>
+      </InputWrapFull>
+    </FormLayout>
   )
 }

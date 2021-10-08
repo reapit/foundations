@@ -9,98 +9,10 @@ Object {
         class="ecbqyq6-el-snack-holder"
       />
       <div
-        class="e20pb60-el-grid"
+        class="e6p05ya-el-fade-in ec47sgk-el-mb11 e1fwulnz-el-form-layout"
       >
         <div
-          class="eb3z2eu-el-col-split"
-        >
-          <div
-            class="ec47sgk-el-mb11"
-          >
-            <p
-              class="e11jaxfn-el-has-grey-text ewfctk4-el-has-no-margin evblxhy-el-body-text"
-            >
-              Selecting active status will determine whether the webhook will fire when changes are made. This will effect your consumption costs so you may wish to disable it periodically. Ignoring when the etag only changes will mean the webhoook only fires when customer data changes.
-            </p>
-          </div>
-          <div
-            class="e2kmzjs-el-flex-container"
-          >
-            <div
-              class="e1jxji48-el-flex-column e1p0zqak-el-w6 e1it7rt1-el-mr5 e2kmzjs-el-flex-container"
-            >
-              <h2
-                class="e2dm5rh-el-subtitle"
-              >
-                Status
-              </h2>
-              <input
-                class="e1ih6lkl-el-toggle-checkbox"
-                id="status-toggle"
-                type="checkbox"
-              />
-              <label
-                class="eycn88k-el-mt1 euls42w-el-toggle-full-width ehi76vp-el-has-grey-bg e1ott14k-el-toggle-label"
-                for="status-toggle"
-              >
-                <span
-                  class="e18omfqv-el-toggle-item"
-                >
-                  Active
-                </span>
-                <span
-                  class="e18omfqv-el-toggle-item"
-                >
-                  Inactive
-                </span>
-              </label>
-            </div>
-            <div
-              class="e1p0zqak-el-w6 ei443a6-el-ml5"
-            >
-              <h2
-                class="e2dm5rh-el-subtitle"
-              >
-                Notifications
-              </h2>
-              <div
-                class="e1979rmu-el-input-group"
-              >
-                <input
-                  class="e1urjlvd-el-input"
-                  id="test-static-id"
-                  type="checkbox"
-                />
-                <label
-                  class="e1nbkkrq-el-label"
-                  for="test-static-id"
-                >
-                  Ignore where only the etag has been modified
-                </label>
-                <span
-                  class="e15fmnse-el-input-add-on"
-                >
-                  Ignore
-                </span>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-  </body>,
-  "container": <div>
-    <div
-      class="ecbqyq6-el-snack-holder"
-    />
-    <div
-      class="e20pb60-el-grid"
-    >
-      <div
-        class="eb3z2eu-el-col-split"
-      >
-        <div
-          class="ec47sgk-el-mb11"
+          class="ee8eqmp-el-input-wrap-full"
         >
           <p
             class="e11jaxfn-el-has-grey-text ewfctk4-el-has-no-margin evblxhy-el-body-text"
@@ -109,23 +21,18 @@ Object {
           </p>
         </div>
         <div
-          class="e2kmzjs-el-flex-container"
+          class="ee6e7by-el-input-wrap"
         >
           <div
-            class="e1jxji48-el-flex-column e1p0zqak-el-w6 e1it7rt1-el-mr5 e2kmzjs-el-flex-container"
+            class="e1979rmu-el-input-group"
           >
-            <h2
-              class="e2dm5rh-el-subtitle"
-            >
-              Status
-            </h2>
             <input
               class="e1ih6lkl-el-toggle-checkbox"
               id="status-toggle"
               type="checkbox"
             />
             <label
-              class="eycn88k-el-mt1 euls42w-el-toggle-full-width ehi76vp-el-has-grey-bg e1ott14k-el-toggle-label"
+              class="eycn88k-el-mt1 ehi76vp-el-has-grey-bg e1ott14k-el-toggle-label"
               for="status-toggle"
             >
               <span
@@ -139,36 +46,111 @@ Object {
                 Inactive
               </span>
             </label>
+            <label
+              class="e1nbkkrq-el-label"
+            >
+              Status
+            </label>
           </div>
+        </div>
+        <div
+          class="ee6e7by-el-input-wrap"
+        >
           <div
-            class="e1p0zqak-el-w6 ei443a6-el-ml5"
+            class="e1979rmu-el-input-group"
           >
-            <h2
-              class="e2dm5rh-el-subtitle"
+            <input
+              class="e1urjlvd-el-input"
+              id="test-static-id"
+              type="checkbox"
+            />
+            <label
+              class="e1nbkkrq-el-label"
+              for="test-static-id"
             >
-              Notifications
-            </h2>
-            <div
-              class="e1979rmu-el-input-group"
+              Ignore where only the etag has been modified
+            </label>
+            <span
+              class="e15fmnse-el-input-add-on"
             >
-              <input
-                class="e1urjlvd-el-input"
-                id="test-static-id"
-                type="checkbox"
-              />
-              <label
-                class="e1nbkkrq-el-label"
-                for="test-static-id"
-              >
-                Ignore where only the etag has been modified
-              </label>
-              <span
-                class="e15fmnse-el-input-add-on"
-              >
-                Ignore
-              </span>
-            </div>
+              Ignore
+            </span>
           </div>
+        </div>
+      </div>
+    </div>
+  </body>,
+  "container": <div>
+    <div
+      class="ecbqyq6-el-snack-holder"
+    />
+    <div
+      class="e6p05ya-el-fade-in ec47sgk-el-mb11 e1fwulnz-el-form-layout"
+    >
+      <div
+        class="ee8eqmp-el-input-wrap-full"
+      >
+        <p
+          class="e11jaxfn-el-has-grey-text ewfctk4-el-has-no-margin evblxhy-el-body-text"
+        >
+          Selecting active status will determine whether the webhook will fire when changes are made. This will effect your consumption costs so you may wish to disable it periodically. Ignoring when the etag only changes will mean the webhoook only fires when customer data changes.
+        </p>
+      </div>
+      <div
+        class="ee6e7by-el-input-wrap"
+      >
+        <div
+          class="e1979rmu-el-input-group"
+        >
+          <input
+            class="e1ih6lkl-el-toggle-checkbox"
+            id="status-toggle"
+            type="checkbox"
+          />
+          <label
+            class="eycn88k-el-mt1 ehi76vp-el-has-grey-bg e1ott14k-el-toggle-label"
+            for="status-toggle"
+          >
+            <span
+              class="e18omfqv-el-toggle-item"
+            >
+              Active
+            </span>
+            <span
+              class="e18omfqv-el-toggle-item"
+            >
+              Inactive
+            </span>
+          </label>
+          <label
+            class="e1nbkkrq-el-label"
+          >
+            Status
+          </label>
+        </div>
+      </div>
+      <div
+        class="ee6e7by-el-input-wrap"
+      >
+        <div
+          class="e1979rmu-el-input-group"
+        >
+          <input
+            class="e1urjlvd-el-input"
+            id="test-static-id"
+            type="checkbox"
+          />
+          <label
+            class="e1nbkkrq-el-label"
+            for="test-static-id"
+          >
+            Ignore where only the etag has been modified
+          </label>
+          <span
+            class="e15fmnse-el-input-add-on"
+          >
+            Ignore
+          </span>
         </div>
       </div>
     </div>

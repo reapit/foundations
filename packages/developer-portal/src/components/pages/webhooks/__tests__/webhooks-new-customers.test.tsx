@@ -14,6 +14,6 @@ describe('WebhooksNewCustomers', () => {
   })) as unknown as UseFormGetValues<CreateWebhookFormSchema>
 
   it('should match a snapshot where there are customers', () => {
-    expect(render(<WebhooksNewCustomers register={jest.fn()} getValues={getValues} />)).toMatchSnapshot()
+    expect(render(<WebhooksNewCustomers register={jest.fn()} getValues={getValues} errors={{}} />)).toMatchSnapshot()
   })
 })
