@@ -22,6 +22,7 @@
   .reapit-connect-permission-container .permission-info {
     border: 1px solid lightgrey;
     border-top: 0;
+    border-bottom: 0;
     max-width: 290px;
     padding: .5rem;
     position: relative;
