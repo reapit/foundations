@@ -24053,7 +24053,7 @@ fsevents@^1.2.7:
     dayjs: ^1.10.6
     eslint: 7.31.0
     eslint-plugin-prettier: ^3.4.0
-    graphql: 15.5.2
+    graphql: 15.5.3
     jest: ^27.0.6
     jest-coverage-badges: ^1.1.2
     little-loader: ^0.2.0
@@ -24944,6 +24944,13 @@ fsevents@^1.2.7:
   version: 15.5.2
   resolution: "graphql@npm:15.5.2"
   checksum: cc76d066cae03e7f55967b4a612aafc3a2ad78494f3f6912c468b2240752a6643958f96f06d32bea2dacca712f2a315ea8075181a8f06ff68db39bb9ceb66c8f
+  languageName: node
+  linkType: hard
+
+"graphql@npm:15.5.3":
+  version: 15.5.3
+  resolution: "graphql@npm:15.5.3"
+  checksum: 2538efd61b5e1317cfaba796685412aa45f97504002af823a0d0682f8a60f4698343f8ba2793c83c276c76a6b14d8301e58b9f8ad7b61191c380d48e274e6b4d
   languageName: node
   linkType: hard
 

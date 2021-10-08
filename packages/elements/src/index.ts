@@ -33,6 +33,7 @@ export * from './components/tabs'
 export * from './components/textarea'
 export * from './components/toggle'
 export * from './components/typography'
+export * from './components/form-layout'
 
 export * from './hooks/use-portal'
 export * from './hooks/use-snack'

@@ -8,7 +8,6 @@
       "@reapit/elements": ["../elements/src"],
       "@reapit/elements-legacy": ["../elements-legacy/src"],
       "@reapit/utils-common": ["../utils-common/src"],
-      "@reapit/utils-common": ["../utils-common"],
       "@reapit/connect-session": ["../connect-session/src"]
     }
   },

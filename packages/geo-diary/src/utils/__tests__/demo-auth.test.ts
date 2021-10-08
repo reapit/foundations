@@ -41,13 +41,13 @@ describe('handleDemoAuth', () => {
     })
 
     expect(
-      window.localStorage.getItem(
+      window.sessionStorage.getItem(
         `${ReapitConnectBrowserSession.REFRESH_TOKEN_KEY}_${mockConfig.demoUser}_${mockConfig.connectClientId}`,
       ),
     ).toEqual(mockSession.refreshToken)
 
     expect(
-      window.localStorage.getItem(`${ReapitConnectBrowserSession.USER_NAME_KEY}_${mockConfig.connectClientId}`),
+      window.sessionStorage.getItem(`${ReapitConnectBrowserSession.USER_NAME_KEY}_${mockConfig.connectClientId}`),
     ).toEqual(mockConfig.demoUser)
   })
 })

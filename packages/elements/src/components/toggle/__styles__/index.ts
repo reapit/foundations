@@ -3,7 +3,7 @@ import { css } from '@linaria/core'
 
 export const elHasGreyBg = css``
 
-export const elToggleItem = css`
+export const ElToggleItem = styled.span`
   width: 50%;
   height: 100%;
   text-align: center;
@@ -15,7 +15,7 @@ export const elToggleItem = css`
   padding: 0.25rem;
 `
 
-export const elToggleRadioItem = css`
+export const ElToggleRadioItem = styled.span`
   width: 100%;
   height: 100%;
   text-align: center;
@@ -36,8 +36,9 @@ export const ElToggleCheckbox = styled.input`
   height: 0;
   width: 0;
   visibility: hidden;
+  position: absolute;
 
-  + label .${elToggleItem} {
+  + label ${ElToggleItem} {
     transition: all 0.2s linear;
 
     :first-child {
@@ -45,14 +46,14 @@ export const ElToggleCheckbox = styled.input`
     }
   }
 
-  &:not(:checked) + label .${elToggleItem} {
+  &:not(:checked) + label ${ElToggleItem} {
     :last-child {
       background: var(--intent-primary);
       color: var(--color-white);
     }
   }
 
-  &:checked + label .${elToggleItem} {
+  &:checked + label ${ElToggleItem} {
     :first-child {
       background: var(--intent-primary);
       color: var(--color-white);
@@ -87,11 +88,11 @@ export const ElToggleRadio = styled.input`
   visibility: hidden;
   position: absolute;
 
-  + label .${elToggleRadioItem} {
+  + label ${ElToggleRadioItem} {
     transition: all 0.2s linear;
   }
 
-  &:checked + label .${elToggleRadioItem} {
+  &:checked + label ${ElToggleRadioItem} {
     background: var(--intent-primary);
     color: var(--color-white);
   }

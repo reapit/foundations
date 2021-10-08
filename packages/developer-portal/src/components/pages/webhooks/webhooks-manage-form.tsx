@@ -3,7 +3,7 @@ import {
   elMb7,
   elMl3,
   elMt1,
-  elToggleItem,
+  ElToggleItem,
   FlexContainer,
   Grid,
   InputGroup,
@@ -253,8 +253,8 @@ export const WebhooksManageForm: FC<WebhooksManageFormProps> = ({
                 isFullWidth
                 {...register('active')}
               >
-                <span className={elToggleItem}>Active</span>
-                <span className={elToggleItem}>Inactive</span>
+                <ElToggleItem>Active</ElToggleItem>
+                <ElToggleItem>Inactive</ElToggleItem>
               </Toggle>
             </ColSplit>
           </Grid>

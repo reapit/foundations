@@ -31,7 +31,7 @@
     "@reapit/utils-common": "workspace:packages/utils-common",
     "@sentry/browser": "^6.9.0",
     "dayjs": "^1.10.6",
-    "graphql": "15.5.2",
+    "graphql": "15.5.3",
     "little-loader": "^0.2.0",
     "lodash.debounce": "^4.0.8",
     "query-string": "5.1.1",
