@@ -27,14 +27,6 @@ exports[`DeveloperHelpPage should match a snapshot where there is a developer id
         Array [
           Object {
             "buttonOnClick": [Function],
-            "buttonText": "VIEW",
-            "header": "Welcome Guide",
-            "imgSrc": "",
-            "text": "Need a little help? Have a look through the Welcome Guide, which we’ve put
-      together to help you navigate through your Developer portal.",
-          },
-          Object {
-            "buttonOnClick": [Function],
             "buttonText": "REQUEST",
             "header": "Request a Feature",
             "imgSrc": "",
@@ -58,18 +50,18 @@ exports[`DeveloperHelpPage should match a snapshot where there is a developer id
           },
           Object {
             "buttonOnClick": [Function],
-            "buttonText": "START CHAT",
-            "header": "Need Help?",
-            "imgSrc": "",
-            "text": "If you have a question that is not covered in the documentation you can ask here. Please note we don’t provide chat support for Agency Cloud Developer Edition.",
-          },
-          Object {
-            "buttonOnClick": [Function],
             "buttonText": "VIEW",
             "header": "What’s New",
             "imgSrc": "",
             "text": "We are constantly working to improve your experience with the Foundations Platform. Have a look to see what
       new features and fixes have been released.",
+          },
+          Object {
+            "buttonOnClick": [Function],
+            "buttonText": "START CHAT",
+            "header": "Need Help?",
+            "imgSrc": "",
+            "text": "If you have a question that is not covered in the documentation you can ask here. Please note we don’t provide chat support for Agency Cloud Developer Edition.",
           },
         ]
       }
@@ -79,105 +71,6 @@ exports[`DeveloperHelpPage should match a snapshot where there is a developer id
           className="columns is-multiline"
           data-test=""
         >
-          <GridThreeColItem
-            key="Welcome Guide"
-          >
-            <div
-              className="column is-multiline is-half-tablet is-one-third-widescreen"
-              data-test=""
-            >
-              <Section
-                hasBoxShadow={true}
-                isFlex={true}
-                isFullHeight={true}
-              >
-                <section
-                  className="section is-flex has-padding has-margin has-background is-full-height has-box-shadow"
-                  data-test=""
-                >
-                  <FadeIn>
-                    <div
-                      className="f1ohzb3j-fade-in"
-                    >
-                      <Section
-                        className="w1aw3py2-wrap-box-content"
-                        isFlex={true}
-                        isFlexColumn={true}
-                      >
-                        <section
-                          className="section is-flex is-flex-column has-padding has-margin has-background w1aw3py2-wrap-box-content"
-                          data-test=""
-                        >
-                          <Section
-                            className="flex-shrink-0"
-                          >
-                            <section
-                              className="section has-padding has-margin has-background flex-shrink-0"
-                              data-test=""
-                            >
-                              <img
-                                alt="Welcome Guide"
-                                src=""
-                              />
-                            </section>
-                          </Section>
-                          <H5
-                            isCentered={true}
-                          >
-                            <h5
-                              className="title is-5 has-text-centered"
-                              id=""
-                            >
-                              Welcome Guide
-                            </h5>
-                          </H5>
-                          <Content
-                            className="flex-grow-1"
-                          >
-                            <div
-                              className="content flex-grow-1"
-                              data-test=""
-                            >
-                              Need a little help? Have a look through the Welcome Guide, which we’ve put
-      together to help you navigate through your Developer portal.
-                            </div>
-                          </Content>
-                          <LevelRight
-                            className="text-end"
-                          >
-                            <div
-                              className="level-right text-end"
-                              data-test=""
-                            >
-                              <Button
-                                className="bit4slh-button"
-                                disabled={false}
-                                fullWidth={false}
-                                loading={false}
-                                onClick={[Function]}
-                                type="button"
-                                variant="primary"
-                              >
-                                <button
-                                  className="button   is-primary bit4slh-button"
-                                  data-test=""
-                                  disabled={false}
-                                  onClick={[Function]}
-                                  type="button"
-                                >
-                                  VIEW
-                                </button>
-                              </Button>
-                            </div>
-                          </LevelRight>
-                        </section>
-                      </Section>
-                    </div>
-                  </FadeIn>
-                </section>
-              </Section>
-            </div>
-          </GridThreeColItem>
           <GridThreeColItem
             key="Request a Feature"
           >
@@ -475,104 +368,6 @@ exports[`DeveloperHelpPage should match a snapshot where there is a developer id
             </div>
           </GridThreeColItem>
           <GridThreeColItem
-            key="Need Help?"
-          >
-            <div
-              className="column is-multiline is-half-tablet is-one-third-widescreen"
-              data-test=""
-            >
-              <Section
-                hasBoxShadow={true}
-                isFlex={true}
-                isFullHeight={true}
-              >
-                <section
-                  className="section is-flex has-padding has-margin has-background is-full-height has-box-shadow"
-                  data-test=""
-                >
-                  <FadeIn>
-                    <div
-                      className="f1ohzb3j-fade-in"
-                    >
-                      <Section
-                        className="w1aw3py2-wrap-box-content"
-                        isFlex={true}
-                        isFlexColumn={true}
-                      >
-                        <section
-                          className="section is-flex is-flex-column has-padding has-margin has-background w1aw3py2-wrap-box-content"
-                          data-test=""
-                        >
-                          <Section
-                            className="flex-shrink-0"
-                          >
-                            <section
-                              className="section has-padding has-margin has-background flex-shrink-0"
-                              data-test=""
-                            >
-                              <img
-                                alt="Need Help?"
-                                src=""
-                              />
-                            </section>
-                          </Section>
-                          <H5
-                            isCentered={true}
-                          >
-                            <h5
-                              className="title is-5 has-text-centered"
-                              id=""
-                            >
-                              Need Help?
-                            </h5>
-                          </H5>
-                          <Content
-                            className="flex-grow-1"
-                          >
-                            <div
-                              className="content flex-grow-1"
-                              data-test=""
-                            >
-                              If you have a question that is not covered in the documentation you can ask here. Please note we don’t provide chat support for Agency Cloud Developer Edition.
-                            </div>
-                          </Content>
-                          <LevelRight
-                            className="text-end"
-                          >
-                            <div
-                              className="level-right text-end"
-                              data-test=""
-                            >
-                              <Button
-                                className="bit4slh-button"
-                                disabled={false}
-                                fullWidth={false}
-                                loading={false}
-                                onClick={[Function]}
-                                type="button"
-                                variant="primary"
-                              >
-                                <button
-                                  className="button   is-primary bit4slh-button"
-                                  data-test=""
-                                  disabled={false}
-                                  onClick={[Function]}
-                                  type="button"
-                                >
-                                  START CHAT
-                                </button>
-                              </Button>
-                            </div>
-                          </LevelRight>
-                        </section>
-                      </Section>
-                    </div>
-                  </FadeIn>
-                </section>
-              </Section>
-            </div>
-          </GridThreeColItem>
-          <GridThreeColItem
             key="What’s New"
           >
             <div
@@ -671,6 +466,104 @@ exports[`DeveloperHelpPage should match a snapshot where there is a developer id
               </Section>
             </div>
           </GridThreeColItem>
+          <GridThreeColItem
+            key="Need Help?"
+          >
+            <div
+              className="column is-multiline is-half-tablet is-one-third-widescreen"
+              data-test=""
+            >
+              <Section
+                hasBoxShadow={true}
+                isFlex={true}
+                isFullHeight={true}
+              >
+                <section
+                  className="section is-flex has-padding has-margin has-background is-full-height has-box-shadow"
+                  data-test=""
+                >
+                  <FadeIn>
+                    <div
+                      className="f1ohzb3j-fade-in"
+                    >
+                      <Section
+                        className="w1aw3py2-wrap-box-content"
+                        isFlex={true}
+                        isFlexColumn={true}
+                      >
+                        <section
+                          className="section is-flex is-flex-column has-padding has-margin has-background w1aw3py2-wrap-box-content"
+                          data-test=""
+                        >
+                          <Section
+                            className="flex-shrink-0"
+                          >
+                            <section
+                              className="section has-padding has-margin has-background flex-shrink-0"
+                              data-test=""
+                            >
+                              <img
+                                alt="Need Help?"
+                                src=""
+                              />
+                            </section>
+                          </Section>
+                          <H5
+                            isCentered={true}
+                          >
+                            <h5
+                              className="title is-5 has-text-centered"
+                              id=""
+                            >
+                              Need Help?
+                            </h5>
+                          </H5>
+                          <Content
+                            className="flex-grow-1"
+                          >
+                            <div
+                              className="content flex-grow-1"
+                              data-test=""
+                            >
+                              If you have a question that is not covered in the documentation you can ask here. Please note we don’t provide chat support for Agency Cloud Developer Edition.
+                            </div>
+                          </Content>
+                          <LevelRight
+                            className="text-end"
+                          >
+                            <div
+                              className="level-right text-end"
+                              data-test=""
+                            >
+                              <Button
+                                className="bit4slh-button"
+                                disabled={false}
+                                fullWidth={false}
+                                loading={false}
+                                onClick={[Function]}
+                                type="button"
+                                variant="primary"
+                              >
+                                <button
+                                  className="button   is-primary bit4slh-button"
+                                  data-test=""
+                                  disabled={false}
+                                  onClick={[Function]}
+                                  type="button"
+                                >
+                                  START CHAT
+                                </button>
+                              </Button>
+                            </div>
+                          </LevelRight>
+                        </section>
+                      </Section>
+                    </div>
+                  </FadeIn>
+                </section>
+              </Section>
+            </div>
+          </GridThreeColItem>
         </div>
       </GridFourCol>
     </HelpItemList>
@@ -703,14 +596,6 @@ exports[`DeveloperHelpPage should match a snapshot where there is no developer i
     <HelpItemList
       items={
         Array [
-          Object {
-            "buttonOnClick": [Function],
-            "buttonText": "VIEW",
-            "header": "Welcome Guide",
-            "imgSrc": "",
-            "text": "Need a little help? Have a look through the Welcome Guide, which we’ve put
-      together to help you navigate through your Developer portal.",
-          },
           Object {
             "buttonOnClick": [Function],
             "buttonText": "REQUEST",
@@ -750,105 +635,6 @@ exports[`DeveloperHelpPage should match a snapshot where there is no developer i
           className="columns is-multiline"
           data-test=""
         >
-          <GridThreeColItem
-            key="Welcome Guide"
-          >
-            <div
-              className="column is-multiline is-half-tablet is-one-third-widescreen"
-              data-test=""
-            >
-              <Section
-                hasBoxShadow={true}
-                isFlex={true}
-                isFullHeight={true}
-              >
-                <section
-                  className="section is-flex has-padding has-margin has-background is-full-height has-box-shadow"
-                  data-test=""
-                >
-                  <FadeIn>
-                    <div
-                      className="f1ohzb3j-fade-in"
-                    >
-                      <Section
-                        className="w1aw3py2-wrap-box-content"
-                        isFlex={true}
-                        isFlexColumn={true}
-                      >
-                        <section
-                          className="section is-flex is-flex-column has-padding has-margin has-background w1aw3py2-wrap-box-content"
-                          data-test=""
-                        >
-                          <Section
-                            className="flex-shrink-0"
-                          >
-                            <section
-                              className="section has-padding has-margin has-background flex-shrink-0"
-                              data-test=""
-                            >
-                              <img
-                                alt="Welcome Guide"
-                                src=""
-                              />
-                            </section>
-                          </Section>
-                          <H5
-                            isCentered={true}
-                          >
-                            <h5
-                              className="title is-5 has-text-centered"
-                              id=""
-                            >
-                              Welcome Guide
-                            </h5>
-                          </H5>
-                          <Content
-                            className="flex-grow-1"
-                          >
-                            <div
-                              className="content flex-grow-1"
-                              data-test=""
-                            >
-                              Need a little help? Have a look through the Welcome Guide, which we’ve put
-      together to help you navigate through your Developer portal.
-                            </div>
-                          </Content>
-                          <LevelRight
-                            className="text-end"
-                          >
-                            <div
-                              className="level-right text-end"
-                              data-test=""
-                            >
-                              <Button
-                                className="bit4slh-button"
-                                disabled={false}
-                                fullWidth={false}
-                                loading={false}
-                                onClick={[Function]}
-                                type="button"
-                                variant="primary"
-                              >
-                                <button
-                                  className="button   is-primary bit4slh-button"
-                                  data-test=""
-                                  disabled={false}
-                                  onClick={[Function]}
-                                  type="button"
-                                >
-                                  VIEW
-                                </button>
-                              </Button>
-                            </div>
-                          </LevelRight>
-                        </section>
-                      </Section>
-                    </div>
-                  </FadeIn>
-                </section>
-              </Section>
-            </div>
-          </GridThreeColItem>
           <GridThreeColItem
             key="Request a Feature"
           >

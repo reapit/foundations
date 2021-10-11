@@ -4,16 +4,13 @@ import { mount } from 'enzyme'
 import * as ReactRedux from 'react-redux'
 import {
   DeveloperHelpPage,
-  handleGotoWelcomeGuide,
   handleReportBug,
   handleRequestEndpoint,
   handleFaq,
   handleViewRoadmap,
   handleWhatsNew,
 } from '../help'
-import Routes from '@/constants/routes'
 import configureStore from 'redux-mock-store'
-import { history } from '@/core/router'
 import { HelpLinks } from '@/constants/developer-help-links'
 import appState from '@/reducers/__stubs__/app-state'
 import { LoginIdentity } from '@reapit/connect-session'
@@ -68,14 +65,6 @@ describe('DeveloperHelpPage', () => {
         </ReactRedux.Provider>,
       ),
     ).toMatchSnapshot()
-  })
-})
-
-describe('handleGotoWelcomeGuide', () => {
-  it('should called with correct props', () => {
-    const spy = jest.spyOn(history, 'push')
-    handleGotoWelcomeGuide()
-    expect(spy).toHaveBeenCalledWith(Routes.WELCOME)
   })
 })
 

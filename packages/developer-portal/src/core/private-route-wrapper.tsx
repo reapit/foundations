@@ -5,7 +5,6 @@ import { Redirect, useLocation } from 'react-router'
 import Routes from '@/constants/routes'
 import { useReapitConnect } from '@reapit/connect-session'
 import { reapitConnectBrowserSession } from '@/core/connect-session'
-import { getCookieString, COOKIE_DEVELOPER_FIRST_TIME_LOGIN_COMPLETE } from '@/utils/cookie'
 import { useDispatch, useSelector } from 'react-redux'
 import TermsAndConditionsModal from '../components/ui/terms-and-conditions-modal'
 import { fetchCurrentMember, updateCurrentMember } from '../actions/current-member'
@@ -99,11 +98,6 @@ export const PrivateRouteWrapper: React.FunctionComponent<PrivateRouteWrapperPro
 
   if (connectInternalRedirect && currentUri !== connectInternalRedirect) {
     return <Redirect to={connectInternalRedirect} />
-  }
-
-  const hasReadWelcome = Boolean(getCookieString(COOKIE_DEVELOPER_FIRST_TIME_LOGIN_COMPLETE))
-  if (!hasReadWelcome && location.pathname === Routes.APPS) {
-    return <Redirect to={Routes.WELCOME} />
   }
 
   return (

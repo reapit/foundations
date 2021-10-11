@@ -23,10 +23,6 @@ jest.mock('react-router', () => ({
   useLocation: jest.fn(() => locationMock),
 }))
 
-jest.mock('@/utils/auth-route', () => ({
-  getDefaultRoute: jest.fn(() => 'login-type-route'),
-}))
-
 jest.mock('@/utils/cookie', () => ({
   ...(jest.requireActual('@/utils/cookie') as Object),
   getCookieString: jest.fn(() => 'cookie-string'),

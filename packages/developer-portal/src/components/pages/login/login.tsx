@@ -4,7 +4,6 @@ import { Dispatch } from 'redux'
 import { useDispatch } from 'react-redux'
 import { showNotificationMessage } from '@/actions/notification-message'
 import { Button, Level, FlexContainerBasic, Section } from '@reapit/elements-legacy'
-import { getDefaultRoute } from '@/utils/auth-route'
 import Routes from '@/constants/routes'
 import messages from '@/constants/messages'
 import connectImage from '@/assets/images/reapit-connect.png'
@@ -42,7 +41,7 @@ export const handleShowNotificationAfterPasswordChanged = (
 
 export const onLoginButtonClick = () => {
   return () => {
-    reapitConnectBrowserSession.connectLoginRedirect(getDefaultRoute(true))
+    reapitConnectBrowserSession.connectLoginRedirect(Routes.APPS)
   }
 }
 

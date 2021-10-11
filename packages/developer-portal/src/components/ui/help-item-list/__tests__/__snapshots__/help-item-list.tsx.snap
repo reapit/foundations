@@ -3,58 +3,6 @@
 exports[`HelpItemList should match a snapshot 1`] = `
 <GridFourCol>
   <GridThreeColItem
-    key="Welcome Guide"
-  >
-    <Section
-      hasBoxShadow={true}
-      isFlex={true}
-      isFullHeight={true}
-    >
-      <FadeIn>
-        <Section
-          className="w1aw3py2-wrap-box-content"
-          isFlex={true}
-          isFlexColumn={true}
-        >
-          <Section
-            className="flex-shrink-0"
-          >
-            <img
-              alt="Welcome Guide"
-              src=""
-            />
-          </Section>
-          <H5
-            isCentered={true}
-          >
-            Welcome Guide
-          </H5>
-          <Content
-            className="flex-grow-1"
-          >
-            Need a little help? Have a look through the Welcome Guide, which we’ve put
-      together to help you navigate through your Developer portal.
-          </Content>
-          <LevelRight
-            className="text-end"
-          >
-            <Button
-              className="bit4slh-button"
-              disabled={false}
-              fullWidth={false}
-              loading={false}
-              onClick={[Function]}
-              type="button"
-              variant="primary"
-            >
-              VIEW
-            </Button>
-          </LevelRight>
-        </Section>
-      </FadeIn>
-    </Section>
-  </GridThreeColItem>
-  <GridThreeColItem
     key="Request a Feature"
   >
     <Section
@@ -210,57 +158,6 @@ exports[`HelpItemList should match a snapshot 1`] = `
     </Section>
   </GridThreeColItem>
   <GridThreeColItem
-    key="Need Help?"
-  >
-    <Section
-      hasBoxShadow={true}
-      isFlex={true}
-      isFullHeight={true}
-    >
-      <FadeIn>
-        <Section
-          className="w1aw3py2-wrap-box-content"
-          isFlex={true}
-          isFlexColumn={true}
-        >
-          <Section
-            className="flex-shrink-0"
-          >
-            <img
-              alt="Need Help?"
-              src=""
-            />
-          </Section>
-          <H5
-            isCentered={true}
-          >
-            Need Help?
-          </H5>
-          <Content
-            className="flex-grow-1"
-          >
-            If you have a question that is not covered in the documentation you can ask here. Please note we don’t provide chat support for Agency Cloud Developer Edition.
-          </Content>
-          <LevelRight
-            className="text-end"
-          >
-            <Button
-              className="bit4slh-button"
-              disabled={false}
-              fullWidth={false}
-              loading={false}
-              onClick={[Function]}
-              type="button"
-              variant="primary"
-            >
-              START CHAT
-            </Button>
-          </LevelRight>
-        </Section>
-      </FadeIn>
-    </Section>
-  </GridThreeColItem>
-  <GridThreeColItem
     key="What’s New"
   >
     <Section
@@ -306,6 +203,57 @@ exports[`HelpItemList should match a snapshot 1`] = `
               variant="primary"
             >
               VIEW
+            </Button>
+          </LevelRight>
+        </Section>
+      </FadeIn>
+    </Section>
+  </GridThreeColItem>
+  <GridThreeColItem
+    key="Need Help?"
+  >
+    <Section
+      hasBoxShadow={true}
+      isFlex={true}
+      isFullHeight={true}
+    >
+      <FadeIn>
+        <Section
+          className="w1aw3py2-wrap-box-content"
+          isFlex={true}
+          isFlexColumn={true}
+        >
+          <Section
+            className="flex-shrink-0"
+          >
+            <img
+              alt="Need Help?"
+              src=""
+            />
+          </Section>
+          <H5
+            isCentered={true}
+          >
+            Need Help?
+          </H5>
+          <Content
+            className="flex-grow-1"
+          >
+            If you have a question that is not covered in the documentation you can ask here. Please note we don’t provide chat support for Agency Cloud Developer Edition.
+          </Content>
+          <LevelRight
+            className="text-end"
+          >
+            <Button
+              className="bit4slh-button"
+              disabled={false}
+              fullWidth={false}
+              loading={false}
+              onClick={[Function]}
+              type="button"
+              variant="primary"
+            >
+              START CHAT
             </Button>
           </LevelRight>
         </Section>

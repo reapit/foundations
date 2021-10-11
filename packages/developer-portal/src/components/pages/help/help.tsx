@@ -1,10 +1,7 @@
 import * as React from 'react'
 import { openChatbot } from '../../../scripts/chat-bot'
-import { history } from '@/core/router'
 import { H3 } from '@reapit/elements-legacy'
-import Routes from '@/constants/routes'
 import { HelpLinks } from '@/constants/developer-help-links'
-import welcomeImg from '@/assets/images/help/welcome-guide.jpg'
 import requestEndpointImg from '@/assets/images/help/request-endpoint.jpg'
 import reportBugImg from '@/assets/images/help/report-bugs.jpg'
 import liveChatImg from '@/assets/images/help/live-chat.jpg'
@@ -15,10 +12,6 @@ import HelpItemList, { HelpItem } from '@/components/ui/help-item-list'
 import { selectLoginIdentity } from '@/selector/auth'
 import { LoginIdentity, useReapitConnect } from '@reapit/connect-session'
 import { reapitConnectBrowserSession } from '@/core/connect-session'
-
-export const handleGotoWelcomeGuide = () => {
-  history.push(Routes.WELCOME)
-}
 
 export const handleReportBug = () => {
   window.open(HelpLinks.BUG_REPORT, '_blank')
@@ -42,14 +35,6 @@ export const handleFaq = (loginIdentity: LoginIdentity) => {
 
 export const helpItems = (loginIdentity: LoginIdentity): HelpItem[] => {
   const items = [
-    {
-      imgSrc: welcomeImg,
-      header: 'Welcome Guide',
-      text: `Need a little help? Have a look through the Welcome Guide, which we’ve put
-      together to help you navigate through your Developer portal.`,
-      buttonText: 'VIEW',
-      buttonOnClick: handleGotoWelcomeGuide,
-    },
     {
       imgSrc: requestEndpointImg,
       header: 'Request a Feature',
