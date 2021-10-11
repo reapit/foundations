@@ -2,7 +2,9 @@ import { fetcher } from '@reapit/utils-common'
 import { fetchNegotiators } from '../negotiators'
 
 jest.mock('@reapit/utils-common')
-jest.mock('@reapit/utils-react')
+jest.mock('@reapit/utils-react', () => ({
+  getPlatformHeaders: jest.fn(() => ({})),
+}))
 
 const mockedFetch = fetcher as jest.Mock
 

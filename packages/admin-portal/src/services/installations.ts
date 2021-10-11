@@ -23,15 +23,18 @@ export type FetchApiKeyInstallationByIdParams = {
 
 export const fetchInstallationsList = async (
   params: FetchInstallationsListParams,
-): Promise<InstallationModelPagedResult> => {
+): Promise<InstallationModelPagedResult | void> => {
   try {
-    const response = await fetcher({
-      url: `${URLS.installations}?${setQueryParams(params)}`,
-      api: window.reapit.config.platformApiUrl,
-      method: 'GET',
-      headers: await getPlatformHeaders(reapitConnectBrowserSession, 'latest'),
-    })
-    return response
+    const headers = await getPlatformHeaders(reapitConnectBrowserSession, 'latest')
+    if (headers) {
+      const response = await fetcher({
+        url: `${URLS.installations}?${setQueryParams(params)}`,
+        api: window.reapit.config.platformApiUrl,
+        method: 'GET',
+        headers,
+      })
+      return response
+    }
   } catch (error) {
     logger(error)
     throw error
@@ -41,13 +44,16 @@ export const fetchInstallationsList = async (
 export const fetchApiKeyInstallationById = async (params: FetchApiKeyInstallationByIdParams) => {
   try {
     const { installationId } = params
-    const response = await fetcher({
-      url: `${URLS.installations}/${installationId}/apiKey`,
-      api: window.reapit.config.platformApiUrl,
-      method: 'GET',
-      headers: await getPlatformHeaders(reapitConnectBrowserSession, 'latest'),
-    })
-    return response
+    const headers = await getPlatformHeaders(reapitConnectBrowserSession, 'latest')
+    if (headers) {
+      const response = await fetcher({
+        url: `${URLS.installations}/${installationId}/apiKey`,
+        api: window.reapit.config.platformApiUrl,
+        method: 'GET',
+        headers,
+      })
+      return response
+    }
   } catch (error) {
     logger(error)
     throw new Error(error)

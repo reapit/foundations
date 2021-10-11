@@ -22,15 +22,18 @@ export interface CancelSubscriptionParams {
 
 export const fetchSubscriptionListApi = async (
   params: FetchSubscriptionsListParams,
-): Promise<SubscriptionModelPagedResult> => {
+): Promise<SubscriptionModelPagedResult | void> => {
   try {
-    const response = await fetcher({
-      url: `${URLS.subscriptions}?${setQueryParams(params)}`,
-      api: window.reapit.config.platformApiUrl,
-      method: 'GET',
-      headers: await getPlatformHeaders(reapitConnectBrowserSession, 'latest'),
-    })
-    return response
+    const headers = await getPlatformHeaders(reapitConnectBrowserSession, 'latest')
+    if (headers) {
+      const response = await fetcher({
+        url: `${URLS.subscriptions}?${setQueryParams(params)}`,
+        api: window.reapit.config.platformApiUrl,
+        method: 'GET',
+        headers,
+      })
+      return response
+    }
   } catch (error) {
     logger(error)
     throw error
@@ -40,13 +43,16 @@ export const fetchSubscriptionListApi = async (
 export const cancelSubscriptionApi = async (params: CancelSubscriptionParams) => {
   try {
     const { id } = params
-    const response = await fetcher({
-      url: `${URLS.subscriptions}/${id}`,
-      api: window.reapit.config.platformApiUrl,
-      method: 'DELETE',
-      headers: await getPlatformHeaders(reapitConnectBrowserSession, 'latest'),
-    })
-    return response
+    const headers = await getPlatformHeaders(reapitConnectBrowserSession, 'latest')
+    if (headers) {
+      const response = await fetcher({
+        url: `${URLS.subscriptions}/${id}`,
+        api: window.reapit.config.platformApiUrl,
+        method: 'DELETE',
+        headers,
+      })
+      return response
+    }
   } catch (error) {
     logger(error)
     throw error?.response
@@ -55,14 +61,17 @@ export const cancelSubscriptionApi = async (params: CancelSubscriptionParams) =>
 
 export const createSubscriptionApi = async (params: CreateSubscriptionModel) => {
   try {
-    const response = await fetcher({
-      url: `${URLS.subscriptions}`,
-      api: window.reapit.config.platformApiUrl,
-      method: 'POST',
-      headers: await getPlatformHeaders(reapitConnectBrowserSession, 'latest'),
-      body: params,
-    })
-    return response
+    const headers = await getPlatformHeaders(reapitConnectBrowserSession, 'latest')
+    if (headers) {
+      const response = await fetcher({
+        url: `${URLS.subscriptions}`,
+        api: window.reapit.config.platformApiUrl,
+        method: 'POST',
+        headers,
+        body: params,
+      })
+      return response
+    }
   } catch (error) {
     logger(error)
     throw error?.response

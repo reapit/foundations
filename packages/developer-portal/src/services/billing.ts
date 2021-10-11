@@ -58,16 +58,19 @@ export type FetchBillingsByMonthParams = {
   month: string
 }
 
-export const fetchBillings = async (params: FetchBillingsParams): Promise<BillingSummaryModel> => {
+export const fetchBillings = async (params: FetchBillingsParams): Promise<BillingSummaryModel | void> => {
   const api = window.reapit.config.platformApiUrl
   try {
-    const response = await fetcher({
-      url: `${URLS.trafficEventBilling}?${setQueryParams(params)}`,
-      api,
-      method: 'GET',
-      headers: await getPlatformHeaders(reapitConnectBrowserSession, '2'),
-    })
-    return response
+    const headers = await getPlatformHeaders(reapitConnectBrowserSession, '2')
+    if (headers) {
+      const response = await fetcher({
+        url: `${URLS.trafficEventBilling}?${setQueryParams(params)}`,
+        api,
+        method: 'GET',
+        headers,
+      })
+      return response
+    }
   } catch (error) {
     logger(error)
     throw new Error(error)
@@ -76,7 +79,7 @@ export const fetchBillings = async (params: FetchBillingsParams): Promise<Billin
 
 export const fetchBillingsByMonth = async (
   params: FetchBillingsByMonthParams,
-): Promise<BillingBreakdownForMonthV2Model> => {
+): Promise<BillingBreakdownForMonthV2Model | void> => {
   const api = window.reapit.config.platformApiUrl
   try {
     const { month, customerId, ...rest } = params
@@ -87,13 +90,16 @@ export const fetchBillingsByMonth = async (
           type: 'trafficEvents',
         }
       : rest
-    const response = await fetcher({
-      url: `${URLS.trafficEventBilling}/${month}?${setQueryParams(queryParams)}`,
-      api,
-      method: 'GET',
-      headers: await getPlatformHeaders(reapitConnectBrowserSession, '2'),
-    })
-    return response
+    const headers = await getPlatformHeaders(reapitConnectBrowserSession, '2')
+    if (headers) {
+      const response = await fetcher({
+        url: `${URLS.trafficEventBilling}/${month}?${setQueryParams(queryParams)}`,
+        api,
+        method: 'GET',
+        headers,
+      })
+      return response
+    }
   } catch (error) {
     logger(error)
     throw new Error(error)

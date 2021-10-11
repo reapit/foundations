@@ -22,15 +22,18 @@ export type FetchAppsParams = FetchListCommonParams & {
   showHiddenApps?: boolean
 }
 
-export const fetchAppsApi = async (params: FetchAppsParams): Promise<AppSummaryModelPagedResult> => {
+export const fetchAppsApi = async (params: FetchAppsParams): Promise<AppSummaryModelPagedResult | void> => {
   try {
-    const response = await fetcher({
-      url: `${URLS.apps}?${setQueryParams(params)}`,
-      api: window.reapit.config.platformApiUrl,
-      method: 'GET',
-      headers: await getPlatformHeaders(reapitConnectBrowserSession, 'latest'),
-    })
-    return response
+    const headers = await getPlatformHeaders(reapitConnectBrowserSession, 'latest')
+    if (headers) {
+      const response = await fetcher({
+        url: `${URLS.apps}?${setQueryParams(params)}`,
+        api: window.reapit.config.platformApiUrl,
+        method: 'GET',
+        headers,
+      })
+      return response
+    }
   } catch (error) {
     logger(error)
     throw error?.response
@@ -41,16 +44,19 @@ export type FetchAppByIdParams = FetchByIdCommonParams & {
   clientId?: string
 }
 
-export const fetchAppByIdApi = async (params: FetchAppByIdParams): Promise<AppDetailModel> => {
+export const fetchAppByIdApi = async (params: FetchAppByIdParams): Promise<AppDetailModel | void> => {
   try {
     const { id, clientId } = params
-    const response = await fetcher({
-      url: `${URLS.apps}/${id}?${setQueryParams({ clientId })}`,
-      api: window.reapit.config.platformApiUrl,
-      method: 'GET',
-      headers: await getPlatformHeaders(reapitConnectBrowserSession, 'latest'),
-    })
-    return response
+    const headers = await getPlatformHeaders(reapitConnectBrowserSession, 'latest')
+    if (headers) {
+      const response = await fetcher({
+        url: `${URLS.apps}/${id}?${setQueryParams({ clientId })}`,
+        api: window.reapit.config.platformApiUrl,
+        method: 'GET',
+        headers,
+      })
+      return response
+    }
   } catch (error) {
     logger(error)
     throw error?.response

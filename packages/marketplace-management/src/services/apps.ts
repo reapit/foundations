@@ -12,25 +12,27 @@ export const getAppsService = async (search: string): Promise<AppSummaryModelPag
   if (!session) throw new Error('No Reapit Connect Session is present')
 
   try {
-    const response: AppSummaryModelPagedResult | undefined = await fetcher({
-      api: window.reapit.config.platformApiUrl,
-      url: `${URLS.APPS}/${search ? search : '?pageNumber=1&pageSize=12'}&clientId=${
-        session.loginIdentity.clientId
-      }&showHiddenApps=true`,
-      method: 'GET',
-      headers: await getPlatformHeaders(reapitConnectBrowserSession, 'latest'),
-    })
+    const headers = await getPlatformHeaders(reapitConnectBrowserSession, 'latest')
+    if (headers) {
+      const response: AppSummaryModelPagedResult | undefined = await fetcher({
+        api: window.reapit.config.platformApiUrl,
+        url: `${URLS.APPS}/${search ? search : '?pageNumber=1&pageSize=12'}&clientId=${
+          session.loginIdentity.clientId
+        }&showHiddenApps=true`,
+        method: 'GET',
+        headers,
+      })
 
-    if (response) {
-      const apps = response.data?.filter((app) => !window.reapit.config.appIdsToFilter.includes(app.id as string))
+      if (response) {
+        const apps = response.data?.filter((app) => !window.reapit.config.appIdsToFilter.includes(app.id as string))
 
-      return {
-        ...response,
-        data: apps,
+        return {
+          ...response,
+          data: apps,
+        }
       }
+      throw new Error('Failed to fetch apps')
     }
-
-    throw new Error('Failed to fetch apps')
   } catch (err) {
     logger(err)
     notification.error({
@@ -45,19 +47,21 @@ export const updateAppRestrictionsService = async (restriction: AppRestriction):
 
     if (!session) throw new Error('No Reapit Connect Session is present')
 
-    const response: any | undefined = await fetcher({
-      api: window.reapit.config.platformApiUrl,
-      url: `${URLS.CUSTOMERS}/${session.loginIdentity.orgId}/appRestrictions`,
-      method: 'POST',
-      headers: await getPlatformHeaders(reapitConnectBrowserSession, 'latest'),
-      body: restriction,
-    })
+    const headers = await getPlatformHeaders(reapitConnectBrowserSession, 'latest')
+    if (headers) {
+      const response: any | undefined = await fetcher({
+        api: window.reapit.config.platformApiUrl,
+        url: `${URLS.CUSTOMERS}/${session.loginIdentity.orgId}/appRestrictions`,
+        method: 'POST',
+        headers,
+        body: restriction,
+      })
 
-    if (response) {
-      return response
+      if (response) {
+        return response
+      }
+      throw new Error('Failed to update app restrictions')
     }
-
-    throw new Error('Failed to update app restrictions')
   } catch (err) {
     logger(err)
   }

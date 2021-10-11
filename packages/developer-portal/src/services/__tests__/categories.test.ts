@@ -2,7 +2,9 @@ import { fetcher } from '@reapit/utils-common'
 import { createCategory, deleteCategoryById, fetchCategoryById, fetchCategoryListAPI } from '../categories'
 
 jest.mock('@reapit/utils-common')
-jest.mock('@reapit/utils-react')
+jest.mock('@reapit/utils-react', () => ({
+  getPlatformHeaders: jest.fn(() => ({})),
+}))
 
 const mockedFetch = fetcher as jest.Mock
 

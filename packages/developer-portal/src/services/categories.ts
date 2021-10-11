@@ -13,15 +13,20 @@ export type FetchCategoryById = FetchByIdCommonParams
 
 export type DeleteCategoryByIdParams = FetchByIdCommonParams
 
-export const fetchCategoryListAPI = async (params: FetchCategoriesListParams): Promise<CategoryModelPagedResult> => {
+export const fetchCategoryListAPI = async (
+  params: FetchCategoriesListParams,
+): Promise<CategoryModelPagedResult | void> => {
   try {
-    const response = await fetcher({
-      url: `${URLS.categories}?${setQueryParams(params)}`,
-      api: window.reapit.config.platformApiUrl,
-      method: 'GET',
-      headers: await getPlatformHeaders(reapitConnectBrowserSession, 'latest'),
-    })
-    return response
+    const headers = await getPlatformHeaders(reapitConnectBrowserSession, 'latest')
+    if (headers) {
+      const response = await fetcher({
+        url: `${URLS.categories}?${setQueryParams(params)}`,
+        api: window.reapit.config.platformApiUrl,
+        method: 'GET',
+        headers,
+      })
+      return response
+    }
   } catch (error) {
     logger(error)
     throw error?.response
@@ -30,30 +35,36 @@ export const fetchCategoryListAPI = async (params: FetchCategoriesListParams): P
 
 export const createCategory = async (params: CreateCategoryParams) => {
   try {
-    const response = await fetcher({
-      url: `${URLS.categories}`,
-      api: window.reapit.config.platformApiUrl,
-      method: 'POST',
-      body: params,
-      headers: await getPlatformHeaders(reapitConnectBrowserSession, 'latest'),
-    })
-    return response
+    const headers = await getPlatformHeaders(reapitConnectBrowserSession, 'latest')
+    if (headers) {
+      const response = await fetcher({
+        url: `${URLS.categories}`,
+        api: window.reapit.config.platformApiUrl,
+        method: 'POST',
+        body: params,
+        headers,
+      })
+      return response
+    }
   } catch (error) {
     logger(error)
     throw new Error(error)
   }
 }
 
-export const fetchCategoryById = async (params: FetchCategoryById): Promise<CategoryModel> => {
+export const fetchCategoryById = async (params: FetchCategoryById): Promise<CategoryModel | void> => {
   try {
     const { id } = params
-    const response = await fetcher({
-      url: `${URLS.categories}/${id}`,
-      api: window.reapit.config.platformApiUrl,
-      method: 'GET',
-      headers: await getPlatformHeaders(reapitConnectBrowserSession, 'latest'),
-    })
-    return response
+    const headers = await getPlatformHeaders(reapitConnectBrowserSession, 'latest')
+    if (headers) {
+      const response = await fetcher({
+        url: `${URLS.categories}/${id}`,
+        api: window.reapit.config.platformApiUrl,
+        method: 'GET',
+        headers,
+      })
+      return response
+    }
   } catch (error) {
     logger(error)
     throw new Error(error)
@@ -63,13 +74,16 @@ export const fetchCategoryById = async (params: FetchCategoryById): Promise<Cate
 export const deleteCategoryById = async (params: DeleteCategoryByIdParams) => {
   try {
     const { id } = params
-    const response = await fetcher({
-      url: `${URLS.categories}/${id}`,
-      api: window.reapit.config.platformApiUrl,
-      method: 'DELETE',
-      headers: await getPlatformHeaders(reapitConnectBrowserSession, 'latest'),
-    })
-    return response
+    const headers = await getPlatformHeaders(reapitConnectBrowserSession, 'latest')
+    if (headers) {
+      const response = await fetcher({
+        url: `${URLS.categories}/${id}`,
+        api: window.reapit.config.platformApiUrl,
+        method: 'DELETE',
+        headers,
+      })
+      return response
+    }
   } catch (error) {
     logger(error)
     throw new Error(error)

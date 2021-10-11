@@ -3,7 +3,7 @@ import { ReapitConnectSession } from '@reapit/connect-session'
 
 export const getAccessToken = async (): Promise<string | null> => {
   const connectSession = await reapitConnectBrowserSession.connectSession()
-  return (connectSession && connectSession?.accessToken) || ''
+  return connectSession?.accessToken ?? null
 }
 
 export const getDeveloperIdFromConnectSession = (connectSession: ReapitConnectSession | null): string => {

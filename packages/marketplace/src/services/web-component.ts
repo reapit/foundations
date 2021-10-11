@@ -31,16 +31,19 @@ export type WebComponentConfigResult = {
 
 export const fetchWebComponentConfigApi = async (
   params: FetchWebComponentConfigParams,
-): Promise<WebComponentConfigResult> => {
+): Promise<WebComponentConfigResult | void> => {
   try {
     const { customerId, applicationId } = params
-    const response = await fetcher({
-      url: `${URLS.webComponentConfig}/${customerId}/${applicationId}`,
-      api: window.reapit.config.webComponentConfigApiUrl,
-      method: 'GET',
-      headers: await getPlatformHeaders(reapitConnectBrowserSession, 'latest'),
-    })
-    return response
+    const headers = await getPlatformHeaders(reapitConnectBrowserSession, 'latest')
+    if (headers) {
+      const response = await fetcher({
+        url: `${URLS.webComponentConfig}/${customerId}/${applicationId}`,
+        api: window.reapit.config.webComponentConfigApiUrl,
+        method: 'GET',
+        headers,
+      })
+      return response
+    }
   } catch (error) {
     logger(error)
     throw error?.response
@@ -49,17 +52,20 @@ export const fetchWebComponentConfigApi = async (
 
 export const updateWebComponentConfigApi = async (
   params: UpdateWebComponentConfigParams,
-): Promise<WebComponentConfigResult> => {
+): Promise<WebComponentConfigResult | void> => {
   try {
     const { customerId, appId, ...rest } = params
-    const response = await fetcher({
-      url: `${URLS.webComponentConfig}/${customerId}/${appId}`,
-      api: window.reapit.config.webComponentConfigApiUrl,
-      method: 'PATCH',
-      headers: await getPlatformHeaders(reapitConnectBrowserSession, 'latest'),
-      body: rest,
-    })
-    return response
+    const headers = await getPlatformHeaders(reapitConnectBrowserSession, 'latest')
+    if (headers) {
+      const response = await fetcher({
+        url: `${URLS.webComponentConfig}/${customerId}/${appId}`,
+        api: window.reapit.config.webComponentConfigApiUrl,
+        method: 'PATCH',
+        headers,
+        body: rest,
+      })
+      return response
+    }
   } catch (error) {
     logger(error)
     throw error?.response

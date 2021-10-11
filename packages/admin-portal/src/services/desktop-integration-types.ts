@@ -42,15 +42,18 @@ export type UpdateDesktopIntegrationTypesByIdParams = FetchByIdCommonParams & Up
 
 export const fetchDesktopIntegrationTypesList = async (
   params: FetchDesktopIntegrationTypesListParams,
-): Promise<PagedResultDesktopIntegrationTypeModel_> => {
+): Promise<PagedResultDesktopIntegrationTypeModel_ | void> => {
   try {
-    const response = await fetcher({
-      url: `${URLS.desktopIntegrationTypes}?${setQueryParams(params)}`,
-      api: window.reapit.config.platformApiUrl,
-      method: 'GET',
-      headers: await getPlatformHeaders(reapitConnectBrowserSession, 'latest'),
-    })
-    return response
+    const headers = await getPlatformHeaders(reapitConnectBrowserSession, 'latest')
+    if (headers) {
+      const response = await fetcher({
+        url: `${URLS.desktopIntegrationTypes}?${setQueryParams(params)}`,
+        api: window.reapit.config.platformApiUrl,
+        method: 'GET',
+        headers,
+      })
+      return response
+    }
   } catch (error) {
     logger(error)
     throw error
@@ -59,14 +62,17 @@ export const fetchDesktopIntegrationTypesList = async (
 
 export const createDesktopIntegrationTypes = async (params: CreateDesktopIntegrationTypes) => {
   try {
-    const response = await fetcher({
-      url: `${URLS.desktopIntegrationTypes}`,
-      api: window.reapit.config.platformApiUrl,
-      method: 'POST',
-      body: params,
-      headers: await getPlatformHeaders(reapitConnectBrowserSession, 'latest'),
-    })
-    return response
+    const headers = await getPlatformHeaders(reapitConnectBrowserSession, 'latest')
+    if (headers) {
+      const response = await fetcher({
+        url: `${URLS.desktopIntegrationTypes}`,
+        api: window.reapit.config.platformApiUrl,
+        method: 'POST',
+        body: params,
+        headers,
+      })
+      return response
+    }
   } catch (error) {
     logger(error)
     throw new Error(error)
@@ -75,16 +81,19 @@ export const createDesktopIntegrationTypes = async (params: CreateDesktopIntegra
 
 export const fetchDesktopIntegrationTypesById = async (
   params: FetchDesktopIntegrationTypesByIdParams,
-): Promise<DesktopIntegrationTypeModel> => {
+): Promise<DesktopIntegrationTypeModel | void> => {
   try {
     const { id } = params
-    const response = await fetcher({
-      url: `${URLS.desktopIntegrationTypes}/${id}`,
-      api: window.reapit.config.platformApiUrl,
-      method: 'GET',
-      headers: await getPlatformHeaders(reapitConnectBrowserSession, 'latest'),
-    })
-    return response
+    const headers = await getPlatformHeaders(reapitConnectBrowserSession, 'latest')
+    if (headers) {
+      const response = await fetcher({
+        url: `${URLS.desktopIntegrationTypes}/${id}`,
+        api: window.reapit.config.platformApiUrl,
+        method: 'GET',
+        headers,
+      })
+      return response
+    }
   } catch (error) {
     logger(error)
     throw new Error(error)
@@ -94,14 +103,17 @@ export const fetchDesktopIntegrationTypesById = async (
 export const updateDesktopIntegrationTypesById = async (params: UpdateDesktopIntegrationTypesByIdParams) => {
   try {
     const { id, ...rest } = params
-    const response = await fetcher({
-      url: `${URLS.categories}/${id}`,
-      api: window.reapit.config.platformApiUrl,
-      method: 'PUT',
-      body: rest,
-      headers: await getPlatformHeaders(reapitConnectBrowserSession, 'latest'),
-    })
-    return response
+    const headers = await getPlatformHeaders(reapitConnectBrowserSession, 'latest')
+    if (headers) {
+      const response = await fetcher({
+        url: `${URLS.categories}/${id}`,
+        api: window.reapit.config.platformApiUrl,
+        method: 'PUT',
+        body: rest,
+        headers,
+      })
+      return response
+    }
   } catch (error) {
     logger(error)
     throw new Error(error)

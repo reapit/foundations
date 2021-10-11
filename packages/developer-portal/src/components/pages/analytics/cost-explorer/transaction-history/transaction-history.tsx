@@ -52,14 +52,18 @@ export const createHandleDownLoadButtonOnClickFn =
         : window.reapit.config.platformApiUrl
 
     const params = setQueryParams({ applicationId: developerAppIds })
-    const blob = await fetcherWithBlob({
-      url: `${URLS.trafficEventBilling}/${month}/download?${params.toString()}`,
-      api,
-      method: 'GET',
-      headers: await getPlatformHeaders(reapitConnectBrowserSession, 'latest'),
-    })
-    const fileName = `reapit-billing-data-${month}.csv`
-    FileSaver.saveAs(blob, fileName)
+    const headers = await getPlatformHeaders(reapitConnectBrowserSession, 'latest')
+
+    if (headers) {
+      const blob = await fetcherWithBlob({
+        url: `${URLS.trafficEventBilling}/${month}/download?${params.toString()}`,
+        api,
+        method: 'GET',
+        headers,
+      })
+      const fileName = `reapit-billing-data-${month}.csv`
+      FileSaver.saveAs(blob, fileName)
+    }
   }
 
 export const renderTransactionHistoryItem = ({ date, developerAppIds }: { date: Dayjs; developerAppIds: string[] }) => {

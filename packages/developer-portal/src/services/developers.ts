@@ -55,15 +55,21 @@ export type UpdateOrganisationMemberByIdParams = FetchByIdCommonParams & {
   memberId: string
 } & UpdateMemberModel
 
-export const fetchDevelopersList = async (params: FetchDevelopersListParams): Promise<DeveloperModelPagedResult> => {
+export const fetchDevelopersList = async (
+  params: FetchDevelopersListParams,
+): Promise<DeveloperModelPagedResult | void> => {
   try {
-    const response = await fetcher({
-      url: `${URLS.developers}?${stringify(params)}`,
-      api: window.reapit.config.platformApiUrl,
-      method: 'GET',
-      headers: await getPlatformHeaders(reapitConnectBrowserSession, 'latest'),
-    })
-    return response
+    const headers = await getPlatformHeaders(reapitConnectBrowserSession, 'latest')
+
+    if (headers) {
+      const response = await fetcher({
+        url: `${URLS.developers}?${stringify(params)}`,
+        api: window.reapit.config.platformApiUrl,
+        method: 'GET',
+        headers,
+      })
+      return response
+    }
   } catch (error) {
     logger(error)
     throw error?.response
@@ -72,32 +78,40 @@ export const fetchDevelopersList = async (params: FetchDevelopersListParams): Pr
 
 export const createDeveloper = async (params: CreateDeveloperParams) => {
   try {
-    const response = await fetcher({
-      url: `${URLS.developers}`,
-      api: window.reapit.config.platformApiUrl,
-      method: 'POST',
-      body: params,
-      headers: {
-        'Content-Type': 'application/json',
-      },
-    })
-    return response
+    const headers = await getPlatformHeaders(reapitConnectBrowserSession, 'latest')
+
+    if (headers) {
+      const response = await fetcher({
+        url: `${URLS.developers}`,
+        api: window.reapit.config.platformApiUrl,
+        method: 'POST',
+        body: params,
+        headers: {
+          'Content-Type': 'application/json',
+        },
+      })
+      return response
+    }
   } catch (error) {
     logger(error)
     throw error?.response
   }
 }
 
-export const fetchDeveloperById = async (params: FetchDeveloperByIdParams): Promise<DeveloperModel> => {
+export const fetchDeveloperById = async (params: FetchDeveloperByIdParams): Promise<DeveloperModel | void> => {
   try {
     const { id } = params
-    const response = await fetcher({
-      url: `${URLS.developers}/${id}`,
-      api: window.reapit.config.platformApiUrl,
-      method: 'GET',
-      headers: await getPlatformHeaders(reapitConnectBrowserSession, 'latest'),
-    })
-    return response
+    const headers = await getPlatformHeaders(reapitConnectBrowserSession, 'latest')
+
+    if (headers) {
+      const response = await fetcher({
+        url: `${URLS.developers}/${id}`,
+        api: window.reapit.config.platformApiUrl,
+        method: 'GET',
+        headers,
+      })
+      return response
+    }
   } catch (error) {
     logger(error)
     throw error?.response
@@ -107,14 +121,18 @@ export const fetchDeveloperById = async (params: FetchDeveloperByIdParams): Prom
 export const updateDeveloperById = async (params: UpdateDeveloperByIdParams) => {
   try {
     const { id, ...rest } = params
-    const response = await fetcher({
-      url: `${URLS.developers}/${id}`,
-      api: window.reapit.config.platformApiUrl,
-      method: 'PUT',
-      body: rest,
-      headers: await getPlatformHeaders(reapitConnectBrowserSession, 'latest'),
-    })
-    return response
+    const headers = await getPlatformHeaders(reapitConnectBrowserSession, 'latest')
+
+    if (headers) {
+      const response = await fetcher({
+        url: `${URLS.developers}/${id}`,
+        api: window.reapit.config.platformApiUrl,
+        method: 'PUT',
+        body: rest,
+        headers,
+      })
+      return response
+    }
   } catch (error) {
     logger(error)
     throw error?.response
@@ -126,13 +144,17 @@ export const fetchOrganisationMembers = async (
 ): Promise<MemberModelPagedResult | undefined> => {
   try {
     const { id, ...restParams } = params
-    const response = await fetcher({
-      url: `${URLS.developers}/${id}/members?${stringify(restParams)}`,
-      api: window.reapit.config.platformApiUrl,
-      method: 'GET',
-      headers: await getPlatformHeaders(reapitConnectBrowserSession, 'latest'),
-    })
-    return response
+    const headers = await getPlatformHeaders(reapitConnectBrowserSession, 'latest')
+
+    if (headers) {
+      const response = await fetcher({
+        url: `${URLS.developers}/${id}/members?${stringify(restParams)}`,
+        api: window.reapit.config.platformApiUrl,
+        method: 'GET',
+        headers,
+      })
+      return response
+    }
   } catch (error) {
     if (error.response.statusCode === 403) {
       history.push(`${Routes.AUTHENTICATION}/developer`)
@@ -155,30 +177,38 @@ export type InviteDeveloperAsOrgMemberParams = {
 export const inviteDeveloperAsOrgMemberApi = async (params: InviteDeveloperAsOrgMemberParams) => {
   try {
     const { id, ...rest } = params
-    const response = await fetcher({
-      url: `${URLS.developers}/${id}/members`,
-      api: window.reapit.config.platformApiUrl,
-      method: 'POST',
-      body: rest,
-      headers: await getPlatformHeaders(reapitConnectBrowserSession, 'latest'),
-    })
-    return response
+    const headers = await getPlatformHeaders(reapitConnectBrowserSession, 'latest')
+
+    if (headers) {
+      const response = await fetcher({
+        url: `${URLS.developers}/${id}/members`,
+        api: window.reapit.config.platformApiUrl,
+        method: 'POST',
+        body: rest,
+        headers,
+      })
+      return response
+    }
   } catch (error) {
     logger(error)
     throw error?.response
   }
 }
 
-export const fetchMemberDetails = async (params: FetchMemberDetailsParams): Promise<MemberModel> => {
+export const fetchMemberDetails = async (params: FetchMemberDetailsParams): Promise<MemberModel | void> => {
   try {
     const { developerId, memberId } = params
-    const response = await fetcher({
-      url: `${URLS.developers}/${developerId}/members/${memberId}`,
-      api: window.reapit.config.platformApiUrl,
-      method: 'GET',
-      headers: await getPlatformHeaders(reapitConnectBrowserSession, 'latest'),
-    })
-    return response
+    const headers = await getPlatformHeaders(reapitConnectBrowserSession, 'latest')
+
+    if (headers) {
+      const response = await fetcher({
+        url: `${URLS.developers}/${developerId}/members/${memberId}`,
+        api: window.reapit.config.platformApiUrl,
+        method: 'GET',
+        headers,
+      })
+      return response
+    }
   } catch (error) {
     logger(error)
     throw error?.response
@@ -188,16 +218,20 @@ export const fetchMemberDetails = async (params: FetchMemberDetailsParams): Prom
 export const acceptInviteMember = async (params: AcceptInviteMemberParams) => {
   try {
     const { developerId, memberId, ...restParams } = params
-    const response = await fetcher({
-      url: `${URLS.developers}/${developerId}/members/${memberId}/accept`,
-      api: window.reapit.config.platformApiUrl,
-      method: 'POST',
-      body: restParams,
-      headers: {
-        'Content-Type': 'application/json',
-      },
-    })
-    return response
+    const headers = await getPlatformHeaders(reapitConnectBrowserSession, 'latest')
+
+    if (headers) {
+      const response = await fetcher({
+        url: `${URLS.developers}/${developerId}/members/${memberId}/accept`,
+        api: window.reapit.config.platformApiUrl,
+        method: 'POST',
+        body: restParams,
+        headers: {
+          'Content-Type': 'application/json',
+        },
+      })
+      return response
+    }
   } catch (error) {
     logger(error)
     throw error?.response
@@ -207,15 +241,19 @@ export const acceptInviteMember = async (params: AcceptInviteMemberParams) => {
 export const rejectInviteMember = async (params: RejectInviteMemberParams) => {
   try {
     const { developerId, memberId } = params
-    const response = await fetcher({
-      url: `${URLS.developers}/${developerId}/members/${memberId}/reject`,
-      api: window.reapit.config.platformApiUrl,
-      method: 'POST',
-      headers: {
-        'Content-Type': 'application/json',
-      },
-    })
-    return response
+    const headers = await getPlatformHeaders(reapitConnectBrowserSession, 'latest')
+
+    if (headers) {
+      const response = await fetcher({
+        url: `${URLS.developers}/${developerId}/members/${memberId}/reject`,
+        api: window.reapit.config.platformApiUrl,
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+      })
+      return response
+    }
   } catch (error) {
     logger(error)
     throw error?.response
@@ -225,14 +263,18 @@ export const rejectInviteMember = async (params: RejectInviteMemberParams) => {
 export const updateOrganisationMemberById = async (params: UpdateOrganisationMemberByIdParams) => {
   try {
     const { id: developerId, memberId, ...rest } = params
-    const response = await fetcher({
-      url: `${URLS.developers}/${developerId}/members/${memberId}`,
-      api: window.reapit.config.platformApiUrl,
-      method: 'PUT',
-      body: rest,
-      headers: await getPlatformHeaders(reapitConnectBrowserSession, 'latest'),
-    })
-    return response
+    const headers = await getPlatformHeaders(reapitConnectBrowserSession, 'latest')
+
+    if (headers) {
+      const response = await fetcher({
+        url: `${URLS.developers}/${developerId}/members/${memberId}`,
+        api: window.reapit.config.platformApiUrl,
+        method: 'PUT',
+        body: rest,
+        headers,
+      })
+      return response
+    }
   } catch (error) {
     logger(error)
     throw error?.response
@@ -247,13 +289,17 @@ export type DisableMemberParams = AcceptInviteModel & {
 export const disableMemberApi = async (params: DisableMemberParams) => {
   try {
     const { developerId, memberId } = params
-    const response = await fetcher({
-      url: `${URLS.developers}/${developerId}/members/${memberId}`,
-      api: window.reapit.config.platformApiUrl,
-      method: 'DELETE',
-      headers: await getPlatformHeaders(reapitConnectBrowserSession, 'latest'),
-    })
-    return response
+    const headers = await getPlatformHeaders(reapitConnectBrowserSession, 'latest')
+
+    if (headers) {
+      const response = await fetcher({
+        url: `${URLS.developers}/${developerId}/members/${memberId}`,
+        api: window.reapit.config.platformApiUrl,
+        method: 'DELETE',
+        headers,
+      })
+      return response
+    }
   } catch (error) {
     logger(error)
     throw error?.response

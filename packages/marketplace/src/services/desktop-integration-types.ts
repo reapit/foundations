@@ -9,15 +9,18 @@ export type FetchDesktopIntegrationTypesParams = FetchListCommonParams
 
 export const fetchDesktopIntegrationTypesApi = async (
   params: FetchDesktopIntegrationTypesParams,
-): Promise<DesktopIntegrationTypeModelPagedResult> => {
+): Promise<DesktopIntegrationTypeModelPagedResult | void> => {
   try {
-    const response = await fetcher({
-      url: `${URLS.desktopIntegrationTypes}?${setQueryParams(params)}`,
-      api: window.reapit.config.platformApiUrl,
-      method: 'GET',
-      headers: await getPlatformHeaders(reapitConnectBrowserSession, 'latest'),
-    })
-    return response
+    const headers = await getPlatformHeaders(reapitConnectBrowserSession, 'latest')
+    if (headers) {
+      const response = await fetcher({
+        url: `${URLS.desktopIntegrationTypes}?${setQueryParams(params)}`,
+        api: window.reapit.config.platformApiUrl,
+        method: 'GET',
+        headers,
+      })
+      return response
+    }
   } catch (error) {
     logger(error)
     throw error?.response

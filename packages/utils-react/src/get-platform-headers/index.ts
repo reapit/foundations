@@ -9,7 +9,7 @@ export interface StringMap {
 export const getPlatformHeaders = async (
   reapitConnectBrowserSession: ReapitConnectBrowserSession,
   apiVersion = API_VERSION,
-): Promise<StringMap> => {
+): Promise<StringMap | void> => {
   const connectSession = await reapitConnectBrowserSession.connectSession()
   if (connectSession && connectSession.accessToken) {
     return {
@@ -19,6 +19,5 @@ export const getPlatformHeaders = async (
     } as StringMap
   }
   console.error('No valid access token in memory - re-directing to login.')
-  reapitConnectBrowserSession.connectLoginRedirect()
-  return {}
+  return reapitConnectBrowserSession.connectLoginRedirect()
 }
