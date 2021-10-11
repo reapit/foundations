@@ -14,19 +14,24 @@ export interface FetchNegotiatorsParams {
   name?: string
 }
 
-export const fetchNegotiatorsApi = async (params: FetchNegotiatorsParams): Promise<NegotiatorModelPagedResult> => {
+export const fetchNegotiatorsApi = async (
+  params: FetchNegotiatorsParams,
+): Promise<NegotiatorModelPagedResult | void> => {
   try {
     const headers = await getPlatformHeaders(reapitConnectBrowserSession, 'latest')
-    const response = await fetcher({
-      url: `${URLS.negotiators}?${setQueryParams(params)}`,
-      api: window.reapit.config.platformApiUrl,
-      method: 'GET',
-      headers: {
-        ...headers,
-        'api-version': API_VERSION,
-      },
-    })
-    return response
+
+    if (headers) {
+      const response = await fetcher({
+        url: `${URLS.negotiators}?${setQueryParams(params)}`,
+        api: window.reapit.config.platformApiUrl,
+        method: 'GET',
+        headers: {
+          ...headers,
+          'api-version': API_VERSION,
+        },
+      })
+      return response
+    }
   } catch (error) {
     logger(error)
     throw error?.response

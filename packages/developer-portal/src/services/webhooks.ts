@@ -134,16 +134,19 @@ export type UpdateWebhooksTopicByIdParams = FetchByIdCommonParams & UpdateTopicM
 // Subscription
 export const fetchWebhooksSubscriptionsListApi = async (
   params: FetchWebhooksSubscriptionsListParams,
-): Promise<PagedResultWebhookModel_> => {
+): Promise<PagedResultWebhookModel_ | void> => {
   try {
     const headers = await getPlatformHeaders(reapitConnectBrowserSession, 'latest')
-    const response = await fetcher({
-      url: `${URLS.webhookSubscriptions}?${setQueryParams(params)}`,
-      api: window.reapit.config.platformApiUrl,
-      method: 'GET',
-      headers,
-    })
-    return response
+
+    if (headers) {
+      const response = await fetcher({
+        url: `${URLS.webhookSubscriptions}?${setQueryParams(params)}`,
+        api: window.reapit.config.platformApiUrl,
+        method: 'GET',
+        headers,
+      })
+      return response
+    }
   } catch (error) {
     logger(error)
     throw error?.response
@@ -153,14 +156,17 @@ export const fetchWebhooksSubscriptionsListApi = async (
 export const createWebhooksSubscription = async (params: CreateWebhooksSubscriptionParams) => {
   try {
     const headers = await getPlatformHeaders(reapitConnectBrowserSession, 'latest')
-    const response = await fetcher({
-      url: `${URLS.webhookSubscriptions}`,
-      api: window.reapit.config.platformApiUrl,
-      method: 'POST',
-      body: params,
-      headers,
-    })
-    return response
+
+    if (headers) {
+      const response = await fetcher({
+        url: `${URLS.webhookSubscriptions}`,
+        api: window.reapit.config.platformApiUrl,
+        method: 'POST',
+        body: params,
+        headers,
+      })
+      return response
+    }
   } catch (error) {
     logger(error)
     throw error?.response
@@ -169,17 +175,20 @@ export const createWebhooksSubscription = async (params: CreateWebhooksSubscript
 
 export const fetchWebhooksSubscriptionById = async (
   params: FetchWebhooksSubscriptionByIdParams,
-): Promise<WebhookModel> => {
+): Promise<WebhookModel | void> => {
   try {
     const headers = await getPlatformHeaders(reapitConnectBrowserSession, 'latest')
-    const { id } = params
-    const response = await fetcher({
-      url: `${URLS.webhookSubscriptions}/${id}`,
-      api: window.reapit.config.platformApiUrl,
-      method: 'GET',
-      headers,
-    })
-    return response
+
+    if (headers) {
+      const { id } = params
+      const response = await fetcher({
+        url: `${URLS.webhookSubscriptions}/${id}`,
+        api: window.reapit.config.platformApiUrl,
+        method: 'GET',
+        headers,
+      })
+      return response
+    }
   } catch (error) {
     logger(error)
     throw error?.response
@@ -189,15 +198,18 @@ export const fetchWebhooksSubscriptionById = async (
 export const updateWebhooksSubscriptionById = async (params: UpdateWebhooksSubscriptionByIdParams) => {
   try {
     const headers = await getPlatformHeaders(reapitConnectBrowserSession, 'latest')
-    const { id, ...rest } = params
-    const response = await fetcher({
-      url: `${URLS.webhookSubscriptions}/${id}`,
-      api: window.reapit.config.platformApiUrl,
-      method: 'PUT',
-      body: rest,
-      headers,
-    })
-    return response
+
+    if (headers) {
+      const { id, ...rest } = params
+      const response = await fetcher({
+        url: `${URLS.webhookSubscriptions}/${id}`,
+        api: window.reapit.config.platformApiUrl,
+        method: 'PUT',
+        body: rest,
+        headers,
+      })
+      return response
+    }
   } catch (error) {
     logger(error)
     throw error?.response
@@ -207,14 +219,17 @@ export const updateWebhooksSubscriptionById = async (params: UpdateWebhooksSubsc
 export const deleteWebhooksSubscriptionById = async (params: DeleteWebhooksSubscriptionByIdParams) => {
   try {
     const headers = await getPlatformHeaders(reapitConnectBrowserSession, 'latest')
-    const { id } = params
-    const response = await fetcher({
-      url: `${URLS.webhookSubscriptions}/${id}`,
-      api: window.reapit.config.platformApiUrl,
-      method: 'DELETE',
-      headers,
-    })
-    return response
+
+    if (headers) {
+      const { id } = params
+      const response = await fetcher({
+        url: `${URLS.webhookSubscriptions}/${id}`,
+        api: window.reapit.config.platformApiUrl,
+        method: 'DELETE',
+        headers,
+      })
+      return response
+    }
   } catch (error) {
     logger(error)
     throw error?.response
@@ -224,15 +239,18 @@ export const deleteWebhooksSubscriptionById = async (params: DeleteWebhooksSubsc
 export const pingWebhooksById = async (params: PingWebhooksByIdParams) => {
   try {
     const headers = await getPlatformHeaders(reapitConnectBrowserSession, 'latest')
-    const { id, ...rest } = params
-    const response = await fetcher({
-      url: `${URLS.webhookSubscriptions}/${id}/ping`,
-      api: window.reapit.config.platformApiUrl,
-      method: 'POST',
-      body: rest,
-      headers,
-    })
-    return response
+
+    if (headers) {
+      const { id, ...rest } = params
+      const response = await fetcher({
+        url: `${URLS.webhookSubscriptions}/${id}/ping`,
+        api: window.reapit.config.platformApiUrl,
+        method: 'POST',
+        body: rest,
+        headers,
+      })
+      return response
+    }
   } catch (error) {
     logger(error)
     throw error?.response
@@ -242,16 +260,19 @@ export const pingWebhooksById = async (params: PingWebhooksByIdParams) => {
 // Topic
 export const fetchWebhooksTopicsListApi = async (
   params: FetchWebhooksTopicsListParams,
-): Promise<PagedResultTopicModel_> => {
+): Promise<PagedResultTopicModel_ | void> => {
   try {
     const headers = await getPlatformHeaders(reapitConnectBrowserSession, 'latest')
-    const response = await fetcher({
-      url: `${URLS.webhooksTopics}?${setQueryParams(params)}`,
-      api: window.reapit.config.platformApiUrl,
-      method: 'GET',
-      headers,
-    })
-    return response
+
+    if (headers) {
+      const response = await fetcher({
+        url: `${URLS.webhooksTopics}?${setQueryParams(params)}`,
+        api: window.reapit.config.platformApiUrl,
+        method: 'GET',
+        headers,
+      })
+      return response
+    }
   } catch (error) {
     logger(error)
     throw error?.response
@@ -261,31 +282,37 @@ export const fetchWebhooksTopicsListApi = async (
 export const createWebhooksTopic = async (params: CreateWebhooksTopicParams) => {
   try {
     const headers = await getPlatformHeaders(reapitConnectBrowserSession, 'latest')
-    const response = await fetcher({
-      url: `${URLS.webhooksTopics}?${setQueryParams(params)}`,
-      api: window.reapit.config.platformApiUrl,
-      method: 'POST',
-      body: params,
-      headers,
-    })
-    return response
+
+    if (headers) {
+      const response = await fetcher({
+        url: `${URLS.webhooksTopics}?${setQueryParams(params)}`,
+        api: window.reapit.config.platformApiUrl,
+        method: 'POST',
+        body: params,
+        headers,
+      })
+      return response
+    }
   } catch (error) {
     logger(error)
     throw error?.response
   }
 }
 
-export const fetchWebhooksTopicById = async (params: FetchWebhooksTopicByIdParams): Promise<TopicModel> => {
+export const fetchWebhooksTopicById = async (params: FetchWebhooksTopicByIdParams): Promise<TopicModel | void> => {
   try {
     const headers = await getPlatformHeaders(reapitConnectBrowserSession, 'latest')
-    const { id } = params
-    const response = await fetcher({
-      url: `${URLS.webhooksTopics}/${id}`,
-      api: window.reapit.config.platformApiUrl,
-      method: 'GET',
-      headers,
-    })
-    return response
+
+    if (headers) {
+      const { id } = params
+      const response = await fetcher({
+        url: `${URLS.webhooksTopics}/${id}`,
+        api: window.reapit.config.platformApiUrl,
+        method: 'GET',
+        headers,
+      })
+      return response
+    }
   } catch (error) {
     logger(error)
     throw error?.response
@@ -294,31 +321,37 @@ export const fetchWebhooksTopicById = async (params: FetchWebhooksTopicByIdParam
 export const updateWebhooksTopicById = async (params: UpdateWebhooksTopicByIdParams) => {
   try {
     const headers = await getPlatformHeaders(reapitConnectBrowserSession, 'latest')
-    const { id, ...rest } = params
-    const response = await fetcher({
-      url: `${URLS.webhooksTopics}/${id}`,
-      api: window.reapit.config.platformApiUrl,
-      method: 'PUT',
-      body: rest,
-      headers,
-    })
-    return response
+
+    if (headers) {
+      const { id, ...rest } = params
+      const response = await fetcher({
+        url: `${URLS.webhooksTopics}/${id}`,
+        api: window.reapit.config.platformApiUrl,
+        method: 'PUT',
+        body: rest,
+        headers,
+      })
+      return response
+    }
   } catch (error) {
     logger(error)
     throw error?.response
   }
 }
 
-export const fetchWebhookLogsApi = async (params: WebhookLogsQuery): Promise<WebhookLogModel[]> => {
+export const fetchWebhookLogsApi = async (params: WebhookLogsQuery): Promise<WebhookLogModel[] | void> => {
   try {
     const headers = await getPlatformHeaders(reapitConnectBrowserSession, 'latest')
-    const response = await fetcher({
-      url: `${URLS.webhooksLogs}?${setQueryParams(params)}`,
-      api: window.reapit.config.platformApiUrl,
-      method: 'GET',
-      headers,
-    })
-    return response
+
+    if (headers) {
+      const response = await fetcher({
+        url: `${URLS.webhooksLogs}?${setQueryParams(params)}`,
+        api: window.reapit.config.platformApiUrl,
+        method: 'GET',
+        headers,
+      })
+      return response
+    }
   } catch (error) {
     // Weirdly the API returns a 404 when no logs are returned - this happens a lot so not
     // logging to sentry as is intended behaviour and will get very noisy

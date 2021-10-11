@@ -7,15 +7,20 @@ import { reapitConnectBrowserSession } from '../core/connect-session'
 
 export type FetchApprovalsListParams = FetchListCommonParams
 
-export const fetchApprovalsList = async (params: FetchApprovalsListParams): Promise<ApprovalModelPagedResult> => {
+export const fetchApprovalsList = async (
+  params: FetchApprovalsListParams,
+): Promise<ApprovalModelPagedResult | void> => {
   try {
-    const response = await fetcher({
-      url: `${URLS.approvals}?${setQueryParams(params)}`,
-      api: window.reapit.config.platformApiUrl,
-      method: 'GET',
-      headers: await getPlatformHeaders(reapitConnectBrowserSession, 'latest'),
-    })
-    return response
+    const headers = await getPlatformHeaders(reapitConnectBrowserSession, 'latest')
+    if (headers) {
+      const response = await fetcher({
+        url: `${URLS.approvals}?${setQueryParams(params)}`,
+        api: window.reapit.config.platformApiUrl,
+        method: 'GET',
+        headers,
+      })
+      return response
+    }
   } catch (error) {
     logger(error)
     throw new Error(error)

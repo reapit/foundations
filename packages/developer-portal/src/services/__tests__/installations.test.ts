@@ -9,7 +9,9 @@ import {
 } from '../installations'
 
 jest.mock('@reapit/utils-common')
-jest.mock('@reapit/utils-react')
+jest.mock('@reapit/utils-react', () => ({
+  getPlatformHeaders: jest.fn(() => ({})),
+}))
 
 const mockedFetch = fetcher as jest.Mock
 

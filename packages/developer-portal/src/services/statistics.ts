@@ -14,13 +14,17 @@ export type FetchStatisticsListParams = {
 // TODO: investigate, remove this code
 export const fetchStatisticsList = async (params: FetchStatisticsListParams): Promise<any> => {
   try {
-    const response = await fetcher({
-      url: `${URLS.statistics}?${setQueryParams(params)}`,
-      api: window.reapit.config.platformApiUrl,
-      method: 'GET',
-      headers: await getPlatformHeaders(reapitConnectBrowserSession, 'latest'),
-    })
-    return response
+    const headers = await getPlatformHeaders(reapitConnectBrowserSession, 'latest')
+
+    if (headers) {
+      const response = await fetcher({
+        url: `${URLS.statistics}?${setQueryParams(params)}`,
+        api: window.reapit.config.platformApiUrl,
+        method: 'GET',
+        headers,
+      })
+      return response
+    }
   } catch (error) {
     logger(error)
     throw new Error(error)

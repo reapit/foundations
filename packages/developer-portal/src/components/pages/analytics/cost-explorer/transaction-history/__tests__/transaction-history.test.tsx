@@ -26,6 +26,9 @@ const mockState: ReduxState = {
 }
 
 jest.mock('@reapit/utils-common')
+jest.mock('@reapit/utils-react', () => ({
+  getPlatformHeaders: jest.fn(() => ({})),
+}))
 
 jest.mock('file-saver')
 

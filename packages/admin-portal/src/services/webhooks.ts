@@ -38,15 +38,18 @@ export interface FetchWebhooksParms {
   active?: boolean
 }
 
-export const fetchWebookSubscriptions = async (params: FetchWebhooksParms): Promise<PagedResultWebhookModel> => {
+export const fetchWebookSubscriptions = async (params: FetchWebhooksParms): Promise<PagedResultWebhookModel | void> => {
   try {
-    const response = await fetcher({
-      url: `${URLS.webhookSubscriptions}?${setQueryParams(params)}`,
-      api: window.reapit.config.platformApiUrl,
-      method: 'GET',
-      headers: await getPlatformHeaders(reapitConnectBrowserSession, 'latest'),
-    })
-    return response
+    const headers = await getPlatformHeaders(reapitConnectBrowserSession, 'latest')
+    if (headers) {
+      const response = await fetcher({
+        url: `${URLS.webhookSubscriptions}?${setQueryParams(params)}`,
+        api: window.reapit.config.platformApiUrl,
+        method: 'GET',
+        headers,
+      })
+      return response
+    }
   } catch (error) {
     logger(error)
     throw error

@@ -21,31 +21,41 @@ export type DeleteSubscriptionParams = {
 
 export const fetchSubscriptionsList = async (
   params: FetchSubscriptionsListParams,
-): Promise<SubscriptionModelPagedResult> => {
+): Promise<SubscriptionModelPagedResult | void> => {
   try {
-    const response = await fetcher({
-      url: `${URLS.developerSubscriptions}?${stringify(params)}`,
-      api: window.reapit.config.platformApiUrl,
-      method: 'GET',
-      headers: await getPlatformHeaders(reapitConnectBrowserSession, 'latest'),
-    })
-    return response as SubscriptionModelPagedResult
+    const headers = await getPlatformHeaders(reapitConnectBrowserSession, 'latest')
+    if (headers) {
+      const response = await fetcher({
+        url: `${URLS.developerSubscriptions}?${stringify(params)}`,
+        api: window.reapit.config.platformApiUrl,
+        method: 'GET',
+        headers,
+      })
+
+      return response as SubscriptionModelPagedResult
+    }
   } catch (error) {
     logger(error)
     throw error
   }
 }
 
-export const createDeveloperSubscription = async (params: CreateSubscriptionModel): Promise<SubscriptionModel> => {
+export const createDeveloperSubscription = async (
+  params: CreateSubscriptionModel,
+): Promise<SubscriptionModel | void> => {
   try {
-    const response = await fetcher({
-      url: `${URLS.developerSubscriptions}?${setQueryParams(params)}`,
-      api: window.reapit.config.platformApiUrl,
-      method: 'POST',
-      body: params,
-      headers: await getPlatformHeaders(reapitConnectBrowserSession, 'latest'),
-    })
-    return response
+    const headers = await getPlatformHeaders(reapitConnectBrowserSession, 'latest')
+    if (headers) {
+      const response = await fetcher({
+        url: `${URLS.developerSubscriptions}?${setQueryParams(params)}`,
+        api: window.reapit.config.platformApiUrl,
+        method: 'POST',
+        body: params,
+        headers,
+      })
+
+      return response
+    }
   } catch (error) {
     logger(error)
     throw new Error(error)
@@ -55,13 +65,17 @@ export const createDeveloperSubscription = async (params: CreateSubscriptionMode
 export const deleteSubscription = async (params: DeleteSubscriptionParams) => {
   const { id } = params
   try {
-    const response = await fetcher({
-      url: `${URLS.developerSubscriptions}/${id}`,
-      api: window.reapit.config.platformApiUrl,
-      method: 'DELETE',
-      headers: await getPlatformHeaders(reapitConnectBrowserSession, 'latest'),
-    })
-    return response
+    const headers = await getPlatformHeaders(reapitConnectBrowserSession, 'latest')
+    if (headers) {
+      const response = await fetcher({
+        url: `${URLS.developerSubscriptions}/${id}`,
+        api: window.reapit.config.platformApiUrl,
+        method: 'DELETE',
+        headers,
+      })
+
+      return response
+    }
   } catch (error) {
     logger(error)
     throw error

@@ -7,15 +7,18 @@ import { reapitConnectBrowserSession } from '../core/connect-session'
 
 export type FetchCategoriesParams = FetchListCommonParams
 
-export const fetchCategoriesApi = async (params: FetchCategoriesParams): Promise<CategoryModelPagedResult> => {
+export const fetchCategoriesApi = async (params: FetchCategoriesParams): Promise<CategoryModelPagedResult | void> => {
   try {
-    const response = await fetcher({
-      url: `${URLS.categories}?${setQueryParams(params)}`,
-      api: window.reapit.config.platformApiUrl,
-      method: 'GET',
-      headers: await getPlatformHeaders(reapitConnectBrowserSession, 'latest'),
-    })
-    return response
+    const headers = await getPlatformHeaders(reapitConnectBrowserSession, 'latest')
+    if (headers) {
+      const response = await fetcher({
+        url: `${URLS.categories}?${setQueryParams(params)}`,
+        api: window.reapit.config.platformApiUrl,
+        method: 'GET',
+        headers,
+      })
+      return response
+    }
   } catch (error) {
     logger(error)
     throw error?.response

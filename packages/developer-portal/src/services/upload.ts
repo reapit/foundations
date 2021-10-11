@@ -19,11 +19,15 @@ export const imageUploaderHelper = async (object: ImageUploaderReq) => {
     return null
   }
 
-  return fetcher({
-    url: URLS.fileUpload,
-    api: window.reapit.config.platformApiUrl,
-    method: 'POST',
-    headers: await getPlatformHeaders(reapitConnectBrowserSession, 'latest'),
-    body: object,
-  })
+  const headers = await getPlatformHeaders(reapitConnectBrowserSession, 'latest')
+
+  if (headers) {
+    return fetcher({
+      url: URLS.fileUpload,
+      api: window.reapit.config.platformApiUrl,
+      method: 'POST',
+      headers,
+      body: object,
+    })
+  }
 }
