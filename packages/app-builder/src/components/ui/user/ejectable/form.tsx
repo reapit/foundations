@@ -1,6 +1,6 @@
-import React, { forwardRef, useEffect, useState } from 'react'
+import React, { forwardRef, useEffect, useRef, useState } from 'react'
 import { useHistory } from 'react-router'
-import { Button, InputGroup, Label, Loader, Select, useSnack, Input } from '@reapit/elements'
+import { Button, elP3, elTextCenter, InputGroup, Label, Loader, Select, SmallText, useSnack } from '@reapit/elements'
 import ReactSelect from 'react-select/async'
 
 import { Container, ContainerProps } from './container'
@@ -13,6 +13,7 @@ import { useObjectGet } from '../../../hooks/objects/use-object-get'
 import { usePageId } from '../../../hooks/use-page-id'
 import { useObject } from '@/components/hooks/objects/use-object'
 import { useLazyObjectSearch } from '@/components/hooks/objects/use-object-search'
+import { cx } from '@linaria/core'
 
 export interface FormProps extends ContainerProps {
   typeName?: string
@@ -34,29 +35,58 @@ const SelectIDofType = ({
 }: {
   typeName: string
   value: React.SelectHTMLAttributes<HTMLSelectElement>['value']
-  onChange: React.ChangeEventHandler<HTMLSelectElement>
+  onChange: (value: string | number | null | undefined) => void
 }) => {
   const { data, loading } = useObjectList(typeName)
   const { object } = useObject(typeName)
   const { available, search } = useLazyObjectSearch(typeName)
+  const ref = useRef(null)
 
   if (available) {
     return (
       <ReactSelect
+        ref={ref}
         placeholder={`Search ${typeName}`}
         loadOptions={search}
-        onChange={(id) => onChange({ target: { value: id } })}
+        onChange={(id) => onChange(id)}
         getOptionLabel={(obj: any) => getLabel(obj, object?.labelKeys)}
         getOptionValue={(obj: any) => obj.id}
         value={value}
-        
+        styles={{
+          container: (base: any) => ({
+            ...base,
+            background: 'var(--component-input-focus-bg)',
+          }),
+          control: (base: any) => ({
+            ...base,
+            border: 'none',
+            boxShadow: 'none',
+          }),
+          input: (base: any) => ({
+            ...base,
+            color: 'black',
+            minWidth: 264,
+            background: 'var(--component-input-bg)',
+            padding: '0.5rem',
+            paddingLeft: 0,
+            borderBottom: 'var(--component-input-border-bottom)',
+          }),
+        }}
         components={{
           IndicatorSeparator: () => null,
           DropdownIndicator: () => null,
           ClearIndicator: () => null,
           LoadingIndicator: () => <Loader />,
-          NoOptionsMessage: () => null,
-          Placeholder: () => null,
+          NoOptionsMessage: () => (
+            <SmallText hasGreyText hasNoMargin className={cx(elP3, elTextCenter)}>
+              No {typeName}s Found
+            </SmallText>
+          ),
+          Placeholder: () => (
+            <SmallText hasGreyText hasNoMargin style={{ gridArea: '1/1/2/3', opacity: 0.7 }}>
+              Search for a {typeName}
+            </SmallText>
+          ),
         }}
       />
     )
@@ -64,7 +94,7 @@ const SelectIDofType = ({
 
   if (data) {
     return (
-      <Select value={value} onChange={onChange}>
+      <Select value={value} onChange={(e) => onChange(e.target.value)}>
         {data.map((obj) => (
           <option key={obj.id} value={obj.id}>
             {getLabel(obj, object?.labelKeys)}
@@ -183,19 +213,19 @@ export const Form = forwardRef<HTMLDivElement, FormProps & { disabled?: boolean 
               }
               if (idOfType) {
                 return (
-                  <div>
+                  <>
                     <Label>{friendlyIdName(name)}</Label>
                     <SelectIDofType
                       typeName={idOfType}
-                      onChange={(e) => {
+                      onChange={(value) => {
                         setFormState({
                           ...formState,
-                          [name]: e.target.value,
+                          [name]: value,
                         })
                       }}
                       value={formState[name]}
                     />
-                  </div>
+                  </>
                 )
               }
 
