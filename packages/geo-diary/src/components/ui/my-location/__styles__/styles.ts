@@ -19,9 +19,28 @@ export const MyLocationInnerWrap = styled.div`
   }
 `
 
+export const MyLocationIconContainer = styled.div`
+  display: flex;
+  justify-content: flex-end;
+  padding: 0.2rem 0.5rem;
+  cursor: pointer;
+  border-bottom: 1px solid var(--color-grey-medium);
+
+  svg {
+    font-size: 1.5rem;
+    color: #0061a8;
+    margin: 0 0.25rem;
+  }
+`
+
 export const MyLocationSection = styled.div`
   display: flex;
   position: relative;
+
+  input:focus + ${MyLocationIconContainer} {
+    border-bottom: 1px solid var(--color-black);
+    background: var(--color-grey-light);
+  }
 `
 
 export const DestinationLocationSection = styled.div`
@@ -43,47 +62,21 @@ export const DestinationLocationSection = styled.div`
 
 export const MyLocationSectionResults = styled.div`
   position: absolute;
-  bottom: 0;
-  width: 100%;
-  left: 0;
+  top: 2rem;
+  width: calc(100% - 3rem);
+  left: 1.5rem;
+  box-shadow: 0px 4px 9px rgba(0, 0, 0, 0.08);
 `
 
 export const MyLocationSectionResult = styled.div`
-  position: absolute;
   width: calc(100% + 3rem);
-  left: 0;
-  padding: 1rem 1.875rem;
-  margin-bottom: 0.5rem;
+  padding: 0.5rem;
   background-color: #fff;
-  box-shadow: 2px 4px 20px rgba(0, 0, 0, 0.05);
   cursor: pointer;
-  color: #0061a8;
-  left: -1.5rem;
-
-  svg {
-    position: absolute;
-    font-size: 1.8rem;
-    color: black;
-    right: 1.8rem;
-    top: 0.75rem;
-  }
+  margin-left: -1.5rem;
 
   ${isTablet} {
     width: ${appointmentListWidthDesktop};
-  }
-`
-
-export const MyLocationIconContainer = styled.div`
-  display: flex;
-  flex-direction: column;
-  justify-content: flex-end;
-  padding: 0.25rem 0.5rem;
-  cursor: pointer;
-  border-bottom: 1px solid var(--color-grey-medium);
-
-  svg {
-    font-size: 1.5rem;
-    color: #0061a8;
   }
 `
 

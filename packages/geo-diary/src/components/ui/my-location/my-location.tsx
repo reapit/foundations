@@ -120,21 +120,21 @@ export const MyLocation: FC = () => {
             onChange={handleSetLocationQuery(setAppState)}
             value={locationQueryAddress ?? ''}
           />
+          {(locationQueryResults.length || hasGeoLocation) && (
+            <MyLocationIconContainer onClick={handleGeoLocateMe(setAppState)}>
+              {locationQueryResults.length ? <BiX onClick={handleCloseResults(setAppState)} /> : null}
+              {hasGeoLocation && <BiCurrentLocation />}
+            </MyLocationIconContainer>
+          )}
           {locationQueryResults.length ? (
             <MyLocationSectionResults>
               {locationQueryResults.map((result) => (
                 <MyLocationSectionResult key={result.place_id} onClick={handleSelectResult(setAppState, result)}>
                   {result.formatted_address}
-                  <BiX onClick={handleCloseResults(setAppState)} />
                 </MyLocationSectionResult>
               ))}
             </MyLocationSectionResults>
           ) : null}
-          {hasGeoLocation && (
-            <MyLocationIconContainer onClick={handleGeoLocateMe(setAppState)}>
-              <BiCurrentLocation />
-            </MyLocationIconContainer>
-          )}
         </MyLocationSection>
         <DestinationLocationSection className={cx(hasDesination && destinationSectionExpanded)}>
           {destinationAddress}
