@@ -22,6 +22,6 @@ export const createLambda =
     handler,
     runtime: Runtime.NODEJS_14_X,
     vpc,
-    environment,
+    // environment,
   })
 }

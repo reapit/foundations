@@ -2,7 +2,7 @@ import { AssetCode } from '@aws-cdk/aws-lambda'
 import * as cdk from '@aws-cdk/core'
 import { createLambda } from './create-lambda'
 import * as path from 'path'
-import { PolicyStatement, Role, ServicePrincipal } from '@aws-cdk/aws-iam'
+import { PolicyStatement } from '@aws-cdk/aws-iam'
 import { Queue } from '@aws-cdk/aws-sqs'
 import { createS3Buckets } from './create-S3-bucket'
 import { createSqsQueues, QueueNames } from './create-sqs'
@@ -586,11 +586,6 @@ export class CdkStack extends cdk.Stack {
     })
 
     for (const [name, options] of Object.entries(functionSetups)) {
-      const role = new Role(this as any, `deployment-service-${name}-role`, {
-        assumedBy: new ServicePrincipal('ec2.amazonaws.com'),
-      })
-
-      options.policies.forEach(policy => role.addToPolicy(policy))
       const lambda = createLambda({
         stack: this,
         name: `cloud-deployment-${name}`,
@@ -598,6 +593,8 @@ export class CdkStack extends cdk.Stack {
         vpc,
         handler: options.handler,
       })
+      options.policies.forEach(policy => lambda.addToRolePolicy(policy))
+
       lambda.connections.allowTo(aurora.connections, Port.tcp(3306))
       aurora.connections.allowFrom(lambda.connections, Port.tcp(3306))
 
@@ -615,5 +612,3 @@ export class CdkStack extends cdk.Stack {
     }
   }
 }
-
-// ARNS as options

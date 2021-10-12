@@ -1,7 +1,6 @@
 import * as codebuild from '@aws-cdk/aws-codebuild'
 import { Project } from '@aws-cdk/aws-codebuild';
 import { Topic } from '@aws-cdk/aws-sns';
-import { Construct } from '@aws-cdk/core';
 import { CdkStack } from './cdk-stack';
 import { createSnsTopic } from './create-sns';
 

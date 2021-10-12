@@ -1,9 +1,10 @@
-import { Project } from "@aws-cdk/aws-codebuild";
-import { Effect, PolicyStatement } from "@aws-cdk/aws-iam";
-import { ServerlessCluster } from "@aws-cdk/aws-rds";
-import { Bucket } from "@aws-cdk/aws-s3";
-import { ISecret } from "@aws-cdk/aws-secretsmanager";
-import { Queue } from "@aws-cdk/aws-sqs";
+import { Project } from "@aws-cdk/aws-codebuild"
+import { Effect, PolicyStatement } from "@aws-cdk/aws-iam"
+import { ServerlessCluster } from "@aws-cdk/aws-rds"
+import { Bucket } from "@aws-cdk/aws-s3"
+import { ISecret } from "@aws-cdk/aws-secretsmanager"
+import { Queue } from "@aws-cdk/aws-sqs"
+import config from '../../config.json'
 
 export enum PolicyNames {
   // commonBackendPolicies = 'commonBackendPolicies',
@@ -125,8 +126,8 @@ export const createPolicies = (
   const lambdaInvoke = new PolicyStatement({
     effect: Effect.ALLOW,
     resources: [
-      // TODO get api-key-verify arn
-      'arn:aws:lambda:${self:provider.region}:${self:custom.env.AWS_ACCOUNT_ID}:function:cloud-api-key-service-dev-getApiKeyViaInvoke',
+      // Temp solution for hiding arn
+      config.API_KEY_INVOKE_ARN,
     ],
     actions: [
       'lambda:InvokeFunction',
