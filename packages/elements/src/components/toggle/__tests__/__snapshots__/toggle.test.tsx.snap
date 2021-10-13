@@ -8,12 +8,12 @@ exports[`Toggle should match a snapshot and render children 1`] = `
   <ElToggleLabel
     className=""
   >
-    <span>
+    <ElToggleItem>
       On
-    </span>
-    <span>
+    </ElToggleItem>
+    <ElToggleItem>
       Off
-    </span>
+    </ElToggleItem>
   </ElToggleLabel>
 </Fragment>
 `;

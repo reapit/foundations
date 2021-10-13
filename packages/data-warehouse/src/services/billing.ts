@@ -12,18 +12,22 @@ export const getBillingByMonthService = async (
 
     if (!session) throw new Error('No Reapit Connect Session is present')
 
-    const response: BillingBreakdownForMonthV2Model | undefined = await fetcher({
-      api: window.reapit.config.platformApiUrl,
-      url: `${URLS.BILLING}/${month}?organisationId=${session.loginIdentity.orgId}&type=dataWarehouse&type=dataWarehouseUsage&type=dataWarehouse`,
-      method: 'GET',
-      headers: await getPlatformHeaders(reapitConnectBrowserSession, '2'),
-    })
+    const headers = await getPlatformHeaders(reapitConnectBrowserSession, '2')
 
-    if (response) {
-      return response
+    if (headers) {
+      const response: BillingBreakdownForMonthV2Model | undefined = await fetcher({
+        api: window.reapit.config.platformApiUrl,
+        url: `${URLS.BILLING}/${month}?organisationId=${session.loginIdentity.orgId}&type=dataWarehouse&type=dataWarehouseUsage&type=dataWarehouse`,
+        method: 'GET',
+        headers,
+      })
+
+      if (response) {
+        return response
+      }
+
+      throw new Error('Failed to fetch billing')
     }
-
-    throw new Error('Failed to fetch billing')
   } catch (err) {
     logger(err)
   }
@@ -38,18 +42,22 @@ export const getBillingByDatesService = async (
 
     if (!session) throw new Error('No Reapit Connect Session is present')
 
-    const response: BillingOverviewForPeriodV2Model | undefined = await fetcher({
-      api: window.reapit.config.platformApiUrl,
-      url: `${URLS.BILLING}?organisationId=${session.loginIdentity.orgId}&dateTo=${dateTo}&dateFrom=${dateFrom}&type=dataWarehouse&type=dataWarehouseUsage`,
-      method: 'GET',
-      headers: await getPlatformHeaders(reapitConnectBrowserSession, '2'),
-    })
+    const headers = await getPlatformHeaders(reapitConnectBrowserSession, '2')
 
-    if (response) {
-      return response
+    if (headers) {
+      const response: BillingOverviewForPeriodV2Model | undefined = await fetcher({
+        api: window.reapit.config.platformApiUrl,
+        url: `${URLS.BILLING}?organisationId=${session.loginIdentity.orgId}&dateTo=${dateTo}&dateFrom=${dateFrom}&type=dataWarehouse&type=dataWarehouseUsage`,
+        method: 'GET',
+        headers,
+      })
+
+      if (response) {
+        return response
+      }
+
+      throw new Error('Failed to fetch billing')
     }
-
-    throw new Error('Failed to fetch billing')
   } catch (err) {
     logger(err)
   }
