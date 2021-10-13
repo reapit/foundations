@@ -25,19 +25,22 @@ export const createRequestService = async (datasetId: string): Promise<boolean |
     }
 
     const modelWitDeveloper: CreateRequestModel = developerId ? { developerId, ...request } : request
+    const headers = await getPlatformHeaders(reapitConnectBrowserSession)
 
-    const response: boolean | undefined = await fetcher({
-      api: window.reapit.config.platformApiUrl,
-      url: `${URLS.REQUESTS}`,
-      method: 'POST',
-      headers: await getPlatformHeaders(reapitConnectBrowserSession),
-      body: modelWitDeveloper,
-    })
+    if (headers) {
+      const response: boolean | undefined = await fetcher({
+        api: window.reapit.config.platformApiUrl,
+        url: `${URLS.REQUESTS}`,
+        method: 'POST',
+        headers,
+        body: modelWitDeveloper,
+      })
 
-    if (response) {
-      return response
+      if (response) {
+        return response
+      }
+      throw new Error('Failed to create request')
     }
-    throw new Error('Failed to create request')
   } catch (err) {
     logger(err)
   }

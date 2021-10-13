@@ -26,5 +26,5 @@
       "@reapit/utils-node": ["../utils-node"]
     }
   },
-  "exclude": ["public", "dist", "scripts", "**/node_modules", "coverage", "archive/**/*", "**/__tests__/**/*"]
+  "exclude": ["public", "dist", "scripts", "**/node_modules", "coverage", "archive/**/*", "**/__tests__/**/*", "cdk/**/*"]
 }

@@ -9,18 +9,21 @@ export const getSubscriptionsService = async (): Promise<SubscriptionModelPagedR
     const session = await reapitConnectBrowserSession.connectSession()
 
     if (!session) throw new Error('No Reapit Connect Session is present')
+    const headers = await getPlatformHeaders(reapitConnectBrowserSession, 'latest')
 
-    const response: SubscriptionModelPagedResult | undefined = await fetcher({
-      api: window.reapit.config.platformApiUrl,
-      url: `${URLS.SUBSCRIPTIONS}/?customerId=${session.loginIdentity.clientId}`,
-      method: 'GET',
-      headers: await getPlatformHeaders(reapitConnectBrowserSession, 'latest'),
-    })
+    if (headers) {
+      const response: SubscriptionModelPagedResult | undefined = await fetcher({
+        api: window.reapit.config.platformApiUrl,
+        url: `${URLS.SUBSCRIPTIONS}/?customerId=${session.loginIdentity.clientId}`,
+        method: 'GET',
+        headers,
+      })
 
-    if (response) {
-      return response
+      if (response) {
+        return response
+      }
+      throw new Error('Failed to fetch subscriptions')
     }
-    throw new Error('Failed to fetch subscriptions')
   } catch (err) {
     logger(err)
   }
@@ -30,18 +33,22 @@ export const createSubscriptionsService = async (
   subscription: CreateSubscriptionModel,
 ): Promise<boolean | undefined> => {
   try {
-    const response: boolean | undefined = await fetcher({
-      api: window.reapit.config.platformApiUrl,
-      url: `${URLS.SUBSCRIPTIONS}`,
-      method: 'POST',
-      body: subscription,
-      headers: await getPlatformHeaders(reapitConnectBrowserSession, 'latest'),
-    })
+    const headers = await getPlatformHeaders(reapitConnectBrowserSession, 'latest')
 
-    if (response) {
-      return response
+    if (headers) {
+      const response: boolean | undefined = await fetcher({
+        api: window.reapit.config.platformApiUrl,
+        url: `${URLS.SUBSCRIPTIONS}`,
+        method: 'POST',
+        body: subscription,
+        headers,
+      })
+
+      if (response) {
+        return response
+      }
+      throw new Error('Failed to create subscription')
     }
-    throw new Error('Failed to create subscription')
   } catch (err) {
     logger(err)
   }
@@ -49,17 +56,21 @@ export const createSubscriptionsService = async (
 
 export const deleteSubscriptionsService = async (id: string): Promise<boolean | undefined> => {
   try {
-    const response: boolean | undefined = await fetcher({
-      api: window.reapit.config.platformApiUrl,
-      url: `${URLS.SUBSCRIPTIONS}/${id}`,
-      method: 'DELETE',
-      headers: await getPlatformHeaders(reapitConnectBrowserSession, 'latest'),
-    })
+    const headers = await getPlatformHeaders(reapitConnectBrowserSession, 'latest')
 
-    if (response) {
-      return response
+    if (headers) {
+      const response: boolean | undefined = await fetcher({
+        api: window.reapit.config.platformApiUrl,
+        url: `${URLS.SUBSCRIPTIONS}/${id}`,
+        method: 'DELETE',
+        headers,
+      })
+
+      if (response) {
+        return response
+      }
+      throw new Error('Failed to delete subscription')
     }
-    throw new Error('Failed to delete subscription')
   } catch (err) {
     logger(err)
   }

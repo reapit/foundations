@@ -9,19 +9,22 @@ export const getSharesService = async (): Promise<PagedSharesModel | undefined |
     const session = await reapitConnectBrowserSession.connectSession()
 
     if (!session) throw new Error('No Reapit Connect Session is present')
+    const headers = await getPlatformHeaders(reapitConnectBrowserSession)
 
-    const response: PagedSharesModel | undefined = await fetcher({
-      api: window.reapit.config.platformApiUrl,
-      url: `${URLS.SHARES}/?organisationId=${session.loginIdentity.orgId}`,
-      method: 'GET',
-      headers: await getPlatformHeaders(reapitConnectBrowserSession),
-    })
+    if (headers) {
+      const response: PagedSharesModel | undefined = await fetcher({
+        api: window.reapit.config.platformApiUrl,
+        url: `${URLS.SHARES}/?organisationId=${session.loginIdentity.orgId}`,
+        method: 'GET',
+        headers,
+      })
 
-    if (response) {
-      return response
+      if (response) {
+        return response
+      }
+
+      throw new Error('Failed to fetch shares')
     }
-
-    throw new Error('Failed to fetch shares')
   } catch (err) {
     logger(err)
   }
@@ -29,18 +32,22 @@ export const getSharesService = async (): Promise<PagedSharesModel | undefined |
 
 export const deleteSharesService = async (shareId: string): Promise<boolean | undefined> => {
   try {
-    const response: boolean | undefined = await fetcher({
-      api: window.reapit.config.platformApiUrl,
-      url: `${URLS.SHARES}/${shareId}`,
-      method: 'DELETE',
-      headers: await getPlatformHeaders(reapitConnectBrowserSession),
-    })
+    const headers = await getPlatformHeaders(reapitConnectBrowserSession)
 
-    if (response) {
-      return response
+    if (headers) {
+      const response: boolean | undefined = await fetcher({
+        api: window.reapit.config.platformApiUrl,
+        url: `${URLS.SHARES}/${shareId}`,
+        method: 'DELETE',
+        headers,
+      })
+
+      if (response) {
+        return response
+      }
+
+      throw new Error('Failed to delete share')
     }
-
-    throw new Error('Failed to delete share')
   } catch (err) {
     logger(err)
   }
