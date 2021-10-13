@@ -1,7 +1,5 @@
 import { css } from '@linaria/core'
 import { styled } from '@linaria/react'
-import { isTablet } from '../../../../core/__styles__/media'
-import { appointmentListWidthDesktop } from '../../../../core/__styles__/page-layout-variables'
 
 // Modifiers
 export const myLocationHasDestination = css``
@@ -63,21 +61,15 @@ export const DestinationLocationSection = styled.div`
 export const MyLocationSectionResults = styled.div`
   position: absolute;
   top: 2rem;
-  width: calc(100% - 3rem);
-  left: 1.5rem;
+  width: 100%;
   box-shadow: 0px 4px 9px rgba(0, 0, 0, 0.08);
 `
 
 export const MyLocationSectionResult = styled.div`
-  width: calc(100% + 3rem);
+  width: 100%;
   padding: 0.5rem;
   background-color: #fff;
   cursor: pointer;
-  margin-left: -1.5rem;
-
-  ${isTablet} {
-    width: ${appointmentListWidthDesktop};
-  }
 `
 
 export const DepartureIcon = styled.div`

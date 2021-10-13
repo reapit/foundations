@@ -1,6 +1,5 @@
 import { ExtendedAppointmentModel } from '../types/global'
 import { AppRouteInformation, AppState, AppTravelMode } from '../core/app-state'
-import { logger } from '@reapit/utils-react'
 import { DirectionsResult } from '../components/ui/map/types'
 
 export type FetchDestinationInformation = {
@@ -54,9 +53,7 @@ export const getGeoCoords = (): Promise<Partial<AppState>> => {
           currentLng: position.coords.longitude,
         })
       },
-      (error) => {
-        const err = new Error(error.message)
-        logger(err)
+      () => {
         return resolve({})
       },
     )
