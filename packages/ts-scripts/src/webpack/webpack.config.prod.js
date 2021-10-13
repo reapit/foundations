@@ -29,7 +29,7 @@ const webpackConfigProd = ({ appName }) => {
     mode: 'production',
     bail: true,
     context: process.cwd(),
-    entry: ['@babel/polyfill', 'core-js', 'isomorphic-fetch', 'regenerator-runtime/runtime', PATHS.entryWeb],
+    entry: [PATHS.entryWeb],
     output: {
       path: PATHS.output,
       filename: outputFileName,
@@ -62,19 +62,16 @@ const webpackConfigProd = ({ appName }) => {
           exclude: generateRegexExcludePackages(),
           use: [
             {
-              loader: 'babel-loader',
+              loader: 'esbuild-loader',
+              options: {
+                loader: 'tsx',
+                target: 'es2015',
+              },
             },
             {
               loader: '@linaria/webpack-loader',
               options: {
                 sourceMap: process.env.NODE_ENV !== 'production',
-              },
-            },
-            {
-              loader: 'esbuild-loader',
-              options: {
-                loader: 'tsx',
-                target: 'es2015',
               },
             },
           ],

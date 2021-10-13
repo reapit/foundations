@@ -20,7 +20,8 @@ const tagName = getVersionTag()
 const webpackConfigDev = ({ appName }) => ({
   mode: 'development',
   target: 'web',
-  bail: true,
+  cache: true,
+  bail: false,
   devtool: 'inline-source-map',
   context: process.cwd(),
   entry: [PATHS.entryWeb],

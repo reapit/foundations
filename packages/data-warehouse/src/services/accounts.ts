@@ -10,18 +10,21 @@ export const getAccountsService = async (): Promise<PagedAccountsModel | undefin
 
     if (!session) throw new Error('No Reapit Connect Session is present')
 
-    const response: PagedAccountsModel | undefined = await fetcher({
-      api: window.reapit.config.platformApiUrl,
-      url: `${URLS.ACCOUNTS}/?organisationId=${session.loginIdentity.orgId}`,
-      method: 'GET',
-      headers: await getPlatformHeaders(reapitConnectBrowserSession),
-    })
+    const headers = await getPlatformHeaders(reapitConnectBrowserSession)
 
-    if (response) {
-      return response
+    if (headers) {
+      const response: PagedAccountsModel | undefined = await fetcher({
+        api: window.reapit.config.platformApiUrl,
+        url: `${URLS.ACCOUNTS}/?organisationId=${session.loginIdentity.orgId}`,
+        method: 'GET',
+        headers,
+      })
+
+      if (response) {
+        return response
+      }
+      throw new Error('Failed to fetch account')
     }
-
-    throw new Error('Failed to fetch account')
   } catch (err) {
     logger(err)
   }
@@ -29,18 +32,22 @@ export const getAccountsService = async (): Promise<PagedAccountsModel | undefin
 
 export const getAccountService = async (accountId: string): Promise<AccountModel | undefined | void> => {
   try {
-    const response: AccountModel | undefined = await fetcher({
-      api: window.reapit.config.platformApiUrl,
-      url: `${URLS.ACCOUNTS}/${accountId}`,
-      method: 'GET',
-      headers: await getPlatformHeaders(reapitConnectBrowserSession),
-    })
+    const headers = await getPlatformHeaders(reapitConnectBrowserSession)
 
-    if (response) {
-      return response
+    if (headers) {
+      const response: AccountModel | undefined = await fetcher({
+        api: window.reapit.config.platformApiUrl,
+        url: `${URLS.ACCOUNTS}/${accountId}`,
+        method: 'GET',
+        headers,
+      })
+
+      if (response) {
+        return response
+      }
+
+      throw new Error('Failed to fetch account')
     }
-
-    throw new Error('Failed to fetch account')
   } catch (err) {
     logger(err)
   }
@@ -48,17 +55,21 @@ export const getAccountService = async (accountId: string): Promise<AccountModel
 
 export const disableAccountsService = async (id: string): Promise<boolean | undefined> => {
   try {
-    const response: boolean | undefined = await fetcher({
-      api: window.reapit.config.platformApiUrl,
-      url: `${URLS.ACCOUNTS}/${id}`,
-      method: 'DELETE',
-      headers: await getPlatformHeaders(reapitConnectBrowserSession),
-    })
+    const headers = await getPlatformHeaders(reapitConnectBrowserSession)
 
-    if (response) {
-      return response
+    if (headers) {
+      const response: boolean | undefined = await fetcher({
+        api: window.reapit.config.platformApiUrl,
+        url: `${URLS.ACCOUNTS}/${id}`,
+        method: 'DELETE',
+        headers,
+      })
+
+      if (response) {
+        return response
+      }
+      throw new Error('Failed to delete account')
     }
-    throw new Error('Failed to delete account')
   } catch (err) {
     logger(err)
   }
@@ -66,17 +77,21 @@ export const disableAccountsService = async (id: string): Promise<boolean | unde
 
 export const createAccountsService = async (account: AccountCreateModel): Promise<string | undefined> => {
   try {
-    const response = (await fetcherWithReturnHeader({
-      api: window.reapit.config.platformApiUrl,
-      url: `${URLS.ACCOUNTS}`,
-      method: 'POST',
-      headers: await getPlatformHeaders(reapitConnectBrowserSession),
-      body: account,
-    })) as Headers
-    if (response && response.get('location')) {
-      return response.get('location') as string
+    const headers = await getPlatformHeaders(reapitConnectBrowserSession)
+
+    if (headers) {
+      const response = (await fetcherWithReturnHeader({
+        api: window.reapit.config.platformApiUrl,
+        url: `${URLS.ACCOUNTS}`,
+        method: 'POST',
+        headers,
+        body: account,
+      })) as Headers
+      if (response && response.get('location')) {
+        return response.get('location') as string
+      }
+      throw new Error('Failed to create account')
     }
-    throw new Error('Failed to create account')
   } catch (err) {
     logger(err)
   }
@@ -87,20 +102,24 @@ export const updateAccountService = async (
   accountId: string,
 ): Promise<boolean | undefined> => {
   try {
-    const response: boolean | undefined = await fetcher({
-      api: window.reapit.config.platformApiUrl,
-      url: `${URLS.ACCOUNTS}/${accountId}`,
-      method: 'PATCH',
-      headers: await getPlatformHeaders(reapitConnectBrowserSession),
-      body: {
-        password: account.password,
-      },
-    })
+    const headers = await getPlatformHeaders(reapitConnectBrowserSession)
 
-    if (response) {
-      return response
+    if (headers) {
+      const response: boolean | undefined = await fetcher({
+        api: window.reapit.config.platformApiUrl,
+        url: `${URLS.ACCOUNTS}/${accountId}`,
+        method: 'PATCH',
+        headers,
+        body: {
+          password: account.password,
+        },
+      })
+
+      if (response) {
+        return response
+      }
+      throw new Error('Failed to update account')
     }
-    throw new Error('Failed to update account')
   } catch (err) {
     logger(err)
   }
