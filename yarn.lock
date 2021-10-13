@@ -16020,7 +16020,7 @@ __metadata:
     slash: ^3.0.0
   peerDependencies:
     "@babel/core": ^7.8.0
-  checksum: 49a9c0e4f0bb6126c3448c8d2316d0a98a8bec49e62f890dc11a8c8f9e0554f1f812f88457a550c8c421d417f96808889123ed880edc2b1a49ad2264b083b395
+  checksum: 099f874df00e17ecd7a71c33a3ff01a0c0105baf4a9d6eeb56c07083ca8d836e68f80d3b15ed9cb6dc71d45ad7b024946f6588049c92391495b3aeb29ab5ef80
   languageName: node
   linkType: hard
 
@@ -25385,10 +25385,10 @@ fsevents@^1.2.7:
   languageName: node
   linkType: hard
 
-"graphql@npm:15.5.1, graphql@npm:^15.5.1":
-  version: 15.5.1
-  resolution: "graphql@npm:15.5.1"
-  checksum: 509cdc2fc072e7cd1b5a25cf3fe13838d41892b035434f02419c209608f89e323f5234ca7e2bde77e9371e629339cbd8435f1dbc8c250910e4e9ac0babfa6c64
+"graphql@npm:15.5.3":
+  version: 15.5.3
+  resolution: "graphql@npm:15.5.3"
+  checksum: 2538efd61b5e1317cfaba796685412aa45f97504002af823a0d0682f8a60f4698343f8ba2793c83c276c76a6b14d8301e58b9f8ad7b61191c380d48e274e6b4d
   languageName: node
   linkType: hard
 
@@ -41230,7 +41230,7 @@ resolve@^2.0.0-next.3:
       optional: true
     typescript:
       optional: true
-  checksum: a227290640d185e22d23a6f2dd5b583e3fb0fbb2d4681c01aaf909bfc0996898f54688095b5951d4cf8d5fe6b7fd46ed7d7d5d4acbcf22a871cc38f14d668ac6
+  checksum: 7f98afa2aef440593c5e89ad588d304b3267ec45ca34f7e36bc8c182482d7b0fcfec7ffbfb0a828b5931e4331b64b0fc66b21403ea7d555e058902788ca18762
   languageName: node
   linkType: hard
 
