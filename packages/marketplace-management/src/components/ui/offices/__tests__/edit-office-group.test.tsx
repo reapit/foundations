@@ -2,7 +2,7 @@ import React from 'react'
 import { fetcher } from '@reapit/utils-common'
 import { shallow } from 'enzyme'
 import { notification } from '@reapit/elements-legacy'
-import EditOfficeGroupModal, { UpdateOfficeGroupModalProps, onHandleSubmit } from '../edit-office-group'
+import EditOfficeGroupModal, { UpdateOfficeGroupModalProps, onHandleSubmit } from '../office-group-edit-form'
 
 jest.mock('@reapit/utils-common')
 jest.mock('../../../../core/connect-session')

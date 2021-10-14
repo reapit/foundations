@@ -1,84 +1,83 @@
-import React, { useState, useEffect, useCallback } from 'react'
+import React, { useState, useEffect, useCallback, FC, useMemo } from 'react'
 import useSWR from 'swr'
 import { useHistory, useLocation } from 'react-router'
 import { History } from 'history'
-import { OfficeGroupModelPagedResult, OfficeGroupModel } from '../../../types/organisations-schema'
+import { OfficeGroupModelPagedResult, OfficeGroupModel, OfficeGroupModel } from '../../../types/organisations-schema'
 import ErrorBoundary from '@/components/hocs/error-boundary'
-import { Loader, toLocalTime, DATE_TIME_FORMAT, Button, H5 } from '@reapit/elements-legacy'
+import { Loader, toLocalTime, DATE_TIME_FORMAT } from '@reapit/elements-legacy'
 import Routes from '@/constants/routes'
 import { URLS } from '../../../constants/api'
-import OfficeListCell from './office-list-cell'
-import CreateOfficeGroupModal from './create-office-group'
-import EditOfficeGroupModal from './edit-office-group'
+import EditOfficeGroupModal from './office-group-edit-form'
 import { orgIdEffectHandler } from '../../../utils/org-id-effect-handler'
 import { OfficeGroupsContent } from './office-groups-content'
+import { RowProps, Table, Title } from '@reapit/elements'
+import { OfficeModel } from '@reapit/foundations-ts-definitions'
 
 export const onPageChangeHandler = (history: History<any>) => (page: number) => {
   const queryString = `?pageNumber=${page}`
   return history.push(`${Routes.OFFICES_GROUPS}${queryString}`)
 }
 
-const OfficesGroupsTab: React.FC = () => {
+export const handleSortTableData = (offices: OfficeModel[], officeGroups: OfficeGroupModel[]) => (): RowProps[] => {
+  return officeGroups.map((officeGroup: OfficeGroupModel) => ({
+    cells: [
+      {
+        label: 'Group Name',
+        value: officeGroup.name ?? '',
+        narrowTable: {
+          showLabel: true,
+        },
+      },
+      {
+        label: 'Office List',
+        value: officeGroup.officeIds
+          ?.split('')
+          .map(({ name }: OfficeModel) => name)
+          .join(' '),
+        narrowTable: {
+          showLabel: true,
+        },
+      },
+      {
+        label: 'Last Updated',
+        value: toLocalTime(office.modified ?? office.created, DATE_TIME_FORMAT.DATE_TIME_FORMAT),
+        narrowTable: {
+          showLabel: true,
+        },
+      },
+    ],
+    expandableContent: {
+      content: 'Edit form here',
+    },
+  }))
+}
+
+const OfficesGroupsTab: FC = () => {
   const history = useHistory()
   const location = useLocation()
   const search = location.search
   const onPageChange = useCallback(onPageChangeHandler(history), [history])
-
-  const [isOpenCreateGroupModal, setOpenCreateGroupModal] = useState<boolean>(false)
   const [editingGroup, setEditingGroup] = useState<OfficeGroupModel>()
   const [orgId, setOrgId] = useState<string | null>(null)
-  const onOpenCreateModel = () => setOpenCreateGroupModal(true)
+  const [indexExpandedRow, setIndexExpandedRow] = useState<number | null>(null)
 
   useEffect(orgIdEffectHandler(orgId, setOrgId), [])
 
-  const { data: officeGroups, mutate } = useSWR<OfficeGroupModelPagedResult>(
+  const { data, mutate } = useSWR<OfficeGroupModelPagedResult>(
     !orgId
       ? null
       : `${URLS.ORGANISATIONS}/${orgId}${URLS.OFFICES_GROUPS}${search ? search + '&pageSize=12' : '?pageSize=12'}`,
   )
 
-  const LastUpdatedCell = ({
-    cell: {
-      row: { original },
-    },
-  }) => <p>{toLocalTime(original.modified || original.created, DATE_TIME_FORMAT.DATE_TIME_FORMAT)}</p>
+  const officeGroups = data?._embedded ?? []
 
-  const EditButton = ({
-    cell: {
-      row: { original },
-    },
-  }) => (
-    <Button type="button" variant="primary" onClick={() => setEditingGroup(original)}>
-      Edit
-    </Button>
-  )
-
-  const columns = [
-    { Header: 'Group Name', accessor: 'name' },
-    { Header: 'Office List', accessor: 'offices', Cell: OfficeListCell },
-    { Header: 'Last Updated', Cell: LastUpdatedCell },
-    { Header: 'Edit', Cell: EditButton },
-  ]
+  const rows = useMemo(handleSortTableData(offices, officeGroups), [offices, officeGroups])
 
   return (
     <ErrorBoundary>
-      <div className="flex justify-between items-center mb-4">
-        <H5 className="mb-0">Office groups</H5>
-        <Button onClick={onOpenCreateModel}>Create office group</Button>
-      </div>
-      <p className="mb-4">
-        The list below will show you any ‘Office Groups’ that have been created for your Organisation. To create a new
-        office group, please click on ‘Create New Office Group’. To add or edit an existing office group, please use
-        ‘Edit’ on the associated group.
-      </p>
+      <Title>Office Groups</Title>
       {orgId && (
         <>
-          <CreateOfficeGroupModal
-            visible={isOpenCreateGroupModal}
-            setOpenCreateGroupModal={setOpenCreateGroupModal}
-            orgId={orgId}
-            onRefetchData={mutate}
-          />
           <EditOfficeGroupModal
             setEditingGroup={setEditingGroup}
             orgId={orgId}
@@ -91,7 +90,7 @@ const OfficesGroupsTab: React.FC = () => {
       {!officeGroups ? (
         <Loader />
       ) : (
-        <OfficeGroupsContent officeGroups={officeGroups} columns={columns} onPageChange={onPageChange} />
+        <Table rows={rows} indexExpandedRow={indexExpandedRow} setIndexExpandedRow={setIndexExpandedRow} />
       )}
     </ErrorBoundary>
   )
