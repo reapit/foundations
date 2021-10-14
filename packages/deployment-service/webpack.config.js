@@ -9,7 +9,6 @@ webpackConfigNode.optimization.minimize = false //slsw.lib.webpack.isLocal ? fal
 webpackConfigNode.plugins.push(new CopyPlugin({ 
   patterns: [
     { from: 'config.json', to: PATHS.output },
-    { from: 'public-keys.json', to: PATHS.output },
   ]
 }))
 
