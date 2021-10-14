@@ -17,9 +17,60 @@ export interface SearchableDropdownProps<T> extends React.InputHTMLAttributes<HT
   icon?: IconNames
 }
 
+export interface ControlledSearchableDropdownProps<T> extends React.InputHTMLAttributes<HTMLInputElement> {
+  isResultsListVisible: boolean
+  isClearVisible: boolean
+  loading: boolean
+  selectedValue: string
+  resultsList: { label: string; result: T }[]
+  onResultClick: (result: { label: string; result: T }) => void
+  onClear: () => void
+  icon?: IconNames
+}
+
+const SearchableDropdownControlledInner = <T extends unknown>(
+  {
+    isResultsListVisible,
+    icon = 'searchSystem',
+    loading,
+    resultsList,
+    onResultClick,
+    onClear,
+    isClearVisible,
+    value,
+    selectedValue,
+    ...inputProps
+  }: ControlledSearchableDropdownProps<T>,
+  ref: React.ForwardedRef<HTMLInputElement>,
+) => (
+  <ElSearchableDropdownContainer>
+    <input style={{ display: 'none' }} value={selectedValue} ref={ref} />
+    <ElSearchableDropdownSearchInputAddOn>
+      <Icon icon={icon} />
+    </ElSearchableDropdownSearchInputAddOn>
+    <ElSearchableDropdownSearchInput value={value} {...inputProps} />
+    {isResultsListVisible && (
+      <ElSearchableDropdownResultsContainer>
+        {resultsList.map((result) => (
+          <ElSearchableDropdownResult key={result.label} onClick={() => onResultClick(result)}>
+            {result.label}
+          </ElSearchableDropdownResult>
+        ))}
+        {!loading && !resultsList.length && <ElSearchableDropdownResult>No results found</ElSearchableDropdownResult>}
+      </ElSearchableDropdownResultsContainer>
+    )}
+    {loading && <ElSearchableDropdownSearchLoader />}
+    {isClearVisible && <ElSearchableDropdownCloseButton icon="closeSystem" onClick={onClear} />}
+  </ElSearchableDropdownContainer>
+)
+
+export const ControlledSearchableDropdown = forwardRef(SearchableDropdownControlledInner) as <T>(
+  props: ControlledSearchableDropdownProps<T> & { ref?: React.ForwardedRef<HTMLInputElement> },
+) => ReturnType<typeof SearchableDropdownControlledInner>
+
 const SearchableDropdownInner = <T extends unknown>(
   { onChange, getResults, icon, getResultValue, getResultLabel, ...inputProps }: SearchableDropdownProps<T>,
-  ref: React.ForwardedRef<React.InputHTMLAttributes<HTMLInputElement>>,
+  ref: React.ForwardedRef<HTMLInputElement>,
 ) => {
   const [value, setValue] = React.useState('')
   const [loading, setLoading] = React.useState(false)
@@ -54,53 +105,38 @@ const SearchableDropdownInner = <T extends unknown>(
   let blurTimeout
 
   return (
-    <ElSearchableDropdownContainer>
-      <ElSearchableDropdownSearchInputAddOn>
-        <Icon icon={icon || 'searchSystem'} />
-      </ElSearchableDropdownSearchInputAddOn>
-      <ElSearchableDropdownSearchInput
-        {...inputProps}
-        onChange={(e) => {
-          setValue(e.target.value)
-        }}
-        onFocus={() => {
-          if (resultsList.length > 0 && value.length > 2) {
-            clearTimeout(blurTimeout)
-            setResultsVisible(true)
-          }
-        }}
-        onBlur={() => {
-          blurTimeout = setTimeout(() => {
-            setResultsVisible(false)
-          }, 200)
-        }}
-        value={value}
-        ref={ref}
-      />
-      <ElSearchableDropdownResultsContainer style={{ display: resultsVisible ? undefined : 'none' }}>
-        {resultsList
-          .map((result) => ({ value: getResultValue(result), label: getResultLabel(result) }))
-          .map(({ value, label }) => (
-            <ElSearchableDropdownResult
-              key={value}
-              onClick={() => {
-                handleSelectionChange(label, value)
-              }}
-            >
-              {label}
-            </ElSearchableDropdownResult>
-          ))}
-      </ElSearchableDropdownResultsContainer>
-      {loading && <ElSearchableDropdownSearchLoader />}
-      {!loading && selectedValue && (
-        <ElSearchableDropdownCloseButton
-          icon="closeSystem"
-          onClick={() => {
-            handleSelectionChange('', '')
-          }}
-        />
-      )}
-    </ElSearchableDropdownContainer>
+    <ControlledSearchableDropdown<T>
+      onChange={(e) => {
+        setValue(e.target.value)
+      }}
+      onFocus={() => {
+        if (resultsList.length > 0 && value.length > 2) {
+          clearTimeout(blurTimeout)
+          setResultsVisible(true)
+        }
+      }}
+      onBlur={() => {
+        blurTimeout = setTimeout(() => {
+          setResultsVisible(false)
+        }, 200)
+      }}
+      value={value}
+      ref={ref}
+      isResultsListVisible={resultsVisible}
+      icon={icon || 'searchSystem'}
+      loading={loading}
+      resultsList={resultsList.map((result) => ({
+        label: getResultLabel(result),
+        result,
+      }))}
+      onResultClick={({ label, result }) => {
+        handleSelectionChange(label, getResultValue(result))
+      }}
+      selectedValue={selectedValue}
+      onClear={() => handleSelectionChange('', '')}
+      isClearVisible={!!selectedValue && !loading}
+      {...inputProps}
+    />
   )
 }
 

@@ -1,5 +1,5 @@
 import { Meta, Story, Canvas, ArgsTable } from '@storybook/addon-docs/blocks'
-import { SearchableDropdown } from './index'
+import { SearchableDropdown, ControlledSearchableDropdown } from './index'
 import { Label } from '../label'
 import { RenderHtmlMarkup } from '../../storybook/render-html-markup'
 
@@ -130,33 +130,57 @@ type ObjectType = {
   name: string
 }
 
+<SearchableDropdown<ObjectType>
+  getResults={async () => {
+    return new Promise(resolve => {
+      setTimeout(() => {
+        resolve([
+          {
+            id: '1',
+            name: 'First',
+          },
+          {
+            id: '2',
+            name: 'Second',
+          },
+          {
+            id: '3',
+            name: 'Third',
+          },
+        ])
+      }, 1000)
+    })
+  }}
+  getResultLabel={(result) => result.name}
+  getResultValue={(result) => result.id}
+  onChange={(e) => console.log(e.target.value)}
+/>
+```
+
+### Controlled Usage
+
 <Canvas>
-  <Story name="Use with types">
-    <SearchableDropdown<ObjectType>
-      getResults={async () => {
-        return new Promise(resolve => {
-          setTimeout(() => {
-            resolve([
-              {
-                id: '1',
-                name: 'First',
-              },
-              {
-                id: '2',
-                name: 'Second',
-              },
-              {
-                id: '3',
-                name: 'Third',
-              },
-            ])
-          }, 1000)
-        })
-      }}
-      getResultLabel={(result) => result.name}
-      getResultValue={(result) => result.id}
-      onChange={(e) => console.log(e.target.value)}
+  <Story name="Controlled Usage">
+    <ControlledSearchableDropdown
+      isResultsListVisible={true}
+      isClearVisible={true}
+      loading={false}
+      selectedValue=""
+      resultsList={[{
+        value: '1',
+        label: 'First',
+      }, {
+        value: '2',
+        label: 'Second',
+      }, {
+        value: '3',
+        label: 'Third',
+      }]}
+      onResultClick={(result) => console.log(result)}
+      onClear={() => console.log('clear')}
+      icon="geoLocationSolidSystem"
     />
   </Story>
 </Canvas>
-```
+
+<RenderHtmlMarkup component="SearchableDropdown" story="Controlled Usage" />
