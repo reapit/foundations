@@ -1,0 +1,162 @@
+import { Meta, Story, Canvas, ArgsTable } from '@storybook/addon-docs/blocks'
+import { SearchableDropdown } from './index'
+import { Label } from '../label'
+import { RenderHtmlMarkup } from '../../storybook/render-html-markup'
+
+<Meta title="SearchableDropdown" component={SearchableDropdown} />
+
+# Searchable Dropdown
+
+A searchable dropdown list.
+
+## Basic Usage
+
+<Canvas>
+  <Story name="Basic Usage">
+    <SearchableDropdown
+      getResults={async () => {
+        return new Promise(resolve => {
+          setTimeout(() => {
+            resolve([
+              {
+                id: '1',
+                name: 'First',
+              },
+              {
+                id: '2',
+                name: 'Second',
+              },
+              {
+                id: '3',
+                name: 'Third',
+              },
+            ])
+          }, 1000)
+        })
+      }}
+      getResultLabel={(result) => result.name}
+      getResultValue={(result) => result.id}
+      onChange={(e) => console.log(e.target.value)}
+      placeholder="Search"
+    />
+  </Story>
+</Canvas>
+
+`getResults` is used to get the results, and must return a promise that resolves to an array of results.
+
+`getResultLabel` is used to get the label of a result, so must return a string.
+
+`getResultValue` is used to get the value of a result, and must return a string.
+
+`onChange` is called when the value changes.
+
+`icon` is used to render an icon on the left of the input, and accepts any value that can be passed to `<Icon />`.
+
+## Use with a label
+
+<Canvas>
+  <Story name="Use with a label">
+    <Label>Select an option</Label>
+    <SearchableDropdown
+      getResults={async () => {
+        return new Promise(resolve => {
+          setTimeout(() => {
+            resolve([
+              {
+                id: '1',
+                name: 'First',
+              },
+              {
+                id: '2',
+                name: 'Second',
+              },
+              {
+                id: '3',
+                name: 'Third',
+              },
+            ])
+          }, 1000)
+        })
+      }}
+      getResultLabel={(result) => result.name}
+      getResultValue={(result) => result.id}
+      onChange={(e) => console.log(e.target.value)}
+    />
+  </Story>
+</Canvas>
+
+
+## Use with a different icon
+
+<Canvas>
+  <Story name="Use with an icon">
+    <SearchableDropdown
+      getResults={async () => {
+        return new Promise(resolve => {
+          setTimeout(() => {
+            resolve([
+              {
+                id: '1',
+                name: 'First',
+              },
+              {
+                id: '2',
+                name: 'Second',
+              },
+              {
+                id: '3',
+                name: 'Third',
+              },
+            ])
+          }, 1000)
+        })
+      }}
+      getResultLabel={(result) => result.name}
+      getResultValue={(result) => result.id}
+      onChange={(e) => console.log(e.target.value)}
+      icon="geoLocationSolidSystem"
+    />
+  </Story>
+</Canvas>
+
+
+### Use with Types
+
+You can add types to the dropdown by passing a type argument:
+
+```tsx
+type ObjectType = {
+  id: string
+  name: string
+}
+
+<Canvas>
+  <Story name="Use with types">
+    <SearchableDropdown<ObjectType>
+      getResults={async () => {
+        return new Promise(resolve => {
+          setTimeout(() => {
+            resolve([
+              {
+                id: '1',
+                name: 'First',
+              },
+              {
+                id: '2',
+                name: 'Second',
+              },
+              {
+                id: '3',
+                name: 'Third',
+              },
+            ])
+          }, 1000)
+        })
+      }}
+      getResultLabel={(result) => result.name}
+      getResultValue={(result) => result.id}
+      onChange={(e) => console.log(e.target.value)}
+    />
+  </Story>
+</Canvas>
+```
