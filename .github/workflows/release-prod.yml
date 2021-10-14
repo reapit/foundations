@@ -61,6 +61,13 @@ jobs:
       - name: Release
         run: |
           yarn workspace ${{ steps.tagName.outputs.package }} run release --stage prod
+      
+      - name: Package Version Change
+        run: |
+          test -f packages/${{ steps.tagName.outputs.package }}/package.json
+          test ${{ steps.tagName.outputs.version }} != yarn json -f packages/${{ steps.tagName.outputs.package }}/package.json version
+          yarn json -I -f packages/${{ steps.tagName.outputs.package }}/package.json -e "this.version='${{ steps.tagName.outputs.version }}'"
+          git commit -am "chore: update package version"
 
       - name: Publish
         run: |
