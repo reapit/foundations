@@ -41,7 +41,7 @@ export const handleShowNotificationAfterPasswordChanged = (
 
 export const onLoginButtonClick = () => {
   return () => {
-    reapitConnectBrowserSession.connectLoginRedirect(Routes.APPS)
+    reapitConnectBrowserSession.connectLoginRedirect(`${window.location.origin}${Routes.APPS}`)
   }
 }
 
