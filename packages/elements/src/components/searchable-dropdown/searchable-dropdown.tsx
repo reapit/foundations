@@ -1,12 +1,12 @@
 import React, { forwardRef, useEffect } from 'react'
 import {
-  CloseButton,
-  ElSelectContainer,
-  Result,
-  Results,
-  SearchInput,
-  SearchInputAddOn,
-  SearchLoader,
+  ElSearchableDropdownCloseButton,
+  ElSearchableDropdownContainer,
+  ElSearchableDropdownResult,
+  ElSearchableDropdownResultsContainer,
+  ElSearchableDropdownSearchInput,
+  ElSearchableDropdownSearchInputAddOn,
+  ElSearchableDropdownSearchLoader,
 } from './__styles__'
 import { Icon, IconNames } from '../icon'
 
@@ -54,11 +54,11 @@ const SearchableDropdownInner = <T extends unknown>(
   let blurTimeout
 
   return (
-    <ElSelectContainer>
-      <SearchInputAddOn>
+    <ElSearchableDropdownContainer>
+      <ElSearchableDropdownSearchInputAddOn>
         <Icon icon={icon || 'searchSystem'} />
-      </SearchInputAddOn>
-      <SearchInput
+      </ElSearchableDropdownSearchInputAddOn>
+      <ElSearchableDropdownSearchInput
         {...inputProps}
         onChange={(e) => {
           setValue(e.target.value)
@@ -77,30 +77,30 @@ const SearchableDropdownInner = <T extends unknown>(
         value={value}
         ref={ref}
       />
-      <Results style={{ display: resultsVisible ? undefined : 'none' }}>
+      <ElSearchableDropdownResultsContainer style={{ display: resultsVisible ? undefined : 'none' }}>
         {resultsList
           .map((result) => ({ value: getResultValue(result), label: getResultLabel(result) }))
           .map(({ value, label }) => (
-            <Result
+            <ElSearchableDropdownResult
               key={value}
               onClick={() => {
                 handleSelectionChange(label, value)
               }}
             >
               {label}
-            </Result>
+            </ElSearchableDropdownResult>
           ))}
-      </Results>
-      {loading && <SearchLoader />}
+      </ElSearchableDropdownResultsContainer>
+      {loading && <ElSearchableDropdownSearchLoader />}
       {!loading && selectedValue && (
-        <CloseButton
+        <ElSearchableDropdownCloseButton
           icon="closeSystem"
           onClick={() => {
             handleSelectionChange('', '')
           }}
         />
       )}
-    </ElSelectContainer>
+    </ElSearchableDropdownContainer>
   )
 }
 

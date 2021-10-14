@@ -4,13 +4,13 @@ import { InputAddOn } from '../../input-add-on'
 import { Input } from '../../input'
 import { Loader } from '../../loader'
 
-export const ElSelectContainer = styled.div`
+export const ElSearchableDropdownContainer = styled.div`
   display: flex;
   position: relative;
   flex-grow: 1;
 `
 
-export const Result = styled.div`
+export const ElSearchableDropdownResult = styled.div`
   padding: 0.5rem;
   :hover {
     background-color: #f5f5f5;
@@ -19,7 +19,7 @@ export const Result = styled.div`
   }
 `
 
-export const Results = styled.div`
+export const ElSearchableDropdownResultsContainer = styled.div`
   position: absolute;
   top: 100%;
   left: 0;
@@ -34,24 +34,24 @@ export const Results = styled.div`
   box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.2);
 `
 
-export const SearchInputAddOn = styled(InputAddOn)`
+export const ElSearchableDropdownSearchInputAddOn = styled(InputAddOn)`
   position: absolute;
   margin-top: 8px;
   padding-left: 4px;
 `
 
-export const CloseButton = styled(Icon)`
+export const ElSearchableDropdownCloseButton = styled(Icon)`
   position: absolute;
   right: 0;
   padding: 9px;
   cursor: pointer;
 `
 
-export const SearchInput = styled(Input)`
+export const ElSearchableDropdownSearchInput = styled(Input)`
   padding-left: 24px;
 `
 
-export const SearchLoader = styled(Loader)`
+export const ElSearchableDropdownSearchLoader = styled(Loader)`
   position: absolute;
   margin-left: -88px;
 `
