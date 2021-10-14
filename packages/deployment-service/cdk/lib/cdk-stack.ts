@@ -601,12 +601,8 @@ export class CdkStack extends cdk.Stack {
       if (options.queue) {
         lambda.addEventSource(new SqsEventSource(options.queue))
       } else if (options.api) {
-        const resource = api.root.resourceForPath(options.api.path)
-        resource.addCorsPreflight({
-          allowOrigins: [options.api.cors.origin],
-          allowHeaders: options.api.headers,
-        })
-        resource.addMethod(options.api.method, new LambdaIntegration(lambda), {
+        api.root.resourceForPath(options.api.path)
+        .addMethod(options.api.method, new LambdaIntegration(lambda), {
           authorizer: options.api.authorizer ? authorizer : undefined,
           authorizationType: options.api.authorizer ? AuthorizationType.COGNITO : undefined,
         })

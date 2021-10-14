@@ -6,5 +6,14 @@ export const createApigateway = (stack: CdkStack) => {
     // deployOptions: {
     //   stageName: "dev",
     // },
+    defaultCorsPreflightOptions: {
+      allowOrigins: ['*'],
+      allowHeaders: [
+        'Content-Type',
+        'Authorization',
+        'X-Api-Key',
+        'api-version',
+      ],
+    },
   })
 }
