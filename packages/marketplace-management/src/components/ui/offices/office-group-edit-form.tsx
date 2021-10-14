@@ -1,19 +1,5 @@
-import React, { useCallback, useEffect, useState } from 'react'
-import { FormFieldInfo } from '@reapit/utils-common'
+import React, { ChangeEvent, FC, useCallback, useEffect, useState } from 'react'
 import { OfficeGroupModel } from '../../../types/organisations-schema'
-import {
-  Button,
-  Section,
-  ModalV2,
-  Formik,
-  Form,
-  Input,
-  DropdownSelect,
-  notification,
-  Checkbox,
-  SelectOption,
-  ButtonGroup,
-} from '@reapit/elements-legacy'
 import { updateOfficeGroup } from '../../../services/office'
 import { toastMessages } from '../../../constants/toast-messages'
 import { prepareOfficeOptions } from '../../../utils/prepare-options'
@@ -21,163 +7,177 @@ import { OfficeModel, OfficeModelPagedResult } from '@reapit/foundations-ts-defi
 import debounce from 'just-debounce-it'
 import useSWR from 'swr'
 import { URLS } from '../../../constants/api'
-import qs from 'query-string'
+import {
+  BodyText,
+  Button,
+  ButtonGroup,
+  elFadeIn,
+  elMb11,
+  elP8,
+  ElToggleItem,
+  FormLayout,
+  InputGroup,
+  InputWrap,
+  InputWrapFull,
+  Label,
+  MultiSelectInput,
+  MultiSelectOption,
+  PersistantNotification,
+  Subtitle,
+  Toggle,
+  useSnack,
+} from '@reapit/elements'
+import { yupResolver } from '@hookform/resolvers/yup'
+import { boolean, object, string } from 'yup'
+import errorMessages from '../../../constants/error-messages'
+import { useForm } from 'react-hook-form'
+import { cx } from '@linaria/core'
 
-export interface UpdateOfficeGroupModalProps {
-  editingGroup: OfficeGroupModel | undefined
-  setEditingGroup: React.Dispatch<React.SetStateAction<OfficeGroupModel | undefined>>
+export interface EditOfficeGroupFormProps {
+  officeGroup: OfficeGroupModel
+  offices: OfficeModel[]
   orgId: string
-  onRefetchData: () => void
+  onComplete: () => void
 }
 
-interface UpdateOfficeGroupModel {
+export const validationSchema = object().shape({
+  name: string().trim().required(errorMessages.FIELD_REQUIRED),
+  officeIds: string().trim().required(errorMessages.FIELD_REQUIRED),
+  status: boolean(),
+})
+
+interface EditOfficeGroupSchema {
   name: string
-  officeIds: string[]
+  officeIds: string
   status: boolean
 }
 
-type FieldType = 'name' | 'officeIds' | 'status'
-type SelectOptions = SelectOption[]
-
-export const formFields: Record<FieldType, FormFieldInfo> = {
-  name: {
-    name: 'name',
-    label: 'Name',
-  },
-  officeIds: {
-    name: 'officeIds',
-    label: 'Offices (Type to search)',
-  },
-  status: {
-    name: 'status',
-    label: 'Active',
-  },
-}
 export const onHandleSubmit =
-  (handleOnClose: () => void, onRefetchData: () => void, editingGroup: OfficeGroupModel, orgId: string) =>
-  async (params: UpdateOfficeGroupModel) => {
+  (
+    onComplete: () => void,
+    officeGroup: OfficeGroupModel,
+    orgId: string,
+    success: (message: string) => void,
+    error: (message: string) => void,
+  ) =>
+  async (params: EditOfficeGroupSchema) => {
     const { name, officeIds: listId } = params
     const officeIds = listId.toString()
     const status = params.status ? 'active' : 'inactive'
-    const updateOffice = await updateOfficeGroup({ name, officeIds, status }, orgId, editingGroup?.id || '')
+    const response = await updateOfficeGroup({ name, officeIds, status }, orgId, officeGroup?.id || '')
 
-    if (updateOffice) {
-      notification.success({
-        message: toastMessages.CHANGES_SAVE_SUCCESS,
-      })
-      handleOnClose()
-      onRefetchData()
+    if (response) {
+      success(toastMessages.CHANGES_SAVE_SUCCESS)
+      onComplete()
       return
     }
 
-    notification.error({
-      message: toastMessages.FAILED_TO_EDIT_OFFICE_GROUP,
-    })
+    error(toastMessages.FAILED_TO_EDIT_OFFICE_GROUP)
   }
 
-export const UpdateOfficeGroupModal: React.FC<UpdateOfficeGroupModalProps> = ({
-  editingGroup,
-  setEditingGroup,
-  orgId,
-  onRefetchData,
-}) => {
+export const EditOfficeGroupForm: FC<EditOfficeGroupFormProps> = ({ officeGroup, offices, orgId, onComplete }) => {
   const [searchString, setSearchString] = useState<string>('')
-  const [initialOfficesSearch, setInitialOfficesSearch] = useState<string>('')
-  const [options, setOptions] = useState<SelectOptions>([])
+  const [options, setOptions] = useState<MultiSelectOption[]>([])
+  const { success, error } = useSnack()
   const debouncedSearch = useCallback(
-    debounce((value: string) => setSearchString(value), 500),
+    debounce((event: ChangeEvent<HTMLInputElement>) => setSearchString(event.target.value), 500),
     [500],
   )
-  const { data: offices } = useSWR<OfficeModelPagedResult | undefined>(
-    !orgId || !searchString
-      ? null
-      : `${URLS.OFFICES}?pageSize=999&organisationId=${orgId}&name=${searchString}&name=${searchString}`,
+  const { data: searchedOffices } = useSWR<OfficeModelPagedResult | undefined>(
+    !orgId || !searchString ? null : `${URLS.OFFICES}?pageSize=999&organisationId=${orgId}&name=${searchString}`,
   )
 
-  const { data: selectedOffices } = useSWR<OfficeModelPagedResult | undefined>(
-    !orgId || !initialOfficesSearch
-      ? null
-      : `${URLS.OFFICES}?pageSize=999&organisationId=${orgId}&${initialOfficesSearch}`,
-  )
-
-  const { name, officeIds, status } = formFields
-
-  useEffect(() => {
-    if (editingGroup) {
-      const intitialOfficeIds = editingGroup?.officeIds
-        ? qs.stringify({ id: editingGroup?.officeIds?.split(',') }, { indices: false })
-        : ''
-      setInitialOfficesSearch(intitialOfficeIds)
-    }
-  }, [editingGroup])
+  const {
+    register,
+    handleSubmit,
+    getValues,
+    formState: { errors },
+  } = useForm<EditOfficeGroupSchema>({
+    resolver: yupResolver(validationSchema),
+    defaultValues: {
+      name: officeGroup.name ?? '',
+      officeIds: officeGroup.officeIds,
+      status: officeGroup.status === 'active',
+    },
+  })
 
   useEffect(() => {
-    if (selectedOffices || offices) {
-      const combinedOffices: OfficeModel[] = [...(selectedOffices?._embedded ?? []), ...(offices?._embedded ?? [])]
-      const officeOptions = prepareOfficeOptions(combinedOffices || [])
-      setOptions([...officeOptions])
+    if (officeGroup && offices) {
+      const newSelectedOptions = offices.filter((office) => office.id && officeGroup.officeIds?.includes(office.id))
+      const officeOptions = prepareOfficeOptions(newSelectedOptions)
+
+      setOptions(officeOptions)
     }
-  }, [offices, selectedOffices])
+  }, [officeGroup, offices])
 
-  if (!editingGroup) return null
+  useEffect(() => {
+    const officeIds = getValues().officeIds
 
-  const handleOnClose = () => setEditingGroup(undefined)
-  const onSubmit = onHandleSubmit(handleOnClose, onRefetchData, editingGroup, orgId)
+    if (officeIds) {
+      const newSelectedOptions = options.filter((option) => officeIds.includes(option.value))
+      const officeOptions = prepareOfficeOptions(searchedOffices?._embedded ?? [])
+      const newOptions = [...newSelectedOptions, ...officeOptions]
+      const uniqueOptions = [...new Set([...newOptions.map((option) => JSON.stringify(option))])].map((jsonOption) =>
+        JSON.parse(jsonOption),
+      )
+
+      setOptions(uniqueOptions)
+    }
+  }, [searchString, searchedOffices])
+
+  const onSubmit = onHandleSubmit(onComplete, officeGroup, orgId, success, error)
 
   return (
-    <ModalV2
-      visible={!!editingGroup}
-      destroyOnClose={true}
-      onClose={handleOnClose}
-      title={`Editing ${editingGroup.name}`}
-      zIndex={90}
-    >
-      <p className="mb-4">
-        <p>
-          To manage members associated to this group, you can search and select users from the ‘Groups Members’ section
-          below:
-        </p>
-      </p>
-      <Formik
-        initialValues={{
-          name: editingGroup.name || '',
-          officeIds: editingGroup.officeIds?.split(',') || [],
-          status: editingGroup.status === 'active',
-        }}
-        onSubmit={onSubmit}
-      >
-        {() => {
-          return (
-            <Form noValidate={true}>
-              <Section hasPadding={false} hasMargin={false}>
-                <Input type="text" labelText={name.label} id={name.name} name={name.name} />
-                <DropdownSelect
-                  mode="multiple"
-                  id={officeIds.name}
-                  placeholder="Please select"
-                  name={officeIds.name}
-                  labelText={officeIds.label}
-                  options={options}
-                  onSearch={(value: string) => debouncedSearch(value)}
-                  filterOption={true}
-                  optionFilterProp="children"
-                />
-                <Checkbox id={status.name} labelText={status.label as string} name={status.name} />
-              </Section>
-              <ButtonGroup hasSpacing isCentered>
-                <Button variant="secondary" disabled={false} onClick={handleOnClose} type="button">
-                  Cancel
-                </Button>
-                <Button variant="primary" loading={false} type="submit">
-                  Save
-                </Button>
-              </ButtonGroup>
-            </Form>
-          )
-        }}
-      </Formik>
-    </ModalV2>
+    <form className={elP8} onSubmit={handleSubmit(onSubmit)}>
+      <FormLayout className={cx(elFadeIn, elMb11)}>
+        <InputWrapFull>
+          <Subtitle>Edit Office Group</Subtitle>
+          <BodyText hasGreyText>
+            To manage offices associated to this group, you can search and select users from the ‘Offices’ section
+            below:
+          </BodyText>
+        </InputWrapFull>
+        <InputWrap>
+          <InputGroup
+            label="Office Group Name"
+            placeholder="Enter an office group name"
+            {...register('name')}
+            inputAddOnText={errors?.name?.message}
+            intent="danger"
+          />
+        </InputWrap>
+        <InputWrap>
+          <Label>Group Active</Label>
+          <Toggle id={`status-edit-toggle-${officeGroup.id}`} hasGreyBg {...register('status')}>
+            <ElToggleItem>Active</ElToggleItem>
+            <ElToggleItem>Inactive</ElToggleItem>
+          </Toggle>
+        </InputWrap>
+        <InputWrapFull>
+          <InputGroup onChange={debouncedSearch} icon="searchSystem" placeholder="Search" label="Offices" />
+          <MultiSelectInput
+            id={`customer-edit-ids-${officeGroup.id}`}
+            noneSelectedLabel="No offices selected for this group"
+            defaultValues={officeGroup.officeIds ? [...new Set(officeGroup.officeIds.split(','))] : []}
+            options={options}
+            {...register('officeIds')}
+          />
+          {errors.officeIds && (
+            <PersistantNotification isFullWidth isExpanded intent="danger" isInline>
+              {errors.officeIds.message}
+            </PersistantNotification>
+          )}
+        </InputWrapFull>
+        <InputWrapFull>
+          <ButtonGroup alignment="right">
+            <Button intent="primary" type="submit">
+              Submit
+            </Button>
+          </ButtonGroup>
+        </InputWrapFull>
+      </FormLayout>
+    </form>
   )
 }
 
-export default UpdateOfficeGroupModal
+export default EditOfficeGroupForm

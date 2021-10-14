@@ -82,7 +82,7 @@ const OfficesTab: FC = () => {
     `${URLS.OFFICES}${search ? search + '&pageSize=12' : '?pageSize=12'}`,
   )
   const offices = data?._embedded ?? []
-  const totalCount = data?.totalCount ?? 0
+  const totalPageCount = data?.totalPageCount ?? 0
   const pageNumber = data?.pageNumber ?? 0
 
   const rows = useMemo(handleSortTableData(offices), [offices])
@@ -96,7 +96,7 @@ const OfficesTab: FC = () => {
       ) : offices.length ? (
         <>
           <Table className={cx(elFadeIn, elMb11)} rows={rows} />
-          <Pagination callback={onPageChange} numberPages={totalCount} currentPage={pageNumber} />
+          <Pagination callback={onPageChange} numberPages={totalPageCount} currentPage={pageNumber} />
         </>
       ) : (
         <PersistantNotification isFullWidth isExpanded intent="secondary" isInline>
