@@ -28,7 +28,7 @@
     "start": "echo '...skipping...'",
     "test": "echo '...skipping...'",
     "build": "webpack --config webpack.config.js",
-    "lint": "eslint --cache --ext=ts,tsx,js src --fix",
+    "lint": "eslint --cache --ext=ts,tsx,js src cdk/lib --fix",
     "deploy": "cdk synth",
     "release": "echo 'yarn db-conf && yarn migration:run && yarn deploy'",
     "publish": "echo '...skipping...'",

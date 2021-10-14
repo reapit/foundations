@@ -18,27 +18,27 @@ import { LambdaSubscription } from '@aws-cdk/aws-sns-subscriptions'
 import { UserPool } from '@aws-cdk/aws-cognito'
 
 type FunctionSetup = {
-  handler: string,
-  policies: PolicyStatement[],
-  timeout?: number,
+  handler: string
+  policies: PolicyStatement[]
+  timeout?: number
   api?: {
-    method: string,
-    path: string,
+    method: string
+    path: string
     cors: {
-      origin: string,
-    },
-    headers: string[],
-    authorizer?: boolean,
-  },
-  queue?: Queue,
-  topic?: Topic,
+      origin: string
+    }
+    headers: string[]
+    authorizer?: boolean
+  }
+  queue?: Queue
+  topic?: Topic
 }
 
 export class CdkStack extends cdk.Stack {
   constructor(scope: cdk.Construct, id: string, props?: cdk.StackProps) {
     super(scope, id, props)
 
-    const vpc = new Vpc(this as any, `deployment-service-vpc`)
+    const vpc = new Vpc(this as any, 'deployment-service-vpc')
     const buckets = createS3Buckets(this)
     const queues = createSqsQueues(this)
     const [secretManager, aurora] = createAurora(this, vpc, vpc.privateSubnets)
@@ -54,535 +54,358 @@ export class CdkStack extends cdk.Stack {
     })
 
     const functionSetups: { [s: string]: FunctionSetup } = {
-      'pipelineCreate': {
+      pipelineCreate: {
         handler: 'main.pipelineCreate',
-        policies: [
-          ...policies.commonBackendPolicies,
-        ],
+        policies: [...policies.commonBackendPolicies],
         api: {
           method: 'POST',
           path: 'pipeline',
-          cors: { 
+          cors: {
             origin: '*',
           },
-          headers: [
-            'Content-Type',
-            'Authorization',
-            'api-version',
-          ],
+          headers: ['Content-Type', 'Authorization', 'api-version'],
           authorizer: true,
         },
       },
-      'apiPipelineCreate': {
+      apiPipelineCreate: {
         handler: 'main.pipelineCreate',
-        policies: [
-          ...policies.commonBackendPolicies,
-        ],
+        policies: [...policies.commonBackendPolicies],
         api: {
           method: 'POST',
           path: 'api/pipeline',
-          cors: { 
+          cors: {
             origin: '*',
           },
-          headers: [
-            'Content-Type',
-            'Authorization',
-            'X-Api-Key',
-            'api-version',
-          ],
+          headers: ['Content-Type', 'Authorization', 'X-Api-Key', 'api-version'],
         },
       },
-      'pipelineUpdate': {
+      pipelineUpdate: {
         handler: 'main.pipelineUpdate',
-        policies: [
-          ...policies.commonBackendPolicies,
-        ],
+        policies: [...policies.commonBackendPolicies],
         api: {
           method: 'PUT',
           path: 'pipeline/{pipelineId}',
-          cors: { 
+          cors: {
             origin: '*',
           },
-          headers: [
-            'Content-Type',
-            'Authorization',
-            'api-version',
-          ],
+          headers: ['Content-Type', 'Authorization', 'api-version'],
           authorizer: true,
         },
       },
-      'apiPipelineUpdate': {
+      apiPipelineUpdate: {
         handler: 'main.pipelineUpdate',
-        policies: [
-          ...policies.commonBackendPolicies,
-        ],
+        policies: [...policies.commonBackendPolicies],
         api: {
           method: 'PUT',
           path: 'api/pipeline/{pipelineId}',
-          cors: { 
+          cors: {
             origin: '*',
           },
-          headers: [
-            'Content-Type',
-            'Authorization',
-            'X-Api-Key',
-            'api-version',
-          ],
+          headers: ['Content-Type', 'Authorization', 'X-Api-Key', 'api-version'],
         },
       },
-      'pipelineGet': {
+      pipelineGet: {
         handler: 'main.pipelineGet',
-        policies: [
-          ...policies.commonBackendPolicies,
-        ],
+        policies: [...policies.commonBackendPolicies],
         api: {
           method: 'GET',
           path: 'pipeline/{pipelineId}',
-          cors: { 
+          cors: {
             origin: '*',
           },
-          headers: [
-            'Content-Type',
-            'Authorization',
-            'api-version',
-          ],
+          headers: ['Content-Type', 'Authorization', 'api-version'],
           authorizer: true,
         },
       },
-      'apiPipelineGet': {
+      apiPipelineGet: {
         handler: 'main.pipelineGet',
-        policies: [
-          ...policies.commonBackendPolicies,
-        ],
+        policies: [...policies.commonBackendPolicies],
         api: {
           method: 'GET',
           path: 'api/pipeline/{pipelineId}',
-          cors: { 
+          cors: {
             origin: '*',
           },
-          headers: [
-            'Content-Type',
-            'Authorization',
-            'X-Api-Key',
-            'api-version',
-          ],
+          headers: ['Content-Type', 'Authorization', 'X-Api-Key', 'api-version'],
         },
       },
-      'pipelineDelete': {
+      pipelineDelete: {
         handler: 'main.pipelineDelete',
-        policies: [
-          ...policies.commonBackendPolicies,
-        ],
+        policies: [...policies.commonBackendPolicies],
         api: {
           method: 'DELETE',
           path: 'pipeline/{pipelineId}',
-          cors: { 
+          cors: {
             origin: '*',
           },
-          headers: [
-            'Content-Type',
-            'Authorization',
-            'api-version',
-          ],
+          headers: ['Content-Type', 'Authorization', 'api-version'],
           authorizer: true,
         },
       },
-      'apiPipelineDelete': {
+      apiPipelineDelete: {
         handler: 'main.pipelineDelete',
-        policies: [
-          ...policies.commonBackendPolicies,
-        ],
+        policies: [...policies.commonBackendPolicies],
         api: {
           method: 'DELETE',
           path: 'api/pipeline/{pipelineId}',
-          cors: { 
+          cors: {
             origin: '*',
           },
-          headers: [
-            'Content-Type',
-            'Authorization',
-            'X-Api-Key',
-            'api-version',
-          ],
+          headers: ['Content-Type', 'Authorization', 'X-Api-Key', 'api-version'],
         },
       },
-      'pipelinePaginate': {
+      pipelinePaginate: {
         handler: 'main.pipelinePaginate',
-        policies: [
-          ...policies.commonBackendPolicies,
-        ],
+        policies: [...policies.commonBackendPolicies],
         api: {
           method: 'GET',
           path: 'pipeline',
-          cors: { 
+          cors: {
             origin: '*',
           },
-          headers: [
-            'Content-Type',
-            'Authorization',
-            'api-version',
-          ],
+          headers: ['Content-Type', 'Authorization', 'api-version'],
           authorizer: true,
         },
       },
-      'apiPipelinePaginate': {
+      apiPipelinePaginate: {
         handler: 'main.pipelinePaginate',
-        policies: [
-          ...policies.commonBackendPolicies,
-        ],
+        policies: [...policies.commonBackendPolicies],
         api: {
           method: 'GET',
           path: 'api/pipeline',
-          cors: { 
+          cors: {
             origin: '*',
           },
-          headers: [
-            'Content-Type',
-            'Authorization',
-            'X-Api-Key',
-            'api-version',
-          ],
+          headers: ['Content-Type', 'Authorization', 'X-Api-Key', 'api-version'],
         },
       },
-      'pipelineRunnerCreate': {
+      pipelineRunnerCreate: {
         handler: 'main.pipelineRunnerCreate',
-        policies: [
-          ...policies.commonBackendPolicies,
-        ],
+        policies: [...policies.commonBackendPolicies],
         api: {
           method: 'POST',
           path: 'pipeline/{pipelineId}/pipeline-runner',
-          cors: { 
+          cors: {
             origin: '*',
           },
-          headers: [
-            'Content-Type',
-            'Authorization',
-            'api-version',
-          ],
+          headers: ['Content-Type', 'Authorization', 'api-version'],
           authorizer: true,
         },
       },
-      'apiPipelineRunnerCreate': {
+      apiPipelineRunnerCreate: {
         handler: 'main.pipelineRunnerCreate',
-        policies: [
-          ...policies.commonBackendPolicies,
-        ],
+        policies: [...policies.commonBackendPolicies],
         api: {
           method: 'POST',
           path: 'api/pipeline/{pipelineId}/pipeline-runner',
-          cors: { 
+          cors: {
             origin: '*',
           },
-          headers: [
-            'Content-Type',
-            'Authorization',
-            'X-Api-Key',
-            'api-version',
-          ],
+          headers: ['Content-Type', 'Authorization', 'X-Api-Key', 'api-version'],
         },
       },
-      'pipelineRunnerUpdate': {
+      pipelineRunnerUpdate: {
         handler: 'main.pipelineRunnerUpdate',
-        policies: [
-          ...policies.commonBackendPolicies,
-        ],
+        policies: [...policies.commonBackendPolicies],
         api: {
           method: 'PUT',
           path: 'pipeline/{pipelineId}/pipeline-runner',
-          cors: { 
+          cors: {
             origin: '*',
           },
-          headers: [
-            'Content-Type',
-            'Authorization',
-            'api-version',
-          ],
+          headers: ['Content-Type', 'Authorization', 'api-version'],
           authorizer: true,
         },
       },
-      'apiPipelineRunnerUpdate': {
+      apiPipelineRunnerUpdate: {
         handler: 'main.pipelineRunnerUpdate',
-        policies: [
-          ...policies.commonBackendPolicies,
-        ],
+        policies: [...policies.commonBackendPolicies],
         api: {
           method: 'PUT',
           path: 'api/pipeline/{pipelineId}/pipeline-runner',
-          cors: { 
+          cors: {
             origin: '*',
           },
-          headers: [
-            'Content-Type',
-            'Authorization',
-            'X-Api-Key',
-            'api-version',
-          ],
+          headers: ['Content-Type', 'Authorization', 'X-Api-Key', 'api-version'],
         },
       },
-      'pipelineRunnerPaginate': {
+      pipelineRunnerPaginate: {
         handler: 'main.pipelineRunnerPaginate',
-        policies: [
-          ...policies.commonBackendPolicies,
-        ],
+        policies: [...policies.commonBackendPolicies],
         api: {
           method: 'GET',
           path: 'pipeline/{pipelineId}/pipeline-runner',
-          cors: { 
+          cors: {
             origin: '*',
           },
-          headers: [
-            'Content-Type',
-            'Authorization',
-            'api-version',
-          ],
+          headers: ['Content-Type', 'Authorization', 'api-version'],
           authorizer: true,
         },
       },
-      'apiPipelineRunnerPaginate': {
+      apiPipelineRunnerPaginate: {
         handler: 'main.pipelineRunnerPaginate',
-        policies: [
-          ...policies.commonBackendPolicies,
-        ],
+        policies: [...policies.commonBackendPolicies],
         api: {
           method: 'GET',
           path: 'api/pipeline/{pipelineId}/pipeline-runner',
-          cors: { 
+          cors: {
             origin: '*',
           },
-          headers: [
-            'Content-Type',
-            'Authorization',
-            'X-Api-Key',
-            'api-version',
-          ],
+          headers: ['Content-Type', 'Authorization', 'X-Api-Key', 'api-version'],
         },
       },
-      'deployRelease': {
+      deployRelease: {
         handler: 'main.deployRelease',
-        policies: [
-          ...policies.commonBackendPolicies,
-        ],
+        policies: [...policies.commonBackendPolicies],
         api: {
           method: 'POST',
           path: 'deploy/release/{project}/{version}',
-          cors: { 
+          cors: {
             origin: '*',
           },
-          headers: [
-            'Content-Type',
-            'Authorization',
-            'api-version',
-          ],
+          headers: ['Content-Type', 'Authorization', 'api-version'],
           authorizer: true,
         },
       },
-      'apiDeployRelease': {
+      apiDeployRelease: {
         handler: 'main.deployRelease',
-        policies: [
-          ...policies.commonBackendPolicies,
-        ],
+        policies: [...policies.commonBackendPolicies],
         api: {
           method: 'POST',
           path: 'api/deploy/release/{project}/{version}',
-          cors: { 
+          cors: {
             origin: '*',
           },
-          headers: [
-            'Content-Type',
-            'Authorization',
-            'X-Api-Key',
-            'api-version',
-          ],
+          headers: ['Content-Type', 'Authorization', 'X-Api-Key', 'api-version'],
         },
       },
-      'releasePaginate': {
+      releasePaginate: {
         handler: 'main.releasePaginate',
-        policies: [
-          ...policies.commonBackendPolicies,
-        ],
+        policies: [...policies.commonBackendPolicies],
         api: {
           method: 'GET',
           path: 'deploy/release/{project}',
-          cors: { 
+          cors: {
             origin: '*',
           },
-          headers: [
-            'Content-Type',
-            'Authorization',
-            'api-version',
-          ],
+          headers: ['Content-Type', 'Authorization', 'api-version'],
           authorizer: true,
         },
       },
-      'apiReleasePaginate': {
+      apiReleasePaginate: {
         handler: 'main.releasePaginate',
-        policies: [
-          ...policies.commonBackendPolicies,
-        ],
+        policies: [...policies.commonBackendPolicies],
         api: {
           method: 'GET',
           path: 'api/deploy/release/{project}',
-          cors: { 
+          cors: {
             origin: '*',
           },
-          headers: [
-            'Content-Type',
-            'Authorization',
-            'X-Api-Key',
-            'api-version',
-          ],
+          headers: ['Content-Type', 'Authorization', 'X-Api-Key', 'api-version'],
         },
       },
-      'deployVersion': {
+      deployVersion: {
         handler: 'main.deployVersion',
-        policies: [
-          ...policies.commonBackendPolicies,
-        ],
+        policies: [...policies.commonBackendPolicies],
         api: {
           method: 'POST',
           path: 'deploy/version/{projectName}/{version}',
-          cors: { 
+          cors: {
             origin: '*',
           },
-          headers: [
-            'Content-Type',
-            'Authorization',
-            'api-version',
-          ],
+          headers: ['Content-Type', 'Authorization', 'api-version'],
           authorizer: true,
         },
       },
-      'apiDeployVersion': {
+      apiDeployVersion: {
         handler: 'main.deployVersion',
-        policies: [
-          ...policies.commonBackendPolicies,
-        ],
+        policies: [...policies.commonBackendPolicies],
         api: {
           method: 'POST',
           path: 'api/deploy/version/{projectName}/{version}',
-          cors: { 
+          cors: {
             origin: '*',
           },
-          headers: [
-            'Content-Type',
-            'Authorization',
-            'X-Api-Key',
-            'api-version',
-          ],
+          headers: ['Content-Type', 'Authorization', 'X-Api-Key', 'api-version'],
         },
       },
-      'releaseProjectPagination': {
+      releaseProjectPagination: {
         handler: 'main.projectPaginate',
-        policies: [
-          ...policies.commonBackendPolicies,
-        ],
+        policies: [...policies.commonBackendPolicies],
         api: {
           method: 'GET',
           path: 'deploy/project',
-          cors: { 
+          cors: {
             origin: '*',
           },
-          headers: [
-            'Content-Type',
-            'Authorization',
-            'api-version',
-          ],
+          headers: ['Content-Type', 'Authorization', 'api-version'],
           authorizer: true,
         },
       },
-      'apiReleaseProjectPagination': {
+      apiReleaseProjectPagination: {
         handler: 'main.projectPaginate',
-        policies: [
-          ...policies.commonBackendPolicies,
-        ],
+        policies: [...policies.commonBackendPolicies],
         api: {
           method: 'GET',
           path: 'api/deploy/project',
-          cors: { 
+          cors: {
             origin: '*',
           },
-          headers: [
-            'Content-Type',
-            'Authorization',
-            'X-Api-Key',
-            'api-version',
-          ],
+          headers: ['Content-Type', 'Authorization', 'X-Api-Key', 'api-version'],
         },
       },
-      'codebuildExecutor': {
+      codebuildExecutor: {
         handler: 'main.codebuildExecutor',
-        policies: [
-          ...policies.commonBackendPolicies,
-          policies.codebuildExecPolicy,
-        ],
+        policies: [...policies.commonBackendPolicies, policies.codebuildExecPolicy],
         queue: queues[QueueNames.CODEBUILD_EXECUTOR],
       },
-      'codebuildUpdate': {
+      codebuildUpdate: {
         handler: 'main.codebuildUpdate',
-        policies: [
-          ...policies.commonBackendPolicies,
-        ],
+        policies: [...policies.commonBackendPolicies],
         topic,
         timeout: 300,
       },
-      'codebuildDeploy': {
+      codebuildDeploy: {
         handler: 'main.codebuildDeploy',
-        policies: [
-          ...policies.commonBackendPolicies,
-        ],
+        policies: [...policies.commonBackendPolicies],
         timeout: 300,
         queue: queues[QueueNames.CODEBUILD_DEPLOY],
       },
-      'pipelineSetup': {
+      pipelineSetup: {
         handler: 'main.pipelineSetup',
-        policies: [
-          ...policies.commonBackendPolicies,
-        ],
+        policies: [...policies.commonBackendPolicies],
         timeout: 300,
         queue: queues[QueueNames.PIPELINE_SETUP],
       },
-      'pipelineTearDownStart': {
+      pipelineTearDownStart: {
         handler: 'main.pipelineTearDownStart',
         queue: queues[QueueNames.PIPELINE_TEAR_DOWN_START],
         timeout: 300,
-        policies: [
-          ...policies.commonBackendPolicies,
-        ],
+        policies: [...policies.commonBackendPolicies],
       },
-      'pipelineTearDown': {
+      pipelineTearDown: {
         handler: 'main.pipelineTearDown',
         queue: queues[QueueNames.PIPELINE_TEAR_DOWN],
         timeout: 300,
-        policies: [
-          ...policies.commonBackendPolicies,
-        ],
+        policies: [...policies.commonBackendPolicies],
       },
-      'pusherAuth': {
+      pusherAuth: {
         handler: 'main.pusherAuth',
-        policies: [
-          ...policies.commonBackendPolicies,
-        ],
+        policies: [...policies.commonBackendPolicies],
         api: {
           method: 'GET',
           path: 'pusher/auth',
-          cors: { 
+          cors: {
             origin: '*',
           },
-          headers: [
-            'Content-Type',
-            'Authorization',
-            'api-version',
-          ],
+          headers: ['Content-Type', 'Authorization', 'api-version'],
           authorizer: true,
         },
       },
     }
 
-    const authorizer = new CognitoUserPoolsAuthorizer(this as any, `cloud-deployment-service-authorizer`, {
-      cognitoUserPools: [
-        UserPool.fromUserPoolId(this, `user-pool-authorizer`, 'kiftR4qFc'),
-      ],
+    const authorizer = new CognitoUserPoolsAuthorizer(this as any, 'cloud-deployment-service-authorizer', {
+      cognitoUserPools: [UserPool.fromUserPoolId(this, 'user-pool-authorizer', 'kiftR4qFc')],
     })
 
     for (const [name, options] of Object.entries(functionSetups)) {
@@ -593,7 +416,7 @@ export class CdkStack extends cdk.Stack {
         vpc,
         handler: options.handler,
       })
-      options.policies.forEach(policy => lambda.addToRolePolicy(policy))
+      options.policies.forEach((policy) => lambda.addToRolePolicy(policy))
 
       lambda.connections.allowTo(aurora.connections, Port.tcp(3306))
       aurora.connections.allowFrom(lambda.connections, Port.tcp(3306))
@@ -601,8 +424,7 @@ export class CdkStack extends cdk.Stack {
       if (options.queue) {
         lambda.addEventSource(new SqsEventSource(options.queue))
       } else if (options.api) {
-        api.root.resourceForPath(options.api.path)
-        .addMethod(options.api.method, new LambdaIntegration(lambda), {
+        api.root.resourceForPath(options.api.path).addMethod(options.api.method, new LambdaIntegration(lambda), {
           authorizer: options.api.authorizer ? authorizer : undefined,
           authorizationType: options.api.authorizer ? AuthorizationType.COGNITO : undefined,
         })
