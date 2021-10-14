@@ -1,6 +1,6 @@
-import { Queue } from "@aws-cdk/aws-sqs";
-import { Duration } from "@aws-cdk/core";
-import { CdkStack } from "./cdk-stack";
+import { Queue } from '@aws-cdk/aws-sqs'
+import { Duration } from '@aws-cdk/core'
+import { CdkStack } from './cdk-stack'
 
 export enum QueueNames {
   CODEBUILD_EXECUTOR = 'CodebuildExecutor',
@@ -11,9 +11,11 @@ export enum QueueNames {
 }
 
 export const createSqsQueues = (stack: CdkStack) => {
-  const queueConfig: {[k in QueueNames]: {
-    visibilityTimeout?: number,
-  }} = {
+  const queueConfig: {
+    [k in QueueNames]: {
+      visibilityTimeout?: number
+    }
+  } = {
     [QueueNames.CODEBUILD_EXECUTOR]: {},
     [QueueNames.CODEBUILD_DEPLOY]: {
       visibilityTimeout: 300,
@@ -29,9 +31,11 @@ export const createSqsQueues = (stack: CdkStack) => {
     },
   }
 
-  return (Object.keys(queueConfig) as Array<QueueNames>).reduce<{[k in QueueNames]: Queue}>((queues, queueName) => {
-
-    const duration = typeof queueConfig[queueName].visibilityTimeout !== 'undefined' ? Duration.seconds(queueConfig[queueName].visibilityTimeout as number) : undefined
+  return (Object.keys(queueConfig) as Array<QueueNames>).reduce<{ [k in QueueNames]: Queue }>((queues, queueName) => {
+    const duration =
+      typeof queueConfig[queueName].visibilityTimeout !== 'undefined'
+        ? Duration.seconds(queueConfig[queueName].visibilityTimeout as number)
+        : undefined
 
     queues[queueName] = new Queue(stack as any, `cloud-deployment-${queueName}`, {
       queueName,
