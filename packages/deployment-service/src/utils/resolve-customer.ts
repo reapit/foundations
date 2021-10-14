@@ -1,6 +1,5 @@
 import { UnauthorizedException } from '@homeservenow/serverless-aws-handler'
 import { LoginIdentity } from '@reapit/connect-session'
-// import publicKeys from './../../public-keys.json'
 import { APIGatewayEvent } from 'aws-lambda'
 import decode from 'jwt-decode'
 
