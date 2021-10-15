@@ -607,6 +607,10 @@ export interface BatchUpdateInstallationsModel {
    * Sets the list of customers to uninstall the app for
    */
   uninstallFor?: string[]
+  /**
+   * The group mode to install and uninstall for (officeGroup/organisationGroup)
+   */
+  mode?: string
 }
 /**
  * Model to expose category info

@@ -20557,6 +20557,7 @@ __metadata:
     eslint: ^7.31.0
     eslint-plugin-prettier: ^3.4.0
     jsonwebtoken: ^8.5.1
+    jwt-decode: ^3.1.2
     mime: 2.5.2
     mime-types: ^2.1.32
     mysql: ^2.18.1

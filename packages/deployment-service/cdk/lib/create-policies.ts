@@ -1,9 +1,9 @@
-import { Project } from "@aws-cdk/aws-codebuild"
-import { Effect, PolicyStatement } from "@aws-cdk/aws-iam"
-import { ServerlessCluster } from "@aws-cdk/aws-rds"
-import { Bucket } from "@aws-cdk/aws-s3"
-import { ISecret } from "@aws-cdk/aws-secretsmanager"
-import { Queue } from "@aws-cdk/aws-sqs"
+import { Project } from '@aws-cdk/aws-codebuild'
+import { Effect, PolicyStatement } from '@aws-cdk/aws-iam'
+import { ServerlessCluster } from '@aws-cdk/aws-rds'
+import { Bucket } from '@aws-cdk/aws-s3'
+import { ISecret } from '@aws-cdk/aws-secretsmanager'
+import { Queue } from '@aws-cdk/aws-sqs'
 import config from '../../config.json'
 
 export enum PolicyNames {
@@ -28,25 +28,22 @@ type namedPolicyGroupType = {
   dbPolicies: PolicyStatement[]
 }
 
-export const createPolicies = (
-  {
-    buckets,
-    queues,
-    secretManager,
-    codeBuild,
-    aurora,
-  }:  {
-    buckets: {[s: string]: Bucket},
-    queues: {[s: string]: Queue},
-    secretManager: ISecret,
-    codeBuild: Project,
-    aurora: ServerlessCluster,
-  }
-): namedPolicyGroupType & namedPolicyType => {
-  
+export const createPolicies = ({
+  buckets,
+  queues,
+  secretManager,
+  codeBuild,
+  aurora,
+}: {
+  buckets: { [s: string]: Bucket }
+  queues: { [s: string]: Queue }
+  secretManager: ISecret
+  codeBuild: Project
+  aurora: ServerlessCluster
+}): namedPolicyGroupType & namedPolicyType => {
   const S3BucketPolicy = new PolicyStatement({
     effect: Effect.ALLOW,
-    resources: Object.values(buckets).map(bucket => bucket.bucketArn),
+    resources: Object.values(buckets).map((bucket) => bucket.bucketArn),
     actions: [
       's3:PutObject',
       's3:GetObject',
@@ -64,34 +61,20 @@ export const createPolicies = (
 
   const sqsPolicies = new PolicyStatement({
     effect: Effect.ALLOW,
-    resources: Object.values(queues).map(queue => queue.queueArn),
-    actions: [
-      'sqs:GetQueueAttributes',
-      'sqs:SendMessage',
-      'sqs:DeleteMessage',
-    ],
+    resources: Object.values(queues).map((queue) => queue.queueArn),
+    actions: ['sqs:GetQueueAttributes', 'sqs:SendMessage', 'sqs:DeleteMessage'],
   })
 
   const secretManagerPolicy = new PolicyStatement({
     effect: Effect.ALLOW,
-    resources: [
-      secretManager.secretArn,
-    ],
-    actions: [
-      'secretsmanager:GetSecretValue',
-    ],
+    resources: [secretManager.secretArn],
+    actions: ['secretsmanager:GetSecretValue'],
   })
 
   const RDSPolicy = new PolicyStatement({
     effect: Effect.ALLOW,
-    resources: [
-      aurora.clusterArn,
-    ],
-    actions: [
-      'rds-data:BeginTransaction',
-      'rds-data:CommitTransaction',
-      'rds-data:ExecuteStatement',
-    ],
+    resources: [aurora.clusterArn],
+    actions: ['rds-data:BeginTransaction', 'rds-data:CommitTransaction', 'rds-data:ExecuteStatement'],
   })
 
   const dbPolicies = [RDSPolicy, secretManagerPolicy]
@@ -111,9 +94,7 @@ export const createPolicies = (
 
   const cloudFrontPolicy = new PolicyStatement({
     effect: Effect.ALLOW,
-    resources: [
-      '*',
-    ],
+    resources: ['*'],
     actions: [
       'cloudfront:CreateDistribution',
       'cloudfront:CreateInvalidation',
@@ -129,27 +110,16 @@ export const createPolicies = (
       // Temp solution for hiding arn
       config.API_KEY_INVOKE_ARN,
     ],
-    actions: [
-      'lambda:InvokeFunction',
-    ],
+    actions: ['lambda:InvokeFunction'],
   })
 
   const codebuildExecPolicy = new PolicyStatement({
     effect: Effect.ALLOW,
-    resources: [
-      codeBuild.projectArn,
-    ],
-    actions: [
-      'codebuild:StartBuild',
-    ],
+    resources: [codeBuild.projectArn],
+    actions: ['codebuild:StartBuild'],
   })
 
-  const commonBackendPolicies = [
-    lambdaInvoke,
-    ...dbPolicies,
-    S3BucketPolicy,
-    sqsPolicies,
-  ]
+  const commonBackendPolicies = [lambdaInvoke, ...dbPolicies, S3BucketPolicy, sqsPolicies]
 
   return {
     commonBackendPolicies,

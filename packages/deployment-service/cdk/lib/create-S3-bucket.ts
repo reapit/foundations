@@ -11,10 +11,10 @@ export enum BucketNames {
 export const createS3Buckets = (stack: CdkStack) => {
   const bucketOptions: {
     [k in BucketNames]: {
-      public?: boolean,
-      get?: boolean,
-      list?: boolean,
-      put?: boolean,
+      public?: boolean
+      get?: boolean
+      list?: boolean
+      put?: boolean
     }
   } = {
     [BucketNames.LIVE]: {
@@ -33,37 +33,39 @@ export const createS3Buckets = (stack: CdkStack) => {
     },
   }
 
-  return (Object.keys(bucketOptions) as Array<BucketNames>).reduce<{[k in BucketNames]: Bucket}>((buckets, bucketName) => {
+  return (Object.keys(bucketOptions) as Array<BucketNames>).reduce<{ [k in BucketNames]: Bucket }>(
+    (buckets, bucketName) => {
+      buckets[bucketName] = new Bucket(stack as any, bucketName, {
+        bucketName,
+        publicReadAccess: bucketOptions[bucketName]?.public,
+        websiteIndexDocument: bucketOptions[bucketName]?.public ? 'index.html' : undefined,
+      })
 
-    buckets[bucketName] = new Bucket(stack as any, bucketName, {
-      bucketName,
-      publicReadAccess: bucketOptions[bucketName]?.public,
-      websiteIndexDocument: bucketOptions[bucketName]?.public ? 'index.html' : undefined,
-    })
+      if (bucketOptions[bucketName].get || bucketOptions[bucketName].list || bucketOptions[bucketName].put) {
+        const actions = []
 
-    if (bucketOptions[bucketName].get || bucketOptions[bucketName].list || bucketOptions[bucketName].put) {
-      const actions = []
+        if (bucketOptions[bucketName].get) {
+          actions.push('s3:Get*')
+        }
+        if (bucketOptions[bucketName].list) {
+          actions.push('s3:List*')
+        }
+        if (bucketOptions[bucketName].put) {
+          actions.push('s3:Put*')
+        }
 
-      if (bucketOptions[bucketName].get) {
-        actions.push('s3:Get*')
+        buckets[bucketName].addToResourcePolicy(
+          new PolicyStatement({
+            effect: Effect.ALLOW,
+            actions,
+            resources: [buckets[bucketName].arnForObjects('*')],
+            principals: [new ArnPrincipal('*')],
+          }),
+        )
       }
-      if (bucketOptions[bucketName].list) {
-        actions.push('s3:List*')
-      }
-      if (bucketOptions[bucketName].put) {
-        actions.push('s3:Put*')
-      }
 
-      buckets[bucketName].addToResourcePolicy(new PolicyStatement({
-        effect: Effect.ALLOW,
-        actions,
-        resources: [buckets[bucketName].arnForObjects('*')],
-        principals: [
-          new ArnPrincipal('*'),
-        ],
-      }))
-    }
-
-    return buckets
-  }, {} as any)
+      return buckets
+    },
+    {} as any,
+  )
 }

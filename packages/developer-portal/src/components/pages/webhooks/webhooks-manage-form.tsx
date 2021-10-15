@@ -295,8 +295,8 @@ export const WebhooksManageForm: FC<WebhooksManageFormProps> = ({
             <BodyText hasGreyText>Are you sure you want to delete this webhook?</BodyText>
             <BodyText>{url}</BodyText>
             <BodyText hasGreyText>
-              By clicking ‘Delete’ the system will remove the webhook and it’s stored configurations Please click
-              ‘Delete’ to continue with deletion.
+              By clicking ‘Confirm’ the system will remove this webhook and any stored configurations. Please click
+              ‘Confirm’ to continue with deletion.
             </BodyText>
             <FlexContainer isFlexJustifyCenter>
               <ButtonGroup>
