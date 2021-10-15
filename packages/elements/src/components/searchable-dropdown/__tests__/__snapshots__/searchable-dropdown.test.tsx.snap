@@ -1,0 +1,39 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`ControlledSearchableDropdown component should match a snapshot 1`] = `
+<ElSearchableDropdownContainer>
+  <input
+    style={
+      Object {
+        "display": "none",
+      }
+    }
+    value=""
+  />
+  <ElSearchableDropdownSearchInputAddOn>
+    <Icon
+      icon="searchSystem"
+    />
+  </ElSearchableDropdownSearchInputAddOn>
+  <ElSearchableDropdownSearchInput
+    onChange={[Function]}
+  />
+</ElSearchableDropdownContainer>
+`;
+
+exports[`SearchableDropdown component should match a snapshot 1`] = `
+<ForwardRef(SearchableDropdownControlledInner)
+  icon="searchSystem"
+  isClearVisible={false}
+  isResultsListVisible={false}
+  loading={false}
+  onBlur={[Function]}
+  onChange={[Function]}
+  onClear={[Function]}
+  onFocus={[Function]}
+  onResultClick={[Function]}
+  resultsList={Array []}
+  selectedValue=""
+  value=""
+/>
+`;
