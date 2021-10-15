@@ -156,7 +156,7 @@ export const EditOfficeGroupForm: FC<EditOfficeGroupFormProps> = ({ officeGroup,
         <InputWrapFull>
           <InputGroup onChange={debouncedSearch} icon="searchSystem" placeholder="Search" label="Offices" />
           <MultiSelectInput
-            id={`customer-edit-ids-${officeGroup.id}`}
+            id={`office-group-edit-edit-ids-${officeGroup.id}`}
             noneSelectedLabel="No offices selected for this group"
             defaultValues={officeGroup.officeIds ? [...new Set(officeGroup.officeIds.split(','))] : []}
             options={options}

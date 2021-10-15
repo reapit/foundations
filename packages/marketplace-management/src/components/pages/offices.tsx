@@ -20,6 +20,7 @@ import {
   Title,
 } from '@reapit/elements'
 import { navigate } from '../ui/nav/nav'
+import OfficeGroupCreate from '../ui/offices/office-group-create'
 
 const OfficesPage: FC = () => {
   const history = useHistory()
@@ -35,7 +36,7 @@ const OfficesPage: FC = () => {
           </SecondaryNavItem>
           <SecondaryNavItem
             onClick={navigate(history, Routes.OFFICES_GROUPS)}
-            active={pathname === Routes.OFFICES_GROUPS}
+            active={pathname.includes(Routes.OFFICES_GROUPS)}
           >
             Office Groups
           </SecondaryNavItem>
@@ -45,10 +46,12 @@ const OfficesPage: FC = () => {
         <BodyText hasGreyText>
           {pathname === Routes.OFFICES
             ? 'This list contains all ‘Offices’ within your organisation. To create or manage an Office Group, please visit the ‘Groups’ page.'
-            : 'This list shows you any ‘Office Groups’ that have been created for your Organisation. To create a new office group, please click on ‘Create New Office Group’. To add or edit an existing office group, please use ‘Edit’ on the associated group.'}
+            : pathname === Routes.OFFICES_GROUPS
+            ? 'This list shows you any ‘Office Groups’ that have been created for your Organisation. To create a new office group, please click on ‘Create New Office Group’. To add or edit an existing office group, please use ‘Edit’ on the associated group.'
+            : 'You can create an office group with this wizard. If you want to update the information later, refer to the office groups page.'}
         </BodyText>
         {pathname === Routes.OFFICES_GROUPS && (
-          <Button className={elMb5} intent="primary" onClick={() => console.log('')}>
+          <Button className={elMb5} intent="primary" onClick={navigate(history, Routes.OFFICES_GROUPS_NEW)}>
             Create Group
           </Button>
         )}
@@ -56,6 +59,7 @@ const OfficesPage: FC = () => {
       <PageContainer className={elHFull}>
         <Route path={Routes.OFFICES} component={OfficesTab} exact />
         <Route path={Routes.OFFICES_GROUPS} component={OfficesGroupsTab} exact />
+        <Route path={Routes.OFFICES_GROUPS_NEW} component={OfficeGroupCreate} exact />
       </PageContainer>
     </FlexContainer>
   )
