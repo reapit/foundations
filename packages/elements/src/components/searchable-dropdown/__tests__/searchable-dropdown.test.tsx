@@ -1,6 +1,11 @@
 import React from 'react'
+import { act } from 'react-dom/test-utils'
 import { shallow, mount } from 'enzyme'
-import { SearchableDropdown, ControlledSearchableDropdown, SearchableDropdownControlledInner } from '..'
+import {
+  SearchableDropdown,
+  ControlledSearchableDropdown,
+  SearchableDropdownControlledInner,
+} from '../searchable-dropdown'
 
 describe('SearchableDropdown component', () => {
   it('should match a snapshot', () => {
@@ -8,6 +13,71 @@ describe('SearchableDropdown component', () => {
       <SearchableDropdown getResults={async () => []} getResultLabel={() => ''} getResultValue={() => ''} />,
     )
     expect(wrapper).toMatchSnapshot()
+  })
+
+  it('should get results from the given function, passing the value of the search box', async () => {
+    const getResults = jest.fn().mockResolvedValue([{ id: '1', name: 'one' }])
+    let wrapper
+    await act(() => {
+      wrapper = mount(
+        <SearchableDropdown
+          getResults={getResults}
+          // @ts-ignore
+          getResultLabel={({ name }) => name}
+          // @ts-ignore
+          getResultValue={({ id }) => id}
+        />,
+      )
+    })
+    await act(() => {
+      wrapper.find('ElSearchableDropdownSearchInput').simulate('change', { target: { value: 'test' } })
+    })
+
+    wrapper.update()
+    expect(getResults).toHaveBeenCalledWith('test')
+  })
+  it('should display results returned from the given function', async () => {
+    let wrapper
+    await act(() => {
+      wrapper = mount(
+        <SearchableDropdown
+          getResults={async () => [{ id: '1', name: 'one' }]}
+          getResultLabel={({ name }) => name}
+          getResultValue={({ id }) => id}
+        />,
+      )
+    })
+    await act(() => {
+      wrapper.find('ElSearchableDropdownSearchInput').simulate('change', { target: { value: 'test' } })
+    })
+    wrapper.update()
+    expect(wrapper.find('ElSearchableDropdownResult')).toBeDefined
+    expect(wrapper.find('ElSearchableDropdownResult').text()).toEqual('one')
+  })
+  it('should call onChange when a result is chosen from the list', async () => {
+    let wrapper
+    const onChange = jest.fn()
+    await act(() => {
+      wrapper = mount(
+        <SearchableDropdown
+          getResults={async () => [{ id: '1', name: 'one' }]}
+          getResultLabel={({ name }) => name}
+          getResultValue={({ id }) => id}
+          onChange={onChange}
+        />,
+      )
+    })
+    await act(() => {
+      wrapper.find('ElSearchableDropdownSearchInput').simulate('change', { target: { value: 'test' } })
+    })
+    wrapper.update()
+    expect(wrapper.find('ElSearchableDropdownResult')).toBeDefined
+    expect(wrapper.find('ElSearchableDropdownResult').text()).toEqual('one')
+    await act(() => {
+      wrapper.find('ElSearchableDropdownResult').simulate('click')
+    })
+    wrapper.update()
+    expect(onChange).toHaveBeenCalledWith({ target: { value: '1' } })
   })
 })
 
@@ -210,5 +280,39 @@ describe('ControlledSearchableDropdown component', () => {
       />,
     )
     expect(wrapper.find('ElSearchableDropdownSearchInput').prop('value')).toEqual('asdf')
+  })
+
+  it('should display the search icon by default', () => {
+    const wrapper = shallow(
+      <SearchableDropdownControlledInner
+        resultsList={[{ label: 'test', result: 'test' }]}
+        onChange={() => {}}
+        isClearVisible={false}
+        isResultsListVisible={true}
+        loading={false}
+        onClear={() => {}}
+        onResultClick={() => {}}
+        selectedValue={''}
+        value="asdf"
+      />,
+    )
+    expect(wrapper.find('Icon').prop('icon')).toEqual('searchSystem')
+  })
+  it('should display the given icon', () => {
+    const wrapper = shallow(
+      <SearchableDropdownControlledInner
+        resultsList={[{ label: 'test', result: 'test' }]}
+        onChange={() => {}}
+        isClearVisible={false}
+        isResultsListVisible={true}
+        loading={false}
+        onClear={() => {}}
+        onResultClick={() => {}}
+        selectedValue={''}
+        value="asdf"
+        icon="selectInfographic"
+      />,
+    )
+    expect(wrapper.find('Icon').prop('icon')).toEqual('selectInfographic')
   })
 })

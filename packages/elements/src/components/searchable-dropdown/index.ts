@@ -1,2 +1,7 @@
 export * from './__styles__'
-export * from './searchable-dropdown'
+export {
+  SearchableDropdownProps,
+  ControlledSearchableDropdownProps,
+  SearchableDropdown,
+  ControlledSearchableDropdown,
+} from './searchable-dropdown'

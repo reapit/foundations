@@ -68,8 +68,8 @@ export const ControlledSearchableDropdown = forwardRef(SearchableDropdownControl
   props: ControlledSearchableDropdownProps<T> & { ref?: React.ForwardedRef<HTMLInputElement> },
 ) => ReturnType<typeof SearchableDropdownControlledInner>
 
-const SearchableDropdownInner = <T extends unknown>(
-  { getResults, icon, getResultValue, getResultLabel, ...inputProps }: SearchableDropdownProps<T>,
+export const SearchableDropdownInner = <T extends unknown>(
+  { getResults, icon, getResultValue, getResultLabel, onChange, ...inputProps }: SearchableDropdownProps<T>,
   ref: React.ForwardedRef<HTMLInputElement>,
 ) => {
   const [value, setValue] = React.useState('')
@@ -93,6 +93,13 @@ const SearchableDropdownInner = <T extends unknown>(
     setValue(label)
     setSelectedValue(value)
     setResultsVisible(false)
+    if (onChange) {
+      onChange({
+        target: {
+          value,
+        },
+      } as React.ChangeEvent<HTMLInputElement>)
+    }
   }
 
   let blurTimeout
