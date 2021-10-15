@@ -28,7 +28,7 @@ export interface ControlledSearchableDropdownProps<T> extends React.InputHTMLAtt
   icon?: IconNames
 }
 
-const SearchableDropdownControlledInner = <T extends unknown>(
+export const SearchableDropdownControlledInner = <T extends unknown>(
   {
     isResultsListVisible,
     icon = 'searchSystem',
@@ -69,7 +69,7 @@ export const ControlledSearchableDropdown = forwardRef(SearchableDropdownControl
 ) => ReturnType<typeof SearchableDropdownControlledInner>
 
 const SearchableDropdownInner = <T extends unknown>(
-  { onChange, getResults, icon, getResultValue, getResultLabel, ...inputProps }: SearchableDropdownProps<T>,
+  { getResults, icon, getResultValue, getResultLabel, ...inputProps }: SearchableDropdownProps<T>,
   ref: React.ForwardedRef<HTMLInputElement>,
 ) => {
   const [value, setValue] = React.useState('')
@@ -93,13 +93,6 @@ const SearchableDropdownInner = <T extends unknown>(
     setValue(label)
     setSelectedValue(value)
     setResultsVisible(false)
-    if (onChange) {
-      onChange({
-        target: {
-          value,
-        },
-      } as React.ChangeEvent<HTMLInputElement>)
-    }
   }
 
   let blurTimeout
