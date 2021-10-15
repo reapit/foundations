@@ -37,6 +37,7 @@ export const renderCustomerName = (customers: InstallationModel[], customerIds?:
     const uniqueIds = [...new Set(customerIds)]
     return uniqueIds
       .map((id) => {
+        if (id === 'SBOX') return 'Sandbox Estates'
         const foundCustomer = customers.find((customer) => customer.customerId === id)
         if (foundCustomer) return foundCustomer.customerName
       })
