@@ -16,6 +16,9 @@ import { createPolicies } from './create-policies'
 import { Topic } from '@aws-cdk/aws-sns'
 import { LambdaSubscription } from '@aws-cdk/aws-sns-subscriptions'
 import { UserPool } from '@aws-cdk/aws-cognito'
+import { Provider } from '@aws-cdk/custom-resources'
+import { RetentionDays } from '@aws-cdk/aws-logs'
+import { CustomResource } from '@aws-cdk/core'
 
 type FunctionSetup = {
   handler: string
@@ -432,5 +435,26 @@ export class CdkStack extends cdk.Stack {
         topic.addSubscription(new LambdaSubscription(lambda))
       }
     }
+
+    const migrationHandler = createLambda({
+      stack: this,
+      name: 'cloud-deployment-migration',
+      code: AssetCode.fromAsset(path.resolve('dist', 'main.zip')),
+      vpc,
+      handler: 'main.migrationRun',
+    })
+
+    Object.values(policies)
+      .filter((policy) => policy instanceof PolicyStatement)
+      .forEach((policy) => migrationHandler.addToRolePolicy(policy as PolicyStatement))
+
+    const resourceProvider = new Provider(this, 'custom-resource', {
+      onEventHandler: migrationHandler,
+      logRetention: RetentionDays.ONE_DAY,
+    })
+
+    new CustomResource(this, 'migration-resource', {
+      serviceToken: resourceProvider.serviceToken,
+    })
   }
 }
