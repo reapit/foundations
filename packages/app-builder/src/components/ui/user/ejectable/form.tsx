@@ -1,6 +1,6 @@
 import React, { forwardRef, useEffect, useState } from 'react'
 import { useHistory } from 'react-router'
-import { Button, InputGroup, Label, Loader, Select, useSnack } from '@reapit/elements'
+import { Button, InputGroup, Label, Loader, SearchableDropdown, Select, useSnack } from '@reapit/elements'
 
 import { Container, ContainerProps } from './container'
 import { uppercaseSentence } from './utils'
@@ -10,11 +10,25 @@ import { useObjectList } from '../../../hooks/objects/use-object-list'
 import { useObjectGet } from '../../../hooks/objects/use-object-get'
 
 import { usePageId } from '../../../hooks/use-page-id'
+import { useObject } from '@/components/hooks/objects/use-object'
+import { useLazyObjectSearch } from '@/components/hooks/objects/use-object-search'
 
 export interface FormProps extends ContainerProps {
   typeName?: string
   destination?: string
   formType?: string
+}
+
+const getLabel = (obj: any, labelKeys?: string[]) => {
+  if (labelKeys) {
+    return labelKeys.map((key) => obj[key]).join(' ')
+  }
+  return obj.id
+}
+
+type GenericObject = {
+  id: string
+  [key: string]: any
 }
 
 const SelectIDofType = ({
@@ -24,15 +38,30 @@ const SelectIDofType = ({
 }: {
   typeName: string
   value: React.SelectHTMLAttributes<HTMLSelectElement>['value']
-  onChange: React.ChangeEventHandler<HTMLSelectElement>
+  onChange: (value: string | number | null | undefined) => void
 }) => {
   const { data, loading } = useObjectList(typeName)
+  const { object } = useObject(typeName)
+  const { available: searchAvailable, search } = useLazyObjectSearch(typeName)
+
+  if (searchAvailable) {
+    return (
+      <SearchableDropdown<GenericObject>
+        value={value}
+        onChange={(e) => onChange(e.target.value)}
+        getResults={search}
+        getResultLabel={(result) => getLabel(result, object?.labelKeys)}
+        getResultValue={(result) => result.id}
+      />
+    )
+  }
+
   if (data) {
     return (
-      <Select value={value} onChange={onChange}>
-        {data.map(({ id, firstName, lastName }) => (
-          <option key={id} value={id}>
-            {firstName} {lastName}
+      <Select value={value} onChange={(e) => onChange(e.target.value)}>
+        {data.map((obj) => (
+          <option key={obj.id} value={obj.id}>
+            {getLabel(obj, object?.labelKeys)}
           </option>
         ))}
         <option selected disabled>
@@ -44,6 +73,15 @@ const SelectIDofType = ({
 
   if (loading) return <Loader />
   return null
+}
+
+const camelCaseToSentence = (camelCase: string) => {
+  return uppercaseSentence(camelCase.replace(/([A-Z])/g, ' $1'))
+}
+
+const friendlyIdName = (idName: string) => {
+  const words = idName.replaceAll('Id', '').split('_')
+  return words.map(camelCaseToSentence).join(' ')
 }
 
 export const Form = forwardRef<HTMLDivElement, FormProps & { disabled?: boolean }>(
@@ -140,13 +178,13 @@ export const Form = forwardRef<HTMLDivElement, FormProps & { disabled?: boolean 
               if (idOfType) {
                 return (
                   <>
-                    <Label>{idOfType}</Label>
+                    <Label>{friendlyIdName(name)}</Label>
                     <SelectIDofType
                       typeName={idOfType}
-                      onChange={(e) => {
+                      onChange={(value) => {
                         setFormState({
                           ...formState,
-                          [name]: e.target.value,
+                          [name]: value,
                         })
                       }}
                       value={formState[name]}
@@ -159,7 +197,7 @@ export const Form = forwardRef<HTMLDivElement, FormProps & { disabled?: boolean 
                 <InputGroup
                   required={isRequired}
                   key={name}
-                  label={uppercaseSentence(name)}
+                  label={camelCaseToSentence(name)}
                   type={typeName === 'Boolean' ? 'checkbox' : 'text'}
                   value={formState[name]}
                   onChange={(e) => {

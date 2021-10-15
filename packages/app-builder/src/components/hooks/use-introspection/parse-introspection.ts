@@ -15,7 +15,9 @@ import { isIntrospectionEnumType, isIntrospectionInputObjectType, isIntrospectio
 
 export type IntrospectionResult = {
   object: IntrospectionObjectType
+  labelKeys?: string[]
   list?: GeneratedQuery
+  search?: GeneratedQuery
   get?: GeneratedQuery
   create?: GeneratedMutation
   update?: GeneratedMutation
@@ -46,9 +48,17 @@ export const parseIntrospectionResult = (introspection: IntrospectionQuery): Int
   return queryableObjectTypes.map((object) => {
     const queries = queryType.filter(({ nestedType }) => object.name === nestedType)
     const mutations = mutationType.filter(({ nestedType }) => object.name === nestedType)
+    const labelKeys = object.description
+      ?.split('@labelKeys(')[1]
+      ?.split(')')[0]
+      ?.split(',')
+      .map((s) => s.trim())
+
     return {
       object,
-      list: getListQuery(queries, objectTypes, inputObjectTypes, enums),
+      labelKeys,
+      list: getListQuery(queries, objectTypes, inputObjectTypes, enums, false),
+      search: getListQuery(queries, objectTypes, inputObjectTypes, enums, true),
       get: getGetQuery(queries, objectTypes, inputObjectTypes, enums),
       create: getMutation('create', mutations, objectTypes, inputObjectTypes, enums),
       update: getMutation('update', mutations, objectTypes, inputObjectTypes, enums),

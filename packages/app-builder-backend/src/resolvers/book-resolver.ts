@@ -9,10 +9,8 @@ export class BookResolver {
   constructor() {}
 
   @Query(() => [Book])
+  @Authorized()
   async listBooks(@Ctx() ctx: Context) {
-    if (!ctx.accessToken) {
-      throw new Error('unauthorized')
-    }
     return listBooks(ctx.accessToken)
   }
 

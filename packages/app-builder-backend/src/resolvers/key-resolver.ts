@@ -116,7 +116,7 @@ const updatePropertyKeyMovement = async (
   )
 }
 
-const undefinedIfNoId = <T>(idObj: (T & { id?: string }) | undefined) => {
+const undefinedIfNoId = <T>(idObj: (T & { id?: string | number }) | undefined) => {
   return idObj && idObj.id ? idObj : undefined
 }
 
