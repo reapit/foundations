@@ -9,6 +9,10 @@ import { MediaStateProvider, NavStateProvider, SnackProvider } from '@reapit/ele
 
 export const globals = css`
   :global() {
+    html {
+      overflow: hidden;
+    }
+
     body {
       background: #262f69;
     }
