@@ -21244,7 +21244,6 @@ __metadata:
     project-name-generator: ^2.1.9
     pusher: ^5.0.0
     rimraf: ^3.0.2
-    rxjs: ^7.4.0
     ts-node: ^10.1.0
     typeorm: ^0.2.34
     typeorm-aurora-data-api-driver: ^2.2.0
@@ -38907,15 +38906,6 @@ resolve@^2.0.0-next.3:
   dependencies:
     tslib: ~2.1.0
   checksum: 45b46a5adcfcdbb36dccde6764f186a5ed76418531ba95a3f91662435f504c1b7ad0858c23b02479f24a2f307a293c87deddfecfddfa20e249f50cecb2199654
-  languageName: node
-  linkType: hard
-
-"rxjs@npm:^7.4.0":
-  version: 7.4.0
-  resolution: "rxjs@npm:7.4.0"
-  dependencies:
-    tslib: ~2.1.0
-  checksum: e58ecc0496ba710fcf00238f1fd44968f7133e87a0a43c244e508494425c188f20078905fa397c427d270cc6496b62d07de7bb3252d71c93d62d13cdc958b577
   languageName: node
   linkType: hard
 
