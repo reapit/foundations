@@ -411,6 +411,10 @@ export class CdkStack extends cdk.Stack {
       cognitoUserPools: [UserPool.fromUserPoolId(this, 'user-pool-authorizer', 'kiftR4qFc')],
     })
 
+    const MYSQL_USERNAME = secretManager.secretValueFromJson('username').toString();
+    const MYSQL_PASSWORD = secretManager.secretValueFromJson('password').toString();
+    const MYSQL_HOST = secretManager.secretValueFromJson('host').toString();
+
     for (const [name, options] of Object.entries(functionSetups)) {
       const lambda = createLambda({
         stack: this,
@@ -418,6 +422,11 @@ export class CdkStack extends cdk.Stack {
         code: AssetCode.fromAsset(path.resolve('dist', 'main.zip')),
         vpc,
         handler: options.handler,
+        env: {
+          MYSQL_PASSWORD,
+          MYSQL_USERNAME,
+          MYSQL_HOST,
+        },
       })
       options.policies.forEach((policy) => lambda.addToRolePolicy(policy))
 
@@ -442,6 +451,11 @@ export class CdkStack extends cdk.Stack {
       code: AssetCode.fromAsset(path.resolve('dist', 'main.zip')),
       vpc,
       handler: 'main.migrationRun',
+      env: {
+        MYSQL_PASSWORD,
+        MYSQL_USERNAME,
+        MYSQL_HOST,
+      },
     })
 
     Object.values(policies)
