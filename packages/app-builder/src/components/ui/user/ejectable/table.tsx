@@ -3,6 +3,7 @@ import { Button, elFlex, elFlex1, elFlexColumn, Input, Loader, Table as ELTable,
 import { useHistory } from 'react-router'
 import qs from 'query-string'
 import path from 'path'
+import { cx } from '@linaria/core'
 
 import { Container, ContainerProps } from './container'
 import { uppercaseSentence } from './utils'
@@ -10,11 +11,10 @@ import { uppercaseSentence } from './utils'
 import { useObjectList } from '../../../hooks/objects/use-object-list'
 import { useObjectSearch } from '../../../hooks/objects/use-object-search'
 import { useObjectDelete, useObjectUpdate } from '../../../hooks/objects/use-object-mutate'
-import { lowercaseFirstLetter, useSubObjects } from '@/components/hooks/objects/use-sub-objects'
-import { notEmpty } from '@/components/hooks/use-introspection/helpers'
-import { usePageId } from '@/components/hooks/use-page-id'
-import { useObjectSpecials } from '@/components/hooks/objects/use-object-specials'
-import { cx } from '@linaria/core'
+import { lowercaseFirstLetter, useSubObjects } from '../../../../components/hooks/objects/use-sub-objects'
+import { notEmpty } from '../../../../components/hooks/use-introspection/helpers'
+import { usePageId } from '../../../../components/hooks/use-page-id'
+import { useObjectSpecials } from '../../../../components/hooks/objects/use-object-specials'
 
 export interface TableProps extends ContainerProps {
   typeName?: string

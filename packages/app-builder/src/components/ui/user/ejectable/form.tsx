@@ -1,78 +1,20 @@
 import React, { forwardRef, useEffect, useState } from 'react'
 import { useHistory } from 'react-router'
-import { Button, InputGroup, Label, Loader, SearchableDropdown, Select, useSnack } from '@reapit/elements'
+import { Button, FormLayout, Loader, useSnack } from '@reapit/elements'
 
 import { Container, ContainerProps } from './container'
 import { uppercaseSentence } from './utils'
 
 import { useObjectMutate } from '../../../hooks/objects/use-object-mutate'
-import { useObjectList } from '../../../hooks/objects/use-object-list'
 import { useObjectGet } from '../../../hooks/objects/use-object-get'
 
 import { usePageId } from '../../../hooks/use-page-id'
-import { useObject } from '@/components/hooks/objects/use-object'
-import { useLazyObjectSearch } from '@/components/hooks/objects/use-object-search'
-
+import { FormInput } from './form-input'
 export interface FormProps extends ContainerProps {
   typeName?: string
   destination?: string
   formType?: string
-}
-
-const getLabel = (obj: any, labelKeys?: string[]) => {
-  if (labelKeys) {
-    return labelKeys.map((key) => obj[key]).join(' ')
-  }
-  return obj.id
-}
-
-type GenericObject = {
-  id: string
-  [key: string]: any
-}
-
-const SelectIDofType = ({
-  typeName,
-  value,
-  onChange,
-}: {
-  typeName: string
-  value: React.SelectHTMLAttributes<HTMLSelectElement>['value']
-  onChange: (value: string | number | null | undefined) => void
-}) => {
-  const { data, loading } = useObjectList(typeName)
-  const { object } = useObject(typeName)
-  const { available: searchAvailable, search } = useLazyObjectSearch(typeName)
-
-  if (searchAvailable) {
-    return (
-      <SearchableDropdown<GenericObject>
-        value={value}
-        onChange={(e) => onChange(e.target.value)}
-        getResults={search}
-        getResultLabel={(result) => getLabel(result, object?.labelKeys)}
-        getResultValue={(result) => result.id}
-      />
-    )
-  }
-
-  if (data) {
-    return (
-      <Select value={value} onChange={(e) => onChange(e.target.value)}>
-        {data.map((obj) => (
-          <option key={obj.id} value={obj.id}>
-            {getLabel(obj, object?.labelKeys)}
-          </option>
-        ))}
-        <option selected disabled>
-          Select a {typeName}
-        </option>
-      </Select>
-    )
-  }
-
-  if (loading) return <Loader />
-  return null
+  excludeFields?: string[]
 }
 
 const camelCaseToSentence = (camelCase: string) => {
@@ -85,7 +27,7 @@ const friendlyIdName = (idName: string) => {
 }
 
 export const Form = forwardRef<HTMLDivElement, FormProps & { disabled?: boolean }>(
-  ({ typeName, destination, disabled, formType = 'create', ...props }, ref) => {
+  ({ typeName, destination, disabled, formType = 'create', excludeFields, ...props }, ref) => {
     const { context } = usePageId()
     const { data, loading: getLoading } = useObjectGet(typeName, context.editObjectId as string | undefined)
     const { args, mutateFunction, mutationLoading } = useObjectMutate(formType, typeName)
@@ -144,74 +86,34 @@ export const Form = forwardRef<HTMLDivElement, FormProps & { disabled?: boolean 
               })
           }}
         >
-          {getLoading && <Loader label="Loading" />}
-          {args &&
-            args[0].fields?.map((arg) => {
-              const { name, isRequired, typeName, enumValues, idOfType } = arg
-              if (enumValues) {
-                return (
-                  <>
-                    <Label>{uppercaseSentence(name)}</Label>
-                    <Select
-                      onChange={(e) => {
-                        setFormState({
-                          ...formState,
-                          [name]: e.target.value,
-                        })
-                      }}
-                      value={formState[name]}
-                    >
-                      {enumValues.map((value) => {
-                        return (
-                          <option key={value} value={value}>
-                            {value}
-                          </option>
-                        )
-                      })}
-                      <option selected disabled>
-                        Select a {typeName}
-                      </option>
-                    </Select>
-                  </>
-                )
-              }
-              if (idOfType) {
-                return (
-                  <>
-                    <Label>{friendlyIdName(name)}</Label>
-                    <SelectIDofType
-                      typeName={idOfType}
-                      onChange={(value) => {
-                        setFormState({
-                          ...formState,
-                          [name]: value,
-                        })
-                      }}
-                      value={formState[name]}
-                    />
-                  </>
-                )
-              }
+          <FormLayout>
+            {getLoading && <Loader label="Loading" />}
+            {args &&
+              args[0].fields
+                ?.filter(({ name }) => !excludeFields?.includes(name))
+                .map((arg) => {
+                  const { name, isRequired, typeName, enumValues, idOfType } = arg
+                  const value = formState[name]
 
-              return (
-                <InputGroup
-                  required={isRequired}
-                  key={name}
-                  label={camelCaseToSentence(name)}
-                  type={typeName === 'Boolean' ? 'checkbox' : 'text'}
-                  value={formState[name]}
-                  onChange={(e) => {
-                    setFormState({
-                      ...formState,
-                      [name]: e.target.value,
-                    })
-                  }}
-                />
-              )
-            })}
-          <Button disabled={disabled} loading={mutationLoading}>
-            {formType === 'create' ? 'Create' : 'Save'}
-          </Button>
+                  return (
+                    <FormInput
+                      key={name}
+                      label={friendlyIdName(name)}
+                      value={value}
+                      onChange={(value) => {
+                        setFormState({ ...formState, [name]: value })
+                      }}
+                      isRequired={isRequired}
+                      typeName={typeName}
+                      enumValues={enumValues}
+                      idOfType={idOfType}
+                    />
+                  )
+                })}
+            <Button disabled={disabled} loading={mutationLoading}>
+              {formType === 'create' ? 'Create' : 'Save'}
+            </Button>
+          </FormLayout>
         </form>
       </Container>
     )
