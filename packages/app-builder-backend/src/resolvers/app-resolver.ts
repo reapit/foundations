@@ -1,10 +1,11 @@
-import { Resolver, Query, Arg, Mutation, ID, Authorized } from 'type-graphql'
+import { Resolver, Query, Arg, Mutation, ID, Authorized, Ctx } from 'type-graphql'
 
 import { App } from '../entities/app'
 import { getUserApps, getApp, createApp, updateApp, getDomainApps } from '../ddb'
 import { Page } from '../entities/page'
 import * as uuid from 'uuid'
 import { ejectApp } from '../eject'
+import { Context } from '../types'
 
 export const defaultNodes = [
   {
@@ -97,11 +98,11 @@ export class AppResolver {
 
   @Authorized()
   @Mutation(() => String, { name: '_ejectApp' })
-  async ejectApp(@Arg('id', () => ID) id: string) {
+  async ejectApp(@Arg('id', () => ID) id: string, @Ctx() ctx: Context) {
     const app = await getApp(id)
     if (!app) {
       throw new Error('App not found')
     }
-    return ejectApp(app)
+    return ejectApp(app, ctx)
   }
 }

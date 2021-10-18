@@ -1,8 +1,7 @@
 import { js } from './js'
 import { lint } from './format'
 
-export const generateApp = () => {
-  const apiUrl = process.env.API_URL || 'http://localhost:4000/'
+export const generateApp = ({ apiUrl }: { apiUrl: string }) => {
   return lint(js`
     import * as React from 'react'
     import { ApolloClient, InMemoryCache, ApolloProvider, createHttpLink } from '@apollo/client'

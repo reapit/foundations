@@ -21,6 +21,7 @@ const start = async () => {
     context: ({ req }): Context => ({
       idToken: req.headers.authorization?.split(' ')[1] || '',
       accessToken: req.headers['reapit-connect-token'] as string,
+      apiUrl: 'http://localhost:4000/',
     }),
     plugins: [ApolloServerPluginDrainHttpServer({ httpServer })],
   })
