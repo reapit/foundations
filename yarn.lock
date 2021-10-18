@@ -29452,6 +29452,15 @@ fsevents@^1.2.7:
   languageName: node
   linkType: hard
 
+"json@npm:^11.0.0":
+  version: 11.0.0
+  resolution: "json@npm:11.0.0"
+  bin:
+    json: lib/json.js
+  checksum: 7c947306b0883bd8150ca4d09fb28b6e41480c970836b501b5517d90eeb3a1a710cb417cfe56fc8a1c2ee9070203f262cb80257610f861d266b8febb8911fd35
+  languageName: node
+  linkType: hard
+
 "jsonfile@npm:^2.1.0":
   version: 2.4.0
   resolution: "jsonfile@npm:2.4.0"
@@ -38112,6 +38121,7 @@ resolve@^2.0.0-next.3:
   resolution: "root@workspace:."
   dependencies:
     husky: ^7.0.1
+    json: ^11.0.0
   languageName: unknown
   linkType: soft
 
