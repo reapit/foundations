@@ -458,6 +458,9 @@ export class CdkStack extends cdk.Stack {
       },
     })
 
+    migrationHandler.connections.allowTo(aurora.connections, Port.tcp(3306))
+    aurora.connections.allowFrom(migrationHandler.connections, Port.tcp(3306))
+
     Object.values(policies)
       .filter((policy) => policy instanceof PolicyStatement)
       .forEach((policy) => migrationHandler.addToRolePolicy(policy as PolicyStatement))
