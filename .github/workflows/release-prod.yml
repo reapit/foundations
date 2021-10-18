@@ -2,7 +2,7 @@ name: Release Prod
 
 on:
   release:
-    types: [published]
+    types: [published, deleted]
 
 env:
   NPM_TOKEN: ${{secrets.NPM_TOKEN}}
