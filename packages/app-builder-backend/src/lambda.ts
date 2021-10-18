@@ -23,10 +23,12 @@ const createHandler = async () => {
     context: ({ event }: { event: APIGatewayEvent }): Context => {
       const lowercaseHeaders = lowerCaseKeys(event.headers)
       const { authorization } = lowercaseHeaders
+      const apiUrl = `https://${event.headers.Host}/${event.requestContext.stage}/`
       if (!authorization) {
         throw new Error('Must have the authorization header')
       }
       return {
+        apiUrl,
         idToken: authorization?.split(' ')[1],
         accessToken: lowercaseHeaders['reapit-connect-token'] as string,
       }

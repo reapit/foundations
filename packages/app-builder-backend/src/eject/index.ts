@@ -16,6 +16,7 @@ import { generateTsconfigJson } from './templates/tsconfigJson'
 import { generateEslintrc } from './templates/eslintrc'
 import { generatePrivateRouterWrapper } from './templates/private-router-wrapper'
 import { generateSession } from './templates/session'
+import { Context } from '../types'
 
 const propsToAttributes = (props: Object) =>
   Object.keys(props)
@@ -135,12 +136,12 @@ const zipFiles = async (files: Array<{ fileLoc: string; text: string }>) => {
   })
 }
 
-export const ejectApp = async (app: App) => {
+export const ejectApp = async (app: App, context: Context) => {
   const pages = await generatePages(app)
   const routesText = await generateRoutes(pages)
   const appFile = {
     fileLoc: 'src/app.tsx',
-    text: await generateApp(),
+    text: await generateApp({ apiUrl: context.apiUrl }),
   }
 
   const routesFile = {
