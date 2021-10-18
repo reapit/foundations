@@ -1,0 +1,55 @@
+name: Rollback Prod
+
+on: 
+  release:
+    type: [unpublish]
+
+env: 
+  NPM_TOKEN: ${{secrets.NPM_TOKEN}}
+  GITHUB_TOKEN: ${{secrets.GITHUB_TOKEN}}
+  SENTRY_AUTH_TOKEN: ${{secrets.SENTRY_AUTH_TOKEN}}
+  RELEASE_SLACK_WEB_HOOK_URL: ${{secrets.RELEASE_SLACK_WEB_HOOK_URL}}
+  AWS_ACCESS_KEY_ID: ${{secrets.AWS_ACCESS_KEY_ID_PROD}}
+  AWS_SECRET_ACCESS_KEY: ${{secrets.AWS_SECRET_ACCESS_KEY_PROD}}
+  AWS_REGION: ${{secrets.AWS_REGION}}
+  CI: true
+  IS_RELEASE: true
+
+  jobs:
+  release-prod:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Get Tag
+        uses: olegtarasov/get-tag@v2.1
+        id: tagName
+        with:
+          tagRegex: "(?<package>.*)_(?<version>.*)" 
+      - uses: actions/checkout@v2
+        with:
+          fetch-depth: 0
+      - run: |
+        $VERSION = $(git tag --list | grep ${{ steps.tagName.outputs.package }} | tail -2 | grep -vw ${{ steps.tagName.outputs.package }}_${{ steps.tagName.outputs.version }})
+        git checkout $VERSION
+
+      - name: Package or Service
+      - run: $SERVICE = json -f packages/${{ steps.tagName.outputs.package }}/package.json name | grep "@reapit/"
+
+      - name: Fetch config
+        run: |
+          yarn workspace ${{ steps.tagName.outputs.package }} run conf --name production
+      
+      - name: Build
+        run: |
+          yarn workspace ${{ steps.tagName.outputs.package }} run build
+
+      - name: Release
+        run: |
+          yarn workspace ${{ steps.tagName.outputs.package }} run release --stage prod
+      
+      - name: Publish
+        run: |
+          $SERVICE == 0
+          yarn npm dist-tag rm ${{ steps.tagName.outputs.package }} latest
+          yarn npm dist-tag add ${{ steps.tagName.outputs.package }}@$VERSION latest
+          yarn npm dist-tag ls
+
