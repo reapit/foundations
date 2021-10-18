@@ -28,8 +28,8 @@ env:
         with:
           fetch-depth: 0
       - run: |
-        PREVIOUS_VERSION = $(git tag --list | grep ${{ steps.tagName.outputs.package }} | tail -2 | grep -vw ${{ steps.tagName.outputs.package }}_${{ steps.tagName.outputs.version }})
-        git checkout $PREVIOUS_VERSION
+          PREVIOUS_VERSION = $(git tag --list | grep ${{ steps.tagName.outputs.package }} | tail -2 | grep -vw ${{ steps.tagName.outputs.package }}_${{ steps.tagName.outputs.version }})
+          git checkout $PREVIOUS_VERSION
 
       - name: Package or Service
       - run: IS_PACKAGE = json -f packages/${{ steps.tagName.outputs.package }}/package.json name | grep -c "@reapit/"
