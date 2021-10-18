@@ -28,11 +28,11 @@ env:
         with:
           fetch-depth: 0
       - run: |
-        $VERSION = $(git tag --list | grep ${{ steps.tagName.outputs.package }} | tail -2 | grep -vw ${{ steps.tagName.outputs.package }}_${{ steps.tagName.outputs.version }})
-        git checkout $VERSION
+        PREVIOUS_VERSION = $(git tag --list | grep ${{ steps.tagName.outputs.package }} | tail -2 | grep -vw ${{ steps.tagName.outputs.package }}_${{ steps.tagName.outputs.version }})
+        git checkout $PREVIOUS_VERSION
 
       - name: Package or Service
-      - run: $SERVICE = json -f packages/${{ steps.tagName.outputs.package }}/package.json name | grep "@reapit/"
+      - run: IS_PACKAGE = json -f packages/${{ steps.tagName.outputs.package }}/package.json name | grep -c "@reapit/"
 
       - name: Fetch config
         run: |
@@ -48,8 +48,7 @@ env:
       
       - name: Publish
         run: |
-          $SERVICE == 0
+          test $IS_PACKAGE = 1
           yarn npm dist-tag rm ${{ steps.tagName.outputs.package }} latest
-          yarn npm dist-tag add ${{ steps.tagName.outputs.package }}@$VERSION latest
+          yarn npm dist-tag add ${{ steps.tagName.outputs.package }}@$PREVIOUS_VERSION latest
           yarn npm dist-tag ls
-
