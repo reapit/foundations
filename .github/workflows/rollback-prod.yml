@@ -32,7 +32,7 @@ jobs:
           git checkout $PREVIOUS_VERSION
 
       - name: Package or Service
-      - run: IS_PACKAGE = json -f packages/${{ steps.tagName.outputs.package }}/package.json name | grep -c "@reapit/"
+        run: IS_PACKAGE = json -f packages/${{ steps.tagName.outputs.package }}/package.json name | grep -c "@reapit/"
 
       - name: Fetch config
         run: |
