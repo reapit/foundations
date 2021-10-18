@@ -2,7 +2,7 @@ name: Rollback Prod
 
 on: 
   release:
-    types: [unpublish]
+    types: [deleted]
 
 env: 
   NPM_TOKEN: ${{secrets.NPM_TOKEN}}
