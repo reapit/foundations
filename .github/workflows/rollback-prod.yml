@@ -15,8 +15,8 @@ env:
   CI: true
   IS_RELEASE: true
 
-  jobs:
-  release-prod:
+jobs:
+  rollback-prod:
     runs-on: ubuntu-latest
     steps:
       - name: Get Tag
