@@ -57,12 +57,13 @@ jobs:
               await child("yarn workspace ${{ steps.tagName.outputs.package }} run conf --name production")
               await child("yarn workspace ${{ steps.tagName.outputs.package }} run build")
               await child("yarn workspace ${{ steps.tagName.outputs.package }} run release --stage prod")
-              await child(
-                "test $IS_PACKAGE = 1 &&" +
-                "yarn npm dist-tag rm ${{ steps.tagName.outputs.package }} latest &&" +
-                "yarn npm dist-tag add ${{ steps.tagName.outputs.package }}@$PREVIOUS_VERSION latest &&" +
-                "yarn npm dist-tag ls"
-              )
+              if (IS_PACKAGE) {
+                await child(
+                  "yarn npm dist-tag rm ${{ steps.tagName.outputs.package }} latest &&" +
+                  "yarn npm dist-tag add ${{ steps.tagName.outputs.package }}@$PREVIOUS_VERSION latest &&" +
+                  "yarn npm dist-tag ls"
+                )
+              }
             }
 
             actions()
