@@ -32,7 +32,7 @@ jobs:
       - uses: actions/github-script@v5
         with:
           script: |
-            import { exec } from 'child_process'
+            const child_process = require('child_process')
             const packageInfo = require("packages/${{ steps.tagName.outputs.package }}/package.json")
             const creator = context.payload.sender.login
             const tags = github.rest.repos.listTags({
@@ -48,7 +48,7 @@ jobs:
             console.log('is package', IS_PACKAGE)
 
             const child = async (command) => {
-              await new Promise((resolve) => exec(command, (err) => {
+              await new Promise((resolve) => child_process.exec(command, (err) => {
                 if (err) {
                   process.exit(1)
                 }
