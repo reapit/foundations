@@ -1,11 +1,11 @@
 import React from 'react'
 import { InstallationModelPagedResult } from '@reapit/foundations-ts-definitions'
-import { Section, H5, FlexContainerBasic, Button } from '@reapit/elements-legacy'
 import {
   getInstallationsForOfficeGroups,
   getInstallationsForWholeOrg,
   getClientIdFirstPart,
 } from './app-installation-manager'
+import { BodyText, Button, FlexContainer, Subtitle } from '@reapit/elements'
 
 export interface AppUninstallationSectionProps {
   installations: InstallationModelPagedResult | undefined
@@ -33,11 +33,11 @@ const AppUninstallationSection: React.FC<AppUninstallationSectionProps> = ({
       : `${officeGroupInstallations.length} group${officeGroupInstallations.length !== 1 ? 's' : ''}`
 
   return (
-    <Section hasPadding={false}>
-      <FlexContainerBasic className="justify-between items-center mb-4">
-        <H5>Current Installations</H5>
+    <>
+      <FlexContainer>
+        <Subtitle>Current Installations</Subtitle>
         <Button
-          variant="primary"
+          intent="primary"
           disabled={noCurrentInstallations}
           loading={false}
           onClick={() => {
@@ -47,22 +47,20 @@ const AppUninstallationSection: React.FC<AppUninstallationSectionProps> = ({
         >
           Uninstall
         </Button>
-      </FlexContainerBasic>
-      <p className="mb-4">
-        {!noCurrentInstallations && (
-          <p>
-            This app is currently installed for {currentInstallText}. By clicking this button you will uninstall for all
-            users and offices.
-          </p>
-        )}
-        {noCurrentInstallations && (
-          <p>
-            This app is not currently installed. You can either install for your organisation or specific office groups
-            in the section below.
-          </p>
-        )}
-      </p>
-    </Section>
+      </FlexContainer>
+      {!noCurrentInstallations && (
+        <BodyText>
+          This app is currently installed for {currentInstallText}. By clicking this button you will uninstall for all
+          users and offices.
+        </BodyText>
+      )}
+      {noCurrentInstallations && (
+        <BodyText>
+          This app is not currently installed. You can either install for your organisation or specific office groups in
+          the section below.
+        </BodyText>
+      )}
+    </>
   )
 }
 

@@ -1,8 +1,8 @@
 import React, { Dispatch, SetStateAction } from 'react'
 import { InstallationModelPagedResult } from '@reapit/foundations-ts-definitions'
 import AppInstallationPerOfficeGroup from './app-installation-per-office-group'
-import { Section, H5, FlexContainerBasic, Button } from '@reapit/elements-legacy'
 import { WHOLE_ORG, SPECIFIC_OFFICE_GROUPS, InstallTypes } from './app-installation-manager'
+import { Button, FlexContainer, Subtitle } from '@reapit/elements'
 
 export interface AppInstallationSectionProps {
   initialAppInstallationType: InstallTypes
@@ -35,13 +35,13 @@ const AppInstallationSection: React.FC<AppInstallationSectionProps> = ({
       : appInstallationType !== initialAppInstallationType
 
   return (
-    <Section hasPadding={false}>
-      <FlexContainerBasic className="justify-between items-center mb-4">
-        <H5>Installation</H5>
-        <Button variant="primary" disabled={!submitButtonEnabled} onClick={() => setShowConfirmModal(true)}>
+    <>
+      <FlexContainer>
+        <Subtitle>Installation</Subtitle>
+        <Button intent="primary" disabled={!submitButtonEnabled} onClick={() => setShowConfirmModal(true)}>
           Save
         </Button>
-      </FlexContainerBasic>
+      </FlexContainer>
       <p className="mb-4">
         <p>Please select the type of installation you require for this app:</p>
       </p>
@@ -85,7 +85,7 @@ const AppInstallationSection: React.FC<AppInstallationSectionProps> = ({
           setOfficeGroupsToRemove={setOfficeGroupsToRemove}
         />
       )}
-    </Section>
+    </>
   )
 }
 

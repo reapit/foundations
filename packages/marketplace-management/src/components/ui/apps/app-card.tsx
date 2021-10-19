@@ -1,6 +1,5 @@
-import React, { Dispatch, SetStateAction, useEffect, useState } from 'react'
+import React, { Dispatch, FC, SetStateAction, useEffect, useState } from 'react'
 import { AppSummaryModel, InstallationModelPagedResult } from '@reapit/foundations-ts-definitions'
-import { Tile } from '@reapit/elements-legacy'
 import defaultAppIcon from '../../../assets/images/default-app-icon.jpg'
 import Routes from '../../../constants/routes'
 import { history } from '../../../core/router'
@@ -13,9 +12,7 @@ import {
   getInstallationsForOfficeGroups,
   getInstallationsForWholeOrg,
 } from './app-installation-manager'
-import { FaCheck, FaTimes } from 'react-icons/fa'
-import { cx } from '@linaria/core'
-import { installed, installString, uninstalled } from './__styled__/app-styles'
+import { Card } from '@reapit/elements'
 
 export interface AppCardProps {
   app: AppSummaryModel
@@ -49,7 +46,7 @@ export const handleInstallationsStringEffect =
     }
   }
 
-const AppCard: React.FC<AppCardProps> = ({ app }: AppCardProps) => {
+export const AppCard: FC<AppCardProps> = ({ app }: AppCardProps) => {
   const [installationString, setInstallationString] = useState<string | null>(null)
   const { connectSession } = useReapitConnect(reapitConnectBrowserSession)
   const { data: installations } = useSWR<InstallationModelPagedResult>(
@@ -60,37 +57,32 @@ const AppCard: React.FC<AppCardProps> = ({ app }: AppCardProps) => {
   useEffect(handleInstallationsStringEffect(setInstallationString, installations, clientId), [installations, clientId])
 
   return (
-    <Tile
-      heading={app.name || ''}
+    <Card
       onClick={handleNavigation(app.id as string)}
-      subHeading={app.developer || ''}
-      subHeadingAdditional={app.isDirectApi ? 'Integration' : ''}
-      image={<img className="image" src={app.iconUri || defaultAppIcon} alt={app.name} onError={onImageError} />}
-    >
-      {installationString && installationString !== 'Not installed' ? (
-        <span className={cx(installString, installed)}>
-          <FaCheck />
-          {installationString}
-        </span>
-      ) : installationString ? (
-        <span className={cx(installString, uninstalled)}>
-          <FaTimes />
-          {installationString}
-        </span>
-      ) : null}
-
-      {!app.isHidden ? (
-        <span className={cx(installString, installed)}>
-          <FaCheck />
-          Marketplace visible
-        </span>
-      ) : app.isHidden ? (
-        <span className={cx(installString, uninstalled)}>
-          <FaTimes />
-          Marketplace hidden
-        </span>
-      ) : null}
-    </Tile>
+      hasMainCard
+      hasListCard
+      mainCardHeading={app.name}
+      mainCardSubHeading={app.developer}
+      mainCardSubHeadingAdditional={app.isDirectApi ? 'Integration' : ''}
+      mainCardBody={app.summary}
+      mainCardImgUrl={app.iconUri || defaultAppIcon}
+      listCardHeading="Installation and Visibiliy"
+      listCardItems={[
+        {
+          listCardItemHeading: 'Installation Status',
+          listCardItemSubHeading:
+            installationString && installationString !== 'Not installed'
+              ? installationString
+              : installationString ?? '',
+          listCardItemIcon: 'customerInfographic',
+        },
+        {
+          listCardItemHeading: 'Marketplace Visibility',
+          listCardItemSubHeading: app.isHidden ? 'Marketplace visible' : 'Marketplace hidden',
+          listCardItemIcon: 'agencyCloudInfographic',
+        },
+      ]}
+    />
   )
 }
 

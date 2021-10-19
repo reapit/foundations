@@ -2,10 +2,10 @@ import React, { Dispatch, SetStateAction, useState, useEffect } from 'react'
 import useSWR from 'swr'
 import { InstallationModelPagedResult } from '@reapit/foundations-ts-definitions'
 import { OfficeGroupModelPagedResult, OfficeGroupModel } from '../../../types/organisations-schema'
-import { FadeIn, Loader, Section, Table, Button, FlexContainerBasic } from '@reapit/elements-legacy'
 import { URLS } from '../../../constants/api'
 import { orgIdEffectHandler } from '../../../utils/org-id-effect-handler'
-import { AppOfficeIdsCell } from './app-office-ids-cell'
+// import { AppOfficeIdsCell } from './app-office-ids-cell'
+import { Button, ButtonGroup, Loader } from '@reapit/elements'
 
 export interface AppInstallationPerOfficeGroupProps {
   installations: InstallationModelPagedResult | undefined
@@ -73,69 +73,67 @@ const AppInstallationPerOfficeGroup: React.FC<AppInstallationPerOfficeGroupProps
   const isPreviouslyInstalled = (installations, client) =>
     installations && installations.data && !!installations.data.find((i) => i.client === client)
 
-  const toggleOfficeGroupsToAdd = (customerId: string) => {
-    officeGroupsToAdd.includes(customerId)
-      ? setOfficeGroupsToAdd(officeGroupsToAdd.filter((item) => item !== customerId))
-      : setOfficeGroupsToAdd([...officeGroupsToAdd, customerId])
-  }
-  const toggleOfficeGroupsToRemove = (customerId: string) => {
-    officeGroupsToRemove.includes(customerId)
-      ? setOfficeGroupsToRemove(officeGroupsToRemove.filter((item) => item !== customerId))
-      : setOfficeGroupsToRemove([...officeGroupsToRemove, customerId])
-  }
+  // const toggleOfficeGroupsToAdd = (customerId: string) => {
+  //   officeGroupsToAdd.includes(customerId)
+  //     ? setOfficeGroupsToAdd(officeGroupsToAdd.filter((item) => item !== customerId))
+  //     : setOfficeGroupsToAdd([...officeGroupsToAdd, customerId])
+  // }
+  // const toggleOfficeGroupsToRemove = (customerId: string) => {
+  //   officeGroupsToRemove.includes(customerId)
+  //     ? setOfficeGroupsToRemove(officeGroupsToRemove.filter((item) => item !== customerId))
+  //     : setOfficeGroupsToRemove([...officeGroupsToRemove, customerId])
+  // }
 
-  const ToggleOfficeGroupSelectionCell = ({ cell: { value } }) => {
-    const previouslyInstalledForOfficeGroup = isPreviouslyInstalled(installations, value)
-    const checked =
-      (previouslyInstalledForOfficeGroup && !officeGroupsToRemove.includes(value)) ||
-      (!previouslyInstalledForOfficeGroup && officeGroupsToAdd.includes(value))
+  // const ToggleOfficeGroupSelectionCell = ({ cell: { value } }) => {
+  //   const previouslyInstalledForOfficeGroup = isPreviouslyInstalled(installations, value)
+  //   const checked =
+  //     (previouslyInstalledForOfficeGroup && !officeGroupsToRemove.includes(value)) ||
+  //     (!previouslyInstalledForOfficeGroup && officeGroupsToAdd.includes(value))
 
-    return (
-      <div className="field field-checkbox mb-0 control">
-        <input
-          className="checkbox"
-          type="checkbox"
-          id={value}
-          checked={checked}
-          onChange={() => {
-            previouslyInstalledForOfficeGroup ? toggleOfficeGroupsToRemove(value) : toggleOfficeGroupsToAdd(value)
-          }}
-        />
-        <label className="label" htmlFor={value}>
-          Installed
-        </label>
-      </div>
-    )
-  }
+  //   return (
+  //     <div className="field field-checkbox mb-0 control">
+  //       <input
+  //         className="checkbox"
+  //         type="checkbox"
+  //         id={value}
+  //         checked={checked}
+  //         onChange={() => {
+  //           previouslyInstalledForOfficeGroup ? toggleOfficeGroupsToRemove(value) : toggleOfficeGroupsToAdd(value)
+  //         }}
+  //       />
+  //       <label className="label" htmlFor={value}>
+  //         Installed
+  //       </label>
+  //     </div>
+  //   )
+  // }
 
   return (
-    <Section hasPadding={false}>
-      <FlexContainerBasic className="justify-end">
-        <Button variant="secondary" onClick={() => toggleAllOfficeGroups(true)}>
+    <>
+      <ButtonGroup alignment="right">
+        <Button intent="secondary" onClick={() => toggleAllOfficeGroups(true)}>
           Select all
         </Button>
-        <Button variant="secondary" onClick={() => toggleAllOfficeGroups(false)}>
+        <Button intent="secondary" onClick={() => toggleAllOfficeGroups(false)}>
           Deselect all
         </Button>
-      </FlexContainerBasic>
-      <FadeIn>
-        <Table
-          data={officeGroupsTableData ? officeGroupsTableData : []}
-          columns={[
-            {
-              Header: 'Group Name',
-              accessor: 'name',
-            },
-            { Header: 'Office List', accessor: 'officeIds', Cell: AppOfficeIdsCell },
-            {
-              Header: 'Edit',
-              accessor: 'customerId',
-              Cell: ToggleOfficeGroupSelectionCell,
-            },
-          ]}
-        />
-      </FadeIn>
-    </Section>
+      </ButtonGroup>
+      {/* <Table
+        rows={officeGroupsTableData ? officeGroupsTableData : []}
+        columns={[
+          {
+            Header: 'Group Name',
+            accessor: 'name',
+          },
+          { Header: 'Office List', accessor: 'officeIds', Cell: AppOfficeIdsCell },
+          {
+            Header: 'Edit',
+            accessor: 'customerId',
+            Cell: ToggleOfficeGroupSelectionCell,
+          },
+        ]}
+      /> */}
+    </>
   )
 }
 

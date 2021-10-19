@@ -1,7 +1,7 @@
-import React, { Dispatch, SetStateAction, useState } from 'react'
+import React, { Dispatch, FC, SetStateAction, useState } from 'react'
 import { AppDetailModel, AppSummaryModel } from '@reapit/foundations-ts-definitions'
-import { Section, notification, H5 } from '@reapit/elements-legacy'
 import { updateAppRestrictionsService } from '../../../services/apps'
+import { BodyText, InputGroup, Subtitle, useSnack } from '@reapit/elements'
 
 export interface AppToggleVisibilityProps {
   app: AppSummaryModel
@@ -14,6 +14,8 @@ export const handleOnCheckboxChange =
     reFetchApp: () => Promise<AppDetailModel | undefined>,
     appId: string,
     checked: boolean,
+    success: (message: string) => void,
+    error: (message: string) => void,
   ) =>
   async () => {
     setChecked(!checked)
@@ -24,46 +26,33 @@ export const handleOnCheckboxChange =
     })
     if (updatedAppRestrictions) {
       await reFetchApp()
-      return notification.success({
-        message: 'Successfully updated app restrictions',
-      })
+      return success('Successfully updated app restrictions')
     }
 
-    notification.error({
-      message: 'Failed to update app restrictions',
-    })
+    error('Failed to update app restrictions')
 
     setChecked(checked)
   }
 
-const AppToggleVisibilitySection: React.FC<AppToggleVisibilityProps> = ({
-  app,
-  reFetchApp,
-}: AppToggleVisibilityProps) => {
+const AppToggleVisibilitySection: FC<AppToggleVisibilityProps> = ({ app, reFetchApp }: AppToggleVisibilityProps) => {
   const [checked, setChecked] = useState(!app.isHidden)
+  const { success, error } = useSnack()
   return (
-    <Section hasPadding={false}>
-      <H5>Application Visibility</H5>
-      <p className="mb-4">
-        <p>
-          By default, all apps will be visible to all offices/users within your organisation. If you wish to hide an app
-          from the Marketplace, please deselect. Hidden apps (apps that have been deselected) will not be visible in the
-          Marketplace to any offices/users inside of your organisation.
-        </p>
-      </p>
-      <div className="field field-checkbox mb-0 control">
-        <input
-          className="checkbox"
-          type="checkbox"
-          id={app.id}
-          checked={checked}
-          onChange={handleOnCheckboxChange(setChecked, reFetchApp, app.id as string, checked)}
-        />
-        <label className="label" htmlFor={app.id}>
-          Visible
-        </label>
-      </div>
-    </Section>
+    <>
+      <Subtitle>Application Visibility</Subtitle>
+      <BodyText hasGreyText>
+        By default, all apps will be visible to all offices/users within your organisation. If you wish to hide an app
+        from the Marketplace, please deselect. Hidden apps (apps that have been deselected) will not be visible in the
+        Marketplace to any offices/users inside of your organisation.
+      </BodyText>
+      <InputGroup
+        label="Visible"
+        type="checkbox"
+        id={app.id}
+        checked={checked}
+        onChange={handleOnCheckboxChange(setChecked, reFetchApp, app.id as string, checked, success, error)}
+      />
+    </>
   )
 }
 

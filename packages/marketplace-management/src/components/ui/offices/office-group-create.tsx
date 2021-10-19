@@ -22,7 +22,7 @@ import {
   MultiSelectInput,
   MultiSelectOption,
   StepsVertical,
-  Subtitle,
+  Title,
   Toggle,
   useSnack,
 } from '@reapit/elements'
@@ -154,6 +154,7 @@ export const OfficeGroupCreate: FC<OfficeGroupCreateProps> = () => {
       onSubmit={handleSubmit(onSubmit)}
       onChange={handleSwitchStep(selectedStep, trigger, setSelectedStep)}
     >
+      <Title>Create Office Group</Title>
       <StepsVertical
         steps={[
           {
@@ -161,11 +162,7 @@ export const OfficeGroupCreate: FC<OfficeGroupCreateProps> = () => {
             content: (
               <FormLayout className={cx(elFadeIn, elMb11)}>
                 <InputWrapFull>
-                  <Subtitle>Edit Office Group</Subtitle>
-                  <BodyText hasGreyText>
-                    To manage offices associated to this group, you can search and select users from the ‘Offices’
-                    section below:
-                  </BodyText>
+                  <BodyText hasGreyText>Add a name for your office group.</BodyText>
                 </InputWrapFull>
                 <InputWrap>
                   <InputGroup
@@ -184,6 +181,12 @@ export const OfficeGroupCreate: FC<OfficeGroupCreateProps> = () => {
             content: (
               <FormLayout className={cx(elFadeIn, elMb11)}>
                 <InputWrapFull>
+                  <BodyText hasGreyText>
+                    To manage offices associated to this group, you can search and select users from the ‘Offices’
+                    section below:
+                  </BodyText>
+                </InputWrapFull>
+                <InputWrapFull>
                   <InputGroup onChange={debouncedSearch} icon="searchSystem" placeholder="Search" label="Offices" />
                   <MultiSelectInput
                     id="office-ids-select"
@@ -200,6 +203,9 @@ export const OfficeGroupCreate: FC<OfficeGroupCreateProps> = () => {
             item: '3',
             content: (
               <FormLayout className={cx(elFadeIn, elMb11)}>
+                <InputWrapFull>
+                  <BodyText hasGreyText>Toggle the below to determine if the office grouping is live or not.</BodyText>
+                </InputWrapFull>
                 <InputWrap>
                   <Label>Group Active</Label>
                   <Toggle id="status-edit-toggle" hasGreyBg {...register('status')}>

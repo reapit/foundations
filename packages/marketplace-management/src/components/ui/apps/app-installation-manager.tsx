@@ -7,7 +7,7 @@ import AppUninstallationSection from './app-uninstallation-section'
 import { URLS } from '../../../constants/api'
 import { clientIdEffectHandler } from '../../../utils/client-id-effect-handler'
 import { bulkInstall } from '../../../services/installation'
-import { notification } from '@reapit/elements-legacy'
+import { useSnack } from '@reapit/elements'
 
 export interface AppInstallationManagerProps {
   app: AppSummaryModel
@@ -51,6 +51,7 @@ const AppInstallationManager: React.FC<AppInstallationManagerProps> = ({ app }: 
   const [clientId, setClientId] = useState<string | null>(null)
   const [showConfirmModal, setShowConfirmModal] = useState<boolean>(false)
   const [performCompleteUninstall, setPerformCompleteUninstall] = useState<boolean>(false)
+  const { success } = useSnack()
 
   useEffect(clientIdEffectHandler(clientId, setClientId), [])
 
@@ -124,9 +125,8 @@ const AppInstallationManager: React.FC<AppInstallationManagerProps> = ({ app }: 
       revalidateInstallations()
 
       // show the toast
-      notification.success({
-        message: 'Changes have been saved successfully',
-      })
+
+      success('Changes have been saved successfully')
     } finally {
       // close the confirmation modal
       setShowConfirmModal(false)
