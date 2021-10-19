@@ -38,11 +38,14 @@ jobs:
             const tags = github.rest.repos.listTags({
               ...context.issue,
             }).sort((a,b) => a.name - b.name)
+            console.log('values', "${{ steps.tagName.outputs.package }}", "${{ steps.tagName.outputs.version }}")
             const PREVIOUS_VERSION = tags[tags.findIndex(tag => tag.name === "${{ steps.tagName.outputs.version }}") - 1]
+            console.log('previous version', PREVIOUS_VERSION)
 
             if (!PREVIOUS_VERSION) process.exit(127)
 
             const IS_PACKAGE = (packageInfo.name as string).includes("@reapit/", 0)
+            console.log('is package', IS_PACKAGE)
 
             const child = async (command) => {
               await new Promise((resolve) => exec(command, (err) => {
@@ -60,7 +63,7 @@ jobs:
               if (IS_PACKAGE) {
                 await child(
                   "yarn npm dist-tag rm ${{ steps.tagName.outputs.package }} latest &&" +
-                  "yarn npm dist-tag add ${{ steps.tagName.outputs.package }}@$PREVIOUS_VERSION latest &&" +
+                  "yarn npm dist-tag add ${{ steps.tagName.outputs.package }}@${PREVIOUS_VERSION} latest &&" +
                   "yarn npm dist-tag ls"
                 )
               }
