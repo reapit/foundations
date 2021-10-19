@@ -26,7 +26,7 @@ interface WebhooksNewAppProps {
   webhookQueryParams: WebhookQueryParams
 }
 
-export const WebhooksNewApp: FC<WebhooksNewAppProps> = ({ register, errors }) => {
+export const WebhooksNewApp: FC<WebhooksNewAppProps> = ({ register, errors, webhookQueryParams }) => {
   const { data: apps, isLoading } = useSelector(selectAppListState)
 
   const errorMessage = errors?.applicationId?.message
@@ -44,7 +44,7 @@ export const WebhooksNewApp: FC<WebhooksNewAppProps> = ({ register, errors }) =>
         ) : apps && apps.length ? (
           <>
             <InputGroup>
-              <Select {...register('applicationId')}>
+              <Select {...register('applicationId')} defaultValue={webhookQueryParams.applicationId ?? ''}>
                 <option key="default-option" value="">
                   None selected
                 </option>
