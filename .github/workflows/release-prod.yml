@@ -28,7 +28,7 @@ jobs:
         uses: olegtarasov/get-tag@v2.1
         id: tagName
         with:
-          tagRegex: "(?<package>.*)_(?<version>.*)" 
+          tagRegex: '(?<package>.*)_(?<version>.*)'
 
       - name: Set Node
         uses: actions/setup-node@v1
@@ -45,11 +45,11 @@ jobs:
       - name: Fetch config
         run: |
           yarn workspace ${{ steps.tagName.outputs.package }} run conf --name production
-      
+
       - name: Lint
         run: |
           yarn workspace ${{ steps.tagName.outputs.package }} run lint
-    
+
       - name: Test
         run: |
           yarn workspace ${{ steps.tagName.outputs.package }} run test --watch=false --coverage --ci --silent --forceExit --detectOpenHandles --runInBand
@@ -61,8 +61,7 @@ jobs:
       - name: Release
         run: |
           yarn workspace ${{ steps.tagName.outputs.package }} run release --stage prod
-      
+
       - name: Publish
         run: |
           yarn workspace ${{ steps.tagName.outputs.package }} run publish --tag latest
-
