@@ -61,24 +61,28 @@ const SelectIDofType = ({
   return null
 }
 
-export const FormInput = ({
-  label,
-  value,
-  onChange,
-  isRequired,
-  typeName,
-  enumValues,
-  idOfType,
-}: {
-  label: string
-  value: any
-  isRequired: boolean
-  onChange: (value: any) => void
-  typeName: string
-  enumValues: string[]
-  idOfType: string
-}) => (
-  <InputWrap>
+const InnerFormInput = (
+  {
+    label,
+    value,
+    onChange,
+    isRequired,
+    typeName,
+    enumValues,
+    idOfType,
+  }: {
+    label: string
+    value: any
+    isRequired: boolean
+    onChange: (value: any) => void
+    typeName: string
+    enumValues: string[]
+    idOfType: string
+  },
+  ref: React.ForwardedRef<HTMLDivElement>,
+) => (
+  // @ts-ignore
+  <InputWrap ref={ref}>
     {enumValues && (
       <>
         <Label>{label}</Label>
@@ -112,3 +116,5 @@ export const FormInput = ({
     )}
   </InputWrap>
 )
+
+export const FormInput = React.forwardRef(InnerFormInput)
