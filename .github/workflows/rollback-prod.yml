@@ -1,11 +1,10 @@
 name: Rollback Prod
 
-on: 
+on:
   release:
-    types:
-      - deleted
+    types: [deleted]
 
-env: 
+env:
   NPM_TOKEN: ${{secrets.NPM_TOKEN}}
   GITHUB_TOKEN: ${{secrets.GITHUB_TOKEN}}
   SENTRY_AUTH_TOKEN: ${{secrets.SENTRY_AUTH_TOKEN}}
@@ -24,10 +23,12 @@ jobs:
         uses: olegtarasov/get-tag@v2.1
         id: tagName
         with:
-          tagRegex: "(?<package>.*)_(?<version>.*)" 
+          tagRegex: '(?<package>.*)_(?<version>.*)'
+
       - uses: actions/checkout@v2
         with:
           fetch-depth: 0
+
       - run: |
           PREVIOUS_VERSION = $(git tag --list | grep ${{ steps.tagName.outputs.package }} | tail -2 | grep -vw ${{ steps.tagName.outputs.package }}_${{ steps.tagName.outputs.version }})
           git checkout $PREVIOUS_VERSION
@@ -38,7 +39,7 @@ jobs:
       - name: Fetch config
         run: |
           yarn workspace ${{ steps.tagName.outputs.package }} run conf --name production
-      
+
       - name: Build
         run: |
           yarn workspace ${{ steps.tagName.outputs.package }} run build
@@ -46,7 +47,7 @@ jobs:
       - name: Release
         run: |
           yarn workspace ${{ steps.tagName.outputs.package }} run release --stage prod
-      
+
       - name: Publish
         run: |
           test $IS_PACKAGE = 1
