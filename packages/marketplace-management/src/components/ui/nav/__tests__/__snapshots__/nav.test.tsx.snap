@@ -1,0 +1,45 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Nav should match a snapshot 1`] = `
+<NavResponsive
+  defaultNavIndex={0}
+  options={
+    Array [
+      Object {
+        "itemIndex": 0,
+      },
+      Object {
+        "callback": [Function],
+        "iconId": "officesMenu",
+        "itemIndex": 1,
+        "text": "Offices",
+      },
+      Object {
+        "callback": [Function],
+        "iconId": "usersMenu",
+        "itemIndex": 2,
+        "text": "Users",
+      },
+      Object {
+        "callback": [Function],
+        "iconId": "marketplaceMenu",
+        "itemIndex": 3,
+        "text": "AppMarket",
+      },
+      Object {
+        "callback": [Function],
+        "iconId": "appsMenu",
+        "itemIndex": 4,
+        "text": "Apps",
+      },
+      Object {
+        "callback": undefined,
+        "iconId": "logoutMenu",
+        "isSecondary": true,
+        "itemIndex": 5,
+        "text": "Logout",
+      },
+    ]
+  }
+/>
+`;

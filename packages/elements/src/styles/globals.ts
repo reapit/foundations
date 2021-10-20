@@ -153,6 +153,7 @@ export const elGlobals = css`
       -webkit-font-smoothing: antialiased;
       -moz-osx-font-smoothing: grayscale;
       -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+      overflow: hidden;
 
       * {
         box-sizing: border-box;

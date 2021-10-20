@@ -2,80 +2,91 @@
 
 exports[`OfficesGroupsTab should match a snapshot 1`] = `
 <ErrorBoundary>
-  <div
-    className="flex justify-between items-center mb-4"
-  >
-    <H5
-      className="mb-0"
-    >
-      Office groups
-    </H5>
-    <Button
-      onClick={[Function]}
-    >
-      Create office group
-    </Button>
-  </div>
-  <p
-    className="mb-4"
-  >
-    The list below will show you any ‘Office Groups’ that have been created for your Organisation. To create a new office group, please click on ‘Create New Office Group’. To add or edit an existing office group, please use ‘Edit’ on the associated group.
-  </p>
-  <OfficeGroupsContent
-    columns={
+  <Title>
+    Office Groups
+  </Title>
+  <Table
+    className="el-fade-in el-mb11"
+    indexExpandedRow={null}
+    rows={
       Array [
         Object {
-          "Header": "Group Name",
-          "accessor": "name",
-        },
-        Object {
-          "Cell": [Function],
-          "Header": "Office List",
-          "accessor": "offices",
-        },
-        Object {
-          "Cell": [Function],
-          "Header": "Last Updated",
-        },
-        Object {
-          "Cell": [Function],
-          "Header": "Edit",
+          "cells": Array [
+            Object {
+              "label": "Group Name",
+              "narrowTable": Object {
+                "showLabel": true,
+              },
+              "value": "string",
+            },
+            Object {
+              "label": "Office List",
+              "narrowTable": Object {
+                "showLabel": true,
+              },
+              "value": "string",
+            },
+            Object {
+              "label": "Last Updated",
+              "narrowTable": Object {
+                "showLabel": true,
+              },
+              "value": "14 Aug 2019 12:30",
+            },
+          ],
+          "expandableContent": Object {
+            "content": <EditOfficeGroupForm
+              officeGroup={
+                Object {
+                  "created": "2019-08-14T12:30:02.0000000Z",
+                  "id": "SOME_ID",
+                  "modified": "2019-08-14T12:30:02.0000000Z",
+                  "name": "string",
+                  "officeIds": "SOME_ID,ANOTHER_ID",
+                  "offices": Array [
+                    Object {
+                      "created": "2019-08-14T12:30:02.0000000Z",
+                      "id": "SOME_ID",
+                      "modified": "2019-08-14T12:30:02.0000000Z",
+                      "name": "string",
+                      "officeIds": "SOME_ID,ANOTHER_ID",
+                      "organisationId": "string",
+                      "status": "string",
+                      "tag": "string",
+                    },
+                  ],
+                  "organisationId": "string",
+                  "status": "string",
+                  "tag": "string",
+                }
+              }
+              offices={
+                Array [
+                  Object {
+                    "created": "2019-08-14T12:30:02.0000000Z",
+                    "id": "SOME_ID",
+                    "modified": "2019-08-14T12:30:02.0000000Z",
+                    "name": "string",
+                    "officeIds": "SOME_ID,ANOTHER_ID",
+                    "organisationId": "string",
+                    "status": "string",
+                    "tag": "string",
+                  },
+                ]
+              }
+              onComplete={[Function]}
+              orgId=""
+            />,
+          },
         },
       ]
     }
-    officeGroups={
-      Object {
-        "_embedded": Array [
-          Object {
-            "created": "2019-08-14T12:30:02.0000000Z",
-            "id": "SOME_ID",
-            "modified": "2019-08-14T12:30:02.0000000Z",
-            "name": "string",
-            "officeIds": "SOME_ID,ANOTHER_ID",
-            "organisationId": "string",
-            "status": "string",
-            "tag": "string",
-          },
-        ],
-        "_links": Object {
-          "additionalProp1": Object {
-            "href": "string",
-          },
-          "additionalProp2": Object {
-            "href": "string",
-          },
-          "additionalProp3": Object {
-            "href": "string",
-          },
-        },
-        "pageCount": 0,
-        "pageNumber": 0,
-        "pageSize": 0,
-        "totalCount": 0,
-        "totalPageCount": 0,
-      }
-    }
-    onPageChange={[Function]}
+    setIndexExpandedRow={[Function]}
+  />
+  <Pagination
+    callback={[Function]}
+    currentPage={0}
+    numberPages={0}
   />
 </ErrorBoundary>
 `;

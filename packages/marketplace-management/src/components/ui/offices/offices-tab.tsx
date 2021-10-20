@@ -1,34 +1,24 @@
-import React, { useCallback } from 'react'
+import React, { FC, useCallback, useMemo } from 'react'
 import useSWR from 'swr'
 import { useHistory, useLocation } from 'react-router'
 import { History } from 'history'
 import { OfficeModelPagedResult, OfficeModel } from '@reapit/foundations-ts-definitions'
 import ErrorBoundary from '@/components/hocs/error-boundary'
-import { cleanObject } from '@reapit/utils-common'
+import { cleanObject, DATE_TIME_FORMAT, setQueryParams, toLocalTime } from '@reapit/utils-common'
 import { combineAddress } from '@reapit/utils-common'
-import {
-  Pagination,
-  Table,
-  Loader,
-  setQueryParams,
-  isEmptyObject,
-  Section,
-  FadeIn,
-  Helper,
-  toLocalTime,
-  DATE_TIME_FORMAT,
-  H5,
-} from '@reapit/elements-legacy'
 import Routes from '@/constants/routes'
 import { URLS } from '../../../constants/api'
-import OfficesFilterForm, { OfficesFilterFormValues } from '@/components/ui/offices/offices-tab-filter'
+import OfficesFilterForm, { OfficesFormSchema } from '@/components/ui/offices/offices-tab-filter'
+import { elFadeIn, Loader, Pagination, RowProps, Title, Table, elMb11, PersistantNotification } from '@reapit/elements'
+import { isEmptyObject } from '@reapit/utils-react'
+import { cx } from '@linaria/core'
 
-export const buildFilterValues = (queryParams: URLSearchParams): OfficesFilterFormValues => {
+export const buildFilterValues = (queryParams: URLSearchParams): OfficesFormSchema => {
   const name = queryParams.get('name') || []
-  return { name } as OfficesFilterFormValues
+  return { name } as OfficesFormSchema
 }
 
-export const onPageChangeHandler = (history: History<any>, queryParams: OfficesFilterFormValues) => (page: number) => {
+export const onPageChangeHandler = (history: History<any>, queryParams: OfficesFormSchema) => (page: number) => {
   const query = setQueryParams(queryParams)
   let queryString = `?pageNumber=${page}`
   if (query && query !== '') {
@@ -37,7 +27,7 @@ export const onPageChangeHandler = (history: History<any>, queryParams: OfficesF
   return history.push(`${Routes.OFFICES}${queryString}`)
 }
 
-export const onSearchHandler = (history: History<any>) => (queryParams: OfficesFilterFormValues) => {
+export const onSearchHandler = (history: History<any>) => (queryParams: OfficesFormSchema) => {
   const cleanedValues = cleanObject(queryParams)
 
   if (isEmptyObject(cleanedValues)) {
@@ -52,7 +42,35 @@ export const onSearchHandler = (history: History<any>) => (queryParams: OfficesF
   }
 }
 
-const OfficesTab: React.FC = () => {
+export const handleSortTableData = (offices: OfficeModel[]) => (): RowProps[] => {
+  return offices.map((office: OfficeModel) => ({
+    cells: [
+      {
+        label: 'Office Name',
+        value: office.name ?? '',
+        narrowTable: {
+          showLabel: true,
+        },
+      },
+      {
+        label: 'Address',
+        value: combineAddress(office.address),
+        narrowTable: {
+          showLabel: true,
+        },
+      },
+      {
+        label: 'Last Updated',
+        value: toLocalTime(office.modified ?? office.created, DATE_TIME_FORMAT.DATE_TIME_FORMAT),
+        narrowTable: {
+          showLabel: true,
+        },
+      },
+    ],
+  }))
+}
+
+const OfficesTab: FC = () => {
   const history = useHistory()
   const location = useLocation()
   const search = location.search
@@ -60,66 +78,32 @@ const OfficesTab: React.FC = () => {
   const filterValues = buildFilterValues(queryParams)
   const onSearch = useCallback(onSearchHandler(history), [history])
   const onPageChange = useCallback(onPageChangeHandler(history, filterValues), [history, filterValues])
-
   const { data } = useSWR<OfficeModelPagedResult | undefined>(
     `${URLS.OFFICES}${search ? search + '&pageSize=12' : '?pageSize=12'}`,
   )
+  const offices = data?._embedded ?? []
+  const totalPageCount = data?.totalPageCount ?? 0
+  const pageNumber = data?.pageNumber ?? 0
 
-  const AddressCell = ({ cell: { value } }) => <p>{combineAddress(value)}</p>
-  const LastUpdatedCell = ({
-    cell: {
-      row: { original },
-    },
-  }) => <p>{toLocalTime(original.modified || original.created, DATE_TIME_FORMAT.DATE_TIME_FORMAT)}</p>
-
-  const columns = [
-    { Header: 'Office Name', accessor: 'name' },
-    { Header: 'Address', accessor: 'address', Cell: AddressCell },
-    { Header: 'Last Updated', Cell: LastUpdatedCell },
-  ]
+  const rows = useMemo(handleSortTableData(offices), [offices])
 
   return (
     <ErrorBoundary>
-      <Section hasPadding={false}>
-        <H5>Existing offices</H5>
-        <p className="mb-4">
-          The list below contains all ‘Offices’ within your organisation. To create or manage an Office Group, please
-          visit the ‘Groups’ page.
-        </p>
-        <OfficesFilterForm filterValues={filterValues} onSearch={onSearch} />
-      </Section>
-      {!data ? <Loader /> : <OfficesContent data={data} columns={columns} onPageChange={onPageChange} />}
+      <Title>Existing Offices</Title>
+      <OfficesFilterForm filterValues={filterValues} onSearch={onSearch} />
+      {!data ? (
+        <Loader />
+      ) : offices.length ? (
+        <>
+          <Table className={cx(elFadeIn, elMb11)} rows={rows} />
+          <Pagination callback={onPageChange} numberPages={totalPageCount} currentPage={pageNumber} />
+        </>
+      ) : (
+        <PersistantNotification isFullWidth isExpanded intent="secondary" isInline>
+          No results found for your office search
+        </PersistantNotification>
+      )}
     </ErrorBoundary>
-  )
-}
-
-export const OfficesContent: React.FC<{
-  data: OfficeModelPagedResult
-  columns: any[]
-  onPageChange: (page: number) => void
-}> = ({ data, columns, onPageChange }) => {
-  const { _embedded: listOffice, totalCount, pageSize, pageNumber = 1 } = data
-  return (
-    <>
-      {renderResult(columns, listOffice)}
-      <Pagination onChange={onPageChange} totalCount={totalCount} pageSize={pageSize} pageNumber={pageNumber} />
-    </>
-  )
-}
-
-export const renderResult = (columns: any[], listOffice?: OfficeModel[]) => {
-  if (listOffice?.length === 0) {
-    return (
-      <FadeIn>
-        <Helper variant="info">No Results</Helper>
-      </FadeIn>
-    )
-  }
-
-  return (
-    <FadeIn>
-      <Table expandable scrollable={true} data={listOffice || []} columns={columns} />
-    </FadeIn>
   )
 }
 

@@ -1,37 +1,65 @@
-import React, { useState, useEffect, useCallback } from 'react'
+import React, { useState, useEffect, useCallback, useMemo, FC } from 'react'
 import useSWR from 'swr'
 import { useHistory, useLocation } from 'react-router'
 import { History } from 'history'
 import { UserModelPagedResult, UserModel } from '../../../types/organisations-schema'
 import ErrorBoundary from '@/components/hocs/error-boundary'
-import {
-  Pagination,
-  Table,
-  Loader,
-  FadeIn,
-  Helper,
-  Button,
-  H5,
-  getMarketplaceGlobalsByKey,
-} from '@reapit/elements-legacy'
 import Routes from '@/constants/routes'
-import { GLOSSARY_USER_ROLES_URL, URLS } from '../../../constants/api'
-import EditUserModal from './edit-user'
+import { URLS } from '../../../constants/api'
 import { orgIdEffectHandler } from '../../../utils/org-id-effect-handler'
+import { elFadeIn, elMb11, Loader, Pagination, PersistantNotification, RowProps, Table, Title } from '@reapit/elements'
+import { cx } from '@linaria/core'
+import EditUserForm from './edit-user'
 
 export const onPageChangeHandler = (history: History<any>) => (page: number) => {
   const queryString = `?pageNumber=${page}`
   return history.push(`${Routes.USERS}${queryString}`)
 }
 
-const UsersTab: React.FC = () => {
+export const handleSortTableData = (users: UserModel[], orgId: string, onComplete: () => void) => (): RowProps[] => {
+  return users.map((user: UserModel) => ({
+    cells: [
+      {
+        label: 'Name',
+        value: user.name ?? '',
+        narrowTable: {
+          showLabel: true,
+        },
+      },
+      {
+        label: 'Email',
+        value: user.email ?? '',
+        narrowTable: {
+          showLabel: true,
+        },
+      },
+      {
+        label: 'Groups',
+        value:
+          user.groups
+            ?.map((group) => {
+              if (window.reapit.config.groupIdsWhitelist.includes(group)) return group
+            })
+            .filter(Boolean)
+            .join(', ') ?? '',
+        narrowTable: {
+          showLabel: true,
+        },
+      },
+    ],
+    expandableContent: {
+      content: <EditUserForm user={user} onComplete={onComplete} orgId={orgId} />,
+    },
+  }))
+}
+
+const UsersTab: FC = () => {
   const history = useHistory()
   const location = useLocation()
   const search = location.search
   const onPageChange = useCallback(onPageChangeHandler(history), [history])
   const [orgId, setOrgId] = useState<string | null>(null)
-  const [editingUser, setEditingUser] = useState<UserModel>()
-  const isDesktop = getMarketplaceGlobalsByKey()
+  const [indexExpandedRow, setIndexExpandedRow] = useState<number | null>(null)
 
   useEffect(orgIdEffectHandler(orgId, setOrgId), [])
 
@@ -43,81 +71,38 @@ const UsersTab: React.FC = () => {
       : null,
   )
 
-  const UserGroupCell = ({ cell: { value } }) => (
-    <span>
-      {value.map((group: string) => (
-        <div key={group}>{group}</div>
-      ))}
-    </span>
-  )
+  const users = data?._embedded ?? []
+  const totalPageCount = data?.totalPageCount ?? 0
+  const pageNumber = data?.pageNumber ?? 0
 
-  const EditButton = ({
-    cell: {
-      row: { original },
-    },
-  }) => (
-    <Button type="button" variant="primary" onClick={() => setEditingUser(original)}>
-      Edit
-    </Button>
-  )
+  const onComplete = () => {
+    mutate()
+    setIndexExpandedRow(null)
+  }
 
-  const columns = [
-    { Header: 'Name', accessor: 'name' },
-    { Header: 'Email', accessor: 'email' },
-    { Header: 'User Groups', accessor: 'groups', Cell: UserGroupCell },
-    { Header: 'Edit', Cell: EditButton },
-  ]
+  const rows = useMemo(handleSortTableData(users, orgId ?? '', onComplete), [users])
 
   return (
     <ErrorBoundary>
-      <H5>Existing users</H5>
-      <p className="mb-4">
-        The list below contains all &lsquo;Users&rsquo; within your organisation. You can search and edit users to
-        manage the groups an individual user belongs to. For more information on ‘Groups’, please click{' '}
-        {isDesktop ? (
-          <a href={`agencycloud://process/webpage?url=${GLOSSARY_USER_ROLES_URL}`}>here.</a>
-        ) : (
-          <a target="_blank" rel="noopener noreferrer" href={GLOSSARY_USER_ROLES_URL}>
-            here.
-          </a>
-        )}
-      </p>
-
-      {!data ? <Loader /> : <UsersContent data={data} columns={columns} onPageChange={onPageChange} />}
-      {orgId && (
-        <EditUserModal setEditingUser={setEditingUser} editingUser={editingUser} onRefetchData={mutate} orgId={orgId} />
+      <Title>Existing Users</Title>
+      {!data ? (
+        <Loader />
+      ) : users.length ? (
+        <>
+          <Table
+            className={cx(elFadeIn, elMb11)}
+            rows={rows}
+            indexExpandedRow={indexExpandedRow}
+            setIndexExpandedRow={setIndexExpandedRow}
+          />
+          <Pagination callback={onPageChange} numberPages={totalPageCount} currentPage={pageNumber} />
+        </>
+      ) : (
+        <PersistantNotification isFullWidth isExpanded intent="secondary" isInline>
+          No users found
+        </PersistantNotification>
       )}
     </ErrorBoundary>
-  )
-}
-
-export const UsersContent: React.FC<{
-  data: UserModelPagedResult
-  columns: any[]
-  onPageChange: (page: number) => void
-}> = ({ data, columns, onPageChange }) => {
-  const { _embedded: listUser, totalCount, pageSize, pageNumber = 1 } = data
-  return (
-    <>
-      {renderResult(columns, listUser)}
-      <Pagination onChange={onPageChange} totalCount={totalCount} pageSize={pageSize} pageNumber={pageNumber} />
-    </>
-  )
-}
-
-export const renderResult = (columns: any[], listUser?: UserModel[]) => {
-  if (listUser?.length === 0) {
-    return (
-      <FadeIn>
-        <Helper variant="info">No Results</Helper>
-      </FadeIn>
-    )
-  }
-
-  return (
-    <FadeIn>
-      <Table expandable scrollable={true} data={listUser || []} columns={columns} />
-    </FadeIn>
   )
 }
 

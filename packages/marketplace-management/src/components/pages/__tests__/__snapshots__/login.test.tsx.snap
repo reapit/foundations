@@ -27,29 +27,31 @@ exports[`Login should match a snapshot 1`] = `
   <div
     className="wrapper"
   >
-    <Level>
+    <div
+      className="el-mb11"
+    >
       <img
         alt="Reapit Connect Graphic"
         src=""
       />
-    </Level>
-    <Level
-      className="login-level"
+    </div>
+    <ButtonGroup
+      alignment="center"
     >
       <Button
-        dataTest="login-button"
         disabled={false}
         fullWidth={true}
+        intent="primary"
         loading={false}
         onClick={[Function]}
+        size={4}
         type="button"
-        variant="primary"
       >
         Login
       </Button>
-    </Level>
-    <FlexContainerBasic
-      centerContent={true}
+    </ButtonGroup>
+    <FlexContainer
+      isFlexJustifyCenter={true}
     />
   </div>
 </div>

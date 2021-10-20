@@ -1,28 +1,25 @@
-import React, { Dispatch, SetStateAction, useState, useEffect } from 'react'
+import React, { Dispatch, SetStateAction, useState, useEffect, ChangeEvent, FC } from 'react'
 import useSWR from 'swr'
 import { InstallationModelPagedResult } from '@reapit/foundations-ts-definitions'
-import { OfficeGroupModelPagedResult, OfficeGroupModel } from '../../../types/organisations-schema'
-import { FadeIn, Loader, Section, Table, Button, FlexContainerBasic } from '@reapit/elements-legacy'
+import { OfficeGroupModelPagedResult } from '../../../types/organisations-schema'
 import { URLS } from '../../../constants/api'
 import { orgIdEffectHandler } from '../../../utils/org-id-effect-handler'
-import { AppOfficeIdsCell } from './app-office-ids-cell'
+import { Button, ButtonGroup, InputWrapFull, Loader, MultiSelectInput, MultiSelectOption } from '@reapit/elements'
 
 export interface AppInstallationPerOfficeGroupProps {
   installations: InstallationModelPagedResult | undefined
-  officeGroupsToAdd: string[]
   setOfficeGroupsToAdd: Dispatch<SetStateAction<string[]>>
-  officeGroupsToRemove: string[]
   setOfficeGroupsToRemove: Dispatch<SetStateAction<string[]>>
 }
 
-const AppInstallationPerOfficeGroup: React.FC<AppInstallationPerOfficeGroupProps> = ({
+const AppInstallationPerOfficeGroup: FC<AppInstallationPerOfficeGroupProps> = ({
   installations,
-  officeGroupsToAdd,
   setOfficeGroupsToAdd,
-  officeGroupsToRemove,
   setOfficeGroupsToRemove,
 }: AppInstallationPerOfficeGroupProps) => {
-  const [officeGroupsTableData, setOfficeGroupsTableData] = useState<OfficeGroupModel[] | undefined>([])
+  const [multiSelect, setMultiSelect] = useState<JSX.Element | null>(null)
+  const [allOfficeGroups, toggleAllOfficeGroups] = useState<'all' | 'none' | null>(null)
+
   const [orgId, setOrgId] = useState<string | null>(null)
 
   useEffect(orgIdEffectHandler(orgId, setOrgId), [])
@@ -31,112 +28,81 @@ const AppInstallationPerOfficeGroup: React.FC<AppInstallationPerOfficeGroupProps
     !orgId ? null : `${URLS.ORGANISATIONS}/${orgId}${URLS.OFFICES_GROUPS}?pageSize=999`,
   )
 
+  const onChange = (event?: ChangeEvent<HTMLInputElement>, values?: string[]) => {
+    const newValues = values ? values : event ? event.target.value.split(',') : []
+    const originalValues =
+      officeGroups?._embedded
+        ?.filter((group) => installations?.data?.find((installation) => installation.client === group.customerId))
+        .map((filteredGroup) => filteredGroup.customerId ?? '') ?? []
+
+    const valuesToAdd = newValues.filter((value) => !originalValues.includes(value))
+    const valuesToRemove = originalValues.filter((value) => !newValues.includes(value))
+
+    setOfficeGroupsToAdd(valuesToAdd)
+    setOfficeGroupsToRemove(valuesToRemove)
+  }
+
+  const options: MultiSelectOption[] =
+    officeGroups?._embedded?.map(({ customerId, name }) => ({
+      value: customerId ?? '',
+      name: name ?? '',
+    })) ?? []
+
   useEffect(() => {
-    if (officeGroups && officeGroups._embedded) {
-      setOfficeGroupsTableData(
-        officeGroups._embedded.map((og) => ({
-          name: og.name,
-          officeIds: og.officeIds,
-          customerId: og.customerId,
-        })),
+    if (officeGroups && installations) {
+      const originalValues =
+        officeGroups?._embedded
+          ?.filter((group) => installations?.data?.find((installation) => installation.client === group.customerId))
+          .map((filteredGroup) => filteredGroup.customerId ?? '') ?? []
+      const allValues = officeGroups?._embedded?.map((group) => group.customerId ?? '') ?? []
+      const noValues = []
+      const defaultValues =
+        allOfficeGroups === 'none' ? noValues : allOfficeGroups === 'all' ? allValues : originalValues
+
+      onChange(undefined, defaultValues)
+
+      setMultiSelect(
+        <MultiSelectInput
+          id="select-groups-to-install"
+          onChange={onChange}
+          noneSelectedLabel="No groups selected to install"
+          defaultValues={[...new Set(defaultValues)]}
+          options={options}
+        />,
       )
     }
-  }, [officeGroups])
+  }, [allOfficeGroups, officeGroups, installations])
 
   if (officeGroupsValidating) return <Loader />
 
-  const toggleAllOfficeGroups = (desiredState) => {
-    if (!officeGroupsTableData) return false
-
-    const removeList = [] as string[]
-    const addList = [] as string[]
-
-    officeGroupsTableData.forEach(({ customerId }) => {
-      if (!customerId) return false
-      const previouslyInstalled = isPreviouslyInstalled(installations, customerId)
-
-      if (desiredState === true && !previouslyInstalled && !officeGroupsToAdd.includes(customerId))
-        addList.push(customerId)
-      if (desiredState === false && previouslyInstalled && !officeGroupsToRemove.includes(customerId))
-        removeList.push(customerId)
-    })
-
-    if (desiredState === true) {
-      setOfficeGroupsToAdd([...officeGroupsToAdd, ...addList])
-      setOfficeGroupsToRemove([])
-    } else {
-      setOfficeGroupsToAdd([])
-      setOfficeGroupsToRemove([...officeGroupsToRemove, ...removeList])
-    }
-  }
-
-  const isPreviouslyInstalled = (installations, client) =>
-    installations && installations.data && !!installations.data.find((i) => i.client === client)
-
-  const toggleOfficeGroupsToAdd = (customerId: string) => {
-    officeGroupsToAdd.includes(customerId)
-      ? setOfficeGroupsToAdd(officeGroupsToAdd.filter((item) => item !== customerId))
-      : setOfficeGroupsToAdd([...officeGroupsToAdd, customerId])
-  }
-  const toggleOfficeGroupsToRemove = (customerId: string) => {
-    officeGroupsToRemove.includes(customerId)
-      ? setOfficeGroupsToRemove(officeGroupsToRemove.filter((item) => item !== customerId))
-      : setOfficeGroupsToRemove([...officeGroupsToRemove, customerId])
-  }
-
-  const ToggleOfficeGroupSelectionCell = ({ cell: { value } }) => {
-    const previouslyInstalledForOfficeGroup = isPreviouslyInstalled(installations, value)
-    const checked =
-      (previouslyInstalledForOfficeGroup && !officeGroupsToRemove.includes(value)) ||
-      (!previouslyInstalledForOfficeGroup && officeGroupsToAdd.includes(value))
-
-    return (
-      <div className="field field-checkbox mb-0 control">
-        <input
-          className="checkbox"
-          type="checkbox"
-          id={value}
-          checked={checked}
-          onChange={() => {
-            previouslyInstalledForOfficeGroup ? toggleOfficeGroupsToRemove(value) : toggleOfficeGroupsToAdd(value)
-          }}
-        />
-        <label className="label" htmlFor={value}>
-          Installed
-        </label>
-      </div>
-    )
-  }
-
   return (
-    <Section hasPadding={false}>
-      <FlexContainerBasic className="justify-end">
-        <Button variant="secondary" onClick={() => toggleAllOfficeGroups(true)}>
-          Select all
-        </Button>
-        <Button variant="secondary" onClick={() => toggleAllOfficeGroups(false)}>
-          Deselect all
-        </Button>
-      </FlexContainerBasic>
-      <FadeIn>
-        <Table
-          data={officeGroupsTableData ? officeGroupsTableData : []}
-          columns={[
-            {
-              Header: 'Group Name',
-              accessor: 'name',
-            },
-            { Header: 'Office List', accessor: 'officeIds', Cell: AppOfficeIdsCell },
-            {
-              Header: 'Edit',
-              accessor: 'customerId',
-              Cell: ToggleOfficeGroupSelectionCell,
-            },
-          ]}
-        />
-      </FadeIn>
-    </Section>
+    <>
+      <InputWrapFull>
+        <ButtonGroup alignment="right">
+          <Button
+            intent="secondary"
+            disabled={allOfficeGroups === 'all'}
+            onClick={() => {
+              setMultiSelect(null)
+              toggleAllOfficeGroups('all')
+            }}
+          >
+            Select all
+          </Button>
+          <Button
+            intent="secondary"
+            disabled={allOfficeGroups === 'none'}
+            onClick={() => {
+              setMultiSelect(null)
+              toggleAllOfficeGroups('none')
+            }}
+          >
+            Deselect all
+          </Button>
+        </ButtonGroup>
+      </InputWrapFull>
+      <InputWrapFull>{multiSelect}</InputWrapFull>
+    </>
   )
 }
-
 export default AppInstallationPerOfficeGroup

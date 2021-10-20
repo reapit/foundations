@@ -1,41 +1,60 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`UsersPage should match a snapshot 1`] = `
-<div>
-  <H3>
-    Manage Users
-  </H3>
-  <Section
-    hasPadding={false}
-  >
-    <Tabs
-      tabConfigs={
-        Array [
-          Object {
-            "active": true,
-            "displayText": "Users",
-            "onTabClick": [Function],
-            "tabIdentifier": "/users",
-          },
-          Object {
-            "active": false,
-            "displayText": "Groups",
-            "onTabClick": [Function],
-            "tabIdentifier": "/users/groups",
-          },
-        ]
-      }
+<FlexContainer
+  isFlexAuto={true}
+>
+  <SecondaryNavContainer>
+    <Title>
+      Users
+    </Title>
+    <SecondaryNav
+      className="el-mb9"
+    >
+      <SecondaryNavItem
+        active={true}
+        onClick={[Function]}
+      >
+        Users
+      </SecondaryNavItem>
+      <SecondaryNavItem
+        active={false}
+        onClick={[Function]}
+      >
+        User Groups
+      </SecondaryNavItem>
+    </SecondaryNav>
+    <Icon
+      className="el-mb5"
+      icon="vendorInfographic"
+      iconSize="large"
     />
-  </Section>
-  <Component
-    component={[Function]}
-    exact={true}
-    path="/users"
-  />
-  <Component
-    component={[Function]}
-    exact={true}
-    path="/users/groups"
-  />
-</div>
+    <Subtitle />
+    <BodyText
+      hasGreyText={true}
+    >
+      This list contains all ‘Users’ within your organisation. You can edit users to manage the groups an individual user belongs to. For more information on ‘Groups’, please click below.
+    </BodyText>
+    <Button
+      className="el-mb5"
+      onClick={[Function]}
+    >
+      Docs
+    </Button>
+  </SecondaryNavContainer>
+  <PageContainer
+    className="el-hfull"
+  >
+    <Component
+      component={[Function]}
+      exact={true}
+      path="/users"
+    />
+    <Component
+      component={[Function]}
+      exact={true}
+      path="/users/groups"
+    />
+  </PageContainer>
+</FlexContainer>
 `;

@@ -223,6 +223,8 @@ export interface GroupModel {
    * Gets or sets the description of this group
    */
   description?: string
+
+  memberCount?: number
 }
 export interface GroupModelPagedResult {
   _embedded?: GroupModel[]

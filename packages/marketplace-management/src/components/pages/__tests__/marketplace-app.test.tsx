@@ -11,12 +11,16 @@ jest.mock('@reapit/connect-session', () => ({
   ReapitConnectBrowserSession: jest.fn(),
   useReapitConnect: () => ({
     connectIsDesktop: false,
+    connectSession: jest.fn(),
   }),
 }))
 
 jest.mock('react-router', () => ({
   useParams: jest.fn(() => ({
     appId: 'SOME_ID',
+  })),
+  useHistory: jest.fn(() => ({
+    push: jest.fn(),
   })),
 }))
 

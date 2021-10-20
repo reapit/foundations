@@ -1,5 +1,4 @@
 import React, { FC, useEffect, useState } from 'react'
-import { Button, FlexContainerBasic, Level } from '@reapit/elements-legacy'
 import connectImage from '@/assets/images/reapit-connect.png'
 import { reapitConnectBrowserSession } from '@/core/connect-session'
 import {
@@ -7,7 +6,6 @@ import {
   wrapper,
   loginImage,
   imageContainer,
-  loginLevel,
   loginImages,
   loginImageVisible,
 } from './__styles__/styles'
@@ -15,6 +13,8 @@ import stepOne from '../../assets/images/login/step-1.svg'
 import stepTwo from '../../assets/images/login/step-2.svg'
 import stepThree from '../../assets/images/login/step-3.svg'
 import { cx } from '@linaria/core'
+import { FlexContainer, ButtonGroup, elMb11 } from '@reapit/elements'
+import { Button } from '@reapit/elements'
 
 export const loginHandler = () => reapitConnectBrowserSession.connectLoginRedirect()
 
@@ -43,23 +43,23 @@ export const Login: FC = () => {
         </div>
       </div>
       <div className={wrapper}>
-        <Level>
+        <div className={elMb11}>
           <img src={connectImage} alt="Reapit Connect Graphic" />
-        </Level>
-        <Level className={loginLevel}>
+        </div>
+        <ButtonGroup alignment="center">
           <Button
+            size={4}
             type="button"
             onClick={loginHandler}
             loading={false}
-            variant="primary"
+            intent="primary"
             disabled={false}
             fullWidth
-            dataTest="login-button"
           >
             Login
           </Button>
-        </Level>
-        <FlexContainerBasic centerContent>{process.env.APP_VERSION}</FlexContainerBasic>
+        </ButtonGroup>
+        <FlexContainer isFlexJustifyCenter>{process.env.APP_VERSION}</FlexContainer>
       </div>
     </div>
   )

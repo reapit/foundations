@@ -9,14 +9,17 @@ const mockedFetch = fetcher as jest.Mock
 describe('createOfficeGroup', () => {
   it('should return a response from service', async () => {
     mockedFetch.mockReturnValueOnce(mockResponse)
-    const response = await createOfficeGroup({ name: 'Group Name', officeIds: 'OF1, OF2' }, 'orgId-001')
+    const response = await createOfficeGroup(
+      { name: 'Group Name', officeIds: 'OF1, OF2', status: 'active' },
+      'orgId-001',
+    )
     expect(response).toEqual(mockResponse)
   })
 
   it('should catch an error if no response from service', async () => {
     const errorSpy = jest.spyOn(console, 'error')
     mockedFetch.mockReturnValueOnce(undefined)
-    await createOfficeGroup({ name: 'Group Name', officeIds: 'OF1, OF2' }, 'orgId-001')
+    await createOfficeGroup({ name: 'Group Name', officeIds: 'OF1, OF2', status: 'active' }, 'orgId-001')
     expect(errorSpy).toHaveBeenLastCalledWith('Create office group failed')
   })
 })

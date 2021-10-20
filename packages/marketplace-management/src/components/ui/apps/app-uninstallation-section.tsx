@@ -1,11 +1,11 @@
 import React from 'react'
 import { InstallationModelPagedResult } from '@reapit/foundations-ts-definitions'
-import { Section, H5, FlexContainerBasic, Button } from '@reapit/elements-legacy'
 import {
   getInstallationsForOfficeGroups,
   getInstallationsForWholeOrg,
   getClientIdFirstPart,
 } from './app-installation-manager'
+import { BodyText, Button, ButtonGroup, elMb11, Subtitle } from '@reapit/elements'
 
 export interface AppUninstallationSectionProps {
   installations: InstallationModelPagedResult | undefined
@@ -33,36 +33,36 @@ const AppUninstallationSection: React.FC<AppUninstallationSectionProps> = ({
       : `${officeGroupInstallations.length} group${officeGroupInstallations.length !== 1 ? 's' : ''}`
 
   return (
-    <Section hasPadding={false}>
-      <FlexContainerBasic className="justify-between items-center mb-4">
-        <H5>Current Installations</H5>
-        <Button
-          variant="primary"
-          disabled={noCurrentInstallations}
-          loading={false}
-          onClick={() => {
-            setPerformCompleteUninstall(true)
-            setShowConfirmModal(true)
-          }}
-        >
-          Uninstall
-        </Button>
-      </FlexContainerBasic>
-      <p className="mb-4">
-        {!noCurrentInstallations && (
-          <p>
+    <div className={elMb11}>
+      <Subtitle>Current Installations</Subtitle>
+      {!noCurrentInstallations && (
+        <>
+          <BodyText hasGreyText>
             This app is currently installed for {currentInstallText}. By clicking this button you will uninstall for all
             users and offices.
-          </p>
-        )}
-        {noCurrentInstallations && (
-          <p>
-            This app is not currently installed. You can either install for your organisation or specific office groups
-            in the section below.
-          </p>
-        )}
-      </p>
-    </Section>
+          </BodyText>
+          <ButtonGroup alignment="right">
+            <Button
+              intent="primary"
+              disabled={noCurrentInstallations}
+              loading={false}
+              onClick={() => {
+                setPerformCompleteUninstall(true)
+                setShowConfirmModal(true)
+              }}
+            >
+              Uninstall
+            </Button>
+          </ButtonGroup>
+        </>
+      )}
+      {noCurrentInstallations && (
+        <BodyText hasGreyText>
+          This app is not currently installed. You can either install for your organisation or specific office groups in
+          the section below.
+        </BodyText>
+      )}
+    </div>
   )
 }
 

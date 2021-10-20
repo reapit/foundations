@@ -38,11 +38,13 @@ describe('AppToggleVisibilitySection', () => {
 
 describe('handleOnCheckboxChange', () => {
   it('should toggle checked', async () => {
+    const success = jest.fn()
+    const error = jest.fn()
     const mockSetChecked = jest.fn()
     const mockReFetchApp = jest.fn()
     const mockAppId = 'SOME_ID'
 
-    const curried = handleOnCheckboxChange(mockSetChecked, mockReFetchApp, mockAppId, true)
+    const curried = handleOnCheckboxChange(mockSetChecked, mockReFetchApp, mockAppId, true, success, error)
 
     await curried()
 
@@ -52,15 +54,18 @@ describe('handleOnCheckboxChange', () => {
       appId: mockAppId,
       status: 'exclude',
     })
+    expect(success).toHaveBeenCalled()
   })
 
   it('should show an error message if fetching fails and reset checkbox', async () => {
     ;(updateAppRestrictionsService as jest.Mock).mockReturnValueOnce(undefined)
+    const success = jest.fn()
+    const error = jest.fn()
     const mockSetChecked = jest.fn()
     const mockReFetchApp = jest.fn()
     const mockAppId = 'SOME_ID'
 
-    const curried = handleOnCheckboxChange(mockSetChecked, mockReFetchApp, mockAppId, true)
+    const curried = handleOnCheckboxChange(mockSetChecked, mockReFetchApp, mockAppId, true, success, error)
 
     await curried()
 
@@ -71,5 +76,6 @@ describe('handleOnCheckboxChange', () => {
       status: 'exclude',
     })
     expect(mockSetChecked).toHaveBeenLastCalledWith(true)
+    expect(error).toHaveBeenCalled()
   })
 })

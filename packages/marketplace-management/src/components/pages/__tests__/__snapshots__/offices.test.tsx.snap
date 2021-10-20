@@ -1,41 +1,59 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`OfficesPage should match a snapshot 1`] = `
-<div>
-  <H3>
-    Manage Offices
-  </H3>
-  <Section
-    hasPadding={false}
-  >
-    <Tabs
-      tabConfigs={
-        Array [
-          Object {
-            "active": true,
-            "displayText": "Offices",
-            "onTabClick": [Function],
-            "tabIdentifier": "/offices",
-          },
-          Object {
-            "active": false,
-            "displayText": "Groups",
-            "onTabClick": [Function],
-            "tabIdentifier": "/offices/groups",
-          },
-        ]
-      }
+<FlexContainer
+  isFlexAuto={true}
+>
+  <SecondaryNavContainer>
+    <Title>
+      Offices
+    </Title>
+    <SecondaryNav
+      className="el-mb9"
+    >
+      <SecondaryNavItem
+        active={true}
+        onClick={[Function]}
+      >
+        Offices
+      </SecondaryNavItem>
+      <SecondaryNavItem
+        active={false}
+        onClick={[Function]}
+      >
+        Office Groups
+      </SecondaryNavItem>
+    </SecondaryNav>
+    <Icon
+      className="el-mb5"
+      icon="developmentInfographic"
+      iconSize="large"
     />
-  </Section>
-  <Component
-    component={[Function]}
-    exact={true}
-    path="/offices"
-  />
-  <Component
-    component={[Function]}
-    exact={true}
-    path="/offices/groups"
-  />
-</div>
+    <Subtitle />
+    <BodyText
+      hasGreyText={true}
+    >
+      This list contains all ‘Offices’ within your organisation. To create or manage an Office Group, please visit the ‘Groups’ page.
+    </BodyText>
+  </SecondaryNavContainer>
+  <PageContainer
+    className="el-hfull"
+  >
+    <Component
+      component={[Function]}
+      exact={true}
+      path="/offices"
+    />
+    <Component
+      component={[Function]}
+      exact={true}
+      path="/offices/groups"
+    />
+    <Component
+      component={[Function]}
+      exact={true}
+      path="/offices/groups/new"
+    />
+  </PageContainer>
+</FlexContainer>
 `;

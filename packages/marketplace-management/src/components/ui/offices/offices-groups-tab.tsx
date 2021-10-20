@@ -1,97 +1,152 @@
-import React, { useState, useEffect, useCallback } from 'react'
+import React, { useState, useEffect, useCallback, FC, useMemo } from 'react'
 import useSWR from 'swr'
 import { useHistory, useLocation } from 'react-router'
 import { History } from 'history'
 import { OfficeGroupModelPagedResult, OfficeGroupModel } from '../../../types/organisations-schema'
 import ErrorBoundary from '@/components/hocs/error-boundary'
-import { Loader, toLocalTime, DATE_TIME_FORMAT, Button, H5 } from '@reapit/elements-legacy'
+import { Loader } from '@reapit/elements'
+import { toLocalTime, DATE_TIME_FORMAT } from '@reapit/utils-common'
 import Routes from '@/constants/routes'
 import { URLS } from '../../../constants/api'
-import OfficeListCell from './office-list-cell'
-import CreateOfficeGroupModal from './create-office-group'
-import EditOfficeGroupModal from './edit-office-group'
+import EditOfficeGroupForm from './office-group-edit-form'
 import { orgIdEffectHandler } from '../../../utils/org-id-effect-handler'
-import { OfficeGroupsContent } from './office-groups-content'
+import { elFadeIn, elMb11, Pagination, PersistantNotification, RowProps, Table, Title } from '@reapit/elements'
+import { OfficeModel } from '@reapit/foundations-ts-definitions'
+import { cx } from '@linaria/core'
+
+export interface OfficeGroupWithOfficesModel extends OfficeGroupModel {
+  offices?: OfficeModel[]
+}
 
 export const onPageChangeHandler = (history: History<any>) => (page: number) => {
   const queryString = `?pageNumber=${page}`
   return history.push(`${Routes.OFFICES_GROUPS}${queryString}`)
 }
 
-const OfficesGroupsTab: React.FC = () => {
+export const mergeOfficesGroups = (officeModels: OfficeModel[], officeGroupModels: OfficeGroupModel[]) =>
+  officeGroupModels.map((group) => {
+    const groupIds = group.officeIds?.split(',')
+    if (groupIds?.length) {
+      const officeModelsMatched = groupIds
+        .map((groupId) => officeModels.find((office) => office.id === groupId))
+        .filter((office) => !!office)
+      return {
+        ...group,
+        offices: officeModelsMatched,
+      }
+    }
+  }) as OfficeGroupWithOfficesModel[]
+
+export const getOfficeQueryFromGroups = (officeGroupModels?: OfficeGroupModel[]): string => {
+  if (!officeGroupModels) return ''
+  const officeIds = officeGroupModels
+    ?.map((group) => {
+      const ids = group?.officeIds?.split(',')
+      if (ids?.length) return ids
+    })
+    .flat()
+  return (
+    officeIds?.reduce((query, id, index) => {
+      return `${query}${index ? '&id' : 'id'}=${id}`
+    }, '?') ?? ''
+  )
+}
+
+export const handleSortTableData =
+  (officeGroups: OfficeGroupWithOfficesModel[], offices: OfficeModel[], orgId: string, onComplete: () => void) =>
+  (): RowProps[] => {
+    return officeGroups.map((officeGroup: OfficeGroupWithOfficesModel) => ({
+      cells: [
+        {
+          label: 'Group Name',
+          value: officeGroup.name ?? '',
+          narrowTable: {
+            showLabel: true,
+          },
+        },
+        {
+          label: 'Office List',
+          value: officeGroup.offices?.map((office) => office.name).join(', ') ?? '',
+          narrowTable: {
+            showLabel: true,
+          },
+        },
+        {
+          label: 'Last Updated',
+          value: toLocalTime(officeGroup.modified ?? officeGroup.created, DATE_TIME_FORMAT.DATE_TIME_FORMAT),
+          narrowTable: {
+            showLabel: true,
+          },
+        },
+      ],
+      expandableContent: {
+        content: (
+          <EditOfficeGroupForm orgId={orgId} offices={offices} officeGroup={officeGroup} onComplete={onComplete} />
+        ),
+      },
+    }))
+  }
+
+const OfficesGroupsTab: FC = () => {
   const history = useHistory()
   const location = useLocation()
   const search = location.search
   const onPageChange = useCallback(onPageChangeHandler(history), [history])
-
-  const [isOpenCreateGroupModal, setOpenCreateGroupModal] = useState<boolean>(false)
-  const [editingGroup, setEditingGroup] = useState<OfficeGroupModel>()
   const [orgId, setOrgId] = useState<string | null>(null)
-  const onOpenCreateModel = () => setOpenCreateGroupModal(true)
+  const [indexExpandedRow, setIndexExpandedRow] = useState<number | null>(null)
 
   useEffect(orgIdEffectHandler(orgId, setOrgId), [])
 
-  const { data: officeGroups, mutate } = useSWR<OfficeGroupModelPagedResult>(
+  const { data: officeGroupsResponse, mutate } = useSWR<OfficeGroupModelPagedResult>(
     !orgId
       ? null
       : `${URLS.ORGANISATIONS}/${orgId}${URLS.OFFICES_GROUPS}${search ? search + '&pageSize=12' : '?pageSize=12'}`,
   )
 
-  const LastUpdatedCell = ({
-    cell: {
-      row: { original },
-    },
-  }) => <p>{toLocalTime(original.modified || original.created, DATE_TIME_FORMAT.DATE_TIME_FORMAT)}</p>
+  const officeGroups = officeGroupsResponse?._embedded ?? []
+  const totalPageCount = officeGroupsResponse?.totalPageCount ?? 0
+  const pageNumber = officeGroupsResponse?.pageNumber ?? 0
 
-  const EditButton = ({
-    cell: {
-      row: { original },
-    },
-  }) => (
-    <Button type="button" variant="primary" onClick={() => setEditingGroup(original)}>
-      Edit
-    </Button>
+  const officeIdsQuery = getOfficeQueryFromGroups(officeGroups)
+
+  const { data: officesResponse } = useSWR<OfficeGroupModelPagedResult>(
+    !officeIdsQuery ? null : `${URLS.OFFICES}/${officeIdsQuery ? officeIdsQuery + '&pageSize=999' : '?pageSize=999'}`,
   )
 
-  const columns = [
-    { Header: 'Group Name', accessor: 'name' },
-    { Header: 'Office List', accessor: 'offices', Cell: OfficeListCell },
-    { Header: 'Last Updated', Cell: LastUpdatedCell },
-    { Header: 'Edit', Cell: EditButton },
-  ]
+  const offices = officesResponse?._embedded ?? []
+
+  const groupsWithOffices: OfficeGroupWithOfficesModel[] =
+    officeGroups.length && offices?.length ? mergeOfficesGroups(offices, officeGroups) : officeGroups
+
+  const onComplete = () => {
+    mutate()
+    setIndexExpandedRow(null)
+  }
+
+  const rows = useMemo(handleSortTableData(groupsWithOffices, offices, orgId ?? '', onComplete), [
+    groupsWithOffices,
+    offices,
+  ])
 
   return (
     <ErrorBoundary>
-      <div className="flex justify-between items-center mb-4">
-        <H5 className="mb-0">Office groups</H5>
-        <Button onClick={onOpenCreateModel}>Create office group</Button>
-      </div>
-      <p className="mb-4">
-        The list below will show you any ‘Office Groups’ that have been created for your Organisation. To create a new
-        office group, please click on ‘Create New Office Group’. To add or edit an existing office group, please use
-        ‘Edit’ on the associated group.
-      </p>
-      {orgId && (
-        <>
-          <CreateOfficeGroupModal
-            visible={isOpenCreateGroupModal}
-            setOpenCreateGroupModal={setOpenCreateGroupModal}
-            orgId={orgId}
-            onRefetchData={mutate}
-          />
-          <EditOfficeGroupModal
-            setEditingGroup={setEditingGroup}
-            orgId={orgId}
-            editingGroup={editingGroup}
-            onRefetchData={mutate}
-          />
-        </>
-      )}
-
+      <Title>Office Groups</Title>
       {!officeGroups ? (
         <Loader />
+      ) : officeGroups.length ? (
+        <>
+          <Table
+            className={cx(elFadeIn, elMb11)}
+            rows={rows}
+            indexExpandedRow={indexExpandedRow}
+            setIndexExpandedRow={setIndexExpandedRow}
+          />
+          <Pagination callback={onPageChange} numberPages={totalPageCount} currentPage={pageNumber} />
+        </>
       ) : (
-        <OfficeGroupsContent officeGroups={officeGroups} columns={columns} onPageChange={onPageChange} />
+        <PersistantNotification isFullWidth isExpanded intent="secondary" isInline>
+          No results found for your office groups search
+        </PersistantNotification>
       )}
     </ErrorBoundary>
   )

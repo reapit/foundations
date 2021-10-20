@@ -1,0 +1,234 @@
+import React, { useState, useEffect, useCallback, FC, ChangeEvent, Dispatch, SetStateAction } from 'react'
+import { createOfficeGroup } from '../../../services/office'
+import { toastMessages } from '../../../constants/toast-messages'
+import { prepareOfficeOptions } from '../../../utils/prepare-options'
+import { OfficeModelPagedResult } from '@reapit/foundations-ts-definitions'
+import debounce from 'just-debounce-it'
+import useSWR from 'swr'
+import { URLS } from '../../../constants/api'
+import {
+  BodyText,
+  Button,
+  ButtonGroup,
+  elFadeIn,
+  elMb11,
+  elMt11,
+  ElToggleItem,
+  FormLayout,
+  InputGroup,
+  InputWrap,
+  InputWrapFull,
+  Label,
+  MultiSelectInput,
+  MultiSelectOption,
+  StepsVertical,
+  Title,
+  Toggle,
+  useSnack,
+} from '@reapit/elements'
+import { cx } from '@linaria/core'
+import { boolean, object, string } from 'yup'
+import errorMessages from '../../../constants/error-messages'
+import { yupResolver } from '@hookform/resolvers/yup'
+import { useForm, UseFormTrigger } from 'react-hook-form'
+import { History } from 'history'
+import Routes from '../../../constants/routes'
+import { history } from '../../../core/router'
+import { orgIdEffectHandler } from '../../../utils/org-id-effect-handler'
+
+export interface OfficeGroupCreateProps {}
+
+export const validationSchema = object().shape({
+  name: string().trim().required(errorMessages.FIELD_REQUIRED),
+  officeIds: string(),
+  status: boolean(),
+})
+
+interface CreateOfficeGroupSchema {
+  name: string
+  officeIds: string
+  status: boolean
+}
+
+export const onHandleSubmit =
+  (history: History, orgId: string | null, success: (message: string) => void, error: (message: string) => void) =>
+  async (params: CreateOfficeGroupSchema) => {
+    if (orgId) {
+      const { name, officeIds: idsList } = params
+      const officeIds = idsList.toString()
+      const status = params.status ? 'active' : 'inactive'
+      const createdOffice = await createOfficeGroup({ name, officeIds, status }, orgId)
+      if (createdOffice) {
+        success(toastMessages.CREATE_OFFICE_GROUP_SUCCESS)
+        history.push(Routes.OFFICES_GROUPS)
+        return
+      }
+
+      error(toastMessages.FAILED_TO_CREATE_OFFICE_GROUP)
+    }
+  }
+
+export const handleSwitchStep =
+  (
+    selectedStep: string,
+    trigger: UseFormTrigger<CreateOfficeGroupSchema>,
+    setSelectedStep: Dispatch<SetStateAction<string>>,
+  ) =>
+  () => {
+    const validateStep = async () => {
+      let isValid = false
+      let step: string | null = '1'
+
+      switch (selectedStep) {
+        case '1':
+          isValid = await trigger('name')
+          step = '2'
+          break
+        case '2':
+          isValid = await trigger('officeIds')
+          step = '3'
+          break
+        case '3':
+        default:
+          isValid = await trigger('status')
+          step = '3'
+          break
+      }
+      if (isValid && step) {
+        setSelectedStep(step)
+      }
+    }
+    validateStep()
+  }
+
+export const OfficeGroupCreate: FC<OfficeGroupCreateProps> = () => {
+  const [searchString, setSearchString] = useState<string>('')
+  const [options, setOptions] = useState<MultiSelectOption[]>([])
+  const [selectedStep, setSelectedStep] = useState<string>('1')
+  const [orgId, setOrgId] = useState<string | null>(null)
+
+  const { success, error } = useSnack()
+  const debouncedSearch = useCallback(
+    debounce((event: ChangeEvent<HTMLInputElement>) => setSearchString(event.target.value), 500),
+    [500],
+  )
+  const { data } = useSWR<OfficeModelPagedResult | undefined>(
+    !orgId || !searchString ? null : `${URLS.OFFICES}?pageSize=999&organisationId=${orgId}&name=${searchString}`,
+  )
+
+  const offices = data?._embedded ?? []
+
+  const onSubmit = onHandleSubmit(history, orgId, success, error)
+
+  const {
+    register,
+    handleSubmit,
+    getValues,
+    trigger,
+    formState: { errors },
+  } = useForm<CreateOfficeGroupSchema>({
+    resolver: yupResolver(validationSchema),
+    defaultValues: {
+      name: '',
+      officeIds: '',
+      status: true,
+    },
+  })
+  useEffect(orgIdEffectHandler(orgId, setOrgId), [])
+
+  useEffect(() => {
+    const officeIds = getValues().officeIds
+    const newSelectedOptions = options.filter((option) => officeIds.includes(option.value))
+    const officeOptions = prepareOfficeOptions(offices)
+    const newOptions = [...newSelectedOptions, ...officeOptions]
+    const uniqueOptions = [...new Set([...newOptions.map((option) => JSON.stringify(option))])].map((jsonOption) =>
+      JSON.parse(jsonOption),
+    )
+
+    setOptions(uniqueOptions)
+  }, [data])
+
+  return (
+    <form
+      className={elMt11}
+      onSubmit={handleSubmit(onSubmit)}
+      onChange={handleSwitchStep(selectedStep, trigger, setSelectedStep)}
+    >
+      <Title>Create Office Group</Title>
+      <StepsVertical
+        steps={[
+          {
+            item: '1',
+            content: (
+              <FormLayout className={cx(elFadeIn, elMb11)}>
+                <InputWrapFull>
+                  <BodyText hasGreyText>Add a name for your office group.</BodyText>
+                </InputWrapFull>
+                <InputWrap>
+                  <InputGroup
+                    label="Office Group Name"
+                    placeholder="Enter an office group name"
+                    {...register('name')}
+                    inputAddOnText={errors?.name?.message}
+                    intent="danger"
+                  />
+                </InputWrap>
+              </FormLayout>
+            ),
+          },
+          {
+            item: '2',
+            content: (
+              <FormLayout className={cx(elFadeIn, elMb11)}>
+                <InputWrapFull>
+                  <BodyText hasGreyText>
+                    To manage offices associated to this group, you can search and select users from the ‘Offices’
+                    section below:
+                  </BodyText>
+                </InputWrapFull>
+                <InputWrapFull>
+                  <InputGroup onChange={debouncedSearch} icon="searchSystem" placeholder="Search" label="Offices" />
+                  <MultiSelectInput
+                    id="office-ids-select"
+                    noneSelectedLabel="No offices selected for this group"
+                    defaultValues={[]}
+                    options={options}
+                    {...register('officeIds')}
+                  />
+                </InputWrapFull>
+              </FormLayout>
+            ),
+          },
+          {
+            item: '3',
+            content: (
+              <FormLayout className={cx(elFadeIn, elMb11)}>
+                <InputWrapFull>
+                  <BodyText hasGreyText>Toggle the below to determine if the office grouping is live or not.</BodyText>
+                </InputWrapFull>
+                <InputWrap>
+                  <Label>Group Active</Label>
+                  <Toggle id="status-edit-toggle" hasGreyBg {...register('status')}>
+                    <ElToggleItem>Active</ElToggleItem>
+                    <ElToggleItem>Inactive</ElToggleItem>
+                  </Toggle>
+                </InputWrap>
+                <InputWrapFull>
+                  <ButtonGroup alignment="right">
+                    <Button intent="primary" type="submit">
+                      Submit
+                    </Button>
+                  </ButtonGroup>
+                </InputWrapFull>
+              </FormLayout>
+            ),
+          },
+        ]}
+        selectedStep={selectedStep}
+        onStepClick={setSelectedStep}
+      />
+    </form>
+  )
+}
+
+export default OfficeGroupCreate
