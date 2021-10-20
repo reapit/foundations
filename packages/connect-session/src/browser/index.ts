@@ -62,6 +62,7 @@ export class ReapitConnectBrowserSession {
     this.connectAuthorizeRedirect = this.connectAuthorizeRedirect.bind(this)
     this.connectLoginRedirect = this.connectLoginRedirect.bind(this)
     this.connectLogoutRedirect = this.connectLogoutRedirect.bind(this)
+    this.connectClearSession = this.connectClearSession.bind(this)
   }
 
   private setIdleTimeoutListeners() {
