@@ -1,5 +1,5 @@
 import * as React from 'react'
-import { mount } from 'enzyme'
+import { shallow } from 'enzyme'
 import AppInstallationPerOfficeGroup from '../app-installation-per-office-group'
 
 jest.mock('swr', () =>
@@ -16,11 +16,9 @@ describe('AppInstallationPerOfficeGroup', () => {
     const addOfficeGroupStub = jest.fn()
     const removeOfficeGroupStub = jest.fn()
 
-    const wrapper = mount(
+    const wrapper = shallow(
       <AppInstallationPerOfficeGroup
         installations={stubInstallations}
-        officeGroupsToAdd={[]}
-        officeGroupsToRemove={[]}
         setOfficeGroupsToAdd={addOfficeGroupStub}
         setOfficeGroupsToRemove={removeOfficeGroupStub}
       />,

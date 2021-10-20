@@ -1,32 +1,65 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`UpdateUserModal should match a snapshot 1`] = `
-<ModalV2
-  destroyOnClose={true}
-  onClose={[Function]}
-  title="Editing User Name"
-  visible={true}
-  zIndex={90}
+<form
+  className="el-p8"
+  onSubmit={[Function]}
 >
-  <p
-    className="mb-4"
+  <FormLayout
+    className="el-fade-in el-mb11"
   >
-    <p>
-      Please use the ‘Users Group’ section below to manage which groups this user belongs to:
-    </p>
-  </p>
-  <Formik
-    initialValues={
-      Object {
-        "groupIds": Array [
-          "OF1",
-          "OF2",
-        ],
-      }
-    }
-    onSubmit={[Function]}
-  >
-    <Component />
-  </Formik>
-</ModalV2>
+    <InputWrapFull>
+      <Subtitle>
+        Edit User
+      </Subtitle>
+      <BodyText
+        hasGreyText={true}
+      >
+        Please use the section below to manage which groups this user belongs to:
+      </BodyText>
+    </InputWrapFull>
+    <InputWrapFull>
+      <ForwardRef
+        defaultValues={
+          Array [
+            "OF1",
+            "OF2",
+          ]
+        }
+        id="user-groups-ids-GR1"
+        name="groupIds"
+        noneSelectedLabel="No groups selected for this user"
+        onBlur={[Function]}
+        onChange={[Function]}
+        options={
+          Array [
+            Object {
+              "name": "string",
+              "value": "string",
+            },
+          ]
+        }
+      />
+    </InputWrapFull>
+    <InputWrapFull>
+      <ButtonGroup
+        alignment="right"
+      >
+        <Button
+          intent="secondary"
+          onClick={[MockFunction]}
+          type="button"
+        >
+          Cancel
+        </Button>
+        <Button
+          intent="primary"
+          type="submit"
+        >
+          Submit
+        </Button>
+      </ButtonGroup>
+    </InputWrapFull>
+  </FormLayout>
+</form>
 `;

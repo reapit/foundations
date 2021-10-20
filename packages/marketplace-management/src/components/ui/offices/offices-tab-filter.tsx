@@ -1,47 +1,49 @@
-import React from 'react'
+import React, { FC } from 'react'
+import {
+  Button,
+  ButtonGroup,
+  elFadeIn,
+  FlexContainer,
+  elMb11,
+  FormLayout,
+  InputGroup,
+  InputWrap,
+  elHFull,
+} from '@reapit/elements'
+import { cx } from '@linaria/core'
+import { useForm } from 'react-hook-form'
 
-import { FormFieldInfo } from '@reapit/utils-common'
-import { Grid, GridItem, Formik, Form, Input, Button } from '@reapit/elements-legacy'
-
-type FieldType = 'name'
-
-export const formFields: Record<FieldType, FormFieldInfo> = {
-  name: {
-    name: 'name',
-    label: 'Name',
-  },
-}
-
-export interface OfficesFilterFormValues {
+export interface OfficesFormSchema {
   name: string
 }
 
 export interface OfficesFormProps {
-  filterValues: OfficesFilterFormValues
-  onSearch: any
+  onSearch: (queryParams: OfficesFormSchema) => void
+  filterValues: OfficesFormSchema
 }
 
-const OfficeTabFilterForm: React.FC<OfficesFormProps> = ({ filterValues, onSearch }) => {
-  const { name } = formFields
+export const OfficeTabFilterForm: FC<OfficesFormProps> = ({ onSearch, filterValues }) => {
+  const { register, handleSubmit } = useForm<OfficesFormSchema>({
+    defaultValues: filterValues,
+  })
+
   return (
-    <Formik initialValues={filterValues} onSubmit={onSearch}>
-      {() => {
-        return (
-          <Form noValidate={true}>
-            <Grid className="items-center">
-              <GridItem>
-                <Input type="text" labelText={name.label} id={name.name} name={name.name} />
-              </GridItem>
-              <GridItem className="mt-4">
-                <Button type="submit" variant="primary">
-                  Search
-                </Button>
-              </GridItem>
-            </Grid>
-          </Form>
-        )
-      }}
-    </Formik>
+    <form onSubmit={handleSubmit(onSearch)}>
+      <FormLayout className={cx(elFadeIn, elMb11)}>
+        <InputWrap>
+          <InputGroup label="Office Name" placeholder="Enter a search term here" {...register('name')} />
+        </InputWrap>
+        <InputWrap>
+          <FlexContainer className={elHFull} isFlexGrow1 isFlexAlignEnd>
+            <ButtonGroup alignment="left">
+              <Button intent="primary" type="submit">
+                Search
+              </Button>
+            </ButtonGroup>
+          </FlexContainer>
+        </InputWrap>
+      </FormLayout>
+    </form>
   )
 }
 

@@ -17,100 +17,229 @@ exports[`AppInstallationSection should match a snapshot when WHOLE_ORG is select
   setOfficeGroupsToRemove={[MockFunction]}
   setShowConfirmModal={[MockFunction]}
 >
-  <Section
-    hasPadding={false}
-  >
-    <section
-      className="section has-margin has-background"
-      data-test=""
+  <Subtitle>
+    <ElSubtitle
+      className=""
     >
-      <FlexContainerBasic
-        className="justify-between items-center mb-4"
+      <h2
+        className="el-subtitle"
       >
-        <div
-          className="container-flex justify-between items-center mb-4"
-        >
-          <H5>
-            <h5
-              className="title is-5"
-              id=""
-            >
-              Installation
-            </h5>
-          </H5>
-          <Button
-            disabled={true}
-            onClick={[Function]}
-            variant="primary"
-          >
-            <button
-              className="button   is-primary "
-              data-test=""
-              disabled={true}
-              onClick={[Function]}
-              type="button"
-            >
-              Save
-            </button>
-          </Button>
-        </div>
-      </FlexContainerBasic>
+        Installation
+      </h2>
+    </ElSubtitle>
+  </Subtitle>
+  <BodyText
+    hasGreyText={true}
+  >
+    <ElBodyText
+      className="el-has-grey-text"
+    >
       <p
-        className="mb-4"
+        className="el-has-grey-text el-body-text"
       >
-        <p>
-          Please select the type of installation you require for this app:
-        </p>
+        Please select the type of installation you require for this app:
       </p>
+    </ElBodyText>
+  </BodyText>
+  <FormLayout>
+    <ElFormLayout>
       <div
-        className="field field-checkbox mb-0 control"
+        className="el-form-layout"
       >
-        <input
-          checked={true}
-          className="checkbox"
-          id="WHOLE_ORG"
-          onChange={[Function]}
-          type="checkbox"
-        />
-        <label
-          className="label"
-          htmlFor="WHOLE_ORG"
-        >
-          Install for the whole of your organisation
-        </label>
-        <div
-          className="form-subheading mb-4"
-        >
-          <p>
-            This will grant the app access to all data for all users and offices across your organisation
-          </p>
-        </div>
+        <InputWrap>
+          <ElInputWrap>
+            <div
+              className="el-input-wrap"
+            >
+              <ForwardRef
+                checked={true}
+                className="el-mb5"
+                id="WHOLE_ORG"
+                label="Install for the whole of your organisation"
+                onChange={[Function]}
+                type="checkbox"
+              >
+                <ElInputGroup
+                  className="el-mb5"
+                >
+                  <div
+                    className="el-mb5 el-input-group"
+                  >
+                    <ForwardRef
+                      checked={true}
+                      id="WHOLE_ORG"
+                      onChange={[Function]}
+                      type="checkbox"
+                    >
+                      <ElInput
+                        checked={true}
+                        id="WHOLE_ORG"
+                        onChange={[Function]}
+                        type="checkbox"
+                      >
+                        <input
+                          checked={true}
+                          className="el-input"
+                          id="WHOLE_ORG"
+                          onChange={[Function]}
+                          type="checkbox"
+                        />
+                      </ElInput>
+                    </ForwardRef>
+                    <Label
+                      htmlFor="WHOLE_ORG"
+                    >
+                      <ElLabel
+                        htmlFor="WHOLE_ORG"
+                      >
+                        <label
+                          className="el-label"
+                          htmlFor="WHOLE_ORG"
+                        >
+                          Install for the whole of your organisation
+                        </label>
+                      </ElLabel>
+                    </Label>
+                  </div>
+                </ElInputGroup>
+              </ForwardRef>
+              <BodyText>
+                <ElBodyText
+                  className=""
+                >
+                  <p
+                    className="el-body-text"
+                  >
+                    This will grant the app access to all data for all users and offices across your organisation
+                  </p>
+                </ElBodyText>
+              </BodyText>
+            </div>
+          </ElInputWrap>
+        </InputWrap>
+        <InputWrap>
+          <ElInputWrap>
+            <div
+              className="el-input-wrap"
+            >
+              <ForwardRef
+                checked={false}
+                className="el-mb5"
+                id="SPECIFIC_OFFICE_GROUPS"
+                label="Install for specific office groups"
+                onChange={[Function]}
+                type="checkbox"
+              >
+                <ElInputGroup
+                  className="el-mb5"
+                >
+                  <div
+                    className="el-mb5 el-input-group"
+                  >
+                    <ForwardRef
+                      checked={false}
+                      id="SPECIFIC_OFFICE_GROUPS"
+                      onChange={[Function]}
+                      type="checkbox"
+                    >
+                      <ElInput
+                        checked={false}
+                        id="SPECIFIC_OFFICE_GROUPS"
+                        onChange={[Function]}
+                        type="checkbox"
+                      >
+                        <input
+                          checked={false}
+                          className="el-input"
+                          id="SPECIFIC_OFFICE_GROUPS"
+                          onChange={[Function]}
+                          type="checkbox"
+                        />
+                      </ElInput>
+                    </ForwardRef>
+                    <Label
+                      htmlFor="SPECIFIC_OFFICE_GROUPS"
+                    >
+                      <ElLabel
+                        htmlFor="SPECIFIC_OFFICE_GROUPS"
+                      >
+                        <label
+                          className="el-label"
+                          htmlFor="SPECIFIC_OFFICE_GROUPS"
+                        >
+                          Install for specific office groups
+                        </label>
+                      </ElLabel>
+                    </Label>
+                  </div>
+                </ElInputGroup>
+              </ForwardRef>
+              <BodyText>
+                <ElBodyText
+                  className=""
+                >
+                  <p
+                    className="el-body-text"
+                  >
+                    This will grant the app access to only data for the specific offices inside of each office group
+                  </p>
+                </ElBodyText>
+              </BodyText>
+            </div>
+          </ElInputWrap>
+        </InputWrap>
+        <InputWrapFull>
+          <ElInputWrapFull>
+            <div
+              className="el-input-wrap-full"
+            >
+              <ButtonGroup
+                alignment="right"
+                className="el-mb7"
+              >
+                <ElButtonGroup
+                  className="el-mb7"
+                >
+                  <div
+                    className="el-mb7 el-button-group"
+                  >
+                    <ElButtonGroupInner
+                      className="el-button-group-align-right"
+                    >
+                      <div
+                        className="el-button-group-align-right el-button-group-inner"
+                      >
+                        <Button
+                          chevronRight={true}
+                          disabled={true}
+                          intent="critical"
+                          onClick={[Function]}
+                          size={2}
+                        >
+                          <ElButton
+                            className="el-intent-critical el-button-has-right-chevron el-button-size2"
+                            disabled={true}
+                            onClick={[Function]}
+                          >
+                            <button
+                              className="el-intent-critical el-button-has-right-chevron el-button-size2 el-button"
+                              disabled={true}
+                              onClick={[Function]}
+                            >
+                              Save
+                            </button>
+                          </ElButton>
+                        </Button>
+                      </div>
+                    </ElButtonGroupInner>
+                  </div>
+                </ElButtonGroup>
+              </ButtonGroup>
+            </div>
+          </ElInputWrapFull>
+        </InputWrapFull>
       </div>
-      <div
-        className="field field-checkbox mb-0 control"
-      >
-        <input
-          checked={false}
-          className="checkbox"
-          id="SPECIFIC_OFFICE_GROUPS"
-          onChange={[Function]}
-          type="checkbox"
-        />
-        <label
-          className="label"
-          htmlFor="SPECIFIC_OFFICE_GROUPS"
-        >
-          Install for specific office groups
-        </label>
-        <div
-          className="form-subheading mb-4"
-        >
-          <p>
-            This will grant the app access to only data for the specific offices inside of each office group
-          </p>
-        </div>
-      </div>
-    </section>
-  </Section>
+    </ElFormLayout>
+  </FormLayout>
 </AppInstallationSection>
 `;

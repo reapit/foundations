@@ -1,25 +1,23 @@
-import { SelectOption } from '@reapit/elements-legacy'
+import { MultiSelectOption } from '@reapit/elements'
 import { OfficeModel } from '@reapit/foundations-ts-definitions'
 import { GroupModel } from '../types/organisations-schema'
 
-export const prepareOfficeOptions: (data: OfficeModel[]) => SelectOption[] = (data) =>
+export const prepareOfficeOptions: (data: OfficeModel[]) => MultiSelectOption[] = (data) =>
   data.map((office: OfficeModel) => {
     const { id, name } = office
 
     return {
-      label: name,
+      name,
       value: id,
-      description: name,
-    } as SelectOption
+    } as MultiSelectOption
   })
 
-export const prepareUserGroupOptions: (data: GroupModel[]) => SelectOption[] = (data) =>
+export const prepareUserGroupOptions: (data: GroupModel[]) => MultiSelectOption[] = (data) =>
   data.map((userGroup: GroupModel) => {
-    const { id, description } = userGroup
+    const { id } = userGroup
 
     return {
-      label: id,
       value: id,
-      description,
-    } as SelectOption
+      name: id,
+    } as MultiSelectOption
   })

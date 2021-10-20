@@ -1,0 +1,86 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`EditOfficeGroupForm should match a snapshot 1`] = `
+<form
+  className="el-p8"
+  onSubmit={[Function]}
+>
+  <FormLayout
+    className="el-fade-in el-mb11"
+  >
+    <InputWrapFull>
+      <Subtitle>
+        Edit Office Group
+      </Subtitle>
+      <BodyText
+        hasGreyText={true}
+      >
+        To manage offices associated to this group, you can search and select users from the ‘Offices’ section below:
+      </BodyText>
+    </InputWrapFull>
+    <InputWrap>
+      <ForwardRef
+        intent="danger"
+        label="Office Group Name"
+        name="name"
+        onBlur={[Function]}
+        onChange={[Function]}
+        placeholder="Enter an office group name"
+      />
+    </InputWrap>
+    <InputWrap>
+      <Label>
+        Group Active
+      </Label>
+      <ForwardRef
+        hasGreyBg={true}
+        id="status-edit-toggle-GR1"
+        name="status"
+        onBlur={[Function]}
+        onChange={[Function]}
+      >
+        <ElToggleItem>
+          Active
+        </ElToggleItem>
+        <ElToggleItem>
+          Inactive
+        </ElToggleItem>
+      </ForwardRef>
+    </InputWrap>
+    <InputWrapFull>
+      <ForwardRef
+        icon="searchSystem"
+        label="Offices"
+        onChange={[Function]}
+        placeholder="Search"
+      />
+      <ForwardRef
+        defaultValues={
+          Array [
+            "OF1",
+            " OF2",
+          ]
+        }
+        id="office-group-edit-edit-ids-GR1"
+        name="officeIds"
+        noneSelectedLabel="No offices selected for this group"
+        onBlur={[Function]}
+        onChange={[Function]}
+        options={Array []}
+      />
+    </InputWrapFull>
+    <InputWrapFull>
+      <ButtonGroup
+        alignment="right"
+      >
+        <Button
+          intent="primary"
+          type="submit"
+        >
+          Submit
+        </Button>
+      </ButtonGroup>
+    </InputWrapFull>
+  </FormLayout>
+</form>
+`;

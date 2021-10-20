@@ -2,7 +2,7 @@ import * as React from 'react'
 import { mount } from 'enzyme'
 import { WHOLE_ORG, SPECIFIC_OFFICE_GROUPS } from '../app-installation-manager'
 import AppInstallationConfirmationModal from '../app-installation-confirmation-modal'
-import { Button } from '@reapit/elements-legacy'
+import { Button } from '@reapit/elements'
 
 describe('AppInstallationConfirmationModal', () => {
   it('should match a snapshot when the install type is WHOLE_ORG', () => {
@@ -15,7 +15,6 @@ describe('AppInstallationConfirmationModal', () => {
     const wrapper = mount(
       <AppInstallationConfirmationModal
         app={stubApp}
-        visible={true}
         installFor={[]}
         uninstallFor={[]}
         appInstallationType={WHOLE_ORG}
@@ -37,7 +36,6 @@ describe('AppInstallationConfirmationModal', () => {
     const wrapper = mount(
       <AppInstallationConfirmationModal
         app={stubApp}
-        visible={true}
         installFor={['SBOX-TEST']}
         uninstallFor={['SBOX-GWIT']}
         appInstallationType={SPECIFIC_OFFICE_GROUPS}
@@ -59,7 +57,6 @@ describe('AppInstallationConfirmationModal', () => {
     const wrapper = mount(
       <AppInstallationConfirmationModal
         app={stubApp}
-        visible={true}
         installFor={[]}
         uninstallFor={['']}
         appInstallationType={SPECIFIC_OFFICE_GROUPS}
@@ -81,7 +78,6 @@ describe('AppInstallationConfirmationModal', () => {
     const wrapper = mount(
       <AppInstallationConfirmationModal
         app={stubApp}
-        visible={true}
         installFor={[]}
         uninstallFor={['']}
         appInstallationType={SPECIFIC_OFFICE_GROUPS}
@@ -105,7 +101,6 @@ describe('AppInstallationConfirmationModal', () => {
     const wrapper = mount(
       <AppInstallationConfirmationModal
         app={stubApp}
-        visible={true}
         installFor={[]}
         uninstallFor={['']}
         appInstallationType={SPECIFIC_OFFICE_GROUPS}

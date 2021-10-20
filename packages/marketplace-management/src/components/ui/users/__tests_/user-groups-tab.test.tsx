@@ -2,8 +2,8 @@ import * as React from 'react'
 import { shallow } from 'enzyme'
 import { createBrowserHistory } from 'history'
 import Routes from '@/constants/routes'
-import UserGroupsTab, { UserGroupsContent, onPageChangeHandler } from '../user-groups-tab'
-import { data } from '../__stubs__/user-groups'
+import UserGroupsTab, { onPageChangeHandler } from '../user-groups-tab'
+// import { data } from '../__stubs__/user-groups'
 
 jest.mock('react-router', () => ({
   ...(jest.requireActual('react-router') as Object),
@@ -20,19 +20,6 @@ jest.mock('swr', () =>
 describe('UserGroupsTab', () => {
   it('should match a snapshot', () => {
     expect(shallow(<UserGroupsTab />)).toMatchSnapshot()
-  })
-})
-
-describe('UserGroupsContent', () => {
-  it('should match a snapshot', () => {
-    const columns = [
-      { Header: 'Name', accessor: 'name' },
-      { Header: 'Email', accessor: 'email' },
-      { Header: 'User Groups', accessor: 'groups' },
-      { Header: 'Edit' },
-    ]
-
-    expect(shallow(<UserGroupsContent data={data} columns={columns} onPageChange={jest.fn} />)).toMatchSnapshot()
   })
 })
 

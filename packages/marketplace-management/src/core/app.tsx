@@ -1,16 +1,21 @@
 import * as React from 'react'
 import Router from './router'
 import ErrorBoundary from '@/components/hocs/error-boundary'
-import { injectSwitchModeToWindow } from '@reapit/elements-legacy'
+import { MediaStateProvider, NavStateProvider, SnackProvider } from '@reapit/elements'
+import { injectSwitchModeToWindow } from '@reapit/utils-react'
 
 injectSwitchModeToWindow()
-
-import '@/styles/index.css'
 
 const App = () => {
   return (
     <ErrorBoundary>
-      <Router />
+      <SnackProvider>
+        <NavStateProvider>
+          <MediaStateProvider>
+            <Router />
+          </MediaStateProvider>
+        </NavStateProvider>
+      </SnackProvider>
     </ErrorBoundary>
   )
 }

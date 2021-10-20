@@ -1,11 +1,25 @@
-import React, { Dispatch, SetStateAction, useCallback, useEffect, useState } from 'react'
-import { H3, Section, H5, Pagination, GridFourCol, GridFourColItem, FadeIn, Loader } from '@reapit/elements-legacy'
+import React, { Dispatch, FC, SetStateAction, useCallback, useEffect, useState } from 'react'
 import { useHistory, useLocation } from 'react-router'
 import { History } from 'history'
 import Routes from '../../constants/routes'
 import { AppSummaryModelPagedResult } from '@reapit/foundations-ts-definitions'
 import { getAppsService } from '../../services/apps'
 import AppCard from '../ui/apps/app-card'
+import {
+  BodyText,
+  Col,
+  elHFull,
+  elMb5,
+  FlexContainer,
+  Grid,
+  Icon,
+  Loader,
+  PageContainer,
+  Pagination,
+  SecondaryNavContainer,
+  Subtitle,
+  Title,
+} from '@reapit/elements'
 
 export const onPageChangeHandler = (history: History<any>) => (page: number) => {
   const queryString = `?pageNumber=${page}&pageSize=12`
@@ -31,7 +45,7 @@ export const handleFetchApps =
     fetchApps()
   }
 
-const MarketplacePage: React.FC = () => {
+const MarketplacePage: FC = () => {
   const history = useHistory()
   const location = useLocation()
   const onPageChange = useCallback(onPageChangeHandler(history), [history])
@@ -42,36 +56,38 @@ const MarketplacePage: React.FC = () => {
   useEffect(handleFetchApps(setApps, setAppsLoading, search), [setApps, search, setAppsLoading])
 
   return (
-    <>
-      <H3>Marketplace Apps</H3>
-      <Section hasPadding={false}>
-        <H5>Marketplace Visibility and Installation Management</H5>
-        <p className="mb-4">
+    <FlexContainer isFlexAuto>
+      <SecondaryNavContainer>
+        <Title>Apps</Title>
+        <Icon className={elMb5} icon="appInfographicAlt" iconSize="large" />
+        <Subtitle>Marketplace Visibility and Installation Management</Subtitle>
+        <BodyText hasGreyText>
           To set the visibility of app in the Marketplace or manage installations, for your organisation or specific
-          office groups, please select an app from the list below:
-        </p>
-      </Section>
-      {appsLoading ? (
-        <Loader />
-      ) : (
-        <GridFourCol>
-          {apps?.data?.map((app) => (
-            <GridFourColItem key={app.id}>
-              <FadeIn>
-                <AppCard app={app} />
-              </FadeIn>
-            </GridFourColItem>
-          ))}
-        </GridFourCol>
-      )}
-
-      <Pagination
-        onChange={onPageChange}
-        totalCount={apps?.totalCount ?? 0}
-        pageSize={apps?.pageSize ?? 0}
-        pageNumber={apps?.pageNumber ?? 1}
-      />
-    </>
+          office groups, please select an app from the list.
+        </BodyText>
+      </SecondaryNavContainer>
+      <PageContainer className={elHFull}>
+        <Title>Marketplace Apps</Title>
+        {appsLoading ? (
+          <Loader />
+        ) : (
+          <>
+            <Grid>
+              {apps?.data?.map((app) => (
+                <Col key={app.id}>
+                  <AppCard app={app} />
+                </Col>
+              ))}
+            </Grid>
+            <Pagination
+              callback={onPageChange}
+              numberPages={Math.ceil((apps?.totalCount ?? 0) / (apps?.pageSize ?? 0))}
+              currentPage={apps?.pageNumber ?? 0}
+            />
+          </>
+        )}
+      </PageContainer>
+    </FlexContainer>
   )
 }
 
