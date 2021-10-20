@@ -20,6 +20,7 @@ import {
   Subtitle,
   Title,
 } from '@reapit/elements'
+import { OrgIdSelect } from '../../utils/use-org-id'
 
 export const onPageChangeHandler = (history: History<any>) => (page: number) => {
   const queryString = `?pageNumber=${page}&pageSize=12`
@@ -65,6 +66,7 @@ const MarketplacePage: FC = () => {
           To set the visibility of app in the Marketplace or manage installations, for your organisation or specific
           office groups, please select an app from the list.
         </BodyText>
+        <OrgIdSelect />
       </SecondaryNavContainer>
       <PageContainer className={elHFull}>
         <Title>Marketplace Apps</Title>

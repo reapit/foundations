@@ -21,6 +21,7 @@ import {
 } from '@reapit/elements'
 import { navigate } from '../ui/nav/nav'
 import OfficeGroupCreate from '../ui/offices/office-group-create'
+import { OrgIdSelect } from '../../utils/use-org-id'
 
 const OfficesPage: FC = () => {
   const history = useHistory()
@@ -55,6 +56,7 @@ const OfficesPage: FC = () => {
             Create Group
           </Button>
         )}
+        <OrgIdSelect />
       </SecondaryNavContainer>
       <PageContainer className={elHFull}>
         <Route path={Routes.OFFICES} component={OfficesTab} exact />

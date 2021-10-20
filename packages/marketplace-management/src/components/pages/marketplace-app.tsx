@@ -24,6 +24,7 @@ import {
 } from '@reapit/elements'
 import { navigate } from '../ui/nav/nav'
 import Routes from '../../constants/routes'
+import { OrgIdSelect } from '../../utils/use-org-id'
 
 export const handleLoadAppListing = (isDesktop: boolean, appId: string) => () => {
   const appListingUri = `${window.reapit.config.marketplaceUrl}/apps/${appId}`
@@ -67,6 +68,7 @@ const MarketplaceAppPage: FC = () => {
           To set the visibility of app in the Marketplace or manage installations, use the various sections on this
           page.
         </BodyText>
+        <OrgIdSelect />
         <Button className={elMb5} type="button" intent="primary" onClick={navigate(history, Routes.MARKETPLACE)}>
           Back To Apps
         </Button>
