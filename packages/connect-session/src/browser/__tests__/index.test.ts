@@ -37,6 +37,20 @@ describe('ReapitConnectBrowserSession', () => {
     expect(connectSession).toEqual(mockBrowserSession)
   })
 
+  it('should have a connectClearSession that clears the current session', async () => {
+    const session = getSession()
+    const validSession = Object.assign(session, { session: mockBrowserSession }) as ReapitConnectBrowserSession
+    const connectSession = await validSession.connectSession()
+
+    expect(connectSession).toEqual(mockBrowserSession)
+
+    validSession.connectClearSession()
+
+    const clearedSession = await validSession.connectSession()
+
+    expect(clearedSession).toBeUndefined()
+  })
+
   it('should return true from connectHasSession if session valid', () => {
     const session = getSession()
     const validSession = Object.assign(session, { session: mockBrowserSession }) as ReapitConnectBrowserSession

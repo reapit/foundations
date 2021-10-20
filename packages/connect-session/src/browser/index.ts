@@ -235,6 +235,10 @@ export class ReapitConnectBrowserSession {
     window.location.href = `${this.connectOAuthUrl}/logout?client_id=${this.connectClientId}&logout_uri=${logoutRedirectUri}`
   }
 
+  public connectClearSession(): void {
+    this.session = null
+  }
+
   // The main method for fetching a session in an app.
   public async connectSession(): Promise<ReapitConnectSession | void> {
     // Ideally, if I have a valid session, just return it
