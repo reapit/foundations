@@ -1,4 +1,4 @@
-import React, { useState, useEffect, useCallback, FC, useMemo } from 'react'
+import React, { useState, useCallback, FC, useMemo } from 'react'
 import useSWR from 'swr'
 import { useHistory, useLocation } from 'react-router'
 import { History } from 'history'
@@ -9,10 +9,10 @@ import { toLocalTime, DATE_TIME_FORMAT } from '@reapit/utils-common'
 import Routes from '@/constants/routes'
 import { URLS } from '../../../constants/api'
 import EditOfficeGroupForm from './office-group-edit-form'
-import { orgIdEffectHandler } from '../../../utils/org-id-effect-handler'
 import { elFadeIn, elMb11, Pagination, PersistantNotification, RowProps, Table, Title } from '@reapit/elements'
 import { OfficeModel } from '@reapit/foundations-ts-definitions'
 import { cx } from '@linaria/core'
+import { useOrgId } from '../../../utils/use-org-id'
 
 export interface OfficeGroupWithOfficesModel extends OfficeGroupModel {
   offices?: OfficeModel[]
@@ -92,10 +92,10 @@ const OfficesGroupsTab: FC = () => {
   const location = useLocation()
   const search = location.search
   const onPageChange = useCallback(onPageChangeHandler(history), [history])
-  const [orgId, setOrgId] = useState<string | null>(null)
   const [indexExpandedRow, setIndexExpandedRow] = useState<number | null>(null)
-
-  useEffect(orgIdEffectHandler(orgId, setOrgId), [])
+  const {
+    orgIdState: { orgId },
+  } = useOrgId()
 
   const { data: officeGroupsResponse, mutate } = useSWR<OfficeGroupModelPagedResult>(
     !orgId

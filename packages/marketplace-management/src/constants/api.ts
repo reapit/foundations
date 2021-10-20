@@ -10,6 +10,7 @@ export const URLS = {
   ORGANISATIONS: '/organisations/Organisations',
   OFFICES_GROUPS: '/officeGroups',
   USERS: '/organisations/users',
+  USERS_INFO: '/organisations/users/info',
   USERS_GROUPS: '/organisations/groups',
   APPS: '/marketplace/apps',
   CUSTOMERS: '/marketplace/customers',
