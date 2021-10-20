@@ -33,20 +33,19 @@ jobs:
         with:
           script: |
             const child_process = require('child_process')
-            const packageInfo = require("packages/${{ steps.tagName.outputs.package }}/package.json")
+            const packageInfo = require(`packages/${context.steps.tagName.outputs.package}/package.json`)
             const creator = context.payload.sender.login
             const tags = github.rest.repos.listTags({
               ...context.issue,
             }).sort((a,b) => a.name - b.name)
-            console.log('values', "${{ steps.tagName.outputs.package }}", "${{ steps.tagName.outputs.version }}")
-            const PREVIOUS_VERSION = tags[tags.findIndex(tag => tag.name === "${{ steps.tagName.outputs.version }}") - 1]
+            console.log('values', `${context.steps.tagName.outputs.package}`, `${context.steps.tagName.outputs.version }`)
+            const PREVIOUS_VERSION = tags[tags.findIndex(tag => tag.name === `${context.steps.tagName.outputs.version}`) - 1]
             console.log('previous version', PREVIOUS_VERSION)
-
-            if (!PREVIOUS_VERSION) process.exit(127)
-
+            if (!PREVIOUS_VERSION) {
+              process.exit(127)
+            }
             const IS_PACKAGE = (packageInfo.name as string).includes("@reapit/", 0)
             console.log('is package', IS_PACKAGE)
-
             const child = async (command) => {
               await new Promise((resolve) => child_process.exec(command, (err) => {
                 if (err) {
@@ -55,18 +54,16 @@ jobs:
                 resolve()
               }))
             }
-
             const actions = async () => {
-              await child("yarn workspace ${{ steps.tagName.outputs.package }} run conf --name production")
-              await child("yarn workspace ${{ steps.tagName.outputs.package }} run build")
-              await child("yarn workspace ${{ steps.tagName.outputs.package }} run release --stage prod")
+              await child(`yarn workspace ${context.steps.tagName.outputs.package} run conf --name production`)
+              await child(`yarn workspace ${context.steps.tagName.outputs.package} run build`)
+              await child(`yarn workspace ${context.steps.tagName.outputs.package} run release --stage prod`)
               if (IS_PACKAGE) {
                 await child(
-                  "yarn npm dist-tag rm ${{ steps.tagName.outputs.package }} latest &&" +
-                  "yarn npm dist-tag add ${{ steps.tagName.outputs.package }}@${PREVIOUS_VERSION} latest &&" +
-                  "yarn npm dist-tag ls"
+                  `yarn npm dist-tag rm ${context.steps.tagName.outputs.package} latest &&
+                  yarn npm dist-tag add ${context.steps.tagName.outputs.package}@${PREVIOUS_VERSION} latest &&
+                  yarn npm dist-tag ls`
                 )
               }
             }
-
             actions()
