@@ -1,5 +1,6 @@
 import React, { forwardRef, useEffect, useState } from 'react'
 import { useHistory } from 'react-router'
+import qs from 'query-string'
 import { Button, FormLayout, Loader, useSnack } from '@reapit/elements'
 
 import { Container, ContainerProps } from './container'
@@ -55,6 +56,8 @@ export const Form = forwardRef<HTMLDivElement, FormProps & { disabled?: boolean 
       }
     }, [data, args])
 
+    console.log(args)
+
     return (
       <Container {...props} ref={ref}>
         {!typeName && <div>No type selected</div>}
@@ -74,16 +77,22 @@ export const Form = forwardRef<HTMLDivElement, FormProps & { disabled?: boolean 
               }
             }
             mutateFunction({
-              variables,
+              variables: {
+                ...variables,
+                ...context,
+              },
             })
               .then(() => {
                 success(`Successfully ${formType}d ${typeName}`)
                 if (destination) {
-                  history.push(destination)
+                  history.push({
+                    pathname: destination,
+                    search: qs.stringify(context),
+                  })
                 }
               })
-              .catch(() => {
-                error(`Error ${formType}ing ${typeName}`)
+              .catch((e) => {
+                error(`Error ${formType}ing ${typeName}: ${e.message}`)
               })
           }}
         >

@@ -15,7 +15,7 @@ export const query = async <T>(
   dataKey: string,
   { idToken, accessToken }: AuthTokens,
 ) => {
-  const res = await fetch(graphqlUri || 'https://graphql.dev.paas.reapit.cloud/graphql', {
+  const res = await fetch(graphqlUri || 'http://localhost:3000/local/graphql', {
     method: 'POST',
     headers: {
       'Content-Type': 'application/json',
@@ -28,14 +28,15 @@ export const query = async <T>(
     }),
   })
   const json = (await res.json()) as any
+  if (json.errors) {
+    console.log(json.errors)
+    throw new Error(json.errors[0].message)
+  }
   if (json.message) {
     throw new Error(json.message)
   }
   if (json.data) {
     return json.data[dataKey] as T
-  }
-  if (json.errors) {
-    throw new Error(json.errors[0].message)
   }
   throw new Error('Invalid response')
 }

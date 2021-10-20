@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useEffect } from 'react'
 import { InputGroup, InputWrap, Label, Loader, SearchableDropdown, Select } from '@reapit/elements'
 
 import { useObjectList } from '../../../hooks/objects/use-object-list'
@@ -33,7 +33,6 @@ const SelectIDofType = ({
   if (searchAvailable) {
     return (
       <SearchableDropdown<GenericObject>
-        value={value}
         onChange={(e) => onChange(e.target.value)}
         getResults={search}
         getResultLabel={(result) => getLabel(result, object?.labelKeys)}
@@ -80,41 +79,59 @@ const InnerFormInput = (
     idOfType: string
   },
   ref: React.ForwardedRef<HTMLDivElement>,
-) => (
-  // @ts-ignore
-  <InputWrap ref={ref}>
-    {enumValues && (
-      <>
-        <Label>{label}</Label>
-        <Select onChange={(e) => onChange(e.target.value)} value={value}>
-          {enumValues.map((value) => (
-            <option key={value} value={value}>
-              {value}
+) => {
+  useEffect(() => {
+    if (typeName === 'Boolean' && isRequired) {
+      onChange(false)
+    }
+  }, [typeName])
+
+  return (
+    // @ts-ignore
+    <InputWrap ref={ref}>
+      {enumValues && (
+        <>
+          <Label>{label}</Label>
+          <Select onChange={(e) => onChange(e.target.value)} value={value}>
+            {enumValues.map((value) => (
+              <option key={value} value={value}>
+                {value}
+              </option>
+            ))}
+            <option selected disabled>
+              Select a {typeName}
             </option>
-          ))}
-          <option selected disabled>
-            Select a {typeName}
-          </option>
-        </Select>
-      </>
-    )}
-    {idOfType && (
-      <>
-        <Label>{label}</Label>
-        <SelectIDofType typeName={idOfType} onChange={onChange} value={value} />
-      </>
-    )}
-    {!enumValues && !idOfType && (
-      <InputGroup
-        required={isRequired}
-        key={label}
-        label={label}
-        type={typeName === 'Boolean' ? 'checkbox' : 'text'}
-        value={value}
-        onChange={(e) => onChange(e.target.value)}
-      />
-    )}
-  </InputWrap>
-)
+          </Select>
+        </>
+      )}
+      {idOfType && (
+        <>
+          <Label>{label}</Label>
+          <SelectIDofType typeName={idOfType} onChange={onChange} value={value} />
+        </>
+      )}
+      {!enumValues &&
+        !idOfType &&
+        (typeName === 'Boolean' ? (
+          <InputGroup
+            key={label}
+            label={label}
+            type={'checkbox'}
+            value={value}
+            onChange={(e) => onChange(e.target.value !== 'false')}
+          />
+        ) : (
+          <InputGroup
+            required={isRequired}
+            key={label}
+            label={label}
+            type={'text'}
+            value={value}
+            onChange={(e) => onChange(e.target.value)}
+          />
+        ))}
+    </InputWrap>
+  )
+}
 
 export const FormInput = React.forwardRef(InnerFormInput)
