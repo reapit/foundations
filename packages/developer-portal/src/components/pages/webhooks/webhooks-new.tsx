@@ -179,6 +179,9 @@ export const WebhooksNew: FC<WebhooksNewProps> = ({ webhookQueryParams, selectAp
     formState: { errors },
   } = useForm<CreateWebhookFormSchema>({
     resolver: yupResolver(schema),
+    defaultValues: {
+      applicationId: webhookQueryParams.applicationId,
+    },
   })
   const dispatch = useDispatch()
   const history = useHistory()
@@ -197,6 +200,12 @@ export const WebhooksNew: FC<WebhooksNewProps> = ({ webhookQueryParams, selectAp
   ])
 
   useEffect(() => selectAppIdHandler(undefined, applicationId), [applicationId])
+
+  useEffect(() => {
+    if (webhookQueryParams.applicationId) {
+      handleSwitchStep(selectedStep, trigger, setSelectedStep)()
+    }
+  }, [])
 
   return (
     <form
