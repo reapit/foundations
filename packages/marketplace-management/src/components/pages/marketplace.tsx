@@ -20,7 +20,6 @@ import {
   Subtitle,
   Title,
 } from '@reapit/elements'
-import { FadeIn } from '@reapit/elements-legacy'
 
 export const onPageChangeHandler = (history: History<any>) => (page: number) => {
   const queryString = `?pageNumber=${page}&pageSize=12`
@@ -63,8 +62,8 @@ const MarketplacePage: FC = () => {
         <Icon className={elMb5} icon="appInfographicAlt" iconSize="large" />
         <Subtitle>Marketplace Visibility and Installation Management</Subtitle>
         <BodyText hasGreyText>
-          To set the visibility of app in the Marketplace or manage installations, for your organisation or
-          specifioffice groups, please select an app from the list below:
+          To set the visibility of app in the Marketplace or manage installations, for your organisation or specific
+          office groups, please select an app from the list.
         </BodyText>
       </SecondaryNavContainer>
       <PageContainer className={elHFull}>
@@ -76,9 +75,7 @@ const MarketplacePage: FC = () => {
             <Grid>
               {apps?.data?.map((app) => (
                 <Col key={app.id}>
-                  <FadeIn>
-                    <AppCard app={app} />
-                  </FadeIn>
+                  <AppCard app={app} />
                 </Col>
               ))}
             </Grid>

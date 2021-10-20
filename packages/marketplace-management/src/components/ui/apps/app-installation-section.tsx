@@ -1,8 +1,19 @@
-import React, { Dispatch, SetStateAction } from 'react'
+import React, { Dispatch, FC, SetStateAction } from 'react'
 import { InstallationModelPagedResult } from '@reapit/foundations-ts-definitions'
 import AppInstallationPerOfficeGroup from './app-installation-per-office-group'
 import { WHOLE_ORG, SPECIFIC_OFFICE_GROUPS, InstallTypes } from './app-installation-manager'
-import { Button, FlexContainer, Subtitle } from '@reapit/elements'
+import {
+  BodyText,
+  Button,
+  ButtonGroup,
+  elMb5,
+  elMb7,
+  FormLayout,
+  InputGroup,
+  InputWrap,
+  InputWrapFull,
+  Subtitle,
+} from '@reapit/elements'
 
 export interface AppInstallationSectionProps {
   initialAppInstallationType: InstallTypes
@@ -17,7 +28,7 @@ export interface AppInstallationSectionProps {
   setShowConfirmModal: (state: boolean) => void
 }
 
-const AppInstallationSection: React.FC<AppInstallationSectionProps> = ({
+export const AppInstallationSection: FC<AppInstallationSectionProps> = ({
   initialAppInstallationType,
   appInstallationType,
   onCheckboxChange,
@@ -36,55 +47,56 @@ const AppInstallationSection: React.FC<AppInstallationSectionProps> = ({
 
   return (
     <>
-      <FlexContainer>
-        <Subtitle>Installation</Subtitle>
-        <Button intent="primary" disabled={!submitButtonEnabled} onClick={() => setShowConfirmModal(true)}>
-          Save
-        </Button>
-      </FlexContainer>
-      <p className="mb-4">
-        <p>Please select the type of installation you require for this app:</p>
-      </p>
-      <div className="field field-checkbox mb-0 control">
-        <input
-          className="checkbox"
-          type="checkbox"
-          id={WHOLE_ORG}
-          checked={appInstallationType === WHOLE_ORG}
-          onChange={() => onCheckboxChange(WHOLE_ORG)}
-        />
-        <label className="label" htmlFor={WHOLE_ORG}>
-          Install for the whole of your organisation
-        </label>
-        <div className="form-subheading mb-4">
-          <p>This will grant the app access to all data for all users and offices across your organisation</p>
-        </div>
-      </div>
-      <div className="field field-checkbox mb-0 control">
-        <input
-          className="checkbox"
-          type="checkbox"
-          id={SPECIFIC_OFFICE_GROUPS}
-          checked={appInstallationType === SPECIFIC_OFFICE_GROUPS}
-          onChange={() => onCheckboxChange(SPECIFIC_OFFICE_GROUPS)}
-        />
-        <label className="label" htmlFor={SPECIFIC_OFFICE_GROUPS}>
-          Install for specific office groups
-        </label>
-        <div className="form-subheading mb-4">
-          <p>This will grant the app access to only data for the specific offices inside of each office group</p>
-        </div>
-      </div>
-
-      {appInstallationType === SPECIFIC_OFFICE_GROUPS && !installationsValidating && (
-        <AppInstallationPerOfficeGroup
-          installations={installations}
-          officeGroupsToAdd={officeGroupsToAdd}
-          officeGroupsToRemove={officeGroupsToRemove}
-          setOfficeGroupsToAdd={setOfficeGroupsToAdd}
-          setOfficeGroupsToRemove={setOfficeGroupsToRemove}
-        />
-      )}
+      <Subtitle>Installation</Subtitle>
+      <BodyText hasGreyText>Please select the type of installation you require for this app:</BodyText>
+      <FormLayout>
+        <InputWrap>
+          <InputGroup
+            className={elMb5}
+            type="checkbox"
+            label="Install for the whole of your organisation"
+            id={WHOLE_ORG}
+            checked={appInstallationType === WHOLE_ORG}
+            onChange={() => onCheckboxChange(WHOLE_ORG)}
+          />
+          <BodyText>
+            This will grant the app access to all data for all users and offices across your organisation
+          </BodyText>
+        </InputWrap>
+        <InputWrap>
+          <InputGroup
+            className={elMb5}
+            type="checkbox"
+            label="Install for specific office groups"
+            id={SPECIFIC_OFFICE_GROUPS}
+            checked={appInstallationType === SPECIFIC_OFFICE_GROUPS}
+            onChange={() => onCheckboxChange(SPECIFIC_OFFICE_GROUPS)}
+          />
+          <BodyText>
+            This will grant the app access to only data for the specific offices inside of each office group
+          </BodyText>
+        </InputWrap>
+        {appInstallationType === SPECIFIC_OFFICE_GROUPS && !installationsValidating && (
+          <AppInstallationPerOfficeGroup
+            installations={installations}
+            setOfficeGroupsToAdd={setOfficeGroupsToAdd}
+            setOfficeGroupsToRemove={setOfficeGroupsToRemove}
+          />
+        )}
+        <InputWrapFull>
+          <ButtonGroup className={elMb7} alignment="right">
+            <Button
+              intent="critical"
+              size={2}
+              chevronRight
+              disabled={!submitButtonEnabled}
+              onClick={() => setShowConfirmModal(true)}
+            >
+              Save
+            </Button>
+          </ButtonGroup>
+        </InputWrapFull>
+      </FormLayout>
     </>
   )
 }

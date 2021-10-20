@@ -19,8 +19,6 @@ describe('AppInstallationPerOfficeGroup', () => {
     const wrapper = mount(
       <AppInstallationPerOfficeGroup
         installations={stubInstallations}
-        officeGroupsToAdd={[]}
-        officeGroupsToRemove={[]}
         setOfficeGroupsToAdd={addOfficeGroupStub}
         setOfficeGroupsToRemove={removeOfficeGroupStub}
       />,

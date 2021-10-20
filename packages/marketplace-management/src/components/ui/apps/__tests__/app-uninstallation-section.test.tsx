@@ -1,7 +1,7 @@
 import * as React from 'react'
 import { mount } from 'enzyme'
 import AppUninstallationSection from '../app-uninstallation-section'
-import { Button } from '@reapit/elements-legacy'
+import { Button } from '@reapit/elements'
 
 describe('AppUninstallationSection', () => {
   it('should match a snapshot when theres no installations', () => {

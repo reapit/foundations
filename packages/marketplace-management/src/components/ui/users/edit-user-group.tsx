@@ -38,13 +38,13 @@ interface UpdateUserGroupModel {
   userIds: string
 }
 
-export const prepareGroupOptions: (data: GroupModel[]) => MultiSelectOption[] = (data: UserModel[]) =>
+export const prepareGroupOptions = (data: GroupModel[]): MultiSelectOption[] =>
   data.map((userGroupGroup: UserModel) => {
-    const { id } = userGroupGroup
+    const { id, name } = userGroupGroup
 
     return {
       value: id,
-      name: userGroupGroup.name,
+      name: name,
     } as MultiSelectOption
   })
 
@@ -61,6 +61,7 @@ const removeUserFromGroup = async (id: string, userId: string) => {
 export const onHandleSubmit =
   (
     onComplete: () => void,
+    refetchMembers: () => void,
     success: (message: string) => void,
     error: (message: string) => void,
     originalUserIds: string[],
@@ -88,6 +89,7 @@ export const onHandleSubmit =
     success(toastMessages.CHANGES_SAVE_SUCCESS)
 
     onComplete()
+    refetchMembers()
   }
 
 export const EditUserGroupForm: FC<EditUserGroupFormProps> = ({ userGroup, onComplete, orgId }) => {
@@ -95,11 +97,13 @@ export const EditUserGroupForm: FC<EditUserGroupFormProps> = ({ userGroup, onCom
 
   const { data } = useSWR<UserModelPagedResult | undefined>(`${URLS.USERS}?pageSize=999&organisationId=${orgId}`)
 
-  const { data: groupMembers } = useSWR<GroupMembershipModelPagedResult | undefined>(
+  const { data: groupMembers, mutate: refetchMembers } = useSWR<GroupMembershipModelPagedResult | undefined>(
     id && orgId ? `${URLS.USERS_GROUPS}/${id}/members?pageSize=999&organisationId=${orgId}` : null,
   )
   const { success, error } = useSnack()
-  const userIds = groupMembers?._embedded ? groupMembers?._embedded.map((member) => member.id).join(',') : ''
+  const userIds = groupMembers?._embedded
+    ? groupMembers?._embedded.map((member) => member.id ?? '').filter(Boolean)
+    : []
 
   const {
     register,
@@ -107,16 +111,14 @@ export const EditUserGroupForm: FC<EditUserGroupFormProps> = ({ userGroup, onCom
     formState: { errors },
   } = useForm<{ userIds: string }>({
     defaultValues: {
-      userIds,
+      userIds: '',
     },
   })
 
-  if (!userGroup) return null
-  if (!data) return <Loader />
-  if (!groupMembers) return <Loader />
+  if (!data || !groupMembers) return <Loader />
   const { _embedded: listUserGroup } = data
 
-  const onSubmit = onHandleSubmit(onComplete, success, error, userIds.split(','), userGroup.id ?? '')
+  const onSubmit = onHandleSubmit(onComplete, refetchMembers, success, error, userIds, userGroup.id ?? '')
 
   const userGroupGroupOptions = prepareGroupOptions(listUserGroup ?? [])
 
@@ -127,7 +129,7 @@ export const EditUserGroupForm: FC<EditUserGroupFormProps> = ({ userGroup, onCom
           <Subtitle>Edit User Group</Subtitle>
           <BodyText hasGreyText>
             The list below contains all available member groups for your organisation. You can manage users associated
-            to each group by selecting ‘Manage’
+            to each group by selecting them from the list below.
           </BodyText>
         </InputWrapFull>
         <InputWrapFull>

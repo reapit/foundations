@@ -12,7 +12,7 @@ import {
   getInstallationsForOfficeGroups,
   getInstallationsForWholeOrg,
 } from './app-installation-manager'
-import { Card } from '@reapit/elements'
+import { Card, elFadeIn } from '@reapit/elements'
 
 export interface AppCardProps {
   app: AppSummaryModel
@@ -58,6 +58,7 @@ export const AppCard: FC<AppCardProps> = ({ app }: AppCardProps) => {
 
   return (
     <Card
+      className={elFadeIn}
       onClick={handleNavigation(app.id as string)}
       hasMainCard
       hasListCard

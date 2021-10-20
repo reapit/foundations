@@ -1,5 +1,6 @@
+import { PageContainer, Title, PersistantNotification, ButtonGroup, Button } from '@reapit/elements'
 import * as React from 'react'
-import { ModalV2, Button, ButtonGroup } from '@reapit/elements-legacy'
+
 import { reapitConnectBrowserSession } from '../../core/connect-session'
 
 export const onMarketplaceButtonClick = () => {
@@ -11,18 +12,21 @@ export const onLogoutButtonClick = () => {
 }
 
 const AccessDenied: React.FC = () => (
-  <ModalV2 title="Reapit Connect Management" visible={true}>
-    <p className="mb-4">
+  <PageContainer>
+    <Title>Reapit Connect Management</Title>
+    <PersistantNotification>
       It looks like the user account you have logged in with, does not have the required permissions to access this app.
       Please contact your Organisation Administrator.
-    </p>
-    <ButtonGroup hasSpacing isCentered>
-      <Button variant="secondary" onClick={onMarketplaceButtonClick}>
+    </PersistantNotification>
+    <ButtonGroup alignment="center">
+      <Button intent="secondary" onClick={onMarketplaceButtonClick}>
         Marketplace
       </Button>
-      <Button onClick={onLogoutButtonClick}>Logout</Button>
+      <Button intent="critical" onClick={onLogoutButtonClick}>
+        Logout
+      </Button>
     </ButtonGroup>
-  </ModalV2>
+  </PageContainer>
 )
 
 export default AccessDenied

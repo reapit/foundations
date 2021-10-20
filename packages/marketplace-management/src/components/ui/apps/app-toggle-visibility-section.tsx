@@ -1,7 +1,7 @@
 import React, { Dispatch, FC, SetStateAction, useState } from 'react'
 import { AppDetailModel, AppSummaryModel } from '@reapit/foundations-ts-definitions'
 import { updateAppRestrictionsService } from '../../../services/apps'
-import { BodyText, InputGroup, Subtitle, useSnack } from '@reapit/elements'
+import { BodyText, elMb11, InputGroup, Subtitle, useSnack } from '@reapit/elements'
 
 export interface AppToggleVisibilityProps {
   app: AppSummaryModel
@@ -46,6 +46,7 @@ const AppToggleVisibilitySection: FC<AppToggleVisibilityProps> = ({ app, reFetch
         Marketplace to any offices/users inside of your organisation.
       </BodyText>
       <InputGroup
+        className={elMb11}
         label="Visible"
         type="checkbox"
         id={app.id}

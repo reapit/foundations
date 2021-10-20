@@ -7,7 +7,7 @@ import AppUninstallationSection from './app-uninstallation-section'
 import { URLS } from '../../../constants/api'
 import { clientIdEffectHandler } from '../../../utils/client-id-effect-handler'
 import { bulkInstall } from '../../../services/installation'
-import { useSnack } from '@reapit/elements'
+import { useModal, useSnack } from '@reapit/elements'
 
 export interface AppInstallationManagerProps {
   app: AppSummaryModel
@@ -49,9 +49,9 @@ const AppInstallationManager: React.FC<AppInstallationManagerProps> = ({ app }: 
   const [officeGroupsToAdd, setOfficeGroupsToAdd] = useState<string[]>([])
   const [officeGroupsToRemove, setOfficeGroupsToRemove] = useState<string[]>([])
   const [clientId, setClientId] = useState<string | null>(null)
-  const [showConfirmModal, setShowConfirmModal] = useState<boolean>(false)
   const [performCompleteUninstall, setPerformCompleteUninstall] = useState<boolean>(false)
   const { success } = useSnack()
+  const { Modal, openModal, closeModal } = useModal()
 
   useEffect(clientIdEffectHandler(clientId, setClientId), [])
 
@@ -129,7 +129,7 @@ const AppInstallationManager: React.FC<AppInstallationManagerProps> = ({ app }: 
       success('Changes have been saved successfully')
     } finally {
       // close the confirmation modal
-      setShowConfirmModal(false)
+      closeModal()
     }
   }
 
@@ -138,7 +138,7 @@ const AppInstallationManager: React.FC<AppInstallationManagerProps> = ({ app }: 
       <AppUninstallationSection
         installations={installations}
         clientId={clientId}
-        setShowConfirmModal={setShowConfirmModal}
+        setShowConfirmModal={openModal}
         setPerformCompleteUninstall={setPerformCompleteUninstall}
       />
       <AppInstallationSection
@@ -151,18 +151,19 @@ const AppInstallationManager: React.FC<AppInstallationManagerProps> = ({ app }: 
         setOfficeGroupsToAdd={setOfficeGroupsToAdd}
         setOfficeGroupsToRemove={setOfficeGroupsToRemove}
         installationsValidating={installationsValidating}
-        setShowConfirmModal={setShowConfirmModal}
+        setShowConfirmModal={openModal}
       />
-      <AppInstallationConfirmationModal
-        app={app}
-        visible={showConfirmModal}
-        installFor={officeGroupsToAdd}
-        uninstallFor={officeGroupsToRemove}
-        appInstallationType={appInstallationType}
-        onConfirm={handleModalConfirmation}
-        onClose={() => setShowConfirmModal(false)}
-        performCompleteUninstall={performCompleteUninstall}
-      />
+      <Modal title={`${app.name} App ${performCompleteUninstall ? 'Uninstall' : 'Install'}`}>
+        <AppInstallationConfirmationModal
+          app={app}
+          installFor={officeGroupsToAdd}
+          uninstallFor={officeGroupsToRemove}
+          appInstallationType={appInstallationType}
+          onConfirm={handleModalConfirmation}
+          onClose={closeModal}
+          performCompleteUninstall={performCompleteUninstall}
+        />
+      </Modal>
     </>
   )
 }

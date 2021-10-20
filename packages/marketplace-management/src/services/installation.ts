@@ -1,4 +1,3 @@
-import { notification } from '@reapit/elements-legacy'
 import { fetcher } from '@reapit/utils-common'
 import { reapitConnectBrowserSession } from '../core/connect-session'
 import { URLS } from '../constants/api'
@@ -35,10 +34,6 @@ export const bulkInstall = async (
     }
   } catch (err) {
     logger(err)
-    notification.error({
-      message: 'Failed to install',
-    })
-
     throw err
   }
 }

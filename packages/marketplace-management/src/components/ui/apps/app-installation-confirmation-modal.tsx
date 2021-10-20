@@ -1,12 +1,10 @@
 import React from 'react'
 import { AppSummaryModel } from '@reapit/foundations-ts-definitions'
-import { Modal, PortalProvider, Content } from '@reapit/elements-legacy'
 import { WHOLE_ORG, SPECIFIC_OFFICE_GROUPS, InstallTypes } from './app-installation-manager'
 import { BodyText, Button, ButtonGroup } from '@reapit/elements'
 
 export interface AppInstallationConfirmationModalProps {
   app: AppSummaryModel
-  visible: boolean
   installFor: string[]
   uninstallFor: string[]
   appInstallationType: InstallTypes
@@ -17,7 +15,6 @@ export interface AppInstallationConfirmationModalProps {
 
 const AppInstallationConfirmationModal: React.FC<AppInstallationConfirmationModalProps> = ({
   app,
-  visible,
   installFor,
   uninstallFor,
   appInstallationType,
@@ -56,40 +53,30 @@ const AppInstallationConfirmationModal: React.FC<AppInstallationConfirmationModa
   )
 
   return (
-    <PortalProvider>
-      <Modal
-        visible={visible}
-        afterClose={onClose}
-        title={`${app.name} App ${performCompleteUninstall ? 'Uninstall' : 'Install'}`}
-        footerItems={
-          <ButtonGroup alignment="right">
-            <Button intent="secondary" type="button" onClick={onClose}>
-              Cancel
-            </Button>
-            <Button intent="primary" type="button" onClick={onConfirm}>
-              Confirm
-            </Button>
-          </ButtonGroup>
-        }
-      >
-        <Content>
-          {performCompleteUninstall && uninstallText}
-          {!performCompleteUninstall && appInstallationType === WHOLE_ORG && wholeOrgInstallText}
-          {!performCompleteUninstall && appInstallationType === SPECIFIC_OFFICE_GROUPS && specificOfficeGroupsText}
-          {!performCompleteUninstall && (
-            <>
-              <BodyText hasGreyText>
-                Before you confirm, please check to ensure you have reviewed and agree with the Desktop Types (if
-                applicable), Pricing Information and Data Permissions.
-              </BodyText>
-              <BodyText hasGreyText>
-                If you are uncertain, please cancel and take a look at information located on the app listing.
-              </BodyText>
-            </>
-          )}
-        </Content>
-      </Modal>
-    </PortalProvider>
+    <>
+      {performCompleteUninstall && uninstallText}
+      {!performCompleteUninstall && appInstallationType === WHOLE_ORG && wholeOrgInstallText}
+      {!performCompleteUninstall && appInstallationType === SPECIFIC_OFFICE_GROUPS && specificOfficeGroupsText}
+      {!performCompleteUninstall && (
+        <>
+          <BodyText hasGreyText>
+            Before you confirm, please check to ensure you have reviewed and agree with the Desktop Types (if
+            applicable), Pricing Information and Data Permissions.
+          </BodyText>
+          <BodyText hasGreyText>
+            If you are uncertain, please cancel and take a look at information located on the app listing.
+          </BodyText>
+        </>
+      )}
+      <ButtonGroup alignment="right">
+        <Button intent="secondary" type="button" onClick={onClose}>
+          Cancel
+        </Button>
+        <Button intent="primary" type="button" onClick={onConfirm}>
+          Confirm
+        </Button>
+      </ButtonGroup>
+    </>
   )
 }
 

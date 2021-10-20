@@ -5,7 +5,7 @@ import {
   getInstallationsForWholeOrg,
   getClientIdFirstPart,
 } from './app-installation-manager'
-import { BodyText, Button, FlexContainer, Subtitle } from '@reapit/elements'
+import { BodyText, Button, ButtonGroup, elMb11, Subtitle } from '@reapit/elements'
 
 export interface AppUninstallationSectionProps {
   installations: InstallationModelPagedResult | undefined
@@ -33,34 +33,36 @@ const AppUninstallationSection: React.FC<AppUninstallationSectionProps> = ({
       : `${officeGroupInstallations.length} group${officeGroupInstallations.length !== 1 ? 's' : ''}`
 
   return (
-    <>
-      <FlexContainer>
-        <Subtitle>Current Installations</Subtitle>
-        <Button
-          intent="primary"
-          disabled={noCurrentInstallations}
-          loading={false}
-          onClick={() => {
-            setPerformCompleteUninstall(true)
-            setShowConfirmModal(true)
-          }}
-        >
-          Uninstall
-        </Button>
-      </FlexContainer>
+    <div className={elMb11}>
+      <Subtitle>Current Installations</Subtitle>
       {!noCurrentInstallations && (
-        <BodyText>
-          This app is currently installed for {currentInstallText}. By clicking this button you will uninstall for all
-          users and offices.
-        </BodyText>
+        <>
+          <BodyText hasGreyText>
+            This app is currently installed for {currentInstallText}. By clicking this button you will uninstall for all
+            users and offices.
+          </BodyText>
+          <ButtonGroup alignment="right">
+            <Button
+              intent="primary"
+              disabled={noCurrentInstallations}
+              loading={false}
+              onClick={() => {
+                setPerformCompleteUninstall(true)
+                setShowConfirmModal(true)
+              }}
+            >
+              Uninstall
+            </Button>
+          </ButtonGroup>
+        </>
       )}
       {noCurrentInstallations && (
-        <BodyText>
+        <BodyText hasGreyText>
           This app is not currently installed. You can either install for your organisation or specific office groups in
           the section below.
         </BodyText>
       )}
-    </>
+    </div>
   )
 }
 
