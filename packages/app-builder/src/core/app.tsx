@@ -3,7 +3,6 @@ import { ApolloClient, InMemoryCache, ApolloProvider, createHttpLink } from '@ap
 import { setContext } from '@apollo/client/link/context'
 import Router from './router'
 import ErrorBoundary from '../components/hocs/error-boundary'
-import { injectSwitchModeToWindow } from '@reapit/elements-legacy'
 // Global styles import
 import { elGlobals, MediaStateProvider, NavStateProvider, SnackProvider } from '@reapit/elements' // eslint-disable-line
 import { reapitConnectBrowserSession } from './connect-session'
