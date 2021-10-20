@@ -1,14 +1,10 @@
 import React from 'react'
 import { fetcher } from '@reapit/utils-common'
 import { shallow } from 'enzyme'
-import OfficeGroupCreate, { OfficeGroupCreateProps, onHandleSubmit } from '../office-group-create'
-
-const filterProps = (): OfficeGroupCreateProps => ({
-  visible: true,
-  setOpenCreateGroupModal: jest.fn(),
-  orgId: '1185e436-3b7e-4f67-a4b7-68f83054ad3c',
-  onRefetchData: jest.fn(),
-})
+import OfficeGroupCreate, { onHandleSubmit } from '../office-group-create'
+import { History } from 'history'
+import Routes from '../../../../constants/routes'
+import { toastMessages } from '../../../../constants/toast-messages'
 
 jest.mock('@reapit/utils-common')
 jest.mock('../../../../core/connect-session')
@@ -23,32 +19,36 @@ jest.mock('formik', () => ({
 
 describe('OfficeGroupCreate', () => {
   it('should match a snapshot', () => {
-    expect(shallow(<OfficeGroupCreate {...filterProps()} />)).toMatchSnapshot()
+    expect(shallow(<OfficeGroupCreate />)).toMatchSnapshot()
   })
 })
 
 describe('onHandleSubmit', () => {
+  const success = jest.fn()
+  const error = jest.fn()
   const name = 'Group name'
-  const status = 'active'
-  const handleOnClose = jest.fn()
-  const onRefetchData = jest.fn()
+  const status = true
   const orgId = 'ORG1'
-  const officeIds = ['OF1', 'OF2']
-  const onSubmit = onHandleSubmit(handleOnClose, onRefetchData, orgId)
+  const officeIds = 'OF1,OF2'
+  const history = {
+    push: jest.fn(),
+  } as unknown as History
+  const onSubmit = onHandleSubmit(history, orgId, success, error)
 
   it('should show notification error', async () => {
     mockedFetch.mockReturnValueOnce(undefined)
-    jest.spyOn(notification, 'error')
+
     await onSubmit({ name, officeIds, status })
 
-    expect(notification.error).toHaveBeenCalled()
+    expect(error).toHaveBeenCalledWith(toastMessages.FAILED_TO_CREATE_OFFICE_GROUP)
   })
 
   it('should show notification success', async () => {
     mockedFetch.mockReturnValueOnce(mockResponse)
-    jest.spyOn(notification, 'success')
+
     await onSubmit({ name, officeIds, status })
 
-    expect(notification.success).toHaveBeenCalled()
+    expect(success).toHaveBeenCalledWith(toastMessages.CREATE_OFFICE_GROUP_SUCCESS)
+    expect(history.push).toHaveBeenCalledWith(Routes.OFFICES_GROUPS)
   })
 })

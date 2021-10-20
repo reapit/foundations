@@ -7,8 +7,8 @@ describe('prepareOfficeOptions', () => {
       { id: '456', name: 'Bob' },
     ]
     const expected = [
-      { label: 'Alice', value: '123', description: 'Alice' },
-      { label: 'Bob', value: '456', description: 'Bob' },
+      { name: 'Alice', value: '123' },
+      { name: 'Bob', value: '456' },
     ]
     expect(prepareOfficeOptions(data)).toEqual(expected)
   })
@@ -16,13 +16,10 @@ describe('prepareOfficeOptions', () => {
 
 describe('prepareUserGroupOptions', () => {
   it('prepareUserGroupOptions should return true result', () => {
-    const data = [
-      { id: 'Group A', description: 'Alice description' },
-      { id: 'Group B', description: 'Bob description' },
-    ]
+    const data = [{ id: 'Group A' }, { id: 'Group B' }]
     const expected = [
-      { label: 'Group A', value: 'Group A', description: 'Alice description' },
-      { label: 'Group B', value: 'Group B', description: 'Bob description' },
+      { name: 'Group A', value: 'Group A' },
+      { name: 'Group B', value: 'Group B' },
     ]
     expect(prepareUserGroupOptions(data)).toEqual(expected)
   })

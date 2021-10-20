@@ -4,8 +4,17 @@ import { Nav, callbackAppClick, navigate, getDefaultNavIndex } from '../nav'
 import { History } from 'history'
 import Routes from '../../../../constants/routes'
 
+jest.mock('@reapit/connect-session', () => ({
+  ReapitConnectBrowserSession: jest.fn(),
+  useReapitConnect: () => ({
+    connectIsDesktop: false,
+    connectSession: jest.fn(),
+  }),
+}))
+
 describe('Nav', () => {
   it('should match a snapshot', () => {
+    window.location.pathname = '/'
     const wrapper = shallow(<Nav />)
     expect(wrapper).toMatchSnapshot()
   })

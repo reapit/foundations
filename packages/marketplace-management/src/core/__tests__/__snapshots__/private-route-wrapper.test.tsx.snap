@@ -1,25 +1,15 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`PrivateRouter should match a snapshot 1`] = `
-<AppNavContainer>
-  <withRouter(Menu) />
-  <FlexContainerBasic
-    flexColumn={true}
-    isScrollable={true}
-  >
-    <FlexContainerResponsive
-      className="flex-height-fix"
-      flexColumn={true}
-      hasPadding={true}
-    >
-      <Suspense
-        fallback={
-          <Section>
-            <Loader />
-          </Section>
-        }
+<MainContainer>
+  <Nav />
+  <Suspense
+    fallback={
+      <Loader
+        fullPage={true}
+        label="Loading"
       />
-    </FlexContainerResponsive>
-  </FlexContainerBasic>
-</AppNavContainer>
+    }
+  />
+</MainContainer>
 `;

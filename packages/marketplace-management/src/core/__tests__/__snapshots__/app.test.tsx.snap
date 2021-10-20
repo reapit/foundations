@@ -2,6 +2,12 @@
 
 exports[`App should match a snapshot 1`] = `
 <ErrorBoundary>
-  <MockRouter />
+  <SnackProvider>
+    <NavStateProvider>
+      <MediaStateProvider>
+        <MockRouter />
+      </MediaStateProvider>
+    </NavStateProvider>
+  </SnackProvider>
 </ErrorBoundary>
 `;

@@ -1,0 +1,121 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`OfficeGroupCreate should match a snapshot 1`] = `
+<form
+  className="el-mt11"
+  onChange={[Function]}
+  onSubmit={[Function]}
+>
+  <Title>
+    Create Office Group
+  </Title>
+  <StepsVertical
+    onStepClick={[Function]}
+    selectedStep="1"
+    steps={
+      Array [
+        Object {
+          "content": <FormLayout
+            className="el-fade-in el-mb11"
+          >
+            <InputWrapFull>
+              <BodyText
+                hasGreyText={true}
+              >
+                Add a name for your office group.
+              </BodyText>
+            </InputWrapFull>
+            <InputWrap>
+              <ForwardRef
+                intent="danger"
+                label="Office Group Name"
+                name="name"
+                onBlur={[Function]}
+                onChange={[Function]}
+                placeholder="Enter an office group name"
+              />
+            </InputWrap>
+          </FormLayout>,
+          "item": "1",
+        },
+        Object {
+          "content": <FormLayout
+            className="el-fade-in el-mb11"
+          >
+            <InputWrapFull>
+              <BodyText
+                hasGreyText={true}
+              >
+                To manage offices associated to this group, you can search and select users from the ‘Offices’ section below:
+              </BodyText>
+            </InputWrapFull>
+            <InputWrapFull>
+              <ForwardRef
+                icon="searchSystem"
+                label="Offices"
+                onChange={[Function]}
+                placeholder="Search"
+              />
+              <ForwardRef
+                defaultValues={Array []}
+                id="office-ids-select"
+                name="officeIds"
+                noneSelectedLabel="No offices selected for this group"
+                onBlur={[Function]}
+                onChange={[Function]}
+                options={Array []}
+              />
+            </InputWrapFull>
+          </FormLayout>,
+          "item": "2",
+        },
+        Object {
+          "content": <FormLayout
+            className="el-fade-in el-mb11"
+          >
+            <InputWrapFull>
+              <BodyText
+                hasGreyText={true}
+              >
+                Toggle the below to determine if the office grouping is live or not.
+              </BodyText>
+            </InputWrapFull>
+            <InputWrap>
+              <Label>
+                Group Active
+              </Label>
+              <ForwardRef
+                hasGreyBg={true}
+                id="status-edit-toggle"
+                name="status"
+                onBlur={[Function]}
+                onChange={[Function]}
+              >
+                <ElToggleItem>
+                  Active
+                </ElToggleItem>
+                <ElToggleItem>
+                  Inactive
+                </ElToggleItem>
+              </ForwardRef>
+            </InputWrap>
+            <InputWrapFull>
+              <ButtonGroup
+                alignment="right"
+              >
+                <Button
+                  intent="primary"
+                  type="submit"
+                >
+                  Submit
+                </Button>
+              </ButtonGroup>
+            </InputWrapFull>
+          </FormLayout>,
+          "item": "3",
+        },
+      ]
+    }
+  />
+</form>
+`;

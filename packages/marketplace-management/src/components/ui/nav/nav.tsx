@@ -79,7 +79,7 @@ export const Nav: FC = () => {
     )
   }
 
-  return <NavResponsive options={navOptions} defaultNavIndex={getDefaultNavIndex(location.pathname)} />
+  return <NavResponsive options={navOptions} defaultNavIndex={getDefaultNavIndex(window.location.pathname)} />
 }
 
 export default Nav

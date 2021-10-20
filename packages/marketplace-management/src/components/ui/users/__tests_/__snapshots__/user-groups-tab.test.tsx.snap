@@ -1,111 +1,62 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`UserGroupsContent should match a snapshot 1`] = `
-<Fragment>
-  <FadeIn>
-    <Table
-      columns={
-        Array [
-          Object {
-            "Header": "Name",
-            "accessor": "name",
-          },
-          Object {
-            "Header": "Email",
-            "accessor": "email",
-          },
-          Object {
-            "Header": "User Groups",
-            "accessor": "groups",
-          },
-          Object {
-            "Header": "Edit",
-          },
-        ]
-      }
-      data={
-        Array [
-          Object {
-            "created": "2019-08-14T12:30:02.0000000Z",
-            "description": "string",
-            "id": "string",
-            "modified": "2019-08-14T12:30:02.0000000Z",
-          },
-        ]
-      }
-      expandable={true}
-      scrollable={true}
-    />
-  </FadeIn>
-  <Pagination
-    onChange={[Function]}
-    pageNumber={0}
-    pageSize={0}
-    totalCount={0}
-  />
-</Fragment>
-`;
-
 exports[`UserGroupsTab should match a snapshot 1`] = `
 <ErrorBoundary>
-  <H5>
-    User groups
-  </H5>
-  <p
-    className="mb-4"
-  >
-    The list below contains all available member groups for your organisation. You can manage users associated to each group by selecting ‘Manage’.
-  </p>
-  <UserGroupsContent
-    columns={
+  <Title>
+    User Groups
+  </Title>
+  <Table
+    className="el-fade-in el-mb11"
+    indexExpandedRow={null}
+    rows={
       Array [
         Object {
-          "Header": "Group Name",
-          "accessor": "id",
-        },
-        Object {
-          "Header": "Description",
-          "accessor": "description",
-        },
-        Object {
-          "Header": "Members",
-          "accessor": "memberCount",
-        },
-        Object {
-          "Cell": [Function],
-          "Header": "Manage",
+          "cells": Array [
+            Object {
+              "label": "Group Name",
+              "narrowTable": Object {
+                "showLabel": true,
+              },
+              "value": "string",
+            },
+            Object {
+              "label": "Description",
+              "narrowTable": Object {
+                "showLabel": true,
+              },
+              "value": "string",
+            },
+            Object {
+              "label": "Member Count",
+              "narrowTable": Object {
+                "showLabel": true,
+              },
+              "value": "undefined",
+            },
+          ],
+          "expandableContent": Object {
+            "content": <EditUserGroupForm
+              onComplete={[Function]}
+              orgId=""
+              userGroup={
+                Object {
+                  "created": "2019-08-14T12:30:02.0000000Z",
+                  "description": "string",
+                  "id": "string",
+                  "modified": "2019-08-14T12:30:02.0000000Z",
+                }
+              }
+            />,
+          },
         },
       ]
     }
-    data={
-      Object {
-        "_embedded": Array [
-          Object {
-            "created": "2019-08-14T12:30:02.0000000Z",
-            "description": "string",
-            "id": "string",
-            "modified": "2019-08-14T12:30:02.0000000Z",
-          },
-        ],
-        "_links": Object {
-          "additionalProp1": Object {
-            "href": "string",
-          },
-          "additionalProp2": Object {
-            "href": "string",
-          },
-          "additionalProp3": Object {
-            "href": "string",
-          },
-        },
-        "pageCount": 0,
-        "pageNumber": 0,
-        "pageSize": 0,
-        "totalCount": 0,
-        "totalPageCount": 0,
-      }
-    }
-    onPageChange={[Function]}
+    setIndexExpandedRow={[Function]}
+  />
+  <Pagination
+    callback={[Function]}
+    currentPage={0}
+    numberPages={0}
   />
 </ErrorBoundary>
 `;

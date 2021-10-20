@@ -21,6 +21,7 @@ jest.mock('swr', () =>
 
 describe('UsersTab', () => {
   it('should match a snapshot', () => {
+    window.reapit.config.groupIdsWhitelist = []
     expect(shallow(<UsersTab />)).toMatchSnapshot()
   })
 })

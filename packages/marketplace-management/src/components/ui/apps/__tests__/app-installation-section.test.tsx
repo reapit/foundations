@@ -55,9 +55,9 @@ describe('AppInstallationSection', () => {
         setShowConfirmModal={confirmModalSpy}
       />,
     )
-    expect(wrapper.findWhere((n) => n.type() === Button && n.prop('variant') === 'primary').prop('disabled')).toBe(true)
+    expect(wrapper.findWhere((n) => n.type() === Button && n.prop('intent') === 'critical').prop('disabled')).toBe(true)
     wrapper.setProps({ appInstallationType: WHOLE_ORG })
-    expect(wrapper.findWhere((n) => n.type() === Button && n.prop('variant') === 'primary').prop('disabled')).toBe(
+    expect(wrapper.findWhere((n) => n.type() === Button && n.prop('intent') === 'critical').prop('disabled')).toBe(
       false,
     )
   })
