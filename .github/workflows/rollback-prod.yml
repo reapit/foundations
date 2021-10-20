@@ -44,7 +44,7 @@ jobs:
             if (!PREVIOUS_VERSION) {
               process.exit(127)
             }
-            const IS_PACKAGE = (packageInfo.name as string).includes("@reapit/", 0)
+            const IS_PACKAGE = packageInfo.name.includes("@reapit/", 0)
             console.log('is package', IS_PACKAGE)
             const child = async (command) => {
               await new Promise((resolve) => child_process.exec(command, (err) => {
