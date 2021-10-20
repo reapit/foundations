@@ -29,8 +29,6 @@ const client = new ApolloClient({
   cache: new InMemoryCache(),
 })
 
-injectSwitchModeToWindow()
-
 const App = () => (
   <ErrorBoundary>
     <ApolloProvider client={client}>
