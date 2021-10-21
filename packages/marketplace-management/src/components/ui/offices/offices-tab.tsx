@@ -1,4 +1,4 @@
-import React, { FC, useCallback, useMemo } from 'react'
+import React, { FC, useCallback, useEffect, useMemo } from 'react'
 import useSWR from 'swr'
 import { useHistory, useLocation } from 'react-router'
 import { History } from 'history'
@@ -12,6 +12,7 @@ import OfficesFilterForm, { OfficesFormSchema } from '@/components/ui/offices/of
 import { elFadeIn, Loader, Pagination, RowProps, Title, Table, elMb11, PersistantNotification } from '@reapit/elements'
 import { isEmptyObject } from '@reapit/utils-react'
 import { cx } from '@linaria/core'
+import { refetchEffectHandler, useOrgId } from '../../../utils/use-org-id'
 
 export const buildFilterValues = (queryParams: URLSearchParams): OfficesFormSchema => {
   const name = queryParams.get('name') || []
@@ -78,18 +79,23 @@ const OfficesTab: FC = () => {
   const filterValues = buildFilterValues(queryParams)
   const onSearch = useCallback(onSearchHandler(history), [history])
   const onPageChange = useCallback(onPageChangeHandler(history, filterValues), [history, filterValues])
-  const { data } = useSWR<OfficeModelPagedResult | undefined>(
+  const {
+    orgIdState: { orgName, orgClientId },
+  } = useOrgId()
+  const { data, mutate } = useSWR<OfficeModelPagedResult | undefined>(
     `${URLS.OFFICES}${search ? search + '&pageSize=12' : '?pageSize=12'}`,
   )
   const offices = data?._embedded ?? []
   const totalPageCount = data?.totalPageCount ?? 0
   const pageNumber = data?.pageNumber ?? 0
 
+  useEffect(refetchEffectHandler(orgClientId, mutate), [orgClientId])
+
   const rows = useMemo(handleSortTableData(offices), [offices])
 
   return (
     <ErrorBoundary>
-      <Title>Existing Offices</Title>
+      <Title>{orgName} Existing Offices</Title>
       <OfficesFilterForm filterValues={filterValues} onSearch={onSearch} />
       {!data ? (
         <Loader />

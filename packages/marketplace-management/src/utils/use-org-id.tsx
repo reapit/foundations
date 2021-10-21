@@ -13,10 +13,14 @@ import {
   Subtitle,
 } from '@reapit/elements'
 import { ControlsContainer } from './__styles__/index'
+import { OrganisationGroupMemberModel } from '../types/organisations-schema'
 
 export interface OrgIdState {
   orgId: string | null
+  orgName: string | null
+  orgClientId: string | null
   orgIdOptions: MultiSelectOption[]
+  orgMembers: OrganisationGroupMemberModel[]
 }
 
 export interface OrgIdContextProps {
@@ -33,40 +37,29 @@ export const OrgIdContext = createContext<OrgIdContextProps>({} as OrgIdContextP
 
 const { Provider } = OrgIdContext
 
-export const OrgIdStateProvider: FC = ({ children }) => {
-  const [orgIdState, setOrgIdState] = useState<OrgIdState>({
-    orgId: null,
-    orgIdOptions: [],
-  })
-
-  return (
-    <Provider
-      value={{
-        orgIdState: orgIdState,
-        setOrgIdState: setOrgIdState,
-      }}
-    >
-      {children}
-    </Provider>
-  )
+export const refetchEffectHandler = (orgClientId: string | null, refetch: () => void) => () => {
+  if (orgClientId) {
+    refetch()
+  }
 }
 
 export const handleFetchInitialState =
   (setOrgIdState: Dispatch<SetStateAction<OrgIdState>>, orgIdState: OrgIdState, email?: string) => () => {
     const fetchUserInfo = async () => {
       if (email && !orgIdState.orgIdOptions.length) {
-        const res = await getUserInfo(email)
-        if (res) {
+        const userInfo = await getUserInfo(email)
+        if (userInfo) {
+          const orgMembers = userInfo.organisationGroupMembers ?? []
           const orgIdOptions =
-            res.organisationGroupMembers?.map((member) => ({
+            orgMembers.map((member) => ({
               name: member.name ?? '',
               value: member.organisationId ?? '',
             })) ?? []
-          const orgId =
-            res.organisationGroupMembers && res.organisationGroupMembers?.length === 1
-              ? res.organisationGroupMembers[0].organisationId ?? null
-              : null
-          setOrgIdState({ orgId, orgIdOptions })
+          const orgId = orgMembers.length === 1 ? orgMembers[0].organisationId ?? null : null
+          const orgName = orgMembers.length === 1 ? orgMembers[0].name ?? null : null
+          const orgClientId = orgMembers.length === 1 ? orgMembers[0].customerId ?? null : null
+
+          setOrgIdState({ orgId, orgName, orgClientId, orgIdOptions, orgMembers })
         }
       }
     }
@@ -88,10 +81,20 @@ export const useOrgId = (): UseOrgIdState => {
     const orgId = event.target.value
 
     if (orgId) {
-      setOrgIdState((currentState: OrgIdState) => ({
-        ...currentState,
-        orgId,
-      }))
+      setOrgIdState((currentState: OrgIdState) => {
+        const { orgMembers } = currentState
+        const org = orgMembers.find((member) => member.organisationId === orgId)
+
+        const orgName = org?.name ?? null
+        const orgClientId = org?.customerId ?? null
+
+        return {
+          ...currentState,
+          orgId,
+          orgName,
+          orgClientId,
+        }
+      })
 
       connectClearSession()
     }
@@ -101,6 +104,27 @@ export const useOrgId = (): UseOrgIdState => {
     orgIdState,
     setOrgIdState: handleSetOrgIdState,
   }
+}
+
+export const OrgIdStateProvider: FC = ({ children }) => {
+  const [orgIdState, setOrgIdState] = useState<OrgIdState>({
+    orgId: null,
+    orgName: null,
+    orgClientId: null,
+    orgIdOptions: [],
+    orgMembers: [],
+  })
+
+  return (
+    <Provider
+      value={{
+        orgIdState: orgIdState,
+        setOrgIdState: setOrgIdState,
+      }}
+    >
+      {children}
+    </Provider>
+  )
 }
 
 export const OrgIdSelect: FC = () => {

@@ -94,7 +94,7 @@ const OfficesGroupsTab: FC = () => {
   const onPageChange = useCallback(onPageChangeHandler(history), [history])
   const [indexExpandedRow, setIndexExpandedRow] = useState<number | null>(null)
   const {
-    orgIdState: { orgId },
+    orgIdState: { orgId, orgName },
   } = useOrgId()
 
   const { data: officeGroupsResponse, mutate } = useSWR<OfficeGroupModelPagedResult>(
@@ -130,7 +130,7 @@ const OfficesGroupsTab: FC = () => {
 
   return (
     <ErrorBoundary>
-      <Title>Office Groups</Title>
+      <Title>{orgName} Office Groups</Title>
       {!officeGroups ? (
         <Loader />
       ) : officeGroups.length ? (

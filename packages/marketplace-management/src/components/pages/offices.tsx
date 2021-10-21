@@ -16,7 +16,6 @@ import {
   SecondaryNav,
   SecondaryNavContainer,
   SecondaryNavItem,
-  Subtitle,
   Title,
 } from '@reapit/elements'
 import { navigate } from '../ui/nav/nav'
@@ -43,7 +42,6 @@ const OfficesPage: FC = () => {
           </SecondaryNavItem>
         </SecondaryNav>
         <Icon className={elMb5} icon="developmentInfographic" iconSize="large" />
-        <Subtitle></Subtitle>
         <BodyText hasGreyText>
           {pathname === Routes.OFFICES
             ? 'This list contains all ‘Offices’ within your organisation. To create or manage an Office Group, please visit the ‘Groups’ page.'
