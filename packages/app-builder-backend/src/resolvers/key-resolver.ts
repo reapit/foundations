@@ -207,7 +207,7 @@ export class KeyResolver {
     if (!checkOutToId) {
       throw new Error('checkOutToId is required')
     }
-    const result = await createPropertyKeyMovement(
+    await createPropertyKeyMovement(
       propertyId,
       keyId,
       {
