@@ -118,7 +118,9 @@ const InnerFormInput = (
             label={label}
             type={'checkbox'}
             value={value}
-            onChange={(e) => onChange(e.target.value !== 'false')}
+            onChange={(e) => {
+              onChange(e.target.checked)
+            }}
           />
         ) : (
           <InputGroup

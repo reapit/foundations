@@ -56,8 +56,6 @@ export const Form = forwardRef<HTMLDivElement, FormProps & { disabled?: boolean 
       }
     }, [data, args])
 
-    console.log(args)
-
     return (
       <Container {...props} ref={ref}>
         {!typeName && <div>No type selected</div>}

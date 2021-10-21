@@ -213,13 +213,12 @@ export class KeyResolver {
       {
         checkInRequired: movement.checkInRequired,
         checkOutNegotiatorId: movement.checkOutNegotiatorId,
-        checkOutToType: movement.checkOutNegotiatorId ? CheckOutToType.negotiator : CheckOutToType.contact,
+        checkOutToType: movement.checkOutToNegotiatorId ? CheckOutToType.negotiator : CheckOutToType.contact,
         checkOutToId,
       },
       accessToken,
       idToken,
     )
-    console.log(JSON.stringify(result), null, 2)
     const key = await getPropertyKey(propertyId, keyId, accessToken, idToken)
     return APIKeyToKey(key)
   }

@@ -15,7 +15,7 @@ export const query = async <T>(
   dataKey: string,
   { idToken, accessToken }: AuthTokens,
 ) => {
-  const res = await fetch(graphqlUri || 'http://localhost:3000/local/graphql', {
+  const res = await fetch(graphqlUri || 'http://localhost:4001/', {
     method: 'POST',
     headers: {
       'Content-Type': 'application/json',
@@ -29,7 +29,10 @@ export const query = async <T>(
   })
   const json = (await res.json()) as any
   if (json.errors) {
-    console.log(json.errors)
+    console.log(JSON.stringify(json.errors, null, 2))
+    if (json.errors[0].extensions.code === 'BAD_USER_INPUT') {
+      throw new Error(json.errors[0].extensions.validationErrors.errors.map(({ message }) => message).join(', '))
+    }
     throw new Error(json.errors[0].message)
   }
   if (json.message) {
