@@ -1,6 +1,5 @@
-import { PageContainer, Title, PersistantNotification, ButtonGroup, Button } from '@reapit/elements'
+import { PageContainer, Title, PersistantNotification, ButtonGroup, Button, elMb11 } from '@reapit/elements'
 import * as React from 'react'
-
 import { reapitConnectBrowserSession } from '../../core/connect-session'
 
 export const onMarketplaceButtonClick = () => {
@@ -14,7 +13,7 @@ export const onLogoutButtonClick = () => {
 const AccessDenied: React.FC = () => (
   <PageContainer>
     <Title>Reapit Connect Management</Title>
-    <PersistantNotification>
+    <PersistantNotification className={elMb11} isFullWidth isExpanded isInline intent="danger">
       It looks like the user account you have logged in with, does not have the required permissions to access this app.
       Please contact your Organisation Administrator.
     </PersistantNotification>

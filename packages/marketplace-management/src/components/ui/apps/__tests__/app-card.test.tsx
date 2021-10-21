@@ -4,6 +4,16 @@ import AppCard, { handleInstallationsStringEffect, handleNavigation } from '../a
 import { history } from '../../../../core/router'
 import Routes from '../../../../constants/routes'
 
+jest.mock('../../../../utils/use-org-id', () => ({
+  useOrgId: () => ({
+    orgIdState: {
+      orgId: 'SOME_ID',
+      orgName: 'SOME_NAME',
+      orgClientId: 'SOME_CLIENT_ID',
+    },
+  }),
+}))
+
 describe('AppCard', () => {
   it('should match a snapshot', () => {
     const stubApp = { name: 'APP_NAME', developer: 'APP_DEVELOPER' }

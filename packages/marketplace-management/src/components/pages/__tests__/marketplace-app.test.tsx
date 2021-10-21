@@ -11,7 +11,22 @@ jest.mock('@reapit/connect-session', () => ({
   ReapitConnectBrowserSession: jest.fn(),
   useReapitConnect: () => ({
     connectIsDesktop: false,
-    connectSession: jest.fn(),
+    connectSession: {
+      loginIdentity: {
+        developerId: 'SOME_ID',
+        email: 'some@email.com',
+      },
+    },
+  }),
+}))
+
+jest.mock('../../../utils/use-org-id', () => ({
+  useOrgId: () => ({
+    orgIdState: {
+      orgId: 'SOME_ID',
+      orgName: 'SOME_NAME',
+      orgClientId: 'SOME_CLIENT_ID',
+    },
   }),
 }))
 

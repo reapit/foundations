@@ -17,6 +17,16 @@ jest.mock('formik', () => ({
   useFormikContext: jest.fn(() => ({ values: { officeIds: ['of01', 'of02'] } })),
 }))
 
+jest.mock('../../../../utils/use-org-id', () => ({
+  useOrgId: () => ({
+    orgIdState: {
+      orgId: 'SOME_ID',
+      orgName: 'SOME_NAME',
+      orgClientId: 'SOME_CLIENT_ID',
+    },
+  }),
+}))
+
 describe('OfficeGroupCreate', () => {
   it('should match a snapshot', () => {
     expect(shallow(<OfficeGroupCreate />)).toMatchSnapshot()

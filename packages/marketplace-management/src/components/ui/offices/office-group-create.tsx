@@ -12,7 +12,6 @@ import {
   ButtonGroup,
   elFadeIn,
   elMb11,
-  elMt11,
   ElToggleItem,
   FormLayout,
   InputGroup,
@@ -21,6 +20,7 @@ import {
   Label,
   MultiSelectInput,
   MultiSelectOption,
+  PersistantNotification,
   StepsVertical,
   Title,
   Toggle,
@@ -34,7 +34,7 @@ import { useForm, UseFormTrigger } from 'react-hook-form'
 import { History } from 'history'
 import Routes from '../../../constants/routes'
 import { history } from '../../../core/router'
-import { orgIdEffectHandler } from '../../../utils/org-id-effect-handler'
+import { useOrgId } from '../../../utils/use-org-id'
 
 export interface OfficeGroupCreateProps {}
 
@@ -105,8 +105,9 @@ export const OfficeGroupCreate: FC<OfficeGroupCreateProps> = () => {
   const [searchString, setSearchString] = useState<string>('')
   const [options, setOptions] = useState<MultiSelectOption[]>([])
   const [selectedStep, setSelectedStep] = useState<string>('1')
-  const [orgId, setOrgId] = useState<string | null>(null)
-
+  const {
+    orgIdState: { orgId, orgName },
+  } = useOrgId()
   const { success, error } = useSnack()
   const debouncedSearch = useCallback(
     debounce((event: ChangeEvent<HTMLInputElement>) => setSearchString(event.target.value), 500),
@@ -134,7 +135,6 @@ export const OfficeGroupCreate: FC<OfficeGroupCreateProps> = () => {
       status: true,
     },
   })
-  useEffect(orgIdEffectHandler(orgId, setOrgId), [])
 
   useEffect(() => {
     const officeIds = getValues().officeIds
@@ -148,13 +148,16 @@ export const OfficeGroupCreate: FC<OfficeGroupCreateProps> = () => {
     setOptions(uniqueOptions)
   }, [data])
 
+  if (!orgId)
+    return (
+      <PersistantNotification isFullWidth isExpanded intent="secondary" isInline>
+        No organisation selected. You need to select an organisation to create an Office Group for.
+      </PersistantNotification>
+    )
+
   return (
-    <form
-      className={elMt11}
-      onSubmit={handleSubmit(onSubmit)}
-      onChange={handleSwitchStep(selectedStep, trigger, setSelectedStep)}
-    >
-      <Title>Create Office Group</Title>
+    <form onSubmit={handleSubmit(onSubmit)} onChange={handleSwitchStep(selectedStep, trigger, setSelectedStep)}>
+      <Title>{orgName} Create Office Group</Title>
       <StepsVertical
         steps={[
           {

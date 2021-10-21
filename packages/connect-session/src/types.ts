@@ -88,4 +88,5 @@ export type ReapitConnectHook = {
   connectInternalRedirect: string | null
   connectIsDesktop: boolean
   connectHasSession: boolean
+  connectClearSession: () => void
 }

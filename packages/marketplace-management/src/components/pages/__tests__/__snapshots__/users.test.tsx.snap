@@ -29,11 +29,10 @@ exports[`UsersPage should match a snapshot 1`] = `
       icon="vendorInfographic"
       iconSize="large"
     />
-    <Subtitle />
     <BodyText
       hasGreyText={true}
     >
-      This list contains all ‘Users’ within your organisation. You can edit users to manage the groups an individual user belongs to. For more information on ‘Groups’, please click below.
+      This list contains all ‘Users’ within your organisation. You can edit users to manage the groups an individual user belongs to. For more information on ‘User Groups’, please click below.
     </BodyText>
     <Button
       className="el-mb5"
@@ -41,6 +40,7 @@ exports[`UsersPage should match a snapshot 1`] = `
     >
       Docs
     </Button>
+    <OrgIdSelect />
   </SecondaryNavContainer>
   <PageContainer
     className="el-hfull"

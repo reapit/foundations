@@ -3,8 +3,8 @@ import useSWR from 'swr'
 import { InstallationModelPagedResult } from '@reapit/foundations-ts-definitions'
 import { OfficeGroupModelPagedResult } from '../../../types/organisations-schema'
 import { URLS } from '../../../constants/api'
-import { orgIdEffectHandler } from '../../../utils/org-id-effect-handler'
 import { Button, ButtonGroup, InputWrapFull, Loader, MultiSelectInput, MultiSelectOption } from '@reapit/elements'
+import { useOrgId } from '../../../utils/use-org-id'
 
 export interface AppInstallationPerOfficeGroupProps {
   installations: InstallationModelPagedResult | undefined
@@ -19,10 +19,9 @@ const AppInstallationPerOfficeGroup: FC<AppInstallationPerOfficeGroupProps> = ({
 }: AppInstallationPerOfficeGroupProps) => {
   const [multiSelect, setMultiSelect] = useState<JSX.Element | null>(null)
   const [allOfficeGroups, toggleAllOfficeGroups] = useState<'all' | 'none' | null>(null)
-
-  const [orgId, setOrgId] = useState<string | null>(null)
-
-  useEffect(orgIdEffectHandler(orgId, setOrgId), [])
+  const {
+    orgIdState: { orgId },
+  } = useOrgId()
 
   const { data: officeGroups, isValidating: officeGroupsValidating } = useSWR<OfficeGroupModelPagedResult>(
     !orgId ? null : `${URLS.ORGANISATIONS}/${orgId}${URLS.OFFICES_GROUPS}?pageSize=999`,

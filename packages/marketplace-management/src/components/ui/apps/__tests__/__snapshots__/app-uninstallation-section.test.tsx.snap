@@ -82,7 +82,7 @@ exports[`AppUninstallationSection should match a snapshot, for a group installat
         >
           This app is currently installed for 
           1 group
-          . By clicking this button you will uninstall for all users and offices.
+          . Please click ‘Uninstall’ to terminate the installation.
         </p>
       </ElBodyText>
     </BodyText>
@@ -168,7 +168,7 @@ exports[`AppUninstallationSection should match a snapshot, for an all orgs insta
         >
           This app is currently installed for 
           your whole orgainsation
-          . By clicking this button you will uninstall for all users and offices.
+          . Please click ‘Uninstall’ to terminate the installation.
         </p>
       </ElBodyText>
     </BodyText>
@@ -257,7 +257,7 @@ exports[`AppUninstallationSection should match a snapshot, for multiple group in
         >
           This app is currently installed for 
           2 groups
-          . By clicking this button you will uninstall for all users and offices.
+          . Please click ‘Uninstall’ to terminate the installation.
         </p>
       </ElBodyText>
     </BodyText>

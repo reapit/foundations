@@ -3,7 +3,8 @@
 exports[`UserGroupsTab should match a snapshot 1`] = `
 <ErrorBoundary>
   <Title>
-    User Groups
+    SOME_NAME
+     User Groups
   </Title>
   <Table
     className="el-fade-in el-mb11"
@@ -37,7 +38,7 @@ exports[`UserGroupsTab should match a snapshot 1`] = `
           "expandableContent": Object {
             "content": <EditUserGroupForm
               onComplete={[Function]}
-              orgId=""
+              orgId="SOME_ID"
               userGroup={
                 Object {
                   "created": "2019-08-14T12:30:02.0000000Z",

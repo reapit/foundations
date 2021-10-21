@@ -9,13 +9,13 @@ const mockedFetch = fetcher as jest.Mock
 describe('getAppsService', () => {
   it('should return a response from the accounts service', async () => {
     mockedFetch.mockReturnValueOnce({})
-    expect(await getAppsService('?pageNumber=1')).toEqual({})
+    expect(await getAppsService('?pageNumber=1', 'SBOX')).toEqual({})
   })
 
   it('should catch an error if no response from accounts service', async () => {
     const errorSpy = jest.spyOn(console, 'error')
     mockedFetch.mockReturnValueOnce(undefined as any)
-    await getAppsService('?pageNumber=1')
+    await getAppsService('?pageNumber=1', 'SBOX')
     expect(errorSpy).toHaveBeenLastCalledWith('Failed to fetch apps')
   })
 })

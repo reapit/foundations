@@ -255,7 +255,10 @@ exports[`MarketplaceAppPage should match a snapshot when has data 1`] = `
                 >
                   <h1
                     className="el-title"
-                  />
+                  >
+                    SOME_NAME
+                     - 
+                  </h1>
                 </ElTitle>
               </Title>
               <AppPricingPermissionsSection
@@ -403,7 +406,7 @@ exports[`MarketplaceAppPage should match a snapshot when has data 1`] = `
                 app={Object {}}
               >
                 <AppUninstallationSection
-                  clientId={null}
+                  clientId="SOME_CLIENT_ID"
                   installations={Object {}}
                   setPerformCompleteUninstall={[Function]}
                   setShowConfirmModal={[Function]}

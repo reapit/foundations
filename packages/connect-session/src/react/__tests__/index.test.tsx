@@ -13,6 +13,7 @@ jest.mock('../../browser/index', () => ({
     connectLoginRedirect: jest.fn(),
     connectLogoutRedirect: jest.fn(),
     connectInternalRedirect: '/some-path?someQuery=true',
+    connectClearSession: jest.fn(),
   })),
 }))
 
@@ -38,9 +39,11 @@ describe('useReapitConnect', () => {
     result.current.connectLoginRedirect('uri')
     result.current.connectLogoutRedirect('uri')
     result.current.connectAuthorizeRedirect('uri')
+    result.current.connectClearSession()
 
     expect(reapitConnectBrowserSession.connectLoginRedirect).toHaveBeenCalledTimes(1)
     expect(reapitConnectBrowserSession.connectLogoutRedirect).toHaveBeenCalledTimes(1)
     expect(reapitConnectBrowserSession.connectAuthorizeRedirect).toHaveBeenCalledTimes(1)
+    expect(reapitConnectBrowserSession.connectClearSession).toHaveBeenCalledTimes(1)
   })
 })

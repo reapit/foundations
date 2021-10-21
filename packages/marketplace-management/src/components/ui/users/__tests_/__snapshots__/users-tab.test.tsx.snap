@@ -3,7 +3,8 @@
 exports[`UsersTab should match a snapshot 1`] = `
 <ErrorBoundary>
   <Title>
-    Existing Users
+    SOME_NAME
+     Users
   </Title>
   <Table
     className="el-fade-in el-mb11"
@@ -37,7 +38,7 @@ exports[`UsersTab should match a snapshot 1`] = `
           "expandableContent": Object {
             "content": <EditUserForm
               onComplete={[Function]}
-              orgId=""
+              orgId="SOME_ID"
               user={
                 Object {
                   "agencyCloudCustomerId": "string",

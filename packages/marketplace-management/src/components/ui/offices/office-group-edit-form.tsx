@@ -91,6 +91,7 @@ export const EditOfficeGroupForm: FC<EditOfficeGroupFormProps> = ({ officeGroup,
     register,
     handleSubmit,
     getValues,
+    reset,
     formState: { errors },
   } = useForm<EditOfficeGroupSchema>({
     resolver: yupResolver(validationSchema),
@@ -106,6 +107,11 @@ export const EditOfficeGroupForm: FC<EditOfficeGroupFormProps> = ({ officeGroup,
       const newSelectedOptions = offices.filter((office) => office.id && officeGroup.officeIds?.includes(office.id))
       const officeOptions = prepareOfficeOptions(newSelectedOptions)
 
+      reset({
+        name: officeGroup.name ?? '',
+        officeIds: officeGroup.officeIds,
+        status: officeGroup.status === 'active',
+      })
       setOptions(officeOptions)
     }
   }, [officeGroup, offices])
