@@ -9,11 +9,11 @@ exports[`OfficeTabFilterForm should match a snapshot 1`] = `
   >
     <InputWrap>
       <ForwardRef
-        label="Office Name"
+        label="Search"
         name="name"
         onBlur={[Function]}
         onChange={[Function]}
-        placeholder="Enter a search term here"
+        placeholder="Search for an office"
       />
     </InputWrap>
     <InputWrap>

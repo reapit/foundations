@@ -1,13 +1,13 @@
-import React, { useState, useEffect } from 'react'
+import React, { useState } from 'react'
 import { AppSummaryModel, InstallationModelPagedResult } from '@reapit/foundations-ts-definitions'
 import useSWR from 'swr'
 import AppInstallationSection from './app-installation-section'
 import AppInstallationConfirmationModal from './app-installation-confirmation-modal'
 import AppUninstallationSection from './app-uninstallation-section'
 import { URLS } from '../../../constants/api'
-import { clientIdEffectHandler } from '../../../utils/client-id-effect-handler'
 import { bulkInstall } from '../../../services/installation'
 import { useModal, useSnack } from '@reapit/elements'
+import { useOrgId } from '../../../utils/use-org-id'
 
 export interface AppInstallationManagerProps {
   app: AppSummaryModel
@@ -48,21 +48,23 @@ const AppInstallationManager: React.FC<AppInstallationManagerProps> = ({ app }: 
   const [appInstallationType, setAppInstallationType] = useState<InstallTypes>('')
   const [officeGroupsToAdd, setOfficeGroupsToAdd] = useState<string[]>([])
   const [officeGroupsToRemove, setOfficeGroupsToRemove] = useState<string[]>([])
-  const [clientId, setClientId] = useState<string | null>(null)
   const [performCompleteUninstall, setPerformCompleteUninstall] = useState<boolean>(false)
   const { success } = useSnack()
   const { Modal, openModal, closeModal } = useModal()
-
-  useEffect(clientIdEffectHandler(clientId, setClientId), [])
+  const {
+    orgIdState: { orgClientId },
+  } = useOrgId()
 
   const {
     data: installations,
     isValidating: installationsValidating,
     revalidate: revalidateInstallations,
-  } = useSWR<InstallationModelPagedResult>(`${URLS.INSTALLATIONS}/?AppId=${app.id}&IsInstalled=true&pageSize=999`)
+  } = useSWR<InstallationModelPagedResult>(
+    `${URLS.INSTALLATIONS}/?AppId=${app.id}&IsInstalled=true&pageSize=999&clientId=${orgClientId}`,
+  )
 
-  if (clientId && installations?.data && initialAppInstallationType === null) {
-    const clientIdFirstPart = getClientIdFirstPart(clientId)
+  if (orgClientId && installations?.data && initialAppInstallationType === null) {
+    const clientIdFirstPart = getClientIdFirstPart(orgClientId)
     const installedForWholeOrg = getInstallationsForWholeOrg(installations, clientIdFirstPart).length > 0
     const installedForGroups = getInstallationsForOfficeGroups(installations, clientIdFirstPart).length > 0
 
@@ -87,7 +89,7 @@ const AppInstallationManager: React.FC<AppInstallationManagerProps> = ({ app }: 
   }
 
   const handleModalConfirmation = async () => {
-    const clientIdFirstPart = getClientIdFirstPart(clientId)
+    const clientIdFirstPart = getClientIdFirstPart(orgClientId)
 
     try {
       if (performCompleteUninstall) {
@@ -137,7 +139,7 @@ const AppInstallationManager: React.FC<AppInstallationManagerProps> = ({ app }: 
     <>
       <AppUninstallationSection
         installations={installations}
-        clientId={clientId}
+        clientId={orgClientId}
         setShowConfirmModal={openModal}
         setPerformCompleteUninstall={setPerformCompleteUninstall}
       />

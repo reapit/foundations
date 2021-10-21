@@ -1,9 +1,10 @@
 import * as React from 'react'
-import { mount } from 'enzyme'
+import { shallow } from 'enzyme'
 import MarketplacePage, { handleFetchApps, onPageChangeHandler } from '../marketplace'
 import { getAppsService } from '../../../services/apps'
 import { History } from 'history'
 import Routes from '../../../constants/routes'
+import { ReapitConnectSession } from '@reapit/connect-session'
 
 jest.mock('../../../services/apps', () => ({
   getAppsService: jest.fn(() => ({})),
@@ -21,6 +22,16 @@ jest.mock('@reapit/connect-session', () => ({
   }),
 }))
 
+jest.mock('../../../utils/use-org-id', () => ({
+  useOrgId: () => ({
+    orgIdState: {
+      orgId: 'SOME_ID',
+      orgName: 'SOME_NAME',
+      orgClientId: 'SOME_CLIENT_ID',
+    },
+  }),
+}))
+
 jest.mock('react-router', () => ({
   useLocation: jest.fn(() => ({
     pathname: '/marketplace',
@@ -33,7 +44,7 @@ jest.mock('react-router', () => ({
 
 describe('MarketplacePage', () => {
   it('should match a snapshot', () => {
-    expect(mount(<MarketplacePage />)).toMatchSnapshot()
+    expect(shallow(<MarketplacePage />)).toMatchSnapshot()
   })
 })
 
@@ -46,13 +57,13 @@ describe('handleFetchApps', () => {
     const mockLoading = jest.fn()
     const mockQuery = '?pageNumber=1'
 
-    const curried = handleFetchApps(mockSetRestrictions, mockLoading, mockQuery)
+    const curried = handleFetchApps(mockSetRestrictions, mockLoading, mockQuery, 'SBOX', {} as ReapitConnectSession)
 
     await curried()
 
     expect(mockLoading).toHaveBeenCalledTimes(2)
     expect(getAppsService).toHaveBeenCalledTimes(1)
-    expect(getAppsService).toHaveBeenCalledWith(mockQuery)
+    expect(getAppsService).toHaveBeenCalledWith(mockQuery, 'SBOX')
   })
 })
 

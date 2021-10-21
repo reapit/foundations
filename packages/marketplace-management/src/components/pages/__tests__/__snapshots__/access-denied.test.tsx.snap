@@ -18,12 +18,18 @@ exports[`AccessDenied should match a snapshot 1`] = `
             </h1>
           </ElTitle>
         </Title>
-        <PersistantNotification>
+        <PersistantNotification
+          className="el-mb11"
+          intent="danger"
+          isExpanded={true}
+          isFullWidth={true}
+          isInline={true}
+        >
           <ElPersistantNotification
-            className="el-intent-secondary"
+            className="el-mb11 el-intent-danger el-is-active el-pn-is-full-width el-pn-is-inline"
           >
             <div
-              className="el-intent-secondary el-persistant-notification"
+              className="el-mb11 el-intent-danger el-is-active el-pn-is-full-width el-pn-is-inline el-persistant-notification"
             >
               <div
                 className="el-pn-icon"

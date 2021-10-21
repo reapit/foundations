@@ -73,6 +73,18 @@ export const handleSetNativeInput = (
   }
 }
 
+export const handleResetDefaultValues = (
+  setSelectedOptionValues: Dispatch<SetStateAction<string[]>>,
+  setSelectedDefaultValues: Dispatch<SetStateAction<string[]>>,
+  defaultValues?: string[],
+  selectedDefaultValues?: string[],
+) => () => {
+  if (defaultValues && JSON.stringify(defaultValues) !== JSON.stringify(selectedDefaultValues)) {
+    setSelectedOptionValues(defaultValues)
+    setSelectedDefaultValues(defaultValues)
+  }
+}
+
 export const handleSelectedOptions = (
   value: string,
   selectedOptionValues: string[],
@@ -135,8 +147,14 @@ export const MultiSelectInput: MultiSelectInputWrapped = forwardRef(
     ref: React.ForwardedRef<React.InputHTMLAttributes<HTMLInputElement>>,
   ) => {
     const [selectedOptionValues, setSelectedOptionValues] = useState<string[]>(defaultValues ?? [])
+    const [selectedDefaultValues, setSelectedDefaultValues] = useState<string[]>(defaultValues ?? [])
 
     useEffect(handleSetNativeInput(id, selectedOptionValues), [selectedOptionValues])
+
+    useEffect(
+      handleResetDefaultValues(setSelectedOptionValues, setSelectedDefaultValues, defaultValues, selectedDefaultValues),
+      [defaultValues],
+    )
 
     return (
       <ElMultiSelectInputWrapper>

@@ -5,7 +5,9 @@ exports[`App should match a snapshot 1`] = `
   <SnackProvider>
     <NavStateProvider>
       <MediaStateProvider>
-        <MockRouter />
+        <OrgIdStateProvider>
+          <MockRouter />
+        </OrgIdStateProvider>
       </MediaStateProvider>
     </NavStateProvider>
   </SnackProvider>

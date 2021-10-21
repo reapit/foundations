@@ -13,7 +13,6 @@ import {
   SecondaryNavItem,
   Icon,
   elMb5,
-  Subtitle,
   BodyText,
   PageContainer,
   elHFull,
@@ -23,6 +22,7 @@ import { navigate } from '../ui/nav/nav'
 import { useReapitConnect } from '@reapit/connect-session'
 import { reapitConnectBrowserSession } from '../../core/connect-session'
 import { GLOSSARY_USER_ROLES_URL } from '../../constants/api'
+import { OrgIdSelect } from '../../utils/use-org-id'
 
 export const UsersPage: FC = () => {
   const history = useHistory()
@@ -46,10 +46,9 @@ export const UsersPage: FC = () => {
           </SecondaryNavItem>
         </SecondaryNav>
         <Icon className={elMb5} icon="vendorInfographic" iconSize="large" />
-        <Subtitle></Subtitle>
         <BodyText hasGreyText>
           {pathname === Routes.USERS
-            ? 'This list contains all ‘Users’ within your organisation. You can edit users to manage the groups an individual user belongs to. For more information on ‘Groups’, please click below.'
+            ? 'This list contains all ‘Users’ within your organisation. You can edit users to manage the groups an individual user belongs to. For more information on ‘User Groups’, please click below.'
             : 'This list contains all available member groups for your organisation. You can manage users associated to each group by selecting the dropown.'}
         </BodyText>
         {connectIsDesktop ? (
@@ -64,6 +63,7 @@ export const UsersPage: FC = () => {
             Docs
           </Button>
         )}
+        <OrgIdSelect />
       </SecondaryNavContainer>
       <PageContainer className={elHFull}>
         <Route path={Routes.USERS} component={UsersTab} exact />

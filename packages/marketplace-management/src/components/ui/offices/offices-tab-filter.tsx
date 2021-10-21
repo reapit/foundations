@@ -31,7 +31,7 @@ export const OfficeTabFilterForm: FC<OfficesFormProps> = ({ onSearch, filterValu
     <form onSubmit={handleSubmit(onSearch)}>
       <FormLayout className={cx(elFadeIn, elMb11)}>
         <InputWrap>
-          <InputGroup label="Office Name" placeholder="Enter a search term here" {...register('name')} />
+          <InputGroup label="Search" placeholder="Search for an office" {...register('name')} />
         </InputWrap>
         <InputWrap>
           <FlexContainer className={elHFull} isFlexGrow1 isFlexAlignEnd>

@@ -2,6 +2,7 @@ import { reapitConnectBrowserSession } from '../core/connect-session'
 import { URLS } from '../constants/api'
 import { fetcher } from '@reapit/utils-common'
 import { getPlatformHeaders, logger } from '@reapit/utils-react'
+import { UserInfoModel } from '../types/organisations-schema'
 
 interface UpdateUserGroupParams {
   id: string
@@ -48,6 +49,28 @@ export const removeMemberFromGroup = async (group: UpdateUserGroupParams): Promi
       }
 
       throw new Error('Removing member from group failed')
+    }
+  } catch (err) {
+    logger(err)
+  }
+}
+
+export const getUserInfo = async (email: string): Promise<UserInfoModel | undefined> => {
+  try {
+    const headers = await getPlatformHeaders(reapitConnectBrowserSession, 'latest')
+    if (headers) {
+      const response = await fetcher({
+        api: window.reapit.config.platformApiUrl,
+        url: `${URLS.USERS_INFO}?email=${email}`,
+        method: 'GET',
+        headers,
+      })
+
+      if (response) {
+        return response
+      }
+
+      throw new Error('Fetching user info failed')
     }
   } catch (err) {
     logger(err)
