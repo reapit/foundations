@@ -35,7 +35,7 @@ export const handleError = async ({ error, traceId, caller }: HandleErrorParams)
     return errors.generatePreconditionError(traceId)
   }
   if (error?.response?.status === 422) {
-    return errors.generateUnprocessableError(traceId)
+    return errors.generateUnprocessableError(traceId, reapitBackendError)
   }
   return errors.generateInternalServerError(traceId)
 }
