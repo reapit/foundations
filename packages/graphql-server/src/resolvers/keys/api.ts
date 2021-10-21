@@ -140,10 +140,10 @@ export const callCreateKeyMovementAPI = async (
   const traceId = context.traceId
   logger.info('callCreateKeyMovementAPI', { args, traceId })
   try {
-    const { propertyId, keyId, ...rest } = args
+    const { propertyId, keyId, movement } = args
     const response = await createPlatformAxiosInstance().post<GetKeyMovementReturn>(
       `${URLS.properties}/${propertyId}/keys/${keyId}/movements`,
-      rest,
+      movement,
       {
         headers: {
           Authorization: context.authorization,

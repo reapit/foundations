@@ -62,7 +62,7 @@ export type PropertyKeyMovement = {
 }
 
 export type GetKeyMovementsArgs = GetKeyArgs
-export type CreateKeyMovementArgs = { propertyId: string; keyId: string; keyMovement: CreateKeyMovementModel }
+export type CreateKeyMovementArgs = { propertyId: string; keyId: string; movement: CreateKeyMovementModel }
 export type UpdateKeyMovementArgs = CheckInKeyModel & { propertyId: string; keyId: string; movementId: string }
 export type GetKeyMovementArgs = GetKeyArgs & { movementId: string }
 
