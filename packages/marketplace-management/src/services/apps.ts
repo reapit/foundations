@@ -5,19 +5,18 @@ import { URLS } from '../constants/api'
 import { AppRestriction } from '../types/app-restrictions'
 import { getPlatformHeaders, logger } from '@reapit/utils-react'
 
-export const getAppsService = async (search: string): Promise<AppSummaryModelPagedResult | undefined | void> => {
-  const session = await reapitConnectBrowserSession.connectSession()
-
-  if (!session) throw new Error('No Reapit Connect Session is present')
-
+export const getAppsService = async (
+  search: string,
+  orgClientId: string,
+): Promise<AppSummaryModelPagedResult | undefined | void> => {
   try {
     const headers = await getPlatformHeaders(reapitConnectBrowserSession, 'latest')
     if (headers) {
       const response: AppSummaryModelPagedResult | undefined = await fetcher({
         api: window.reapit.config.platformApiUrl,
-        url: `${URLS.APPS}/${search ? search : '?pageNumber=1&pageSize=12'}&clientId=${
-          session.loginIdentity.clientId
-        }&showHiddenApps=true`,
+        url: `${URLS.APPS}/${
+          search ? search : '?pageNumber=1&pageSize=12'
+        }&clientId=${orgClientId}&showHiddenApps=true`,
         method: 'GET',
         headers,
       })

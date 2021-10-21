@@ -5,6 +5,16 @@ import AppInstallationSection from '../app-installation-section'
 import AppInstallationPerOfficeGroup from '../app-installation-per-office-group'
 import { Button } from '@reapit/elements'
 
+jest.mock('../../../../utils/use-org-id', () => ({
+  useOrgId: () => ({
+    orgIdState: {
+      orgId: 'SOME_ID',
+      orgName: 'SOME_NAME',
+      orgClientId: 'SOME_CLIENT_ID',
+    },
+  }),
+}))
+
 describe('AppInstallationSection', () => {
   it('should match a snapshot when WHOLE_ORG is selected', () => {
     const stubInstallations = {

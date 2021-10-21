@@ -32,7 +32,7 @@ const AppInstallationConfirmationModal: React.FC<AppInstallationConfirmationModa
   const wholeOrgInstallText = (
     <BodyText hasGreyText>
       By confirming this installation, you are granting this app access to all data inside of your organisation and all
-      users and offices will have access to this app inside of the Marketplace.
+      users and offices will have access to this app inside of the AppMarket.
     </BodyText>
   )
 

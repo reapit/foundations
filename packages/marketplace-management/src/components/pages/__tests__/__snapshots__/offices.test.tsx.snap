@@ -29,12 +29,12 @@ exports[`OfficesPage should match a snapshot 1`] = `
       icon="developmentInfographic"
       iconSize="large"
     />
-    <Subtitle />
     <BodyText
       hasGreyText={true}
     >
       This list contains all ‘Offices’ within your organisation. To create or manage an Office Group, please visit the ‘Groups’ page.
     </BodyText>
+    <OrgIdSelect />
   </SecondaryNavContainer>
   <PageContainer
     className="el-hfull"

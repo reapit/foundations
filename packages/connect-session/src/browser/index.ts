@@ -62,6 +62,7 @@ export class ReapitConnectBrowserSession {
     this.connectAuthorizeRedirect = this.connectAuthorizeRedirect.bind(this)
     this.connectLoginRedirect = this.connectLoginRedirect.bind(this)
     this.connectLogoutRedirect = this.connectLogoutRedirect.bind(this)
+    this.connectClearSession = this.connectClearSession.bind(this)
   }
 
   private setIdleTimeoutListeners() {
@@ -233,6 +234,10 @@ export class ReapitConnectBrowserSession {
     const logoutRedirectUri = redirectUri || this.connectLogoutRedirectPath
     this.clearRefreshToken()
     window.location.href = `${this.connectOAuthUrl}/logout?client_id=${this.connectClientId}&logout_uri=${logoutRedirectUri}`
+  }
+
+  public connectClearSession(): void {
+    this.session = null
   }
 
   // The main method for fetching a session in an app.

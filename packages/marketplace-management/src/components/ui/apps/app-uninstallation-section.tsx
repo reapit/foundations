@@ -38,8 +38,8 @@ const AppUninstallationSection: React.FC<AppUninstallationSectionProps> = ({
       {!noCurrentInstallations && (
         <>
           <BodyText hasGreyText>
-            This app is currently installed for {currentInstallText}. By clicking this button you will uninstall for all
-            users and offices.
+            This app is currently installed for {currentInstallText}. Please click ‘Uninstall’ to terminate the
+            installation.
           </BodyText>
           <ButtonGroup alignment="right">
             <Button

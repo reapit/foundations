@@ -3,7 +3,8 @@
 exports[`OfficesTab should match a snapshot 1`] = `
 <ErrorBoundary>
   <Title>
-    Existing Offices
+    SOME_NAME
+     Offices
   </Title>
   <OfficeTabFilterForm
     filterValues={
@@ -13,67 +14,13 @@ exports[`OfficesTab should match a snapshot 1`] = `
     }
     onSearch={[Function]}
   />
-  <Table
-    className="el-fade-in el-mb11"
-    rows={
-      Array [
-        Object {
-          "cells": Array [
-            Object {
-              "label": "Office Name",
-              "narrowTable": Object {
-                "showLabel": true,
-              },
-              "value": "Reapit",
-            },
-            Object {
-              "label": "Address",
-              "narrowTable": Object {
-                "showLabel": true,
-              },
-              "value": "15 Example street Solihull West Midlands B91 2XX",
-            },
-            Object {
-              "label": "Last Updated",
-              "narrowTable": Object {
-                "showLabel": true,
-              },
-              "value": "08 Jan 2019 12:30",
-            },
-          ],
-        },
-        Object {
-          "cells": Array [
-            Object {
-              "label": "Office Name",
-              "narrowTable": Object {
-                "showLabel": true,
-              },
-              "value": "Reapit",
-            },
-            Object {
-              "label": "Address",
-              "narrowTable": Object {
-                "showLabel": true,
-              },
-              "value": "15 Example street Solihull West Midlands B91 2XX",
-            },
-            Object {
-              "label": "Last Updated",
-              "narrowTable": Object {
-                "showLabel": true,
-              },
-              "value": "08 Jan 2019 12:30",
-            },
-          ],
-        },
-      ]
-    }
-  />
-  <Pagination
-    callback={[Function]}
-    currentPage={1}
-    numberPages={1}
-  />
+  <PersistantNotification
+    intent="secondary"
+    isExpanded={true}
+    isFullWidth={true}
+    isInline={true}
+  >
+    No results found for your office search
+  </PersistantNotification>
 </ErrorBoundary>
 `;

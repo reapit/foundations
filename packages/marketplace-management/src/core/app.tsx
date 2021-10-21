@@ -3,6 +3,7 @@ import Router from './router'
 import ErrorBoundary from '@/components/hocs/error-boundary'
 import { MediaStateProvider, NavStateProvider, SnackProvider } from '@reapit/elements'
 import { injectSwitchModeToWindow } from '@reapit/utils-react'
+import { OrgIdStateProvider } from '../utils/use-org-id'
 
 injectSwitchModeToWindow()
 
@@ -12,7 +13,9 @@ const App = () => {
       <SnackProvider>
         <NavStateProvider>
           <MediaStateProvider>
-            <Router />
+            <OrgIdStateProvider>
+              <Router />
+            </OrgIdStateProvider>
           </MediaStateProvider>
         </NavStateProvider>
       </SnackProvider>
