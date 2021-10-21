@@ -168,7 +168,7 @@ export const callUpdateKeyMovementAPI = async (
   logger.info('callUpdateKeyMovementAPI', { traceId, args })
   try {
     const { propertyId, keyId, movementId, ...rest } = args
-    const updateResponse = await createPlatformAxiosInstance().patch<UpdateKeyMovementReturn>(
+    const updateResponse = await createPlatformAxiosInstance().put<UpdateKeyMovementReturn>(
       `${URLS.properties}/${propertyId}/keys/${keyId}/movements/${movementId}`,
       rest,
       {
