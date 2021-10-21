@@ -1,0 +1,37 @@
+name: Rollback Prod
+
+on:
+  release:
+    types: [deleted]
+
+env:
+  NPM_TOKEN: ${{secrets.NPM_TOKEN}}
+  GITHUB_TOKEN: ${{secrets.GITHUB_TOKEN}}
+  SENTRY_AUTH_TOKEN: ${{secrets.SENTRY_AUTH_TOKEN}}
+  RELEASE_SLACK_WEB_HOOK_URL: ${{secrets.RELEASE_SLACK_WEB_HOOK_URL}}
+  AWS_ACCESS_KEY_ID: ${{secrets.AWS_ACCESS_KEY_ID_PROD}}
+  AWS_SECRET_ACCESS_KEY: ${{secrets.AWS_SECRET_ACCESS_KEY_PROD}}
+  AWS_REGION: ${{secrets.AWS_REGION}}
+  CI: true
+  IS_RELEASE: true
+
+jobs:
+  rollback-prod:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Get Tag
+        uses: olegtarasov/get-tag@v2.1
+        id: tagName
+        with:
+          tagRegex: '(?<package>.*)_(?<version>.*)'
+
+      - uses: actions/checkout@v2
+        with:
+          fetch-depth: 0
+
+      - uses: actions/github-script@v5
+        with:
+          script: |
+            const packageInfo = require(`packages/${context.steps.tagName.outputs.package}/package.json`)
+            console.log('package', package)
+            console.log('context', context)

@@ -3,16 +3,16 @@ import { reapitConnectBrowserSession } from '../core/connect-session'
 import { URLS } from '../constants/api'
 import { getPlatformHeaders, logger } from '@reapit/utils-react'
 
-interface CreateOfficeGroupParams {
+export interface CreateUpdateOfficeGroupModel {
   name: string
   officeIds: string
+  status: 'active' | 'inactive'
 }
 
-interface UpdateOfficeGroupParams extends CreateOfficeGroupParams {
-  status: string
-}
-
-export const createOfficeGroup = async (officeGroup: CreateOfficeGroupParams, orgId: string): Promise<any | void> => {
+export const createOfficeGroup = async (
+  officeGroup: CreateUpdateOfficeGroupModel,
+  orgId: string,
+): Promise<any | void> => {
   try {
     const url = `${URLS.ORGANISATIONS}/${orgId}${URLS.OFFICES_GROUPS}`
     const headers = await getPlatformHeaders(reapitConnectBrowserSession)
@@ -37,7 +37,7 @@ export const createOfficeGroup = async (officeGroup: CreateOfficeGroupParams, or
 }
 
 export const updateOfficeGroup = async (
-  officeGroup: UpdateOfficeGroupParams,
+  officeGroup: CreateUpdateOfficeGroupModel,
   orgId: string,
   officeGroupId: string,
 ): Promise<any | void> => {

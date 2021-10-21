@@ -1,14 +1,39 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`OfficeTabFilterForm should match a snapshot 1`] = `
-<Formik
-  initialValues={
-    Object {
-      "name": "Office Name",
-    }
-  }
-  onSubmit={[MockFunction]}
+<form
+  onSubmit={[Function]}
 >
-  <Component />
-</Formik>
+  <FormLayout
+    className="el-fade-in el-mb11"
+  >
+    <InputWrap>
+      <ForwardRef
+        label="Office Name"
+        name="name"
+        onBlur={[Function]}
+        onChange={[Function]}
+        placeholder="Enter a search term here"
+      />
+    </InputWrap>
+    <InputWrap>
+      <FlexContainer
+        className="el-hfull"
+        isFlexAlignEnd={true}
+        isFlexGrow1={true}
+      >
+        <ButtonGroup
+          alignment="left"
+        >
+          <Button
+            intent="primary"
+            type="submit"
+          >
+            Search
+          </Button>
+        </ButtonGroup>
+      </FlexContainer>
+    </InputWrap>
+  </FormLayout>
+</form>
 `;

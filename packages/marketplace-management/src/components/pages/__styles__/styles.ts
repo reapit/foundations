@@ -62,10 +62,6 @@ export const imageContainer = css`
   }
 `
 
-export const loginLevel = css`
-  flex-direction: column;
-`
-
 export const loginImageVisible = css``
 
 export const loginImage = css`

@@ -1,6 +1,6 @@
 import * as React from 'react'
 import { shallow } from 'enzyme'
-import { Button } from '@reapit/elements-legacy'
+import { Button } from '@reapit/elements'
 import { reapitConnectBrowserSession } from '@/core/connect-session'
 import { Login } from '../login'
 

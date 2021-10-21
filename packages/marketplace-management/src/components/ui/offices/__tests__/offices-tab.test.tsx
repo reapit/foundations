@@ -1,10 +1,10 @@
 import * as React from 'react'
 import { shallow } from 'enzyme'
 import { History } from 'history'
-import OfficesTab, { OfficesContent, onPageChangeHandler, onSearchHandler } from '../offices-tab'
+import OfficesTab, { onPageChangeHandler, onSearchHandler } from '../offices-tab'
 import { createBrowserHistory } from 'history'
 import Routes from '@/constants/routes'
-import { data } from '../__stubs__/offices'
+// import { data } from '../__stubs__/offices'
 
 jest.mock('react-router', () => ({
   ...(jest.requireActual('react-router') as Object),
@@ -24,17 +24,6 @@ const historyMock = {
 describe('OfficesTab', () => {
   it('should match a snapshot', () => {
     expect(shallow(<OfficesTab />)).toMatchSnapshot()
-  })
-})
-
-describe('OfficesContent', () => {
-  it('should match a snapshot', () => {
-    const columns = [
-      { Header: 'Office Name', accessor: 'name' },
-      { Header: 'Address', accessor: 'address' },
-      { Header: 'Last Updated', accessor: 'description' },
-    ]
-    expect(shallow(<OfficesContent data={data} columns={columns} onPageChange={jest.fn} />)).toMatchSnapshot()
   })
 })
 

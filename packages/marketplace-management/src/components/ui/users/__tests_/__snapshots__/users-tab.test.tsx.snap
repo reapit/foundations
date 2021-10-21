@@ -1,145 +1,75 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`UsersContent  should match a snapshot 1`] = `
-<Fragment>
-  <FadeIn>
-    <Table
-      columns={
-        Array [
-          Object {
-            "Header": "Group Name",
-            "accessor": "id",
-          },
-          Object {
-            "Header": "Members",
-            "accessor": "",
-          },
-          Object {
-            "Cell": <div>
-              Manage
-            </div>,
-            "Header": "Manage",
-          },
-        ]
-      }
-      data={
-        Array [
-          Object {
-            "agencyCloudCustomerId": "string",
-            "agencyCloudNegotiatorId": "string",
-            "created": "2019-08-14T12:30:02.0000000Z",
-            "email": "string",
-            "groups": Array [
-              "string",
-            ],
-            "id": "string",
-            "inactive": true,
-            "jobTitle": "string",
-            "landline": "string",
-            "marketplaceDeveloperId": "string",
-            "mobile": "string",
-            "modified": "2019-08-14T12:30:02.0000000Z",
-            "name": "string",
-            "organisationId": "string",
-            "organisationName": "string",
-          },
-        ]
-      }
-      expandable={true}
-      scrollable={true}
-    />
-  </FadeIn>
-  <Pagination
-    onChange={[Function]}
-    pageNumber={0}
-    pageSize={0}
-    totalCount={0}
-  />
-</Fragment>
-`;
-
 exports[`UsersTab should match a snapshot 1`] = `
 <ErrorBoundary>
-  <H5>
-    Existing users
-  </H5>
-  <p
-    className="mb-4"
-  >
-    The list below contains all ‘Users’ within your organisation. You can search and edit users to manage the groups an individual user belongs to. For more information on ‘Groups’, please click
-     
-    <a
-      href="https://marketplace-documentation.reapit.cloud/glossary#user-roles"
-      rel="noopener noreferrer"
-      target="_blank"
-    >
-      here.
-    </a>
-  </p>
-  <UsersContent
-    columns={
+  <Title>
+    Existing Users
+  </Title>
+  <Table
+    className="el-fade-in el-mb11"
+    indexExpandedRow={null}
+    rows={
       Array [
         Object {
-          "Header": "Name",
-          "accessor": "name",
-        },
-        Object {
-          "Header": "Email",
-          "accessor": "email",
-        },
-        Object {
-          "Cell": [Function],
-          "Header": "User Groups",
-          "accessor": "groups",
-        },
-        Object {
-          "Cell": [Function],
-          "Header": "Edit",
+          "cells": Array [
+            Object {
+              "label": "Name",
+              "narrowTable": Object {
+                "showLabel": true,
+              },
+              "value": "string",
+            },
+            Object {
+              "label": "Email",
+              "narrowTable": Object {
+                "showLabel": true,
+              },
+              "value": "string",
+            },
+            Object {
+              "label": "Groups",
+              "narrowTable": Object {
+                "showLabel": true,
+              },
+              "value": "",
+            },
+          ],
+          "expandableContent": Object {
+            "content": <EditUserForm
+              onComplete={[Function]}
+              orgId=""
+              user={
+                Object {
+                  "agencyCloudCustomerId": "string",
+                  "agencyCloudNegotiatorId": "string",
+                  "created": "2019-08-14T12:30:02.0000000Z",
+                  "email": "string",
+                  "groups": Array [
+                    "string",
+                  ],
+                  "id": "string",
+                  "inactive": true,
+                  "jobTitle": "string",
+                  "landline": "string",
+                  "marketplaceDeveloperId": "string",
+                  "mobile": "string",
+                  "modified": "2019-08-14T12:30:02.0000000Z",
+                  "name": "string",
+                  "organisationId": "string",
+                  "organisationName": "string",
+                }
+              }
+            />,
+          },
         },
       ]
     }
-    data={
-      Object {
-        "_embedded": Array [
-          Object {
-            "agencyCloudCustomerId": "string",
-            "agencyCloudNegotiatorId": "string",
-            "created": "2019-08-14T12:30:02.0000000Z",
-            "email": "string",
-            "groups": Array [
-              "string",
-            ],
-            "id": "string",
-            "inactive": true,
-            "jobTitle": "string",
-            "landline": "string",
-            "marketplaceDeveloperId": "string",
-            "mobile": "string",
-            "modified": "2019-08-14T12:30:02.0000000Z",
-            "name": "string",
-            "organisationId": "string",
-            "organisationName": "string",
-          },
-        ],
-        "_links": Object {
-          "additionalProp1": Object {
-            "href": "string",
-          },
-          "additionalProp2": Object {
-            "href": "string",
-          },
-          "additionalProp3": Object {
-            "href": "string",
-          },
-        },
-        "pageCount": 0,
-        "pageNumber": 0,
-        "pageSize": 0,
-        "totalCount": 0,
-        "totalPageCount": 0,
-      }
-    }
-    onPageChange={[Function]}
+    setIndexExpandedRow={[Function]}
+  />
+  <Pagination
+    callback={[Function]}
+    currentPage={0}
+    numberPages={0}
   />
 </ErrorBoundary>
 `;

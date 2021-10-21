@@ -1,6 +1,7 @@
 const Routes = {
   OFFICES: '/offices',
   OFFICES_GROUPS: '/offices/groups',
+  OFFICES_GROUPS_NEW: '/offices/groups/new',
   USERS: '/users',
   USERS_GROUPS: '/users/groups',
   LOGIN: '/login',

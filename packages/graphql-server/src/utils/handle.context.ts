@@ -10,20 +10,18 @@ import { generateContactLoader } from '@/resolvers/contacts/dataloader'
 
 export type ServerContext = Context<{ traceId: string; authorization: string; dataLoader: ServerDataLoader }>
 
-export const handleContext = ({ event, context }) => {
-  const reapitCustomer = event.headers['reapit-customer'] ?? 'UNKNOWN-CUSTOMER'
+export const headersToContext = (headers: Record<string, any>, extras: Record<string, any>) => {
+  const reapitCustomer = headers['reapit-customer'] ?? 'UNKNOWN-CUSTOMER'
   const traceId = `${reapitCustomer}-${uuid()}`
   const isProductionEnv = process.env.NODE_ENV === 'production'
   if (isProductionEnv) {
-    logger.info('handleContext', { traceId, event })
+    logger.info('handleContext', { traceId, ...extras })
   }
   const newContext = {
     traceId: traceId,
-    headers: event.headers,
-    authorization: event?.headers['reapit-connect-token'] ?? '',
-    functionName: context.functionName,
-    event,
-    context,
+    headers: headers,
+    authorization: headers['reapit-connect-token'] ?? '',
+    ...extras
   } as any
   const dataLoader = {
     configurationLoader: generateConfigurationLoader(newContext),
@@ -34,4 +32,13 @@ export const handleContext = ({ event, context }) => {
   } as ServerDataLoader
   newContext.dataLoader = dataLoader
   return newContext
+}
+
+export const handleContext = ({ event, context }) => {
+  const extras = {
+    functionName: context.functionName,
+    event,
+    context,
+  }
+  return headersToContext(event.headers, extras)
 }

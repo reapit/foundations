@@ -1,123 +1,27 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`AppInstallationPerOfficeGroup should match a snapshot 1`] = `
-<AppInstallationPerOfficeGroup
-  installations={
-    Object {
-      "data": Array [],
-    }
-  }
-  officeGroupsToAdd={Array []}
-  officeGroupsToRemove={Array []}
-  setOfficeGroupsToAdd={[MockFunction]}
-  setOfficeGroupsToRemove={[MockFunction]}
->
-  <Section
-    hasPadding={false}
-  >
-    <section
-      className="section has-margin has-background"
-      data-test=""
+<Fragment>
+  <InputWrapFull>
+    <ButtonGroup
+      alignment="right"
     >
-      <FlexContainerBasic
-        className="justify-end"
+      <Button
+        disabled={false}
+        intent="secondary"
+        onClick={[Function]}
       >
-        <div
-          className="container-flex justify-end"
-        >
-          <Button
-            onClick={[Function]}
-            variant="secondary"
-          >
-            <button
-              className="button   is-secondary "
-              data-test=""
-              disabled={false}
-              onClick={[Function]}
-              type="button"
-            >
-              Select all
-            </button>
-          </Button>
-          <Button
-            onClick={[Function]}
-            variant="secondary"
-          >
-            <button
-              className="button   is-secondary "
-              data-test=""
-              disabled={false}
-              onClick={[Function]}
-              type="button"
-            >
-              Deselect all
-            </button>
-          </Button>
-        </div>
-      </FlexContainerBasic>
-      <FadeIn>
-        <div
-          className="fade-in"
-        >
-          <Table
-            columns={
-              Array [
-                Object {
-                  "Header": "Group Name",
-                  "accessor": "name",
-                },
-                Object {
-                  "Cell": [Function],
-                  "Header": "Office List",
-                  "accessor": "officeIds",
-                },
-                Object {
-                  "Cell": [Function],
-                  "Header": "Edit",
-                  "accessor": "customerId",
-                },
-              ]
-            }
-            data={Array []}
-          >
-            <table
-              className="table is-striped is-fullwidth "
-              role="table"
-            >
-              <thead>
-                <tr
-                  key="headerGroup_0"
-                  role="row"
-                >
-                  <th
-                    colSpan={1}
-                    key="header_name"
-                    role="columnheader"
-                  >
-                    Group Name
-                  </th>
-                  <th
-                    colSpan={1}
-                    key="header_officeIds"
-                    role="columnheader"
-                  >
-                    Office List
-                  </th>
-                  <th
-                    colSpan={1}
-                    key="header_customerId"
-                    role="columnheader"
-                  >
-                    Edit
-                  </th>
-                </tr>
-              </thead>
-              <tbody />
-            </table>
-          </Table>
-        </div>
-      </FadeIn>
-    </section>
-  </Section>
-</AppInstallationPerOfficeGroup>
+        Select all
+      </Button>
+      <Button
+        disabled={false}
+        intent="secondary"
+        onClick={[Function]}
+      >
+        Deselect all
+      </Button>
+    </ButtonGroup>
+  </InputWrapFull>
+  <InputWrapFull />
+</Fragment>
 `;

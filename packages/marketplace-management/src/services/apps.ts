@@ -1,4 +1,3 @@
-import { notification } from '@reapit/elements-legacy'
 import { fetcher } from '@reapit/utils-common'
 import { AppSummaryModelPagedResult } from '@reapit/foundations-ts-definitions'
 import { reapitConnectBrowserSession } from '../core/connect-session'
@@ -35,9 +34,6 @@ export const getAppsService = async (search: string): Promise<AppSummaryModelPag
     }
   } catch (err) {
     logger(err)
-    notification.error({
-      message: 'Failed to fetch apps',
-    })
   }
 }
 

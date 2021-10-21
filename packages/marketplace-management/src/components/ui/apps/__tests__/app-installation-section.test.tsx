@@ -3,7 +3,7 @@ import { mount } from 'enzyme'
 import { WHOLE_ORG, SPECIFIC_OFFICE_GROUPS } from '../app-installation-manager'
 import AppInstallationSection from '../app-installation-section'
 import AppInstallationPerOfficeGroup from '../app-installation-per-office-group'
-import { Button } from '@reapit/elements-legacy'
+import { Button } from '@reapit/elements'
 
 describe('AppInstallationSection', () => {
   it('should match a snapshot when WHOLE_ORG is selected', () => {
@@ -55,9 +55,9 @@ describe('AppInstallationSection', () => {
         setShowConfirmModal={confirmModalSpy}
       />,
     )
-    expect(wrapper.findWhere((n) => n.type() === Button && n.prop('variant') === 'primary').prop('disabled')).toBe(true)
+    expect(wrapper.findWhere((n) => n.type() === Button && n.prop('intent') === 'critical').prop('disabled')).toBe(true)
     wrapper.setProps({ appInstallationType: WHOLE_ORG })
-    expect(wrapper.findWhere((n) => n.type() === Button && n.prop('variant') === 'primary').prop('disabled')).toBe(
+    expect(wrapper.findWhere((n) => n.type() === Button && n.prop('intent') === 'critical').prop('disabled')).toBe(
       false,
     )
   })

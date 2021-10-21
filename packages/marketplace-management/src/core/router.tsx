@@ -51,7 +51,6 @@ const Router = () => (
               fetcher,
             }}
           >
-            {' '}
             <Switch>
               <Route path={Routes.OFFICES} component={Offices} />
               <Route path={Routes.USERS} component={Users} />

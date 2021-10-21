@@ -78,20 +78,16 @@ export const fetchDevelopersList = async (
 
 export const createDeveloper = async (params: CreateDeveloperParams) => {
   try {
-    const headers = await getPlatformHeaders(reapitConnectBrowserSession, 'latest')
-
-    if (headers) {
-      const response = await fetcher({
-        url: `${URLS.developers}`,
-        api: window.reapit.config.platformApiUrl,
-        method: 'POST',
-        body: params,
-        headers: {
-          'Content-Type': 'application/json',
-        },
-      })
-      return response
-    }
+    const response = await fetcher({
+      url: `${URLS.developers}`,
+      api: window.reapit.config.platformApiUrl,
+      method: 'POST',
+      body: params,
+      headers: {
+        'Content-Type': 'application/json',
+      },
+    })
+    return response
   } catch (error) {
     logger(error)
     throw error?.response
@@ -218,20 +214,17 @@ export const fetchMemberDetails = async (params: FetchMemberDetailsParams): Prom
 export const acceptInviteMember = async (params: AcceptInviteMemberParams) => {
   try {
     const { developerId, memberId, ...restParams } = params
-    const headers = await getPlatformHeaders(reapitConnectBrowserSession, 'latest')
 
-    if (headers) {
-      const response = await fetcher({
-        url: `${URLS.developers}/${developerId}/members/${memberId}/accept`,
-        api: window.reapit.config.platformApiUrl,
-        method: 'POST',
-        body: restParams,
-        headers: {
-          'Content-Type': 'application/json',
-        },
-      })
-      return response
-    }
+    const response = await fetcher({
+      url: `${URLS.developers}/${developerId}/members/${memberId}/accept`,
+      api: window.reapit.config.platformApiUrl,
+      method: 'POST',
+      body: restParams,
+      headers: {
+        'Content-Type': 'application/json',
+      },
+    })
+    return response
   } catch (error) {
     logger(error)
     throw error?.response
@@ -241,19 +234,16 @@ export const acceptInviteMember = async (params: AcceptInviteMemberParams) => {
 export const rejectInviteMember = async (params: RejectInviteMemberParams) => {
   try {
     const { developerId, memberId } = params
-    const headers = await getPlatformHeaders(reapitConnectBrowserSession, 'latest')
 
-    if (headers) {
-      const response = await fetcher({
-        url: `${URLS.developers}/${developerId}/members/${memberId}/reject`,
-        api: window.reapit.config.platformApiUrl,
-        method: 'POST',
-        headers: {
-          'Content-Type': 'application/json',
-        },
-      })
-      return response
-    }
+    const response = await fetcher({
+      url: `${URLS.developers}/${developerId}/members/${memberId}/reject`,
+      api: window.reapit.config.platformApiUrl,
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+      },
+    })
+    return response
   } catch (error) {
     logger(error)
     throw error?.response

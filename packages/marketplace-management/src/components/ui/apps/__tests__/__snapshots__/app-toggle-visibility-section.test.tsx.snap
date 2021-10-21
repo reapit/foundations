@@ -10,44 +10,80 @@ exports[`AppToggleVisibilitySection should match a snapshot 1`] = `
   }
   reFetchApp={[MockFunction]}
 >
-  <Section
-    hasPadding={false}
-  >
-    <section
-      className="section has-margin has-background"
-      data-test=""
+  <Subtitle>
+    <ElSubtitle
+      className=""
     >
-      <H5>
-        <h5
-          className="title is-5"
-          id=""
-        >
-          Application Visibility
-        </h5>
-      </H5>
+      <h2
+        className="el-subtitle"
+      >
+        Application Visibility
+      </h2>
+    </ElSubtitle>
+  </Subtitle>
+  <BodyText
+    hasGreyText={true}
+  >
+    <ElBodyText
+      className="el-has-grey-text"
+    >
       <p
-        className="mb-4"
+        className="el-has-grey-text el-body-text"
       >
-        <p>
-          By default, all apps will be visible to all offices/users within your organisation. If you wish to hide an app from the Marketplace, please deselect. Hidden apps (apps that have been deselected) will not be visible in the Marketplace to any offices/users inside of your organisation.
-        </p>
+        By default, all apps will be visible to all offices/users within your organisation. If you wish to hide an app from the Marketplace, please deselect. Hidden apps (apps that have been deselected) will not be visible in the Marketplace to any offices/users inside of your organisation.
       </p>
+    </ElBodyText>
+  </BodyText>
+  <ForwardRef
+    checked={true}
+    className="el-mb11"
+    label="Visible"
+    onChange={[Function]}
+    type="checkbox"
+  >
+    <ElInputGroup
+      className="el-mb11"
+    >
       <div
-        className="field field-checkbox mb-0 control"
+        className="el-mb11 el-input-group"
       >
-        <input
+        <ForwardRef
           checked={true}
-          className="checkbox"
+          id="test-static-id"
           onChange={[Function]}
           type="checkbox"
-        />
-        <label
-          className="label"
         >
-          Visible
-        </label>
+          <ElInput
+            checked={true}
+            id="test-static-id"
+            onChange={[Function]}
+            type="checkbox"
+          >
+            <input
+              checked={true}
+              className="el-input"
+              id="test-static-id"
+              onChange={[Function]}
+              type="checkbox"
+            />
+          </ElInput>
+        </ForwardRef>
+        <Label
+          htmlFor="test-static-id"
+        >
+          <ElLabel
+            htmlFor="test-static-id"
+          >
+            <label
+              className="el-label"
+              htmlFor="test-static-id"
+            >
+              Visible
+            </label>
+          </ElLabel>
+        </Label>
       </div>
-    </section>
-  </Section>
+    </ElInputGroup>
+  </ForwardRef>
 </AppToggleVisibilitySection>
 `;

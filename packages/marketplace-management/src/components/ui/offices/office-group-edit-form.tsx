@@ -1,0 +1,183 @@
+import React, { ChangeEvent, FC, useCallback, useEffect, useState } from 'react'
+import { OfficeGroupModel } from '../../../types/organisations-schema'
+import { updateOfficeGroup } from '../../../services/office'
+import { toastMessages } from '../../../constants/toast-messages'
+import { prepareOfficeOptions } from '../../../utils/prepare-options'
+import { OfficeModel, OfficeModelPagedResult } from '@reapit/foundations-ts-definitions'
+import debounce from 'just-debounce-it'
+import useSWR from 'swr'
+import { URLS } from '../../../constants/api'
+import {
+  BodyText,
+  Button,
+  ButtonGroup,
+  elFadeIn,
+  elMb11,
+  elP8,
+  ElToggleItem,
+  FormLayout,
+  InputGroup,
+  InputWrap,
+  InputWrapFull,
+  Label,
+  MultiSelectInput,
+  MultiSelectOption,
+  PersistantNotification,
+  Subtitle,
+  Toggle,
+  useSnack,
+} from '@reapit/elements'
+import { yupResolver } from '@hookform/resolvers/yup'
+import { boolean, object, string } from 'yup'
+import errorMessages from '../../../constants/error-messages'
+import { useForm } from 'react-hook-form'
+import { cx } from '@linaria/core'
+
+export interface EditOfficeGroupFormProps {
+  officeGroup: OfficeGroupModel
+  offices: OfficeModel[]
+  orgId: string
+  onComplete: () => void
+}
+
+export const validationSchema = object().shape({
+  name: string().trim().required(errorMessages.FIELD_REQUIRED),
+  officeIds: string().trim().required(errorMessages.FIELD_REQUIRED),
+  status: boolean(),
+})
+
+interface EditOfficeGroupSchema {
+  name: string
+  officeIds: string
+  status: boolean
+}
+
+export const onHandleSubmit =
+  (
+    onComplete: () => void,
+    officeGroup: OfficeGroupModel,
+    orgId: string,
+    success: (message: string) => void,
+    error: (message: string) => void,
+  ) =>
+  async (params: EditOfficeGroupSchema) => {
+    const { name, officeIds: listId } = params
+    const officeIds = listId.toString()
+    const status = params.status ? 'active' : 'inactive'
+    const response = await updateOfficeGroup({ name, officeIds, status }, orgId, officeGroup?.id || '')
+
+    if (response) {
+      success(toastMessages.CHANGES_SAVE_SUCCESS)
+      onComplete()
+      return
+    }
+
+    error(toastMessages.FAILED_TO_EDIT_OFFICE_GROUP)
+  }
+
+export const EditOfficeGroupForm: FC<EditOfficeGroupFormProps> = ({ officeGroup, offices, orgId, onComplete }) => {
+  const [searchString, setSearchString] = useState<string>('')
+  const [options, setOptions] = useState<MultiSelectOption[]>([])
+  const { success, error } = useSnack()
+  const debouncedSearch = useCallback(
+    debounce((event: ChangeEvent<HTMLInputElement>) => setSearchString(event.target.value), 500),
+    [500],
+  )
+  const { data: searchedOffices } = useSWR<OfficeModelPagedResult | undefined>(
+    !orgId || !searchString ? null : `${URLS.OFFICES}?pageSize=999&organisationId=${orgId}&name=${searchString}`,
+  )
+
+  const {
+    register,
+    handleSubmit,
+    getValues,
+    formState: { errors },
+  } = useForm<EditOfficeGroupSchema>({
+    resolver: yupResolver(validationSchema),
+    defaultValues: {
+      name: officeGroup.name ?? '',
+      officeIds: officeGroup.officeIds,
+      status: officeGroup.status === 'active',
+    },
+  })
+
+  useEffect(() => {
+    if (officeGroup && offices) {
+      const newSelectedOptions = offices.filter((office) => office.id && officeGroup.officeIds?.includes(office.id))
+      const officeOptions = prepareOfficeOptions(newSelectedOptions)
+
+      setOptions(officeOptions)
+    }
+  }, [officeGroup, offices])
+
+  useEffect(() => {
+    const officeIds = getValues().officeIds
+
+    if (officeIds) {
+      const newSelectedOptions = options.filter((option) => officeIds.includes(option.value))
+      const officeOptions = prepareOfficeOptions(searchedOffices?._embedded ?? [])
+      const newOptions = [...newSelectedOptions, ...officeOptions]
+      const uniqueOptions = [...new Set([...newOptions.map((option) => JSON.stringify(option))])].map((jsonOption) =>
+        JSON.parse(jsonOption),
+      )
+
+      setOptions(uniqueOptions)
+    }
+  }, [searchString, searchedOffices])
+
+  const onSubmit = onHandleSubmit(onComplete, officeGroup, orgId, success, error)
+
+  return (
+    <form className={elP8} onSubmit={handleSubmit(onSubmit)}>
+      <FormLayout className={cx(elFadeIn, elMb11)}>
+        <InputWrapFull>
+          <Subtitle>Edit Office Group</Subtitle>
+          <BodyText hasGreyText>
+            To manage offices associated to this group, you can search and select users from the ‘Offices’ section
+            below:
+          </BodyText>
+        </InputWrapFull>
+        <InputWrap>
+          <InputGroup
+            label="Office Group Name"
+            placeholder="Enter an office group name"
+            {...register('name')}
+            inputAddOnText={errors?.name?.message}
+            intent="danger"
+          />
+        </InputWrap>
+        <InputWrap>
+          <Label>Group Active</Label>
+          <Toggle id={`status-edit-toggle-${officeGroup.id}`} hasGreyBg {...register('status')}>
+            <ElToggleItem>Active</ElToggleItem>
+            <ElToggleItem>Inactive</ElToggleItem>
+          </Toggle>
+        </InputWrap>
+        <InputWrapFull>
+          <InputGroup onChange={debouncedSearch} icon="searchSystem" placeholder="Search" label="Offices" />
+          <MultiSelectInput
+            id={`office-group-edit-edit-ids-${officeGroup.id}`}
+            noneSelectedLabel="No offices selected for this group"
+            defaultValues={officeGroup.officeIds ? [...new Set(officeGroup.officeIds.split(','))] : []}
+            options={options}
+            {...register('officeIds')}
+          />
+          {errors.officeIds && (
+            <PersistantNotification isFullWidth isExpanded intent="danger" isInline>
+              {errors.officeIds.message}
+            </PersistantNotification>
+          )}
+        </InputWrapFull>
+        <InputWrapFull>
+          <ButtonGroup alignment="right">
+            <Button intent="primary" type="submit">
+              Submit
+            </Button>
+          </ButtonGroup>
+        </InputWrapFull>
+      </FormLayout>
+    </form>
+  )
+}
+
+export default EditOfficeGroupForm

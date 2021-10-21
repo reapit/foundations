@@ -1,49 +1,75 @@
-import React from 'react'
+import React, { FC } from 'react'
 import { useHistory, useLocation } from 'react-router'
-import { H3, Section, Tabs, TabConfig } from '@reapit/elements-legacy'
 import { Route } from 'react-router-dom'
 import Routes from '../../constants/routes'
 import UsersTab from '../ui/users/users-tab'
 import UsersGroupsTab from '../ui/users/user-groups-tab'
+import {
+  FlexContainer,
+  SecondaryNavContainer,
+  Title,
+  SecondaryNav,
+  elMb9,
+  SecondaryNavItem,
+  Icon,
+  elMb5,
+  Subtitle,
+  BodyText,
+  PageContainer,
+  elHFull,
+  Button,
+} from '@reapit/elements'
+import { navigate } from '../ui/nav/nav'
+import { useReapitConnect } from '@reapit/connect-session'
+import { reapitConnectBrowserSession } from '../../core/connect-session'
+import { GLOSSARY_USER_ROLES_URL } from '../../constants/api'
 
-interface TabConfigsParams {
-  pathname: string
-  handleChangeTab: (url: string) => void
-}
-
-const tabConfigs = ({ pathname, handleChangeTab }: TabConfigsParams): TabConfig[] => [
-  {
-    tabIdentifier: Routes.USERS,
-    displayText: 'Users',
-    onTabClick: handleChangeTab,
-    active: pathname === Routes.USERS,
-  },
-  {
-    tabIdentifier: Routes.USERS_GROUPS,
-    displayText: 'Groups',
-    onTabClick: handleChangeTab,
-    active: pathname === Routes.USERS_GROUPS,
-  },
-]
-
-export const UsersPage: React.FC = () => {
+export const UsersPage: FC = () => {
   const history = useHistory()
   const location = useLocation()
   const { pathname } = location
-  const handleChangeTab = (url: string) => history.push(url)
+  const { connectIsDesktop } = useReapitConnect(reapitConnectBrowserSession)
+
   return (
-    <div>
-      <H3>Manage Users</H3>
-      {window.reapit.config.appEnv !== 'production' && (
-        <>
-          <Section hasPadding={false}>
-            <Tabs tabConfigs={tabConfigs({ pathname, handleChangeTab })} />
-          </Section>
-          <Route path={Routes.USERS} component={UsersTab} exact />
-        </>
-      )}
-      <Route path={Routes.USERS_GROUPS} component={UsersGroupsTab} exact />
-    </div>
+    <FlexContainer isFlexAuto>
+      <SecondaryNavContainer>
+        <Title>Users</Title>
+        <SecondaryNav className={elMb9}>
+          <SecondaryNavItem onClick={navigate(history, Routes.USERS)} active={pathname === Routes.USERS}>
+            Users
+          </SecondaryNavItem>
+          <SecondaryNavItem
+            onClick={navigate(history, Routes.USERS_GROUPS)}
+            active={pathname.includes(Routes.USERS_GROUPS)}
+          >
+            User Groups
+          </SecondaryNavItem>
+        </SecondaryNav>
+        <Icon className={elMb5} icon="vendorInfographic" iconSize="large" />
+        <Subtitle></Subtitle>
+        <BodyText hasGreyText>
+          {pathname === Routes.USERS
+            ? 'This list contains all ‘Users’ within your organisation. You can edit users to manage the groups an individual user belongs to. For more information on ‘Groups’, please click below.'
+            : 'This list contains all available member groups for your organisation. You can manage users associated to each group by selecting the dropown.'}
+        </BodyText>
+        {connectIsDesktop ? (
+          <Button
+            className={elMb5}
+            onClick={() => (window.location.href = `agencycloud://process/webpage?url=${GLOSSARY_USER_ROLES_URL}`)}
+          >
+            Docs
+          </Button>
+        ) : (
+          <Button className={elMb5} onClick={() => window.open(GLOSSARY_USER_ROLES_URL, '_blank')}>
+            Docs
+          </Button>
+        )}
+      </SecondaryNavContainer>
+      <PageContainer className={elHFull}>
+        <Route path={Routes.USERS} component={UsersTab} exact />
+        <Route path={Routes.USERS_GROUPS} component={UsersGroupsTab} exact />
+      </PageContainer>
+    </FlexContainer>
   )
 }
 

@@ -13,6 +13,7 @@
     "build": "node ./scripts/build-schema.js && prettier src/schema.graphql --write",
     "lint": "concurrently \"prettier src/**/*.graphql --write \"  \"eslint --cache --ext=ts,tsx src --fix\"",
     "release": "serverless deploy",
+    "dev": "ts-node-dev -r tsconfig-paths/register src/offline",
     "publish": "echo '...skipping...'",
     "conf": "yarn config-manager --namespace cloud --entity graphql-server --name local --mode fetch",
     "commit": "concurrently \"yarn test --coverage --no-cache --silent --forceExit --detectOpenHandles --runInBand --watch=false && jest-coverage-badges --input src/tests/coverage/coverage-summary.json --output src/tests/badges\" \"yarn lint\"",
@@ -22,6 +23,7 @@
   "dependencies": {
     "@reapit/utils-node": "workspace:packages/utils-node",
     "@snyk/protect": "latest",
+    "apollo-server": "^3.0.1",
     "apollo-server-core": "^3.0.1",
     "apollo-server-lambda": "^3.0.1",
     "axios": "^0.21.1",
@@ -68,6 +70,8 @@
     "serverless-deployment-bucket": "^1.5.1",
     "serverless-offline": "^8.0.0",
     "serverless-webpack": "^5.5.1",
+    "ts-node-dev": "^1.1.8",
+    "tsconfig-paths": "^3.11.0",
     "webpack": "^5.45.1",
     "webpack-node-externals": "^3.0.0"
   },
