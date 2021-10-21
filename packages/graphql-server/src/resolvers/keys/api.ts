@@ -169,7 +169,7 @@ export const callUpdateKeyMovementAPI = async (
   try {
     const { propertyId, keyId, movementId, ...rest } = args
     const updateResponse = await createPlatformAxiosInstance().patch<UpdateKeyMovementReturn>(
-      `${URLS.properties}/${propertyId}/${keyId}/movements/${movementId}`,
+      `${URLS.properties}/${propertyId}/keys/${keyId}/movements/${movementId}`,
       rest,
       {
         headers: {
