@@ -177,7 +177,7 @@ export const callUpdateKeyMovementAPI = async (
         },
       },
     )
-    if (updateResponse.status === 201) {
+    if (updateResponse.status === 204) {
       return callGetKeyMovementAPI(args, context)
     }
     throw errors.generateUserInputError(traceId)
