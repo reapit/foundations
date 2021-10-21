@@ -31,7 +31,10 @@ const getNegotiators = async (accessToken: string, idToken: string) => {
 }
 
 const searchNegotiators = async (queryStr: string, accessToken: string, idToken: string) => {
-  return query<{ _embedded: Negotiator[] }>(searchNegotiatorsQuery, { query: queryStr }, 'GetNegotiators', { accessToken, idToken })
+  return query<{ _embedded: Negotiator[] }>(searchNegotiatorsQuery, { query: queryStr }, 'GetNegotiators', {
+    accessToken,
+    idToken,
+  })
 }
 
 @Resolver(() => Negotiator)

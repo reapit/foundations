@@ -5,6 +5,7 @@ import { getUserInfo } from '../services/user'
 import {
   BodyText,
   elBorderRadius,
+  elMb5,
   elWFull,
   InputGroup,
   Label,
@@ -37,12 +38,6 @@ export const OrgIdContext = createContext<OrgIdContextProps>({} as OrgIdContextP
 
 const { Provider } = OrgIdContext
 
-export const refetchEffectHandler = (orgClientId: string | null, refetch: () => void) => () => {
-  if (orgClientId) {
-    refetch()
-  }
-}
-
 export const handleFetchInitialState =
   (setOrgIdState: Dispatch<SetStateAction<OrgIdState>>, orgIdState: OrgIdState, email?: string) => () => {
     const fetchUserInfo = async () => {
@@ -51,10 +46,18 @@ export const handleFetchInitialState =
         if (userInfo) {
           const orgMembers = userInfo.organisationGroupMembers ?? []
           const orgIdOptions =
-            orgMembers.map((member) => ({
-              name: member.name ?? '',
-              value: member.organisationId ?? '',
-            })) ?? []
+            (orgMembers
+              .map(({ name, customerId, organisationId }) => {
+                // TODO - remove this filter after the demo - just because RES in dev is tied to a load of other
+                // orgs that are not relevant / set up correctly
+                if (customerId === 'SBOX' || customerId === 'RES') {
+                  return {
+                    name: name ?? '',
+                    value: organisationId ?? '',
+                  }
+                }
+              })
+              .filter(Boolean) as MultiSelectOption[]) ?? []
           const orgId = orgMembers.length === 1 ? orgMembers[0].organisationId ?? null : null
           const orgName = orgMembers.length === 1 ? orgMembers[0].name ?? null : null
           const orgClientId = orgMembers.length === 1 ? orgMembers[0].customerId ?? null : null
@@ -136,7 +139,7 @@ export const OrgIdSelect: FC = () => {
   if (orgIdOptions.length < 2) return null
 
   return (
-    <>
+    <div className={elMb5}>
       <Subtitle>Organisations</Subtitle>
       <BodyText hasGreyText>
         You are and admin for multiple organisations - select from the list below for data specific to one of these
@@ -155,6 +158,6 @@ export const OrgIdSelect: FC = () => {
           <Label htmlFor="myId">Select Organisation</Label>
         </InputGroup>
       </ControlsContainer>
-    </>
+    </div>
   )
 }

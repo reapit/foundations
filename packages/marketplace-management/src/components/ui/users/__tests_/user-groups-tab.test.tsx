@@ -17,6 +17,16 @@ jest.mock('swr', () =>
   })),
 )
 
+jest.mock('../../../../utils/use-org-id', () => ({
+  useOrgId: () => ({
+    orgIdState: {
+      orgId: 'SOME_ID',
+      orgName: 'SOME_NAME',
+      orgClientId: 'SOME_CLIENT_ID',
+    },
+  }),
+}))
+
 describe('UserGroupsTab', () => {
   it('should match a snapshot', () => {
     expect(shallow(<UserGroupsTab />)).toMatchSnapshot()

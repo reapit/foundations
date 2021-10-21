@@ -13,6 +13,7 @@ import {
   getInstallationsForWholeOrg,
 } from './app-installation-manager'
 import { Card, elFadeIn } from '@reapit/elements'
+import { useOrgId } from '../../../utils/use-org-id'
 
 export interface AppCardProps {
   app: AppSummaryModel
@@ -49,12 +50,17 @@ export const handleInstallationsStringEffect =
 export const AppCard: FC<AppCardProps> = ({ app }: AppCardProps) => {
   const [installationString, setInstallationString] = useState<string | null>(null)
   const { connectSession } = useReapitConnect(reapitConnectBrowserSession)
+  const {
+    orgIdState: { orgClientId },
+  } = useOrgId()
   const { data: installations } = useSWR<InstallationModelPagedResult>(
-    `${URLS.INSTALLATIONS}/?AppId=${app.id}&IsInstalled=true&pageSize=999`,
+    !connectSession || !orgClientId ? null : `${URLS.INSTALLATIONS}/?AppId=${app.id}&IsInstalled=true&pageSize=999`,
   )
-  const clientId = connectSession?.loginIdentity.clientId
 
-  useEffect(handleInstallationsStringEffect(setInstallationString, installations, clientId), [installations, clientId])
+  useEffect(handleInstallationsStringEffect(setInstallationString, installations, orgClientId), [
+    installations,
+    orgClientId,
+  ])
 
   return (
     <Card

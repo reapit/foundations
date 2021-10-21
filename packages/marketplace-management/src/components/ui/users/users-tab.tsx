@@ -60,7 +60,7 @@ const UsersTab: FC = () => {
   const onPageChange = useCallback(onPageChangeHandler(history), [history])
   const [indexExpandedRow, setIndexExpandedRow] = useState<number | null>(null)
   const {
-    orgIdState: { orgId },
+    orgIdState: { orgId, orgName },
   } = useOrgId()
 
   const { data, mutate } = useSWR<UserModelPagedResult | undefined>(
@@ -82,10 +82,17 @@ const UsersTab: FC = () => {
 
   const rows = useMemo(handleSortTableData(users, orgId ?? '', onComplete), [users])
 
+  if (!orgId)
+    return (
+      <PersistantNotification isFullWidth isExpanded intent="secondary" isInline>
+        No organisation selected. You need to select an organisation to view users.
+      </PersistantNotification>
+    )
+
   return (
     <ErrorBoundary>
-      <Title>Existing Users</Title>
-      {!data ? (
+      <Title>{orgName} Users</Title>
+      {!data && orgId ? (
         <Loader />
       ) : users.length ? (
         <>

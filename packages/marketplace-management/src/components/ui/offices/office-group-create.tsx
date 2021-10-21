@@ -12,7 +12,6 @@ import {
   ButtonGroup,
   elFadeIn,
   elMb11,
-  elMt11,
   ElToggleItem,
   FormLayout,
   InputGroup,
@@ -21,6 +20,7 @@ import {
   Label,
   MultiSelectInput,
   MultiSelectOption,
+  PersistantNotification,
   StepsVertical,
   Title,
   Toggle,
@@ -106,7 +106,7 @@ export const OfficeGroupCreate: FC<OfficeGroupCreateProps> = () => {
   const [options, setOptions] = useState<MultiSelectOption[]>([])
   const [selectedStep, setSelectedStep] = useState<string>('1')
   const {
-    orgIdState: { orgId },
+    orgIdState: { orgId, orgName },
   } = useOrgId()
   const { success, error } = useSnack()
   const debouncedSearch = useCallback(
@@ -148,13 +148,16 @@ export const OfficeGroupCreate: FC<OfficeGroupCreateProps> = () => {
     setOptions(uniqueOptions)
   }, [data])
 
+  if (!orgId)
+    return (
+      <PersistantNotification isFullWidth isExpanded intent="secondary" isInline>
+        No organisation selected. You need to select an organisation to create an Office Group for.
+      </PersistantNotification>
+    )
+
   return (
-    <form
-      className={elMt11}
-      onSubmit={handleSubmit(onSubmit)}
-      onChange={handleSwitchStep(selectedStep, trigger, setSelectedStep)}
-    >
-      <Title>Create Office Group</Title>
+    <form onSubmit={handleSubmit(onSubmit)} onChange={handleSwitchStep(selectedStep, trigger, setSelectedStep)}>
+      <Title>{orgName} Create Office Group</Title>
       <StepsVertical
         steps={[
           {

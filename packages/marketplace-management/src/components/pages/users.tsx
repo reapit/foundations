@@ -48,7 +48,7 @@ export const UsersPage: FC = () => {
         <Icon className={elMb5} icon="vendorInfographic" iconSize="large" />
         <BodyText hasGreyText>
           {pathname === Routes.USERS
-            ? 'This list contains all ‘Users’ within your organisation. You can edit users to manage the groups an individual user belongs to. For more information on ‘Groups’, please click below.'
+            ? 'This list contains all ‘Users’ within your organisation. You can edit users to manage the groups an individual user belongs to. For more information on ‘User Groups’, please click below.'
             : 'This list contains all available member groups for your organisation. You can manage users associated to each group by selecting the dropown.'}
         </BodyText>
         {connectIsDesktop ? (

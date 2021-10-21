@@ -21,10 +21,14 @@ import {
 import { navigate } from '../ui/nav/nav'
 import OfficeGroupCreate from '../ui/offices/office-group-create'
 import { OrgIdSelect } from '../../utils/use-org-id'
+import { useReapitConnect } from '@reapit/connect-session'
+import { reapitConnectBrowserSession } from '../../core/connect-session'
+import { OFFICE_GROUPS_DOCS_URL } from '../../constants/api'
 
 const OfficesPage: FC = () => {
   const history = useHistory()
   const location = useLocation()
+  const { connectIsDesktop } = useReapitConnect(reapitConnectBrowserSession)
   const { pathname } = location
   return (
     <FlexContainer isFlexAuto>
@@ -46,13 +50,27 @@ const OfficesPage: FC = () => {
           {pathname === Routes.OFFICES
             ? 'This list contains all ‘Offices’ within your organisation. To create or manage an Office Group, please visit the ‘Groups’ page.'
             : pathname === Routes.OFFICES_GROUPS
-            ? 'This list shows you any ‘Office Groups’ that have been created for your Organisation. To create a new office group, please click on ‘Create New Office Group’. To add or edit an existing office group, please use ‘Edit’ on the associated group.'
+            ? 'This list contains all ‘Offices’ within your organisation. To create or manage an Office Group, please visit the ‘Office Groups’ page.'
             : 'You can create an office group with this wizard. If you want to update the information later, refer to the office groups page.'}
         </BodyText>
         {pathname === Routes.OFFICES_GROUPS && (
-          <Button className={elMb5} intent="primary" onClick={navigate(history, Routes.OFFICES_GROUPS_NEW)}>
-            Create Group
-          </Button>
+          <>
+            <Button className={elMb5} intent="primary" onClick={navigate(history, Routes.OFFICES_GROUPS_NEW)}>
+              Create Group
+            </Button>
+            {connectIsDesktop ? (
+              <Button
+                className={elMb5}
+                onClick={() => (window.location.href = `agencycloud://process/webpage?url=${OFFICE_GROUPS_DOCS_URL}`)}
+              >
+                Docs
+              </Button>
+            ) : (
+              <Button className={elMb5} onClick={() => window.open(OFFICE_GROUPS_DOCS_URL, '_blank')}>
+                Docs
+              </Button>
+            )}
+          </>
         )}
         <OrgIdSelect />
       </SecondaryNavContainer>

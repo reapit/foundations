@@ -3,7 +3,8 @@
 exports[`OfficesGroupsTab should match a snapshot 1`] = `
 <ErrorBoundary>
   <Title>
-    Office Groups
+    SOME_NAME
+     Office Groups
   </Title>
   <Table
     className="el-fade-in el-mb11"
@@ -75,7 +76,7 @@ exports[`OfficesGroupsTab should match a snapshot 1`] = `
                 ]
               }
               onComplete={[Function]}
-              orgId=""
+              orgId="SOME_ID"
             />,
           },
         },

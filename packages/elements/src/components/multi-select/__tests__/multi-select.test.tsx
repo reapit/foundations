@@ -8,6 +8,7 @@ import {
   handleSelectedOptions,
   MultiSelectSelected,
   MultiSelectUnSelected,
+  handleResetDefaultValues,
 } from '../index'
 
 describe('MultiSelectChip', () => {
@@ -101,6 +102,46 @@ describe('handleSetNativeInput', () => {
     curried()
 
     expect(testFunc).toHaveBeenCalledWith(selectedOptionValues)
+  })
+})
+
+describe('handleResetDefaultValues', () => {
+  it('should allow the resetting of default values if they do not match', () => {
+    const setSelectedOptionValues = jest.fn()
+    const setSelectedDefaultValues = jest.fn()
+    const defaultValues = ['someValue', 'someValue']
+    const selectedDefaultValues = ['someValue', 'someOtherValue']
+
+    const curried = handleResetDefaultValues(
+      setSelectedOptionValues,
+      setSelectedDefaultValues,
+      defaultValues,
+      selectedDefaultValues,
+    )
+
+    curried()
+
+    expect(setSelectedOptionValues).toHaveBeenCalledWith(defaultValues)
+    expect(setSelectedDefaultValues).toHaveBeenCalledWith(defaultValues)
+  })
+
+  it('should not allow the resetting of default values if they match', () => {
+    const setSelectedOptionValues = jest.fn()
+    const setSelectedDefaultValues = jest.fn()
+    const defaultValues = ['someValue', 'someValue']
+    const selectedDefaultValues = ['someValue', 'someValue']
+
+    const curried = handleResetDefaultValues(
+      setSelectedOptionValues,
+      setSelectedDefaultValues,
+      defaultValues,
+      selectedDefaultValues,
+    )
+
+    curried()
+
+    expect(setSelectedOptionValues).not.toHaveBeenCalled()
+    expect(setSelectedDefaultValues).not.toHaveBeenCalled()
   })
 })
 

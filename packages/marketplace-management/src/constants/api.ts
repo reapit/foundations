@@ -17,4 +17,5 @@ export const URLS = {
   INSTALLATIONS: '/marketplace/installations',
 }
 
-export const GLOSSARY_USER_ROLES_URL = 'https://marketplace-documentation.reapit.cloud/glossary#user-roles'
+export const GLOSSARY_USER_ROLES_URL = 'https://managementapp-foundations.reapit.cloud/users'
+export const OFFICE_GROUPS_DOCS_URL = 'https://managementapp-foundations.reapit.cloud/offices#to-create-an-office-group'

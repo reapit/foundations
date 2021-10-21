@@ -16,11 +16,14 @@ import {
   Loader,
   PageContainer,
   Pagination,
+  PersistantNotification,
   SecondaryNavContainer,
   Subtitle,
   Title,
 } from '@reapit/elements'
-import { OrgIdSelect } from '../../utils/use-org-id'
+import { OrgIdSelect, useOrgId } from '../../utils/use-org-id'
+import { ReapitConnectSession, useReapitConnect } from '@reapit/connect-session'
+import { reapitConnectBrowserSession } from '../../core/connect-session'
 
 export const onPageChangeHandler = (history: History<any>) => (page: number) => {
   const queryString = `?pageNumber=${page}&pageSize=12`
@@ -32,11 +35,14 @@ export const handleFetchApps =
     setApps: Dispatch<SetStateAction<AppSummaryModelPagedResult | undefined>>,
     setAppsLoading: Dispatch<SetStateAction<boolean>>,
     search: string,
+    orgClientId: string | null,
+    connectSession: ReapitConnectSession | null,
   ) =>
   () => {
     const fetchApps = async () => {
+      if (!orgClientId || !connectSession) return
       setAppsLoading(true)
-      const fetchedAppApps = await getAppsService(search)
+      const fetchedAppApps = await getAppsService(search, orgClientId)
       if (fetchedAppApps) {
         setApps(fetchedAppApps)
       }
@@ -52,25 +58,40 @@ const MarketplacePage: FC = () => {
   const onPageChange = useCallback(onPageChangeHandler(history), [history])
   const [apps, setApps] = useState<AppSummaryModelPagedResult>()
   const [appsLoading, setAppsLoading] = useState<boolean>(false)
+  const { connectSession } = useReapitConnect(reapitConnectBrowserSession)
   const search = location.search
+  const {
+    orgIdState: { orgName, orgClientId },
+  } = useOrgId()
 
-  useEffect(handleFetchApps(setApps, setAppsLoading, search), [setApps, search, setAppsLoading])
+  useEffect(handleFetchApps(setApps, setAppsLoading, search, orgClientId, connectSession), [
+    setApps,
+    search,
+    setAppsLoading,
+    orgClientId,
+    connectSession,
+  ])
 
   return (
     <FlexContainer isFlexAuto>
       <SecondaryNavContainer>
         <Title>Apps</Title>
         <Icon className={elMb5} icon="appInfographicAlt" iconSize="large" />
-        <Subtitle>Marketplace Visibility and Installation Management</Subtitle>
+        <Subtitle>AppMarket Visibility and Installation Management</Subtitle>
         <BodyText hasGreyText>
-          To set the visibility of app in the Marketplace or manage installations, for your organisation or specific
-          office groups, please select an app from the list.
+          To set the visibility of an app in the AppMarket or to manage installations for your organisation or specific
+          office groups, please select an app.
         </BodyText>
         <OrgIdSelect />
       </SecondaryNavContainer>
       <PageContainer className={elHFull}>
-        <Title>Marketplace Apps</Title>
-        {appsLoading ? (
+        <Title>{orgName} AppMarket</Title>
+
+        {!orgClientId ? (
+          <PersistantNotification isFullWidth isExpanded intent="secondary" isInline>
+            No organisation selected. You need to select an organisation to view available apps.
+          </PersistantNotification>
+        ) : appsLoading ? (
           <Loader />
         ) : (
           <>

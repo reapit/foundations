@@ -2,12 +2,12 @@
 
 exports[`OfficeGroupCreate should match a snapshot 1`] = `
 <form
-  className="el-mt11"
   onChange={[Function]}
   onSubmit={[Function]}
 >
   <Title>
-    Create Office Group
+    SOME_NAME
+     Create Office Group
   </Title>
   <StepsVertical
     onStepClick={[Function]}

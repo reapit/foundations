@@ -58,7 +58,7 @@ const UserGroupsTab: FC = () => {
   const onPageChange = useCallback(onPageChangeHandler(history), [history])
   const [indexExpandedRow, setIndexExpandedRow] = useState<number | null>(null)
   const {
-    orgIdState: { orgId },
+    orgIdState: { orgId, orgName },
   } = useOrgId()
 
   const groupIds = qs.stringify({ id: window.reapit.config.groupIdsWhitelist }, { indices: false })
@@ -83,10 +83,17 @@ const UserGroupsTab: FC = () => {
 
   const rows = useMemo(handleSortTableData(groups, orgId ?? '', onComplete), [groups])
 
+  if (!orgId)
+    return (
+      <PersistantNotification isFullWidth isExpanded intent="secondary" isInline>
+        No organisation selected. You need to select an organisation to view user groups.
+      </PersistantNotification>
+    )
+
   return (
     <ErrorBoundary>
-      <Title>User Groups</Title>
-      {!data ? (
+      <Title>{orgName} User Groups</Title>
+      {!data && orgId ? (
         <Loader />
       ) : groups.length ? (
         <>

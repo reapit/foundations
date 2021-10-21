@@ -24,7 +24,7 @@ import {
 } from '@reapit/elements'
 import { navigate } from '../ui/nav/nav'
 import Routes from '../../constants/routes'
-import { OrgIdSelect } from '../../utils/use-org-id'
+import { OrgIdSelect, useOrgId } from '../../utils/use-org-id'
 
 export const handleLoadAppListing = (isDesktop: boolean, appId: string) => () => {
   const appListingUri = `${window.reapit.config.marketplaceUrl}/apps/${appId}`
@@ -37,16 +37,18 @@ export const handleLoadAppListing = (isDesktop: boolean, appId: string) => () =>
 
 const MarketplaceAppPage: FC = () => {
   const history = useHistory()
-  const { connectIsDesktop, connectSession } = useReapitConnect(reapitConnectBrowserSession)
+  const { connectIsDesktop } = useReapitConnect(reapitConnectBrowserSession)
   const parms = useParams<{ appId: string }>()
   const { appId } = parms
-  const clientId = connectSession?.loginIdentity?.clientId
+  const {
+    orgIdState: { orgName, orgClientId },
+  } = useOrgId()
 
   const {
     data: app,
     error: appsError,
     mutate: reFetchApp,
-  } = useSWR<AppDetailModel | undefined>(clientId ? `${URLS.APPS}/${appId}?clientId=${clientId}` : null)
+  } = useSWR<AppDetailModel | undefined>(orgClientId ? `${URLS.APPS}/${appId}?clientId=${orgClientId}` : null)
   const { data: desktopIntegrationTypes, error: typesError } = useSWR<
     DesktopIntegrationTypeModelPagedResult | undefined
   >(`${URLS.DESKTOP_INTEGRATION_TYPES}`)
@@ -68,7 +70,7 @@ const MarketplaceAppPage: FC = () => {
           To set the visibility of app in the Marketplace or manage installations, use the various sections on this
           page.
         </BodyText>
-        <OrgIdSelect />
+        {!orgClientId && <OrgIdSelect />}
         <Button className={elMb5} type="button" intent="primary" onClick={navigate(history, Routes.MARKETPLACE)}>
           Back To Apps
         </Button>
@@ -83,18 +85,24 @@ const MarketplaceAppPage: FC = () => {
         </Button>
       </SecondaryNavContainer>
       <PageContainer className={elHFull}>
-        {!app || !desktopIntegrationTypes ? (
+        {!orgClientId ? (
+          <PersistantNotification isFullWidth isExpanded intent="secondary" isInline>
+            No organisation selected. You need to select an organisation to view the app details.
+          </PersistantNotification>
+        ) : !app || !desktopIntegrationTypes ? (
           <Loader />
         ) : (
           <>
-            <Title>{app.name}</Title>
+            <Title>
+              {orgName} - {app?.name}
+            </Title>
             <AppPricingPermissionsSection
-              app={app}
-              desktopIntegrationTypes={desktopIntegrationTypes.data ?? []}
+              app={app as AppDetailModel}
+              desktopIntegrationTypes={desktopIntegrationTypes?.data ?? []}
               isDesktop={connectIsDesktop}
             />
-            <AppToggleVisibilitySection app={app} reFetchApp={reFetchApp} />
-            <AppInstallationManager app={app} />
+            <AppToggleVisibilitySection app={app as AppDetailModel} reFetchApp={reFetchApp} />
+            <AppInstallationManager app={app as AppDetailModel} />
           </>
         )}
       </PageContainer>
