@@ -29,10 +29,7 @@ jest.mock('../../../utils/get-id-from-create-headers', () => ({
 }))
 
 jest.mock('../../../utils/handle-error', () => ({
-  handleError: jest.fn((e) => {
-    // return Promise.resolve(e)
-    return Promise.resolve('caught error')
-  }),
+  handleError: jest.fn(() => Promise.resolve('caught error')),
 }))
 jest.mock('../../../logger')
 jest.mock('../../../utils/axios-instances', () => ({
