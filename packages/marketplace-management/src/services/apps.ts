@@ -36,17 +36,16 @@ export const getAppsService = async (
   }
 }
 
-export const updateAppRestrictionsService = async (restriction: AppRestriction): Promise<any | undefined | void> => {
+export const updateAppRestrictionsService = async (
+  restriction: AppRestriction,
+  orgClientId: string,
+): Promise<any | undefined | void> => {
   try {
-    const session = await reapitConnectBrowserSession.connectSession()
-
-    if (!session) throw new Error('No Reapit Connect Session is present')
-
     const headers = await getPlatformHeaders(reapitConnectBrowserSession, 'latest')
     if (headers) {
       const response: any | undefined = await fetcher({
         api: window.reapit.config.platformApiUrl,
-        url: `${URLS.CUSTOMERS}/${session.loginIdentity.orgId}/appRestrictions`,
+        url: `${URLS.CUSTOMERS}/${orgClientId}/appRestrictions`,
         method: 'POST',
         headers,
         body: restriction,

@@ -18,6 +18,16 @@ jest.mock('@reapit/connect-session', () => ({
   }),
 }))
 
+jest.mock('../../../../utils/use-org-id', () => ({
+  useOrgId: () => ({
+    orgIdState: {
+      orgId: 'SOME_ID',
+      orgName: 'SOME_NAME',
+      orgClientId: 'SOME_CLIENT_ID',
+    },
+  }),
+}))
+
 jest.mock('react-router', () => ({
   useLocation: jest.fn(() => ({
     pathname: '/offices',
@@ -43,17 +53,21 @@ describe('handleOnCheckboxChange', () => {
     const mockSetChecked = jest.fn()
     const mockReFetchApp = jest.fn()
     const mockAppId = 'SOME_ID'
+    const mockOrgId = 'SBOX'
 
-    const curried = handleOnCheckboxChange(mockSetChecked, mockReFetchApp, mockAppId, true, success, error)
+    const curried = handleOnCheckboxChange(mockSetChecked, mockReFetchApp, mockAppId, mockOrgId, true, success, error)
 
     await curried()
 
     expect(mockSetChecked).toHaveBeenCalledWith(false)
     expect(mockReFetchApp).toHaveBeenCalledTimes(1)
-    expect(updateAppRestrictionsService).toHaveBeenLastCalledWith({
-      appId: mockAppId,
-      status: 'exclude',
-    })
+    expect(updateAppRestrictionsService).toHaveBeenLastCalledWith(
+      {
+        appId: mockAppId,
+        status: 'exclude',
+      },
+      mockOrgId,
+    )
     expect(success).toHaveBeenCalled()
   })
 
@@ -64,17 +78,21 @@ describe('handleOnCheckboxChange', () => {
     const mockSetChecked = jest.fn()
     const mockReFetchApp = jest.fn()
     const mockAppId = 'SOME_ID'
+    const mockOrgId = 'SBOX'
 
-    const curried = handleOnCheckboxChange(mockSetChecked, mockReFetchApp, mockAppId, true, success, error)
+    const curried = handleOnCheckboxChange(mockSetChecked, mockReFetchApp, mockAppId, mockOrgId, true, success, error)
 
     await curried()
 
     expect(mockSetChecked).toHaveBeenCalledWith(false)
     expect(mockReFetchApp).not.toHaveBeenCalled()
-    expect(updateAppRestrictionsService).toHaveBeenLastCalledWith({
-      appId: mockAppId,
-      status: 'exclude',
-    })
+    expect(updateAppRestrictionsService).toHaveBeenLastCalledWith(
+      {
+        appId: mockAppId,
+        status: 'exclude',
+      },
+      mockOrgId,
+    )
     expect(mockSetChecked).toHaveBeenLastCalledWith(true)
     expect(error).toHaveBeenCalled()
   })
