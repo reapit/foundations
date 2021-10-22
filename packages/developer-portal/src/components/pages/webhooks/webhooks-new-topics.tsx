@@ -58,7 +58,7 @@ export const handleSearchTopics =
 export const WebhooksNewTopics: FC<WebhooksNewTopicsProps> = ({ register, getValues, errors }) => {
   const [search, setSearch] = useState<string>('')
   const topics = useSelector(selectWebhookSubscriptionTopics)
-  const selectedTopics = getValues().topicIds?.split(',')
+  const selectedTopics = getValues().topicIds?.split(',').filter(Boolean)
   const [filteredTopics, setFilteredTopics] = useState<TopicModel[]>(getInitialTopics(topics, selectedTopics))
   const multiSelectOptions = filteredTopics.map((topic) => ({ name: topic.name ?? '', value: topic.id ?? '' }))
   const inputAddOnText =
