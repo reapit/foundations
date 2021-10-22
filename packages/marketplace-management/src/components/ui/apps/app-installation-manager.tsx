@@ -59,9 +59,7 @@ const AppInstallationManager: React.FC<AppInstallationManagerProps> = ({ app }: 
     data: installations,
     isValidating: installationsValidating,
     revalidate: revalidateInstallations,
-  } = useSWR<InstallationModelPagedResult>(
-    `${URLS.INSTALLATIONS}/?AppId=${app.id}&IsInstalled=true&pageSize=999&clientId=${orgClientId}`,
-  )
+  } = useSWR<InstallationModelPagedResult>(`${URLS.INSTALLATIONS}/?AppId=${app.id}&IsInstalled=true&pageSize=999`)
 
   if (orgClientId && installations?.data && initialAppInstallationType === null) {
     const clientIdFirstPart = getClientIdFirstPart(orgClientId)

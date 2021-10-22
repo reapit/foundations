@@ -23,13 +23,13 @@ describe('getAppsService', () => {
 describe('updateAppRestrictionsService', () => {
   it('should return a response from the accounts service', async () => {
     mockedFetch.mockReturnValueOnce({})
-    expect(await updateAppRestrictionsService({ status: 'include', appId: 'SOME_ID' })).toEqual({})
+    expect(await updateAppRestrictionsService({ status: 'include', appId: 'SOME_ID' }, 'SBOX')).toEqual({})
   })
 
   it('should catch an error if no response from accounts service', async () => {
     const errorSpy = jest.spyOn(console, 'error')
     mockedFetch.mockReturnValueOnce(undefined as any)
-    await updateAppRestrictionsService({ status: 'include', appId: 'SOME_ID' })
+    await updateAppRestrictionsService({ status: 'include', appId: 'SOME_ID' }, 'SBOX')
     expect(errorSpy).toHaveBeenLastCalledWith('Failed to update app restrictions')
   })
 })
