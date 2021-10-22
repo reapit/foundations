@@ -25,7 +25,9 @@ export const generateUserInputError = (traceId?: string) => {
 
 export const generateUnprocessableError = (traceId: string, reapitBackendError: any) => {
   const error = new UserInputError(`${traceId || ''} - ${errorMessages.unprocessable}`)
-  error.extensions.validationErrors = reapitBackendError
+  if (error.extensions) {
+    error.extensions.validationErrors = reapitBackendError
+  }
   logger.info('generateUnprocessableError', { traceId, error: JSON.stringify(error) })
   return error
 }
