@@ -28,6 +28,7 @@ export const componentSelected = css`
     top: 0;
     pointer-events: none;
     display: block;
+    box-sizing: border-box;
   }
 `
 

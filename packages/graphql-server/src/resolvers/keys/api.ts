@@ -140,10 +140,10 @@ export const callCreateKeyMovementAPI = async (
   const traceId = context.traceId
   logger.info('callCreateKeyMovementAPI', { args, traceId })
   try {
-    const { propertyId, keyId, ...rest } = args
+    const { propertyId, keyId, movement } = args
     const response = await createPlatformAxiosInstance().post<GetKeyMovementReturn>(
       `${URLS.properties}/${propertyId}/keys/${keyId}/movements`,
-      rest,
+      movement,
       {
         headers: {
           Authorization: context.authorization,
@@ -168,8 +168,8 @@ export const callUpdateKeyMovementAPI = async (
   logger.info('callUpdateKeyMovementAPI', { traceId, args })
   try {
     const { propertyId, keyId, movementId, ...rest } = args
-    const updateResponse = await createPlatformAxiosInstance().patch<UpdateKeyMovementReturn>(
-      `${URLS.properties}/${propertyId}/${keyId}/movements/${movementId}`,
+    const updateResponse = await createPlatformAxiosInstance().put<UpdateKeyMovementReturn>(
+      `${URLS.properties}/${propertyId}/keys/${keyId}/movements/${movementId}`,
       rest,
       {
         headers: {
@@ -177,7 +177,7 @@ export const callUpdateKeyMovementAPI = async (
         },
       },
     )
-    if (updateResponse.status === 201) {
+    if (updateResponse.status === 204) {
       return callGetKeyMovementAPI(args, context)
     }
     throw errors.generateUserInputError(traceId)

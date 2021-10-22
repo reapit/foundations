@@ -8498,6 +8498,7 @@ __metadata:
     "@reapit/ts-types": "workspace:packages/ts-types"
     "@types/fs-extra": ^9.0.12
     "@types/jszip": ^3.4.1
+    "@types/luxon": ^2.0.5
     "@typescript-eslint/eslint-plugin": ^4.28.4
     "@typescript-eslint/parser": ^4.28.4
     apollo-server-core: ^3.3.0
@@ -8518,6 +8519,7 @@ __metadata:
     jest: ^27.0.6
     jest-coverage-badges: ^1.1.2
     jszip: ^3.7.1
+    luxon: ^2.0.2
     node-fetch: ^2.6.1
     project-name-generator: ^2.1.9
     reflect-metadata: ^0.1.13
@@ -8542,7 +8544,6 @@ __metadata:
     "@reapit/config-manager": "workspace:packages/config-manager"
     "@reapit/connect-session": "workspace:packages/connect-session"
     "@reapit/elements": "workspace:packages/elements"
-    "@reapit/elements-legacy": "workspace:packages/elements-legacy"
     "@reapit/ts-scripts": "workspace:packages/ts-scripts"
     "@reapit/ts-types": "workspace:packages/ts-types"
     "@reapit/utils-react": "workspace:packages/utils-react"
@@ -12663,6 +12664,13 @@ __metadata:
   version: 4.0.1
   resolution: "@types/long@npm:4.0.1"
   checksum: ed2a125330dbf2b425b2e58b1e1151a37106ceeec973f9f191fba0bda83ed00fae6d858254022e8b6e7165fec5f0c3872b7cb5f425c753383fed54699fb63b38
+  languageName: node
+  linkType: hard
+
+"@types/luxon@npm:^2.0.5":
+  version: 2.0.5
+  resolution: "@types/luxon@npm:2.0.5"
+  checksum: 3864e36019c15f2b91b9a8dbf57d6533468f8a0859de7e1e9bbf4a3b51e2474800a868323ced9ce1de8379c3a256ca00d2b7a4225953fb365006f95cf32faf6b
   languageName: node
   linkType: hard
 
@@ -30918,6 +30926,13 @@ fsevents@^1.2.7:
   version: 1.28.0
   resolution: "luxon@npm:1.28.0"
   checksum: db7638087b89527c721a9f308a4ec0ed4e95183ebcf03079c0be827a3455d2d70e674d9708d84758e0cc93b486cc2a34c50649b106778bc788285c43e223c7b7
+  languageName: node
+  linkType: hard
+
+"luxon@npm:^2.0.2":
+  version: 2.0.2
+  resolution: "luxon@npm:2.0.2"
+  checksum: ea82fa2034e9d2e3b508f26bcf648771cacb8c988f6f9ff09f542efc6d6883251caab30e867019882cfb073a57da8d707ea515c7a3cd62ef50b25787a91d8697
   languageName: node
   linkType: hard
 

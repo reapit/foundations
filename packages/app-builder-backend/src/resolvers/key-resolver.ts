@@ -1,7 +1,8 @@
 import { gql } from 'apollo-server-core'
 import { Resolver, Query, Ctx, Arg, Mutation, registerEnumType, Field, InputType, Authorized } from 'type-graphql'
+import { DateTime } from 'luxon'
 import { Context } from '../types'
-import { Key, APIKey, KeyFragment, KeyMovement } from '../entities/key'
+import { Key, APIKey, KeyFragment, KeyMovement, MovementFragment } from '../entities/key'
 import { query } from '../utils/graphql-fetch'
 
 const getPropertyKeysQuery = gql`
@@ -23,25 +24,25 @@ const getPropertyKeyQuery = gql`
 `
 
 const createKeyMovementMutation = gql`
-  mutation createKeyMovement($propertyId: String!, $keyId: String!, $movement: KeyMovementModelInput) {
-    CreateKeyMovement(propertyId: $propertyId, keyId: $keyId, movement: $movement)
+  ${MovementFragment}
+  mutation createKeyMovement($propertyId: ID!, $keyId: ID!, $movement: KeyMovementModelInput) {
+    CreateKeyMovement(propertyId: $propertyId, keyId: $keyId, movement: $movement) {
+      ...MovementFragment
+    }
   }
 `
 
 const updateKeyMovementMutation = gql`
-  ${KeyFragment}
-  mutation updateKeyMovement(
-    $propertyId: String!
-    $keyId: String!
-    $movementId: String!
-    $checkInNegotiatorId: String!
-  ) {
+  ${MovementFragment}
+  mutation updateKeyMovement($propertyId: ID!, $keyId: ID!, $movementId: ID!, $checkInNegotiatorId: String!) {
     UpdateKeyMovement(
       propertyId: $propertyId
       keyId: $keyId
       movementId: $movementId
       checkInNegotiatorId: $checkInNegotiatorId
-    )
+    ) {
+      ...MovementFragment
+    }
   }
 `
 
@@ -134,6 +135,12 @@ const APIKeyToKey = (key: APIKey): Key => ({
   movements: key.movements.map(cleanMovement),
 })
 
+@InputType()
+class CheckIn {
+  @Field({ description: '@idOf(Negotiator)' })
+  negotiatorId: string
+}
+
 @Resolver(() => Key)
 export class KeyResolver {
   constructor() {}
@@ -204,8 +211,9 @@ export class KeyResolver {
       propertyId,
       keyId,
       {
-        ...movement,
-        checkOutToType: movement.checkOutNegotiatorId ? CheckOutToType.negotiator : CheckOutToType.contact,
+        checkInRequired: movement.checkInRequired,
+        checkOutNegotiatorId: movement.checkOutNegotiatorId,
+        checkOutToType: movement.checkOutToNegotiatorId ? CheckOutToType.negotiator : CheckOutToType.contact,
         checkOutToId,
       },
       accessToken,
@@ -220,12 +228,23 @@ export class KeyResolver {
   async checkInKey(
     @Arg('propertyId') propertyId: string,
     @Arg('keyId') keyId: string,
-    @Arg('movementId') movementId: string,
-    @Arg('checkInNegotiatorId') checkInNegotiatorId: string,
+    @Arg('checkIn') checkIn: CheckIn,
     @Ctx() ctx: Context,
   ): Promise<Key> {
     const { accessToken, idToken } = ctx
-    await updatePropertyKeyMovement(propertyId, keyId, movementId, checkInNegotiatorId, accessToken, idToken)
+    const movements = await this.listPropertyKeyMovements(propertyId, keyId, ctx)
+    const latestMovement = movements
+      .filter((m) => !m.checkInAt)
+      .sort((a, b) => {
+        if (b.checkOutAt && a.checkOutAt) {
+          return DateTime.fromISO(b.checkOutAt).diff(DateTime.fromISO(a.checkOutAt)).milliseconds
+        }
+        return -1
+      })[0]
+    if (!latestMovement) {
+      throw new Error('Key is not currently checked out')
+    }
+    await updatePropertyKeyMovement(propertyId, keyId, latestMovement.id, checkIn.negotiatorId, accessToken, idToken)
     const key = await getPropertyKey(propertyId, keyId, accessToken, idToken)
     return APIKeyToKey(key)
   }

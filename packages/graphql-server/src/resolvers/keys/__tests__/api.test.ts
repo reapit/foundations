@@ -36,7 +36,6 @@ jest.mock('../../../utils/axios-instances', () => ({
   createPlatformAxiosInstance: jest.fn(() => ({
     get: jest.fn(),
     post: jest.fn(),
-    patch: jest.fn(),
     put: jest.fn(),
     delete: jest.fn(),
   })),
@@ -204,7 +203,7 @@ describe('callCreateKeyMovementAPI', () => {
 describe('callUpdateKeyMovementAPI', () => {
   it('should work correctly', async () => {
     ;(createPlatformAxiosInstance as jest.Mocked<any>).mockReturnValueOnce({
-      patch: jest.fn(() => Promise.resolve({ headers: 'header', status: 201 })),
+      put: jest.fn(() => Promise.resolve({ headers: 'header', status: 204 })),
       get: jest.fn(() => Promise.resolve({ data: mockKeyMovement })),
     })
     ;(getIdFromCreateHeaders as jest.Mocked<any>).mockReturnValueOnce('a')
@@ -213,7 +212,7 @@ describe('callUpdateKeyMovementAPI', () => {
   })
   it('should throw correctly', async () => {
     ;(createPlatformAxiosInstance as jest.Mocked<any>).mockReturnValueOnce({
-      patch: jest.fn(() => Promise.resolve({ headers: 'header', status: 200 })),
+      put: jest.fn(() => Promise.resolve({ headers: 'header', status: 200 })),
       get: jest.fn(() => Promise.resolve({ data: mockKeyMovement })),
     })
     let err
@@ -227,6 +226,9 @@ describe('callUpdateKeyMovementAPI', () => {
   it('should throw correctly', async () => {
     ;(createPlatformAxiosInstance as jest.Mocked<any>).mockReturnValueOnce({
       get: jest.fn(async () => {
+        throw new Error('thrown')
+      }),
+      put: jest.fn(async () => {
         throw new Error('thrown')
       }),
     })

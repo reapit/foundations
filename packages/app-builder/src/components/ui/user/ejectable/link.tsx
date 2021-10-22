@@ -3,6 +3,7 @@ import path from 'path'
 import qs from 'query-string'
 import { Link as RRLink, useParams } from 'react-router-dom'
 import { Container, ContainerProps } from './container'
+import { usePageId } from '../../../hooks/use-page-id'
 
 export interface LinkProps extends ContainerProps {
   destination?: string
@@ -13,12 +14,17 @@ export const Link = forwardRef<HTMLDivElement, LinkProps & { disabled?: boolean 
   const { appId } = useParams<{ appId?: string }>()
   const dest = props.destination || ''
   const pathname = path.join('/', appId || '', dest === '~' ? '' : dest)
+  const { context } = usePageId()
+  const search = {
+    ...context,
+    ...props.context,
+  }
 
   return (
     <RRLink
       to={{
         pathname,
-        search: props.context ? qs.stringify(props.context) : '',
+        search: qs.stringify(search),
       }}
       onClick={
         !disabled

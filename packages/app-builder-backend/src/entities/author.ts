@@ -1,6 +1,6 @@
 import { ObjectType, Field, ID } from 'type-graphql'
 
-@ObjectType()
+@ObjectType({ description: '@labelKeys(firstName, lastName)' })
 export class Author {
   @Field(() => ID)
   id: number

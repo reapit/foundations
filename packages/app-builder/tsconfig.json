@@ -7,8 +7,7 @@
     "paths": {
       "@/*": ["src/*"],
       "@reapit/connect-session": ["../connect-session/src"],
-      "@reapit/elements": ["../elements/src"],
-      "@reapit/elements-legacy": ["../elements-legacy/src"]
+      "@reapit/elements": ["../elements/src"]
     }
   },
   "include": ["src"],
