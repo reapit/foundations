@@ -32,6 +32,6 @@ jobs:
       - uses: actions/github-script@v5
         with:
           script: |
-            const packageInfo = require(`packages/${context.steps.tagName.outputs.package}/package.json`)
+            const packageInfo = require('packages/${{ steps.tagName.outputs.package }}/package.json')
             console.log('package', package)
             console.log('context', context)
