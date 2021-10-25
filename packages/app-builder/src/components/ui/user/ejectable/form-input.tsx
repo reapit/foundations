@@ -1,9 +1,11 @@
-import React, { useEffect } from 'react'
+import React from 'react'
 import { InputGroup, InputWrap, Label, Loader, SearchableDropdown, Select } from '@reapit/elements'
 
 import { useObjectList } from '../../../hooks/objects/use-object-list'
-import { useObject } from '../../../../components/hooks/objects/use-object'
-import { useLazyObjectSearch } from '../../../../components/hooks/objects/use-object-search'
+import { useObject } from '../../../hooks/objects/use-object'
+import { useLazyObjectSearch } from '../../../hooks/objects/use-object-search'
+import { useObjectMutate } from '../../../hooks/objects/use-object-mutate'
+import { uppercaseSentence } from './utils'
 
 const getLabel = (obj: any, labelKeys?: string[]) => {
   if (labelKeys) {
@@ -21,10 +23,12 @@ const SelectIDofType = ({
   typeName,
   value,
   onChange,
+  name,
 }: {
   typeName: string
-  value: React.SelectHTMLAttributes<HTMLSelectElement>['value']
-  onChange: (value: string | number | null | undefined) => void
+  name: string
+  value?: React.SelectHTMLAttributes<HTMLSelectElement>['value']
+  onChange: (e: React.ChangeEvent<HTMLInputElement | HTMLSelectElement>) => void
 }) => {
   const { data, loading } = useObjectList(typeName)
   const { object } = useObject(typeName)
@@ -33,17 +37,18 @@ const SelectIDofType = ({
   if (searchAvailable) {
     return (
       <SearchableDropdown<GenericObject>
-        onChange={(e) => onChange(e.target.value)}
+        onChange={onChange}
         getResults={search}
         getResultLabel={(result) => getLabel(result, object?.labelKeys)}
         getResultValue={(result) => result.id}
+        name={name}
       />
     )
   }
 
   if (data) {
     return (
-      <Select value={value} onChange={(e) => onChange(e.target.value)}>
+      <Select name={name} value={value} onChange={onChange}>
         {data.map((obj) => (
           <option key={obj.id} value={obj.id}>
             {getLabel(obj, object?.labelKeys)}
@@ -60,46 +65,63 @@ const SelectIDofType = ({
   return null
 }
 
+const camelCaseToSentence = (camelCase: string) => {
+  return uppercaseSentence(camelCase.replace(/([A-Z])/g, ' $1'))
+}
+
+const friendlyIdName = (idName: string) => {
+  const words = idName.replaceAll('Id', '').split('_')
+  return words.map(camelCaseToSentence).join(' ')
+}
+
+// todo: readd ability to have default value from object get query
+
 const InnerFormInput = (
   {
-    label,
-    value,
-    onChange,
-    isRequired,
+    // isRequired,
     typeName,
-    enumValues,
-    idOfType,
+    name,
+    formType,
   }: {
-    label: string
-    value: any
-    isRequired: boolean
-    onChange: (value: any) => void
-    typeName: string
-    enumValues: string[]
-    idOfType: string
+    formType: string
+    typeName?: string
+    name: string
   },
+  // todo: ref never gets set for some reason maybe cos it's never getting passed down(?)
   ref: React.ForwardedRef<HTMLDivElement>,
 ) => {
-  useEffect(() => {
-    if (typeName === 'Boolean' && isRequired) {
-      onChange(false)
+  const { args } = useObjectMutate(formType, typeName)
+  const formInput = args.find((arg) => arg.name === name)
+  if (!formInput) return null
+  const label = friendlyIdName(name)
+  const { typeName: inputTypeName, isRequired, idOfType, enumValues } = formInput
+
+  const onChange = (e: React.ChangeEvent<HTMLInputElement | HTMLSelectElement>) => {
+    const parentForm = e.target.parentElement?.parentElement
+    if (parentForm) {
+      parentForm.dispatchEvent(
+        // @ts-ignore
+        {
+          ...e,
+          type: '_inputChange',
+        },
+      )
     }
-  }, [typeName])
+  }
 
   return (
-    // @ts-ignore
     <InputWrap ref={ref}>
       {enumValues && (
         <>
           <Label>{label}</Label>
-          <Select onChange={(e) => onChange(e.target.value)} value={value}>
+          <Select onChange={onChange} name={name}>
             {enumValues.map((value) => (
               <option key={value} value={value}>
                 {value}
               </option>
             ))}
             <option selected disabled>
-              Select a {typeName}
+              Select a {inputTypeName}
             </option>
           </Select>
         </>
@@ -107,31 +129,19 @@ const InnerFormInput = (
       {idOfType && (
         <>
           <Label>{label}</Label>
-          <SelectIDofType typeName={idOfType} onChange={onChange} value={value} />
+          <SelectIDofType name={name} typeName={idOfType} onChange={onChange} />
         </>
       )}
-      {!enumValues &&
-        !idOfType &&
-        (typeName === 'Boolean' ? (
-          <InputGroup
-            key={label}
-            label={label}
-            type={'checkbox'}
-            value={value}
-            onChange={(e) => {
-              onChange(e.target.checked)
-            }}
-          />
-        ) : (
-          <InputGroup
-            required={isRequired}
-            key={label}
-            label={label}
-            type={'text'}
-            value={value}
-            onChange={(e) => onChange(e.target.value)}
-          />
-        ))}
+      {!enumValues && !idOfType && (
+        <InputGroup
+          key={label}
+          label={label}
+          required={isRequired && inputTypeName !== 'Boolean'}
+          type={inputTypeName === 'Boolean' ? 'checkbox' : 'text'}
+          onChange={onChange}
+          name={name}
+        />
+      )}
     </InputWrap>
   )
 }

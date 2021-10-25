@@ -4,7 +4,6 @@ import qs from 'query-string'
 import { Button, FormLayout, Loader, useSnack } from '@reapit/elements'
 
 import { Container, ContainerProps } from './container'
-import { uppercaseSentence } from './utils'
 
 import { useObjectMutate } from '../../../hooks/objects/use-object-mutate'
 import { useObjectGet } from '../../../hooks/objects/use-object-get'
@@ -19,15 +18,6 @@ export interface FormProps extends ContainerProps {
   excludeFields?: string[]
 }
 
-const camelCaseToSentence = (camelCase: string) => {
-  return uppercaseSentence(camelCase.replace(/([A-Z])/g, ' $1'))
-}
-
-const friendlyIdName = (idName: string) => {
-  const words = idName.replaceAll('Id', '').split('_')
-  return words.map(camelCaseToSentence).join(' ')
-}
-
 export const Form = forwardRef<HTMLDivElement, FormProps & { disabled?: boolean }>(
   ({ typeName, destination, disabled, formType = 'create', excludeFields, ...props }, ref) => {
     const { context } = usePageId()
@@ -36,6 +26,7 @@ export const Form = forwardRef<HTMLDivElement, FormProps & { disabled?: boolean 
     const [formState, setFormState] = useState({})
     const { success, error } = useSnack()
     const history = useHistory()
+    const [internalRef, setInternalRef] = useState<HTMLDivElement | null>(null)
 
     useEffect(() => {
       if (data && args) {
@@ -56,8 +47,34 @@ export const Form = forwardRef<HTMLDivElement, FormProps & { disabled?: boolean 
       }
     }, [data, args])
 
+    const handleInputChange = (e: React.ChangeEvent<HTMLInputElement | HTMLSelectElement>) => {
+      const { name, value } = e.target
+      setFormState((prevState) => ({ ...prevState, [name]: value }))
+    }
+
+    useEffect(() => {
+      if (internalRef) {
+        internalRef.addEventListener('_inputChange', handleInputChange)
+      }
+
+      return () => {
+        if (internalRef) {
+          internalRef.removeEventListener('_inputChange', handleInputChange)
+        }
+      }
+    }, [internalRef])
+
     return (
-      <Container {...props} ref={ref}>
+      <Container
+        {...props}
+        ref={(rref) => {
+          if (rref !== internalRef) {
+            setInternalRef(rref)
+          }
+          // @ts-ignore
+          ref(rref)
+        }}
+      >
         {!typeName && <div>No type selected</div>}
         <form
           onSubmit={(e) => {
@@ -100,23 +117,9 @@ export const Form = forwardRef<HTMLDivElement, FormProps & { disabled?: boolean 
               args[0].fields
                 ?.filter(({ name }) => !excludeFields?.includes(name))
                 .map((arg) => {
-                  const { name, isRequired, typeName, enumValues, idOfType } = arg
-                  const value = formState[name]
+                  const { name } = arg
 
-                  return (
-                    <FormInput
-                      key={name}
-                      label={friendlyIdName(name)}
-                      value={value}
-                      onChange={(value) => {
-                        setFormState({ ...formState, [name]: value })
-                      }}
-                      isRequired={isRequired}
-                      typeName={typeName}
-                      enumValues={enumValues}
-                      idOfType={idOfType}
-                    />
-                  )
+                  return <FormInput key={name} name={name} typeName={typeName} formType={formType} />
                 })}
             <Button disabled={disabled} loading={mutationLoading}>
               {formType === 'create' ? 'Create' : 'Save'}
