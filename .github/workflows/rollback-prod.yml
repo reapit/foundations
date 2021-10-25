@@ -37,9 +37,18 @@ jobs:
       - name: Install
         run: yarn
 
+      - name: Package name Set
+        run: |
+          PACKAGE_NAME=$(yarn json -f packages/${{ steps.tagName.outputs.package }}/package.json name)
+          echo $PACKAGE_NAME
+          echo "PACKAGE_NAME=$PACKAGE_NAME" >> $GITHUB_ENV
+
       - name: Previous Version Declare
         run: |
-          PREVIOUS_VERSION=$(git tag --list --sort=committerdate | grep -i ${{ steps.tagName.outputs.package }} | tail -2 | grep -vw ${{ steps.tagName.outputs.package }}_${{ steps.tagName.outputs.version }})
+          PREVIOUS_VERSION=$(git tag --list --sort=committerdate | grep -i $PACKAGE_NAME | tail -2 | grep -vw "$PACKAGE_NAME"_${{ steps.tagName.outputs.version }})
+          echo $PREVIOUS_VERSION
+          echo "PREVIOUS_VERSION=$PREVIOUS_VERSION" >> $GITHUB_ENV
+          echo $GITHUB_ENV
           echo "previous version === $PREVIOUS_VERSION"
           
       - name: Checkout Previous Version
@@ -65,6 +74,6 @@ jobs:
       - name: Publish
         run: |
           test $IS_PACKAGE = 1
-          yarn npm dist-tag rm ${{ steps.tagName.outputs.package }} latest
-          yarn npm dist-tag add ${{ steps.tagName.outputs.package }}@$PREVIOUS_VERSION latest
+          yarn npm dist-tag rm $PACKAGE_NAME latest
+          yarn npm dist-tag add $PACKAGE_NAME@$PREVIOUS_VERSION latest
           yarn npm dist-tag ls
