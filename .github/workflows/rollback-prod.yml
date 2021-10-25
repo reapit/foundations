@@ -39,7 +39,7 @@ jobs:
 
       - name: Previous Version Declare
         run: |
-          PREVIOUS_VERSION=$(git tag --list | grep -i ${{ steps.tagName.outputs.package }} | tail -2 | grep -vw ${{ steps.tagName.outputs.package }}_${{ steps.tagName.outputs.version }})
+          PREVIOUS_VERSION=$(git tag --list --sort=committerdate | grep -i ${{ steps.tagName.outputs.package }} | tail -2 | grep -vw ${{ steps.tagName.outputs.package }}_${{ steps.tagName.outputs.version }})
           echo "previous version === $PREVIOUS_VERSION"
           
       - name: Checkout Previous Version
