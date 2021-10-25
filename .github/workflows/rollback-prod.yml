@@ -29,9 +29,42 @@ jobs:
         with:
           fetch-depth: 0
 
-      - uses: actions/github-script@v5
+      - name: Set Node
+        uses: actions/setup-node@v1
         with:
-          script: |
-            const packageInfo = require('packages/${{ steps.tagName.outputs.package }}/package.json')
-            console.log('package', package)
-            console.log('context', context)
+          node-version: '14.x'
+
+      - name: Install
+        run: yarn
+
+      - name: Previous Version Declare
+        run: |
+          PREVIOUS_VERSION=$(git tag --list | grep -i ${{ steps.tagName.outputs.package }} | tail -2 | grep -vw ${{ steps.tagName.outputs.package || 'developer-portal' }}_${{ steps.tagName.outputs.version || 'v2.0.0' }})
+          echo "previous version === $PREVIOUS_VERSION"
+          
+      - name: Checkout Previous Version
+        run: git checkout $PREVIOUS_VERSION
+
+      - name: Package or Service
+        run: |
+          IS_PACKAGE=$(yarn json -f packages/${{ steps.tagName.outputs.package }}/package.json name | grep -o "@reapit/" | wc -l)
+          echo "package is $IS_PACKAGE"
+
+      - name: Fetch config
+        run: |
+          yarn workspace ${{ steps.tagName.outputs.package }} run conf --name production
+
+      - name: Build
+        run: |
+          yarn workspace ${{ steps.tagName.outputs.package || }} run build
+
+      - name: Release
+        run: |
+          yarn workspace ${{ steps.tagName.outputs.package || }} run release --stage prod
+
+      - name: Publish
+        run: |
+          test $IS_PACKAGE = 1
+          yarn npm dist-tag rm ${{ steps.tagName.outputs.package }} latest
+          yarn npm dist-tag add ${{ steps.tagName.outputs.package }}@$PREVIOUS_VERSION latest
+          yarn npm dist-tag ls
