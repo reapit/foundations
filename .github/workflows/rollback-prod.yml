@@ -56,8 +56,8 @@ jobs:
 
       - name: Package or Service
         run: |
-          IS_PACKAGE=$(yarn json -f packages/${{ steps.tagName.outputs.package }}/package.json name | grep -o "@reapit/" | wc -l)
-          echo "package is $IS_PACKAGE"
+          IS_PACKAGE=$(echo $PACKAGE_NAME | grep -o "@reapit/" | wc -l)
+          echo "package: $PACKAGE_NAME is $IS_PACKAGE"
 
       - name: Fetch config
         run: |
@@ -71,9 +71,9 @@ jobs:
         run: |
           yarn workspace ${{ steps.tagName.outputs.package }} run release --stage prod
 
-      - name: Publish
+      - name: NPM Rollback
         run: |
-          test $IS_PACKAGE = 1
-          yarn npm dist-tag rm $PACKAGE_NAME latest
-          yarn npm dist-tag add $PACKAGE_NAME@$PREVIOUS_VERSION latest
-          yarn npm dist-tag ls
+          test $IS_PACKAGE == 1 &&
+          yarn npm tag remove $PACKAGE_NAME latest &&
+          yarn npm tag add $PACKAGE_NAME@$PREVIOUS_VERSION latest &&
+          yarn npm tag ls || exit 0
