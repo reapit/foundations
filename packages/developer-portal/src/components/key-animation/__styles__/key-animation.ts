@@ -44,25 +44,6 @@ export const triangle1 = css`
   border-top-color: #262f69;
   border-right-width: 1.25rem;
   transform: rotate(60deg);
-  animation: triangle1 2s linear;
-  animation-iteration-count: infinite;
-  -webkit-transform-origin: center top;
-  -moz-transform-origin: center top;
-  -ms-transform-origin: center top;
-  -o-transform-origin: center top;
-  transform-origin: center top;
-
-  @keyframes triangle1 {
-    33% {
-      transform: rotate(90deg);
-    }
-    66% {
-      transform: rotate(45deg);
-    }
-    100% {
-      transform: rotate(60deg);
-    }
-  }
 `
 
 export const triangle2 = css`
@@ -74,25 +55,6 @@ export const triangle2 = css`
   border-top-width: 2rem;
   border-left-width: 2rem;
   transform: rotate(80deg);
-  animation: triangle2 2.5s linear;
-  animation-iteration-count: infinite;
-  -webkit-transform-origin: center top;
-  -moz-transform-origin: center top;
-  -ms-transform-origin: center top;
-  -o-transform-origin: center top;
-  transform-origin: center top;
-
-  @keyframes triangle2 {
-    33% {
-      transform: rotate(65deg);
-    }
-    66% {
-      transform: rotate(70deg);
-    }
-    100% {
-      transform: rotate(80deg);
-    }
-  }
 `
 
 export const triangle3 = css`
@@ -103,23 +65,4 @@ export const triangle3 = css`
   border-left-width: 2.5rem;
   border-top-color: #23a4de;
   transform: rotate(20deg);
-  animation: triangle3 3s linear;
-  animation-iteration-count: infinite;
-  -webkit-transform-origin: center top;
-  -moz-transform-origin: center top;
-  -ms-transform-origin: center top;
-  -o-transform-origin: center top;
-  transform-origin: center top;
-
-  @keyframes triangle3 {
-    33% {
-      transform: rotate(40deg);
-    }
-    66% {
-      transform: rotate(35deg);
-    }
-    100% {
-      transform: rotate(20deg);
-    }
-  }
 `
