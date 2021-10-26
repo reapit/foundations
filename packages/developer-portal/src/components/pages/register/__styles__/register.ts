@@ -7,7 +7,6 @@ export const container = css`
   min-height: 100vh;
   display: flex;
   justify-content: flex-end;
-  align-items: center;
   flex-direction: row;
   background-color: ${white};
 
@@ -49,6 +48,8 @@ export const wrapper = css`
   }
 `
 
+export const loginImageVisible = css``
+
 export const loginImage = css`
   height: 100%;
   width: auto;
@@ -58,6 +59,14 @@ export const loginImage = css`
   animation-name: image;
   animation-fill-mode: forwards;
   animation-timing-function: ease-in-out;
+  transition: opacity 1s ease-in-out;
+  position: absolute;
+  opacity: 0;
+  z-index: 1;
+
+  &.${loginImageVisible} {
+    opacity: 1;
+  }
 
   @keyframes image {
     from {
