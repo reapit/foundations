@@ -2,10 +2,11 @@ import React from 'react'
 import { shallow } from 'enzyme'
 import UpdateUserGroupModal, { EditUserGroupFormProps, onHandleSubmit } from '../edit-user-group'
 import { addMemberToGroup, removeMemberFromGroup } from '../../../../services/user'
-// import { listUserGroup, listUserGroupMember } from '../__stubs__/user-groups'
+import { mockUserGroups } from '../../../../services/__stubs__/user-groups'
+import { GroupModel } from '../../../../types/organisations-schema'
 
 const filterProps = (): EditUserGroupFormProps => ({
-  userGroup: { id: 'Group Name', description: 'Group description' },
+  userGroup: (mockUserGroups?._embedded as GroupModel[])[0],
   onComplete: jest.fn,
   orgId: 'SOME_ID',
 })

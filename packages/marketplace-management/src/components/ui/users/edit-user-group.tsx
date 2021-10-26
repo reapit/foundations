@@ -116,11 +116,12 @@ export const EditUserGroupForm: FC<EditUserGroupFormProps> = ({ userGroup, onCom
   })
 
   if (!data || !groupMembers) return <Loader />
-  const { _embedded: listUserGroup } = data
+
+  const listUserGroup = data._embedded ?? []
 
   const onSubmit = onHandleSubmit(onComplete, refetchMembers, success, error, userIds, userGroup.id ?? '')
 
-  const userGroupGroupOptions = prepareGroupOptions(listUserGroup ?? [])
+  const userGroupGroupOptions = prepareGroupOptions(listUserGroup)
 
   return (
     <form className={elP8} onSubmit={handleSubmit(onSubmit)}>

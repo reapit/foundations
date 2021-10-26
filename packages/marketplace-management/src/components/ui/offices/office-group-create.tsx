@@ -2,7 +2,7 @@ import React, { useState, useEffect, useCallback, FC, ChangeEvent, Dispatch, Set
 import { createOfficeGroup } from '../../../services/office'
 import { toastMessages } from '../../../constants/toast-messages'
 import { prepareOfficeOptions } from '../../../utils/prepare-options'
-import { OfficeModelPagedResult } from '@reapit/foundations-ts-definitions'
+import { OfficeModel, OfficeModelPagedResult } from '@reapit/foundations-ts-definitions'
 import debounce from 'just-debounce-it'
 import useSWR from 'swr'
 import { URLS } from '../../../constants/api'
@@ -30,7 +30,7 @@ import { cx } from '@linaria/core'
 import { boolean, object, string } from 'yup'
 import errorMessages from '../../../constants/error-messages'
 import { yupResolver } from '@hookform/resolvers/yup'
-import { useForm, UseFormTrigger } from 'react-hook-form'
+import { useForm, UseFormTrigger, UseFormGetValues } from 'react-hook-form'
 import { History } from 'history'
 import Routes from '../../../constants/routes'
 import { history } from '../../../core/router'
@@ -101,6 +101,25 @@ export const handleSwitchStep =
     validateStep()
   }
 
+export const handleSetOptions =
+  (
+    getValues: UseFormGetValues<CreateOfficeGroupSchema>,
+    options: MultiSelectOption[],
+    offices: OfficeModel[],
+    setOptions: Dispatch<SetStateAction<MultiSelectOption[]>>,
+  ) =>
+  () => {
+    const officeIds = getValues().officeIds
+    const newSelectedOptions = options.filter((option) => officeIds.includes(option.value))
+    const officeOptions = prepareOfficeOptions(offices)
+    const newOptions = [...newSelectedOptions, ...officeOptions]
+    const uniqueOptions = [...new Set([...newOptions.map((option) => JSON.stringify(option))])].map((jsonOption) =>
+      JSON.parse(jsonOption),
+    )
+
+    setOptions(uniqueOptions)
+  }
+
 export const OfficeGroupCreate: FC<OfficeGroupCreateProps> = () => {
   const [searchString, setSearchString] = useState<string>('')
   const [options, setOptions] = useState<MultiSelectOption[]>([])
@@ -136,17 +155,7 @@ export const OfficeGroupCreate: FC<OfficeGroupCreateProps> = () => {
     },
   })
 
-  useEffect(() => {
-    const officeIds = getValues().officeIds
-    const newSelectedOptions = options.filter((option) => officeIds.includes(option.value))
-    const officeOptions = prepareOfficeOptions(offices)
-    const newOptions = [...newSelectedOptions, ...officeOptions]
-    const uniqueOptions = [...new Set([...newOptions.map((option) => JSON.stringify(option))])].map((jsonOption) =>
-      JSON.parse(jsonOption),
-    )
-
-    setOptions(uniqueOptions)
-  }, [data])
+  useEffect(handleSetOptions(getValues, options, offices, setOptions), [offices])
 
   if (!orgId)
     return (

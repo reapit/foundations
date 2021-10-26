@@ -8,6 +8,16 @@ export interface AppPricingPermissionsProps {
   isDesktop: boolean
 }
 
+export const getDocs = (isDesktop: boolean) => {
+  return isDesktop
+    ? 'agencycloud://process/webpage?url=https://marketplace-documentation.reapit.cloud/integration-types'
+    : 'https://marketplace-documentation.reapit.cloud/integration-types'
+}
+
+export const getPricing = (isDesktop: boolean, pricingUrl: string) => {
+  return isDesktop ? `agencycloud://process/webpage?url=${pricingUrl}` : pricingUrl
+}
+
 const AppPricingPermissionsSection: React.FC<AppPricingPermissionsProps> = ({
   app,
   isDesktop,
@@ -29,23 +39,9 @@ const AppPricingPermissionsSection: React.FC<AppPricingPermissionsProps> = ({
           </BodyText>
           <BodyText hasGreyText>
             For more information regarding Desktop Integration types, please{' '}
-            {isDesktop ? (
-              <a
-                href={
-                  'agencycloud://process/webpage?url=https://marketplace-documentation.reapit.cloud/integration-types'
-                }
-              >
-                click here
-              </a>
-            ) : (
-              <a
-                href="https://marketplace-documentation.reapit.cloud/integration-types"
-                target="_blank"
-                rel="noopener noreferrer"
-              >
-                click here
-              </a>
-            )}
+            <a href={getDocs(isDesktop)} target="_blank" rel="noopener noreferrer">
+              click here
+            </a>
           </BodyText>
           <Grid className={elMb11}>
             {userDesktopIntegrationTypes.map((integration) => (
@@ -62,13 +58,9 @@ const AppPricingPermissionsSection: React.FC<AppPricingPermissionsProps> = ({
           <>
             <BodyText hasGreyText>
               {developer} have specified that there is a cost for using this App/Integration, please{' '}
-              {isDesktop ? (
-                <a href={`agencycloud://process/webpage?url=${pricingUrl}`}>click here</a>
-              ) : (
-                <a href={pricingUrl} target="_blank" rel="noopener noreferrer">
-                  click here
-                </a>
-              )}{' '}
+              <a href={getPricing(isDesktop, pricingUrl)} target="_blank" rel="noopener noreferrer">
+                click here
+              </a>{' '}
               to view their pricing information. You will be billed directly by {developer}.
             </BodyText>
             {developer !== 'Reapit Ltd' && (

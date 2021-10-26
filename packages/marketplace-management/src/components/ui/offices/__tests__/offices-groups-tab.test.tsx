@@ -1,5 +1,5 @@
 import * as React from 'react'
-import { shallow } from 'enzyme'
+import { render } from '@testing-library/react'
 import OfficesGroupsTab, {
   getOfficeQueryFromGroups,
   mergeOfficesGroups,
@@ -7,48 +7,77 @@ import OfficesGroupsTab, {
 } from '../offices-groups-tab'
 import { createBrowserHistory } from 'history'
 import Routes from '@/constants/routes'
-import { data as officeGroupsStub } from '../__stubs__/office-groups'
-import { data as officesStub } from '../__stubs__/offices'
 import { OfficeGroupModel } from '../../../../types/organisations-schema'
 import { OfficeModel } from '@reapit/foundations-ts-definitions'
+import { mockOfficeGroups } from '../../../../services/__stubs__/office-groups'
+import useSWR from 'swr'
+import { useOrgId } from '../../../../utils/use-org-id'
+import { mockOfficeList } from '../../../../services/__stubs__/offices'
 
 jest.mock('../../../../core/connect-session')
 jest.mock('react-router', () => ({
   ...(jest.requireActual('react-router') as Object),
   useLocation: jest.fn(() => ({ pathname: '/offices/groups' })),
 }))
+jest.mock('swr')
+jest.mock('../../../../utils/use-org-id')
 
-jest.mock('swr', () =>
-  jest.fn(() => ({
-    data: require('../__stubs__/office-groups').data,
-    mutate: jest.fn,
-  })),
-)
-
-jest.mock('../../../../utils/use-org-id', () => ({
-  useOrgId: () => ({
-    orgIdState: {
-      orgId: 'SOME_ID',
-      orgName: 'SOME_NAME',
-      orgClientId: 'SOME_CLIENT_ID',
-    },
-  }),
-}))
+const mockSWR = useSWR as jest.Mock
+const mockUseOrgId = useOrgId as jest.Mock
 
 describe('OfficesGroupsTab', () => {
-  it('should match a snapshot', () => {
-    expect(shallow(<OfficesGroupsTab />)).toMatchSnapshot()
+  it('should match a snapshot where there are office groups', () => {
+    mockSWR.mockReturnValue({
+      data: mockOfficeGroups,
+      error: null,
+      mutate: jest.fn(),
+    })
+    expect(render(<OfficesGroupsTab />)).toMatchSnapshot()
+  })
+
+  it('should match a snapshot where there are no office groups', () => {
+    mockSWR.mockReturnValue({
+      data: null,
+      error: null,
+      mutate: jest.fn(),
+    })
+    expect(render(<OfficesGroupsTab />)).toMatchSnapshot()
+  })
+
+  it('should match a snapshot where the office groups have no length', () => {
+    mockSWR.mockReturnValue({
+      data: {
+        data: [],
+      },
+      error: null,
+      mutate: jest.fn(),
+    })
+    expect(render(<OfficesGroupsTab />)).toMatchSnapshot()
+  })
+
+  it('should match a snapshot where there is no orgId', () => {
+    mockSWR.mockReturnValue({
+      data: mockOfficeGroups,
+      error: null,
+      mutate: jest.fn(),
+    })
+
+    mockUseOrgId.mockReturnValueOnce({ orgIdState: { orgId: null } })
+
+    expect(render(<OfficesGroupsTab />)).toMatchSnapshot()
   })
 })
 
 describe('mergeOfficesGroups', () => {
   it('should merge office groups with offices', () => {
-    const officeGroupModels = (officeGroupsStub._embedded ?? []) as OfficeGroupModel[]
-    const result = mergeOfficesGroups(officesStub._embedded as OfficeModel[], officeGroupModels)
+    const officeGroupModels = (mockOfficeGroups._embedded ?? []) as OfficeGroupModel[]
+    const result = mergeOfficesGroups(mockOfficeList._embedded as OfficeModel[], officeGroupModels)
+
+    const expected = officeGroupModels.map(model => ())
     const expected = [
       {
         ...officeGroupModels[0],
-        offices: officesStub._embedded,
+        offices: mockOfficeList._embedded,
       },
     ]
     expect(result).toEqual(expected)

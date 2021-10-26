@@ -1,4 +1,4 @@
-import React, { ChangeEvent, FC, useCallback, useEffect, useState } from 'react'
+import React, { ChangeEvent, Dispatch, FC, SetStateAction, useCallback, useEffect, useState } from 'react'
 import { OfficeGroupModel } from '../../../types/organisations-schema'
 import { updateOfficeGroup } from '../../../services/office'
 import { toastMessages } from '../../../constants/toast-messages'
@@ -30,10 +30,10 @@ import {
 import { yupResolver } from '@hookform/resolvers/yup'
 import { boolean, object, string } from 'yup'
 import errorMessages from '../../../constants/error-messages'
-import { useForm } from 'react-hook-form'
+import { useForm, UseFormReset, UseFormGetValues } from 'react-hook-form'
 import { cx } from '@linaria/core'
 
-export interface EditOfficeGroupFormProps {
+export interface OfficeGroupEditFormProps {
   officeGroup: OfficeGroupModel
   offices: OfficeModel[]
   orgId: string
@@ -46,7 +46,7 @@ export const validationSchema = object().shape({
   status: boolean(),
 })
 
-interface EditOfficeGroupSchema {
+export interface EditOfficeGroupSchema {
   name: string
   officeIds: string
   status: boolean
@@ -75,7 +75,50 @@ export const onHandleSubmit =
     error(toastMessages.FAILED_TO_EDIT_OFFICE_GROUP)
   }
 
-export const EditOfficeGroupForm: FC<EditOfficeGroupFormProps> = ({ officeGroup, offices, orgId, onComplete }) => {
+export const handleSetOptions =
+  (
+    officeGroup: OfficeGroupModel,
+    offices: OfficeModel[],
+    setOptions: Dispatch<SetStateAction<MultiSelectOption[]>>,
+    reset: UseFormReset<EditOfficeGroupSchema>,
+  ) =>
+  () => {
+    if (officeGroup && offices) {
+      const newSelectedOptions = offices.filter((office) => office.id && officeGroup.officeIds?.includes(office.id))
+      const officeOptions = prepareOfficeOptions(newSelectedOptions)
+
+      reset({
+        name: officeGroup.name ?? '',
+        officeIds: officeGroup.officeIds,
+        status: officeGroup.status === 'active',
+      })
+      setOptions(officeOptions)
+    }
+  }
+
+export const handleSetNewOptions =
+  (
+    getValues: UseFormGetValues<EditOfficeGroupSchema>,
+    options: MultiSelectOption[],
+    searchedOffices: OfficeModel[],
+    setOptions: Dispatch<SetStateAction<MultiSelectOption[]>>,
+  ) =>
+  () => {
+    const officeIds = getValues().officeIds
+
+    if (officeIds) {
+      const newSelectedOptions = options.filter((option) => officeIds.includes(option.value))
+      const officeOptions = prepareOfficeOptions(searchedOffices)
+      const newOptions = [...newSelectedOptions, ...officeOptions]
+      const uniqueOptions = [...new Set([...newOptions.map((option) => JSON.stringify(option))])].map((jsonOption) =>
+        JSON.parse(jsonOption),
+      )
+
+      setOptions(uniqueOptions)
+    }
+  }
+
+export const OfficeGroupEditForm: FC<OfficeGroupEditFormProps> = ({ officeGroup, offices, orgId, onComplete }) => {
   const [searchString, setSearchString] = useState<string>('')
   const [options, setOptions] = useState<MultiSelectOption[]>([])
   const { success, error } = useSnack()
@@ -83,9 +126,11 @@ export const EditOfficeGroupForm: FC<EditOfficeGroupFormProps> = ({ officeGroup,
     debounce((event: ChangeEvent<HTMLInputElement>) => setSearchString(event.target.value), 500),
     [500],
   )
-  const { data: searchedOffices } = useSWR<OfficeModelPagedResult | undefined>(
+  const { data } = useSWR<OfficeModelPagedResult | undefined>(
     !orgId || !searchString ? null : `${URLS.OFFICES}?pageSize=999&organisationId=${orgId}&name=${searchString}`,
   )
+
+  const searchedOffices = data?._embedded ?? []
 
   const {
     register,
@@ -102,39 +147,12 @@ export const EditOfficeGroupForm: FC<EditOfficeGroupFormProps> = ({ officeGroup,
     },
   })
 
-  useEffect(() => {
-    if (officeGroup && offices) {
-      const newSelectedOptions = offices.filter((office) => office.id && officeGroup.officeIds?.includes(office.id))
-      const officeOptions = prepareOfficeOptions(newSelectedOptions)
+  useEffect(handleSetOptions(officeGroup, offices, setOptions, reset), [officeGroup, offices])
 
-      reset({
-        name: officeGroup.name ?? '',
-        officeIds: officeGroup.officeIds,
-        status: officeGroup.status === 'active',
-      })
-      setOptions(officeOptions)
-    }
-  }, [officeGroup, offices])
-
-  useEffect(() => {
-    const officeIds = getValues().officeIds
-
-    if (officeIds) {
-      const newSelectedOptions = options.filter((option) => officeIds.includes(option.value))
-      const officeOptions = prepareOfficeOptions(searchedOffices?._embedded ?? [])
-      const newOptions = [...newSelectedOptions, ...officeOptions]
-      const uniqueOptions = [...new Set([...newOptions.map((option) => JSON.stringify(option))])].map((jsonOption) =>
-        JSON.parse(jsonOption),
-      )
-
-      setOptions(uniqueOptions)
-    }
-  }, [searchString, searchedOffices])
-
-  const onSubmit = onHandleSubmit(onComplete, officeGroup, orgId, success, error)
+  useEffect(handleSetNewOptions(getValues, options, searchedOffices, setOptions), [searchString, searchedOffices])
 
   return (
-    <form className={elP8} onSubmit={handleSubmit(onSubmit)}>
+    <form className={elP8} onSubmit={handleSubmit(onHandleSubmit(onComplete, officeGroup, orgId, success, error))}>
       <FormLayout className={cx(elFadeIn, elMb11)}>
         <InputWrapFull>
           <Subtitle>Edit Office Group</Subtitle>
@@ -186,4 +204,4 @@ export const EditOfficeGroupForm: FC<EditOfficeGroupFormProps> = ({ officeGroup,
   )
 }
 
-export default EditOfficeGroupForm
+export default OfficeGroupEditForm

@@ -3,11 +3,7 @@
 exports[`AppUninstallationSection should match a snapshot when theres no installations 1`] = `
 <AppUninstallationSection
   clientId="SBOX-GWIT"
-  installations={
-    Object {
-      "data": Array [],
-    }
-  }
+  installations={Array []}
   setPerformCompleteUninstall={[MockFunction]}
   setShowConfirmModal={[MockFunction]}
 >
@@ -46,13 +42,11 @@ exports[`AppUninstallationSection should match a snapshot, for a group installat
 <AppUninstallationSection
   clientId="SBOX-TEST"
   installations={
-    Object {
-      "data": Array [
-        Object {
-          "client": "SBOX-GWIT",
-        },
-      ],
-    }
+    Array [
+      Object {
+        "client": "SBOX-GWIT",
+      },
+    ]
   }
   setPerformCompleteUninstall={[MockFunction]}
   setShowConfirmModal={[MockFunction]}
@@ -132,13 +126,11 @@ exports[`AppUninstallationSection should match a snapshot, for an all orgs insta
 <AppUninstallationSection
   clientId="SBOX-GWIT"
   installations={
-    Object {
-      "data": Array [
-        Object {
-          "client": "SBOX",
-        },
-      ],
-    }
+    Array [
+      Object {
+        "client": "SBOX",
+      },
+    ]
   }
   setPerformCompleteUninstall={[MockFunction]}
   setShowConfirmModal={[MockFunction]}
@@ -218,16 +210,14 @@ exports[`AppUninstallationSection should match a snapshot, for multiple group in
 <AppUninstallationSection
   clientId="SBOX-TEST"
   installations={
-    Object {
-      "data": Array [
-        Object {
-          "client": "SBOX-GWIT",
-        },
-        Object {
-          "client": "SBOX-ABCT",
-        },
-      ],
-    }
+    Array [
+      Object {
+        "client": "SBOX-GWIT",
+      },
+      Object {
+        "client": "SBOX-ABCT",
+      },
+    ]
   }
   setPerformCompleteUninstall={[MockFunction]}
   setShowConfirmModal={[MockFunction]}
