@@ -21,35 +21,51 @@ export const key = css`
   top: -10%;
   left: 50%;
   width: 12rem;
-  transition: left 2s ease;
+  transition: left 1s ease;
 
-  &${keyActive} {
-    left: 40%;
+  &.${keyActive} {
+    left: 35%;
   }
 `
 
-export const starActive = css`
-`
+export const starActive = css``
 
 export const star = css`
   position: absolute;
-  top: -10%;
-  left: 50%;
   display: none;
   opacity: 0;
   transition: opacity 2s ease;
 
-  &${starActive} {
+  &.${starActive} {
     display: block;
     opacity: 1;
   }
+
+  &:nth-child(2) {
+    top: -50%;
+    right: -10%;
+  }
+
+  &:nth-child(3) {
+    top: -10%;
+    right: -20%;
+    transform: scale(40%);
+  }
+
+  &:nth-child(4) {
+    bottom: -30%;
+    right: -5%;
+    transform: scale(50%);
+  }
 `
 
-export const keyhole = css`
+export const keyholeContainer = css`
   position: absolute;
   top: 40%;
   left: 5%;
 `
+
+export const keyhole = css``
 
 export const keyholeMask = css`
   width: 2.5rem;
@@ -73,7 +89,7 @@ export const triangle1 = css`
   transform: rotate(60deg);
   transition: transform 2s ease;
 
-  &${triangleActive} {
+  &.${triangleActive} {
     transform: rotate(90deg);
   }
 `
@@ -89,7 +105,7 @@ export const triangle2 = css`
   transform: rotate(80deg);
   transition: transform 2s ease;
 
-  &${triangleActive} {
+  &.${triangleActive} {
     transform: rotate(60deg);
   }
 `
@@ -104,7 +120,7 @@ export const triangle3 = css`
   transform: rotate(-20deg);
   transition: transform 2s ease;
 
-  &${triangleActive} {
+  &.${triangleActive} {
     transform: rotate(-10deg);
   }
 `
