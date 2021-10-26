@@ -25,13 +25,11 @@ import { selectDeveloperFormState } from '@/selector'
 import { developerCreate, developerSetFormState } from '@/actions/developer'
 import TermsAndConditionsModal from '@/components/ui/terms-and-conditions-modal'
 import Routes from '@/constants/routes'
-import { container, imageContainer, loginImage, wrapper, loginImageVisible } from './__styles__/register'
+import { container, imageContainer, wrapper } from './__styles__/register'
 import { formFields } from './form-fields'
 import { validationSchema } from './validation-schema'
 import { useEffect } from 'react'
-import { cx } from '@linaria/core'
-import stepOne from '../../../assets/images/login/step-1.svg'
-import { loginImages } from '../login/__styles__/login'
+import { KeyAnimation } from '@/components/key-animation'
 
 const { nameField, emailField, companyNameField, telephoneField } = formFields
 
@@ -108,11 +106,7 @@ export const Register: React.FunctionComponent<RegisterProps> = () => {
   return (
     <div className={container}>
       <div className={imageContainer}>
-        <div className={loginImages}>
-          <img className={cx(loginImage, loginImageVisible)} src={stepOne} />
-          {/* <img className={cx(loginImage, imageShown === 2 && loginImageVisible)} src={stepTwo} />
-          <img className={cx(loginImage, imageShown === 3 && loginImageVisible)} src={stepThree} /> */}
-        </div>
+        <KeyAnimation step={3} />
       </div>
       <div className={wrapper}>
         <H1 isCentered>Register</H1>
