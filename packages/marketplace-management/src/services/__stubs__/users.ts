@@ -1,4 +1,4 @@
-import { UserModelPagedResult } from '../../types/organisations-schema'
+import { UserInfoModel, UserModelPagedResult } from '../../types/organisations-schema'
 
 export const mockUsersList: UserModelPagedResult = {
   _embedded: [
@@ -282,4 +282,43 @@ export const mockUsersList: UserModelPagedResult = {
       href: '/organisations/?PageNumber=1&PageSize=12&organisationId=1185e436-3b7e-4f67-a4b7-68f83054ad3c',
     },
   },
+}
+
+export const mockUserInfo: UserInfoModel = {
+  id: 'd2lsbG1jdmF5QG1lLmNvbQ',
+  created: '2020-11-03T12:18:38.0000000Z',
+  modified: '2021-10-19T11:30:46.0000000Z',
+  emailAddress: 'willmcvay@me.com',
+  name: 'Will McVay',
+  organisationId: '1185e436-3b7e-4f67-a4b7-68f83054ad3c',
+  organisationName: 'Reapit Ltd',
+  organisationGroupId: '27e2ebbc-140f-4286-803a-65da92f38ddb',
+  organisationGroupName: 'Reapit Organisation Group',
+  organisationGroupMembers: [
+    {
+      id: '4f528e38-d632-437f-a695-122d96a7e6b7',
+      created: '2021-10-14T07:38:23.0000000Z',
+      organisationId: '1185e436-3b7e-4f67-a4b7-68f83054ad3c',
+      organisationGroupId: '27e2ebbc-140f-4286-803a-65da92f38ddb',
+      customerId: 'SBOX',
+      name: 'Reapit Ltd',
+    },
+    {
+      id: 'a9d24814-0bbd-4dea-b511-97e514ca2850',
+      created: '2021-10-14T07:27:37.0000000Z',
+      organisationId: '201a8d35-f682-41a8-95ed-079133e4b517',
+      organisationGroupId: '27e2ebbc-140f-4286-803a-65da92f38ddb',
+      customerId: 'RES',
+      name: 'Reapit Sales',
+    },
+  ],
+  userGroups: [
+    'AgencyCloudDeveloperEdition',
+    'OrganisationAdmin',
+    'FoundationsDeveloper',
+    'MarketplaceAdmin',
+    'FoundationsDeveloperAdmin',
+    'ReapitEmployeeFoundationsAdmin',
+    'ReapitUserAdmin',
+  ],
 }

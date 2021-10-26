@@ -1,294 +1,455 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`AppUninstallationSection should match a snapshot when theres no installations 1`] = `
-<AppUninstallationSection
-  clientId="SBOX-GWIT"
-  installations={Array []}
-  setPerformCompleteUninstall={[MockFunction]}
-  setShowConfirmModal={[MockFunction]}
->
-  <div
-    className="el-mb11"
-  >
-    <Subtitle>
-      <ElSubtitle
-        className=""
+Object {
+  "asFragment": [Function],
+  "baseElement": <body>
+    <div>
+      <div
+        class="el-mb11"
       >
         <h2
-          className="el-subtitle"
+          class="el-subtitle"
         >
           Current Installations
         </h2>
-      </ElSubtitle>
-    </Subtitle>
-    <BodyText
-      hasGreyText={true}
-    >
-      <ElBodyText
-        className="el-has-grey-text"
-      >
         <p
-          className="el-has-grey-text el-body-text"
+          class="el-has-grey-text el-body-text"
         >
           This app is not currently installed. You can either install for your organisation or specific office groups in the section below.
         </p>
-      </ElBodyText>
-    </BodyText>
-  </div>
-</AppUninstallationSection>
+      </div>
+    </div>
+  </body>,
+  "container": <div>
+    <div
+      class="el-mb11"
+    >
+      <h2
+        class="el-subtitle"
+      >
+        Current Installations
+      </h2>
+      <p
+        class="el-has-grey-text el-body-text"
+      >
+        This app is not currently installed. You can either install for your organisation or specific office groups in the section below.
+      </p>
+    </div>
+  </div>,
+  "debug": [Function],
+  "findAllByAltText": [Function],
+  "findAllByDisplayValue": [Function],
+  "findAllByLabelText": [Function],
+  "findAllByPlaceholderText": [Function],
+  "findAllByRole": [Function],
+  "findAllByTestId": [Function],
+  "findAllByText": [Function],
+  "findAllByTitle": [Function],
+  "findByAltText": [Function],
+  "findByDisplayValue": [Function],
+  "findByLabelText": [Function],
+  "findByPlaceholderText": [Function],
+  "findByRole": [Function],
+  "findByTestId": [Function],
+  "findByText": [Function],
+  "findByTitle": [Function],
+  "getAllByAltText": [Function],
+  "getAllByDisplayValue": [Function],
+  "getAllByLabelText": [Function],
+  "getAllByPlaceholderText": [Function],
+  "getAllByRole": [Function],
+  "getAllByTestId": [Function],
+  "getAllByText": [Function],
+  "getAllByTitle": [Function],
+  "getByAltText": [Function],
+  "getByDisplayValue": [Function],
+  "getByLabelText": [Function],
+  "getByPlaceholderText": [Function],
+  "getByRole": [Function],
+  "getByTestId": [Function],
+  "getByText": [Function],
+  "getByTitle": [Function],
+  "queryAllByAltText": [Function],
+  "queryAllByDisplayValue": [Function],
+  "queryAllByLabelText": [Function],
+  "queryAllByPlaceholderText": [Function],
+  "queryAllByRole": [Function],
+  "queryAllByTestId": [Function],
+  "queryAllByText": [Function],
+  "queryAllByTitle": [Function],
+  "queryByAltText": [Function],
+  "queryByDisplayValue": [Function],
+  "queryByLabelText": [Function],
+  "queryByPlaceholderText": [Function],
+  "queryByRole": [Function],
+  "queryByTestId": [Function],
+  "queryByText": [Function],
+  "queryByTitle": [Function],
+  "rerender": [Function],
+  "unmount": [Function],
+}
 `;
 
 exports[`AppUninstallationSection should match a snapshot, for a group installation 1`] = `
-<AppUninstallationSection
-  clientId="SBOX-TEST"
-  installations={
-    Array [
-      Object {
-        "client": "SBOX-GWIT",
-      },
-    ]
-  }
-  setPerformCompleteUninstall={[MockFunction]}
-  setShowConfirmModal={[MockFunction]}
->
-  <div
-    className="el-mb11"
-  >
-    <Subtitle>
-      <ElSubtitle
-        className=""
+Object {
+  "asFragment": [Function],
+  "baseElement": <body>
+    <div>
+      <div
+        class="el-mb11"
       >
         <h2
-          className="el-subtitle"
+          class="el-subtitle"
         >
           Current Installations
         </h2>
-      </ElSubtitle>
-    </Subtitle>
-    <BodyText
-      hasGreyText={true}
-    >
-      <ElBodyText
-        className="el-has-grey-text"
-      >
         <p
-          className="el-has-grey-text el-body-text"
+          class="el-has-grey-text el-body-text"
         >
           This app is currently installed for 
           1 group
           . Please click ‘Uninstall’ to terminate the installation.
         </p>
-      </ElBodyText>
-    </BodyText>
-    <ButtonGroup
-      alignment="right"
-    >
-      <ElButtonGroup>
         <div
-          className="el-button-group"
+          class="el-button-group"
         >
-          <ElButtonGroupInner
-            className="el-button-group-align-right"
+          <div
+            class="el-button-group-align-right el-button-group-inner"
           >
-            <div
-              className="el-button-group-align-right el-button-group-inner"
+            <button
+              class="el-intent-primary el-button"
             >
-              <Button
-                disabled={false}
-                intent="primary"
-                loading={false}
-                onClick={[Function]}
-              >
-                <ElButton
-                  className="el-intent-primary"
-                  disabled={false}
-                  onClick={[Function]}
-                >
-                  <button
-                    className="el-intent-primary el-button"
-                    disabled={false}
-                    onClick={[Function]}
-                  >
-                    Uninstall
-                  </button>
-                </ElButton>
-              </Button>
-            </div>
-          </ElButtonGroupInner>
+              Uninstall
+            </button>
+          </div>
         </div>
-      </ElButtonGroup>
-    </ButtonGroup>
-  </div>
-</AppUninstallationSection>
+      </div>
+    </div>
+  </body>,
+  "container": <div>
+    <div
+      class="el-mb11"
+    >
+      <h2
+        class="el-subtitle"
+      >
+        Current Installations
+      </h2>
+      <p
+        class="el-has-grey-text el-body-text"
+      >
+        This app is currently installed for 
+        1 group
+        . Please click ‘Uninstall’ to terminate the installation.
+      </p>
+      <div
+        class="el-button-group"
+      >
+        <div
+          class="el-button-group-align-right el-button-group-inner"
+        >
+          <button
+            class="el-intent-primary el-button"
+          >
+            Uninstall
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>,
+  "debug": [Function],
+  "findAllByAltText": [Function],
+  "findAllByDisplayValue": [Function],
+  "findAllByLabelText": [Function],
+  "findAllByPlaceholderText": [Function],
+  "findAllByRole": [Function],
+  "findAllByTestId": [Function],
+  "findAllByText": [Function],
+  "findAllByTitle": [Function],
+  "findByAltText": [Function],
+  "findByDisplayValue": [Function],
+  "findByLabelText": [Function],
+  "findByPlaceholderText": [Function],
+  "findByRole": [Function],
+  "findByTestId": [Function],
+  "findByText": [Function],
+  "findByTitle": [Function],
+  "getAllByAltText": [Function],
+  "getAllByDisplayValue": [Function],
+  "getAllByLabelText": [Function],
+  "getAllByPlaceholderText": [Function],
+  "getAllByRole": [Function],
+  "getAllByTestId": [Function],
+  "getAllByText": [Function],
+  "getAllByTitle": [Function],
+  "getByAltText": [Function],
+  "getByDisplayValue": [Function],
+  "getByLabelText": [Function],
+  "getByPlaceholderText": [Function],
+  "getByRole": [Function],
+  "getByTestId": [Function],
+  "getByText": [Function],
+  "getByTitle": [Function],
+  "queryAllByAltText": [Function],
+  "queryAllByDisplayValue": [Function],
+  "queryAllByLabelText": [Function],
+  "queryAllByPlaceholderText": [Function],
+  "queryAllByRole": [Function],
+  "queryAllByTestId": [Function],
+  "queryAllByText": [Function],
+  "queryAllByTitle": [Function],
+  "queryByAltText": [Function],
+  "queryByDisplayValue": [Function],
+  "queryByLabelText": [Function],
+  "queryByPlaceholderText": [Function],
+  "queryByRole": [Function],
+  "queryByTestId": [Function],
+  "queryByText": [Function],
+  "queryByTitle": [Function],
+  "rerender": [Function],
+  "unmount": [Function],
+}
 `;
 
 exports[`AppUninstallationSection should match a snapshot, for an all orgs installation 1`] = `
-<AppUninstallationSection
-  clientId="SBOX-GWIT"
-  installations={
-    Array [
-      Object {
-        "client": "SBOX",
-      },
-    ]
-  }
-  setPerformCompleteUninstall={[MockFunction]}
-  setShowConfirmModal={[MockFunction]}
->
-  <div
-    className="el-mb11"
-  >
-    <Subtitle>
-      <ElSubtitle
-        className=""
+Object {
+  "asFragment": [Function],
+  "baseElement": <body>
+    <div>
+      <div
+        class="el-mb11"
       >
         <h2
-          className="el-subtitle"
+          class="el-subtitle"
         >
           Current Installations
         </h2>
-      </ElSubtitle>
-    </Subtitle>
-    <BodyText
-      hasGreyText={true}
-    >
-      <ElBodyText
-        className="el-has-grey-text"
-      >
         <p
-          className="el-has-grey-text el-body-text"
+          class="el-has-grey-text el-body-text"
         >
           This app is currently installed for 
           your whole orgainsation
           . Please click ‘Uninstall’ to terminate the installation.
         </p>
-      </ElBodyText>
-    </BodyText>
-    <ButtonGroup
-      alignment="right"
-    >
-      <ElButtonGroup>
         <div
-          className="el-button-group"
+          class="el-button-group"
         >
-          <ElButtonGroupInner
-            className="el-button-group-align-right"
+          <div
+            class="el-button-group-align-right el-button-group-inner"
           >
-            <div
-              className="el-button-group-align-right el-button-group-inner"
+            <button
+              class="el-intent-primary el-button"
             >
-              <Button
-                disabled={false}
-                intent="primary"
-                loading={false}
-                onClick={[Function]}
-              >
-                <ElButton
-                  className="el-intent-primary"
-                  disabled={false}
-                  onClick={[Function]}
-                >
-                  <button
-                    className="el-intent-primary el-button"
-                    disabled={false}
-                    onClick={[Function]}
-                  >
-                    Uninstall
-                  </button>
-                </ElButton>
-              </Button>
-            </div>
-          </ElButtonGroupInner>
+              Uninstall
+            </button>
+          </div>
         </div>
-      </ElButtonGroup>
-    </ButtonGroup>
-  </div>
-</AppUninstallationSection>
+      </div>
+    </div>
+  </body>,
+  "container": <div>
+    <div
+      class="el-mb11"
+    >
+      <h2
+        class="el-subtitle"
+      >
+        Current Installations
+      </h2>
+      <p
+        class="el-has-grey-text el-body-text"
+      >
+        This app is currently installed for 
+        your whole orgainsation
+        . Please click ‘Uninstall’ to terminate the installation.
+      </p>
+      <div
+        class="el-button-group"
+      >
+        <div
+          class="el-button-group-align-right el-button-group-inner"
+        >
+          <button
+            class="el-intent-primary el-button"
+          >
+            Uninstall
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>,
+  "debug": [Function],
+  "findAllByAltText": [Function],
+  "findAllByDisplayValue": [Function],
+  "findAllByLabelText": [Function],
+  "findAllByPlaceholderText": [Function],
+  "findAllByRole": [Function],
+  "findAllByTestId": [Function],
+  "findAllByText": [Function],
+  "findAllByTitle": [Function],
+  "findByAltText": [Function],
+  "findByDisplayValue": [Function],
+  "findByLabelText": [Function],
+  "findByPlaceholderText": [Function],
+  "findByRole": [Function],
+  "findByTestId": [Function],
+  "findByText": [Function],
+  "findByTitle": [Function],
+  "getAllByAltText": [Function],
+  "getAllByDisplayValue": [Function],
+  "getAllByLabelText": [Function],
+  "getAllByPlaceholderText": [Function],
+  "getAllByRole": [Function],
+  "getAllByTestId": [Function],
+  "getAllByText": [Function],
+  "getAllByTitle": [Function],
+  "getByAltText": [Function],
+  "getByDisplayValue": [Function],
+  "getByLabelText": [Function],
+  "getByPlaceholderText": [Function],
+  "getByRole": [Function],
+  "getByTestId": [Function],
+  "getByText": [Function],
+  "getByTitle": [Function],
+  "queryAllByAltText": [Function],
+  "queryAllByDisplayValue": [Function],
+  "queryAllByLabelText": [Function],
+  "queryAllByPlaceholderText": [Function],
+  "queryAllByRole": [Function],
+  "queryAllByTestId": [Function],
+  "queryAllByText": [Function],
+  "queryAllByTitle": [Function],
+  "queryByAltText": [Function],
+  "queryByDisplayValue": [Function],
+  "queryByLabelText": [Function],
+  "queryByPlaceholderText": [Function],
+  "queryByRole": [Function],
+  "queryByTestId": [Function],
+  "queryByText": [Function],
+  "queryByTitle": [Function],
+  "rerender": [Function],
+  "unmount": [Function],
+}
 `;
 
 exports[`AppUninstallationSection should match a snapshot, for multiple group installations 1`] = `
-<AppUninstallationSection
-  clientId="SBOX-TEST"
-  installations={
-    Array [
-      Object {
-        "client": "SBOX-GWIT",
-      },
-      Object {
-        "client": "SBOX-ABCT",
-      },
-    ]
-  }
-  setPerformCompleteUninstall={[MockFunction]}
-  setShowConfirmModal={[MockFunction]}
->
-  <div
-    className="el-mb11"
-  >
-    <Subtitle>
-      <ElSubtitle
-        className=""
+Object {
+  "asFragment": [Function],
+  "baseElement": <body>
+    <div>
+      <div
+        class="el-mb11"
       >
         <h2
-          className="el-subtitle"
+          class="el-subtitle"
         >
           Current Installations
         </h2>
-      </ElSubtitle>
-    </Subtitle>
-    <BodyText
-      hasGreyText={true}
-    >
-      <ElBodyText
-        className="el-has-grey-text"
-      >
         <p
-          className="el-has-grey-text el-body-text"
+          class="el-has-grey-text el-body-text"
         >
           This app is currently installed for 
           2 groups
           . Please click ‘Uninstall’ to terminate the installation.
         </p>
-      </ElBodyText>
-    </BodyText>
-    <ButtonGroup
-      alignment="right"
-    >
-      <ElButtonGroup>
         <div
-          className="el-button-group"
+          class="el-button-group"
         >
-          <ElButtonGroupInner
-            className="el-button-group-align-right"
+          <div
+            class="el-button-group-align-right el-button-group-inner"
           >
-            <div
-              className="el-button-group-align-right el-button-group-inner"
+            <button
+              class="el-intent-primary el-button"
             >
-              <Button
-                disabled={false}
-                intent="primary"
-                loading={false}
-                onClick={[Function]}
-              >
-                <ElButton
-                  className="el-intent-primary"
-                  disabled={false}
-                  onClick={[Function]}
-                >
-                  <button
-                    className="el-intent-primary el-button"
-                    disabled={false}
-                    onClick={[Function]}
-                  >
-                    Uninstall
-                  </button>
-                </ElButton>
-              </Button>
-            </div>
-          </ElButtonGroupInner>
+              Uninstall
+            </button>
+          </div>
         </div>
-      </ElButtonGroup>
-    </ButtonGroup>
-  </div>
-</AppUninstallationSection>
+      </div>
+    </div>
+  </body>,
+  "container": <div>
+    <div
+      class="el-mb11"
+    >
+      <h2
+        class="el-subtitle"
+      >
+        Current Installations
+      </h2>
+      <p
+        class="el-has-grey-text el-body-text"
+      >
+        This app is currently installed for 
+        2 groups
+        . Please click ‘Uninstall’ to terminate the installation.
+      </p>
+      <div
+        class="el-button-group"
+      >
+        <div
+          class="el-button-group-align-right el-button-group-inner"
+        >
+          <button
+            class="el-intent-primary el-button"
+          >
+            Uninstall
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>,
+  "debug": [Function],
+  "findAllByAltText": [Function],
+  "findAllByDisplayValue": [Function],
+  "findAllByLabelText": [Function],
+  "findAllByPlaceholderText": [Function],
+  "findAllByRole": [Function],
+  "findAllByTestId": [Function],
+  "findAllByText": [Function],
+  "findAllByTitle": [Function],
+  "findByAltText": [Function],
+  "findByDisplayValue": [Function],
+  "findByLabelText": [Function],
+  "findByPlaceholderText": [Function],
+  "findByRole": [Function],
+  "findByTestId": [Function],
+  "findByText": [Function],
+  "findByTitle": [Function],
+  "getAllByAltText": [Function],
+  "getAllByDisplayValue": [Function],
+  "getAllByLabelText": [Function],
+  "getAllByPlaceholderText": [Function],
+  "getAllByRole": [Function],
+  "getAllByTestId": [Function],
+  "getAllByText": [Function],
+  "getAllByTitle": [Function],
+  "getByAltText": [Function],
+  "getByDisplayValue": [Function],
+  "getByLabelText": [Function],
+  "getByPlaceholderText": [Function],
+  "getByRole": [Function],
+  "getByTestId": [Function],
+  "getByText": [Function],
+  "getByTitle": [Function],
+  "queryAllByAltText": [Function],
+  "queryAllByDisplayValue": [Function],
+  "queryAllByLabelText": [Function],
+  "queryAllByPlaceholderText": [Function],
+  "queryAllByRole": [Function],
+  "queryAllByTestId": [Function],
+  "queryAllByText": [Function],
+  "queryAllByTitle": [Function],
+  "queryByAltText": [Function],
+  "queryByDisplayValue": [Function],
+  "queryByLabelText": [Function],
+  "queryByPlaceholderText": [Function],
+  "queryByRole": [Function],
+  "queryByTestId": [Function],
+  "queryByText": [Function],
+  "queryByTitle": [Function],
+  "rerender": [Function],
+  "unmount": [Function],
+}
 `;

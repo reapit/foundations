@@ -13,6 +13,8 @@ import { mockOfficeList } from '../../../../services/__stubs__/offices'
 import { mockOfficeGroups } from '../../../../services/__stubs__/office-groups'
 import { UseFormGetValues } from 'react-hook-form'
 import { prepareOfficeOptions } from '../../../../utils/prepare-options'
+import { OfficeModel } from '@reapit/foundations-ts-definitions'
+import { OfficeGroupModel } from '../../../../types/organisations-schema'
 
 jest.mock('@reapit/utils-common')
 jest.mock('../../../../core/connect-session')
@@ -28,8 +30,8 @@ mockSWR.mockReturnValue({
 })
 
 const props = (): OfficeGroupEditFormProps => ({
-  officeGroup: mockOfficeGroups._embedded[0],
-  offices: mockOfficeList._embedded,
+  officeGroup: (mockOfficeGroups._embedded as OfficeGroupModel[])[0],
+  offices: mockOfficeList._embedded as OfficeModel[],
   orgId: '1185e436-3b7e-4f67-a4b7-68f83054ad3c',
   onComplete: jest.fn,
 })
@@ -73,8 +75,8 @@ describe('onHandleSubmit', () => {
 
 describe('handleSetOptions', () => {
   it('should set options', () => {
-    const officeGroup = mockOfficeGroups._embedded[0]
-    const offices = mockOfficeList._embedded
+    const officeGroup = (mockOfficeGroups._embedded as OfficeGroupModel[])[0]
+    const offices = mockOfficeList._embedded as OfficeModel[]
     const setOptions = jest.fn()
     const reset = jest.fn()
 
@@ -96,7 +98,7 @@ describe('handleSetNewOptions', () => {
   it('should set options', () => {
     const getValues = jest.fn(() => ({ officeIds: 'FCX' })) as unknown as UseFormGetValues<EditOfficeGroupSchema>
     const options = []
-    const searchedOffices = mockOfficeList._embedded
+    const searchedOffices = mockOfficeList._embedded as OfficeModel[]
     const setOptions = jest.fn()
 
     const curried = handleSetNewOptions(getValues, options, searchedOffices, setOptions)

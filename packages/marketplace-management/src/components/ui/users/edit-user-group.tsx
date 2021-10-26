@@ -94,16 +94,18 @@ export const onHandleSubmit =
 
 export const EditUserGroupForm: FC<EditUserGroupFormProps> = ({ userGroup, onComplete, orgId }) => {
   const id = userGroup?.id
+  const { success, error } = useSnack()
 
   const { data } = useSWR<UserModelPagedResult | undefined>(`${URLS.USERS}?pageSize=999&organisationId=${orgId}`)
 
-  const { data: groupMembers, mutate: refetchMembers } = useSWR<GroupMembershipModelPagedResult | undefined>(
+  const { data: members, mutate: refetchMembers } = useSWR<GroupMembershipModelPagedResult | undefined>(
     id && orgId ? `${URLS.USERS_GROUPS}/${id}/members?pageSize=999&organisationId=${orgId}` : null,
   )
-  const { success, error } = useSnack()
-  const userIds = groupMembers?._embedded
-    ? groupMembers?._embedded.map((member) => member.id ?? '').filter(Boolean)
-    : []
+
+  const groupMembers = members?._embedded ?? []
+  const listUserGroup = data?._embedded ?? []
+
+  const userIds = groupMembers.map((member) => member.id ?? '').filter(Boolean)
 
   const {
     register,
@@ -115,9 +117,7 @@ export const EditUserGroupForm: FC<EditUserGroupFormProps> = ({ userGroup, onCom
     },
   })
 
-  if (!data || !groupMembers) return <Loader />
-
-  const listUserGroup = data._embedded ?? []
+  if (!data || !members) return <Loader />
 
   const onSubmit = onHandleSubmit(onComplete, refetchMembers, success, error, userIds, userGroup.id ?? '')
 

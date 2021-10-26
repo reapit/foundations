@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { FC } from 'react'
 import { InstallationModel } from '@reapit/foundations-ts-definitions'
 import {
   getInstallationsForOfficeGroups,
@@ -14,7 +14,7 @@ export interface AppUninstallationSectionProps {
   setPerformCompleteUninstall: (state: boolean) => void
 }
 
-const AppUninstallationSection: React.FC<AppUninstallationSectionProps> = ({
+const AppUninstallationSection: FC<AppUninstallationSectionProps> = ({
   installations,
   clientId,
   setShowConfirmModal,
