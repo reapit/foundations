@@ -8,21 +8,8 @@ import Routes from '@/constants/routes'
 import messages from '@/constants/messages'
 import connectImage from '@/assets/images/reapit-connect.png'
 import { reapitConnectBrowserSession } from '@/core/connect-session'
-import {
-  wrapper,
-  container,
-  register,
-  registerLevel,
-  loginButton,
-  loginImages,
-  imageContainer,
-  loginImage,
-  loginImageVisible,
-} from './__styles__/login'
-import stepOne from '../../../assets/images/login/step-1.svg'
-import stepTwo from '../../../assets/images/login/step-2.svg'
-import stepThree from '../../../assets/images/login/step-3.svg'
-import { cx } from '@linaria/core'
+import { wrapper, container, register, registerLevel, loginButton, imageContainer } from './__styles__/login'
+import { KeyAnimation } from '../../../components/key-animation'
 
 export type LoginProps = {}
 
@@ -73,11 +60,7 @@ export const Login: React.FunctionComponent<LoginProps> = () => {
   return (
     <div className={container}>
       <div className={imageContainer}>
-        <div className={loginImages}>
-          <img className={cx(loginImage, imageShown === 1 && loginImageVisible)} src={stepOne} />
-          <img className={cx(loginImage, imageShown === 2 && loginImageVisible)} src={stepTwo} />
-          <img className={cx(loginImage, imageShown === 3 && loginImageVisible)} src={stepThree} />
-        </div>
+        <KeyAnimation step={1} />
       </div>
       <div className={wrapper}>
         <Level>
