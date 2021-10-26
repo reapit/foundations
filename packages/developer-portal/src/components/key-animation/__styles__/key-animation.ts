@@ -14,7 +14,27 @@ export const background = css`
   }
 `
 
-export const key = css``
+export const key = css`
+  position: relative;
+  top: -10%;
+  left: 50%;
+  width: 12rem;
+`
+
+export const keyhole = css`
+  position: absolute;
+  top: 40%;
+  left: 5%;
+`
+
+export const keyholeMask = css`
+  width: 2.5rem;
+  height: 3.5rem;
+  background: #262f69;
+  position: absolute;
+  top: 15%;
+  left: 10%;
+`
 
 export const triangle1 = css`
   position: absolute;
