@@ -60,11 +60,16 @@ exports[`Register should match a snapshot 1`] = `
           className="clgvn7z-container"
         >
           <div
-            className="iich6-image-container"
+            className="i1m3gui8-image-container"
           >
             <div
-              className="lawfo3s-login-image"
-            />
+              className="l8alx8w-login-images"
+            >
+              <img
+                className="lich6-login-image lawfo3s-login-image-visible"
+                src={Object {}}
+              />
+            </div>
           </div>
           <div
             className="wj5na9i-wrapper"
