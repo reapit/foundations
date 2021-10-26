@@ -14,11 +14,35 @@ export const background = css`
   }
 `
 
+export const keyActive = css``
+
 export const key = css`
-  position: relative;
+  position: absolute;
   top: -10%;
   left: 50%;
   width: 12rem;
+  transition: left 2s ease;
+
+  &${keyActive} {
+    left: 40%;
+  }
+`
+
+export const starActive = css`
+`
+
+export const star = css`
+  position: absolute;
+  top: -10%;
+  left: 50%;
+  display: none;
+  opacity: 0;
+  transition: opacity 2s ease;
+
+  &${starActive} {
+    display: block;
+    opacity: 1;
+  }
 `
 
 export const keyhole = css`
@@ -34,27 +58,40 @@ export const keyholeMask = css`
   position: absolute;
   top: 15%;
   left: 10%;
+  z-index: 300;
 `
+
+export const triangleActive = css``
 
 export const triangle1 = css`
   position: absolute;
   top: 65%;
-  left: 22.5%;
+  left: 20%;
   border: 1rem solid transparent;
   border-top-color: #262f69;
   border-right-width: 1.25rem;
   transform: rotate(60deg);
+  transition: transform 2s ease;
+
+  &${triangleActive} {
+    transform: rotate(90deg);
+  }
 `
 
 export const triangle2 = css`
   position: absolute;
-  top: 75%;
-  left: 17.5%;
+  top: 72.5%;
+  left: 12.5%;
   border: 3rem solid transparent;
   border-top-color: #0061a8;
   border-top-width: 2rem;
   border-left-width: 2rem;
   transform: rotate(80deg);
+  transition: transform 2s ease;
+
+  &${triangleActive} {
+    transform: rotate(60deg);
+  }
 `
 
 export const triangle3 = css`
@@ -62,7 +99,12 @@ export const triangle3 = css`
   top: 85%;
   left: 20%;
   border: 3.5rem solid transparent;
-  border-left-width: 2.5rem;
+  border-right-width: 2.5rem;
   border-top-color: #23a4de;
-  transform: rotate(20deg);
+  transform: rotate(-20deg);
+  transition: transform 2s ease;
+
+  &${triangleActive} {
+    transform: rotate(-10deg);
+  }
 `
