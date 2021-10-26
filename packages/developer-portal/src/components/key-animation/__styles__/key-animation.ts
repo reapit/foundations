@@ -44,6 +44,7 @@ export const star = css`
   &:nth-child(2) {
     top: -50%;
     right: -10%;
+    transform: scale(80%);
   }
 
   &:nth-child(3) {
