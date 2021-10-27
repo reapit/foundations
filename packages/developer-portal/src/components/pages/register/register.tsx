@@ -69,6 +69,10 @@ export const handleSetFormDefault = (dispatch: Dispatch) => () => {
   dispatch(developerSetFormState('PENDING'))
 }
 
+export const formSubmit = (setAgreeModalVisable: (val: boolean) => void) => () => {
+  setAgreeModalVisable(true)
+}
+
 export const Register: FC<RegisterProps> = () => {
   const [agreeModalVisable, setAgreeModalVisable] = useState<boolean>(false)
   const [formStep, setFormStep] = useState<1 | 2 | 3>(1)
@@ -113,9 +117,7 @@ export const Register: FC<RegisterProps> = () => {
         ) : (
           <>
             <form
-              onSubmit={handleSubmit(() => {
-                setAgreeModalVisable(true)
-              })}
+              onSubmit={handleSubmit(formSubmit(setAgreeModalVisable))}
               onChange={() => {
                 const { name, telephone } = getValues()
 
