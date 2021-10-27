@@ -79,6 +79,7 @@ export const Register: FC<RegisterProps> = () => {
     handleSubmit,
     formState: { errors },
     register,
+    getValues,
   } = useForm<CreateDeveloperModel>({
     resolver: yupResolver(validationSchema),
     defaultValues: registerFormInitialValues,
@@ -105,7 +106,7 @@ export const Register: FC<RegisterProps> = () => {
         <Title>Register</Title>
         <p className="mb-4">Reapit Foundations developers</p>
         {formState === 'SUCCESS' ? (
-          <PersistantNotification intent="success">
+          <PersistantNotification intent="success" isExpanded={true} isFullWidth={true}>
             Successfully registered. Check your email to confirm your account.
           </PersistantNotification>
         ) : (
@@ -198,8 +199,7 @@ export const Register: FC<RegisterProps> = () => {
                   <TermsAndConditionsModal
                     visible={agreeModalVisable}
                     afterClose={onDeclineTermsAndConditions(setAgreeModalVisable)}
-                    // onAccept={handleSubmit}
-                    onAccept={() => console.log('agreed')}
+                    onAccept={() => onSubmit(dispatch)(getValues())}
                     onDecline={onDeclineTermsAndConditions(setAgreeModalVisable)}
                     isSubmitting={isSubmitting}
                   />
