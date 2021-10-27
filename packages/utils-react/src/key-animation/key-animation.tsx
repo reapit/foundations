@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { FC } from 'react'
 import { cx } from '@linaria/core'
 import {
   triangle1,
@@ -20,7 +20,7 @@ import keyholeImage from './images/keyhole.svg'
 import keyImage from './images/key.svg'
 import starImage from './images/star.svg'
 
-export const KeyAnimation = ({ step }: { step: 1 | 2 | 3 }) => {
+export const KeyAnimation: FC<{ step: 1 | 2 | 3 }> = ({ step }) => {
   return (
     <>
       <div className={cx(container)}>
