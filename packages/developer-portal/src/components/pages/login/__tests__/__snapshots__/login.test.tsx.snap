@@ -66,40 +66,40 @@ exports[`Login should match a snapshot 1`] = `
               step={1}
             >
               <div
-                className="c1mccqsf-container"
+                className="c1irikpe-container"
               >
                 <div
-                  className="bmm7iqh-background"
+                  className="b1qrkx47-background"
                 >
                   <img
                     src={Object {}}
                   />
                 </div>
                 <div
-                  className="knadhv-keyhole-container"
+                  className="k1aw5mx5-keyhole-container"
                 >
                   <div
-                    className="klr5v2z-keyhole"
+                    className="kbko6ld-keyhole"
                   >
                     <div
-                      className="kh1fwxj-keyhole-mask"
+                      className="k1wymg0q-keyhole-mask"
                     />
                     <div
-                      className="k2k7lhm-key"
+                      className="kvq3hqe-key"
                     >
                       <img
                         src={Object {}}
                       />
                       <img
-                        className="s1ca48v2-star"
+                        className="s1n1ktmd-star"
                         src={Object {}}
                       />
                       <img
-                        className="s1ca48v2-star"
+                        className="s1n1ktmd-star"
                         src={Object {}}
                       />
                       <img
-                        className="s1ca48v2-star"
+                        className="s1n1ktmd-star"
                         src={Object {}}
                       />
                     </div>
@@ -109,13 +109,13 @@ exports[`Login should match a snapshot 1`] = `
                   </div>
                 </div>
                 <div
-                  className="tximvte-triangle1"
+                  className="t1iywawv-triangle1"
                 />
                 <div
-                  className="t15ivtkw-triangle2"
+                  className="toze2rs-triangle2"
                 />
                 <div
-                  className="tixngio-triangle3"
+                  className="t1v5v0js-triangle3"
                 />
               </div>
             </KeyAnimation>
