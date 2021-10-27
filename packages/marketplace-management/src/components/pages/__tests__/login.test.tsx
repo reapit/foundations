@@ -1,8 +1,7 @@
-import * as React from 'react'
-import { shallow } from 'enzyme'
-import { Button } from '@reapit/elements'
+import React from 'react'
 import { reapitConnectBrowserSession } from '@/core/connect-session'
 import { Login } from '../login'
+import { render } from '@testing-library/react'
 
 jest.mock('../../../core/connect-session', () => ({
   reapitConnectBrowserSession: {
@@ -12,16 +11,16 @@ jest.mock('../../../core/connect-session', () => ({
 
 describe('Login', () => {
   it('should match a snapshot', () => {
-    const wrapper = shallow(<Login />)
+    const wrapper = render(<Login />)
     expect(wrapper).toMatchSnapshot()
   })
 })
 
 describe('loginHandler', () => {
   it('should correctly call redirect on click', () => {
-    const wrapper = shallow(<Login />)
+    const wrapper = render(<Login />)
 
-    wrapper.find(Button).first().simulate('click')
+    wrapper.getByText('Login').click()
 
     expect(reapitConnectBrowserSession.connectLoginRedirect).toHaveBeenCalledTimes(1)
   })

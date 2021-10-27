@@ -2,20 +2,29 @@ import * as React from 'react'
 import { mount, shallow } from 'enzyme'
 import AdminBilling, {
   handleDownloadBillingPeriod,
-  renderDownloadCell,
+  renderDownloadBillingCell,
   genarateYearsListOptions,
   genarateMonthsListOptions,
   handleChangePeriod,
   handleSaveFile,
+  renderDownloadDwBillingCell,
 } from '../billing'
 import { Provider } from 'react-redux'
 import configureStore from 'redux-mock-store'
 import appState from '@/reducers/__stubs__/app-state'
 import * as developerServices from '@/services/developers'
+import * as customerServices from '@/services/customers'
 import { MONTHS } from '@/constants/datetime'
 import FileSaver from 'file-saver'
 
-const spyFetcher = jest.spyOn(developerServices, 'fetchDeveloperBillingPeriod').mockImplementation(
+const mockBillingServices = jest.spyOn(developerServices, 'fetchDeveloperBillingPeriod').mockImplementation(
+  () =>
+    new Promise((resolve) => {
+      resolve(new Blob())
+    }),
+)
+
+const mockBillingDwServices = jest.spyOn(customerServices, 'fetchCustomerWarehouseCosts').mockImplementation(
   () =>
     new Promise((resolve) => {
       resolve(new Blob())
@@ -101,28 +110,44 @@ describe('genarateMonthsListOptions', () => {
   })
 })
 
-describe('renderDownloadCell', () => {
-  it('should run correctly', () => {
+describe('renderDownloadBillingCell', () => {
+  it('should match a snapshot', () => {
     window.URL.createObjectURL = jest.fn(() => 'test')
     const input = {
       row: {
         original: {
-          proiod: '2020-02',
+          period: '2020-02',
         },
       },
     }
-    expect(shallow(<div>{renderDownloadCell(input)}</div>)).toMatchSnapshot()
+    expect(shallow(<div>{renderDownloadBillingCell(input)}</div>)).toMatchSnapshot()
+  })
+})
+
+describe('renderDownloadDwBillingCell', () => {
+  it('should match a snapshot', () => {
+    window.URL.createObjectURL = jest.fn(() => 'test')
+    const input = {
+      row: {
+        original: {
+          period: '2020-02',
+        },
+      },
+    }
+    expect(shallow(<div>{renderDownloadDwBillingCell(input)}</div>)).toMatchSnapshot()
   })
 })
 
 describe('handleDownloadBillingPeriod', () => {
-  it('should run correctly', () => {
+  it('should run correctly', async () => {
     const period = '2020-02'
-    const setFileBlob = jest.fn()
+    const setBillingFile = jest.fn()
+    const setBillingDwFile = jest.fn()
 
-    const fn = handleDownloadBillingPeriod(period, setFileBlob)
-    fn()
-    expect(spyFetcher).toBeCalledWith({ period })
+    const fn = handleDownloadBillingPeriod(period, setBillingFile, setBillingDwFile)
+    await fn()
+    expect(mockBillingServices).toBeCalledWith({ period })
+    expect(mockBillingDwServices).toBeCalledWith(period)
   })
 })
 

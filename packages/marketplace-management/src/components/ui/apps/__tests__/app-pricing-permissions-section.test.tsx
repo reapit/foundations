@@ -1,5 +1,5 @@
 import * as React from 'react'
-import { mount } from 'enzyme'
+import { render } from '@testing-library/react'
 import AppPricingPermissionsSection from '../app-pricing-permissions-section'
 import { AppDetailModel, DesktopIntegrationTypeModel } from '@reapit/foundations-ts-definitions'
 
@@ -11,7 +11,7 @@ const stubDesktopIntegrationTypes = [
 describe('AppPricingPermissionsSection', () => {
   it('should match a snapshot for not desktop', () => {
     expect(
-      mount(
+      render(
         <AppPricingPermissionsSection
           app={stubApp}
           desktopIntegrationTypes={stubDesktopIntegrationTypes}
@@ -23,7 +23,7 @@ describe('AppPricingPermissionsSection', () => {
 
   it('should match a snapshot for desktop', () => {
     expect(
-      mount(
+      render(
         <AppPricingPermissionsSection app={stubApp} desktopIntegrationTypes={stubDesktopIntegrationTypes} isDesktop />,
       ),
     ).toMatchSnapshot()
@@ -31,11 +31,23 @@ describe('AppPricingPermissionsSection', () => {
 
   it('should match a snapshot for has a pricing uri', () => {
     expect(
-      mount(
+      render(
         <AppPricingPermissionsSection
           app={{ ...stubApp, pricingUrl: 'SOME_URL' }}
           desktopIntegrationTypes={stubDesktopIntegrationTypes}
           isDesktop
+        />,
+      ),
+    ).toMatchSnapshot()
+  })
+
+  it('should match a snapshot for has a pricing uri and not desktop', () => {
+    expect(
+      render(
+        <AppPricingPermissionsSection
+          app={{ ...stubApp, pricingUrl: 'SOME_URL' }}
+          desktopIntegrationTypes={stubDesktopIntegrationTypes}
+          isDesktop={false}
         />,
       ),
     ).toMatchSnapshot()

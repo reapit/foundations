@@ -21,9 +21,10 @@ import {
   Subtitle,
   Title,
 } from '@reapit/elements'
-import { OrgIdSelect, useOrgId } from '../../utils/use-org-id'
+import { useOrgId } from '../../utils/use-org-id'
 import { ReapitConnectSession, useReapitConnect } from '@reapit/connect-session'
 import { reapitConnectBrowserSession } from '../../core/connect-session'
+import { OrgIdSelect } from '../hocs/org-id-select'
 
 export const onPageChangeHandler = (history: History<any>) => (page: number) => {
   const queryString = `?pageNumber=${page}&pageSize=12`
@@ -52,7 +53,7 @@ export const handleFetchApps =
     fetchApps()
   }
 
-const MarketplacePage: FC = () => {
+export const MarketplacePage: FC = () => {
   const history = useHistory()
   const location = useLocation()
   const onPageChange = useCallback(onPageChangeHandler(history), [history])
@@ -86,7 +87,6 @@ const MarketplacePage: FC = () => {
       </SecondaryNavContainer>
       <PageContainer className={elHFull}>
         <Title>{orgName} AppMarket</Title>
-
         {!orgClientId ? (
           <PersistantNotification isFullWidth isExpanded intent="secondary" isInline>
             No organisation selected. You need to select an organisation to view available apps.

@@ -22,7 +22,13 @@ import { navigate } from '../ui/nav/nav'
 import { useReapitConnect } from '@reapit/connect-session'
 import { reapitConnectBrowserSession } from '../../core/connect-session'
 import { GLOSSARY_USER_ROLES_URL } from '../../constants/api'
-import { OrgIdSelect } from '../../utils/use-org-id'
+import { OrgIdSelect } from '../hocs/org-id-select'
+
+export const handleDocs = (connectIsDesktop: Boolean) => () => {
+  return connectIsDesktop
+    ? () => (window.location.href = `agencycloud://process/webpage?url=${GLOSSARY_USER_ROLES_URL}`)
+    : () => window.open(GLOSSARY_USER_ROLES_URL, '_blank')
+}
 
 export const UsersPage: FC = () => {
   const history = useHistory()
@@ -51,18 +57,9 @@ export const UsersPage: FC = () => {
             ? 'This list contains all ‘Users’ within your organisation. You can edit users to manage the groups an individual user belongs to. For more information on ‘User Groups’, please click below.'
             : 'This list contains all available member groups for your organisation. You can manage users associated to each group by selecting the dropown.'}
         </BodyText>
-        {connectIsDesktop ? (
-          <Button
-            className={elMb5}
-            onClick={() => (window.location.href = `agencycloud://process/webpage?url=${GLOSSARY_USER_ROLES_URL}`)}
-          >
-            Docs
-          </Button>
-        ) : (
-          <Button className={elMb5} onClick={() => window.open(GLOSSARY_USER_ROLES_URL, '_blank')}>
-            Docs
-          </Button>
-        )}
+        <Button className={elMb5} onClick={handleDocs(connectIsDesktop)}>
+          Docs
+        </Button>
         <OrgIdSelect />
       </SecondaryNavContainer>
       <PageContainer className={elHFull}>

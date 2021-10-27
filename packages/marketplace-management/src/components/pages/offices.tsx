@@ -20,16 +20,23 @@ import {
 } from '@reapit/elements'
 import { navigate } from '../ui/nav/nav'
 import OfficeGroupCreate from '../ui/offices/office-group-create'
-import { OrgIdSelect } from '../../utils/use-org-id'
 import { useReapitConnect } from '@reapit/connect-session'
 import { reapitConnectBrowserSession } from '../../core/connect-session'
 import { OFFICE_GROUPS_DOCS_URL } from '../../constants/api'
+import { OrgIdSelect } from '../hocs/org-id-select'
+
+export const handleDocs = (connectIsDesktop: Boolean) => () => {
+  return connectIsDesktop
+    ? () => (window.location.href = `agencycloud://process/webpage?url=${OFFICE_GROUPS_DOCS_URL}`)
+    : () => window.open(OFFICE_GROUPS_DOCS_URL, '_blank')
+}
 
 const OfficesPage: FC = () => {
   const history = useHistory()
   const location = useLocation()
-  const { connectIsDesktop } = useReapitConnect(reapitConnectBrowserSession)
   const { pathname } = location
+  const { connectIsDesktop } = useReapitConnect(reapitConnectBrowserSession)
+
   return (
     <FlexContainer isFlexAuto>
       <SecondaryNavContainer>
@@ -58,18 +65,9 @@ const OfficesPage: FC = () => {
             <Button className={elMb5} intent="primary" onClick={navigate(history, Routes.OFFICES_GROUPS_NEW)}>
               Create Group
             </Button>
-            {connectIsDesktop ? (
-              <Button
-                className={elMb5}
-                onClick={() => (window.location.href = `agencycloud://process/webpage?url=${OFFICE_GROUPS_DOCS_URL}`)}
-              >
-                Docs
-              </Button>
-            ) : (
-              <Button className={elMb5} onClick={() => window.open(OFFICE_GROUPS_DOCS_URL, '_blank')}>
-                Docs
-              </Button>
-            )}
+            <Button className={elMb5} onClick={handleDocs(connectIsDesktop)}>
+              Docs
+            </Button>
           </>
         )}
         <OrgIdSelect />
