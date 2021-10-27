@@ -29,7 +29,7 @@ jobs:
         uses: olegtarasov/get-tag@v2.1
         id: packageInfo
         with:
-          tagRegex: '(?<package>[a-z\-]+)[\_v](?<version>.*)'
+          tagRegex: '(?<package>[a-z\-]+)(?<version>[0-9\.]+)'
 
       - uses: actions/checkout@v2
         with:
