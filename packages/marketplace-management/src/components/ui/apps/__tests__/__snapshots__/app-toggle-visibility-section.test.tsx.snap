@@ -1,89 +1,116 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`AppToggleVisibilitySection should match a snapshot 1`] = `
-<AppToggleVisibilitySection
-  app={
-    Object {
-      "developer": "APP_DEVELOPER",
-      "name": "APP_NAME",
-    }
-  }
-  reFetchApp={[MockFunction]}
->
-  <Subtitle>
-    <ElSubtitle
-      className=""
-    >
+Object {
+  "asFragment": [Function],
+  "baseElement": <body>
+    <div>
       <h2
-        className="el-subtitle"
+        class="el-subtitle"
       >
         Application Visibility
       </h2>
-    </ElSubtitle>
-  </Subtitle>
-  <BodyText
-    hasGreyText={true}
-  >
-    <ElBodyText
-      className="el-has-grey-text"
-    >
       <p
-        className="el-has-grey-text el-body-text"
+        class="el-has-grey-text el-body-text"
       >
         By default, all apps will be visible to all offices/users within your organisation. If you wish to hide an app from the Marketplace, please deselect. Hidden apps (apps that have been deselected) will not be visible in the Marketplace to any offices/users inside of your organisation.
       </p>
-    </ElBodyText>
-  </BodyText>
-  <ForwardRef
-    checked={true}
-    className="el-mb11"
-    label="Visible"
-    onChange={[Function]}
-    type="checkbox"
-  >
-    <ElInputGroup
-      className="el-mb11"
-    >
       <div
-        className="el-mb11 el-input-group"
+        class="el-mb11 el-input-group"
       >
-        <ForwardRef
-          checked={true}
+        <input
+          checked=""
+          class="el-input"
           id="test-static-id"
-          onChange={[Function]}
           type="checkbox"
+        />
+        <label
+          class="el-label"
+          for="test-static-id"
         >
-          <ElInput
-            checked={true}
-            id="test-static-id"
-            onChange={[Function]}
-            type="checkbox"
-          >
-            <input
-              checked={true}
-              className="el-input"
-              id="test-static-id"
-              onChange={[Function]}
-              type="checkbox"
-            />
-          </ElInput>
-        </ForwardRef>
-        <Label
-          htmlFor="test-static-id"
-        >
-          <ElLabel
-            htmlFor="test-static-id"
-          >
-            <label
-              className="el-label"
-              htmlFor="test-static-id"
-            >
-              Visible
-            </label>
-          </ElLabel>
-        </Label>
+          Visible
+        </label>
       </div>
-    </ElInputGroup>
-  </ForwardRef>
-</AppToggleVisibilitySection>
+    </div>
+  </body>,
+  "container": <div>
+    <h2
+      class="el-subtitle"
+    >
+      Application Visibility
+    </h2>
+    <p
+      class="el-has-grey-text el-body-text"
+    >
+      By default, all apps will be visible to all offices/users within your organisation. If you wish to hide an app from the Marketplace, please deselect. Hidden apps (apps that have been deselected) will not be visible in the Marketplace to any offices/users inside of your organisation.
+    </p>
+    <div
+      class="el-mb11 el-input-group"
+    >
+      <input
+        checked=""
+        class="el-input"
+        id="test-static-id"
+        type="checkbox"
+      />
+      <label
+        class="el-label"
+        for="test-static-id"
+      >
+        Visible
+      </label>
+    </div>
+  </div>,
+  "debug": [Function],
+  "findAllByAltText": [Function],
+  "findAllByDisplayValue": [Function],
+  "findAllByLabelText": [Function],
+  "findAllByPlaceholderText": [Function],
+  "findAllByRole": [Function],
+  "findAllByTestId": [Function],
+  "findAllByText": [Function],
+  "findAllByTitle": [Function],
+  "findByAltText": [Function],
+  "findByDisplayValue": [Function],
+  "findByLabelText": [Function],
+  "findByPlaceholderText": [Function],
+  "findByRole": [Function],
+  "findByTestId": [Function],
+  "findByText": [Function],
+  "findByTitle": [Function],
+  "getAllByAltText": [Function],
+  "getAllByDisplayValue": [Function],
+  "getAllByLabelText": [Function],
+  "getAllByPlaceholderText": [Function],
+  "getAllByRole": [Function],
+  "getAllByTestId": [Function],
+  "getAllByText": [Function],
+  "getAllByTitle": [Function],
+  "getByAltText": [Function],
+  "getByDisplayValue": [Function],
+  "getByLabelText": [Function],
+  "getByPlaceholderText": [Function],
+  "getByRole": [Function],
+  "getByTestId": [Function],
+  "getByText": [Function],
+  "getByTitle": [Function],
+  "queryAllByAltText": [Function],
+  "queryAllByDisplayValue": [Function],
+  "queryAllByLabelText": [Function],
+  "queryAllByPlaceholderText": [Function],
+  "queryAllByRole": [Function],
+  "queryAllByTestId": [Function],
+  "queryAllByText": [Function],
+  "queryAllByTitle": [Function],
+  "queryByAltText": [Function],
+  "queryByDisplayValue": [Function],
+  "queryByLabelText": [Function],
+  "queryByPlaceholderText": [Function],
+  "queryByRole": [Function],
+  "queryByTestId": [Function],
+  "queryByText": [Function],
+  "queryByTitle": [Function],
+  "rerender": [Function],
+  "unmount": [Function],
+}
 `;

@@ -1,8 +1,9 @@
 import * as React from 'react'
-import { mount } from 'enzyme'
+import { render } from '@testing-library/react'
 import AppCard, { handleInstallationsStringEffect, handleNavigation } from '../app-card'
 import { history } from '../../../../core/router'
 import Routes from '../../../../constants/routes'
+import { mockAppDetail } from '../../../../services/__stubs__/apps'
 
 jest.mock('../../../../utils/use-org-id', () => ({
   useOrgId: () => ({
@@ -16,8 +17,7 @@ jest.mock('../../../../utils/use-org-id', () => ({
 
 describe('AppCard', () => {
   it('should match a snapshot', () => {
-    const stubApp = { name: 'APP_NAME', developer: 'APP_DEVELOPER' }
-    expect(mount(<AppCard app={stubApp} />)).toMatchSnapshot()
+    expect(render(<AppCard app={mockAppDetail} />)).toMatchSnapshot()
   })
 })
 
@@ -36,13 +36,12 @@ describe('handleInstallationsStringEffect', () => {
   it('should return an installed for org string', () => {
     const mockSetString = jest.fn()
     const clientId = 'SBOX'
-    const mockInstalls = {
-      data: [
-        {
-          client: 'SBOX',
-        },
-      ],
-    }
+    const mockInstalls = [
+      {
+        client: 'SBOX',
+      },
+    ]
+
     const curried = handleInstallationsStringEffect(mockSetString, mockInstalls, clientId)
     curried()
     expect(mockSetString).toHaveBeenCalledWith('Installed for organisation SBOX')
@@ -51,13 +50,11 @@ describe('handleInstallationsStringEffect', () => {
   it('should return an installed for single group string', () => {
     const mockSetString = jest.fn()
     const clientId = 'SBOX'
-    const mockInstalls = {
-      data: [
-        {
-          client: 'SBOX-GWIT',
-        },
-      ],
-    }
+    const mockInstalls = [
+      {
+        client: 'SBOX-GWIT',
+      },
+    ]
     const curried = handleInstallationsStringEffect(mockSetString, mockInstalls, clientId)
     curried()
     expect(mockSetString).toHaveBeenCalledWith('Installed for 1 office group')
@@ -66,16 +63,14 @@ describe('handleInstallationsStringEffect', () => {
   it('should return an installed for single group string', () => {
     const mockSetString = jest.fn()
     const clientId = 'SBOX'
-    const mockInstalls = {
-      data: [
-        {
-          client: 'SBOX-GWIT',
-        },
-        {
-          client: 'SBOX-ABCT',
-        },
-      ],
-    }
+    const mockInstalls = [
+      {
+        client: 'SBOX-GWIT',
+      },
+      {
+        client: 'SBOX-ABCT',
+      },
+    ]
     const curried = handleInstallationsStringEffect(mockSetString, mockInstalls, clientId)
     curried()
     expect(mockSetString).toHaveBeenCalledWith('Installed for 2 office groups')
@@ -84,9 +79,7 @@ describe('handleInstallationsStringEffect', () => {
   it('should return a not installed string', () => {
     const mockSetString = jest.fn()
     const clientId = 'SBOX'
-    const mockInstalls = {
-      data: [],
-    }
+    const mockInstalls = []
     const curried = handleInstallationsStringEffect(mockSetString, mockInstalls, clientId)
     curried()
     expect(mockSetString).toHaveBeenCalledWith('Not installed')

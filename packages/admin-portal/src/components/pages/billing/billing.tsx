@@ -1,4 +1,4 @@
-import React, { useEffect, useState, Dispatch } from 'react'
+import React, { useEffect, useState, Dispatch, SetStateAction } from 'react'
 import {
   H3,
   Table,
@@ -16,15 +16,22 @@ import dayjs from 'dayjs'
 import { MONTHS } from '@/constants/datetime'
 import errorMessages from '@/constants/error-messages'
 import FileSaver from 'file-saver'
+import { fetchCustomerWarehouseCosts } from '../../../services/customers'
 
-export const handleSaveFile = (fileBlob: Blob, filename: string) => () => {
-  FileSaver.saveAs(fileBlob, filename)
+export const handleSaveFile = (billingFile: Blob, filename: string) => () => {
+  FileSaver.saveAs(billingFile, filename)
 }
 
-export const renderDownloadCell = ({ row: { original } }) => {
-  const { period, fileBlob } = original
-  const filename = `billing_period_${period}.csv`
-  return <a onClick={handleSaveFile(fileBlob, filename)}>Download</a>
+export const renderDownloadBillingCell = ({ row: { original } }) => {
+  const { period, billingFile } = original
+  const filename = `billing_developer_period_${period}.csv`
+  return <a onClick={handleSaveFile(billingFile, filename)}>Download</a>
+}
+
+export const renderDownloadDwBillingCell = ({ row: { original } }) => {
+  const { period, billingDwFile } = original
+  const filename = `billing_data_warehouse_period_${period}.csv`
+  return <a onClick={handleSaveFile(billingDwFile, filename)}>Download</a>
 }
 
 export const columns = [
@@ -33,25 +40,48 @@ export const columns = [
     accessor: 'period',
   },
   {
-    Header: 'File',
-    Cell: renderDownloadCell,
+    Header: 'Developer Billing',
+    Cell: renderDownloadBillingCell,
+  },
+  {
+    Header: 'Data Warehouse Billing',
+    Cell: renderDownloadDwBillingCell,
   },
 ]
 
-export const handleDownloadBillingPeriod = (period: string, setFileBlob: Dispatch<Blob | undefined>) => () => {
-  if (!period) return
-  fetchDeveloperBillingPeriod({ period })
-    .then((blob) => {
-      if (blob instanceof FetchError) throw blob
-      setFileBlob(blob)
-    })
-    .catch((error) => {
-      notification.error({
-        message: error.message || errorMessages.DEFAULT_SERVER_ERROR,
-        duration: 5,
-      })
-    })
-}
+export const handleDownloadBillingPeriod =
+  (
+    period: string,
+    setBillingFile: Dispatch<SetStateAction<Blob | null>>,
+    setBillingDwFile: Dispatch<SetStateAction<Blob | null>>,
+  ) =>
+  () => {
+    const fetchBilling = async () => {
+      if (!period) return
+
+      try {
+        const billingFile = await fetchDeveloperBillingPeriod({ period })
+        const billingDwFile = await fetchCustomerWarehouseCosts(period)
+
+        if (!billingFile || billingFile instanceof FetchError) {
+          throw billingFile
+        }
+        setBillingFile(billingFile as Blob)
+
+        if (!billingDwFile || billingDwFile instanceof FetchError) {
+          throw billingDwFile
+        }
+        setBillingDwFile(billingDwFile as Blob)
+      } catch (error) {
+        notification.error({
+          message: error.message || errorMessages.DEFAULT_SERVER_ERROR,
+          duration: 5,
+        })
+      }
+    }
+
+    fetchBilling()
+  }
 
 export const genarateYearsListOptions = (yearFrom: number) => {
   const years: SelectOption[] = []
@@ -84,19 +114,21 @@ const monthOptions = genarateMonthsListOptions(MONTHS)
 const yearOptions = genarateYearsListOptions(2020)
 
 export const AdminBilling: React.FC = () => {
-  const [fileBlob, setFileBlob] = useState<Blob | undefined>()
+  const [billingFile, setBillingFile] = useState<Blob | null>(null)
+  const [billingDwFile, setBillingDwFile] = useState<Blob | null>(null)
   const [month, setMonth] = useState<string>(dayjs().format('MM'))
   const [year, setYear] = useState<string>(dayjs().format('YYYY'))
 
   const period = `${year}-${month}`
 
-  useEffect(handleDownloadBillingPeriod(period, setFileBlob), [period])
+  useEffect(handleDownloadBillingPeriod(period, setBillingFile, setBillingDwFile), [period])
 
   const onChangePeriod = handleChangePeriod(setMonth, setYear)
   const tableData = [
     {
       period,
-      fileBlob,
+      billingFile,
+      billingDwFile,
     },
   ]
 
@@ -121,7 +153,7 @@ export const AdminBilling: React.FC = () => {
           </Grid>
         </Form>
       </Formik>
-      <Table scrollable={true} loading={!fileBlob} data={tableData} columns={columns} />
+      <Table scrollable={true} loading={!billingFile || !billingDwFile} data={tableData} columns={columns} />
     </>
   )
 }

@@ -34,6 +34,5 @@ export const bulkInstall = async (
     }
   } catch (err) {
     logger(err)
-    throw err
   }
 }

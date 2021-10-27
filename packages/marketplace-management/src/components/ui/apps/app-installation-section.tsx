@@ -1,5 +1,5 @@
 import React, { Dispatch, FC, SetStateAction } from 'react'
-import { InstallationModelPagedResult } from '@reapit/foundations-ts-definitions'
+import { InstallationModel } from '@reapit/foundations-ts-definitions'
 import AppInstallationPerOfficeGroup from './app-installation-per-office-group'
 import { WHOLE_ORG, SPECIFIC_OFFICE_GROUPS, InstallTypes } from './app-installation-manager'
 import {
@@ -19,13 +19,22 @@ export interface AppInstallationSectionProps {
   initialAppInstallationType: InstallTypes
   appInstallationType: InstallTypes
   onCheckboxChange: (installType: InstallTypes) => void
-  installations: InstallationModelPagedResult | undefined
+  installations: InstallationModel[]
   officeGroupsToAdd: string[]
   officeGroupsToRemove: string[]
   setOfficeGroupsToAdd: Dispatch<SetStateAction<string[]>>
   setOfficeGroupsToRemove: Dispatch<SetStateAction<string[]>>
   installationsValidating: boolean
-  setShowConfirmModal: (state: boolean) => void
+  setShowConfirmModal: Dispatch<SetStateAction<boolean>>
+}
+
+export const handleOnCheckboxChange =
+  (installType: InstallTypes, onCheckboxChange: (installType: InstallTypes) => void) => () => {
+    onCheckboxChange(installType)
+  }
+
+export const handleModalOpen = (isOpen: boolean, setShowConfirmModal: Dispatch<SetStateAction<boolean>>) => () => {
+  setShowConfirmModal(isOpen)
 }
 
 export const AppInstallationSection: FC<AppInstallationSectionProps> = ({
@@ -57,7 +66,7 @@ export const AppInstallationSection: FC<AppInstallationSectionProps> = ({
             label="Install for the whole of your organisation"
             id={WHOLE_ORG}
             checked={appInstallationType === WHOLE_ORG}
-            onChange={() => onCheckboxChange(WHOLE_ORG)}
+            onChange={handleOnCheckboxChange(WHOLE_ORG, onCheckboxChange)}
           />
           <BodyText>
             This will grant the app access to all data for all users and offices across your organisation
@@ -70,7 +79,7 @@ export const AppInstallationSection: FC<AppInstallationSectionProps> = ({
             label="Install for specific office groups"
             id={SPECIFIC_OFFICE_GROUPS}
             checked={appInstallationType === SPECIFIC_OFFICE_GROUPS}
-            onChange={() => onCheckboxChange(SPECIFIC_OFFICE_GROUPS)}
+            onChange={handleOnCheckboxChange(SPECIFIC_OFFICE_GROUPS, onCheckboxChange)}
           />
           <BodyText>
             This will grant the app access to only data for the specific offices inside of each office group
@@ -90,7 +99,7 @@ export const AppInstallationSection: FC<AppInstallationSectionProps> = ({
               size={2}
               chevronRight
               disabled={!submitButtonEnabled}
-              onClick={() => setShowConfirmModal(true)}
+              onClick={handleModalOpen(true, setShowConfirmModal)}
             >
               Save
             </Button>

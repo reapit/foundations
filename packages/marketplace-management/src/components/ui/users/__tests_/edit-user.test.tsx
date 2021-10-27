@@ -1,27 +1,32 @@
 import React from 'react'
-import { shallow } from 'enzyme'
+import { render } from '@testing-library/react'
 import UpdateUserModal, { EditUserFormProps, onHandleSubmit } from '../edit-user'
 import { UserModel } from '../../../../types/organisations-schema'
 import { addMemberToGroup, removeMemberFromGroup } from '../../../../services/user'
+import useSWR from 'swr'
+import { mockUserGroups } from '../../../../services/__stubs__/user-groups'
 
-const filterProps = (): EditUserFormProps => ({
+jest.mock('../../../../core/connect-session')
+jest.mock('../../../../services/user')
+jest.mock('swr')
+
+const mockSWR = useSWR as jest.Mock
+
+const props = (): EditUserFormProps => ({
   user: { id: 'GR1', name: 'User Name', groups: ['OF1', 'OF2'] },
   onComplete: jest.fn(),
   orgId: 'SOME_ID',
 })
 
-jest.mock('../../../../core/connect-session')
-jest.mock('../../../../services/user')
-
-jest.mock('swr', () =>
-  jest.fn(() => ({
-    data: require('../__stubs__/user-groups').data,
-  })),
-)
 describe('UpdateUserModal', () => {
-  it('should match a snapshot', () => {
+  it('should match a snapshot where there is data', () => {
     window.reapit.config.groupIdsWhitelist = ['OF1', 'OF2']
-    expect(shallow(<UpdateUserModal {...filterProps()} />)).toMatchSnapshot()
+    mockSWR.mockReturnValue({
+      data: mockUserGroups,
+      error: {},
+      mutate: jest.fn(),
+    })
+    expect(render(<UpdateUserModal {...props()} />)).toMatchSnapshot()
   })
 })
 

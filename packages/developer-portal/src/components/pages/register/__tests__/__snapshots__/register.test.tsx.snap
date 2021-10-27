@@ -60,412 +60,391 @@ exports[`Register should match a snapshot 1`] = `
           className="clgvn7z-container"
         >
           <div
-            className="iich6-image-container"
+            className="i1m3gui8-image-container"
           >
-            <div
-              className="lawfo3s-login-image"
-            />
+            <KeyAnimation
+              step={1}
+            >
+              <div
+                className="c1irikpe-container"
+              >
+                <div
+                  className="b1qrkx47-background"
+                >
+                  <img
+                    src={Object {}}
+                  />
+                </div>
+                <div
+                  className="k1aw5mx5-keyhole-container"
+                >
+                  <div
+                    className="kbko6ld-keyhole"
+                  >
+                    <div
+                      className="k1wymg0q-keyhole-mask"
+                    />
+                    <div
+                      className="kvq3hqe-key"
+                    >
+                      <img
+                        src={Object {}}
+                      />
+                      <img
+                        className="s1n1ktmd-star"
+                        src={Object {}}
+                      />
+                      <img
+                        className="s1n1ktmd-star"
+                        src={Object {}}
+                      />
+                      <img
+                        className="s1n1ktmd-star"
+                        src={Object {}}
+                      />
+                    </div>
+                    <img
+                      src={Object {}}
+                    />
+                  </div>
+                </div>
+                <div
+                  className="t1iywawv-triangle1"
+                />
+                <div
+                  className="toze2rs-triangle2"
+                />
+                <div
+                  className="t1v5v0js-triangle3"
+                />
+              </div>
+            </KeyAnimation>
           </div>
           <div
             className="wj5na9i-wrapper"
           >
-            <H1
-              isCentered={true}
-            >
-              <h1
-                className="title is-1 has-text-centered"
-                id=""
+            <Title>
+              <ElTitle
+                className=""
               >
-                Register
-              </h1>
-            </H1>
-            <p
-              className="mb-4"
-            >
-              Reapit Foundations developers
-            </p>
-            <Formik
-              initialValues={
-                Object {
-                  "agreedTerms": "",
-                  "companyName": "",
-                  "email": "",
-                  "name": "",
-                  "telephone": "",
-                }
-              }
-              onSubmit={[Function]}
-              validationSchema={
-                ObjectSchema {
-                  "_blacklist": RefSet {
-                    "list": Set {},
-                    "refs": Map {},
-                  },
-                  "_conditions": Array [],
-                  "_defaultDefault": [Function],
-                  "_deps": Array [],
-                  "_excludedEdges": Array [],
-                  "_exclusive": Object {},
-                  "_mutate": undefined,
-                  "_nodes": Array [
-                    "telephone",
-                    "email",
-                    "companyName",
-                    "name",
-                  ],
-                  "_options": Object {
-                    "abortEarly": true,
-                    "recursive": true,
-                  },
-                  "_type": "object",
-                  "_typeError": [Function],
-                  "_whitelist": RefSet {
-                    "list": Set {},
-                    "refs": Map {},
-                  },
-                  "fields": Object {
-                    "companyName": StringSchema {
-                      "_blacklist": RefSet {
-                        "list": Set {},
-                        "refs": Map {},
-                      },
-                      "_conditions": Array [],
-                      "_deps": Array [],
-                      "_exclusive": Object {
-                        "required": true,
-                        "trim": false,
-                      },
-                      "_mutate": undefined,
-                      "_options": Object {
-                        "abortEarly": true,
-                        "recursive": true,
-                      },
-                      "_type": "string",
-                      "_typeError": [Function],
-                      "_whitelist": RefSet {
-                        "list": Set {},
-                        "refs": Map {},
-                      },
-                      "tests": Array [
-                        [Function],
-                        [Function],
-                      ],
-                      "transforms": Array [
-                        [Function],
-                        [Function],
-                      ],
-                      "type": "string",
-                    },
-                    "email": StringSchema {
-                      "_blacklist": RefSet {
-                        "list": Set {},
-                        "refs": Map {},
-                      },
-                      "_conditions": Array [],
-                      "_deps": Array [],
-                      "_exclusive": Object {
-                        "matches": false,
-                        "required": true,
-                        "trim": false,
-                      },
-                      "_mutate": undefined,
-                      "_options": Object {
-                        "abortEarly": true,
-                        "recursive": true,
-                      },
-                      "_type": "string",
-                      "_typeError": [Function],
-                      "_whitelist": RefSet {
-                        "list": Set {},
-                        "refs": Map {},
-                      },
-                      "tests": Array [
-                        [Function],
-                        [Function],
-                        [Function],
-                      ],
-                      "transforms": Array [
-                        [Function],
-                        [Function],
-                      ],
-                      "type": "string",
-                    },
-                    "name": StringSchema {
-                      "_blacklist": RefSet {
-                        "list": Set {},
-                        "refs": Map {},
-                      },
-                      "_conditions": Array [],
-                      "_deps": Array [],
-                      "_exclusive": Object {
-                        "matches": false,
-                        "required": true,
-                        "trim": false,
-                      },
-                      "_mutate": undefined,
-                      "_options": Object {
-                        "abortEarly": true,
-                        "recursive": true,
-                      },
-                      "_type": "string",
-                      "_typeError": [Function],
-                      "_whitelist": RefSet {
-                        "list": Set {},
-                        "refs": Map {},
-                      },
-                      "tests": Array [
-                        [Function],
-                        [Function],
-                        [Function],
-                      ],
-                      "transforms": Array [
-                        [Function],
-                        [Function],
-                      ],
-                      "type": "string",
-                    },
-                    "telephone": StringSchema {
-                      "_blacklist": RefSet {
-                        "list": Set {},
-                        "refs": Map {},
-                      },
-                      "_conditions": Array [],
-                      "_deps": Array [],
-                      "_exclusive": Object {
-                        "matches": false,
-                        "required": true,
-                        "trim": false,
-                      },
-                      "_mutate": undefined,
-                      "_options": Object {
-                        "abortEarly": true,
-                        "recursive": true,
-                      },
-                      "_type": "string",
-                      "_typeError": [Function],
-                      "_whitelist": RefSet {
-                        "list": Set {},
-                        "refs": Map {},
-                      },
-                      "tests": Array [
-                        [Function],
-                        [Function],
-                        [Function],
-                      ],
-                      "transforms": Array [
-                        [Function],
-                        [Function],
-                      ],
-                      "type": "string",
-                    },
-                  },
-                  "tests": Array [],
-                  "transforms": Array [
-                    [Function],
-                  ],
-                  "type": "object",
-                }
-              }
-            >
-              <Form
-                data-test="register-form"
-                noValidate={true}
-              >
-                <form
-                  action="#"
-                  data-test="register-form"
-                  noValidate={true}
-                  onReset={[Function]}
-                  onSubmit={[Function]}
+                <h1
+                  className="etrchfm-el-title"
                 >
-                  <FormSection>
-                    <div
-                      className="form-section"
-                    >
-                      <FormHeading>
+                  Register
+                </h1>
+              </ElTitle>
+            </Title>
+            <Subtitle
+              hasBoldText={true}
+              hasCenteredText={true}
+            >
+              <ElSubtitle
+                className="eh96l6x-el-has-bold-text e1bb7egt-el-has-centered-text"
+              >
+                <h2
+                  className="eh96l6x-el-has-bold-text e1bb7egt-el-has-centered-text e2dm5rh-el-subtitle"
+                >
+                  Reapit Foundations Developers
+                </h2>
+              </ElSubtitle>
+            </Subtitle>
+            <form
+              onChange={[Function]}
+              onSubmit={[Function]}
+            >
+              <Subtitle>
+                <ElSubtitle
+                  className=""
+                >
+                  <h2
+                    className="e2dm5rh-el-subtitle"
+                  >
+                    Register for Foundations
+                  </h2>
+                </ElSubtitle>
+              </Subtitle>
+              <BodyText
+                hasGreyText={true}
+              >
+                <ElBodyText
+                  className="e11jaxfn-el-has-grey-text"
+                >
+                  <p
+                    className="e11jaxfn-el-has-grey-text evblxhy-el-body-text"
+                  >
+                    By registering for the Foundations platform, you will get access to the Reapit developer portal and sandbox data. You will also get the opportunity to list apps in the Reapit Marketplace. We look forward to seeing what you build!
+                  </p>
+                </ElBodyText>
+              </BodyText>
+              <FormLayout>
+                <ElFormLayout>
+                  <div
+                    className="e1fwulnz-el-form-layout"
+                  >
+                    <InputWrapFull>
+                      <ElInputWrapFull>
                         <div
-                          className="form-heading"
+                          className="ee8eqmp-el-input-wrap-full"
                         >
-                          Register for Foundations
+                          <ForwardRef
+                            id="name"
+                            label="Full name"
+                            name="name"
+                            onBlur={[Function]}
+                            onChange={[Function]}
+                            placeholder="Joe Developer"
+                            type="text"
+                          >
+                            <ElInputGroup>
+                              <div
+                                className="e1979rmu-el-input-group"
+                              >
+                                <ForwardRef
+                                  id="name"
+                                  name="name"
+                                  onBlur={[Function]}
+                                  onChange={[Function]}
+                                  placeholder="Joe Developer"
+                                  type="text"
+                                >
+                                  <ElInput
+                                    id="name"
+                                    name="name"
+                                    onBlur={[Function]}
+                                    onChange={[Function]}
+                                    placeholder="Joe Developer"
+                                    type="text"
+                                  >
+                                    <input
+                                      className="e1urjlvd-el-input"
+                                      id="name"
+                                      name="name"
+                                      onBlur={[Function]}
+                                      onChange={[Function]}
+                                      placeholder="Joe Developer"
+                                      type="text"
+                                    />
+                                  </ElInput>
+                                </ForwardRef>
+                                <Label
+                                  htmlFor="name"
+                                >
+                                  <ElLabel
+                                    htmlFor="name"
+                                  >
+                                    <label
+                                      className="e1nbkkrq-el-label"
+                                      htmlFor="name"
+                                    >
+                                      Full name
+                                    </label>
+                                  </ElLabel>
+                                </Label>
+                              </div>
+                            </ElInputGroup>
+                          </ForwardRef>
                         </div>
-                      </FormHeading>
-                      <FormSubHeading>
+                      </ElInputWrapFull>
+                    </InputWrapFull>
+                    <InputWrapFull>
+                      <ElInputWrapFull>
                         <div
-                          className="form-subheading"
+                          className="ee8eqmp-el-input-wrap-full"
                         >
-                          By registering for the Foundations platform, you will get access to the Reapit developer portal and sandbox data. You will also get the opportunity to list apps in the Reapit Marketplace. We look forward to seeing what you build!
+                          <ForwardRef
+                            id="companyName"
+                            label="Company name"
+                            name="companyName"
+                            onBlur={[Function]}
+                            onChange={[Function]}
+                            placeholder="Acme Industries Ltd"
+                            type="text"
+                          >
+                            <ElInputGroup>
+                              <div
+                                className="e1979rmu-el-input-group"
+                              >
+                                <ForwardRef
+                                  id="companyName"
+                                  name="companyName"
+                                  onBlur={[Function]}
+                                  onChange={[Function]}
+                                  placeholder="Acme Industries Ltd"
+                                  type="text"
+                                >
+                                  <ElInput
+                                    id="companyName"
+                                    name="companyName"
+                                    onBlur={[Function]}
+                                    onChange={[Function]}
+                                    placeholder="Acme Industries Ltd"
+                                    type="text"
+                                  >
+                                    <input
+                                      className="e1urjlvd-el-input"
+                                      id="companyName"
+                                      name="companyName"
+                                      onBlur={[Function]}
+                                      onChange={[Function]}
+                                      placeholder="Acme Industries Ltd"
+                                      type="text"
+                                    />
+                                  </ElInput>
+                                </ForwardRef>
+                                <Label
+                                  htmlFor="companyName"
+                                >
+                                  <ElLabel
+                                    htmlFor="companyName"
+                                  >
+                                    <label
+                                      className="e1nbkkrq-el-label"
+                                      htmlFor="companyName"
+                                    >
+                                      Company name
+                                    </label>
+                                  </ElLabel>
+                                </Label>
+                              </div>
+                            </ElInputGroup>
+                          </ForwardRef>
                         </div>
-                      </FormSubHeading>
-                      <Input
-                        dataTest="register-name"
-                        id="name"
-                        labelText="Full name"
-                        name="name"
-                        placeholder="Joe Developer"
-                        type="text"
-                      >
-                        <Field
-                          name="name"
-                          validate={[Function]}
-                        >
-                          <div
-                            className="field"
-                          >
-                            <div
-                              className="control "
-                            >
-                              <label
-                                className="label inline-block "
-                                htmlFor="name"
-                              >
-                                Full name
-                              </label>
-                              <input
-                                className="input is-primary"
-                                data-test="register-name"
-                                disabled={false}
-                                id="name"
-                                name="name"
-                                onBlur={[Function]}
-                                onChange={[Function]}
-                                placeholder="Joe Developer"
-                                type="text"
-                                value=""
-                              />
-                            </div>
-                          </div>
-                        </Field>
-                      </Input>
-                      <Input
-                        dataTest="register-company-name"
-                        id="companyName"
-                        labelText="Company name"
-                        name="companyName"
-                        placeholder="Acme Industries Ltd"
-                        type="text"
-                      >
-                        <Field
-                          name="companyName"
-                          validate={[Function]}
-                        >
-                          <div
-                            className="field"
-                          >
-                            <div
-                              className="control "
-                            >
-                              <label
-                                className="label inline-block "
-                                htmlFor="companyName"
-                              >
-                                Company name
-                              </label>
-                              <input
-                                className="input is-primary"
-                                data-test="register-company-name"
-                                disabled={false}
-                                id="companyName"
-                                name="companyName"
-                                onBlur={[Function]}
-                                onChange={[Function]}
-                                placeholder="Acme Industries Ltd"
-                                type="text"
-                                value=""
-                              />
-                            </div>
-                          </div>
-                        </Field>
-                      </Input>
-                      <Input
-                        dataTest="register-email"
-                        id="email"
-                        labelText="Email"
-                        name="email"
-                        placeholder="name@address.com"
-                        type="email"
-                      >
-                        <Field
-                          name="email"
-                          validate={[Function]}
-                        >
-                          <div
-                            className="field"
-                          >
-                            <div
-                              className="control "
-                            >
-                              <label
-                                className="label inline-block "
-                                htmlFor="email"
-                              >
-                                Email
-                              </label>
-                              <input
-                                className="input is-primary"
-                                data-test="register-email"
-                                disabled={false}
-                                id="email"
-                                name="email"
-                                onBlur={[Function]}
-                                onChange={[Function]}
-                                placeholder="name@address.com"
-                                type="email"
-                                value=""
-                              />
-                            </div>
-                          </div>
-                        </Field>
-                      </Input>
-                      <Input
-                        dataTest="register-telephone"
-                        id="telephone"
-                        labelText="Telephone"
-                        name="telephone"
-                        placeholder="0800 800 800"
-                        type="tel"
-                      >
-                        <Field
-                          name="telephone"
-                          validate={[Function]}
-                        >
-                          <div
-                            className="field"
-                          >
-                            <div
-                              className="control "
-                            >
-                              <label
-                                className="label inline-block "
-                                htmlFor="telephone"
-                              >
-                                Telephone
-                              </label>
-                              <input
-                                className="input is-primary"
-                                data-test="register-telephone"
-                                disabled={false}
-                                id="telephone"
-                                name="telephone"
-                                onBlur={[Function]}
-                                onChange={[Function]}
-                                placeholder="0800 800 800"
-                                type="tel"
-                                value=""
-                              />
-                            </div>
-                          </div>
-                        </Field>
-                      </Input>
-                    </div>
-                  </FormSection>
-                  <FormSection>
-                    <div
-                      className="form-section"
-                    >
-                      <Level>
+                      </ElInputWrapFull>
+                    </InputWrapFull>
+                    <InputWrapFull>
+                      <ElInputWrapFull>
                         <div
-                          className="level"
-                          data-test=""
+                          className="ee8eqmp-el-input-wrap-full"
+                        >
+                          <ForwardRef
+                            id="email"
+                            label="Email"
+                            name="email"
+                            onBlur={[Function]}
+                            onChange={[Function]}
+                            placeholder="name@address.com"
+                            type="email"
+                          >
+                            <ElInputGroup>
+                              <div
+                                className="e1979rmu-el-input-group"
+                              >
+                                <ForwardRef
+                                  id="email"
+                                  name="email"
+                                  onBlur={[Function]}
+                                  onChange={[Function]}
+                                  placeholder="name@address.com"
+                                  type="email"
+                                >
+                                  <ElInput
+                                    id="email"
+                                    name="email"
+                                    onBlur={[Function]}
+                                    onChange={[Function]}
+                                    placeholder="name@address.com"
+                                    type="email"
+                                  >
+                                    <input
+                                      className="e1urjlvd-el-input"
+                                      id="email"
+                                      name="email"
+                                      onBlur={[Function]}
+                                      onChange={[Function]}
+                                      placeholder="name@address.com"
+                                      type="email"
+                                    />
+                                  </ElInput>
+                                </ForwardRef>
+                                <Label
+                                  htmlFor="email"
+                                >
+                                  <ElLabel
+                                    htmlFor="email"
+                                  >
+                                    <label
+                                      className="e1nbkkrq-el-label"
+                                      htmlFor="email"
+                                    >
+                                      Email
+                                    </label>
+                                  </ElLabel>
+                                </Label>
+                              </div>
+                            </ElInputGroup>
+                          </ForwardRef>
+                        </div>
+                      </ElInputWrapFull>
+                    </InputWrapFull>
+                    <InputWrapFull>
+                      <ElInputWrapFull>
+                        <div
+                          className="ee8eqmp-el-input-wrap-full"
+                        >
+                          <ForwardRef
+                            id="telephone"
+                            label="Telephone"
+                            name="telephone"
+                            onBlur={[Function]}
+                            onChange={[Function]}
+                            placeholder="0800 800 800"
+                            type="tel"
+                          >
+                            <ElInputGroup>
+                              <div
+                                className="e1979rmu-el-input-group"
+                              >
+                                <ForwardRef
+                                  id="telephone"
+                                  name="telephone"
+                                  onBlur={[Function]}
+                                  onChange={[Function]}
+                                  placeholder="0800 800 800"
+                                  type="tel"
+                                >
+                                  <ElInput
+                                    id="telephone"
+                                    name="telephone"
+                                    onBlur={[Function]}
+                                    onChange={[Function]}
+                                    placeholder="0800 800 800"
+                                    type="tel"
+                                  >
+                                    <input
+                                      className="e1urjlvd-el-input"
+                                      id="telephone"
+                                      name="telephone"
+                                      onBlur={[Function]}
+                                      onChange={[Function]}
+                                      placeholder="0800 800 800"
+                                      type="tel"
+                                    />
+                                  </ElInput>
+                                </ForwardRef>
+                                <Label
+                                  htmlFor="telephone"
+                                >
+                                  <ElLabel
+                                    htmlFor="telephone"
+                                  >
+                                    <label
+                                      className="e1nbkkrq-el-label"
+                                      htmlFor="telephone"
+                                    >
+                                      Telephone
+                                    </label>
+                                  </ElLabel>
+                                </Label>
+                              </div>
+                            </ElInputGroup>
+                          </ForwardRef>
+                        </div>
+                      </ElInputWrapFull>
+                    </InputWrapFull>
+                    <InputWrapFull>
+                      <ElInputWrapFull>
+                        <div
+                          className="ee8eqmp-el-input-wrap-full"
                         >
                           <TermsAndConditionsModal
                             afterClose={[Function]}
@@ -502,50 +481,66 @@ exports[`Register should match a snapshot 1`] = `
                             />
                           </TermsAndConditionsModal>
                           <Button
-                            dataTest="button-register"
                             fullWidth={true}
-                            onClick={[Function]}
+                            intent="primary"
+                            loading={false}
                           >
-                            <button
-                              className="button is-fullwidth  is-primary "
-                              data-test="button-register"
-                              disabled={false}
-                              onClick={[Function]}
-                              type="button"
+                            <ElButton
+                              className="ebee6r1-el-intent-primary e1yw9yco-el-wfull"
                             >
-                              Register
-                            </button>
-                          </Button>
-                        </div>
-                      </Level>
-                      <Level>
-                        <div
-                          className="level"
-                          data-test=""
-                        >
-                          Already have an account?
-                          <Link
-                            to="/login"
-                          >
-                            <LinkAnchor
-                              href="/login"
-                              navigate={[Function]}
-                            >
-                              <a
-                                href="/login"
-                                onClick={[Function]}
+                              <button
+                                className="ebee6r1-el-intent-primary e1yw9yco-el-wfull e1f2ikqj-el-button"
                               >
-                                Login
-                              </a>
-                            </LinkAnchor>
-                          </Link>
+                                Register
+                              </button>
+                            </ElButton>
+                          </Button>
+                          <FlexContainer
+                            className="e1nhfde7-el-mt12"
+                            isFlexJustifyBetween={true}
+                          >
+                            <ElFlexContainer
+                              className="e1q0zwo9-el-flex-justify-between e1nhfde7-el-mt12"
+                            >
+                              <div
+                                className="e1q0zwo9-el-flex-justify-between e1nhfde7-el-mt12 e2kmzjs-el-flex-container"
+                              >
+                                <BodyText>
+                                  <ElBodyText
+                                    className=""
+                                  >
+                                    <p
+                                      className="evblxhy-el-body-text"
+                                    >
+                                      Already have an account?
+                                    </p>
+                                  </ElBodyText>
+                                </BodyText>
+                                <Link
+                                  to="/login"
+                                >
+                                  <LinkAnchor
+                                    href="/login"
+                                    navigate={[Function]}
+                                  >
+                                    <a
+                                      href="/login"
+                                      onClick={[Function]}
+                                    >
+                                      Login
+                                    </a>
+                                  </LinkAnchor>
+                                </Link>
+                              </div>
+                            </ElFlexContainer>
+                          </FlexContainer>
                         </div>
-                      </Level>
-                    </div>
-                  </FormSection>
-                </form>
-              </Form>
-            </Formik>
+                      </ElInputWrapFull>
+                    </InputWrapFull>
+                  </div>
+                </ElFormLayout>
+              </FormLayout>
+            </form>
           </div>
         </div>
       </Register>

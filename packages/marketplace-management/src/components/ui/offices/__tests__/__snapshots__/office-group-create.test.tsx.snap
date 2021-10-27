@@ -1,121 +1,375 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`OfficeGroupCreate should match a snapshot 1`] = `
-<form
-  onChange={[Function]}
-  onSubmit={[Function]}
->
-  <Title>
-    SOME_NAME
-     Create Office Group
-  </Title>
-  <StepsVertical
-    onStepClick={[Function]}
-    selectedStep="1"
-    steps={
-      Array [
-        Object {
-          "content": <FormLayout
-            className="el-fade-in el-mb11"
+Object {
+  "asFragment": [Function],
+  "baseElement": <body>
+    <div>
+      <form>
+        <h1
+          class="el-title"
+        >
+          SOME_NAME
+           Create Office Group
+        </h1>
+        <div
+          class="el-steps-vertical"
+        >
+          <div
+            class="el-step-vertical"
           >
-            <InputWrapFull>
-              <BodyText
-                hasGreyText={true}
+            <div
+              class="el-step-vertical-item"
+            >
+              <div
+                class="el-is-active el-step"
               >
-                Add a name for your office group.
-              </BodyText>
-            </InputWrapFull>
-            <InputWrap>
-              <ForwardRef
-                intent="danger"
-                label="Office Group Name"
-                name="name"
-                onBlur={[Function]}
-                onChange={[Function]}
-                placeholder="Enter an office group name"
-              />
-            </InputWrap>
-          </FormLayout>,
-          "item": "1",
-        },
-        Object {
-          "content": <FormLayout
-            className="el-fade-in el-mb11"
-          >
-            <InputWrapFull>
-              <BodyText
-                hasGreyText={true}
+                1
+              </div>
+            </div>
+            <div
+              class="el-step-vertical-content"
+            >
+              <div
+                class="el-fade-in el-mb11 el-form-layout"
               >
-                To manage offices associated to this group, you can search and select users from the ‘Offices’ section below:
-              </BodyText>
-            </InputWrapFull>
-            <InputWrapFull>
-              <ForwardRef
-                icon="searchSystem"
-                label="Offices"
-                onChange={[Function]}
-                placeholder="Search"
-              />
-              <ForwardRef
-                defaultValues={Array []}
-                id="office-ids-select"
-                name="officeIds"
-                noneSelectedLabel="No offices selected for this group"
-                onBlur={[Function]}
-                onChange={[Function]}
-                options={Array []}
-              />
-            </InputWrapFull>
-          </FormLayout>,
-          "item": "2",
-        },
-        Object {
-          "content": <FormLayout
-            className="el-fade-in el-mb11"
-          >
-            <InputWrapFull>
-              <BodyText
-                hasGreyText={true}
-              >
-                Toggle the below to determine if the office grouping is live or not.
-              </BodyText>
-            </InputWrapFull>
-            <InputWrap>
-              <Label>
-                Group Active
-              </Label>
-              <ForwardRef
-                hasGreyBg={true}
-                id="status-edit-toggle"
-                name="status"
-                onBlur={[Function]}
-                onChange={[Function]}
-              >
-                <ElToggleItem>
-                  Active
-                </ElToggleItem>
-                <ElToggleItem>
-                  Inactive
-                </ElToggleItem>
-              </ForwardRef>
-            </InputWrap>
-            <InputWrapFull>
-              <ButtonGroup
-                alignment="right"
-              >
-                <Button
-                  intent="primary"
-                  type="submit"
+                <div
+                  class="el-input-wrap-full"
                 >
-                  Submit
-                </Button>
-              </ButtonGroup>
-            </InputWrapFull>
-          </FormLayout>,
-          "item": "3",
-        },
-      ]
-    }
-  />
-</form>
+                  <p
+                    class="el-has-grey-text el-body-text"
+                  >
+                    Add a name for your office group.
+                  </p>
+                </div>
+                <div
+                  class="el-input-wrap"
+                >
+                  <div
+                    class="el-input-group"
+                  >
+                    <input
+                      class="el-input"
+                      id="test-static-id"
+                      name="name"
+                      placeholder="Enter an office group name"
+                    />
+                    <label
+                      class="el-label"
+                      for="test-static-id"
+                    >
+                      Office Group Name
+                    </label>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </form>
+    </div>
+  </body>,
+  "container": <div>
+    <form>
+      <h1
+        class="el-title"
+      >
+        SOME_NAME
+         Create Office Group
+      </h1>
+      <div
+        class="el-steps-vertical"
+      >
+        <div
+          class="el-step-vertical"
+        >
+          <div
+            class="el-step-vertical-item"
+          >
+            <div
+              class="el-is-active el-step"
+            >
+              1
+            </div>
+          </div>
+          <div
+            class="el-step-vertical-content"
+          >
+            <div
+              class="el-fade-in el-mb11 el-form-layout"
+            >
+              <div
+                class="el-input-wrap-full"
+              >
+                <p
+                  class="el-has-grey-text el-body-text"
+                >
+                  Add a name for your office group.
+                </p>
+              </div>
+              <div
+                class="el-input-wrap"
+              >
+                <div
+                  class="el-input-group"
+                >
+                  <input
+                    class="el-input"
+                    id="test-static-id"
+                    name="name"
+                    placeholder="Enter an office group name"
+                  />
+                  <label
+                    class="el-label"
+                    for="test-static-id"
+                  >
+                    Office Group Name
+                  </label>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </form>
+  </div>,
+  "debug": [Function],
+  "findAllByAltText": [Function],
+  "findAllByDisplayValue": [Function],
+  "findAllByLabelText": [Function],
+  "findAllByPlaceholderText": [Function],
+  "findAllByRole": [Function],
+  "findAllByTestId": [Function],
+  "findAllByText": [Function],
+  "findAllByTitle": [Function],
+  "findByAltText": [Function],
+  "findByDisplayValue": [Function],
+  "findByLabelText": [Function],
+  "findByPlaceholderText": [Function],
+  "findByRole": [Function],
+  "findByTestId": [Function],
+  "findByText": [Function],
+  "findByTitle": [Function],
+  "getAllByAltText": [Function],
+  "getAllByDisplayValue": [Function],
+  "getAllByLabelText": [Function],
+  "getAllByPlaceholderText": [Function],
+  "getAllByRole": [Function],
+  "getAllByTestId": [Function],
+  "getAllByText": [Function],
+  "getAllByTitle": [Function],
+  "getByAltText": [Function],
+  "getByDisplayValue": [Function],
+  "getByLabelText": [Function],
+  "getByPlaceholderText": [Function],
+  "getByRole": [Function],
+  "getByTestId": [Function],
+  "getByText": [Function],
+  "getByTitle": [Function],
+  "queryAllByAltText": [Function],
+  "queryAllByDisplayValue": [Function],
+  "queryAllByLabelText": [Function],
+  "queryAllByPlaceholderText": [Function],
+  "queryAllByRole": [Function],
+  "queryAllByTestId": [Function],
+  "queryAllByText": [Function],
+  "queryAllByTitle": [Function],
+  "queryByAltText": [Function],
+  "queryByDisplayValue": [Function],
+  "queryByLabelText": [Function],
+  "queryByPlaceholderText": [Function],
+  "queryByRole": [Function],
+  "queryByTestId": [Function],
+  "queryByText": [Function],
+  "queryByTitle": [Function],
+  "rerender": [Function],
+  "unmount": [Function],
+}
+`;
+
+exports[`OfficeGroupCreate should match a snapshot where there is no orgId 1`] = `
+Object {
+  "asFragment": [Function],
+  "baseElement": <body>
+    <div>
+      <form>
+        <h1
+          class="el-title"
+        >
+          SOME_NAME
+           Create Office Group
+        </h1>
+        <div
+          class="el-steps-vertical"
+        >
+          <div
+            class="el-step-vertical"
+          >
+            <div
+              class="el-step-vertical-item"
+            >
+              <div
+                class="el-is-active el-step"
+              >
+                1
+              </div>
+            </div>
+            <div
+              class="el-step-vertical-content"
+            >
+              <div
+                class="el-fade-in el-mb11 el-form-layout"
+              >
+                <div
+                  class="el-input-wrap-full"
+                >
+                  <p
+                    class="el-has-grey-text el-body-text"
+                  >
+                    Add a name for your office group.
+                  </p>
+                </div>
+                <div
+                  class="el-input-wrap"
+                >
+                  <div
+                    class="el-input-group"
+                  >
+                    <input
+                      class="el-input"
+                      id="test-static-id"
+                      name="name"
+                      placeholder="Enter an office group name"
+                    />
+                    <label
+                      class="el-label"
+                      for="test-static-id"
+                    >
+                      Office Group Name
+                    </label>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </form>
+    </div>
+  </body>,
+  "container": <div>
+    <form>
+      <h1
+        class="el-title"
+      >
+        SOME_NAME
+         Create Office Group
+      </h1>
+      <div
+        class="el-steps-vertical"
+      >
+        <div
+          class="el-step-vertical"
+        >
+          <div
+            class="el-step-vertical-item"
+          >
+            <div
+              class="el-is-active el-step"
+            >
+              1
+            </div>
+          </div>
+          <div
+            class="el-step-vertical-content"
+          >
+            <div
+              class="el-fade-in el-mb11 el-form-layout"
+            >
+              <div
+                class="el-input-wrap-full"
+              >
+                <p
+                  class="el-has-grey-text el-body-text"
+                >
+                  Add a name for your office group.
+                </p>
+              </div>
+              <div
+                class="el-input-wrap"
+              >
+                <div
+                  class="el-input-group"
+                >
+                  <input
+                    class="el-input"
+                    id="test-static-id"
+                    name="name"
+                    placeholder="Enter an office group name"
+                  />
+                  <label
+                    class="el-label"
+                    for="test-static-id"
+                  >
+                    Office Group Name
+                  </label>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </form>
+  </div>,
+  "debug": [Function],
+  "findAllByAltText": [Function],
+  "findAllByDisplayValue": [Function],
+  "findAllByLabelText": [Function],
+  "findAllByPlaceholderText": [Function],
+  "findAllByRole": [Function],
+  "findAllByTestId": [Function],
+  "findAllByText": [Function],
+  "findAllByTitle": [Function],
+  "findByAltText": [Function],
+  "findByDisplayValue": [Function],
+  "findByLabelText": [Function],
+  "findByPlaceholderText": [Function],
+  "findByRole": [Function],
+  "findByTestId": [Function],
+  "findByText": [Function],
+  "findByTitle": [Function],
+  "getAllByAltText": [Function],
+  "getAllByDisplayValue": [Function],
+  "getAllByLabelText": [Function],
+  "getAllByPlaceholderText": [Function],
+  "getAllByRole": [Function],
+  "getAllByTestId": [Function],
+  "getAllByText": [Function],
+  "getAllByTitle": [Function],
+  "getByAltText": [Function],
+  "getByDisplayValue": [Function],
+  "getByLabelText": [Function],
+  "getByPlaceholderText": [Function],
+  "getByRole": [Function],
+  "getByTestId": [Function],
+  "getByText": [Function],
+  "getByTitle": [Function],
+  "queryAllByAltText": [Function],
+  "queryAllByDisplayValue": [Function],
+  "queryAllByLabelText": [Function],
+  "queryAllByPlaceholderText": [Function],
+  "queryAllByRole": [Function],
+  "queryAllByTestId": [Function],
+  "queryAllByText": [Function],
+  "queryAllByTitle": [Function],
+  "queryByAltText": [Function],
+  "queryByDisplayValue": [Function],
+  "queryByLabelText": [Function],
+  "queryByPlaceholderText": [Function],
+  "queryByRole": [Function],
+  "queryByTestId": [Function],
+  "queryByText": [Function],
+  "queryByTitle": [Function],
+  "rerender": [Function],
+  "unmount": [Function],
+}
 `;

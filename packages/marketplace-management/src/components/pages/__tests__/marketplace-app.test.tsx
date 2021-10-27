@@ -1,11 +1,14 @@
 import * as React from 'react'
-import { mount } from 'enzyme'
+import { render } from '@testing-library/react'
 import MarketplaceAppPage, { handleLoadAppListing } from '../marketplace-app'
 import useSWR from 'swr'
+import { useOrgId } from '../../../utils/use-org-id'
+import { mockAppDetail } from '../../../services/__stubs__/apps'
 
 jest.mock('swr')
 
 const mockSWR = useSWR as jest.Mock
+const mockUseOrgId = useOrgId as jest.Mock
 
 jest.mock('@reapit/connect-session', () => ({
   ReapitConnectBrowserSession: jest.fn(),
@@ -20,15 +23,7 @@ jest.mock('@reapit/connect-session', () => ({
   }),
 }))
 
-jest.mock('../../../utils/use-org-id', () => ({
-  useOrgId: () => ({
-    orgIdState: {
-      orgId: 'SOME_ID',
-      orgName: 'SOME_NAME',
-      orgClientId: 'SOME_CLIENT_ID',
-    },
-  }),
-}))
+jest.mock('../../../utils/use-org-id')
 
 jest.mock('react-router', () => ({
   useParams: jest.fn(() => ({
@@ -46,7 +41,7 @@ describe('MarketplaceAppPage', () => {
       error: null,
       mutate: jest.fn(),
     })
-    expect(mount(<MarketplaceAppPage />)).toMatchSnapshot()
+    expect(render(<MarketplaceAppPage />)).toMatchSnapshot()
   })
 
   it('should match a snapshot when has an error', () => {
@@ -55,16 +50,21 @@ describe('MarketplaceAppPage', () => {
       error: {},
       mutate: jest.fn(),
     })
-    expect(mount(<MarketplaceAppPage />)).toMatchSnapshot()
+    expect(render(<MarketplaceAppPage />)).toMatchSnapshot()
   })
 
   it('should match a snapshot when has data', () => {
     mockSWR.mockReturnValue({
-      data: {},
+      data: mockAppDetail,
       error: null,
       mutate: jest.fn(),
     })
-    expect(mount(<MarketplaceAppPage />)).toMatchSnapshot()
+    expect(render(<MarketplaceAppPage />)).toMatchSnapshot()
+  })
+
+  it('should match a snapshot where no orgClientId exists', () => {
+    mockUseOrgId.mockReturnValueOnce({ orgIdState: {} })
+    expect(render(<MarketplaceAppPage />)).toMatchSnapshot()
   })
 })
 
@@ -78,5 +78,17 @@ describe('handleLoadAppListing', () => {
     curried()
 
     expect(window.location.href).toEqual(`agencycloud://process/webpage?url=SOME_URL/apps/${mockAppId}`)
+  })
+
+  it('should open a window when not in desktop mode', async () => {
+    const navSpy = jest.spyOn(window, 'open')
+    window.reapit.config.marketplaceUrl = 'SOME_URL'
+    const mockAppId = 'SOME_ID'
+
+    const curried = handleLoadAppListing(false, mockAppId)
+
+    curried()
+
+    expect(navSpy).toHaveBeenCalledWith(`${window.reapit.config.marketplaceUrl}/apps/${mockAppId}`, '_blank')
   })
 })

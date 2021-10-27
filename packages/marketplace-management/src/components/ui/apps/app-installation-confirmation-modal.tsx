@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { FC } from 'react'
 import { AppSummaryModel } from '@reapit/foundations-ts-definitions'
 import { WHOLE_ORG, SPECIFIC_OFFICE_GROUPS, InstallTypes } from './app-installation-manager'
 import { BodyText, Button, ButtonGroup } from '@reapit/elements'
@@ -13,7 +13,7 @@ export interface AppInstallationConfirmationModalProps {
   performCompleteUninstall: boolean
 }
 
-const AppInstallationConfirmationModal: React.FC<AppInstallationConfirmationModalProps> = ({
+const AppInstallationConfirmationModal: FC<AppInstallationConfirmationModalProps> = ({
   app,
   installFor,
   uninstallFor,

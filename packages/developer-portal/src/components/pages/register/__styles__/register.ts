@@ -6,7 +6,7 @@ export const container = css`
   min-width: 100vw;
   min-height: 100vh;
   display: flex;
-  justify-content: flex-end;
+  justify-content: space-between;
   align-items: center;
   flex-direction: row;
   background-color: ${white};
@@ -21,6 +21,8 @@ export const wrapper = css`
   width: 40%;
   padding: 2rem;
   pointer-events: auto;
+  overflow: scroll;
+  max-height: 100vh;
 
   &.disabled {
     pointer-events: none;
@@ -49,6 +51,8 @@ export const wrapper = css`
   }
 `
 
+export const loginImageVisible = css``
+
 export const loginImage = css`
   height: 100%;
   width: auto;
@@ -58,6 +62,14 @@ export const loginImage = css`
   animation-name: image;
   animation-fill-mode: forwards;
   animation-timing-function: ease-in-out;
+  transition: opacity 1s ease-in-out;
+  position: absolute;
+  opacity: 0;
+  z-index: 1;
+
+  &.${loginImageVisible} {
+    opacity: 1;
+  }
 
   @keyframes image {
     from {
@@ -76,7 +88,7 @@ export const loginImage = css`
 
 export const imageContainer = css`
   background-color: ${white};
-  width: 60%;
+  width: 55%;
   height: 100vh;
   font-size: 0;
 
