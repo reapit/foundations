@@ -96,10 +96,7 @@ export const Register: FC<RegisterProps> = () => {
 
   return (
     <div className={container}>
-      <div
-        onClick={() => (formStep <= 2 ? setFormStep((0 + formStep + 1) as 1 | 2 | 3) : setFormStep(1))}
-        className={imageContainer}
-      >
+      <div className={imageContainer}>
         <KeyAnimation step={formStep} />
       </div>
       <div className={wrapper}>
@@ -125,14 +122,17 @@ export const Register: FC<RegisterProps> = () => {
               <FormLayout>
                 <InputWrapFull>
                   <InputGroup
-                    // dataTest="register-name"
                     type="text"
                     label={nameField.label as string}
                     id={nameField.name}
                     placeholder={nameField.placeHolder}
                     {...register('name')}
-                    onChange={() => {
-                      // TODO check values and set key animation step value
+                    onChange={(event) => {
+                      const name = event.target.value
+
+                      if (name && !errors.name && formStep != 3) {
+                        setFormStep(2)
+                      }
                     }}
                   />
                   {errors?.name?.message && (
@@ -143,15 +143,11 @@ export const Register: FC<RegisterProps> = () => {
                 </InputWrapFull>
                 <InputWrapFull>
                   <InputGroup
-                    // dataTest="register-company-name"
                     type="text"
                     label={companyNameField.label as string}
                     id={companyNameField.name}
                     placeholder={companyNameField.placeHolder}
                     {...register('companyName')}
-                    onChange={() => {
-                      // TODO check values and set key animation step value
-                    }}
                   />
                   {errors?.companyName?.message && (
                     <PersistantNotification isFullWidth isExpanded intent="danger" isInline>
@@ -161,15 +157,11 @@ export const Register: FC<RegisterProps> = () => {
                 </InputWrapFull>
                 <InputWrapFull>
                   <InputGroup
-                    // dataTest="register-email"
                     type="email"
                     label={emailField.label as string}
                     id={emailField.name}
                     placeholder={emailField.placeHolder}
                     {...register('email')}
-                    onChange={() => {
-                      // TODO check values and set key animation step value
-                    }}
                   />
                   {errors?.email?.message && (
                     <PersistantNotification isFullWidth isExpanded intent="danger" isInline>
@@ -179,14 +171,17 @@ export const Register: FC<RegisterProps> = () => {
                 </InputWrapFull>
                 <InputWrapFull>
                   <InputGroup
-                    // dataTest="register-telephone"
                     type="tel"
                     label={telephoneField.label as string}
                     id={telephoneField.name}
                     placeholder={telephoneField.placeHolder}
                     {...register('telephone')}
-                    onChange={() => {
-                      // TODO check values and set key animation step value
+                    onChange={(event) => {
+                      const telephone = event.target.value
+
+                      if (telephone && !errors.telephone) {
+                        setFormStep(3)
+                      }
                     }}
                   />
                   {errors?.telephone?.message && (
