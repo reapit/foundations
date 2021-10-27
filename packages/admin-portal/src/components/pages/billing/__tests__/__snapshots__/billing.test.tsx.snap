@@ -280,14 +280,19 @@ exports[`AdminBilling should match a snapshot 1`] = `
           },
           Object {
             "Cell": [Function],
-            "Header": "File",
+            "Header": "Developer Billing",
+          },
+          Object {
+            "Cell": [Function],
+            "Header": "Data Warehouse Billing",
           },
         ]
       }
       data={
         Array [
           Object {
-            "fileBlob": undefined,
+            "billingDwFile": null,
+            "billingFile": null,
             "period": "2019-10",
           },
         ]
@@ -321,10 +326,17 @@ exports[`AdminBilling should match a snapshot 1`] = `
               </th>
               <th
                 colSpan={1}
-                key="header_File"
+                key="header_Developer Billing"
                 role="columnheader"
               >
-                File
+                Developer Billing
+              </th>
+              <th
+                colSpan={1}
+                key="header_Data Warehouse Billing"
+                role="columnheader"
+              >
+                Data Warehouse Billing
               </th>
             </tr>
           </thead>
@@ -356,7 +368,17 @@ exports[`AdminBilling should match a snapshot 1`] = `
 </Provider>
 `;
 
-exports[`renderDownloadCell should run correctly 1`] = `
+exports[`renderDownloadBillingCell should match a snapshot 1`] = `
+<div>
+  <a
+    onClick={[Function]}
+  >
+    Download
+  </a>
+</div>
+`;
+
+exports[`renderDownloadDwBillingCell should match a snapshot 1`] = `
 <div>
   <a
     onClick={[Function]}
