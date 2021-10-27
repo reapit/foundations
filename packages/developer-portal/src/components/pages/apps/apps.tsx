@@ -12,7 +12,7 @@ import Routes from '@/constants/routes'
 import { SubmitAppWizardModal } from '@/components/ui/submit-app-wizard'
 import { selectAppListState } from '@/selector/apps/app-list'
 import {
-  BodyText,
+  SmallText,
   Button,
   elHFull,
   elMb3,
@@ -78,10 +78,10 @@ export const Apps: React.FC = () => {
           </SecondaryNav>
           <Icon className={elMb3} icon="myAppsInfographic" iconSize="large" />
           <Subtitle>Apps Documentation</Subtitle>
-          <BodyText hasGreyText>
+          <SmallText hasGreyText>
             This is the dashboard for your applications created using the Reapit Foundations platform. If you have not
             created an app before or you need help, please take the time to view our getting started guide.
-          </BodyText>
+          </SmallText>
           <Button className={elMb3} intent="neutral" onClick={openNewPage(ExternalPages.developerPortalDocs)}>
             View Docs
           </Button>

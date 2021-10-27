@@ -33,16 +33,16 @@ exports[`ApiDocs should match a snapshot 1`] = `
       <Subtitle>
         Welcome
       </Subtitle>
-      <BodyText
+      <SmallText
         hasGreyText={true}
       >
         We have provided comprehensive documentation for all of our APIs, services, tooling and open source packages accross these pages.
-      </BodyText>
-      <BodyText
+      </SmallText>
+      <SmallText
         hasGreyText={true}
       >
         You can also visit us on Github where you can raise and track issues, look at code examples and view our milestones.
-      </BodyText>
+      </SmallText>
       <Button
         className="ehvkknk-el-mb5"
         intent="neutral"

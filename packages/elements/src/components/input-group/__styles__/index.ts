@@ -16,7 +16,7 @@ export const ElInputGroup = styled.div`
     background: var(--component-input-bg);
     order: 1;
     flex-basis: 100%;
-    padding-left: 0.5rem;
+    padding: 0.25rem 0 0 0.5rem;
   }
 
   ${ElIcon} {
@@ -96,7 +96,7 @@ export const ElInputGroup = styled.div`
     order: 2;
     ~ ${ElLabel} {
       order: 1;
-      padding-bottom: 0.25rem;
+      padding: 0.125rem 0;
     }
   }
 

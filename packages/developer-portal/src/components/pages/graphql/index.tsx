@@ -1,5 +1,5 @@
 import {
-  BodyText,
+  SmallText,
   Button,
   elHFull,
   elMb5,
@@ -94,11 +94,11 @@ export const GraphQLPage: FC = () => {
         </SecondaryNav>
         <Icon className={elMb5} icon="graphQlInfographic" iconSize="large" />
         <Subtitle>GraphQL Playground</Subtitle>
-        <BodyText hasGreyText>
+        <SmallText hasGreyText>
           GraphQL is a query language for APIs and a runtime for fulfilling those queries with your existing data.
           GraphQL gives clients the power to ask for exactly what they need and nothing more, makes it easier to evolve
           APIs over time, and enables powerful developer tools.
-        </BodyText>
+        </SmallText>
         <Button className={elMb5} intent="neutral" onClick={openNewPage(ExternalPages.graphQLDocs)}>
           View Docs
         </Button>

@@ -11,7 +11,6 @@ import {
   Button,
   ButtonGroup,
   elFadeIn,
-  elMb11,
   ElToggleItem,
   FormLayout,
   InputGroup,
@@ -26,7 +25,6 @@ import {
   Toggle,
   useSnack,
 } from '@reapit/elements'
-import { cx } from '@linaria/core'
 import { boolean, object, string } from 'yup'
 import errorMessages from '../../../constants/error-messages'
 import { yupResolver } from '@hookform/resolvers/yup'
@@ -172,7 +170,7 @@ export const OfficeGroupCreate: FC<OfficeGroupCreateProps> = () => {
           {
             item: '1',
             content: (
-              <FormLayout className={cx(elFadeIn, elMb11)}>
+              <FormLayout className={elFadeIn}>
                 <InputWrapFull>
                   <BodyText hasGreyText>Add a name for your office group.</BodyText>
                 </InputWrapFull>
@@ -191,7 +189,7 @@ export const OfficeGroupCreate: FC<OfficeGroupCreateProps> = () => {
           {
             item: '2',
             content: (
-              <FormLayout className={cx(elFadeIn, elMb11)}>
+              <FormLayout className={elFadeIn}>
                 <InputWrapFull>
                   <BodyText hasGreyText>
                     To manage offices associated to this group, you can search and select users from the ‘Offices’
@@ -214,7 +212,7 @@ export const OfficeGroupCreate: FC<OfficeGroupCreateProps> = () => {
           {
             item: '3',
             content: (
-              <FormLayout className={cx(elFadeIn, elMb11)}>
+              <FormLayout className={elFadeIn}>
                 <InputWrapFull>
                   <BodyText hasGreyText>Toggle the below to determine if the office grouping is live or not.</BodyText>
                 </InputWrapFull>

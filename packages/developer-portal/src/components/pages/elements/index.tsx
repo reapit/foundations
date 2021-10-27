@@ -1,5 +1,5 @@
 import {
-  BodyText,
+  SmallText,
   Button,
   elHFull,
   elMb5,
@@ -21,11 +21,11 @@ export const ElementsPage: FC = () => {
         <Title>UI</Title>
         <Icon className={elMb5} icon="elementsInfographic" iconSize="large" />
         <Subtitle>Reapit Elements</Subtitle>
-        <BodyText hasGreyText>
+        <SmallText hasGreyText>
           Elements is a UI toolkit built in React JS, exporting a library of CSS classes to help you build clean,
           interactive user interfaces for the Reapit Foundations ecosystem. It is based on the Reapit Foundations Design
           System, our in house styleguide.
-        </BodyText>
+        </SmallText>
         <Button className={elMb5} intent="neutral" onClick={openNewPage(ExternalPages.elementsDocs)}>
           View Docs
         </Button>
