@@ -149,7 +149,7 @@ export const OfficeGroupEditForm: FC<OfficeGroupEditFormProps> = ({ officeGroup,
 
   useEffect(handleSetOptions(officeGroup, offices, setOptions, reset), [officeGroup, offices])
 
-  useEffect(handleSetNewOptions(getValues, options, searchedOffices, setOptions), [searchString, searchedOffices])
+  useEffect(handleSetNewOptions(getValues, options, searchedOffices, setOptions), [searchString, data])
 
   return (
     <form className={elP8} onSubmit={handleSubmit(onHandleSubmit(onComplete, officeGroup, orgId, success, error))}>

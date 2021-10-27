@@ -74,7 +74,7 @@ const OfficesPage: FC = () => {
       </SecondaryNavContainer>
       <PageContainer className={elHFull}>
         <Route path={Routes.OFFICES} component={OfficesTab} exact />
-        <Route path={Routes.OFFICES_GROUPS} component={OfficesGroupsTab} exact />/
+        <Route path={Routes.OFFICES_GROUPS} component={OfficesGroupsTab} exact />
         <Route path={Routes.OFFICES_GROUPS_NEW} component={OfficeGroupCreate} exact />
       </PageContainer>
     </FlexContainer>

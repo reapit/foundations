@@ -132,7 +132,6 @@ Object {
           class="el-hfull el-page-container"
         >
           <div />
-          /
         </section>
       </div>
     </div>
@@ -265,7 +264,6 @@ Object {
         class="el-hfull el-page-container"
       >
         <div />
-        /
       </section>
     </div>
   </div>,
@@ -444,7 +442,6 @@ Object {
         <section
           class="el-hfull el-page-container"
         >
-          /
           <div />
         </section>
       </div>
@@ -567,7 +564,6 @@ Object {
       <section
         class="el-hfull el-page-container"
       >
-        /
         <div />
       </section>
     </div>
@@ -812,7 +808,6 @@ Object {
               />
             </div>
           </div>
-          /
         </section>
       </div>
     </div>
@@ -999,7 +994,6 @@ Object {
             />
           </div>
         </div>
-        /
       </section>
     </div>
   </div>,

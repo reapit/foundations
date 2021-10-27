@@ -155,7 +155,7 @@ export const OfficeGroupCreate: FC<OfficeGroupCreateProps> = () => {
     },
   })
 
-  useEffect(handleSetOptions(getValues, options, offices, setOptions), [offices])
+  useEffect(handleSetOptions(getValues, options, offices, setOptions), [data])
 
   if (!orgId)
     return (

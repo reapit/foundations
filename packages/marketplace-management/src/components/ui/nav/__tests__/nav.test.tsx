@@ -19,7 +19,7 @@ describe('Nav', () => {
     const wrapper = render(
       <NavStateProvider>
         <MediaStateProvider>
-          <Nav />{' '}
+          <Nav />
         </MediaStateProvider>
       </NavStateProvider>,
     )

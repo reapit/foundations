@@ -237,7 +237,6 @@ Object {
           Logout
         </a>
       </nav>
-       
     </div>
   </body>,
   "container": <div>
@@ -473,7 +472,6 @@ Object {
         Logout
       </a>
     </nav>
-     
   </div>,
   "debug": [Function],
   "findAllByAltText": [Function],
