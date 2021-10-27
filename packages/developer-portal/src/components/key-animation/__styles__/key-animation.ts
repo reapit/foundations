@@ -21,10 +21,10 @@ export const key = css`
   top: -10%;
   left: 50%;
   width: 12rem;
-  transition: left 1s ease;
+  transition: left .5s ease;
 
   &.${keyActive} {
-    left: 35%;
+    left: 30%;
   }
 `
 
@@ -32,12 +32,10 @@ export const starActive = css``
 
 export const star = css`
   position: absolute;
-  display: none;
   opacity: 0;
-  transition: opacity 2s ease;
+  transition: opacity .5s ease;
 
   &.${starActive} {
-    display: block;
     opacity: 1;
   }
 
@@ -114,7 +112,7 @@ export const triangle2 = css`
 export const triangle3 = css`
   position: absolute;
   top: 85%;
-  left: 20%;
+  left: 22.5%;
   border: 3.5rem solid transparent;
   border-right-width: 2.5rem;
   border-top-color: #23a4de;
