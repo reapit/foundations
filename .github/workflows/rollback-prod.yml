@@ -25,6 +25,12 @@ jobs:
         with:
           tagRegex: '(?<package>.*)_(?<version>.*)'
 
+      - name: Get Package Info
+        uses: olegtarasov/get-tag@v2.1
+        id: packageInfo
+        with:
+          tagRegex: '(?<package>[a-z\-]+)[\_v](?<version>.*)'
+
       - uses: actions/checkout@v2
         with:
           fetch-depth: 0
@@ -39,7 +45,7 @@ jobs:
 
       - name: Package name Set
         run: |
-          PACKAGE_NAME=$(yarn json -f packages/${{ steps.tagName.outputs.package }}/package.json name)
+          PACKAGE_NAME=$(yarn json -f packages/${{ steps.packageInfo.outputs.package }}/package.json name)
           echo $PACKAGE_NAME
           echo "PACKAGE_NAME=$PACKAGE_NAME" >> $GITHUB_ENV
 

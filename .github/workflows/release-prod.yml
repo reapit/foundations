@@ -30,6 +30,12 @@ jobs:
         with:
           tagRegex: '(?<package>.*)_(?<version>.*)'
 
+      - name: Get Package Info
+        uses: olegtarasov/get-tag@v2.1
+        id: packageInfo
+        with:
+          tagRegex: '(?<package>[a-z\-]+)[\_v](?<version>.*)'
+
       - name: Set Node
         uses: actions/setup-node@v1
         with:
@@ -38,12 +44,6 @@ jobs:
       - name: Set Version
         run: |
           echo "RELEASE_VERSION=${{ steps.tagName.outputs.package }}_${{ steps.tagName.outputs.version }}" >> $GITHUB_ENV
-      
-      - name: Get Package Version
-        uses: olegtarasov/get-tag@v2.1
-        id: packageVersion
-        with:
-          tagRegex: '[v](?<version>.*)'
 
       - name: Install
         run: yarn
@@ -70,10 +70,10 @@ jobs:
       
       - name: Package Version Change
         run: |
-          test -f packages/${{ steps.tagName.outputs.package }}/package.json
-          test "${{ steps.packageVersion.outputs.version }}" != yarn json -f packages/${{ steps.tagName.outputs.package }}/package.json version
-          yarn json -I -f packages/${{ steps.tagName.outputs.package }}/package.json -e "this.version='${{ steps.tagName.outputs.version }}'"
-          git commit -am "chore: update package version"
+          test -f packages/${{ steps.packageInfo.outputs.package }}/package.json
+          test "${{ steps.packageInfo.outputs.version }}" != yarn json -f packages/${{ steps.packageInfo.outputs.package }}/package.json version
+          yarn json -I -f packages/${{ steps.packageInfo.outputs.package }}/package.json -e "this.version='${{ steps.packageInfo.outputs.version }}'"
+          git commit -am "chore: update package version to ${{ steps.packageInfo.outputs.package }}"
 
       - name: Publish
         run: |
