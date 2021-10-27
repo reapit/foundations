@@ -7,6 +7,7 @@ export const container = css`
   min-height: 100vh;
   display: flex;
   justify-content: space-between;
+  align-items: center;
   flex-direction: row;
   background-color: ${white};
 
@@ -21,7 +22,7 @@ export const wrapper = css`
   padding: 2rem;
   pointer-events: auto;
   overflow: scroll;
-  height: 100vh;
+  max-height: 100vh;
 
   &.disabled {
     pointer-events: none;
