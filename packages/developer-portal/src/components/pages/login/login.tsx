@@ -3,13 +3,15 @@ import { Link } from 'react-router-dom'
 import { Dispatch } from 'redux'
 import { useDispatch } from 'react-redux'
 import { showNotificationMessage } from '@/actions/notification-message'
-import { Button, Level, FlexContainerBasic, Section } from '@reapit/elements-legacy'
+import { BodyText, Button, elMt12, elP6, elPt8 } from '@reapit/elements'
 import Routes from '@/constants/routes'
 import messages from '@/constants/messages'
 import connectImage from '@/assets/images/reapit-connect.png'
 import { reapitConnectBrowserSession } from '@/core/connect-session'
-import { wrapper, container, register, registerLevel, loginButton, imageContainer } from './__styles__/login'
+import { wrapper, container, loginButton, imageContainer } from './__styles__/login'
 import { KeyAnimation } from '../../../components/key-animation'
+import { FlexContainer } from '@reapit/elements'
+import { cx } from '@linaria/core'
 
 export type LoginProps = {}
 
@@ -35,7 +37,7 @@ export const onLoginButtonClick = () => {
 export const Login: React.FunctionComponent<LoginProps> = () => {
   const dispatch = useDispatch()
   const isPasswordChanged = localStorage.getItem('isPasswordChanged') === 'true'
-  const [imageShown, setImageShown] = useState(1)
+  const [keyStep, setKeyStep] = useState<1 | 2 | 3>(1)
 
   useEffect(handleShowNotificationAfterPasswordChanged(isPasswordChanged, localStorage, dispatch), [
     isPasswordChanged,
@@ -43,44 +45,37 @@ export const Login: React.FunctionComponent<LoginProps> = () => {
     dispatch,
   ])
 
-  useEffect(() => {
-    const interval = window.setInterval(() => {
-      setImageShown((prev) => {
-        if (prev < 3) {
-          return prev + 1
-        }
-
-        return prev
-      })
-    }, 1000)
-
-    return () => window.clearInterval(interval)
-  }, [imageShown])
-
   return (
     <div className={container}>
       <div className={imageContainer}>
-        <KeyAnimation step={1} />
+        <KeyAnimation step={keyStep} />
       </div>
       <div className={wrapper}>
-        <Level>
-          <img src={connectImage} alt="Reapit Connect Graphic" />
-        </Level>
-        <Section>
-          <p>Welcome to Reapit Foundations</p>
-        </Section>
-        <Level className={registerLevel}>
-          <Button className={loginButton} onClick={onLoginButtonClick()} fullWidth dataTest="login-button">
-            Login
-          </Button>
-          <div className={register}>
-            Don&apos;t have an account yet?&nbsp;
-            <Link to={Routes.REGISTER}>Register</Link>
-          </div>
-        </Level>
-        <FlexContainerBasic className="pt-8" centerContent>
+        <img src={connectImage} alt="Reapit Connect Graphic" />
+        <div className={cx(elP6)}>
+          <BodyText>Welcome to Reapit Foundations</BodyText>
+        </div>
+        <Button
+          onMouseOver={() => {
+            setKeyStep(3)
+          }}
+          onMouseOut={() => {
+            setKeyStep(1)
+          }}
+          className={loginButton}
+          onClick={onLoginButtonClick()}
+          fullWidth
+          intent="primary"
+        >
+          Login
+        </Button>
+        <FlexContainer isFlexJustifyBetween className={cx(elMt12)}>
+          <BodyText>Don&apos;t have an account yet?&nbsp;</BodyText>
+          <Link to={Routes.REGISTER}>Register</Link>
+        </FlexContainer>
+        <FlexContainer className={cx(elPt8)} isFlexRow isFlexJustifyCenter>
           {process.env.APP_VERSION}
-        </FlexContainerBasic>
+        </FlexContainer>
       </div>
     </div>
   )
