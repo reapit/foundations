@@ -70,9 +70,11 @@ export const handleSetFormDefault = (dispatch: Dispatch) => () => {
 }
 
 export const Register: FC<RegisterProps> = () => {
+  const [agreeModalVisable, setAgreeModalVisable] = useState<boolean>(false)
+  const [formStep, setFormStep] = useState<1 | 2 | 3>(1)
+
   const history = useHistory()
   const dispatch = useDispatch()
-  const [agreeModalVisable, setAgreeModalVisable] = useState<boolean>(false)
   const {
     handleSubmit,
     formState: { errors },
@@ -81,10 +83,9 @@ export const Register: FC<RegisterProps> = () => {
     resolver: yupResolver(validationSchema),
     defaultValues: registerFormInitialValues,
   })
-  const [formStep, setFormStep] = useState<1 | 2 | 3>(1)
-  useEffect(handleSetFormDefault(dispatch), [history.location.pathname])
   const formState = useSelector(selectDeveloperFormState)
-  console.log('formState', formState)
+
+  useEffect(handleSetFormDefault(dispatch), [history.location.pathname])
   useEffect(() => {
     if (formState === 'ERROR') {
       setAgreeModalVisable(false)
@@ -94,7 +95,10 @@ export const Register: FC<RegisterProps> = () => {
 
   return (
     <div className={container}>
-      <div onClick={() => formStep <= 2 ? setFormStep((0 + formStep + 1) as 1 | 2 |3 ) : setFormStep(1)} className={imageContainer}>
+      <div
+        onClick={() => (formStep <= 2 ? setFormStep((0 + formStep + 1) as 1 | 2 | 3) : setFormStep(1))}
+        className={imageContainer}
+      >
         <KeyAnimation step={formStep} />
       </div>
       <div className={wrapper}>
@@ -107,9 +111,7 @@ export const Register: FC<RegisterProps> = () => {
         ) : (
           <>
             <form
-              onSubmit={handleSubmit((values) => {
-                console.log('values', values)
-                // TODO set agree modal active
+              onSubmit={handleSubmit(() => {
                 setAgreeModalVisable(true)
               })}
             >

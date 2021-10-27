@@ -21,7 +21,7 @@ export const key = css`
   top: -10%;
   left: 50%;
   width: 12rem;
-  transition: left .5s ease;
+  transition: left 0.5s ease;
 
   &.${keyActive} {
     left: 30%;
@@ -33,7 +33,7 @@ export const starActive = css``
 export const star = css`
   position: absolute;
   opacity: 0;
-  transition: opacity .5s ease;
+  transition: opacity 0.5s ease;
 
   &.${starActive} {
     opacity: 1;
