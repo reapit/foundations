@@ -116,6 +116,15 @@ export const Register: FC<RegisterProps> = () => {
               onSubmit={handleSubmit(() => {
                 setAgreeModalVisable(true)
               })}
+              onChange={() => {
+                const { name, telephone } = getValues()
+
+                if (name && !errors.name && formStep != 3) {
+                  if (telephone && !errors.telephone) {
+                    setFormStep(3)
+                  } else setFormStep(2)
+                }
+              }}
             >
               <Subtitle>Register for Foundations</Subtitle>
               <BodyText hasGreyText>
@@ -131,13 +140,6 @@ export const Register: FC<RegisterProps> = () => {
                     id={nameField.name}
                     placeholder={nameField.placeHolder}
                     {...register('name')}
-                    onChange={(event) => {
-                      const name = event.target.value
-
-                      if (name && !errors.name && formStep != 3) {
-                        setFormStep(2)
-                      }
-                    }}
                     intent={errors?.name?.message ? 'danger' : undefined}
                     inputAddOnText={errors?.name?.message}
                   />
@@ -171,13 +173,6 @@ export const Register: FC<RegisterProps> = () => {
                     id={telephoneField.name}
                     placeholder={telephoneField.placeHolder}
                     {...register('telephone')}
-                    onChange={(event) => {
-                      const telephone = event.target.value
-
-                      if (telephone && !errors.telephone) {
-                        setFormStep(3)
-                      }
-                    }}
                     intent={errors?.telephone?.message ? 'danger' : undefined}
                     inputAddOnText={errors?.telephone?.message}
                   />
