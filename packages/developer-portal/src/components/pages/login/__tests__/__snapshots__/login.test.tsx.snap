@@ -62,22 +62,63 @@ exports[`Login should match a snapshot 1`] = `
           <div
             className="i1g8zzoj-image-container"
           >
-            <div
-              className="l8alx8w-login-images"
+            <KeyAnimation
+              step={1}
             >
-              <img
-                className="l1rp9itb-login-image lfnzdfi-login-image-visible"
-                src={Object {}}
-              />
-              <img
-                className="l1rp9itb-login-image"
-                src={Object {}}
-              />
-              <img
-                className="l1rp9itb-login-image"
-                src={Object {}}
-              />
-            </div>
+              <div
+                className="c1mccqsf-container"
+              >
+                <div
+                  className="bmm7iqh-background"
+                >
+                  <img
+                    src={Object {}}
+                  />
+                </div>
+                <div
+                  className="knadhv-keyhole-container"
+                >
+                  <div
+                    className="klr5v2z-keyhole"
+                  >
+                    <div
+                      className="kh1fwxj-keyhole-mask"
+                    />
+                    <div
+                      className="k2k7lhm-key kw8y4he-key-active"
+                    >
+                      <img
+                        src={Object {}}
+                      />
+                      <img
+                        className="s1ca48v2-star"
+                        src={Object {}}
+                      />
+                      <img
+                        className="s1ca48v2-star"
+                        src={Object {}}
+                      />
+                      <img
+                        className="s1ca48v2-star"
+                        src={Object {}}
+                      />
+                    </div>
+                    <img
+                      src={Object {}}
+                    />
+                  </div>
+                </div>
+                <div
+                  className="tximvte-triangle1 t1of97ih-triangle-active"
+                />
+                <div
+                  className="t15ivtkw-triangle2 t1of97ih-triangle-active"
+                />
+                <div
+                  className="tixngio-triangle3 t1of97ih-triangle-active"
+                />
+              </div>
+            </KeyAnimation>
           </div>
           <div
             className="wtehddc-wrapper"

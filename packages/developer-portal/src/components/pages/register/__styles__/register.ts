@@ -6,7 +6,7 @@ export const container = css`
   min-width: 100vw;
   min-height: 100vh;
   display: flex;
-  justify-content: flex-end;
+  justify-content: space-between;
   flex-direction: row;
   background-color: ${white};
 
@@ -20,6 +20,8 @@ export const wrapper = css`
   width: 40%;
   padding: 2rem;
   pointer-events: auto;
+  overflow: scroll;
+  height: 100vh;
 
   &.disabled {
     pointer-events: none;
@@ -85,7 +87,7 @@ export const loginImage = css`
 
 export const imageContainer = css`
   background-color: ${white};
-  width: 60%;
+  width: 55%;
   height: 100vh;
   font-size: 0;
 

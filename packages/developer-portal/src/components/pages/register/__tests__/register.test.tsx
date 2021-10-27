@@ -2,14 +2,7 @@ import * as React from 'react'
 import { mount } from 'enzyme'
 import * as ReactRedux from 'react-redux'
 import configureStore from 'redux-mock-store'
-import {
-  Register,
-  onSubmit,
-  onRegisterButtonClick,
-  onDeclineTermsAndConditions,
-  onLoginButtonClick,
-  handleSetFormDefault,
-} from '../register'
+import { Register, onSubmit, onDeclineTermsAndConditions, onLoginButtonClick, handleSetFormDefault } from '../register'
 import { developerCreate } from '@/actions/developer'
 import { DATE_TIME_FORMAT } from '@reapit/elements-legacy'
 import MockDate from 'mockdate'
@@ -70,11 +63,7 @@ describe('Register', () => {
   })
   describe('onRegisterButtonClick', () => {
     it('should run correctly', () => {
-      const mockValidateForm = jest.fn().mockImplementation(() => ({ err: 'err' }))
-      const mockSetTermsAndConditionsModalVisible = jest.fn()
       const mockSetTouched = jest.fn()
-      const fn = onRegisterButtonClick(mockValidateForm, mockSetTermsAndConditionsModalVisible, mockSetTouched)
-      fn()
       expect(mockSetTouched).toBeCalledWith({
         companyName: true,
         email: true,
