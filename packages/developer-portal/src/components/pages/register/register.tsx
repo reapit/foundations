@@ -103,7 +103,7 @@ export const Register: FC<RegisterProps> = () => {
       </div>
       <div className={wrapper}>
         <Title>Register</Title>
-        <Subtitle>Reapit Foundations developers</Subtitle>
+        <Subtitle hasBoldText hasCenteredText>Reapit Foundations developers</Subtitle>
         {formState === 'SUCCESS' ? (
           <PersistantNotification intent="success" isExpanded isFullWidth>
             Successfully registered. Check your email to confirm your account.
@@ -116,7 +116,7 @@ export const Register: FC<RegisterProps> = () => {
               })}
             >
               <Subtitle>Register for Foundations</Subtitle>
-              <BodyText>
+              <BodyText hasGreyText>
                 By registering for the Foundations platform, you will get access to the Reapit developer portal and
                 sandbox data. You will also get the opportunity to list apps in the Reapit Marketplace. We look forward
                 to seeing what you build!
