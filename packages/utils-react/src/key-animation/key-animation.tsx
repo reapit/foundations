@@ -15,10 +15,10 @@ import {
   keyActive,
   keyholeContainer,
 } from './__styles__/key-animation'
-import backgroundImage from '../../assets/images/key-animation/background.svg'
-import keyholeImage from '../../assets/images/key-animation/keyhole.svg'
-import keyImage from '../../assets/images/key-animation/key.svg'
-import starImage from '../../assets/images/key-animation/star.svg'
+import backgroundImage from './images/background.svg'
+import keyholeImage from './images/keyhole.svg'
+import keyImage from './images/key.svg'
+import starImage from './images/star.svg'
 
 export const KeyAnimation = ({ step }: { step: 1 | 2 | 3 }) => {
   return (

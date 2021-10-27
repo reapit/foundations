@@ -9,7 +9,7 @@ import messages from '@/constants/messages'
 import connectImage from '@/assets/images/reapit-connect.png'
 import { reapitConnectBrowserSession } from '@/core/connect-session'
 import { wrapper, container, loginButton, imageContainer } from './__styles__/login'
-import { KeyAnimation } from '../../../components/key-animation'
+import { KeyAnimation } from '@reapit/utils-react'
 import { FlexContainer } from '@reapit/elements'
 import { cx } from '@linaria/core'
 

@@ -26,7 +26,7 @@ import { container, imageContainer, wrapper } from './__styles__/register'
 import { formFields } from './form-fields'
 import { yupResolver } from '@hookform/resolvers/yup'
 import { validationSchema } from './validation-schema'
-import { KeyAnimation } from '@/components/key-animation'
+import { KeyAnimation } from '@reapit/utils-react'
 import { useForm } from 'react-hook-form'
 import { cx } from '@linaria/core'
 
