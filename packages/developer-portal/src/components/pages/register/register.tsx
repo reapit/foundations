@@ -103,7 +103,7 @@ export const Register: FC<RegisterProps> = () => {
       </div>
       <div className={wrapper}>
         <Title>Register</Title>
-        <Subtitle hasBoldText hasCenteredText>Reapit Foundations developers</Subtitle>
+        <Subtitle hasBoldText hasCenteredText>Reapit Foundations Developers</Subtitle>
         {formState === 'SUCCESS' ? (
           <PersistantNotification intent="success" isExpanded isFullWidth>
             Successfully registered. Check your email to confirm your account.
