@@ -27,7 +27,7 @@ import { formFields } from './form-fields'
 import { yupResolver } from '@hookform/resolvers/yup'
 import { validationSchema } from './validation-schema'
 import { KeyAnimation } from '@reapit/utils-react'
-import { useForm } from 'react-hook-form'
+import { useForm, UseFormGetValues } from 'react-hook-form'
 import { cx } from '@linaria/core'
 
 const { nameField, emailField, companyNameField, telephoneField } = formFields
@@ -72,6 +72,28 @@ export const handleSetFormDefault = (dispatch: Dispatch) => () => {
 export const formSubmit = (setAgreeModalVisable: (val: boolean) => void) => () => {
   setAgreeModalVisable(true)
 }
+
+export const formChange =
+  ({
+    getValues,
+    errors,
+    formStep,
+    setFormStep,
+  }: {
+    getValues: UseFormGetValues<CreateDeveloperModel>
+    errors: { [s: string]: any }
+    setFormStep: (value: 1 | 2 | 3) => void
+    formStep: number
+  }) =>
+  () => {
+    const { name, telephone } = getValues()
+
+    if (name && !errors.name && formStep != 3) {
+      if (telephone && !errors.telephone) {
+        setFormStep(3)
+      } else setFormStep(2)
+    }
+  }
 
 export const Register: FC<RegisterProps> = () => {
   const [agreeModalVisable, setAgreeModalVisable] = useState<boolean>(false)
@@ -118,15 +140,12 @@ export const Register: FC<RegisterProps> = () => {
           <>
             <form
               onSubmit={handleSubmit(formSubmit(setAgreeModalVisable))}
-              onChange={() => {
-                const { name, telephone } = getValues()
-
-                if (name && !errors.name && formStep != 3) {
-                  if (telephone && !errors.telephone) {
-                    setFormStep(3)
-                  } else setFormStep(2)
-                }
-              }}
+              onChange={formChange({
+                getValues,
+                errors,
+                formStep,
+                setFormStep,
+              })}
             >
               <Subtitle>Register for Foundations</Subtitle>
               <BodyText hasGreyText>

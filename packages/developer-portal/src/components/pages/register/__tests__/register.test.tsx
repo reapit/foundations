@@ -2,7 +2,14 @@ import * as React from 'react'
 import { mount } from 'enzyme'
 import * as ReactRedux from 'react-redux'
 import configureStore from 'redux-mock-store'
-import { Register, onSubmit, onDeclineTermsAndConditions, onLoginButtonClick, handleSetFormDefault } from '../register'
+import {
+  Register,
+  onSubmit,
+  onDeclineTermsAndConditions,
+  onLoginButtonClick,
+  handleSetFormDefault,
+  formSubmit,
+} from '../register'
 import { developerCreate } from '@/actions/developer'
 import { DATE_TIME_FORMAT } from '@reapit/elements-legacy'
 import MockDate from 'mockdate'
@@ -82,6 +89,14 @@ describe('Register', () => {
       const fn = handleSetFormDefault(dispatch)
       fn()
       expect(dispatch).toBeCalled()
+    })
+  })
+  describe('formSubmit', () => {
+    it('should run correctly', () => {
+      const testFunc = (value) => {
+        expect(value).toBeTruthy()
+      }
+      formSubmit(testFunc)
     })
   })
 })
