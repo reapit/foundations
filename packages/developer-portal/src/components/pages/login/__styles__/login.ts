@@ -6,7 +6,7 @@ export const container = css`
   min-width: 100vw;
   min-height: 100vh;
   display: flex;
-  justify-content: flex-end;
+  justify-content: space-between;
   align-items: center;
   flex-direction: row;
   background-color: ${white};
