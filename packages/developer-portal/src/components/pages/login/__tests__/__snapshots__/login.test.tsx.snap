@@ -85,7 +85,7 @@ exports[`Login should match a snapshot 1`] = `
                       className="kh1fwxj-keyhole-mask"
                     />
                     <div
-                      className="k2k7lhm-key kw8y4he-key-active"
+                      className="k2k7lhm-key"
                     >
                       <img
                         src={Object {}}
@@ -109,13 +109,13 @@ exports[`Login should match a snapshot 1`] = `
                   </div>
                 </div>
                 <div
-                  className="tximvte-triangle1 t1of97ih-triangle-active"
+                  className="tximvte-triangle1"
                 />
                 <div
-                  className="t15ivtkw-triangle2 t1of97ih-triangle-active"
+                  className="t15ivtkw-triangle2"
                 />
                 <div
-                  className="tixngio-triangle3 t1of97ih-triangle-active"
+                  className="tixngio-triangle3"
                 />
               </div>
             </KeyAnimation>

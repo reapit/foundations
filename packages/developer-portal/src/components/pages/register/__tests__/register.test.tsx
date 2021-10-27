@@ -61,17 +61,6 @@ describe('Register', () => {
       )
     })
   })
-  describe('onRegisterButtonClick', () => {
-    it('should run correctly', () => {
-      const mockSetTouched = jest.fn()
-      expect(mockSetTouched).toBeCalledWith({
-        companyName: true,
-        email: true,
-        name: true,
-        telephone: true,
-      })
-    })
-  })
   describe('onDeclineTermsAndConditions', () => {
     it('should run correctly', () => {
       const mockSetTermsAndConditionsModalVisible = jest.fn()

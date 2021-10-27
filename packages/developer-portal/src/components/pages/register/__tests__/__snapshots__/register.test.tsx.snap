@@ -61,9 +61,10 @@ exports[`Register should match a snapshot 1`] = `
         >
           <div
             className="i1m3gui8-image-container"
+            onClick={[Function]}
           >
             <KeyAnimation
-              step={3}
+              step={1}
             >
               <div
                 className="c1mccqsf-container"
@@ -85,21 +86,21 @@ exports[`Register should match a snapshot 1`] = `
                       className="kh1fwxj-keyhole-mask"
                     />
                     <div
-                      className="k2k7lhm-key kw8y4he-key-active"
+                      className="k2k7lhm-key"
                     >
                       <img
                         src={Object {}}
                       />
                       <img
-                        className="s1ca48v2-star snshzib-star-active"
+                        className="s1ca48v2-star"
                         src={Object {}}
                       />
                       <img
-                        className="s1ca48v2-star snshzib-star-active"
+                        className="s1ca48v2-star"
                         src={Object {}}
                       />
                       <img
-                        className="s1ca48v2-star snshzib-star-active"
+                        className="s1ca48v2-star"
                         src={Object {}}
                       />
                     </div>
@@ -109,13 +110,13 @@ exports[`Register should match a snapshot 1`] = `
                   </div>
                 </div>
                 <div
-                  className="tximvte-triangle1 t1of97ih-triangle-active"
+                  className="tximvte-triangle1"
                 />
                 <div
-                  className="t15ivtkw-triangle2 t1of97ih-triangle-active"
+                  className="t15ivtkw-triangle2"
                 />
                 <div
-                  className="tixngio-triangle3 t1of97ih-triangle-active"
+                  className="tixngio-triangle3"
                 />
               </div>
             </KeyAnimation>
