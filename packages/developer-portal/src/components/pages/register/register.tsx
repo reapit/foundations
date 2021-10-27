@@ -4,7 +4,6 @@ import { useDispatch, useSelector } from 'react-redux'
 import { History } from 'history'
 import dayjs from 'dayjs'
 import { Link, useHistory } from 'react-router-dom'
-import { Alert } from '@reapit/elements-legacy'
 import {
   InputGroup,
   FormLayout,
@@ -16,6 +15,7 @@ import {
   Button,
   FlexContainer,
   elMt12,
+  useSnack,
 } from '@reapit/elements'
 import { CreateDeveloperModel } from '@reapit/foundations-ts-definitions'
 import { selectDeveloperFormState } from '@/selector'
@@ -75,6 +75,7 @@ export const Register: FC<RegisterProps> = () => {
 
   const history = useHistory()
   const dispatch = useDispatch()
+  const { error } = useSnack()
   const {
     handleSubmit,
     formState: { errors },
@@ -90,6 +91,7 @@ export const Register: FC<RegisterProps> = () => {
   useEffect(() => {
     if (formState === 'ERROR') {
       setAgreeModalVisable(false)
+      error('Failed to register')
     }
   }, [formState])
   const isSubmitting = formState === 'SUBMITTING'
@@ -205,9 +207,6 @@ export const Register: FC<RegisterProps> = () => {
                     <BodyText>Already have an account?</BodyText>
                     <Link to={Routes.LOGIN}>Login</Link>
                   </FlexContainer>
-                  {formState === 'ERROR' && (
-                    <Alert message="Failed to register" type="danger" dataTest="register-error-message" />
-                  )}
                 </InputWrapFull>
               </FormLayout>
             </form>
