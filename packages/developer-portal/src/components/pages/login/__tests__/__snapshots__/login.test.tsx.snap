@@ -123,54 +123,70 @@ exports[`Login should match a snapshot 1`] = `
           <div
             className="wtehddc-wrapper"
           >
-            <Level>
-              <div
-                className="level"
-                data-test=""
-              >
-                <img
-                  alt="Reapit Connect Graphic"
-                  src=""
-                />
-              </div>
-            </Level>
-            <Section>
-              <section
-                className="section has-padding has-margin has-background"
-                data-test=""
-              >
-                <p>
-                  Welcome to Reapit Foundations
-                </p>
-              </section>
-            </Section>
-            <Level
-              className="r1j5cb07-register-level"
+            <img
+              alt="Reapit Connect Graphic"
+              src=""
+            />
+            <div
+              className="etq1dh3-el-p6"
             >
-              <div
-                className="level r1j5cb07-register-level"
-                data-test=""
-              >
-                <Button
-                  className="l1cbog1d-login-button"
-                  dataTest="login-button"
-                  fullWidth={true}
-                  onClick={[Function]}
+              <BodyText>
+                <ElBodyText
+                  className=""
                 >
-                  <button
-                    className="button is-fullwidth  is-primary l1cbog1d-login-button"
-                    data-test="login-button"
-                    disabled={false}
-                    onClick={[Function]}
-                    type="button"
+                  <p
+                    className="evblxhy-el-body-text"
                   >
-                    Login
-                  </button>
-                </Button>
-                <div
-                  className="r1d7w4ff-register"
+                    Welcome to Reapit Foundations
+                  </p>
+                </ElBodyText>
+              </BodyText>
+            </div>
+            <Button
+              className="l1cbog1d-login-button"
+              fullWidth={true}
+              intent="primary"
+              onClick={[Function]}
+              onMouseOut={[Function]}
+              onMouseOver={[Function]}
+            >
+              <ElButton
+                className="l1cbog1d-login-button ebee6r1-el-intent-primary e1yw9yco-el-wfull"
+                onClick={[Function]}
+                onMouseOut={[Function]}
+                onMouseOver={[Function]}
+              >
+                <button
+                  className="l1cbog1d-login-button ebee6r1-el-intent-primary e1yw9yco-el-wfull e1f2ikqj-el-button"
+                  onClick={[Function]}
+                  onMouseOut={[Function]}
+                  onMouseOver={[Function]}
                 >
-                  Don't have an account yet? 
+                  Login
+                </button>
+              </ElButton>
+            </Button>
+            <FlexContainer
+              className="e1nhfde7-el-mt12"
+              isFlexJustifyBetween={true}
+            >
+              <ElFlexContainer
+                className="e1q0zwo9-el-flex-justify-between e1nhfde7-el-mt12"
+              >
+                <div
+                  className="e1q0zwo9-el-flex-justify-between e1nhfde7-el-mt12 e2kmzjs-el-flex-container"
+                >
+                  <BodyText>
+                    <ElBodyText
+                      className=""
+                    >
+                      <p
+                        className="evblxhy-el-body-text"
+                      >
+                        Don't have an account yet? 
+                      </p>
+                    </ElBodyText>
+                  </BodyText>
                   <Link
                     to="/register"
                   >
@@ -187,16 +203,21 @@ exports[`Login should match a snapshot 1`] = `
                     </LinkAnchor>
                   </Link>
                 </div>
-              </div>
-            </Level>
-            <FlexContainerBasic
-              centerContent={true}
-              className="pt-8"
+              </ElFlexContainer>
+            </FlexContainer>
+            <FlexContainer
+              className="e1gs4mmx-el-pt8"
+              isFlexJustifyCenter={true}
+              isFlexRow={true}
             >
-              <div
-                className="container-flex is-centered pt-8"
-              />
-            </FlexContainerBasic>
+              <ElFlexContainer
+                className="ee71xsh-el-flex-row e1de2pym-el-flex-justify-center e1gs4mmx-el-pt8"
+              >
+                <div
+                  className="ee71xsh-el-flex-row e1de2pym-el-flex-justify-center e1gs4mmx-el-pt8 e2kmzjs-el-flex-container"
+                />
+              </ElFlexContainer>
+            </FlexContainer>
           </div>
         </div>
       </Login>
