@@ -1,5 +1,5 @@
-import React from 'react'
-import { InstallationModelPagedResult } from '@reapit/foundations-ts-definitions'
+import React, { FC } from 'react'
+import { InstallationModel } from '@reapit/foundations-ts-definitions'
 import {
   getInstallationsForOfficeGroups,
   getInstallationsForWholeOrg,
@@ -8,13 +8,13 @@ import {
 import { BodyText, Button, ButtonGroup, elMb11, Subtitle } from '@reapit/elements'
 
 export interface AppUninstallationSectionProps {
-  installations: InstallationModelPagedResult | undefined
+  installations: InstallationModel[]
   clientId: string | null
   setShowConfirmModal: (state: boolean) => void
   setPerformCompleteUninstall: (state: boolean) => void
 }
 
-const AppUninstallationSection: React.FC<AppUninstallationSectionProps> = ({
+const AppUninstallationSection: FC<AppUninstallationSectionProps> = ({
   installations,
   clientId,
   setShowConfirmModal,

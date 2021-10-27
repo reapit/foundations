@@ -1,13 +1,17 @@
-import * as React from 'react'
-import { shallow } from 'enzyme'
-import MarketplacePage, { handleFetchApps, onPageChangeHandler } from '../marketplace'
+import React from 'react'
+import { render } from '@testing-library/react'
+import { MarketplacePage, handleFetchApps, onPageChangeHandler } from '../marketplace'
 import { getAppsService } from '../../../services/apps'
 import { History } from 'history'
 import Routes from '../../../constants/routes'
 import { ReapitConnectSession } from '@reapit/connect-session'
+import { useOrgId } from '../../../utils/use-org-id'
+import { mockAppsList } from '../../../services/__stubs__/apps'
+
+const mockUseOrgId = useOrgId as jest.Mock
 
 jest.mock('../../../services/apps', () => ({
-  getAppsService: jest.fn(() => ({})),
+  getAppsService: jest.fn(() => mockAppsList),
   getAppRestrictionsService: jest.fn(() => ({})),
 }))
 
@@ -22,15 +26,7 @@ jest.mock('@reapit/connect-session', () => ({
   }),
 }))
 
-jest.mock('../../../utils/use-org-id', () => ({
-  useOrgId: () => ({
-    orgIdState: {
-      orgId: 'SOME_ID',
-      orgName: 'SOME_NAME',
-      orgClientId: 'SOME_CLIENT_ID',
-    },
-  }),
-}))
+jest.mock('../../../utils/use-org-id')
 
 jest.mock('react-router', () => ({
   useLocation: jest.fn(() => ({
@@ -39,12 +35,16 @@ jest.mock('react-router', () => ({
   useHistory: jest.fn(() => ({
     history: () => {},
   })),
-  withRouter: jest.fn((component) => component),
 }))
 
 describe('MarketplacePage', () => {
   it('should match a snapshot', () => {
-    expect(shallow(<MarketplacePage />)).toMatchSnapshot()
+    expect(render(<MarketplacePage />)).toMatchSnapshot()
+  })
+
+  it('should match a snapshot where no orgClientId exists', () => {
+    mockUseOrgId.mockReturnValueOnce({ orgIdState: {} })
+    expect(render(<MarketplacePage />)).toMatchSnapshot()
   })
 })
 
