@@ -101,9 +101,9 @@ export const Register: FC<RegisterProps> = () => {
       </div>
       <div className={wrapper}>
         <Title>Register</Title>
-        <p className="mb-4">Reapit Foundations developers</p>
+        <Subtitle>Reapit Foundations developers</Subtitle>
         {formState === 'SUCCESS' ? (
-          <PersistantNotification intent="success" isExpanded={true} isFullWidth={true}>
+          <PersistantNotification intent="success" isExpanded isFullWidth>
             Successfully registered. Check your email to confirm your account.
           </PersistantNotification>
         ) : (
