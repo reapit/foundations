@@ -1,10 +1,25 @@
 import { fetcher } from '@reapit/utils-common'
-import { createOfficeGroup, updateOfficeGroup } from '../office'
+import { createOfficeGroup, getOfficesService, updateOfficeGroup } from '../office'
 
 jest.mock('@reapit/utils-common')
 jest.mock('../../core/connect-session')
 const mockResponse = 'success'
 const mockedFetch = fetcher as jest.Mock
+
+describe('getOfficesService', () => {
+  it('should return a response from service', async () => {
+    mockedFetch.mockReturnValueOnce(mockResponse)
+    const response = await getOfficesService('search', 'orgId-001')
+    expect(response).toEqual(mockResponse)
+  })
+
+  it('should catch an error if no response from service', async () => {
+    const errorSpy = jest.spyOn(console, 'error')
+    mockedFetch.mockReturnValueOnce(undefined)
+    await getOfficesService('search', 'orgId-001')
+    expect(errorSpy).toHaveBeenLastCalledWith('Failed to fetch offices')
+  })
+})
 
 describe('createOfficeGroup', () => {
   it('should return a response from service', async () => {

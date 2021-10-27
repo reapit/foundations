@@ -1,5 +1,5 @@
 import * as React from 'react'
-import { mount } from 'enzyme'
+import { render } from '@testing-library/react'
 import AppToggleVisibilitySection, { handleOnCheckboxChange } from '../app-toggle-visibility-section'
 import { updateAppRestrictionsService } from '../../../../services/apps'
 
@@ -42,7 +42,7 @@ describe('AppToggleVisibilitySection', () => {
   it('should match a snapshot', () => {
     const stubApp = { name: 'APP_NAME', developer: 'APP_DEVELOPER' }
     const mockReFetchApp = jest.fn()
-    expect(mount(<AppToggleVisibilitySection app={stubApp} reFetchApp={mockReFetchApp} />)).toMatchSnapshot()
+    expect(render(<AppToggleVisibilitySection app={stubApp} reFetchApp={mockReFetchApp} />)).toMatchSnapshot()
   })
 })
 

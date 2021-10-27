@@ -1,8 +1,7 @@
 import * as React from 'react'
-import { mount } from 'enzyme'
+import { render } from '@testing-library/react'
 import { WHOLE_ORG, SPECIFIC_OFFICE_GROUPS } from '../app-installation-manager'
 import AppInstallationConfirmationModal from '../app-installation-confirmation-modal'
-import { Button } from '@reapit/elements'
 
 describe('AppInstallationConfirmationModal', () => {
   it('should match a snapshot when the install type is WHOLE_ORG', () => {
@@ -12,18 +11,19 @@ describe('AppInstallationConfirmationModal', () => {
     const stubOnConfirm = jest.fn()
     const stubOnClose = jest.fn()
 
-    const wrapper = mount(
-      <AppInstallationConfirmationModal
-        app={stubApp}
-        installFor={[]}
-        uninstallFor={[]}
-        appInstallationType={WHOLE_ORG}
-        onConfirm={stubOnConfirm}
-        onClose={stubOnClose}
-        performCompleteUninstall={false}
-      />,
-    )
-    expect(wrapper.find('[data-test="modal-content"]')).toMatchSnapshot()
+    expect(
+      render(
+        <AppInstallationConfirmationModal
+          app={stubApp}
+          installFor={[]}
+          uninstallFor={[]}
+          appInstallationType={WHOLE_ORG}
+          onConfirm={stubOnConfirm}
+          onClose={stubOnClose}
+          performCompleteUninstall={false}
+        />,
+      ),
+    ).toMatchSnapshot()
   })
 
   it('should match a snapshot when the install type is SPECIFIC_OFFICE_GROUPS', () => {
@@ -33,18 +33,19 @@ describe('AppInstallationConfirmationModal', () => {
     const stubOnConfirm = jest.fn()
     const stubOnClose = jest.fn()
 
-    const wrapper = mount(
-      <AppInstallationConfirmationModal
-        app={stubApp}
-        installFor={['SBOX-TEST']}
-        uninstallFor={['SBOX-GWIT']}
-        appInstallationType={SPECIFIC_OFFICE_GROUPS}
-        onConfirm={stubOnConfirm}
-        onClose={stubOnClose}
-        performCompleteUninstall={false}
-      />,
-    )
-    expect(wrapper.find('[data-test="modal-content"]')).toMatchSnapshot()
+    expect(
+      render(
+        <AppInstallationConfirmationModal
+          app={stubApp}
+          installFor={['SBOX-TEST']}
+          uninstallFor={['SBOX-GWIT']}
+          appInstallationType={SPECIFIC_OFFICE_GROUPS}
+          onConfirm={stubOnConfirm}
+          onClose={stubOnClose}
+          performCompleteUninstall={false}
+        />,
+      ),
+    ).toMatchSnapshot()
   })
 
   it('should match a snapshot when an uninstallation is requested', () => {
@@ -54,18 +55,19 @@ describe('AppInstallationConfirmationModal', () => {
     const stubOnConfirm = jest.fn()
     const stubOnClose = jest.fn()
 
-    const wrapper = mount(
-      <AppInstallationConfirmationModal
-        app={stubApp}
-        installFor={[]}
-        uninstallFor={['']}
-        appInstallationType={SPECIFIC_OFFICE_GROUPS}
-        onConfirm={stubOnConfirm}
-        onClose={stubOnClose}
-        performCompleteUninstall={true}
-      />,
-    )
-    expect(wrapper.find('[data-test="modal-content"]')).toMatchSnapshot()
+    expect(
+      render(
+        <AppInstallationConfirmationModal
+          app={stubApp}
+          installFor={[]}
+          uninstallFor={['']}
+          appInstallationType={SPECIFIC_OFFICE_GROUPS}
+          onConfirm={stubOnConfirm}
+          onClose={stubOnClose}
+          performCompleteUninstall={true}
+        />,
+      ),
+    ).toMatchSnapshot()
   })
 
   it('should call the spy when a modal is closed', () => {
@@ -75,7 +77,7 @@ describe('AppInstallationConfirmationModal', () => {
     const stubOnConfirm = jest.fn()
     const stubOnClose = jest.fn()
 
-    const wrapper = mount(
+    const wrapper = render(
       <AppInstallationConfirmationModal
         app={stubApp}
         installFor={[]}
@@ -86,8 +88,9 @@ describe('AppInstallationConfirmationModal', () => {
         performCompleteUninstall={true}
       />,
     )
-    const cancelButton = wrapper.find(Button).first()
-    cancelButton.simulate('click')
+
+    wrapper.getByText('Cancel').click()
+
     expect(stubOnClose).toHaveBeenCalledTimes(1)
   })
 
@@ -98,7 +101,7 @@ describe('AppInstallationConfirmationModal', () => {
     const stubOnConfirm = jest.fn()
     const stubOnClose = jest.fn()
 
-    const wrapper = mount(
+    const wrapper = render(
       <AppInstallationConfirmationModal
         app={stubApp}
         installFor={[]}
@@ -109,8 +112,8 @@ describe('AppInstallationConfirmationModal', () => {
         performCompleteUninstall={true}
       />,
     )
-    const confirmButton = wrapper.find(Button).at(1)
-    confirmButton.simulate('click')
+    wrapper.getByText('Confirm').click()
+
     expect(stubOnConfirm).toHaveBeenCalledTimes(1)
   })
 })

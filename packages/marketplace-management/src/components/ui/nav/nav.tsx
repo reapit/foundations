@@ -24,8 +24,6 @@ export const getDefaultNavIndex = (pathname: string) => {
     case Routes.USERS:
     case Routes.USERS_GROUPS:
       return 2
-    case Routes.MARKETPLACE:
-      return 3
     default:
       return 0
   }

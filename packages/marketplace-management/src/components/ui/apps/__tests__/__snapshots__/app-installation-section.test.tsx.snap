@@ -1,245 +1,449 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`AppInstallationSection should match a snapshot when WHOLE_ORG is selected 1`] = `
-<AppInstallationSection
-  appInstallationType="WHOLE_ORG"
-  initialAppInstallationType="WHOLE_ORG"
-  installations={
-    Object {
-      "data": Array [],
-    }
-  }
-  installationsValidating={false}
-  officeGroupsToAdd={Array []}
-  officeGroupsToRemove={Array []}
-  onCheckboxChange={[MockFunction]}
-  setOfficeGroupsToAdd={[MockFunction]}
-  setOfficeGroupsToRemove={[MockFunction]}
-  setShowConfirmModal={[MockFunction]}
->
-  <Subtitle>
-    <ElSubtitle
-      className=""
-    >
+exports[`AppInstallationSection should match a snapshot when SPECIFIC_OFFICE_GROUPS is selected 1`] = `
+Object {
+  "asFragment": [Function],
+  "baseElement": <body>
+    <div>
       <h2
-        className="el-subtitle"
+        class="el-subtitle"
       >
         Installation
       </h2>
-    </ElSubtitle>
-  </Subtitle>
-  <BodyText
-    hasGreyText={true}
-  >
-    <ElBodyText
-      className="el-has-grey-text"
-    >
       <p
-        className="el-has-grey-text el-body-text"
+        class="el-has-grey-text el-body-text"
       >
         Please select the type of installation you require for this app:
       </p>
-    </ElBodyText>
-  </BodyText>
-  <FormLayout>
-    <ElFormLayout>
       <div
-        className="el-form-layout"
+        class="el-form-layout"
       >
-        <InputWrap>
-          <ElInputWrap>
-            <div
-              className="el-input-wrap"
+        <div
+          class="el-input-wrap"
+        >
+          <div
+            class="el-mb5 el-input-group"
+          >
+            <input
+              class="el-input"
+              id="WHOLE_ORG"
+              type="checkbox"
+            />
+            <label
+              class="el-label"
+              for="WHOLE_ORG"
             >
-              <ForwardRef
-                checked={true}
-                className="el-mb5"
-                id="WHOLE_ORG"
-                label="Install for the whole of your organisation"
-                onChange={[Function]}
-                type="checkbox"
-              >
-                <ElInputGroup
-                  className="el-mb5"
-                >
-                  <div
-                    className="el-mb5 el-input-group"
-                  >
-                    <ForwardRef
-                      checked={true}
-                      id="WHOLE_ORG"
-                      onChange={[Function]}
-                      type="checkbox"
-                    >
-                      <ElInput
-                        checked={true}
-                        id="WHOLE_ORG"
-                        onChange={[Function]}
-                        type="checkbox"
-                      >
-                        <input
-                          checked={true}
-                          className="el-input"
-                          id="WHOLE_ORG"
-                          onChange={[Function]}
-                          type="checkbox"
-                        />
-                      </ElInput>
-                    </ForwardRef>
-                    <Label
-                      htmlFor="WHOLE_ORG"
-                    >
-                      <ElLabel
-                        htmlFor="WHOLE_ORG"
-                      >
-                        <label
-                          className="el-label"
-                          htmlFor="WHOLE_ORG"
-                        >
-                          Install for the whole of your organisation
-                        </label>
-                      </ElLabel>
-                    </Label>
-                  </div>
-                </ElInputGroup>
-              </ForwardRef>
-              <BodyText>
-                <ElBodyText
-                  className=""
-                >
-                  <p
-                    className="el-body-text"
-                  >
-                    This will grant the app access to all data for all users and offices across your organisation
-                  </p>
-                </ElBodyText>
-              </BodyText>
-            </div>
-          </ElInputWrap>
-        </InputWrap>
-        <InputWrap>
-          <ElInputWrap>
-            <div
-              className="el-input-wrap"
+              Install for the whole of your organisation
+            </label>
+          </div>
+          <p
+            class="el-body-text"
+          >
+            This will grant the app access to all data for all users and offices across your organisation
+          </p>
+        </div>
+        <div
+          class="el-input-wrap"
+        >
+          <div
+            class="el-mb5 el-input-group"
+          >
+            <input
+              checked=""
+              class="el-input"
+              id="SPECIFIC_OFFICE_GROUPS"
+              type="checkbox"
+            />
+            <label
+              class="el-label"
+              for="SPECIFIC_OFFICE_GROUPS"
             >
-              <ForwardRef
-                checked={false}
-                className="el-mb5"
-                id="SPECIFIC_OFFICE_GROUPS"
-                label="Install for specific office groups"
-                onChange={[Function]}
-                type="checkbox"
-              >
-                <ElInputGroup
-                  className="el-mb5"
-                >
-                  <div
-                    className="el-mb5 el-input-group"
-                  >
-                    <ForwardRef
-                      checked={false}
-                      id="SPECIFIC_OFFICE_GROUPS"
-                      onChange={[Function]}
-                      type="checkbox"
-                    >
-                      <ElInput
-                        checked={false}
-                        id="SPECIFIC_OFFICE_GROUPS"
-                        onChange={[Function]}
-                        type="checkbox"
-                      >
-                        <input
-                          checked={false}
-                          className="el-input"
-                          id="SPECIFIC_OFFICE_GROUPS"
-                          onChange={[Function]}
-                          type="checkbox"
-                        />
-                      </ElInput>
-                    </ForwardRef>
-                    <Label
-                      htmlFor="SPECIFIC_OFFICE_GROUPS"
-                    >
-                      <ElLabel
-                        htmlFor="SPECIFIC_OFFICE_GROUPS"
-                      >
-                        <label
-                          className="el-label"
-                          htmlFor="SPECIFIC_OFFICE_GROUPS"
-                        >
-                          Install for specific office groups
-                        </label>
-                      </ElLabel>
-                    </Label>
-                  </div>
-                </ElInputGroup>
-              </ForwardRef>
-              <BodyText>
-                <ElBodyText
-                  className=""
-                >
-                  <p
-                    className="el-body-text"
-                  >
-                    This will grant the app access to only data for the specific offices inside of each office group
-                  </p>
-                </ElBodyText>
-              </BodyText>
-            </div>
-          </ElInputWrap>
-        </InputWrap>
-        <InputWrapFull>
-          <ElInputWrapFull>
+              Install for specific office groups
+            </label>
+          </div>
+          <p
+            class="el-body-text"
+          >
+            This will grant the app access to only data for the specific offices inside of each office group
+          </p>
+        </div>
+        <div
+          class="el-input-wrap-full"
+        >
+          <div
+            class="el-mb7 el-button-group"
+          >
             <div
-              className="el-input-wrap-full"
+              class="el-button-group-align-right el-button-group-inner"
             >
-              <ButtonGroup
-                alignment="right"
-                className="el-mb7"
+              <button
+                class="el-intent-critical el-button-has-right-chevron el-button-size2 el-button"
               >
-                <ElButtonGroup
-                  className="el-mb7"
-                >
-                  <div
-                    className="el-mb7 el-button-group"
-                  >
-                    <ElButtonGroupInner
-                      className="el-button-group-align-right"
-                    >
-                      <div
-                        className="el-button-group-align-right el-button-group-inner"
-                      >
-                        <Button
-                          chevronRight={true}
-                          disabled={true}
-                          intent="critical"
-                          onClick={[Function]}
-                          size={2}
-                        >
-                          <ElButton
-                            className="el-intent-critical el-button-has-right-chevron el-button-size2"
-                            disabled={true}
-                            onClick={[Function]}
-                          >
-                            <button
-                              className="el-intent-critical el-button-has-right-chevron el-button-size2 el-button"
-                              disabled={true}
-                              onClick={[Function]}
-                            >
-                              Save
-                            </button>
-                          </ElButton>
-                        </Button>
-                      </div>
-                    </ElButtonGroupInner>
-                  </div>
-                </ElButtonGroup>
-              </ButtonGroup>
+                Save
+              </button>
             </div>
-          </ElInputWrapFull>
-        </InputWrapFull>
+          </div>
+        </div>
       </div>
-    </ElFormLayout>
-  </FormLayout>
-</AppInstallationSection>
+    </div>
+  </body>,
+  "container": <div>
+    <h2
+      class="el-subtitle"
+    >
+      Installation
+    </h2>
+    <p
+      class="el-has-grey-text el-body-text"
+    >
+      Please select the type of installation you require for this app:
+    </p>
+    <div
+      class="el-form-layout"
+    >
+      <div
+        class="el-input-wrap"
+      >
+        <div
+          class="el-mb5 el-input-group"
+        >
+          <input
+            class="el-input"
+            id="WHOLE_ORG"
+            type="checkbox"
+          />
+          <label
+            class="el-label"
+            for="WHOLE_ORG"
+          >
+            Install for the whole of your organisation
+          </label>
+        </div>
+        <p
+          class="el-body-text"
+        >
+          This will grant the app access to all data for all users and offices across your organisation
+        </p>
+      </div>
+      <div
+        class="el-input-wrap"
+      >
+        <div
+          class="el-mb5 el-input-group"
+        >
+          <input
+            checked=""
+            class="el-input"
+            id="SPECIFIC_OFFICE_GROUPS"
+            type="checkbox"
+          />
+          <label
+            class="el-label"
+            for="SPECIFIC_OFFICE_GROUPS"
+          >
+            Install for specific office groups
+          </label>
+        </div>
+        <p
+          class="el-body-text"
+        >
+          This will grant the app access to only data for the specific offices inside of each office group
+        </p>
+      </div>
+      <div
+        class="el-input-wrap-full"
+      >
+        <div
+          class="el-mb7 el-button-group"
+        >
+          <div
+            class="el-button-group-align-right el-button-group-inner"
+          >
+            <button
+              class="el-intent-critical el-button-has-right-chevron el-button-size2 el-button"
+            >
+              Save
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>,
+  "debug": [Function],
+  "findAllByAltText": [Function],
+  "findAllByDisplayValue": [Function],
+  "findAllByLabelText": [Function],
+  "findAllByPlaceholderText": [Function],
+  "findAllByRole": [Function],
+  "findAllByTestId": [Function],
+  "findAllByText": [Function],
+  "findAllByTitle": [Function],
+  "findByAltText": [Function],
+  "findByDisplayValue": [Function],
+  "findByLabelText": [Function],
+  "findByPlaceholderText": [Function],
+  "findByRole": [Function],
+  "findByTestId": [Function],
+  "findByText": [Function],
+  "findByTitle": [Function],
+  "getAllByAltText": [Function],
+  "getAllByDisplayValue": [Function],
+  "getAllByLabelText": [Function],
+  "getAllByPlaceholderText": [Function],
+  "getAllByRole": [Function],
+  "getAllByTestId": [Function],
+  "getAllByText": [Function],
+  "getAllByTitle": [Function],
+  "getByAltText": [Function],
+  "getByDisplayValue": [Function],
+  "getByLabelText": [Function],
+  "getByPlaceholderText": [Function],
+  "getByRole": [Function],
+  "getByTestId": [Function],
+  "getByText": [Function],
+  "getByTitle": [Function],
+  "queryAllByAltText": [Function],
+  "queryAllByDisplayValue": [Function],
+  "queryAllByLabelText": [Function],
+  "queryAllByPlaceholderText": [Function],
+  "queryAllByRole": [Function],
+  "queryAllByTestId": [Function],
+  "queryAllByText": [Function],
+  "queryAllByTitle": [Function],
+  "queryByAltText": [Function],
+  "queryByDisplayValue": [Function],
+  "queryByLabelText": [Function],
+  "queryByPlaceholderText": [Function],
+  "queryByRole": [Function],
+  "queryByTestId": [Function],
+  "queryByText": [Function],
+  "queryByTitle": [Function],
+  "rerender": [Function],
+  "unmount": [Function],
+}
+`;
+
+exports[`AppInstallationSection should match a snapshot when WHOLE_ORG is selected 1`] = `
+Object {
+  "asFragment": [Function],
+  "baseElement": <body>
+    <div>
+      <h2
+        class="el-subtitle"
+      >
+        Installation
+      </h2>
+      <p
+        class="el-has-grey-text el-body-text"
+      >
+        Please select the type of installation you require for this app:
+      </p>
+      <div
+        class="el-form-layout"
+      >
+        <div
+          class="el-input-wrap"
+        >
+          <div
+            class="el-mb5 el-input-group"
+          >
+            <input
+              checked=""
+              class="el-input"
+              id="WHOLE_ORG"
+              type="checkbox"
+            />
+            <label
+              class="el-label"
+              for="WHOLE_ORG"
+            >
+              Install for the whole of your organisation
+            </label>
+          </div>
+          <p
+            class="el-body-text"
+          >
+            This will grant the app access to all data for all users and offices across your organisation
+          </p>
+        </div>
+        <div
+          class="el-input-wrap"
+        >
+          <div
+            class="el-mb5 el-input-group"
+          >
+            <input
+              class="el-input"
+              id="SPECIFIC_OFFICE_GROUPS"
+              type="checkbox"
+            />
+            <label
+              class="el-label"
+              for="SPECIFIC_OFFICE_GROUPS"
+            >
+              Install for specific office groups
+            </label>
+          </div>
+          <p
+            class="el-body-text"
+          >
+            This will grant the app access to only data for the specific offices inside of each office group
+          </p>
+        </div>
+        <div
+          class="el-input-wrap-full"
+        >
+          <div
+            class="el-mb7 el-button-group"
+          >
+            <div
+              class="el-button-group-align-right el-button-group-inner"
+            >
+              <button
+                class="el-intent-critical el-button-has-right-chevron el-button-size2 el-button"
+                disabled=""
+              >
+                Save
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </body>,
+  "container": <div>
+    <h2
+      class="el-subtitle"
+    >
+      Installation
+    </h2>
+    <p
+      class="el-has-grey-text el-body-text"
+    >
+      Please select the type of installation you require for this app:
+    </p>
+    <div
+      class="el-form-layout"
+    >
+      <div
+        class="el-input-wrap"
+      >
+        <div
+          class="el-mb5 el-input-group"
+        >
+          <input
+            checked=""
+            class="el-input"
+            id="WHOLE_ORG"
+            type="checkbox"
+          />
+          <label
+            class="el-label"
+            for="WHOLE_ORG"
+          >
+            Install for the whole of your organisation
+          </label>
+        </div>
+        <p
+          class="el-body-text"
+        >
+          This will grant the app access to all data for all users and offices across your organisation
+        </p>
+      </div>
+      <div
+        class="el-input-wrap"
+      >
+        <div
+          class="el-mb5 el-input-group"
+        >
+          <input
+            class="el-input"
+            id="SPECIFIC_OFFICE_GROUPS"
+            type="checkbox"
+          />
+          <label
+            class="el-label"
+            for="SPECIFIC_OFFICE_GROUPS"
+          >
+            Install for specific office groups
+          </label>
+        </div>
+        <p
+          class="el-body-text"
+        >
+          This will grant the app access to only data for the specific offices inside of each office group
+        </p>
+      </div>
+      <div
+        class="el-input-wrap-full"
+      >
+        <div
+          class="el-mb7 el-button-group"
+        >
+          <div
+            class="el-button-group-align-right el-button-group-inner"
+          >
+            <button
+              class="el-intent-critical el-button-has-right-chevron el-button-size2 el-button"
+              disabled=""
+            >
+              Save
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>,
+  "debug": [Function],
+  "findAllByAltText": [Function],
+  "findAllByDisplayValue": [Function],
+  "findAllByLabelText": [Function],
+  "findAllByPlaceholderText": [Function],
+  "findAllByRole": [Function],
+  "findAllByTestId": [Function],
+  "findAllByText": [Function],
+  "findAllByTitle": [Function],
+  "findByAltText": [Function],
+  "findByDisplayValue": [Function],
+  "findByLabelText": [Function],
+  "findByPlaceholderText": [Function],
+  "findByRole": [Function],
+  "findByTestId": [Function],
+  "findByText": [Function],
+  "findByTitle": [Function],
+  "getAllByAltText": [Function],
+  "getAllByDisplayValue": [Function],
+  "getAllByLabelText": [Function],
+  "getAllByPlaceholderText": [Function],
+  "getAllByRole": [Function],
+  "getAllByTestId": [Function],
+  "getAllByText": [Function],
+  "getAllByTitle": [Function],
+  "getByAltText": [Function],
+  "getByDisplayValue": [Function],
+  "getByLabelText": [Function],
+  "getByPlaceholderText": [Function],
+  "getByRole": [Function],
+  "getByTestId": [Function],
+  "getByText": [Function],
+  "getByTitle": [Function],
+  "queryAllByAltText": [Function],
+  "queryAllByDisplayValue": [Function],
+  "queryAllByLabelText": [Function],
+  "queryAllByPlaceholderText": [Function],
+  "queryAllByRole": [Function],
+  "queryAllByTestId": [Function],
+  "queryAllByText": [Function],
+  "queryAllByTitle": [Function],
+  "queryByAltText": [Function],
+  "queryByDisplayValue": [Function],
+  "queryByLabelText": [Function],
+  "queryByPlaceholderText": [Function],
+  "queryByRole": [Function],
+  "queryByTestId": [Function],
+  "queryByText": [Function],
+  "queryByTitle": [Function],
+  "rerender": [Function],
+  "unmount": [Function],
+}
 `;

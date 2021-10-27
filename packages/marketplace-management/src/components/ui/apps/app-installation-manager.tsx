@@ -1,5 +1,10 @@
-import React, { useState } from 'react'
-import { AppSummaryModel, InstallationModelPagedResult } from '@reapit/foundations-ts-definitions'
+import React, { Dispatch, FC, SetStateAction, useEffect, useState } from 'react'
+import {
+  AppDetailModel,
+  AppSummaryModel,
+  InstallationModel,
+  InstallationModelPagedResult,
+} from '@reapit/foundations-ts-definitions'
 import useSWR from 'swr'
 import AppInstallationSection from './app-installation-section'
 import AppInstallationConfirmationModal from './app-installation-confirmation-modal'
@@ -15,25 +20,23 @@ export interface AppInstallationManagerProps {
 
 export const SPECIFIC_OFFICE_GROUPS = 'SPECIFIC_OFFICE_GROUPS'
 export const WHOLE_ORG = 'WHOLE_ORG'
-export type InstallTypes = 'SPECIFIC_OFFICE_GROUPS' | 'WHOLE_ORG' | '' | null
+export type InstallTypes = 'SPECIFIC_OFFICE_GROUPS' | 'WHOLE_ORG' | null
 
 export const getInstallationsForWholeOrg = (
-  installations: InstallationModelPagedResult | undefined,
+  installations: InstallationModel[],
   clientIdFirstPart: string,
 ): (string | undefined)[] => {
-  if (!installations?.data) return []
-  return installations.data
+  return installations
     .filter((installation) => installation?.client === clientIdFirstPart)
     .map((installation) => installation.client)
     .filter((client) => !!client)
 }
 
 export const getInstallationsForOfficeGroups = (
-  installations: InstallationModelPagedResult | undefined,
+  installations: InstallationModel[],
   clientIdFirstPart: string,
 ): (string | undefined)[] => {
-  if (!installations?.data) return []
-  return installations.data
+  return installations
     .filter((installation) => installation?.client?.startsWith(`${clientIdFirstPart}-`))
     .map((installation) => installation.client)
     .filter((client) => !!client)
@@ -43,50 +46,64 @@ export const getClientIdFirstPart = (clientId: string | null) => {
   return clientId ? clientId.split('-')[0] : ''
 }
 
-const AppInstallationManager: React.FC<AppInstallationManagerProps> = ({ app }: AppInstallationManagerProps) => {
-  const [initialAppInstallationType, setInitialAppInstallationType] = useState<InstallTypes>(null)
-  const [appInstallationType, setAppInstallationType] = useState<InstallTypes>('')
-  const [officeGroupsToAdd, setOfficeGroupsToAdd] = useState<string[]>([])
-  const [officeGroupsToRemove, setOfficeGroupsToRemove] = useState<string[]>([])
-  const [performCompleteUninstall, setPerformCompleteUninstall] = useState<boolean>(false)
-  const { success } = useSnack()
-  const { Modal, openModal, closeModal } = useModal()
-  const {
-    orgIdState: { orgClientId },
-  } = useOrgId()
+export const handleSetInstallTypes =
+  (
+    orgClientId: string | null,
+    initialAppInstallationType: InstallTypes,
+    installations: InstallationModel[],
+    setInitialAppInstallationType: Dispatch<SetStateAction<InstallTypes>>,
+    setAppInstallationType: Dispatch<SetStateAction<InstallTypes>>,
+  ) =>
+  () => {
+    if (orgClientId && !initialAppInstallationType) {
+      const clientIdFirstPart = getClientIdFirstPart(orgClientId)
+      const installedForWholeOrg = getInstallationsForWholeOrg(installations, clientIdFirstPart).length > 0
+      const installedForGroups = getInstallationsForOfficeGroups(installations, clientIdFirstPart).length > 0
 
-  const {
-    data: installations,
-    isValidating: installationsValidating,
-    revalidate: revalidateInstallations,
-  } = useSWR<InstallationModelPagedResult>(`${URLS.INSTALLATIONS}/?AppId=${app.id}&IsInstalled=true&pageSize=999`)
-
-  if (orgClientId && installations?.data && initialAppInstallationType === null) {
-    const clientIdFirstPart = getClientIdFirstPart(orgClientId)
-    const installedForWholeOrg = getInstallationsForWholeOrg(installations, clientIdFirstPart).length > 0
-    const installedForGroups = getInstallationsForOfficeGroups(installations, clientIdFirstPart).length > 0
-
-    if (installedForWholeOrg) {
-      setInitialAppInstallationType(WHOLE_ORG)
-      setAppInstallationType(WHOLE_ORG)
-    } else if (installedForGroups) {
-      setInitialAppInstallationType(SPECIFIC_OFFICE_GROUPS)
-      setAppInstallationType(SPECIFIC_OFFICE_GROUPS)
-    } else {
-      setInitialAppInstallationType('')
-      setAppInstallationType('')
+      if (installedForWholeOrg) {
+        setInitialAppInstallationType(WHOLE_ORG)
+        setAppInstallationType(WHOLE_ORG)
+      } else if (installedForGroups) {
+        setInitialAppInstallationType(SPECIFIC_OFFICE_GROUPS)
+        setAppInstallationType(SPECIFIC_OFFICE_GROUPS)
+      }
     }
   }
 
-  const handleOnCheckboxChange = (appInstallationType: InstallTypes) => {
-    setAppInstallationType(appInstallationType)
-    if (appInstallationType === WHOLE_ORG) {
+export const handleOnCheckboxChange =
+  (
+    setAppInstallationType: Dispatch<SetStateAction<InstallTypes>>,
+    setOfficeGroupsToAdd: Dispatch<SetStateAction<string[]>>,
+    setOfficeGroupsToRemove: Dispatch<SetStateAction<string[]>>,
+  ) =>
+  (installType: InstallTypes) => {
+    setAppInstallationType(installType)
+    if (installType === WHOLE_ORG) {
       setOfficeGroupsToAdd([])
       setOfficeGroupsToRemove([])
     }
   }
 
-  const handleModalConfirmation = async () => {
+export const handleModalConfirmation =
+  (
+    performCompleteUninstall: boolean,
+    orgClientId: string | null,
+    installations: InstallationModel[],
+    app: AppDetailModel,
+    appInstallationType: InstallTypes,
+    initialAppInstallationType: InstallTypes,
+    officeGroupsToRemove: string[],
+    officeGroupsToAdd: string[],
+    setAppInstallationType: Dispatch<SetStateAction<InstallTypes>>,
+    setOfficeGroupsToAdd: Dispatch<SetStateAction<string[]>>,
+    setOfficeGroupsToRemove: Dispatch<SetStateAction<string[]>>,
+    setInitialAppInstallationType: Dispatch<SetStateAction<InstallTypes>>,
+    setPerformCompleteUninstall: Dispatch<SetStateAction<boolean>>,
+    revalidateInstallations: () => void,
+    success: (message: string) => void,
+    closeModal: () => void,
+  ) =>
+  async () => {
     const clientIdFirstPart = getClientIdFirstPart(orgClientId)
 
     try {
@@ -98,8 +115,8 @@ const AppInstallationManager: React.FC<AppInstallationManagerProps> = ({ app }: 
         // install for noone, and remove for the office groups and the whole org
         await bulkInstall([], installsToRemove, app.id)
         // set the various states back to default
-        setAppInstallationType('')
-        setInitialAppInstallationType('')
+        setAppInstallationType(null)
+        setInitialAppInstallationType(null)
         setOfficeGroupsToAdd([])
         setOfficeGroupsToRemove([])
         setPerformCompleteUninstall(false)
@@ -133,6 +150,37 @@ const AppInstallationManager: React.FC<AppInstallationManagerProps> = ({ app }: 
     }
   }
 
+const AppInstallationManager: FC<AppInstallationManagerProps> = ({ app }: AppInstallationManagerProps) => {
+  const [initialAppInstallationType, setInitialAppInstallationType] = useState<InstallTypes>(null)
+  const [appInstallationType, setAppInstallationType] = useState<InstallTypes>(null)
+  const [officeGroupsToAdd, setOfficeGroupsToAdd] = useState<string[]>([])
+  const [officeGroupsToRemove, setOfficeGroupsToRemove] = useState<string[]>([])
+  const [performCompleteUninstall, setPerformCompleteUninstall] = useState<boolean>(false)
+  const { success } = useSnack()
+  const { Modal, openModal, closeModal } = useModal()
+  const {
+    orgIdState: { orgClientId },
+  } = useOrgId()
+
+  const {
+    data,
+    isValidating: installationsValidating,
+    revalidate: revalidateInstallations,
+  } = useSWR<InstallationModelPagedResult>(`${URLS.INSTALLATIONS}/?AppId=${app.id}&IsInstalled=true&pageSize=999`)
+
+  const installations = data?.data ?? []
+
+  useEffect(
+    handleSetInstallTypes(
+      orgClientId,
+      initialAppInstallationType,
+      installations,
+      setInitialAppInstallationType,
+      setAppInstallationType,
+    ),
+    [orgClientId, initialAppInstallationType, installations],
+  )
+
   return (
     <>
       <AppUninstallationSection
@@ -144,7 +192,7 @@ const AppInstallationManager: React.FC<AppInstallationManagerProps> = ({ app }: 
       <AppInstallationSection
         initialAppInstallationType={initialAppInstallationType}
         appInstallationType={appInstallationType}
-        onCheckboxChange={handleOnCheckboxChange}
+        onCheckboxChange={handleOnCheckboxChange(setAppInstallationType, setOfficeGroupsToAdd, setOfficeGroupsToRemove)}
         installations={installations}
         officeGroupsToAdd={officeGroupsToAdd}
         officeGroupsToRemove={officeGroupsToRemove}
@@ -159,7 +207,24 @@ const AppInstallationManager: React.FC<AppInstallationManagerProps> = ({ app }: 
           installFor={officeGroupsToAdd}
           uninstallFor={officeGroupsToRemove}
           appInstallationType={appInstallationType}
-          onConfirm={handleModalConfirmation}
+          onConfirm={handleModalConfirmation(
+            performCompleteUninstall,
+            orgClientId,
+            installations,
+            app,
+            appInstallationType,
+            initialAppInstallationType,
+            officeGroupsToRemove,
+            officeGroupsToAdd,
+            setAppInstallationType,
+            setOfficeGroupsToAdd,
+            setOfficeGroupsToRemove,
+            setInitialAppInstallationType,
+            setPerformCompleteUninstall,
+            revalidateInstallations,
+            success,
+            closeModal,
+          )}
           onClose={closeModal}
           performCompleteUninstall={performCompleteUninstall}
         />

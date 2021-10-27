@@ -1,5 +1,5 @@
 import React, { Dispatch, FC, SetStateAction, useEffect, useState } from 'react'
-import { AppSummaryModel, InstallationModelPagedResult } from '@reapit/foundations-ts-definitions'
+import { AppSummaryModel, InstallationModel, InstallationModelPagedResult } from '@reapit/foundations-ts-definitions'
 import defaultAppIcon from '../../../assets/images/default-app-icon.jpg'
 import Routes from '../../../constants/routes'
 import { history } from '../../../core/router'
@@ -29,11 +29,11 @@ export const handleNavigation = (appId: string) => () => {
 export const handleInstallationsStringEffect =
   (
     setInstallationString: Dispatch<SetStateAction<string | null>>,
-    installations: InstallationModelPagedResult | undefined,
+    installations: InstallationModel[],
     clientId?: string | null,
   ) =>
   () => {
-    if (installations?.data && clientId) {
+    if (clientId) {
       const clientIdFirstPart = getClientIdFirstPart(clientId)
       const orgInstallations = getInstallationsForWholeOrg(installations, clientIdFirstPart)
       const groupInstallations = getInstallationsForOfficeGroups(installations, clientIdFirstPart)
@@ -53,9 +53,11 @@ export const AppCard: FC<AppCardProps> = ({ app }: AppCardProps) => {
   const {
     orgIdState: { orgClientId },
   } = useOrgId()
-  const { data: installations } = useSWR<InstallationModelPagedResult>(
+  const { data } = useSWR<InstallationModelPagedResult>(
     !connectSession || !orgClientId ? null : `${URLS.INSTALLATIONS}/?AppId=${app.id}&IsInstalled=true&pageSize=999`,
   )
+
+  const installations = data?.data ?? []
 
   useEffect(handleInstallationsStringEffect(setInstallationString, installations, orgClientId), [
     installations,

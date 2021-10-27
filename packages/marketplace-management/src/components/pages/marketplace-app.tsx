@@ -24,7 +24,8 @@ import {
 } from '@reapit/elements'
 import { navigate } from '../ui/nav/nav'
 import Routes from '../../constants/routes'
-import { OrgIdSelect, useOrgId } from '../../utils/use-org-id'
+import { useOrgId } from '../../utils/use-org-id'
+import { OrgIdSelect } from '../hocs/org-id-select'
 
 export const handleLoadAppListing = (isDesktop: boolean, appId: string) => () => {
   const appListingUri = `${window.reapit.config.marketplaceUrl}/apps/${appId}`

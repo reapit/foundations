@@ -1,21 +1,31 @@
 import React from 'react'
-import { shallow } from 'enzyme'
-import UpdateUserGroupModal, { EditUserGroupFormProps, onHandleSubmit } from '../edit-user-group'
+import { render } from '@testing-library/react'
+import EditUserGroupForm, { EditUserGroupFormProps, onHandleSubmit } from '../edit-user-group'
 import { addMemberToGroup, removeMemberFromGroup } from '../../../../services/user'
-// import { listUserGroup, listUserGroupMember } from '../__stubs__/user-groups'
+import { mockUserGroups } from '../../../../services/__stubs__/user-groups'
+import { GroupModel } from '../../../../types/organisations-schema'
+import useSWR from 'swr'
 
-const filterProps = (): EditUserGroupFormProps => ({
-  userGroup: { id: 'Group Name', description: 'Group description' },
+jest.mock('../../../../core/connect-session')
+jest.mock('../../../../services/user')
+jest.mock('swr')
+
+const mockSWR = useSWR as jest.Mock
+
+const props = (): EditUserGroupFormProps => ({
+  userGroup: (mockUserGroups?._embedded as GroupModel[])[0],
   onComplete: jest.fn,
   orgId: 'SOME_ID',
 })
 
-jest.mock('../../../../core/connect-session')
-jest.mock('../../../../services/user')
-
-describe('UpdateUserGroupModal', () => {
-  it('should match a snapshot', () => {
-    expect(shallow(<UpdateUserGroupModal {...filterProps()} />)).toMatchSnapshot()
+describe('EditUserGroupForm', () => {
+  it('should match a snapshot where there is data', () => {
+    mockSWR.mockReturnValue({
+      data: mockUserGroups,
+      error: null,
+      mutate: jest.fn(),
+    })
+    expect(render(<EditUserGroupForm {...props()} />)).toMatchSnapshot()
   })
 })
 
