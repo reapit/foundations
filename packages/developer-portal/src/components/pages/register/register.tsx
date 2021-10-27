@@ -1,4 +1,4 @@
-import * as React from 'react'
+import React, { FC, useState, useEffect } from 'react'
 import { Dispatch } from 'redux'
 import { useDispatch, useSelector } from 'react-redux'
 import { History } from 'history'
@@ -26,7 +26,6 @@ import { container, imageContainer, wrapper } from './__styles__/register'
 import { formFields } from './form-fields'
 import { yupResolver } from '@hookform/resolvers/yup'
 import { validationSchema } from './validation-schema'
-import { useEffect } from 'react'
 import { KeyAnimation } from '@/components/key-animation'
 import { useForm } from 'react-hook-form'
 import { cx } from '@linaria/core'
@@ -70,10 +69,10 @@ export const handleSetFormDefault = (dispatch: Dispatch) => () => {
   dispatch(developerSetFormState('PENDING'))
 }
 
-export const Register: React.FunctionComponent<RegisterProps> = () => {
+export const Register: FC<RegisterProps> = () => {
   const history = useHistory()
   const dispatch = useDispatch()
-  const [agreeModalVisable, setAgreeModalVisable] = React.useState<boolean>(false)
+  const [agreeModalVisable, setAgreeModalVisable] = useState<boolean>(false)
   const {
     handleSubmit,
     formState: { errors },
@@ -82,7 +81,7 @@ export const Register: React.FunctionComponent<RegisterProps> = () => {
     resolver: yupResolver(validationSchema),
     defaultValues: registerFormInitialValues,
   })
-
+  const [formStep, setFormStep] = useState<1 | 2 | 3>(1)
   useEffect(handleSetFormDefault(dispatch), [history.location.pathname])
   const formState = useSelector(selectDeveloperFormState)
   console.log('formState', formState)
@@ -95,8 +94,8 @@ export const Register: React.FunctionComponent<RegisterProps> = () => {
 
   return (
     <div className={container}>
-      <div className={imageContainer}>
-        <KeyAnimation step={3} />
+      <div onClick={() => formStep <= 2 ? setFormStep((0 + formStep + 1) as 1 | 2 |3 ) : setFormStep(1)} className={imageContainer}>
+        <KeyAnimation step={formStep} />
       </div>
       <div className={wrapper}>
         <Title>Register</Title>
