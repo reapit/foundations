@@ -103,7 +103,9 @@ export const Register: FC<RegisterProps> = () => {
       </div>
       <div className={wrapper}>
         <Title>Register</Title>
-        <Subtitle hasBoldText hasCenteredText>Reapit Foundations Developers</Subtitle>
+        <Subtitle hasBoldText hasCenteredText>
+          Reapit Foundations Developers
+        </Subtitle>
         {formState === 'SUCCESS' ? (
           <PersistantNotification intent="success" isExpanded isFullWidth>
             Successfully registered. Check your email to confirm your account.
@@ -136,12 +138,9 @@ export const Register: FC<RegisterProps> = () => {
                         setFormStep(2)
                       }
                     }}
+                    intent={errors?.name?.message ? 'danger' : undefined}
+                    inputAddOnText={errors?.name?.message}
                   />
-                  {errors?.name?.message && (
-                    <PersistantNotification isFullWidth isExpanded intent="danger" isInline>
-                      {errors.name.message}
-                    </PersistantNotification>
-                  )}
                 </InputWrapFull>
                 <InputWrapFull>
                   <InputGroup
@@ -150,12 +149,9 @@ export const Register: FC<RegisterProps> = () => {
                     id={companyNameField.name}
                     placeholder={companyNameField.placeHolder}
                     {...register('companyName')}
+                    intent={errors?.companyName?.message ? 'danger' : undefined}
+                    inputAddOnText={errors?.companyName?.message}
                   />
-                  {errors?.companyName?.message && (
-                    <PersistantNotification isFullWidth isExpanded intent="danger" isInline>
-                      {errors.companyName.message}
-                    </PersistantNotification>
-                  )}
                 </InputWrapFull>
                 <InputWrapFull>
                   <InputGroup
@@ -164,12 +160,9 @@ export const Register: FC<RegisterProps> = () => {
                     id={emailField.name}
                     placeholder={emailField.placeHolder}
                     {...register('email')}
+                    intent={errors?.email?.message ? 'danger' : undefined}
+                    inputAddOnText={errors?.email?.message}
                   />
-                  {errors?.email?.message && (
-                    <PersistantNotification isFullWidth isExpanded intent="danger" isInline>
-                      {errors.email.message}
-                    </PersistantNotification>
-                  )}
                 </InputWrapFull>
                 <InputWrapFull>
                   <InputGroup
@@ -185,12 +178,9 @@ export const Register: FC<RegisterProps> = () => {
                         setFormStep(3)
                       }
                     }}
+                    intent={errors?.telephone?.message ? 'danger' : undefined}
+                    inputAddOnText={errors?.telephone?.message}
                   />
-                  {errors?.telephone?.message && (
-                    <PersistantNotification isFullWidth isExpanded intent="danger" isInline>
-                      {errors.telephone.message}
-                    </PersistantNotification>
-                  )}
                 </InputWrapFull>
                 <InputWrapFull>
                   <TermsAndConditionsModal
