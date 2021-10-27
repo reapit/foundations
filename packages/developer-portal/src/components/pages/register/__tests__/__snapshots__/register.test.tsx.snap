@@ -134,11 +134,20 @@ exports[`Register should match a snapshot 1`] = `
                 </h1>
               </ElTitle>
             </Title>
-            <p
-              className="mb-4"
+            <Subtitle
+              hasBoldText={true}
+              hasCenteredText={true}
             >
-              Reapit Foundations developers
-            </p>
+              <ElSubtitle
+                className="eh96l6x-el-has-bold-text e1bb7egt-el-has-centered-text"
+              >
+                <h2
+                  className="eh96l6x-el-has-bold-text e1bb7egt-el-has-centered-text e2dm5rh-el-subtitle"
+                >
+                  Reapit Foundations Developers
+                </h2>
+              </ElSubtitle>
+            </Subtitle>
             <form
               onSubmit={[Function]}
             >
@@ -153,12 +162,14 @@ exports[`Register should match a snapshot 1`] = `
                   </h2>
                 </ElSubtitle>
               </Subtitle>
-              <BodyText>
+              <BodyText
+                hasGreyText={true}
+              >
                 <ElBodyText
-                  className=""
+                  className="e11jaxfn-el-has-grey-text"
                 >
                   <p
-                    className="evblxhy-el-body-text"
+                    className="e11jaxfn-el-has-grey-text evblxhy-el-body-text"
                   >
                     By registering for the Foundations platform, you will get access to the Reapit developer portal and sandbox data. You will also get the opportunity to list apps in the Reapit Marketplace. We look forward to seeing what you build!
                   </p>
