@@ -21,6 +21,7 @@ export const wrapper = css`
   width: 40%;
   padding: 2rem;
   pointer-events: auto;
+  max-width: 600px;
 
   &.disabled {
     pointer-events: none;
@@ -54,6 +55,7 @@ export const imageContainer = css`
   width: 60%;
   height: 100vh;
   font-size: 0;
+  max-width: 700px;
 
   ${forMobileOnly} {
     display: none;
