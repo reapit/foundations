@@ -34,7 +34,7 @@ jobs:
         uses: olegtarasov/get-tag@v2.1
         id: packageInfo
         with:
-          tagRegex: '(?<package>[a-z\-]+)(?<version>[0-9\.]+)'
+          tagRegex: '(?<package>[a-z\-]+)\_v(?<version>[0-9\.]+)'
 
       - name: Set Node
         uses: actions/setup-node@v1
@@ -71,9 +71,8 @@ jobs:
       - name: Package Version Change
         run: |
           test -f packages/${{ steps.packageInfo.outputs.package }}/package.json
-          test "${{ steps.packageInfo.outputs.version }}" != yarn json -f packages/${{ steps.packageInfo.outputs.package }}/package.json version
+          test "${{ steps.packageInfo.outputs.version }}" != $(yarn json -f packages/${{ steps.packageInfo.outputs.package }}/package.json version)
           yarn json -I -f packages/${{ steps.packageInfo.outputs.package }}/package.json -e "this.version='${{ steps.packageInfo.outputs.version }}'"
-          git commit -am "chore: update package version to ${{ steps.packageInfo.outputs.package }}"
 
       - name: Publish
         run: |
