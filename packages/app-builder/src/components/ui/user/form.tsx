@@ -2,10 +2,11 @@ import React from 'react'
 import Container from './container'
 import { ToolbarItem, ToolbarItemType, ToolbarSection } from '../toolbar'
 import { useTypeList } from '../../hooks/objects/use-type-list'
-import { useEditor, useNode, Node } from '@craftjs/core'
+import { useEditor, useNode } from '@craftjs/core'
 import { DestinationPage } from './link'
 import { FormProps, Form as EForm } from './ejectable/form'
 import { useObjectSpecials } from '../../hooks/objects/use-object-specials'
+import { FormInput } from './form-input'
 
 const defaultProps = {
   destination: '/',
@@ -19,7 +20,15 @@ const Form = (props: FormProps) => {
     connectors: { connect, drag },
   } = useNode()
 
-  return <EForm {...defaultProps} {...props} ref={(ref) => ref && connect(drag(ref))} disabled={isEditing} />
+  return (
+    <EForm
+      FormInputComponent={FormInput}
+      {...defaultProps}
+      {...props}
+      ref={(ref) => ref && connect(drag(ref))}
+      disabled={isEditing}
+    />
+  )
 }
 
 const ContainerSettings = Container.craft.related.toolbar
@@ -74,18 +83,18 @@ Form.craft = {
     toolbar: FormSettings,
   },
   rules: {
-    canMoveOut: (outgoingNode: Node, currentNode: Node) => {
-      console.log('canMoveOut', outgoingNode, currentNode)
-      // verify outgoingNode's property name is in currentNode's list of properties
-      // and that the property is not a required property of the currentNode
-      return false
-    },
-    canMoveIn: (incomingNode: Node, currentNode: Node) => {
-      console.log('canMoveIn', incomingNode, currentNode)
-      // verify incomingNode's property name is in currentNode's list of properties
-      // and that there's not a property of the same name in the currentNode
-      return false
-    },
+    // canMoveOut: (outgoingNode: Node, currentNode: Node) => {
+    //   console.log('canMoveOut', outgoingNode, currentNode)
+    //   // verify outgoingNode's property name is in currentNode's list of properties
+    //   // and that the property is not a required property of the currentNode
+    //   return false
+    // },
+    // canMoveIn: (incomingNode: Node, currentNode: Node) => {
+    //   console.log('canMoveIn', incomingNode, currentNode)
+    //   // verify incomingNode's property name is in currentNode's list of properties
+    //   // and that there's not a property of the same name in the currentNode
+    //   return false
+    // },
   },
 }
 

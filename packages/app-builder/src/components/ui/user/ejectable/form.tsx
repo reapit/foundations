@@ -10,23 +10,38 @@ import { useObjectGet } from '../../../hooks/objects/use-object-get'
 
 import { usePageId } from '../../../hooks/use-page-id'
 import { FormInput } from './form-input'
+import { FormContextProvider } from '../../../hooks/form-context'
+import { Element } from '@craftjs/core'
 
 export interface FormProps extends ContainerProps {
   typeName?: string
   destination?: string
   formType?: string
+  FormInputComponent?: React.FC<any>
   excludeFields?: string[]
+  children?: React.ReactNode
 }
 
 export const Form = forwardRef<HTMLDivElement, FormProps & { disabled?: boolean }>(
-  ({ typeName, destination, disabled, formType = 'create', excludeFields, ...props }, ref) => {
+  (
+    {
+      typeName,
+      destination,
+      disabled,
+      formType = 'create',
+      excludeFields,
+      FormInputComponent = FormInput,
+      children,
+      ...props
+    },
+    ref,
+  ) => {
     const { context } = usePageId()
     const { data, loading: getLoading } = useObjectGet(typeName, context.editObjectId as string | undefined)
     const { args, mutateFunction, mutationLoading } = useObjectMutate(formType, typeName)
     const [formState, setFormState] = useState({})
     const { success, error } = useSnack()
     const history = useHistory()
-    const [internalRef, setInternalRef] = useState<HTMLDivElement | null>(null)
 
     useEffect(() => {
       if (data && args) {
@@ -52,29 +67,8 @@ export const Form = forwardRef<HTMLDivElement, FormProps & { disabled?: boolean 
       setFormState((prevState) => ({ ...prevState, [name]: value }))
     }
 
-    useEffect(() => {
-      if (internalRef) {
-        internalRef.addEventListener('_inputChange', handleInputChange)
-      }
-
-      return () => {
-        if (internalRef) {
-          internalRef.removeEventListener('_inputChange', handleInputChange)
-        }
-      }
-    }, [internalRef])
-
     return (
-      <Container
-        {...props}
-        ref={(rref) => {
-          if (rref !== internalRef) {
-            setInternalRef(rref)
-          }
-          // @ts-ignore
-          ref(rref)
-        }}
-      >
+      <Container {...props} ref={ref}>
         {!typeName && <div>No type selected</div>}
         <form
           onSubmit={(e) => {
@@ -111,20 +105,32 @@ export const Form = forwardRef<HTMLDivElement, FormProps & { disabled?: boolean 
               })
           }}
         >
-          <FormLayout>
-            {getLoading && <Loader label="Loading" />}
-            {args &&
-              args[0].fields
-                ?.filter(({ name }) => !excludeFields?.includes(name))
-                .map((arg) => {
-                  const { name } = arg
+          <FormContextProvider value={{ onChange: handleInputChange }}>
+            <FormLayout>
+              {children}
+              {getLoading && <Loader label="Loading" />}
+              {args &&
+                args[0].fields
+                  ?.filter(({ name }) => !excludeFields?.includes(name))
+                  .map((arg) => {
+                    const { name } = arg
 
-                  return <FormInput key={name} name={name} typeName={typeName} formType={formType} />
-                })}
-            <Button disabled={disabled} loading={mutationLoading}>
-              {formType === 'create' ? 'Create' : 'Save'}
-            </Button>
-          </FormLayout>
+                    return (
+                      <Element
+                        is={FormInputComponent}
+                        id={`${typeName}-${name}`}
+                        key={name}
+                        name={name}
+                        typeName={typeName}
+                        formType={formType}
+                      />
+                    )
+                  })}
+              <Button disabled={disabled} loading={mutationLoading}>
+                {formType === 'create' ? 'Create' : 'Save'}
+              </Button>
+            </FormLayout>
+          </FormContextProvider>
         </form>
       </Container>
     )

@@ -6,6 +6,7 @@ import { useObject } from '../../../hooks/objects/use-object'
 import { useLazyObjectSearch } from '../../../hooks/objects/use-object-search'
 import { useObjectMutate } from '../../../hooks/objects/use-object-mutate'
 import { uppercaseSentence } from './utils'
+import { useFormContext } from '@/components/hooks/form-context'
 
 const getLabel = (obj: any, labelKeys?: string[]) => {
   if (labelKeys) {
@@ -24,10 +25,12 @@ const SelectIDofType = ({
   value,
   onChange,
   name,
+  disabled,
 }: {
   typeName: string
   name: string
   value?: React.SelectHTMLAttributes<HTMLSelectElement>['value']
+  disabled?: boolean
   onChange: (e: React.ChangeEvent<HTMLInputElement | HTMLSelectElement>) => void
 }) => {
   const { data, loading } = useObjectList(typeName)
@@ -42,13 +45,14 @@ const SelectIDofType = ({
         getResultLabel={(result) => getLabel(result, object?.labelKeys)}
         getResultValue={(result) => result.id}
         name={name}
+        disabled={disabled}
       />
     )
   }
 
   if (data) {
     return (
-      <Select name={name} value={value} onChange={onChange}>
+      <Select name={name} value={value} onChange={onChange} disabled={disabled}>
         {data.map((obj) => (
           <option key={obj.id} value={obj.id}>
             {getLabel(obj, object?.labelKeys)}
@@ -76,45 +80,37 @@ const friendlyIdName = (idName: string) => {
 
 // todo: readd ability to have default value from object get query
 
+export type FormInputProps = {
+  formType: string
+  typeName?: string
+  name: string
+  disabled?: boolean
+}
+
 const InnerFormInput = (
   {
     // isRequired,
     typeName,
     name,
     formType,
-  }: {
-    formType: string
-    typeName?: string
-    name: string
-  },
+    disabled,
+  }: FormInputProps,
   // todo: ref never gets set for some reason maybe cos it's never getting passed down(?)
   ref: React.ForwardedRef<HTMLDivElement>,
 ) => {
   const { args } = useObjectMutate(formType, typeName)
-  const formInput = args.find((arg) => arg.name === name)
+  const { onChange } = useFormContext()
+  const formInput = args[0].fields.find((arg) => arg.name === name)
   if (!formInput) return null
   const label = friendlyIdName(name)
   const { typeName: inputTypeName, isRequired, idOfType, enumValues } = formInput
-
-  const onChange = (e: React.ChangeEvent<HTMLInputElement | HTMLSelectElement>) => {
-    const parentForm = e.target.parentElement?.parentElement
-    if (parentForm) {
-      parentForm.dispatchEvent(
-        // @ts-ignore
-        {
-          ...e,
-          type: '_inputChange',
-        },
-      )
-    }
-  }
 
   return (
     <InputWrap ref={ref}>
       {enumValues && (
         <>
           <Label>{label}</Label>
-          <Select onChange={onChange} name={name}>
+          <Select onChange={onChange} name={name} disabled={disabled}>
             {enumValues.map((value) => (
               <option key={value} value={value}>
                 {value}
@@ -129,11 +125,12 @@ const InnerFormInput = (
       {idOfType && (
         <>
           <Label>{label}</Label>
-          <SelectIDofType name={name} typeName={idOfType} onChange={onChange} />
+          <SelectIDofType disabled={disabled} name={name} typeName={idOfType} onChange={onChange} />
         </>
       )}
       {!enumValues && !idOfType && (
         <InputGroup
+          disabled={disabled}
           key={label}
           label={label}
           required={isRequired && inputTypeName !== 'Boolean'}
