@@ -75,6 +75,7 @@ export const ElToggleLabel = styled.label`
 
   &.${elHasGreyBg} {
     background: var(--color-grey-light);
+    border: 1px solid var(--color-grey-light);
   }
 
   &.${elToggleFullWidth} {
@@ -131,5 +132,6 @@ export const ElToggleRadioWrap = styled.div`
 
   &.${elHasGreyBg} {
     background: var(--color-grey-light);
+    border: 1px solid var(--color-grey-light);
   }
 `
