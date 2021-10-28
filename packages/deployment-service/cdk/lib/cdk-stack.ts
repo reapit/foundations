@@ -414,11 +414,12 @@ export class CdkStack extends cdk.Stack {
     const MYSQL_USERNAME = secretManager.secretValueFromJson('username').toString();
     const MYSQL_PASSWORD = secretManager.secretValueFromJson('password').toString();
     const MYSQL_HOST = secretManager.secretValueFromJson('host').toString();
+    const MYSQL_DB = secretManager.secretValueFromJson('database').toString();
 
     for (const [name, options] of Object.entries(functionSetups)) {
       const lambda = createLambda({
         stack: this,
-        name: `cloud-deployment-${name}`,
+        name: `${id}-cloud-deployment-${name}`,
         code: AssetCode.fromAsset(path.resolve('dist', 'main.zip')),
         vpc,
         handler: options.handler,
@@ -426,6 +427,7 @@ export class CdkStack extends cdk.Stack {
           MYSQL_PASSWORD,
           MYSQL_USERNAME,
           MYSQL_HOST,
+          MYSQL_DB,
         },
       })
       options.policies.forEach((policy) => lambda.addToRolePolicy(policy))
@@ -455,6 +457,7 @@ export class CdkStack extends cdk.Stack {
         MYSQL_PASSWORD,
         MYSQL_USERNAME,
         MYSQL_HOST,
+        MYSQL_DB,
       },
     })
 

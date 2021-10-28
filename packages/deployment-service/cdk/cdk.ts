@@ -18,7 +18,7 @@ const bootstrap = async () => {
   zipper.writeZip(path.resolve(__dirname, '..', 'dist', 'main.zip'))
 
   const app = new cdk.App();
-  new CdkStack(app, 'cloud-deployment-service', {
+  new CdkStack(app, 'cloud-deployment-service-2', {
     /* If you don't specify 'env', this stack will be environment-agnostic.
     * Account/Region-dependent features and context lookups will not work,
     * but a single synthesized template can be deployed anywhere. */
