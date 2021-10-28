@@ -17,5 +17,10 @@
   "devDependencies": {
     "husky": "^7.0.1",
     "json": "^11.0.0"
+  },
+  "husky": {
+    "hooks": {
+      "pre-push": "yarn changed foreach --git-range origin/master --parallel --verbose --interlaced run commit && git add . && git commit -m 'chore: pre-push fixes'"
+    }
   }
 }
