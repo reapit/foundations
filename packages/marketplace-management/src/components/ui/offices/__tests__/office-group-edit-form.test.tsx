@@ -15,6 +15,8 @@ import { UseFormGetValues } from 'react-hook-form'
 import { prepareOfficeOptions } from '../../../../utils/prepare-options'
 import { OfficeModel } from '@reapit/foundations-ts-definitions'
 import { OfficeGroupModel } from '../../../../types/organisations-schema'
+import { toastMessages } from '../../../../constants/toast-messages'
+import { OFFICE_IN_USE_ERROR } from '../../../../services/office'
 
 jest.mock('@reapit/utils-common')
 jest.mock('../../../../core/connect-session')
@@ -56,20 +58,28 @@ describe('onHandleSubmit', () => {
   const officeIds = 'OF1, OF2'
   const onSubmit = onHandleSubmit(onComplete, officeGroup, orgId, success, error)
 
-  it('should return a function when executing', async () => {
+  it('should call error correctly', async () => {
     mockedFetch.mockReturnValueOnce(undefined)
 
     await onSubmit({ name, officeIds, status: true })
 
-    expect(error).toHaveBeenCalled()
+    expect(error).toHaveBeenCalledWith(toastMessages.FAILED_TO_EDIT_OFFICE_GROUP)
   })
 
-  it('should return a function when executing', async () => {
+  it('should display a different error for offices assigned error', async () => {
+    mockedFetch.mockReturnValueOnce(OFFICE_IN_USE_ERROR)
+
+    await onSubmit({ name, officeIds, status: true })
+
+    expect(error).toHaveBeenCalledWith(toastMessages.OFFICE_ALREADY_ASSIGNED_EDIT)
+  })
+
+  it('should correctly call success', async () => {
     mockedFetch.mockReturnValueOnce(mockResponse)
 
     await onSubmit({ name, officeIds, status: true })
 
-    expect(success).toHaveBeenCalled()
+    expect(success).toHaveBeenCalledWith(toastMessages.CHANGES_SAVE_SUCCESS)
   })
 })
 

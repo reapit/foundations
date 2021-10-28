@@ -1,6 +1,6 @@
 import React, { ChangeEvent, Dispatch, FC, SetStateAction, useCallback, useEffect, useState } from 'react'
 import { OfficeGroupModel } from '../../../types/organisations-schema'
-import { updateOfficeGroup } from '../../../services/office'
+import { OFFICE_IN_USE_ERROR, updateOfficeGroup } from '../../../services/office'
 import { toastMessages } from '../../../constants/toast-messages'
 import { prepareOfficeOptions } from '../../../utils/prepare-options'
 import { OfficeModel, OfficeModelPagedResult } from '@reapit/foundations-ts-definitions'
@@ -65,6 +65,10 @@ export const onHandleSubmit =
     const officeIds = listId.toString()
     const status = params.status ? 'active' : 'inactive'
     const response = await updateOfficeGroup({ name, officeIds, status }, orgId, officeGroup?.id || '')
+
+    if (response && response === OFFICE_IN_USE_ERROR) {
+      return error(toastMessages.OFFICE_ALREADY_ASSIGNED_EDIT)
+    }
 
     if (response) {
       success(toastMessages.CHANGES_SAVE_SUCCESS)

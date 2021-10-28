@@ -1,5 +1,5 @@
 import React, { useState, useEffect, useCallback, FC, ChangeEvent, Dispatch, SetStateAction } from 'react'
-import { createOfficeGroup } from '../../../services/office'
+import { createOfficeGroup, OFFICE_IN_USE_ERROR } from '../../../services/office'
 import { toastMessages } from '../../../constants/toast-messages'
 import { prepareOfficeOptions } from '../../../utils/prepare-options'
 import { OfficeModel, OfficeModelPagedResult } from '@reapit/foundations-ts-definitions'
@@ -56,6 +56,11 @@ export const onHandleSubmit =
       const officeIds = idsList.toString()
       const status = params.status ? 'active' : 'inactive'
       const createdOffice = await createOfficeGroup({ name, officeIds, status }, orgId)
+
+      if (createdOffice && createdOffice === OFFICE_IN_USE_ERROR) {
+        return error(toastMessages.OFFICE_ALREADY_ASSIGNED_CREATE)
+      }
+
       if (createdOffice) {
         success(toastMessages.CREATE_OFFICE_GROUP_SUCCESS)
         history.push(Routes.OFFICES_GROUPS)
