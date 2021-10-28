@@ -26361,6 +26361,15 @@ fsevents@^1.2.7:
   languageName: node
   linkType: hard
 
+"husky@npm:^7.0.0":
+  version: 7.0.4
+  resolution: "husky@npm:7.0.4"
+  bin:
+    husky: lib/bin.js
+  checksum: 4052668d7cc948d722cafbd9194adc0726d2f29d0139a552394f1983357bf2eaf3205923753ba6b1cfc9bb5eb6fcaac5db0dea900ccd9150c1620edb30496b85
+  languageName: node
+  linkType: hard
+
 "husky@npm:^7.0.1":
   version: 7.0.1
   resolution: "husky@npm:7.0.1"
@@ -38273,7 +38282,7 @@ resolve@^2.0.0-next.3:
   version: 0.0.0-use.local
   resolution: "root@workspace:."
   dependencies:
-    husky: ^7.0.1
+    husky: ^7.0.0
     json: ^11.0.0
   languageName: unknown
   linkType: soft
