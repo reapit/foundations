@@ -1,5 +1,5 @@
 import { BodyText, ColSplit, Grid, PersistantNotification, elMb11, elMb10, Button, Subtitle } from '@reapit/elements'
-import React, { FC } from 'react'
+import React, { Dispatch, FC, SetStateAction, useState } from 'react'
 import { useHistory } from 'react-router'
 import Routes from '../../../constants/routes'
 import { ExternalPages, navigate, openNewPage } from '../../../utils/navigation'
@@ -7,8 +7,19 @@ import { IconContainer } from './__styles__/index'
 import { WebhooksAnimatedDocsIcon } from './webhooks-animated-docs-icon'
 import { WebhooksAnimatedNewIcon } from './webhooks-animated-new-icon'
 
+export const handleNewMouseOver = (setNewIsAnimated: Dispatch<SetStateAction<boolean>>, isAnimated: boolean) => () => {
+  setNewIsAnimated(isAnimated)
+}
+
+export const handleDocsMouseOver =
+  (setDocsIsAnimated: Dispatch<SetStateAction<boolean>>, isAnimated: boolean) => () => {
+    setDocsIsAnimated(isAnimated)
+  }
+
 export const WebhooksAbout: FC = () => {
   const history = useHistory()
+  const [newIsAnimated, setNewIsAnimated] = useState<boolean>(false)
+  const [docsIsAnimated, setDocsIsAnimated] = useState<boolean>(false)
 
   return (
     <>
@@ -19,7 +30,7 @@ export const WebhooksAbout: FC = () => {
       <Grid>
         <ColSplit>
           <IconContainer className={elMb10}>
-            <WebhooksAnimatedNewIcon />
+            <WebhooksAnimatedNewIcon isAnimated={newIsAnimated} />
           </IconContainer>
           <Subtitle>Manage Webhooks Subscriptions</Subtitle>
           <BodyText hasGreyText>
@@ -27,13 +38,19 @@ export const WebhooksAbout: FC = () => {
             Rather than needing to make API calls to poll for new information, a webhook subscription can be created to
             allow Reapit Foundations to send a HTTP request directly to your endpoints that you configure here.
           </BodyText>
-          <Button chevronRight intent="critical" onClick={navigate(history, Routes.WEBHOOKS_NEW)}>
+          <Button
+            onMouseEnter={handleNewMouseOver(setNewIsAnimated, true)}
+            onMouseLeave={handleNewMouseOver(setNewIsAnimated, false)}
+            chevronRight
+            intent="critical"
+            onClick={navigate(history, Routes.WEBHOOKS_NEW)}
+          >
             Add new webhook
           </Button>
         </ColSplit>
         <ColSplit>
           <IconContainer className={elMb10}>
-            <WebhooksAnimatedDocsIcon />
+            <WebhooksAnimatedDocsIcon isAnimated={docsIsAnimated} />
           </IconContainer>
           <Subtitle>Webhooks Documentation</Subtitle>
           <BodyText hasGreyText>
@@ -44,7 +61,12 @@ export const WebhooksAbout: FC = () => {
               webhooks documentation.
             </a>
           </BodyText>
-          <Button intent="low" onClick={openNewPage(ExternalPages.webhooksDocs)}>
+          <Button
+            onMouseEnter={handleDocsMouseOver(setDocsIsAnimated, true)}
+            onMouseLeave={handleDocsMouseOver(setDocsIsAnimated, false)}
+            intent="low"
+            onClick={openNewPage(ExternalPages.webhooksDocs)}
+          >
             View Docs
           </Button>
         </ColSplit>

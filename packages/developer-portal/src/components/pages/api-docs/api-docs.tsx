@@ -4,7 +4,7 @@ import ErrorBoundary from '@/components/hocs/error-boundary'
 import Routes from '@/constants/routes'
 import { IFRAME_URLS } from '@/constants/iframe-urls'
 import {
-  BodyText,
+  SmallText,
   Button,
   elHFull,
   elMb5,
@@ -52,14 +52,14 @@ const ApiDocsPage: React.FC = () => {
           </SecondaryNav>
           <Icon className={elMb5} icon="apiDocsInfographic" iconSize="large" />
           <Subtitle>Welcome</Subtitle>
-          <BodyText hasGreyText>
+          <SmallText hasGreyText>
             We have provided comprehensive documentation for all of our APIs, services, tooling and open source packages
             accross these pages.
-          </BodyText>
-          <BodyText hasGreyText>
+          </SmallText>
+          <SmallText hasGreyText>
             You can also visit us on Github where you can raise and track issues, look at code examples and view our
             milestones.
-          </BodyText>
+          </SmallText>
           <Button className={elMb5} intent="neutral" onClick={openNewPage(ExternalPages.github)}>
             Go to Github
           </Button>

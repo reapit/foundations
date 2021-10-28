@@ -31,7 +31,7 @@ Object {
               class="el-step-vertical-content"
             >
               <div
-                class="el-fade-in el-mb11 el-form-layout"
+                class="el-fade-in el-form-layout"
               >
                 <div
                   class="el-input-wrap-full"
@@ -96,7 +96,7 @@ Object {
             class="el-step-vertical-content"
           >
             <div
-              class="el-fade-in el-mb11 el-form-layout"
+              class="el-fade-in el-form-layout"
             >
               <div
                 class="el-input-wrap-full"
@@ -218,7 +218,7 @@ Object {
               class="el-step-vertical-content"
             >
               <div
-                class="el-fade-in el-mb11 el-form-layout"
+                class="el-fade-in el-form-layout"
               >
                 <div
                   class="el-input-wrap-full"
@@ -283,7 +283,7 @@ Object {
             class="el-step-vertical-content"
           >
             <div
-              class="el-fade-in el-mb11 el-form-layout"
+              class="el-fade-in el-form-layout"
             >
               <div
                 class="el-input-wrap-full"
