@@ -51,14 +51,6 @@ describe('onHandleSubmit', () => {
   } as unknown as History
   const onSubmit = onHandleSubmit(history, orgId, success, error)
 
-  it('should show notification error', async () => {
-    mockedFetch.mockReturnValueOnce(undefined)
-
-    await onSubmit({ name, officeIds, status })
-
-    expect(error).toHaveBeenCalledWith(toastMessages.FAILED_TO_CREATE_OFFICE_GROUP)
-  })
-
   it('should show a different notification error if an office is assigned', async () => {
     mockedFetch.mockReturnValueOnce(OFFICE_IN_USE_ERROR)
 
