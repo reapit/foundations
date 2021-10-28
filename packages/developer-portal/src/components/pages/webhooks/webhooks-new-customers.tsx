@@ -59,7 +59,7 @@ export const WebhooksNewCustomers: FC<WebhooksNewCustomersProps> = ({ register, 
   const customers = useSelector(selectCustomers)
   const isLoading = useSelector(selectLoading)
   const customerOptions = useMemo(handleCustomersToOptions(customers), [customers])
-  const selectedCustomers = getValues().customerIds?.split(',') ?? []
+  const selectedCustomers = getValues().customerIds?.split(',').filter(Boolean) ?? []
 
   return (
     <FormLayout className={elFadeIn}>

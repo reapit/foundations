@@ -41,7 +41,7 @@ export const handleSearchTopics =
   (event: ChangeEvent<HTMLInputElement>) => {
     const search = event.target.value
 
-    const selectedTopics = getValues().topicIds?.split(',')
+    const selectedTopics = getValues().topicIds?.split(',').filter(Boolean)
 
     const filteredTopics = search
       ? topics.filter(
