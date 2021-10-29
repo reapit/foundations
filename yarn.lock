@@ -8853,6 +8853,7 @@ __metadata:
     "@typescript-eslint/parser": ^4.28.4
     babel-jest: ^27.0.6
     babel-loader: ^8.2.2
+    colord: ^2.9.1
     concurrently: ^6.2.0
     cross-env: ^7.0.3
     dashify: 2.0.0
@@ -18682,6 +18683,13 @@ __metadata:
     color-convert: ^1.9.1
     color-string: ^1.5.4
   checksum: d0f4139e986806aaacaa748d170c9778faed93695fb776cd27d9c5825424263eb9354f69033804d0d2d350d9831a31d14dddff045da00713499f279da97e602f
+  languageName: node
+  linkType: hard
+
+"colord@npm:^2.9.1":
+  version: 2.9.1
+  resolution: "colord@npm:2.9.1"
+  checksum: 5bb231f5b1a83dcc68cfbfa924f8f34ae5e7f36beb8e6637688964bf9b4354082e0e92e027025d3b7aa2e189b0432f7dcf0a4c3f92e5e49a5e5673e12dcc7d06
   languageName: node
   linkType: hard
 
