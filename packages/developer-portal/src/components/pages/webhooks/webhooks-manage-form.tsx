@@ -203,7 +203,9 @@ export const WebhooksManageForm: FC<WebhooksManageFormProps> = ({
       <FormLayout>
         <InputWrapFull>
           <FlexContainer isFlexAlignCenter isFlexJustifyBetween>
-            <Subtitle className={elMl3}>Edit Webhook</Subtitle>
+            <Subtitle hasBoldText className={elMl3}>
+              Edit Webhook
+            </Subtitle>
             <ButtonGroup alignment="right">
               <Button
                 intent="low"
