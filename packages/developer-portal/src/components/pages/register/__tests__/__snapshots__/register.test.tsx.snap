@@ -60,7 +60,7 @@ exports[`Register should match a snapshot 1`] = `
           className="clgvn7z-container"
         >
           <div
-            className="i1m3gui8-image-container"
+            className="iawfo3s-image-container"
           >
             <KeyAnimation
               step={1}
