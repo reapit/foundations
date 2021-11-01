@@ -12,7 +12,8 @@ export interface HelperWidgetConfigItem {
 }
 
 export interface HelperWidgetConfig {
-  pathnames: string[]
+  title: string
+  pathname: string
   videos: HelperWidgetConfigItem[]
   docs: HelperWidgetConfigItem[]
 }
@@ -22,14 +23,16 @@ export type HelperWidgetConfigMap = { [key in HelperWidgetApps]: HelperWidgetCon
 export const helperWidgetConfig: HelperWidgetConfigMap = {
   developerPortal: [
     {
-      pathnames: ['/webhooks/about'],
+      title: 'Webhooks',
+      pathname: '/webhooks/about',
       videos: [placeholderVideo],
       docs: [placeholderDocs],
     },
     {
-      pathnames: ['/webhooks/about', '/webhooks/new'],
-      videos: [placeholderVideo],
-      docs: [placeholderDocs],
+      title: 'Webhooks',
+      pathname: '/webhooks/new',
+      videos: [placeholderVideo, placeholderVideo],
+      docs: [placeholderDocs, placeholderDocs],
     },
   ],
 }
