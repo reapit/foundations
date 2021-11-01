@@ -1,3 +1,4 @@
+import { ReactNode } from 'react'
 import { placeholderDocs } from './docs'
 import { placeholderVideo } from './videos'
 export const enum HelperWidgetApps {
@@ -7,8 +8,8 @@ export const enum HelperWidgetApps {
 export interface HelperWidgetConfigItem {
   url: string
   heading: string
-  imageUrl?: string
-  body?: string
+  image?: ReactNode
+  body?: ReactNode
 }
 
 export interface HelperWidgetConfig {

@@ -1,9 +1,19 @@
 import React, { Dispatch, FC, SetStateAction, useState, useEffect } from 'react'
 import { Portal } from '@reapit/elements'
 import { HelperWidgetApps, HelperWidgetConfig, helperWidgetConfig } from './config'
-import { SlideOutContainer, slideOutIsActive, WidgetButton, WidgetContainer, widgetIsActive } from './__styles__/index'
+import {
+  SlideOutContainer,
+  slideOutIsActive,
+  WidgetButton,
+  widgetButtonIsActive,
+  WidgetContainer,
+  widgetIsActive,
+} from './__styles__/index'
 import { cx } from '@linaria/core'
 import { HelperWidgetContent } from './helper-widget-content'
+import { VideoIcon } from './assets/video'
+import { DocsIcon } from './assets/docs'
+import { ChatIcon } from './assets/chat'
 
 export interface HelperWidgetProps {
   appName: HelperWidgetApps
@@ -46,9 +56,27 @@ export const HelperWidget: FC<HelperWidgetProps> = ({ appName }) => {
         {contentType && <HelperWidgetContent config={widgetConfig} contentType={contentType} />}
       </SlideOutContainer>
       <WidgetContainer className={cx(contentType && widgetIsActive)}>
-        <WidgetButton onClick={handleToggleWidget(HelperContentType.videos, setContentType)}>Video</WidgetButton>
-        <WidgetButton onClick={handleToggleWidget(HelperContentType.docs, setContentType)}>Docs</WidgetButton>
-        <WidgetButton onClick={handleToggleWidget(HelperContentType.chat, setContentType)}>Chat</WidgetButton>
+        <WidgetButton
+          className={cx(contentType && contentType === HelperContentType.videos && widgetButtonIsActive)}
+          onClick={handleToggleWidget(HelperContentType.videos, setContentType)}
+        >
+          <VideoIcon />
+          Video
+        </WidgetButton>
+        <WidgetButton
+          className={cx(contentType && contentType === HelperContentType.docs && widgetButtonIsActive)}
+          onClick={handleToggleWidget(HelperContentType.docs, setContentType)}
+        >
+          <DocsIcon />
+          Docs
+        </WidgetButton>
+        <WidgetButton
+          className={cx(contentType && contentType === HelperContentType.chat && widgetButtonIsActive)}
+          onClick={handleToggleWidget(HelperContentType.chat, setContentType)}
+        >
+          <ChatIcon />
+          Chat
+        </WidgetButton>
         <WidgetButton onClick={handleToggleWidget(!contentType ? HelperContentType.none : null, setContentType)}>
           Help
         </WidgetButton>
