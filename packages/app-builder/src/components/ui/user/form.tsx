@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useEffect } from 'react'
 import Container from './container'
 import { ToolbarItem, ToolbarItemType, ToolbarSection } from '../toolbar'
 import { useTypeList } from '../../hooks/objects/use-type-list'
@@ -7,6 +7,8 @@ import { DestinationPage } from './link'
 import { FormProps, Form as EForm } from './ejectable/form'
 import { useObjectSpecials } from '../../hooks/objects/use-object-specials'
 import { FormInput } from './form-input'
+import { FormInputProps } from './ejectable/form-input'
+import { useObjectMutate } from '../../hooks/objects/use-object-mutate'
 
 const defaultProps = {
   destination: '/',
@@ -20,23 +22,62 @@ const Form = (props: FormProps) => {
     connectors: { connect, drag },
   } = useNode()
 
-  return (
-    <EForm
-      FormInputComponent={FormInput}
-      {...defaultProps}
-      {...props}
-      ref={(ref) => ref && connect(drag(ref))}
-      disabled={isEditing}
-    />
-  )
+  return <EForm {...defaultProps} {...props} ref={(ref) => ref && connect(drag(ref))} disabled={isEditing} />
 }
 
 const ContainerSettings = Container.craft.related.toolbar
 
 const FormSettings = () => {
   const { data, loading } = useTypeList()
-  const { typeName } = useNode((node) => node.data.props)
+  const {
+    props: { typeName, formType },
+    nodeId,
+  } = useNode((node) => {
+    return {
+      nodeId: node.id,
+      props: node.data.props,
+    }
+  })
+  const { args } = useObjectMutate(formType, typeName)
+
+  const { setInputs, actions } = useEditor((state, query) => {
+    return {
+      setInputs: (inputs: FormInputProps[], parentNodeId: string) => {
+        query
+          .node(parentNodeId)
+          .decendants()
+          .forEach((str) => {
+            try {
+              actions.delete(str)
+            } catch (e) {
+              // do nothing
+            }
+          })
+        setTimeout(() => {
+          inputs
+            .map((props) => query.parseReactElement(<FormInput {...props} />).toNodeTree())
+            .forEach((nodeTree) => {
+              actions.addNodeTree(nodeTree, parentNodeId)
+            })
+        }, 0)
+      },
+    }
+  })
+  const [shouldUpdate, setShouldUpdate] = React.useState(false)
   const { specials } = useObjectSpecials(typeName)
+  useEffect(() => {
+    console.log('should update', shouldUpdate)
+    if (args && args[0] && shouldUpdate) {
+      const inputs = args[0].fields.map(({ name }) => ({
+        name,
+        typeName,
+        formType,
+      }))
+      setInputs(inputs, nodeId)
+      setShouldUpdate(false)
+      console.log(inputs)
+    }
+  }, [shouldUpdate, args])
 
   return (
     <>
@@ -48,7 +89,12 @@ const FormSettings = () => {
           return `Form of ${typeName || ''}${typeName ? 's' : ''}`
         }}
       >
-        <ToolbarItem type={ToolbarItemType.Select} propKey="typeName" title="Object Type">
+        <ToolbarItem
+          type={ToolbarItemType.Select}
+          onChange={() => setShouldUpdate(true)}
+          propKey="typeName"
+          title="Object Type"
+        >
           {(data || []).map((typeName) => (
             <option key={typeName} value={typeName}>
               {typeName}
@@ -58,7 +104,12 @@ const FormSettings = () => {
             {loading ? 'Loading...' : 'Select a Type'}
           </option>
         </ToolbarItem>
-        <ToolbarItem type={ToolbarItemType.Select} propKey="formType" title="Form Type">
+        <ToolbarItem
+          type={ToolbarItemType.Select}
+          onChange={() => setShouldUpdate(true)}
+          propKey="formType"
+          title="Form Type"
+        >
           {['create', 'update', ...specials.map(({ name }) => name)].map((formType) => (
             <option key={formType} value={formType}>
               {formType}

@@ -9,33 +9,17 @@ import { useObjectMutate } from '../../../hooks/objects/use-object-mutate'
 import { useObjectGet } from '../../../hooks/objects/use-object-get'
 
 import { usePageId } from '../../../hooks/use-page-id'
-import { FormInput } from './form-input'
 import { FormContextProvider } from '../../../hooks/form-context'
-import { Element } from '@craftjs/core'
 
 export interface FormProps extends ContainerProps {
   typeName?: string
   destination?: string
   formType?: string
-  FormInputComponent?: React.FC<any>
-  excludeFields?: string[]
   children?: React.ReactNode
 }
 
 export const Form = forwardRef<HTMLDivElement, FormProps & { disabled?: boolean }>(
-  (
-    {
-      typeName,
-      destination,
-      disabled,
-      formType = 'create',
-      excludeFields,
-      FormInputComponent = FormInput,
-      children,
-      ...props
-    },
-    ref,
-  ) => {
+  ({ typeName, destination, disabled, formType = 'create', children, ...props }, ref) => {
     const { context } = usePageId()
     const { data, loading: getLoading } = useObjectGet(typeName, context.editObjectId as string | undefined)
     const { args, mutateFunction, mutationLoading } = useObjectMutate(formType, typeName)
@@ -107,25 +91,8 @@ export const Form = forwardRef<HTMLDivElement, FormProps & { disabled?: boolean 
         >
           <FormContextProvider value={{ onChange: handleInputChange }}>
             <FormLayout>
-              {children}
               {getLoading && <Loader label="Loading" />}
-              {args &&
-                args[0].fields
-                  ?.filter(({ name }) => !excludeFields?.includes(name))
-                  .map((arg) => {
-                    const { name } = arg
-
-                    return (
-                      <Element
-                        is={FormInputComponent}
-                        id={`${typeName}-${name}`}
-                        key={name}
-                        name={name}
-                        typeName={typeName}
-                        formType={formType}
-                      />
-                    )
-                  })}
+              {children}
               <Button disabled={disabled} loading={mutationLoading}>
                 {formType === 'create' ? 'Create' : 'Save'}
               </Button>

@@ -100,7 +100,7 @@ const InnerFormInput = (
 ) => {
   const { args } = useObjectMutate(formType, typeName)
   const { onChange } = useFormContext()
-  const formInput = args[0].fields.find((arg) => arg.name === name)
+  const formInput = args && args[0] && args[0]?.fields?.find((arg) => arg.name === name)
   if (!formInput) return null
   const label = friendlyIdName(name)
   const { typeName: inputTypeName, isRequired, idOfType, enumValues } = formInput
