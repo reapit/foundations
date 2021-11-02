@@ -95,7 +95,7 @@ export const triangleContainer = css`
 
 export const triangle1 = css`
   position: absolute;
-  top: 2rem;
+  top: 3rem;
   left: 10rem;
   border: 1rem solid transparent;
   border-top-color: var(--color-dark-blue);
@@ -104,7 +104,7 @@ export const triangle1 = css`
   transition: transform 2s ease;
 
   &.${triangleActive} {
-    transform: rotate(90deg);
+    transform: rotate(105deg);
   }
 `
 
@@ -126,8 +126,8 @@ export const triangle2 = css`
 
 export const triangle3 = css`
   position: absolute;
-  bottom: 1rem;
-  left: 12rem;
+  bottom: 2rem;
+  left: 11rem;
   border: 3.5rem solid transparent;
   border-right-width: 2.5rem;
   border-top-color: var(--intent-secondary);
@@ -135,6 +135,6 @@ export const triangle3 = css`
   transition: transform 2s ease;
 
   &.${triangleActive} {
-    transform: rotate(-10deg);
+    transform: rotate(-5deg);
   }
 `
