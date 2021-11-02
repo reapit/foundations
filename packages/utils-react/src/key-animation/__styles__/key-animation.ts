@@ -40,22 +40,22 @@ export const star = css`
   }
 
   &:nth-child(2) {
-    top: -50%;
-    right: -10%;
+    top: -3rem;
+    right: -1rem;
     transform: scale(80%);
     -webkit-transform: scale(.8, .8);
   }
 
   &:nth-child(3) {
-    top: -10%;
-    right: -20%;
+    top: -1rem;
+    right: -2.5rem;
     transform: scale(40%);
     -webkit-transform: scale(.4, .4);
   }
 
   &:nth-child(4) {
-    bottom: -30%;
-    right: -5%;
+    bottom: -2.5rem;
+    right: -.5rem;
     transform: scale(50%);
     -webkit-transform: scale(.5, .5);
   }
@@ -81,10 +81,18 @@ export const keyholeMask = css`
 
 export const triangleActive = css``
 
+export const triangleContainer = css`
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  height: 20rem;
+  width: 15rem;
+`
+
 export const triangle1 = css`
   position: absolute;
-  top: 65%;
-  left: 20%;
+  top: 2rem;
+  left: 10rem;
   border: 1rem solid transparent;
   border-top-color: var(--color-dark-blue);
   border-right-width: 1.25rem;
@@ -98,8 +106,8 @@ export const triangle1 = css`
 
 export const triangle2 = css`
   position: absolute;
-  top: 72.5%;
-  left: 12.5%;
+  bottom: 8rem;
+  left: 6rem;
   border: 3rem solid transparent;
   border-top-color: var(--intent-primary);
   border-top-width: 2rem;
@@ -114,8 +122,8 @@ export const triangle2 = css`
 
 export const triangle3 = css`
   position: absolute;
-  top: 85%;
-  left: 22.5%;
+  bottom: 1rem;
+  left: 12rem;
   border: 3.5rem solid transparent;
   border-right-width: 2.5rem;
   border-top-color: var(--intent-secondary);

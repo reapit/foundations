@@ -14,6 +14,7 @@ import {
   triangleActive,
   keyActive,
   keyholeContainer,
+  triangleContainer,
 } from './__styles__/key-animation'
 import backgroundImage from './images/background.svg'
 import keyholeImage from './images/keyhole.svg'
@@ -39,9 +40,11 @@ export const KeyAnimation: FC<{ step: 1 | 2 | 3 }> = ({ step }) => {
             <img src={keyholeImage} />
           </div>
         </div>
-        <div className={cx(triangle1, step > 1 && triangleActive)} />
-        <div className={cx(triangle2, step > 1 && triangleActive)} />
-        <div className={cx(triangle3, step > 1 && triangleActive)} />
+        <div className={cx(triangleContainer)}>
+          <div className={cx(triangle1, step > 1 && triangleActive)} />
+          <div className={cx(triangle2, step > 1 && triangleActive)} />
+          <div className={cx(triangle3, step > 1 && triangleActive)} />
+        </div>
       </div>
     </>
   )
