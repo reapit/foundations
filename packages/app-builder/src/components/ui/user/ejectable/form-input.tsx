@@ -86,13 +86,15 @@ export type FormInputProps = {
   typeName?: string
   name: string
   disabled?: boolean
+  isReadOnly?: boolean
 }
 
 const InnerFormInput = (
-  { typeName, name, formType, disabled }: FormInputProps,
+  { typeName, name, formType, ...rest }: FormInputProps,
   ref: React.ForwardedRef<HTMLDivElement>,
 ) => {
   const { args } = useObjectMutate(formType, typeName)
+  const disabled = rest.disabled || rest.isReadOnly
   const { onChange, defaultValues } = useFormContext()
   const defaultValue = defaultValues[name]
   const formInput = args && args[0] && args[0]?.fields?.find((arg) => arg.name === name)
