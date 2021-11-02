@@ -43,21 +43,21 @@ export const star = css`
     top: -3rem;
     right: -1rem;
     transform: scale(80%);
-    -webkit-transform: scale(.8, .8);
+    -webkit-transform: scale(0.8, 0.8);
   }
 
   &:nth-child(3) {
     top: -1rem;
     right: -2.5rem;
     transform: scale(40%);
-    -webkit-transform: scale(.4, .4);
+    -webkit-transform: scale(0.4, 0.4);
   }
 
   &:nth-child(4) {
     bottom: -2.5rem;
-    right: -.5rem;
+    right: -0.5rem;
     transform: scale(50%);
-    -webkit-transform: scale(.5, .5);
+    -webkit-transform: scale(0.5, 0.5);
   }
 `
 
