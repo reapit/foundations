@@ -1,7 +1,5 @@
-import { cx } from '@linaria/core'
 import {
   BodyText,
-  elMb11,
   ElToggleItem,
   InputGroup,
   Label,
@@ -21,7 +19,7 @@ interface WebhooksNewStatusProps {
 }
 
 export const WebhooksNewStatus: FC<WebhooksNewStatusProps> = ({ register }) => (
-  <FormLayout className={cx(elFadeIn, elMb11)}>
+  <FormLayout className={elFadeIn}>
     <InputWrapFull>
       <BodyText hasNoMargin hasGreyText>
         Selecting active status will determine whether the webhook will fire when changes are made. This will effect

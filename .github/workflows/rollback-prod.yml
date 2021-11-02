@@ -29,9 +29,50 @@ jobs:
         with:
           fetch-depth: 0
 
-      - uses: actions/github-script@v5
+      - name: Set Node
+        uses: actions/setup-node@v1
         with:
-          script: |
-            const packageInfo = require(`packages/${context.steps.tagName.outputs.package}/package.json`)
-            console.log('package', package)
-            console.log('context', context)
+          node-version: '14.x'
+
+      - name: Install
+        run: yarn
+
+      - name: Package name Set
+        run: |
+          PACKAGE_NAME=$(yarn json -f packages/${{ steps.tagName.outputs.package }}/package.json name)
+          echo $PACKAGE_NAME
+          echo "PACKAGE_NAME=$PACKAGE_NAME" >> $GITHUB_ENV
+
+      - name: Previous Version Declare
+        run: |
+          PREVIOUS_VERSION=$(git tag --list --sort=committerdate | grep -i $PACKAGE_NAME | tail -2 | grep -vw "$PACKAGE_NAME"_${{ steps.tagName.outputs.version }})
+          echo $PREVIOUS_VERSION
+          echo "PREVIOUS_VERSION=$PREVIOUS_VERSION" >> $GITHUB_ENV
+          echo "previous version === $PREVIOUS_VERSION"
+          
+      - name: Checkout Previous Version
+        run: git checkout $PREVIOUS_VERSION
+
+      - name: Package or Service
+        run: |
+          IS_PACKAGE=$(echo $PACKAGE_NAME | grep -o "@reapit/" | wc -l)
+          echo "package: $PACKAGE_NAME is $IS_PACKAGE"
+
+      - name: Fetch config
+        run: |
+          yarn workspace ${{ steps.tagName.outputs.package }} run conf --name production
+
+      - name: Build
+        run: |
+          yarn workspace ${{ steps.tagName.outputs.package }} run build
+
+      - name: Release
+        run: |
+          yarn workspace ${{ steps.tagName.outputs.package }} run release --stage prod
+
+      - name: NPM Rollback
+        run: |
+          test $IS_PACKAGE == 1 &&
+          yarn npm tag remove $PACKAGE_NAME latest &&
+          yarn npm tag add $PACKAGE_NAME@$PREVIOUS_VERSION latest &&
+          yarn npm tag ls || exit 0

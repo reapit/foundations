@@ -1,4 +1,4 @@
-import { fetcher, setQueryParams } from '@reapit/utils-common'
+import { fetcher, fetcherWithBlob, setQueryParams } from '@reapit/utils-common'
 import { URLS } from './constants'
 import { getPlatformHeaders, logger } from '@reapit/utils-react'
 import { FetchListCommonParams } from './types'
@@ -44,5 +44,23 @@ export const fetchCustomersList = async (
   } catch (error) {
     logger(error)
     throw error
+  }
+}
+
+export const fetchCustomerWarehouseCosts = async (period: string) => {
+  try {
+    const headers = await getPlatformHeaders(reapitConnectBrowserSession, 'latest')
+    if (headers) {
+      const response = await fetcherWithBlob({
+        url: `${URLS.customers}/warehouseCosts/${period}`,
+        api: window.reapit.config.platformApiUrl,
+        method: 'GET',
+        headers,
+      })
+      return response
+    }
+  } catch (error) {
+    logger(error)
+    throw new Error(error)
   }
 }

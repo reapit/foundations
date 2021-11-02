@@ -1,13 +1,13 @@
-import * as React from 'react'
-import { shallow } from 'enzyme'
+import React from 'react'
+import { render } from '@testing-library/react'
 import { PrivateRouteWrapper } from '../private-route-wrapper'
+import { MediaStateProvider, NavStateProvider } from '@reapit/elements'
+import { Router, Switch } from 'react-router-dom'
+import { createBrowserHistory } from 'history'
 
-const mockLocation = { pathname: '/test' }
+jest.mock('../../components/ui/nav/nav', () => ({ Nav: () => <div /> }))
 
-jest.mock('react-router', () => ({
-  ...(jest.requireActual('react-router') as any),
-  useLocation: jest.fn(() => mockLocation),
-}))
+export const history = createBrowserHistory()
 
 jest.mock('@reapit/connect-session', () => ({
   ReapitConnectBrowserSession: jest.fn(),
@@ -21,8 +21,22 @@ jest.mock('@reapit/connect-session', () => ({
   }),
 }))
 
-describe('PrivateRouter', () => {
+describe('PrivateRouteWrapper', () => {
   it('should match a snapshot', () => {
-    expect(shallow(<PrivateRouteWrapper />)).toMatchSnapshot()
+    expect(
+      render(
+        <Router history={history}>
+          <Switch>
+            <NavStateProvider>
+              <MediaStateProvider>
+                <PrivateRouteWrapper>
+                  <div />
+                </PrivateRouteWrapper>
+              </MediaStateProvider>
+            </NavStateProvider>
+          </Switch>
+        </Router>,
+      ),
+    ).toMatchSnapshot()
   })
 })

@@ -1,5 +1,5 @@
 import React, { FC } from 'react'
-import { css } from '@linaria/core'
+import { css, cx } from '@linaria/core'
 
 export const docsSvgStyle = css`
   #webhooks-docs-svg-element-one {
@@ -169,9 +169,13 @@ export const docsSvgStyle = css`
   }
 `
 
-export const WebhooksAnimatedDocsIcon: FC = () => (
+export interface WebhooksAnimatedDocsIconProps {
+  isAnimated: boolean
+}
+
+export const WebhooksAnimatedDocsIcon: FC<WebhooksAnimatedDocsIconProps> = ({ isAnimated }) => (
   <svg
-    className={docsSvgStyle}
+    className={cx(isAnimated && docsSvgStyle)}
     id="exzbnYXRMC51"
     xmlns="http://www.w3.org/2000/svg"
     xmlnsXlink="http://www.w3.org/1999/xlink"

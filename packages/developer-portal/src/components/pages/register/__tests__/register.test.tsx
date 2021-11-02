@@ -5,10 +5,10 @@ import configureStore from 'redux-mock-store'
 import {
   Register,
   onSubmit,
-  onRegisterButtonClick,
   onDeclineTermsAndConditions,
   onLoginButtonClick,
   handleSetFormDefault,
+  formSubmit,
 } from '../register'
 import { developerCreate } from '@/actions/developer'
 import { DATE_TIME_FORMAT } from '@reapit/elements-legacy'
@@ -68,21 +68,6 @@ describe('Register', () => {
       )
     })
   })
-  describe('onRegisterButtonClick', () => {
-    it('should run correctly', () => {
-      const mockValidateForm = jest.fn().mockImplementation(() => ({ err: 'err' }))
-      const mockSetTermsAndConditionsModalVisible = jest.fn()
-      const mockSetTouched = jest.fn()
-      const fn = onRegisterButtonClick(mockValidateForm, mockSetTermsAndConditionsModalVisible, mockSetTouched)
-      fn()
-      expect(mockSetTouched).toBeCalledWith({
-        companyName: true,
-        email: true,
-        name: true,
-        telephone: true,
-      })
-    })
-  })
   describe('onDeclineTermsAndConditions', () => {
     it('should run correctly', () => {
       const mockSetTermsAndConditionsModalVisible = jest.fn()
@@ -104,6 +89,14 @@ describe('Register', () => {
       const fn = handleSetFormDefault(dispatch)
       fn()
       expect(dispatch).toBeCalled()
+    })
+  })
+  describe('formSubmit', () => {
+    it('should run correctly', () => {
+      const testFunc = (value) => {
+        expect(value).toBeTruthy()
+      }
+      formSubmit(testFunc)
     })
   })
 })

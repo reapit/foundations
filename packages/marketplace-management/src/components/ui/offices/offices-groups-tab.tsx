@@ -98,15 +98,15 @@ const OfficesGroupsTab: FC = () => {
     orgIdState: { orgId, orgName },
   } = useOrgId()
 
-  const { data: officeGroupsResponse, mutate } = useSWR<OfficeGroupModelPagedResult>(
+  const { data, mutate } = useSWR<OfficeGroupModelPagedResult>(
     !orgId
       ? null
       : `${URLS.ORGANISATIONS}/${orgId}${URLS.OFFICES_GROUPS}${search ? search + '&pageSize=12' : '?pageSize=12'}`,
   )
 
-  const officeGroups = officeGroupsResponse?._embedded ?? []
-  const totalPageCount = officeGroupsResponse?.totalPageCount ?? 0
-  const pageNumber = officeGroupsResponse?.pageNumber ?? 0
+  const officeGroups = data?._embedded ?? []
+  const totalPageCount = data?.totalPageCount ?? 0
+  const pageNumber = data?.pageNumber ?? 0
 
   const officeIdsQuery = getOfficeQueryFromGroups(officeGroups)
 
@@ -139,7 +139,7 @@ const OfficesGroupsTab: FC = () => {
   return (
     <ErrorBoundary>
       <Title>{orgName} Office Groups</Title>
-      {!officeGroups ? (
+      {!data ? (
         <Loader />
       ) : officeGroups.length ? (
         <>

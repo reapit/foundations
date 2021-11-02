@@ -36,7 +36,6 @@ interface UpdateUserModel {
 
 export const sortAddRemoveGroups = (user: UserModel, groupIds: string) => {
   const currentGroups = user.groups ?? []
-  console.log(user.groups)
   const removeIds = currentGroups.filter((group) => !groupIds.includes(group)).filter(Boolean)
   const addIds = groupIds
     .split(',')

@@ -4,7 +4,7 @@
 // Given code comes from AWS, seems reasonable to trust the implementation.
 import 'isomorphic-fetch'
 import { LoginIdentity } from '../types'
-// We wanted to use idtoken-verifier, currently using bashleigh-idtoken-verifier 
+// We wanted to use idtoken-verifier, currently using bashleigh-idtoken-verifier
 // as the types are incorrect in root package
 import IdTokenVerifier from 'bashleigh-idtoken-verifier'
 import decode from 'jwt-decode'

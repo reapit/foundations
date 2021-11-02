@@ -1,9 +1,11 @@
 import * as React from 'react'
-import { shallow } from 'enzyme'
+import { render } from '@testing-library/react'
 import { createBrowserHistory } from 'history'
 import Routes from '@/constants/routes'
 import UsersTab, { onPageChangeHandler } from '../users-tab'
-// import { data } from '../__stubs__/users'
+import useSWR from 'swr'
+import { useOrgId } from '../../../../utils/use-org-id'
+import { mockUsersList } from '../../../../services/__stubs__/users'
 
 jest.mock('react-router', () => ({
   ...(jest.requireActual('react-router') as Object),
@@ -12,27 +14,42 @@ jest.mock('react-router', () => ({
   })),
 }))
 
-jest.mock('swr', () =>
-  jest.fn(() => ({
-    data: require('../__stubs__/users').data,
-    mutate: jest.fn,
-  })),
-)
+jest.mock('swr')
+jest.mock('../../../../utils/use-org-id')
 
-jest.mock('../../../../utils/use-org-id', () => ({
-  useOrgId: () => ({
-    orgIdState: {
-      orgId: 'SOME_ID',
-      orgName: 'SOME_NAME',
-      orgClientId: 'SOME_CLIENT_ID',
-    },
-  }),
-}))
+const mockSWR = useSWR as jest.Mock
+const mockUseOrgId = useOrgId as jest.Mock
 
 describe('UsersTab', () => {
-  it('should match a snapshot', () => {
+  it('should match a snapshot where there is data', () => {
     window.reapit.config.groupIdsWhitelist = []
-    expect(shallow(<UsersTab />)).toMatchSnapshot()
+    mockSWR.mockReturnValue({
+      data: mockUsersList,
+      error: {},
+      mutate: jest.fn(),
+    })
+    expect(render(<UsersTab />)).toMatchSnapshot()
+  })
+
+  it('should match a snapshot where there is data but no users', () => {
+    window.reapit.config.groupIdsWhitelist = []
+    mockSWR.mockReturnValue({
+      data: { _embedded: [] },
+      error: {},
+      mutate: jest.fn(),
+    })
+    expect(render(<UsersTab />)).toMatchSnapshot()
+  })
+
+  it('should match a snapshot where there is no orgId', () => {
+    window.reapit.config.groupIdsWhitelist = []
+    mockSWR.mockReturnValue({
+      data: mockUsersList,
+      error: {},
+      mutate: jest.fn(),
+    })
+    mockUseOrgId.mockReturnValueOnce({ orgIdState: { orgId: null } })
+    expect(render(<UsersTab />)).toMatchSnapshot()
   })
 })
 

@@ -1,4 +1,4 @@
-import * as React from 'react'
+import React, { FC } from 'react'
 import { useReapitConnect } from '@reapit/connect-session'
 import { reapitConnectBrowserSession } from '@/core/connect-session'
 import { useLocation, Redirect } from 'react-router'
@@ -10,7 +10,7 @@ const { Suspense } = React
 
 export type PrivateRouteWrapperProps = {}
 
-export const PrivateRouteWrapper: React.FunctionComponent<PrivateRouteWrapperProps> = ({ children }) => {
+export const PrivateRouteWrapper: FC<PrivateRouteWrapperProps> = ({ children }) => {
   const { connectSession, connectInternalRedirect } = useReapitConnect(reapitConnectBrowserSession)
   const location = useLocation()
   const currentUri = `${location.pathname}${location.search}`
@@ -24,16 +24,10 @@ export const PrivateRouteWrapper: React.FunctionComponent<PrivateRouteWrapperPro
     )
   }
 
-  const { pathname } = window.location
+  const { pathname } = location
 
   if (!hasAccess && pathname !== Routes.ACCESS_DENIED) {
     return <Redirect to={Routes.ACCESS_DENIED} />
-  }
-
-  if (window.reapit.config.appEnv === 'production') {
-    if (pathname === Routes.USERS) {
-      return <Redirect to={Routes.USERS_GROUPS} />
-    }
   }
 
   if (pathname === '/') {

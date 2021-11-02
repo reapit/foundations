@@ -1,0 +1,193 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Key Animation step 1 should match a snapshot 1`] = `
+<KeyAnimation
+  step={1}
+>
+  <div
+    className="c1wtxzkp"
+  >
+    <div
+      className="b1dqw05s"
+    >
+      <img
+        src={Object {}}
+      />
+    </div>
+    <div
+      className="k14gqag1"
+    >
+      <div
+        className="k11hgd2"
+      >
+        <div
+          className="k2c2icq"
+        />
+        <div
+          className="kgxbypi"
+        >
+          <img
+            src={Object {}}
+          />
+          <img
+            className="s1nc4tw1"
+            src={Object {}}
+          />
+          <img
+            className="s1nc4tw1"
+            src={Object {}}
+          />
+          <img
+            className="s1nc4tw1"
+            src={Object {}}
+          />
+        </div>
+        <img
+          src={Object {}}
+        />
+      </div>
+    </div>
+    <div
+      className="t13tfywi"
+    >
+      <div
+        className="t1klj7dc"
+      />
+      <div
+        className="tnnq8gu"
+      />
+      <div
+        className="t1putoli"
+      />
+    </div>
+  </div>
+</KeyAnimation>
+`;
+
+exports[`Key Animation step 2 should match a snapshot 1`] = `
+<KeyAnimation
+  step={2}
+>
+  <div
+    className="c1wtxzkp"
+  >
+    <div
+      className="b1dqw05s"
+    >
+      <img
+        src={Object {}}
+      />
+    </div>
+    <div
+      className="k14gqag1"
+    >
+      <div
+        className="k11hgd2"
+      >
+        <div
+          className="k2c2icq"
+        />
+        <div
+          className="kgxbypi k15sypa0"
+        >
+          <img
+            src={Object {}}
+          />
+          <img
+            className="s1nc4tw1"
+            src={Object {}}
+          />
+          <img
+            className="s1nc4tw1"
+            src={Object {}}
+          />
+          <img
+            className="s1nc4tw1"
+            src={Object {}}
+          />
+        </div>
+        <img
+          src={Object {}}
+        />
+      </div>
+    </div>
+    <div
+      className="t13tfywi"
+    >
+      <div
+        className="t1klj7dc ttnh7i2"
+      />
+      <div
+        className="tnnq8gu ttnh7i2"
+      />
+      <div
+        className="t1putoli ttnh7i2"
+      />
+    </div>
+  </div>
+</KeyAnimation>
+`;
+
+exports[`Key Animation step 3 should match a snapshot 1`] = `
+<KeyAnimation
+  step={3}
+>
+  <div
+    className="c1wtxzkp"
+  >
+    <div
+      className="b1dqw05s"
+    >
+      <img
+        src={Object {}}
+      />
+    </div>
+    <div
+      className="k14gqag1"
+    >
+      <div
+        className="k11hgd2"
+      >
+        <div
+          className="k2c2icq"
+        />
+        <div
+          className="kgxbypi k15sypa0"
+        >
+          <img
+            src={Object {}}
+          />
+          <img
+            className="s1nc4tw1 smiku6q"
+            src={Object {}}
+          />
+          <img
+            className="s1nc4tw1 smiku6q"
+            src={Object {}}
+          />
+          <img
+            className="s1nc4tw1 smiku6q"
+            src={Object {}}
+          />
+        </div>
+        <img
+          src={Object {}}
+        />
+      </div>
+    </div>
+    <div
+      className="t13tfywi"
+    >
+      <div
+        className="t1klj7dc ttnh7i2"
+      />
+      <div
+        className="tnnq8gu ttnh7i2"
+      />
+      <div
+        className="t1putoli ttnh7i2"
+      />
+    </div>
+  </div>
+</KeyAnimation>
+`;
