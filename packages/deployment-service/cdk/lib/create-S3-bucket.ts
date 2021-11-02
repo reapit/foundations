@@ -36,7 +36,7 @@ export const createS3Buckets = (stack: CdkStack) => {
   return (Object.keys(bucketOptions) as Array<BucketNames>).reduce<{ [k in BucketNames]: Bucket }>(
     (buckets, bucketName) => {
       buckets[bucketName] = new Bucket(stack as any, bucketName, {
-        bucketName,
+        // bucketName,
         publicReadAccess: bucketOptions[bucketName]?.public,
         websiteIndexDocument: bucketOptions[bucketName]?.public ? 'index.html' : undefined,
       })

@@ -1,6 +1,7 @@
 import { SubDomainSubscriber } from '../subscribers/sub-domain'
 import { ConnectionOptions } from 'typeorm'
 import { TaskEntity, PipelineEntity, PipelineRunnerEntity, ReleaseEntity } from './../entities'
+import migrations from './../../migrations'
 
 export const dbConfig: ConnectionOptions = {
   type: 'mysql',
@@ -10,6 +11,9 @@ export const dbConfig: ConnectionOptions = {
   database: process.env.MYSQL_DATABASE,
   logging: true,
   synchronize: false,
+  migrationsRun: false,
   entities: [PipelineEntity, PipelineRunnerEntity, TaskEntity, ReleaseEntity],
   subscribers: [SubDomainSubscriber],
+  migrations,
+  // connectTimeout: 30 * 1000,
 }
