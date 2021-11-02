@@ -43,18 +43,21 @@ export const star = css`
     top: -50%;
     right: -10%;
     transform: scale(80%);
+    -webkit-transform: scale(.8, .8);
   }
 
   &:nth-child(3) {
     top: -10%;
     right: -20%;
     transform: scale(40%);
+    -webkit-transform: scale(.4, .4);
   }
 
   &:nth-child(4) {
     bottom: -30%;
     right: -5%;
     transform: scale(50%);
+    -webkit-transform: scale(.5, .5);
   }
 `
 
@@ -69,7 +72,7 @@ export const keyhole = css``
 export const keyholeMask = css`
   width: 2.5rem;
   height: 3.5rem;
-  background: var(--color-dark-blue);
+  background: #262f68;
   position: absolute;
   top: 15%;
   left: 10%;
