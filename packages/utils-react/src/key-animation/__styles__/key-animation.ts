@@ -40,21 +40,24 @@ export const star = css`
   }
 
   &:nth-child(2) {
-    top: -50%;
-    right: -10%;
+    top: -3rem;
+    right: -1rem;
     transform: scale(80%);
+    -webkit-transform: scale(0.8, 0.8);
   }
 
   &:nth-child(3) {
-    top: -10%;
-    right: -20%;
+    top: -1rem;
+    right: -2.5rem;
     transform: scale(40%);
+    -webkit-transform: scale(0.4, 0.4);
   }
 
   &:nth-child(4) {
-    bottom: -30%;
-    right: -5%;
+    bottom: -2.5rem;
+    right: -0.5rem;
     transform: scale(50%);
+    -webkit-transform: scale(0.5, 0.5);
   }
 `
 
@@ -69,7 +72,7 @@ export const keyhole = css``
 export const keyholeMask = css`
   width: 2.5rem;
   height: 3.5rem;
-  background: var(--color-dark-blue);
+  background: var(--color-blue-dark);
   position: absolute;
   top: 15%;
   left: 10%;
@@ -78,25 +81,37 @@ export const keyholeMask = css`
 
 export const triangleActive = css``
 
+export const triangleContainer = css`
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  height: 20rem;
+  width: 15rem;
+
+  @media screen and (max-height: 700px) {
+    display: none;
+  }
+`
+
 export const triangle1 = css`
   position: absolute;
-  top: 65%;
-  left: 20%;
+  top: 3rem;
+  left: 10rem;
   border: 1rem solid transparent;
-  border-top-color: var(--color-dark-blue);
+  border-top-color: var(--color-blue-dark);
   border-right-width: 1.25rem;
   transform: rotate(60deg);
   transition: transform 2s ease;
 
   &.${triangleActive} {
-    transform: rotate(90deg);
+    transform: rotate(105deg);
   }
 `
 
 export const triangle2 = css`
   position: absolute;
-  top: 72.5%;
-  left: 12.5%;
+  bottom: 8rem;
+  left: 6rem;
   border: 3rem solid transparent;
   border-top-color: var(--intent-primary);
   border-top-width: 2rem;
@@ -111,8 +126,8 @@ export const triangle2 = css`
 
 export const triangle3 = css`
   position: absolute;
-  top: 85%;
-  left: 22.5%;
+  bottom: 2rem;
+  left: 11rem;
   border: 3.5rem solid transparent;
   border-right-width: 2.5rem;
   border-top-color: var(--intent-secondary);
@@ -120,6 +135,6 @@ export const triangle3 = css`
   transition: transform 2s ease;
 
   &.${triangleActive} {
-    transform: rotate(-10deg);
+    transform: rotate(-5deg);
   }
 `

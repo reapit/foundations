@@ -49,13 +49,17 @@ exports[`Key Animation step 1 should match a snapshot 1`] = `
     </div>
     <div
       className="t13tfywi"
-    />
-    <div
-      className="t1klj7dc"
-    />
-    <div
-      className="tnnq8gu"
-    />
+    >
+      <div
+        className="t1klj7dc"
+      />
+      <div
+        className="tnnq8gu"
+      />
+      <div
+        className="t1putoli"
+      />
+    </div>
   </div>
 </KeyAnimation>
 `;
@@ -108,14 +112,18 @@ exports[`Key Animation step 2 should match a snapshot 1`] = `
       </div>
     </div>
     <div
-      className="t13tfywi ttnh7i2"
-    />
-    <div
-      className="t1klj7dc ttnh7i2"
-    />
-    <div
-      className="tnnq8gu ttnh7i2"
-    />
+      className="t13tfywi"
+    >
+      <div
+        className="t1klj7dc ttnh7i2"
+      />
+      <div
+        className="tnnq8gu ttnh7i2"
+      />
+      <div
+        className="t1putoli ttnh7i2"
+      />
+    </div>
   </div>
 </KeyAnimation>
 `;
@@ -168,14 +176,18 @@ exports[`Key Animation step 3 should match a snapshot 1`] = `
       </div>
     </div>
     <div
-      className="t13tfywi ttnh7i2"
-    />
-    <div
-      className="t1klj7dc ttnh7i2"
-    />
-    <div
-      className="tnnq8gu ttnh7i2"
-    />
+      className="t13tfywi"
+    >
+      <div
+        className="t1klj7dc ttnh7i2"
+      />
+      <div
+        className="tnnq8gu ttnh7i2"
+      />
+      <div
+        className="t1putoli ttnh7i2"
+      />
+    </div>
   </div>
 </KeyAnimation>
 `;
