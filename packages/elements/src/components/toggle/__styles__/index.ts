@@ -74,7 +74,8 @@ export const ElToggleLabel = styled.label`
   padding: 0.25rem;
 
   &.${elHasGreyBg} {
-    background: var(--color-grey-medium);
+    background: var(--color-grey-light);
+    border: 1px solid var(--color-grey-light);
   }
 
   &.${elToggleFullWidth} {
@@ -109,7 +110,7 @@ export const ElToggleRadioLabel = styled.label`
   margin-right: 0.375rem;
 
   &.${elHasGreyBg} {
-    background: var(--color-grey-medium);
+    background: var(--color-grey-light);
   }
 `
 
@@ -130,6 +131,7 @@ export const ElToggleRadioWrap = styled.div`
   }
 
   &.${elHasGreyBg} {
-    background: var(--color-grey-medium);
+    background: var(--color-grey-light);
+    border: 1px solid var(--color-grey-light);
   }
 `

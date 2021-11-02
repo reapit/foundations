@@ -1,34 +1,34 @@
-import * as React from 'react'
+import React, { FC, useState, useEffect } from 'react'
 import { Dispatch } from 'redux'
 import { useDispatch, useSelector } from 'react-redux'
 import { History } from 'history'
 import dayjs from 'dayjs'
 import { Link, useHistory } from 'react-router-dom'
 import {
-  Input,
+  InputGroup,
+  FormLayout,
+  InputWrapFull,
+  PersistantNotification,
+  Title,
+  Subtitle,
+  BodyText,
   Button,
-  Alert,
-  H1,
-  Level,
-  FormSection,
-  FormHeading,
-  FormSubHeading,
-  Form,
-  FormikErrors,
-  Formik,
-  FormikTouched,
-  DATE_TIME_FORMAT,
-  Helper,
-} from '@reapit/elements-legacy'
+  FlexContainer,
+  elMt12,
+  useSnack,
+} from '@reapit/elements'
 import { CreateDeveloperModel } from '@reapit/foundations-ts-definitions'
 import { selectDeveloperFormState } from '@/selector'
 import { developerCreate, developerSetFormState } from '@/actions/developer'
 import TermsAndConditionsModal from '@/components/ui/terms-and-conditions-modal'
 import Routes from '@/constants/routes'
-import { container, imageContainer, loginImage, wrapper } from './__styles__/register'
+import { container, imageContainer, wrapper } from './__styles__/register'
 import { formFields } from './form-fields'
+import { yupResolver } from '@hookform/resolvers/yup'
 import { validationSchema } from './validation-schema'
-import { useEffect } from 'react'
+import { KeyAnimation } from '@reapit/utils-react'
+import { useForm, UseFormGetValues } from 'react-hook-form'
+import { cx } from '@linaria/core'
 
 const { nameField, emailField, companyNameField, telephoneField } = formFields
 
@@ -47,29 +47,9 @@ export const onSubmit = (dispatch: Dispatch) => {
     dispatch(
       developerCreate({
         ...values,
-        agreedTerms: dayjs().format(DATE_TIME_FORMAT.RFC3339),
+        agreedTerms: dayjs().format('YYYY-MM-DDTHH:mm:ssZ'),
       }),
     )
-  }
-}
-
-export const onRegisterButtonClick = (
-  validateForm: (values?: any) => Promise<FormikErrors<CreateDeveloperModel>>,
-  setTermsAndConditionsModalVisible: (isVisible: boolean) => void,
-  setTouched: (touched: FormikTouched<CreateDeveloperModel>, shouldValidate?: boolean | undefined) => void,
-) => {
-  return async () => {
-    // Set fields touched to show errors
-    setTouched({
-      companyName: true,
-      email: true,
-      name: true,
-      telephone: true,
-    })
-    const formError = await validateForm()
-    if (Object.keys(formError).length === 0) {
-      setTermsAndConditionsModalVisible(true)
-    }
   }
 }
 
@@ -89,15 +69,55 @@ export const handleSetFormDefault = (dispatch: Dispatch) => () => {
   dispatch(developerSetFormState('PENDING'))
 }
 
-export const Register: React.FunctionComponent<RegisterProps> = () => {
+export const formSubmit = (setAgreeModalVisable: (val: boolean) => void) => () => {
+  setAgreeModalVisable(true)
+}
+
+export const formChange =
+  ({
+    getValues,
+    errors,
+    formStep,
+    setFormStep,
+  }: {
+    getValues: UseFormGetValues<CreateDeveloperModel>
+    errors: { [s: string]: any }
+    setFormStep: (value: 1 | 2 | 3) => void
+    formStep: number
+  }) =>
+  () => {
+    const { name, telephone } = getValues()
+
+    if (name && !errors.name && formStep != 3) {
+      if (telephone && !errors.telephone) {
+        setFormStep(3)
+      } else setFormStep(2)
+    }
+  }
+
+export const Register: FC<RegisterProps> = () => {
+  const [agreeModalVisable, setAgreeModalVisable] = useState<boolean>(false)
+  const [formStep, setFormStep] = useState<1 | 2 | 3>(1)
+
   const history = useHistory()
   const dispatch = useDispatch()
-  const [visible, setVisible] = React.useState<boolean>(false)
-  useEffect(handleSetFormDefault(dispatch), [history.location.pathname])
+  const { error } = useSnack()
+  const {
+    handleSubmit,
+    formState: { errors },
+    register,
+    getValues,
+  } = useForm<CreateDeveloperModel>({
+    resolver: yupResolver(validationSchema),
+    defaultValues: registerFormInitialValues,
+  })
   const formState = useSelector(selectDeveloperFormState)
+
+  useEffect(handleSetFormDefault(dispatch), [history.location.pathname])
   useEffect(() => {
     if (formState === 'ERROR') {
-      setVisible(false)
+      setAgreeModalVisable(false)
+      error('Failed to register')
     }
   }, [formState])
   const isSubmitting = formState === 'SUBMITTING'
@@ -105,92 +125,97 @@ export const Register: React.FunctionComponent<RegisterProps> = () => {
   return (
     <div className={container}>
       <div className={imageContainer}>
-        <div className={loginImage}></div>
+        <KeyAnimation step={formStep} />
       </div>
       <div className={wrapper}>
-        <H1 isCentered>Register</H1>
-        <p className="mb-4">Reapit Foundations developers</p>
+        <Title>Register</Title>
+        <Subtitle hasBoldText hasCenteredText>
+          Reapit Foundations Developers
+        </Subtitle>
         {formState === 'SUCCESS' ? (
-          <Helper>Successfully registered. Check your email to confirm your account.</Helper>
+          <PersistantNotification intent="success" isExpanded isFullWidth>
+            Successfully registered. Check your email to confirm your account.
+          </PersistantNotification>
         ) : (
           <>
-            <Formik
-              initialValues={registerFormInitialValues}
-              validationSchema={validationSchema}
-              onSubmit={onSubmit(dispatch)}
+            <form
+              onSubmit={handleSubmit(formSubmit(setAgreeModalVisable))}
+              onChange={formChange({
+                getValues,
+                errors,
+                formStep,
+                setFormStep,
+              })}
             >
-              {(formikProps) => {
-                const { handleSubmit, validateForm, setTouched } = formikProps
-                return (
-                  <Form noValidate={true} data-test="register-form">
-                    <FormSection>
-                      <FormHeading>Register for Foundations</FormHeading>
-                      <FormSubHeading>
-                        By registering for the Foundations platform, you will get access to the Reapit developer portal
-                        and sandbox data. You will also get the opportunity to list apps in the Reapit Marketplace. We
-                        look forward to seeing what you build!
-                      </FormSubHeading>
-                      <Input
-                        dataTest="register-name"
-                        type="text"
-                        labelText={nameField.label as string}
-                        id={nameField.name}
-                        name={nameField.name}
-                        placeholder={nameField.placeHolder}
-                      />
-                      <Input
-                        dataTest="register-company-name"
-                        type="text"
-                        labelText={companyNameField.label as string}
-                        id={companyNameField.name}
-                        name={companyNameField.name}
-                        placeholder={companyNameField.placeHolder}
-                      />
-                      <Input
-                        dataTest="register-email"
-                        type="email"
-                        labelText={emailField.label as string}
-                        id={emailField.name}
-                        name={emailField.name}
-                        placeholder={emailField.placeHolder}
-                      />
-                      <Input
-                        dataTest="register-telephone"
-                        type="tel"
-                        labelText={telephoneField.label as string}
-                        id={telephoneField.name}
-                        name={telephoneField.name}
-                        placeholder={telephoneField.placeHolder}
-                      />
-                    </FormSection>
-                    <FormSection>
-                      <Level>
-                        <TermsAndConditionsModal
-                          visible={visible}
-                          afterClose={onDeclineTermsAndConditions(setVisible)}
-                          onAccept={handleSubmit}
-                          onDecline={onDeclineTermsAndConditions(setVisible)}
-                          isSubmitting={isSubmitting}
-                        />
-                        <Button
-                          onClick={onRegisterButtonClick(validateForm, setVisible, setTouched)}
-                          fullWidth
-                          dataTest="button-register"
-                        >
-                          Register
-                        </Button>
-                      </Level>
-                      <Level>
-                        Already have an account?<Link to={Routes.LOGIN}>Login</Link>
-                      </Level>
-                      {formState === 'ERROR' && (
-                        <Alert message="Failed to register" type="danger" dataTest="register-error-message" />
-                      )}
-                    </FormSection>
-                  </Form>
-                )
-              }}
-            </Formik>
+              <Subtitle>Register for Foundations</Subtitle>
+              <BodyText hasGreyText>
+                By registering for the Foundations platform, you will get access to the Reapit developer portal and
+                sandbox data. You will also get the opportunity to list apps in the Reapit Marketplace. We look forward
+                to seeing what you build!
+              </BodyText>
+              <FormLayout>
+                <InputWrapFull>
+                  <InputGroup
+                    type="text"
+                    label={nameField.label as string}
+                    id={nameField.name}
+                    placeholder={nameField.placeHolder}
+                    {...register('name')}
+                    intent={errors?.name?.message ? 'danger' : undefined}
+                    inputAddOnText={errors?.name?.message}
+                  />
+                </InputWrapFull>
+                <InputWrapFull>
+                  <InputGroup
+                    type="text"
+                    label={companyNameField.label as string}
+                    id={companyNameField.name}
+                    placeholder={companyNameField.placeHolder}
+                    {...register('companyName')}
+                    intent={errors?.companyName?.message ? 'danger' : undefined}
+                    inputAddOnText={errors?.companyName?.message}
+                  />
+                </InputWrapFull>
+                <InputWrapFull>
+                  <InputGroup
+                    type="email"
+                    label={emailField.label as string}
+                    id={emailField.name}
+                    placeholder={emailField.placeHolder}
+                    {...register('email')}
+                    intent={errors?.email?.message ? 'danger' : undefined}
+                    inputAddOnText={errors?.email?.message}
+                  />
+                </InputWrapFull>
+                <InputWrapFull>
+                  <InputGroup
+                    type="tel"
+                    label={telephoneField.label as string}
+                    id={telephoneField.name}
+                    placeholder={telephoneField.placeHolder}
+                    {...register('telephone')}
+                    intent={errors?.telephone?.message ? 'danger' : undefined}
+                    inputAddOnText={errors?.telephone?.message}
+                  />
+                </InputWrapFull>
+                <InputWrapFull>
+                  <TermsAndConditionsModal
+                    visible={agreeModalVisable}
+                    afterClose={onDeclineTermsAndConditions(setAgreeModalVisable)}
+                    onAccept={() => onSubmit(dispatch)(getValues())}
+                    onDecline={onDeclineTermsAndConditions(setAgreeModalVisable)}
+                    isSubmitting={isSubmitting}
+                  />
+                  <Button intent={'primary'} fullWidth loading={isSubmitting}>
+                    Register
+                  </Button>
+                  <FlexContainer isFlexJustifyBetween className={cx(elMt12)}>
+                    <BodyText>Already have an account?</BodyText>
+                    <Link to={Routes.LOGIN}>Login</Link>
+                  </FlexContainer>
+                </InputWrapFull>
+              </FormLayout>
+            </form>
           </>
         )}
       </div>

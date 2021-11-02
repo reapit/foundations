@@ -1,6 +1,6 @@
 import React from 'react'
-import { shallow } from 'enzyme'
 import OfficeTabFilterForm, { OfficesFormProps } from '../offices-tab-filter'
+import { render } from '@testing-library/react'
 
 const filterProps = (): OfficesFormProps => ({
   filterValues: {
@@ -11,6 +11,6 @@ const filterProps = (): OfficesFormProps => ({
 
 describe('OfficeTabFilterForm', () => {
   it('should match a snapshot', () => {
-    expect(shallow(<OfficeTabFilterForm {...filterProps()} />)).toMatchSnapshot()
+    expect(render(<OfficeTabFilterForm {...filterProps()} />)).toMatchSnapshot()
   })
 })

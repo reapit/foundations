@@ -6,7 +6,7 @@ import ErrorBoundary from '@/components/hocs/error-boundary'
 import { StringMap } from '@reapit/elements-legacy'
 import { SandboxPopUp } from '@/components/ui/popup/sandbox-pop-up'
 import {
-  BodyText,
+  SmallText,
   elWFull,
   FlexContainer,
   Loader,
@@ -86,11 +86,11 @@ export const SwaggerPage: FC = () => {
             <Label>API Location</Label>
             <p className={elMb5}>https://platform.reapit.cloud</p>
           </div>
-          <BodyText hasGreyText>
+          <SmallText hasGreyText>
             This tool is interactive and provides instant access to data hosted in our sandbox environment with
             authentication and versioning headers pre-populated. Example requests and responses are shown by default but
             you can switch to view a fully documented schema - look for the model link.
-          </BodyText>
+          </SmallText>
           <Button className={elMb5} intent="neutral" onClick={openNewPage(ExternalPages.platformAPIDocs)}>
             View Docs
           </Button>

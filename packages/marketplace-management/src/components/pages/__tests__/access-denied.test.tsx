@@ -1,27 +1,27 @@
-import * as React from 'react'
-import { mount } from 'enzyme'
+import React from 'react'
+import { render } from '@testing-library/react'
 import AccessDenied, { onLogoutButtonClick, onMarketplaceButtonClick } from '../access-denied'
 import { reapitConnectBrowserSession } from '../../../core/connect-session'
 
 describe('AccessDenied', () => {
   it('should match a snapshot', () => {
-    expect(mount(<AccessDenied />)).toMatchSnapshot()
+    expect(render(<AccessDenied />)).toMatchSnapshot()
   })
 
   describe('onLogoutButtonClick', () => {
     it('should run correctly', () => {
-      const fnSpy = jest.spyOn(reapitConnectBrowserSession, 'connectLogoutRedirect')
+      const logoutSpy = jest.spyOn(reapitConnectBrowserSession, 'connectLogoutRedirect')
       onLogoutButtonClick()
-      expect(fnSpy).toBeCalledWith()
+      expect(logoutSpy).toBeCalledWith()
     })
   })
 
   describe('onMarketplaceButtonClick', () => {
-    it('should run correctly', () => {
-      jest.spyOn(window, 'open')
+    it('should correctly open a page', () => {
+      const openSpy = jest.spyOn(window, 'open')
       onMarketplaceButtonClick()
-      expect(window.open).toBeCalledWith(`${window.reapit.config.marketplaceUrl}/installed`, '_self')
-      ;(window.open as jest.Mock).mockReset()
+      expect(openSpy).toBeCalledWith(`${window.reapit.config.marketplaceUrl}/installed`, '_self')
+      openSpy.mockReset()
     })
   })
 })

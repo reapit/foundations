@@ -1,35 +1,41 @@
 import React from 'react'
 import { fetcher } from '@reapit/utils-common'
-import { shallow } from 'enzyme'
-import OfficeGroupCreate, { onHandleSubmit } from '../office-group-create'
+import OfficeGroupCreate, { handleSwitchStep, onHandleSubmit } from '../office-group-create'
 import { History } from 'history'
 import Routes from '../../../../constants/routes'
 import { toastMessages } from '../../../../constants/toast-messages'
+import { useOrgId } from '../../../../utils/use-org-id'
+import { render } from '@testing-library/react'
+import useSWR from 'swr'
+import { mockOfficeList } from '../../../../services/__stubs__/offices'
+import { OFFICE_IN_USE_ERROR } from '../../../../services/office'
 
+jest.mock('swr')
 jest.mock('@reapit/utils-common')
+jest.mock('../../../../utils/prepare-options')
+jest.mock('../../../../utils/use-org-id')
 jest.mock('../../../../core/connect-session')
+
 const mockResponse = 'success'
 const mockedFetch = fetcher as jest.Mock
+const mockUseOrgId = useOrgId as jest.Mock
+const mockSWR = useSWR as jest.Mock
 
-jest.mock('../../../../utils/prepare-options')
-
-jest.mock('formik', () => ({
-  useFormikContext: jest.fn(() => ({ values: { officeIds: ['of01', 'of02'] } })),
-}))
-
-jest.mock('../../../../utils/use-org-id', () => ({
-  useOrgId: () => ({
-    orgIdState: {
-      orgId: 'SOME_ID',
-      orgName: 'SOME_NAME',
-      orgClientId: 'SOME_CLIENT_ID',
-    },
-  }),
-}))
+mockSWR.mockReturnValue({
+  data: mockOfficeList,
+})
 
 describe('OfficeGroupCreate', () => {
   it('should match a snapshot', () => {
-    expect(shallow(<OfficeGroupCreate />)).toMatchSnapshot()
+    mockSWR.mockReturnValue({
+      data: mockOfficeList,
+    })
+    expect(render(<OfficeGroupCreate />)).toMatchSnapshot()
+  })
+
+  it('should match a snapshot where there is no orgId', () => {
+    mockUseOrgId.mockReturnValueOnce({ orgIdState: { ogId: null } })
+    expect(render(<OfficeGroupCreate />)).toMatchSnapshot()
   })
 })
 
@@ -53,6 +59,14 @@ describe('onHandleSubmit', () => {
     expect(error).toHaveBeenCalledWith(toastMessages.FAILED_TO_CREATE_OFFICE_GROUP)
   })
 
+  it('should show a different notification error if an office is assigned', async () => {
+    mockedFetch.mockReturnValueOnce(OFFICE_IN_USE_ERROR)
+
+    await onSubmit({ name, officeIds, status })
+
+    expect(error).toHaveBeenCalledWith(toastMessages.OFFICE_ALREADY_ASSIGNED_CREATE)
+  })
+
   it('should show notification success', async () => {
     mockedFetch.mockReturnValueOnce(mockResponse)
 
@@ -60,5 +74,24 @@ describe('onHandleSubmit', () => {
 
     expect(success).toHaveBeenCalledWith(toastMessages.CREATE_OFFICE_GROUP_SUCCESS)
     expect(history.push).toHaveBeenCalledWith(Routes.OFFICES_GROUPS)
+  })
+})
+
+describe('handleSwitchStep', () => {
+  const steps = ['1', '2', '3']
+  const expectedResults = ['2', '3']
+  steps.forEach((selectedStep, index) => {
+    it(`should handle switching step for ${selectedStep}`, async () => {
+      const trigger = jest.fn(() => new Promise<boolean>((resolve) => resolve(true)))
+      const setSelectedStep = jest.fn()
+
+      const curried = handleSwitchStep(selectedStep, trigger, setSelectedStep)
+
+      await curried()
+
+      if (index < 2) {
+        expect(setSelectedStep).toHaveBeenCalledWith(expectedResults[index])
+      }
+    })
   })
 })

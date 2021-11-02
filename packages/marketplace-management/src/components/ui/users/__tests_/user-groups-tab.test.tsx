@@ -1,35 +1,50 @@
 import * as React from 'react'
-import { shallow } from 'enzyme'
+import { render } from '@testing-library/react'
 import { createBrowserHistory } from 'history'
 import Routes from '@/constants/routes'
 import UserGroupsTab, { onPageChangeHandler } from '../user-groups-tab'
-// import { data } from '../__stubs__/user-groups'
+import useSWR from 'swr'
+import { useOrgId } from '../../../../utils/use-org-id'
+import { mockUserGroups } from '../../../../services/__stubs__/user-groups'
+
+jest.mock('swr')
+
+const mockSWR = useSWR as jest.Mock
+const mockUseOrgId = useOrgId as jest.Mock
 
 jest.mock('react-router', () => ({
   ...(jest.requireActual('react-router') as Object),
   useLocation: jest.fn(() => ({ pathname: '/users/groups' })),
 }))
-
-jest.mock('swr', () =>
-  jest.fn(() => ({
-    data: require('../__stubs__/user-groups').data,
-    mutate: jest.fn,
-  })),
-)
-
-jest.mock('../../../../utils/use-org-id', () => ({
-  useOrgId: () => ({
-    orgIdState: {
-      orgId: 'SOME_ID',
-      orgName: 'SOME_NAME',
-      orgClientId: 'SOME_CLIENT_ID',
-    },
-  }),
-}))
+jest.mock('../../../../utils/use-org-id')
 
 describe('UserGroupsTab', () => {
-  it('should match a snapshot', () => {
-    expect(shallow(<UserGroupsTab />)).toMatchSnapshot()
+  it('should match a snapshot where there is data', () => {
+    mockSWR.mockReturnValue({
+      data: mockUserGroups,
+      error: {},
+      mutate: jest.fn(),
+    })
+    expect(render(<UserGroupsTab />)).toMatchSnapshot()
+  })
+
+  it('should match a snapshot where there is data but no user groups', () => {
+    mockSWR.mockReturnValue({
+      data: { _embedded: [] },
+      error: {},
+      mutate: jest.fn(),
+    })
+    expect(render(<UserGroupsTab />)).toMatchSnapshot()
+  })
+
+  it('should match a snapshot where there is no orgId', () => {
+    mockSWR.mockReturnValue({
+      data: { _embedded: [] },
+      error: {},
+      mutate: jest.fn(),
+    })
+    mockUseOrgId.mockReturnValueOnce({ orgIdState: { orgId: null } })
+    expect(render(<UserGroupsTab />)).toMatchSnapshot()
   })
 })
 

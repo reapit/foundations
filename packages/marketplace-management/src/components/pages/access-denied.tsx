@@ -1,5 +1,5 @@
 import { PageContainer, Title, PersistantNotification, ButtonGroup, Button, elMb11 } from '@reapit/elements'
-import * as React from 'react'
+import React, { FC } from 'react'
 import { reapitConnectBrowserSession } from '../../core/connect-session'
 
 export const onMarketplaceButtonClick = () => {
@@ -10,7 +10,7 @@ export const onLogoutButtonClick = () => {
   reapitConnectBrowserSession.connectLogoutRedirect()
 }
 
-const AccessDenied: React.FC = () => (
+const AccessDenied: FC = () => (
   <PageContainer>
     <Title>Reapit Connect Management</Title>
     <PersistantNotification className={elMb11} isFullWidth isExpanded isInline intent="danger">

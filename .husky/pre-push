@@ -1,0 +1,9 @@
+#!/bin/sh
+. "$(dirname "$0")/_/husky.sh"
+
+yarn changed foreach --git-range origin/master --parallel --verbose --interlaced run commit 
+
+if [[ `git status --porcelain` ]]; then
+  git add . && git commit -m 'chore: pre-push fixes'
+fi
+

@@ -1,117 +1,52 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`AppPricingPermissionsSection should match a snapshot for desktop 1`] = `
-<AppPricingPermissionsSection
-  app={
-    Object {
-      "desktopIntegrationTypeIds": Array [
-        "ID",
-      ],
-      "developer": "APP_DEVELOPER",
-      "name": "APP_NAME",
-    }
-  }
-  desktopIntegrationTypes={
-    Array [
-      Object {
-        "description": "DESCRIPTION",
-        "id": "ID",
-        "name": "NAME",
-      },
-    ]
-  }
-  isDesktop={true}
->
-  <Subtitle>
-    <ElSubtitle
-      className=""
-    >
+Object {
+  "asFragment": [Function],
+  "baseElement": <body>
+    <div>
       <h2
-        className="el-subtitle"
+        class="el-subtitle"
       >
         Desktop Integration
       </h2>
-    </ElSubtitle>
-  </Subtitle>
-  <BodyText
-    hasGreyText={true}
-  >
-    <ElBodyText
-      className="el-has-grey-text"
-    >
       <p
-        className="el-has-grey-text el-body-text"
+        class="el-has-grey-text el-body-text"
       >
         This app requires the following Desktop Integration. Some integration types may replace or change certain behaviours within Agency Cloud.
       </p>
-    </ElBodyText>
-  </BodyText>
-  <BodyText
-    hasGreyText={true}
-  >
-    <ElBodyText
-      className="el-has-grey-text"
-    >
       <p
-        className="el-has-grey-text el-body-text"
+        class="el-has-grey-text el-body-text"
       >
         For more information regarding Desktop Integration types, please
          
         <a
           href="agencycloud://process/webpage?url=https://marketplace-documentation.reapit.cloud/integration-types"
+          rel="noopener noreferrer"
+          target="_blank"
         >
           click here
         </a>
       </p>
-    </ElBodyText>
-  </BodyText>
-  <Grid
-    className="el-mb11"
-  >
-    <ElGrid
-      className="el-mb11"
-    >
       <div
-        className="el-mb11 el-grid"
+        class="el-mb11 el-grid"
       >
-        <Col
-          key="NAME"
+        <div
+          class="el-col"
         >
-          <ElCol
-            className=""
-          >
-            <div
-              className="el-col"
-            >
-              DESCRIPTION
-            </div>
-          </ElCol>
-        </Col>
+          DESCRIPTION
+        </div>
       </div>
-    </ElGrid>
-  </Grid>
-  <Subtitle>
-    <ElSubtitle
-      className=""
-    >
       <h2
-        className="el-subtitle"
+        class="el-subtitle"
       >
         Pricing Information
       </h2>
-    </ElSubtitle>
-  </Subtitle>
-  <div
-    className="el-mb11"
-  >
-    <BodyText
-      hasGreyText={true}
-    >
-      <ElBodyText
-        className="el-has-grey-text"
+      <div
+        class="el-mb11"
       >
         <p
-          className="el-has-grey-text el-body-text"
+          class="el-has-grey-text el-body-text"
         >
           There may be a cost associated to using this App/Integration. However, this information has not yet been provided by 
           APP_DEVELOPER
@@ -119,156 +54,192 @@ exports[`AppPricingPermissionsSection should match a snapshot for desktop 1`] = 
           APP_DEVELOPER
            directly for information about pricing.
         </p>
-      </ElBodyText>
-    </BodyText>
-  </div>
-  <Subtitle>
-    <ElSubtitle
-      className=""
-    >
+      </div>
       <h2
-        className="el-subtitle"
+        class="el-subtitle"
       >
         Data Permissions
       </h2>
-    </ElSubtitle>
-  </Subtitle>
-  <BodyText
-    hasGreyText={true}
-  >
-    <ElBodyText
-      className="el-has-grey-text"
-    >
       <p
-        className="el-has-grey-text el-body-text"
+        class="el-has-grey-text el-body-text"
       >
         By installing this app, you are granting the following permissions to your data:
       </p>
-    </ElBodyText>
-  </BodyText>
-  0
-</AppPricingPermissionsSection>
+      0
+    </div>
+  </body>,
+  "container": <div>
+    <h2
+      class="el-subtitle"
+    >
+      Desktop Integration
+    </h2>
+    <p
+      class="el-has-grey-text el-body-text"
+    >
+      This app requires the following Desktop Integration. Some integration types may replace or change certain behaviours within Agency Cloud.
+    </p>
+    <p
+      class="el-has-grey-text el-body-text"
+    >
+      For more information regarding Desktop Integration types, please
+       
+      <a
+        href="agencycloud://process/webpage?url=https://marketplace-documentation.reapit.cloud/integration-types"
+        rel="noopener noreferrer"
+        target="_blank"
+      >
+        click here
+      </a>
+    </p>
+    <div
+      class="el-mb11 el-grid"
+    >
+      <div
+        class="el-col"
+      >
+        DESCRIPTION
+      </div>
+    </div>
+    <h2
+      class="el-subtitle"
+    >
+      Pricing Information
+    </h2>
+    <div
+      class="el-mb11"
+    >
+      <p
+        class="el-has-grey-text el-body-text"
+      >
+        There may be a cost associated to using this App/Integration. However, this information has not yet been provided by 
+        APP_DEVELOPER
+        . Please contact 
+        APP_DEVELOPER
+         directly for information about pricing.
+      </p>
+    </div>
+    <h2
+      class="el-subtitle"
+    >
+      Data Permissions
+    </h2>
+    <p
+      class="el-has-grey-text el-body-text"
+    >
+      By installing this app, you are granting the following permissions to your data:
+    </p>
+    0
+  </div>,
+  "debug": [Function],
+  "findAllByAltText": [Function],
+  "findAllByDisplayValue": [Function],
+  "findAllByLabelText": [Function],
+  "findAllByPlaceholderText": [Function],
+  "findAllByRole": [Function],
+  "findAllByTestId": [Function],
+  "findAllByText": [Function],
+  "findAllByTitle": [Function],
+  "findByAltText": [Function],
+  "findByDisplayValue": [Function],
+  "findByLabelText": [Function],
+  "findByPlaceholderText": [Function],
+  "findByRole": [Function],
+  "findByTestId": [Function],
+  "findByText": [Function],
+  "findByTitle": [Function],
+  "getAllByAltText": [Function],
+  "getAllByDisplayValue": [Function],
+  "getAllByLabelText": [Function],
+  "getAllByPlaceholderText": [Function],
+  "getAllByRole": [Function],
+  "getAllByTestId": [Function],
+  "getAllByText": [Function],
+  "getAllByTitle": [Function],
+  "getByAltText": [Function],
+  "getByDisplayValue": [Function],
+  "getByLabelText": [Function],
+  "getByPlaceholderText": [Function],
+  "getByRole": [Function],
+  "getByTestId": [Function],
+  "getByText": [Function],
+  "getByTitle": [Function],
+  "queryAllByAltText": [Function],
+  "queryAllByDisplayValue": [Function],
+  "queryAllByLabelText": [Function],
+  "queryAllByPlaceholderText": [Function],
+  "queryAllByRole": [Function],
+  "queryAllByTestId": [Function],
+  "queryAllByText": [Function],
+  "queryAllByTitle": [Function],
+  "queryByAltText": [Function],
+  "queryByDisplayValue": [Function],
+  "queryByLabelText": [Function],
+  "queryByPlaceholderText": [Function],
+  "queryByRole": [Function],
+  "queryByTestId": [Function],
+  "queryByText": [Function],
+  "queryByTitle": [Function],
+  "rerender": [Function],
+  "unmount": [Function],
+}
 `;
 
 exports[`AppPricingPermissionsSection should match a snapshot for has a pricing uri 1`] = `
-<AppPricingPermissionsSection
-  app={
-    Object {
-      "desktopIntegrationTypeIds": Array [
-        "ID",
-      ],
-      "developer": "APP_DEVELOPER",
-      "name": "APP_NAME",
-      "pricingUrl": "SOME_URL",
-    }
-  }
-  desktopIntegrationTypes={
-    Array [
-      Object {
-        "description": "DESCRIPTION",
-        "id": "ID",
-        "name": "NAME",
-      },
-    ]
-  }
-  isDesktop={true}
->
-  <Subtitle>
-    <ElSubtitle
-      className=""
-    >
+Object {
+  "asFragment": [Function],
+  "baseElement": <body>
+    <div>
       <h2
-        className="el-subtitle"
+        class="el-subtitle"
       >
         Desktop Integration
       </h2>
-    </ElSubtitle>
-  </Subtitle>
-  <BodyText
-    hasGreyText={true}
-  >
-    <ElBodyText
-      className="el-has-grey-text"
-    >
       <p
-        className="el-has-grey-text el-body-text"
+        class="el-has-grey-text el-body-text"
       >
         This app requires the following Desktop Integration. Some integration types may replace or change certain behaviours within Agency Cloud.
       </p>
-    </ElBodyText>
-  </BodyText>
-  <BodyText
-    hasGreyText={true}
-  >
-    <ElBodyText
-      className="el-has-grey-text"
-    >
       <p
-        className="el-has-grey-text el-body-text"
+        class="el-has-grey-text el-body-text"
       >
         For more information regarding Desktop Integration types, please
          
         <a
           href="agencycloud://process/webpage?url=https://marketplace-documentation.reapit.cloud/integration-types"
+          rel="noopener noreferrer"
+          target="_blank"
         >
           click here
         </a>
       </p>
-    </ElBodyText>
-  </BodyText>
-  <Grid
-    className="el-mb11"
-  >
-    <ElGrid
-      className="el-mb11"
-    >
       <div
-        className="el-mb11 el-grid"
+        class="el-mb11 el-grid"
       >
-        <Col
-          key="NAME"
+        <div
+          class="el-col"
         >
-          <ElCol
-            className=""
-          >
-            <div
-              className="el-col"
-            >
-              DESCRIPTION
-            </div>
-          </ElCol>
-        </Col>
+          DESCRIPTION
+        </div>
       </div>
-    </ElGrid>
-  </Grid>
-  <Subtitle>
-    <ElSubtitle
-      className=""
-    >
       <h2
-        className="el-subtitle"
+        class="el-subtitle"
       >
         Pricing Information
       </h2>
-    </ElSubtitle>
-  </Subtitle>
-  <div
-    className="el-mb11"
-  >
-    <BodyText
-      hasGreyText={true}
-    >
-      <ElBodyText
-        className="el-has-grey-text"
+      <div
+        class="el-mb11"
       >
         <p
-          className="el-has-grey-text el-body-text"
+          class="el-has-grey-text el-body-text"
         >
           APP_DEVELOPER
            have specified that there is a cost for using this App/Integration, please
            
           <a
             href="agencycloud://process/webpage?url=SOME_URL"
+            rel="noopener noreferrer"
+            target="_blank"
           >
             click here
           </a>
@@ -277,104 +248,173 @@ exports[`AppPricingPermissionsSection should match a snapshot for has a pricing 
           APP_DEVELOPER
           .
         </p>
-      </ElBodyText>
-    </BodyText>
-    <BodyText
-      hasGreyText={true}
-    >
-      <ElBodyText
-        className="el-has-grey-text"
-      >
         <p
-          className="el-has-grey-text el-body-text"
+          class="el-has-grey-text el-body-text"
         >
           You will not be charged by Reapit Ltd for any costs associated with using this App/Integration.
         </p>
-      </ElBodyText>
-    </BodyText>
-  </div>
-  <Subtitle>
-    <ElSubtitle
-      className=""
-    >
+      </div>
       <h2
-        className="el-subtitle"
+        class="el-subtitle"
       >
         Data Permissions
       </h2>
-    </ElSubtitle>
-  </Subtitle>
-  <BodyText
-    hasGreyText={true}
-  >
-    <ElBodyText
-      className="el-has-grey-text"
-    >
       <p
-        className="el-has-grey-text el-body-text"
+        class="el-has-grey-text el-body-text"
       >
         By installing this app, you are granting the following permissions to your data:
       </p>
-    </ElBodyText>
-  </BodyText>
-  0
-</AppPricingPermissionsSection>
+      0
+    </div>
+  </body>,
+  "container": <div>
+    <h2
+      class="el-subtitle"
+    >
+      Desktop Integration
+    </h2>
+    <p
+      class="el-has-grey-text el-body-text"
+    >
+      This app requires the following Desktop Integration. Some integration types may replace or change certain behaviours within Agency Cloud.
+    </p>
+    <p
+      class="el-has-grey-text el-body-text"
+    >
+      For more information regarding Desktop Integration types, please
+       
+      <a
+        href="agencycloud://process/webpage?url=https://marketplace-documentation.reapit.cloud/integration-types"
+        rel="noopener noreferrer"
+        target="_blank"
+      >
+        click here
+      </a>
+    </p>
+    <div
+      class="el-mb11 el-grid"
+    >
+      <div
+        class="el-col"
+      >
+        DESCRIPTION
+      </div>
+    </div>
+    <h2
+      class="el-subtitle"
+    >
+      Pricing Information
+    </h2>
+    <div
+      class="el-mb11"
+    >
+      <p
+        class="el-has-grey-text el-body-text"
+      >
+        APP_DEVELOPER
+         have specified that there is a cost for using this App/Integration, please
+         
+        <a
+          href="agencycloud://process/webpage?url=SOME_URL"
+          rel="noopener noreferrer"
+          target="_blank"
+        >
+          click here
+        </a>
+         
+        to view their pricing information. You will be billed directly by 
+        APP_DEVELOPER
+        .
+      </p>
+      <p
+        class="el-has-grey-text el-body-text"
+      >
+        You will not be charged by Reapit Ltd for any costs associated with using this App/Integration.
+      </p>
+    </div>
+    <h2
+      class="el-subtitle"
+    >
+      Data Permissions
+    </h2>
+    <p
+      class="el-has-grey-text el-body-text"
+    >
+      By installing this app, you are granting the following permissions to your data:
+    </p>
+    0
+  </div>,
+  "debug": [Function],
+  "findAllByAltText": [Function],
+  "findAllByDisplayValue": [Function],
+  "findAllByLabelText": [Function],
+  "findAllByPlaceholderText": [Function],
+  "findAllByRole": [Function],
+  "findAllByTestId": [Function],
+  "findAllByText": [Function],
+  "findAllByTitle": [Function],
+  "findByAltText": [Function],
+  "findByDisplayValue": [Function],
+  "findByLabelText": [Function],
+  "findByPlaceholderText": [Function],
+  "findByRole": [Function],
+  "findByTestId": [Function],
+  "findByText": [Function],
+  "findByTitle": [Function],
+  "getAllByAltText": [Function],
+  "getAllByDisplayValue": [Function],
+  "getAllByLabelText": [Function],
+  "getAllByPlaceholderText": [Function],
+  "getAllByRole": [Function],
+  "getAllByTestId": [Function],
+  "getAllByText": [Function],
+  "getAllByTitle": [Function],
+  "getByAltText": [Function],
+  "getByDisplayValue": [Function],
+  "getByLabelText": [Function],
+  "getByPlaceholderText": [Function],
+  "getByRole": [Function],
+  "getByTestId": [Function],
+  "getByText": [Function],
+  "getByTitle": [Function],
+  "queryAllByAltText": [Function],
+  "queryAllByDisplayValue": [Function],
+  "queryAllByLabelText": [Function],
+  "queryAllByPlaceholderText": [Function],
+  "queryAllByRole": [Function],
+  "queryAllByTestId": [Function],
+  "queryAllByText": [Function],
+  "queryAllByTitle": [Function],
+  "queryByAltText": [Function],
+  "queryByDisplayValue": [Function],
+  "queryByLabelText": [Function],
+  "queryByPlaceholderText": [Function],
+  "queryByRole": [Function],
+  "queryByTestId": [Function],
+  "queryByText": [Function],
+  "queryByTitle": [Function],
+  "rerender": [Function],
+  "unmount": [Function],
+}
 `;
 
-exports[`AppPricingPermissionsSection should match a snapshot for not desktop 1`] = `
-<AppPricingPermissionsSection
-  app={
-    Object {
-      "desktopIntegrationTypeIds": Array [
-        "ID",
-      ],
-      "developer": "APP_DEVELOPER",
-      "name": "APP_NAME",
-    }
-  }
-  desktopIntegrationTypes={
-    Array [
-      Object {
-        "description": "DESCRIPTION",
-        "id": "ID",
-        "name": "NAME",
-      },
-    ]
-  }
-  isDesktop={false}
->
-  <Subtitle>
-    <ElSubtitle
-      className=""
-    >
+exports[`AppPricingPermissionsSection should match a snapshot for has a pricing uri and not desktop 1`] = `
+Object {
+  "asFragment": [Function],
+  "baseElement": <body>
+    <div>
       <h2
-        className="el-subtitle"
+        class="el-subtitle"
       >
         Desktop Integration
       </h2>
-    </ElSubtitle>
-  </Subtitle>
-  <BodyText
-    hasGreyText={true}
-  >
-    <ElBodyText
-      className="el-has-grey-text"
-    >
       <p
-        className="el-has-grey-text el-body-text"
+        class="el-has-grey-text el-body-text"
       >
         This app requires the following Desktop Integration. Some integration types may replace or change certain behaviours within Agency Cloud.
       </p>
-    </ElBodyText>
-  </BodyText>
-  <BodyText
-    hasGreyText={true}
-  >
-    <ElBodyText
-      className="el-has-grey-text"
-    >
       <p
-        className="el-has-grey-text el-body-text"
+        class="el-has-grey-text el-body-text"
       >
         For more information regarding Desktop Integration types, please
          
@@ -386,55 +426,238 @@ exports[`AppPricingPermissionsSection should match a snapshot for not desktop 1`
           click here
         </a>
       </p>
-    </ElBodyText>
-  </BodyText>
-  <Grid
-    className="el-mb11"
-  >
-    <ElGrid
-      className="el-mb11"
-    >
       <div
-        className="el-mb11 el-grid"
+        class="el-mb11 el-grid"
       >
-        <Col
-          key="NAME"
+        <div
+          class="el-col"
         >
-          <ElCol
-            className=""
-          >
-            <div
-              className="el-col"
-            >
-              DESCRIPTION
-            </div>
-          </ElCol>
-        </Col>
+          DESCRIPTION
+        </div>
       </div>
-    </ElGrid>
-  </Grid>
-  <Subtitle>
-    <ElSubtitle
-      className=""
-    >
       <h2
-        className="el-subtitle"
+        class="el-subtitle"
       >
         Pricing Information
       </h2>
-    </ElSubtitle>
-  </Subtitle>
-  <div
-    className="el-mb11"
-  >
-    <BodyText
-      hasGreyText={true}
-    >
-      <ElBodyText
-        className="el-has-grey-text"
+      <div
+        class="el-mb11"
       >
         <p
-          className="el-has-grey-text el-body-text"
+          class="el-has-grey-text el-body-text"
+        >
+          APP_DEVELOPER
+           have specified that there is a cost for using this App/Integration, please
+           
+          <a
+            href="SOME_URL"
+            rel="noopener noreferrer"
+            target="_blank"
+          >
+            click here
+          </a>
+           
+          to view their pricing information. You will be billed directly by 
+          APP_DEVELOPER
+          .
+        </p>
+        <p
+          class="el-has-grey-text el-body-text"
+        >
+          You will not be charged by Reapit Ltd for any costs associated with using this App/Integration.
+        </p>
+      </div>
+      <h2
+        class="el-subtitle"
+      >
+        Data Permissions
+      </h2>
+      <p
+        class="el-has-grey-text el-body-text"
+      >
+        By installing this app, you are granting the following permissions to your data:
+      </p>
+      0
+    </div>
+  </body>,
+  "container": <div>
+    <h2
+      class="el-subtitle"
+    >
+      Desktop Integration
+    </h2>
+    <p
+      class="el-has-grey-text el-body-text"
+    >
+      This app requires the following Desktop Integration. Some integration types may replace or change certain behaviours within Agency Cloud.
+    </p>
+    <p
+      class="el-has-grey-text el-body-text"
+    >
+      For more information regarding Desktop Integration types, please
+       
+      <a
+        href="https://marketplace-documentation.reapit.cloud/integration-types"
+        rel="noopener noreferrer"
+        target="_blank"
+      >
+        click here
+      </a>
+    </p>
+    <div
+      class="el-mb11 el-grid"
+    >
+      <div
+        class="el-col"
+      >
+        DESCRIPTION
+      </div>
+    </div>
+    <h2
+      class="el-subtitle"
+    >
+      Pricing Information
+    </h2>
+    <div
+      class="el-mb11"
+    >
+      <p
+        class="el-has-grey-text el-body-text"
+      >
+        APP_DEVELOPER
+         have specified that there is a cost for using this App/Integration, please
+         
+        <a
+          href="SOME_URL"
+          rel="noopener noreferrer"
+          target="_blank"
+        >
+          click here
+        </a>
+         
+        to view their pricing information. You will be billed directly by 
+        APP_DEVELOPER
+        .
+      </p>
+      <p
+        class="el-has-grey-text el-body-text"
+      >
+        You will not be charged by Reapit Ltd for any costs associated with using this App/Integration.
+      </p>
+    </div>
+    <h2
+      class="el-subtitle"
+    >
+      Data Permissions
+    </h2>
+    <p
+      class="el-has-grey-text el-body-text"
+    >
+      By installing this app, you are granting the following permissions to your data:
+    </p>
+    0
+  </div>,
+  "debug": [Function],
+  "findAllByAltText": [Function],
+  "findAllByDisplayValue": [Function],
+  "findAllByLabelText": [Function],
+  "findAllByPlaceholderText": [Function],
+  "findAllByRole": [Function],
+  "findAllByTestId": [Function],
+  "findAllByText": [Function],
+  "findAllByTitle": [Function],
+  "findByAltText": [Function],
+  "findByDisplayValue": [Function],
+  "findByLabelText": [Function],
+  "findByPlaceholderText": [Function],
+  "findByRole": [Function],
+  "findByTestId": [Function],
+  "findByText": [Function],
+  "findByTitle": [Function],
+  "getAllByAltText": [Function],
+  "getAllByDisplayValue": [Function],
+  "getAllByLabelText": [Function],
+  "getAllByPlaceholderText": [Function],
+  "getAllByRole": [Function],
+  "getAllByTestId": [Function],
+  "getAllByText": [Function],
+  "getAllByTitle": [Function],
+  "getByAltText": [Function],
+  "getByDisplayValue": [Function],
+  "getByLabelText": [Function],
+  "getByPlaceholderText": [Function],
+  "getByRole": [Function],
+  "getByTestId": [Function],
+  "getByText": [Function],
+  "getByTitle": [Function],
+  "queryAllByAltText": [Function],
+  "queryAllByDisplayValue": [Function],
+  "queryAllByLabelText": [Function],
+  "queryAllByPlaceholderText": [Function],
+  "queryAllByRole": [Function],
+  "queryAllByTestId": [Function],
+  "queryAllByText": [Function],
+  "queryAllByTitle": [Function],
+  "queryByAltText": [Function],
+  "queryByDisplayValue": [Function],
+  "queryByLabelText": [Function],
+  "queryByPlaceholderText": [Function],
+  "queryByRole": [Function],
+  "queryByTestId": [Function],
+  "queryByText": [Function],
+  "queryByTitle": [Function],
+  "rerender": [Function],
+  "unmount": [Function],
+}
+`;
+
+exports[`AppPricingPermissionsSection should match a snapshot for not desktop 1`] = `
+Object {
+  "asFragment": [Function],
+  "baseElement": <body>
+    <div>
+      <h2
+        class="el-subtitle"
+      >
+        Desktop Integration
+      </h2>
+      <p
+        class="el-has-grey-text el-body-text"
+      >
+        This app requires the following Desktop Integration. Some integration types may replace or change certain behaviours within Agency Cloud.
+      </p>
+      <p
+        class="el-has-grey-text el-body-text"
+      >
+        For more information regarding Desktop Integration types, please
+         
+        <a
+          href="https://marketplace-documentation.reapit.cloud/integration-types"
+          rel="noopener noreferrer"
+          target="_blank"
+        >
+          click here
+        </a>
+      </p>
+      <div
+        class="el-mb11 el-grid"
+      >
+        <div
+          class="el-col"
+        >
+          DESCRIPTION
+        </div>
+      </div>
+      <h2
+        class="el-subtitle"
+      >
+        Pricing Information
+      </h2>
+      <div
+        class="el-mb11"
+      >
+        <p
+          class="el-has-grey-text el-body-text"
         >
           There may be a cost associated to using this App/Integration. However, this information has not yet been provided by 
           APP_DEVELOPER
@@ -442,33 +665,133 @@ exports[`AppPricingPermissionsSection should match a snapshot for not desktop 1`
           APP_DEVELOPER
            directly for information about pricing.
         </p>
-      </ElBodyText>
-    </BodyText>
-  </div>
-  <Subtitle>
-    <ElSubtitle
-      className=""
-    >
+      </div>
       <h2
-        className="el-subtitle"
+        class="el-subtitle"
       >
         Data Permissions
       </h2>
-    </ElSubtitle>
-  </Subtitle>
-  <BodyText
-    hasGreyText={true}
-  >
-    <ElBodyText
-      className="el-has-grey-text"
-    >
       <p
-        className="el-has-grey-text el-body-text"
+        class="el-has-grey-text el-body-text"
       >
         By installing this app, you are granting the following permissions to your data:
       </p>
-    </ElBodyText>
-  </BodyText>
-  0
-</AppPricingPermissionsSection>
+      0
+    </div>
+  </body>,
+  "container": <div>
+    <h2
+      class="el-subtitle"
+    >
+      Desktop Integration
+    </h2>
+    <p
+      class="el-has-grey-text el-body-text"
+    >
+      This app requires the following Desktop Integration. Some integration types may replace or change certain behaviours within Agency Cloud.
+    </p>
+    <p
+      class="el-has-grey-text el-body-text"
+    >
+      For more information regarding Desktop Integration types, please
+       
+      <a
+        href="https://marketplace-documentation.reapit.cloud/integration-types"
+        rel="noopener noreferrer"
+        target="_blank"
+      >
+        click here
+      </a>
+    </p>
+    <div
+      class="el-mb11 el-grid"
+    >
+      <div
+        class="el-col"
+      >
+        DESCRIPTION
+      </div>
+    </div>
+    <h2
+      class="el-subtitle"
+    >
+      Pricing Information
+    </h2>
+    <div
+      class="el-mb11"
+    >
+      <p
+        class="el-has-grey-text el-body-text"
+      >
+        There may be a cost associated to using this App/Integration. However, this information has not yet been provided by 
+        APP_DEVELOPER
+        . Please contact 
+        APP_DEVELOPER
+         directly for information about pricing.
+      </p>
+    </div>
+    <h2
+      class="el-subtitle"
+    >
+      Data Permissions
+    </h2>
+    <p
+      class="el-has-grey-text el-body-text"
+    >
+      By installing this app, you are granting the following permissions to your data:
+    </p>
+    0
+  </div>,
+  "debug": [Function],
+  "findAllByAltText": [Function],
+  "findAllByDisplayValue": [Function],
+  "findAllByLabelText": [Function],
+  "findAllByPlaceholderText": [Function],
+  "findAllByRole": [Function],
+  "findAllByTestId": [Function],
+  "findAllByText": [Function],
+  "findAllByTitle": [Function],
+  "findByAltText": [Function],
+  "findByDisplayValue": [Function],
+  "findByLabelText": [Function],
+  "findByPlaceholderText": [Function],
+  "findByRole": [Function],
+  "findByTestId": [Function],
+  "findByText": [Function],
+  "findByTitle": [Function],
+  "getAllByAltText": [Function],
+  "getAllByDisplayValue": [Function],
+  "getAllByLabelText": [Function],
+  "getAllByPlaceholderText": [Function],
+  "getAllByRole": [Function],
+  "getAllByTestId": [Function],
+  "getAllByText": [Function],
+  "getAllByTitle": [Function],
+  "getByAltText": [Function],
+  "getByDisplayValue": [Function],
+  "getByLabelText": [Function],
+  "getByPlaceholderText": [Function],
+  "getByRole": [Function],
+  "getByTestId": [Function],
+  "getByText": [Function],
+  "getByTitle": [Function],
+  "queryAllByAltText": [Function],
+  "queryAllByDisplayValue": [Function],
+  "queryAllByLabelText": [Function],
+  "queryAllByPlaceholderText": [Function],
+  "queryAllByRole": [Function],
+  "queryAllByTestId": [Function],
+  "queryAllByText": [Function],
+  "queryAllByTitle": [Function],
+  "queryByAltText": [Function],
+  "queryByDisplayValue": [Function],
+  "queryByLabelText": [Function],
+  "queryByPlaceholderText": [Function],
+  "queryByRole": [Function],
+  "queryByTestId": [Function],
+  "queryByText": [Function],
+  "queryByTitle": [Function],
+  "rerender": [Function],
+  "unmount": [Function],
+}
 `;

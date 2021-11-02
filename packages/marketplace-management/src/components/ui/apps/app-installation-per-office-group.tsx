@@ -1,37 +1,31 @@
-import React, { Dispatch, SetStateAction, useState, useEffect, ChangeEvent, FC } from 'react'
+import React, { Dispatch, SetStateAction, useState, useEffect, ChangeEvent, FC, useMemo } from 'react'
 import useSWR from 'swr'
-import { InstallationModelPagedResult } from '@reapit/foundations-ts-definitions'
-import { OfficeGroupModelPagedResult } from '../../../types/organisations-schema'
+import { InstallationModel } from '@reapit/foundations-ts-definitions'
+import { OfficeGroupModel, OfficeGroupModelPagedResult } from '../../../types/organisations-schema'
 import { URLS } from '../../../constants/api'
 import { Button, ButtonGroup, InputWrapFull, Loader, MultiSelectInput, MultiSelectOption } from '@reapit/elements'
 import { useOrgId } from '../../../utils/use-org-id'
 
 export interface AppInstallationPerOfficeGroupProps {
-  installations: InstallationModelPagedResult | undefined
+  installations: InstallationModel[]
   setOfficeGroupsToAdd: Dispatch<SetStateAction<string[]>>
   setOfficeGroupsToRemove: Dispatch<SetStateAction<string[]>>
 }
 
-const AppInstallationPerOfficeGroup: FC<AppInstallationPerOfficeGroupProps> = ({
-  installations,
-  setOfficeGroupsToAdd,
-  setOfficeGroupsToRemove,
-}: AppInstallationPerOfficeGroupProps) => {
-  const [multiSelect, setMultiSelect] = useState<JSX.Element | null>(null)
-  const [allOfficeGroups, toggleAllOfficeGroups] = useState<'all' | 'none' | null>(null)
-  const {
-    orgIdState: { orgId },
-  } = useOrgId()
+export type OfficeGroupToggleType = 'all' | 'none' | null
 
-  const { data: officeGroups, isValidating: officeGroupsValidating } = useSWR<OfficeGroupModelPagedResult>(
-    !orgId ? null : `${URLS.ORGANISATIONS}/${orgId}${URLS.OFFICES_GROUPS}?pageSize=999`,
-  )
-
-  const onChange = (event?: ChangeEvent<HTMLInputElement>, values?: string[]) => {
-    const newValues = values ? values : event ? event.target.value.split(',') : []
+export const handleOnChange =
+  (
+    officeGroups: OfficeGroupModel[],
+    installations: InstallationModel[],
+    setOfficeGroupsToAdd: Dispatch<SetStateAction<string[]>>,
+    setOfficeGroupsToRemove: Dispatch<SetStateAction<string[]>>,
+  ) =>
+  (event: ChangeEvent<HTMLInputElement>) => {
+    const newValues = event.target.value.split(',').filter(Boolean)
     const originalValues =
-      officeGroups?._embedded
-        ?.filter((group) => installations?.data?.find((installation) => installation.client === group.customerId))
+      officeGroups
+        .filter((group) => installations.find((installation) => installation.client === group.customerId))
         .map((filteredGroup) => filteredGroup.customerId ?? '') ?? []
 
     const valuesToAdd = newValues.filter((value) => !originalValues.includes(value))
@@ -41,38 +35,71 @@ const AppInstallationPerOfficeGroup: FC<AppInstallationPerOfficeGroupProps> = ({
     setOfficeGroupsToRemove(valuesToRemove)
   }
 
-  const options: MultiSelectOption[] =
-    officeGroups?._embedded?.map(({ customerId, name }) => ({
+export const handleSetOfficeGroupToggleType =
+  (
+    officeGroupToggleType: OfficeGroupToggleType,
+    setOfficeGroupToggleType: Dispatch<SetStateAction<OfficeGroupToggleType>>,
+  ) =>
+  () => {
+    setOfficeGroupToggleType(officeGroupToggleType)
+  }
+
+export const handleSortOptions = (officeGroups: OfficeGroupModel[]) => (): MultiSelectOption[] => {
+  return (
+    officeGroups.map(({ customerId, name }) => ({
       value: customerId ?? '',
       name: name ?? '',
     })) ?? []
+  )
+}
 
-  useEffect(() => {
+export const handleDefaultValues =
+  (
+    officeGroupToggleType: OfficeGroupToggleType,
+    officeGroups: OfficeGroupModel[],
+    installations: InstallationModel[],
+    setDefaultValues: Dispatch<SetStateAction<string[]>>,
+  ) =>
+  () => {
     if (officeGroups && installations) {
       const originalValues =
-        officeGroups?._embedded
-          ?.filter((group) => installations?.data?.find((installation) => installation.client === group.customerId))
+        officeGroups
+          .filter((group) => installations.find((installation) => installation.client === group.customerId))
           .map((filteredGroup) => filteredGroup.customerId ?? '') ?? []
-      const allValues = officeGroups?._embedded?.map((group) => group.customerId ?? '') ?? []
+      const allValues = officeGroups.map((group) => group.customerId ?? '') ?? []
       const noValues = []
-      const defaultValues =
-        allOfficeGroups === 'none' ? noValues : allOfficeGroups === 'all' ? allValues : originalValues
-
-      onChange(undefined, defaultValues)
-
-      setMultiSelect(
-        <MultiSelectInput
-          id="select-groups-to-install"
-          onChange={onChange}
-          noneSelectedLabel="No groups selected to install"
-          defaultValues={[...new Set(defaultValues)]}
-          options={options}
-        />,
-      )
+      const newDefaultValues =
+        officeGroupToggleType === 'none' ? noValues : officeGroupToggleType === 'all' ? allValues : originalValues
+      setDefaultValues(newDefaultValues)
     }
-  }, [allOfficeGroups, officeGroups, installations])
+  }
 
-  if (officeGroupsValidating) return <Loader />
+const AppInstallationPerOfficeGroup: FC<AppInstallationPerOfficeGroupProps> = ({
+  installations,
+  setOfficeGroupsToAdd,
+  setOfficeGroupsToRemove,
+}: AppInstallationPerOfficeGroupProps) => {
+  const [defaultValues, setDefaultValues] = useState<string[]>([])
+  const [officeGroupToggleType, setOfficeGroupToggleType] = useState<OfficeGroupToggleType>(null)
+
+  const {
+    orgIdState: { orgId },
+  } = useOrgId()
+
+  const { data } = useSWR<OfficeGroupModelPagedResult>(
+    !orgId ? null : `${URLS.ORGANISATIONS}/${orgId}${URLS.OFFICES_GROUPS}?pageSize=999`,
+  )
+
+  const officeGroups = data?._embedded ?? []
+  const options = useMemo(handleSortOptions(officeGroups), [officeGroups])
+
+  useEffect(handleDefaultValues(officeGroupToggleType, officeGroups, installations, setDefaultValues), [
+    officeGroupToggleType,
+    officeGroups,
+    installations,
+  ])
+
+  if (!data) return <Loader />
 
   return (
     <>
@@ -80,27 +107,29 @@ const AppInstallationPerOfficeGroup: FC<AppInstallationPerOfficeGroupProps> = ({
         <ButtonGroup alignment="right">
           <Button
             intent="secondary"
-            disabled={allOfficeGroups === 'all'}
-            onClick={() => {
-              setMultiSelect(null)
-              toggleAllOfficeGroups('all')
-            }}
+            disabled={officeGroupToggleType === 'all'}
+            onClick={handleSetOfficeGroupToggleType('all', setOfficeGroupToggleType)}
           >
             Select all
           </Button>
           <Button
             intent="secondary"
-            disabled={allOfficeGroups === 'none'}
-            onClick={() => {
-              setMultiSelect(null)
-              toggleAllOfficeGroups('none')
-            }}
+            disabled={officeGroupToggleType === 'none'}
+            onClick={handleSetOfficeGroupToggleType('none', setOfficeGroupToggleType)}
           >
             Deselect all
           </Button>
         </ButtonGroup>
       </InputWrapFull>
-      <InputWrapFull>{multiSelect}</InputWrapFull>
+      <InputWrapFull>
+        <MultiSelectInput
+          id="select-groups-to-install"
+          onChange={handleOnChange(officeGroups, installations, setOfficeGroupsToAdd, setOfficeGroupsToRemove)}
+          noneSelectedLabel="No groups selected to install"
+          defaultValues={[...new Set(defaultValues)]}
+          options={options}
+        />
+      </InputWrapFull>
     </>
   )
 }

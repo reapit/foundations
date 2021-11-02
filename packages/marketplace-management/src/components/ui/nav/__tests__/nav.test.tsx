@@ -1,8 +1,9 @@
 import * as React from 'react'
-import { shallow } from 'enzyme'
+import { render } from '@testing-library/react'
 import { Nav, callbackAppClick, navigate, getDefaultNavIndex } from '../nav'
 import { History } from 'history'
 import Routes from '../../../../constants/routes'
+import { MediaStateProvider, NavStateProvider } from '@reapit/elements'
 
 jest.mock('@reapit/connect-session', () => ({
   ReapitConnectBrowserSession: jest.fn(),
@@ -15,7 +16,13 @@ jest.mock('@reapit/connect-session', () => ({
 describe('Nav', () => {
   it('should match a snapshot', () => {
     window.location.pathname = '/'
-    const wrapper = shallow(<Nav />)
+    const wrapper = render(
+      <NavStateProvider>
+        <MediaStateProvider>
+          <Nav />
+        </MediaStateProvider>
+      </NavStateProvider>,
+    )
     expect(wrapper).toMatchSnapshot()
   })
 

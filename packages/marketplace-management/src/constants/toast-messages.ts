@@ -7,4 +7,8 @@ export const toastMessages = {
   FAILED_TO_EDIT_USER:
     'One or more user group updates have failed. Please refresh the page and check your user groups.',
   FAILED_TO_EDIT_USER_GROUP: 'Failed to edit user group',
+  OFFICE_ALREADY_ASSIGNED_CREATE:
+    'Unable to create office group as one of more of the offices you have selected is already assigned to another office group',
+  OFFICE_ALREADY_ASSIGNED_EDIT:
+    'Unable to edit office group as one of more of the offices you have selected is already assigned to another office group',
 }

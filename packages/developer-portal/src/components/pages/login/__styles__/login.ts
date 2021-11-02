@@ -6,7 +6,7 @@ export const container = css`
   min-width: 100vw;
   min-height: 100vh;
   display: flex;
-  justify-content: flex-end;
+  justify-content: space-between;
   align-items: center;
   flex-direction: row;
   background-color: ${white};
@@ -21,6 +21,7 @@ export const wrapper = css`
   width: 40%;
   padding: 2rem;
   pointer-events: auto;
+  max-width: 600px;
 
   &.disabled {
     pointer-events: none;
@@ -54,6 +55,7 @@ export const imageContainer = css`
   width: 60%;
   height: 100vh;
   font-size: 0;
+  max-width: 700px;
 
   ${forMobileOnly} {
     display: none;

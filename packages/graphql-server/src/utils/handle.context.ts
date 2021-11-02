@@ -21,7 +21,7 @@ export const headersToContext = (headers: Record<string, any>, extras: Record<st
     traceId: traceId,
     headers: headers,
     authorization: headers['reapit-connect-token'] ?? '',
-    ...extras
+    ...extras,
   } as any
   const dataLoader = {
     configurationLoader: generateConfigurationLoader(newContext),

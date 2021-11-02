@@ -10,6 +10,9 @@ export interface CreateUpdateOfficeGroupModel {
   status: 'active' | 'inactive'
 }
 
+export const OFFICE_IN_USE_ERROR =
+  'One of more of the office ids you are using is already assigned to another office group within this organisation'
+
 export const getOfficesService = async (
   search: string,
   orgClientId: string,
@@ -60,6 +63,10 @@ export const createOfficeGroup = async (
       throw new Error('Create office group failed')
     }
   } catch (err) {
+    const description = err?.response?.description
+    if (description && description === OFFICE_IN_USE_ERROR) {
+      return description
+    }
     logger(err)
   }
 }
@@ -88,6 +95,10 @@ export const updateOfficeGroup = async (
       throw new Error('Update office group failed')
     }
   } catch (err) {
+    const description = err?.response?.description
+    if (description && description === OFFICE_IN_USE_ERROR) {
+      return description
+    }
     logger(err)
   }
 }

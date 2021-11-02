@@ -1,5 +1,4 @@
 import {
-  elMb11,
   BodyText,
   MultiSelectInput,
   Loader,
@@ -9,6 +8,7 @@ import {
   InputWrapFull,
   Label,
   elFadeIn,
+  InputWrapMed,
 } from '@reapit/elements'
 import React, { FC, useMemo } from 'react'
 import { useSelector } from 'react-redux'
@@ -16,7 +16,6 @@ import { selectCustomers, selectLoading } from '../../../selector/webhooks-subsc
 import { DeepMap, FieldError, UseFormGetValues, UseFormRegister } from 'react-hook-form'
 import { InstallationModel } from '@reapit/foundations-ts-definitions'
 import { CreateWebhookFormSchema } from './webhooks-new'
-import { cx } from '@linaria/core'
 
 interface WebhooksNewCustomersProps {
   register: UseFormRegister<CreateWebhookFormSchema>
@@ -60,10 +59,10 @@ export const WebhooksNewCustomers: FC<WebhooksNewCustomersProps> = ({ register, 
   const customers = useSelector(selectCustomers)
   const isLoading = useSelector(selectLoading)
   const customerOptions = useMemo(handleCustomersToOptions(customers), [customers])
-  const selectedCustomers = getValues().customerIds?.split(',') ?? []
+  const selectedCustomers = getValues().customerIds?.split(',').filter(Boolean) ?? []
 
   return (
-    <FormLayout className={cx(elFadeIn, elMb11)}>
+    <FormLayout className={elFadeIn}>
       <InputWrapFull>
         <BodyText hasNoMargin hasGreyText>
           Select customers from the list below. If you leave this option blank, your webhook will default to &rdquo;All
@@ -72,7 +71,7 @@ export const WebhooksNewCustomers: FC<WebhooksNewCustomersProps> = ({ register, 
           explicity.
         </BodyText>
       </InputWrapFull>
-      <InputWrapFull>
+      <InputWrapMed>
         {isLoading ? (
           <Loader label="Loading" />
         ) : (
@@ -87,7 +86,7 @@ export const WebhooksNewCustomers: FC<WebhooksNewCustomersProps> = ({ register, 
             <Label>Subscription Customers</Label>
           </InputGroup>
         )}
-      </InputWrapFull>
+      </InputWrapMed>
     </FormLayout>
   )
 }

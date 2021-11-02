@@ -6,7 +6,7 @@ export const container = css`
   min-width: 100vw;
   min-height: 100vh;
   display: flex;
-  justify-content: flex-end;
+  justify-content: space-between;
   align-items: center;
   flex-direction: row;
   background-color: ${white};
@@ -21,6 +21,9 @@ export const wrapper = css`
   width: 40%;
   padding: 2rem;
   pointer-events: auto;
+  overflow: scroll;
+  max-height: 100vh;
+  max-width: 600px;
 
   &.disabled {
     pointer-events: none;
@@ -49,36 +52,12 @@ export const wrapper = css`
   }
 `
 
-export const loginImage = css`
-  height: 100%;
-  width: auto;
-  background-repeat: no-repeat;
-  background-size: contain;
-  animation-duration: 3s;
-  animation-name: image;
-  animation-fill-mode: forwards;
-  animation-timing-function: ease-in-out;
-
-  @keyframes image {
-    from {
-      background-image: url('../../../../assets/images/login/step-1.svg');
-    }
-
-    50% {
-      background-image: url('../../../../assets/images/login/step-2.svg');
-    }
-
-    to {
-      background-image: url('../../../../assets/images/login/step-3.svg');
-    }
-  }
-`
-
 export const imageContainer = css`
   background-color: ${white};
-  width: 60%;
+  width: 55%;
   height: 100vh;
   font-size: 0;
+  max-width: 700px;
 
   ${forMobileOnly} {
     display: none;
