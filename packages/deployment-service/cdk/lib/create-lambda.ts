@@ -17,7 +17,7 @@ export const createLambda = ({
   code: AssetCode
   vpc: Vpc
   handler: string
-  env?: {[s: string]: any},
+  env?: { [s: string]: any }
 }): Function => {
   return new Function(stack as any, name, {
     code,

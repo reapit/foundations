@@ -44,7 +44,7 @@ export class CdkStack extends cdk.Stack {
     const vpc = new Vpc(this as any, 'deployment-service-vpc')
     const buckets = createS3Buckets(this)
     const queues = createSqsQueues(this)
-    const [secretManager, aurora] = createAurora(this, vpc, vpc.privateSubnets)
+    const [secretManager, aurora] = createAurora(this, vpc)
     const [codeBuild, topic] = createCodeBuildProject(this)
     const api = createApigateway(this)
 
@@ -57,18 +57,6 @@ export class CdkStack extends cdk.Stack {
     })
 
     const functionSetups: { [s: string]: FunctionSetup } = {
-      test: {
-        handler: 'main.testFunction',
-        policies: [...policies.commonBackendPolicies],
-        api: {
-          method: "GET",
-          path: 'test',
-          cors: {
-            origin: '*'
-          },
-          headers: ['Content-Type', 'Authorization', 'api-version'],
-        },
-      },
       pipelineCreate: {
         handler: 'main.pipelineCreate',
         policies: [...policies.commonBackendPolicies],

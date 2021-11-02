@@ -3,8 +3,6 @@ import { ConnectionOptions } from 'typeorm'
 import { TaskEntity, PipelineEntity, PipelineRunnerEntity, ReleaseEntity } from './../entities'
 import migrations from './../../migrations'
 
-console.log('migration files', migrations)
-
 export const dbConfig: ConnectionOptions = {
   type: 'mysql',
   host: process.env.MYSQL_HOST,
@@ -17,4 +15,5 @@ export const dbConfig: ConnectionOptions = {
   entities: [PipelineEntity, PipelineRunnerEntity, TaskEntity, ReleaseEntity],
   subscribers: [SubDomainSubscriber],
   migrations,
+  // connectTimeout: 30 * 1000,
 }
