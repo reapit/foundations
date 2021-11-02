@@ -53,20 +53,17 @@ const FormSettings = () => {
               // do nothing
             }
           })
-        setTimeout(() => {
-          inputs
-            .map((props) => query.parseReactElement(<FormInput {...props} />).toNodeTree())
-            .forEach((nodeTree) => {
-              actions.addNodeTree(nodeTree, parentNodeId)
-            })
-        }, 0)
+        inputs
+          .map((props) => query.parseReactElement(<FormInput {...props} />).toNodeTree())
+          .forEach((nodeTree) => {
+            actions.addNodeTree(nodeTree, parentNodeId)
+          })
       },
     }
   })
   const [shouldUpdate, setShouldUpdate] = React.useState(false)
   const { specials } = useObjectSpecials(typeName)
   useEffect(() => {
-    console.log('should update', shouldUpdate)
     if (args && args[0] && shouldUpdate) {
       const inputs = args[0].fields.map(({ name }) => ({
         name,
@@ -75,7 +72,6 @@ const FormSettings = () => {
       }))
       setInputs(inputs, nodeId)
       setShouldUpdate(false)
-      console.log(inputs)
     }
   }, [shouldUpdate, args])
 
@@ -91,7 +87,11 @@ const FormSettings = () => {
       >
         <ToolbarItem
           type={ToolbarItemType.Select}
-          onChange={() => setShouldUpdate(true)}
+          onChange={() => {
+            setTimeout(() => {
+              setShouldUpdate(true)
+            }, 100)
+          }}
           propKey="typeName"
           title="Object Type"
         >
@@ -106,7 +106,11 @@ const FormSettings = () => {
         </ToolbarItem>
         <ToolbarItem
           type={ToolbarItemType.Select}
-          onChange={() => setShouldUpdate(true)}
+          onChange={() => {
+            setTimeout(() => {
+              setShouldUpdate(true)
+            }, 100)
+          }}
           propKey="formType"
           title="Form Type"
         >
