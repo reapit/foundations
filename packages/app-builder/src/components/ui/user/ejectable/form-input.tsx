@@ -6,7 +6,7 @@ import { useObject } from '../../../hooks/objects/use-object'
 import { useLazyObjectSearch } from '../../../hooks/objects/use-object-search'
 import { useObjectMutate } from '../../../hooks/objects/use-object-mutate'
 import { uppercaseSentence } from './utils'
-import { useFormContext } from '@/components/hooks/form-context'
+import { useFormContext } from '../../../hooks/form-context'
 
 const getLabel = (obj: any, labelKeys?: string[]) => {
   if (labelKeys) {
@@ -24,6 +24,7 @@ const SelectIDofType = ({
   typeName,
   value,
   onChange,
+  defaultValue,
   name,
   disabled,
 }: {
@@ -31,6 +32,7 @@ const SelectIDofType = ({
   name: string
   value?: React.SelectHTMLAttributes<HTMLSelectElement>['value']
   disabled?: boolean
+  defaultValue?: React.SelectHTMLAttributes<HTMLSelectElement>['defaultValue']
   onChange: (e: React.ChangeEvent<HTMLInputElement | HTMLSelectElement>) => void
 }) => {
   const { data, loading } = useObjectList(typeName)
@@ -46,13 +48,14 @@ const SelectIDofType = ({
         getResultValue={(result) => result.id}
         name={name}
         disabled={disabled}
+        defaultValue={defaultValue}
       />
     )
   }
 
   if (data) {
     return (
-      <Select name={name} value={value} onChange={onChange} disabled={disabled}>
+      <Select name={name} value={value} onChange={onChange} disabled={disabled} defaultValue={defaultValue}>
         {data.map((obj) => (
           <option key={obj.id} value={obj.id}>
             {getLabel(obj, object?.labelKeys)}
@@ -78,8 +81,6 @@ const friendlyIdName = (idName: string) => {
   return words.map(camelCaseToSentence).join(' ')
 }
 
-// todo: readd ability to have default value from object get query
-
 export type FormInputProps = {
   formType: string
   typeName?: string
@@ -88,18 +89,12 @@ export type FormInputProps = {
 }
 
 const InnerFormInput = (
-  {
-    // isRequired,
-    typeName,
-    name,
-    formType,
-    disabled,
-  }: FormInputProps,
-  // todo: ref never gets set for some reason maybe cos it's never getting passed down(?)
+  { typeName, name, formType, disabled }: FormInputProps,
   ref: React.ForwardedRef<HTMLDivElement>,
 ) => {
   const { args } = useObjectMutate(formType, typeName)
-  const { onChange } = useFormContext()
+  const { onChange, defaultValues } = useFormContext()
+  const defaultValue = defaultValues[name]
   const formInput = args && args[0] && args[0]?.fields?.find((arg) => arg.name === name)
   if (!formInput) return null
   const label = friendlyIdName(name)
@@ -110,7 +105,7 @@ const InnerFormInput = (
       {enumValues && (
         <>
           <Label>{label}</Label>
-          <Select onChange={onChange} name={name} disabled={disabled}>
+          <Select onChange={onChange} name={name} disabled={disabled} defaultValue={defaultValue}>
             {enumValues.map((value) => (
               <option key={value} value={value}>
                 {value}
@@ -125,7 +120,13 @@ const InnerFormInput = (
       {idOfType && (
         <>
           <Label>{label}</Label>
-          <SelectIDofType disabled={disabled} name={name} typeName={idOfType} onChange={onChange} />
+          <SelectIDofType
+            disabled={disabled}
+            name={name}
+            typeName={idOfType}
+            onChange={onChange}
+            defaultValue={defaultValue}
+          />
         </>
       )}
       {!enumValues && !idOfType && (
@@ -137,6 +138,7 @@ const InnerFormInput = (
           type={inputTypeName === 'Boolean' ? 'checkbox' : 'text'}
           onChange={onChange}
           name={name}
+          defaultValue={defaultValue}
         />
       )}
     </InputWrap>

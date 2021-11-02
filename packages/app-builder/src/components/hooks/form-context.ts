@@ -1,7 +1,8 @@
 import React, { createContext, useContext } from 'react'
 
-const FormContext = createContext<{ onChange: React.ChangeEventHandler }>({
+const FormContext = createContext<{ onChange: React.ChangeEventHandler; defaultValues: Record<string, any> }>({
   onChange: () => {},
+  defaultValues: {},
 })
 
 export const FormContextProvider = FormContext.Provider

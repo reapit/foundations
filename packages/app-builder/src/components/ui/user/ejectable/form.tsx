@@ -89,7 +89,7 @@ export const Form = forwardRef<HTMLDivElement, FormProps & { disabled?: boolean 
               })
           }}
         >
-          <FormContextProvider value={{ onChange: handleInputChange }}>
+          <FormContextProvider value={{ onChange: handleInputChange, defaultValues: data || {} }}>
             <FormLayout>
               {getLoading && <Loader label="Loading" />}
               {children}
