@@ -85,7 +85,7 @@ describe('FilterForm', () => {
       const mockFormValues = {
         dateFrom: '2020-03-23',
         dateTo: '2020-03-29',
-        clientId: ['testClientId'],
+        clientId: 'testClientId',
         appId: ['testAppId'],
       }
       const fn = handleAutoSave(developerApps, installationAppDataArray, spyDispatch)
@@ -94,7 +94,7 @@ describe('FilterForm', () => {
       expect(spyDispatch).toBeCalledWith(
         fetchInstallationsFilterList({
           appId: mockFormValues.appId,
-          clientId: mockFormValues.clientId,
+          clientId: ['testClientId'],
           pageSize: GET_ALL_PAGE_SIZE,
           installedDateFrom: dayjs(mockFormValues.dateFrom).format(DATE_TIME_FORMAT.YYYY_MM_DD),
           installedDateTo: dayjs(mockFormValues.dateTo).format(DATE_TIME_FORMAT.YYYY_MM_DD),
@@ -104,7 +104,7 @@ describe('FilterForm', () => {
       expect(spyDispatch).toBeCalledWith(
         fetchTrafficStatistics({
           applicationId: mockFormValues.appId,
-          customerId: mockFormValues.clientId,
+          customerId: ['testClientId'],
           dateFrom: dayjs(mockFormValues.dateFrom).format(DATE_TIME_FORMAT.YYYY_MM_DD),
           dateTo: dayjs(mockFormValues.dateTo).format(DATE_TIME_FORMAT.YYYY_MM_DD),
         }),
