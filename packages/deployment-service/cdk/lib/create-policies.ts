@@ -7,8 +7,6 @@ import { Queue } from '@aws-cdk/aws-sqs'
 import config from '../../config.json'
 
 export enum PolicyNames {
-  // commonBackendPolicies = 'commonBackendPolicies',
-  // dbPolicies = 'dbPolicies',
   lambdaInvoke = 'lambdaInvoke',
   codebuildExecPolicy = 'codebuildExecPolicy',
   cloudFrontPolicy = 'cloudFrontPolicy',
