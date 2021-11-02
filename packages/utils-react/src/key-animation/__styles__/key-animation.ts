@@ -72,7 +72,7 @@ export const keyhole = css``
 export const keyholeMask = css`
   width: 2.5rem;
   height: 3.5rem;
-  background: #262f68;
+  background: var(--color-blue-dark);
   position: absolute;
   top: 15%;
   left: 10%;
@@ -98,7 +98,7 @@ export const triangle1 = css`
   top: 3rem;
   left: 10rem;
   border: 1rem solid transparent;
-  border-top-color: var(--color-dark-blue);
+  border-top-color: var(--color-blue-dark);
   border-right-width: 1.25rem;
   transform: rotate(60deg);
   transition: transform 2s ease;
