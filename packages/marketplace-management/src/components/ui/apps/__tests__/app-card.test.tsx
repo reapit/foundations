@@ -36,13 +36,14 @@ describe('handleInstallationsStringEffect', () => {
   it('should return an installed for org string', () => {
     const mockSetString = jest.fn()
     const clientId = 'SBOX'
+    const email = 'test@test.com'
     const mockInstalls = [
       {
         client: 'SBOX',
       },
     ]
 
-    const curried = handleInstallationsStringEffect(mockSetString, mockInstalls, clientId)
+    const curried = handleInstallationsStringEffect(mockSetString, mockInstalls, email, clientId)
     curried()
     expect(mockSetString).toHaveBeenCalledWith('Installed for organisation SBOX')
   })
@@ -50,12 +51,13 @@ describe('handleInstallationsStringEffect', () => {
   it('should return an installed for single group string', () => {
     const mockSetString = jest.fn()
     const clientId = 'SBOX'
+    const email = 'test@test.com'
     const mockInstalls = [
       {
         client: 'SBOX-GWIT',
       },
     ]
-    const curried = handleInstallationsStringEffect(mockSetString, mockInstalls, clientId)
+    const curried = handleInstallationsStringEffect(mockSetString, mockInstalls, email, clientId)
     curried()
     expect(mockSetString).toHaveBeenCalledWith('Installed for 1 office group')
   })
@@ -63,6 +65,7 @@ describe('handleInstallationsStringEffect', () => {
   it('should return an installed for single group string', () => {
     const mockSetString = jest.fn()
     const clientId = 'SBOX'
+    const email = 'test@test.com'
     const mockInstalls = [
       {
         client: 'SBOX-GWIT',
@@ -71,7 +74,7 @@ describe('handleInstallationsStringEffect', () => {
         client: 'SBOX-ABCT',
       },
     ]
-    const curried = handleInstallationsStringEffect(mockSetString, mockInstalls, clientId)
+    const curried = handleInstallationsStringEffect(mockSetString, mockInstalls, email, clientId)
     curried()
     expect(mockSetString).toHaveBeenCalledWith('Installed for 2 office groups')
   })
@@ -79,8 +82,9 @@ describe('handleInstallationsStringEffect', () => {
   it('should return a not installed string', () => {
     const mockSetString = jest.fn()
     const clientId = 'SBOX'
+    const email = 'test@test.com'
     const mockInstalls = []
-    const curried = handleInstallationsStringEffect(mockSetString, mockInstalls, clientId)
+    const curried = handleInstallationsStringEffect(mockSetString, mockInstalls, email, clientId)
     curried()
     expect(mockSetString).toHaveBeenCalledWith('Not installed')
   })
