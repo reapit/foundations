@@ -87,6 +87,10 @@ export const triangleContainer = css`
   left: 0;
   height: 20rem;
   width: 15rem;
+
+  @media screen and (max-height: 700px) {
+    display: none;
+  }
 `
 
 export const triangle1 = css`
