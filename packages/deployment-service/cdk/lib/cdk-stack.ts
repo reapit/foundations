@@ -6,7 +6,7 @@ import { PolicyStatement } from '@aws-cdk/aws-iam'
 import { Queue } from '@aws-cdk/aws-sqs'
 import { createS3Buckets } from './create-S3-bucket'
 import { createSqsQueues, QueueNames } from './create-sqs'
-import { createAurora } from './create-aurora'
+import { createAurora, databaseName } from './create-aurora'
 import { Port, Vpc } from '@aws-cdk/aws-ec2'
 import { createCodeBuildProject } from './create-code-build'
 import { createApigateway } from './create-apigateway'
@@ -57,6 +57,18 @@ export class CdkStack extends cdk.Stack {
     })
 
     const functionSetups: { [s: string]: FunctionSetup } = {
+      test: {
+        handler: 'main.testFunction',
+        policies: [...policies.commonBackendPolicies],
+        api: {
+          method: "GET",
+          path: 'test',
+          cors: {
+            origin: '*'
+          },
+          headers: ['Content-Type', 'Authorization', 'api-version'],
+        },
+      },
       pipelineCreate: {
         handler: 'main.pipelineCreate',
         policies: [...policies.commonBackendPolicies],
@@ -411,10 +423,10 @@ export class CdkStack extends cdk.Stack {
       cognitoUserPools: [UserPool.fromUserPoolId(this, 'user-pool-authorizer', 'kiftR4qFc')],
     })
 
-    const MYSQL_USERNAME = secretManager.secretValueFromJson('username').toString();
-    const MYSQL_PASSWORD = secretManager.secretValueFromJson('password').toString();
-    const MYSQL_HOST = secretManager.secretValueFromJson('host').toString();
-    const MYSQL_DB = secretManager.secretValueFromJson('database').toString();
+    const MYSQL_USERNAME = secretManager.secretValueFromJson('username').toString()
+    const MYSQL_PASSWORD = secretManager.secretValueFromJson('password').toString()
+    const MYSQL_HOST = secretManager.secretValueFromJson('host').toString()
+    const MYSQL_DATABASE = databaseName
 
     for (const [name, options] of Object.entries(functionSetups)) {
       const lambda = createLambda({
@@ -427,7 +439,7 @@ export class CdkStack extends cdk.Stack {
           MYSQL_PASSWORD,
           MYSQL_USERNAME,
           MYSQL_HOST,
-          MYSQL_DB,
+          MYSQL_DATABASE,
         },
       })
       options.policies.forEach((policy) => lambda.addToRolePolicy(policy))
@@ -457,7 +469,7 @@ export class CdkStack extends cdk.Stack {
         MYSQL_PASSWORD,
         MYSQL_USERNAME,
         MYSQL_HOST,
-        MYSQL_DB,
+        MYSQL_DATABASE,
       },
     })
 
