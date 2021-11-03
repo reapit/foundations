@@ -1,5 +1,6 @@
 import { useNode, useEditor } from '@craftjs/core'
 import { ROOT_NODE } from '@craftjs/utils'
+import { cx } from '@linaria/core'
 import React, { useEffect, useRef, useCallback } from 'react'
 import ReactDOM from 'react-dom'
 import { elFlex, elFlex1, elFlexAlignCenter, elMr3, elMr6, elP3 } from '@reapit/elements'
@@ -7,7 +8,6 @@ import { elFlex, elFlex1, elFlexAlignCenter, elMr3, elMr6, elP3 } from '@reapit/
 import ArrowUp from '../../icons/arrow-up'
 import Delete from '../../icons/delete'
 import Move from '../../icons/move'
-import { cx } from '@linaria/core'
 import { cursorMove, cursorPointer, textWhite } from '../styles'
 import { componentSelected, indicator, littleButton } from './styles'
 
@@ -26,15 +26,21 @@ export const RenderNode = ({ render, iframeRef }) => {
     connectors: { drag },
     parent,
     actions: { setProp },
-  } = useNode((node) => ({
-    isHover: node.events.hovered,
-    dom: node.dom,
-    name: node.data.custom.displayName || node.data.displayName,
-    moveable: query.node(node.id).isDraggable(),
-    deletable: query.node(node.id).isDeletable(),
-    parent: node.data.parent,
-    props: node.data.props,
-  }))
+  } = useNode((node) => {
+    let deletable = query.node(node.id).isDeletable()
+    if (deletable && node.data.custom.isDeletable) {
+      deletable = node.data.custom.isDeletable(node)
+    }
+    return {
+      isHover: node.events.hovered,
+      dom: node.dom,
+      name: node.data.custom.displayName || node.data.displayName,
+      moveable: query.node(node.id).isDraggable(),
+      deletable,
+      parent: node.data.parent,
+      props: node.data.props,
+    }
+  })
 
   const currentRef = useRef<HTMLDivElement>()
 

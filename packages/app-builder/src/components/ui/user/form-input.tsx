@@ -1,4 +1,4 @@
-import { useEditor, useNode } from '@craftjs/core'
+import { useEditor, useNode, Node } from '@craftjs/core'
 import React from 'react'
 import { ToolbarItem, ToolbarItemType, ToolbarSection } from '../toolbar'
 
@@ -35,5 +35,11 @@ const FormInputSettings = () => (
 FormInput.craft = {
   related: {
     toolbar: FormInputSettings,
+  },
+  custom: {
+    isDeletable: (node: Node) => {
+      // if is required then it can't be deleted
+      return !node.data.props.isRequired
+    },
   },
 }
