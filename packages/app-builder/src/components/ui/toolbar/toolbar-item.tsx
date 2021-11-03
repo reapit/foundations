@@ -15,9 +15,10 @@ export type ToolbarItemProps = {
   children?: ReactNodeArray
   type: ToolbarItemType
   title?: string
+  onChange?: (value: string) => void
 }
 
-const ToolbarItemInput: FC<ToolbarItemProps> = ({ propKey, type, index = 0, ...props }: ToolbarItemProps) => {
+const ToolbarItemInput: FC<ToolbarItemProps> = ({ propKey, type, onChange, index = 0, ...props }: ToolbarItemProps) => {
   const {
     actions: { setProp },
     propValue,
@@ -45,6 +46,7 @@ const ToolbarItemInput: FC<ToolbarItemProps> = ({ propKey, type, index = 0, ...p
               } else {
                 props[propKey] = value
               }
+              onChange && onChange(value)
             }, 500)
           }}
         />
@@ -62,6 +64,7 @@ const ToolbarItemInput: FC<ToolbarItemProps> = ({ propKey, type, index = 0, ...p
                     setProp((props) => {
                       props[propKey] = value
                     })
+                    onChange && onChange(value)
                   }
                 },
               })
@@ -72,7 +75,10 @@ const ToolbarItemInput: FC<ToolbarItemProps> = ({ propKey, type, index = 0, ...p
       return props.title ? (
         <ToolbarDropdown
           value={value || ''}
-          onChange={(value) => setProp((props) => (props[propKey] = value))}
+          onChange={(value) => {
+            setProp((props) => (props[propKey] = value))
+            onChange && onChange(value)
+          }}
           title={props.title}
           {...props}
         />

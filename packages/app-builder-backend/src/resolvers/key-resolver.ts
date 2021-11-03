@@ -141,6 +141,19 @@ class CheckIn {
   negotiatorId: string
 }
 
+const getLatestMovement = (movements: KeyMovement[]): KeyMovement | undefined => {
+  return movements
+    .filter((m) => !m.checkInAt)
+    .sort((a, b) => {
+      if (b.checkOutAt && a.checkOutAt) {
+        const aCheckOutAt = DateTime.fromISO(a.checkOutAt)
+        const bCheckOutAt = DateTime.fromISO(b.checkOutAt)
+        return bCheckOutAt.diff(aCheckOutAt).milliseconds
+      }
+      return -1
+    })[0]
+}
+
 @Resolver(() => Key)
 export class KeyResolver {
   constructor() {}
@@ -233,14 +246,9 @@ export class KeyResolver {
   ): Promise<Key> {
     const { accessToken, idToken } = ctx
     const movements = await this.listPropertyKeyMovements(propertyId, keyId, ctx)
-    const latestMovement = movements
-      .filter((m) => !m.checkInAt)
-      .sort((a, b) => {
-        if (b.checkOutAt && a.checkOutAt) {
-          return DateTime.fromISO(b.checkOutAt).diff(DateTime.fromISO(a.checkOutAt)).milliseconds
-        }
-        return -1
-      })[0]
+
+    const latestMovement = getLatestMovement(movements)
+
     if (!latestMovement) {
       throw new Error('Key is not currently checked out')
     }

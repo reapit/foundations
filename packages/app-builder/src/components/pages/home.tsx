@@ -14,6 +14,7 @@ import { getPageId, usePageId } from '../hooks/use-page-id'
 import { useUpdatePage } from '../hooks/apps/use-update-app'
 import { isInitialLoad, nodesObjtoToArr } from '../hooks/apps/node-helpers'
 import { Page } from '../hooks/apps/fragments'
+import { FormInput } from '../ui/user/form-input'
 
 export type AuthenticatedProps = {}
 
@@ -36,6 +37,7 @@ export const Authenticated: FC<AuthenticatedProps> = () => {
         Context,
         Table,
         Form,
+        FormInput,
       }}
       onRender={(props) => <RenderNode {...props} iframeRef={iframeRef.current} />}
       onNodesChange={(query) => {
