@@ -30,12 +30,13 @@ export const handleInstallationsStringEffect =
   (
     setInstallationString: Dispatch<SetStateAction<string | null>>,
     installations: InstallationModel[],
+    email: string,
     clientId?: string | null,
   ) =>
   () => {
     if (clientId) {
       const clientIdFirstPart = getClientIdFirstPart(clientId)
-      const orgInstallations = getInstallationsForWholeOrg(installations, clientIdFirstPart)
+      const orgInstallations = getInstallationsForWholeOrg(installations, clientIdFirstPart, email)
       const groupInstallations = getInstallationsForOfficeGroups(installations, clientIdFirstPart)
 
       if (orgInstallations.length) return setInstallationString(`Installed for organisation ${clientIdFirstPart}`)
@@ -58,9 +59,11 @@ export const AppCard: FC<AppCardProps> = ({ app }: AppCardProps) => {
   )
 
   const installations = data?.data ?? []
+  const email = connectSession?.loginIdentity.email ?? ''
 
-  useEffect(handleInstallationsStringEffect(setInstallationString, installations, orgClientId), [
+  useEffect(handleInstallationsStringEffect(setInstallationString, installations, email, orgClientId), [
     installations,
+    connectSession,
     orgClientId,
   ])
 
@@ -87,7 +90,7 @@ export const AppCard: FC<AppCardProps> = ({ app }: AppCardProps) => {
         },
         {
           listCardItemHeading: 'Marketplace Visibility',
-          listCardItemSubHeading: app.isHidden ? 'Marketplace visible' : 'Marketplace hidden',
+          listCardItemSubHeading: app.isHidden ? 'Marketplace hidden' : 'Marketplace visible',
           listCardItemIcon: 'agencyCloudInfographic',
         },
       ]}

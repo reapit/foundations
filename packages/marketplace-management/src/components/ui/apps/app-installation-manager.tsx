@@ -4,20 +4,29 @@ import {
   AppSummaryModel,
   InstallationModel,
   InstallationModelPagedResult,
+  TerminateInstallationModel,
 } from '@reapit/foundations-ts-definitions'
 import useSWR from 'swr'
 import AppInstallationSection from './app-installation-section'
 import AppInstallationConfirmationModal from './app-installation-confirmation-modal'
 import AppUninstallationSection from './app-uninstallation-section'
 import { URLS } from '../../../constants/api'
-import { bulkInstall } from '../../../services/installation'
+import { bulkInstall, installOrg, uninstallOrg } from '../../../services/installation'
 import { useModal, useSnack } from '@reapit/elements'
 import { useOrgId } from '../../../utils/use-org-id'
+import { useReapitConnect } from '@reapit/connect-session'
+import { reapitConnectBrowserSession } from '../../../core/connect-session'
 
 export interface AppInstallationManagerProps {
   app: AppSummaryModel
 }
 
+export interface TerminationParams {
+  body: TerminateInstallationModel
+  installationId: string
+}
+
+export const TERMINATION_REASON = 'Terminated from Marketplace Management App'
 export const SPECIFIC_OFFICE_GROUPS = 'SPECIFIC_OFFICE_GROUPS'
 export const WHOLE_ORG = 'WHOLE_ORG'
 export type InstallTypes = 'SPECIFIC_OFFICE_GROUPS' | 'WHOLE_ORG' | null
@@ -25,11 +34,21 @@ export type InstallTypes = 'SPECIFIC_OFFICE_GROUPS' | 'WHOLE_ORG' | null
 export const getInstallationsForWholeOrg = (
   installations: InstallationModel[],
   clientIdFirstPart: string,
-): (string | undefined)[] => {
+  terminatedBy: string,
+): TerminationParams[] => {
   return installations
     .filter((installation) => installation?.client === clientIdFirstPart)
-    .map((installation) => installation.client)
-    .filter((client) => !!client)
+    .map(
+      ({ id, appId }) =>
+        ({
+          installationId: id,
+          body: {
+            appId,
+            terminatedReason: TERMINATION_REASON,
+            terminatedBy,
+          },
+        } as TerminationParams),
+    )
 }
 
 export const getInstallationsForOfficeGroups = (
@@ -49,6 +68,7 @@ export const getClientIdFirstPart = (clientId: string | null) => {
 export const handleSetInstallTypes =
   (
     orgClientId: string | null,
+    email: string,
     initialAppInstallationType: InstallTypes,
     installations: InstallationModel[],
     setInitialAppInstallationType: Dispatch<SetStateAction<InstallTypes>>,
@@ -57,7 +77,7 @@ export const handleSetInstallTypes =
   () => {
     if (orgClientId && !initialAppInstallationType) {
       const clientIdFirstPart = getClientIdFirstPart(orgClientId)
-      const installedForWholeOrg = getInstallationsForWholeOrg(installations, clientIdFirstPart).length > 0
+      const installedForWholeOrg = getInstallationsForWholeOrg(installations, clientIdFirstPart, email).length > 0
       const installedForGroups = getInstallationsForOfficeGroups(installations, clientIdFirstPart).length > 0
 
       if (installedForWholeOrg) {
@@ -88,6 +108,7 @@ export const handleModalConfirmation =
   (
     performCompleteUninstall: boolean,
     orgClientId: string | null,
+    email: string,
     installations: InstallationModel[],
     app: AppDetailModel,
     appInstallationType: InstallTypes,
@@ -108,12 +129,18 @@ export const handleModalConfirmation =
 
     try {
       if (performCompleteUninstall) {
-        const installsToRemove = [
-          ...getInstallationsForOfficeGroups(installations, clientIdFirstPart),
-          ...getInstallationsForWholeOrg(installations, clientIdFirstPart),
-        ]
+        const groupInstalls = getInstallationsForOfficeGroups(installations, clientIdFirstPart)
+        const orgInstalls = getInstallationsForWholeOrg(installations, clientIdFirstPart, email)
         // install for noone, and remove for the office groups and the whole org
-        await bulkInstall([], installsToRemove, app.id)
+        if (orgInstalls.length) {
+          await Promise.all(
+            orgInstalls.map(async ({ body, installationId }) => await uninstallOrg(body, installationId)),
+          )
+        }
+
+        if (groupInstalls.length) {
+          await bulkInstall([], groupInstalls, app.id)
+        }
         // set the various states back to default
         setAppInstallationType(null)
         setInitialAppInstallationType(null)
@@ -122,14 +149,22 @@ export const handleModalConfirmation =
         setPerformCompleteUninstall(false)
       } else if (appInstallationType === WHOLE_ORG) {
         const installsToRemove = getInstallationsForOfficeGroups(installations, clientIdFirstPart)
-        // install for the whole org, and remove for the office groups
-        await bulkInstall([clientIdFirstPart], installsToRemove, app.id)
+        // install for the whole org,
+        await installOrg({ appId: app.id, clientId: clientIdFirstPart, approvedBy: email })
+        //remove for the office groups
+        await bulkInstall([], installsToRemove, app.id)
         // update the initialAppInstallationType - ensures the button is re-disabled
         setInitialAppInstallationType(WHOLE_ORG)
       } else if (appInstallationType === SPECIFIC_OFFICE_GROUPS) {
         // if the app is currently installed for the whole org, ensure it becomes uninstalled for the whole org
         const uninstallFor = [...officeGroupsToRemove]
-        if (initialAppInstallationType === WHOLE_ORG) uninstallFor.push(clientIdFirstPart)
+        const orgInstalls = getInstallationsForWholeOrg(installations, clientIdFirstPart, email)
+        // install for noone, and remove for the office groups and the whole org
+        if (initialAppInstallationType === WHOLE_ORG && orgInstalls.length) {
+          await Promise.all(
+            orgInstalls.map(async ({ body, installationId }) => await uninstallOrg(body, installationId)),
+          )
+        }
         // use the bulk install/uninstall endpoint
         await bulkInstall(officeGroupsToAdd, uninstallFor, app.id)
         // update the initialAppInstallationType and clear the changes made - ensures the button is re-disabled
@@ -151,6 +186,7 @@ export const handleModalConfirmation =
   }
 
 const AppInstallationManager: FC<AppInstallationManagerProps> = ({ app }: AppInstallationManagerProps) => {
+  const { connectSession } = useReapitConnect(reapitConnectBrowserSession)
   const [initialAppInstallationType, setInitialAppInstallationType] = useState<InstallTypes>(null)
   const [appInstallationType, setAppInstallationType] = useState<InstallTypes>(null)
   const [officeGroupsToAdd, setOfficeGroupsToAdd] = useState<string[]>([])
@@ -169,10 +205,12 @@ const AppInstallationManager: FC<AppInstallationManagerProps> = ({ app }: AppIns
   } = useSWR<InstallationModelPagedResult>(`${URLS.INSTALLATIONS}/?AppId=${app.id}&IsInstalled=true&pageSize=999`)
 
   const installations = data?.data ?? []
+  const email = connectSession?.loginIdentity.email ?? ''
 
   useEffect(
     handleSetInstallTypes(
       orgClientId,
+      email,
       initialAppInstallationType,
       installations,
       setInitialAppInstallationType,
@@ -210,6 +248,7 @@ const AppInstallationManager: FC<AppInstallationManagerProps> = ({ app }: AppIns
           onConfirm={handleModalConfirmation(
             performCompleteUninstall,
             orgClientId,
+            email,
             installations,
             app,
             appInstallationType,

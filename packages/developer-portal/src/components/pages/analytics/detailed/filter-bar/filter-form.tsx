@@ -80,7 +80,7 @@ export const handleAutoSave = (developerApps: AppSummaryModel[], clients: Instal
     dispatch(
       fetchInstallationsFilterList({
         appId: appId || appIds,
-        clientId: clientId || clientIds,
+        clientId: clientId ? [clientId] : clientIds,
         pageSize: GET_ALL_PAGE_SIZE,
         installedDateFrom: formattedDateForm,
         installedDateTo: formattedDateTo,
@@ -90,7 +90,7 @@ export const handleAutoSave = (developerApps: AppSummaryModel[], clients: Instal
     dispatch(
       fetchTrafficStatistics({
         applicationId: appId || appIds,
-        customerId: clientId || clientIds,
+        customerId: clientId ? [clientId] : clientIds,
         dateFrom: formattedDateForm,
         dateTo: formattedDateTo,
       }),
