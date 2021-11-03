@@ -61,10 +61,8 @@ export const useDeletePage = () => {
     const { data } = await client.query({ query: GetAppQuery, variables: { idOrSubdomain: appId } })
     const app = data?._getApp
 
-    console.log(app)
     if (app) {
       const pages = app.pages.filter((p: Page) => p.id !== pageId)
-      console.log(pages, pageId)
       return updateApp(app, app.name, omitDeep(cloneDeep(pages), ['__typename']))
     }
   }

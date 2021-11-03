@@ -16,6 +16,8 @@ import { bulkInstall } from '../../../../services/installation'
 jest.mock('../../../../utils/use-org-id')
 jest.mock('../../../../services/installation', () => ({
   bulkInstall: jest.fn(() => true),
+  uninstallOrg: jest.fn(() => true),
+  installOrg: jest.fn(() => true),
 }))
 
 const mockBulkInstall = bulkInstall as jest.Mock
@@ -23,36 +25,54 @@ const mockBulkInstall = bulkInstall as jest.Mock
 const stubInstallations1 = [
   {
     client: 'OTHER',
+    appId: 'FOO',
+    id: 'BAR',
   },
   {
     client: 'SBOX',
+    appId: 'FOO',
+    id: 'BAR',
   },
 ]
 
 const stubInstallations2 = [
   {
     client: 'SBOX-GWIT',
+    appId: 'FOO',
+    id: 'BAR',
   },
   {
     client: 'SBOX-OTHER',
+    appId: 'FOO',
+    id: 'BAR',
   },
   {
     client: 'SBOX',
+    appId: 'FOO',
+    id: 'BAR',
   },
 ]
 
 const stubInstallations3 = [
   {
     client: 'OTHER',
+    appId: 'FOO',
+    id: 'BAR',
   },
   {
     client: 'SBOX-GWIT',
+    appId: 'FOO',
+    id: 'BAR',
   },
   {
     client: 'SBOX-OTHER',
+    appId: 'FOO',
+    id: 'BAR',
   },
   {
     client: 'SBOX-PWIT',
+    appId: 'FOO',
+    id: 'BAR',
   },
 ]
 
@@ -64,9 +84,27 @@ describe('AppInstallationManager', () => {
 
 describe('getInstallationsForWholeOrg', () => {
   it('should get the correct installations', () => {
-    expect(getInstallationsForWholeOrg(stubInstallations1, 'SBOX')).toEqual(['SBOX'])
-    expect(getInstallationsForWholeOrg(stubInstallations2, 'SBOX')).toEqual(['SBOX'])
-    expect(getInstallationsForWholeOrg(stubInstallations3, 'SBOX')).toEqual([])
+    expect(getInstallationsForWholeOrg(stubInstallations1, 'SBOX', 'foo@bar.com')).toEqual([
+      {
+        body: {
+          appId: 'FOO',
+          terminatedBy: 'foo@bar.com',
+          terminatedReason: 'Terminated from Marketplace Management App',
+        },
+        installationId: 'BAR',
+      },
+    ])
+    expect(getInstallationsForWholeOrg(stubInstallations2, 'SBOX', 'foo@bar.com')).toEqual([
+      {
+        body: {
+          appId: 'FOO',
+          terminatedBy: 'foo@bar.com',
+          terminatedReason: 'Terminated from Marketplace Management App',
+        },
+        installationId: 'BAR',
+      },
+    ])
+    expect(getInstallationsForWholeOrg(stubInstallations3, 'SBOX', 'foo@bar.com')).toEqual([])
   })
 })
 
@@ -95,12 +133,14 @@ describe('getClientIdFirstPart', () => {
 describe('handleSetInstallTypes', () => {
   it('should correctly call setters if installing for whole org', () => {
     const orgClientId = 'SBOX'
+    const email = 'test@test.com'
     const initialAppInstallationType = null
     const installations = stubInstallations1
     const setInitialAppInstallationType = jest.fn()
     const setAppInstallationType = jest.fn()
     const curried = handleSetInstallTypes(
       orgClientId,
+      email,
       initialAppInstallationType,
       installations,
       setInitialAppInstallationType,
@@ -114,12 +154,14 @@ describe('handleSetInstallTypes', () => {
 
   it('should correctly call setters if installing for groups', () => {
     const orgClientId = 'SBOX'
+    const email = 'test@test.com'
     const initialAppInstallationType = null
     const installations = stubInstallations3
     const setInitialAppInstallationType = jest.fn()
     const setAppInstallationType = jest.fn()
     const curried = handleSetInstallTypes(
       orgClientId,
+      email,
       initialAppInstallationType,
       installations,
       setInitialAppInstallationType,
@@ -153,6 +195,7 @@ describe('handleModalConfirmation', () => {
   it('should correctly call setters for a complete uninstall', async () => {
     const performCompleteUninstall = true
     const orgClientId = 'SBOX'
+    const email = 'test@test.com'
     const installations = stubInstallations2
     const app = mockAppDetail
     const appInstallationType = 'WHOLE_ORG'
@@ -171,6 +214,7 @@ describe('handleModalConfirmation', () => {
     const curried = handleModalConfirmation(
       performCompleteUninstall,
       orgClientId,
+      email,
       installations,
       app,
       appInstallationType,
@@ -189,7 +233,7 @@ describe('handleModalConfirmation', () => {
 
     await curried()
 
-    expect(mockBulkInstall).toHaveBeenCalledWith([], ['SBOX-GWIT', 'SBOX-OTHER', 'SBOX'], app.id)
+    expect(mockBulkInstall).toHaveBeenCalledWith([], ['SBOX-GWIT', 'SBOX-OTHER'], app.id)
     expect(setAppInstallationType).toHaveBeenCalledWith(null)
     expect(setOfficeGroupsToAdd).toHaveBeenCalledWith([])
     expect(setOfficeGroupsToRemove).toHaveBeenCalledWith([])
@@ -201,6 +245,7 @@ describe('handleModalConfirmation', () => {
   it('should correctly call setters for an install for the whole group', async () => {
     const performCompleteUninstall = false
     const orgClientId = 'SBOX'
+    const email = 'test@test.com'
     const installations = stubInstallations2
     const app = mockAppDetail
     const appInstallationType = 'WHOLE_ORG'
@@ -219,6 +264,7 @@ describe('handleModalConfirmation', () => {
     const curried = handleModalConfirmation(
       performCompleteUninstall,
       orgClientId,
+      email,
       installations,
       app,
       appInstallationType,
@@ -237,7 +283,7 @@ describe('handleModalConfirmation', () => {
 
     await curried()
 
-    expect(mockBulkInstall).toHaveBeenCalledWith(['SBOX'], ['SBOX-GWIT', 'SBOX-OTHER'], app.id)
+    expect(mockBulkInstall).toHaveBeenCalledWith([], ['SBOX-GWIT', 'SBOX-OTHER'], app.id)
     expect(setAppInstallationType).not.toHaveBeenCalled()
     expect(setOfficeGroupsToAdd).not.toHaveBeenCalled()
     expect(setOfficeGroupsToRemove).not.toHaveBeenCalled()
@@ -250,6 +296,7 @@ describe('handleModalConfirmation', () => {
   it('should correctly call setters for an install for specific groups', async () => {
     const performCompleteUninstall = false
     const orgClientId = 'SBOX'
+    const email = 'foo@bar.com'
     const installations = stubInstallations2
     const app = mockAppDetail
     const appInstallationType = 'SPECIFIC_OFFICE_GROUPS'
@@ -268,6 +315,7 @@ describe('handleModalConfirmation', () => {
     const curried = handleModalConfirmation(
       performCompleteUninstall,
       orgClientId,
+      email,
       installations,
       app,
       appInstallationType,
@@ -286,7 +334,7 @@ describe('handleModalConfirmation', () => {
 
     await curried()
 
-    expect(mockBulkInstall).toHaveBeenCalledWith([], ['SBOX-GWIT', 'SBOX-OTHER', 'SBOX'], app.id)
+    expect(mockBulkInstall).toHaveBeenCalledWith([], ['SBOX-GWIT', 'SBOX-OTHER'], app.id)
     expect(setAppInstallationType).not.toHaveBeenCalled()
     expect(setOfficeGroupsToAdd).toHaveBeenCalledWith([])
     expect(setOfficeGroupsToRemove).toHaveBeenCalledWith([])
