@@ -396,7 +396,7 @@ export class CdkStack extends cdk.Stack {
         handler: 'main.pusherAuth',
         policies: [...policies.commonBackendPolicies],
         api: {
-          method: 'GET',
+          method: 'POST',
           path: 'pusher/auth',
           cors: {
             origin: '*',
