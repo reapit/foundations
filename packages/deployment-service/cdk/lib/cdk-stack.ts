@@ -408,7 +408,7 @@ export class CdkStack extends cdk.Stack {
     }
 
     const authorizer = new CognitoUserPoolsAuthorizer(this as any, 'cloud-deployment-service-authorizer', {
-      cognitoUserPools: [UserPool.fromUserPoolId(this, 'user-pool-authorizer', 'kiftR4qFc')],
+      cognitoUserPools: [UserPool.fromUserPoolId(this, 'user-pool-authorizer', 'eu-west-2_kiftR4qFc')],
     })
 
     const MYSQL_USERNAME = secretManager.secretValueFromJson('username').toString()
@@ -419,7 +419,7 @@ export class CdkStack extends cdk.Stack {
     for (const [name, options] of Object.entries(functionSetups)) {
       const lambda = createLambda({
         stack: this,
-        name: `${id}-cloud-deployment-${name}`,
+        name: `cloud-deployment-${name}`,
         code: AssetCode.fromAsset(path.resolve('dist', 'main.zip')),
         vpc,
         handler: options.handler,
