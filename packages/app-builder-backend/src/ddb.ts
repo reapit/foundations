@@ -13,7 +13,6 @@ import { Page } from './entities/page'
 
 const {
   APPS_TABLE_NAME = 'apps',
-  GSI_NAME = 'userId-index',
   SUBDOMAIN_IDX_NAME = 'domain-index',
   DYNAMODB_ENDPOINT,
   AWS_REGION = 'eu-west-2',
@@ -34,13 +33,6 @@ const getCreateTableCommand = (tableName: string): CreateTableCommand => {
     ],
     KeySchema: [{ AttributeName: 'id', KeyType: 'HASH' }],
     GlobalSecondaryIndexes: [
-      {
-        IndexName: GSI_NAME,
-        KeySchema: [{ AttributeName: 'userId', KeyType: 'HASH' }],
-        Projection: {
-          ProjectionType: 'ALL',
-        },
-      },
       {
         IndexName: SUBDOMAIN_IDX_NAME,
         KeySchema: [{ AttributeName: 'subdomain', KeyType: 'HASH' }],
@@ -83,18 +75,6 @@ const ddbItemToApp = (item: { [key: string]: AttributeValue }): App => {
     subdomain: subdomain?.S as string,
     pages: (pages?.S && (JSON.parse(pages.S as string) as Array<Page>)) || [],
   }
-}
-
-export const getUserApps = async (userId: string): Promise<Array<App>> => {
-  const d = new QueryCommand({
-    TableName: APPS_TABLE_NAME,
-    KeyConditionExpression: 'userId = :userId',
-    ExpressionAttributeValues: { ':userId': { S: userId } },
-    IndexName: GSI_NAME,
-  })
-  const { Items } = await ddb.send(d)
-
-  return Items?.map(ddbItemToApp) || []
 }
 
 export const getDomainApps = async (subdomain: string): Promise<Array<App>> => {
