@@ -416,6 +416,16 @@ export class CdkStack extends cdk.Stack {
     const MYSQL_HOST = secretManager.secretValueFromJson('host').toString()
     const MYSQL_DATABASE = databaseName
 
+    const lambdaEnvs = {
+      MYSQL_PASSWORD,
+      MYSQL_USERNAME,
+      MYSQL_HOST,
+      MYSQL_DATABASE,
+      DEPLOYMENT_VERSION_BUCKET_NAME: buckets["cloud-deployment-version-dev"].bucketName,
+      DEPLOYMENT_LIVE_BUCKET_NAME: buckets["cloud-deployment-live-dev"].bucketName,
+      DEPLOYMENT_LOG_BUCKET_NAME: buckets["cloud-deployment-log-dev"].bucketName,
+    }
+
     for (const [name, options] of Object.entries(functionSetups)) {
       const lambda = createLambda({
         stack: this,
@@ -423,12 +433,7 @@ export class CdkStack extends cdk.Stack {
         code: AssetCode.fromAsset(path.resolve('dist', 'main.zip')),
         vpc,
         handler: options.handler,
-        env: {
-          MYSQL_PASSWORD,
-          MYSQL_USERNAME,
-          MYSQL_HOST,
-          MYSQL_DATABASE,
-        },
+        env: lambdaEnvs,
       })
       options.policies.forEach((policy) => lambda.addToRolePolicy(policy))
 
@@ -453,12 +458,7 @@ export class CdkStack extends cdk.Stack {
       code: AssetCode.fromAsset(path.resolve('dist', 'main.zip')),
       vpc,
       handler: 'main.migrationRun',
-      env: {
-        MYSQL_PASSWORD,
-        MYSQL_USERNAME,
-        MYSQL_HOST,
-        MYSQL_DATABASE,
-      },
+      env: lambdaEnvs,
     })
 
     migrationHandler.connections.allowTo(aurora.connections, Port.tcp(3306))
