@@ -1,11 +1,13 @@
 import { Resolver, Query, Arg, Mutation, ID, Authorized, Ctx } from 'type-graphql'
 
 import { App } from '../entities/app'
-import { getUserApps, getApp, createApp, updateApp, getDomainApps } from '../ddb'
+import { getApp, createApp, updateApp, getDomainApps } from '../ddb'
 import { Page } from '../entities/page'
 import * as uuid from 'uuid'
 import { ejectApp } from '../eject'
 import { Context } from '../types'
+import { getDeveloperApps } from '@/platform/apps'
+import { notEmpty } from '@/utils/helpers'
 
 export const defaultNodes = [
   {
@@ -41,9 +43,21 @@ export class AppResolver {
 
   @Authorized()
   @Query(() => [App], { name: '_getUserApps' })
-  async getUserApps(@Arg('userId') userId: string) {
-    const apps = await getUserApps(userId)
-    return apps
+  async getUserApps(@Arg('userId') userId: string, @Ctx() ctx: Context): Promise<App[]> {
+    const apps = await getDeveloperApps(userId, ctx.accessToken)
+    if (!apps) {
+      return []
+    }
+    const appBuilderApps = await Promise.all(
+      apps?.map(({ id }) => {
+        if (!id) {
+          return undefined
+        }
+        return getApp(id)
+      }),
+    )
+
+    return appBuilderApps.filter(notEmpty)
   }
 
   @Query(() => App, { nullable: true, name: '_getApp' })

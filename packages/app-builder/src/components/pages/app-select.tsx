@@ -40,7 +40,7 @@ import { useEjectApp } from '../hooks/apps/use-eject-app'
 
 const getUserId = async () => {
   const session = await reapitConnectBrowserSession.connectSession()
-  const userId = session?.loginIdentity.orgId
+  const userId = session?.loginIdentity.developerId
   return userId || undefined
 }
 
