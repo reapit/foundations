@@ -5,17 +5,17 @@ import { GetUserAppsQuery } from './use-user-apps'
 
 const CreateAppMutation = gql`
   ${AppFragment}
-  mutation CreateApp($name: String!, $userId: String!) {
-    _createApp(name: $name, userId: $userId) {
+  mutation CreateApp($name: String!, $developerId: String!) {
+    _createApp(name: $name, developerId: $developerId) {
       ...AppFragment
     }
   }
 `
 
 export const useCreateApp = () => {
-  const userId = useUserId()
+  const developerId = useUserId()
   const [createApp, { loading, error }] = useMutation(CreateAppMutation, {
-    refetchQueries: [{ query: GetUserAppsQuery, variables: { userId } }],
+    refetchQueries: [{ query: GetUserAppsQuery, variables: { developerId } }],
   })
 
   return {

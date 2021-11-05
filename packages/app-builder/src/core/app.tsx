@@ -1,46 +1,28 @@
 import * as React from 'react'
-import { ApolloClient, InMemoryCache, ApolloProvider, createHttpLink } from '@apollo/client'
-import { setContext } from '@apollo/client/link/context'
+import { ApolloProvider } from '@apollo/client'
 import Router from './router'
 import ErrorBoundary from '../components/hocs/error-boundary'
 // Global styles import
 import { elGlobals, MediaStateProvider, NavStateProvider, SnackProvider } from '@reapit/elements' // eslint-disable-line
 import { reapitConnectBrowserSession } from './connect-session'
-import { graphqlUri } from './config'
+import { createClient } from './graphql-client'
 
-const httpLink = createHttpLink({
-  uri: graphqlUri,
-})
+const App = () => {
+  const session = reapitConnectBrowserSession
 
-const authLink = setContext(async (_, { headers }) => {
-  const token = await reapitConnectBrowserSession.connectSession()
-  // return the headers to the context so httpLink can read them
-  return {
-    headers: {
-      ...headers,
-      authorization: token ? `Bearer ${token.idToken}` : '',
-      'reapit-connect-token': token ? token.accessToken : '',
-    },
-  }
-})
-
-const client = new ApolloClient({
-  link: authLink.concat(httpLink),
-  cache: new InMemoryCache(),
-})
-
-const App = () => (
-  <ErrorBoundary>
-    <ApolloProvider client={client}>
-      <NavStateProvider>
-        <MediaStateProvider>
-          <SnackProvider>
-            <Router />
-          </SnackProvider>
-        </MediaStateProvider>
-      </NavStateProvider>
-    </ApolloProvider>
-  </ErrorBoundary>
-)
+  return (
+    <ErrorBoundary>
+      <ApolloProvider client={createClient(session)}>
+        <NavStateProvider>
+          <MediaStateProvider>
+            <SnackProvider>
+              <Router />
+            </SnackProvider>
+          </MediaStateProvider>
+        </NavStateProvider>
+      </ApolloProvider>
+    </ErrorBoundary>
+  )
+}
 
 export default App

@@ -63,13 +63,14 @@ export const ensureTables = async () => {
   return Promise.all(tables.map(ensureTable))
 }
 
-const ddbItemToApp = (item: { [key: string]: AttributeValue }): App => {
-  const { id, name, userId, createdAt, updatedAt, pages, subdomain } = item
+type DDBApp = Omit<App, 'clientId'>
+
+const ddbItemToApp = (item: { [key: string]: AttributeValue }): DDBApp => {
+  const { id, name, createdAt, updatedAt, pages, subdomain } = item
 
   return {
     id: id?.S as string,
     name: name?.S as string,
-    userId: userId?.S as string,
     createdAt: new Date(parseInt(createdAt?.N as string)),
     updatedAt: new Date(parseInt(updatedAt?.N as string)),
     subdomain: subdomain?.S as string,
@@ -77,7 +78,7 @@ const ddbItemToApp = (item: { [key: string]: AttributeValue }): App => {
   }
 }
 
-export const getDomainApps = async (subdomain: string): Promise<Array<App>> => {
+export const getDomainApps = async (subdomain: string) => {
   const d = new QueryCommand({
     TableName: APPS_TABLE_NAME,
     KeyConditionExpression: 'subdomain = :subdomain',
@@ -89,7 +90,7 @@ export const getDomainApps = async (subdomain: string): Promise<Array<App>> => {
   return Items?.map(ddbItemToApp) || []
 }
 
-export const getApp = async (appId: string): Promise<App | undefined> => {
+export const getApp = async (appId: string): Promise<DDBApp | undefined> => {
   const d = new QueryCommand({
     TableName: APPS_TABLE_NAME,
     KeyConditionExpression: 'id = :id',
@@ -110,7 +111,7 @@ const isDomainUnq = async (subdomain: string) => {
   return !Items || !Items.length
 }
 
-const getUnqDomain = async () => {
+export const getUnqDomain = async () => {
   const domain = generateDomain().dashed
   const isUnq = await isDomainUnq(domain)
   if (isUnq) {
@@ -119,14 +120,12 @@ const getUnqDomain = async () => {
   return getUnqDomain()
 }
 
-export const createApp = async (id: string, userId: string, name: string, pages: Array<Page>): Promise<App> => {
+export const createApp = async (id: string, name: string, subdomain: string, pages: Array<Page>): Promise<DDBApp> => {
   const date = new Date()
-  const subdomain = await getUnqDomain()
   const d = new PutItemCommand({
     TableName: APPS_TABLE_NAME,
     Item: {
       id: { S: id },
-      userId: { S: userId },
       name: { S: name },
       createdAt: { N: date.getTime().toString() },
       updatedAt: { N: date.getTime().toString() },
@@ -138,7 +137,6 @@ export const createApp = async (id: string, userId: string, name: string, pages:
 
   return {
     id,
-    userId,
     name,
     subdomain,
     createdAt: date,
@@ -147,13 +145,12 @@ export const createApp = async (id: string, userId: string, name: string, pages:
   }
 }
 
-export const updateApp = async (app: App): Promise<App> => {
+export const updateApp = async (app: DDBApp): Promise<DDBApp> => {
   const date = new Date()
   const d = new PutItemCommand({
     TableName: APPS_TABLE_NAME,
     Item: {
       id: { S: app.id },
-      userId: { S: app.userId },
       name: { S: app.name },
       createdAt: { N: app.createdAt.getTime().toString() },
       updatedAt: { N: date.getTime().toString() },

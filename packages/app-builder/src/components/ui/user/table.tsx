@@ -8,6 +8,8 @@ import { TableProps, Table as ETable } from './ejectable/table'
 import { useSubObjects } from '@/components/hooks/objects/use-sub-objects'
 import { useObjectSpecials } from '@/components/hooks/objects/use-object-specials'
 import { useObjectSearch } from '@/components/hooks/objects/use-object-search'
+import { useObject } from '@/components/hooks/objects/use-object'
+import { getAvailableIntegrationsForObject } from '@/core/desktop-integration'
 
 const defaultProps = {}
 
@@ -23,6 +25,35 @@ const Table = (props: TableProps) => {
 }
 
 const ContainerSettings = Container.craft.related.toolbar
+
+export const IntegrationLanding = ({ typeName }: { typeName: string | undefined }) => {
+  const { object } = useObject(typeName)
+  const integrations = object && getAvailableIntegrationsForObject(object)
+  const propKey = 'integrationLandingType'
+
+  if (!integrations || !integrations.length) {
+    return null
+  }
+
+  return (
+    <ToolbarSection
+      title={'Agency Cloud'}
+      props={[propKey]}
+      summary={(obj: any) => {
+        return `Openable from Agency Cloud: ${obj[propKey] || ''}`
+      }}
+    >
+      <ToolbarItem type={ToolbarItemType.Select} propKey={propKey} title="Openable from Agency Cloud">
+        {integrations.map((integrationType) => (
+          <option key={integrationType} value={integrationType}>
+            {integrationType}
+          </option>
+        ))}
+        <option value="">Select a page</option>
+      </ToolbarItem>
+    </ToolbarSection>
+  )
+}
 
 const TableSettings = () => {
   const { data, loading } = useTypeList()
@@ -53,6 +84,7 @@ const TableSettings = () => {
         </ToolbarItem>
       </ToolbarSection>
       <DestinationPage sectionTitle="Edit Page" propKey="editPageId" title="Edit Page" />
+      <IntegrationLanding typeName={typeName} />
       {subobjects.data.map((subobject) => (
         <DestinationPage
           sectionTitle={`${subobject.object.name} page`}

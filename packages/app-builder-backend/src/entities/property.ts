@@ -87,9 +87,10 @@ class Image {
   order: number
 }
 
-@ObjectType()
 export class Property {
-  @Field(() => ID)
+  @Field(() => ID, {
+    description: '@acKey(prpCode)',
+  })
   id: string
 
   @Field(() => [String])
