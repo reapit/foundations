@@ -96,14 +96,22 @@ const PipelineCreationModal = ({ open, onModalClose }: { open: boolean; onModalC
 
 const PipelineInfo = ({ pipeline }: { pipeline: PipelineModelInterface }) => (
   <>
-    <Subtitle>Repository</Subtitle>
-    <BodyText>{pipeline.repository}</BodyText>
-    <Subtitle>Package Manager</Subtitle>
-    <BodyText>{pipeline.packageManager}</BodyText>
-    <Subtitle>Build Command</Subtitle>
-    <BodyText>{pipeline.buildCommand}</BodyText>
-    <Subtitle>Tests</Subtitle>
-    <BodyText>{pipeline.testCommand}</BodyText>
+    <InputWrap>
+      <Subtitle>Repository</Subtitle>
+      <BodyText>{pipeline.repository}</BodyText>
+    </InputWrap>
+    <InputWrap>
+      <Subtitle>Package Manager</Subtitle>
+      <BodyText>{pipeline.packageManager}</BodyText>
+    </InputWrap>
+    <InputWrap>
+      <Subtitle>Build Command</Subtitle>
+      <BodyText>{pipeline.buildCommand}</BodyText>
+    </InputWrap>
+    <InputWrap>
+      <Subtitle>Tests</Subtitle>
+      <BodyText>{pipeline.testCommand}</BodyText>
+    </InputWrap>
   </>
 )
 
