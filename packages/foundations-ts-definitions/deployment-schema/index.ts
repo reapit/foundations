@@ -9,6 +9,7 @@ export interface PipelineModelInterface {
   developerId?: string
   appType?: AppTypeEnum
   buildCommand?: string
+  testCommand?: string
   packageManager?: PackageManagerEnum
   repository?: string
   outDir?: string
