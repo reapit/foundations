@@ -19,7 +19,7 @@ export interface HelperWidgetProps {
   appName: HelperWidgetApps
 }
 
-export const enum HelperContentType {
+export enum HelperContentType {
   none = 'none',
   docs = 'docs',
   videos = 'videos',

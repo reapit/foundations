@@ -29,5 +29,8 @@ exports[`PrivateRouteWrapper should match snapshot 1`] = `
       />
     </FlexContainerResponsive>
   </FlexContainerBasic>
+  <HelperWidget
+    appName="developerPortal"
+  />
 </MainContainer>
 `;

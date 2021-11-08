@@ -139,7 +139,7 @@ export const PrivateRouteWrapper: React.FunctionComponent<PrivateRouteWrapperPro
           </FlexContainerResponsive>
         </FlexContainerBasic>
       )}
-      <HelperWidget appName={HelperWidgetApps.developerPortal} />
+      {window.reapit.config.appEnv !== 'production' && <HelperWidget appName={HelperWidgetApps.developerPortal} />}
     </MainContainer>
   )
 }

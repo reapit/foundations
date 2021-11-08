@@ -4,12 +4,12 @@ import { HelperWidgetConfig } from './config'
 import { HelperContentType } from './helper-widget'
 import { HelperWidgetContentContainer, HelperWidgetHeadingContainer, HelperWidgetLink } from './__styles__'
 
-export interface HelperWidgetProps {
+export interface HelperWidgetContentProps {
   config: HelperWidgetConfig
   contentType: HelperContentType
 }
 
-export const HelperWidgetContent: FC<HelperWidgetProps> = ({ contentType, config: { title, videos, docs } }) => {
+export const HelperWidgetContent: FC<HelperWidgetContentProps> = ({ contentType, config: { title, videos, docs } }) => {
   const { Modal, openModal } = useModal()
   return (
     <>
