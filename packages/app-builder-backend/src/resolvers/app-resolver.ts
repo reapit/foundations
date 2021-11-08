@@ -58,7 +58,7 @@ const getObjectScopes = (objectName: string, access: Access) => {
 }
 
 // remove empty strings from object
-const removeEmptyStringsFromObject = (obj: any) => {
+const cleanObj = (obj: any) => {
   const copy = { ...obj }
   Object.keys(obj).forEach((key) => {
     if (obj[key] === '') {
@@ -68,13 +68,24 @@ const removeEmptyStringsFromObject = (obj: any) => {
   return copy
 }
 
+// compare array of strings
+const compareArrays = (a: string[], b: string[]) => {
+  if (a.length !== b.length) {
+    return false
+  }
+  return a.every((item) => b.includes(item))
+}
+
 const updateMarketplaceAppScopes = async (appId: string, scopes: string[], accessToken: string) => {
   const marketplaceApp = await getMarketplaceApp(appId, accessToken)
-  const appRevision = {
-    ...marketplaceApp,
-    scopes,
+  const existingScopes = marketplaceApp.scopes?.map(({ name }) => name).filter(notEmpty) || []
+  if (!compareArrays(existingScopes, scopes)) {
+    const appRevision = {
+      ...marketplaceApp,
+      scopes,
+    }
+    return createMarketplaceAppRevision(appId, appRevision, accessToken)
   }
-  return createMarketplaceAppRevision(appId, removeEmptyStringsFromObject(appRevision), accessToken)
 }
 
 const ensureScopes = (app: DDBApp, accessToken: string) => {
