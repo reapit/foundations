@@ -1,3 +1,4 @@
+import fetch from 'isomorphic-fetch'
 import { errorMessages } from '../constants/error-messages'
 
 export interface StringMap {
