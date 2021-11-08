@@ -64,7 +64,7 @@ describe('onHandleSubmit', () => {
 
     await onSubmit({ name, officeIds, status })
 
-    expect(error).toHaveBeenCalledWith(toastMessages.OFFICE_ALREADY_ASSIGNED_CREATE)
+    expect(error).toHaveBeenCalledWith(toastMessages.OFFICE_ALREADY_ASSIGNED_CREATE, 10000)
   })
 
   it('should show notification success', async () => {
