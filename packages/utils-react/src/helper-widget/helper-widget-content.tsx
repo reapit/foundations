@@ -1,8 +1,8 @@
 import React, { FC } from 'react'
-import { Subtitle, SmallText, BodyText, elFadeIn, elMb5 } from '@reapit/elements'
+import { Subtitle, SmallText, BodyText, elFadeIn, useModal } from '@reapit/elements'
 import { HelperWidgetConfig } from './config'
 import { HelperContentType } from './helper-widget'
-import { HelperWidgetContentContainer, HelperWidgetHeadingContainer } from './__styles__'
+import { HelperWidgetContentContainer, HelperWidgetHeadingContainer, HelperWidgetLink } from './__styles__'
 
 export interface HelperWidgetProps {
   config: HelperWidgetConfig
@@ -10,6 +10,7 @@ export interface HelperWidgetProps {
 }
 
 export const HelperWidgetContent: FC<HelperWidgetProps> = ({ contentType, config: { title, videos, docs } }) => {
+  const { Modal, openModal } = useModal()
   return (
     <>
       <HelperWidgetHeadingContainer>
@@ -17,16 +18,16 @@ export const HelperWidgetContent: FC<HelperWidgetProps> = ({ contentType, config
           {title}
         </Subtitle>
       </HelperWidgetHeadingContainer>
-
       {contentType === HelperContentType.videos &&
         videos.map(({ url, heading, image, body }, index: number) => (
           <HelperWidgetContentContainer className={elFadeIn} key={index}>
             {image}
             <BodyText>{heading}</BodyText>
-            <SmallText className={elMb5} hasGreyText hasNoMargin>
-              {body}
-            </SmallText>
-            <a href={url}>View on Youtube</a>
+            <SmallText hasGreyText>{body}</SmallText>
+            <HelperWidgetLink onClick={openModal}>View on Youtube</HelperWidgetLink>
+            <Modal title={heading}>
+              <iframe src={url} style={{ border: 'none', width: '100%', height: '600px' }} />
+            </Modal>
           </HelperWidgetContentContainer>
         ))}
       {contentType === HelperContentType.docs &&
@@ -34,10 +35,11 @@ export const HelperWidgetContent: FC<HelperWidgetProps> = ({ contentType, config
           <HelperWidgetContentContainer className={elFadeIn} key={index}>
             {image}
             <BodyText>{heading}</BodyText>
-            <SmallText className={elMb5} hasGreyText hasNoMargin>
-              {body}
-            </SmallText>
-            <a href={url}>View on Youtube</a>
+            <SmallText hasGreyText>{body}</SmallText>
+            <HelperWidgetLink onClick={openModal}>View in docs</HelperWidgetLink>
+            <Modal title={heading}>
+              <iframe src={url} style={{ border: 'none', width: '100%', height: '100%' }} />
+            </Modal>
           </HelperWidgetContentContainer>
         ))}
     </>

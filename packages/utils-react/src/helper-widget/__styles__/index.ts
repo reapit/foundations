@@ -5,6 +5,42 @@ export const slideOutIsActive = css``
 export const widgetIsActive = css``
 export const widgetButtonIsActive = css``
 
+export const WidgetButton = styled.button`
+  border: none;
+  border-radius: 1.5rem;
+  width: 5rem;
+  height: 2.5rem;
+  margin-left: 0.25rem;
+  background-color: var(--color-blue-dark);
+  color: var(--color-white);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  opacity: 0;
+  transition: all 0.5s ease-in-out;
+
+  &.${widgetButtonIsActive} {
+    background-color: var(--intent-secondary);
+  }
+
+  &:last-child {
+    height: 3rem;
+    width: 3rem;
+    margin-left: 1.5rem;
+    text-transform: uppercase;
+    font-weight: bold;
+    opacity: 1;
+  }
+
+  &:hover:not(.${widgetButtonIsActive}) {
+    background-color: var(--color-blue-dark2);
+  }
+
+  svg {
+    margin-right: 0.25rem;
+  }
+`
+
 export const WidgetContainer = styled.div`
   background-color: var(--color-blue-dark);
   position: absolute;
@@ -22,39 +58,10 @@ export const WidgetContainer = styled.div`
 
   &.${widgetIsActive} {
     width: 20.25rem;
-  }
-`
 
-export const WidgetButton = styled.button`
-  border: none;
-  border-radius: 1.5rem;
-  width: 5rem;
-  height: 2.5rem;
-  margin-left: 0.25rem;
-  background-color: var(--color-blue-dark);
-  color: var(--color-white);
-  display: flex;
-  align-items: center;
-  justify-content: center;
-
-  &.${widgetButtonIsActive} {
-    background-color: var(--intent-secondary);
-  }
-
-  &:last-child {
-    height: 3rem;
-    width: 3rem;
-    margin-left: 1.5rem;
-    text-transform: uppercase;
-    font-weight: bold;
-  }
-
-  &:hover:not(.${widgetButtonIsActive}) {
-    background-color: var(--color-blue-dark2);
-  }
-
-  svg {
-    margin-right: 0.25rem;
+    ${WidgetButton} {
+      opacity: 1;
+    }
   }
 `
 
@@ -97,4 +104,12 @@ export const HelperWidgetContentContainer = styled.div`
     display: block;
     height: 10rem;
   }
+`
+
+export const HelperWidgetLink = styled.a`
+  font-size: 14px;
+  background-color: var(--color-grey-light);
+  color: var(--intent-primary);
+  padding: 0.25rem 1rem;
+  border-radius: 0.25rem;
 `
