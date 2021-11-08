@@ -1,23 +1,39 @@
-import * as React from 'react'
-import { useHistory } from 'react-router'
-import { selectIntegrationTypes } from '@/selector/integration-types'
+import React, { useState } from 'react'
+import { useHistory, useLocation } from 'react-router'
 import { selectInstallationsListData } from '@/selector/installations'
-import { DesktopIntegrationTypeModel } from '@reapit/foundations-ts-definitions'
-import { DeveloperAside } from './app-aside'
 import { useSelector } from 'react-redux'
 import { History } from 'history'
 import { selectInstallationsListLoading } from '@/selector/installations'
-import { Grid, GridItem, Section } from '@reapit/elements-legacy'
+import { Section } from '@reapit/elements-legacy'
 import AppHeader from '@/components/pages/app-detail/app-header'
 import routes from '@/constants/routes'
-import { getDesktopIntegrationTypes } from '@/utils/get-desktop-integration-types'
 import useReactResponsive from '@/components/hooks/use-react-responsive'
 import { BackToAppsSection } from './app-sections'
 import AppContent from './app-content'
 import { selectAppDetailState, selectAppDetailData, selectAppDetailLoading } from '@/selector/app-detail'
-import { container } from './__styles__/app-detail'
 import FadeIn from '../../../styles/fade-in'
-import { Loader } from '@reapit/elements'
+import {
+  Button,
+  elMb3,
+  elMb8,
+  FlexContainer,
+  Icon,
+  Loader,
+  PageContainer,
+  SecondaryNav,
+  SecondaryNavContainer,
+  SecondaryNavItem,
+  SmallText,
+  Subtitle,
+  Tabs,
+  Title,
+} from '@reapit/elements'
+import { navigate, openNewPage, ExternalPages } from '../../../utils/navigation'
+import Routes from '@/constants/routes'
+import { onCloseSubmitAppModal, onShowSubmitAppModal } from '../apps/apps'
+import { SubmitAppWizardModal } from '@/components/ui/submit-app-wizard'
+import ErrorBoundary from '@/components/hocs/error-boundary'
+import { AppPipeline } from './app-pipeline'
 
 export type AppDetailProps = {}
 
@@ -42,34 +58,18 @@ export const onBackToAppsButtonClick = (history: History) => () => {
   history.push(routes.APPS)
 }
 
-const AppDetailV8: React.FC<AppDetailProps> = () => {
+const AppDetailsTabs = ({ tab }: { tab: string }) => {
   const history = useHistory()
   const { isMobile } = useReactResponsive()
-
   const appDetailState = useSelector(selectAppDetailState)
   const appDetailData = useSelector(selectAppDetailData)
-  const isLoadingAppDetail = useSelector(selectAppDetailLoading)
-  const isLoadingInstallations = useSelector(selectInstallationsListLoading)
-  const desktopIntegrationTypes = useSelector(selectIntegrationTypes) as DesktopIntegrationTypeModel[]
-  const installationsData = useSelector(selectInstallationsListData)
-  const unfetch = !appDetailState?.data || !installationsData
-  const userDesktopIntegrationTypes = getDesktopIntegrationTypes(
-    appDetailData.desktopIntegrationTypeIds || [],
-    desktopIntegrationTypes,
-  )
 
-  if (isLoadingAppDetail || isLoadingInstallations || unfetch) {
-    return <Loader label="Loading" fullPage />
-  }
-
-  return (
-    <Grid className={container}>
-      <GridItem className="is-one-quarter">
-        <FadeIn>
-          <DeveloperAside desktopIntegrationTypes={userDesktopIntegrationTypes} appDetailState={appDetailState} />
-        </FadeIn>
-      </GridItem>
-      <GridItem className="is-three-quarters">
+  switch (tab) {
+    case 'pipelines':
+      return <AppPipeline appDetailData={appDetailData} />
+    default:
+    case 'details':
+      return (
         <Section isFlex isFlexColumn hasBackground isFullHeight hasPadding>
           <FadeIn>
             <AppHeader appDetailData={appDetailData} />
@@ -83,8 +83,89 @@ const AppDetailV8: React.FC<AppDetailProps> = () => {
             </FadeIn>
           )}
         </Section>
-      </GridItem>
-    </Grid>
+      )
+  }
+}
+
+const AppDetailV8: React.FC<AppDetailProps> = () => {
+  const appDetailState = useSelector(selectAppDetailState)
+  const isLoadingAppDetail = useSelector(selectAppDetailLoading)
+  const isLoadingInstallations = useSelector(selectInstallationsListLoading)
+  const installationsData = useSelector(selectInstallationsListData)
+  const unfetch = !appDetailState?.data || !installationsData
+  const [tab, setTab] = useState<string>('details')
+  const location = useLocation()
+  const history = useHistory()
+  const { pathname } = location
+  const [submitAppModalVisible, setSubmitAppModalVisible] = useState<boolean>(false)
+
+  if (isLoadingAppDetail || isLoadingInstallations || unfetch) {
+    return <Loader label="Loading" fullPage />
+  }
+
+  return (
+    <ErrorBoundary>
+      <FlexContainer isFlexAuto>
+        <SecondaryNavContainer>
+          <Title>Apps</Title>
+          <SecondaryNav className={elMb8}>
+            <SecondaryNavItem
+              onClick={navigate(history, Routes.APPS)}
+              active={pathname === Routes.APPS && !submitAppModalVisible}
+            >
+              My Apps
+            </SecondaryNavItem>
+            <SecondaryNavItem onClick={onShowSubmitAppModal(setSubmitAppModalVisible)} active={submitAppModalVisible}>
+              Create New App
+            </SecondaryNavItem>
+          </SecondaryNav>
+          <Icon className={elMb3} icon="myAppsInfographic" iconSize="large" />
+          <Subtitle>Apps Documentation</Subtitle>
+          <SmallText hasGreyText>
+            This is the dashboard for your applications created using the Reapit Foundations platform. If you have not
+            created an app before or you need help, please take the time to view our getting started guide.
+          </SmallText>
+          <Button className={elMb3} intent="neutral" onClick={openNewPage(ExternalPages.developerPortalDocs)}>
+            View Docs
+          </Button>
+        </SecondaryNavContainer>
+        <PageContainer>
+          <Tabs
+            isFullWidth
+            name="app_tabs"
+            onChange={(event) =>
+              // @ts-ignore
+              setTab(event.target.value)
+            }
+            options={[
+              {
+                id: 'details',
+                value: 'details',
+                text: 'Details',
+                isChecked: tab === 'details',
+              },
+              {
+                id: 'permissions',
+                value: 'permissions',
+                text: 'Permissions',
+                isChecked: tab === 'permissions',
+              },
+              {
+                id: 'pipelines',
+                value: 'pipelines',
+                text: 'Pipelines',
+                isChecked: tab === 'pipelines',
+              },
+            ]}
+          ></Tabs>
+          <AppDetailsTabs tab={tab} />
+        </PageContainer>
+        <SubmitAppWizardModal
+          visible={submitAppModalVisible}
+          onClose={onCloseSubmitAppModal(setSubmitAppModalVisible)}
+        />
+      </FlexContainer>
+    </ErrorBoundary>
   )
 }
 
