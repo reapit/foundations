@@ -71,7 +71,7 @@ describe('onHandleSubmit', () => {
 
     await onSubmit({ name, officeIds, status: true })
 
-    expect(error).toHaveBeenCalledWith(toastMessages.OFFICE_ALREADY_ASSIGNED_EDIT)
+    expect(error).toHaveBeenCalledWith(toastMessages.OFFICE_ALREADY_ASSIGNED_EDIT, 10000)
   })
 
   it('should correctly call success', async () => {

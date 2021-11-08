@@ -13,7 +13,6 @@ import { elFadeIn, elMb11, Pagination, PersistantNotification, RowProps, Table, 
 import { OfficeModel } from '@reapit/foundations-ts-definitions'
 import { cx } from '@linaria/core'
 import { useOrgId } from '../../../utils/use-org-id'
-// import { fetcherWithClientHeader } from '../../../utils/fetcher'
 
 export interface OfficeGroupWithOfficesModel extends OfficeGroupModel {
   offices?: OfficeModel[]

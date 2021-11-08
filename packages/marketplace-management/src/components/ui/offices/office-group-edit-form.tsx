@@ -58,7 +58,7 @@ export const onHandleSubmit =
     officeGroup: OfficeGroupModel,
     orgId: string,
     success: (message: string) => void,
-    error: (message: string) => void,
+    error: (message: string, delay?: number) => void,
   ) =>
   async (params: EditOfficeGroupSchema) => {
     const { name, officeIds: listId } = params
@@ -67,7 +67,7 @@ export const onHandleSubmit =
     const response = await updateOfficeGroup({ name, officeIds, status }, orgId, officeGroup?.id || '')
 
     if (response && response === OFFICE_IN_USE_ERROR) {
-      return error(toastMessages.OFFICE_ALREADY_ASSIGNED_EDIT)
+      return error(toastMessages.OFFICE_ALREADY_ASSIGNED_EDIT, 10000)
     }
 
     if (response) {
