@@ -950,6 +950,9 @@ export interface UserInfoModel {
    * The List of groups that the user making this request is a member of
    */
   userGroups?: string[]
+
+  /** Client code for the user */
+  userCustomerId?: string
 }
 /**
  * Representation of a user

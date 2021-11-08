@@ -121,7 +121,7 @@ const OfficesTab: FC = () => {
   if (!orgClientId)
     return (
       <PersistantNotification isFullWidth isExpanded intent="secondary" isInline>
-        No organisation selected. You need to select an organisation to view ofices.
+        No organisation selected. You need to select an organisation to view offices.
       </PersistantNotification>
     )
 
