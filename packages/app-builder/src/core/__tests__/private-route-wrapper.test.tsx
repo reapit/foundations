@@ -1,6 +1,7 @@
 import * as React from 'react'
 import { shallow } from 'enzyme'
 import { PrivateRouteWrapper } from '../private-route-wrapper'
+import { ReapitConnectBrowserSession } from '@reapit/connect-session'
 
 const locationMock = { pathname: '/test' }
 
@@ -19,6 +20,18 @@ jest.mock('@reapit/connect-session', () => ({
 
 describe('PrivateRouter', () => {
   it('should match a snapshot', () => {
-    expect(shallow(<PrivateRouteWrapper />)).toMatchSnapshot()
+    expect(
+      shallow(
+        <PrivateRouteWrapper
+          reapitConnectBrowserSession={
+            new ReapitConnectBrowserSession({
+              connectClientId: '',
+              connectOAuthUrl: '',
+              connectUserPoolId: '',
+            })
+          }
+        />,
+      ),
+    ).toMatchSnapshot()
   })
 })

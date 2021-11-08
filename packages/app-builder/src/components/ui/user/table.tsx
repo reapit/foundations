@@ -8,8 +8,9 @@ import { TableProps, Table as ETable } from './ejectable/table'
 import { useSubObjects } from '@/components/hooks/objects/use-sub-objects'
 import { useObjectSpecials } from '@/components/hooks/objects/use-object-specials'
 import { useObjectSearch } from '@/components/hooks/objects/use-object-search'
-import { useObject } from '@/components/hooks/objects/use-object'
-import { getAvailableIntegrationsForObject } from '@/core/desktop-integration'
+import { getAvailableIntegrationsForArgs } from '@/core/desktop-integration'
+import { useObjectList } from '@/components/hooks/objects/use-object-list'
+import { useIntrospection } from '@/components/hooks/use-introspection'
 
 const defaultProps = {}
 
@@ -27,8 +28,9 @@ const Table = (props: TableProps) => {
 const ContainerSettings = Container.craft.related.toolbar
 
 export const IntegrationLanding = ({ typeName }: { typeName: string | undefined }) => {
-  const { object } = useObject(typeName)
-  const integrations = object && getAvailableIntegrationsForObject(object)
+  const { args } = useObjectList(typeName)
+  const { data } = useIntrospection()
+  const integrations = args && data && getAvailableIntegrationsForArgs(args, data)
   const propKey = 'integrationLandingType'
 
   if (!integrations || !integrations.length) {

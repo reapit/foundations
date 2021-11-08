@@ -1,7 +1,7 @@
 import { Resolver, Query, Arg, Mutation, ID, Authorized, Ctx } from 'type-graphql'
 
 import { App } from '../entities/app'
-import { getApp, createApp, updateApp, getDomainApps, getUnqDomain } from '../ddb'
+import { getApp, createApp, updateApp, getDomainApps, getUnqDomain, DDBApp } from '../ddb'
 import { Page } from '../entities/page'
 import { ejectApp } from '../eject'
 import { Context } from '../types'
@@ -44,6 +44,7 @@ export const defaultNodes = [
 const getAppUrl = (apiUrl: string, subdomain: string) => {
   const url = new URL(apiUrl)
   url.hostname = `${subdomain}.${url.hostname}`
+  url.protocol = 'https:'
   return url.toString()
 }
 
@@ -56,16 +57,27 @@ const getObjectScopes = (objectName: string, access: Access) => {
   return `agencyCloud/${objectName.toLowerCase()}.${access}`
 }
 
+// remove empty strings from object
+const removeEmptyStringsFromObject = (obj: any) => {
+  const copy = { ...obj }
+  Object.keys(obj).forEach((key) => {
+    if (obj[key] === '') {
+      delete copy[key]
+    }
+  })
+  return copy
+}
+
 const updateMarketplaceAppScopes = async (appId: string, scopes: string[], accessToken: string) => {
   const marketplaceApp = await getMarketplaceApp(appId, accessToken)
   const appRevision = {
     ...marketplaceApp,
     scopes,
   }
-  return createMarketplaceAppRevision(appId, appRevision, accessToken)
+  return createMarketplaceAppRevision(appId, removeEmptyStringsFromObject(appRevision), accessToken)
 }
 
-const ensureScopes = (app: Omit<App, 'clientId'>, accessToken: string) => {
+const ensureScopes = (app: DDBApp, accessToken: string) => {
   const nodes = app.pages.map((page) => page.nodes).flat()
   const requiredAccess: { objectName: string; access: Access[] }[] = nodes
     .map((node) => {
@@ -102,19 +114,24 @@ export class AppResolver {
 
   @Authorized()
   @Query(() => [App], { name: '_getUserApps' })
-  async getUserApps(@Arg('userId') userId: string, @Ctx() ctx: Context) {
-    const apps = await getDeveloperApps(userId, ctx.accessToken)
+  async getUserApps(@Arg('developerId') developerId: string, @Ctx() ctx: Context): Promise<App[]> {
+    const apps = await getDeveloperApps(developerId, ctx.accessToken)
     if (!apps) {
       return []
     }
     const appBuilderApps = await Promise.all(
-      apps?.map(async ({ id, externalId }) => {
+      apps?.map(async ({ id, externalId, name }) => {
         if (!id) {
           return undefined
         }
+        const appBuilderApp = await getApp(id)
+        if (!appBuilderApp) {
+          return undefined
+        }
         return {
-          ...(await getApp(id)),
-          clientId: externalId,
+          ...appBuilderApp,
+          name: name as string,
+          clientId: externalId as string,
         }
       }),
     )
@@ -123,13 +140,14 @@ export class AppResolver {
   }
 
   @Query(() => App, { nullable: true, name: '_getApp' })
-  async getApp(@Arg('idOrSubdomain') idOrSubdomain: string, @Ctx() context: Context) {
+  async getApp(@Arg('idOrSubdomain') idOrSubdomain: string, @Ctx() context: Context): Promise<App> {
     const app = (await getApp(idOrSubdomain)) || (await getDomainApps(idOrSubdomain))[0]
     if (app) {
-      const { externalId } = await getMarketplaceApp(app.id, context.accessToken)
+      const { externalId, name } = await getMarketplaceApp(app.id, context.accessToken)
       return {
         ...app,
-        clientId: externalId,
+        name: name as string,
+        clientId: externalId as string,
       }
     }
     throw new Error(`App ${idOrSubdomain} not found`)
@@ -173,7 +191,8 @@ export class AppResolver {
 
     return {
       ...app,
-      clientId: externalId,
+      name: name as string,
+      clientId: externalId as string,
     }
   }
 
@@ -182,21 +201,24 @@ export class AppResolver {
   async updateApp(
     @Ctx() context: Context,
     @Arg('id', () => ID) id: string,
-    @Arg('name', { nullable: true }) name?: string,
     @Arg('pages', () => [Page], { nullable: true }) pages?: Array<Page>,
-  ) {
+  ): Promise<App> {
     const app = await getApp(id)
     if (!app) {
       throw new Error('App not found')
-    }
-    if (name) {
-      app.name = name
     }
     if (pages) {
       app.pages = pages
     }
     await ensureScopes(app, context.accessToken)
-    return updateApp(app)
+    const newApp = await updateApp(app)
+
+    const { externalId, name } = await getMarketplaceApp(id, context.accessToken)
+    return {
+      ...newApp,
+      name: name as string,
+      clientId: externalId as string,
+    }
   }
 
   @Authorized()
@@ -206,6 +228,14 @@ export class AppResolver {
     if (!app) {
       throw new Error('App not found')
     }
-    return ejectApp(app as App, ctx)
+    const { externalId, name } = await getMarketplaceApp(id, ctx.accessToken)
+    return ejectApp(
+      {
+        ...app,
+        name: name as string,
+        clientId: externalId as string,
+      },
+      ctx,
+    )
   }
 }

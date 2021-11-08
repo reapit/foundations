@@ -11,11 +11,13 @@ import { getIdFromCreateHeaders } from '../utils/get-id-from-create-headers'
 
 const { platformApiUrl } = config
 
+const API_VERSION = 'latest'
+
 export const getDeveloperApps = async (developerId: string, accessToken: string) => {
   const res = await fetch(`${platformApiUrl}/marketplace/apps?PageSize=100&developerId=${developerId}`, {
     headers: {
       Authorization: `Bearer ${accessToken}`,
-      'api-version': '2020-01-31',
+      'api-version': API_VERSION,
     },
   })
   const data: AppSummaryModelPagedResult = await res.json()
@@ -33,13 +35,13 @@ export const createMarketplaceAppRevision = async (
     headers: {
       Authorization: `Bearer ${accessToken}`,
       'Content-Type': 'application/json',
-      'api-version': '2020-01-31',
+      'api-version': API_VERSION,
     },
     body: JSON.stringify(appRevision),
   })
   if (!res.ok) {
     const data: ProblemDetails = await res.json()
-    throw new Error(data.detail)
+    throw new Error(data.description)
   }
   return true
 }
@@ -48,7 +50,7 @@ export const getMarketplaceApp = async (appId: string, accessToken: string) => {
   const res = await fetch(`${platformApiUrl}/marketplace/apps/${appId}`, {
     headers: {
       Authorization: `Bearer ${accessToken}`,
-      'api-version': '2020-01-31',
+      'api-version': API_VERSION,
     },
   })
   const data: AppDetailModel = await res.json()
@@ -67,7 +69,7 @@ export const createMarketplaceApp = async (app: CreateAppModel, accessToken: str
     method: 'POST',
     headers: {
       Authorization: `Bearer ${accessToken}`,
-      'api-version': '2020-01-31',
+      'api-version': API_VERSION,
       'Content-Type': 'application/json',
     },
     body: JSON.stringify(app),
@@ -75,7 +77,7 @@ export const createMarketplaceApp = async (app: CreateAppModel, accessToken: str
 
   if (!res.ok) {
     const data: ProblemDetails = await res.json()
-    throw new Error(data.detail)
+    throw new Error(data.description)
   }
 
   const appId = getIdFromCreateHeaders({

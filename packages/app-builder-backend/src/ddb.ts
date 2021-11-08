@@ -63,14 +63,13 @@ export const ensureTables = async () => {
   return Promise.all(tables.map(ensureTable))
 }
 
-type DDBApp = Omit<App, 'clientId'>
+export type DDBApp = Omit<Omit<App, 'clientId'>, 'name'>
 
 const ddbItemToApp = (item: { [key: string]: AttributeValue }): DDBApp => {
-  const { id, name, createdAt, updatedAt, pages, subdomain } = item
+  const { id, createdAt, updatedAt, pages, subdomain } = item
 
   return {
     id: id?.S as string,
-    name: name?.S as string,
     createdAt: new Date(parseInt(createdAt?.N as string)),
     updatedAt: new Date(parseInt(updatedAt?.N as string)),
     subdomain: subdomain?.S as string,
@@ -137,7 +136,6 @@ export const createApp = async (id: string, name: string, subdomain: string, pag
 
   return {
     id,
-    name,
     subdomain,
     createdAt: date,
     updatedAt: date,
@@ -151,7 +149,6 @@ export const updateApp = async (app: DDBApp): Promise<DDBApp> => {
     TableName: APPS_TABLE_NAME,
     Item: {
       id: { S: app.id },
-      name: { S: app.name },
       createdAt: { N: app.createdAt.getTime().toString() },
       updatedAt: { N: date.getTime().toString() },
       pages: { S: JSON.stringify(app.pages) },

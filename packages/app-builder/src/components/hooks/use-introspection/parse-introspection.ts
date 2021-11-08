@@ -57,12 +57,19 @@ export const parseIntrospectionResult = (introspection: IntrospectionQuery): Int
 
     const acKeyField = object.fields
       .map((field) => {
-        const acKey = field?.description?.split('@acKey(')[1].split(')')[0]
-        if (acKey) {
-          return { ...field, acKey }
+        const { description } = field
+        if (!description) {
+          return undefined
         }
+        if (description.includes('@acKey')) {
+          return {
+            ...field,
+            acKey: description.split('@acKey(')[1].split(')')[0],
+          }
+        }
+        return undefined
       })
-      .filter(notEmpty)[0]
+      .filter(notEmpty)[0] as IntrospectionField & { acKey: string }
 
     return {
       object,

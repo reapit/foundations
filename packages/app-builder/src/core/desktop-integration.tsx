@@ -1,3 +1,4 @@
+import { ParsedArg } from '@/components/hooks/use-introspection/query-generators'
 import { App } from '../components/hooks/apps/fragments'
 import { notEmpty } from '../components/hooks/use-introspection/helpers'
 import { IntrospectionResult } from '../components/hooks/use-introspection/parse-introspection'
@@ -23,7 +24,7 @@ enum IntegrationType {
   OutboundEmail = 'OutboundEmail',
 }
 
-enum DesktopContext {
+export enum DesktopContext {
   prpCode = 'prpCode',
   appCode = 'appCode',
   lldCode = 'lldCode',
@@ -78,9 +79,18 @@ const uppercaseFirstLetter = (str: string) => {
   return str.charAt(0).toUpperCase() + str.slice(1)
 }
 
-// get available integration types given an object type
-export const getAvailableIntegrationsForObject = (object: IntrospectionResult): IntegrationType[] => {
-  const acKey = object.acKeyField?.acKey as DesktopContext
+// get available integration types given args type
+export const getAvailableIntegrationsForArgs = (
+  args: ParsedArg[],
+  allTypes: IntrospectionResult[],
+): IntegrationType[] => {
+  if (args.length !== 1) {
+    return []
+  }
+  const [arg] = args
+  const idOfType = allTypes.find(({ object: { name } }) => name === arg.idOfType)
+  const acKey = idOfType?.acKeyField?.acKey
+
   return Object.entries(ProvidedContext)
     .map(([key, value]) => {
       if (value === acKey) {

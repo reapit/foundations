@@ -37,25 +37,26 @@ import formatDistance from 'date-fns/formatDistance'
 import { useCreateApp } from '../hooks/apps/use-create-app'
 import { useGetUserApps } from '../hooks/apps/use-user-apps'
 import { useEjectApp } from '../hooks/apps/use-eject-app'
+import { GraphQLError } from 'graphql'
 
-const getUserId = async () => {
+const getDeveloperId = async () => {
   const session = await reapitConnectBrowserSession.connectSession()
-  const userId = session?.loginIdentity.developerId
-  return userId || undefined
+  const developerId = session?.loginIdentity.developerId
+  return developerId || undefined
 }
 
-export const useUserId = () => {
-  const [userId, setUserId] = React.useState<string | undefined>(undefined)
+export const useDeveloperId = () => {
+  const [developerId, setDeveloperId] = React.useState<string | undefined>(undefined)
   React.useEffect(() => {
-    getUserId().then(setUserId)
+    getDeveloperId().then(setDeveloperId)
   }, [])
-  return userId
+  return developerId
 }
 
 const CreateNew = ({ className }: { className?: string }) => {
   const { createApp, loading } = useCreateApp()
   const { success, error } = useSnack()
-  const userId = useUserId()
+  const developerId = useDeveloperId()
   const history = useHistory()
 
   return (
@@ -68,7 +69,7 @@ const CreateNew = ({ className }: { className?: string }) => {
         createApp({
           variables: {
             name,
-            userId,
+            developerId,
           },
         })
           .then(
@@ -81,8 +82,8 @@ const CreateNew = ({ className }: { className?: string }) => {
               history.push(id)
             },
           )
-          .catch(() => {
-            error('Failed to create app')
+          .catch((e: GraphQLError) => {
+            error(`Failed to create app: ${e.message}`)
           })
       }}
     >
@@ -100,8 +101,8 @@ const generateAppUrl = (subdomain: string) => {
 }
 
 const AppSelector = () => {
-  const userId = useUserId()
-  const { loading, error, data } = useGetUserApps(userId)
+  const developerId = useDeveloperId()
+  const { loading, error, data } = useGetUserApps(developerId)
   const history = useHistory()
   const { loading: ejectLoading, ejectApp } = useEjectApp()
   if (error) return <div>Error</div>

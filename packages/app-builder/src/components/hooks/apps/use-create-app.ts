@@ -1,4 +1,4 @@
-import { useUserId } from '@/components/pages/app-select'
+import { useDeveloperId } from '@/components/pages/app-select'
 import { gql, useMutation } from '@apollo/client'
 import { AppFragment } from './fragments'
 import { GetUserAppsQuery } from './use-user-apps'
@@ -13,7 +13,7 @@ const CreateAppMutation = gql`
 `
 
 export const useCreateApp = () => {
-  const developerId = useUserId()
+  const developerId = useDeveloperId()
   const [createApp, { loading, error }] = useMutation(CreateAppMutation, {
     refetchQueries: [{ query: GetUserAppsQuery, variables: { developerId } }],
   })
