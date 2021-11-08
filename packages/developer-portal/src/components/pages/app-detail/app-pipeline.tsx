@@ -1,3 +1,6 @@
+import { createAppPipeline } from '@/actions/apps'
+import errorMessages from '@/constants/error-messages'
+import { yupResolver } from '@hookform/resolvers/yup'
 import { cx } from '@linaria/core'
 import {
   BodyText,
@@ -7,6 +10,7 @@ import {
   FlexContainer,
   FormLayout,
   Input,
+  InputAddOn,
   InputGroup,
   InputWrap,
   InputWrapFull,
@@ -23,10 +27,16 @@ import {
 } from '@reapit/elements'
 import {
   AppDetailModel,
+  PackageManagerEnum,
   PipelineModelInterface,
   PipelineRunnerModelInterface,
 } from '@reapit/foundations-ts-definitions'
+import { httpsUrlRegex } from '@reapit/utils-common'
 import React, { useState } from 'react'
+import { useForm } from 'react-hook-form'
+import { mixed, object, string } from 'yup'
+import { Dispatch as ReduxDispatch } from 'redux'
+import { useDispatch } from 'react-redux'
 
 const NoPipeline = () => {
   const [modalOpen, setModalOpen] = useState<boolean>(false)
@@ -44,11 +54,33 @@ const NoPipeline = () => {
   )
 }
 
+export const pipelineCreateFormHandle = (dispatch: ReduxDispatch) => (values: PipelineModelInterface) => {
+  dispatch(createAppPipeline(values))
+}
+
 const PipelineCreationModal = ({ open, onModalClose }: { open: boolean; onModalClose: () => void }) => {
-  const [repository, setRepository] = useState<string>('')
-  const [packageManager, setPackageManager] = useState<string>('yarn')
-  const [buildCommand, setBuildCommand] = useState<string>('build')
-  const [testCommand, setTestCommand] = useState<string>('')
+  const schema = object().shape<PipelineModelInterface>({
+    repository: string()
+      .trim()
+      .required(errorMessages.FIELD_REQUIRED)
+      .matches(httpsUrlRegex, 'Should be a secure https url'),
+    buildCommand: string().trim().required('A build command is required'),
+    packageManager: mixed().oneOf(Object.values(PackageManagerEnum)),
+  })
+
+  const dispatch = useDispatch()
+
+  const {
+    register,
+    handleSubmit,
+    formState: { errors },
+  } = useForm<PipelineModelInterface>({
+    resolver: yupResolver(schema),
+    defaultValues: {
+      buildCommand: 'build',
+      packageManager: PackageManagerEnum.YARN,
+    },
+  })
 
   return (
     <Modal isOpen={open} onModalClose={onModalClose}>
@@ -57,69 +89,41 @@ const PipelineCreationModal = ({ open, onModalClose }: { open: boolean; onModalC
         Sed lobortis egestas tellus placerat condimentum. Orci varius natoque penatibus et magnis dis parturient montes,
         nascetur ridiculus mus.
       </BodyText>
-      <form
-        onSubmit={(event) => {
-          event.preventDefault()
-
-          console.log('values', {
-            repository,
-            buildCommand,
-            testCommand,
-            packageManager,
-          })
-        }}
-      >
+      <form onSubmit={handleSubmit(pipelineCreateFormHandle(dispatch))}>
         <FormLayout>
           <InputWrap>
             <InputGroup>
               <Label>Github Repository</Label>
-              <Input
-                value={repository}
-                onChange={(event) => {
-                  setRepository(event.target.value)
-                }}
-              />
+              <Input {...register('repository')} />
+              {errors.repository?.message && <InputAddOn intent="danger">{errors.repository.message}</InputAddOn>}
             </InputGroup>
           </InputWrap>
           <InputWrap>
             <InputGroup>
               <Label>Package Manager</Label>
               <Label>
-                <Input
-                  name="package_manager"
-                  type="radio"
-                  value="yarn"
-                  checked={packageManager === 'yarn'}
-                  onChange={() => {
-                    setPackageManager('yarn')
-                  }}
-                />{' '}
-                Yarn
+                <Input {...register('packageManager')} type="radio" value="yarn" /> Yarn
               </Label>
               <Label>
-                <Input
-                  name="package_manager"
-                  type="radio"
-                  value="npm"
-                  checked={packageManager === 'npm'}
-                  onChange={() => {
-                    setPackageManager('npm')
-                  }}
-                />{' '}
-                Npm
+                <Input {...register('packageManager')} type="radio" value="npm" /> Npm
               </Label>
+              {errors.packageManager?.message && (
+                <InputAddOn intent="danger">{errors.packageManager.message}</InputAddOn>
+              )}
             </InputGroup>
           </InputWrap>
           <InputWrap>
             <InputGroup>
               <Label>Build Command</Label>
-              <Input value={buildCommand} onChange={(event) => setBuildCommand(event.target.value)} />
+              <Input {...register('buildCommand')} />
+              {errors.buildCommand?.message && <InputAddOn intent="danger">{errors.buildCommand.message}</InputAddOn>}
             </InputGroup>
           </InputWrap>
           <InputWrap>
             <InputGroup>
               <Label>Test Command</Label>
-              <Input value={testCommand} onChange={(event) => setTestCommand(event.target.value)} />
+              <Input {...register('testCommand')} />
+              {errors.testCommand?.message && <InputAddOn intent="danger">{errors.testCommand.message}</InputAddOn>}
             </InputGroup>
           </InputWrap>
           <InputWrapFull>
