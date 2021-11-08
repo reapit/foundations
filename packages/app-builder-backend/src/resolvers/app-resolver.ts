@@ -57,17 +57,6 @@ const getObjectScopes = (objectName: string, access: Access) => {
   return `agencyCloud/${objectName.toLowerCase()}.${access}`
 }
 
-// remove empty strings from object
-const cleanObj = (obj: any) => {
-  const copy = { ...obj }
-  Object.keys(obj).forEach((key) => {
-    if (obj[key] === '') {
-      delete copy[key]
-    }
-  })
-  return copy
-}
-
 // compare array of strings
 const compareArrays = (a: string[], b: string[]) => {
   if (a.length !== b.length) {
