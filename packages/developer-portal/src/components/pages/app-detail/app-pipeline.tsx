@@ -45,6 +45,11 @@ const NoPipeline = () => {
 }
 
 const PipelineCreationModal = ({ open, onModalClose }: { open: boolean; onModalClose: () => void }) => {
+  const [repository, setRepository] = useState<string>('')
+  const [packageManager, setPackageManager] = useState<string>('yarn')
+  const [buildCommand, setBuildCommand] = useState<string>('build')
+  const [testCommand, setTestCommand] = useState<string>('')
+
   return (
     <Modal isOpen={open} onModalClose={onModalClose}>
       <Title>Create Pipeline</Title>
@@ -52,35 +57,69 @@ const PipelineCreationModal = ({ open, onModalClose }: { open: boolean; onModalC
         Sed lobortis egestas tellus placerat condimentum. Orci varius natoque penatibus et magnis dis parturient montes,
         nascetur ridiculus mus.
       </BodyText>
-      <form>
+      <form
+        onSubmit={(event) => {
+          event.preventDefault()
+
+          console.log('values', {
+            repository,
+            buildCommand,
+            testCommand,
+            packageManager,
+          })
+        }}
+      >
         <FormLayout>
           <InputWrap>
             <InputGroup>
               <Label>Github Repository</Label>
-              <Input />
+              <Input
+                value={repository}
+                onChange={(event) => {
+                  setRepository(event.target.value)
+                }}
+              />
             </InputGroup>
           </InputWrap>
           <InputWrap>
             <InputGroup>
               <Label>Package Manager</Label>
               <Label>
-                <Input name="package_manager" type="radio" value="yarn" checked /> Yarn
+                <Input
+                  name="package_manager"
+                  type="radio"
+                  value="yarn"
+                  checked={packageManager === 'yarn'}
+                  onChange={() => {
+                    setPackageManager('yarn')
+                  }}
+                />{' '}
+                Yarn
               </Label>
               <Label>
-                <Input name="package_manager" type="radio" value="npm" /> Npm
+                <Input
+                  name="package_manager"
+                  type="radio"
+                  value="npm"
+                  checked={packageManager === 'npm'}
+                  onChange={() => {
+                    setPackageManager('npm')
+                  }}
+                />{' '}
+                Npm
               </Label>
             </InputGroup>
           </InputWrap>
           <InputWrap>
             <InputGroup>
               <Label>Build Command</Label>
-              <Input />
+              <Input value={buildCommand} onChange={(event) => setBuildCommand(event.target.value)} />
             </InputGroup>
           </InputWrap>
           <InputWrap>
             <InputGroup>
-              <Label>Tests</Label>
-              <Input type="checkbox" />
+              <Label>Test Command</Label>
+              <Input value={testCommand} onChange={(event) => setTestCommand(event.target.value)} />
             </InputGroup>
           </InputWrap>
           <InputWrapFull>
