@@ -65,14 +65,25 @@ const compareArrays = (a: string[], b: string[]) => {
   return a.every((item) => b.includes(item))
 }
 
+// remove empty strings from object
+const removeEmpty = (obj: any) => {
+  const copy = { ...obj }
+  Object.keys(copy).forEach((key) => {
+    if (copy[key] === '') {
+      delete copy[key]
+    }
+  })
+  return copy
+}
+
 const updateMarketplaceAppScopes = async (appId: string, scopes: string[], accessToken: string) => {
   const marketplaceApp = await getMarketplaceApp(appId, accessToken)
   const existingScopes = marketplaceApp.scopes?.map(({ name }) => name).filter(notEmpty) || []
   if (!compareArrays(existingScopes, scopes)) {
-    const appRevision = {
+    const appRevision = removeEmpty({
       ...marketplaceApp,
       scopes,
-    }
+    })
     return createMarketplaceAppRevision(appId, appRevision, accessToken)
   }
 }

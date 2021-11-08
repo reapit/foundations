@@ -1,9 +1,8 @@
-import fetch from 'node-fetch'
+import { fetcher, FetchError, fetcherWithReturnHeader } from '@reapit/utils-common'
 import config from '../config.json'
 import {
   AppSummaryModelPagedResult,
   CreateAppModel,
-  ProblemDetails,
   AppDetailModel,
   CreateAppRevisionModel,
   ApproveModel,
@@ -14,16 +13,25 @@ const { platformApiUrl } = config
 
 const API_VERSION = 'latest'
 
-export const getDeveloperApps = async (developerId: string, accessToken: string) => {
-  const res = await fetch(`${platformApiUrl}/marketplace/apps?PageSize=100&developerId=${developerId}`, {
-    headers: {
-      Authorization: `Bearer ${accessToken}`,
-      'api-version': API_VERSION,
-    },
-  })
-  const data: AppSummaryModelPagedResult = await res.json()
+const getHeaders = (accessToken: string) => ({
+  'Content-Type': 'application/json',
+  'api-version': API_VERSION,
+  Authorization: `Bearer ${accessToken}`,
+})
 
+export const getDeveloperApps = async (developerId: string, accessToken: string) => {
+  const data: AppSummaryModelPagedResult = await fetcher({
+    api: platformApiUrl,
+    url: `/marketplace/apps?PageSize=100&developerId=${developerId}`,
+    headers: getHeaders(accessToken),
+    method: 'GET',
+  })
   return data.data
+}
+
+// is FetchError typeguard
+const isFetchError = (error: any): error is FetchError => {
+  return error.name === 'FetchError'
 }
 
 export const createMarketplaceAppRevision = async (
@@ -31,27 +39,21 @@ export const createMarketplaceAppRevision = async (
   appRevision: CreateAppRevisionModel,
   accessToken: string,
 ) => {
-  const res = await fetch(`${platformApiUrl}/marketplace/apps/${appId}/revisions`, {
+  const respHeaders = await fetcherWithReturnHeader<CreateAppRevisionModel>({
+    api: platformApiUrl,
+    url: `/marketplace/apps/${appId}/revisions`,
+    headers: getHeaders(accessToken),
     method: 'POST',
-    headers: {
-      Authorization: `Bearer ${accessToken}`,
-      'Content-Type': 'application/json',
-      'api-version': API_VERSION,
-    },
-    body: JSON.stringify(appRevision),
-  })
-  if (!res.ok) {
-    const data: ProblemDetails = await res.json()
-    console.log(data)
-    throw new Error(data.description)
-  }
-  const revisionId = getIdFromCreateHeaders({
-    headers: iterableToDictionary(res.headers),
+    body: appRevision,
   })
 
-  if (!revisionId) {
+  if (isFetchError(respHeaders)) {
     throw new Error('Failed to get revision id from headers')
   }
+
+  const revisionId = getIdFromCreateHeaders({
+    headers: foreachableToDictionary(respHeaders),
+  })
 
   return revisionId
 }
@@ -62,57 +64,50 @@ export const approveMarketplaceAppRevision = async (
   approval: ApproveModel,
   accessToken: string,
 ) => {
-  const res = await fetch(`${platformApiUrl}/marketplace/apps/${appId}/revisions/${revisionId}/approve`, {
+  const res = await fetcher({
+    api: platformApiUrl,
+    url: `/marketplace/apps/${appId}/revisions/${revisionId}/approve`,
+    headers: getHeaders(accessToken),
     method: 'POST',
-    headers: {
-      Authorization: `Bearer ${accessToken}`,
-      'api-version': API_VERSION,
-    },
-    body: JSON.stringify(approval),
+    body: approval,
   })
-  if (!res.ok) {
-    const data: ProblemDetails = await res.json()
-    throw new Error(data.description)
-  }
-  return false
+  return !!res
 }
 
 export const getMarketplaceApp = async (appId: string, accessToken: string) => {
-  const res = await fetch(`${platformApiUrl}/marketplace/apps/${appId}`, {
-    headers: {
-      Authorization: `Bearer ${accessToken}`,
-      'api-version': API_VERSION,
-    },
+  const res: AppDetailModel = await fetcher({
+    api: platformApiUrl,
+    url: `/marketplace/apps/${appId}`,
+    headers: getHeaders(accessToken),
+    method: 'GET',
   })
-  const data: AppDetailModel = await res.json()
 
-  return data
+  return res
 }
 
-const iterableToDictionary = <T>(iterable: Iterable<[string, T]>): { [key: string]: T } =>
-  [...iterable].reduce((acc, [key, value]) => {
-    acc[key] = value
-    return acc
-  }, {})
+const foreachableToDictionary = (foreachable: { forEach: (callback: (value: any) => void) => void }) => {
+  const dictionary: { [key: string]: any } = {}
+  foreachable.forEach((value: any) => {
+    dictionary[value[0]] = value[1]
+  })
+  return dictionary
+}
 
 export const createMarketplaceApp = async (app: CreateAppModel, accessToken: string) => {
-  const res = await fetch(`${platformApiUrl}/marketplace/apps`, {
+  const resHeaders = await fetcherWithReturnHeader({
     method: 'POST',
-    headers: {
-      Authorization: `Bearer ${accessToken}`,
-      'api-version': API_VERSION,
-      'Content-Type': 'application/json',
-    },
-    body: JSON.stringify(app),
+    api: platformApiUrl,
+    url: '/marketplace/apps',
+    headers: getHeaders(accessToken),
+    body: app,
   })
 
-  if (!res.ok) {
-    const data: ProblemDetails = await res.json()
-    throw new Error(data.description)
+  if (isFetchError(resHeaders)) {
+    throw new Error('Failed to get revision id from headers')
   }
 
   const appId = getIdFromCreateHeaders({
-    headers: iterableToDictionary(res.headers),
+    headers: foreachableToDictionary(resHeaders),
   })
 
   if (!appId) {
