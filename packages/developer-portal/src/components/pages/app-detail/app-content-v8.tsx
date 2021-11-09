@@ -191,13 +191,13 @@ const AppContent: React.FC<AppContentProps> = ({ appDetailState }) => {
         <ColSplit>
           <InputWrap>
             <Subtitle>Redirect URL(s)*</Subtitle>
-            <BodyText hasGreyText>{appDetailData.redirectUris}</BodyText>
+            <BodyText hasGreyText>{appDetailData.redirectUris?.join(', ')}</BodyText>
           </InputWrap>
         </ColSplit>
         <ColSplit>
           <InputWrap>
             <Subtitle>Sign Out URI(s)*</Subtitle>
-            <BodyText hasGreyText>{appDetailData.signoutUris}</BodyText>
+            <BodyText hasGreyText>{appDetailData.signoutUris?.join(', ')}</BodyText>
           </InputWrap>
         </ColSplit>
       </Grid>
