@@ -24,7 +24,7 @@
     "start": "yarn serverless offline start --stage local",
     "test": "echo '...skipping...'",
     "build": "webpack --config webpack.config.js",
-    "lint": "eslint --cache --ext=ts,tsx,js src cdk/lib --fix",
+    "lint": "eslint --cache --ext=ts,tsx,js src --fix",
     "deploy": "echo 'severless deploy'",
     "release": "echo '...skipping...'",
     "publish": "echo '...skipping...'",
