@@ -5,13 +5,9 @@ import { useSelector } from 'react-redux'
 import { History } from 'history'
 import { selectInstallationsListLoading } from '@/selector/installations'
 import { Section } from '@reapit/elements-legacy'
-import AppHeader from '@/components/pages/app-detail/app-header'
 import routes from '@/constants/routes'
-import useReactResponsive from '@/components/hooks/use-react-responsive'
-import { BackToAppsSection } from './app-sections'
-import AppContent from './app-content'
+import AppContent from './app-content-v8'
 import { selectAppDetailState, selectAppDetailData, selectAppDetailLoading } from '@/selector/app-detail'
-import FadeIn from '../../../styles/fade-in'
 import {
   Button,
   elMb3,
@@ -64,10 +60,7 @@ export const onBackToAppsButtonClick = (history: History) => () => {
 }
 
 const AppDetailsTabs = ({ tab }: { tab: string }) => {
-  const history = useHistory()
-  const { isMobile } = useReactResponsive()
   const appDetailState = useSelector(selectAppDetailState)
-  const appDetailData = useSelector(selectAppDetailData)
 
   switch (tab) {
     case 'pipelines':
@@ -76,17 +69,7 @@ const AppDetailsTabs = ({ tab }: { tab: string }) => {
     case 'details':
       return (
         <Section isFlex isFlexColumn hasBackground isFullHeight hasPadding>
-          <FadeIn>
-            <AppHeader appDetailData={appDetailData} />
-          </FadeIn>
-          <FadeIn>
-            <AppContent appDetailState={appDetailState} />
-          </FadeIn>
-          {!isMobile && (
-            <FadeIn>
-              <BackToAppsSection onClick={onBackToAppsButtonClick(history)} />
-            </FadeIn>
-          )}
+          <AppContent appDetailState={appDetailState} />
         </Section>
       )
   }
@@ -162,15 +145,9 @@ const AppDetailV8: React.FC<AppDetailProps> = () => {
                 isChecked: tab === 'details',
               },
               {
-                id: 'permissions',
-                value: 'permissions',
-                text: 'Permissions',
-                isChecked: tab === 'permissions',
-              },
-              {
                 id: 'pipelines',
                 value: 'pipelines',
-                text: 'Pipelines',
+                text: 'Pipeline',
                 isChecked: tab === 'pipelines',
               },
             ]}
