@@ -158,7 +158,7 @@ const AppDetailV8: React.FC<AppDetailProps> = () => {
               {
                 id: 'details',
                 value: 'details',
-                text: 'Details',
+                text: 'General Info',
                 isChecked: tab === 'details',
               },
               {
