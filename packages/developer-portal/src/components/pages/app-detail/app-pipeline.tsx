@@ -68,6 +68,7 @@ const NoPipeline = () => {
           </BodyText>
           <Button
             intent="primary"
+            chevronRight
             onClick={() => setModalOpen(true)}
             onMouseOver={() => {
               setNewPipelineAnimated(true)
