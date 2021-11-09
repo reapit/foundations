@@ -6,9 +6,13 @@ import {
   BodyText,
   Button,
   ButtonGroup,
+  ColSplit,
   elM6,
+  elMb10,
+  elMt10,
   FlexContainer,
   FormLayout,
+  Grid,
   Input,
   InputAddOn,
   InputGroup,
@@ -26,7 +30,6 @@ import {
   Title,
 } from '@reapit/elements'
 import {
-  AppDetailModel,
   PackageManagerEnum,
   PipelineModelInterface,
   PipelineRunnerModelInterface,
@@ -37,20 +40,73 @@ import { useForm } from 'react-hook-form'
 import { mixed, object, string } from 'yup'
 import { Dispatch as ReduxDispatch } from 'redux'
 import { useDispatch } from 'react-redux'
+import { IconContainer } from '../webhooks/__styles__'
+import { WebhooksAnimatedNewIcon } from '../webhooks/webhooks-animated-new-icon'
+import { WebhooksAnimatedDocsIcon } from '../webhooks/webhooks-animated-docs-icon'
+import { ExternalPages, openNewPage } from '@/utils/navigation'
 
 const NoPipeline = () => {
   const [modalOpen, setModalOpen] = useState<boolean>(false)
+  const [newPipelineAnimated, setNewPipelineAnimated] = useState<boolean>(false)
+  const [docsIsAnimated, setDocsIsAnimated] = useState<boolean>(false)
 
   return (
-    <FlexContainer isFlexJustifyCenter isFlexAlignCenter isFlexColumn>
-      <PersistantNotification className={cx(elM6)} isExpanded intent="danger">
+    <>
+      <PersistantNotification className={cx(elM6)} isExpanded intent="danger" isFullWidth isInline>
         No Pipeline configuration found for app.
       </PersistantNotification>
-      <Button intent="primary" onClick={() => setModalOpen(true)}>
-        Create Pipeline
-      </Button>
-      <PipelineCreationModal open={modalOpen} onModalClose={() => setModalOpen(false)} />
-    </FlexContainer>
+      <Grid>
+        <ColSplit>
+          <IconContainer className={elMb10}>
+            <WebhooksAnimatedNewIcon isAnimated={newPipelineAnimated} />
+          </IconContainer>
+          <Subtitle>Pipeline Deployments</Subtitle>
+          <BodyText hasGreyText>
+            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis rhoncus sem nec sagittis aliquet. Praesent
+            malesuada non mi sed tristique. Proin fermentum metus quis ante tempor egestas. Class aptent taciti sociosqu
+            ad litora torquent per conubia nostra, per inceptos himenaeos. Maecenas et lacinia neque.
+          </BodyText>
+          <Button
+            intent="primary"
+            onClick={() => setModalOpen(true)}
+            onMouseOver={() => {
+              setNewPipelineAnimated(true)
+            }}
+            onMouseOut={() => {
+              setNewPipelineAnimated(false)
+            }}
+          >
+            Create Pipeline
+          </Button>
+        </ColSplit>
+        <ColSplit>
+          <IconContainer className={elMb10}>
+            <WebhooksAnimatedDocsIcon isAnimated={docsIsAnimated} />
+          </IconContainer>
+          <Subtitle>Pipeline Documentation</Subtitle>
+          <BodyText hasGreyText>
+            Praesent malesuada non mi sed tristique. Proin fermentum metus quis ante tempor egestas. Class aptent taciti
+            sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. Maecenas et lacinia neque. Lorem
+            ipsum dolor sit amet, consectetur adipiscing elit. Duis rhoncus sem nec sagittis aliquet.
+          </BodyText>
+          <Button
+            intent="low"
+            onClick={openNewPage(ExternalPages.webhooksDocs)}
+            onMouseOver={() => {
+              setDocsIsAnimated(true)
+            }}
+            onMouseOut={() => {
+              setDocsIsAnimated(false)
+            }}
+          >
+            View Docs
+          </Button>
+        </ColSplit>
+      </Grid>
+      <FlexContainer className={cx(elMt10)} isFlexJustifyCenter isFlexAlignCenter isFlexColumn>
+        <PipelineCreationModal open={modalOpen} onModalClose={() => setModalOpen(false)} />
+      </FlexContainer>
+    </>
   )
 }
 
@@ -181,19 +237,12 @@ const PipelineDeployments = () => {
   )
 }
 
-export const AppPipeline = ({ appDetailData }: { appDetailData: AppDetailModel }) => {
+export const AppPipeline = () => {
   // TODO make some fetching func to get pipeline for app if exists
   const pipeline: PipelineModelInterface | undefined = undefined
 
   return (
     <>
-      <Title>{appDetailData.name} Pipeline</Title>
-      <BodyText hasGreyText>
-        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis rhoncus sem nec sagittis aliquet. Praesent
-        malesuada non mi sed tristique. Proin fermentum metus quis ante tempor egestas. Class aptent taciti sociosqu ad
-        litora torquent per conubia nostra, per inceptos himenaeos. Maecenas et lacinia neque. Integer vulputate ante
-        orci, ut dictum arcu eleifend non. Aenean lacinia justo nisl, in tempor tellus posuere in.
-      </BodyText>
       {!pipeline ? (
         <NoPipeline />
       ) : (

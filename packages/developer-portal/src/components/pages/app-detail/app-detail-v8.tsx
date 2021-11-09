@@ -16,6 +16,8 @@ import {
   Button,
   elMb3,
   elMb8,
+  elMr6,
+  elWFull,
   FlexContainer,
   Icon,
   Loader,
@@ -34,6 +36,9 @@ import { onCloseSubmitAppModal, onShowSubmitAppModal } from '../apps/apps'
 import { SubmitAppWizardModal } from '@/components/ui/submit-app-wizard'
 import ErrorBoundary from '@/components/hocs/error-boundary'
 import { AppPipeline } from './app-pipeline'
+import { MEDIA_INDEX } from '@/constants/media'
+import ImagePlaceHolder from '@/assets/images/default-app-icon.jpg'
+import { cx } from '@linaria/core'
 
 export type AppDetailProps = {}
 
@@ -66,7 +71,7 @@ const AppDetailsTabs = ({ tab }: { tab: string }) => {
 
   switch (tab) {
     case 'pipelines':
-      return <AppPipeline appDetailData={appDetailData} />
+      return <AppPipeline />
     default:
     case 'details':
       return (
@@ -89,6 +94,8 @@ const AppDetailsTabs = ({ tab }: { tab: string }) => {
 
 const AppDetailV8: React.FC<AppDetailProps> = () => {
   const appDetailState = useSelector(selectAppDetailState)
+  const appDetailData = useSelector(selectAppDetailData)
+  const appIcon = appDetailData.media?.filter(({ type }) => type === 'icon')[MEDIA_INDEX.ICON]
   const isLoadingAppDetail = useSelector(selectAppDetailLoading)
   const isLoadingInstallations = useSelector(selectInstallationsListLoading)
   const installationsData = useSelector(selectInstallationsListData)
@@ -105,7 +112,7 @@ const AppDetailV8: React.FC<AppDetailProps> = () => {
 
   return (
     <ErrorBoundary>
-      <FlexContainer isFlexAuto>
+      <FlexContainer className={elWFull} isFlexInitial>
         <SecondaryNavContainer>
           <Title>Apps</Title>
           <SecondaryNav className={elMb8}>
@@ -130,6 +137,16 @@ const AppDetailV8: React.FC<AppDetailProps> = () => {
           </Button>
         </SecondaryNavContainer>
         <PageContainer>
+          <FlexContainer isFlexRow isFlexAlignCenter>
+            {
+              <img
+                className={cx('image', 'is-96x96', elMr6)}
+                src={appIcon?.uri || ImagePlaceHolder}
+                alt={appDetailData.name}
+              />
+            }
+            <Title>{appDetailData.name}</Title>
+          </FlexContainer>
           <Tabs
             isFullWidth
             name="app_tabs"
