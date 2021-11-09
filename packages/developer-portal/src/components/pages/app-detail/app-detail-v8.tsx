@@ -105,12 +105,8 @@ const AppDetailV8: React.FC<AppDetailProps> = () => {
             >
               My Apps
             </SecondaryNavItem>
-            <SecondaryNavItem active={/^\/v8\/apps\/[a-z0-9\-]/.test(pathname)}>
-              App Details
-            </SecondaryNavItem>
-            <SecondaryNavItem active={/^\/v8\/apps\/[a-z0-9\-]\/edit/.test(pathname)}>
-              Edit App
-            </SecondaryNavItem>
+            <SecondaryNavItem active={/^\/v8\/apps\/[a-z0-9-]/.test(pathname)}>App Details</SecondaryNavItem>
+            <SecondaryNavItem active={/^\/v8\/apps\/[a-z0-9-]\/edit/.test(pathname)}>Edit App</SecondaryNavItem>
             <SecondaryNavItem onClick={onShowSubmitAppModal(setSubmitAppModalVisible)} active={submitAppModalVisible}>
               Create New App
             </SecondaryNavItem>
