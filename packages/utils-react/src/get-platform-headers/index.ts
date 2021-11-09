@@ -18,6 +18,4 @@ export const getPlatformHeaders = async (
       'Content-Type': 'application/json',
     } as StringMap
   }
-  console.error('No valid access token in memory - re-directing to login.')
-  return reapitConnectBrowserSession.connectLoginRedirect()
 }
