@@ -1,5 +1,5 @@
 import { gql } from 'apollo-server-core'
-import { Resolver, Query, Ctx, Arg, Mutation, registerEnumType, Field, InputType, Authorized } from 'type-graphql'
+import { Resolver, Query, Ctx, Arg, Mutation, registerEnumType, Field, InputType, Authorized, ID } from 'type-graphql'
 import { DateTime } from 'luxon'
 import { Context } from '../types'
 import { Key, APIKey, KeyFragment, KeyMovement, MovementFragment } from '../entities/key'
@@ -160,7 +160,7 @@ export class KeyResolver {
 
   @Query(() => [Key])
   @Authorized()
-  async listPropertyKeys(@Arg('propertyId') propertyId: string, @Ctx() ctx: Context): Promise<Key[]> {
+  async listPropertyKeys(@Arg('propertyId', () => ID) propertyId: string, @Ctx() ctx: Context): Promise<Key[]> {
     const { accessToken, idToken } = ctx
     const keys = await getPropertyKeys(propertyId, accessToken, idToken)
     return keys?.map(APIKeyToKey) || []
@@ -169,8 +169,8 @@ export class KeyResolver {
   @Authorized()
   @Query(() => [KeyMovement])
   async listPropertyKeyMovements(
-    @Arg('propertyId') propertyId: string,
-    @Arg('keyId') keyId: string,
+    @Arg('propertyId', () => ID) propertyId: string,
+    @Arg('keyId', () => ID) keyId: string,
     @Ctx() ctx: Context,
   ): Promise<KeyMovement[]> {
     const { accessToken, idToken } = ctx
@@ -181,9 +181,9 @@ export class KeyResolver {
   @Authorized()
   @Query(() => KeyMovement)
   async getPropertyKeyMovement(
-    @Arg('propertyId') propertyId: string,
-    @Arg('keyId') keyId: string,
-    @Arg('movementId') movementId: string,
+    @Arg('propertyId', () => ID) propertyId: string,
+    @Arg('keyId', () => ID) keyId: string,
+    @Arg('movementId', () => ID) movementId: string,
     @Ctx() ctx: Context,
   ): Promise<KeyMovement> {
     const { accessToken, idToken } = ctx
@@ -198,8 +198,8 @@ export class KeyResolver {
   @Authorized()
   @Query(() => Key)
   async getPropertyKey(
-    @Arg('propertyId') propertyId: string,
-    @Arg('keyId') keyId: string,
+    @Arg('propertyId', () => ID) propertyId: string,
+    @Arg('keyId', () => ID) keyId: string,
     @Ctx() ctx: Context,
   ): Promise<Key> {
     const { accessToken, idToken } = ctx
@@ -210,8 +210,8 @@ export class KeyResolver {
   @Authorized()
   @Mutation(() => Key)
   async checkOutKey(
-    @Arg('propertyId') propertyId: string,
-    @Arg('keyId') keyId: string,
+    @Arg('propertyId', () => ID) propertyId: string,
+    @Arg('keyId', () => ID) keyId: string,
     @Arg('movement', () => KeyMovementModelInput) movement: KeyMovementModelInput,
     @Ctx() ctx: Context,
   ): Promise<Key> {
@@ -239,8 +239,8 @@ export class KeyResolver {
   @Authorized()
   @Mutation(() => Key)
   async checkInKey(
-    @Arg('propertyId') propertyId: string,
-    @Arg('keyId') keyId: string,
+    @Arg('propertyId', () => ID) propertyId: string,
+    @Arg('keyId', () => ID) keyId: string,
     @Arg('checkIn') checkIn: CheckIn,
     @Ctx() ctx: Context,
   ): Promise<Key> {
