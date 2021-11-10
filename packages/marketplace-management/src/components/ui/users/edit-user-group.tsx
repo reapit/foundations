@@ -68,7 +68,7 @@ export const onHandleSubmit =
     userGroupId: string,
   ) =>
   async ({ userIds }: UpdateUserGroupModel) => {
-    const newUserIds = userIds.split(',')
+    const newUserIds = userIds.split(',').filter(Boolean)
     const idsToRemmove = originalUserIds.filter((id) => !newUserIds.includes(id))
     const idsToAdd = newUserIds.filter((id) => !originalUserIds.includes(id))
 
