@@ -1,32 +1,38 @@
 import { useState, useEffect, Dispatch, SetStateAction } from 'react'
 import { ReapitConnectBrowserSession, ReapitConnectSession, useReapitConnect } from '@reapit/connect-session'
-import { StringMap } from '..'
+import { logger, StringMap } from '..'
 import { GetActionNames, getActions } from './actions/get'
 import { getMergedHeaders } from './utils'
 import qs from 'qs'
+import { useAsyncState } from '../use-async-state/index'
 
-export interface ReapitGetState<DataType> {
-  data: DataType | null
-  loading: boolean
-  error: string | null
-  refresh: (queryParams?: StringMap) => void
-}
+export type ReapitGetState<DataType> = [
+  data: DataType | null,
+  loading: boolean,
+  error: string | null,
+  refresh: (queryParams?: Object) => void,
+]
 
 export interface ReapitGetParams {
   reapitConnectBrowserSession: ReapitConnectBrowserSession
   action: GetActionNames
-  queryParams?: StringMap
+  queryParams?: Object
   headers?: StringMap
+  fetchWhenTrue?: any[]
 }
 
 export interface HandleGetParams<DataType> {
   action: GetActionNames
   connectSession: ReapitConnectSession | null
+  data: DataType | null
+  loading: boolean
+  error: string | null
   setData: Dispatch<SetStateAction<DataType | null>>
-  setLoading: Dispatch<SetStateAction<boolean>>
+  setLoading: (stateAction: boolean) => Promise<boolean>
   setError: Dispatch<SetStateAction<string | null>>
-  queryParams?: StringMap
+  queryParams?: Object
   headers?: StringMap
+  fetchWhenTrue?: any[]
 }
 
 export const fetcher = async <DataType>({
@@ -58,29 +64,43 @@ export const fetcher = async <DataType>({
     throw new Error(getAction.errorMessage)
   } catch (err) {
     const error = err as Error
+    logger(error)
     return error.message
   }
+}
+
+export const checkShouldFetch = (fetchWhenTrue?: any[]): boolean => {
+  if (!fetchWhenTrue) return true
+
+  const filtered = fetchWhenTrue.filter((item) => Boolean(item))
+
+  if (filtered.length === fetchWhenTrue.length) return true
+
+  return false
 }
 
 export const handleGet =
   <DataType>(handleGetParams: HandleGetParams<DataType>) =>
   () => {
+    const { data, error, loading, setData, setLoading, setError, connectSession, fetchWhenTrue } = handleGetParams
+
     const getData = async () => {
-      const { setData, setLoading, setError } = handleGetParams
-
-      setLoading(true)
       setError(null)
-
+      await setLoading(true)
       const response = await fetcher<DataType>(handleGetParams)
       const data = typeof response === 'string' ? null : response
       const error = typeof response === 'string' ? response : null
 
-      setLoading(false)
       setData(data)
       setError(error)
+      await setLoading(false)
     }
 
-    getData()
+    const shouldFetch = checkShouldFetch(fetchWhenTrue)
+
+    if (!data && !error && !loading && connectSession?.accessToken && shouldFetch) {
+      getData()
+    }
   }
 
 export const useReapitGet = <DataType>({
@@ -88,9 +108,10 @@ export const useReapitGet = <DataType>({
   action,
   queryParams,
   headers,
+  fetchWhenTrue,
 }: ReapitGetParams): ReapitGetState<DataType> => {
   const [data, setData] = useState<DataType | null>(null)
-  const [loading, setLoading] = useState<boolean>(false)
+  const [loading, setLoading] = useAsyncState<boolean>(false)
   const [error, setError] = useState<string | null>(null)
   const { connectSession } = useReapitConnect(reapitConnectBrowserSession)
 
@@ -99,19 +120,18 @@ export const useReapitGet = <DataType>({
     connectSession,
     queryParams,
     headers,
+    data,
+    loading,
+    error,
+    fetchWhenTrue,
     setData,
     setLoading,
     setError,
   })
 
-  useEffect(getHandler, [connectSession, queryParams, headers])
+  useEffect(getHandler, [connectSession, queryParams, headers, fetchWhenTrue])
 
   const refresh = getHandler
 
-  return {
-    data,
-    loading,
-    refresh,
-    error,
-  }
+  return [data, loading, error, refresh]
 }
