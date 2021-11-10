@@ -1,15 +1,18 @@
 import { createLambdaFunction, createProbot } from '@probot/adapter-aws-lambda-serverless'
 
-const whitelistEmail = 'reapit.com'
-
 export const webhooks = createLambdaFunction(
   (app) => {
     app.on('issues.opened', async (event) => {
-      const authorEmail = event.payload.sender.email
+      const hasAccess = await event.octokit.orgs.checkMembershipForUser({
+        org: 'reapit',
+        username: event.payload.sender.login,
+      })
 
-      if (authorEmail.split('@').pop() === whitelistEmail) {
+      console.log('hasAccess', event.payload.sender.login, hasAccess)
+
+      // if (hasAccess) {
+      if (event.payload.sender.login !== 'bashleigh') {
         // avoid reapit employees
-        // TODO check sender.email is reapit email and not primary email
         return
       }
 

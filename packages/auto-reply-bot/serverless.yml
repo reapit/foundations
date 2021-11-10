@@ -1,4 +1,4 @@
-service: auto-reply-bot
+service: cloud-auto-reply-bot
 plugins:
   - serverless-webpack
   - serverless-offline
@@ -27,27 +27,9 @@ provider:
     WEBHOOK_SECRET: ${self:custom.env.WEBHOOK_SECRET}
     NODE_ENV: ${self:custom.env.NODE_ENV}
     LOG_LEVEL: debug
-
-resources:
-  Resources:
-    GatewayResponseDefault4XX:
-      Type: 'AWS::ApiGateway::GatewayResponse'
-      Properties:
-        ResponseParameters:
-          gatewayresponse.header.Access-Control-Allow-Origin: "'*'"
-          gatewayresponse.header.Access-Control-Allow-Headers: "'Content-Type,X-Amz-Date,Authorization,X-Api-Key,X-Amz-Security-Token,X-Amz-User-Agent,reapit-customer,api-version,if-match'"
-        ResponseType: DEFAULT_4XX
-        RestApiId:
-          Ref: 'ApiGatewayRestApi'
-    GatewayResponseDefault5XX:
-      Type: 'AWS::ApiGateway::GatewayResponse'
-      Properties:
-        ResponseParameters:
-          gatewayresponse.header.Access-Control-Allow-Origin: "'*'"
-          gatewayresponse.header.Access-Control-Allow-Headers: "'Content-Type,X-Amz-Date,Authorization,X-Api-Key,X-Amz-Security-Token,X-Amz-User-Agent,reapit-customer,api-version,if-match'"
-        ResponseType: DEFAULT_5XX
-        RestApiId:
-          Ref: 'ApiGatewayRestApi'
+  deploymentBucket:
+    name: ${self:custom.s3CloudFormBucket}
+    blockPublicAccess: false
 
 package:
   individually: true
