@@ -1,5 +1,5 @@
-import React, { Dispatch, FC, SetStateAction, useCallback, useEffect, useState } from 'react'
-import { useHistory, useLocation } from 'react-router'
+import React, { Dispatch, FC, SetStateAction, useCallback } from 'react'
+import { useHistory } from 'react-router'
 import { History } from 'history'
 import Routes from '../../constants/routes'
 import { AppSummaryModelPagedResult } from '@reapit/foundations-ts-definitions'
@@ -22,9 +22,10 @@ import {
   Title,
 } from '@reapit/elements'
 import { useOrgId } from '../../utils/use-org-id'
-import { ReapitConnectSession, useReapitConnect } from '@reapit/connect-session'
+import { ReapitConnectSession } from '@reapit/connect-session'
 import { reapitConnectBrowserSession } from '../../core/connect-session'
 import { OrgIdSelect } from '../hocs/org-id-select'
+import { GetActionNames, useReapitGet } from '@reapit/utils-react'
 
 export const onPageChangeHandler = (history: History<any>) => (page: number) => {
   const queryString = `?pageNumber=${page}&pageSize=12`
@@ -55,23 +56,23 @@ export const handleFetchApps =
 
 export const MarketplacePage: FC = () => {
   const history = useHistory()
-  const location = useLocation()
+  // const location = useLocation()
   const onPageChange = useCallback(onPageChangeHandler(history), [history])
-  const [apps, setApps] = useState<AppSummaryModelPagedResult>()
-  const [appsLoading, setAppsLoading] = useState<boolean>(false)
-  const { connectSession } = useReapitConnect(reapitConnectBrowserSession)
-  const search = location.search
+
+  // const { connectSession } = useReapitConnect(reapitConnectBrowserSession)
+  // const search = location.search
   const {
     orgIdState: { orgName, orgClientId },
   } = useOrgId()
 
-  useEffect(handleFetchApps(setApps, setAppsLoading, search, orgClientId, connectSession), [
-    setApps,
-    search,
-    setAppsLoading,
-    orgClientId,
-    connectSession,
-  ])
+  const [appData, appLoading, appError, appRefresh] = useReapitGet<AppSummaryModelPagedResult>({
+    reapitConnectBrowserSession,
+    action: GetActionNames.getApps,
+    queryParams: { showHiddenApps: 'true', clientId: orgClientId },
+    fetchWhenTrue: [orgClientId],
+  })
+
+  console.log(appRefresh())
 
   return (
     <FlexContainer isFlexAuto>
@@ -91,12 +92,12 @@ export const MarketplacePage: FC = () => {
           <PersistantNotification isFullWidth isExpanded intent="secondary" isInline>
             No organisation selected. You need to select an organisation to view available apps.
           </PersistantNotification>
-        ) : appsLoading ? (
+        ) : appLoading ? (
           <Loader />
         ) : (
           <>
             <Grid>
-              {apps?.data?.map((app) => (
+              {appData?.data?.map((app) => (
                 <Col key={app.id}>
                   <AppCard app={app} />
                 </Col>
@@ -104,8 +105,8 @@ export const MarketplacePage: FC = () => {
             </Grid>
             <Pagination
               callback={onPageChange}
-              numberPages={Math.ceil((apps?.totalCount ?? 0) / (apps?.pageSize ?? 0))}
-              currentPage={apps?.pageNumber ?? 0}
+              numberPages={Math.ceil((appData?.totalCount ?? 0) / (appData?.pageSize ?? 0))}
+              currentPage={appData?.pageNumber ?? 0}
             />
           </>
         )}
