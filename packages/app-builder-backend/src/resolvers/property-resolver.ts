@@ -4,6 +4,7 @@ import { Property, PropertyFragment } from '../entities/property'
 import { PropertyModelPagedResult } from '../../../foundations-ts-definitions/types'
 import { Context } from '@/types'
 import { query } from '../utils/graphql-fetch'
+import { notEmpty } from '../utils/helpers'
 
 const getPropertiesQuery = gql`
   ${PropertyFragment}
@@ -43,9 +44,6 @@ const searchProperties = async (queryStr: string, accessToken: string, idToken: 
   })
 }
 
-export const notEmpty = <TValue>(value?: TValue | null): value is TValue => {
-  return value !== null && value !== undefined
-}
 const apiPropertiesToProperty = (properties: PropertyModelPagedResult['_embedded']): Property[] =>
   properties?.filter(notEmpty).map((property) => ({
     ...property,

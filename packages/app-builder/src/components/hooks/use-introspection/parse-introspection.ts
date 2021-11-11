@@ -1,4 +1,4 @@
-import { IntrospectionObjectType, IntrospectionQuery } from 'graphql'
+import { IntrospectionField, IntrospectionObjectType, IntrospectionQuery } from 'graphql'
 
 import { notEmpty } from './helpers'
 import { getTopLevelFields } from './nested-fields'
@@ -15,6 +15,7 @@ import { isIntrospectionEnumType, isIntrospectionInputObjectType, isIntrospectio
 
 export type IntrospectionResult = {
   object: IntrospectionObjectType
+  acKeyField?: IntrospectionField & { acKey: string }
   labelKeys?: string[]
   list?: GeneratedQuery
   search?: GeneratedQuery
@@ -54,9 +55,26 @@ export const parseIntrospectionResult = (introspection: IntrospectionQuery): Int
       ?.split(',')
       .map((s) => s.trim())
 
+    const acKeyField = object.fields
+      .map((field) => {
+        const { description } = field
+        if (!description) {
+          return undefined
+        }
+        if (description.includes('@acKey')) {
+          return {
+            ...field,
+            acKey: description.split('@acKey(')[1].split(')')[0],
+          }
+        }
+        return undefined
+      })
+      .filter(notEmpty)[0] as IntrospectionField & { acKey: string }
+
     return {
       object,
       labelKeys,
+      acKeyField,
       list: getListQuery(queries, objectTypes, inputObjectTypes, enums, false),
       search: getListQuery(queries, objectTypes, inputObjectTypes, enums, true),
       get: getGetQuery(queries, objectTypes, inputObjectTypes, enums),

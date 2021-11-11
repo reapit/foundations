@@ -17,6 +17,7 @@ import {
 import { Dispatch } from 'redux'
 import { ELEMENTS_V3_PAGES } from '../constants/pages'
 import { Loader, MainContainer } from '@reapit/elements'
+import { HelperWidget, HelperWidgetApps } from '@reapit/utils-react'
 
 const { Suspense } = React
 
@@ -138,6 +139,7 @@ export const PrivateRouteWrapper: React.FunctionComponent<PrivateRouteWrapperPro
           </FlexContainerResponsive>
         </FlexContainerBasic>
       )}
+      {window.reapit.config.appEnv !== 'production' && <HelperWidget appName={HelperWidgetApps.developerPortal} />}
     </MainContainer>
   )
 }

@@ -30,7 +30,7 @@ const { Provider } = OrgIdContext
 export const handleFetchInitialState =
   (setOrgIdState: Dispatch<SetStateAction<OrgIdState>>, orgIdState: OrgIdState, email?: string) => () => {
     const fetchUserInfo = async () => {
-      if (email && !orgIdState.orgIdOptions.length) {
+      if (email && !orgIdState.orgIdOptions.length && !orgIdState.orgClientId) {
         const userInfo = await getUserInfo(email)
 
         if (!userInfo) return
@@ -43,9 +43,9 @@ export const handleFetchInitialState =
               value: organisationId ?? '',
             }))
             .filter(Boolean) as MultiSelectOption[]) ?? []
-        const orgId = orgMembers.length === 1 ? orgMembers[0].organisationId ?? null : null
-        const orgName = orgMembers.length === 1 ? orgMembers[0].name ?? null : null
-        const orgClientId = orgMembers.length === 1 ? orgMembers[0].customerId ?? null : null
+        const orgId = !orgMembers.length ? userInfo.organisationId ?? null : null
+        const orgName = !orgMembers.length ? userInfo.organisationName ?? null : null
+        const orgClientId = !orgMembers.length ? userInfo.userCustomerId ?? null : null
 
         setOrgIdState({ orgId, orgName, orgClientId, orgIdOptions, orgMembers })
       }

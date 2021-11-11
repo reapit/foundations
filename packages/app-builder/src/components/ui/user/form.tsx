@@ -9,6 +9,7 @@ import { useObjectSpecials } from '../../hooks/objects/use-object-specials'
 import { FormInput } from './form-input'
 import { FormInputProps } from './ejectable/form-input'
 import { useObjectMutate } from '../../hooks/objects/use-object-mutate'
+import { IntegrationLanding } from './table'
 
 const defaultProps = {
   destination: '/',
@@ -105,6 +106,7 @@ const FormSettings = () => {
             {loading ? 'Loading...' : 'Select a Type'}
           </option>
         </ToolbarItem>
+        <IntegrationLanding typeName={typeName} />
         <ToolbarItem
           type={ToolbarItemType.Select}
           onChange={() => {
