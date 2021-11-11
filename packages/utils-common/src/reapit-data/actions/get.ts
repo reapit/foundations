@@ -18,6 +18,5 @@ export const getActions: GetActions = {
     api: ApiNames.platform,
     path: PathNames.apps,
     errorMessage: 'Something went wrong fetching apps - this error has been logged',
-    successMessage: 'Successfully fetched apps',
   },
 }

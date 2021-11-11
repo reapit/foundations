@@ -1,9 +1,8 @@
-import React, { Dispatch, FC, SetStateAction, useCallback } from 'react'
-import { useHistory } from 'react-router'
+import React, { FC, useCallback } from 'react'
+import { useHistory, useLocation } from 'react-router'
 import { History } from 'history'
 import Routes from '../../constants/routes'
 import { AppSummaryModelPagedResult } from '@reapit/foundations-ts-definitions'
-import { getAppsService } from '../../services/apps'
 import AppCard from '../ui/apps/app-card'
 import {
   BodyText,
@@ -22,57 +21,33 @@ import {
   Title,
 } from '@reapit/elements'
 import { useOrgId } from '../../utils/use-org-id'
-import { ReapitConnectSession } from '@reapit/connect-session'
 import { reapitConnectBrowserSession } from '../../core/connect-session'
 import { OrgIdSelect } from '../hocs/org-id-select'
-import { GetActionNames, useReapitGet } from '@reapit/utils-react'
+import { useReapitGet } from '@reapit/utils-react'
+import { GetActionNames } from '@reapit/utils-common'
+import qs from 'qs'
 
 export const onPageChangeHandler = (history: History<any>) => (page: number) => {
   const queryString = `?pageNumber=${page}&pageSize=12`
   return history.push(`${Routes.MARKETPLACE}${queryString}`)
 }
 
-export const handleFetchApps =
-  (
-    setApps: Dispatch<SetStateAction<AppSummaryModelPagedResult | undefined>>,
-    setAppsLoading: Dispatch<SetStateAction<boolean>>,
-    search: string,
-    orgClientId: string | null,
-    connectSession: ReapitConnectSession | null,
-  ) =>
-  () => {
-    const fetchApps = async () => {
-      if (!orgClientId || !connectSession) return
-      setAppsLoading(true)
-      const fetchedAppApps = await getAppsService(search, orgClientId)
-      if (fetchedAppApps) {
-        setApps(fetchedAppApps)
-      }
-      setAppsLoading(false)
-    }
-
-    fetchApps()
-  }
-
 export const MarketplacePage: FC = () => {
   const history = useHistory()
-  // const location = useLocation()
+  const location = useLocation()
   const onPageChange = useCallback(onPageChangeHandler(history), [history])
+  const searchParams = qs.parse(location.search, { ignoreQueryPrefix: true })
 
-  // const { connectSession } = useReapitConnect(reapitConnectBrowserSession)
-  // const search = location.search
   const {
     orgIdState: { orgName, orgClientId },
   } = useOrgId()
 
-  const [appData, appLoading, appError, appRefresh] = useReapitGet<AppSummaryModelPagedResult>({
+  const [appData, appLoading] = useReapitGet<AppSummaryModelPagedResult>({
     reapitConnectBrowserSession,
     action: GetActionNames.getApps,
-    queryParams: { showHiddenApps: 'true', clientId: orgClientId },
+    queryParams: { showHiddenApps: 'true', clientId: orgClientId, ...searchParams },
     fetchWhenTrue: [orgClientId],
   })
-
-  console.log(appRefresh())
 
   return (
     <FlexContainer isFlexAuto>

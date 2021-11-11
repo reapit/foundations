@@ -1,10 +1,9 @@
-import { useState, useEffect, Dispatch, SetStateAction } from 'react'
+import { useState, useEffect, Dispatch, SetStateAction, useRef, useCallback, MutableRefObject } from 'react'
 import { ReapitConnectBrowserSession, ReapitConnectSession, useReapitConnect } from '@reapit/connect-session'
-import { logger, StringMap } from '..'
-import { GetActionNames, getActions } from './actions/get'
-import { getMergedHeaders } from './utils'
-import qs from 'qs'
+import { StringMap, logger } from '..'
+import { GetActionNames, getActions, getFetcher } from '@reapit/utils-common'
 import { useAsyncState } from '../use-async-state/index'
+import { useSnack } from '@reapit/elements'
 
 export type ReapitGetState<DataType> = [
   data: DataType | null,
@@ -30,77 +29,115 @@ export interface HandleGetParams<DataType> {
   setData: Dispatch<SetStateAction<DataType | null>>
   setLoading: (stateAction: boolean) => Promise<boolean>
   setError: Dispatch<SetStateAction<string | null>>
+  successSnack: (message: string) => void
+  errorSnack: (message: string) => void
+  prevQueryParams: MutableRefObject<Object | undefined>
   queryParams?: Object
   headers?: StringMap
   fetchWhenTrue?: any[]
 }
 
-export const fetcher = async <DataType>({
-  action,
-  connectSession,
-  queryParams,
-  headers,
-}: HandleGetParams<DataType>): Promise<DataType | string> => {
-  const getAction = getActions[action]
-  const { api, path } = getAction
-  const query = qs.stringify(queryParams)
-  const url = `${api}${path}${query ? `?${query}` : ''}`
-  const accessToken = connectSession?.accessToken
-  const getHeaders = getMergedHeaders(accessToken, headers)
+export const checkQueryChanged = (queryParams?: Object, prevQueryParams?: Object): boolean => {
+  if ((queryParams && !prevQueryParams) || (!queryParams && prevQueryParams)) return true
+  if (!queryParams && !prevQueryParams) return false
 
-  try {
-    if (!getHeaders) throw new Error('Missing valid Reapit Connect Session')
+  const stringifiedQuery = JSON.stringify(queryParams)
+  const stringifiedPrevQuery = JSON.stringify(prevQueryParams)
 
-    const res = await fetch(url, {
-      headers: getHeaders,
-      method: 'GET',
-    })
-
-    if (res.ok) {
-      const jsonRes = await res.json()
-      return jsonRes as DataType
-    }
-
-    throw new Error(getAction.errorMessage)
-  } catch (err) {
-    const error = err as Error
-    logger(error)
-    return error.message
-  }
+  return stringifiedQuery !== stringifiedPrevQuery
 }
 
-export const checkShouldFetch = (fetchWhenTrue?: any[]): boolean => {
-  if (!fetchWhenTrue) return true
+export const checkShouldFetch = <DataType>({
+  data,
+  error,
+  loading,
+  connectSession,
+  fetchWhenTrue,
+  prevQueryParams,
+  queryParams,
+}: HandleGetParams<DataType>): boolean => {
+  const hasNotFetched = !data && !loading && !error
+  const hasAccess = Boolean(connectSession?.accessToken)
+  const hasChangedQuery = checkQueryChanged(queryParams, prevQueryParams.current)
+  const canFetch = (hasNotFetched && hasAccess) || (hasChangedQuery && hasAccess)
+
+  if (!fetchWhenTrue) return canFetch
 
   const filtered = fetchWhenTrue.filter((item) => Boolean(item))
 
-  if (filtered.length === fetchWhenTrue.length) return true
-
-  return false
+  return filtered.length === fetchWhenTrue.length && canFetch
 }
 
 export const handleGet =
   <DataType>(handleGetParams: HandleGetParams<DataType>) =>
   () => {
-    const { data, error, loading, setData, setLoading, setError, connectSession, fetchWhenTrue } = handleGetParams
+    const {
+      setData,
+      setLoading,
+      setError,
+      prevQueryParams,
+      connectSession,
+      queryParams,
+      action,
+      headers,
+      successSnack,
+      errorSnack,
+    } = handleGetParams
+
+    const shouldFetch = checkShouldFetch<DataType>(handleGetParams)
+    const getAction = getActions[action]
+    const { successMessage, errorMessage } = getAction
 
     const getData = async () => {
       setError(null)
       await setLoading(true)
-      const response = await fetcher<DataType>(handleGetParams)
+      prevQueryParams.current = queryParams
+
+      const response = await getFetcher<DataType>({
+        action,
+        connectSession,
+        queryParams,
+        headers,
+        logger,
+      })
       const data = typeof response === 'string' ? null : response
       const error = typeof response === 'string' ? response : null
+
+      if (data && successMessage) successSnack(successMessage)
+      if (error) errorSnack(errorMessage ?? error)
 
       setData(data)
       setError(error)
       await setLoading(false)
     }
 
-    const shouldFetch = checkShouldFetch(fetchWhenTrue)
-
-    if (!data && !error && !loading && connectSession?.accessToken && shouldFetch) {
+    if (shouldFetch) {
       getData()
     }
+  }
+
+export const handleRefresh =
+  <DataType>(handleGetParams: HandleGetParams<DataType>) =>
+  () => {
+    const { setData, setError, action, errorSnack, connectSession, queryParams, headers } = handleGetParams
+
+    const getAction = getActions[action]
+    const { errorMessage } = getAction
+
+    const getData = async () => {
+      setError(null)
+
+      const response = await getFetcher<DataType>({ action, connectSession, queryParams, headers, logger })
+      const data = typeof response === 'string' ? null : response
+      const error = typeof response === 'string' ? response : null
+
+      if (error) errorSnack(errorMessage ?? error)
+
+      setData(data)
+      setError(error)
+    }
+
+    getData()
   }
 
 export const useReapitGet = <DataType>({
@@ -110,12 +147,14 @@ export const useReapitGet = <DataType>({
   headers,
   fetchWhenTrue,
 }: ReapitGetParams): ReapitGetState<DataType> => {
+  const prevQueryParams = useRef<Object | undefined>(queryParams)
   const [data, setData] = useState<DataType | null>(null)
   const [loading, setLoading] = useAsyncState<boolean>(false)
   const [error, setError] = useState<string | null>(null)
   const { connectSession } = useReapitConnect(reapitConnectBrowserSession)
+  const { success: successSnack, error: errorSnack } = useSnack()
 
-  const getHandler = handleGet<DataType>({
+  const handleGetParams: HandleGetParams<DataType> = {
     action,
     connectSession,
     queryParams,
@@ -124,14 +163,22 @@ export const useReapitGet = <DataType>({
     loading,
     error,
     fetchWhenTrue,
+    prevQueryParams,
     setData,
     setLoading,
     setError,
-  })
+    successSnack,
+    errorSnack,
+  }
 
-  useEffect(getHandler, [connectSession, queryParams, headers, fetchWhenTrue])
+  useEffect(handleGet<DataType>(handleGetParams), [connectSession, queryParams, headers, fetchWhenTrue])
 
-  const refresh = getHandler
+  const refresh = useCallback(handleRefresh<DataType>(handleGetParams), [
+    connectSession,
+    queryParams,
+    headers,
+    fetchWhenTrue,
+  ])
 
   return [data, loading, error, refresh]
 }
