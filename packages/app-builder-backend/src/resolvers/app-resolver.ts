@@ -80,7 +80,6 @@ const removeEmpty = (obj: any) => {
 const updateMarketplaceAppScopes = async (appId: string, scopes: string[], accessToken: string) => {
   const marketplaceApp = await getMarketplaceApp(appId, accessToken)
   const existingScopes = marketplaceApp.scopes?.map(({ name }) => name).filter(notEmpty) || []
-  console.log(existingScopes, scopes)
   if (!compareArrays(existingScopes, scopes)) {
     const appRevision = removeEmpty({
       ...marketplaceApp,
