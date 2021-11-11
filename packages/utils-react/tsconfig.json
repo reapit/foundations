@@ -14,6 +14,6 @@
     "declarationDir": "dist"
   },
 
-  "include": ["src"],
+  "include": ["src", "../utils-common/src/reapit-data/utils.ts", "../utils-common/src/reapit-data/actions"],
   "exclude": ["public", "dist", "src/scripts", "node_modules", "src/tests/coverage"]
 }
