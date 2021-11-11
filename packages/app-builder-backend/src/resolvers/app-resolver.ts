@@ -1,4 +1,5 @@
 import { Resolver, Query, Arg, Mutation, ID, Authorized, Ctx } from 'type-graphql'
+import Pluralize from 'pluralize'
 
 import { App } from '../entities/app'
 import { getApp, createApp, updateApp, getDomainApps, getUnqDomain, DDBApp } from '../ddb'
@@ -54,7 +55,7 @@ enum Access {
 }
 
 const getObjectScopes = (objectName: string, access: Access) => {
-  return `agencyCloud/${objectName.toLowerCase()}.${access}`
+  return `agencyCloud/${Pluralize.plural(objectName.toLowerCase())}.${access}`
 }
 
 // compare array of strings
@@ -79,6 +80,7 @@ const removeEmpty = (obj: any) => {
 const updateMarketplaceAppScopes = async (appId: string, scopes: string[], accessToken: string) => {
   const marketplaceApp = await getMarketplaceApp(appId, accessToken)
   const existingScopes = marketplaceApp.scopes?.map(({ name }) => name).filter(notEmpty) || []
+  console.log(existingScopes, scopes)
   if (!compareArrays(existingScopes, scopes)) {
     const appRevision = removeEmpty({
       ...marketplaceApp,
