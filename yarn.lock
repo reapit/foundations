@@ -15,6 +15,24 @@ __metadata:
   languageName: node
   linkType: hard
 
+"@actions/core@npm:^1.2.6":
+  version: 1.6.0
+  resolution: "@actions/core@npm:1.6.0"
+  dependencies:
+    "@actions/http-client": ^1.0.11
+  checksum: 71533cc514e4a158cea7c855610a44376814cc1b897f600aaf97636fc1bf49956bd4f7ef8f1cd04beefe8baa5d001aea40aadafbcbc6b36a62840bc25082e4c4
+  languageName: node
+  linkType: hard
+
+"@actions/http-client@npm:^1.0.11":
+  version: 1.0.11
+  resolution: "@actions/http-client@npm:1.0.11"
+  dependencies:
+    tunnel: 0.0.6
+  checksum: ccd0ae6ce99662e31daf1f5cb6b5130cc10ac9a3d4f2de74c54031cf13cd191dbbf0719e60e74f724f073f27af4cb9f393218d92f7f70c0b6e23bb1962c386e3
+  languageName: node
+  linkType: hard
+
 "@ant-design/css-animation@npm:^1.7.2":
   version: 1.7.2
   resolution: "@ant-design/css-animation@npm:1.7.2"
@@ -9116,6 +9134,18 @@ __metadata:
   languageName: node
   linkType: hard
 
+"@probot/adapter-github-actions@npm:^3.0.1":
+  version: 3.0.1
+  resolution: "@probot/adapter-github-actions@npm:3.0.1"
+  dependencies:
+    "@actions/core": ^1.2.6
+    pino: ^6.11.0
+    probot: ^11.0.6
+    through2: ^4.0.2
+  checksum: 86c6cb882216a6edf0ab08efe3cc254fff701e333d66b680b685d5296b0b0cf136f60e7d609b49a426ccf89229447ad249c4d0c9fd36fb9e25d4f062efa00b79
+  languageName: node
+  linkType: hard
+
 "@probot/get-private-key@npm:^1.1.0":
   version: 1.1.1
   resolution: "@probot/get-private-key@npm:1.1.1"
@@ -17025,6 +17055,7 @@ __metadata:
   resolution: "auto-reply-bot@workspace:packages/auto-reply-bot"
   dependencies:
     "@probot/adapter-aws-lambda-serverless": ^2.1.0
+    "@probot/adapter-github-actions": ^3.0.1
     "@reapit/config-manager": "workspace:packages/config-manager"
     "@reapit/ts-scripts": "workspace:packages/ts-scripts"
     "@reapit/ts-types": "workspace:packages/ts-types"
@@ -36090,7 +36121,7 @@ fsevents@^1.2.7:
   languageName: node
   linkType: hard
 
-"pino@npm:^6.13.0, pino@npm:^6.7.0":
+"pino@npm:^6.11.0, pino@npm:^6.13.0, pino@npm:^6.7.0":
   version: 6.13.3
   resolution: "pino@npm:6.13.3"
   dependencies:
@@ -44651,7 +44682,7 @@ resolve@^2.0.0-next.3:
   languageName: node
   linkType: hard
 
-"tunnel@npm:^0.0.6":
+"tunnel@npm:0.0.6, tunnel@npm:^0.0.6":
   version: 0.0.6
   resolution: "tunnel@npm:0.0.6"
   checksum: 78fbb1a55a44fc8de6a497923bf7bf6e7b14b396e0ddaf11fe624ab7f646a0d2ada03f6dcb4a80940faed9649e30d229114f218e8906badd12ded2323a6f666b

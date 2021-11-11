@@ -1,0 +1,15 @@
+name: AutoBot
+on:
+  issues:
+    types:
+      - opened
+      - reopened
+      - closed
+
+jobs:
+  reply:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: probot/exmaple-github-action@v1
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
