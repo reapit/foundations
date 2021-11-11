@@ -29,6 +29,8 @@ A button with no addtional props / classes applied.
 
 Different intents are supported, to enable buttons to be used in different contexts. Typcially you will always choose an intent for your button. The intent prop maps directly to the intent helper classes for non React users.
 
+In practice, low and neutral intents serve the same purpose however, they are rendered as distinct to allow better contrast with their background. When rendering on a white background you should use a low intent button, on a grey background, use a neutral button.
+
 <Canvas>
   <Story name="Intent: Primary">
     <Button intent="primary">Primary</Button>
