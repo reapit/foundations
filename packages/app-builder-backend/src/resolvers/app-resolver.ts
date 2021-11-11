@@ -1,4 +1,5 @@
 import { Resolver, Query, Arg, Mutation, ID, Authorized, Ctx } from 'type-graphql'
+import Pluralize from 'pluralize'
 
 import { App } from '../entities/app'
 import { getApp, createApp, updateApp, getDomainApps, getUnqDomain, DDBApp } from '../ddb'
@@ -54,7 +55,7 @@ enum Access {
 }
 
 const getObjectScopes = (objectName: string, access: Access) => {
-  return `agencyCloud/${objectName.toLowerCase()}.${access}`
+  return `agencyCloud/${Pluralize.plural(objectName.toLowerCase())}.${access}`
 }
 
 // compare array of strings

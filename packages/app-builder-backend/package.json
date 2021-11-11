@@ -45,6 +45,7 @@
     "jszip": "^3.7.1",
     "luxon": "^2.0.2",
     "node-fetch": "^2.6.1",
+    "pluralize": "^8.0.0",
     "project-name-generator": "^2.1.9",
     "reflect-metadata": "^0.1.13",
     "slugify": "^1.6.0",
