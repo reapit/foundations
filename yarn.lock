@@ -15,6 +15,24 @@ __metadata:
   languageName: node
   linkType: hard
 
+"@actions/core@npm:^1.2.6":
+  version: 1.6.0
+  resolution: "@actions/core@npm:1.6.0"
+  dependencies:
+    "@actions/http-client": ^1.0.11
+  checksum: 71533cc514e4a158cea7c855610a44376814cc1b897f600aaf97636fc1bf49956bd4f7ef8f1cd04beefe8baa5d001aea40aadafbcbc6b36a62840bc25082e4c4
+  languageName: node
+  linkType: hard
+
+"@actions/http-client@npm:^1.0.11":
+  version: 1.0.11
+  resolution: "@actions/http-client@npm:1.0.11"
+  dependencies:
+    tunnel: 0.0.6
+  checksum: ccd0ae6ce99662e31daf1f5cb6b5130cc10ac9a3d4f2de74c54031cf13cd191dbbf0719e60e74f724f073f27af4cb9f393218d92f7f70c0b6e23bb1962c386e3
+  languageName: node
+  linkType: hard
+
 "@ant-design/css-animation@npm:^1.7.2":
   version: 1.7.2
   resolution: "@ant-design/css-animation@npm:1.7.2"
@@ -5557,22 +5575,6 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@cspotcode/source-map-consumer@npm:0.8.0":
-  version: 0.8.0
-  resolution: "@cspotcode/source-map-consumer@npm:0.8.0"
-  checksum: fc32215a353c7b3d039f5d4b93329200264daeabb0739dcf53eb78f779e37e5f5c281aad281f86781c930011d354612aafab887304451a46f16b10f0f919297f
-  languageName: node
-  linkType: hard
-
-"@cspotcode/source-map-support@npm:0.7.0":
-  version: 0.7.0
-  resolution: "@cspotcode/source-map-support@npm:0.7.0"
-  dependencies:
-    "@cspotcode/source-map-consumer": 0.8.0
-  checksum: 3a0093418424729e9ab0a0f032f16946cb1cd7659bdee7d017e564189a8447eda961e5f7bed370699e94d5228f3b8cd84cb366af5fd38518b2ce833c3e138cb6
-  languageName: node
-  linkType: hard
-
 "@cypress/request@npm:^2.88.5":
   version: 2.88.5
   resolution: "@cypress/request@npm:2.88.5"
@@ -9007,20 +9009,6 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@octokit/webhooks-methods@npm:^2.0.0":
-  version: 2.0.0
-  resolution: "@octokit/webhooks-methods@npm:2.0.0"
-  checksum: b99e19cb0734e3e0b8354c6c34327f647f189678453771b415ebd6049978444c7f14ad8a6fa5b4885cf34626fb6848d57287bd2b40dce6f3923926cf0f1e49ad
-  languageName: node
-  linkType: hard
-
-"@octokit/webhooks-types@npm:4.12.0":
-  version: 4.12.0
-  resolution: "@octokit/webhooks-types@npm:4.12.0"
-  checksum: e9060f5dca7a7d1db9ade54b7f79a844c34a5a4c6371ec11ec7b8a4027bc7a803b329dae874b595e2ab35156411106a5687ca6500802b59e6f134092960f3feb
-  languageName: node
-  linkType: hard
-
 "@octokit/webhooks@npm:7.21.0":
   version: 7.21.0
   resolution: "@octokit/webhooks@npm:7.21.0"
@@ -9029,18 +9017,6 @@ __metadata:
     aggregate-error: ^3.1.0
     debug: ^4.0.0
   checksum: 46eb45b2f23106e57ff6318183a7680170d7715be9d215798c4f702484b9e2e17ce4f5c87415fcd2cf680c6103db66520eeccf10011985a9849e420a87988a49
-  languageName: node
-  linkType: hard
-
-"@octokit/webhooks@npm:^9.8.4":
-  version: 9.17.0
-  resolution: "@octokit/webhooks@npm:9.17.0"
-  dependencies:
-    "@octokit/request-error": ^2.0.2
-    "@octokit/webhooks-methods": ^2.0.0
-    "@octokit/webhooks-types": 4.12.0
-    aggregate-error: ^3.1.0
-  checksum: 90408f7428079d8b500f29da981d96b70f57a1eedcf3d3d7337a8097e425c863ee7a0df3916207265024a584b8e68b6d98a9c162d5429bc24ba20a0dce6809df
   languageName: node
   linkType: hard
 
@@ -9104,15 +9080,15 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@probot/adapter-aws-lambda-serverless@npm:^2.1.0":
-  version: 2.1.0
-  resolution: "@probot/adapter-aws-lambda-serverless@npm:2.1.0"
+"@probot/adapter-github-actions@npm:^3.0.1":
+  version: 3.0.1
+  resolution: "@probot/adapter-github-actions@npm:3.0.1"
   dependencies:
-    "@probot/get-private-key": ^1.1.0
-    "@types/aws-lambda": ^8.10.85
-    lowercase-keys: ^2.0.0
+    "@actions/core": ^1.2.6
+    pino: ^6.11.0
     probot: ^11.0.6
-  checksum: 2d9f466c965fe358761c764984b9354e04ef2af37bb4580e042df1e44adf7e8cc3bbc2c15c99784d21dd675f03c57881947d6bb2bd11781ed335e78370f2cab7
+    through2: ^4.0.2
+  checksum: 86c6cb882216a6edf0ab08efe3cc254fff701e333d66b680b685d5296b0b0cf136f60e7d609b49a426ccf89229447ad249c4d0c9fd36fb9e25d4f062efa00b79
   languageName: node
   linkType: hard
 
@@ -12926,13 +12902,6 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@tsconfig/node16@npm:^1.0.2":
-  version: 1.0.2
-  resolution: "@tsconfig/node16@npm:1.0.2"
-  checksum: 57310e88858be59b36603e5d9bd7bd1714d16402ef1e536c01521ad3b207833a2fc64d260d362cae07bf4e50759a3aba3958c2faf9c42b52c4c817be60a93123
-  languageName: node
-  linkType: hard
-
 "@types/accepts@npm:^1.3.5":
   version: 1.3.5
   resolution: "@types/accepts@npm:1.3.5"
@@ -12969,13 +12938,6 @@ __metadata:
   version: 8.10.79
   resolution: "@types/aws-lambda@npm:8.10.79"
   checksum: 41a79f50b4d052a598110cfb5a14fb9cc75cb6832362b63cd834cd60e52b0ce9ad3b6be6b10950ab8dd5048f6cf3bbe7404716854943ea19c45a17b6e69b9eef
-  languageName: node
-  linkType: hard
-
-"@types/aws-lambda@npm:^8.10.85":
-  version: 8.10.85
-  resolution: "@types/aws-lambda@npm:8.10.85"
-  checksum: c2cd0a8bb2f7faaba27dae44d1f49bf5905d916c84be4c5374844e84dd15a4d7f7c450cee4476b3f5a4ed594b22d77369e60a6a8d850d99a217b0ea05c3ac3b8
   languageName: node
   linkType: hard
 
@@ -13410,7 +13372,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@types/ioredis@npm:^4.17.8, @types/ioredis@npm:^4.27.1":
+"@types/ioredis@npm:^4.17.8":
   version: 4.28.1
   resolution: "@types/ioredis@npm:4.28.1"
   dependencies:
@@ -15379,6 +15341,17 @@ __metadata:
   languageName: node
   linkType: hard
 
+"@zeit/ncc@npm:^0.22.3":
+  version: 0.22.3
+  resolution: "@zeit/ncc@npm:0.22.3"
+  dependencies:
+    node-gyp: latest
+  bin:
+    ncc: dist/ncc/cli.js
+  checksum: 433ca215e1092cb9214c10c87b661e4de8114b356c1f5a37d95b8fafa7267449d43a9d882be128fdfc48cf57a21b08e305dcb5d99f6815e83708db38ec19cf00
+  languageName: node
+  linkType: hard
+
 "abab@npm:^2.0.0, abab@npm:^2.0.3, abab@npm:^2.0.5":
   version: 2.0.5
   resolution: "abab@npm:2.0.5"
@@ -15432,15 +15405,6 @@ __metadata:
   languageName: node
   linkType: hard
 
-"acorn-import-assertions@npm:^1.7.6":
-  version: 1.8.0
-  resolution: "acorn-import-assertions@npm:1.8.0"
-  peerDependencies:
-    acorn: ^8
-  checksum: 02fc3a843eccaa7060de676268c9953b829ebb005f15ea76d9eeb67b69ca6b4a30befbdaec323113be72ddae8353fb14f12b79f6206d5302f43c5eb8325b573a
-  languageName: node
-  linkType: hard
-
 "acorn-jsx@npm:^5.2.0, acorn-jsx@npm:^5.3.1":
   version: 5.3.1
   resolution: "acorn-jsx@npm:5.3.1"
@@ -15461,13 +15425,6 @@ __metadata:
   version: 7.2.0
   resolution: "acorn-walk@npm:7.2.0"
   checksum: 7b52d5d6397f2d395ca878bdb0f56e583e69bc875521876d05fe2b6e293c21aca918b288c01bd18ac99b46b55a0f00a8d0e30fbdfb53c8e36e78ad1a65f73a4a
-  languageName: node
-  linkType: hard
-
-"acorn-walk@npm:^8.1.1":
-  version: 8.2.0
-  resolution: "acorn-walk@npm:8.2.0"
-  checksum: 93ffbdb8b35dda04313f1d6a94bdfdf8f929337f742e3a6d51b3026ced8471feb6a522646240809da44b0f576f4902ff2fa0c64292b3216478992aefcbde3278
   languageName: node
   linkType: hard
 
@@ -17024,22 +16981,14 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "auto-reply-bot@workspace:packages/auto-reply-bot"
   dependencies:
-    "@probot/adapter-aws-lambda-serverless": ^2.1.0
-    "@reapit/config-manager": "workspace:packages/config-manager"
-    "@reapit/ts-scripts": "workspace:packages/ts-scripts"
-    "@reapit/ts-types": "workspace:packages/ts-types"
+    "@probot/adapter-github-actions": ^3.0.1
     "@types/node": ^16.11.7
     "@typescript-eslint/eslint-plugin": ^5.3.1
     "@typescript-eslint/parser": ^5.3.1
+    "@zeit/ncc": ^0.22.3
     eslint: 7.31.0
     eslint-plugin-prettier: ^3.4.0
-    probot: ^12.1.1
-    serverless: ^2.52.0
     serverless-deployment-bucket: ^1.5.1
-    serverless-offline: ^8.2.0
-    serverless-webpack: ^5.5.5
-    ts-node: ^10.4.0
-    webpack: ^5.62.2
   languageName: unknown
   linkType: soft
 
@@ -23052,16 +23001,6 @@ __metadata:
   languageName: node
   linkType: hard
 
-"enhanced-resolve@npm:^5.8.3":
-  version: 5.8.3
-  resolution: "enhanced-resolve@npm:5.8.3"
-  dependencies:
-    graceful-fs: ^4.2.4
-    tapable: ^2.2.0
-  checksum: 71d33904bd335ecf480341ceabb500458f4836187458d278014e3e5c9dd5487c5a176cd280cc55d783c8c3231aea1d4e72b32f0bd1e8928807e39c0154835b47
-  languageName: node
-  linkType: hard
-
 "enquire.js@npm:^2.1.6":
   version: 2.1.6
   resolution: "enquire.js@npm:2.1.6"
@@ -23295,13 +23234,6 @@ __metadata:
   version: 0.7.1
   resolution: "es-module-lexer@npm:0.7.1"
   checksum: 3bc1416512f44343c88bbfb7d1685c11a3cb9aca6090a552b04e9bd802d778ae66aa076f2d4cd5f707061d3264ac3ff2b6a45a55f0f139a966190e57ab497571
-  languageName: node
-  linkType: hard
-
-"es-module-lexer@npm:^0.9.0":
-  version: 0.9.3
-  resolution: "es-module-lexer@npm:0.9.3"
-  checksum: e55280100e7bdd4652b14c70b6e4472cf60a841987e04af7df6bd1ce4ed4be58adca7b786096627b4b31a04c0cd0d9a0299ea4bd0100f62282ac7b06a2074af6
   languageName: node
   linkType: hard
 
@@ -26286,20 +26218,6 @@ fsevents@^1.2.7:
   languageName: node
   linkType: hard
 
-"glob@npm:^7.2.0":
-  version: 7.2.0
-  resolution: "glob@npm:7.2.0"
-  dependencies:
-    fs.realpath: ^1.0.0
-    inflight: ^1.0.4
-    inherits: 2
-    minimatch: ^3.0.4
-    once: ^1.3.0
-    path-is-absolute: ^1.0.0
-  checksum: 1171c3d7b1f5a367499e498826cddafc642aa55ef21e810031a287d3199612a889059d7d2c276a04c636c3ac2fd5943896bfc309110b21fafaeb8a1e0a199d6e
-  languageName: node
-  linkType: hard
-
 "global-agent@npm:^2.0.0, global-agent@npm:^2.1.12":
   version: 2.2.0
   resolution: "global-agent@npm:2.2.0"
@@ -28263,7 +28181,7 @@ fsevents@^1.2.7:
   languageName: node
   linkType: hard
 
-"ioredis@npm:^4.19.2, ioredis@npm:^4.27.8":
+"ioredis@npm:^4.19.2":
   version: 4.28.0
   resolution: "ioredis@npm:4.28.0"
   dependencies:
@@ -36090,7 +36008,7 @@ fsevents@^1.2.7:
   languageName: node
   linkType: hard
 
-"pino@npm:^6.13.0, pino@npm:^6.7.0":
+"pino@npm:^6.11.0, pino@npm:^6.13.0, pino@npm:^6.7.0":
   version: 6.13.3
   resolution: "pino@npm:6.13.3"
   dependencies:
@@ -36826,51 +36744,6 @@ fsevents@^1.2.7:
   bin:
     probot: bin/probot.js
   checksum: 326a794973f7a2984cf39eed633d022782e8f5288f91e9e46b050b21a30f9e09ac0e8efdfcf1e503579bee28fc8663898dbdf28ff785598e4163087358ab2444
-  languageName: node
-  linkType: hard
-
-"probot@npm:^12.1.1":
-  version: 12.1.1
-  resolution: "probot@npm:12.1.1"
-  dependencies:
-    "@octokit/core": ^3.2.4
-    "@octokit/plugin-enterprise-compatibility": ^1.2.8
-    "@octokit/plugin-paginate-rest": ^2.6.2
-    "@octokit/plugin-rest-endpoint-methods": ^5.0.1
-    "@octokit/plugin-retry": ^3.0.6
-    "@octokit/plugin-throttling": ^3.3.4
-    "@octokit/types": ^6.1.1
-    "@octokit/webhooks": ^9.8.4
-    "@probot/get-private-key": ^1.1.0
-    "@probot/octokit-plugin-config": ^1.0.0
-    "@probot/pino": ^2.2.0
-    "@types/express": ^4.17.9
-    "@types/ioredis": ^4.27.1
-    "@types/pino": ^6.3.4
-    "@types/pino-http": ^5.0.6
-    "@types/update-notifier": ^5.0.0
-    commander: ^6.2.0
-    deepmerge: ^4.2.2
-    deprecation: ^2.3.1
-    dotenv: ^8.2.0
-    eventsource: ^1.0.7
-    express: ^4.17.1
-    hbs: ^4.1.1
-    ioredis: ^4.27.8
-    js-yaml: ^3.14.1
-    lru-cache: ^6.0.0
-    octokit-auth-probot: ^1.2.2
-    pino: ^6.7.0
-    pino-http: ^5.3.0
-    pkg-conf: ^3.1.0
-    resolve: ^1.19.0
-    semver: ^7.3.4
-    update-dotenv: ^1.1.1
-    update-notifier: ^5.0.1
-    uuid: ^8.3.2
-  bin:
-    probot: bin/probot.js
-  checksum: 2fb027522ca3c3b3121f9bae5faa525937635915dbefd5b6f7a5cd20c5eda1b51d784e86890e4181bd834ee1613401760a1e5fa76d8b4af2fbbfa8020ca38f39
   languageName: node
   linkType: hard
 
@@ -40624,7 +40497,7 @@ resolve@^2.0.0-next.3:
   languageName: node
   linkType: hard
 
-"serverless-offline@npm:^8.0.0, serverless-offline@npm:^8.2.0":
+"serverless-offline@npm:^8.0.0":
   version: 8.2.0
   resolution: "serverless-offline@npm:8.2.0"
   dependencies:
@@ -40709,28 +40582,6 @@ resolve@^2.0.0-next.3:
     ts-node:
       optional: true
   checksum: 874c68bebb6605ae42ec45ac3b6e24c565070fe0497b57105c259ee91b7b3516b51ff6eccd3532acf617be9f48aff9ce4d8d08868e79b21e956db81e748e3e58
-  languageName: node
-  linkType: hard
-
-"serverless-webpack@npm:^5.5.5":
-  version: 5.5.5
-  resolution: "serverless-webpack@npm:5.5.5"
-  dependencies:
-    bestzip: ^2.2.0
-    bluebird: ^3.7.2
-    fs-extra: ^9.1.0
-    glob: ^7.2.0
-    is-builtin-module: ^3.1.0
-    lodash: ^4.17.21
-    semver: ^7.3.5
-    ts-node: ">= 8.3.0"
-  peerDependencies:
-    serverless: 1 || 2
-    webpack: ">= 3.0.0 < 6"
-  dependenciesMeta:
-    ts-node:
-      optional: true
-  checksum: 59a8f67d829d260890d3c757856d612079919e29a539f3f5a353599efee8f5fd17e1460089e6bb5605dd6dcad654d29d4d8914d20c2c8e1b01a1cdad3f0625e7
   languageName: node
   linkType: hard
 
@@ -44367,42 +44218,6 @@ resolve@^2.0.0-next.3:
   languageName: node
   linkType: hard
 
-"ts-node@npm:^10.4.0":
-  version: 10.4.0
-  resolution: "ts-node@npm:10.4.0"
-  dependencies:
-    "@cspotcode/source-map-support": 0.7.0
-    "@tsconfig/node10": ^1.0.7
-    "@tsconfig/node12": ^1.0.7
-    "@tsconfig/node14": ^1.0.0
-    "@tsconfig/node16": ^1.0.2
-    acorn: ^8.4.1
-    acorn-walk: ^8.1.1
-    arg: ^4.1.0
-    create-require: ^1.1.0
-    diff: ^4.0.1
-    make-error: ^1.1.1
-    yn: 3.1.1
-  peerDependencies:
-    "@swc/core": ">=1.2.50"
-    "@swc/wasm": ">=1.2.50"
-    "@types/node": "*"
-    typescript: ">=2.7"
-  peerDependenciesMeta:
-    "@swc/core":
-      optional: true
-    "@swc/wasm":
-      optional: true
-  bin:
-    ts-node: dist/bin.js
-    ts-node-cwd: dist/bin-cwd.js
-    ts-node-script: dist/bin-script.js
-    ts-node-transpile-only: dist/bin-transpile.js
-    ts-script: dist/bin-script-deprecated.js
-  checksum: 3c2797b6ca6a3811c04b194f9423f98db0ef218504f5246306ab2b45efe95f494a6e4b3b7f6ffdca97faee53b9a07568cb2a3fb9b7cc0f5d49e7e522646412dc
-  languageName: node
-  linkType: hard
-
 "ts-node@npm:^9.0.0":
   version: 9.1.1
   resolution: "ts-node@npm:9.1.1"
@@ -44651,7 +44466,7 @@ resolve@^2.0.0-next.3:
   languageName: node
   linkType: hard
 
-"tunnel@npm:^0.0.6":
+"tunnel@npm:0.0.6, tunnel@npm:^0.0.6":
   version: 0.0.6
   resolution: "tunnel@npm:0.0.6"
   checksum: 78fbb1a55a44fc8de6a497923bf7bf6e7b14b396e0ddaf11fe624ab7f646a0d2ada03f6dcb4a80940faed9649e30d229114f218e8906badd12ded2323a6f666b
@@ -46341,13 +46156,6 @@ typescript@^3.7.3:
   languageName: node
   linkType: hard
 
-"webpack-sources@npm:^3.2.0":
-  version: 3.2.1
-  resolution: "webpack-sources@npm:3.2.1"
-  checksum: 629f5c96323b27d753fb4c20d85043f255ab4759464a19aab1081a8bcfeefac2d0453a11c9a32927d0f4fad5a99187124ddc9a01b0f6601861d3e2ea25e4a647
-  languageName: node
-  linkType: hard
-
 "webpack-virtual-modules@npm:^0.2.2":
   version: 0.2.2
   resolution: "webpack-virtual-modules@npm:0.2.2"
@@ -46471,43 +46279,6 @@ typescript@^3.7.3:
   bin:
     webpack: bin/webpack.js
   checksum: f25a1c1db231d5a0773af2d8fa312e8915c9592ddae708c058be9abaa483d21051955fab69859671bd104ac49d3c21b74086cd258b4057477b5d017cd697cf87
-  languageName: node
-  linkType: hard
-
-"webpack@npm:^5.62.2":
-  version: 5.62.2
-  resolution: "webpack@npm:5.62.2"
-  dependencies:
-    "@types/eslint-scope": ^3.7.0
-    "@types/estree": ^0.0.50
-    "@webassemblyjs/ast": 1.11.1
-    "@webassemblyjs/wasm-edit": 1.11.1
-    "@webassemblyjs/wasm-parser": 1.11.1
-    acorn: ^8.4.1
-    acorn-import-assertions: ^1.7.6
-    browserslist: ^4.14.5
-    chrome-trace-event: ^1.0.2
-    enhanced-resolve: ^5.8.3
-    es-module-lexer: ^0.9.0
-    eslint-scope: 5.1.1
-    events: ^3.2.0
-    glob-to-regexp: ^0.4.1
-    graceful-fs: ^4.2.4
-    json-parse-better-errors: ^1.0.2
-    loader-runner: ^4.2.0
-    mime-types: ^2.1.27
-    neo-async: ^2.6.2
-    schema-utils: ^3.1.0
-    tapable: ^2.1.1
-    terser-webpack-plugin: ^5.1.3
-    watchpack: ^2.2.0
-    webpack-sources: ^3.2.0
-  peerDependenciesMeta:
-    webpack-cli:
-      optional: true
-  bin:
-    webpack: bin/webpack.js
-  checksum: 478e7462370ae7f96ede67fcf874e06e66ec62fd414e759655f403e672a34abcd3bd90642d45e9058ddb941000a76709449d99a45249d4ae66a0e126c5be1190
   languageName: node
   linkType: hard
 
