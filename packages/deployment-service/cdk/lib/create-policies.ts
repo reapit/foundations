@@ -4,8 +4,10 @@ import { ServerlessCluster } from '@aws-cdk/aws-rds'
 import { Bucket } from '@aws-cdk/aws-s3'
 import { ISecret } from '@aws-cdk/aws-secretsmanager'
 import { Queue } from '@aws-cdk/aws-sqs'
+// import config from '../../config.json'
 
 export enum PolicyNames {
+  // lambdaInvoke = 'lambdaInvoke',
   codebuildExecPolicy = 'codebuildExecPolicy',
   cloudFrontPolicy = 'cloudFrontPolicy',
   route53Policy = 'route53Policy',
@@ -107,13 +109,27 @@ export const createPolicies = ({
     ],
   })
 
+  // const lambdaInvoke = new PolicyStatement({
+  //   effect: Effect.ALLOW,
+  //   resources: [
+  //     // Temp solution for hiding arn
+  //     config.API_KEY_INVOKE_ARN,
+  //   ],
+  //   actions: ['lambda:InvokeFunction'],
+  // })
+
   const codebuildExecPolicy = new PolicyStatement({
     effect: Effect.ALLOW,
     resources: [codeBuild.projectArn],
     actions: ['codebuild:StartBuild'],
   })
 
-  const commonBackendPolicies = [...dbPolicies, S3BucketPolicy, sqsPolicies]
+  const commonBackendPolicies = [
+    // lambdaInvoke,
+    ...dbPolicies,
+    S3BucketPolicy,
+    sqsPolicies,
+  ]
 
   return {
     commonBackendPolicies,
@@ -125,5 +141,6 @@ export const createPolicies = ({
     sqsPolicies,
     secretManagerPolicy,
     S3BucketPolicy,
+    // lambdaInvoke,
   }
 }

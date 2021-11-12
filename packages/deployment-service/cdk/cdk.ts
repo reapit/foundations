@@ -17,7 +17,7 @@ const bootstrap = async () => {
   zipper.writeZip(path.resolve(__dirname, '..', 'dist', 'main.zip'))
 
   const app = new cdk.App()
-  new CdkStack(app, 'cloud-deployment-service-josh3')
+  new CdkStack(app, 'cloud-deployment-service')
 }
 
 bootstrap()
