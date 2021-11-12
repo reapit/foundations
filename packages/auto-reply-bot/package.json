@@ -1,34 +1,25 @@
 {
   "name": "auto-reply-bot",
   "dependencies": {
-    "@probot/adapter-aws-lambda-serverless": "^2.1.0",
-    "@probot/adapter-github-actions": "^3.0.1",
-    "probot": "^12.1.1"
+    "@probot/adapter-github-actions": "^3.0.1"
   },
   "devDependencies": {
-    "@reapit/config-manager": "workspace:packages/config-manager",
-    "@reapit/ts-scripts": "workspace:packages/ts-scripts",
-    "@reapit/ts-types": "workspace:packages/ts-types",
     "@types/node": "^16.11.7",
     "@typescript-eslint/eslint-plugin": "^5.3.1",
     "@typescript-eslint/parser": "^5.3.1",
+    "@zeit/ncc": "^0.22.3",
     "eslint": "7.31.0",
     "eslint-plugin-prettier": "^3.4.0",
-    "serverless": "^2.52.0",
-    "serverless-deployment-bucket": "^1.5.1",
-    "serverless-offline": "^8.2.0",
-    "serverless-webpack": "^5.5.5",
-    "ts-node": "^10.4.0",
-    "webpack": "^5.62.2"
+    "serverless-deployment-bucket": "^1.5.1"
   },
   "scripts": {
-    "start": "yarn serverless offline start --stage local",
+    "start": "echo 'no local script'",
     "test": "echo '...skipping...'",
-    "build": "webpack --config webpack.config.js",
+    "build": "ncc build src/index.js -o action",
     "lint": "eslint --cache --ext=ts,tsx,js src --fix",
-    "deploy": "serverless deploy",
+    "deploy": "echo '...skipping...'",
     "release": "echo '...skipping...'",
     "publish": "echo '...skipping...'",
-    "conf": "yarn config-manager --namespace cloud --entity auto-reply-bot --name local --mode fetch"
+    "conf": "echo '...skipping...'"
   }
 }
