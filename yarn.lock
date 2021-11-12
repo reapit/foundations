@@ -21259,6 +21259,7 @@ __metadata:
     ts-node: ^10.1.0
     typeorm: ^0.2.34
     typeorm-aurora-data-api-driver: ^2.2.0
+    webpack: ^5.45.1
     yaml: next
   languageName: unknown
   linkType: soft

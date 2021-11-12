@@ -7,7 +7,7 @@ import { Queue } from '@aws-cdk/aws-sqs'
 import { createS3Buckets } from './create-S3-bucket'
 import { createSqsQueues, QueueNames } from './create-sqs'
 import { createAurora, databaseName } from './create-aurora'
-import { Port, Vpc } from '@aws-cdk/aws-ec2'
+import { Vpc } from '@aws-cdk/aws-ec2'
 import { createCodeBuildProject } from './create-code-build'
 import { createApigateway } from './create-apigateway'
 import { SqsEventSource } from '@aws-cdk/aws-lambda-event-sources'
@@ -408,12 +408,9 @@ export class CdkStack extends cdk.Stack {
     }
 
     const authorizer = new CognitoUserPoolsAuthorizer(this as any, 'cloud-deployment-service-authorizer', {
+      // TODO: env
       cognitoUserPools: [UserPool.fromUserPoolId(this, 'user-pool-authorizer', 'eu-west-2_kiftR4qFc')],
     })
-
-    const MYSQL_USERNAME = secretManager.secretValueFromJson('username').toString()
-    const MYSQL_PASSWORD = secretManager.secretValueFromJson('password').toString()
-    const MYSQL_HOST = secretManager.secretValueFromJson('host').toString()
     const MYSQL_DATABASE = databaseName
 
     for (const [name, options] of Object.entries(functionSetups)) {
@@ -421,19 +418,15 @@ export class CdkStack extends cdk.Stack {
         stack: this,
         name: `cloud-deployment-${name}`,
         code: AssetCode.fromAsset(path.resolve('dist', 'main.zip')),
-        vpc,
         handler: options.handler,
         env: {
-          MYSQL_PASSWORD,
-          MYSQL_USERNAME,
-          MYSQL_HOST,
+          AURORA_SECRET_ARN: secretManager.secretArn,
+          AURORA_RESOURCE_ARN: aurora.clusterArn,
+          AURORA_REGION: this.region,
           MYSQL_DATABASE,
         },
       })
       options.policies.forEach((policy) => lambda.addToRolePolicy(policy))
-
-      lambda.connections.allowTo(aurora.connections, Port.tcp(3306))
-      aurora.connections.allowFrom(lambda.connections, Port.tcp(3306))
 
       if (options.queue) {
         lambda.addEventSource(new SqsEventSource(options.queue))
@@ -451,18 +444,14 @@ export class CdkStack extends cdk.Stack {
       stack: this,
       name: 'cloud-deployment-migration',
       code: AssetCode.fromAsset(path.resolve('dist', 'main.zip')),
-      vpc,
       handler: 'main.migrationRun',
       env: {
-        MYSQL_PASSWORD,
-        MYSQL_USERNAME,
-        MYSQL_HOST,
+        AURORA_SECRET_ARN: secretManager.secretArn,
+        AURORA_RESOURCE_ARN: aurora.clusterArn,
+        AURORA_REGION: this.region,
         MYSQL_DATABASE,
       },
     })
-
-    migrationHandler.connections.allowTo(aurora.connections, Port.tcp(3306))
-    aurora.connections.allowFrom(migrationHandler.connections, Port.tcp(3306))
 
     Object.values(policies)
       .filter((policy) => policy instanceof PolicyStatement)

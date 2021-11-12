@@ -74,6 +74,7 @@
     "eslint": "^7.31.0",
     "eslint-plugin-prettier": "^3.4.0",
     "mime": "2.5.2",
-    "ts-node": "^10.1.0"
+    "ts-node": "^10.1.0",
+    "webpack": "^5.45.1"
   }
 }

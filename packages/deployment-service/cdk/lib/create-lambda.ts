@@ -15,7 +15,7 @@ export const createLambda = ({
   stack: CdkStack
   name: string
   code: AssetCode
-  vpc: Vpc
+  vpc?: Vpc
   handler: string
   env?: { [s: string]: any }
 }): Function => {
