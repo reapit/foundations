@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useState } from 'react'
 import { cx } from '@linaria/core'
 import {
   BodyText,
@@ -22,21 +22,25 @@ import {
   Subtitle,
   Title,
 } from '@reapit/elements'
-import { useState } from 'react'
 import { IconContainer } from '../../webhooks/__styles__'
 import { WebhooksAnimatedNewIcon } from '../../webhooks/webhooks-animated-new-icon'
 import { WebhooksAnimatedDocsIcon } from '../../webhooks/webhooks-animated-docs-icon'
 import { ExternalPages, openNewPage } from '@/utils/navigation'
 import { mixed, object, string } from 'yup'
 import { PackageManagerEnum, PipelineModelInterface } from '@reapit/foundations-ts-definitions'
-import { httpsUrlRegex } from '@reapit/utils-common'
+import { httpsUrlRegex, UpdateActionNames } from '@reapit/utils-common'
 import { useForm } from 'react-hook-form'
 import { yupResolver } from '@hookform/resolvers/yup'
 import errorMessages from '@/constants/error-messages'
+import { useReapitUpdate } from '@reapit/utils-react'
+import { reapitConnectBrowserSession } from '../../../../core/connect-session'
 
-export const pipelineCreateFormHandle = (values: PipelineModelInterface) => {
-  console.log('handle form', values)
-}
+export const pipelineCreateFormHandle =
+  (createPipeline: (values: Partial<PipelineModelInterface>) => void) => (values: PipelineModelInterface) => {
+    console.log('handle form', values)
+
+    createPipeline(values)
+  }
 
 const PipelineCreationModal = ({ open, onModalClose }: { open: boolean; onModalClose: () => void }) => {
   const schema = object().shape<PipelineModelInterface>({
@@ -60,6 +64,16 @@ const PipelineCreationModal = ({ open, onModalClose }: { open: boolean; onModalC
     },
   })
 
+  const [loading, pipeline, send, submissionErrors] = useReapitUpdate<Partial<PipelineModelInterface>, PipelineModelInterface>({
+    reapitConnectBrowserSession,
+    action: UpdateActionNames.updatePipeline,
+    uriParams: {
+      appId,
+    }
+  })
+
+  console.log('errors', pipeline, submissionErrors)
+
   return (
     <Modal isOpen={open} onModalClose={onModalClose}>
       <Title>Create Pipeline</Title>
@@ -67,12 +81,12 @@ const PipelineCreationModal = ({ open, onModalClose }: { open: boolean; onModalC
         Sed lobortis egestas tellus placerat condimentum. Orci varius natoque penatibus et magnis dis parturient montes,
         nascetur ridiculus mus.
       </BodyText>
-      <form onSubmit={handleSubmit(pipelineCreateFormHandle)}>
+      <form onSubmit={handleSubmit(pipelineCreateFormHandle(send))}>
         <FormLayout>
           <InputWrap>
             <InputGroup>
               <Label>Github Repository</Label>
-              <Input {...register('repository')} />
+              <Input {...register('repository')} placeholder="https://github.com/org/repo" />
               {errors.repository?.message && <InputAddOn intent="danger">{errors.repository.message}</InputAddOn>}
             </InputGroup>
           </InputWrap>
@@ -106,7 +120,9 @@ const PipelineCreationModal = ({ open, onModalClose }: { open: boolean; onModalC
           </InputWrap>
           <InputWrapFull>
             <ButtonGroup alignment="right">
-              <Button intent={'primary'}>Create</Button>
+              <Button loading={loading} intent={'primary'}>
+                Create
+              </Button>
             </ButtonGroup>
           </InputWrapFull>
         </FormLayout>

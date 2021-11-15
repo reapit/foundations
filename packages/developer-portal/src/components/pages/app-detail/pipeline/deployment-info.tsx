@@ -14,6 +14,10 @@ import React from 'react'
 const PipelineInfo = ({ pipeline }: { pipeline: PipelineModelInterface }) => (
   <>
     <InputWrap>
+      <Subtitle>Status</Subtitle>
+      <BodyText>{pipeline.buildCommand}</BodyText>
+    </InputWrap>
+    <InputWrap>
       <Subtitle>Repository</Subtitle>
       <BodyText>{pipeline.repository}</BodyText>
     </InputWrap>
