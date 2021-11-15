@@ -37,3 +37,9 @@ exports[`SearchableDropdown component should match a snapshot 1`] = `
   value=""
 />
 `;
+
+exports[`SearchableDropdownSearchLabel component should match a snapshot 1`] = `
+<ElSearchableDropdownSearchLabel>
+  I am a label
+</ElSearchableDropdownSearchLabel>
+`;

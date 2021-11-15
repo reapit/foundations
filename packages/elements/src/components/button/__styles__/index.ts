@@ -13,8 +13,11 @@ import { elIsLoading } from '../../../styles/states'
 import { intentPrimary, intentSecondary, intentCritical, intentSuccess, intentDanger } from '../../../styles/globals'
 import { ElIcon } from '../../icon/__styles__'
 
-const buttonXPadding = 1.5
-const buttonYPaddingMobile = 0.25
+const buttonXPadding = 1.75
+const buttonXPaddingMobile = 1
+const buttonHeight = 2.5
+const buttonHeightMobile = 2
+
 const chevronLeft = (fill: string) =>
   `data:image/svg+xml;utf8,<svg width="18" height="40" viewBox="0 0 18 40" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M24 0L9.79882 0C8.09608 0 6.57999 1.07793 6.02073 2.6862L0.456861 18.6862C0.160976 19.5371 0.160976 20.4629 0.456861 21.3138L6.02073 37.3138C6.57999 38.9221 8.09608 40 9.79882 40H24V0Z" fill="${encodeURIComponent(
     fill,
@@ -54,24 +57,22 @@ export const elButtonGroupAlignRight = css``
 export const elButtonGroupAlignCenter = css``
 
 export const ElButton = styled.button`
-  display: inline-block;
+  display: inline-flex;
   position: relative;
-  height: auto;
-  padding: 0.625rem ${buttonXPadding}rem;
+  height: ${buttonHeight}rem;
+  padding: 0 ${buttonXPadding}rem;
   justify-content: center;
+  align-items: center;
   text-align: center;
   white-space: nowrap;
   cursor: pointer;
   text-transform: uppercase;
-
   border-radius: var(--default-border-radius);
   border: none;
-
   font-size: 1rem;
   font-family: var(--font-sans-serif);
   font-weight: bold;
   color: var(--intent-primary);
-
   background-color: unset;
   background-image: linear-gradient(to right, var(--color-white), var(--color-white));
   outline-color: var(--intent-primary);
@@ -153,9 +154,9 @@ export const ElButton = styled.button`
   }
 
   ${isMobile} {
-    height: 2.5rem;
+    height: ${buttonHeightMobile}rem;
     font-size: 1rem;
-    padding: ${buttonYPaddingMobile}rem 0.75rem;
+    padding: 0 ${buttonXPaddingMobile}rem;
   }
 
   &.${elFloatingButton} {

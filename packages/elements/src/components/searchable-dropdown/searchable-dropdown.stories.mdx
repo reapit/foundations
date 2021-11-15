@@ -1,5 +1,5 @@
 import { Meta, Story, Canvas, ArgsTable } from '@storybook/addon-docs/blocks'
-import { SearchableDropdown, ControlledSearchableDropdown } from './index'
+import { SearchableDropdown, ControlledSearchableDropdown, SearchableDropdownSearchLabel } from './index'
 import { Label } from '../label'
 import { RenderHtmlMarkup } from '../../storybook/render-html-markup'
 
@@ -17,7 +17,7 @@ A searchable dropdown list.
   <Story name="Basic Usage">
     <SearchableDropdown
       getResults={async () => {
-        return new Promise(resolve => {
+        return new Promise((resolve) => {
           setTimeout(() => {
             resolve([
               {
@@ -58,10 +58,10 @@ A searchable dropdown list.
 
 <Canvas>
   <Story name="Use with a label">
-    <Label>Select an option</Label>
+    <SearchableDropdownSearchLabel>Select an option</SearchableDropdownSearchLabel>
     <SearchableDropdown
       getResults={async () => {
-        return new Promise(resolve => {
+        return new Promise((resolve) => {
           setTimeout(() => {
             resolve([
               {
@@ -87,14 +87,13 @@ A searchable dropdown list.
   </Story>
 </Canvas>
 
-
 ## Use with a different icon
 
 <Canvas>
   <Story name="Use with an icon">
     <SearchableDropdown
       getResults={async () => {
-        return new Promise(resolve => {
+        return new Promise((resolve) => {
           setTimeout(() => {
             resolve([
               {
@@ -121,7 +120,6 @@ A searchable dropdown list.
   </Story>
 </Canvas>
 
-
 ### Use with Types
 
 You can add types to the dropdown by passing a type argument:
@@ -131,10 +129,9 @@ type ObjectType = {
   id: string
   name: string
 }
-
-<SearchableDropdown<ObjectType>
+;<SearchableDropdown<ObjectType>
   getResults={async () => {
-    return new Promise(resolve => {
+    return new Promise((resolve) => {
       setTimeout(() => {
         resolve([
           {
@@ -170,16 +167,20 @@ type ObjectType = {
       isClearVisible={true}
       loading={false}
       selectedValue=""
-      resultsList={[{
-        value: '1',
-        label: 'First',
-      }, {
-        value: '2',
-        label: 'Second',
-      }, {
-        value: '3',
-        label: 'Third',
-      }]}
+      resultsList={[
+        {
+          value: '1',
+          label: 'First',
+        },
+        {
+          value: '2',
+          label: 'Second',
+        },
+        {
+          value: '3',
+          label: 'Third',
+        },
+      ]}
       onResultClick={(result) => console.log(result)}
       onClear={() => console.log('clear')}
       icon="geoLocationSolidSystem"
