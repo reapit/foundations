@@ -1,0 +1,182 @@
+import React from 'react'
+import { cx } from '@linaria/core'
+import {
+  BodyText,
+  Button,
+  ButtonGroup,
+  ColSplit,
+  elM6,
+  elMb10,
+  elMt10,
+  FlexContainer,
+  FormLayout,
+  Grid,
+  Input,
+  InputAddOn,
+  InputGroup,
+  InputWrap,
+  InputWrapFull,
+  Label,
+  Modal,
+  PersistantNotification,
+  Subtitle,
+  Title,
+} from '@reapit/elements'
+import { useState } from 'react'
+import { IconContainer } from '../../webhooks/__styles__'
+import { WebhooksAnimatedNewIcon } from '../../webhooks/webhooks-animated-new-icon'
+import { WebhooksAnimatedDocsIcon } from '../../webhooks/webhooks-animated-docs-icon'
+import { ExternalPages, openNewPage } from '@/utils/navigation'
+import { mixed, object, string } from 'yup'
+import { PackageManagerEnum, PipelineModelInterface } from '@reapit/foundations-ts-definitions'
+import { httpsUrlRegex } from '@reapit/utils-common'
+import { useForm } from 'react-hook-form'
+import { yupResolver } from '@hookform/resolvers/yup'
+import errorMessages from '@/constants/error-messages'
+
+export const pipelineCreateFormHandle = (values: PipelineModelInterface) => {
+  console.log('handle form', values)
+}
+
+const PipelineCreationModal = ({ open, onModalClose }: { open: boolean; onModalClose: () => void }) => {
+  const schema = object().shape<PipelineModelInterface>({
+    repository: string()
+      .trim()
+      .required(errorMessages.FIELD_REQUIRED)
+      .matches(httpsUrlRegex, 'Should be a secure https url'),
+    buildCommand: string().trim().required('A build command is required'),
+    packageManager: mixed().oneOf(Object.values(PackageManagerEnum)),
+  })
+
+  const {
+    register,
+    handleSubmit,
+    formState: { errors },
+  } = useForm<PipelineModelInterface>({
+    resolver: yupResolver(schema),
+    defaultValues: {
+      buildCommand: 'build',
+      packageManager: PackageManagerEnum.YARN,
+    },
+  })
+
+  return (
+    <Modal isOpen={open} onModalClose={onModalClose}>
+      <Title>Create Pipeline</Title>
+      <BodyText hasGreyText>
+        Sed lobortis egestas tellus placerat condimentum. Orci varius natoque penatibus et magnis dis parturient montes,
+        nascetur ridiculus mus.
+      </BodyText>
+      <form onSubmit={handleSubmit(pipelineCreateFormHandle)}>
+        <FormLayout>
+          <InputWrap>
+            <InputGroup>
+              <Label>Github Repository</Label>
+              <Input {...register('repository')} />
+              {errors.repository?.message && <InputAddOn intent="danger">{errors.repository.message}</InputAddOn>}
+            </InputGroup>
+          </InputWrap>
+          <InputWrap>
+            <InputGroup>
+              <Label>Package Manager</Label>
+              <Label>
+                <Input {...register('packageManager')} type="radio" value="yarn" /> Yarn
+              </Label>
+              <Label>
+                <Input {...register('packageManager')} type="radio" value="npm" /> Npm
+              </Label>
+              {errors.packageManager?.message && (
+                <InputAddOn intent="danger">{errors.packageManager.message}</InputAddOn>
+              )}
+            </InputGroup>
+          </InputWrap>
+          <InputWrap>
+            <InputGroup>
+              <Label>Build Command</Label>
+              <Input {...register('buildCommand')} />
+              {errors.buildCommand?.message && <InputAddOn intent="danger">{errors.buildCommand.message}</InputAddOn>}
+            </InputGroup>
+          </InputWrap>
+          <InputWrap>
+            <InputGroup>
+              <Label>Test Command</Label>
+              <Input {...register('testCommand')} />
+              {errors.testCommand?.message && <InputAddOn intent="danger">{errors.testCommand.message}</InputAddOn>}
+            </InputGroup>
+          </InputWrap>
+          <InputWrapFull>
+            <ButtonGroup alignment="right">
+              <Button intent={'primary'}>Create</Button>
+            </ButtonGroup>
+          </InputWrapFull>
+        </FormLayout>
+      </form>
+    </Modal>
+  )
+}
+
+export const CreatePipeline = () => {
+  const [modalOpen, setModalOpen] = useState<boolean>(false)
+  const [newPipelineAnimated, setNewPipelineAnimated] = useState<boolean>(false)
+  const [docsIsAnimated, setDocsIsAnimated] = useState<boolean>(false)
+
+  return (
+    <>
+      <PersistantNotification className={cx(elM6)} isExpanded intent="danger" isFullWidth isInline>
+        No Pipeline configuration found for app.
+      </PersistantNotification>
+      <Grid>
+        <ColSplit>
+          <IconContainer className={elMb10}>
+            <WebhooksAnimatedNewIcon isAnimated={newPipelineAnimated} />
+          </IconContainer>
+          <Subtitle>Pipeline Deployments</Subtitle>
+          <BodyText hasGreyText>
+            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis rhoncus sem nec sagittis aliquet. Praesent
+            malesuada non mi sed tristique. Proin fermentum metus quis ante tempor egestas. Class aptent taciti sociosqu
+            ad litora torquent per conubia nostra, per inceptos himenaeos. Maecenas et lacinia neque.
+          </BodyText>
+          <Button
+            intent="primary"
+            chevronRight
+            onClick={() => setModalOpen(true)}
+            onMouseOver={() => {
+              setNewPipelineAnimated(true)
+            }}
+            onMouseOut={() => {
+              setNewPipelineAnimated(false)
+            }}
+          >
+            Create Pipeline
+          </Button>
+        </ColSplit>
+        <ColSplit>
+          <IconContainer className={elMb10}>
+            <WebhooksAnimatedDocsIcon isAnimated={docsIsAnimated} />
+          </IconContainer>
+          <Subtitle>Pipeline Documentation</Subtitle>
+          <BodyText hasGreyText>
+            Praesent malesuada non mi sed tristique. Proin fermentum metus quis ante tempor egestas. Class aptent taciti
+            sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. Maecenas et lacinia neque. Lorem
+            ipsum dolor sit amet, consectetur adipiscing elit. Duis rhoncus sem nec sagittis aliquet.
+          </BodyText>
+          <Button
+            intent="low"
+            onClick={openNewPage(ExternalPages.webhooksDocs)}
+            onMouseOver={() => {
+              setDocsIsAnimated(true)
+            }}
+            onMouseOut={() => {
+              setDocsIsAnimated(false)
+            }}
+          >
+            View Docs
+          </Button>
+        </ColSplit>
+      </Grid>
+      <FlexContainer className={cx(elMt10)} isFlexJustifyCenter isFlexAlignCenter isFlexColumn>
+        <PipelineCreationModal open={modalOpen} onModalClose={() => setModalOpen(false)} />
+      </FlexContainer>
+    </>
+  )
+}
