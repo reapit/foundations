@@ -1,23 +1,23 @@
-# name: AutoBot
-# on:
-#   issues:
-#     types:
-#       - opened
-#       - reopened
-#       - closed
-#       - labeled
-#   project_card:
-#     types:
-#       - moved
+name: AutoBot
+on:
+  issues:
+    types:
+      - opened
+      - reopened
+      - closed
+      - labeled
+  project_card:
+    types:
+      - moved
 
-# jobs:
-#   reply:
-#     runs-on: ubuntu-latest
-#     steps:
-#       - name: Checkout
-#         uses: actions/checkout@v2
-#         with:
-#           fetch-depth: 0
-#       - uses: ./packages/auto-reply-bot
-#         env:
-#           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+jobs:
+  reply:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v2
+        with:
+          fetch-depth: 0
+      # - uses: ./packages/auto-reply-bot
+      #   env:
+      #     GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
