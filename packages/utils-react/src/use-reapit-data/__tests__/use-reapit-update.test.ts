@@ -114,12 +114,12 @@ describe('useReapitUpdate', () => {
       },
     ]
 
-    mockFetcher.mockReturnValue({
-      headers: {
-        Location: 'https://api.test.reapit.com/path',
-      },
-      json: async () => ({...objectBody, updated: true}),
-    })
+    const headers = new Headers
+    headers.append('Location', 'https://api.test.reapit.com/path')
+
+    mockFetcher.mockReturnValue(new Response(JSON.stringify({ ...objectBody, updated: true }), {
+      headers,
+    }))
 
     const { result, waitForNextUpdate } = renderHook<{}, ReapitUpdateState<{}, typeof mockData>>(() =>
       useReapitUpdate<{}, typeof mockData>({

@@ -74,11 +74,11 @@ export const useReapitUpdate = <ParamsType, DataType>({
     setError(error)
 
     if (returnUpdatedModel && error === null) {
-      if (!response.headers.Location) {
+      const location = response.headers.get('Location')
+      if (!location) {
         throw new Error('Location was not returned by server')
       }
 
-      const location = response.headers.Location
       const fetchResponse = await fetch(location, {
         headers: getHeaders,
         method: 'GET',
