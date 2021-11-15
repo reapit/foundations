@@ -5,7 +5,7 @@ export const ApiNames = {
       : 'https://platform.reapit.cloud',
   pipeline:
     globalThis.reapit?.config?.appEnv !== 'production'
-      ? 'https://f504fbivda.execute-api.eu-west-2.amazonaws.com/dev'
+      ? 'https://f504fbivda.execute-api.eu-west-2.amazonaws.com/prod'
       : '',
 }
 
