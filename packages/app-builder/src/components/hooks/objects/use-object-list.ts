@@ -13,5 +13,6 @@ export const useObjectList = (typeName?: string) => {
     data: (query.data && Object.values(query.data)[0]) as any[] | undefined,
     loading: loading || query.loading,
     error: error || query.error,
+    args: listQuery?.args,
   }
 }

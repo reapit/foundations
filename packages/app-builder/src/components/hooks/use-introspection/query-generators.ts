@@ -16,6 +16,7 @@ import {
   MutationType,
   stringIsMutationType,
 } from './types'
+import { DesktopContext } from '@/core/desktop-integration'
 
 export type GeneratedQuery = {
   query: DocumentNode
@@ -87,13 +88,14 @@ export const getGetQuery = (
   }
 }
 
-type ParsedArg = {
+export type ParsedArg = {
   name: string
   isRequired: boolean
   typeName: string
   idOfType?: string
   enumValues?: Array<string>
   fields?: Array<ParsedArg>
+  acKey?: DesktopContext
 }
 
 const parseArgs = (
@@ -126,9 +128,12 @@ const parseArgs = (
       idOfType = queryableObjectTypes.find((a) => a.name.toLowerCase() === idName.toLowerCase())?.name
     }
 
+    const acKey = description?.split('@acKey(')[1]?.split(')')[0] as DesktopContext
+
     const enumValues = enums.find(({ name }) => name === typeName)?.enumValues.map((e) => e.name)
     return {
       name,
+      acKey,
       isRequired: isNonNullInputType(type),
       typeName,
       idOfType,

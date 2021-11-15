@@ -14,9 +14,8 @@ export const createAurora = (stack: CdkStack, vpc: Vpc): [ISecret, ServerlessClu
     scaling: {
       autoPause: Duration.minutes(5),
     },
+    enableDataApi: true,
   })
-
-  aurora.connections.allowDefaultPortFromAnyIpv4()
 
   const secretManager = aurora.secret as ISecret
 

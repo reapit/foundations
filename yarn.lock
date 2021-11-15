@@ -9287,6 +9287,7 @@ __metadata:
     "@reapit/foundations-ts-definitions": "workspace:packages/foundations-ts-definitions"
     "@reapit/ts-scripts": "workspace:packages/ts-scripts"
     "@reapit/ts-types": "workspace:packages/ts-types"
+    "@reapit/utils-common": "workspace:packages/utils-common"
     "@types/fs-extra": ^9.0.12
     "@types/jszip": ^3.4.1
     "@types/luxon": ^2.0.5
@@ -9312,6 +9313,7 @@ __metadata:
     jszip: ^3.7.1
     luxon: ^2.0.2
     node-fetch: ^2.6.1
+    pluralize: ^8.0.0
     project-name-generator: ^2.1.9
     reflect-metadata: ^0.1.13
     slugify: ^1.6.0
@@ -9891,6 +9893,7 @@ __metadata:
     cross-env: ^7.0.3
     eslint: 7.31.0
     eslint-plugin-prettier: ^3.4.0
+    isomorphic-fetch: ^3.0.0
     jest: ^27.0.6
     jest-coverage-badges: ^1.1.2
     serialize-error: ^7.0.1
@@ -17263,6 +17266,15 @@ __metadata:
   languageName: node
   linkType: hard
 
+"axios@npm:^0.23.0":
+  version: 0.23.0
+  resolution: "axios@npm:0.23.0"
+  dependencies:
+    follow-redirects: ^1.14.4
+  checksum: 6fc85412cab4e25a55c905d1387c39a4cb11b60fe965c62ffd1dfd393f862ae12a1dc5fb7bb4e3c77c0e431ed764d9256d8a74f01d0e35233ed9dfa966b145b0
+  languageName: node
+  linkType: hard
+
 "axobject-query@npm:^2.0.2":
   version: 2.1.2
   resolution: "axobject-query@npm:2.1.2"
@@ -20163,7 +20175,7 @@ __metadata:
     "@typescript-eslint/eslint-plugin": ^4.28.4
     "@typescript-eslint/parser": ^4.28.4
     aws-sdk: ^2.949.0
-    axios: ^0.21.1
+    axios: ^0.23.0
     babel-jest: ^27.0.6
     body-parser: ^1.19.0
     concurrently: ^6.2.0
@@ -21909,6 +21921,7 @@ __metadata:
     ts-node: ^10.1.0
     typeorm: ^0.2.34
     typeorm-aurora-data-api-driver: ^2.2.0
+    webpack: ^5.45.1
     yaml: next
   languageName: unknown
   linkType: soft
@@ -25292,6 +25305,16 @@ __metadata:
   version: 1.13.0
   resolution: "follow-redirects@npm:1.13.0"
   checksum: f220828d3f153da30ea616fdbe9f6676e74e4e68c51d336a751037c1d556e2de34aa5918f58951fa19bb6517c9c88b4403a0a8bdfc40d3e779d37def2ac0f2c4
+  languageName: node
+  linkType: hard
+
+"follow-redirects@npm:^1.14.4":
+  version: 1.14.5
+  resolution: "follow-redirects@npm:1.14.5"
+  peerDependenciesMeta:
+    debug:
+      optional: true
+  checksum: 69c5dc6658d9a5ac337b82e2b4ab4af5ed4b0482b582b9517dc10fa132f781187febe4d28e1808866c299b1ca0083c1493e781364746376e89a24e15b4887a0c
   languageName: node
   linkType: hard
 
@@ -35815,7 +35838,7 @@ fsevents@^1.2.7:
     "@typescript-eslint/parser": ^4.28.4
     aws-lambda: ^1.0.6
     aws-sdk: ^2.949.0
-    axios: ^0.21.1
+    axios: ^0.23.0
     babel-jest: ^27.0.6
     body-parser: ^1.19.0
     concurrently: ^6.2.0
@@ -36136,6 +36159,13 @@ fsevents@^1.2.7:
   version: 7.0.0
   resolution: "pluralize@npm:7.0.0"
   checksum: d35d8aeda1eb2f81123131e76ed0f2f48d681abfa4c46e4c6fdd6dca622650c8bd531aa0c5a3c7f779bd9660d08ceb51660e1f55def4bd14328ecfa76fe69962
+  languageName: node
+  linkType: hard
+
+"pluralize@npm:^8.0.0":
+  version: 8.0.0
+  resolution: "pluralize@npm:8.0.0"
+  checksum: 5251b470a0c8e5181ac7e1d61028553f90cb2c85c34b8e468cea269ae715499524546c2c3681029ef5697d86c54bfb12e49388f5cc6082051e84f5888588f4ec
   languageName: node
   linkType: hard
 
@@ -40145,7 +40175,7 @@ resolve@^2.0.0-next.3:
     "@reapit/ts-types": "workspace:packages/ts-types"
     "@typescript-eslint/eslint-plugin": ^4.28.4
     "@typescript-eslint/parser": ^4.28.4
-    axios: ^0.21.1
+    axios: ^0.23.0
     dayjs: ^1.10.6
     eslint: ^7.31.0
     eslint-plugin-prettier: ^3.4.0

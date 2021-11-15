@@ -15,7 +15,7 @@ export const OrgIdSelect: FC = () => {
     <div className={elMb5}>
       <Subtitle>Organisations</Subtitle>
       <BodyText hasGreyText>
-        You are and admin for multiple organisations - select from the list below for data specific to one of these
+        You are an admin for multiple organisations - select from the list below for data specific to one of these
         organisations
       </BodyText>
       <ControlsContainer className={elBorderRadius}>
