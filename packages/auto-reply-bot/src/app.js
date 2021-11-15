@@ -1,16 +1,18 @@
-const templateReply = `Thank you for raising a Feature Request. At our next refinement session, the team will discuss the issue and should we agree that development is warranted, we will commit to the work. However, if we need to gather more information or investigate, the relevant label will be added and if applicable, we will add a comment.  \r\nFor more information on our processes, [please click here](https://foundations-documentation.reapit.cloud/dev-requests)`
+const templateReply =
+  'Thank you for raising a Feature Request. At our next refinement session, the team will discuss the issue and should we agree that development is warranted, we will commit to the work. However, if we need to gather more information or investigate, the relevant label will be added and if applicable, we will add a comment.  \r\nFor more information on our processes, [please click here](https://foundations-documentation.reapit.cloud/dev-requests)'
 
-const labelReply = `We have added the label of 'question' as the nature of your request requires product direction.  \r\nFor information on our processes, [please click here](https://foundations-documentation.reapit.cloud/dev-requests)`
+const labelReply =
+  "We have added the label of 'question' as the nature of your request requires product direction.  \r\nFor information on our processes, [please click here](https://foundations-documentation.reapit.cloud/dev-requests)"
 
 // The 'from column' the condition is to match
 const nearTermFromColumn = 'second'
 // the 'to column' the condition is to match
 const nearTermToColumn = 'third'
-const nearTerm = `This ticket has been moved to our near-term column as have we identified this as a short term goal, we'll assess the effort required and outline a technical specification - please take the time to review this detail. The issue will be prioritised against the needs of other customers and developers. When we're ready to schedule the issue, it will be assigned to a dated GitHub project board for that particular sprint where you can continue to track its progress to completion.`
+const nearTerm =
+  "This ticket has been moved to our near-term column as have we identified this as a short term goal, we'll assess the effort required and outline a technical specification - please take the time to review this detail. The issue will be prioritised against the needs of other customers and developers. When we're ready to schedule the issue, it will be assigned to a dated GitHub project board for that particular sprint where you can continue to track its progress to completion."
 
 export default (app) => {
   app.on('issues.opened', async (event) => {
-
     if (['OWNER', 'MEMBER'].includes(event.payload.issue.author_association)) {
       return
     }
@@ -23,9 +25,13 @@ export default (app) => {
     }
 
     return Promise.all([
-      event.octokit.issues.createComment(event.issue({ body: `Hello :wave:
+      event.octokit.issues.createComment(
+        event.issue({
+          body: `Hello :wave:
       ${templateReply}
-      ` })),
+      `,
+        }),
+      ),
       event.octokit.issues.addLabels(event.issue({ labels: ['awaiting triage'] })),
     ])
   })
@@ -33,14 +39,14 @@ export default (app) => {
   app.on('issues.labeled', (event) => {
     // TODO requires 'member of org' condition?
     if (event.payload.label.name === 'question') {
-      return Promise.all([
-        event.octokit.issues.createComment(event.issue({ body: labelReply })),
-      ])
+      return Promise.all([event.octokit.issues.createComment(event.issue({ body: labelReply }))])
     }
   })
 
   app.on('project_card.moved', async (event) => {
-    const issueNumber = event.payload.project_card.content_url ? event.payload.project_card.content_url.split('/').pop() : undefined
+    const issueNumber = event.payload.project_card.content_url
+      ? event.payload.project_card.content_url.split('/').pop()
+      : undefined
     if (!issueNumber) {
       return
     }
@@ -71,7 +77,7 @@ export default (app) => {
         console.log('issue not found')
         return
       }
-  
+
       return event.octokit.issues.createComment({
         issue_number: issue.data.number,
         ...repoInfo,
