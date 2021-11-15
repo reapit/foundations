@@ -4,6 +4,6 @@ import { AppPipeline } from '../pipeline'
 
 describe('App Pipeline', () => {
   it('should match snapshot', () => {
-    expect(shallow(<AppPipeline />)).toMatchSnapshot()
+    expect(shallow(<AppPipeline appId={'12345'} />)).toMatchSnapshot()
   })
 })

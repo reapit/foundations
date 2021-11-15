@@ -35,6 +35,7 @@ import { AppPipeline } from './pipeline'
 import { MEDIA_INDEX } from '@/constants/media'
 import ImagePlaceHolder from '@/assets/images/default-app-icon.jpg'
 import { cx } from '@linaria/core'
+import { AppDetailModel } from '@reapit/foundations-ts-definitions'
 
 export type AppDetailProps = {}
 
@@ -64,7 +65,7 @@ const AppDetailsTabs = ({ tab }: { tab: string }) => {
 
   switch (tab) {
     case 'pipelines':
-      return <AppPipeline />
+      return <AppPipeline appId={(appDetailState.data as AppDetailModel).id as string} />
     default:
     case 'details':
       return (
