@@ -77,7 +77,7 @@ describe('useReapitUpdate', () => {
     expect(result.current[0]).toBeFalsy()
     expect(result.current[1]).toBeUndefined()
     expect(result.current[2]).toBeInstanceOf(Function)
-    expect(result.current[3]).toBeNull()
+    expect(result.current[3]).toBeUndefined()
 
     act(() => {
       result.current[2](objectBody)
@@ -91,7 +91,7 @@ describe('useReapitUpdate', () => {
 
     expect(result.current[1]).toEqual(undefined)
     expect(result.current[0]).toEqual(false)
-    expect(result.current[3]).toEqual(null)
+    expect(result.current[3]).toEqual(true)
 
     expect(mockFetcher).toHaveBeenCalledTimes(1)
   })
@@ -131,7 +131,7 @@ describe('useReapitUpdate', () => {
     expect(result.current[0]).toBeFalsy()
     expect(result.current[1]).toBeUndefined()
     expect(result.current[2]).toBeInstanceOf(Function)
-    expect(result.current[3]).toBeNull()
+    expect(result.current[3]).toBeUndefined()
 
     act(() => {
       result.current[2](objectBody)
@@ -145,7 +145,7 @@ describe('useReapitUpdate', () => {
 
     expect(result.current[1]).toEqual({...objectBody, updated: true})
     expect(result.current[0]).toEqual(false)
-    expect(result.current[3]).toEqual(null)
+    expect(result.current[3]).toEqual(true)
 
     expect(mockFetcher).toHaveBeenCalledTimes(3)
   })

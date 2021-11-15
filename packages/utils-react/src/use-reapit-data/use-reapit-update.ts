@@ -11,6 +11,7 @@ export type ReapitUpdateState<ParamsType, DataType> = [
   boolean,
   DataType | undefined,
   SendFunction<ParamsType>,
+  boolean | undefined,
   string | null,
 ]
 
@@ -42,6 +43,7 @@ export const useReapitUpdate = <ParamsType, DataType>({
   const { connectSession } = useReapitConnect(reapitConnectBrowserSession)
   const [data, setData] = useState()
   const { success: successSnack, error: errorSnack } = useSnack()
+  const [success, setSuccess] = useState<undefined | boolean>(undefined)
 
   const send: SendFunction<ParamsType> = async (params: ParamsType): Promise<void> => {
     const updateAction = updateActions[action]
@@ -58,6 +60,7 @@ export const useReapitUpdate = <ParamsType, DataType>({
     if (!getHeaders) throw new Error('Missing valid Reapit Connect Session')
 
     setLoading(true)
+    setSuccess(undefined)
     const response = await fetch(url, {
       headers: getHeaders,
       method,
@@ -70,6 +73,7 @@ export const useReapitUpdate = <ParamsType, DataType>({
     if (error) {
       errorSnack(errorMessage ?? error)
       setLoading(false)
+      setSuccess(false)
     }
     setError(error)
 
@@ -86,15 +90,21 @@ export const useReapitUpdate = <ParamsType, DataType>({
 
       const fetchError = typeof response === 'string' ? response : null
 
-      if (fetchError) errorSnack(errorMessage ?? fetchError)
+      if (fetchError) {
+        errorSnack(errorMessage ?? fetchError)
+        setSuccess(false)
+      }
       setError(fetchError)
 
       const data = await fetchResponse.json()
 
       setLoading(false)
+      setSuccess(true)
       setData(data)
+    } else {
+      setSuccess(true)
     }
   }
 
-  return [loading, data, send, error]
+  return [loading, data, send, success, error]
 }
