@@ -11,10 +11,9 @@ const nearTerm = `This ticket has been moved to our near-term column as have we 
 export default (app) => {
   app.on('issues.opened', async (event) => {
 
-    // commented out to prevent testing
-    // if (['OWNER', 'MEMBER'].includes(event.payload.issue.author_association)) {
-    //   return
-    // }
+    if (['OWNER', 'MEMBER'].includes(event.payload.issue.author_association)) {
+      return
+    }
 
     const isFeatureRequestTemplate = event.payload.issue.body.includes('feature request related to a problem')
 
@@ -64,10 +63,9 @@ export default (app) => {
     if (fromColumn.data.name === nearTermFromColumn && toColumn.data.name === nearTermToColumn) {
       const issue = await event.octokit.issues.get({ issue_number: Number.parseInt(issueNumber), ...repoInfo })
 
-      // commented out to prevent testing
-      // if (['OWNER', 'MEMBER'].includes(issue.data.author_association)) {
-      //   return
-      // }
+      if (['OWNER', 'MEMBER'].includes(issue.data.author_association)) {
+        return
+      }
 
       if (!issue.data) {
         console.log('issue not found')
