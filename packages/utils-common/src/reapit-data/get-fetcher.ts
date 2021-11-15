@@ -8,6 +8,7 @@ export interface GetFetcherParams {
   action: GetActionNames
   connectSession: ReapitConnectSession | null
   queryParams?: Object
+  uriParams?: Object
   headers?: StringMap
   logger: (error: Error) => void
 }
@@ -16,13 +17,19 @@ export const getFetcher = async <DataType>({
   action,
   connectSession,
   queryParams,
+  uriParams,
   headers,
   logger,
 }: GetFetcherParams): Promise<DataType | string> => {
   const getAction = getActions[action]
   const { api, path } = getAction
+  const deSerialisedPath = uriParams
+    ? Object.keys(uriParams).reduce<string>((path, uriReplaceKey) => {
+        return path.replace(`{${uriReplaceKey}}`, uriParams[uriReplaceKey])
+      }, path)
+    : path
   const query = qs.stringify(queryParams)
-  const url = `${api}${path}${query ? `?${query}` : ''}`
+  const url = `${api}${deSerialisedPath}${query ? `?${query}` : ''}`
   const accessToken = connectSession?.accessToken
   const getHeaders = getMergedHeaders(accessToken, headers)
 
