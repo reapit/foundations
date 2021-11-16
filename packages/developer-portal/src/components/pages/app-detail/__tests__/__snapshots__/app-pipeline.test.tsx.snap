@@ -2,6 +2,9 @@
 
 exports[`App Pipeline should match snapshot 1`] = `
 <Fragment>
-  <CreatePipeline />
+  <CreatePipeline
+    appId="12345"
+    refreshPipeline={[Function]}
+  />
 </Fragment>
 `;
