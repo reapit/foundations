@@ -81,14 +81,6 @@ export const useReapitUpdate = <ParamsType, DataType>({
           method: 'GET',
         })
 
-        const fetchError = typeof response === 'string' ? response : null
-
-        if (fetchError) {
-          errorSnack(errorMessage ?? fetchError)
-          setSuccess(false)
-        }
-        setError(fetchError)
-
         const data = await fetchResponse.json()
 
         await setLoading(false)
