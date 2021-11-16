@@ -1,5 +1,10 @@
+import { cx } from '@linaria/core'
 import {
   BodyText,
+  Button,
+  ButtonGroup,
+  ColSplit,
+  elMb6,
   InputWrap,
   Intent,
   StatusIndicator,
@@ -9,6 +14,8 @@ import {
   TableHeader,
   TableHeadersRow,
   TableRow,
+  Title,
+  Grid,
 } from '@reapit/elements'
 import { PipelineModelInterface, PipelineRunnerModelInterface } from '@reapit/foundations-ts-definitions'
 import React from 'react'
@@ -35,31 +42,35 @@ const buildStatusToReadable = (status: string): string =>
     .join(' ')
 
 const PipelineInfo = ({ pipeline }: { pipeline: PipelineModelInterface }) => (
-  <>
-    <InputWrap>
-      <Subtitle>Status</Subtitle>
-      <BodyText>
-        <StatusIndicator intent={buildStatusToIntent(pipeline.buildStatus as string)} />{' '}
-        {buildStatusToReadable(pipeline.buildStatus as string)}
-      </BodyText>
-    </InputWrap>
-    <InputWrap>
-      <Subtitle>Repository</Subtitle>
-      <BodyText>{pipeline.repository}</BodyText>
-    </InputWrap>
-    <InputWrap>
-      <Subtitle>Package Manager</Subtitle>
-      <BodyText>{pipeline.packageManager}</BodyText>
-    </InputWrap>
-    <InputWrap>
-      <Subtitle>Build Command</Subtitle>
-      <BodyText>{pipeline.buildCommand}</BodyText>
-    </InputWrap>
-    <InputWrap>
-      <Subtitle>Tests</Subtitle>
-      <BodyText>{pipeline.testCommand}</BodyText>
-    </InputWrap>
-  </>
+  <Grid>
+    <ColSplit>
+      <InputWrap>
+        <Subtitle>Status</Subtitle>
+        <BodyText>
+          <StatusIndicator intent={buildStatusToIntent(pipeline.buildStatus as string)} />{' '}
+          {buildStatusToReadable(pipeline.buildStatus as string)}
+        </BodyText>
+      </InputWrap>
+      <InputWrap>
+        <Subtitle>Repository</Subtitle>
+        <BodyText>{pipeline.repository}</BodyText>
+      </InputWrap>
+      <InputWrap>
+        <Subtitle>Package Manager</Subtitle>
+        <BodyText>{pipeline.packageManager}</BodyText>
+      </InputWrap>
+    </ColSplit>
+    <ColSplit>
+      <InputWrap>
+        <Subtitle>Build Command</Subtitle>
+        <BodyText>{pipeline.buildCommand}</BodyText>
+      </InputWrap>
+      <InputWrap>
+        <Subtitle>Tests</Subtitle>
+        <BodyText>{pipeline.testCommand}</BodyText>
+      </InputWrap>
+    </ColSplit>
+  </Grid>
 )
 
 export const PipelineDeploymentInfo = ({ pipeline }: { pipeline: PipelineModelInterface }) => {
@@ -70,6 +81,11 @@ export const PipelineDeploymentInfo = ({ pipeline }: { pipeline: PipelineModelIn
   return (
     <>
       <PipelineInfo pipeline={pipeline} />
+      <Title>Deployments</Title>
+      <ButtonGroup className={cx(elMb6)}>
+        <Button intent="primary">Deploy</Button>
+        <Button intent="critical">Deploy With Cli</Button>
+      </ButtonGroup>
       <Table>
         <TableHeadersRow>
           <TableHeader>Created</TableHeader>
