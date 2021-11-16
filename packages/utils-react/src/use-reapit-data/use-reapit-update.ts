@@ -1,11 +1,11 @@
 import { useState } from 'react'
-import { useAsyncState } from '@/use-async-state'
+import { useAsyncState } from '../use-async-state'
 import { ReapitConnectBrowserSession, useReapitConnect } from '@reapit/connect-session'
 import { updateActions } from '@reapit/utils-common'
 import { getMergedHeaders } from './../../../utils-common/src/reapit-data/utils'
 import { UpdateActionNames } from '@reapit/utils-common'
 import { useSnack } from '@reapit/elements'
-import { StringMap } from '@/get-platform-headers'
+import { StringMap } from '../get-platform-headers'
 
 export type ReapitUpdateState<ParamsType, DataType> = [
   boolean,
@@ -42,7 +42,7 @@ export const useReapitUpdate = <ParamsType, DataType>({
   const [error, setError] = useState<string | null>(null)
   const { connectSession } = useReapitConnect(reapitConnectBrowserSession)
   const [data, setData] = useState()
-  const { success: successSnack, error: errorSnack } = useSnack()
+  const { error: errorSnack } = useSnack()
   const [success, setSuccess] = useState<undefined | boolean>(undefined)
 
   const send: SendFunction<ParamsType> = async (params: ParamsType): Promise<void> => {
@@ -59,7 +59,7 @@ export const useReapitUpdate = <ParamsType, DataType>({
 
     if (!getHeaders) throw new Error('Missing valid Reapit Connect Session')
 
-    setLoading(true)
+    await setLoading(true)
     setSuccess(undefined)
     const response = await fetch(url, {
       headers: getHeaders,
@@ -68,11 +68,11 @@ export const useReapitUpdate = <ParamsType, DataType>({
     })
     const error = typeof response === 'string' ? response : null
 
-    if (!returnUpdatedModel) setLoading(false)
+    if (!returnUpdatedModel) await setLoading(false)
 
     if (error) {
       errorSnack(errorMessage ?? error)
-      setLoading(false)
+      await setLoading(false)
       setSuccess(false)
     }
     setError(error)
@@ -98,7 +98,7 @@ export const useReapitUpdate = <ParamsType, DataType>({
 
       const data = await fetchResponse.json()
 
-      setLoading(false)
+      await setLoading(false)
       setSuccess(true)
       setData(data)
     } else {

@@ -23,5 +23,6 @@ export const getActions: GetActions = {
   [GetActionNames.getPipeline]: {
     api: ApiNames.pipeline,
     path: PathNames.pipeline,
+    errorMessage: 'Something went wrong',
   },
 }

@@ -114,12 +114,14 @@ describe('useReapitUpdate', () => {
       },
     ]
 
-    const headers = new Headers
+    const headers = new Headers()
     headers.append('Location', 'https://api.test.reapit.com/path')
 
-    mockFetcher.mockReturnValue(new Response(JSON.stringify({ ...objectBody, updated: true }), {
-      headers,
-    }))
+    mockFetcher.mockReturnValue(
+      new Response(JSON.stringify({ ...objectBody, updated: true }), {
+        headers,
+      }),
+    )
 
     const { result, waitForNextUpdate } = renderHook<{}, ReapitUpdateState<{}, typeof mockData>>(() =>
       useReapitUpdate<{}, typeof mockData>({
@@ -143,7 +145,7 @@ describe('useReapitUpdate', () => {
     expect(mockFetcher).toHaveBeenCalledTimes(3)
     expect(mockError).not.toHaveBeenCalled()
 
-    expect(result.current[1]).toEqual({...objectBody, updated: true})
+    expect(result.current[1]).toEqual({ ...objectBody, updated: true })
     expect(result.current[0]).toEqual(false)
     expect(result.current[3]).toEqual(true)
 
