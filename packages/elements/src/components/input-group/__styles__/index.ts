@@ -40,11 +40,8 @@ export const ElInputGroup = styled.div`
 
   ${ElInput}:not([type='checkbox']):not([type='radio']), ${ElTextArea}, ${ElSelect} {
     &:focus {
-      ~ ${ElIcon}, ~ ${ElLabel}, ~ ${ElInputAddOn} {
-        background: var(--component-input-focus-bg);
-      }
-
       ~ ${ElIcon}, ~ ${ElInputAddOn} {
+        background: var(--component-input-focus-bg);
         border-bottom: var(--component-input-border-bottom-focus);
       }
     }

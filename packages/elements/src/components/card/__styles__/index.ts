@@ -167,19 +167,17 @@ export const ElCardImageWrap = styled.div`
   background-color: var(--color-grey-light);
   margin-right: 0.5rem;
   border-radius: 0.25rem;
-  height: fit-content;
+  width: 5rem;
+  height: 5rem;
 
   img {
-    min-height: 67px;
+    height: 52px;
   }
 
   ${isTablet} {
     margin-bottom: 1.25rem;
     padding: 1rem;
-    height: auto;
-    img {
-      min-height: 72px;
-    }
+    height: 6.25rem;
   }
 `
 

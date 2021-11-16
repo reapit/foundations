@@ -29,6 +29,8 @@ A button with no addtional props / classes applied.
 
 Different intents are supported, to enable buttons to be used in different contexts. Typcially you will always choose an intent for your button. The intent prop maps directly to the intent helper classes for non React users.
 
+In practice, low and neutral intents serve the same purpose however, they are rendered as distinct to allow better contrast with their background. When rendering on a white background you should use a low intent button, on a grey background, use a neutral button.
+
 <Canvas>
   <Story name="Intent: Primary">
     <Button intent="primary">Primary</Button>
@@ -177,30 +179,6 @@ All other standard HTML attributes for `<button>` are supported and are passed t
   </Story>
 </Canvas>
 
-## Button Sizes
-
-Statically sized buttons. The width is applied with `min-width` enabling expanding.
-
-<Canvas>
-  <Story name="Button Size 2">
-    <Button intent="primary" size={2}>
-      size 2
-    </Button>
-  </Story>
-  <Story name="Button Size 3">
-    <Button intent="primary" size={3}>
-      size 3
-    </Button>
-  </Story>
-  <Story name="Button Size 4">
-    <Button intent="primary" size={4}>
-      size 4
-    </Button>
-  </Story>
-</Canvas>
-
-<RenderHtmlMarkup component="Button" story={['Button Size 2', 'Button Size 3', 'Button Size 4']} label="Button Sizes" />
-
 ## Button Group
 
 An element to collectively group several buttons
@@ -217,29 +195,6 @@ An element to collectively group several buttons
 </Canvas>
 
 <RenderHtmlMarkup component="Button" story="Button Group" />
-
-## Button Group sizes
-
-Sizing button groups
-
-<Canvas>
-  <Story name="Button Group Size">
-    <ButtonGroup>
-      <Button intent="primary">No Size</Button>
-      <Button intent="secondary" size={2}>
-        Size 2
-      </Button>
-      <Button intent="critical" size={3}>
-        Size 3
-      </Button>
-      <Button intent="danger" size={4}>
-        Size 4
-      </Button>
-    </ButtonGroup>
-  </Story>
-</Canvas>
-
-<RenderHtmlMarkup component="Button" story="Button Group Size" />
 
 ## Floating Button
 

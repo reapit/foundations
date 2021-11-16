@@ -1,6 +1,6 @@
 import React from 'react'
 import { mount } from 'enzyme'
-import { NavResponsive } from '../nav-responsive'
+import { handleToggleLogo, NavResponsive } from '../nav-responsive'
 import { NavStateProvider } from '../../../hooks/use-nav-state'
 import { MediaStateProvider } from '../../../hooks/use-media-query'
 
@@ -71,5 +71,17 @@ describe('NavResponsive component', () => {
       </NavStateProvider>,
     )
     expect(wrapper).toMatchSnapshot()
+  })
+})
+
+describe('handleToggleLogo', () => {
+  it('should set logo state', () => {
+    const logoState = 'reapitLogoSelectedMenu'
+    const setLogoState = jest.fn()
+    const curried = handleToggleLogo(logoState, setLogoState)
+
+    curried()
+
+    expect(setLogoState).toHaveBeenCalledWith('reapitLogoMenu')
   })
 })
