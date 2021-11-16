@@ -1,5 +1,5 @@
 import { cx } from '@linaria/core'
-import React, { FC, Fragment, HTMLAttributes, ReactNode } from 'react'
+import React, { Dispatch, FC, Fragment, HTMLAttributes, ReactNode, SetStateAction, useState } from 'react'
 import { useNavState } from '../../hooks/use-nav-state'
 import { useMediaQuery } from '../../hooks/use-media-query'
 import { elIntentNeutral } from '../../styles/intent'
@@ -35,6 +35,13 @@ export interface NavResponsiveProps extends HTMLAttributes<HTMLDivElement> {
   defaultNavSubIndex?: number
 }
 
+export type LogoIcon = 'reapitLogoSelectedMenu' | 'reapitLogoMenu'
+
+export const handleToggleLogo = (logoState: LogoIcon, setLogoState: Dispatch<SetStateAction<LogoIcon>>) => () => {
+  const newState = logoState === 'reapitLogoSelectedMenu' ? 'reapitLogoMenu' : 'reapitLogoSelectedMenu'
+  setLogoState(newState)
+}
+
 export const NavResponsive: FC<NavResponsiveProps> = ({
   options,
   className,
@@ -43,6 +50,7 @@ export const NavResponsive: FC<NavResponsiveProps> = ({
   ...rest
 }) => {
   const { navState, setNavState } = useNavState(defaultNavIndex, defaultNavSubIndex)
+  const [logoState, setLogoState] = useState<LogoIcon>('reapitLogoMenu')
   const { isMobile } = useMediaQuery()
   const { navItemIndex, navMenuOpen, navSubItemIndex, navSubMenuIndex } = navState
   const isDesktop = Boolean(window['__REAPIT_MARKETPLACE_GLOBALS__'])
@@ -60,6 +68,8 @@ export const NavResponsive: FC<NavResponsiveProps> = ({
                 className={cx(navItemIndex === itemIndex && elNavItemActive)}
                 key={itemIndex}
                 href={href}
+                onMouseEnter={handleToggleLogo(logoState, setLogoState)}
+                onMouseLeave={handleToggleLogo(logoState, setLogoState)}
                 onClick={setNavState({
                   navItemIndex: itemIndex,
                   callback,
@@ -73,7 +83,7 @@ export const NavResponsive: FC<NavResponsiveProps> = ({
                   <Icon
                     fontSize={isMobile ? '7rem' : '2.5rem'}
                     className={elNavItemIcon}
-                    icon={isMobile ? 'reapitLogoTextMenu' : 'reapitLogoMenu'}
+                    icon={isMobile ? 'reapitLogoTextMenu' : logoState}
                   />
                 )}
                 {text}
