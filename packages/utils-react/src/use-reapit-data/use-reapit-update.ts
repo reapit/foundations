@@ -61,48 +61,47 @@ export const useReapitUpdate = <ParamsType, DataType>({
 
     await setLoading(true)
     setSuccess(undefined)
-    const response = await fetch(url, {
-      headers: getHeaders,
-      method,
-      body: JSON.stringify(params),
-    })
-    const error = typeof response === 'string' ? response : null
-
-    if (!returnUpdatedModel) await setLoading(false)
-
-    if (error) {
-      errorSnack(errorMessage ?? error)
-      await setLoading(false)
-      setSuccess(false)
-    }
-    setError(error)
-
-    if (returnUpdatedModel && error === null) {
-      const location = response.headers.get('Location')
-      if (!location) {
-        throw new Error('Location was not returned by server')
-      }
-
-      const fetchResponse = await fetch(location, {
+    try {
+      const response = await fetch(url, {
         headers: getHeaders,
-        method: 'GET',
+        method,
+        body: JSON.stringify(params),
       })
 
-      const fetchError = typeof response === 'string' ? response : null
+      if (!returnUpdatedModel) await setLoading(false)
 
-      if (fetchError) {
-        errorSnack(errorMessage ?? fetchError)
-        setSuccess(false)
+      if (returnUpdatedModel && error === null) {
+        const location = response.headers.get('Location')
+        if (!location) {
+          throw new Error('Location was not returned by server')
+        }
+
+        const fetchResponse = await fetch(location, {
+          headers: getHeaders,
+          method: 'GET',
+        })
+
+        const fetchError = typeof response === 'string' ? response : null
+
+        if (fetchError) {
+          errorSnack(errorMessage ?? fetchError)
+          setSuccess(false)
+        }
+        setError(fetchError)
+
+        const data = await fetchResponse.json()
+
+        await setLoading(false)
+        setSuccess(true)
+        setData(data)
+      } else {
+        setSuccess(true)
       }
-      setError(fetchError)
-
-      const data = await fetchResponse.json()
-
+    } catch (error: any) {
+      errorSnack(error?.message)
       await setLoading(false)
-      setSuccess(true)
-      setData(data)
-    } else {
-      setSuccess(true)
+      setSuccess(false)
+      setError(error.message)
     }
   }
 
