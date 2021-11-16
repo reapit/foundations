@@ -27,7 +27,7 @@ type ReapitUpdate = {
   errorMessage?: string
 }
 
-type SendFunction<ParamsType> = (params: ParamsType) => Promise<void> | void
+type SendFunction<ParamsType> = (params: ParamsType) => Promise<boolean>
 
 export const useReapitUpdate = <ParamsType, DataType>({
   action,
@@ -45,7 +45,7 @@ export const useReapitUpdate = <ParamsType, DataType>({
   const { error: errorSnack } = useSnack()
   const [success, setSuccess] = useState<undefined | boolean>(undefined)
 
-  const send: SendFunction<ParamsType> = async (params: ParamsType): Promise<void> => {
+  const send: SendFunction<ParamsType> = async (params: ParamsType): Promise<boolean> => {
     const updateAction = updateActions[action]
     const { api, path } = updateAction
     const deSerialisedPath = uriParams
@@ -89,11 +89,13 @@ export const useReapitUpdate = <ParamsType, DataType>({
       } else {
         setSuccess(true)
       }
+      return true
     } catch (error: any) {
       errorSnack(error?.message)
       await setLoading(false)
       setSuccess(false)
       setError(error.message)
+      return false
     }
   }
 
