@@ -27,22 +27,39 @@ import { WebhooksAnimatedNewIcon } from '../../webhooks/webhooks-animated-new-ic
 import { WebhooksAnimatedDocsIcon } from '../../webhooks/webhooks-animated-docs-icon'
 import { ExternalPages, openNewPage } from '@/utils/navigation'
 import { mixed, object, string } from 'yup'
-import { PackageManagerEnum, PipelineModelInterface } from '@reapit/foundations-ts-definitions'
+import { AppTypeEnum, PackageManagerEnum, PipelineModelInterface } from '@reapit/foundations-ts-definitions'
 import { httpsUrlRegex, UpdateActionNames } from '@reapit/utils-common'
 import { useForm } from 'react-hook-form'
 import { yupResolver } from '@hookform/resolvers/yup'
 import errorMessages from '@/constants/error-messages'
 import { useReapitUpdate } from '@reapit/utils-react'
 import { reapitConnectBrowserSession } from '../../../../core/connect-session'
+import { useReapitConnect } from '@reapit/connect-session'
 
 export const pipelineCreateFormHandle =
-  (createPipeline: (values: Partial<PipelineModelInterface>) => void) => (values: PipelineModelInterface) => {
-    console.log('handle form', values)
+  (createPipeline: (values: Partial<PipelineModelInterface>) => Promise<boolean>, refresh: () => void) =>
+  async (values: PipelineModelInterface) => {
+    const result = await createPipeline({
+      ...values,
+      appType: AppTypeEnum.REACT,
+      name: values.repository,
+    })
 
-    createPipeline(values)
+    if (result) refresh()
   }
 
-const PipelineCreationModal = ({ open, onModalClose }: { open: boolean; onModalClose: () => void }) => {
+const PipelineCreationModal = ({
+  open,
+  onModalClose,
+  appId,
+  refreshPipeline,
+}: {
+  open: boolean
+  onModalClose: () => void
+  appId: string
+  refreshPipeline: () => void
+}) => {
+  const { connectSession } = useReapitConnect(reapitConnectBrowserSession)
   const schema = object().shape<PipelineModelInterface>({
     repository: string()
       .trim()
@@ -64,24 +81,26 @@ const PipelineCreationModal = ({ open, onModalClose }: { open: boolean; onModalC
     },
   })
 
-  const [loading, pipeline, send, submissionErrors] = useReapitUpdate<Partial<PipelineModelInterface>, PipelineModelInterface>({
+  const [loading, , send, submissionErrors] = useReapitUpdate<Partial<PipelineModelInterface>, PipelineModelInterface>({
     reapitConnectBrowserSession,
     action: UpdateActionNames.updatePipeline,
     uriParams: {
       appId,
-    }
+    },
+    headers: {
+      Authorization: connectSession?.idToken as string,
+    },
   })
-
-  console.log('errors', pipeline, submissionErrors)
 
   return (
     <Modal isOpen={open} onModalClose={onModalClose}>
       <Title>Create Pipeline</Title>
+      {submissionErrors && <PersistantNotification isInline>{submissionErrors}</PersistantNotification>}
       <BodyText hasGreyText>
         Sed lobortis egestas tellus placerat condimentum. Orci varius natoque penatibus et magnis dis parturient montes,
         nascetur ridiculus mus.
       </BodyText>
-      <form onSubmit={handleSubmit(pipelineCreateFormHandle(send))}>
+      <form onSubmit={handleSubmit(pipelineCreateFormHandle(send, refreshPipeline))}>
         <FormLayout>
           <InputWrap>
             <InputGroup>
@@ -113,6 +132,13 @@ const PipelineCreationModal = ({ open, onModalClose }: { open: boolean; onModalC
           </InputWrap>
           <InputWrap>
             <InputGroup>
+              <Label>Build Directory</Label>
+              <Input {...register('outDir')} />
+              {errors.outDir?.message && <InputAddOn intent="danger">{errors.outDir.message}</InputAddOn>}
+            </InputGroup>
+          </InputWrap>
+          <InputWrap>
+            <InputGroup>
               <Label>Test Command</Label>
               <Input {...register('testCommand')} />
               {errors.testCommand?.message && <InputAddOn intent="danger">{errors.testCommand.message}</InputAddOn>}
@@ -131,7 +157,7 @@ const PipelineCreationModal = ({ open, onModalClose }: { open: boolean; onModalC
   )
 }
 
-export const CreatePipeline = () => {
+export const CreatePipeline = ({ appId, refreshPipeline }: { appId: string; refreshPipeline: () => void }) => {
   const [modalOpen, setModalOpen] = useState<boolean>(false)
   const [newPipelineAnimated, setNewPipelineAnimated] = useState<boolean>(false)
   const [docsIsAnimated, setDocsIsAnimated] = useState<boolean>(false)
@@ -191,7 +217,12 @@ export const CreatePipeline = () => {
         </ColSplit>
       </Grid>
       <FlexContainer className={cx(elMt10)} isFlexJustifyCenter isFlexAlignCenter isFlexColumn>
-        <PipelineCreationModal open={modalOpen} onModalClose={() => setModalOpen(false)} />
+        <PipelineCreationModal
+          refreshPipeline={refreshPipeline}
+          appId={appId}
+          open={modalOpen}
+          onModalClose={() => setModalOpen(false)}
+        />
       </FlexContainer>
     </>
   )

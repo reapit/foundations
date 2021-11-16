@@ -1,6 +1,8 @@
 import {
   BodyText,
   InputWrap,
+  Intent,
+  StatusIndicator,
   Subtitle,
   Table,
   TableCell,
@@ -11,11 +13,35 @@ import {
 import { PipelineModelInterface, PipelineRunnerModelInterface } from '@reapit/foundations-ts-definitions'
 import React from 'react'
 
+const buildStatusToIntent = (status: string): Intent => {
+  switch (status) {
+    case 'CREATING_ARCHITECTURE':
+      return 'primary'
+    case 'SUCCESS':
+      return 'primary'
+    case 'RUNNING':
+      return 'secondary'
+    case 'PENDING':
+    case 'QUEUED':
+    default:
+      return 'neutral'
+  }
+}
+
+const buildStatusToReadable = (status: string): string =>
+  status
+    .split('_')
+    .map((str) => str.toLowerCase())
+    .join(' ')
+
 const PipelineInfo = ({ pipeline }: { pipeline: PipelineModelInterface }) => (
   <>
     <InputWrap>
       <Subtitle>Status</Subtitle>
-      <BodyText>{pipeline.buildCommand}</BodyText>
+      <BodyText>
+        <StatusIndicator intent={buildStatusToIntent(pipeline.buildStatus as string)} />{' '}
+        {buildStatusToReadable(pipeline.buildStatus as string)}
+      </BodyText>
     </InputWrap>
     <InputWrap>
       <Subtitle>Repository</Subtitle>

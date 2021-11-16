@@ -5,23 +5,32 @@ import { CreatePipeline } from './create-pipeline'
 import { PipelineDeploymentInfo } from './deployment-info'
 import { reapitConnectBrowserSession } from '../../../../core/connect-session'
 import { GetActionNames } from '@reapit/utils-common'
-import { FlexContainer, Loader } from '@reapit/elements'
+import { BodyText, FlexContainer, Loader } from '@reapit/elements'
+import { useReapitConnect } from '@reapit/connect-session'
 
 export const AppPipeline = ({ appId }: { appId: string }) => {
-  const [pipeline, loading] = useReapitGet<PipelineModelInterface>({
+  const { connectSession } = useReapitConnect(reapitConnectBrowserSession)
+  const [pipeline, loading, , refresh] = useReapitGet<PipelineModelInterface>({
     reapitConnectBrowserSession,
     action: GetActionNames.getPipeline,
     uriParams: { appId },
+    headers: {
+      Authorization: connectSession?.idToken as string,
+    },
+    fetchWhenTrue: [connectSession?.idToken],
   })
 
   return (
     <>
       {loading ? (
         <FlexContainer isFlexJustifyCenter isFlexAlignCenter>
-          <Loader />
+          <div>
+            <BodyText>Loading</BodyText>
+            <Loader />
+          </div>
         </FlexContainer>
       ) : !pipeline ? (
-        <CreatePipeline />
+        <CreatePipeline refreshPipeline={refresh} appId={appId} />
       ) : (
         <>
           <PipelineDeploymentInfo pipeline={pipeline} />
