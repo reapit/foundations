@@ -1,0 +1,242 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`App Detail v8 deployment info should match snapshot 1`] = `
+<Fragment>
+  <PipelineInfo
+    pipeline={Object {}}
+  />
+  <Title>
+    Deployments
+  </Title>
+  <ButtonGroup
+    className="ez8nkuq-el-mb6"
+  >
+    <Button
+      intent="primary"
+    >
+      Deploy
+    </Button>
+    <Button
+      intent="critical"
+    >
+      Deploy With Cli
+    </Button>
+  </ButtonGroup>
+  <Table>
+    <TableHeadersRow>
+      <TableHeader>
+        Created
+      </TableHeader>
+      <TableHeader>
+        Status
+      </TableHeader>
+      <TableHeader />
+    </TableHeadersRow>
+  </Table>
+</Fragment>
+`;
+
+exports[`App Detail v8 should match snapshot 1`] = `
+<Fragment>
+  <Grid>
+    <ColSplit>
+      <ForwardRef>
+        <Subtitle>
+          Authentication (Client ID)
+        </Subtitle>
+        <BodyText
+          hasGreyText={true}
+        >
+          some-id
+        </BodyText>
+      </ForwardRef>
+    </ColSplit>
+    <ColSplit>
+      <ForwardRef>
+        <Subtitle>
+          Status
+        </Subtitle>
+        <BodyText
+          hasGreyText={true}
+        />
+      </ForwardRef>
+    </ColSplit>
+  </Grid>
+  <Title>
+    General Information
+  </Title>
+  <Grid>
+    <ColSplit>
+      <ForwardRef>
+        <Subtitle>
+          App Name
+        </Subtitle>
+        <BodyText
+          hasGreyText={true}
+        >
+          name of app
+        </BodyText>
+      </ForwardRef>
+      <ForwardRef>
+        <Subtitle>
+          Category
+        </Subtitle>
+        <BodyText
+          hasGreyText={true}
+        />
+      </ForwardRef>
+      <ForwardRef>
+        <Subtitle>
+          Support Email
+        </Subtitle>
+        <BodyText
+          hasGreyText={true}
+        >
+          support@someaddress.com
+        </BodyText>
+      </ForwardRef>
+      <ForwardRef>
+        <Subtitle>
+          Telephone
+        </Subtitle>
+        <BodyText
+          hasGreyText={true}
+        >
+          123456789
+        </BodyText>
+      </ForwardRef>
+      <ForwardRef>
+        <Subtitle>
+          Agency Cloud Integration Type
+        </Subtitle>
+        <BodyText
+          hasGreyText={true}
+        />
+      </ForwardRef>
+    </ColSplit>
+    <ColSplit>
+      <ForwardRef>
+        <Subtitle>
+          Lanuch URL
+        </Subtitle>
+        <BodyText
+          hasGreyText={true}
+        >
+          string
+        </BodyText>
+      </ForwardRef>
+      <ForwardRef>
+        <Subtitle>
+          Homepage
+        </Subtitle>
+        <BodyText
+          hasGreyText={true}
+        >
+          homepage.com
+        </BodyText>
+      </ForwardRef>
+      <ForwardRef>
+        <Subtitle>
+          Pricing Info
+        </Subtitle>
+        <BodyText
+          hasGreyText={true}
+        >
+          pricingurl.com
+        </BodyText>
+      </ForwardRef>
+      <ForwardRef>
+        <Subtitle>
+          Privacy Policy
+        </Subtitle>
+        <BodyText
+          hasGreyText={true}
+        >
+          privacyurl.com
+        </BodyText>
+      </ForwardRef>
+    </ColSplit>
+    <ColSplit>
+      <ForwardRef>
+        <Subtitle>
+          Permissions
+        </Subtitle>
+      </ForwardRef>
+    </ColSplit>
+  </Grid>
+  <Title>
+    About App
+  </Title>
+  <Grid>
+    <ColSplit>
+      <ForwardRef>
+        <Subtitle>
+          Description
+        </Subtitle>
+        <BodyText
+          hasGreyText={true}
+        >
+          description of app
+        </BodyText>
+      </ForwardRef>
+    </ColSplit>
+    <ColSplit>
+      <ForwardRef>
+        <Subtitle>
+          Summary
+        </Subtitle>
+        <BodyText
+          hasGreyText={true}
+        >
+          summary
+        </BodyText>
+      </ForwardRef>
+    </ColSplit>
+  </Grid>
+  <Title>
+    Images
+  </Title>
+  <Title>
+    Reapit Connect Authentication
+  </Title>
+  <Grid>
+    <ColSplit>
+      <ForwardRef>
+        <Subtitle>
+          Redirect URL(s)*
+        </Subtitle>
+        <BodyText
+          hasGreyText={true}
+        />
+      </ForwardRef>
+    </ColSplit>
+    <ColSplit>
+      <ForwardRef>
+        <Subtitle>
+          Sign Out URI(s)*
+        </Subtitle>
+        <BodyText
+          hasGreyText={true}
+        />
+      </ForwardRef>
+    </ColSplit>
+  </Grid>
+  <Title>
+    About Developer
+  </Title>
+  <Grid>
+    <ColSplit>
+      <ForwardRef>
+        <Subtitle>
+          Description
+        </Subtitle>
+        <BodyText
+          hasGreyText={true}
+        >
+          developer about string
+        </BodyText>
+      </ForwardRef>
+    </ColSplit>
+  </Grid>
+</Fragment>
+`;

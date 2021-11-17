@@ -6,7 +6,7 @@ import { History } from 'history'
 import { selectInstallationsListLoading } from '@/selector/installations'
 import { Section } from '@reapit/elements-legacy'
 import routes from '@/constants/routes'
-import AppContent from './app-content-v8'
+import { AppContent } from './app-content-v8'
 import { selectAppDetailState, selectAppDetailData, selectAppDetailLoading } from '@/selector/app-detail'
 import {
   Button,

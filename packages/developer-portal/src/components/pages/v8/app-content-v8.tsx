@@ -1,13 +1,6 @@
 import * as React from 'react'
-import routes from '@/constants/routes'
-import dayjs from 'dayjs'
-import { Dispatch } from 'redux'
-import { GET_ALL_PAGE_SIZE } from '@/constants/paginator'
-import { DATE_TIME_FORMAT } from '@reapit/elements-legacy'
-import { InstallationModel, AppDetailModel } from '@reapit/foundations-ts-definitions'
 import { AppDetailState } from '@/reducers/apps/app-detail'
-import { fetchInstallationsList } from '@/actions/installations'
-import { BodyText, ColSplit, Grid, InputWrap, Subtitle, Title, Button } from '@reapit/elements'
+import { BodyText, ColSplit, Grid, InputWrap, Subtitle, Title } from '@reapit/elements'
 
 export type AppContentProps = {
   appDetailState: AppDetailState
@@ -15,95 +8,7 @@ export type AppContentProps = {
 
 export type CustomUninstallCell = React.FC<{ onClick: () => void }>
 
-interface HandleUninstallSuccessParams {
-  handleAfterClose: any
-  setUninstallApp: React.Dispatch<React.SetStateAction<InstallationModel | undefined>>
-  developerId: string
-  appId: string
-  dispatch: Dispatch
-}
-
-export const handleUninstallSuccess =
-  ({ handleAfterClose, setUninstallApp, developerId, appId, dispatch }: HandleUninstallSuccessParams) =>
-  () => {
-    handleAfterClose({ setUninstallApp })
-    dispatch(
-      fetchInstallationsList({
-        appId: [appId],
-        pageNumber: 1,
-        pageSize: GET_ALL_PAGE_SIZE,
-        isInstalled: true,
-        developerId: [developerId],
-      }),
-    )
-  }
-
-export const handleOpenAppPreview = (appId: string, appDetailState: AppDetailModel) => () => {
-  const url = routes.APP_PREVIEW.replace(':appId', appId)
-  localStorage.setItem('developer-preview-app', JSON.stringify(appDetailState))
-  window.open(url, '_blank')
-}
-
-export const CustomUninstallCell: React.FC<{ onClick: () => void }> = ({ onClick }) => (
-  <a onClick={onClick}>Uninstall</a>
-)
-
-export const generateInstallationTableColumns =
-  (onUninstall: (app: InstallationModel) => () => void, CustomUninstallCell?: CustomUninstallCell) => () => {
-    const UninstallCell = ({ row }) => {
-      if (CustomUninstallCell) {
-        return <CustomUninstallCell onClick={onUninstall(row.original)} />
-      }
-
-      return (
-        <Button type="button" intent="primary" onClick={onUninstall(row.original)}>
-          Uninstall
-        </Button>
-      )
-    }
-
-    return [
-      {
-        Header: 'Client',
-        accessor: 'client',
-      },
-      {
-        Header: 'Company Name',
-        accessor: 'customerName',
-      },
-      {
-        Header: 'Company Address',
-        accessor: ({ customerAddress = {} }: { customerAddress: InstallationModel['customerAddress'] }) => {
-          const {
-            buildingName = '',
-            buildingNumber = '',
-            line1 = '',
-            line2 = '',
-            line3 = '',
-            line4 = '',
-            postcode = '',
-            countryId = '',
-          } = customerAddress
-
-          return `${buildingName} ${buildingNumber} ${line1} ${line2} ${line3} ${line4} ${postcode} ${countryId}`
-        },
-      },
-      {
-        Header: 'Date Installed',
-        accessor: (d) => dayjs(d.created).format(DATE_TIME_FORMAT.DATE_FORMAT),
-      },
-      {
-        Header: 'Installed By',
-        accessor: 'installedBy',
-      },
-      {
-        Header: 'Uninstall',
-        Cell: UninstallCell,
-      },
-    ]
-  }
-
-const AppContent: React.FC<AppContentProps> = ({ appDetailState }) => {
+export const AppContent: React.FC<AppContentProps> = ({ appDetailState }) => {
   const appDetailData = appDetailState.data || {}
 
   return (
@@ -213,5 +118,3 @@ const AppContent: React.FC<AppContentProps> = ({ appDetailState }) => {
     </>
   )
 }
-
-export default AppContent

@@ -1,0 +1,10 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`App Pipeline should match snapshot 1`] = `
+<Fragment>
+  <CreatePipeline
+    appId="12345"
+    refreshPipeline={[Function]}
+  />
+</Fragment>
+`;

@@ -16,7 +16,7 @@ const Login = React.lazy(() => catchChunkError(() => import('../components/pages
 const Register = React.lazy(() => catchChunkError(() => import('../components/pages/register')))
 const Apps = React.lazy(() => catchChunkError(() => import('../components/pages/apps')))
 const AppDetail = React.lazy(() => catchChunkError(() => import('../components/pages/app-detail')))
-const AppDetailV8 = React.lazy(() => catchChunkError(() => import('../components/pages/app-detail/app-detail-v8')))
+const AppDetailV8 = React.lazy(() => catchChunkError(() => import('../components/pages/v8/app-detail-v8')))
 const EditApp = React.lazy(() => catchChunkError(() => import('../components/pages/edit-app')))
 const ApiDocsPage = React.lazy(() => catchChunkError(() => import('../components/pages/api-docs')))
 const SwaggerPage = React.lazy(() => catchChunkError(() => import('../components/pages/swagger')))
