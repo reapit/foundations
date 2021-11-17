@@ -48,17 +48,14 @@ export const pipelineCreateFormHandle =
     if (result) refresh()
   }
 
-const PipelineCreationModal = ({
-  open,
-  onModalClose,
-  appId,
-  refreshPipeline,
-}: {
+interface PipelineCreationModalInterface {
   open: boolean
   onModalClose: () => void
   appId: string
   refreshPipeline: () => void
-}) => {
+}
+
+const PipelineCreationModal = ({ open, onModalClose, appId, refreshPipeline }: PipelineCreationModalInterface) => {
   const { connectSession } = useReapitConnect(reapitConnectBrowserSession)
   const schema = object().shape<PipelineModelInterface>({
     repository: string()
@@ -157,7 +154,12 @@ const PipelineCreationModal = ({
   )
 }
 
-export const CreatePipeline = ({ appId, refreshPipeline }: { appId: string; refreshPipeline: () => void }) => {
+interface CreatePipelineInterface {
+  appId: string
+  refreshPipeline: () => void
+}
+
+export const CreatePipeline = ({ appId, refreshPipeline }: CreatePipelineInterface) => {
   const [modalOpen, setModalOpen] = useState<boolean>(false)
   const [newPipelineAnimated, setNewPipelineAnimated] = useState<boolean>(false)
   const [docsIsAnimated, setDocsIsAnimated] = useState<boolean>(false)
