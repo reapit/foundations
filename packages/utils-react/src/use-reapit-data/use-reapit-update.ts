@@ -43,72 +43,74 @@ interface SendFunctionPropsInterface<DataType> {
 
 type SendFunction<ParamsType> = (params: ParamsType) => Promise<boolean>
 
-export const send = <ParamsType, DataType>({
-  uriParams,
-  action,
-  setLoading,
-  setSuccess,
-  setData,
-  setError,
-  errorSnack,
-  method,
-  connectSession,
-  headers,
-  returnUpdatedModel,
-  error
-}: SendFunctionPropsInterface<DataType>): SendFunction<ParamsType> => async (params: ParamsType): Promise<boolean> => {
-  const updateAction = updateActions[action]
-  const { api, path } = updateAction
-  const deSerialisedPath = uriParams
-    ? Object.keys(uriParams).reduce<string>((path, uriReplaceKey) => {
-        return path.replace(`{${uriReplaceKey}}`, uriParams[uriReplaceKey])
-      }, path)
-    : path
-  const url = `${api}${deSerialisedPath}`
-  const accessToken = connectSession?.accessToken
-  const getHeaders = getMergedHeaders(accessToken, headers)
+export const send =
+  <ParamsType, DataType>({
+    uriParams,
+    action,
+    setLoading,
+    setSuccess,
+    setData,
+    setError,
+    errorSnack,
+    method,
+    connectSession,
+    headers,
+    returnUpdatedModel,
+    error,
+  }: SendFunctionPropsInterface<DataType>): SendFunction<ParamsType> =>
+  async (params: ParamsType): Promise<boolean> => {
+    const updateAction = updateActions[action]
+    const { api, path } = updateAction
+    const deSerialisedPath = uriParams
+      ? Object.keys(uriParams).reduce<string>((path, uriReplaceKey) => {
+          return path.replace(`{${uriReplaceKey}}`, uriParams[uriReplaceKey])
+        }, path)
+      : path
+    const url = `${api}${deSerialisedPath}`
+    const accessToken = connectSession?.accessToken
+    const getHeaders = getMergedHeaders(accessToken, headers)
 
-  if (!getHeaders) throw new Error('Missing valid Reapit Connect Session')
+    if (!getHeaders) throw new Error('Missing valid Reapit Connect Session')
 
-  await setLoading(true)
-  setSuccess(undefined)
-  try {
-    const response = await fetch(url, {
-      headers: getHeaders,
-      method,
-      body: JSON.stringify(params),
-    })
-
-    if (!returnUpdatedModel) await setLoading(false)
-
-    if (returnUpdatedModel && error === null) {
-      const location = response.headers.get('Location')
-      if (!location) {
-        throw new Error('Location was not returned by server')
-      }
-
-      const fetchResponse = await fetch(location, {
+    await setLoading(true)
+    setSuccess(undefined)
+    try {
+      const response = await fetch(url, {
         headers: getHeaders,
-        method: 'GET',
+        method,
+        body: JSON.stringify(params),
       })
 
-      const data = await fetchResponse.json()
+      if (!returnUpdatedModel) await setLoading(false)
 
+      if (returnUpdatedModel && error === null) {
+        const location = response.headers.get('Location')
+        if (!location) {
+          throw new Error('Location was not returned by server')
+        }
+
+        const fetchResponse = await fetch(location, {
+          headers: getHeaders,
+          method: 'GET',
+        })
+
+        const data = await fetchResponse.json()
+
+        await setLoading(false)
+        setSuccess(true)
+        setData(data)
+      } else {
+        setSuccess(true)
+      }
+      return true
+    } catch (error: any) {
+      errorSnack(error?.message)
       await setLoading(false)
-      setSuccess(true)
-      setData(data)
-    } else {
-      setSuccess(true)
+      setSuccess(false)
+      setError(error.message)
+      return false
     }
-    return true
-  } catch (error: any) {
-    errorSnack(error?.message)
-    await setLoading(false)
-    setSuccess(false)
-    setError(error.message)
-    return false
   }
-}
 
 export const useReapitUpdate = <ParamsType, DataType>({
   action,

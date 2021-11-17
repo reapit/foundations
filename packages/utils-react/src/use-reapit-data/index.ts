@@ -1,2 +1,2 @@
 export * from './use-reapit-get'
-export * from './use-reapit-update'
+export { useReapitUpdate } from './use-reapit-update'

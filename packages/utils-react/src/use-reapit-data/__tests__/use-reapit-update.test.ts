@@ -1,7 +1,8 @@
 import { renderHook, act } from '@testing-library/react-hooks'
-import { ReapitUpdateState, useReapitUpdate } from '..'
-import { ReapitConnectBrowserSession } from '@reapit/connect-session'
+import { useReapitUpdate } from '..'
+import { ReapitConnectBrowserSession, ReapitConnectSession } from '@reapit/connect-session'
 import { UpdateActionNames } from '@reapit/utils-common'
+import { send, ReapitUpdateState } from '../use-reapit-update'
 
 const mockData = {
   someData: {
@@ -150,5 +151,47 @@ describe('useReapitUpdate', () => {
     expect(result.current[3]).toEqual(true)
 
     expect(mockFetcher).toHaveBeenCalledTimes(3)
+  })
+
+  describe('sendFunc', () => {
+    it('Can return data', async () => {
+      const setLoading = jest.fn()
+      const setError = jest.fn()
+      const setData = jest.fn()
+      const setSuccess = jest.fn()
+      const reapitConnectSession = { accessToken: 'accessToken' } as unknown as ReapitConnectSession
+      const payload = {
+        response: true,
+      }
+
+      mockFetcher.mockReturnValue(
+        new Response(JSON.stringify(payload), {
+          headers: {
+            Location: 'getfromhere',
+          },
+        }),
+      )
+
+      const testFunc = send<{}, {}>({
+        setLoading,
+        setError,
+        setData,
+        setSuccess,
+        action: 'actionName' as UpdateActionNames,
+        method: 'POST',
+        returnUpdatedModel: true,
+        headers: {},
+        error: null,
+        connectSession: reapitConnectSession,
+        errorSnack: () => {},
+      })
+
+      await testFunc({})
+
+      expect(setLoading).toHaveBeenCalledTimes(2)
+      expect(setData).toHaveBeenCalledWith(payload)
+      expect(setError).toHaveBeenCalledTimes(0)
+      expect(setSuccess).toHaveBeenCalledWith(true)
+    })
   })
 })
