@@ -24,7 +24,6 @@ type ReapitUpdate = {
   returnUpdatedModel?: boolean
   headers?: StringMap
   uriParams?: Object
-  errorMessage?: string
 }
 
 type SendFunction<ParamsType> = (params: ParamsType) => Promise<boolean>
@@ -36,7 +35,6 @@ export const useReapitUpdate = <ParamsType, DataType>({
   headers = {},
   uriParams,
   reapitConnectBrowserSession,
-  errorMessage,
 }: ReapitUpdate): ReapitUpdateState<ParamsType, DataType> => {
   const [loading, setLoading] = useAsyncState<boolean>(false)
   const [error, setError] = useState<string | null>(null)
