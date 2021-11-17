@@ -9,7 +9,7 @@ export const GridDemoBlock = styled.div`
 export const GridDemoBlockFeatured = styled.div`
   width: 100%;
   height: 3rem;
-  background: var(--color-accent-orange);
+  background: var(--color-blue-light);
   display: flex;
   text-align: center;
   align-items: center;

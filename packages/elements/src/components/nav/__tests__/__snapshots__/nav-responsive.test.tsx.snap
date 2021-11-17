@@ -76,14 +76,20 @@ exports[`NavResponsive component should match a snapshot 1`] = `
               className=""
               key="0"
               onClick={[Function]}
+              onMouseEnter={[Function]}
+              onMouseLeave={[Function]}
             >
               <ElNavItem
                 className=""
                 onClick={[Function]}
+                onMouseEnter={[Function]}
+                onMouseLeave={[Function]}
               >
                 <a
                   className="el-nav-item"
                   onClick={[Function]}
+                  onMouseEnter={[Function]}
+                  onMouseLeave={[Function]}
                 >
                   <Icon
                     className="el-nav-item-icon"

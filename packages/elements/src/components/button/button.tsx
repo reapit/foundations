@@ -25,6 +25,7 @@ export interface ButtonProps extends ButtonHTMLAttributes<HTMLButtonElement> {
   chevronRight?: boolean
   fullWidth?: boolean
   className?: string
+  /** Deprecated - remains part of API to avoid a breaking change but no longer part of style guide */
   size?: ButtonSizeType
 }
 
