@@ -47,7 +47,6 @@ export const getFetcher = async <DataType>({
     }
 
     throw new Error(getAction.errorMessage || 'Something went wrong')
-
   } catch (err) {
     const error = err as Error
     logger(error)
