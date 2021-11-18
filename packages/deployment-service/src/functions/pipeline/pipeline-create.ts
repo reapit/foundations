@@ -25,6 +25,7 @@ export const pipelineCreate = httpHandler<PipelineDto, PipelineEntity>({
     return dto
   },
   handler: async ({ event }): Promise<PipelineEntity> => {
+    const { pipelineId } = event.pathParameters as any
     const { developerId, clientCode } = await resolveCreds(event)
 
     const dto = event.body
@@ -35,7 +36,10 @@ export const pipelineCreate = httpHandler<PipelineDto, PipelineEntity>({
         })
       : new PipelineDto()
 
-    const pipeline = await service.createPipelineEntity(dto)
+    const pipeline = await service.createPipelineEntity({
+      id: pipelineId,
+      ...dto,
+    })
 
     if (!pipeline) {
       throw new BadRequestException('Invalid pipeline properties')

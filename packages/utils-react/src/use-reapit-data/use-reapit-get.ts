@@ -16,6 +16,7 @@ export interface ReapitGetParams {
   reapitConnectBrowserSession: ReapitConnectBrowserSession
   action: GetActionNames
   queryParams?: Object
+  uriParams?: Object
   headers?: StringMap
   fetchWhenTrue?: any[]
 }
@@ -32,7 +33,9 @@ export interface HandleGetParams<DataType> {
   successSnack: (message: string) => void
   errorSnack: (message: string) => void
   prevQueryParams: MutableRefObject<Object | undefined>
+  prevUriParams: MutableRefObject<Object | undefined>
   queryParams?: Object
+  uriParams?: Object
   headers?: StringMap
   fetchWhenTrue?: any[]
 }
@@ -55,11 +58,14 @@ export const checkShouldFetch = <DataType>({
   fetchWhenTrue,
   prevQueryParams,
   queryParams,
+  uriParams,
+  prevUriParams,
 }: HandleGetParams<DataType>): boolean => {
   const hasNotFetched = !data && !loading && !error
   const hasAccess = Boolean(connectSession?.accessToken)
   const hasChangedQuery = checkQueryChanged(queryParams, prevQueryParams.current)
-  const canFetch = (hasNotFetched && hasAccess) || (hasChangedQuery && hasAccess)
+  const hasChangedUri = checkQueryChanged(uriParams, prevUriParams.current)
+  const canFetch = (hasNotFetched && hasAccess) || ((hasChangedQuery || hasChangedUri) && hasAccess)
 
   if (!fetchWhenTrue) return canFetch
 
@@ -76,8 +82,10 @@ export const handleGet =
       setLoading,
       setError,
       prevQueryParams,
+      prevUriParams,
       connectSession,
       queryParams,
+      uriParams,
       action,
       headers,
       successSnack,
@@ -92,11 +100,13 @@ export const handleGet =
       setError(null)
       await setLoading(true)
       prevQueryParams.current = queryParams
+      prevUriParams.current = uriParams
 
       const response = await getFetcher<DataType>({
         action,
         connectSession,
         queryParams,
+        uriParams,
         headers,
         logger,
       })
@@ -144,10 +154,12 @@ export const useReapitGet = <DataType>({
   reapitConnectBrowserSession,
   action,
   queryParams,
+  uriParams,
   headers,
   fetchWhenTrue,
 }: ReapitGetParams): ReapitGetState<DataType> => {
   const prevQueryParams = useRef<Object | undefined>(queryParams)
+  const prevUriParams = useRef<Object | undefined>(uriParams)
   const [data, setData] = useState<DataType | null>(null)
   const [loading, setLoading] = useAsyncState<boolean>(false)
   const [error, setError] = useState<string | null>(null)
@@ -158,12 +170,14 @@ export const useReapitGet = <DataType>({
     action,
     connectSession,
     queryParams,
+    uriParams,
     headers,
     data,
     loading,
     error,
     fetchWhenTrue,
     prevQueryParams,
+    prevUriParams,
     setData,
     setLoading,
     setError,

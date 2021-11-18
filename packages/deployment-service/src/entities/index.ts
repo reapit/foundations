@@ -97,13 +97,13 @@ export class PipelineEntity extends AbstractEntity implements PipelineModelInter
   @Column({ type: 'varchar' })
   buildStatus?: CodeBuild.StatusType = 'CREATING_ARCHITECTURE'
 
-  @Column()
+  @Column({ nullable: true })
   subDomain?: string
 
-  @Column()
+  @Column({ nullable: true })
   cloudFrontId?: string
 
-  @Column()
+  @Column({ nullable: true })
   aRecordId?: string
 
   get uniqueRepoName(): string {

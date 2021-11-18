@@ -48,7 +48,7 @@ jest.mock('@reapit/utils-common', () => ({
   getFetcher: jest.fn(() => mockData),
 }))
 
-describe('useAsyncState', () => {
+describe('useReapitGet', () => {
   it('should correctly set loading, fetch data, render a success message and refresh', async () => {
     const reapitConnectBrowserSession = {} as unknown as ReapitConnectBrowserSession
     const mockFetchParams = {

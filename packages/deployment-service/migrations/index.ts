@@ -8,6 +8,7 @@ import { pipelineSignedUrl1630509406008 } from './1630509406008-pipeline-signed-
 import { pipelineSignedUrlLength1630659208268 } from './1630659208268-pipeline-signed-url-length'
 import { pipelineDomainNameGenerate1631027909203 } from './1631027909203-pipeline-domain-name-generate'
 import { pipelineCloudfrontR53Storage1631182439085 } from './1631182439085-pipeline-cloudfront-r53-storage'
+import { nullableFields1637076778182 } from './1637076778182-nullable-fields'
 
 export default [
   pipelines1625758770110,
@@ -20,4 +21,5 @@ export default [
   pipelineSignedUrlLength1630659208268,
   pipelineDomainNameGenerate1631027909203,
   pipelineCloudfrontR53Storage1631182439085,
+  nullableFields1637076778182,
 ]

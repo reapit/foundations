@@ -4,6 +4,7 @@ export const MARKETPLACE_API_VERSION = '2'
 export const URLS = {
   developers: '/marketplace/developers',
   apps: '/marketplace/apps',
+  pipelines: '/marketplace/pipelines',
   approvals: '/marketplace/approvals',
   installations: '/marketplace/installations',
   scopes: '/marketplace/scopes',

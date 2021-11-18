@@ -52,7 +52,10 @@ export const PrivateRouteWrapper: React.FunctionComponent<PrivateRouteWrapperPro
   const currentMemberLoading = useSelector(selectCurrentMemberIsLoading)
   const memberUpdateState = useSelector(selectCurrentMemberUpdateState)
   const currentUri = `${location.pathname}${location.search}`
-  const isV3Page = ELEMENTS_V3_PAGES.includes(location.pathname) || location.pathname.includes(Routes.API_DOCS)
+  const isV3Page =
+    ELEMENTS_V3_PAGES.includes(location.pathname) ||
+    location.pathname.includes(Routes.API_DOCS) ||
+    location.pathname.includes('v8')
 
   useEffect(() => {
     if (showTermsModal && memberUpdateState === 'SUCCESS') {

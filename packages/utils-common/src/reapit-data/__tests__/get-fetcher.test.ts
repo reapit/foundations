@@ -62,4 +62,21 @@ describe('getFetcher', () => {
       expect(mockLogger).toHaveBeenCalledWith(new Error('Missing valid Reapit Connect Session'))
     }
   })
+
+  it('uriParams are replace path string', async () => {
+    const appId = 'my-app-id'
+
+    window.fetch = jest.fn().mockImplementationOnce((requestInit) => {
+      expect(requestInit.split('/').pop()).toBe(appId)
+    })
+
+    await getFetcher({
+      action: GetActionNames.getPipeline,
+      uriParams: {
+        appId,
+      },
+      connectSession: mockConnectSession,
+      logger: mockLogger,
+    })
+  })
 })
