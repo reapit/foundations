@@ -194,4 +194,8 @@ describe('useReapitUpdate', () => {
       expect(setSuccess).toHaveBeenCalledWith(true)
     })
   })
+
+  afterAll(() => {
+    mockFetcher.mockClear()
+  })
 })
