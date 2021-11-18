@@ -35,7 +35,7 @@ jobs:
           node-version: '14.x'
 
       - name: Install
-        run: yarn install --frozen-lockfile
+        run: yarn install --immutable
 
       - name: Package name Set
         run: |
