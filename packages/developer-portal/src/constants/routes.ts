@@ -7,6 +7,7 @@ const Routes = {
   SWAGGER: '/swagger',
   DESKTOP: '/desktop',
   APPS_EDIT: '/apps/:appid/edit',
+  APPS_EDIT_V8: '/v8/apps/:appid/edit',
   API_DOCS: '/api-docs',
   ANALYTICS_SCHEMA_DOCS: '/analytics-schema-docs',
   ANALYTICS: '/analytics',

@@ -18,6 +18,7 @@ const Apps = React.lazy(() => catchChunkError(() => import('../components/pages/
 const AppDetail = React.lazy(() => catchChunkError(() => import('../components/pages/app-detail')))
 const AppDetailV8 = React.lazy(() => catchChunkError(() => import('../components/pages/v8/app-detail-v8')))
 const EditApp = React.lazy(() => catchChunkError(() => import('../components/pages/edit-app')))
+const EditAppDetailV8 = React.lazy(() => catchChunkError(() => import('../components/pages/v8/app-detail-v8-edit')))
 const ApiDocsPage = React.lazy(() => catchChunkError(() => import('../components/pages/api-docs')))
 const SwaggerPage = React.lazy(() => catchChunkError(() => import('../components/pages/swagger')))
 const DesktopPage = React.lazy(() => catchChunkError(() => import('../components/pages/desktop')))
@@ -63,6 +64,7 @@ const Router = () => {
                 <PrivateRoute path={Routes.APP_DETAIL} component={AppDetail} exact fetcher />
                 <PrivateRoute path={Routes.APP_DETAIL_V8} component={AppDetailV8} exact fetcher />
                 <PrivateRoute path={Routes.APPS_EDIT} component={EditApp} exact fetcher />
+                <PrivateRoute path={Routes.APPS_EDIT_V8} component={EditAppDetailV8} exact fetcher />
                 <PrivateRoute path={Routes.API_DOCS} component={ApiDocsPage} />
                 <PrivateRoute path={Routes.ANALYTICS_SCHEMA_DOCS} component={ApiDocsPage} />
                 <PrivateRoute path={Routes.WEBHOOKS_MANAGE} component={WebhooksPage} />
