@@ -12,7 +12,9 @@ export const pipelineGet = httpHandler({
   handler: async ({ event }): Promise<PipelineEntity> => {
     const { developerId } = await resolveCreds(event)
 
-    const pipeline = await service.findPipelineById(event.pathParameters?.pipelineId as string)
+    const { pipelineId, appId } = event.pathParameters as { pipelineId: string; appId: string }
+
+    const pipeline = await service.findPipelineById(pipelineId, appId)
 
     if (!pipeline) {
       throw new NotFoundException()

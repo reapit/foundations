@@ -112,7 +112,7 @@ export class CdkStack extends cdk.Stack {
         policies: [...policies.commonBackendPolicies],
         api: {
           method: 'GET',
-          path: 'pipeline/{pipelineId}',
+          path: 'app/{appId}/pipeline/{pipelineId}',
           cors: {
             origin: '*',
           },
@@ -162,7 +162,7 @@ export class CdkStack extends cdk.Stack {
         policies: [...policies.commonBackendPolicies],
         api: {
           method: 'GET',
-          path: 'pipeline',
+          path: 'pipeline/{pipelineId}',
           cors: {
             origin: '*',
           },
