@@ -5,7 +5,6 @@ import { ApiKeyDto } from '@/dto'
 import { ApiKeyModel } from '@reapit/api-key-verify'
 import { createApiKey as create } from '@/services'
 import { connectSessionVerifyDecodeIdTokenWithPublicKeys, LoginIdentity } from '@reapit/connect-session'
-import publicKeys from '../../public-keys.json'
 import { defaultOutputHeaders } from './../constants'
 
 export const createApiKey = httpHandler<ApiKeyDto, ApiKeyModel>({
@@ -17,7 +16,6 @@ export const createApiKey = httpHandler<ApiKeyDto, ApiKeyModel>({
       customer = await connectSessionVerifyDecodeIdTokenWithPublicKeys(
         event.headers?.Authorization as string,
         process.env.CONNECT_USER_POOL as string,
-        publicKeys,
       )
 
       if (typeof customer === 'undefined' || !customer.developerId) {
