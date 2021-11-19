@@ -35,9 +35,21 @@ export const findPipelineById = async (id: string): Promise<PipelineEntity | und
   return repo.findOne({ id })
 }
 
-export const paginatePipelines = async (developerId: string, page: number = 1): Promise<Pagination<PipelineEntity>> => {
+export const paginatePipelines = async (
+  developerId: string,
+  appId?: string,
+  page: number = 1,
+): Promise<Pagination<PipelineEntity>> => {
   const connection = await connect()
   const repo = connection.getRepository(PipelineEntity)
 
-  return paginate(repo, { limit: 10, page }, { where: { developerId }, order: { created: 'DESC' } })
+  const qb = repo.createQueryBuilder()
+  qb.where('developerId = :developerId', { developerId })
+  qb.addOrderBy('created', 'DESC')
+
+  if (appId) {
+    qb.where('appId = :appId', { appId })
+  }
+
+  return paginate(qb, { limit: 10, page })
 }
