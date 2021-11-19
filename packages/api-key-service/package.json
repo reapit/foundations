@@ -24,12 +24,12 @@
     "serverless": "^2.52.0"
   },
   "scripts": {
-    "start": "reapit-fetch-public-keys && yarn build && yarn serverless offline start --runtime nodejs12.x --stage local",
+    "start": "yarn build && yarn serverless offline start --runtime nodejs12.x --stage local",
     "build": "echo '...skipping...'",
     "lint": "eslint --cache --ext=ts,tsx,js src --fix",
     "test": "reapit-fetch-public-keys --test && cross-env TZ=UTC jest --colors --watch --silent",
     "conf": "yarn config-manager --namespace cloud --entity api-key-service --name local --mode fetch",
-    "release": "reapit-fetch-public-keys && serverless deploy",
+    "release": "serverless deploy",
     "publish": "echo '...skipping...'"
   }
 }
