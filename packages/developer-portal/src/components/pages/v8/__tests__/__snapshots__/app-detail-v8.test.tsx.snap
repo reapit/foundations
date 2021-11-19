@@ -114,12 +114,15 @@ exports[`App Detail V8 should match a snapshot 1`] = `
                               </SecondaryNavItem>
                               <SecondaryNavItem
                                 active={false}
+                                onClick={[Function]}
                               >
                                 <ElSecondaryNavItem
                                   className=""
+                                  onClick={[Function]}
                                 >
                                   <div
                                     className="e1ohezfm-el-secondary-nav-item"
+                                    onClick={[Function]}
                                   >
                                     App Details
                                   </div>
@@ -127,12 +130,15 @@ exports[`App Detail V8 should match a snapshot 1`] = `
                               </SecondaryNavItem>
                               <SecondaryNavItem
                                 active={false}
+                                onClick={[Function]}
                               >
                                 <ElSecondaryNavItem
                                   className=""
+                                  onClick={[Function]}
                                 >
                                   <div
                                     className="e1ohezfm-el-secondary-nav-item"
+                                    onClick={[Function]}
                                   >
                                     Edit App
                                   </div>
