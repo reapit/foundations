@@ -55,3 +55,7 @@ export const isNonNullType = (
 export const isListType = (type: IntrospectionOutputTypeRef): type is IntrospectionListTypeRef<any> => {
   return type.kind === TypeKind.LIST
 }
+
+export const isListInputType = (type: IntrospectionInputTypeRef): type is IntrospectionListTypeRef<any> => {
+  return type.kind === TypeKind.LIST
+}
