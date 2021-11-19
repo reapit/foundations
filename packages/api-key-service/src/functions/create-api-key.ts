@@ -29,6 +29,7 @@ export const createApiKey = httpHandler<ApiKeyDto, ApiKeyModel>({
       ? plainToClass(ApiKeyDto, {
           ...body,
           developerId: customer.developerId,
+          clientCode: customer.clientId,
         })
       : new ApiKeyDto()
 
