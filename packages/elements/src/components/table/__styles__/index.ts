@@ -240,6 +240,7 @@ export const ElTableHeader = styled.div`
   height: ${MAX_HEADER_HEIGHT};
   overflow: hidden;
   text-overflow: ellipsis;
+  font-size: 0.875rem;
 
   ${cellOrders}
 
@@ -302,6 +303,7 @@ export const ElTableCell = styled.div`
   color: var(--color-grey-dark);
   margin-right: 2px;
   word-break: break-word;
+  font-size: 0.875rem;
 
   &:last-child {
     margin-right: 0;

@@ -34,6 +34,7 @@ const routeDispatcher = async (route: RouteValue, params?: StringMap, search?: s
       }
       break
     }
+    case Routes.APP_DETAIL_V8:
     case Routes.APP_DETAIL: {
       if (id) {
         const clientId = await getClientId()

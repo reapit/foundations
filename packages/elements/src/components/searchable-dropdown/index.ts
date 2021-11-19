@@ -1,5 +1,5 @@
 export * from './__styles__'
-export { SearchableDropdown, ControlledSearchableDropdown } from './searchable-dropdown'
+export { SearchableDropdown, ControlledSearchableDropdown, SearchableDropdownSearchLabel } from './searchable-dropdown'
 
 import {
   SearchableDropdownProps as T_SearchableDropdownProps,

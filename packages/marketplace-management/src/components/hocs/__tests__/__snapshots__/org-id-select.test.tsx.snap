@@ -16,7 +16,7 @@ Object {
         <p
           class="el-has-grey-text el-body-text"
         >
-          You are and admin for multiple organisations - select from the list below for data specific to one of these organisations
+          You are an admin for multiple organisations - select from the list below for data specific to one of these organisations
         </p>
         <div
           class="el-border-radius controls-container"
@@ -64,7 +64,7 @@ Object {
       <p
         class="el-has-grey-text el-body-text"
       >
-        You are and admin for multiple organisations - select from the list below for data specific to one of these organisations
+        You are an admin for multiple organisations - select from the list below for data specific to one of these organisations
       </p>
       <div
         class="el-border-radius controls-container"

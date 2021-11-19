@@ -7,7 +7,7 @@ export const resolveCustomer = async (event: APIGatewayEvent): Promise<LoginIden
   let customer: LoginIdentity | undefined
 
   try {
-    const claim = decode<Partial<LoginIdentity> & {[s: string]: string}>(event.headers.Authorization as string)
+    const claim = decode<Partial<LoginIdentity> & { [s: string]: string }>(event.headers.Authorization as string)
 
     if (!claim) {
       throw new Error('unauthorised')

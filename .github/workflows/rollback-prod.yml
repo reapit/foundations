@@ -35,7 +35,7 @@ jobs:
           node-version: '14.x'
 
       - name: Install
-        run: yarn
+        run: yarn install && git checkout -- .
 
       - name: Package name Set
         run: |
