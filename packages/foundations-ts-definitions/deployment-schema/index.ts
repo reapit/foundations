@@ -14,6 +14,7 @@ export interface PipelineModelInterface {
   repository?: string
   outDir?: string
   buildStatus?: string
+  appId?: string
   subDomain?: string
 }
 
