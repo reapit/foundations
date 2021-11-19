@@ -25,13 +25,13 @@ export const pipelineCreate = httpHandler<PipelineDto, PipelineEntity>({
     return dto
   },
   handler: async ({ event }): Promise<PipelineEntity> => {
-    const { developerId, clientCode } = await resolveCreds(event)
+    const { developerId, clientId } = await resolveCreds(event)
 
     const dto = event.body
       ? plainToClass(PipelineDto, {
           ...JSON.parse(event.body),
           developerId,
-          clientId: clientCode,
+          clientId,
         })
       : new PipelineDto()
 
