@@ -37,12 +37,12 @@ import { reapitConnectBrowserSession } from '../../../../core/connect-session'
 import { useReapitConnect } from '@reapit/connect-session'
 
 export const pipelineCreateFormHandle =
-  (createPipeline: (values: Partial<PipelineModelInterface>) => Promise<boolean>, refresh: () => void) =>
+  (createPipeline: (values: Partial<PipelineModelInterface>) => Promise<boolean>, refresh: () => void, appId: string) =>
   async (values: PipelineModelInterface) => {
     const result = await createPipeline({
       ...values,
-      appType: AppTypeEnum.REACT,
-      name: values.repository,
+      appId,
+      appType: AppTypeEnum.REACT, // TODO make this an option
     })
 
     if (result) refresh()
@@ -81,9 +81,6 @@ const PipelineCreationModal = ({ open, onModalClose, appId, refreshPipeline }: P
   const [loading, , send, submissionErrors] = useReapitUpdate<Partial<PipelineModelInterface>, PipelineModelInterface>({
     reapitConnectBrowserSession,
     action: UpdateActionNames.updatePipeline,
-    uriParams: {
-      appId,
-    },
     headers: {
       Authorization: connectSession?.idToken as string,
     },
@@ -97,8 +94,15 @@ const PipelineCreationModal = ({ open, onModalClose, appId, refreshPipeline }: P
         Sed lobortis egestas tellus placerat condimentum. Orci varius natoque penatibus et magnis dis parturient montes,
         nascetur ridiculus mus.
       </BodyText>
-      <form onSubmit={handleSubmit(pipelineCreateFormHandle(send, refreshPipeline))}>
+      <form onSubmit={handleSubmit(pipelineCreateFormHandle(send, refreshPipeline, appId))}>
         <FormLayout>
+          <InputWrap>
+            <InputGroup>
+              <Label>Name</Label>
+              <Input {...register('name')} />
+              {errors.name?.message && <InputAddOn intent="danger">{errors.name.message}</InputAddOn>}
+            </InputGroup>
+          </InputWrap>
           <InputWrap>
             <InputGroup>
               <Label>Github Repository</Label>
