@@ -1,13 +1,14 @@
 import { useMutation } from '@apollo/client'
 import { dummyMutation } from '../use-introspection'
 import { notEmpty } from '../use-introspection/helpers'
+import { GeneratedMutation, GeneratedSpecial } from '../use-introspection/query-generators'
 import { MutationType } from '../use-introspection/types'
 import { useObject } from './use-object'
 
 export const useObjectMutate = (mutateType: MutationType | string, typeName?: string) => {
   const { object, error, loading } = useObject(typeName)
   const listQuery = object && typeName ? object.list : undefined
-  const mutate =
+  const mutate: GeneratedMutation | GeneratedSpecial | undefined =
     object && typeName ? object[mutateType] || object.specials.find(({ name }) => name === mutateType) : undefined
   const [mutateFunction, mutationResult] = useMutation(mutate?.mutation || dummyMutation, {
     refetchQueries: [listQuery?.query && { query: listQuery.query }].filter(notEmpty),

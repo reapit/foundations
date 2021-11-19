@@ -126,4 +126,10 @@ export class Property {
 
   @Field({ nullable: true })
   marketingMode?: string
+
+  @Field()
+  saleOrLetting?: string
+
+  @Field()
+  status?: string
 }

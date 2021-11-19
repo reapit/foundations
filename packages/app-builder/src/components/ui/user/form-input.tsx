@@ -18,7 +18,7 @@ export const FormInput = (props: FormInputProps) => {
 const FormInputSettings = () => (
   <>
     <ToolbarSection
-      title="Search"
+      title="is read only"
       props={['isReadOnly']}
       summary={({ isReadOnly }: any) => {
         return `${isReadOnly ? 'Is' : 'Is not'} Read Only`

@@ -1,6 +1,6 @@
 import React, { createContext, useContext } from 'react'
 
-const FormContext = createContext<{ onChange: React.ChangeEventHandler; defaultValues: Record<string, any> }>({
+const FormContext = createContext<{ onChange: React.ChangeEventHandler; defaultValues: Record<string, any> | any[] }>({
   onChange: () => {},
   defaultValues: {},
 })
