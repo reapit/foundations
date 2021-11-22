@@ -13,7 +13,11 @@ export const pipelinePaginate = httpHandler({
   },
   handler: async ({ event }): Promise<Pagination<PipelineEntity>> => {
     const { developerId } = await resolveCreds(event)
-    const { pipelineId: appId } = event.pathParameters as { pipelineId: string }
+    let appId: string | undefined
+
+    if (event.pathParameters && event.pathParameters.pipelineId) {
+      appId = event.pathParameters.pipelineId
+    }
 
     return service.paginatePipelines(
       developerId,
