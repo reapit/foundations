@@ -1,7 +1,7 @@
 import { GetActionNames, getActions } from './actions'
 import { getMergedHeaders } from './utils'
 import qs from 'qs'
-import { ReapitConnectSession } from '@reapit/connect-session'
+import { ReapitConnectSession } from '../../../connect-session/src'
 import { StringMap } from '..'
 
 export interface GetFetcherParams {
