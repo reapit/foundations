@@ -1,4 +1,4 @@
-import { Command, Param } from '../../decorators'
+import { Command } from '../../decorators'
 import { AbstractCommand } from '../../abstract.command'
 import ora, { Ora } from 'ora'
 import { Pagination } from 'nestjs-typeorm-paginate'
@@ -11,16 +11,6 @@ import { REAPIT_PIPELINE_CONFIG_FILE } from '../pipeline/constants'
   description: 'List all releases',
 })
 export class ReleaseListCommand extends AbstractCommand {
-  async projectInfo(): Promise<{ [s: string]: any }> {
-    const config = await this.resolveConfigFile<{ [s: string]: string }>('package.json')
-
-    if (!config) {
-      throw new Error('package info not found')
-    }
-
-    return config
-  }
-
   async listReleases(spinner: Ora, pipelineId: string): Promise<Pagination<PipelineRunnerModelInterface>> {
     spinner.start('Fetching releases')
     const response = await (await this.axios()).get(`/pipeline/${pipelineId}/pipeline-runner`)
@@ -34,6 +24,7 @@ export class ReleaseListCommand extends AbstractCommand {
 
     return response.data
   }
+
   /**
    * Run command
    */
