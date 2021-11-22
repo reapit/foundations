@@ -29,6 +29,8 @@ export interface PipelineRunnerModelInterface {
   tasks?: TaskModelInterface[]
   buildStatus?: CodeBuild.StatusType
   s3BuildLogsLocation?: string
+  buildVersion?: string
+  currentlyDeployed?: boolean
 }
 
 export interface TaskModelInterface {
