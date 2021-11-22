@@ -262,7 +262,7 @@ export class CdkStack extends cdk.Stack {
         policies: [...policies.commonBackendPolicies],
         api: {
           method: 'POST',
-          path: 'deploy/{pipelineId}',
+          path: 'release/{pipelineId}',
           cors: {
             origin: '*',
           },
@@ -275,7 +275,7 @@ export class CdkStack extends cdk.Stack {
         policies: [...policies.commonBackendPolicies],
         api: {
           method: 'POST',
-          path: 'api/deploy/{pipelineId}',
+          path: 'api/release/{pipelineId}',
           cors: {
             origin: '*',
           },
@@ -301,31 +301,6 @@ export class CdkStack extends cdk.Stack {
         api: {
           method: 'POST',
           path: 'api/deploy/version/{pipleineRunnerId}',
-          cors: {
-            origin: '*',
-          },
-          headers: ['Content-Type', 'Authorization', 'X-Api-Key', 'api-version'],
-        },
-      },
-      releaseProjectPagination: {
-        handler: 'main.projectPaginate',
-        policies: [...policies.commonBackendPolicies],
-        api: {
-          method: 'GET',
-          path: 'deploy/project',
-          cors: {
-            origin: '*',
-          },
-          headers: ['Content-Type', 'Authorization', 'api-version'],
-          authorizer: true,
-        },
-      },
-      apiReleaseProjectPagination: {
-        handler: 'main.projectPaginate',
-        policies: [...policies.commonBackendPolicies],
-        api: {
-          method: 'GET',
-          path: 'api/deploy/project',
           cors: {
             origin: '*',
           },
