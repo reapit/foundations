@@ -37,6 +37,8 @@ export const pipelineCreate = httpHandler<PipelineDto, PipelineEntity>({
 
     const pipeline = await service.createPipelineEntity({
       ...dto,
+      // Temp plug, singular appId/clientId for pipeline - later requires multiple pipelines
+      id: dto.appId,
     })
 
     if (!pipeline) {
