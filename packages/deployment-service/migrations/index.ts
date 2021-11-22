@@ -10,6 +10,7 @@ import { pipelineDomainNameGenerate1631027909203 } from './1631027909203-pipelin
 import { pipelineCloudfrontR53Storage1631182439085 } from './1631182439085-pipeline-cloudfront-r53-storage'
 import { nullableFields1637076778182 } from './1637076778182-nullable-fields'
 import { appId1637317204753 } from './1637317204753-appId'
+import { cliRefactor1637591977282 } from './1637591977282-cliRefactor'
 
 export default [
   pipelines1625758770110,
@@ -24,4 +25,5 @@ export default [
   pipelineCloudfrontR53Storage1631182439085,
   nullableFields1637076778182,
   appId1637317204753,
+  cliRefactor1637591977282,
 ]
