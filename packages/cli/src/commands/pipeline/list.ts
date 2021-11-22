@@ -33,7 +33,7 @@ export class PipelineList extends AbstractCommand {
         repository: pipeline.repository,
         created: shleemy(new Date(pipeline.created as string)).forHumans,
       })),
-      ['id', 'name', 'appType', 'appId', 'repository', 'created'],
+      ['id', 'name', 'appType', 'version', 'appId', 'repository', 'created'],
     )
   }
 }
