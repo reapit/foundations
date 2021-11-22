@@ -262,7 +262,7 @@ export class CdkStack extends cdk.Stack {
         policies: [...policies.commonBackendPolicies],
         api: {
           method: 'POST',
-          path: 'deploy/release/{project}/{version}',
+          path: 'deploy/{pipelineId}',
           cors: {
             origin: '*',
           },
@@ -275,32 +275,7 @@ export class CdkStack extends cdk.Stack {
         policies: [...policies.commonBackendPolicies],
         api: {
           method: 'POST',
-          path: 'api/deploy/release/{project}/{version}',
-          cors: {
-            origin: '*',
-          },
-          headers: ['Content-Type', 'Authorization', 'X-Api-Key', 'api-version'],
-        },
-      },
-      releasePaginate: {
-        handler: 'main.releasePaginate',
-        policies: [...policies.commonBackendPolicies],
-        api: {
-          method: 'GET',
-          path: 'deploy/release/{project}',
-          cors: {
-            origin: '*',
-          },
-          headers: ['Content-Type', 'Authorization', 'api-version'],
-          authorizer: true,
-        },
-      },
-      apiReleasePaginate: {
-        handler: 'main.releasePaginate',
-        policies: [...policies.commonBackendPolicies],
-        api: {
-          method: 'GET',
-          path: 'api/deploy/release/{project}',
+          path: 'api/deploy/{pipelineId}',
           cors: {
             origin: '*',
           },
@@ -312,7 +287,7 @@ export class CdkStack extends cdk.Stack {
         policies: [...policies.commonBackendPolicies],
         api: {
           method: 'POST',
-          path: 'deploy/version/{projectName}/{version}',
+          path: 'deploy/version/{pipleineRunnerId}',
           cors: {
             origin: '*',
           },
@@ -325,7 +300,7 @@ export class CdkStack extends cdk.Stack {
         policies: [...policies.commonBackendPolicies],
         api: {
           method: 'POST',
-          path: 'api/deploy/version/{projectName}/{version}',
+          path: 'api/deploy/version/{pipleineRunnerId}',
           cors: {
             origin: '*',
           },

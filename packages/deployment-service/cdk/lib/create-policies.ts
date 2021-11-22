@@ -124,12 +124,7 @@ export const createPolicies = ({
     actions: ['codebuild:StartBuild'],
   })
 
-  const commonBackendPolicies = [
-    lambdaInvoke,
-    ...dbPolicies,
-    S3BucketPolicy,
-    sqsPolicies,
-  ]
+  const commonBackendPolicies = [lambdaInvoke, ...dbPolicies, S3BucketPolicy, sqsPolicies]
 
   return {
     commonBackendPolicies,

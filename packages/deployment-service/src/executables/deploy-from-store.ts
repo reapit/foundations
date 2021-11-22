@@ -2,6 +2,7 @@ import { s3Client } from '../services'
 import { PipelineEntity, PipelineRunnerEntity } from './../entities'
 import { GetObjectOutput } from 'aws-sdk/clients/s3'
 import { releaseToLiveFromZip } from './release-to-live'
+import { CloudFrontClient, CreateInvalidationCommand } from '@aws-sdk/client-cloudfront'
 
 const getFromVersionS3 = async (location: string): Promise<GetObjectOutput | never> =>
   new Promise<GetObjectOutput>((resolve, reject) =>
@@ -63,4 +64,18 @@ export const deployFromStore = async ({
     deploymentType: 'pipeline',
     projectLocation: pipeline.uniqueRepoName,
   })
+
+  const cloudFrontClient = new CloudFrontClient({})
+  const invalidateCommand = new CreateInvalidationCommand({
+    DistributionId: pipelineRunner.pipeline?.cloudFrontId,
+    InvalidationBatch: {
+      Paths: {
+        Items: ['/*'],
+        Quantity: 1,
+      },
+      CallerReference: `deployment refresh for pipeline runner [${pipelineRunner.id}]`,
+    },
+  })
+
+  await cloudFrontClient.send(invalidateCommand)
 }
