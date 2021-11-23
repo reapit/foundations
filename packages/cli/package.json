@@ -5,7 +5,7 @@
   "main": "dist/index.js",
   "dependencies": {
     "ansi-regex": "^6.0.0",
-    "axios": "^0.21.1",
+    "axios": "^0.23.0",
     "chalk": "^4.1.1",
     "cli-spinners": "^2.6.0",
     "create-react-app": "^4.0.3",
