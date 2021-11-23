@@ -1,6 +1,6 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`App Detail V8 should match a snapshot 1`] = `
+exports[`App Detail edit V8 should match a snapshot 1`] = `
 <Provider
   store={
     Object {
@@ -55,7 +55,7 @@ exports[`App Detail V8 should match a snapshot 1`] = `
         }
       }
     >
-      <AppDetailV8>
+      <AppDetailV8Edit>
         <Connect(ErrorBoundary)>
           <ErrorBoundary
             componentError={null}
@@ -347,7 +347,9 @@ exports[`App Detail V8 should match a snapshot 1`] = `
                                 >
                                   <h1
                                     className="etrchfm-el-title"
-                                  />
+                                  >
+                                    Edit 
+                                  </h1>
                                 </ElTitle>
                               </Title>
                             </div>
@@ -1236,7 +1238,7 @@ exports[`App Detail V8 should match a snapshot 1`] = `
             </FlexContainer>
           </ErrorBoundary>
         </Connect(ErrorBoundary)>
-      </AppDetailV8>
+      </AppDetailV8Edit>
     </Router>
   </MemoryRouter>
 </Provider>

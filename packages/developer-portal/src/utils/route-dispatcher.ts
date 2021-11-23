@@ -57,6 +57,7 @@ const routeDispatcher = async (route: RouteValue, params?: StringMap, search?: s
       break
     }
     case Routes.APPS_EDIT:
+    case Routes.APPS_EDIT_V8:
       store.dispatch(fetchAppDetail({ id }))
       store.dispatch(fetchCategoryList())
       store.dispatch(fetchDesktopIntegrationTypeList())

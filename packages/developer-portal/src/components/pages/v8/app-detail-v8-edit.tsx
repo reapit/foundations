@@ -37,7 +37,7 @@ import ImagePlaceHolder from '@/assets/images/default-app-icon.jpg'
 import { cx } from '@linaria/core'
 import { AppDetailModel } from '@reapit/foundations-ts-definitions'
 
-export type AppDetailProps = {}
+export type AppDetailEditProps = {}
 
 export const handleOnDeleteAppSuccess = (history: History) => () => {
   history.replace(routes.APPS)
@@ -76,7 +76,7 @@ const AppDetailsTabs = ({ tab }: { tab: string }) => {
   }
 }
 
-const AppDetailV8: React.FC<AppDetailProps> = () => {
+const AppDetailV8Edit: React.FC<AppDetailEditProps> = () => {
   const appDetailState = useSelector(selectAppDetailState)
   const appDetailData = useSelector(selectAppDetailData)
   const appIcon = appDetailData.media?.filter(({ type }) => type === 'icon')[MEDIA_INDEX.ICON]
@@ -108,7 +108,7 @@ const AppDetailV8: React.FC<AppDetailProps> = () => {
             </SecondaryNavItem>
             <SecondaryNavItem
               onClick={navigate(history, `/v8/apps/${appDetailData.id}`)}
-              active={/^\/v8\/apps\/[a-z0-9-]+/.test(pathname)}
+              active={/^\/v8\/apps\/[a-z0-9-]+$/.test(pathname)}
             >
               App Details
             </SecondaryNavItem>
@@ -141,7 +141,7 @@ const AppDetailV8: React.FC<AppDetailProps> = () => {
                 alt={appDetailData.name}
               />
             }
-            <Title>{appDetailData.name}</Title>
+            <Title>Edit {appDetailData.name}</Title>
           </FlexContainer>
           <Tabs
             isFullWidth
@@ -176,4 +176,4 @@ const AppDetailV8: React.FC<AppDetailProps> = () => {
   )
 }
 
-export default AppDetailV8
+export default AppDetailV8Edit
