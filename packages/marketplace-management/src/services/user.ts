@@ -57,11 +57,12 @@ export const removeMemberFromGroup = async (group: UpdateUserGroupParams): Promi
 
 export const getUserInfo = async (email: string): Promise<UserInfoModel | undefined> => {
   try {
+    const encodedEmail = encodeURIComponent(email)
     const headers = await getPlatformHeaders(reapitConnectBrowserSession, 'latest')
     if (headers) {
       const response = await fetcher({
         api: window.reapit.config.platformApiUrl,
-        url: `${URLS.USERS_INFO}?email=${email}`,
+        url: `${URLS.USERS_INFO}?email=${encodedEmail}`,
         method: 'GET',
         headers,
       })
