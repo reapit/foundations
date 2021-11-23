@@ -101701,8 +101701,6 @@ const nearTerm =
     const isFeatureRequestTemplate = featureRequestLabels.every((label) => issueLabels.includes(label))
     const isBugTemplate = bugLabels.every((label) => issueLabels.includes(label))
 
-    console.log('test', isFeatureRequestTemplate, isBugTemplate, issueLabels)
-
     if (!isFeatureRequestTemplate && !isBugTemplate) {
       console.log('is not feature request or bug template')
       return
