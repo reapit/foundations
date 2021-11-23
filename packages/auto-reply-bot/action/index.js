@@ -101693,8 +101693,8 @@ const nearTerm =
       return
     }
 
-    const featureRequestLabels = ['external-feature', 'needs-triage']
-    const bugLabels = ['bug', 'needs-triage']
+    const featureRequestLabels = ['external feature', 'needs triage']
+    const bugLabels = ['bug', 'needs triage']
 
     const isFeatureRequestTemplate = featureRequestLabels.every((label) => event.payload.issue.labels.includes(label))
     const isBugTemplate = bugLabels.every((label) => event.payload.issue.labels.includes(label))
