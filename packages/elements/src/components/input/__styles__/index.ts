@@ -4,7 +4,7 @@ export const ElInput = styled.input`
   display: flex;
   color: black;
   background: var(--component-input-bg);
-  padding: 0.5rem;
+  padding: 0 0.5rem;
   border: none;
   margin: 0;
   font-family: var(--font-sans-serif);

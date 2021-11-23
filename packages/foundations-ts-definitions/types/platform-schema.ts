@@ -10,6 +10,10 @@ export interface ApplicantBuyingModel {
    * The upper bound of the applicant's budget
    */
   priceTo?: number // int32
+  /**
+   * A list of property decoration requirements taken from the full listing of the associated department (unmodernised/fair/good/veryGood)
+   */
+  decoration?: string[]
 }
 /**
  * Representation of the physical address of a building or premise
@@ -366,6 +370,10 @@ export interface ApplicantModel {
    */
   locality?: string[]
   /**
+   * The applicant's special feature property requirements (eg swimmingPool, tennisCourt), as defined by the property's [department](https://foundations-documentation.reapit.cloud/platform-glossary#department)
+   */
+  specialFeatures?: string[]
+  /**
    * The minimum number of bedrooms the applicant requires
    */
   bedroomsMin?: number // int32
@@ -419,6 +427,10 @@ export interface ApplicantModel {
      * The upper bound of the applicant's budget
      */
     priceTo?: number // int32
+    /**
+     * A list of property decoration requirements taken from the full listing of the associated department (unmodernised/fair/good/veryGood)
+     */
+    decoration?: string[]
   }
   /**
    * The details specific to applicants with a marketingMode of renting
@@ -692,6 +704,10 @@ export interface ApplicantModelPagedResult {
      */
     locality?: string[]
     /**
+     * The applicant's special feature property requirements (eg swimmingPool, tennisCourt), as defined by the property's [department](https://foundations-documentation.reapit.cloud/platform-glossary#department)
+     */
+    specialFeatures?: string[]
+    /**
      * The minimum number of bedrooms the applicant requires
      */
     bedroomsMin?: number // int32
@@ -745,6 +761,10 @@ export interface ApplicantModelPagedResult {
        * The upper bound of the applicant's budget
        */
       priceTo?: number // int32
+      /**
+       * A list of property decoration requirements taken from the full listing of the associated department (unmodernised/fair/good/veryGood)
+       */
+      decoration?: string[]
     }
     /**
      * The details specific to applicants with a marketingMode of renting
@@ -1002,14 +1022,32 @@ export interface Applicants {
     | 'source'
   )[]
   id?: string[]
-  age?: ('period' | 'new' | 'modern')[]
+  age?: ('period' | 'new' | 'modern' | 'old')[]
   emailAddresses?: string[]
   furnishing?: ('furnished' | 'unfurnished' | 'partFurnished')[]
   locality?: ('rural' | 'village' | 'townCity')[]
   negotiatorId?: string[]
   officeId?: string[]
-  parking?: ('residents' | 'offStreet' | 'secure' | 'underground' | 'garage' | 'doubleGarage' | 'tripleGarage')[]
-  situation?: ('garden' | 'land' | 'patio' | 'roofTerrace' | 'conservatory' | 'balcony' | 'communalGardens')[]
+  parking?: (
+    | 'residents'
+    | 'offStreet'
+    | 'secure'
+    | 'underground'
+    | 'garage'
+    | 'doubleGarage'
+    | 'tripleGarage'
+    | 'carport'
+  )[]
+  situation?: (
+    | 'garden'
+    | 'land'
+    | 'patio'
+    | 'roofTerrace'
+    | 'conservatory'
+    | 'balcony'
+    | 'communalGardens'
+    | 'outsideSpace'
+  )[]
   style?: (
     | 'terraced'
     | 'endTerrace'
@@ -1024,6 +1062,7 @@ export interface Applicants {
     | 'upperFloor'
     | 'upperFloorWithLift'
     | 'penthouse'
+    | 'duplex'
   )[]
   type?: (
     | 'house'
@@ -3686,6 +3725,10 @@ export interface CreateApplicantBuyingModel {
    * The upper bound of the applicant's budget. (Required when 'marketingMode' is 'buying' and 'priceFrom' is not provided)
    */
   priceTo?: number // int32
+  /**
+   * A list of property decoration requirements taken from the full listing of the associated department (unmodernised/fair/good/veryGood)
+   */
+  decoration?: string[]
 }
 /**
  * Request body used to create a relationship between an applicant and a contact or company
@@ -3836,6 +3879,10 @@ export interface CreateApplicantModel {
      * The upper bound of the applicant's budget. (Required when 'marketingMode' is 'buying' and 'priceFrom' is not provided)
      */
     priceTo?: number // int32
+    /**
+     * A list of property decoration requirements taken from the full listing of the associated department (unmodernised/fair/good/veryGood)
+     */
+    decoration?: string[]
   }
   /**
    * The details specific to applicants with a marketingMode of renting
@@ -5887,6 +5934,10 @@ export interface CreatePropertyModel {
      * The agent's recommended asking price
      */
     recommendedPrice?: number // int32
+    /**
+     * The property's decorative condition (unmodernised/fair/good/veryGood)
+     */
+    decoration?: string[]
   }
   /**
    * Request body used to set details specific to lettings marketing on a new property
@@ -6167,6 +6218,10 @@ export interface CreatePropertySellingModel {
    * The agent's recommended asking price
    */
   recommendedPrice?: number // int32
+  /**
+   * The property's decorative condition (unmodernised/fair/good/veryGood)
+   */
+  decoration?: string[]
 }
 /**
  * Request body used to set the tenure of a new property
@@ -6704,6 +6759,10 @@ export interface DepartmentModel {
    */
   localityOptions?: string[]
   /**
+   * A collection of special property feature values that will be presented by other services
+   */
+  specialFeaturesOptions?: string[]
+  /**
    * The ETag for the current version of the department. Used for managing update concurrency
    */
   readonly _eTag?: string
@@ -6762,6 +6821,10 @@ export interface DepartmentModelPagedResult {
      * A collection of property locality values that will be accepted by other services
      */
     localityOptions?: string[]
+    /**
+     * A collection of special property feature values that will be presented by other services
+     */
+    specialFeaturesOptions?: string[]
     /**
      * The ETag for the current version of the department. Used for managing update concurrency
      */
@@ -9565,7 +9628,7 @@ export interface Properties {
     | 'vendor'
   )[]
   id?: string[]
-  age?: ('period' | 'new' | 'modern')[]
+  age?: ('period' | 'new' | 'modern' | 'old')[]
   agentRole?: (
     | 'managed'
     | 'rentCollection'
@@ -9597,7 +9660,16 @@ export interface Properties {
   marketingMode?: ('selling' | 'letting' | 'sellingAndLetting')[]
   masterId?: string[]
   officeId?: string[]
-  parking?: ('residents' | 'offStreet' | 'secure' | 'underground' | 'garage' | 'doubleGarage' | 'tripleGarage')[]
+  parking?: (
+    | 'residents'
+    | 'offStreet'
+    | 'secure'
+    | 'underground'
+    | 'garage'
+    | 'doubleGarage'
+    | 'tripleGarage'
+    | 'carport'
+  )[]
   sellingStatus?: (
     | 'preAppraisal'
     | 'valuation'
@@ -9612,7 +9684,16 @@ export interface Properties {
     | 'soldExternally'
     | 'withdrawn'
   )[]
-  situation?: ('garden' | 'land' | 'patio' | 'roofTerrace' | 'conservatory' | 'balcony' | 'communalGardens')[]
+  situation?: (
+    | 'garden'
+    | 'land'
+    | 'patio'
+    | 'roofTerrace'
+    | 'conservatory'
+    | 'balcony'
+    | 'communalGardens'
+    | 'outsideSpace'
+  )[]
   style?: (
     | 'terraced'
     | 'endTerrace'
@@ -9627,6 +9708,7 @@ export interface Properties {
     | 'upperFloor'
     | 'upperFloorWithLift'
     | 'penthouse'
+    | 'duplex'
   )[]
   type?: (
     | 'house'
@@ -9650,6 +9732,7 @@ export interface Properties {
   rentTo?: number
   rentFrequency?: ('weekly' | 'monthly' | 'annually')[]
   internetAdvertising?: boolean
+  isExternal?: boolean
   fromArchive?: boolean
   createdFrom?: string
   createdTo?: string
@@ -10183,6 +10266,10 @@ export interface PropertyModel {
    */
   internetAdvertising?: boolean
   /**
+   * A flag denoting whether or not the property has been instructed by another estate agent
+   */
+  isExternal?: boolean
+  /**
    * The arrangements regarding viewing the property
    */
   viewingArrangements?: string
@@ -10389,6 +10476,10 @@ export interface PropertyModel {
      * The unique identifier of the office that sold the property
      */
     exchangedOfficeId?: string
+    /**
+     * The property's decorative condition (unmodernised/fair/good/veryGood)
+     */
+    decoration?: string[]
   }
   /**
    * Representation of property details specific to lettings marketing
@@ -10540,6 +10631,10 @@ export interface PropertyModel {
    * The attributes describing the general location of the property (eg rural, townCity), as defined by the property's [department](https://foundations-documentation.reapit.cloud/platform-glossary#department)
    */
   locality?: string[]
+  /**
+   * The attributes describing the property's special features (eg swimmingPool, tennisCourt), as defined by the property's [department](https://foundations-documentation.reapit.cloud/platform-glossary#department)
+   */
+  specialFeatures?: string[]
   /**
    * Details of each room in the property
    */
@@ -10731,6 +10826,10 @@ export interface PropertyModelPagedResult {
      * A flag denoting whether or not this property can be advertised on the internet
      */
     internetAdvertising?: boolean
+    /**
+     * A flag denoting whether or not the property has been instructed by another estate agent
+     */
+    isExternal?: boolean
     /**
      * The arrangements regarding viewing the property
      */
@@ -10938,6 +11037,10 @@ export interface PropertyModelPagedResult {
        * The unique identifier of the office that sold the property
        */
       exchangedOfficeId?: string
+      /**
+       * The property's decorative condition (unmodernised/fair/good/veryGood)
+       */
+      decoration?: string[]
     }
     /**
      * Representation of property details specific to lettings marketing
@@ -11089,6 +11192,10 @@ export interface PropertyModelPagedResult {
      * The attributes describing the general location of the property (eg rural, townCity), as defined by the property's [department](https://foundations-documentation.reapit.cloud/platform-glossary#department)
      */
     locality?: string[]
+    /**
+     * The attributes describing the property's special features (eg swimmingPool, tennisCourt), as defined by the property's [department](https://foundations-documentation.reapit.cloud/platform-glossary#department)
+     */
+    specialFeatures?: string[]
     /**
      * Details of each room in the property
      */
@@ -11277,6 +11384,10 @@ export interface PropertySellingModel {
    * The unique identifier of the office that sold the property
    */
   exchangedOfficeId?: string
+  /**
+   * The property's decorative condition (unmodernised/fair/good/veryGood)
+   */
+  decoration?: string[]
 }
 /**
  * Representation of the tenure of a property
@@ -13000,6 +13111,10 @@ export interface UpdateApplicantBuyingModel {
    * The upper bound of the applicant's budget
    */
   priceTo?: number // int32
+  /**
+   * A list of property decoration requirements taken from the full listing of the associated department (unmodernised/fair/good/veryGood)
+   */
+  decoration?: string[]
 }
 /**
  * The applicant's outdoor space requirements
@@ -13137,6 +13252,10 @@ export interface UpdateApplicantModel {
      * The upper bound of the applicant's budget
      */
     priceTo?: number // int32
+    /**
+     * A list of property decoration requirements taken from the full listing of the associated department (unmodernised/fair/good/veryGood)
+     */
+    decoration?: string[]
   }
   /**
    * The details specific to applicants with a marketingMode of renting
@@ -15030,6 +15149,10 @@ export interface UpdatePropertyModel {
      * The unique identifier of the document used for the sales brochure
      */
     brochureId?: string
+    /**
+     * The property's decorative condition (unmodernised/fair/good/veryGood)
+     */
+    decoration?: string[]
   }
   /**
    * Request body used to update details specific to lettings marketing on an existing property
@@ -15284,6 +15407,10 @@ export interface UpdatePropertySellingModel {
    * The unique identifier of the document used for the sales brochure
    */
   brochureId?: string
+  /**
+   * The property's decorative condition (unmodernised/fair/good/veryGood)
+   */
+  decoration?: string[]
 }
 /**
  * Request body used to set the tenure of an existing property
