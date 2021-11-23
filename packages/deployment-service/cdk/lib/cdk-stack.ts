@@ -259,7 +259,7 @@ export class CdkStack extends cdk.Stack {
       },
       deployRelease: {
         handler: 'main.deployRelease',
-        policies: [...policies.commonBackendPolicies],
+        policies: [...policies.commonBackendPolicies, policies.cloudFrontPolicy],
         api: {
           method: 'POST',
           path: 'release/{pipelineId}',
@@ -272,7 +272,7 @@ export class CdkStack extends cdk.Stack {
       },
       apiDeployRelease: {
         handler: 'main.deployRelease',
-        policies: [...policies.commonBackendPolicies],
+        policies: [...policies.commonBackendPolicies, policies.cloudFrontPolicy],
         api: {
           method: 'POST',
           path: 'api/release/{pipelineId}',
@@ -284,7 +284,7 @@ export class CdkStack extends cdk.Stack {
       },
       deployVersion: {
         handler: 'main.deployVersion',
-        policies: [...policies.commonBackendPolicies],
+        policies: [...policies.commonBackendPolicies, policies.cloudFrontPolicy],
         api: {
           method: 'POST',
           path: 'deploy/version/{pipleineRunnerId}',
@@ -297,7 +297,7 @@ export class CdkStack extends cdk.Stack {
       },
       apiDeployVersion: {
         handler: 'main.deployVersion',
-        policies: [...policies.commonBackendPolicies],
+        policies: [...policies.commonBackendPolicies, policies.cloudFrontPolicy],
         api: {
           method: 'POST',
           path: 'api/deploy/version/{pipleineRunnerId}',
@@ -326,7 +326,7 @@ export class CdkStack extends cdk.Stack {
       },
       pipelineSetup: {
         handler: 'main.pipelineSetup',
-        policies: [...policies.commonBackendPolicies],
+        policies: [...policies.commonBackendPolicies, policies.cloudFrontPolicy, policies.route53Policy],
         timeout: 300,
         queue: queues[QueueNames.PIPELINE_SETUP],
       },
@@ -334,7 +334,7 @@ export class CdkStack extends cdk.Stack {
         handler: 'main.pipelineTearDownStart',
         queue: queues[QueueNames.PIPELINE_TEAR_DOWN_START],
         timeout: 300,
-        policies: [...policies.commonBackendPolicies],
+        policies: [...policies.commonBackendPolicies, policies.cloudFrontPolicy],
       },
       pipelineTearDown: {
         handler: 'main.pipelineTearDown',
