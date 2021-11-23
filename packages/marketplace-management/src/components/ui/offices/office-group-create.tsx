@@ -49,7 +49,12 @@ interface CreateOfficeGroupSchema {
 }
 
 export const onHandleSubmit =
-  (history: History, orgId: string | null, success: (message: string) => void, error: (message: string) => void) =>
+  (
+    history: History,
+    orgId: string | null,
+    success: (message: string) => void,
+    error: (message: string, delay?: number) => void,
+  ) =>
   async (params: CreateOfficeGroupSchema) => {
     if (orgId) {
       const { name, officeIds: idsList } = params
@@ -58,7 +63,7 @@ export const onHandleSubmit =
       const createdOffice = await createOfficeGroup({ name, officeIds, status }, orgId)
 
       if (createdOffice && createdOffice === OFFICE_IN_USE_ERROR) {
-        return error(toastMessages.OFFICE_ALREADY_ASSIGNED_CREATE)
+        return error(toastMessages.OFFICE_ALREADY_ASSIGNED_CREATE, 10000)
       }
 
       if (createdOffice) {

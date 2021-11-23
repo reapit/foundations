@@ -417,7 +417,7 @@ Object {
         <div
           class="el-pn-content"
         >
-          No organisation selected. You need to select an organisation to view ofices.
+          No organisation selected. You need to select an organisation to view offices.
         </div>
       </div>
     </div>
@@ -449,7 +449,7 @@ Object {
       <div
         class="el-pn-content"
       >
-        No organisation selected. You need to select an organisation to view ofices.
+        No organisation selected. You need to select an organisation to view offices.
       </div>
     </div>
   </div>,

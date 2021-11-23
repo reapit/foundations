@@ -5,6 +5,7 @@ import {
   SearchableDropdown,
   ControlledSearchableDropdown,
   SearchableDropdownControlledInner,
+  SearchableDropdownSearchLabel,
 } from '../searchable-dropdown'
 
 describe('SearchableDropdown component', () => {
@@ -314,5 +315,12 @@ describe('ControlledSearchableDropdown component', () => {
       />,
     )
     expect(wrapper.find('Icon').prop('icon')).toEqual('selectInfographic')
+  })
+})
+
+describe('SearchableDropdownSearchLabel component', () => {
+  it('should match a snapshot', () => {
+    const wrapper = shallow(<SearchableDropdownSearchLabel>I am a label</SearchableDropdownSearchLabel>)
+    expect(wrapper).toMatchSnapshot()
   })
 })

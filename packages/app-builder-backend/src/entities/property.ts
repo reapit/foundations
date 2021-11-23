@@ -89,7 +89,9 @@ class Image {
 
 @ObjectType()
 export class Property {
-  @Field(() => ID)
+  @Field(() => ID, {
+    description: '@acKey(prpCode)',
+  })
   id: string
 
   @Field(() => [String])
@@ -124,4 +126,10 @@ export class Property {
 
   @Field({ nullable: true })
   marketingMode?: string
+
+  @Field()
+  saleOrLetting?: string
+
+  @Field()
+  status?: string
 }

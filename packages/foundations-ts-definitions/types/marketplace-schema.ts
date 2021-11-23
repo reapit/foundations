@@ -142,6 +142,10 @@ export interface AppDetailModel {
    */
   desktopIntegrationTypeIds?: string[]
   /**
+   * Gets the products to list this app on
+   */
+  products?: string[]
+  /**
    * Gets the date the app was installed for a specific client
    */
   installedOn?: string // date-time
@@ -375,6 +379,10 @@ export interface AppRevisionModel {
    */
   desktopIntegrationTypeIds?: string[]
   /**
+   * Gets the products to list this app on
+   */
+  products?: string[]
+  /**
    * Gets the location url of the terms and conditions associated to the app
    */
   termsAndConditionsUrl?: string
@@ -485,6 +493,10 @@ export interface AppSummaryModel {
    * Gets the desktop integration types of this app
    */
   desktopIntegrationTypeIds?: string[]
+  /**
+   * Gets the products to list this app on
+   */
+  products?: string[]
   /**
    * Gets the time stamp of the installed date
    */
@@ -797,6 +809,10 @@ export interface CreateAppModel {
    */
   scopes?: string[]
   /**
+   * Sets the list of products to list the app on for this app
+   */
+  products?: string[]
+  /**
    * Sets the location url of the app icon image
    */
   iconImageUrl?: string
@@ -936,6 +952,10 @@ export interface CreateAppRevisionModel {
    * Sets the list of scope keys required for this app revision
    */
   scopes?: string[]
+  /**
+   * Sets the list of products to list the app on for this app revision
+   */
+  products?: string[]
   /**
    * Sets the location url of the terms and conditions associated to the app
    */

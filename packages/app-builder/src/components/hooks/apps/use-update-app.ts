@@ -7,8 +7,8 @@ import { GetAppQuery } from './use-app'
 
 const UpdateAppMutation = gql`
   ${AppFragment}
-  mutation UpdateApp($id: ID!, $name: String, $pages: [_PageInput!]) {
-    _updateApp(id: $id, name: $name, pages: $pages) {
+  mutation UpdateApp($id: ID!, $pages: [_PageInput!]) {
+    _updateApp(id: $id, pages: $pages) {
       ...AppFragment
     }
   }
@@ -18,12 +18,9 @@ export const useUpdateApp = () => {
   const [updateApp, { loading, error }] = useMutation(UpdateAppMutation)
 
   return {
-    updateApp: (app: App, name?: string, pages?: Array<Partial<Page>>) =>
+    updateApp: (app: App, pages?: Array<Partial<Page>>) =>
       updateApp({
-        variables: { id: app.id, name: name || app.name, pages },
-        // optimisticResponse: {
-        //   _updateApp: { ...app, name: name || app.name, pages: pages || app.pages },
-        // },
+        variables: { id: app.id, pages },
       }),
     loading,
     error,
@@ -46,7 +43,7 @@ export const useUpdatePage = () => {
         pages.push(page as Page)
       }
 
-      return updateApp(app, app.name, omitDeep(cloneDeep(pages), ['__typename']))
+      return updateApp(app, omitDeep(cloneDeep(pages), ['__typename']))
     }
   }
 
@@ -61,11 +58,9 @@ export const useDeletePage = () => {
     const { data } = await client.query({ query: GetAppQuery, variables: { idOrSubdomain: appId } })
     const app = data?._getApp
 
-    console.log(app)
     if (app) {
       const pages = app.pages.filter((p: Page) => p.id !== pageId)
-      console.log(pages, pageId)
-      return updateApp(app, app.name, omitDeep(cloneDeep(pages), ['__typename']))
+      return updateApp(app, omitDeep(cloneDeep(pages), ['__typename']))
     }
   }
 

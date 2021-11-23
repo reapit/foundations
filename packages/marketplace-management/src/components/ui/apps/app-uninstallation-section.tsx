@@ -6,6 +6,8 @@ import {
   getClientIdFirstPart,
 } from './app-installation-manager'
 import { BodyText, Button, ButtonGroup, elMb11, Subtitle } from '@reapit/elements'
+import { useReapitConnect } from '@reapit/connect-session'
+import { reapitConnectBrowserSession } from '../../../core/connect-session'
 
 export interface AppUninstallationSectionProps {
   installations: InstallationModel[]
@@ -20,9 +22,10 @@ const AppUninstallationSection: FC<AppUninstallationSectionProps> = ({
   setShowConfirmModal,
   setPerformCompleteUninstall,
 }: AppUninstallationSectionProps) => {
+  const { connectSession } = useReapitConnect(reapitConnectBrowserSession)
+  const email = connectSession?.loginIdentity.email ?? ''
   const clientIdFirstPart = getClientIdFirstPart(clientId)
-
-  const wholeOrgInstallations = getInstallationsForWholeOrg(installations, clientIdFirstPart)
+  const wholeOrgInstallations = getInstallationsForWholeOrg(installations, clientIdFirstPart, email)
   const officeGroupInstallations = getInstallationsForOfficeGroups(installations, clientIdFirstPart)
 
   const noCurrentInstallations = wholeOrgInstallations.length === 0 && officeGroupInstallations.length == 0

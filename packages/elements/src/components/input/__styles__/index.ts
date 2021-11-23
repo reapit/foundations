@@ -4,8 +4,11 @@ export const ElInput = styled.input`
   display: flex;
   color: black;
   background: var(--component-input-bg);
-  padding: 0.5rem;
+  padding: 0 0.5rem;
   border: none;
+  margin: 0;
+  font-family: var(--font-sans-serif);
+  font-size: 1rem;
 
   &:not([type='checkbox']):not([type='radio']) {
     flex-grow: 1;
@@ -26,11 +29,13 @@ export const ElInput = styled.input`
   &::placeholder {
     color: var(--color-grey-dark);
     font-family: var(--font-sans-serif);
+    font-size: 1rem;
   }
 
   &[type='checkbox'] {
     appearance: none;
-    border: 1px solid var(--color-grey-medium);
+    border: 1px solid var(--color-grey-light);
+    background-color: var(--color-grey-light);
     border-radius: 0.25rem;
     width: 1.5rem;
     height: 1.5rem;
@@ -40,6 +45,7 @@ export const ElInput = styled.input`
       background-position: center center;
       background-repeat: no-repeat;
       background-size: 0.75rem;
+      border: 1px solid var(--color-grey-medium);
       background-color: var(--intent-primary);
       border: 1px solid var(--intent-primary);
     }
@@ -47,7 +53,8 @@ export const ElInput = styled.input`
 
   &[type='radio'] {
     appearance: none;
-    border: 1px solid var(--color-grey-medium);
+    border: 1px solid var(--color-grey-light);
+    background-color: var(--color-grey-light);
     border-radius: 100%;
     width: 1.5rem;
     height: 1.5rem;

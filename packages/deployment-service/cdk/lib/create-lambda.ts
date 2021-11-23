@@ -10,19 +10,24 @@ export const createLambda = ({
   code,
   vpc,
   handler,
+  env,
 }: {
   stack: CdkStack
   name: string
   code: AssetCode
-  vpc: Vpc
+  vpc?: Vpc
   handler: string
+  env?: { [s: string]: any }
 }): Function => {
   return new Function(stack as any, name, {
     code,
     handler,
     runtime: Runtime.NODEJS_14_X,
     vpc,
-    environment,
+    environment: {
+      ...environment,
+      ...env,
+    },
     timeout: Duration.seconds(30),
     memorySize: 512,
   })

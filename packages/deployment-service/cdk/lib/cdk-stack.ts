@@ -6,8 +6,8 @@ import { PolicyStatement } from '@aws-cdk/aws-iam'
 import { Queue } from '@aws-cdk/aws-sqs'
 import { createS3Buckets } from './create-S3-bucket'
 import { createSqsQueues, QueueNames } from './create-sqs'
-import { createAurora } from './create-aurora'
-import { Port, Vpc } from '@aws-cdk/aws-ec2'
+import { createAurora, databaseName } from './create-aurora'
+import { Vpc } from '@aws-cdk/aws-ec2'
 import { createCodeBuildProject } from './create-code-build'
 import { createApigateway } from './create-apigateway'
 import { SqsEventSource } from '@aws-cdk/aws-lambda-event-sources'
@@ -16,6 +16,9 @@ import { createPolicies } from './create-policies'
 import { Topic } from '@aws-cdk/aws-sns'
 import { LambdaSubscription } from '@aws-cdk/aws-sns-subscriptions'
 import { UserPool } from '@aws-cdk/aws-cognito'
+import { Provider } from '@aws-cdk/custom-resources'
+import { RetentionDays } from '@aws-cdk/aws-logs'
+import { CustomResource } from '@aws-cdk/core'
 
 type FunctionSetup = {
   handler: string
@@ -41,7 +44,7 @@ export class CdkStack extends cdk.Stack {
     const vpc = new Vpc(this as any, 'deployment-service-vpc')
     const buckets = createS3Buckets(this)
     const queues = createSqsQueues(this)
-    const [secretManager, aurora] = createAurora(this, vpc, vpc.privateSubnets)
+    const [secretManager, aurora] = createAurora(this, vpc)
     const [codeBuild, topic] = createCodeBuildProject(this)
     const api = createApigateway(this)
 
@@ -59,7 +62,7 @@ export class CdkStack extends cdk.Stack {
         policies: [...policies.commonBackendPolicies],
         api: {
           method: 'POST',
-          path: 'pipeline',
+          path: 'pipeline/{pipelineId}',
           cors: {
             origin: '*',
           },
@@ -393,7 +396,7 @@ export class CdkStack extends cdk.Stack {
         handler: 'main.pusherAuth',
         policies: [...policies.commonBackendPolicies],
         api: {
-          method: 'GET',
+          method: 'POST',
           path: 'pusher/auth',
           cors: {
             origin: '*',
@@ -405,21 +408,25 @@ export class CdkStack extends cdk.Stack {
     }
 
     const authorizer = new CognitoUserPoolsAuthorizer(this as any, 'cloud-deployment-service-authorizer', {
-      cognitoUserPools: [UserPool.fromUserPoolId(this, 'user-pool-authorizer', 'kiftR4qFc')],
+      // TODO: env
+      cognitoUserPools: [UserPool.fromUserPoolId(this, 'user-pool-authorizer', 'eu-west-2_kiftR4qFc')],
     })
+    const MYSQL_DATABASE = databaseName
 
     for (const [name, options] of Object.entries(functionSetups)) {
       const lambda = createLambda({
         stack: this,
         name: `cloud-deployment-${name}`,
         code: AssetCode.fromAsset(path.resolve('dist', 'main.zip')),
-        vpc,
         handler: options.handler,
+        env: {
+          AURORA_SECRET_ARN: secretManager.secretArn,
+          AURORA_RESOURCE_ARN: aurora.clusterArn,
+          AURORA_REGION: this.region,
+          MYSQL_DATABASE,
+        },
       })
       options.policies.forEach((policy) => lambda.addToRolePolicy(policy))
-
-      lambda.connections.allowTo(aurora.connections, Port.tcp(3306))
-      aurora.connections.allowFrom(lambda.connections, Port.tcp(3306))
 
       if (options.queue) {
         lambda.addEventSource(new SqsEventSource(options.queue))
@@ -432,5 +439,31 @@ export class CdkStack extends cdk.Stack {
         topic.addSubscription(new LambdaSubscription(lambda))
       }
     }
+
+    const migrationHandler = createLambda({
+      stack: this,
+      name: 'cloud-deployment-migration',
+      code: AssetCode.fromAsset(path.resolve('dist', 'main.zip')),
+      handler: 'main.migrationRun',
+      env: {
+        AURORA_SECRET_ARN: secretManager.secretArn,
+        AURORA_RESOURCE_ARN: aurora.clusterArn,
+        AURORA_REGION: this.region,
+        MYSQL_DATABASE,
+      },
+    })
+
+    Object.values(policies)
+      .filter((policy) => policy instanceof PolicyStatement)
+      .forEach((policy) => migrationHandler.addToRolePolicy(policy as PolicyStatement))
+
+    const resourceProvider = new Provider(this, 'custom-resource', {
+      onEventHandler: migrationHandler,
+      logRetention: RetentionDays.ONE_DAY,
+    })
+
+    new CustomResource(this, 'migration-resource', {
+      serviceToken: resourceProvider.serviceToken,
+    })
   }
 }

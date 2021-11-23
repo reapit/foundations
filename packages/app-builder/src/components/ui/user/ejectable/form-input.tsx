@@ -1,9 +1,26 @@
-import React, { useEffect } from 'react'
-import { InputGroup, InputWrap, Label, Loader, SearchableDropdown, Select } from '@reapit/elements'
+import React from 'react'
+import {
+  CardWrap,
+  ElBodyText,
+  elHasGreyText,
+  elMy2,
+  FloatingButton,
+  InputGroup,
+  InputWrap,
+  Label,
+  Loader,
+  SearchableDropdown,
+  Select,
+} from '@reapit/elements'
 
 import { useObjectList } from '../../../hooks/objects/use-object-list'
-import { useObject } from '../../../../components/hooks/objects/use-object'
-import { useLazyObjectSearch } from '../../../../components/hooks/objects/use-object-search'
+import { useObject } from '../../../hooks/objects/use-object'
+import { useLazyObjectSearch } from '../../../hooks/objects/use-object-search'
+import { useObjectMutate } from '../../../hooks/objects/use-object-mutate'
+import { uppercaseSentence } from './utils'
+import { useFormContext } from '../../../hooks/form-context'
+import { ParsedArg } from '../../..//hooks/use-introspection/query-generators'
+import { cx } from '@linaria/core'
 
 const getLabel = (obj: any, labelKeys?: string[]) => {
   if (labelKeys) {
@@ -21,10 +38,16 @@ const SelectIDofType = ({
   typeName,
   value,
   onChange,
+  defaultValue,
+  name,
+  disabled,
 }: {
   typeName: string
-  value: React.SelectHTMLAttributes<HTMLSelectElement>['value']
-  onChange: (value: string | number | null | undefined) => void
+  name: string
+  value?: React.SelectHTMLAttributes<HTMLSelectElement>['value']
+  disabled?: boolean
+  defaultValue?: React.SelectHTMLAttributes<HTMLSelectElement>['defaultValue']
+  onChange: (e: React.ChangeEvent<HTMLInputElement | HTMLSelectElement>) => void
 }) => {
   const { data, loading } = useObjectList(typeName)
   const { object } = useObject(typeName)
@@ -33,17 +56,20 @@ const SelectIDofType = ({
   if (searchAvailable) {
     return (
       <SearchableDropdown<GenericObject>
-        onChange={(e) => onChange(e.target.value)}
+        onChange={onChange}
         getResults={search}
         getResultLabel={(result) => getLabel(result, object?.labelKeys)}
         getResultValue={(result) => result.id}
+        name={name}
+        disabled={disabled}
+        defaultValue={defaultValue}
       />
     )
   }
 
   if (data) {
     return (
-      <Select value={value} onChange={(e) => onChange(e.target.value)}>
+      <Select name={name} value={value} onChange={onChange} disabled={disabled} defaultValue={defaultValue}>
         {data.map((obj) => (
           <option key={obj.id} value={obj.id}>
             {getLabel(obj, object?.labelKeys)}
@@ -60,46 +86,56 @@ const SelectIDofType = ({
   return null
 }
 
-const InnerFormInput = (
-  {
-    label,
-    value,
-    onChange,
-    isRequired,
-    typeName,
-    enumValues,
-    idOfType,
-  }: {
-    label: string
-    value: any
-    isRequired: boolean
-    onChange: (value: any) => void
-    typeName: string
-    enumValues: string[]
-    idOfType: string
-  },
-  ref: React.ForwardedRef<HTMLDivElement>,
-) => {
-  useEffect(() => {
-    if (typeName === 'Boolean' && isRequired) {
-      onChange(false)
-    }
-  }, [typeName])
+const camelCaseToSentence = (camelCase: string) => {
+  return uppercaseSentence(camelCase.replace(/([A-Z])/g, ' $1'))
+}
+
+const friendlyIdName = (idName: string) => {
+  const words = idName.replaceAll('Id', '').split('_')
+  return words.map(camelCaseToSentence).join(' ')
+}
+
+export type FormInputProps = {
+  formType: string
+  typeName?: string
+  name: string
+  disabled?: boolean
+  isReadOnly?: boolean
+}
+
+const Input = ({
+  name,
+  input,
+  fwdRef,
+  disabled,
+  defaultValue,
+  onChange,
+  value,
+}: {
+  name: string
+  disabled?: boolean
+  input: ParsedArg
+  defaultValue?: any
+  value?: any
+  fwdRef?: React.ForwardedRef<HTMLDivElement>
+  onChange: (e: React.ChangeEvent<HTMLInputElement | HTMLSelectElement>) => void
+}) => {
+  const { typeName: inputTypeName, isRequired, idOfType, enumValues } = input
+  const label = friendlyIdName(name)
 
   return (
-    // @ts-ignore
-    <InputWrap ref={ref}>
+    <InputWrap ref={fwdRef}>
       {enumValues && (
         <>
           <Label>{label}</Label>
-          <Select onChange={(e) => onChange(e.target.value)} value={value}>
+          <Select value={value} onChange={onChange} name={name} disabled={disabled} defaultValue={defaultValue}>
             {enumValues.map((value) => (
               <option key={value} value={value}>
                 {value}
               </option>
             ))}
             <option selected disabled>
-              Select a {typeName}
+              Select a {inputTypeName}
             </option>
           </Select>
         </>
@@ -107,32 +143,150 @@ const InnerFormInput = (
       {idOfType && (
         <>
           <Label>{label}</Label>
-          <SelectIDofType typeName={idOfType} onChange={onChange} value={value} />
+          <SelectIDofType
+            disabled={disabled}
+            name={name}
+            typeName={idOfType}
+            onChange={onChange}
+            value={value}
+            defaultValue={defaultValue}
+          />
         </>
       )}
-      {!enumValues &&
-        !idOfType &&
-        (typeName === 'Boolean' ? (
-          <InputGroup
-            key={label}
-            label={label}
-            type={'checkbox'}
-            value={value}
-            onChange={(e) => {
-              onChange(e.target.checked)
-            }}
-          />
-        ) : (
-          <InputGroup
-            required={isRequired}
-            key={label}
-            label={label}
-            type={'text'}
-            value={value}
-            onChange={(e) => onChange(e.target.value)}
-          />
-        ))}
+      {!enumValues && !idOfType && (
+        <InputGroup
+          disabled={disabled}
+          key={label}
+          label={label}
+          value={value}
+          required={isRequired && inputTypeName !== 'Boolean'}
+          type={inputTypeName === 'Boolean' ? 'checkbox' : 'text'}
+          onChange={onChange}
+          name={name}
+          defaultValue={defaultValue}
+        />
+      )}
     </InputWrap>
+  )
+}
+
+const ListInput = React.forwardRef(
+  (
+    {
+      label,
+      defaultValue,
+      formInput,
+      disabled,
+      onChange,
+    }: {
+      label: string
+      defaultValue: any
+      formInput: ParsedArg
+      disabled?: boolean
+      onChange: (value: any) => void
+    },
+    ref: React.ForwardedRef<HTMLDivElement>,
+  ) => {
+    const [listValue, setListValue] = React.useState<Record<string, any>[]>(defaultValue || [])
+
+    return (
+      <InputWrap ref={ref}>
+        <Label>{label}</Label>
+        <InputGroup>
+          {listValue.map((value, idx) => (
+            <CardWrap key={idx} className={elMy2}>
+              <InputWrap>
+                {formInput?.fields?.map((input) => (
+                  <div key={input.name}>
+                    <Input
+                      name={input.name}
+                      input={input}
+                      value={value[input.name]}
+                      disabled={disabled}
+                      onChange={(e) => {
+                        const newListValue = listValue.slice()
+                        if (!newListValue[idx]) {
+                          newListValue[idx] = {}
+                        }
+                        newListValue[idx][input.name] = e.target.value
+                        setListValue(newListValue)
+                        onChange(newListValue)
+                      }}
+                    />
+                  </div>
+                ))}
+              </InputWrap>
+              <FloatingButton
+                type="button"
+                onClick={() => {
+                  const newListValue = listValue.filter((_, i) => i !== idx)
+                  setListValue(newListValue)
+                  onChange(newListValue)
+                }}
+                icon="trashSystem"
+              />
+            </CardWrap>
+          ))}
+          {listValue.length === 0 && <ElBodyText className={cx(elMy2, elHasGreyText)}>None yet</ElBodyText>}
+        </InputGroup>
+        <FloatingButton
+          type="button"
+          intent="secondary"
+          onClick={() => {
+            const newListValue = listValue.slice()
+            newListValue.push({})
+            setListValue(newListValue)
+            onChange(newListValue)
+          }}
+          icon="addSystem"
+        />
+      </InputWrap>
+    )
+  },
+)
+
+const InnerFormInput = (
+  { typeName, name, formType, ...rest }: FormInputProps,
+  ref: React.ForwardedRef<HTMLDivElement>,
+) => {
+  const { args } = useObjectMutate(formType, typeName)
+  const disabled = rest.disabled || rest.isReadOnly
+  const { onChange, defaultValues } = useFormContext()
+  const defaultValue = defaultValues[name]
+  const formInput = args && args[0] && args[0]?.fields?.find((arg) => arg.name === name)
+
+  if (!formInput) return null
+
+  const { isList } = formInput
+  const label = friendlyIdName(name)
+  if (isList) {
+    return (
+      <ListInput
+        defaultValue={defaultValue}
+        label={label}
+        formInput={formInput}
+        onChange={(value: any) => {
+          onChange({
+            target: {
+              name,
+              value,
+            },
+          } as any)
+        }}
+        disabled={disabled}
+      />
+    )
+  }
+
+  return (
+    <Input
+      name={name}
+      input={formInput}
+      fwdRef={ref}
+      disabled={disabled}
+      defaultValue={defaultValue}
+      onChange={onChange}
+    />
   )
 }
 

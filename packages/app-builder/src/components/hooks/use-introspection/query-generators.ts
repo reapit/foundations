@@ -15,7 +15,9 @@ import {
   isNonNullInputType,
   MutationType,
   stringIsMutationType,
+  isListInputType,
 } from './types'
+import { DesktopContext } from '@/core/desktop-integration'
 
 export type GeneratedQuery = {
   query: DocumentNode
@@ -87,13 +89,15 @@ export const getGetQuery = (
   }
 }
 
-type ParsedArg = {
+export type ParsedArg = {
   name: string
   isRequired: boolean
+  isList: boolean
   typeName: string
   idOfType?: string
   enumValues?: Array<string>
   fields?: Array<ParsedArg>
+  acKey?: DesktopContext
 }
 
 const parseArgs = (
@@ -107,10 +111,25 @@ const parseArgs = (
     let typeName = isIntrospectionScalarType(type) ? type.name : ''
     let actualType = type
     let idOfType
+    let isRequired = false
+    let isList = false
 
     if (isNonNullInputType(type)) {
-      typeName = type.ofType.name
       actualType = type.ofType
+      typeName = actualType.name
+      isRequired = true
+    }
+
+    if (isListInputType(actualType)) {
+      typeName = actualType.ofType.name
+      actualType = actualType.ofType
+      isList = true
+
+      if (isNonNullInputType(actualType)) {
+        actualType = actualType.ofType
+        typeName = actualType.name
+        isRequired = true
+      }
     }
 
     const actualTypeObject =
@@ -126,12 +145,16 @@ const parseArgs = (
       idOfType = queryableObjectTypes.find((a) => a.name.toLowerCase() === idName.toLowerCase())?.name
     }
 
+    const acKey = description?.split('@acKey(')[1]?.split(')')[0] as DesktopContext
+
     const enumValues = enums.find(({ name }) => name === typeName)?.enumValues.map((e) => e.name)
     return {
       name,
-      isRequired: isNonNullInputType(type),
+      acKey,
+      isRequired,
       typeName,
       idOfType,
+      isList,
       enumValues,
       fields:
         (actualTypeObject &&

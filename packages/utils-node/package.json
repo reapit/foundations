@@ -26,6 +26,7 @@
   "dependencies": {
     "@linaria/core": "^3.0.0-beta.4",
     "@linaria/react": "^3.0.0-beta.7",
+    "@reapit/connect-session": "workspace:packages/connect-session",
     "@reapit/foundations-ts-definitions": "workspace:packages/foundations-ts-definitions",
     "@reapit/utils-common": "workspace:packages/utils-common",
     "@sentry/node": "^6.9.0",

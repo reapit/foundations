@@ -109,14 +109,18 @@ exports[`Register should match a snapshot 1`] = `
                   </div>
                 </div>
                 <div
-                  className="t1iywawv-triangle1"
-                />
-                <div
-                  className="toze2rs-triangle2"
-                />
-                <div
-                  className="t1v5v0js-triangle3"
-                />
+                  className="t1iywawv-triangle-container"
+                >
+                  <div
+                    className="toze2rs-triangle1"
+                  />
+                  <div
+                    className="t1v5v0js-triangle2"
+                  />
+                  <div
+                    className="tuj4la6-triangle3"
+                  />
+                </div>
               </div>
             </KeyAnimation>
           </div>

@@ -3,6 +3,7 @@ const Routes = {
   AUTHENTICATION_LOGIN_TYPE: '/authentication/:loginType',
   APPS: '/apps',
   APP_DETAIL: '/apps/:appid',
+  APP_DETAIL_V8: '/v8/apps/:appid',
   SWAGGER: '/swagger',
   DESKTOP: '/desktop',
   APPS_EDIT: '/apps/:appid/edit',
