@@ -54,8 +54,6 @@ export const Form = forwardRef<HTMLDivElement, FormProps & { disabled?: boolean 
       setFormState((prevState) => ({ ...prevState, [name]: value }))
     }
 
-    console.log(formState)
-
     return (
       <Container {...props} ref={ref}>
         {!typeName && <div>No type selected</div>}
