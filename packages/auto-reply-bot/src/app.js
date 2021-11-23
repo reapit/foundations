@@ -17,23 +17,36 @@ export default (app) => {
       return
     }
 
-    const isFeatureRequestTemplate = event.payload.issue.body.includes('feature request related to a problem')
+    const featureRequestLabels = ['external feature', 'needs triage']
+    const bugLabels = ['bug', 'needs triage']
 
-    if (!isFeatureRequestTemplate) {
-      console.log('is not feature request template')
+    const issueLabels = event.payload.issue.labels.map(label => label.name)
+
+    const isFeatureRequestTemplate = featureRequestLabels.every((label) => issueLabels.includes(label))
+    const isBugTemplate = bugLabels.every((label) => issueLabels.includes(label))
+
+    if (!isFeatureRequestTemplate && !isBugTemplate) {
+      console.log('is not feature request or bug template')
       return
     }
 
-    return Promise.all([
-      event.octokit.issues.createComment(
-        event.issue({
-          body: `Hello :wave:
-      ${templateReply}
-      `,
-        }),
-      ),
-      event.octokit.issues.addLabels(event.issue({ labels: ['awaiting triage'] })),
-    ])
+    if (isFeatureRequestTemplate) {
+      return Promise.all([
+        event.octokit.issues.createComment(event.issue({ body: `Hello :wave:
+        ${templateReply}
+        ` })),
+        event.octokit.issues.addLabels(event.issue({ labels: ['awaiting triage'] })),
+      ])
+    }
+
+    if (isBugTemplate) {
+      return Promise.all([
+        event.octokit.issues.createComment(event.issue({ body: `Hello :wave:
+        ${templateReply}
+        ` })),
+        event.octokit.issues.addLabels(event.issue({ labels: ['awaiting triage'] })),
+      ])
+    }
   })
 
   app.on('issues.labeled', (event) => {
