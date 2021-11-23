@@ -12,21 +12,17 @@ import comingSoonSmsSpeedWayIdVerification from '@/assets/images/coming-soon/SMS
 import comingSoonOnTheMarket from '@/assets/images/coming-soon/OnTheMarket.jpg'
 import comingSoonPerfectPortal from '@/assets/images/coming-soon/PerfectPortal.jpg'
 import comingSoonRightMove from '@/assets/images/coming-soon/RightMove.jpg'
-import comingSoonNotify from '@/assets/images/coming-soon/Notify.jpg'
 import comingSoonBarbuck from '@/assets/images/coming-soon/Barbuck.jpg'
 import comingSoonFacebook from '@/assets/images/coming-soon/Facebook.jpg'
 import comingSoonOffr from '@/assets/images/coming-soon/Offr.jpg'
 import comingSoonApex from '@/assets/images/coming-soon/Apex.jpg'
 import comingSoonDocuSign from '@/assets/images/coming-soon/Docusign.jpg'
-import comingSoonJustMoveIn from '@/assets/images/coming-soon/Justmovein.jpg'
 import comingSoonLifeTimeLegal from '@/assets/images/coming-soon/lifetimelegal.jpg'
 import comingSoonRealMedia from '@/assets/images/coming-soon/RealMediaGroup.jpg'
 import comingSoonTheBunch from '@/assets/images/coming-soon/TheBunch.jpg'
 import comingSoonAgentPoint from '@/assets/images/coming-soon/AgentPoint.png'
 import comingSoonCannellSigns from '@/assets/images/coming-soon/CannellSigns.png'
-import comingSoonHelpTheMove from '@/assets/images/coming-soon/HelpTheMove.png'
 import comingSoonHummTech from '@/assets/images/coming-soon/HumTech.png'
-import comingSoonIAmMoving from '@/assets/images/coming-soon/IAmMoving.png'
 import comingSoonLawFirmServices from '@/assets/images/coming-soon/LawFirmServices.png'
 import comingSoonUSeeHomes from '@/assets/images/coming-soon/USeeHomes.png'
 import comingSoonViewber from '@/assets/images/coming-soon/Viewber.png'
@@ -67,21 +63,17 @@ const comingSoonImagesMap = {
   comingSoonOnTheMarket,
   comingSoonPerfectPortal,
   comingSoonRightMove,
-  comingSoonNotify,
   comingSoonBarbuck,
   comingSoonFacebook,
   comingSoonOffr,
   comingSoonApex,
   comingSoonDocuSign,
-  comingSoonJustMoveIn,
   comingSoonLifeTimeLegal,
   comingSoonRealMedia,
   comingSoonTheBunch,
   comingSoonAgentPoint,
   comingSoonCannellSigns,
-  comingSoonHelpTheMove,
   comingSoonHummTech,
-  comingSoonIAmMoving,
   comingSoonLawFirmServices,
   comingSoonUSeeHomes,
   comingSoonViewber,
