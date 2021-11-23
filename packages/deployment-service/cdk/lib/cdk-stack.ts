@@ -4,7 +4,7 @@ import { createLambda } from './create-lambda'
 import * as path from 'path'
 import { PolicyStatement } from '@aws-cdk/aws-iam'
 import { Queue } from '@aws-cdk/aws-sqs'
-import { createS3Buckets, BucketNames } from './create-S3-bucket'
+import { createS3Buckets } from './create-S3-bucket'
 import { createSqsQueues, QueueNames } from './create-sqs'
 import { createAurora, databaseName } from './create-aurora'
 import { Vpc } from '@aws-cdk/aws-ec2'
@@ -374,9 +374,9 @@ export class CdkStack extends cdk.Stack {
           AURORA_RESOURCE_ARN: aurora.clusterArn,
           AURORA_REGION: this.region,
           MYSQL_DATABASE,
-          DEPLOYMENT_LIVE_BUCKET_NAME: buckets[BucketNames.LIVE],
-          DEPLOYMENT_VERSION_BUCKET_NAME: buckets[BucketNames.VERSION],
-          DEPLOYMENT_LOG_BUCKET_NAME: buckets[BucketNames.LOG],
+          DEPLOYMENT_LIVE_BUCKET_NAME: buckets['cloud-deployment-live-dev'].bucketName,
+          DEPLOYMENT_VERSION_BUCKET_NAME: buckets['cloud-deployment-version-dev'].bucketName,
+          DEPLOYMENT_LOG_BUCKET_NAME: buckets['cloud-deployment-log-dev'].bucketName,
         },
       })
       options.policies.forEach((policy) => lambda.addToRolePolicy(policy))
@@ -403,9 +403,9 @@ export class CdkStack extends cdk.Stack {
         AURORA_RESOURCE_ARN: aurora.clusterArn,
         AURORA_REGION: this.region,
         MYSQL_DATABASE,
-        DEPLOYMENT_LIVE_BUCKET_NAME: buckets[BucketNames.LIVE],
-        DEPLOYMENT_VERSION_BUCKET_NAME: buckets[BucketNames.VERSION],
-        DEPLOYMENT_LOG_BUCKET_NAME: buckets[BucketNames.LOG],
+        DEPLOYMENT_LIVE_BUCKET_NAME: buckets['cloud-deployment-live-dev'].bucketName,
+        DEPLOYMENT_VERSION_BUCKET_NAME: buckets['cloud-deployment-version-dev'].bucketName,
+        DEPLOYMENT_LOG_BUCKET_NAME: buckets['cloud-deployment-log-dev'].bucketName,
       },
     })
 
