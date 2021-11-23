@@ -4,7 +4,7 @@ export const ElSelect = styled.select`
   display: flex;
   color: black;
   background-color: var(--component-input-bg);
-  padding: 0.5rem;
+  padding: 0 0.5rem;
   padding-right: 2rem;
   appearance: none;
   border: none;
@@ -17,6 +17,7 @@ export const ElSelect = styled.select`
   background-repeat: no-repeat;
   font-family: var(--font-sans-serif);
   font-size: 1rem;
+  height: 2rem;
 
   &:focus {
     outline: none;
