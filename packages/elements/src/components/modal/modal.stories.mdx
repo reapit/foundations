@@ -4,7 +4,7 @@ import { cx } from '@linaria/core'
 import { useModal } from '../../hooks/use-modal'
 import { Modal, ModalBg, ModalContainer, ModalHeader, ModalBody } from './index'
 import { elIsActive } from '../../styles/states'
-import { Button } from '../button'
+import { Button, ButtonGroup } from '../button'
 import { BodyText } from '../typography'
 import { elFlex, elFlexJustifyCenter } from '../../styles/flexbox'
 import { FlexContainer } from '../layout'
@@ -60,8 +60,14 @@ Props available for the React version of the component;
       const [modalIsOpen, setModalIsOpen] = useState(false)
       return (
         <>
-          <Button onClick={() => setModalIsOpen(!modalIsOpen)}>Open Modal</Button>
-          <Modal isOpen={modalIsOpen} onModalClose={() => setModalIsOpen(!modalIsOpen)} title="Welcome to the demo modal">
+          <Button intent="secondary" onClick={() => setModalIsOpen(!modalIsOpen)}>
+            Open Modal
+          </Button>
+          <Modal
+            isOpen={modalIsOpen}
+            onModalClose={() => setModalIsOpen(!modalIsOpen)}
+            title="Welcome to the demo modal"
+          >
             <BodyText>Here's some nice content for the inside of the modal.</BodyText>
           </Modal>
         </>
@@ -82,11 +88,15 @@ It also leverages our `Portal` component to render the modal at the top level of
       const { Modal: ModalComponent, openModal, closeModal } = useModal('docs-root')
       return (
         <>
-          <Button onClick={openModal}>Open Modal</Button>
+          <Button intent="secondary" onClick={openModal}>
+            Open Modal
+          </Button>
           <ModalComponent title="Welcome to the demo modal">
             <BodyText>Here's some nice content for the inside of the modal.</BodyText>
             <FlexContainer isFlexJustifyCenter>
-              <Button onClick={closeModal}>Close the modal</Button>
+              <Button intent="secondary" onClick={closeModal}>
+                Close the modal
+              </Button>
             </FlexContainer>
           </ModalComponent>
         </>
@@ -110,8 +120,14 @@ If using multiple modals within a component, ensure you rename the exports from 
       const { Modal: ModalB, openModal: openModalB } = useModal('docs-root')
       return (
         <>
-          <Button onClick={openModalA}>Open Modal A</Button>
-          <Button onClick={openModalB}>Open Modal B</Button>
+          <ButtonGroup>
+            <Button intent="secondary" onClick={openModalA}>
+              Open Modal A
+            </Button>
+            <Button intent="secondary" onClick={openModalB}>
+              Open Modal B
+            </Button>
+          </ButtonGroup>
           <ModalA title="Modal A">I'm the modal A's content</ModalA>
           <ModalB title="Modal B">I'm the modal B's content</ModalB>
         </>

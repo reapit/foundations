@@ -23,6 +23,35 @@ const getPropertyKeyQuery = gql`
   }
 `
 
+const createKeyMutation = gql`
+  ${KeyFragment}
+  mutation createKey($propertyId: ID!, $key: KeyModelInput) {
+    CreateKey(propertyId: $propertyId, key: $key) {
+      ...KeyFragment
+    }
+  }
+`
+
+@InputType()
+class IndividualKeyModelInput {
+  @Field()
+  description: string
+  @Field()
+  name: string
+}
+
+@InputType()
+class KeyModelInput {
+  @Field()
+  number: string
+  @Field({ description: '@idOf(KeyType)' })
+  typeId: string
+  @Field({ description: '@idOf(Office)' })
+  officeId: string
+  @Field(() => [IndividualKeyModelInput])
+  keysInSet: IndividualKeyModelInput[]
+}
+
 const createKeyMovementMutation = gql`
   ${MovementFragment}
   mutation createKeyMovement($propertyId: ID!, $keyId: ID!, $movement: KeyMovementModelInput) {
@@ -96,6 +125,10 @@ const createPropertyKeyMovement = async (
     accessToken,
     idToken,
   })
+}
+
+const createPropertyKey = async (propertyId: string, key: KeyModelInput, accessToken: string, idToken: string) => {
+  return query<APIKey>(createKeyMutation, { propertyId, key }, 'CreateKey', { accessToken, idToken })
 }
 
 const updatePropertyKeyMovement = async (
@@ -233,6 +266,18 @@ export class KeyResolver {
       idToken,
     )
     const key = await getPropertyKey(propertyId, keyId, accessToken, idToken)
+    return APIKeyToKey(key)
+  }
+
+  @Authorized()
+  @Mutation(() => Key)
+  async createKey(
+    @Arg('propertyId', () => ID) propertyId: string,
+    @Arg('key', () => KeyModelInput) keyInput: KeyModelInput,
+    @Ctx() ctx: Context,
+  ): Promise<Key> {
+    const { accessToken, idToken } = ctx
+    const key = await createPropertyKey(propertyId, keyInput, accessToken, idToken)
     return APIKeyToKey(key)
   }
 

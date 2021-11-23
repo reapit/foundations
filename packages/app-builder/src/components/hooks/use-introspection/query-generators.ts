@@ -15,6 +15,7 @@ import {
   isNonNullInputType,
   MutationType,
   stringIsMutationType,
+  isListInputType,
 } from './types'
 import { DesktopContext } from '@/core/desktop-integration'
 
@@ -91,6 +92,7 @@ export const getGetQuery = (
 export type ParsedArg = {
   name: string
   isRequired: boolean
+  isList: boolean
   typeName: string
   idOfType?: string
   enumValues?: Array<string>
@@ -109,10 +111,25 @@ const parseArgs = (
     let typeName = isIntrospectionScalarType(type) ? type.name : ''
     let actualType = type
     let idOfType
+    let isRequired = false
+    let isList = false
 
     if (isNonNullInputType(type)) {
-      typeName = type.ofType.name
       actualType = type.ofType
+      typeName = actualType.name
+      isRequired = true
+    }
+
+    if (isListInputType(actualType)) {
+      typeName = actualType.ofType.name
+      actualType = actualType.ofType
+      isList = true
+
+      if (isNonNullInputType(actualType)) {
+        actualType = actualType.ofType
+        typeName = actualType.name
+        isRequired = true
+      }
     }
 
     const actualTypeObject =
@@ -134,9 +151,10 @@ const parseArgs = (
     return {
       name,
       acKey,
-      isRequired: isNonNullInputType(type),
+      isRequired,
       typeName,
       idOfType,
+      isList,
       enumValues,
       fields:
         (actualTypeObject &&

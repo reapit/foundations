@@ -53,6 +53,8 @@ const apiPropertiesToProperty = (properties: PropertyModelPagedResult['_embedded
     lettingRentPrice: property.letting?.rent,
     lettingRentFrequency: property.letting?.rentFrequency,
     salePrice: property.selling?.price,
+    saleOrLetting: property.selling ? 'sale' : 'letting',
+    status: property.selling?.status || property.letting?.status,
   })) || []
 
 @Resolver(() => Property)

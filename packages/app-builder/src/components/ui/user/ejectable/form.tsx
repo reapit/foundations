@@ -47,7 +47,10 @@ export const Form = forwardRef<HTMLDivElement, FormProps & { disabled?: boolean 
     }, [data, args])
 
     const handleInputChange = (e: React.ChangeEvent<HTMLInputElement | HTMLSelectElement>) => {
-      const { name, value } = e.target
+      const { name, type, value, checked } = e.target as HTMLInputElement
+      if (type === 'checkbox') {
+        return setFormState((prevState) => ({ ...prevState, [name]: checked }))
+      }
       setFormState((prevState) => ({ ...prevState, [name]: value }))
     }
 

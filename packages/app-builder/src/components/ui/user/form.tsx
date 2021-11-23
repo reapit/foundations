@@ -66,13 +66,13 @@ const FormSettings = () => {
   const { specials } = useObjectSpecials(typeName)
   useEffect(() => {
     if (args && args[0] && shouldUpdate) {
-      const inputs = args[0].fields.map(({ name, isRequired }) => ({
+      const inputs = args[0].fields?.map(({ name, isRequired }) => ({
         name,
         typeName,
         formType,
         isRequired,
       }))
-      setInputs(inputs, nodeId)
+      setInputs(inputs || [], nodeId)
       setShouldUpdate(false)
     }
   }, [shouldUpdate, args])
