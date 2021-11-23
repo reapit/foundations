@@ -377,6 +377,7 @@ export class CdkStack extends cdk.Stack {
           DEPLOYMENT_LIVE_BUCKET_NAME: buckets['cloud-deployment-live-dev'].bucketName,
           DEPLOYMENT_VERSION_BUCKET_NAME: buckets['cloud-deployment-version-dev'].bucketName,
           DEPLOYMENT_LOG_BUCKET_NAME: buckets['cloud-deployment-log-dev'].bucketName,
+          REGION: 'eu-west-2',
         },
       })
       options.policies.forEach((policy) => lambda.addToRolePolicy(policy))
@@ -406,6 +407,7 @@ export class CdkStack extends cdk.Stack {
         DEPLOYMENT_LIVE_BUCKET_NAME: buckets['cloud-deployment-live-dev'].bucketName,
         DEPLOYMENT_VERSION_BUCKET_NAME: buckets['cloud-deployment-version-dev'].bucketName,
         DEPLOYMENT_LOG_BUCKET_NAME: buckets['cloud-deployment-log-dev'].bucketName,
+        REGION: 'eu-west-2',
       },
     })
 
