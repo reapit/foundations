@@ -68,11 +68,11 @@ export const callGetKeyAPI = async (args: GetKeyArgs, context: ServerContext): G
 export const callCreateKeyAPI = async (args: CreateKeyArgs, context: ServerContext): CreateKeyReturn => {
   const traceId = context.traceId
   logger.info('callCreateKeyAPI', { traceId, args })
-  const { propertyId, ...rest } = args
+  const { propertyId, key } = args
   try {
     const response = await createPlatformAxiosInstance().post<CreateKeyReturn>(
       `${URLS.properties}/${propertyId}/keys`,
-      rest,
+      key,
       {
         headers: {
           Authorization: context.authorization,

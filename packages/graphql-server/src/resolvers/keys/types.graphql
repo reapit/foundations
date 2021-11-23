@@ -5,7 +5,7 @@ type IndividualKeyModel {
 
 input IndividualKeyModelInput {
   description: String
-  name: String
+  name: String!
 }
 
 type KeyType {

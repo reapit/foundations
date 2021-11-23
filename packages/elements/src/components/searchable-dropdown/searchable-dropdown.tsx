@@ -95,11 +95,12 @@ export const SearchableDropdownInner = <T extends unknown>(
     setSelectedValue(value)
     setResultsVisible(false)
     if (onChange) {
-      onChange({
+      onChange(({
         target: {
+          ...inputProps,
           value,
         },
-      } as React.ChangeEvent<HTMLInputElement>)
+      } as unknown) as React.ChangeEvent<HTMLInputElement>)
     }
   }
 
