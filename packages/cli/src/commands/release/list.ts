@@ -21,7 +21,7 @@ export class ReleaseListCommand extends AbstractCommand {
 
   async listReleases(spinner: Ora, project: string): Promise<Pagination<any>> {
     spinner.start('Fetching releases')
-    const response = await (await this.axios()).get(`/deploy/release/${project}`)
+    const response = await (await this.axios()).get<Pagination<any>>(`/deploy/release/${project}`)
 
     if (response.status !== 200) {
       spinner.fail('Failed to fetch releases')
