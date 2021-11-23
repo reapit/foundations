@@ -6,6 +6,7 @@ import {
   AppDetailModel,
   CreateAppRevisionModel,
   ApproveModel,
+  ScopeModel,
 } from '@reapit/foundations-ts-definitions'
 import { getIdFromCreateHeaders } from '../utils/get-id-from-create-headers'
 
@@ -74,6 +75,17 @@ export const approveMarketplaceAppRevision = async (
   return !!res
 }
 
+export const getValidMarketplaceScopes = async (accessToken: string) => {
+  const res: ScopeModel[] = await fetcher({
+    api: platformApiUrl,
+    url: '/marketplace/scopes',
+    headers: getHeaders(accessToken),
+    method: 'GET',
+  })
+
+  return res
+}
+
 export const getMarketplaceApp = async (appId: string, accessToken: string) => {
   const res: AppDetailModel = await fetcher({
     api: platformApiUrl,
@@ -85,10 +97,12 @@ export const getMarketplaceApp = async (appId: string, accessToken: string) => {
   return res
 }
 
-const foreachableToDictionary = (foreachable: { forEach: (callback: (value: any) => void) => void }) => {
+const foreachableToDictionary = (foreachable: {
+  forEach: (callback: (value: string, key: string) => void) => void
+}) => {
   const dictionary: { [key: string]: any } = {}
-  foreachable.forEach((value: any) => {
-    dictionary[value[0]] = value[1]
+  foreachable.forEach((value: string, key: string) => {
+    dictionary[key] = value
   })
   return dictionary
 }
