@@ -2,13 +2,14 @@ import reapitConnectSession from '../core/connect-session'
 import { ApiKey } from '../core/schema'
 import axios from 'axios'
 import { stringifyError } from '@reapit/utils-node'
+import { PaymentModel, PropertyModel } from '@reapit/foundations-ts-definitions'
 
 export const getPlatformPayment = async (result: ApiKey, apiVersion: string) => {
   const accessToken = await reapitConnectSession.connectAccessToken()
 
   if (!accessToken) throw new Error('No access token returned from Reapit Connect')
 
-  const payment = await axios.get(`${process.env.PLATFORM_API_BASE_URL}/payments/${result.paymentId}`, {
+  const payment = await axios.get<PaymentModel>(`${process.env.PLATFORM_API_BASE_URL}/payments/${result.paymentId}`, {
     headers: {
       Authorization: `Bearer ${accessToken}`,
       'reapit-customer': result.clientCode,
@@ -23,7 +24,7 @@ export const getPlatformPayment = async (result: ApiKey, apiVersion: string) => 
 
   if (!propertyId) return payment.data
 
-  const property = await axios.get(`${process.env.PLATFORM_API_BASE_URL}/properties/${propertyId}`, {
+  const property = await axios.get<PropertyModel>(`${process.env.PLATFORM_API_BASE_URL}/properties/${propertyId}`, {
     headers: {
       Authorization: `Bearer ${accessToken}`,
       'reapit-customer': result.clientCode,
