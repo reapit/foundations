@@ -2,7 +2,6 @@ import { ApiKeyModel } from '@reapit/api-key-verify'
 import { httpHandler, UnauthorizedException } from '@homeservenow/serverless-aws-handler'
 import { connectSessionVerifyDecodeIdTokenWithPublicKeys, LoginIdentity } from '@reapit/connect-session'
 import { getApiKey as get, getApiKeyByKey } from '../services'
-import publicKeys from '../../public-keys.json'
 import { defaultOutputHeaders } from './../constants'
 
 export const getApiKey = httpHandler<void, ApiKeyModel>({
@@ -14,13 +13,12 @@ export const getApiKey = httpHandler<void, ApiKeyModel>({
       customer = await connectSessionVerifyDecodeIdTokenWithPublicKeys(
         event.headers?.Authorization as string,
         process.env.CONNECT_USER_POOL as string,
-        publicKeys,
       )
 
       if (typeof customer === 'undefined' || !customer.developerId) {
         throw new Error('Unauthorised')
       }
-    } catch (e) {
+    } catch (e: any) {
       throw new UnauthorizedException(e.message)
     }
 
