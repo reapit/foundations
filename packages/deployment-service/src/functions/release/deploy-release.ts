@@ -43,7 +43,7 @@ export const deployRelease = httpHandler<any, PipelineRunnerEntity>({
         {
           Body: file,
           Bucket: process.env.DEPLOYMENT_VERSION_BUCKET_NAME as string,
-          Key: `release/${s3FileName}`,
+          Key: `pipeline/${s3FileName}`,
         },
         (error) => {
           if (error) {
