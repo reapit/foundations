@@ -262,7 +262,7 @@ export class CdkStack extends cdk.Stack {
         policies: [...policies.commonBackendPolicies, policies.cloudFrontPolicy],
         api: {
           method: 'POST',
-          path: 'release/{pipelineId}',
+          path: 'release/{pipelineId}/{version}',
           cors: {
             origin: '*',
           },
@@ -275,7 +275,7 @@ export class CdkStack extends cdk.Stack {
         policies: [...policies.commonBackendPolicies, policies.cloudFrontPolicy],
         api: {
           method: 'POST',
-          path: 'api/release/{pipelineId}',
+          path: 'api/release/{pipelineId}/{version}',
           cors: {
             origin: '*',
           },
@@ -287,7 +287,7 @@ export class CdkStack extends cdk.Stack {
         policies: [...policies.commonBackendPolicies, policies.cloudFrontPolicy],
         api: {
           method: 'POST',
-          path: 'deploy/version/{pipleineRunnerId}',
+          path: 'deploy/version/{pipelineRunnerId}',
           cors: {
             origin: '*',
           },
@@ -300,7 +300,7 @@ export class CdkStack extends cdk.Stack {
         policies: [...policies.commonBackendPolicies, policies.cloudFrontPolicy],
         api: {
           method: 'POST',
-          path: 'api/deploy/version/{pipleineRunnerId}',
+          path: 'api/deploy/version/{pipelineRunnerId}',
           cors: {
             origin: '*',
           },
