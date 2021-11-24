@@ -6,6 +6,8 @@ import inquirer from 'inquirer'
 import AdmZip from 'adm-zip'
 import ora, { Ora } from 'ora'
 import chalk from 'chalk'
+import { PipelineModelInterface } from '@reapit/foundations-ts-definitions'
+import { REAPIT_PIPELINE_CONFIG_FILE } from '../pipeline/constants'
 
 @Command({
   name: 'deploy',
@@ -17,7 +19,7 @@ export class DeployCommand extends AbstractCommand {
    *
    * @param version
    */
-  async bumpVersion(spinner: Ora): Promise<[string, string] | never> {
+  async bumpVersion(spinner: Ora): Promise<string | never> {
     const fileName = path.resolve(process.cwd(), 'package.json')
     const workingPackageRaw = await fs.promises.readFile(fileName, {
       encoding: 'utf-8',
@@ -53,7 +55,7 @@ export class DeployCommand extends AbstractCommand {
         : `bumped package version ${prevVersion} -> ${answers.version}`,
     )
 
-    return [workingPackage.name, answers.version]
+    return answers.version
   }
 
   /**
@@ -61,20 +63,19 @@ export class DeployCommand extends AbstractCommand {
    *
    * @returns
    */
-  async pack(spinner: Ora): Promise<Buffer> {
-    // TODO cp serverless + reapit.config.json to /dist
+  async pack(spinner: Ora, pipeline: PipelineModelInterface): Promise<Buffer> {
     spinner.start('packing zip file')
+    spinner.info(`using [${pipeline.outDir}] for deployment`)
 
-    if (!fs.existsSync(path.resolve(process.cwd(), 'build'))) {
-      spinner.fail('Cannot find build folder')
+    if (!fs.existsSync(path.resolve(process.cwd(), pipeline.outDir as string))) {
+      spinner.fail(`Cannot find build [${pipeline.outDir}] folder`)
       console.log(chalk.yellow('Be sure your project has been built'))
       console.log(chalk.yellow("And you've used reapit's react template"))
       process.exit(1)
     }
 
     const zip = new AdmZip()
-    // TODO make build dir optional as it could be `dist`
-    zip.addLocalFolder(path.resolve(process.cwd(), 'build'), '')
+    zip.addLocalFolder(path.resolve(process.cwd(), pipeline.outDir as string), '')
 
     spinner.succeed('Successfully packed project')
     return zip.toBuffer()
@@ -84,12 +85,17 @@ export class DeployCommand extends AbstractCommand {
    * send zip to reapit
    *
    */
-  async sendZip(buffer: Buffer, project: string, version: string, spinner: Ora): Promise<void | never> {
+  async sendZip(
+    buffer: Buffer,
+    pipeline: PipelineModelInterface,
+    version: string,
+    spinner: Ora,
+  ): Promise<void | never> {
     spinner.start('Sending zip')
 
     const response = await (
       await this.axios(spinner)
-    ).post(`deploy/release/${project}/${version}`, {
+    ).post(`release/${pipeline.id}/${version}`, {
       file: buffer.toString('base64'),
     })
 
@@ -107,8 +113,14 @@ export class DeployCommand extends AbstractCommand {
   async run() {
     const spinner = ora()
 
-    const [project, version] = await this.bumpVersion(spinner)
-    const zip = await this.pack(spinner)
-    await this.sendZip(zip, project, version, spinner)
+    const pipeline = await this.resolveConfigFile<PipelineModelInterface>(REAPIT_PIPELINE_CONFIG_FILE)
+
+    if (!pipeline) {
+      throw new Error('no pipeline config found')
+    }
+
+    const version = await this.bumpVersion(spinner)
+    const zip = await this.pack(spinner, pipeline)
+    await this.sendZip(zip, pipeline, version, spinner)
   }
 }

@@ -30,7 +30,7 @@ export class VersionCommand extends AbstractCommand {
    * deploy version to reapit
    *
    */
-  async deployVersion(pipelineId: string, pipelineRunnerId: string, spinner: Ora): Promise<void | never> {
+  async deployVersion(pipelineRunnerId: string, spinner: Ora): Promise<void | never> {
     const response = await (await this.axios(spinner)).post(`/deploy/version/${pipelineRunnerId}`)
 
     if (response.status !== 200) {
@@ -58,7 +58,9 @@ export class VersionCommand extends AbstractCommand {
    */
   async listReleases(spinner: Ora, pipelineId: string): Promise<Pagination<PipelineRunnerModelInterface>> {
     spinner.start('Fetching releases')
-    const response = await (await this.axios()).get(`/pipeline/${pipelineId}/pipeline-runner`)
+    const response = await (
+      await this.axios()
+    ).get<Pagination<PipelineRunnerModelInterface>>(`/pipeline/${pipelineId}/pipeline-runner`)
 
     if (response.status !== 200) {
       spinner.fail('Failed to fetch releases')
@@ -92,14 +94,12 @@ export class VersionCommand extends AbstractCommand {
     }
 
     const answers = await inquirer.prompt([
-      [
-        {
-          name: 'version',
-          type: 'list',
-          message: 'Select a version to rollback to',
-          choices: runners.items.map((runner) => runner.buildVersion),
-        },
-      ],
+      {
+        name: 'version',
+        type: 'list',
+        message: 'Select a version to rollback to',
+        choices: runners.items.map((runner) => runner.buildVersion).filter((version) => version !== null),
+      },
     ])
 
     if (!answers.version) {
@@ -118,6 +118,6 @@ export class VersionCommand extends AbstractCommand {
       process.exit(1)
     }
 
-    await this.deployVersion(pipeline.id as string, version.id as string, spinner)
+    await this.deployVersion(version.id as string, spinner)
   }
 }

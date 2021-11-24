@@ -13,7 +13,9 @@ import { REAPIT_PIPELINE_CONFIG_FILE } from '../pipeline/constants'
 export class ReleaseListCommand extends AbstractCommand {
   async listReleases(spinner: Ora, pipelineId: string): Promise<Pagination<PipelineRunnerModelInterface>> {
     spinner.start('Fetching releases')
-    const response = await (await this.axios()).get(`/pipeline/${pipelineId}/pipeline-runner`)
+    const response = await (
+      await this.axios()
+    ).get<Pagination<PipelineRunnerModelInterface>>(`/pipeline/${pipelineId}/pipeline-runner`)
 
     if (response.status !== 200) {
       spinner.fail('Failed to fetch releases')
