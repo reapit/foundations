@@ -32,6 +32,8 @@ export const deployRelease = httpHandler<any, PipelineRunnerEntity>({
 
     const s3FileName = `${pipeline.uniqueRepoName}/${pipelineRunner.id}.zip`
 
+    pipelineRunner.S3Location = s3FileName
+
     const file = Buffer.from(body.file, 'base64')
 
     if (!file) {
