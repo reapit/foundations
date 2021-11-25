@@ -2094,12 +2094,12 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@aws-cdk/cfnspec@npm:1.124.0":
-  version: 1.124.0
-  resolution: "@aws-cdk/cfnspec@npm:1.124.0"
+"@aws-cdk/cfnspec@npm:1.126.0":
+  version: 1.126.0
+  resolution: "@aws-cdk/cfnspec@npm:1.126.0"
   dependencies:
     md5: ^2.3.0
-  checksum: ebfd1199bb574c2694a361b1411a0101d868878d8391bf0a571338796a6119f182c1b75fbd5f73e33f75a0f5f08199194e429304dd97b983d79f72efb4693f45
+  checksum: b5e4d782599ece83e7d7514adf10213722dce15dff7655835d5bc891a06313e3134b68d67479a080d3ef42e3217700e6eb5aa3f8d088d04a665e9c04c045bafd
   languageName: node
   linkType: hard
 
@@ -2120,6 +2120,16 @@ __metadata:
     jsonschema: ^1.4.0
     semver: ^7.3.5
   checksum: a4432e12536e93a9b4cf3bef331f816ace45242afc75ae41331a43ed3c201bf70b3ae27d40b4433c10daa6b3958fffb19b1a73156bb9a90219ef0384406eb38f
+  languageName: node
+  linkType: hard
+
+"@aws-cdk/cloud-assembly-schema@npm:1.126.0":
+  version: 1.126.0
+  resolution: "@aws-cdk/cloud-assembly-schema@npm:1.126.0"
+  dependencies:
+    jsonschema: ^1.4.0
+    semver: ^7.3.5
+  checksum: 03656b11a9c3c20c02c9c8868682270fcf823328a5bbaa4a487ee9aad37f4966e3cb3b3dd20ecd7ced39f21b11f760854eb2165d72eef8f4f2b55de6e7e3549b
   languageName: node
   linkType: hard
 
@@ -2148,18 +2158,18 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@aws-cdk/cloudformation-diff@npm:1.124.0":
-  version: 1.124.0
-  resolution: "@aws-cdk/cloudformation-diff@npm:1.124.0"
+"@aws-cdk/cloudformation-diff@npm:1.126.0":
+  version: 1.126.0
+  resolution: "@aws-cdk/cloudformation-diff@npm:1.126.0"
   dependencies:
-    "@aws-cdk/cfnspec": 1.124.0
+    "@aws-cdk/cfnspec": 1.126.0
     "@types/node": ^10.17.60
     colors: ^1.4.0
     diff: ^5.0.0
     fast-deep-equal: ^3.1.3
-    string-width: ^4.2.2
+    string-width: ^4.2.3
     table: ^6.7.1
-  checksum: 89bd0df3b9f3969f125fbaddc3c3832d1dab2133616812e6074948c672e14fadce0c89c2a3c6638ea2b1fcf5991294fc05902e96c42a9f68b497cc75925c3f72
+  checksum: b990c9c99519c61899ef0d46fcfc80bfa7d5489c710a8620ff4077fc197fd2ceccc661c3e8ba4ae499f0f836991278a0cf0ee5a58011fcf8cf147048f6113044
   languageName: node
   linkType: hard
 
@@ -2325,6 +2335,18 @@ __metadata:
   languageName: node
   linkType: hard
 
+"@aws-cdk/cx-api@npm:1.126.0":
+  version: 1.126.0
+  resolution: "@aws-cdk/cx-api@npm:1.126.0"
+  dependencies:
+    "@aws-cdk/cloud-assembly-schema": 1.126.0
+    semver: ^7.3.5
+  peerDependencies:
+    "@aws-cdk/cloud-assembly-schema": 1.126.0
+  checksum: c5fde76f2ba007193640efbe6ad0890aa99da3050aba08020936d727b0155e58d9844d3a895310d1226f736173d40d6c3eec6abe9a9c31e503a646f3889a642c
+  languageName: node
+  linkType: hard
+
 "@aws-cdk/cx-api@npm:1.128.0":
   version: 1.128.0
   resolution: "@aws-cdk/cx-api@npm:1.128.0"
@@ -2348,6 +2370,13 @@ __metadata:
   version: 1.124.0
   resolution: "@aws-cdk/region-info@npm:1.124.0"
   checksum: 538fa318d7c382e958fff2c1ea815037d0f19a464a2bbe68ee36fb91fde5deac7c2c05bd87e4ea55bb2c8f42913e86d5a320282c15c1272ef12329b3961d11c8
+  languageName: node
+  linkType: hard
+
+"@aws-cdk/region-info@npm:1.126.0":
+  version: 1.126.0
+  resolution: "@aws-cdk/region-info@npm:1.126.0"
+  checksum: 2281778bdde873bdbb473d0f6c61e3b4e18755a56a6c0117d32a56d925885ae3a32acd5c5b18bebf3dc29f14c29b81c2ae66ead5c1ab8a075c8b4c6a88be0d3b
   languageName: node
   linkType: hard
 
@@ -8164,13 +8193,13 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@jsii/check-node@npm:1.33.0":
-  version: 1.33.0
-  resolution: "@jsii/check-node@npm:1.33.0"
+"@jsii/check-node@npm:1.35.0":
+  version: 1.35.0
+  resolution: "@jsii/check-node@npm:1.35.0"
   dependencies:
     chalk: ^4.1.2
     semver: ^7.3.5
-  checksum: 8e1e0424626729cedd8f178f8e6c05f1d28d4b42b57ddc6a6613491a9282fc5af0cc280d73d0c2f3f3b3e4b911182f142e581be8e9cadc0cec0b241b14c1da5e
+  checksum: e30f4b2f69e3d11606935f0fddfd4d61e8fd3d30a2285c11c66e31ab2f68fbd103b2096b84d633a9cd9a2b611fb0f6b4fc21b4babb73065a48ede9d5a41afa0e
   languageName: node
   linkType: hard
 
@@ -9395,7 +9424,7 @@ __metadata:
     "@typescript-eslint/eslint-plugin": ^4.28.4
     "@typescript-eslint/parser": ^4.28.4
     ansi-regex: ^6.0.0
-    axios: ^0.21.1
+    axios: ^0.23.0
     babel-jest: ^27.0.6
     chalk: ^4.1.1
     cli-spinners: ^2.6.0
@@ -15848,6 +15877,13 @@ __metadata:
   languageName: node
   linkType: hard
 
+"ansi-regex@npm:^5.0.1":
+  version: 5.0.1
+  resolution: "ansi-regex@npm:5.0.1"
+  checksum: c944e1229f022a2071f7477ea425964328c577d2c752083fe564ea0513b6d733c9ec65102f6d4d2b54cba0cb2dc969648b60d567abeff13dc95ecc0b9b97737d
+  languageName: node
+  linkType: hard
+
 "ansi-regex@npm:^6.0.0":
   version: 6.0.0
   resolution: "ansi-regex@npm:6.0.0"
@@ -17082,29 +17118,29 @@ __metadata:
   languageName: node
   linkType: hard
 
-"aws-cdk@npm:1.124.0":
-  version: 1.124.0
-  resolution: "aws-cdk@npm:1.124.0"
+"aws-cdk@npm:1.126.0":
+  version: 1.126.0
+  resolution: "aws-cdk@npm:1.126.0"
   dependencies:
-    "@aws-cdk/cloud-assembly-schema": 1.124.0
-    "@aws-cdk/cloudformation-diff": 1.124.0
-    "@aws-cdk/cx-api": 1.124.0
-    "@aws-cdk/region-info": 1.124.0
-    "@jsii/check-node": 1.33.0
+    "@aws-cdk/cloud-assembly-schema": 1.126.0
+    "@aws-cdk/cloudformation-diff": 1.126.0
+    "@aws-cdk/cx-api": 1.126.0
+    "@aws-cdk/region-info": 1.126.0
+    "@jsii/check-node": 1.35.0
     archiver: ^5.3.0
     aws-sdk: ^2.979.0
     camelcase: ^6.2.0
-    cdk-assets: 1.124.0
+    cdk-assets: 1.126.0
     colors: ^1.4.0
-    decamelize: ^5.0.0
+    decamelize: ^5.0.1
     fs-extra: ^9.1.0
-    glob: ^7.1.7
+    glob: ^7.2.0
     json-diff: ^0.5.4
     minimatch: ">=3.0"
     promptly: ^3.2.0
     proxy-agent: ^5.0.0
     semver: ^7.3.5
-    source-map-support: ^0.5.19
+    source-map-support: ^0.5.20
     table: ^6.7.1
     uuid: ^8.3.2
     wrap-ansi: ^7.0.0
@@ -17112,7 +17148,7 @@ __metadata:
     yargs: ^16.2.0
   bin:
     cdk: bin/cdk
-  checksum: 2644727039e92fa7ad7a1697435f967685aa43dcb18f7641677bd4431f3554ed468fd5657e73c2d3ea4683e645a2b32988e3abbe25c568391b2d9c8e1f9002e3
+  checksum: 3b571d8630f8f3e59c7e0fcaa7f1c265b9dd2a414112220131b3f6522a9a7dc3ae6130aa5854efddc4ef5f09cf2d964ba32ce2943ead9f6877506982b40e64a0
   languageName: node
   linkType: hard
 
@@ -18944,21 +18980,21 @@ __metadata:
   languageName: node
   linkType: hard
 
-"cdk-assets@npm:1.124.0":
-  version: 1.124.0
-  resolution: "cdk-assets@npm:1.124.0"
+"cdk-assets@npm:1.126.0":
+  version: 1.126.0
+  resolution: "cdk-assets@npm:1.126.0"
   dependencies:
-    "@aws-cdk/cloud-assembly-schema": 1.124.0
-    "@aws-cdk/cx-api": 1.124.0
+    "@aws-cdk/cloud-assembly-schema": 1.126.0
+    "@aws-cdk/cx-api": 1.126.0
     archiver: ^5.3.0
     aws-sdk: ^2.848.0
-    glob: ^7.1.7
+    glob: ^7.2.0
     mime: ^2.5.2
     yargs: ^16.2.0
   bin:
     cdk-assets: bin/cdk-assets
     docker-credential-cdk-assets: bin/docker-credential-cdk-assets
-  checksum: c5099c9386752a963ac62ffcd1573a93ce800a2b4d5f8abf40e884bdd96d91e71eea744668af2f7777b9fbefa4a1d1716f3d745700edde310c724e3e22afce9f
+  checksum: 74321ae58cd45be571f5d085d5af20912f186d7aaff6559e3d3ce166aa4180aeee0d9a52bded45898d23ae1f3b36d121ba52e0b5363c98f280799ae3d4c1e4d4
   languageName: node
   linkType: hard
 
@@ -21445,6 +21481,13 @@ __metadata:
   languageName: node
   linkType: hard
 
+"decamelize@npm:^5.0.1":
+  version: 5.0.1
+  resolution: "decamelize@npm:5.0.1"
+  checksum: 2934bb0fd31383fe9b081ae6da03a349098fd57cbade6209d11ad7193c3b0b84d1f8b8f5497cc87e531e6de45313396646e9f0949636257958e95b472c65333b
+  languageName: node
+  linkType: hard
+
 "decimal.js@npm:^10.2.1":
   version: 10.3.1
   resolution: "decimal.js@npm:10.3.1"
@@ -21904,7 +21947,7 @@ __metadata:
     "@typescript-eslint/eslint-plugin": ^4.28.4
     "@typescript-eslint/parser": ^4.28.4
     adm-zip: ^0.5.6
-    aws-cdk: 1.124.0
+    aws-cdk: 1.126.0
     babel-jest: ^27.0.6
     class-transformer: ^0.4.0
     class-validator: ^0.13.1
@@ -26241,6 +26284,20 @@ fsevents@^1.2.7:
     once: ^1.3.0
     path-is-absolute: ^1.0.0
   checksum: 352f74f08247db5420161a2f68f2bd84b53228b5fcfc9dcc37cd54d3f19ec0232495d84aeff1286d0727059e9fdc1031400e00b971bdc59e30f8f82b199c9d02
+  languageName: node
+  linkType: hard
+
+"glob@npm:^7.2.0":
+  version: 7.2.0
+  resolution: "glob@npm:7.2.0"
+  dependencies:
+    fs.realpath: ^1.0.0
+    inflight: ^1.0.4
+    inherits: 2
+    minimatch: ^3.0.4
+    once: ^1.3.0
+    path-is-absolute: ^1.0.0
+  checksum: 1171c3d7b1f5a367499e498826cddafc642aa55ef21e810031a287d3199612a889059d7d2c276a04c636c3ac2fd5943896bfc309110b21fafaeb8a1e0a199d6e
   languageName: node
   linkType: hard
 
@@ -41777,6 +41834,16 @@ resolve@^2.0.0-next.3:
   languageName: node
   linkType: hard
 
+"source-map-support@npm:^0.5.20":
+  version: 0.5.21
+  resolution: "source-map-support@npm:0.5.21"
+  dependencies:
+    buffer-from: ^1.0.0
+    source-map: ^0.6.0
+  checksum: b4eba15575b07ae384c0094e76703bcfd367487ae87a4e4632880b661ca0d2efb76012cb827904866f2524869f2f1e307c9ebc72fd420ffd0b6f195d9c9ad4bd
+  languageName: node
+  linkType: hard
+
 "source-map-url@npm:^0.4.0":
   version: 0.4.0
   resolution: "source-map-url@npm:0.4.0"
@@ -42378,6 +42445,17 @@ resolve@^2.0.0-next.3:
   languageName: node
   linkType: hard
 
+"string-width@npm:^4.2.3":
+  version: 4.2.3
+  resolution: "string-width@npm:4.2.3"
+  dependencies:
+    emoji-regex: ^8.0.0
+    is-fullwidth-code-point: ^3.0.0
+    strip-ansi: ^6.0.1
+  checksum: 748c97988904505fc6af52ccdf6f354445c714c38d067f22e0cdc6a3ad3d9c5ea29582ef9a6277dc7a813775bb48390ea064b488913239d58601b6d1fcb725b4
+  languageName: node
+  linkType: hard
+
 "string.prototype.matchall@npm:^4.0.0 || ^3.0.1, string.prototype.matchall@npm:^4.0.5":
   version: 4.0.5
   resolution: "string.prototype.matchall@npm:4.0.5"
@@ -42514,6 +42592,15 @@ resolve@^2.0.0-next.3:
   dependencies:
     ansi-regex: ^4.1.0
   checksum: 44a0d0d354f5f7b15f83323879a9112ea746daae7bef0b68238a27626ee757d9a04ce6590433841e14b325e8e7c5d62b8442885e50497e21b7cbca6da40d54ea
+  languageName: node
+  linkType: hard
+
+"strip-ansi@npm:^6.0.1":
+  version: 6.0.1
+  resolution: "strip-ansi@npm:6.0.1"
+  dependencies:
+    ansi-regex: ^5.0.1
+  checksum: 9d3061240b03abe5beaf403893464fdc924f43664debe822d5e9146b56c1398b88003f8afdb97eb0cea955c568f6bbfa4923d2b2a08a3a079fd09ee3b5402efb
   languageName: node
   linkType: hard
 
