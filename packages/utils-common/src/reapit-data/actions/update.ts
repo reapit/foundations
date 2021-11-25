@@ -16,6 +16,6 @@ export type UpdateActions = { [key in UpdateActionNames]: UpdateAction }
 export const updateActions: UpdateActions = {
   [UpdateActionNames.updatePipeline]: {
     api: ApiNames.pipeline,
-    path: PathNames.pipeline,
+    path: PathNames.createPipeline,
   },
 }

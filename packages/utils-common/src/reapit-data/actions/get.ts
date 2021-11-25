@@ -22,7 +22,7 @@ export const getActions: GetActions = {
   },
   [GetActionNames.getPipeline]: {
     api: ApiNames.pipeline,
-    path: PathNames.pipeline,
+    path: PathNames.getPipeline,
     errorMessage: 'Something went wrong',
   },
 }
