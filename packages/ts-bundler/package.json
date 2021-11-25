@@ -1,0 +1,13 @@
+{
+  "name": "@reapit/ts-bundler",
+  "main": "src/index.js",
+  "private": true,
+  "dependencies": {
+    "fast-glob": "^3.2.7",
+    "yaml": "^1.10.2"
+  },
+  "devDependencies": {
+    "eslint": "7.31.0"
+  },
+  "bin": "./src/index.js"
+}

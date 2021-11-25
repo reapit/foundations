@@ -8,8 +8,7 @@
     "sourceRoot": "/",
     "paths": {
       "@/*": ["src/*"],
-      "@reapit/elements": ["../elements/src"],
-      "@reapit/connect-session": ["../connect-session/src"]
+      "@reapit/*": ["../*"],
     },
     "declaration": true,
     "declarationDir": "dist",
