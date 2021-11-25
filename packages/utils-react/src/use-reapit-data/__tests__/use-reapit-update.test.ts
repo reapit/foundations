@@ -184,6 +184,7 @@ describe('useReapitUpdate', () => {
         error: null,
         connectSession: reapitConnectSession,
         errorSnack: () => {},
+        canCall: true,
       })
 
       await testFunc({})

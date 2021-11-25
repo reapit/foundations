@@ -132,7 +132,7 @@ export const useReapitUpdate = <ParamsType, DataType>({
   const [data, setData] = useState<DataType>()
   const { error: errorSnack } = useSnack()
   const [success, setSuccess] = useState<undefined | boolean>(undefined)
-  const [canCall, setCanCall] = useState<boolean>(false)
+  const [canCall, setCanCall] = useState<boolean>(connectSession !== null)
 
   useEffect(() => setCanCall(true), [connectSession])
 
