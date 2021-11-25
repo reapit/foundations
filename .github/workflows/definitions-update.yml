@@ -38,19 +38,18 @@ jobs:
         with:
           format: 'YYYY-MM-DD-HH-mm'
 
-      - name: Commit Definitions
-        env:
-          TIME: '${{ steps.time.outputs.time }}'
-        run: |
-          git config user.name 'Will McVay'
-          git config user.email 'wmcvay@reapit.com'
-          git checkout -b chore/ts-definitions-timestamp-$TIME
-          git add .
-          git commit -m "chore: update ts definitions"
-
       - name: Create Pull Request
         uses: peter-evans/create-pull-request@v3
-
+        with:
+          token: ${{ secrets.GH_PAT }}
+          commit-message: Update ts definitions
+          committer: Will McVay <wmcvay@reapit.com>
+          author: Will McVay <wmcvay@reapit.com>
+          signoff: false
+          branch: chore/ts-definitions-timestamp-${{ steps.time.outputs.time }}
+          title: 'chore: Update TS Definitions'
+          body: |
+            Update Foundations TS Definitions
 env:
   NPM_TOKEN: ${{secrets.NPM_TOKEN}}
   GITHUB_TOKEN: ${{secrets.GITHUB_TOKEN}}
