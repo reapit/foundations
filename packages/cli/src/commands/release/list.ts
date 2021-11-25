@@ -3,25 +3,19 @@ import { AbstractCommand } from '../../abstract.command'
 import ora, { Ora } from 'ora'
 import { Pagination } from 'nestjs-typeorm-paginate'
 import chalk from 'chalk'
+import { PipelineModelInterface, PipelineRunnerModelInterface } from '@reapit/foundations-ts-definitions'
+import { REAPIT_PIPELINE_CONFIG_FILE } from '../pipeline/constants'
 
 @Command({
   name: 'list',
   description: 'List all releases',
 })
 export class ReleaseListCommand extends AbstractCommand {
-  async projectInfo(): Promise<{ [s: string]: any }> {
-    const config = await this.resolveConfigFile<{ [s: string]: string }>('package.json')
-
-    if (!config) {
-      throw new Error('package info not found')
-    }
-
-    return config
-  }
-
-  async listReleases(spinner: Ora, project: string): Promise<Pagination<any>> {
+  async listReleases(spinner: Ora, pipelineId: string): Promise<Pagination<PipelineRunnerModelInterface>> {
     spinner.start('Fetching releases')
-    const response = await (await this.axios()).get<Pagination<any>>(`/deploy/release/${project}`)
+    const response = await (
+      await this.axios()
+    ).get<Pagination<PipelineRunnerModelInterface>>(`/pipeline/${pipelineId}/pipeline-runner`)
 
     if (response.status !== 200) {
       spinner.fail('Failed to fetch releases')
@@ -32,20 +26,24 @@ export class ReleaseListCommand extends AbstractCommand {
 
     return response.data
   }
+
   /**
    * Run command
    */
   async run() {
+    const pipeline = await this.resolveConfigFile<PipelineModelInterface>(REAPIT_PIPELINE_CONFIG_FILE)
+
+    if (!pipeline) {
+      this.writeLine(chalk.red('Pipeline config not found. Please run within a reapit pipeline enabled project'))
+      process.exit(1)
+    }
+
     const spinner = ora()
 
-    spinner.start('fetching package info')
-    const packageInfo = await this.projectInfo()
-    spinner.succeed('found package info')
-
-    const deploys = await this.listReleases(spinner, packageInfo.name)
+    const deploys = await this.listReleases(spinner, pipeline.id as string)
 
     deploys.items.forEach((deploy) => {
-      this.writeLine(`${deploy.version}${deploy.currentlyDeployed ? chalk.green(' (current)') : ''}`)
+      this.writeLine(`${deploy.buildVersion}${deploy.currentlyDeployed ? chalk.green(' (current)') : ''}`)
     })
   }
 }

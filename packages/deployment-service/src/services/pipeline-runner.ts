@@ -105,3 +105,32 @@ export const pipelineRunnerCountRunning = async (pipeline: PipelineEntity) => {
     },
   })
 }
+
+export const resetCurrentlyDeployed = async (pipeline: PipelineEntity) => {
+  const connection = await connect()
+  const repo = connection.getRepository(PipelineRunnerEntity)
+
+  await repo
+    .createQueryBuilder()
+    .update()
+    .set({
+      currentlyDeployed: false,
+    })
+    .where('pipelineId = :pipelineId', { pipelineId: pipeline.id })
+    .execute()
+}
+
+export const countPipelineRunnersWithBuildVersion = async (
+  pipeline: PipelineEntity,
+  buildVersion: string,
+): Promise<number> => {
+  const connection = await connect()
+  const repo = connection.getRepository(PipelineRunnerEntity)
+
+  return repo.count({
+    where: {
+      pipeline,
+      buildVersion,
+    },
+  })
+}

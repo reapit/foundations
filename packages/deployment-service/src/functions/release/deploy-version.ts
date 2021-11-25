@@ -1,61 +1,40 @@
 import { resolveCreds } from '../../utils'
-import { BadRequestException, httpHandler, NotFoundException } from '@homeservenow/serverless-aws-handler'
-import { s3Client } from '../../services'
-import { releaseToLiveFromZip } from './../../executables'
+import { httpHandler, NotFoundException } from '@homeservenow/serverless-aws-handler'
 import { defaultOutputHeaders } from '../../constants'
-import * as services from './../../services/release'
-import { ReleaseEntity } from './../../entities'
+import * as services from './../../services/pipeline-runner'
+import { PipelineEntity, PipelineRunnerEntity } from './../../entities'
+import { deployFromStore } from './../../executables/deploy-from-store'
+import { ownership } from '../../utils/ownership'
 
 /**
  * Release a particular version
  */
-export const deployVersion = httpHandler<void, ReleaseEntity>({
+export const deployVersion = httpHandler<void, PipelineRunnerEntity>({
   defaultOutputHeaders,
   handler: async ({ event }) => {
     const { developerId } = await resolveCreds(event)
-    const projectName = event.pathParameters?.projectName
-    const version = event.pathParameters?.version
+    const { pipelineRunnerId } = event.pathParameters as { pipelineRunnerId: string }
 
-    if (!projectName || !version) {
-      throw new BadRequestException()
-    }
-
-    const releaseEntity = await services.findByProjectNameAndVersion(projectName, version, developerId)
-
-    if (!releaseEntity) {
-      throw new NotFoundException(`version [${version}] did not previously exist`)
-    }
-
-    const file = await new Promise<AWS.S3.Body>((resolve, reject) =>
-      s3Client.getObject(
-        {
-          Bucket: process.env.DEPLOYMENT_BUCKET_NAME as string,
-          Key: releaseEntity?.zipLocation as string,
-        },
-        (err, data) => {
-          if (err) {
-            console.error(err)
-            reject()
-          }
-          resolve(data.Body as AWS.S3.Body)
-        },
-      ),
-    )
-
-    if (!file) {
-      throw new NotFoundException()
-    }
-
-    await releaseToLiveFromZip({
-      file: file as Buffer,
-      localLocation: `/tmp/release/${projectName}/${version}`,
-      deploymentType: 'release',
-      projectLocation: projectName, // TODO add developerId prefix
+    const pipelineRunner = await services.findPipelineRunnerById(pipelineRunnerId, {
+      relations: ['pipeline'],
     })
 
-    await services.resetDeploymentStatus(projectName, developerId)
+    if (!pipelineRunner) {
+      throw new NotFoundException(`version [${pipelineRunnerId}] did not previously exist`)
+    }
 
-    releaseEntity.currentlyDeployed = true
-    return services.update(releaseEntity)
+    await ownership(developerId, (pipelineRunner.pipeline as PipelineEntity).developerId as string)
+
+    await Promise.all([
+      deployFromStore({
+        pipeline: pipelineRunner.pipeline as PipelineEntity,
+        pipelineRunner,
+      }),
+      services.resetCurrentlyDeployed(pipelineRunner.pipeline as PipelineEntity),
+    ])
+
+    pipelineRunner.currentlyDeployed = true
+
+    return services.savePipelineRunnerEntity(pipelineRunner)
   },
 })

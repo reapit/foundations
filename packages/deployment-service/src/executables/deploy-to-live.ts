@@ -17,16 +17,19 @@ export const sendToLiveS3: SendToLiveS3Func = async ({
   prefix,
   buildLocation,
   fileNameTransformer,
-}: SendToS3Params): Promise<void | never> =>
-  new Promise<void>((resolve, reject) =>
+}: SendToS3Params): Promise<void | never> => {
+  const key = fileNameTransformer
+    ? fileNameTransformer(filePath.substring(buildLocation.length))
+    : filePath.substring(buildLocation.length)
+
+  return new Promise<void>((resolve, reject) =>
     s3Client.upload(
       {
         Bucket: process.env.DEPLOYMENT_LIVE_BUCKET_NAME as string,
-        Key: `${prefix}/${
-          fileNameTransformer
-            ? fileNameTransformer(filePath.substring(buildLocation.length))
-            : filePath.substring(buildLocation.length)
-        }`,
+        Key: `${prefix}/${key
+          .split('/')
+          .filter((part) => part !== '')
+          .join('/')}`,
         Body: fs.readFileSync(filePath),
         ACL: 'public-read',
         ContentType: String(mime.lookup(path.extname(filePath))),
@@ -44,3 +47,4 @@ export const sendToLiveS3: SendToLiveS3Func = async ({
       },
     ),
   )
+}

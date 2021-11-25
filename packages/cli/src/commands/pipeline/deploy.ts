@@ -13,7 +13,7 @@ import config from '../../../config.json'
 
 @Command({
   name: 'deploy',
-  description: 'Starts a manual deployment',
+  description: 'Starts a manual deployment (from github)',
 })
 export class DeployPipelineCommand extends AbstractCommand {
   async run() {

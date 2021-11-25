@@ -62,7 +62,7 @@ export class CdkStack extends cdk.Stack {
         policies: [...policies.commonBackendPolicies],
         api: {
           method: 'POST',
-          path: 'pipeline/{pipelineId}',
+          path: 'pipeline',
           cors: {
             origin: '*',
           },
@@ -259,10 +259,10 @@ export class CdkStack extends cdk.Stack {
       },
       deployRelease: {
         handler: 'main.deployRelease',
-        policies: [...policies.commonBackendPolicies],
+        policies: [...policies.commonBackendPolicies, policies.cloudFrontPolicy],
         api: {
           method: 'POST',
-          path: 'deploy/release/{project}/{version}',
+          path: 'release/{pipelineId}/{version}',
           cors: {
             origin: '*',
           },
@@ -272,35 +272,10 @@ export class CdkStack extends cdk.Stack {
       },
       apiDeployRelease: {
         handler: 'main.deployRelease',
-        policies: [...policies.commonBackendPolicies],
+        policies: [...policies.commonBackendPolicies, policies.cloudFrontPolicy],
         api: {
           method: 'POST',
-          path: 'api/deploy/release/{project}/{version}',
-          cors: {
-            origin: '*',
-          },
-          headers: ['Content-Type', 'Authorization', 'X-Api-Key', 'api-version'],
-        },
-      },
-      releasePaginate: {
-        handler: 'main.releasePaginate',
-        policies: [...policies.commonBackendPolicies],
-        api: {
-          method: 'GET',
-          path: 'deploy/release/{project}',
-          cors: {
-            origin: '*',
-          },
-          headers: ['Content-Type', 'Authorization', 'api-version'],
-          authorizer: true,
-        },
-      },
-      apiReleasePaginate: {
-        handler: 'main.releasePaginate',
-        policies: [...policies.commonBackendPolicies],
-        api: {
-          method: 'GET',
-          path: 'api/deploy/release/{project}',
+          path: 'api/release/{pipelineId}/{version}',
           cors: {
             origin: '*',
           },
@@ -309,10 +284,10 @@ export class CdkStack extends cdk.Stack {
       },
       deployVersion: {
         handler: 'main.deployVersion',
-        policies: [...policies.commonBackendPolicies],
+        policies: [...policies.commonBackendPolicies, policies.cloudFrontPolicy],
         api: {
           method: 'POST',
-          path: 'deploy/version/{projectName}/{version}',
+          path: 'deploy/version/{pipelineRunnerId}',
           cors: {
             origin: '*',
           },
@@ -322,35 +297,10 @@ export class CdkStack extends cdk.Stack {
       },
       apiDeployVersion: {
         handler: 'main.deployVersion',
-        policies: [...policies.commonBackendPolicies],
+        policies: [...policies.commonBackendPolicies, policies.cloudFrontPolicy],
         api: {
           method: 'POST',
-          path: 'api/deploy/version/{projectName}/{version}',
-          cors: {
-            origin: '*',
-          },
-          headers: ['Content-Type', 'Authorization', 'X-Api-Key', 'api-version'],
-        },
-      },
-      releaseProjectPagination: {
-        handler: 'main.projectPaginate',
-        policies: [...policies.commonBackendPolicies],
-        api: {
-          method: 'GET',
-          path: 'deploy/project',
-          cors: {
-            origin: '*',
-          },
-          headers: ['Content-Type', 'Authorization', 'api-version'],
-          authorizer: true,
-        },
-      },
-      apiReleaseProjectPagination: {
-        handler: 'main.projectPaginate',
-        policies: [...policies.commonBackendPolicies],
-        api: {
-          method: 'GET',
-          path: 'api/deploy/project',
+          path: 'api/deploy/version/{pipelineRunnerId}',
           cors: {
             origin: '*',
           },
@@ -376,7 +326,7 @@ export class CdkStack extends cdk.Stack {
       },
       pipelineSetup: {
         handler: 'main.pipelineSetup',
-        policies: [...policies.commonBackendPolicies],
+        policies: [...policies.commonBackendPolicies, policies.cloudFrontPolicy, policies.route53Policy],
         timeout: 300,
         queue: queues[QueueNames.PIPELINE_SETUP],
       },
@@ -384,7 +334,7 @@ export class CdkStack extends cdk.Stack {
         handler: 'main.pipelineTearDownStart',
         queue: queues[QueueNames.PIPELINE_TEAR_DOWN_START],
         timeout: 300,
-        policies: [...policies.commonBackendPolicies],
+        policies: [...policies.commonBackendPolicies, policies.cloudFrontPolicy],
       },
       pipelineTearDown: {
         handler: 'main.pipelineTearDown',
@@ -424,6 +374,10 @@ export class CdkStack extends cdk.Stack {
           AURORA_RESOURCE_ARN: aurora.clusterArn,
           AURORA_REGION: this.region,
           MYSQL_DATABASE,
+          DEPLOYMENT_LIVE_BUCKET_NAME: buckets['cloud-deployment-live-dev'].bucketName,
+          DEPLOYMENT_VERSION_BUCKET_NAME: buckets['cloud-deployment-version-dev'].bucketName,
+          DEPLOYMENT_LOG_BUCKET_NAME: buckets['cloud-deployment-log-dev'].bucketName,
+          REGION: 'eu-west-2',
         },
       })
       options.policies.forEach((policy) => lambda.addToRolePolicy(policy))
@@ -450,6 +404,10 @@ export class CdkStack extends cdk.Stack {
         AURORA_RESOURCE_ARN: aurora.clusterArn,
         AURORA_REGION: this.region,
         MYSQL_DATABASE,
+        DEPLOYMENT_LIVE_BUCKET_NAME: buckets['cloud-deployment-live-dev'].bucketName,
+        DEPLOYMENT_VERSION_BUCKET_NAME: buckets['cloud-deployment-version-dev'].bucketName,
+        DEPLOYMENT_LOG_BUCKET_NAME: buckets['cloud-deployment-log-dev'].bucketName,
+        REGION: 'eu-west-2',
       },
     })
 

@@ -14,6 +14,7 @@ export interface PipelineModelInterface {
   repository?: string
   outDir?: string
   buildStatus?: string
+  appId?: string
   subDomain?: string
 }
 
@@ -28,6 +29,8 @@ export interface PipelineRunnerModelInterface {
   tasks?: TaskModelInterface[]
   buildStatus?: CodeBuild.StatusType
   s3BuildLogsLocation?: string
+  buildVersion?: string
+  currentlyDeployed?: boolean
 }
 
 export interface TaskModelInterface {

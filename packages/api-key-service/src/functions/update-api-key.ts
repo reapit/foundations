@@ -10,7 +10,6 @@ import { ApiKeyDto } from '@/dto'
 import { ApiKeyModel } from '@reapit/api-key-verify'
 import { getApiKey, updateApiKey as update } from '@/services'
 import { connectSessionVerifyDecodeIdTokenWithPublicKeys, LoginIdentity } from '@reapit/connect-session'
-import publicKeys from '../../public-keys.json'
 import { defaultOutputHeaders } from './../constants'
 
 export const updateApiKey = httpHandler<ApiKeyDto, ApiKeyModel>({
@@ -22,7 +21,6 @@ export const updateApiKey = httpHandler<ApiKeyDto, ApiKeyModel>({
       customer = await connectSessionVerifyDecodeIdTokenWithPublicKeys(
         event.headers?.Authorization as string,
         process.env.CONNECT_USER_POOL as string,
-        publicKeys,
       )
 
       if (typeof customer === 'undefined' || !customer.developerId) {

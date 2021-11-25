@@ -2,8 +2,14 @@ import { SQSEvent, SQSHandler, Context, Callback } from 'aws-lambda'
 import { QueueNames } from '../../constants'
 import { PipelineEntity } from '../../entities'
 import { deployFromStore } from '../../executables'
-import { findPipelineRunnerById, pusher, savePipelineRunnerEntity, sqs, updateTask } from '../../services'
-import { CloudFrontClient, CreateInvalidationCommand } from '@aws-sdk/client-cloudfront'
+import {
+  findPipelineRunnerById,
+  pusher,
+  savePipelineRunnerEntity,
+  sqs,
+  updateTask,
+  resetCurrentlyDeployed,
+} from '../../services'
 import { logger } from '../../core'
 
 const deleteMessage = (ReceiptHandle: string): Promise<void> =>
@@ -68,21 +74,8 @@ export const codebuildDeploy: SQSHandler = async (event: SQSEvent, context: Cont
           pipelineRunner,
         })
 
-        const cloudFrontClient = new CloudFrontClient({})
-        const invalidateCommand = new CreateInvalidationCommand({
-          DistributionId: pipelineRunner.pipeline?.cloudFrontId,
-          InvalidationBatch: {
-            Paths: {
-              Items: ['/*'],
-              Quantity: 1,
-            },
-            CallerReference: `deployment refresh for pipeline runner [${pipelineRunner.id}]`,
-          },
-        })
-
-        await cloudFrontClient.send(invalidateCommand)
-
         pipelineRunner.buildStatus = 'SUCCEEDED'
+
         if (pipelineRunner.pipeline) {
           pipelineRunner.pipeline.buildStatus = 'SUCCEEDED'
         }
@@ -94,6 +87,8 @@ export const codebuildDeploy: SQSHandler = async (event: SQSEvent, context: Cont
               1000,
           ).toString()
         }
+
+        await resetCurrentlyDeployed(pipelineRunner.pipeline as PipelineEntity)
       } catch (error: any) {
         logger.error(error)
 
@@ -111,6 +106,8 @@ export const codebuildDeploy: SQSHandler = async (event: SQSEvent, context: Cont
         }
         await deleteMessage(record.receiptHandle)
       }
+
+      pipelineRunner.currentlyDeployed = true
 
       const updatedPipelineRunner = await savePipelineRunnerEntity(pipelineRunner)
       await pusher.trigger(
