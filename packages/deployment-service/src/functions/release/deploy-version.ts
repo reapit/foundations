@@ -1,10 +1,10 @@
 import { resolveCreds } from '../../utils'
-import { BadRequestException, httpHandler, NotFoundException } from '@homeservenow/serverless-aws-handler'
-import { s3Client } from '../../services'
+import { httpHandler, NotFoundException } from '@homeservenow/serverless-aws-handler'
 import { defaultOutputHeaders } from '../../constants'
 import * as services from './../../services/pipeline-runner'
 import { PipelineEntity, PipelineRunnerEntity } from './../../entities'
 import { deployFromStore } from './../../executables/deploy-from-store'
+import { ownership } from '../../utils/ownership'
 
 /**
  * Release a particular version
@@ -12,38 +12,18 @@ import { deployFromStore } from './../../executables/deploy-from-store'
 export const deployVersion = httpHandler<void, PipelineRunnerEntity>({
   defaultOutputHeaders,
   handler: async ({ event }) => {
-    await resolveCreds(event)
+    const { developerId } = await resolveCreds(event)
     const { pipelineRunnerId } = event.pathParameters as { pipelineRunnerId: string }
 
-    if (!pipelineRunnerId) {
-      throw new BadRequestException()
-    }
-
-    const pipelineRunner = await services.findPipelineRunnerById(pipelineRunnerId)
+    const pipelineRunner = await services.findPipelineRunnerById(pipelineRunnerId, {
+      relations: ['pipeline'],
+    })
 
     if (!pipelineRunner) {
       throw new NotFoundException(`version [${pipelineRunnerId}] did not previously exist`)
     }
 
-    const file = await new Promise<AWS.S3.Body>((resolve, reject) =>
-      s3Client.getObject(
-        {
-          Bucket: process.env.DEPLOYMENT_BUCKET_NAME as string,
-          Key: pipelineRunner.S3Location as string,
-        },
-        (err, data) => {
-          if (err) {
-            console.error(err)
-            reject()
-          }
-          resolve(data.Body as AWS.S3.Body)
-        },
-      ),
-    )
-
-    if (!file) {
-      throw new NotFoundException()
-    }
+    await ownership(developerId, (pipelineRunner.pipeline as PipelineEntity).developerId as string)
 
     await Promise.all([
       deployFromStore({

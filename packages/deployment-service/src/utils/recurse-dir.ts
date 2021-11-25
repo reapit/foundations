@@ -22,15 +22,15 @@ export const recurseDir = async (
   },
   callback: (props: recurseDirProps) => void | Promise<void>,
 ) => {
-  const entries = fs.readdirSync(dir)
+
+  const entries = await fs.promises.readdir(dir, { withFileTypes: true })
   await Promise.all(
-    entries.map((name) => {
+    entries.map((dirent) => {
       // [Promise<[Promise<[Promise<[] | void>] | void>] | void>] | void>... or Promise<void>
-      const filePath = path.join(dir, name)
-      const stat = fs.statSync(filePath)
-      if (stat.isFile()) {
+      const filePath = path.join(dir, dirent.name)
+      if (dirent.isFile()) {
         return callback({ filePath, buildLocation, prefix, fileNameTransformer })
-      } else if (stat.isDirectory()) {
+      } else if (dirent.isDirectory()) {
         return recurseDir(
           {
             dir: filePath,

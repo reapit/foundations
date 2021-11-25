@@ -75,7 +75,7 @@ export class DeployCommand extends AbstractCommand {
     }
 
     const zip = new AdmZip()
-    zip.addLocalFolder(path.resolve(process.cwd(), pipeline.outDir as string), '')
+    zip.addLocalFolder(path.resolve(process.cwd(), pipeline.outDir as string))
 
     spinner.succeed('Successfully packed project')
     return zip.toBuffer()

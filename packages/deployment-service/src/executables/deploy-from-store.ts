@@ -22,23 +22,29 @@ const getFromVersionS3 = async (location: string): Promise<GetObjectOutput | nev
     ),
   )
 
-const deleteCurrentLiveVersion = (prefix: string): Promise<void | never> =>
-  new Promise<void>((resolve, reject) =>
-    s3Client.deleteObject(
-      {
-        Bucket: process.env.DEPLOYMENT_LIVE_BUCKET_NAME as string,
-        Key: prefix,
-      },
-      (error) => {
-        if (error) {
-          console.error(error)
-          reject(error)
-        }
+const deleteCurrentLiveVersion = async (prefix: string): Promise<void | never> => {
+  try {
+    await new Promise<void>((resolve, reject) =>
+      s3Client.deleteObject(
+        {
+          Bucket: process.env.DEPLOYMENT_LIVE_BUCKET_NAME as string,
+          Key: prefix,
+        },
+        (error) => {
+          if (error) {
+            console.error(error)
+            reject(error)
+          }
 
-        resolve()
-      },
-    ),
-  )
+          resolve()
+        },
+      ),
+    )
+  } catch (e) {
+    // TODO make sure the deployment before is being deleted
+    console.error("basically the key doesn't exist")
+  }
+}
 
 export const deployFromStore = async ({
   pipeline,
@@ -49,7 +55,6 @@ export const deployFromStore = async ({
 }): Promise<void> => {
   const storageLocation = `${pipeline.uniqueRepoName}/${pipelineRunner.id}.zip`
 
-  console.log('fetching version from s3', `pipeline/${storageLocation}`)
   const zip = await getFromVersionS3(storageLocation)
 
   if (!zip.Body) {

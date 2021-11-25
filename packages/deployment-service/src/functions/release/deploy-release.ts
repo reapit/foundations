@@ -15,7 +15,7 @@ export const deployRelease = httpHandler<any, PipelineRunnerEntity>({
   handler: async ({ event, body }) => {
     const { developerId } = await resolveCreds(event)
 
-    const { pipelineId } = event.pathParameters as { pipelineId: string }
+    const { pipelineId, version } = event.pathParameters as { pipelineId: string, version: string }
 
     const pipeline = await pipelineService.findPipelineById(pipelineId)
 
@@ -28,6 +28,7 @@ export const deployRelease = httpHandler<any, PipelineRunnerEntity>({
     const pipelineRunner = await createPipelineRunnerEntity({
       pipeline,
       type: PipelineRunnerType.RELEASE,
+      buildVersion: version,
     })
 
     const s3FileName = `${pipeline.uniqueRepoName}/${pipelineRunner.id}.zip`
@@ -66,6 +67,7 @@ export const deployRelease = httpHandler<any, PipelineRunnerEntity>({
     ])
 
     pipelineRunner.currentlyDeployed = true
+    pipelineRunner.buildStatus = 'COMPLETED'
 
     return savePipelineRunnerEntity(pipelineRunner)
   },

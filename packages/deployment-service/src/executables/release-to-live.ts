@@ -19,7 +19,6 @@ export const releaseToLiveFromZip = async ({
   projectLocation: string
 }): Promise<void> => {
   if (!fs.existsSync(localLocation)) {
-    console.log('making zip location', localLocation)
     fs.mkdirSync(localLocation, {
       recursive: true,
     })
@@ -36,13 +35,14 @@ export const releaseToLiveFromZip = async ({
       resolve()
     }),
   )
+  // await the files to all exist. Some reason when extracting, some files don't exist for readdir
+  await new Promise(resolve => setTimeout(resolve, 6000))
 
   await recurseDir(
     {
       dir: localLocation,
       prefix: `${deploymentType}/${projectLocation}`,
       buildLocation: localLocation,
-      fileNameTransformer: (filePath: string) => filePath.replace('/build/', ''),
     },
     sendToLiveS3,
   )
