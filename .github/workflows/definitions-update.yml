@@ -39,7 +39,7 @@ jobs:
           format: 'YYYY-MM-DD-HH-mm'
 
       - name: Commit Definitions
-      - uses: actions/checkout@v2
+        uses: actions/checkout@v2
         env:
           TIME: '${{ steps.time.outputs.time }}'
         run: |
@@ -48,8 +48,7 @@ jobs:
           git checkout -b chore/ts-definitions-timestamp-$TIME
           git add .
           git commit -m "chore: update ts definitions"
-      - name: Uncommitted change
-        run: date +%s > report.txt
+
       - name: Create Pull Request
         uses: peter-evans/create-pull-request@v3
 
