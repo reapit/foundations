@@ -36,7 +36,7 @@ export const releaseToLiveFromZip = async ({
     }),
   )
   // await the files to all exist. Some reason when extracting, some files don't exist for readdir
-  await new Promise(resolve => setTimeout(resolve, 6000))
+  await new Promise((resolve) => setTimeout(resolve, 6000))
 
   await recurseDir(
     {
