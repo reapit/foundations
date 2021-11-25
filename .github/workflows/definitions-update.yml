@@ -39,7 +39,6 @@ jobs:
           format: 'YYYY-MM-DD-HH-mm'
 
       - name: Commit Definitions
-        uses: actions/checkout@v2
         env:
           TIME: '${{ steps.time.outputs.time }}'
         run: |
