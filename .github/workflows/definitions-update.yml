@@ -43,9 +43,8 @@ jobs:
         with:
           token: ${{ secrets.GH_PAT }}
           commit-message: Update ts definitions
-          committer: Will McVay <wmcvay@reapit.com>
-          author: Will McVay <wmcvay@reapit.com>
           signoff: false
+          delete-branch: true
           branch: chore/ts-definitions-timestamp-${{ steps.time.outputs.time }}
           title: 'chore: Update TS Definitions'
           body: |
