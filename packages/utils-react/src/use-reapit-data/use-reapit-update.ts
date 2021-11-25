@@ -1,4 +1,4 @@
-import { useState } from 'react'
+import { useState, useEffect } from 'react'
 import { useAsyncState } from '../use-async-state'
 import { ReapitConnectBrowserSession, ReapitConnectSession, useReapitConnect } from '@reapit/connect-session'
 import { updateActions } from '@reapit/utils-common'
@@ -37,8 +37,9 @@ interface SendFunctionPropsInterface<DataType> {
   headers: StringMap
   error: string | null
   returnUpdatedModel: boolean
-  connectSession: ReapitConnectSession
+  connectSession: null | ReapitConnectSession
   errorSnack: (text: string, timeout?: number) => void
+  canCall: boolean
 }
 
 type SendFunction<ParamsType> = (params: ParamsType) => Promise<boolean>
@@ -57,8 +58,13 @@ export const send =
     headers,
     returnUpdatedModel,
     error,
+    canCall,
   }: SendFunctionPropsInterface<DataType>): SendFunction<ParamsType> =>
   async (params: ParamsType): Promise<boolean> => {
+    if (!canCall) {
+      console.error('connect session not ready')
+      return false
+    }
     const updateAction = updateActions[action]
     const { api, path } = updateAction
     const deSerialisedPath = uriParams
@@ -126,10 +132,9 @@ export const useReapitUpdate = <ParamsType, DataType>({
   const [data, setData] = useState<DataType>()
   const { error: errorSnack } = useSnack()
   const [success, setSuccess] = useState<undefined | boolean>(undefined)
+  const [canCall, setCanCall] = useState<boolean>(false)
 
-  if (!connectSession) {
-    throw new Error('Connect Session not configured')
-  }
+  useEffect(() => setCanCall(true), [connectSession])
 
   const sendFunc = send<ParamsType, DataType>({
     uriParams,
@@ -144,6 +149,7 @@ export const useReapitUpdate = <ParamsType, DataType>({
     method,
     returnUpdatedModel,
     error,
+    canCall,
   })
 
   return [loading, data, sendFunc, success, error]
