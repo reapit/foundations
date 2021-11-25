@@ -4,6 +4,10 @@ on:
   schedule:
     # * is a special character in YAML so you have to quote this string
     - cron: '0 0 1-31 * *'
+    # Adding while I test the workflow, will remove when verified
+  push:
+    branches:
+      - master
 
 jobs:
   check:
@@ -27,6 +31,27 @@ jobs:
 
       - name: Fetch Definitions
         run: yarn workspace @reapit/foundations-ts-definitions start
+
+      - name: Get Timestamp
+        id: time
+        uses: nanzm/get-time-action@v1.1
+        with:
+          format: 'YYYY-MM-DD-HH-mm'
+
+      - name: Commit Definitions
+      - uses: actions/checkout@v2
+        env:
+          TIME: '${{ steps.time.outputs.time }}'
+        run: |
+          git config user.name 'Will McVay'
+          git config user.email 'wmcvay@reapit.com'
+          git checkout -b chore/ts-definitions-timestamp-$TIME
+          git add .
+          git commit -m "chore: update ts definitions"
+      - name: Uncommitted change
+        run: date +%s > report.txt
+      - name: Create Pull Request
+        uses: peter-evans/create-pull-request@v3
 
 env:
   NPM_TOKEN: ${{secrets.NPM_TOKEN}}
