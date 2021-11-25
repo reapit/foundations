@@ -25,7 +25,8 @@ export class DeployCommand extends AbstractCommand {
       encoding: 'utf-8',
     })
     if (!workingPackageRaw) {
-      throw new Error('Package not found')
+      spinner.fail('Working package.json not found. Please run in a javascript application')
+      process.exit(1)
     }
 
     const workingPackage = JSON.parse(workingPackageRaw)
@@ -41,7 +42,11 @@ export class DeployCommand extends AbstractCommand {
     spinner.start('bumping package version')
 
     if (workingPackage.version === answers.version) {
-      spinner.warn('Overriding existing verison: rollback disabled')
+      spinner.fail('Cannot overwrite existing verison')
+      this.writeLine(
+        'use ' + chalk.green('reapit') + chalk.bold(' release version') + ' to rollback to a previous deployment',
+      )
+      process.exit(1)
     }
 
     const prevVersion = workingPackage.version
@@ -49,11 +54,7 @@ export class DeployCommand extends AbstractCommand {
     workingPackage.version = answers.version
 
     await fs.promises.writeFile(fileName, JSON.stringify(workingPackage, null, 2))
-    spinner.succeed(
-      prevVersion === answers.version
-        ? `Replacing current version ${answers.version}`
-        : `bumped package version ${prevVersion} -> ${answers.version}`,
-    )
+    spinner.succeed(`bumped package version ${prevVersion} -> ${answers.version}`)
 
     return answers.version
   }
@@ -116,7 +117,8 @@ export class DeployCommand extends AbstractCommand {
     const pipeline = await this.resolveConfigFile<PipelineModelInterface>(REAPIT_PIPELINE_CONFIG_FILE)
 
     if (!pipeline) {
-      throw new Error('no pipeline config found')
+      this.writeLine(chalk.red('Pipeline config not found. Please run within a reapit pipeline enabled project'))
+      process.exit(1)
     }
 
     const version = await this.bumpVersion(spinner)

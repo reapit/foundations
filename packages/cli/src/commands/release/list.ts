@@ -34,7 +34,8 @@ export class ReleaseListCommand extends AbstractCommand {
     const pipeline = await this.resolveConfigFile<PipelineModelInterface>(REAPIT_PIPELINE_CONFIG_FILE)
 
     if (!pipeline) {
-      throw new Error('no pipeline config found')
+      this.writeLine(chalk.red('Pipeline config not found. Please run within a reapit pipeline enabled project'))
+      process.exit(1)
     }
 
     const spinner = ora()

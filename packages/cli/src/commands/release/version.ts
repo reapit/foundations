@@ -82,7 +82,9 @@ export class VersionCommand extends AbstractCommand {
     const pipeline = await this.resolveConfigFile<PipelineModelInterface>(REAPIT_PIPELINE_CONFIG_FILE)
 
     if (!pipeline) {
-      throw new Error('no pipeline config found')
+      spinner.fail()
+      this.writeLine(chalk.red('Pipeline config not found. Please run within a reapit pipeline enabled project'))
+      process.exit(1)
     }
 
     const runners = await this.listReleases(spinner, pipeline.id as string)
@@ -93,12 +95,14 @@ export class VersionCommand extends AbstractCommand {
       process.exit(0)
     }
 
-    const answers = await inquirer.prompt([
+    const answers = await inquirer.prompt<{ version: string }>([
       {
         name: 'version',
         type: 'list',
         message: 'Select a version to rollback to',
-        choices: runners.items.map((runner) => runner.buildVersion).filter((version) => version !== null),
+        choices: runners.items
+          .map((runner) => `${runner.buildVersion}${runner.currentlyDeployed ? ' (currently deployed)' : ''}`)
+          .filter((version) => version !== null),
       },
     ])
 
@@ -111,10 +115,15 @@ export class VersionCommand extends AbstractCommand {
     spinner.info(`Deploying version [${answers.version}]`)
     spinner.start('Deploying...')
 
-    const version = runners.items.find((runner) => runner.buildVersion === answers.version)
+    const version = runners.items.find((runner) => runner.buildVersion === answers.version.split(' ').shift())
+
+    if (version?.currentlyDeployed) {
+      this.writeLine(chalk.red('Cannot deploy, currently deployed release'))
+      process.exit(1)
+    }
 
     if (!version) {
-      console.error('Version not found. Please report to reapit')
+      spinner.fail('Version not found. Please report to reapit')
       process.exit(1)
     }
 
