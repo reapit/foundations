@@ -1,6 +1,12 @@
 import { resolveCreds } from '../../utils'
 import { BadRequestException, httpHandler, NotFoundException } from '@homeservenow/serverless-aws-handler'
-import { s3Client, createPipelineRunnerEntity, resetCurrentlyDeployed, savePipelineRunnerEntity } from '../../services'
+import {
+  s3Client,
+  createPipelineRunnerEntity,
+  resetCurrentlyDeployed,
+  savePipelineRunnerEntity,
+  countPipelineRunnersWithBuildVersion,
+} from '../../services'
 import { defaultOutputHeaders } from '../../constants'
 import * as pipelineService from '../../services/pipeline'
 import { PipelineEntity, PipelineRunnerEntity, PipelineRunnerType } from '../../entities'
@@ -15,7 +21,7 @@ export const deployRelease = httpHandler<any, PipelineRunnerEntity>({
   handler: async ({ event, body }) => {
     const { developerId } = await resolveCreds(event)
 
-    const { pipelineId, version } = event.pathParameters as { pipelineId: string, version: string }
+    const { pipelineId, version } = event.pathParameters as { pipelineId: string; version: string }
 
     const pipeline = await pipelineService.findPipelineById(pipelineId)
 
@@ -24,6 +30,12 @@ export const deployRelease = httpHandler<any, PipelineRunnerEntity>({
     }
 
     await ownership(pipeline.developerId, developerId)
+
+    const existingVersions = await countPipelineRunnersWithBuildVersion(pipeline, version)
+
+    if (existingVersions !== 0) {
+      throw new BadRequestException(`build version [${version}] already exists`)
+    }
 
     const pipelineRunner = await createPipelineRunnerEntity({
       pipeline,

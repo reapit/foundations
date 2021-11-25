@@ -22,7 +22,6 @@ export const recurseDir = async (
   },
   callback: (props: recurseDirProps) => void | Promise<void>,
 ) => {
-
   const entries = await fs.promises.readdir(dir, { withFileTypes: true })
   await Promise.all(
     entries.map((dirent) => {

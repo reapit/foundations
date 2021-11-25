@@ -119,3 +119,18 @@ export const resetCurrentlyDeployed = async (pipeline: PipelineEntity) => {
     .where('pipelineId = :pipelineId', { pipelineId: pipeline.id })
     .execute()
 }
+
+export const countPipelineRunnersWithBuildVersion = async (
+  pipeline: PipelineEntity,
+  buildVersion: string,
+): Promise<number> => {
+  const connection = await connect()
+  const repo = connection.getRepository(PipelineRunnerEntity)
+
+  return repo.count({
+    where: {
+      pipeline,
+      buildVersion,
+    },
+  })
+}
