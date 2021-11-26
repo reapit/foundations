@@ -3,23 +3,23 @@ import { useHistory } from 'react-router-dom'
 import { History } from 'history'
 import {
   Button,
-  elBorderRadius,
+  ButtonGroup,
   elMb5,
   elMb8,
   elMb9,
   elWFull,
   FlexContainer,
   Icon,
-  InputGroup,
   Label,
   PageContainer,
   SecondaryNav,
   SecondaryNavContainer,
   SecondaryNavItem,
-  Select,
   Subtitle,
   Tabs,
   Title,
+  useMediaQuery,
+  useModal,
 } from '@reapit/elements'
 import Routes from '../../../constants/routes'
 import { navigate, openNewPage, ExternalPages } from '../../../utils/navigation'
@@ -27,18 +27,16 @@ import { WebhooksAbout } from './webhooks-about'
 import { WebhooksManage } from './webhooks-manage'
 import { WebhooksLogs } from './webhooks-logs'
 import { WebhooksNew } from './webhooks-new'
-import { useDispatch, useSelector } from 'react-redux'
-import { selectAppListState } from '../../../selector/apps/app-list'
+import { useDispatch } from 'react-redux'
 import { fetchAppList } from '../../../actions/apps'
 import { GET_ALL_PAGE_SIZE } from '../../../constants/paginator'
 import { FetchAppListParams } from '../../../reducers/apps/app-list'
 import { Dispatch as ReduxDispatch } from 'redux'
-import { ControlsContainer, inputFullWidth, overflowHidden } from './__styles__'
 import { requestWebhookSubcriptionData } from '../../../actions/webhooks-subscriptions'
-import { cx } from '@linaria/core'
 import { StringMap } from '../../../types/core'
 import dayjs from 'dayjs'
 import { SmallText } from '../../../../../elements/src/components/typography/typography'
+import WebhooksControls from './webhooks-controls'
 
 export interface WebhookQueryParams {
   applicationId: string
@@ -98,38 +96,42 @@ export const handleHistoryToQueryParams = (history: History): WebhookQueryParams
   }
 }
 
-export const handleSelectAppId: SelectAppIdHandler = (setWebhookQueryParams, history) => (event, applicationId) => {
-  const value = applicationId ? applicationId : event?.target.value
-  const name = applicationId ? 'applicationId' : event?.target.name
+export const handleSelectAppId: SelectAppIdHandler =
+  (setWebhookQueryParams, history) =>
+  (event?: ChangeEvent<HTMLSelectElement | HTMLInputElement>, applicationId?: string) => {
+    const value = applicationId ? applicationId : event?.target.value
+    const name = applicationId ? 'applicationId' : event?.target.name
 
-  if (!value || !name) return
+    if (!value || !name) return
 
-  const queryParams = handleHistoryToQueryParams(history)
-  const newParams = {
-    ...queryParams,
-    [name]: value,
-  }
-  const cleanedParams = Object.keys(newParams).reduce((prev: StringMap | undefined, next: string) => {
-    if (newParams[next] && prev) {
-      prev[next] = newParams[next]
+    const queryParams = handleHistoryToQueryParams(history)
+    const newParams = {
+      ...queryParams,
+      [name]: value,
     }
-    return prev
-  }, {})
-  const newQueryString = new URLSearchParams(cleanedParams).toString()
-  setWebhookQueryParams(newParams)
-  history.push(`${history.location.pathname}?${newQueryString}`)
-}
+    const cleanedParams = Object.keys(newParams).reduce((prev: StringMap | undefined, next: string) => {
+      if (newParams[next] && prev) {
+        prev[next] = newParams[next]
+      }
+      return prev
+    }, {})
+    const newQueryString = new URLSearchParams(cleanedParams).toString()
+    setWebhookQueryParams(newParams)
+    history.push(`${history.location.pathname}?${newQueryString}`)
+  }
 
 export const WebhooksWrapper: FC = () => {
   const history = useHistory()
   const dispatch = useDispatch()
+  const { Modal, openModal, closeModal } = useModal()
+  const { isMobile } = useMediaQuery()
   const { pathname } = window.location
   const [webhookQueryParams, setWebhookQueryParams] = useState<WebhookQueryParams>(handleHistoryToQueryParams(history))
   const isAboutPage = pathname === Routes.WEBHOOKS_ABOUT
   const isManagePage = pathname === Routes.WEBHOOKS_MANAGE
   const isLogsPage = pathname === Routes.WEBHOOKS_LOGS
+  const isNewPage = !isAboutPage && !isLogsPage && !isManagePage
   const selectAppIdHandler = handleSelectAppId(setWebhookQueryParams, history)
-  const { data: apps } = useSelector(selectAppListState)
 
   useEffect(handleFetchApps(dispatch), [])
   useEffect(handleFetchSubscriptions(dispatch, webhookQueryParams), [webhookQueryParams])
@@ -165,65 +167,44 @@ export const WebhooksWrapper: FC = () => {
           </>
         )}
         {(isManagePage || isLogsPage) && (
-          <>
-            <div className={elMb8}>
-              <Label>
-                {isManagePage
-                  ? 'Please select an App from the list below to view the associated Webhooks'
-                  : 'Please select a Time slot and an App from the list below to view the associated Webhooks:'}
-              </Label>
-            </div>
-            <div className={cx(elBorderRadius, overflowHidden)}>
-              {isLogsPage && (
-                <>
-                  <ControlsContainer>
-                    <InputGroup
-                      className={inputFullWidth}
-                      value={webhookQueryParams.from}
-                      type="date"
-                      name="from"
-                      label="Date From"
-                      onChange={selectAppIdHandler}
-                    />
-                  </ControlsContainer>
-                  <ControlsContainer>
-                    <InputGroup
-                      className={inputFullWidth}
-                      value={webhookQueryParams.to}
-                      type="date"
-                      name="to"
-                      label="Date To"
-                      onChange={selectAppIdHandler}
-                    />
-                  </ControlsContainer>
-                </>
-              )}
-              <ControlsContainer>
-                <InputGroup>
-                  <Select
-                    className={elWFull}
-                    value={webhookQueryParams.applicationId ?? ''}
-                    name="applicationId"
-                    onChange={selectAppIdHandler}
-                  >
-                    <option key="default-option" value="">
-                      None selected
-                    </option>
-                    {apps?.map((app) => (
-                      <option key={app.id} value={app.id}>
-                        {app.name}
-                      </option>
-                    ))}
-                  </Select>
-                  <Label>App Name</Label>
-                </InputGroup>
-              </ControlsContainer>
-            </div>
-          </>
+          <div className={elMb8}>
+            <Label>
+              {isManagePage
+                ? 'Please select an App from the list below to view the associated Webhooks'
+                : 'Please select a Time slot and an App from the list below to view the associated Webhooks:'}
+            </Label>
+          </div>
         )}
+        <WebhooksControls selectAppIdHandler={selectAppIdHandler} webhookQueryParams={webhookQueryParams} />
       </SecondaryNavContainer>
       <PageContainer>
-        <Title>Webhooks</Title>
+        <FlexContainer isFlexJustifyBetween>
+          <Title>Webhooks</Title>
+          {isMobile && !isNewPage && (
+            <ButtonGroup alignment="right">
+              {isAboutPage && (
+                <Button className={elMb5} intent="low" onClick={openNewPage(ExternalPages.webhooksDocs)}>
+                  View Docs
+                </Button>
+              )}
+              {(isManagePage || isLogsPage) && (
+                <Button intent="low" onClick={openModal}>
+                  Filters
+                </Button>
+              )}
+            </ButtonGroup>
+          )}
+        </FlexContainer>
+        {isMobile && (
+          <Modal title="Filters">
+            <WebhooksControls selectAppIdHandler={selectAppIdHandler} webhookQueryParams={webhookQueryParams} />
+            <ButtonGroup alignment="center">
+              <Button intent="secondary" onClick={closeModal}>
+                Close
+              </Button>
+            </ButtonGroup>
+          </Modal>
+        )}
         <Tabs
           name="webhook-tabs"
           isFullWidth
