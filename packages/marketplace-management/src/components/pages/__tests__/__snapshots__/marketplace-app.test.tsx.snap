@@ -223,13 +223,17 @@ Object {
         <section
           class="el-hfull el-page-container"
         >
-          <h1
-            class="el-title"
+          <div
+            class="el-flex-justify-between el-flex-container"
           >
-            SOME_NAME
-             - 
-            Geo Diary
-          </h1>
+            <h1
+              class="el-title"
+            >
+              SOME_NAME
+               - 
+              Geo Diary
+            </h1>
+          </div>
           <h2
             class="el-subtitle"
           >
@@ -546,13 +550,17 @@ Object {
       <section
         class="el-hfull el-page-container"
       >
-        <h1
-          class="el-title"
+        <div
+          class="el-flex-justify-between el-flex-container"
         >
-          SOME_NAME
-           - 
-          Geo Diary
-        </h1>
+          <h1
+            class="el-title"
+          >
+            SOME_NAME
+             - 
+            Geo Diary
+          </h1>
+        </div>
         <h2
           class="el-subtitle"
         >

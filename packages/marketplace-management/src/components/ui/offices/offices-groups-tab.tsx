@@ -4,7 +4,7 @@ import { useHistory, useLocation } from 'react-router'
 import { History } from 'history'
 import { OfficeGroupModelPagedResult, OfficeGroupModel } from '../../../types/organisations-schema'
 import ErrorBoundary from '@/components/hocs/error-boundary'
-import { Loader } from '@reapit/elements'
+import { Button, ButtonGroup, FlexContainer, Loader, useMediaQuery, useModal } from '@reapit/elements'
 import { toLocalTime, DATE_TIME_FORMAT } from '@reapit/utils-common'
 import Routes from '@/constants/routes'
 import { URLS } from '../../../constants/api'
@@ -13,6 +13,7 @@ import { elFadeIn, elMb11, Pagination, PersistantNotification, RowProps, Table, 
 import { OfficeModel } from '@reapit/foundations-ts-definitions'
 import { cx } from '@linaria/core'
 import { useOrgId } from '../../../utils/use-org-id'
+import { OrgIdSelect } from '../../hocs/org-id-select'
 
 export interface OfficeGroupWithOfficesModel extends OfficeGroupModel {
   offices?: OfficeModel[]
@@ -90,6 +91,8 @@ export const handleSortTableData =
 const OfficesGroupsTab: FC = () => {
   const history = useHistory()
   const location = useLocation()
+  const { Modal, openModal, closeModal } = useModal()
+  const { isMobile } = useMediaQuery()
   const search = location.search
   const onPageChange = useCallback(onPageChangeHandler(history), [history])
   const [indexExpandedRow, setIndexExpandedRow] = useState<number | null>(null)
@@ -128,19 +131,29 @@ const OfficesGroupsTab: FC = () => {
     offices,
   ])
 
-  if (!orgId)
-    return (
-      <PersistantNotification isFullWidth isExpanded intent="secondary" isInline>
-        No organisation selected. You need to select an organisation to view ofice groups.
-      </PersistantNotification>
-    )
-
   return (
     <ErrorBoundary>
-      <Title>{orgName} Office Groups</Title>
+      <FlexContainer isFlexJustifyBetween>
+        {!orgName ? <Title>Office Groups</Title> : <Title>{orgName} Office Groups</Title>}
+        {isMobile && (
+          <ButtonGroup alignment="right">
+            <Button intent="low" onClick={openModal}>
+              Select Org
+            </Button>
+            <Modal title="Select Organisation">
+              <OrgIdSelect />
+              <ButtonGroup alignment="center">
+                <Button intent="secondary" onClick={closeModal}>
+                  Close
+                </Button>
+              </ButtonGroup>
+            </Modal>
+          </ButtonGroup>
+        )}
+      </FlexContainer>
       {!data ? (
         <Loader />
-      ) : officeGroups.length ? (
+      ) : officeGroups.length && orgId ? (
         <>
           <Table
             className={cx(elFadeIn, elMb11)}
@@ -150,9 +163,13 @@ const OfficesGroupsTab: FC = () => {
           />
           <Pagination callback={onPageChange} numberPages={totalPageCount} currentPage={pageNumber} />
         </>
-      ) : (
+      ) : orgId ? (
         <PersistantNotification isFullWidth isExpanded intent="secondary" isInline>
           No results found for your office groups search
+        </PersistantNotification>
+      ) : (
+        <PersistantNotification isFullWidth isExpanded intent="secondary" isInline>
+          No organisation selected. You need to select an organisation to view ofice groups.
         </PersistantNotification>
       )}
     </ErrorBoundary>

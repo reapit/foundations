@@ -187,12 +187,16 @@ Object {
         <section
           class="el-hfull el-page-container"
         >
-          <h1
-            class="el-title"
+          <div
+            class="el-flex-justify-between el-flex-container"
           >
-            SOME_NAME
-             User Groups
-          </h1>
+            <h1
+              class="el-title"
+            >
+              SOME_NAME
+               User Groups
+            </h1>
+          </div>
           <div
             class="el-loader-container"
           >
@@ -391,12 +395,16 @@ Object {
       <section
         class="el-hfull el-page-container"
       >
-        <h1
-          class="el-title"
+        <div
+          class="el-flex-justify-between el-flex-container"
         >
-          SOME_NAME
-           User Groups
-        </h1>
+          <h1
+            class="el-title"
+          >
+            SOME_NAME
+             User Groups
+          </h1>
+        </div>
         <div
           class="el-loader-container"
         >
@@ -652,12 +660,16 @@ Object {
         <section
           class="el-hfull el-page-container"
         >
-          <h1
-            class="el-title"
+          <div
+            class="el-flex-justify-between el-flex-container"
           >
-            SOME_NAME
-             Users
-          </h1>
+            <h1
+              class="el-title"
+            >
+              SOME_NAME
+               Users
+            </h1>
+          </div>
           <div
             class="el-loader-container"
           >
@@ -856,12 +868,16 @@ Object {
       <section
         class="el-hfull el-page-container"
       >
-        <h1
-          class="el-title"
+        <div
+          class="el-flex-justify-between el-flex-container"
         >
-          SOME_NAME
-           Users
-        </h1>
+          <h1
+            class="el-title"
+          >
+            SOME_NAME
+             Users
+          </h1>
+        </div>
         <div
           class="el-loader-container"
         >
