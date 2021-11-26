@@ -15,7 +15,6 @@
     "postinstall": "husky install"
   },
   "devDependencies": {
-    "esbuild": "^0.13.15",
     "husky": "^7.0.0",
     "json": "^11.0.0"
   }

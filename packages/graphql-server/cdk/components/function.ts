@@ -1,21 +1,19 @@
 import * as cdk from '@aws-cdk/core'
-import { NodejsFunction } from '@aws-cdk/aws-lambda-nodejs'
+import { AssetCode, Function, Runtime } from '@aws-cdk/aws-lambda'
 
 export const createFunction = (
   scope: cdk.Stack,
   functionName: string,
-  entry: string,
+  code: AssetCode,
   handler?: string,
   environment?: Record<string, string>,
 ) => {
-  return new NodejsFunction(scope, functionName, {
-    entry,
+  return new Function(scope, functionName, {
+    code,
     timeout: cdk.Duration.minutes(15),
     environment,
     memorySize: 1024,
     handler,
-    bundling: {
-      preCompilation: true,
-    },
+    runtime: Runtime.NODEJS_14_X,
   })
 }

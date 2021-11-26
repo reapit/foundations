@@ -11,23 +11,23 @@
     "start": "PLATFORM_API_BASE_URL=https://platform.dev.paas.reapit.cloud ts-node-dev -r tsconfig-paths/register src/offline",
     "test": "cross-env TZ=UTC jest --watch --colors --silent",
     "build:schema": "node ./scripts/build-schema.js && prettier src/schema.graphql --write",
-    "build": "yarn build:schema && tsc && cp src/schema.graphql dist/graphql-server/src && yarn bundle",
+    "build": "yarn build:schema && yarn bundle",
     "lint": "concurrently \"prettier src/**/*.graphql --write \"  \"eslint --cache --ext=ts,tsx src --fix\"",
     "publish": "echo '...skipping...'",
     "conf": "yarn config-manager --namespace cloud --entity graphql-server --name local --mode fetch",
     "commit": "concurrently \"yarn test --coverage --no-cache --silent --forceExit --detectOpenHandles --runInBand --watch=false && jest-coverage-badges --input src/tests/coverage/coverage-summary.json --output src/tests/badges\" \"yarn lint\"",
     "prepublish": "npm run snyk-protect",
     "snyk-protect": "snyk-protect",
-    "bundle": "ts-bundler",
+    "bundle": "esbuild src/index.ts --bundle --outfile=dist/index.js --platform=node --target=node14 && cp src/schema.graphql dist",
     "release": "cdk deploy --require-approval never",
     "synth": "cdk synth"
   },
   "dependencies": {
     "@reapit/utils-node": "workspace:packages/utils-node",
     "@snyk/protect": "latest",
-    "apollo-server": "^3.0.1",
-    "apollo-server-core": "^3.0.1",
-    "apollo-server-lambda": "^3.0.1",
+    "apollo-server": "^3.5.0",
+    "apollo-server-core": "^3.5.0",
+    "apollo-server-lambda": "^3.5.0",
     "axios": "^0.21.1",
     "axios-mock-adapter": "^1.20.0",
     "axios-retry": "^3.1.9",
@@ -50,7 +50,7 @@
   },
   "devDependencies": {
     "@aws-cdk/aws-apigateway": "1.134.0",
-    "@aws-cdk/aws-lambda-nodejs": "1.134.0",
+    "@aws-cdk/aws-lambda": "1.134.0",
     "@aws-cdk/core": "1.134.0",
     "@reapit/config-manager": "workspace:packages/config-manager",
     "@reapit/ts-bundler": "workspace:packages/ts-bundler",
@@ -58,10 +58,12 @@
     "@reapit/ts-types": "workspace:packages/ts-types",
     "@typescript-eslint/eslint-plugin": "^4.28.4",
     "@typescript-eslint/parser": "^4.28.4",
+    "adm-zip": "^0.5.9",
     "aws-cdk": "1.134.0",
     "bufferutil": "^4.0.3",
     "concurrently": "^6.2.0",
     "cross-env": "^7.0.3",
+    "esbuild": "^0.13.15",
     "eslint": "7.31.0",
     "eslint-plugin-prettier": "^3.4.0",
     "graphql-tag": "^2.12.5",
@@ -71,6 +73,9 @@
     "ts-node-dev": "^1.1.8",
     "tsconfig-paths": "^3.11.0",
     "typescript": "^4.3.5"
+  },
+  "resolutions": {
+    "logform": "2.3.0"
   },
   "snyk": true
 }
