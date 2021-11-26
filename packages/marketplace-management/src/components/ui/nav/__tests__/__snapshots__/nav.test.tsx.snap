@@ -117,6 +117,24 @@ Object {
           </span>
           Offices
         </a>
+        <div
+          class="el-nav-sub-container"
+        >
+          <a
+            class="el-nav-sub-item"
+          >
+            <span>
+              Offices
+            </span>
+          </a>
+          <a
+            class="el-nav-sub-item"
+          >
+            <span>
+              Offices Groups
+            </span>
+          </a>
+        </div>
         <a
           class="el-nav-item"
         >
@@ -142,6 +160,24 @@ Object {
           </span>
           Users
         </a>
+        <div
+          class="el-nav-sub-container"
+        >
+          <a
+            class="el-nav-sub-item"
+          >
+            <span>
+              Users
+            </span>
+          </a>
+          <a
+            class="el-nav-sub-item"
+          >
+            <span>
+              Users Groups
+            </span>
+          </a>
+        </div>
         <a
           class="el-nav-item"
         >
@@ -352,6 +388,24 @@ Object {
         </span>
         Offices
       </a>
+      <div
+        class="el-nav-sub-container"
+      >
+        <a
+          class="el-nav-sub-item"
+        >
+          <span>
+            Offices
+          </span>
+        </a>
+        <a
+          class="el-nav-sub-item"
+        >
+          <span>
+            Offices Groups
+          </span>
+        </a>
+      </div>
       <a
         class="el-nav-item"
       >
@@ -377,6 +431,24 @@ Object {
         </span>
         Users
       </a>
+      <div
+        class="el-nav-sub-container"
+      >
+        <a
+          class="el-nav-sub-item"
+        >
+          <span>
+            Users
+          </span>
+        </a>
+        <a
+          class="el-nav-sub-item"
+        >
+          <span>
+            Users Groups
+          </span>
+        </a>
+      </div>
       <a
         class="el-nav-item"
       >

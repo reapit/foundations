@@ -743,12 +743,16 @@ Object {
         <section
           class="el-hfull el-page-container"
         >
-          <h1
-            class="el-title"
+          <div
+            class="el-flex-justify-between el-flex-container"
           >
-            SOME_NAME
-             Offices
-          </h1>
+            <h1
+              class="el-title"
+            >
+              SOME_NAME
+               Offices
+            </h1>
+          </div>
           <form>
             <div
               class="el-fade-in el-mb11 el-form-layout"
@@ -929,12 +933,16 @@ Object {
       <section
         class="el-hfull el-page-container"
       >
-        <h1
-          class="el-title"
+        <div
+          class="el-flex-justify-between el-flex-container"
         >
-          SOME_NAME
-           Offices
-        </h1>
+          <h1
+            class="el-title"
+          >
+            SOME_NAME
+             Offices
+          </h1>
+        </div>
         <form>
           <div
             class="el-fade-in el-mb11 el-form-layout"
