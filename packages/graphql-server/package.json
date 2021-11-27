@@ -32,7 +32,7 @@
     "cookie": "0.4.1",
     "dataloader": "^2.0.0",
     "dayjs": "^1.10.6",
-    "graphql": "15.6.1",
+    "graphql": "15.7.2",
     "graphql-depth-limit": "^1.1.0",
     "graphql-import": "^1.0.2",
     "graphql-type-json": "^0.3.2",
