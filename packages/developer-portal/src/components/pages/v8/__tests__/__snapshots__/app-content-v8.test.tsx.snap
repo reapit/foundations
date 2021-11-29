@@ -25,10 +25,19 @@ exports[`App Detail v8 deployment info should match snapshot 1`] = `
   <Table>
     <TableHeadersRow>
       <TableHeader>
+        Type
+      </TableHeader>
+      <TableHeader>
         Created
       </TableHeader>
       <TableHeader>
         Status
+      </TableHeader>
+      <TableHeader>
+        Version
+      </TableHeader>
+      <TableHeader>
+        Currently Deployed
       </TableHeader>
       <TableHeader />
     </TableHeadersRow>
@@ -46,9 +55,7 @@ exports[`App Detail v8 should match snapshot 1`] = `
         </Subtitle>
         <BodyText
           hasGreyText={true}
-        >
-          some-id
-        </BodyText>
+        />
       </ForwardRef>
     </ColSplit>
     <ColSplit>
