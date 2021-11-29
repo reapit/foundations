@@ -10,6 +10,7 @@ export interface GetAction {
 export enum GetActionNames {
   getApps = 'getApps',
   getPipeline = 'getPipeline',
+  getPipelineDeployments = 'getPipelineDeployments',
 }
 
 export type GetActions = { [key in GetActionNames]: GetAction }
@@ -23,6 +24,9 @@ export const getActions: GetActions = {
   [GetActionNames.getPipeline]: {
     api: ApiNames.pipeline,
     path: PathNames.getPipeline,
-    errorMessage: 'Something went wrong',
   },
+  [GetActionNames.getPipelineDeployments]: {
+    api: ApiNames.pipeline,
+    path: PathNames.getPipelineDeployments,
+  }
 }
