@@ -298,17 +298,29 @@ exports[`Login should match a snapshot 1`] = `
                       <section
                         className="e12d7zo5-el-hfull eukst9x-el-page-container"
                       >
-                        <Title>
-                          <ElTitle
-                            className=""
+                        <FlexContainer
+                          isFlexJustifyBetween={true}
+                        >
+                          <ElFlexContainer
+                            className="e1q0zwo9-el-flex-justify-between"
                           >
-                            <h1
-                              className="etrchfm-el-title"
+                            <div
+                              className="e1q0zwo9-el-flex-justify-between e2kmzjs-el-flex-container"
                             >
-                              My Apps
-                            </h1>
-                          </ElTitle>
-                        </Title>
+                              <Title>
+                                <ElTitle
+                                  className=""
+                                >
+                                  <h1
+                                    className="etrchfm-el-title"
+                                  >
+                                    My Apps
+                                  </h1>
+                                </ElTitle>
+                              </Title>
+                            </div>
+                          </ElFlexContainer>
+                        </FlexContainer>
                         <AppList
                           infoType="DEVELOPER_APPS_EMPTY"
                           list={Array []}

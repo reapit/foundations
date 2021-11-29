@@ -97,6 +97,8 @@ const UsersTab: FC = () => {
     setIndexExpandedRow(null)
   }
 
+  console.log(orgId)
+
   const rows = useMemo(handleSortTableData(users, orgId ?? '', onComplete), [users])
 
   return (

@@ -131,7 +131,7 @@ export const WebhooksManage: FC<WebhooksManageProps> = ({ webhookQueryParams }) 
   if (!webhookQueryParams.applicationId)
     return (
       <PersistantNotification isFullWidth isExpanded intent="secondary" isInline>
-        No app selected from the left hand side menu. Select an app to get started.
+        No app selected. Select an app to get started by using the ‘Filters’ options.
       </PersistantNotification>
     )
   if (subscriptionsLoading || customersLoading) return <Loader label="loading" />

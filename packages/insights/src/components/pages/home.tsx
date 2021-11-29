@@ -149,8 +149,8 @@ export const Home: FC = () => {
         </FlexContainer>
         {!selectedReport ? (
           <>
-            <PersistantNotification isFullWidth isExpanded intent="secondary">
-              {loading ? 'Loading your Power BI Reports.' : 'Please select a report from the left hand side menu'}
+            <PersistantNotification isFullWidth isExpanded isInline intent="secondary">
+              {loading ? 'Loading your Power BI Reports.' : 'Please select a report to get started'}
             </PersistantNotification>
             {loading && <Loader fullPage label="Loading" />}
           </>
