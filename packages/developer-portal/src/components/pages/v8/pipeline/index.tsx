@@ -4,7 +4,7 @@ import React from 'react'
 import { CreatePipeline } from './create-pipeline'
 import { PipelineDeploymentInfo } from './deployment-info'
 import { reapitConnectBrowserSession } from '../../../../core/connect-session'
-import { GetActionNames } from '@reapit/utils-common'
+import { GetActionNames, getActions } from '@reapit/utils-common'
 import { BodyText, FlexContainer, Loader } from '@reapit/elements'
 import { useReapitConnect } from '@reapit/connect-session'
 
@@ -12,7 +12,7 @@ export const AppPipeline = ({ appId }: { appId: string }) => {
   const { connectSession } = useReapitConnect(reapitConnectBrowserSession)
   const [pipeline, loading, , refresh] = useReapitGet<PipelineModelInterface>({
     reapitConnectBrowserSession,
-    action: GetActionNames.getPipeline,
+    action: getActions(window.reapit.config.appEnv)[GetActionNames.getPipeline],
     uriParams: { appId },
     headers: {
       Authorization: connectSession?.idToken as string,

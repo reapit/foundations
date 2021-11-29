@@ -1,4 +1,5 @@
 import { GetActionNames, getActions, getFetcher } from '..'
+import { ReapitConnectSession } from '@reapit/connect-session'
 
 const mockData = {
   key: 'value',
@@ -6,7 +7,7 @@ const mockData = {
 
 const mockConnectSession = {
   accessToken: 'SOME_TOKEN',
-}
+} as ReapitConnectSession
 
 const mockLogger = jest.fn()
 
@@ -19,7 +20,7 @@ describe('getFetcher', () => {
     })
 
     const response = await getFetcher({
-      action: GetActionNames.getApps,
+      action: getActions('local')[GetActionNames.getApps],
       connectSession: mockConnectSession,
       logger: mockLogger,
     })
@@ -35,13 +36,13 @@ describe('getFetcher', () => {
 
     try {
       const response = await getFetcher({
-        action: GetActionNames.getApps,
+        action: getActions('local')[GetActionNames.getApps],
         connectSession: mockConnectSession,
         logger: mockLogger,
       })
       expect(response).toBeUndefined()
     } catch (err) {
-      expect(mockLogger).toHaveBeenCalledWith(new Error(getActions[GetActionNames.getApps].errorMessage))
+      expect(mockLogger).toHaveBeenCalledWith(new Error(getActions('local')[GetActionNames.getApps].errorMessage))
     }
   })
 
@@ -53,8 +54,8 @@ describe('getFetcher', () => {
 
     try {
       const response = await getFetcher({
-        action: GetActionNames.getApps,
-        connectSession: {},
+        action: getActions('local')[GetActionNames.getApps],
+        connectSession: {} as ReapitConnectSession,
         logger: mockLogger,
       })
       expect(response).toBeUndefined()
@@ -71,7 +72,7 @@ describe('getFetcher', () => {
     })
 
     await getFetcher({
-      action: GetActionNames.getPipeline,
+      action: getActions('local')[GetActionNames.getPipeline],
       uriParams: {
         appId,
       },
