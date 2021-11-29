@@ -151,7 +151,7 @@ const OfficesGroupsTab: FC = () => {
           </ButtonGroup>
         )}
       </FlexContainer>
-      {!data ? (
+      {!data && orgId ? (
         <Loader />
       ) : officeGroups.length && orgId ? (
         <>

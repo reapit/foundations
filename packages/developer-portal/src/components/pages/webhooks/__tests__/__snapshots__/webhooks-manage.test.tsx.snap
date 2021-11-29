@@ -534,7 +534,7 @@ Object {
         <div
           class="e1mwx0ir-el-pn-content"
         >
-          No app selected from the left hand side menu. Select an app to get started.
+          No app selected. Select an app to get started by using the ‘Filters’ options.
         </div>
       </div>
     </div>
@@ -569,7 +569,7 @@ Object {
       <div
         class="e1mwx0ir-el-pn-content"
       >
-        No app selected from the left hand side menu. Select an app to get started.
+        No app selected. Select an app to get started by using the ‘Filters’ options.
       </div>
     </div>
   </div>,
