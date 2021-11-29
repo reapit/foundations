@@ -21,7 +21,7 @@ import {
   Loader,
 } from '@reapit/elements'
 import { PipelineModelInterface, PipelineRunnerModelInterface } from '@reapit/foundations-ts-definitions'
-import { GetActionNames } from '@reapit/utils-common'
+import { GetActionNames, getActions } from '@reapit/utils-common'
 import { useReapitGet } from '@reapit/utils-react'
 import React from 'react'
 import { reapitConnectBrowserSession } from '../../../../core/connect-session'
@@ -88,7 +88,7 @@ export const PipelineDeploymentInfo = ({ pipeline }: { pipeline: PipelineModelIn
   const { connectSession } = useReapitConnect(reapitConnectBrowserSession)
   const [pipelineDeployments, loading] = useReapitGet<{ items: PipelineRunnerModelInterface[] }>({
     reapitConnectBrowserSession,
-    action: GetActionNames.getPipelineDeployments,
+    action: getActions(window.reapit.config.appEnv)[GetActionNames.getPipelineDeployments],
     uriParams: {
       pipelineId: pipeline.id,
     },
