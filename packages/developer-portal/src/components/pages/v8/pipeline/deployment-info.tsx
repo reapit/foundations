@@ -69,6 +69,10 @@ const PipelineInfo = ({ pipeline }: { pipeline: PipelineModelInterface }) => (
         <Subtitle>Tests</Subtitle>
         <BodyText>{pipeline.testCommand}</BodyText>
       </InputWrap>
+      <InputWrap>
+        <Subtitle>Location</Subtitle>
+        <BodyText>{pipeline.subDomain ? `https://${pipeline.subDomain}.dev.paas.reapit.cloud` : ''}</BodyText>
+      </InputWrap>
     </ColSplit>
   </Grid>
 )
