@@ -2,9 +2,9 @@ import { formatError, handleContext } from '../utils'
 import { GraphQLError } from 'graphql'
 
 jest.mock('../logger')
-jest.mock('uuid/v4', (): (() => string) => {
-  return () => 'mockUUID'
-})
+jest.mock('uuid', () => ({
+  v4: jest.fn(() => 'mockUUID'),
+}))
 jest.mock('apollo-server-lambda', () => {
   return {
     ApolloServer: function () {

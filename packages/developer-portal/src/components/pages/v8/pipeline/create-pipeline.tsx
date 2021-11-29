@@ -28,7 +28,7 @@ import { WebhooksAnimatedDocsIcon } from '../../webhooks/webhooks-animated-docs-
 import { ExternalPages, openNewPage } from '@/utils/navigation'
 import { mixed, object, string } from 'yup'
 import { AppTypeEnum, PackageManagerEnum, PipelineModelInterface } from '@reapit/foundations-ts-definitions'
-import { httpsUrlRegex, UpdateActionNames } from '@reapit/utils-common'
+import { httpsUrlRegex, UpdateActionNames, updateActions } from '@reapit/utils-common'
 import { useForm } from 'react-hook-form'
 import { yupResolver } from '@hookform/resolvers/yup'
 import errorMessages from '@/constants/error-messages'
@@ -80,7 +80,7 @@ const PipelineCreationModal = ({ open, onModalClose, appId, refreshPipeline }: P
 
   const [loading, , send, submissionErrors] = useReapitUpdate<Partial<PipelineModelInterface>, PipelineModelInterface>({
     reapitConnectBrowserSession,
-    action: UpdateActionNames.updatePipeline,
+    action: updateActions(window.reapit.config.appEnv)[UpdateActionNames.updatePipeline],
     headers: {
       Authorization: connectSession?.idToken as string,
     },

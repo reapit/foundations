@@ -1,4 +1,4 @@
-import { ApiNames, PathNames } from './api-constants'
+import { ApiNames, AppEnv, PathNames } from './api-constants'
 
 export interface GetAction {
   api: string
@@ -14,15 +14,15 @@ export enum GetActionNames {
 
 export type GetActions = { [key in GetActionNames]: GetAction }
 
-export const getActions: GetActions = {
+export const getActions = (appEnv: AppEnv): GetActions => ({
   [GetActionNames.getApps]: {
-    api: ApiNames.platform,
+    api: ApiNames(appEnv).platform,
     path: PathNames.apps,
     errorMessage: 'Something went wrong fetching apps - this error has been logged',
   },
   [GetActionNames.getPipeline]: {
-    api: ApiNames.pipeline,
+    api: ApiNames(appEnv).pipeline,
     path: PathNames.getPipeline,
     errorMessage: 'Something went wrong',
   },
-}
+})
