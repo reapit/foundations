@@ -29,5 +29,4 @@ export const getActions = (appEnv: AppEnv): GetActions => ({
     api: ApiNames.pipeline,
     path: PathNames.getPipelineDeployments,
   },
-}
 })
