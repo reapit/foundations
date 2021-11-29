@@ -20,7 +20,8 @@ export class DeployPipelineCommand extends AbstractCommand {
     const pipeline = await this.resolveConfigFile<PipelineModelInterface>(REAPIT_PIPELINE_CONFIG_FILE)
 
     if (!pipeline) {
-      throw new Error('no pipeline config found')
+      this.writeLine(chalk.red('no pipeline config found'))
+      process.exit(1)
     }
 
     const spinner = ora('Creating deployment...').start()

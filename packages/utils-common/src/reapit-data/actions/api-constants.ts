@@ -12,4 +12,5 @@ export enum PathNames {
   installations = '/marketplace/installations',
   getPipeline = '/pipeline/{appId}',
   createPipeline = '/pipeline',
+  getPipelineDeployments = '/pipeline/{pipelineId}/pipeline-runner',
 }

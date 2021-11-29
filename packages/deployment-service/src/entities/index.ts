@@ -15,6 +15,7 @@ import {
   PipelineModelInterface,
   PackageManagerEnum,
   TaskModelInterface,
+  PipelineRunnerType,
 } from '@reapit/foundations-ts-definitions'
 import { Type } from 'class-transformer'
 import { CodeBuild } from 'aws-sdk'
@@ -30,10 +31,6 @@ abstract class AbstractEntity {
   modified?: string
 }
 
-export enum PipelineRunnerType {
-  BUILD = 'BUILD',
-  RELEASE = 'RELEASE',
-}
 @Entity('pipeline_runners')
 export class PipelineRunnerEntity extends AbstractEntity implements PipelineRunnerModelInterface {
   @Column({ type: 'varchar', default: 'QUEUED' })
