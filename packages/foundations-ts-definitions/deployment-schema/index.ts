@@ -24,6 +24,7 @@ export interface PipelineRunnerModelInterface {
   created?: string
   modified?: string
   appType?: AppTypeEnum
+  type?: PipelineRunnerType
   buildCommand?: string
   packageManager?: PackageManagerEnum
   tasks?: TaskModelInterface[]
@@ -53,4 +54,9 @@ export enum PackageManagerEnum {
 export enum AppTypeEnum {
   NODE = 'node',
   REACT = 'react',
+}
+
+export enum PipelineRunnerType {
+  BUILD = 'BUILD',
+  RELEASE = 'RELEASE',
 }
