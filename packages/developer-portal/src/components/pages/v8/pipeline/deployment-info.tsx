@@ -1,4 +1,5 @@
 import { cx } from '@linaria/core'
+import { useReapitConnect } from '@reapit/connect-session'
 import {
   BodyText,
   Button,
@@ -16,9 +17,14 @@ import {
   TableRow,
   Title,
   Grid,
+  FlexContainer,
+  Loader,
 } from '@reapit/elements'
 import { PipelineModelInterface, PipelineRunnerModelInterface } from '@reapit/foundations-ts-definitions'
+import { GetActionNames } from '@reapit/utils-common'
+import { useReapitGet } from '@reapit/utils-react'
 import React from 'react'
+import { reapitConnectBrowserSession } from '../../../../core/connect-session'
 
 const buildStatusToIntent = (status: string): Intent => {
   switch (status) {
@@ -79,8 +85,18 @@ const PipelineInfo = ({ pipeline }: { pipeline: PipelineModelInterface }) => (
 
 export const PipelineDeploymentInfo = ({ pipeline }: { pipeline: PipelineModelInterface }) => {
   // TODO make some fetching func to get pipeline deployments and list them below
-
-  const pipelineDeployments: PipelineRunnerModelInterface[] = []
+  const { connectSession } = useReapitConnect(reapitConnectBrowserSession)
+  const [pipelineDeployments, loading] = useReapitGet<{ items: PipelineRunnerModelInterface[] }>({
+    reapitConnectBrowserSession,
+    action: GetActionNames.getPipelineDeployments,
+    uriParams: {
+      pipelineId: pipeline.id,
+    },
+    headers: {
+      Authorization: connectSession?.idToken as string,
+    },
+    fetchWhenTrue: [connectSession?.idToken],
+  })
 
   return (
     <>
@@ -92,17 +108,29 @@ export const PipelineDeploymentInfo = ({ pipeline }: { pipeline: PipelineModelIn
       </ButtonGroup>
       <Table>
         <TableHeadersRow>
+          <TableHeader>Type</TableHeader>
           <TableHeader>Created</TableHeader>
           <TableHeader>Status</TableHeader>
+          <TableHeader>Version</TableHeader>
+          <TableHeader>Currently Deployed</TableHeader>
           <TableHeader></TableHeader>
         </TableHeadersRow>
-        {pipelineDeployments.map((deployment) => (
-          <TableRow key={deployment.id}>
-            <TableCell>{deployment.created}</TableCell>
-            <TableCell>{deployment.buildStatus}</TableCell>
-            <TableCell></TableCell>
-          </TableRow>
-        ))}
+        {loading ? (
+          <FlexContainer>
+            <Loader />
+          </FlexContainer>
+        ) : pipelineDeployments !== null ? (
+          pipelineDeployments.items.map((deployment) => (
+            <TableRow key={deployment.id}>
+              <TableCell>{deployment.type}</TableCell>
+              <TableCell>{deployment.created}</TableCell>
+              <TableCell>{deployment.buildStatus}</TableCell>
+              <TableCell>{deployment.buildVersion}</TableCell>
+              <TableCell>{deployment.currentlyDeployed ? 'Deployed' : ''}</TableCell>
+              <TableCell></TableCell>
+            </TableRow>
+          ))
+        ) : null}
       </Table>
     </>
   )
