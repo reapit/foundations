@@ -27139,7 +27139,7 @@ fsevents@^1.2.7:
     esbuild: ^0.14.1
     eslint: 7.31.0
     eslint-plugin-prettier: ^3.4.0
-    graphql: 15.6.1
+    graphql: 15.7.2
     graphql-depth-limit: ^1.1.0
     graphql-import: ^1.0.2
     graphql-tag: ^2.12.5
@@ -27245,6 +27245,13 @@ fsevents@^1.2.7:
   version: 15.6.1
   resolution: "graphql@npm:15.6.1"
   checksum: b6ce4fd769d0df5d4e501014f169f29c5e5520f8f913d94a907e04fe221280a58699e7c76f959a68a2d29932e13bfb6529af537eb99e56e5424304da02ddb808
+  languageName: node
+  linkType: hard
+
+"graphql@npm:15.7.2":
+  version: 15.7.2
+  resolution: "graphql@npm:15.7.2"
+  checksum: 95bfd2b7f59cfd3a4d33c98571a982773c0194e0e82c6333fc5497890b647d730b4a0edc00e3e665375b6abdaaf64a6c0a61a96e03f8763d83d326c5291e635f
   languageName: node
   linkType: hard
 

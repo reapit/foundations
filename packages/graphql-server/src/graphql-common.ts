@@ -15,7 +15,7 @@ if (process.env.NODE_ENV !== 'development') {
   })
 }
 
-const typeDefs = importSchema(path.resolve('schema.graphql'))
+const typeDefs = importSchema(path.resolve(__dirname, 'schema.graphql'))
 
 export const config: Config<LambdaContextFunctionParams> = {
   typeDefs,
