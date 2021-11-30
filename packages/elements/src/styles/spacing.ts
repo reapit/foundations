@@ -274,7 +274,7 @@ export const elMt8 = css`
 `
 
 export const elMt9 = css`
-  margin-top: 2wrem;
+  margin-top: 2rem;
 `
 
 export const elMt10 = css`
@@ -335,8 +335,8 @@ export const elMy8 = css`
 `
 
 export const elMy9 = css`
-  margin-top: 2wrem;
-  margin-bottom: 2wrem;
+  margin-top: 2rem;
+  margin-bottom: 2rem;
 `
 
 export const elMy10 = css`
@@ -400,8 +400,8 @@ export const elMx8 = css`
 `
 
 export const elMx9 = css`
-  margin-left: 2wrem;
-  margin-right: 2wrem;
+  margin-left: 2rem;
+  margin-right: 2rem;
 `
 
 export const elMx10 = css`
@@ -457,7 +457,7 @@ export const elP8 = css`
 `
 
 export const elP9 = css`
-  padding: 2wrem;
+  padding: 2rem;
 `
 
 export const elP10 = css`
@@ -509,7 +509,7 @@ export const elPr8 = css`
 `
 
 export const elPr9 = css`
-  padding-right: 2wrem;
+  padding-right: 2rem;
 `
 
 export const elPr10 = css`
@@ -561,7 +561,7 @@ export const elPl8 = css`
 `
 
 export const elPl9 = css`
-  padding-left: 2wrem;
+  padding-left: 2rem;
 `
 
 export const elPl10 = css`
@@ -622,8 +622,8 @@ export const elPy8 = css`
 `
 
 export const elPy9 = css`
-  padding-top: 2wrem;
-  padding-bottom: 2wrem;
+  padding-top: 2rem;
+  padding-bottom: 2rem;
 `
 
 export const elPy10 = css`
@@ -687,8 +687,8 @@ export const elPx8 = css`
 `
 
 export const elPx9 = css`
-  padding-left: 2wrem;
-  padding-right: 2wrem;
+  padding-left: 2rem;
+  padding-right: 2rem;
 `
 
 export const elPx10 = css`
@@ -743,7 +743,7 @@ export const elPt8 = css`
 `
 
 export const elPt9 = css`
-  padding-top: 2wrem;
+  padding-top: 2rem;
 `
 
 export const elPt10 = css`
@@ -795,7 +795,7 @@ export const elPb8 = css`
 `
 
 export const elPb9 = css`
-  padding-bottom: 2wrem;
+  padding-bottom: 2rem;
 `
 
 export const elPb10 = css`
