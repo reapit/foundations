@@ -50,15 +50,20 @@ exports[`Home should match a snapshot 1`] = `
     </ControlsContainer>
   </SecondaryNavContainer>
   <PageContainer>
-    <Title>
-      Reapit Insights
-    </Title>
+    <FlexContainer
+      isFlexJustifyBetween={true}
+    >
+      <Title>
+        Reapit Insights
+      </Title>
+    </FlexContainer>
     <PersistantNotification
       intent="secondary"
       isExpanded={true}
       isFullWidth={true}
+      isInline={true}
     >
-      Please select a report from the left hand side menu
+      Please select a report to get started
     </PersistantNotification>
   </PageContainer>
 </FlexContainer>

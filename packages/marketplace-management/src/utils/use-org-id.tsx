@@ -23,6 +23,14 @@ export interface UseOrgIdState {
   setOrgIdState: (event: ChangeEvent<HTMLSelectElement>) => void
 }
 
+const defaultState: OrgIdState = {
+  orgId: null,
+  orgName: null,
+  orgClientId: null,
+  orgIdOptions: [],
+  orgMembers: [],
+}
+
 export const OrgIdContext = createContext<OrgIdContextProps>({} as OrgIdContextProps)
 
 const { Provider } = OrgIdContext
@@ -84,6 +92,8 @@ export const useOrgId = (): UseOrgIdState => {
       })
 
       connectClearSession()
+    } else {
+      setOrgIdState(defaultState)
     }
   }
 
@@ -94,13 +104,7 @@ export const useOrgId = (): UseOrgIdState => {
 }
 
 export const OrgIdStateProvider: FC = ({ children }) => {
-  const [orgIdState, setOrgIdState] = useState<OrgIdState>({
-    orgId: null,
-    orgName: null,
-    orgClientId: null,
-    orgIdOptions: [],
-    orgMembers: [],
-  })
+  const [orgIdState, setOrgIdState] = useState<OrgIdState>(defaultState)
 
   return (
     <Provider

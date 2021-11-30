@@ -5,12 +5,16 @@ Object {
   "asFragment": [Function],
   "baseElement": <body>
     <div>
-      <h1
-        class="el-title"
+      <div
+        class="el-flex-justify-between el-flex-container"
       >
-        SOME_NAME
-         Offices
-      </h1>
+        <h1
+          class="el-title"
+        >
+          SOME_NAME
+           Offices
+        </h1>
+      </div>
       <form>
         <div
           class="el-fade-in el-mb11 el-form-layout"
@@ -73,12 +77,16 @@ Object {
     </div>
   </body>,
   "container": <div>
-    <h1
-      class="el-title"
+    <div
+      class="el-flex-justify-between el-flex-container"
     >
-      SOME_NAME
-       Offices
-    </h1>
+      <h1
+        class="el-title"
+      >
+        SOME_NAME
+         Offices
+      </h1>
+    </div>
     <form>
       <div
         class="el-fade-in el-mb11 el-form-layout"
@@ -198,12 +206,16 @@ Object {
   "asFragment": [Function],
   "baseElement": <body>
     <div>
-      <h1
-        class="el-title"
+      <div
+        class="el-flex-justify-between el-flex-container"
       >
-        SOME_NAME
-         Offices
-      </h1>
+        <h1
+          class="el-title"
+        >
+          SOME_NAME
+           Offices
+        </h1>
+      </div>
       <form>
         <div
           class="el-fade-in el-mb11 el-form-layout"
@@ -266,12 +278,16 @@ Object {
     </div>
   </body>,
   "container": <div>
-    <h1
-      class="el-title"
+    <div
+      class="el-flex-justify-between el-flex-container"
     >
-      SOME_NAME
-       Offices
-    </h1>
+      <h1
+        class="el-title"
+      >
+        SOME_NAME
+         Offices
+      </h1>
+    </div>
     <form>
       <div
         class="el-fade-in el-mb11 el-form-layout"
@@ -392,6 +408,63 @@ Object {
   "baseElement": <body>
     <div>
       <div
+        class="el-flex-justify-between el-flex-container"
+      >
+        <h1
+          class="el-title"
+        >
+          Offices
+        </h1>
+      </div>
+      <form>
+        <div
+          class="el-fade-in el-mb11 el-form-layout"
+        >
+          <div
+            class="el-input-wrap"
+          >
+            <div
+              class="el-input-group"
+            >
+              <input
+                class="el-input"
+                id="test-static-id"
+                name="name"
+                placeholder="Search for an office"
+              />
+              <label
+                class="el-label"
+                for="test-static-id"
+              >
+                Search
+              </label>
+            </div>
+          </div>
+          <div
+            class="el-input-wrap"
+          >
+            <div
+              class="el-flex-grow el-flex-align-end el-hfull el-flex-container"
+            >
+              <div
+                class="el-button-group"
+              >
+                <div
+                  class="el-button-group-align-left el-button-group-inner"
+                >
+                  <button
+                    class="el-intent-primary el-button"
+                    type="submit"
+                  >
+                    Search
+                  </button>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </form>
+      <div
         class="el-intent-secondary el-is-active el-pn-is-full-width el-pn-is-inline el-persistant-notification"
       >
         <div
@@ -423,6 +496,63 @@ Object {
     </div>
   </body>,
   "container": <div>
+    <div
+      class="el-flex-justify-between el-flex-container"
+    >
+      <h1
+        class="el-title"
+      >
+        Offices
+      </h1>
+    </div>
+    <form>
+      <div
+        class="el-fade-in el-mb11 el-form-layout"
+      >
+        <div
+          class="el-input-wrap"
+        >
+          <div
+            class="el-input-group"
+          >
+            <input
+              class="el-input"
+              id="test-static-id"
+              name="name"
+              placeholder="Search for an office"
+            />
+            <label
+              class="el-label"
+              for="test-static-id"
+            >
+              Search
+            </label>
+          </div>
+        </div>
+        <div
+          class="el-input-wrap"
+        >
+          <div
+            class="el-flex-grow el-flex-align-end el-hfull el-flex-container"
+          >
+            <div
+              class="el-button-group"
+            >
+              <div
+                class="el-button-group-align-left el-button-group-inner"
+              >
+                <button
+                  class="el-intent-primary el-button"
+                  type="submit"
+                >
+                  Search
+                </button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </form>
     <div
       class="el-intent-secondary el-is-active el-pn-is-full-width el-pn-is-inline el-persistant-notification"
     >

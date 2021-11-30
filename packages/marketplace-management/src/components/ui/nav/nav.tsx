@@ -44,12 +44,36 @@ export const Nav: FC = () => {
       text: 'Offices',
       iconId: 'officesMenu',
       callback: navigate(history, Routes.OFFICES),
+      subItems: [
+        {
+          itemIndex: 0,
+          callback: navigate(history, Routes.OFFICES),
+          text: 'Offices',
+        },
+        {
+          itemIndex: 1,
+          callback: navigate(history, Routes.OFFICES_GROUPS),
+          text: 'Offices Groups',
+        },
+      ],
     },
     {
       itemIndex: 2,
       text: 'Users',
       iconId: 'usersMenu',
       callback: navigate(history, Routes.USERS),
+      subItems: [
+        {
+          itemIndex: 2,
+          callback: navigate(history, Routes.USERS),
+          text: 'Users',
+        },
+        {
+          itemIndex: 3,
+          callback: navigate(history, Routes.USERS_GROUPS),
+          text: 'Users Groups',
+        },
+      ],
     },
     {
       itemIndex: 3,

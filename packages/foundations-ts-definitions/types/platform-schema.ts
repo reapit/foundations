@@ -9734,6 +9734,7 @@ export interface Properties {
   internetAdvertising?: boolean
   isExternal?: boolean
   fromArchive?: boolean
+  availableFrom?: string
   createdFrom?: string
   createdTo?: string
   modifiedFrom?: string

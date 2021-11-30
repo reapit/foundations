@@ -62,6 +62,7 @@ export class PipelineCreate extends AbstractCommand {
     outDir,
     buildCommand,
     packageManager,
+    appId,
   }: {
     name: string
     appType: string
@@ -70,6 +71,7 @@ export class PipelineCreate extends AbstractCommand {
     outDir: string
     buildCommand: string
     packageManager: string
+    appId: string
   }) {
     const spinner = ora('Creating pipeline').start()
     const response = await (
@@ -81,6 +83,7 @@ export class PipelineCreate extends AbstractCommand {
       outDir,
       buildCommand,
       packageManager,
+      appId,
     })
 
     if (response.status === 200) {
@@ -105,6 +108,11 @@ export class PipelineCreate extends AbstractCommand {
     const repositories = await this.fetchGitRemotes()
 
     const questions: QuestionCollection<any>[] = [
+      {
+        type: 'input',
+        message: "What's your App Id?",
+        name: 'appId',
+      },
       {
         type: 'input',
         message: "Your project's name",

@@ -11,6 +11,7 @@ import {
   createMarketplaceAppRevision,
   getDeveloperApps,
   getMarketplaceApp,
+  getValidMarketplaceScopes,
 } from '../platform/apps'
 import { notEmpty } from '../utils/helpers'
 
@@ -89,12 +90,15 @@ const updateMarketplaceAppScopes = async (appId: string, scopes: string[], acces
   }
 }
 
-const ensureScopes = (app: DDBApp, accessToken: string) => {
+const ensureScopes = async (app: DDBApp, accessToken: string) => {
   const nodes = app.pages.map((page) => page.nodes).flat()
   const requiredAccess: { objectName: string; access: Access[] }[] = nodes
     .map((node) => {
       const name = node.type.resolvedName
-      const objectName = node.props.typeName as string
+      const objectName = node.props.typeName as string | undefined
+      if (!objectName) {
+        return null
+      }
       if (name === 'Form') {
         return {
           objectName,
@@ -111,11 +115,14 @@ const ensureScopes = (app: DDBApp, accessToken: string) => {
     })
     .filter(notEmpty)
 
+  const validScopes = (await getValidMarketplaceScopes(accessToken)).map(({ name }) => name)
   const scopes = requiredAccess
     .map(({ objectName, access }) => {
       return access.map((access) => getObjectScopes(objectName, access))
     })
     .flat()
+    .filter(notEmpty)
+    .filter((scope) => validScopes.includes(scope))
 
   return updateMarketplaceAppScopes(app.id, scopes, accessToken)
 }

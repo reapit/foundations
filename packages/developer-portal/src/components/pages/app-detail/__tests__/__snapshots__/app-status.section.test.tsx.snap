@@ -65,6 +65,9 @@ exports[`StatusSection should match a snapshot where isListed false and not side
         "name": "Peter's Properties",
         "pricingUrl": "https://reapit.com",
         "privacyPolicyUrl": "https://reapit.com",
+        "products": Array [
+          "agencyCloud",
+        ],
         "scopes": Array [
           Object {
             "description": "Read data about developers",
@@ -152,6 +155,9 @@ exports[`StatusSection should match a snapshot where isListed true, is installed
         "name": "Peter's Properties",
         "pricingUrl": "https://reapit.com",
         "privacyPolicyUrl": "https://reapit.com",
+        "products": Array [
+          "agencyCloud",
+        ],
         "scopes": Array [
           Object {
             "description": "Read data about developers",

@@ -108,7 +108,9 @@ Object {
                 <select
                   class="el-wfull el-select"
                 >
-                  <option>
+                  <option
+                    value=""
+                  >
                     Please Select
                   </option>
                   <option
@@ -135,12 +137,16 @@ Object {
         <section
           class="el-hfull el-page-container"
         >
-          <h1
-            class="el-title"
+          <div
+            class="el-flex-justify-between el-flex-container"
           >
-            SOME_NAME
-             AppMarket
-          </h1>
+            <h1
+              class="el-title"
+            >
+              SOME_NAME
+               AppMarket
+            </h1>
+          </div>
           <div
             class="el-grid"
           >
@@ -3011,7 +3017,9 @@ Object {
               <select
                 class="el-wfull el-select"
               >
-                <option>
+                <option
+                  value=""
+                >
                   Please Select
                 </option>
                 <option
@@ -3038,12 +3046,16 @@ Object {
       <section
         class="el-hfull el-page-container"
       >
-        <h1
-          class="el-title"
+        <div
+          class="el-flex-justify-between el-flex-container"
         >
-          SOME_NAME
-           AppMarket
-        </h1>
+          <h1
+            class="el-title"
+          >
+            SOME_NAME
+             AppMarket
+          </h1>
+        </div>
         <div
           class="el-grid"
         >
@@ -5971,7 +5983,9 @@ Object {
                 <select
                   class="el-wfull el-select"
                 >
-                  <option>
+                  <option
+                    value=""
+                  >
                     Please Select
                   </option>
                   <option
@@ -5998,11 +6012,15 @@ Object {
         <section
           class="el-hfull el-page-container"
         >
-          <h1
-            class="el-title"
+          <div
+            class="el-flex-justify-between el-flex-container"
           >
-             AppMarket
-          </h1>
+            <h1
+              class="el-title"
+            >
+               AppMarket
+            </h1>
+          </div>
           <div
             class="el-intent-secondary el-is-active el-pn-is-full-width el-pn-is-inline el-persistant-notification"
           >
@@ -6140,7 +6158,9 @@ Object {
               <select
                 class="el-wfull el-select"
               >
-                <option>
+                <option
+                  value=""
+                >
                   Please Select
                 </option>
                 <option
@@ -6167,11 +6187,15 @@ Object {
       <section
         class="el-hfull el-page-container"
       >
-        <h1
-          class="el-title"
+        <div
+          class="el-flex-justify-between el-flex-container"
         >
-           AppMarket
-        </h1>
+          <h1
+            class="el-title"
+          >
+             AppMarket
+          </h1>
+        </div>
         <div
           class="el-intent-secondary el-is-active el-pn-is-full-width el-pn-is-inline el-persistant-notification"
         >

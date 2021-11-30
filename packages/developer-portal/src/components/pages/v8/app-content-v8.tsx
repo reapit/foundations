@@ -17,7 +17,7 @@ export const AppContent: React.FC<AppContentProps> = ({ appDetailState }) => {
         <ColSplit>
           <InputWrap>
             <Subtitle>Authentication (Client ID)</Subtitle>
-            <BodyText hasGreyText>{appDetailData.id}</BodyText>
+            <BodyText hasGreyText>{appDetailData.externalId}</BodyText>
           </InputWrap>
         </ColSplit>
         <ColSplit>

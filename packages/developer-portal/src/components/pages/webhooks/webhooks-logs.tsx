@@ -111,7 +111,7 @@ export const WebhooksLogs: FC<WebhooksLogsProps> = ({ webhookQueryParams }) => {
   if (!applicationId || !from || !to)
     return (
       <PersistantNotification isFullWidth isExpanded intent="secondary" isInline>
-        One or more filters not selected from the left hand side menu. Select an app and a date range to get started.
+        No app or date range selected. Please use the ‘Filters’ option to get started.
       </PersistantNotification>
     )
   if (isLoading) return <Loader label="loading" />

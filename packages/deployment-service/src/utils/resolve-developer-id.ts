@@ -4,7 +4,7 @@ import { APIGatewayEvent } from 'aws-lambda'
 
 export type Creds = {
   developerId: string
-  clientCode: string
+  clientId: string
 }
 
 export const resolveCreds = async (event: APIGatewayEvent): Promise<Creds | never> => {
@@ -13,7 +13,7 @@ export const resolveCreds = async (event: APIGatewayEvent): Promise<Creds | neve
 
     return {
       developerId: apiKey?.developerId as string,
-      clientCode: apiKey?.clientCode as string,
+      clientId: apiKey?.clientCode as string,
     }
   }
 
@@ -21,6 +21,6 @@ export const resolveCreds = async (event: APIGatewayEvent): Promise<Creds | neve
 
   return {
     developerId: customer.developerId as string,
-    clientCode: customer.clientId as string,
+    clientId: customer.clientId as string,
   }
 }

@@ -1,6 +1,6 @@
 import { SubDomainSubscriber } from '../subscribers/sub-domain'
 import { ConnectionOptions } from 'typeorm'
-import { TaskEntity, PipelineEntity, PipelineRunnerEntity, ReleaseEntity } from './../entities'
+import { TaskEntity, PipelineEntity, PipelineRunnerEntity } from './../entities'
 import migrations from './../../migrations'
 
 const {
@@ -19,7 +19,7 @@ const baseConfig = {
   logging: true,
   synchronize: false,
   migrationsRun: false,
-  entities: [PipelineEntity, PipelineRunnerEntity, TaskEntity, ReleaseEntity],
+  entities: [PipelineEntity, PipelineRunnerEntity, TaskEntity],
   subscribers: [SubDomainSubscriber],
   migrations,
 }

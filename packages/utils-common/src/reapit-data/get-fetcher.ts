@@ -1,11 +1,11 @@
-import { GetActionNames, getActions } from './actions'
+import { GetAction } from './actions'
 import { getMergedHeaders } from './utils'
 import qs from 'qs'
 import { ReapitConnectSession } from '../../../connect-session/src'
 import { StringMap } from '..'
 
 export interface GetFetcherParams {
-  action: GetActionNames
+  action: GetAction
   connectSession: ReapitConnectSession | null
   queryParams?: Object
   uriParams?: Object
@@ -21,8 +21,7 @@ export const getFetcher = async <DataType>({
   headers,
   logger,
 }: GetFetcherParams): Promise<DataType | string> => {
-  const getAction = getActions[action]
-  const { api, path } = getAction
+  const { api, path } = action
   const deSerialisedPath = uriParams
     ? Object.keys(uriParams).reduce<string>((path, uriReplaceKey) => {
         return path.replace(`{${uriReplaceKey}}`, uriParams[uriReplaceKey])
@@ -46,7 +45,7 @@ export const getFetcher = async <DataType>({
       return jsonRes as DataType
     }
 
-    throw new Error(getAction.errorMessage || 'Something went wrong')
+    throw new Error(action.errorMessage || 'Something went wrong')
   } catch (err) {
     const error = err as Error
     logger(error)

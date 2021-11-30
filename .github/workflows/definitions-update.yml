@@ -28,6 +28,22 @@ jobs:
       - name: Fetch Definitions
         run: yarn workspace @reapit/foundations-ts-definitions start
 
+      - name: Get Timestamp
+        id: time
+        uses: nanzm/get-time-action@v1.1
+        with:
+          format: 'YYYY-MM-DD-HH-mm'
+
+      - name: Create Pull Request
+        uses: peter-evans/create-pull-request@v3
+        with:
+          commit-message: Update ts definitions
+          signoff: false
+          delete-branch: true
+          branch: chore/ts-definitions-timestamp-${{ steps.time.outputs.time }}
+          title: 'chore: Update TS Definitions'
+          body: |
+            Update Foundations TS Definitions
 env:
   NPM_TOKEN: ${{secrets.NPM_TOKEN}}
   GITHUB_TOKEN: ${{secrets.GITHUB_TOKEN}}

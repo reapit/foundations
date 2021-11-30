@@ -14,6 +14,10 @@ import {
   Select,
   Label,
   elBorderRadius,
+  ButtonGroup,
+  useMediaQuery,
+  useModal,
+  elMt5,
 } from '@reapit/elements'
 import { useReapitConnect, ReapitConnectSession } from '@reapit/connect-session'
 import { reapitConnectBrowserSession } from '../../core/connect-session'
@@ -72,6 +76,8 @@ export const Home: FC = () => {
   const { connectSession } = useReapitConnect(reapitConnectBrowserSession)
   const [selectedReport, setSelectedReport] = useState<PowerBIParams | null>(null)
   const [installedReports, setInstalledReports] = useState<InstalledReport[] | null>(null)
+  const { isMobile } = useMediaQuery()
+  const { Modal, openModal, closeModal } = useModal()
   const [loading, setLoading] = useState<boolean>(false)
   const reportRef = useRef<HTMLDivElement | null>(null)
   const shouldFetchReports = !loading && !selectedReport && !installedReports
@@ -113,11 +119,38 @@ export const Home: FC = () => {
         </ControlsContainer>
       </SecondaryNavContainer>
       <PageContainer>
-        <Title>Reapit Insights</Title>
+        <FlexContainer isFlexJustifyBetween>
+          <Title>Reapit Insights</Title>
+          {isMobile && (
+            <ButtonGroup alignment="right">
+              <Button intent="low" onClick={openModal}>
+                Select Report
+              </Button>
+              <Modal title="Select Report">
+                <InputGroup>
+                  <Select className={elWFull} onChange={handleSelectReport(setSelectedReport, installedReports)}>
+                    <option key="default-option">Please Select</option>
+                    {installedReports?.map((report) => (
+                      <option key={report.id} value={report.id}>
+                        {report.name}
+                      </option>
+                    ))}
+                  </Select>
+                  <Label htmlFor="myId">Select Report</Label>
+                </InputGroup>
+                <ButtonGroup className={elMt5} alignment="center">
+                  <Button intent="secondary" onClick={closeModal}>
+                    Close
+                  </Button>
+                </ButtonGroup>
+              </Modal>
+            </ButtonGroup>
+          )}
+        </FlexContainer>
         {!selectedReport ? (
           <>
-            <PersistantNotification isFullWidth isExpanded intent="secondary">
-              {loading ? 'Loading your Power BI Reports.' : 'Please select a report from the left hand side menu'}
+            <PersistantNotification isFullWidth isExpanded isInline intent="secondary">
+              {loading ? 'Loading your Power BI Reports.' : 'Please select a report to get started'}
             </PersistantNotification>
             {loading && <Loader fullPage label="Loading" />}
           </>

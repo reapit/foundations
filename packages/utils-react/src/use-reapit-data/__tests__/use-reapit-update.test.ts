@@ -1,7 +1,7 @@
 import { renderHook, act } from '@testing-library/react-hooks'
 import { useReapitUpdate } from '..'
 import { ReapitConnectBrowserSession, ReapitConnectSession } from '@reapit/connect-session'
-import { UpdateActionNames } from '@reapit/utils-common'
+import { updateActions } from '@reapit/utils-common'
 import { send, ReapitUpdateState } from '../use-reapit-update'
 
 const mockData = {
@@ -39,14 +39,14 @@ jest.mock('@reapit/utils-common', () => ({
   UpdateActionNames: {
     actionName: 'actionName',
   },
-  updateActions: {
+  updateActions: () => ({
     actionName: {
       api: 'https://api.test.reapit.com',
       path: '/path',
       successMessage: 'Some success message',
       errorMessage: 'Some error message',
     },
-  },
+  }),
   getFetcher: jest.fn(() => mockData),
 }))
 
@@ -72,7 +72,7 @@ describe('useReapitUpdate', () => {
     const { result, waitForNextUpdate } = renderHook<{}, ReapitUpdateState<{}, typeof mockData>>(() =>
       useReapitUpdate<{}, typeof mockData>({
         reapitConnectBrowserSession,
-        action: 'actionName' as UpdateActionNames,
+        action: updateActions('local')['actionName'],
       }),
     )
     expect(result.current[0]).toBeFalsy()
@@ -127,7 +127,7 @@ describe('useReapitUpdate', () => {
     const { result, waitForNextUpdate } = renderHook<{}, ReapitUpdateState<{}, typeof mockData>>(() =>
       useReapitUpdate<{}, typeof mockData>({
         reapitConnectBrowserSession,
-        action: 'actionName' as UpdateActionNames,
+        action: updateActions('local')['actionName'],
         returnUpdatedModel: true,
       }),
     )
@@ -177,13 +177,14 @@ describe('useReapitUpdate', () => {
         setError,
         setData,
         setSuccess,
-        action: 'actionName' as UpdateActionNames,
+        action: updateActions('local')['actionName'],
         method: 'POST',
         returnUpdatedModel: true,
         headers: {},
         error: null,
         connectSession: reapitConnectSession,
         errorSnack: () => {},
+        canCall: true,
       })
 
       await testFunc({})

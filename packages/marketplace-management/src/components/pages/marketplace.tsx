@@ -6,6 +6,8 @@ import { AppSummaryModelPagedResult } from '@reapit/foundations-ts-definitions'
 import AppCard from '../ui/apps/app-card'
 import {
   BodyText,
+  Button,
+  ButtonGroup,
   Col,
   elHFull,
   elMb5,
@@ -19,12 +21,14 @@ import {
   SecondaryNavContainer,
   Subtitle,
   Title,
+  useMediaQuery,
+  useModal,
 } from '@reapit/elements'
 import { useOrgId } from '../../utils/use-org-id'
 import { reapitConnectBrowserSession } from '../../core/connect-session'
 import { OrgIdSelect } from '../hocs/org-id-select'
 import { useReapitGet } from '@reapit/utils-react'
-import { GetActionNames } from '@reapit/utils-common'
+import { GetActionNames, getActions } from '@reapit/utils-common'
 import qs from 'qs'
 
 export const onPageChangeHandler = (history: History<any>) => (page: number) => {
@@ -35,6 +39,8 @@ export const onPageChangeHandler = (history: History<any>) => (page: number) => 
 export const MarketplacePage: FC = () => {
   const history = useHistory()
   const location = useLocation()
+  const { Modal, openModal, closeModal } = useModal()
+  const { isMobile } = useMediaQuery()
   const onPageChange = useCallback(onPageChangeHandler(history), [history])
   const searchParams = qs.parse(location.search, { ignoreQueryPrefix: true })
 
@@ -44,7 +50,7 @@ export const MarketplacePage: FC = () => {
 
   const [appData, appLoading] = useReapitGet<AppSummaryModelPagedResult>({
     reapitConnectBrowserSession,
-    action: GetActionNames.getApps,
+    action: getActions(window.reapit.config.appEnv)[GetActionNames.getApps],
     queryParams: { showHiddenApps: 'true', clientId: orgClientId, ...searchParams },
     fetchWhenTrue: [orgClientId],
   })
@@ -62,7 +68,24 @@ export const MarketplacePage: FC = () => {
         <OrgIdSelect />
       </SecondaryNavContainer>
       <PageContainer className={elHFull}>
-        <Title>{orgName} AppMarket</Title>
+        <FlexContainer isFlexJustifyBetween>
+          <Title>{orgName} AppMarket</Title>
+          {isMobile && (
+            <ButtonGroup alignment="right">
+              <Button intent="low" onClick={openModal}>
+                Select Org
+              </Button>
+              <Modal title="Select Organisation">
+                <OrgIdSelect />
+                <ButtonGroup alignment="center">
+                  <Button intent="secondary" onClick={closeModal}>
+                    Close
+                  </Button>
+                </ButtonGroup>
+              </Modal>
+            </ButtonGroup>
+          )}
+        </FlexContainer>
         {!orgClientId ? (
           <PersistantNotification isFullWidth isExpanded intent="secondary" isInline>
             No organisation selected. You need to select an organisation to view available apps.

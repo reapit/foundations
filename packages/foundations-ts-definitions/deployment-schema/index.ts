@@ -14,6 +14,7 @@ export interface PipelineModelInterface {
   repository?: string
   outDir?: string
   buildStatus?: string
+  appId?: string
   subDomain?: string
 }
 
@@ -23,11 +24,14 @@ export interface PipelineRunnerModelInterface {
   created?: string
   modified?: string
   appType?: AppTypeEnum
+  type?: PipelineRunnerType
   buildCommand?: string
   packageManager?: PackageManagerEnum
   tasks?: TaskModelInterface[]
   buildStatus?: CodeBuild.StatusType
   s3BuildLogsLocation?: string
+  buildVersion?: string
+  currentlyDeployed?: boolean
 }
 
 export interface TaskModelInterface {
@@ -50,4 +54,9 @@ export enum PackageManagerEnum {
 export enum AppTypeEnum {
   NODE = 'node',
   REACT = 'react',
+}
+
+export enum PipelineRunnerType {
+  BUILD = 'BUILD',
+  RELEASE = 'RELEASE',
 }

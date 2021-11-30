@@ -13,6 +13,7 @@ describe('App Pipeline Create', () => {
     await pipelineCreateFormHandle(
       (values: any) => Promise.resolve(true), // eslint-disable-line no-unused-vars
       mockRefresh,
+      'app-id',
     )({})
     expect(mockRefresh).toHaveBeenCalled()
   })
@@ -23,6 +24,7 @@ describe('App Pipeline Create', () => {
     await pipelineCreateFormHandle(
       (values: any) => Promise.resolve(false), // eslint-disable-line no-unused-vars
       mockRefresh,
+      'app-id',
     )({})
     expect(mockRefresh).toBeCalledTimes(0)
   })
