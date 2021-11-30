@@ -36,6 +36,7 @@ const {
   privacyPolicyUrl,
   pricingUrl,
   isFree,
+  products,
 } = formFields
 
 export const validationSchemaSubmitRevision = Yup.object().shape({
@@ -225,6 +226,8 @@ export const validationSchemaSubmitRevision = Yup.object().shape({
         return isValidHttpsUrl(value)
       },
     }),
+
+  [products.name]: Yup.string().required('At least one product must be selected'),
 })
 
 export default validationSchemaSubmitRevision

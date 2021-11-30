@@ -29,6 +29,7 @@ type Field =
   | 'isListed'
   | 'isPrivateApp'
   | 'developerId'
+  | 'products'
 
 export const formFields: Record<Field, FormFieldInfo> = {
   name: {
@@ -166,6 +167,10 @@ export const formFields: Record<Field, FormFieldInfo> = {
   developerId: {
     name: 'developerId',
     label: 'Developer ID',
+  },
+  products: {
+    name: 'products',
+    label: 'Reapit Products',
   },
 }
 

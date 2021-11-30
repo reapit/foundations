@@ -1,0 +1,22 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`ReapitProductsSection should match a snapshot 1`] = `
+<FormSection>
+  <FormHeading>
+    Reapit Products
+  </FormHeading>
+  <FormSubHeading>
+    This section refers to products that are available within the Reapit Group of Companies. For UK based developers, this will typically default to Agency Cloud however, as we launch the Reapit AppMarket in other countries and with different products, you may wish for your application to list in these alternative AppMarkets. You can select more than one option but at least one option must be selected.
+  </FormSubHeading>
+  <Grid>
+    <GridItem>
+      <Field
+        name="products"
+        type="input"
+      >
+        <Component />
+      </Field>
+    </GridItem>
+  </Grid>
+</FormSection>
+`;

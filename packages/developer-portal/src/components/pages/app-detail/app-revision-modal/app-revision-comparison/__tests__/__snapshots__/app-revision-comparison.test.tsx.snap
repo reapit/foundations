@@ -89,6 +89,9 @@ exports[`AdminRevisionModalInner should match a snapshot 1`] = `
               "name": "Peter's Properties",
               "pricingUrl": "https://reapit.com",
               "privacyPolicyUrl": "https://reapit.com",
+              "products": Array [
+                "agencyCloud",
+              ],
               "scopes": Array [
                 Object {
                   "description": "Read data about developers",
@@ -810,6 +813,32 @@ Get
                   key="0"
                 >
                   https://reapit.com
+                </span>
+              </div>
+            </DiffViewer>
+          </div>
+          <div
+            className="mb-3"
+            key="products"
+          >
+            <h4
+              className="mb-2"
+            >
+              Products
+            </h4>
+            <DiffViewer
+              changedString=""
+              currentString="agencyCloud"
+              type="words"
+            >
+              <div
+                className="dwmgqyi-diff-viewer-container"
+              >
+                <span
+                  className="rbeetup-red"
+                  key="0"
+                >
+                  agencyCloud
                 </span>
               </div>
             </DiffViewer>

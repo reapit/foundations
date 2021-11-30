@@ -138,12 +138,12 @@ export const Menu: React.FunctionComponent = () => {
             {
               itemIndex: 3,
               callback: navigate(history, Routes.API_DOCS),
-              text: 'Docs',
+              text: 'APIs',
             },
             {
               itemIndex: 4,
               callback: navigate(history, Routes.ANALYTICS_SCHEMA_DOCS),
-              text: 'Scheama Docs',
+              text: 'Warehouse',
             },
           ],
         },

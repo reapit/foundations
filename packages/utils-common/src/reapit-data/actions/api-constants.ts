@@ -11,6 +11,7 @@ export enum PathNames {
   apps = '/marketplace/apps',
   installations = '/marketplace/installations',
   getPipeline = '/pipeline/{appId}',
+  products = '/marketplace/products',
   createPipeline = '/pipeline',
   getPipelineDeployments = '/pipeline/{pipelineId}/pipeline-runner',
 }
