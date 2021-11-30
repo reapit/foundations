@@ -11,6 +11,7 @@ import { pipelineCloudfrontR53Storage1631182439085 } from './1631182439085-pipel
 import { nullableFields1637076778182 } from './1637076778182-nullable-fields'
 import { appId1637317204753 } from './1637317204753-appId'
 import { cliRefactor1637591977282 } from './1637591977282-cliRefactor'
+import { startTimeFix1638286917874 } from './1638286917874-startTimeFix'
 
 export default [
   pipelines1625758770110,
@@ -26,4 +27,5 @@ export default [
   nullableFields1637076778182,
   appId1637317204753,
   cliRefactor1637591977282,
+  startTimeFix1638286917874,
 ]
