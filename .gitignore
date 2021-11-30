@@ -91,5 +91,4 @@ credentials.json
 .docz/
 dist
 cdk.out
-bundle.zip
 dist.zip
