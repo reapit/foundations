@@ -23,7 +23,8 @@ export const deleteApiKey = httpHandler({
         throw new Error('Unauthorised')
       }
     } catch (e: any) {
-      throw new UnauthorizedException(e.message)
+      const error = e as Error
+      throw new UnauthorizedException(error.message)
     }
 
     const apiKey = await getApiKey({
