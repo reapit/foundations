@@ -1,4 +1,5 @@
 import { importSchema } from 'graphql-import'
+import path from 'path'
 import resolvers from './resolvers'
 import depthLimit from 'graphql-depth-limit'
 import * as Sentry from '@sentry/node'
@@ -14,7 +15,7 @@ if (process.env.NODE_ENV !== 'development') {
   })
 }
 
-const typeDefs = importSchema('./src/schema.graphql')
+const typeDefs = importSchema(path.resolve(__dirname, 'schema.graphql'))
 
 export const config: Config<LambdaContextFunctionParams> = {
   typeDefs,
