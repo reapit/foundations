@@ -34,6 +34,7 @@ export class DeployPipelineCommand extends AbstractCommand {
       spinner.succeed('Deployment started')
     } else {
       spinner.fail('Deployment creation failed')
+      process.exit(1)
     }
 
     const deploymentId = response.data.id
