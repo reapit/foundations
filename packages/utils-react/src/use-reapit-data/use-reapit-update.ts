@@ -1,9 +1,8 @@
 import { useState, useEffect } from 'react'
 import { useAsyncState } from '../use-async-state'
 import { ReapitConnectBrowserSession, ReapitConnectSession, useReapitConnect } from '@reapit/connect-session'
-import { updateActions } from '@reapit/utils-common'
 import { getMergedHeaders } from './../../../utils-common/src/reapit-data/utils'
-import { UpdateActionNames } from '@reapit/utils-common'
+import { UpdateAction } from '@reapit/utils-common'
 import { useSnack } from '@reapit/elements'
 import { StringMap } from '../get-platform-headers'
 
@@ -19,7 +18,7 @@ type AcceptedMethod = 'POST' | 'PUT' | 'PATCH' | 'DELETE'
 
 type ReapitUpdate = {
   reapitConnectBrowserSession: ReapitConnectBrowserSession
-  action: UpdateActionNames
+  action: UpdateAction
   method?: AcceptedMethod
   returnUpdatedModel?: boolean
   headers?: StringMap
@@ -28,8 +27,8 @@ type ReapitUpdate = {
 
 interface SendFunctionPropsInterface<DataType> {
   uriParams?: Object
-  action: string
-  setLoading: (val: boolean) => void
+  action: UpdateAction
+  setLoading: (val: boolean) => Promise<boolean>
   setSuccess: (val: boolean | undefined) => void
   setData: (val: DataType) => void
   setError: (val: string | null) => void
@@ -65,8 +64,7 @@ export const send =
       console.error('connect session not ready')
       return false
     }
-    const updateAction = updateActions[action]
-    const { api, path } = updateAction
+    const { api, path } = action
     const deSerialisedPath = uriParams
       ? Object.keys(uriParams).reduce<string>((path, uriReplaceKey) => {
           return path.replace(`{${uriReplaceKey}}`, uriParams[uriReplaceKey])

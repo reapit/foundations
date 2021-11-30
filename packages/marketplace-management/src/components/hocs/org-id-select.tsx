@@ -21,7 +21,9 @@ export const OrgIdSelect: FC = () => {
       <ControlsContainer className={elBorderRadius}>
         <InputGroup>
           <Select className={elWFull} value={orgId ?? ''} onChange={setOrgIdState}>
-            <option key="default-option">Please Select</option>
+            <option key="default-option" value={''}>
+              Please Select
+            </option>
             {orgIdOptions?.map((option) => (
               <option key={option.value} value={option.value}>
                 {option.name}

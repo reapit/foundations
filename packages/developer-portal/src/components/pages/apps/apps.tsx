@@ -26,6 +26,8 @@ import {
   SecondaryNavItem,
   Subtitle,
   Title,
+  ButtonGroup,
+  useMediaQuery,
 } from '@reapit/elements'
 import { navigate, openNewPage, ExternalPages } from '../../../utils/navigation'
 import { useLocation } from 'react-router-dom'
@@ -45,6 +47,7 @@ export const onCloseSubmitAppModal = (setSubmitAppModalVisible: React.Dispatch<R
 export const Apps: React.FC = () => {
   const history = useHistory()
   const location = useLocation()
+  const { isMobile } = useMediaQuery()
   const { pathname } = location
   const { isLoading, data = [], totalCount, pageSize } = useSelector(selectAppListState)
   const [submitAppModalVisible, setSubmitAppModalVisible] = React.useState<boolean>(false)
@@ -87,7 +90,19 @@ export const Apps: React.FC = () => {
           </Button>
         </SecondaryNavContainer>
         <PageContainer className={elHFull}>
-          <Title>My Apps</Title>
+          <FlexContainer isFlexJustifyBetween>
+            <Title>My Apps</Title>
+            {isMobile && (
+              <ButtonGroup alignment="right">
+                <Button intent="low" onClick={openNewPage(ExternalPages.developerPortalDocs)}>
+                  Docs
+                </Button>
+                <Button intent="primary" onClick={onShowSubmitAppModal(setSubmitAppModalVisible)}>
+                  New App
+                </Button>
+              </ButtonGroup>
+            )}
+          </FlexContainer>
           {unfetched || isLoading ? (
             <Loader label="Loading" fullPage />
           ) : (

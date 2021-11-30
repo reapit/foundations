@@ -31,7 +31,20 @@ export class DeployCommand extends AbstractCommand {
 
     const workingPackage = JSON.parse(workingPackageRaw)
 
-    const answers = await inquirer.prompt([
+    const preBuild = await inquirer.prompt<{built: boolean}>([
+      {
+        type: 'confirm',
+        message: 'Have you built your application before deploying?',
+        name: 'built',
+      },
+    ])
+
+    if (!preBuild.built) {
+      this.writeLine(chalk.red('Please build your application before deploying a new version'))
+      process.exit(1)
+    }
+
+    const answers = await inquirer.prompt<{version: string}>([
       {
         type: 'input',
         message: 'Next release version',

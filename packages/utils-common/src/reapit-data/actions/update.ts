@@ -1,4 +1,4 @@
-import { ApiNames, PathNames } from './api-constants'
+import { ApiNames, AppEnv, PathNames } from './api-constants'
 
 export interface UpdateAction {
   api: string
@@ -13,9 +13,9 @@ export enum UpdateActionNames {
 
 export type UpdateActions = { [key in UpdateActionNames]: UpdateAction }
 
-export const updateActions: UpdateActions = {
+export const updateActions = (appEnv: AppEnv): UpdateActions => ({
   [UpdateActionNames.updatePipeline]: {
-    api: ApiNames.pipeline,
+    api: ApiNames(appEnv).pipeline,
     path: PathNames.createPipeline,
   },
-}
+})
