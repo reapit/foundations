@@ -4,9 +4,13 @@ import child_process from 'child_process'
 
 import { AssetCode } from '@aws-cdk/aws-lambda'
 import * as cdk from '@aws-cdk/core'
+import * as apigateway from '@aws-cdk/aws-apigateway'
+import * as cognito from '@aws-cdk/aws-cognito'
 
 import { createApi } from './components/api'
 import { createFunction } from './components/function'
+
+import config from '../config.json'
 
 const exec = child_process.execSync
 
@@ -36,7 +40,15 @@ export const createStack = (scope: cdk.App, name: string) => {
 
   const handler = 'index.graphqlHandler'
 
-  const lambdaFunction = createFunction(stack, 'graphql', AssetCode.fromAsset(distZip), handler)
-  const api = createApi(stack, 'api', lambdaFunction)
+  const userPool = cognito.UserPool.fromUserPoolId(stack, 'UserPool', config.COGNITO_USERPOOL_ID)
+  const authorizer = new apigateway.CognitoUserPoolsAuthorizer(stack, 'authorizer', {
+    cognitoUserPools: [userPool]
+  })
+
+  const lambdaFunction = createFunction(stack, 'graphql', AssetCode.fromAsset(distZip), handler, config)
+  const api = createApi(stack, 'api', lambdaFunction, {
+    authorizationType: apigateway.AuthorizationType.COGNITO,
+    authorizer,
+  })
   output(stack, 'api-url', api.url)
 }
