@@ -53,7 +53,6 @@
     "@aws-cdk/aws-lambda": "1.134.0",
     "@aws-cdk/core": "1.134.0",
     "@reapit/config-manager": "workspace:packages/config-manager",
-    "@reapit/ts-bundler": "workspace:packages/ts-bundler",
     "@reapit/ts-scripts": "workspace:packages/ts-scripts",
     "@reapit/ts-types": "workspace:packages/ts-types",
     "@typescript-eslint/eslint-plugin": "^4.28.4",

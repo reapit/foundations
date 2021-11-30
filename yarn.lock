@@ -10164,18 +10164,6 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@reapit/ts-bundler@workspace:packages/ts-bundler":
-  version: 0.0.0-use.local
-  resolution: "@reapit/ts-bundler@workspace:packages/ts-bundler"
-  dependencies:
-    eslint: 7.31.0
-    fast-glob: ^3.2.7
-    yaml: ^1.10.2
-  bin:
-    ts-bundler: ./src/index.js
-  languageName: unknown
-  linkType: soft
-
 "@reapit/ts-scripts@workspace:packages/ts-scripts":
   version: 0.0.0-use.local
   resolution: "@reapit/ts-scripts@workspace:packages/ts-scripts"
@@ -25082,7 +25070,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"fast-glob@npm:^3.0.3, fast-glob@npm:^3.1.1, fast-glob@npm:^3.2.2, fast-glob@npm:^3.2.4, fast-glob@npm:^3.2.5, fast-glob@npm:^3.2.7":
+"fast-glob@npm:^3.0.3, fast-glob@npm:^3.1.1, fast-glob@npm:^3.2.2, fast-glob@npm:^3.2.4, fast-glob@npm:^3.2.5":
   version: 3.2.7
   resolution: "fast-glob@npm:3.2.7"
   dependencies:
@@ -27115,7 +27103,6 @@ fsevents@^1.2.7:
     "@aws-cdk/aws-lambda": 1.134.0
     "@aws-cdk/core": 1.134.0
     "@reapit/config-manager": "workspace:packages/config-manager"
-    "@reapit/ts-bundler": "workspace:packages/ts-bundler"
     "@reapit/ts-scripts": "workspace:packages/ts-scripts"
     "@reapit/ts-types": "workspace:packages/ts-types"
     "@reapit/utils-node": "workspace:packages/utils-node"
