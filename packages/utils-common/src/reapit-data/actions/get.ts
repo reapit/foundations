@@ -11,6 +11,7 @@ export enum GetActionNames {
   getApps = 'getApps',
   getPipeline = 'getPipeline',
   getPipelineDeployments = 'getPipelineDeployments',
+  getProducts = 'getProducts',
 }
 
 export type GetActions = { [key in GetActionNames]: GetAction }
@@ -28,5 +29,10 @@ export const getActions = (appEnv: AppEnv): GetActions => ({
   [GetActionNames.getPipelineDeployments]: {
     api: ApiNames(appEnv).pipeline,
     path: PathNames.getPipelineDeployments,
+  },
+  [GetActionNames.getProducts]: {
+    api: ApiNames(appEnv).platform,
+    path: PathNames.products,
+    errorMessage: 'Something went wrong fetching products',
   },
 })
