@@ -62,7 +62,7 @@ export class PipelineRunnerEntity extends AbstractEntity implements PipelineRunn
   /**
    * Release or pipeline runner build
    */
-  @Column({ default: PipelineRunnerType.BUILD })
+  @Column({ default: PipelineRunnerType.BUILD, type: 'varchar' })
   type?: PipelineRunnerType
 
   /**
@@ -150,12 +150,12 @@ export class TaskEntity extends AbstractEntity implements TaskModelInterface {
   @Column({ type: 'varchar' })
   buildStatus?: CodeBuild.StatusType
 
-  @Column({ type: 'timestamp' })
+  @Column({ type: 'timestamp', nullable: true })
   startTime?: string
 
-  @Column({ type: 'timestamp' })
+  @Column({ type: 'timestamp', nullable: true })
   endTime?: string
 
-  @Column()
+  @Column({ nullable: true })
   elapsedTime?: string
 }
