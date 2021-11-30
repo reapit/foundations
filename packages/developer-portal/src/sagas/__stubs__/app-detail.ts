@@ -41,6 +41,7 @@ export const appDetailDataStub: AppDetailState = {
     privacyPolicyUrl: 'https://reapit.com',
     pricingUrl: 'https://reapit.com',
     termsAndConditionsUrl: 'https://reapit.com',
+    products: ['agencyCloud'],
   },
 }
 

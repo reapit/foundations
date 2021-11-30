@@ -44,6 +44,7 @@ const diffStringList: { [k in keyof AppRevisionModel]: string } = {
   privacyPolicyUrl: 'Privacy Policy',
   termsAndConditionsUrl: 'Terms & Conditions',
   pricingUrl: 'Pricing Info',
+  products: 'Products',
 }
 
 export const isAppearInScope = (nameNeedToFind: string | undefined, scopes: ScopeModel[] = []): boolean => {
@@ -159,7 +160,7 @@ export const renderDiffContent = ({ key, revision, app, desktopIntegrationTypes 
       />
     )
   }
-  if (['redirectUris', 'signoutUris', 'limitToClientIds', 'desktopIntegrationTypeIds'].includes(key)) {
+  if (['redirectUris', 'signoutUris', 'limitToClientIds', 'desktopIntegrationTypeIds', 'products'].includes(key)) {
     const currentString = Array.isArray(app[key]) ? app[key].join(' ') : ''
     const changedString = Array.isArray(revision[key]) ? revision[key].join(' ') : ''
     return <DiffViewer currentString={currentString} changedString={changedString} type="words" />

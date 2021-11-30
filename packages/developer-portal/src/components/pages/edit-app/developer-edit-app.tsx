@@ -44,6 +44,7 @@ import { createAppRevision } from '@/actions/apps'
 import { selectCurrentMemberData } from '@/selector/current-member'
 import { selectSettingsPageDeveloperInformation } from '@/selector/settings'
 import { Loader } from '@reapit/elements'
+import { ReapitProductsSection } from './reapit-products-section'
 
 const { CLIENT_SECRET } = authFlows
 
@@ -54,6 +55,7 @@ export type CustomCreateRevisionModal = CreateAppRevisionModel & {
   redirectUris?: string
   signoutUris?: string
   authFlow?: string
+  products: string
   isFree: false
 }
 
@@ -142,6 +144,7 @@ export const generateInitialValues = (appDetail: AppDetailModel | null, develope
       signoutUris = [],
       limitToClientIds = [],
       desktopIntegrationTypeIds = [],
+      products,
     } = appDetail
 
     const icon = (media || []).filter(({ order }) => order === 0)[0]
@@ -176,6 +179,7 @@ export const generateInitialValues = (appDetail: AppDetailModel | null, develope
       limitToClientIds: limitToClientIds.join(','),
       isPrivateApp: limitToClientIds.length > 0 ? 'yes' : 'no',
       desktopIntegrationTypeIds: desktopIntegrationTypeIds,
+      products: products?.join(',') ?? '',
       ...images,
     }
   } else {
@@ -205,6 +209,7 @@ export const generateInitialValues = (appDetail: AppDetailModel | null, develope
       privacyPolicyUrl: '',
       pricingUrl: '',
       termsAndConditionsUrl: '',
+      products: '',
     }
   }
 
@@ -231,6 +236,7 @@ export const sanitizeAppData = (appData: CreateAppRevisionModel): CreateAppRevis
   if (!sanitizedAppData.launchUri) {
     delete sanitizedAppData.launchUri
   }
+
   return sanitizedAppData
 }
 
@@ -280,6 +286,8 @@ export const handleSubmitApp =
 
     const isCanList = currentOrganisation?.status !== 'pending' && currentOrganisation?.status !== 'incomplete'
 
+    const products = appModel?.products?.split(',').filter(Boolean)
+
     if (!isCanList && !sanitizeData.isListed) {
       setIsListing(false)
     }
@@ -293,6 +301,7 @@ export const handleSubmitApp =
       createAppRevision({
         ...sanitizeData,
         id: appId,
+        products,
         successCallback: onSuccess,
         errorCallback: onError,
       }),
@@ -487,6 +496,7 @@ export const DeveloperEditApp: React.FC<DeveloperSubmitAppProps> = () => {
               <RedirectUriSection authFlow={authFlow} isPrivateApp={isPrivateApp} setFieldValue={setFieldValue} />
               <UploadImageSection isListed={!!isListed} />
               <MarketplaceStatusSection />
+              <ReapitProductsSection app={data} />
               <PermissionSection scopes={scopes} errors={errors} isListed={Boolean(isListed)} />
               <Section>
                 {renderErrors(errors as unknown as Record<string, string | string[]>)}
