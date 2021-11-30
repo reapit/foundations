@@ -5,7 +5,7 @@ export const createFunction = (
   scope: cdk.Stack,
   functionName: string,
   code: AssetCode,
-  handler?: string,
+  handler: string,
   environment?: Record<string, string>,
 ) => {
   return new Function(scope, functionName, {
