@@ -313,7 +313,7 @@ export class CdkStack extends cdk.Stack {
         queue: queues[QueueNames.CODEBUILD_EXECUTOR],
       },
       codebuildUpdate: {
-        handler: 'main.codebuildUpdate',
+        handler: 'main.codebuildPipelineUpdater',
         policies: [...policies.commonBackendPolicies],
         topic,
         timeout: 300,
