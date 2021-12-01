@@ -10308,7 +10308,7 @@ __metadata:
     "@types/base-64": ^1.0.0
     "@typescript-eslint/eslint-plugin": ^4.28.4
     "@typescript-eslint/parser": ^4.28.4
-    axios: ^0.21.1
+    axios: ^0.24.0
     babel-jest: ^27.0.6
     base-64: ^1.0.0
     bashleigh-idtoken-verifier: 2.2.3
@@ -17971,6 +17971,15 @@ __metadata:
   dependencies:
     follow-redirects: ^1.14.4
   checksum: 6fc85412cab4e25a55c905d1387c39a4cb11b60fe965c62ffd1dfd393f862ae12a1dc5fb7bb4e3c77c0e431ed764d9256d8a74f01d0e35233ed9dfa966b145b0
+  languageName: node
+  linkType: hard
+
+"axios@npm:^0.24.0":
+  version: 0.24.0
+  resolution: "axios@npm:0.24.0"
+  dependencies:
+    follow-redirects: ^1.14.4
+  checksum: e741dfea07def55be7b1082824d71f54f7859b9c3c75a86c6a74b91c6e48bb461aceac683f77867313f89ff40ef5f2d1d2a1fe1953fcb71bdc1c1fc0fc069925
   languageName: node
   linkType: hard
 
