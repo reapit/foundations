@@ -113,6 +113,7 @@ describe('DeveloperAppRevisionModal', () => {
         offGrouping: true,
         offGroupName: 'Cool Office Group',
         officeId: 'MVK',
+        orgProduct: 'agencyCloud',
       }
       const fn = handleCancelPendingRevisionsButtonClick(spyDispatch, appId, appRevisionId, loginIdentity)
       fn()

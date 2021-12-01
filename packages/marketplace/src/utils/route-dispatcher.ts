@@ -4,7 +4,13 @@ import store from '@/core/store'
 import { fetchFeatureApps, fetchAppDetail, fetchDeveloperApps } from '@/actions/apps'
 import { fetchApps } from '@/actions/apps'
 import { reapitConnectBrowserSession } from '@/core/connect-session'
-import { selectClientId, selectDeveloperId, selectIsAdmin, selectSandboxDeveloper } from '@/selector/auth'
+import {
+  selectClientId,
+  selectDeveloperId,
+  selectIsAdmin,
+  selectProduct,
+  selectSandboxDeveloper,
+} from '@/selector/auth'
 import { fetchDesktopIntegrationTypes } from '@/actions/desktop-integration-types'
 // Needed for filtering but commented out for now
 // import { fetchCategories } from '@/actions/categories'
@@ -23,6 +29,7 @@ const routeDispatcher = async (route: RouteValue, params?: StringMap, search?: s
   const developerId = selectDeveloperId(connectSession)
   const isSandboxDeveloper = selectSandboxDeveloper(connectSession)
   const isDesktopAdmin = selectIsAdmin(connectSession)
+  const product = selectProduct(connectSession)
 
   switch (route) {
     case Routes.APPS: {
@@ -35,15 +42,17 @@ const routeDispatcher = async (route: RouteValue, params?: StringMap, search?: s
             pageNumber: page,
             pageSize: numOfItemsPerPage,
             developerId: [developerId],
+            product,
           }),
         )
       }
-      store.dispatch(fetchFeatureApps({ pageNumber: 1, pageSize: FEATURED_APPS }))
+      store.dispatch(fetchFeatureApps({ pageNumber: 1, pageSize: FEATURED_APPS, product }))
       store.dispatch(
         fetchApps({
           pageNumber: page,
           pageSize: numOfItemsPerPage,
           isInfinite: true,
+          product,
         }),
       )
       break
@@ -70,6 +79,7 @@ const routeDispatcher = async (route: RouteValue, params?: StringMap, search?: s
           onlyInstalled: true,
           developerId: isSandboxDeveloper && developerId ? [developerId] : undefined,
           showHiddenApps: true,
+          product,
         }),
       )
       break
@@ -80,12 +90,13 @@ const routeDispatcher = async (route: RouteValue, params?: StringMap, search?: s
           pageNumber: page,
           pageSize: APPS_PER_PAGE,
           developerId: isSandboxDeveloper && developerId ? [developerId] : undefined,
+          product,
         }),
       )
       break
     case Routes.SETTINGS:
       if (isDesktopAdmin) {
-        store.dispatch(fetchApps({ pageNumber: 1, pageSize: GET_ALL_PAGE_SIZE, clientId: '' }))
+        store.dispatch(fetchApps({ pageNumber: 1, pageSize: GET_ALL_PAGE_SIZE, clientId: '', product }))
         store.dispatch(
           fetchInstallationsList({
             pageNumber: 1,
