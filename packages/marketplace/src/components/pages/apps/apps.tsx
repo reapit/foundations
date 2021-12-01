@@ -20,6 +20,9 @@ import { getNumberOfItems } from '@/utils/browse-app'
 import * as styles from './__styles__'
 import { FeaturedApps } from './featured'
 import { overflowUnset } from '../../ui/app-list/__styles__'
+import { selectProduct } from '../../../selector/auth'
+import { useReapitConnect } from '@reapit/connect-session'
+import { reapitConnectBrowserSession } from '../../../core/connect-session'
 
 const DEFAULT_SCROLL_THRESHOLD = 0.3
 
@@ -42,24 +45,29 @@ export const handleLoadMore =
     loading,
     numOfItemsPerPage,
     pageNumber,
+    product,
   }: {
     dispatch: Dispatch
     preview: boolean
     loading: boolean
     numOfItemsPerPage: number
     pageNumber: number
+    product: string
   }) =>
   () => {
     !loading &&
-      dispatch(fetchApps({ pageNumber: pageNumber + 1, preview, isInfinite: true, pageSize: numOfItemsPerPage }))
+      dispatch(
+        fetchApps({ pageNumber: pageNumber + 1, preview, isInfinite: true, pageSize: numOfItemsPerPage, product }),
+      )
   }
 
 export const Apps: React.FunctionComponent = () => {
   const history = useHistory()
   const location = useLocation()
   const dispatch = useDispatch()
-
+  const { connectSession } = useReapitConnect(reapitConnectBrowserSession)
   const appsListState = useSelector(selectAppsListState)
+  const product = selectProduct(connectSession)
   const hasParams = hasFilterParams(location.search)
 
   const apps = appsListState?.data || []
@@ -96,7 +104,7 @@ export const Apps: React.FunctionComponent = () => {
         {!hasParams && featuredApps.length > 0 && <FeaturedApps apps={featuredApps} />}
         <InfiniteScroll
           dataLength={apps.length}
-          next={handleLoadMore({ dispatch, preview, loading, numOfItemsPerPage, pageNumber })}
+          next={handleLoadMore({ dispatch, preview, loading, numOfItemsPerPage, pageNumber, product })}
           hasMore={hasMore}
           loader={null}
           scrollThreshold={DEFAULT_SCROLL_THRESHOLD}
