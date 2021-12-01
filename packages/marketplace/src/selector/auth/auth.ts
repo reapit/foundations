@@ -77,6 +77,10 @@ export const selectDeveloperId = (state: ReapitConnectSession | null): string | 
   return state?.loginIdentity.developerId || null
 }
 
+export const selectProduct = (state: ReapitConnectSession | null): string => {
+  return state?.loginIdentity.orgProduct ?? 'agencyCloud'
+}
+
 export const selectSandboxDeveloper = (state: ReapitConnectSession | null): string | null => {
   const developerId = selectDeveloperId(state)
   return selectClientId(state) === 'SBOX' && developerId ? developerId : null

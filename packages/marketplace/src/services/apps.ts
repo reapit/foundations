@@ -20,6 +20,7 @@ export type FetchAppsParams = FetchListCommonParams & {
   registeredFrom?: string
   registeredTo?: string
   showHiddenApps?: boolean
+  product: string
 }
 
 export const fetchAppsApi = async (params: FetchAppsParams): Promise<AppSummaryModelPagedResult | void> => {

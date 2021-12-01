@@ -91,3 +91,4 @@ credentials.json
 .docz/
 dist
 cdk.out
+dist.zip

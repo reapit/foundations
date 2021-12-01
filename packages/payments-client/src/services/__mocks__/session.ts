@@ -13,6 +13,7 @@ export const mockLoginIdentity = {
   offGrouping: true,
   offGroupName: 'Cool Office Group',
   officeId: 'MVK',
+  orgProduct: 'agencyCloud',
 }
 export const mockBrowserSession: ReapitConnectSession = {
   accessToken: JSON.stringify({

@@ -1,7 +1,7 @@
 import { useState, useEffect, Dispatch, SetStateAction, useRef, useCallback, MutableRefObject } from 'react'
 import { ReapitConnectBrowserSession, ReapitConnectSession, useReapitConnect } from '@reapit/connect-session'
 import { StringMap, logger } from '..'
-import { GetActionNames, getActions, getFetcher } from '@reapit/utils-common'
+import { getFetcher, GetAction } from '@reapit/utils-common'
 import { useAsyncState } from '../use-async-state/index'
 import { useSnack } from '@reapit/elements'
 
@@ -14,7 +14,7 @@ export type ReapitGetState<DataType> = [
 
 export interface ReapitGetParams {
   reapitConnectBrowserSession: ReapitConnectBrowserSession
-  action: GetActionNames
+  action: GetAction
   queryParams?: Object
   uriParams?: Object
   headers?: StringMap
@@ -22,7 +22,7 @@ export interface ReapitGetParams {
 }
 
 export interface HandleGetParams<DataType> {
-  action: GetActionNames
+  action: GetAction
   connectSession: ReapitConnectSession | null
   data: DataType | null
   loading: boolean
@@ -93,8 +93,7 @@ export const handleGet =
     } = handleGetParams
 
     const shouldFetch = checkShouldFetch<DataType>(handleGetParams)
-    const getAction = getActions[action]
-    const { successMessage, errorMessage } = getAction
+    const { successMessage, errorMessage } = action
 
     const getData = async () => {
       setError(null)
@@ -131,8 +130,7 @@ export const handleRefresh =
   () => {
     const { setData, setError, action, errorSnack, connectSession, queryParams, headers } = handleGetParams
 
-    const getAction = getActions[action]
-    const { errorMessage } = getAction
+    const { errorMessage } = action
 
     const getData = async () => {
       setError(null)

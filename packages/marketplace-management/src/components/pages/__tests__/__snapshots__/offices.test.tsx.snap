@@ -104,7 +104,9 @@ Object {
                 <select
                   class="el-wfull el-select"
                 >
-                  <option>
+                  <option
+                    value=""
+                  >
                     Please Select
                   </option>
                   <option
@@ -236,7 +238,9 @@ Object {
               <select
                 class="el-wfull el-select"
               >
-                <option>
+                <option
+                  value=""
+                >
                   Please Select
                 </option>
                 <option
@@ -415,7 +419,9 @@ Object {
                 <select
                   class="el-wfull el-select"
                 >
-                  <option>
+                  <option
+                    value=""
+                  >
                     Please Select
                   </option>
                   <option
@@ -537,7 +543,9 @@ Object {
               <select
                 class="el-wfull el-select"
               >
-                <option>
+                <option
+                  value=""
+                >
                   Please Select
                 </option>
                 <option
@@ -716,7 +724,9 @@ Object {
                 <select
                   class="el-wfull el-select"
                 >
-                  <option>
+                  <option
+                    value=""
+                  >
                     Please Select
                   </option>
                   <option
@@ -906,7 +916,9 @@ Object {
               <select
                 class="el-wfull el-select"
               >
-                <option>
+                <option
+                  value=""
+                >
                   Please Select
                 </option>
                 <option

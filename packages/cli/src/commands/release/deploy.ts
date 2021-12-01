@@ -31,7 +31,20 @@ export class DeployCommand extends AbstractCommand {
 
     const workingPackage = JSON.parse(workingPackageRaw)
 
-    const answers = await inquirer.prompt([
+    const preBuild = await inquirer.prompt<{built: boolean}>([
+      {
+        type: 'confirm',
+        message: 'Have you built your application before deploying?',
+        name: 'built',
+      },
+    ])
+
+    if (!preBuild.built) {
+      this.writeLine(chalk.red('Please build your application before deploying a new version'))
+      process.exit(1)
+    }
+
+    const answers = await inquirer.prompt<{version: string}>([
       {
         type: 'input',
         message: 'Next release version',
@@ -49,14 +62,23 @@ export class DeployCommand extends AbstractCommand {
       process.exit(1)
     }
 
+    return answers.version
+  }
+
+  updatePackageVersion = async (version: string, spinner: Ora) => {
+    const fileName = path.resolve(process.cwd(), 'package.json')
+    const workingPackageRaw = await fs.promises.readFile(fileName, {
+      encoding: 'utf-8',
+    })
+
+    const workingPackage = JSON.parse(workingPackageRaw)
+
     const prevVersion = workingPackage.version
 
-    workingPackage.version = answers.version
+    workingPackage.version = version
 
     await fs.promises.writeFile(fileName, JSON.stringify(workingPackage, null, 2))
-    spinner.succeed(`bumped package version ${prevVersion} -> ${answers.version}`)
-
-    return answers.version
+    spinner.succeed(`bumped package version ${prevVersion} -> ${version}`)
   }
 
   /**
@@ -124,5 +146,6 @@ export class DeployCommand extends AbstractCommand {
     const version = await this.bumpVersion(spinner)
     const zip = await this.pack(spinner, pipeline)
     await this.sendZip(zip, pipeline, version, spinner)
+    await this.updatePackageVersion(version, spinner)
   }
 }

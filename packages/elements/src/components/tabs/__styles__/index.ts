@@ -60,6 +60,7 @@ export const ElTabsWrap = styled.div`
   width: fit-content;
   align-items: flex-start;
   height: auto;
+  overflow-x: auto;
 
   &.${elTabsFullWidth} {
     width: 100%;

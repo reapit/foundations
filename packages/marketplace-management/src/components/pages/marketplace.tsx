@@ -28,7 +28,7 @@ import { useOrgId } from '../../utils/use-org-id'
 import { reapitConnectBrowserSession } from '../../core/connect-session'
 import { OrgIdSelect } from '../hocs/org-id-select'
 import { useReapitGet } from '@reapit/utils-react'
-import { GetActionNames } from '@reapit/utils-common'
+import { GetActionNames, getActions } from '@reapit/utils-common'
 import qs from 'qs'
 
 export const onPageChangeHandler = (history: History<any>) => (page: number) => {
@@ -50,7 +50,7 @@ export const MarketplacePage: FC = () => {
 
   const [appData, appLoading] = useReapitGet<AppSummaryModelPagedResult>({
     reapitConnectBrowserSession,
-    action: GetActionNames.getApps,
+    action: getActions(window.reapit.config.appEnv)[GetActionNames.getApps],
     queryParams: { showHiddenApps: 'true', clientId: orgClientId, ...searchParams },
     fetchWhenTrue: [orgClientId],
   })

@@ -1,7 +1,7 @@
 import { renderHook, act } from '@testing-library/react-hooks'
 import { ReapitGetState, useReapitGet } from '..'
 import { ReapitConnectBrowserSession } from '@reapit/connect-session'
-import { GetActionNames, getFetcher } from '@reapit/utils-common'
+import { getActions, getFetcher } from '@reapit/utils-common'
 import { logger } from '../..'
 
 const mockData = {
@@ -39,12 +39,12 @@ jest.mock('@reapit/utils-common', () => ({
   GetActionNames: {
     actionName: 'actionName',
   },
-  getActions: {
+  getActions: () => ({
     actionName: {
       successMessage: 'Some success message',
       errorMessage: 'Some error message',
     },
-  },
+  }),
   getFetcher: jest.fn(() => mockData),
 }))
 
@@ -52,7 +52,7 @@ describe('useReapitGet', () => {
   it('should correctly set loading, fetch data, render a success message and refresh', async () => {
     const reapitConnectBrowserSession = {} as unknown as ReapitConnectBrowserSession
     const mockFetchParams = {
-      action: 'actionName',
+      action: getActions('local')['actionName'],
       connectSession: {
         accessToken: 'SOME_TOKEN',
       },
@@ -64,7 +64,7 @@ describe('useReapitGet', () => {
     const { result, waitForNextUpdate } = renderHook<{}, ReapitGetState<typeof mockData>>(() =>
       useReapitGet<typeof mockData>({
         reapitConnectBrowserSession,
-        action: 'actionName' as GetActionNames,
+        action: getActions('local')['actionName'],
       }),
     )
     expect(result.current[0]).toBeNull()
@@ -92,7 +92,7 @@ describe('useReapitGet', () => {
   it('should correctly refetch if the query parameter prop changes', async () => {
     const reapitConnectBrowserSession = {} as unknown as ReapitConnectBrowserSession
     const mockFetchParams = {
-      action: 'actionName',
+      action: getActions('local')['actionName'],
       connectSession: {
         accessToken: 'SOME_TOKEN',
       },
@@ -118,7 +118,7 @@ describe('useReapitGet', () => {
       ({ queryParams }) =>
         useReapitGet<typeof mockData>({
           reapitConnectBrowserSession,
-          action: 'actionName' as GetActionNames,
+          action: getActions('local')['actionName'],
           queryParams,
         }),
       {
@@ -151,7 +151,7 @@ describe('useReapitGet', () => {
   it('should wait to fetch until a known parm is true', async () => {
     const reapitConnectBrowserSession = {} as unknown as ReapitConnectBrowserSession
     const mockFetchParams = {
-      action: 'actionName',
+      action: getActions('local')['actionName'],
       connectSession: {
         accessToken: 'SOME_TOKEN',
       },
@@ -166,7 +166,7 @@ describe('useReapitGet', () => {
       ({ fetchWhenTrue }) =>
         useReapitGet<typeof mockData>({
           reapitConnectBrowserSession,
-          action: 'actionName' as GetActionNames,
+          action: getActions('local')['actionName'],
           fetchWhenTrue,
         }),
       {
@@ -207,7 +207,7 @@ describe('useReapitGet', () => {
 
     const reapitConnectBrowserSession = {} as unknown as ReapitConnectBrowserSession
     const mockFetchParams = {
-      action: 'actionName',
+      action: getActions('local')['actionName'],
       connectSession: {
         accessToken: 'SOME_TOKEN',
       },
@@ -219,7 +219,7 @@ describe('useReapitGet', () => {
     const { result, waitForNextUpdate } = renderHook<{}, ReapitGetState<typeof mockData>>(() =>
       useReapitGet<typeof mockData>({
         reapitConnectBrowserSession,
-        action: 'actionName' as GetActionNames,
+        action: getActions('local')['actionName'],
       }),
     )
     expect(result.current[0]).toBeNull()

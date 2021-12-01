@@ -22,8 +22,9 @@ export const deleteApiKey = httpHandler({
       if (typeof customer === 'undefined' || !customer.developerId) {
         throw new Error('Unauthorised')
       }
-    } catch (e) {
-      throw new UnauthorizedException(e.message)
+    } catch (e: any) {
+      const error = e as Error
+      throw new UnauthorizedException(error.message)
     }
 
     const apiKey = await getApiKey({
