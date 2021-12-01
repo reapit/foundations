@@ -65,7 +65,7 @@ const movedColumnResponses = {
     "For more information on our processes, [please click here](https://foundations-documentation.reapit.cloud/dev-requests)",
 }
 
-const acceptedProjectId = '13720633'
+const acceptedProjectId = '13720633' // TODO find out backend project id
 
 export default (app) => {
   app.on('issues.opened', async (event) => {
@@ -121,6 +121,7 @@ export default (app) => {
     }
 
     const projectId = event.payload.project_card.project_url.split('/').pop()
+    console.log('projectId', projectId)
 
     if (projectId !== acceptedProjectId) {
       // Not the correct project (avoiding sprint of project)
