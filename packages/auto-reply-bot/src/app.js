@@ -1,19 +1,12 @@
-// The 'from column' the condition is to match
-const nearTermFromColumn = 'second'
-// the 'to column' the condition is to match
-const nearTermToColumn = 'third'
-const nearTerm =
-  "This ticket has been moved to our near-term column as have we identified this as a short term goal, we'll assess the effort required and outline a technical specification - please take the time to review this detail. The issue will be prioritised against the needs of other customers and developers. When we're ready to schedule the issue, it will be assigned to a dated GitHub project board for that particular sprint where you can continue to track its progress to completion."
-
 const newIssueAddedConditions = [
   {
-    labels: ['bug', 'needs triage'],
+    labels: ['bug', 'needs-triage'],
     comment: "Thank you for taking the time to report a bug. We prioritise bugs depending on the severity and implications, so please ensure that you have provided as much information as possible. If you haven’t already, it really helps us to investigate the bug you have reported if you provide ‘Steps to Replicate’ and any associated screenshots. \r\n" +
     "This issue will be reviewed in our weekly refinement sessions and assigned to a specific project board. We may also update the ticket to request additional information, if required. \r\n" +
     "For more information on our processes, [please click here](https://foundations-documentation.reapit.cloud/dev-requests)",
   },
   {
-    labels: ['external feature', 'needs triage'],
+    labels: ['external-feature', 'needs-triage'],
     comment: "Thank you for raising a feature request. Feature requests will be prioritised in accordance with the upcoming milestone target dates, customer and developer priorities. \r\n" +
     "This request will be reviewed in our weekly refinement sessions and assigned to a specific project board or column, depending on the nature of the request and the development work required. \r\n" +
     "For more information on our processes, [please click here](https://foundations-documentation.reapit.cloud/dev-requests)",
@@ -52,7 +45,7 @@ const labelAddedConditions = [
     "For more information on our processes, [please click here](https://foundations-documentation.reapit.cloud/dev-requests)",
   },
   {
-    labels: ['product-decision'],
+    labels: ['investigate'],
     comment: "We need to research or gather more information relating to your request. We have moved this issue into our ‘Not Ready’ column whilst we obtain the information required. \r\n" +
     "For more information on our processes, [please click here](https://foundations-documentation.reapit.cloud/dev-requests)",
   },
@@ -62,6 +55,17 @@ const labelAddedConditions = [
     "For more information on our processes, [please click here](https://foundations-documentation.reapit.cloud/dev-requests)",
   },
 ]
+
+const movedColumnResponses = {
+  ['Near Term']: "This issue has been updated and moved to our ‘Near Term’ column. We have assessed the effort required and outlined a technical specification - please take the time to review this detail. When we're ready to schedule the issue, it will be assigned to the relevant board where you can continue to track its progress to completion. \r\n" +
+    "For more information on our processes, [please click here](https://foundations-documentation.reapit.cloud/dev-requests)",
+  ['Mid Term']: "Your issue has been updated and moved to our ‘Mid Term’ column. We will assess the effort required and may outline a technical specification. When we're ready to schedule the issue, it will be moved to the ‘Near Term’ column. \r\n" +
+    "For more information on our processes, [please click here](https://foundations-documentation.reapit.cloud/dev-requests)",
+  ['Long Term']: "Whilst the nature of this request has been accepted, we are unable to commit to a specified sprint and therefore have assigned your issue to the ‘Long Term’ column. We will regularly review any issues and where development capacity is available, or work is aligned with our Roadmap, the issue will be updated. \r\n" +
+    "For more information on our processes, [please click here](https://foundations-documentation.reapit.cloud/dev-requests)",
+}
+
+const acceptedProjectId = '13720633'
 
 export default (app) => {
   app.on('issues.opened', async (event) => {
@@ -95,7 +99,7 @@ export default (app) => {
     for (const [, condition] of labelAddedConditions.entries()) {
       if (condition.labels.every(label => issueLabels.includes(label))) {
         await Promise.all([
-          event.octokit.issues.createComment(event.issue({ body: label.comment })),
+          event.octokit.issues.createComment(event.issue({ body: condition.comment })),
           // event.octokit.issues.addLabels(event.issue({ labels: ['awaiting triage'] })),
         ])
 
@@ -116,9 +120,16 @@ export default (app) => {
       return
     }
 
-    const [toColumn, fromColumn] = await Promise.all([
+    const projectId = event.payload.project_card.project_url.split('/').pop()
+
+    if (projectId !== acceptedProjectId) {
+      // Not the correct project (avoiding sprint of project)
+      return
+    }
+
+    const [toColumn] = await Promise.all([
       event.octokit.projects.getColumn({ column_id: event.payload.project_card.column_id }),
-      event.octokit.projects.getColumn({ column_id: event.payload.changes.column_id.from }),
+      // event.octokit.projects.getColumn({ column_id: event.payload.changes.column_id.from }),
     ])
 
     const repoInfo = {
@@ -127,23 +138,25 @@ export default (app) => {
       owner: event.payload.repository.owner.login,
     }
 
-    if (fromColumn.data.name === nearTermFromColumn && toColumn.data.name === nearTermToColumn) {
-      const issue = await event.octokit.issues.get({ issue_number: Number.parseInt(issueNumber), ...repoInfo })
-
-      if (['OWNER', 'MEMBER'].includes(issue.data.author_association)) {
-        return
-      }
-
-      if (!issue.data) {
-        console.log('issue not found')
-        return
-      }
-
-      return event.octokit.issues.createComment({
-        issue_number: issue.data.number,
-        ...repoInfo,
-        body: nearTerm,
-      })
+    if (!Object.keys(movedColumnResponses).includes(toColumn.data.name)) {
+      return
     }
+
+    const issue = await event.octokit.issues.get({ issue_number: Number.parseInt(issueNumber), ...repoInfo })
+
+    if (!issue.data) {
+      console.log('issue not found')
+      return
+    }
+
+    if (['OWNER', 'MEMBER'].includes(issue.data.author_association)) {
+      return
+    }
+
+    return event.octokit.issues.createComment({
+      issue_number: issue.data.number,
+      ...repoInfo,
+      body: movedColumnResponses[toColumn.data.name],
+    })
   })
 }
