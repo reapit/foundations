@@ -2,6 +2,8 @@
   "name": "deployment-service",
   "dependencies": {
     "@aws-cdk/aws-cognito": "^1.124.0",
+    "@aws-cdk/aws-events": "^1.134.0",
+    "@aws-cdk/aws-events-targets": "^1.134.0",
     "@homeservenow/serverless-aws-handler": "^0.2.4",
     "@reapit/api-key-verify": "workspace:packages/api-key-verify",
     "@reapit/connect-session": "workspace:packages/connect-session",
