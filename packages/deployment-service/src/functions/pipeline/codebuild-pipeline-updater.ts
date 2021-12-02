@@ -144,7 +144,7 @@ const handlePhaseChange = async ({
 
   return Promise.all([
     savePipelineRunnerEntity(pipelineRunner),
-    pusher.trigger(`private${pipelineRunner.pipeline?.developerId}`, 'pipeline-runner-update', pipelineRunner),
+    pusher.trigger(`private-${pipelineRunner.pipeline?.developerId}`, 'pipeline-runner-update', pipelineRunner),
   ])
 }
 
