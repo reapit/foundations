@@ -320,7 +320,7 @@ export class CdkStack extends cdk.Stack {
       },
       codebuildDeploy: {
         handler: 'main.codebuildDeploy',
-        policies: [...policies.commonBackendPolicies],
+        policies: [...policies.commonBackendPolicies, policies.cloudFrontPolicy],
         timeout: 300,
         queue: queues[QueueNames.CODEBUILD_DEPLOY],
       },
