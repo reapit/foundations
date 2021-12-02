@@ -55,7 +55,7 @@ export const DestinationPage = ({
   )
 }
 
-const LinkSettings = () => (
+export const LinkSettings = () => (
   <>
     <DestinationPage title="Link to" propKey="destination" />
     <ContainerSettings />
