@@ -42,7 +42,7 @@ const Timer = ({ started, elapsedTime }: { started: boolean; elapsedTime?: strin
 
 export const PipelineTask = ({ task, index }: { task: TaskModelInterface; index: number }) => {
   const startedAt =
-    task.startTime && task.startTime.substr(0, 1) !== '0' ? shleemy(task.startTime).forHumans : 'not started'
+    task.startTime ? shleemy(task.startTime).forHumans : 'not started'
 
   return (
     <ElPipelineTask className={cx(`order-${index + 1}`)}>

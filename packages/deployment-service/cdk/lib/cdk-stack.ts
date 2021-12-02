@@ -313,14 +313,14 @@ export class CdkStack extends cdk.Stack {
         queue: queues[QueueNames.CODEBUILD_EXECUTOR],
       },
       codebuildUpdate: {
-        handler: 'main.codebuildUpdate',
+        handler: 'main.codebuildPipelineUpdater',
         policies: [...policies.commonBackendPolicies],
         topic,
         timeout: 300,
       },
       codebuildDeploy: {
         handler: 'main.codebuildDeploy',
-        policies: [...policies.commonBackendPolicies],
+        policies: [...policies.commonBackendPolicies, policies.cloudFrontPolicy],
         timeout: 300,
         queue: queues[QueueNames.CODEBUILD_DEPLOY],
       },
@@ -343,7 +343,7 @@ export class CdkStack extends cdk.Stack {
         policies: [...policies.commonBackendPolicies],
       },
       pusherAuth: {
-        handler: 'main.pusherAuth',
+        handler: 'main.pusherAuthentication',
         policies: [...policies.commonBackendPolicies],
         api: {
           method: 'POST',
@@ -355,6 +355,18 @@ export class CdkStack extends cdk.Stack {
           authorizer: true,
         },
       },
+      apiPusherAuth: {
+        handler: 'main.pusherAuthentication',
+        policies: [...policies.commonBackendPolicies],
+        api: {
+          method: 'POST',
+          path: 'api/pusher/auth',
+          cors: {
+            origin: '*',
+          },
+          headers: ['Content-Type', 'Authorization', 'api-version', 'X-Api-Key'],
+        },
+      },
     }
 
     const authorizer = new CognitoUserPoolsAuthorizer(this as any, 'cloud-deployment-service-authorizer', {
@@ -363,22 +375,25 @@ export class CdkStack extends cdk.Stack {
     })
     const MYSQL_DATABASE = databaseName
 
+    const env = {
+      AURORA_SECRET_ARN: secretManager.secretArn,
+      AURORA_RESOURCE_ARN: aurora.clusterArn,
+      AURORA_REGION: this.region,
+      MYSQL_DATABASE,
+      DEPLOYMENT_LIVE_BUCKET_NAME: buckets['cloud-deployment-live-dev'].bucketName,
+      DEPLOYMENT_VERSION_BUCKET_NAME: buckets['cloud-deployment-version-dev'].bucketName,
+      DEPLOYMENT_LOG_BUCKET_NAME: buckets['cloud-deployment-log-dev'].bucketName,
+      REGION: 'eu-west-2',
+      CODE_BUILD_PROJECT_NAME: codeBuild.projectName,
+    }
+
     for (const [name, options] of Object.entries(functionSetups)) {
       const lambda = createLambda({
         stack: this,
         name: `cloud-deployment-${name}`,
         code: AssetCode.fromAsset(path.resolve('dist', 'main.zip')),
         handler: options.handler,
-        env: {
-          AURORA_SECRET_ARN: secretManager.secretArn,
-          AURORA_RESOURCE_ARN: aurora.clusterArn,
-          AURORA_REGION: this.region,
-          MYSQL_DATABASE,
-          DEPLOYMENT_LIVE_BUCKET_NAME: buckets['cloud-deployment-live-dev'].bucketName,
-          DEPLOYMENT_VERSION_BUCKET_NAME: buckets['cloud-deployment-version-dev'].bucketName,
-          DEPLOYMENT_LOG_BUCKET_NAME: buckets['cloud-deployment-log-dev'].bucketName,
-          REGION: 'eu-west-2',
-        },
+        env,
       })
       options.policies.forEach((policy) => lambda.addToRolePolicy(policy))
 
@@ -399,16 +414,7 @@ export class CdkStack extends cdk.Stack {
       name: 'cloud-deployment-migration',
       code: AssetCode.fromAsset(path.resolve('dist', 'main.zip')),
       handler: 'main.migrationRun',
-      env: {
-        AURORA_SECRET_ARN: secretManager.secretArn,
-        AURORA_RESOURCE_ARN: aurora.clusterArn,
-        AURORA_REGION: this.region,
-        MYSQL_DATABASE,
-        DEPLOYMENT_LIVE_BUCKET_NAME: buckets['cloud-deployment-live-dev'].bucketName,
-        DEPLOYMENT_VERSION_BUCKET_NAME: buckets['cloud-deployment-version-dev'].bucketName,
-        DEPLOYMENT_LOG_BUCKET_NAME: buckets['cloud-deployment-log-dev'].bucketName,
-        REGION: 'eu-west-2',
-      },
+      env,
     })
 
     Object.values(policies)

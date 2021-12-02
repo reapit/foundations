@@ -131,8 +131,8 @@ const handlePhaseChange = async ({
     }
 
     task.buildStatus = buildStatus
-    task.startTime = phase['start-time'] ? new Date(phase['start-time']).toISOString() : undefined
-    task.endTime = phase['end-time'] ? new Date(phase['end-time']).toISOString() : undefined
+    task.startTime = phase['start-time'] ? new Date(phase['start-time']) : undefined
+    task.endTime = phase['end-time'] ? new Date(phase['end-time']) : undefined
     task.elapsedTime = phase['duration-in-seconds']?.toString()
 
     return task
@@ -144,7 +144,7 @@ const handlePhaseChange = async ({
 
   return Promise.all([
     savePipelineRunnerEntity(pipelineRunner),
-    pusher.trigger(`private${pipelineRunner.pipeline?.developerId}`, 'pipeline-runner-update', pipelineRunner),
+    pusher.trigger(`private-${pipelineRunner.pipeline?.developerId}`, 'pipeline-runner-update', pipelineRunner),
   ])
 }
 
