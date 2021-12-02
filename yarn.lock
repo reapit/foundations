@@ -10223,6 +10223,7 @@ __metadata:
     react-qr-code: ^2.0.3
     react-router: ^5.2.0
     react-router-dom: ^5.2.0
+    react-to-print: ^2.14.1
     react-tooltip: ^4.2.21
     rimraf: ^3.0.2
     serverless: ^2.52.0
@@ -39955,6 +39956,18 @@ fsevents@^1.2.7:
     react: ^15.0.0 || ^16.0.0 || ^17.0.0
     react-dom: ^15.0.0 || ^16.0.0 || ^17.0.0
   checksum: af2432fb1d4cab6fbe898198f14222f33ddae80933168aec14dc46faa4f1e216d2e1b701ee4ae2f736be5e6a99efb756397912d995ef483c7a0345ae7ad6d9d4
+  languageName: node
+  linkType: hard
+
+"react-to-print@npm:^2.14.1":
+  version: 2.14.1
+  resolution: "react-to-print@npm:2.14.1"
+  dependencies:
+    prop-types: ^15.7.2
+  peerDependencies:
+    react: ^15.0.0 || ^16.0.0 || ^17.0.0
+    react-dom: ^15.0.0 || ^16.0.0 || ^17.0.0
+  checksum: 7a833ac348bc364f204c288ce3113201151288ca20e51c2b938e9a8e78e80a9cd00b36e68727f2a0b67d6cf66aeec20869a3b7d8c8930a86c835ecb391317e19
   languageName: node
   linkType: hard
 

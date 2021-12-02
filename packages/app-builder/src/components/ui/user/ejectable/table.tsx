@@ -1,9 +1,10 @@
-import React, { forwardRef } from 'react'
+import React, { forwardRef, useRef } from 'react'
 import { Button, elFlex, elFlex1, elFlexColumn, Input, Loader, Table as ELTable, useSnack } from '@reapit/elements'
 import { useHistory } from 'react-router'
 import qs from 'query-string'
 import path from 'path'
 import { cx } from '@linaria/core'
+import { useReactToPrint } from 'react-to-print'
 
 import { Container, ContainerProps } from './container'
 import { uppercaseSentence } from './utils'
@@ -15,6 +16,7 @@ import { lowercaseFirstLetter, useSubObjects } from '../../../../components/hook
 import { notEmpty } from '../../../../components/hooks/use-introspection/helpers'
 import { usePageId } from '../../../../components/hooks/use-page-id'
 import { useObjectSpecials } from '../../../../components/hooks/objects/use-object-specials'
+import { QRCode } from './qr-code'
 
 export interface TableProps extends ContainerProps {
   typeName?: string
@@ -100,6 +102,21 @@ const getDataCells = (row: any, subobjectNames: string[]) =>
       },
     }))
 
+const PrintableQR = ({ destination, context, size }) => {
+  const ref = useRef<HTMLDivElement>()
+  const handlePrint = useReactToPrint({
+    content: () => ref.current || null,
+  })
+
+  return (
+    <>
+      <Button onClick={handlePrint}>Print QR</Button>
+      {/* @ts-ignore incompatible refs */}
+      <QRCode ref={ref} width={size} destination={destination} context={context} />
+    </>
+  )
+}
+
 const getAdditionalCells = (
   specialsAndSubobjects: { name: string; label: string }[],
   props: Record<string, any>,
@@ -111,23 +128,37 @@ const getAdditionalCells = (
 ) =>
   specialsAndSubobjects.map(({ name, label }) => {
     const pageId = props[`${name}Page`]
+    const printableQrPageId = !!props[`${name}PagePrintableQR`]
+    const printableQrSize = parseInt(props[`${name}PagePrintableQRSize`], 10)
     if (!pageId) return null
     return {
       label,
       value: '',
       children: (
-        <Button
-          onClick={() => {
-            const pathname = path.join('/', appId || '', pageId === '~' ? '' : pageId)
-            const ctx = {
-              ...context,
-              [lowercaseFirstLetter(`${typeName}Id`)]: rowId,
-            }
-            historyPush(`${pathname}?${qs.stringify(ctx)}`)
-          }}
-        >
-          {label}
-        </Button>
+        <>
+          <Button
+            onClick={() => {
+              const pathname = path.join('/', appId || '', pageId === '~' ? '' : pageId)
+              const ctx = {
+                ...context,
+                [lowercaseFirstLetter(`${typeName}Id`)]: rowId,
+              }
+              historyPush(`${pathname}?${qs.stringify(ctx)}`)
+            }}
+          >
+            {label}
+          </Button>
+          {printableQrPageId && (
+            <PrintableQR
+              size={printableQrSize}
+              destination={pageId}
+              context={{
+                ...context,
+                [lowercaseFirstLetter(`${typeName}Id`)]: rowId,
+              }}
+            />
+          )}
+        </>
       ),
       narrowTable: {
         showLabel: true,

@@ -44,6 +44,7 @@
     "react-qr-code": "^2.0.3",
     "react-router": "^5.2.0",
     "react-router-dom": "^5.2.0",
+    "react-to-print": "^2.14.1",
     "react-tooltip": "^4.2.21",
     "slugify": "^1.6.0",
     "snyk": "^1.662.0",
