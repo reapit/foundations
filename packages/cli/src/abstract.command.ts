@@ -5,6 +5,8 @@ import chalk from 'chalk'
 import { Ora } from 'ora'
 import { resolve } from 'path'
 import * as fs from 'fs'
+import Pusher from 'pusher-js'
+import globalConfig from '../config.json'
 
 export interface Command {
   run(): Promise<any> | any
@@ -140,5 +142,25 @@ export abstract class AbstractCommand {
           : ''
       }${text}`,
     )
+  }
+
+  protected async pusher(): Promise<Pusher> {
+    const config = await this.getConfig()
+
+    if (!config) {
+      this.writeLine(chalk.red('Unable to fetch local config'))
+      process.exit(1)
+    }
+
+    return new Pusher(globalConfig.PUSHER_KEY, {
+      cluster: 'eu',
+      authEndpoint: `${this.baseUrl}pusher/auth`,
+      auth: {
+        headers: {
+          ['x-api-key']: config.config['api-key'],
+          ['Content-Type']: 'application/json',
+        },
+      },
+    })
   }
 }

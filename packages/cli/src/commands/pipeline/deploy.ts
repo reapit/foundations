@@ -6,10 +6,8 @@ import {
 } from '../../../../foundations-ts-definitions/deployment-schema'
 import ora from 'ora'
 import { REAPIT_PIPELINE_CONFIG_FILE } from './constants'
-import Pusher from 'pusher-js'
 import { Multispinner, SpinnerState } from '../../utils/multispinner'
 import chalk from 'chalk'
-import config from '../../../config.json'
 
 @Command({
   name: 'deploy',
@@ -32,17 +30,17 @@ export class DeployPipelineCommand extends AbstractCommand {
 
     if (response.status === 200) {
       spinner.succeed('Deployment started')
+    } else if (response.status === 409) {
+      spinner.fail('Cannot deploy, deploying already in progress')
+      process.exit(1)
     } else {
       spinner.fail('Deployment creation failed')
     }
 
     const deploymentId = response.data.id
 
-    const pusher = new Pusher(config.PUSHER_KEY, {
-      cluster: 'eu',
-    })
-
     spinner.start('Connecting to socket...')
+    const pusher = await this.pusher()
 
     await new Promise<void>((resolve) => {
       pusher.connection.bind('state_change', (states) => {
@@ -56,14 +54,15 @@ export class DeployPipelineCommand extends AbstractCommand {
       })
     })
 
-    spinner.succeed('Connection successful')
+    pusher.connection.bind('error', (error) => console.log('err', error))
 
-    const channel = pusher.subscribe(pipeline.developerId as string)
+    spinner.succeed('Connection successful')
+    const channel = pusher.subscribe(`private-${pipeline.developerId as string}`)
     channel.subscribe()
 
-    const taskSpinners = new Multispinner(['DOWNLOAD_SOURCE', 'INSTALL', 'PRE_BUILD', 'BUILD', 'DEPLOY'])
+    const taskSpinners = new Multispinner(['DOWNLOAD_SOURCE', 'INSTALL', 'BUILD', 'DEPLOY'])
 
-    console.log('Watching deployment stream...')
+    this.writeLine('Watching deployment stream...')
 
     channel.bind('pipeline-runner-update', (event) => {
       if (event.id !== deploymentId) {
