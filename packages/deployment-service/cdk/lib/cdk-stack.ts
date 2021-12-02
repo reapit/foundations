@@ -343,7 +343,7 @@ export class CdkStack extends cdk.Stack {
         policies: [...policies.commonBackendPolicies],
       },
       pusherAuth: {
-        handler: 'main.pusherAuth',
+        handler: 'main.pusherAuthentication',
         policies: [...policies.commonBackendPolicies],
         api: {
           method: 'POST',
@@ -353,6 +353,18 @@ export class CdkStack extends cdk.Stack {
           },
           headers: ['Content-Type', 'Authorization', 'api-version'],
           authorizer: true,
+        },
+      },
+      apiPusherAuth: {
+        handler: 'main.pusherAuthentication',
+        policies: [...policies.commonBackendPolicies],
+        api: {
+          method: 'POST',
+          path: 'api/pusher/auth',
+          cors: {
+            origin: '*',
+          },
+          headers: ['Content-Type', 'Authorization', 'api-version', 'X-Api-Key'],
         },
       },
     }
