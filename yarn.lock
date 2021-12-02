@@ -10299,10 +10299,45 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@reapit/connect-session@^3.0.0, @reapit/connect-session@workspace:packages/connect-session":
+"@reapit/connect-session@npm:^2.0.9":
+  version: 2.3.1
+  resolution: "@reapit/connect-session@npm:2.3.1"
+  dependencies:
+    axios: ^0.21.1
+    isomorphic-fetch: ^3.0.0
+    jsonwebtoken: ^8.5.1
+    jwk-to-pem: ^2.0.4
+    snyk: ^1.463.0
+  peerDependencies:
+    react: ^16.12.0
+    react-dom: ^16.12.0
+  checksum: 35ce814b805f6ac9d7b6da777fd04c39f5db568c5738277c15ea316a828c3cc160aa982b3f310694e72765354f68c0635d5b47429b17a36e38b148d5b359e1e8
+  languageName: node
+  linkType: hard
+
+"@reapit/connect-session@npm:^3.0.0":
+  version: 3.2.1
+  resolution: "@reapit/connect-session@npm:3.2.1"
+  dependencies:
+    axios: ^0.24.0
+    base-64: ^1.0.0
+    bashleigh-idtoken-verifier: 2.2.3
+    isomorphic-fetch: ^3.0.0
+    jwk-to-pem: ^2.0.5
+    jwt-decode: ^3.1.2
+    snyk: ^1.662.0
+  peerDependencies:
+    react: ^17.0.2
+    react-dom: ^17.0.2
+  checksum: cceb442fa5bf13673578ff221ba0d5b25da7c2b8f8d16e08172634a360ee20eff6205e681a8af6234a46138490f6e7b65d14bd0bde77ec35d861f838bdd2a945
+  languageName: node
+  linkType: hard
+
+"@reapit/connect-session@workspace:packages/connect-session":
   version: 0.0.0-use.local
   resolution: "@reapit/connect-session@workspace:packages/connect-session"
   dependencies:
+    "@babel/runtime": ^7.14.6
     "@reapit/config-manager": "workspace:packages/config-manager"
     "@reapit/ts-scripts": "workspace:packages/ts-scripts"
     "@reapit/ts-types": "workspace:packages/ts-types"
@@ -10323,29 +10358,12 @@ __metadata:
     jest-coverage-badges: ^1.1.2
     jwk-to-pem: ^2.0.5
     jwt-decode: ^3.1.2
-    snyk: ^1.662.0
-    tsdx: ^0.14.1
-  peerDependencies:
     react: ^17.0.2
     react-dom: ^17.0.2
+    snyk: ^1.662.0
+    tsdx: ^0.14.1
   languageName: unknown
   linkType: soft
-
-"@reapit/connect-session@npm:^2.0.9":
-  version: 2.3.1
-  resolution: "@reapit/connect-session@npm:2.3.1"
-  dependencies:
-    axios: ^0.21.1
-    isomorphic-fetch: ^3.0.0
-    jsonwebtoken: ^8.5.1
-    jwk-to-pem: ^2.0.4
-    snyk: ^1.463.0
-  peerDependencies:
-    react: ^16.12.0
-    react-dom: ^16.12.0
-  checksum: 35ce814b805f6ac9d7b6da777fd04c39f5db568c5738277c15ea316a828c3cc160aa982b3f310694e72765354f68c0635d5b47429b17a36e38b148d5b359e1e8
-  languageName: node
-  linkType: hard
 
 "@reapit/cra-template-foundations@workspace:packages/cra-template-foundations":
   version: 0.0.0-use.local
