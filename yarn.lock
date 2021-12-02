@@ -10220,8 +10220,10 @@ __metadata:
     react-dom: ^17.0.2
     react-frame-component: ^5.1.0
     react-ga: ^2.7.0
+    react-qr-code: ^2.0.3
     react-router: ^5.2.0
     react-router-dom: ^5.2.0
+    react-to-print: ^2.14.1
     react-tooltip: ^4.2.21
     rimraf: ^3.0.2
     serverless: ^2.52.0
@@ -38787,6 +38789,13 @@ fsevents@^1.2.7:
   languageName: node
   linkType: hard
 
+"qr.js@npm:0.0.0":
+  version: 0.0.0
+  resolution: "qr.js@npm:0.0.0"
+  checksum: 83e1d6140ec8781d0def39a70d7ef9e7a7ff455697d8e078b86aeeb773dd33fd5235d4f94710b871fc3cfdefb806165503b8241cd4cd9b18a4b9b4160f48db43
+  languageName: node
+  linkType: hard
+
 "qrcode-terminal@npm:^0.12.0":
   version: 0.12.0
   resolution: "qrcode-terminal@npm:0.12.0"
@@ -39719,6 +39728,19 @@ fsevents@^1.2.7:
   languageName: node
   linkType: hard
 
+"react-qr-code@npm:^2.0.3":
+  version: 2.0.3
+  resolution: "react-qr-code@npm:2.0.3"
+  dependencies:
+    prop-types: ^15.7.2
+    qr.js: 0.0.0
+  peerDependencies:
+    react: ^16.x || ^17.x
+    react-native-svg: "*"
+  checksum: b8c33eb68e10272cd4d76d828cd9d4260f128109d732d031527bf38fdc80eb2ec4a892156ac0f518671882d1c8a91909e6597d89f831f3659d653672c2090a85
+  languageName: node
+  linkType: hard
+
 "react-redux@npm:=4.4.10":
   version: 4.4.10
   resolution: "react-redux@npm:4.4.10"
@@ -39952,6 +39974,18 @@ fsevents@^1.2.7:
     react: ^15.0.0 || ^16.0.0 || ^17.0.0
     react-dom: ^15.0.0 || ^16.0.0 || ^17.0.0
   checksum: af2432fb1d4cab6fbe898198f14222f33ddae80933168aec14dc46faa4f1e216d2e1b701ee4ae2f736be5e6a99efb756397912d995ef483c7a0345ae7ad6d9d4
+  languageName: node
+  linkType: hard
+
+"react-to-print@npm:^2.14.1":
+  version: 2.14.1
+  resolution: "react-to-print@npm:2.14.1"
+  dependencies:
+    prop-types: ^15.7.2
+  peerDependencies:
+    react: ^15.0.0 || ^16.0.0 || ^17.0.0
+    react-dom: ^15.0.0 || ^16.0.0 || ^17.0.0
+  checksum: 7a833ac348bc364f204c288ce3113201151288ca20e51c2b938e9a8e78e80a9cd00b36e68727f2a0b67d6cf66aeec20869a3b7d8c8930a86c835ecb391317e19
   languageName: node
   linkType: hard
 

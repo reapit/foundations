@@ -11,6 +11,7 @@ import Link from '../ui/user/link'
 import Context from '../ui/user/context'
 import Table from '../ui/user/table'
 import Form from '../ui/user/form'
+import QRCode from '../ui/user/qr-code'
 import { getPageId, usePageId } from '../hooks/use-page-id'
 import { useUpdatePage } from '../hooks/apps/use-update-app'
 import { isInitialLoad, nodesObjtoToArr } from '../hooks/apps/node-helpers'
@@ -44,6 +45,7 @@ export const Authenticated: FC<AuthenticatedProps> = () => {
         Table,
         Form,
         FormInput,
+        QRCode,
       }}
       onRender={(props) => <RenderNode {...props} iframeRef={iframeRef.current} />}
       onNodesChange={(query) => {
