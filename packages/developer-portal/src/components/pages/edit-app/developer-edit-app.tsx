@@ -496,7 +496,7 @@ export const DeveloperEditApp: React.FC<DeveloperSubmitAppProps> = () => {
               <RedirectUriSection authFlow={authFlow} isPrivateApp={isPrivateApp} setFieldValue={setFieldValue} />
               <UploadImageSection isListed={!!isListed} />
               <MarketplaceStatusSection />
-              <ReapitProductsSection app={data} />
+              {window.reapit.config.appEnv !== 'production' && <ReapitProductsSection app={data} />}
               <PermissionSection scopes={scopes} errors={errors} isListed={Boolean(isListed)} />
               <Section>
                 {renderErrors(errors as unknown as Record<string, string | string[]>)}
