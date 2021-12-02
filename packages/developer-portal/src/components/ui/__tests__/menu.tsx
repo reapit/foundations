@@ -1,6 +1,6 @@
 import * as React from 'react'
 import { shallow } from 'enzyme'
-import { getDefaultNavIndex, Menu } from '../menu'
+import { getDefaultNavIndex, Menu, XmasLogo } from '../menu'
 import configureStore from 'redux-mock-store'
 import { Provider } from 'react-redux'
 import Routes from '../../../constants/routes'
@@ -33,12 +33,11 @@ describe('Menu', () => {
     ).toMatchSnapshot()
   })
 
-  // See component - commenting out until Christmas!
-  // describe('XmasLogo', () => {
-  //   it('should match a snapshot', () => {
-  //     expect(shallow(<XmasLogo />)).toMatchSnapshot()
-  //   })
-  // })
+  describe('XmasLogo', () => {
+    it('should match a snapshot', () => {
+      expect(shallow(<XmasLogo />)).toMatchSnapshot()
+    })
+  })
 })
 
 describe('getDefaultNavIndex', () => {

@@ -18,7 +18,10 @@ describe('apps', () => {
   describe('fetchApps', () => {
     it('should create a fetchApps action', () => {
       expect(fetchApps.type).toEqual(ActionTypes.FETCH_APPS)
-      expect(fetchApps({ onlyInstalled: true }).data).toEqual({ onlyInstalled: true })
+      expect(fetchApps({ onlyInstalled: true, product: 'agencyCloud' }).data).toEqual({
+        onlyInstalled: true,
+        product: 'agencyCloud',
+      })
     })
   })
   describe('fetchAppsSuccess', () => {
@@ -37,7 +40,10 @@ describe('apps', () => {
   describe('fetchFeatureApps', () => {
     it('should create a fetchFeatureApps action', () => {
       expect(fetchFeatureApps.type).toEqual(ActionTypes.FETCH_FEATURE_APPS)
-      expect(fetchFeatureApps({ onlyInstalled: true }).data).toEqual({ onlyInstalled: true })
+      expect(fetchFeatureApps({ onlyInstalled: true, product: 'agencyCloud' }).data).toEqual({
+        onlyInstalled: true,
+        product: 'agencyCloud',
+      })
     })
   })
   describe('fetchFeatureAppsSuccess', () => {

@@ -36,10 +36,15 @@ describe('routeDispatcher', () => {
         pageNumber: 1,
         pageSize: 9,
         developerId: ['SOME_ID'],
+        product: 'agencyCloud',
       }),
     )
-    expect(store.dispatch).toHaveBeenCalledWith(fetchFeatureApps({ pageNumber: 1, pageSize: 12 }))
-    expect(store.dispatch).toHaveBeenCalledWith(fetchApps({ pageNumber: 1, pageSize: 9, isInfinite: true }))
+    expect(store.dispatch).toHaveBeenCalledWith(
+      fetchFeatureApps({ pageNumber: 1, pageSize: 12, product: 'agencyCloud' }),
+    )
+    expect(store.dispatch).toHaveBeenCalledWith(
+      fetchApps({ pageNumber: 1, pageSize: 9, isInfinite: true, product: 'agencyCloud' }),
+    )
   })
 
   it('should dispatch to a single endpoint for the APP_DETAIL route', async () => {
@@ -63,6 +68,7 @@ describe('routeDispatcher', () => {
         onlyInstalled: true,
         developerId: undefined,
         showHiddenApps: true,
+        product: 'agencyCloud',
       }),
     )
   })
@@ -75,13 +81,16 @@ describe('routeDispatcher', () => {
         pageSize: APPS_PER_PAGE,
         onlyInstalled: true,
         developerId: undefined,
+        product: 'agencyCloud',
       }),
     )
   })
 
   it('should correctly dispatch for the SETTINGS route', async () => {
     await routeDispatcher(Routes.SETTINGS as RouteValue)
-    expect(store.dispatch).toHaveBeenCalledWith(fetchApps({ pageNumber: 1, pageSize: GET_ALL_PAGE_SIZE, clientId: '' }))
+    expect(store.dispatch).toHaveBeenCalledWith(
+      fetchApps({ pageNumber: 1, pageSize: GET_ALL_PAGE_SIZE, clientId: '', product: 'agencyCloud' }),
+    )
     expect(store.dispatch).toHaveBeenCalledWith(
       fetchInstallationsList({
         pageNumber: 1,
