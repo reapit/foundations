@@ -5359,6 +5359,34 @@ export interface CreateOfficeModel {
   }
 }
 /**
+ * Request body used to create a new open house attendee
+ * example:
+ * [object Object]
+ */
+export interface CreateOpenHouseAttendeeModel {
+  /**
+   * The interest level of the open house attendee (veryInterested/mightBeInterested/notInterested/notSet)
+   */
+  interestLevel?: string
+  /**
+   * Notes on this open house attendee
+   */
+  notes?: string
+  /**
+   * Represents an external attendee on an appointment
+   */
+  attendee?: {
+    /**
+     * The unique identifier of the attendee
+     */
+    id?: string
+    /**
+     * The type of attendee (applicant/contact/landlord/tenant)
+     */
+    type?: string
+  }
+}
+/**
  * Request body used to create pre signed urls to upload files between 6MB and 30MB
  * example:
  * [object Object]
@@ -14787,6 +14815,21 @@ export interface UpdateOfficeModel {
   metadata?: {
     [name: string]: any
   }
+}
+/**
+ * Request body used to upda te a new open house attendee
+ * example:
+ * [object Object]
+ */
+export interface UpdateOpenHouseAttendeeModel {
+  /**
+   * The interest level of the open house attendee (veryInterested/mightBeInterested/notInterested/notSet)
+   */
+  interestLevel?: string
+  /**
+   * Notes on this open house attendee
+   */
+  notes?: string
 }
 /**
  * Request body used to update the address of an existing property
