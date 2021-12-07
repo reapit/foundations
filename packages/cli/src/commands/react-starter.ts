@@ -12,8 +12,8 @@ type ReapitConfig = {
 }
 
 @Command({
-  name: 'react-template',
-  description: 'Creates a Reapit react app template setup',
+  name: 'bootstrap-react',
+  description: 'Creates a Reapit react app template setup to start a new project',
 })
 export class ReactStarterCommand extends AbstractCommand {
   async checkFolderExists(path: string, spinner: Ora): Promise<void | never> {
