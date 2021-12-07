@@ -2,7 +2,7 @@ import { AbstractCommand } from '../../abstract.command'
 import { Command } from '../../decorators'
 import { PipelineModelInterface } from '@reapit/foundations-ts-definitions'
 import inquirer, { QuestionCollection } from 'inquirer'
-import ora from 'ora'
+import ora, { Ora } from 'ora'
 import chalk from 'chalk'
 import * as fs from 'fs'
 import { resolve } from 'path'
@@ -54,26 +54,28 @@ export class PipelineCreate extends AbstractCommand {
     }
   }
 
-  async createPipeline({
-    name,
-    appType,
-    repository,
-    create,
-    outDir,
-    buildCommand,
-    packageManager,
-    appId,
-  }: {
-    name: string
-    appType: string
-    repository: string
-    create: boolean
-    outDir: string
-    buildCommand: string
-    packageManager: string
-    appId: string
-  }) {
-    const spinner = ora('Creating pipeline').start()
+  async createPipeline(
+    {
+      name,
+      appType,
+      repository,
+      create,
+      outDir,
+      buildCommand,
+      packageManager,
+      appId,
+    }: {
+      name: string
+      appType: string
+      repository: string
+      create: boolean
+      outDir: string
+      buildCommand: string
+      packageManager: string
+      appId: string
+    },
+    spinner: Ora,
+  ): Promise<PipelineModelInterface> {
     const response = await (
       await this.axios(spinner)
     ).post<PipelineModelInterface>('/pipeline', {
@@ -95,6 +97,8 @@ export class PipelineCreate extends AbstractCommand {
         spinner.succeed('Created local pipeline config')
       }
       console.log('Now make a commit to your project or use `reapit pipeline deploy` to start a deployment manually')
+
+      return response.data
     } else {
       spinner.fail('Failed to create pipeline')
       console.log(chalk.red('Check your internet connection'))
@@ -172,6 +176,55 @@ export class PipelineCreate extends AbstractCommand {
       },
     ])
 
-    await this.createPipeline(answers)
+    const spinner = ora('Creating pipeline').start()
+
+    const pipeline = await this.createPipeline(answers, spinner)
+
+    spinner.start('Connecting to socket...')
+    const pusher = await this.pusher()
+
+    await new Promise<void>((resolve) => {
+      pusher.connection.bind('state_change', (states) => {
+        switch (states.current) {
+          case 'connected':
+            resolve()
+            break
+          default:
+            console.log('current state', states.current)
+        }
+      })
+    })
+
+    pusher.connection.bind('error', (error) => console.log('err', error))
+
+    spinner.succeed('Connection successful')
+    const channel = pusher.subscribe(`private-${pipeline.developerId as string}`)
+    channel.subscribe()
+    spinner.info('awaiting architecture to be ready for deployment...')
+
+    channel.bind('pipeline-architecture-update', (event) => {
+      if (event.id !== pipeline.id) {
+        return
+      }
+
+      if (event.message) {
+        spinner.info(event.message)
+      }
+
+      if (event.buildStatus === 'FAILED_TO_ARCHITECT') {
+        spinner.fail('Architecturing failed. Please report to Reapit.')
+        process.exit(1)
+      } else if (event.buildStatus === 'READY_FOR_DEPLOYMENT') {
+        spinner.succeed('🚀 Successfully architectured')
+        this.writeLine('')
+        this.writeLine("Now you're ready to deploy to your pipeline!")
+        this.writeLine(
+          `To do so, either use ${chalk.green('reapit pipeline deploy-local')} or ${chalk.green(
+            'reapit pipeline deploy-repo',
+          )}`,
+        )
+        process.exit(0)
+      }
+    })
   }
 }
