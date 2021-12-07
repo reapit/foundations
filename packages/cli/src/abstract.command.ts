@@ -103,11 +103,17 @@ export abstract class AbstractCommand {
     return instance
   }
 
-  printConfig(parent?: AbstractCommand) {
+  printConfig({ parent, singular = false }: { parent?: AbstractCommand; singular?: boolean }) {
     const config: CommandOptions = Reflect.getOwnMetadata(COMMAND_OPTIONS, this.constructor)
     const args: ArgsType[] | undefined = Reflect.getOwnMetadata(ARGUMENT_OPTIONS, this.constructor)
 
-    this.writeLine(`${chalk.bold.white(config.name)}\t${config.description}`, parent ? 2 : 1, '  ')
+    this.writeLine(
+      `${parent && singular ? `${chalk.green(parent.commandOptions.name)} ` : ''}${chalk.bold.white(config.name)}\t${
+        config.description
+      }`,
+      parent ? 2 : 1,
+      '  ',
+    )
     this.writeLine(
       `$ ${chalk.green('reapit')} ${parent ? `${chalk.whiteBright(parent.commandOptions.name)} ` : ''}${chalk.white(
         config.name,
