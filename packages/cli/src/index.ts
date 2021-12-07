@@ -24,10 +24,11 @@ const checkVersion = async () => {
 
 const boot = async (defaultCommand: AbstractCommand, commands: (AbstractCommand | ParentCommand)[]) => {
   const processArgv = argv(process.argv.slice(2))
-  const commandsArgs = processArgv({})
+  const commandsArgs = processArgv<any>({})
 
   const params = commandsArgs['--']
   const options = commandsArgs
+  const helpCommand = new HelpCommand()
 
   if (!params && Object.keys(options).length === 0) {
     defaultCommand.run(params, options)
@@ -36,7 +37,6 @@ const boot = async (defaultCommand: AbstractCommand, commands: (AbstractCommand 
   } else if (!params || (params.length === 0 && options)) {
     defaultCommand.run(params, options)
     await checkVersion()
-    const helpCommand = new HelpCommand()
     helpCommand.setCommands(commands)
     helpCommand.run()
     return
@@ -54,11 +54,23 @@ const boot = async (defaultCommand: AbstractCommand, commands: (AbstractCommand 
     console.log(chalk.red('sub command not found'))
   } else {
     if (command instanceof ParentCommand && command.isChildRunnable(params)) {
+      if (options.help) {
+        command.runChildHelp(params)
+        return
+      }
+
       command.runChild(params)
       return
     }
+
     params.shift()
     const args = resolveArgs(params, command.argOptions)
+
+    if (options.help) {
+      command.printConfig({})
+      return
+    }
+
     command.run(...args)
   }
 }
