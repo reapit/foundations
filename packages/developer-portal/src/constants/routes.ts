@@ -2,6 +2,7 @@ const Routes = {
   AUTHENTICATION: '/authentication',
   AUTHENTICATION_LOGIN_TYPE: '/authentication/:loginType',
   APPS: '/apps',
+  APPS_NEW: '/apps/new',
   APP_DETAIL: '/apps/:appid',
   APP_DETAIL_V8: '/v8/apps/:appid',
   SWAGGER: '/swagger',
