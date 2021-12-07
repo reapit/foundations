@@ -40,10 +40,15 @@ export abstract class ParentCommand extends AbstractCommand {
     command.run(...args)
   }
 
+
+  sortCommands(a: AbstractCommand, b: AbstractCommand): number {
+    return a.commandOptions.name.localeCompare(b.commandOptions.name)
+  }
+
   printConfig() {
     this.writeLine(`${chalk.bold.green(this.commandOptions.name)}`, 1, '  ')
     this.writeLine(`${this.commandOptions.description}`, 1, '  ')
     this.writeLine('')
-    this.commands.forEach((command) => command.printConfig({ parent: this }))
+    this.commands.sort(this.sortCommands).forEach((command) => command.printConfig({ parent: this }))
   }
 }

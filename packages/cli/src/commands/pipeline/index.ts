@@ -4,11 +4,18 @@ import { PipelineCreate } from './create'
 import { DeployPipelineCommand } from './deploy'
 import { PipelineList } from './list'
 import { LinkPipelineCommand } from './link'
+import { DeployLocalCommand } from './deploy-local'
 
 @Command({
   name: 'pipeline',
   description: '(BETA) For managing Pipeline deployments',
 })
 export class PipelineCommand extends ParentCommand {
-  commands = [new PipelineCreate(), new PipelineList(), new DeployPipelineCommand(), new LinkPipelineCommand()]
+  commands = [
+    new PipelineCreate(),
+    new PipelineList(),
+    new DeployPipelineCommand(),
+    new LinkPipelineCommand(),
+    new DeployLocalCommand(),
+  ]
 }
