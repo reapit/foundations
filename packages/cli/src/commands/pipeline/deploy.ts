@@ -10,8 +10,8 @@ import { Multispinner, SpinnerState } from '../../utils/multispinner'
 import chalk from 'chalk'
 
 @Command({
-  name: 'deploy',
-  description: 'Starts a manual deployment (from github)',
+  name: 'deploy-repo',
+  description: 'Starts a deployment pulled from the remote repository',
 })
 export class DeployPipelineCommand extends AbstractCommand {
   async run() {
