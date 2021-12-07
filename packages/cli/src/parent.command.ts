@@ -16,10 +16,22 @@ export abstract class ParentCommand extends AbstractCommand {
       .includes(params[1])
   }
 
-  runChild(params: string[]) {
-    const command = this.commands.find(
+  private getCommand(params: string[]): AbstractCommand | undefined {
+    return this.commands.find(
       (command) => Reflect.getOwnMetadata(COMMAND_OPTIONS, command.constructor).name === params[1],
     )
+  }
+
+  runChildHelp(params: string[]): void {
+    const command = this.getCommand(params)
+    if (!command) return
+
+    command.printConfig({ singular: true, parent: this })
+  }
+
+  runChild(params: string[]) {
+    const command = this.getCommand(params)
+
     if (!command) return
     params.shift()
     params.shift()
@@ -32,6 +44,6 @@ export abstract class ParentCommand extends AbstractCommand {
     this.writeLine(`${chalk.bold.green(this.commandOptions.name)}`, 1, '  ')
     this.writeLine(`${this.commandOptions.description}`, 1, '  ')
     this.writeLine('')
-    this.commands.forEach((command) => command.printConfig(this))
+    this.commands.forEach((command) => command.printConfig({ parent: this }))
   }
 }

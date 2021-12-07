@@ -11,10 +11,11 @@ export class HelpCommand extends AbstractCommand {
   setCommands(commands: (AbstractCommand | ParentCommand)[]) {
     this.commands = commands
   }
+
   async run() {
     this.writeLine('')
     this.commands.sort(this.sortCommands).forEach((command) => {
-      command.printConfig()
+      command.printConfig({})
     })
   }
 }
