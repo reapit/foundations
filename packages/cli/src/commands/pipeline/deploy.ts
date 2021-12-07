@@ -54,8 +54,6 @@ export class DeployPipelineCommand extends AbstractCommand {
       })
     })
 
-    pusher.connection.bind('error', (error) => console.log('err', error))
-
     spinner.succeed('Connection successful')
     const channel = pusher.subscribe(`private-${pipeline.developerId as string}`)
     channel.subscribe()
