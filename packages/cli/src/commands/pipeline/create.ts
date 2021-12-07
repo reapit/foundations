@@ -93,7 +93,7 @@ export class PipelineCreate extends AbstractCommand {
 
       if (create) {
         spinner.start('Creating local pipeline config')
-        fs.writeFileSync(resolve(process.cwd(), REAPIT_PIPELINE_CONFIG_FILE), JSON.stringify(response.data, null, 2))
+        fs.writeFileSync(resolve(process.cwd(), REAPIT_PIPELINE_CONFIG_FILE), this.serialisePipelineJson(response.data))
         spinner.succeed('Created local pipeline config')
       }
       console.log('Now make a commit to your project or use `reapit pipeline deploy` to start a deployment manually')
@@ -105,6 +105,19 @@ export class PipelineCreate extends AbstractCommand {
       console.log(chalk.red('Report this error if it persists'))
       process.exit(1)
     }
+  }
+
+
+  serialisePipelineJson = (pipeline: PipelineModelInterface): string => {
+    return JSON.stringify({
+      id: pipeline.id,
+      appId: pipeline.appId,
+      subDomain: pipeline.subDomain,
+      packageManager: pipeline.packageManager,
+      repospitory: pipeline.repository,
+      buildDir: pipeline.buildCommand,
+      outDir: pipeline.outDir,
+    }, null, 2)
   }
 
   async run() {
