@@ -1,13 +1,12 @@
 import { Command } from '../../decorators'
 import { ParentCommand } from '../../parent.command'
 import { ReleaseListCommand } from './list'
-import { DeployCommand } from './deploy'
 import { VersionCommand } from './version'
 
 @Command({
   name: 'release',
-  description: 'For managing simple deployments',
+  description: 'For viewing individual releases related to your project',
 })
 export class ReleaseCommand extends ParentCommand {
-  commands = [new DeployCommand(), new ReleaseListCommand(), new VersionCommand()]
+  commands = [new ReleaseListCommand(), new VersionCommand()]
 }

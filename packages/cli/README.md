@@ -9,15 +9,20 @@ Command line interface tool for reapit
 $ npm i -g @reapit/cli
 ```
 
-## Commands
+## Api Key
 
-command | description | args &amp; options
---- | --- | --- 
-`deployment create` | Create a new deployment configuration | 
-`deployment list` | List your existing deployment configurations | 
-`deployment run {deploymentId}` | Run a deployment configuration | 
-`config` | Create, update or show your config | 
-`react-starter` | Creates the reapit create react app starter | 
+In order to run commands you'll need to obtain an api-key in order to make authenticated requests.
+
+Get your api-key from the (reapit developers)[]
+
+Add your api-key to your cli
+
+
+```bash
+$ reapit config
+```
+
+You'll be prompted with an input for your api-key
 
 # Development
 

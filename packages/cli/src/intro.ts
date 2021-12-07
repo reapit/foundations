@@ -9,14 +9,14 @@ import pack from './../package.json'
 })
 export class IntroCommand extends AbstractCommand {
   run() {
-    console.log(
+    this.writeLine(
       chalk.blueBright(
         figlet.textSync('Reapit', {
           font: 'Larry 3D',
         }),
       ),
     )
-    console.log(pack.description as string)
-    console.log(`Version: ${pack.version}`)
+    this.writeLine(pack.description as string)
+    this.writeLine(`Version: ${pack.version}`)
   }
 }

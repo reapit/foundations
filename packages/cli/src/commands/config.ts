@@ -8,7 +8,7 @@ const createConfigFromQuestions = async (config?: ReapitCliConfig): Promise<Reap
   const values = await inquirer.prompt([
     {
       type: 'input',
-      message: 'Please enter your api-key',
+      message: 'Please enter your api-key (you can get this from Reapit Developers)',
       name: 'api-key',
       default: config ? config['api-key'] : undefined,
     },
@@ -42,7 +42,7 @@ export class ConfigCommand extends AbstractCommand {
       if (process.cwd() !== homeDir() && existingConfig.from === 'global') {
         updateConfigOptions.push({
           value: 'project',
-          name: 'Create new project config',
+          name: 'Create new project config (creates project config in current dir)',
         })
       }
 
