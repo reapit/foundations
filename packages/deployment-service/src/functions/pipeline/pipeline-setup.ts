@@ -13,10 +13,9 @@ export const pipelineSetup: SQSHandler = async (event: SQSEvent, context: Contex
       const message = JSON.parse(record.body)
       const pipeline = plainToClass(PipelineEntity, message)
       try {
-
         await pusher.trigger(`private-${pipeline.developerId}`, 'pipeline-architecture-update', {
           ...pipeline,
-          message: "Started architecture build",
+          message: 'Started architecture build',
         })
 
         await new Promise<void>((resolve, reject) =>
@@ -37,7 +36,7 @@ export const pipelineSetup: SQSHandler = async (event: SQSEvent, context: Contex
 
         await pusher.trigger(`private-${pipeline.developerId}`, 'pipeline-architecture-update', {
           ...pipeline,
-          message: "Bucket build",
+          message: 'Bucket built',
         })
 
         const frontClient = new CloudFrontClient({
@@ -91,7 +90,7 @@ export const pipelineSetup: SQSHandler = async (event: SQSEvent, context: Contex
 
         await pusher.trigger(`private-${pipeline.developerId}`, 'pipeline-architecture-update', {
           ...pipeline,
-          message: "Distro created",
+          message: 'Distro created',
         })
 
         if (!distroResult) {
@@ -132,7 +131,7 @@ export const pipelineSetup: SQSHandler = async (event: SQSEvent, context: Contex
 
         await pusher.trigger(`private-${pipeline.developerId}`, 'pipeline-architecture-update', {
           ...pipeline,
-          message: "A record created",
+          message: 'A record created',
         })
 
         await updatePipelineEntity(pipeline, {
@@ -141,9 +140,11 @@ export const pipelineSetup: SQSHandler = async (event: SQSEvent, context: Contex
           aRecordId,
         })
       } catch (error: any) {
+        pipeline.buildStatus = 'FAILED_TO_ARCHITECT'
+
         await pusher.trigger(`private-${pipeline.developerId}`, 'pipeline-architecture-update', {
           ...pipeline,
-          message: "Failed to create",
+          message: 'Failed to architech',
         })
         await updatePipelineEntity(pipeline, {
           buildStatus: 'FAILED_TO_ARCHITECT',
