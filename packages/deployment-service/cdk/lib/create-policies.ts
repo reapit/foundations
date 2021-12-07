@@ -1,6 +1,6 @@
 import { Project } from '@aws-cdk/aws-codebuild'
 import { Effect, PolicyStatement } from '@aws-cdk/aws-iam'
-import { ServerlessCluster } from '@aws-cdk/aws-rds'
+import { DatabaseCluster } from '@aws-cdk/aws-rds'
 import { Bucket } from '@aws-cdk/aws-s3'
 import { ISecret } from '@aws-cdk/aws-secretsmanager'
 import { Queue } from '@aws-cdk/aws-sqs'
@@ -11,7 +11,6 @@ export enum PolicyNames {
   codebuildExecPolicy = 'codebuildExecPolicy',
   cloudFrontPolicy = 'cloudFrontPolicy',
   route53Policy = 'route53Policy',
-  RDSPolicy = 'RDSPolicy',
   sqsPolices = 'sqsPolicies',
   secretManagerPolicy = 'secretManagerPolicy',
   S3BucketPolicy = 'S3BucketPolicy',
@@ -37,7 +36,7 @@ export const createPolicies = ({
   queues: { [s: string]: Queue }
   secretManager: ISecret
   codeBuild: Project
-  aurora: ServerlessCluster
+  aurora: DatabaseCluster
 }): namedPolicyGroupType & namedPolicyType => {
   const S3BucketPolicy = new PolicyStatement({
     effect: Effect.ALLOW,
@@ -66,22 +65,13 @@ export const createPolicies = ({
   const secretManagerPolicy = new PolicyStatement({
     effect: Effect.ALLOW,
     resources: [secretManager.secretArn],
-    actions: ['secretsmanager:GetSecretValue'],
-  })
-
-  const RDSPolicy = new PolicyStatement({
-    effect: Effect.ALLOW,
-    resources: [aurora.clusterArn],
     actions: [
-      'rds-data:BatchExecuteStatement',
-      'rds-data:BeginTransaction',
-      'rds-data:CommitTransaction',
-      'rds-data:ExecuteStatement',
-      'rds-data:RollbackTransaction',
+      'secretsmanager:GetSecretValue',
+      'secretsmanager:DescribeSecret',
     ],
   })
 
-  const dbPolicies = [RDSPolicy, secretManagerPolicy]
+  const dbPolicies = [secretManagerPolicy]
 
   const route53Policy = new PolicyStatement({
     effect: Effect.ALLOW,
@@ -124,7 +114,7 @@ export const createPolicies = ({
     actions: ['codebuild:StartBuild'],
   })
 
-  const commonBackendPolicies = [lambdaInvoke, ...dbPolicies, S3BucketPolicy, sqsPolicies]
+  const commonBackendPolicies = [lambdaInvoke, ...dbPolicies, S3BucketPolicy, sqsPolicies, secretManagerPolicy]
 
   return {
     commonBackendPolicies,
@@ -132,7 +122,6 @@ export const createPolicies = ({
     codebuildExecPolicy,
     cloudFrontPolicy,
     route53Policy,
-    RDSPolicy,
     sqsPolicies,
     secretManagerPolicy,
     S3BucketPolicy,

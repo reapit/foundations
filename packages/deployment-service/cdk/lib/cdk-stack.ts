@@ -377,7 +377,7 @@ export class CdkStack extends cdk.Stack {
 
     const env = {
       AURORA_SECRET_ARN: secretManager.secretArn,
-      AURORA_RESOURCE_ARN: aurora.clusterArn,
+      AURORA_RESOURCE_ARN: aurora.clusterEndpoint,
       AURORA_REGION: this.region,
       MYSQL_DATABASE,
       DEPLOYMENT_LIVE_BUCKET_NAME: buckets['cloud-deployment-live-dev'].bucketName,
