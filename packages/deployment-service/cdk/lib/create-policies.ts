@@ -22,7 +22,6 @@ type namedPolicyType = {
 
 type namedPolicyGroupType = {
   commonBackendPolicies: PolicyStatement[]
-  dbPolicies: PolicyStatement[]
 }
 
 export const createPolicies = ({
@@ -71,8 +70,6 @@ export const createPolicies = ({
     ],
   })
 
-  const dbPolicies = [secretManagerPolicy]
-
   const route53Policy = new PolicyStatement({
     effect: Effect.ALLOW,
     resources: [
@@ -114,11 +111,10 @@ export const createPolicies = ({
     actions: ['codebuild:StartBuild'],
   })
 
-  const commonBackendPolicies = [lambdaInvoke, ...dbPolicies, S3BucketPolicy, sqsPolicies, secretManagerPolicy]
+  const commonBackendPolicies = [lambdaInvoke, S3BucketPolicy, sqsPolicies, secretManagerPolicy]
 
   return {
     commonBackendPolicies,
-    dbPolicies,
     codebuildExecPolicy,
     cloudFrontPolicy,
     route53Policy,

@@ -10,7 +10,7 @@ let connection: Connection | null = null
 export const connect = async (): Promise<Connection | never> => {
 
   const secretManager = new SecretsManager({
-    region: 'eu-west-1',
+    region: 'eu-west-2',
   })
   if (!process.env.DATABASE_SECERT_ARN) {
     throw new Error('No db secret arn present')
@@ -18,7 +18,11 @@ export const connect = async (): Promise<Connection | never> => {
 
   const secrets = await secretManager.getSecretValue({ SecretId: process.env.DATABASE_SECERT_ARN }).promise()
 
-  console.log('secret data', secrets)
+  if (!secrets.SecretString) {
+    throw new Error('Failed to get secret')
+  }
+
+  const data = JSON.parse(secrets.SecretString)
 
   const mysqlConfig: MysqlConnectionOptions = {
     logging: true,
@@ -28,14 +32,10 @@ export const connect = async (): Promise<Connection | never> => {
     subscribers: [SubDomainSubscriber],
     migrations,
     type: 'mysql',
-    database: '',
-    host: '',
-    username: '',
-    password: '',
-    // host: secrets.host,
-    // username: secrets.username,
-    // password: secrets.password,
-    // database: secrets.database,
+    database: data.dbname,
+    host: data.host,
+    username: data.username,
+    password: data.password,
   }
 
   if (connection !== null) return Promise.resolve(connection)
