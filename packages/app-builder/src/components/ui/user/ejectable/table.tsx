@@ -4,6 +4,7 @@ import {
   elFlex,
   elFlex1,
   elFlexColumn,
+  Icon,
   Input,
   Loader,
   RowActionProps,
@@ -85,7 +86,7 @@ const DeleteButton = ({ disabled, typeName, id }: { disabled?: boolean; typeName
           })
       }}
     >
-      Delete
+      <Icon icon="trashSystem" />
     </Button>
   )
 }
@@ -233,7 +234,7 @@ export const Table = forwardRef<HTMLDivElement, TableProps & { disabled?: boolea
                         }
                       }}
                     >
-                      Edit
+                      <Icon icon="editSystem" />
                     </Button>
                   ) : undefined,
                   deletionAvailable ? <DeleteButton disabled={disabled} id={row.id} typeName={typeName} /> : undefined,
@@ -264,8 +265,8 @@ export const Table = forwardRef<HTMLDivElement, TableProps & { disabled?: boolea
 
             return {
               cells,
-              expandableContent: buttons.length > 1 ? additionalContent : undefined,
-              ctaContent: buttons.length === 1 ? additionalContent : undefined,
+              expandableContent: buttons.length > 2 ? additionalContent : undefined,
+              ctaContent: buttons.length <= 2 ? additionalContent : undefined,
             }
           })
         : undefined
