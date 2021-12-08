@@ -1,17 +1,6 @@
 import React from 'react'
-import {
-  FormSection,
-  H5,
-  FormSubHeading,
-  Button,
-  Form,
-  LevelRight,
-  Grid,
-  GridItem,
-  Formik,
-  Checkbox,
-} from '@reapit/elements-legacy'
-import { MemberModel } from '@reapit/foundations-ts-definitions'
+import { FormSection, H5, FormSubHeading, Button, LevelRight, Grid, GridItem } from '@reapit/elements-legacy'
+import { MemberModel, SandboxModelPagedResult } from '@reapit/foundations-ts-definitions'
 import { updateCurrentMember } from '@/actions/current-member'
 import { useDispatch, useSelector } from 'react-redux'
 import { selectCurrentMemberData, selectCurrentMemberIsUpdating } from '@/selector/current-member'
@@ -19,32 +8,26 @@ import FadeIn from '../../../../styles/fade-in'
 import { reapitConnectBrowserSession } from '../../../../core/connect-session'
 import { useReapitConnect } from '@reapit/connect-session'
 import { selectIsUserOrUserAdmin, selectLoginIdentity } from '../../../../selector/auth'
+import { ElToggleItem, Label, Toggle, ToggleRadio, ToggleRadioOption, InputGroup } from '@reapit/elements'
+import { useReapitGet } from '@reapit/utils-react'
+import { GetActionNames, getActions } from '@reapit/utils-common'
+import { useForm } from 'react-hook-form'
 
 export type ToggleCustomerDataValues = {
   useCustomerData: boolean
+  sandboxId: string
 }
 
 export type ToggleCustomerDataFormProps = {}
 
-export const defaultInitialValues: ToggleCustomerDataValues = {
-  useCustomerData: false,
-}
-
 export const generateInitialValues = ({
-  defaultInitialValues,
   currentMemberInfo,
 }: {
-  defaultInitialValues: ToggleCustomerDataValues
   currentMemberInfo: MemberModel | null
 }): ToggleCustomerDataValues => {
-  if (!currentMemberInfo) {
-    return defaultInitialValues
-  }
-
-  const { useCustomerData = false } = currentMemberInfo
-
   return {
-    useCustomerData,
+    useCustomerData: currentMemberInfo?.useCustomerData ?? false,
+    sandboxId: currentMemberInfo?.sandboxId ?? 'GBR',
   }
 }
 
@@ -55,46 +38,65 @@ export const ToggleCustomerDataForm: React.FC<ToggleCustomerDataFormProps> = () 
   const { clientId, orgName } = selectLoginIdentity(connectSession)
   const isUserOrUserAdmin = selectIsUserOrUserAdmin(connectSession)
   const dispatch = useDispatch()
-  const updateCurrentMemberInformation = (values) => dispatch(updateCurrentMember(values))
-  const initialValues = generateInitialValues({ defaultInitialValues, currentMemberInfo })
+  const updateCurrentMemberInformation = (values: ToggleCustomerDataValues) => dispatch(updateCurrentMember(values))
+  const defaultValues = generateInitialValues({ currentMemberInfo })
+  const [sandboxes] = useReapitGet<SandboxModelPagedResult>({
+    reapitConnectBrowserSession,
+    action: getActions(window.reapit.config.appEnv)[GetActionNames.getSandboxes],
+  })
+  const { register, handleSubmit } = useForm<ToggleCustomerDataValues>({
+    defaultValues,
+  })
 
-  if (!clientId || !isUserOrUserAdmin) return null
+  if (!clientId || !isUserOrUserAdmin || !sandboxes?.data) return null
 
   return (
-    <Formik initialValues={initialValues} onSubmit={handleSubmitToggleCustomerData(updateCurrentMemberInformation)}>
-      {() => {
-        return (
-          <FormSection>
-            <Form>
-              <FadeIn>
-                <H5>Customer Data</H5>
-                <FormSubHeading>
-                  As your account is associated with both the Sandbox Data (SBOX) and Customer Data, you can choose to
-                  toggle between which data you want to see available in the Developer Portal. This is specific and only
-                  associated to your developer profile. Please note, you will need to log out and log back in again to
-                  see this change take effect.
-                </FormSubHeading>
-                <Grid>
-                  <GridItem>
-                    <Checkbox
-                      dataTest="useCustomerData"
-                      labelText={`Use ${orgName} data`}
-                      id="useCustomerData"
-                      name="useCustomerData"
-                    />
-                  </GridItem>
-                </Grid>
-                <LevelRight>
-                  <Button dataTest="save-changes" loading={isUpdating} variant="primary" type="submit">
-                    Save Changes
-                  </Button>
-                </LevelRight>
-              </FadeIn>
-            </Form>
-          </FormSection>
-        )
-      }}
-    </Formik>
+    <form onSubmit={handleSubmit(handleSubmitToggleCustomerData(updateCurrentMemberInformation))}>
+      <FormSection>
+        <FadeIn>
+          <H5>Customer Data</H5>
+          <FormSubHeading>
+            As your account is associated with both the Sandbox Data (SBOX) and Customer Data, you can choose to toggle
+            between which data you want to see available in the Developer Portal. You can also choose which sandbox you
+            wish to view based on your Reapit Product. This is specific and only associated to your developer profile.
+            Please note, you will need to log out and log back in again to see this change take effect.
+          </FormSubHeading>
+          <Grid>
+            <GridItem>
+              <InputGroup>
+                <Toggle id="useCustomerData" hasGreyBg {...register('useCustomerData')}>
+                  <ElToggleItem>Customer</ElToggleItem>
+                  <ElToggleItem>Sandbox</ElToggleItem>
+                </Toggle>
+                <Label>Use {orgName} Customer or Sandbox data</Label>
+              </InputGroup>
+            </GridItem>
+            <GridItem>
+              <InputGroup>
+                <ToggleRadio
+                  hasGreyBg
+                  {...register('sandboxId')}
+                  options={
+                    sandboxes?.data?.map((sandbox) => ({
+                      id: sandbox.id ?? '',
+                      text: sandbox.name ?? '',
+                      value: sandbox.id ?? '',
+                      isChecked: defaultValues.sandboxId === sandbox.id,
+                    })) as ToggleRadioOption[]
+                  }
+                />
+                <Label>Choose Sandbox</Label>
+              </InputGroup>
+            </GridItem>
+          </Grid>
+          <LevelRight>
+            <Button dataTest="save-changes" loading={isUpdating} variant="primary" type="submit">
+              Save Changes
+            </Button>
+          </LevelRight>
+        </FadeIn>
+      </FormSection>
+    </form>
   )
 }
 
