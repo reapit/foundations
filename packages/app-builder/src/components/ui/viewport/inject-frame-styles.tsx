@@ -28,6 +28,7 @@ export const InjectFrameStyles = ({ children }: { children: React.ReactChildren 
     }
 
     frame.body.style.background = '#e0e0e0'
+    frame.body.style.overflow = 'auto'
 
     return () => {
       if (!isLocal) {

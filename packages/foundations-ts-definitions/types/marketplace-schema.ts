@@ -1536,6 +1536,10 @@ export interface MemberModel {
    */
   developerId?: string // uuid
   /**
+   * The id of the sandbox envionment the member is associated to (AUS/GBR)
+   */
+  sandboxId?: string
+  /**
    * A flag specifying if the member has access to agency cloud
    */
   agencyCloudAccess?: boolean
@@ -1628,6 +1632,40 @@ export interface ResendAppRevisionConsentModel {
    * Sets the email of the user resending the consent emails
    */
   actionedBy?: string
+}
+/**
+ * Model to expose details of a sandbox environment
+ */
+export interface SandboxModel {
+  /**
+   * Gets the links associated to this model
+   */
+  readonly links?: LinkModel[]
+  /**
+   * The unique sandbox identifier
+   */
+  id?: string
+  /**
+   * The sandbox environment name
+   */
+  name?: string
+  /**
+   * The identifier of the customer associated to the sandbox
+   */
+  customerId?: string
+}
+/**
+ * Model to handle paged data and information
+ */
+export interface SandboxModelPagedResult {
+  /**
+   * List of paged data
+   */
+  data?: SandboxModel[]
+  pageNumber?: number // int32
+  pageSize?: number // int32
+  pageCount?: number // int32
+  totalCount?: number // int32
 }
 /**
  * Model that represents a scope
@@ -1890,4 +1928,8 @@ export interface UpdateMemberModel {
    * A flag to determine whether an access token issued to this developer user will resolve to customer data (rather than sandbox)
    */
   useCustomerData?: boolean
+  /**
+   * The identifier of the sandbox environment to use (AUS/GBR)
+   */
+  sandboxId?: string
 }

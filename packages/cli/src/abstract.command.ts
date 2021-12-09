@@ -5,6 +5,8 @@ import chalk from 'chalk'
 import { Ora } from 'ora'
 import { resolve } from 'path'
 import * as fs from 'fs'
+import Pusher from 'pusher-js'
+import globalConfig from '../config.json'
 
 export interface Command {
   run(): Promise<any> | any
@@ -101,11 +103,17 @@ export abstract class AbstractCommand {
     return instance
   }
 
-  printConfig(parent?: AbstractCommand) {
+  printConfig({ parent, singular = false }: { parent?: AbstractCommand; singular?: boolean }) {
     const config: CommandOptions = Reflect.getOwnMetadata(COMMAND_OPTIONS, this.constructor)
     const args: ArgsType[] | undefined = Reflect.getOwnMetadata(ARGUMENT_OPTIONS, this.constructor)
 
-    this.writeLine(`${chalk.bold.white(config.name)}\t${config.description}`, parent ? 2 : 1, '  ')
+    this.writeLine(
+      `${parent && singular ? `${chalk.green(parent.commandOptions.name)} ` : ''}${chalk.bold.white(config.name)}\t${
+        config.description
+      }`,
+      parent ? 2 : 1,
+      '  ',
+    )
     this.writeLine(
       `$ ${chalk.green('reapit')} ${parent ? `${chalk.whiteBright(parent.commandOptions.name)} ` : ''}${chalk.white(
         config.name,
@@ -140,5 +148,25 @@ export abstract class AbstractCommand {
           : ''
       }${text}`,
     )
+  }
+
+  protected async pusher(): Promise<Pusher> {
+    const config = await this.getConfig()
+
+    if (!config) {
+      this.writeLine(chalk.red('Unable to fetch local config'))
+      process.exit(1)
+    }
+
+    return new Pusher(globalConfig.PUSHER_KEY, {
+      cluster: 'eu',
+      authEndpoint: `${this.baseUrl}pusher/auth`,
+      auth: {
+        headers: {
+          ['x-api-key']: config.config['api-key'],
+          ['Content-Type']: 'application/json',
+        },
+      },
+    })
   }
 }

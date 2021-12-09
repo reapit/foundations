@@ -5359,6 +5359,34 @@ export interface CreateOfficeModel {
   }
 }
 /**
+ * Request body used to create a new open house attendee
+ * example:
+ * [object Object]
+ */
+export interface CreateOpenHouseAttendeeModel {
+  /**
+   * The interest level of the open house attendee (veryInterested/mightBeInterested/notInterested/notSet)
+   */
+  interestLevel?: string
+  /**
+   * Notes on this open house attendee
+   */
+  notes?: string
+  /**
+   * Represents an external attendee on an appointment
+   */
+  attendee?: {
+    /**
+     * The unique identifier of the attendee
+     */
+    id?: string
+    /**
+     * The type of attendee (applicant/contact/landlord/tenant)
+     */
+    type?: string
+  }
+}
+/**
  * Request body used to create pre signed urls to upload files between 6MB and 30MB
  * example:
  * [object Object]
@@ -9594,6 +9622,197 @@ export interface Offices {
   modifiedTo?: string
   metadata?: string[]
   extrasField?: string[]
+}
+/**
+ * Representation of a calendar appointment
+ */
+export interface OpenHouseAttendeeModel {
+  readonly _links?: {
+    [name: string]: {
+      href?: string
+    }
+  }
+  readonly _embedded?: {
+    [name: string]: any
+  }
+  /**
+   * The unique identifier of the open house attendee
+   */
+  id?: string
+  /**
+   * The unique identifier of the open house appointment
+   */
+  openHouseId?: string
+  /**
+   * The date and time when the open house attendee was created
+   * example:
+   * 2019-08-14T12:30:02.0000000Z
+   */
+  created?: string // date-time
+  /**
+   * The date and time when the open house attendee was last modified
+   * example:
+   * 2019-08-14T12:30:02.0000000Z
+   */
+  modified?: string // date-time
+  /**
+   * The notes taken regarding the open house attendee
+   */
+  notes?: string
+  /**
+   * The open house attendees interest level (veryInterested/notInterested/possibleInterest)
+   */
+  interestLevel?: string
+  /**
+   * An appointment attendee
+   */
+  attendee?: {
+    /**
+     * The unique identifier of the attendee
+     */
+    id?: string
+    /**
+     * The type of attendee
+     */
+    type?: string
+    /**
+     * A collection of contacts relating to the attendee
+     */
+    contacts?: {
+      /**
+       * The unique identifier of the contact
+       */
+      id?: string
+      /**
+       * The name of the contact
+       */
+      name?: string
+      /**
+       * The home phone number of the contact
+       */
+      homePhone?: string
+      /**
+       * The work phone number of the contact
+       */
+      workPhone?: string
+      /**
+       * The mobile phone number of the contact
+       */
+      mobilePhone?: string
+      /**
+       * The email address of the contact
+       */
+      email?: string
+      /**
+       * A flag determining if the related contact is archived
+       */
+      fromArchive?: boolean
+    }[]
+  }
+  /**
+   * The ETag for the current version of the open house attendee. Used for managing update concurrency
+   */
+  readonly _eTag?: string
+}
+export interface OpenHouseAttendeeModelPagedResult {
+  _embedded?: {
+    readonly _links?: {
+      [name: string]: {
+        href?: string
+      }
+    }
+    readonly _embedded?: {
+      [name: string]: any
+    }
+    /**
+     * The unique identifier of the open house attendee
+     */
+    id?: string
+    /**
+     * The unique identifier of the open house appointment
+     */
+    openHouseId?: string
+    /**
+     * The date and time when the open house attendee was created
+     * example:
+     * 2019-08-14T12:30:02.0000000Z
+     */
+    created?: string // date-time
+    /**
+     * The date and time when the open house attendee was last modified
+     * example:
+     * 2019-08-14T12:30:02.0000000Z
+     */
+    modified?: string // date-time
+    /**
+     * The notes taken regarding the open house attendee
+     */
+    notes?: string
+    /**
+     * The open house attendees interest level (veryInterested/notInterested/possibleInterest)
+     */
+    interestLevel?: string
+    /**
+     * An appointment attendee
+     */
+    attendee?: {
+      /**
+       * The unique identifier of the attendee
+       */
+      id?: string
+      /**
+       * The type of attendee
+       */
+      type?: string
+      /**
+       * A collection of contacts relating to the attendee
+       */
+      contacts?: {
+        /**
+         * The unique identifier of the contact
+         */
+        id?: string
+        /**
+         * The name of the contact
+         */
+        name?: string
+        /**
+         * The home phone number of the contact
+         */
+        homePhone?: string
+        /**
+         * The work phone number of the contact
+         */
+        workPhone?: string
+        /**
+         * The mobile phone number of the contact
+         */
+        mobilePhone?: string
+        /**
+         * The email address of the contact
+         */
+        email?: string
+        /**
+         * A flag determining if the related contact is archived
+         */
+        fromArchive?: boolean
+      }[]
+    }
+    /**
+     * The ETag for the current version of the open house attendee. Used for managing update concurrency
+     */
+    readonly _eTag?: string
+  }[]
+  pageNumber?: number // int32
+  pageSize?: number // int32
+  pageCount?: number // int32
+  totalPageCount?: number // int32
+  totalCount?: number // int32
+  _links?: {
+    [name: string]: {
+      href?: string
+    }
+  }
 }
 /**
  * example:
@@ -14596,6 +14815,21 @@ export interface UpdateOfficeModel {
   metadata?: {
     [name: string]: any
   }
+}
+/**
+ * Request body used to upda te a new open house attendee
+ * example:
+ * [object Object]
+ */
+export interface UpdateOpenHouseAttendeeModel {
+  /**
+   * The interest level of the open house attendee (veryInterested/mightBeInterested/notInterested/notSet)
+   */
+  interestLevel?: string
+  /**
+   * Notes on this open house attendee
+   */
+  notes?: string
 }
 /**
  * Request body used to update the address of an existing property

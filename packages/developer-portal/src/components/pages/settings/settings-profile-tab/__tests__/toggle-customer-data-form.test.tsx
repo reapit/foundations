@@ -7,7 +7,6 @@ import { Provider } from 'react-redux'
 import ToggleCustomerDataForm, {
   generateInitialValues,
   handleSubmitToggleCustomerData,
-  defaultInitialValues,
   ToggleCustomerDataValues,
 } from '../toggle-customer-data-form'
 
@@ -21,6 +20,7 @@ const currentMemberInfo: MemberModel | null = appState.currentMember.data
 
 const valuesMock: ToggleCustomerDataValues = {
   useCustomerData: false,
+  sandboxId: 'GBR',
 }
 
 describe('ToggleCustomerDataForm', () => {
@@ -50,11 +50,11 @@ describe('generateInitialValues', () => {
   it('should return correctly', () => {
     const result = generateInitialValues({
       currentMemberInfo,
-      defaultInitialValues,
     })
-    const { useCustomerData } = currentMemberInfo as MemberModel
+    const { useCustomerData, sandboxId } = currentMemberInfo as MemberModel
     const expectedResult = {
       useCustomerData,
+      sandboxId,
     }
     expect(result).toEqual(expectedResult)
   })
@@ -62,8 +62,7 @@ describe('generateInitialValues', () => {
   it('should return correctly with currentMemberInfo null', () => {
     const result = generateInitialValues({
       currentMemberInfo: null,
-      defaultInitialValues,
     })
-    expect(result).toEqual(defaultInitialValues)
+    expect(result).toEqual(valuesMock)
   })
 })

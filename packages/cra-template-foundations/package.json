@@ -1,6 +1,6 @@
 {
   "name": "@reapit/cra-template-foundations",
-  "version": "4.1.1",
+  "version": "4.2.0",
   "main": "./template.json",
   "license": "MIT",
   "scripts": {

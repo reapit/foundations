@@ -7,13 +7,13 @@ import AdmZip from 'adm-zip'
 import ora, { Ora } from 'ora'
 import chalk from 'chalk'
 import { PipelineModelInterface } from '@reapit/foundations-ts-definitions'
-import { REAPIT_PIPELINE_CONFIG_FILE } from '../pipeline/constants'
+import { REAPIT_PIPELINE_CONFIG_FILE } from './constants'
 
 @Command({
-  name: 'deploy',
-  description: 'Deploy a simple release',
+  name: 'deploy-zip',
+  description: 'Start a deployment from a zip (zipped from a local build)',
 })
-export class DeployCommand extends AbstractCommand {
+export class DeployLocalCommand extends AbstractCommand {
   /**
    * bump package version
    *
@@ -31,7 +31,7 @@ export class DeployCommand extends AbstractCommand {
 
     const workingPackage = JSON.parse(workingPackageRaw)
 
-    const preBuild = await inquirer.prompt<{built: boolean}>([
+    const preBuild = await inquirer.prompt<{ built: boolean }>([
       {
         type: 'confirm',
         message: 'Have you built your application before deploying?',
@@ -44,7 +44,7 @@ export class DeployCommand extends AbstractCommand {
       process.exit(1)
     }
 
-    const answers = await inquirer.prompt<{version: string}>([
+    const answers = await inquirer.prompt<{ version: string }>([
       {
         type: 'input',
         message: 'Next release version',

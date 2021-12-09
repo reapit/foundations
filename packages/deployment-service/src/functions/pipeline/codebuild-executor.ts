@@ -6,7 +6,6 @@ import yaml from 'yaml'
 import { PackageManagerEnum } from '../../../../foundations-ts-definitions/deployment-schema'
 import { QueueNames } from '../../constants'
 import { sqs, savePipelineRunnerEntity, s3Client } from '../../services'
-import { logger } from '../../core'
 
 const codebuild = new CodeBuild({
   region: process.env.REGION,
@@ -46,7 +45,7 @@ export const codebuildExecutor: SQSHandler = async (
 
       try {
         const start = codebuild.startBuild({
-          projectName: 'test', // TODO change to env
+          projectName: process.env.CODE_BUILD_PROJECT_NAME as string,
           buildspecOverride: yaml.stringify({
             version: 0.2,
             phases: {
@@ -91,7 +90,7 @@ export const codebuildExecutor: SQSHandler = async (
             resolve(data)
           })
         }).catch(async (error) => {
-          logger.error(error)
+          console.error(error)
           await deleteMessage(record.receiptHandle)
           throw error
         })
@@ -116,7 +115,7 @@ export const codebuildExecutor: SQSHandler = async (
 
         await savePipelineRunnerEntity(pipelineRunner)
       } catch (error: any) {
-        logger.error(error)
+        console.error(error)
         console.log('codebuild config failure')
         await deleteMessage(record.receiptHandle)
         return Promise.reject(error)

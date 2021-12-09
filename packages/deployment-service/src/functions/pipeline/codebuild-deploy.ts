@@ -55,14 +55,14 @@ export const codebuildDeploy: SQSHandler = async (event: SQSEvent, context: Cont
       }
 
       const deployTask = pipelineRunner.tasks[deployTaskIndex]
-      deployTask.startTime = new Date().toISOString()
+      deployTask.startTime = new Date()
       deployTask.buildStatus = 'IN_PROGRESS'
 
       pipelineRunner.tasks[deployTaskIndex] = deployTask
 
       await Promise.all([
         updateTask(deployTask, {
-          startTime: new Date().toISOString(),
+          startTime: new Date(),
           buildStatus: 'IN_PROGRESS',
         }),
         pusher.trigger(`${pipelineRunner.pipeline?.developerId}`, 'pipeline-runner-update', pipelineRunner),
@@ -81,10 +81,9 @@ export const codebuildDeploy: SQSHandler = async (event: SQSEvent, context: Cont
         }
         if (pipelineRunner.tasks) {
           pipelineRunner.tasks[deployTaskIndex].buildStatus = 'SUCCEEDED'
-          pipelineRunner.tasks[deployTaskIndex].endTime = new Date().toISOString()
+          pipelineRunner.tasks[deployTaskIndex].endTime = new Date()
           pipelineRunner.tasks[deployTaskIndex].elapsedTime = Math.floor(
-            (new Date().getTime() - new Date(pipelineRunner.tasks[deployTaskIndex].startTime as string).getTime()) /
-              1000,
+            (new Date().getTime() - (pipelineRunner.tasks[deployTaskIndex]?.startTime as Date).getTime()) / 1000,
           ).toString()
         }
 
@@ -98,10 +97,9 @@ export const codebuildDeploy: SQSHandler = async (event: SQSEvent, context: Cont
         }
         if (pipelineRunner.tasks) {
           pipelineRunner.tasks[deployTaskIndex].buildStatus = 'FAILED'
-          pipelineRunner.tasks[deployTaskIndex].endTime = new Date().toISOString()
+          pipelineRunner.tasks[deployTaskIndex].endTime = new Date()
           pipelineRunner.tasks[deployTaskIndex].elapsedTime = Math.floor(
-            (new Date().getTime() - new Date(pipelineRunner.tasks[deployTaskIndex].startTime as string).getTime()) /
-              1000,
+            (new Date().getTime() - (pipelineRunner.tasks[deployTaskIndex]?.startTime as Date).getTime()) / 1000,
           ).toString()
         }
         await deleteMessage(record.receiptHandle)

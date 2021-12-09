@@ -21,7 +21,8 @@ export class LinkPipelineCommand extends AbstractCommand {
       name: 'pipelineId',
       description: 'id of the pipeline to link with this dir/repo',
       required: false,
-    }) pipelineId,
+    })
+    pipelineId,
   ) {
     const pipeline = await this.resolveConfigFile<PipelineModelInterface>(REAPIT_PIPELINE_CONFIG_FILE)
 
@@ -30,10 +31,10 @@ export class LinkPipelineCommand extends AbstractCommand {
       process.exit(1)
     }
 
-    let answers: {id: string} = { id: '' }
+    let answers: { id: string } = { id: '' }
 
     if (!pipelineId) {
-      answers = await inquirer.prompt<{id: string}>([
+      answers = await inquirer.prompt<{ id: string }>([
         {
           type: 'input',
           message: 'Pipeline id to link',
@@ -46,9 +47,7 @@ export class LinkPipelineCommand extends AbstractCommand {
 
     const spinner = ora('Fetching pipeline...').start()
 
-    const response = await (
-      await this.axios(spinner)
-    ).get<PipelineRunnerModelInterface>(`/pipeline/${answers.id}`)
+    const response = await (await this.axios(spinner)).get<PipelineRunnerModelInterface>(`/pipeline/${answers.id}`)
 
     if (response.status === 200) {
       spinner.succeed('Successfully found pipeline')

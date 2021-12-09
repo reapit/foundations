@@ -41,8 +41,8 @@ export interface TaskModelInterface {
   modified?: string
   functionName?: CodeBuild.BuildPhaseType
   buildStatus?: CodeBuild.StatusType
-  startTime?: string
-  endTime?: string
+  startTime?: Date
+  endTime?: Date
   elapsedTime?: string
 }
 
