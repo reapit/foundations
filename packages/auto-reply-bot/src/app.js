@@ -85,9 +85,6 @@ const movedColumnResponses = {
     'For more information on our processes, [please click here](https://foundations-documentation.reapit.cloud/dev-requests)',
 }
 
-// Need to obtain projectId of non sprint project board
-const acceptedProjectId = '13720633'
-
 export default (app) => {
   app.on('issues.opened', async (event) => {
     if (['OWNER', 'MEMBER'].includes(event.payload.issue.author_association)) {
@@ -135,13 +132,6 @@ export default (app) => {
     if (!issueNumber || !event.payload.changes.column_id.from) {
       return
     }
-
-    // const projectId = event.payload.project_card.project_url.split('/').pop()
-
-    // if (projectId !== acceptedProjectId) {
-    //   // Not the correct project (avoiding sprint of project)
-    //   return
-    // }
 
     const [toColumn] = await Promise.all([
       event.octokit.projects.getColumn({ column_id: event.payload.project_card.column_id }),
