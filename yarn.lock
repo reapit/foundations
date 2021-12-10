@@ -9968,7 +9968,6 @@ __metadata:
     concurrently: ^6.2.0
     cors: ^2.8.5
     cross-env: ^7.0.3
-    esbuild: ^0.14.1
     eslint: 7.31.0
     eslint-plugin-prettier: ^3.4.0
     express: ^4.17.1
@@ -9988,7 +9987,6 @@ __metadata:
     type-graphql: ^1.1.1
     typescript: ^4.3.5
     uuid: ^8.3.2
-    yaml: ^1.10.2
   languageName: unknown
   linkType: soft
 
@@ -41063,7 +41061,6 @@ resolve@^2.0.0-next.3:
   version: 0.0.0-use.local
   resolution: "root@workspace:."
   dependencies:
-    esbuild: ^0.14.1
     husky: ^7.0.0
     json: ^11.0.0
   languageName: unknown
