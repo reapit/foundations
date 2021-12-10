@@ -56,9 +56,8 @@ describe('OfficesPage', () => {
 describe('handleDocs', () => {
   it('should navigate correctly in desktop mode', () => {
     const curried = handleDocs(true)
-    const navigate = curried()
 
-    navigate()
+    curried()
 
     expect(window.location.href).toEqual(`agencycloud://process/webpage?url=${OFFICE_GROUPS_DOCS_URL}`)
   })
@@ -66,9 +65,8 @@ describe('handleDocs', () => {
   it('should navigate correctly in web mode', () => {
     const navSpy = jest.spyOn(window, 'open')
     const curried = handleDocs(false)
-    const navigate = curried()
 
-    navigate()
+    curried()
 
     expect(navSpy).toHaveBeenCalledWith(OFFICE_GROUPS_DOCS_URL, '_blank')
   })

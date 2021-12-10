@@ -27,8 +27,8 @@ import { OrgIdSelect } from '../hocs/org-id-select'
 
 export const handleDocs = (connectIsDesktop: Boolean) => () => {
   return connectIsDesktop
-    ? () => (window.location.href = `agencycloud://process/webpage?url=${OFFICE_GROUPS_DOCS_URL}`)
-    : () => window.open(OFFICE_GROUPS_DOCS_URL, '_blank')
+    ? (window.location.href = `agencycloud://process/webpage?url=${OFFICE_GROUPS_DOCS_URL}`)
+    : window.open(OFFICE_GROUPS_DOCS_URL, '_blank')
 }
 
 const OfficesPage: FC = () => {
