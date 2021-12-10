@@ -75,13 +75,13 @@ const labelAddedConditions = [
 
 const movedColumnResponses = {
   ['Near Term']:
-    "This issue has been updated and moved to our ‘Near Term’ column. We have assessed the effort required and outlined a technical specification - please take the time to review this detail. When we're ready to schedule the issue, it will be assigned to the relevant board where you can continue to track its progress to completion. \r\n" +
+    "This issue has been updated and moved to our ‘Near Term’ column (typically completed within 1 - 4 months). We have assessed the effort required and outlined a technical specification - please take the time to review this detail. When we're ready to schedule the issue, it will be assigned to the relevant board where you can continue to track its progress to completion. \r\n" +
     'For more information on our processes, [please click here](https://foundations-documentation.reapit.cloud/dev-requests)',
   ['Mid Term']:
-    "This issue has been updated and moved to our ‘Mid Term’ column. We will assess the effort required and may outline a technical specification. When we're ready to schedule the issue, it will be moved to the ‘Near Term’ column. \r\n" +
+    "This issue has been updated and moved to our ‘Mid Term’ column (typically completed within 5 - 8 months). We will assess the effort required and may outline a technical specification. When we're ready to schedule the issue, it will be moved to the ‘Near Term’ column. \r\n" +
     'For more information on our processes, [please click here](https://foundations-documentation.reapit.cloud/dev-requests)',
   ['Long Term']:
-    'Whilst the nature of this request has been accepted, we are unable to commit to a specified sprint and therefore have assigned this issue to the ‘Long Term’ column. We will regularly review any issues and where development capacity is available, or work is aligned with our Roadmap, the issue will be updated. \r\n' +
+    'Whilst the nature of this request has been accepted, we are unable to commit to a specified sprint and therefore have assigned this issue to the ‘Long Term’ column (typically completed 9+ months). We will regularly review any issues and where development capacity is available, or work is aligned with our Roadmap, the issue will be updated. \r\n' +
     'For more information on our processes, [please click here](https://foundations-documentation.reapit.cloud/dev-requests)',
 }
 
