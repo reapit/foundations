@@ -26,8 +26,8 @@ import { OrgIdSelect } from '../hocs/org-id-select'
 
 export const handleDocs = (connectIsDesktop: Boolean) => () => {
   return connectIsDesktop
-    ? () => (window.location.href = `agencycloud://process/webpage?url=${GLOSSARY_USER_ROLES_URL}`)
-    : () => window.open(GLOSSARY_USER_ROLES_URL, '_blank')
+    ? (window.location.href = `agencycloud://process/webpage?url=${GLOSSARY_USER_ROLES_URL}`)
+    : window.open(GLOSSARY_USER_ROLES_URL, '_blank')
 }
 
 export const UsersPage: FC = () => {
