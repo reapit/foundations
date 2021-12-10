@@ -92,3 +92,4 @@ credentials.json
 dist
 cdk.out
 dist.zip
+bundle.zip

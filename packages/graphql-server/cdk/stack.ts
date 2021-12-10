@@ -42,7 +42,7 @@ export const createStack = (scope: cdk.App, name: string) => {
 
   const userPool = cognito.UserPool.fromUserPoolId(stack, 'UserPool', config.COGNITO_USERPOOL_ID)
   const authorizer = new apigateway.CognitoUserPoolsAuthorizer(stack, 'authorizer', {
-    cognitoUserPools: [userPool]
+    cognitoUserPools: [userPool],
   })
 
   const lambdaFunction = createFunction(stack, 'graphql', AssetCode.fromAsset(distZip), handler, config)

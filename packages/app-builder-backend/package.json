@@ -13,9 +13,10 @@
     "start": "DYNAMODB_ENDPOINT=http://localhost:8000 ts-node-dev .",
     "test": "echo '...skipping...'",
     "build": "cp config.json src && tsc",
+    "bundle": "ts-bundler",
     "lint": "eslint --cache --ext=ts,tsx,js src --fix",
     "release": "DOCKER_BUILDKIT=1 cdk deploy --require-approval never",
-    "publish": "yarn npm publish --access public",
+    "publish": "echo '...skipping...'",
     "conf": "yarn config-manager --namespace cloud --entity app-builder --mode fetch",
     "synth": "cdk synth",
     "ddb": "docker run -d -p 8000:8000 amazon/dynamodb-local",
@@ -54,20 +55,24 @@
     "uuid": "^8.3.2"
   },
   "devDependencies": {
-    "@aws-cdk/aws-apigateway": "1.116.0",
-    "@aws-cdk/aws-dynamodb": "1.116.0",
-    "@aws-cdk/aws-lambda": "1.116.0",
-    "@aws-cdk/core": "1.116.0",
+    "@aws-cdk/aws-apigateway": "1.134.0",
+    "@aws-cdk/aws-dynamodb": "1.134.0",
+    "@aws-cdk/aws-lambda": "1.134.0",
+    "@aws-cdk/core": "1.134.0",
     "@reapit/config-manager": "workspace:packages/config-manager",
+    "@reapit/ts-bundler": "workspace:packages/ts-bundler",
     "@reapit/ts-types": "workspace:packages/ts-types",
     "@types/fs-extra": "^9.0.12",
     "@types/jszip": "^3.4.1",
-    "aws-cdk": "1.116.0",
+    "adm-zip": "^0.5.9",
+    "aws-cdk": "1.134.0",
     "babel-jest": "^27.0.6",
     "concurrently": "^6.2.0",
     "cross-env": "^7.0.3",
+    "esbuild": "^0.14.1",
     "jest": "^27.0.6",
     "jest-coverage-badges": "^1.1.2",
-    "ts-node-dev": "^1.1.8"
+    "ts-node-dev": "^1.1.8",
+    "yaml": "^1.10.2"
   }
 }
