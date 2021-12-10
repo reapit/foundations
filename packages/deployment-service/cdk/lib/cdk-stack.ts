@@ -392,6 +392,7 @@ export class CdkStack extends cdk.Stack {
         code: AssetCode.fromAsset(path.resolve('dist', 'main.zip')),
         handler: options.handler,
         env,
+        vpc,
       })
       options.policies.forEach((policy) => lambda.addToRolePolicy(policy))
 
@@ -413,6 +414,7 @@ export class CdkStack extends cdk.Stack {
       code: AssetCode.fromAsset(path.resolve('dist', 'main.zip')),
       handler: 'main.migrationRun',
       env,
+      vpc,
     })
     policies.commonBackendPolicies.forEach(policy => migrationHandler.addToRolePolicy(policy))
 
