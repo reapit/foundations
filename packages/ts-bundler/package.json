@@ -18,7 +18,7 @@
     "lint": "echo '...skipping...'",
     "release": "echo '...skipping...'",
     "publish": "echo '...skipping...'",
-    "conf": "echo '...skipping...'",
+    "conf": "echo '...skipping...'"
   },
   "bin": "./bin/index.js"
 }
