@@ -11,5 +11,14 @@
   "devDependencies": {
     "eslint": "7.31.0"
   },
+  "scripts": {
+    "start": "echo '...skipping...'",
+    "test":  "echo '...skipping...'",
+    "build": "echo '...skipping...'",
+    "lint": "echo '...skipping...'",
+    "release": "echo '...skipping...'",
+    "publish": "echo '...skipping...'",
+    "conf": "echo '...skipping...'"
+  },
   "bin": "./bin/index.js"
 }
