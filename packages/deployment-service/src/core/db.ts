@@ -1,5 +1,5 @@
 import { Connection, createConnection, getConnection } from 'typeorm'
-import {SecretsManager} from 'aws-sdk'
+import { SecretsManager } from 'aws-sdk'
 import { SubDomainSubscriber } from '../subscribers/sub-domain'
 import { TaskEntity, PipelineEntity, PipelineRunnerEntity } from './../entities'
 import migrations from './../../migrations'
@@ -8,7 +8,6 @@ import { MysqlConnectionOptions } from 'typeorm/driver/mysql/MysqlConnectionOpti
 let connection: Connection | null = null
 
 export const connect = async (): Promise<Connection | never> => {
-
   const secretManager = new SecretsManager({
     region: 'eu-west-2',
   })
@@ -43,6 +42,7 @@ export const connect = async (): Promise<Connection | never> => {
   try {
     connection = await getConnection()
   } catch {
+    // TODO need to single out no connection error from connection error
     connection = await createConnection(mysqlConfig)
   }
 

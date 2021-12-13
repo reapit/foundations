@@ -29,7 +29,6 @@ export const createPolicies = ({
   queues,
   secretManager,
   codeBuild,
-  aurora,
 }: {
   buckets: { [s: string]: Bucket }
   queues: { [s: string]: Queue }
@@ -64,10 +63,7 @@ export const createPolicies = ({
   const secretManagerPolicy = new PolicyStatement({
     effect: Effect.ALLOW,
     resources: [secretManager.secretArn],
-    actions: [
-      'secretsmanager:GetSecretValue',
-      'secretsmanager:DescribeSecret',
-    ],
+    actions: ['secretsmanager:GetSecretValue', 'secretsmanager:DescribeSecret'],
   })
 
   const route53Policy = new PolicyStatement({

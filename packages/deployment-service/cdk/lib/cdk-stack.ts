@@ -7,7 +7,7 @@ import { Queue } from '@aws-cdk/aws-sqs'
 import { createS3Buckets } from './create-S3-bucket'
 import { createSqsQueues, QueueNames } from './create-sqs'
 import { createAurora, databaseName } from './create-aurora'
-import { Vpc } from '@aws-cdk/aws-ec2'
+import { Port, Vpc } from '@aws-cdk/aws-ec2'
 import { createCodeBuildProject } from './create-code-build'
 import { createApigateway } from './create-apigateway'
 import { SqsEventSource } from '@aws-cdk/aws-lambda-event-sources'
@@ -406,6 +406,8 @@ export class CdkStack extends cdk.Stack {
       } else if (options.topic) {
         topic.addSubscription(new LambdaSubscription(lambda))
       }
+
+      aurora.connections.allowFrom(lambda, Port.allTcp(), `Allowing from [${lambda.functionName}]`)
     }
 
     const migrationHandler = createLambda({
@@ -416,7 +418,7 @@ export class CdkStack extends cdk.Stack {
       env,
       vpc,
     })
-    policies.commonBackendPolicies.forEach(policy => migrationHandler.addToRolePolicy(policy))
+    policies.commonBackendPolicies.forEach((policy) => migrationHandler.addToRolePolicy(policy))
 
     const resourceProvider = new Provider(this, 'custom-resource', {
       onEventHandler: migrationHandler,
@@ -426,5 +428,7 @@ export class CdkStack extends cdk.Stack {
     new CustomResource(this, 'migration-resource', {
       serviceToken: resourceProvider.serviceToken,
     })
+
+    aurora.connections.allowFrom(migrationHandler, Port.allTcp(), `Allowing from [${migrationHandler.functionName}]`)
   }
 }
