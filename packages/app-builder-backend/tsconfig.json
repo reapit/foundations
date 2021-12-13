@@ -17,6 +17,6 @@
     "strictPropertyInitialization": false,
     "outDir": "./dist"
   },
-  "include": ["src", "cdk"],
+  "include": ["src", "cdk-stack.ts"],
   "exclude": ["public", "dist", "src/scripts", "node_modules", "src/tests/coverage"]
 }
