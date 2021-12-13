@@ -17,6 +17,6 @@
     "strictPropertyInitialization": false,
     "outDir": "./dist"
   },
-  "include": ["src", "cdk"],
-  "exclude": ["public", "dist", "src/scripts", "node_modules", "src/tests/coverage"]
+  "include": ["src"],
+  "exclude": ["node_modules"]
 }
