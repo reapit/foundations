@@ -1,4 +1,4 @@
-import { Connection, createConnection, getConnection } from 'typeorm'
+import { Connection, ConnectionNotFoundError, createConnection, getConnection } from 'typeorm'
 import { SecretsManager } from 'aws-sdk'
 import { SubDomainSubscriber } from '../subscribers/sub-domain'
 import { TaskEntity, PipelineEntity, PipelineRunnerEntity } from './../entities'
@@ -41,9 +41,12 @@ export const connect = async (): Promise<Connection | never> => {
 
   try {
     connection = await getConnection()
-  } catch {
-    // TODO need to single out no connection error from connection error
-    connection = await createConnection(mysqlConfig)
+  } catch (error: any) {
+    if (error instanceof ConnectionNotFoundError) {
+      connection = await createConnection(mysqlConfig)
+    } else {
+      throw error
+    }
   }
 
   return connection
