@@ -13,7 +13,7 @@
   },
   "scripts": {
     "start": "echo '...skipping...'",
-    "test":  "echo '...skipping...'",
+    "test": "echo '...skipping...'",
     "build": "echo '...skipping...'",
     "lint": "echo '...skipping...'",
     "release": "echo '...skipping...'",
