@@ -21,7 +21,7 @@
     "@aws/dynamodb-data-mapper-annotations": "^0.7.3",
     "@reapit/utils-common": "workspace:packages/utils-common",
     "@reapit/utils-node": "workspace:packages/utils-node",
-    "@sentry/node": "^6.9.0",
+    "@sentry/node": "^6.16.1",
     "aws-lambda": "^1.0.6",
     "aws-sdk": "^2.949.0",
     "body-parser": "^1.19.0",
@@ -37,6 +37,7 @@
     "uuid": "^3.4.0"
   },
   "devDependencies": {
+    "@babel/plugin-proposal-decorators": "^7.16.5",
     "@reapit/config-manager": "workspace:packages/config-manager",
     "@reapit/ts-scripts": "workspace:packages/ts-scripts",
     "@reapit/ts-types": "workspace:packages/ts-types",
@@ -54,6 +55,6 @@
     "serverless-deployment-bucket": "^1.5.1",
     "serverless-offline": "^7.0.0",
     "serverless-webpack": "^5.5.1",
-    "webpack": "^5.45.1"
+    "webpack": "^5.65.0"
   }
 }

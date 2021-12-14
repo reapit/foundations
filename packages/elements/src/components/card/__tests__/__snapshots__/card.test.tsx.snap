@@ -1,22 +1,46 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`Card should match a snapshot and render children 1`] = `
-<ElCardWrap>
+<ElCardBodyWrap>
   <div>
     I am a child
   </div>
-</ElCardWrap>
+</ElCardBodyWrap>
 `;
 
 exports[`Card should match a snapshot and render children 2`] = `
-<ElCardHeadingWrap>
+<ElCardContextMenuItem>
   <div>
     I am a child
   </div>
-</ElCardHeadingWrap>
+</ElCardContextMenuItem>
 `;
 
 exports[`Card should match a snapshot and render children 3`] = `
+<ElCardContextMenuItems>
+  <div>
+    I am a child
+  </div>
+</ElCardContextMenuItems>
+`;
+
+exports[`Card should match a snapshot and render children 4`] = `
+<ElCardContextMenuToggle>
+  <div>
+    I am a child
+  </div>
+</ElCardContextMenuToggle>
+`;
+
+exports[`Card should match a snapshot and render children 5`] = `
+<ElCardContextMenuWrapper>
+  <div>
+    I am a child
+  </div>
+</ElCardContextMenuWrapper>
+`;
+
+exports[`Card should match a snapshot and render children 6`] = `
 <ElCardHeading>
   <div>
     I am a child
@@ -24,36 +48,12 @@ exports[`Card should match a snapshot and render children 3`] = `
 </ElCardHeading>
 `;
 
-exports[`Card should match a snapshot and render children 4`] = `
-<ElCardSubHeading>
-  <div>
-    I am a child
-  </div>
-</ElCardSubHeading>
-`;
-
-exports[`Card should match a snapshot and render children 5`] = `
-<ElCardSubHeadingAdditional>
-  <div>
-    I am a child
-  </div>
-</ElCardSubHeadingAdditional>
-`;
-
-exports[`Card should match a snapshot and render children 6`] = `
-<ElCardMainWrap>
-  <div>
-    I am a child
-  </div>
-</ElCardMainWrap>
-`;
-
 exports[`Card should match a snapshot and render children 7`] = `
-<ElCardBodyWrap>
+<ElCardHeadingWrap>
   <div>
     I am a child
   </div>
-</ElCardBodyWrap>
+</ElCardHeadingWrap>
 `;
 
 exports[`Card should match a snapshot and render children 8`] = `
@@ -65,14 +65,6 @@ exports[`Card should match a snapshot and render children 8`] = `
 `;
 
 exports[`Card should match a snapshot and render children 9`] = `
-<ElMobileToggle>
-  <div>
-    I am a child
-  </div>
-</ElMobileToggle>
-`;
-
-exports[`Card should match a snapshot and render children 10`] = `
 <ElCardList>
   <div>
     I am a child
@@ -80,15 +72,7 @@ exports[`Card should match a snapshot and render children 10`] = `
 </ElCardList>
 `;
 
-exports[`Card should match a snapshot and render children 11`] = `
-<ElCardListMainWrap>
-  <div>
-    I am a child
-  </div>
-</ElCardListMainWrap>
-`;
-
-exports[`Card should match a snapshot and render children 12`] = `
+exports[`Card should match a snapshot and render children 10`] = `
 <ElCardListHeading>
   <div>
     I am a child
@@ -96,20 +80,36 @@ exports[`Card should match a snapshot and render children 12`] = `
 </ElCardListHeading>
 `;
 
-exports[`Card should match a snapshot and render children 13`] = `
-<ElCardListSubHeading>
+exports[`Card should match a snapshot and render children 11`] = `
+<ElCardListIcon>
   <div>
     I am a child
   </div>
-</ElCardListSubHeading>
+</ElCardListIcon>
 `;
 
-exports[`Card should match a snapshot and render children 14`] = `
+exports[`Card should match a snapshot and render children 12`] = `
 <ElCardListItem>
   <div>
     I am a child
   </div>
 </ElCardListItem>
+`;
+
+exports[`Card should match a snapshot and render children 13`] = `
+<ElCardListItemTextPrimary>
+  <div>
+    I am a child
+  </div>
+</ElCardListItemTextPrimary>
+`;
+
+exports[`Card should match a snapshot and render children 14`] = `
+<ElCardListItemTextSecondary>
+  <div>
+    I am a child
+  </div>
+</ElCardListItemTextSecondary>
 `;
 
 exports[`Card should match a snapshot and render children 15`] = `
@@ -121,57 +121,57 @@ exports[`Card should match a snapshot and render children 15`] = `
 `;
 
 exports[`Card should match a snapshot and render children 16`] = `
-<ElCardListItemTextPrimary>
+<ElCardListMainWrap>
   <div>
     I am a child
   </div>
-</ElCardListItemTextPrimary>
+</ElCardListMainWrap>
 `;
 
 exports[`Card should match a snapshot and render children 17`] = `
-<ElCardListItemTextSecondary>
+<ElCardListSubHeading>
   <div>
     I am a child
   </div>
-</ElCardListItemTextSecondary>
+</ElCardListSubHeading>
 `;
 
 exports[`Card should match a snapshot and render children 18`] = `
-<ElCardListIcon>
+<ElCardMainWrap>
   <div>
     I am a child
   </div>
-</ElCardListIcon>
+</ElCardMainWrap>
 `;
 
 exports[`Card should match a snapshot and render children 19`] = `
-<ElCardContextMenuWrapper>
+<ElMobileToggle>
   <div>
     I am a child
   </div>
-</ElCardContextMenuWrapper>
+</ElMobileToggle>
 `;
 
 exports[`Card should match a snapshot and render children 20`] = `
-<ElCardContextMenuItems>
+<ElCardSubHeading>
   <div>
     I am a child
   </div>
-</ElCardContextMenuItems>
+</ElCardSubHeading>
 `;
 
 exports[`Card should match a snapshot and render children 21`] = `
-<ElCardContextMenuItem>
+<ElCardSubHeadingAdditional>
   <div>
     I am a child
   </div>
-</ElCardContextMenuItem>
+</ElCardSubHeadingAdditional>
 `;
 
 exports[`Card should match a snapshot and render children 22`] = `
-<ElCardContextMenuToggle>
+<ElCardWrap>
   <div>
     I am a child
   </div>
-</ElCardContextMenuToggle>
+</ElCardWrap>
 `;

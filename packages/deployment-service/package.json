@@ -75,6 +75,6 @@
     "eslint-plugin-prettier": "^3.4.0",
     "mime": "2.5.2",
     "ts-node": "^10.1.0",
-    "webpack": "^5.45.1"
+    "webpack": "^5.65.0"
   }
 }
