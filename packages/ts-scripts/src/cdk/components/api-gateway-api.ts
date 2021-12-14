@@ -6,8 +6,9 @@ import * as cognito from '@aws-cdk/aws-cognito'
 export const createApi = (
   scope: cdk.Stack,
   name: string,
-  lambdaFunction: lambda.Function,
+  lambdaFunction?: lambda.Function,
   cognitoUserPoolId?: string,
+  allowCors?: boolean
 ) => {
   let defaultMethodOptions: apigateway.MethodOptions | undefined = undefined
   if (cognitoUserPoolId) {
@@ -21,8 +22,21 @@ export const createApi = (
     }
   }
 
+  const defaultCorsPreflightOptions = allowCors ? {
+    allowOrigins: ['*'],
+    allowHeaders: ['Content-Type', 'Authorization', 'X-Api-Key', 'api-version'],
+  } : undefined
+
+  if (!lambdaFunction) {
+    return new apigateway.RestApi(scope, `${scope.stackName}-${name}`, {
+      defaultMethodOptions,
+      defaultCorsPreflightOptions,
+    })
+  }
+
   return new apigateway.LambdaRestApi(scope, `${scope.stackName}-${name}`, {
     handler: lambdaFunction,
     defaultMethodOptions,
+    defaultCorsPreflightOptions,
   })
 }

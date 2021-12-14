@@ -4,8 +4,8 @@ import 'source-map-support/register'
 import path from 'path'
 import { execSync } from 'child_process'
 
-import { createApi } from '@reapit/ts-scripts/src/cdk/components/api'
-import { createFunction } from '@reapit/ts-scripts/src/cdk/components/function'
+import { createApi } from '@reapit/ts-scripts/src/cdk/components/api-gateway-api'
+import { createFunction } from '@reapit/ts-scripts/src/cdk/components/lambda-function'
 import { createBaseStack } from '@reapit/ts-scripts/src/cdk/components/stack'
 import { output } from '@reapit/ts-scripts/src/cdk/utils/output'
 
