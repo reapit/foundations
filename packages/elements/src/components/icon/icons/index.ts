@@ -109,6 +109,21 @@ import usernameSystem from './system-icons/usernameSystem'
 import viewSolidSystem from './system-icons/viewSolidSystem'
 import walkingSolidSystem from './system-icons/walkingSolidSystem'
 import warningSolidSystem from './system-icons/warningSolidSystem'
+import devicesInfographic from './infographic-icons/devicesInfographic'
+import doorLockInfographic from './infographic-icons/doorLockInfographic'
+import feedAltInfographic from './infographic-icons/feedAltInfographic'
+import feedInfographic from './infographic-icons/feedInfographic'
+import globeInfographic from './infographic-icons/globeInfographic'
+import htmlInfographic from './infographic-icons/htmlInfographic'
+import logoKeyInfographic from './infographic-icons/logoKeyInfographic'
+import logoSettingsInfographic from './infographic-icons/logoSettingsInfographic'
+import refreshInfographic from './infographic-icons/refreshInfographic'
+import reportingInfographic from './infographic-icons/reportingInfographic'
+import serverInfographic from './infographic-icons/serverInfographic'
+import userDeviceInfographic from './infographic-icons/userDeviceInfographic'
+import userHouseInfographic from './infographic-icons/userHouseInfographic'
+import userInfographic from './infographic-icons/userInfographic'
+import userAuthInfographic from './infographic-icons/userAuthInfographic'
 
 export const iconSet = {
   addSystem,
@@ -222,4 +237,19 @@ export const iconSet = {
   myAppsInfographic,
   webhooksInfographic,
   selectInfographic,
+  devicesInfographic,
+  doorLockInfographic,
+  feedAltInfographic,
+  feedInfographic,
+  globeInfographic,
+  htmlInfographic,
+  logoKeyInfographic,
+  logoSettingsInfographic,
+  refreshInfographic,
+  reportingInfographic,
+  serverInfographic,
+  userDeviceInfographic,
+  userHouseInfographic,
+  userInfographic,
+  userAuthInfographic,
 }
