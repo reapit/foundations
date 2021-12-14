@@ -213,7 +213,7 @@ export class PipelineCreate extends AbstractCommand {
     channel.subscribe()
     spinner.info('awaiting architecture to be ready for deployment...')
 
-    channel.bind('pipeline-architecture-update', (event) => {
+    channel.bind('pipeline-architecture-update', async (event) => {
       if (event.id !== pipeline.id) {
         return
       }
@@ -226,6 +226,9 @@ export class PipelineCreate extends AbstractCommand {
         spinner.fail('Architecturing failed. Please report to Reapit.')
         process.exit(1)
       } else if (event.buildStatus === 'READY_FOR_DEPLOYMENT') {
+
+        await this.serialisePipelineJson(event)
+
         spinner.succeed('🚀 Successfully architectured')
         this.writeLine('')
         this.writeLine("Now you're ready to deploy to your pipeline!")
@@ -234,6 +237,8 @@ export class PipelineCreate extends AbstractCommand {
             'reapit pipeline deploy-repo',
           )}`,
         )
+        this.writeLine('')
+        this.writeLine(`You can visit your domain here ${chalk.green(`https://${event.subDomain}.dev.paas.reapit.cloud`)}`)
         process.exit(0)
       }
     })

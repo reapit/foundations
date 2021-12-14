@@ -8,7 +8,7 @@
     "sourceRoot": "/",
     "paths": {
       "@/*": ["src/*"],
-      "@reapit/*": ["../*"],
+      "@reapit/*": ["../*"]
     },
     "declaration": true,
     "declarationDir": "dist",

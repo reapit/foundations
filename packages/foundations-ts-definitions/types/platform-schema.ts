@@ -2323,6 +2323,29 @@ export interface CompanyRoleModelPagedResult {
 export interface ConfigurationCompanyTypes {
   id?: string[]
 }
+export interface ConfigurationTypes {
+  type?: (
+    | 'agencyTypes'
+    | 'appointmentTypes'
+    | 'boardStatuses'
+    | 'buyingPositions'
+    | 'buyingReasons'
+    | 'certificateTypes'
+    | 'companyTypes'
+    | 'identityDocumentTypes'
+    | 'documentTypes'
+    | 'journalEntryTypes'
+    | 'keyTypes'
+    | 'followUpResponses'
+    | 'sellingReasons'
+    | 'rentingPositions'
+    | 'supplierTypes'
+    | 'taskTypes'
+    | 'tenancyTypes'
+    | 'vendorTypes'
+    | 'worksOrderTypes'
+  )[]
+}
 /**
  * Representation of the physical address of a building or premise
  */
@@ -13318,6 +13341,258 @@ export interface Transactions {
   )[]
   createdFrom?: string
   createdTo?: string
+}
+/**
+ * Representation of all of the available configurable items
+ */
+export interface TypeModel {
+  /**
+   * A list of configurable agency types
+   */
+  agencyTypes?: {
+    /**
+     * The unique identifier of the list item
+     */
+    id?: string
+    /**
+     * The textual value for the list item
+     */
+    value?: string
+  }[]
+  /**
+   * A list of configurable appointment types
+   */
+  appointmentTypes?: {
+    /**
+     * The unique identifier of the list item
+     */
+    id?: string
+    /**
+     * The textual value for the list item
+     */
+    value?: string
+  }[]
+  /**
+   * A list of configurable board statuses
+   */
+  boardStatuses?: {
+    /**
+     * The unique identifier of the list item
+     */
+    id?: string
+    /**
+     * The textual value for the list item
+     */
+    value?: string
+  }[]
+  /**
+   * A list of configurable buying positions
+   */
+  buyingPositions?: {
+    /**
+     * The unique identifier of the list item
+     */
+    id?: string
+    /**
+     * The textual value for the list item
+     */
+    value?: string
+  }[]
+  /**
+   * A list of configurable buying reasons
+   */
+  buyingReasons?: {
+    /**
+     * The unique identifier of the list item
+     */
+    id?: string
+    /**
+     * The textual value for the list item
+     */
+    value?: string
+  }[]
+  /**
+   * A list of configurable certificate types
+   */
+  certificateTypes?: {
+    /**
+     * The unique identifier of the list item
+     */
+    id?: string
+    /**
+     * The textual value for the list item
+     */
+    value?: string
+  }[]
+  /**
+   * A list of configurable company types
+   */
+  companyTypes?: {
+    /**
+     * The unique identifier of the list item
+     */
+    id?: string
+    /**
+     * The textual value for the list item
+     */
+    value?: string
+  }[]
+  /**
+   * A list of configurable document types
+   */
+  documentTypes?: {
+    /**
+     * The unique identifier of the list item
+     */
+    id?: string
+    /**
+     * The textual value for the list item
+     */
+    value?: string
+  }[]
+  /**
+   * A list of configurable identity document types
+   */
+  identityDocumentTypes?: {
+    /**
+     * The unique identifier of the list item
+     */
+    id?: string
+    /**
+     * The textual value for the list item
+     */
+    value?: string
+  }[]
+  /**
+   * A list of configurable journal entry types
+   */
+  journalEntryTypes?: {
+    /**
+     * The unique identifier of the list item
+     */
+    id?: string
+    /**
+     * The textual value for the list item
+     */
+    value?: string
+  }[]
+  /**
+   * A list of configurable key types
+   */
+  keyTypes?: {
+    /**
+     * The unique identifier of the list item
+     */
+    id?: string
+    /**
+     * The textual value for the list item
+     */
+    value?: string
+  }[]
+  /**
+   * A list of configurable follow up responses
+   */
+  followUpResponses?: {
+    /**
+     * The unique identifier of the list item
+     */
+    id?: string
+    /**
+     * The textual value for the list item
+     */
+    value?: string
+  }[]
+  /**
+   * A list of configurable selling reasons
+   */
+  sellingReasons?: {
+    /**
+     * The unique identifier of the list item
+     */
+    id?: string
+    /**
+     * The textual value for the list item
+     */
+    value?: string
+  }[]
+  /**
+   * A list of configurable renting positions
+   */
+  rentingPositions?: {
+    /**
+     * The unique identifier of the list item
+     */
+    id?: string
+    /**
+     * The textual value for the list item
+     */
+    value?: string
+  }[]
+  /**
+   * A list of configurable supplier types
+   */
+  supplierTypes?: {
+    /**
+     * The unique identifier of the list item
+     */
+    id?: string
+    /**
+     * The textual value for the list item
+     */
+    value?: string
+  }[]
+  /**
+   * A list of configurable task types
+   */
+  taskTypes?: {
+    /**
+     * The unique identifier of the list item
+     */
+    id?: string
+    /**
+     * The textual value for the list item
+     */
+    value?: string
+  }[]
+  /**
+   * A list of configurable tenancy types
+   */
+  tenancyTypes?: {
+    /**
+     * The unique identifier of the list item
+     */
+    id?: string
+    /**
+     * The textual value for the list item
+     */
+    value?: string
+  }[]
+  /**
+   * A list of configurable vendor types
+   */
+  vendorTypes?: {
+    /**
+     * The unique identifier of the list item
+     */
+    id?: string
+    /**
+     * The textual value for the list item
+     */
+    value?: string
+  }[]
+  /**
+   * A list of configurable works order types
+   */
+  worksOrderTypes?: {
+    /**
+     * The unique identifier of the list item
+     */
+    id?: string
+    /**
+     * The textual value for the list item
+     */
+    value?: string
+  }[]
 }
 /**
  * The details specific to applicants with a marketingMode of buying

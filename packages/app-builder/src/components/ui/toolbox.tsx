@@ -12,10 +12,10 @@ import { styled } from '@linaria/react'
 import { bgWhite, block, cursorMove, transition } from './styles'
 import { elFlex, elFlex1, elFlexAlignCenter, elFlexColumn, elHFull, elM3, elPb3, elPt6, elW12 } from '@reapit/elements'
 import Link from './user/link'
-import Context from './user/context'
 import Table from './user/table'
 import Form from './user/form'
 import QRCode from './user/qr-code'
+import Info from './user/info'
 
 const Item = styled.a`
   svg {
@@ -63,8 +63,8 @@ const Toolbox = () => {
             <LinkSVG />
           </Item>
         </div>
-        <div ref={(ref) => ref && create(ref, <Element is={Context} />)}>
-          <Item data-tip="Context" className={cx(elM3, elPb3, block, cursorMove)}>
+        <div ref={(ref) => ref && create(ref, <Element is={Info} padding={12} width={12} />)}>
+          <Item data-tip="Info" className={cx(elM3, elPb3, block, cursorMove)}>
             <SquareSvg />
           </Item>
         </div>
