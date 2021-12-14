@@ -7,10 +7,12 @@ import { StepFormContainer } from './__styles__'
 // Just a stub to auto set the next step to permissions for now. Will be done on validation of form
 // when I decide how best to manage the form state with the wizard
 export const handleSetAppWizardState = (setAppWizardState: Dispatch<SetStateAction<AppWizardState>>) => () => {
-  setAppWizardState((currentState) => ({
-    ...currentState,
-    nextStep: AppNewStepId.permissionsStep,
-  }))
+  if (setAppWizardState) {
+    setAppWizardState((currentState) => ({
+      ...currentState,
+      nextStep: AppNewStepId.permissionsStep,
+    }))
+  }
 }
 
 export const AuthOptionsContent: FC = () => {
