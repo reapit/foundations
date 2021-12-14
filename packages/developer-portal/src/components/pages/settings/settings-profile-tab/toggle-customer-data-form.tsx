@@ -40,6 +40,7 @@ export const ToggleCustomerDataForm: React.FC<ToggleCustomerDataFormProps> = () 
   const dispatch = useDispatch()
   const updateCurrentMemberInformation = (values: ToggleCustomerDataValues) => dispatch(updateCurrentMember(values))
   const defaultValues = generateInitialValues({ currentMemberInfo })
+  const isClient = clientId && isUserOrUserAdmin
   const [sandboxes] = useReapitGet<SandboxModelPagedResult>({
     reapitConnectBrowserSession,
     action: getActions(window.reapit.config.appEnv)[GetActionNames.getSandboxes],
@@ -48,29 +49,39 @@ export const ToggleCustomerDataForm: React.FC<ToggleCustomerDataFormProps> = () 
     defaultValues,
   })
 
-  if (!clientId || !isUserOrUserAdmin || !sandboxes?.data) return null
+  if (!sandboxes?.data) return null
 
   return (
     <form onSubmit={handleSubmit(handleSubmitToggleCustomerData(updateCurrentMemberInformation))}>
       <FormSection>
         <FadeIn>
           <H5>Customer Data</H5>
+          {isClient && (
+            <FormSubHeading>
+              As your account is associated with both the Sandbox Data (SBOX) and Customer Data, you can choose to
+              toggle between which data you want to see available in the Developer Portal.
+            </FormSubHeading>
+          )}
           <FormSubHeading>
-            As your account is associated with both the Sandbox Data (SBOX) and Customer Data, you can choose to toggle
-            between which data you want to see available in the Developer Portal. You can also choose which sandbox you
-            wish to view based on your Reapit Product. This is specific and only associated to your developer profile.
-            Please note, you will need to log out and log back in again to see this change take effect.
+            You can choose which sandbox you wish to view based on your Reapit Product. This is specific and only
+            associated to your developer profile. Please note, you will need to log out and log back in again to see
+            this change take effect.
+          </FormSubHeading>
+          <FormSubHeading>
+            <strong>Please note, you will need to log out and log back in again to see this change take effect.</strong>
           </FormSubHeading>
           <Grid>
-            <GridItem>
-              <InputGroup>
-                <Toggle id="useCustomerData" hasGreyBg {...register('useCustomerData')}>
-                  <ElToggleItem>Customer</ElToggleItem>
-                  <ElToggleItem>Sandbox</ElToggleItem>
-                </Toggle>
-                <Label>Use {orgName} Customer or Sandbox data</Label>
-              </InputGroup>
-            </GridItem>
+            {isClient && (
+              <GridItem>
+                <InputGroup>
+                  <Toggle id="useCustomerData" hasGreyBg {...register('useCustomerData')}>
+                    <ElToggleItem>Customer</ElToggleItem>
+                    <ElToggleItem>Sandbox</ElToggleItem>
+                  </Toggle>
+                  <Label>Use {orgName} Customer or Sandbox data</Label>
+                </InputGroup>
+              </GridItem>
+            )}
             <GridItem>
               <InputGroup>
                 <ToggleRadio
