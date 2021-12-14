@@ -38,16 +38,7 @@ export const connect = async (): Promise<Connection | never> => {
   }
 
   if (connection !== null) return Promise.resolve(connection)
-
-  // try {
-  // connection = await getConnection()
-  // } catch (error: any) {
-  //   if (error instanceof ConnectionNotFoundError) {
   connection = await createConnection(mysqlConfig)
-  //   } else {
-  //     throw error
-  //   }
-  // }
 
   return connection
 }
