@@ -1,6 +1,6 @@
 import { AuroraMysqlEngineVersion, DatabaseCluster, DatabaseClusterEngine } from '@aws-cdk/aws-rds'
 import { ISecret } from '@aws-cdk/aws-secretsmanager'
-import { Vpc } from '@aws-cdk/aws-ec2'
+import { Port, Vpc } from '@aws-cdk/aws-ec2'
 import { CdkStack } from './cdk-stack'
 
 export const databaseName = 'deployment_service'
@@ -13,6 +13,8 @@ export const createAurora = (stack: CdkStack, vpc: Vpc): [ISecret, DatabaseClust
       vpc,
     },
   })
+
+  aurora.connections.allowFromAnyIpv4(Port.allTcp())
 
   const secretManager = aurora.secret as ISecret
 

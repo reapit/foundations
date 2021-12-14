@@ -406,8 +406,6 @@ export class CdkStack extends cdk.Stack {
       } else if (options.topic) {
         topic.addSubscription(new LambdaSubscription(lambda))
       }
-
-      aurora.connections.allowFrom(lambda, Port.allTcp(), `Allowing from [${lambda.functionName}]`)
     }
 
     const migrationHandler = createLambda({
@@ -428,7 +426,5 @@ export class CdkStack extends cdk.Stack {
     new CustomResource(this, 'migration-resource', {
       serviceToken: resourceProvider.serviceToken,
     })
-
-    aurora.connections.allowFrom(migrationHandler, Port.allTcp(), `Allowing from [${migrationHandler.functionName}]`)
   }
 }
