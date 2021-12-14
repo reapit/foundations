@@ -20,11 +20,25 @@ import { StepOptionsContent } from './step-options-content'
 
 export const handleSetSteps =
   (setAppWizardState: Dispatch<SetStateAction<AppWizardState>>, isForward: boolean) => () => {
-    setAppWizardState(({ currentStep, nextStep, prevStep }) => ({
-      nextStep: isForward ? currentStep : null,
-      prevStep: isForward ? currentStep : null,
-      currentStep: isForward && nextStep ? nextStep : !isForward && prevStep ? prevStep : currentStep,
-    }))
+    setAppWizardState(({ currentStep, nextStep, prevStep, stepHistory }) => {
+      if (isForward) {
+        return {
+          nextStep: null,
+          prevStep: currentStep,
+          currentStep: nextStep,
+          stepHistory: [...stepHistory, nextStep],
+        }
+      }
+
+      stepHistory.pop()
+
+      return {
+        nextStep: null,
+        prevStep: stepHistory[stepHistory.indexOf(prevStep) - 1] ?? null,
+        currentStep: prevStep,
+        stepHistory,
+      }
+    })
   }
 
 export const AppsNew: FC = () => {

@@ -26,3 +26,11 @@ export const StepOptionItem = styled.div`
     border: 1px solid var(--intent-secondary);
   }
 `
+
+export const StepFormContainer = styled.div`
+  width: 100%;
+  background-color: var(--color-white);
+  border-radius: 0.25rem;
+  padding: 1.5rem 1.25rem;
+  box-shadow: 0px 2px 9px rgba(0, 0, 0, 0.08);
+`

@@ -2,9 +2,10 @@ import React, { useState, Dispatch, SetStateAction, FC, createContext, useContex
 import { AppNewStepId } from './config'
 
 export interface AppWizardState {
-  currentStep: AppNewStepId
+  currentStep: AppNewStepId | null
   nextStep: AppNewStepId | null
   prevStep: AppNewStepId | null
+  stepHistory: (AppNewStepId | null)[]
 }
 
 export interface AppWizardHook {
@@ -16,6 +17,7 @@ export const defaultAppWizardState: AppWizardState = {
   currentStep: AppNewStepId.whatUserStep,
   nextStep: null,
   prevStep: null,
+  stepHistory: [AppNewStepId.whatUserStep],
 }
 
 export const AppWizardContext = createContext<AppWizardHook>({} as AppWizardHook)
