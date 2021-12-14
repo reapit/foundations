@@ -1,13 +1,14 @@
 import process from 'process'
-import path from 'path'
 import { execSync } from 'child_process'
+import path from 'path'
 
 const [command, scriptName = 'cdk-stack.ts'] = process.argv.slice(2)
 const cwd = process.cwd()
+const templatesDir = path.join(cwd, 'cdk.out')
 
 if (command) {
   try {
-    execSync(`yarn cdk ${command} -a "cd ${cwd} && yarn dlx ts-node ${scriptName}"`, {
+    execSync(`yarn cdk ${command} --output=${templatesDir} -a "cd ${cwd} && yarn dlx ts-node ${scriptName}"`, {
       stdio: 'inherit',
       cwd: __dirname,
     })
