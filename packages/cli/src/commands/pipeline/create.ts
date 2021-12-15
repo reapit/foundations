@@ -107,17 +107,20 @@ export class PipelineCreate extends AbstractCommand {
     }
   }
 
-
   serialisePipelineJson = (pipeline: PipelineModelInterface): string => {
-    return JSON.stringify({
-      id: pipeline.id,
-      appId: pipeline.appId,
-      subDomain: pipeline.subDomain,
-      packageManager: pipeline.packageManager,
-      repospitory: pipeline.repository,
-      buildDir: pipeline.buildCommand,
-      outDir: pipeline.outDir,
-    }, null, 2)
+    return JSON.stringify(
+      {
+        id: pipeline.id,
+        appId: pipeline.appId,
+        subDomain: pipeline.subDomain,
+        packageManager: pipeline.packageManager,
+        repospitory: pipeline.repository,
+        buildDir: pipeline.buildCommand,
+        outDir: pipeline.outDir,
+      },
+      null,
+      2,
+    )
   }
 
   async run() {
@@ -226,7 +229,6 @@ export class PipelineCreate extends AbstractCommand {
         spinner.fail('Architecturing failed. Please report to Reapit.')
         process.exit(1)
       } else if (event.buildStatus === 'READY_FOR_DEPLOYMENT') {
-
         await this.serialisePipelineJson(event)
 
         spinner.succeed('🚀 Successfully architectured')
@@ -238,7 +240,9 @@ export class PipelineCreate extends AbstractCommand {
           )}`,
         )
         this.writeLine('')
-        this.writeLine(`You can visit your domain here ${chalk.green(`https://${event.subDomain}.dev.paas.reapit.cloud`)}`)
+        this.writeLine(
+          `You can visit your domain here ${chalk.green(`https://${event.subDomain}.dev.paas.reapit.cloud`)}`,
+        )
         process.exit(0)
       }
     })

@@ -34,13 +34,13 @@
     "@types/inquirer": "^7.3.3",
     "@types/semver": "^7.3.7",
     "@types/yargs": "^16.0.4",
-    "@typescript-eslint/eslint-plugin": "^4.28.4",
-    "@typescript-eslint/parser": "^4.28.4",
-    "babel-jest": "^27.0.6",
-    "concurrently": "^6.2.0",
-    "eslint": "^7.31.0",
-    "eslint-plugin-prettier": "^3.4.0",
-    "ts-node": "^10.1.0"
+    "@typescript-eslint/eslint-plugin": "^5.7.0",
+    "@typescript-eslint/parser": "^5.7.0",
+    "babel-jest": "^27.4.5",
+    "concurrently": "^6.4.0",
+    "eslint": "^8.4.1",
+    "eslint-plugin-prettier": "^4.0.0",
+    "ts-node": "^10.4.0"
   },
   "scripts": {
     "run": "ts-node src/index.ts",

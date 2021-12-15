@@ -8,7 +8,6 @@ export class HelpCommand extends AbstractCommand {
     this.commands = commands
   }
 
-
   sortCommands(a: ParentCommand | AbstractCommand): number {
     return a instanceof ParentCommand ? 1 : -1
   }
