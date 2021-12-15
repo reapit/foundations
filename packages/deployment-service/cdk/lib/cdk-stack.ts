@@ -376,9 +376,7 @@ export class CdkStack extends cdk.Stack {
     const MYSQL_DATABASE = databaseName
 
     const env = {
-      AURORA_SECRET_ARN: secretManager.secretArn,
-      AURORA_RESOURCE_ARN: aurora.clusterArn,
-      AURORA_REGION: this.region,
+      DATABASE_SECERT_ARN: secretManager.secretArn,
       MYSQL_DATABASE,
       DEPLOYMENT_LIVE_BUCKET_NAME: buckets['cloud-deployment-live-dev'].bucketName,
       DEPLOYMENT_VERSION_BUCKET_NAME: buckets['cloud-deployment-version-dev'].bucketName,
@@ -394,6 +392,7 @@ export class CdkStack extends cdk.Stack {
         code: AssetCode.fromAsset(path.resolve('dist', 'main.zip')),
         handler: options.handler,
         env,
+        vpc,
       })
       options.policies.forEach((policy) => lambda.addToRolePolicy(policy))
 
@@ -415,11 +414,9 @@ export class CdkStack extends cdk.Stack {
       code: AssetCode.fromAsset(path.resolve('dist', 'main.zip')),
       handler: 'main.migrationRun',
       env,
+      vpc,
     })
-
-    Object.values(policies)
-      .filter((policy) => policy instanceof PolicyStatement)
-      .forEach((policy) => migrationHandler.addToRolePolicy(policy as PolicyStatement))
+    policies.commonBackendPolicies.forEach((policy) => migrationHandler.addToRolePolicy(policy))
 
     const resourceProvider = new Provider(this, 'custom-resource', {
       onEventHandler: migrationHandler,

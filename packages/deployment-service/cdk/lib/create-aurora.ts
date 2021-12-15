@@ -1,21 +1,20 @@
-import { AuroraMysqlEngineVersion, ServerlessCluster, DatabaseClusterEngine } from '@aws-cdk/aws-rds'
+import { AuroraMysqlEngineVersion, DatabaseCluster, DatabaseClusterEngine } from '@aws-cdk/aws-rds'
 import { ISecret } from '@aws-cdk/aws-secretsmanager'
-import { Vpc } from '@aws-cdk/aws-ec2'
+import { Port, Vpc } from '@aws-cdk/aws-ec2'
 import { CdkStack } from './cdk-stack'
-import { Duration } from '@aws-cdk/core'
 
 export const databaseName = 'deployment_service'
 
-export const createAurora = (stack: CdkStack, vpc: Vpc): [ISecret, ServerlessCluster] => {
-  const aurora = new ServerlessCluster(stack as any, 'Database', {
+export const createAurora = (stack: CdkStack, vpc: Vpc): [ISecret, DatabaseCluster] => {
+  const aurora = new DatabaseCluster(stack as any, 'Database', {
     engine: DatabaseClusterEngine.auroraMysql({ version: AuroraMysqlEngineVersion.VER_2_08_1 }),
-    vpc,
     defaultDatabaseName: databaseName,
-    scaling: {
-      autoPause: Duration.minutes(5),
+    instanceProps: {
+      vpc,
     },
-    enableDataApi: true,
   })
+
+  aurora.connections.allowFromAnyIpv4(Port.allTcp())
 
   const secretManager = aurora.secret as ISecret
 
