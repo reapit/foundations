@@ -62,7 +62,7 @@
     "favicons": "^6.2.2",
     "favicons-webpack-plugin": "^5.0.2",
     "file-loader": "^6.2.0",
-    "fork-ts-checker-webpack-plugin": "^6.2.12",
+    "fork-ts-checker-webpack-plugin": "^6.5.0",
     "friendly-errors-webpack-plugin": "^1.7.0",
     "html-webpack-plugin": "^5.5.0",
     "husky": "^7.0.4",
