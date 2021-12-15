@@ -25,6 +25,8 @@ window.reapit = {
     graphQLUri: '',
     analyticsSchemaDocsUrl: '',
     swaggerUri: '',
+    PUSHER_KEY: '',
+    DEPLOYMENT_SERVICE_HOST: '',
   },
 }
 

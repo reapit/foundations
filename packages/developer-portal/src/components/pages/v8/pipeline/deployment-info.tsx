@@ -47,44 +47,45 @@ const buildStatusToReadable = (status: string): string =>
     .map((str) => str.toLowerCase())
     .join(' ')
 
-const PipelineInfo = ({ pipeline }: { pipeline: PipelineModelInterface }) => (
-  <Grid>
-    <ColSplit>
-      <InputWrap>
-        <Subtitle>Status</Subtitle>
-        <BodyText>
-          <StatusIndicator intent={buildStatusToIntent(pipeline.buildStatus as string)} />{' '}
-          {buildStatusToReadable(pipeline.buildStatus as string)}
-        </BodyText>
-      </InputWrap>
-      <InputWrap>
-        <Subtitle>Repository</Subtitle>
-        <BodyText>{pipeline.repository}</BodyText>
-      </InputWrap>
-      <InputWrap>
-        <Subtitle>Package Manager</Subtitle>
-        <BodyText>{pipeline.packageManager}</BodyText>
-      </InputWrap>
-    </ColSplit>
-    <ColSplit>
-      <InputWrap>
-        <Subtitle>Build Command</Subtitle>
-        <BodyText>{pipeline.buildCommand}</BodyText>
-      </InputWrap>
-      <InputWrap>
-        <Subtitle>Tests</Subtitle>
-        <BodyText>{pipeline.testCommand}</BodyText>
-      </InputWrap>
-      <InputWrap>
-        <Subtitle>Location</Subtitle>
-        <BodyText>{pipeline.subDomain ? `https://${pipeline.subDomain}.dev.paas.reapit.cloud` : ''}</BodyText>
-      </InputWrap>
-    </ColSplit>
-  </Grid>
-)
+const PipelineInfo = ({ pipeline }: { pipeline: PipelineModelInterface }) => {
+  return (
+    <Grid>
+      <ColSplit>
+        <InputWrap>
+          <Subtitle>Status</Subtitle>
+          <BodyText>
+            <StatusIndicator intent={buildStatusToIntent(pipeline.buildStatus as string)} />{' '}
+            {buildStatusToReadable(pipeline.buildStatus as string)}
+          </BodyText>
+        </InputWrap>
+        <InputWrap>
+          <Subtitle>Repository</Subtitle>
+          <BodyText>{pipeline.repository}</BodyText>
+        </InputWrap>
+        <InputWrap>
+          <Subtitle>Package Manager</Subtitle>
+          <BodyText>{pipeline.packageManager}</BodyText>
+        </InputWrap>
+      </ColSplit>
+      <ColSplit>
+        <InputWrap>
+          <Subtitle>Build Command</Subtitle>
+          <BodyText>{pipeline.buildCommand}</BodyText>
+        </InputWrap>
+        <InputWrap>
+          <Subtitle>Tests</Subtitle>
+          <BodyText>{pipeline.testCommand}</BodyText>
+        </InputWrap>
+        <InputWrap>
+          <Subtitle>Location</Subtitle>
+          <BodyText>{pipeline.subDomain ? `https://${pipeline.subDomain}.dev.paas.reapit.cloud` : ''}</BodyText>
+        </InputWrap>
+      </ColSplit>
+    </Grid>
+  )
+}
 
 export const PipelineDeploymentInfo = ({ pipeline }: { pipeline: PipelineModelInterface }) => {
-  // TODO make some fetching func to get pipeline deployments and list them below
   const { connectSession } = useReapitConnect(reapitConnectBrowserSession)
   const [pipelineDeployments, loading] = useReapitGet<{ items: PipelineRunnerModelInterface[] }>({
     reapitConnectBrowserSession,
