@@ -12132,6 +12132,7 @@ export interface Tenancies {
   applicantId?: string[]
   propertyId?: string[]
   status?: ('offerPending' | 'offerWithdrawn' | 'offerRejected' | 'arranging' | 'current' | 'finished' | 'cancelled')[]
+  email?: string[]
   createdFrom?: string
   createdTo?: string
   modifiedFrom?: string
