@@ -15,4 +15,5 @@ export enum PathNames {
   sandboxes = '/marketplace/sandboxes',
   createPipeline = '/pipeline',
   getPipelineDeployments = '/pipeline/{pipelineId}/pipeline-runner',
+  createPipelineDeployments = '/pipeline/{pipelineId}/pipeline-runner',
 }
