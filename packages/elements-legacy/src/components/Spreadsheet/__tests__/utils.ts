@@ -24,7 +24,7 @@ afterEach(() => {
 
 describe('generateInvalidatedRowIndexSet', () => {
   it('should run correctly', () => {
-    const input = [
+    const input = ([
       [
         {
           isValidated: true,
@@ -57,41 +57,41 @@ describe('generateInvalidatedRowIndexSet', () => {
           isValidated: true,
         },
       ],
-    ] as unknown as Cell[][]
+    ] as unknown) as Cell[][]
     expect(generateInvalidatedRowIndexSet(input)).toEqual(new Set([0, 2, 3]))
   })
 })
 
 describe('generateDataWithReadOnly', () => {
   it('ignore headRow', () => {
-    const input = {
+    const input = ({
       data: [[{ value: 'header' }]],
       invalidatedRowIndexSet: new Set([0]),
-    } as unknown as generateDataWithReadOnlyParams
+    } as unknown) as generateDataWithReadOnlyParams
     const output = input.data
     expect(generateDataWithReadOnly(input)).toEqual(output)
   })
   it('set readOnly to false for all cell of validated row', () => {
-    const input = {
+    const input = ({
       data: [[{ value: 'header' }], [{ value: 'header' }]],
       invalidatedRowIndexSet: new Set([0]),
-    } as unknown as generateDataWithReadOnlyParams
+    } as unknown) as generateDataWithReadOnlyParams
     const output = [input.data[0], [{ ...input.data[1][0], readOnly: false }]]
     expect(generateDataWithReadOnly(input)).toEqual(output)
   })
   it('set readOnly to true for the invalidated cell of invalidated row', () => {
-    const input = {
+    const input = ({
       data: [[{ value: 'header' }], [{ value: 'content' }]],
       invalidatedRowIndexSet: new Set([1]),
-    } as unknown as generateDataWithReadOnlyParams
+    } as unknown) as generateDataWithReadOnlyParams
     const output = [input.data[0], [{ ...input.data[1][0], readOnly: true }]]
     expect(generateDataWithReadOnly(input)).toEqual(output)
   })
   it('set readOnly to false for all validated cell of invalidated row', () => {
-    const input = {
+    const input = ({
       data: [[{ value: 'header' }], [{ value: 'header', isValidatated: false, readOnly: false }]],
       invalidatedRowIndexSet: new Set([1]),
-    } as unknown as generateDataWithReadOnlyParams
+    } as unknown) as generateDataWithReadOnlyParams
     const output = [input.data[0], [{ ...input.data[1][0], readOnly: true }]]
     expect(generateDataWithReadOnly(input)).toEqual(output)
   })
@@ -129,7 +129,7 @@ describe('setCurrentCellValue', () => {
 describe('parseCsvFile', () => {
   it('should resolve with correct result', async () => {
     const file = fs.readFileSync(path.resolve(__dirname, '../__stubs__/test.csv'), 'utf-8')
-    const result = await parseCsvFile(file as unknown as File)
+    const result = await parseCsvFile((file as unknown) as File)
 
     expect(result).toEqual(parseResult)
   })

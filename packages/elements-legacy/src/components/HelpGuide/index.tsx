@@ -30,36 +30,30 @@ export interface NavigationProps {
   setIsExit: React.Dispatch<React.SetStateAction<boolean>>
 }
 
-export const handleGoNext =
-  ({ isLast, setCurrentStep, currentStep = 0, setIsExit }: NavigationProps) =>
-  () => {
-    if (!isLast) {
-      setIsExit(true)
-      setTimeout(() => {
-        setCurrentStep(currentStep + 1)
-      }, 0.5 * FADE_TIMEOUT)
-    }
-  }
-
-export const handleGoPrev =
-  ({ setCurrentStep, isFirst, currentStep = 0, setIsExit }: NavigationProps) =>
-  () => {
-    if (!isFirst) {
-      setIsExit(true)
-      setTimeout(() => {
-        setCurrentStep(currentStep - 1)
-      }, 0.5 * FADE_TIMEOUT)
-    }
-  }
-
-export const handleGoTo =
-  ({ setCurrentStep, setIsExit }: NavigationProps) =>
-  (stepIndex: number) => {
+export const handleGoNext = ({ isLast, setCurrentStep, currentStep = 0, setIsExit }: NavigationProps) => () => {
+  if (!isLast) {
     setIsExit(true)
     setTimeout(() => {
-      setCurrentStep(stepIndex)
+      setCurrentStep(currentStep + 1)
     }, 0.5 * FADE_TIMEOUT)
   }
+}
+
+export const handleGoPrev = ({ setCurrentStep, isFirst, currentStep = 0, setIsExit }: NavigationProps) => () => {
+  if (!isFirst) {
+    setIsExit(true)
+    setTimeout(() => {
+      setCurrentStep(currentStep - 1)
+    }, 0.5 * FADE_TIMEOUT)
+  }
+}
+
+export const handleGoTo = ({ setCurrentStep, setIsExit }: NavigationProps) => (stepIndex: number) => {
+  setIsExit(true)
+  setTimeout(() => {
+    setCurrentStep(stepIndex)
+  }, 0.5 * FADE_TIMEOUT)
+}
 
 export const renderTimeline = ({ total, currentStep, isMobileScreen, goTo }) => {
   if (isMobileScreen) {

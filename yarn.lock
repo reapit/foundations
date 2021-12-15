@@ -11110,7 +11110,7 @@ __metadata:
     papaparse: ^5.3.1
     pell: ^1.0.6
     postcss: ^8.4.5
-    prettier: 2.5.1
+    prettier: 2.2.1
     rc-dialog: ^8.6.0
     rc-notification: ^4.5.7
     rc-select: ^10.5.1
@@ -11211,7 +11211,7 @@ __metadata:
     move-file-cli: ^2.0.0
     node-polyfill-webpack-plugin: ^1.1.4
     postcss: ^8.4.5
-    prettier: 2.5.1
+    prettier: 2.2.1
     react-docgen-typescript-loader: ^3.7.2
     react-is: ^16.13.1
     rimraf: ^3.0.2
@@ -38602,12 +38602,12 @@ fsevents@^1.2.7:
   languageName: node
   linkType: hard
 
-"prettier@npm:2.5.1, prettier@npm:^2.2.1, prettier@npm:^2.5.1":
-  version: 2.5.1
-  resolution: "prettier@npm:2.5.1"
+"prettier@npm:2.2.1, prettier@npm:~2.2.1":
+  version: 2.2.1
+  resolution: "prettier@npm:2.2.1"
   bin:
     prettier: bin-prettier.js
-  checksum: 21b9408476ea1c544b0e45d51ceb94a84789ff92095abb710942d780c862d0daebdb29972d47f6b4d0f7ebbfb0ffbf56cc2cfa3e3e9d1cca54864af185b15b66
+  checksum: 800de2df3d37067ab24478c7f32c60ca0c57b01742133287829feeb4a70d239a7bf6bccb56196784777af591ad80fb9ba70c1a49b0fcecf9f5622a764d513edb
   languageName: node
   linkType: hard
 
@@ -38620,12 +38620,12 @@ fsevents@^1.2.7:
   languageName: node
   linkType: hard
 
-"prettier@npm:~2.2.1":
-  version: 2.2.1
-  resolution: "prettier@npm:2.2.1"
+"prettier@npm:^2.2.1, prettier@npm:^2.5.1":
+  version: 2.5.1
+  resolution: "prettier@npm:2.5.1"
   bin:
     prettier: bin-prettier.js
-  checksum: 800de2df3d37067ab24478c7f32c60ca0c57b01742133287829feeb4a70d239a7bf6bccb56196784777af591ad80fb9ba70c1a49b0fcecf9f5622a764d513edb
+  checksum: 21b9408476ea1c544b0e45d51ceb94a84789ff92095abb710942d780c862d0daebdb29972d47f6b4d0f7ebbfb0ffbf56cc2cfa3e3e9d1cca54864af185b15b66
   languageName: node
   linkType: hard
 

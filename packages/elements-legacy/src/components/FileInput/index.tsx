@@ -27,33 +27,31 @@ export interface FileInputProps {
   croppedImage?: string | null
 }
 
-export const handleChangeCroppedImage =
-  ({
-    field,
-    croppedImage,
-    setFileName,
-    inputFile,
-  }: {
-    field: FieldInputProps<string>
-    croppedImage?: string | null
-    setFileName: React.Dispatch<string>
-    inputFile: React.RefObject<HTMLInputElement>
-  }) =>
-  () => {
-    // when croppedImage is not set or when first mount
-    if (croppedImage === undefined || croppedImage === null) {
-      return
-    }
-
-    if (croppedImage === '') {
-      setFileName('')
-    }
-    if (inputFile.current && croppedImage === '') {
-      inputFile.current.value = ''
-    }
-
-    field.onChange({ target: { value: croppedImage ?? '', name: field.name } })
+export const handleChangeCroppedImage = ({
+  field,
+  croppedImage,
+  setFileName,
+  inputFile,
+}: {
+  field: FieldInputProps<string>
+  croppedImage?: string | null
+  setFileName: React.Dispatch<string>
+  inputFile: React.RefObject<HTMLInputElement>
+}) => () => {
+  // when croppedImage is not set or when first mount
+  if (croppedImage === undefined || croppedImage === null) {
+    return
   }
+
+  if (croppedImage === '') {
+    setFileName('')
+  }
+  if (inputFile.current && croppedImage === '') {
+    inputFile.current.value = ''
+  }
+
+  field.onChange({ target: { value: croppedImage ?? '', name: field.name } })
+}
 
 export const clearFile = (field, setFileName, inputFile) => (evt?: React.MouseEvent<HTMLAnchorElement, MouseEvent>) => {
   evt && evt.preventDefault()

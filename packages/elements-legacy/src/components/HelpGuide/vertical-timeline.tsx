@@ -29,28 +29,26 @@ export const caculateLineRef = ({ activeRef }: { activeRef: React.RefObject<HTML
 }
 
 // Calculate style '.circle-active' and '.line-active' elements when current active change
-export const calculateElement =
-  ({
-    circleRef,
-    activeRef,
-    lineRef,
-  }: {
-    activeRef: React.RefObject<HTMLLIElement>
-    circleRef: React.RefObject<HTMLDivElement>
-    lineRef: React.RefObject<HTMLDivElement>
-  }) =>
-  () => {
-    if (circleRef.current && activeRef.current && lineRef.current) {
-      const circlePosY = caculateCircleRef({ activeRef, circleRef })
-      circleRef.current.style.transform = `translateY(${circlePosY}px)`
-      if (window.matchMedia('(-ms-high-contrast:none)').matches) {
-        circleRef.current.style.transform = `translate(-20px, ${circlePosY}px)`
-      }
-
-      const lineHeight = caculateLineRef({ activeRef })
-      lineRef.current.style.height = `${lineHeight}px`
+export const calculateElement = ({
+  circleRef,
+  activeRef,
+  lineRef,
+}: {
+  activeRef: React.RefObject<HTMLLIElement>
+  circleRef: React.RefObject<HTMLDivElement>
+  lineRef: React.RefObject<HTMLDivElement>
+}) => () => {
+  if (circleRef.current && activeRef.current && lineRef.current) {
+    const circlePosY = caculateCircleRef({ activeRef, circleRef })
+    circleRef.current.style.transform = `translateY(${circlePosY}px)`
+    if (window.matchMedia('(-ms-high-contrast:none)').matches) {
+      circleRef.current.style.transform = `translate(-20px, ${circlePosY}px)`
     }
+
+    const lineHeight = caculateLineRef({ activeRef })
+    lineRef.current.style.height = `${lineHeight}px`
   }
+}
 
 export const VerticalTimeline = ({ total, currentIndex, onSelect }) => {
   const circleRef = React.useRef<HTMLDivElement>(null)

@@ -8,12 +8,12 @@ import { getDynamicLink } from '../dynamic-link-gen'
 const postMessageOrigin = process.env.MARKETPLACE_URL
 
 describe('AcButton AcLink', () => {
-  const mockWindow = {
+  const mockWindow = ({
     postMessage: jest.fn(),
     location: {
       origin: 'http://localhost',
     },
-  } as unknown as Window
+  } as unknown) as Window
 
   dynamicLinkScenarios.forEach((scenario) => {
     it('should match a snapshot for scenario ' + scenario.description, () => {

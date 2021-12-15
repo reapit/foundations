@@ -6,19 +6,17 @@ import * as React from 'react'
 export const passedFunctions = {
   // when finish upload, set img src and show modal to crop image
   // <ImageInput /> integration
-  afterLoadedImage:
-    ({
-      setUpImg,
-      setVisible,
-      setCroppedImage,
-    }: {
-      setUpImg: React.Dispatch<string>
-      setVisible: React.Dispatch<boolean>
-      setCroppedImage: React.Dispatch<string | null>
-    }) =>
-    (base64: string) => {
-      setUpImg(base64)
-      setCroppedImage(base64)
-      setVisible(true)
-    },
+  afterLoadedImage: ({
+    setUpImg,
+    setVisible,
+    setCroppedImage,
+  }: {
+    setUpImg: React.Dispatch<string>
+    setVisible: React.Dispatch<boolean>
+    setCroppedImage: React.Dispatch<string | null>
+  }) => (base64: string) => {
+    setUpImg(base64)
+    setCroppedImage(base64)
+    setVisible(true)
+  },
 }

@@ -414,7 +414,7 @@ describe('handleCellsChanged', () => {
       data,
       setData,
       mockAllowOnlyOneValidationErrorPerRow,
-      validateFn as unknown as ValidateFunction,
+      (validateFn as unknown) as ValidateFunction,
       afterCellsChanged,
     )
     fn(changes)

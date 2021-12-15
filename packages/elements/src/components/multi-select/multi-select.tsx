@@ -60,41 +60,44 @@ const setNativeInputValue = (element: HTMLElement, value: string[], testFunc?: (
   }
 }
 
-export const handleSetNativeInput =
-  (id: string, selectedOptionValues: string[], testFunc?: (value: string[]) => void) => () => {
-    const input = document.getElementById(id)
-    if (input) {
-      setNativeInputValue(input, selectedOptionValues, testFunc)
-      const changeEvent = new Event('change', { bubbles: true })
-      input.dispatchEvent(changeEvent)
-    }
+export const handleSetNativeInput = (
+  id: string,
+  selectedOptionValues: string[],
+  testFunc?: (value: string[]) => void,
+) => () => {
+  const input = document.getElementById(id)
+  if (input) {
+    setNativeInputValue(input, selectedOptionValues, testFunc)
+    const changeEvent = new Event('change', { bubbles: true })
+    input.dispatchEvent(changeEvent)
   }
+}
 
-export const handleResetDefaultValues =
-  (
-    setSelectedOptionValues: Dispatch<SetStateAction<string[]>>,
-    setSelectedDefaultValues: Dispatch<SetStateAction<string[]>>,
-    defaultValues?: string[],
-    selectedDefaultValues?: string[],
-  ) =>
-  () => {
-    if (defaultValues && JSON.stringify(defaultValues) !== JSON.stringify(selectedDefaultValues)) {
-      setSelectedOptionValues(defaultValues)
-      setSelectedDefaultValues(defaultValues)
-    }
+export const handleResetDefaultValues = (
+  setSelectedOptionValues: Dispatch<SetStateAction<string[]>>,
+  setSelectedDefaultValues: Dispatch<SetStateAction<string[]>>,
+  defaultValues?: string[],
+  selectedDefaultValues?: string[],
+) => () => {
+  if (defaultValues && JSON.stringify(defaultValues) !== JSON.stringify(selectedDefaultValues)) {
+    setSelectedOptionValues(defaultValues)
+    setSelectedDefaultValues(defaultValues)
   }
+}
 
-export const handleSelectedOptions =
-  (value: string, selectedOptionValues: string[], setSelectedOptionValues: Dispatch<SetStateAction<string[]>>) =>
-  (event: ChangeEvent<HTMLInputElement>) => {
-    const isChecked = event.target.checked
+export const handleSelectedOptions = (
+  value: string,
+  selectedOptionValues: string[],
+  setSelectedOptionValues: Dispatch<SetStateAction<string[]>>,
+) => (event: ChangeEvent<HTMLInputElement>) => {
+  const isChecked = event.target.checked
 
-    const newSelected = isChecked
-      ? [...selectedOptionValues, value]
-      : selectedOptionValues.filter((option) => option !== value)
+  const newSelected = isChecked
+    ? [...selectedOptionValues, value]
+    : selectedOptionValues.filter((option) => option !== value)
 
-    setSelectedOptionValues(newSelected)
-  }
+  setSelectedOptionValues(newSelected)
+}
 
 export const MultiSelectChip: FC<MultiSelectChipProps> = ({ className, children, id, ...rest }) => {
   const chipId = useMemo(() => {
