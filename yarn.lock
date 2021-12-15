@@ -21596,7 +21596,7 @@ __metadata:
     serverless-deployment-bucket: ^1.5.1
     serverless-dynamodb-local: ^0.2.40
     serverless-offline: ^7.0.0
-    serverless-webpack: ^5.5.1
+    serverless-webpack: ^5.6.0
     snyk: ^1.662.0
     webpack: ^5.65.0
   languageName: unknown
@@ -22034,7 +22034,7 @@ __metadata:
     serverless-deployment-bucket: ^1.5.1
     serverless-http: ^2.7.0
     serverless-offline: ^7.0.0
-    serverless-webpack: ^5.5.1
+    serverless-webpack: ^5.6.0
     uuid: ^8.3.2
     webpack: ^5.65.0
   languageName: unknown
@@ -26203,7 +26203,7 @@ __metadata:
     serverless-dynamodb-local: ^0.2.40
     serverless-http: ^2.7.0
     serverless-offline: ^7.0.0
-    serverless-webpack: ^5.5.1
+    serverless-webpack: ^5.6.0
     twilio: ^3.66.0
     uuid: ^3.4.0
     webpack: ^5.65.0
@@ -35048,7 +35048,7 @@ fsevents@^1.2.7:
     serverless-deployment-bucket: ^1.5.1
     serverless-http: ^2.7.0
     serverless-offline: ^7.0.0
-    serverless-webpack: ^5.5.1
+    serverless-webpack: ^5.6.0
     uuid: ^8.3.2
     webpack: ^5.65.0
   languageName: unknown
@@ -38560,7 +38560,7 @@ fsevents@^1.2.7:
     serverless-dynamodb-local: ^0.2.40
     serverless-http: ^2.7.0
     serverless-offline: ^7.0.0
-    serverless-webpack: ^5.5.1
+    serverless-webpack: ^5.6.0
     uuid: ^8.3.2
     webpack: ^5.65.0
   languageName: unknown
@@ -42952,7 +42952,7 @@ resolve@^2.0.0-next.3:
     serverless: ^2.52.0
     serverless-deployment-bucket: ^1.5.1
     serverless-lambda-edge-pre-existing-cloudfront: ^1.1.5
-    serverless-webpack: ^5.5.1
+    serverless-webpack: ^5.6.0
     snyk: ^1.662.0
     typescript: ^4.3.5
     webpack: ^5.65.0
@@ -43349,24 +43349,25 @@ resolve@^2.0.0-next.3:
   languageName: node
   linkType: hard
 
-"serverless-webpack@npm:^5.5.1":
-  version: 5.5.1
-  resolution: "serverless-webpack@npm:5.5.1"
+"serverless-webpack@npm:^5.6.0":
+  version: 5.6.0
+  resolution: "serverless-webpack@npm:5.6.0"
   dependencies:
     bestzip: ^2.2.0
     bluebird: ^3.7.2
     fs-extra: ^9.1.0
-    glob: ^7.1.7
+    glob: ^7.2.0
     is-builtin-module: ^3.1.0
     lodash: ^4.17.21
     semver: ^7.3.5
     ts-node: ">= 8.3.0"
   peerDependencies:
+    serverless: 1 || 2
     webpack: ">= 3.0.0 < 6"
   dependenciesMeta:
     ts-node:
       optional: true
-  checksum: 3c064ad002cce25cf18a00a5929541c67a997d67e02be5488e1490f25487e158142d53531ba458ae7a939024185d20e73e858430e18c8bab3a2c2047f84ce0b8
+  checksum: de7df7425e66ae74a9d2332dbff9996fb21308460ab79f549cf573b6e2e847bcfe097d01d6a54d3c796810aa58dfeedef1c947d386a2c639f3f9a847826d1b4b
   languageName: node
   linkType: hard
 
