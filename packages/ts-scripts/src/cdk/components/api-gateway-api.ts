@@ -1,7 +1,8 @@
 import * as apigateway from '@aws-cdk/aws-apigateway'
 import * as lambda from '@aws-cdk/aws-lambda'
 import * as cdk from '@aws-cdk/core'
-import * as cognito from '@aws-cdk/aws-cognito'
+import { AuthorizationType, LambdaIntegration, LambdaRestApi, RestApi } from '@aws-cdk/aws-apigateway'
+import { getAuthorizer } from './cognito-authorizer'
 
 export const createApi = (
   scope: cdk.Stack,
@@ -9,13 +10,10 @@ export const createApi = (
   lambdaFunction?: lambda.Function,
   cognitoUserPoolId?: string,
   allowCors?: boolean
-) => {
+): RestApi | LambdaRestApi => {
   let defaultMethodOptions: apigateway.MethodOptions | undefined = undefined
   if (cognitoUserPoolId) {
-    const userPool = cognito.UserPool.fromUserPoolId(scope, `${scope.stackName}-${name}-usrpool`, cognitoUserPoolId)
-    const authorizer = new apigateway.CognitoUserPoolsAuthorizer(scope, `${scope.stackName}-${name}-authorizer`, {
-      cognitoUserPools: [userPool],
-    })
+    const authorizer = getAuthorizer(scope, cognitoUserPoolId)
     defaultMethodOptions = {
       authorizationType: apigateway.AuthorizationType.COGNITO,
       authorizer,
@@ -38,5 +36,19 @@ export const createApi = (
     handler: lambdaFunction,
     defaultMethodOptions,
     defaultCorsPreflightOptions,
+  })
+}
+
+export const addLambdaToApi = (
+  scope: cdk.Stack,
+  api: apigateway.RestApi,
+  lambdaFunction: lambda.Function,
+  path: string,
+  method: string,
+  cognitoUserPoolId?: string
+) => {
+  api.root.resourceForPath(path).addMethod(method, new LambdaIntegration(lambdaFunction), {
+    authorizer: cognitoUserPoolId ? getAuthorizer(scope, cognitoUserPoolId) : undefined,
+    authorizationType: cognitoUserPoolId ? AuthorizationType.COGNITO : undefined,
   })
 }

@@ -1,9 +1,9 @@
-import { Project } from '@aws-cdk/aws-codebuild'
-import { Effect, PolicyStatement } from '@aws-cdk/aws-iam'
-import { DatabaseCluster } from '@aws-cdk/aws-rds'
-import { Bucket } from '@aws-cdk/aws-s3'
-import { ISecret } from '@aws-cdk/aws-secretsmanager'
-import { Queue } from '@aws-cdk/aws-sqs'
+import { Project } from '@reapit/ts-scripts/src/cdk/components/codebuild-project'
+import { ISecret } from '@reapit/ts-scripts/src/cdk/components/rds-database'
+
+import { Effect, PolicyStatement } from '@reapit/ts-scripts/src/cdk/components/iam-policy'
+import { Bucket } from '@reapit/ts-scripts/src/cdk/components/s3-bucket'
+import { Queue } from '@reapit/ts-scripts/src/cdk/components/sqs-queue'
 import config from '../../config.json'
 
 export enum PolicyNames {
@@ -34,7 +34,6 @@ export const createPolicies = ({
   queues: { [s: string]: Queue }
   secretManager: ISecret
   codeBuild: Project
-  aurora: DatabaseCluster
 }): namedPolicyGroupType & namedPolicyType => {
   const S3BucketPolicy = new PolicyStatement({
     effect: Effect.ALLOW,
@@ -65,6 +64,8 @@ export const createPolicies = ({
     resources: [secretManager.secretArn],
     actions: ['secretsmanager:GetSecretValue', 'secretsmanager:DescribeSecret'],
   })
+
+  const dbPolicies = [secretManagerPolicy]
 
   const route53Policy = new PolicyStatement({
     effect: Effect.ALLOW,

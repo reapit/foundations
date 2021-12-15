@@ -8,10 +8,12 @@ export const createBaseStack = ({
   namespace: string
   appName: string
   component: string
-}) => {
+}): cdk.Stack => {
   const scope = new cdk.App()
   const name = `${namespace}-${appName}-${component}`
   const stack = new cdk.Stack(scope, name)
 
   return stack
 }
+
+export type Stack = cdk.Stack

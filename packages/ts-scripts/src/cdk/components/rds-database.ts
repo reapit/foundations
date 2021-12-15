@@ -1,17 +1,21 @@
-import { AuroraMysqlEngineVersion, DatabaseCluster, DatabaseClusterEngine } from '@aws-cdk/aws-rds'
-import { Port, Vpc } from '@aws-cdk/aws-ec2'
+import * as rds from '@aws-cdk/aws-rds'
+import * as ec2 from '@aws-cdk/aws-ec2'
 import * as cdk from '@aws-cdk/core'
+import * as secretsmanager from '@aws-cdk/aws-secretsmanager'
 
-export const createAurora = (stack: cdk.Stack, name: string, databaseName: string, vpc: Vpc) => {
-  const rds = new DatabaseCluster(stack, name, {
-    engine: DatabaseClusterEngine.auroraMysql({ version: AuroraMysqlEngineVersion.VER_2_08_1 }),
+export const createDatabase = (stack: cdk.Stack, name: string, databaseName: string, vpc: ec2.Vpc): rds.DatabaseCluster => {
+  const db = new rds.DatabaseCluster(stack, name, {
+    engine: rds.DatabaseClusterEngine.auroraMysql({ version: rds.AuroraMysqlEngineVersion.VER_2_08_1 }),
     defaultDatabaseName: databaseName,
     instanceProps: {
       vpc,
     },
   })
 
-  rds.connections.allowFromAnyIpv4(Port.allTcp())
+  db.connections.allowFromAnyIpv4(ec2.Port.allTcp())
 
-  return rds
+  return db
 }
+
+export type DatabaseCluster = rds.DatabaseCluster
+export type ISecret = secretsmanager.ISecret

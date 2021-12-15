@@ -1,6 +1,5 @@
-import { Queue } from '@aws-cdk/aws-sqs'
-import { Duration } from '@aws-cdk/core'
-import { CdkStack } from './cdk-stack'
+import { createSqsQueue, Queue } from '@reapit/ts-scripts/src/cdk/components/sqs-queue'
+import { Stack } from '@reapit/ts-scripts/src/cdk/components/stack'
 
 export enum QueueNames {
   CODEBUILD_EXECUTOR = 'CodebuildExecutor',
@@ -10,7 +9,7 @@ export enum QueueNames {
   PIPELINE_TEAR_DOWN = 'PipelineTearDown',
 }
 
-export const createSqsQueues = (stack: CdkStack) => {
+export const createSqsQueues = (stack: Stack): Record<QueueNames, Queue> => {
   const queueConfig: {
     [k in QueueNames]: {
       visibilityTimeout?: number
@@ -32,16 +31,10 @@ export const createSqsQueues = (stack: CdkStack) => {
   }
 
   return (Object.keys(queueConfig) as Array<QueueNames>).reduce<{ [k in QueueNames]: Queue }>((queues, queueName) => {
-    const duration =
-      typeof queueConfig[queueName].visibilityTimeout !== 'undefined'
-        ? Duration.seconds(queueConfig[queueName].visibilityTimeout as number)
-        : undefined
-
-    queues[queueName] = new Queue(stack as any, `cloud-deployment-${queueName}`, {
-      queueName,
-      visibilityTimeout: duration as any,
-    })
+    queues[queueName] = createSqsQueue(stack, queueName, queueConfig[queueName].visibilityTimeout)
 
     return queues
   }, {} as any)
 }
+
+export type SQSQueue = Queue

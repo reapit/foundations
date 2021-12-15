@@ -6,7 +6,7 @@ export const createTable = (
   tableName: string,
   keyName: string,
   globalSecondaryIndexes?: { indexName: string, partitionKeyName: string }[],
-) => {
+): ddb.Table => {
   const table = new ddb.Table(scope, tableName, {
     partitionKey: {
       name: keyName,

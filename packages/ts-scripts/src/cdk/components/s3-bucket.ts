@@ -1,5 +1,5 @@
 import { ArnPrincipal, Effect, PolicyStatement } from '@aws-cdk/aws-iam'
-import { Bucket } from '@aws-cdk/aws-s3'
+import * as s3 from '@aws-cdk/aws-s3'
 import * as cdk from '@aws-cdk/core'
 
 type BucketOptions = {
@@ -9,19 +9,19 @@ type BucketOptions = {
   put?: boolean
 }
 
-export const createBucket = (stack: cdk.Stack, bucketName: string, options?: BucketOptions) => {
-  const bucket = new Bucket(stack, bucketName, {
+export const createBucket = (stack: cdk.Stack, bucketName: string, options?: BucketOptions): s3.Bucket => {
+  const bucket = new s3.Bucket(stack, bucketName, {
     publicReadAccess: options?.public,
     websiteIndexDocument: options?.public ? 'index.html' : undefined,
   })
-  const actions = []
-  if (options.get) {
+  const actions: string[] = []
+  if (options?.get) {
     actions.push('s3:Get*')
   }
-  if (options.list) {
+  if (options?.list) {
     actions.push('s3:List*')
   }
-  if (options.put) {
+  if (options?.put) {
     actions.push('s3:Put*')
   }
 
@@ -35,3 +35,5 @@ export const createBucket = (stack: cdk.Stack, bucketName: string, options?: Buc
   )
   return bucket
 }
+
+export type Bucket = s3.Bucket
