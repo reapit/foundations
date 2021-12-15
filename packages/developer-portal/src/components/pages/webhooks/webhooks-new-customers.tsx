@@ -20,7 +20,7 @@ import { CreateWebhookFormSchema } from './webhooks-new'
 interface WebhooksNewCustomersProps {
   register: UseFormRegister<CreateWebhookFormSchema>
   getValues: UseFormGetValues<CreateWebhookFormSchema>
-  errors: DeepMap<CreateWebhookFormSchema, FieldError>
+  errors: DeepMap<Partial<CreateWebhookFormSchema>, FieldError>
 }
 
 export const SANDBOX_CLIENT = {

@@ -34,9 +34,9 @@
     "react": "^17.0.2",
     "react-dom": "^17.0.2",
     "react-ga": "^2.7.0",
-    "react-router": "^5.2.0",
-    "react-router-dom": "^5.2.0",
-    "react-timer-hook": "^3.0.4",
+    "react-router": "^5.2.1",
+    "react-router-dom": "^5.3.0",
+    "react-timer-hook": "^3.0.5",
     "shleemy": "^1.2.2",
     "snyk": "^1.662.0",
     "yup": "^0.29.3"

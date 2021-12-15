@@ -21,7 +21,7 @@ import { getInitialTopics } from './webhooks-manage-form'
 interface WebhooksNewTopicsProps {
   register: UseFormRegister<CreateWebhookFormSchema>
   getValues: UseFormGetValues<CreateWebhookFormSchema>
-  errors: DeepMap<CreateWebhookFormSchema, FieldError>
+  errors: DeepMap<Partial<CreateWebhookFormSchema>, FieldError>
 }
 
 export const handleFetchTopics =

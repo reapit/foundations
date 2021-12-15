@@ -5,7 +5,7 @@ import { CreateWebhookFormSchema } from './webhooks-new'
 
 interface WebhooksNewUrlProps {
   register: UseFormRegister<CreateWebhookFormSchema>
-  errors: DeepMap<CreateWebhookFormSchema, FieldError>
+  errors: DeepMap<Partial<CreateWebhookFormSchema>, FieldError>
 }
 
 export const WebhooksNewUrl: FC<WebhooksNewUrlProps> = ({ register, errors }) => (
