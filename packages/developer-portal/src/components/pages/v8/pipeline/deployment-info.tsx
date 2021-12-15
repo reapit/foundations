@@ -19,6 +19,7 @@ import {
   Grid,
   FlexContainer,
   Loader,
+  elP6,
 } from '@reapit/elements'
 import { PipelineModelInterface, PipelineRunnerModelInterface } from '@reapit/foundations-ts-definitions'
 import { GetActionNames, getActions, UpdateActionNames, updateActions } from '@reapit/utils-common'
@@ -162,7 +163,7 @@ const PipelineDeploymentTable = ({
         <TableHeader></TableHeader>
       </TableHeadersRow>
       {loading ? (
-        <FlexContainer>
+        <FlexContainer isFlexAlignCenter isFlexJustifyCenter className={cx(elP6)}>
           <Loader />
         </FlexContainer>
       ) : pagination !== null ? (
