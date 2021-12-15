@@ -26,6 +26,8 @@ const PipelineWrapper = ({
       return
     }
 
+    console.log('event', event)
+
     if (!pipeline) {
       return
     }
@@ -57,17 +59,7 @@ export const AppPipeline = ({ appId }: { appId: string }) => {
   })
 
   return (
-    <PusherProvider
-      cluster="eu"
-      clientKey={window.reapit.config.PUSHER_KEY}
-      authEndpoint={`${URLS.DEPLOYMENT_SERVICE_HOST}/pusher/auth`}
-      auth={{
-        headers: {
-          ...COGNITO_HEADERS,
-          Authorization: connectSession?.idToken,
-        },
-      }}
-    >
+    <>
       {loading || !connectSession ? (
         <FlexContainer isFlexJustifyCenter isFlexAlignCenter>
           <div>
@@ -78,8 +70,20 @@ export const AppPipeline = ({ appId }: { appId: string }) => {
       ) : !pipeline ? (
         <CreatePipeline refreshPipeline={refresh} appId={appId} />
       ) : (
-        <PipelineWrapper initialPipeline={pipeline} connection={connectSession} />
+        <PusherProvider
+          cluster="eu"
+          clientKey={window.reapit.config.PUSHER_KEY}
+          authEndpoint={`${URLS.DEPLOYMENT_SERVICE_HOST}/pusher/auth`}
+          auth={{
+            headers: {
+              ...COGNITO_HEADERS,
+              Authorization: connectSession?.idToken,
+            },
+          }}
+        >
+          <PipelineWrapper initialPipeline={pipeline} connection={connectSession} />
+        </PusherProvider>
       )}
-    </PusherProvider>
+    </>
   )
 }
