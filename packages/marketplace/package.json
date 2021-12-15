@@ -28,7 +28,7 @@
     "@sentry/browser": "^6.16.1",
     "amazon-cognito-identity-js": "^4.6.3",
     "chart.js": "^2.9.4",
-    "dayjs": "^1.10.6",
+    "dayjs": "^1.10.7",
     "diff": "^4.0.2",
     "lodash.isequal": "^4.5.0",
     "lodash.orderby": "^4.6.0",

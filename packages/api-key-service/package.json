@@ -4,7 +4,7 @@
     "@homeservenow/serverless-aws-handler": "^0.2.4",
     "aws-lambda": "^1.0.6",
     "class-transformer": "^0.4.0",
-    "class-validator": "^0.13.1"
+    "class-validator": "^0.13.2"
   },
   "devDependencies": {
     "@babel/plugin-proposal-decorators": "^7.16.5",

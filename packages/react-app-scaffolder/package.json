@@ -30,8 +30,8 @@
     "commit": "echo '...skipping...'"
   },
   "dependencies": {
-    "yeoman-generator": "^5.4.0",
-    "yo": "^4.2.0",
+    "yeoman-generator": "^5.4.2",
+    "yo": "^4.3.0",
     "yosay": "^2.0.2"
   },
   "devDependencies": {
