@@ -38,17 +38,17 @@
     "chrome 69"
   ],
   "dependencies": {
-    "@linaria/core": "^3.0.0-beta.4",
-    "@linaria/react": "^3.0.0-beta.7"
+    "@linaria/core": "^3.0.0-beta.15",
+    "@linaria/react": "^3.0.0-beta.15"
   },
   "devDependencies": {
     "@babel/core": "^7.16.5",
     "@babel/plugin-transform-runtime": "7.16.5",
     "@babel/runtime": "7.16.5",
-    "@linaria/babel-preset": "^3.0.0-beta.4",
-    "@linaria/rollup": "^3.0.0-beta.7",
-    "@linaria/shaker": "^3.0.0-beta.8",
-    "@linaria/webpack-loader": "^3.0.0-beta.7",
+    "@linaria/babel-preset": "^3.0.0-beta.15",
+    "@linaria/rollup": "^3.0.0-beta.15",
+    "@linaria/shaker": "^3.0.0-beta.15",
+    "@linaria/webpack-loader": "^3.0.0-beta.16",
     "@mdx-js/react": "^1.6.22",
     "@reapit/config-manager": "workspace:packages/config-manager",
     "@reapit/storybook-addon-html": "^5.0.1",
@@ -95,11 +95,11 @@
     "rollup": "^2.61.1",
     "rollup-plugin-css-only": "^3.1.0",
     "rollup-plugin-terser": "^7.0.2",
-    "serverless": "^2.52.0",
+    "serverless": "^2.69.1",
     "serverless-s3-deploy": "^0.10.1",
     "serverless-s3-remover": "^0.6.0",
-    "serverless-single-page-app-plugin": "^1.0.2",
-    "snyk": "^1.662.0",
+    "serverless-single-page-app-plugin": "^1.0.4",
+    "snyk": "^1.793.0",
     "tslib": "^2.3.1",
     "typescript": "^4.3.5",
     "webpack": "^5.65.0"
