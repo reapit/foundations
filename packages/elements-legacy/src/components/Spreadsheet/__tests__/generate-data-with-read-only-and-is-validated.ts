@@ -4,17 +4,17 @@ import { Cell } from '../types'
 const mockValidatedDataGenerateReturn = 'mockValidatedDataGenerateReturn'
 const spyValidatedDataGenerate = jest
   .spyOn(utils, 'validatedDataGenerate')
-  .mockReturnValue((mockValidatedDataGenerateReturn as unknown) as Cell[][])
+  .mockReturnValue(mockValidatedDataGenerateReturn as unknown as Cell[][])
 
 const mockGenerateInvalidatedRowIndexSetReturn = 'mockGenerateInvalidatedRowIndexSetReturn'
 const spyGenerateInvalidatedRowIndexSet = jest
   .spyOn(utils, 'generateInvalidatedRowIndexSet')
-  .mockReturnValue((mockGenerateInvalidatedRowIndexSetReturn as unknown) as Set<number>)
+  .mockReturnValue(mockGenerateInvalidatedRowIndexSetReturn as unknown as Set<number>)
 
 const mockSpyGenerateDataWithReadOnlyReturn = 'spygenerateDataWithReadOnly'
 const spygenerateDataWithReadOnly = jest
   .spyOn(utils, 'generateDataWithReadOnly')
-  .mockReturnValue((mockSpyGenerateDataWithReadOnlyReturn as unknown) as Cell[][])
+  .mockReturnValue(mockSpyGenerateDataWithReadOnlyReturn as unknown as Cell[][])
 
 xdescribe('generateDataWithReadOnlyAndIsValidated', () => {
   it('should run correctly when allowOnlyOneValidationErrorPerRow = false', () => {

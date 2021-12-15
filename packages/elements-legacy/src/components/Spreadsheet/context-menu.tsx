@@ -69,37 +69,39 @@ export const removeCol = (data: Cell[][], currentColIndex: number, onCellsChange
   onCellsChanged(changedCells)
 }
 /** delegate event handler */
-export const handleContextClick = (
-  data: Cell[][],
-  selected: SelectedMatrix | null,
-  setContextMenuProp: SetContextMenuProp,
-  onCellsChanged: OnCellsChanged,
-) => (event) => {
-  event.stopPropagation()
-  const {
-    start: { i: currentRowIndex, j: currentColIndex },
-  } = selected as SelectedMatrix
-  switch (event.target.id) {
-    case 'clear-row':
-      clearRow(data, currentRowIndex, onCellsChanged)
-      setContextMenuProp(hideContextMenu)
-      return 'clear-row'
-    case 'clear-col':
-      clearCol(data, currentColIndex, onCellsChanged)
-      setContextMenuProp(hideContextMenu)
-      return 'clear-col'
-    case 'remove-row':
-      removeRow(data, currentRowIndex, onCellsChanged)
-      setContextMenuProp(hideContextMenu)
-      return 'remove-row'
-    case 'remove-col':
-      removeCol(data, currentColIndex, onCellsChanged)
-      setContextMenuProp(hideContextMenu)
-      return 'remove-col'
-    default:
-      return ''
+export const handleContextClick =
+  (
+    data: Cell[][],
+    selected: SelectedMatrix | null,
+    setContextMenuProp: SetContextMenuProp,
+    onCellsChanged: OnCellsChanged,
+  ) =>
+  (event) => {
+    event.stopPropagation()
+    const {
+      start: { i: currentRowIndex, j: currentColIndex },
+    } = selected as SelectedMatrix
+    switch (event.target.id) {
+      case 'clear-row':
+        clearRow(data, currentRowIndex, onCellsChanged)
+        setContextMenuProp(hideContextMenu)
+        return 'clear-row'
+      case 'clear-col':
+        clearCol(data, currentColIndex, onCellsChanged)
+        setContextMenuProp(hideContextMenu)
+        return 'clear-col'
+      case 'remove-row':
+        removeRow(data, currentRowIndex, onCellsChanged)
+        setContextMenuProp(hideContextMenu)
+        return 'remove-row'
+      case 'remove-col':
+        removeCol(data, currentColIndex, onCellsChanged)
+        setContextMenuProp(hideContextMenu)
+        return 'remove-col'
+      default:
+        return ''
+    }
   }
-}
 
 export const createMenu = (data: ContextMenuData[]): React.ReactNode => {
   return data.map(({ label, items }) => (

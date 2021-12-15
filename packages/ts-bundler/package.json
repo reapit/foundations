@@ -9,7 +9,7 @@
     "yaml": "^1.10.2"
   },
   "devDependencies": {
-    "eslint": "7.31.0"
+    "eslint": "8.4.1"
   },
   "scripts": {
     "start": "echo '...skipping...'",

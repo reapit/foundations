@@ -21,13 +21,17 @@ export type HandleTextAreaOnBlurParams = {
   helpers: FieldHelperProps<string>
 }
 
-export const handleTextAreaOnChange = ({ field }: HandleTextAreaOnChangeParams) => (html: string) => {
-  field.onChange({ target: { value: html, name: field.name } })
-}
+export const handleTextAreaOnChange =
+  ({ field }: HandleTextAreaOnChangeParams) =>
+  (html: string) => {
+    field.onChange({ target: { value: html, name: field.name } })
+  }
 
-export const handleTextAreaOnBlur = ({ helpers }: HandleTextAreaOnBlurParams) => () => {
-  helpers.setTouched(true)
-}
+export const handleTextAreaOnBlur =
+  ({ helpers }: HandleTextAreaOnBlurParams) =>
+  () => {
+    helpers.setTouched(true)
+  }
 
 export const handleTextAreaOnPaste = () => (e) => {
   // Stop data actually being pasted into div

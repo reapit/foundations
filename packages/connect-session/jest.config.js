@@ -1,4 +1,4 @@
-const { pathsToModuleNameMapper } = require('ts-jest/utils')
+const { pathsToModuleNameMapper } = require('ts-jest')
 const { compilerOptions } = require('./tsconfig.json')
 const { jestGlobalConfig } = require('@reapit/ts-scripts')
 
@@ -11,17 +11,17 @@ module.exports = {
     }),
   },
   coveragePathIgnorePatterns: [
-    "<rootDir>[/\\\\](node_modules|src/tests|src/__mocks__)[/\\\\]",
-    "<rootDir>/src/types.ts",
-    "<rootDir>/src/index.ts",
-    ".d.ts"
+    '<rootDir>[/\\\\](node_modules|src/tests|src/__mocks__)[/\\\\]',
+    '<rootDir>/src/types.ts',
+    '<rootDir>/src/index.ts',
+    '.d.ts',
   ],
   coverageThreshold: {
     global: {
       branches: 69,
       functions: 96,
       lines: 91,
-      statements: 91
+      statements: 91,
     },
   },
 }

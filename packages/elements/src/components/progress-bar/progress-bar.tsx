@@ -40,22 +40,20 @@ export const ProgressBarLabel: FC<ProgressBarBaseProps> = ({ children, ...rest }
   <ElProgressBarLabel {...rest}>{children}</ElProgressBarLabel>
 )
 
-export const handleSetPercentageComplete = (
-  setPercentageComplete: Dispatch<SetStateAction<number>>,
-  intervalTime: number,
-) => () => {
-  const interval = window.setInterval(() => {
-    setPercentageComplete((prev) => {
-      if (prev < 100) {
-        return ++prev
-      }
+export const handleSetPercentageComplete =
+  (setPercentageComplete: Dispatch<SetStateAction<number>>, intervalTime: number) => () => {
+    const interval = window.setInterval(() => {
+      setPercentageComplete((prev) => {
+        if (prev < 100) {
+          return ++prev
+        }
 
-      return prev
-    })
-  }, intervalTime)
+        return prev
+      })
+    }, intervalTime)
 
-  return () => window.clearInterval(interval)
-}
+    return () => window.clearInterval(interval)
+  }
 
 export const ProgressBarPercentage: FC<ProgressBarPercentageProps> = ({ duration, ...rest }) => {
   const [percentageComplete, setPercentageComplete] = useState<number>(0)
@@ -78,13 +76,10 @@ export const ProgressBarPercentage: FC<ProgressBarPercentageProps> = ({ duration
   )
 }
 
-export const handleSetPercentageCompleteSteps = (
-  setPercentageComplete: Dispatch<SetStateAction<number>>,
-  currentStep: number,
-  numberSteps: number,
-) => () => {
-  setPercentageComplete((currentStep / numberSteps) * 100)
-}
+export const handleSetPercentageCompleteSteps =
+  (setPercentageComplete: Dispatch<SetStateAction<number>>, currentStep: number, numberSteps: number) => () => {
+    setPercentageComplete((currentStep / numberSteps) * 100)
+  }
 
 export const ProgressBarSteps: FC<ProgressBarStepProps> = ({ numberSteps, currentStep, ...rest }) => {
   const [percentageComplete, setPercentageComplete] = useState<number>((currentStep / numberSteps) * 100)

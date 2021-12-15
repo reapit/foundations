@@ -7,15 +7,14 @@ export const FormLayout: FC<FormLayoutProps> = ({ children, ...rest }) => {
   return <ElFormLayout {...rest}>{children}</ElFormLayout>
 }
 
-export const InputWrap: React.ForwardRefExoticComponent<
-  FormLayoutProps & React.RefAttributes<HTMLDivElement>
-> = forwardRef(({ children, ...rest }, ref) => {
-  return (
-    <ElInputWrap {...rest} ref={ref as LegacyRef<HTMLDivElement>}>
-      {children}
-    </ElInputWrap>
-  )
-})
+export const InputWrap: React.ForwardRefExoticComponent<FormLayoutProps & React.RefAttributes<HTMLDivElement>> =
+  forwardRef(({ children, ...rest }, ref) => {
+    return (
+      <ElInputWrap {...rest} ref={ref as LegacyRef<HTMLDivElement>}>
+        {children}
+      </ElInputWrap>
+    )
+  })
 
 export const InputWrapMed: FC<FormLayoutProps> = ({ children, ...rest }) => {
   return <ElInputWrapMed {...rest}>{children}</ElInputWrapMed>

@@ -29,23 +29,25 @@ export const caculateLineRef = ({ activeRef }: { activeRef: React.RefObject<HTML
 }
 
 // Calculate style '.circle-active' and '.line-active' elements when current active change
-export const calculateElement = ({
-  circleRef,
-  activeRef,
-  lineRef,
-}: {
-  activeRef: React.RefObject<HTMLLIElement>
-  circleRef: React.RefObject<HTMLDivElement>
-  lineRef: React.RefObject<HTMLDivElement>
-}) => () => {
-  if (circleRef.current && activeRef.current && lineRef.current) {
-    const circlePosX = caculateCircleRef({ activeRef, circleRef })
-    circleRef.current.style.transform = `translateX(${circlePosX}px)`
+export const calculateElement =
+  ({
+    circleRef,
+    activeRef,
+    lineRef,
+  }: {
+    activeRef: React.RefObject<HTMLLIElement>
+    circleRef: React.RefObject<HTMLDivElement>
+    lineRef: React.RefObject<HTMLDivElement>
+  }) =>
+  () => {
+    if (circleRef.current && activeRef.current && lineRef.current) {
+      const circlePosX = caculateCircleRef({ activeRef, circleRef })
+      circleRef.current.style.transform = `translateX(${circlePosX}px)`
 
-    const lineWidth = caculateLineRef({ activeRef })
-    lineRef.current.style.width = `${lineWidth}px`
+      const lineWidth = caculateLineRef({ activeRef })
+      lineRef.current.style.width = `${lineWidth}px`
+    }
   }
-}
 
 export const HorizontalTimeline = ({ total, currentIndex, onSelect }) => {
   const circleRef = React.useRef<HTMLDivElement>(null)

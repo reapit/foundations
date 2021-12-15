@@ -23,10 +23,10 @@ describe('useNavState', () => {
       callback: jest.fn(),
     }
 
-    const event = ({
+    const event = {
       preventDefault: jest.fn(),
       stopPropagation: jest.fn(),
-    } as unknown) as MouseEvent<HTMLAnchorElement>
+    } as unknown as MouseEvent<HTMLAnchorElement>
 
     expect(result.current.navState).toEqual({
       navItemIndex: null,

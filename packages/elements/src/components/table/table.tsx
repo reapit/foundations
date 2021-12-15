@@ -53,19 +53,21 @@ export interface TableProps extends HTMLAttributes<HTMLDivElement> {
   setIndexExpandedRow?: Dispatch<SetStateAction<number | null>>
 }
 
-export const handleToggleExpandedRow = (
-  index: number | null,
-  expandedRow: number | null,
-  setExpandedRow: Dispatch<SetStateAction<number | null>>,
-  indexExpandedRow?: number | null,
-  setIndexExpandedRow?: Dispatch<SetStateAction<number | null>>,
-) => () => {
-  if (indexExpandedRow !== undefined && setIndexExpandedRow) {
-    indexExpandedRow === index ? setIndexExpandedRow(null) : setIndexExpandedRow(index)
-  } else {
-    expandedRow === index ? setExpandedRow(null) : setExpandedRow(index)
+export const handleToggleExpandedRow =
+  (
+    index: number | null,
+    expandedRow: number | null,
+    setExpandedRow: Dispatch<SetStateAction<number | null>>,
+    indexExpandedRow?: number | null,
+    setIndexExpandedRow?: Dispatch<SetStateAction<number | null>>,
+  ) =>
+  () => {
+    if (indexExpandedRow !== undefined && setIndexExpandedRow) {
+      indexExpandedRow === index ? setIndexExpandedRow(null) : setIndexExpandedRow(index)
+    } else {
+      expandedRow === index ? setExpandedRow(null) : setExpandedRow(index)
+    }
   }
-}
 
 export const Table: FC<TableProps> = ({
   rows,

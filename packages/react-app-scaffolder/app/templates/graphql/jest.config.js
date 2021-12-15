@@ -1,4 +1,4 @@
-const { pathsToModuleNameMapper } = require('ts-jest/utils')
+const { pathsToModuleNameMapper } = require('ts-jest')
 const baseConfig = require('../../scripts/jest/jest.config')
 const { compilerOptions } = require('./tsconfig')
 

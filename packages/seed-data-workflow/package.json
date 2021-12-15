@@ -15,17 +15,17 @@
     "@reapit/config-manager": "workspace:packages/config-manager",
     "@reapit/ts-scripts": "workspace:packages/ts-scripts",
     "@reapit/ts-types": "workspace:packages/ts-types",
-    "@typescript-eslint/eslint-plugin": "^4.28.4",
-    "@typescript-eslint/parser": "^4.28.4",
-    "eslint-plugin-prettier": "^3.4.0"
+    "@typescript-eslint/eslint-plugin": "^5.7.0",
+    "@typescript-eslint/parser": "^5.7.0",
+    "eslint-plugin-prettier": "^4.0.0"
   },
   "dependencies": {
     "@reapit/connect-session": "workspace:packages/connect-session",
     "axios": "^0.23.0",
     "dayjs": "^1.10.6",
-    "eslint": "^7.31.0",
+    "eslint": "^8.4.1",
     "snyk": "^1.662.0",
-    "ts-node": "^10.1.0",
+    "ts-node": "^10.4.0",
     "typescript": "^4.3.5"
   },
   "scripts": {

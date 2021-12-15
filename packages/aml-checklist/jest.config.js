@@ -1,4 +1,4 @@
-const { pathsToModuleNameMapper } = require('ts-jest/utils')
+const { pathsToModuleNameMapper } = require('ts-jest')
 const { jestGlobalConfig } = require('@reapit/ts-scripts')
 const { compilerOptions } = require('./tsconfig')
 
@@ -25,7 +25,7 @@ module.exports = {
       branches: 57,
       functions: 72,
       lines: 83,
-      statements: 83
-    }
-  }
+      statements: 83,
+    },
+  },
 }

@@ -40,7 +40,6 @@ export abstract class ParentCommand extends AbstractCommand {
     command.run(...args)
   }
 
-
   sortCommands(a: AbstractCommand, b: AbstractCommand): number {
     return a.commandOptions.name.localeCompare(b.commandOptions.name)
   }
