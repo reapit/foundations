@@ -121,7 +121,7 @@ export const handleSubmitWebhook = (dispatch: ReduxDispatch) => (values: CreateW
 export const getStepContent = (
   register: UseFormRegister<CreateWebhookFormSchema>,
   getValues: UseFormGetValues<CreateWebhookFormSchema>,
-  errors: DeepMap<CreateWebhookFormSchema, FieldError>,
+  errors: DeepMap<Partial<CreateWebhookFormSchema>, FieldError>,
   webhookQueryParams: WebhookQueryParams,
 ): StepsVerticalStep[] => {
   return [

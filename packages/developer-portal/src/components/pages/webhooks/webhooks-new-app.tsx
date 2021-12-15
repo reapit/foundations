@@ -20,7 +20,7 @@ import { WebhookQueryParams } from './webhooks'
 
 interface WebhooksNewAppProps {
   register: UseFormRegister<CreateWebhookFormSchema>
-  errors: DeepMap<CreateWebhookFormSchema, FieldError>
+  errors: DeepMap<Partial<CreateWebhookFormSchema>, FieldError>
   webhookQueryParams: WebhookQueryParams
 }
 
