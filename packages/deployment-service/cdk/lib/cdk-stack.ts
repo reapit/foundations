@@ -327,7 +327,7 @@ export const createStack = () => {
       handler: 'main.codebuildPipelineUpdater',
       policies: [...policies.commonBackendPolicies],
       topic,
-      timeout: 300,
+      timeout: 900,
     },
     codebuildDeploy: {
       handler: 'main.codebuildDeploy',
