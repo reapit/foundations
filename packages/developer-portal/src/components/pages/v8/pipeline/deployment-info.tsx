@@ -21,10 +21,11 @@ import {
   Loader,
 } from '@reapit/elements'
 import { PipelineModelInterface, PipelineRunnerModelInterface } from '@reapit/foundations-ts-definitions'
-import { GetActionNames, getActions } from '@reapit/utils-common'
-import { useReapitGet } from '@reapit/utils-react'
-import React from 'react'
+import { GetActionNames, getActions, UpdateActionNames, updateActions } from '@reapit/utils-common'
+import { useReapitGet, useReapitUpdate } from '@reapit/utils-react'
+import React, { useEffect, useState } from 'react'
 import { reapitConnectBrowserSession } from '../../../../core/connect-session'
+import { useEvent } from '@harelpls/use-pusher'
 
 const buildStatusToIntent = (status: string): Intent => {
   switch (status) {
@@ -85,7 +86,102 @@ const PipelineInfo = ({ pipeline }: { pipeline: PipelineModelInterface }) => {
   )
 }
 
-export const PipelineDeploymentInfo = ({ pipeline }: { pipeline: PipelineModelInterface }) => {
+const PipelineDeploymentTable = ({
+  pipeline,
+  initialDeployments,
+  loading,
+  channel,
+  newRunner,
+}: {
+  pipeline: PipelineModelInterface
+  initialDeployments: null | { items: PipelineRunnerModelInterface[] }
+  loading: boolean
+  channel: any
+  newRunner: PipelineRunnerModelInterface | undefined
+}) => {
+  const [pagination, setPagination] = useState<{ items: PipelineRunnerModelInterface[] } | null>(initialDeployments)
+  useEffect(() => {
+    if (!initialDeployments) {
+      return
+    }
+
+    const deploymentIds = initialDeployments.items.map((item) => item.id)
+
+    setPagination((currentState) => {
+      if (currentState === null || (!currentState.items && initialDeployments !== null)) {
+        return initialDeployments
+      }
+
+      return {
+        items: currentState.items.reduce<PipelineRunnerModelInterface[]>((items, runner) => {
+          if (deploymentIds.includes(runner.id)) {
+            return items
+          }
+
+          items.push(runner)
+
+          return items
+        }, initialDeployments.items),
+      }
+    })
+  }, [initialDeployments])
+
+  useEvent<PipelineRunnerModelInterface & { pipeline: PipelineModelInterface }>(
+    channel,
+    'pipeline-runner-update',
+    (event) => {
+      if (!event) {
+        return
+      }
+
+      if (!event.pipeline || pipeline.id !== event.pipeline.id) {
+        return
+      }
+
+      if (pagination === null) {
+        setPagination({ items: [event] })
+        return
+      }
+
+      setPagination({
+        items: pagination.items.map((item) => {
+          return item.id === event.id ? event : item
+        }),
+      })
+    },
+  )
+
+  return (
+    <Table>
+      <TableHeadersRow>
+        <TableHeader>Type</TableHeader>
+        <TableHeader>Created</TableHeader>
+        <TableHeader>Status</TableHeader>
+        <TableHeader>Version</TableHeader>
+        <TableHeader>Currently Deployed</TableHeader>
+        <TableHeader></TableHeader>
+      </TableHeadersRow>
+      {loading ? (
+        <FlexContainer>
+          <Loader />
+        </FlexContainer>
+      ) : pagination !== null ? (
+        pagination.items.map((deployment) => (
+          <TableRow key={deployment.id}>
+            <TableCell>{deployment.type}</TableCell>
+            <TableCell>{deployment.created}</TableCell>
+            <TableCell>{deployment.buildStatus}</TableCell>
+            <TableCell>{deployment.buildVersion}</TableCell>
+            <TableCell>{deployment.currentlyDeployed ? 'Deployed' : ''}</TableCell>
+            <TableCell></TableCell>
+          </TableRow>
+        ))
+      ) : null}
+    </Table>
+  )
+}
+
+export const PipelineDeploymentInfo = ({ pipeline, channel }: { pipeline: PipelineModelInterface; channel: any }) => {
   const { connectSession } = useReapitConnect(reapitConnectBrowserSession)
   const [pipelineDeployments, loading] = useReapitGet<{ items: PipelineRunnerModelInterface[] }>({
     reapitConnectBrowserSession,
@@ -98,41 +194,40 @@ export const PipelineDeploymentInfo = ({ pipeline }: { pipeline: PipelineModelIn
     },
     fetchWhenTrue: [connectSession?.idToken],
   })
+  const [deploymentLoading, pipelineRunner, sendFunc] = useReapitUpdate<void, PipelineRunnerModelInterface>({
+    reapitConnectBrowserSession,
+    action: updateActions(window.reapit.config.appEnv)[UpdateActionNames.createPipelineDeployment],
+    uriParams: {
+      pipelineId: pipeline.id,
+    },
+    headers: {
+      Authorization: connectSession?.idToken as string,
+    },
+  })
 
   return (
     <>
       <PipelineInfo pipeline={pipeline} />
       <Title>Deployments</Title>
       <ButtonGroup className={cx(elMb6)}>
-        <Button intent="primary">Deploy</Button>
+        <Button
+          loading={deploymentLoading}
+          intent="primary"
+          onClick={async () => {
+            await sendFunc()
+          }}
+        >
+          Deploy
+        </Button>
         <Button intent="critical">Deploy With Cli</Button>
       </ButtonGroup>
-      <Table>
-        <TableHeadersRow>
-          <TableHeader>Type</TableHeader>
-          <TableHeader>Created</TableHeader>
-          <TableHeader>Status</TableHeader>
-          <TableHeader>Version</TableHeader>
-          <TableHeader>Currently Deployed</TableHeader>
-          <TableHeader></TableHeader>
-        </TableHeadersRow>
-        {loading ? (
-          <FlexContainer>
-            <Loader />
-          </FlexContainer>
-        ) : pipelineDeployments !== null ? (
-          pipelineDeployments.items.map((deployment) => (
-            <TableRow key={deployment.id}>
-              <TableCell>{deployment.type}</TableCell>
-              <TableCell>{deployment.created}</TableCell>
-              <TableCell>{deployment.buildStatus}</TableCell>
-              <TableCell>{deployment.buildVersion}</TableCell>
-              <TableCell>{deployment.currentlyDeployed ? 'Deployed' : ''}</TableCell>
-              <TableCell></TableCell>
-            </TableRow>
-          ))
-        ) : null}
-      </Table>
+      <PipelineDeploymentTable
+        pipeline={pipeline}
+        initialDeployments={pipelineDeployments}
+        newRunner={pipelineRunner}
+        loading={loading}
+        channel={channel}
+      />
     </>
   )
 }

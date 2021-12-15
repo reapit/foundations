@@ -39,6 +39,6 @@ describe('App Detail v8', () => {
   })
 
   it('deployment info should match snapshot', () => {
-    expect(shallow(<PipelineDeploymentInfo pipeline={{}} />)).toMatchSnapshot()
+    expect(shallow(<PipelineDeploymentInfo channel={{}} pipeline={{}} />)).toMatchSnapshot()
   })
 })

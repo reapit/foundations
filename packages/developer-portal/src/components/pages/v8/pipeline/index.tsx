@@ -7,9 +7,8 @@ import { reapitConnectBrowserSession } from '../../../../core/connect-session'
 import { GetActionNames, getActions } from '@reapit/utils-common'
 import { BodyText, FlexContainer, Loader } from '@reapit/elements'
 import { ReapitConnectSession, useReapitConnect } from '@reapit/connect-session'
-import { COGNITO_HEADERS } from '@/constants/api'
 import { PusherProvider, useEvent, useChannel } from '@harelpls/use-pusher'
-import { URLS } from '../../../../constants/api'
+import { URLS, COGNITO_HEADERS } from '../../../../constants/api'
 
 const PipelineWrapper = ({
   initialPipeline,
@@ -41,7 +40,7 @@ const PipelineWrapper = ({
 
   return (
     <>
-      <PipelineDeploymentInfo pipeline={pipeline} />
+      <PipelineDeploymentInfo channel={channel} pipeline={pipeline} />
     </>
   )
 }
