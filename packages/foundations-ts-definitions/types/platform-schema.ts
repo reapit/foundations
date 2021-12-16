@@ -1,4 +1,17 @@
 /**
+ * Representation of additional contact details
+ */
+export interface AdditionalContactDetailModel {
+  /**
+   * The type of contact detail
+   */
+  type?: string
+  /**
+   * The contact detail
+   */
+  value?: string
+}
+/**
  * The details specific to applicants with a marketingMode of buying
  */
 export interface ApplicantBuyingModel {
@@ -2632,6 +2645,19 @@ export interface ContactModel {
    */
   communicationPreferenceSMS?: boolean
   /**
+   * A collection of additional contact details
+   */
+  additionalContactDetails?: {
+    /**
+     * The type of contact detail
+     */
+    type?: string
+    /**
+     * The contact detail
+     */
+    value?: string
+  }[]
+  /**
    * App specific metadata that has been set against the contact
    */
   metadata?: {
@@ -2930,6 +2956,19 @@ export interface ContactModelPagedResult {
      */
     communicationPreferenceSMS?: boolean
     /**
+     * A collection of additional contact details
+     */
+    additionalContactDetails?: {
+      /**
+       * The type of contact detail
+       */
+      type?: string
+      /**
+       * The contact detail
+       */
+      value?: string
+    }[]
+    /**
      * App specific metadata that has been set against the contact
      */
     metadata?: {
@@ -3221,6 +3260,7 @@ export interface Contacts {
   sortBy?: string
   embed?: ('documents' | 'identityChecks' | 'negotiators' | 'offices' | 'relationships' | 'source')[]
   id?: string[]
+  contactDetail?: string[]
   email?: string[]
   negotiatorId?: string[]
   officeId?: string[]
@@ -5969,6 +6009,10 @@ export interface CreatePropertyModel {
      */
     sellingAgency?: string
     /**
+     * The unique identifier of the custom selling agency type - only applicable when SellingAgency is not set
+     */
+    agencyId?: string
+    /**
      * Request body used to set the commission fee for a property
      */
     fee?: {
@@ -6252,6 +6296,10 @@ export interface CreatePropertySellingModel {
    * The selling agency type (marketingForAssociate/clientsOnly/comparable/subAgent/jointSole/jointSoleFeeAvailable/multiple/multipleFeeAvailable/ownToSell/soleSellingRights/soleSellingRightsFeeAvailable/soleAgent/soleAgentFeeAvailable)
    */
   sellingAgency?: string
+  /**
+   * The unique identifier of the custom selling agency type - only applicable when SellingAgency is not set
+   */
+  agencyId?: string
   /**
    * Request body used to set the commission fee for a property
    */
@@ -8624,6 +8672,7 @@ export interface Landlords {
   sortBy?: string
   embed?: ('appointments' | 'documents' | 'office' | 'properties' | 'solicitor' | 'source')[]
   id?: string[]
+  email?: string[]
   active?: boolean
   address?: string
   name?: string
@@ -10687,6 +10736,10 @@ export interface PropertyModel {
      */
     agency?: string
     /**
+     * The unique identifier of the custom selling agency type - only applicable when Agency is not set
+     */
+    agencyId?: string
+    /**
      * Representation of the the commission fee for a property
      */
     fee?: {
@@ -11248,6 +11301,10 @@ export interface PropertyModelPagedResult {
        */
       agency?: string
       /**
+       * The unique identifier of the custom selling agency type - only applicable when Agency is not set
+       */
+      agencyId?: string
+      /**
        * Representation of the the commission fee for a property
        */
       fee?: {
@@ -11594,6 +11651,10 @@ export interface PropertySellingModel {
    * The selling agency type (marketingForAssociate/clientsOnly/comparable/subAgent/jointSole/jointSoleFeeAvailable/multiple/multipleFeeAvailable/ownToSell/soleSellingRights/soleSellingRightsFeeAvailable/soleAgent/soleAgentFeeAvailable)
    */
   agency?: string
+  /**
+   * The unique identifier of the custom selling agency type - only applicable when Agency is not set
+   */
+  agencyId?: string
   /**
    * Representation of the the commission fee for a property
    */
@@ -15640,6 +15701,10 @@ export interface UpdatePropertyModel {
      */
     sellingAgency?: string
     /**
+     * The unique identifier of the custom selling agency type - only applicable when SellingAgency is not set
+     */
+    agencyId?: string
+    /**
      * Request body used to update the commission fee for a property
      */
     fee?: {
@@ -15897,6 +15962,10 @@ export interface UpdatePropertySellingModel {
    * The selling agency type (marketingForAssociate/clientsOnly/comparable/subAgent/jointSole/jointSoleFeeAvailable/multiple/multipleFeeAvailable/ownToSell/soleSellingRights/soleSellingRightsFeeAvailable/soleAgent/soleAgentFeeAvailable)
    */
   sellingAgency?: string
+  /**
+   * The unique identifier of the custom selling agency type - only applicable when SellingAgency is not set
+   */
+  agencyId?: string
   /**
    * Request body used to update the commission fee for a property
    */
@@ -17080,6 +17149,7 @@ export interface Vendors {
   id?: string[]
   negotiatorId?: string[]
   officeId?: string[]
+  email?: string[]
   fromArchive?: boolean
   address?: string
   name?: string
