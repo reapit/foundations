@@ -48,6 +48,7 @@
     "react-tooltip": "^4.2.21",
     "slugify": "^1.6.3",
     "snyk": "^1.793.0",
+    "styled-components": "^5.3.3",
     "throttle-debounce": "^3.0.1",
     "yup": "^0.29.3"
   },
