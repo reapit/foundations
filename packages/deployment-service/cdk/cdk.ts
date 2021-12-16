@@ -11,9 +11,13 @@ const bootstrap = async () => {
     cwd: path.resolve(__dirname, '..'),
   })
 
+  const zipPath = path.resolve(__dirname, '..', 'dist', 'main.zip')
+
+  await exec(`rm -rf ${zipPath}`)
+
   const zipper = new AdmZip()
   zipper.addLocalFile(path.resolve(__dirname, '..', 'dist', 'main.js'))
-  zipper.writeZip(path.resolve(__dirname, '..', 'dist', 'main.zip'))
+  zipper.writeZip(zipPath)
 
   createStack()
 }

@@ -65,8 +65,6 @@ export const createPolicies = ({
     actions: ['secretsmanager:GetSecretValue', 'secretsmanager:DescribeSecret'],
   })
 
-  const dbPolicies = [secretManagerPolicy]
-
   const route53Policy = new PolicyStatement({
     effect: Effect.ALLOW,
     resources: [
@@ -108,7 +106,7 @@ export const createPolicies = ({
     actions: ['codebuild:StartBuild'],
   })
 
-  const commonBackendPolicies = [lambdaInvoke, S3BucketPolicy, sqsPolicies, secretManagerPolicy]
+  const commonBackendPolicies = [lambdaInvoke, secretManagerPolicy, S3BucketPolicy, sqsPolicies]
 
   return {
     commonBackendPolicies,

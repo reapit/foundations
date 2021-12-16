@@ -36,7 +36,7 @@ export const createStack = () => {
   const stack = createBaseStack({
     namespace: 'cloud',
     appName: 'deployment',
-    component: 'service',
+    component: 'service-josh',
   })
   const api = createApi(stack, 'apigateway', undefined, undefined, true)
   const vpc = createVpc(stack, 'vpc')
@@ -375,9 +375,7 @@ export const createStack = () => {
   const MYSQL_DATABASE = databaseName
 
   const env = {
-    AURORA_SECRET_ARN: secretManager.secretArn,
-    AURORA_RESOURCE_ARN: database.clusterIdentifier,
-    AURORA_REGION: stack.region,
+    DATABASE_SECERT_ARN: secretManager.secretArn,
     MYSQL_DATABASE,
     DEPLOYMENT_LIVE_BUCKET_NAME: buckets['cloud-deployment-live-dev'].bucketName,
     DEPLOYMENT_VERSION_BUCKET_NAME: buckets['cloud-deployment-version-dev'].bucketName,
