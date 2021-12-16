@@ -149,19 +149,33 @@ const webpackConfigDev = ({ appName }) => ({
       stream: require.resolve('stream-browserify'),
     },
   },
+  infrastructureLogging: {
+    appendOnly: true,
+    level: 'warn',
+  },
   devServer: {
-    contentBase: [path.join(process.cwd(), 'public'), path.join(process.cwd())],
-    clientLogLevel: 'warning',
+    client: {
+      overlay: false,
+      logging: 'warn',
+      reconnect: true,
+    },
+    static: {
+      directory: process.cwd(),
+      staticOptions: {
+        contentBase: [path.join(process.cwd(), 'public'), path.join(process.cwd())],
+      },
+    },
     historyApiFallback: true,
     hot: true,
-    quiet: true,
-    stats: {
-      cached: false,
-      cachedAssets: false,
-      chunks: false,
-      chunkModules: false,
-      chunkOrigins: false,
-      modules: false,
+    devMiddleware: {
+      stats: {
+        cached: false,
+        cachedAssets: false,
+        chunks: false,
+        chunkModules: false,
+        chunkOrigins: false,
+        modules: false,
+      },
     },
   },
   optimization: {
