@@ -1,7 +1,11 @@
 import React from 'react'
 import { shallow } from 'enzyme'
 import { PackageManagerEnum } from '@reapit/foundations-ts-definitions'
-import { PipelineDeploymentTable, pipelineRunnerSetter } from '../pipeline/pipeline-runner-table'
+import {
+  addNewPipelineDeployment,
+  PipelineDeploymentTable,
+  pipelineRunnerSetter,
+} from '../pipeline/pipeline-runner-table'
 
 describe('Pipeline Deployment Table', () => {
   it('Should match snapshot', () => {
@@ -70,6 +74,39 @@ describe('Pipeline Deployment Table', () => {
             },
           ],
         },
+        setPagination: (value) => {
+          // @ts-ignore
+          const result = value({ items: [{ id: 'pipelineRunnerId', tasks: [] }] })
+          expect(result).toStrictEqual({ items: [{ id: 'pipelineRunnerId', tasks: [] }] })
+        },
+      })
+
+      result()
+    })
+
+    it('Can set newRunner with existing value', () => {
+      const result = addNewPipelineDeployment({
+        pagination: {
+          items: [
+            {
+              id: 'pipelineRunnerId',
+              tasks: [],
+            },
+          ],
+        },
+        setPagination: (value) => {
+          // @ts-ignore
+          const result = value({ items: [{ id: 'pipelineRunnerId', tasks: [] }] })
+          expect(result).toStrictEqual({ items: [{ id: 'pipelineRunnerId', tasks: [] }] })
+        },
+      })
+
+      result()
+    })
+
+    it('Can set newRunner without existing value', () => {
+      const result = addNewPipelineDeployment({
+        pagination: null,
         setPagination: (value) => {
           // @ts-ignore
           const result = value({ items: [{ id: 'pipelineRunnerId', tasks: [] }] })

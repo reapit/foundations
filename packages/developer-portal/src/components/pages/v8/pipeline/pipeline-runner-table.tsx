@@ -4,7 +4,7 @@ import { elP6, FlexContainer, Loader, Table, TableCell, TableHeader, TableHeader
 import { PipelineModelInterface, PipelineRunnerModelInterface } from '@reapit/foundations-ts-definitions'
 import { useEvent } from '@harelpls/use-pusher'
 
-interface PipelineRunnerSetter {
+interface PipelineRunnerSetterInterface {
   initialDeployments: null | { items: PipelineRunnerModelInterface[] }
   setPagination: (
     value: React.SetStateAction<{
@@ -14,7 +14,7 @@ interface PipelineRunnerSetter {
 }
 
 export const pipelineRunnerSetter =
-  ({ initialDeployments, setPagination }: PipelineRunnerSetter) =>
+  ({ initialDeployments, setPagination }: PipelineRunnerSetterInterface) =>
   () => {
     if (!initialDeployments) {
       return
@@ -41,6 +41,25 @@ export const pipelineRunnerSetter =
     })
   }
 
+interface NewPipelineDeploymentInterface {
+  newRunner?: PipelineRunnerModelInterface
+  pagination: null | { items: PipelineRunnerModelInterface[] }
+  setPagination: (
+    value: React.SetStateAction<{
+      items: PipelineRunnerModelInterface[]
+    } | null>,
+  ) => void
+}
+
+export const addNewPipelineDeployment =
+  ({ newRunner, setPagination, pagination }: NewPipelineDeploymentInterface) =>
+  () => {
+    if (newRunner)
+      setPagination({
+        items: [newRunner, ...(pagination?.items ? pagination.items : [])],
+      })
+  }
+
 export const PipelineDeploymentTable: React.FC<{
   pipeline: PipelineModelInterface
   initialDeployments: null | { items: PipelineRunnerModelInterface[] }
@@ -49,7 +68,6 @@ export const PipelineDeploymentTable: React.FC<{
   newRunner: PipelineRunnerModelInterface | undefined
 }> = ({ pipeline, initialDeployments, loading, channel, newRunner }) => {
   const [pagination, setPagination] = useState<{ items: PipelineRunnerModelInterface[] } | null>(initialDeployments)
-
   useEffect(
     pipelineRunnerSetter({
       initialDeployments,
@@ -58,12 +76,14 @@ export const PipelineDeploymentTable: React.FC<{
     [initialDeployments],
   )
 
-  useEffect(() => {
-    if (newRunner)
-      setPagination({
-        items: [newRunner, ...(pagination?.items ? pagination.items : [])],
-      })
-  }, [newRunner])
+  useEffect(
+    addNewPipelineDeployment({
+      newRunner,
+      setPagination,
+      pagination,
+    }),
+    [newRunner],
+  )
 
   useEvent<PipelineRunnerModelInterface & { pipeline: PipelineModelInterface }>(
     channel,
