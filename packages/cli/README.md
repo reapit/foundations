@@ -82,19 +82,19 @@ boot(new IntroCommand(), [new ConfigCommand(), new DeploymentCommand(), /* add n
 Parent commands are grouped commands for running as sub commands. Below is an example of a sub command
 
 ```bash
-$ reapit deployment create
+$ reapit pipeline create
 ```
 
-where `deployment` is the command group and `create` is the sub command.
+where `pipeline` is the command group and `create` is the sub command.
 
 Parent commands will extends the `ParentCommand` class
 
 ```ts
 @Command({
-  name: 'deployment',
+  name: 'pipeline',
   description: 'For managing deployments',
 })
-export class DeploymentCommand extends ParentCommand {
-  commands = [new DeploymentCreate(), new DeploymentList(), new DeploymentRun()]
+export class PipelineCommand extends ParentCommand {
+  commands = [new PipelineCreate(), new PipelineList(), new PipelineRun()]
 }
 ```
