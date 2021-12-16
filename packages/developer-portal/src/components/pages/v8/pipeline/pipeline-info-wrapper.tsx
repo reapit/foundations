@@ -4,13 +4,10 @@ import { PipelineModelInterface } from '@reapit/foundations-ts-definitions'
 import { PipelineDeploymentInfo } from './deployment-info'
 import { useEvent, useChannel } from '@harelpls/use-pusher'
 
-export const PipelineWrapper = ({
-  initialPipeline,
-  connection,
-}: {
+export const PipelineWrapper: React.FC<{
   initialPipeline: PipelineModelInterface
   connection: ReapitConnectSession
-}) => {
+}> = ({ initialPipeline, connection }) => {
   const [pipeline, setPipeline] = useState<PipelineModelInterface>(initialPipeline)
   const channel = useChannel(`private-${connection.loginIdentity.developerId}`)
 
