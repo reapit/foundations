@@ -8276,19 +8276,6 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@harelpls/use-pusher@npm:^7.2.1":
-  version: 7.2.1
-  resolution: "@harelpls/use-pusher@npm:7.2.1"
-  dependencies:
-    dequal: ^2.0.1
-    invariant: ^2.2.4
-    pusher-js: ^7.0.0
-  peerDependencies:
-    react: ^16.9.0
-  checksum: 3684a6e084b2deecb83ae2735c079c3456a349f0aa4735f7467cba16202c0f50eeaf39c58f235b63c39fff8307108dc6058d7c7a8c682600fc0f4205de8581a1
-  languageName: node
-  linkType: hard
-
 "@homeservenow/serverless-aws-handler@npm:^0.2.4":
   version: 0.2.4
   resolution: "@homeservenow/serverless-aws-handler@npm:0.2.4"
@@ -22803,56 +22790,6 @@ __metadata:
   languageName: node
   linkType: hard
 
-"deployment-service-ui@workspace:packages/deployment-service-ui":
-  version: 0.0.0-use.local
-  resolution: "deployment-service-ui@workspace:packages/deployment-service-ui"
-  dependencies:
-    "@harelpls/use-pusher": ^7.2.1
-    "@linaria/core": ^3.0.0-beta.15
-    "@linaria/react": ^3.0.0-beta.15
-    "@linaria/shaker": ^3.0.0-beta.15
-    "@reapit/config-manager": "workspace:packages/config-manager"
-    "@reapit/connect-session": "workspace:packages/connect-session"
-    "@reapit/elements": "workspace:packages/elements"
-    "@reapit/elements-legacy": "workspace:packages/elements-legacy"
-    "@reapit/foundations-ts-definitions": "workspace:packages/foundations-ts-definitions"
-    "@reapit/ts-scripts": "workspace:packages/ts-scripts"
-    "@reapit/ts-types": "workspace:packages/ts-types"
-    "@sentry/browser": ^6.16.1
-    "@typescript-eslint/eslint-plugin": ^5.7.0
-    "@typescript-eslint/parser": ^5.7.0
-    babel-jest: ^27.4.5
-    babel-loader: ^8.2.3
-    concurrently: ^6.4.0
-    cross-env: ^6.0.3
-    css-loader: ^6.5.1
-    dayjs: ^1.10.7
-    eslint: 8.4.1
-    eslint-plugin-prettier: ^4.0.0
-    jest: ^27.4.5
-    jest-coverage-badges: ^1.1.2
-    nestjs-typeorm-paginate: ^2.6.3
-    node-polyfill-webpack-plugin: ^1.1.4
-    react: ^17.0.2
-    react-dom: ^17.0.2
-    react-ga: ^2.7.0
-    react-router: ^5.2.1
-    react-router-dom: ^5.3.0
-    react-timer-hook: ^3.0.5
-    rimraf: ^3.0.2
-    serverless: ^2.69.1
-    serverless-s3-deploy: ^0.10.1
-    serverless-s3-remover: ^0.6.0
-    serverless-single-page-app-plugin: ^1.0.4
-    shleemy: ^1.2.2
-    snyk: ^1.793.0
-    typescript: ^4.3.5
-    webpack: ^5.65.0
-    webpack-dev-server: ^4.6.0
-    yup: ^0.29.3
-  languageName: unknown
-  linkType: soft
-
 "deployment-service@workspace:packages/deployment-service":
   version: 0.0.0-use.local
   resolution: "deployment-service@workspace:packages/deployment-service"
@@ -22934,7 +22871,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"dequal@npm:2.0.2, dequal@npm:^2.0.1":
+"dequal@npm:2.0.2":
   version: 2.0.2
   resolution: "dequal@npm:2.0.2"
   checksum: 86c7a2c59f7b0797ed397c74b5fcdb744e48fc19440b70ad6ac59f57550a96b0faef3f1cfd5760ec5e6d3f7cb101f634f1f80db4e727b1dc8389bf62d977c0a0
@@ -38321,7 +38258,7 @@ fsevents@^1.2.7:
   languageName: node
   linkType: hard
 
-"pusher-js@npm:^7.0.0, pusher-js@npm:^7.0.3":
+"pusher-js@npm:^7.0.3":
   version: 7.0.3
   resolution: "pusher-js@npm:7.0.3"
   dependencies:
@@ -39508,16 +39445,6 @@ fsevents@^1.2.7:
   peerDependencies:
     react: ^16.8.0 || ^17.0.0
   checksum: da3d0192825df3d9f27eef33e7eddf928359a7e3e2b01ae7f7f672ecf4e5c1f7a34f27bdde9ccc24e2e9fbe1d1b9dd2a39c7d47323c9bdf63e7b9bd05c325a71
-  languageName: node
-  linkType: hard
-
-"react-timer-hook@npm:^3.0.5":
-  version: 3.0.5
-  resolution: "react-timer-hook@npm:3.0.5"
-  peerDependencies:
-    react: ">=16.8.0"
-    react-dom: ">=16.8.0"
-  checksum: 4464f10c21df41ae0c97ebadcc52bffcef9177f3d298b5726f041f509c05f985898cafdea766f9cc0f4d64a7a0c711e9c78256fba5992ee8826d8efd18f363ed
   languageName: node
   linkType: hard
 
