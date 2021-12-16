@@ -16,12 +16,17 @@ export type ReapitUpdateState<ParamsType, DataType> = [
 
 type AcceptedMethod = 'POST' | 'PUT' | 'PATCH' | 'DELETE'
 
+export enum UpdateReturnTypeEnum {
+  NONE = 'none',
+  LOCATION = 'location',
+  RESPONSE = 'response',
+}
+
 type ReapitUpdate = {
   reapitConnectBrowserSession: ReapitConnectBrowserSession
   action: UpdateAction
   method?: AcceptedMethod
-  returnUpdatedModel?: boolean
-  returnUpdatedModelWithLocation?: boolean
+  returnType?: UpdateReturnTypeEnum
   headers?: StringMap
   uriParams?: Object
 }
@@ -36,8 +41,7 @@ interface SendFunctionPropsInterface<DataType> {
   method: AcceptedMethod
   headers: StringMap
   error: string | null
-  returnUpdatedModel: boolean
-  returnUpdatedModelWithLocation: boolean
+  returnType: UpdateReturnTypeEnum
   connectSession: null | ReapitConnectSession
   errorSnack: (text: string, timeout?: number) => void
   canCall: boolean
@@ -57,8 +61,7 @@ export const send =
     method,
     connectSession,
     headers,
-    returnUpdatedModel,
-    returnUpdatedModelWithLocation,
+    returnType,
     error,
     canCall,
   }: SendFunctionPropsInterface<DataType>): SendFunction<ParamsType> =>
@@ -79,47 +82,49 @@ export const send =
 
     if (!getHeaders) throw new Error('Missing valid Reapit Connect Session')
 
-    console.log('starting')
-
     await setLoading(true)
     setSuccess(undefined)
     try {
-      console.log('fetching')
-
       const response = await fetch(url, {
         headers: getHeaders,
         method,
         body: JSON.stringify(params),
       })
 
-      if (!returnUpdatedModel && !returnUpdatedModelWithLocation) await setLoading(false)
+      let data
 
-      if (returnUpdatedModelWithLocation && error === null) {
-        const location = response.headers.get('Location')
-        if (!location) {
-          throw new Error('Location was not returned by server')
-        }
+      switch (returnType) {
+        case UpdateReturnTypeEnum.RESPONSE:
+          data = await response.json()
 
-        const fetchResponse = await fetch(location, {
-          headers: getHeaders,
-          method: 'GET',
-        })
+          Promise.all([setLoading(false), setSuccess(true), setData(data)])
+          break
+        case UpdateReturnTypeEnum.LOCATION:
+          const location = response.headers.get('Location')
+          if (!location) {
+            throw new Error('Location was not returned by server')
+          }
 
-        const data = await fetchResponse.json()
+          const fetchResponse = await fetch(location, {
+            headers: getHeaders,
+            method: 'GET',
+          })
 
-        Promise.all([setLoading(false), setSuccess(true), setData(data)])
-      } else if (returnUpdatedModel) {
-        const data = await response.json()
+          data = await fetchResponse.json()
 
-        Promise.all([setLoading(false), setSuccess(true), setData(data)])
-      } else {
-        setSuccess(true)
+          Promise.all([setLoading(false), setSuccess(true), setData(data)])
+          break
+        case UpdateReturnTypeEnum.NONE:
+        default:
+          await setLoading(false)
+          setSuccess(true)
       }
+
       return true
     } catch (error: any) {
-      errorSnack(error?.message)
+      errorSnack(error?.message || error)
 
-      await Promise.all([setLoading(false), setSuccess(false), setError(error.message)])
+      await Promise.all([setLoading(false), setSuccess(false), setError(error?.message || error)])
       return false
     }
   }
@@ -127,8 +132,7 @@ export const send =
 export const useReapitUpdate = <ParamsType, DataType>({
   action,
   method = 'POST',
-  returnUpdatedModel = false,
-  returnUpdatedModelWithLocation = false,
+  returnType = UpdateReturnTypeEnum.NONE,
   headers = {},
   uriParams,
   reapitConnectBrowserSession,
@@ -154,8 +158,7 @@ export const useReapitUpdate = <ParamsType, DataType>({
     connectSession,
     action,
     method,
-    returnUpdatedModel,
-    returnUpdatedModelWithLocation,
+    returnType,
     error,
     canCall,
   })

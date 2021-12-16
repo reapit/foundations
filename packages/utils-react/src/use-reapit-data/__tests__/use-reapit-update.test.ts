@@ -2,7 +2,7 @@ import { renderHook, act } from '@testing-library/react-hooks'
 import { useReapitUpdate } from '..'
 import { ReapitConnectBrowserSession, ReapitConnectSession } from '@reapit/connect-session'
 import { updateActions } from '@reapit/utils-common'
-import { send, ReapitUpdateState } from '../use-reapit-update'
+import { send, ReapitUpdateState, UpdateReturnTypeEnum } from '../use-reapit-update'
 
 const mockData = {
   someData: {
@@ -128,7 +128,7 @@ describe('useReapitUpdate', () => {
       useReapitUpdate<{}, typeof mockData>({
         reapitConnectBrowserSession,
         action: updateActions('local')['actionName'],
-        returnUpdatedModelWithLocation: true,
+        returnType: UpdateReturnTypeEnum.RESPONSE,
       }),
     )
     expect(result.current[0]).toBeFalsy()
@@ -179,8 +179,7 @@ describe('useReapitUpdate', () => {
         setSuccess,
         action: updateActions('local')['actionName'],
         method: 'POST',
-        returnUpdatedModel: false,
-        returnUpdatedModelWithLocation: true,
+        returnType: UpdateReturnTypeEnum.RESPONSE,
         headers: {},
         error: null,
         connectSession: reapitConnectSession,
