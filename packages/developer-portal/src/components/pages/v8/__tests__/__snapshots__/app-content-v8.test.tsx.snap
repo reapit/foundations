@@ -13,35 +13,24 @@ exports[`App Detail v8 deployment info should match snapshot 1`] = `
   >
     <Button
       intent="primary"
+      loading={false}
+      onClick={[Function]}
     >
       Deploy
     </Button>
     <Button
       intent="critical"
+      onClick={[Function]}
     >
       Deploy With Cli
     </Button>
   </ButtonGroup>
-  <Table>
-    <TableHeadersRow>
-      <TableHeader>
-        Type
-      </TableHeader>
-      <TableHeader>
-        Created
-      </TableHeader>
-      <TableHeader>
-        Status
-      </TableHeader>
-      <TableHeader>
-        Version
-      </TableHeader>
-      <TableHeader>
-        Currently Deployed
-      </TableHeader>
-      <TableHeader />
-    </TableHeadersRow>
-  </Table>
+  <PipelineDeploymentTable
+    channel={Object {}}
+    initialDeployments={null}
+    loading={false}
+    pipeline={Object {}}
+  />
 </Fragment>
 `;
 
