@@ -4,19 +4,13 @@ import { elP6, FlexContainer, Loader, Table, TableCell, TableHeader, TableHeader
 import { PipelineModelInterface, PipelineRunnerModelInterface } from '@reapit/foundations-ts-definitions'
 import { useEvent } from '@harelpls/use-pusher'
 
-export const PipelineDeploymentTable = ({
-  pipeline,
-  initialDeployments,
-  loading,
-  channel,
-  newRunner,
-}: {
+export const PipelineDeploymentTable: React.FC<{
   pipeline: PipelineModelInterface
   initialDeployments: null | { items: PipelineRunnerModelInterface[] }
   loading: boolean
   channel: any
   newRunner: PipelineRunnerModelInterface | undefined
-}) => {
+}> = ({ pipeline, initialDeployments, loading, channel, newRunner }) => {
   const [pagination, setPagination] = useState<{ items: PipelineRunnerModelInterface[] } | null>(initialDeployments)
   useEffect(() => {
     if (!initialDeployments) {

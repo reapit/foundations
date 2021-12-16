@@ -43,7 +43,7 @@ const buildStatusToReadable = (status: string): string =>
     .map((str) => str.toLowerCase())
     .join(' ')
 
-const PipelineInfo = ({ pipeline }: { pipeline: PipelineModelInterface }) => {
+const PipelineInfo: React.FC<{ pipeline: PipelineModelInterface }> = ({ pipeline }) => {
   return (
     <Grid>
       <ColSplit>

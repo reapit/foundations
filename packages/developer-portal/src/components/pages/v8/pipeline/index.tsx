@@ -45,7 +45,7 @@ const PipelineWrapper = ({
   )
 }
 
-export const AppPipeline = ({ appId }: { appId: string }) => {
+export const AppPipeline: React.FC<{ appId: string }> = ({ appId }) => {
   const { connectSession } = useReapitConnect(reapitConnectBrowserSession)
   const [pipeline, loading, , refresh] = useReapitGet<PipelineModelInterface>({
     reapitConnectBrowserSession,
