@@ -24,7 +24,24 @@ $ reapit config
 
 You'll be prompted with an input for your api-key
 
+![Config Snapsot](snapshots/config.png)
+## Deployment
+
+> First make sure you've created a pipeline by either the UI or the cli using `reapit pipeline create`.
+
+Start the deployment by running the following command
+
+```bash
+$ reapit cli deploy-zip
+```
+
+answer the following questions and the deployment will start.
+
+![Deploy zip Snapsot](snapshots/deploy-zip.png)
+
 # Development
+
+This section is for the development of the reapit cli
 
 ## Creating commands
 
