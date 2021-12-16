@@ -143,14 +143,14 @@ describe('useReapitUpdate', () => {
     await waitForNextUpdate()
 
     expect(mockFetcher).toHaveBeenCalledWith(...mockFetchParams)
-    expect(mockFetcher).toHaveBeenCalledTimes(3)
+    expect(mockFetcher).toHaveBeenCalledTimes(2)
     expect(mockError).not.toHaveBeenCalled()
 
     expect(result.current[1]).toEqual({ ...objectBody, updated: true })
     expect(result.current[0]).toEqual(false)
     expect(result.current[3]).toEqual(true)
 
-    expect(mockFetcher).toHaveBeenCalledTimes(3)
+    expect(mockFetcher).toHaveBeenCalledTimes(2)
   })
 
   describe('sendFunc', () => {
