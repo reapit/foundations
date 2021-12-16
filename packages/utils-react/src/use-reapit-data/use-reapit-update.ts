@@ -92,6 +92,8 @@ export const send =
       })
 
       let data
+      let location
+      let fetchResponse
 
       switch (returnType) {
         case UpdateReturnTypeEnum.RESPONSE:
@@ -100,12 +102,12 @@ export const send =
           Promise.all([setLoading(false), setSuccess(true), setData(data)])
           break
         case UpdateReturnTypeEnum.LOCATION:
-          const location = response.headers.get('Location')
+          location = response.headers.get('Location')
           if (!location) {
             throw new Error('Location was not returned by server')
           }
 
-          const fetchResponse = await fetch(location, {
+          fetchResponse = await fetch(location, {
             headers: getHeaders,
             method: 'GET',
           })
@@ -121,10 +123,10 @@ export const send =
       }
 
       return true
-    } catch (error: any) {
-      errorSnack(error?.message || error)
+    } catch (exception: any) {
+      errorSnack(exception?.message || error)
 
-      await Promise.all([setLoading(false), setSuccess(false), setError(error?.message || error)])
+      await Promise.all([setLoading(false), setSuccess(false), setError(exception?.message || error)])
       return false
     }
   }
