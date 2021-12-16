@@ -128,7 +128,7 @@ describe('useReapitUpdate', () => {
       useReapitUpdate<{}, typeof mockData>({
         reapitConnectBrowserSession,
         action: updateActions('local')['actionName'],
-        returnUpdatedModel: true,
+        returnUpdatedModelWithLocation: true,
       }),
     )
     expect(result.current[0]).toBeFalsy()
@@ -179,7 +179,8 @@ describe('useReapitUpdate', () => {
         setSuccess,
         action: updateActions('local')['actionName'],
         method: 'POST',
-        returnUpdatedModel: true,
+        returnUpdatedModel: false,
+        returnUpdatedModelWithLocation: true,
         headers: {},
         error: null,
         connectSession: reapitConnectSession,

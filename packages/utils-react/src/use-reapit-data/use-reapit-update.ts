@@ -21,6 +21,7 @@ type ReapitUpdate = {
   action: UpdateAction
   method?: AcceptedMethod
   returnUpdatedModel?: boolean
+  returnUpdatedModelWithLocation?: boolean
   headers?: StringMap
   uriParams?: Object
 }
@@ -36,6 +37,7 @@ interface SendFunctionPropsInterface<DataType> {
   headers: StringMap
   error: string | null
   returnUpdatedModel: boolean
+  returnUpdatedModelWithLocation: boolean
   connectSession: null | ReapitConnectSession
   errorSnack: (text: string, timeout?: number) => void
   canCall: boolean
@@ -56,6 +58,7 @@ export const send =
     connectSession,
     headers,
     returnUpdatedModel,
+    returnUpdatedModelWithLocation,
     error,
     canCall,
   }: SendFunctionPropsInterface<DataType>): SendFunction<ParamsType> =>
@@ -76,18 +79,22 @@ export const send =
 
     if (!getHeaders) throw new Error('Missing valid Reapit Connect Session')
 
+    console.log('starting')
+
     await setLoading(true)
     setSuccess(undefined)
     try {
+      console.log('fetching')
+
       const response = await fetch(url, {
         headers: getHeaders,
         method,
         body: JSON.stringify(params),
       })
 
-      if (!returnUpdatedModel) await setLoading(false)
+      if (!returnUpdatedModel && !returnUpdatedModelWithLocation) await setLoading(false)
 
-      if (returnUpdatedModel && error === null) {
+      if (returnUpdatedModelWithLocation && error === null) {
         const location = response.headers.get('Location')
         if (!location) {
           throw new Error('Location was not returned by server')
@@ -100,18 +107,19 @@ export const send =
 
         const data = await fetchResponse.json()
 
-        await setLoading(false)
-        setSuccess(true)
-        setData(data)
+        Promise.all([setLoading(false), setSuccess(true), setData(data)])
+      } else if (returnUpdatedModel) {
+        const data = await response.json()
+
+        Promise.all([setLoading(false), setSuccess(true), setData(data)])
       } else {
         setSuccess(true)
       }
       return true
     } catch (error: any) {
       errorSnack(error?.message)
-      await setLoading(false)
-      setSuccess(false)
-      setError(error.message)
+
+      await Promise.all([setLoading(false), setSuccess(false), setError(error.message)])
       return false
     }
   }
@@ -120,16 +128,17 @@ export const useReapitUpdate = <ParamsType, DataType>({
   action,
   method = 'POST',
   returnUpdatedModel = false,
+  returnUpdatedModelWithLocation = false,
   headers = {},
   uriParams,
   reapitConnectBrowserSession,
 }: ReapitUpdate): ReapitUpdateState<ParamsType, DataType> => {
   const [loading, setLoading] = useAsyncState<boolean>(false)
-  const [error, setError] = useState<string | null>(null)
+  const [error, setError] = useAsyncState<string | null>(null)
   const { connectSession } = useReapitConnect(reapitConnectBrowserSession)
   const [data, setData] = useState<DataType>()
   const { error: errorSnack } = useSnack()
-  const [success, setSuccess] = useState<undefined | boolean>(undefined)
+  const [success, setSuccess] = useAsyncState<undefined | boolean>(undefined)
   const [canCall, setCanCall] = useState<boolean>(connectSession !== null)
 
   useEffect(() => setCanCall(true), [connectSession])
@@ -146,6 +155,7 @@ export const useReapitUpdate = <ParamsType, DataType>({
     action,
     method,
     returnUpdatedModel,
+    returnUpdatedModelWithLocation,
     error,
     canCall,
   })
