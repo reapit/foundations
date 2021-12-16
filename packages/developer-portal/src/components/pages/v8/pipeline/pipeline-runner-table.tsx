@@ -4,15 +4,18 @@ import { elP6, FlexContainer, Loader, Table, TableCell, TableHeader, TableHeader
 import { PipelineModelInterface, PipelineRunnerModelInterface } from '@reapit/foundations-ts-definitions'
 import { useEvent } from '@harelpls/use-pusher'
 
-export const PipelineDeploymentTable: React.FC<{
-  pipeline: PipelineModelInterface
+interface PipelineRunnerSetter {
   initialDeployments: null | { items: PipelineRunnerModelInterface[] }
-  loading: boolean
-  channel: any
-  newRunner: PipelineRunnerModelInterface | undefined
-}> = ({ pipeline, initialDeployments, loading, channel, newRunner }) => {
-  const [pagination, setPagination] = useState<{ items: PipelineRunnerModelInterface[] } | null>(initialDeployments)
-  useEffect(() => {
+  setPagination: (
+    value: React.SetStateAction<{
+      items: PipelineRunnerModelInterface[]
+    } | null>,
+  ) => void
+}
+
+export const pipelineRunnerSetter =
+  ({ initialDeployments, setPagination }: PipelineRunnerSetter) =>
+  () => {
     if (!initialDeployments) {
       return
     }
@@ -36,10 +39,26 @@ export const PipelineDeploymentTable: React.FC<{
         }, initialDeployments.items),
       }
     })
-  }, [initialDeployments])
+  }
+
+export const PipelineDeploymentTable: React.FC<{
+  pipeline: PipelineModelInterface
+  initialDeployments: null | { items: PipelineRunnerModelInterface[] }
+  loading: boolean
+  channel: any
+  newRunner: PipelineRunnerModelInterface | undefined
+}> = ({ pipeline, initialDeployments, loading, channel, newRunner }) => {
+  const [pagination, setPagination] = useState<{ items: PipelineRunnerModelInterface[] } | null>(initialDeployments)
+
+  useEffect(
+    pipelineRunnerSetter({
+      initialDeployments,
+      setPagination,
+    }),
+    [initialDeployments],
+  )
 
   useEffect(() => {
-    console.log('new runner was added', newRunner)
     if (newRunner)
       setPagination({
         items: [newRunner, ...(pagination?.items ? pagination.items : [])],
