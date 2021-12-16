@@ -1,49 +1,14 @@
 import { PipelineModelInterface } from '@reapit/foundations-ts-definitions'
 import { useReapitGet } from '@reapit/utils-react'
-import React, { useState } from 'react'
+import React from 'react'
 import { CreatePipeline } from './create-pipeline'
-import { PipelineDeploymentInfo } from './deployment-info'
 import { reapitConnectBrowserSession } from '../../../../core/connect-session'
 import { GetActionNames, getActions } from '@reapit/utils-common'
 import { BodyText, FlexContainer, Loader } from '@reapit/elements'
-import { ReapitConnectSession, useReapitConnect } from '@reapit/connect-session'
-import { PusherProvider, useEvent, useChannel } from '@harelpls/use-pusher'
+import { useReapitConnect } from '@reapit/connect-session'
+import { PusherProvider } from '@harelpls/use-pusher'
 import { URLS, COGNITO_HEADERS } from '../../../../constants/api'
-
-const PipelineWrapper = ({
-  initialPipeline,
-  connection,
-}: {
-  initialPipeline: PipelineModelInterface
-  connection: ReapitConnectSession
-}) => {
-  const [pipeline, setPipeline] = useState<PipelineModelInterface>(initialPipeline)
-  const channel = useChannel(`private-${connection.loginIdentity.developerId}`)
-
-  useEvent<{ pipeline: PipelineModelInterface }>(channel, 'pipeline-runner-update', (event) => {
-    if (!event) {
-      return
-    }
-
-    console.log('event', event)
-
-    if (!pipeline) {
-      return
-    }
-
-    if (event.pipeline.id !== pipeline.id) {
-      return
-    }
-
-    setPipeline(event.pipeline)
-  })
-
-  return (
-    <>
-      <PipelineDeploymentInfo channel={channel} pipeline={pipeline} />
-    </>
-  )
-}
+import { PipelineWrapper } from './pipeline-info-wrapper'
 
 export const AppPipeline: React.FC<{ appId: string }> = ({ appId }) => {
   const { connectSession } = useReapitConnect(reapitConnectBrowserSession)
