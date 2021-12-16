@@ -27,6 +27,7 @@ import { useReapitGet, useReapitUpdate } from '@reapit/utils-react'
 import React, { useEffect, useState } from 'react'
 import { reapitConnectBrowserSession } from '../../../../core/connect-session'
 import { useEvent } from '@harelpls/use-pusher'
+import { openNewPage } from '@/utils/navigation'
 
 const buildStatusToIntent = (status: string): Intent => {
   switch (status) {
@@ -127,6 +128,14 @@ const PipelineDeploymentTable = ({
     })
   }, [initialDeployments])
 
+  useEffect(() => {
+    console.log('new runner was added', newRunner)
+    if (newRunner)
+      setPagination({
+        items: [newRunner, ...(pagination?.items ? pagination.items : [])],
+      })
+  }, [newRunner])
+
   useEvent<PipelineRunnerModelInterface & { pipeline: PipelineModelInterface }>(
     channel,
     'pipeline-runner-update',
@@ -204,6 +213,7 @@ export const PipelineDeploymentInfo = ({ pipeline, channel }: { pipeline: Pipeli
     headers: {
       Authorization: connectSession?.idToken as string,
     },
+    returnUpdatedModel: true,
   })
 
   return (
@@ -220,7 +230,12 @@ export const PipelineDeploymentInfo = ({ pipeline, channel }: { pipeline: Pipeli
         >
           Deploy
         </Button>
-        <Button intent="critical">Deploy With Cli</Button>
+        <Button
+          intent="critical"
+          onClick={openNewPage('https://github.com/reapit/foundations/tree/master/packages/cli#readme')}
+        >
+          Deploy With Cli
+        </Button>
       </ButtonGroup>
       <PipelineDeploymentTable
         pipeline={pipeline}
