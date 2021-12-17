@@ -2,7 +2,7 @@ import dayjs from 'dayjs'
 import { UpdatePaymentModel } from '../types/payment'
 import { ApiKey } from './schema'
 
-export const validateApiKey = (result: ApiKey, traceId: string, clientCode: string, paymentId: string) => {
+export const validateApiKey = (result: ApiKey, clientCode: string, paymentId: string) => {
   const errors: string[] = []
 
   if (result.clientCode !== clientCode) errors.push('Client code supplied is not valid for this apiKey')
@@ -17,7 +17,7 @@ export const validateApiKey = (result: ApiKey, traceId: string, clientCode: stri
 
 export const validatePaymentUpdate = (
   payment: Partial<UpdatePaymentModel>,
-  traceId: string,
+  // traceId: string,
 ): UpdatePaymentModel | undefined => {
   const { status, externalReference } = payment
   const errors: string[] = []

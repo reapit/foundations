@@ -20,7 +20,7 @@ export const createApiKey = async (req: AppRequest, res: Response, next: NextFun
       keyExpiresAt,
     })
 
-    const result = await db.put(apiKeyObject)
+    await db.put(apiKeyObject)
 
     res.status(201)
     res.json({

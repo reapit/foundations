@@ -16,14 +16,14 @@ export const updatePayment = async (req: AppRequest, res: Response) => {
   const { traceId } = req
 
   try {
-    const validatedPayment = validatePaymentUpdate(req.body, traceId)
+    const validatedPayment = validatePaymentUpdate(req.body)
     if (!clientCode || !apiKey || !apiVersion || !eTag)
       throw new Error('reapit-customer, api-version, _eTag and x-api-key are required headers')
     if (!paymentId) throw new Error('paymentId is a required parameter')
 
     const itemToGet = generateApiKey({ apiKey })
     const result = await db.get(itemToGet)
-    const validated = validateApiKey(result, traceId, clientCode, paymentId)
+    const validated = validateApiKey(result, clientCode, paymentId)
 
     if (validated) {
       const payment = await updatePlatformPayment(validated, validatedPayment, apiVersion, eTag)
