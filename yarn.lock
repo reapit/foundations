@@ -22428,6 +22428,7 @@ __metadata:
     serverless-dynamodb-local: ^0.2.40
     serverless-http: ^2.7.0
     serverless-offline: ^7.1.0
+    serverless-plugin-log-retention: ^2.0.0
     serverless-webpack: ^5.6.0
     twilio: ^3.71.3
     uuid: ^3.4.0
