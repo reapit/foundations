@@ -18504,6 +18504,7 @@ __metadata:
     serverless-deployment-bucket: ^1.5.1
     serverless-http: ^2.7.0
     serverless-offline: ^7.1.0
+    serverless-plugin-log-retention: ^2.0.0
     serverless-webpack: ^5.6.0
     uuid: ^8.3.2
     webpack: ^5.65.0
