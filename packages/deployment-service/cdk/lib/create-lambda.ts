@@ -9,6 +9,7 @@ export const createLambda = ({
   vpc,
   handler,
   env,
+  duration,
 }: {
   stack: Stack
   name: string
@@ -16,6 +17,7 @@ export const createLambda = ({
   vpc?: Vpc
   handler: string
   env?: { [s: string]: any }
+  duration?: number,
 }): Function => {
   return createFunction(
     stack,
@@ -27,5 +29,6 @@ export const createLambda = ({
       ...env,
     },
     vpc,
+    duration,
   )
 }
