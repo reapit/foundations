@@ -66,7 +66,7 @@ export class AutomationExecution {
       })
 
     try {
-      const participant = await addParticipantToConversation()
+      await addParticipantToConversation()
     } catch (error) {
       if (error.code === 50416 && event.isTestEvent) {
         // A binding for this participant and proxy address already exists in another conversation
