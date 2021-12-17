@@ -14365,6 +14365,7 @@ __metadata:
     eslint-plugin-prettier: ^4.0.0
     jest: 27.4.5
     serverless: ^2.69.1
+    serverless-plugin-log-retention: ^2.0.0
   languageName: unknown
   linkType: soft
 
@@ -31859,6 +31860,13 @@ fsevents@^1.2.7:
   languageName: node
   linkType: hard
 
+"nco@npm:1.0.1":
+  version: 1.0.1
+  resolution: "nco@npm:1.0.1"
+  checksum: fd2640509ddb662b62d64b5d21e6237fba6e3a83a2dac742862eec0cb1d9ee12ca34c2c00aa1ea17e1319f37047050cf24d37a954cfcccdaf1a9a28354974b0a
+  languageName: node
+  linkType: hard
+
 "ncp@npm:1.0.x":
   version: 1.0.1
   resolution: "ncp@npm:1.0.1"
@@ -38381,6 +38389,15 @@ resolve@^2.0.0-next.3:
   languageName: node
   linkType: hard
 
+"semver@npm:5.4.1":
+  version: 5.4.1
+  resolution: "semver@npm:5.4.1"
+  bin:
+    semver: ./bin/semver
+  checksum: d4bf8cc6a95b065a545ab35082b6ac6c5f4ebe1e1c570f72c252afe9b7e622f2479fb2a5cef3e937d8807d37bfdad2d1feebcc8610e06f556e552c22cad070a2
+  languageName: node
+  linkType: hard
+
 "semver@npm:6.x, semver@npm:^6.0.0, semver@npm:^6.1.1, semver@npm:^6.1.2, semver@npm:^6.2.0, semver@npm:^6.3.0":
   version: 6.3.0
   resolution: "semver@npm:6.3.0"
@@ -38628,6 +38645,16 @@ resolve@^2.0.0-next.3:
   peerDependencies:
     serverless: ^1.60.0 || 2
   checksum: 85f2a4a7e5444eafcae5cf1fda70e5d8c8649640d928bd9ede7b56435176df4d20fad892ac2ddb31a3958599c8e01d9b30c723f58c13419415cd411961197c4f
+  languageName: node
+  linkType: hard
+
+"serverless-plugin-log-retention@npm:^2.0.0":
+  version: 2.0.0
+  resolution: "serverless-plugin-log-retention@npm:2.0.0"
+  dependencies:
+    nco: 1.0.1
+    semver: 5.4.1
+  checksum: 5662a3b31897264a0cac14be9d42ffe61e44447d2a11ee7d29c951f857fcebb8888f017bbed2cd2b9a8b7a948c01961b21e2590a94757bcd2d001fec08197d3c
   languageName: node
   linkType: hard
 
