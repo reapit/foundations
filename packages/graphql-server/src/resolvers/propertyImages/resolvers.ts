@@ -27,7 +27,6 @@ export const queryGetPropertyImages = resolverHandler<GetPropertyImagesArgs, Que
 
 export const mutationCreatePropertyImage = resolverHandler<CreatePropertyImageArgs, MutationCreatePropertyImageReturn>(
   (_: any, args: CreatePropertyImageArgs, context: ServerContext): MutationCreatePropertyImageReturn => {
-
     return propertyServices.createPropertyImage(args, context)
   },
 )

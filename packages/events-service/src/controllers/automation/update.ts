@@ -17,7 +17,6 @@ export default async (req: AppRequest, res: Response) => {
   const payload = req.body as Payload
 
   try {
-
     const itemToGet = generateAutomationItem({ id })
     const retrievedItem = await db.get(itemToGet)
 

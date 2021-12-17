@@ -34,7 +34,6 @@ export const updateWorksOrderItem = (
   args: UpdateWorksOrderItemArgs,
   context: ServerContext,
 ): UpdateWorksOrderReturn => {
-
   const worksOrder = callUpdateWorksOrderItemAPI(args, context)
   return worksOrder
 }
@@ -43,7 +42,6 @@ export const deleteWorksOrderItem = (
   args: DeleteWorksOrderItemArgs,
   context: ServerContext,
 ): DeleteWorksOrderItemReturn => {
-
   return calldeleteWorksOrderItem(args, context)
 }
 
@@ -51,7 +49,6 @@ export const createWorksOrderItem = (
   args: CreateWorksOrderItemArgs,
   context: ServerContext,
 ): MutationCreateWorksOrderItemReturn => {
-
   const worksOrder = callCreateWorksOrderItemAPI(args, context)
   return worksOrder
 }
@@ -60,13 +57,11 @@ export const getWorksOrderItemById = (
   args: GetWorksOrderItembyIdArgs,
   context: ServerContext,
 ): GetWorksOrderItemByIdReturn => {
-
   const worksOrder = callGetWorksOrderItemByIdAPI(args, context)
   return worksOrder
 }
 
 export const getWorksOrderItems = (args: GetWorksOrderItemsArgs, context: ServerContext): GetWorksOrderItemsReturn => {
-
   const worksOrderItems = callGetWorksOrderItemsAPI(args, context)
   return worksOrderItems
 }

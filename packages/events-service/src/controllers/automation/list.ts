@@ -10,7 +10,6 @@ export default async (req: AppRequest, res: Response) => {
   const clientCode = req.query.clientCode as string | undefined
 
   try {
-
     if (req.user?.clientCode !== clientCode) {
       res.status(HttpStatusCodeEnum.UNAUTHORIZED)
       return res.json({

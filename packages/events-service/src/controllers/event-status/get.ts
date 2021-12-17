@@ -10,7 +10,6 @@ export default async (req: AppRequest, res: Response) => {
   const eventId = req.params.eventId as string | undefined
 
   try {
-
     const itemToGet = generateStatusItem({ eventId })
     const result = await db.get(itemToGet)
 

@@ -10,7 +10,6 @@ export default async (req: AppRequest, res: Response) => {
   const id = req.params.id as string | undefined
 
   try {
-
     const item = generateAutomationItem({ id })
     const result = await db.get(item)
 

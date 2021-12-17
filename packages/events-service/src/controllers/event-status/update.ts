@@ -11,7 +11,6 @@ export default async (req: AppRequest, res: Response) => {
   const newStatus = req.body.status as EventStatus['status']
 
   try {
-
     const itemToGet = generateStatusItem({ eventId })
     const retrievedItem = await db.get(itemToGet)
 
