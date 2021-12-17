@@ -1,5 +1,4 @@
 import { UpdatePaymentModel } from '../../types/payment'
-import logger from '../logger'
 import { ApiKey } from '../schema'
 import { validateApiKey, validatePaymentUpdate } from '../validators'
 
