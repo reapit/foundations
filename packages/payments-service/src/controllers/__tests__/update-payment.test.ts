@@ -162,7 +162,6 @@ describe('updatePayment', () => {
     expect(db.get).toHaveBeenCalledWith({
       apiKey: mockApiKey,
     })
-    expect(logger.info).toHaveBeenCalledTimes(2)
     expect(mockRes.status).toHaveBeenCalledWith(204)
   })
 
@@ -187,7 +186,6 @@ describe('updatePayment', () => {
     expect(db.get).toHaveBeenCalledWith({
       apiKey: mockApiKey,
     })
-    expect(logger.info).toHaveBeenCalledTimes(2)
     expect(logger.error).toHaveBeenCalledTimes(1)
     expect(mockRes.status).toHaveBeenCalledWith(404)
     expect(mockRes.json).toHaveBeenCalledTimes(1)

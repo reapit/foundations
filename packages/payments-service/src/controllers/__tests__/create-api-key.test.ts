@@ -111,7 +111,6 @@ describe('createApiKey', () => {
       keyCreatedAt: new Date().toISOString(),
       keyExpiresAt: mockReq.body.keyExpiresAt,
     })
-    expect(logger.info).toHaveBeenCalledTimes(2)
     expect(logger.error).toHaveBeenCalledTimes(0)
     expect(mockRes.status).toHaveBeenCalledWith(201)
     expect(mockRes.json).toHaveBeenLastCalledWith({
