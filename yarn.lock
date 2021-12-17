@@ -18050,6 +18050,7 @@ __metadata:
     serverless-deployment-bucket: ^1.5.1
     serverless-dynamodb-local: ^0.2.40
     serverless-offline: ^7.1.0
+    serverless-plugin-log-retention: ^2.0.0
     serverless-webpack: ^5.6.0
     snyk: ^1.793.0
     webpack: ^5.65.0
