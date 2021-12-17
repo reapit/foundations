@@ -1,5 +1,4 @@
 import appointmentServices from './services'
-import logger from '../../logger'
 import { ServerContext, resolverHandler } from '../../utils'
 import {
   GetAppointmentByIdArgs,

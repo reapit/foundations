@@ -1,4 +1,3 @@
-import logger from '../../logger'
 import { ServerContext } from '../../utils'
 import {
   GetApplicantByIdArgs,
