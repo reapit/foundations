@@ -11,10 +11,8 @@ type Payload = AutomationRequiredFields
 
 export default async (req: AppRequest, res: Response) => {
   const payload = req.body as Payload
-  const { traceId } = req
 
   try {
-    logger.info('Create new automation...', { traceId, payload })
 
     if (req.user?.clientCode !== payload.clientCode) {
       res.status(HttpStatusCodeEnum.UNAUTHORIZED)
@@ -33,8 +31,6 @@ export default async (req: AppRequest, res: Response) => {
       updatedAt: now,
     })
     const result = await db.put(itemToCreate)
-
-    logger.info('Created automation successfully', { traceId, result })
 
     res.status(HttpStatusCodeEnum.CREATED)
     return res.json(result)

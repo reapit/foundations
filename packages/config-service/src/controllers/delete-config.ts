@@ -24,7 +24,6 @@ export const deleteConfig = async (req: AppRequest, res: Response) => {
     }
 
     await deleteConfigValue(`${clientCode}/${configKey}`)
-    logger.info('Deleted value for config key: ', configKey)
     res.status(200)
     return res.send({ response: `Deleted value for ${configKey}` })
   } catch (err) {

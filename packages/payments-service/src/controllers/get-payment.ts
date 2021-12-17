@@ -18,13 +18,9 @@ export const getPayment = async (req: AppRequest, res: Response) => {
       throw new Error('reapit-customer, api-version and x-api-key are required headers')
     if (!paymentId) throw new Error('paymentId is a required parameter')
 
-    logger.info('Payment request valid, retrieving from DB', { traceId, apiKey, paymentId })
-
     const itemToGet = generateApiKey({ apiKey })
     const result = await db.get(itemToGet)
     const validated = validateApiKey(result, traceId, clientCode, paymentId)
-
-    logger.info('Payment retrieved from DB', { traceId, validated })
 
     if (validated) {
       const payment = await getPlatformPayment(validated, apiVersion)

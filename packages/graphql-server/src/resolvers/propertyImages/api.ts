@@ -1,5 +1,4 @@
 import qs from 'query-string'
-import logger from '../../logger'
 import { ServerContext } from '../../utils'
 import {
   GetPropertyImageByIdArgs,
@@ -24,7 +23,6 @@ export const callGetPropertyImageByIdAPI = async (
   context: ServerContext,
 ): GetPropertyImageByIdReturn => {
   const traceId = context.traceId
-  logger.info('callGetPropertyImageByIdAPI', { traceId, args })
   try {
     const { id, ...rest } = args
     const params = qs.stringify(rest as Record<string, string>)
@@ -48,7 +46,6 @@ export const callGetPropertyImagesAPI = async (
   context: ServerContext,
 ): GetPropertyImagesReturn => {
   const traceId = context.traceId
-  logger.info('callGetPropertyImagesAPI', { args, traceId })
   try {
     const params = qs.stringify(args)
     const response = await createPlatformAxiosInstance().get<GetPropertyImagesReturn>(
@@ -71,7 +68,6 @@ export const callCreatePropertyImageAPI = async (
   context: ServerContext,
 ): CreatePropertyImageReturn => {
   const traceId = context.traceId
-  logger.info('callCreatePropertyImageAPI', { traceId, args })
   try {
     const response = await createPlatformAxiosInstance().post<CreatePropertyImageReturn>(URLS.propertyImages, args, {
       headers: {
@@ -94,7 +90,6 @@ export const callUpdatePropertyImageAPI = async (
   context: ServerContext,
 ): UpdatePropertyImageReturn => {
   const traceId = context.traceId
-  logger.info('callUpdatePropertyImageAPI', { traceId, args })
   try {
     const { _eTag, ...payload } = args
     const updateResponse = await createPlatformAxiosInstance().patch<UpdatePropertyImageReturn>(
@@ -122,7 +117,6 @@ export const callDeletePropertyImageAPI = async (
   context: ServerContext,
 ): DeletePropertyImageReturn => {
   const traceId = context.traceId
-  logger.info('callDeletePropertyImageAPI', { traceId, args })
   try {
     const deleteResponse = await createPlatformAxiosInstance().delete<DeletePropertyImageReturn>(
       `${URLS.propertyImages}/${args.id}`,

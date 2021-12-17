@@ -2,7 +2,6 @@ import DataLoader from 'dataloader'
 import { getConfigurationsByType } from './services'
 import { ServerContext } from '@/utils'
 import handleError from '@/utils/handle-error'
-import logger from '@/logger'
 import { ConfigurationType } from './configurations'
 
 export const generateConfigurationBatchLoaderFn = (context: ServerContext) => async (keys: string[]) => {
@@ -10,7 +9,6 @@ export const generateConfigurationBatchLoaderFn = (context: ServerContext) => as
     return []
   }
   const traceId = context.traceId
-  logger.info('generateConfigurationBatchLoaderFn', { traceId })
   try {
     const appointmentTypes = await getConfigurationsByType({ type: 'appointmentTypes' as ConfigurationType }, context)
     const result = keys.map((key: string) => {

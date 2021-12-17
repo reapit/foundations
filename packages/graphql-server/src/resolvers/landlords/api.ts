@@ -1,5 +1,4 @@
 import qs from 'query-string'
-import logger from '../../logger'
 import { ServerContext } from '../../utils'
 import {
   GetLandlordByIdArgs,
@@ -30,7 +29,6 @@ export const callGetLandlordByIdAPI = async (
   context: ServerContext,
 ): GetLandlordByIdReturn => {
   const traceId = context.traceId
-  logger.info('callGetLandlordByIdAPI', { traceId, args })
   try {
     const { id, ...rest } = args
     const params = qs.stringify(rest as Record<string, string>)
@@ -52,7 +50,6 @@ export const callGetLandlordByIdAPI = async (
 
 export const callGetLandlordsAPI = async (args: GetLandlordsArgs, context: ServerContext): GetLandlordsReturn => {
   const traceId = context.traceId
-  logger.info('callGetLandlordsAPI', { args, traceId })
   try {
     const params = qs.stringify(args)
     const response = await createPlatformAxiosInstance().get<GetLandlordsReturn>(`${URLS.landlords}?${params}`, {
@@ -72,7 +69,6 @@ export const callGetLandlordRelationshipsAPI = async (
   context: ServerContext,
 ): GetLandlordRelationshipsReturn => {
   const traceId = context.traceId
-  logger.info('callGetLandlordRelationshipsAPI', { args, traceId })
   try {
     const { id, ...paramsObj } = args
     const params = qs.stringify(paramsObj as Record<string, string>)
@@ -96,7 +92,6 @@ export const callGetLandlordRelationshipByIdAPI = async (
   context: ServerContext,
 ): GetLandlordRelationshipByIdReturn => {
   const traceId = context.traceId
-  logger.info('callGetLandlordRelationshipByIdAPI', { args, traceId })
   try {
     const { id, relationshipId } = args
     const response = await createPlatformAxiosInstance().get<GetLandlordRelationshipByIdReturn>(
@@ -116,7 +111,6 @@ export const callGetLandlordRelationshipByIdAPI = async (
 
 export const callCreateLandlordAPI = async (args: CreateLandlordArgs, context: ServerContext): CreateLandlordReturn => {
   const traceId = context.traceId
-  logger.info('callCreateLandlordAPI', { traceId, args })
   try {
     const response = await createPlatformAxiosInstance().post<CreateLandlordReturn>(URLS.landlords, args, {
       headers: {
@@ -139,7 +133,6 @@ export const callCreateLandlordRelationshipAPI = async (
   context: ServerContext,
 ): CreateLandlordRelationshipReturn => {
   const traceId = context.traceId
-  logger.info('callCreateLandlordRelationshipAPI', { traceId, args })
   try {
     const { id, ...payload } = args
     await createPlatformAxiosInstance().post<CreateLandlordRelationshipReturn>(
@@ -163,7 +156,6 @@ export const callDeleteLandlordRelationshipAPI = async (
   context: ServerContext,
 ): DeleteLandlordRelationshipReturn => {
   const traceId = context.traceId
-  logger.info('callDeleteLandlordRelationshipAPI', { traceId, args })
   try {
     const { relationshipId, id } = args
     await createPlatformAxiosInstance().delete<DeleteLandlordRelationshipReturn>(
@@ -183,7 +175,6 @@ export const callDeleteLandlordRelationshipAPI = async (
 
 export const callUpdateLandlordAPI = async (args: UpdateLandlordArgs, context: ServerContext): UpdateLandlordReturn => {
   const traceId = context.traceId
-  logger.info('callUpdateLandlordAPI', { traceId, args })
   try {
     const { _eTag, id, ...payload } = args
 

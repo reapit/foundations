@@ -19,7 +19,6 @@ import { getIdFromCreateHeaders } from '../../utils/get-id-from-create-headers'
 
 export const callGetSourceByIdAPI = async (args: GetSourceByIdArgs, context: ServerContext): GetSourceByIdReturn => {
   const traceId = context.traceId
-  logger.info('callGetSourceByIdAPI', { traceId, args })
   try {
     const response = await createPlatformAxiosInstance().get<GetSourceByIdReturn>(`${URLS.sources}/${args.id}`, {
       headers: {
@@ -35,7 +34,6 @@ export const callGetSourceByIdAPI = async (args: GetSourceByIdArgs, context: Ser
 
 export const callGetSourcesAPI = async (args: GetSourcesArgs, context: ServerContext): GetSourcesReturn => {
   const traceId = context.traceId
-  logger.info('callGetSourcesAPI', { args, traceId })
   try {
     const params = qs.stringify(args)
     const response = await createPlatformAxiosInstance().get<GetSourcesReturn>(`${URLS.sources}?${params}`, {
@@ -43,11 +41,10 @@ export const callGetSourcesAPI = async (args: GetSourcesArgs, context: ServerCon
         Authorization: context.authorization,
       },
     })
-    logger.info('callGetSourcesAPIERRRPR', response)
 
     return response?.data
   } catch (error) {
-    logger.info('callGetSourcesAPIERRRPR', error)
+    logger.error('callGetSourcesAPIERRRPR', error)
 
     const handleErrorResult = await handleError({ error, traceId, caller: 'callGetSourcesAPI' })
     return handleErrorResult
@@ -56,7 +53,6 @@ export const callGetSourcesAPI = async (args: GetSourcesArgs, context: ServerCon
 
 export const callCreateSourceAPI = async (args: CreateSourceArgs, context: ServerContext): CreateSourceReturn => {
   const traceId = context.traceId
-  logger.info('callCreateSourceAPI', { traceId, args })
   try {
     const response = await createPlatformAxiosInstance().post<CreateSourceReturn>(URLS.sources, args, {
       headers: {
@@ -76,7 +72,6 @@ export const callCreateSourceAPI = async (args: CreateSourceArgs, context: Serve
 
 export const callUpdateSourceAPI = async (args: UpdateSourceArgs, context: ServerContext): UpdateSourceReturn => {
   const traceId = context.traceId
-  logger.info('callUpdateSourceAPI', { traceId, args })
   try {
     const { _eTag, ...payload } = args
     const updateResponse = await createPlatformAxiosInstance().patch<UpdateSourceReturn>(

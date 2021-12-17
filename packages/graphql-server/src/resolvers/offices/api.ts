@@ -1,5 +1,4 @@
 import qs from 'query-string'
-import logger from '../../logger'
 import { ServerContext } from '../../utils'
 import {
   GetOfficeByIdArgs,
@@ -19,7 +18,6 @@ import { getIdFromCreateHeaders } from '../../utils/get-id-from-create-headers'
 
 export const callGetOfficeByIdAPI = async (args: GetOfficeByIdArgs, context: ServerContext): GetOfficeByIdReturn => {
   const traceId = context.traceId
-  logger.info('callGetOfficeByIdAPI', { traceId, args })
   try {
     const { id, ...rest } = args
     const params = qs.stringify(rest as Record<string, string>)
@@ -37,7 +35,6 @@ export const callGetOfficeByIdAPI = async (args: GetOfficeByIdArgs, context: Ser
 
 export const callGetOfficesAPI = async (args: GetOfficesArgs, context: ServerContext): GetOfficesReturn => {
   const traceId = context.traceId
-  logger.info('callGetOfficesAPI', { args, traceId })
   try {
     const params = qs.stringify(args)
     const response = await createPlatformAxiosInstance().get<GetOfficesReturn>(`${URLS.offices}?${params}`, {
@@ -54,7 +51,6 @@ export const callGetOfficesAPI = async (args: GetOfficesArgs, context: ServerCon
 
 export const callCreateOfficeAPI = async (args: CreateOfficeArgs, context: ServerContext): CreateOfficeReturn => {
   const traceId = context.traceId
-  logger.info('callCreateOfficeAPI', { traceId, args })
   try {
     const response = await createPlatformAxiosInstance().post<CreateOfficeReturn>(URLS.offices, args, {
       headers: {
@@ -74,7 +70,6 @@ export const callCreateOfficeAPI = async (args: CreateOfficeArgs, context: Serve
 
 export const callUpdateOfficeAPI = async (args: UpdateOfficeArgs, context: ServerContext): UpdateOfficeReturn => {
   const traceId = context.traceId
-  logger.info('callUpdateOfficeAPI', { traceId, args })
   try {
     const { _eTag, ...payload } = args
     const updateResponse = await createPlatformAxiosInstance().patch<UpdateOfficeReturn>(

@@ -19,7 +19,6 @@ import {
 } from './works-orders'
 import qs from 'query-string'
 import { ServerContext } from '@/utils'
-import logger from '@/logger'
 import { createPlatformAxiosInstance } from '@/utils/axios-instances'
 import { URLS } from '@/constants/api'
 import { handleError } from '@/utils/handle-error'
@@ -31,7 +30,6 @@ export const calldeleteWorksOrderItem = async (
   context: ServerContext,
 ): DeleteWorksOrderItemReturn => {
   const traceId = context.traceId
-  logger.info('calldeleteWorksOrderItem', { traceId, args })
   try {
     const { id, itemId } = args
 
@@ -55,7 +53,6 @@ export const callUpdateWorksOrderItemAPI = async (
   context: ServerContext,
 ): UpdateWorksOrderItemReturn => {
   const traceId = context.traceId
-  logger.info('callUpdateWorksOrderItem', { traceId, args })
   try {
     const { _eTag, id, itemId, ...payload } = args
 
@@ -84,8 +81,6 @@ export const callCreateWorksOrderItemAPI = async (
   context: ServerContext,
 ): CreateWorksOrderItemReturn => {
   const traceId = context.traceId
-
-  logger.info('callCreateWorksOrderItemAPI', { traceId, args })
 
   try {
     const { id } = args
@@ -117,8 +112,6 @@ export const callGetWorksOrderItemByIdAPI = async (
 ): GetWorksOrderItemByIdReturn => {
   const traceId = context.traceId
 
-  logger.info('callGetWorksOrderByIdAPI', { traceId, args })
-
   const { id, itemId } = args
 
   try {
@@ -144,7 +137,6 @@ export const callGetWorksOrderItemsAPI = async (
   context: ServerContext,
 ): GetWorksOrderItemsReturn => {
   const traceId = context.traceId
-  logger.info('callGetWorksOrderItemsAPI', { traceId, args })
 
   const { id } = args
 
@@ -168,7 +160,6 @@ export const callUpdateWorksOrderAPI = async (
   context: ServerContext,
 ): UpdateWorksOrderReturn => {
   const traceId = context.traceId
-  logger.info('callUpdateWorksOrderAPI', { traceId, args })
   try {
     const { _eTag, id, ...payload } = args
 
@@ -199,7 +190,6 @@ export const callCreateWorksOrderdAPI = async (
   context: ServerContext,
 ): CreateWorksOrderReturn => {
   const traceId = context.traceId
-  logger.info('callCreateWorksOrderdAPI', { traceId, args })
   try {
     const response = await createPlatformAxiosInstance().post<CreateWorksOrderReturn>(URLS.worksOrders, args, {
       headers: {
@@ -220,7 +210,6 @@ export const callCreateWorksOrderdAPI = async (
 
 export const callGetWorksOrdersAPI = async (args: GetWorksOrdersArgs, context: ServerContext): GetWorksOrdersReturn => {
   const traceId = context.traceId
-  logger.info('callGetWorksOrdersAPI', { traceId, args })
   try {
     const params = qs.stringify(args as Record<string, string>)
     const response = await createPlatformAxiosInstance().get<GetWorksOrdersReturn>(`${URLS.worksOrders}?${params}`, {
@@ -242,7 +231,6 @@ export const callGetWorksOrderByIdAPI = async (
   context: ServerContext,
 ): GetWorksOrdersReturn => {
   const traceId = context.traceId
-  logger.info('callGetWorksOrderByIdAPI', { traceId, args })
 
   const { id, ...paramsObj } = args
   const params = qs.stringify(paramsObj as Record<string, string>)

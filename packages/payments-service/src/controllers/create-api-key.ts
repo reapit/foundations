@@ -7,7 +7,6 @@ import { v4 as uuid } from 'uuid'
 
 export const createApiKey = async (req: AppRequest, res: Response, next: NextFunction, apiKey = uuid()) => {
   const { clientCode, paymentId, keyExpiresAt } = req.body
-  const { traceId } = req
 
   try {
     if (!clientCode || !paymentId || !keyExpiresAt)
@@ -20,11 +19,8 @@ export const createApiKey = async (req: AppRequest, res: Response, next: NextFun
       keyCreatedAt: new Date().toISOString(),
       keyExpiresAt,
     })
-    logger.info('Creating API key', { traceId, apiKeyObject })
 
     const result = await db.put(apiKeyObject)
-
-    logger.info('Successfully created API key', { traceId, result })
 
     res.status(201)
     res.json({

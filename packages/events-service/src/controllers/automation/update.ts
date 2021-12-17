@@ -15,10 +15,8 @@ type Payload = {
 export default async (req: AppRequest, res: Response) => {
   const id = req.params.id as string | undefined
   const payload = req.body as Payload
-  const { traceId } = req
 
   try {
-    logger.info('Updating automation by id...', { traceId, id })
 
     const itemToGet = generateAutomationItem({ id })
     const retrievedItem = await db.get(itemToGet)

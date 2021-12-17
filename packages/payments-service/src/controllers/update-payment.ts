@@ -21,13 +21,9 @@ export const updatePayment = async (req: AppRequest, res: Response) => {
       throw new Error('reapit-customer, api-version, _eTag and x-api-key are required headers')
     if (!paymentId) throw new Error('paymentId is a required parameter')
 
-    logger.info('Payment request valid, retrieving from DB', { traceId, apiKey, paymentId })
-
     const itemToGet = generateApiKey({ apiKey })
     const result = await db.get(itemToGet)
     const validated = validateApiKey(result, traceId, clientCode, paymentId)
-
-    logger.info('Payment retrieved from DB', { traceId, validated })
 
     if (validated) {
       const payment = await updatePlatformPayment(validated, validatedPayment, apiVersion, eTag)
@@ -37,8 +33,7 @@ export const updatePayment = async (req: AppRequest, res: Response) => {
           ...validated,
           keyExpiresAt: new Date(Date.now() + 5 * 60 * 1000).toISOString(),
         })
-        const updated = await db.put(itemToUpdate)
-        logger.info('Successfully invalidated API key', { traceId, updated })
+        await db.put(itemToUpdate)
       }
       if (payment) {
         res.status(204)

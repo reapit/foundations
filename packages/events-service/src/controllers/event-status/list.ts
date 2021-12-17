@@ -12,10 +12,8 @@ export default async (req: AppRequest, res: Response) => {
   const dateTo = req.query.dateTo as string | undefined
   const clientCode = req.query.clientCode as string | undefined
   const status = req.query.status as string
-  const { traceId } = req
 
   try {
-    logger.info('Getting statuses by parmeters...', { traceId, dateFrom, dateTo, clientCode })
 
     if (req.user?.clientCode !== clientCode) {
       res.status(HttpStatusCodeEnum.UNAUTHORIZED)

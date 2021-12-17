@@ -1,5 +1,4 @@
 import qs from 'query-string'
-import logger from '../../logger'
 import { ServerContext } from '../../utils'
 import {
   GetCompanyByIdArgs,
@@ -21,7 +20,6 @@ import { getIdFromCreateHeaders } from '../../utils/get-id-from-create-headers'
 
 export const callGetCompanyByIdAPI = async (args: GetCompanyByIdArgs, context: ServerContext): GetCompanyByIdReturn => {
   const traceId = context.traceId
-  logger.info('callGetCompanyByIdAPI', { traceId, args })
   try {
     const { id, ...rest } = args
     const params = qs.stringify(rest as Record<string, string>)
@@ -42,7 +40,6 @@ export const callGetCompanyByIdAPI = async (args: GetCompanyByIdArgs, context: S
 
 export const callGetCompaniesAPI = async (args: GetCompaniesArgs, context: ServerContext): GetCompaniesReturn => {
   const traceId = context.traceId
-  logger.info('callGetCompaniesAPI', { args, traceId })
   try {
     const params = qs.stringify(args)
     const response = await createPlatformAxiosInstance().get<GetCompaniesReturn>(`${URLS.companies}?${params}`, {
@@ -62,7 +59,6 @@ export const callGetCompanyRolesAPI = async (
   context: ServerContext,
 ): GetCompanyRolesReturn => {
   const traceId = context.traceId
-  logger.info('callGetCompanyRolesAPI', { args, traceId })
   try {
     const params = qs.stringify(args)
     const response = await createPlatformAxiosInstance().get<GetCompanyRolesReturn>(`${URLS.companies}?${params}`, {
@@ -79,7 +75,6 @@ export const callGetCompanyRolesAPI = async (
 
 export const callCreateCompanyAPI = async (args: CreateCompanyArgs, context: ServerContext): CreateCompanyReturn => {
   const traceId = context.traceId
-  logger.info('callCreateCompanyAPI', { traceId, args })
   try {
     const response = await createPlatformAxiosInstance().post<CreateCompanyReturn>(URLS.companies, args, {
       headers: {
@@ -99,7 +94,6 @@ export const callCreateCompanyAPI = async (args: CreateCompanyArgs, context: Ser
 
 export const callUpdateCompanyAPI = async (args: UpdateCompanyArgs, context: ServerContext): UpdateCompanyReturn => {
   const traceId = context.traceId
-  logger.info('callUpdateCompanyAPI', { traceId, args })
   try {
     const { _eTag, ...payload } = args
     const updateResponse = await createPlatformAxiosInstance().patch<UpdateCompanyReturn>(

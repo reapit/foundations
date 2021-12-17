@@ -24,10 +24,6 @@ export class DecoratedEvents {
     this.twilioClient = twilio(TWILIO.accountId, TWILIO.authToken)
   }
 
-  logInfo(msg: string, extra?: object) {
-    logger.info(`DecoratedEvents: ${msg}`, { traceId: this.traceId, ...extra })
-  }
-
   logError(msg: string, extra?: object) {
     logger.error(`DecoratedEvents: ${msg}`, { traceId: this.traceId, ...extra })
   }

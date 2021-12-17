@@ -32,7 +32,6 @@ export const createPaymentReceiptInternal = async (
   try {
     const { receipientEmail, recipientName, paymentReason, paymentCurrency, paymentAmount }: EmailPaymentReceipt =
       req.body
-    const { traceId } = req
     const clientCode: string | undefined = req.headers['reapit-customer'] as string
     const apiVersion: string | undefined = req.headers['api-version'] as string
     const { paymentId } = req.params
@@ -47,8 +46,6 @@ export const createPaymentReceiptInternal = async (
     if (!senderEmail || !companyName || !logoUri)
       throw new Error('senderEmail, companyName and logoUri are required in config')
 
-    logger.info('Email successfully validated', { traceId })
-
     const template = await createPaymentReceiptTemplate({
       senderEmail,
       companyName,
@@ -60,12 +57,9 @@ export const createPaymentReceiptInternal = async (
       paymentAmount: `${paymentAmount.toFixed(2)}`,
     })
 
-    logger.info('Template successfully created', { traceId })
-
     const mail = await sendEmail(receipientEmail, `Payment Confirmation from ${companyName}`, template, senderEmail)
 
     if (mail) {
-      logger.info('Email successfully sent', { traceId })
       res.status(200)
       return res.end()
     }

@@ -8,10 +8,8 @@ import { HttpStatusCodeEnum } from '@/types/http.status.enum'
 
 export default async (req: AppRequest, res: Response) => {
   const id = req.params.id as string | undefined
-  const { traceId } = req
 
   try {
-    logger.info('Deleting automation by id...', { traceId, id })
 
     const item = generateAutomationItem({ id })
     const result = await db.get(item)

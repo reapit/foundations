@@ -1,4 +1,3 @@
-import logger from './../logger'
 import { generateConfigurationLoader } from './../resolvers/configurations/dataloader'
 import { generatePropertyLoader } from './../resolvers/properties/dataloader'
 import { generateOfficeLoader } from './../resolvers/offices/dataloader'
@@ -13,10 +12,6 @@ export type ServerContext = Context<{ traceId: string; authorization: string; da
 export const headersToContext = (headers: Record<string, any>, extras: Record<string, any>) => {
   const reapitCustomer = headers['reapit-customer'] ?? 'UNKNOWN-CUSTOMER'
   const traceId = `${reapitCustomer}-${uuid()}`
-  const isProductionEnv = process.env.NODE_ENV === 'production'
-  if (isProductionEnv) {
-    logger.info('handleContext', { traceId, ...extras })
-  }
   const newContext = {
     traceId: traceId,
     headers: headers,
