@@ -1,5 +1,6 @@
+/** @type {import('ts-jest/dist/types').InitialOptionsTsJest} */
 const { jestGlobalConfig } = require('@reapit/ts-scripts')
-const { pathsToModuleNameMapper } = require('ts-jest/utils')
+const { pathsToModuleNameMapper } = require('ts-jest')
 const { compilerOptions } = require('./tsconfig.json')
 
 module.exports = {

@@ -1,44 +1,45 @@
 import * as React from 'react'
 import { useHistory, useLocation } from 'react-router'
 import Routes from '../../constants/routes'
-import { NavResponsive } from '@reapit/elements'
+import { Icon, NavResponsive } from '@reapit/elements'
 import { memo } from 'react'
 import { navigate } from '../../utils/navigation'
+import dayjs from 'dayjs'
+import isBetween from 'dayjs/plugin/isBetween'
+import WeekOneXmas from '../../assets/images/xmas-logos/Week1.png'
+import WeekTwoXmas from '../../assets/images/xmas-logos/Week2.png'
+import WeekThreeXmas from '../../assets/images/xmas-logos/Week3.png'
+import WeekFourXmas from '../../assets/images/xmas-logos/Week4.png'
+import { styled } from '@linaria/react'
 
-/** Commenting out the Chrismas code for now. We may well use it again next year but no need for it
- * to be in the prod bundle */
-// import { ReapitHouseIcon } from '@reapit/elements-legacy'
-// import dayjs from 'dayjs'
-// import isBetween from 'dayjs/plugin/isBetween'
-// import WeekOneXmas from '../../assets/images/xmas-logos/Week1.png'
-// import WeekTwoXmas from '../../assets/images/xmas-logos/Week2.png'
-// import WeekThreeXmas from '../../assets/images/xmas-logos/Week3.png'
-// import WeekFourXmas from '../../assets/images/xmas-logos/Week4.png'
+const XmasImage = styled.img`
+  height: 2.5rem;
+  width: 2.5rem;
+`
 
-// dayjs.extend(isBetween)
+dayjs.extend(isBetween)
 
-// export const XmasLogo: React.FC = () => {
-//   const now = dayjs()
-//   const startDate = window.reapit.config.appEnv === 'production' ? '2020-11-30' : '2020-11-29'
+export const XmasLogo: React.FC = () => {
+  const now = dayjs()
 
-//   if (now.isBetween(startDate, '2020-12-07', 'day')) {
-//     return <img src={WeekOneXmas} />
-//   }
+  if (now.isBetween('2021-11-30', '2021-12-07', 'day')) {
+    return <XmasImage src={WeekOneXmas} />
+  }
 
-//   if (now.isBetween('2020-12-06', '2020-12-14', 'day')) {
-//     return <img src={WeekTwoXmas} />
-//   }
+  if (now.isBetween('2021-12-06', '2021-12-14', 'day')) {
+    return <XmasImage src={WeekTwoXmas} />
+  }
 
-//   if (now.isBetween('2020-12-13', '2020-12-21', 'day')) {
-//     return <img src={WeekThreeXmas} />
-//   }
+  if (now.isBetween('2021-12-13', '2021-12-21', 'day')) {
+    return <XmasImage src={WeekThreeXmas} />
+  }
 
-//   if (now.isBetween('2020-12-20', '2020-12-27', 'day')) {
-//     return <img src={WeekFourXmas} />
-//   }
+  if (now.isBetween('2021-12-20', '2021-12-27', 'day')) {
+    return <XmasImage src={WeekFourXmas} />
+  }
 
-//   return <ReapitHouseIcon />
-// }
+  return <Icon iconSize="medium" icon="reapitLogoMenu" />
+}
 
 export const getDefaultNavIndex = (pathname: string) => {
   switch (pathname) {
@@ -86,6 +87,7 @@ export const Menu: React.FunctionComponent = () => {
         {
           itemIndex: 0,
           callback: navigate(history, Routes.APPS),
+          icon: <XmasLogo />,
         },
         {
           itemIndex: 1,
@@ -138,12 +140,12 @@ export const Menu: React.FunctionComponent = () => {
             {
               itemIndex: 3,
               callback: navigate(history, Routes.API_DOCS),
-              text: 'Docs',
+              text: 'APIs',
             },
             {
               itemIndex: 4,
               callback: navigate(history, Routes.ANALYTICS_SCHEMA_DOCS),
-              text: 'Scheama Docs',
+              text: 'Warehouse',
             },
           ],
         },

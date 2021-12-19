@@ -1,5 +1,5 @@
 const { jestGlobalConfig } = require('@reapit/ts-scripts')
-const { pathsToModuleNameMapper } = require('ts-jest/utils')
+const { pathsToModuleNameMapper } = require('ts-jest')
 const { compilerOptions } = require('./tsconfig.json')
 
 module.exports = {
@@ -9,7 +9,7 @@ module.exports = {
     '<rootDir>[/\\\\](node_modules|src/types|src/tests|src/scripts|src/__stubs__|dist)|config|core|models[/\\\\]',
     '.d.ts',
     'index.ts',
-    '<rootDir>/src/api-key-model.ts'
+    '<rootDir>/src/api-key-model.ts',
   ],
   coverageThreshold: {
     global: {

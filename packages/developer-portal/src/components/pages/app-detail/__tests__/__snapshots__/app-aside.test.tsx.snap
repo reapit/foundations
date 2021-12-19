@@ -106,6 +106,9 @@ exports[`DeveloperAside should match snapshot 1`] = `
         "name": "Peter's Properties",
         "pricingUrl": "https://reapit.com",
         "privacyPolicyUrl": "https://reapit.com",
+        "products": Array [
+          "agencyCloud",
+        ],
         "scopes": Array [
           Object {
             "description": "Read data about developers",
@@ -158,6 +161,9 @@ exports[`DeveloperAside should match snapshot 1`] = `
           "name": "Peter's Properties",
           "pricingUrl": "https://reapit.com",
           "privacyPolicyUrl": "https://reapit.com",
+          "products": Array [
+            "agencyCloud",
+          ],
           "scopes": Array [
             Object {
               "description": "Read data about developers",

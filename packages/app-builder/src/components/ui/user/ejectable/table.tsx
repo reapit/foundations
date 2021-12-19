@@ -1,9 +1,22 @@
-import React, { forwardRef } from 'react'
-import { Button, elFlex, elFlex1, elFlexColumn, Input, Loader, Table as ELTable, useSnack } from '@reapit/elements'
+import React, { forwardRef, useEffect, useRef } from 'react'
+import {
+  Button,
+  elFlex,
+  elFlex1,
+  elFlexColumn,
+  Icon,
+  Input,
+  Loader,
+  RowActionProps,
+  RowProps,
+  Table as ELTable,
+  useSnack,
+} from '@reapit/elements'
 import { useHistory } from 'react-router'
 import qs from 'query-string'
 import path from 'path'
 import { cx } from '@linaria/core'
+import { useReactToPrint } from 'react-to-print'
 
 import { Container, ContainerProps } from './container'
 import { uppercaseSentence } from './utils'
@@ -15,6 +28,7 @@ import { lowercaseFirstLetter, useSubObjects } from '../../../../components/hook
 import { notEmpty } from '../../../../components/hooks/use-introspection/helpers'
 import { usePageId } from '../../../../components/hooks/use-page-id'
 import { useObjectSpecials } from '../../../../components/hooks/objects/use-object-specials'
+import { QRCode } from './qr-code'
 
 export interface TableProps extends ContainerProps {
   typeName?: string
@@ -72,7 +86,7 @@ const DeleteButton = ({ disabled, typeName, id }: { disabled?: boolean; typeName
           })
       }}
     >
-      Delete
+      <Icon icon="trashSystem" />
     </Button>
   )
 }
@@ -100,6 +114,37 @@ const getDataCells = (row: any, subobjectNames: string[]) =>
       },
     }))
 
+const PrintableQR = ({ destination, context, size }) => {
+  const ref = useRef<HTMLDivElement>()
+  const handlePrint = useReactToPrint({
+    content: () => ref.current || null,
+    onBeforeGetContent: () => {
+      if (ref.current) {
+        ref.current.style.display = 'block'
+      }
+    },
+    onAfterPrint: () => {
+      if (ref.current) {
+        ref.current.style.display = 'none'
+      }
+    },
+  })
+
+  useEffect(() => {
+    if (ref.current) {
+      ref.current.style.display = 'none'
+    }
+  }, [ref])
+
+  return (
+    <>
+      <Button onClick={handlePrint}>Print QR</Button>
+      {/* @ts-ignore incompatible refs */}
+      <QRCode ref={ref} width={size} destination={destination} context={context} />
+    </>
+  )
+}
+
 const getAdditionalCells = (
   specialsAndSubobjects: { name: string; label: string }[],
   props: Record<string, any>,
@@ -109,14 +154,16 @@ const getAdditionalCells = (
   historyPush: (dest: string) => void,
   appId?: string,
 ) =>
-  specialsAndSubobjects.map(({ name, label }) => {
-    const pageId = props[`${name}Page`]
-    if (!pageId) return null
-    return {
-      label,
-      value: '',
-      children: (
+  specialsAndSubobjects
+    .map(({ name, label }) => {
+      const pageId = props[`${name}Page`]
+      const printableQrPageId = !!props[`${name}PagePrintableQR`]
+      const printableQrSize = parseInt(props[`${name}PagePrintableQRSize`], 10)
+      if (!pageId) return null
+
+      return [
         <Button
+          key={name}
           onClick={() => {
             const pathname = path.join('/', appId || '', pageId === '~' ? '' : pageId)
             const ctx = {
@@ -127,13 +174,20 @@ const getAdditionalCells = (
           }}
         >
           {label}
-        </Button>
-      ),
-      narrowTable: {
-        showLabel: true,
-      },
-    }
-  })
+        </Button>,
+        printableQrPageId ? (
+          <PrintableQR
+            size={printableQrSize}
+            destination={pageId}
+            context={{
+              ...context,
+              [lowercaseFirstLetter(`${typeName}Id`)]: rowId,
+            }}
+          />
+        ) : undefined,
+      ]
+    })
+    .flat()
 
 export const Table = forwardRef<HTMLDivElement, TableProps & { disabled?: boolean }>(
   ({ typeName, editPageId, showControls, disabled, showSearch, ...props }, ref) => {
@@ -163,27 +217,14 @@ export const Table = forwardRef<HTMLDivElement, TableProps & { disabled?: boolea
 
     const data = searchResults || listResults
 
-    const rows =
-      data &&
-      typeName &&
-      data.map((row) => {
-        const cells = [
-          ...getDataCells(row, subobjectNames),
-          ...getAdditionalCells(specialsAndSubobjects, props, row.id, typeName, context, history.push, appId),
-        ].filter(notEmpty)
+    const rows: RowProps[] | undefined =
+      data && typeName
+        ? data.map((row): RowProps => {
+            const cells = [...getDataCells(row, subobjectNames)].filter(notEmpty)
 
-        if (!showControls) {
-          return { cells }
-        }
-
-        return {
-          cells: [
-            ...cells,
-            updateAvailable
-              ? {
-                  label: 'Edit',
-                  value: '',
-                  children: (
+            const controls = showControls
+              ? [
+                  updateAvailable ? (
                     <Button
                       disabled={disabled}
                       intent="secondary"
@@ -193,22 +234,43 @@ export const Table = forwardRef<HTMLDivElement, TableProps & { disabled?: boolea
                         }
                       }}
                     >
-                      Edit
+                      <Icon icon="editSystem" />
                     </Button>
-                  ),
-                }
-              : undefined,
-            deletionAvailable
-              ? {
-                  label: 'Delete',
-                  value: '',
-                  children: <DeleteButton disabled={disabled} id={row.id} typeName={typeName} />,
-                }
-              : undefined,
-          ].filter(notEmpty),
-        }
-      })
+                  ) : undefined,
+                  deletionAvailable ? <DeleteButton disabled={disabled} id={row.id} typeName={typeName} /> : undefined,
+                ].filter(notEmpty)
+              : []
 
+            const additionalCells = getAdditionalCells(
+              specialsAndSubobjects,
+              props,
+              row.id,
+              typeName,
+              context,
+              history.push,
+              appId,
+            )
+
+            const buttons = [...additionalCells.filter(notEmpty), ...controls]
+
+            const additionalContent: RowActionProps = {
+              content: (
+                <>
+                  {buttons.map((button, i) => (
+                    <React.Fragment key={i}>{button}</React.Fragment>
+                  ))}
+                </>
+              ),
+            }
+
+            return {
+              cells,
+              expandableContent: buttons.length > 2 ? additionalContent : undefined,
+              ctaContent: buttons.length <= 2 ? additionalContent : undefined,
+            }
+          })
+        : undefined
+    const [row] = rows || []
     return (
       <Container {...props} ref={ref}>
         <div className={cx(elFlex, elFlex1, elFlexColumn)}>
@@ -216,8 +278,9 @@ export const Table = forwardRef<HTMLDivElement, TableProps & { disabled?: boolea
             <Input type="text" placeholder="Search" value={queryStr} onChange={(e) => setQueryStr(e.target.value)} />
           )}
           {loading && <Loader label="Loading" />}
-          {typeName && (
+          {typeName && row && (
             <ELTable
+              numberColumns={row.cells.length + 1}
               style={{ flex: 1, opacity: searchLoading ? 0.5 : 1, transition: '300ms opacity' }}
               rows={rows || undefined}
             />

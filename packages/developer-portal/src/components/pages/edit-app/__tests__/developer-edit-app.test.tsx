@@ -235,6 +235,7 @@ describe('DeveloperSubmitApp', () => {
         privacyPolicyUrl: '',
         pricingUrl: '',
         termsAndConditionsUrl: '',
+        products: '',
       })
     })
     it('should run correctly in case appDetail is existed', () => {
@@ -267,6 +268,7 @@ describe('DeveloperSubmitApp', () => {
         privacyPolicyUrl: 'https://reapit.com',
         pricingUrl: 'https://reapit.com',
         termsAndConditionsUrl: 'https://reapit.com',
+        products: 'agencyCloud',
       })
     })
   })

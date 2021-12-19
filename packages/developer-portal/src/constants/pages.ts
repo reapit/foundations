@@ -12,4 +12,5 @@ export const ELEMENTS_V3_PAGES = [
   Routes.WEBHOOKS_LOGS,
   Routes.WEBHOOKS_MANAGE,
   Routes.WEBHOOKS_NEW,
+  Routes.APPS_NEW,
 ]

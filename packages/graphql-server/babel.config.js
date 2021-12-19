@@ -1,5 +1,6 @@
-const { baseBabel } = require('@reapit/ts-scripts')
-
 module.exports = {
-  ...baseBabel,
+  presets: [
+    ['@babel/preset-env', {targets: {node: 'current'}}],
+    '@babel/preset-typescript',
+  ],
 }

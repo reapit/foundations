@@ -5,6 +5,7 @@ import Container from './container'
 import { usePageId } from '@/components/hooks/use-page-id'
 import { useApp } from '@/components/hooks/apps/use-app'
 import { LinkProps, Link as ELink } from './ejectable/link'
+import { Label } from '@reapit/elements'
 
 const defaultProps = {
   destination: '',
@@ -51,11 +52,17 @@ export const DestinationPage = ({
         ))}
         <option value="">Select a page</option>
       </ToolbarItem>
+      <ToolbarItem type={ToolbarItemType.Select} title="Printable QR Code?" propKey={`${propKey}PrintableQR`}>
+        <option value="true">Yes</option>
+        <option value="">No</option>
+      </ToolbarItem>
+      <Label>QR Code Size</Label>
+      <ToolbarItem type={ToolbarItemType.Number} propKey={`${propKey}PrintableQRSize`} />
     </ToolbarSection>
   )
 }
 
-const LinkSettings = () => (
+export const LinkSettings = () => (
   <>
     <DestinationPage title="Link to" propKey="destination" />
     <ContainerSettings />

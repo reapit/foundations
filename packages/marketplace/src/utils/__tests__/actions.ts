@@ -9,11 +9,13 @@ describe('actions utils', () => {
     it('should create an action of the correct type', () => {
       const actionData: FetchAppsParams = {
         pageNumber: 1,
+        product: 'agencyCloud',
       }
       const action = { data: actionData, type: 'FETCH_APPS' }
       expect(
         actionCreator<FetchAppsParams>(ActionTypes.FETCH_APPS)({
           pageNumber: 1,
+          product: 'agencyCloud',
         }),
       ).toEqual(action)
     })
@@ -23,6 +25,7 @@ describe('actions utils', () => {
     it('should return true if actions are equal', () => {
       const actionData: FetchAppsParams = {
         pageNumber: 1,
+        product: 'agencyCloud',
       }
       const action: Action<any> = { data: actionData, type: ActionTypes.FETCH_APPS as 'FETCH_APPS' }
       expect(isType(action, fetchApps)).toBe(true)

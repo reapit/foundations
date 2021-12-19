@@ -25,19 +25,19 @@
     "commit": "yarn lint"
   },
   "dependencies": {
-    "ansi-styles": "^5.2.0",
+    "ansi-styles": "^6.1.0",
     "aws-sdk": "^2.949.0",
-    "chalk": "^4.1.1",
+    "chalk": "^4.1.2",
     "change-case": "^4.1.2",
-    "prompts": "^2.4.1",
+    "prompts": "^2.4.2",
     "yargs": "^16.2.0"
   },
   "devDependencies": {
     "@reapit/config-manager": "^2.0.8",
-    "@typescript-eslint/eslint-plugin": "^4.28.4",
-    "@typescript-eslint/parser": "^4.28.4",
-    "concurrently": "^6.2.0",
-    "eslint": "7.31.0",
-    "eslint-plugin-prettier": "^3.4.0"
+    "@typescript-eslint/eslint-plugin": "^5.7.0",
+    "@typescript-eslint/parser": "^5.7.0",
+    "concurrently": "^6.4.0",
+    "eslint": "8.4.1",
+    "eslint-plugin-prettier": "^4.0.0"
   }
 }

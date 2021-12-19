@@ -8,9 +8,10 @@ import Viewport from '../ui/viewport'
 import Container from '../ui/user/container'
 import Text from '../ui/user/text'
 import Link from '../ui/user/link'
-import Context from '../ui/user/context'
+import Info from '../ui/user/info'
 import Table from '../ui/user/table'
 import Form from '../ui/user/form'
+import QRCode from '../ui/user/qr-code'
 import { getPageId, usePageId } from '../hooks/use-page-id'
 import { useUpdatePage } from '../hooks/apps/use-update-app'
 import { isInitialLoad, nodesObjtoToArr } from '../hooks/apps/node-helpers'
@@ -40,10 +41,11 @@ export const Authenticated: FC<AuthenticatedProps> = () => {
         Text,
         Container,
         Link,
-        Context,
+        Info,
         Table,
         Form,
         FormInput,
+        QRCode,
       }}
       onRender={(props) => <RenderNode {...props} iframeRef={iframeRef.current} />}
       onNodesChange={(query) => {

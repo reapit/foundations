@@ -48,6 +48,9 @@ exports[`DeveloperAppRevisionModal should match a snapshot 1`] = `
           "name": "Peter's Properties",
           "pricingUrl": "https://reapit.com",
           "privacyPolicyUrl": "https://reapit.com",
+          "products": Array [
+            "agencyCloud",
+          ],
           "scopes": Array [
             Object {
               "description": "Read data about developers",
