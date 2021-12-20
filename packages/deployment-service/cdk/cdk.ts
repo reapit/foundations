@@ -9,11 +9,14 @@ import AdmZip from 'adm-zip'
 const bootstrap = async () => {
   await exec('yarn build', {
     cwd: path.resolve(__dirname, '..'),
+    stdio: 'inherit',
   })
 
   const zipPath = path.resolve(__dirname, '..', 'dist', 'main.zip')
 
-  await exec(`rm -rf ${zipPath}`)
+  await exec(`rm -rf ${zipPath}`, {
+    stdio: 'inherit',
+  })
 
   const zipper = new AdmZip()
   zipper.addLocalFile(path.resolve(__dirname, '..', 'dist', 'main.js'))
