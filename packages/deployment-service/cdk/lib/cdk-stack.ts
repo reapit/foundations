@@ -389,7 +389,7 @@ export const createStack = () => {
   for (const [name, options] of Object.entries(functionSetups)) {
     const lambda = createLambda({
       stack,
-      name: `cloud-deployment-${name}`,
+      name,
       entrypoint: path.resolve('dist', 'main.zip'),
       handler: options.handler,
       env,
