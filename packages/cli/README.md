@@ -24,7 +24,26 @@ $ reapit config
 
 You'll be prompted with an input for your api-key
 
+![Config Snapsot](snapshots/config.png)
+## Deployment
+
+> First make sure you've created a pipeline by either the UI or the cli using `reapit pipeline create`.
+
+Start the deployment by running the following command
+
+This will start a manual deployment by uploading a zip of your locally built application.
+
+```bash
+$ reapit cli deploy-zip
+```
+
+answer the following questions and the deployment will start.
+
+![Deploy zip Snapsot](snapshots/deploy-zip.png)
+
 # Development
+
+This section is for the development of the reapit cli
 
 ## Creating commands
 
@@ -63,19 +82,19 @@ boot(new IntroCommand(), [new ConfigCommand(), new DeploymentCommand(), /* add n
 Parent commands are grouped commands for running as sub commands. Below is an example of a sub command
 
 ```bash
-$ reapit deployment create
+$ reapit pipeline create
 ```
 
-where `deployment` is the command group and `create` is the sub command.
+where `pipeline` is the command group and `create` is the sub command.
 
 Parent commands will extends the `ParentCommand` class
 
 ```ts
 @Command({
-  name: 'deployment',
+  name: 'pipeline',
   description: 'For managing deployments',
 })
-export class DeploymentCommand extends ParentCommand {
-  commands = [new DeploymentCreate(), new DeploymentList(), new DeploymentRun()]
+export class PipelineCommand extends ParentCommand {
+  commands = [new PipelineCreate(), new PipelineList(), new PipelineRun()]
 }
 ```
