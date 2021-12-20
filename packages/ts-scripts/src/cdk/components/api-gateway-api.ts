@@ -9,6 +9,8 @@ export const createApi = (
   lambdaFunction?: lambda.Function,
   cognitoUserPoolId?: string,
   allowCors?: boolean,
+  allowOrigins: string[] = ['*'],
+  allowHeaders: string[] = ['Content-Type', 'Authorization', 'X-Api-Key', 'api-version'],
 ): apigateway.RestApi | apigateway.LambdaRestApi => {
   let defaultMethodOptions: apigateway.MethodOptions | undefined = undefined
   if (cognitoUserPoolId) {
@@ -21,8 +23,8 @@ export const createApi = (
 
   const defaultCorsPreflightOptions = allowCors
     ? {
-        allowOrigins: ['*'],
-        allowHeaders: ['Content-Type', 'Authorization', 'X-Api-Key', 'api-version'],
+        allowOrigins,
+        allowHeaders,
       }
     : undefined
 
