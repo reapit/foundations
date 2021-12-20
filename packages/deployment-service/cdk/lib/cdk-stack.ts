@@ -1,8 +1,5 @@
-import { createLambda } from './create-lambda'
 import * as path from 'path'
-import { createS3Buckets } from './create-S3-bucket'
-import { createSqsQueues, QueueNames, SQSQueue } from './create-sqs'
-import { createPolicies } from './create-policies'
+
 import { Topic } from '@reapit/ts-scripts/src/cdk/components/sns-topic'
 import { addLambdaToApi, createApi } from '@reapit/ts-scripts/src/cdk/components/api-gateway-api'
 import { createBaseStack } from '@reapit/ts-scripts/src/cdk/components/stack'
@@ -12,6 +9,11 @@ import { createCodeBuildProject, getCodebuildSnsTopic } from '@reapit/ts-scripts
 import { PolicyStatement } from '@reapit/ts-scripts/src/cdk/components/iam-policy'
 import { createStackEventHandler } from '@reapit/ts-scripts/src/cdk/components/stack-event-handler'
 import { addLambdaSNSTrigger, addLambdaSQSTrigger } from '@reapit/ts-scripts/src/cdk/components/lambda-function'
+
+import { createLambda } from './create-lambda'
+import { createS3Buckets } from './create-S3-bucket'
+import { createSqsQueues, QueueNames, SQSQueue } from './create-sqs'
+import { createPolicies } from './create-policies'
 
 export const databaseName = 'deployment_service'
 
@@ -418,6 +420,7 @@ export const createStack = () => {
     entrypoint: path.resolve('dist', 'main.zip'),
     handler: 'main.migrationRun',
     env,
+    vpc,
   })
 
   Object.values(policies)
