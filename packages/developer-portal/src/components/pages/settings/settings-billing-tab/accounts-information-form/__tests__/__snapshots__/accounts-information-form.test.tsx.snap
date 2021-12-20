@@ -16,16 +16,12 @@ exports[`AccountsInformationForm should match snapshot 1`] = `
   onSubmit={[Function]}
   validationSchema={
     ObjectSchema {
-      "_blacklist": RefSet {
+      "_blacklist": ReferenceSet {
         "list": Set {},
         "refs": Map {},
       },
-      "_conditions": Array [],
-      "_defaultDefault": [Function],
-      "_deps": Array [],
+      "_blacklistError": undefined,
       "_excludedEdges": Array [],
-      "_exclusive": Object {},
-      "_mutate": undefined,
       "_nodes": Array [
         "hasDirectDebit",
         "hasReapitAccountsRef",
@@ -35,40 +31,44 @@ exports[`AccountsInformationForm should match snapshot 1`] = `
         "billingEmail",
         "billingTelephone",
       ],
-      "_options": Object {
-        "abortEarly": true,
-        "recursive": true,
-      },
-      "_type": "object",
+      "_sortErrors": [Function],
       "_typeError": [Function],
-      "_whitelist": RefSet {
+      "_whitelist": ReferenceSet {
         "list": Set {},
         "refs": Map {},
       },
+      "_whitelistError": undefined,
+      "conditions": Array [],
+      "deps": Array [],
+      "exclusiveTests": Object {},
       "fields": Object {
         "billingEmail": StringSchema {
-          "_blacklist": RefSet {
+          "_blacklist": ReferenceSet {
             "list": Set {},
             "refs": Map {},
           },
-          "_conditions": Array [],
-          "_deps": Array [],
-          "_exclusive": Object {
+          "_blacklistError": undefined,
+          "_typeError": [Function],
+          "_whitelist": ReferenceSet {
+            "list": Set {},
+            "refs": Map {},
+          },
+          "_whitelistError": undefined,
+          "conditions": Array [],
+          "deps": Array [],
+          "exclusiveTests": Object {
             "matches": false,
             "max": true,
             "required": true,
             "trim": false,
           },
-          "_mutate": undefined,
-          "_options": Object {
+          "spec": Object {
             "abortEarly": true,
+            "nullable": false,
+            "presence": "required",
             "recursive": true,
-          },
-          "_type": "string",
-          "_typeError": [Function],
-          "_whitelist": RefSet {
-            "list": Set {},
-            "refs": Map {},
+            "strict": false,
+            "strip": false,
           },
           "tests": Array [
             [Function],
@@ -83,27 +83,31 @@ exports[`AccountsInformationForm should match snapshot 1`] = `
           "type": "string",
         },
         "billingKeyContact": StringSchema {
-          "_blacklist": RefSet {
+          "_blacklist": ReferenceSet {
             "list": Set {},
             "refs": Map {},
           },
-          "_conditions": Array [],
-          "_deps": Array [],
-          "_exclusive": Object {
+          "_blacklistError": undefined,
+          "_typeError": [Function],
+          "_whitelist": ReferenceSet {
+            "list": Set {},
+            "refs": Map {},
+          },
+          "_whitelistError": undefined,
+          "conditions": Array [],
+          "deps": Array [],
+          "exclusiveTests": Object {
             "max": true,
             "required": true,
             "trim": false,
           },
-          "_mutate": undefined,
-          "_options": Object {
+          "spec": Object {
             "abortEarly": true,
+            "nullable": false,
+            "presence": "required",
             "recursive": true,
-          },
-          "_type": "string",
-          "_typeError": [Function],
-          "_whitelist": RefSet {
-            "list": Set {},
-            "refs": Map {},
+            "strict": false,
+            "strip": false,
           },
           "tests": Array [
             [Function],
@@ -117,28 +121,32 @@ exports[`AccountsInformationForm should match snapshot 1`] = `
           "type": "string",
         },
         "billingTelephone": StringSchema {
-          "_blacklist": RefSet {
+          "_blacklist": ReferenceSet {
             "list": Set {},
             "refs": Map {},
           },
-          "_conditions": Array [],
-          "_deps": Array [],
-          "_exclusive": Object {
+          "_blacklistError": undefined,
+          "_typeError": [Function],
+          "_whitelist": ReferenceSet {
+            "list": Set {},
+            "refs": Map {},
+          },
+          "_whitelistError": undefined,
+          "conditions": Array [],
+          "deps": Array [],
+          "exclusiveTests": Object {
             "matches": false,
             "max": true,
             "required": true,
             "trim": false,
           },
-          "_mutate": undefined,
-          "_options": Object {
+          "spec": Object {
             "abortEarly": true,
+            "nullable": false,
+            "presence": "required",
             "recursive": true,
-          },
-          "_type": "string",
-          "_typeError": [Function],
-          "_whitelist": RefSet {
-            "list": Set {},
-            "refs": Map {},
+            "strict": false,
+            "strip": false,
           },
           "tests": Array [
             [Function],
@@ -153,23 +161,26 @@ exports[`AccountsInformationForm should match snapshot 1`] = `
           "type": "string",
         },
         "hasDirectDebit": StringSchema {
-          "_blacklist": RefSet {
+          "_blacklist": ReferenceSet {
             "list": Set {},
             "refs": Map {},
           },
-          "_conditions": Array [],
-          "_deps": Array [],
-          "_exclusive": Object {},
           "_mutate": undefined,
-          "_options": Object {
-            "abortEarly": true,
-            "recursive": true,
-          },
-          "_type": "string",
           "_typeError": [Function],
-          "_whitelist": RefSet {
+          "_whitelist": ReferenceSet {
             "list": Set {},
             "refs": Map {},
+          },
+          "conditions": Array [],
+          "deps": Array [],
+          "exclusiveTests": Object {},
+          "spec": Object {
+            "abortEarly": true,
+            "nullable": false,
+            "presence": "optional",
+            "recursive": true,
+            "strict": false,
+            "strip": false,
           },
           "tests": Array [],
           "transforms": Array [
@@ -178,24 +189,13 @@ exports[`AccountsInformationForm should match snapshot 1`] = `
           "type": "string",
         },
         "hasReapitAccountsRef": StringSchema {
-          "_blacklist": RefSet {
+          "_blacklist": ReferenceSet {
             "list": Set {},
             "refs": Map {},
           },
-          "_conditions": Array [],
-          "_deps": Array [],
-          "_exclusive": Object {
-            "required": true,
-            "trim": false,
-          },
-          "_mutate": undefined,
-          "_options": Object {
-            "abortEarly": true,
-            "recursive": true,
-          },
-          "_type": "string",
+          "_blacklistError": undefined,
           "_typeError": [Function],
-          "_whitelist": RefSet {
+          "_whitelist": ReferenceSet {
             "list": Set {
               "no",
               "yes",
@@ -203,6 +203,20 @@ exports[`AccountsInformationForm should match snapshot 1`] = `
             "refs": Map {},
           },
           "_whitelistError": [Function],
+          "conditions": Array [],
+          "deps": Array [],
+          "exclusiveTests": Object {
+            "required": true,
+            "trim": false,
+          },
+          "spec": Object {
+            "abortEarly": true,
+            "nullable": false,
+            "presence": "required",
+            "recursive": true,
+            "strict": false,
+            "strip": false,
+          },
           "tests": Array [
             [Function],
             [Function],
@@ -214,11 +228,18 @@ exports[`AccountsInformationForm should match snapshot 1`] = `
           "type": "string",
         },
         "reapitReference": StringSchema {
-          "_blacklist": RefSet {
+          "_blacklist": ReferenceSet {
             "list": Set {},
             "refs": Map {},
           },
-          "_conditions": Array [
+          "_blacklistError": undefined,
+          "_typeError": [Function],
+          "_whitelist": ReferenceSet {
+            "list": Set {},
+            "refs": Map {},
+          },
+          "_whitelistError": undefined,
+          "conditions": Array [
             Condition {
               "fn": [Function],
               "refs": Array [
@@ -234,20 +255,17 @@ exports[`AccountsInformationForm should match snapshot 1`] = `
               ],
             },
           ],
-          "_deps": Array [
+          "deps": Array [
             "hasReapitAccountsRef",
           ],
-          "_exclusive": Object {},
-          "_mutate": undefined,
-          "_options": Object {
+          "exclusiveTests": Object {},
+          "spec": Object {
             "abortEarly": true,
+            "nullable": false,
+            "presence": "optional",
             "recursive": true,
-          },
-          "_type": "string",
-          "_typeError": [Function],
-          "_whitelist": RefSet {
-            "list": Set {},
-            "refs": Map {},
+            "strict": false,
+            "strip": false,
           },
           "tests": Array [],
           "transforms": Array [
@@ -256,26 +274,31 @@ exports[`AccountsInformationForm should match snapshot 1`] = `
           "type": "string",
         },
         "status": StringSchema {
-          "_blacklist": RefSet {
+          "_blacklist": ReferenceSet {
             "list": Set {},
             "refs": Map {},
           },
-          "_conditions": Array [],
-          "_deps": Array [],
-          "_exclusive": Object {
+          "_blacklistError": undefined,
+          "_mutate": undefined,
+          "_typeError": [Function],
+          "_whitelist": ReferenceSet {
+            "list": Set {},
+            "refs": Map {},
+          },
+          "_whitelistError": undefined,
+          "conditions": Array [],
+          "deps": Array [],
+          "exclusiveTests": Object {
             "required": true,
             "trim": false,
           },
-          "_mutate": undefined,
-          "_options": Object {
+          "spec": Object {
             "abortEarly": true,
+            "nullable": false,
+            "presence": "required",
             "recursive": true,
-          },
-          "_type": "string",
-          "_typeError": [Function],
-          "_whitelist": RefSet {
-            "list": Set {},
-            "refs": Map {},
+            "strict": false,
+            "strip": false,
           },
           "tests": Array [
             [Function],
@@ -287,6 +310,14 @@ exports[`AccountsInformationForm should match snapshot 1`] = `
           ],
           "type": "string",
         },
+      },
+      "spec": Object {
+        "abortEarly": true,
+        "nullable": false,
+        "presence": "optional",
+        "recursive": true,
+        "strict": false,
+        "strip": false,
       },
       "tests": Array [],
       "transforms": Array [

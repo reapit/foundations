@@ -19,16 +19,12 @@ exports[` 1`] = `
     validateOnMount={true}
     validationSchema={
       ObjectSchema {
-        "_blacklist": RefSet {
+        "_blacklist": ReferenceSet {
           "list": Set {},
           "refs": Map {},
         },
-        "_conditions": Array [],
-        "_defaultDefault": [Function],
-        "_deps": Array [],
+        "_blacklistError": undefined,
         "_excludedEdges": Array [],
-        "_exclusive": Object {},
-        "_mutate": undefined,
         "_nodes": Array [
           "workPhone",
           "mobilePhone",
@@ -38,39 +34,43 @@ exports[` 1`] = `
           "forename",
           "title",
         ],
-        "_options": Object {
-          "abortEarly": true,
-          "recursive": true,
-        },
-        "_type": "object",
+        "_sortErrors": [Function],
         "_typeError": [Function],
-        "_whitelist": RefSet {
+        "_whitelist": ReferenceSet {
           "list": Set {},
           "refs": Map {},
         },
+        "_whitelistError": undefined,
+        "conditions": Array [],
+        "deps": Array [],
+        "exclusiveTests": Object {},
         "fields": Object {
           "email": StringSchema {
-            "_blacklist": RefSet {
+            "_blacklist": ReferenceSet {
               "list": Set {},
               "refs": Map {},
             },
-            "_conditions": Array [],
-            "_deps": Array [],
-            "_exclusive": Object {
+            "_blacklistError": undefined,
+            "_typeError": [Function],
+            "_whitelist": ReferenceSet {
+              "list": Set {},
+              "refs": Map {},
+            },
+            "_whitelistError": undefined,
+            "conditions": Array [],
+            "deps": Array [],
+            "exclusiveTests": Object {
               "email": false,
               "required": true,
               "trim": false,
             },
-            "_mutate": undefined,
-            "_options": Object {
+            "spec": Object {
               "abortEarly": true,
+              "nullable": false,
+              "presence": "required",
               "recursive": true,
-            },
-            "_type": "string",
-            "_typeError": [Function],
-            "_whitelist": RefSet {
-              "list": Set {},
-              "refs": Map {},
+              "strict": false,
+              "strip": false,
             },
             "tests": Array [
               [Function],
@@ -84,26 +84,31 @@ exports[` 1`] = `
             "type": "string",
           },
           "forename": StringSchema {
-            "_blacklist": RefSet {
+            "_blacklist": ReferenceSet {
               "list": Set {},
               "refs": Map {},
             },
-            "_conditions": Array [],
-            "_deps": Array [],
-            "_exclusive": Object {
+            "_blacklistError": undefined,
+            "_mutate": undefined,
+            "_typeError": [Function],
+            "_whitelist": ReferenceSet {
+              "list": Set {},
+              "refs": Map {},
+            },
+            "_whitelistError": undefined,
+            "conditions": Array [],
+            "deps": Array [],
+            "exclusiveTests": Object {
               "required": true,
               "trim": false,
             },
-            "_mutate": undefined,
-            "_options": Object {
+            "spec": Object {
               "abortEarly": true,
+              "nullable": false,
+              "presence": "required",
               "recursive": true,
-            },
-            "_type": "string",
-            "_typeError": [Function],
-            "_whitelist": RefSet {
-              "list": Set {},
-              "refs": Map {},
+              "strict": false,
+              "strip": false,
             },
             "tests": Array [
               [Function],
@@ -116,11 +121,18 @@ exports[` 1`] = `
             "type": "string",
           },
           "homePhone": StringSchema {
-            "_blacklist": RefSet {
+            "_blacklist": ReferenceSet {
               "list": Set {},
               "refs": Map {},
             },
-            "_conditions": Array [
+            "_blacklistError": undefined,
+            "_typeError": [Function],
+            "_whitelist": ReferenceSet {
+              "list": Set {},
+              "refs": Map {},
+            },
+            "_whitelistError": undefined,
+            "conditions": Array [
               Condition {
                 "fn": [Function],
                 "refs": Array [
@@ -145,22 +157,18 @@ exports[` 1`] = `
                 ],
               },
             ],
-            "_deps": Array [
+            "deps": Array [
               "mobilePhone",
               "workPhone",
             ],
-            "_exclusive": Object {},
-            "_mutate": undefined,
-            "_nullable": true,
-            "_options": Object {
+            "exclusiveTests": Object {},
+            "spec": Object {
               "abortEarly": true,
+              "nullable": true,
+              "presence": "optional",
               "recursive": true,
-            },
-            "_type": "string",
-            "_typeError": [Function],
-            "_whitelist": RefSet {
-              "list": Set {},
-              "refs": Map {},
+              "strict": false,
+              "strip": false,
             },
             "tests": Array [],
             "transforms": Array [
@@ -169,26 +177,31 @@ exports[` 1`] = `
             "type": "string",
           },
           "surname": StringSchema {
-            "_blacklist": RefSet {
+            "_blacklist": ReferenceSet {
               "list": Set {},
               "refs": Map {},
             },
-            "_conditions": Array [],
-            "_deps": Array [],
-            "_exclusive": Object {
+            "_blacklistError": undefined,
+            "_mutate": undefined,
+            "_typeError": [Function],
+            "_whitelist": ReferenceSet {
+              "list": Set {},
+              "refs": Map {},
+            },
+            "_whitelistError": undefined,
+            "conditions": Array [],
+            "deps": Array [],
+            "exclusiveTests": Object {
               "required": true,
               "trim": false,
             },
-            "_mutate": undefined,
-            "_options": Object {
+            "spec": Object {
               "abortEarly": true,
+              "nullable": false,
+              "presence": "required",
               "recursive": true,
-            },
-            "_type": "string",
-            "_typeError": [Function],
-            "_whitelist": RefSet {
-              "list": Set {},
-              "refs": Map {},
+              "strict": false,
+              "strip": false,
             },
             "tests": Array [
               [Function],
@@ -201,26 +214,31 @@ exports[` 1`] = `
             "type": "string",
           },
           "title": StringSchema {
-            "_blacklist": RefSet {
+            "_blacklist": ReferenceSet {
               "list": Set {},
               "refs": Map {},
             },
-            "_conditions": Array [],
-            "_deps": Array [],
-            "_exclusive": Object {
+            "_blacklistError": undefined,
+            "_mutate": undefined,
+            "_typeError": [Function],
+            "_whitelist": ReferenceSet {
+              "list": Set {},
+              "refs": Map {},
+            },
+            "_whitelistError": undefined,
+            "conditions": Array [],
+            "deps": Array [],
+            "exclusiveTests": Object {
               "required": true,
               "trim": false,
             },
-            "_mutate": undefined,
-            "_options": Object {
+            "spec": Object {
               "abortEarly": true,
+              "nullable": false,
+              "presence": "required",
               "recursive": true,
-            },
-            "_type": "string",
-            "_typeError": [Function],
-            "_whitelist": RefSet {
-              "list": Set {},
-              "refs": Map {},
+              "strict": false,
+              "strip": false,
             },
             "tests": Array [
               [Function],
@@ -232,6 +250,14 @@ exports[` 1`] = `
             ],
             "type": "string",
           },
+        },
+        "spec": Object {
+          "abortEarly": true,
+          "nullable": false,
+          "presence": "optional",
+          "recursive": true,
+          "strict": false,
+          "strip": false,
         },
         "tests": Array [],
         "transforms": Array [
