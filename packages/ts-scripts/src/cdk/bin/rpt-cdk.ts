@@ -8,10 +8,13 @@ const templatesDir = path.join(cwd, 'cdk.out')
 
 if (command) {
   try {
-    execSync(`yarn cdk ${command} --require-approval never --output=${templatesDir} -a "cd ${cwd} && yarn dlx ts-node ${scriptName}"`, {
-      stdio: 'inherit',
-      cwd: __dirname,
-    })
+    execSync(
+      `yarn cdk ${command} --require-approval never --output=${templatesDir} -a "cd ${cwd} && yarn dlx ts-node ${scriptName}"`,
+      {
+        stdio: 'inherit',
+        cwd: __dirname,
+      },
+    )
   } catch (e) {
     console.error(e)
     process.exit(1)

@@ -1,13 +1,11 @@
 import * as cdk from 'aws-cdk-lib'
-import {
-  aws_dynamodb as ddb,
-} from 'aws-cdk-lib'
+import { aws_dynamodb as ddb } from 'aws-cdk-lib'
 
 export const createTable = (
   scope: cdk.Stack,
   tableName: string,
   keyName: string,
-  globalSecondaryIndexes?: { indexName: string, partitionKeyName: string }[],
+  globalSecondaryIndexes?: { indexName: string; partitionKeyName: string }[],
 ): ddb.Table => {
   const table = new ddb.Table(scope, tableName, {
     partitionKey: {

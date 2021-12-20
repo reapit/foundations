@@ -3,7 +3,7 @@ import * as cdk from 'aws-cdk-lib'
 export const createBaseStack = ({
   namespace,
   appName,
-  component
+  component,
 }: {
   namespace: string
   appName: string

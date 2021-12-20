@@ -1,8 +1,5 @@
 import * as cdk from 'aws-cdk-lib'
-import { 
-  aws_s3 as s3,
-  aws_iam as iam
-} from 'aws-cdk-lib'
+import { aws_s3 as s3, aws_iam as iam } from 'aws-cdk-lib'
 
 const { ArnPrincipal, Effect, PolicyStatement } = iam
 

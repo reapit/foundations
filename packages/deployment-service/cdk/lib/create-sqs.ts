@@ -36,5 +36,3 @@ export const createSqsQueues = (stack: Stack): Record<QueueNames, Queue> => {
     return queues
   }, {} as any)
 }
-
-export type SQSQueue = Queue

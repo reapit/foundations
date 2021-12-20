@@ -9,10 +9,11 @@ import { createCodeBuildProject, getCodebuildSnsTopic } from '@reapit/ts-scripts
 import { PolicyStatement } from '@reapit/ts-scripts/src/cdk/components/iam-policy'
 import { createStackEventHandler } from '@reapit/ts-scripts/src/cdk/components/stack-event-handler'
 import { addLambdaSNSTrigger, addLambdaSQSTrigger } from '@reapit/ts-scripts/src/cdk/components/lambda-function'
+import { Queue } from '@reapit/ts-scripts/src/cdk/components/sqs-queue'
 
 import { createLambda } from './create-lambda'
 import { createS3Buckets } from './create-S3-bucket'
-import { createSqsQueues, QueueNames, SQSQueue } from './create-sqs'
+import { createSqsQueues, QueueNames } from './create-sqs'
 import { createPolicies } from './create-policies'
 
 export const databaseName = 'deployment_service'
@@ -30,7 +31,7 @@ type FunctionSetup = {
     headers: string[]
     authorizer?: boolean
   }
-  queue?: SQSQueue
+  queue?: Queue
   topic?: Topic
 }
 
