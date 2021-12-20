@@ -37,7 +37,7 @@ export function checkValidCustomScheme(url: string): boolean {
   return !!protocol && !!link
 }
 
-export function isValidUrlWithCustomScheme(urls: string): boolean {
+export function isValidUrlWithCustomScheme(urls?: string): boolean {
   if (!urls) {
     return false
   }

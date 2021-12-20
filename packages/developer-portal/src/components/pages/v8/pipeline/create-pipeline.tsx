@@ -26,7 +26,7 @@ import { IconContainer } from '../../webhooks/__styles__'
 import { WebhooksAnimatedNewIcon } from '../../webhooks/webhooks-animated-new-icon'
 import { WebhooksAnimatedDocsIcon } from '../../webhooks/webhooks-animated-docs-icon'
 import { ExternalPages, openNewPage } from '@/utils/navigation'
-import { mixed, object, string } from 'yup'
+import Yup, { mixed, object, string } from 'yup'
 import { AppTypeEnum, PackageManagerEnum, PipelineModelInterface } from '@reapit/foundations-ts-definitions'
 import { httpsUrlRegex, UpdateActionNames, updateActions } from '@reapit/utils-common'
 import { useForm } from 'react-hook-form'
@@ -55,15 +55,23 @@ interface PipelineCreationModalInterface {
   refreshPipeline: () => void
 }
 
+type PipelineModelSchema = Omit<
+  PipelineModelInterface,
+  'created' | 'modified' | 'id' | 'organisationId' | 'developerId' | 'appType' | 'appId' | 'buildStatus' | 'subDomain'
+>
+
 const PipelineCreationModal = ({ open, onModalClose, appId, refreshPipeline }: PipelineCreationModalInterface) => {
   const { connectSession } = useReapitConnect(reapitConnectBrowserSession)
-  const schema = object().shape<PipelineModelInterface>({
+  const schema: Yup.SchemaOf<PipelineModelSchema> = object().shape({
+    name: string().required(),
     repository: string()
       .trim()
       .required(errorMessages.FIELD_REQUIRED)
       .matches(httpsUrlRegex, 'Should be a secure https url'),
     buildCommand: string().trim().required('A build command is required'),
     packageManager: mixed().oneOf(Object.values(PackageManagerEnum)),
+    outDir: string().required(),
+    testCommand: string(),
   })
 
   const {

@@ -1,16 +1,14 @@
 import * as Yup from 'yup'
 import { letterNumberSpaceRegex } from '@reapit/elements-legacy'
 import { formFields } from './form-fields'
-import { WizardStep } from './types'
 import errorMessages from '@/constants/error-messages'
 import { isValidUrlWithCustomScheme } from '@/utils/validate'
-import { PartialRecord } from '@reapit/elements-legacy'
 
 const { FIELD_REQUIRED, FIELD_WRONG_URI_FORMAT, MAXIMUM_CHARACTER_LENGTH } = errorMessages
 
 const { signoutUrisField, redirectUrisField, nameField, scopesField } = formFields
 
-export const validationSchemas: PartialRecord<WizardStep, Yup.ObjectSchema> = {
+export const validationSchemas = {
   INPUT_APP_NAME: Yup.object().shape({
     [nameField.name]: Yup.string()
       .trim()
