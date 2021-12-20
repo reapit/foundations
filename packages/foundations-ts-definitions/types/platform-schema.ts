@@ -27,6 +27,14 @@ export interface ApplicantBuyingModel {
    * A list of property decoration requirements taken from the full listing of the associated department (unmodernised/fair/good/veryGood)
    */
   decoration?: string[]
+  /**
+   * The identifier of the applicant's buying reason
+   */
+  reasonId?: string
+  /**
+   * The identifier of the applicant's selling position
+   */
+  positionId?: string
 }
 /**
  * Representation of the physical address of a building or premise
@@ -339,6 +347,14 @@ export interface ApplicantModel {
    */
   notes?: string
   /**
+   * The applicant's selling status (preAppraisal/valuation/paidValuation/forSale/forSaleUnavailable/underOffer/underOfferUnavailable/reserved/exchanged/completed/soldExternally/withdrawn)
+   */
+  sellingStatus?: string
+  /**
+   * The applicant's selling position (nothingToSell/renting/sellingWithUs/sellingWithOtherAgent/sellingPrivately/notYetOnMarket)
+   */
+  sellingPosition?: string
+  /**
    * The date when the applicant was last contacted
    * example:
    * 2019-08-14
@@ -444,6 +460,14 @@ export interface ApplicantModel {
      * A list of property decoration requirements taken from the full listing of the associated department (unmodernised/fair/good/veryGood)
      */
     decoration?: string[]
+    /**
+     * The identifier of the applicant's buying reason
+     */
+    reasonId?: string
+    /**
+     * The identifier of the applicant's selling position
+     */
+    positionId?: string
   }
   /**
    * The details specific to applicants with a marketingMode of renting
@@ -475,6 +499,10 @@ export interface ApplicantModel {
      * A list of property furnishing requirements taken from the full listing of the associated department. Only applicable to applicants with a marketingMode of renting
      */
     furnishing?: string[]
+    /**
+     * The identifier of the applicant's renting position
+     */
+    positionId?: string
   }
   /**
    * The applicant's outdoor space requirements
@@ -673,6 +701,14 @@ export interface ApplicantModelPagedResult {
      */
     notes?: string
     /**
+     * The applicant's selling status (preAppraisal/valuation/paidValuation/forSale/forSaleUnavailable/underOffer/underOfferUnavailable/reserved/exchanged/completed/soldExternally/withdrawn)
+     */
+    sellingStatus?: string
+    /**
+     * The applicant's selling position (nothingToSell/renting/sellingWithUs/sellingWithOtherAgent/sellingPrivately/notYetOnMarket)
+     */
+    sellingPosition?: string
+    /**
      * The date when the applicant was last contacted
      * example:
      * 2019-08-14
@@ -778,6 +814,14 @@ export interface ApplicantModelPagedResult {
        * A list of property decoration requirements taken from the full listing of the associated department (unmodernised/fair/good/veryGood)
        */
       decoration?: string[]
+      /**
+       * The identifier of the applicant's buying reason
+       */
+      reasonId?: string
+      /**
+       * The identifier of the applicant's selling position
+       */
+      positionId?: string
     }
     /**
      * The details specific to applicants with a marketingMode of renting
@@ -809,6 +853,10 @@ export interface ApplicantModelPagedResult {
        * A list of property furnishing requirements taken from the full listing of the associated department. Only applicable to applicants with a marketingMode of renting
        */
       furnishing?: string[]
+      /**
+       * The identifier of the applicant's renting position
+       */
+      positionId?: string
     }
     /**
      * The applicant's outdoor space requirements
@@ -1005,6 +1053,10 @@ export interface ApplicantRentingModel {
    * A list of property furnishing requirements taken from the full listing of the associated department. Only applicable to applicants with a marketingMode of renting
    */
   furnishing?: string[]
+  /**
+   * The identifier of the applicant's renting position
+   */
+  positionId?: string
 }
 /**
  * An applicant's source of enquiry
