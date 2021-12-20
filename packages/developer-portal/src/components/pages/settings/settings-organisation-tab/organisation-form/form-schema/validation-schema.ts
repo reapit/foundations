@@ -92,7 +92,9 @@ export const companyInformationFormSchema = Yup.object().shape({
     message: notificationsEmailField.errorMessage,
     test: (value) => {
       if (!value) return true
-      return value.match(emailRegex)
+      const result = value.match(emailRegex)
+
+      return result !== null
     },
   }),
 })

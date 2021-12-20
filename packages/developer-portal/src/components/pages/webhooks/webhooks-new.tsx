@@ -23,7 +23,7 @@ import {
   updateWebhookCreateEditState,
 } from '../../../actions/webhooks-subscriptions'
 import { yupResolver } from '@hookform/resolvers/yup'
-import { boolean, object, string } from 'yup'
+import Yup, { boolean, object, string } from 'yup'
 import errorMessages from '../../../constants/error-messages'
 import { httpsUrlRegex } from '@reapit/utils-common'
 import { Dispatch as ReduxDispatch } from 'redux'
@@ -46,11 +46,11 @@ export interface CreateWebhookFormSchema {
   url: string
   topicIds: string
   customerIds: string
-  ignoreEtagOnlyChanges: boolean
-  active: boolean
+  ignoreEtagOnlyChanges?: boolean
+  active?: boolean
 }
 
-const schema = object().shape<CreateWebhookFormSchema>({
+const schema: Yup.SchemaOf<CreateWebhookFormSchema> = object().shape({
   applicationId: string().trim().required(errorMessages.FIELD_REQUIRED),
   url: string().trim().required(errorMessages.FIELD_REQUIRED).matches(httpsUrlRegex, 'Should be a secure https url'),
   topicIds: string().trim().required('At least one topic is required'),
