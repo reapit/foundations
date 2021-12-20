@@ -1,11 +1,13 @@
-import * as cdk from '@aws-cdk/core'
-import { Provider, ProviderProps } from '@aws-cdk/custom-resources'
-import { RetentionDays } from '@aws-cdk/aws-logs'
+import * as cdk from 'aws-cdk-lib'
+import {
+  custom_resources as customResources,
+  aws_logs as logs,
+} from 'aws-cdk-lib'
 
-export const createStackEventHandler = (scope: cdk.Stack, name: string, handler: ProviderProps['onEventHandler']): cdk.CustomResource => {
-  const resourceProvider = new Provider(scope, `${name}-rp`, {
+export const createStackEventHandler = (scope: cdk.Stack, name: string, handler: customResources.ProviderProps['onEventHandler']): cdk.CustomResource => {
+  const resourceProvider = new customResources.Provider(scope, `${name}-rp`, {
     onEventHandler: handler,
-    logRetention: RetentionDays.ONE_DAY,
+    logRetention: logs.RetentionDays.ONE_DAY,
   })
 
   return new cdk.CustomResource(scope, name, {

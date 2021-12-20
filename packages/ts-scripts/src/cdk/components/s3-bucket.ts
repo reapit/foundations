@@ -1,6 +1,10 @@
-import { ArnPrincipal, Effect, PolicyStatement } from '@aws-cdk/aws-iam'
-import * as s3 from '@aws-cdk/aws-s3'
-import * as cdk from '@aws-cdk/core'
+import * as cdk from 'aws-cdk-lib'
+import { 
+  aws_s3 as s3,
+  aws_iam as iam
+} from 'aws-cdk-lib'
+
+const { ArnPrincipal, Effect, PolicyStatement } = iam
 
 type BucketOptions = {
   public?: boolean

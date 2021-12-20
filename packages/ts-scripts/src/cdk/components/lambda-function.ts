@@ -1,13 +1,17 @@
-import * as cdk from '@aws-cdk/core'
-import * as lambda from '@aws-cdk/aws-lambda'
-import * as ec2 from '@aws-cdk/aws-ec2'
+import * as cdk from 'aws-cdk-lib'
+import {
+  aws_lambda as lambda,
+  aws_ec2 as ec2,
+  aws_lambda_event_sources as lambda_event_sources,
+  aws_sns_subscriptions as sns_subscriptions,
+  aws_logs as logs,
+} from 'aws-cdk-lib'
 
-import { SqsEventSource } from '@aws-cdk/aws-lambda-event-sources'
-import { LambdaSubscription } from '@aws-cdk/aws-sns-subscriptions'
+const { SqsEventSource } = lambda_event_sources
+const { LambdaSubscription } = sns_subscriptions
 
 import { Queue } from './sqs-queue'
 import { Topic } from './sns-topic'
-import { RetentionDays } from '@aws-cdk/aws-logs'
 
 export const createFunction = (
   scope: cdk.Stack,
@@ -25,7 +29,7 @@ export const createFunction = (
     vpc,
     code: typeof entry === 'string' ? lambda.Code.fromAsset(entry) : entry,
     runtime: lambda.Runtime.NODEJS_14_X,
-    logRetention: RetentionDays.ONE_MONTH,
+    logRetention: logs.RetentionDays.ONE_MONTH,
   })
 }
 

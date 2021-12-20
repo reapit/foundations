@@ -1,5 +1,7 @@
-import * as cdk from '@aws-cdk/core'
-import * as ddb from '@aws-cdk/aws-dynamodb'
+import * as cdk from 'aws-cdk-lib'
+import {
+  aws_dynamodb as ddb,
+} from 'aws-cdk-lib'
 
 export const createTable = (
   scope: cdk.Stack,

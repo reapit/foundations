@@ -1,13 +1,15 @@
-import { CognitoUserPoolsAuthorizer } from '@aws-cdk/aws-apigateway'
-import { UserPool } from '@aws-cdk/aws-cognito'
-import * as cdk from '@aws-cdk/core'
+import * as cdk from 'aws-cdk-lib'
+import {
+  aws_apigateway as apigateway,
+  aws_cognito as cognito,
+} from 'aws-cdk-lib'
 
-let authorizers = new Map<string, CognitoUserPoolsAuthorizer>()
+let authorizers = new Map<string, apigateway.CognitoUserPoolsAuthorizer>()
 
-export const getAuthorizer = (scope: cdk.Stack, userpoolId: string): CognitoUserPoolsAuthorizer => {
+export const getAuthorizer = (scope: cdk.Stack, userpoolId: string): apigateway.CognitoUserPoolsAuthorizer => {
   if (!authorizers.has(userpoolId)) {
-    authorizers.set(userpoolId, new CognitoUserPoolsAuthorizer(scope, 'authorizer', {
-      cognitoUserPools: [UserPool.fromUserPoolId(scope, 'user-pool-authorizer', userpoolId)],
+    authorizers.set(userpoolId, new apigateway.CognitoUserPoolsAuthorizer(scope, 'authorizer', {
+      cognitoUserPools: [cognito.UserPool.fromUserPoolId(scope, 'user-pool-authorizer', userpoolId)],
     }))
   }
   const authorizer = authorizers.get(userpoolId)

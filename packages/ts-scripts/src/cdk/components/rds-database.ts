@@ -1,8 +1,10 @@
-import * as rds from '@aws-cdk/aws-rds'
-import * as ec2 from '@aws-cdk/aws-ec2'
-import * as cdk from '@aws-cdk/core'
-import * as secretsmanager from '@aws-cdk/aws-secretsmanager'
-import { RetentionDays } from '@aws-cdk/aws-logs'
+import * as cdk from 'aws-cdk-lib'
+import {
+  aws_ec2 as ec2,
+  aws_rds as rds,
+  aws_secretsmanager as secretsmanager,
+  aws_logs as logs,
+} from 'aws-cdk-lib'
 
 export const createDatabase = (stack: cdk.Stack, name: string, databaseName: string, vpc: ec2.Vpc): rds.DatabaseCluster => {
   const db = new rds.DatabaseCluster(stack, name, {
@@ -11,7 +13,7 @@ export const createDatabase = (stack: cdk.Stack, name: string, databaseName: str
     instanceProps: {
       vpc,
     },
-    cloudwatchLogsRetention: RetentionDays.ONE_MONTH,
+    cloudwatchLogsRetention: logs.RetentionDays.ONE_MONTH,
   })
 
   db.connections.allowFromAnyIpv4(ec2.Port.allTcp())

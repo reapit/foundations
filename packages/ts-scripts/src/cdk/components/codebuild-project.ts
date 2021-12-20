@@ -1,7 +1,9 @@
-import * as codebuild from '@aws-cdk/aws-codebuild'
-import * as cdk from '@aws-cdk/core'
-import * as targets from '@aws-cdk/aws-events-targets'
-import { Rule } from '@aws-cdk/aws-events'
+import * as cdk from 'aws-cdk-lib'
+import {
+  aws_codebuild as codebuild,
+  aws_events_targets as targets,
+  aws_events as events,
+} from 'aws-cdk-lib'
 
 import { createSnsTopic, Topic } from './sns-topic'
 
@@ -23,7 +25,7 @@ export const createCodeBuildProject = (stack: cdk.Stack, name: string): codebuil
 export const getCodebuildSnsTopic = (stack: cdk.Stack): Topic => {
   const topic = createSnsTopic(stack, 'codebuild-sns-topic')
 
-  const rule = new Rule(stack, 'ccodebuild-sns-topic-rule', {
+  const rule = new events.Rule(stack, 'ccodebuild-sns-topic-rule', {
     eventPattern: {
       source: ['aws.codebuild'],
     },
