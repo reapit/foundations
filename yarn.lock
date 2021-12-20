@@ -11118,16 +11118,16 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@reapit/elements@npm:3.3.0":
-  version: 3.3.0
-  resolution: "@reapit/elements@npm:3.3.0"
+"@reapit/elements@npm:3.7.2":
+  version: 3.7.2
+  resolution: "@reapit/elements@npm:3.7.2"
   dependencies:
     "@linaria/core": ^3.0.0-beta.4
     "@linaria/react": ^3.0.0-beta.7
   peerDependencies:
     react: ^17.0.2
     react-dom: ^17.0.2
-  checksum: 2763e4805dc058b9e09be45ea6dc53fcf4c6b9be540f63a5bf3761f4eb7057aa834754de6401d5413313dd20123193abfc4e9f20327834ba9029d78a8b18007f
+  checksum: 268878dcaba71244156a02a45733828aafb9b22a9e5a6111882117fe6242ae9735067d8ce9aa56df92465b96d814d014d8cbac4cd92c3b253ebe280ebb18700e
   languageName: node
   linkType: hard
 
@@ -27060,7 +27060,7 @@ fsevents@^1.2.7:
   version: 0.0.0-use.local
   resolution: "geo-diary-marketing@workspace:packages/geo-diary-marketing"
   dependencies:
-    "@reapit/elements": 3.3.0
+    "@reapit/elements": 3.7.2
     "@sveltejs/adapter-static": next
     "@sveltejs/kit": next
     "@typescript-eslint/eslint-plugin": ^5.7.0
