@@ -86,7 +86,8 @@ export default async (req: AppRequest, res: Response) => {
       return res.status(HttpStatusCodeEnum.CONFLICT).json({ error: msg, code: HttpStatusCodeEnum.CONFLICT })
     }
 
-    res.status(HttpStatusCodeEnum.BAD_REQUEST).json({
+    res.status(HttpStatusCodeEnum.BAD_REQUEST)
+    res.json({
       error: `Bad request ${error}`,
       code: HttpStatusCodeEnum.BAD_REQUEST,
     })
