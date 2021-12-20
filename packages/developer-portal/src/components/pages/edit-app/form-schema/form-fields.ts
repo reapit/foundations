@@ -1,6 +1,6 @@
 import { FormFieldInfo } from '@reapit/utils-common'
 
-type Field =
+export type Field =
   | 'name'
   | 'categoryId'
   | 'telephone'

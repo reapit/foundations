@@ -28,7 +28,7 @@ import {
 } from '@reapit/elements'
 import { yupResolver } from '@hookform/resolvers/yup'
 import { useForm } from 'react-hook-form'
-import { object, string } from 'yup'
+import Yup, { object, string } from 'yup'
 import errorMessages from '../../../constants/error-messages'
 import { handleCollapseRow } from './webhooks-manage-form'
 import { WebhookCreateEditState } from '../../../reducers/webhooks-subscriptions/webhook-edit-modal'
@@ -90,7 +90,7 @@ export interface PingWebhookFormSchema {
   topicId: string
 }
 
-const schema = object().shape<PingWebhookFormSchema>({
+const schema: Yup.SchemaOf<PingWebhookFormSchema> = object().shape({
   topicId: string().trim().required(errorMessages.FIELD_REQUIRED),
 })
 
