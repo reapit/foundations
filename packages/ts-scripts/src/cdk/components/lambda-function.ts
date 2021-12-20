@@ -7,6 +7,7 @@ import { LambdaSubscription } from '@aws-cdk/aws-sns-subscriptions'
 
 import { Queue } from './sqs-queue'
 import { Topic } from './sns-topic'
+import { RetentionDays } from '@aws-cdk/aws-logs'
 
 export const createFunction = (
   scope: cdk.Stack,
@@ -24,6 +25,7 @@ export const createFunction = (
     vpc,
     code: typeof entry === 'string' ? lambda.Code.fromAsset(entry) : entry,
     runtime: lambda.Runtime.NODEJS_14_X,
+    logRetention: RetentionDays.ONE_MONTH,
   })
 }
 
