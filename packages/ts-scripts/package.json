@@ -6,6 +6,9 @@
   "bugs": {
     "url": "https://github.com/reapit/foundations/issues"
   },
+  "bin": {
+    "rpt-cdk": "./bin/rpt-cdk.js"
+  },
   "repository": {
     "type": "git",
     "url": "git+https://github.com/reapit/foundations.git"
@@ -17,15 +20,15 @@
     "start": "echo '...skipping...'",
     "test": "echo '...skipping...'",
     "build": "echo '...skipping...'",
-    "lint": "echo '...skipping...'",
+    "lint": "eslint --cache --ext=ts,tsx,js src --fix",
     "release": "echo '...skipping...'",
     "publish": "yarn npm publish  --access restricted",
     "conf": "echo '...skipping...'",
     "commit": "yarn lint"
   },
   "dependencies": {
-    "@babel/core": "^7.16.5",
-    "@babel/plugin-transform-runtime": "^7.16.5",
+    "@babel/core": "^7.14.6",
+    "@babel/plugin-transform-runtime": "^7.14.5",
     "@babel/polyfill": "^7.12.1",
     "@babel/preset-env": "^7.16.5",
     "@babel/preset-react": "^7.16.5",
@@ -41,10 +44,13 @@
     "@typescript-eslint/parser": "^5.7.0",
     "@wojtekmaj/enzyme-adapter-react-17": "^0.6.6",
     "autoprefixer": "^10.4.0",
+    "aws-cdk": "^2.2.0",
+    "aws-cdk-lib": "^2.2.0",
     "babel-jest": "27.4.5",
     "babel-loader": "^8.2.3",
     "babel-plugin-module-resolver": "^4.1.0",
     "concurrently": "^6.4.0",
+    "constructs": "^10.0.13",
     "copy-webpack-plugin": "10.1.0",
     "core-js": "^3.19.3",
     "cross-env": "^6.0.3",
@@ -89,6 +95,7 @@
     "style-loader": "^3.3.1",
     "ts-jest": "^27.1.1",
     "ts-loader": "^9.2.6",
+    "ts-node": "^10.4.0",
     "ts-paths-to-webpack-alias": "^0.3.1",
     "webpack": "^5.65.0",
     "webpack-cli": "^4.9.1",

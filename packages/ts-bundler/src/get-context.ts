@@ -40,7 +40,7 @@ export const getContext = (): Context => {
     .filter((file) => fs.statSync(path.resolve(outDir, file)).isDirectory())
 
   console.log('Creating tmp directory')
-  const tmpDir = fs.mkdtempSync([os.tmpdir(), mainModuleName.replaceAll('/', '-') + '-build-'].join(path.sep))
+  const tmpDir = fs.mkdtempSync([os.tmpdir(), mainModuleName.split('/').join('-') + '-build-'].join(path.sep))
   console.log(`Created tmp directory ${tmpDir}`)
 
   const { packagesRoot, repoRootLocation } = getWorkspaceRoot()

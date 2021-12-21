@@ -1,9 +1,4 @@
-import { Project } from '@aws-cdk/aws-codebuild'
-import { Effect, PolicyStatement } from '@aws-cdk/aws-iam'
-import { DatabaseCluster } from '@aws-cdk/aws-rds'
-import { Bucket } from '@aws-cdk/aws-s3'
-import { ISecret } from '@aws-cdk/aws-secretsmanager'
-import { Queue } from '@aws-cdk/aws-sqs'
+import { Project, ISecret, Effect, PolicyStatement, Bucket, Queue } from '@reapit/ts-scripts/cdk'
 import config from '../../config.json'
 
 export enum PolicyNames {
@@ -34,7 +29,6 @@ export const createPolicies = ({
   queues: { [s: string]: Queue }
   secretManager: ISecret
   codeBuild: Project
-  aurora: DatabaseCluster
 }): namedPolicyGroupType & namedPolicyType => {
   const S3BucketPolicy = new PolicyStatement({
     effect: Effect.ALLOW,
@@ -107,7 +101,7 @@ export const createPolicies = ({
     actions: ['codebuild:StartBuild'],
   })
 
-  const commonBackendPolicies = [lambdaInvoke, S3BucketPolicy, sqsPolicies, secretManagerPolicy]
+  const commonBackendPolicies = [lambdaInvoke, secretManagerPolicy, S3BucketPolicy, sqsPolicies]
 
   return {
     commonBackendPolicies,

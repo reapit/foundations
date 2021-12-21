@@ -1,6 +1,4 @@
-import { ArnPrincipal, Effect, PolicyStatement } from '@aws-cdk/aws-iam'
-import { Bucket } from '@aws-cdk/aws-s3'
-import { CdkStack } from './cdk-stack'
+import { Stack, Bucket, createBucket } from '@reapit/ts-scripts/cdk'
 
 export enum BucketNames {
   LIVE = 'cloud-deployment-live-dev',
@@ -8,7 +6,7 @@ export enum BucketNames {
   VERSION = 'cloud-deployment-version-dev',
 }
 
-export const createS3Buckets = (stack: CdkStack) => {
+export const createS3Buckets = (stack: Stack): Record<BucketNames, Bucket> => {
   const bucketOptions: {
     [k in BucketNames]: {
       public?: boolean
@@ -35,35 +33,7 @@ export const createS3Buckets = (stack: CdkStack) => {
 
   return (Object.keys(bucketOptions) as Array<BucketNames>).reduce<{ [k in BucketNames]: Bucket }>(
     (buckets, bucketName) => {
-      buckets[bucketName] = new Bucket(stack as any, bucketName, {
-        // bucketName,
-        publicReadAccess: bucketOptions[bucketName]?.public,
-        websiteIndexDocument: bucketOptions[bucketName]?.public ? 'index.html' : undefined,
-      })
-
-      if (bucketOptions[bucketName].get || bucketOptions[bucketName].list || bucketOptions[bucketName].put) {
-        const actions = []
-
-        if (bucketOptions[bucketName].get) {
-          actions.push('s3:Get*')
-        }
-        if (bucketOptions[bucketName].list) {
-          actions.push('s3:List*')
-        }
-        if (bucketOptions[bucketName].put) {
-          actions.push('s3:Put*')
-        }
-
-        buckets[bucketName].addToResourcePolicy(
-          new PolicyStatement({
-            effect: Effect.ALLOW,
-            actions,
-            resources: [buckets[bucketName].arnForObjects('*')],
-            principals: [new ArnPrincipal('*')],
-          }),
-        )
-      }
-
+      buckets[bucketName] = createBucket(stack, bucketName, bucketOptions[bucketName])
       return buckets
     },
     {} as any,
