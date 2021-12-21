@@ -1,4 +1,8 @@
-import { OnEventHandler, OnEventRequest, OnEventResponse } from '@aws-cdk/custom-resources/lib/provider-framework/types'
+import {
+  OnEventHandler,
+  OnEventRequest,
+  OnEventResponse,
+} from '@reapit/ts-scripts/src/cdk/components/stack-event-handler'
 import { connect } from './../core'
 
 export const migrationRun: OnEventHandler = async (event: OnEventRequest): Promise<OnEventResponse> => {

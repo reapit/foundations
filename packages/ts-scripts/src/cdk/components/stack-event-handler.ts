@@ -15,3 +15,5 @@ export const createStackEventHandler = (
     serviceToken: resourceProvider.serviceToken,
   })
 }
+
+export { OnEventHandler, OnEventRequest, OnEventResponse } from 'aws-cdk-lib/custom-resources/lib/provider-framework/types'
