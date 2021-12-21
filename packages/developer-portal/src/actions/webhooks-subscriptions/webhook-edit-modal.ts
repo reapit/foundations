@@ -39,8 +39,8 @@ export interface CreateWebhookParams {
   description?: string
   topicIds: string[]
   customerIds: string[]
-  ignoreEtagOnlyChanges: boolean
-  active: boolean
+  ignoreEtagOnlyChanges?: boolean
+  active?: boolean
 }
 
 export interface EditWebhookParams {
@@ -49,9 +49,9 @@ export interface EditWebhookParams {
   url: string
   description?: string
   topicIds: string[]
-  customerIds: string[]
-  ignoreEtagOnlyChanges: boolean
-  active: boolean
+  customerIds?: string[]
+  ignoreEtagOnlyChanges?: boolean
+  active?: boolean
 }
 
 export const requestWebhookSubcriptionData = actionCreator<string>(ActionTypes.WEBHOOK_EDIT_SUBCRIPTION_REQUEST_DATA)
