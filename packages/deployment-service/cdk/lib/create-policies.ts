@@ -1,9 +1,4 @@
-import { Project } from '@reapit/ts-scripts/src/cdk/components/codebuild-project'
-import { ISecret } from '@reapit/ts-scripts/src/cdk/components/rds-database'
-
-import { Effect, PolicyStatement } from '@reapit/ts-scripts/src/cdk/components/iam-policy'
-import { Bucket } from '@reapit/ts-scripts/src/cdk/components/s3-bucket'
-import { Queue } from '@reapit/ts-scripts/src/cdk/components/sqs-queue'
+import { Project, ISecret, Effect, PolicyStatement, Bucket, Queue } from '@reapit/ts-scripts/cdk'
 import config from '../../config.json'
 
 export enum PolicyNames {

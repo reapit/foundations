@@ -1,5 +1,4 @@
-import { Stack } from '@reapit/ts-scripts/src/cdk/components/stack'
-import { Bucket, createBucket } from '@reapit/ts-scripts/src/cdk/components/s3-bucket'
+import { Stack, Bucket, createBucket } from '@reapit/ts-scripts/cdk'
 
 export enum BucketNames {
   LIVE = 'cloud-deployment-live-dev',

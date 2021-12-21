@@ -1,6 +1,4 @@
-import { createFunction, Function } from '@reapit/ts-scripts/src/cdk/components/lambda-function'
-import { Vpc } from '@reapit/ts-scripts/src/cdk/components/vpc-network'
-import { Stack } from '@reapit/ts-scripts/src/cdk/components/stack'
+import { createFunction, Function, Vpc, Stack } from '@reapit/ts-scripts/cdk'
 
 import environment from '../../config.json'
 

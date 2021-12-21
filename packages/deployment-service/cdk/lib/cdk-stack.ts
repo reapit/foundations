@@ -1,15 +1,20 @@
 import * as path from 'path'
 
-import { Topic } from '@reapit/ts-scripts/src/cdk/components/sns-topic'
-import { addLambdaToApi, createApi } from '@reapit/ts-scripts/src/cdk/components/api-gateway-api'
-import { createBaseStack } from '@reapit/ts-scripts/src/cdk/components/stack'
-import { createVpc } from '@reapit/ts-scripts/src/cdk/components/vpc-network'
-import { createDatabase } from '@reapit/ts-scripts/src/cdk/components/rds-database'
-import { createCodeBuildProject, getCodebuildSnsTopic } from '@reapit/ts-scripts/src/cdk/components/codebuild-project'
-import { PolicyStatement } from '@reapit/ts-scripts/src/cdk/components/iam-policy'
-import { createStackEventHandler } from '@reapit/ts-scripts/src/cdk/components/stack-event-handler'
-import { addLambdaSNSTrigger, addLambdaSQSTrigger } from '@reapit/ts-scripts/src/cdk/components/lambda-function'
-import { Queue } from '@reapit/ts-scripts/src/cdk/components/sqs-queue'
+import {
+  Topic,
+  addLambdaToApi,
+  createApi,
+  createBaseStack,
+  createVpc,
+  createDatabase,
+  createCodeBuildProject,
+  getCodebuildSnsTopic,
+  PolicyStatement,
+  createStackEventHandler,
+  addLambdaSNSTrigger,
+  addLambdaSQSTrigger,
+  Queue,
+} from '@reapit/ts-scripts/cdk'
 
 import { createLambda } from './create-lambda'
 import { createS3Buckets } from './create-S3-bucket'

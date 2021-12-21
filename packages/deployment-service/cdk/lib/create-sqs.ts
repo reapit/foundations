@@ -1,5 +1,4 @@
-import { createSqsQueue, Queue } from '@reapit/ts-scripts/src/cdk/components/sqs-queue'
-import { Stack } from '@reapit/ts-scripts/src/cdk/components/stack'
+import { createSqsQueue, Queue, Stack } from '@reapit/ts-scripts/cdk'
 
 export enum QueueNames {
   CODEBUILD_EXECUTOR = 'CodebuildExecutor',

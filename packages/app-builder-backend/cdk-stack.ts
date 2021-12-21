@@ -1,10 +1,6 @@
 import 'source-map-support/register'
 
-import { createApi } from '@reapit/ts-scripts/src/cdk/components/api-gateway-api'
-import { createFunction } from '@reapit/ts-scripts/src/cdk/components/lambda-function'
-import { createTable } from '@reapit/ts-scripts/src/cdk/components/ddb-table'
-import { output } from '@reapit/ts-scripts/src/cdk/utils/output'
-import { createBaseStack } from '@reapit/ts-scripts/src/cdk/components/stack'
+import { createApi, createFunction, createTable, output, createBaseStack } from '@reapit/ts-scripts/cdk'
 
 export const createStack = () => {
   const namespace = 'cloud'
