@@ -1,4 +1,4 @@
-import { createFunction, Function, Vpc, Stack } from '@reapit/ts-scripts/cdk'
+import { createFunction, Function, Vpc, Stack } from '@reapit/ts-scripts/src/cdk'
 
 import environment from '../../config.json'
 

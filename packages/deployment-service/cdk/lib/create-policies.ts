@@ -1,4 +1,4 @@
-import { Project, ISecret, Effect, PolicyStatement, Bucket, Queue } from '@reapit/ts-scripts/cdk'
+import { Project, ISecret, Effect, PolicyStatement, Bucket, Queue } from '@reapit/ts-scripts/src/cdk'
 import config from '../../config.json'
 
 export enum PolicyNames {
