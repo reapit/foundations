@@ -74,7 +74,7 @@ export const bundle = () => {
   console.log('Copied root .yarnrc.yml to tmp directory')
 
   console.log(`Running yarn in ${tmpDir}`)
-  execSync(`cd ${tmpDir} && yarn`)
+  execSync(`cd ${tmpDir} && YARN_ENABLE_IMMUTABLE_INSTALLS=false yarn`)
   console.log(`Ran yarn in ${tmpDir}`)
 
   console.log('Removing .yarn directory')
