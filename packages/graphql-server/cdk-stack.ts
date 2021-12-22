@@ -4,7 +4,7 @@ import 'source-map-support/register'
 import path from 'path'
 import { execSync } from 'child_process'
 
-import { createApi, createFunction, createBaseStack, output } from '@reapit/ts-scripts/cdk'
+import { createApi, createFunction, createBaseStack, output } from '@reapit/ts-scripts/src/cdk'
 
 import config from './config.json'
 
