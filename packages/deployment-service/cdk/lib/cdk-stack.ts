@@ -14,7 +14,7 @@ import {
   addLambdaSNSTrigger,
   addLambdaSQSTrigger,
   Queue,
-} from '@reapit/ts-scripts/cdk'
+} from '@reapit/ts-scripts/src/cdk'
 
 import { createLambda } from './create-lambda'
 import { createS3Buckets } from './create-S3-bucket'

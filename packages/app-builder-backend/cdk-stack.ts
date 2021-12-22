@@ -1,6 +1,6 @@
 import 'source-map-support/register'
 
-import { createApi, createFunction, createTable, output, createBaseStack } from '@reapit/ts-scripts/cdk'
+import { createApi, createFunction, createTable, output, createBaseStack } from '@reapit/ts-scripts/src/cdk'
 
 export const createStack = () => {
   const namespace = 'cloud'
