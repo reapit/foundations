@@ -1,5 +1,5 @@
 <div class="container el-wscreen">
-  <div class="inner-container el-flex-container el-flex-column el-flex-align-center el-mxauto">
+  <div class="inner-container el-flex-container el-flex-column el-flex-align-center el-mx-auto">
     <h2 class="el-title el-text-center">Don’t Take Our Word for It</h2>
     <h4 class="el-subtitle el-text-center">See what others had to say...</h4>
     <div class="tile-container el-flex-container el-flex-wrap">
@@ -11,7 +11,7 @@
             </div>
             <div class="el-card-heading-wrap">
               <h5 class="el-subtitle">Steven Shepherd</h5>
-              <h6 class="el-card-sub-heading el-mb3">Owner</h6>
+              <h6 class="el-card-sub-heading el-mb5">Owner</h6>
               <h6 class="el-card-sub-heading-additional-expanded el-card-sub-heading-additional">Homes of Bath</h6>
             </div>
             <div class="quotes-container-mobile el-flex-container el-flex-align-center el-flex-justify-center">
@@ -34,7 +34,7 @@
             </div>
             <div class="el-card-heading-wrap">
               <h5 class="el-subtitle">Jessica Bichard</h5>
-              <h6 class="el-card-sub-heading el-mb3">Local Market Negotiator</h6>
+              <h6 class="el-card-sub-heading el-mb5">Local Market Negotiator</h6>
               <h6 class="el-card-sub-heading-additional-expanded el-card-sub-heading-additional">Swoffers</h6>
             </div>
             <div class="quotes-container-mobile el-flex-container el-flex-align-center el-flex-justify-center">
@@ -56,7 +56,7 @@
             </div>
             <div class="el-card-heading-wrap">
               <h5 class="el-subtitle">Marco Olival</h5>
-              <h6 class="el-card-sub-heading el-mb3">HUB & Business Development Manager</h6>
+              <h6 class="el-card-sub-heading el-mb5">HUB & Business Development Manager</h6>
               <h6 class="el-card-sub-heading-additional-expanded el-card-sub-heading-additional">
                 Bridges Estate Agents
               </h6>

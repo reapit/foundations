@@ -1,5 +1,5 @@
 <div class="container el-wscreen">
-  <div class="inner-container el-flex-container el-flex-column el-flex-align-center el-mxauto">
+  <div class="inner-container el-flex-container el-flex-column el-flex-align-center el-mx-auto">
     <div class="padded-container">
       <h2 class="el-title el-text-center">Compatibility</h2>
       <h5 class="el-subtitle el-text-center">Available on IOS, Windows, Mobile & Web</h5>
@@ -19,7 +19,7 @@
       />
     </div>
     <div class="column-container el-flex-container white-bg-container">
-      <div class="column el-flex-container el-flex-column el-px2">
+      <div class="column el-flex-container el-flex-column el-px4">
         <p class="el-body-text el-has-grey-text">
           <strong
             >The GEO Diary app is a progressive web application and can be saved and launched as an app on your phone,
@@ -27,7 +27,7 @@
           </strong>
         </p>
       </div>
-      <div class="column el-px2">
+      <div class="column el-px4">
         <p class="el-body-text el-has-grey-text">
           Supporting multiple platforms, you can access your weekly diary appointments in the office on a web browser or
           on the go on your mobile or tab.
