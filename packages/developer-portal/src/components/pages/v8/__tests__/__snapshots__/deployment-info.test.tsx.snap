@@ -1,0 +1,55 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Deployment info Should match snapshot 1`] = `
+<Fragment>
+  <PipelineInfo
+    pipeline={
+      Object {
+        "buildCommand": "build",
+        "buildStatus": "IN_PORGRESS",
+        "id": "pipelineId",
+        "outDir": "build",
+        "packageManager": "yarn",
+        "repository": "https://github.com/bashleigh/reapit-react-test",
+        "subDomain": "sub-domain",
+      }
+    }
+  />
+  <Title>
+    Deployments
+  </Title>
+  <ButtonGroup
+    className="ez8nkuq-el-mb6"
+  >
+    <Button
+      intent="primary"
+      loading={false}
+      onClick={[Function]}
+    >
+      Deploy
+    </Button>
+    <Button
+      intent="critical"
+      onClick={[Function]}
+    >
+      Deploy With Cli
+    </Button>
+  </ButtonGroup>
+  <PipelineDeploymentTable
+    channel={Object {}}
+    initialDeployments={null}
+    loading={false}
+    pipeline={
+      Object {
+        "buildCommand": "build",
+        "buildStatus": "IN_PORGRESS",
+        "id": "pipelineId",
+        "outDir": "build",
+        "packageManager": "yarn",
+        "repository": "https://github.com/bashleigh/reapit-react-test",
+        "subDomain": "sub-domain",
+      }
+    }
+  />
+</Fragment>
+`;

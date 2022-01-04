@@ -2,7 +2,7 @@ import { renderHook, act } from '@testing-library/react-hooks'
 import { useReapitUpdate } from '..'
 import { ReapitConnectBrowserSession, ReapitConnectSession } from '@reapit/connect-session'
 import { updateActions } from '@reapit/utils-common'
-import { send, ReapitUpdateState } from '../use-reapit-update'
+import { send, ReapitUpdateState, UpdateReturnTypeEnum } from '../use-reapit-update'
 
 const mockData = {
   someData: {
@@ -128,7 +128,7 @@ describe('useReapitUpdate', () => {
       useReapitUpdate<{}, typeof mockData>({
         reapitConnectBrowserSession,
         action: updateActions('local')['actionName'],
-        returnUpdatedModel: true,
+        returnType: UpdateReturnTypeEnum.RESPONSE,
       }),
     )
     expect(result.current[0]).toBeFalsy()
@@ -143,14 +143,14 @@ describe('useReapitUpdate', () => {
     await waitForNextUpdate()
 
     expect(mockFetcher).toHaveBeenCalledWith(...mockFetchParams)
-    expect(mockFetcher).toHaveBeenCalledTimes(3)
+    expect(mockFetcher).toHaveBeenCalledTimes(2)
     expect(mockError).not.toHaveBeenCalled()
 
     expect(result.current[1]).toEqual({ ...objectBody, updated: true })
     expect(result.current[0]).toEqual(false)
     expect(result.current[3]).toEqual(true)
 
-    expect(mockFetcher).toHaveBeenCalledTimes(3)
+    expect(mockFetcher).toHaveBeenCalledTimes(2)
   })
 
   describe('sendFunc', () => {
@@ -179,7 +179,7 @@ describe('useReapitUpdate', () => {
         setSuccess,
         action: updateActions('local')['actionName'],
         method: 'POST',
-        returnUpdatedModel: true,
+        returnType: UpdateReturnTypeEnum.RESPONSE,
         headers: {},
         error: null,
         connectSession: reapitConnectSession,

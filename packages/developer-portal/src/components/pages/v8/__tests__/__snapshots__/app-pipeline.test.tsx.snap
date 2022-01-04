@@ -2,9 +2,16 @@
 
 exports[`App Pipeline should match snapshot 1`] = `
 <Fragment>
-  <CreatePipeline
-    appId="12345"
-    refreshPipeline={[Function]}
-  />
+  <FlexContainer
+    isFlexAlignCenter={true}
+    isFlexJustifyCenter={true}
+  >
+    <div>
+      <BodyText>
+        Loading
+      </BodyText>
+      <Loader />
+    </div>
+  </FlexContainer>
 </Fragment>
 `;
