@@ -16,11 +16,17 @@ export type ReapitUpdateState<ParamsType, DataType> = [
 
 type AcceptedMethod = 'POST' | 'PUT' | 'PATCH' | 'DELETE'
 
+export enum UpdateReturnTypeEnum {
+  NONE = 'none',
+  LOCATION = 'location',
+  RESPONSE = 'response',
+}
+
 type ReapitUpdate = {
   reapitConnectBrowserSession: ReapitConnectBrowserSession
   action: UpdateAction
   method?: AcceptedMethod
-  returnUpdatedModel?: boolean
+  returnType?: UpdateReturnTypeEnum
   headers?: StringMap
   uriParams?: Object
 }
@@ -35,7 +41,7 @@ interface SendFunctionPropsInterface<DataType> {
   method: AcceptedMethod
   headers: StringMap
   error: string | null
-  returnUpdatedModel: boolean
+  returnType: UpdateReturnTypeEnum
   connectSession: null | ReapitConnectSession
   errorSnack: (text: string, timeout?: number) => void
   canCall: boolean
@@ -55,7 +61,7 @@ export const send =
     method,
     connectSession,
     headers,
-    returnUpdatedModel,
+    returnType,
     error,
     canCall,
   }: SendFunctionPropsInterface<DataType>): SendFunction<ParamsType> =>
@@ -85,33 +91,42 @@ export const send =
         body: JSON.stringify(params),
       })
 
-      if (!returnUpdatedModel) await setLoading(false)
+      let data
+      let location
+      let fetchResponse
 
-      if (returnUpdatedModel && error === null) {
-        const location = response.headers.get('Location')
-        if (!location) {
-          throw new Error('Location was not returned by server')
-        }
+      switch (returnType) {
+        case UpdateReturnTypeEnum.RESPONSE:
+          data = await response.json()
 
-        const fetchResponse = await fetch(location, {
-          headers: getHeaders,
-          method: 'GET',
-        })
+          Promise.all([setLoading(false), setSuccess(true), setData(data)])
+          break
+        case UpdateReturnTypeEnum.LOCATION:
+          location = response.headers.get('Location')
+          if (!location) {
+            throw new Error('Location was not returned by server')
+          }
 
-        const data = await fetchResponse.json()
+          fetchResponse = await fetch(location, {
+            headers: getHeaders,
+            method: 'GET',
+          })
 
-        await setLoading(false)
-        setSuccess(true)
-        setData(data)
-      } else {
-        setSuccess(true)
+          data = await fetchResponse.json()
+
+          Promise.all([setLoading(false), setSuccess(true), setData(data)])
+          break
+        case UpdateReturnTypeEnum.NONE:
+        default:
+          await setLoading(false)
+          setSuccess(true)
       }
+
       return true
-    } catch (error: any) {
-      errorSnack(error?.message)
-      await setLoading(false)
-      setSuccess(false)
-      setError(error.message)
+    } catch (exception: any) {
+      errorSnack(exception?.message || error)
+
+      await Promise.all([setLoading(false), setSuccess(false), setError(exception?.message || error)])
       return false
     }
   }
@@ -119,17 +134,17 @@ export const send =
 export const useReapitUpdate = <ParamsType, DataType>({
   action,
   method = 'POST',
-  returnUpdatedModel = false,
+  returnType = UpdateReturnTypeEnum.NONE,
   headers = {},
   uriParams,
   reapitConnectBrowserSession,
 }: ReapitUpdate): ReapitUpdateState<ParamsType, DataType> => {
   const [loading, setLoading] = useAsyncState<boolean>(false)
-  const [error, setError] = useState<string | null>(null)
+  const [error, setError] = useAsyncState<string | null>(null)
   const { connectSession } = useReapitConnect(reapitConnectBrowserSession)
   const [data, setData] = useState<DataType>()
   const { error: errorSnack } = useSnack()
-  const [success, setSuccess] = useState<undefined | boolean>(undefined)
+  const [success, setSuccess] = useAsyncState<undefined | boolean>(undefined)
   const [canCall, setCanCall] = useState<boolean>(connectSession !== null)
 
   useEffect(() => setCanCall(true), [connectSession])
@@ -145,7 +160,7 @@ export const useReapitUpdate = <ParamsType, DataType>({
     connectSession,
     action,
     method,
-    returnUpdatedModel,
+    returnType,
     error,
     canCall,
   })

@@ -2,13 +2,15 @@ import { PipelineModelInterface } from '@reapit/foundations-ts-definitions'
 import { useReapitGet } from '@reapit/utils-react'
 import React from 'react'
 import { CreatePipeline } from './create-pipeline'
-import { PipelineDeploymentInfo } from './deployment-info'
 import { reapitConnectBrowserSession } from '../../../../core/connect-session'
 import { GetActionNames, getActions } from '@reapit/utils-common'
 import { BodyText, FlexContainer, Loader } from '@reapit/elements'
 import { useReapitConnect } from '@reapit/connect-session'
+import { PusherProvider } from '@harelpls/use-pusher'
+import { URLS, COGNITO_HEADERS } from '../../../../constants/api'
+import { PipelineWrapper } from './pipeline-info-wrapper'
 
-export const AppPipeline = ({ appId }: { appId: string }) => {
+export const AppPipeline: React.FC<{ appId: string }> = ({ appId }) => {
   const { connectSession } = useReapitConnect(reapitConnectBrowserSession)
   const [pipeline, loading, , refresh] = useReapitGet<PipelineModelInterface>({
     reapitConnectBrowserSession,
@@ -22,7 +24,7 @@ export const AppPipeline = ({ appId }: { appId: string }) => {
 
   return (
     <>
-      {loading ? (
+      {loading || !connectSession ? (
         <FlexContainer isFlexJustifyCenter isFlexAlignCenter>
           <div>
             <BodyText>Loading</BodyText>
@@ -32,9 +34,19 @@ export const AppPipeline = ({ appId }: { appId: string }) => {
       ) : !pipeline ? (
         <CreatePipeline refreshPipeline={refresh} appId={appId} />
       ) : (
-        <>
-          <PipelineDeploymentInfo pipeline={pipeline} />
-        </>
+        <PusherProvider
+          cluster="eu"
+          clientKey={window.reapit.config.PUSHER_KEY}
+          authEndpoint={`${URLS.DEPLOYMENT_SERVICE_HOST}/pusher/auth`}
+          auth={{
+            headers: {
+              ...COGNITO_HEADERS,
+              Authorization: connectSession?.idToken,
+            },
+          }}
+        >
+          <PipelineWrapper initialPipeline={pipeline} connection={connectSession} />
+        </PusherProvider>
       )}
     </>
   )

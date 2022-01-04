@@ -13,3 +13,7 @@ export const SANDBOX_CLIENT = {
 }
 
 export const COGNITO_GROUP_DEVELOPER_EDITION = 'AgencyCloudDeveloperEdition'
+
+export const URLS: { [s: string]: string } = {
+  DEPLOYMENT_SERVICE_HOST: window.reapit.config.DEPLOYMENT_SERVICE_HOST,
+}

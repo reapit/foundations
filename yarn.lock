@@ -5604,6 +5604,19 @@ __metadata:
   languageName: node
   linkType: hard
 
+"@harelpls/use-pusher@npm:^7.2.1":
+  version: 7.2.1
+  resolution: "@harelpls/use-pusher@npm:7.2.1"
+  dependencies:
+    dequal: ^2.0.1
+    invariant: ^2.2.4
+    pusher-js: ^7.0.0
+  peerDependencies:
+    react: ^16.9.0
+  checksum: 3684a6e084b2deecb83ae2735c079c3456a349f0aa4735f7467cba16202c0f50eeaf39c58f235b63c39fff8307108dc6058d7c7a8c682600fc0f4205de8581a1
+  languageName: node
+  linkType: hard
+
 "@homeservenow/serverless-aws-handler@npm:^0.2.4":
   version: 0.2.4
   resolution: "@homeservenow/serverless-aws-handler@npm:0.2.4"
@@ -20146,7 +20159,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"dequal@npm:2.0.2":
+"dequal@npm:2.0.2, dequal@npm:^2.0.1":
   version: 2.0.2
   resolution: "dequal@npm:2.0.2"
   checksum: 86c7a2c59f7b0797ed397c74b5fcdb744e48fc19440b70ad6ac59f57550a96b0faef3f1cfd5760ec5e6d3f7cb101f634f1f80db4e727b1dc8389bf62d977c0a0
@@ -20239,6 +20252,7 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "developer-portal@workspace:packages/developer-portal"
   dependencies:
+    "@harelpls/use-pusher": ^7.2.1
     "@hookform/resolvers": ^2.8.5
     "@linaria/core": ^3.0.0-beta.15
     "@linaria/react": ^3.0.0-beta.15
@@ -35343,7 +35357,7 @@ fsevents@^1.2.7:
   languageName: node
   linkType: hard
 
-"pusher-js@npm:^7.0.3":
+"pusher-js@npm:^7.0.0, pusher-js@npm:^7.0.3":
   version: 7.0.3
   resolution: "pusher-js@npm:7.0.3"
   dependencies:
