@@ -1,5 +1,4 @@
 import qs from 'query-string'
-import logger from '../../logger'
 import { ServerContext } from '../../utils'
 import {
   GetContactByIdArgs,
@@ -19,7 +18,6 @@ import { getIdFromCreateHeaders } from '../../utils/get-id-from-create-headers'
 
 export const callGetContactByIdAPI = async (args: GetContactByIdArgs, context: ServerContext): GetContactByIdReturn => {
   const traceId = context.traceId
-  logger.info('callGetContactByIdAPI', { traceId, args })
   try {
     const { id, ...rest } = args
     const params = qs.stringify(rest as Record<string, string>)
@@ -37,7 +35,6 @@ export const callGetContactByIdAPI = async (args: GetContactByIdArgs, context: S
 
 export const callGetContactsAPI = async (args: GetContactsArgs, context: ServerContext): GetContactsReturn => {
   const traceId = context.traceId
-  logger.info('callGetContactsAPI', { args, traceId })
   try {
     const params = qs.stringify(args)
     const response = await createPlatformAxiosInstance().get<GetContactsReturn>(`${URLS.contacts}?${params}`, {
@@ -54,7 +51,6 @@ export const callGetContactsAPI = async (args: GetContactsArgs, context: ServerC
 
 export const callCreateContactAPI = async (args: CreateContactArgs, context: ServerContext): CreateContactReturn => {
   const traceId = context.traceId
-  logger.info('callCreateContactAPI', { traceId, args })
   try {
     const response = await createPlatformAxiosInstance().post<CreateContactReturn>(URLS.contacts, args, {
       headers: {
@@ -74,7 +70,6 @@ export const callCreateContactAPI = async (args: CreateContactArgs, context: Ser
 
 export const callUpdateContactAPI = async (args: UpdateContactArgs, context: ServerContext): UpdateContactReturn => {
   const traceId = context.traceId
-  logger.info('callUpdateContactAPI', { traceId, args })
   try {
     const { _eTag, ...payload } = args
     const updateResponse = await createPlatformAxiosInstance().patch<UpdateContactReturn>(

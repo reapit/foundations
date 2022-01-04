@@ -1,6 +1,5 @@
 import qs from 'query-string'
 import { createPlatformAxiosInstance } from '../../utils/axios-instances'
-import logger from '../../logger'
 import { ServerContext } from '../../utils'
 import {
   GetNegotiatorByIdArgs,
@@ -22,7 +21,6 @@ export const callGetNegotiatorByIdAPI = async (
   context: ServerContext,
 ): GetNegotiatorByIdReturn => {
   const traceId = context.traceId
-  logger.info('callGetNegotiatorByIdAPI', { traceId, args })
   try {
     const { id, ...rest } = args
     const params = qs.stringify(rest as Record<string, string>)
@@ -43,7 +41,6 @@ export const callGetNegotiatorByIdAPI = async (
 
 export const callGetNegotiatorsAPI = async (args: GetNegotiatorsArgs, context: ServerContext): GetNegotiatorsReturn => {
   const traceId = context.traceId
-  logger.info('callGetNegotiatorsAPI', { args, traceId })
   try {
     const params = qs.stringify(args)
     const response = await createPlatformAxiosInstance().get<GetNegotiatorsReturn>(`${URLS.negotiators}?${params}`, {
@@ -63,7 +60,6 @@ export const callCreateNegotiatorAPI = async (
   context: ServerContext,
 ): CreateNegotiatorReturn => {
   const traceId = context.traceId
-  logger.info('callCreateNegotiatorAPI', { traceId, args })
   try {
     const response = await createPlatformAxiosInstance().post<CreateNegotiatorReturn>(URLS.negotiators, args, {
       headers: {
@@ -86,7 +82,6 @@ export const callUpdateNegotiatorAPI = async (
   context: ServerContext,
 ): UpdateNegotiatorReturn => {
   const traceId = context.traceId
-  logger.info('callUpdateNegotiatorAPI', { traceId, args })
   try {
     const { _eTag, ...payload } = args
     const updateResponse = await createPlatformAxiosInstance().patch<CreateNegotiatorReturn>(

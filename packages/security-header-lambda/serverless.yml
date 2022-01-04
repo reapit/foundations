@@ -4,6 +4,7 @@ plugins:
   - serverless-offline
   - serverless-deployment-bucket
   - serverless-lambda-edge-pre-existing-cloudfront
+  - serverless-plugin-log-retention
 
 custom:
   env: ${file(./config.json)}
@@ -15,6 +16,7 @@ custom:
       noFrozenLockFile: false
     excludeFiles: src/**/*.test.ts
     keepOutputDirectory: true
+  logRetentionInDays: 30
 
 provider:
   name: aws

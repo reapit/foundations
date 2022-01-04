@@ -10,11 +10,8 @@ import { HttpStatusCodeEnum } from '@/types/http.status.enum'
 
 export default async (req: AppRequest, res: Response) => {
   const eventId = req.body.eventId as string | undefined
-  const { traceId } = req
 
   try {
-    logger.info('Updating status by statusId...', { traceId, eventId })
-
     const itemToGet = generateStatusItem({ eventId })
     await db.get(itemToGet)
 

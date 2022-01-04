@@ -20,9 +20,10 @@ export const createFunction = (
   handler: string,
   environment?: Record<string, string>,
   vpc?: ec2.Vpc,
+  duration?: number,
 ): lambda.Function => {
   return new lambda.Function(scope, functionName, {
-    timeout: cdk.Duration.seconds(30),
+    timeout: cdk.Duration.seconds(duration || 30),
     environment,
     memorySize: 1024,
     handler,

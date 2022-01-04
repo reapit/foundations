@@ -53,7 +53,6 @@ describe('createConfig', () => {
 
     await createConfig(mockReq as AppRequest, mockRes as Response)
 
-    expect(logger.info).toHaveBeenCalledTimes(1)
     expect(createConfigValue).toHaveBeenCalledWith(`${MOCK_CLIENT_CODE}/${SSM_KEY}`, mockConfigValue)
     expect(mockRes.status).toHaveBeenCalledWith(200)
     expect(mockRes.send).toHaveBeenCalledWith({ response: 'Config saved' })
@@ -73,7 +72,6 @@ describe('createConfig', () => {
 
     await createConfig(mockReq as AppRequest, mockRes as Response)
 
-    expect(logger.info).toHaveBeenCalledTimes(0)
     expect(createConfigValue).toHaveBeenCalledTimes(0)
     expect(logger.error).toHaveBeenCalledTimes(1)
     expect(mockRes.status).toHaveBeenCalledWith(400)

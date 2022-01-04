@@ -1,4 +1,3 @@
-import logger from '../../logger'
 import { ServerContext } from '../../utils'
 import {
   GetConfigurationByTypeAndIdReturn,
@@ -15,7 +14,6 @@ export const callGetConfigurationsByTypeAndIdApi = async (
   context: ServerContext,
 ): GetConfigurationByTypeAndIdReturn => {
   const traceId = context.traceId
-  logger.info('callGetConfigurationsByTypeAndIdApi', { traceId })
   try {
     const response = await createPlatformAxiosInstance().get<GetConfigurationByTypeAndIdReturn>(
       `${URLS.configurations}/${type}/${id}`,
@@ -37,7 +35,6 @@ export const callGetConfigurationsByTypeApi = async (
   context: ServerContext,
 ): GetConfigurationsByTypeReturn => {
   const traceId = context.traceId
-  logger.info('callGetConfigurationsByTypeApi', { traceId })
   try {
     const response = await createPlatformAxiosInstance().get<GetConfigurationsByTypeReturn>(
       `${URLS.configurations}/${type}`,

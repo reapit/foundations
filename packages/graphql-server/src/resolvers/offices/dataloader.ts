@@ -1,7 +1,6 @@
 import DataLoader from 'dataloader'
 import { getOffices } from './services'
 import { ServerContext } from '@/utils'
-import logger from '@/logger'
 import handleError from '@/utils/handle-error'
 import { OfficeModelPagedResult, OfficeModel } from '@reapit/foundations-ts-definitions'
 
@@ -10,7 +9,6 @@ export const generateOfficeBatchLoaderFn = (context: ServerContext) => async (ke
     return []
   }
   const traceId = context.traceId
-  logger.info('generateOfficeBatchLoaderFn', { traceId })
   try {
     const officesResult = (await getOffices({ id: keys }, context)) as OfficeModelPagedResult
     const result = keys.map((key: string) => {

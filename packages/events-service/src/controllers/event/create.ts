@@ -61,11 +61,10 @@ export default async (req: AppRequest, res: Response) => {
   const { event } = payload
 
   try {
-    logger.info('Create new event from webbook...', { traceId, payload })
     const newEventStatusItem = await writeNewEventStatus(event)
-    logger.info('Created event-status successfully.', { traceId, newEventStatusItem })
     logger.info(`Search for automation: clientCode: ${event.customerId}, eventType: ${event.type}`, {
       traceId,
+      newEventStatusItem,
     })
     const automation = await findRelevantAutomation(event)
 
@@ -87,7 +86,8 @@ export default async (req: AppRequest, res: Response) => {
       return res.status(HttpStatusCodeEnum.CONFLICT).json({ error: msg, code: HttpStatusCodeEnum.CONFLICT })
     }
 
-    res.status(HttpStatusCodeEnum.BAD_REQUEST).json({
+    res.status(HttpStatusCodeEnum.BAD_REQUEST)
+    res.json({
       error: `Bad request ${error}`,
       code: HttpStatusCodeEnum.BAD_REQUEST,
     })

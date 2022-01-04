@@ -1,5 +1,4 @@
 import qs from 'query-string'
-import logger from '../../logger'
 import { ServerContext } from '../../utils'
 import {
   CreateOfferArgs,
@@ -19,7 +18,6 @@ import { getIdFromCreateHeaders } from '../../utils/get-id-from-create-headers'
 
 export const callGetOfferByIdAPI = async (args: GetOfferByIdArgs, context: ServerContext): GetOfferByIdReturn => {
   const traceId = context.traceId
-  logger.info('callGetOfferByIdAPI', { traceId, args })
   try {
     const { id, ...rest } = args
     const params = qs.stringify(rest as Record<string, string>)
@@ -37,7 +35,6 @@ export const callGetOfferByIdAPI = async (args: GetOfferByIdArgs, context: Serve
 
 export const callGetOffersAPI = async (args: GetOffersArgs, context: ServerContext): GetOffersReturn => {
   const traceId = context.traceId
-  logger.info('callGetOffersAPI', { args, traceId })
   try {
     const params = qs.stringify(args)
     const response = await createPlatformAxiosInstance().get<GetOffersReturn>(`${URLS.offers}?${params}`, {
@@ -54,7 +51,6 @@ export const callGetOffersAPI = async (args: GetOffersArgs, context: ServerConte
 
 export const callCreateOfferAPI = async (args: CreateOfferArgs, context: ServerContext): CreateOfferReturn => {
   const traceId = context.traceId
-  logger.info('callCreateOfferAPI', { traceId, args })
   try {
     const response = await createPlatformAxiosInstance().post<CreateOfferReturn>(URLS.offers, args, {
       headers: {
@@ -74,7 +70,6 @@ export const callCreateOfferAPI = async (args: CreateOfferArgs, context: ServerC
 
 export const callUpdateOfferAPI = async (args: UpdateOfferArgs, context: ServerContext): UpdateOfferReturn => {
   const traceId = context.traceId
-  logger.info('callUpdateOfferAPI', { traceId, args })
   try {
     const { _eTag, ...payload } = args
     const updateResponse = await createPlatformAxiosInstance().patch<UpdateOfferReturn>(

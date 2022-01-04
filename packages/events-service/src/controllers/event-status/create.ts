@@ -16,11 +16,8 @@ type Payload = {
 
 export default async (req: AppRequest, res: Response) => {
   const payload = req.body as Payload
-  const { traceId } = req
 
   try {
-    logger.info('Create new status...', { traceId, payload })
-
     if (req.user?.clientCode !== payload.clientCode) {
       res.status(HttpStatusCodeEnum.UNAUTHORIZED)
       return res.json({
@@ -39,8 +36,6 @@ export default async (req: AppRequest, res: Response) => {
         conditions: [new FunctionExpression('attribute_not_exists', new AttributePath('eventId'))],
       },
     })
-
-    logger.info('Created event status successfully', { traceId, result })
 
     res.status(HttpStatusCodeEnum.CREATED)
     return res.json(result)

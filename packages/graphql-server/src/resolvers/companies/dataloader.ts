@@ -2,7 +2,6 @@ import DataLoader from 'dataloader'
 import { getCompanies } from './services'
 import { ServerContext } from '@/utils'
 import { CompanyModel, CompanyModelPagedResult } from '@reapit/foundations-ts-definitions'
-import logger from '@/logger'
 import handleError from '@/utils/handle-error'
 
 export const generateCompanyBatchLoaderFn = (context: ServerContext) => async (keys: string[]) => {
@@ -10,7 +9,6 @@ export const generateCompanyBatchLoaderFn = (context: ServerContext) => async (k
     return []
   }
   const traceId = context.traceId
-  logger.info('generateCompanyBatchLoaderFn', { traceId })
   try {
     const companiesResult = (await getCompanies({ id: keys }, context)) as CompanyModelPagedResult
     const result = keys.map((key: string) => {

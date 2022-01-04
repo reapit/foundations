@@ -40,8 +40,6 @@ export default async (req: AppRequest, res: Response) => {
   const { traceId, user } = req
 
   try {
-    logger.info('Retrieve decorated events...', { traceId, query })
-
     const accessToken = req.header('x-access-token')
 
     const decoratedEventsInstance = new DecoratedEvents(traceId, accessToken)

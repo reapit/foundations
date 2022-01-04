@@ -51,7 +51,6 @@ describe('fetchConfig', () => {
 
     await fetchConfig(mockReq as AppRequest, mockRes as Response)
 
-    expect(logger.info).toHaveBeenCalledTimes(1)
     expect(fetchConfigValue).toHaveBeenCalledWith(`${MOCK_CLIENT_CODE}/${SSM_KEY}`)
     expect(mockRes.status).toHaveBeenCalledWith(200)
   })
@@ -70,7 +69,6 @@ describe('fetchConfig', () => {
 
     await fetchConfig(mockReq as AppRequest, mockRes as Response)
 
-    expect(logger.info).toHaveBeenCalledTimes(0)
     expect(fetchConfigValue).toHaveBeenCalledTimes(0)
     expect(logger.error).toHaveBeenCalledTimes(1)
     expect(mockRes.status).toHaveBeenCalledWith(400)

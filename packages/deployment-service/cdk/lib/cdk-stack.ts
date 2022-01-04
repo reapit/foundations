@@ -400,6 +400,7 @@ export const createStack = () => {
       handler: options.handler,
       env,
       vpc,
+      duration: options.timeout,
     })
     options.policies.forEach((policy) => lambda.addToRolePolicy(policy))
 

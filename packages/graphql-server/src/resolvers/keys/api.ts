@@ -1,4 +1,3 @@
-import logger from '../../logger'
 import { ServerContext } from '../../utils'
 import {
   CreateKeyArgs,
@@ -27,7 +26,6 @@ export const callGetPropertyKeysAPI = async (
   context: ServerContext,
 ): GetPropertyKeysReturn => {
   const traceId = context.traceId
-  logger.info('callGetPropertyKeysAPI', { traceId, args })
   try {
     const { propertyId } = args
     const response = await createPlatformAxiosInstance().get<GetPropertyKeysReturn>(
@@ -47,7 +45,6 @@ export const callGetPropertyKeysAPI = async (
 
 export const callGetKeyAPI = async (args: GetKeyArgs, context: ServerContext): GetKeyReturn => {
   const traceId = context.traceId
-  logger.info('callGetKeyAPI', { args, traceId })
   try {
     const { propertyId, keyId } = args
     const response = await createPlatformAxiosInstance().get<GetKeyReturn>(
@@ -67,7 +64,6 @@ export const callGetKeyAPI = async (args: GetKeyArgs, context: ServerContext): G
 
 export const callCreateKeyAPI = async (args: CreateKeyArgs, context: ServerContext): CreateKeyReturn => {
   const traceId = context.traceId
-  logger.info('callCreateKeyAPI', { traceId, args })
   const { propertyId, key } = args
   try {
     const response = await createPlatformAxiosInstance().post<CreateKeyReturn>(
@@ -95,7 +91,6 @@ export const callGetKeyMovementsAPI = async (
   context: ServerContext,
 ): GetKeyMovementsReturn => {
   const traceId = context.traceId
-  logger.info('callGetKeyMovementsAPI', { args, traceId })
   try {
     const { propertyId, keyId } = args
     const response = await createPlatformAxiosInstance().get<GetKeyMovementsReturn>(
@@ -115,7 +110,6 @@ export const callGetKeyMovementsAPI = async (
 
 export const callGetKeyMovementAPI = async (args: GetKeyMovementArgs, context: ServerContext): GetKeyMovementReturn => {
   const traceId = context.traceId
-  logger.info('callGetKeyMovementsAPI', { args, traceId })
   try {
     const { propertyId, keyId, movementId } = args
     const response = await createPlatformAxiosInstance().get<GetKeyMovementReturn>(
@@ -138,7 +132,6 @@ export const callCreateKeyMovementAPI = async (
   context: ServerContext,
 ): CreateKeyMovementReturn => {
   const traceId = context.traceId
-  logger.info('callCreateKeyMovementAPI', { args, traceId })
   try {
     const { propertyId, keyId, movement } = args
     const response = await createPlatformAxiosInstance().post<GetKeyMovementReturn>(
@@ -165,7 +158,6 @@ export const callUpdateKeyMovementAPI = async (
   context: ServerContext,
 ): UpdateKeyMovementReturn => {
   const traceId = context.traceId
-  logger.info('callUpdateKeyMovementAPI', { traceId, args })
   try {
     const { propertyId, keyId, movementId, ...rest } = args
     const updateResponse = await createPlatformAxiosInstance().put<UpdateKeyMovementReturn>(

@@ -15,7 +15,6 @@ import errors from '../../errors'
 
 import { createPlatformAxiosInstance } from '../../utils/axios-instances'
 import { ServerContext } from '../../utils'
-import logger from '../../logger'
 import { URLS } from '../../constants/api'
 import { handleError } from '../../utils/handle-error'
 import { getIdFromCreateHeaders } from '../../utils/get-id-from-create-headers'
@@ -25,7 +24,6 @@ export const callGetDocumentByIdAPI = async (
   context: ServerContext,
 ): GetDocumentByIdReturn => {
   const traceId = context.traceId
-  logger.info('callGetDocumentByIdAPI', { traceId, args })
   try {
     const { id, ...rest } = args
     const params = qs.stringify(rest as Record<string, string>)
@@ -46,7 +44,6 @@ export const callGetDocumentByIdAPI = async (
 
 export const callGetDocumentsAPI = async (args: GetDocumentsArgs, context: ServerContext): GetDocumentsReturn => {
   const traceId = context.traceId
-  logger.info('callGetDocumentsAPI', { args, traceId })
   try {
     const params = qs.stringify(args)
     const response = await createPlatformAxiosInstance().get<GetDocumentsReturn>(`${URLS.documents}?${params}`, {
@@ -63,7 +60,6 @@ export const callGetDocumentsAPI = async (args: GetDocumentsArgs, context: Serve
 
 export const callCreateDocumentAPI = async (args: CreateDocumentArgs, context: ServerContext): CreateDocumentReturn => {
   const traceId = context.traceId
-  logger.info('callCreateDocumentAPI', { traceId, args })
   try {
     const response = await createPlatformAxiosInstance().post<CreateDocumentReturn>(URLS.documents, args, {
       headers: {
@@ -83,7 +79,6 @@ export const callCreateDocumentAPI = async (args: CreateDocumentArgs, context: S
 
 export const callUpdateDocumentAPI = async (args: UpdateDocumentArgs, context: ServerContext): UpdateDocumentReturn => {
   const traceId = context.traceId
-  logger.info('callUpdateDocumentAPI', { traceId, args })
   try {
     const { id, _eTag, ...payload } = args
     const updateResponse = await createPlatformAxiosInstance().patch<UpdateDocumentReturn>(
@@ -108,7 +103,6 @@ export const callUpdateDocumentAPI = async (args: UpdateDocumentArgs, context: S
 
 export const callDeleteDocumentAPI = async (args: DeleteDocumentArgs, context: ServerContext): DeleteDocumentReturn => {
   const traceId = context.traceId
-  logger.info('callDeleteDocumentAPI', { traceId, args })
   try {
     const response = await createPlatformAxiosInstance().delete<DeleteDocumentReturn>(`${URLS.documents}/${args.id}`, {
       headers: {

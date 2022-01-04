@@ -1,5 +1,4 @@
 import { UpdatePaymentModel } from '../../types/payment'
-import logger from '../logger'
 import { ApiKey } from '../schema'
 import { validateApiKey, validatePaymentUpdate } from '../validators'
 
@@ -8,7 +7,6 @@ jest.mock('../logger', () => ({
 }))
 
 describe('validateApiKey', () => {
-  const stubTraceId = 'SOME_TRACE_ID'
   const stubClientCode = 'SOME_CLIENT_CODE'
   const stubPaymentId = 'SOME_PAYMENT_ID'
   it('should return a concatonated error and throw for invalid keys', () => {
@@ -16,7 +14,7 @@ describe('validateApiKey', () => {
       keyExpiresAt: new Date('2000-01-01').toISOString(),
     } as ApiKey
 
-    expect(() => validateApiKey(invalidKey, stubTraceId, stubClientCode, stubPaymentId)).toThrowError(
+    expect(() => validateApiKey(invalidKey, stubClientCode, stubPaymentId)).toThrowError(
       new Error(
         'Client code supplied is not valid for this apiKey, Payment ID supplied is not valid for this apiKey, API key has expired',
       ),
@@ -31,11 +29,7 @@ describe('validateApiKey', () => {
       keyExpiresAt: new Date('2030-01-01').toISOString(),
     } as ApiKey
 
-    expect(validateApiKey(validKey, stubTraceId, stubClientCode, stubPaymentId)).toEqual(validKey)
-    expect(logger.info).toHaveBeenCalledWith('Successfully returned and validated payment record for API key', {
-      traceId: stubTraceId,
-      result: validKey,
-    })
+    expect(validateApiKey(validKey, stubClientCode, stubPaymentId)).toEqual(validKey)
   })
 })
 
@@ -44,7 +38,7 @@ describe('validatePaymentUpdate', () => {
   it('should return a concatonated error and throw for invalid payment', () => {
     const invalidPayment = {} as Partial<UpdatePaymentModel>
 
-    expect(() => validatePaymentUpdate(invalidPayment, stubTraceId)).toThrowError(
+    expect(() => validatePaymentUpdate(invalidPayment)).toThrowError(
       new Error('External Reference is a required field, Status is required and should be either posted or rejected'),
     )
   })
@@ -56,9 +50,5 @@ describe('validatePaymentUpdate', () => {
     } as Partial<UpdatePaymentModel>
 
     expect(validatePaymentUpdate(validPayment, stubTraceId)).toEqual(validPayment)
-    expect(logger.info).toHaveBeenCalledWith('Successfully returned and validated update payment', {
-      traceId: stubTraceId,
-      payment: validPayment,
-    })
   })
 })

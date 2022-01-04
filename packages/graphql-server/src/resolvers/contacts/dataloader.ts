@@ -1,7 +1,6 @@
 import DataLoader from 'dataloader'
 import { getContacts } from './services'
 import { ServerContext } from '@/utils'
-import logger from '@/logger'
 import handleError from '@/utils/handle-error'
 import { ContactModel, ContactModelPagedResult } from '@reapit/foundations-ts-definitions'
 
@@ -10,7 +9,6 @@ export const generateContactBatchLoaderFn = (context: ServerContext) => async (k
     return []
   }
   const traceId = context.traceId
-  logger.info('generateContactBatchLoaderFn', { traceId })
   try {
     const contactsResult = (await getContacts({ id: keys }, context)) as ContactModelPagedResult
     const result = keys.map((key: string) => {

@@ -1,5 +1,4 @@
 import qs from 'query-string'
-import logger from '../../logger'
 import { ServerContext } from '../../utils'
 import {
   GetPropertyByIdArgs,
@@ -22,7 +21,6 @@ export const callGetPropertyByIdAPI = async (
   context: ServerContext,
 ): GetPropertyByIdReturn => {
   const traceId = context.traceId
-  logger.info('callGetPropertyByIdAPI', { traceId, args })
   try {
     const { id, ...rest } = args
     const params = qs.stringify(rest as Record<string, string>)
@@ -43,7 +41,6 @@ export const callGetPropertyByIdAPI = async (
 
 export const callGetPropertiesAPI = async (args: GetPropertiesArgs, context: ServerContext): GetPropertiesReturn => {
   const traceId = context.traceId
-  logger.info('callGetPropertiesAPI', { args, traceId })
   try {
     const params = qs.stringify(args)
     const response = await createPlatformAxiosInstance().get<GetPropertiesReturn>(`${URLS.properties}?${params}`, {
@@ -60,7 +57,6 @@ export const callGetPropertiesAPI = async (args: GetPropertiesArgs, context: Ser
 
 export const callCreatePropertyAPI = async (args: CreatePropertyArgs, context: ServerContext): CreatePropertyReturn => {
   const traceId = context.traceId
-  logger.info('callCreatePropertyAPI', { traceId, args })
   try {
     const response = await createPlatformAxiosInstance().post<CreatePropertyReturn>(URLS.properties, args, {
       headers: {
@@ -80,7 +76,6 @@ export const callCreatePropertyAPI = async (args: CreatePropertyArgs, context: S
 
 export const callUpdatePropertyAPI = async (args: UpdatePropertyArgs, context: ServerContext): UpdatePropertyReturn => {
   const traceId = context.traceId
-  logger.info('callUpdatePropertyAPI', { traceId, args })
   try {
     const { _eTag, ...payload } = args
     const updateResponse = await createPlatformAxiosInstance().patch<UpdatePropertyReturn>(
