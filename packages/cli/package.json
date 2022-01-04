@@ -49,6 +49,6 @@
     "conf": "yarn config-manager --namespace cloud --entity deployment-service --name local --mode fetch",
     "test": "echo '...skipping...'",
     "release": "echo '...skipping...'",
-    "publish": "echo '...skipping...'"
+    "publish": "yarn npm publish --access private"
   }
 }
