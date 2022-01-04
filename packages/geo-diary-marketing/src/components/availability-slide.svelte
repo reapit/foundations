@@ -12,7 +12,7 @@
     <h5 class="el-subtitle el-text-center">
       If you are an existing Reapit Customer, you can access all apps and integrations now from the AppMarket
     </h5>
-    <button class="el-intent-critical el-button el-mr3 button" on:click|preventDefault={setModalVisible}
+    <button class="el-intent-critical el-button el-mr5 button" on:click|preventDefault={setModalVisible}
       >AppMarket</button
     >
   </div>

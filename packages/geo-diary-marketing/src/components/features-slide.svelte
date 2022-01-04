@@ -7,7 +7,7 @@
 </script>
 
 <div class="container el-wscreen">
-  <div class="inner-container el-flex-container el-flex-column el-flex-align-center el-mxauto">
+  <div class="inner-container el-flex-container el-flex-column el-flex-align-center el-mx-auto">
     <h2 class="el-title el-text-center">Amazing Diary Appointment Features</h2>
     <h5 class="el-subtitle el-text-center">Instant access to your daily & weekly appointments.</h5>
     <div class="tile-container el-flex-container el-flex-wrap">
@@ -16,7 +16,7 @@
           <img class="" src="./images/stopwatch.svg" alt="stopwatch" />
         </div>
         <div class="tile-content">
-          <h6 class="el-subtitle el-w1_2_2 el-text-center">Send ETA</h6>
+          <h6 class="el-subtitle el-text-center">Send ETA</h6>
           <p class="el-body-text el-has-grey-text is-hidden-mobile">
             Send a prepopulated text message with your exact time of arrival. GEO Diary will automatically calculate
             your current location and the travel time to your next appointment.
@@ -28,7 +28,7 @@
           <img class="" src="./images/location.svg" alt="" />
         </div>
         <div class="tile-content">
-          <h6 class="el-subtitle el-w1_2_2 el-text-center">Location Settings</h6>
+          <h6 class="el-subtitle el-text-center">Location Settings</h6>
           <p class="el-body-text el-has-grey-text is-hidden-mobile">
             Get turn by turn directions from any starting location. The app will automatically detect your current
             location but it also provides the ability to set a new location.
@@ -40,7 +40,7 @@
           <img class="" src="./images/maps.svg" alt="" />
         </div>
         <div class="tile-content">
-          <h6 class="el-subtitle el-w1_2_2 el-text-center">Map Integration</h6>
+          <h6 class="el-subtitle el-text-center">Map Integration</h6>
           <p class="el-body-text el-has-grey-text is-hidden-mobile">
             Seamless integration with Google Maps and Apple Maps to get turn by turn directions, using your default map
             application.
@@ -52,7 +52,7 @@
           <img class="" src="./images/whatsapp.svg" alt="" />
         </div>
         <div class="tile-content">
-          <h6 class="el-subtitle el-w1_2_2 el-text-center">WhatsApp Integration</h6>
+          <h6 class="el-subtitle el-text-center">WhatsApp Integration</h6>
           <p class="el-body-text el-has-grey-text is-hidden-mobile">
             Our integration with WhatsApp lets you start a conversation on any contact record that has a mobile
             telephone number.
@@ -64,7 +64,7 @@
           <img class="" src="./images/email.svg" alt="" />
         </div>
         <div class="tile-content">
-          <h6 class="el-subtitle el-w1_2_2 el-text-center">Email Integration</h6>
+          <h6 class="el-subtitle el-text-center">Email Integration</h6>
           <p class="el-body-text el-has-grey-text is-hidden-mobile">
             Prepopulated emails using your default mail client. If an email address is present on any contact record GEO
             Diary will open an email draft.
@@ -76,7 +76,7 @@
           <img class="" src="./images/checklist.svg" alt="" />
         </div>
         <div class="tile-content">
-          <h6 class="el-subtitle el-w1_2_2 el-text-center">Online Checklist</h6>
+          <h6 class="el-subtitle el-text-center">Online Checklist</h6>
           <p class="el-body-text el-has-grey-text is-hidden-mobile">
             Access identity and address history for any contact. If you have the Online Check List app installed, you
             can access and update identity information for any contact.
