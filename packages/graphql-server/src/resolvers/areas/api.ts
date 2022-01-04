@@ -1,5 +1,4 @@
 import qs from 'query-string'
-import logger from '../../logger'
 import { ServerContext } from '../../utils'
 import {
   GetAreaByIdArgs,
@@ -19,7 +18,6 @@ import { getIdFromCreateHeaders } from '../../utils/get-id-from-create-headers'
 
 export const callGetAreaByIdAPI = async (args: GetAreaByIdArgs, context: ServerContext): GetAreaByIdReturn => {
   const traceId = context.traceId
-  logger.info('callGetAreaByIdAPI', { traceId, args })
   try {
     const response = await createPlatformAxiosInstance().get<GetAreaByIdReturn>(`${URLS.areas}/${args.id}`, {
       headers: {
@@ -35,7 +33,6 @@ export const callGetAreaByIdAPI = async (args: GetAreaByIdArgs, context: ServerC
 
 export const callGetAreasAPI = async (args: GetAreasArgs, context: ServerContext): GetAreasReturn => {
   const traceId = context.traceId
-  logger.info('callGetAreasAPI', { args, traceId })
   try {
     const params = qs.stringify(args)
     const response = await createPlatformAxiosInstance().get<GetAreasReturn>(`${URLS.areas}?${params}`, {
@@ -52,7 +49,6 @@ export const callGetAreasAPI = async (args: GetAreasArgs, context: ServerContext
 
 export const callCreateAreaAPI = async (args: CreateAreaArgs, context: ServerContext): CreateAreaReturn => {
   const traceId = context.traceId
-  logger.info('callCreateAreaAPI', { traceId, args })
   try {
     const response = await createPlatformAxiosInstance().post<CreateAreaReturn>(URLS.areas, args, {
       headers: {
@@ -72,7 +68,6 @@ export const callCreateAreaAPI = async (args: CreateAreaArgs, context: ServerCon
 
 export const callUpdateAreaAPI = async (args: UpdateAreaArgs, context: ServerContext): UpdateAreaReturn => {
   const traceId = context.traceId
-  logger.info('callUpdateAreaAPI', { traceId, args })
   try {
     const { _eTag, ...payload } = args
     const updateResponse = await createPlatformAxiosInstance().patch<UpdateAreaReturn>(

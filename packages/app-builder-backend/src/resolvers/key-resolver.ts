@@ -1,5 +1,5 @@
 import { gql } from 'apollo-server-core'
-import { Resolver, Query, Ctx, Arg, Mutation, registerEnumType, Field, InputType, Authorized } from 'type-graphql'
+import { Resolver, Query, Ctx, Arg, Mutation, registerEnumType, Field, InputType, Authorized, ID } from 'type-graphql'
 import { DateTime } from 'luxon'
 import { Context } from '../types'
 import { Key, APIKey, KeyFragment, KeyMovement, MovementFragment } from '../entities/key'
@@ -22,6 +22,35 @@ const getPropertyKeyQuery = gql`
     }
   }
 `
+
+const createKeyMutation = gql`
+  ${KeyFragment}
+  mutation createKey($propertyId: ID!, $key: KeyModelInput) {
+    CreateKey(propertyId: $propertyId, key: $key) {
+      ...KeyFragment
+    }
+  }
+`
+
+@InputType()
+class IndividualKeyModelInput {
+  @Field()
+  description: string
+  @Field()
+  name: string
+}
+
+@InputType()
+class KeyModelInput {
+  @Field()
+  number: string
+  @Field({ description: '@idOf(KeyType)' })
+  typeId: string
+  @Field({ description: '@idOf(Office)' })
+  officeId: string
+  @Field(() => [IndividualKeyModelInput])
+  keysInSet: IndividualKeyModelInput[]
+}
 
 const createKeyMovementMutation = gql`
   ${MovementFragment}
@@ -98,6 +127,10 @@ const createPropertyKeyMovement = async (
   })
 }
 
+const createPropertyKey = async (propertyId: string, key: KeyModelInput, accessToken: string, idToken: string) => {
+  return query<APIKey>(createKeyMutation, { propertyId, key }, 'CreateKey', { accessToken, idToken })
+}
+
 const updatePropertyKeyMovement = async (
   propertyId: string,
   keyId: string,
@@ -141,13 +174,26 @@ class CheckIn {
   negotiatorId: string
 }
 
+const getLatestMovement = (movements: KeyMovement[]): KeyMovement | undefined => {
+  return movements
+    .filter((m) => !m.checkInAt)
+    .sort((a, b) => {
+      if (b.checkOutAt && a.checkOutAt) {
+        const aCheckOutAt = DateTime.fromISO(a.checkOutAt)
+        const bCheckOutAt = DateTime.fromISO(b.checkOutAt)
+        return bCheckOutAt.diff(aCheckOutAt).milliseconds
+      }
+      return -1
+    })[0]
+}
+
 @Resolver(() => Key)
 export class KeyResolver {
   constructor() {}
 
   @Query(() => [Key])
   @Authorized()
-  async listPropertyKeys(@Arg('propertyId') propertyId: string, @Ctx() ctx: Context): Promise<Key[]> {
+  async listPropertyKeys(@Arg('propertyId', () => ID) propertyId: string, @Ctx() ctx: Context): Promise<Key[]> {
     const { accessToken, idToken } = ctx
     const keys = await getPropertyKeys(propertyId, accessToken, idToken)
     return keys?.map(APIKeyToKey) || []
@@ -156,8 +202,8 @@ export class KeyResolver {
   @Authorized()
   @Query(() => [KeyMovement])
   async listPropertyKeyMovements(
-    @Arg('propertyId') propertyId: string,
-    @Arg('keyId') keyId: string,
+    @Arg('propertyId', () => ID) propertyId: string,
+    @Arg('keyId', () => ID) keyId: string,
     @Ctx() ctx: Context,
   ): Promise<KeyMovement[]> {
     const { accessToken, idToken } = ctx
@@ -168,9 +214,9 @@ export class KeyResolver {
   @Authorized()
   @Query(() => KeyMovement)
   async getPropertyKeyMovement(
-    @Arg('propertyId') propertyId: string,
-    @Arg('keyId') keyId: string,
-    @Arg('movementId') movementId: string,
+    @Arg('propertyId', () => ID) propertyId: string,
+    @Arg('keyId', () => ID) keyId: string,
+    @Arg('movementId', () => ID) movementId: string,
     @Ctx() ctx: Context,
   ): Promise<KeyMovement> {
     const { accessToken, idToken } = ctx
@@ -185,8 +231,8 @@ export class KeyResolver {
   @Authorized()
   @Query(() => Key)
   async getPropertyKey(
-    @Arg('propertyId') propertyId: string,
-    @Arg('keyId') keyId: string,
+    @Arg('propertyId', () => ID) propertyId: string,
+    @Arg('keyId', () => ID) keyId: string,
     @Ctx() ctx: Context,
   ): Promise<Key> {
     const { accessToken, idToken } = ctx
@@ -197,8 +243,8 @@ export class KeyResolver {
   @Authorized()
   @Mutation(() => Key)
   async checkOutKey(
-    @Arg('propertyId') propertyId: string,
-    @Arg('keyId') keyId: string,
+    @Arg('propertyId', () => ID) propertyId: string,
+    @Arg('keyId', () => ID) keyId: string,
     @Arg('movement', () => KeyMovementModelInput) movement: KeyMovementModelInput,
     @Ctx() ctx: Context,
   ): Promise<Key> {
@@ -225,22 +271,29 @@ export class KeyResolver {
 
   @Authorized()
   @Mutation(() => Key)
+  async createKey(
+    @Arg('propertyId', () => ID) propertyId: string,
+    @Arg('key', () => KeyModelInput) keyInput: KeyModelInput,
+    @Ctx() ctx: Context,
+  ): Promise<Key> {
+    const { accessToken, idToken } = ctx
+    const key = await createPropertyKey(propertyId, keyInput, accessToken, idToken)
+    return APIKeyToKey(key)
+  }
+
+  @Authorized()
+  @Mutation(() => Key)
   async checkInKey(
-    @Arg('propertyId') propertyId: string,
-    @Arg('keyId') keyId: string,
+    @Arg('propertyId', () => ID) propertyId: string,
+    @Arg('keyId', () => ID) keyId: string,
     @Arg('checkIn') checkIn: CheckIn,
     @Ctx() ctx: Context,
   ): Promise<Key> {
     const { accessToken, idToken } = ctx
     const movements = await this.listPropertyKeyMovements(propertyId, keyId, ctx)
-    const latestMovement = movements
-      .filter((m) => !m.checkInAt)
-      .sort((a, b) => {
-        if (b.checkOutAt && a.checkOutAt) {
-          return DateTime.fromISO(b.checkOutAt).diff(DateTime.fromISO(a.checkOutAt)).milliseconds
-        }
-        return -1
-      })[0]
+
+    const latestMovement = getLatestMovement(movements)
+
     if (!latestMovement) {
       throw new Error('Key is not currently checked out')
     }

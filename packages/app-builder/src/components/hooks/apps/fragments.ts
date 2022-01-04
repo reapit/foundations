@@ -4,7 +4,7 @@ export const AppFragment = gql`
   fragment AppFragment on _App {
     id
     name
-    userId
+    clientId
     subdomain
     createdAt
     updatedAt
@@ -54,7 +54,7 @@ export type Page = {
 export type App = {
   id: string
   name: string
-  userId: string
+  clientId: string
   createdAt: string
   updatedAt: string
   subdomain: string

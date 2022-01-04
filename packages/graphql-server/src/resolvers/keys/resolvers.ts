@@ -1,5 +1,4 @@
 import keyServices from './services'
-import logger from '../../logger'
 import { resolverHandler, ServerContext } from '../../utils'
 import {
   GetKeyArgs,
@@ -19,40 +18,30 @@ import { PropertyModel } from '@reapit/foundations-ts-definitions'
 
 export const queryGetPropertyKeys = resolverHandler<GetPropertyKeysArgs, QueryGetPropertyKeysReturn>(
   (_: any, args: GetPropertyKeysArgs, context: ServerContext): Promise<QueryGetPropertyKeysReturn> => {
-    const traceId = context.traceId
-    logger.info('queryGetPropertyKeys', { traceId, args })
     return keyServices.getKeysByPropertyId(args, context)
   },
 )
 
 export const queryGetKey = resolverHandler<GetKeyArgs, QueryGetKeyReturn>(
   (_: any, args: GetKeyArgs, context: ServerContext): Promise<QueryGetKeyReturn> => {
-    const traceId = context.traceId
-    logger.info('queryGetKey', { traceId, args })
     return keyServices.getKeyById(args, context)
   },
 )
 
 export const mutationCreateKey = resolverHandler<CreateKeyArgs, MutationCreateKeyReturn>(
   (_: any, args: CreateKeyArgs, context: ServerContext): Promise<MutationCreateKeyReturn> => {
-    const traceId = context.traceId
-    logger.info('mutationCreateKey', { traceId, args })
     return keyServices.createKey(args, context)
   },
 )
 
 export const mutationCreateKeyMovement = resolverHandler<CreateKeyMovementArgs, CreateKeyMovementReturn>(
   (_: any, args: CreateKeyMovementArgs, context: ServerContext): CreateKeyMovementReturn => {
-    const traceId = context.traceId
-    logger.info('mutationCreateKeyMovement', { traceId, args })
     return keyServices.createKeyMovement(args, context)
   },
 )
 
 export const mutationUpdateKeyMovement = resolverHandler<UpdateKeyMovementArgs, UpdateKeyMovementReturn>(
   (_: any, args: UpdateKeyMovementArgs, context: ServerContext): UpdateKeyMovementReturn => {
-    const traceId = context.traceId
-    logger.info('mutationUpdateKeyMovement', { traceId, args })
     return keyServices.updateKeyMovement(args, context)
   },
 )

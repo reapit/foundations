@@ -1,5 +1,4 @@
 import qs from 'query-string'
-import logger from '../../logger'
 import { ServerContext } from '../../utils'
 import {
   GetIdentityCheckByIdArgs,
@@ -22,7 +21,6 @@ export const callGetIdentityCheckByIdAPI = async (
   context: ServerContext,
 ): GetIdentityCheckByIdReturn => {
   const traceId = context.traceId
-  logger.info('callGetIdentityCheckByIdAPI', { traceId, args })
   try {
     const { id, ...rest } = args
     const params = qs.stringify(rest as Record<string, string>)
@@ -46,7 +44,6 @@ export const callGetIdentityChecksAPI = async (
   context: ServerContext,
 ): GetIdentityChecksReturn => {
   const traceId = context.traceId
-  logger.info('callGetIdentityChecksAPI', { args, traceId })
   try {
     const params = qs.stringify(args)
     const response = await createPlatformAxiosInstance().get<GetIdentityChecksReturn>(
@@ -69,7 +66,6 @@ export const callCreateIdentityCheckAPI = async (
   context: ServerContext,
 ): CreateIdentityCheckReturn => {
   const traceId = context.traceId
-  logger.info('callCreateIdentityCheckAPI', { traceId, args })
   try {
     const response = await createPlatformAxiosInstance().post<CreateIdentityCheckReturn>(URLS.identityChecks, args, {
       headers: {
@@ -92,7 +88,6 @@ export const callUpdateIdentityCheckAPI = async (
   context: ServerContext,
 ): UpdateIdentityCheckReturn => {
   const traceId = context.traceId
-  logger.info('callUpdateIdentityCheckAPI', { traceId, args })
   try {
     const { _eTag, ...payload } = args
     const updateResponse = await createPlatformAxiosInstance().patch<UpdateIdentityCheckReturn>(

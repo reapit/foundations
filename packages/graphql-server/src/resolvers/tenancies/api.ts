@@ -1,5 +1,4 @@
 import qs from 'query-string'
-import logger from '../../logger'
 import { ServerContext } from '../../utils'
 import {
   GetTenancyByIdArgs,
@@ -29,7 +28,6 @@ import { getIdFromCreateHeaders } from '../../utils/get-id-from-create-headers'
 
 export const callGetTenancyByIdAPI = async (args: GetTenancyByIdArgs, context: ServerContext): GetTenancyByIdReturn => {
   const traceId = context.traceId
-  logger.info('callGetTenancyByIdAPI', { traceId, args })
   try {
     const { id, ...rest } = args
     const params = qs.stringify(rest as Record<string, string>)
@@ -51,7 +49,6 @@ export const callGetTenancyByIdAPI = async (args: GetTenancyByIdArgs, context: S
 
 export const callGetTenanciesAPI = async (args: GetTenanciesArgs, context: ServerContext): GetTenanciesReturn => {
   const traceId = context.traceId
-  logger.info('callGetTenanciesAPI', { args, traceId })
   try {
     const params = qs.stringify(args as Record<string, string>)
     const response = await createPlatformAxiosInstance().get<GetTenanciesReturn>(`${URLS.tenancies}?${params}`, {
@@ -71,7 +68,6 @@ export const callGetTenancyRelationshipsAPI = async (
   context: ServerContext,
 ): GetTenancyRelationshipsReturn => {
   const traceId = context.traceId
-  logger.info('callGetTenancyRelationshipsAPI', { args, traceId })
   try {
     const { id, ...paramsObj } = args
     const params = qs.stringify(paramsObj as Record<string, string>)
@@ -95,7 +91,6 @@ export const callGetTenancyChecksAPI = async (
   context: ServerContext,
 ): GetTenancyChecksReturn => {
   const traceId = context.traceId
-  logger.info('callGetTenancyChecksAPI', { args, traceId })
   try {
     const { id, ...paramsObj } = args
     const params = qs.stringify(paramsObj as Record<string, string>)
@@ -119,7 +114,6 @@ export const callGetTenancyCheckByIdAPI = async (
   context: ServerContext,
 ): GetTenancyCheckByIdReturn => {
   const traceId = context.traceId
-  logger.info('callGetTenancyCheckByIdAPI', { args, traceId })
   try {
     const { id, checkId } = args
     const response = await createPlatformAxiosInstance().get<GetTenancyCheckByIdReturn>(
@@ -139,7 +133,6 @@ export const callGetTenancyCheckByIdAPI = async (
 
 export const callCreateTenancyAPI = async (args: CreateTenancyArgs, context: ServerContext): CreateTenancyReturn => {
   const traceId = context.traceId
-  logger.info('callCreateTenancyAPI', { traceId, args })
   try {
     const response = await createPlatformAxiosInstance().post<CreateTenancyReturn>(URLS.tenancies, args, {
       headers: {
@@ -162,7 +155,6 @@ export const callCreateTenancyCheckAPI = async (
   context: ServerContext,
 ): CreateTenancyCheckReturn => {
   const traceId = context.traceId
-  logger.info('callCreateTenancyCheckAPI', { traceId, args })
   try {
     const { id, ...payload } = args
     const response = await createPlatformAxiosInstance().post<CreateTenancyCheckReturn>(
@@ -190,7 +182,6 @@ export const callDeleteTenancyCheckAPI = async (
   context: ServerContext,
 ): DeleteTenancyCheckReturn => {
   const traceId = context.traceId
-  logger.info('callDeleteTenancyCheckAPI', { traceId, args })
   try {
     const { checkId, id } = args
     await createPlatformAxiosInstance().delete<DeleteTenancyCheckReturn>(`${URLS.tenancies}/${id}/checks/${checkId}`, {
@@ -210,7 +201,6 @@ export const callUpdateTenancyCheckAPI = async (
   context: ServerContext,
 ): UpdateTenancyCheckReturn => {
   const traceId = context.traceId
-  logger.info('callUpdateTenancyCheckAPI', { traceId, args })
   try {
     const { _eTag, id, checkId, ...payload } = args
 

@@ -12,22 +12,15 @@ exports[`StatusSection should match a snapshot where isListed false and not side
         "replaceReducer": [Function],
         "subscribe": [Function],
       },
-      "subscription": Subscription {
+      "subscription": Object {
+        "addNestedSub": [Function],
+        "getListeners": [Function],
         "handleChangeWrapper": [Function],
-        "listeners": Object {
-          "notify": [Function],
-        },
+        "isSubscribed": [Function],
+        "notifyNestedSubs": [Function],
         "onStateChange": [Function],
-        "parentSub": undefined,
-        "store": Object {
-          "clearActions": [Function],
-          "dispatch": [Function],
-          "getActions": [Function],
-          "getState": [Function],
-          "replaceReducer": [Function],
-          "subscribe": [Function],
-        },
-        "unsubscribe": null,
+        "trySubscribe": [Function],
+        "tryUnsubscribe": [Function],
       },
     }
   }
@@ -65,6 +58,9 @@ exports[`StatusSection should match a snapshot where isListed false and not side
         "name": "Peter's Properties",
         "pricingUrl": "https://reapit.com",
         "privacyPolicyUrl": "https://reapit.com",
+        "products": Array [
+          "agencyCloud",
+        ],
         "scopes": Array [
           Object {
             "description": "Read data about developers",
@@ -97,22 +93,15 @@ exports[`StatusSection should match a snapshot where isListed true, is installed
         "replaceReducer": [Function],
         "subscribe": [Function],
       },
-      "subscription": Subscription {
+      "subscription": Object {
+        "addNestedSub": [Function],
+        "getListeners": [Function],
         "handleChangeWrapper": [Function],
-        "listeners": Object {
-          "notify": [Function],
-        },
+        "isSubscribed": [Function],
+        "notifyNestedSubs": [Function],
         "onStateChange": [Function],
-        "parentSub": undefined,
-        "store": Object {
-          "clearActions": [Function],
-          "dispatch": [Function],
-          "getActions": [Function],
-          "getState": [Function],
-          "replaceReducer": [Function],
-          "subscribe": [Function],
-        },
-        "unsubscribe": null,
+        "trySubscribe": [Function],
+        "tryUnsubscribe": [Function],
       },
     }
   }
@@ -152,6 +141,9 @@ exports[`StatusSection should match a snapshot where isListed true, is installed
         "name": "Peter's Properties",
         "pricingUrl": "https://reapit.com",
         "privacyPolicyUrl": "https://reapit.com",
+        "products": Array [
+          "agencyCloud",
+        ],
         "scopes": Array [
           Object {
             "description": "Read data about developers",

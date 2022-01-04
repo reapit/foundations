@@ -53,7 +53,6 @@ export class AutomationExecution {
     const conversation = await twilioClient.conversations.conversations.create({
       friendlyName: `Conversation with ${event.object.mobilePhone}, from automation ${automation.id}`,
     })
-    this.logInfo('Created conversation', { conversation })
 
     const addParticipantToConversation = async () =>
       await twilioClient.conversations.conversations(conversation.sid).participants.create({
@@ -67,8 +66,7 @@ export class AutomationExecution {
       })
 
     try {
-      const participant = await addParticipantToConversation()
-      this.logInfo('Added participant', { participant })
+      await addParticipantToConversation()
     } catch (error) {
       if (error.code === 50416 && event.isTestEvent) {
         // A binding for this participant and proxy address already exists in another conversation

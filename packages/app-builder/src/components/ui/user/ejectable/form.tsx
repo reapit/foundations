@@ -4,32 +4,22 @@ import qs from 'query-string'
 import { Button, FormLayout, Loader, useSnack } from '@reapit/elements'
 
 import { Container, ContainerProps } from './container'
-import { uppercaseSentence } from './utils'
 
 import { useObjectMutate } from '../../../hooks/objects/use-object-mutate'
 import { useObjectGet } from '../../../hooks/objects/use-object-get'
 
 import { usePageId } from '../../../hooks/use-page-id'
-import { FormInput } from './form-input'
+import { FormContextProvider } from '../../../hooks/form-context'
 
 export interface FormProps extends ContainerProps {
   typeName?: string
   destination?: string
   formType?: string
-  excludeFields?: string[]
-}
-
-const camelCaseToSentence = (camelCase: string) => {
-  return uppercaseSentence(camelCase.replace(/([A-Z])/g, ' $1'))
-}
-
-const friendlyIdName = (idName: string) => {
-  const words = idName.replaceAll('Id', '').split('_')
-  return words.map(camelCaseToSentence).join(' ')
+  children?: React.ReactNode
 }
 
 export const Form = forwardRef<HTMLDivElement, FormProps & { disabled?: boolean }>(
-  ({ typeName, destination, disabled, formType = 'create', excludeFields, ...props }, ref) => {
+  ({ typeName, destination, disabled, formType = 'create', children, ...props }, ref) => {
     const { context } = usePageId()
     const { data, loading: getLoading } = useObjectGet(typeName, context.editObjectId as string | undefined)
     const { args, mutateFunction, mutationLoading } = useObjectMutate(formType, typeName)
@@ -55,6 +45,14 @@ export const Form = forwardRef<HTMLDivElement, FormProps & { disabled?: boolean 
         setFormState(dataCopy)
       }
     }, [data, args])
+
+    const handleInputChange = (e: React.ChangeEvent<HTMLInputElement | HTMLSelectElement>) => {
+      const { name, type, value, checked } = e.target as HTMLInputElement
+      if (type === 'checkbox') {
+        return setFormState((prevState) => ({ ...prevState, [name]: checked }))
+      }
+      setFormState((prevState) => ({ ...prevState, [name]: value }))
+    }
 
     return (
       <Container {...props} ref={ref}>
@@ -94,34 +92,15 @@ export const Form = forwardRef<HTMLDivElement, FormProps & { disabled?: boolean 
               })
           }}
         >
-          <FormLayout>
-            {getLoading && <Loader label="Loading" />}
-            {args &&
-              args[0].fields
-                ?.filter(({ name }) => !excludeFields?.includes(name))
-                .map((arg) => {
-                  const { name, isRequired, typeName, enumValues, idOfType } = arg
-                  const value = formState[name]
-
-                  return (
-                    <FormInput
-                      key={name}
-                      label={friendlyIdName(name)}
-                      value={value}
-                      onChange={(value) => {
-                        setFormState({ ...formState, [name]: value })
-                      }}
-                      isRequired={isRequired}
-                      typeName={typeName}
-                      enumValues={enumValues}
-                      idOfType={idOfType}
-                    />
-                  )
-                })}
-            <Button disabled={disabled} loading={mutationLoading}>
-              {formType === 'create' ? 'Create' : 'Save'}
-            </Button>
-          </FormLayout>
+          <FormContextProvider value={{ onChange: handleInputChange, defaultValues: data || {} }}>
+            <FormLayout>
+              {getLoading && <Loader label="Loading" />}
+              {children}
+              <Button disabled={disabled} loading={mutationLoading}>
+                {formType === 'create' ? 'Create' : 'Save'}
+              </Button>
+            </FormLayout>
+          </FormContextProvider>
         </form>
       </Container>
     )

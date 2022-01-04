@@ -1,0 +1,24 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Pipeline Deployment Table Should match snapshot 1`] = `
+<Table>
+  <TableHeadersRow>
+    <TableHeader>
+      Type
+    </TableHeader>
+    <TableHeader>
+      Created
+    </TableHeader>
+    <TableHeader>
+      Status
+    </TableHeader>
+    <TableHeader>
+      Version
+    </TableHeader>
+    <TableHeader>
+      Currently Deployed
+    </TableHeader>
+    <TableHeader />
+  </TableHeadersRow>
+</Table>
+`;

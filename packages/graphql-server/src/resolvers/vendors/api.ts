@@ -1,5 +1,4 @@
 import qs from 'query-string'
-import logger from '../../logger'
 import { ServerContext } from '../../utils'
 import {
   GetVendorByIdArgs,
@@ -24,7 +23,6 @@ import { handleError } from '../../utils/handle-error'
 
 export const callGetVendorByIdAPI = async (args: GetVendorByIdArgs, context: ServerContext): GetVendorByIdReturn => {
   const traceId = context.traceId
-  logger.info('callGetVendorByIdAPI', { traceId, args })
   try {
     const { id, ...rest } = args
     const params = qs.stringify(rest as Record<string, string>)
@@ -42,7 +40,6 @@ export const callGetVendorByIdAPI = async (args: GetVendorByIdArgs, context: Ser
 
 export const callGetVendorsAPI = async (args: GetVendorsArgs, context: ServerContext): GetVendorsReturn => {
   const traceId = context.traceId
-  logger.info('callGetVendorsAPI', { args, traceId })
   try {
     const params = qs.stringify(args)
     const response = await createPlatformAxiosInstance().get<GetVendorsReturn>(`${URLS.vendors}?${params}`, {
@@ -59,7 +56,6 @@ export const callGetVendorsAPI = async (args: GetVendorsArgs, context: ServerCon
 
 export const callUpdateVendorAPI = async (args: UpdateVendorArgs, context: ServerContext): UpdateVendorReturn => {
   const traceId = context.traceId
-  logger.info('callUpdateVendorAPI', { traceId, args })
   try {
     const { _eTag, ...payload } = args
     const updateResponse = await createPlatformAxiosInstance().patch<UpdateVendorReturn>(
@@ -87,7 +83,6 @@ export const callGetVendorRelationshipsAPI = async (
   context: ServerContext,
 ): GetVendorRelationshipsReturn => {
   const traceId = context.traceId
-  logger.info('callGetVendorRelationshipsAPI', { traceId, args })
   try {
     const response = await createPlatformAxiosInstance().get<GetVendorRelationshipsReturn>(
       `${URLS.vendors}/${args.id}/relationships`,
@@ -109,7 +104,6 @@ export const callGetVendorRelationshipByIdAPI = async (
   context: ServerContext,
 ): GetVendorRelationshipByIdReturn => {
   const traceId = context.traceId
-  logger.info('callGetVendorRelationshipByIdAPI', { traceId, args })
   try {
     const response = await createPlatformAxiosInstance().get<GetVendorRelationshipByIdReturn>(
       `${URLS.vendors}/${args.id}/relationships/${args.relationshipId}`,
@@ -131,7 +125,6 @@ export const callCreateVendorRelationshipAPI = async (
   context: ServerContext,
 ): CreateVendorRelationshipReturn => {
   const traceId = context.traceId
-  logger.info('callCreateVendorRelationshipAPI', { traceId, args })
   try {
     const { id, ...payload } = args
     await createPlatformAxiosInstance().post<CreateVendorRelationshipReturn>(
@@ -155,7 +148,6 @@ export const callDeleteVendorRelationshipAPI = async (
   context: ServerContext,
 ): DeleteVendorRelationshipReturn => {
   const traceId = context.traceId
-  logger.info('callDeleteVendorRelationshipAPI', { traceId, args })
   try {
     const { id, relationshipId } = args
     await createPlatformAxiosInstance().delete<DeleteVendorRelationshipReturn>(

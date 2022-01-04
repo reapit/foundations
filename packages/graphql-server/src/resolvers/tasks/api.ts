@@ -1,5 +1,4 @@
 import qs from 'query-string'
-import logger from '../../logger'
 import { ServerContext } from '../../utils'
 import {
   GetTaskByIdArgs,
@@ -19,7 +18,6 @@ import { getIdFromCreateHeaders } from '../../utils/get-id-from-create-headers'
 
 export const callGetTaskByIdAPI = async (args: GetTaskByIdArgs, context: ServerContext): GetTaskByIdReturn => {
   const traceId = context.traceId
-  logger.info('callGetTaskByIdAPI', { traceId, args })
   try {
     const { id, ...rest } = args
     const params = qs.stringify(rest as Record<string, string>)
@@ -37,7 +35,6 @@ export const callGetTaskByIdAPI = async (args: GetTaskByIdArgs, context: ServerC
 
 export const callGetTasksAPI = async (args: GetTasksArgs, context: ServerContext): GetTasksReturn => {
   const traceId = context.traceId
-  logger.info('callGetTasksAPI', { args, traceId })
   try {
     const params = qs.stringify(args)
     const response = await createPlatformAxiosInstance().get<GetTasksReturn>(`${URLS.tasks}?${params}`, {
@@ -54,7 +51,6 @@ export const callGetTasksAPI = async (args: GetTasksArgs, context: ServerContext
 
 export const callCreateTaskAPI = async (args: CreateTaskArgs, context: ServerContext): CreateTaskReturn => {
   const traceId = context.traceId
-  logger.info('callCreateTaskAPI', { traceId, args })
   try {
     const response = await createPlatformAxiosInstance().post<CreateTaskReturn>(URLS.tasks, args, {
       headers: {
@@ -74,7 +70,6 @@ export const callCreateTaskAPI = async (args: CreateTaskArgs, context: ServerCon
 
 export const callUpdateTaskAPI = async (args: UpdateTaskArgs, context: ServerContext): UpdateTaskReturn => {
   const traceId = context.traceId
-  logger.info('callUpdateTaskAPI', { traceId, args })
   try {
     const { _eTag, ...payload } = args
     const updateResponse = await createPlatformAxiosInstance().patch<UpdateTaskReturn>(

@@ -21,6 +21,8 @@ import {
   Button,
   PageContainer,
   elHFull,
+  ButtonGroup,
+  useMediaQuery,
 } from '@reapit/elements'
 import { navigate } from '../ui/nav/nav'
 import Routes from '../../constants/routes'
@@ -39,6 +41,7 @@ export const handleLoadAppListing = (isDesktop: boolean, appId: string) => () =>
 const MarketplaceAppPage: FC = () => {
   const history = useHistory()
   const { connectIsDesktop } = useReapitConnect(reapitConnectBrowserSession)
+  const { isMobile } = useMediaQuery()
   const parms = useParams<{ appId: string }>()
   const { appId } = parms
   const {
@@ -94,9 +97,23 @@ const MarketplaceAppPage: FC = () => {
           <Loader />
         ) : (
           <>
-            <Title>
-              {orgName} - {app?.name}
-            </Title>
+            <FlexContainer isFlexJustifyBetween>
+              <Title>
+                {orgName} - {app?.name}
+              </Title>
+              {isMobile && (
+                <ButtonGroup alignment="right">
+                  <Button
+                    className={elMb5}
+                    type="button"
+                    intent="primary"
+                    onClick={navigate(history, Routes.MARKETPLACE)}
+                  >
+                    Back To Apps
+                  </Button>
+                </ButtonGroup>
+              )}
+            </FlexContainer>
             <AppPricingPermissionsSection
               app={app as AppDetailModel}
               desktopIntegrationTypes={desktopIntegrationTypes?.data ?? []}

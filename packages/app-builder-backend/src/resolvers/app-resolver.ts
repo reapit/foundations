@@ -1,11 +1,19 @@
 import { Resolver, Query, Arg, Mutation, ID, Authorized, Ctx } from 'type-graphql'
+import Pluralize from 'pluralize'
 
 import { App } from '../entities/app'
-import { getUserApps, getApp, createApp, updateApp, getDomainApps } from '../ddb'
+import { getApp, createApp, updateApp, getDomainApps, getUnqDomain, DDBApp } from '../ddb'
 import { Page } from '../entities/page'
-import * as uuid from 'uuid'
 import { ejectApp } from '../eject'
 import { Context } from '../types'
+import {
+  createMarketplaceApp,
+  createMarketplaceAppRevision,
+  getDeveloperApps,
+  getMarketplaceApp,
+  getValidMarketplaceScopes,
+} from '../platform/apps'
+import { notEmpty } from '../utils/helpers'
 
 export const defaultNodes = [
   {
@@ -35,35 +43,157 @@ export const defaultNodes = [
   },
 ]
 
+const getAppUrl = (apiUrl: string, subdomain: string) => {
+  const url = new URL(apiUrl)
+  url.hostname = `${subdomain}.${url.hostname}`
+  url.protocol = 'https:'
+  return url.toString()
+}
+
+enum Access {
+  read = 'read',
+  write = 'write',
+}
+
+const getObjectScopes = (objectName: string, access: Access) => {
+  return `agencyCloud/${Pluralize.plural(objectName.toLowerCase())}.${access}`
+}
+
+// compare array of strings
+const compareArrays = (a: string[], b: string[]) => {
+  if (a.length !== b.length) {
+    return false
+  }
+  return a.every((item) => b.includes(item))
+}
+
+// remove empty strings from object
+const removeEmpty = (obj: any) => {
+  const copy = { ...obj }
+  Object.keys(copy).forEach((key) => {
+    if (copy[key] === '') {
+      delete copy[key]
+    }
+  })
+  return copy
+}
+
+const updateMarketplaceAppScopes = async (appId: string, scopes: string[], accessToken: string) => {
+  const marketplaceApp = await getMarketplaceApp(appId, accessToken)
+  const existingScopes = marketplaceApp.scopes?.map(({ name }) => name).filter(notEmpty) || []
+  if (!compareArrays(existingScopes, scopes)) {
+    const appRevision = removeEmpty({
+      ...marketplaceApp,
+      scopes,
+    })
+    return createMarketplaceAppRevision(appId, appRevision, accessToken)
+  }
+}
+
+const ensureScopes = async (app: DDBApp, accessToken: string) => {
+  const nodes = app.pages.map((page) => page.nodes).flat()
+  const requiredAccess: { objectName: string; access: Access[] }[] = nodes
+    .map((node) => {
+      const name = node.type.resolvedName
+      const objectName = node.props.typeName as string | undefined
+      if (!objectName) {
+        return null
+      }
+      if (name === 'Form') {
+        return {
+          objectName,
+          access: [Access.read, Access.write],
+        }
+      }
+      if (name === 'Table') {
+        return {
+          objectName,
+          access: node.props.showControls ? [Access.read, Access.write] : [Access.write],
+        }
+      }
+      return null
+    })
+    .filter(notEmpty)
+
+  const validScopes = (await getValidMarketplaceScopes(accessToken)).map(({ name }) => name)
+  const scopes = requiredAccess
+    .map(({ objectName, access }) => {
+      return access.map((access) => getObjectScopes(objectName, access))
+    })
+    .flat()
+    .filter(notEmpty)
+    .filter((scope) => validScopes.includes(scope))
+
+  return updateMarketplaceAppScopes(app.id, scopes, accessToken)
+}
+
 @Resolver(() => App)
 export class AppResolver {
   constructor() {}
 
   @Authorized()
   @Query(() => [App], { name: '_getUserApps' })
-  async getUserApps(@Arg('userId') userId: string) {
-    const apps = await getUserApps(userId)
-    return apps
+  async getUserApps(@Arg('developerId') developerId: string, @Ctx() ctx: Context): Promise<App[]> {
+    const apps = await getDeveloperApps(developerId, ctx.accessToken)
+    if (!apps) {
+      return []
+    }
+    const appBuilderApps = await Promise.all(
+      apps?.map(async ({ id, externalId, name }) => {
+        if (!id) {
+          return undefined
+        }
+        const appBuilderApp = await getApp(id)
+        if (!appBuilderApp) {
+          return undefined
+        }
+        return {
+          ...appBuilderApp,
+          name: name as string,
+          clientId: externalId as string,
+        }
+      }),
+    )
+
+    return appBuilderApps.filter(notEmpty)
   }
 
   @Query(() => App, { nullable: true, name: '_getApp' })
-  async getApp(@Arg('idOrSubdomain') idOrSubdomain: string) {
-    const app = await getApp(idOrSubdomain)
+  async getApp(@Arg('idOrSubdomain') idOrSubdomain: string, @Ctx() context: Context): Promise<App> {
+    const app = (await getApp(idOrSubdomain)) || (await getDomainApps(idOrSubdomain))[0]
     if (app) {
-      return app
-    }
-    const apps = await getDomainApps(idOrSubdomain)
-    if (apps.length) {
-      return apps[0]
+      const { externalId, name } = await getMarketplaceApp(app.id, context.accessToken)
+      return {
+        ...app,
+        name: name as string,
+        clientId: externalId as string,
+      }
     }
     throw new Error(`App ${idOrSubdomain} not found`)
   }
 
   @Authorized()
   @Mutation(() => App, { name: '_createApp' })
-  async createApp(@Arg('name') name: string, @Arg('userId') userId: string) {
-    const id = uuid.v4()
-    const app = await createApp(id, userId, name, [
+  async createApp(
+    @Arg('name') name: string,
+    @Arg('developerId') developerId: string,
+    @Ctx() context: Context,
+  ): Promise<App> {
+    const subdomain = await getUnqDomain()
+    const appUrl = getAppUrl(context.apiUrl, subdomain)
+    const id = await createMarketplaceApp(
+      {
+        name,
+        developerId,
+        authFlow: 'authorisationCode',
+        isDirectApi: true,
+        redirectUris: [appUrl],
+        scopes: [],
+        signoutUris: [appUrl],
+      },
+      context.accessToken,
+    )
+    const app = await createApp(id, name, subdomain, [
       {
         id: '~',
         name: 'Home',
@@ -73,27 +203,41 @@ export class AppResolver {
         })),
       },
     ])
-    return app
+    const { externalId } = await getMarketplaceApp(id, context.accessToken)
+    if (!externalId) {
+      throw new Error('Failed to create app - no clientId created')
+    }
+
+    return {
+      ...app,
+      name: name as string,
+      clientId: externalId as string,
+    }
   }
 
   @Authorized()
   @Mutation(() => App, { name: '_updateApp' })
   async updateApp(
+    @Ctx() context: Context,
     @Arg('id', () => ID) id: string,
-    @Arg('name', { nullable: true }) name?: string,
     @Arg('pages', () => [Page], { nullable: true }) pages?: Array<Page>,
-  ) {
+  ): Promise<App> {
     const app = await getApp(id)
     if (!app) {
       throw new Error('App not found')
     }
-    if (name) {
-      app.name = name
-    }
     if (pages) {
       app.pages = pages
     }
-    return updateApp(app)
+    await ensureScopes(app, context.accessToken)
+    const newApp = await updateApp(app)
+
+    const { externalId, name } = await getMarketplaceApp(id, context.accessToken)
+    return {
+      ...newApp,
+      name: name as string,
+      clientId: externalId as string,
+    }
   }
 
   @Authorized()
@@ -103,6 +247,14 @@ export class AppResolver {
     if (!app) {
       throw new Error('App not found')
     }
-    return ejectApp(app, ctx)
+    const { externalId, name } = await getMarketplaceApp(id, ctx.accessToken)
+    return ejectApp(
+      {
+        ...app,
+        name: name as string,
+        clientId: externalId as string,
+      },
+      ctx,
+    )
   }
 }

@@ -2,7 +2,6 @@ import DataLoader from 'dataloader'
 import { getPropertyImages } from './services'
 import { ServerContext } from '@/utils'
 import { PropertyImageModel, PropertyImageModelPagedResult } from '@reapit/foundations-ts-definitions'
-import logger from '@/logger'
 import handleError from '@/utils/handle-error'
 
 export const generatePropertyImageBatchLoaderFn = (context: ServerContext) => async (keys: string[]) => {
@@ -10,7 +9,6 @@ export const generatePropertyImageBatchLoaderFn = (context: ServerContext) => as
     return []
   }
   const traceId = context.traceId
-  logger.info('generatePropertyImageBatchLoaderFn', { traceId })
   try {
     const propertyImagesResult = (await getPropertyImages({ id: keys }, context)) as PropertyImageModelPagedResult
     const result = keys.map((key: string) => {

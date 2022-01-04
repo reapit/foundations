@@ -4,6 +4,7 @@ plugins:
   - serverless-webpack
   - serverless-offline
   - serverless-deployment-bucket
+  - serverless-plugin-log-retention
 
 custom:
   s3CloudFormBucket: cloud-deployment-cloudform-templates-${opt:stage, 'dev'}
@@ -16,6 +17,7 @@ custom:
       noFrozenLockFile: false
     excludeFiles: src/**/*.test.ts
     keepOutputDirectory: true
+  logRetentionInDays: 30
 
 provider:
   name: aws

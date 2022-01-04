@@ -1,5 +1,4 @@
 import qs from 'query-string'
-import logger from '../../logger'
 import { ServerContext } from '../../utils'
 import {
   CreateJournalEntryArgs,
@@ -16,7 +15,6 @@ export const callGetJournalEntriesAPI = async (
   context: ServerContext,
 ): GetJournalEntriesReturn => {
   const traceId = context.traceId
-  logger.info('callGetJournalEntriesAPI', { args, traceId })
   try {
     const params = qs.stringify(args as Record<string, string>)
     const response = await createPlatformAxiosInstance().get<GetJournalEntriesReturn>(
@@ -39,7 +37,6 @@ export const callCreateJournalEntryAPI = async (
   context: ServerContext,
 ): CreateJournalEntryReturn => {
   const traceId = context.traceId
-  logger.info('callCreateJournalEntryAPI', { traceId, args })
   try {
     const response = await createPlatformAxiosInstance().post<CreateJournalEntryReturn>(URLS.journalEntries, args, {
       headers: {

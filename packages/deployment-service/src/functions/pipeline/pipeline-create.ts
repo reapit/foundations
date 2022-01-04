@@ -25,17 +25,21 @@ export const pipelineCreate = httpHandler<PipelineDto, PipelineEntity>({
     return dto
   },
   handler: async ({ event }): Promise<PipelineEntity> => {
-    const { developerId, clientCode } = await resolveCreds(event)
+    const { developerId, clientId } = await resolveCreds(event)
 
     const dto = event.body
       ? plainToClass(PipelineDto, {
           ...JSON.parse(event.body),
           developerId,
-          clientId: clientCode,
+          clientId,
         })
       : new PipelineDto()
 
-    const pipeline = await service.createPipelineEntity(dto)
+    const pipeline = await service.createPipelineEntity({
+      ...dto,
+      // Temp plug, singular appId/clientId for pipeline - later requires multiple pipelines
+      id: dto.appId,
+    })
 
     if (!pipeline) {
       throw new BadRequestException('Invalid pipeline properties')

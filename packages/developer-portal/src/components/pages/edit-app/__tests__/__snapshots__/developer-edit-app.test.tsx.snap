@@ -83,6 +83,7 @@ exports[`DeveloperSubmitApp should match a snapshot when pendingRevisions = fals
               "name": undefined,
               "pricingUrl": undefined,
               "privacyPolicyUrl": undefined,
+              "products": "",
               "redirectUris": "",
               "scopes": Array [],
               "screen1ImageUrl": "",
@@ -96,17 +97,14 @@ exports[`DeveloperSubmitApp should match a snapshot when pendingRevisions = fals
           onSubmit={[Function]}
           validationSchema={
             ObjectSchema {
-              "_blacklist": RefSet {
+              "_blacklist": ReferenceSet {
                 "list": Set {},
                 "refs": Map {},
               },
-              "_conditions": Array [],
-              "_defaultDefault": [Function],
-              "_deps": Array [],
+              "_blacklistError": undefined,
               "_excludedEdges": Array [],
-              "_exclusive": Object {},
-              "_mutate": undefined,
               "_nodes": Array [
+                "products",
                 "isFree",
                 "isListed",
                 "pricingUrl",
@@ -127,36 +125,25 @@ exports[`DeveloperSubmitApp should match a snapshot when pendingRevisions = fals
                 "telephone",
                 "name",
               ],
-              "_options": Object {
-                "abortEarly": true,
-                "recursive": true,
-              },
-              "_type": "object",
+              "_sortErrors": [Function],
               "_typeError": [Function],
-              "_whitelist": RefSet {
+              "_whitelist": ReferenceSet {
                 "list": Set {},
                 "refs": Map {},
               },
+              "_whitelistError": undefined,
+              "conditions": Array [],
+              "deps": Array [],
+              "exclusiveTests": Object {},
               "fields": Object {
                 "authFlow": StringSchema {
-                  "_blacklist": RefSet {
+                  "_blacklist": ReferenceSet {
                     "list": Set {},
                     "refs": Map {},
                   },
-                  "_conditions": Array [],
-                  "_deps": Array [],
-                  "_exclusive": Object {
-                    "required": true,
-                    "trim": false,
-                  },
-                  "_mutate": undefined,
-                  "_options": Object {
-                    "abortEarly": true,
-                    "recursive": true,
-                  },
-                  "_type": "string",
+                  "_blacklistError": undefined,
                   "_typeError": [Function],
-                  "_whitelist": RefSet {
+                  "_whitelist": ReferenceSet {
                     "list": Set {
                       "authorisationCode",
                       "clientCredentials",
@@ -164,6 +151,20 @@ exports[`DeveloperSubmitApp should match a snapshot when pendingRevisions = fals
                     "refs": Map {},
                   },
                   "_whitelistError": [Function],
+                  "conditions": Array [],
+                  "deps": Array [],
+                  "exclusiveTests": Object {
+                    "required": true,
+                    "trim": false,
+                  },
+                  "spec": Object {
+                    "abortEarly": true,
+                    "nullable": false,
+                    "presence": "required",
+                    "recursive": true,
+                    "strict": false,
+                    "strip": false,
+                  },
                   "tests": Array [
                     [Function],
                     [Function],
@@ -175,11 +176,18 @@ exports[`DeveloperSubmitApp should match a snapshot when pendingRevisions = fals
                   "type": "string",
                 },
                 "description": StringSchema {
-                  "_blacklist": RefSet {
+                  "_blacklist": ReferenceSet {
                     "list": Set {},
                     "refs": Map {},
                   },
-                  "_conditions": Array [
+                  "_blacklistError": undefined,
+                  "_typeError": [Function],
+                  "_whitelist": ReferenceSet {
+                    "list": Set {},
+                    "refs": Map {},
+                  },
+                  "_whitelistError": undefined,
+                  "conditions": Array [
                     Condition {
                       "fn": [Function],
                       "refs": Array [
@@ -195,24 +203,21 @@ exports[`DeveloperSubmitApp should match a snapshot when pendingRevisions = fals
                       ],
                     },
                   ],
-                  "_deps": Array [
+                  "deps": Array [
                     "isListed",
                   ],
-                  "_exclusive": Object {
+                  "exclusiveTests": Object {
                     "max": true,
                     "min": true,
                     "trim": false,
                   },
-                  "_mutate": undefined,
-                  "_options": Object {
+                  "spec": Object {
                     "abortEarly": true,
+                    "nullable": false,
+                    "presence": "optional",
                     "recursive": true,
-                  },
-                  "_type": "string",
-                  "_typeError": [Function],
-                  "_whitelist": RefSet {
-                    "list": Set {},
-                    "refs": Map {},
+                    "strict": false,
+                    "strip": false,
                   },
                   "tests": Array [
                     [Function],
@@ -226,11 +231,18 @@ exports[`DeveloperSubmitApp should match a snapshot when pendingRevisions = fals
                   "type": "string",
                 },
                 "homePage": StringSchema {
-                  "_blacklist": RefSet {
+                  "_blacklist": ReferenceSet {
                     "list": Set {},
                     "refs": Map {},
                   },
-                  "_conditions": Array [
+                  "_blacklistError": undefined,
+                  "_typeError": [Function],
+                  "_whitelist": ReferenceSet {
+                    "list": Set {},
+                    "refs": Map {},
+                  },
+                  "_whitelistError": undefined,
+                  "conditions": Array [
                     Condition {
                       "fn": [Function],
                       "refs": Array [
@@ -246,23 +258,20 @@ exports[`DeveloperSubmitApp should match a snapshot when pendingRevisions = fals
                       ],
                     },
                   ],
-                  "_deps": Array [
+                  "deps": Array [
                     "isListed",
                   ],
-                  "_exclusive": Object {
+                  "exclusiveTests": Object {
                     "isValidHomePage": false,
                     "trim": false,
                   },
-                  "_mutate": undefined,
-                  "_options": Object {
+                  "spec": Object {
                     "abortEarly": true,
+                    "nullable": false,
+                    "presence": "optional",
                     "recursive": true,
-                  },
-                  "_type": "string",
-                  "_typeError": [Function],
-                  "_whitelist": RefSet {
-                    "list": Set {},
-                    "refs": Map {},
+                    "strict": false,
+                    "strip": false,
                   },
                   "tests": Array [
                     [Function],
@@ -275,11 +284,18 @@ exports[`DeveloperSubmitApp should match a snapshot when pendingRevisions = fals
                   "type": "string",
                 },
                 "iconImageUrl": StringSchema {
-                  "_blacklist": RefSet {
+                  "_blacklist": ReferenceSet {
                     "list": Set {},
                     "refs": Map {},
                   },
-                  "_conditions": Array [
+                  "_blacklistError": undefined,
+                  "_typeError": [Function],
+                  "_whitelist": ReferenceSet {
+                    "list": Set {},
+                    "refs": Map {},
+                  },
+                  "_whitelistError": undefined,
+                  "conditions": Array [
                     Condition {
                       "fn": [Function],
                       "refs": Array [
@@ -295,20 +311,17 @@ exports[`DeveloperSubmitApp should match a snapshot when pendingRevisions = fals
                       ],
                     },
                   ],
-                  "_deps": Array [
+                  "deps": Array [
                     "isListed",
                   ],
-                  "_exclusive": Object {},
-                  "_mutate": undefined,
-                  "_options": Object {
+                  "exclusiveTests": Object {},
+                  "spec": Object {
                     "abortEarly": true,
+                    "nullable": false,
+                    "presence": "optional",
                     "recursive": true,
-                  },
-                  "_type": "string",
-                  "_typeError": [Function],
-                  "_whitelist": RefSet {
-                    "list": Set {},
-                    "refs": Map {},
+                    "strict": false,
+                    "strip": false,
                   },
                   "tests": Array [],
                   "transforms": Array [
@@ -317,23 +330,26 @@ exports[`DeveloperSubmitApp should match a snapshot when pendingRevisions = fals
                   "type": "string",
                 },
                 "isListed": BooleanSchema {
-                  "_blacklist": RefSet {
+                  "_blacklist": ReferenceSet {
                     "list": Set {},
                     "refs": Map {},
                   },
-                  "_conditions": Array [],
-                  "_deps": Array [],
-                  "_exclusive": Object {},
                   "_mutate": undefined,
-                  "_options": Object {
-                    "abortEarly": true,
-                    "recursive": true,
-                  },
-                  "_type": "boolean",
                   "_typeError": [Function],
-                  "_whitelist": RefSet {
+                  "_whitelist": ReferenceSet {
                     "list": Set {},
                     "refs": Map {},
+                  },
+                  "conditions": Array [],
+                  "deps": Array [],
+                  "exclusiveTests": Object {},
+                  "spec": Object {
+                    "abortEarly": true,
+                    "nullable": false,
+                    "presence": "optional",
+                    "recursive": true,
+                    "strict": false,
+                    "strip": false,
                   },
                   "tests": Array [],
                   "transforms": Array [
@@ -342,11 +358,18 @@ exports[`DeveloperSubmitApp should match a snapshot when pendingRevisions = fals
                   "type": "boolean",
                 },
                 "launchUri": StringSchema {
-                  "_blacklist": RefSet {
+                  "_blacklist": ReferenceSet {
                     "list": Set {},
                     "refs": Map {},
                   },
-                  "_conditions": Array [
+                  "_blacklistError": undefined,
+                  "_typeError": [Function],
+                  "_whitelist": ReferenceSet {
+                    "list": Set {},
+                    "refs": Map {},
+                  },
+                  "_whitelistError": undefined,
+                  "conditions": Array [
                     Condition {
                       "fn": [Function],
                       "refs": Array [
@@ -362,23 +385,20 @@ exports[`DeveloperSubmitApp should match a snapshot when pendingRevisions = fals
                       ],
                     },
                   ],
-                  "_deps": Array [
+                  "deps": Array [
                     "isListed",
                   ],
-                  "_exclusive": Object {
+                  "exclusiveTests": Object {
                     "isValidLaunchUri": false,
                     "trim": false,
                   },
-                  "_mutate": undefined,
-                  "_options": Object {
+                  "spec": Object {
                     "abortEarly": true,
+                    "nullable": false,
+                    "presence": "optional",
                     "recursive": true,
-                  },
-                  "_type": "string",
-                  "_typeError": [Function],
-                  "_whitelist": RefSet {
-                    "list": Set {},
-                    "refs": Map {},
+                    "strict": false,
+                    "strip": false,
                   },
                   "tests": Array [
                     [Function],
@@ -391,26 +411,30 @@ exports[`DeveloperSubmitApp should match a snapshot when pendingRevisions = fals
                   "type": "string",
                 },
                 "limitToClientIds": StringSchema {
-                  "_blacklist": RefSet {
+                  "_blacklist": ReferenceSet {
                     "list": Set {},
                     "refs": Map {},
                   },
-                  "_conditions": Array [],
-                  "_deps": Array [],
-                  "_exclusive": Object {
+                  "_blacklistError": undefined,
+                  "_typeError": [Function],
+                  "_whitelist": ReferenceSet {
+                    "list": Set {},
+                    "refs": Map {},
+                  },
+                  "_whitelistError": undefined,
+                  "conditions": Array [],
+                  "deps": Array [],
+                  "exclusiveTests": Object {
                     "isValidLimitToClientIds": false,
                     "trim": false,
                   },
-                  "_mutate": undefined,
-                  "_options": Object {
+                  "spec": Object {
                     "abortEarly": true,
+                    "nullable": false,
+                    "presence": "optional",
                     "recursive": true,
-                  },
-                  "_type": "string",
-                  "_typeError": [Function],
-                  "_whitelist": RefSet {
-                    "list": Set {},
-                    "refs": Map {},
+                    "strict": false,
+                    "strip": false,
                   },
                   "tests": Array [
                     [Function],
@@ -423,28 +447,32 @@ exports[`DeveloperSubmitApp should match a snapshot when pendingRevisions = fals
                   "type": "string",
                 },
                 "name": StringSchema {
-                  "_blacklist": RefSet {
+                  "_blacklist": ReferenceSet {
                     "list": Set {},
                     "refs": Map {},
                   },
-                  "_conditions": Array [],
-                  "_deps": Array [],
-                  "_exclusive": Object {
+                  "_blacklistError": undefined,
+                  "_typeError": [Function],
+                  "_whitelist": ReferenceSet {
+                    "list": Set {},
+                    "refs": Map {},
+                  },
+                  "_whitelistError": undefined,
+                  "conditions": Array [],
+                  "deps": Array [],
+                  "exclusiveTests": Object {
                     "matches": false,
                     "max": true,
                     "required": true,
                     "trim": false,
                   },
-                  "_mutate": undefined,
-                  "_options": Object {
+                  "spec": Object {
                     "abortEarly": true,
+                    "nullable": false,
+                    "presence": "required",
                     "recursive": true,
-                  },
-                  "_type": "string",
-                  "_typeError": [Function],
-                  "_whitelist": RefSet {
-                    "list": Set {},
-                    "refs": Map {},
+                    "strict": false,
+                    "strip": false,
                   },
                   "tests": Array [
                     [Function],
@@ -459,11 +487,18 @@ exports[`DeveloperSubmitApp should match a snapshot when pendingRevisions = fals
                   "type": "string",
                 },
                 "pricingUrl": StringSchema {
-                  "_blacklist": RefSet {
+                  "_blacklist": ReferenceSet {
                     "list": Set {},
                     "refs": Map {},
                   },
-                  "_conditions": Array [
+                  "_blacklistError": undefined,
+                  "_typeError": [Function],
+                  "_whitelist": ReferenceSet {
+                    "list": Set {},
+                    "refs": Map {},
+                  },
+                  "_whitelistError": undefined,
+                  "conditions": Array [
                     Condition {
                       "fn": [Function],
                       "refs": Array [
@@ -488,24 +523,21 @@ exports[`DeveloperSubmitApp should match a snapshot when pendingRevisions = fals
                       ],
                     },
                   ],
-                  "_deps": Array [
+                  "deps": Array [
                     "isFree",
                     "isListed",
                   ],
-                  "_exclusive": Object {
+                  "exclusiveTests": Object {
                     "isValidPricingUrl": false,
                     "trim": false,
                   },
-                  "_mutate": undefined,
-                  "_options": Object {
+                  "spec": Object {
                     "abortEarly": true,
+                    "nullable": false,
+                    "presence": "optional",
                     "recursive": true,
-                  },
-                  "_type": "string",
-                  "_typeError": [Function],
-                  "_whitelist": RefSet {
-                    "list": Set {},
-                    "refs": Map {},
+                    "strict": false,
+                    "strip": false,
                   },
                   "tests": Array [
                     [Function],
@@ -518,11 +550,18 @@ exports[`DeveloperSubmitApp should match a snapshot when pendingRevisions = fals
                   "type": "string",
                 },
                 "privacyPolicyUrl": StringSchema {
-                  "_blacklist": RefSet {
+                  "_blacklist": ReferenceSet {
                     "list": Set {},
                     "refs": Map {},
                   },
-                  "_conditions": Array [
+                  "_blacklistError": undefined,
+                  "_typeError": [Function],
+                  "_whitelist": ReferenceSet {
+                    "list": Set {},
+                    "refs": Map {},
+                  },
+                  "_whitelistError": undefined,
+                  "conditions": Array [
                     Condition {
                       "fn": [Function],
                       "refs": Array [
@@ -538,23 +577,20 @@ exports[`DeveloperSubmitApp should match a snapshot when pendingRevisions = fals
                       ],
                     },
                   ],
-                  "_deps": Array [
+                  "deps": Array [
                     "isListed",
                   ],
-                  "_exclusive": Object {
+                  "exclusiveTests": Object {
                     "isValidPrivacyPolicyUrl": false,
                     "trim": false,
                   },
-                  "_mutate": undefined,
-                  "_options": Object {
+                  "spec": Object {
                     "abortEarly": true,
+                    "nullable": false,
+                    "presence": "optional",
                     "recursive": true,
-                  },
-                  "_type": "string",
-                  "_typeError": [Function],
-                  "_whitelist": RefSet {
-                    "list": Set {},
-                    "refs": Map {},
+                    "strict": false,
+                    "strip": false,
                   },
                   "tests": Array [
                     [Function],
@@ -566,12 +602,53 @@ exports[`DeveloperSubmitApp should match a snapshot when pendingRevisions = fals
                   ],
                   "type": "string",
                 },
-                "redirectUris": StringSchema {
-                  "_blacklist": RefSet {
+                "products": StringSchema {
+                  "_blacklist": ReferenceSet {
                     "list": Set {},
                     "refs": Map {},
                   },
-                  "_conditions": Array [
+                  "_blacklistError": undefined,
+                  "_mutate": undefined,
+                  "_typeError": [Function],
+                  "_whitelist": ReferenceSet {
+                    "list": Set {},
+                    "refs": Map {},
+                  },
+                  "_whitelistError": undefined,
+                  "conditions": Array [],
+                  "deps": Array [],
+                  "exclusiveTests": Object {
+                    "required": true,
+                  },
+                  "spec": Object {
+                    "abortEarly": true,
+                    "nullable": false,
+                    "presence": "required",
+                    "recursive": true,
+                    "strict": false,
+                    "strip": false,
+                  },
+                  "tests": Array [
+                    [Function],
+                  ],
+                  "transforms": Array [
+                    [Function],
+                  ],
+                  "type": "string",
+                },
+                "redirectUris": StringSchema {
+                  "_blacklist": ReferenceSet {
+                    "list": Set {},
+                    "refs": Map {},
+                  },
+                  "_blacklistError": undefined,
+                  "_typeError": [Function],
+                  "_whitelist": ReferenceSet {
+                    "list": Set {},
+                    "refs": Map {},
+                  },
+                  "_whitelistError": undefined,
+                  "conditions": Array [
                     Condition {
                       "fn": [Function],
                       "refs": Array [
@@ -587,22 +664,19 @@ exports[`DeveloperSubmitApp should match a snapshot when pendingRevisions = fals
                       ],
                     },
                   ],
-                  "_deps": Array [
+                  "deps": Array [
                     "authFlow",
                   ],
-                  "_exclusive": Object {
+                  "exclusiveTests": Object {
                     "trim": false,
                   },
-                  "_mutate": undefined,
-                  "_options": Object {
+                  "spec": Object {
                     "abortEarly": true,
+                    "nullable": false,
+                    "presence": "optional",
                     "recursive": true,
-                  },
-                  "_type": "string",
-                  "_typeError": [Function],
-                  "_whitelist": RefSet {
-                    "list": Set {},
-                    "refs": Map {},
+                    "strict": false,
+                    "strip": false,
                   },
                   "tests": Array [
                     [Function],
@@ -614,11 +688,18 @@ exports[`DeveloperSubmitApp should match a snapshot when pendingRevisions = fals
                   "type": "string",
                 },
                 "scopes": ArraySchema {
-                  "_blacklist": RefSet {
+                  "_blacklist": ReferenceSet {
                     "list": Set {},
                     "refs": Map {},
                   },
-                  "_conditions": Array [
+                  "_blacklistError": undefined,
+                  "_typeError": [Function],
+                  "_whitelist": ReferenceSet {
+                    "list": Set {},
+                    "refs": Map {},
+                  },
+                  "_whitelistError": undefined,
+                  "conditions": Array [
                     Condition {
                       "fn": [Function],
                       "refs": Array [
@@ -634,23 +715,19 @@ exports[`DeveloperSubmitApp should match a snapshot when pendingRevisions = fals
                       ],
                     },
                   ],
-                  "_deps": Array [
+                  "deps": Array [
                     "authFlow",
                   ],
-                  "_exclusive": Object {},
-                  "_mutate": undefined,
-                  "_options": Object {
-                    "abortEarly": true,
-                    "recursive": true,
-                  },
-                  "_subType": undefined,
-                  "_type": "array",
-                  "_typeError": [Function],
-                  "_whitelist": RefSet {
-                    "list": Set {},
-                    "refs": Map {},
-                  },
+                  "exclusiveTests": Object {},
                   "innerType": undefined,
+                  "spec": Object {
+                    "abortEarly": true,
+                    "nullable": false,
+                    "presence": "optional",
+                    "recursive": true,
+                    "strict": false,
+                    "strip": false,
+                  },
                   "tests": Array [],
                   "transforms": Array [
                     [Function],
@@ -658,11 +735,18 @@ exports[`DeveloperSubmitApp should match a snapshot when pendingRevisions = fals
                   "type": "array",
                 },
                 "screen1ImageUrl": StringSchema {
-                  "_blacklist": RefSet {
+                  "_blacklist": ReferenceSet {
                     "list": Set {},
                     "refs": Map {},
                   },
-                  "_conditions": Array [
+                  "_blacklistError": undefined,
+                  "_typeError": [Function],
+                  "_whitelist": ReferenceSet {
+                    "list": Set {},
+                    "refs": Map {},
+                  },
+                  "_whitelistError": undefined,
+                  "conditions": Array [
                     Condition {
                       "fn": [Function],
                       "refs": Array [
@@ -678,20 +762,17 @@ exports[`DeveloperSubmitApp should match a snapshot when pendingRevisions = fals
                       ],
                     },
                   ],
-                  "_deps": Array [
+                  "deps": Array [
                     "isListed",
                   ],
-                  "_exclusive": Object {},
-                  "_mutate": undefined,
-                  "_options": Object {
+                  "exclusiveTests": Object {},
+                  "spec": Object {
                     "abortEarly": true,
+                    "nullable": false,
+                    "presence": "optional",
                     "recursive": true,
-                  },
-                  "_type": "string",
-                  "_typeError": [Function],
-                  "_whitelist": RefSet {
-                    "list": Set {},
-                    "refs": Map {},
+                    "strict": false,
+                    "strip": false,
                   },
                   "tests": Array [],
                   "transforms": Array [
@@ -700,11 +781,18 @@ exports[`DeveloperSubmitApp should match a snapshot when pendingRevisions = fals
                   "type": "string",
                 },
                 "signoutUris": StringSchema {
-                  "_blacklist": RefSet {
+                  "_blacklist": ReferenceSet {
                     "list": Set {},
                     "refs": Map {},
                   },
-                  "_conditions": Array [
+                  "_blacklistError": undefined,
+                  "_typeError": [Function],
+                  "_whitelist": ReferenceSet {
+                    "list": Set {},
+                    "refs": Map {},
+                  },
+                  "_whitelistError": undefined,
+                  "conditions": Array [
                     Condition {
                       "fn": [Function],
                       "refs": Array [
@@ -720,22 +808,19 @@ exports[`DeveloperSubmitApp should match a snapshot when pendingRevisions = fals
                       ],
                     },
                   ],
-                  "_deps": Array [
+                  "deps": Array [
                     "authFlow",
                   ],
-                  "_exclusive": Object {
+                  "exclusiveTests": Object {
                     "trim": false,
                   },
-                  "_mutate": undefined,
-                  "_options": Object {
+                  "spec": Object {
                     "abortEarly": true,
+                    "nullable": false,
+                    "presence": "optional",
                     "recursive": true,
-                  },
-                  "_type": "string",
-                  "_typeError": [Function],
-                  "_whitelist": RefSet {
-                    "list": Set {},
-                    "refs": Map {},
+                    "strict": false,
+                    "strip": false,
                   },
                   "tests": Array [
                     [Function],
@@ -747,11 +832,18 @@ exports[`DeveloperSubmitApp should match a snapshot when pendingRevisions = fals
                   "type": "string",
                 },
                 "summary": StringSchema {
-                  "_blacklist": RefSet {
+                  "_blacklist": ReferenceSet {
                     "list": Set {},
                     "refs": Map {},
                   },
-                  "_conditions": Array [
+                  "_blacklistError": undefined,
+                  "_typeError": [Function],
+                  "_whitelist": ReferenceSet {
+                    "list": Set {},
+                    "refs": Map {},
+                  },
+                  "_whitelistError": undefined,
+                  "conditions": Array [
                     Condition {
                       "fn": [Function],
                       "refs": Array [
@@ -767,24 +859,21 @@ exports[`DeveloperSubmitApp should match a snapshot when pendingRevisions = fals
                       ],
                     },
                   ],
-                  "_deps": Array [
+                  "deps": Array [
                     "isListed",
                   ],
-                  "_exclusive": Object {
+                  "exclusiveTests": Object {
                     "max": true,
                     "min": true,
                     "trim": false,
                   },
-                  "_mutate": undefined,
-                  "_options": Object {
+                  "spec": Object {
                     "abortEarly": true,
+                    "nullable": false,
+                    "presence": "optional",
                     "recursive": true,
-                  },
-                  "_type": "string",
-                  "_typeError": [Function],
-                  "_whitelist": RefSet {
-                    "list": Set {},
-                    "refs": Map {},
+                    "strict": false,
+                    "strip": false,
                   },
                   "tests": Array [
                     [Function],
@@ -798,11 +887,18 @@ exports[`DeveloperSubmitApp should match a snapshot when pendingRevisions = fals
                   "type": "string",
                 },
                 "supportEmail": StringSchema {
-                  "_blacklist": RefSet {
+                  "_blacklist": ReferenceSet {
                     "list": Set {},
                     "refs": Map {},
                   },
-                  "_conditions": Array [
+                  "_blacklistError": undefined,
+                  "_typeError": [Function],
+                  "_whitelist": ReferenceSet {
+                    "list": Set {},
+                    "refs": Map {},
+                  },
+                  "_whitelistError": undefined,
+                  "conditions": Array [
                     Condition {
                       "fn": [Function],
                       "refs": Array [
@@ -818,23 +914,20 @@ exports[`DeveloperSubmitApp should match a snapshot when pendingRevisions = fals
                       ],
                     },
                   ],
-                  "_deps": Array [
+                  "deps": Array [
                     "isListed",
                   ],
-                  "_exclusive": Object {
+                  "exclusiveTests": Object {
                     "matches": false,
                     "trim": false,
                   },
-                  "_mutate": undefined,
-                  "_options": Object {
+                  "spec": Object {
                     "abortEarly": true,
+                    "nullable": false,
+                    "presence": "optional",
                     "recursive": true,
-                  },
-                  "_type": "string",
-                  "_typeError": [Function],
-                  "_whitelist": RefSet {
-                    "list": Set {},
-                    "refs": Map {},
+                    "strict": false,
+                    "strip": false,
                   },
                   "tests": Array [
                     [Function],
@@ -847,11 +940,18 @@ exports[`DeveloperSubmitApp should match a snapshot when pendingRevisions = fals
                   "type": "string",
                 },
                 "telephone": StringSchema {
-                  "_blacklist": RefSet {
+                  "_blacklist": ReferenceSet {
                     "list": Set {},
                     "refs": Map {},
                   },
-                  "_conditions": Array [
+                  "_blacklistError": undefined,
+                  "_typeError": [Function],
+                  "_whitelist": ReferenceSet {
+                    "list": Set {},
+                    "refs": Map {},
+                  },
+                  "_whitelistError": undefined,
+                  "conditions": Array [
                     Condition {
                       "fn": [Function],
                       "refs": Array [
@@ -867,23 +967,20 @@ exports[`DeveloperSubmitApp should match a snapshot when pendingRevisions = fals
                       ],
                     },
                   ],
-                  "_deps": Array [
+                  "deps": Array [
                     "isListed",
                   ],
-                  "_exclusive": Object {
+                  "exclusiveTests": Object {
                     "matches": false,
                     "max": true,
                   },
-                  "_mutate": undefined,
-                  "_options": Object {
+                  "spec": Object {
                     "abortEarly": true,
+                    "nullable": false,
+                    "presence": "optional",
                     "recursive": true,
-                  },
-                  "_type": "string",
-                  "_typeError": [Function],
-                  "_whitelist": RefSet {
-                    "list": Set {},
-                    "refs": Map {},
+                    "strict": false,
+                    "strip": false,
                   },
                   "tests": Array [
                     [Function],
@@ -895,11 +992,18 @@ exports[`DeveloperSubmitApp should match a snapshot when pendingRevisions = fals
                   "type": "string",
                 },
                 "termsAndConditionsUrl": StringSchema {
-                  "_blacklist": RefSet {
+                  "_blacklist": ReferenceSet {
                     "list": Set {},
                     "refs": Map {},
                   },
-                  "_conditions": Array [
+                  "_blacklistError": undefined,
+                  "_typeError": [Function],
+                  "_whitelist": ReferenceSet {
+                    "list": Set {},
+                    "refs": Map {},
+                  },
+                  "_whitelistError": undefined,
+                  "conditions": Array [
                     Condition {
                       "fn": [Function],
                       "refs": Array [
@@ -915,23 +1019,20 @@ exports[`DeveloperSubmitApp should match a snapshot when pendingRevisions = fals
                       ],
                     },
                   ],
-                  "_deps": Array [
+                  "deps": Array [
                     "isListed",
                   ],
-                  "_exclusive": Object {
+                  "exclusiveTests": Object {
                     "isValidTermsAndConditionsUrl": false,
                     "trim": false,
                   },
-                  "_mutate": undefined,
-                  "_options": Object {
+                  "spec": Object {
                     "abortEarly": true,
+                    "nullable": false,
+                    "presence": "optional",
                     "recursive": true,
-                  },
-                  "_type": "string",
-                  "_typeError": [Function],
-                  "_whitelist": RefSet {
-                    "list": Set {},
-                    "refs": Map {},
+                    "strict": false,
+                    "strip": false,
                   },
                   "tests": Array [
                     [Function],
@@ -943,6 +1044,14 @@ exports[`DeveloperSubmitApp should match a snapshot when pendingRevisions = fals
                   ],
                   "type": "string",
                 },
+              },
+              "spec": Object {
+                "abortEarly": true,
+                "nullable": false,
+                "presence": "optional",
+                "recursive": true,
+                "strict": false,
+                "strip": false,
               },
               "tests": Array [],
               "transforms": Array [
@@ -3242,6 +3351,176 @@ exports[`DeveloperSubmitApp should match a snapshot when pendingRevisions = fals
                   </div>
                 </FormSection>
               </MarketplaceStatusSection>
+              <ReapitProductsSection
+                app={Object {}}
+              >
+                <FormSection>
+                  <div
+                    className="form-section"
+                  >
+                    <FormHeading>
+                      <div
+                        className="form-heading"
+                      >
+                        Reapit Products
+                      </div>
+                    </FormHeading>
+                    <FormSubHeading>
+                      <div
+                        className="form-subheading"
+                      >
+                        This section refers to products that are available within the Reapit Group of Companies. For UK based developers, this will typically default to Agency Cloud however, as we launch the Reapit AppMarket in other countries and with different products, you may wish for your application to list in these alternative AppMarkets. You can select more than one option but at least one option must be selected.
+                      </div>
+                    </FormSubHeading>
+                    <Grid>
+                      <div
+                        className="columns"
+                        data-test=""
+                      >
+                        <GridItem>
+                          <div
+                            className="column"
+                            data-test=""
+                          >
+                            <Field
+                              name="products"
+                              type="input"
+                            >
+                              <ForwardRef
+                                defaultValues={Array []}
+                                id="react-example"
+                                name="products"
+                                noneSelectedLabel="Select at least one product fom below"
+                                onBlur={[Function]}
+                                onChange={[Function]}
+                                options={Array []}
+                                value=""
+                              >
+                                <ElMultiSelectInputWrapper>
+                                  <div
+                                    className="eooz7jy-el-multi-select-input-wrapper"
+                                  >
+                                    <ElMultiSelectInput
+                                      id="react-example"
+                                      name="products"
+                                      onBlur={[Function]}
+                                      onChange={[Function]}
+                                      value=""
+                                    >
+                                      <input
+                                        className="eg4njbl-el-multi-select-input"
+                                        id="react-example"
+                                        name="products"
+                                        onBlur={[Function]}
+                                        onChange={[Function]}
+                                        value=""
+                                      />
+                                    </ElMultiSelectInput>
+                                    <MultiSelectSelected>
+                                      <ElMultiSelectSelected
+                                        className=""
+                                      >
+                                        <div
+                                          className="e12c6sou-el-multi-select-selected"
+                                        >
+                                          <Icon
+                                            className="e1el4z3b-el-ml2"
+                                            icon="selectInfographic"
+                                            iconSize="medium"
+                                          >
+                                            <ElIcon
+                                              className="e1el4z3b-el-ml2 emw1q1w-el-icon-size-medium"
+                                              style={
+                                                Object {
+                                                  "fontSize": undefined,
+                                                }
+                                              }
+                                            >
+                                              <span
+                                                className="e1el4z3b-el-ml2 emw1q1w-el-icon-size-medium ej9yrfo-el-icon"
+                                                style={
+                                                  Object {
+                                                    "fontSize": undefined,
+                                                  }
+                                                }
+                                              >
+                                                <Memo()>
+                                                  <svg
+                                                    fill="none"
+                                                    height="1em"
+                                                    viewBox="0 0 40 40"
+                                                    width="1em"
+                                                    xmlns="http://www.w3.org/2000/svg"
+                                                  >
+                                                    <rect
+                                                      fill="#0061A8"
+                                                      height="34.1736"
+                                                      width="19.3482"
+                                                      x="11.1089"
+                                                      y="2.56079"
+                                                    />
+                                                    <path
+                                                      d="M24.2112 4.354H20.4706C19.9537 4.354 19.5354 4.7645 19.5354 5.27163C19.5354 5.77876 19.9537 6.18925 20.4706 6.18925H24.2112C24.728 6.18925 25.1464 5.77876 25.1464 5.27163C25.1464 4.7645 24.728 4.354 24.2112 4.354Z"
+                                                      fill="#23A4DE"
+                                                    />
+                                                    <path
+                                                      d="M28.2628 1.29517H13.3002C11.2379 1.29517 9.55957 2.94201 9.55957 4.96566V34.3296C9.55957 36.3533 11.2379 38.0001 13.3002 38.0001H28.2628C30.3251 38.0001 32.0034 36.3533 32.0034 34.3296V4.96566C32.0034 2.94201 30.3251 1.29517 28.2628 1.29517ZM30.1331 34.3296C30.1331 35.3433 29.2959 36.1649 28.2628 36.1649H13.3002C12.2672 36.1649 11.4299 35.3433 11.4299 34.3296V4.96566C11.4299 3.95197 12.2672 3.13041 13.3002 3.13041H28.2628C29.2959 3.13041 30.1331 3.95197 30.1331 4.96566V34.3296Z"
+                                                      fill="#0061A8"
+                                                    />
+                                                    <path
+                                                      d="M20.78 34.9412C21.8129 34.9412 22.6503 34.1196 22.6503 33.106C22.6503 32.0924 21.8129 31.2708 20.78 31.2708C19.747 31.2708 18.9097 32.0924 18.9097 33.106C18.9097 34.1196 19.747 34.9412 20.78 34.9412Z"
+                                                      fill="#23A4DE"
+                                                    />
+                                                    <path
+                                                      d="M17.3509 6.18925C17.8674 6.18925 18.2861 5.77842 18.2861 5.27163C18.2861 4.76484 17.8674 4.354 17.3509 4.354C16.8345 4.354 16.4158 4.76484 16.4158 5.27163C16.4158 5.77842 16.8345 6.18925 17.3509 6.18925Z"
+                                                      fill="#23A4DE"
+                                                    />
+                                                    <rect
+                                                      fill="white"
+                                                      height="10"
+                                                      rx="5"
+                                                      width="23"
+                                                      x="17"
+                                                      y="10"
+                                                    />
+                                                    <g
+                                                      clipPath="url(#clip1)"
+                                                    >
+                                                      <path
+                                                        d="M37.2176 19.5746C36.9467 18.5733 35.8688 17.998 34.8684 18.4C34.6105 17.447 33.6057 16.8422 32.587 17.2044V14.7472C32.5861 12.4194 29.064 12.4158 29.0632 14.7472V23.8099C28.1718 22.9185 27.3744 22.1211 27.3724 22.1192C26.6858 21.4317 25.5673 21.4317 24.8808 22.1192C24.1946 22.8042 24.1922 23.9226 24.8808 24.6107C25.0511 24.7809 29.3682 29.0981 29.5384 29.2683C30.6477 30.3776 32.1516 31 33.7201 30.9999V31C36.9869 30.9996 39.6344 28.3521 39.6348 25.0853C39.6348 23.9107 39.6348 24.0998 39.6348 21.2075C39.6342 19.9692 38.3836 19.106 37.2176 19.5746Z"
+                                                        fill="#FFB71B"
+                                                      />
+                                                    </g>
+                                                    <path
+                                                      d="M7 24L7 14.8485C7 14.3797 7.41997 14 7.93848 14L14.0615 14C14.58 14 15 14.3797 15 14.8485L15 24L7 24Z"
+                                                      fill="#23A4DE"
+                                                    />
+                                                    <path
+                                                      d="M1.95185 23L19.0481 23C19.8316 23 20.2786 23.8097 19.8073 24.3761L11.2597 34.6571C10.8796 35.1143 10.1209 35.1143 9.74082 34.6571L1.19267 24.3761C0.721385 23.8097 1.16844 23 1.95185 23Z"
+                                                      fill="#7BC9EB"
+                                                    />
+                                                  </svg>
+                                                </Memo()>
+                                              </span>
+                                            </ElIcon>
+                                          </Icon>
+                                          <p>
+                                            Select at least one product fom below
+                                          </p>
+                                        </div>
+                                      </ElMultiSelectSelected>
+                                    </MultiSelectSelected>
+                                  </div>
+                                </ElMultiSelectInputWrapper>
+                              </ForwardRef>
+                            </Field>
+                          </div>
+                        </GridItem>
+                      </div>
+                    </Grid>
+                  </div>
+                </FormSection>
+              </ReapitProductsSection>
               <PermissionSection
                 errors={Object {}}
                 isListed={false}

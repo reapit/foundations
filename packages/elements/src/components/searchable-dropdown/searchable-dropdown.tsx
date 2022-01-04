@@ -1,4 +1,4 @@
-import React, { forwardRef, useEffect } from 'react'
+import React, { FC, forwardRef, HTMLAttributes, useEffect } from 'react'
 import {
   ElSearchableDropdownCloseButton,
   ElSearchableDropdownContainer,
@@ -6,6 +6,7 @@ import {
   ElSearchableDropdownResultsContainer,
   ElSearchableDropdownSearchInput,
   ElSearchableDropdownSearchInputAddOn,
+  ElSearchableDropdownSearchLabel,
   ElSearchableDropdownSearchLoader,
 } from './__styles__'
 import { Icon, IconNames } from '../icon'
@@ -94,11 +95,12 @@ export const SearchableDropdownInner = <T extends unknown>(
     setSelectedValue(value)
     setResultsVisible(false)
     if (onChange) {
-      onChange({
+      onChange(({
         target: {
+          ...inputProps,
           value,
         },
-      } as React.ChangeEvent<HTMLInputElement>)
+      } as unknown) as React.ChangeEvent<HTMLInputElement>)
     }
   }
 
@@ -143,3 +145,7 @@ export const SearchableDropdownInner = <T extends unknown>(
 export const SearchableDropdown = forwardRef(SearchableDropdownInner) as <T>(
   props: SearchableDropdownProps<T> & { ref?: React.ForwardedRef<HTMLInputElement> },
 ) => ReturnType<typeof SearchableDropdownInner>
+
+export const SearchableDropdownSearchLabel: FC<HTMLAttributes<HTMLLabelElement>> = ({ children, ...rest }) => {
+  return <ElSearchableDropdownSearchLabel {...rest}>{children}</ElSearchableDropdownSearchLabel>
+}

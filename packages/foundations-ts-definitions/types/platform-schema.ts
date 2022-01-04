@@ -1,4 +1,17 @@
 /**
+ * Representation of additional contact details
+ */
+export interface AdditionalContactDetailModel {
+  /**
+   * The type of contact detail
+   */
+  type?: string
+  /**
+   * The contact detail
+   */
+  value?: string
+}
+/**
  * The details specific to applicants with a marketingMode of buying
  */
 export interface ApplicantBuyingModel {
@@ -10,6 +23,18 @@ export interface ApplicantBuyingModel {
    * The upper bound of the applicant's budget
    */
   priceTo?: number // int32
+  /**
+   * A list of property decoration requirements taken from the full listing of the associated department (unmodernised/fair/good/veryGood)
+   */
+  decoration?: string[]
+  /**
+   * The identifier of the applicant's buying reason
+   */
+  reasonId?: string
+  /**
+   * The identifier of the applicant's selling position
+   */
+  positionId?: string
 }
 /**
  * Representation of the physical address of a building or premise
@@ -322,6 +347,14 @@ export interface ApplicantModel {
    */
   notes?: string
   /**
+   * The applicant's selling status (preAppraisal/valuation/paidValuation/forSale/forSaleUnavailable/underOffer/underOfferUnavailable/reserved/exchanged/completed/soldExternally/withdrawn)
+   */
+  sellingStatus?: string
+  /**
+   * The applicant's selling position (nothingToSell/renting/sellingWithUs/sellingWithOtherAgent/sellingPrivately/notYetOnMarket)
+   */
+  sellingPosition?: string
+  /**
    * The date when the applicant was last contacted
    * example:
    * 2019-08-14
@@ -365,6 +398,10 @@ export interface ApplicantModel {
    * The applicant's general property location requirements (eg rural, townCity), as defined by the applicant's [department](https://foundations-documentation.reapit.cloud/platform-glossary#department)
    */
   locality?: string[]
+  /**
+   * The applicant's special feature property requirements (eg swimmingPool, tennisCourt), as defined by the property's [department](https://foundations-documentation.reapit.cloud/platform-glossary#department)
+   */
+  specialFeatures?: string[]
   /**
    * The minimum number of bedrooms the applicant requires
    */
@@ -419,6 +456,18 @@ export interface ApplicantModel {
      * The upper bound of the applicant's budget
      */
     priceTo?: number // int32
+    /**
+     * A list of property decoration requirements taken from the full listing of the associated department (unmodernised/fair/good/veryGood)
+     */
+    decoration?: string[]
+    /**
+     * The identifier of the applicant's buying reason
+     */
+    reasonId?: string
+    /**
+     * The identifier of the applicant's selling position
+     */
+    positionId?: string
   }
   /**
    * The details specific to applicants with a marketingMode of renting
@@ -450,6 +499,10 @@ export interface ApplicantModel {
      * A list of property furnishing requirements taken from the full listing of the associated department. Only applicable to applicants with a marketingMode of renting
      */
     furnishing?: string[]
+    /**
+     * The identifier of the applicant's renting position
+     */
+    positionId?: string
   }
   /**
    * The applicant's outdoor space requirements
@@ -648,6 +701,14 @@ export interface ApplicantModelPagedResult {
      */
     notes?: string
     /**
+     * The applicant's selling status (preAppraisal/valuation/paidValuation/forSale/forSaleUnavailable/underOffer/underOfferUnavailable/reserved/exchanged/completed/soldExternally/withdrawn)
+     */
+    sellingStatus?: string
+    /**
+     * The applicant's selling position (nothingToSell/renting/sellingWithUs/sellingWithOtherAgent/sellingPrivately/notYetOnMarket)
+     */
+    sellingPosition?: string
+    /**
      * The date when the applicant was last contacted
      * example:
      * 2019-08-14
@@ -691,6 +752,10 @@ export interface ApplicantModelPagedResult {
      * The applicant's general property location requirements (eg rural, townCity), as defined by the applicant's [department](https://foundations-documentation.reapit.cloud/platform-glossary#department)
      */
     locality?: string[]
+    /**
+     * The applicant's special feature property requirements (eg swimmingPool, tennisCourt), as defined by the property's [department](https://foundations-documentation.reapit.cloud/platform-glossary#department)
+     */
+    specialFeatures?: string[]
     /**
      * The minimum number of bedrooms the applicant requires
      */
@@ -745,6 +810,18 @@ export interface ApplicantModelPagedResult {
        * The upper bound of the applicant's budget
        */
       priceTo?: number // int32
+      /**
+       * A list of property decoration requirements taken from the full listing of the associated department (unmodernised/fair/good/veryGood)
+       */
+      decoration?: string[]
+      /**
+       * The identifier of the applicant's buying reason
+       */
+      reasonId?: string
+      /**
+       * The identifier of the applicant's selling position
+       */
+      positionId?: string
     }
     /**
      * The details specific to applicants with a marketingMode of renting
@@ -776,6 +853,10 @@ export interface ApplicantModelPagedResult {
        * A list of property furnishing requirements taken from the full listing of the associated department. Only applicable to applicants with a marketingMode of renting
        */
       furnishing?: string[]
+      /**
+       * The identifier of the applicant's renting position
+       */
+      positionId?: string
     }
     /**
      * The applicant's outdoor space requirements
@@ -972,6 +1053,10 @@ export interface ApplicantRentingModel {
    * A list of property furnishing requirements taken from the full listing of the associated department. Only applicable to applicants with a marketingMode of renting
    */
   furnishing?: string[]
+  /**
+   * The identifier of the applicant's renting position
+   */
+  positionId?: string
 }
 /**
  * An applicant's source of enquiry
@@ -1002,14 +1087,32 @@ export interface Applicants {
     | 'source'
   )[]
   id?: string[]
-  age?: ('period' | 'new' | 'modern')[]
+  age?: ('period' | 'new' | 'modern' | 'old')[]
   emailAddresses?: string[]
   furnishing?: ('furnished' | 'unfurnished' | 'partFurnished')[]
   locality?: ('rural' | 'village' | 'townCity')[]
   negotiatorId?: string[]
   officeId?: string[]
-  parking?: ('residents' | 'offStreet' | 'secure' | 'underground' | 'garage' | 'doubleGarage' | 'tripleGarage')[]
-  situation?: ('garden' | 'land' | 'patio' | 'roofTerrace' | 'conservatory' | 'balcony' | 'communalGardens')[]
+  parking?: (
+    | 'residents'
+    | 'offStreet'
+    | 'secure'
+    | 'underground'
+    | 'garage'
+    | 'doubleGarage'
+    | 'tripleGarage'
+    | 'carport'
+  )[]
+  situation?: (
+    | 'garden'
+    | 'land'
+    | 'patio'
+    | 'roofTerrace'
+    | 'conservatory'
+    | 'balcony'
+    | 'communalGardens'
+    | 'outsideSpace'
+  )[]
   style?: (
     | 'terraced'
     | 'endTerrace'
@@ -1024,6 +1127,7 @@ export interface Applicants {
     | 'upperFloor'
     | 'upperFloorWithLift'
     | 'penthouse'
+    | 'duplex'
   )[]
   type?: (
     | 'house'
@@ -2284,6 +2388,29 @@ export interface CompanyRoleModelPagedResult {
 export interface ConfigurationCompanyTypes {
   id?: string[]
 }
+export interface ConfigurationTypes {
+  type?: (
+    | 'agencyTypes'
+    | 'appointmentTypes'
+    | 'boardStatuses'
+    | 'buyingPositions'
+    | 'buyingReasons'
+    | 'certificateTypes'
+    | 'companyTypes'
+    | 'identityDocumentTypes'
+    | 'documentTypes'
+    | 'journalEntryTypes'
+    | 'keyTypes'
+    | 'followUpResponses'
+    | 'sellingReasons'
+    | 'rentingPositions'
+    | 'supplierTypes'
+    | 'taskTypes'
+    | 'tenancyTypes'
+    | 'vendorTypes'
+    | 'worksOrderTypes'
+  )[]
+}
 /**
  * Representation of the physical address of a building or premise
  */
@@ -2569,6 +2696,19 @@ export interface ContactModel {
    * A flag determining whether or not the contact is happy to receive communications by SMS
    */
   communicationPreferenceSMS?: boolean
+  /**
+   * A collection of additional contact details
+   */
+  additionalContactDetails?: {
+    /**
+     * The type of contact detail
+     */
+    type?: string
+    /**
+     * The contact detail
+     */
+    value?: string
+  }[]
   /**
    * App specific metadata that has been set against the contact
    */
@@ -2868,6 +3008,19 @@ export interface ContactModelPagedResult {
      */
     communicationPreferenceSMS?: boolean
     /**
+     * A collection of additional contact details
+     */
+    additionalContactDetails?: {
+      /**
+       * The type of contact detail
+       */
+      type?: string
+      /**
+       * The contact detail
+       */
+      value?: string
+    }[]
+    /**
      * App specific metadata that has been set against the contact
      */
     metadata?: {
@@ -3159,6 +3312,7 @@ export interface Contacts {
   sortBy?: string
   embed?: ('documents' | 'identityChecks' | 'negotiators' | 'offices' | 'relationships' | 'source')[]
   id?: string[]
+  contactDetail?: string[]
   email?: string[]
   negotiatorId?: string[]
   officeId?: string[]
@@ -3686,6 +3840,10 @@ export interface CreateApplicantBuyingModel {
    * The upper bound of the applicant's budget. (Required when 'marketingMode' is 'buying' and 'priceFrom' is not provided)
    */
   priceTo?: number // int32
+  /**
+   * A list of property decoration requirements taken from the full listing of the associated department (unmodernised/fair/good/veryGood)
+   */
+  decoration?: string[]
 }
 /**
  * Request body used to create a relationship between an applicant and a contact or company
@@ -3836,6 +3994,10 @@ export interface CreateApplicantModel {
      * The upper bound of the applicant's budget. (Required when 'marketingMode' is 'buying' and 'priceFrom' is not provided)
      */
     priceTo?: number // int32
+    /**
+     * A list of property decoration requirements taken from the full listing of the associated department (unmodernised/fair/good/veryGood)
+     */
+    decoration?: string[]
   }
   /**
    * The details specific to applicants with a marketingMode of renting
@@ -5312,6 +5474,34 @@ export interface CreateOfficeModel {
   }
 }
 /**
+ * Request body used to create a new open house attendee
+ * example:
+ * [object Object]
+ */
+export interface CreateOpenHouseAttendeeModel {
+  /**
+   * The interest level of the open house attendee (veryInterested/mightBeInterested/notInterested/notSet)
+   */
+  interestLevel?: string
+  /**
+   * Notes on this open house attendee
+   */
+  notes?: string
+  /**
+   * Represents an external attendee on an appointment
+   */
+  attendee?: {
+    /**
+     * The unique identifier of the attendee
+     */
+    id?: string
+    /**
+     * The type of attendee (applicant/contact/landlord/tenant)
+     */
+    type?: string
+  }
+}
+/**
  * Request body used to create pre signed urls to upload files between 6MB and 30MB
  * example:
  * [object Object]
@@ -5871,6 +6061,10 @@ export interface CreatePropertyModel {
      */
     sellingAgency?: string
     /**
+     * The unique identifier of the custom selling agency type - only applicable when SellingAgency is not set
+     */
+    agencyId?: string
+    /**
      * Request body used to set the commission fee for a property
      */
     fee?: {
@@ -5887,6 +6081,10 @@ export interface CreatePropertyModel {
      * The agent's recommended asking price
      */
     recommendedPrice?: number // int32
+    /**
+     * The property's decorative condition (unmodernised/fair/good/veryGood)
+     */
+    decoration?: string[]
   }
   /**
    * Request body used to set details specific to lettings marketing on a new property
@@ -6151,6 +6349,10 @@ export interface CreatePropertySellingModel {
    */
   sellingAgency?: string
   /**
+   * The unique identifier of the custom selling agency type - only applicable when SellingAgency is not set
+   */
+  agencyId?: string
+  /**
    * Request body used to set the commission fee for a property
    */
   fee?: {
@@ -6167,6 +6369,10 @@ export interface CreatePropertySellingModel {
    * The agent's recommended asking price
    */
   recommendedPrice?: number // int32
+  /**
+   * The property's decorative condition (unmodernised/fair/good/veryGood)
+   */
+  decoration?: string[]
 }
 /**
  * Request body used to set the tenure of a new property
@@ -6704,6 +6910,10 @@ export interface DepartmentModel {
    */
   localityOptions?: string[]
   /**
+   * A collection of special property feature values that will be presented by other services
+   */
+  specialFeaturesOptions?: string[]
+  /**
    * The ETag for the current version of the department. Used for managing update concurrency
    */
   readonly _eTag?: string
@@ -6762,6 +6972,10 @@ export interface DepartmentModelPagedResult {
      * A collection of property locality values that will be accepted by other services
      */
     localityOptions?: string[]
+    /**
+     * A collection of special property feature values that will be presented by other services
+     */
+    specialFeaturesOptions?: string[]
     /**
      * The ETag for the current version of the department. Used for managing update concurrency
      */
@@ -8510,6 +8724,7 @@ export interface Landlords {
   sortBy?: string
   embed?: ('appointments' | 'documents' | 'office' | 'properties' | 'solicitor' | 'source')[]
   id?: string[]
+  email?: string[]
   active?: boolean
   address?: string
   name?: string
@@ -9533,6 +9748,197 @@ export interface Offices {
   extrasField?: string[]
 }
 /**
+ * Representation of a calendar appointment
+ */
+export interface OpenHouseAttendeeModel {
+  readonly _links?: {
+    [name: string]: {
+      href?: string
+    }
+  }
+  readonly _embedded?: {
+    [name: string]: any
+  }
+  /**
+   * The unique identifier of the open house attendee
+   */
+  id?: string
+  /**
+   * The unique identifier of the open house appointment
+   */
+  openHouseId?: string
+  /**
+   * The date and time when the open house attendee was created
+   * example:
+   * 2019-08-14T12:30:02.0000000Z
+   */
+  created?: string // date-time
+  /**
+   * The date and time when the open house attendee was last modified
+   * example:
+   * 2019-08-14T12:30:02.0000000Z
+   */
+  modified?: string // date-time
+  /**
+   * The notes taken regarding the open house attendee
+   */
+  notes?: string
+  /**
+   * The open house attendees interest level (veryInterested/notInterested/possibleInterest)
+   */
+  interestLevel?: string
+  /**
+   * An appointment attendee
+   */
+  attendee?: {
+    /**
+     * The unique identifier of the attendee
+     */
+    id?: string
+    /**
+     * The type of attendee
+     */
+    type?: string
+    /**
+     * A collection of contacts relating to the attendee
+     */
+    contacts?: {
+      /**
+       * The unique identifier of the contact
+       */
+      id?: string
+      /**
+       * The name of the contact
+       */
+      name?: string
+      /**
+       * The home phone number of the contact
+       */
+      homePhone?: string
+      /**
+       * The work phone number of the contact
+       */
+      workPhone?: string
+      /**
+       * The mobile phone number of the contact
+       */
+      mobilePhone?: string
+      /**
+       * The email address of the contact
+       */
+      email?: string
+      /**
+       * A flag determining if the related contact is archived
+       */
+      fromArchive?: boolean
+    }[]
+  }
+  /**
+   * The ETag for the current version of the open house attendee. Used for managing update concurrency
+   */
+  readonly _eTag?: string
+}
+export interface OpenHouseAttendeeModelPagedResult {
+  _embedded?: {
+    readonly _links?: {
+      [name: string]: {
+        href?: string
+      }
+    }
+    readonly _embedded?: {
+      [name: string]: any
+    }
+    /**
+     * The unique identifier of the open house attendee
+     */
+    id?: string
+    /**
+     * The unique identifier of the open house appointment
+     */
+    openHouseId?: string
+    /**
+     * The date and time when the open house attendee was created
+     * example:
+     * 2019-08-14T12:30:02.0000000Z
+     */
+    created?: string // date-time
+    /**
+     * The date and time when the open house attendee was last modified
+     * example:
+     * 2019-08-14T12:30:02.0000000Z
+     */
+    modified?: string // date-time
+    /**
+     * The notes taken regarding the open house attendee
+     */
+    notes?: string
+    /**
+     * The open house attendees interest level (veryInterested/notInterested/possibleInterest)
+     */
+    interestLevel?: string
+    /**
+     * An appointment attendee
+     */
+    attendee?: {
+      /**
+       * The unique identifier of the attendee
+       */
+      id?: string
+      /**
+       * The type of attendee
+       */
+      type?: string
+      /**
+       * A collection of contacts relating to the attendee
+       */
+      contacts?: {
+        /**
+         * The unique identifier of the contact
+         */
+        id?: string
+        /**
+         * The name of the contact
+         */
+        name?: string
+        /**
+         * The home phone number of the contact
+         */
+        homePhone?: string
+        /**
+         * The work phone number of the contact
+         */
+        workPhone?: string
+        /**
+         * The mobile phone number of the contact
+         */
+        mobilePhone?: string
+        /**
+         * The email address of the contact
+         */
+        email?: string
+        /**
+         * A flag determining if the related contact is archived
+         */
+        fromArchive?: boolean
+      }[]
+    }
+    /**
+     * The ETag for the current version of the open house attendee. Used for managing update concurrency
+     */
+    readonly _eTag?: string
+  }[]
+  pageNumber?: number // int32
+  pageSize?: number // int32
+  pageCount?: number // int32
+  totalPageCount?: number // int32
+  totalCount?: number // int32
+  _links?: {
+    [name: string]: {
+      href?: string
+    }
+  }
+}
+/**
  * example:
  * [object Object]
  */
@@ -9565,7 +9971,7 @@ export interface Properties {
     | 'vendor'
   )[]
   id?: string[]
-  age?: ('period' | 'new' | 'modern')[]
+  age?: ('period' | 'new' | 'modern' | 'old')[]
   agentRole?: (
     | 'managed'
     | 'rentCollection'
@@ -9597,7 +10003,16 @@ export interface Properties {
   marketingMode?: ('selling' | 'letting' | 'sellingAndLetting')[]
   masterId?: string[]
   officeId?: string[]
-  parking?: ('residents' | 'offStreet' | 'secure' | 'underground' | 'garage' | 'doubleGarage' | 'tripleGarage')[]
+  parking?: (
+    | 'residents'
+    | 'offStreet'
+    | 'secure'
+    | 'underground'
+    | 'garage'
+    | 'doubleGarage'
+    | 'tripleGarage'
+    | 'carport'
+  )[]
   sellingStatus?: (
     | 'preAppraisal'
     | 'valuation'
@@ -9612,7 +10027,16 @@ export interface Properties {
     | 'soldExternally'
     | 'withdrawn'
   )[]
-  situation?: ('garden' | 'land' | 'patio' | 'roofTerrace' | 'conservatory' | 'balcony' | 'communalGardens')[]
+  situation?: (
+    | 'garden'
+    | 'land'
+    | 'patio'
+    | 'roofTerrace'
+    | 'conservatory'
+    | 'balcony'
+    | 'communalGardens'
+    | 'outsideSpace'
+  )[]
   style?: (
     | 'terraced'
     | 'endTerrace'
@@ -9627,6 +10051,7 @@ export interface Properties {
     | 'upperFloor'
     | 'upperFloorWithLift'
     | 'penthouse'
+    | 'duplex'
   )[]
   type?: (
     | 'house'
@@ -9650,7 +10075,9 @@ export interface Properties {
   rentTo?: number
   rentFrequency?: ('weekly' | 'monthly' | 'annually')[]
   internetAdvertising?: boolean
+  isExternal?: boolean
   fromArchive?: boolean
+  availableFrom?: string
   createdFrom?: string
   createdTo?: string
   modifiedFrom?: string
@@ -10183,6 +10610,10 @@ export interface PropertyModel {
    */
   internetAdvertising?: boolean
   /**
+   * A flag denoting whether or not the property has been instructed by another estate agent
+   */
+  isExternal?: boolean
+  /**
    * The arrangements regarding viewing the property
    */
   viewingArrangements?: string
@@ -10357,6 +10788,10 @@ export interface PropertyModel {
      */
     agency?: string
     /**
+     * The unique identifier of the custom selling agency type - only applicable when Agency is not set
+     */
+    agencyId?: string
+    /**
      * Representation of the the commission fee for a property
      */
     fee?: {
@@ -10389,6 +10824,10 @@ export interface PropertyModel {
      * The unique identifier of the office that sold the property
      */
     exchangedOfficeId?: string
+    /**
+     * The property's decorative condition (unmodernised/fair/good/veryGood)
+     */
+    decoration?: string[]
   }
   /**
    * Representation of property details specific to lettings marketing
@@ -10540,6 +10979,10 @@ export interface PropertyModel {
    * The attributes describing the general location of the property (eg rural, townCity), as defined by the property's [department](https://foundations-documentation.reapit.cloud/platform-glossary#department)
    */
   locality?: string[]
+  /**
+   * The attributes describing the property's special features (eg swimmingPool, tennisCourt), as defined by the property's [department](https://foundations-documentation.reapit.cloud/platform-glossary#department)
+   */
+  specialFeatures?: string[]
   /**
    * Details of each room in the property
    */
@@ -10732,6 +11175,10 @@ export interface PropertyModelPagedResult {
      */
     internetAdvertising?: boolean
     /**
+     * A flag denoting whether or not the property has been instructed by another estate agent
+     */
+    isExternal?: boolean
+    /**
      * The arrangements regarding viewing the property
      */
     viewingArrangements?: string
@@ -10906,6 +11353,10 @@ export interface PropertyModelPagedResult {
        */
       agency?: string
       /**
+       * The unique identifier of the custom selling agency type - only applicable when Agency is not set
+       */
+      agencyId?: string
+      /**
        * Representation of the the commission fee for a property
        */
       fee?: {
@@ -10938,6 +11389,10 @@ export interface PropertyModelPagedResult {
        * The unique identifier of the office that sold the property
        */
       exchangedOfficeId?: string
+      /**
+       * The property's decorative condition (unmodernised/fair/good/veryGood)
+       */
+      decoration?: string[]
     }
     /**
      * Representation of property details specific to lettings marketing
@@ -11089,6 +11544,10 @@ export interface PropertyModelPagedResult {
      * The attributes describing the general location of the property (eg rural, townCity), as defined by the property's [department](https://foundations-documentation.reapit.cloud/platform-glossary#department)
      */
     locality?: string[]
+    /**
+     * The attributes describing the property's special features (eg swimmingPool, tennisCourt), as defined by the property's [department](https://foundations-documentation.reapit.cloud/platform-glossary#department)
+     */
+    specialFeatures?: string[]
     /**
      * Details of each room in the property
      */
@@ -11245,6 +11704,10 @@ export interface PropertySellingModel {
    */
   agency?: string
   /**
+   * The unique identifier of the custom selling agency type - only applicable when Agency is not set
+   */
+  agencyId?: string
+  /**
    * Representation of the the commission fee for a property
    */
   fee?: {
@@ -11277,6 +11740,10 @@ export interface PropertySellingModel {
    * The unique identifier of the office that sold the property
    */
   exchangedOfficeId?: string
+  /**
+   * The property's decorative condition (unmodernised/fair/good/veryGood)
+   */
+  decoration?: string[]
 }
 /**
  * Representation of the tenure of a property
@@ -11778,6 +12245,7 @@ export interface Tenancies {
   applicantId?: string[]
   propertyId?: string[]
   status?: ('offerPending' | 'offerWithdrawn' | 'offerRejected' | 'arranging' | 'current' | 'finished' | 'cancelled')[]
+  email?: string[]
   createdFrom?: string
   createdTo?: string
   modifiedFrom?: string
@@ -12989,6 +13457,258 @@ export interface Transactions {
   createdTo?: string
 }
 /**
+ * Representation of all of the available configurable items
+ */
+export interface TypeModel {
+  /**
+   * A list of configurable agency types
+   */
+  agencyTypes?: {
+    /**
+     * The unique identifier of the list item
+     */
+    id?: string
+    /**
+     * The textual value for the list item
+     */
+    value?: string
+  }[]
+  /**
+   * A list of configurable appointment types
+   */
+  appointmentTypes?: {
+    /**
+     * The unique identifier of the list item
+     */
+    id?: string
+    /**
+     * The textual value for the list item
+     */
+    value?: string
+  }[]
+  /**
+   * A list of configurable board statuses
+   */
+  boardStatuses?: {
+    /**
+     * The unique identifier of the list item
+     */
+    id?: string
+    /**
+     * The textual value for the list item
+     */
+    value?: string
+  }[]
+  /**
+   * A list of configurable buying positions
+   */
+  buyingPositions?: {
+    /**
+     * The unique identifier of the list item
+     */
+    id?: string
+    /**
+     * The textual value for the list item
+     */
+    value?: string
+  }[]
+  /**
+   * A list of configurable buying reasons
+   */
+  buyingReasons?: {
+    /**
+     * The unique identifier of the list item
+     */
+    id?: string
+    /**
+     * The textual value for the list item
+     */
+    value?: string
+  }[]
+  /**
+   * A list of configurable certificate types
+   */
+  certificateTypes?: {
+    /**
+     * The unique identifier of the list item
+     */
+    id?: string
+    /**
+     * The textual value for the list item
+     */
+    value?: string
+  }[]
+  /**
+   * A list of configurable company types
+   */
+  companyTypes?: {
+    /**
+     * The unique identifier of the list item
+     */
+    id?: string
+    /**
+     * The textual value for the list item
+     */
+    value?: string
+  }[]
+  /**
+   * A list of configurable document types
+   */
+  documentTypes?: {
+    /**
+     * The unique identifier of the list item
+     */
+    id?: string
+    /**
+     * The textual value for the list item
+     */
+    value?: string
+  }[]
+  /**
+   * A list of configurable identity document types
+   */
+  identityDocumentTypes?: {
+    /**
+     * The unique identifier of the list item
+     */
+    id?: string
+    /**
+     * The textual value for the list item
+     */
+    value?: string
+  }[]
+  /**
+   * A list of configurable journal entry types
+   */
+  journalEntryTypes?: {
+    /**
+     * The unique identifier of the list item
+     */
+    id?: string
+    /**
+     * The textual value for the list item
+     */
+    value?: string
+  }[]
+  /**
+   * A list of configurable key types
+   */
+  keyTypes?: {
+    /**
+     * The unique identifier of the list item
+     */
+    id?: string
+    /**
+     * The textual value for the list item
+     */
+    value?: string
+  }[]
+  /**
+   * A list of configurable follow up responses
+   */
+  followUpResponses?: {
+    /**
+     * The unique identifier of the list item
+     */
+    id?: string
+    /**
+     * The textual value for the list item
+     */
+    value?: string
+  }[]
+  /**
+   * A list of configurable selling reasons
+   */
+  sellingReasons?: {
+    /**
+     * The unique identifier of the list item
+     */
+    id?: string
+    /**
+     * The textual value for the list item
+     */
+    value?: string
+  }[]
+  /**
+   * A list of configurable renting positions
+   */
+  rentingPositions?: {
+    /**
+     * The unique identifier of the list item
+     */
+    id?: string
+    /**
+     * The textual value for the list item
+     */
+    value?: string
+  }[]
+  /**
+   * A list of configurable supplier types
+   */
+  supplierTypes?: {
+    /**
+     * The unique identifier of the list item
+     */
+    id?: string
+    /**
+     * The textual value for the list item
+     */
+    value?: string
+  }[]
+  /**
+   * A list of configurable task types
+   */
+  taskTypes?: {
+    /**
+     * The unique identifier of the list item
+     */
+    id?: string
+    /**
+     * The textual value for the list item
+     */
+    value?: string
+  }[]
+  /**
+   * A list of configurable tenancy types
+   */
+  tenancyTypes?: {
+    /**
+     * The unique identifier of the list item
+     */
+    id?: string
+    /**
+     * The textual value for the list item
+     */
+    value?: string
+  }[]
+  /**
+   * A list of configurable vendor types
+   */
+  vendorTypes?: {
+    /**
+     * The unique identifier of the list item
+     */
+    id?: string
+    /**
+     * The textual value for the list item
+     */
+    value?: string
+  }[]
+  /**
+   * A list of configurable works order types
+   */
+  worksOrderTypes?: {
+    /**
+     * The unique identifier of the list item
+     */
+    id?: string
+    /**
+     * The textual value for the list item
+     */
+    value?: string
+  }[]
+}
+/**
  * The details specific to applicants with a marketingMode of buying
  */
 export interface UpdateApplicantBuyingModel {
@@ -13000,6 +13720,10 @@ export interface UpdateApplicantBuyingModel {
    * The upper bound of the applicant's budget
    */
   priceTo?: number // int32
+  /**
+   * A list of property decoration requirements taken from the full listing of the associated department (unmodernised/fair/good/veryGood)
+   */
+  decoration?: string[]
 }
 /**
  * The applicant's outdoor space requirements
@@ -13137,6 +13861,10 @@ export interface UpdateApplicantModel {
      * The upper bound of the applicant's budget
      */
     priceTo?: number // int32
+    /**
+     * A list of property decoration requirements taken from the full listing of the associated department (unmodernised/fair/good/veryGood)
+     */
+    decoration?: string[]
   }
   /**
    * The details specific to applicants with a marketingMode of renting
@@ -14478,6 +15206,21 @@ export interface UpdateOfficeModel {
   }
 }
 /**
+ * Request body used to upda te a new open house attendee
+ * example:
+ * [object Object]
+ */
+export interface UpdateOpenHouseAttendeeModel {
+  /**
+   * The interest level of the open house attendee (veryInterested/mightBeInterested/notInterested/notSet)
+   */
+  interestLevel?: string
+  /**
+   * Notes on this open house attendee
+   */
+  notes?: string
+}
+/**
  * Request body used to update the address of an existing property
  */
 export interface UpdatePropertyAddressModel {
@@ -15010,6 +15753,10 @@ export interface UpdatePropertyModel {
      */
     sellingAgency?: string
     /**
+     * The unique identifier of the custom selling agency type - only applicable when SellingAgency is not set
+     */
+    agencyId?: string
+    /**
      * Request body used to update the commission fee for a property
      */
     fee?: {
@@ -15030,6 +15777,10 @@ export interface UpdatePropertyModel {
      * The unique identifier of the document used for the sales brochure
      */
     brochureId?: string
+    /**
+     * The property's decorative condition (unmodernised/fair/good/veryGood)
+     */
+    decoration?: string[]
   }
   /**
    * Request body used to update details specific to lettings marketing on an existing property
@@ -15264,6 +16015,10 @@ export interface UpdatePropertySellingModel {
    */
   sellingAgency?: string
   /**
+   * The unique identifier of the custom selling agency type - only applicable when SellingAgency is not set
+   */
+  agencyId?: string
+  /**
    * Request body used to update the commission fee for a property
    */
   fee?: {
@@ -15284,6 +16039,10 @@ export interface UpdatePropertySellingModel {
    * The unique identifier of the document used for the sales brochure
    */
   brochureId?: string
+  /**
+   * The property's decorative condition (unmodernised/fair/good/veryGood)
+   */
+  decoration?: string[]
 }
 /**
  * Request body used to set the tenure of an existing property
@@ -16442,6 +17201,7 @@ export interface Vendors {
   id?: string[]
   negotiatorId?: string[]
   officeId?: string[]
+  email?: string[]
   fromArchive?: boolean
   address?: string
   name?: string

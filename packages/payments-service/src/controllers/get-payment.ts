@@ -11,20 +11,15 @@ export const getPayment = async (req: AppRequest, res: Response) => {
   const clientCode: string | undefined = req.headers['reapit-customer'] as string
   const apiVersion: string | undefined = req.headers['api-version'] as string
   const { paymentId } = req.params
-  const { traceId } = req
 
   try {
     if (!clientCode || !apiKey || !apiVersion)
       throw new Error('reapit-customer, api-version and x-api-key are required headers')
     if (!paymentId) throw new Error('paymentId is a required parameter')
 
-    logger.info('Payment request valid, retrieving from DB', { traceId, apiKey, paymentId })
-
     const itemToGet = generateApiKey({ apiKey })
     const result = await db.get(itemToGet)
-    const validated = validateApiKey(result, traceId, clientCode, paymentId)
-
-    logger.info('Payment retrieved from DB', { traceId, validated })
+    const validated = validateApiKey(result, clientCode, paymentId)
 
     if (validated) {
       const payment = await getPlatformPayment(validated, apiVersion)

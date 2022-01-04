@@ -8,8 +8,7 @@
     "sourceRoot": "/",
     "paths": {
       "@/*": ["src/*"],
-      "@reapit/elements": ["../elements/src"],
-      "@reapit/connect-session": ["../connect-session/src"]
+      "@reapit/*": ["../*"]
     },
     "declaration": true,
     "declarationDir": "dist",
@@ -18,6 +17,6 @@
     "strictPropertyInitialization": false,
     "outDir": "./dist"
   },
-  "include": ["src", "cdk"],
+  "include": ["src"],
   "exclude": ["public", "dist", "src/scripts", "node_modules", "src/tests/coverage"]
 }

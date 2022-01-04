@@ -291,7 +291,7 @@ Object {
             <div
               class="el-card-list-item-text-secondary"
             >
-              Marketplace hidden
+              Marketplace visible
             </div>
           </div>
         </div>
@@ -585,7 +585,7 @@ Object {
           <div
             class="el-card-list-item-text-secondary"
           >
-            Marketplace hidden
+            Marketplace visible
           </div>
         </div>
       </div>

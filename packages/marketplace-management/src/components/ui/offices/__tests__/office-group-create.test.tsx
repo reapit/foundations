@@ -8,6 +8,7 @@ import { useOrgId } from '../../../../utils/use-org-id'
 import { render } from '@testing-library/react'
 import useSWR from 'swr'
 import { mockOfficeList } from '../../../../services/__stubs__/offices'
+import { OFFICE_IN_USE_ERROR } from '../../../../services/office'
 
 jest.mock('swr')
 jest.mock('@reapit/utils-common')
@@ -56,6 +57,14 @@ describe('onHandleSubmit', () => {
     await onSubmit({ name, officeIds, status })
 
     expect(error).toHaveBeenCalledWith(toastMessages.FAILED_TO_CREATE_OFFICE_GROUP)
+  })
+
+  it('should show a different notification error if an office is assigned', async () => {
+    mockedFetch.mockReturnValueOnce(OFFICE_IN_USE_ERROR)
+
+    await onSubmit({ name, officeIds, status })
+
+    expect(error).toHaveBeenCalledWith(toastMessages.OFFICE_ALREADY_ASSIGNED_CREATE, 10000)
   })
 
   it('should show notification success', async () => {

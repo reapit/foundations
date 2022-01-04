@@ -142,6 +142,10 @@ export interface AppDetailModel {
    */
   desktopIntegrationTypeIds?: string[]
   /**
+   * Gets the products to list this app on
+   */
+  products?: string[]
+  /**
    * Gets the date the app was installed for a specific client
    */
   installedOn?: string // date-time
@@ -375,6 +379,10 @@ export interface AppRevisionModel {
    */
   desktopIntegrationTypeIds?: string[]
   /**
+   * Gets the products to list this app on
+   */
+  products?: string[]
+  /**
    * Gets the location url of the terms and conditions associated to the app
    */
   termsAndConditionsUrl?: string
@@ -485,6 +493,10 @@ export interface AppSummaryModel {
    * Gets the desktop integration types of this app
    */
   desktopIntegrationTypeIds?: string[]
+  /**
+   * Gets the products to list this app on
+   */
+  products?: string[]
   /**
    * Gets the time stamp of the installed date
    */
@@ -797,6 +809,10 @@ export interface CreateAppModel {
    */
   scopes?: string[]
   /**
+   * Sets the list of products to list the app on for this app
+   */
+  products?: string[]
+  /**
    * Sets the location url of the app icon image
    */
   iconImageUrl?: string
@@ -936,6 +952,10 @@ export interface CreateAppRevisionModel {
    * Sets the list of scope keys required for this app revision
    */
   scopes?: string[]
+  /**
+   * Sets the list of products to list the app on for this app revision
+   */
+  products?: string[]
   /**
    * Sets the location url of the terms and conditions associated to the app
    */
@@ -1516,6 +1536,10 @@ export interface MemberModel {
    */
   developerId?: string // uuid
   /**
+   * The id of the sandbox envionment the member is associated to (AUS/GBR)
+   */
+  sandboxId?: string
+  /**
    * A flag specifying if the member has access to agency cloud
    */
   agencyCloudAccess?: boolean
@@ -1608,6 +1632,40 @@ export interface ResendAppRevisionConsentModel {
    * Sets the email of the user resending the consent emails
    */
   actionedBy?: string
+}
+/**
+ * Model to expose details of a sandbox environment
+ */
+export interface SandboxModel {
+  /**
+   * Gets the links associated to this model
+   */
+  readonly links?: LinkModel[]
+  /**
+   * The unique sandbox identifier
+   */
+  id?: string
+  /**
+   * The sandbox environment name
+   */
+  name?: string
+  /**
+   * The identifier of the customer associated to the sandbox
+   */
+  customerId?: string
+}
+/**
+ * Model to handle paged data and information
+ */
+export interface SandboxModelPagedResult {
+  /**
+   * List of paged data
+   */
+  data?: SandboxModel[]
+  pageNumber?: number // int32
+  pageSize?: number // int32
+  pageCount?: number // int32
+  totalCount?: number // int32
 }
 /**
  * Model that represents a scope
@@ -1870,4 +1928,8 @@ export interface UpdateMemberModel {
    * A flag to determine whether an access token issued to this developer user will resolve to customer data (rather than sandbox)
    */
   useCustomerData?: boolean
+  /**
+   * The identifier of the sandbox environment to use (AUS/GBR)
+   */
+  sandboxId?: string
 }

@@ -15,6 +15,7 @@ import {
   PipelineModelInterface,
   PackageManagerEnum,
   TaskModelInterface,
+  PipelineRunnerType,
 } from '@reapit/foundations-ts-definitions'
 import { Type } from 'class-transformer'
 import { CodeBuild } from 'aws-sdk'
@@ -57,6 +58,24 @@ export class PipelineRunnerEntity extends AbstractEntity implements PipelineRunn
 
   @Column({ nullable: true, length: 400, type: 'varchar' })
   s3BuildLogsLocation?: string
+
+  /**
+   * Release or pipeline runner build
+   */
+  @Column({ default: PipelineRunnerType.BUILD, type: 'varchar' })
+  type?: PipelineRunnerType
+
+  /**
+   * Version provided from package or manual build
+   */
+  @Column({ nullable: true })
+  buildVersion?: string
+
+  /**
+   * Is this the currently deployed version?
+   */
+  @Column({ default: false })
+  currentlyDeployed: boolean = false
 }
 
 @Entity('pipelines')
@@ -97,14 +116,17 @@ export class PipelineEntity extends AbstractEntity implements PipelineModelInter
   @Column({ type: 'varchar' })
   buildStatus?: CodeBuild.StatusType = 'CREATING_ARCHITECTURE'
 
-  @Column()
+  @Column({ nullable: true })
   subDomain?: string
 
-  @Column()
+  @Column({ nullable: true })
   cloudFrontId?: string
 
-  @Column()
+  @Column({ nullable: true })
   aRecordId?: string
+
+  @Column()
+  appId?: string
 
   get uniqueRepoName(): string {
     return `${this.developerId}/${this.subDomain}`
@@ -128,30 +150,12 @@ export class TaskEntity extends AbstractEntity implements TaskModelInterface {
   @Column({ type: 'varchar' })
   buildStatus?: CodeBuild.StatusType
 
-  @Column({ type: 'timestamp' })
-  startTime?: string
+  @Column({ type: 'timestamp', nullable: true })
+  startTime?: Date
 
-  @Column({ type: 'timestamp' })
-  endTime?: string
+  @Column({ type: 'timestamp', nullable: true })
+  endTime?: Date
 
-  @Column()
+  @Column({ nullable: true })
   elapsedTime?: string
-}
-
-@Entity('releases')
-export class ReleaseEntity extends AbstractEntity {
-  @Column()
-  zipLocation?: string
-
-  @Column()
-  version?: string
-
-  @Column()
-  currentlyDeployed?: boolean
-
-  @Column()
-  projectName?: string
-
-  @Column()
-  developerId?: string
 }

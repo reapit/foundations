@@ -17,6 +17,7 @@ import {
 import { Dispatch } from 'redux'
 import { ELEMENTS_V3_PAGES } from '../constants/pages'
 import { Loader, MainContainer } from '@reapit/elements'
+import { HelperWidget, HelperWidgetApps } from '@reapit/utils-react'
 
 const { Suspense } = React
 
@@ -51,7 +52,10 @@ export const PrivateRouteWrapper: React.FunctionComponent<PrivateRouteWrapperPro
   const currentMemberLoading = useSelector(selectCurrentMemberIsLoading)
   const memberUpdateState = useSelector(selectCurrentMemberUpdateState)
   const currentUri = `${location.pathname}${location.search}`
-  const isV3Page = ELEMENTS_V3_PAGES.includes(location.pathname) || location.pathname.includes(Routes.API_DOCS)
+  const isV3Page =
+    ELEMENTS_V3_PAGES.includes(location.pathname) ||
+    location.pathname.includes(Routes.API_DOCS) ||
+    location.pathname.includes('v8')
 
   useEffect(() => {
     if (showTermsModal && memberUpdateState === 'SUCCESS') {
@@ -138,6 +142,7 @@ export const PrivateRouteWrapper: React.FunctionComponent<PrivateRouteWrapperPro
           </FlexContainerResponsive>
         </FlexContainerBasic>
       )}
+      {window.reapit.config.appEnv !== 'production' && <HelperWidget appName={HelperWidgetApps.developerPortal} />}
     </MainContainer>
   )
 }

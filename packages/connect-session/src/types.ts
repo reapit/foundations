@@ -34,6 +34,7 @@ export interface LoginIdentity {
   offGrouping: boolean
   offGroupName: string | null
   officeId: string | null
+  orgProduct: string | null
 }
 
 export interface CoginitoSession {

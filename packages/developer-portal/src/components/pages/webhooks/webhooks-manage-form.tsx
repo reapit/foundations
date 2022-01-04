@@ -1,18 +1,13 @@
 import {
-  ColSplit,
-  elMb7,
   elMl3,
-  elMt1,
   ElToggleItem,
   FlexContainer,
-  Grid,
   InputGroup,
   Label,
   MultiSelectInput,
   Subtitle,
   Toggle,
   elP8,
-  elMb11,
   ButtonGroup,
   Button,
   useSnack,
@@ -20,10 +15,14 @@ import {
   BodyText,
   PersistantNotification,
   elMb6,
+  FormLayout,
+  InputWrapFull,
+  InputWrap,
+  elMb5,
 } from '@reapit/elements'
 import React, { ChangeEvent, Dispatch, FC, SetStateAction, useEffect, useMemo, useState } from 'react'
 import { yupResolver } from '@hookform/resolvers/yup'
-import { boolean, object, string } from 'yup'
+import Yup, { boolean, object, string } from 'yup'
 import errorMessages from '../../../constants/error-messages'
 import { httpsUrlRegex } from '@reapit/utils-common'
 import { useForm, UseFormGetValues } from 'react-hook-form'
@@ -56,12 +55,12 @@ interface WebhooksManageFormProps {
 export interface EditWebhookFormSchema {
   url: string
   topicIds: string
-  customerIds: string
-  ignoreEtagOnlyChanges: boolean
-  active: boolean
+  customerIds?: string
+  ignoreEtagOnlyChanges?: boolean
+  active?: boolean
 }
 
-const schema = object().shape<EditWebhookFormSchema>({
+const schema: Yup.SchemaOf<EditWebhookFormSchema> = object().shape({
   url: string().trim().required(errorMessages.FIELD_REQUIRED).matches(httpsUrlRegex, 'Should be a secure https url'),
   topicIds: string().trim().required('At least one topic is required'),
   customerIds: string(),
@@ -99,8 +98,8 @@ export const handleSubmitWebhook =
 
     if (!webhookId || !applicationId) return
 
-    const splitCustomerIds = customerIds.split(',').filter(Boolean)
-    const customers = customerIds.includes('ALL') ? [] : splitCustomerIds
+    const splitCustomerIds = (customerIds || '').split(',').filter(Boolean)
+    const customers = (customerIds || '').includes('ALL') ? [] : splitCustomerIds
     const topics = topicIds.split(',').filter(Boolean)
 
     const editWebhookParams: EditWebhookParams = {
@@ -201,28 +200,60 @@ export const WebhooksManageForm: FC<WebhooksManageFormProps> = ({
 
   return (
     <form className={elP8} onSubmit={handleSubmit(handleSubmitWebhook(dispatch, webhookModel))}>
-      <Subtitle className={elMl3}>Edit Webhook</Subtitle>
-      <InputGroup
-        className={elMb11}
-        placeholder="Enter secure https:// url"
-        label="Webhook URL"
-        {...register('url')}
-        inputAddOnText={errors?.url?.message}
-        intent="danger"
-      />
-      <Grid>
-        <ColSplit>
-          <FlexContainer className={elMb7} isFlexAlignCenter isFlexJustifyBetween isFlexWrap>
-            <Label className={elMl3}>Subscription topics</Label>
+      <FormLayout>
+        <InputWrapFull>
+          <FlexContainer isFlexAlignCenter isFlexJustifyBetween>
+            <Subtitle hasBoldText className={elMl3}>
+              Edit Webhook
+            </Subtitle>
+            <ButtonGroup alignment="right">
+              <Button
+                intent="low"
+                type="button"
+                disabled={webhookCreateEditState === WebhookCreateEditState.LOADING}
+                onClick={openModal}
+              >
+                Delete
+              </Button>
+              <Button
+                intent="secondary"
+                type="button"
+                disabled={webhookCreateEditState === WebhookCreateEditState.LOADING}
+                onClick={handleCollapseRow(setIndexExpandedRow, setExpandableContentType)}
+              >
+                Cancel
+              </Button>
+              <Button
+                intent="primary"
+                chevronRight
+                type="submit"
+                disabled={webhookCreateEditState === WebhookCreateEditState.LOADING}
+              >
+                Update
+              </Button>
+            </ButtonGroup>
+          </FlexContainer>
+        </InputWrapFull>
+        <InputWrapFull>
+          <InputGroup
+            placeholder="Enter secure https:// url"
+            label="Webhook URL"
+            {...register('url')}
+            inputAddOnText={errors?.url?.message}
+            intent="danger"
+          />
+        </InputWrapFull>
+        <InputWrapFull>
+          <FlexContainer className={elMb5} isFlexAlignCenter isFlexJustifyBetween isFlexWrap>
             <InputGroup
+              label="Subscription topics"
               className={searchMinWidth}
               onChange={handleSearchTopics(topics, getValues, setFilteredTopics)}
               icon="searchSystem"
-              placeholder="Search"
+              placeholder="Search topics to get started"
             />
           </FlexContainer>
           <MultiSelectInput
-            className={elMb7}
             id={`topic-edit-ids-${id}`}
             defaultValues={[...new Set(topicIds)]}
             options={topicOptions}
@@ -233,84 +264,50 @@ export const WebhooksManageForm: FC<WebhooksManageFormProps> = ({
               {errors.topicIds.message}
             </PersistantNotification>
           )}
-          <Label className={elMl3}>Subscription customers</Label>
+        </InputWrapFull>
+        <InputWrapFull>
+          <Label className={cx(elMl3, elMb5)}>Subscription customers</Label>
           <MultiSelectInput
-            className={elMb7}
             id={`customer-edit-ids-${id}`}
             defaultValues={customerIds?.length ? [...new Set(customerIds)] : ['ALL']}
             options={customerOptions}
             {...register('customerIds')}
           />
-        </ColSplit>
-        <ColSplit>
-          <Grid>
-            <ColSplit>
-              <Label>Status</Label>
-              <Toggle
-                className={cx(elMt1, elMb11)}
-                id={`status-edit-toggle-${id}`}
-                hasGreyBg
-                isFullWidth
-                {...register('active')}
-              >
-                <ElToggleItem>Active</ElToggleItem>
-                <ElToggleItem>Inactive</ElToggleItem>
-              </Toggle>
-            </ColSplit>
-          </Grid>
+        </InputWrapFull>
+        <InputWrap>
+          <Label>Status</Label>
+          <Toggle id={`status-edit-toggle-${id}`} hasGreyBg {...register('active')}>
+            <ElToggleItem>Active</ElToggleItem>
+            <ElToggleItem>Inactive</ElToggleItem>
+          </Toggle>
+        </InputWrap>
+        <InputWrap>
           <InputGroup
-            className={elMb11}
             type="checkbox"
             label="Ignore where only the etag has been modified"
             inputAddOnText="Ignore"
             {...register('ignoreEtagOnlyChanges')}
           />
-          <ButtonGroup alignment="right">
-            <Button
-              intent="danger"
-              type="button"
-              disabled={webhookCreateEditState === WebhookCreateEditState.LOADING}
-              onClick={openModal}
-            >
-              Delete
-            </Button>
-            <Button
-              intent="secondary"
-              type="button"
-              disabled={webhookCreateEditState === WebhookCreateEditState.LOADING}
-              onClick={handleCollapseRow(setIndexExpandedRow, setExpandableContentType)}
-            >
+        </InputWrap>
+      </FormLayout>
+      <DeleteConfirmModal title="Delete Webhook">
+        <BodyText hasGreyText>Are you sure you want to delete this webhook?</BodyText>
+        <BodyText>{url}</BodyText>
+        <BodyText hasGreyText>
+          By clicking ‘Confirm’ the system will remove this webhook and any stored configurations. Please click
+          ‘Confirm’ to continue with deletion.
+        </BodyText>
+        <FlexContainer isFlexJustifyCenter>
+          <ButtonGroup>
+            <Button intent="secondary" onClick={closeModal}>
               Cancel
             </Button>
-            <Button
-              intent="primary"
-              chevronRight
-              type="submit"
-              disabled={webhookCreateEditState === WebhookCreateEditState.LOADING}
-            >
-              Update
+            <Button intent="danger" onClick={handleWebhookDelete(dispatch, webhookModel, closeModal)}>
+              Confirm
             </Button>
           </ButtonGroup>
-          <DeleteConfirmModal title="Delete Webhook">
-            <BodyText hasGreyText>Are you sure you want to delete this webhook?</BodyText>
-            <BodyText>{url}</BodyText>
-            <BodyText hasGreyText>
-              By clicking ‘Confirm’ the system will remove this webhook and any stored configurations. Please click
-              ‘Confirm’ to continue with deletion.
-            </BodyText>
-            <FlexContainer isFlexJustifyCenter>
-              <ButtonGroup>
-                <Button intent="secondary" onClick={closeModal}>
-                  Cancel
-                </Button>
-                <Button intent="danger" onClick={handleWebhookDelete(dispatch, webhookModel, closeModal)}>
-                  Confirm
-                </Button>
-              </ButtonGroup>
-            </FlexContainer>
-          </DeleteConfirmModal>
-        </ColSplit>
-      </Grid>
+        </FlexContainer>
+      </DeleteConfirmModal>
     </form>
   )
 }

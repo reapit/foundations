@@ -7,11 +7,26 @@ import { cleanObject, DATE_TIME_FORMAT, setQueryParams, toLocalTime } from '@rea
 import { combineAddress } from '@reapit/utils-common'
 import Routes from '@/constants/routes'
 import OfficesFilterForm, { OfficesFormSchema } from '@/components/ui/offices/offices-tab-filter'
-import { elFadeIn, Loader, Pagination, RowProps, Title, Table, elMb11, PersistantNotification } from '@reapit/elements'
+import {
+  elFadeIn,
+  Loader,
+  Pagination,
+  RowProps,
+  Title,
+  Table,
+  elMb11,
+  PersistantNotification,
+  Button,
+  ButtonGroup,
+  FlexContainer,
+  useMediaQuery,
+  useModal,
+} from '@reapit/elements'
 import { isEmptyObject } from '@reapit/utils-react'
 import { cx } from '@linaria/core'
 import { useOrgId } from '../../../utils/use-org-id'
 import { getOfficesService } from '../../../services/office'
+import { OrgIdSelect } from '../../hocs/org-id-select'
 
 export const buildFilterValues = (queryParams: URLSearchParams): OfficesFormSchema => {
   const name = queryParams.get('name') || []
@@ -94,6 +109,8 @@ export const handleFetchOffices =
 const OfficesTab: FC = () => {
   const history = useHistory()
   const location = useLocation()
+  const { Modal, openModal, closeModal } = useModal()
+  const { isMobile } = useMediaQuery()
   const search = location.search
   const queryParams = new URLSearchParams(search)
   const filterValues = buildFilterValues(queryParams)
@@ -118,27 +135,41 @@ const OfficesTab: FC = () => {
 
   const rows = useMemo(handleSortTableData(offices), [offices])
 
-  if (!orgClientId)
-    return (
-      <PersistantNotification isFullWidth isExpanded intent="secondary" isInline>
-        No organisation selected. You need to select an organisation to view ofices.
-      </PersistantNotification>
-    )
-
   return (
     <ErrorBoundary>
-      <Title>{orgName} Offices</Title>
+      <FlexContainer isFlexJustifyBetween>
+        {!orgName ? <Title>Offices</Title> : <Title>{orgName} Offices</Title>}
+        {isMobile && (
+          <ButtonGroup alignment="right">
+            <Button intent="low" onClick={openModal}>
+              Select Org
+            </Button>
+            <Modal title="Select Organisation">
+              <OrgIdSelect />
+              <ButtonGroup alignment="center">
+                <Button intent="secondary" onClick={closeModal}>
+                  Close
+                </Button>
+              </ButtonGroup>
+            </Modal>
+          </ButtonGroup>
+        )}
+      </FlexContainer>
       <OfficesFilterForm filterValues={filterValues} onSearch={onSearch} />
       {officesLoading ? (
         <Loader />
-      ) : offices.length ? (
+      ) : offices.length && orgClientId ? (
         <>
           <Table className={cx(elFadeIn, elMb11)} rows={rows} />
           <Pagination callback={onPageChange} numberPages={totalPageCount} currentPage={pageNumber} />
         </>
-      ) : (
+      ) : orgClientId ? (
         <PersistantNotification isFullWidth isExpanded intent="secondary" isInline>
           No results found for your office search
+        </PersistantNotification>
+      ) : (
+        <PersistantNotification isFullWidth isExpanded intent="secondary" isInline>
+          No organisation selected. You need to select an organisation to view offices.
         </PersistantNotification>
       )}
     </ErrorBoundary>

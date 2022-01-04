@@ -1,5 +1,5 @@
 const { jestGlobalConfig } = require('@reapit/ts-scripts')
-const { pathsToModuleNameMapper } = require('ts-jest/utils')
+const { pathsToModuleNameMapper } = require('ts-jest')
 const { compilerOptions } = require('./tsconfig.json')
 
 module.exports = {
@@ -14,8 +14,8 @@ module.exports = {
     global: {
       branches: 35,
       functions: 60,
-      lines: 61,
-      statements: 60,
+      lines: 60,
+      statements: 59,
     },
   },
   moduleNameMapper: {

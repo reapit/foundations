@@ -8,11 +8,8 @@ import { HttpStatusCodeEnum } from '@/types/http.status.enum'
 
 export default async (req: AppRequest, res: Response) => {
   const clientCode = req.query.clientCode as string | undefined
-  const { traceId } = req
 
   try {
-    logger.info('Getting automations by parmeters...', { traceId, clientCode })
-
     if (req.user?.clientCode !== clientCode) {
       res.status(HttpStatusCodeEnum.UNAUTHORIZED)
       return res.json({

@@ -16,7 +16,7 @@ export const ElInputGroup = styled.div`
     background: var(--component-input-bg);
     order: 1;
     flex-basis: 100%;
-    padding-left: 0.5rem;
+    padding: 0.25rem 0 0 0.5rem;
   }
 
   ${ElIcon} {
@@ -40,11 +40,8 @@ export const ElInputGroup = styled.div`
 
   ${ElInput}:not([type='checkbox']):not([type='radio']), ${ElTextArea}, ${ElSelect} {
     &:focus {
-      ~ ${ElIcon}, ~ ${ElLabel}, ~ ${ElInputAddOn} {
-        background: var(--component-input-focus-bg);
-      }
-
       ~ ${ElIcon}, ~ ${ElInputAddOn} {
+        background: var(--component-input-focus-bg);
         border-bottom: var(--component-input-border-bottom-focus);
       }
     }
@@ -96,7 +93,7 @@ export const ElInputGroup = styled.div`
     order: 2;
     ~ ${ElLabel} {
       order: 1;
-      padding-bottom: 0.25rem;
+      padding: 0.125rem 0;
     }
   }
 

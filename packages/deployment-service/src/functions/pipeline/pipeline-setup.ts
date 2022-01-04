@@ -4,16 +4,19 @@ import { plainToClass } from 'class-transformer'
 import { PipelineEntity } from '../../entities'
 import { v4 as uuid } from 'uuid'
 import { Route53Client, ChangeResourceRecordSetsCommand } from '@aws-sdk/client-route-53'
-import { s3Client, sqs, updatePipelineEntity } from '../../services'
+import { s3Client, sqs, updatePipelineEntity, pusher } from '../../services'
 import { QueueNames } from '../../constants'
-import { logger } from '../../core'
 
 export const pipelineSetup: SQSHandler = async (event: SQSEvent, context: Context, callback: Callback) => {
   await Promise.all(
     event.Records.map(async (record) => {
+      const message = JSON.parse(record.body)
+      const pipeline = plainToClass(PipelineEntity, message)
       try {
-        const message = JSON.parse(record.body)
-        const pipeline = plainToClass(PipelineEntity, message)
+        await pusher.trigger(`private-${pipeline.developerId}`, 'pipeline-architecture-update', {
+          ...pipeline,
+          message: 'Started architecture build',
+        })
 
         await new Promise<void>((resolve, reject) =>
           s3Client.putObject(
@@ -30,6 +33,11 @@ export const pipelineSetup: SQSHandler = async (event: SQSEvent, context: Contex
             },
           ),
         )
+
+        await pusher.trigger(`private-${pipeline.developerId}`, 'pipeline-architecture-update', {
+          ...pipeline,
+          message: 'Bucket built',
+        })
 
         const frontClient = new CloudFrontClient({
           region: process.env.REGION,
@@ -80,6 +88,11 @@ export const pipelineSetup: SQSHandler = async (event: SQSEvent, context: Contex
 
         const distroResult = await frontClient.send(distroCommand)
 
+        await pusher.trigger(`private-${pipeline.developerId}`, 'pipeline-architecture-update', {
+          ...pipeline,
+          message: 'Distro created',
+        })
+
         if (!distroResult) {
           throw new Error('cloudfront failed :shrug:')
         }
@@ -116,13 +129,27 @@ export const pipelineSetup: SQSHandler = async (event: SQSEvent, context: Contex
 
         const aRecordId = r53Result.ChangeInfo?.Id
 
+        await pusher.trigger(`private-${pipeline.developerId}`, 'pipeline-architecture-update', {
+          ...pipeline,
+          message: 'A record created',
+        })
+
         await updatePipelineEntity(pipeline, {
           buildStatus: 'READY_FOR_DEPLOYMENT',
           cloudFrontId,
           aRecordId,
         })
       } catch (error: any) {
-        logger.error(error)
+        pipeline.buildStatus = 'FAILED_TO_ARCHITECT'
+
+        await pusher.trigger(`private-${pipeline.developerId}`, 'pipeline-architecture-update', {
+          ...pipeline,
+          message: 'Failed to architech',
+        })
+        await updatePipelineEntity(pipeline, {
+          buildStatus: 'FAILED_TO_ARCHITECT',
+        })
+        console.error(error)
         throw error
       } finally {
         await new Promise<void>((resolve, reject) =>

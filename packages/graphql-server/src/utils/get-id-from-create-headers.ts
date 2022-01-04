@@ -1,7 +1,5 @@
 export type GetIdFromCreateHeadersParams = {
-  headers?: {
-    location?: string
-  }
+  headers?: Record<string, string>
 }
 
 export const getIdFromCreateHeaders = ({ headers }: GetIdFromCreateHeadersParams): string | undefined => {

@@ -1,6 +1,6 @@
 {
   "name": "@reapit/cra-template-foundations",
-  "version": "4.1.0",
+  "version": "4.2.0",
   "main": "./template.json",
   "license": "MIT",
   "scripts": {
@@ -14,9 +14,9 @@
     "commit": "yarn lint"
   },
   "devDependencies": {
-    "@typescript-eslint/eslint-plugin": "^4.28.4",
-    "@typescript-eslint/parser": "^4.28.4",
-    "eslint": "7.31.0",
-    "eslint-plugin-prettier": "^3.4.0"
+    "@typescript-eslint/eslint-plugin": "^5.7.0",
+    "@typescript-eslint/parser": "^5.7.0",
+    "eslint": "8.4.1",
+    "eslint-plugin-prettier": "^4.0.0"
   }
 }

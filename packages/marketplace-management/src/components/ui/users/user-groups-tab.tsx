@@ -7,13 +7,25 @@ import ErrorBoundary from '@/components/hocs/error-boundary'
 import Routes from '@/constants/routes'
 import { URLS } from '../../../constants/api'
 import qs from 'query-string'
-import { Loader, Pagination, PersistantNotification, RowProps, Table } from '@reapit/elements'
+import {
+  Button,
+  ButtonGroup,
+  FlexContainer,
+  Loader,
+  Pagination,
+  PersistantNotification,
+  RowProps,
+  Table,
+  useMediaQuery,
+  useModal,
+} from '@reapit/elements'
 import { Title } from '@reapit/elements'
 import { cx } from '@linaria/core'
 import { elFadeIn } from '@reapit/elements'
 import { elMb11 } from '@reapit/elements'
 import EditUserGroupForm from './edit-user-group'
 import { useOrgId } from '../../../utils/use-org-id'
+import { OrgIdSelect } from '../../hocs/org-id-select'
 
 export const onPageChangeHandler = (history: History<any>) => (page: number) => {
   const queryString = `?pageNumber=${page}`
@@ -54,6 +66,8 @@ export const handleSortTableData = (groups: GroupModel[], orgId: string, onCompl
 const UserGroupsTab: FC = () => {
   const history = useHistory()
   const location = useLocation()
+  const { Modal, openModal, closeModal } = useModal()
+  const { isMobile } = useMediaQuery()
   const search = location.search
   const onPageChange = useCallback(onPageChangeHandler(history), [history])
   const [indexExpandedRow, setIndexExpandedRow] = useState<number | null>(null)
@@ -83,19 +97,29 @@ const UserGroupsTab: FC = () => {
 
   const rows = useMemo(handleSortTableData(groups, orgId ?? '', onComplete), [groups])
 
-  if (!orgId)
-    return (
-      <PersistantNotification isFullWidth isExpanded intent="secondary" isInline>
-        No organisation selected. You need to select an organisation to view user groups.
-      </PersistantNotification>
-    )
-
   return (
     <ErrorBoundary>
-      <Title>{orgName} User Groups</Title>
+      <FlexContainer isFlexJustifyBetween>
+        {!orgName ? <Title>User Groups</Title> : <Title>{orgName} User Groups</Title>}
+        {isMobile && (
+          <ButtonGroup alignment="right">
+            <Button intent="low" onClick={openModal}>
+              Select Org
+            </Button>
+            <Modal title="Select Organisation">
+              <OrgIdSelect />
+              <ButtonGroup alignment="center">
+                <Button intent="secondary" onClick={closeModal}>
+                  Close
+                </Button>
+              </ButtonGroup>
+            </Modal>
+          </ButtonGroup>
+        )}
+      </FlexContainer>
       {!data && orgId ? (
         <Loader />
-      ) : groups.length ? (
+      ) : groups.length && orgId ? (
         <>
           <Table
             className={cx(elFadeIn, elMb11)}
@@ -105,9 +129,13 @@ const UserGroupsTab: FC = () => {
           />
           <Pagination callback={onPageChange} numberPages={totalPageCount} currentPage={pageNumber} />
         </>
-      ) : (
+      ) : orgId ? (
         <PersistantNotification isFullWidth isExpanded intent="secondary" isInline>
           No users found
+        </PersistantNotification>
+      ) : (
+        <PersistantNotification isFullWidth isExpanded intent="secondary" isInline>
+          No organisation selected. You need to select an organisation to view user groups.
         </PersistantNotification>
       )}
     </ErrorBoundary>

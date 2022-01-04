@@ -256,19 +256,19 @@ exports[`Login should match a snapshot 1`] = `
                             </h2>
                           </ElSubtitle>
                         </Subtitle>
-                        <BodyText
+                        <SmallText
                           hasGreyText={true}
                         >
-                          <ElBodyText
+                          <ElSmallText
                             className="e11jaxfn-el-has-grey-text"
                           >
                             <p
-                              className="e11jaxfn-el-has-grey-text evblxhy-el-body-text"
+                              className="e11jaxfn-el-has-grey-text e1byern-el-small-text"
                             >
                               This is the dashboard for your applications created using the Reapit Foundations platform. If you have not created an app before or you need help, please take the time to view our getting started guide.
                             </p>
-                          </ElBodyText>
-                        </BodyText>
+                          </ElSmallText>
+                        </SmallText>
                         <Button
                           className="esplruv-el-mb3"
                           intent="neutral"
@@ -298,17 +298,29 @@ exports[`Login should match a snapshot 1`] = `
                       <section
                         className="e12d7zo5-el-hfull eukst9x-el-page-container"
                       >
-                        <Title>
-                          <ElTitle
-                            className=""
+                        <FlexContainer
+                          isFlexJustifyBetween={true}
+                        >
+                          <ElFlexContainer
+                            className="e1q0zwo9-el-flex-justify-between"
                           >
-                            <h1
-                              className="etrchfm-el-title"
+                            <div
+                              className="e1q0zwo9-el-flex-justify-between e2kmzjs-el-flex-container"
                             >
-                              My Apps
-                            </h1>
-                          </ElTitle>
-                        </Title>
+                              <Title>
+                                <ElTitle
+                                  className=""
+                                >
+                                  <h1
+                                    className="etrchfm-el-title"
+                                  >
+                                    My Apps
+                                  </h1>
+                                </ElTitle>
+                              </Title>
+                            </div>
+                          </ElFlexContainer>
+                        </FlexContainer>
                         <AppList
                           infoType="DEVELOPER_APPS_EMPTY"
                           list={Array []}

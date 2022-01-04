@@ -1,5 +1,5 @@
 import React, { useState, useEffect, useCallback, FC, ChangeEvent, Dispatch, SetStateAction } from 'react'
-import { createOfficeGroup } from '../../../services/office'
+import { createOfficeGroup, OFFICE_IN_USE_ERROR } from '../../../services/office'
 import { toastMessages } from '../../../constants/toast-messages'
 import { prepareOfficeOptions } from '../../../utils/prepare-options'
 import { OfficeModel, OfficeModelPagedResult } from '@reapit/foundations-ts-definitions'
@@ -11,7 +11,6 @@ import {
   Button,
   ButtonGroup,
   elFadeIn,
-  elMb11,
   ElToggleItem,
   FormLayout,
   InputGroup,
@@ -26,7 +25,6 @@ import {
   Toggle,
   useSnack,
 } from '@reapit/elements'
-import { cx } from '@linaria/core'
 import { boolean, object, string } from 'yup'
 import errorMessages from '../../../constants/error-messages'
 import { yupResolver } from '@hookform/resolvers/yup'
@@ -51,13 +49,23 @@ interface CreateOfficeGroupSchema {
 }
 
 export const onHandleSubmit =
-  (history: History, orgId: string | null, success: (message: string) => void, error: (message: string) => void) =>
+  (
+    history: History,
+    orgId: string | null,
+    success: (message: string) => void,
+    error: (message: string, delay?: number) => void,
+  ) =>
   async (params: CreateOfficeGroupSchema) => {
     if (orgId) {
       const { name, officeIds: idsList } = params
       const officeIds = idsList.toString()
       const status = params.status ? 'active' : 'inactive'
       const createdOffice = await createOfficeGroup({ name, officeIds, status }, orgId)
+
+      if (createdOffice && createdOffice === OFFICE_IN_USE_ERROR) {
+        return error(toastMessages.OFFICE_ALREADY_ASSIGNED_CREATE, 10000)
+      }
+
       if (createdOffice) {
         success(toastMessages.CREATE_OFFICE_GROUP_SUCCESS)
         history.push(Routes.OFFICES_GROUPS)
@@ -172,7 +180,7 @@ export const OfficeGroupCreate: FC<OfficeGroupCreateProps> = () => {
           {
             item: '1',
             content: (
-              <FormLayout className={cx(elFadeIn, elMb11)}>
+              <FormLayout className={elFadeIn}>
                 <InputWrapFull>
                   <BodyText hasGreyText>Add a name for your office group.</BodyText>
                 </InputWrapFull>
@@ -191,7 +199,7 @@ export const OfficeGroupCreate: FC<OfficeGroupCreateProps> = () => {
           {
             item: '2',
             content: (
-              <FormLayout className={cx(elFadeIn, elMb11)}>
+              <FormLayout className={elFadeIn}>
                 <InputWrapFull>
                   <BodyText hasGreyText>
                     To manage offices associated to this group, you can search and select users from the ‘Offices’
@@ -214,7 +222,7 @@ export const OfficeGroupCreate: FC<OfficeGroupCreateProps> = () => {
           {
             item: '3',
             content: (
-              <FormLayout className={cx(elFadeIn, elMb11)}>
+              <FormLayout className={elFadeIn}>
                 <InputWrapFull>
                   <BodyText hasGreyText>Toggle the below to determine if the office grouping is live or not.</BodyText>
                 </InputWrapFull>

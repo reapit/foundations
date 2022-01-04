@@ -1,12 +1,12 @@
 import {
   BodyText,
-  elMb11,
   InputGroup,
   MultiSelectInput,
   FormLayout,
   InputWrapFull,
   InputWrapMed,
   elFadeIn,
+  elMb5,
 } from '@reapit/elements'
 import React, { ChangeEvent, Dispatch, FC, SetStateAction, useState } from 'react'
 import { DeepMap, FieldError, UseFormGetValues, UseFormRegister } from 'react-hook-form'
@@ -17,12 +17,11 @@ import { TopicModel } from '../../../services/webhooks'
 import { CreateWebhookFormSchema } from './webhooks-new'
 import { selectWebhookSubscriptionTopics } from '../../../selector/webhooks-subscriptions'
 import { getInitialTopics } from './webhooks-manage-form'
-import { cx } from '@linaria/core'
 
 interface WebhooksNewTopicsProps {
   register: UseFormRegister<CreateWebhookFormSchema>
   getValues: UseFormGetValues<CreateWebhookFormSchema>
-  errors: DeepMap<CreateWebhookFormSchema, FieldError>
+  errors: DeepMap<Partial<CreateWebhookFormSchema>, FieldError>
 }
 
 export const handleFetchTopics =
@@ -42,7 +41,7 @@ export const handleSearchTopics =
   (event: ChangeEvent<HTMLInputElement>) => {
     const search = event.target.value
 
-    const selectedTopics = getValues().topicIds?.split(',')
+    const selectedTopics = getValues().topicIds?.split(',').filter(Boolean)
 
     const filteredTopics = search
       ? topics.filter(
@@ -71,7 +70,7 @@ export const WebhooksNewTopics: FC<WebhooksNewTopicsProps> = ({ register, getVal
       : ''
 
   return (
-    <FormLayout className={cx(elFadeIn, elMb11)}>
+    <FormLayout className={elFadeIn}>
       <InputWrapFull>
         <BodyText hasNoMargin hasGreyText>
           Select topics for your webhook from the list below to allow your application to receive real-time
@@ -81,6 +80,7 @@ export const WebhooksNewTopics: FC<WebhooksNewTopicsProps> = ({ register, getVal
       </InputWrapFull>
       <InputWrapMed>
         <InputGroup
+          className={elMb5}
           label="Subscription Topics"
           onChange={handleSearchTopics(topics, getValues, setFilteredTopics, setSearch)}
           icon="searchSystem"
@@ -88,15 +88,13 @@ export const WebhooksNewTopics: FC<WebhooksNewTopicsProps> = ({ register, getVal
           inputAddOnText={inputAddOnText}
           intent={errors.topicIds && search ? 'danger' : 'low'}
         />
-      </InputWrapMed>
-      <InputWrapFull>
         <MultiSelectInput
           id="topic-ids"
           defaultValues={selectedTopics}
           options={multiSelectOptions}
           {...register('topicIds')}
         />
-      </InputWrapFull>
+      </InputWrapMed>
     </FormLayout>
   )
 }

@@ -4,6 +4,7 @@ plugins:
   - serverless-dynamodb-local
   - serverless-offline
   - serverless-deployment-bucket
+  - serverless-plugin-log-retention
 
 custom:
   s3CloudFormBucket: cloud-custom-mailer-${opt:stage, 'dev'}
@@ -17,6 +18,7 @@ custom:
     excludeFiles: src/**/*.test.ts
     includeFiles: src/mailer/templates/ejs/**
     keepOutputDirectory: true
+  logRetentionInDays: 30
 
 provider:
   name: aws

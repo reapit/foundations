@@ -7,15 +7,16 @@
     "target": "es6",
     "noImplicitAny": false,
     "moduleResolution": "node",
+    "resolveJsonModule": true,
     "sourceMap": true,
     "outDir": "./dist",
     "baseUrl": ".",
     "typeRoots": ["./node_modules/@types", "../../node_modules/@types"],
     "paths": {
       "@/*": ["src/*"],
-      "@reapit/utils-node": ["../utils-node"],
-      "@reapit/foundations-ts-definitions": ["../foundations-ts-definitions/src"]
-    }
+      "@reapit/*": ["../*"]
+    },
+    "skipLibCheck": true
   },
   "include": ["./src/**/*"],
   "exclude": [

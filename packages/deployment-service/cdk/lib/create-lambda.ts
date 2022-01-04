@@ -1,29 +1,34 @@
-import { Function, AssetCode, Runtime } from '@aws-cdk/aws-lambda'
-import { Vpc } from '@aws-cdk/aws-ec2'
-import { CdkStack } from './cdk-stack'
+import { createFunction, Function, Vpc, Stack } from '@reapit/ts-scripts/src/cdk'
+
 import environment from '../../config.json'
-import { Duration } from '@aws-cdk/core'
 
 export const createLambda = ({
   stack,
   name,
-  code,
+  entrypoint,
   vpc,
   handler,
+  env,
+  duration,
 }: {
-  stack: CdkStack
+  stack: Stack
   name: string
-  code: AssetCode
-  vpc: Vpc
+  entrypoint: string
+  vpc?: Vpc
   handler: string
+  env?: { [s: string]: any }
+  duration?: number,
 }): Function => {
-  return new Function(stack as any, name, {
-    code,
+  return createFunction(
+    stack,
+    name,
+    entrypoint,
     handler,
-    runtime: Runtime.NODEJS_14_X,
+    {
+      ...environment,
+      ...env,
+    },
     vpc,
-    environment,
-    timeout: Duration.seconds(30),
-    memorySize: 512,
-  })
+    duration,
+  )
 }

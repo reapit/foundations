@@ -1,5 +1,4 @@
 import qs from 'query-string'
-import logger from '../../logger'
 import { ServerContext } from '../../utils'
 import {
   GetConveyancingByIdArgs,
@@ -29,7 +28,6 @@ export const callGetConveyancingByIdAPI = async (
   context: ServerContext,
 ): GetConveyancingByIdReturn => {
   const traceId = context.traceId
-  logger.info('callGetConveyancingByIdAPI', { traceId, args })
   try {
     const { id, ...rest } = args
     const params = qs.stringify(rest as Record<string, string>)
@@ -53,7 +51,6 @@ export const callGetConveyancingAPI = async (
   context: ServerContext,
 ): GetConveyancingReturn => {
   const traceId = context.traceId
-  logger.info('callGetConveyancingAPI', { args, traceId })
   try {
     const params = qs.stringify(args)
     const response = await createPlatformAxiosInstance().get<GetConveyancingReturn>(`${URLS.conveyancing}?${params}`, {
@@ -73,7 +70,6 @@ export const callGetConveyancingChainAPI = async (
   context: ServerContext,
 ): GetConveyancingChainReturn => {
   const traceId = context.traceId
-  logger.info('callGetConveyancingChainAPI', { args, traceId })
   try {
     const response = await createPlatformAxiosInstance().get<GetConveyancingChainReturn>(
       `${URLS.conveyancing}/${args.id}/chain`,
@@ -95,7 +91,6 @@ export const callUpdateConveyancingAPI = async (
   context: ServerContext,
 ): UpdateConveyancingReturn => {
   const traceId = context.traceId
-  logger.info('callUpdateConveyancingAPI', { traceId, args })
   try {
     const { _eTag, ...payload } = args
     const updateResponse = await createPlatformAxiosInstance().patch<UpdateConveyancingReturn>(
@@ -123,7 +118,6 @@ export const callCreateDownwardLinkModelAPI = async (
   context: ServerContext,
 ): CreateDownwardLinkModelReturn => {
   const traceId = context.traceId
-  logger.info('callCreateDownwardLinkModelAPI', { traceId, args })
   try {
     const { id, ...payload } = args
     await createPlatformAxiosInstance().post<CreateDownwardLinkModelReturn>(
@@ -147,7 +141,6 @@ export const callDeleteDownwardLinkModelAPI = async (
   context: ServerContext,
 ): DeleteDownwardLinkModelReturn => {
   const traceId = context.traceId
-  logger.info('callDeleteDownwardLinkModelAPI', { traceId, args })
   try {
     await createPlatformAxiosInstance().delete<DeleteDownwardLinkModelReturn>(
       `${URLS.conveyancing}/${args.id}/downward`,
@@ -169,7 +162,6 @@ export const callCreateUpwardLinkModelAPI = async (
   context: ServerContext,
 ): CreateUpwardLinkModelReturn => {
   const traceId = context.traceId
-  logger.info('callCreateUpwardLinkModelAPI', { traceId, args })
   try {
     const { id, ...payload } = args
     await createPlatformAxiosInstance().post<CreateUpwardLinkModelReturn>(
@@ -193,7 +185,6 @@ export const callDeleteUpwardLinkModelAPI = async (
   context: ServerContext,
 ): DeleteUpwardLinkModelReturn => {
   const traceId = context.traceId
-  logger.info('callDeleteUpwardLinkModelAPI', { traceId, args })
   try {
     await createPlatformAxiosInstance().delete<DeleteUpwardLinkModelReturn>(`${URLS.conveyancing}/${args.id}/upward`, {
       headers: {

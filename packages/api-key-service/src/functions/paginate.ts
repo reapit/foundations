@@ -2,7 +2,6 @@ import { ApiKeyModel } from '@reapit/api-key-verify'
 import { httpHandler, UnauthorizedException } from '@homeservenow/serverless-aws-handler'
 import { batchGetApiKeys } from './../services'
 import { connectSessionVerifyDecodeIdTokenWithPublicKeys, LoginIdentity } from '@reapit/connect-session'
-import publicKeys from './../../public-keys.json'
 import { defaultOutputHeaders } from './../constants'
 
 type Pagintation<T> = {
@@ -22,14 +21,14 @@ export const paginateApiKeys = httpHandler<void, Pagintation<ApiKeyModel>>({
       customer = await connectSessionVerifyDecodeIdTokenWithPublicKeys(
         event.headers?.Authorization as string,
         process.env.CONNECT_USER_POOL as string,
-        publicKeys,
       )
 
       if (typeof customer === 'undefined' || !customer.developerId) {
         throw new Error('Unauthorised')
       }
-    } catch (e) {
-      throw new UnauthorizedException(e.message)
+    } catch (e: any) {
+      const error = e as Error
+      throw new UnauthorizedException(error.message)
     }
 
     const response = await batchGetApiKeys(

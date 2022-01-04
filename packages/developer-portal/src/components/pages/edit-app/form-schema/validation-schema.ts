@@ -36,9 +36,10 @@ const {
   privacyPolicyUrl,
   pricingUrl,
   isFree,
+  products,
 } = formFields
 
-export const validationSchemaSubmitRevision = Yup.object().shape({
+export const validationSchemaSubmitRevision: Yup.SchemaOf<{ [s: string]: any }> = Yup.object().shape({
   [name.name]: Yup.string()
     .trim()
     .required(FIELD_REQUIRED)
@@ -211,12 +212,19 @@ export const validationSchemaSubmitRevision = Yup.object().shape({
 
   [pricingUrl.name]: Yup.string()
     .trim()
-    .when([isFree.name, isListed.name], (isFree, isListed, schema) => {
-      if (!isFree && isListed) {
-        return schema.required('Required if not free')
-      }
-      return schema
+    .when([isFree.name, isListed.name], {
+      is: (isFree, isListed) => !isFree && isListed,
+      then: (schema) => schema.required('Required if not free'),
     })
+    // Had to refactor to avoid terrible type issues that were very confusing. I 'think'
+    // the above is the same but can't say 100% so
+    //
+    // .when([isFree.name, isListed.name], (isFree, isListed, schema) => {
+    //   if (!isFree && isListed) {
+    //     return schema.required('Required if not free')
+    //   }
+    //   return schema
+    // })
     .test({
       name: 'isValidPricingUrl',
       message: pricingUrl.errorMessage,
@@ -225,6 +233,8 @@ export const validationSchemaSubmitRevision = Yup.object().shape({
         return isValidHttpsUrl(value)
       },
     }),
+
+  [products.name]: Yup.string().required('At least one product must be selected'),
 })
 
 export default validationSchemaSubmitRevision

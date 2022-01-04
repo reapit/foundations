@@ -3,7 +3,7 @@
 </script>
 
 <div class="container el-wscreen">
-  <div class="inner-container el-flex-container el-flex-align-center el-mxauto">
+  <div class="inner-container el-flex-container el-flex-align-center el-mx-auto">
     <div class="content-wrapper el-flex-container no-margin">
       <div class="column el-flex-container el-flex-column el-flex-justify-evenly el-flex-grow no-margin">
         <img class="logo-image" src="./images/intro-title.svg" alt="Geo Diary logo" />
@@ -14,7 +14,7 @@
             CRM, direct from your mobile or web browser. Why not see it for yourself?
           </p>
           <a href="https://geo-diary-app.reapit.cloud/?demo=true" target="_blank" rel="noopener noreferrer">
-            <button class="el-intent-critical el-button-has-right-chevron el-button el-mb3">Try it now</button>
+            <button class="el-intent-critical el-button-has-right-chevron el-button el-mb5">Try it now</button>
           </a>
         </div>
         <div class="column el-flex-container el-flex-column el-flex-justify-center is-hidden-desktop">

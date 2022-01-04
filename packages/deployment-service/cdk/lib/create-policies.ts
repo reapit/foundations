@@ -1,19 +1,11 @@
-import { Project } from '@aws-cdk/aws-codebuild'
-import { Effect, PolicyStatement } from '@aws-cdk/aws-iam'
-import { ServerlessCluster } from '@aws-cdk/aws-rds'
-import { Bucket } from '@aws-cdk/aws-s3'
-import { ISecret } from '@aws-cdk/aws-secretsmanager'
-import { Queue } from '@aws-cdk/aws-sqs'
+import { Project, ISecret, Effect, PolicyStatement, Bucket, Queue } from '@reapit/ts-scripts/src/cdk'
 import config from '../../config.json'
 
 export enum PolicyNames {
-  // commonBackendPolicies = 'commonBackendPolicies',
-  // dbPolicies = 'dbPolicies',
-  lambdaInvoke = 'lambdaInvoke',
+  // lambdaInvoke = 'lambdaInvoke',
   codebuildExecPolicy = 'codebuildExecPolicy',
   cloudFrontPolicy = 'cloudFrontPolicy',
   route53Policy = 'route53Policy',
-  RDSPolicy = 'RDSPolicy',
   sqsPolices = 'sqsPolicies',
   secretManagerPolicy = 'secretManagerPolicy',
   S3BucketPolicy = 'S3BucketPolicy',
@@ -25,7 +17,6 @@ type namedPolicyType = {
 
 type namedPolicyGroupType = {
   commonBackendPolicies: PolicyStatement[]
-  dbPolicies: PolicyStatement[]
 }
 
 export const createPolicies = ({
@@ -33,13 +24,11 @@ export const createPolicies = ({
   queues,
   secretManager,
   codeBuild,
-  aurora,
 }: {
   buckets: { [s: string]: Bucket }
   queues: { [s: string]: Queue }
   secretManager: ISecret
   codeBuild: Project
-  aurora: ServerlessCluster
 }): namedPolicyGroupType & namedPolicyType => {
   const S3BucketPolicy = new PolicyStatement({
     effect: Effect.ALLOW,
@@ -68,20 +57,13 @@ export const createPolicies = ({
   const secretManagerPolicy = new PolicyStatement({
     effect: Effect.ALLOW,
     resources: [secretManager.secretArn],
-    actions: ['secretsmanager:GetSecretValue'],
+    actions: ['secretsmanager:GetSecretValue', 'secretsmanager:DescribeSecret'],
   })
-
-  const RDSPolicy = new PolicyStatement({
-    effect: Effect.ALLOW,
-    resources: [aurora.clusterArn],
-    actions: ['rds-data:BeginTransaction', 'rds-data:CommitTransaction', 'rds-data:ExecuteStatement'],
-  })
-
-  const dbPolicies = [RDSPolicy, secretManagerPolicy]
 
   const route53Policy = new PolicyStatement({
     effect: Effect.ALLOW,
     resources: [
+      // TODO: env
       'arn:aws:route53:::hostedzone/Z02367201ZA0CZPSM3N2H', // is this safe to put in without env?
     ],
     actions: [
@@ -119,18 +101,16 @@ export const createPolicies = ({
     actions: ['codebuild:StartBuild'],
   })
 
-  const commonBackendPolicies = [lambdaInvoke, ...dbPolicies, S3BucketPolicy, sqsPolicies]
+  const commonBackendPolicies = [lambdaInvoke, secretManagerPolicy, S3BucketPolicy, sqsPolicies]
 
   return {
     commonBackendPolicies,
-    dbPolicies,
-    lambdaInvoke,
     codebuildExecPolicy,
     cloudFrontPolicy,
     route53Policy,
-    RDSPolicy,
     sqsPolicies,
     secretManagerPolicy,
     S3BucketPolicy,
+    // lambdaInvoke,
   }
 }

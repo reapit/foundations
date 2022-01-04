@@ -1,0 +1,81 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`App Pipeline Create Should match snapshot 1`] = `
+<Fragment>
+  <PersistantNotification
+    className="e1tqxe7y-el-m6"
+    intent="danger"
+    isExpanded={true}
+    isFullWidth={true}
+    isInline={true}
+  >
+    No Pipeline configuration found for app.
+  </PersistantNotification>
+  <Grid>
+    <ColSplit>
+      <IconContainer
+        className="e1ffzzrg-el-mb10"
+      >
+        <WebhooksAnimatedNewIcon
+          isAnimated={false}
+        />
+      </IconContainer>
+      <Subtitle>
+        Pipeline Deployments
+      </Subtitle>
+      <BodyText
+        hasGreyText={true}
+      >
+        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis rhoncus sem nec sagittis aliquet. Praesent malesuada non mi sed tristique. Proin fermentum metus quis ante tempor egestas. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. Maecenas et lacinia neque.
+      </BodyText>
+      <Button
+        chevronRight={true}
+        intent="primary"
+        onClick={[Function]}
+        onMouseOut={[Function]}
+        onMouseOver={[Function]}
+      >
+        Create Pipeline
+      </Button>
+    </ColSplit>
+    <ColSplit>
+      <IconContainer
+        className="e1ffzzrg-el-mb10"
+      >
+        <WebhooksAnimatedDocsIcon
+          isAnimated={false}
+        />
+      </IconContainer>
+      <Subtitle>
+        Pipeline Documentation
+      </Subtitle>
+      <BodyText
+        hasGreyText={true}
+      >
+        Praesent malesuada non mi sed tristique. Proin fermentum metus quis ante tempor egestas. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. Maecenas et lacinia neque. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis rhoncus sem nec sagittis aliquet.
+      </BodyText>
+      <Button
+        intent="low"
+        onClick={[Function]}
+        onMouseOut={[Function]}
+        onMouseOver={[Function]}
+      >
+        View Docs
+      </Button>
+    </ColSplit>
+  </Grid>
+  <FlexContainer
+    className="e1qzzel0-el-mt10"
+    isFlexAlignCenter={true}
+    isFlexColumn={true}
+    isFlexJustifyCenter={true}
+  >
+    <PipelineCreationModal
+      appId="12345"
+      onModalClose={[Function]}
+      open={false}
+      refreshPipeline={[Function]}
+    />
+  </FlexContainer>
+</Fragment>
+`;

@@ -12,53 +12,53 @@ exports[`CostCalculator should match a snapshot 1`] = `
   onSubmit={[Function]}
   validationSchema={
     ObjectSchema {
-      "_blacklist": RefSet {
+      "_blacklist": ReferenceSet {
         "list": Set {},
         "refs": Map {},
       },
-      "_conditions": Array [],
-      "_defaultDefault": [Function],
-      "_deps": Array [],
+      "_blacklistError": undefined,
       "_excludedEdges": Array [],
-      "_exclusive": Object {},
-      "_mutate": undefined,
       "_nodes": Array [
         "apiCalls",
         "endpointsUsed",
       ],
-      "_options": Object {
-        "abortEarly": true,
-        "recursive": true,
-      },
-      "_type": "object",
+      "_sortErrors": [Function],
       "_typeError": [Function],
-      "_whitelist": RefSet {
+      "_whitelist": ReferenceSet {
         "list": Set {},
         "refs": Map {},
       },
+      "_whitelistError": undefined,
+      "conditions": Array [],
+      "deps": Array [],
+      "exclusiveTests": Object {},
       "fields": Object {
         "apiCalls": StringSchema {
-          "_blacklist": RefSet {
+          "_blacklist": ReferenceSet {
             "list": Set {},
             "refs": Map {},
           },
-          "_conditions": Array [],
-          "_deps": Array [],
-          "_exclusive": Object {
+          "_blacklistError": undefined,
+          "_typeError": [Function],
+          "_whitelist": ReferenceSet {
+            "list": Set {},
+            "refs": Map {},
+          },
+          "_whitelistError": undefined,
+          "conditions": Array [],
+          "deps": Array [],
+          "exclusiveTests": Object {
             "matches": false,
             "required": true,
             "trim": false,
           },
-          "_mutate": undefined,
-          "_options": Object {
+          "spec": Object {
             "abortEarly": true,
+            "nullable": false,
+            "presence": "required",
             "recursive": true,
-          },
-          "_type": "string",
-          "_typeError": [Function],
-          "_whitelist": RefSet {
-            "list": Set {},
-            "refs": Map {},
+            "strict": false,
+            "strip": false,
           },
           "tests": Array [
             [Function],
@@ -72,26 +72,31 @@ exports[`CostCalculator should match a snapshot 1`] = `
           "type": "string",
         },
         "endpointsUsed": StringSchema {
-          "_blacklist": RefSet {
+          "_blacklist": ReferenceSet {
             "list": Set {},
             "refs": Map {},
           },
-          "_conditions": Array [],
-          "_deps": Array [],
-          "_exclusive": Object {
+          "_blacklistError": undefined,
+          "_mutate": undefined,
+          "_typeError": [Function],
+          "_whitelist": ReferenceSet {
+            "list": Set {},
+            "refs": Map {},
+          },
+          "_whitelistError": undefined,
+          "conditions": Array [],
+          "deps": Array [],
+          "exclusiveTests": Object {
             "required": true,
             "trim": false,
           },
-          "_mutate": undefined,
-          "_options": Object {
+          "spec": Object {
             "abortEarly": true,
+            "nullable": false,
+            "presence": "required",
             "recursive": true,
-          },
-          "_type": "string",
-          "_typeError": [Function],
-          "_whitelist": RefSet {
-            "list": Set {},
-            "refs": Map {},
+            "strict": false,
+            "strip": false,
           },
           "tests": Array [
             [Function],
@@ -103,6 +108,14 @@ exports[`CostCalculator should match a snapshot 1`] = `
           ],
           "type": "string",
         },
+      },
+      "spec": Object {
+        "abortEarly": true,
+        "nullable": false,
+        "presence": "optional",
+        "recursive": true,
+        "strict": false,
+        "strip": false,
       },
       "tests": Array [],
       "transforms": Array [

@@ -16,7 +16,9 @@ const Login = React.lazy(() => catchChunkError(() => import('../components/pages
 const Register = React.lazy(() => catchChunkError(() => import('../components/pages/register')))
 const Apps = React.lazy(() => catchChunkError(() => import('../components/pages/apps')))
 const AppDetail = React.lazy(() => catchChunkError(() => import('../components/pages/app-detail')))
+const AppDetailV8 = React.lazy(() => catchChunkError(() => import('../components/pages/v8/app-detail-v8')))
 const EditApp = React.lazy(() => catchChunkError(() => import('../components/pages/edit-app')))
+const EditAppDetailV8 = React.lazy(() => catchChunkError(() => import('../components/pages/v8/app-detail-v8-edit')))
 const ApiDocsPage = React.lazy(() => catchChunkError(() => import('../components/pages/api-docs')))
 const SwaggerPage = React.lazy(() => catchChunkError(() => import('../components/pages/swagger')))
 const DesktopPage = React.lazy(() => catchChunkError(() => import('../components/pages/desktop')))
@@ -29,6 +31,7 @@ const AppDetailPreview = React.lazy(() => catchChunkError(() => import('../compo
 const Invite = React.lazy(() => catchChunkError(() => import('../components/pages/invite')))
 const ElementsPage = React.lazy(() => catchChunkError(() => import('../components/pages/elements')))
 const GraphQLPage = React.lazy(() => catchChunkError(() => import('../components/pages/graphql')))
+const AppsNewPage = React.lazy(() => catchChunkError(() => import('../components/pages/apps-new')))
 
 const SettingsOrganisationTabPage = React.lazy(() =>
   catchChunkError(() => import('../components/pages/settings/settings-organisation-tab')),
@@ -59,8 +62,11 @@ const Router = () => {
               <Switch>
                 <PrivateRoute path={Routes.AUTHENTICATION_LOGIN_TYPE} component={Authentication} />
                 <PrivateRoute path={Routes.APPS} component={Apps} exact fetcher />
+                <PrivateRoute path={Routes.APPS_NEW} component={AppsNewPage} exact />
                 <PrivateRoute path={Routes.APP_DETAIL} component={AppDetail} exact fetcher />
+                <PrivateRoute path={Routes.APP_DETAIL_V8} component={AppDetailV8} exact fetcher />
                 <PrivateRoute path={Routes.APPS_EDIT} component={EditApp} exact fetcher />
+                <PrivateRoute path={Routes.APPS_EDIT_V8} component={EditAppDetailV8} exact fetcher />
                 <PrivateRoute path={Routes.API_DOCS} component={ApiDocsPage} />
                 <PrivateRoute path={Routes.ANALYTICS_SCHEMA_DOCS} component={ApiDocsPage} />
                 <PrivateRoute path={Routes.WEBHOOKS_MANAGE} component={WebhooksPage} />

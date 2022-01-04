@@ -1,7 +1,6 @@
 import {
   BodyText,
   InputWrap,
-  elMb11,
   InputWrapFull,
   InputAddOn,
   InputGroup,
@@ -18,11 +17,10 @@ import { useSelector } from 'react-redux'
 import { selectAppListState } from '../../../selector/apps/app-list'
 import { CreateWebhookFormSchema } from './webhooks-new'
 import { WebhookQueryParams } from './webhooks'
-import { cx } from '@linaria/core'
 
 interface WebhooksNewAppProps {
   register: UseFormRegister<CreateWebhookFormSchema>
-  errors: DeepMap<CreateWebhookFormSchema, FieldError>
+  errors: DeepMap<Partial<CreateWebhookFormSchema>, FieldError>
   webhookQueryParams: WebhookQueryParams
 }
 
@@ -31,7 +29,7 @@ export const WebhooksNewApp: FC<WebhooksNewAppProps> = ({ register, errors, webh
 
   const errorMessage = errors?.applicationId?.message
   return (
-    <FormLayout className={cx(elFadeIn, elMb11)}>
+    <FormLayout className={elFadeIn}>
       <InputWrapFull>
         <BodyText hasGreyText hasNoMargin>
           Webhooks subscriptions can be set up for any customer who has installed your application. Additionally, you

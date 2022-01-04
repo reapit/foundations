@@ -5,12 +5,16 @@ Object {
   "asFragment": [Function],
   "baseElement": <body>
     <div>
-      <h1
-        class="el-title"
+      <div
+        class="el-flex-justify-between el-flex-container"
       >
-        SOME_NAME
-         User Groups
-      </h1>
+        <h1
+          class="el-title"
+        >
+          SOME_NAME
+           User Groups
+        </h1>
+      </div>
       <div
         class="el-fade-in el-mb11 el-table"
         data-has-call-to-action="false"
@@ -599,12 +603,16 @@ Object {
     </div>
   </body>,
   "container": <div>
-    <h1
-      class="el-title"
+    <div
+      class="el-flex-justify-between el-flex-container"
     >
-      SOME_NAME
-       User Groups
-    </h1>
+      <h1
+        class="el-title"
+      >
+        SOME_NAME
+         User Groups
+      </h1>
+    </div>
     <div
       class="el-fade-in el-mb11 el-table"
       data-has-call-to-action="false"
@@ -1250,12 +1258,16 @@ Object {
   "asFragment": [Function],
   "baseElement": <body>
     <div>
-      <h1
-        class="el-title"
+      <div
+        class="el-flex-justify-between el-flex-container"
       >
-        SOME_NAME
-         User Groups
-      </h1>
+        <h1
+          class="el-title"
+        >
+          SOME_NAME
+           User Groups
+        </h1>
+      </div>
       <div
         class="el-intent-secondary el-is-active el-pn-is-full-width el-pn-is-inline el-persistant-notification"
       >
@@ -1288,12 +1300,16 @@ Object {
     </div>
   </body>,
   "container": <div>
-    <h1
-      class="el-title"
+    <div
+      class="el-flex-justify-between el-flex-container"
     >
-      SOME_NAME
-       User Groups
-    </h1>
+      <h1
+        class="el-title"
+      >
+        SOME_NAME
+         User Groups
+      </h1>
+    </div>
     <div
       class="el-intent-secondary el-is-active el-pn-is-full-width el-pn-is-inline el-persistant-notification"
     >
@@ -1384,6 +1400,15 @@ Object {
   "baseElement": <body>
     <div>
       <div
+        class="el-flex-justify-between el-flex-container"
+      >
+        <h1
+          class="el-title"
+        >
+          User Groups
+        </h1>
+      </div>
+      <div
         class="el-intent-secondary el-is-active el-pn-is-full-width el-pn-is-inline el-persistant-notification"
       >
         <div
@@ -1415,6 +1440,15 @@ Object {
     </div>
   </body>,
   "container": <div>
+    <div
+      class="el-flex-justify-between el-flex-container"
+    >
+      <h1
+        class="el-title"
+      >
+        User Groups
+      </h1>
+    </div>
     <div
       class="el-intent-secondary el-is-active el-pn-is-full-width el-pn-is-inline el-persistant-notification"
     >

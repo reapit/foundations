@@ -1,5 +1,4 @@
 import qs from 'query-string'
-import logger from '../../logger'
 import { ServerContext } from '../../utils'
 import {
   GetAppointmentByIdArgs,
@@ -22,7 +21,6 @@ export const callGetAppointmentByIdAPI = async (
   context: ServerContext,
 ): GetAppointmentByIdReturn => {
   const traceId = context.traceId
-  logger.info('callGetAppointmentByIdAPI', { traceId, args })
   try {
     const { id, ...rest } = args
     const params = qs.stringify(rest as Record<string, string>)
@@ -46,7 +44,6 @@ export const callGetAppointmentsAPI = async (
   context: ServerContext,
 ): GetAppointmentsReturn => {
   const traceId = context.traceId
-  logger.info('callGetAppointmentsAPI', { args, traceId })
   try {
     const params = qs.stringify(args)
     const response = await createPlatformAxiosInstance().get<GetAppointmentsReturn>(`${URLS.appointments}?${params}`, {
@@ -66,7 +63,6 @@ export const callCreateAppointmentAPI = async (
   context: ServerContext,
 ): CreateAppointmentReturn => {
   const traceId = context.traceId
-  logger.info('callCreateAppointmentAPI', { traceId, args })
   try {
     const response = await createPlatformAxiosInstance().post<CreateAppointmentReturn>(URLS.appointments, args, {
       headers: {
@@ -89,7 +85,6 @@ export const callUpdateAppointmentAPI = async (
   context: ServerContext,
 ): UpdateAppointmentReturn => {
   const traceId = context.traceId
-  logger.info('callUpdateAppointmentAPI', { traceId, args })
   try {
     const { _eTag, ...payload } = args
     const updateResponse = await createPlatformAxiosInstance().patch<UpdateAppointmentReturn>(

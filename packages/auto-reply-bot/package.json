@@ -1,0 +1,25 @@
+{
+  "name": "auto-reply-bot",
+  "dependencies": {
+    "@probot/adapter-github-actions": "^3.0.1"
+  },
+  "devDependencies": {
+    "@types/node": "^16.11.13",
+    "@typescript-eslint/eslint-plugin": "^5.7.0",
+    "@typescript-eslint/parser": "^5.7.0",
+    "@zeit/ncc": "^0.22.3",
+    "eslint": "8.4.1",
+    "eslint-plugin-prettier": "^4.0.0",
+    "serverless-deployment-bucket": "^1.5.1"
+  },
+  "scripts": {
+    "start": "echo 'no local script'",
+    "test": "echo '...skipping...'",
+    "build": "ncc build src/index.js -m -o action",
+    "lint": "eslint --cache --ext=ts,tsx,js src --fix",
+    "deploy": "echo '...skipping...'",
+    "release": "echo '...skipping...'",
+    "publish": "echo '...skipping...'",
+    "conf": "echo '...skipping...'"
+  }
+}

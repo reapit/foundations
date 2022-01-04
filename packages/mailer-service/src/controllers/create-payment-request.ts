@@ -38,7 +38,6 @@ export const createPaymentRequest = async (
       paymentAmount,
       paymentExpiry,
     }: EmailPaymentRequest = req.body
-    const { traceId } = req
     const apiKey: string | undefined = req.headers['x-api-key'] as string
     const clientCode: string | undefined = req.headers['reapit-customer'] as string
     const apiVersion: string | undefined = req.headers['api-version'] as string
@@ -55,8 +54,6 @@ export const createPaymentRequest = async (
     if (!senderEmail || !companyName || !logoUri)
       throw new Error('senderEmail, companyName and logoUri are required in config')
 
-    logger.info('Request successfully validated', { traceId })
-
     const template = await createPaymentRequestTemplate({
       senderEmail,
       companyName,
@@ -69,12 +66,9 @@ export const createPaymentRequest = async (
       paymentAmount: `${paymentAmount.toFixed(2)}`,
     })
 
-    logger.info('Template successfully created', { traceId })
-
     const mail = await sendEmail(receipientEmail, `Payment Request from ${companyName}`, template, senderEmail)
 
     if (mail) {
-      logger.info('Email successfully sent', { traceId })
       res.status(200)
       return res.end()
     }

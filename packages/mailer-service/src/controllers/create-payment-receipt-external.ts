@@ -33,7 +33,6 @@ export const createPaymentReceiptExternal = async (
   try {
     const { receipientEmail, recipientName, paymentReason, paymentCurrency, paymentAmount }: EmailPaymentReceipt =
       req.body
-    const { traceId } = req
     const apiKey: string | undefined = req.headers['x-api-key'] as string
     const clientCode: string | undefined = req.headers['reapit-customer'] as string
     const apiVersion: string | undefined = req.headers['api-version'] as string
@@ -60,8 +59,6 @@ export const createPaymentReceiptExternal = async (
 
     if (!payment) throw new Error('No valid payment found, not sending email')
 
-    logger.info('Email successfully validated', { traceId })
-
     const template = await createPaymentReceiptTemplate({
       senderEmail,
       companyName,
@@ -73,12 +70,9 @@ export const createPaymentReceiptExternal = async (
       paymentAmount: `${paymentAmount.toFixed(2)}`,
     })
 
-    logger.info('Template successfully created', { traceId })
-
     const mail = await sendEmail(receipientEmail, `Payment Confirmation from ${companyName}`, template, senderEmail)
 
     if (mail) {
-      logger.info('Email successfully sent', { traceId })
       res.status(200)
       return res.end()
     }

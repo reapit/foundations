@@ -19,7 +19,6 @@ describe('getPlatformHeaders', () => {
       'Content-Type': 'application/json',
     })
     expect(mockSession.connectSession).toHaveBeenCalledTimes(1)
-    expect(mockSession.connectLoginRedirect).not.toHaveBeenCalled()
   })
 
   it('should redirect to login if no valid session', async () => {
@@ -31,7 +30,6 @@ describe('getPlatformHeaders', () => {
     const result = await getPlatformHeaders(invalidSession, mockApiVersion)
     expect(result).toBeUndefined()
     expect(invalidSession.connectSession).toHaveBeenCalledTimes(1)
-    expect(invalidSession.connectLoginRedirect).toHaveBeenCalledTimes(1)
   })
 
   afterEach(() => {

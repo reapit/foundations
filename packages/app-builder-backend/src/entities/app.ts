@@ -10,10 +10,10 @@ export class App {
   name: string
 
   @Field()
-  subdomain: string
+  clientId: string
 
   @Field()
-  userId: string
+  subdomain: string
 
   @Field(() => [Page])
   pages: Array<Page>

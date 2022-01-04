@@ -5,27 +5,27 @@
 </script>
 
 <div class="container el-wscreen">
-  <div class="inner-container el-flex-container el-flex-column el-flex-align-center el-mxauto">
+  <div class="inner-container el-flex-container el-flex-column el-flex-align-center el-mx-auto">
     <h2 class="el-title el-text-center">Anywhere, Anytime, Any Device</h2>
     <div class="el-flex-container el-flex-align-center">
-      <h6 class="el-subtitle el-mr3">How it works</h6>
+      <h6 class="el-subtitle el-mr5">How it works</h6>
       <a
         class="is-hidden-desktop"
         href="https://www.youtube.com/watch?v=iKdil7liAts&amp;t=3s"
         rel="noopener noreferrer"
         target="_blank"
       >
-        <button class="el-intent-critical el-button el-mr3 el-mb3">Watch Video</button>
+        <button class="el-intent-critical el-button el-mr5 el-mb5">Watch Video</button>
       </a>
       <button
-        class="el-intent-critical el-button el-mr3 el-mb3 is-hidden-mobile"
+        class="el-intent-critical el-button el-mr5 el-mb5 is-hidden-mobile"
         on:click|preventDefault={setModalVisible}>Watch Video</button
       >
     </div>
     <img class="is-hidden-mobile" src="./images/crm-desktop-hero.svg" alt="View of calendar and mobile app overlaid" />
     <img class="is-hidden-desktop" src="./images/crm-mobile-hero.svg" alt="View of calendar and mobile app overlaid" />
     <div class="el-flex-container column-container">
-      <div class="column el-flex-container el-flex-column el-px2">
+      <div class="column el-flex-container el-flex-column el-px4">
         <p class="el-body-text el-has-grey-text">
           <strong
             >Quick and easy to install, the GEO Diary app lets you access your AgencyCloud diary appointments from
@@ -38,7 +38,7 @@
           via a web browser.
         </p>
       </div>
-      <div class="column el-px2">
+      <div class="column el-px4">
         <p class="el-body-text el-has-grey-text">
           Running late for an appointment? Send an automated ETA text message. Carried out a viewing? Enter your follow
           up notes direct on the appointment to have it instantly stored in the AgencyCloud record.

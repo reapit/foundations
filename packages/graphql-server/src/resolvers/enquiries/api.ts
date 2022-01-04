@@ -1,5 +1,4 @@
 import qs from 'query-string'
-import logger from '../../logger'
 import { ServerContext } from '../../utils'
 import {
   GetEnquiryByIdArgs,
@@ -16,7 +15,6 @@ import { getIdFromCreateHeaders } from '../../utils/get-id-from-create-headers'
 
 export const callGetEnquiryByIdAPI = async (args: GetEnquiryByIdArgs, context: ServerContext): GetEnquiryByIdReturn => {
   const traceId = context.traceId
-  logger.info('callGetEnquirieByIdAPI', { traceId, args })
   try {
     const response = await createPlatformAxiosInstance().get<GetEnquiryByIdReturn>(`${URLS.enquiries}/${args.id}`, {
       headers: {
@@ -32,7 +30,6 @@ export const callGetEnquiryByIdAPI = async (args: GetEnquiryByIdArgs, context: S
 
 export const callGetEnquiriesAPI = async (args: GetEnquiriesArgs, context: ServerContext): GetEnquiriesReturn => {
   const traceId = context.traceId
-  logger.info('callGetEnquiriesAPI', { args, traceId })
   try {
     const params = qs.stringify(args)
     const response = await createPlatformAxiosInstance().get<GetEnquiriesReturn>(`${URLS.enquiries}?${params}`, {
@@ -49,7 +46,6 @@ export const callGetEnquiriesAPI = async (args: GetEnquiriesArgs, context: Serve
 
 export const callCreateEnquiryAPI = async (args: CreateEnquiryArgs, context: ServerContext): CreateEnquiryReturn => {
   const traceId = context.traceId
-  logger.info('callCreateEnquiryAPI', { traceId, args })
   try {
     const response = await createPlatformAxiosInstance().post<CreateEnquiryReturn>(URLS.enquiries, args, {
       headers: {

@@ -1,7 +1,6 @@
 import DataLoader from 'dataloader'
 import { getNegotiators } from './services'
 import { ServerContext } from '@/utils'
-import logger from '@/logger'
 import handleError from '@/utils/handle-error'
 import { NegotiatorModelPagedResult, NegotiatorModel } from '@reapit/foundations-ts-definitions'
 
@@ -10,7 +9,6 @@ export const generateNegotiatorBatchLoaderFn = (context: ServerContext) => async
     return []
   }
   const traceId = context.traceId
-  logger.info('generateNegotiatorBatchLoaderFn', { traceId })
   try {
     const negotiatorsResult = (await getNegotiators({ id: keys }, context)) as NegotiatorModelPagedResult
     const result = keys.map((key: string) => {

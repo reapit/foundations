@@ -1,5 +1,12 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
+exports[`Menu XmasLogo should match a snapshot 1`] = `
+<Icon
+  icon="reapitLogoMenu"
+  iconSize="medium"
+/>
+`;
+
 exports[`Menu should match a snapshot 1`] = `
 <ContextProvider
   value={
@@ -12,22 +19,15 @@ exports[`Menu should match a snapshot 1`] = `
         "replaceReducer": [Function],
         "subscribe": [Function],
       },
-      "subscription": Subscription {
+      "subscription": Object {
+        "addNestedSub": [Function],
+        "getListeners": [Function],
         "handleChangeWrapper": [Function],
-        "listeners": Object {
-          "notify": [Function],
-        },
+        "isSubscribed": [Function],
+        "notifyNestedSubs": [Function],
         "onStateChange": [Function],
-        "parentSub": undefined,
-        "store": Object {
-          "clearActions": [Function],
-          "dispatch": [Function],
-          "getActions": [Function],
-          "getState": [Function],
-          "replaceReducer": [Function],
-          "subscribe": [Function],
-        },
-        "unsubscribe": null,
+        "trySubscribe": [Function],
+        "tryUnsubscribe": [Function],
       },
     }
   }

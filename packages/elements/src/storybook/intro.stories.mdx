@@ -6,7 +6,7 @@ Welcome to Reapit Elements UI Library.
 
 Within this Storybook, there are all the basic components and classes you will need to build clean, composable UI interfaces for the Reapit Marketplace and Platform.
 
-The UI library itself is based on the Reapit Foundations Design system which is distributed as a [public Figma file here](https://www.figma.com/file/5fLETXbCWmA5R87gycjPZb/Design-System?node-id=2936%3A2572). To get a sense  of the thinking behind the library and for information on the base design principles behind it, we would advise strongly looking at the design system before getting started with your Elements project.
+The UI library itself is based on the Reapit Foundations Design system which is distributed as a [public Figma file here](https://www.figma.com/file/5fLETXbCWmA5R87gycjPZb/Design-System?node-id=2936%3A2572). To get a sense of the thinking behind the library and for information on the base design principles behind it, we would advise strongly looking at the design system before getting started with your Elements project.
 
 ## Getting Started
 
@@ -37,7 +37,7 @@ You will also need to add the exported stylesheet from the dist folder of the li
 ```ts
 import '@reapit/elements/dist/index.css'
 
-// CommonJS 
+// CommonJS
 
 require('@reapit/elements/dist/index.css')
 ```
@@ -45,9 +45,7 @@ require('@reapit/elements/dist/index.css')
 or in a css file
 
 ```css
-
 @import '~@reapit/elements/dist/index.css';
-
 ```
 
 And that's it - the stylesheet will include the PT Sans Google Font and some basic defaults, with the component CSS classes providng the majority of the styles.
@@ -62,7 +60,7 @@ From the outset, we have aimed to keep the library purely presentational with as
 
 As such there is only one core dependency on the React side of the library - the Excellent [Linaria CSS in JS package](https://github.com/callstack/linaria). The reason for using this over other CSS pre-processors are as follows;
 
-- Zero runtime so it's extremely performant. 
+- Zero runtime so it's extremely performant.
 - CSS extraction - we can export the CSS in our CSS at compile time.
 - Friendly, semantic class names - the `camelCased` class names and `PascalCased` components can be output to readable `kebab-case` CSS classes, with no hashed ids.
 - Tiny footprint - the core library is [only 282b](https://bundlephobia.com/package/linaria@2.1.0)!
@@ -85,7 +83,7 @@ The `canvas` tab is best used for inspecting the components and looking at how t
 
 One of our core motivators for the library was that while the library is built in React, we want to give the best possible experience for non-react users.
 
-The base styles generated from the React code are all documented as CSS classes you can just add to any markup in any language. Additionally, care has been taken with the library so that where possible, all component behaviour in React can be mirrored in any JS framework or indeed, vanilla JS, by simply toggling available classes. 
+The base styles generated from the React code are all documented as CSS classes you can just add to any markup in any language. Additionally, care has been taken with the library so that where possible, all component behaviour in React can be mirrored in any JS framework or indeed, vanilla JS, by simply toggling available classes.
 
 To view the rendered HTML markup of a React component, there are two options;
 
@@ -100,12 +98,14 @@ When building for the Reapit Marketplace, your application will render in a Chro
 
 ### Migrating from v2
 
+> Elements v3 is a ground-up re-write. Because of this, it is not possible to document all breaking changes as the API has changed fundamentally. Future versions will be based on the v3 codebase and will retain better backwards compatibility where possible.
+
 If you are on version 2 of Elements and this is working for your application the first question is "why migrate"? As previously stated, v3 is a ground up re-write with better performance, radically smaller size, better docs and a more friendly API. You will also benefit from much longer term support, new features and of course all the benefits of our clean, professional in house design system.
 
-We understand that because v3 is a ground-up re-write, migration will be some work so to make this easy to manage incrementally, we export the whole of Elements v3 from the v3 directory of Elements 2 e.g. to get a v3 button in the v2 library;
+We understand that because v3 is a re-write, migration will be some work so to make this easy to manage incrementally, we export the whole of Elements v3 from the v3 directory of Elements 2 e.g. to get a v3 button in the v2 library;
 
 ```tsx
-import { Button } from "@reapit/elements/v3"
+import { Button } from '@reapit/elements/v3'
 ```
 
 You will also need to import the v3 stylesheet **in addtion** to the v2 stylesheet already in your project. Exporting the v3 stylesheet from v2 is done like this;
@@ -113,7 +113,7 @@ You will also need to import the v3 stylesheet **in addtion** to the v2 styleshe
 ```ts
 import '@reapit/elements/v3/index.css'
 
-// CommonJS 
+// CommonJS
 
 require('@reapit/elements/v3/index.css')
 ```

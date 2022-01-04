@@ -240,6 +240,7 @@ export const ElTableHeader = styled.div`
   height: ${MAX_HEADER_HEIGHT};
   overflow: hidden;
   text-overflow: ellipsis;
+  font-size: 0.875rem;
 
   ${cellOrders}
 
@@ -259,8 +260,6 @@ export const ElTableRow = styled.div`
   grid-template-columns:
     repeat(var(--component-table-num-columns, auto-fit), minmax(var(--component-table-min-column-width), 1fr))
     var(--component-table-expandable-trigger-width, 0);
-  margin-top: 0.5rem;
-
   background: var(--color-white);
   box-shadow: 0px 2px 9px rgba(0, 0, 0, 0.08);
   border-radius: var(--default-border-radius);
@@ -268,27 +267,25 @@ export const ElTableRow = styled.div`
   ${isNarrow} {
     grid-template-columns: 1fr 1fr;
   }
-
-  &:hover,
-  &:focus {
-    box-shadow: 0px 0px 3px var(--color-blue-light);
-  }
 `
 
 export const ElTableRowContainer = styled.div`
   border-radius: var(--default-border-radius);
+  border: 1px solid var(--color-grey-light);
+  margin-top: 0.5rem;
 
   &:hover,
   &:focus {
-    box-shadow: 0px 0px 3px var(--color-blue-light);
+    border: 1px solid var(--color-blue-light);
+    box-shadow: 0px 2px 9px rgba(20, 164, 224, 0.15);
 
-    .el-table-row {
+    ${ElTableRow} {
       box-shadow: none;
     }
   }
 
   &.${elIsActive} {
-    .el-table-row {
+    ${ElTableRow} {
       border-radius: var(--default-border-radius) var(--default-border-radius) 0 0;
     }
 
@@ -306,6 +303,7 @@ export const ElTableCell = styled.div`
   color: var(--color-grey-dark);
   margin-right: 2px;
   word-break: break-word;
+  font-size: 0.875rem;
 
   &:last-child {
     margin-right: 0;
@@ -406,7 +404,7 @@ export const ElTableExpandableRow = styled.div`
   &.${elIsActive} {
     height: auto;
     opacity: 1;
-    border-top: 1px solid var(--color-grey-medium);
+    border-top: 1px solid var(--color-grey-light);
   }
 `
 

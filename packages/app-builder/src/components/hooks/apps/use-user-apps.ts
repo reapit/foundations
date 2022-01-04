@@ -3,19 +3,19 @@ import { App, AppFragment } from './fragments'
 
 export const GetUserAppsQuery = gql`
   ${AppFragment}
-  query GetUserAppsQuery($userId: String!) {
-    _getUserApps(userId: $userId) {
+  query GetUserAppsQuery($developerId: String!) {
+    _getUserApps(developerId: $developerId) {
       ...AppFragment
     }
   }
 `
 
-export const useGetUserApps = (userId?: string) => {
+export const useGetUserApps = (developerId?: string) => {
   const { loading, error, data } = useQuery(GetUserAppsQuery, {
     variables: {
-      userId,
+      developerId,
     },
-    skip: !userId,
+    skip: !developerId,
   })
 
   return {

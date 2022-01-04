@@ -25,7 +25,6 @@ export const createConfig = async (req: AppRequest, res: Response) => {
     }
 
     await createConfigValue(`${clientCode}/${configKey}`, configValue)
-    logger.info('Created value for config key: ', configKey)
     res.status(200)
     return res.send({ response: 'Config saved' })
   } catch (err) {

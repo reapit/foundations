@@ -1,4 +1,3 @@
-import logger from '../../logger'
 import { ServerContext } from '../../utils'
 import {
   GetOfficeByIdArgs,
@@ -13,29 +12,21 @@ import {
 import { callGetOfficeByIdAPI, callGetOfficesAPI, callCreateOfficeAPI, callUpdateOfficeAPI } from './api'
 
 export const getOfficeById = (args: GetOfficeByIdArgs, context: ServerContext): GetOfficeByIdReturn => {
-  const traceId = context.traceId
-  logger.info('getOfficeById', { traceId, args })
   const office = callGetOfficeByIdAPI(args, context)
   return office
 }
 
 export const getOffices = (args: GetOfficesArgs, context: ServerContext): GetOfficesReturn => {
-  const traceId = context.traceId
-  logger.info('getOffices', { traceId, args })
   const offices = callGetOfficesAPI(args, context)
   return offices
 }
 
 export const createOffice = (args: CreateOfficeArgs, context: ServerContext): CreateOfficeReturn => {
-  const traceId = context.traceId
-  logger.info('createOffice', { traceId, args })
   const createResult = callCreateOfficeAPI(args, context)
   return createResult
 }
 
 export const updateOffice = (args: UpdateOfficeArgs, context: ServerContext): UpdateOfficeReturn => {
-  const traceId = context.traceId
-  logger.info('updateOffice', { traceId, args })
   const updateResult = callUpdateOfficeAPI({ ...args }, context)
   return updateResult
 }

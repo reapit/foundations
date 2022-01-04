@@ -15,13 +15,15 @@ export const OrgIdSelect: FC = () => {
     <div className={elMb5}>
       <Subtitle>Organisations</Subtitle>
       <BodyText hasGreyText>
-        You are and admin for multiple organisations - select from the list below for data specific to one of these
+        You are an admin for multiple organisations - select from the list below for data specific to one of these
         organisations
       </BodyText>
       <ControlsContainer className={elBorderRadius}>
         <InputGroup>
           <Select className={elWFull} value={orgId ?? ''} onChange={setOrgIdState}>
-            <option key="default-option">Please Select</option>
+            <option key="default-option" value={''}>
+              Please Select
+            </option>
             {orgIdOptions?.map((option) => (
               <option key={option.value} value={option.value}>
                 {option.name}

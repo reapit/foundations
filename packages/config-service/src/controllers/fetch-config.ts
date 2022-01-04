@@ -21,7 +21,6 @@ export const fetchConfig = async (req: AppRequest, res: Response) => {
     }
 
     const configValue = await fetchConfigValue(`${clientCode}/${configKey}`)
-    logger.info('Retrieved value for config key: ', configKey)
     res.status(200)
     return res.send({ response: configValue })
   } catch (err) {

@@ -1,5 +1,4 @@
 import appointmentServices from './services'
-import logger from '../../logger'
 import { ServerContext, resolverHandler } from '../../utils'
 import {
   GetAppointmentByIdArgs,
@@ -15,32 +14,24 @@ import { AppointmentModel } from '@reapit/foundations-ts-definitions'
 
 export const queryGetAppointmentById = resolverHandler<GetAppointmentByIdArgs, QueryGetAppointmentByIdReturn>(
   (_: any, args: GetAppointmentByIdArgs, context: ServerContext): QueryGetAppointmentByIdReturn => {
-    const traceId = context.traceId
-    logger.info('queryGetAppointmentById', { traceId, args })
     return appointmentServices.getAppointmentById(args, context)
   },
 )
 
 export const queryGetAppointments = resolverHandler<GetAppointmentsArgs, QueryGetAppointmentsReturn>(
   (_: any, args: GetAppointmentsArgs, context: ServerContext): QueryGetAppointmentsReturn => {
-    const traceId = context.traceId
-    logger.info('queryGetAppointments', { traceId, args })
     return appointmentServices.getAppointments(args, context)
   },
 )
 
 export const mutationCreateAppointment = resolverHandler<CreateAppointmentArgs, MutationCreateAppointmentReturn>(
   (_: any, args: CreateAppointmentArgs, context: ServerContext): MutationCreateAppointmentReturn => {
-    const traceId = context.traceId
-    logger.info('mutationCreateAppointment', { traceId, args })
     return appointmentServices.createAppointment(args, context)
   },
 )
 
 export const mutationUpdateAppointment = resolverHandler<UpdateAppointmentArgs, MutationUpdateAppointmentReturn>(
   (_: any, args: UpdateAppointmentArgs, context: ServerContext): MutationUpdateAppointmentReturn => {
-    const traceId = context.traceId
-    logger.info('mutationUpdateAppointment', { traceId, args })
     return appointmentServices.updateAppointment(args, context)
   },
 )

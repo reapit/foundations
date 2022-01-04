@@ -8,7 +8,12 @@ const { GITHUB_TOKEN } = process.env
 module.exports = async () => {
   try {
     const branchName = `chore/ts-definitions-time-stamp-${getCurrentTimeStamp()}`
-    runCommand('git', ['remote', 'add', 'sshOrigin', `git@github.com:${process.env.GITHUB_REPOSITORY}.git`])
+    runCommand('git', [
+      'remote',
+      'set-url',
+      'origin',
+      `https://x-access-token:${{ GITHUB_TOKEN }}@github.com/${process.env.GITHUB_REPOSITORY}`,
+    ])
     runCommand('git', ['config', '--global', 'user.email', '"wmcvay@reapit.com"'])
     runCommand('git', ['config', '--global', 'user.name', '"Will McVay"'])
     /**
@@ -20,7 +25,7 @@ module.exports = async () => {
     execSync(`git checkout -b ${branchName}`)
     runCommand('git', ['add', '.'])
     execSync('git commit -m "chore: update ts definitions" --no-verify')
-    execSync(`git push -u sshOrigin ${branchName} -f`)
+    execSync(`git push origin ${branchName} -f`)
 
     const octokit = new Octokit({
       auth: GITHUB_TOKEN,

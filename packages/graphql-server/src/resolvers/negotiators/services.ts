@@ -1,4 +1,3 @@
-import logger from '../../logger'
 import { ServerContext } from '../../utils'
 import {
   GetNegotiatorByIdArgs,
@@ -18,29 +17,21 @@ import {
 } from './api'
 
 export const getNegotiatorById = (args: GetNegotiatorByIdArgs, context: ServerContext): GetNegotiatorByIdReturn => {
-  const traceId = context.traceId
-  logger.info('getNegotiatorById', { traceId, args })
   const negotiator = callGetNegotiatorByIdAPI(args, context)
   return negotiator
 }
 
 export const getNegotiators = (args: GetNegotiatorsArgs, context: ServerContext): GetNegotiatorsReturn => {
-  const traceId = context.traceId
-  logger.info('getNegotiators', { traceId, args })
   const negotiators = callGetNegotiatorsAPI(args, context)
   return negotiators
 }
 
 export const createNegotiator = (args: CreateNegotiatorArgs, context: ServerContext): CreateNegotiatorReturn => {
-  const traceId = context.traceId
-  logger.info('createNegotiator', { traceId, args })
   const createResult = callCreateNegotiatorAPI(args, context)
   return createResult
 }
 
 export const updateNegotiator = (args: UpdateNegotiatorArgs, context: ServerContext): UpdateNegotiatorReturn => {
-  const traceId = context.traceId
-  logger.info('updateNegotiator', { traceId, args })
   const updateResult = callUpdateNegotiatorAPI({ ...args }, context)
   return updateResult
 }

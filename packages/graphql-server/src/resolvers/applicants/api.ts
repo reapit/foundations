@@ -21,7 +21,6 @@ import errors from '../../errors'
 
 import { createPlatformAxiosInstance } from '../../utils/axios-instances'
 import { ServerContext } from '../../utils'
-import logger from '../../logger'
 import { URLS } from '../../constants/api'
 import { handleError } from '../../utils/handle-error'
 import { getIdFromCreateHeaders } from '../../utils/get-id-from-create-headers'
@@ -31,7 +30,6 @@ export const callGetApplicantByIdAPI = async (
   context: ServerContext,
 ): GetApplicantByIdReturn => {
   const traceId = context.traceId
-  logger.info('callGetApplicantByIdAPI', { traceId, args })
   try {
     const { id, ...rest } = args
     const params = qs.stringify(rest as Record<string, string>)
@@ -52,7 +50,6 @@ export const callGetApplicantByIdAPI = async (
 
 export const callGetApplicantsAPI = async (args: GetApplicantsArgs, context: ServerContext): GetApplicantsReturn => {
   const traceId = context.traceId
-  logger.info('callGetApplicantsAPI', { args, traceId })
   try {
     const params = qs.stringify(args)
     const response = await createPlatformAxiosInstance().get<GetApplicantsReturn>(`${URLS.applicants}?${params}`, {
@@ -72,7 +69,6 @@ export const callCreateApplicantAPI = async (
   context: ServerContext,
 ): CreateApplicantReturn => {
   const traceId = context.traceId
-  logger.info('callCreateApplicantAPI', { traceId, args })
   try {
     const response = await createPlatformAxiosInstance().post<CreateApplicantReturn>(URLS.applicants, args, {
       headers: {
@@ -95,7 +91,6 @@ export const callUpdateApplicantAPI = async (
   context: ServerContext,
 ): UpdateApplicantReturn => {
   const traceId = context.traceId
-  logger.info('callUpdateApplicantAPI', { traceId, args })
   try {
     const { _eTag, ...payload } = args
     const updateResponse = await createPlatformAxiosInstance().patch<UpdateApplicantReturn>(
@@ -123,7 +118,6 @@ export const callGetApplicantRelationshipByIdAPI = async (
   context: ServerContext,
 ): GetApplicantRelationshipsByIdReturn => {
   const traceId = context.traceId
-  logger.info('callGetApplicantRelationshipByIdAPI', { traceId, args })
   try {
     const response = await createPlatformAxiosInstance().get<GetApplicantRelationshipsByIdReturn>(
       `${URLS.applicants}/${args.id}/relationships/${args.relationshipId}`,
@@ -145,7 +139,6 @@ export const callGetApplicantRelationshipsAPI = async (
   context: ServerContext,
 ): GetApplicantRelationshipsReturn => {
   const traceId = context.traceId
-  logger.info('callGetApplicantRelationshipsAPI', { args, traceId })
   try {
     const params = qs.stringify(args)
     const response = await createPlatformAxiosInstance().get<GetApplicantRelationshipsReturn>(
@@ -168,7 +161,6 @@ export const callCreateApplicantRelationshipAPI = async (
   context: ServerContext,
 ): CreateApplicantRelationshipReturn => {
   const traceId = context.traceId
-  logger.info('callCreateApplicantRelationshipsAPI', { traceId, args })
   try {
     const response = await createPlatformAxiosInstance().post<CreateApplicantRelationshipReturn>(
       `${URLS.applicants}/${args.id}/relationships`,
@@ -195,7 +187,6 @@ export const callDeleteApplicantRelationshipAPI = async (
   context: ServerContext,
 ): DeleteApplicantRelationshipReturn => {
   const traceId = context.traceId
-  logger.info('callDeleteApplicantRelationshipsByIdAPI', { traceId, args })
   try {
     const response = await createPlatformAxiosInstance().delete<DeleteApplicantRelationshipReturn>(
       `${URLS.applicants}/${args.id}/relationships/${args.relationshipId}`,
