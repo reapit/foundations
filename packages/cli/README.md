@@ -5,6 +5,14 @@ Command line interface tool for reapit
 
 ## Install
 
+Make sure you have an `.npmrc` file in your root and add a valid npm token to the registry url 
+
+```
+//registry.npmjs.org/:_authToken=NPM_TOKEN
+```
+
+> You can obtain a valid npm token from the reapit developers
+
 ```bash
 $ npm i -g @reapit/cli
 ```
