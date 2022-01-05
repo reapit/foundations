@@ -8267,6 +8267,8 @@ __metadata:
     shleemy: ^1.2.2
     simple-git: ^2.48.0
     ts-node: ^10.4.0
+  bin:
+    reapit: ./dist/cli/src/index.js
   languageName: unknown
   linkType: soft
 
