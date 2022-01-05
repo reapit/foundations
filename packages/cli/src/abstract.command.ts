@@ -13,7 +13,7 @@ export interface Command {
 }
 
 export abstract class AbstractCommand {
-  protected baseUrl: string = 'https://f504fbivda.execute-api.eu-west-2.amazonaws.com/prod/api/'
+  protected baseUrl: string = 'https://deployments.dev.paas.reapit.cloud/api/'
 
   get commandOptions(): CommandOptions {
     return Reflect.getOwnMetadata(COMMAND_OPTIONS, this.constructor)
