@@ -79,7 +79,7 @@ export const RenderNode = ({ render, iframeRef }) => {
     }
   }, [scroll])
 
-  const container = iframeRef.node.contentDocument?.body.querySelector('#page-container')
+  const container = iframeRef?.node?.contentDocument?.body.querySelector('#page-container')
 
   return (
     <>
