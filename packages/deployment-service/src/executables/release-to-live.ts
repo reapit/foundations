@@ -26,8 +26,10 @@ export const releaseToLiveFromZip = async ({
 
   const zip = new AdmZip(file)
 
+  // Dumb arse package, upgraded minor with new property, without updating types about it...
   await new Promise<void>((resolve, reject) =>
-    zip.extractAllToAsync(localLocation, true, (err) => {
+  // @ts-ignore
+    zip.extractAllToAsync(localLocation, true, true, (err) => {
       if (err) {
         console.error(err)
         reject(err)
@@ -37,7 +39,6 @@ export const releaseToLiveFromZip = async ({
   )
   // await the files to all exist. Some reason when extracting, some files don't exist for readdir
   await new Promise((resolve) => setTimeout(resolve, 6000))
-
   await recurseDir(
     {
       dir: localLocation,

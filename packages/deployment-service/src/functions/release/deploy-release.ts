@@ -38,6 +38,12 @@ export const deployRelease = httpHandler<any, PipelineRunnerEntity>({
       throw new BadRequestException(`build version [${version}] already exists`)
     }
 
+    const file = Buffer.from(body.file, 'base64')
+
+    if (!file) {
+      throw new BadRequestException('File not provided')
+    }
+
     const pipelineRunner = await createPipelineRunnerEntity({
       pipeline,
       type: PipelineRunnerType.RELEASE,
@@ -47,12 +53,6 @@ export const deployRelease = httpHandler<any, PipelineRunnerEntity>({
     const s3FileName = `${pipeline.uniqueRepoName}/${pipelineRunner.id}.zip`
 
     pipelineRunner.S3Location = s3FileName
-
-    const file = Buffer.from(body.file, 'base64')
-
-    if (!file) {
-      throw new BadRequestException('File not provided')
-    }
 
     await new Promise<void>((resolve, reject) =>
       s3Client.putObject(
