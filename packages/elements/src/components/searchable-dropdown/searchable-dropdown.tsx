@@ -29,6 +29,8 @@ export interface ControlledSearchableDropdownProps<T> extends React.InputHTMLAtt
   icon?: IconNames
 }
 
+const generateRandomId = () => Math.random().toString(36).substring(7)
+
 export const SearchableDropdownControlledInner = <T extends unknown>(
   {
     isResultsListVisible,
@@ -53,7 +55,7 @@ export const SearchableDropdownControlledInner = <T extends unknown>(
     {isResultsListVisible && (
       <ElSearchableDropdownResultsContainer>
         {resultsList.map((result) => (
-          <ElSearchableDropdownResult key={result.label} onClick={() => onResultClick(result)}>
+          <ElSearchableDropdownResult key={generateRandomId()} onClick={() => onResultClick(result)}>
             {result.label}
           </ElSearchableDropdownResult>
         ))}
