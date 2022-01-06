@@ -28,7 +28,7 @@ export const releaseToLiveFromZip = async ({
 
   // Dumb arse package, upgraded minor with new property, without updating types about it...
   await new Promise<void>((resolve, reject) =>
-  // @ts-ignore
+    // @ts-ignore
     zip.extractAllToAsync(localLocation, true, true, (err) => {
       if (err) {
         console.error(err)
