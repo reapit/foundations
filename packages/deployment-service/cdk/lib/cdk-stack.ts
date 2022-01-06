@@ -44,7 +44,7 @@ export const createStack = () => {
   const stack = createBaseStack({
     namespace: 'cloud',
     appName: 'deployment',
-    component: 'service-josh',
+    component: 'service',
   })
   const api = createApi(stack, 'apigateway', undefined, undefined, true)
   const vpc = createVpc(stack, 'vpc')
@@ -280,6 +280,7 @@ export const createStack = () => {
         headers: ['Content-Type', 'Authorization', 'api-version'],
         authorizer: true,
       },
+      timeout: 300,
     },
     apiDeployRelease: {
       handler: 'main.deployRelease',
@@ -292,6 +293,7 @@ export const createStack = () => {
         },
         headers: ['Content-Type', 'Authorization', 'X-Api-Key', 'api-version'],
       },
+      timeout: 300,
     },
     deployVersion: {
       handler: 'main.deployVersion',
@@ -382,7 +384,7 @@ export const createStack = () => {
 
   const MYSQL_DATABASE = databaseName
 
-  const env = {
+  const env: any = {
     DATABASE_SECERT_ARN: secretManager.secretArn,
     MYSQL_DATABASE,
     DEPLOYMENT_LIVE_BUCKET_NAME: buckets['cloud-deployment-live-dev'].bucketName,
@@ -391,6 +393,10 @@ export const createStack = () => {
     REGION: 'eu-west-2',
     CODE_BUILD_PROJECT_NAME: codeBuild.projectName,
   }
+
+  Object.values(QueueNames).map((queueKey) => {
+    env[queueKey] = queues[queueKey].queueUrl
+  })
 
   for (const [name, options] of Object.entries(functionSetups)) {
     const lambda = createLambda({
@@ -420,6 +426,14 @@ export const createStack = () => {
       addLambdaSNSTrigger(lambda, topic)
     }
   }
+
+  /**
+   * NOTE: In order to make a successful deployment, migrations must be removed for the first deloy
+   * thereafter, the migration script can be added
+   *
+   * This seems to be because the db isn't avaiable when then migrations wants to run. Potential fix
+   * is to add the migration script to a second stack which required the first stack
+   */
 
   const migrationHandler = createLambda({
     stack,
