@@ -167,7 +167,7 @@ const handleStateChange = async ({
       sqs.sendMessage(
         {
           MessageBody: JSON.stringify(pipelineRunner),
-          QueueUrl: QueueNames.CODE_BUILD_VERSION_DEPLOY,
+          QueueUrl: QueueNames.CODEBUILD_VERSION_DEPLOY,
         },
         (error) => {
           if (error) {
