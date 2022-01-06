@@ -96,7 +96,7 @@ export class PipelineCreate extends AbstractCommand {
         fs.writeFileSync(resolve(process.cwd(), REAPIT_PIPELINE_CONFIG_FILE), this.serialisePipelineJson(response.data))
         spinner.succeed('Created local pipeline config')
       }
-      console.log('Now make a commit to your project or use `reapit pipeline deploy` to start a deployment manually')
+      // console.log('Now make a commit to your project or use `reapit pipeline deploy` to start a deployment manually')
 
       return response.data
     } else {
@@ -235,7 +235,7 @@ export class PipelineCreate extends AbstractCommand {
         this.writeLine('')
         this.writeLine("Now you're ready to deploy to your pipeline!")
         this.writeLine(
-          `To do so, either use ${chalk.green('reapit pipeline deploy-local')} or ${chalk.green(
+          `To do so, either use ${chalk.green('reapit pipeline deploy-zip')} or ${chalk.green(
             'reapit pipeline deploy-repo',
           )}`,
         )
