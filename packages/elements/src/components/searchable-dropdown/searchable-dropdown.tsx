@@ -47,7 +47,7 @@ export const SearchableDropdownControlledInner = <T extends unknown>(
   ref: React.ForwardedRef<HTMLInputElement>,
 ) => (
   <ElSearchableDropdownContainer>
-    <input style={{ display: 'none' }} value={selectedValue} ref={ref} />
+    <input style={{ display: 'none' }} readOnly value={selectedValue} ref={ref} />
     <ElSearchableDropdownSearchInputAddOn>
       <Icon icon={icon} />
     </ElSearchableDropdownSearchInputAddOn>
