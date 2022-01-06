@@ -134,10 +134,14 @@ export const pipelineSetup: SQSHandler = async (event: SQSEvent, context: Contex
           message: 'A record created',
         })
 
-        await updatePipelineEntity(pipeline, {
+        const updatedPipeline = await updatePipelineEntity(pipeline, {
           buildStatus: 'READY_FOR_DEPLOYMENT',
           cloudFrontId,
           aRecordId,
+        })
+        await pusher.trigger(`private-${pipeline.developerId}`, 'pipeline-architecture-update', {
+          ...updatedPipeline,
+          message: 'Pipeline successfully created',
         })
       } catch (error: any) {
         pipeline.buildStatus = 'FAILED_TO_ARCHITECT'
