@@ -30,6 +30,7 @@ import { OrgIdSelect } from '../hocs/org-id-select'
 import { useReapitGet } from '@reapit/utils-react'
 import { GetActionNames, getActions } from '@reapit/utils-common'
 import qs from 'qs'
+import { useReapitConnect } from '@reapit/connect-session'
 
 export const onPageChangeHandler = (history: History<any>) => (page: number) => {
   const queryString = `?pageNumber=${page}&pageSize=12`
@@ -41,6 +42,7 @@ export const MarketplacePage: FC = () => {
   const location = useLocation()
   const { Modal, openModal, closeModal } = useModal()
   const { isMobile } = useMediaQuery()
+  const { connectSession } = useReapitConnect(reapitConnectBrowserSession)
   const onPageChange = useCallback(onPageChangeHandler(history), [history])
   const searchParams = qs.parse(location.search, { ignoreQueryPrefix: true })
 
@@ -95,11 +97,12 @@ export const MarketplacePage: FC = () => {
         ) : (
           <>
             <Grid>
-              {appData?.data?.map((app) => (
-                <Col key={app.id}>
-                  <AppCard app={app} />
-                </Col>
-              ))}
+              {connectSession &&
+                appData?.data?.map((app) => (
+                  <Col key={app.id}>
+                    <AppCard app={app} connectSession={connectSession} />
+                  </Col>
+                ))}
             </Grid>
             <Pagination
               callback={onPageChange}

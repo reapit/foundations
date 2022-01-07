@@ -5,8 +5,8 @@ import Routes from '../../../constants/routes'
 import { history } from '../../../core/router'
 import { URLS } from '../../../constants/api'
 import useSWR from 'swr'
-import { useReapitConnect } from '@reapit/connect-session'
-import { reapitConnectBrowserSession } from '../../../core/connect-session'
+import { ReapitConnectSession } from '@reapit/connect-session'
+// import { reapitConnectBrowserSession } from '../../../core/connect-session'
 import {
   getClientIdFirstPart,
   getInstallationsForOfficeGroups,
@@ -17,6 +17,7 @@ import { useOrgId } from '../../../utils/use-org-id'
 
 export interface AppCardProps {
   app: AppSummaryModel
+  connectSession: ReapitConnectSession
 }
 
 export const onImageError = (event: React.SyntheticEvent<HTMLImageElement>) =>
@@ -48,12 +49,13 @@ export const handleInstallationsStringEffect =
     }
   }
 
-export const AppCard: FC<AppCardProps> = ({ app }: AppCardProps) => {
+export const AppCard: FC<AppCardProps> = ({ app, connectSession }: AppCardProps) => {
   const [installationString, setInstallationString] = useState<string | null>(null)
-  const { connectSession } = useReapitConnect(reapitConnectBrowserSession)
   const {
     orgIdState: { orgClientId },
   } = useOrgId()
+
+  console.log(orgClientId, connectSession)
   const { data } = useSWR<InstallationModelPagedResult>(
     !connectSession || !orgClientId ? null : `${URLS.INSTALLATIONS}/?AppId=${app.id}&IsInstalled=true&pageSize=999`,
   )
