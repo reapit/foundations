@@ -3,6 +3,7 @@
 exports[`ControlledSearchableDropdown component should match a snapshot 1`] = `
 <ElSearchableDropdownContainer>
   <input
+    readOnly={true}
     style={
       Object {
         "display": "none",
