@@ -28,7 +28,6 @@ const getCreateTableCommand = (tableName: string): CreateTableCommand => {
     TableName: tableName,
     AttributeDefinitions: [
       { AttributeName: 'id', AttributeType: 'S' },
-      { AttributeName: 'userId', AttributeType: 'S' },
       { AttributeName: 'subdomain', AttributeType: 'S' },
     ],
     KeySchema: [{ AttributeName: 'id', KeyType: 'HASH' }],
