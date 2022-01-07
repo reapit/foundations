@@ -55,7 +55,6 @@ export const AppCard: FC<AppCardProps> = ({ app, connectSession }: AppCardProps)
     orgIdState: { orgClientId },
   } = useOrgId()
 
-  console.log(orgClientId, connectSession)
   const { data } = useSWR<InstallationModelPagedResult>(
     !connectSession || !orgClientId ? null : `${URLS.INSTALLATIONS}/?AppId=${app.id}&IsInstalled=true&pageSize=999`,
   )
