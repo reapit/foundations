@@ -42,7 +42,7 @@ Start the deployment by running the following command
 This will start a manual deployment by uploading a zip of your locally built application.
 
 ```bash
-$ reapit cli deploy-zip
+$ reapit pipeline deploy-zip
 ```
 
 answer the following questions and the deployment will start.
