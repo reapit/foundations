@@ -5,7 +5,7 @@ Command line interface tool for reapit
 
 ## Install
 
-Make sure you have an `.npmrc` file in your root and add a valid npm token to the registry url 
+Make sure you have an `.npmrc` file in your root and add a valid npm token to the registry url like the example below. Without a global `.npmrc` file with your provided token, you will not be able to download the cli
 
 ```
 //registry.npmjs.org/:_authToken=NPM_TOKEN
