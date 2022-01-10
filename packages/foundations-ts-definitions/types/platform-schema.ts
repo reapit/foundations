@@ -6800,6 +6800,10 @@ export interface CreateWorksOrderModel {
    */
   reporter: string
   /**
+   * The priority level of the works order (low/medium/high)
+   */
+  priority?: string
+  /**
    * The date when the works order was booked
    * example:
    * 2019-08-14
@@ -16485,6 +16489,10 @@ export interface UpdateWorksOrderModel {
    */
   reporter?: string
   /**
+   * The priority level of the works order (low/medium/high)
+   */
+  priority?: string
+  /**
    * The date when the works order was booked
    * example:
    * 2019-08-14
@@ -17506,6 +17514,10 @@ export interface WorksOrderModel {
    */
   reporter?: string
   /**
+   * The priority level of the works order (low/medium/high)
+   */
+  priority?: string
+  /**
    * The date when the works order was booked
    * example:
    * 2019-08-14
@@ -17669,6 +17681,10 @@ export interface WorksOrderModelPagedResult {
      * The party requesting the work to be carried out (landlord/tenant/other)
      */
     reporter?: string
+    /**
+     * The priority level of the works order (low/medium/high)
+     */
+    priority?: string
     /**
      * The date when the works order was booked
      * example:
