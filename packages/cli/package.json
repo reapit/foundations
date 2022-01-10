@@ -1,9 +1,10 @@
 {
-  "version": "0.1.0",
   "name": "@reapit/cli",
+  "version": "0.1.3",
   "description": "A cli tool for reapit cloud",
   "main": "dist/index.js",
   "dependencies": {
+    "adm-zip": "^0.5.9",
     "ansi-regex": "^6.0.1",
     "axios": "^0.24.0",
     "chalk": "^4.1.2",
@@ -20,6 +21,9 @@
     "semver": "^7.3.5",
     "shleemy": "^1.2.2",
     "simple-git": "^2.48.0"
+  },
+  "bin": {
+    "reapit": "./dist/cli/src/index.js"
   },
   "repository": {
     "url": "https://github.com/reapit/foundations/packages/cli",
@@ -49,6 +53,6 @@
     "conf": "yarn config-manager --namespace cloud --entity deployment-service --name local --mode fetch",
     "test": "echo '...skipping...'",
     "release": "echo '...skipping...'",
-    "publish": "echo '...skipping...'"
+    "publish": "yarn npm publish --access private"
   }
 }

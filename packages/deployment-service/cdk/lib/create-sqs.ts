@@ -1,11 +1,11 @@
 import { createSqsQueue, Queue, Stack } from '@reapit/ts-scripts/src/cdk'
 
 export enum QueueNames {
-  CODEBUILD_EXECUTOR = 'CodebuildExecutor',
-  CODEBUILD_DEPLOY = 'CodebuildDeploy',
-  PIPELINE_SETUP = 'PipelineSetup',
-  PIPELINE_TEAR_DOWN_START = 'PipelineTearDownStart',
-  PIPELINE_TEAR_DOWN = 'PipelineTearDown',
+  CODEBUILD_EXECUTOR = 'CODEBUILD_EXECUTOR',
+  CODEBUILD_VERSION_DEPLOY = 'CODEBUILD_VERSION_DEPLOY',
+  PIPELINE_SETUP = 'PIPELINE_SETUP',
+  PIPELINE_TEAR_DOWN_START = 'PIPELINE_TEAR_DOWN_START',
+  PIPELINE_TEAR_DOWN = 'PIPELINE_TEAR_DOWN',
 }
 
 export const createSqsQueues = (stack: Stack): Record<QueueNames, Queue> => {
@@ -15,7 +15,7 @@ export const createSqsQueues = (stack: Stack): Record<QueueNames, Queue> => {
     }
   } = {
     [QueueNames.CODEBUILD_EXECUTOR]: {},
-    [QueueNames.CODEBUILD_DEPLOY]: {
+    [QueueNames.CODEBUILD_VERSION_DEPLOY]: {
       visibilityTimeout: 300,
     },
     [QueueNames.PIPELINE_SETUP]: {

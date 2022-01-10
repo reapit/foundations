@@ -17,7 +17,7 @@ const deleteMessage = (ReceiptHandle: string): Promise<void> =>
     sqs.deleteMessage(
       {
         ReceiptHandle,
-        QueueUrl: QueueNames.CODE_BUILD_VERSION_DEPLOY,
+        QueueUrl: QueueNames.CODEBUILD_VERSION_DEPLOY,
       },
       (error) => {
         error ? reject(error) : resolve()

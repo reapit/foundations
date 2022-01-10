@@ -5,6 +5,14 @@ Command line interface tool for reapit
 
 ## Install
 
+Make sure you have an `.npmrc` file in your root and add a valid npm token to the registry url like the example below. Without a global `.npmrc` file with your provided token, you will not be able to download the cli
+
+```
+//registry.npmjs.org/:_authToken=NPM_TOKEN
+```
+
+> You can obtain a valid npm token from the reapit developers
+
 ```bash
 $ npm i -g @reapit/cli
 ```
@@ -34,7 +42,7 @@ Start the deployment by running the following command
 This will start a manual deployment by uploading a zip of your locally built application.
 
 ```bash
-$ reapit cli deploy-zip
+$ reapit pipeline deploy-zip
 ```
 
 answer the following questions and the deployment will start.

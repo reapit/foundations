@@ -4,10 +4,18 @@ export const defaultOutputHeaders: DefaultHeadersInterface = {
   'Access-Control-Allow-Origin': '*',
 }
 
-export enum QueueNames {
-  CODE_BUILD_EXECUTOR = 'https://sqs.eu-west-2.amazonaws.com/028446965111/CodebuildExecutor',
-  CODE_BUILD_VERSION_DEPLOY = 'https://sqs.eu-west-2.amazonaws.com/028446965111/CodebuildDeploy',
-  PIPELINE_SETUP = 'https://sqs.eu-west-2.amazonaws.com/028446965111/PipelineSetup',
-  PIPELINE_TEAR_DOWN = 'https://sqs.eu-west-2.amazonaws.com/028446965111/PipelineTearDown',
-  PIPELINE_TEAR_DOWN_START = 'https://sqs.eu-west-2.amazonaws.com/028446965111/PipelineTearDownStart',
+export enum QueueNamesEnum {
+  CODEBUILD_EXECUTOR = 'CODEBUILD_EXECUTOR',
+  CODEBUILD_VERSION_DEPLOY = 'CODEBUILD_VERSION_DEPLOY',
+  PIPELINE_SETUP = 'PIPELINE_SETUP',
+  PIPELINE_TEAR_DOWN = 'PIPELINE_TEAR_DOWN',
+  PIPELINE_TEAR_DOWN_START = 'PIPELINE_TEAR_DOWN_START',
+}
+
+export const QueueNames: { [key in QueueNamesEnum]: string } = {
+  [QueueNamesEnum.CODEBUILD_EXECUTOR]: process.env.CODEBUILD_EXECUTOR as string,
+  [QueueNamesEnum.CODEBUILD_VERSION_DEPLOY]: process.env.CODEBUILD_VERSION_DEPLOY as string,
+  [QueueNamesEnum.PIPELINE_SETUP]: process.env.PIPELINE_SETUP as string,
+  [QueueNamesEnum.PIPELINE_TEAR_DOWN]: process.env.PIPELINE_TEAR_DOWN as string,
+  [QueueNamesEnum.PIPELINE_TEAR_DOWN_START]: process.env.PIPELINE_TEAR_DOWN_START as string,
 }
