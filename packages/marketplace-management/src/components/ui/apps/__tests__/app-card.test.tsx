@@ -4,6 +4,7 @@ import AppCard, { handleInstallationsStringEffect, handleNavigation } from '../a
 import { history } from '../../../../core/router'
 import Routes from '../../../../constants/routes'
 import { mockAppDetail } from '../../../../services/__stubs__/apps'
+import { mockBrowserSession } from '../../../../services/__mocks__/session'
 
 jest.mock('../../../../utils/use-org-id', () => ({
   useOrgId: () => ({
@@ -17,7 +18,7 @@ jest.mock('../../../../utils/use-org-id', () => ({
 
 describe('AppCard', () => {
   it('should match a snapshot', () => {
-    expect(render(<AppCard app={mockAppDetail} />)).toMatchSnapshot()
+    expect(render(<AppCard app={mockAppDetail} connectSession={mockBrowserSession} />)).toMatchSnapshot()
   })
 })
 
