@@ -335,7 +335,7 @@ export const createStack = () => {
       handler: 'main.codebuildDeploy',
       policies: [...policies.commonBackendPolicies, policies.cloudFrontPolicy],
       timeout: 300,
-      queue: queues[QueueNames.CODEBUILD_DEPLOY],
+      queue: queues[QueueNames.CODEBUILD_VERSION_DEPLOY],
     },
     pipelineSetup: {
       handler: 'main.pipelineSetup',
