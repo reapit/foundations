@@ -117,6 +117,7 @@ export class PipelineCreate extends AbstractCommand {
         repospitory: pipeline.repository,
         buildDir: pipeline.buildCommand,
         outDir: pipeline.outDir,
+        developerId: pipeline.developerId,
       },
       null,
       2,
