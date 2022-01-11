@@ -1,4 +1,4 @@
-import { Command } from '../../decorators'
+import { Command, Param } from '../../decorators'
 import { AbstractCommand } from '../../abstract.command'
 import fs from 'fs'
 import path from 'path'
@@ -130,13 +130,35 @@ export class DeployLocalCommand extends AbstractCommand {
     spinner.succeed('Successfully published to reapit')
   }
 
+  async fetchPipeline(id: string, spinner: Ora): Promise<PipelineModelInterface> {
+    const response = await (await this.axios(spinner)).get<PipelineModelInterface>(`/pipeline/${id}`)
+
+    if (response.status === 200) {
+      spinner.succeed('Successfully found pipeline')
+    } else {
+      spinner.fail('No pipeline exists with id provided')
+      process.exit(1)
+    }
+
+    return response.data
+  }
+
   /**
    * Run command
    */
-  async run() {
+  async run(
+    @Param({
+      name: 'pipelineId',
+      description: 'id of the pipeline to link with this dir/repo',
+      required: false,
+    })
+    pipelineId,
+  ) {
     const spinner = ora()
 
-    const pipeline = await this.resolveConfigFile<PipelineModelInterface>(REAPIT_PIPELINE_CONFIG_FILE)
+    const pipeline = pipelineId
+      ? await this.fetchPipeline(pipelineId, spinner)
+      : await this.resolveConfigFile<PipelineModelInterface>(REAPIT_PIPELINE_CONFIG_FILE)
 
     if (!pipeline) {
       this.writeLine(chalk.red('Pipeline config not found. Please run within a reapit pipeline enabled project'))
