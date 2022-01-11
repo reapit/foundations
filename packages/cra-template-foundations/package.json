@@ -1,6 +1,6 @@
 {
   "name": "@reapit/cra-template-foundations",
-  "version": "4.2.0",
+  "version": "5.0.0-beta.3",
   "main": "./template.json",
   "license": "MIT",
   "scripts": {
@@ -9,7 +9,7 @@
     "build": "echo '...skipping...'",
     "lint": "eslint --cache --ext=ts,tsx,js template --fix",
     "release": "echo '...skipping...'",
-    "publish": "yarn npm publish  --access public",
+    "publish": "yarn npm publish  --access public --tag next",
     "conf": "echo '...skipping...'",
     "commit": "yarn lint"
   },

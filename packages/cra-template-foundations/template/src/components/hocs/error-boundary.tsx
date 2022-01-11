@@ -1,14 +1,14 @@
-import * as React from 'react'
+import React, { Component, ReactNode } from 'react'
 
 export interface ErrorState {
   hasFailed: boolean
 }
 
 export type ErrorProps = {
-  children?: React.ReactNode
+  children?: ReactNode
 }
 
-export class ErrorBoundary extends React.Component<ErrorProps, ErrorState> {
+export class ErrorBoundary extends Component<ErrorProps, ErrorState> {
   constructor(props: ErrorProps) {
     super(props)
     this.state = {

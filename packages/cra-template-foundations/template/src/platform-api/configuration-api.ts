@@ -14,7 +14,7 @@ export const configurationAppointmentsApiService = async (
       },
     })
 
-    if (response) {
+    if (response && response.ok) {
       const responseJson: Promise<ListItemModel[] | undefined> = response.json()
       return responseJson
     }

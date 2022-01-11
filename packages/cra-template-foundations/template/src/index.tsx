@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { ComponentType } from 'react'
 import { render } from 'react-dom'
 import { Config } from './types/global'
 import config from './reapit.config.json'
@@ -15,10 +15,11 @@ window.reapit = {
   },
 }
 
-export const renderApp = (Component: React.ComponentType) => {
+export const renderApp = (Component: ComponentType) => {
   const rootElement = document.querySelector('#root') || document.body
   const isDesktop = Boolean(window['__REAPIT_MARKETPLACE_GLOBALS__'])
   const html = document.querySelector('html')
+
   if (isDesktop && html) {
     html.classList.add('is-desktop')
   }
