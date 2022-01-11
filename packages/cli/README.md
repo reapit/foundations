@@ -49,6 +49,72 @@ answer the following questions and the deployment will start.
 
 ![Deploy zip Snapsot](snapshots/deploy-zip.png)
 
+## Deployment via github actions
+
+First install the cli as a dev dependant
+
+```bash
+$ yarn add --dev @reapit/cli
+```
+
+Once you've done that, add the following to the file `.github/workflows/deply.yml`
+
+This will run a deployment every time you make a push to master
+
+```yml
+name: Deploy with Reapit cli
+
+on:
+  push:
+    branches:
+      - master
+
+env:
+  NPM_TOKEN: ${{secrets.NPM_TOKEN}}
+  REAPIT_API_KEY: ${{secrets.REAPIT_API_KEY}}
+  PIPELINE_ID: ${{secrets.PIPELINE_ID}}
+
+  CI: true
+
+jobs:
+  deploy-with-reapit-cli:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v2
+        with:
+          fetch-depth: 0
+
+      - name: Set Node
+        uses: actions/setup-node@v1
+        with:
+          node-version: '14.x'
+
+      - name: Install
+        run: yarn
+        env:
+          NPM_TOKEN: ${{secrets.NPM_TOKEN}}
+
+      - name: Build
+        run: |
+          yarn build
+
+      - name: Deploy
+        run: |
+          echo $PIPELINE_ID &&
+          yarn reapit pipeline deploy-zip $PIPELINE_ID -y
+        env:
+          PIPELINE_ID: ${{secrets.PIPELINE_ID}}
+      - name: Commit & Push changes
+        uses: actions-js/push@master
+        with:
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          branch: 'master'
+
+```
+
+> Note: you'll notice there is a commit & push action here. This is important to keep the version up to date with deployments
+
 # Development
 
 This section is for the development of the reapit cli

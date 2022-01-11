@@ -43,7 +43,9 @@ export class ReleaseListCommand extends AbstractCommand {
     const deploys = await this.listReleases(spinner, pipeline.id as string)
 
     deploys.items.forEach((deploy) => {
-      this.writeLine(`${deploy.buildVersion || 'master release'}${deploy.currentlyDeployed ? chalk.green(' (current)') : ''}`)
+      this.writeLine(
+        `${deploy.buildVersion || 'master release'}${deploy.currentlyDeployed ? chalk.green(' (current)') : ''}`,
+      )
     })
   }
 }

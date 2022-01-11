@@ -74,6 +74,8 @@ export abstract class AbstractCommand {
       process.exit(1)
     }
 
+    // spinner?.info(`Config found from: [${config.from}]`)
+
     const instance = axios.create({
       baseURL: config?.config?.baseUrl || this.baseUrl,
       headers: {

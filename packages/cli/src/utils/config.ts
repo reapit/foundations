@@ -9,7 +9,7 @@ export type ReapitCliConfig = {
 
 export type ReapitCliConfigResolve = {
   config: ReapitCliConfig
-  from: 'project' | 'global'
+  from: 'project' | 'global' | 'env'
 }
 
 /**
@@ -32,6 +32,17 @@ const findConfig = async (relativePath: string): Promise<false | ReapitCliConfig
  * @returns ReapitCliConfig | false
  */
 export const resolveConfig = async (): Promise<false | ReapitCliConfigResolve> => {
+  const API_KEY = process.env.REAPIT_API_KEY
+
+  if (API_KEY) {
+    return {
+      from: 'env',
+      config: {
+        'api-key': API_KEY,
+      },
+    }
+  }
+
   const configs = await Promise.all([findConfig(process.cwd()), findConfig(homeDir())])
 
   if (configs[0] !== false) return { config: configs[0], from: 'project' }

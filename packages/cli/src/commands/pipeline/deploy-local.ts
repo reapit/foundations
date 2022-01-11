@@ -1,4 +1,4 @@
-import { Command } from '../../decorators'
+import { Command, Optional, Param } from '../../decorators'
 import { AbstractCommand } from '../../abstract.command'
 import fs from 'fs'
 import path from 'path'
@@ -19,7 +19,7 @@ export class DeployLocalCommand extends AbstractCommand {
    *
    * @param version
    */
-  async bumpVersion(spinner: Ora): Promise<string | never> {
+  async bumpVersion(spinner: Ora, auto: boolean = false): Promise<string | never> {
     const fileName = path.resolve(process.cwd(), 'package.json')
     const workingPackageRaw = await fs.promises.readFile(fileName, {
       encoding: 'utf-8',
@@ -30,31 +30,39 @@ export class DeployLocalCommand extends AbstractCommand {
     }
 
     const workingPackage = JSON.parse(workingPackageRaw)
+    let newPackageVersion: string
 
-    const preBuild = await inquirer.prompt<{ built: boolean }>([
-      {
-        type: 'confirm',
-        message: 'Have you built your application before deploying?',
-        name: 'built',
-      },
-    ])
+    if (!auto) {
+      const preBuild = await inquirer.prompt<{ built: boolean }>([
+        {
+          type: 'confirm',
+          message: 'Have you built your application before deploying?',
+          name: 'built',
+        },
+      ])
 
-    if (!preBuild.built) {
-      this.writeLine(chalk.red('Please build your application before deploying a new version'))
-      process.exit(1)
+      if (!preBuild.built) {
+        this.writeLine(chalk.red('Please build your application before deploying a new version'))
+        process.exit(1)
+      }
+      const answers = await inquirer.prompt<{ version: string }>([
+        {
+          type: 'input',
+          message: 'Next release version',
+          name: 'version',
+          default: workingPackage.version,
+        },
+      ])
+      newPackageVersion = answers.version
+    } else {
+      const versionParts = workingPackage.version.split('.').map((part) => parseInt(part))
+      versionParts[versionParts.length - 1] += 1
+      newPackageVersion = versionParts.join('.')
     }
 
-    const answers = await inquirer.prompt<{ version: string }>([
-      {
-        type: 'input',
-        message: 'Next release version',
-        name: 'version',
-        default: workingPackage.version,
-      },
-    ])
     spinner.start('bumping package version')
 
-    if (workingPackage.version === answers.version) {
+    if (workingPackage.version === newPackageVersion) {
       spinner.fail('Cannot overwrite existing verison')
       this.writeLine(
         'use ' + chalk.green('reapit') + chalk.bold(' release version') + ' to rollback to a previous deployment',
@@ -62,7 +70,7 @@ export class DeployLocalCommand extends AbstractCommand {
       process.exit(1)
     }
 
-    return answers.version
+    return newPackageVersion
   }
 
   updatePackageVersion = async (version: string, spinner: Ora) => {
@@ -130,20 +138,48 @@ export class DeployLocalCommand extends AbstractCommand {
     spinner.succeed('Successfully published to reapit')
   }
 
+  async fetchPipeline(id: string, spinner: Ora): Promise<PipelineModelInterface> {
+    const response = await (await this.axios(spinner)).get<PipelineModelInterface>(`/pipeline/${id}`)
+
+    if (response.status === 200) {
+      spinner.succeed('Successfully found pipeline')
+    } else {
+      spinner.fail('No pipeline exists with id provided')
+      process.exit(1)
+    }
+
+    return response.data
+  }
+
   /**
    * Run command
    */
-  async run() {
+  async run(
+    @Param({
+      name: 'pipelineId',
+      description: 'id of the pipeline to link with this dir/repo',
+      required: false,
+    })
+    pipelineId,
+    @Optional({
+      shortName: 'y',
+      name: 'accept',
+      default: false,
+    })
+    accept: boolean,
+  ) {
     const spinner = ora()
 
-    const pipeline = await this.resolveConfigFile<PipelineModelInterface>(REAPIT_PIPELINE_CONFIG_FILE)
+    const pipeline = pipelineId
+      ? await this.fetchPipeline(pipelineId, spinner)
+      : await this.resolveConfigFile<PipelineModelInterface>(REAPIT_PIPELINE_CONFIG_FILE)
 
     if (!pipeline) {
       this.writeLine(chalk.red('Pipeline config not found. Please run within a reapit pipeline enabled project'))
       process.exit(1)
     }
 
-    const version = await this.bumpVersion(spinner)
+    const version = await this.bumpVersion(spinner, accept)
     const zip = await this.pack(spinner, pipeline)
     await this.sendZip(zip, pipeline, version, spinner)
     await this.updatePackageVersion(version, spinner)
