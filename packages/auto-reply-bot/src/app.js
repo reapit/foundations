@@ -41,7 +41,7 @@ const labelAddedConditions = [
     labels: ['too-big'],
     comment:
       'This issue has been reviewed and is too big to be handled in a single issue and requires the need to be broken down by our development team. We will add the associated/dependent issues to this ticket when available. \r\n' +
-      'The induvial tickets will then be review in our weekly refinement sessions. \r\n' +
+      'The individual tickets will then be review in our weekly refinement sessions. \r\n' +
       'For more information on our processes, [please click here](https://foundations-documentation.reapit.cloud/dev-requests)',
   },
   {
