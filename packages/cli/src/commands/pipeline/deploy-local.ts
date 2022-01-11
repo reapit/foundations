@@ -1,4 +1,4 @@
-import { Command, Param } from '../../decorators'
+import { Command, Optional, Param } from '../../decorators'
 import { AbstractCommand } from '../../abstract.command'
 import fs from 'fs'
 import path from 'path'
@@ -153,7 +153,14 @@ export class DeployLocalCommand extends AbstractCommand {
       required: false,
     })
     pipelineId,
+    @Optional({
+      shortName: 'y',
+      name: 'accept',
+      default: false,
+    })
+    accept: boolean,
   ) {
+    console.log('accept', accept)
     const spinner = ora()
 
     const pipeline = pipelineId
