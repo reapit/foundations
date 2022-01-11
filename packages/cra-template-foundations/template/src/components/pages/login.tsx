@@ -1,5 +1,5 @@
 import React, { FC, useEffect, useState } from 'react'
-import { BodyText, Button, FlexContainer } from '@reapit/elements'
+import { BodyText, Button } from '@reapit/elements'
 import connectImage from '../../assets/images/reapit-connect.png'
 import { reapitConnectBrowserSession } from '../../core/connect-session'
 import {
@@ -53,9 +53,6 @@ export const Login: FC = () => {
             Login
           </Button>
         </BodyText>
-        <FlexContainer isFlexAlignCenter isFlexJustifyCenter>
-          {process.env.APP_VERSION}
-        </FlexContainer>
       </div>
     </div>
   )

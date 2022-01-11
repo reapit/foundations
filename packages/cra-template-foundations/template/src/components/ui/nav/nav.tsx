@@ -1,9 +1,9 @@
-import React from 'react'
+import React, { FC } from 'react'
 import { useReapitConnect } from '@reapit/connect-session'
-import { reapitConnectBrowserSession } from '../../core/connect-session'
+import { reapitConnectBrowserSession } from '../../../core/connect-session'
 import { NavResponsive } from '@reapit/elements'
 
-export const Nav: React.FC = () => {
+export const Nav: FC = () => {
   const { connectLogoutRedirect } = useReapitConnect(reapitConnectBrowserSession)
 
   return (
@@ -29,5 +29,3 @@ export const Nav: React.FC = () => {
     />
   )
 }
-
-export default Nav

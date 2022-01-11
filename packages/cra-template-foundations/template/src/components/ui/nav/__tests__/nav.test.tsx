@@ -1,6 +1,7 @@
 import React from 'react'
 import { render } from '@testing-library/react'
-import Authenticated from '../authenticated'
+import { Nav } from '../nav'
+import { MediaStateProvider, NavStateProvider } from '@reapit/elements'
 
 jest.mock('@reapit/connect-session', () => ({
   ReapitConnectBrowserSession: jest.fn(),
@@ -12,8 +13,15 @@ jest.mock('@reapit/connect-session', () => ({
   }),
 }))
 
-describe('Authenticated', () => {
+describe('Nav', () => {
   it('should match a snapshot', () => {
-    expect(render(<Authenticated />)).toMatchSnapshot()
+    const wrapper = render(
+      <NavStateProvider>
+        <MediaStateProvider>
+          <Nav />
+        </MediaStateProvider>
+      </NavStateProvider>,
+    )
+    expect(wrapper).toMatchSnapshot()
   })
 })
