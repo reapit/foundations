@@ -7,7 +7,7 @@ export type ParameterType = {
 
 export const resolveArgs = (incomingArgs: string[], args?: ArgsType[]): any[] => {
   const results: any[] = []
-  const incomingParams = incomingArgs.filter((param) => !/^[\-]/.test(param))
+  const incomingParams = incomingArgs.filter((param) => !/^-/.test(param))
   const argTypes = args?.map((paramOrOption, index) => ({
     paramOrOption,
     index,
