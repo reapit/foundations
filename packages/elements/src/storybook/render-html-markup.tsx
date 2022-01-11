@@ -71,9 +71,8 @@ export const RenderHtmlMarkup = ({ component, story, label }: RenderHtmlMarkupPr
       })
     }
   }
-
   return (
-    <Canvas mdxSource={getMdxSource()}>
+    <Canvas mdxSource={String(getMdxSource())}>
       <p>{getLabel()}</p>
     </Canvas>
   )
