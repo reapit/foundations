@@ -3,36 +3,86 @@ Command line interface tool for reapit
 
 ![Deployment gif](reapit-deploy.gif)
 
+## Available commands
+
+Use `reapit --help` to see all commands in the terminal.
+Or use `reapit config --help` to describe an individual command.
+
+Command | description
+--- | ---
+`reapit config` | Starts a prompt to add the cli's config requirements (api-key)
+`reapit pipeline create` | Starts the process of creating a new pipeline
+`reapit pipeline link` | Links repo with existing pipeline (downloads pipeline config to cwd)
+`reapit pipeline deploy-repo` | Starts a deployment using the github repo
+`reapit pipeline deploy-zip` | Starts a deployment using a locally built directory as source
+`reapit pipeline list` | List all pipelines for developer account
+`reapit release list` | List all pipeline releases/deployments
+`reapit release version` | Deploys a specific previously deployed version (rollback)
+
+> The above is subject to updates
+
 ## Install
 
-Make sure you have an `.npmrc` file in your root and add a valid npm token to the registry url like the example below. Without a global `.npmrc` file with your provided token, you will not be able to download the cli
+Installing requires the below steps
+
+- [Obtain npm token](#obtaining-npm-token)
+- [Create `.npmrc` file](#create-the-npmrc-file)
+- [Installing the cli](#installing-the-cli)
+- [Adding your api-key](#adding-your-api-key)
+
+
+### Obtaining NPM Token
+
+Ask the reapit developers for an NPM token
+
+### Create the `.npmrc` file
+
+In your computer's root, create the file `.npmrc`, here is a method using bash
+
+```bash
+touch ~/.npmrc
+```
+Without a global `.npmrc` file with your provided token, you will not be able to download the cli
+
+Below is the following that needs to be added to the `.npmrc` file. Make sure to replace `NPM_TOKEN` with your npm token.
 
 ```
 //registry.npmjs.org/:_authToken=NPM_TOKEN
 ```
 
-> You can obtain a valid npm token from the reapit developers
+### Installing the cli
+
+Simply run the below command to install the reapit cli globally on your machine.
 
 ```bash
 $ npm i -g @reapit/cli
 ```
 
-## Api Key
+### Adding your api key
 
 In order to run commands you'll need to obtain an api-key in order to make authenticated requests.
 
-Get your api-key from the (reapit developers)[]
+Get your api-key from the [reapit developers]()
 
-Add your api-key to your cli
-
+To add your api-key to the cli, simply run the below command. This will start a prompt for your config shown below.
 
 ```bash
 $ reapit config
 ```
 
-You'll be prompted with an input for your api-key
-
 ![Config Snapsot](snapshots/config.png)
+
+
+## Terminology
+
+Below is a table of terminologies used in the cli with some descriptions
+
+Term | Description
+--- | ---
+Pipeline | A configuration for a deployment process
+Pipeline Runner, Deployment | A running/individual deployment of a pipeline
+Rollback | The ability to make a previously deployed version live
+
 ## Deployment
 
 > First make sure you've created a pipeline by either the UI or the cli using `reapit pipeline create`.
@@ -113,7 +163,7 @@ jobs:
 
 ```
 
-> Note: you'll notice there is a commit & push action here. This is important to keep the version up to date with deployments
+> Note: you'll notice there is a commit & push action here. This is important to keep the version up to date with deployments. Otherwise deployments will fail after the first successful one.
 
 # Development
 
@@ -170,5 +220,79 @@ Parent commands will extends the `ParentCommand` class
 })
 export class PipelineCommand extends ParentCommand {
   commands = [new PipelineCreate(), new PipelineList(), new PipelineRun()]
+}
+```
+
+### Params and Options
+
+In the run function, `Param` and `Option` decorators can be used to description incomming arguments and options.
+
+#### Param
+
+```ts
+@Command({
+  name: 'example',
+})
+class ExampleCommand extends AbstractCommand {
+async run(
+    @Param({
+      name: 'param', // name for help
+      default: 'default value',
+    })
+    param: string,
+  ) {
+    console.log(param) // inputted arg or 'default value'
+  }
+}
+```
+
+Params in the run function should be ordered in the same order as expected input args. Example `reapit example first second third`
+
+```ts
+@Command({
+  name: 'example',
+})
+class ExampleCommand extends AbstractCommand {
+async run(
+    @Param({
+      name: 'uno',
+    })
+    uno: string,
+    @Param({
+      name: 'due',
+    })
+    due: string,
+    @Param({
+      name: 'tre',
+    })
+    tre: string,
+  ) {
+    console.log('order', uno, due, tre) // order first second third
+  }
+}
+```
+
+#### Options
+
+Options are similar to params but used as booleans. Example `reapit example this-is-the-id -f` and `reapit example --fetch this-is-the-id` will result in the `fetch` parameter being true. If these options are not supplied, `fetch` is false.
+
+```ts
+@Command({
+  name: 'example',
+})
+class ExampleCommand extends AbstractCommand {
+async run(
+    @Param({
+      name: 'id',
+    })
+    id: string,
+    @Option({
+      name: 'fetch',
+      shortName: 'f',
+    })
+    fetch: boolean,
+  ) {
+    console.log('fetch?', fetch) // fetch? true
+  }
 }
 ```
