@@ -7,7 +7,7 @@ Command line interface tool for reapit
 
 Command | description
 --- | ---
-`reapit config` | Starts a prompt to add your config requirements
+`reapit config` | Starts a prompt to add the cli's config requirements (api-key)
 `reapit pipeline create` | Starts the process of creating a new pipeline
 `reapit pipeline link` | Links repo with existing pipeline (downloads pipeline config to cwd)
 `reapit pipeline deploy-repo` | Starts a deployment using the github repo
@@ -156,7 +156,7 @@ jobs:
 
 ```
 
-> Note: you'll notice there is a commit & push action here. This is important to keep the version up to date with deployments
+> Note: you'll notice there is a commit & push action here. This is important to keep the version up to date with deployments. Otherwise deployments will fail after the first successful one.
 
 # Development
 
@@ -213,5 +213,79 @@ Parent commands will extends the `ParentCommand` class
 })
 export class PipelineCommand extends ParentCommand {
   commands = [new PipelineCreate(), new PipelineList(), new PipelineRun()]
+}
+```
+
+### Params and Options
+
+In the run function, `Param` and `Option` decorators can be used to description incomming arguments and options.
+
+#### Param
+
+```ts
+@Command({
+  name: 'example',
+})
+class ExampleCommand extends AbstractCommand {
+async run(
+    @Param({
+      name: 'param', // name for help
+      default: 'default value',
+    })
+    param: string,
+  ) {
+    console.log(param) // inputted arg or 'default value'
+  }
+}
+```
+
+Params in the run function should be ordered in the same order as expected input args. Example `reapit example first second third`
+
+```ts
+@Command({
+  name: 'example',
+})
+class ExampleCommand extends AbstractCommand {
+async run(
+    @Param({
+      name: 'uno',
+    })
+    uno: string,
+    @Param({
+      name: 'due',
+    })
+    due: string,
+    @Param({
+      name: 'tre',
+    })
+    tre: string,
+  ) {
+    console.log('order', uno, due, tre) // order first second third
+  }
+}
+```
+
+#### Options
+
+Options are similar to params but used as booleans. Example `reapit example this-is-the-id -f` and `reapit example --fetch this-is-the-id` will result in the `fetch` parameter being true. If these options are not supplied, `fetch` is false.
+
+```ts
+@Command({
+  name: 'example',
+})
+class ExampleCommand extends AbstractCommand {
+async run(
+    @Param({
+      name: 'id',
+    })
+    id: string,
+    @Option({
+      name: 'fetch',
+      shortName: 'f',
+    })
+    fetch: boolean,
+  ) {
+    console.log('fetch?', fetch) // fetch? true
+  }
 }
 ```
