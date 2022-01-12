@@ -65,9 +65,9 @@ export const bundle = () => {
   execSync(`cp ${mainPkgJsonLocation} ${tmpDir}`)
   console.log('Copied root package.json to tmp directory')
 
-  console.log('Removing deps from root package.json')
-  removeDeps(tmpDir)
-  console.log('Removed deps from root package.json')
+  console.log('Removing deps and scripts from root package.json')
+  removeDeps(tmpDir, true)
+  console.log('Removed deps and scripts from root package.json')
 
   console.log('Copying root .yarn to tmp directory')
   execSync(`cp -r ${dotYarnLocation} ${tmpDir}`)
@@ -99,7 +99,8 @@ export const bundle = () => {
   console.log('Zipping bundle')
   execSync('rm -rf bundle.zip')
   execSync(`cd ${tmpDir} && zip -q -r ${path.resolve('bundle.zip')} .`)
-  console.log('Zipped bundle')
+  console.log('Zipped bundle, size:')
+  execSync(`du -h ${path.resolve('bundle.zip')}`)
 
   console.log('Removing tmp directory')
   execSync(`rm -rf ${tmpDir}`)
