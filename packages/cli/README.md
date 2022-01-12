@@ -5,6 +5,9 @@ Command line interface tool for reapit
 
 ## Available commands
 
+Use `reapit --help` to see all commands in the terminal.
+Or use `reapit config --help` to describe an individual command.
+
 Command | description
 --- | ---
 `reapit config` | Starts a prompt to add the cli's config requirements (api-key)
@@ -15,6 +18,8 @@ Command | description
 `reapit pipeline list` | List all pipelines for developer account
 `reapit release list` | List all pipeline releases/deployments
 `reapit release version` | Deploys a specific previously deployed version (rollback)
+
+> The above is subject to updates
 
 ## Install
 
