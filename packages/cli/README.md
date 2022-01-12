@@ -20,10 +20,10 @@ Command | description
 
 Installing requires the below steps
 
-- (Obtain npm token)[#obtaining-npm-token]
-- (Create `.npmrc` file)[create-the-.npmrc-file]
-- (Installing the cli)[#installing-the-cli]
-- (Adding your api-key)[#adding-your-api-key]
+- [Obtain npm token](#obtaining-npm-token)
+- [Create `.npmrc` file](create-the-.npmrc-file)
+- [Installing the cli](#installing-the-cli)
+- [Adding your api-key](#adding-your-api-key)
 
 
 ### Obtaining NPM Token
