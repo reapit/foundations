@@ -75,6 +75,8 @@ $ reapit config
 
 ## Terminology
 
+Below is a table of terminologies used in the cli with some descriptions
+
 Term | Description
 --- | ---
 Pipeline | A configuration for a deployment process
