@@ -21,7 +21,7 @@ Command | description
 Installing requires the below steps
 
 - [Obtain npm token](#obtaining-npm-token)
-- [Create `.npmrc` file](create-the-.npmrc-file)
+- [Create `.npmrc` file](create-the-npmrc-file)
 - [Installing the cli](#installing-the-cli)
 - [Adding your api-key](#adding-your-api-key)
 
@@ -57,7 +57,7 @@ $ npm i -g @reapit/cli
 
 In order to run commands you'll need to obtain an api-key in order to make authenticated requests.
 
-Get your api-key from the (reapit developers)[]
+Get your api-key from the [reapit developers]()
 
 To add your api-key to the cli, simply run the below command. This will start a prompt for your config shown below.
 
