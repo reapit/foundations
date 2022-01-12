@@ -3,36 +3,79 @@ Command line interface tool for reapit
 
 ![Deployment gif](reapit-deploy.gif)
 
+## Available commands
+
+Command | description
+--- | ---
+`reapit config` | Starts a prompt to add your config requirements
+`reapit pipeline create` | Starts the process of creating a new pipeline
+`reapit pipeline link` | Links repo with existing pipeline (downloads pipeline config to cwd)
+`reapit pipeline deploy-repo` | Starts a deployment using the github repo
+`reapit pipeline deploy-zip` | Starts a deployment using a locally built directory as source
+`reapit pipeline list` | List all pipelines for developer account
+`reapit release list` | List all pipeline releases/deployments
+`reapit release version` | Deploys a specific previously deployed version (rollback)
+
 ## Install
 
-Make sure you have an `.npmrc` file in your root and add a valid npm token to the registry url like the example below. Without a global `.npmrc` file with your provided token, you will not be able to download the cli
+Installing requires the below steps
+
+- (Obtain npm token)[#obtaining-npm-token]
+- (Create `.npmrc` file)[create-the-.npmrc-file]
+- (Installing the cli)[#installing-the-cli]
+- (Adding your api-key)[#adding-your-api-key]
+
+
+### Obtaining NPM Token
+
+Ask the reapit developers for an NPM token
+
+### Create the `.npmrc` file
+
+In your computer's root, create the file `.npmrc`, here is a method using bash
+
+```bash
+touch ~/.npmrc
+```
+Without a global `.npmrc` file with your provided token, you will not be able to download the cli
+
+Below is the following that needs to be added to the `.npmrc` file. Make sure to replace `NPM_TOKEN` with your npm token.
 
 ```
 //registry.npmjs.org/:_authToken=NPM_TOKEN
 ```
 
-> You can obtain a valid npm token from the reapit developers
+### Installing the cli
+
+Simply run the below command to install the reapit cli globally on your machine.
 
 ```bash
 $ npm i -g @reapit/cli
 ```
 
-## Api Key
+### Adding your api key
 
 In order to run commands you'll need to obtain an api-key in order to make authenticated requests.
 
 Get your api-key from the (reapit developers)[]
 
-Add your api-key to your cli
-
+To add your api-key to the cli, simply run the below command. This will start a prompt for your config shown below.
 
 ```bash
 $ reapit config
 ```
 
-You'll be prompted with an input for your api-key
-
 ![Config Snapsot](snapshots/config.png)
+
+
+## Terminology
+
+Term | Description
+---
+Pipeline | A configuration for a deployment process
+Pipeline Runner, Deployment | A running/individual deployment of a pipeline
+Rollback | The ability to make a previously deployed version live
+
 ## Deployment
 
 > First make sure you've created a pipeline by either the UI or the cli using `reapit pipeline create`.
