@@ -4,7 +4,7 @@ import YAML from 'yaml'
 import fs from 'fs'
 import path from 'path'
 
-export const processYarnLock = (yarnLockLocation: string, { outDir, tmpDir, subdirs }: Context) => {
+export const processYarnLock = (yarnLockLocation: string, { tmpDir, subdirs, packagesRoot }: Context) => {
   const mainLock = YAML.parse(fs.readFileSync(path.resolve(yarnLockLocation), 'utf8'))
 
   Object.keys(mainLock)
@@ -18,7 +18,7 @@ export const processYarnLock = (yarnLockLocation: string, { outDir, tmpDir, subd
       } else {
         // filter out devDependencies
         // read original package.json cos we removed devDeps from the copy
-        const pkgJsonPath = path.resolve(outDir, folderName, 'package.json')
+        const pkgJsonPath = path.resolve(packagesRoot, folderName, 'package.json')
         const pkgJson = JSON.parse(fs.readFileSync(pkgJsonPath, 'utf8'))
         const devDeps = pkgJson.devDependencies ? Object.keys(pkgJson.devDependencies) : []
         Object.keys(mainLock[lockDepName].dependencies).forEach((depName) => {

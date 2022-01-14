@@ -3,12 +3,12 @@ import fs from 'fs'
 
 import { Context } from './ts-bundler'
 
-export const processWorkspaceDeps = ({ subdirs, outDir, packagesRoot, monorepoNamespace }: Context) => {
+export const processWorkspaceDeps = ({ subdirs, tmpDir, packagesRoot, monorepoNamespace }: Context) => {
   const toCopy: string[] = []
 
   subdirs.forEach((moduleName) => {
     console.log(`Processing ${moduleName}`)
-    const moduleBuildDir = path.resolve(outDir, moduleName)
+    const moduleBuildDir = path.resolve(tmpDir, 'packages', moduleName)
     const moduleSourceDir = path.resolve(packagesRoot, moduleName)
 
     const pkgJson = path.resolve(moduleSourceDir, 'package.json')
