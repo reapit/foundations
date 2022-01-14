@@ -1,0 +1,15 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`ToolTip should match a snapshot and render children 1`] = `
+<ElToolTipContainer
+  onMouseOut={[Function]}
+  onMouseOver={[Function]}
+>
+  Hover here
+  <ToolTipChild
+    active={false}
+  >
+    hello there
+  </ToolTipChild>
+</ElToolTipContainer>
+`;
