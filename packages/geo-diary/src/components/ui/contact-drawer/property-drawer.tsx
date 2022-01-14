@@ -67,8 +67,6 @@ export const PropertyDrawer: FC = () => {
   const address = property?.address
   const keys = property?.keys
 
-  console.log('keys', keys)
-
   if (!appointment || !property) return null
 
   const { viewingArrangements, notes } = property
