@@ -10739,6 +10739,10 @@ export interface PropertyModel {
      */
     price?: number // double
     /**
+     * The maximum price of a property on the development plot
+     */
+    priceTo?: number // double
+    /**
      * The price qualifier (askingPrice/priceOnApplication/guidePrice/offersInRegion/offersOver/offersInExcess/fixedPrice/priceReducedTo)
      */
     qualifier?: string
@@ -11304,6 +11308,10 @@ export interface PropertyModelPagedResult {
        */
       price?: number // double
       /**
+       * The maximum price of a property on the development plot
+       */
+      priceTo?: number // double
+      /**
        * The price qualifier (askingPrice/priceOnApplication/guidePrice/offersInRegion/offersOver/offersInExcess/fixedPrice/priceReducedTo)
        */
       qualifier?: string
@@ -11654,6 +11662,10 @@ export interface PropertySellingModel {
    * The marketing price of the property
    */
   price?: number // double
+  /**
+   * The maximum price of a property on the development plot
+   */
+  priceTo?: number // double
   /**
    * The price qualifier (askingPrice/priceOnApplication/guidePrice/offersInRegion/offersOver/offersInExcess/fixedPrice/priceReducedTo)
    */
