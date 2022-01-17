@@ -188,4 +188,38 @@ type ObjectType = {
   </Story>
 </Canvas>
 
+Default Value
+
+<Canvas>
+  <Story name="Default Value">
+    <SearchableDropdownSearchLabel>Select an option</SearchableDropdownSearchLabel>
+    <SearchableDropdown
+      getResults={async () => {
+        return new Promise((resolve) => {
+          setTimeout(() => {
+            resolve([
+              {
+                id: '1',
+                name: 'First',
+              },
+              {
+                id: '2',
+                name: 'Second',
+              },
+              {
+                id: '3',
+                name: 'Third',
+              },
+            ])
+          }, 1000)
+        })
+      }}
+      getResultLabel={(result) => result.name}
+      getResultValue={(result) => result.id}
+      onChange={(e) => console.log(e.target.value)}
+      defaultVal={{id: '4', name: 'Forth'}}
+    />
+  </Story>
+</Canvas>
+
 <RenderHtmlMarkup component="SearchableDropdown" story="Controlled Usage" />

@@ -16,6 +16,7 @@ export interface SearchableDropdownProps<T> extends React.InputHTMLAttributes<HT
   getResultValue: (result: T) => string
   getResultLabel: (result: T) => string
   icon?: IconNames
+  defaultVal?: T
 }
 
 export interface ControlledSearchableDropdownProps<T> extends React.InputHTMLAttributes<HTMLInputElement> {
@@ -23,6 +24,7 @@ export interface ControlledSearchableDropdownProps<T> extends React.InputHTMLAtt
   isClearVisible: boolean
   loading: boolean
   selectedValue: string
+  defaultLabel?: string
   resultsList: { label: string; result: T }[]
   onResultClick: (result: { label: string; result: T }) => void
   onClear: () => void
@@ -42,44 +44,49 @@ export const SearchableDropdownControlledInner = <T extends unknown>(
     isClearVisible,
     value,
     selectedValue,
+    defaultLabel,
     ...inputProps
   }: ControlledSearchableDropdownProps<T>,
   ref: React.ForwardedRef<HTMLInputElement>,
-) => (
-  <ElSearchableDropdownContainer>
-    <input style={{ display: 'none' }} readOnly value={selectedValue} ref={ref} />
-    <ElSearchableDropdownSearchInputAddOn>
-      <Icon icon={icon} />
-    </ElSearchableDropdownSearchInputAddOn>
-    <ElSearchableDropdownSearchInput value={value} {...inputProps} />
-    {isResultsListVisible && (
-      <ElSearchableDropdownResultsContainer>
-        {resultsList.map((result) => (
-          <ElSearchableDropdownResult key={generateRandomId()} onClick={() => onResultClick(result)}>
-            {result.label}
-          </ElSearchableDropdownResult>
-        ))}
-        {!loading && !resultsList.length && <ElSearchableDropdownResult>No results found</ElSearchableDropdownResult>}
-      </ElSearchableDropdownResultsContainer>
-    )}
-    {loading && <ElSearchableDropdownSearchLoader />}
-    {isClearVisible && <ElSearchableDropdownCloseButton icon="closeSystem" onClick={onClear} />}
-  </ElSearchableDropdownContainer>
-)
+) => {
+  return (
+    <ElSearchableDropdownContainer>
+      <input style={{ display: 'none' }} readOnly value={selectedValue} ref={ref} />
+      <ElSearchableDropdownSearchInputAddOn>
+        <Icon icon={icon} />
+      </ElSearchableDropdownSearchInputAddOn>
+      <ElSearchableDropdownSearchInput value={value || defaultLabel} {...inputProps} />
+      {isResultsListVisible && (
+        <ElSearchableDropdownResultsContainer>
+          {resultsList.map((result) => (
+            <ElSearchableDropdownResult key={generateRandomId()} onClick={() => onResultClick(result)}>
+              {result.label}
+            </ElSearchableDropdownResult>
+          ))}
+          {!loading && !resultsList.length && <ElSearchableDropdownResult>No results found</ElSearchableDropdownResult>}
+        </ElSearchableDropdownResultsContainer>
+      )}
+      {loading && <ElSearchableDropdownSearchLoader />}
+      {isClearVisible && <ElSearchableDropdownCloseButton icon="closeSystem" onClick={onClear} />}
+    </ElSearchableDropdownContainer>
+  )
+}
 
 export const ControlledSearchableDropdown = forwardRef(SearchableDropdownControlledInner) as <T>(
   props: ControlledSearchableDropdownProps<T> & { ref?: React.ForwardedRef<HTMLInputElement> },
 ) => ReturnType<typeof SearchableDropdownControlledInner>
 
 export const SearchableDropdownInner = <T extends unknown>(
-  { getResults, icon, getResultValue, getResultLabel, onChange, ...inputProps }: SearchableDropdownProps<T>,
+  { getResults, icon, getResultValue, getResultLabel, onChange, defaultVal, ...inputProps }: SearchableDropdownProps<T>,
   ref: React.ForwardedRef<HTMLInputElement>,
 ) => {
+  const defaultValue = defaultVal ? getResultValue(defaultVal) : ''
+  const defaultLabel = defaultVal ? getResultLabel(defaultVal) : ''
   const [value, setValue] = React.useState('')
   const [loading, setLoading] = React.useState(false)
-  const [resultsList, setResultsList] = React.useState<T[]>([])
+  const [resultsList, setResultsList] = React.useState<T[]>(defaultVal ? [defaultVal] : [])
   const [resultsVisible, setResultsVisible] = React.useState(false)
-  const [selectedValue, setSelectedValue] = React.useState('')
+  const [selectedValue, setSelectedValue] = React.useState(defaultValue)
 
   useEffect(() => {
     if (value.length > 2 && !resultsList.map(getResultLabel).includes(value)) {
@@ -137,6 +144,7 @@ export const SearchableDropdownInner = <T extends unknown>(
         handleSelectionChange(label, getResultValue(result))
       }}
       selectedValue={selectedValue}
+      defaultLabel={defaultLabel}
       onClear={() => handleSelectionChange('', '')}
       isClearVisible={!!selectedValue && !loading}
       {...inputProps}
