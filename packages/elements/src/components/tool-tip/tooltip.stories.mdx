@@ -1,0 +1,29 @@
+import { Story, Canvas, ArgsTable } from '@storybook/addon-docs/blocks'
+import { ToolTip, ToolTipChild } from './index'
+import { RenderHtmlMarkup } from '../../storybook/render-html-markup'
+import { ToolTipStoryComponent } from './tool-tip-story-component'
+
+<Meta title="ToolTip" component={ToolTip} />
+
+# Tool Tip
+
+## Basic Usage
+
+A tool tip is used for hovering over text and displaying additional info. Below is an example of what the tool tip looks like.
+
+<Canvas>
+  <Story name="Basic Usage">
+    <ToolTipStoryComponent />
+  </Story>
+</Canvas>
+
+
+In this example, you can hover over the text and the tool tip will be displayed
+
+<Canvas>
+  <Story name="Toggle Tool tip">
+    <div style={{padding: "20px 0px"}}>
+      <ToolTip tip="Hello there">Hover Here</ToolTip>
+    </div>
+  </Story>
+</Canvas>
