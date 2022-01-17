@@ -24,7 +24,6 @@ export interface ControlledSearchableDropdownProps<T> extends React.InputHTMLAtt
   isClearVisible: boolean
   loading: boolean
   selectedValue: string
-  defaultLabel?: string
   resultsList: { label: string; result: T }[]
   onResultClick: (result: { label: string; result: T }) => void
   onClear: () => void
@@ -44,7 +43,6 @@ export const SearchableDropdownControlledInner = <T extends unknown>(
     isClearVisible,
     value,
     selectedValue,
-    defaultLabel,
     ...inputProps
   }: ControlledSearchableDropdownProps<T>,
   ref: React.ForwardedRef<HTMLInputElement>,
@@ -55,7 +53,7 @@ export const SearchableDropdownControlledInner = <T extends unknown>(
       <ElSearchableDropdownSearchInputAddOn>
         <Icon icon={icon} />
       </ElSearchableDropdownSearchInputAddOn>
-      <ElSearchableDropdownSearchInput value={value || defaultLabel} {...inputProps} />
+      <ElSearchableDropdownSearchInput value={value} {...inputProps} />
       {isResultsListVisible && (
         <ElSearchableDropdownResultsContainer>
           {resultsList.map((result) => (
@@ -131,7 +129,7 @@ export const SearchableDropdownInner = <T extends unknown>(
           setResultsVisible(false)
         }, 200)
       }}
-      value={value}
+      value={value || defaultLabel}
       ref={ref}
       isResultsListVisible={resultsVisible}
       icon={icon || 'searchSystem'}
@@ -144,7 +142,6 @@ export const SearchableDropdownInner = <T extends unknown>(
         handleSelectionChange(label, getResultValue(result))
       }}
       selectedValue={selectedValue}
-      defaultLabel={defaultLabel}
       onClear={() => handleSelectionChange('', '')}
       isClearVisible={!!selectedValue && !loading}
       {...inputProps}
