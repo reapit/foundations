@@ -1,7 +1,7 @@
 import React, { FC, Suspense } from 'react'
 import { useReapitConnect } from '@reapit/connect-session'
 import { Nav } from '../components/ui/nav/nav'
-import { reapitConnectBrowserSession } from '../core/connect-session'
+import { reapitConnectBrowserSession } from './connect-session'
 import { useLocation, Redirect } from 'react-router'
 import { Loader, MainContainer, PageContainer } from '@reapit/elements'
 
@@ -29,11 +29,7 @@ export const PrivateRouteWrapper: FC<PrivateRouteWrapperProps> = ({ children }) 
   return (
     <MainContainer>
       <Nav />
-      <PageContainer>
-        <PageContainer>
-          <Suspense fallback={<Loader label="Loading" fullPage />}>{children}</Suspense>
-        </PageContainer>
-      </PageContainer>
+      <Suspense fallback={<Loader label="Loading" fullPage />}>{children}</Suspense>
     </MainContainer>
   )
 }

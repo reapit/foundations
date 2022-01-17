@@ -3,18 +3,20 @@ import { ListItemModel } from '@reapit/foundations-ts-definitions'
 import { URLS, BASE_HEADERS } from '../constants/api'
 
 export const configurationAppointmentsApiService = async (
-  session: ReapitConnectSession,
+  session: ReapitConnectSession | null,
 ): Promise<ListItemModel[] | undefined> => {
   try {
+    if (!session) return
+
     const response = await fetch(`${window.reapit.config.platformApiUrl}${URLS.CONFIGURATION_APPOINTMENT_TYPES}`, {
       method: 'GET',
       headers: {
         ...BASE_HEADERS,
-        Authorization: `Bearer ${session.accessToken}`,
+        Authorization: `Bearer ${session?.accessToken}`,
       },
     })
 
-    if (response && response.ok) {
+    if (response.ok) {
       const responseJson: Promise<ListItemModel[] | undefined> = response.json()
       return responseJson
     }

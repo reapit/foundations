@@ -9,16 +9,6 @@ jest.mock('../../components/ui/nav/nav', () => ({ Nav: () => <div /> }))
 
 const history = createBrowserHistory()
 
-jest.mock('@reapit/connect-session', () => ({
-  ReapitConnectBrowserSession: jest.fn(),
-  useReapitConnect: () => ({
-    connectSession: {
-      loginIdentity: {},
-    },
-    connectInternalRedirect: '',
-  }),
-}))
-
 describe('PrivateRouter', () => {
   it('should match a snapshot', () => {
     expect(
