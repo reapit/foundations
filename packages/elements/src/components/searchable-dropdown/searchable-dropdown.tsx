@@ -79,8 +79,7 @@ export const SearchableDropdownInner = <T extends unknown>(
   ref: React.ForwardedRef<HTMLInputElement>,
 ) => {
   const defaultValue = defaultVal ? getResultValue(defaultVal) : ''
-  const defaultLabel = defaultVal ? getResultLabel(defaultVal) : ''
-  const [value, setValue] = React.useState('')
+  const [value, setValue] = React.useState(defaultVal ? getResultLabel(defaultVal) : '')
   const [loading, setLoading] = React.useState(false)
   const [resultsList, setResultsList] = React.useState<T[]>(defaultVal ? [defaultVal] : [])
   const [resultsVisible, setResultsVisible] = React.useState(false)
@@ -129,7 +128,7 @@ export const SearchableDropdownInner = <T extends unknown>(
           setResultsVisible(false)
         }, 200)
       }}
-      value={value || defaultLabel}
+      value={value}
       ref={ref}
       isResultsListVisible={resultsVisible}
       icon={icon || 'searchSystem'}
