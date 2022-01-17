@@ -10,7 +10,14 @@ export const createApi = (
   cognitoUserPoolId?: string,
   allowCors: boolean = true,
   allowOrigins: string[] = ['*'],
-  allowHeaders: string[] = ['Content-Type', 'Authorization', 'X-Api-Key', 'api-version'],
+  allowHeaders: string[] = [
+    'Content-Type',
+    'Authorization',
+    'X-Api-Key',
+    'api-version',
+    'reapit-connect-token',
+    'reapit-customer',
+  ],
 ): apigateway.RestApi | apigateway.LambdaRestApi => {
   let defaultMethodOptions: apigateway.MethodOptions | undefined = undefined
   if (cognitoUserPoolId) {
