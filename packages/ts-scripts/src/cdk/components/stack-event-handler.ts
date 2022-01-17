@@ -16,4 +16,8 @@ export const createStackEventHandler = (
   })
 }
 
-export { OnEventHandler, OnEventRequest, OnEventResponse } from 'aws-cdk-lib/custom-resources/lib/provider-framework/types'
+export {
+  OnEventHandler,
+  OnEventRequest,
+  OnEventResponse,
+} from 'aws-cdk-lib/custom-resources/lib/provider-framework/types'
