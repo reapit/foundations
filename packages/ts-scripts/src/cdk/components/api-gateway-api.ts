@@ -8,7 +8,7 @@ export const createApi = (
   name: string,
   lambdaFunction?: lambda.Function,
   cognitoUserPoolId?: string,
-  allowCors?: boolean,
+  allowCors: boolean = true,
   allowOrigins: string[] = ['*'],
   allowHeaders: string[] = ['Content-Type', 'Authorization', 'X-Api-Key', 'api-version'],
 ): apigateway.RestApi | apigateway.LambdaRestApi => {
