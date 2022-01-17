@@ -2,7 +2,6 @@
 
 exports[`ControlledSearchableDropdown component should display default value 1`] = `
 <ForwardRef(SearchableDropdownControlledInner)
-  defaultLabel="Forth"
   icon="searchSystem"
   isClearVisible={true}
   isResultsListVisible={false}
@@ -24,7 +23,7 @@ exports[`ControlledSearchableDropdown component should display default value 1`]
     ]
   }
   selectedValue="4"
-  value=""
+  value="Forth"
 />
 `;
 
@@ -52,7 +51,6 @@ exports[`ControlledSearchableDropdown component should match a snapshot 1`] = `
 
 exports[`SearchableDropdown component should match a snapshot 1`] = `
 <ForwardRef(SearchableDropdownControlledInner)
-  defaultLabel=""
   icon="searchSystem"
   isClearVisible={false}
   isResultsListVisible={false}
