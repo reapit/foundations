@@ -29,11 +29,12 @@ export const useUpdateApp = () => {
 
 export const useUpdatePage = () => {
   const client = useApolloClient()
-  const { updateApp } = useUpdateApp()
+  const { updateApp, loading } = useUpdateApp()
 
   const updatePage = async (appId: string, page: Partial<Page>) => {
     const { data } = await client.query<{ _getApp: App }>({ query: GetAppQuery, variables: { idOrSubdomain: appId } })
     const app: App = data?._getApp
+
     if (app) {
       const pages = app.pages.map((p: Page) => {
         return p.id === page.id ? { ...p, ...page } : p
@@ -47,12 +48,12 @@ export const useUpdatePage = () => {
     }
   }
 
-  return { updatePage }
+  return { updatePage, loading }
 }
 
 export const useDeletePage = () => {
   const client = useApolloClient()
-  const { updateApp } = useUpdateApp()
+  const { updateApp, loading } = useUpdateApp()
 
   const deletePage = async (appId: string, pageId: string) => {
     const { data } = await client.query({ query: GetAppQuery, variables: { idOrSubdomain: appId } })
@@ -64,5 +65,5 @@ export const useDeletePage = () => {
     }
   }
 
-  return { deletePage }
+  return { deletePage, loading }
 }

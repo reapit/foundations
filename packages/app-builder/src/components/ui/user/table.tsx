@@ -11,6 +11,7 @@ import { useObjectSearch } from '@/components/hooks/objects/use-object-search'
 import { getAvailableIntegrationsForArgs } from '@/core/desktop-integration'
 import { useObjectList } from '@/components/hooks/objects/use-object-list'
 import { useIntrospection } from '@/components/hooks/use-introspection'
+import { CreatePage } from './create-page'
 
 const defaultProps = {}
 
@@ -63,6 +64,16 @@ const TableSettings = () => {
   const subobjects = useSubObjects(typeName)
   const { specials } = useObjectSpecials(typeName)
   const { available: searchAvailable } = useObjectSearch(typeName)
+  const {
+    actions: { setProp },
+  } = useNode()
+
+  const sp = (prop: string, value: any) => {
+    setProp((props) => {
+      props[prop] = value
+      return props
+    })
+  }
 
   return (
     <>
@@ -85,7 +96,14 @@ const TableSettings = () => {
           </option>
         </ToolbarItem>
       </ToolbarSection>
-      <DestinationPage sectionTitle="Edit Page" propKey="editPageId" title="Edit Page" />
+      <DestinationPage
+        sectionTitle="Edit Page"
+        propKey="editPageId"
+        title="Edit Page"
+        createControl={
+          <CreatePage typeName={typeName} operationType="update" onCreate={(pageId) => sp('editPageId', pageId)} />
+        }
+      />
       <IntegrationLanding typeName={typeName} />
       {subobjects.data.map((subobject) => (
         <DestinationPage
@@ -93,6 +111,13 @@ const TableSettings = () => {
           propKey={`${subobject.object.name}Page`}
           key={subobject.object.name}
           title={`${subobject.object.name} page`}
+          createControl={
+            <CreatePage
+              typeName={subobject.object.name}
+              operationType="list"
+              onCreate={(pageId) => sp(`${subobject.object.name}Page`, pageId)}
+            />
+          }
         />
       ))}
       {specials.map((special) => (
@@ -101,6 +126,13 @@ const TableSettings = () => {
           propKey={`${special.name}Page`}
           key={special.name}
           title={`${special.name} page`}
+          createControl={
+            <CreatePage
+              typeName={typeName}
+              operationType={special.name}
+              onCreate={(pageId) => sp(`${special.name}Page`, pageId)}
+            />
+          }
         />
       ))}
       <ToolbarSection

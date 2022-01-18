@@ -28,13 +28,16 @@ export const DestinationPage = ({
   sectionTitle,
   propKey,
   title,
+  createControl,
 }: {
   sectionTitle?: string
   propKey: string
   title: string
+  createControl?: React.ReactNode
 }) => {
   const { appId } = usePageId()
   const { app } = useApp(appId)
+  const propValue = useNode((node) => node.data.props[propKey])
 
   return (
     <ToolbarSection
@@ -44,14 +47,17 @@ export const DestinationPage = ({
         return `link to ${obj[propKey] || ''}`
       }}
     >
-      <ToolbarItem type={ToolbarItemType.Select} propKey={propKey} title={title}>
-        {app?.pages.map(({ id: value, name: label }) => (
-          <option key={value} value={value}>
-            {label || 'Home'}
-          </option>
-        ))}
-        <option value="">Select a page</option>
-      </ToolbarItem>
+      {((propValue && createControl) || !createControl) && (
+        <ToolbarItem type={ToolbarItemType.Select} propKey={propKey} title={title}>
+          {app?.pages.map(({ id: value, name: label }) => (
+            <option key={value} value={value}>
+              {label || 'Home'}
+            </option>
+          ))}
+          <option value="">Select a page</option>
+        </ToolbarItem>
+      )}
+      {createControl}
       <ToolbarItem type={ToolbarItemType.Select} title="Printable QR Code?" propKey={`${propKey}PrintableQR`}>
         <option value="true">Yes</option>
         <option value="">No</option>

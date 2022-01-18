@@ -1,0 +1,149 @@
+import { NodeTree, SerializedNode, useEditor } from '@craftjs/core'
+import { serializeNode } from '../../../utils/serializeNode'
+import { Button } from '@reapit/elements'
+import { newPage } from '../header/PageSelector'
+import { useUpdatePage } from '@/components/hooks/apps/use-update-app'
+import { nodesObjtoToArr } from '@/components/hooks/apps/node-helpers'
+import { usePageId } from '@/components/hooks/use-page-id'
+import { useApp } from '@/components/hooks/apps/use-app'
+import { emptyState } from '@/components/hooks/apps/emptyState'
+import { useObjectMutate } from '@/components/hooks/objects/use-object-mutate'
+import { ParsedArg } from '@/components/hooks/use-introspection/query-generators'
+import { FormInput } from './form-input'
+import Form from './form'
+import { resolver } from '@/components/pages/home'
+import React from 'react'
+import Container from './container'
+import Text from './text'
+
+const constructPageNodes = (
+  typeName: string,
+  operationType: string,
+  reactElementToNodeTree: (element: React.ReactElement) => NodeTree,
+  args?: ParsedArg[],
+  sourcePageId?: string,
+  pageTitle?: string,
+): Record<string, SerializedNode> => {
+  const { ROOT } = emptyState
+
+  const nodes = {}
+
+  if (operationType === 'list') {
+    // table
+    nodes['743hfu'] = {
+      type: { resolvedName: 'Table' },
+      isCanvas: false,
+      props: { width: 12, typeName },
+      displayName: 'Table',
+      custom: null,
+      parent: 'ROOT',
+      hidden: false,
+      nodes: [],
+      linkedNodes: {},
+    }
+  } else {
+    const nodesArr: string[] = []
+    const formNodes = {
+      ROOT: {
+        ...ROOT,
+        nodes: nodesArr,
+      },
+    }
+    if (!args) {
+      return formNodes
+    }
+
+    const inputs = args[0].fields?.map(({ name, isRequired }) => ({
+      name,
+      typeName,
+      formType: operationType,
+      isRequired,
+    }))
+
+    if (inputs) {
+      const containerNodeTree = reactElementToNodeTree(<Container width={12} />)
+      const formNodeTree = reactElementToNodeTree(<Form width={12} destination={sourcePageId} />)
+      const titleNodeTree = reactElementToNodeTree(<Text width={12} fontSize={21} text={pageTitle || ''} />)
+      const titleEle = serializeNode(titleNodeTree.nodes[titleNodeTree.rootNodeId].data, resolver)
+      const formEle = serializeNode(formNodeTree.nodes[formNodeTree.rootNodeId].data, resolver)
+      const containerEle = serializeNode(containerNodeTree.nodes[containerNodeTree.rootNodeId].data, resolver)
+
+      containerNodeTree.nodes[containerNodeTree.rootNodeId].data.nodes.push(titleNodeTree.rootNodeId)
+      containerNodeTree.nodes[containerNodeTree.rootNodeId].data.nodes.push(formNodeTree.rootNodeId)
+
+      inputs
+        .map((props) => reactElementToNodeTree(<FormInput {...props} />))
+        .forEach((nodeTree) => {
+          Object.entries(nodeTree.nodes).forEach(([key, node]) => {
+            formNodes[key] = serializeNode(node.data, resolver)
+          })
+          formEle.nodes.push(nodeTree.rootNodeId)
+        })
+
+      nodesArr.push(containerNodeTree.rootNodeId)
+      formNodes[containerNodeTree.rootNodeId] = containerEle
+      formNodes[formNodeTree.rootNodeId] = formEle
+      formNodes[titleNodeTree.rootNodeId] = titleEle
+    }
+
+    return formNodes
+  }
+
+  return {
+    ROOT: {
+      ...ROOT,
+      nodes: Object.keys(nodes),
+    },
+    ...nodes,
+  }
+}
+
+export const CreatePage = ({
+  typeName,
+  operationType,
+  onCreate,
+}: {
+  typeName: string | undefined
+  operationType?: 'list' | string
+  onCreate: (pageId: string) => void
+}) => {
+  const { updatePage, loading } = useUpdatePage()
+  const { appId, pageId: sourcePageId } = usePageId()
+  const { app } = useApp(appId)
+  const { args } = useObjectMutate(operationType || '', operationType ? typeName : undefined)
+  const { parseReactElement } = useEditor((state, query) => ({
+    parseReactElement: query.parseReactElement,
+  }))
+
+  const onClick = () => {
+    if (!typeName || !operationType) {
+      return
+    }
+    const pageId = [typeName, operationType].join('-')
+    if (!app?.pages.some((page) => page.id === pageId)) {
+      const page = newPage(pageId)
+      page.nodes = constructPageNodes(
+        typeName,
+        operationType,
+        (element: any) => {
+          return parseReactElement(element).toNodeTree()
+        },
+        args,
+        sourcePageId,
+        [operationType, typeName].join(' '),
+      )
+      updatePage(appId, {
+        ...page,
+        nodes: nodesObjtoToArr(appId, page.id, page.nodes),
+      }).then(() => {
+        onCreate(pageId)
+      })
+    }
+  }
+
+  return (
+    <Button onClick={onClick} loading={loading}>
+      Create
+    </Button>
+  )
+}
