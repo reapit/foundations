@@ -46,7 +46,7 @@ export const createStack = () => {
     appName: 'deployment',
     component: 'service',
   })
-  const api = createApi(stack, 'apigateway', undefined, undefined, true)
+  const api = createApi(stack, 'apigateway', undefined)
   const vpc = createVpc(stack, 'vpc')
   const buckets = createS3Buckets(stack)
   const queues = createSqsQueues(stack)

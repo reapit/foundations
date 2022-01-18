@@ -39,7 +39,7 @@ const createStack = () => {
   const entrypoint = path.resolve(__dirname, 'bundle.zip')
 
   const lambdaFunction = createFunction(stack, 'graphql', entrypoint, handler, config)
-  const api = createApi(stack, 'api', lambdaFunction, config.COGNITO_USERPOOL_ID)
+  const api = createApi(stack, 'api', lambdaFunction)
   output(stack, 'api-url', api.url)
 }
 
