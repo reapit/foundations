@@ -1,7 +1,7 @@
 import * as React from 'react'
 import { Route, Router as BrowserRouter, Switch, Redirect } from 'react-router-dom'
 import { createBrowserHistory } from 'history'
-import Routes from '../constants/routes'
+import { Routes } from '../constants/routes'
 import PrivateRouteWrapper from './private-route-wrapper'
 
 export const history = createBrowserHistory()
@@ -28,8 +28,10 @@ export const catchChunkError = (
   })
 }
 
-const LoginPage = React.lazy(() => catchChunkError(() => import('../components/pages/login')))
-const AuthenticatedPage = React.lazy(() => catchChunkError(() => import('../components/pages/authenticated')))
+const LoginPage = React.lazy(() => catchChunkError(() => import('../components/pages/login-page')))
+const HomePage = React.lazy(() => catchChunkError(() => import('../components/pages/home-page')))
+const ExamplesPage = React.lazy(() => catchChunkError(() => import('../components/pages/examples-page')))
+const DataPage = React.lazy(() => catchChunkError(() => import('../components/pages/data-page')))
 
 const Router = () => (
   <BrowserRouter history={history}>
@@ -38,7 +40,11 @@ const Router = () => (
         <Route path={Routes.LOGIN} component={LoginPage} />
         <PrivateRouteWrapper>
           <Switch>
-            <Route path={Routes.HOME} component={AuthenticatedPage} />
+            <Route path={Routes.HOME} exact component={HomePage} />
+            <Route path={Routes.FORM} exact component={ExamplesPage} />
+            <Route path={Routes.TABLE} exact component={ExamplesPage} />
+            <Route path={Routes.LIST} exact component={ExamplesPage} />
+            <Route path={Routes.DATA} exact component={DataPage} />
           </Switch>
         </PrivateRouteWrapper>
         <Redirect to={Routes.LOGIN} />
