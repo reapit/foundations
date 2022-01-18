@@ -21,10 +21,13 @@ export * from './toolbar-dropdown'
 export * from './types'
 
 const Toolbar: FC = () => {
-  const { active, related } = useEditor((state) => ({
-    active: state.events.selected,
-    related: state.events.selected && state.nodes[state.events.selected].related,
-  }))
+  const { active, related } = useEditor((state, query) => {
+    const currentlySelectedNodeId = query.getEvent('selected').first()
+    return {
+      active: currentlySelectedNodeId,
+      related: currentlySelectedNodeId && state.nodes[currentlySelectedNodeId].related,
+    }
+  })
 
   return (
     <div className={cx(elPy1, elHFull)}>

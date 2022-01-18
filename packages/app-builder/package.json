@@ -22,8 +22,8 @@
   },
   "dependencies": {
     "@apollo/client": "^3.5.6",
-    "@craftjs/core": "^0.1.0",
-    "@craftjs/layers": "^0.1.0",
+    "@craftjs/core": "0.2.0-beta.2",
+    "@craftjs/layers": "0.2.0-beta.2",
     "@linaria/core": "^3.0.0-beta.15",
     "@linaria/react": "^3.0.0-beta.15",
     "@reapit/connect-session": "workspace:packages/connect-session",

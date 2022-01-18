@@ -4683,47 +4683,48 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@craftjs/core@npm:^0.1.0":
-  version: 0.1.0
-  resolution: "@craftjs/core@npm:0.1.0"
+"@craftjs/core@npm:0.2.0-beta.2":
+  version: 0.2.0-beta.2
+  resolution: "@craftjs/core@npm:0.2.0-beta.2"
   dependencies:
-    "@craftjs/utils": ^0.1.0
+    "@craftjs/utils": ^0.2.0-beta.2
     "@types/react": ^17.0.5
     debounce: ^1.2.0
     lodash: ^4.17.20
     tiny-invariant: ^1.0.6
   peerDependencies:
-    react: ">=16.8.0"
-  checksum: 156b1fcfcd91452888343b313ea60febeb09f3f6ecf4e1130321310764692a89994fb40f0ffe9d06876068cb4c47453d04b06c7d890eb20e3ca679b9c014e371
+    react: ^16.8.0 || ^17
+  checksum: 7080851289cafd0aa44de3965bd07f92363874b8bbdd4ba48a25842da236be18baf14ec3b61feee30b823e9dc86fa04622bcf924886d444972d5d9d92f3e9dbd
   languageName: node
   linkType: hard
 
-"@craftjs/layers@npm:^0.1.0":
-  version: 0.1.0
-  resolution: "@craftjs/layers@npm:0.1.0"
+"@craftjs/layers@npm:0.2.0-beta.2":
+  version: 0.2.0-beta.2
+  resolution: "@craftjs/layers@npm:0.2.0-beta.2"
   dependencies:
-    "@craftjs/utils": ^0.1.0
+    "@craftjs/utils": ^0.2.0-beta.2
+    react-contenteditable: ^3.3.3
   peerDependencies:
-    "@craftjs/core": ^0.1.0-alpha.1
-    react: ">=16.8.0"
+    "@craftjs/core": ^0.2.0-alpha.19
+    react: ^16.8.0 || ^17
     styled-components: ">= 4"
-  checksum: 2b84d55e56ef98bee71b355e7b263b3956dd2485ec5b8e5adece56ee08b61a51672b9ed8fd5635c7df66298ee25d9601ce85433fc5aea7a952f0105588ce976e
+  checksum: 26529e283c80350afd98fa7a273b38c101e4aa60cc4c3ab5aac51579d2005bad810d05d28cd615add4602300d32335051fb28ae14c720700b2e3370eed0614dc
   languageName: node
   linkType: hard
 
-"@craftjs/utils@npm:^0.1.0":
-  version: 0.1.0
-  resolution: "@craftjs/utils@npm:0.1.0"
+"@craftjs/utils@npm:^0.2.0-beta.2":
+  version: 0.2.0-beta.2
+  resolution: "@craftjs/utils@npm:0.2.0-beta.2"
   dependencies:
     "@types/react": ^17.0.5
-    immer: ^8.0.1
+    immer: ^9.0.6
     lodash: ^4.17.20
     nanoid: ^3.1.23
     shallowequal: ^1.1.0
     tiny-invariant: ^1.0.6
   peerDependencies:
-    react: ">=16.8.0"
-  checksum: 56eac9b97dd645d2ac3159b227e7bcd67ceaf389e8b4bef5f4d307502da1b508d9912433087dea417d7a3f64ed7a260f627c4b292ee94e4968189459323ff94e
+    react: ^16.8.0 || ^17
+  checksum: 3a34e3f28592ad97a750b36dc8dc1772e57a506373fd16e1e267259e273a8872ba3fc20ed15d366c09a5d2da9055ef3906827abdcb5fd9d1572cd5a94f444ea1
   languageName: node
   linkType: hard
 
@@ -8178,8 +8179,8 @@ __metadata:
   resolution: "@reapit/app-builder@workspace:packages/app-builder"
   dependencies:
     "@apollo/client": ^3.5.6
-    "@craftjs/core": ^0.1.0
-    "@craftjs/layers": ^0.1.0
+    "@craftjs/core": 0.2.0-beta.2
+    "@craftjs/layers": 0.2.0-beta.2
     "@linaria/core": ^3.0.0-beta.15
     "@linaria/react": ^3.0.0-beta.15
     "@linaria/shaker": ^3.0.0-beta.15
@@ -26210,10 +26211,10 @@ fsevents@^1.2.7:
   languageName: node
   linkType: hard
 
-"immer@npm:^8.0.1":
-  version: 8.0.4
-  resolution: "immer@npm:8.0.4"
-  checksum: 9d3b28df1ac5bf6918c611e71c15bdb136588c21a3431100448f21325fef9b055cc9a44fe8b023f0c5ecbc66a2ba38f403c9a67d581f613b49d0e4ff15564f79
+"immer@npm:^9.0.6":
+  version: 9.0.12
+  resolution: "immer@npm:9.0.12"
+  checksum: bcbec6d76dac65e49068eb67ece4d407116e62b8cde3126aa89c801e408f5047763ba0aeb62f1938c1aa704bb6612f1d8302bb2a86fa1fc60fcc12d8b25dc895
   languageName: node
   linkType: hard
 
@@ -35861,7 +35862,7 @@ fsevents@^1.2.7:
   languageName: node
   linkType: hard
 
-"react-contenteditable@npm:^3.3.6":
+"react-contenteditable@npm:^3.3.3, react-contenteditable@npm:^3.3.6":
   version: 3.3.6
   resolution: "react-contenteditable@npm:3.3.6"
   dependencies:
