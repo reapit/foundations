@@ -154,6 +154,8 @@ export default (app) => {
       return
     }
 
+    console.log('issue author', issue.data.author_association)
+
     if (['OWNER', 'MEMBER'].includes(issue.data.author_association)) {
       return
     }
