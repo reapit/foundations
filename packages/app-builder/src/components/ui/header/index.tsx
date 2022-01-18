@@ -59,8 +59,10 @@ const Header = ({ isSaving }) => {
                 style={{ zoom: 0.8 }}
                 onClick={() => {
                   if (pageId) {
-                    deletePage(appId, pageId)
                     setPageId('')
+                    setTimeout(() => {
+                      deletePage(appId, pageId)
+                    }, 1000)
                   }
                 }}
                 intent="danger"
