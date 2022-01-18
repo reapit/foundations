@@ -1,45 +1,18 @@
 const { override } = require('customize-cra')
 const ForkTsCheckerWebpackPlugin = require('fork-ts-checker-webpack-plugin')
-const paths = require.resolve('react-scripts/config/paths')
-const typescriptFormatter = require('react-dev-utils/typescriptFormatter')
-const resolve = require('resolve')
 const path = require('path')
 
-/**
- *
- * https://github.com/TypeStrong/fork-ts-checker-webpack-plugin/issues/211
- * https://github.com/facebook/create-react-app/issues/8707#issuecomment-624284347
- * disable useTypescriptIncrementalApi of react-scripts ForkTsCheckerWebpackPlugin
- * Fix Hanging at 'Files successfully emitted, waiting for typecheck results...' when yarn start on the first time
- */
-const removeOriginalForkTsCheckerWebpackPlugin = (config) => {
-  config.plugins = config.plugins.filter((plugin) => {
-    return plugin.constructor.name !== 'ForkTsCheckerWebpackPlugin'
-  })
-
-  return config
-}
-
 const patchForkTsCheckerWebpackPlugin = (config, env) => {
-  const isEnvDevelopment = env === 'development'
-  const isEnvProduction = env === 'production'
+  const isDev = env === 'development'
 
   config.plugins.push(
-    // original ForkTsCheckerWebpackPlugin config with useTypescriptIncrementalApi disable
     new ForkTsCheckerWebpackPlugin({
-      typescript: resolve.sync('typescript', {
-        basedir: paths.appNodeModules,
-      }),
-      async: isEnvDevelopment,
-      useTypescriptIncrementalApi: false,
-      checkSyntacticErrors: true,
-      resolveModuleNameModule: process.versions.pnp ? `${__dirname}/pnpTs.js` : undefined,
-      resolveTypeReferenceDirectiveModule: process.versions.pnp ? `${__dirname}/pnpTs.js` : undefined,
-      tsconfig: paths.appTsConfig,
-      reportFiles: ['**', '!**/__tests__/**', '!**/?(*.)(spec|test).*', '!**/src/setupProxy.*', '!**/src/setupTests.*'],
-      silent: true,
-      // The formatter is invoked directly in WebpackDevServerUtils during development
-      formatter: isEnvProduction ? typescriptFormatter : undefined,
+      typescript: {
+        async: isDev,
+      },
+      eslint: {
+        files: './src/**/*.{ts,tsx,js,jsx}',
+      },
     }),
   )
 
@@ -107,7 +80,7 @@ module.exports = {
   // The Webpack config to use when compiling your react app for development or production.
   webpack: function (config, env) {
     return {
-      ...override(addLinariaLoader, removeOriginalForkTsCheckerWebpackPlugin)(config),
+      ...override(addLinariaLoader)(config),
       ...patchForkTsCheckerWebpackPlugin(config, env),
     }
   },
