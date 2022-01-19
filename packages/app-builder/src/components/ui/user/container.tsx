@@ -34,6 +34,7 @@ const ContainerSettings = () => (
 
 Container.craft = {
   props: defaultProps,
+  displayName: 'Container',
   related: {
     toolbar: ContainerSettings,
   },

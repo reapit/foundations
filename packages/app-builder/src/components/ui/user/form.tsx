@@ -133,6 +133,7 @@ const FormSettings = () => {
 }
 
 Form.craft = {
+  displayName: 'Form',
   props: {
     ...defaultProps,
     ...Container.craft.props,
