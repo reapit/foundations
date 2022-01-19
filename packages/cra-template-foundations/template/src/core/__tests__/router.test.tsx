@@ -1,10 +1,37 @@
-import * as React from 'react'
-import { shallow } from 'enzyme'
+import React from 'react'
+import { render } from '@testing-library/react'
 import Router, { catchChunkError } from '../router'
+import { MediaStateProvider, NavStateProvider } from '@reapit/elements'
+import { Router as ReactRouter, Switch } from 'react-router-dom'
+import { createBrowserHistory } from 'history'
+
+const history = createBrowserHistory()
+
+jest.mock('@reapit/connect-session', () => ({
+  ReapitConnectBrowserSession: jest.fn(),
+  useReapitConnect: () => ({
+    connectSession: {
+      loginIdentity: {},
+    },
+    connectInternalRedirect: '',
+  }),
+}))
 
 describe('Router', () => {
   it('should match a snapshot', () => {
-    expect(shallow(<Router />)).toMatchSnapshot()
+    expect(
+      render(
+        <ReactRouter history={history}>
+          <Switch>
+            <NavStateProvider>
+              <MediaStateProvider>
+                <Router />
+              </MediaStateProvider>
+            </NavStateProvider>
+          </Switch>
+        </ReactRouter>,
+      ),
+    ).toMatchSnapshot()
   })
 
   describe('catchChunkError', () => {

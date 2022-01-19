@@ -7,19 +7,17 @@ export const createApi = (
   scope: cdk.Stack,
   name: string,
   lambdaFunction?: lambda.Function,
-  cognitoUserPoolId?: string,
-  allowCors?: boolean,
+  allowCors: boolean = true,
   allowOrigins: string[] = ['*'],
-  allowHeaders: string[] = ['Content-Type', 'Authorization', 'X-Api-Key', 'api-version'],
+  allowHeaders: string[] = [
+    'Content-Type',
+    'Authorization',
+    'X-Api-Key',
+    'api-version',
+    'reapit-connect-token',
+    'reapit-customer',
+  ],
 ): apigateway.RestApi | apigateway.LambdaRestApi => {
-  let defaultMethodOptions: apigateway.MethodOptions | undefined = undefined
-  if (cognitoUserPoolId) {
-    const authorizer = getAuthorizer(scope, cognitoUserPoolId)
-    defaultMethodOptions = {
-      authorizationType: apigateway.AuthorizationType.COGNITO,
-      authorizer,
-    }
-  }
 
   const defaultCorsPreflightOptions = allowCors
     ? {
@@ -30,14 +28,12 @@ export const createApi = (
 
   if (!lambdaFunction) {
     return new apigateway.RestApi(scope, `${scope.stackName}-${name}`, {
-      defaultMethodOptions,
       defaultCorsPreflightOptions,
     })
   }
 
   return new apigateway.LambdaRestApi(scope, `${scope.stackName}-${name}`, {
     handler: lambdaFunction,
-    defaultMethodOptions,
     defaultCorsPreflightOptions,
   })
 }

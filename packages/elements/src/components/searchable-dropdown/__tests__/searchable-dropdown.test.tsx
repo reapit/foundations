@@ -316,6 +316,38 @@ describe('ControlledSearchableDropdown component', () => {
     )
     expect(wrapper.find('Icon').prop('icon')).toEqual('selectInfographic')
   })
+
+  it('should display default value', () => {
+    const wrapper = shallow(
+      <SearchableDropdown<{ id: string; name: string }>
+        getResults={async () => {
+          return new Promise((resolve) => {
+            setTimeout(() => {
+              resolve([
+                {
+                  id: '1',
+                  name: 'First',
+                },
+                {
+                  id: '2',
+                  name: 'Second',
+                },
+                {
+                  id: '3',
+                  name: 'Third',
+                },
+              ])
+            }, 1000)
+          })
+        }}
+        getResultLabel={(result) => result.name}
+        getResultValue={(result) => result.id}
+        onChange={(e) => console.log(e.target.value)}
+        defaultVal={{ id: '4', name: 'Forth' }}
+      />,
+    )
+    expect(wrapper).toMatchSnapshot()
+  })
 })
 
 describe('SearchableDropdownSearchLabel component', () => {

@@ -5,6 +5,7 @@ import {
   PropertyModel,
   NegotiatorModel,
   ListItemModel,
+  KeysModel,
 } from '@reapit/foundations-ts-definitions'
 
 export type Config = {
@@ -34,7 +35,7 @@ declare global {
 
 export type ExtendedAppointmentModel = AppointmentModel & {
   offices?: OfficeModel[]
-  property?: PropertyModel
+  property?: PropertyModel & { keys?: KeysModel[] }
   negotiators?: NegotiatorModel[]
   appointmentType: ListItemModel
 }

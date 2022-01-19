@@ -1,3 +1,5 @@
+#import "../fragments/negotiator-model.graphql"
+
 fragment PropertyModel on PropertyModel {
   id
   viewingArrangements
@@ -20,5 +22,33 @@ fragment PropertyModel on PropertyModel {
   }
   letting {
     landlordId
+  }
+  keys {
+    id
+    keysInSet {
+      name
+    }
+    number
+    status
+    type {
+      value
+    }
+    modified
+    office {
+      name
+    }
+    movements {
+      checkInAt
+      checkInNegotiator {
+        ...NegotiatorModel
+      }
+      checkOutAt
+      checkOutToContact {
+        id
+      }
+      checkOutToNegotiator {
+        ...NegotiatorModel
+      }
+    }
   }
 }
