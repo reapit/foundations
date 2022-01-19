@@ -1,9 +1,0 @@
-// Jest Snapshot v1, https://goo.gl/fbAQLP
-
-exports[`Authenticated should match a snapshot 1`] = `
-<Fragment>
-  <H3>
-    Deployment Service UI
-  </H3>
-</Fragment>
-`;

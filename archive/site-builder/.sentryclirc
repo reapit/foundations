@@ -1,6 +1,0 @@
-[defaults]
-project=site-builder
-org=reapit-ltd
-
-[http]
-keepalive=false
