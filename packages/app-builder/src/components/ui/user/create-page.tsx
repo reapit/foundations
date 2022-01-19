@@ -1,4 +1,4 @@
-import { NodeTree, SerializedNode, useEditor } from '@craftjs/core'
+import { NodeTree, SerializedNode, useEditor, Element } from '@craftjs/core'
 import { serializeNode } from '../../../utils/serializeNode'
 import { Button } from '@reapit/elements'
 import { newPage } from '../header/PageSelector'
@@ -61,29 +61,38 @@ const constructPageNodes = (
     }))
 
     if (inputs) {
-      const containerNodeTree = reactElementToNodeTree(<Container width={12} />)
-      const formNodeTree = reactElementToNodeTree(<Form width={12} destination={sourcePageId} />)
-      const titleNodeTree = reactElementToNodeTree(<Text width={12} fontSize={21} text={pageTitle || ''} />)
+      const containerNodeTree = reactElementToNodeTree(<Element canvas is={Container} width={12} />)
+      const formNodeTree = reactElementToNodeTree(
+        <Element is={Form} canvas width={12} typeName={typeName} formType={operationType} destination={sourcePageId} />,
+      )
+      const titleNodeTree = reactElementToNodeTree(
+        <Element is={Text} width={12} fontSize={21} text={pageTitle || ''} />,
+      )
       const titleEle = serializeNode(titleNodeTree.nodes[titleNodeTree.rootNodeId].data, resolver)
       const formEle = serializeNode(formNodeTree.nodes[formNodeTree.rootNodeId].data, resolver)
       const containerEle = serializeNode(containerNodeTree.nodes[containerNodeTree.rootNodeId].data, resolver)
 
-      containerNodeTree.nodes[containerNodeTree.rootNodeId].data.nodes.push(titleNodeTree.rootNodeId)
       containerNodeTree.nodes[containerNodeTree.rootNodeId].data.nodes.push(formNodeTree.rootNodeId)
 
       inputs
         .map((props) => reactElementToNodeTree(<FormInput {...props} />))
         .forEach((nodeTree) => {
           Object.entries(nodeTree.nodes).forEach(([key, node]) => {
-            formNodes[key] = serializeNode(node.data, resolver)
+            const serializedNode = serializeNode(node.data, resolver)
+            serializedNode.parent = formNodeTree.rootNodeId
+            formNodes[key] = serializedNode
           })
           formEle.nodes.push(nodeTree.rootNodeId)
         })
 
+      nodesArr.push(titleNodeTree.rootNodeId)
       nodesArr.push(containerNodeTree.rootNodeId)
       formNodes[containerNodeTree.rootNodeId] = containerEle
+      containerEle.parent = 'ROOT'
       formNodes[formNodeTree.rootNodeId] = formEle
+      formEle.parent = containerNodeTree.rootNodeId
       formNodes[titleNodeTree.rootNodeId] = titleEle
+      titleEle.parent = 'ROOT'
     }
 
     return formNodes
