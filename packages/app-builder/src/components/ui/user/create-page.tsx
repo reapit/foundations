@@ -29,8 +29,7 @@ const constructPageNodes = (
   const nodes = {}
 
   if (operationType === 'list') {
-    // table
-    nodes['743hfu'] = {
+    nodes['table'] = {
       type: { resolvedName: 'Table' },
       isCanvas: false,
       props: { width: 12, typeName },

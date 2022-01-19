@@ -28,7 +28,6 @@ export type UserComponentConfig<T> = {
   custom: Record<string, any>
   isCanvas: boolean
 
-  // TODO: Deprecate
   name: string
   defaultProps: Partial<T>
 }
