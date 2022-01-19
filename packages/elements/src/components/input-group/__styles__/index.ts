@@ -7,7 +7,7 @@ import { ElSelect } from '../../select/__styles__'
 import { ElInputAddOn } from '../../input-add-on/__styles__'
 import { ElToggleRadioWrap, ElToggleLabel } from '../../toggle/__styles__'
 import { ElMultiSelectInputWrapper } from '../../multi-select/__styles__'
-import { ElInputError } from '@/components/input-error/__styles__'
+import { ElInputError } from '../../input-error/__styles__'
 
 export const ElInputGroup = styled.div`
   display: flex;
