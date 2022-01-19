@@ -6,6 +6,7 @@ import { Label } from '../label'
 import { InputAddOn } from '../input-add-on'
 import { Intent } from '../../helpers/intent'
 import { generateRandomId } from '../../storybook/random-id'
+import { InputError } from '../input-error'
 
 export interface InputGroupProps extends React.InputHTMLAttributes<HTMLInputElement> {
   icon?: IconNames
@@ -26,6 +27,7 @@ export interface InputGroupProps extends React.InputHTMLAttributes<HTMLInputElem
    * Added to the InputGroup `div`
    */
   className?: string
+  errorMessage?: string
 }
 
 export type InputGroupWrapped = React.ForwardRefExoticComponent<
@@ -34,7 +36,7 @@ export type InputGroupWrapped = React.ForwardRefExoticComponent<
 
 export const InputGroup: InputGroupWrapped = forwardRef(
   (
-    { icon, label, className, id, intent, inputAddOnText, children, ...rest }: InputGroupProps,
+    { icon, label, className, id, intent, inputAddOnText, children, errorMessage, ...rest }: InputGroupProps,
     ref: React.ForwardedRef<React.InputHTMLAttributes<HTMLInputElement>>,
   ) => {
     const groupId = useMemo(() => {
@@ -49,6 +51,7 @@ export const InputGroup: InputGroupWrapped = forwardRef(
           {icon && <Icon intent={intent} icon={icon} />}
           {label && <Label htmlFor={groupId}>{label}</Label>}
           {inputAddOnText && <InputAddOn intent={intent}>{inputAddOnText}</InputAddOn>}
+          {errorMessage && <InputError message={errorMessage} />}
         </ElInputGroup>
       )
 

@@ -7,6 +7,7 @@ import { ElSelect } from '../../select/__styles__'
 import { ElInputAddOn } from '../../input-add-on/__styles__'
 import { ElToggleRadioWrap, ElToggleLabel } from '../../toggle/__styles__'
 import { ElMultiSelectInputWrapper } from '../../multi-select/__styles__'
+import { ElInputError } from '@/components/input-error/__styles__'
 
 export const ElInputGroup = styled.div`
   display: flex;
@@ -36,6 +37,11 @@ export const ElInputGroup = styled.div`
 
   ${ElInput}, ${ElTextArea}, ${ElSelect} {
     order: 3;
+  }
+
+  ${ElInputError} {
+    order: 4;
+    width: 100%;
   }
 
   ${ElInput}:not([type='checkbox']):not([type='radio']), ${ElTextArea}, ${ElSelect} {

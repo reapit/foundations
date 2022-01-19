@@ -5,6 +5,7 @@ import { Icon } from '../icon'
 import { Label } from '../label'
 import { InputAddOn } from '../input-add-on'
 import { RenderHtmlMarkup } from '../../storybook/render-html-markup'
+import { InputError } from './../input-error'
 
 <Meta title="InputGroup" component={InputGroup} />
 
@@ -168,5 +169,21 @@ The `inputAddOn` prop (and use of the `InputAddOn` component within `InputGroup`
     <InputGroup className="el-mb2" type="radio" name="phone" label="Mobile phone" InputAddOn="Test" />
     <InputGroup className="el-mb2" type="radio" name="phone" label="Home phone" InputAddOn="Test" />
     <InputGroup className="el-mb2" type="radio" name="phone" label="Email" InputAddOn="Test" />
+  </Story>
+</Canvas>
+
+## Error messages
+
+Below are some examples of error messages with input groups. The error message prop on input group can be used for simple types such as text and email. For groups of radios or checkboxes you can use the `InputError` component instead.
+
+<Canvas>
+  <Story name="Error message">
+    <InputGroup className="el-mb2" type="email" name="phone" label="Email Address" errorMessage="Email address is not valid" />
+    
+    <Label className="el-mb2 el-flex">Preffered contact</Label>
+    <InputGroup className="el-mb2" type="radio" name="phone" label="Mobile phone" InputAddOn="Test" />
+    <InputGroup className="el-mb2" type="radio" name="phone" label="Home phone" InputAddOn="Test" />
+    <InputGroup className="el-mb2" type="radio" name="phone" label="Email" InputAddOn="Test" />
+    <InputError message="Please select a contact method" />
   </Story>
 </Canvas>
