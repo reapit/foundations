@@ -166,6 +166,7 @@ const TableSettings = () => {
 }
 
 Table.craft = {
+  name: 'Table',
   props: {
     ...defaultProps,
     ...Container.craft.props,

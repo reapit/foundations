@@ -76,6 +76,7 @@ export const LinkSettings = () => (
 )
 
 Link.craft = {
+  displayName: 'Link',
   props: {
     ...defaultProps,
     ...Container.craft.props,

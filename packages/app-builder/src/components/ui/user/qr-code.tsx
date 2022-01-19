@@ -18,6 +18,7 @@ const QRCode = (props: QRCodeProps) => {
 }
 
 QRCode.craft = {
+  displayName: 'QRCode',
   props: {
     ...defaultProps,
     ...Container.craft.props,

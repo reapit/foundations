@@ -24,6 +24,7 @@ const InfoSettings = () => (
 )
 
 Info.craft = {
+  displayName: 'Info',
   props: {
     ...defaultProps,
     ...Container.craft.props,

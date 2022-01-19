@@ -77,6 +77,7 @@ const TextSettings = () => (
 )
 
 Text.craft = {
+  displayName: 'Text',
   props: defaultProps,
   related: {
     toolbar: TextSettings,
