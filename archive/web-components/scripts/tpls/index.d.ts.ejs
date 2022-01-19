@@ -1,8 +1,0 @@
-<% packages.forEach(function({
-  exportName,
-  rollUpPackageName
-}){ %>
-  <% if (exportName) { %>
-    export * from './<%= rollUpPackageName %>'
-  <% } %>
-<% }); %>
