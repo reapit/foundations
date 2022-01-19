@@ -10,11 +10,12 @@ export const getMetadataObject = async (id: string, accessToken: string) => {
       'api-version': '2020-01-31',
     },
   })
-  const data = await res.json()
-
-  if (data.statusCode !== 200) {
+  if (res.status !== 200) {
     return
   }
+
+  const data = (await res.json()) as any
+
   return data.metadata
 }
 
@@ -25,7 +26,7 @@ export const findMetadataObject = async (entityType: string, accessToken: string
       'api-version': '2020-01-31',
     },
   })
-  const data = await res.json()
+  const data = (await res.json()) as any
 
   return data._embedded
 }
@@ -54,7 +55,7 @@ export const createMetadataObject = async (entityType: string, metadata: any, ac
     redirect: 'follow',
     body: JSON.stringify({ entityType, metadata }),
   })
-  const data = await res.json()
+  const data = (await res.json()) as any
 
   return data.metadata
 }
