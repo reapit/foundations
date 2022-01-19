@@ -33,6 +33,7 @@ const FormInputSettings = () => (
 )
 
 FormInput.craft = {
+  displayName: 'FormInput',
   related: {
     toolbar: FormInputSettings,
   },

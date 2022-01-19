@@ -27,7 +27,7 @@ import { useDeletePage } from '@/components/hooks/apps/use-update-app'
 
 const Header = ({ isSaving }) => {
   const { pageId, appId, setPageId } = usePageId()
-  const { deletePage } = useDeletePage()
+  const { deletePage, loading } = useDeletePage()
   const { enabled, canUndo, canRedo, actions } = useEditor((state, query) => ({
     enabled: state.options.enabled,
     canUndo: query.history.canUndo(),
@@ -56,11 +56,13 @@ const Header = ({ isSaving }) => {
             <>
               <Button
                 size={2}
+                loading={loading}
                 style={{ zoom: 0.8 }}
                 onClick={() => {
                   if (pageId) {
-                    deletePage(appId, pageId)
-                    setPageId('')
+                    deletePage(appId, pageId).then(() => {
+                      setPageId('')
+                    })
                   }
                 }}
                 intent="danger"

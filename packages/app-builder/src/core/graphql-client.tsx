@@ -23,7 +23,19 @@ export const createClient = (session: ReapitConnectBrowserSession) => {
 
   const client = new ApolloClient({
     link: authLink.concat(httpLink),
-    cache: new InMemoryCache(),
+    cache: new InMemoryCache({
+      typePolicies: {
+        _App: {
+          fields: {
+            pages: {
+              merge(_, incoming) {
+                return incoming
+              },
+            },
+          },
+        },
+      },
+    }),
   })
 
   return client

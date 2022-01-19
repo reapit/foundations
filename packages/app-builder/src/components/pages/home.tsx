@@ -20,6 +20,17 @@ import { FormInput } from '../ui/user/form-input'
 
 export type AuthenticatedProps = {}
 
+export const resolver = {
+  Text,
+  Container,
+  Link,
+  Info,
+  Table,
+  Form,
+  FormInput,
+  QRCode,
+}
+
 export const Authenticated: FC<AuthenticatedProps> = () => {
   const iframeRef = useRef()
   const { updatePage } = useUpdatePage()
@@ -35,18 +46,10 @@ export const Authenticated: FC<AuthenticatedProps> = () => {
     }
     setIsSaving(false)
   })
+
   return (
     <Editor
-      resolver={{
-        Text,
-        Container,
-        Link,
-        Info,
-        Table,
-        Form,
-        FormInput,
-        QRCode,
-      }}
+      resolver={resolver}
       onRender={(props) => <RenderNode {...props} iframeRef={iframeRef.current} />}
       onNodesChange={(query) => {
         const { pageId, appId } = getPageId()

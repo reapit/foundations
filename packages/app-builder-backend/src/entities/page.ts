@@ -23,6 +23,9 @@ export class Node {
   @Field()
   hidden: boolean
 
+  @Field({ nullable: true })
+  name?: string
+
   @Field(() => String, { nullable: true })
   parent: string | null
 
