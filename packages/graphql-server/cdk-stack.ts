@@ -4,7 +4,7 @@ import 'source-map-support/register'
 import path from 'path'
 import { execSync } from 'child_process'
 
-import { createApi, createFunction, createBaseStack, output } from '@reapit/ts-scripts/src/cdk'
+import { createApi, createFunction, createBaseStack, output, addLambdaToApi } from '@reapit/ts-scripts/src/cdk'
 
 import config from './config.json'
 
@@ -39,7 +39,8 @@ const createStack = () => {
   const entrypoint = path.resolve(__dirname, 'bundle.zip')
 
   const lambdaFunction = createFunction(stack, 'graphql', entrypoint, handler, config)
-  const api = createApi(stack, 'api', lambdaFunction, config.COGNITO_USERPOOL_ID)
+  const api = createApi(stack, 'api')
+  addLambdaToApi(stack, api, lambdaFunction, '/{proxy+}', 'ANY', config.COGNITO_USERPOOL_ID)
   output(stack, 'api-url', api.url)
 }
 

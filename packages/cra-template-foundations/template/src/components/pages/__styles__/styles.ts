@@ -1,6 +1,6 @@
-import { css } from '@linaria/core'
+import { styled } from '@linaria/react'
 
-export const loginContainer = css`
+export const LoginContainer = styled.div`
   min-width: 100vw;
   min-height: 100vh;
   display: flex;
@@ -14,7 +14,7 @@ export const loginContainer = css`
   }
 `
 
-export const wrapper = css`
+export const LoginWrapper = styled.div`
   background-color: #fff;
   width: 40%;
   padding: 2rem;
@@ -36,8 +36,7 @@ export const wrapper = css`
     display: block;
   }
 
-  button,
-  .tabsContainer {
+  button {
     margin: 0 auto 2rem auto;
     max-width: 400px;
   }
@@ -51,7 +50,7 @@ export const wrapper = css`
   }
 `
 
-export const imageContainer = css`
+export const LoginImageContainer = styled.div`
   background-color: #fff;
   width: 60%;
   height: 100vh;
@@ -62,26 +61,8 @@ export const imageContainer = css`
   }
 `
 
-export const loginLevel = css`
-  flex-direction: column;
-`
-
-export const loginImageVisible = css``
-
-export const loginImage = css`
-  transition: opacity 1s ease-in-out;
+export const LoginImage = styled.img`
   position: absolute;
   height: 100%;
-  opacity: 0;
   z-index: 1;
-
-  &.${loginImageVisible} {
-    opacity: 1;
-  }
-`
-
-export const loginImages = css`
-  height: 100%;
-  width: auto;
-  position: relative;
 `

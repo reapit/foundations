@@ -85,9 +85,11 @@ const movedColumnResponses = {
     'For more information on our processes, [please click here](https://foundations-documentation.reapit.cloud/dev-requests)',
 }
 
+const ownerships = ['OWNER', 'MEMBER', 'CONTRIBUTOR']
+
 export default (app) => {
   app.on('issues.opened', async (event) => {
-    if (['OWNER', 'MEMBER'].includes(event.payload.issue.author_association)) {
+    if (ownerships.includes(event.payload.issue.author_association)) {
       return
     }
 
@@ -108,7 +110,7 @@ export default (app) => {
   })
 
   app.on('issues.labeled', async (event) => {
-    if (['OWNER', 'MEMBER'].includes(event.payload.issue.author_association)) {
+    if (ownerships.includes(event.payload.issue.author_association)) {
       return
     }
 
@@ -154,7 +156,7 @@ export default (app) => {
       return
     }
 
-    if (['OWNER', 'MEMBER'].includes(issue.data.author_association)) {
+    if (ownerships.includes(issue.data.author_association)) {
       return
     }
 
@@ -166,7 +168,7 @@ export default (app) => {
   })
 
   app.on('issue_comment.created', async (event) => {
-    if (['OWNER', 'MEMBER'].includes(event.payload.issue.author_association)) {
+    if (ownerships.includes(event.payload.issue.author_association)) {
       return
     }
 

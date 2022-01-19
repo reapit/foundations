@@ -1,5 +1,32 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
+exports[`ControlledSearchableDropdown component should display default value 1`] = `
+<ForwardRef(SearchableDropdownControlledInner)
+  icon="searchSystem"
+  isClearVisible={true}
+  isResultsListVisible={false}
+  loading={false}
+  onBlur={[Function]}
+  onChange={[Function]}
+  onClear={[Function]}
+  onFocus={[Function]}
+  onResultClick={[Function]}
+  resultsList={
+    Array [
+      Object {
+        "label": "Forth",
+        "result": Object {
+          "id": "4",
+          "name": "Forth",
+        },
+      },
+    ]
+  }
+  selectedValue="4"
+  value="Forth"
+/>
+`;
+
 exports[`ControlledSearchableDropdown component should match a snapshot 1`] = `
 <ElSearchableDropdownContainer>
   <input
