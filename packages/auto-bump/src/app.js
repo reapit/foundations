@@ -23,6 +23,7 @@ export default (app) => {
     console.log('event triggered')
     const tag = event.payload.release.tag
     const packageLocation = event.payload.release.name
+    console.log('tag', tag, 'loc', packageLocation)
     if (!tag || !packageLocation) {
       return
     }
