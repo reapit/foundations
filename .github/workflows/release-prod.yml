@@ -45,5 +45,6 @@ jobs:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 
       - name: Commit
-        run: |
-          git add . && git commit -nm "chore: bump ${{ steps.tagName.outputs.package }} version"
+        uses: stefanzweifel/git-auto-commit-action@v4
+        with:
+          commit_message: "chore: bump ${{ steps.tagName.outputs.package }} version"
