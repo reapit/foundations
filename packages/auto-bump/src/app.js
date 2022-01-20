@@ -17,8 +17,9 @@ const updatePackageVersion = async (location, version) => {
 }
 
 export default (app) => {
-  console.log('hello, am instanced')
+  console.log('hello, am instanced', app)
   app.on('release.created', async (event) => {
+    console.log('event triggered')
     const tag = event.release.tag
     const packageLocation = event.release.name
     if (!tag || !packageLocation) {
