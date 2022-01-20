@@ -5145,6 +5145,50 @@ __metadata:
   languageName: node
   linkType: hard
 
+"@graphql-tools/batch-delegate@npm:8.2.3":
+  version: 8.2.3
+  resolution: "@graphql-tools/batch-delegate@npm:8.2.3"
+  dependencies:
+    "@graphql-tools/delegate": ^8.4.3
+    "@graphql-tools/utils": ^8.5.4
+    dataloader: 2.0.0
+    tslib: ~2.3.0
+  peerDependencies:
+    graphql: ^14.0.0 || ^15.0.0 || ^16.0.0
+  checksum: 914423edb839933145b348a634a2ff1521c2ccb1e38dfb4428f251d333eadebd35e3b266ff6d346f4f260a4ab3c95653cf451656c5cb010cb96c5e63a845f122
+  languageName: node
+  linkType: hard
+
+"@graphql-tools/batch-execute@npm:^8.3.1":
+  version: 8.3.1
+  resolution: "@graphql-tools/batch-execute@npm:8.3.1"
+  dependencies:
+    "@graphql-tools/utils": ^8.5.1
+    dataloader: 2.0.0
+    tslib: ~2.3.0
+    value-or-promise: 1.0.11
+  peerDependencies:
+    graphql: ^14.0.0 || ^15.0.0 || ^16.0.0
+  checksum: b78e0fcbd21be93b8fe2b2d641e854efcce8b6cad24228749220b41b232b876deb5d669b6d1559c58c13db22b329866a752204048e84e636d58fea7de5591f39
+  languageName: node
+  linkType: hard
+
+"@graphql-tools/delegate@npm:^8.4.2, @graphql-tools/delegate@npm:^8.4.3":
+  version: 8.4.3
+  resolution: "@graphql-tools/delegate@npm:8.4.3"
+  dependencies:
+    "@graphql-tools/batch-execute": ^8.3.1
+    "@graphql-tools/schema": ^8.3.1
+    "@graphql-tools/utils": ^8.5.4
+    dataloader: 2.0.0
+    tslib: ~2.3.0
+    value-or-promise: 1.0.11
+  peerDependencies:
+    graphql: ^14.0.0 || ^15.0.0 || ^16.0.0
+  checksum: 0801cf860b1b171e9fa67f09dedea07e4ed11e969b29db86f8aa2fe70de99d8858d0b6741471df246d05b19e9408cfaae686429caf83d5662bc80e07de9f1618
+  languageName: node
+  linkType: hard
+
 "@graphql-tools/merge@npm:7.0.0":
   version: 7.0.0
   resolution: "@graphql-tools/merge@npm:7.0.0"
@@ -5212,6 +5256,23 @@ __metadata:
   languageName: node
   linkType: hard
 
+"@graphql-tools/stitch@npm:^8.4.3":
+  version: 8.4.3
+  resolution: "@graphql-tools/stitch@npm:8.4.3"
+  dependencies:
+    "@graphql-tools/batch-delegate": 8.2.3
+    "@graphql-tools/delegate": ^8.4.3
+    "@graphql-tools/merge": ^8.2.1
+    "@graphql-tools/schema": ^8.3.1
+    "@graphql-tools/utils": ^8.5.4
+    "@graphql-tools/wrap": ^8.3.1
+    tslib: ~2.3.0
+  peerDependencies:
+    graphql: ^14.0.0 || ^15.0.0 || ^16.0.0
+  checksum: e4e91b77fbfd0fa4fbafe9c4e882a932cddb85b63b17f6ee98363e0ff0cfcd2885bbfc1972df8b186649cbd7488970d5d6a927cc5d24ab6e3047c2102bba80e6
+  languageName: node
+  linkType: hard
+
 "@graphql-tools/utils@npm:8.0.2, @graphql-tools/utils@npm:^8.0.0":
   version: 8.0.2
   resolution: "@graphql-tools/utils@npm:8.0.2"
@@ -5231,6 +5292,32 @@ __metadata:
   peerDependencies:
     graphql: ^14.0.0 || ^15.0.0 || ^16.0.0
   checksum: f5f8e82c46f205c0d48c2d6d160e28183706a86755e7ea31db6e54b32da7db9eecf988d0935538e27cc3706b5031b75798dc85532e11724fdb4578a9a1b00450
+  languageName: node
+  linkType: hard
+
+"@graphql-tools/utils@npm:^8.5.3, @graphql-tools/utils@npm:^8.5.4":
+  version: 8.6.1
+  resolution: "@graphql-tools/utils@npm:8.6.1"
+  dependencies:
+    tslib: ~2.3.0
+  peerDependencies:
+    graphql: ^14.0.0 || ^15.0.0 || ^16.0.0
+  checksum: 1286a2a6160f32038aff4b6cb9da1c844fc2762eec4e6e224238583cf890f335586dccd82cba4bd4e6f50678a6acd678c7043c1bb0d63c4c05c7fd5aa0e177ec
+  languageName: node
+  linkType: hard
+
+"@graphql-tools/wrap@npm:^8.3.1":
+  version: 8.3.3
+  resolution: "@graphql-tools/wrap@npm:8.3.3"
+  dependencies:
+    "@graphql-tools/delegate": ^8.4.2
+    "@graphql-tools/schema": ^8.3.1
+    "@graphql-tools/utils": ^8.5.3
+    tslib: ~2.3.0
+    value-or-promise: 1.0.11
+  peerDependencies:
+    graphql: ^14.0.0 || ^15.0.0 || ^16.0.0
+  checksum: 4ebca46305349337358acf7786366997ebac04962d77fca1d119a30d7e3a0ff6439621a4d0482a2ddbfab6d214ea7926be8094382e5338515b1f46946f10eeca
   languageName: node
   linkType: hard
 
@@ -8130,6 +8217,7 @@ __metadata:
   resolution: "@reapit/app-builder-backend@workspace:packages/app-builder-backend"
   dependencies:
     "@aws-sdk/client-dynamodb": ^3.27.0
+    "@graphql-tools/stitch": ^8.4.3
     "@reapit/app-builder": "workspace:packages/app-builder"
     "@reapit/config-manager": "workspace:packages/config-manager"
     "@reapit/cra-template-foundations": "workspace:packages/cra-template-foundations"
@@ -19612,7 +19700,7 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"dataloader@npm:^2.0.0":
+"dataloader@npm:2.0.0, dataloader@npm:^2.0.0":
   version: 2.0.0
   resolution: "dataloader@npm:2.0.0"
   checksum: 9f10b9d2e35225b08a72435facfe40c0c124e329f43bd0fe4d67411ee667d12145f7ce63f9b74f73af8556dc6a98bae59147a5cca2171315dc1de509d4db04c0

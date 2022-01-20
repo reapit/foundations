@@ -1,9 +1,9 @@
 import 'reflect-metadata'
-import { ApolloServer } from 'apollo-server-lambda'
 import { APIGatewayEvent } from 'aws-lambda'
 
 import { Context } from './types'
 import { getSchema } from './get-schema'
+import { ExtendedApolloServerLambda } from './extended-apollo-server'
 
 const lowerCaseKeys = (obj: Record<string, string | undefined>): Record<string, string> => {
   const newObj = {}
@@ -15,31 +15,29 @@ const lowerCaseKeys = (obj: Record<string, string | undefined>): Record<string, 
   return newObj
 }
 
-const createHandler = async () => {
-  const schema = await getSchema()
-
-  const server = new ApolloServer({
-    schema,
-    context: ({ event }: { event: APIGatewayEvent }): Context => {
-      const lowercaseHeaders = lowerCaseKeys(event.headers)
-      const { authorization } = lowercaseHeaders
-      const apiUrl = `https://${event.headers.Host}/${event.requestContext.stage}/`
-      if (!authorization) {
-        throw new Error('Must have the authorization header')
-      }
-      return {
-        apiUrl,
-        idToken: authorization?.split(' ')[1],
-        accessToken: lowercaseHeaders['reapit-connect-token'] as string,
-      }
-    },
+const createHandler = async (event: APIGatewayEvent) => {
+  const lowercaseHeaders = lowerCaseKeys(event.headers)
+  const { authorization } = lowercaseHeaders
+  const apiUrl = `https://${event.headers.Host}/${event.requestContext.stage}/`
+  if (!authorization) {
+    throw new Error('Must have the authorization header')
+  }
+  const context: Context = {
+    apiUrl,
+    idToken: authorization?.split(' ')[1],
+    accessToken: lowercaseHeaders['reapit-connect-token'] as string,
+  }
+  const server = new ExtendedApolloServerLambda({
+    schema: await getSchema(),
+    context,
+    schemaCallback: () => getSchema(context),
   })
 
   return server.createHandler()
 }
 
 export const handler = async (event: APIGatewayEvent, context) => {
-  const server = await createHandler()
+  const server = await createHandler(event)
   // @ts-ignore until https://github.com/apollographql/apollo-server/issues/5592 is resolved
   return server(event, context)
 }

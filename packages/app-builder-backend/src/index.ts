@@ -1,5 +1,5 @@
 import 'reflect-metadata'
-import { ApolloServer } from 'apollo-server-express'
+import { ExtendedApolloServerExpress } from './extended-apollo-server'
 import express from 'express'
 import http from 'http'
 import cors from 'cors'
@@ -11,19 +11,20 @@ import { getSchema } from './get-schema'
 
 const start = async () => {
   await ensureTables()
-  const schema = await getSchema()
 
   const app = express()
   app.use(cors())
+  const parseContext = ({ req }): Context => ({
+    idToken: req.headers.authorization?.split(' ')[1] || '',
+    accessToken: req.headers['reapit-connect-token'] as string,
+    apiUrl: 'http://localhost:4000/',
+  })
   const httpServer = http.createServer(app)
-  const server = new ApolloServer({
-    schema,
-    context: ({ req }): Context => ({
-      idToken: req.headers.authorization?.split(' ')[1] || '',
-      accessToken: req.headers['reapit-connect-token'] as string,
-      apiUrl: 'http://localhost:4000/',
-    }),
+  const server = new ExtendedApolloServerExpress({
+    schema: await getSchema(),
+    context: parseContext,
     plugins: [ApolloServerPluginDrainHttpServer({ httpServer })],
+    schemaCallback: (req) => getSchema(parseContext({ req })),
   })
 
   await server.start()
