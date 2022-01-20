@@ -1,4 +1,4 @@
-import React, { FC } from 'react'
+import React, { ChangeEvent, Dispatch, FC, SetStateAction, useCallback, useEffect, useState } from 'react'
 import useSWR from 'swr'
 import {
   GroupMembershipModelPagedResult,
@@ -17,8 +17,8 @@ import {
   elMb11,
   elP8,
   FormLayout,
+  InputGroup,
   InputWrapFull,
-  Loader,
   MultiSelectInput,
   MultiSelectOption,
   PersistantNotification,
@@ -26,7 +26,8 @@ import {
   useSnack,
 } from '@reapit/elements'
 import { cx } from '@linaria/core'
-import { useForm } from 'react-hook-form'
+import { useForm, UseFormGetValues, UseFormReset } from 'react-hook-form'
+import debounce from 'just-debounce-it'
 
 export interface EditUserGroupFormProps {
   userGroup: GroupModel
@@ -34,7 +35,11 @@ export interface EditUserGroupFormProps {
   orgId: string
 }
 
-interface UpdateUserGroupModel {
+export interface UpdateUserGroupModel {
+  userIds: string
+}
+
+interface EditUserGroupSchema {
   userIds: string
 }
 
@@ -57,6 +62,47 @@ const removeUserFromGroup = async (id: string, userId: string) => {
   const removeUserRes = await removeMemberFromGroup({ id, userId })
   return removeUserRes
 }
+
+export const handleSetOptions =
+  (
+    userIds: string[],
+    users: UserModel[],
+    setOptions: Dispatch<SetStateAction<MultiSelectOption[]>>,
+    reset: UseFormReset<EditUserGroupSchema>,
+  ) =>
+  () => {
+    if (userIds && users) {
+      const newSelectedOptions = users.filter((office) => office.id && userIds.includes(office.id))
+      const officeOptions = prepareGroupOptions(newSelectedOptions)
+
+      reset({
+        userIds: userIds.join(','),
+      })
+      setOptions(officeOptions)
+    }
+  }
+
+export const handleSetNewOptions =
+  (
+    getValues: UseFormGetValues<EditUserGroupSchema>,
+    options: MultiSelectOption[],
+    searchedOffices: UserModel[],
+    setOptions: Dispatch<SetStateAction<MultiSelectOption[]>>,
+  ) =>
+  () => {
+    const userIds = getValues().userIds
+
+    if (userIds) {
+      const newSelectedOptions = options.filter((option) => userIds.includes(option.value))
+      const officeOptions = prepareGroupOptions(searchedOffices)
+      const newOptions = [...newSelectedOptions, ...officeOptions]
+      const uniqueOptions = [...new Set([...newOptions.map((option) => JSON.stringify(option))])].map((jsonOption) =>
+        JSON.parse(jsonOption),
+      )
+
+      setOptions(uniqueOptions)
+    }
+  }
 
 export const onHandleSubmit =
   (
@@ -93,10 +139,17 @@ export const onHandleSubmit =
   }
 
 export const EditUserGroupForm: FC<EditUserGroupFormProps> = ({ userGroup, onComplete, orgId }) => {
-  const id = userGroup?.id
+  const [searchString, setSearchString] = useState<string>('')
+  const [options, setOptions] = useState<MultiSelectOption[]>([])
   const { success, error } = useSnack()
-
-  const { data } = useSWR<UserModelPagedResult | undefined>(`${URLS.USERS}?pageSize=999&organisationId=${orgId}`)
+  const debouncedSearch = useCallback(
+    debounce((event: ChangeEvent<HTMLInputElement>) => setSearchString(event.target.value), 500),
+    [500],
+  )
+  const id = userGroup?.id
+  const { data } = useSWR<UserModelPagedResult | undefined>(
+    !orgId ? null : `${URLS.USERS}?pageSize=999&organisationId=${orgId}&name=${searchString}`,
+  )
 
   const { data: members, mutate: refetchMembers } = useSWR<GroupMembershipModelPagedResult | undefined>(
     id && orgId ? `${URLS.USERS_GROUPS}/${id}/members?pageSize=999&organisationId=${orgId}` : null,
@@ -110,18 +163,20 @@ export const EditUserGroupForm: FC<EditUserGroupFormProps> = ({ userGroup, onCom
   const {
     register,
     handleSubmit,
+    reset,
+    getValues,
     formState: { errors },
-  } = useForm<{ userIds: string }>({
+  } = useForm<EditUserGroupSchema>({
     defaultValues: {
       userIds: '',
     },
   })
 
-  if (!data || !members) return <Loader />
-
   const onSubmit = onHandleSubmit(onComplete, refetchMembers, success, error, userIds, userGroup.id ?? '')
 
-  const userGroupGroupOptions = prepareGroupOptions(listUserGroup)
+  useEffect(handleSetOptions(userIds, listUserGroup, setOptions, reset), [members, data])
+
+  useEffect(handleSetNewOptions(getValues, options, listUserGroup, setOptions), [searchString, data])
 
   return (
     <form className={elP8} onSubmit={handleSubmit(onSubmit)}>
@@ -134,11 +189,12 @@ export const EditUserGroupForm: FC<EditUserGroupFormProps> = ({ userGroup, onCom
           </BodyText>
         </InputWrapFull>
         <InputWrapFull>
+          <InputGroup onChange={debouncedSearch} icon="searchSystem" placeholder="Search" label="Users" />
           <MultiSelectInput
             id={`user-groups-ids-${userGroup.id}`}
             noneSelectedLabel="No users selected for this group"
             defaultValues={[...new Set(userIds)]}
-            options={userGroupGroupOptions}
+            options={options}
             {...register('userIds')}
           />
           {errors.userIds && (

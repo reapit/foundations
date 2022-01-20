@@ -1,10 +1,19 @@
 import React from 'react'
 import { render } from '@testing-library/react'
-import EditUserGroupForm, { EditUserGroupFormProps, onHandleSubmit } from '../edit-user-group'
+import EditUserGroupForm, {
+  EditUserGroupFormProps,
+  handleSetNewOptions,
+  handleSetOptions,
+  onHandleSubmit,
+  prepareGroupOptions,
+  UpdateUserGroupModel,
+} from '../edit-user-group'
 import { addMemberToGroup, removeMemberFromGroup } from '../../../../services/user'
 import { mockUserGroups } from '../../../../services/__stubs__/user-groups'
-import { GroupModel } from '../../../../types/organisations-schema'
+import { GroupModel, UserModel } from '../../../../types/organisations-schema'
 import useSWR from 'swr'
+import { mockUsersList } from '../../../../services/__stubs__/users'
+import { UseFormGetValues } from 'react-hook-form'
 
 jest.mock('../../../../core/connect-session')
 jest.mock('../../../../services/user')
@@ -26,6 +35,40 @@ describe('EditUserGroupForm', () => {
       mutate: jest.fn(),
     })
     expect(render(<EditUserGroupForm {...props()} />)).toMatchSnapshot()
+  })
+})
+
+describe('handleSetOptions', () => {
+  it('should set options', () => {
+    const userIds = ['id1', 'id2', 'id3']
+    const users = mockUsersList._embedded as UserModel[]
+    const setOptions = jest.fn()
+    const reset = jest.fn()
+
+    const curried = handleSetOptions(userIds, users, setOptions, reset)
+
+    curried()
+
+    expect(reset).toHaveBeenCalledWith({
+      userIds: userIds.join(','),
+    })
+
+    expect(setOptions).toHaveBeenCalledWith([])
+  })
+})
+
+describe('handleSetNewOptions', () => {
+  it('should set options', () => {
+    const getValues = jest.fn(() => ({ userIds: 'id1' })) as unknown as UseFormGetValues<UpdateUserGroupModel>
+    const options = []
+    const searchedUsers = mockUsersList._embedded as UserModel[]
+    const setOptions = jest.fn()
+
+    const curried = handleSetNewOptions(getValues, options, searchedUsers, setOptions)
+
+    curried()
+
+    expect(setOptions).toHaveBeenCalledWith(prepareGroupOptions(searchedUsers))
   })
 })
 
