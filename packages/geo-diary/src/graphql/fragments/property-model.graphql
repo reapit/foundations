@@ -19,9 +19,12 @@ fragment PropertyModel on PropertyModel {
   }
   selling {
     vendorId
+    price
   }
   letting {
     landlordId
+    rent
+    rentFrequency
   }
   keys {
     id

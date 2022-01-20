@@ -1,5 +1,46 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
+exports[`KeyInfo should match snapshot with an appointment in state 1`] = `
+<Fragment>
+  <Label>
+    Key Number
+  </Label>
+  <p
+    className="el-mb3"
+  >
+    123
+  </p>
+  <Label>
+    Keys in set
+  </Label>
+  <div
+    className="el-mb3"
+  >
+    <p
+      key="Front door key"
+    >
+      Front door key
+    </p>
+  </div>
+  <Label>
+    Office
+  </Label>
+  <p
+    className="el-mb3"
+  >
+    Camberwell
+  </p>
+  <Label>
+    Status
+  </Label>
+  <p
+    className="el-mb3"
+  >
+    Checked in at 13/01/2022 10:50
+  </p>
+</Fragment>
+`;
+
 exports[`PropertyDrawer should match snapshot with an appointment in state 1`] = `
 <Fragment>
   <DrawerHeader
@@ -33,8 +74,47 @@ exports[`PropertyDrawer should match snapshot with an appointment in state 1`] =
     label="Address"
   />
   <TextRow
+    content="£300000"
+    label="Price"
+  />
+  <TextRow
     content="Knock three times"
     label="Viewing Arrangements"
+  />
+  <TextRow
+    content={
+      <ul>
+        <li>
+          <KeyInfo
+            keyModel={
+              Object {
+                "__typename": "KeyModel",
+                "id": "RPT22000001",
+                "keysInSet": Array [
+                  Object {
+                    "__typename": "IndividualKeyModel",
+                    "name": "Front door key",
+                  },
+                ],
+                "modified": "2022-01-13T10:50:02.0000000Z",
+                "movements": Array [],
+                "number": "123",
+                "office": Object {
+                  "__typename": "OfficeModel",
+                  "name": "Camberwell",
+                },
+                "status": "checkedIn",
+                "type": Object {
+                  "__typename": "KeyType",
+                  "value": "Sales",
+                },
+              }
+            }
+          />
+        </li>
+      </ul>
+    }
+    label=""
   />
 </Fragment>
 `;

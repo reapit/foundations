@@ -413,10 +413,37 @@ exports[`appointment AppointmentContent should match snapshot when has appointme
                   "postcode": "OX25 2UJ",
                 },
                 "id": "ALB160019",
+                "keys": Array [
+                  Object {
+                    "__typename": "KeyModel",
+                    "id": "RPT22000001",
+                    "keysInSet": Array [
+                      Object {
+                        "__typename": "IndividualKeyModel",
+                        "name": "Front door key",
+                      },
+                    ],
+                    "modified": "2022-01-13T10:50:02.0000000Z",
+                    "movements": Array [],
+                    "number": "123",
+                    "office": Object {
+                      "__typename": "OfficeModel",
+                      "name": "Camberwell",
+                    },
+                    "status": "checkedIn",
+                    "type": Object {
+                      "__typename": "KeyType",
+                      "value": "Sales",
+                    },
+                  },
+                ],
                 "letting": Object {
                   "landlordId": "OXF200001",
+                  "rent": 500,
+                  "rentFrequency": "monthly",
                 },
                 "selling": Object {
+                  "price": 300000,
                   "vendorId": "OXF200001",
                 },
                 "viewingArrangements": "Knock three times",
@@ -1412,10 +1439,37 @@ exports[`appointment AppointmentContent should match snapshot when has appointme
                 "postcode": "OX25 2UJ",
               },
               "id": "ALB160019",
+              "keys": Array [
+                Object {
+                  "__typename": "KeyModel",
+                  "id": "RPT22000001",
+                  "keysInSet": Array [
+                    Object {
+                      "__typename": "IndividualKeyModel",
+                      "name": "Front door key",
+                    },
+                  ],
+                  "modified": "2022-01-13T10:50:02.0000000Z",
+                  "movements": Array [],
+                  "number": "123",
+                  "office": Object {
+                    "__typename": "OfficeModel",
+                    "name": "Camberwell",
+                  },
+                  "status": "checkedIn",
+                  "type": Object {
+                    "__typename": "KeyType",
+                    "value": "Sales",
+                  },
+                },
+              ],
               "letting": Object {
                 "landlordId": "OXF200001",
+                "rent": 500,
+                "rentFrequency": "monthly",
               },
               "selling": Object {
+                "price": 300000,
                 "vendorId": "OXF200001",
               },
               "viewingArrangements": "Knock three times",
@@ -2938,7 +2992,7 @@ exports[`appointment Apppointment should match snapshot with data 1`] = `
       "link": MockLink {
         "addTypename": false,
         "mockedResponsesByKey": Object {
-          "{\\"query\\":\\"query GET_APPOINTMENTS($negotiatorId: [String!], $start: String!, $end: String!, $includeCancelled: Boolean, $includeUnconfirmed: Boolean, $embed: [AppointmentQueryEmbed]) {\\\\n  GetAppointments(\\\\n    negotiatorId: $negotiatorId\\\\n    start: $start\\\\n    end: $end\\\\n    includeCancelled: $includeCancelled\\\\n    includeUnconfirmed: $includeUnconfirmed\\\\n    embed: $embed\\\\n  ) {\\\\n    pageNumber\\\\n    pageSize\\\\n    pageCount\\\\n    totalCount\\\\n    _links\\\\n    _embedded {\\\\n      ...AppointmentModel\\\\n      property {\\\\n        ...PropertyModel\\\\n      }\\\\n      negotiators {\\\\n        ...NegotiatorModel\\\\n      }\\\\n      followUp {\\\\n        ...AppointmentModelFollowUp\\\\n      }\\\\n      attendee {\\\\n        ...AppointmentAttendeeModel\\\\n        contacts {\\\\n          ...AppointmentContactModel\\\\n        }\\\\n      }\\\\n      appointmentType {\\\\n        ...ListItemModel\\\\n      }\\\\n      _embedded {\\\\n        offices {\\\\n          ...OfficeModel\\\\n        }\\\\n      }\\\\n    }\\\\n  }\\\\n}\\\\n\\\\nfragment AppointmentAttendeeModel on AppointmentAttendeeModel {\\\\n  id\\\\n  type\\\\n}\\\\n\\\\nfragment AppointmentContactModel on AppointmentContactModel {\\\\n  id\\\\n  name\\\\n  homePhone\\\\n  workPhone\\\\n  mobilePhone\\\\n  email\\\\n}\\\\n\\\\nfragment AppointmentModelFollowUp on AppointmentModelFollowUp {\\\\n  due\\\\n  responseId\\\\n  notes\\\\n}\\\\n\\\\nfragment AppointmentModel on AppointmentModel {\\\\n  id\\\\n  created\\\\n  modified\\\\n  start\\\\n  end\\\\n  typeId\\\\n  description\\\\n  recurring\\\\n  cancelled\\\\n  propertyId\\\\n  organiserId\\\\n  negotiatorIds\\\\n  officeIds\\\\n  accompanied\\\\n  negotiatorConfirmed\\\\n  attendeeConfirmed\\\\n  propertyConfirmed\\\\n  metadata\\\\n  _eTag\\\\n  _links\\\\n}\\\\n\\\\nfragment ListItemModel on ListItemModel {\\\\n  id\\\\n  value\\\\n}\\\\n\\\\nfragment NegotiatorModel on NegotiatorModel {\\\\n  id\\\\n  created\\\\n  modified\\\\n  name\\\\n  jobTitle\\\\n  active\\\\n  officeId\\\\n  workPhone\\\\n  mobilePhone\\\\n  email\\\\n  metadata\\\\n  _eTag\\\\n  _links\\\\n}\\\\n\\\\nfragment OfficeModel on OfficeModel {\\\\n  id\\\\n  created\\\\n  modified\\\\n  name\\\\n  manager\\\\n  address {\\\\n    buildingName\\\\n    buildingNumber\\\\n    line1\\\\n    line2\\\\n    line3\\\\n    line4\\\\n    postcode\\\\n    countryId\\\\n  }\\\\n  workPhone\\\\n  email\\\\n  metadata\\\\n  _eTag\\\\n  _links\\\\n}\\\\n\\\\nfragment PropertyModel on PropertyModel {\\\\n  id\\\\n  viewingArrangements\\\\n  address {\\\\n    buildingName\\\\n    buildingNumber\\\\n    line1\\\\n    line2\\\\n    line3\\\\n    line4\\\\n    postcode\\\\n    countryId\\\\n    geolocation {\\\\n      latitude\\\\n      longitude\\\\n    }\\\\n  }\\\\n  selling {\\\\n    vendorId\\\\n  }\\\\n  letting {\\\\n    landlordId\\\\n  }\\\\n  keys {\\\\n    id\\\\n    keysInSet {\\\\n      name\\\\n    }\\\\n    number\\\\n    status\\\\n    type {\\\\n      value\\\\n    }\\\\n    modified\\\\n    office {\\\\n      name\\\\n    }\\\\n    movements {\\\\n      checkInAt\\\\n      checkInNegotiator {\\\\n        ...NegotiatorModel\\\\n      }\\\\n      checkOutAt\\\\n      checkOutToContact {\\\\n        id\\\\n      }\\\\n      checkOutToNegotiator {\\\\n        ...NegotiatorModel\\\\n      }\\\\n    }\\\\n  }\\\\n}\\\\n\\"}": Array [
+          "{\\"query\\":\\"query GET_APPOINTMENTS($negotiatorId: [String!], $start: String!, $end: String!, $includeCancelled: Boolean, $includeUnconfirmed: Boolean, $embed: [AppointmentQueryEmbed]) {\\\\n  GetAppointments(\\\\n    negotiatorId: $negotiatorId\\\\n    start: $start\\\\n    end: $end\\\\n    includeCancelled: $includeCancelled\\\\n    includeUnconfirmed: $includeUnconfirmed\\\\n    embed: $embed\\\\n  ) {\\\\n    pageNumber\\\\n    pageSize\\\\n    pageCount\\\\n    totalCount\\\\n    _links\\\\n    _embedded {\\\\n      ...AppointmentModel\\\\n      property {\\\\n        ...PropertyModel\\\\n      }\\\\n      negotiators {\\\\n        ...NegotiatorModel\\\\n      }\\\\n      followUp {\\\\n        ...AppointmentModelFollowUp\\\\n      }\\\\n      attendee {\\\\n        ...AppointmentAttendeeModel\\\\n        contacts {\\\\n          ...AppointmentContactModel\\\\n        }\\\\n      }\\\\n      appointmentType {\\\\n        ...ListItemModel\\\\n      }\\\\n      _embedded {\\\\n        offices {\\\\n          ...OfficeModel\\\\n        }\\\\n      }\\\\n    }\\\\n  }\\\\n}\\\\n\\\\nfragment AppointmentAttendeeModel on AppointmentAttendeeModel {\\\\n  id\\\\n  type\\\\n}\\\\n\\\\nfragment AppointmentContactModel on AppointmentContactModel {\\\\n  id\\\\n  name\\\\n  homePhone\\\\n  workPhone\\\\n  mobilePhone\\\\n  email\\\\n}\\\\n\\\\nfragment AppointmentModelFollowUp on AppointmentModelFollowUp {\\\\n  due\\\\n  responseId\\\\n  notes\\\\n}\\\\n\\\\nfragment AppointmentModel on AppointmentModel {\\\\n  id\\\\n  created\\\\n  modified\\\\n  start\\\\n  end\\\\n  typeId\\\\n  description\\\\n  recurring\\\\n  cancelled\\\\n  propertyId\\\\n  organiserId\\\\n  negotiatorIds\\\\n  officeIds\\\\n  accompanied\\\\n  negotiatorConfirmed\\\\n  attendeeConfirmed\\\\n  propertyConfirmed\\\\n  metadata\\\\n  _eTag\\\\n  _links\\\\n}\\\\n\\\\nfragment ListItemModel on ListItemModel {\\\\n  id\\\\n  value\\\\n}\\\\n\\\\nfragment NegotiatorModel on NegotiatorModel {\\\\n  id\\\\n  created\\\\n  modified\\\\n  name\\\\n  jobTitle\\\\n  active\\\\n  officeId\\\\n  workPhone\\\\n  mobilePhone\\\\n  email\\\\n  metadata\\\\n  _eTag\\\\n  _links\\\\n}\\\\n\\\\nfragment OfficeModel on OfficeModel {\\\\n  id\\\\n  created\\\\n  modified\\\\n  name\\\\n  manager\\\\n  address {\\\\n    buildingName\\\\n    buildingNumber\\\\n    line1\\\\n    line2\\\\n    line3\\\\n    line4\\\\n    postcode\\\\n    countryId\\\\n  }\\\\n  workPhone\\\\n  email\\\\n  metadata\\\\n  _eTag\\\\n  _links\\\\n}\\\\n\\\\nfragment PropertyModel on PropertyModel {\\\\n  id\\\\n  viewingArrangements\\\\n  address {\\\\n    buildingName\\\\n    buildingNumber\\\\n    line1\\\\n    line2\\\\n    line3\\\\n    line4\\\\n    postcode\\\\n    countryId\\\\n    geolocation {\\\\n      latitude\\\\n      longitude\\\\n    }\\\\n  }\\\\n  selling {\\\\n    vendorId\\\\n    price\\\\n  }\\\\n  letting {\\\\n    landlordId\\\\n    rent\\\\n    rentFrequency\\\\n  }\\\\n  keys {\\\\n    id\\\\n    keysInSet {\\\\n      name\\\\n    }\\\\n    number\\\\n    status\\\\n    type {\\\\n      value\\\\n    }\\\\n    modified\\\\n    office {\\\\n      name\\\\n    }\\\\n    movements {\\\\n      checkInAt\\\\n      checkInNegotiator {\\\\n        ...NegotiatorModel\\\\n      }\\\\n      checkOutAt\\\\n      checkOutToContact {\\\\n        id\\\\n      }\\\\n      checkOutToNegotiator {\\\\n        ...NegotiatorModel\\\\n      }\\\\n    }\\\\n  }\\\\n}\\\\n\\"}": Array [
             Object {
               "request": Object {
                 "query": Object {
@@ -3783,6 +3837,15 @@ exports[`appointment Apppointment should match snapshot with data 1`] = `
                                       "value": "vendorId",
                                     },
                                   },
+                                  Object {
+                                    "arguments": Array [],
+                                    "directives": Array [],
+                                    "kind": "Field",
+                                    "name": Object {
+                                      "kind": "Name",
+                                      "value": "price",
+                                    },
+                                  },
                                 ],
                               },
                             },
@@ -3804,6 +3867,24 @@ exports[`appointment Apppointment should match snapshot with data 1`] = `
                                     "name": Object {
                                       "kind": "Name",
                                       "value": "landlordId",
+                                    },
+                                  },
+                                  Object {
+                                    "arguments": Array [],
+                                    "directives": Array [],
+                                    "kind": "Field",
+                                    "name": Object {
+                                      "kind": "Name",
+                                      "value": "rent",
+                                    },
+                                  },
+                                  Object {
+                                    "arguments": Array [],
+                                    "directives": Array [],
+                                    "kind": "Field",
+                                    "name": Object {
+                                      "kind": "Name",
+                                      "value": "rentFrequency",
                                     },
                                   },
                                 ],
@@ -5996,6 +6077,15 @@ query GET_APPOINTMENTS($negotiatorId: [String!], $start: String!, $end: String!,
                                     "value": "vendorId",
                                   },
                                 },
+                                Object {
+                                  "arguments": Array [],
+                                  "directives": Array [],
+                                  "kind": "Field",
+                                  "name": Object {
+                                    "kind": "Name",
+                                    "value": "price",
+                                  },
+                                },
                               ],
                             },
                           },
@@ -6017,6 +6107,24 @@ query GET_APPOINTMENTS($negotiatorId: [String!], $start: String!, $end: String!,
                                   "name": Object {
                                     "kind": "Name",
                                     "value": "landlordId",
+                                  },
+                                },
+                                Object {
+                                  "arguments": Array [],
+                                  "directives": Array [],
+                                  "kind": "Field",
+                                  "name": Object {
+                                    "kind": "Name",
+                                    "value": "rent",
+                                  },
+                                },
+                                Object {
+                                  "arguments": Array [],
+                                  "directives": Array [],
+                                  "kind": "Field",
+                                  "name": Object {
+                                    "kind": "Name",
+                                    "value": "rentFrequency",
                                   },
                                 },
                               ],
@@ -6716,10 +6824,37 @@ query GET_APPOINTMENTS($negotiatorId: [String!], $start: String!, $end: String!,
                             "postcode": "OX25 2UJ",
                           },
                           "id": "ALB160019",
+                          "keys": Array [
+                            Object {
+                              "__typename": "KeyModel",
+                              "id": "RPT22000001",
+                              "keysInSet": Array [
+                                Object {
+                                  "__typename": "IndividualKeyModel",
+                                  "name": "Front door key",
+                                },
+                              ],
+                              "modified": "2022-01-13T10:50:02.0000000Z",
+                              "movements": Array [],
+                              "number": "123",
+                              "office": Object {
+                                "__typename": "OfficeModel",
+                                "name": "Camberwell",
+                              },
+                              "status": "checkedIn",
+                              "type": Object {
+                                "__typename": "KeyType",
+                                "value": "Sales",
+                              },
+                            },
+                          ],
                           "letting": Object {
                             "landlordId": "OXF200001",
+                            "rent": 500,
+                            "rentFrequency": "monthly",
                           },
                           "selling": Object {
+                            "price": 300000,
                             "vendorId": "OXF200001",
                           },
                           "viewingArrangements": "Knock three times",
@@ -8652,7 +8787,7 @@ query GET_VENDORS($id: [String!]) {
         "link": MockLink {
           "addTypename": false,
           "mockedResponsesByKey": Object {
-            "{\\"query\\":\\"query GET_APPOINTMENTS($negotiatorId: [String!], $start: String!, $end: String!, $includeCancelled: Boolean, $includeUnconfirmed: Boolean, $embed: [AppointmentQueryEmbed]) {\\\\n  GetAppointments(\\\\n    negotiatorId: $negotiatorId\\\\n    start: $start\\\\n    end: $end\\\\n    includeCancelled: $includeCancelled\\\\n    includeUnconfirmed: $includeUnconfirmed\\\\n    embed: $embed\\\\n  ) {\\\\n    pageNumber\\\\n    pageSize\\\\n    pageCount\\\\n    totalCount\\\\n    _links\\\\n    _embedded {\\\\n      ...AppointmentModel\\\\n      property {\\\\n        ...PropertyModel\\\\n      }\\\\n      negotiators {\\\\n        ...NegotiatorModel\\\\n      }\\\\n      followUp {\\\\n        ...AppointmentModelFollowUp\\\\n      }\\\\n      attendee {\\\\n        ...AppointmentAttendeeModel\\\\n        contacts {\\\\n          ...AppointmentContactModel\\\\n        }\\\\n      }\\\\n      appointmentType {\\\\n        ...ListItemModel\\\\n      }\\\\n      _embedded {\\\\n        offices {\\\\n          ...OfficeModel\\\\n        }\\\\n      }\\\\n    }\\\\n  }\\\\n}\\\\n\\\\nfragment AppointmentAttendeeModel on AppointmentAttendeeModel {\\\\n  id\\\\n  type\\\\n}\\\\n\\\\nfragment AppointmentContactModel on AppointmentContactModel {\\\\n  id\\\\n  name\\\\n  homePhone\\\\n  workPhone\\\\n  mobilePhone\\\\n  email\\\\n}\\\\n\\\\nfragment AppointmentModelFollowUp on AppointmentModelFollowUp {\\\\n  due\\\\n  responseId\\\\n  notes\\\\n}\\\\n\\\\nfragment AppointmentModel on AppointmentModel {\\\\n  id\\\\n  created\\\\n  modified\\\\n  start\\\\n  end\\\\n  typeId\\\\n  description\\\\n  recurring\\\\n  cancelled\\\\n  propertyId\\\\n  organiserId\\\\n  negotiatorIds\\\\n  officeIds\\\\n  accompanied\\\\n  negotiatorConfirmed\\\\n  attendeeConfirmed\\\\n  propertyConfirmed\\\\n  metadata\\\\n  _eTag\\\\n  _links\\\\n}\\\\n\\\\nfragment ListItemModel on ListItemModel {\\\\n  id\\\\n  value\\\\n}\\\\n\\\\nfragment NegotiatorModel on NegotiatorModel {\\\\n  id\\\\n  created\\\\n  modified\\\\n  name\\\\n  jobTitle\\\\n  active\\\\n  officeId\\\\n  workPhone\\\\n  mobilePhone\\\\n  email\\\\n  metadata\\\\n  _eTag\\\\n  _links\\\\n}\\\\n\\\\nfragment OfficeModel on OfficeModel {\\\\n  id\\\\n  created\\\\n  modified\\\\n  name\\\\n  manager\\\\n  address {\\\\n    buildingName\\\\n    buildingNumber\\\\n    line1\\\\n    line2\\\\n    line3\\\\n    line4\\\\n    postcode\\\\n    countryId\\\\n  }\\\\n  workPhone\\\\n  email\\\\n  metadata\\\\n  _eTag\\\\n  _links\\\\n}\\\\n\\\\nfragment PropertyModel on PropertyModel {\\\\n  id\\\\n  viewingArrangements\\\\n  address {\\\\n    buildingName\\\\n    buildingNumber\\\\n    line1\\\\n    line2\\\\n    line3\\\\n    line4\\\\n    postcode\\\\n    countryId\\\\n    geolocation {\\\\n      latitude\\\\n      longitude\\\\n    }\\\\n  }\\\\n  selling {\\\\n    vendorId\\\\n  }\\\\n  letting {\\\\n    landlordId\\\\n  }\\\\n  keys {\\\\n    id\\\\n    keysInSet {\\\\n      name\\\\n    }\\\\n    number\\\\n    status\\\\n    type {\\\\n      value\\\\n    }\\\\n    modified\\\\n    office {\\\\n      name\\\\n    }\\\\n    movements {\\\\n      checkInAt\\\\n      checkInNegotiator {\\\\n        ...NegotiatorModel\\\\n      }\\\\n      checkOutAt\\\\n      checkOutToContact {\\\\n        id\\\\n      }\\\\n      checkOutToNegotiator {\\\\n        ...NegotiatorModel\\\\n      }\\\\n    }\\\\n  }\\\\n}\\\\n\\"}": Array [
+            "{\\"query\\":\\"query GET_APPOINTMENTS($negotiatorId: [String!], $start: String!, $end: String!, $includeCancelled: Boolean, $includeUnconfirmed: Boolean, $embed: [AppointmentQueryEmbed]) {\\\\n  GetAppointments(\\\\n    negotiatorId: $negotiatorId\\\\n    start: $start\\\\n    end: $end\\\\n    includeCancelled: $includeCancelled\\\\n    includeUnconfirmed: $includeUnconfirmed\\\\n    embed: $embed\\\\n  ) {\\\\n    pageNumber\\\\n    pageSize\\\\n    pageCount\\\\n    totalCount\\\\n    _links\\\\n    _embedded {\\\\n      ...AppointmentModel\\\\n      property {\\\\n        ...PropertyModel\\\\n      }\\\\n      negotiators {\\\\n        ...NegotiatorModel\\\\n      }\\\\n      followUp {\\\\n        ...AppointmentModelFollowUp\\\\n      }\\\\n      attendee {\\\\n        ...AppointmentAttendeeModel\\\\n        contacts {\\\\n          ...AppointmentContactModel\\\\n        }\\\\n      }\\\\n      appointmentType {\\\\n        ...ListItemModel\\\\n      }\\\\n      _embedded {\\\\n        offices {\\\\n          ...OfficeModel\\\\n        }\\\\n      }\\\\n    }\\\\n  }\\\\n}\\\\n\\\\nfragment AppointmentAttendeeModel on AppointmentAttendeeModel {\\\\n  id\\\\n  type\\\\n}\\\\n\\\\nfragment AppointmentContactModel on AppointmentContactModel {\\\\n  id\\\\n  name\\\\n  homePhone\\\\n  workPhone\\\\n  mobilePhone\\\\n  email\\\\n}\\\\n\\\\nfragment AppointmentModelFollowUp on AppointmentModelFollowUp {\\\\n  due\\\\n  responseId\\\\n  notes\\\\n}\\\\n\\\\nfragment AppointmentModel on AppointmentModel {\\\\n  id\\\\n  created\\\\n  modified\\\\n  start\\\\n  end\\\\n  typeId\\\\n  description\\\\n  recurring\\\\n  cancelled\\\\n  propertyId\\\\n  organiserId\\\\n  negotiatorIds\\\\n  officeIds\\\\n  accompanied\\\\n  negotiatorConfirmed\\\\n  attendeeConfirmed\\\\n  propertyConfirmed\\\\n  metadata\\\\n  _eTag\\\\n  _links\\\\n}\\\\n\\\\nfragment ListItemModel on ListItemModel {\\\\n  id\\\\n  value\\\\n}\\\\n\\\\nfragment NegotiatorModel on NegotiatorModel {\\\\n  id\\\\n  created\\\\n  modified\\\\n  name\\\\n  jobTitle\\\\n  active\\\\n  officeId\\\\n  workPhone\\\\n  mobilePhone\\\\n  email\\\\n  metadata\\\\n  _eTag\\\\n  _links\\\\n}\\\\n\\\\nfragment OfficeModel on OfficeModel {\\\\n  id\\\\n  created\\\\n  modified\\\\n  name\\\\n  manager\\\\n  address {\\\\n    buildingName\\\\n    buildingNumber\\\\n    line1\\\\n    line2\\\\n    line3\\\\n    line4\\\\n    postcode\\\\n    countryId\\\\n  }\\\\n  workPhone\\\\n  email\\\\n  metadata\\\\n  _eTag\\\\n  _links\\\\n}\\\\n\\\\nfragment PropertyModel on PropertyModel {\\\\n  id\\\\n  viewingArrangements\\\\n  address {\\\\n    buildingName\\\\n    buildingNumber\\\\n    line1\\\\n    line2\\\\n    line3\\\\n    line4\\\\n    postcode\\\\n    countryId\\\\n    geolocation {\\\\n      latitude\\\\n      longitude\\\\n    }\\\\n  }\\\\n  selling {\\\\n    vendorId\\\\n    price\\\\n  }\\\\n  letting {\\\\n    landlordId\\\\n    rent\\\\n    rentFrequency\\\\n  }\\\\n  keys {\\\\n    id\\\\n    keysInSet {\\\\n      name\\\\n    }\\\\n    number\\\\n    status\\\\n    type {\\\\n      value\\\\n    }\\\\n    modified\\\\n    office {\\\\n      name\\\\n    }\\\\n    movements {\\\\n      checkInAt\\\\n      checkInNegotiator {\\\\n        ...NegotiatorModel\\\\n      }\\\\n      checkOutAt\\\\n      checkOutToContact {\\\\n        id\\\\n      }\\\\n      checkOutToNegotiator {\\\\n        ...NegotiatorModel\\\\n      }\\\\n    }\\\\n  }\\\\n}\\\\n\\"}": Array [
               Object {
                 "request": Object {
                   "query": Object {
@@ -9497,6 +9632,15 @@ query GET_VENDORS($id: [String!]) {
                                         "value": "vendorId",
                                       },
                                     },
+                                    Object {
+                                      "arguments": Array [],
+                                      "directives": Array [],
+                                      "kind": "Field",
+                                      "name": Object {
+                                        "kind": "Name",
+                                        "value": "price",
+                                      },
+                                    },
                                   ],
                                 },
                               },
@@ -9518,6 +9662,24 @@ query GET_VENDORS($id: [String!]) {
                                       "name": Object {
                                         "kind": "Name",
                                         "value": "landlordId",
+                                      },
+                                    },
+                                    Object {
+                                      "arguments": Array [],
+                                      "directives": Array [],
+                                      "kind": "Field",
+                                      "name": Object {
+                                        "kind": "Name",
+                                        "value": "rent",
+                                      },
+                                    },
+                                    Object {
+                                      "arguments": Array [],
+                                      "directives": Array [],
+                                      "kind": "Field",
+                                      "name": Object {
+                                        "kind": "Name",
+                                        "value": "rentFrequency",
                                       },
                                     },
                                   ],
@@ -11710,6 +11872,15 @@ query GET_APPOINTMENTS($negotiatorId: [String!], $start: String!, $end: String!,
                                       "value": "vendorId",
                                     },
                                   },
+                                  Object {
+                                    "arguments": Array [],
+                                    "directives": Array [],
+                                    "kind": "Field",
+                                    "name": Object {
+                                      "kind": "Name",
+                                      "value": "price",
+                                    },
+                                  },
                                 ],
                               },
                             },
@@ -11731,6 +11902,24 @@ query GET_APPOINTMENTS($negotiatorId: [String!], $start: String!, $end: String!,
                                     "name": Object {
                                       "kind": "Name",
                                       "value": "landlordId",
+                                    },
+                                  },
+                                  Object {
+                                    "arguments": Array [],
+                                    "directives": Array [],
+                                    "kind": "Field",
+                                    "name": Object {
+                                      "kind": "Name",
+                                      "value": "rent",
+                                    },
+                                  },
+                                  Object {
+                                    "arguments": Array [],
+                                    "directives": Array [],
+                                    "kind": "Field",
+                                    "name": Object {
+                                      "kind": "Name",
+                                      "value": "rentFrequency",
                                     },
                                   },
                                 ],
@@ -12430,10 +12619,37 @@ query GET_APPOINTMENTS($negotiatorId: [String!], $start: String!, $end: String!,
                               "postcode": "OX25 2UJ",
                             },
                             "id": "ALB160019",
+                            "keys": Array [
+                              Object {
+                                "__typename": "KeyModel",
+                                "id": "RPT22000001",
+                                "keysInSet": Array [
+                                  Object {
+                                    "__typename": "IndividualKeyModel",
+                                    "name": "Front door key",
+                                  },
+                                ],
+                                "modified": "2022-01-13T10:50:02.0000000Z",
+                                "movements": Array [],
+                                "number": "123",
+                                "office": Object {
+                                  "__typename": "OfficeModel",
+                                  "name": "Camberwell",
+                                },
+                                "status": "checkedIn",
+                                "type": Object {
+                                  "__typename": "KeyType",
+                                  "value": "Sales",
+                                },
+                              },
+                            ],
                             "letting": Object {
                               "landlordId": "OXF200001",
+                              "rent": 500,
+                              "rentFrequency": "monthly",
                             },
                             "selling": Object {
+                              "price": 300000,
                               "vendorId": "OXF200001",
                             },
                             "viewingArrangements": "Knock three times",
