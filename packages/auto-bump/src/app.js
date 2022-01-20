@@ -19,7 +19,7 @@ const updatePackageVersion = async (location, version) => {
 export default (app) => {
   console.log('hello, am instanced')
   // app.onAny(event => console.log('event', event))
-  app.onAny('release.published', async (event) => {
+  app.onAny(async (event) => {
     console.log('event triggered')
     const tag = event.release.tag
     const packageLocation = event.release.name
