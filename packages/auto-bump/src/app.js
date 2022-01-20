@@ -17,7 +17,7 @@ const updatePackageVersion = async (location, version) => {
 }
 
 export default (app) => {
-  app.on('release.released', async (event) => {
+  app.on('release.published', async (event) => {
     const tag = event.release.tag
     const packageLocation = event.release.name
     if (!tag || !packageLocation) {
