@@ -58,6 +58,15 @@ jobs:
         run: |
           yarn workspace ${{ steps.tagName.outputs.package }} run build
 
+      - name: Package Version Bump
+        uses: ./packages/auto-bump
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+
+      - name: Commit
+        run: |
+          git add . && git commit -nm "chore: bump ${{ steps.tagName.outputs.package }} version"
+
       - name: Release
         run: |
           yarn workspace ${{ steps.tagName.outputs.package }} run release --stage prod
