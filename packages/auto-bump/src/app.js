@@ -1,6 +1,6 @@
 import * as fs from "fs"
 
-updatePackageVersion = async (location, version) => {
+const updatePackageVersion = async (location, version) => {
   const fileName = path.resolve(`packages/${location}`, 'package.json')
   const workingPackageRaw = await fs.promises.readFile(fileName, {
     encoding: 'utf-8',
@@ -23,6 +23,8 @@ export default (app) => {
     if (!tag || !packageLocation) {
       return
     }
+
+    console.log('info', tag, packageLocation)
     
     await updatePackageVersion(packageLocation, tag)
   })
