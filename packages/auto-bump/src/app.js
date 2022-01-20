@@ -1,4 +1,4 @@
-import * as fs from "fs"
+import * as fs from 'fs'
 import * as path from 'path'
 
 const updatePackageVersion = async (location, version) => {
@@ -7,7 +7,6 @@ const updatePackageVersion = async (location, version) => {
     encoding: 'utf-8',
   })
   if (!workingPackageRaw) {
-    spinner.fail('Working package.json not found. Please run in a javascript application')
     process.exit(1)
   }
 
@@ -23,7 +22,7 @@ export default (app) => {
     if (!tag || !packageLocation) {
       return
     }
-    
+
     await updatePackageVersion(packageLocation.replace('@reapit/', ''), tag)
   })
 }
