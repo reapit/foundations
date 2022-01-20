@@ -42,10 +42,7 @@ jobs:
       - name: Install
         run: yarn
 
-      # - name: Fetch config
-      #   run: |
-      #     yarn workspace ${{ steps.tagName.outputs.package }} run conf --name production
-
+     
       - name: Lint
         run: |
           yarn workspace ${{ steps.tagName.outputs.package }} run lint
@@ -66,11 +63,3 @@ jobs:
       - name: Commit
         run: |
           git add . && git commit -nm "chore: bump ${{ steps.tagName.outputs.package }} version"
-
-      # - name: Release
-      #   run: |
-      #     yarn workspace ${{ steps.tagName.outputs.package }} run release --stage prod
-
-      # - name: Publish
-      #   run: |
-      #     yarn workspace ${{ steps.tagName.outputs.package }} run publish --tag latest
