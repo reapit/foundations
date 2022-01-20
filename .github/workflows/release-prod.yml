@@ -39,22 +39,6 @@ jobs:
         run: |
           echo "RELEASE_VERSION=${{ steps.tagName.outputs.package }}_${{ steps.tagName.outputs.version }}" >> $GITHUB_ENV
 
-      - name: Install
-        run: yarn
-
-     
-      - name: Lint
-        run: |
-          yarn workspace ${{ steps.tagName.outputs.package }} run lint
-
-      - name: Test
-        run: |
-          yarn workspace ${{ steps.tagName.outputs.package }} run test --watch=false --coverage --ci --silent --forceExit --detectOpenHandles --runInBand
-
-      - name: Build
-        run: |
-          yarn workspace ${{ steps.tagName.outputs.package }} run build
-
       - name: Package Version Bump
         uses: ./packages/auto-bump
         env:
