@@ -1,4 +1,5 @@
 import * as fs from "fs"
+import * as path from 'path'
 
 const updatePackageVersion = async (location, version) => {
   const fileName = path.resolve(`packages/${location}`, 'package.json')
@@ -29,6 +30,6 @@ export default (app) => {
 
     console.log('info', tag, packageLocation)
     
-    await updatePackageVersion(packageLocation, tag)
+    await updatePackageVersion(packageLocation.replace('@reapit/', ''), tag)
   })
 }
