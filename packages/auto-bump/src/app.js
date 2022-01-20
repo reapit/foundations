@@ -21,8 +21,7 @@ export default (app) => {
   // app.onAny(event => console.log('event', event))
   app.onAny(async (event) => {
     console.log('event triggered')
-    const tag = event.payload.release.tag
-    const packageLocation = event.payload.release.name
+    const [packageLocation, tag] = event.payload.release.name.split('_v')
     console.log('tag', tag, 'loc', packageLocation)
     if (!tag || !packageLocation) {
       return
