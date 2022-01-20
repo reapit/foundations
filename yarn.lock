@@ -15177,6 +15177,21 @@ __metadata:
   languageName: node
   linkType: hard
 
+"auto-bump@workspace:packages/auto-bump":
+  version: 0.0.0-use.local
+  resolution: "auto-bump@workspace:packages/auto-bump"
+  dependencies:
+    "@probot/adapter-github-actions": ^3.0.1
+    "@types/node": ^16.11.13
+    "@typescript-eslint/eslint-plugin": ^5.7.0
+    "@typescript-eslint/parser": ^5.7.0
+    "@zeit/ncc": ^0.22.3
+    eslint: 8.4.1
+    eslint-plugin-prettier: ^4.0.0
+    serverless-deployment-bucket: ^1.5.1
+  languageName: unknown
+  linkType: soft
+
 "auto-reply-bot@workspace:packages/auto-reply-bot":
   version: 0.0.0-use.local
   resolution: "auto-reply-bot@workspace:packages/auto-reply-bot"
