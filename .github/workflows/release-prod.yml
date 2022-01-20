@@ -42,9 +42,9 @@ jobs:
       - name: Install
         run: yarn
 
-      - name: Fetch config
-        run: |
-          yarn workspace ${{ steps.tagName.outputs.package }} run conf --name production
+      # - name: Fetch config
+      #   run: |
+      #     yarn workspace ${{ steps.tagName.outputs.package }} run conf --name production
 
       - name: Lint
         run: |
