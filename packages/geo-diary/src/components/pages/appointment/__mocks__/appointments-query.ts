@@ -385,11 +385,27 @@ export const mockAppointmentsQuery = {
               postcode: 'OX25 2UJ',
             },
             id: 'ALB160019',
+            keys: [
+              {
+                __typename: 'KeyModel',
+                id: 'RPT22000001',
+                keysInSet: [{ __typename: 'IndividualKeyModel', name: 'Front door key' }],
+                number: '123',
+                status: 'checkedIn',
+                type: { __typename: 'KeyType', value: 'Sales' },
+                modified: '2022-01-13T10:50:02.0000000Z',
+                office: { __typename: 'OfficeModel', name: 'Camberwell' },
+                movements: [],
+              },
+            ],
             selling: {
               vendorId: 'OXF200001',
+              price: 300000,
             },
             letting: {
               landlordId: 'OXF200001',
+              rent: 500,
+              rentFrequency: 'monthly',
             },
           },
           propertyConfirmed: false,
