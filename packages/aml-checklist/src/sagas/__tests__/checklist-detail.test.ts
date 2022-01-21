@@ -32,6 +32,7 @@ import {
   fetchInitialDataListen,
   updateIdentityCheckStatusListen,
   updateIdentityCheckStatus,
+  handleException,
 } from '../checklist-detail'
 import { fetchChecklist, fetchIdentityCheck, updateChecklist, updateIdentityCheck } from '../api'
 import { contact, idCheck } from '../__stubs__/contact'
@@ -69,7 +70,7 @@ describe('checklist-detail', () => {
       const err = { description: 'mockError' }
       expect(clone.throw && clone.throw(err).value).toEqual(
         call(notification.error, {
-          message: extractNetworkErrString(err),
+          message: handleException(err),
         }),
       )
       expect(clone.next().value).toEqual(put(checklistDetailLoading(false)))
@@ -105,7 +106,7 @@ describe('checklist-detail', () => {
         const err = { description: 'mockError' }
         expect(clone.throw && clone.throw(err).value).toEqual(
           call(notification.error, {
-            message: extractNetworkErrString(err),
+            message: handleException(err),
           }),
         )
         expect(clone.next().value).toEqual(put(checklistDetailSubmitForm(false)))
@@ -140,7 +141,7 @@ describe('checklist-detail', () => {
         const err = { description: 'mockError' }
         expect(clone.throw && clone.throw(err).value).toEqual(
           call(notification.error, {
-            message: extractNetworkErrString(err),
+            message: handleException(err),
           }),
         )
         expect(clone.next().value).toEqual(put(checklistDetailSubmitForm(false)))
@@ -196,7 +197,7 @@ describe('checklist-detail', () => {
         const err = { description: 'mockError' }
         expect(clone.throw && clone.throw(err).value).toEqual(
           call(notification.error, {
-            message: extractNetworkErrString(err),
+            message: handleException(err),
           }),
         )
         expect(clone.next().value).toEqual(put(checklistDetailSubmitForm(false)))
@@ -250,7 +251,7 @@ describe('checklist-detail', () => {
         const err = { description: 'mockError' }
         expect(clone.throw && clone.throw(err).value).toEqual(
           call(notification.error, {
-            message: extractNetworkErrString(err),
+            message: handleException(err),
           }),
         )
         expect(clone.next().value).toEqual(put(checklistDetailSubmitForm(false)))
@@ -304,7 +305,7 @@ describe('checklist-detail', () => {
         const err = { description: 'mockError' }
         expect(clone.throw && clone.throw(err).value).toEqual(
           call(notification.error, {
-            message: extractNetworkErrString(err),
+            message: handleException(err),
           }),
         )
         expect(clone.next().value).toEqual(put(checklistDetailSubmitForm(false)))
@@ -359,7 +360,7 @@ describe('checklist-detail', () => {
         const err = { description: 'mockError' }
         expect(clone.throw && clone.throw(err).value).toEqual(
           call(notification.error, {
-            message: extractNetworkErrString(err),
+            message: handleException(err),
           }),
         )
         expect(clone.next().value).toEqual(put(checklistDetailSubmitForm(false)))
@@ -392,7 +393,7 @@ describe('checklist-detail', () => {
       const err = { description: 'mockError' }
       expect(clone.throw && clone.throw(err).value).toEqual(
         call(notification.error, {
-          message: extractNetworkErrString(err),
+          message: handleException(err),
         }),
       )
       expect(clone.next().value).toEqual(put(checklistDetailSubmitForm(false)))
