@@ -7,6 +7,8 @@ export type Config = {
   connectUserPoolId: string
   platformApiUrl: string
   marketplaceUrl: string
+  googleAnalyticsKey: string
+  sentryDns: string
 }
 
 declare global {

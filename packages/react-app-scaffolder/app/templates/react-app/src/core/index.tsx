@@ -1,6 +1,10 @@
 import React, { ComponentType } from 'react'
 import { render } from 'react-dom'
 import { Config } from '../types/global'
+import * as Sentry from '@sentry/browser'
+import ReactGA from 'react-ga'
+import { getMarketplaceGlobalsByKey } from '@reapit/utils-react'
+import { logger } from '@reapit/utils-react'
 
 // Init global config
 window.reapit = {
@@ -11,12 +15,14 @@ window.reapit = {
     connectUserPoolId: '',
     platformApiUrl: '',
     marketplaceUrl: '',
+    googleAnalyticsKey: '',
+    sentryDns: '',
   },
 }
 
 export const renderApp = (Component: ComponentType) => {
   const rootElement = document.querySelector('#root') || document.body
-  const isDesktop = Boolean(window['__REAPIT_MARKETPLACE_GLOBALS__'])
+  const isDesktop = getMarketplaceGlobalsByKey()
   const html = document.querySelector('html')
 
   if (isDesktop && html) {
@@ -52,11 +58,11 @@ const run = async () => {
 
     // I import the app dynamically so that the config is set on window and I avoid any
     // runtime issues where config is undefined
-    const { default: App } = await import('./app
+    const { default: App } = await import('./app')
 
     renderApp(App)
   } catch (error) {
-    console.error('Cannot fetch config', error)
+    logger(error)
   }
 }
 

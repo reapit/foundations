@@ -51,6 +51,10 @@ module.exports = class extends Generator {
         name,
       })
 
+      this.fs.copyTpl(this.templatePath('./_index.html'), this.destinationPath('./public/index.html'), {
+        name,
+      })
+
       this.fs.copyTpl(this.templatePath('_README.md'), this.destinationPath('./README.md'), {
         name,
       })
@@ -87,9 +91,9 @@ module.exports = class extends Generator {
       },
       {
         type: 'input',
-        name: 'clientId',
+        name: 'userPoolId',
         message: 'Enter the userpool for your app',
-        default: 'userPoolId',
+        default: '',
       },
     ])
 
