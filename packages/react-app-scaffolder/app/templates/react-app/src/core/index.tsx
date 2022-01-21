@@ -1,7 +1,6 @@
 import React, { ComponentType } from 'react'
 import { render } from 'react-dom'
-import { Config } from './types/global'
-import config from './reapit.config.json'
+import { Config } from '../types/global'
 
 // Init global config
 window.reapit = {
@@ -31,13 +30,29 @@ export const renderApp = (Component: ComponentType) => {
 
 const run = async () => {
   try {
-    const globalConfig: Config = config
+    const configRes = await fetch('config.json')
+    const config = (await configRes.json()) as Config
+    const isLocal = config.appEnv !== 'production'
+
+    if (!isLocal && config.sentryDns && !window.location.hostname.includes('prod.paas')) {
+      Sentry.init({
+        release: process.env.APP_VERSION,
+        dsn: config.sentryDns,
+        environment: config.appEnv,
+      })
+    }
+
+    if (!isLocal && config.googleAnalyticsKey) {
+      ReactGA.initialize(config.googleAnalyticsKey)
+      ReactGA.pageview(window.location.pathname + window.location.search)
+    }
+
     // Set the global config
-    window.reapit.config = globalConfig
+    window.reapit.config = config
 
     // I import the app dynamically so that the config is set on window and I avoid any
     // runtime issues where config is undefined
-    const { default: App } = await import('./core/app')
+    const { default: App } = await import('./app
 
     renderApp(App)
   } catch (error) {
