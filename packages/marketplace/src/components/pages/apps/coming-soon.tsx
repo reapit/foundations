@@ -24,7 +24,6 @@ import comingSoonAgentPoint from '@/assets/images/coming-soon/AgentPoint.png'
 import comingSoonCannellSigns from '@/assets/images/coming-soon/CannellSigns.png'
 import comingSoonHummTech from '@/assets/images/coming-soon/HumTech.png'
 import comingSoonLawFirmServices from '@/assets/images/coming-soon/LawFirmServices.png'
-import comingSoonUSeeHomes from '@/assets/images/coming-soon/USeeHomes.png'
 import comingSoonViewber from '@/assets/images/coming-soon/Viewber.png'
 import comingSoonWhat3Words from '@/assets/images/coming-soon/What3Words.png'
 import { ComingSoonApp } from '@/types/global'
@@ -75,7 +74,6 @@ const comingSoonImagesMap = {
   comingSoonCannellSigns,
   comingSoonHummTech,
   comingSoonLawFirmServices,
-  comingSoonUSeeHomes,
   comingSoonViewber,
   comingSoonWhat3Words,
 }
