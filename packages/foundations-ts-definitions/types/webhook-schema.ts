@@ -74,7 +74,7 @@ export type ReapitWebhookPayloadType = {
   customerId: string,
   eventTime: string,
   topicId: ReapitWebhookTopicEnum,
-}
+} & ReapitWebhookValueType<any>
 
 // TODO requires ApplicationModal
 export type ReapitWebhookApplicationInstallEvent = ReapitWebhookValueType<AppDetailModel> & ReapitWebhookPayloadType & {
