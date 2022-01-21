@@ -1,6 +1,6 @@
 import React from 'react'
 import { shallow } from 'enzyme'
-import { PropertyDrawer } from '../property-drawer'
+import { KeyInfo, PropertyDrawer, KeyModel } from '../property-drawer'
 import { mockAppointmentsQuery } from '../../../pages/appointment/__mocks__/appointments-query'
 import { ExtendedAppointmentModel } from '../../../../types/global'
 import { useAppState } from '../../../../core/app-state'
@@ -24,5 +24,11 @@ describe('PropertyDrawer', () => {
     }))
 
     expect(shallow(<PropertyDrawer />)).toMatchSnapshot()
+  })
+})
+
+describe('KeyInfo', () => {
+  it('should match snapshot with an appointment in state', () => {
+    expect(shallow(<KeyInfo keyModel={(appointment.property?.keys as KeyModel[])[0]} />)).toMatchSnapshot()
   })
 })

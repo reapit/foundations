@@ -31,6 +31,15 @@ import {
 } from './api'
 import { extractNetworkErrString } from '@reapit/utils-common'
 
+export const handleException = (err) => {
+  const networkError = extractNetworkErrString(err)
+  if (networkError && networkError.indexOf('Precondition failed') !== -1) {
+    return 'We are unable to save your changes as this record has recently been updated in AgencyCloud. Please close and reopen the app to ensure you are seeing the most up to date contact information.'
+  }
+
+  return networkError
+}
+
 export const fetchInitialData = function* ({ data: id }) {
   yield put(checklistDetailLoading(true))
   const headers = yield call(initAuthorizedRequestHeaders)
@@ -43,7 +52,7 @@ export const fetchInitialData = function* ({ data: id }) {
     yield put(checklistDetailReceiveIdentityCheck(identityChecks))
   } catch (err) {
     yield call(notification.error, {
-      message: extractNetworkErrString(err),
+      message: handleException(err),
     })
   } finally {
     yield put(checklistDetailLoading(false))
@@ -78,7 +87,7 @@ export const onUpdateChecklist = function* ({ data: { nextSection, contact } }: 
     }
   } catch (err) {
     yield call(notification.error, {
-      message: extractNetworkErrString(err),
+      message: handleException(err),
     })
   } finally {
     yield put(checklistDetailSubmitForm(false))
@@ -138,7 +147,7 @@ export const onUpdateAddressHistory = function* ({
     }
   } catch (err) {
     yield call(notification.error, {
-      message: extractNetworkErrString(err),
+      message: handleException(err),
     })
   } finally {
     yield put(checklistDetailSubmitForm(false))
@@ -194,7 +203,7 @@ export const onUpdateDeclarationAndRisk = function* ({
     }
   } catch (err) {
     yield call(notification.error, {
-      message: extractNetworkErrString(err),
+      message: handleException(err),
     })
   } finally {
     yield put(checklistDetailSubmitForm(false))
@@ -231,7 +240,7 @@ export const pepSearch = function* ({ data }) {
     }
   } catch (err) {
     yield call(notification.error, {
-      message: extractNetworkErrString(err),
+      message: handleException(err),
     })
   } finally {
     yield put(checklistDetailSubmitForm(false))
@@ -312,7 +321,7 @@ export const updatePrimaryId = function* ({
     }
   } catch (err) {
     yield call(notification.error, {
-      message: extractNetworkErrString(err),
+      message: handleException(err),
     })
   } finally {
     yield put(checklistDetailSubmitForm(false))
@@ -379,7 +388,7 @@ export const updateSecondaryId = function* ({
     }
   } catch (err) {
     yield call(notification.error, {
-      message: extractNetworkErrString(err),
+      message: handleException(err),
     })
   } finally {
     yield put(checklistDetailSubmitForm(false))
@@ -428,7 +437,7 @@ export const updateIdentityCheckStatus = function* ({
     }
   } catch (err) {
     yield call(notification.error, {
-      message: extractNetworkErrString(err),
+      message: handleException(err),
     })
   } finally {
     yield put(checklistDetailSubmitForm(false))

@@ -7,24 +7,27 @@ import { elMb3, Label } from '@reapit/elements'
 import { KeyMovementModel, KeysModel, NegotiatorModel, OfficeModel } from '@reapit/foundations-ts-definitions'
 import { cx } from '@linaria/utils'
 
-const KeyInfo = ({
-  keyModal,
-}: {
-  keyModal: KeysModel & {
-    movements?: (KeyMovementModel & { checkOutToNegotiator?: NegotiatorModel; checkInNegotiator?: NegotiatorModel })[]
-  } & { office?: OfficeModel }
-}) => {
-  const lastMovement = keyModal.movements ? keyModal.movements[keyModal.movements.length - 1] : undefined
+export type KeyModel = KeysModel & {
+  movements?: (KeyMovementModel & { checkOutToNegotiator?: NegotiatorModel; checkInNegotiator?: NegotiatorModel })[]
+} & { office?: OfficeModel }
 
-  const modified = keyModal.modified ? new Date(keyModal.modified) : undefined
-  const lastModified = modified
-    ? `${modified.getDate().toString().padStart(2, '0')}/${(modified.getMonth() + 1)
+export interface KeyInfoProps {
+  keyModel: KeyModel
+}
+
+export const KeyInfo: FC<KeyInfoProps> = ({ keyModel }) => {
+  const { movements, modified, status, number, keysInSet, office } = keyModel
+  const lastMovement = movements ? movements[movements.length - 1] : undefined
+
+  const modifiedDate = modified ? new Date(modified) : undefined
+  const lastModified = modifiedDate
+    ? `${modifiedDate.getDate().toString().padStart(2, '0')}/${(modifiedDate.getMonth() + 1)
         .toString()
-        .padStart(2, '0')}/${modified.getFullYear()} ${modified.getHours()}:${modified.getMinutes()}`
+        .padStart(2, '0')}/${modifiedDate.getFullYear()} ${modifiedDate.getHours()}:${modifiedDate.getMinutes()}`
     : undefined
 
-  const status = lastModified
-    ? `${keyModal.status === 'checkedOut' ? 'checked out' : 'checked in'} at ${lastModified || 'unknown'}${
+  const statusName = lastModified
+    ? `${status === 'checkedOut' ? 'Checked out' : 'Checked in'} at ${lastModified || 'unknown'}${
         lastMovement
           ? ` by ${
               lastMovement?.checkOutToNegotiator?.name
@@ -39,22 +42,22 @@ const KeyInfo = ({
 
   return (
     <>
-      <Label>Number</Label>
-      <p className={cx(elMb3)}>{keyModal.number}</p>
+      <Label>Key Number</Label>
+      <p className={cx(elMb3)}>{number}</p>
       <Label>Keys in set</Label>
       <div className={cx(elMb3)}>
-        {keyModal.keysInSet?.map((set) => (
+        {keysInSet?.map((set) => (
           <p key={set.name}>{set.name}</p>
         ))}
       </div>
-      {keyModal?.office && (
+      {office && (
         <>
           <Label>Office</Label>
-          <p className={cx(elMb3)}>{keyModal?.office.name}</p>
+          <p className={cx(elMb3)}>{office.name}</p>
         </>
       )}
       <Label>Status</Label>
-      <p className={cx(elMb3)}>{status}</p>
+      <p className={cx(elMb3)}>{statusName}</p>
     </>
   )
 }
@@ -69,8 +72,14 @@ export const PropertyDrawer: FC = () => {
 
   if (!appointment || !property) return null
 
-  const { viewingArrangements, notes } = property
   const { description } = appointment
+  const { viewingArrangements, notes, selling, letting } = property
+  const displayPrice = selling?.price
+    ? `£${selling.price}`
+    : letting?.rent
+    ? `£${letting.rent} ${letting.rentFrequency ? `/ ${letting.rentFrequency}` : ''}`
+    : null
+
   return (
     <>
       {address && (
@@ -98,22 +107,23 @@ export const PropertyDrawer: FC = () => {
           )}
         </>
       )}
+      {displayPrice && <TextRow label="Price" content={displayPrice} />}
       {description && <TextRow label="Appointment Notes" content={description} />}
       {viewingArrangements && <TextRow label="Viewing Arrangements" content={viewingArrangements} />}
-      {keys && (
+      {keys?.length ? (
         <TextRow
-          label="Keys"
+          label=""
           content={
             <ul>
               {keys.map((key) => (
                 <li key={key.id}>
-                  <KeyInfo keyModal={key} />
+                  <KeyInfo keyModel={key} />
                 </li>
               ))}
             </ul>
           }
         />
-      )}
+      ) : null}
       {notes && <TextRow label="Access Notes" content={notes} />}
     </>
   )

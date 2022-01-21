@@ -947,10 +947,37 @@ exports[`FollowUpNotesModal should match snapshot 1`] = `
             "postcode": "OX25 2UJ",
           },
           "id": "ALB160019",
+          "keys": Array [
+            Object {
+              "__typename": "KeyModel",
+              "id": "RPT22000001",
+              "keysInSet": Array [
+                Object {
+                  "__typename": "IndividualKeyModel",
+                  "name": "Front door key",
+                },
+              ],
+              "modified": "2022-01-13T10:50:02.0000000Z",
+              "movements": Array [],
+              "number": "123",
+              "office": Object {
+                "__typename": "OfficeModel",
+                "name": "Camberwell",
+              },
+              "status": "checkedIn",
+              "type": Object {
+                "__typename": "KeyType",
+                "value": "Sales",
+              },
+            },
+          ],
           "letting": Object {
             "landlordId": "OXF200001",
+            "rent": 500,
+            "rentFrequency": "monthly",
           },
           "selling": Object {
+            "price": 300000,
             "vendorId": "OXF200001",
           },
           "viewingArrangements": "Knock three times",

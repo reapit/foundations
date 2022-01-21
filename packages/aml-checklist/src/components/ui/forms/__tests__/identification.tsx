@@ -22,9 +22,11 @@ describe('Identification', () => {
       }
       const mockEvent = {
         preventDefault: jest.fn(),
+        stopPropagation: jest.fn(),
       }
       handleFilenameClick(mockValues, jest.fn())(mockEvent)
       expect(mockEvent.preventDefault).toBeCalled()
+      expect(mockEvent.stopPropagation).toBeCalled()
       expect(downloadDocument).toBeCalledWith(mockValues.documentId)
     })
   })
