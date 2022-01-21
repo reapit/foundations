@@ -17,6 +17,8 @@ module.exports = () => {
         '// @ts-ignore\n' +
         'export * from "../api-key-schema"' +
         '// @ts-ignore\n' +
+        'export * from "../webhook-schema"' +
+        '// @ts-ignore\n' +
         files
           .filter((file) => file !== 'index.ts')
           .map((file) => file.replace('.ts', ''))
