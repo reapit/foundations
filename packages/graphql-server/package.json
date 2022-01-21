@@ -1,6 +1,6 @@
 {
   "name": "graphql-server",
-  "version": "1.3.1",
+  "version": "1.3.2",
   "private": true,
   "description": "GraphQL Server",
   "repository": "https://github.com/reapit/foundations.git",
@@ -19,8 +19,7 @@
     "commit": "concurrently \"yarn test --coverage --no-cache --silent --forceExit --detectOpenHandles --runInBand --watch=false && jest-coverage-badges --input src/tests/coverage/coverage-summary.json --output src/tests/badges\" \"yarn lint\"",
     "prepublish": "npm run snyk-protect",
     "snyk-protect": "snyk-protect",
-    "release:cdk": "rpt-cdk deploy",
-    "release": "yarn release:cdk",
+    "release": "rpt-cdk deploy && echo '...ignoring stage flag...'",
     "synth": "rpt-cdk synth"
   },
   "dependencies": {
