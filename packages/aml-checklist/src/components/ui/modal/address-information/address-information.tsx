@@ -91,6 +91,7 @@ export interface AddressInputProps {
 export const handleFilenameClick =
   (values: IdentityDocumentForm, setModalState: React.Dispatch<SetStateAction<ModalState>>) => (e) => {
     e.preventDefault()
+    e.stopPropagation()
     setModalState({ isLoading: false, isVisible: true, image: values.documentId })
   }
 
