@@ -56,6 +56,7 @@ export const onSubmitHandler =
 export const handleFilenameClick =
   (values: IdentityDocumentForm, setModalState: Dispatch<SetStateAction<ModalState>>) => async (e) => {
     e.preventDefault()
+    e.stopPropagation()
     setModalState({ isLoading: true, isVisible: true, image: null })
     const imageURL = await downloadDocument(values.documentId)
     const image = imageURL ? imageURL : null
