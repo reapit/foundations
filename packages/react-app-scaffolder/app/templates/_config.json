@@ -2,10 +2,9 @@
   "appEnv": "local",
   "sentryDns": "",
   "connectClientId": "<%= clientId %>",
-  "connectUserPoolId": "",
+  "connectUserPoolId": "<%= userPoolId %>",
   "googleAnalyticsKey": "",
-  "connectOAuthUrl": "",
-  "platformApiUrl": "",
-  "graphqlUri": "",
-  "marketplaceUrl": ""
+  "connectOAuthUrl": "https://connect.dev.paas.reapit.cloud",
+  "platformApiUrl": "https://platform.dev.paas.reapit.cloud",
+  "marketplaceUrl": "https://marketplace.dev.paas.reapit.cloud"
 }
