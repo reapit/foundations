@@ -8,7 +8,7 @@ import {
   DocumentModel,
   EnquiryModel,
   IdentityCheckModel,
-} from "types"
+} from "./../"
 
 export enum ReapitWebhookTopicEnum {
   APPLICATION_INSTALL = "application.install",
