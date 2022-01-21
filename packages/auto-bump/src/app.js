@@ -14,21 +14,15 @@ const updatePackageVersion = async (location, version) => {
   const workingPackage = JSON.parse(workingPackageRaw)
   workingPackage.version = version
 
-  await fs.promises.writeFile(fileName, JSON.stringify(workingPackage, null, 2))
+  await fs.promises.writeFile(fileName, `${JSON.stringify(workingPackage, null, 2)}\n`)
 }
 
 export default (app) => {
-  console.log('hello, am instanced')
-  // app.onAny(event => console.log('event', event))
   app.onAny(async (event) => {
-    console.log('event triggered')
     const [packageLocation, tag] = event.payload.release.name.split('_v')
-    console.log('tag', tag, 'loc', packageLocation)
     if (!tag || !packageLocation) {
       return
     }
-
-    console.log('info', tag, packageLocation)
     
     await updatePackageVersion(packageLocation.replace('@reapit/', ''), tag)
   })

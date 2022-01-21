@@ -49,3 +49,4 @@ jobs:
         with:
           commit_message: "chore: bump ${{ steps.tagName.outputs.package }} version"
           branch: master
+          token: ${{ secrets.GITHUB_TOKEN }}
