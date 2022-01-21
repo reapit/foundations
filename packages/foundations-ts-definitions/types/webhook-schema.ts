@@ -61,13 +61,13 @@ export enum ReapitWebhookTopicEnum {
   WORKSORDERS_RAISED = "worksorders.raised",
 }
 
-type ReapitWebhookValueType<T> = {
+export type ReapitWebhookValueType<T> = {
   new: T,
   old: T,
   diff: Partial<T>,
 }
 
-type ReapitWebhookPayloadType = {
+export type ReapitWebhookPayloadType = {
   eventId: string,
   SendAttempts: number,
   entityId: string,
