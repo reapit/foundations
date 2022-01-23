@@ -12,7 +12,7 @@ module.exports = class extends Generator {
     return new Promise(async (resolve, reject) => {
       this.log(yosay('Installing dependencies... this may take a minute!'))
 
-      await exec(`npx prettier --write ./package.json`)
+      await exec(`yarn`)
 
       this.log(yosay('App installed successfully!'))
 
@@ -22,39 +22,12 @@ module.exports = class extends Generator {
         `),
       )
 
-      spawn('yarn', ['start:dev'], { maxBuffer: 1024 * 2048 })
-        .stdout.on('data', data => this.log(data.toString()))
-        .on('error', err => {
+      spawn('yarn', ['start'], { maxBuffer: 1024 * 2048 })
+        .stdout.on('data', (data) => this.log(data.toString()))
+        .on('error', (err) => {
           this.log(err)
           reject(err)
         })
-    })
-  }
-
-  _addPackageJson() {
-    const { name, author, repo, description } = this.answers
-
-    const local = require(this.templatePath('./_package.json'))
-    const base = require(this.destinationPath('./package.json'))
-
-    const merged = {
-      ...local,
-      ...base,
-    }
-
-    this.fs.delete(this.destinationPath('./package.json'))
-    this.fs.commit([], () => {
-      this.fs.write(this.destinationPath('./temp.package.json'), JSON.stringify(merged))
-      this.fs.commit([], () => {
-        this.fs.copyTpl(this.destinationPath('./temp.package.json'), this.destinationPath('./package.json'), {
-          name,
-          author,
-          repo,
-          description,
-        })
-        this.fs.delete(this.destinationPath('./temp.package.json'))
-        this.fs.commit([], () => {})
-      })
     })
   }
 
@@ -65,26 +38,39 @@ module.exports = class extends Generator {
 
   async writeBaseFiles() {
     return new Promise((resolve, reject) => {
-      const { name, clientId } = this.answers
+      const { name, clientId, userPoolId } = this.answers
 
       this.fs.copyTpl(this.templatePath('./_config.json'), this.destinationPath('./config.json'), {
         clientId,
+        userPoolId,
+      })
+
+      this.fs.copyTpl(this.templatePath('./_eslintrc.js'), this.destinationPath('./.eslintrc.js'))
+
+      this.fs.copyTpl(this.templatePath('./_package.json'), this.destinationPath('./package.json'), {
+        name,
+      })
+
+      this.fs.copyTpl(this.templatePath('./_index.html'), this.destinationPath('./public/index.html'), {
+        name,
       })
 
       this.fs.copyTpl(this.templatePath('_README.md'), this.destinationPath('./README.md'), {
         name,
       })
 
+      this.fs.copyTpl(this.templatePath('_serverless.yml'), this.destinationPath('./serverless.yml'), {
+        name,
+      })
+
+      this.fs.copyTpl(this.templatePath('_webpack.config.js'), this.destinationPath('./webpack.config.js'), {
+        name,
+      })
+
       this.fs.copyTpl(this.templatePath(this.projectPath), this.destinationPath('./'))
 
       this.fs.commit([], () => {
-        this._addPackageJson()
-
-        this.fs.commit([], () => {
-          this._installAndExport()
-            .then(resolve)
-            .catch(reject)
-        })
+        this._installAndExport().then(resolve).catch(reject)
       })
     })
   }
@@ -99,42 +85,19 @@ module.exports = class extends Generator {
       },
       {
         type: 'input',
-        name: 'description',
-        message: 'Enter a description for the project',
-        default: 'Description',
-      },
-      {
-        type: 'input',
         name: 'clientId',
-        message: 'Enter the client id for your app (you will need to submit a template app to do this)',
+        message: 'Enter the client id for your app',
         default: '',
       },
       {
-        type: 'list',
-        name: 'stateManagementStyle',
-        message: 'How do you want to manage state?',
-        choices: ['Redux', 'React Hooks & Context', 'Apollo GraphQL'],
+        type: 'input',
+        name: 'userPoolId',
+        message: 'Enter the userpool for your app',
+        default: '',
       },
     ])
 
-    const { stateManagementStyle } = this.answers
-    if (stateManagementStyle === 'Redux') {
-      this.projectPath = './redux'
-    }
-
-    if (stateManagementStyle === 'React Hooks & Context') {
-      this.projectPath = './hooks'
-    }
-
-    if (stateManagementStyle === 'Apollo GraphQL') {
-      this.projectPath = './graphql'
-    }
-    /**
-     * Destination path
-     * isFoundations ->./package/{appName}
-     * else current path/{appName}
-     */
-
+    this.projectPath = './react-app'
     this.packagePath = path.resolve(__dirname, '../..', this.answers.name)
     /**
      * create directory if not
