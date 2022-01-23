@@ -24,6 +24,7 @@
   },
   "dependencies": {
     "@aws-sdk/client-dynamodb": "^3.27.0",
+    "@graphql-tools/stitch": "^8.4.3",
     "@reapit/app-builder": "workspace:packages/app-builder",
     "@reapit/cra-template-foundations": "workspace:packages/cra-template-foundations",
     "@reapit/foundations-ts-definitions": "workspace:packages/foundations-ts-definitions",
@@ -45,7 +46,7 @@
     "graphql-type-json": "^0.3.2",
     "jszip": "^3.7.1",
     "luxon": "^2.2.0",
-    "node-fetch": "^3.1.1",
+    "node-fetch": "2",
     "pluralize": "^8.0.0",
     "project-name-generator": "^2.1.9",
     "reflect-metadata": "^0.1.13",
