@@ -18,7 +18,6 @@ export const createApi = (
     'reapit-customer',
   ],
 ): apigateway.RestApi | apigateway.LambdaRestApi => {
-
   const defaultCorsPreflightOptions = allowCors
     ? {
         allowOrigins,
