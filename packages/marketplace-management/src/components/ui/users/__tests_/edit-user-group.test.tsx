@@ -2,7 +2,6 @@ import React from 'react'
 import { render } from '@testing-library/react'
 import EditUserGroupForm, {
   EditUserGroupFormProps,
-  handleSetNewOptions,
   handleSetOptions,
   onHandleSubmit,
   prepareGroupOptions,
@@ -40,35 +39,21 @@ describe('EditUserGroupForm', () => {
 
 describe('handleSetOptions', () => {
   it('should set options', () => {
-    const userIds = ['id1', 'id2', 'id3']
+    const userIds = ['aG9sbHlqb3lwaGlsbGlwcytkZXNrdG9wdXNlckBnbWFpbC5jb20']
     const users = mockUsersList._embedded as UserModel[]
+    const search = 'holly'
     const setOptions = jest.fn()
-    const reset = jest.fn()
+    const getValues = jest.fn(() => ({
+      userIds,
+    }))
 
-    const curried = handleSetOptions(userIds, users, setOptions, reset)
+    const curried = handleSetOptions(userIds, users, search, setOptions, getValues)
 
     curried()
 
-    expect(reset).toHaveBeenCalledWith({
-      userIds: userIds.join(','),
-    })
-
-    expect(setOptions).toHaveBeenCalledWith([])
-  })
-})
-
-describe('handleSetNewOptions', () => {
-  it('should set options', () => {
-    const getValues = jest.fn(() => ({ userIds: 'id1' })) as unknown as UseFormGetValues<UpdateUserGroupModel>
-    const options = []
-    const searchedUsers = mockUsersList._embedded as UserModel[]
-    const setOptions = jest.fn()
-
-    const curried = handleSetNewOptions(getValues, options, searchedUsers, setOptions)
-
-    curried()
-
-    expect(setOptions).toHaveBeenCalledWith(prepareGroupOptions(searchedUsers))
+    expect(setOptions).toHaveBeenCalledWith(
+      prepareGroupOptions([(mockUsersList._embedded as UserModel[])[0], (mockUsersList._embedded as UserModel[])[1]]),
+    )
   })
 })
 
