@@ -52,3 +52,26 @@ export const deleteSharesService = async (shareId: string): Promise<boolean | un
     logger(err)
   }
 }
+
+export const refreshSharesService = async (shareId: string): Promise<boolean | undefined> => {
+  try {
+    const headers = await getPlatformHeaders(reapitConnectBrowserSession)
+
+    if (headers) {
+      const response: boolean | undefined = await fetcher({
+        api: window.reapit.config.platformApiUrl,
+        url: `${URLS.SHARES}/${shareId}/refresh`,
+        method: 'POST',
+        headers,
+      })
+
+      if (response) {
+        return response
+      }
+
+      throw new Error('Failed to refresh share')
+    }
+  } catch (err) {
+    logger(err)
+  }
+}
