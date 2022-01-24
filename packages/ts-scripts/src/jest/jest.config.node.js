@@ -3,7 +3,7 @@ const { defaults } = require('jest-config')
 const { jestGlobalConfig } = require('./jest.config')
 
 const jestNodeGlobalConfig = {
-  ...this.jestGlobalConfig,
+  ...jestGlobalConfig,
   testEnvironment: 'node',
 }
 
