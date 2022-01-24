@@ -499,8 +499,14 @@ if (typeof window === 'object') {
 
 MockDate.set(1570747191389)
 
-global.navigator.geolocation = {
-  getCurrentPosition: jest.fn(),
-  watchPosition: jest.fn(),
+if (global) {
+
+  if (global.navigator) {
+    global.navigator.geolocation = {
+      getCurrentPosition: jest.fn(),
+      watchPosition: jest.fn(),
+    }
+  }
+
+  global.console = { warn: jest.fn(), log: jest.fn(), error: jest.fn(), info: jest.fn() }
 }
-global.console = { warn: jest.fn(), log: jest.fn(), error: jest.fn(), info: jest.fn() }
