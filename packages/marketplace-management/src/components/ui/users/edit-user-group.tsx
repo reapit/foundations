@@ -40,7 +40,7 @@ export interface UpdateUserGroupModel {
   userIds: string
 }
 
-interface EditUserGroupSchema {
+export interface EditUserGroupSchema {
   userIds: string
 }
 

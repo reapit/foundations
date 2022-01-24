@@ -4,8 +4,8 @@ import EditUserGroupForm, {
   EditUserGroupFormProps,
   handleSetOptions,
   onHandleSubmit,
+  EditUserGroupSchema,
   prepareGroupOptions,
-  UpdateUserGroupModel,
 } from '../edit-user-group'
 import { addMemberToGroup, removeMemberFromGroup } from '../../../../services/user'
 import { mockUserGroups } from '../../../../services/__stubs__/user-groups'
@@ -44,8 +44,8 @@ describe('handleSetOptions', () => {
     const search = 'holly'
     const setOptions = jest.fn()
     const getValues = jest.fn(() => ({
-      userIds,
-    }))
+      userIds: userIds.join(','),
+    })) as unknown as UseFormGetValues<EditUserGroupSchema>
 
     const curried = handleSetOptions(userIds, users, search, setOptions, getValues)
 
