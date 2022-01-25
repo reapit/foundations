@@ -74,7 +74,8 @@ export const handleSetOptions =
   ) =>
   () => {
     const userIds = getValues().userIds ?? defaultUserIds.join(',')
-    if (userIds && users) {
+
+    if ((userIds || search) && users) {
       const options = users.filter((user) => {
         const isSelectedUser = user.id && userIds.includes(user.id)
         const isSearchedUser = search && user.name?.toLowerCase().includes(search.toLowerCase())
