@@ -1,7 +1,16 @@
+import {
+  MetadataMetadataSchema,
+  MetadataModel,
+  MetadataModelPagedResult,
+  SchemaModel,
+  SchemaModelPagedResult,
+} from '@reapit/foundations-ts-definitions/types'
 import fetch from 'node-fetch'
 import config from '../config.json'
 
 const { platformApiUrl } = config
+
+export { SchemaModel } from '@reapit/foundations-ts-definitions/types'
 
 export const getMetadataObject = async (id: string, accessToken: string) => {
   const res = await fetch(`${platformApiUrl}/metadata/${id}`, {
@@ -14,7 +23,23 @@ export const getMetadataObject = async (id: string, accessToken: string) => {
     return
   }
 
-  const data = (await res.json()) as any
+  const data = (await res.json()) as MetadataModel
+
+  return data.metadata
+}
+export const deleteMetadataObject = async (id: string, accessToken: string) => {
+  const res = await fetch(`${platformApiUrl}/metadata/${id}`, {
+    method: 'DELETE',
+    headers: {
+      Authorization: `Bearer ${accessToken}`,
+      'api-version': '2020-01-31',
+    },
+  })
+  if (res.status !== 200) {
+    return
+  }
+
+  const data = (await res.json()) as MetadataModel
 
   return data.metadata
 }
@@ -26,9 +51,9 @@ export const findMetadataObject = async (entityType: string, accessToken: string
       'api-version': '2020-01-31',
     },
   })
-  const data = (await res.json()) as any
+  const data = (await res.json()) as MetadataModelPagedResult
 
-  return data._embedded
+  return data._embedded || []
 }
 
 export const updateMetadataObject = async (id: string, metadata: any, accessToken: string) => {
@@ -44,6 +69,20 @@ export const updateMetadataObject = async (id: string, metadata: any, accessToke
   return getMetadataObject(id, accessToken)
 }
 
+export const getMetadataSchemas = async (accessToken: string): Promise<SchemaModel[]> => {
+  const res = await fetch(`${platformApiUrl}/metadata/metadataSchema`, {
+    headers: {
+      Authorization: `Bearer ${accessToken}`,
+      'api-version': '2020-01-31',
+    },
+  })
+  const data = (await res.json()) as SchemaModelPagedResult
+  if (res.status !== 200) {
+    throw new Error(`Failed to get metadata schemas: ${res.status}`)
+  }
+  return data._embedded || []
+}
+
 export const createMetadataObject = async (entityType: string, metadata: any, accessToken: string) => {
   const res = await fetch(`${platformApiUrl}/metadata`, {
     method: 'POST',
@@ -55,7 +94,7 @@ export const createMetadataObject = async (entityType: string, metadata: any, ac
     redirect: 'follow',
     body: JSON.stringify({ entityType, metadata }),
   })
-  const data = (await res.json()) as any
+  const data = (await res.json()) as MetadataModel
 
   return data.metadata
 }
@@ -67,7 +106,7 @@ export const getSchema = async (id: string, accessToken: string) => {
       'api-version': '2020-01-31',
     },
   })
-  const data = await res.json()
+  const data = (await res.json()) as MetadataMetadataSchema
 
   return data
 }
@@ -127,14 +166,14 @@ export const getDataEntity = async (name: string, accessToken: string): Promise<
   const [existing] = await findMetadataObject(entityType, accessToken)
   if (existing) {
     return {
-      id: existing.id,
-      data: existing.metadata.data,
+      id: existing.id as string,
+      data: existing.metadata?.data,
     }
   }
   const data = []
-  const { id } = await createMetadataObject(entityType, { data }, accessToken)
+  const obj = await createMetadataObject(entityType, { data }, accessToken)
   return {
-    id,
+    id: obj?.id as string,
     data,
   }
 }
