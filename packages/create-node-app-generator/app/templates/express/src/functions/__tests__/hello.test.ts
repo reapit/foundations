@@ -1,5 +1,5 @@
 import { Request, Response } from 'express'
-import { hello } from './../hello'
+import { hello } from '../hello'
 
 describe('Hello test', () => {
   it('Hello returns "Hello there!"', () => {

@@ -25,7 +25,7 @@
   "license": "MIT",
   "author": "Aaryanna Simonelli <asimonelli@reapit.com>",
   "files": [
-    "app"
+    "apps"
   ],
   "main": "index.js",
   "scripts": {

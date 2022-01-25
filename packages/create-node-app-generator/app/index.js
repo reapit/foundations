@@ -33,36 +33,49 @@ module.exports = class extends Generator {
 
   constructor(args, opts) {
     super(args, opts)
-    this.log(yosay('Welcome to Reapit App Scaffolder!'))
+    this.log(yosay('Welcome to Reapit Node App Scaffolder!'))
   }
 
   async writeBaseFiles() {
     return new Promise((resolve, reject) => {
       const { name, type } = this.answers
-      let files = []
+      let files = {}
+      let templatePath
 
-      if (type) {
-        this.projectPath = './nestjs'
+      if (type === 'nestjs') {
+        // files = [
+        //   'README.md',
+        //   'jest.config.js',
+        //   '_config.json',
+        //   'babel.config.js',
+        //   '.eslintrc.js',
+        //   '_package.json',
+        //   '_config.json',
+        //   // 'src',
+        // ]
+        templatePath = 'nestjs'
       } else {
-        this.projectPath = './express'
-
-        files = [
-          'README.md',
-          'jest.config.js',
-          '_config.json',
-          'babel.config.js',
-          '.eslintrc.js',
-          '_package.json',
-          '_config.json',
-          // 'src',
-        ]
+        files = {
+          '_README.md': 'README.md',
+          '_config.json': 'config.json',
+          '_package.json': 'package.json',
+          '_config.json': 'config.json',
+        }
+        templatePath = 'express'
       }
 
-      files.map(file => this.fs.copyTpl(this.tempatePath(file), this.destinationPath(`./${file.replace('_', '')}`), {
-        name,
-      }))
+      Object.keys(files).map(file => this.fs.copyTpl(
+          this.templatePath(path.join(templatePath, file)),
+          this.destinationPath(`./${files[file]}`),
+          {
+            ...this.answers,
+          },
+        )
+      )
 
-      this.fs.copyTpl(this.templatePath(this.projectPath), this.destinationPath('./'))
+      this.fs.copyTpl(this.templatePath(this.projectPath), this.destinationPath('./'), {
+        ...this.answers,
+      })
 
       this.fs.commit([], () => {
         this._installAndExport().then(resolve).catch(reject)
@@ -90,7 +103,9 @@ module.exports = class extends Generator {
       },
     ])
 
+    this.projectPath = this.answers.type === 'nestjs' ? './nestjs' : './express'
     this.packagePath = path.resolve(__dirname, '../..', this.answers.name)
+
     /**
      * create directory if not
      */
