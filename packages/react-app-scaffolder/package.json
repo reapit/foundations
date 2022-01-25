@@ -1,7 +1,7 @@
 {
   "name": "@reapit/generator-react-app-scaffolder",
   "version": "1.0.1",
-  "description": "An opinionated gnerator for scaffolding TypeScript React Redux apps",
+  "description": "An opinionated gnerator for scaffolding TypeScript React apps",
   "keywords": [
     "yeoman-generator"
   ],

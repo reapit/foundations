@@ -1,4 +1,41 @@
 {
-  "name": "create-node-app-generator",
-  "version": "0.0.1"
+  "name": "@reapit/create-node-app-generator",
+  "version": "1.0.0",
+  "dependencies": {
+    "yeoman-generator": "^5.6.1",
+    "yo": "^4.3.0",
+    "yosay": "^2.0.2"
+  },
+  "devDependencies": {
+    "concurrently": "^7.0.0",
+    "eslint": "^8.7.0"
+  },
+  "description": "An opinionated gnerator for scaffolding TypeScript Node apps",
+  "keywords": [
+    "yeoman-generator"
+  ],
+  "homepage": "https://github.com/reapit/foundations#readme",
+  "bugs": {
+    "url": "https://github.com/reapit/foundations/issues"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/reapit/foundations.git"
+  },
+  "license": "MIT",
+  "author": "Aaryanna Simonelli <asimonelli@reapit.com>",
+  "files": [
+    "app"
+  ],
+  "main": "index.js",
+  "scripts": {
+    "start": "yo ./app --force",
+    "test": "echo '...skipping...'",
+    "build": "echo '...skipping...'",
+    "lint": "echo '...skipping...'",
+    "release": "echo '...skipping...'",
+    "publish": "echo '...skipping...'",
+    "conf": "echo '...skipping...'",
+    "commit": "echo '...skipping...'"
+  }
 }
