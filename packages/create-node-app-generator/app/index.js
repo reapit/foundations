@@ -60,6 +60,7 @@ module.exports = class extends Generator {
           '_config.json': 'config.json',
           '_package.json': 'package.json',
           '_config.json': 'config.json',
+          '_.eslintrc.js': '.eslintrc.js',
         }
         templatePath = 'express'
       }
