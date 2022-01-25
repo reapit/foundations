@@ -17,46 +17,7 @@ Object {
           />
           <div
             class="e12c6sou-el-multi-select-selected"
-          >
-            <input
-              checked=""
-              class="e1wdkc9j-el-multi-select-checkbox"
-              id="test-static-id"
-              type="checkbox"
-            />
-            <label
-              class="e1x92nc7-el-multi-select-label"
-              for="test-static-id"
-            >
-              Item one
-            </label>
-          </div>
-          <div
-            class="ef7odf0-el-multi-select-un-selected"
-          >
-            <input
-              class="e1wdkc9j-el-multi-select-checkbox"
-              id="test-static-id"
-              type="checkbox"
-            />
-            <label
-              class="ehgp5gp-el-has-grey-chips e1x92nc7-el-multi-select-label"
-              for="test-static-id"
-            >
-              Item two
-            </label>
-            <input
-              class="e1wdkc9j-el-multi-select-checkbox"
-              id="test-static-id"
-              type="checkbox"
-            />
-            <label
-              class="ehgp5gp-el-has-grey-chips e1x92nc7-el-multi-select-label"
-              for="test-static-id"
-            >
-              Item three
-            </label>
-          </div>
+          />
         </div>
       </div>
     </div>
@@ -74,46 +35,7 @@ Object {
         />
         <div
           class="e12c6sou-el-multi-select-selected"
-        >
-          <input
-            checked=""
-            class="e1wdkc9j-el-multi-select-checkbox"
-            id="test-static-id"
-            type="checkbox"
-          />
-          <label
-            class="e1x92nc7-el-multi-select-label"
-            for="test-static-id"
-          >
-            Item one
-          </label>
-        </div>
-        <div
-          class="ef7odf0-el-multi-select-un-selected"
-        >
-          <input
-            class="e1wdkc9j-el-multi-select-checkbox"
-            id="test-static-id"
-            type="checkbox"
-          />
-          <label
-            class="ehgp5gp-el-has-grey-chips e1x92nc7-el-multi-select-label"
-            for="test-static-id"
-          >
-            Item two
-          </label>
-          <input
-            class="e1wdkc9j-el-multi-select-checkbox"
-            id="test-static-id"
-            type="checkbox"
-          />
-          <label
-            class="ehgp5gp-el-has-grey-chips e1x92nc7-el-multi-select-label"
-            for="test-static-id"
-          >
-            Item three
-          </label>
-        </div>
+        />
       </div>
     </div>
   </div>,
