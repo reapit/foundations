@@ -50,7 +50,7 @@ const authLink = setContext(async (_, { headers }) => {
       ...headers,
       authorization: idToken,
       'reapit-connect-token': `Bearer ${accessToken}`,
-      'reapit-customer': `${loginIdentity.clientId}-${loginIdentity.userCode}`,
+      'reapit-customer': loginIdentity.clientId,
     },
   }
 })
