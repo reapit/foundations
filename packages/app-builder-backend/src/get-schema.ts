@@ -104,18 +104,15 @@ const createMetadataType = (typeName: string) => async (parent, args: any, conte
   }
 }
 
-const updateMetadataType = () => async (parent, args: any, context: Context) => {
+const updateMetadataType = () => (parent, args: any, context: Context) => {
   const [id, newObject] = Object.values(args)
-  const result = await updateMetadataObject(id, newObject, context.accessToken)
-  return result
+  return updateMetadataObject(id, newObject, context.accessToken)
 }
 
 const deleteMetadataType =
   () =>
-  async (parent, { id }: { id: string }, context: Context) => {
-    const result = await deleteMetadataObject(id, context.accessToken)
-    return result
-  }
+  (parent, { id }: { id: string }, context: Context) =>
+    deleteMetadataObject(id, context.accessToken)
 
 const generateQueries = (typeName: string): { queries: string; resolvers: Resolvers } => {
   const listName = `list${Pluralize.plural(typeName)}`
@@ -192,11 +189,11 @@ const generateDynamicSchema = async (context?: Context): Promise<GraphQLSchema |
     .filter(notEmpty)
     .join('\n')
 
-  const typeDefinitions = [typeDefs, schemaStr].join('\n')
+  const allTypeDefinitions = [typeDefs, schemaStr].join('\n')
 
-  return typeDefinitions.trim()
+  return allTypeDefinitions.trim()
     ? makeExecutableSchema({
-        typeDefs: typeDefinitions,
+        typeDefs: allTypeDefinitions,
         resolvers,
       })
     : undefined

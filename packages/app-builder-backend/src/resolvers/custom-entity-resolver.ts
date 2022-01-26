@@ -61,8 +61,6 @@ const customEntityToMetadataSchema = (customEntity: CustomEntity): CreateSchemaR
 
 @Resolver(() => CustomEntity)
 export class CustomEntityResolver {
-  constructor() {}
-
   @Authorized()
   @Query(() => [CustomEntity], { name: '_getCustomEntities' })
   async getCustomEntities(@Ctx() ctx: Context): Promise<CustomEntity[]> {
