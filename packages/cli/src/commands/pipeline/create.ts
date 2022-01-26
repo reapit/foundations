@@ -244,7 +244,6 @@ export class PipelineCreate extends AbstractCommand {
   }
 
   end(spinner, event) {
-
     spinner.succeed('🚀 Successfully architectured')
     this.writeLine('')
     this.writeLine("Now you're ready to deploy to your pipeline!")
@@ -254,9 +253,7 @@ export class PipelineCreate extends AbstractCommand {
       )}`,
     )
     this.writeLine('')
-    this.writeLine(
-      `You can visit your domain here ${chalk.green(`https://${event.subDomain}.dev.paas.reapit.cloud`)}`,
-    )
+    this.writeLine(`You can visit your domain here ${chalk.green(`https://${event.subDomain}.dev.paas.reapit.cloud`)}`)
     process.exit(0)
   }
 }
