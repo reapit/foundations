@@ -10,6 +10,8 @@ import { STEPS } from '../modal'
 import { Dispatch } from 'redux'
 import FormFields from './form-schema/form-fields'
 import validationSchema from './form-schema/validation-schema'
+import { useReapitConnect } from '@reapit/connect-session'
+import { reapitConnectBrowserSession } from '../../../../core/connect-session'
 
 const { declarationFormField, typeField, reasonField, riskAssessmentFormField } = FormFields
 
@@ -29,6 +31,7 @@ export const DeclarationAndRiskAssessment: React.FC<DeclarationAndRiskAssessment
   onHandleSubmit,
   isSubmitting,
 }) => {
+  const { connectIsDesktop } = useReapitConnect(reapitConnectBrowserSession)
   const metadata = {
     declarationRisk: {
       type: contact?.metadata?.declarationRisk?.type || '',
@@ -66,6 +69,25 @@ export const DeclarationAndRiskAssessment: React.FC<DeclarationAndRiskAssessment
                     allowClear={true}
                     isNarrowWidth
                   />
+                  <p className="mb-5">
+                    <strong>
+                      {connectIsDesktop ? (
+                        <a
+                          href={`agencycloud://process/webpage?url=${values.metadata?.declarationRisk?.declarationForm}`}
+                        >
+                          View in browser
+                        </a>
+                      ) : (
+                        <a
+                          href={values.metadata?.declarationRisk?.declarationForm}
+                          target="_blank"
+                          rel="noopener noreferrer"
+                        >
+                          View in browser
+                        </a>
+                      )}
+                    </strong>
+                  </p>
                 </div>
                 <SelectBox
                   labelText={typeField.label}
@@ -91,6 +113,25 @@ export const DeclarationAndRiskAssessment: React.FC<DeclarationAndRiskAssessment
                     required
                     accept="image/*"
                   />
+                  <p className="mb-5">
+                    <strong>
+                      {connectIsDesktop ? (
+                        <a
+                          href={`agencycloud://process/webpage?url=${values.metadata?.declarationRisk?.declarationForm}`}
+                        >
+                          View in browser
+                        </a>
+                      ) : (
+                        <a
+                          href={values.metadata?.declarationRisk?.riskAssessmentForm}
+                          target="_blank"
+                          rel="noopener noreferrer"
+                        >
+                          View in browser
+                        </a>
+                      )}
+                    </strong>
+                  </p>
                 </div>
               </div>
               <div className="field pb-2">

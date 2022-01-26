@@ -418,77 +418,73 @@ const mockStorage = (() => {
   }
 })()
 
-Object.defineProperty(window, 'localStorage', {
-  value: mockStorage,
-})
+if (typeof window === 'object') {
+  Object.defineProperty(window, 'localStorage', {
+    value: mockStorage,
+  })
 
-Object.defineProperty(document, 'execCommand', {
-  value: jest.fn(),
-})
+  Object.defineProperty(document, 'execCommand', {
+    value: jest.fn(),
+  })
 
-Object.defineProperty(document, 'queryCommandSupported', {
-  value: jest.fn(() => true),
-  writable: true,
-})
-window.queryCommandSupported = jest.fn()
+  Object.defineProperty(document, 'queryCommandSupported', {
+    value: jest.fn(() => true),
+    writable: true,
+  })
+  window.queryCommandSupported = jest.fn()
 
-Object.defineProperty(window, 'location', {
-  value: {
-    href: '',
-    reload: jest.fn(),
-  },
-})
-
-Object.defineProperty(window, 'google', {
-  value: createGoogleMapsMock(),
-})
-
-Object.defineProperty(window, 'reapit', {
-  value: {
-    config: {
-      appEnv: 'development',
-      sentryDns: '',
-      marketplaceApiUrl: '',
-      marketplaceApiKey: '',
-      platformApiUrl: '',
-      uploadApiUrl: '',
-      swaggerUrl: '',
-      elementDocumentUrl: '',
-      cognitoClientId: '',
-      googleAnalyticsKey: '',
-      googleMapApiKey: '',
+  Object.defineProperty(window, 'location', {
+    value: {
+      href: '',
+      reload: jest.fn(),
     },
-  },
-})
+  })
 
-Object.defineProperty(window, 'getComputedStyle', {
-  value: () => ({
-    getPropertyValue: () => {
-      return ''
+  Object.defineProperty(window, 'google', {
+    value: createGoogleMapsMock(),
+  })
+
+  Object.defineProperty(window, 'reapit', {
+    value: {
+      config: {
+        appEnv: 'development',
+        sentryDns: '',
+        marketplaceApiUrl: '',
+        marketplaceApiKey: '',
+        platformApiUrl: '',
+        uploadApiUrl: '',
+        swaggerUrl: '',
+        elementDocumentUrl: '',
+        cognitoClientId: '',
+        googleAnalyticsKey: '',
+        googleMapApiKey: '',
+      },
     },
-  }),
-})
+  })
 
-Object.defineProperty(window, 'open', {
-  value: jest.fn(),
-})
+  Object.defineProperty(window, 'getComputedStyle', {
+    value: () => ({
+      getPropertyValue: () => {
+        return ''
+      },
+    }),
+  })
 
-Object.defineProperty(window, 'alert', {
-  value: jest.fn(),
-})
+  Object.defineProperty(window, 'open', {
+    value: jest.fn(),
+  })
 
-// browserMock.js
-Object.defineProperty(document, 'currentScript', {
-  value: (document.createElement('div').id = 'coordinate-0-0'),
-})
+  Object.defineProperty(window, 'alert', {
+    value: jest.fn(),
+  })
 
-global.navigator.geolocation = {
-  getCurrentPosition: jest.fn(),
-  watchPosition: jest.fn(),
-}
+  // browserMock.js
+  Object.defineProperty(document, 'currentScript', {
+    value: (document.createElement('div').id = 'coordinate-0-0'),
+  })
 
 // https://github.com/akiran/react-slick/issues/742
-window.matchMedia =
+  window.matchMedia =
   window.matchMedia ||
   function () {
     return {
@@ -498,6 +494,19 @@ window.matchMedia =
     }
   }
 
+  HTMLElement.prototype.scrollIntoView = function () {}
+}
+
 MockDate.set(1570747191389)
-window.HTMLElement.prototype.scrollIntoView = function () {}
-global.console = { warn: jest.fn(), log: jest.fn(), error: jest.fn(), info: jest.fn() }
+
+if (global) {
+
+  if (global.navigator) {
+    global.navigator.geolocation = {
+      getCurrentPosition: jest.fn(),
+      watchPosition: jest.fn(),
+    }
+  }
+
+  global.console = { warn: jest.fn(), log: jest.fn(), error: jest.fn(), info: jest.fn() }
+}

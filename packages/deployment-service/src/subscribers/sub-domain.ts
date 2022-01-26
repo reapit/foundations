@@ -1,4 +1,4 @@
-import { EntitySubscriberInterface, InsertEvent, EventSubscriber } from 'typeorm'
+import { EntitySubscriberInterface, InsertEvent, EventSubscriber, EntityManager, UpdateEvent } from 'typeorm'
 import { PipelineEntity } from './../entities'
 import generate from 'project-name-generator'
 
@@ -8,19 +8,34 @@ export class SubDomainSubscriber implements EntitySubscriberInterface<PipelineEn
     return PipelineEntity
   }
 
-  async beforeInsert(event: InsertEvent<PipelineEntity>) {
+  async generateSubDomain(manager: EntityManager): Promise<string> {
     let unique = false
+    let domain: string
 
     do {
-      event.entity.subDomain = generate().dashed
+      domain = generate().dashed
 
-      const result = await event.manager.getRepository(PipelineEntity).count({
+      const result = await manager.getRepository(PipelineEntity).count({
         where: {
-          subDomain: event.entity.subDomain,
+          subDomain: domain,
         },
       })
 
       unique = result === 0
     } while (unique === false)
+
+    return domain
+  }
+
+  async beforeInsert(event: InsertEvent<PipelineEntity>) {
+    event.entity.subDomain = await this.generateSubDomain(event.manager)
+  }
+
+  async beforeUpdate(event: UpdateEvent<PipelineEntity>) {
+    if (!event.entity) return
+
+    if (event.entity.subDomain === null) {
+      event.entity.subDomain = event.databaseEntity.subDomain
+    }
   }
 }

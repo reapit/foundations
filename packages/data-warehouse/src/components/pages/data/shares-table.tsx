@@ -7,7 +7,7 @@ import { SharesModel } from '../../../types/shares'
 import { FaCopy } from 'react-icons/fa'
 import CopyToClipboard from 'react-copy-to-clipboard'
 import { btnCopy, tooltiptext } from './__styles__/tooltip'
-import { deleteShare, handleCopyCode, handleMouseLeave } from './data-handlers'
+import { deleteShare, handleCopyCode, handleMouseLeave, refreshShare } from './data-handlers'
 
 export interface SharesTableProps {
   shares: SharesModel[]
@@ -45,20 +45,36 @@ export const URLComponent: React.FC<TableCellProps<string>> = ({ cell: { value }
 }
 
 export const SharesTable: React.FC<SharesTableProps> = ({ shares, setShares }) => {
-  const [deletingShare, setDeletingShare] = useState('')
+  const [updatingShare, setUpdatingShare] = useState('')
 
   const DeleteShareComponent: React.FC<TableCellProps<string>> = ({ cell: { value } }) => {
     const { setMessageState } = useContext(MessageContext)
-    const isLoading = Boolean(deletingShare && deletingShare === value)
+    const isLoading = Boolean(updatingShare && updatingShare === value)
 
     return (
       <Button
         variant="danger"
-        onClick={deleteShare(setMessageState, setDeletingShare, setShares, value)}
+        onClick={deleteShare(setMessageState, setUpdatingShare, setShares, value)}
         disabled={isLoading}
         loading={isLoading}
       >
         Delete Share
+      </Button>
+    )
+  }
+
+  const RefreshShareComponent: React.FC<TableCellProps<string>> = ({ cell: { value } }) => {
+    const { setMessageState } = useContext(MessageContext)
+    const isLoading = Boolean(updatingShare && updatingShare === value)
+
+    return (
+      <Button
+        variant="primary"
+        onClick={refreshShare(setMessageState, setUpdatingShare, setShares, value)}
+        disabled={isLoading}
+        loading={isLoading}
+      >
+        Refresh Share
       </Button>
     )
   }
@@ -95,8 +111,15 @@ export const SharesTable: React.FC<SharesTableProps> = ({ shares, setShares }) =
       Cell: DSNComponent,
     },
     {
+      Header: 'Refresh Data Share',
+      accessor: 'id',
+      id: 'share-refresh',
+      Cell: RefreshShareComponent,
+    },
+    {
       Header: 'Delete Data Share',
       accessor: 'id',
+      id: 'share-delete',
       Cell: DeleteShareComponent,
     },
   ]
