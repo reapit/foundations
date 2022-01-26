@@ -26,6 +26,7 @@ export interface AppNewWizardStep {
   helperPageHeadingText: string
   helperPage: ReactNode
   iconName: IconNames
+  permissions?: string[]
 }
 
 export type AppNewWizardSteps = { [key in AppNewStepId]: AppNewWizardStep }
@@ -212,6 +213,7 @@ export const appWizardSteps: AppNewWizardSteps = {
       </div>
     ),
     iconName: 'userAuthInfographic',
+    permissions: ['agencyCloud/properties.read', 'agencyCloud/applicants.read', 'agencyCloud/images.read'],
   },
   [AppNewStepId.permissionsStep]: {
     headingText: '3. Permissions',

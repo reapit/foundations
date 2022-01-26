@@ -50,6 +50,7 @@ export const pipelineSetup: SQSHandler = async (event: SQSEvent, context: Contex
             DefaultRootObject: 'index.html',
             ViewerCertificate: {
               ACMCertificateArn: process.env.CERT_ARN,
+              SSLSupportMethod: 'sni-only',
             },
             Origins: {
               Quantity: 1,

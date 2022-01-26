@@ -1,7 +1,7 @@
 import { SubscriptionModel } from '@reapit/foundations-ts-definitions'
 import { getDataSetsService } from '../../../../services/data-sets'
 import { createRequestService } from '../../../../services/requests'
-import { deleteSharesService, getSharesService } from '../../../../services/shares'
+import { deleteSharesService, getSharesService, refreshSharesService } from '../../../../services/shares'
 import {
   createRequest,
   deleteShare,
@@ -9,11 +9,13 @@ import {
   handleCopyCode,
   handleGetDataSets,
   handleGetShares,
+  refreshShare,
 } from '../data-handlers'
 
 jest.mock('../../../../services/shares', () => ({
   getSharesService: jest.fn(() => ({})),
   deleteSharesService: jest.fn(() => true),
+  refreshSharesService: jest.fn(() => true),
 }))
 
 jest.mock('../../../../services/data-sets', () => ({
@@ -71,25 +73,25 @@ describe('data handlers', () => {
   describe('deleteShare', () => {
     it('should wait on deleteShare service and set shares on done', async () => {
       const mockSetMessageState = jest.fn()
-      const mockDeletingShare = jest.fn()
+      const mockSetUpdatingShare = jest.fn()
       const mockSetShares = jest.fn()
       const mockValue = 'SOME_ID'
 
-      await deleteShare(mockSetMessageState, mockDeletingShare, mockSetShares, mockValue)()
-      expect(mockDeletingShare).toHaveBeenCalledWith('SOME_ID')
-      expect(mockDeletingShare).toHaveBeenLastCalledWith('')
+      await deleteShare(mockSetMessageState, mockSetUpdatingShare, mockSetShares, mockValue)()
+      expect(mockSetUpdatingShare).toHaveBeenCalledWith('SOME_ID')
+      expect(mockSetUpdatingShare).toHaveBeenLastCalledWith('')
       expect(mockSetMessageState).toHaveBeenLastCalledWith({ infoMessage: 'Successfully deleted share' })
       expect(mockSetShares).toHaveBeenLastCalledWith({})
     })
 
     it('should handle an error if deleteSharesService does not return', async () => {
       const mockSetMessageState = jest.fn()
-      const mockDeletingShare = jest.fn()
+      const mockSetUpdatingShare = jest.fn()
       const mockSetShares = jest.fn()
       const mockValue = 'SOME_ID'
       ;(deleteSharesService as jest.Mock).mockReturnValueOnce(undefined)
 
-      await deleteShare(mockSetMessageState, mockDeletingShare, mockSetShares, mockValue)()
+      await deleteShare(mockSetMessageState, mockSetUpdatingShare, mockSetShares, mockValue)()
 
       expect(mockSetMessageState).toHaveBeenLastCalledWith({
         errorMessage: 'Something went wrong deleting this data share',
@@ -98,12 +100,55 @@ describe('data handlers', () => {
 
     it('should handle an error if getSharesService does not return', async () => {
       const mockSetMessageState = jest.fn()
-      const mockDeletingShare = jest.fn()
+      const mockSetUpdatingShare = jest.fn()
       const mockSetShares = jest.fn()
       const mockValue = 'SOME_ID'
       ;(getSharesService as jest.Mock).mockReturnValueOnce(undefined)
 
-      await deleteShare(mockSetMessageState, mockDeletingShare, mockSetShares, mockValue)()
+      await deleteShare(mockSetMessageState, mockSetUpdatingShare, mockSetShares, mockValue)()
+
+      expect(mockSetMessageState).toHaveBeenLastCalledWith({
+        errorMessage: 'Something went wrong fetching shares',
+      })
+    })
+  })
+
+  describe('refreshShare', () => {
+    it('should wait on refreshShare service and set shares on done', async () => {
+      const mockSetMessageState = jest.fn()
+      const mockSetUpdatingShare = jest.fn()
+      const mockSetShares = jest.fn()
+      const mockValue = 'SOME_ID'
+
+      await refreshShare(mockSetMessageState, mockSetUpdatingShare, mockSetShares, mockValue)()
+      expect(mockSetUpdatingShare).toHaveBeenCalledWith('SOME_ID')
+      expect(mockSetUpdatingShare).toHaveBeenLastCalledWith('')
+      expect(mockSetMessageState).toHaveBeenLastCalledWith({ infoMessage: 'Successfully refreshed share' })
+      expect(mockSetShares).toHaveBeenLastCalledWith({})
+    })
+
+    it('should handle an error if refreshSharesService does not return', async () => {
+      const mockSetMessageState = jest.fn()
+      const mockSetUpdatingShare = jest.fn()
+      const mockSetShares = jest.fn()
+      const mockValue = 'SOME_ID'
+      ;(refreshSharesService as jest.Mock).mockReturnValueOnce(undefined)
+
+      await refreshShare(mockSetMessageState, mockSetUpdatingShare, mockSetShares, mockValue)()
+
+      expect(mockSetMessageState).toHaveBeenLastCalledWith({
+        errorMessage: 'Something went wrong refreshing this data share',
+      })
+    })
+
+    it('should handle an error if getSharesService does not return', async () => {
+      const mockSetMessageState = jest.fn()
+      const mockSetUpdatingShare = jest.fn()
+      const mockSetShares = jest.fn()
+      const mockValue = 'SOME_ID'
+      ;(getSharesService as jest.Mock).mockReturnValueOnce(undefined)
+
+      await refreshShare(mockSetMessageState, mockSetUpdatingShare, mockSetShares, mockValue)()
 
       expect(mockSetMessageState).toHaveBeenLastCalledWith({
         errorMessage: 'Something went wrong fetching shares',

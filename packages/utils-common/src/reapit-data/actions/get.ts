@@ -13,6 +13,7 @@ export enum GetActionNames {
   getPipelineDeployments = 'getPipelineDeployments',
   getProducts = 'getProducts',
   getSandboxes = 'getSandboxes',
+  getAppPermissions = 'getAppPermissions',
 }
 
 export type GetActions = { [key in GetActionNames]: GetAction }
@@ -40,5 +41,10 @@ export const getActions = (appEnv: AppEnv): GetActions => ({
     api: ApiNames(appEnv).platform,
     path: PathNames.sandboxes,
     errorMessage: 'Something went wrong fetching sandboxes',
+  },
+  [GetActionNames.getAppPermissions]: {
+    api: ApiNames(appEnv).platform,
+    path: PathNames.appPermissions,
+    errorMessage: 'Something went wrong fetching app permissions',
   },
 })

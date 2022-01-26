@@ -1,4 +1,4 @@
-import React, { FC } from 'react'
+import React, { ChangeEvent, Dispatch, FC, SetStateAction, useCallback, useEffect, useState } from 'react'
 import useSWR from 'swr'
 import {
   GroupMembershipModelPagedResult,
@@ -17,6 +17,7 @@ import {
   elMb11,
   elP8,
   FormLayout,
+  InputGroup,
   InputWrapFull,
   Loader,
   MultiSelectInput,
@@ -26,7 +27,8 @@ import {
   useSnack,
 } from '@reapit/elements'
 import { cx } from '@linaria/core'
-import { useForm } from 'react-hook-form'
+import { useForm, UseFormGetValues } from 'react-hook-form'
+import debounce from 'just-debounce-it'
 
 export interface EditUserGroupFormProps {
   userGroup: GroupModel
@@ -34,7 +36,11 @@ export interface EditUserGroupFormProps {
   orgId: string
 }
 
-interface UpdateUserGroupModel {
+export interface UpdateUserGroupModel {
+  userIds: string
+}
+
+export interface EditUserGroupSchema {
   userIds: string
 }
 
@@ -57,6 +63,34 @@ const removeUserFromGroup = async (id: string, userId: string) => {
   const removeUserRes = await removeMemberFromGroup({ id, userId })
   return removeUserRes
 }
+
+export const handleSetOptions =
+  (
+    defaultUserIds: string[],
+    users: UserModel[],
+    search: string,
+    setOptions: Dispatch<SetStateAction<MultiSelectOption[]>>,
+    getValues: UseFormGetValues<EditUserGroupSchema>,
+  ) =>
+  () => {
+    const userIds = getValues().userIds ?? defaultUserIds.join(',')
+
+    if ((userIds || search) && users) {
+      const options = users.filter((user) => {
+        const isSelectedUser = user.id && userIds.includes(user.id)
+        const isSearchedUser = search && user.name?.toLowerCase().includes(search.toLowerCase())
+
+        return isSelectedUser || isSearchedUser
+      })
+
+      const uniqueOptions = [...new Set([...options.map((option) => JSON.stringify(option))])].map((jsonOption) =>
+        JSON.parse(jsonOption),
+      )
+      const officeOptions = prepareGroupOptions(uniqueOptions)
+
+      setOptions(officeOptions)
+    }
+  }
 
 export const onHandleSubmit =
   (
@@ -93,35 +127,43 @@ export const onHandleSubmit =
   }
 
 export const EditUserGroupForm: FC<EditUserGroupFormProps> = ({ userGroup, onComplete, orgId }) => {
-  const id = userGroup?.id
+  const [search, setSearch] = useState<string>('')
+  const [options, setOptions] = useState<MultiSelectOption[]>([])
   const { success, error } = useSnack()
-
-  const { data } = useSWR<UserModelPagedResult | undefined>(`${URLS.USERS}?pageSize=999&organisationId=${orgId}`)
+  const debouncedSearch = useCallback(
+    debounce((event: ChangeEvent<HTMLInputElement>) => setSearch(event.target.value), 500),
+    [500],
+  )
+  const id = userGroup?.id
+  const { data } = useSWR<UserModelPagedResult | undefined>(
+    !orgId ? null : `${URLS.USERS}?pageSize=999&organisationId=${orgId}`,
+  )
 
   const { data: members, mutate: refetchMembers } = useSWR<GroupMembershipModelPagedResult | undefined>(
     id && orgId ? `${URLS.USERS_GROUPS}/${id}/members?pageSize=999&organisationId=${orgId}` : null,
   )
 
   const groupMembers = members?._embedded ?? []
-  const listUserGroup = data?._embedded ?? []
+  const users = data?._embedded ?? []
 
   const userIds = groupMembers.map((member) => member.id ?? '').filter(Boolean)
 
   const {
     register,
     handleSubmit,
+    getValues,
     formState: { errors },
-  } = useForm<{ userIds: string }>({
+  } = useForm<EditUserGroupSchema>({
     defaultValues: {
-      userIds: '',
+      userIds: userIds.join(','),
     },
   })
 
-  if (!data || !members) return <Loader />
-
   const onSubmit = onHandleSubmit(onComplete, refetchMembers, success, error, userIds, userGroup.id ?? '')
 
-  const userGroupGroupOptions = prepareGroupOptions(listUserGroup)
+  useEffect(handleSetOptions(userIds, users, search, setOptions, getValues), [members, data, search])
+
+  if (!members || !data) return <Loader label="Loading" />
 
   return (
     <form className={elP8} onSubmit={handleSubmit(onSubmit)}>
@@ -134,11 +176,12 @@ export const EditUserGroupForm: FC<EditUserGroupFormProps> = ({ userGroup, onCom
           </BodyText>
         </InputWrapFull>
         <InputWrapFull>
+          <InputGroup onChange={debouncedSearch} icon="searchSystem" placeholder="Search" label="Users" />
           <MultiSelectInput
             id={`user-groups-ids-${userGroup.id}`}
             noneSelectedLabel="No users selected for this group"
             defaultValues={[...new Set(userIds)]}
-            options={userGroupGroupOptions}
+            options={options}
             {...register('userIds')}
           />
           {errors.userIds && (

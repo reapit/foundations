@@ -1,10 +1,18 @@
 import React from 'react'
 import { render } from '@testing-library/react'
-import EditUserGroupForm, { EditUserGroupFormProps, onHandleSubmit } from '../edit-user-group'
+import EditUserGroupForm, {
+  EditUserGroupFormProps,
+  handleSetOptions,
+  onHandleSubmit,
+  EditUserGroupSchema,
+  prepareGroupOptions,
+} from '../edit-user-group'
 import { addMemberToGroup, removeMemberFromGroup } from '../../../../services/user'
 import { mockUserGroups } from '../../../../services/__stubs__/user-groups'
-import { GroupModel } from '../../../../types/organisations-schema'
+import { GroupModel, UserModel } from '../../../../types/organisations-schema'
 import useSWR from 'swr'
+import { mockUsersList } from '../../../../services/__stubs__/users'
+import { UseFormGetValues } from 'react-hook-form'
 
 jest.mock('../../../../core/connect-session')
 jest.mock('../../../../services/user')
@@ -26,6 +34,26 @@ describe('EditUserGroupForm', () => {
       mutate: jest.fn(),
     })
     expect(render(<EditUserGroupForm {...props()} />)).toMatchSnapshot()
+  })
+})
+
+describe('handleSetOptions', () => {
+  it('should set options', () => {
+    const userIds = ['aG9sbHlqb3lwaGlsbGlwcytkZXNrdG9wdXNlckBnbWFpbC5jb20']
+    const users = mockUsersList._embedded as UserModel[]
+    const search = 'holly'
+    const setOptions = jest.fn()
+    const getValues = jest.fn(() => ({
+      userIds: userIds.join(','),
+    })) as unknown as UseFormGetValues<EditUserGroupSchema>
+
+    const curried = handleSetOptions(userIds, users, search, setOptions, getValues)
+
+    curried()
+
+    expect(setOptions).toHaveBeenCalledWith(
+      prepareGroupOptions([(mockUsersList._embedded as UserModel[])[0], (mockUsersList._embedded as UserModel[])[1]]),
+    )
   })
 })
 

@@ -3,7 +3,7 @@ import { SetStateAction, Dispatch } from 'react'
 import { MessageState } from '../../../context/message-context'
 import { getDataSetsService } from '../../../services/data-sets'
 import { createRequestService } from '../../../services/requests'
-import { deleteSharesService, getSharesService } from '../../../services/shares'
+import { deleteSharesService, getSharesService, refreshSharesService } from '../../../services/shares'
 import { PagedApiResponse } from '../../../types/core'
 import { DataSetModel } from '../../../types/data-sets'
 import { SharesModel } from '../../../types/shares'
@@ -38,22 +38,50 @@ export const createRequest =
 export const deleteShare =
   (
     setMessageState: Dispatch<SetStateAction<MessageState>>,
-    setDeletingShare: Dispatch<SetStateAction<string>>,
+    setUpdatingShare: Dispatch<SetStateAction<string>>,
     setShares: Dispatch<SetStateAction<PagedApiResponse<SharesModel> | undefined>>,
     value: string,
   ) =>
   async () => {
-    setDeletingShare(value)
+    setUpdatingShare(value)
 
     const disabled = await deleteSharesService(value)
 
-    setDeletingShare('')
+    setUpdatingShare('')
 
     if (!disabled) {
       return setMessageState({ errorMessage: 'Something went wrong deleting this data share' })
     }
 
     setMessageState({ infoMessage: 'Successfully deleted share' })
+
+    const shares = await getSharesService()
+
+    if (shares) {
+      return setShares(shares)
+    }
+    return setMessageState({ errorMessage: 'Something went wrong fetching shares' })
+  }
+
+export const refreshShare =
+  (
+    setMessageState: Dispatch<SetStateAction<MessageState>>,
+    setUpdatingShare: Dispatch<SetStateAction<string>>,
+    setShares: Dispatch<SetStateAction<PagedApiResponse<SharesModel> | undefined>>,
+    value: string,
+  ) =>
+  async () => {
+    setUpdatingShare(value)
+
+    const disabled = await refreshSharesService(value)
+
+    setUpdatingShare('')
+
+    if (!disabled) {
+      return setMessageState({ errorMessage: 'Something went wrong refreshing this data share' })
+    }
+
+    setMessageState({ infoMessage: 'Successfully refreshed share' })
 
     const shares = await getSharesService()
 
