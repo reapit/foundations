@@ -6788,7 +6788,7 @@ export interface CreateWorksOrderModel {
    */
   typeId: string
   /**
-   * The current status of the works order (pendingApproval/pendingQuote/raised/raisedToChase/landlordToComplete/complete/cancelled)
+   * The current status of the works order (pendingApproval/pendingQuote/raised/raisedToChase/landlordToComplete/complete/cancelled/quoteAccepted)
    */
   status: string
   /**
@@ -8544,6 +8544,12 @@ export interface LandlordModel {
     [name: string]: any
   }
   /**
+   * The requested extras fields
+   */
+  extrasField?: {
+    [name: string]: any
+  }
+  /**
    * The ETag for the current version of the landlord. Used for managing update concurrency
    */
   readonly _eTag?: string
@@ -8694,6 +8700,12 @@ export interface LandlordModelPagedResult {
       [name: string]: any
     }
     /**
+     * The requested extras fields
+     */
+    extrasField?: {
+      [name: string]: any
+    }
+    /**
      * The ETag for the current version of the landlord. Used for managing update concurrency
      */
     readonly _eTag?: string
@@ -8729,6 +8741,7 @@ export interface Landlords {
   embed?: ('appointments' | 'documents' | 'office' | 'properties' | 'solicitor' | 'source')[]
   id?: string[]
   email?: string[]
+  extrasField?: string[]
   active?: boolean
   address?: string
   name?: string
@@ -16489,7 +16502,7 @@ export interface UpdateWorksOrderModel {
    */
   typeId?: string
   /**
-   * The current status of the works order (pendingApproval/pendingQuote/raised/raisedToChase/landlordToComplete/complete/cancelled)
+   * The current status of the works order (pendingApproval/pendingQuote/raised/raisedToChase/landlordToComplete/complete/cancelled/quoteAccepted)
    */
   status?: string
   /**
@@ -17514,7 +17527,7 @@ export interface WorksOrderModel {
    */
   typeId?: string
   /**
-   * The current status of the works order (pendingApproval/pendingQuote/raised/raisedToChase/landlordToComplete/complete/cancelled)
+   * The current status of the works order (pendingApproval/pendingQuote/raised/raisedToChase/landlordToComplete/complete/cancelled/quoteAccepted)
    */
   status?: string
   /**
@@ -17631,6 +17644,12 @@ export interface WorksOrderModel {
     [name: string]: any
   }
   /**
+   * The requested extras fields
+   */
+  extrasField?: {
+    [name: string]: any
+  }
+  /**
    * The ETag for the current version of the works order. Used for managing update concurrency
    */
   readonly _eTag?: string
@@ -17682,7 +17701,7 @@ export interface WorksOrderModelPagedResult {
      */
     typeId?: string
     /**
-     * The current status of the works order (pendingApproval/pendingQuote/raised/raisedToChase/landlordToComplete/complete/cancelled)
+     * The current status of the works order (pendingApproval/pendingQuote/raised/raisedToChase/landlordToComplete/complete/cancelled/quoteAccepted)
      */
     status?: string
     /**
@@ -17799,6 +17818,12 @@ export interface WorksOrderModelPagedResult {
       [name: string]: any
     }
     /**
+     * The requested extras fields
+     */
+    extrasField?: {
+      [name: string]: any
+    }
+    /**
      * The ETag for the current version of the works order. Used for managing update concurrency
      */
     readonly _eTag?: string
@@ -17831,9 +17856,11 @@ export interface WorksOrders {
     | 'landlordToComplete'
     | 'complete'
     | 'cancelled'
+    | 'quoteAccepted'
   )[]
   tenancyId?: string[]
   typeId?: string[]
+  extrasField?: string[]
   completedFrom?: string
   completedTo?: string
   createdFrom?: string
