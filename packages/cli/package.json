@@ -50,7 +50,7 @@
     "run": "ts-node src/index.ts",
     "build": "tsc -p .",
     "lint": "eslint --cache --ext=ts,tsx,js src --fix",
-    "conf": "yarn config-manager --namespace cloud --entity deployment-service --name local --mode fetch",
+    "conf": "yarn config-manager --namespace cloud --entity cli --name local --mode fetch",
     "test": "echo '...skipping...'",
     "release": "echo '...skipping...'",
     "publish": "yarn npm publish --access private"
