@@ -340,7 +340,7 @@ export const createStack = () => {
     pipelineSetup: {
       handler: 'main.pipelineSetup',
       policies: [...policies.commonBackendPolicies, policies.cloudFrontPolicy, policies.route53Policy],
-      timeout: 300,
+      timeout: 900,
       queue: queues[QueueNames.PIPELINE_SETUP],
     },
     pipelineTearDownStart: {
