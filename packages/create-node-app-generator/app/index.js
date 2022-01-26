@@ -43,24 +43,20 @@ module.exports = class extends Generator {
       let templatePath
 
       if (type === 'nestjs') {
-        // files = [
-        //   'README.md',
-        //   'jest.config.js',
-        //   '_config.json',
-        //   'babel.config.js',
-        //   '.eslintrc.js',
-        //   '_package.json',
-        //   '_config.json',
-        //   // 'src',
-        // ]
+        files = {
+          '_README.md': 'README.md',
+          '_config.json': 'config.json',
+          '_package.json': 'package.json',
+          '_.eslintrc.js': '.eslintrc.js',
+        }
         templatePath = 'nestjs'
       } else {
         files = {
           '_README.md': 'README.md',
           '_config.json': 'config.json',
           '_package.json': 'package.json',
-          '_config.json': 'config.json',
           '_.eslintrc.js': '.eslintrc.js',
+          '_nest-cli.json': '.nest-cli.json',
         }
         templatePath = 'express'
       }
