@@ -160,6 +160,7 @@ export abstract class AbstractCommand {
       process.exit(1)
     }
 
+    // @ts-ignore
     return new Pusher(globalConfig.PUSHER_KEY, {
       cluster: 'eu',
       authEndpoint: `${this.baseUrl}pusher/auth`,
