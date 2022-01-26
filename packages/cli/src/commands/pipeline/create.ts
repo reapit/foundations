@@ -197,6 +197,11 @@ export class PipelineCreate extends AbstractCommand {
 
     const pipeline = await this.createPipeline(answers, spinner)
 
+    if (pipeline.buildStatus === 'READY_FOR_DEPLOYMENT') {
+      spinner.info('Existing pipeline reset & updated')
+      process.exit(0)
+    }
+
     spinner.start('Connecting to socket...')
     const pusher = await this.pusher()
 
