@@ -199,6 +199,8 @@ export class PipelineCreate extends AbstractCommand {
 
     if (pipeline.buildStatus === 'READY_FOR_DEPLOYMENT') {
       spinner.info('Existing pipeline reset & updated')
+      await this.serialisePipelineJson(pipeline)
+      this.end(spinner, pipeline)
       process.exit(0)
     }
 
@@ -236,21 +238,25 @@ export class PipelineCreate extends AbstractCommand {
         process.exit(1)
       } else if (event.buildStatus === 'READY_FOR_DEPLOYMENT') {
         await this.serialisePipelineJson(event)
-
-        spinner.succeed('🚀 Successfully architectured')
-        this.writeLine('')
-        this.writeLine("Now you're ready to deploy to your pipeline!")
-        this.writeLine(
-          `To do so, either use ${chalk.green('reapit pipeline deploy-zip')} or ${chalk.green(
-            'reapit pipeline deploy-repo',
-          )}`,
-        )
-        this.writeLine('')
-        this.writeLine(
-          `You can visit your domain here ${chalk.green(`https://${event.subDomain}.dev.paas.reapit.cloud`)}`,
-        )
-        process.exit(0)
+        this.end(spinner, event)
       }
     })
+  }
+
+  end(spinner, event) {
+
+    spinner.succeed('🚀 Successfully architectured')
+    this.writeLine('')
+    this.writeLine("Now you're ready to deploy to your pipeline!")
+    this.writeLine(
+      `To do so, either use ${chalk.green('reapit pipeline deploy-zip')} or ${chalk.green(
+        'reapit pipeline deploy-repo',
+      )}`,
+    )
+    this.writeLine('')
+    this.writeLine(
+      `You can visit your domain here ${chalk.green(`https://${event.subDomain}.dev.paas.reapit.cloud`)}`,
+    )
+    process.exit(0)
   }
 }
