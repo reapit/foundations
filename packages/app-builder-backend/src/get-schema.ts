@@ -3,6 +3,7 @@ import { stitchSchemas } from '@graphql-tools/stitch'
 import { GraphQLSchema } from 'graphql'
 import { makeExecutableSchema } from '@graphql-tools/schema'
 import { getGraphqlSchemaFromJsonSchema } from 'get-graphql-from-jsonschema'
+import Pluralize from 'pluralize'
 
 import { AppResolver } from './resolvers/app-resolver'
 import { AuthorResolver } from './resolvers/author-resolver'
@@ -25,6 +26,7 @@ import {
   updateMetadataObject,
 } from './platform'
 import { notEmpty } from './utils/helpers'
+import { CustomEntityResolver } from './resolvers/custom-entity-resolver'
 
 const noT = (str: string) => str.split('T0').join('')
 
@@ -116,9 +118,9 @@ const deleteMetadataType =
   }
 
 const generateQueries = (typeName: string): { queries: string; resolvers: Resolvers } => {
-  const listName = `list${typeName}s`
+  const listName = `list${Pluralize.plural(typeName)}`
+  const searchName = `search${Pluralize.plural(typeName)}`
   const getName = `get${typeName}`
-  const searchName = `search${typeName}s`
 
   const queries = [
     `${listName}: [${typeName}]`,
@@ -212,6 +214,7 @@ export const getSchema = async (context?: Context) => {
       NegotiatorResolver,
       KeyTypeResolver,
       OfficeResolver,
+      CustomEntityResolver,
     ],
     authChecker: customAuthChecker,
   })
