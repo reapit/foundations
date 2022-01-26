@@ -6,7 +6,7 @@ import { plainToClass } from 'class-transformer'
 import { validate } from 'class-validator'
 import { resolveCreds } from '../../utils'
 import { defaultOutputHeaders, QueueNames } from '../../constants'
-import { sqs } from '../../services'
+import { sqs, pusher } from '../../services'
 
 /**
  * Create a deployment pipeline configuration
@@ -35,8 +35,12 @@ export const pipelineCreate = httpHandler<PipelineDto, PipelineEntity>({
         })
       : new PipelineDto()
 
+    const previousPipeline = await service.findPipelineById(dto.appId as string)
+
     const pipeline = await service.createPipelineEntity({
       ...dto,
+      ...previousPipeline,
+      buildStatus: previousPipeline ? 'READY_FOR_DEPLOYMENT' : undefined,
       // Temp plug, singular appId/clientId for pipeline - later requires multiple pipelines
       id: dto.appId,
     })
@@ -45,20 +49,27 @@ export const pipelineCreate = httpHandler<PipelineDto, PipelineEntity>({
       throw new BadRequestException('Invalid pipeline properties')
     }
 
-    await new Promise<void>((resolve, reject) =>
-      sqs.sendMessage(
-        {
-          MessageBody: JSON.stringify(pipeline),
-          QueueUrl: QueueNames.PIPELINE_SETUP,
-        },
-        (error) => {
-          if (error) {
-            reject(error)
-          }
-          resolve()
-        },
-      ),
-    )
+    if (!previousPipeline) {
+      await new Promise<void>((resolve, reject) =>
+        sqs.sendMessage(
+          {
+            MessageBody: JSON.stringify(pipeline),
+            QueueUrl: QueueNames.PIPELINE_SETUP,
+          },
+          (error) => {
+            if (error) {
+              reject(error)
+            }
+            resolve()
+          },
+        ),
+      )
+    } else {
+      await pusher.trigger(`private-${pipeline.developerId}`, 'pipeline-architecture-update', {
+        ...pipeline,
+        message: 'Pipeline successfully created',
+      })
+    }
 
     return pipeline
   },
