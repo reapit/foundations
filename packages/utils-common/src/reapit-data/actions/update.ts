@@ -10,6 +10,7 @@ export interface UpdateAction {
 export enum UpdateActionNames {
   updatePipeline = 'updatePipeline',
   createPipelineDeployment = 'createPipelineDeployment',
+  createApp = 'createApp',
 }
 
 export type UpdateActions = { [key in UpdateActionNames]: UpdateAction }
@@ -22,5 +23,11 @@ export const updateActions = (appEnv: AppEnv): UpdateActions => ({
   [UpdateActionNames.createPipelineDeployment]: {
     api: ApiNames(appEnv).pipeline,
     path: PathNames.createPipelineDeployments,
+  },
+  [UpdateActionNames.createApp]: {
+    api: ApiNames(appEnv).platform,
+    path: PathNames.apps,
+    errorMessage: 'Something went wrong creating your app, please check for errors and resubmit.',
+    successMessage: 'Your app has been successfully created',
   },
 })

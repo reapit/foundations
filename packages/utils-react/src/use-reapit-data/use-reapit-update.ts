@@ -47,7 +47,7 @@ interface SendFunctionPropsInterface<DataType> {
   canCall: boolean
 }
 
-type SendFunction<ParamsType> = (params: ParamsType) => Promise<boolean>
+export type SendFunction<ParamsType> = (params: ParamsType) => Promise<boolean>
 
 export const send =
   <ParamsType, DataType>({
@@ -131,6 +131,15 @@ export const send =
     }
   }
 
+export const handleSuccess =
+  (action: UpdateAction, success: boolean | undefined, successSnack: (message: string) => void) => () => {
+    const { successMessage } = action
+
+    if (success && successMessage) {
+      successSnack(successMessage)
+    }
+  }
+
 export const useReapitUpdate = <ParamsType, DataType>({
   action,
   method = 'POST',
@@ -143,11 +152,12 @@ export const useReapitUpdate = <ParamsType, DataType>({
   const [error, setError] = useAsyncState<string | null>(null)
   const { connectSession } = useReapitConnect(reapitConnectBrowserSession)
   const [data, setData] = useState<DataType>()
-  const { error: errorSnack } = useSnack()
+  const { error: errorSnack, success: successSnack } = useSnack()
   const [success, setSuccess] = useAsyncState<undefined | boolean>(undefined)
   const [canCall, setCanCall] = useState<boolean>(connectSession !== null)
 
   useEffect(() => setCanCall(true), [connectSession])
+  useEffect(handleSuccess(action, success, successSnack), [success])
 
   const sendFunc = send<ParamsType, DataType>({
     uriParams,
