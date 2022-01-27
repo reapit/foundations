@@ -50,6 +50,7 @@ module.exports = class extends Generator {
           '_.eslintrc.js': '.eslintrc.js',
         }
         templatePath = 'nestjs'
+        yosay("Nestjs setup may require some refactoring for AWS + CDK setup")
       } else {
         files = {
           '_README.md': 'README.md',
@@ -61,7 +62,7 @@ module.exports = class extends Generator {
         templatePath = 'express'
       }
 
-      Object.keys(files).map(file => this.fs.copyTpl(
+      Object.keys(files).forEach(file => this.fs.copyTpl(
           this.templatePath(path.join(templatePath, file)),
           this.destinationPath(`./${files[file]}`),
           {
