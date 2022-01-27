@@ -2,8 +2,6 @@ const { jestNodeGlobalConfig, jestGlobalConfig } = require('@reapit/ts-scripts')
 const { pathsToModuleNameMapper } = require('ts-jest')
 const { compilerOptions } = require('./tsconfig.json')
 
-console.log('test', jestNodeGlobalConfig, jestGlobalConfig)
-
 module.exports = {
   ...jestNodeGlobalConfig,
   testPathIgnorePatterns: ['<rootDir>/src/tests/'],
