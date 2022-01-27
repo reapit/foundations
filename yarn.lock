@@ -8443,6 +8443,18 @@ __metadata:
   languageName: unknown
   linkType: soft
 
+"@reapit/create-node-app-generator@workspace:packages/create-node-app-generator":
+  version: 0.0.0-use.local
+  resolution: "@reapit/create-node-app-generator@workspace:packages/create-node-app-generator"
+  dependencies:
+    concurrently: ^7.0.0
+    eslint: ^8.7.0
+    yeoman-generator: ^5.6.1
+    yo: ^4.3.0
+    yosay: ^2.0.2
+  languageName: unknown
+  linkType: soft
+
 "@reapit/elements-legacy@workspace:packages/elements-legacy":
   version: 0.0.0-use.local
   resolution: "@reapit/elements-legacy@workspace:packages/elements-legacy"
@@ -18586,6 +18598,24 @@ __metadata:
   languageName: node
   linkType: hard
 
+"concurrently@npm:^7.0.0":
+  version: 7.0.0
+  resolution: "concurrently@npm:7.0.0"
+  dependencies:
+    chalk: ^4.1.0
+    date-fns: ^2.16.1
+    lodash: ^4.17.21
+    rxjs: ^6.6.3
+    spawn-command: ^0.0.2-1
+    supports-color: ^8.1.0
+    tree-kill: ^1.2.2
+    yargs: ^16.2.0
+  bin:
+    concurrently: dist/bin/concurrently.js
+  checksum: 1be78f24bf814f097adaf2e61a37563eb73f12272bbeda90e3e616a23525f793268e22a3c6aedf34e5bad44459f7c30ee053c617905416ba11ce2bee55f089a5
+  languageName: node
+  linkType: hard
+
 "conf@npm:^1.4.0":
   version: 1.4.0
   resolution: "conf@npm:1.4.0"
@@ -22430,7 +22460,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"eslint@npm:^8.6.0":
+"eslint@npm:^8.6.0, eslint@npm:^8.7.0":
   version: 8.7.0
   resolution: "eslint@npm:8.7.0"
   dependencies:
@@ -39228,6 +39258,19 @@ resolve@^2.0.0-next.3:
   languageName: node
   linkType: hard
 
+"shelljs@npm:^0.8.5":
+  version: 0.8.5
+  resolution: "shelljs@npm:0.8.5"
+  dependencies:
+    glob: ^7.0.0
+    interpret: ^1.0.0
+    rechoir: ^0.6.2
+  bin:
+    shjs: bin/shjs
+  checksum: 7babc46f732a98f4c054ec1f048b55b9149b98aa2da32f6cf9844c434b43c6251efebd6eec120937bd0999e13811ebd45efe17410edb3ca938f82f9381302748
+  languageName: node
+  linkType: hard
+
 "shellwords@npm:^0.1.1":
   version: 0.1.1
   resolution: "shellwords@npm:0.1.1"
@@ -39681,6 +39724,15 @@ resolve@^2.0.0-next.3:
   dependencies:
     is-plain-obj: ^1.0.0
   checksum: f0fd827fa9f8f866e98588d2a38c35209afbf1e9a05bb0e4ceeeb8bbf31d923c8902b0a7e0f561590ddb65e58eba6a74f74b991c85360bcc52e83a3f0d1cffd7
+  languageName: node
+  linkType: hard
+
+"sort-keys@npm:^4.2.0":
+  version: 4.2.0
+  resolution: "sort-keys@npm:4.2.0"
+  dependencies:
+    is-plain-obj: ^2.0.0
+  checksum: 1535ffd5a789259fc55107d5c3cec09b3e47803a9407fcaae37e1b9e0b813762c47dfee35b6e71e20ca7a69798d0a4791b2058a07f6cab5ef17b2dae83cedbda
   languageName: node
   linkType: hard
 
@@ -45461,6 +45513,32 @@ typescript@^3.7.3:
     yeoman-environment:
       optional: true
   checksum: c9d734ba5861385675b3252e2ef30932e638491108b42f5a534f87ce008bb58eca7d4b0c8cbc8150b46383b71a6658acf8f785b05640a41ec783eeeff28c3eae
+  languageName: node
+  linkType: hard
+
+"yeoman-generator@npm:^5.6.1":
+  version: 5.6.1
+  resolution: "yeoman-generator@npm:5.6.1"
+  dependencies:
+    chalk: ^4.1.0
+    dargs: ^7.0.0
+    debug: ^4.1.1
+    execa: ^4.1.0
+    github-username: ^6.0.0
+    lodash: ^4.17.11
+    minimist: ^1.2.5
+    read-pkg-up: ^7.0.1
+    run-async: ^2.0.0
+    semver: ^7.2.1
+    shelljs: ^0.8.5
+    sort-keys: ^4.2.0
+    text-table: ^0.2.0
+  peerDependencies:
+    yeoman-environment: ^3.2.0
+  peerDependenciesMeta:
+    yeoman-environment:
+      optional: true
+  checksum: ef036210b6fb16f32d2615cd7c5d60a3ed17d1be5402ad997eee91ac709880802ad4026c1486bfff1ef891d284c1bbb15ab45caf8e287e175204d204f8d03474
   languageName: node
   linkType: hard
 
