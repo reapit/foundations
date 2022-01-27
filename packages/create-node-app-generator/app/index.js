@@ -38,7 +38,7 @@ module.exports = class extends Generator {
 
   async writeBaseFiles() {
     return new Promise((resolve, reject) => {
-      const { name, type } = this.answers
+      const { type } = this.answers
       let files = {}
       let templatePath
 
