@@ -1,7 +1,17 @@
+import {
+  CreateSchemaRequest,
+  MetadataModel,
+  MetadataModelPagedResult,
+  SchemaModel,
+  SchemaModelPagedResult,
+  UpdateSchemaRequest,
+} from '@reapit/foundations-ts-definitions/types'
 import fetch from 'node-fetch'
 import config from '../config.json'
 
 const { platformApiUrl } = config
+
+export { SchemaModel } from '@reapit/foundations-ts-definitions/types'
 
 export const getMetadataObject = async (id: string, accessToken: string) => {
   const res = await fetch(`${platformApiUrl}/metadata/${id}`, {
@@ -14,7 +24,23 @@ export const getMetadataObject = async (id: string, accessToken: string) => {
     return
   }
 
-  const data = (await res.json()) as any
+  const data = (await res.json()) as MetadataModel
+
+  return data.metadata
+}
+export const deleteMetadataObject = async (id: string, accessToken: string) => {
+  const res = await fetch(`${platformApiUrl}/metadata/${id}`, {
+    method: 'DELETE',
+    headers: {
+      Authorization: `Bearer ${accessToken}`,
+      'api-version': '2020-01-31',
+    },
+  })
+  if (res.status !== 200) {
+    return
+  }
+
+  const data = (await res.json()) as MetadataModel
 
   return data.metadata
 }
@@ -26,9 +52,9 @@ export const findMetadataObject = async (entityType: string, accessToken: string
       'api-version': '2020-01-31',
     },
   })
-  const data = (await res.json()) as any
+  const data = (await res.json()) as MetadataModelPagedResult
 
-  return data._embedded
+  return data._embedded || []
 }
 
 export const updateMetadataObject = async (id: string, metadata: any, accessToken: string) => {
@@ -44,6 +70,34 @@ export const updateMetadataObject = async (id: string, metadata: any, accessToke
   return getMetadataObject(id, accessToken)
 }
 
+export const getMetadataSchemas = async (accessToken: string): Promise<SchemaModel[]> => {
+  const res = await fetch(`${platformApiUrl}/metadata/metadataSchema`, {
+    headers: {
+      Authorization: `Bearer ${accessToken}`,
+      'api-version': '2020-01-31',
+    },
+  })
+  const data = (await res.json()) as SchemaModelPagedResult
+  if (res.status !== 200) {
+    throw new Error(`Failed to get metadata schemas: ${res.status}`)
+  }
+  return data._embedded || []
+}
+
+export const getMetadataSchema = async (id: string, accessToken: string): Promise<SchemaModel> => {
+  const res = await fetch(`${platformApiUrl}/metadata/metadataSchema/${id}`, {
+    headers: {
+      Authorization: `Bearer ${accessToken}`,
+      'api-version': '2020-01-31',
+    },
+  })
+  const data = (await res.json()) as SchemaModel
+  if (res.status !== 200) {
+    throw new Error(`Failed to get metadata schema with id "${id}": ${res.status}`)
+  }
+  return data
+}
+
 export const createMetadataObject = async (entityType: string, metadata: any, accessToken: string) => {
   const res = await fetch(`${platformApiUrl}/metadata`, {
     method: 'POST',
@@ -55,24 +109,12 @@ export const createMetadataObject = async (entityType: string, metadata: any, ac
     redirect: 'follow',
     body: JSON.stringify({ entityType, metadata }),
   })
-  const data = (await res.json()) as any
+  const data = (await res.json()) as MetadataModel
 
   return data.metadata
 }
 
-export const getSchema = async (id: string, accessToken: string) => {
-  const res = await fetch(`${platformApiUrl}/metadata/metadataSchema/${id}`, {
-    headers: {
-      Authorization: `Bearer ${accessToken}`,
-      'api-version': '2020-01-31',
-    },
-  })
-  const data = await res.json()
-
-  return data
-}
-
-export const createSchema = async (schema: { entityType: string; schema: string }, accessToken: string) => {
+export const createMetadataSchema = async (schema: CreateSchemaRequest, accessToken: string) => {
   const res = await fetch(`${platformApiUrl}/metadata/metadataSchema`, {
     method: 'POST',
     headers: {
@@ -85,14 +127,30 @@ export const createSchema = async (schema: { entityType: string; schema: string 
   })
   const parts = res.headers.get('location')?.split('/') || []
   const id = parts[parts.length - 1]
-  return getSchema(id, accessToken)
+  return getMetadataSchema(id, accessToken)
+}
+
+export const updateMetadataSchema = async (id: string, schema: UpdateSchemaRequest, accessToken: string) => {
+  const res = await fetch(`${platformApiUrl}/metadata/metadataSchema/${id}`, {
+    method: 'PUT',
+    headers: {
+      Authorization: `Bearer ${accessToken}`,
+      'Content-Type': 'application/json',
+      'api-version': '2020-01-31',
+    },
+    redirect: 'follow',
+    body: JSON.stringify(schema),
+  })
+  const parts = res.headers.get('location')?.split('/') || []
+  const newId = parts[parts.length - 1]
+  return getMetadataSchema(newId, accessToken)
 }
 
 const ENTITY_ID = 'dataType'
 
 export const ensureDataEntityType = async (name: string, accessToken: string) => {
   const entityType = `${ENTITY_ID}${name}`.toLowerCase()
-  const type = await getSchema(entityType, accessToken)
+  const type = await getMetadataSchema(entityType, accessToken)
   const dataSchema = {
     $schema: 'http://json-schema.org/draft-04/schema#',
     type: 'object',
@@ -106,7 +164,7 @@ export const ensureDataEntityType = async (name: string, accessToken: string) =>
     return entityType
   }
 
-  await createSchema(
+  await createMetadataSchema(
     {
       entityType,
       schema: JSON.stringify(dataSchema),
@@ -127,14 +185,14 @@ export const getDataEntity = async (name: string, accessToken: string): Promise<
   const [existing] = await findMetadataObject(entityType, accessToken)
   if (existing) {
     return {
-      id: existing.id,
-      data: existing.metadata.data,
+      id: existing.id as string,
+      data: existing.metadata?.data,
     }
   }
   const data = []
-  const { id } = await createMetadataObject(entityType, { data }, accessToken)
+  const obj = await createMetadataObject(entityType, { data }, accessToken)
   return {
-    id,
+    id: obj?.id as string,
     data,
   }
 }

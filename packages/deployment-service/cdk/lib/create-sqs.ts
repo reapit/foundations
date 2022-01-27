@@ -19,7 +19,7 @@ export const createSqsQueues = (stack: Stack): Record<QueueNames, Queue> => {
       visibilityTimeout: 300,
     },
     [QueueNames.PIPELINE_SETUP]: {
-      visibilityTimeout: 300,
+      visibilityTimeout: 900,
     },
     [QueueNames.PIPELINE_TEAR_DOWN_START]: {
       visibilityTimeout: 300,
