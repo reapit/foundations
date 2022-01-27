@@ -1,11 +1,17 @@
 import { elMb10, InputGroup } from '@reapit/elements'
 import React, { Dispatch, FC, SetStateAction, useEffect } from 'react'
+import { UseFormRegister, UseFormGetValues, DeepMap, FieldError } from 'react-hook-form'
+import { CreateAppFormSchema } from './apps-new'
 import { AppNewStepId } from './config'
 import { AppWizardState, useAppWizard } from './use-app-wizard'
 import { StepFormContainer } from './__styles__'
 
-// Just a stub to auto set the next step to permissions for now. Will be done on validation of form
-// when I decide how best to manage the form state with the wizard
+interface AuthOptionsContentProps {
+  register: UseFormRegister<CreateAppFormSchema>
+  getValues: UseFormGetValues<CreateAppFormSchema>
+  errors: DeepMap<Partial<CreateAppFormSchema>, FieldError>
+}
+
 export const handleSetAppWizardState = (setAppWizardState: Dispatch<SetStateAction<AppWizardState>>) => () => {
   if (setAppWizardState) {
     setAppWizardState((currentState) => ({
@@ -15,15 +21,28 @@ export const handleSetAppWizardState = (setAppWizardState: Dispatch<SetStateActi
   }
 }
 
-export const AuthOptionsContent: FC = () => {
+export const AuthOptionsContent: FC<AuthOptionsContentProps> = ({ register, errors }) => {
   const { setAppWizardState } = useAppWizard()
 
   useEffect(handleSetAppWizardState(setAppWizardState), [])
 
   return (
     <StepFormContainer>
-      <InputGroup className={elMb10} label="Login Redirect URI" type="text" />
-      <InputGroup label="Logout Redirect URI" type="text" />
+      <InputGroup
+        className={elMb10}
+        label="Login Redirect URI"
+        type="text"
+        {...register('redirectUris')}
+        defaultValue="http://localhost:8080"
+        inputAddOnText={errors?.redirectUris?.message}
+      />
+      <InputGroup
+        label="Logout Redirect URI"
+        type="text"
+        {...register('signoutUris')}
+        defaultValue="http://localhost:8080/login"
+        inputAddOnText={errors?.signoutUris?.message}
+      />
     </StepFormContainer>
   )
 }

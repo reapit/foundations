@@ -20,6 +20,8 @@ export enum AppNewStepId {
 
 export type AppNewSteps = AppNewStepId[]
 
+export type AppAuthFlow = 'clientCredentials' | 'authorisationCode'
+
 export interface AppNewWizardStep {
   headingText: string
   headerText: string
