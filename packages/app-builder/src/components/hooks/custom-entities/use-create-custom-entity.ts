@@ -1,4 +1,5 @@
 import { gql, useMutation } from '@apollo/client'
+import { introspectionQuery } from '../use-introspection'
 import { CustomEntity, CustomEntityFragment } from './types'
 
 export const CreateCustomEntityMutation = gql`
@@ -16,11 +17,12 @@ export const useCreateCustomEntity = () => {
   return {
     loading,
     error,
-    createCustomEntity: (customEntity: Omit<CustomEntity, 'id'>) =>
+    createCustomEntity: (customEntity: CustomEntity) =>
       createCustomEntity({
         variables: {
           customEntity,
         },
+        refetchQueries: [introspectionQuery],
       }).then(({ data }) => data?._createCustomEntity as CustomEntity),
   }
 }

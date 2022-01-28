@@ -12,6 +12,8 @@ import { getAvailableIntegrationsForArgs } from '@/core/desktop-integration'
 import { useObjectList } from '@/components/hooks/objects/use-object-list'
 import { useIntrospection } from '@/components/hooks/use-introspection'
 import { CreatePage } from './create-page'
+import { useCreateCustomEntity } from '@/components/hooks/custom-entities/use-create-custom-entity'
+import { Button } from '@reapit/elements'
 
 const defaultProps = {}
 
@@ -58,8 +60,42 @@ export const IntegrationLanding = ({ typeName }: { typeName: string | undefined 
   )
 }
 
-const TableSettings = () => {
+const TypeList = () => {
   const { data, loading } = useTypeList()
+  const { createCustomEntity, loading: createLoading } = useCreateCustomEntity()
+
+  return (
+    <>
+      <ToolbarItem type={ToolbarItemType.Select} propKey="typeName" title="Object Type">
+        {(data || []).map((typeName) => (
+          <option key={typeName} value={typeName}>
+            {typeName}
+          </option>
+        ))}
+        <option value="" disabled>
+          {loading ? 'Loading...' : 'Select a Type'}
+        </option>
+      </ToolbarItem>
+      <Button
+        loading={createLoading}
+        onClick={() => {
+          const typeName = prompt('Enter the name of the new type')
+          if (typeName) {
+            createCustomEntity({
+              id: typeName,
+              name: typeName,
+              fields: [],
+            })
+          }
+        }}
+      >
+        Add New
+      </Button>
+    </>
+  )
+}
+
+const TableSettings = () => {
   const { typeName } = useNode((node) => node.data.props)
   const subobjects = useSubObjects(typeName)
   const { specials } = useObjectSpecials(typeName)
@@ -85,16 +121,7 @@ const TableSettings = () => {
           return `Table of ${typeName || ''}${typeName ? 's' : ''}`
         }}
       >
-        <ToolbarItem type={ToolbarItemType.Select} propKey="typeName" title="Object Type">
-          {(data || []).map((typeName) => (
-            <option key={typeName} value={typeName}>
-              {typeName}
-            </option>
-          ))}
-          <option value="" disabled>
-            {loading ? 'Loading...' : 'Select a Type'}
-          </option>
-        </ToolbarItem>
+        <TypeList />
       </ToolbarSection>
       <DestinationPage
         sectionTitle="Edit Page"

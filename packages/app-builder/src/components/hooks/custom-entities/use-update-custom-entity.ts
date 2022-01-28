@@ -1,4 +1,5 @@
 import { gql, useMutation } from '@apollo/client'
+import { introspectionQuery } from '../use-introspection'
 import { CustomEntity, CustomEntityFragment } from './types'
 
 export const UpdateCustomEntityMutation = gql`
@@ -16,12 +17,13 @@ export const useUpdateCustomEntity = () => {
   return {
     loading,
     error,
-    updateCustomEntity: (id: string, customEntity: Omit<CustomEntity, 'id'>) =>
+    updateCustomEntity: (id: string, customEntity: CustomEntity) =>
       updateCustomEntity({
         variables: {
           customEntity,
           id,
         },
+        refetchQueries: [introspectionQuery],
       }).then(({ data }) => data?._updateCustomEntity as CustomEntity),
   }
 }
