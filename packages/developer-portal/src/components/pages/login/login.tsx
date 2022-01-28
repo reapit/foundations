@@ -71,7 +71,7 @@ export const Login: React.FunctionComponent<LoginProps> = () => {
         </Button>
         <FlexContainer isFlexJustifyBetween className={cx(elMt12)}>
           <BodyText>Don&apos;t have an account yet?&nbsp;</BodyText>
-          <Link to={Routes.REGISTER}>Register</Link>
+          <Link to={Routes.SELECT_ROLE}>Register</Link>
         </FlexContainer>
         <FlexContainer className={cx(elPt8)} isFlexRow isFlexJustifyCenter>
           {process.env.APP_VERSION}

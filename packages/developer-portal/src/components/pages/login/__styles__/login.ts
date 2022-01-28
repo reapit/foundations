@@ -12,7 +12,8 @@ export const container = css`
   background-color: ${white};
 
   ${forMobileOnly} {
-    flex-direction: column-reverse;
+    flex-direction: column;
+    justify-content: center;
   }
 `
 
