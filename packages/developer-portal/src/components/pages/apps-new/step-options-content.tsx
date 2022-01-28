@@ -1,14 +1,22 @@
 import { cx } from '@linaria/core'
 import { elFadeIn, elWFull, FlexContainer } from '@reapit/elements'
 import React, { FC } from 'react'
+import { DeepMap, FieldError, UseFormGetValues, UseFormRegister } from 'react-hook-form'
 import { AppTypeOptionsContent } from './app-type-options-content'
+import { CreateAppFormSchema } from './apps-new'
 import { AuthOptionsContent } from './auth-options-content'
 import { AppNewStepId } from './config'
 import { PermissionsOptionsContent } from './permissions-options-content'
 import { useAppWizard } from './use-app-wizard'
 import { UserOptionsContent } from './user-options-content'
 
-export const StepOptionsContent: FC = () => {
+interface StepOptionsContentProps {
+  register: UseFormRegister<CreateAppFormSchema>
+  getValues: UseFormGetValues<CreateAppFormSchema>
+  errors: DeepMap<Partial<CreateAppFormSchema>, FieldError>
+}
+
+export const StepOptionsContent: FC<StepOptionsContentProps> = ({ register, errors, getValues }) => {
   const { appWizardState } = useAppWizard()
   const { currentStep } = appWizardState
 
@@ -20,14 +28,26 @@ export const StepOptionsContent: FC = () => {
       {currentStep === AppNewStepId.webServicesStep && <AppTypeOptionsContent />}
       {currentStep === AppNewStepId.reapitConnectStep && <AppTypeOptionsContent />}
       {currentStep === AppNewStepId.otherAppStep && <AppTypeOptionsContent />}
-      {currentStep === AppNewStepId.agencyCloudStep && <AuthOptionsContent />}
-      {currentStep === AppNewStepId.agencyCloudReplacementStep && <AuthOptionsContent />}
-      {currentStep === AppNewStepId.dataFeedStep && <PermissionsOptionsContent />}
-      {currentStep === AppNewStepId.reportingStep && <PermissionsOptionsContent />}
-      {currentStep === AppNewStepId.serverSideStep && <PermissionsOptionsContent />}
-      {currentStep === AppNewStepId.clientSideStep && <AuthOptionsContent />}
-      {currentStep === AppNewStepId.websiteFeedStep && <PermissionsOptionsContent />}
-      {currentStep === AppNewStepId.permissionsStep && <PermissionsOptionsContent />}
+      {currentStep === AppNewStepId.agencyCloudStep && <AuthOptionsContent register={register} errors={errors} />}
+      {currentStep === AppNewStepId.agencyCloudReplacementStep && (
+        <AuthOptionsContent register={register} errors={errors} />
+      )}
+      {currentStep === AppNewStepId.dataFeedStep && (
+        <PermissionsOptionsContent register={register} getValues={getValues} />
+      )}
+      {currentStep === AppNewStepId.reportingStep && (
+        <PermissionsOptionsContent register={register} getValues={getValues} />
+      )}
+      {currentStep === AppNewStepId.serverSideStep && (
+        <PermissionsOptionsContent register={register} getValues={getValues} />
+      )}
+      {currentStep === AppNewStepId.clientSideStep && <AuthOptionsContent register={register} errors={errors} />}
+      {currentStep === AppNewStepId.websiteFeedStep && (
+        <PermissionsOptionsContent register={register} getValues={getValues} />
+      )}
+      {currentStep === AppNewStepId.permissionsStep && (
+        <PermissionsOptionsContent register={register} getValues={getValues} />
+      )}
     </FlexContainer>
   )
 }

@@ -1,11 +1,13 @@
 import React, { useState, Dispatch, SetStateAction, FC, createContext, useContext } from 'react'
-import { AppNewStepId } from './config'
+import { AppAuthFlow, AppNewStepId } from './config'
 
 export interface AppWizardState {
   currentStep: AppNewStepId | null
   nextStep: AppNewStepId | null
   prevStep: AppNewStepId | null
   stepHistory: (AppNewStepId | null)[]
+  authFlow: AppAuthFlow
+  lastStep: boolean
 }
 
 export interface AppWizardHook {
@@ -18,6 +20,8 @@ export const defaultAppWizardState: AppWizardState = {
   nextStep: null,
   prevStep: null,
   stepHistory: [AppNewStepId.whatUserStep],
+  authFlow: 'clientCredentials',
+  lastStep: false,
 }
 
 export const AppWizardContext = createContext<AppWizardHook>({} as AppWizardHook)

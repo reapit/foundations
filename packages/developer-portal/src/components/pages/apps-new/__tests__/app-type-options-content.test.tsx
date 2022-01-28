@@ -25,6 +25,9 @@ describe('AppTypeOptionsContent', () => {
 
     item.click()
 
-    expect(mockSetAppWizardState.mock.calls[0][0]()).toEqual({ nextStep: AppNewStepId.agencyCloudReplacementStep })
+    expect(mockSetAppWizardState.mock.calls[0][0]()).toEqual({
+      nextStep: AppNewStepId.agencyCloudReplacementStep,
+      authFlow: 'authorisationCode',
+    })
   })
 })
