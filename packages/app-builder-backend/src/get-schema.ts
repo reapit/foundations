@@ -26,7 +26,7 @@ import {
   updateMetadataObject,
 } from './platform'
 import { notEmpty } from './utils/helpers'
-import { CustomEntityResolver } from './resolvers/custom-entity-resolver'
+import { CustomEntityResolver, PLACEHOLDER } from './resolvers/custom-entity-resolver'
 
 const noT = (str: string) => str.split('T0').join('')
 
@@ -35,14 +35,16 @@ const metadataSchemaToGraphQL = (metadataSchema: SchemaModel) => {
     return
   }
 
+  const parsedSchema = JSON.parse(metadataSchema.schema)
+
   const output = getGraphqlSchemaFromJsonSchema({
     rootName: metadataSchema.id || 'object',
-    schema: JSON.parse(metadataSchema.schema),
+    schema: parsedSchema,
   })
 
   const input = getGraphqlSchemaFromJsonSchema({
     rootName: 'input' + (metadataSchema.id || 'object'),
-    schema: JSON.parse(metadataSchema.schema),
+    schema: parsedSchema,
     direction: 'input',
   })
 
@@ -179,9 +181,9 @@ const generateDynamicSchema = async (context?: Context): Promise<GraphQLSchema |
         const queries = generateQueries(typeName)
         const mutations = generateMutations(typeName, inputTypeName)
         resolvers.Query = { ...resolvers.Query, ...queries.resolvers }
-        query += queries.queries
+        query += '\n' + queries.queries
         resolvers.Mutation = { ...resolvers.Mutation, ...mutations.resolvers }
-        mutation += mutations.mutations
+        mutation += '\n' + mutations.mutations
       })
   }
 
@@ -189,8 +191,7 @@ const generateDynamicSchema = async (context?: Context): Promise<GraphQLSchema |
     .filter(notEmpty)
     .join('\n')
 
-  const allTypeDefinitions = [typeDefs, schemaStr].join('\n')
-
+  const allTypeDefinitions = [typeDefs, schemaStr].join('\n').split('__placeholder').join(PLACEHOLDER)
   return allTypeDefinitions.trim()
     ? makeExecutableSchema({
         typeDefs: allTypeDefinitions,
