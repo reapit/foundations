@@ -4,6 +4,7 @@ export const ApiNames = (appEnv: AppEnv) => {
   return {
     platform: appEnv !== 'production' ? 'https://platform.dev.paas.reapit.cloud' : 'https://platform.reapit.cloud',
     pipeline: appEnv !== 'production' ? 'https://deployments.dev.paas.reapit.cloud' : '',
+    apiKey: appEnv !== 'production' ? 'https://api-keys.dev.paas.reapit.cloud' : '',
   }
 }
 
@@ -17,4 +18,5 @@ export enum PathNames {
   getPipelineDeployments = '/pipeline/{pipelineId}/pipeline-runner',
   createPipelineDeployments = '/pipeline/{pipelineId}/pipeline-runner',
   appPermissions = '/marketplace/scopes',
+  getApiKeyByUserId = '/user/{userId}',
 }

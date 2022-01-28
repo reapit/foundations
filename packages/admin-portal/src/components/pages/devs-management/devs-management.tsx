@@ -30,6 +30,7 @@ import { FetchDeveloperMembersParams } from '@/services/developers'
 import { CreateSubscriptionsButton } from '../../ui/create-subscriptions/create-subscriptions-button'
 import { useReapitConnect } from '@reapit/connect-session'
 import { reapitConnectBrowserSession } from '../../../core/connect-session'
+import { ApiKeys } from '../api-keys'
 
 export const buildFilterValues = (queryParams: URLSearchParams): DevsManagementFilterFormValues => {
   const name = queryParams.get('name') || ''
@@ -217,6 +218,11 @@ export const DevsManagement: React.FC = () => {
       Cell: ({ row }: { row: { original: DeveloperModel } }) => (
         <CreateSubscriptionsButton subscriptionType="developerRegistration" developerId={row.original.id as string} />
       ),
+    },
+    !hasLimitedAccess && {
+      Header: '',
+      id: 'apiKeyColumn',
+      Cell: ApiKeys,
     },
   ].filter(Boolean)
 
