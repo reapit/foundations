@@ -169,7 +169,7 @@ const generateDynamicSchema = async (context?: Context): Promise<GraphQLSchema |
   let query = ''
   let mutation = ''
 
-  if (context) {
+  if (context && context.accessToken) {
     const metadataSchemas = await getMetadataSchemas(context?.accessToken)
     metadataSchemas
       ?.map(metadataSchemaToGraphQL)
