@@ -1,6 +1,6 @@
 import { elMb10, InputGroup } from '@reapit/elements'
 import React, { Dispatch, FC, SetStateAction, useEffect } from 'react'
-import { UseFormRegister, UseFormGetValues, DeepMap, FieldError } from 'react-hook-form'
+import { UseFormRegister, DeepMap, FieldError } from 'react-hook-form'
 import { CreateAppFormSchema } from './apps-new'
 import { AppNewStepId } from './config'
 import { AppWizardState, useAppWizard } from './use-app-wizard'
@@ -8,7 +8,6 @@ import { StepFormContainer } from './__styles__'
 
 interface AuthOptionsContentProps {
   register: UseFormRegister<CreateAppFormSchema>
-  getValues: UseFormGetValues<CreateAppFormSchema>
   errors: DeepMap<Partial<CreateAppFormSchema>, FieldError>
 }
 

@@ -28,11 +28,9 @@ export const StepOptionsContent: FC<StepOptionsContentProps> = ({ register, erro
       {currentStep === AppNewStepId.webServicesStep && <AppTypeOptionsContent />}
       {currentStep === AppNewStepId.reapitConnectStep && <AppTypeOptionsContent />}
       {currentStep === AppNewStepId.otherAppStep && <AppTypeOptionsContent />}
-      {currentStep === AppNewStepId.agencyCloudStep && (
-        <AuthOptionsContent register={register} errors={errors} getValues={getValues} />
-      )}
+      {currentStep === AppNewStepId.agencyCloudStep && <AuthOptionsContent register={register} errors={errors} />}
       {currentStep === AppNewStepId.agencyCloudReplacementStep && (
-        <AuthOptionsContent register={register} errors={errors} getValues={getValues} />
+        <AuthOptionsContent register={register} errors={errors} />
       )}
       {currentStep === AppNewStepId.dataFeedStep && (
         <PermissionsOptionsContent register={register} getValues={getValues} />
@@ -43,9 +41,7 @@ export const StepOptionsContent: FC<StepOptionsContentProps> = ({ register, erro
       {currentStep === AppNewStepId.serverSideStep && (
         <PermissionsOptionsContent register={register} getValues={getValues} />
       )}
-      {currentStep === AppNewStepId.clientSideStep && (
-        <AuthOptionsContent register={register} errors={errors} getValues={getValues} />
-      )}
+      {currentStep === AppNewStepId.clientSideStep && <AuthOptionsContent register={register} errors={errors} />}
       {currentStep === AppNewStepId.websiteFeedStep && (
         <PermissionsOptionsContent register={register} getValues={getValues} />
       )}

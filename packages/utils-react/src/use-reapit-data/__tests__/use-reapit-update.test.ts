@@ -1,8 +1,8 @@
 import { renderHook, act } from '@testing-library/react-hooks'
 import { useReapitUpdate } from '..'
 import { ReapitConnectBrowserSession, ReapitConnectSession } from '@reapit/connect-session'
-import { updateActions } from '@reapit/utils-common'
-import { send, ReapitUpdateState, UpdateReturnTypeEnum } from '../use-reapit-update'
+import { UpdateAction, updateActions } from '@reapit/utils-common'
+import { send, ReapitUpdateState, UpdateReturnTypeEnum, handleSuccess } from '../use-reapit-update'
 
 const mockData = {
   someData: {
@@ -193,6 +193,36 @@ describe('useReapitUpdate', () => {
       expect(setData).toHaveBeenCalledWith(payload)
       expect(setError).toHaveBeenCalledTimes(0)
       expect(setSuccess).toHaveBeenCalledWith(true)
+    })
+  })
+
+  describe('handleSuccess', () => {
+    it('should handle success messaging', () => {
+      const action = {
+        successMessage: 'success',
+      } as UpdateAction
+      const success = true
+      const successSnack = jest.fn()
+
+      const curried = handleSuccess(action, success, successSnack)
+
+      curried()
+
+      expect(successSnack).toHaveBeenCalledWith(action.successMessage)
+    })
+
+    it('should not call the snack if success is undefined', () => {
+      const action = {
+        successMessage: 'success',
+      } as UpdateAction
+      const success = undefined
+      const successSnack = jest.fn()
+
+      const curried = handleSuccess(action, success, successSnack)
+
+      curried()
+
+      expect(successSnack).not.toHaveBeenCalled()
     })
   })
 

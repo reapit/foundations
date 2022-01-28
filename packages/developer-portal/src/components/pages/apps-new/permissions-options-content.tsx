@@ -46,8 +46,8 @@ export const handleSetOptions =
         return isSelectedPermission || isSearchedPermission
       })
 
-      const uniqueOptions = [...new Set([...options.map((option) => JSON.stringify(option))])].map((jsonOption) =>
-        JSON.parse(jsonOption),
+      const uniqueOptions: ScopeModel[] = [...new Set([...options.map((option) => JSON.stringify(option))])].map(
+        (jsonOption) => JSON.parse(jsonOption),
       )
       const officeOptions = prepareOptions(uniqueOptions)
 

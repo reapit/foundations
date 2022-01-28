@@ -173,9 +173,11 @@ export const AppsNew: FC = () => {
     action: updateActions(window.reapit.config.appEnv)[UpdateActionNames.createApp],
     method: 'POST',
   })
+
   useEffect(handleNavigateOnSuccess(appCreated, history), [appCreated])
+
   const { headingText, headerText, helperPageHeadingText, helperPage, iconName } = getAppWizardStep(currentStep)
-  console.log(appCreating, appCreated)
+
   return (
     <GridResponsive>
       <ColResponsive

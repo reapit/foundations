@@ -15,6 +15,7 @@ Object {
             class="e1urjlvd-el-input"
             id="test-static-id"
             type="text"
+            value="http://localhost:8080"
           />
           <label
             class="e1nbkkrq-el-label"
@@ -22,6 +23,11 @@ Object {
           >
             Login Redirect URI
           </label>
+          <span
+            class="e15fmnse-el-input-add-on"
+          >
+            Some error
+          </span>
         </div>
         <div
           class="e1979rmu-el-input-group"
@@ -30,6 +36,7 @@ Object {
             class="e1urjlvd-el-input"
             id="test-static-id"
             type="text"
+            value="http://localhost:8080/login"
           />
           <label
             class="e1nbkkrq-el-label"
@@ -37,6 +44,11 @@ Object {
           >
             Logout Redirect URI
           </label>
+          <span
+            class="e15fmnse-el-input-add-on"
+          >
+            Some error
+          </span>
         </div>
       </div>
     </div>
@@ -52,6 +64,7 @@ Object {
           class="e1urjlvd-el-input"
           id="test-static-id"
           type="text"
+          value="http://localhost:8080"
         />
         <label
           class="e1nbkkrq-el-label"
@@ -59,6 +72,11 @@ Object {
         >
           Login Redirect URI
         </label>
+        <span
+          class="e15fmnse-el-input-add-on"
+        >
+          Some error
+        </span>
       </div>
       <div
         class="e1979rmu-el-input-group"
@@ -67,6 +85,7 @@ Object {
           class="e1urjlvd-el-input"
           id="test-static-id"
           type="text"
+          value="http://localhost:8080/login"
         />
         <label
           class="e1nbkkrq-el-label"
@@ -74,6 +93,11 @@ Object {
         >
           Logout Redirect URI
         </label>
+        <span
+          class="e15fmnse-el-input-add-on"
+        >
+          Some error
+        </span>
       </div>
     </div>
   </div>,
