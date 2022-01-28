@@ -1,6 +1,6 @@
 import * as React from 'react'
 import routes from '@/constants/routes'
-import { Link, Redirect } from 'react-router-dom'
+import { Redirect } from 'react-router-dom'
 import { History } from 'history'
 import { useHistory, useParams } from 'react-router'
 import {
@@ -284,7 +284,7 @@ export const handleSubmitApp =
     }
     const sanitizeData = sanitizeAppData(appToSubmit)
 
-    const isCanList = currentOrganisation?.status !== 'pending' && currentOrganisation?.status !== 'incomplete'
+    const isCanList = currentOrganisation?.status !== 'incomplete'
 
     const products = appModel?.products?.split(',').filter(Boolean)
 
@@ -369,22 +369,12 @@ export const modalContent = {
           However, before you can list an app in the Marketplace (&apos;Submit for approval&apos;), you will first need
           to submit your account information.
           <br />
-          Please visit the&nbsp;
-          <Link to="/settings/billing">&apos;Billing&apos;</Link> page, within Settings, to complete.
-        </div>
-      ),
-    },
-    pending: {
-      title: 'Account Information Pending',
-      content: (
-        <div>
-          Any changes have been saved successfully.
-          <br />
-          However, as we are currently verifying your account information you will not be able to list your app in the
-          Marketplace (&apos;Submit for approval&apos;) until this has been confirmed.
-          <br />
-          To check the status of your account, please visit the&nbsp;
-          <Link to="/settings/billing">&apos;Billing&apos;</Link> page.
+          Please{' '}
+          <a href="mailto:dmann@reapit.com" target="_blank" rel="noopener noreferrer">
+            {' '}
+            click here
+          </a>{' '}
+          to contact a member of the team.
         </div>
       ),
     },
@@ -397,22 +387,8 @@ export const modalContent = {
           Any changes have been saved successfully.
           <br />
           However, as your account information has not yet been completed you will be unable to list your app in the
-          Marketplace (&apos;Submit for approval&apos;), please ask the Admin of your organisation to visit the
-          &apos;Billing&apos; page under &apos;Settings&apos; to complete.
-        </div>
-      ),
-    },
-    pending: {
-      title: 'Account Information Pending',
-      content: (
-        <div>
-          Any changes have been saved successfully.
-          <br />
-          However, your account information is currently being reviewed by our Accounts Department. Once your account
-          has been confirmed, you will be to list your app in the Marketplace (&apos;Submit for approval&apos;).
-          <br />
-          The Admin of your organisation can check the status of your account by visiting the &apos;Billing&apos; page
-          under &apos;Settings&apos;.
+          Marketplace (&apos;Submit for approval&apos;), please ask the Admin of your organisation to visit this page to
+          contact a member of the team.
         </div>
       ),
     },

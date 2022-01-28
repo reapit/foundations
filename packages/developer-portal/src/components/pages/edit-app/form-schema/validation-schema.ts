@@ -3,7 +3,6 @@ import formFields from './form-fields'
 import errorMessages from '@/constants/error-messages'
 import authFlows from '@/constants/app-auth-flow'
 import {
-  letterNumberSpaceRegex,
   telephoneRegex,
   emailRegex,
   isValidUrlWithCustomScheme,
@@ -40,11 +39,7 @@ const {
 } = formFields
 
 export const validationSchemaSubmitRevision: Yup.SchemaOf<{ [s: string]: any }> = Yup.object().shape({
-  [name.name]: Yup.string()
-    .trim()
-    .required(FIELD_REQUIRED)
-    .matches(letterNumberSpaceRegex, name.errorMessage)
-    .max(100, MAXIMUM_CHARACTER_LENGTH(100)),
+  [name.name]: Yup.string().trim().required(FIELD_REQUIRED).max(100, MAXIMUM_CHARACTER_LENGTH(100)),
 
   [isListed.name]: Yup.boolean(),
 
