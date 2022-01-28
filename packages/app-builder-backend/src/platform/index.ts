@@ -125,6 +125,9 @@ export const createMetadataSchema = async (schema: CreateSchemaRequest, accessTo
     redirect: 'follow',
     body: JSON.stringify(schema),
   })
+  if (res.status >= 400) {
+    throw new Error(`Failed to create metadata schema: ${res.status}`)
+  }
   const parts = res.headers.get('location')?.split('/') || []
   const id = parts[parts.length - 1]
   return getMetadataSchema(id, accessToken)
