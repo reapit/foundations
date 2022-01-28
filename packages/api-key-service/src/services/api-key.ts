@@ -1,6 +1,5 @@
 import { ApiKeyModel } from '@reapit/api-key-verify'
 import { db } from '@/core'
-import { LoginIdentity } from '@reapit/connect-session'
 import { QueryIterator } from '@aws/dynamodb-data-mapper'
 
 export const createApiKey = (apiKey: Partial<ApiKeyModel>): Promise<ApiKeyModel> => {
@@ -50,20 +49,14 @@ export const getApiKeyByKey = async (apiKey: string): Promise<ApiKeyModel | neve
 }
 
 export const batchGetApiKeys = async (
-  customer: LoginIdentity & { developerId: string },
+  keys: { email: string } | { developerId: string },
   startKey?: Partial<ApiKeyModel>,
 ): Promise<[QueryIterator<ApiKeyModel>, { nextCursor: string }]> => {
-  const dynamoResponse = await db.query(
-    ApiKeyModel,
-    {
-      developerId: customer.developerId,
-    },
-    {
-      indexName: 'developerIdOwnership',
-      limit: 10,
-      startKey,
-    },
-  )
+  const dynamoResponse = await db.query(ApiKeyModel, keys, {
+    indexName: 'developerIdOwnership',
+    limit: 10,
+    startKey,
+  })
 
   return [
     dynamoResponse,

@@ -31,6 +31,9 @@ export class ApiKeyModel implements ApiKeyInterface {
   @attribute()
   entityType?: ApiKeyEntityType
 
+  @attribute()
+  email?: string
+
   get expired(): boolean {
     return new Date(this.keyExpiresAt as string) < new Date()
   }
