@@ -32,6 +32,7 @@ const Invite = React.lazy(() => catchChunkError(() => import('../components/page
 const ElementsPage = React.lazy(() => catchChunkError(() => import('../components/pages/elements')))
 const GraphQLPage = React.lazy(() => catchChunkError(() => import('../components/pages/graphql')))
 const AppsNewPage = React.lazy(() => catchChunkError(() => import('../components/pages/apps-new')))
+const SelectRolePage = React.lazy(() => catchChunkError(() => import('../components/pages/select-role')))
 
 const SettingsOrganisationTabPage = React.lazy(() =>
   catchChunkError(() => import('../components/pages/settings/settings-organisation-tab')),
@@ -54,6 +55,7 @@ const Router = () => {
             <Route path={Routes.OK} exact render={() => <OkayPage />} />
             <Route path={Routes.LOGIN} exact render={() => <Login />} />
             <Route path={Routes.REGISTER} render={() => <Register />} />
+            <Route path={Routes.SELECT_ROLE} exact component={SelectRolePage} />
             <Route path={Routes.REGISTER_CONFIRM} exact component={RegisterConfirm} />
             <Route path={Routes.FOUR_O_FOUR} exact render={() => <Info infoType="404" />} />
             <Route path={Routes.INVITE} component={Invite} />

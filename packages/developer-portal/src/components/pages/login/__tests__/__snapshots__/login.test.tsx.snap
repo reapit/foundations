@@ -192,14 +192,14 @@ exports[`Login should match a snapshot 1`] = `
                     </ElBodyText>
                   </BodyText>
                   <Link
-                    to="/register"
+                    to="/select-role"
                   >
                     <LinkAnchor
-                      href="/register"
+                      href="/select-role"
                       navigate={[Function]}
                     >
                       <a
-                        href="/register"
+                        href="/select-role"
                         onClick={[Function]}
                       >
                         Register
