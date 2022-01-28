@@ -1,6 +1,8 @@
 import * as cdk from 'aws-cdk-lib'
 import { aws_ec2 as ec2, aws_rds as rds, aws_secretsmanager as secretsmanager, aws_logs as logs } from 'aws-cdk-lib'
 
+let bastion: ec2.BastionHostLinux | undefined
+
 export const createDatabase = (
   stack: cdk.Stack,
   name: string,
@@ -17,6 +19,12 @@ export const createDatabase = (
   })
 
   db.connections.allowFromAnyIpv4(ec2.Port.allTcp())
+
+  if (!bastion) {
+    bastion = new ec2.BastionHostLinux(stack, 'bastion', {
+      vpc,
+    })
+  }
 
   return db
 }
