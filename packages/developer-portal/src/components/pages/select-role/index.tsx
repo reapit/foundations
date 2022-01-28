@@ -13,6 +13,7 @@ import {
   elMb7,
   elPx6,
   elMr5,
+  SmallText,
 } from '@reapit/elements'
 import { onLoginButtonClick } from '../login/login'
 import { RegisterContentWrapper, RegisterImageContainer, RegisterRoleTile } from './__styles__'
@@ -30,9 +31,10 @@ export const SelectRolePage: FC = () => {
       <RegisterContentWrapper>
         <img src={connectImage} alt="Reapit Connect Graphic" />
         <Subtitle hasBoldText hasCenteredText>
-          Select an option that best describes you
+          Select an option that best describes you to register
         </Subtitle>
         <FlexContainer
+          isFlexWrap
           onMouseOver={() => {
             setKeyStep(3)
           }}
@@ -41,16 +43,18 @@ export const SelectRolePage: FC = () => {
           }}
         >
           <RegisterRoleTile onClick={openModal}>
-            <Subtitle hasGreyText hasCenteredText>
-              Prospective Customer
-            </Subtitle>
+            <Subtitle hasCenteredText>Prospective Customer</Subtitle>
+            <SmallText hasCenteredText hasGreyText>
+              Interested in Reapit Products, not currently a subscriber
+            </SmallText>
             <Icon iconSize="large" icon="userInfographic" />
           </RegisterRoleTile>
           <RegisterRoleTile onClick={onLoginButtonClick()}>
-            <Subtitle hasGreyText hasCenteredText>
-              Existing Customer
-            </Subtitle>
-            <Icon iconSize="large" icon="userAuthInfographic" />
+            <Subtitle hasCenteredText>Existing Customer</Subtitle>
+            <SmallText hasCenteredText hasGreyText>
+              Existing Reapit AgencyCloud (desktop CRM) subscriber
+            </SmallText>
+            <Icon iconSize="large" icon="userDeviceInfographic" />
           </RegisterRoleTile>
           <RegisterRoleTile>
             <a
@@ -58,10 +62,24 @@ export const SelectRolePage: FC = () => {
               target="_blank"
               rel="noopener noreferrer"
             >
-              <Subtitle hasGreyText hasCenteredText>
-                Third Party Developer
-              </Subtitle>
-              <Icon iconSize="large" icon="userDeviceInfographic" />
+              <Subtitle hasCenteredText>Third-party developer</Subtitle>
+              <SmallText hasCenteredText hasGreyText>
+                Working on-behalf of a Reapit customer, e.g. website developer
+              </SmallText>
+              <Icon iconSize="large" icon="htmlInfographic" />
+            </a>
+          </RegisterRoleTile>
+          <RegisterRoleTile>
+            <a
+              href="https://docs.google.com/forms/d/e/1FAIpQLSetMK5HFLBINWZfVvOO5iblXj8YWWgnKdt0rbFeJkxnZm0MaQ/viewform"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              <Subtitle hasCenteredText>PropTech</Subtitle>
+              <SmallText hasCenteredText hasGreyText>
+                Independent company building an app or integration
+              </SmallText>
+              <Icon iconSize="large" icon="myAppsInfographic" />
             </a>
           </RegisterRoleTile>
         </FlexContainer>

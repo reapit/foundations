@@ -2,7 +2,7 @@ import { styled } from '@linaria/react'
 import { forTabletAndBelow } from '@/core/__styles__/media'
 
 export const RegisterRoleTile = styled.div`
-  width: 33.33%;
+  width: calc(50% - 1.875rem);
   display: flex;
   flex-direction: column;
   justify-content: center;
