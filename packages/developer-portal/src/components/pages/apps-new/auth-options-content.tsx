@@ -34,6 +34,7 @@ export const AuthOptionsContent: FC<AuthOptionsContentProps> = ({ register, erro
         {...register('redirectUris')}
         defaultValue="http://localhost:8080"
         inputAddOnText={errors?.redirectUris?.message}
+        intent="danger"
       />
       <InputGroup
         label="Logout Redirect URI"
@@ -41,6 +42,7 @@ export const AuthOptionsContent: FC<AuthOptionsContentProps> = ({ register, erro
         {...register('signoutUris')}
         defaultValue="http://localhost:8080/login"
         inputAddOnText={errors?.signoutUris?.message}
+        intent="danger"
       />
     </StepFormContainer>
   )
