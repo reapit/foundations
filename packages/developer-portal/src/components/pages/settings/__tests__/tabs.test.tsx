@@ -4,8 +4,9 @@ import { ReduxState } from '@/types/core'
 import { Provider } from 'react-redux'
 import configureStore from 'redux-mock-store'
 import appState from '@/reducers/__stubs__/app-state'
-
-import { Tabs, tabConfigs } from '../tabs'
+import { Tabs, tabConfigs, handleFetchSubscriptions } from '../tabs'
+import { developerFetchSubscriptions } from '../../../../actions/developer-subscriptions'
+import { listSubscriptionsStub } from '../../../../sagas/__stubs__/developer-subscriptions'
 
 const mockState = {
   ...appState,
@@ -43,6 +44,14 @@ describe('Tabs', () => {
         push: jest.fn(),
       }
       const result = tabConfigs({ currentUrl: 'test', history, role: 'admin' })
+      expect(result).toHaveLength(2)
+    })
+
+    it('should run correctly when isAdmin is true, isProd is false and has subs', () => {
+      const history = {
+        push: jest.fn(),
+      }
+      const result = tabConfigs({ currentUrl: 'test', history, role: 'admin', subscriptions: listSubscriptionsStub })
       expect(result).toHaveLength(3)
     })
 
@@ -52,6 +61,16 @@ describe('Tabs', () => {
       }
       const result = tabConfigs({ currentUrl: 'test', history, role: 'user' })
       expect(result).toHaveLength(1)
+    })
+  })
+
+  describe('handleFetchSubscriptions', () => {
+    it('should fetch subs correctly', () => {
+      const dispatch = jest.fn()
+      const developerId = 'developerId'
+      const fn = handleFetchSubscriptions(dispatch, developerId)
+      fn()
+      expect(dispatch).toBeCalledWith(developerFetchSubscriptions({ developerId }))
     })
   })
 })

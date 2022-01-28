@@ -32,12 +32,6 @@ exports[`DeveloperDesktopPage SettingsBillingTabPage should match snapshot 1`] =
               "onTabClick": [Function],
               "tabIdentifier": "/settings/organisation",
             },
-            Object {
-              "active": false,
-              "displayText": "Billing",
-              "onTabClick": [Function],
-              "tabIdentifier": "/settings/billing",
-            },
           ]
         }
       >
@@ -74,56 +68,10 @@ exports[`DeveloperDesktopPage SettingsBillingTabPage should match snapshot 1`] =
                 Organisation
               </a>
             </li>
-            <li
-              className=""
-              key="/settings/billing"
-            >
-              <a
-                aria-controls="/settings/billing"
-                aria-selected={false}
-                id="/settings/billing"
-                onClick={[Function]}
-                role="tab"
-              >
-                Billing
-              </a>
-            </li>
           </ul>
         </div>
       </Tabs>
     </Tabs>
-    <AccountsInformationForm>
-      <Loader
-        label="Loading"
-      >
-        <ElLoaderContainer
-          className=""
-        >
-          <div
-            className="ebhrnzh-el-loader-container"
-          >
-            <ElLoaderLabel>
-              <p
-                className="e15h0ww-el-loader-label"
-              >
-                Loading
-              </p>
-            </ElLoaderLabel>
-            <ElLoader>
-              <div
-                className="eq1m1jz-el-loader"
-              >
-                <ElLoaderMovingBar>
-                  <div
-                    className="exikdu1-el-loader-moving-bar"
-                  />
-                </ElLoaderMovingBar>
-              </div>
-            </ElLoader>
-          </div>
-        </ElLoaderContainer>
-      </Loader>
-    </AccountsInformationForm>
     <Subcriptions>
       <H5>
         <h5
