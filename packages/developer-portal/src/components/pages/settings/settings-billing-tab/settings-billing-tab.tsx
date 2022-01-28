@@ -2,7 +2,8 @@ import * as React from 'react'
 import { useSelector } from 'react-redux'
 import { Info } from '@reapit/elements-legacy'
 import Subcriptions from '@/components/pages/settings/billing/subscriptions'
-import AccountsInformationForm from './accounts-information-form'
+// Commenting out as we may need to add billig back in later
+// import AccountsInformationForm from './accounts-information-form'
 import { Tabs } from '../tabs'
 import { selectCurrentMemberData, selectCurrentMemberIsLoading } from '@/selector/current-member'
 import { Loader } from '@reapit/elements'
@@ -17,7 +18,7 @@ const SettingsBillingTabPage: React.FC<{}> = () => {
     return (
       <>
         <Tabs role={currentUser?.role} />
-        <AccountsInformationForm />
+        {/* <AccountsInformationForm /> */}
         <Subcriptions />
       </>
     )

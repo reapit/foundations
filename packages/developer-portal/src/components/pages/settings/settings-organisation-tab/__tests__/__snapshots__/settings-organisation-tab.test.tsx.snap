@@ -32,12 +32,6 @@ exports[`DeveloperOrganisationTabPage DeveloperSettingsOrganisationTabPage shoul
               "onTabClick": [Function],
               "tabIdentifier": "/settings/organisation",
             },
-            Object {
-              "active": false,
-              "displayText": "Billing",
-              "onTabClick": [Function],
-              "tabIdentifier": "/settings/billing",
-            },
           ]
         }
       >
@@ -72,20 +66,6 @@ exports[`DeveloperOrganisationTabPage DeveloperSettingsOrganisationTabPage shoul
                 role="tab"
               >
                 Organisation
-              </a>
-            </li>
-            <li
-              className=""
-              key="/settings/billing"
-            >
-              <a
-                aria-controls="/settings/billing"
-                aria-selected={false}
-                id="/settings/billing"
-                onClick={[Function]}
-                role="tab"
-              >
-                Billing
               </a>
             </li>
           </ul>
