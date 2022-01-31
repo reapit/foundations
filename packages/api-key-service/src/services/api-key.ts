@@ -50,10 +50,11 @@ export const getApiKeyByKey = async (apiKey: string): Promise<ApiKeyModel | neve
 
 export const batchGetApiKeys = async (
   keys: { email: string } | { developerId: string },
+  indexName: string = 'developerIdOwnership',
   startKey?: Partial<ApiKeyModel>,
 ): Promise<[QueryIterator<ApiKeyModel>, { nextCursor: string }]> => {
   const dynamoResponse = await db.query(ApiKeyModel, keys, {
-    indexName: 'developerIdOwnership',
+    indexName,
     limit: 10,
     startKey,
   })
