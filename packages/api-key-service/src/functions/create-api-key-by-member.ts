@@ -11,9 +11,7 @@ export const createApiKeyByMember = httpHandler<ApiKeyMemberDto, ApiKeyModel>({
   defaultOutputHeaders,
   validator: async (body) => {
     const dto = body
-      ? plainToClass(ApiKeyMemberDto, {
-          ...body,
-        })
+      ? plainToClass(ApiKeyMemberDto, body)
       : new ApiKeyMemberDto()
 
     const errors = await validate(dto)
