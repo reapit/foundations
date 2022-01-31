@@ -65,10 +65,10 @@ export const WebhooksNewCustomers: FC<WebhooksNewCustomersProps> = ({ register, 
     <FormLayout className={elFadeIn}>
       <InputWrapFull>
         <BodyText hasNoMargin hasGreyText>
-          Select customers from the list below. If you leave this option blank, your webhook will default to &rdquo;All
-          Customers&ldquo; that have installed your application including Sandbox (SBOX). If you select one customer,
-          you will need to specify each customer individually. In this case, you will also need to specify SBOX
-          explicity.
+          Select customers from the list below by default we have prepopulated this with &lsquo;Sandbox Estates
+          (SBOX)&rsquo;. If you select one customer, you will need to specify each customer individually. If you select
+          &lsquo;All Customers&rsquo;, the sandbox environment will be excluded and you will need to create a separate
+          webhook for &lsquo;Sandbox Estates (SBOX)&rsquo;.
         </BodyText>
       </InputWrapFull>
       <InputWrapMed>
