@@ -483,16 +483,16 @@ if (typeof window === 'object') {
     value: (document.createElement('div').id = 'coordinate-0-0'),
   })
 
-// https://github.com/akiran/react-slick/issues/742
+  // https://github.com/akiran/react-slick/issues/742
   window.matchMedia =
-  window.matchMedia ||
-  function () {
-    return {
-      matches: false,
-      addListener: function () {},
-      removeListener: function () {},
+    window.matchMedia ||
+    function () {
+      return {
+        matches: false,
+        addListener: function () {},
+        removeListener: function () {},
+      }
     }
-  }
 
   HTMLElement.prototype.scrollIntoView = function () {}
 }
@@ -500,7 +500,6 @@ if (typeof window === 'object') {
 MockDate.set(1570747191389)
 
 if (global) {
-
   if (global.navigator) {
     global.navigator.geolocation = {
       getCurrentPosition: jest.fn(),
