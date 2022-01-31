@@ -3,16 +3,14 @@ import { plainToClass } from 'class-transformer'
 import { validate } from 'class-validator'
 import { ApiKeyMemberDto } from '@/dto'
 import { ApiKeyModel } from '@reapit/api-key-verify'
-import { createApiKey as create } from '@/services'
-import { connectSessionVerifyDecodeIdTokenWithPublicKeys, LoginIdentity } from '@reapit/connect-session'
+import { createApiKey as create, resolveCustomer } from '@/services'
+import { LoginIdentity } from '@reapit/connect-session'
 import { defaultOutputHeaders } from '../constants'
 
 export const createApiKeyByMember = httpHandler<ApiKeyMemberDto, ApiKeyModel>({
   defaultOutputHeaders,
   validator: async (body) => {
-    const dto = body
-      ? plainToClass(ApiKeyMemberDto, body)
-      : new ApiKeyMemberDto()
+    const dto = body ? plainToClass(ApiKeyMemberDto, body) : new ApiKeyMemberDto()
 
     const errors = await validate(dto)
 
@@ -26,10 +24,7 @@ export const createApiKeyByMember = httpHandler<ApiKeyMemberDto, ApiKeyModel>({
     let admin: LoginIdentity | undefined
 
     try {
-      admin = await connectSessionVerifyDecodeIdTokenWithPublicKeys(
-        event.headers?.Authorization as string,
-        process.env.CONNECT_USER_POOL as string,
-      )
+      admin = await resolveCustomer(event)
 
       if (typeof admin === 'undefined' || !admin.developerId) {
         throw new Error('Unauthorised')
