@@ -21,6 +21,7 @@ export class ApiKeyDto {
 export class ApiKeyMemberDto extends ApiKeyDto {
   @IsString()
   @IsEmail()
+  @IsNotEmpty()
   email?: string
 
   @IsString()

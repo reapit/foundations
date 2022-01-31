@@ -10,19 +10,6 @@ import { defaultOutputHeaders } from '../constants'
 export const createApiKeyByMember = httpHandler<ApiKeyMemberDto, ApiKeyModel>({
   defaultOutputHeaders,
   validator: async (body) => {
-    if (!body.email) {
-      throw new ValidationException([
-        {
-          constraints: {
-            email: ['Email must be a provided'],
-          },
-          value: body.email,
-          property: 'email',
-          target: 'email',
-        },
-      ])
-    }
-
     const dto = body
       ? plainToClass(ApiKeyMemberDto, {
           ...body,
