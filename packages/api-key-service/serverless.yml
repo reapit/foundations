@@ -93,6 +93,8 @@ resources:
             AttributeType: S
           - AttributeName: apiKey
             AttributeType: S
+          - AttributeName: email
+            AttributeType: S
         KeySchema:
           - AttributeName: id
             KeyType: HASH
@@ -109,6 +111,15 @@ resources:
           - IndexName: apiKey
             KeySchema:
               - AttributeName: apiKey
+                KeyType: HASH
+            Projection:
+              ProjectionType: ALL
+            ProvisionedThroughput:
+              ReadCapacityUnits: 1
+              WriteCapacityUnits: 1
+          - IndexName: email
+            KeySchema:
+              - AttributeName: email
                 KeyType: HASH
             Projection:
               ProjectionType: ALL
@@ -177,6 +188,40 @@ functions:
       - http:
           path: /api-key/
           method: get
+          cors:
+            origin: '*'
+            headers:
+              - Content-Type
+              - Authorization
+              - api-version
+              - Referer
+              - User-Agent
+          authorizer:
+            arn: arn:aws:cognito-idp:${self:provider.region}:${self:custom.env.AWS_ACCOUNT_ID}:userpool/${self:custom.env.CONNECT_USER_POOL}
+
+  paginateMemberApiKeys:
+    handler: src/index.paginateMemberApiKeys
+    events:
+      - http:
+          path: /api-key/user/{email}
+          method: get
+          cors:
+            origin: '*'
+            headers:
+              - Content-Type
+              - Authorization
+              - api-version
+              - Referer
+              - User-Agent
+          authorizer:
+            arn: arn:aws:cognito-idp:${self:provider.region}:${self:custom.env.AWS_ACCOUNT_ID}:userpool/${self:custom.env.CONNECT_USER_POOL}
+
+  createApiKeyByMember:
+    handler: src/index.createApiKeyByMember
+    events:
+      - http:
+          path: /api-key/user
+          method: post
           cors:
             origin: '*'
             headers:
