@@ -137,7 +137,7 @@ export const Home: FC = () => {
     loading,
   ])
 
-  useEffect(handleEmbedReport(reportRef, selectedReport, device), [reportRef, selectedReport])
+  useEffect(handleEmbedReport(reportRef, selectedReport, device), [reportRef, selectedReport, device])
 
   useEffect(handleDeviceChange(setDevice), [isBrowser])
 
