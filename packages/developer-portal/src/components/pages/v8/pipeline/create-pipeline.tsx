@@ -37,7 +37,11 @@ import { reapitConnectBrowserSession } from '../../../../core/connect-session'
 import { useReapitConnect } from '@reapit/connect-session'
 
 export const pipelineCreateFormHandle =
-  (createPipeline: (values: Partial<PipelineModelInterface>) => Promise<boolean>, refresh: () => void, appId: string) =>
+  (
+    createPipeline: (values: Partial<PipelineModelInterface>) => Promise<boolean | PipelineModelInterface>,
+    refresh: () => void,
+    appId: string,
+  ) =>
   async (values: PipelineModelInterface) => {
     const result = await createPipeline({
       ...values,

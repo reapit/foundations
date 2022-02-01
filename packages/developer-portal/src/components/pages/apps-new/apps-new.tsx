@@ -23,7 +23,7 @@ import { object, SchemaOf, string, TestFunction } from 'yup'
 import { isValidUrlWithCustomScheme, UpdateActionNames, updateActions } from '@reapit/utils-common'
 import errorMessages from '../../../constants/error-messages'
 import { AnyObject } from 'yup/lib/types'
-import { CreateAppModel } from '@reapit/foundations-ts-definitions'
+import { AppDetailModel, CreateAppModel } from '@reapit/foundations-ts-definitions'
 import generate from 'project-name-generator'
 import { ReapitConnectSession, useReapitConnect } from '@reapit/connect-session'
 import dashify from 'dashify'
@@ -120,7 +120,11 @@ export const handleSetSteps =
   }
 
 export const handleSubmitApp =
-  (authFlow: AppAuthFlow, connectSession: ReapitConnectSession | null, createApp: SendFunction<CreateAppModel>) =>
+  (
+    authFlow: AppAuthFlow,
+    connectSession: ReapitConnectSession | null,
+    createApp: SendFunction<CreateAppModel, AppDetailModel | null | boolean>,
+  ) =>
   ({ redirectUris, signoutUris, scopes }: CreateAppFormSchema) => {
     const splitRedirectUris = redirectUris?.split(',').filter(Boolean)
     const splitSignoutUris = signoutUris?.split(',').filter(Boolean)

@@ -9,7 +9,7 @@ import { StringMap } from '../get-platform-headers'
 export type ReapitUpdateState<ParamsType, DataType> = [
   boolean,
   DataType | undefined,
-  SendFunction<ParamsType>,
+  SendFunction<ParamsType, DataType | boolean>,
   boolean | undefined,
   string | null,
 ]
@@ -36,7 +36,7 @@ interface SendFunctionPropsInterface<DataType> {
   action: UpdateAction
   setLoading: (val: boolean) => Promise<boolean>
   setSuccess: (val: boolean | undefined) => void
-  setData: (val: DataType) => void
+  setData: (val: DataType | undefined) => Promise<DataType | undefined>
   setError: (val: string | null) => void
   method: AcceptedMethod
   headers: StringMap
@@ -47,7 +47,7 @@ interface SendFunctionPropsInterface<DataType> {
   canCall: boolean
 }
 
-export type SendFunction<ParamsType> = (params: ParamsType) => Promise<boolean>
+export type SendFunction<ParamsType, DataType> = (params: ParamsType) => Promise<DataType>
 
 export const send =
   <ParamsType, DataType>({
@@ -64,8 +64,8 @@ export const send =
     returnType,
     error,
     canCall,
-  }: SendFunctionPropsInterface<DataType>): SendFunction<ParamsType> =>
-  async (params: ParamsType): Promise<boolean> => {
+  }: SendFunctionPropsInterface<DataType>): SendFunction<ParamsType, DataType | boolean> =>
+  async (params: ParamsType): Promise<DataType | boolean> => {
     if (!canCall) {
       console.error('connect session not ready')
       return false
@@ -99,8 +99,8 @@ export const send =
         case UpdateReturnTypeEnum.RESPONSE:
           data = await response.json()
 
-          Promise.all([setLoading(false), setSuccess(true), setData(data)])
-          break
+          Promise.all([setData(data), setLoading(false), setSuccess(true)])
+          return data
         case UpdateReturnTypeEnum.LOCATION:
           location = response.headers.get('Location')
           if (!location) {
@@ -151,7 +151,7 @@ export const useReapitUpdate = <ParamsType, DataType>({
   const [loading, setLoading] = useAsyncState<boolean>(false)
   const [error, setError] = useAsyncState<string | null>(null)
   const { connectSession } = useReapitConnect(reapitConnectBrowserSession)
-  const [data, setData] = useState<DataType>()
+  const [data, setData] = useAsyncState<DataType | undefined>(undefined)
   const { error: errorSnack, success: successSnack } = useSnack()
   const [success, setSuccess] = useAsyncState<undefined | boolean>(undefined)
   const [canCall, setCanCall] = useState<boolean>(connectSession !== null)

@@ -11,4 +11,5 @@ export interface ApiKeyInterface {
   developerId?: string
   entityId?: string
   entityType?: ApiKeyEntityType
+  email?: string
 }

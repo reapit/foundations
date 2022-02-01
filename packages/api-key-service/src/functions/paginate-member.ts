@@ -1,8 +1,8 @@
 import { ApiKeyModel } from '@reapit/api-key-verify'
-import { httpHandler, UnauthorizedException } from '@homeservenow/serverless-aws-handler'
-import { batchGetApiKeys } from './../services'
-import { connectSessionVerifyDecodeIdTokenWithPublicKeys, LoginIdentity } from '@reapit/connect-session'
-import { defaultOutputHeaders } from './../constants'
+import { httpHandler, NotFoundException, UnauthorizedException } from '@homeservenow/serverless-aws-handler'
+import { batchGetApiKeys, resolveCustomer } from '../services'
+import { defaultOutputHeaders } from '../constants'
+import { LoginIdentity } from '@reapit/connect-session'
 
 type Pagintation<T> = {
   items: T[]
@@ -12,16 +12,13 @@ type Pagintation<T> = {
   }
 }
 
-export const paginateApiKeys = httpHandler<void, Pagintation<ApiKeyModel>>({
+export const paginateMemberApiKeys = httpHandler<void, Pagintation<ApiKeyModel>>({
   defaultOutputHeaders,
   handler: async ({ event }): Promise<Pagintation<ApiKeyModel>> => {
     let customer: LoginIdentity | undefined
 
     try {
-      customer = await connectSessionVerifyDecodeIdTokenWithPublicKeys(
-        event.headers?.Authorization as string,
-        process.env.CONNECT_USER_POOL as string,
-      )
+      customer = await resolveCustomer(event)
 
       if (typeof customer === 'undefined' || !customer.developerId) {
         throw new Error('Unauthorised')
@@ -31,9 +28,17 @@ export const paginateApiKeys = httpHandler<void, Pagintation<ApiKeyModel>>({
       throw new UnauthorizedException(error.message)
     }
 
+    const email = event?.pathParameters?.email
+
+    if (!email) {
+      throw new NotFoundException()
+    }
+
     const response = await batchGetApiKeys(
-      customer as LoginIdentity & { developerId: string },
-      'developerIdOwnership',
+      {
+        email: email as string,
+      },
+      'email',
       event?.queryStringParameters?.nextCursor ? { id: event?.queryStringParameters?.nextCursor } : undefined,
     )
 
