@@ -80,8 +80,7 @@ export const handleInstalledReports =
 
 export const handleDeviceChange = (setDevice: Dispatch<SetStateAction<Device>>) => () => {
   const handleOrientation = () => {
-    if (!screen.orientation) return
-    const isPortrait = screen.orientation.type.includes('portrait')
+    const isPortrait = screen.orientation?.type.includes('portrait')
 
     setDevice({
       isPortrait,
@@ -90,7 +89,6 @@ export const handleDeviceChange = (setDevice: Dispatch<SetStateAction<Device>>) 
   }
 
   const handleOrientationLegacy = () => {
-    if (!window.orientation) return
     const isPortrait = window.orientation === 0 || window.orientation === 180
 
     setDevice({
@@ -99,12 +97,22 @@ export const handleDeviceChange = (setDevice: Dispatch<SetStateAction<Device>>) 
     })
   }
 
-  window.addEventListener('orientationchange', handleOrientationLegacy, false)
-  screen.orientation.addEventListener('change', handleOrientation, false)
+  if (window.orientation) {
+    window.addEventListener('orientationchange', handleOrientationLegacy, false)
+  }
+
+  if (screen.orientation) {
+    screen.orientation.addEventListener('change', handleOrientation, false)
+  }
 
   return () => {
-    window.removeEventListener('orientationchange', handleOrientationLegacy, true)
-    screen.orientation.removeEventListener('change', handleOrientation, false)
+    if (window.orientation) {
+      window.removeEventListener('orientationchange', handleOrientationLegacy, true)
+    }
+
+    if (screen.orientation) {
+      screen.orientation.removeEventListener('change', handleOrientation, false)
+    }
   }
 }
 
