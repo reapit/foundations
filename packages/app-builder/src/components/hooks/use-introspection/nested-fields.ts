@@ -37,7 +37,9 @@ export const queryableFieldToNestedDict = (
     const objectType = queryableObjectTypes.find(({ name }) => name === type.name)
     if (objectType) {
       objectType.fields.forEach((field) => {
-        nestedDict[field.name] = queryableFieldToNestedDict(field.type, queryableObjectTypes)
+        if (field.name !== 'placeholder') {
+          nestedDict[field.name] = queryableFieldToNestedDict(field.type, queryableObjectTypes)
+        }
       })
     }
   }
