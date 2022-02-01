@@ -222,7 +222,9 @@ export const DevsManagement: React.FC = () => {
     !hasLimitedAccess && {
       Header: '',
       id: 'apiKeyColumn',
-      Cell: ApiKeys,
+      Cell: ({ row }: { row: { original: DeveloperModel } }) => (
+        <ApiKeys developerId={row.original.id as string} email={row.original.email as string} />
+      ),
     },
   ].filter(Boolean)
 
