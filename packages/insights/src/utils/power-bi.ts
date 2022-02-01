@@ -19,7 +19,6 @@ export const embedPowerBi = (
 ) => {
   if (!token || !embeddedUrl || !reportId || !containerRef.current) return null
   const { isBrowser, isPortrait } = device
-
   const layoutType = isBrowser ? 'Master' : isPortrait ? 'MobilePortrait' : 'MobileLandscape'
 
   const embedConfiguration: IEmbedConfiguration = {
