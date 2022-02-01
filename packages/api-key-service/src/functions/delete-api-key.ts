@@ -5,8 +5,9 @@ import {
   NotFoundException,
   UnauthorizedException,
 } from '@homeservenow/serverless-aws-handler'
-import { connectSessionVerifyDecodeIdTokenWithPublicKeys, LoginIdentity } from '@reapit/connect-session'
+import { LoginIdentity } from '@reapit/connect-session'
 import { defaultOutputHeaders } from './../constants'
+import { resolveCustomer } from '../services/resolve-customer'
 
 export const deleteApiKey = httpHandler({
   defaultOutputHeaders,
@@ -14,10 +15,7 @@ export const deleteApiKey = httpHandler({
   handler: async ({ event }): Promise<void> => {
     let customer: LoginIdentity | undefined
     try {
-      customer = await connectSessionVerifyDecodeIdTokenWithPublicKeys(
-        event.headers?.Authorization as string,
-        process.env.CONNECT_USER_POOL as string,
-      )
+      customer = await resolveCustomer(event)
 
       if (typeof customer === 'undefined' || !customer.developerId) {
         throw new Error('Unauthorised')
