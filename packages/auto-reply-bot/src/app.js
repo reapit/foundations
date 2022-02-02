@@ -111,6 +111,7 @@ export default (app) => {
 
   app.on('issues.labeled', async (event) => {
     if (ownerships.includes(event.payload.issue.author_association)) {
+      console.log('association', event.payload.issue.author_association)
       return
     }
 
@@ -157,6 +158,7 @@ export default (app) => {
     }
 
     if (ownerships.includes(issue.data.author_association)) {
+      console.log('association', event.payload.issue.author_association)
       return
     }
 
@@ -169,6 +171,7 @@ export default (app) => {
 
   app.on('issue_comment.created', async (event) => {
     if (ownerships.includes(event.payload.issue.author_association)) {
+      console.log('association', event.payload.issue.author_association)
       return
     }
 
