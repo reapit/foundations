@@ -166,7 +166,7 @@ export default (app) => {
     return event.octokit.issues.createComment({
       issue_number: issue.data.number,
       ...repoInfo,
-      body: movedColumnResponses[toColumn.data.name],
+      body: movedColumnResponses[toColumn.data.name.toLowerCase()],
     })
   })
 
