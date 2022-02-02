@@ -5,6 +5,22 @@ Object {
   "asFragment": [Function],
   "baseElement": <body>
     <div>
+      <h2
+        class="el-subtitle"
+      >
+        Monthly Total
+      </h2>
+      <p
+        class="el-has-grey-text el-body-text"
+      >
+        £
+        9.57
+      </p>
+      <h2
+        class="el-subtitle"
+      >
+        Breakdown
+      </h2>
       <div
         class="el-table"
         data-has-call-to-action="false"
@@ -287,6 +303,22 @@ Object {
     </div>
   </body>,
   "container": <div>
+    <h2
+      class="el-subtitle"
+    >
+      Monthly Total
+    </h2>
+    <p
+      class="el-has-grey-text el-body-text"
+    >
+      £
+      9.57
+    </p>
+    <h2
+      class="el-subtitle"
+    >
+      Breakdown
+    </h2>
     <div
       class="el-table"
       data-has-call-to-action="false"
