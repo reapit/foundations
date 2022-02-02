@@ -50,7 +50,7 @@ describe('Menu', () => {
       }
       const logout = jest.fn()
       const result = generateMenuConfig(logout, location, session)
-      expect(result.menu.length).toBe(9)
+      expect(result.menu.length).toBe(10)
     })
 
     it('should return config with just a login button when user has no access permissions', () => {

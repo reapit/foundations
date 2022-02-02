@@ -88,7 +88,7 @@ export const resolveNarrowOrderClass = (order: number): string | undefined => {
   }
 }
 
-export const TableHeadersRow: FC = ({ children, ...rest }) => {
+export const TableHeadersRow: FC<HTMLAttributes<HTMLDivElement>> = ({ children, ...rest }) => {
   return <ElTableHeadersRow {...rest}>{children}</ElTableHeadersRow>
 }
 
@@ -96,7 +96,7 @@ export const TableHeader: FC<HTMLAttributes<HTMLDivElement>> = ({ children, ...r
   return <ElTableHeader {...rest}>{children}</ElTableHeader>
 }
 
-export const TableRow: FC = ({ children, ...rest }) => {
+export const TableRow: FC<HTMLAttributes<HTMLDivElement>> = ({ children, ...rest }) => {
   return <ElTableRow {...rest}>{children}</ElTableRow>
 }
 

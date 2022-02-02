@@ -22,4 +22,5 @@ export enum PathNames {
   createApiKeyByMember = '/user',
   getMember = '/marketplace/developers/{developerId}/members',
   deleteApiKey = '/{apiKeyId}',
+  billingDataByMonth = '/trafficevents/billing/{month}/',
 }

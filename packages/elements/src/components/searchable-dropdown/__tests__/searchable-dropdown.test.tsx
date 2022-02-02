@@ -11,7 +11,12 @@ import {
 describe('SearchableDropdown component', () => {
   it('should match a snapshot', () => {
     const wrapper = shallow(
-      <SearchableDropdown getResults={async () => []} getResultLabel={() => ''} getResultValue={() => ''} />,
+      <SearchableDropdown
+        id="some-id"
+        getResults={async () => []}
+        getResultLabel={() => ''}
+        getResultValue={() => ''}
+      />,
     )
     expect(wrapper).toMatchSnapshot()
   })
@@ -86,6 +91,7 @@ describe('ControlledSearchableDropdown component', () => {
   it('should match a snapshot', () => {
     const wrapper = shallow(
       <ControlledSearchableDropdown
+        id="some-id"
         resultsList={[]}
         onChange={() => {}}
         isClearVisible={false}
@@ -320,6 +326,7 @@ describe('ControlledSearchableDropdown component', () => {
   it('should display default value', () => {
     const wrapper = shallow(
       <SearchableDropdown<{ id: string; name: string }>
+        id="some-id"
         getResults={async () => {
           return new Promise((resolve) => {
             setTimeout(() => {

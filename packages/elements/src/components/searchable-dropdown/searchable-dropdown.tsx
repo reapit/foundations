@@ -10,6 +10,7 @@ import {
   ElSearchableDropdownSearchLoader,
 } from './__styles__'
 import { Icon, IconNames } from '../icon'
+import { handleSetNativeInput } from '../multi-select'
 
 export interface SearchableDropdownProps<T> extends React.InputHTMLAttributes<HTMLInputElement> {
   getResults: (query: string) => Promise<T[]>
@@ -43,13 +44,14 @@ export const SearchableDropdownControlledInner = <T extends unknown>(
     isClearVisible,
     value,
     selectedValue,
+    id,
     ...inputProps
   }: ControlledSearchableDropdownProps<T>,
   ref: React.ForwardedRef<HTMLInputElement>,
 ) => {
   return (
     <ElSearchableDropdownContainer>
-      <input style={{ display: 'none' }} readOnly value={selectedValue} ref={ref} />
+      <input id={id} style={{ display: 'none' }} readOnly value={selectedValue} ref={ref} />
       <ElSearchableDropdownSearchInputAddOn>
         <Icon icon={icon} />
       </ElSearchableDropdownSearchInputAddOn>
@@ -75,10 +77,20 @@ export const ControlledSearchableDropdown = forwardRef(SearchableDropdownControl
 ) => ReturnType<typeof SearchableDropdownControlledInner>
 
 export const SearchableDropdownInner = <T extends unknown>(
-  { getResults, icon, getResultValue, getResultLabel, onChange, defaultVal, ...inputProps }: SearchableDropdownProps<T>,
+  {
+    getResults,
+    icon,
+    getResultValue,
+    getResultLabel,
+    onChange,
+    defaultVal,
+    id,
+    ...inputProps
+  }: SearchableDropdownProps<T>,
   ref: React.ForwardedRef<HTMLInputElement>,
 ) => {
   const defaultValue = defaultVal ? getResultValue(defaultVal) : ''
+  const dropdownId = id ?? generateRandomId()
   const [value, setValue] = React.useState(defaultVal ? getResultLabel(defaultVal) : '')
   const [loading, setLoading] = React.useState(false)
   const [resultsList, setResultsList] = React.useState<T[]>(defaultVal ? [defaultVal] : [])
@@ -95,6 +107,8 @@ export const SearchableDropdownInner = <T extends unknown>(
       })
     }
   }, [value])
+
+  useEffect(handleSetNativeInput(dropdownId, [value]), [value])
 
   const handleSelectionChange = (label: string, value: string) => {
     setValue(label)
@@ -143,6 +157,7 @@ export const SearchableDropdownInner = <T extends unknown>(
       selectedValue={selectedValue}
       onClear={() => handleSelectionChange('', '')}
       isClearVisible={!!selectedValue && !loading}
+      id={dropdownId}
       {...inputProps}
     />
   )

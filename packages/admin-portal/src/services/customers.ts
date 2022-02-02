@@ -1,4 +1,4 @@
-import { fetcher, fetcherWithBlob, setQueryParams } from '@reapit/utils-common'
+import { fetcher, FetchError, fetcherWithBlob, setQueryParams } from '@reapit/utils-common'
 import { URLS } from './constants'
 import { getPlatformHeaders, logger } from '@reapit/utils-react'
 import { FetchListCommonParams } from './types'
@@ -42,7 +42,7 @@ export const fetchCustomersList = async (
       return response
     }
   } catch (error) {
-    logger(error)
+    logger(error as FetchError)
     throw error
   }
 }
@@ -60,7 +60,7 @@ export const fetchCustomerWarehouseCosts = async (period: string) => {
       return response
     }
   } catch (error) {
-    logger(error)
-    throw new Error(error)
+    logger(error as FetchError)
+    throw error
   }
 }

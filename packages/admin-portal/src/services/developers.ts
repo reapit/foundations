@@ -11,6 +11,7 @@ import { getPlatformHeaders, logger } from '@reapit/utils-react'
 import { FetchListCommonParams, FetchByIdCommonParams } from './types'
 import { stringify } from 'query-string'
 import { reapitConnectBrowserSession } from '../core/connect-session'
+import { FetchError } from '@reapit/utils-common'
 
 export type FetchDevelopersListParams = FetchListCommonParams & {
   name?: string
@@ -56,7 +57,7 @@ export const fetchDevelopersList = async (
       return response
     }
   } catch (error) {
-    logger(error)
+    logger(error as FetchError)
     throw error
   }
 }
@@ -76,7 +77,7 @@ export const updateDeveloperById = async (params: UpdateDeveloperParams) => {
       return response
     }
   } catch (error) {
-    logger(error)
+    logger(error as FetchError)
     throw error
   }
 }
@@ -95,8 +96,7 @@ export const fetchDeveloperBillingPeriod = async (params: FetchDeveloperBillingP
       return response
     }
   } catch (error) {
-    logger(error)
-    throw new Error(error)
+    logger(error as FetchError)
   }
 }
 
@@ -116,8 +116,8 @@ export const fetchOrganisationMembers = async (
       return response
     }
   } catch (error) {
-    logger(error)
-    throw error?.response
+    logger(error as FetchError)
+    throw (error as FetchError).response
   }
 }
 
@@ -136,8 +136,8 @@ export const updateOrganisationMemberById = async (params: UpdateDeveloperMember
       return response
     }
   } catch (error) {
-    logger(error)
-    throw error?.response
+    logger(error as FetchError)
+    throw (error as FetchError).response
   }
 }
 
@@ -155,7 +155,7 @@ export const disableMemberApi = async (params: DisableDeveloperMemberParams) => 
       return response
     }
   } catch (error) {
-    logger(error)
-    throw error?.response
+    logger(error as FetchError)
+    throw (error as FetchError).response
   }
 }
