@@ -104,7 +104,14 @@ export class CustomEntityResolver {
     @Arg('customEntity', () => CustomEntityInput) customEntity: CustomEntityInput,
     @Ctx() context: Context,
   ): Promise<CustomEntity> {
-    const result = await updateMetadataSchema(id, customEntityToMetadataSchema(customEntity), context.accessToken)
-    return metadataSchemaToCustomEntity(result)
+    try {
+      const result = await updateMetadataSchema(id, customEntityToMetadataSchema(customEntity), context.accessToken)
+      return metadataSchemaToCustomEntity(result)
+    } catch (e: any) {
+      if (e.message.endsWith('404')) {
+        return this.createCustomEntity(customEntity, context)
+      }
+      throw e
+    }
   }
 }

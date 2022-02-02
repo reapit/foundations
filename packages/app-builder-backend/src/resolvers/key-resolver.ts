@@ -41,7 +41,7 @@ class IndividualKeyModelInput {
 }
 
 @InputType()
-class KeyModelInput {
+class KeyInput {
   @Field()
   number: string
   @Field({ description: '@idOf(KeyType)' })
@@ -100,7 +100,7 @@ class KeyMovementModelAPIInput {
 }
 
 @InputType()
-class KeyMovementModelInput {
+class KeyMovementInput {
   @Field()
   checkInRequired: boolean
 
@@ -127,7 +127,7 @@ const createPropertyKeyMovement = async (
   })
 }
 
-const createPropertyKey = async (propertyId: string, key: KeyModelInput, accessToken: string, idToken: string) => {
+const createPropertyKey = async (propertyId: string, key: KeyInput, accessToken: string, idToken: string) => {
   return query<APIKey>(createKeyMutation, { propertyId, key }, 'CreateKey', { accessToken, idToken })
 }
 
@@ -245,7 +245,7 @@ export class KeyResolver {
   async checkOutKey(
     @Arg('propertyId', () => ID) propertyId: string,
     @Arg('keyId', () => ID) keyId: string,
-    @Arg('movement', () => KeyMovementModelInput) movement: KeyMovementModelInput,
+    @Arg('movement', () => KeyMovementInput) movement: KeyMovementInput,
     @Ctx() ctx: Context,
   ): Promise<Key> {
     const { accessToken, idToken } = ctx
@@ -273,7 +273,7 @@ export class KeyResolver {
   @Mutation(() => Key)
   async createKey(
     @Arg('propertyId', () => ID) propertyId: string,
-    @Arg('key', () => KeyModelInput) keyInput: KeyModelInput,
+    @Arg('key', () => KeyInput) keyInput: KeyInput,
     @Ctx() ctx: Context,
   ): Promise<Key> {
     const { accessToken, idToken } = ctx
