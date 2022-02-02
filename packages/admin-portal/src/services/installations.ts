@@ -1,5 +1,5 @@
 import { InstallationModelPagedResult } from '@reapit/foundations-ts-definitions'
-import { fetcher, setQueryParams } from '@reapit/utils-common'
+import { fetcher, FetchError, setQueryParams } from '@reapit/utils-common'
 import { URLS } from './constants'
 import { getPlatformHeaders, logger } from '@reapit/utils-react'
 import { FetchListCommonParams } from './types'
@@ -36,7 +36,7 @@ export const fetchInstallationsList = async (
       return response
     }
   } catch (error) {
-    logger(error)
+    logger(error as FetchError)
     throw error
   }
 }
@@ -55,7 +55,7 @@ export const fetchApiKeyInstallationById = async (params: FetchApiKeyInstallatio
       return response
     }
   } catch (error) {
-    logger(error)
-    throw new Error(error)
+    logger(error as FetchError)
+    throw error
   }
 }

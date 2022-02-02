@@ -24,7 +24,7 @@ export const ElSearchableDropdownResultsContainer = styled.div`
   position: absolute;
   top: 100%;
   left: 0;
-  z-index: 1;
+  z-index: 11;
   width: 100%;
   max-height: 300px;
   overflow-y: auto;
