@@ -37,7 +37,7 @@ export const AppPipeline: React.FC<{ appId: string }> = ({ appId }) => {
         <PusherProvider
           cluster="eu"
           clientKey={window.reapit.config.PUSHER_KEY}
-          authEndpoint={`${URLS.DEPLOYMENT_SERVICE_HOST}/pusher/auth`}
+          authEndpoint={`${URLS.DEPLOYMENT_SERVICE_HOST}pusher/auth`}
           auth={{
             headers: {
               ...COGNITO_HEADERS,
