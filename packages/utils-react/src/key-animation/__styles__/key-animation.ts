@@ -32,9 +32,17 @@ export const triangle3 = css`
   transition: all 0.5s ease;
 `
 
-export const animationStep1 = css``
+export const animationStep1 = css`
+  .${key} {
+    transform: translate(0px);
+  }
+`
 
-export const animationStep2 = css``
+export const animationStep2 = css`
+  .${stars} {
+    opacity: 1;
+  }
+`
 
 export const animationStep3 = css`
   .${key} {
