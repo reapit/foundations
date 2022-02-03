@@ -32,8 +32,9 @@ export const WebhooksNewApp: FC<WebhooksNewAppProps> = ({ register, errors, webh
     <FormLayout className={elFadeIn}>
       <InputWrapFull>
         <BodyText hasGreyText hasNoMargin>
-          Webhooks subscriptions can be set up for any customer who has installed your application. Additionally, you
-          can choose ‘SBOX’ to listen for sandbox environment notifications.
+          First select an app to receive your webhook. Webhooks subscriptions can be set up for any customer who has
+          installed your application. Additionally, you can choose ‘SBOX’ to listen for sandbox environment
+          notifications.
         </BodyText>
       </InputWrapFull>
       <InputWrap>

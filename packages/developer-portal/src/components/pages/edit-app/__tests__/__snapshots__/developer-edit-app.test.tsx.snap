@@ -461,7 +461,6 @@ exports[`DeveloperSubmitApp should match a snapshot when pendingRevisions = fals
                   "conditions": Array [],
                   "deps": Array [],
                   "exclusiveTests": Object {
-                    "matches": false,
                     "max": true,
                     "required": true,
                     "trim": false,
@@ -475,7 +474,6 @@ exports[`DeveloperSubmitApp should match a snapshot when pendingRevisions = fals
                     "strip": false,
                   },
                   "tests": Array [
-                    [Function],
                     [Function],
                     [Function],
                     [Function],

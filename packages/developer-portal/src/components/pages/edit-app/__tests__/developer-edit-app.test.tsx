@@ -119,23 +119,10 @@ describe('DeveloperSubmitApp', () => {
 
     const setIsListingTestCases = [
       {
-        org: { status: 'pending' },
-        isListed: true,
-        inputDispatchIsListed: false,
-        expectsetIsListingParams: true,
-      },
-      {
         org: { status: 'incomplete' },
         isListed: true,
         inputDispatchIsListed: false,
         expectsetIsListingParams: true,
-      },
-
-      {
-        org: { status: 'pending' },
-        isListed: false,
-        inputDispatchIsListed: false,
-        expectsetIsListingParams: false,
       },
       {
         org: { status: 'incomplete' },

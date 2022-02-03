@@ -2992,7 +2992,7 @@ exports[`appointment Apppointment should match snapshot with data 1`] = `
       "link": MockLink {
         "addTypename": false,
         "mockedResponsesByKey": Object {
-          "{\\"query\\":\\"query GET_APPOINTMENTS($negotiatorId: [String!], $start: String!, $end: String!, $includeCancelled: Boolean, $includeUnconfirmed: Boolean, $embed: [AppointmentQueryEmbed]) {\\\\n  GetAppointments(\\\\n    negotiatorId: $negotiatorId\\\\n    start: $start\\\\n    end: $end\\\\n    includeCancelled: $includeCancelled\\\\n    includeUnconfirmed: $includeUnconfirmed\\\\n    embed: $embed\\\\n  ) {\\\\n    pageNumber\\\\n    pageSize\\\\n    pageCount\\\\n    totalCount\\\\n    _links\\\\n    _embedded {\\\\n      ...AppointmentModel\\\\n      property {\\\\n        ...PropertyModel\\\\n      }\\\\n      negotiators {\\\\n        ...NegotiatorModel\\\\n      }\\\\n      followUp {\\\\n        ...AppointmentModelFollowUp\\\\n      }\\\\n      attendee {\\\\n        ...AppointmentAttendeeModel\\\\n        contacts {\\\\n          ...AppointmentContactModel\\\\n        }\\\\n      }\\\\n      appointmentType {\\\\n        ...ListItemModel\\\\n      }\\\\n      _embedded {\\\\n        offices {\\\\n          ...OfficeModel\\\\n        }\\\\n      }\\\\n    }\\\\n  }\\\\n}\\\\n\\\\nfragment AppointmentAttendeeModel on AppointmentAttendeeModel {\\\\n  id\\\\n  type\\\\n}\\\\n\\\\nfragment AppointmentContactModel on AppointmentContactModel {\\\\n  id\\\\n  name\\\\n  homePhone\\\\n  workPhone\\\\n  mobilePhone\\\\n  email\\\\n}\\\\n\\\\nfragment AppointmentModelFollowUp on AppointmentModelFollowUp {\\\\n  due\\\\n  responseId\\\\n  notes\\\\n}\\\\n\\\\nfragment AppointmentModel on AppointmentModel {\\\\n  id\\\\n  created\\\\n  modified\\\\n  start\\\\n  end\\\\n  typeId\\\\n  description\\\\n  recurring\\\\n  cancelled\\\\n  propertyId\\\\n  organiserId\\\\n  negotiatorIds\\\\n  officeIds\\\\n  accompanied\\\\n  negotiatorConfirmed\\\\n  attendeeConfirmed\\\\n  propertyConfirmed\\\\n  metadata\\\\n  _eTag\\\\n  _links\\\\n}\\\\n\\\\nfragment ListItemModel on ListItemModel {\\\\n  id\\\\n  value\\\\n}\\\\n\\\\nfragment NegotiatorModel on NegotiatorModel {\\\\n  id\\\\n  created\\\\n  modified\\\\n  name\\\\n  jobTitle\\\\n  active\\\\n  officeId\\\\n  workPhone\\\\n  mobilePhone\\\\n  email\\\\n  metadata\\\\n  _eTag\\\\n  _links\\\\n}\\\\n\\\\nfragment OfficeModel on OfficeModel {\\\\n  id\\\\n  created\\\\n  modified\\\\n  name\\\\n  manager\\\\n  address {\\\\n    buildingName\\\\n    buildingNumber\\\\n    line1\\\\n    line2\\\\n    line3\\\\n    line4\\\\n    postcode\\\\n    countryId\\\\n  }\\\\n  workPhone\\\\n  email\\\\n  metadata\\\\n  _eTag\\\\n  _links\\\\n}\\\\n\\\\nfragment PropertyModel on PropertyModel {\\\\n  id\\\\n  viewingArrangements\\\\n  address {\\\\n    buildingName\\\\n    buildingNumber\\\\n    line1\\\\n    line2\\\\n    line3\\\\n    line4\\\\n    postcode\\\\n    countryId\\\\n    geolocation {\\\\n      latitude\\\\n      longitude\\\\n    }\\\\n  }\\\\n  selling {\\\\n    vendorId\\\\n    price\\\\n  }\\\\n  letting {\\\\n    landlordId\\\\n    rent\\\\n    rentFrequency\\\\n  }\\\\n  keys {\\\\n    id\\\\n    keysInSet {\\\\n      name\\\\n    }\\\\n    number\\\\n    status\\\\n    type {\\\\n      value\\\\n    }\\\\n    modified\\\\n    office {\\\\n      name\\\\n    }\\\\n    movements {\\\\n      checkInAt\\\\n      checkInNegotiator {\\\\n        ...NegotiatorModel\\\\n      }\\\\n      checkOutAt\\\\n      checkOutToContact {\\\\n        id\\\\n      }\\\\n      checkOutToNegotiator {\\\\n        ...NegotiatorModel\\\\n      }\\\\n    }\\\\n  }\\\\n}\\\\n\\"}": Array [
+          "{\\"query\\":\\"query GET_APPOINTMENTS($negotiatorId: [String!], $start: String!, $end: String!, $includeCancelled: Boolean, $includeUnconfirmed: Boolean, $embed: [AppointmentQueryEmbed], $pageSize: Int) {\\\\n  GetAppointments(\\\\n    negotiatorId: $negotiatorId\\\\n    start: $start\\\\n    end: $end\\\\n    includeCancelled: $includeCancelled\\\\n    includeUnconfirmed: $includeUnconfirmed\\\\n    embed: $embed\\\\n    pageSize: $pageSize\\\\n  ) {\\\\n    pageNumber\\\\n    pageSize\\\\n    pageCount\\\\n    totalCount\\\\n    _links\\\\n    _embedded {\\\\n      ...AppointmentModel\\\\n      property {\\\\n        ...PropertyModel\\\\n      }\\\\n      negotiators {\\\\n        ...NegotiatorModel\\\\n      }\\\\n      followUp {\\\\n        ...AppointmentModelFollowUp\\\\n      }\\\\n      attendee {\\\\n        ...AppointmentAttendeeModel\\\\n        contacts {\\\\n          ...AppointmentContactModel\\\\n        }\\\\n      }\\\\n      appointmentType {\\\\n        ...ListItemModel\\\\n      }\\\\n      _embedded {\\\\n        offices {\\\\n          ...OfficeModel\\\\n        }\\\\n      }\\\\n    }\\\\n  }\\\\n}\\\\n\\\\nfragment AppointmentAttendeeModel on AppointmentAttendeeModel {\\\\n  id\\\\n  type\\\\n}\\\\n\\\\nfragment AppointmentContactModel on AppointmentContactModel {\\\\n  id\\\\n  name\\\\n  homePhone\\\\n  workPhone\\\\n  mobilePhone\\\\n  email\\\\n}\\\\n\\\\nfragment AppointmentModelFollowUp on AppointmentModelFollowUp {\\\\n  due\\\\n  responseId\\\\n  notes\\\\n}\\\\n\\\\nfragment AppointmentModel on AppointmentModel {\\\\n  id\\\\n  created\\\\n  modified\\\\n  start\\\\n  end\\\\n  typeId\\\\n  description\\\\n  recurring\\\\n  cancelled\\\\n  propertyId\\\\n  organiserId\\\\n  negotiatorIds\\\\n  officeIds\\\\n  accompanied\\\\n  negotiatorConfirmed\\\\n  attendeeConfirmed\\\\n  propertyConfirmed\\\\n  metadata\\\\n  _eTag\\\\n  _links\\\\n}\\\\n\\\\nfragment ListItemModel on ListItemModel {\\\\n  id\\\\n  value\\\\n}\\\\n\\\\nfragment NegotiatorModel on NegotiatorModel {\\\\n  id\\\\n  created\\\\n  modified\\\\n  name\\\\n  jobTitle\\\\n  active\\\\n  officeId\\\\n  workPhone\\\\n  mobilePhone\\\\n  email\\\\n  metadata\\\\n  _eTag\\\\n  _links\\\\n}\\\\n\\\\nfragment OfficeModel on OfficeModel {\\\\n  id\\\\n  created\\\\n  modified\\\\n  name\\\\n  manager\\\\n  address {\\\\n    buildingName\\\\n    buildingNumber\\\\n    line1\\\\n    line2\\\\n    line3\\\\n    line4\\\\n    postcode\\\\n    countryId\\\\n  }\\\\n  workPhone\\\\n  email\\\\n  metadata\\\\n  _eTag\\\\n  _links\\\\n}\\\\n\\\\nfragment PropertyModel on PropertyModel {\\\\n  id\\\\n  viewingArrangements\\\\n  address {\\\\n    buildingName\\\\n    buildingNumber\\\\n    line1\\\\n    line2\\\\n    line3\\\\n    line4\\\\n    postcode\\\\n    countryId\\\\n    geolocation {\\\\n      latitude\\\\n      longitude\\\\n    }\\\\n  }\\\\n  selling {\\\\n    vendorId\\\\n    price\\\\n  }\\\\n  letting {\\\\n    landlordId\\\\n    rent\\\\n    rentFrequency\\\\n  }\\\\n  keys {\\\\n    id\\\\n    keysInSet {\\\\n      name\\\\n    }\\\\n    number\\\\n    status\\\\n    type {\\\\n      value\\\\n    }\\\\n    modified\\\\n    office {\\\\n      name\\\\n    }\\\\n    movements {\\\\n      checkInAt\\\\n      checkInNegotiator {\\\\n        ...NegotiatorModel\\\\n      }\\\\n      checkOutAt\\\\n      checkOutToContact {\\\\n        id\\\\n      }\\\\n      checkOutToNegotiator {\\\\n        ...NegotiatorModel\\\\n      }\\\\n    }\\\\n  }\\\\n}\\\\n\\"}": Array [
             Object {
               "request": Object {
                 "query": Object {
@@ -3092,6 +3092,20 @@ exports[`appointment Apppointment should match snapshot with data 1`] = `
                                     "name": Object {
                                       "kind": "Name",
                                       "value": "embed",
+                                    },
+                                  },
+                                },
+                                Object {
+                                  "kind": "Argument",
+                                  "name": Object {
+                                    "kind": "Name",
+                                    "value": "pageSize",
+                                  },
+                                  "value": Object {
+                                    "kind": "Variable",
+                                    "name": Object {
+                                      "kind": "Name",
+                                      "value": "pageSize",
                                     },
                                   },
                                 },
@@ -3466,6 +3480,24 @@ exports[`appointment Apppointment should match snapshot with data 1`] = `
                               "name": Object {
                                 "kind": "Name",
                                 "value": "embed",
+                              },
+                            },
+                          },
+                          Object {
+                            "directives": Array [],
+                            "kind": "VariableDefinition",
+                            "type": Object {
+                              "kind": "NamedType",
+                              "name": Object {
+                                "kind": "Name",
+                                "value": "Int",
+                              },
+                            },
+                            "variable": Object {
+                              "kind": "Variable",
+                              "name": Object {
+                                "kind": "Name",
+                                "value": "pageSize",
                               },
                             },
                           },
@@ -4651,7 +4683,7 @@ exports[`appointment Apppointment should match snapshot with data 1`] = `
                     ],
                     "kind": "Document",
                     "loc": Object {
-                      "end": 1300,
+                      "end": 1374,
                       "source": Object {
                         "body": "#import \\"../fragments/appointment-attendee-model.graphql\\"
 #import \\"../fragments/appointment-contact-model.graphql\\"
@@ -4662,9 +4694,24 @@ exports[`appointment Apppointment should match snapshot with data 1`] = `
 #import \\"../fragments/office-model.graphql\\"
 #import \\"../fragments/property-model.graphql\\"
 
-
-query GET_APPOINTMENTS($negotiatorId: [String!], $start: String!, $end: String!, $includeCancelled: Boolean, $includeUnconfirmed: Boolean, $embed: [AppointmentQueryEmbed]) {
-  GetAppointments(negotiatorId: $negotiatorId, start: $start, end: $end, includeCancelled: $includeCancelled, includeUnconfirmed: $includeUnconfirmed, embed: $embed) {
+query GET_APPOINTMENTS(
+  $negotiatorId: [String!]
+  $start: String!
+  $end: String!
+  $includeCancelled: Boolean
+  $includeUnconfirmed: Boolean
+  $embed: [AppointmentQueryEmbed]
+  $pageSize: Int
+) {
+  GetAppointments(
+    negotiatorId: $negotiatorId
+    start: $start
+    end: $end
+    includeCancelled: $includeCancelled
+    includeUnconfirmed: $includeUnconfirmed
+    embed: $embed
+    pageSize: $pageSize
+  ) {
     pageNumber
     pageSize
     pageCount
@@ -4672,7 +4719,7 @@ query GET_APPOINTMENTS($negotiatorId: [String!], $start: String!, $end: String!,
     _links
     _embedded {
       ...AppointmentModel
-      property{
+      property {
         ...PropertyModel
       }
       negotiators {
@@ -4697,7 +4744,8 @@ query GET_APPOINTMENTS($negotiatorId: [String!], $start: String!, $end: String!,
       }
     }
   }
-}",
+}
+",
                         "locationOffset": Object {
                           "column": 1,
                           "line": 1,
@@ -4802,6 +4850,20 @@ query GET_APPOINTMENTS($negotiatorId: [String!], $start: String!, $end: String!,
                                   "name": Object {
                                     "kind": "Name",
                                     "value": "embed",
+                                  },
+                                },
+                              },
+                              Object {
+                                "kind": "Argument",
+                                "name": Object {
+                                  "kind": "Name",
+                                  "value": "pageSize",
+                                },
+                                "value": Object {
+                                  "kind": "Variable",
+                                  "name": Object {
+                                    "kind": "Name",
+                                    "value": "pageSize",
                                   },
                                 },
                               },
@@ -5176,6 +5238,24 @@ query GET_APPOINTMENTS($negotiatorId: [String!], $start: String!, $end: String!,
                             "name": Object {
                               "kind": "Name",
                               "value": "embed",
+                            },
+                          },
+                        },
+                        Object {
+                          "directives": Array [],
+                          "kind": "VariableDefinition",
+                          "type": Object {
+                            "kind": "NamedType",
+                            "name": Object {
+                              "kind": "Name",
+                              "value": "Int",
+                            },
+                          },
+                          "variable": Object {
+                            "kind": "Variable",
+                            "name": Object {
+                              "kind": "Name",
+                              "value": "pageSize",
                             },
                           },
                         },
@@ -6361,7 +6441,7 @@ query GET_APPOINTMENTS($negotiatorId: [String!], $start: String!, $end: String!,
                   ],
                   "kind": "Document",
                   "loc": Object {
-                    "end": 1300,
+                    "end": 1374,
                     "source": Object {
                       "body": "#import \\"../fragments/appointment-attendee-model.graphql\\"
 #import \\"../fragments/appointment-contact-model.graphql\\"
@@ -6372,9 +6452,24 @@ query GET_APPOINTMENTS($negotiatorId: [String!], $start: String!, $end: String!,
 #import \\"../fragments/office-model.graphql\\"
 #import \\"../fragments/property-model.graphql\\"
 
-
-query GET_APPOINTMENTS($negotiatorId: [String!], $start: String!, $end: String!, $includeCancelled: Boolean, $includeUnconfirmed: Boolean, $embed: [AppointmentQueryEmbed]) {
-  GetAppointments(negotiatorId: $negotiatorId, start: $start, end: $end, includeCancelled: $includeCancelled, includeUnconfirmed: $includeUnconfirmed, embed: $embed) {
+query GET_APPOINTMENTS(
+  $negotiatorId: [String!]
+  $start: String!
+  $end: String!
+  $includeCancelled: Boolean
+  $includeUnconfirmed: Boolean
+  $embed: [AppointmentQueryEmbed]
+  $pageSize: Int
+) {
+  GetAppointments(
+    negotiatorId: $negotiatorId
+    start: $start
+    end: $end
+    includeCancelled: $includeCancelled
+    includeUnconfirmed: $includeUnconfirmed
+    embed: $embed
+    pageSize: $pageSize
+  ) {
     pageNumber
     pageSize
     pageCount
@@ -6382,7 +6477,7 @@ query GET_APPOINTMENTS($negotiatorId: [String!], $start: String!, $end: String!,
     _links
     _embedded {
       ...AppointmentModel
-      property{
+      property {
         ...PropertyModel
       }
       negotiators {
@@ -6407,7 +6502,8 @@ query GET_APPOINTMENTS($negotiatorId: [String!], $start: String!, $end: String!,
       }
     }
   }
-}",
+}
+",
                       "locationOffset": Object {
                         "column": 1,
                         "line": 1,
@@ -8787,7 +8883,7 @@ query GET_VENDORS($id: [String!]) {
         "link": MockLink {
           "addTypename": false,
           "mockedResponsesByKey": Object {
-            "{\\"query\\":\\"query GET_APPOINTMENTS($negotiatorId: [String!], $start: String!, $end: String!, $includeCancelled: Boolean, $includeUnconfirmed: Boolean, $embed: [AppointmentQueryEmbed]) {\\\\n  GetAppointments(\\\\n    negotiatorId: $negotiatorId\\\\n    start: $start\\\\n    end: $end\\\\n    includeCancelled: $includeCancelled\\\\n    includeUnconfirmed: $includeUnconfirmed\\\\n    embed: $embed\\\\n  ) {\\\\n    pageNumber\\\\n    pageSize\\\\n    pageCount\\\\n    totalCount\\\\n    _links\\\\n    _embedded {\\\\n      ...AppointmentModel\\\\n      property {\\\\n        ...PropertyModel\\\\n      }\\\\n      negotiators {\\\\n        ...NegotiatorModel\\\\n      }\\\\n      followUp {\\\\n        ...AppointmentModelFollowUp\\\\n      }\\\\n      attendee {\\\\n        ...AppointmentAttendeeModel\\\\n        contacts {\\\\n          ...AppointmentContactModel\\\\n        }\\\\n      }\\\\n      appointmentType {\\\\n        ...ListItemModel\\\\n      }\\\\n      _embedded {\\\\n        offices {\\\\n          ...OfficeModel\\\\n        }\\\\n      }\\\\n    }\\\\n  }\\\\n}\\\\n\\\\nfragment AppointmentAttendeeModel on AppointmentAttendeeModel {\\\\n  id\\\\n  type\\\\n}\\\\n\\\\nfragment AppointmentContactModel on AppointmentContactModel {\\\\n  id\\\\n  name\\\\n  homePhone\\\\n  workPhone\\\\n  mobilePhone\\\\n  email\\\\n}\\\\n\\\\nfragment AppointmentModelFollowUp on AppointmentModelFollowUp {\\\\n  due\\\\n  responseId\\\\n  notes\\\\n}\\\\n\\\\nfragment AppointmentModel on AppointmentModel {\\\\n  id\\\\n  created\\\\n  modified\\\\n  start\\\\n  end\\\\n  typeId\\\\n  description\\\\n  recurring\\\\n  cancelled\\\\n  propertyId\\\\n  organiserId\\\\n  negotiatorIds\\\\n  officeIds\\\\n  accompanied\\\\n  negotiatorConfirmed\\\\n  attendeeConfirmed\\\\n  propertyConfirmed\\\\n  metadata\\\\n  _eTag\\\\n  _links\\\\n}\\\\n\\\\nfragment ListItemModel on ListItemModel {\\\\n  id\\\\n  value\\\\n}\\\\n\\\\nfragment NegotiatorModel on NegotiatorModel {\\\\n  id\\\\n  created\\\\n  modified\\\\n  name\\\\n  jobTitle\\\\n  active\\\\n  officeId\\\\n  workPhone\\\\n  mobilePhone\\\\n  email\\\\n  metadata\\\\n  _eTag\\\\n  _links\\\\n}\\\\n\\\\nfragment OfficeModel on OfficeModel {\\\\n  id\\\\n  created\\\\n  modified\\\\n  name\\\\n  manager\\\\n  address {\\\\n    buildingName\\\\n    buildingNumber\\\\n    line1\\\\n    line2\\\\n    line3\\\\n    line4\\\\n    postcode\\\\n    countryId\\\\n  }\\\\n  workPhone\\\\n  email\\\\n  metadata\\\\n  _eTag\\\\n  _links\\\\n}\\\\n\\\\nfragment PropertyModel on PropertyModel {\\\\n  id\\\\n  viewingArrangements\\\\n  address {\\\\n    buildingName\\\\n    buildingNumber\\\\n    line1\\\\n    line2\\\\n    line3\\\\n    line4\\\\n    postcode\\\\n    countryId\\\\n    geolocation {\\\\n      latitude\\\\n      longitude\\\\n    }\\\\n  }\\\\n  selling {\\\\n    vendorId\\\\n    price\\\\n  }\\\\n  letting {\\\\n    landlordId\\\\n    rent\\\\n    rentFrequency\\\\n  }\\\\n  keys {\\\\n    id\\\\n    keysInSet {\\\\n      name\\\\n    }\\\\n    number\\\\n    status\\\\n    type {\\\\n      value\\\\n    }\\\\n    modified\\\\n    office {\\\\n      name\\\\n    }\\\\n    movements {\\\\n      checkInAt\\\\n      checkInNegotiator {\\\\n        ...NegotiatorModel\\\\n      }\\\\n      checkOutAt\\\\n      checkOutToContact {\\\\n        id\\\\n      }\\\\n      checkOutToNegotiator {\\\\n        ...NegotiatorModel\\\\n      }\\\\n    }\\\\n  }\\\\n}\\\\n\\"}": Array [
+            "{\\"query\\":\\"query GET_APPOINTMENTS($negotiatorId: [String!], $start: String!, $end: String!, $includeCancelled: Boolean, $includeUnconfirmed: Boolean, $embed: [AppointmentQueryEmbed], $pageSize: Int) {\\\\n  GetAppointments(\\\\n    negotiatorId: $negotiatorId\\\\n    start: $start\\\\n    end: $end\\\\n    includeCancelled: $includeCancelled\\\\n    includeUnconfirmed: $includeUnconfirmed\\\\n    embed: $embed\\\\n    pageSize: $pageSize\\\\n  ) {\\\\n    pageNumber\\\\n    pageSize\\\\n    pageCount\\\\n    totalCount\\\\n    _links\\\\n    _embedded {\\\\n      ...AppointmentModel\\\\n      property {\\\\n        ...PropertyModel\\\\n      }\\\\n      negotiators {\\\\n        ...NegotiatorModel\\\\n      }\\\\n      followUp {\\\\n        ...AppointmentModelFollowUp\\\\n      }\\\\n      attendee {\\\\n        ...AppointmentAttendeeModel\\\\n        contacts {\\\\n          ...AppointmentContactModel\\\\n        }\\\\n      }\\\\n      appointmentType {\\\\n        ...ListItemModel\\\\n      }\\\\n      _embedded {\\\\n        offices {\\\\n          ...OfficeModel\\\\n        }\\\\n      }\\\\n    }\\\\n  }\\\\n}\\\\n\\\\nfragment AppointmentAttendeeModel on AppointmentAttendeeModel {\\\\n  id\\\\n  type\\\\n}\\\\n\\\\nfragment AppointmentContactModel on AppointmentContactModel {\\\\n  id\\\\n  name\\\\n  homePhone\\\\n  workPhone\\\\n  mobilePhone\\\\n  email\\\\n}\\\\n\\\\nfragment AppointmentModelFollowUp on AppointmentModelFollowUp {\\\\n  due\\\\n  responseId\\\\n  notes\\\\n}\\\\n\\\\nfragment AppointmentModel on AppointmentModel {\\\\n  id\\\\n  created\\\\n  modified\\\\n  start\\\\n  end\\\\n  typeId\\\\n  description\\\\n  recurring\\\\n  cancelled\\\\n  propertyId\\\\n  organiserId\\\\n  negotiatorIds\\\\n  officeIds\\\\n  accompanied\\\\n  negotiatorConfirmed\\\\n  attendeeConfirmed\\\\n  propertyConfirmed\\\\n  metadata\\\\n  _eTag\\\\n  _links\\\\n}\\\\n\\\\nfragment ListItemModel on ListItemModel {\\\\n  id\\\\n  value\\\\n}\\\\n\\\\nfragment NegotiatorModel on NegotiatorModel {\\\\n  id\\\\n  created\\\\n  modified\\\\n  name\\\\n  jobTitle\\\\n  active\\\\n  officeId\\\\n  workPhone\\\\n  mobilePhone\\\\n  email\\\\n  metadata\\\\n  _eTag\\\\n  _links\\\\n}\\\\n\\\\nfragment OfficeModel on OfficeModel {\\\\n  id\\\\n  created\\\\n  modified\\\\n  name\\\\n  manager\\\\n  address {\\\\n    buildingName\\\\n    buildingNumber\\\\n    line1\\\\n    line2\\\\n    line3\\\\n    line4\\\\n    postcode\\\\n    countryId\\\\n  }\\\\n  workPhone\\\\n  email\\\\n  metadata\\\\n  _eTag\\\\n  _links\\\\n}\\\\n\\\\nfragment PropertyModel on PropertyModel {\\\\n  id\\\\n  viewingArrangements\\\\n  address {\\\\n    buildingName\\\\n    buildingNumber\\\\n    line1\\\\n    line2\\\\n    line3\\\\n    line4\\\\n    postcode\\\\n    countryId\\\\n    geolocation {\\\\n      latitude\\\\n      longitude\\\\n    }\\\\n  }\\\\n  selling {\\\\n    vendorId\\\\n    price\\\\n  }\\\\n  letting {\\\\n    landlordId\\\\n    rent\\\\n    rentFrequency\\\\n  }\\\\n  keys {\\\\n    id\\\\n    keysInSet {\\\\n      name\\\\n    }\\\\n    number\\\\n    status\\\\n    type {\\\\n      value\\\\n    }\\\\n    modified\\\\n    office {\\\\n      name\\\\n    }\\\\n    movements {\\\\n      checkInAt\\\\n      checkInNegotiator {\\\\n        ...NegotiatorModel\\\\n      }\\\\n      checkOutAt\\\\n      checkOutToContact {\\\\n        id\\\\n      }\\\\n      checkOutToNegotiator {\\\\n        ...NegotiatorModel\\\\n      }\\\\n    }\\\\n  }\\\\n}\\\\n\\"}": Array [
               Object {
                 "request": Object {
                   "query": Object {
@@ -8887,6 +8983,20 @@ query GET_VENDORS($id: [String!]) {
                                       "name": Object {
                                         "kind": "Name",
                                         "value": "embed",
+                                      },
+                                    },
+                                  },
+                                  Object {
+                                    "kind": "Argument",
+                                    "name": Object {
+                                      "kind": "Name",
+                                      "value": "pageSize",
+                                    },
+                                    "value": Object {
+                                      "kind": "Variable",
+                                      "name": Object {
+                                        "kind": "Name",
+                                        "value": "pageSize",
                                       },
                                     },
                                   },
@@ -9261,6 +9371,24 @@ query GET_VENDORS($id: [String!]) {
                                 "name": Object {
                                   "kind": "Name",
                                   "value": "embed",
+                                },
+                              },
+                            },
+                            Object {
+                              "directives": Array [],
+                              "kind": "VariableDefinition",
+                              "type": Object {
+                                "kind": "NamedType",
+                                "name": Object {
+                                  "kind": "Name",
+                                  "value": "Int",
+                                },
+                              },
+                              "variable": Object {
+                                "kind": "Variable",
+                                "name": Object {
+                                  "kind": "Name",
+                                  "value": "pageSize",
                                 },
                               },
                             },
@@ -10446,7 +10574,7 @@ query GET_VENDORS($id: [String!]) {
                       ],
                       "kind": "Document",
                       "loc": Object {
-                        "end": 1300,
+                        "end": 1374,
                         "source": Object {
                           "body": "#import \\"../fragments/appointment-attendee-model.graphql\\"
 #import \\"../fragments/appointment-contact-model.graphql\\"
@@ -10457,9 +10585,24 @@ query GET_VENDORS($id: [String!]) {
 #import \\"../fragments/office-model.graphql\\"
 #import \\"../fragments/property-model.graphql\\"
 
-
-query GET_APPOINTMENTS($negotiatorId: [String!], $start: String!, $end: String!, $includeCancelled: Boolean, $includeUnconfirmed: Boolean, $embed: [AppointmentQueryEmbed]) {
-  GetAppointments(negotiatorId: $negotiatorId, start: $start, end: $end, includeCancelled: $includeCancelled, includeUnconfirmed: $includeUnconfirmed, embed: $embed) {
+query GET_APPOINTMENTS(
+  $negotiatorId: [String!]
+  $start: String!
+  $end: String!
+  $includeCancelled: Boolean
+  $includeUnconfirmed: Boolean
+  $embed: [AppointmentQueryEmbed]
+  $pageSize: Int
+) {
+  GetAppointments(
+    negotiatorId: $negotiatorId
+    start: $start
+    end: $end
+    includeCancelled: $includeCancelled
+    includeUnconfirmed: $includeUnconfirmed
+    embed: $embed
+    pageSize: $pageSize
+  ) {
     pageNumber
     pageSize
     pageCount
@@ -10467,7 +10610,7 @@ query GET_APPOINTMENTS($negotiatorId: [String!], $start: String!, $end: String!,
     _links
     _embedded {
       ...AppointmentModel
-      property{
+      property {
         ...PropertyModel
       }
       negotiators {
@@ -10492,7 +10635,8 @@ query GET_APPOINTMENTS($negotiatorId: [String!], $start: String!, $end: String!,
       }
     }
   }
-}",
+}
+",
                           "locationOffset": Object {
                             "column": 1,
                             "line": 1,
@@ -10597,6 +10741,20 @@ query GET_APPOINTMENTS($negotiatorId: [String!], $start: String!, $end: String!,
                                     "name": Object {
                                       "kind": "Name",
                                       "value": "embed",
+                                    },
+                                  },
+                                },
+                                Object {
+                                  "kind": "Argument",
+                                  "name": Object {
+                                    "kind": "Name",
+                                    "value": "pageSize",
+                                  },
+                                  "value": Object {
+                                    "kind": "Variable",
+                                    "name": Object {
+                                      "kind": "Name",
+                                      "value": "pageSize",
                                     },
                                   },
                                 },
@@ -10971,6 +11129,24 @@ query GET_APPOINTMENTS($negotiatorId: [String!], $start: String!, $end: String!,
                               "name": Object {
                                 "kind": "Name",
                                 "value": "embed",
+                              },
+                            },
+                          },
+                          Object {
+                            "directives": Array [],
+                            "kind": "VariableDefinition",
+                            "type": Object {
+                              "kind": "NamedType",
+                              "name": Object {
+                                "kind": "Name",
+                                "value": "Int",
+                              },
+                            },
+                            "variable": Object {
+                              "kind": "Variable",
+                              "name": Object {
+                                "kind": "Name",
+                                "value": "pageSize",
                               },
                             },
                           },
@@ -12156,7 +12332,7 @@ query GET_APPOINTMENTS($negotiatorId: [String!], $start: String!, $end: String!,
                     ],
                     "kind": "Document",
                     "loc": Object {
-                      "end": 1300,
+                      "end": 1374,
                       "source": Object {
                         "body": "#import \\"../fragments/appointment-attendee-model.graphql\\"
 #import \\"../fragments/appointment-contact-model.graphql\\"
@@ -12167,9 +12343,24 @@ query GET_APPOINTMENTS($negotiatorId: [String!], $start: String!, $end: String!,
 #import \\"../fragments/office-model.graphql\\"
 #import \\"../fragments/property-model.graphql\\"
 
-
-query GET_APPOINTMENTS($negotiatorId: [String!], $start: String!, $end: String!, $includeCancelled: Boolean, $includeUnconfirmed: Boolean, $embed: [AppointmentQueryEmbed]) {
-  GetAppointments(negotiatorId: $negotiatorId, start: $start, end: $end, includeCancelled: $includeCancelled, includeUnconfirmed: $includeUnconfirmed, embed: $embed) {
+query GET_APPOINTMENTS(
+  $negotiatorId: [String!]
+  $start: String!
+  $end: String!
+  $includeCancelled: Boolean
+  $includeUnconfirmed: Boolean
+  $embed: [AppointmentQueryEmbed]
+  $pageSize: Int
+) {
+  GetAppointments(
+    negotiatorId: $negotiatorId
+    start: $start
+    end: $end
+    includeCancelled: $includeCancelled
+    includeUnconfirmed: $includeUnconfirmed
+    embed: $embed
+    pageSize: $pageSize
+  ) {
     pageNumber
     pageSize
     pageCount
@@ -12177,7 +12368,7 @@ query GET_APPOINTMENTS($negotiatorId: [String!], $start: String!, $end: String!,
     _links
     _embedded {
       ...AppointmentModel
-      property{
+      property {
         ...PropertyModel
       }
       negotiators {
@@ -12202,7 +12393,8 @@ query GET_APPOINTMENTS($negotiatorId: [String!], $start: String!, $end: String!,
       }
     }
   }
-}",
+}
+",
                         "locationOffset": Object {
                           "column": 1,
                           "line": 1,

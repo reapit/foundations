@@ -38,7 +38,7 @@ Object {
                   <p
                     class="e11jaxfn-el-has-grey-text ewfctk4-el-has-no-margin evblxhy-el-body-text"
                   >
-                    Webhooks subscriptions can be set up for any customer who has installed your application. Additionally, you can choose ‘SBOX’ to listen for sandbox environment notifications.
+                    First select an app to receive your webhook. Webhooks subscriptions can be set up for any customer who has installed your application. Additionally, you can choose ‘SBOX’ to listen for sandbox environment notifications.
                   </p>
                 </div>
                 <div
@@ -115,7 +115,7 @@ Object {
                 <p
                   class="e11jaxfn-el-has-grey-text ewfctk4-el-has-no-margin evblxhy-el-body-text"
                 >
-                  Webhooks subscriptions can be set up for any customer who has installed your application. Additionally, you can choose ‘SBOX’ to listen for sandbox environment notifications.
+                  First select an app to receive your webhook. Webhooks subscriptions can be set up for any customer who has installed your application. Additionally, you can choose ‘SBOX’ to listen for sandbox environment notifications.
                 </p>
               </div>
               <div
@@ -228,7 +228,7 @@ Object {
           <p
             class="e11jaxfn-el-has-grey-text ewfctk4-el-has-no-margin evblxhy-el-body-text"
           >
-            Webhooks subscriptions can be set up for any customer who has installed your application. Additionally, you can choose ‘SBOX’ to listen for sandbox environment notifications.
+            First select an app to receive your webhook. Webhooks subscriptions can be set up for any customer who has installed your application. Additionally, you can choose ‘SBOX’ to listen for sandbox environment notifications.
           </p>
         </div>
         <div
@@ -280,7 +280,7 @@ Object {
         <p
           class="e11jaxfn-el-has-grey-text ewfctk4-el-has-no-margin evblxhy-el-body-text"
         >
-          Webhooks subscriptions can be set up for any customer who has installed your application. Additionally, you can choose ‘SBOX’ to listen for sandbox environment notifications.
+          First select an app to receive your webhook. Webhooks subscriptions can be set up for any customer who has installed your application. Additionally, you can choose ‘SBOX’ to listen for sandbox environment notifications.
         </p>
       </div>
       <div
@@ -389,7 +389,7 @@ Object {
           <p
             class="e11jaxfn-el-has-grey-text ewfctk4-el-has-no-margin evblxhy-el-body-text"
           >
-            Webhooks subscriptions can be set up for any customer who has installed your application. Additionally, you can choose ‘SBOX’ to listen for sandbox environment notifications.
+            First select an app to receive your webhook. Webhooks subscriptions can be set up for any customer who has installed your application. Additionally, you can choose ‘SBOX’ to listen for sandbox environment notifications.
           </p>
         </div>
         <div
@@ -573,7 +573,7 @@ Object {
           <p
             class="e11jaxfn-el-has-grey-text ewfctk4-el-has-no-margin evblxhy-el-body-text"
           >
-            Webhooks subscriptions can be set up for any customer who has installed your application. Additionally, you can choose ‘SBOX’ to listen for sandbox environment notifications.
+            First select an app to receive your webhook. Webhooks subscriptions can be set up for any customer who has installed your application. Additionally, you can choose ‘SBOX’ to listen for sandbox environment notifications.
           </p>
         </div>
         <div
@@ -902,7 +902,7 @@ Object {
           <p
             class="e11jaxfn-el-has-grey-text ewfctk4-el-has-no-margin evblxhy-el-body-text"
           >
-            Webhooks subscriptions can be set up for any customer who has installed your application. Additionally, you can choose ‘SBOX’ to listen for sandbox environment notifications.
+            First select an app to receive your webhook. Webhooks subscriptions can be set up for any customer who has installed your application. Additionally, you can choose ‘SBOX’ to listen for sandbox environment notifications.
           </p>
         </div>
         <div
@@ -1081,7 +1081,7 @@ Object {
           <p
             class="e11jaxfn-el-has-grey-text ewfctk4-el-has-no-margin evblxhy-el-body-text"
           >
-            Select customers from the list below. If you leave this option blank, your webhook will default to ”All Customers“ that have installed your application including Sandbox (SBOX). If you select one customer, you will need to specify each customer individually. In this case, you will also need to specify SBOX explicity.
+            Select customers from the list below by default we have prepopulated this with ‘Sandbox Estates (SBOX)’. If you select one customer, you will need to specify each customer individually. If you select ‘All Customers’, the sandbox environment will be excluded and you will need to create a separate webhook for ‘Sandbox Estates (SBOX)’.
           </p>
         </div>
         <div
@@ -1163,7 +1163,7 @@ Object {
         <p
           class="e11jaxfn-el-has-grey-text ewfctk4-el-has-no-margin evblxhy-el-body-text"
         >
-          Select customers from the list below. If you leave this option blank, your webhook will default to ”All Customers“ that have installed your application including Sandbox (SBOX). If you select one customer, you will need to specify each customer individually. In this case, you will also need to specify SBOX explicity.
+          Select customers from the list below by default we have prepopulated this with ‘Sandbox Estates (SBOX)’. If you select one customer, you will need to specify each customer individually. If you select ‘All Customers’, the sandbox environment will be excluded and you will need to create a separate webhook for ‘Sandbox Estates (SBOX)’.
         </p>
       </div>
       <div
@@ -1302,7 +1302,7 @@ Object {
           <p
             class="e11jaxfn-el-has-grey-text ewfctk4-el-has-no-margin evblxhy-el-body-text"
           >
-            Webhooks subscriptions can be set up for any customer who has installed your application. Additionally, you can choose ‘SBOX’ to listen for sandbox environment notifications.
+            First select an app to receive your webhook. Webhooks subscriptions can be set up for any customer who has installed your application. Additionally, you can choose ‘SBOX’ to listen for sandbox environment notifications.
           </p>
         </div>
         <div
@@ -1481,7 +1481,7 @@ Object {
           <p
             class="e11jaxfn-el-has-grey-text ewfctk4-el-has-no-margin evblxhy-el-body-text"
           >
-            Select customers from the list below. If you leave this option blank, your webhook will default to ”All Customers“ that have installed your application including Sandbox (SBOX). If you select one customer, you will need to specify each customer individually. In this case, you will also need to specify SBOX explicity.
+            Select customers from the list below by default we have prepopulated this with ‘Sandbox Estates (SBOX)’. If you select one customer, you will need to specify each customer individually. If you select ‘All Customers’, the sandbox environment will be excluded and you will need to create a separate webhook for ‘Sandbox Estates (SBOX)’.
           </p>
         </div>
         <div
@@ -1771,7 +1771,7 @@ Object {
           <p
             class="e11jaxfn-el-has-grey-text ewfctk4-el-has-no-margin evblxhy-el-body-text"
           >
-            Webhooks subscriptions can be set up for any customer who has installed your application. Additionally, you can choose ‘SBOX’ to listen for sandbox environment notifications.
+            First select an app to receive your webhook. Webhooks subscriptions can be set up for any customer who has installed your application. Additionally, you can choose ‘SBOX’ to listen for sandbox environment notifications.
           </p>
         </div>
         <div
@@ -1823,7 +1823,7 @@ Object {
         <p
           class="e11jaxfn-el-has-grey-text ewfctk4-el-has-no-margin evblxhy-el-body-text"
         >
-          Webhooks subscriptions can be set up for any customer who has installed your application. Additionally, you can choose ‘SBOX’ to listen for sandbox environment notifications.
+          First select an app to receive your webhook. Webhooks subscriptions can be set up for any customer who has installed your application. Additionally, you can choose ‘SBOX’ to listen for sandbox environment notifications.
         </p>
       </div>
       <div
@@ -1932,7 +1932,7 @@ Object {
           <p
             class="e11jaxfn-el-has-grey-text ewfctk4-el-has-no-margin evblxhy-el-body-text"
           >
-            Webhooks subscriptions can be set up for any customer who has installed your application. Additionally, you can choose ‘SBOX’ to listen for sandbox environment notifications.
+            First select an app to receive your webhook. Webhooks subscriptions can be set up for any customer who has installed your application. Additionally, you can choose ‘SBOX’ to listen for sandbox environment notifications.
           </p>
         </div>
         <div
@@ -2116,7 +2116,7 @@ Object {
           <p
             class="e11jaxfn-el-has-grey-text ewfctk4-el-has-no-margin evblxhy-el-body-text"
           >
-            Webhooks subscriptions can be set up for any customer who has installed your application. Additionally, you can choose ‘SBOX’ to listen for sandbox environment notifications.
+            First select an app to receive your webhook. Webhooks subscriptions can be set up for any customer who has installed your application. Additionally, you can choose ‘SBOX’ to listen for sandbox environment notifications.
           </p>
         </div>
         <div
@@ -2445,7 +2445,7 @@ Object {
           <p
             class="e11jaxfn-el-has-grey-text ewfctk4-el-has-no-margin evblxhy-el-body-text"
           >
-            Webhooks subscriptions can be set up for any customer who has installed your application. Additionally, you can choose ‘SBOX’ to listen for sandbox environment notifications.
+            First select an app to receive your webhook. Webhooks subscriptions can be set up for any customer who has installed your application. Additionally, you can choose ‘SBOX’ to listen for sandbox environment notifications.
           </p>
         </div>
         <div
@@ -2624,7 +2624,7 @@ Object {
           <p
             class="e11jaxfn-el-has-grey-text ewfctk4-el-has-no-margin evblxhy-el-body-text"
           >
-            Select customers from the list below. If you leave this option blank, your webhook will default to ”All Customers“ that have installed your application including Sandbox (SBOX). If you select one customer, you will need to specify each customer individually. In this case, you will also need to specify SBOX explicity.
+            Select customers from the list below by default we have prepopulated this with ‘Sandbox Estates (SBOX)’. If you select one customer, you will need to specify each customer individually. If you select ‘All Customers’, the sandbox environment will be excluded and you will need to create a separate webhook for ‘Sandbox Estates (SBOX)’.
           </p>
         </div>
         <div
@@ -2706,7 +2706,7 @@ Object {
         <p
           class="e11jaxfn-el-has-grey-text ewfctk4-el-has-no-margin evblxhy-el-body-text"
         >
-          Select customers from the list below. If you leave this option blank, your webhook will default to ”All Customers“ that have installed your application including Sandbox (SBOX). If you select one customer, you will need to specify each customer individually. In this case, you will also need to specify SBOX explicity.
+          Select customers from the list below by default we have prepopulated this with ‘Sandbox Estates (SBOX)’. If you select one customer, you will need to specify each customer individually. If you select ‘All Customers’, the sandbox environment will be excluded and you will need to create a separate webhook for ‘Sandbox Estates (SBOX)’.
         </p>
       </div>
       <div
@@ -2845,7 +2845,7 @@ Object {
           <p
             class="e11jaxfn-el-has-grey-text ewfctk4-el-has-no-margin evblxhy-el-body-text"
           >
-            Webhooks subscriptions can be set up for any customer who has installed your application. Additionally, you can choose ‘SBOX’ to listen for sandbox environment notifications.
+            First select an app to receive your webhook. Webhooks subscriptions can be set up for any customer who has installed your application. Additionally, you can choose ‘SBOX’ to listen for sandbox environment notifications.
           </p>
         </div>
         <div
@@ -3024,7 +3024,7 @@ Object {
           <p
             class="e11jaxfn-el-has-grey-text ewfctk4-el-has-no-margin evblxhy-el-body-text"
           >
-            Select customers from the list below. If you leave this option blank, your webhook will default to ”All Customers“ that have installed your application including Sandbox (SBOX). If you select one customer, you will need to specify each customer individually. In this case, you will also need to specify SBOX explicity.
+            Select customers from the list below by default we have prepopulated this with ‘Sandbox Estates (SBOX)’. If you select one customer, you will need to specify each customer individually. If you select ‘All Customers’, the sandbox environment will be excluded and you will need to create a separate webhook for ‘Sandbox Estates (SBOX)’.
           </p>
         </div>
         <div
@@ -3314,7 +3314,7 @@ Object {
           <p
             class="e11jaxfn-el-has-grey-text ewfctk4-el-has-no-margin evblxhy-el-body-text"
           >
-            Webhooks subscriptions can be set up for any customer who has installed your application. Additionally, you can choose ‘SBOX’ to listen for sandbox environment notifications.
+            First select an app to receive your webhook. Webhooks subscriptions can be set up for any customer who has installed your application. Additionally, you can choose ‘SBOX’ to listen for sandbox environment notifications.
           </p>
         </div>
         <div
@@ -3366,7 +3366,7 @@ Object {
         <p
           class="e11jaxfn-el-has-grey-text ewfctk4-el-has-no-margin evblxhy-el-body-text"
         >
-          Webhooks subscriptions can be set up for any customer who has installed your application. Additionally, you can choose ‘SBOX’ to listen for sandbox environment notifications.
+          First select an app to receive your webhook. Webhooks subscriptions can be set up for any customer who has installed your application. Additionally, you can choose ‘SBOX’ to listen for sandbox environment notifications.
         </p>
       </div>
       <div
@@ -3475,7 +3475,7 @@ Object {
           <p
             class="e11jaxfn-el-has-grey-text ewfctk4-el-has-no-margin evblxhy-el-body-text"
           >
-            Webhooks subscriptions can be set up for any customer who has installed your application. Additionally, you can choose ‘SBOX’ to listen for sandbox environment notifications.
+            First select an app to receive your webhook. Webhooks subscriptions can be set up for any customer who has installed your application. Additionally, you can choose ‘SBOX’ to listen for sandbox environment notifications.
           </p>
         </div>
         <div
@@ -3659,7 +3659,7 @@ Object {
           <p
             class="e11jaxfn-el-has-grey-text ewfctk4-el-has-no-margin evblxhy-el-body-text"
           >
-            Webhooks subscriptions can be set up for any customer who has installed your application. Additionally, you can choose ‘SBOX’ to listen for sandbox environment notifications.
+            First select an app to receive your webhook. Webhooks subscriptions can be set up for any customer who has installed your application. Additionally, you can choose ‘SBOX’ to listen for sandbox environment notifications.
           </p>
         </div>
         <div
@@ -3988,7 +3988,7 @@ Object {
           <p
             class="e11jaxfn-el-has-grey-text ewfctk4-el-has-no-margin evblxhy-el-body-text"
           >
-            Webhooks subscriptions can be set up for any customer who has installed your application. Additionally, you can choose ‘SBOX’ to listen for sandbox environment notifications.
+            First select an app to receive your webhook. Webhooks subscriptions can be set up for any customer who has installed your application. Additionally, you can choose ‘SBOX’ to listen for sandbox environment notifications.
           </p>
         </div>
         <div
@@ -4167,7 +4167,7 @@ Object {
           <p
             class="e11jaxfn-el-has-grey-text ewfctk4-el-has-no-margin evblxhy-el-body-text"
           >
-            Select customers from the list below. If you leave this option blank, your webhook will default to ”All Customers“ that have installed your application including Sandbox (SBOX). If you select one customer, you will need to specify each customer individually. In this case, you will also need to specify SBOX explicity.
+            Select customers from the list below by default we have prepopulated this with ‘Sandbox Estates (SBOX)’. If you select one customer, you will need to specify each customer individually. If you select ‘All Customers’, the sandbox environment will be excluded and you will need to create a separate webhook for ‘Sandbox Estates (SBOX)’.
           </p>
         </div>
         <div
@@ -4249,7 +4249,7 @@ Object {
         <p
           class="e11jaxfn-el-has-grey-text ewfctk4-el-has-no-margin evblxhy-el-body-text"
         >
-          Select customers from the list below. If you leave this option blank, your webhook will default to ”All Customers“ that have installed your application including Sandbox (SBOX). If you select one customer, you will need to specify each customer individually. In this case, you will also need to specify SBOX explicity.
+          Select customers from the list below by default we have prepopulated this with ‘Sandbox Estates (SBOX)’. If you select one customer, you will need to specify each customer individually. If you select ‘All Customers’, the sandbox environment will be excluded and you will need to create a separate webhook for ‘Sandbox Estates (SBOX)’.
         </p>
       </div>
       <div
@@ -4388,7 +4388,7 @@ Object {
           <p
             class="e11jaxfn-el-has-grey-text ewfctk4-el-has-no-margin evblxhy-el-body-text"
           >
-            Webhooks subscriptions can be set up for any customer who has installed your application. Additionally, you can choose ‘SBOX’ to listen for sandbox environment notifications.
+            First select an app to receive your webhook. Webhooks subscriptions can be set up for any customer who has installed your application. Additionally, you can choose ‘SBOX’ to listen for sandbox environment notifications.
           </p>
         </div>
         <div
@@ -4567,7 +4567,7 @@ Object {
           <p
             class="e11jaxfn-el-has-grey-text ewfctk4-el-has-no-margin evblxhy-el-body-text"
           >
-            Select customers from the list below. If you leave this option blank, your webhook will default to ”All Customers“ that have installed your application including Sandbox (SBOX). If you select one customer, you will need to specify each customer individually. In this case, you will also need to specify SBOX explicity.
+            Select customers from the list below by default we have prepopulated this with ‘Sandbox Estates (SBOX)’. If you select one customer, you will need to specify each customer individually. If you select ‘All Customers’, the sandbox environment will be excluded and you will need to create a separate webhook for ‘Sandbox Estates (SBOX)’.
           </p>
         </div>
         <div
@@ -4857,7 +4857,7 @@ Object {
           <p
             class="e11jaxfn-el-has-grey-text ewfctk4-el-has-no-margin evblxhy-el-body-text"
           >
-            Webhooks subscriptions can be set up for any customer who has installed your application. Additionally, you can choose ‘SBOX’ to listen for sandbox environment notifications.
+            First select an app to receive your webhook. Webhooks subscriptions can be set up for any customer who has installed your application. Additionally, you can choose ‘SBOX’ to listen for sandbox environment notifications.
           </p>
         </div>
         <div
@@ -4909,7 +4909,7 @@ Object {
         <p
           class="e11jaxfn-el-has-grey-text ewfctk4-el-has-no-margin evblxhy-el-body-text"
         >
-          Webhooks subscriptions can be set up for any customer who has installed your application. Additionally, you can choose ‘SBOX’ to listen for sandbox environment notifications.
+          First select an app to receive your webhook. Webhooks subscriptions can be set up for any customer who has installed your application. Additionally, you can choose ‘SBOX’ to listen for sandbox environment notifications.
         </p>
       </div>
       <div
@@ -5018,7 +5018,7 @@ Object {
           <p
             class="e11jaxfn-el-has-grey-text ewfctk4-el-has-no-margin evblxhy-el-body-text"
           >
-            Webhooks subscriptions can be set up for any customer who has installed your application. Additionally, you can choose ‘SBOX’ to listen for sandbox environment notifications.
+            First select an app to receive your webhook. Webhooks subscriptions can be set up for any customer who has installed your application. Additionally, you can choose ‘SBOX’ to listen for sandbox environment notifications.
           </p>
         </div>
         <div
@@ -5202,7 +5202,7 @@ Object {
           <p
             class="e11jaxfn-el-has-grey-text ewfctk4-el-has-no-margin evblxhy-el-body-text"
           >
-            Webhooks subscriptions can be set up for any customer who has installed your application. Additionally, you can choose ‘SBOX’ to listen for sandbox environment notifications.
+            First select an app to receive your webhook. Webhooks subscriptions can be set up for any customer who has installed your application. Additionally, you can choose ‘SBOX’ to listen for sandbox environment notifications.
           </p>
         </div>
         <div
@@ -5531,7 +5531,7 @@ Object {
           <p
             class="e11jaxfn-el-has-grey-text ewfctk4-el-has-no-margin evblxhy-el-body-text"
           >
-            Webhooks subscriptions can be set up for any customer who has installed your application. Additionally, you can choose ‘SBOX’ to listen for sandbox environment notifications.
+            First select an app to receive your webhook. Webhooks subscriptions can be set up for any customer who has installed your application. Additionally, you can choose ‘SBOX’ to listen for sandbox environment notifications.
           </p>
         </div>
         <div
@@ -5710,7 +5710,7 @@ Object {
           <p
             class="e11jaxfn-el-has-grey-text ewfctk4-el-has-no-margin evblxhy-el-body-text"
           >
-            Select customers from the list below. If you leave this option blank, your webhook will default to ”All Customers“ that have installed your application including Sandbox (SBOX). If you select one customer, you will need to specify each customer individually. In this case, you will also need to specify SBOX explicity.
+            Select customers from the list below by default we have prepopulated this with ‘Sandbox Estates (SBOX)’. If you select one customer, you will need to specify each customer individually. If you select ‘All Customers’, the sandbox environment will be excluded and you will need to create a separate webhook for ‘Sandbox Estates (SBOX)’.
           </p>
         </div>
         <div
@@ -5792,7 +5792,7 @@ Object {
         <p
           class="e11jaxfn-el-has-grey-text ewfctk4-el-has-no-margin evblxhy-el-body-text"
         >
-          Select customers from the list below. If you leave this option blank, your webhook will default to ”All Customers“ that have installed your application including Sandbox (SBOX). If you select one customer, you will need to specify each customer individually. In this case, you will also need to specify SBOX explicity.
+          Select customers from the list below by default we have prepopulated this with ‘Sandbox Estates (SBOX)’. If you select one customer, you will need to specify each customer individually. If you select ‘All Customers’, the sandbox environment will be excluded and you will need to create a separate webhook for ‘Sandbox Estates (SBOX)’.
         </p>
       </div>
       <div
@@ -5931,7 +5931,7 @@ Object {
           <p
             class="e11jaxfn-el-has-grey-text ewfctk4-el-has-no-margin evblxhy-el-body-text"
           >
-            Webhooks subscriptions can be set up for any customer who has installed your application. Additionally, you can choose ‘SBOX’ to listen for sandbox environment notifications.
+            First select an app to receive your webhook. Webhooks subscriptions can be set up for any customer who has installed your application. Additionally, you can choose ‘SBOX’ to listen for sandbox environment notifications.
           </p>
         </div>
         <div
@@ -6110,7 +6110,7 @@ Object {
           <p
             class="e11jaxfn-el-has-grey-text ewfctk4-el-has-no-margin evblxhy-el-body-text"
           >
-            Select customers from the list below. If you leave this option blank, your webhook will default to ”All Customers“ that have installed your application including Sandbox (SBOX). If you select one customer, you will need to specify each customer individually. In this case, you will also need to specify SBOX explicity.
+            Select customers from the list below by default we have prepopulated this with ‘Sandbox Estates (SBOX)’. If you select one customer, you will need to specify each customer individually. If you select ‘All Customers’, the sandbox environment will be excluded and you will need to create a separate webhook for ‘Sandbox Estates (SBOX)’.
           </p>
         </div>
         <div
@@ -6400,7 +6400,7 @@ Object {
           <p
             class="e11jaxfn-el-has-grey-text ewfctk4-el-has-no-margin evblxhy-el-body-text"
           >
-            Webhooks subscriptions can be set up for any customer who has installed your application. Additionally, you can choose ‘SBOX’ to listen for sandbox environment notifications.
+            First select an app to receive your webhook. Webhooks subscriptions can be set up for any customer who has installed your application. Additionally, you can choose ‘SBOX’ to listen for sandbox environment notifications.
           </p>
         </div>
         <div
@@ -6452,7 +6452,7 @@ Object {
         <p
           class="e11jaxfn-el-has-grey-text ewfctk4-el-has-no-margin evblxhy-el-body-text"
         >
-          Webhooks subscriptions can be set up for any customer who has installed your application. Additionally, you can choose ‘SBOX’ to listen for sandbox environment notifications.
+          First select an app to receive your webhook. Webhooks subscriptions can be set up for any customer who has installed your application. Additionally, you can choose ‘SBOX’ to listen for sandbox environment notifications.
         </p>
       </div>
       <div
@@ -6561,7 +6561,7 @@ Object {
           <p
             class="e11jaxfn-el-has-grey-text ewfctk4-el-has-no-margin evblxhy-el-body-text"
           >
-            Webhooks subscriptions can be set up for any customer who has installed your application. Additionally, you can choose ‘SBOX’ to listen for sandbox environment notifications.
+            First select an app to receive your webhook. Webhooks subscriptions can be set up for any customer who has installed your application. Additionally, you can choose ‘SBOX’ to listen for sandbox environment notifications.
           </p>
         </div>
         <div
@@ -6745,7 +6745,7 @@ Object {
           <p
             class="e11jaxfn-el-has-grey-text ewfctk4-el-has-no-margin evblxhy-el-body-text"
           >
-            Webhooks subscriptions can be set up for any customer who has installed your application. Additionally, you can choose ‘SBOX’ to listen for sandbox environment notifications.
+            First select an app to receive your webhook. Webhooks subscriptions can be set up for any customer who has installed your application. Additionally, you can choose ‘SBOX’ to listen for sandbox environment notifications.
           </p>
         </div>
         <div
@@ -7074,7 +7074,7 @@ Object {
           <p
             class="e11jaxfn-el-has-grey-text ewfctk4-el-has-no-margin evblxhy-el-body-text"
           >
-            Webhooks subscriptions can be set up for any customer who has installed your application. Additionally, you can choose ‘SBOX’ to listen for sandbox environment notifications.
+            First select an app to receive your webhook. Webhooks subscriptions can be set up for any customer who has installed your application. Additionally, you can choose ‘SBOX’ to listen for sandbox environment notifications.
           </p>
         </div>
         <div
@@ -7253,7 +7253,7 @@ Object {
           <p
             class="e11jaxfn-el-has-grey-text ewfctk4-el-has-no-margin evblxhy-el-body-text"
           >
-            Select customers from the list below. If you leave this option blank, your webhook will default to ”All Customers“ that have installed your application including Sandbox (SBOX). If you select one customer, you will need to specify each customer individually. In this case, you will also need to specify SBOX explicity.
+            Select customers from the list below by default we have prepopulated this with ‘Sandbox Estates (SBOX)’. If you select one customer, you will need to specify each customer individually. If you select ‘All Customers’, the sandbox environment will be excluded and you will need to create a separate webhook for ‘Sandbox Estates (SBOX)’.
           </p>
         </div>
         <div
@@ -7335,7 +7335,7 @@ Object {
         <p
           class="e11jaxfn-el-has-grey-text ewfctk4-el-has-no-margin evblxhy-el-body-text"
         >
-          Select customers from the list below. If you leave this option blank, your webhook will default to ”All Customers“ that have installed your application including Sandbox (SBOX). If you select one customer, you will need to specify each customer individually. In this case, you will also need to specify SBOX explicity.
+          Select customers from the list below by default we have prepopulated this with ‘Sandbox Estates (SBOX)’. If you select one customer, you will need to specify each customer individually. If you select ‘All Customers’, the sandbox environment will be excluded and you will need to create a separate webhook for ‘Sandbox Estates (SBOX)’.
         </p>
       </div>
       <div
@@ -7474,7 +7474,7 @@ Object {
           <p
             class="e11jaxfn-el-has-grey-text ewfctk4-el-has-no-margin evblxhy-el-body-text"
           >
-            Webhooks subscriptions can be set up for any customer who has installed your application. Additionally, you can choose ‘SBOX’ to listen for sandbox environment notifications.
+            First select an app to receive your webhook. Webhooks subscriptions can be set up for any customer who has installed your application. Additionally, you can choose ‘SBOX’ to listen for sandbox environment notifications.
           </p>
         </div>
         <div
@@ -7653,7 +7653,7 @@ Object {
           <p
             class="e11jaxfn-el-has-grey-text ewfctk4-el-has-no-margin evblxhy-el-body-text"
           >
-            Select customers from the list below. If you leave this option blank, your webhook will default to ”All Customers“ that have installed your application including Sandbox (SBOX). If you select one customer, you will need to specify each customer individually. In this case, you will also need to specify SBOX explicity.
+            Select customers from the list below by default we have prepopulated this with ‘Sandbox Estates (SBOX)’. If you select one customer, you will need to specify each customer individually. If you select ‘All Customers’, the sandbox environment will be excluded and you will need to create a separate webhook for ‘Sandbox Estates (SBOX)’.
           </p>
         </div>
         <div

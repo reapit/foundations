@@ -24,7 +24,7 @@ Object {
             Login Redirect URI
           </label>
           <span
-            class="e15fmnse-el-input-add-on"
+            class="e1vxext9-el-intent-danger e15fmnse-el-input-add-on"
           >
             Some error
           </span>
@@ -45,7 +45,7 @@ Object {
             Logout Redirect URI
           </label>
           <span
-            class="e15fmnse-el-input-add-on"
+            class="e1vxext9-el-intent-danger e15fmnse-el-input-add-on"
           >
             Some error
           </span>
@@ -73,7 +73,7 @@ Object {
           Login Redirect URI
         </label>
         <span
-          class="e15fmnse-el-input-add-on"
+          class="e1vxext9-el-intent-danger e15fmnse-el-input-add-on"
         >
           Some error
         </span>
@@ -94,7 +94,7 @@ Object {
           Logout Redirect URI
         </label>
         <span
-          class="e15fmnse-el-input-add-on"
+          class="e1vxext9-el-intent-danger e15fmnse-el-input-add-on"
         >
           Some error
         </span>

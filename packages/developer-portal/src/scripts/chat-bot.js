@@ -1,13 +1,13 @@
-const initChatBot = loginIdentity => {
-  return new Promise(resolve => {
+const initChatlioBot = (loginIdentity) => {
+  return new Promise((resolve) => {
     window._chatlio = window._chatlio || []
 
-    !(function() {
+    !(function () {
       var t = document.getElementById('chatlio-widget-embed')
       if (t && window.ChatlioReact && _chatlio.init) return void _chatlio.init(t, ChatlioReact)
       for (
-        var e = function(t) {
-            return function() {
+        var e = function (t) {
+            return function () {
               _chatlio.push([t].concat(arguments))
             }
           },
@@ -27,7 +27,7 @@ const initChatBot = loginIdentity => {
       c.parentNode.insertBefore(n, c)
 
       if (loginIdentity) {
-        document.addEventListener('chatlio.ready', function() {
+        document.addEventListener('chatlio.ready', function () {
           _chatlio.identify(loginIdentity.developerId || '', {
             name: loginIdentity.name || '',
             email: loginIdentity.email || '',
@@ -39,16 +39,34 @@ const initChatBot = loginIdentity => {
   })
 }
 
-const openChatbot = loginIdentity => {
-  if (window._chatlio) {
-    window._chatlio.open()
+const initZendeskBot = () => {
+  const head = document.querySelector('head')
+  const script = document.createElement('script')
+  script.type = 'text/javascript'
+  script.id = 'ze-snippet'
+  script.src = window.reapit.config.zendeskUri
+
+  head.appendChild(script)
+}
+
+const openChatbot = (loginIdentity) => {
+  const isDev = window.reapit.config.appEnv !== 'production'
+
+  if (isDev) {
+    if (!window.zE) {
+      initZendeskBot()
+    }
   } else {
-    initChatBot(loginIdentity).then(() => {
-      if (window._chatlio) {
-        window._chatlio.open()
-      }
-    })
+    if (window._chatlio) {
+      window._chatlio.open()
+    } else {
+      initChatlioBot(loginIdentity).then(() => {
+        if (window._chatlio) {
+          window._chatlio.open()
+        }
+      })
+    }
   }
 }
 
-module.exports = { openChatbot, initChatBot }
+module.exports = { openChatbot, initChatlioBot, initZendeskBot }

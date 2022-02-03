@@ -2,6 +2,7 @@
 import { service, factories, models, IEmbedConfiguration } from 'powerbi-client'
 import { logger } from '@reapit/utils-react'
 import { MutableRefObject } from 'react'
+import { Device } from '../components/pages/home'
 
 const powerbi = new service.Service(factories.hpmFactory, factories.wpmpFactory, factories.routerFactory)
 // Adapted from https://github.com/microsoft/PowerBI-Developer-Samples/blob/master/React-TS/Embed%20for%20your%20organization/UserOwnsData/src/App.tsx
@@ -14,8 +15,11 @@ export interface PowerBIParams {
 export const embedPowerBi = (
   { token, reportId, embeddedUrl }: PowerBIParams,
   containerRef: MutableRefObject<HTMLDivElement | null>,
+  device: Device,
 ) => {
   if (!token || !embeddedUrl || !reportId || !containerRef.current) return null
+  const { isBrowser, isPortrait } = device
+  const layoutType = isBrowser ? 'Master' : isPortrait ? 'MobilePortrait' : 'MobileLandscape'
 
   const embedConfiguration: IEmbedConfiguration = {
     type: 'report',
@@ -25,6 +29,7 @@ export const embedPowerBi = (
     id: reportId,
     settings: {
       background: models.BackgroundType.Transparent,
+      layoutType: models.LayoutType[layoutType],
     },
   }
 

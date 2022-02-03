@@ -1,7 +1,7 @@
-const { jestGlobalConfig } = require('@reapit/ts-scripts')
+const { jestNodeGlobalConfig } = require('@reapit/ts-scripts')
 
 module.exports = {
-  ...jestGlobalConfig,
+  ...jestNodeGlobalConfig,
   coveragePathIgnorePatterns: ['<rootDir>[/\\\\](node_modules|src/core)[/\\\\]', '<rootDir>/src/app.ts'],
   modulePathIgnorePatterns: ['<rootDir>[/\\\\](node_modules|public|dist)[/\\\\]'],
   coverageThreshold: {

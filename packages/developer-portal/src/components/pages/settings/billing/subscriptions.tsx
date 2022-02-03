@@ -1,18 +1,14 @@
 import React, { useState, SetStateAction } from 'react'
 import { H5, Table, getDate } from '@reapit/elements-legacy'
 import { useSelector, useDispatch } from 'react-redux'
-import { developerFetchSubscriptions, developerDeleteSubscription } from '@/actions/developer-subscriptions'
-import { selectSubscriptions, selectSubscriptionsLoading } from '@/selector/developer-subscriptions'
+import { developerDeleteSubscription } from '@/actions/developer-subscriptions'
+import { selectSubscriptions } from '@/selector/developer-subscriptions'
 import { hyperlinked } from '@/styles/elements/link'
 import { SubscriptionModel } from '@reapit/foundations-ts-definitions'
 import { Dispatch } from 'redux'
 import ConfirmModal from './delete-confirm'
 import { formatCurrency } from '@/utils/number-formatter'
-import { useReapitConnect } from '@reapit/connect-session'
-import { reapitConnectBrowserSession } from '@/core/connect-session'
-import { getDeveloperIdFromConnectSession } from '@/utils/session'
 import FadeIn from '../../../../styles/fade-in'
-import { Loader } from '@reapit/elements'
 
 export const TimeCell = ({ cell: { value } }) => <p>{getDate(value)}</p>
 export const StatusCell = ({ cell: { value } }) => <p>{value ? 'Cancelled' : 'Active'}</p>
@@ -67,10 +63,6 @@ export const genarateTableData = (subscriptions: SubscriptionModel[] = [], onCan
   }))
 }
 
-export const handleFetchSubscriptions = (dispatch: Dispatch, developerId: string) => () => {
-  developerId && dispatch(developerFetchSubscriptions({ developerId }))
-}
-
 export const handleDeleteSubscription = (dispatch: Dispatch, id: string, handleCloseModal: () => void) => () => {
   dispatch(developerDeleteSubscription(id))
   handleCloseModal()
@@ -99,12 +91,6 @@ export const Subcriptions: React.FC = () => {
   const handleCloseModal = handleCloseConfirmModal(setIsConfirmModalOpen)
 
   const subscriptions = useSelector(selectSubscriptions)
-  const loading = useSelector(selectSubscriptionsLoading)
-
-  const { connectSession } = useReapitConnect(reapitConnectBrowserSession)
-  const developerId = getDeveloperIdFromConnectSession(connectSession)
-
-  React.useEffect(handleFetchSubscriptions(dispatch, developerId), [dispatch, developerId])
 
   const { data } = subscriptions
   const subscriptionsData = genarateTableData(
@@ -114,17 +100,11 @@ export const Subcriptions: React.FC = () => {
 
   return (
     <>
-      {loading ? (
-        <Loader label="Loading" />
-      ) : (
-        <>
-          <H5>Subscriptions</H5>
-          <FadeIn>
-            <p className="mb-4">Please use the table below to view and manage your Developer Portal Subscriptions.</p>
-            <Table scrollable columns={columns} data={subscriptionsData} loading={false} bordered />
-          </FadeIn>
-        </>
-      )}
+      <H5>Subscriptions</H5>
+      <FadeIn>
+        <p className="mb-4">Please use the table below to view and manage your Developer Portal Subscriptions.</p>
+        <Table scrollable columns={columns} data={subscriptionsData} loading={false} bordered />
+      </FadeIn>
       <ConfirmModal
         visible={isConfirmModalOpen}
         title="Confirm Cancellation"

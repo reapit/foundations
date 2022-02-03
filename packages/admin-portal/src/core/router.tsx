@@ -19,6 +19,7 @@ const Statistics = React.lazy(() => catchChunkError(() => import('../components/
 const BillingPage = React.lazy(() => catchChunkError(() => import('../components/pages/billing')))
 const CustomersPage = React.lazy(() => catchChunkError(() => import('../components/pages/customers')))
 const SubscriptionsPage = React.lazy(() => catchChunkError(() => import('../components/pages/subscriptions')))
+const UsagePage = React.lazy(() => catchChunkError(() => import('../components/pages/usage')))
 
 const Router = () => {
   return (
@@ -32,6 +33,7 @@ const Router = () => {
             <PrivateRouteWrapper>
               <Switch>
                 <PrivateRoute path={Routes.BILLING} component={BillingPage} exact />
+                <PrivateRoute path={Routes.USAGE} component={UsagePage} exact />
                 <PrivateRoute path={Routes.APPROVALS} component={ApprovalsPage} exact fetcher />
                 <PrivateRoute path={Routes.APPS} component={AppsManagementPage} fetcher exact />
                 <PrivateRoute path={Routes.DEV_MANAGEMENT} component={DevsManagementPage} exact fetcher />

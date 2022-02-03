@@ -85,6 +85,7 @@ export type AppointmentListQueryVariables = {
   includeCancelled: boolean
   includeUnconfirmed: boolean
   embed: string
+  pageSize: number
 }
 
 export const startAndEndTime = {
@@ -227,6 +228,7 @@ export const Appointment: FC<AppointmentProps> = () => {
       includeCancelled: true,
       includeUnconfirmed: true,
       embed: 'offices',
+      pageSize: 100,
     },
     skip: !userCode,
   })

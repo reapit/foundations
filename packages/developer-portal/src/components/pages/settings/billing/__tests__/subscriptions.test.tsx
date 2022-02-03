@@ -1,13 +1,12 @@
 import {
   TimeCell,
   genarateTableData,
-  handleFetchSubscriptions,
   handleDeleteSubscription,
   Subcriptions,
   handleCloseConfirmModal,
 } from '../subscriptions'
 import { SubscriptionModel } from '@reapit/foundations-ts-definitions'
-import { developerFetchSubscriptions, developerDeleteSubscription } from '@/actions/developer-subscriptions'
+import { developerDeleteSubscription } from '@/actions/developer-subscriptions'
 import * as ReactRedux from 'react-redux'
 import configureStore from 'redux-mock-store'
 import appState from '@/reducers/__stubs__/app-state'
@@ -29,16 +28,6 @@ describe('genarateTableData', () => {
     const result = genarateTableData(data, fn)
     const wrapper = result[0].cancel
     expect(wrapper).toMatchSnapshot()
-  })
-})
-
-describe('handleFetchSubscriptions', () => {
-  it('should run correctly', () => {
-    const dispatch = jest.fn()
-    const developerId = 'developerId'
-    const fn = handleFetchSubscriptions(dispatch, developerId)
-    fn()
-    expect(dispatch).toBeCalledWith(developerFetchSubscriptions({ developerId }))
   })
 })
 

@@ -13,6 +13,7 @@ import {
   UsersIcon,
   ProfileIcon,
   MenuItem,
+  ApiIcon,
 } from '@reapit/elements-legacy'
 import Routes from '../../constants/routes'
 import { Location } from 'history'
@@ -78,6 +79,13 @@ export const generateMenuConfig = (logoutCallback: () => void, location: Locatio
         key: 'SUBSCRIPTIONS',
         url: Routes.SUBSCRIPTIONS,
         icon: <ResultsIcon />,
+        type: 'PRIMARY',
+      },
+      {
+        title: 'Usage',
+        key: 'USAGE',
+        url: Routes.USAGE,
+        icon: <ApiIcon />,
         type: 'PRIMARY',
       },
       {

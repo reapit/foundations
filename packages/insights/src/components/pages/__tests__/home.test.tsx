@@ -70,15 +70,20 @@ describe('handleEmbedReport', () => {
       token: 'SOME_TOKEN',
     } as PowerBIParams
 
+    const device = {
+      isPortrait: true,
+      isBrowser: true,
+    }
+
     const mockReportRef = {
       current: document.createElement('div'),
     } as MutableRefObject<HTMLDivElement | null>
 
-    const curried = handleEmbedReport(mockReportRef, mockReport)
+    const curried = handleEmbedReport(mockReportRef, mockReport, device)
 
     curried()
 
-    expect(embedPowerBi).toHaveBeenCalledWith(mockReport, mockReportRef)
+    expect(embedPowerBi).toHaveBeenCalledWith(mockReport, mockReportRef, device)
   })
 
   it('should not call embedPowerBi if ref or report are not supplied', () => {
@@ -87,7 +92,12 @@ describe('handleEmbedReport', () => {
       current: null,
     } as MutableRefObject<HTMLDivElement | null>
 
-    const curried = handleEmbedReport(mockReportRef, mockReport)
+    const device = {
+      isPortrait: true,
+      isBrowser: true,
+    }
+
+    const curried = handleEmbedReport(mockReportRef, mockReport, device)
 
     curried()
 

@@ -74,13 +74,13 @@ const labelAddedConditions = [
 ]
 
 const movedColumnResponses = {
-  ['Near Term']:
+  ['near term']:
     "This issue has been updated and moved to our ‘Near Term’ column (typically completed within 1 - 4 months). We have assessed the effort required and outlined a technical specification - please take the time to review this detail. When we're ready to schedule the issue, it will be assigned to the relevant board where you can continue to track its progress to completion. \r\n" +
     'For more information on our processes, [please click here](https://foundations-documentation.reapit.cloud/dev-requests)',
-  ['Mid Term']:
+  ['mid term']:
     "This issue has been updated and moved to our ‘Mid Term’ column (typically completed within 5 - 8 months). We will assess the effort required and may outline a technical specification. When we're ready to schedule the issue, it will be moved to the ‘Near Term’ column. \r\n" +
     'For more information on our processes, [please click here](https://foundations-documentation.reapit.cloud/dev-requests)',
-  ['Long Term']:
+  ['long term']:
     'Whilst the nature of this request has been accepted, we are unable to commit to a specified sprint and therefore have assigned this issue to the ‘Long Term’ column (typically completed 9+ months). We will regularly review any issues and where development capacity is available, or work is aligned with our Roadmap, the issue will be updated. \r\n' +
     'For more information on our processes, [please click here](https://foundations-documentation.reapit.cloud/dev-requests)',
 }
@@ -90,6 +90,7 @@ const ownerships = ['OWNER', 'MEMBER', 'CONTRIBUTOR']
 export default (app) => {
   app.on('issues.opened', async (event) => {
     if (ownerships.includes(event.payload.issue.author_association)) {
+      console.log('association', event.payload.issue.author_association)
       return
     }
 
@@ -111,6 +112,7 @@ export default (app) => {
 
   app.on('issues.labeled', async (event) => {
     if (ownerships.includes(event.payload.issue.author_association)) {
+      console.log('association', event.payload.issue.author_association)
       return
     }
 
@@ -145,7 +147,7 @@ export default (app) => {
       owner: event.payload.repository.owner.login,
     }
 
-    if (!Object.keys(movedColumnResponses).includes(toColumn.data.name)) {
+    if (!Object.keys(movedColumnResponses).includes(toColumn.data.name.toLowerCase())) {
       return
     }
 
@@ -157,18 +159,22 @@ export default (app) => {
     }
 
     if (ownerships.includes(issue.data.author_association)) {
+      console.log('association', event.payload.issue.author_association)
       return
     }
+
+    console.log('test', toColumn.data.name.toLowerCase, Object.keys(movedColumnResponses), movedColumnResponses[toColumn.data.name.toLowerCase])
 
     return event.octokit.issues.createComment({
       issue_number: issue.data.number,
       ...repoInfo,
-      body: movedColumnResponses[toColumn.data.name],
+      body: movedColumnResponses[toColumn.data.name.toLowerCase()],
     })
   })
 
   app.on('issue_comment.created', async (event) => {
     if (ownerships.includes(event.payload.issue.author_association)) {
+      console.log('association', event.payload.issue.author_association)
       return
     }
 

@@ -14,6 +14,11 @@ export enum GetActionNames {
   getProducts = 'getProducts',
   getSandboxes = 'getSandboxes',
   getAppPermissions = 'getAppPermissions',
+  getApiKeysByUserId = 'getApiKeysByUserId',
+  getMember = 'getMember',
+  deleteApiKey = 'deleteApiKey',
+  getBillingDataByMonth = 'getBillingDataByMonth',
+  getInstallations = 'getInstallations',
 }
 
 export type GetActions = { [key in GetActionNames]: GetAction }
@@ -46,5 +51,27 @@ export const getActions = (appEnv: AppEnv): GetActions => ({
     api: ApiNames(appEnv).platform,
     path: PathNames.appPermissions,
     errorMessage: 'Something went wrong fetching app permissions',
+  },
+  [GetActionNames.getApiKeysByUserId]: {
+    api: ApiNames(appEnv).apiKey,
+    path: PathNames.getApiKeyByUserId,
+  },
+  [GetActionNames.getMember]: {
+    api: ApiNames(appEnv).platform,
+    path: PathNames.getMember,
+  },
+  [GetActionNames.deleteApiKey]: {
+    api: ApiNames(appEnv).apiKey,
+    path: PathNames.deleteApiKey,
+  },
+  [GetActionNames.getBillingDataByMonth]: {
+    api: ApiNames(appEnv).platform,
+    path: PathNames.billingDataByMonth,
+    errorMessage: 'Something went wrong fetching billing data',
+  },
+  [GetActionNames.getInstallations]: {
+    api: ApiNames(appEnv).platform,
+    path: PathNames.installations,
+    errorMessage: 'Something went wrong fetching installations',
   },
 })

@@ -33,6 +33,7 @@ export const paginateApiKeys = httpHandler<void, Pagintation<ApiKeyModel>>({
 
     const response = await batchGetApiKeys(
       customer as LoginIdentity & { developerId: string },
+      'developerIdOwnership',
       event?.queryStringParameters?.nextCursor ? { id: event?.queryStringParameters?.nextCursor } : undefined,
     )
 

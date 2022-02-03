@@ -3,6 +3,7 @@
 exports[`ControlledSearchableDropdown component should display default value 1`] = `
 <ForwardRef(SearchableDropdownControlledInner)
   icon="searchSystem"
+  id="some-id"
   isClearVisible={true}
   isResultsListVisible={false}
   loading={false}
@@ -30,6 +31,7 @@ exports[`ControlledSearchableDropdown component should display default value 1`]
 exports[`ControlledSearchableDropdown component should match a snapshot 1`] = `
 <ElSearchableDropdownContainer>
   <input
+    id="some-id"
     readOnly={true}
     style={
       Object {
@@ -52,6 +54,7 @@ exports[`ControlledSearchableDropdown component should match a snapshot 1`] = `
 exports[`SearchableDropdown component should match a snapshot 1`] = `
 <ForwardRef(SearchableDropdownControlledInner)
   icon="searchSystem"
+  id="some-id"
   isClearVisible={false}
   isResultsListVisible={false}
   loading={false}

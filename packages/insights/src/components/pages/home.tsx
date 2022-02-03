@@ -18,15 +18,21 @@ import {
   useMediaQuery,
   useModal,
   elMt5,
+  InputGroup,
+  elWFull,
+  SecondaryNavContainer,
 } from '@reapit/elements'
 import { useReapitConnect, ReapitConnectSession } from '@reapit/connect-session'
 import { reapitConnectBrowserSession } from '../../core/connect-session'
 import { ControlsContainer, MetabaseContainer } from './__styles__/styles'
 import { embedPowerBi, PowerBIParams } from '../../utils/power-bi'
 import { getInstalledReportsService, InstalledReport } from '../../platform-api/installed-reports'
-import { SecondaryNavContainer } from '@reapit/elements'
-import { InputGroup } from '@reapit/elements'
-import { elWFull } from '../../../../elements/src/styles/sizing'
+import { isBrowser } from 'react-device-detect'
+
+export interface Device {
+  isBrowser: boolean
+  isPortrait: boolean
+}
 
 export const handleSelectReport =
   (setInstalledReports: Dispatch<SetStateAction<PowerBIParams | null>>, installedReports: InstalledReport[] | null) =>
@@ -46,9 +52,9 @@ export const handleSelectReport =
   }
 
 export const handleEmbedReport =
-  (reportRef: MutableRefObject<HTMLDivElement | null>, selectedReport: PowerBIParams | null) => () => {
+  (reportRef: MutableRefObject<HTMLDivElement | null>, selectedReport: PowerBIParams | null, device: Device) => () => {
     if (reportRef.current && selectedReport) {
-      embedPowerBi(selectedReport, reportRef)
+      embedPowerBi(selectedReport, reportRef, device)
     }
   }
 
@@ -72,9 +78,51 @@ export const handleInstalledReports =
     }
   }
 
+export const handleDeviceChange = (setDevice: Dispatch<SetStateAction<Device>>) => () => {
+  const handleOrientation = () => {
+    const isPortrait = screen.orientation?.type.includes('portrait')
+
+    setDevice({
+      isPortrait,
+      isBrowser,
+    })
+  }
+
+  const handleOrientationLegacy = () => {
+    const isPortrait = window.orientation === 0 || window.orientation === 180
+
+    setDevice({
+      isPortrait,
+      isBrowser,
+    })
+  }
+
+  if (window.orientation) {
+    window.addEventListener('orientationchange', handleOrientationLegacy, false)
+  }
+
+  if (screen.orientation) {
+    screen.orientation.addEventListener('change', handleOrientation, false)
+  }
+
+  return () => {
+    if (window.orientation) {
+      window.removeEventListener('orientationchange', handleOrientationLegacy, true)
+    }
+
+    if (screen.orientation) {
+      screen.orientation.removeEventListener('change', handleOrientation, false)
+    }
+  }
+}
+
 export const Home: FC = () => {
   const { connectSession } = useReapitConnect(reapitConnectBrowserSession)
   const [selectedReport, setSelectedReport] = useState<PowerBIParams | null>(null)
+  const [device, setDevice] = useState<Device>({
+    isBrowser,
+    isPortrait: false,
+  })
   const [installedReports, setInstalledReports] = useState<InstalledReport[] | null>(null)
   const { isMobile } = useMediaQuery()
   const { Modal, openModal, closeModal } = useModal()
@@ -89,7 +137,9 @@ export const Home: FC = () => {
     loading,
   ])
 
-  useEffect(handleEmbedReport(reportRef, selectedReport), [reportRef, selectedReport])
+  useEffect(handleEmbedReport(reportRef, selectedReport, device), [reportRef, selectedReport, device])
+
+  useEffect(handleDeviceChange(setDevice), [isBrowser])
 
   return (
     <FlexContainer isFlexAuto>

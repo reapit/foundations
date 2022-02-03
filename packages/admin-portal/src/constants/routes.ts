@@ -2,6 +2,7 @@ const Routes = {
   ROOT: '/',
   LOGIN: '/login',
   APPROVALS: '/approvals',
+  USAGE: '/usage',
   BILLING: '/billing',
   APPS: '/apps',
   DEV_MANAGEMENT: '/dev-management',

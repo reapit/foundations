@@ -3,7 +3,6 @@ import { GridFourColItem, FadeIn } from '@reapit/elements-legacy'
 
 import placeHolderImage from '@/assets/images/default-feature-image.jpg'
 import comingSoonImageZoopla from '@/assets/images/coming-soon/Zoopla.jpg'
-import comingSoonImageSpectre from '@/assets/images/coming-soon/6Spectre.jpg'
 import comingSoonImageTwentyCiVMC from '@/assets/images/coming-soon/TwentyCiVMC.jpg'
 import comingSoonImageTwentyci from '@/assets/images/coming-soon/TwentyCiProspect.jpg'
 import comingSoonImageZero from '@/assets/images/coming-soon/8Zero.jpg'
@@ -55,7 +54,6 @@ const comingSoonImagesMap = {
   comingSoonImageZoopla,
   comingSoonImageTwentyci,
   comingSoonImageZero,
-  comingSoonImageSpectre,
   comingSoonSmsSpeedway,
   comingSoonImageTwentyCiVMC,
   comingSoonSmsSpeedWayIdVerification,

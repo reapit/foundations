@@ -48,20 +48,14 @@ export const deployRelease = httpHandler<any, PipelineRunnerEntity>({
       pipeline,
       type: PipelineRunnerType.RELEASE,
       buildVersion: version,
-      // when lambda timesout, build status is not updated to failed prevently github deployments
-      // buildStatus: 'ZIP_RELEASE',
     })
-
-    const s3FileName = `${pipeline.uniqueRepoName}/${pipelineRunner.id}.zip`
-
-    pipelineRunner.S3Location = s3FileName
 
     await new Promise<void>((resolve, reject) =>
       s3Client.putObject(
         {
           Body: file,
           Bucket: process.env.DEPLOYMENT_VERSION_BUCKET_NAME as string,
-          Key: `pipeline/${s3FileName}`,
+          Key: `pipeline/${pipelineRunner.S3Location}`,
         },
         (error) => {
           if (error) {

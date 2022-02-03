@@ -55,6 +55,10 @@ export const deployFromStore = async ({
 }): Promise<void> => {
   const storageLocation = `${pipeline.uniqueRepoName}/${pipelineRunner.id}.zip`
 
+  if (!pipelineRunner.pipeline?.cloudFrontId) {
+    throw new Error('Pipeline does not have sufficiant resources')
+  }
+
   const zip = await getFromVersionS3(storageLocation)
 
   if (!zip.Body) {
