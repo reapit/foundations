@@ -7,9 +7,24 @@
 #import "../fragments/office-model.graphql"
 #import "../fragments/property-model.graphql"
 
-
-query GET_APPOINTMENTS($negotiatorId: [String!], $start: String!, $end: String!, $includeCancelled: Boolean, $includeUnconfirmed: Boolean, $embed: [AppointmentQueryEmbed]) {
-  GetAppointments(negotiatorId: $negotiatorId, start: $start, end: $end, includeCancelled: $includeCancelled, includeUnconfirmed: $includeUnconfirmed, embed: $embed) {
+query GET_APPOINTMENTS(
+  $negotiatorId: [String!]
+  $start: String!
+  $end: String!
+  $includeCancelled: Boolean
+  $includeUnconfirmed: Boolean
+  $embed: [AppointmentQueryEmbed]
+  $pageSize: Int
+) {
+  GetAppointments(
+    negotiatorId: $negotiatorId
+    start: $start
+    end: $end
+    includeCancelled: $includeCancelled
+    includeUnconfirmed: $includeUnconfirmed
+    embed: $embed
+    pageSize: $pageSize
+  ) {
     pageNumber
     pageSize
     pageCount
@@ -17,7 +32,7 @@ query GET_APPOINTMENTS($negotiatorId: [String!], $start: String!, $end: String!,
     _links
     _embedded {
       ...AppointmentModel
-      property{
+      property {
         ...PropertyModel
       }
       negotiators {
