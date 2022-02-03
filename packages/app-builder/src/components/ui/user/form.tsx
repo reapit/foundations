@@ -14,6 +14,7 @@ import { TypeList } from './type-list'
 import { Button } from '@reapit/elements'
 import { useUpdateCustomEntity } from '@/components/hooks/custom-entities/use-update-custom-entity'
 import { useCustomEntity } from '@/components/hooks/custom-entities/use-custom-entity'
+import { useObject } from '@/components/hooks/objects/use-object'
 
 const defaultProps = {
   destination: '/',
@@ -46,6 +47,7 @@ const FormSettings = () => {
   const { args } = useObjectMutate(formType, typeName)
   const { updateCustomEntity } = useUpdateCustomEntity()
   const { customEntity } = useCustomEntity(typeName)
+  const { object } = useObject(typeName)
 
   const { addInput, setInputs, actions } = useEditor((state, query) => {
     const addInput = (input: FormInputProps, parentNodeId: string) => {
@@ -115,36 +117,38 @@ const FormSettings = () => {
             Select a Type
           </option>
         </ToolbarItem>
-        <Button
-          onClick={async () => {
-            const name = prompt('Enter a name for the input')
-            if (name) {
-              const existingFields = customEntity?.fields || []
-              updateCustomEntity(typeName, {
-                name: typeName,
-                id: typeName,
-                fields: [
-                  ...existingFields,
+        {object?.supportsCustomFields && (
+          <Button
+            onClick={async () => {
+              const name = prompt('Enter a name for the input')
+              if (name) {
+                const existingFields = customEntity?.fields || []
+                updateCustomEntity(typeName, {
+                  name: typeName,
+                  id: typeName,
+                  fields: [
+                    ...existingFields,
+                    {
+                      name,
+                      id: name,
+                      type: 'string',
+                    },
+                  ],
+                })
+                addInput(
                   {
                     name,
-                    id: name,
-                    type: 'string',
+                    typeName,
+                    formType,
                   },
-                ],
-              })
-              addInput(
-                {
-                  name,
-                  typeName,
-                  formType,
-                },
-                nodeId,
-              )
-            }
-          }}
-        >
-          Add New Input
-        </Button>
+                  nodeId,
+                )
+              }
+            }}
+          >
+            Add New Input
+          </Button>
+        )}
       </ToolbarSection>
       <DestinationPage propKey="destination" title="Redirect To" />
     </>

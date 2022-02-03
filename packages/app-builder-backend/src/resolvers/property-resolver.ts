@@ -46,6 +46,7 @@ const searchProperties = async (queryStr: string, accessToken: string, idToken: 
 
 const apiPropertiesToProperty = (properties: PropertyModelPagedResult['_embedded']): Property[] =>
   properties?.filter(notEmpty).map((property) => ({
+    ...(property.metadata || {}),
     ...property,
     id: property.id as string,
     type: property.type as string[],

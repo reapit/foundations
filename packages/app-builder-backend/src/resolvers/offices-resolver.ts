@@ -11,6 +11,7 @@ const getOfficesQuery = gql`
       _embedded {
         id
         name
+        metadata
       }
     }
   }
@@ -21,7 +22,10 @@ const getOffices = async (accessToken: string, idToken: string) => {
     accessToken,
     idToken,
   })
-  return _embedded
+  return _embedded.map((office) => ({
+    ...(office.metadata || {}),
+    ...office,
+  }))
 }
 
 @Resolver(() => Office)

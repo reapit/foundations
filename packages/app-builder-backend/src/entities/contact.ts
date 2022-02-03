@@ -1,7 +1,7 @@
 import { gql } from 'apollo-server-core'
 import { ObjectType, Field, ID } from 'type-graphql'
 
-@ObjectType({ description: '@labelKeys(title, forename, surname)' })
+@ObjectType({ description: '@labelKeys(title, forename, surname) @supportsCustomFields()' })
 export class Contact {
   @Field(() => ID)
   id: string
@@ -14,6 +14,8 @@ export class Contact {
 
   @Field()
   title: string
+
+  metadata?: any
 }
 
 export const ContactFragment = gql`
@@ -22,5 +24,6 @@ export const ContactFragment = gql`
     title
     forename
     surname
+    metadata
   }
 `

@@ -36,6 +36,7 @@ export const PropertyFragment = gql`
         order
       }
     }
+    metadata
   }
 `
 
@@ -87,7 +88,9 @@ class Image {
   order: number
 }
 
-@ObjectType()
+@ObjectType({
+  description: '@supportsCustomFields()',
+})
 export class Property {
   @Field(() => ID, {
     description: '@acKey(prpCode)',
@@ -132,4 +135,6 @@ export class Property {
 
   @Field({ nullable: true })
   status?: string
+
+  metadata?: any
 }

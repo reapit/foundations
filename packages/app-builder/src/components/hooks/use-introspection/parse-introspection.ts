@@ -15,6 +15,7 @@ import { isIntrospectionEnumType, isIntrospectionInputObjectType, isIntrospectio
 
 export type IntrospectionResult = {
   object: IntrospectionObjectType
+  supportsCustomFields: boolean
   acKeyField?: IntrospectionField & { acKey: string }
   labelKeys?: string[]
   list?: GeneratedQuery
@@ -75,6 +76,7 @@ export const parseIntrospectionResult = (introspection: IntrospectionQuery): Int
       object,
       labelKeys,
       acKeyField,
+      supportsCustomFields: !!object.description?.includes('@supportsCustomFields()'),
       list: getListQuery(queries, objectTypes, inputObjectTypes, enums, false),
       search: getListQuery(queries, objectTypes, inputObjectTypes, enums, true),
       get: getGetQuery(queries, objectTypes, inputObjectTypes, enums),
