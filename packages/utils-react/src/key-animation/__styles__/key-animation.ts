@@ -33,9 +33,6 @@ export const triangle3 = css`
 `
 
 export const animationStep1 = css`
-  .${key} {
-    transform: translate(0px);
-  }
 `
 
 export const animationStep2 = css`
