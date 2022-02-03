@@ -8,6 +8,7 @@ import {
   ManyToOne,
   TreeParent,
   Tree,
+  BeforeInsert,
 } from 'typeorm'
 import {
   PipelineRunnerModelInterface,
@@ -76,6 +77,11 @@ export class PipelineRunnerEntity extends AbstractEntity implements PipelineRunn
    */
   @Column({ default: false })
   currentlyDeployed: boolean = false
+
+  @BeforeInsert()
+  beforeInsert(event) {
+    this.S3Location = `${event.entity.pipeline.uniqueRepoName}/${this.id}.zip`
+  }
 }
 
 @Entity('pipelines')
