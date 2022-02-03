@@ -28,8 +28,8 @@ export const KeyAnimation: FC<{ step: 1 | 2 | 3 }> = ({ step }) => {
     <>
       <svg
         className={cx(svg, resolveAnimationStep(step))}
-        width="306"
-        height="900"
+        width="auto"
+        height="auto"
         viewBox="0 0 360 900"
         preserveAspectRatio="xMinYMin meet"
         fill="none"
