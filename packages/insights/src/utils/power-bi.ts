@@ -19,8 +19,6 @@ export const embedPowerBi = (
   if (!token || !embeddedUrl || !reportId || !containerRef.current) return null
   const layoutType = isMobile ? 'MobilePortrait' : 'Master'
 
-  console.log(layoutType)
-
   const embedConfiguration: IEmbedConfiguration = {
     type: 'report',
     tokenType: models.TokenType.Embed,
