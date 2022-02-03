@@ -1,8 +1,8 @@
 import React, { useEffect } from 'react'
+import { useEditor, useNode, Node, NodeHelpersType } from '@craftjs/core'
+
 import Container from './container'
 import { ToolbarItem, ToolbarItemType, ToolbarSection } from '../toolbar'
-import { useTypeList } from '../../hooks/objects/use-type-list'
-import { useEditor, useNode, Node, NodeHelpersType } from '@craftjs/core'
 import { DestinationPage } from './link'
 import { FormProps, Form as EForm } from './ejectable/form'
 import { useObjectSpecials } from '../../hooks/objects/use-object-specials'
@@ -10,6 +10,11 @@ import { FormInput } from './form-input'
 import { FormInputProps } from './ejectable/form-input'
 import { useObjectMutate } from '../../hooks/objects/use-object-mutate'
 import { IntegrationLanding } from './table'
+import { TypeList } from './type-list'
+import { Button } from '@reapit/elements'
+import { useUpdateCustomEntity } from '@/components/hooks/custom-entities/use-update-custom-entity'
+import { useCustomEntity } from '@/components/hooks/custom-entities/use-custom-entity'
+import { useObject } from '@/components/hooks/objects/use-object'
 
 const defaultProps = {
   destination: '/',
@@ -29,7 +34,6 @@ const Form = (props: FormProps) => {
 const ContainerSettings = Container.craft.related.toolbar
 
 const FormSettings = () => {
-  const { data, loading } = useTypeList()
   const {
     props: { typeName, formType },
     nodeId,
@@ -39,10 +43,19 @@ const FormSettings = () => {
       props: node.data.props,
     }
   })
-  const { args } = useObjectMutate(formType, typeName)
 
-  const { setInputs, actions } = useEditor((state, query) => {
+  const { args } = useObjectMutate(formType, typeName)
+  const { updateCustomEntity } = useUpdateCustomEntity()
+  const { customEntity } = useCustomEntity(typeName)
+  const { object } = useObject(typeName)
+
+  const { addInput, setInputs, actions } = useEditor((state, query) => {
+    const addInput = (input: FormInputProps, parentNodeId: string) => {
+      const nodeTree = query.parseReactElement(<FormInput {...input} />).toNodeTree()
+      actions.addNodeTree(nodeTree, parentNodeId)
+    }
     return {
+      addInput,
       setInputs: (inputs: FormInputProps[], parentNodeId: string) => {
         query
           .node(parentNodeId)
@@ -54,11 +67,7 @@ const FormSettings = () => {
               // do nothing
             }
           })
-        inputs
-          .map((props) => query.parseReactElement(<FormInput {...props} />).toNodeTree())
-          .forEach((nodeTree) => {
-            actions.addNodeTree(nodeTree, parentNodeId)
-          })
+        inputs.forEach((input) => addInput(input, parentNodeId))
       },
     }
   })
@@ -87,25 +96,7 @@ const FormSettings = () => {
           return `Form of ${typeName || ''}${typeName ? 's' : ''}`
         }}
       >
-        <ToolbarItem
-          type={ToolbarItemType.Select}
-          onChange={() => {
-            setTimeout(() => {
-              setShouldUpdate(true)
-            }, 100)
-          }}
-          propKey="typeName"
-          title="Object Type"
-        >
-          {(data || []).map((typeName) => (
-            <option key={typeName} value={typeName}>
-              {typeName}
-            </option>
-          ))}
-          <option value="" disabled>
-            {loading ? 'Loading...' : 'Select a Type'}
-          </option>
-        </ToolbarItem>
+        <TypeList />
         <IntegrationLanding typeName={typeName} />
         <ToolbarItem
           type={ToolbarItemType.Select}
@@ -126,6 +117,38 @@ const FormSettings = () => {
             Select a Type
           </option>
         </ToolbarItem>
+        {object?.supportsCustomFields && (
+          <Button
+            onClick={async () => {
+              const name = prompt('Enter a name for the input')
+              if (name) {
+                const existingFields = customEntity?.fields || []
+                updateCustomEntity(typeName, {
+                  name: typeName,
+                  id: typeName,
+                  fields: [
+                    ...existingFields,
+                    {
+                      name,
+                      id: name,
+                      type: 'string',
+                    },
+                  ],
+                })
+                addInput(
+                  {
+                    name,
+                    typeName,
+                    formType,
+                  },
+                  nodeId,
+                )
+              }
+            }}
+          >
+            Add New Input
+          </Button>
+        )}
       </ToolbarSection>
       <DestinationPage propKey="destination" title="Redirect To" />
     </>

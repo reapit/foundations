@@ -44,13 +44,19 @@ export class ContactResolver {
   @Query(() => [Contact])
   async listContacts(@Ctx() { accessToken, idToken }: Context): Promise<Contact[]> {
     const { _embedded } = await getContacts(accessToken, idToken)
-    return _embedded
+    return _embedded.map((contact) => ({
+      ...(contact.metadata || {}),
+      ...contact,
+    }))
   }
 
   @Authorized()
   @Query(() => [Contact])
   async searchContacts(@Ctx() { accessToken, idToken }: Context, @Arg('query') queryStr: string): Promise<Contact[]> {
     const { _embedded } = await searchContacts(queryStr, accessToken, idToken)
-    return _embedded
+    return _embedded.map((contact) => ({
+      ...(contact.metadata || {}),
+      ...contact,
+    }))
   }
 }

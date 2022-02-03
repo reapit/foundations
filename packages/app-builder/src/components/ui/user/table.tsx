@@ -1,8 +1,7 @@
 import React from 'react'
-import { ToolbarItem, ToolbarItemType, ToolbarSection } from '../toolbar'
-import { useTypeList } from '@/components/hooks/objects/use-type-list'
-import Container from './container'
 import { useEditor, useNode } from '@craftjs/core'
+import { ToolbarItem, ToolbarItemType, ToolbarSection } from '../toolbar'
+import Container from './container'
 import { DestinationPage } from './link'
 import { TableProps, Table as ETable } from './ejectable/table'
 import { useSubObjects } from '@/components/hooks/objects/use-sub-objects'
@@ -12,6 +11,7 @@ import { getAvailableIntegrationsForArgs } from '@/core/desktop-integration'
 import { useObjectList } from '@/components/hooks/objects/use-object-list'
 import { useIntrospection } from '@/components/hooks/use-introspection'
 import { CreatePage } from './create-page'
+import { TypeList } from './type-list'
 
 const defaultProps = {}
 
@@ -59,7 +59,6 @@ export const IntegrationLanding = ({ typeName }: { typeName: string | undefined 
 }
 
 const TableSettings = () => {
-  const { data, loading } = useTypeList()
   const { typeName } = useNode((node) => node.data.props)
   const subobjects = useSubObjects(typeName)
   const { specials } = useObjectSpecials(typeName)
@@ -85,16 +84,7 @@ const TableSettings = () => {
           return `Table of ${typeName || ''}${typeName ? 's' : ''}`
         }}
       >
-        <ToolbarItem type={ToolbarItemType.Select} propKey="typeName" title="Object Type">
-          {(data || []).map((typeName) => (
-            <option key={typeName} value={typeName}>
-              {typeName}
-            </option>
-          ))}
-          <option value="" disabled>
-            {loading ? 'Loading...' : 'Select a Type'}
-          </option>
-        </ToolbarItem>
+        <TypeList />
       </ToolbarSection>
       <DestinationPage
         sectionTitle="Edit Page"

@@ -43,13 +43,19 @@ export class NegotiatorResolver {
   @Query(() => [Negotiator])
   async listNegotiators(@Ctx() { accessToken, idToken }: Context) {
     const { _embedded } = await getNegotiators(accessToken, idToken)
-    return _embedded
+    return _embedded.map((negotiator) => ({
+      ...(negotiator.metadata || {}),
+      ...negotiator,
+    }))
   }
 
   @Authorized()
   @Query(() => [Negotiator])
   async searchNegotiators(@Ctx() { accessToken, idToken }: Context, @Arg('query') queryStr: string) {
     const { _embedded } = await searchNegotiators(queryStr, accessToken, idToken)
-    return _embedded
+    return _embedded.map((negotiator) => ({
+      ...(negotiator.metadata || {}),
+      ...negotiator,
+    }))
   }
 }

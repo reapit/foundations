@@ -26,7 +26,7 @@ import {
   updateMetadataObject,
 } from './platform'
 import { notEmpty } from './utils/helpers'
-import { CustomEntityResolver } from './resolvers/custom-entity-resolver'
+import { CustomEntityResolver, PLACEHOLDER } from './resolvers/custom-entity-resolver'
 
 const noT = (str: string) => str.split('T0').join('')
 
@@ -35,14 +35,16 @@ const metadataSchemaToGraphQL = (metadataSchema: SchemaModel) => {
     return
   }
 
+  const parsedSchema = JSON.parse(metadataSchema.schema)
+
   const output = getGraphqlSchemaFromJsonSchema({
     rootName: metadataSchema.id || 'object',
-    schema: JSON.parse(metadataSchema.schema),
+    schema: parsedSchema,
   })
 
   const input = getGraphqlSchemaFromJsonSchema({
-    rootName: 'input' + (metadataSchema.id || 'object'),
-    schema: JSON.parse(metadataSchema.schema),
+    rootName: (metadataSchema.id || 'object') + 'Input',
+    schema: parsedSchema,
     direction: 'input',
   })
 
@@ -51,7 +53,7 @@ const metadataSchemaToGraphQL = (metadataSchema: SchemaModel) => {
     .join(`type ${noT(output.typeName)} {\n id: ID!\n`)
 
   return {
-    typeDefinitions: typeDefinitions,
+    typeDefinitions,
     typeName: noT(output.typeName),
     inputTypeName: noT(input.typeName),
   }
@@ -160,7 +162,10 @@ const generateMutations = (typeName: string, inputTypeName: string): { mutations
   }
 }
 
-const generateDynamicSchema = async (context?: Context): Promise<GraphQLSchema | undefined> => {
+const generateDynamicSchema = async (
+  baseSchema: GraphQLSchema,
+  context?: Context,
+): Promise<{ schema: GraphQLSchema | undefined; extendedTypedefs: string }> => {
   let typeDefs = ''
   const resolvers = {
     Query: {},
@@ -169,19 +174,31 @@ const generateDynamicSchema = async (context?: Context): Promise<GraphQLSchema |
   let query = ''
   let mutation = ''
 
-  if (context) {
+  let extendedTypedefs = ''
+
+  if (context && context.accessToken) {
     const metadataSchemas = await getMetadataSchemas(context?.accessToken)
     metadataSchemas
       ?.map(metadataSchemaToGraphQL)
       .filter(notEmpty)
       .forEach(({ typeName, inputTypeName, typeDefinitions }) => {
-        typeDefs += typeDefinitions
-        const queries = generateQueries(typeName)
-        const mutations = generateMutations(typeName, inputTypeName)
-        resolvers.Query = { ...resolvers.Query, ...queries.resolvers }
-        query += queries.queries
-        resolvers.Mutation = { ...resolvers.Mutation, ...mutations.resolvers }
-        mutation += mutations.mutations
+        if (baseSchema.getType(typeName)) {
+          extendedTypedefs += typeDefinitions
+            .split(`type ${typeName}`)
+            .join(`extend type ${typeName}`)
+            .split(`input ${inputTypeName}`)
+            .join(`extend input ${inputTypeName}`)
+            .split('id: ID!')
+            .join('')
+        } else {
+          typeDefs += typeDefinitions
+          const queries = generateQueries(typeName)
+          const mutations = generateMutations(typeName, inputTypeName)
+          resolvers.Query = { ...resolvers.Query, ...queries.resolvers }
+          query += '\n' + queries.queries
+          resolvers.Mutation = { ...resolvers.Mutation, ...mutations.resolvers }
+          mutation += '\n' + mutations.mutations
+        }
       })
   }
 
@@ -189,14 +206,18 @@ const generateDynamicSchema = async (context?: Context): Promise<GraphQLSchema |
     .filter(notEmpty)
     .join('\n')
 
-  const allTypeDefinitions = [typeDefs, schemaStr].join('\n')
-
-  return allTypeDefinitions.trim()
+  const allTypeDefinitions = [typeDefs, schemaStr].join('\n').split('__placeholder').join(PLACEHOLDER)
+  const schema = allTypeDefinitions.trim()
     ? makeExecutableSchema({
         typeDefs: allTypeDefinitions,
         resolvers,
       })
     : undefined
+
+  return {
+    schema,
+    extendedTypedefs,
+  }
 }
 
 export const getSchema = async (context?: Context) => {
@@ -218,13 +239,18 @@ export const getSchema = async (context?: Context) => {
 
   const subschemas = [{ schema: baseSchema }]
 
-  const dynamicSchema = await generateDynamicSchema(context)
+  const { schema, extendedTypedefs } = await generateDynamicSchema(baseSchema, context)
 
-  if (dynamicSchema) {
-    subschemas.push({ schema: dynamicSchema })
+  if (schema) {
+    subschemas.push({
+      schema,
+    })
   }
 
-  return stitchSchemas({
+  const schemas = stitchSchemas({
     subschemas,
+    typeDefs: extendedTypedefs,
   })
+
+  return schemas
 }

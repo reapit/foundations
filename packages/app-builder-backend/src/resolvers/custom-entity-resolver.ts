@@ -11,6 +11,8 @@ import {
 } from '../platform'
 import { Context } from '../types'
 
+export const PLACEHOLDER = '_placeholder'
+
 const metadataSchemaToCustomEntity = (metadataSchema: SchemaModel): CustomEntity => {
   if (!metadataSchema.schema) {
     throw new Error('Metadata schema is missing schema')
@@ -24,11 +26,13 @@ const metadataSchemaToCustomEntity = (metadataSchema: SchemaModel): CustomEntity
   return {
     id: metadataSchema.id,
     name: metadataSchema.id,
-    fields: Object.keys(schema.properties).map((fieldName) => ({
-      id: fieldName,
-      name: fieldName,
-      type: schema.properties[fieldName].type,
-    })),
+    fields: Object.keys(schema.properties)
+      .filter((fieldName) => fieldName !== PLACEHOLDER)
+      .map((fieldName) => ({
+        id: fieldName,
+        name: fieldName,
+        type: schema.properties[fieldName].type,
+      })),
   }
 }
 const customEntityToMetadataSchema = (customEntity: CustomEntity): CreateSchemaRequest => {
@@ -43,8 +47,14 @@ const customEntityToMetadataSchema = (customEntity: CustomEntity): CreateSchemaR
   }
 
   const schema = {
+    $schema: 'http://json-schema.org/draft-04/schema#',
     type: 'object',
-    properties: {},
+    properties: {
+      // needed so it's not empty
+      [PLACEHOLDER]: {
+        type: 'string',
+      },
+    },
   }
 
   customEntity.fields.forEach((field) => {
@@ -94,7 +104,14 @@ export class CustomEntityResolver {
     @Arg('customEntity', () => CustomEntityInput) customEntity: CustomEntityInput,
     @Ctx() context: Context,
   ): Promise<CustomEntity> {
-    const result = await updateMetadataSchema(id, customEntityToMetadataSchema(customEntity), context.accessToken)
-    return metadataSchemaToCustomEntity(result)
+    try {
+      const result = await updateMetadataSchema(id, customEntityToMetadataSchema(customEntity), context.accessToken)
+      return metadataSchemaToCustomEntity(result)
+    } catch (e: any) {
+      if (e.message.endsWith('404')) {
+        return this.createCustomEntity(customEntity, context)
+      }
+      throw e
+    }
   }
 }

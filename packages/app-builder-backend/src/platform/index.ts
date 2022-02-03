@@ -125,13 +125,16 @@ export const createMetadataSchema = async (schema: CreateSchemaRequest, accessTo
     redirect: 'follow',
     body: JSON.stringify(schema),
   })
+  if (res.status >= 400) {
+    throw new Error(`Failed to create metadata schema: ${res.status}`)
+  }
   const parts = res.headers.get('location')?.split('/') || []
   const id = parts[parts.length - 1]
   return getMetadataSchema(id, accessToken)
 }
 
 export const updateMetadataSchema = async (id: string, schema: UpdateSchemaRequest, accessToken: string) => {
-  const res = await fetch(`${platformApiUrl}/metadata/metadataSchema/${id}`, {
+  await fetch(`${platformApiUrl}/metadata/metadataSchema/${id}`, {
     method: 'PUT',
     headers: {
       Authorization: `Bearer ${accessToken}`,
@@ -141,9 +144,7 @@ export const updateMetadataSchema = async (id: string, schema: UpdateSchemaReque
     redirect: 'follow',
     body: JSON.stringify(schema),
   })
-  const parts = res.headers.get('location')?.split('/') || []
-  const newId = parts[parts.length - 1]
-  return getMetadataSchema(newId, accessToken)
+  return getMetadataSchema(id, accessToken)
 }
 
 const ENTITY_ID = 'dataType'
