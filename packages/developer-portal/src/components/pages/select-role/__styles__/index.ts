@@ -1,8 +1,22 @@
 import { styled } from '@linaria/react'
-import { forTabletAndBelow } from '@/core/__styles__/media'
+import { forMobileOnly } from '@/core/__styles__/media'
+
+export const RegisterContainer = styled.div`
+  min-width: 100vw;
+  display: flex;
+  justify-content: space-between;
+  flex-direction: row;
+  background-color: var(--color-white);
+  height: 100vh;
+  overflow-y: auto;
+
+  ${forMobileOnly} {
+    flex-direction: column;
+    justify-content: center;
+  }
+`
 
 export const RegisterRoleTile = styled.div`
-  width: calc(50% - 1.875rem);
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -27,29 +41,28 @@ export const RegisterRoleTile = styled.div`
 
 export const RegisterContentWrapper = styled.div`
   background-color: var(--color-white);
-  width: 50%;
-  padding: 2rem;
+  max-width: 21rem;
   pointer-events: auto;
-  margin: 0 auto;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+  margin: auto;
 
   img {
-    max-width: 200px;
-    margin: 0 auto;
+    width: 15rem;
+    margin: 0 auto 6rem auto;
     display: block;
   }
 
-  ${forTabletAndBelow} {
+  ${forMobileOnly} {
     width: 100%;
+    margin: 0 auto;
   }
 `
 
 export const RegisterImageContainer = styled.div`
-  background-color: var(--color-grey-white);
-  width: 50%;
-  height: 100vh;
-  font-size: 0;
-
-  ${forTabletAndBelow} {
+  ${forMobileOnly} {
     display: none;
   }
 `

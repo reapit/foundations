@@ -1,6 +1,5 @@
 import { KeyAnimation } from '@reapit/utils-react'
 import React, { FC, useState } from 'react'
-import { container } from '../login/__styles__/login'
 import connectImage from '@/assets/images/reapit-connect.png'
 import {
   FlexContainer,
@@ -14,9 +13,10 @@ import {
   elPx6,
   elMr5,
   SmallText,
+  Title,
 } from '@reapit/elements'
 import { onLoginButtonClick } from '../login/login'
-import { RegisterContentWrapper, RegisterImageContainer, RegisterRoleTile } from './__styles__'
+import { RegisterContainer, RegisterContentWrapper, RegisterImageContainer, RegisterRoleTile } from './__styles__'
 import { cx } from '@linaria/core'
 
 export const SelectRolePage: FC = () => {
@@ -24,71 +24,78 @@ export const SelectRolePage: FC = () => {
   const { Modal, openModal, closeModal } = useModal()
 
   return (
-    <div className={container}>
+    <RegisterContainer>
       <RegisterImageContainer>
         <KeyAnimation step={keyStep} />
       </RegisterImageContainer>
-      <RegisterContentWrapper>
+      <RegisterContentWrapper
+        onMouseOver={() => {
+          setKeyStep(3)
+        }}
+        onMouseOut={() => {
+          setKeyStep(1)
+        }}
+      >
         <img src={connectImage} alt="Reapit Connect Graphic" />
-        <Subtitle hasBoldText>Select an option that best describes you to register</Subtitle>
-        <FlexContainer
-          isFlexWrap
-          onMouseOver={() => {
-            setKeyStep(3)
-          }}
-          onMouseOut={() => {
-            setKeyStep(1)
-          }}
-        >
-          <RegisterRoleTile>
-            <FlexContainer onClick={openModal}>
-              <Icon className={elMr5} fontSize="4rem" icon="newCustomerInfographic" />
+        <Title hasNoMargin>Select an option</Title>
+        <Subtitle>that best describes you to register</Subtitle>
+
+        <RegisterRoleTile>
+          <FlexContainer onClick={openModal}>
+            <Icon className={elMr5} fontSize="4rem" icon="newCustomerInfographic" />
+            <FlexContainer isFlexJustifyCenter isFlexColumn>
+              <BodyText>Prospective Customer</BodyText>
+              <SmallText hasGreyText hasNoMargin>
+                Interested in Reapit Products, not currently a subscriber
+              </SmallText>
+            </FlexContainer>
+          </FlexContainer>
+        </RegisterRoleTile>
+        <RegisterRoleTile>
+          <FlexContainer onClick={onLoginButtonClick()}>
+            <Icon className={elMr5} fontSize="4rem" icon="foundationsCustomerInfographic" />
+            <FlexContainer isFlexJustifyCenter isFlexColumn>
+              <BodyText>Existing Customer</BodyText>
+              <SmallText hasGreyText hasNoMargin>
+                Existing Reapit AgencyCloud (desktop CRM) subscriber
+              </SmallText>
+            </FlexContainer>
+          </FlexContainer>
+        </RegisterRoleTile>
+        <RegisterRoleTile>
+          <a
+            href="https://docs.google.com/forms/d/e/1FAIpQLSetMK5HFLBINWZfVvOO5iblXj8YWWgnKdt0rbFeJkxnZm0MaQ/viewform"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            <FlexContainer>
+              <Icon className={elMr5} fontSize="4rem" icon="webDeveloperInfographic" />
               <FlexContainer isFlexJustifyCenter isFlexColumn>
-                <BodyText>Prospective Customer</BodyText>
-                <SmallText hasGreyText>Interested in Reapit Products, not currently a subscriber</SmallText>
+                <BodyText>Third-party developer</BodyText>
+                <SmallText hasGreyText hasNoMargin>
+                  Working on-behalf of a Reapit customer, e.g. website developer
+                </SmallText>
               </FlexContainer>
             </FlexContainer>
-          </RegisterRoleTile>
-          <RegisterRoleTile>
-            <FlexContainer onClick={onLoginButtonClick()}>
-              <Icon className={elMr5} fontSize="4rem" icon="foundationsCustomerInfographic" />
+          </a>
+        </RegisterRoleTile>
+        <RegisterRoleTile>
+          <a
+            href="https://docs.google.com/forms/d/e/1FAIpQLSetMK5HFLBINWZfVvOO5iblXj8YWWgnKdt0rbFeJkxnZm0MaQ/viewform"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            <FlexContainer>
+              <Icon className={elMr5} fontSize="4rem" icon="propTechInfographic" />
               <FlexContainer isFlexJustifyCenter isFlexColumn>
-                <BodyText>Existing Customer</BodyText>
-                <SmallText hasGreyText>Existing Reapit AgencyCloud (desktop CRM) subscriber</SmallText>
+                <BodyText>PropTech</BodyText>
+                <SmallText hasGreyText hasNoMargin>
+                  Independent company building an app or integration
+                </SmallText>
               </FlexContainer>
             </FlexContainer>
-          </RegisterRoleTile>
-          <RegisterRoleTile>
-            <a
-              href="https://docs.google.com/forms/d/e/1FAIpQLSetMK5HFLBINWZfVvOO5iblXj8YWWgnKdt0rbFeJkxnZm0MaQ/viewform"
-              target="_blank"
-              rel="noopener noreferrer"
-            >
-              <FlexContainer>
-                <Icon className={elMr5} fontSize="4rem" icon="webDeveloperInfographic" />
-                <FlexContainer isFlexJustifyCenter isFlexColumn>
-                  <BodyText>Third-party developer</BodyText>
-                  <SmallText hasGreyText>Working on-behalf of a Reapit customer, e.g. website developer</SmallText>
-                </FlexContainer>
-              </FlexContainer>
-            </a>
-          </RegisterRoleTile>
-          <RegisterRoleTile>
-            <a
-              href="https://docs.google.com/forms/d/e/1FAIpQLSetMK5HFLBINWZfVvOO5iblXj8YWWgnKdt0rbFeJkxnZm0MaQ/viewform"
-              target="_blank"
-              rel="noopener noreferrer"
-            >
-              <FlexContainer>
-                <Icon className={elMr5} fontSize="4rem" icon="propTechInfographic" />
-                <FlexContainer isFlexJustifyCenter isFlexColumn>
-                  <BodyText>PropTech</BodyText>
-                  <SmallText hasGreyText>Independent company building an app or integration</SmallText>
-                </FlexContainer>
-              </FlexContainer>
-            </a>
-          </RegisterRoleTile>
-        </FlexContainer>
+          </a>
+        </RegisterRoleTile>
       </RegisterContentWrapper>
       <Modal title="Submit Email">
         <FlexContainer className={cx(elMb7, elPx6)}>
@@ -116,7 +123,7 @@ export const SelectRolePage: FC = () => {
           </Button>
         </ButtonGroup>
       </Modal>
-    </div>
+    </RegisterContainer>
   )
 }
 
