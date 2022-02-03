@@ -31,6 +31,7 @@ export const KeyAnimation: FC<{ step: 1 | 2 | 3 }> = ({ step }) => {
         width="306"
         height="900"
         viewBox="0 0 360 900"
+        preserveAspectRatio="xMinYMin meet"
         fill="none"
         xmlns="http://www.w3.org/2000/svg"
       >
