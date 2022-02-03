@@ -124,6 +124,10 @@ import userDeviceInfographic from './infographic-icons/userDeviceInfographic'
 import userHouseInfographic from './infographic-icons/userHouseInfographic'
 import userInfographic from './infographic-icons/userInfographic'
 import userAuthInfographic from './infographic-icons/userAuthInfographic'
+import foundationsCustomerInfographic from './infographic-icons/foundationsCustomerInfographic'
+import newCustomerInfographic from './infographic-icons/newCustomerInfographic'
+import propTechInfographic from './infographic-icons/propTechInfographic'
+import webDeveloperInfographic from './infographic-icons/webDeveloperInfographic'
 
 export const iconSet = {
   addSystem,
@@ -252,4 +256,8 @@ export const iconSet = {
   userHouseInfographic,
   userInfographic,
   userAuthInfographic,
+  foundationsCustomerInfographic,
+  newCustomerInfographic,
+  propTechInfographic,
+  webDeveloperInfographic,
 }

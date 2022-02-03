@@ -30,9 +30,7 @@ export const SelectRolePage: FC = () => {
       </RegisterImageContainer>
       <RegisterContentWrapper>
         <img src={connectImage} alt="Reapit Connect Graphic" />
-        <Subtitle hasBoldText hasCenteredText>
-          Select an option that best describes you to register
-        </Subtitle>
+        <Subtitle hasBoldText>Select an option that best describes you to register</Subtitle>
         <FlexContainer
           isFlexWrap
           onMouseOver={() => {
@@ -42,19 +40,23 @@ export const SelectRolePage: FC = () => {
             setKeyStep(1)
           }}
         >
-          <RegisterRoleTile onClick={openModal}>
-            <Subtitle hasCenteredText>Prospective Customer</Subtitle>
-            <SmallText hasCenteredText hasGreyText>
-              Interested in Reapit Products, not currently a subscriber
-            </SmallText>
-            <Icon iconSize="large" icon="userInfographic" />
+          <RegisterRoleTile>
+            <FlexContainer onClick={openModal}>
+              <Icon className={elMr5} fontSize="4rem" icon="newCustomerInfographic" />
+              <FlexContainer isFlexJustifyCenter isFlexColumn>
+                <BodyText>Prospective Customer</BodyText>
+                <SmallText hasGreyText>Interested in Reapit Products, not currently a subscriber</SmallText>
+              </FlexContainer>
+            </FlexContainer>
           </RegisterRoleTile>
-          <RegisterRoleTile onClick={onLoginButtonClick()}>
-            <Subtitle hasCenteredText>Existing Customer</Subtitle>
-            <SmallText hasCenteredText hasGreyText>
-              Existing Reapit AgencyCloud (desktop CRM) subscriber
-            </SmallText>
-            <Icon iconSize="large" icon="userDeviceInfographic" />
+          <RegisterRoleTile>
+            <FlexContainer onClick={onLoginButtonClick()}>
+              <Icon className={elMr5} fontSize="4rem" icon="foundationsCustomerInfographic" />
+              <FlexContainer isFlexJustifyCenter isFlexColumn>
+                <BodyText>Existing Customer</BodyText>
+                <SmallText hasGreyText>Existing Reapit AgencyCloud (desktop CRM) subscriber</SmallText>
+              </FlexContainer>
+            </FlexContainer>
           </RegisterRoleTile>
           <RegisterRoleTile>
             <a
@@ -62,11 +64,13 @@ export const SelectRolePage: FC = () => {
               target="_blank"
               rel="noopener noreferrer"
             >
-              <Subtitle hasCenteredText>Third-party developer</Subtitle>
-              <SmallText hasCenteredText hasGreyText>
-                Working on-behalf of a Reapit customer, e.g. website developer
-              </SmallText>
-              <Icon iconSize="large" icon="htmlInfographic" />
+              <FlexContainer>
+                <Icon className={elMr5} fontSize="4rem" icon="webDeveloperInfographic" />
+                <FlexContainer isFlexJustifyCenter isFlexColumn>
+                  <BodyText>Third-party developer</BodyText>
+                  <SmallText hasGreyText>Working on-behalf of a Reapit customer, e.g. website developer</SmallText>
+                </FlexContainer>
+              </FlexContainer>
             </a>
           </RegisterRoleTile>
           <RegisterRoleTile>
@@ -75,20 +79,22 @@ export const SelectRolePage: FC = () => {
               target="_blank"
               rel="noopener noreferrer"
             >
-              <Subtitle hasCenteredText>PropTech</Subtitle>
-              <SmallText hasCenteredText hasGreyText>
-                Independent company building an app or integration
-              </SmallText>
-              <Icon iconSize="large" icon="myAppsInfographic" />
+              <FlexContainer>
+                <Icon className={elMr5} fontSize="4rem" icon="propTechInfographic" />
+                <FlexContainer isFlexJustifyCenter isFlexColumn>
+                  <BodyText>PropTech</BodyText>
+                  <SmallText hasGreyText>Independent company building an app or integration</SmallText>
+                </FlexContainer>
+              </FlexContainer>
             </a>
           </RegisterRoleTile>
         </FlexContainer>
       </RegisterContentWrapper>
       <Modal title="Submit Email">
         <FlexContainer className={cx(elMb7, elPx6)}>
-          <Icon className={elMr5} iconSize="large" icon="userInfographic" />
+          <Icon className={elMr5} fontSize="4rem" icon="newCustomerInfographic" />
           <FlexContainer isFlexJustifyCenter isFlexColumn>
-            <Subtitle hasBoldText>New Customer</Subtitle>
+            <BodyText>New Customer</BodyText>
             <BodyText hasGreyText>
               To find out more about Developer Portal, AgencyCloud and the AppMarket, just enter your email address and
               we will be in touch:
