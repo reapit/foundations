@@ -39,6 +39,10 @@ export const animationStep1 = css`
 `
 
 export const animationStep2 = css`
+.${key} {
+    transform: translate(0px);
+  }
+  
   .${stars} {
     opacity: 1;
   }
