@@ -1,17 +1,16 @@
-import React, { useEffect, useState } from 'react'
-import { Link } from 'react-router-dom'
+import React, { FC, useEffect, useState } from 'react'
+import { useHistory } from 'react-router-dom'
 import { Dispatch } from 'redux'
 import { useDispatch } from 'react-redux'
 import { showNotificationMessage } from '@/actions/notification-message'
-import { BodyText, Button, elMt12, elP6, elPt8 } from '@reapit/elements'
+import { BodyText, Button, ButtonGroup, Subtitle, Title, FlexContainer, elMb12 } from '@reapit/elements'
 import Routes from '@/constants/routes'
 import messages from '@/constants/messages'
 import connectImage from '@/assets/images/reapit-connect.png'
 import { reapitConnectBrowserSession } from '@/core/connect-session'
-import { wrapper, container, loginButton, imageContainer } from './__styles__/login'
 import { KeyAnimation } from '@reapit/utils-react'
-import { FlexContainer } from '@reapit/elements'
-import { cx } from '@linaria/core'
+import { LoginContainer, LoginContentWrapper, LoginImageContainer } from './__styles__'
+import { navigate } from '../../../utils/navigation'
 
 export type LoginProps = {}
 
@@ -34,8 +33,9 @@ export const onLoginButtonClick = () => {
   }
 }
 
-export const Login: React.FunctionComponent<LoginProps> = () => {
+export const Login: FC<LoginProps> = () => {
   const dispatch = useDispatch()
+  const history = useHistory()
   const isPasswordChanged = localStorage.getItem('isPasswordChanged') === 'true'
   const [keyStep, setKeyStep] = useState<1 | 2 | 3>(1)
 
@@ -46,38 +46,38 @@ export const Login: React.FunctionComponent<LoginProps> = () => {
   ])
 
   return (
-    <div className={container}>
-      <div className={imageContainer}>
+    <LoginContainer>
+      <LoginImageContainer>
         <KeyAnimation step={keyStep} />
-      </div>
-      <div className={wrapper}>
+      </LoginImageContainer>
+      <LoginContentWrapper>
         <img src={connectImage} alt="Reapit Connect Graphic" />
-        <div className={cx(elP6)}>
-          <BodyText>Welcome to Reapit Foundations</BodyText>
-        </div>
-        <Button
+        <FlexContainer isFlexColumn>
+          <Title hasNoMargin hasCenteredText>
+            Welcome
+          </Title>
+          <Subtitle hasCenteredText>to Reapit Foundations</Subtitle>
+        </FlexContainer>
+        <ButtonGroup
+          alignment="center"
+          className={elMb12}
           onMouseOver={() => {
             setKeyStep(3)
           }}
           onMouseOut={() => {
             setKeyStep(1)
           }}
-          className={loginButton}
-          onClick={onLoginButtonClick()}
-          fullWidth
-          intent="primary"
         >
-          Login
-        </Button>
-        <FlexContainer isFlexJustifyBetween className={cx(elMt12)}>
-          <BodyText>Don&apos;t have an account yet?&nbsp;</BodyText>
-          <Link to={Routes.SELECT_ROLE}>Register</Link>
-        </FlexContainer>
-        <FlexContainer className={cx(elPt8)} isFlexRow isFlexJustifyCenter>
-          {process.env.APP_VERSION}
-        </FlexContainer>
-      </div>
-    </div>
+          <Button onClick={onLoginButtonClick()} intent="primary" size={3}>
+            Login
+          </Button>
+          <Button onClick={navigate(history, Routes.SELECT_ROLE)} intent="secondary" size={3}>
+            Register
+          </Button>
+        </ButtonGroup>
+        <BodyText hasGreyText>{process.env.APP_VERSION}</BodyText>
+      </LoginContentWrapper>
+    </LoginContainer>
   )
 }
 

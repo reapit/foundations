@@ -68,10 +68,8 @@ exports[`Register should match a snapshot 1`] = `
               <svg
                 className="s1irikpe-svg a1aw5mx5-animation-step1"
                 fill="none"
-                height="900"
                 preserveAspectRatio="xMinYMin meet"
                 viewBox="0 0 360 900"
-                width="306"
                 xmlns="http://www.w3.org/2000/svg"
               >
                 <path
