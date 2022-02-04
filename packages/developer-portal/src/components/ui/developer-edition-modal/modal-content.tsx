@@ -6,9 +6,13 @@ export const modalContent = {
       title: 'Account Information Required',
       content: (
         <p>
-          Before you can subscribe to the Developer Edition of Agency Cloud, you will first need to submit your billing
-          information. Please{' '}
-          <a href="mailto:dmann@reapit.com" target="_blank" rel="noopener noreferrer">
+          Before you can subscribe to the Developer Edition of AgencyCloud, we will first need to verify your account
+          information. Please
+          <a
+            href="mailto:dmann@reapit.com?subject=Developer%20Edition%20of%20AgencyCloud%20Subscription"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
             {' '}
             click here
           </a>{' '}
