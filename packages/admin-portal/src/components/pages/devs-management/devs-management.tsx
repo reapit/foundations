@@ -31,6 +31,7 @@ import { CreateSubscriptionsButton } from '../../ui/create-subscriptions/create-
 import { useReapitConnect } from '@reapit/connect-session'
 import { reapitConnectBrowserSession } from '../../../core/connect-session'
 import { ApiKeys } from '../api-keys'
+import dayjs from 'dayjs'
 
 export const buildFilterValues = (queryParams: URLSearchParams): DevsManagementFilterFormValues => {
   const name = queryParams.get('name') || ''
@@ -202,6 +203,11 @@ export const DevsManagement: React.FC = () => {
       columnProps: {
         className: 'capitalize',
       },
+    },
+    {
+      Header: 'Agreed Terms Date',
+      id: 'agreedTerms',
+      Cell: ({ row }: { row: { original: DeveloperModel } }) => dayjs(row.original.agreedTerms).format('DD/MM/YYYY'),
     },
     !hasLimitedAccess && {
       Header: '',
