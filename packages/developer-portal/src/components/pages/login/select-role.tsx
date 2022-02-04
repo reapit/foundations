@@ -15,8 +15,8 @@ import {
   SmallText,
   Title,
 } from '@reapit/elements'
-import { onLoginButtonClick } from '../login/login'
-import { RegisterContainer, RegisterContentWrapper, RegisterImageContainer, RegisterRoleTile } from './__styles__'
+import { onLoginButtonClick } from './login'
+import { LoginContainer, LoginContentWrapper, LoginImageContainer, LoginRoleTile } from './__styles__'
 import { cx } from '@linaria/core'
 
 export const SelectRolePage: FC = () => {
@@ -24,11 +24,11 @@ export const SelectRolePage: FC = () => {
   const { Modal, openModal, closeModal } = useModal()
 
   return (
-    <RegisterContainer>
-      <RegisterImageContainer>
+    <LoginContainer>
+      <LoginImageContainer>
         <KeyAnimation step={keyStep} />
-      </RegisterImageContainer>
-      <RegisterContentWrapper
+      </LoginImageContainer>
+      <LoginContentWrapper
         onMouseOver={() => {
           setKeyStep(3)
         }}
@@ -37,10 +37,11 @@ export const SelectRolePage: FC = () => {
         }}
       >
         <img src={connectImage} alt="Reapit Connect Graphic" />
-        <Title hasNoMargin>Select an option</Title>
-        <Subtitle>that best describes you to register</Subtitle>
-
-        <RegisterRoleTile>
+        <Title hasNoMargin hasCenteredText>
+          Select an option
+        </Title>
+        <Subtitle hasCenteredText>that best describes you to register</Subtitle>
+        <LoginRoleTile>
           <FlexContainer onClick={openModal}>
             <Icon className={elMr5} fontSize="4rem" icon="newCustomerInfographic" />
             <FlexContainer isFlexJustifyCenter isFlexColumn>
@@ -50,8 +51,8 @@ export const SelectRolePage: FC = () => {
               </SmallText>
             </FlexContainer>
           </FlexContainer>
-        </RegisterRoleTile>
-        <RegisterRoleTile>
+        </LoginRoleTile>
+        <LoginRoleTile>
           <FlexContainer onClick={onLoginButtonClick()}>
             <Icon className={elMr5} fontSize="4rem" icon="foundationsCustomerInfographic" />
             <FlexContainer isFlexJustifyCenter isFlexColumn>
@@ -61,8 +62,8 @@ export const SelectRolePage: FC = () => {
               </SmallText>
             </FlexContainer>
           </FlexContainer>
-        </RegisterRoleTile>
-        <RegisterRoleTile>
+        </LoginRoleTile>
+        <LoginRoleTile>
           <a
             href="https://docs.google.com/forms/d/e/1FAIpQLSetMK5HFLBINWZfVvOO5iblXj8YWWgnKdt0rbFeJkxnZm0MaQ/viewform"
             target="_blank"
@@ -78,8 +79,8 @@ export const SelectRolePage: FC = () => {
               </FlexContainer>
             </FlexContainer>
           </a>
-        </RegisterRoleTile>
-        <RegisterRoleTile>
+        </LoginRoleTile>
+        <LoginRoleTile>
           <a
             href="https://docs.google.com/forms/d/e/1FAIpQLSetMK5HFLBINWZfVvOO5iblXj8YWWgnKdt0rbFeJkxnZm0MaQ/viewform"
             target="_blank"
@@ -95,8 +96,8 @@ export const SelectRolePage: FC = () => {
               </FlexContainer>
             </FlexContainer>
           </a>
-        </RegisterRoleTile>
-      </RegisterContentWrapper>
+        </LoginRoleTile>
+      </LoginContentWrapper>
       <Modal title="Submit Email">
         <FlexContainer className={cx(elMb7, elPx6)}>
           <Icon className={elMr5} fontSize="4rem" icon="newCustomerInfographic" />
@@ -123,7 +124,7 @@ export const SelectRolePage: FC = () => {
           </Button>
         </ButtonGroup>
       </Modal>
-    </RegisterContainer>
+    </LoginContainer>
   )
 }
 

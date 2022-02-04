@@ -1,7 +1,7 @@
 import { styled } from '@linaria/react'
 import { forMobileOnly } from '@/core/__styles__/media'
 
-export const RegisterContainer = styled.div`
+export const LoginContainer = styled.div`
   min-width: 100vw;
   display: flex;
   justify-content: space-between;
@@ -16,7 +16,7 @@ export const RegisterContainer = styled.div`
   }
 `
 
-export const RegisterRoleTile = styled.div`
+export const LoginRoleTile = styled.div`
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -39,9 +39,9 @@ export const RegisterRoleTile = styled.div`
   }
 `
 
-export const RegisterContentWrapper = styled.div`
+export const LoginContentWrapper = styled.div`
   background-color: var(--color-white);
-  max-width: 21rem;
+  max-width: 25rem;
   pointer-events: auto;
   display: flex;
   flex-wrap: wrap;
@@ -51,7 +51,7 @@ export const RegisterContentWrapper = styled.div`
 
   img {
     width: 15rem;
-    margin: 0 auto 6rem auto;
+    margin: 0 auto 3rem auto;
     display: block;
   }
 
@@ -61,7 +61,9 @@ export const RegisterContentWrapper = styled.div`
   }
 `
 
-export const RegisterImageContainer = styled.div`
+export const LoginImageContainer = styled.div`
+  /* position: fixed; */
+
   ${forMobileOnly} {
     display: none;
   }

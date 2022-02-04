@@ -32,7 +32,7 @@ const Invite = React.lazy(() => catchChunkError(() => import('../components/page
 const ElementsPage = React.lazy(() => catchChunkError(() => import('../components/pages/elements')))
 const GraphQLPage = React.lazy(() => catchChunkError(() => import('../components/pages/graphql')))
 const AppsNewPage = React.lazy(() => catchChunkError(() => import('../components/pages/apps-new')))
-const SelectRolePage = React.lazy(() => catchChunkError(() => import('../components/pages/select-role')))
+const SelectRolePage = React.lazy(() => catchChunkError(() => import('../components/pages/login/select-role')))
 
 const SettingsOrganisationTabPage = React.lazy(() =>
   catchChunkError(() => import('../components/pages/settings/settings-organisation-tab')),

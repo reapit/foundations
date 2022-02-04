@@ -7,10 +7,8 @@ exports[`Key Animation step 1 should match a snapshot 1`] = `
   <svg
     className="s1wtxzkp a14gqag1"
     fill="none"
-    height="auto"
     preserveAspectRatio="xMinYMin meet"
     viewBox="0 0 360 900"
-    width="auto"
     xmlns="http://www.w3.org/2000/svg"
   >
     <path
@@ -81,10 +79,8 @@ exports[`Key Animation step 2 should match a snapshot 1`] = `
   <svg
     className="s1wtxzkp a11hgd2"
     fill="none"
-    height="auto"
     preserveAspectRatio="xMinYMin meet"
     viewBox="0 0 360 900"
-    width="auto"
     xmlns="http://www.w3.org/2000/svg"
   >
     <path
@@ -155,10 +151,8 @@ exports[`Key Animation step 3 should match a snapshot 1`] = `
   <svg
     className="s1wtxzkp a2c2icq"
     fill="none"
-    height="auto"
     preserveAspectRatio="xMinYMin meet"
     viewBox="0 0 360 900"
-    width="auto"
     xmlns="http://www.w3.org/2000/svg"
   >
     <path

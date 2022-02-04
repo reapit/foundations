@@ -337,14 +337,17 @@ export const ElButtonGroupInner = styled.div`
 
   &.${elButtonGroupAlignLeft} {
     margin-right: auto;
+    justify-content: flex-start;
   }
 
   &.${elButtonGroupAlignRight} {
     margin-left: auto;
+    justify-content: flex-end;
   }
 
   &.${elButtonGroupAlignCenter} {
     margin: 0 auto;
+    justify-content: center;
   }
 
   ${isMobile} {
