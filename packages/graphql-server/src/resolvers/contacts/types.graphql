@@ -144,7 +144,7 @@ type Mutation {
     secondaryAddress: ContactModelAddressInput
     workAddress: ContactModelAddressInput
     metadata: JSON
-  ): JSON!
+  ): ContactModel!
 
   UpdateContact(
     id: String!
