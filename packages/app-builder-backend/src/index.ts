@@ -8,23 +8,35 @@ import { ApolloServerPluginDrainHttpServer } from 'apollo-server-core'
 import { Context } from './types'
 import { ensureTables } from './ddb'
 import { getSchema } from './get-schema'
+import { getMetadataSchemas } from './platform'
+
+const parseContext = async ({ req }): Promise<Context> => {
+  const context = {
+    idToken: req.headers.authorization?.split(' ')[1] || '',
+    accessToken: req.headers['reapit-connect-token'] as string,
+    apiUrl: 'http://localhost:4000/',
+  }
+
+  const metadataSchemas = await getMetadataSchemas(context.accessToken)
+
+  return {
+    ...context,
+    metadataSchemas,
+  }
+}
 
 const start = async () => {
   await ensureTables()
 
   const app = express()
   app.use(cors())
-  const parseContext = ({ req }): Context => ({
-    idToken: req.headers.authorization?.split(' ')[1] || '',
-    accessToken: req.headers['reapit-connect-token'] as string,
-    apiUrl: 'http://localhost:4000/',
-  })
+
   const httpServer = http.createServer(app)
   const server = new ExtendedApolloServerExpress({
     schema: await getSchema(),
     context: parseContext,
     plugins: [ApolloServerPluginDrainHttpServer({ httpServer })],
-    schemaCallback: (req) => getSchema(parseContext({ req })),
+    schemaCallback: (req) => parseContext({ req }).then(getSchema),
   })
 
   await server.start()
