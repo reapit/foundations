@@ -21,7 +21,7 @@ export const UsageTable: FC<UsageTableProps> = ({ billing }) => {
   return apiCalls.length ? (
     <>
       <Subtitle>Monthly Total</Subtitle>
-      <BodyText hasGreyText>£{billing?.totalCost?.toFixed(2)}</BodyText>
+      <BodyText hasGreyText>£{billing?.totalCost?.toFixed(2).padStart(2, '0')}</BodyText>
       <Subtitle>Breakdown</Subtitle>
       <Table
         rows={apiCalls.map(({ name, amount, cost, itemCount, items }) => ({
@@ -46,7 +46,7 @@ export const UsageTable: FC<UsageTableProps> = ({ billing }) => {
             },
             {
               label: 'Total Cost',
-              value: cost ? `£${cost.toFixed(2)}` : '£0',
+              value: cost ? `£${cost.toFixed(2).padStart(2, '0')}` : '£0',
               icon: 'homeSystem',
               cellHasDarkText: true,
               narrowTable: {
