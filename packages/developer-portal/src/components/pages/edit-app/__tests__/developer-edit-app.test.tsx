@@ -15,7 +15,6 @@ import DeveloperSubmitApp, {
   handleSubmitAppSuccess,
   handleSubmitAppError,
   sanitizeAppData,
-  handleCloseModal,
 } from '../developer-edit-app'
 import { getMockRouterProps } from '@/utils/mock-helper'
 import { FIELD_ERROR_DESCRIPTION } from '@/constants/form'
@@ -330,15 +329,6 @@ describe('DeveloperSubmitApp', () => {
       }
       const result = sanitizeAppData(input)
       expect(result).toEqual(output)
-    })
-  })
-
-  describe('handleCloseModal', () => {
-    it('should run correctly', () => {
-      const mockSetIsShowBillingNotification = jest.fn()
-      const fn = handleCloseModal(mockSetIsShowBillingNotification)
-      fn()
-      expect(mockSetIsShowBillingNotification).toBeCalledWith(false)
     })
   })
 })

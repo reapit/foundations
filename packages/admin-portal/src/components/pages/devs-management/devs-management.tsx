@@ -207,7 +207,11 @@ export const DevsManagement: React.FC = () => {
     {
       Header: 'Agreed Terms Date',
       id: 'agreedTerms',
-      Cell: ({ row }: { row: { original: DeveloperModel } }) => dayjs(row.original.agreedTerms).format('DD/MM/YYYY'),
+      Cell: ({ row }: { row: { original: DeveloperModel & { isMember: boolean } } }) => {
+        return row.original.isMember && row.original.agreedTerms
+          ? dayjs(row.original.agreedTerms).format('DD/MM/YYYY')
+          : '-'
+      },
     },
     !hasLimitedAccess && {
       Header: '',

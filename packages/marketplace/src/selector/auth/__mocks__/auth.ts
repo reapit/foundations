@@ -24,6 +24,7 @@ export const auth: ReapitConnectSession = {
     offGroupName: 'Cool Office Group',
     officeId: 'MVK',
     orgProduct: 'agencyCloud',
+    agencyCloudId: 'SOME_AC_ID',
   },
   refreshToken: '131',
 }

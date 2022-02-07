@@ -112,7 +112,7 @@ describe('selectIsCustomer', () => {
       ...auth,
       loginIdentity: {
         ...auth.loginIdentity,
-        groups: [],
+        agencyCloudId: null,
       },
     }
     expect(selectIsCustomer(authWithoutUser)).toBe(false)

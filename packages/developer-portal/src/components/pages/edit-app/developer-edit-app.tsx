@@ -13,11 +13,9 @@ import {
   Form,
   H6,
   FormikValues,
-  ModalV2,
   LevelRight,
 } from '@reapit/elements-legacy'
 import { FIELD_ERROR_DESCRIPTION } from '@/constants/form'
-
 import { useDispatch, useSelector } from 'react-redux'
 import { CreateAppRevisionModel, AppDetailModel, DeveloperModel } from '@reapit/foundations-ts-definitions'
 import Routes from '@/constants/routes'
@@ -41,10 +39,10 @@ import { useReapitConnect } from '@reapit/connect-session'
 import { reapitConnectBrowserSession } from '@/core/connect-session'
 import { getDeveloperIdFromConnectSession } from '@/utils/session'
 import { createAppRevision } from '@/actions/apps'
-import { selectCurrentMemberData } from '@/selector/current-member'
 import { selectSettingsPageDeveloperInformation } from '@/selector/settings'
-import { Loader } from '@reapit/elements'
+import { Loader, useModal } from '@reapit/elements'
 import { ReapitProductsSection } from './reapit-products-section'
+import { SubmitAppModal } from './submit-app-modal'
 
 const { CLIENT_SECRET } = authFlows
 
@@ -284,7 +282,7 @@ export const handleSubmitApp =
     }
     const sanitizeData = sanitizeAppData(appToSubmit)
 
-    const isCanList = currentOrganisation?.status !== 'incomplete'
+    const isCanList = currentOrganisation?.status !== 'incomplete' && currentOrganisation?.status !== 'pending'
 
     const products = appModel?.products?.split(',').filter(Boolean)
 
@@ -358,65 +356,20 @@ export const handleOpenAppPreview =
     window.open(url, '_blank')
   }
 
-export const modalContent = {
-  admin: {
-    incomplete: {
-      title: 'Account Information Required',
-      content: (
-        <div>
-          Any changes have been saved successfully.
-          <br />
-          However, before you can list an app in the Marketplace (&apos;Submit for approval&apos;), you will first need
-          to submit your account information.
-          <br />
-          Please{' '}
-          <a
-            href="mailto:dmann@reapit.com?subject=Submitting%20my%20app%20for%20approval%20/%20listing%20in%20the%20AppMarket"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            {' '}
-            click here
-          </a>{' '}
-          to contact a member of the team.
-        </div>
-      ),
-    },
-  },
-  user: {
-    incomplete: {
-      title: 'Account Information Required',
-      content: (
-        <div>
-          Any changes have been saved successfully.
-          <br />
-          However, as your account information has not yet been completed you will be unable to list your app in the
-          Marketplace (&apos;Submit for approval&apos;), please ask the Admin of your organisation to visit this page to
-          contact a member of the team.
-        </div>
-      ),
-    },
-  },
-}
-
-export const handleCloseModal = (setIsShowBillingNotification: React.Dispatch<React.SetStateAction<boolean>>) => () => {
-  setIsShowBillingNotification(false)
-}
-
 export const DeveloperEditApp: React.FC<DeveloperSubmitAppProps> = () => {
   const [submitting, setSubmitting] = React.useState<boolean>(false)
-  const [isShowBillingNotification, setIsShowBillingNotification] = React.useState<boolean>(false)
   const dispatch = useDispatch()
   const history = useHistory()
   const { appid } = useParams<{ appid: string }>()
   const appDetailState = useSelector(selectAppDetailState)
   const appCategories = useSelector(selectCategories)
   const scopes = useSelector(selectScopeList)
-  const currentUser = useSelector(selectCurrentMemberData)
+
   const currentOrganisation = useSelector(selectSettingsPageDeveloperInformation)
   const { connectSession } = useReapitConnect(reapitConnectBrowserSession)
   const developerId = getDeveloperIdFromConnectSession(connectSession)
   const [isListing, setIsListing] = React.useState<boolean>(false)
+  const { Modal, openModal, closeModal, modalIsOpen } = useModal()
 
   const goBackToApps = React.useCallback(handleGoBackToApps(history), [history])
 
@@ -457,7 +410,7 @@ export const DeveloperEditApp: React.FC<DeveloperSubmitAppProps> = () => {
           appId,
           dispatch,
           setSubmitting,
-          onSuccess: handleSubmitAppSuccess(setSubmitting, setIsShowBillingNotification),
+          onSuccess: handleSubmitAppSuccess(setSubmitting, openModal),
           onError: handleSubmitAppError(setSubmitting),
           currentOrganisation,
           setIsListing,
@@ -521,22 +474,8 @@ export const DeveloperEditApp: React.FC<DeveloperSubmitAppProps> = () => {
           )
         }}
       </Formik>
-      {currentUser?.role && currentOrganisation?.status && (
-        <ModalV2
-          isCentered={true}
-          visible={isShowBillingNotification && isListing}
-          onClose={handleCloseModal(setIsShowBillingNotification)}
-          title={modalContent?.[currentUser.role]?.[currentOrganisation.status]?.title}
-          footer={[
-            <Button key="close" onClick={handleCloseModal(setIsShowBillingNotification)}>
-              Close
-            </Button>,
-          ]}
-        >
-          {modalContent?.[currentUser.role]?.[currentOrganisation.status]?.content}
-        </ModalV2>
-      )}
-      {isShowBillingNotification && !isListing && <Redirect to={Routes.APPS} />}
+      <SubmitAppModal Modal={Modal} closeModal={closeModal} />
+      {modalIsOpen && !isListing && <Redirect to={Routes.APPS} />}
     </>
   )
 }

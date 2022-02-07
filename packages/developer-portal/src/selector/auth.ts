@@ -37,5 +37,5 @@ export const selectIsUserOrUserAdmin = (state: ReapitConnectSession | null): boo
 export const selectIsCustomer = (state: ReapitConnectSession | null): boolean => {
   const loginIdentity = selectLoginIdentity(state)
 
-  return Boolean(loginIdentity?.groups?.includes(COGNITO_GROUP_USERS))
+  return Boolean(loginIdentity?.agencyCloudId && loginIdentity?.agencyCloudId !== 'SBOX')
 }
