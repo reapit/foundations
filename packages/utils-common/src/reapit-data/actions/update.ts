@@ -12,6 +12,7 @@ export enum UpdateActionNames {
   createPipelineDeployment = 'createPipelineDeployment',
   createApp = 'createApp',
   createApiKeyByMember = 'createApiKeyByMember',
+  updateDeveloper = 'updateDeveloper',
 }
 
 export type UpdateActions = { [key in UpdateActionNames]: UpdateAction }
@@ -34,5 +35,11 @@ export const updateActions = (appEnv: AppEnv): UpdateActions => ({
   [UpdateActionNames.createApiKeyByMember]: {
     api: ApiNames(appEnv).apiKey,
     path: PathNames.createApiKeyByMember,
+  },
+  [UpdateActionNames.updateDeveloper]: {
+    api: ApiNames(appEnv).platform,
+    path: PathNames.developerById,
+    errorMessage: 'Developer update failed, please check for errors and try again.',
+    successMessage: 'Your developer record has been successfully updated',
   },
 })

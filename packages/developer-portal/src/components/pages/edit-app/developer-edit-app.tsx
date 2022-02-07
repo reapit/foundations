@@ -13,11 +13,9 @@ import {
   Form,
   H6,
   FormikValues,
-  ModalV2,
   LevelRight,
 } from '@reapit/elements-legacy'
 import { FIELD_ERROR_DESCRIPTION } from '@/constants/form'
-
 import { useDispatch, useSelector } from 'react-redux'
 import { CreateAppRevisionModel, AppDetailModel, DeveloperModel } from '@reapit/foundations-ts-definitions'
 import Routes from '@/constants/routes'
@@ -41,7 +39,6 @@ import { useReapitConnect } from '@reapit/connect-session'
 import { reapitConnectBrowserSession } from '@/core/connect-session'
 import { getDeveloperIdFromConnectSession } from '@/utils/session'
 import { createAppRevision } from '@/actions/apps'
-import { selectCurrentMemberData } from '@/selector/current-member'
 import { selectSettingsPageDeveloperInformation } from '@/selector/settings'
 import { Loader, useModal } from '@reapit/elements'
 import { ReapitProductsSection } from './reapit-products-section'
@@ -285,7 +282,7 @@ export const handleSubmitApp =
     }
     const sanitizeData = sanitizeAppData(appToSubmit)
 
-    const isCanList = currentOrganisation?.status !== 'incomplete'
+    const isCanList = currentOrganisation?.status !== 'incomplete' && currentOrganisation?.status !== 'pending'
 
     const products = appModel?.products?.split(',').filter(Boolean)
 
@@ -359,44 +356,6 @@ export const handleOpenAppPreview =
     window.open(url, '_blank')
   }
 
-export const modalContentAdminDev = {
-  title: 'Account Information Required',
-  content: (
-    <div>
-      Any changes have been saved successfully.
-      <br />
-      However, before you can list an app in the Marketplace (&apos;Submit for approval&apos;), you will first need to
-      submit your account information.
-      <br />
-      Please{' '}
-      <a
-        href="mailto:dmann@reapit.com?subject=Submitting%20my%20app%20for%20approval%20/%20listing%20in%20the%20AppMarket"
-        target="_blank"
-        rel="noopener noreferrer"
-      >
-        {' '}
-        click here
-      </a>{' '}
-      to contact a member of the team.
-    </div>
-  ),
-}
-
-export const modalContentDev = {
-  incomplete: {
-    title: 'Account Information Required',
-    content: (
-      <div>
-        Any changes have been saved successfully.
-        <br />
-        However, as your account information has not yet been completed you will be unable to list your app in the
-        Marketplace (&apos;Submit for approval&apos;), please ask the Admin of your organisation to visit this page to
-        contact a member of the team.
-      </div>
-    ),
-  },
-}
-
 export const DeveloperEditApp: React.FC<DeveloperSubmitAppProps> = () => {
   const [submitting, setSubmitting] = React.useState<boolean>(false)
   const dispatch = useDispatch()
@@ -410,7 +369,7 @@ export const DeveloperEditApp: React.FC<DeveloperSubmitAppProps> = () => {
   const { connectSession } = useReapitConnect(reapitConnectBrowserSession)
   const developerId = getDeveloperIdFromConnectSession(connectSession)
   const [isListing, setIsListing] = React.useState<boolean>(false)
-  const { Modal, openModal, modalIsOpen } = useModal()
+  const { Modal, openModal, closeModal, modalIsOpen } = useModal()
 
   const goBackToApps = React.useCallback(handleGoBackToApps(history), [history])
 
@@ -515,24 +474,8 @@ export const DeveloperEditApp: React.FC<DeveloperSubmitAppProps> = () => {
           )
         }}
       </Formik>
-      <SubmitAppModal Modal={Modal} />
-      {/* {currentUser?.role && currentOrganisation?.status && ( */}
-      {/* //   <ModalV2
-      //     isCentered={true}
-      //     visible={isShowBillingNotification && isListing}
-      //     onClose={handleCloseModal(setIsShowBillingNotification)}
-      //     title={modalContent?.[currentUser.role]?.[currentOrganisation.status]?.title}
-      //     footer={[
-      //       <Button key="close" onClick={handleCloseModal(setIsShowBillingNotification)}>
-      //         Close
-      //       </Button>,
-      //     ]}
-      //   >
-      //     {modalContent?.[currentUser.role]?.[currentOrganisation.status]?.content}
-      //   </ModalV2>
-      // )} */}
+      <SubmitAppModal Modal={Modal} closeModal={closeModal} />
       {modalIsOpen && !isListing && <Redirect to={Routes.APPS} />}
-      {/* //{' '} */}
     </>
   )
 }

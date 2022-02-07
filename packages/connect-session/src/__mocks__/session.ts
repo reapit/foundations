@@ -26,6 +26,7 @@ export const mockLoginIdentity = {
   offGroupName: 'Cool Office Group',
   officeId: 'MVK',
   orgProduct: 'agencyCloud',
+  agencyCloudId: 'SOME_AC_ID',
 }
 
 export const mockBrowserSession: ReapitConnectSession = {

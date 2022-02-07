@@ -64,6 +64,7 @@ export const connectSessionVerifyDecodeIdTokenWithPublicKeys = async (
     return {
       name: claim['name'],
       email: claim['email'],
+      agencyCloudId: claim['custom:reapit:agencyCloudId'] || null,
       developerId: claim['custom:reapit:developerId'] || null,
       clientId: claim['custom:reapit:clientCode'] || null,
       adminId: claim['custom:reapit:marketAdmin'] || null,
@@ -78,7 +79,8 @@ export const connectSessionVerifyDecodeIdTokenWithPublicKeys = async (
       orgProduct: claim['custom:reapit:orgProduct'] || null,
     }
   } catch (error) {
-    console.error('Reapit Connect Session error:', error.message)
+    const err = error as Error
+    console.error('Reapit Connect Session error:', err.message)
   }
 }
 
