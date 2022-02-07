@@ -105,8 +105,8 @@ export const SubmitAppModalContent: FC<SubmitAppModalContentProps> = ({
       <>
         <BodyText>Any changes have been saved successfully.</BodyText>
         <BodyText>
-          However, before you can list an app in the Marketplace (&apos;Submit for approval&apos;), you will first need
-          to submit your account information.
+          However, before you can list an app in the AppMarket (&apos;Submit for approval&apos;), you will first need to
+          submit your account information.
         </BodyText>
         <BodyText>
           Please{' '}
