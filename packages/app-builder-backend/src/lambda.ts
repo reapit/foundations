@@ -28,7 +28,7 @@ const createHandler = async (event: APIGatewayEvent) => {
     apiUrl,
     idToken: authorization?.split(' ')[1],
     accessToken,
-    metadataSchemas: await getMetadataSchemas(accessToken),
+    metadataSchemas: await getMetadataSchemas(accessToken).catch(() => []),
   }
   const server = new ExtendedApolloServerLambda({
     schema: await getSchema(),

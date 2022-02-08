@@ -8,7 +8,7 @@ import { ApolloServerPluginDrainHttpServer } from 'apollo-server-core'
 import { Context } from './types'
 import { ensureTables } from './ddb'
 import { getSchema } from './get-schema'
-import { getMetadataSchemas } from './platform'
+import { getMetadataSchemas, SchemaModel } from './platform'
 
 const parseContext = async ({ req }): Promise<Context> => {
   const context = {
@@ -17,7 +17,13 @@ const parseContext = async ({ req }): Promise<Context> => {
     apiUrl: 'http://localhost:4000/',
   }
 
-  const metadataSchemas = await getMetadataSchemas(context.accessToken)
+  let metadataSchemas: SchemaModel[] = []
+
+  try {
+    metadataSchemas = await getMetadataSchemas(context.accessToken)
+  } catch (e) {
+    // do nothing
+  }
 
   return {
     ...context,
