@@ -3658,6 +3658,7 @@ exports[`DeveloperSubmitApp should match a snapshot when pendingRevisions = fals
         <SubmitAppModal
           Modal={[Function]}
           closeModal={[Function]}
+          setIsListing={[Function]}
         >
           <ModalComponent
             title="Account Information Required"

@@ -474,7 +474,7 @@ export const DeveloperEditApp: React.FC<DeveloperSubmitAppProps> = () => {
           )
         }}
       </Formik>
-      <SubmitAppModal Modal={Modal} closeModal={closeModal} />
+      <SubmitAppModal Modal={Modal} closeModal={closeModal} setIsListing={setIsListing} />
       {modalIsOpen && !isListing && <Redirect to={Routes.APPS} />}
     </>
   )
