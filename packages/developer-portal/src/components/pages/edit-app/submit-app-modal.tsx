@@ -17,11 +17,13 @@ import { yupResolver } from '@hookform/resolvers/yup'
 export interface SubmitAppModalProps {
   Modal: FC<Partial<ModalProps>>
   closeModal: () => void
+  setIsListing: (isListing: boolean) => void
 }
 
 interface SubmitAppModalContentProps {
   currentOrganisation: DeveloperModel
   closeModal: () => void
+  setIsListing: (isListing: boolean) => void
   isCustomer: boolean
   userRole?: string
   orgStatus?: string
@@ -44,17 +46,19 @@ export const getTitle = (isCustomer: boolean, orgStatus?: string): string => {
   return 'Account Verification'
 }
 
-export const handleCloseModal = (closeModal: () => void, updateDeveloperSuccess?: boolean) => () => {
-  if (updateDeveloperSuccess) {
-    closeModal()
+export const handleCloseModal =
+  (setIsListing: (isListing: boolean) => void, updateDeveloperSuccess?: boolean) => () => {
+    if (updateDeveloperSuccess) {
+      setIsListing(false)
+    }
   }
-}
 
 export const SubmitAppModalContent: FC<SubmitAppModalContentProps> = ({
   isCustomer,
   userRole,
   orgStatus,
   closeModal,
+  setIsListing,
   currentOrganisation,
 }) => {
   const {
@@ -98,7 +102,7 @@ export const SubmitAppModalContent: FC<SubmitAppModalContentProps> = ({
     },
   })
 
-  useEffect(handleCloseModal(closeModal, updateDeveloperSuccess), [updateDeveloperSuccess])
+  useEffect(handleCloseModal(setIsListing, updateDeveloperSuccess), [updateDeveloperSuccess])
 
   if (!isCustomer) {
     return (
@@ -232,7 +236,7 @@ export const SubmitAppModalContent: FC<SubmitAppModalContentProps> = ({
   )
 }
 
-export const SubmitAppModal: FC<SubmitAppModalProps> = ({ Modal, closeModal }) => {
+export const SubmitAppModal: FC<SubmitAppModalProps> = ({ Modal, closeModal, setIsListing }) => {
   const currentUser = useSelector(selectCurrentMemberData)
   const currentOrganisation = useSelector(selectSettingsPageDeveloperInformation)
   const { connectSession } = useReapitConnect(reapitConnectBrowserSession)
@@ -250,6 +254,7 @@ export const SubmitAppModal: FC<SubmitAppModalProps> = ({ Modal, closeModal }) =
         userRole={userRole}
         orgStatus={orgStatus}
         closeModal={closeModal}
+        setIsListing={setIsListing}
       />
     </Modal>
   )

@@ -22,7 +22,7 @@ jest.mock('@reapit/utils-react', () => ({
 describe('SubmitAppModal', () => {
   it('should match a snapshot', () => {
     const Modal: FC = () => <div></div>
-    expect(render(<SubmitAppModal Modal={Modal} closeModal={jest.fn()} />)).toMatchSnapshot()
+    expect(render(<SubmitAppModal Modal={Modal} closeModal={jest.fn()} setIsListing={jest.fn()} />)).toMatchSnapshot()
   })
 })
 
@@ -35,6 +35,7 @@ describe('SubmitAppModalContent', () => {
           userRole="admin"
           orgStatus="incomplete"
           closeModal={jest.fn()}
+          setIsListing={jest.fn()}
           currentOrganisation={developerStub}
         />,
       ),
@@ -49,6 +50,7 @@ describe('SubmitAppModalContent', () => {
           userRole="admin"
           orgStatus="pending"
           closeModal={jest.fn()}
+          setIsListing={jest.fn()}
           currentOrganisation={developerStub}
         />,
       ),
@@ -63,6 +65,7 @@ describe('SubmitAppModalContent', () => {
           userRole="user"
           orgStatus="incomplete"
           closeModal={jest.fn()}
+          setIsListing={jest.fn()}
           currentOrganisation={developerStub}
         />,
       ),
@@ -77,6 +80,7 @@ describe('SubmitAppModalContent', () => {
           userRole="admin"
           orgStatus="incomplete"
           closeModal={jest.fn()}
+          setIsListing={jest.fn()}
           currentOrganisation={developerStub}
         />,
       ),
