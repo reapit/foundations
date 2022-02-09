@@ -385,7 +385,7 @@ exports[`App Detail V8 should match a snapshot 1`] = `
                                   className="egmnxi3-el-tabs-options-wrap"
                                 >
                                   <ElTabs
-                                    checked={true}
+                                    defaultChecked={true}
                                     id="details"
                                     name="app_tabs"
                                     onChange={[Function]}
@@ -393,8 +393,8 @@ exports[`App Detail V8 should match a snapshot 1`] = `
                                     value="details"
                                   >
                                     <input
-                                      checked={true}
                                       className="enkj6b-el-tabs"
+                                      defaultChecked={true}
                                       id="details"
                                       name="app_tabs"
                                       onChange={[Function]}
@@ -417,7 +417,7 @@ exports[`App Detail V8 should match a snapshot 1`] = `
                                     </label>
                                   </ElTabsLabel>
                                   <ElTabs
-                                    checked={false}
+                                    defaultChecked={false}
                                     id="pipelines"
                                     name="app_tabs"
                                     onChange={[Function]}
@@ -425,8 +425,8 @@ exports[`App Detail V8 should match a snapshot 1`] = `
                                     value="pipelines"
                                   >
                                     <input
-                                      checked={false}
                                       className="enkj6b-el-tabs"
+                                      defaultChecked={false}
                                       id="pipelines"
                                       name="app_tabs"
                                       onChange={[Function]}

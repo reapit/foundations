@@ -36,7 +36,7 @@ Slight variation on the above where the toggle spans the full width of it's cont
 
 <Canvas>
   <Story name="Toggle - Full Width">
-    <Toggle id="my-cool-toggle-variants" isFullWidth>
+    <Toggle id="my-cool-toggle-variants-fw" isFullWidth>
       <ElToggleItem>On</ElToggleItem>
       <ElToggleItem>Off</ElToggleItem>
     </Toggle>
@@ -51,7 +51,7 @@ Where rendering a toggle on a white background, you should apply the hasGreyBg p
 
 <Canvas>
   <Story name="Toggle - Grey Bg">
-    <Toggle id="my-cool-toggle-variants" hasGreyBg>
+    <Toggle id="my-cool-toggle-variants-grey" hasGreyBg>
       <ElToggleItem>On</ElToggleItem>
       <ElToggleItem>Off</ElToggleItem>
     </Toggle>
@@ -158,25 +158,25 @@ Where rendering a toggle on a white background, you should apply the hasGreyBg p
 <Canvas>
   <Story name="Toggle RadioSelectProps - Grey Bg">
     <ToggleRadio
-      name="my-cool-toggle-radio-full-width"
+      name="my-cool-toggle-radio-full-width-grey"
       isFullWidth
       hasGreyBg
       options={[
         {
-          id: 'option-1-fw',
-          value: 'option-1-fw',
+          id: 'option-1-fw-grey',
+          value: 'option-1-fw-grey',
           text: 'Option 1',
           isChecked: true,
         },
         {
-          id: 'option-2-fw',
-          value: 'option-2-fw',
+          id: 'option-2-fw-grey',
+          value: 'option-2-fw-grey',
           text: 'Option 2',
           isChecked: false,
         },
         {
-          id: 'option-3-fw',
-          value: 'option-3-fw',
+          id: 'option-3-fw-grey',
+          value: 'option-3-fw-grey',
           text: 'Option 3',
           isChecked: false,
         },
