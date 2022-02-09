@@ -32,6 +32,7 @@ import { useReapitUpdate, SendFunction } from '@reapit/utils-react'
 import Routes from '../../../constants/routes'
 import { History } from 'history'
 import { useHistory } from 'react-router-dom'
+import { HelperContent } from './helper-content'
 
 export interface CreateAppFormSchema {
   redirectUris?: string
@@ -180,7 +181,7 @@ export const AppsNew: FC = () => {
 
   useEffect(handleNavigateOnSuccess(appCreated, history), [appCreated])
 
-  const { headingText, headerText, helperPageHeadingText, helperPage, iconName } = getAppWizardStep(currentStep)
+  const { headingText, headerText, iconName } = getAppWizardStep(currentStep)
 
   return (
     <GridResponsive>
@@ -247,8 +248,7 @@ export const AppsNew: FC = () => {
         spanSuperWideScreen={11}
         span4KScreen={13}
       >
-        <Title>{helperPageHeadingText}</Title>
-        {helperPage}
+        <HelperContent />
       </ColResponsive>
     </GridResponsive>
   )

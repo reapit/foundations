@@ -7,6 +7,13 @@ export const StepContainer = styled.div`
   background-color: var(--color-grey-light);
   border-radius: 0.25rem;
   padding: 2rem 1.25rem;
+  height: calc(100vh - 8.25rem);
+  overflow-y: auto;
+  scrollbar-width: none;
+
+  &::-webkit-scrollbar {
+    display: none;
+  }
 `
 
 export const StepOptionItem = styled.div`
@@ -33,4 +40,15 @@ export const StepFormContainer = styled.div`
   border-radius: 0.25rem;
   padding: 1.5rem 1.25rem;
   box-shadow: 0px 2px 9px rgba(0, 0, 0, 0.08);
+`
+
+export const HelperContentContainer = styled.div`
+  height: calc(100vh - 4rem);
+  overflow-y: auto;
+  scrollbar-width: none;
+  padding-bottom: calc(100vh - 4rem);
+
+  &::-webkit-scrollbar {
+    display: none;
+  }
 `

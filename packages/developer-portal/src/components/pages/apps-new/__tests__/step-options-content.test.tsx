@@ -32,16 +32,11 @@ const getValues = jest.fn(() => ({
 })) as unknown as UseFormGetValues<CreateAppFormSchema>
 
 const steps = [
-  AppNewStepId.whatUserStep,
-  AppNewStepId.existingCustomerStep,
-  AppNewStepId.thirdPartyDevStep,
   AppNewStepId.webServicesStep,
   AppNewStepId.reapitConnectStep,
   AppNewStepId.otherAppStep,
   AppNewStepId.agencyCloudStep,
-  AppNewStepId.agencyCloudReplacementStep,
   AppNewStepId.dataFeedStep,
-  AppNewStepId.reportingStep,
   AppNewStepId.serverSideStep,
   AppNewStepId.clientSideStep,
   AppNewStepId.websiteFeedStep,

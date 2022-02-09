@@ -16,10 +16,10 @@ export interface AppWizardHook {
 }
 
 export const defaultAppWizardState: AppWizardState = {
-  currentStep: AppNewStepId.whatUserStep,
+  currentStep: AppNewStepId.applicationTypeStep,
   nextStep: null,
   prevStep: null,
-  stepHistory: [AppNewStepId.whatUserStep],
+  stepHistory: [AppNewStepId.applicationTypeStep],
   authFlow: 'clientCredentials',
   lastStep: false,
 }
