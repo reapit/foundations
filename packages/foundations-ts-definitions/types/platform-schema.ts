@@ -10663,6 +10663,10 @@ export interface PropertyModel {
    */
   boardNotes?: string
   /**
+   * The properties featured image url
+   */
+  featuredImageUrl?: string // uri
+  /**
    * The date the advertising board was last updated (or should be updated when the date is in the future)
    * example:
    * 2019-08-14
@@ -11231,6 +11235,10 @@ export interface PropertyModelPagedResult {
      * Any notes relevant to the advertising board sited outside or near to the property
      */
     boardNotes?: string
+    /**
+     * The properties featured image url
+     */
+    featuredImageUrl?: string // uri
     /**
      * The date the advertising board was last updated (or should be updated when the date is in the future)
      * example:
