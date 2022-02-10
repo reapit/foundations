@@ -6918,6 +6918,10 @@ export interface DepartmentModel {
    */
   specialFeaturesOptions?: string[]
   /**
+   * A collection of commercial use class values that will be accepted by other services
+   */
+  commercialUseClassOptions?: string[]
+  /**
    * The ETag for the current version of the department. Used for managing update concurrency
    */
   readonly _eTag?: string
@@ -6980,6 +6984,10 @@ export interface DepartmentModelPagedResult {
      * A collection of special property feature values that will be presented by other services
      */
     specialFeaturesOptions?: string[]
+    /**
+     * A collection of commercial use class values that will be accepted by other services
+     */
+    commercialUseClassOptions?: string[]
     /**
      * The ETag for the current version of the department. Used for managing update concurrency
      */
@@ -10417,6 +10425,10 @@ export interface PropertyLettingModel {
    */
   landlordId?: string
   /**
+   * The unique identifier of the negotiator that manages the property
+   */
+  propertyManagerId?: string
+  /**
    * The unique identifier of the document used for the lettings brochure
    */
   brochureId?: string
@@ -10904,6 +10916,10 @@ export interface PropertyModel {
      * The unique identifier of the landlord letting the property
      */
     landlordId?: string
+    /**
+     * The unique identifier of the negotiator that manages the property
+     */
+    propertyManagerId?: string
     /**
      * The unique identifier of the document used for the lettings brochure
      */
@@ -11477,6 +11493,10 @@ export interface PropertyModelPagedResult {
        * The unique identifier of the landlord letting the property
        */
       landlordId?: string
+      /**
+       * The unique identifier of the negotiator that manages the property
+       */
+      propertyManagerId?: string
       /**
        * The unique identifier of the document used for the lettings brochure
        */
