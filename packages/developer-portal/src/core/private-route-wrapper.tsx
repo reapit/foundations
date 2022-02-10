@@ -55,6 +55,7 @@ export const PrivateRouteWrapper: React.FunctionComponent<PrivateRouteWrapperPro
   const isV3Page =
     ELEMENTS_V3_PAGES.includes(location.pathname) ||
     location.pathname.includes(Routes.API_DOCS) ||
+    location.pathname.includes('apps') ||
     location.pathname.includes('v8')
 
   useEffect(() => {

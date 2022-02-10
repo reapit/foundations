@@ -28,10 +28,16 @@ export const StepOptionItem = styled.div`
   box-shadow: 0px 2px 9px rgba(0, 0, 0, 0.08);
   cursor: pointer;
   border: 1px solid var(--color-white);
+  color: var(--color-grey-dark);
 
   &.${stepOptionItemSelected} {
     border: 1px solid var(--intent-secondary);
+    color: var(--color-black);
   }
+`
+
+export const StepOptionItemText = styled.div`
+  width: calc(100% - 4.5rem);
 `
 
 export const StepFormContainer = styled.div`

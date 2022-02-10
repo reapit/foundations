@@ -1,10 +1,10 @@
 import { cx } from '@linaria/core'
-import { elMr8, elWFull, Icon } from '@reapit/elements'
+import { elMr8, Icon } from '@reapit/elements'
 import React, { FC } from 'react'
 import { AppNewStepId } from './config'
 import { useAppWizard } from './use-app-wizard'
 import { handleSetAppWizardState } from './utils'
-import { StepOptionItem, stepOptionItemSelected } from './__styles__'
+import { StepOptionItem, stepOptionItemSelected, StepOptionItemText } from './__styles__'
 
 export const ClientServerSideContent: FC = () => {
   const { appWizardState, setAppWizardState } = useAppWizard()
@@ -12,24 +12,20 @@ export const ClientServerSideContent: FC = () => {
 
   return (
     <>
-      <StepOptionItem onClick={handleSetAppWizardState(setAppWizardState, AppNewStepId.serverSideStep)}>
-        <Icon
-          className={cx(elMr8, nextStep === AppNewStepId.serverSideStep && stepOptionItemSelected)}
-          fontSize="2rem"
-          icon="serverInfographic"
-        />
-        <div className={elWFull}>Server Side</div>
+      <StepOptionItem
+        className={cx(nextStep === AppNewStepId.serverSideStep && stepOptionItemSelected)}
+        onClick={handleSetAppWizardState(setAppWizardState, AppNewStepId.serverSideStep)}
+      >
+        <Icon className={elMr8} fontSize="2rem" icon="serverInfographic" />
+        <StepOptionItemText>Server Side</StepOptionItemText>
         {nextStep === AppNewStepId.serverSideStep && <Icon icon="tickSolidSystem" intent="primary" />}
       </StepOptionItem>
       <StepOptionItem
+        className={cx(elMr8, nextStep === AppNewStepId.clientSideStep && stepOptionItemSelected)}
         onClick={handleSetAppWizardState(setAppWizardState, AppNewStepId.clientSideStep, 'authorisationCode')}
       >
-        <Icon
-          className={cx(elMr8, nextStep === AppNewStepId.clientSideStep && stepOptionItemSelected)}
-          fontSize="2rem"
-          icon="devicesInfographic"
-        />
-        <div className={elWFull}>Client Side</div>
+        <Icon className={elMr8} fontSize="2rem" icon="devicesInfographic" />
+        <StepOptionItemText>Client Side</StepOptionItemText>
         {nextStep === AppNewStepId.clientSideStep && <Icon icon="tickSolidSystem" intent="primary" />}
       </StepOptionItem>
     </>

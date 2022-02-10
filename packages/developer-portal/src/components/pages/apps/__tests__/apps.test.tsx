@@ -5,7 +5,7 @@ import { mount } from 'enzyme'
 import configureStore from 'redux-mock-store'
 import appState from '@/reducers/__stubs__/app-state'
 import Routes from '@/constants/routes'
-import DeveloperHome, { handleOnCardClick, handleOnChange, onShowSubmitAppModal, onCloseSubmitAppModal } from '../apps'
+import DeveloperHome, { handleOnCardClick, handleOnChange } from '../apps'
 import { AppSummaryModel } from '@reapit/foundations-ts-definitions'
 import { getMockRouterProps } from '@/utils/mock-helper'
 import routes from '@/constants/routes'
@@ -47,22 +47,6 @@ describe('Login', () => {
       const fn = handleOnChange(history)
       fn(1)
       expect(history.push).toBeCalledWith(`${routes.APPS}?page=${1}`)
-    })
-  })
-
-  describe('onShowSubmitAppModal', () => {
-    it('should set as visible', () => {
-      const setSubmitAppModalVisible = jest.fn()
-      onShowSubmitAppModal(setSubmitAppModalVisible)()
-      expect(setSubmitAppModalVisible).toHaveBeenCalledWith(true)
-    })
-  })
-
-  describe('onCloseSubmitAppModal', () => {
-    it('should set visible to false', () => {
-      const setSubmitAppModalVisible = jest.fn()
-      onCloseSubmitAppModal(setSubmitAppModalVisible)()
-      expect(setSubmitAppModalVisible).toHaveBeenCalledWith(false)
     })
   })
 })
