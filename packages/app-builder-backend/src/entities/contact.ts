@@ -1,5 +1,14 @@
 import { gql } from 'apollo-server-core'
-import { ObjectType, Field, ID, InputType } from 'type-graphql'
+import { ObjectType, Field, ID, InputType, registerEnumType } from 'type-graphql'
+
+export enum MarketingConsent {
+  grant = 'grant',
+  deny = 'deny',
+  notAsked = 'notAsked',
+}
+registerEnumType(MarketingConsent, {
+  name: 'MarketingConsent',
+})
 
 @ObjectType({ description: '@labelKeys(title, forename, surname) @supportsCustomFields()' })
 export class Contact {
@@ -15,6 +24,12 @@ export class Contact {
   @Field()
   title: string
 
+  @Field()
+  email: string
+
+  @Field(() => MarketingConsent)
+  marketingConsent: MarketingConsent
+
   metadata?: any
 }
 
@@ -29,6 +44,12 @@ export class ContactInput {
   @Field()
   title: string
 
+  @Field()
+  email: string
+
+  @Field(() => MarketingConsent)
+  marketingConsent: MarketingConsent
+
   metadata?: any
 }
 
@@ -38,6 +59,8 @@ export const ContactFragment = gql`
     title
     forename
     surname
+    email
+    marketingConsent
     metadata
   }
 `

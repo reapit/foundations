@@ -1,7 +1,7 @@
-import { extractMetadata } from '../utils/extract-metadata'
 import { gql } from 'apollo-server-core'
 import { Arg, Authorized, Ctx, Mutation, Query, Resolver } from 'type-graphql'
 
+import { extractMetadata } from '../utils/extract-metadata'
 import { Contact, ContactFragment, ContactInput } from '../entities/contact'
 import { Context } from '../types'
 import { query } from '../utils/graphql-fetch'
@@ -38,14 +38,20 @@ const getContactQuery = gql`
 `
 
 const createContactMutation = gql`
+  ${ContactFragment}
   mutation CreateContact($title: String, $forename: String, $surname: String) {
-    CreateContact(title: $title, forename: $forename, surname: $surname)
+    CreateContact(title: $title, forename: $forename, surname: $surname) {
+      ...ContactFragment
+    }
   }
 `
 
 const updateContactMutation = gql`
+  ${ContactFragment}
   mutation UpdateContact($id: String!, $title: String, $forename: String, $surname: String) {
-    UpdateContact(id: $id, title: $title, forename: $forename, surname: $surname)
+    UpdateContact(id: $id, title: $title, forename: $forename, surname: $surname) {
+      ...ContactFragment
+    }
   }
 `
 
