@@ -1,7 +1,8 @@
+import { logger } from '@reapit/utils-react'
 import { useState, useEffect } from 'react'
 import { useAsyncState } from '../use-async-state'
 import { ReapitConnectBrowserSession, ReapitConnectSession, useReapitConnect } from '@reapit/connect-session'
-import { getMergedHeaders } from './../../../utils-common/src/reapit-data/utils'
+import { getMergedHeaders, handleReapitError } from './../../../utils-common/src/reapit-data/utils'
 import { UpdateAction } from '@reapit/utils-common'
 import { useSnack } from '@reapit/elements'
 import { StringMap } from '../get-platform-headers'
@@ -95,6 +96,11 @@ export const send =
       let location
       let fetchResponse
 
+      if (!response.ok) {
+        const errorRes = await response.json()
+        throw new Error(handleReapitError(errorRes ?? {}))
+      }
+
       switch (returnType) {
         case UpdateReturnTypeEnum.RESPONSE:
           data = await response.json()
@@ -123,10 +129,14 @@ export const send =
       }
 
       return true
-    } catch (exception: any) {
-      errorSnack(exception?.message || error)
+    } catch (exception) {
+      const err = exception as Error
+      const message = action.errorMessage ?? err?.message ?? error
+      errorSnack(message)
 
-      await Promise.all([setLoading(false), setSuccess(false), setError(exception?.message || error)])
+      await Promise.all([setLoading(false), setSuccess(false), setError(message)])
+
+      logger(err)
       return false
     }
   }
