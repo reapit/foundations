@@ -123,7 +123,7 @@ Object {
               <select
                 class="el-select"
                 disabled=""
-                name="applicationId"
+                name="appId"
               >
                 <option
                   value=""
@@ -311,7 +311,7 @@ Object {
             <select
               class="el-select"
               disabled=""
-              name="applicationId"
+              name="appId"
             >
               <option
                 value=""

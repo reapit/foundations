@@ -47,6 +47,7 @@ export const handleFetchData = (dispatch: Dispatch) => (requestData: fetchDevelo
 }
 
 export const handleFetchMemberData = (dispatch: Dispatch) => (requestData: FetchDeveloperMembersParams) => {
+  console.log(requestData)
   dispatch(fetchDeveloperMemberList(requestData))
 }
 
@@ -180,7 +181,14 @@ export const DevsManagement: React.FC = () => {
     }
 
     return (
-      <Button type="button" variant="primary" onClick={() => fetchMemberData({ id: original.id as string })}>
+      <Button
+        type="button"
+        variant="primary"
+        onClick={() => {
+          // debugger
+          fetchMemberData({ id: original.id as string })
+        }}
+      >
         Fetch Members
       </Button>
     )
@@ -225,16 +233,20 @@ export const DevsManagement: React.FC = () => {
     },
     !hasLimitedAccess && {
       id: 'Subscribe',
-      Cell: ({ row }: { row: { original: DeveloperModel } }) => (
-        <CreateSubscriptionsButton subscriptionType="developerRegistration" developerId={row.original.id as string} />
-      ),
+      Cell: ({ row }: { row: { original: DeveloperModel & { isMember: boolean } } }) => {
+        return !row.original.isMember ? (
+          <CreateSubscriptionsButton subscriptionType="developerRegistration" developerId={row.original.id as string} />
+        ) : null
+      },
     },
     !hasLimitedAccess && {
       Header: '',
       id: 'apiKeyColumn',
-      Cell: ({ row }: { row: { original: DeveloperModel } }) => (
-        <ApiKeys developerId={row.original.id as string} email={row.original.email as string} />
-      ),
+      Cell: ({ row }: { row: { original: DeveloperModel & { isMember: boolean } } }) => {
+        return !row.original.isMember ? (
+          <ApiKeys developerId={row.original.id as string} email={row.original.email as string} />
+        ) : null
+      },
     },
   ].filter(Boolean)
 

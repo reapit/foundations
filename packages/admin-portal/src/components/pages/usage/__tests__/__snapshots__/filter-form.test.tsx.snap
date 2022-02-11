@@ -118,7 +118,7 @@ Object {
               <select
                 class="el-select"
                 disabled=""
-                name="applicationId"
+                name="appId"
               >
                 <option
                   value=""
@@ -162,7 +162,7 @@ Object {
                 <option
                   value="SOME_ID"
                 >
-                  SOME_NAME
+                  SOME_NAME (Code: DXX)
                 </option>
               </select>
             </div>
@@ -285,7 +285,7 @@ Object {
             <select
               class="el-select"
               disabled=""
-              name="applicationId"
+              name="appId"
             >
               <option
                 value=""
@@ -329,7 +329,7 @@ Object {
               <option
                 value="SOME_ID"
               >
-                SOME_NAME
+                SOME_NAME (Code: DXX)
               </option>
             </select>
           </div>
@@ -509,7 +509,7 @@ Object {
               <select
                 class="el-select"
                 disabled=""
-                name="applicationId"
+                name="appId"
               >
                 <option
                   value=""
@@ -661,7 +661,7 @@ Object {
             <select
               class="el-select"
               disabled=""
-              name="applicationId"
+              name="appId"
             >
               <option
                 value=""
