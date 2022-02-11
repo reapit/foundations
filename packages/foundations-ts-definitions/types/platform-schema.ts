@@ -37,6 +37,15 @@ export interface ApplicantBuyingModel {
   positionId?: string
 }
 /**
+ * An applicant's commercial details
+ */
+export interface ApplicantCommercialModel {
+  /**
+   * The commercial use requirements (eg a1, a2, b1), as defined by the applicant's [department](https://foundations-documentation.reapit.cloud/platform-glossary#department)
+   */
+  useClass?: string[]
+}
+/**
  * Representation of the physical address of a building or premise
  */
 export interface ApplicantContactAddressModel {
@@ -548,6 +557,15 @@ export interface ApplicantModel {
     type?: string
   }
   /**
+   * An applicant's commercial details
+   */
+  commercial?: {
+    /**
+     * The commercial use requirements (eg a1, a2, b1), as defined by the applicant's [department](https://foundations-documentation.reapit.cloud/platform-glossary#department)
+     */
+    useClass?: string[]
+  }
+  /**
    * A collection of unique identifiers of offices attached to the applicant. The first item in the collection is considered the primary office
    */
   officeIds?: string[]
@@ -900,6 +918,15 @@ export interface ApplicantModelPagedResult {
        * The source type (office/source)
        */
       type?: string
+    }
+    /**
+     * An applicant's commercial details
+     */
+    commercial?: {
+      /**
+       * The commercial use requirements (eg a1, a2, b1), as defined by the applicant's [department](https://foundations-documentation.reapit.cloud/platform-glossary#department)
+       */
+      useClass?: string[]
     }
     /**
      * A collection of unique identifiers of offices attached to the applicant. The first item in the collection is considered the primary office
@@ -10161,6 +10188,15 @@ export interface PropertyAddressModel {
   }
 }
 /**
+ * An properties commercial details
+ */
+export interface PropertyCommercialModel {
+  /**
+   * The commercial use attributes (eg a1, a2, b1), as defined by the property's [department](https://foundations-documentation.reapit.cloud/platform-glossary#department)
+   */
+  useClass?: string[]
+}
+/**
  * Representation of the the commission fee for a property
  */
 export interface PropertyCommissionFeeModel {
@@ -10997,6 +11033,15 @@ export interface PropertyModel {
     }
   }
   /**
+   * An properties commercial details
+   */
+  commercial?: {
+    /**
+     * The commercial use attributes (eg a1, a2, b1), as defined by the property's [department](https://foundations-documentation.reapit.cloud/platform-glossary#department)
+     */
+    useClass?: string[]
+  }
+  /**
    * The attributes describing the overall type of the property (eg house, bungalow, land), as defined by the property's [department](https://foundations-documentation.reapit.cloud/platform-glossary#department)
    */
   type?: string[]
@@ -11572,6 +11617,15 @@ export interface PropertyModelPagedResult {
          */
         cableTvCompanyId?: string
       }
+    }
+    /**
+     * An properties commercial details
+     */
+    commercial?: {
+      /**
+       * The commercial use attributes (eg a1, a2, b1), as defined by the property's [department](https://foundations-documentation.reapit.cloud/platform-glossary#department)
+       */
+      useClass?: string[]
     }
     /**
      * The attributes describing the overall type of the property (eg house, bungalow, land), as defined by the property's [department](https://foundations-documentation.reapit.cloud/platform-glossary#department)
