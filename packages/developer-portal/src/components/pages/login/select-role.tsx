@@ -1,6 +1,6 @@
 import { KeyAnimation } from '@reapit/utils-react'
 import React, { FC, useState } from 'react'
-import connectImage from '@/assets/images/reapit-connect.png'
+import reapitLogo from '../../../assets/images/reapit-logo.svg'
 import {
   FlexContainer,
   Subtitle,
@@ -34,11 +34,11 @@ export const SelectRolePage: FC = () => {
           setKeyStep(1)
         }}
       >
-        <img src={connectImage} alt="Reapit Connect Graphic" />
+        <img src={reapitLogo} alt="Reapit Connect Graphic" />
         <Title hasNoMargin hasCenteredText>
-          Select an option
+          Select an option to register
         </Title>
-        <Subtitle hasCenteredText>that best describes you to register</Subtitle>
+        <Subtitle hasCenteredText>that best describes you</Subtitle>
         <LoginRoleTile>
           <FlexContainer onClick={openModal}>
             <Icon className={elMr5} fontSize="4rem" icon="newCustomerInfographic" />

@@ -1,9 +1,8 @@
 import React, { FC, useState, useEffect } from 'react'
 import { Dispatch } from 'redux'
 import { useDispatch, useSelector } from 'react-redux'
-import { History } from 'history'
 import dayjs from 'dayjs'
-import { Link, useHistory } from 'react-router-dom'
+import { useHistory } from 'react-router-dom'
 import {
   InputGroup,
   FormLayout,
@@ -14,21 +13,23 @@ import {
   BodyText,
   Button,
   FlexContainer,
-  elMt12,
   useSnack,
+  ButtonGroup,
+  elMb12,
 } from '@reapit/elements'
 import { CreateDeveloperModel } from '@reapit/foundations-ts-definitions'
-import { selectDeveloperFormState } from '@/selector'
-import { developerCreate, developerSetFormState } from '@/actions/developer'
-import TermsAndConditionsModal from '@/components/ui/terms-and-conditions-modal'
-import Routes from '@/constants/routes'
-import { container, imageContainer, wrapper } from './__styles__/register'
+import { selectDeveloperFormState } from '../../../selector'
+import { developerCreate, developerSetFormState } from '../../../actions/developer'
+import TermsAndConditionsModal from '../../ui/terms-and-conditions-modal'
+import Routes from '../../../constants/routes'
 import { formFields } from './form-fields'
 import { yupResolver } from '@hookform/resolvers/yup'
 import { validationSchema } from './validation-schema'
 import { KeyAnimation } from '@reapit/utils-react'
 import { useForm, UseFormGetValues } from 'react-hook-form'
-import { cx } from '@linaria/core'
+import reapitLogo from '../../../assets/images/reapit-logo.svg'
+import { LoginContainer, LoginImageContainer, LoginContentWrapper } from '../login/__styles__'
+import { reapitConnectBrowserSession } from '../../../core/connect-session'
 
 const { nameField, emailField, companyNameField, telephoneField } = formFields
 
@@ -59,9 +60,9 @@ export const onDeclineTermsAndConditions = (setTermsAndConditionsModalVisible: (
   }
 }
 
-export const onLoginButtonClick = (history: History) => {
+export const onLoginButtonClick = () => {
   return () => {
-    history.replace(Routes.LOGIN)
+    reapitConnectBrowserSession.connectLoginRedirect(`${window.location.origin}${Routes.APPS}`)
   }
 }
 
@@ -123,15 +124,18 @@ export const Register: FC<RegisterProps> = () => {
   const isSubmitting = formState === 'SUBMITTING'
 
   return (
-    <div className={container}>
-      <div className={imageContainer}>
+    <LoginContainer>
+      <LoginImageContainer>
         <KeyAnimation step={formStep} />
-      </div>
-      <div className={wrapper}>
-        <Title>Register</Title>
-        <Subtitle hasBoldText hasCenteredText>
-          Reapit Foundations Developers
-        </Subtitle>
+      </LoginImageContainer>
+      <LoginContentWrapper>
+        <img src={reapitLogo} alt="Reapit Connect Graphic" />
+        <FlexContainer isFlexColumn>
+          <Title hasNoMargin hasCenteredText>
+            Register
+          </Title>
+          <Subtitle hasCenteredText>for Reapit Foundations Developer Portal</Subtitle>
+        </FlexContainer>
         {formState === 'SUCCESS' ? (
           <PersistantNotification intent="success" isExpanded isFullWidth>
             Successfully registered. Check your email to confirm your account.
@@ -147,8 +151,7 @@ export const Register: FC<RegisterProps> = () => {
                 setFormStep,
               })}
             >
-              <Subtitle>Register for Foundations</Subtitle>
-              <BodyText hasGreyText>
+              <BodyText hasGreyText hasCenteredText>
                 By registering for the Foundations platform, you will get access to the Reapit developer portal and
                 sandbox data. You will also get the opportunity to list apps in the Reapit Marketplace. We look forward
                 to seeing what you build!
@@ -206,20 +209,24 @@ export const Register: FC<RegisterProps> = () => {
                     onDecline={onDeclineTermsAndConditions(setAgreeModalVisable)}
                     isSubmitting={isSubmitting}
                   />
-                  <Button intent={'primary'} fullWidth loading={isSubmitting}>
-                    Register
-                  </Button>
-                  <FlexContainer isFlexJustifyBetween className={cx(elMt12)}>
-                    <BodyText>Already have an account?</BodyText>
-                    <Link to={Routes.LOGIN}>Login</Link>
-                  </FlexContainer>
+                  <ButtonGroup alignment="center" className={elMb12}>
+                    <Button onClick={onLoginButtonClick()} intent="primary" size={3}>
+                      Login With Reapit
+                    </Button>
+                    <Button type="submit" loading={isSubmitting} intent="critical" chevronRight size={3}>
+                      Register
+                    </Button>
+                  </ButtonGroup>
+                  <BodyText hasGreyText hasCenteredText>
+                    {process.env.APP_VERSION}
+                  </BodyText>
                 </InputWrapFull>
               </FormLayout>
             </form>
           </>
         )}
-      </div>
-    </div>
+      </LoginContentWrapper>
+    </LoginContainer>
   )
 }
 
