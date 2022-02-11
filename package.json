@@ -15,6 +15,7 @@
     "postinstall": "husky install"
   },
   "devDependencies": {
+    "@apollo/client": "^3.5.8",
     "husky": "^7.0.4",
     "json": "^11.0.0"
   },

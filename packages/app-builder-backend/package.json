@@ -11,7 +11,7 @@
   "main": "./src/index.ts",
   "scripts": {
     "start": "DYNAMODB_ENDPOINT=http://localhost:8000 ts-node-dev .",
-    "test": "echo '...skipping...'",
+    "test": "cross-env TZ=UTC jest --watch --colors --silent=false",
     "build": "cp config.json src && tsc",
     "bundle": "ts-bundler",
     "lint": "eslint --cache --ext=ts,tsx,js src --fix",
@@ -61,13 +61,17 @@
     "@reapit/ts-bundler": "workspace:packages/ts-bundler",
     "@reapit/ts-types": "workspace:packages/ts-types",
     "@types/fs-extra": "^9.0.13",
+    "@types/jest": "^27.4.0",
     "@types/jszip": "^3.4.1",
     "adm-zip": "^0.5.9",
     "babel-jest": "^27.4.5",
     "concurrently": "^6.4.0",
     "cross-env": "^7.0.3",
+    "fast-deep-equal": "^3.1.3",
+    "fetch-mock-jest": "^1.5.1",
     "jest": "^27.4.5",
     "jest-coverage-badges": "^1.1.2",
+    "ts-jest": "^27.1.3",
     "ts-node-dev": "^1.1.8"
   }
 }
