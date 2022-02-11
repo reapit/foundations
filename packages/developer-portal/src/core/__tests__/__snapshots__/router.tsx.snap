@@ -38,7 +38,7 @@ exports[`Router should match a snapshot 1`] = `
           render={[Function]}
         />
         <Route
-          path="/register"
+          path="/developer/register"
           render={[Function]}
         />
         <Route

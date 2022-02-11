@@ -141,7 +141,7 @@ exports[`Login should match a snapshot 1`] = `
               >
                 <img
                   alt="Reapit Connect Graphic"
-                  src=""
+                  src={Object {}}
                 />
                 <FlexContainer
                   isFlexColumn={true}
@@ -217,7 +217,7 @@ exports[`Login should match a snapshot 1`] = `
                                 className="ebee6r1-el-intent-primary e83k2pj-el-button-size3 e1f2ikqj-el-button"
                                 onClick={[Function]}
                               >
-                                Login
+                                Login With Reapit
                               </button>
                             </ElButton>
                           </Button>

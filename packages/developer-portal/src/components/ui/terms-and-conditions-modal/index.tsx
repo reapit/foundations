@@ -1,10 +1,11 @@
 import * as React from 'react'
-import { Button, Helper, Modal, ModalProps } from '@reapit/elements-legacy'
+import { Button, Modal, ModalProps } from '@reapit/elements-legacy'
 import { TermsAndConditions } from './terms-and-conditions'
 import { ScheduleOne } from './schedule-one'
 import { ScheduleTwo } from './schedule-two'
 import { modalWidth } from './__styles__/terms-and-conditions'
 import { ScheduleThree } from './schedule-three'
+import { BodyText, elMb6, PersistantNotification } from '@reapit/elements'
 
 export type TermsAndConditionsModalProps = {
   onAccept: () => void
@@ -43,11 +44,13 @@ export const TermsAndConditionsModal: React.FunctionComponent<TermsAndConditions
       }
     >
       <>
-        <Helper variant="info">Please agree to the Reapit Developer Terms and Conditions to proceed</Helper>
-        <p>
+        <BodyText hasGreyText>
           These Reapit Foundations User Terms and Conditions govern access to Reapit’s Foundations Platform and
           incorporate the Registration Details, to the exclusion of all other terms.
-        </p>
+        </BodyText>
+        <PersistantNotification className={elMb6} intent="secondary" isExpanded isFullWidth>
+          Please agree to the Reapit Developer Terms and Conditions to proceed
+        </PersistantNotification>
         <TermsAndConditions />
         <ScheduleOne />
         <ScheduleTwo />
