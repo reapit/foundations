@@ -47,7 +47,6 @@ export const handleFetchData = (dispatch: Dispatch) => (requestData: fetchDevelo
 }
 
 export const handleFetchMemberData = (dispatch: Dispatch) => (requestData: FetchDeveloperMembersParams) => {
-  console.log(requestData)
   dispatch(fetchDeveloperMemberList(requestData))
 }
 
