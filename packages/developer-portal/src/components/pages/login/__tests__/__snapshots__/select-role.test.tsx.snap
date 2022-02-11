@@ -82,17 +82,17 @@ Object {
         >
           <img
             alt="Reapit Connect Graphic"
-            src=""
+            src="[object Object]"
           />
           <h1
             class="ewfctk4-el-has-no-margin e1bb7egt-el-has-centered-text etrchfm-el-title"
           >
-            Select an option
+            Select an option to register
           </h1>
           <h2
             class="e1bb7egt-el-has-centered-text e2dm5rh-el-subtitle"
           >
-            that best describes you to register
+            that best describes you
           </h2>
           <div
             class="lwd52pe-login-role-tile"
@@ -871,17 +871,17 @@ Object {
       >
         <img
           alt="Reapit Connect Graphic"
-          src=""
+          src="[object Object]"
         />
         <h1
           class="ewfctk4-el-has-no-margin e1bb7egt-el-has-centered-text etrchfm-el-title"
         >
-          Select an option
+          Select an option to register
         </h1>
         <h2
           class="e1bb7egt-el-has-centered-text e2dm5rh-el-subtitle"
         >
-          that best describes you to register
+          that best describes you
         </h2>
         <div
           class="lwd52pe-login-role-tile"

@@ -18,7 +18,7 @@ exports[`DeveloperSubmitApp should match a snapshot when pendingRevisions = fals
       Array [
         Object {
           "key": "registerRoute",
-          "pathname": "/register",
+          "pathname": "/developer/register",
         },
       ]
     }
@@ -34,7 +34,7 @@ exports[`DeveloperSubmitApp should match a snapshot when pendingRevisions = fals
             Object {
               "hash": "",
               "key": "registerRoute",
-              "pathname": "/register",
+              "pathname": "/developer/register",
               "search": "",
             },
           ],
@@ -47,7 +47,7 @@ exports[`DeveloperSubmitApp should match a snapshot when pendingRevisions = fals
           "location": Object {
             "hash": "",
             "key": "registerRoute",
-            "pathname": "/register",
+            "pathname": "/developer/register",
             "search": "",
           },
           "push": [Function],
@@ -3702,7 +3702,7 @@ exports[`DeveloperSubmitApp should match a snapshot when pendingRevisions = true
       Array [
         Object {
           "key": "what",
-          "pathname": "/register",
+          "pathname": "/developer/register",
         },
       ]
     }

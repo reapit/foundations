@@ -66,4 +66,3 @@ export const LoginImageContainer = styled.div`
     display: none;
   }
 `
-

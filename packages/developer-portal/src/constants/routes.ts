@@ -26,7 +26,7 @@ const Routes = {
   HELP: '/help',
   APP_PREVIEW: '/apps/:appId/preview',
   DEVELOPER_EDITION_DOWNLOAD: '/edition-download',
-  REGISTER: '/register',
+  REGISTER: '/developer/register',
   REGISTER_CONFIRM: '/register/confirm',
   LOGIN: '/login',
   FOUR_O_FOUR: '/404',

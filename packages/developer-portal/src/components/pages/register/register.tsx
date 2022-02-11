@@ -1,4 +1,4 @@
-import React, { FC, useState, useEffect } from 'react'
+import React, { FC, useState, useEffect, MouseEvent } from 'react'
 import { Dispatch } from 'redux'
 import { useDispatch, useSelector } from 'react-redux'
 import dayjs from 'dayjs'
@@ -60,10 +60,9 @@ export const onDeclineTermsAndConditions = (setTermsAndConditionsModalVisible: (
   }
 }
 
-export const onLoginButtonClick = () => {
-  return () => {
-    reapitConnectBrowserSession.connectLoginRedirect(`${window.location.origin}${Routes.APPS}`)
-  }
+export const onLoginButtonClick = () => (event: MouseEvent) => {
+  event.preventDefault()
+  reapitConnectBrowserSession.connectLoginRedirect(`${window.location.origin}${Routes.APPS}`)
 }
 
 export const handleSetFormDefault = (dispatch: Dispatch) => () => {

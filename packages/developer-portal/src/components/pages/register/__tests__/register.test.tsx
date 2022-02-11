@@ -1,4 +1,4 @@
-import * as React from 'react'
+import React, { MouseEvent } from 'react'
 import { mount } from 'enzyme'
 import * as ReactRedux from 'react-redux'
 import configureStore from 'redux-mock-store'
@@ -18,7 +18,7 @@ import { MemoryRouter } from 'react-router'
 import Routes from '@/constants/routes'
 import { CreateDeveloperModel } from '@reapit/foundations-ts-definitions'
 import dayjs from 'dayjs'
-import { getMockRouterProps } from '@/utils/mock-helper'
+import { reapitConnectBrowserSession } from '../../../../core/connect-session'
 
 const mockRegisterFormValues: CreateDeveloperModel = {
   name: 'test',
@@ -29,7 +29,6 @@ const mockRegisterFormValues: CreateDeveloperModel = {
 }
 
 describe('Register', () => {
-  const { history } = getMockRouterProps({})
   let store
   let spyDispatch
   beforeEach(() => {
@@ -78,9 +77,13 @@ describe('Register', () => {
   })
   describe('onLoginButtonClick', () => {
     it('should redirect to developer login page', () => {
-      const fn = onLoginButtonClick(history)
-      fn()
-      expect(history.replace).toBeCalledWith(`${Routes.LOGIN}`)
+      const loginSpy = jest.spyOn(reapitConnectBrowserSession, 'connectLoginRedirect')
+      const curried = onLoginButtonClick()
+      const event = {
+        preventDefault: jest.fn(),
+      }
+      curried(event as unknown as MouseEvent)
+      expect(loginSpy).toHaveBeenCalledTimes(1)
     })
   })
   describe('handleSetFormDefault', () => {
