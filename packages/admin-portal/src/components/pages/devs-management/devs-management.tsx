@@ -181,14 +181,7 @@ export const DevsManagement: React.FC = () => {
     }
 
     return (
-      <Button
-        type="button"
-        variant="primary"
-        onClick={() => {
-          // debugger
-          fetchMemberData({ id: original.id as string })
-        }}
-      >
+      <Button type="button" variant="primary" onClick={() => fetchMemberData({ id: original.id as string })}>
         Fetch Members
       </Button>
     )
