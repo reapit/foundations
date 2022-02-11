@@ -15,14 +15,14 @@ export interface UsageFilters {
   month?: string
   developerId?: string
   customerId?: string
-  applicationId?: string
+  appId?: string
 }
 
 export const UsagePage: FC = () => {
   const [usageFilters, setUsageFilters] = useState<UsageFilters>({})
-  const { month, developerId, applicationId, customerId } = usageFilters
+  const { month, developerId, appId, customerId } = usageFilters
 
-  const appIdFilter = applicationId ? { applicationId } : {}
+  const appIdFilter = appId ? { appId } : {}
   const customerIdFilter = customerId ? { customerId } : {}
 
   const [billing, billingLoading] = useReapitGet<BillingBreakdownForMonthV2Model>({
@@ -55,11 +55,11 @@ export const UsagePage: FC = () => {
     reapitConnectBrowserSession,
     action: getActions(window.reapit.config.appEnv)[GetActionNames.getInstallations],
     queryParams: {
-      applicationId,
+      appId,
       isInstalled: true,
       pageSize: 999,
     },
-    fetchWhenTrue: [month && developerId && applicationId],
+    fetchWhenTrue: [month && developerId && appId],
   })
 
   return (
