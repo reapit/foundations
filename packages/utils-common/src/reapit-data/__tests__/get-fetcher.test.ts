@@ -1,3 +1,4 @@
+import { handleReapitError } from '@reapit/utils-common'
 import { GetActionNames, getActions, getFetcher } from '..'
 import { ReapitConnectSession } from '@reapit/connect-session'
 
@@ -32,6 +33,7 @@ describe('getFetcher', () => {
     window.fetch = jest.fn().mockReturnValue({
       status: 400,
       ok: false,
+      json: jest.fn(() => ({})),
     })
 
     try {
@@ -42,7 +44,7 @@ describe('getFetcher', () => {
       })
       expect(response).toBeUndefined()
     } catch (err) {
-      expect(mockLogger).toHaveBeenCalledWith(new Error(getActions('local')[GetActionNames.getApps].errorMessage))
+      expect(mockLogger).toHaveBeenCalledWith(new Error(handleReapitError({})))
     }
   })
 
