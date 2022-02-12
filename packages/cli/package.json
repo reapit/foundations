@@ -6,7 +6,7 @@
   "dependencies": {
     "adm-zip": "^0.5.9",
     "ansi-regex": "^6.0.1",
-    "axios": "^0.24.0",
+    "axios": "^0.25.0",
     "chalk": "^4.1.2",
     "cli-spinners": "^2.6.1",
     "create-react-app": "^4.0.3",
