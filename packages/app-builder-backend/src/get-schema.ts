@@ -189,7 +189,8 @@ const generateDynamicSchema = (
             .split('id: ID!')
             .join('')
         } else {
-          typeDefs += typeDefinitions
+          typeDefs += typeDefinitions.split(`type ${typeName}`).join(`"@supportsCustomFields()"\ntype ${typeName}`)
+
           const queries = generateQueries(typeName)
           const mutations = generateMutations(typeName, inputTypeName)
           resolvers.Query = { ...resolvers.Query, ...queries.resolvers }
