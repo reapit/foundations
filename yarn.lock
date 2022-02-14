@@ -38928,7 +38928,7 @@ resolve@^2.0.0-next.3:
     "@reapit/ts-types": "workspace:packages/ts-types"
     "@typescript-eslint/eslint-plugin": ^5.7.0
     "@typescript-eslint/parser": ^5.7.0
-    axios: ^0.24.0
+    axios: ^0.25.0
     dayjs: ^1.10.7
     eslint: ^8.4.1
     eslint-plugin-prettier: ^4.0.0
