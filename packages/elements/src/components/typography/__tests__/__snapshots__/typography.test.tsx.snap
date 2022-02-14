@@ -10,7 +10,7 @@ exports[`Typography components BodyText should match a snapshot 1`] = `
 
 exports[`Typography components BodyText should match a snapshot with all modifiers 1`] = `
 <ElBodyText
-  className="el-has-grey-text el-has-bold-text el-has-italic-text el-has-no-margin el-has-centered-text"
+  className="el-has-grey-text el-has-bold-text el-has-italic-text el-has-no-margin el-has-section-margin el-has-centered-text"
 >
   I am body text
 </ElBodyText>
@@ -34,7 +34,7 @@ exports[`Typography components SmallText should match a snapshot 2`] = `
 
 exports[`Typography components SmallText should match a snapshot with all modifiers 1`] = `
 <ElSmallText
-  className="el-has-grey-text el-has-bold-text el-has-italic-text el-has-no-margin el-has-centered-text"
+  className="el-has-grey-text el-has-bold-text el-has-italic-text el-has-no-margin el-has-section-margin el-has-centered-text"
 >
   I am small text
 </ElSmallText>
@@ -42,7 +42,7 @@ exports[`Typography components SmallText should match a snapshot with all modifi
 
 exports[`Typography components SmallText should match a snapshot with all modifiers 2`] = `
 <ElSmallText
-  className="el-has-grey-text el-has-bold-text el-has-italic-text el-has-no-margin el-has-centered-text"
+  className="el-has-grey-text el-has-bold-text el-has-italic-text el-has-no-margin el-has-section-margin el-has-centered-text"
 >
   I am small text
 </ElSmallText>
@@ -58,7 +58,7 @@ exports[`Typography components SubTitle should match a snapshot 1`] = `
 
 exports[`Typography components SubTitle should match a snapshot with all modifiers 1`] = `
 <ElSubtitle
-  className="el-has-grey-text el-has-bold-text el-has-italic-text el-has-no-margin el-has-centered-text"
+  className="el-has-grey-text el-has-bold-text el-has-italic-text el-has-no-margin el-has-section-margin el-has-centered-text"
 >
   I am a subtitle
 </ElSubtitle>
@@ -74,7 +74,7 @@ exports[`Typography components Title should match a snapshot 1`] = `
 
 exports[`Typography components Title should match a snapshot with all modifiers 1`] = `
 <ElTitle
-  className="el-has-grey-text el-has-regular-text el-has-italic-text el-has-no-margin el-has-centered-text"
+  className="el-has-grey-text el-has-regular-text el-has-italic-text el-has-no-margin el-has-section-margin el-has-centered-text"
 >
   I am a title
 </ElTitle>

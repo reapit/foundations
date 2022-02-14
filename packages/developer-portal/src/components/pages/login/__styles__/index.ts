@@ -46,11 +46,11 @@ export const LoginContentWrapper = styled.div`
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
+  flex-direction: column;
   align-items: center;
   margin: auto;
 
   img {
-    width: 15rem;
     margin: 0 auto 3rem auto;
     display: block;
   }
@@ -62,8 +62,6 @@ export const LoginContentWrapper = styled.div`
 `
 
 export const LoginImageContainer = styled.div`
-  /* position: fixed; */
-
   ${forMobileOnly} {
     display: none;
   }

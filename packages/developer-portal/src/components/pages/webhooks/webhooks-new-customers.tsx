@@ -5,7 +5,6 @@ import {
   MultiSelectOption,
   FormLayout,
   InputGroup,
-  InputWrapFull,
   Label,
   elFadeIn,
   InputWrapMed,
@@ -62,31 +61,33 @@ export const WebhooksNewCustomers: FC<WebhooksNewCustomersProps> = ({ register, 
   const selectedCustomers = getValues().customerIds?.split(',').filter(Boolean) ?? [SANDBOX_CLIENT.value]
 
   return (
-    <FormLayout className={elFadeIn}>
-      <InputWrapFull>
-        <BodyText hasNoMargin hasGreyText>
-          Select customers from the list below by default we have prepopulated this with &lsquo;Sandbox Estates
-          (SBOX)&rsquo;. If you select one customer, you will need to specify each customer individually. If you select
-          &lsquo;All Customers&rsquo;, the sandbox environment will be excluded and you will need to create a separate
-          webhook for &lsquo;Sandbox Estates (SBOX)&rsquo;.
-        </BodyText>
-      </InputWrapFull>
-      <InputWrapMed>
-        {isLoading ? (
-          <Loader label="Loading" />
-        ) : (
-          <InputGroup>
-            <MultiSelectInput
-              id="customer-ids"
-              noneSelectedLabel={errors.customerIds ? errors.customerIds.message : 'Please select from the list below'}
-              options={customerOptions}
-              defaultValues={selectedCustomers}
-              {...register('customerIds')}
-            />
-            <Label>Subscription Customers</Label>
-          </InputGroup>
-        )}
-      </InputWrapMed>
-    </FormLayout>
+    <>
+      <BodyText hasSectionMargin hasGreyText>
+        Select customers from the list below by default we have prepopulated this with &lsquo;Sandbox Estates
+        (SBOX)&rsquo;. If you select one customer, you will need to specify each customer individually. If you select
+        &lsquo;All Customers&rsquo;, the sandbox environment will be excluded and you will need to create a separate
+        webhook for &lsquo;Sandbox Estates (SBOX)&rsquo;.
+      </BodyText>
+      <FormLayout className={elFadeIn}>
+        <InputWrapMed>
+          {isLoading ? (
+            <Loader label="Loading" />
+          ) : (
+            <InputGroup>
+              <MultiSelectInput
+                id="customer-ids"
+                noneSelectedLabel={
+                  errors.customerIds ? errors.customerIds.message : 'Please select from the list below'
+                }
+                options={customerOptions}
+                defaultValues={selectedCustomers}
+                {...register('customerIds')}
+              />
+              <Label>Subscription Customers</Label>
+            </InputGroup>
+          )}
+        </InputWrapMed>
+      </FormLayout>
+    </>
   )
 }

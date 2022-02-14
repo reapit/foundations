@@ -37,6 +37,15 @@ export interface ApplicantBuyingModel {
   positionId?: string
 }
 /**
+ * An applicant's commercial details
+ */
+export interface ApplicantCommercialModel {
+  /**
+   * The commercial use requirements (eg a1, a2, b1), as defined by the applicant's [department](https://foundations-documentation.reapit.cloud/platform-glossary#department)
+   */
+  useClass?: string[]
+}
+/**
  * Representation of the physical address of a building or premise
  */
 export interface ApplicantContactAddressModel {
@@ -548,6 +557,15 @@ export interface ApplicantModel {
     type?: string
   }
   /**
+   * An applicant's commercial details
+   */
+  commercial?: {
+    /**
+     * The commercial use requirements (eg a1, a2, b1), as defined by the applicant's [department](https://foundations-documentation.reapit.cloud/platform-glossary#department)
+     */
+    useClass?: string[]
+  }
+  /**
    * A collection of unique identifiers of offices attached to the applicant. The first item in the collection is considered the primary office
    */
   officeIds?: string[]
@@ -900,6 +918,15 @@ export interface ApplicantModelPagedResult {
        * The source type (office/source)
        */
       type?: string
+    }
+    /**
+     * An applicant's commercial details
+     */
+    commercial?: {
+      /**
+       * The commercial use requirements (eg a1, a2, b1), as defined by the applicant's [department](https://foundations-documentation.reapit.cloud/platform-glossary#department)
+       */
+      useClass?: string[]
     }
     /**
      * A collection of unique identifiers of offices attached to the applicant. The first item in the collection is considered the primary office
@@ -6918,6 +6945,10 @@ export interface DepartmentModel {
    */
   specialFeaturesOptions?: string[]
   /**
+   * A collection of commercial use class values that will be accepted by other services
+   */
+  commercialUseClassOptions?: string[]
+  /**
    * The ETag for the current version of the department. Used for managing update concurrency
    */
   readonly _eTag?: string
@@ -6980,6 +7011,10 @@ export interface DepartmentModelPagedResult {
      * A collection of special property feature values that will be presented by other services
      */
     specialFeaturesOptions?: string[]
+    /**
+     * A collection of commercial use class values that will be accepted by other services
+     */
+    commercialUseClassOptions?: string[]
     /**
      * The ETag for the current version of the department. Used for managing update concurrency
      */
@@ -10153,6 +10188,15 @@ export interface PropertyAddressModel {
   }
 }
 /**
+ * An properties commercial details
+ */
+export interface PropertyCommercialModel {
+  /**
+   * The commercial use attributes (eg a1, a2, b1), as defined by the property's [department](https://foundations-documentation.reapit.cloud/platform-glossary#department)
+   */
+  useClass?: string[]
+}
+/**
  * Representation of the the commission fee for a property
  */
 export interface PropertyCommissionFeeModel {
@@ -10417,6 +10461,10 @@ export interface PropertyLettingModel {
    */
   landlordId?: string
   /**
+   * The unique identifier of the negotiator that manages the property
+   */
+  propertyManagerId?: string
+  /**
    * The unique identifier of the document used for the lettings brochure
    */
   brochureId?: string
@@ -10663,6 +10711,10 @@ export interface PropertyModel {
    */
   boardNotes?: string
   /**
+   * The properties featured image url
+   */
+  featuredImageUrl?: string // uri
+  /**
    * The date the advertising board was last updated (or should be updated when the date is in the future)
    * example:
    * 2019-08-14
@@ -10901,6 +10953,10 @@ export interface PropertyModel {
      */
     landlordId?: string
     /**
+     * The unique identifier of the negotiator that manages the property
+     */
+    propertyManagerId?: string
+    /**
      * The unique identifier of the document used for the lettings brochure
      */
     brochureId?: string
@@ -10975,6 +11031,15 @@ export interface PropertyModel {
        */
       cableTvCompanyId?: string
     }
+  }
+  /**
+   * An properties commercial details
+   */
+  commercial?: {
+    /**
+     * The commercial use attributes (eg a1, a2, b1), as defined by the property's [department](https://foundations-documentation.reapit.cloud/platform-glossary#department)
+     */
+    useClass?: string[]
   }
   /**
    * The attributes describing the overall type of the property (eg house, bungalow, land), as defined by the property's [department](https://foundations-documentation.reapit.cloud/platform-glossary#department)
@@ -11232,6 +11297,10 @@ export interface PropertyModelPagedResult {
      */
     boardNotes?: string
     /**
+     * The properties featured image url
+     */
+    featuredImageUrl?: string // uri
+    /**
      * The date the advertising board was last updated (or should be updated when the date is in the future)
      * example:
      * 2019-08-14
@@ -11470,6 +11539,10 @@ export interface PropertyModelPagedResult {
        */
       landlordId?: string
       /**
+       * The unique identifier of the negotiator that manages the property
+       */
+      propertyManagerId?: string
+      /**
        * The unique identifier of the document used for the lettings brochure
        */
       brochureId?: string
@@ -11544,6 +11617,15 @@ export interface PropertyModelPagedResult {
          */
         cableTvCompanyId?: string
       }
+    }
+    /**
+     * An properties commercial details
+     */
+    commercial?: {
+      /**
+       * The commercial use attributes (eg a1, a2, b1), as defined by the property's [department](https://foundations-documentation.reapit.cloud/platform-glossary#department)
+       */
+      useClass?: string[]
     }
     /**
      * The attributes describing the overall type of the property (eg house, bungalow, land), as defined by the property's [department](https://foundations-documentation.reapit.cloud/platform-glossary#department)

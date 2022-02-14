@@ -11,7 +11,6 @@ import {
   SearchableDropdown,
   Label,
   Select,
-  elMb7,
 } from '@reapit/elements'
 import { fetchDevelopersList } from '../../../services/developers'
 import { AppSummaryModelPagedResult, InstallationModelPagedResult } from '@reapit/foundations-ts-definitions'
@@ -26,11 +25,11 @@ export interface FilterFormProps {
 export const FilterForm: FC<FilterFormProps> = ({ setUsageFilters, apps, installations }) => {
   const { register, handleSubmit, getValues } = useForm<UsageFilters>({ mode: 'all' })
 
-  const { developerId, month, applicationId } = getValues()
+  const { developerId, month, appId } = getValues()
 
   return (
-    <form className={elMb7} onChange={handleSubmit(setUsageFilters)}>
-      <FormLayout>
+    <form onChange={handleSubmit(setUsageFilters)}>
+      <FormLayout hasMargin>
         <InputWrapFull>
           <Subtitle>Filters</Subtitle>
           <BodyText hasGreyText>Apply a filter to get started. Developer and month are required by default.</BodyText>
@@ -59,7 +58,7 @@ export const FilterForm: FC<FilterFormProps> = ({ setUsageFilters, apps, install
         <InputWrap>
           <Label>App</Label>
           <InputGroup>
-            <Select {...register('applicationId')} disabled={!developerId || !month || !apps}>
+            <Select {...register('appId')} disabled={!developerId || !month || !apps}>
               <option value="">Please Select</option>
               {apps?.data?.map(({ id, name }) => (
                 <option key={id} value={id}>
@@ -72,11 +71,11 @@ export const FilterForm: FC<FilterFormProps> = ({ setUsageFilters, apps, install
         <InputWrap>
           <Label>Customer</Label>
           <InputGroup>
-            <Select {...register('customerId')} disabled={!developerId || !month || !applicationId || !installations}>
+            <Select {...register('customerId')} disabled={!developerId || !month || !appId || !installations}>
               <option value="">Please Select</option>
-              {installations?.data?.map(({ customerId, customerName, id }) => (
+              {installations?.data?.map(({ customerId, customerName, id, client }) => (
                 <option key={id} value={customerId}>
-                  {customerName}
+                  {customerName} (Code: {client})
                 </option>
               ))}
             </Select>

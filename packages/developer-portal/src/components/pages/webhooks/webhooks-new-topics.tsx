@@ -1,13 +1,4 @@
-import {
-  BodyText,
-  InputGroup,
-  MultiSelectInput,
-  FormLayout,
-  InputWrapFull,
-  InputWrapMed,
-  elFadeIn,
-  elMb5,
-} from '@reapit/elements'
+import { BodyText, InputGroup, MultiSelectInput, FormLayout, InputWrapMed, elFadeIn, elMb5 } from '@reapit/elements'
 import React, { ChangeEvent, Dispatch, FC, SetStateAction, useState } from 'react'
 import { DeepMap, FieldError, UseFormGetValues, UseFormRegister } from 'react-hook-form'
 import { useSelector } from 'react-redux'
@@ -70,31 +61,31 @@ export const WebhooksNewTopics: FC<WebhooksNewTopicsProps> = ({ register, getVal
       : ''
 
   return (
-    <FormLayout className={elFadeIn}>
-      <InputWrapFull>
-        <BodyText hasNoMargin hasGreyText>
-          Select topics for your webhook from the list below to allow your application to receive real-time
-          notifications about the topics you choose to subscribe to. A single webhook subscription can receive
-          notifications for multiple topics so long as your application has been granted the required permissions.
-        </BodyText>
-      </InputWrapFull>
-      <InputWrapMed>
-        <InputGroup
-          className={elMb5}
-          label="Subscription Topics"
-          onChange={handleSearchTopics(topics, getValues, setFilteredTopics, setSearch)}
-          icon="searchSystem"
-          placeholder="Search"
-          inputAddOnText={inputAddOnText}
-          intent={errors.topicIds && search ? 'danger' : 'low'}
-        />
-        <MultiSelectInput
-          id="topic-ids"
-          defaultValues={selectedTopics}
-          options={multiSelectOptions}
-          {...register('topicIds')}
-        />
-      </InputWrapMed>
-    </FormLayout>
+    <>
+      <BodyText hasSectionMargin hasGreyText>
+        Select topics for your webhook from the list below to allow your application to receive real-time notifications
+        about the topics you choose to subscribe to. A single webhook subscription can receive notifications for
+        multiple topics so long as your application has been granted the required permissions.
+      </BodyText>
+      <FormLayout className={elFadeIn}>
+        <InputWrapMed>
+          <InputGroup
+            className={elMb5}
+            label="Subscription Topics"
+            onChange={handleSearchTopics(topics, getValues, setFilteredTopics, setSearch)}
+            icon="searchSystem"
+            placeholder="Search"
+            inputAddOnText={inputAddOnText}
+            intent={errors.topicIds && search ? 'danger' : 'low'}
+          />
+          <MultiSelectInput
+            id="topic-ids"
+            defaultValues={selectedTopics}
+            options={multiSelectOptions}
+            {...register('topicIds')}
+          />
+        </InputWrapMed>
+      </FormLayout>
+    </>
   )
 }

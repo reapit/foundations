@@ -30,15 +30,13 @@ export const FormExample: FC = () => (
     </PersistantNotification>
 
     <form>
-      <FormLayout>
-        <InputWrapFull>
-          <Subtitle>Main Form</Subtitle>
-          <BodyText hasGreyText>
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur non pulvinar tellus, quis pulvinar dui.
-            Nunc enim libero, ullamcorper ac ex id, tincidunt dapibus lectus. Vestibulum at porta quam, ac condimentum
-            dui. Duis ornare enim sed magna tincidunt volutpat.
-          </BodyText>
-        </InputWrapFull>
+      <Subtitle>Main Form</Subtitle>
+      <BodyText hasGreyText hasSectionMargin>
+        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur non pulvinar tellus, quis pulvinar dui. Nunc
+        enim libero, ullamcorper ac ex id, tincidunt dapibus lectus. Vestibulum at porta quam, ac condimentum dui. Duis
+        ornare enim sed magna tincidunt volutpat.
+      </BodyText>
+      <FormLayout hasMargin>
         <InputWrap>
           <InputGroup icon="homeSystem" label="Address" type="text" />
         </InputWrap>
@@ -94,14 +92,14 @@ export const FormExample: FC = () => (
             <Label>Long Description</Label>
           </InputGroup>
         </InputWrapFull>
-        <InputWrapFull>
-          <Subtitle>Sub Form</Subtitle>
-          <BodyText hasGreyText>
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur non pulvinar tellus, quis pulvinar dui.
-            Nunc enim libero, ullamcorper ac ex id, tincidunt dapibus lectus. Vestibulum at porta quam, ac condimentum
-            dui. Duis ornare enim sed magna tincidunt volutpat.
-          </BodyText>
-        </InputWrapFull>
+      </FormLayout>
+      <Subtitle>Sub Form</Subtitle>
+      <BodyText hasGreyText hasSectionMargin>
+        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur non pulvinar tellus, quis pulvinar dui. Nunc
+        enim libero, ullamcorper ac ex id, tincidunt dapibus lectus. Vestibulum at porta quam, ac condimentum dui. Duis
+        ornare enim sed magna tincidunt volutpat.
+      </BodyText>
+      <FormLayout hasMargin>
         <InputWrapMed>
           <InputGroup icon="homeSystem" label="Really Long Address" type="text" />
         </InputWrapMed>
@@ -131,17 +129,15 @@ export const FormExample: FC = () => (
             <Label>Select Items</Label>
           </InputGroup>
         </InputWrapFull>
-        <InputWrapFull>
-          <ButtonGroup alignment="right">
-            <Button size={2} intent="primary">
-              Cancel
-            </Button>
-            <Button size={2} chevronRight intent="critical">
-              Submit
-            </Button>
-          </ButtonGroup>
-        </InputWrapFull>
       </FormLayout>
+      <ButtonGroup alignment="right">
+        <Button size={2} intent="primary">
+          Cancel
+        </Button>
+        <Button size={2} chevronRight intent="critical">
+          Submit
+        </Button>
+      </ButtonGroup>
     </form>
   </>
 )

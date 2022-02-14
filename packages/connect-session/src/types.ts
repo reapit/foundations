@@ -23,6 +23,7 @@ export interface ReapitConnectSession {
 export interface LoginIdentity {
   email: string
   name: string
+  agencyCloudId: string | null
   developerId: string | null
   clientId: string | null
   adminId: string | null

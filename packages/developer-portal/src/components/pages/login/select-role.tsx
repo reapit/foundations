@@ -1,13 +1,11 @@
 import { KeyAnimation } from '@reapit/utils-react'
 import React, { FC, useState } from 'react'
-import connectImage from '@/assets/images/reapit-connect.png'
+import reapitLogo from '../../../assets/images/reapit-logo.svg'
 import {
   FlexContainer,
   Subtitle,
   Icon,
   useModal,
-  ButtonGroup,
-  Button,
   BodyText,
   elMb7,
   elPx6,
@@ -21,7 +19,7 @@ import { cx } from '@linaria/core'
 
 export const SelectRolePage: FC = () => {
   const [keyStep, setKeyStep] = useState<1 | 2 | 3>(1)
-  const { Modal, openModal, closeModal } = useModal()
+  const { Modal, openModal } = useModal()
 
   return (
     <LoginContainer>
@@ -36,11 +34,11 @@ export const SelectRolePage: FC = () => {
           setKeyStep(1)
         }}
       >
-        <img src={connectImage} alt="Reapit Connect Graphic" />
+        <img src={reapitLogo} alt="Reapit Connect Graphic" />
         <Title hasNoMargin hasCenteredText>
-          Select an option
+          Select an option to register
         </Title>
-        <Subtitle hasCenteredText>that best describes you to register</Subtitle>
+        <Subtitle hasCenteredText>that best describes you</Subtitle>
         <LoginRoleTile>
           <FlexContainer onClick={openModal}>
             <Icon className={elMr5} fontSize="4rem" icon="newCustomerInfographic" />
@@ -109,20 +107,15 @@ export const SelectRolePage: FC = () => {
             </BodyText>
           </FlexContainer>
         </FlexContainer>
-
         <iframe
           id="form-frame"
-          src="https://go.reapit.com/l/894351/2021-08-03/2lny5"
-          title="Email Form"
+          src="https://go.reapit.com/l/894351/2022-02-08/8k4vw"
+          title="Reg Form"
           width="100%"
+          height="320px"
           frameBorder="0"
           style={{ border: 0 }}
         />
-        <ButtonGroup alignment="center">
-          <Button intent="secondary" onClick={closeModal}>
-            Close
-          </Button>
-        </ButtonGroup>
       </Modal>
     </LoginContainer>
   )

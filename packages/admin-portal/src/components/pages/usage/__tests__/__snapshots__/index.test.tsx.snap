@@ -10,11 +10,9 @@ Object {
       >
         API Usage
       </h1>
-      <form
-        class="el-mb7"
-      >
+      <form>
         <div
-          class="el-form-layout"
+          class="el-form-layout-has-margin el-form-layout"
         >
           <div
             class="el-input-wrap-full"
@@ -123,7 +121,7 @@ Object {
               <select
                 class="el-select"
                 disabled=""
-                name="applicationId"
+                name="appId"
               >
                 <option
                   value=""
@@ -198,11 +196,9 @@ Object {
     >
       API Usage
     </h1>
-    <form
-      class="el-mb7"
-    >
+    <form>
       <div
-        class="el-form-layout"
+        class="el-form-layout-has-margin el-form-layout"
       >
         <div
           class="el-input-wrap-full"
@@ -311,7 +307,7 @@ Object {
             <select
               class="el-select"
               disabled=""
-              name="applicationId"
+              name="appId"
             >
               <option
                 value=""

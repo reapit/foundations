@@ -141,7 +141,7 @@ exports[`Login should match a snapshot 1`] = `
               >
                 <img
                   alt="Reapit Connect Graphic"
-                  src=""
+                  src={Object {}}
                 />
                 <FlexContainer
                   isFlexColumn={true}
@@ -160,7 +160,7 @@ exports[`Login should match a snapshot 1`] = `
                           className="ewfctk4-el-has-no-margin e1bb7egt-el-has-centered-text"
                         >
                           <h1
-                            className="ewfctk4-el-has-no-margin e1bb7egt-el-has-centered-text etrchfm-el-title"
+                            className="ewfctk4-el-has-no-margin e1bb7egt-el-has-centered-text e2dm5rh-el-title"
                           >
                             Welcome
                           </h1>
@@ -173,7 +173,7 @@ exports[`Login should match a snapshot 1`] = `
                           className="e1bb7egt-el-has-centered-text"
                         >
                           <h2
-                            className="e1bb7egt-el-has-centered-text e2dm5rh-el-subtitle"
+                            className="e1bb7egt-el-has-centered-text evblxhy-el-subtitle"
                           >
                             to Reapit Foundations
                           </h2>
@@ -217,7 +217,7 @@ exports[`Login should match a snapshot 1`] = `
                                 className="ebee6r1-el-intent-primary e83k2pj-el-button-size3 e1f2ikqj-el-button"
                                 onClick={[Function]}
                               >
-                                Login
+                                Login With Reapit
                               </button>
                             </ElButton>
                           </Button>
@@ -250,7 +250,7 @@ exports[`Login should match a snapshot 1`] = `
                     className="e11jaxfn-el-has-grey-text"
                   >
                     <p
-                      className="e11jaxfn-el-has-grey-text evblxhy-el-body-text"
+                      className="e11jaxfn-el-has-grey-text e1byern-el-body-text"
                     />
                   </ElBodyText>
                 </BodyText>

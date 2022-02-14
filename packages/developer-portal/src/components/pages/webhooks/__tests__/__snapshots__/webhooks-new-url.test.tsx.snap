@@ -8,20 +8,16 @@ Object {
       <div
         class="ecbqyq6-el-snack-holder"
       />
+      <p
+        class="e11jaxfn-el-has-grey-text etrchfm-el-has-section-margin e1byern-el-body-text"
+      >
+        Add a url to receive your webhook payload here. The url must be a secure https endpoint.
+      </p>
       <div
-        class="e6p05ya-el-fade-in e1fwulnz-el-form-layout"
+        class="e6p05ya-el-fade-in ee6e7by-el-form-layout"
       >
         <div
-          class="ee8eqmp-el-input-wrap-full"
-        >
-          <p
-            class="e11jaxfn-el-has-grey-text ewfctk4-el-has-no-margin evblxhy-el-body-text"
-          >
-            Add a url to receive your webhook payload here. The url must be a secure https endpoint.
-          </p>
-        </div>
-        <div
-          class="e1ksxx4v-el-input-wrap-med"
+          class="ee8eqmp-el-input-wrap-med"
         >
           <div
             class="e1979rmu-el-input-group"
@@ -46,20 +42,16 @@ Object {
     <div
       class="ecbqyq6-el-snack-holder"
     />
+    <p
+      class="e11jaxfn-el-has-grey-text etrchfm-el-has-section-margin e1byern-el-body-text"
+    >
+      Add a url to receive your webhook payload here. The url must be a secure https endpoint.
+    </p>
     <div
-      class="e6p05ya-el-fade-in e1fwulnz-el-form-layout"
+      class="e6p05ya-el-fade-in ee6e7by-el-form-layout"
     >
       <div
-        class="ee8eqmp-el-input-wrap-full"
-      >
-        <p
-          class="e11jaxfn-el-has-grey-text ewfctk4-el-has-no-margin evblxhy-el-body-text"
-        >
-          Add a url to receive your webhook payload here. The url must be a secure https endpoint.
-        </p>
-      </div>
-      <div
-        class="e1ksxx4v-el-input-wrap-med"
+        class="ee8eqmp-el-input-wrap-med"
       >
         <div
           class="e1979rmu-el-input-group"

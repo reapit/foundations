@@ -1,5 +1,5 @@
 import { GetAction } from './actions'
-import { getMergedHeaders } from './utils'
+import { getMergedHeaders, handleReapitError } from './utils'
 import qs from 'qs'
 import { ReapitConnectSession } from '../../../connect-session/src'
 import { StringMap } from '..'
@@ -45,10 +45,11 @@ export const getFetcher = async <DataType>({
       return jsonRes as DataType
     }
 
-    throw new Error(action.errorMessage || 'Something went wrong')
+    const errorRes = await res.json()
+    throw new Error(handleReapitError(errorRes ?? {}))
   } catch (err) {
     const error = err as Error
     logger(error)
-    return error.message
+    return action.errorMessage ?? error.message
   }
 }

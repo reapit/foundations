@@ -765,7 +765,7 @@ Object {
           </div>
           <form>
             <div
-              class="el-fade-in el-mb11 el-form-layout"
+              class="el-form-layout-has-margin el-fade-in el-form-layout"
             >
               <div
                 class="el-input-wrap"
@@ -957,7 +957,7 @@ Object {
         </div>
         <form>
           <div
-            class="el-fade-in el-mb11 el-form-layout"
+            class="el-form-layout-has-margin el-fade-in el-form-layout"
           >
             <div
               class="el-input-wrap"

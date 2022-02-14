@@ -5,11 +5,9 @@ Object {
   "asFragment": [Function],
   "baseElement": <body>
     <div>
-      <form
-        class="el-mb7"
-      >
+      <form>
         <div
-          class="el-form-layout"
+          class="el-form-layout-has-margin el-form-layout"
         >
           <div
             class="el-input-wrap-full"
@@ -118,7 +116,7 @@ Object {
               <select
                 class="el-select"
                 disabled=""
-                name="applicationId"
+                name="appId"
               >
                 <option
                   value=""
@@ -162,7 +160,7 @@ Object {
                 <option
                   value="SOME_ID"
                 >
-                  SOME_NAME
+                  SOME_NAME (Code: DXX)
                 </option>
               </select>
             </div>
@@ -172,11 +170,9 @@ Object {
     </div>
   </body>,
   "container": <div>
-    <form
-      class="el-mb7"
-    >
+    <form>
       <div
-        class="el-form-layout"
+        class="el-form-layout-has-margin el-form-layout"
       >
         <div
           class="el-input-wrap-full"
@@ -285,7 +281,7 @@ Object {
             <select
               class="el-select"
               disabled=""
-              name="applicationId"
+              name="appId"
             >
               <option
                 value=""
@@ -329,7 +325,7 @@ Object {
               <option
                 value="SOME_ID"
               >
-                SOME_NAME
+                SOME_NAME (Code: DXX)
               </option>
             </select>
           </div>
@@ -396,11 +392,9 @@ Object {
   "asFragment": [Function],
   "baseElement": <body>
     <div>
-      <form
-        class="el-mb7"
-      >
+      <form>
         <div
-          class="el-form-layout"
+          class="el-form-layout-has-margin el-form-layout"
         >
           <div
             class="el-input-wrap-full"
@@ -509,7 +503,7 @@ Object {
               <select
                 class="el-select"
                 disabled=""
-                name="applicationId"
+                name="appId"
               >
                 <option
                   value=""
@@ -548,11 +542,9 @@ Object {
     </div>
   </body>,
   "container": <div>
-    <form
-      class="el-mb7"
-    >
+    <form>
       <div
-        class="el-form-layout"
+        class="el-form-layout-has-margin el-form-layout"
       >
         <div
           class="el-input-wrap-full"
@@ -661,7 +653,7 @@ Object {
             <select
               class="el-select"
               disabled=""
-              name="applicationId"
+              name="appId"
             >
               <option
                 value=""

@@ -15,7 +15,6 @@ import {
   InputAddOn,
   InputGroup,
   InputWrap,
-  InputWrapFull,
   Label,
   Modal,
   PersistantNotification,
@@ -102,12 +101,12 @@ const PipelineCreationModal = ({ open, onModalClose, appId, refreshPipeline }: P
     <Modal isOpen={open} onModalClose={onModalClose}>
       <Title>Create Pipeline</Title>
       {submissionErrors && <PersistantNotification isInline>{submissionErrors}</PersistantNotification>}
-      <BodyText hasGreyText>
+      <BodyText hasGreyText hasSectionMargin>
         Sed lobortis egestas tellus placerat condimentum. Orci varius natoque penatibus et magnis dis parturient montes,
         nascetur ridiculus mus.
       </BodyText>
       <form onSubmit={handleSubmit(pipelineCreateFormHandle(send, refreshPipeline, appId))}>
-        <FormLayout>
+        <FormLayout hasMargin>
           <InputWrap>
             <InputGroup>
               <Label>Name</Label>
@@ -157,14 +156,12 @@ const PipelineCreationModal = ({ open, onModalClose, appId, refreshPipeline }: P
               {errors.testCommand?.message && <InputAddOn intent="danger">{errors.testCommand.message}</InputAddOn>}
             </InputGroup>
           </InputWrap>
-          <InputWrapFull>
-            <ButtonGroup alignment="right">
-              <Button loading={loading} intent={'primary'}>
-                Create
-              </Button>
-            </ButtonGroup>
-          </InputWrapFull>
         </FormLayout>
+        <ButtonGroup alignment="right">
+          <Button loading={loading} intent={'primary'}>
+            Create
+          </Button>
+        </ButtonGroup>
       </form>
     </Modal>
   )

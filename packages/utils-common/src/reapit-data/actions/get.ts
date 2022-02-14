@@ -19,6 +19,7 @@ export enum GetActionNames {
   deleteApiKey = 'deleteApiKey',
   getBillingDataByMonth = 'getBillingDataByMonth',
   getInstallations = 'getInstallations',
+  getDeveloperMembers = 'getDeveloperMembers',
 }
 
 export type GetActions = { [key in GetActionNames]: GetAction }
@@ -73,5 +74,10 @@ export const getActions = (appEnv: AppEnv): GetActions => ({
     api: ApiNames(appEnv).platform,
     path: PathNames.installations,
     errorMessage: 'Something went wrong fetching installations',
+  },
+  [GetActionNames.getDeveloperMembers]: {
+    api: ApiNames(appEnv).platform,
+    path: PathNames.getMember,
+    errorMessage: 'Something went wrong fetching developer org members',
   },
 })

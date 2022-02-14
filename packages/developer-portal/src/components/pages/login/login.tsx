@@ -2,12 +2,12 @@ import React, { FC, useEffect, useState } from 'react'
 import { useHistory } from 'react-router-dom'
 import { Dispatch } from 'redux'
 import { useDispatch } from 'react-redux'
-import { showNotificationMessage } from '@/actions/notification-message'
+import { showNotificationMessage } from '../../../actions/notification-message'
 import { BodyText, Button, ButtonGroup, Subtitle, Title, FlexContainer, elMb12 } from '@reapit/elements'
-import Routes from '@/constants/routes'
-import messages from '@/constants/messages'
-import connectImage from '@/assets/images/reapit-connect.png'
-import { reapitConnectBrowserSession } from '@/core/connect-session'
+import Routes from '../../../constants/routes'
+import messages from '../../../constants/messages'
+import reapitLogo from '../../../assets/images/reapit-logo.svg'
+import { reapitConnectBrowserSession } from '../../../core/connect-session'
 import { KeyAnimation } from '@reapit/utils-react'
 import { LoginContainer, LoginContentWrapper, LoginImageContainer } from './__styles__'
 import { navigate } from '../../../utils/navigation'
@@ -51,7 +51,7 @@ export const Login: FC<LoginProps> = () => {
         <KeyAnimation step={keyStep} />
       </LoginImageContainer>
       <LoginContentWrapper>
-        <img src={connectImage} alt="Reapit Connect Graphic" />
+        <img src={reapitLogo} alt="Reapit Connect Graphic" />
         <FlexContainer isFlexColumn>
           <Title hasNoMargin hasCenteredText>
             Welcome
@@ -69,7 +69,7 @@ export const Login: FC<LoginProps> = () => {
           }}
         >
           <Button onClick={onLoginButtonClick()} intent="primary" size={3}>
-            Login
+            Login With Reapit
           </Button>
           <Button onClick={navigate(history, Routes.SELECT_ROLE)} intent="secondary" size={3}>
             Register

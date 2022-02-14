@@ -18,7 +18,7 @@ exports[`DeveloperSubmitApp should match a snapshot when pendingRevisions = fals
       Array [
         Object {
           "key": "registerRoute",
-          "pathname": "/register",
+          "pathname": "/developer/register",
         },
       ]
     }
@@ -34,7 +34,7 @@ exports[`DeveloperSubmitApp should match a snapshot when pendingRevisions = fals
             Object {
               "hash": "",
               "key": "registerRoute",
-              "pathname": "/register",
+              "pathname": "/developer/register",
               "search": "",
             },
           ],
@@ -47,7 +47,7 @@ exports[`DeveloperSubmitApp should match a snapshot when pendingRevisions = fals
           "location": Object {
             "hash": "",
             "key": "registerRoute",
-            "pathname": "/register",
+            "pathname": "/developer/register",
             "search": "",
           },
           "push": [Function],
@@ -3655,49 +3655,29 @@ exports[`DeveloperSubmitApp should match a snapshot when pendingRevisions = fals
             </form>
           </Form>
         </Formik>
-        <ModalV2
-          footer={
-            Array [
-              <Button
-                onClick={[Function]}
-              >
-                Close
-              </Button>,
-            ]
-          }
-          isCentered={true}
-          onClose={[Function]}
-          title="Account Information Required"
-          visible={false}
+        <SubmitAppModal
+          Modal={[Function]}
+          closeModal={[Function]}
+          setIsListing={[Function]}
         >
-          <Dialog
-            className="m36ncwu-modal-container"
-            closeIcon={
-              <span
-                aria-label="close"
-                className="delete"
-              />
-            }
-            destroyOnClose={true}
-            footer={
-              Array [
-                <Button
-                  onClick={[Function]}
-                >
-                  Close
-                </Button>,
-              ]
-            }
-            onClose={[Function]}
-            title={
-              <ModalHeaderV2>
-                Account Information Required
-              </ModalHeaderV2>
-            }
-            visible={false}
-            wrapClassName="m140lwlu-modal-centered"
-          />
-        </ModalV2>
+          <ModalComponent
+            title="Account Information Required"
+          >
+            <Portal
+              id="root"
+            >
+              <Portal
+                containerInfo={<div />}
+              >
+                <Modal
+                  isOpen={false}
+                  onModalClose={[Function]}
+                  title="Account Information Required"
+                />
+              </Portal>
+            </Portal>
+          </ModalComponent>
+        </SubmitAppModal>
       </DeveloperEditApp>
     </Router>
   </MemoryRouter>
@@ -3722,7 +3702,7 @@ exports[`DeveloperSubmitApp should match a snapshot when pendingRevisions = true
       Array [
         Object {
           "key": "what",
-          "pathname": "/register",
+          "pathname": "/developer/register",
         },
       ]
     }

@@ -19,6 +19,7 @@ import {
   InputWrapFull,
   InputWrap,
   elMb5,
+  elMb11,
 } from '@reapit/elements'
 import React, { ChangeEvent, Dispatch, FC, SetStateAction, useEffect, useMemo, useState } from 'react'
 import { yupResolver } from '@hookform/resolvers/yup'
@@ -200,40 +201,36 @@ export const WebhooksManageForm: FC<WebhooksManageFormProps> = ({
 
   return (
     <form className={elP8} onSubmit={handleSubmit(handleSubmitWebhook(dispatch, webhookModel))}>
+      <FlexContainer className={elMb11} isFlexAlignCenter isFlexJustifyBetween>
+        <Subtitle hasBoldText>Edit Webhook</Subtitle>
+        <ButtonGroup alignment="right">
+          <Button
+            intent="low"
+            type="button"
+            disabled={webhookCreateEditState === WebhookCreateEditState.LOADING}
+            onClick={openModal}
+          >
+            Delete
+          </Button>
+          <Button
+            intent="secondary"
+            type="button"
+            disabled={webhookCreateEditState === WebhookCreateEditState.LOADING}
+            onClick={handleCollapseRow(setIndexExpandedRow, setExpandableContentType)}
+          >
+            Cancel
+          </Button>
+          <Button
+            intent="primary"
+            chevronRight
+            type="submit"
+            disabled={webhookCreateEditState === WebhookCreateEditState.LOADING}
+          >
+            Update
+          </Button>
+        </ButtonGroup>
+      </FlexContainer>
       <FormLayout>
-        <InputWrapFull>
-          <FlexContainer isFlexAlignCenter isFlexJustifyBetween>
-            <Subtitle hasBoldText className={elMl3}>
-              Edit Webhook
-            </Subtitle>
-            <ButtonGroup alignment="right">
-              <Button
-                intent="low"
-                type="button"
-                disabled={webhookCreateEditState === WebhookCreateEditState.LOADING}
-                onClick={openModal}
-              >
-                Delete
-              </Button>
-              <Button
-                intent="secondary"
-                type="button"
-                disabled={webhookCreateEditState === WebhookCreateEditState.LOADING}
-                onClick={handleCollapseRow(setIndexExpandedRow, setExpandableContentType)}
-              >
-                Cancel
-              </Button>
-              <Button
-                intent="primary"
-                chevronRight
-                type="submit"
-                disabled={webhookCreateEditState === WebhookCreateEditState.LOADING}
-              >
-                Update
-              </Button>
-            </ButtonGroup>
-          </FlexContainer>
-        </InputWrapFull>
         <InputWrapFull>
           <InputGroup
             placeholder="Enter secure https:// url"

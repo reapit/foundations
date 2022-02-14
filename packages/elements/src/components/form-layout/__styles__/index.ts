@@ -1,5 +1,8 @@
+import { css } from '@linaria/core'
 import { styled } from '@linaria/react'
 import { isDesktop, isWideScreen, isTablet, isSuperWideScreen } from '../../../styles/media'
+
+export const elFormLayoutHasMargin = css``
 
 export const ElFormLayout = styled.div`
   display: grid;
@@ -22,6 +25,14 @@ export const ElFormLayout = styled.div`
 
   ${isSuperWideScreen} {
     grid-template-columns: repeat(16, 1fr);
+  }
+
+  &.${elFormLayoutHasMargin} {
+    margin-bottom: 2.5rem;
+
+    ${isTablet} {
+      margin-bottom: 3.75rem;
+    }
   }
 `
 

@@ -81,7 +81,7 @@ exports[`App Detail edit V8 should match a snapshot 1`] = `
                             className=""
                           >
                             <h1
-                              className="etrchfm-el-title"
+                              className="e2dm5rh-el-title"
                             >
                               Apps
                             </h1>
@@ -283,7 +283,7 @@ exports[`App Detail edit V8 should match a snapshot 1`] = `
                             className=""
                           >
                             <h2
-                              className="e2dm5rh-el-subtitle"
+                              className="evblxhy-el-subtitle"
                             >
                               Apps Documentation
                             </h2>
@@ -296,7 +296,7 @@ exports[`App Detail edit V8 should match a snapshot 1`] = `
                             className="e11jaxfn-el-has-grey-text"
                           >
                             <p
-                              className="e11jaxfn-el-has-grey-text e1byern-el-small-text"
+                              className="e11jaxfn-el-has-grey-text e15ggth7-el-small-text"
                             >
                               This is the dashboard for your applications created using the Reapit Foundations platform. If you have not created an app before or you need help, please take the time to view our getting started guide.
                             </p>
@@ -346,7 +346,7 @@ exports[`App Detail edit V8 should match a snapshot 1`] = `
                                   className=""
                                 >
                                   <h1
-                                    className="etrchfm-el-title"
+                                    className="e2dm5rh-el-title"
                                   >
                                     Edit 
                                   </h1>
@@ -387,7 +387,7 @@ exports[`App Detail edit V8 should match a snapshot 1`] = `
                                   className="egmnxi3-el-tabs-options-wrap"
                                 >
                                   <ElTabs
-                                    checked={true}
+                                    defaultChecked={true}
                                     id="details"
                                     name="app_tabs"
                                     onChange={[Function]}
@@ -395,8 +395,8 @@ exports[`App Detail edit V8 should match a snapshot 1`] = `
                                     value="details"
                                   >
                                     <input
-                                      checked={true}
                                       className="enkj6b-el-tabs"
+                                      defaultChecked={true}
                                       id="details"
                                       name="app_tabs"
                                       onChange={[Function]}
@@ -419,7 +419,7 @@ exports[`App Detail edit V8 should match a snapshot 1`] = `
                                     </label>
                                   </ElTabsLabel>
                                   <ElTabs
-                                    checked={false}
+                                    defaultChecked={false}
                                     id="pipelines"
                                     name="app_tabs"
                                     onChange={[Function]}
@@ -427,8 +427,8 @@ exports[`App Detail edit V8 should match a snapshot 1`] = `
                                     value="pipelines"
                                   >
                                     <input
-                                      checked={false}
                                       className="enkj6b-el-tabs"
+                                      defaultChecked={false}
                                       id="pipelines"
                                       name="app_tabs"
                                       onChange={[Function]}
@@ -499,14 +499,14 @@ exports[`App Detail edit V8 should match a snapshot 1`] = `
                                             <ForwardRef>
                                               <ElInputWrap>
                                                 <div
-                                                  className="ee6e7by-el-input-wrap"
+                                                  className="e1ksxx4v-el-input-wrap"
                                                 >
                                                   <Subtitle>
                                                     <ElSubtitle
                                                       className=""
                                                     >
                                                       <h2
-                                                        className="e2dm5rh-el-subtitle"
+                                                        className="evblxhy-el-subtitle"
                                                       >
                                                         Authentication (Client ID)
                                                       </h2>
@@ -519,7 +519,7 @@ exports[`App Detail edit V8 should match a snapshot 1`] = `
                                                       className="e11jaxfn-el-has-grey-text"
                                                     >
                                                       <p
-                                                        className="e11jaxfn-el-has-grey-text evblxhy-el-body-text"
+                                                        className="e11jaxfn-el-has-grey-text e1byern-el-body-text"
                                                       />
                                                     </ElBodyText>
                                                   </BodyText>
@@ -539,14 +539,14 @@ exports[`App Detail edit V8 should match a snapshot 1`] = `
                                             <ForwardRef>
                                               <ElInputWrap>
                                                 <div
-                                                  className="ee6e7by-el-input-wrap"
+                                                  className="e1ksxx4v-el-input-wrap"
                                                 >
                                                   <Subtitle>
                                                     <ElSubtitle
                                                       className=""
                                                     >
                                                       <h2
-                                                        className="e2dm5rh-el-subtitle"
+                                                        className="evblxhy-el-subtitle"
                                                       >
                                                         Status
                                                       </h2>
@@ -559,7 +559,7 @@ exports[`App Detail edit V8 should match a snapshot 1`] = `
                                                       className="e11jaxfn-el-has-grey-text"
                                                     >
                                                       <p
-                                                        className="e11jaxfn-el-has-grey-text evblxhy-el-body-text"
+                                                        className="e11jaxfn-el-has-grey-text e1byern-el-body-text"
                                                       />
                                                     </ElBodyText>
                                                   </BodyText>
@@ -577,7 +577,7 @@ exports[`App Detail edit V8 should match a snapshot 1`] = `
                                     className=""
                                   >
                                     <h1
-                                      className="etrchfm-el-title"
+                                      className="e2dm5rh-el-title"
                                     >
                                       General Information
                                     </h1>
@@ -600,14 +600,14 @@ exports[`App Detail edit V8 should match a snapshot 1`] = `
                                             <ForwardRef>
                                               <ElInputWrap>
                                                 <div
-                                                  className="ee6e7by-el-input-wrap"
+                                                  className="e1ksxx4v-el-input-wrap"
                                                 >
                                                   <Subtitle>
                                                     <ElSubtitle
                                                       className=""
                                                     >
                                                       <h2
-                                                        className="e2dm5rh-el-subtitle"
+                                                        className="evblxhy-el-subtitle"
                                                       >
                                                         App Name
                                                       </h2>
@@ -620,7 +620,7 @@ exports[`App Detail edit V8 should match a snapshot 1`] = `
                                                       className="e11jaxfn-el-has-grey-text"
                                                     >
                                                       <p
-                                                        className="e11jaxfn-el-has-grey-text evblxhy-el-body-text"
+                                                        className="e11jaxfn-el-has-grey-text e1byern-el-body-text"
                                                       />
                                                     </ElBodyText>
                                                   </BodyText>
@@ -630,14 +630,14 @@ exports[`App Detail edit V8 should match a snapshot 1`] = `
                                             <ForwardRef>
                                               <ElInputWrap>
                                                 <div
-                                                  className="ee6e7by-el-input-wrap"
+                                                  className="e1ksxx4v-el-input-wrap"
                                                 >
                                                   <Subtitle>
                                                     <ElSubtitle
                                                       className=""
                                                     >
                                                       <h2
-                                                        className="e2dm5rh-el-subtitle"
+                                                        className="evblxhy-el-subtitle"
                                                       >
                                                         Category
                                                       </h2>
@@ -650,7 +650,7 @@ exports[`App Detail edit V8 should match a snapshot 1`] = `
                                                       className="e11jaxfn-el-has-grey-text"
                                                     >
                                                       <p
-                                                        className="e11jaxfn-el-has-grey-text evblxhy-el-body-text"
+                                                        className="e11jaxfn-el-has-grey-text e1byern-el-body-text"
                                                       />
                                                     </ElBodyText>
                                                   </BodyText>
@@ -660,14 +660,14 @@ exports[`App Detail edit V8 should match a snapshot 1`] = `
                                             <ForwardRef>
                                               <ElInputWrap>
                                                 <div
-                                                  className="ee6e7by-el-input-wrap"
+                                                  className="e1ksxx4v-el-input-wrap"
                                                 >
                                                   <Subtitle>
                                                     <ElSubtitle
                                                       className=""
                                                     >
                                                       <h2
-                                                        className="e2dm5rh-el-subtitle"
+                                                        className="evblxhy-el-subtitle"
                                                       >
                                                         Support Email
                                                       </h2>
@@ -680,7 +680,7 @@ exports[`App Detail edit V8 should match a snapshot 1`] = `
                                                       className="e11jaxfn-el-has-grey-text"
                                                     >
                                                       <p
-                                                        className="e11jaxfn-el-has-grey-text evblxhy-el-body-text"
+                                                        className="e11jaxfn-el-has-grey-text e1byern-el-body-text"
                                                       />
                                                     </ElBodyText>
                                                   </BodyText>
@@ -690,14 +690,14 @@ exports[`App Detail edit V8 should match a snapshot 1`] = `
                                             <ForwardRef>
                                               <ElInputWrap>
                                                 <div
-                                                  className="ee6e7by-el-input-wrap"
+                                                  className="e1ksxx4v-el-input-wrap"
                                                 >
                                                   <Subtitle>
                                                     <ElSubtitle
                                                       className=""
                                                     >
                                                       <h2
-                                                        className="e2dm5rh-el-subtitle"
+                                                        className="evblxhy-el-subtitle"
                                                       >
                                                         Telephone
                                                       </h2>
@@ -710,7 +710,7 @@ exports[`App Detail edit V8 should match a snapshot 1`] = `
                                                       className="e11jaxfn-el-has-grey-text"
                                                     >
                                                       <p
-                                                        className="e11jaxfn-el-has-grey-text evblxhy-el-body-text"
+                                                        className="e11jaxfn-el-has-grey-text e1byern-el-body-text"
                                                       />
                                                     </ElBodyText>
                                                   </BodyText>
@@ -720,14 +720,14 @@ exports[`App Detail edit V8 should match a snapshot 1`] = `
                                             <ForwardRef>
                                               <ElInputWrap>
                                                 <div
-                                                  className="ee6e7by-el-input-wrap"
+                                                  className="e1ksxx4v-el-input-wrap"
                                                 >
                                                   <Subtitle>
                                                     <ElSubtitle
                                                       className=""
                                                     >
                                                       <h2
-                                                        className="e2dm5rh-el-subtitle"
+                                                        className="evblxhy-el-subtitle"
                                                       >
                                                         Agency Cloud Integration Type
                                                       </h2>
@@ -740,7 +740,7 @@ exports[`App Detail edit V8 should match a snapshot 1`] = `
                                                       className="e11jaxfn-el-has-grey-text"
                                                     >
                                                       <p
-                                                        className="e11jaxfn-el-has-grey-text evblxhy-el-body-text"
+                                                        className="e11jaxfn-el-has-grey-text e1byern-el-body-text"
                                                       />
                                                     </ElBodyText>
                                                   </BodyText>
@@ -760,14 +760,14 @@ exports[`App Detail edit V8 should match a snapshot 1`] = `
                                             <ForwardRef>
                                               <ElInputWrap>
                                                 <div
-                                                  className="ee6e7by-el-input-wrap"
+                                                  className="e1ksxx4v-el-input-wrap"
                                                 >
                                                   <Subtitle>
                                                     <ElSubtitle
                                                       className=""
                                                     >
                                                       <h2
-                                                        className="e2dm5rh-el-subtitle"
+                                                        className="evblxhy-el-subtitle"
                                                       >
                                                         Lanuch URL
                                                       </h2>
@@ -780,7 +780,7 @@ exports[`App Detail edit V8 should match a snapshot 1`] = `
                                                       className="e11jaxfn-el-has-grey-text"
                                                     >
                                                       <p
-                                                        className="e11jaxfn-el-has-grey-text evblxhy-el-body-text"
+                                                        className="e11jaxfn-el-has-grey-text e1byern-el-body-text"
                                                       >
                                                         None
                                                       </p>
@@ -792,14 +792,14 @@ exports[`App Detail edit V8 should match a snapshot 1`] = `
                                             <ForwardRef>
                                               <ElInputWrap>
                                                 <div
-                                                  className="ee6e7by-el-input-wrap"
+                                                  className="e1ksxx4v-el-input-wrap"
                                                 >
                                                   <Subtitle>
                                                     <ElSubtitle
                                                       className=""
                                                     >
                                                       <h2
-                                                        className="e2dm5rh-el-subtitle"
+                                                        className="evblxhy-el-subtitle"
                                                       >
                                                         Homepage
                                                       </h2>
@@ -812,7 +812,7 @@ exports[`App Detail edit V8 should match a snapshot 1`] = `
                                                       className="e11jaxfn-el-has-grey-text"
                                                     >
                                                       <p
-                                                        className="e11jaxfn-el-has-grey-text evblxhy-el-body-text"
+                                                        className="e11jaxfn-el-has-grey-text e1byern-el-body-text"
                                                       />
                                                     </ElBodyText>
                                                   </BodyText>
@@ -822,14 +822,14 @@ exports[`App Detail edit V8 should match a snapshot 1`] = `
                                             <ForwardRef>
                                               <ElInputWrap>
                                                 <div
-                                                  className="ee6e7by-el-input-wrap"
+                                                  className="e1ksxx4v-el-input-wrap"
                                                 >
                                                   <Subtitle>
                                                     <ElSubtitle
                                                       className=""
                                                     >
                                                       <h2
-                                                        className="e2dm5rh-el-subtitle"
+                                                        className="evblxhy-el-subtitle"
                                                       >
                                                         Pricing Info
                                                       </h2>
@@ -842,7 +842,7 @@ exports[`App Detail edit V8 should match a snapshot 1`] = `
                                                       className="e11jaxfn-el-has-grey-text"
                                                     >
                                                       <p
-                                                        className="e11jaxfn-el-has-grey-text evblxhy-el-body-text"
+                                                        className="e11jaxfn-el-has-grey-text e1byern-el-body-text"
                                                       >
                                                         Not available
                                                       </p>
@@ -854,14 +854,14 @@ exports[`App Detail edit V8 should match a snapshot 1`] = `
                                             <ForwardRef>
                                               <ElInputWrap>
                                                 <div
-                                                  className="ee6e7by-el-input-wrap"
+                                                  className="e1ksxx4v-el-input-wrap"
                                                 >
                                                   <Subtitle>
                                                     <ElSubtitle
                                                       className=""
                                                     >
                                                       <h2
-                                                        className="e2dm5rh-el-subtitle"
+                                                        className="evblxhy-el-subtitle"
                                                       >
                                                         Privacy Policy
                                                       </h2>
@@ -874,7 +874,7 @@ exports[`App Detail edit V8 should match a snapshot 1`] = `
                                                       className="e11jaxfn-el-has-grey-text"
                                                     >
                                                       <p
-                                                        className="e11jaxfn-el-has-grey-text evblxhy-el-body-text"
+                                                        className="e11jaxfn-el-has-grey-text e1byern-el-body-text"
                                                       />
                                                     </ElBodyText>
                                                   </BodyText>
@@ -894,14 +894,14 @@ exports[`App Detail edit V8 should match a snapshot 1`] = `
                                             <ForwardRef>
                                               <ElInputWrap>
                                                 <div
-                                                  className="ee6e7by-el-input-wrap"
+                                                  className="e1ksxx4v-el-input-wrap"
                                                 >
                                                   <Subtitle>
                                                     <ElSubtitle
                                                       className=""
                                                     >
                                                       <h2
-                                                        className="e2dm5rh-el-subtitle"
+                                                        className="evblxhy-el-subtitle"
                                                       >
                                                         Permissions
                                                       </h2>
@@ -921,7 +921,7 @@ exports[`App Detail edit V8 should match a snapshot 1`] = `
                                     className=""
                                   >
                                     <h1
-                                      className="etrchfm-el-title"
+                                      className="e2dm5rh-el-title"
                                     >
                                       About App
                                     </h1>
@@ -944,14 +944,14 @@ exports[`App Detail edit V8 should match a snapshot 1`] = `
                                             <ForwardRef>
                                               <ElInputWrap>
                                                 <div
-                                                  className="ee6e7by-el-input-wrap"
+                                                  className="e1ksxx4v-el-input-wrap"
                                                 >
                                                   <Subtitle>
                                                     <ElSubtitle
                                                       className=""
                                                     >
                                                       <h2
-                                                        className="e2dm5rh-el-subtitle"
+                                                        className="evblxhy-el-subtitle"
                                                       >
                                                         Description
                                                       </h2>
@@ -964,7 +964,7 @@ exports[`App Detail edit V8 should match a snapshot 1`] = `
                                                       className="e11jaxfn-el-has-grey-text"
                                                     >
                                                       <p
-                                                        className="e11jaxfn-el-has-grey-text evblxhy-el-body-text"
+                                                        className="e11jaxfn-el-has-grey-text e1byern-el-body-text"
                                                       />
                                                     </ElBodyText>
                                                   </BodyText>
@@ -984,14 +984,14 @@ exports[`App Detail edit V8 should match a snapshot 1`] = `
                                             <ForwardRef>
                                               <ElInputWrap>
                                                 <div
-                                                  className="ee6e7by-el-input-wrap"
+                                                  className="e1ksxx4v-el-input-wrap"
                                                 >
                                                   <Subtitle>
                                                     <ElSubtitle
                                                       className=""
                                                     >
                                                       <h2
-                                                        className="e2dm5rh-el-subtitle"
+                                                        className="evblxhy-el-subtitle"
                                                       >
                                                         Summary
                                                       </h2>
@@ -1004,7 +1004,7 @@ exports[`App Detail edit V8 should match a snapshot 1`] = `
                                                       className="e11jaxfn-el-has-grey-text"
                                                     >
                                                       <p
-                                                        className="e11jaxfn-el-has-grey-text evblxhy-el-body-text"
+                                                        className="e11jaxfn-el-has-grey-text e1byern-el-body-text"
                                                       />
                                                     </ElBodyText>
                                                   </BodyText>
@@ -1022,7 +1022,7 @@ exports[`App Detail edit V8 should match a snapshot 1`] = `
                                     className=""
                                   >
                                     <h1
-                                      className="etrchfm-el-title"
+                                      className="e2dm5rh-el-title"
                                     >
                                       Images
                                     </h1>
@@ -1033,7 +1033,7 @@ exports[`App Detail edit V8 should match a snapshot 1`] = `
                                     className=""
                                   >
                                     <h1
-                                      className="etrchfm-el-title"
+                                      className="e2dm5rh-el-title"
                                     >
                                       Reapit Connect Authentication
                                     </h1>
@@ -1056,14 +1056,14 @@ exports[`App Detail edit V8 should match a snapshot 1`] = `
                                             <ForwardRef>
                                               <ElInputWrap>
                                                 <div
-                                                  className="ee6e7by-el-input-wrap"
+                                                  className="e1ksxx4v-el-input-wrap"
                                                 >
                                                   <Subtitle>
                                                     <ElSubtitle
                                                       className=""
                                                     >
                                                       <h2
-                                                        className="e2dm5rh-el-subtitle"
+                                                        className="evblxhy-el-subtitle"
                                                       >
                                                         Redirect URL(s)*
                                                       </h2>
@@ -1076,7 +1076,7 @@ exports[`App Detail edit V8 should match a snapshot 1`] = `
                                                       className="e11jaxfn-el-has-grey-text"
                                                     >
                                                       <p
-                                                        className="e11jaxfn-el-has-grey-text evblxhy-el-body-text"
+                                                        className="e11jaxfn-el-has-grey-text e1byern-el-body-text"
                                                       />
                                                     </ElBodyText>
                                                   </BodyText>
@@ -1096,14 +1096,14 @@ exports[`App Detail edit V8 should match a snapshot 1`] = `
                                             <ForwardRef>
                                               <ElInputWrap>
                                                 <div
-                                                  className="ee6e7by-el-input-wrap"
+                                                  className="e1ksxx4v-el-input-wrap"
                                                 >
                                                   <Subtitle>
                                                     <ElSubtitle
                                                       className=""
                                                     >
                                                       <h2
-                                                        className="e2dm5rh-el-subtitle"
+                                                        className="evblxhy-el-subtitle"
                                                       >
                                                         Sign Out URI(s)*
                                                       </h2>
@@ -1116,7 +1116,7 @@ exports[`App Detail edit V8 should match a snapshot 1`] = `
                                                       className="e11jaxfn-el-has-grey-text"
                                                     >
                                                       <p
-                                                        className="e11jaxfn-el-has-grey-text evblxhy-el-body-text"
+                                                        className="e11jaxfn-el-has-grey-text e1byern-el-body-text"
                                                       />
                                                     </ElBodyText>
                                                   </BodyText>
@@ -1134,7 +1134,7 @@ exports[`App Detail edit V8 should match a snapshot 1`] = `
                                     className=""
                                   >
                                     <h1
-                                      className="etrchfm-el-title"
+                                      className="e2dm5rh-el-title"
                                     >
                                       About Developer
                                     </h1>
@@ -1157,14 +1157,14 @@ exports[`App Detail edit V8 should match a snapshot 1`] = `
                                             <ForwardRef>
                                               <ElInputWrap>
                                                 <div
-                                                  className="ee6e7by-el-input-wrap"
+                                                  className="e1ksxx4v-el-input-wrap"
                                                 >
                                                   <Subtitle>
                                                     <ElSubtitle
                                                       className=""
                                                     >
                                                       <h2
-                                                        className="e2dm5rh-el-subtitle"
+                                                        className="evblxhy-el-subtitle"
                                                       >
                                                         Description
                                                       </h2>
@@ -1177,7 +1177,7 @@ exports[`App Detail edit V8 should match a snapshot 1`] = `
                                                       className="e11jaxfn-el-has-grey-text"
                                                     >
                                                       <p
-                                                        className="e11jaxfn-el-has-grey-text evblxhy-el-body-text"
+                                                        className="e11jaxfn-el-has-grey-text e1byern-el-body-text"
                                                       />
                                                     </ElBodyText>
                                                   </BodyText>
