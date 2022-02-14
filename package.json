@@ -8,7 +8,7 @@
   },
   "scripts": {
     "build-all": "yarn workspaces foreach --parallel --verbose run build",
-    "test-all": "yarn workspaces foreach --parallel --verbose --interlaced run test --watch=false --coverage --ci --forceExit --detectOpenHandles --runInBand",
+    "test-all": "yarn workspaces foreach --parallel --verbose --interlaced run test --watch=false --coverage --ci --silent --forceExit --detectOpenHandles --runInBand",
     "conf-all": "yarn workspaces foreach --parallel --verbose run conf",
     "lint-all": "yarn workspaces foreach --parallel --verbose run lint",
     "upgrade-all": "yarn upgrade-interactive",
