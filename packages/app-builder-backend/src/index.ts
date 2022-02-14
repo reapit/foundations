@@ -19,10 +19,8 @@ const parseContext = async ({ req }): Promise<Context> => {
 
   let metadataSchemas: SchemaModel[] = []
 
-  try {
+  if (context.accessToken) {
     metadataSchemas = await getMetadataSchemas(context.accessToken)
-  } catch (e) {
-    // do nothing
   }
 
   return {

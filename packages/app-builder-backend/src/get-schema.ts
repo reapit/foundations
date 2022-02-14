@@ -237,7 +237,7 @@ export const getSchema = async (context?: Context) => {
 
   const subschemas = [{ schema: baseSchema }]
 
-  const { schema, extendedTypedefs } = await generateDynamicSchema(baseSchema, context)
+  const { schema, extendedTypedefs } = generateDynamicSchema(baseSchema, context)
 
   if (schema) {
     subschemas.push({
