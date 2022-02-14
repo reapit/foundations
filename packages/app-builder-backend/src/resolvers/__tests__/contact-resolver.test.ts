@@ -7,6 +7,7 @@ import { SchemaLink } from '@apollo/client/link/schema'
 
 import { Context } from '../../types'
 import { mockContacts } from '../__mocks__/mock-contacts'
+import { mockContact } from '../__mocks__/mock-contact'
 
 jest.mock('node-fetch', () => require('fetch-mock-jest').sandbox())
 const fetchMock = require('node-fetch')
@@ -40,6 +41,43 @@ const setupContactsMocks = () => {
   mockQuery('GetContacts', undefined, {
     GetContacts: mockContacts,
   })
+  mockQuery('SearchContacts', undefined, {
+    SearchContacts: mockContacts,
+  })
+  mockQuery(
+    'GetContactById',
+    { id: 'RPT20000017' },
+    {
+      GetContact: mockContact,
+    },
+  )
+  mockQuery(
+    'CreateContact',
+    {
+      title: 'Mr',
+      forename: 'John',
+      surname: 'Smith',
+      email: 'someone@email.com',
+      marketingConsent: 'grant',
+    },
+    {
+      CreateContact: mockContact,
+    },
+  )
+  mockQuery(
+    'UpdateContact',
+    {
+      id: 'RPT20000017',
+      title: 'Mr',
+      forename: 'John',
+      surname: 'Smith',
+      email: 'someone@email.com',
+      marketingConsent: 'grant',
+    },
+    {
+      UpdateContact: mockContact,
+    },
+  )
 }
 
 const listContactsQuery = gql`
@@ -96,8 +134,127 @@ describe('contact-resolver', () => {
     })
   })
 
-  describe('searchContacts', () => {})
-  describe('getContact', () => {})
-  describe('createContact', () => {})
-  describe('updateContact', () => {})
+  describe('searchContacts', () => {
+    it('should return contacts', async () => {
+      const result = await client.query({
+        query: gql`
+          query SearchContacts($query: String!) {
+            searchContacts(query: $query) {
+              id
+              forename
+              surname
+              title
+              email
+              marketingConsent
+            }
+          }
+        `,
+        variables: {
+          query: 'Smith',
+        },
+      })
+      expect(result.data.searchContacts).toBeDefined()
+      expect(result.data.searchContacts[0]).toEqual({
+        __typename: 'Contact',
+        id: 'RPT20000017',
+        title: 'Mr',
+        forename: 'John',
+        surname: 'Smith',
+        email: 'example@email.com',
+        marketingConsent: 'grant',
+      })
+    })
+  })
+
+  describe('getContact', () => {
+    it('should return contact', async () => {
+      const result = await client.query({
+        query: gql`
+          query GetContact($id: String!) {
+            getContact(id: $id) {
+              id
+              forename
+              surname
+              title
+              email
+              marketingConsent
+            }
+          }
+        `,
+        variables: {
+          id: 'RPT20000017',
+        },
+      })
+      expect(result.data.getContact).toBeDefined()
+      expect(result.data.getContact).toEqual({
+        __typename: 'Contact',
+        id: 'RPT20000017',
+        title: 'Mr',
+        forename: 'John',
+        surname: 'Smith',
+        email: 'example@email.com',
+        marketingConsent: 'grant',
+      })
+    })
+  })
+
+  describe('createContact', () => {
+    it('should create contact', async () => {
+      const result = await client.mutate({
+        mutation: gql`
+          mutation CreateContact($input: ContactInput!) {
+            createContact(contact: $input) {
+              id
+              forename
+              surname
+              title
+              email
+              marketingConsent
+            }
+          }
+        `,
+        variables: {
+          input: {
+            title: 'Mr',
+            forename: 'John',
+            surname: 'Smith',
+            email: 'someone@email.com',
+            marketingConsent: 'grant',
+          },
+        },
+      })
+
+      expect(result.data.createContact).toBeDefined()
+    })
+  })
+  describe('updateContact', () => {
+    it('should update contact', async () => {
+      const result = await client.mutate({
+        mutation: gql`
+          mutation UpdateContact($id: String!, $input: ContactInput!) {
+            updateContact(id: $id, contact: $input) {
+              id
+              forename
+              surname
+              title
+              email
+              marketingConsent
+            }
+          }
+        `,
+        variables: {
+          id: 'RPT20000017',
+          input: {
+            title: 'Mr',
+            forename: 'John',
+            surname: 'Smith',
+            email: 'someone@email.com',
+            marketingConsent: 'grant',
+          },
+        },
+      })
+
+      expect(result.data.updateContact).toBeDefined()
+    })
+  })
 })

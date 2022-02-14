@@ -39,8 +39,14 @@ const getContactQuery = gql`
 
 const createContactMutation = gql`
   ${ContactFragment}
-  mutation CreateContact($title: String, $forename: String, $surname: String) {
-    CreateContact(title: $title, forename: $forename, surname: $surname) {
+  mutation CreateContact(
+    $title: String
+    $forename: String
+    $surname: String
+    $email: String
+    $marketingConsent: String
+  ) {
+    CreateContact(title: $title, forename: $forename, surname: $surname, marketingConsent: $marketingConsent) {
       ...ContactFragment
     }
   }
@@ -48,8 +54,15 @@ const createContactMutation = gql`
 
 const updateContactMutation = gql`
   ${ContactFragment}
-  mutation UpdateContact($id: String!, $title: String, $forename: String, $surname: String) {
-    UpdateContact(id: $id, title: $title, forename: $forename, surname: $surname) {
+  mutation UpdateContact(
+    $id: String!
+    $title: String
+    $forename: String
+    $surname: String
+    $email: String
+    $marketingConsent: String
+  ) {
+    UpdateContact(id: $id, title: $title, forename: $forename, surname: $surname, marketingConsent: $marketingConsent) {
       ...ContactFragment
     }
   }
