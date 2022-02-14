@@ -2,10 +2,10 @@ import React, { memo } from 'react'
 
 export default memo(() => (
   <svg width="1em" height="1em" viewBox="0 0 64 64" fill="none" xmlns="http://www.w3.org/2000/svg">
-    <mask id="mask0_7989_92388" maskUnits="userSpaceOnUse" x="4" y="6" width="58" height="58">
+    <mask id="mask0_8061_91340" maskUnits="userSpaceOnUse" x="4" y="6" width="58" height="58">
       <ellipse cx="33.0004" cy="35.3998" rx="28.6" ry="28.6" fill="#C4C4C4" />
     </mask>
-    <g mask="url(#mask0_7989_92388)">
+    <g mask="url(#mask0_8061_91340)">
       <path d="M50.9559 92.7112L31.7759 45.8291L-14.8008 26.3433V92.7112H50.9559Z" fill="#262F69" />
       <path d="M78.4226 92.7109V66.8921V65.2219L31.7305 45.8521L50.9566 92.7109H78.4226Z" fill="#0061A8" />
       <path d="M-14.8008 26.3427L31.7298 45.8518L12.5267 -0.9375L-14.8008 26.3427Z" fill="#7BC9EB" />
@@ -87,7 +87,7 @@ export default memo(() => (
         fill="#FFD9B7"
       />
     </g>
-    <g>
+    <g clipPath="url(#clip0_8061_91340)">
       <path d="M32.6012 22.0002H50.2012V8.67059L41.4012 2.2002L32.6012 8.67059V22.0002Z" fill="#7BC9EB" />
       <path
         d="M31.7434 11L41.4004 2.92222L51.0573 11L52.4004 9.20126L41.4004 0L30.4004 9.20126L31.7434 11Z"
@@ -105,7 +105,7 @@ export default memo(() => (
       fill="#FFB71B"
     />
     <defs>
-      <clipPath>
+      <clipPath id="clip0_8061_91340">
         <rect width="22" height="22" fill="white" transform="translate(30.4004)" />
       </clipPath>
     </defs>

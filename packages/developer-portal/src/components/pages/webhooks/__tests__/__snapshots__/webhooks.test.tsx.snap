@@ -43,9 +43,9 @@ Object {
           >
             <svg
               fill="none"
-              height="80"
+              height="1em"
               viewBox="0 0 80 80"
-              width="80"
+              width="1em"
               xmlns="http://www.w3.org/2000/svg"
             >
               <path
@@ -736,9 +736,9 @@ Object {
         >
           <svg
             fill="none"
-            height="80"
+            height="1em"
             viewBox="0 0 80 80"
-            width="80"
+            width="1em"
             xmlns="http://www.w3.org/2000/svg"
           >
             <path

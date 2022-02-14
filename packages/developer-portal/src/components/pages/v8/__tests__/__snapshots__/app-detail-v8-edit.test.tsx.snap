@@ -187,9 +187,9 @@ exports[`App Detail edit V8 should match a snapshot 1`] = `
                               <Memo()>
                                 <svg
                                   fill="none"
-                                  height="81"
+                                  height="1em"
                                   viewBox="0 0 80 81"
-                                  width="80"
+                                  width="1em"
                                   xmlns="http://www.w3.org/2000/svg"
                                 >
                                   <path
