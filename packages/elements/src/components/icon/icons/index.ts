@@ -128,6 +128,12 @@ import foundationsCustomerInfographic from './infographic-icons/foundationsCusto
 import newCustomerInfographic from './infographic-icons/newCustomerInfographic'
 import propTechInfographic from './infographic-icons/propTechInfographic'
 import webDeveloperInfographic from './infographic-icons/webDeveloperInfographic'
+import authenticatedInfographic from './infographic-icons/authenticatedInfographic'
+import reapitConnectInfographic from './infographic-icons/reapitConnectInfographic'
+import reapitLogoInfographic from './infographic-icons/reapitLogoInfographic'
+import sharedEntitiesInfographic from './infographic-icons/sharedEntitiesInfographic'
+import welcomeInfographic from './infographic-icons/welcomeInfographic'
+import platformApiInfographic from './infographic-icons/platformApiInfographic'
 
 export const iconSet = {
   addSystem,
@@ -260,4 +266,10 @@ export const iconSet = {
   newCustomerInfographic,
   propTechInfographic,
   webDeveloperInfographic,
+  authenticatedInfographic,
+  reapitConnectInfographic,
+  reapitLogoInfographic,
+  sharedEntitiesInfographic,
+  welcomeInfographic,
+  platformApiInfographic,
 }

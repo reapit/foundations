@@ -1,7 +1,7 @@
 import React, { memo } from 'react'
 
 export default memo(() => (
-  <svg width="80" height="81" viewBox="0 0 80 81" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <svg width="1em" height="1em" viewBox="0 0 80 81" fill="none" xmlns="http://www.w3.org/2000/svg">
     <path d="M68.0839 32.5781L39.9172 22.6511L11.7505 32.5781L39.9172 42.6555L68.0839 32.5781Z" fill="#23A4DE" />
     <path d="M68.0842 32.5781L39.9175 22.6511V42.6555L68.0842 32.5781Z" fill="#0061A8" />
     <path
