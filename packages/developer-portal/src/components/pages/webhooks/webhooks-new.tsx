@@ -1,16 +1,5 @@
 import React, { Dispatch, FC, SetStateAction, useEffect, useState } from 'react'
-import {
-  Button,
-  StepsVertical,
-  ButtonGroup,
-  useSnack,
-  elMt11,
-  StepsVerticalStep,
-  elMb11,
-  FormLayout,
-  InputWrapFull,
-  elFadeIn,
-} from '@reapit/elements'
+import { Button, StepsVertical, ButtonGroup, useSnack, elMt11, StepsVerticalStep, elMb11 } from '@reapit/elements'
 import { DeepMap, FieldError, useForm, UseFormGetValues, UseFormRegister, UseFormTrigger } from 'react-hook-form'
 import { WebhooksNewApp } from './webhooks-new-app'
 import { WebhooksNewUrl } from './webhooks-new-url'
@@ -34,7 +23,6 @@ import { History } from 'history'
 import Routes from '../../../constants/routes'
 import { useHistory } from 'react-router'
 import { SelectAppIdEventHandler, WebhookQueryParams } from './webhooks'
-import { cx } from '@linaria/core'
 
 export interface WebhooksNewProps {
   webhookQueryParams: WebhookQueryParams
@@ -215,21 +203,17 @@ export const WebhooksNew: FC<WebhooksNewProps> = ({ webhookQueryParams, selectAp
     >
       <StepsVertical steps={steps} selectedStep={selectedStep} onStepClick={setSelectedStep} />
       {!nextStep && (
-        <FormLayout className={cx(elFadeIn, elMb11)}>
-          <InputWrapFull>
-            <ButtonGroup alignment="right">
-              <Button
-                intent="critical"
-                size={2}
-                chevronRight
-                type="submit"
-                disabled={webhookCreateEditState === WebhookCreateEditState.LOADING}
-              >
-                Create
-              </Button>
-            </ButtonGroup>
-          </InputWrapFull>
-        </FormLayout>
+        <ButtonGroup className={elMb11} alignment="right">
+          <Button
+            intent="critical"
+            size={2}
+            chevronRight
+            type="submit"
+            disabled={webhookCreateEditState === WebhookCreateEditState.LOADING}
+          >
+            Create
+          </Button>
+        </ButtonGroup>
       )}
     </form>
   )

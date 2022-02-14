@@ -133,7 +133,9 @@ export const Register: FC<RegisterProps> = () => {
           <Title hasNoMargin hasCenteredText>
             Register
           </Title>
-          <Subtitle hasCenteredText>for Reapit Foundations Developer Portal</Subtitle>
+          <Subtitle hasCenteredText hasSectionMargin>
+            for Reapit Foundations Developer Portal
+          </Subtitle>
         </FlexContainer>
         {formState === 'SUCCESS' ? (
           <PersistantNotification intent="success" isExpanded isFullWidth>
@@ -150,12 +152,12 @@ export const Register: FC<RegisterProps> = () => {
                 setFormStep,
               })}
             >
-              <BodyText hasGreyText hasCenteredText>
+              <BodyText hasGreyText hasCenteredText hasSectionMargin>
                 By registering for the Foundations platform, you will get access to the Reapit developer portal and
                 sandbox data. You will also get the opportunity to list apps in the Reapit Marketplace. We look forward
                 to seeing what you build!
               </BodyText>
-              <FormLayout>
+              <FormLayout hasMargin>
                 <InputWrapFull>
                   <InputGroup
                     type="text"
@@ -200,27 +202,25 @@ export const Register: FC<RegisterProps> = () => {
                     inputAddOnText={errors?.telephone?.message}
                   />
                 </InputWrapFull>
-                <InputWrapFull>
-                  <TermsAndConditionsModal
-                    visible={agreeModalVisable}
-                    afterClose={onDeclineTermsAndConditions(setAgreeModalVisable)}
-                    onAccept={() => onSubmit(dispatch)(getValues())}
-                    onDecline={onDeclineTermsAndConditions(setAgreeModalVisable)}
-                    isSubmitting={isSubmitting}
-                  />
-                  <ButtonGroup alignment="center" className={elMb12}>
-                    <Button onClick={onLoginButtonClick()} intent="primary" size={3}>
-                      Login With Reapit
-                    </Button>
-                    <Button type="submit" loading={isSubmitting} intent="critical" chevronRight size={3}>
-                      Register
-                    </Button>
-                  </ButtonGroup>
-                  <BodyText hasGreyText hasCenteredText>
-                    {process.env.APP_VERSION}
-                  </BodyText>
-                </InputWrapFull>
               </FormLayout>
+              <TermsAndConditionsModal
+                visible={agreeModalVisable}
+                afterClose={onDeclineTermsAndConditions(setAgreeModalVisable)}
+                onAccept={() => onSubmit(dispatch)(getValues())}
+                onDecline={onDeclineTermsAndConditions(setAgreeModalVisable)}
+                isSubmitting={isSubmitting}
+              />
+              <ButtonGroup alignment="center" className={elMb12}>
+                <Button onClick={onLoginButtonClick()} intent="primary" size={3}>
+                  Login With Reapit
+                </Button>
+                <Button type="submit" loading={isSubmitting} intent="critical" chevronRight size={3}>
+                  Register
+                </Button>
+              </ButtonGroup>
+              <BodyText hasGreyText hasCenteredText>
+                {process.env.APP_VERSION}
+              </BodyText>
             </form>
           </>
         )}

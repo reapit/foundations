@@ -160,7 +160,7 @@ exports[`Register should match a snapshot 1`] = `
                           className="ewfctk4-el-has-no-margin e1bb7egt-el-has-centered-text"
                         >
                           <h1
-                            className="ewfctk4-el-has-no-margin e1bb7egt-el-has-centered-text etrchfm-el-title"
+                            className="ewfctk4-el-has-no-margin e1bb7egt-el-has-centered-text e2dm5rh-el-title"
                           >
                             Register
                           </h1>
@@ -168,12 +168,13 @@ exports[`Register should match a snapshot 1`] = `
                       </Title>
                       <Subtitle
                         hasCenteredText={true}
+                        hasSectionMargin={true}
                       >
                         <ElSubtitle
-                          className="e1bb7egt-el-has-centered-text"
+                          className="etrchfm-el-has-section-margin e1bb7egt-el-has-centered-text"
                         >
                           <h2
-                            className="e1bb7egt-el-has-centered-text e2dm5rh-el-subtitle"
+                            className="etrchfm-el-has-section-margin e1bb7egt-el-has-centered-text evblxhy-el-subtitle"
                           >
                             for Reapit Foundations Developer Portal
                           </h2>
@@ -189,26 +190,31 @@ exports[`Register should match a snapshot 1`] = `
                   <BodyText
                     hasCenteredText={true}
                     hasGreyText={true}
+                    hasSectionMargin={true}
                   >
                     <ElBodyText
-                      className="e11jaxfn-el-has-grey-text e1bb7egt-el-has-centered-text"
+                      className="e11jaxfn-el-has-grey-text etrchfm-el-has-section-margin e1bb7egt-el-has-centered-text"
                     >
                       <p
-                        className="e11jaxfn-el-has-grey-text e1bb7egt-el-has-centered-text evblxhy-el-body-text"
+                        className="e11jaxfn-el-has-grey-text etrchfm-el-has-section-margin e1bb7egt-el-has-centered-text e1byern-el-body-text"
                       >
                         By registering for the Foundations platform, you will get access to the Reapit developer portal and sandbox data. You will also get the opportunity to list apps in the Reapit Marketplace. We look forward to seeing what you build!
                       </p>
                     </ElBodyText>
                   </BodyText>
-                  <FormLayout>
-                    <ElFormLayout>
+                  <FormLayout
+                    hasMargin={true}
+                  >
+                    <ElFormLayout
+                      className="e1fwulnz-el-form-layout-has-margin"
+                    >
                       <div
-                        className="e1fwulnz-el-form-layout"
+                        className="e1fwulnz-el-form-layout-has-margin ee6e7by-el-form-layout"
                       >
                         <InputWrapFull>
                           <ElInputWrapFull>
                             <div
-                              className="ee8eqmp-el-input-wrap-full"
+                              className="ep31he9-el-input-wrap-full"
                             >
                               <ForwardRef
                                 id="name"
@@ -273,7 +279,7 @@ exports[`Register should match a snapshot 1`] = `
                         <InputWrapFull>
                           <ElInputWrapFull>
                             <div
-                              className="ee8eqmp-el-input-wrap-full"
+                              className="ep31he9-el-input-wrap-full"
                             >
                               <ForwardRef
                                 id="companyName"
@@ -338,7 +344,7 @@ exports[`Register should match a snapshot 1`] = `
                         <InputWrapFull>
                           <ElInputWrapFull>
                             <div
-                              className="ee8eqmp-el-input-wrap-full"
+                              className="ep31he9-el-input-wrap-full"
                             >
                               <ForwardRef
                                 id="email"
@@ -403,7 +409,7 @@ exports[`Register should match a snapshot 1`] = `
                         <InputWrapFull>
                           <ElInputWrapFull>
                             <div
-                              className="ee8eqmp-el-input-wrap-full"
+                              className="ep31he9-el-input-wrap-full"
                             >
                               <ForwardRef
                                 id="telephone"
@@ -465,120 +471,112 @@ exports[`Register should match a snapshot 1`] = `
                             </div>
                           </ElInputWrapFull>
                         </InputWrapFull>
-                        <InputWrapFull>
-                          <ElInputWrapFull>
-                            <div
-                              className="ee8eqmp-el-input-wrap-full"
-                            >
-                              <TermsAndConditionsModal
-                                afterClose={[Function]}
-                                isSubmitting={false}
-                                onAccept={[Function]}
-                                onDecline={[Function]}
-                                visible={false}
-                              >
-                                <Modal
-                                  afterClose={[Function]}
-                                  className="mj13qo2-modal-width"
-                                  footerItems={
-                                    <React.Fragment>
-                                      <Button
-                                        onClick={[Function]}
-                                        type="button"
-                                        variant="secondary"
-                                      >
-                                        Decline
-                                      </Button>
-                                      <Button
-                                        dataTest="buttonAcceptTermsAndConditions"
-                                        loading={false}
-                                        onClick={[Function]}
-                                      >
-                                        Accept
-                                      </Button>
-                                    </React.Fragment>
-                                  }
-                                  size="medium"
-                                  tapOutsideToDissmiss={true}
-                                  title="Terms and Conditions"
-                                  visible={false}
-                                />
-                              </TermsAndConditionsModal>
-                              <ButtonGroup
-                                alignment="center"
-                                className="e7eari0-el-mb12"
-                              >
-                                <ElButtonGroup
-                                  className="e7eari0-el-mb12"
-                                >
-                                  <div
-                                    className="e7eari0-el-mb12 e19a1osy-el-button-group"
-                                  >
-                                    <ElButtonGroupInner
-                                      className="ej73pla-el-button-group-align-center"
-                                    >
-                                      <div
-                                        className="ej73pla-el-button-group-align-center eay05y4-el-button-group-inner"
-                                      >
-                                        <Button
-                                          intent="primary"
-                                          onClick={[Function]}
-                                          size={3}
-                                        >
-                                          <ElButton
-                                            className="ebee6r1-el-intent-primary e83k2pj-el-button-size3"
-                                            onClick={[Function]}
-                                          >
-                                            <button
-                                              className="ebee6r1-el-intent-primary e83k2pj-el-button-size3 e1f2ikqj-el-button"
-                                              onClick={[Function]}
-                                            >
-                                              Login With Reapit
-                                            </button>
-                                          </ElButton>
-                                        </Button>
-                                        <Button
-                                          chevronRight={true}
-                                          intent="critical"
-                                          loading={false}
-                                          size={3}
-                                          type="submit"
-                                        >
-                                          <ElButton
-                                            className="e1iow709-el-intent-critical e1tqqdf9-el-button-has-right-chevron e83k2pj-el-button-size3"
-                                            type="submit"
-                                          >
-                                            <button
-                                              className="e1iow709-el-intent-critical e1tqqdf9-el-button-has-right-chevron e83k2pj-el-button-size3 e1f2ikqj-el-button"
-                                              type="submit"
-                                            >
-                                              Register
-                                            </button>
-                                          </ElButton>
-                                        </Button>
-                                      </div>
-                                    </ElButtonGroupInner>
-                                  </div>
-                                </ElButtonGroup>
-                              </ButtonGroup>
-                              <BodyText
-                                hasCenteredText={true}
-                                hasGreyText={true}
-                              >
-                                <ElBodyText
-                                  className="e11jaxfn-el-has-grey-text e1bb7egt-el-has-centered-text"
-                                >
-                                  <p
-                                    className="e11jaxfn-el-has-grey-text e1bb7egt-el-has-centered-text evblxhy-el-body-text"
-                                  />
-                                </ElBodyText>
-                              </BodyText>
-                            </div>
-                          </ElInputWrapFull>
-                        </InputWrapFull>
                       </div>
                     </ElFormLayout>
                   </FormLayout>
+                  <TermsAndConditionsModal
+                    afterClose={[Function]}
+                    isSubmitting={false}
+                    onAccept={[Function]}
+                    onDecline={[Function]}
+                    visible={false}
+                  >
+                    <Modal
+                      afterClose={[Function]}
+                      className="mj13qo2-modal-width"
+                      footerItems={
+                        <React.Fragment>
+                          <Button
+                            onClick={[Function]}
+                            type="button"
+                            variant="secondary"
+                          >
+                            Decline
+                          </Button>
+                          <Button
+                            dataTest="buttonAcceptTermsAndConditions"
+                            loading={false}
+                            onClick={[Function]}
+                          >
+                            Accept
+                          </Button>
+                        </React.Fragment>
+                      }
+                      size="medium"
+                      tapOutsideToDissmiss={true}
+                      title="Terms and Conditions"
+                      visible={false}
+                    />
+                  </TermsAndConditionsModal>
+                  <ButtonGroup
+                    alignment="center"
+                    className="e7eari0-el-mb12"
+                  >
+                    <ElButtonGroup
+                      className="e7eari0-el-mb12"
+                    >
+                      <div
+                        className="e7eari0-el-mb12 e19a1osy-el-button-group"
+                      >
+                        <ElButtonGroupInner
+                          className="ej73pla-el-button-group-align-center"
+                        >
+                          <div
+                            className="ej73pla-el-button-group-align-center eay05y4-el-button-group-inner"
+                          >
+                            <Button
+                              intent="primary"
+                              onClick={[Function]}
+                              size={3}
+                            >
+                              <ElButton
+                                className="ebee6r1-el-intent-primary e83k2pj-el-button-size3"
+                                onClick={[Function]}
+                              >
+                                <button
+                                  className="ebee6r1-el-intent-primary e83k2pj-el-button-size3 e1f2ikqj-el-button"
+                                  onClick={[Function]}
+                                >
+                                  Login With Reapit
+                                </button>
+                              </ElButton>
+                            </Button>
+                            <Button
+                              chevronRight={true}
+                              intent="critical"
+                              loading={false}
+                              size={3}
+                              type="submit"
+                            >
+                              <ElButton
+                                className="e1iow709-el-intent-critical e1tqqdf9-el-button-has-right-chevron e83k2pj-el-button-size3"
+                                type="submit"
+                              >
+                                <button
+                                  className="e1iow709-el-intent-critical e1tqqdf9-el-button-has-right-chevron e83k2pj-el-button-size3 e1f2ikqj-el-button"
+                                  type="submit"
+                                >
+                                  Register
+                                </button>
+                              </ElButton>
+                            </Button>
+                          </div>
+                        </ElButtonGroupInner>
+                      </div>
+                    </ElButtonGroup>
+                  </ButtonGroup>
+                  <BodyText
+                    hasCenteredText={true}
+                    hasGreyText={true}
+                  >
+                    <ElBodyText
+                      className="e11jaxfn-el-has-grey-text e1bb7egt-el-has-centered-text"
+                    >
+                      <p
+                        className="e11jaxfn-el-has-grey-text e1bb7egt-el-has-centered-text e1byern-el-body-text"
+                      />
+                    </ElBodyText>
+                  </BodyText>
                 </form>
               </div>
             </LoginContentWrapper>

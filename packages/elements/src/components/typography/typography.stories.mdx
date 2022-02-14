@@ -104,7 +104,7 @@ Props available for the React version of the component;
 
 ### Modifiers
 
-We support a number of modifier to override the default typography, specifically bold, italic, grey coloured and centered text. Also, removing the bottom margin when you want to manually group your text items.
+We support a number of modifier to override the default typography, specifically bold, italic, grey coloured and centered text. Also, removing the bottom margin when you want to manually group your text items and adding a 60px bottom margin for denoting the end of a page section.
 
 See the table below for details of these modifiers;
 
@@ -114,16 +114,16 @@ In all cases they map to css classes you can see in the rendered markup. Below y
 
 <Canvas>
   <Story name="Bold, Italic, Grey, Margin, Centered, Modifiers">
-    <Title hasGreyText hasItalicText hasRegularText hasNoMargin hasCenteredText>
+    <Title hasGreyText hasItalicText hasRegularText hasNoMargin hasCenteredText hasSectionMargin>
       Create a New App
     </Title>
-    <Subtitle hasGreyText hasItalicText hasBoldText hasNoMargin hasCenteredText>
+    <Subtitle hasGreyText hasItalicText hasBoldText hasNoMargin hasCenteredText hasSectionMargin>
       Do you intend for your app to be launched within Agency Cloud?
     </Subtitle>
-    <BodyText hasGreyText hasItalicText hasBoldText hasNoMargin hasCenteredText>
+    <BodyText hasGreyText hasItalicText hasBoldText hasNoMargin hasCenteredText hasSectionMargin>
       Have you had a look at the documentation?
     </BodyText>
-    <SmallText hasGreyText hasItalicText hasBoldText hasNoMargin hasCenteredText>
+    <SmallText hasGreyText hasItalicText hasBoldText hasNoMargin hasCenteredText hasSectionMargin>
       Before continuing with registering your first app, we strongly advise that you read the "Step-by-step" guide on
       how best to complete the following form.
     </SmallText>

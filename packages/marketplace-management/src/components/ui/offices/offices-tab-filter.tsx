@@ -4,13 +4,11 @@ import {
   ButtonGroup,
   elFadeIn,
   FlexContainer,
-  elMb11,
   FormLayout,
   InputGroup,
   InputWrap,
   elHFull,
 } from '@reapit/elements'
-import { cx } from '@linaria/core'
 import { useForm } from 'react-hook-form'
 
 export interface OfficesFormSchema {
@@ -29,7 +27,7 @@ export const OfficeTabFilterForm: FC<OfficesFormProps> = ({ onSearch, filterValu
 
   return (
     <form onSubmit={handleSubmit(onSearch)}>
-      <FormLayout className={cx(elFadeIn, elMb11)}>
+      <FormLayout hasMargin className={elFadeIn}>
         <InputWrap>
           <InputGroup label="Search" placeholder="Search for an office" {...register('name')} />
         </InputWrap>

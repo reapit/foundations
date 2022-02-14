@@ -85,12 +85,12 @@ Object {
             src="[object Object]"
           />
           <h1
-            class="ewfctk4-el-has-no-margin e1bb7egt-el-has-centered-text etrchfm-el-title"
+            class="ewfctk4-el-has-no-margin e1bb7egt-el-has-centered-text e2dm5rh-el-title"
           >
             Select an option to register
           </h1>
           <h2
-            class="e1bb7egt-el-has-centered-text e2dm5rh-el-subtitle"
+            class="e1bb7egt-el-has-centered-text evblxhy-el-subtitle"
           >
             that best describes you
           </h2>
@@ -289,12 +289,12 @@ Object {
                 class="e1jxji48-el-flex-column e1de2pym-el-flex-justify-center e2kmzjs-el-flex-container"
               >
                 <p
-                  class="evblxhy-el-body-text"
+                  class="e1byern-el-body-text"
                 >
                   Prospective Customer
                 </p>
                 <p
-                  class="e11jaxfn-el-has-grey-text ewfctk4-el-has-no-margin e1byern-el-small-text"
+                  class="e11jaxfn-el-has-grey-text ewfctk4-el-has-no-margin e15ggth7-el-small-text"
                 >
                   Interested in Reapit Products, not currently a subscriber
                 </p>
@@ -422,12 +422,12 @@ Object {
                 class="e1jxji48-el-flex-column e1de2pym-el-flex-justify-center e2kmzjs-el-flex-container"
               >
                 <p
-                  class="evblxhy-el-body-text"
+                  class="e1byern-el-body-text"
                 >
                   Existing Customer
                 </p>
                 <p
-                  class="e11jaxfn-el-has-grey-text ewfctk4-el-has-no-margin e1byern-el-small-text"
+                  class="e11jaxfn-el-has-grey-text ewfctk4-el-has-no-margin e15ggth7-el-small-text"
                 >
                   Existing Reapit AgencyCloud (desktop CRM) subscriber
                 </p>
@@ -634,12 +634,12 @@ Object {
                   class="e1jxji48-el-flex-column e1de2pym-el-flex-justify-center e2kmzjs-el-flex-container"
                 >
                   <p
-                    class="evblxhy-el-body-text"
+                    class="e1byern-el-body-text"
                   >
                     Third-party developer
                   </p>
                   <p
-                    class="e11jaxfn-el-has-grey-text ewfctk4-el-has-no-margin e1byern-el-small-text"
+                    class="e11jaxfn-el-has-grey-text ewfctk4-el-has-no-margin e15ggth7-el-small-text"
                   >
                     Working on-behalf of a Reapit customer, e.g. website developer
                   </p>
@@ -776,12 +776,12 @@ Object {
                   class="e1jxji48-el-flex-column e1de2pym-el-flex-justify-center e2kmzjs-el-flex-container"
                 >
                   <p
-                    class="evblxhy-el-body-text"
+                    class="e1byern-el-body-text"
                   >
                     PropTech
                   </p>
                   <p
-                    class="e11jaxfn-el-has-grey-text ewfctk4-el-has-no-margin e1byern-el-small-text"
+                    class="e11jaxfn-el-has-grey-text ewfctk4-el-has-no-margin e15ggth7-el-small-text"
                   >
                     Independent company building an app or integration
                   </p>
@@ -874,12 +874,12 @@ Object {
           src="[object Object]"
         />
         <h1
-          class="ewfctk4-el-has-no-margin e1bb7egt-el-has-centered-text etrchfm-el-title"
+          class="ewfctk4-el-has-no-margin e1bb7egt-el-has-centered-text e2dm5rh-el-title"
         >
           Select an option to register
         </h1>
         <h2
-          class="e1bb7egt-el-has-centered-text e2dm5rh-el-subtitle"
+          class="e1bb7egt-el-has-centered-text evblxhy-el-subtitle"
         >
           that best describes you
         </h2>
@@ -1078,12 +1078,12 @@ Object {
               class="e1jxji48-el-flex-column e1de2pym-el-flex-justify-center e2kmzjs-el-flex-container"
             >
               <p
-                class="evblxhy-el-body-text"
+                class="e1byern-el-body-text"
               >
                 Prospective Customer
               </p>
               <p
-                class="e11jaxfn-el-has-grey-text ewfctk4-el-has-no-margin e1byern-el-small-text"
+                class="e11jaxfn-el-has-grey-text ewfctk4-el-has-no-margin e15ggth7-el-small-text"
               >
                 Interested in Reapit Products, not currently a subscriber
               </p>
@@ -1211,12 +1211,12 @@ Object {
               class="e1jxji48-el-flex-column e1de2pym-el-flex-justify-center e2kmzjs-el-flex-container"
             >
               <p
-                class="evblxhy-el-body-text"
+                class="e1byern-el-body-text"
               >
                 Existing Customer
               </p>
               <p
-                class="e11jaxfn-el-has-grey-text ewfctk4-el-has-no-margin e1byern-el-small-text"
+                class="e11jaxfn-el-has-grey-text ewfctk4-el-has-no-margin e15ggth7-el-small-text"
               >
                 Existing Reapit AgencyCloud (desktop CRM) subscriber
               </p>
@@ -1423,12 +1423,12 @@ Object {
                 class="e1jxji48-el-flex-column e1de2pym-el-flex-justify-center e2kmzjs-el-flex-container"
               >
                 <p
-                  class="evblxhy-el-body-text"
+                  class="e1byern-el-body-text"
                 >
                   Third-party developer
                 </p>
                 <p
-                  class="e11jaxfn-el-has-grey-text ewfctk4-el-has-no-margin e1byern-el-small-text"
+                  class="e11jaxfn-el-has-grey-text ewfctk4-el-has-no-margin e15ggth7-el-small-text"
                 >
                   Working on-behalf of a Reapit customer, e.g. website developer
                 </p>
@@ -1565,12 +1565,12 @@ Object {
                 class="e1jxji48-el-flex-column e1de2pym-el-flex-justify-center e2kmzjs-el-flex-container"
               >
                 <p
-                  class="evblxhy-el-body-text"
+                  class="e1byern-el-body-text"
                 >
                   PropTech
                 </p>
                 <p
-                  class="e11jaxfn-el-has-grey-text ewfctk4-el-has-no-margin e1byern-el-small-text"
+                  class="e11jaxfn-el-has-grey-text ewfctk4-el-has-no-margin e15ggth7-el-small-text"
                 >
                   Independent company building an app or integration
                 </p>

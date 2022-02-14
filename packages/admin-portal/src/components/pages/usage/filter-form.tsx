@@ -11,7 +11,6 @@ import {
   SearchableDropdown,
   Label,
   Select,
-  elMb7,
 } from '@reapit/elements'
 import { fetchDevelopersList } from '../../../services/developers'
 import { AppSummaryModelPagedResult, InstallationModelPagedResult } from '@reapit/foundations-ts-definitions'
@@ -29,8 +28,8 @@ export const FilterForm: FC<FilterFormProps> = ({ setUsageFilters, apps, install
   const { developerId, month, appId } = getValues()
 
   return (
-    <form className={elMb7} onChange={handleSubmit(setUsageFilters)}>
-      <FormLayout>
+    <form onChange={handleSubmit(setUsageFilters)}>
+      <FormLayout hasMargin>
         <InputWrapFull>
           <Subtitle>Filters</Subtitle>
           <BodyText hasGreyText>Apply a filter to get started. Developer and month are required by default.</BodyText>

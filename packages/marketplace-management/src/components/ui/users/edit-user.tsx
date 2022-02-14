@@ -11,7 +11,6 @@ import {
   Button,
   ButtonGroup,
   elFadeIn,
-  elMb11,
   elP8,
   FormLayout,
   InputWrapFull,
@@ -21,7 +20,6 @@ import {
   Subtitle,
   useSnack,
 } from '@reapit/elements'
-import { cx } from '@linaria/core'
 import { useForm } from 'react-hook-form'
 
 export interface EditUserFormProps {
@@ -99,11 +97,11 @@ export const EditUserForm: FC<EditUserFormProps> = ({ onComplete, user, orgId })
 
   return (
     <form className={elP8} onSubmit={handleSubmit(onSubmit)}>
-      <FormLayout className={cx(elFadeIn, elMb11)}>
-        <InputWrapFull>
-          <Subtitle>Edit User</Subtitle>
-          <BodyText hasGreyText>Please use the section below to manage which groups this user belongs to:</BodyText>
-        </InputWrapFull>
+      <Subtitle>Edit User</Subtitle>
+      <BodyText hasGreyText hasSectionMargin>
+        Please use the section below to manage which groups this user belongs to:
+      </BodyText>
+      <FormLayout hasMargin className={elFadeIn}>
         <InputWrapFull>
           <MultiSelectInput
             id={`user-groups-ids-${user.id}`}
@@ -118,17 +116,15 @@ export const EditUserForm: FC<EditUserFormProps> = ({ onComplete, user, orgId })
             </PersistantNotification>
           )}
         </InputWrapFull>
-        <InputWrapFull>
-          <ButtonGroup alignment="right">
-            <Button intent="secondary" onClick={onComplete} type="button">
-              Cancel
-            </Button>
-            <Button intent="primary" type="submit">
-              Submit
-            </Button>
-          </ButtonGroup>
-        </InputWrapFull>
       </FormLayout>
+      <ButtonGroup alignment="right">
+        <Button intent="secondary" onClick={onComplete} type="button">
+          Cancel
+        </Button>
+        <Button intent="primary" type="submit">
+          Submit
+        </Button>
+      </ButtonGroup>
     </form>
   )
 }
