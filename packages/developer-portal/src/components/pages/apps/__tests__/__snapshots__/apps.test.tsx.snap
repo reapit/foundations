@@ -80,7 +80,7 @@ exports[`Login should match a snapshot 1`] = `
                             className=""
                           >
                             <h1
-                              className="etrchfm-el-title"
+                              className="e2dm5rh-el-title"
                             >
                               Apps
                             </h1>
@@ -250,7 +250,7 @@ exports[`Login should match a snapshot 1`] = `
                             className=""
                           >
                             <h2
-                              className="e2dm5rh-el-subtitle"
+                              className="evblxhy-el-subtitle"
                             >
                               Apps Documentation
                             </h2>
@@ -263,7 +263,7 @@ exports[`Login should match a snapshot 1`] = `
                             className="e11jaxfn-el-has-grey-text"
                           >
                             <p
-                              className="e11jaxfn-el-has-grey-text e1byern-el-small-text"
+                              className="e11jaxfn-el-has-grey-text e15ggth7-el-small-text"
                             >
                               This is the dashboard for your applications created using the Reapit Foundations platform. If you have not created an app before or you need help, please take the time to view our getting started guide.
                             </p>
@@ -312,7 +312,7 @@ exports[`Login should match a snapshot 1`] = `
                                   className=""
                                 >
                                   <h1
-                                    className="etrchfm-el-title"
+                                    className="e2dm5rh-el-title"
                                   >
                                     My Apps
                                   </h1>

@@ -11,7 +11,6 @@ import {
   FormLayout,
   InputGroup,
   InputWrap,
-  InputWrapFull,
   Subtitle,
 } from '@reapit/elements'
 
@@ -57,8 +56,10 @@ export const AppInstallationSection: FC<AppInstallationSectionProps> = ({
   return (
     <>
       <Subtitle>Installation</Subtitle>
-      <BodyText hasGreyText>Please select the type of installation you require for this app:</BodyText>
-      <FormLayout>
+      <BodyText hasGreyText hasSectionMargin>
+        Please select the type of installation you require for this app:
+      </BodyText>
+      <FormLayout hasMargin>
         <InputWrap>
           <InputGroup
             className={elMb5}
@@ -92,20 +93,18 @@ export const AppInstallationSection: FC<AppInstallationSectionProps> = ({
             setOfficeGroupsToRemove={setOfficeGroupsToRemove}
           />
         )}
-        <InputWrapFull>
-          <ButtonGroup className={elMb7} alignment="right">
-            <Button
-              intent="critical"
-              size={2}
-              chevronRight
-              disabled={!submitButtonEnabled}
-              onClick={handleModalOpen(true, setShowConfirmModal)}
-            >
-              Save
-            </Button>
-          </ButtonGroup>
-        </InputWrapFull>
       </FormLayout>
+      <ButtonGroup className={elMb7} alignment="right">
+        <Button
+          intent="critical"
+          size={2}
+          chevronRight
+          disabled={!submitButtonEnabled}
+          onClick={handleModalOpen(true, setShowConfirmModal)}
+        >
+          Save
+        </Button>
+      </ButtonGroup>
     </>
   )
 }

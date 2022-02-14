@@ -5,11 +5,9 @@ Object {
   "asFragment": [Function],
   "baseElement": <body>
     <div>
-      <form
-        class="el-mb7"
-      >
+      <form>
         <div
-          class="el-form-layout"
+          class="el-form-layout-has-margin el-form-layout"
         >
           <div
             class="el-input-wrap-full"
@@ -172,11 +170,9 @@ Object {
     </div>
   </body>,
   "container": <div>
-    <form
-      class="el-mb7"
-    >
+    <form>
       <div
-        class="el-form-layout"
+        class="el-form-layout-has-margin el-form-layout"
       >
         <div
           class="el-input-wrap-full"
@@ -396,11 +392,9 @@ Object {
   "asFragment": [Function],
   "baseElement": <body>
     <div>
-      <form
-        class="el-mb7"
-      >
+      <form>
         <div
-          class="el-form-layout"
+          class="el-form-layout-has-margin el-form-layout"
         >
           <div
             class="el-input-wrap-full"
@@ -548,11 +542,9 @@ Object {
     </div>
   </body>,
   "container": <div>
-    <form
-      class="el-mb7"
-    >
+    <form>
       <div
-        class="el-form-layout"
+        class="el-form-layout-has-margin el-form-layout"
       >
         <div
           class="el-input-wrap-full"

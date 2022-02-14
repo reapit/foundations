@@ -27,22 +27,24 @@ There are four breakpoints and four form layout options depending on how many co
 | `InputWrapMed`  | 100% width   | 100% width                | 66.667% width             | 50% width        |
 | `InputWrapFull` | 100% width   | 100% width                | 100% width                | 100% width       |
 
-The `FormLayout` and it's `InputWrap` children are all purely presentational and so accept no props. The rendered markup has the same behaviour for non-React users as the React components.
+The `InputWrap` is purely presentational and so accept no props. The rendered markup has the same behaviour for non-React users as the React components.
+
+The `FormLayout` accepts an optional `hasMargin` prop to add spacing vertically between forms as per the styleguide.
+
+<ArgsTable of={FormLayout} />
 
 In the example below, you can see a wide range of our input types, with various input wraps applied to create a responsive form, with two levels and a block of helper text between them. This is intended as a suggested illustration of how to lay out a form in line with our styleguide.
 
 <Canvas>
   <Story name="Form Layout">
     <form>
-      <FormLayout>
-        <InputWrapFull>
-          <Subtitle>Main Form</Subtitle>
-          <BodyText hasGreyText>
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur non pulvinar tellus, quis pulvinar dui.
-            Nunc enim libero, ullamcorper ac ex id, tincidunt dapibus lectus. Vestibulum at porta quam, ac condimentum
-            dui. Duis ornare enim sed magna tincidunt volutpat.
-          </BodyText>
-        </InputWrapFull>
+      <Subtitle>Main Form</Subtitle>
+      <BodyText hasGreyText hasSectionMargin>
+        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur non pulvinar tellus, quis pulvinar dui. Nunc
+        enim libero, ullamcorper ac ex id, tincidunt dapibus lectus. Vestibulum at porta quam, ac condimentum dui. Duis
+        ornare enim sed magna tincidunt volutpat.
+      </BodyText>
+      <FormLayout hasMargin>
         <InputWrap>
           <InputGroup icon="homeSystem" label="Address" type="text" />
         </InputWrap>
@@ -98,14 +100,14 @@ In the example below, you can see a wide range of our input types, with various 
             <Label>Long Description</Label>
           </InputGroup>
         </InputWrapFull>
-        <InputWrapFull>
-          <Subtitle>Sub Form</Subtitle>
-          <BodyText hasGreyText>
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur non pulvinar tellus, quis pulvinar dui.
-            Nunc enim libero, ullamcorper ac ex id, tincidunt dapibus lectus. Vestibulum at porta quam, ac condimentum
-            dui. Duis ornare enim sed magna tincidunt volutpat.
-          </BodyText>
-        </InputWrapFull>
+      </FormLayout>
+      <Subtitle>Sub Form</Subtitle>
+      <BodyText hasGreyText hasSectionMargin>
+        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur non pulvinar tellus, quis pulvinar dui. Nunc
+        enim libero, ullamcorper ac ex id, tincidunt dapibus lectus. Vestibulum at porta quam, ac condimentum dui. Duis
+        ornare enim sed magna tincidunt volutpat.
+      </BodyText>
+      <FormLayout hasMargin>
         <InputWrapMed>
           <InputGroup icon="homeSystem" label="Really Long Address" type="text" />
         </InputWrapMed>
@@ -126,17 +128,15 @@ In the example below, you can see a wide range of our input types, with various 
             <Label>Select Items</Label>
           </InputGroup>
         </InputWrapFull>
-        <InputWrapFull>
-          <ButtonGroup alignment="right">
-            <Button size={2} intent="primary">
-              Cancel
-            </Button>
-            <Button size={2} chevronRight intent="critical">
-              Submit
-            </Button>
-          </ButtonGroup>
-        </InputWrapFull>
       </FormLayout>
+      <ButtonGroup alignment="right">
+        <Button size={2} intent="primary">
+          Cancel
+        </Button>
+        <Button size={2} chevronRight intent="critical">
+          Submit
+        </Button>
+      </ButtonGroup>
     </form>
   </Story>
 </Canvas>

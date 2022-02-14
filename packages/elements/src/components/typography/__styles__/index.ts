@@ -7,6 +7,7 @@ export const elHasRegularText = css``
 export const elHasBoldText = css``
 export const elHasItalicText = css``
 export const elHasCenteredText = css``
+export const elHasSectionMargin = css``
 
 export const ElTitle = styled.h1`
   font-family: var(--font-sans-serif);
@@ -31,6 +32,10 @@ export const ElTitle = styled.h1`
 
   &.${elHasNoMargin} {
     margin-bottom: 0;
+  }
+
+  &.${elHasSectionMargin} {
+    margin-bottom: 3.75rem;
   }
 
   &.${elHasCenteredText} {
@@ -63,6 +68,10 @@ export const ElSubtitle = styled.h2`
     margin-bottom: 0;
   }
 
+  &.${elHasSectionMargin} {
+    margin-bottom: 3.75rem;
+  }
+
   &.${elHasCenteredText} {
     text-align: center;
   }
@@ -93,6 +102,10 @@ export const ElBodyText = styled.p`
     margin-bottom: 0;
   }
 
+  &.${elHasSectionMargin} {
+    margin-bottom: 3.75rem;
+  }
+
   &.${elHasCenteredText} {
     text-align: center;
   }
@@ -121,6 +134,10 @@ export const ElSmallText = styled.p`
 
   &.${elHasNoMargin} {
     margin-bottom: 0;
+  }
+
+  &.${elHasSectionMargin} {
+    margin-bottom: 3.75rem;
   }
 
   &.${elHasCenteredText} {

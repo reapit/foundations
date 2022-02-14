@@ -25,12 +25,12 @@ Object {
         Installation
       </h2>
       <p
-        class="el-has-grey-text el-body-text"
+        class="el-has-grey-text el-has-section-margin el-body-text"
       >
         Please select the type of installation you require for this app:
       </p>
       <div
-        class="el-form-layout"
+        class="el-form-layout-has-margin el-form-layout"
       >
         <div
           class="el-input-wrap"
@@ -80,23 +80,19 @@ Object {
             This will grant the app access to only data for the specific offices inside of each office group
           </p>
         </div>
+      </div>
+      <div
+        class="el-mb7 el-button-group"
+      >
         <div
-          class="el-input-wrap-full"
+          class="el-button-group-align-right el-button-group-inner"
         >
-          <div
-            class="el-mb7 el-button-group"
+          <button
+            class="el-intent-critical el-button-has-right-chevron el-button-size2 el-button"
+            disabled=""
           >
-            <div
-              class="el-button-group-align-right el-button-group-inner"
-            >
-              <button
-                class="el-intent-critical el-button-has-right-chevron el-button-size2 el-button"
-                disabled=""
-              >
-                Save
-              </button>
-            </div>
-          </div>
+            Save
+          </button>
         </div>
       </div>
     </div>
@@ -122,12 +118,12 @@ Object {
       Installation
     </h2>
     <p
-      class="el-has-grey-text el-body-text"
+      class="el-has-grey-text el-has-section-margin el-body-text"
     >
       Please select the type of installation you require for this app:
     </p>
     <div
-      class="el-form-layout"
+      class="el-form-layout-has-margin el-form-layout"
     >
       <div
         class="el-input-wrap"
@@ -177,23 +173,19 @@ Object {
           This will grant the app access to only data for the specific offices inside of each office group
         </p>
       </div>
+    </div>
+    <div
+      class="el-mb7 el-button-group"
+    >
       <div
-        class="el-input-wrap-full"
+        class="el-button-group-align-right el-button-group-inner"
       >
-        <div
-          class="el-mb7 el-button-group"
+        <button
+          class="el-intent-critical el-button-has-right-chevron el-button-size2 el-button"
+          disabled=""
         >
-          <div
-            class="el-button-group-align-right el-button-group-inner"
-          >
-            <button
-              class="el-intent-critical el-button-has-right-chevron el-button-size2 el-button"
-              disabled=""
-            >
-              Save
-            </button>
-          </div>
-        </div>
+          Save
+        </button>
       </div>
     </div>
   </div>,

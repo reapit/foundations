@@ -14,7 +14,6 @@ import {
   Button,
   ButtonGroup,
   elFadeIn,
-  elMb11,
   elP8,
   FormLayout,
   InputGroup,
@@ -26,7 +25,6 @@ import {
   Subtitle,
   useSnack,
 } from '@reapit/elements'
-import { cx } from '@linaria/core'
 import { useForm, UseFormGetValues } from 'react-hook-form'
 import debounce from 'just-debounce-it'
 
@@ -167,14 +165,12 @@ export const EditUserGroupForm: FC<EditUserGroupFormProps> = ({ userGroup, onCom
 
   return (
     <form className={elP8} onSubmit={handleSubmit(onSubmit)}>
-      <FormLayout className={cx(elFadeIn, elMb11)}>
-        <InputWrapFull>
-          <Subtitle>Edit User Group</Subtitle>
-          <BodyText hasGreyText>
-            The list below contains all available member groups for your organisation. You can manage users associated
-            to each group by selecting them from the list below.
-          </BodyText>
-        </InputWrapFull>
+      <Subtitle>Edit User Group</Subtitle>
+      <BodyText hasGreyText hasSectionMargin>
+        The list below contains all available member groups for your organisation. You can manage users associated to
+        each group by selecting them from the list below.
+      </BodyText>
+      <FormLayout hasMargin className={elFadeIn}>
         <InputWrapFull>
           <InputGroup onChange={debouncedSearch} icon="searchSystem" placeholder="Search" label="Users" />
           <MultiSelectInput
@@ -190,17 +186,15 @@ export const EditUserGroupForm: FC<EditUserGroupFormProps> = ({ userGroup, onCom
             </PersistantNotification>
           )}
         </InputWrapFull>
-        <InputWrapFull>
-          <ButtonGroup alignment="right">
-            <Button intent="secondary" onClick={onComplete} type="button">
-              Cancel
-            </Button>
-            <Button intent="primary" type="submit">
-              Submit
-            </Button>
-          </ButtonGroup>
-        </InputWrapFull>
       </FormLayout>
+      <ButtonGroup alignment="right">
+        <Button intent="secondary" onClick={onComplete} type="button">
+          Cancel
+        </Button>
+        <Button intent="primary" type="submit">
+          Submit
+        </Button>
+      </ButtonGroup>
     </form>
   )
 }

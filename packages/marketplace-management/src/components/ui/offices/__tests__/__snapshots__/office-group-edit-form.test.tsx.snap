@@ -8,23 +8,19 @@ Object {
       <form
         class="el-p8"
       >
-        <div
-          class="el-fade-in el-mb11 el-form-layout"
+        <h2
+          class="el-subtitle"
         >
-          <div
-            class="el-input-wrap-full"
-          >
-            <h2
-              class="el-subtitle"
-            >
-              Edit Office Group
-            </h2>
-            <p
-              class="el-has-grey-text el-body-text"
-            >
-              To manage offices associated to this group, you can search and select users from the ‘Offices’ section below:
-            </p>
-          </div>
+          Edit Office Group
+        </h2>
+        <p
+          class="el-has-grey-text el-has-section-margin el-body-text"
+        >
+          To manage offices associated to this group, you can search and select users from the ‘Offices’ section below:
+        </p>
+        <div
+          class="el-form-layout-has-margin el-fade-in el-form-layout"
+        >
           <div
             class="el-input-wrap"
           >
@@ -271,23 +267,19 @@ Object {
               </div>
             </div>
           </div>
+        </div>
+        <div
+          class="el-button-group"
+        >
           <div
-            class="el-input-wrap-full"
+            class="el-button-group-align-right el-button-group-inner"
           >
-            <div
-              class="el-button-group"
+            <button
+              class="el-intent-primary el-button"
+              type="submit"
             >
-              <div
-                class="el-button-group-align-right el-button-group-inner"
-              >
-                <button
-                  class="el-intent-primary el-button"
-                  type="submit"
-                >
-                  Submit
-                </button>
-              </div>
-            </div>
+              Submit
+            </button>
           </div>
         </div>
       </form>
@@ -297,23 +289,19 @@ Object {
     <form
       class="el-p8"
     >
-      <div
-        class="el-fade-in el-mb11 el-form-layout"
+      <h2
+        class="el-subtitle"
       >
-        <div
-          class="el-input-wrap-full"
-        >
-          <h2
-            class="el-subtitle"
-          >
-            Edit Office Group
-          </h2>
-          <p
-            class="el-has-grey-text el-body-text"
-          >
-            To manage offices associated to this group, you can search and select users from the ‘Offices’ section below:
-          </p>
-        </div>
+        Edit Office Group
+      </h2>
+      <p
+        class="el-has-grey-text el-has-section-margin el-body-text"
+      >
+        To manage offices associated to this group, you can search and select users from the ‘Offices’ section below:
+      </p>
+      <div
+        class="el-form-layout-has-margin el-fade-in el-form-layout"
+      >
         <div
           class="el-input-wrap"
         >
@@ -560,23 +548,19 @@ Object {
             </div>
           </div>
         </div>
+      </div>
+      <div
+        class="el-button-group"
+      >
         <div
-          class="el-input-wrap-full"
+          class="el-button-group-align-right el-button-group-inner"
         >
-          <div
-            class="el-button-group"
+          <button
+            class="el-intent-primary el-button"
+            type="submit"
           >
-            <div
-              class="el-button-group-align-right el-button-group-inner"
-            >
-              <button
-                class="el-intent-primary el-button"
-                type="submit"
-              >
-                Submit
-              </button>
-            </div>
-          </div>
+            Submit
+          </button>
         </div>
       </div>
     </form>

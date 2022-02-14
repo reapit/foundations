@@ -30,7 +30,7 @@ describe('Typography components', () => {
 
   it('Title should match a snapshot with all modifiers', () => {
     const wrapper = shallow(
-      <Title hasGreyText hasRegularText hasItalicText hasNoMargin hasCenteredText>
+      <Title hasGreyText hasRegularText hasItalicText hasNoMargin hasCenteredText hasSectionMargin>
         I am a title
       </Title>,
     )
@@ -39,7 +39,7 @@ describe('Typography components', () => {
 
   it('SubTitle should match a snapshot with all modifiers', () => {
     const wrapper = shallow(
-      <Subtitle hasGreyText hasBoldText hasItalicText hasNoMargin hasCenteredText>
+      <Subtitle hasGreyText hasBoldText hasItalicText hasNoMargin hasCenteredText hasSectionMargin>
         I am a subtitle
       </Subtitle>,
     )
@@ -48,7 +48,7 @@ describe('Typography components', () => {
 
   it('BodyText should match a snapshot with all modifiers', () => {
     const wrapper = shallow(
-      <BodyText hasGreyText hasBoldText hasItalicText hasNoMargin hasCenteredText>
+      <BodyText hasGreyText hasBoldText hasItalicText hasNoMargin hasCenteredText hasSectionMargin>
         I am body text
       </BodyText>,
     )
@@ -57,7 +57,7 @@ describe('Typography components', () => {
 
   it('SmallText should match a snapshot with all modifiers', () => {
     const wrapper = shallow(
-      <SmallText hasGreyText hasBoldText hasItalicText hasNoMargin hasCenteredText>
+      <SmallText hasGreyText hasBoldText hasItalicText hasNoMargin hasCenteredText hasSectionMargin>
         I am small text
       </SmallText>,
     )
@@ -66,7 +66,7 @@ describe('Typography components', () => {
 
   it('SmallText should match a snapshot with all modifiers', () => {
     const wrapper = shallow(
-      <SmallText hasGreyText hasBoldText hasItalicText hasNoMargin hasCenteredText>
+      <SmallText hasGreyText hasBoldText hasItalicText hasNoMargin hasCenteredText hasSectionMargin>
         I am small text
       </SmallText>,
     )

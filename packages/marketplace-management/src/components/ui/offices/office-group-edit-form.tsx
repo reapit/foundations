@@ -12,7 +12,6 @@ import {
   Button,
   ButtonGroup,
   elFadeIn,
-  elMb11,
   elP8,
   ElToggleItem,
   FormLayout,
@@ -31,7 +30,6 @@ import { yupResolver } from '@hookform/resolvers/yup'
 import { boolean, object, string } from 'yup'
 import errorMessages from '../../../constants/error-messages'
 import { useForm, UseFormReset, UseFormGetValues } from 'react-hook-form'
-import { cx } from '@linaria/core'
 
 export interface OfficeGroupEditFormProps {
   officeGroup: OfficeGroupModel
@@ -157,14 +155,11 @@ export const OfficeGroupEditForm: FC<OfficeGroupEditFormProps> = ({ officeGroup,
 
   return (
     <form className={elP8} onSubmit={handleSubmit(onHandleSubmit(onComplete, officeGroup, orgId, success, error))}>
-      <FormLayout className={cx(elFadeIn, elMb11)}>
-        <InputWrapFull>
-          <Subtitle>Edit Office Group</Subtitle>
-          <BodyText hasGreyText>
-            To manage offices associated to this group, you can search and select users from the ‘Offices’ section
-            below:
-          </BodyText>
-        </InputWrapFull>
+      <Subtitle>Edit Office Group</Subtitle>
+      <BodyText hasGreyText hasSectionMargin>
+        To manage offices associated to this group, you can search and select users from the ‘Offices’ section below:
+      </BodyText>
+      <FormLayout hasMargin className={elFadeIn}>
         <InputWrap>
           <InputGroup
             label="Office Group Name"
@@ -196,14 +191,12 @@ export const OfficeGroupEditForm: FC<OfficeGroupEditFormProps> = ({ officeGroup,
             </PersistantNotification>
           )}
         </InputWrapFull>
-        <InputWrapFull>
-          <ButtonGroup alignment="right">
-            <Button intent="primary" type="submit">
-              Submit
-            </Button>
-          </ButtonGroup>
-        </InputWrapFull>
       </FormLayout>
+      <ButtonGroup alignment="right">
+        <Button intent="primary" type="submit">
+          Submit
+        </Button>
+      </ButtonGroup>
     </form>
   )
 }

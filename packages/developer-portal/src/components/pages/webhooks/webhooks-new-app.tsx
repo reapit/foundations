@@ -1,7 +1,6 @@
 import {
   BodyText,
   InputWrap,
-  InputWrapFull,
   InputAddOn,
   InputGroup,
   Label,
@@ -29,41 +28,40 @@ export const WebhooksNewApp: FC<WebhooksNewAppProps> = ({ register, errors, webh
 
   const errorMessage = errors?.applicationId?.message
   return (
-    <FormLayout className={elFadeIn}>
-      <InputWrapFull>
-        <BodyText hasGreyText hasNoMargin>
-          First select an app to receive your webhook. Webhooks subscriptions can be set up for any customer who has
-          installed your application. Additionally, you can choose ‘SBOX’ to listen for sandbox environment
-          notifications.
-        </BodyText>
-      </InputWrapFull>
-      <InputWrap>
-        {isLoading ? (
-          <Loader label="Loading" />
-        ) : apps && apps.length ? (
-          <>
-            <InputGroup>
-              <Select {...register('applicationId')} defaultValue={webhookQueryParams.applicationId ?? ''}>
-                <option key="default-option" value="">
-                  None selected
-                </option>
-                {apps.map((app) => (
-                  <option key={app.id} value={app.id}>
-                    {app.name}
+    <>
+      <BodyText hasGreyText hasSectionMargin>
+        First select an app to receive your webhook. Webhooks subscriptions can be set up for any customer who has
+        installed your application. Additionally, you can choose ‘SBOX’ to listen for sandbox environment notifications.
+      </BodyText>
+      <FormLayout className={elFadeIn}>
+        <InputWrap>
+          {isLoading ? (
+            <Loader label="Loading" />
+          ) : apps && apps.length ? (
+            <>
+              <InputGroup>
+                <Select {...register('applicationId')} defaultValue={webhookQueryParams.applicationId ?? ''}>
+                  <option key="default-option" value="">
+                    None selected
                   </option>
-                ))}
-              </Select>
-              <Label>Please select an app</Label>
-              {errorMessage && <InputAddOn intent="danger">{errorMessage}</InputAddOn>}
-            </InputGroup>
-          </>
-        ) : (
-          <PersistantNotification isFullWidth isExpanded intent="secondary" isInline>
-            No apps found. This is probably because you have not yet created an app from the apps page. When you have
-            created your first app, you will be able to add a webhook here.
-          </PersistantNotification>
-        )}
-      </InputWrap>
-    </FormLayout>
+                  {apps.map((app) => (
+                    <option key={app.id} value={app.id}>
+                      {app.name}
+                    </option>
+                  ))}
+                </Select>
+                <Label>Please select an app</Label>
+                {errorMessage && <InputAddOn intent="danger">{errorMessage}</InputAddOn>}
+              </InputGroup>
+            </>
+          ) : (
+            <PersistantNotification isFullWidth isExpanded intent="secondary" isInline>
+              No apps found. This is probably because you have not yet created an app from the apps page. When you have
+              created your first app, you will be able to add a webhook here.
+            </PersistantNotification>
+          )}
+        </InputWrap>
+      </FormLayout>
+    </>
   )
 }

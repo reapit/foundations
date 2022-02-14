@@ -81,12 +81,12 @@ Object {
       />
       <form>
         <p
-          class="evblxhy-el-body-text"
+          class="e1byern-el-body-text"
         >
           Any changes have been saved successfully.
         </p>
         <p
-          class="evblxhy-el-body-text"
+          class="e1byern-el-body-text"
         >
           However, before an app can be submitted (either privately or publicly), we will first need to verify your account information as API Consumption charges will apply.
         </p>
@@ -108,7 +108,7 @@ Object {
           </label>
         </div>
         <p
-          class="evblxhy-el-body-text"
+          class="e1byern-el-body-text"
         >
           You can find your Reapit Reference from any Reapit correspondence under the ‘Account’ section.
         </p>
@@ -140,12 +140,12 @@ Object {
     />
     <form>
       <p
-        class="evblxhy-el-body-text"
+        class="e1byern-el-body-text"
       >
         Any changes have been saved successfully.
       </p>
       <p
-        class="evblxhy-el-body-text"
+        class="e1byern-el-body-text"
       >
         However, before an app can be submitted (either privately or publicly), we will first need to verify your account information as API Consumption charges will apply.
       </p>
@@ -167,7 +167,7 @@ Object {
         </label>
       </div>
       <p
-        class="evblxhy-el-body-text"
+        class="e1byern-el-body-text"
       >
         You can find your Reapit Reference from any Reapit correspondence under the ‘Account’ section.
       </p>
@@ -255,17 +255,17 @@ Object {
         class="ecbqyq6-el-snack-holder"
       />
       <p
-        class="evblxhy-el-body-text"
+        class="e1byern-el-body-text"
       >
         Any changes have been saved successfully.
       </p>
       <p
-        class="evblxhy-el-body-text"
+        class="e1byern-el-body-text"
       >
         However, before an app can be submitted (either privately or publicly), we will first need to verify your account information (which can only be submitted by an Admin) as API Consumption charges will apply.
       </p>
       <p
-        class="evblxhy-el-body-text"
+        class="e1byern-el-body-text"
       >
         Please contact one of the Admins listed below:
       </p>
@@ -369,7 +369,7 @@ Object {
         </div>
       </div>
       <p
-        class="evblxhy-el-body-text"
+        class="e1byern-el-body-text"
       >
         Alternatively, you can request the option to become an Admin. Simply ask one of the Admins above to visit the ‘Organisation’ page to view the member options.
       </p>
@@ -393,17 +393,17 @@ Object {
       class="ecbqyq6-el-snack-holder"
     />
     <p
-      class="evblxhy-el-body-text"
+      class="e1byern-el-body-text"
     >
       Any changes have been saved successfully.
     </p>
     <p
-      class="evblxhy-el-body-text"
+      class="e1byern-el-body-text"
     >
       However, before an app can be submitted (either privately or publicly), we will first need to verify your account information (which can only be submitted by an Admin) as API Consumption charges will apply.
     </p>
     <p
-      class="evblxhy-el-body-text"
+      class="e1byern-el-body-text"
     >
       Please contact one of the Admins listed below:
     </p>
@@ -507,7 +507,7 @@ Object {
       </div>
     </div>
     <p
-      class="evblxhy-el-body-text"
+      class="e1byern-el-body-text"
     >
       Alternatively, you can request the option to become an Admin. Simply ask one of the Admins above to visit the ‘Organisation’ page to view the member options.
     </p>
@@ -588,7 +588,7 @@ Object {
         class="ecbqyq6-el-snack-holder"
       />
       <p
-        class="evblxhy-el-body-text"
+        class="e1byern-el-body-text"
       >
         We are currently verifying your account information. This is typically done within 1 – 2 working days. You will be notified via email when this has been completed and you can continue with your app submission.
       </p>
@@ -612,7 +612,7 @@ Object {
       class="ecbqyq6-el-snack-holder"
     />
     <p
-      class="evblxhy-el-body-text"
+      class="e1byern-el-body-text"
     >
       We are currently verifying your account information. This is typically done within 1 – 2 working days. You will be notified via email when this has been completed and you can continue with your app submission.
     </p>
@@ -693,17 +693,17 @@ Object {
         class="ecbqyq6-el-snack-holder"
       />
       <p
-        class="evblxhy-el-body-text"
+        class="e1byern-el-body-text"
       >
         Any changes have been saved successfully.
       </p>
       <p
-        class="evblxhy-el-body-text"
+        class="e1byern-el-body-text"
       >
         However, before you can list an app in the AppMarket ('Submit for approval'), you will first need to submit your account information.
       </p>
       <p
-        class="evblxhy-el-body-text"
+        class="e1byern-el-body-text"
       >
         Please
          
@@ -738,17 +738,17 @@ Object {
       class="ecbqyq6-el-snack-holder"
     />
     <p
-      class="evblxhy-el-body-text"
+      class="e1byern-el-body-text"
     >
       Any changes have been saved successfully.
     </p>
     <p
-      class="evblxhy-el-body-text"
+      class="e1byern-el-body-text"
     >
       However, before you can list an app in the AppMarket ('Submit for approval'), you will first need to submit your account information.
     </p>
     <p
-      class="evblxhy-el-body-text"
+      class="e1byern-el-body-text"
     >
       Please
        

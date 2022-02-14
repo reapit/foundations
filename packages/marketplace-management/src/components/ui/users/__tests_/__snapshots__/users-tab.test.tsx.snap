@@ -129,23 +129,19 @@ Object {
               <form
                 class="el-p8"
               >
-                <div
-                  class="el-fade-in el-mb11 el-form-layout"
+                <h2
+                  class="el-subtitle"
                 >
-                  <div
-                    class="el-input-wrap-full"
-                  >
-                    <h2
-                      class="el-subtitle"
-                    >
-                      Edit User
-                    </h2>
-                    <p
-                      class="el-has-grey-text el-body-text"
-                    >
-                      Please use the section below to manage which groups this user belongs to:
-                    </p>
-                  </div>
+                  Edit User
+                </h2>
+                <p
+                  class="el-has-grey-text el-has-section-margin el-body-text"
+                >
+                  Please use the section below to manage which groups this user belongs to:
+                </p>
+                <div
+                  class="el-form-layout-has-margin el-fade-in el-form-layout"
+                >
                   <div
                     class="el-input-wrap-full"
                   >
@@ -339,29 +335,25 @@ Object {
                       </div>
                     </div>
                   </div>
+                </div>
+                <div
+                  class="el-button-group"
+                >
                   <div
-                    class="el-input-wrap-full"
+                    class="el-button-group-align-right el-button-group-inner"
                   >
-                    <div
-                      class="el-button-group"
+                    <button
+                      class="el-intent-secondary el-button"
+                      type="button"
                     >
-                      <div
-                        class="el-button-group-align-right el-button-group-inner"
-                      >
-                        <button
-                          class="el-intent-secondary el-button"
-                          type="button"
-                        >
-                          Cancel
-                        </button>
-                        <button
-                          class="el-intent-primary el-button"
-                          type="submit"
-                        >
-                          Submit
-                        </button>
-                      </div>
-                    </div>
+                      Cancel
+                    </button>
+                    <button
+                      class="el-intent-primary el-button"
+                      type="submit"
+                    >
+                      Submit
+                    </button>
                   </div>
                 </div>
               </form>
@@ -434,23 +426,19 @@ Object {
               <form
                 class="el-p8"
               >
-                <div
-                  class="el-fade-in el-mb11 el-form-layout"
+                <h2
+                  class="el-subtitle"
                 >
-                  <div
-                    class="el-input-wrap-full"
-                  >
-                    <h2
-                      class="el-subtitle"
-                    >
-                      Edit User
-                    </h2>
-                    <p
-                      class="el-has-grey-text el-body-text"
-                    >
-                      Please use the section below to manage which groups this user belongs to:
-                    </p>
-                  </div>
+                  Edit User
+                </h2>
+                <p
+                  class="el-has-grey-text el-has-section-margin el-body-text"
+                >
+                  Please use the section below to manage which groups this user belongs to:
+                </p>
+                <div
+                  class="el-form-layout-has-margin el-fade-in el-form-layout"
+                >
                   <div
                     class="el-input-wrap-full"
                   >
@@ -644,29 +632,25 @@ Object {
                       </div>
                     </div>
                   </div>
+                </div>
+                <div
+                  class="el-button-group"
+                >
                   <div
-                    class="el-input-wrap-full"
+                    class="el-button-group-align-right el-button-group-inner"
                   >
-                    <div
-                      class="el-button-group"
+                    <button
+                      class="el-intent-secondary el-button"
+                      type="button"
                     >
-                      <div
-                        class="el-button-group-align-right el-button-group-inner"
-                      >
-                        <button
-                          class="el-intent-secondary el-button"
-                          type="button"
-                        >
-                          Cancel
-                        </button>
-                        <button
-                          class="el-intent-primary el-button"
-                          type="submit"
-                        >
-                          Submit
-                        </button>
-                      </div>
-                    </div>
+                      Cancel
+                    </button>
+                    <button
+                      class="el-intent-primary el-button"
+                      type="submit"
+                    >
+                      Submit
+                    </button>
                   </div>
                 </div>
               </form>
@@ -739,23 +723,19 @@ Object {
               <form
                 class="el-p8"
               >
-                <div
-                  class="el-fade-in el-mb11 el-form-layout"
+                <h2
+                  class="el-subtitle"
                 >
-                  <div
-                    class="el-input-wrap-full"
-                  >
-                    <h2
-                      class="el-subtitle"
-                    >
-                      Edit User
-                    </h2>
-                    <p
-                      class="el-has-grey-text el-body-text"
-                    >
-                      Please use the section below to manage which groups this user belongs to:
-                    </p>
-                  </div>
+                  Edit User
+                </h2>
+                <p
+                  class="el-has-grey-text el-has-section-margin el-body-text"
+                >
+                  Please use the section below to manage which groups this user belongs to:
+                </p>
+                <div
+                  class="el-form-layout-has-margin el-fade-in el-form-layout"
+                >
                   <div
                     class="el-input-wrap-full"
                   >
@@ -949,29 +929,25 @@ Object {
                       </div>
                     </div>
                   </div>
+                </div>
+                <div
+                  class="el-button-group"
+                >
                   <div
-                    class="el-input-wrap-full"
+                    class="el-button-group-align-right el-button-group-inner"
                   >
-                    <div
-                      class="el-button-group"
+                    <button
+                      class="el-intent-secondary el-button"
+                      type="button"
                     >
-                      <div
-                        class="el-button-group-align-right el-button-group-inner"
-                      >
-                        <button
-                          class="el-intent-secondary el-button"
-                          type="button"
-                        >
-                          Cancel
-                        </button>
-                        <button
-                          class="el-intent-primary el-button"
-                          type="submit"
-                        >
-                          Submit
-                        </button>
-                      </div>
-                    </div>
+                      Cancel
+                    </button>
+                    <button
+                      class="el-intent-primary el-button"
+                      type="submit"
+                    >
+                      Submit
+                    </button>
                   </div>
                 </div>
               </form>
@@ -1044,23 +1020,19 @@ Object {
               <form
                 class="el-p8"
               >
-                <div
-                  class="el-fade-in el-mb11 el-form-layout"
+                <h2
+                  class="el-subtitle"
                 >
-                  <div
-                    class="el-input-wrap-full"
-                  >
-                    <h2
-                      class="el-subtitle"
-                    >
-                      Edit User
-                    </h2>
-                    <p
-                      class="el-has-grey-text el-body-text"
-                    >
-                      Please use the section below to manage which groups this user belongs to:
-                    </p>
-                  </div>
+                  Edit User
+                </h2>
+                <p
+                  class="el-has-grey-text el-has-section-margin el-body-text"
+                >
+                  Please use the section below to manage which groups this user belongs to:
+                </p>
+                <div
+                  class="el-form-layout-has-margin el-fade-in el-form-layout"
+                >
                   <div
                     class="el-input-wrap-full"
                   >
@@ -1254,29 +1226,25 @@ Object {
                       </div>
                     </div>
                   </div>
+                </div>
+                <div
+                  class="el-button-group"
+                >
                   <div
-                    class="el-input-wrap-full"
+                    class="el-button-group-align-right el-button-group-inner"
                   >
-                    <div
-                      class="el-button-group"
+                    <button
+                      class="el-intent-secondary el-button"
+                      type="button"
                     >
-                      <div
-                        class="el-button-group-align-right el-button-group-inner"
-                      >
-                        <button
-                          class="el-intent-secondary el-button"
-                          type="button"
-                        >
-                          Cancel
-                        </button>
-                        <button
-                          class="el-intent-primary el-button"
-                          type="submit"
-                        >
-                          Submit
-                        </button>
-                      </div>
-                    </div>
+                      Cancel
+                    </button>
+                    <button
+                      class="el-intent-primary el-button"
+                      type="submit"
+                    >
+                      Submit
+                    </button>
                   </div>
                 </div>
               </form>
@@ -1349,23 +1317,19 @@ Object {
               <form
                 class="el-p8"
               >
-                <div
-                  class="el-fade-in el-mb11 el-form-layout"
+                <h2
+                  class="el-subtitle"
                 >
-                  <div
-                    class="el-input-wrap-full"
-                  >
-                    <h2
-                      class="el-subtitle"
-                    >
-                      Edit User
-                    </h2>
-                    <p
-                      class="el-has-grey-text el-body-text"
-                    >
-                      Please use the section below to manage which groups this user belongs to:
-                    </p>
-                  </div>
+                  Edit User
+                </h2>
+                <p
+                  class="el-has-grey-text el-has-section-margin el-body-text"
+                >
+                  Please use the section below to manage which groups this user belongs to:
+                </p>
+                <div
+                  class="el-form-layout-has-margin el-fade-in el-form-layout"
+                >
                   <div
                     class="el-input-wrap-full"
                   >
@@ -1559,29 +1523,25 @@ Object {
                       </div>
                     </div>
                   </div>
+                </div>
+                <div
+                  class="el-button-group"
+                >
                   <div
-                    class="el-input-wrap-full"
+                    class="el-button-group-align-right el-button-group-inner"
                   >
-                    <div
-                      class="el-button-group"
+                    <button
+                      class="el-intent-secondary el-button"
+                      type="button"
                     >
-                      <div
-                        class="el-button-group-align-right el-button-group-inner"
-                      >
-                        <button
-                          class="el-intent-secondary el-button"
-                          type="button"
-                        >
-                          Cancel
-                        </button>
-                        <button
-                          class="el-intent-primary el-button"
-                          type="submit"
-                        >
-                          Submit
-                        </button>
-                      </div>
-                    </div>
+                      Cancel
+                    </button>
+                    <button
+                      class="el-intent-primary el-button"
+                      type="submit"
+                    >
+                      Submit
+                    </button>
                   </div>
                 </div>
               </form>
@@ -1654,23 +1614,19 @@ Object {
               <form
                 class="el-p8"
               >
-                <div
-                  class="el-fade-in el-mb11 el-form-layout"
+                <h2
+                  class="el-subtitle"
                 >
-                  <div
-                    class="el-input-wrap-full"
-                  >
-                    <h2
-                      class="el-subtitle"
-                    >
-                      Edit User
-                    </h2>
-                    <p
-                      class="el-has-grey-text el-body-text"
-                    >
-                      Please use the section below to manage which groups this user belongs to:
-                    </p>
-                  </div>
+                  Edit User
+                </h2>
+                <p
+                  class="el-has-grey-text el-has-section-margin el-body-text"
+                >
+                  Please use the section below to manage which groups this user belongs to:
+                </p>
+                <div
+                  class="el-form-layout-has-margin el-fade-in el-form-layout"
+                >
                   <div
                     class="el-input-wrap-full"
                   >
@@ -1864,29 +1820,25 @@ Object {
                       </div>
                     </div>
                   </div>
+                </div>
+                <div
+                  class="el-button-group"
+                >
                   <div
-                    class="el-input-wrap-full"
+                    class="el-button-group-align-right el-button-group-inner"
                   >
-                    <div
-                      class="el-button-group"
+                    <button
+                      class="el-intent-secondary el-button"
+                      type="button"
                     >
-                      <div
-                        class="el-button-group-align-right el-button-group-inner"
-                      >
-                        <button
-                          class="el-intent-secondary el-button"
-                          type="button"
-                        >
-                          Cancel
-                        </button>
-                        <button
-                          class="el-intent-primary el-button"
-                          type="submit"
-                        >
-                          Submit
-                        </button>
-                      </div>
-                    </div>
+                      Cancel
+                    </button>
+                    <button
+                      class="el-intent-primary el-button"
+                      type="submit"
+                    >
+                      Submit
+                    </button>
                   </div>
                 </div>
               </form>
@@ -1959,23 +1911,19 @@ Object {
               <form
                 class="el-p8"
               >
-                <div
-                  class="el-fade-in el-mb11 el-form-layout"
+                <h2
+                  class="el-subtitle"
                 >
-                  <div
-                    class="el-input-wrap-full"
-                  >
-                    <h2
-                      class="el-subtitle"
-                    >
-                      Edit User
-                    </h2>
-                    <p
-                      class="el-has-grey-text el-body-text"
-                    >
-                      Please use the section below to manage which groups this user belongs to:
-                    </p>
-                  </div>
+                  Edit User
+                </h2>
+                <p
+                  class="el-has-grey-text el-has-section-margin el-body-text"
+                >
+                  Please use the section below to manage which groups this user belongs to:
+                </p>
+                <div
+                  class="el-form-layout-has-margin el-fade-in el-form-layout"
+                >
                   <div
                     class="el-input-wrap-full"
                   >
@@ -2169,29 +2117,25 @@ Object {
                       </div>
                     </div>
                   </div>
+                </div>
+                <div
+                  class="el-button-group"
+                >
                   <div
-                    class="el-input-wrap-full"
+                    class="el-button-group-align-right el-button-group-inner"
                   >
-                    <div
-                      class="el-button-group"
+                    <button
+                      class="el-intent-secondary el-button"
+                      type="button"
                     >
-                      <div
-                        class="el-button-group-align-right el-button-group-inner"
-                      >
-                        <button
-                          class="el-intent-secondary el-button"
-                          type="button"
-                        >
-                          Cancel
-                        </button>
-                        <button
-                          class="el-intent-primary el-button"
-                          type="submit"
-                        >
-                          Submit
-                        </button>
-                      </div>
-                    </div>
+                      Cancel
+                    </button>
+                    <button
+                      class="el-intent-primary el-button"
+                      type="submit"
+                    >
+                      Submit
+                    </button>
                   </div>
                 </div>
               </form>
@@ -2264,23 +2208,19 @@ Object {
               <form
                 class="el-p8"
               >
-                <div
-                  class="el-fade-in el-mb11 el-form-layout"
+                <h2
+                  class="el-subtitle"
                 >
-                  <div
-                    class="el-input-wrap-full"
-                  >
-                    <h2
-                      class="el-subtitle"
-                    >
-                      Edit User
-                    </h2>
-                    <p
-                      class="el-has-grey-text el-body-text"
-                    >
-                      Please use the section below to manage which groups this user belongs to:
-                    </p>
-                  </div>
+                  Edit User
+                </h2>
+                <p
+                  class="el-has-grey-text el-has-section-margin el-body-text"
+                >
+                  Please use the section below to manage which groups this user belongs to:
+                </p>
+                <div
+                  class="el-form-layout-has-margin el-fade-in el-form-layout"
+                >
                   <div
                     class="el-input-wrap-full"
                   >
@@ -2474,29 +2414,25 @@ Object {
                       </div>
                     </div>
                   </div>
+                </div>
+                <div
+                  class="el-button-group"
+                >
                   <div
-                    class="el-input-wrap-full"
+                    class="el-button-group-align-right el-button-group-inner"
                   >
-                    <div
-                      class="el-button-group"
+                    <button
+                      class="el-intent-secondary el-button"
+                      type="button"
                     >
-                      <div
-                        class="el-button-group-align-right el-button-group-inner"
-                      >
-                        <button
-                          class="el-intent-secondary el-button"
-                          type="button"
-                        >
-                          Cancel
-                        </button>
-                        <button
-                          class="el-intent-primary el-button"
-                          type="submit"
-                        >
-                          Submit
-                        </button>
-                      </div>
-                    </div>
+                      Cancel
+                    </button>
+                    <button
+                      class="el-intent-primary el-button"
+                      type="submit"
+                    >
+                      Submit
+                    </button>
                   </div>
                 </div>
               </form>
@@ -2569,23 +2505,19 @@ Object {
               <form
                 class="el-p8"
               >
-                <div
-                  class="el-fade-in el-mb11 el-form-layout"
+                <h2
+                  class="el-subtitle"
                 >
-                  <div
-                    class="el-input-wrap-full"
-                  >
-                    <h2
-                      class="el-subtitle"
-                    >
-                      Edit User
-                    </h2>
-                    <p
-                      class="el-has-grey-text el-body-text"
-                    >
-                      Please use the section below to manage which groups this user belongs to:
-                    </p>
-                  </div>
+                  Edit User
+                </h2>
+                <p
+                  class="el-has-grey-text el-has-section-margin el-body-text"
+                >
+                  Please use the section below to manage which groups this user belongs to:
+                </p>
+                <div
+                  class="el-form-layout-has-margin el-fade-in el-form-layout"
+                >
                   <div
                     class="el-input-wrap-full"
                   >
@@ -2779,29 +2711,25 @@ Object {
                       </div>
                     </div>
                   </div>
+                </div>
+                <div
+                  class="el-button-group"
+                >
                   <div
-                    class="el-input-wrap-full"
+                    class="el-button-group-align-right el-button-group-inner"
                   >
-                    <div
-                      class="el-button-group"
+                    <button
+                      class="el-intent-secondary el-button"
+                      type="button"
                     >
-                      <div
-                        class="el-button-group-align-right el-button-group-inner"
-                      >
-                        <button
-                          class="el-intent-secondary el-button"
-                          type="button"
-                        >
-                          Cancel
-                        </button>
-                        <button
-                          class="el-intent-primary el-button"
-                          type="submit"
-                        >
-                          Submit
-                        </button>
-                      </div>
-                    </div>
+                      Cancel
+                    </button>
+                    <button
+                      class="el-intent-primary el-button"
+                      type="submit"
+                    >
+                      Submit
+                    </button>
                   </div>
                 </div>
               </form>
@@ -2874,23 +2802,19 @@ Object {
               <form
                 class="el-p8"
               >
-                <div
-                  class="el-fade-in el-mb11 el-form-layout"
+                <h2
+                  class="el-subtitle"
                 >
-                  <div
-                    class="el-input-wrap-full"
-                  >
-                    <h2
-                      class="el-subtitle"
-                    >
-                      Edit User
-                    </h2>
-                    <p
-                      class="el-has-grey-text el-body-text"
-                    >
-                      Please use the section below to manage which groups this user belongs to:
-                    </p>
-                  </div>
+                  Edit User
+                </h2>
+                <p
+                  class="el-has-grey-text el-has-section-margin el-body-text"
+                >
+                  Please use the section below to manage which groups this user belongs to:
+                </p>
+                <div
+                  class="el-form-layout-has-margin el-fade-in el-form-layout"
+                >
                   <div
                     class="el-input-wrap-full"
                   >
@@ -3084,29 +3008,25 @@ Object {
                       </div>
                     </div>
                   </div>
+                </div>
+                <div
+                  class="el-button-group"
+                >
                   <div
-                    class="el-input-wrap-full"
+                    class="el-button-group-align-right el-button-group-inner"
                   >
-                    <div
-                      class="el-button-group"
+                    <button
+                      class="el-intent-secondary el-button"
+                      type="button"
                     >
-                      <div
-                        class="el-button-group-align-right el-button-group-inner"
-                      >
-                        <button
-                          class="el-intent-secondary el-button"
-                          type="button"
-                        >
-                          Cancel
-                        </button>
-                        <button
-                          class="el-intent-primary el-button"
-                          type="submit"
-                        >
-                          Submit
-                        </button>
-                      </div>
-                    </div>
+                      Cancel
+                    </button>
+                    <button
+                      class="el-intent-primary el-button"
+                      type="submit"
+                    >
+                      Submit
+                    </button>
                   </div>
                 </div>
               </form>
@@ -3294,23 +3214,19 @@ Object {
             <form
               class="el-p8"
             >
-              <div
-                class="el-fade-in el-mb11 el-form-layout"
+              <h2
+                class="el-subtitle"
               >
-                <div
-                  class="el-input-wrap-full"
-                >
-                  <h2
-                    class="el-subtitle"
-                  >
-                    Edit User
-                  </h2>
-                  <p
-                    class="el-has-grey-text el-body-text"
-                  >
-                    Please use the section below to manage which groups this user belongs to:
-                  </p>
-                </div>
+                Edit User
+              </h2>
+              <p
+                class="el-has-grey-text el-has-section-margin el-body-text"
+              >
+                Please use the section below to manage which groups this user belongs to:
+              </p>
+              <div
+                class="el-form-layout-has-margin el-fade-in el-form-layout"
+              >
                 <div
                   class="el-input-wrap-full"
                 >
@@ -3504,29 +3420,25 @@ Object {
                     </div>
                   </div>
                 </div>
+              </div>
+              <div
+                class="el-button-group"
+              >
                 <div
-                  class="el-input-wrap-full"
+                  class="el-button-group-align-right el-button-group-inner"
                 >
-                  <div
-                    class="el-button-group"
+                  <button
+                    class="el-intent-secondary el-button"
+                    type="button"
                   >
-                    <div
-                      class="el-button-group-align-right el-button-group-inner"
-                    >
-                      <button
-                        class="el-intent-secondary el-button"
-                        type="button"
-                      >
-                        Cancel
-                      </button>
-                      <button
-                        class="el-intent-primary el-button"
-                        type="submit"
-                      >
-                        Submit
-                      </button>
-                    </div>
-                  </div>
+                    Cancel
+                  </button>
+                  <button
+                    class="el-intent-primary el-button"
+                    type="submit"
+                  >
+                    Submit
+                  </button>
                 </div>
               </div>
             </form>
@@ -3599,23 +3511,19 @@ Object {
             <form
               class="el-p8"
             >
-              <div
-                class="el-fade-in el-mb11 el-form-layout"
+              <h2
+                class="el-subtitle"
               >
-                <div
-                  class="el-input-wrap-full"
-                >
-                  <h2
-                    class="el-subtitle"
-                  >
-                    Edit User
-                  </h2>
-                  <p
-                    class="el-has-grey-text el-body-text"
-                  >
-                    Please use the section below to manage which groups this user belongs to:
-                  </p>
-                </div>
+                Edit User
+              </h2>
+              <p
+                class="el-has-grey-text el-has-section-margin el-body-text"
+              >
+                Please use the section below to manage which groups this user belongs to:
+              </p>
+              <div
+                class="el-form-layout-has-margin el-fade-in el-form-layout"
+              >
                 <div
                   class="el-input-wrap-full"
                 >
@@ -3809,29 +3717,25 @@ Object {
                     </div>
                   </div>
                 </div>
+              </div>
+              <div
+                class="el-button-group"
+              >
                 <div
-                  class="el-input-wrap-full"
+                  class="el-button-group-align-right el-button-group-inner"
                 >
-                  <div
-                    class="el-button-group"
+                  <button
+                    class="el-intent-secondary el-button"
+                    type="button"
                   >
-                    <div
-                      class="el-button-group-align-right el-button-group-inner"
-                    >
-                      <button
-                        class="el-intent-secondary el-button"
-                        type="button"
-                      >
-                        Cancel
-                      </button>
-                      <button
-                        class="el-intent-primary el-button"
-                        type="submit"
-                      >
-                        Submit
-                      </button>
-                    </div>
-                  </div>
+                    Cancel
+                  </button>
+                  <button
+                    class="el-intent-primary el-button"
+                    type="submit"
+                  >
+                    Submit
+                  </button>
                 </div>
               </div>
             </form>
@@ -3904,23 +3808,19 @@ Object {
             <form
               class="el-p8"
             >
-              <div
-                class="el-fade-in el-mb11 el-form-layout"
+              <h2
+                class="el-subtitle"
               >
-                <div
-                  class="el-input-wrap-full"
-                >
-                  <h2
-                    class="el-subtitle"
-                  >
-                    Edit User
-                  </h2>
-                  <p
-                    class="el-has-grey-text el-body-text"
-                  >
-                    Please use the section below to manage which groups this user belongs to:
-                  </p>
-                </div>
+                Edit User
+              </h2>
+              <p
+                class="el-has-grey-text el-has-section-margin el-body-text"
+              >
+                Please use the section below to manage which groups this user belongs to:
+              </p>
+              <div
+                class="el-form-layout-has-margin el-fade-in el-form-layout"
+              >
                 <div
                   class="el-input-wrap-full"
                 >
@@ -4114,29 +4014,25 @@ Object {
                     </div>
                   </div>
                 </div>
+              </div>
+              <div
+                class="el-button-group"
+              >
                 <div
-                  class="el-input-wrap-full"
+                  class="el-button-group-align-right el-button-group-inner"
                 >
-                  <div
-                    class="el-button-group"
+                  <button
+                    class="el-intent-secondary el-button"
+                    type="button"
                   >
-                    <div
-                      class="el-button-group-align-right el-button-group-inner"
-                    >
-                      <button
-                        class="el-intent-secondary el-button"
-                        type="button"
-                      >
-                        Cancel
-                      </button>
-                      <button
-                        class="el-intent-primary el-button"
-                        type="submit"
-                      >
-                        Submit
-                      </button>
-                    </div>
-                  </div>
+                    Cancel
+                  </button>
+                  <button
+                    class="el-intent-primary el-button"
+                    type="submit"
+                  >
+                    Submit
+                  </button>
                 </div>
               </div>
             </form>
@@ -4209,23 +4105,19 @@ Object {
             <form
               class="el-p8"
             >
-              <div
-                class="el-fade-in el-mb11 el-form-layout"
+              <h2
+                class="el-subtitle"
               >
-                <div
-                  class="el-input-wrap-full"
-                >
-                  <h2
-                    class="el-subtitle"
-                  >
-                    Edit User
-                  </h2>
-                  <p
-                    class="el-has-grey-text el-body-text"
-                  >
-                    Please use the section below to manage which groups this user belongs to:
-                  </p>
-                </div>
+                Edit User
+              </h2>
+              <p
+                class="el-has-grey-text el-has-section-margin el-body-text"
+              >
+                Please use the section below to manage which groups this user belongs to:
+              </p>
+              <div
+                class="el-form-layout-has-margin el-fade-in el-form-layout"
+              >
                 <div
                   class="el-input-wrap-full"
                 >
@@ -4419,29 +4311,25 @@ Object {
                     </div>
                   </div>
                 </div>
+              </div>
+              <div
+                class="el-button-group"
+              >
                 <div
-                  class="el-input-wrap-full"
+                  class="el-button-group-align-right el-button-group-inner"
                 >
-                  <div
-                    class="el-button-group"
+                  <button
+                    class="el-intent-secondary el-button"
+                    type="button"
                   >
-                    <div
-                      class="el-button-group-align-right el-button-group-inner"
-                    >
-                      <button
-                        class="el-intent-secondary el-button"
-                        type="button"
-                      >
-                        Cancel
-                      </button>
-                      <button
-                        class="el-intent-primary el-button"
-                        type="submit"
-                      >
-                        Submit
-                      </button>
-                    </div>
-                  </div>
+                    Cancel
+                  </button>
+                  <button
+                    class="el-intent-primary el-button"
+                    type="submit"
+                  >
+                    Submit
+                  </button>
                 </div>
               </div>
             </form>
@@ -4514,23 +4402,19 @@ Object {
             <form
               class="el-p8"
             >
-              <div
-                class="el-fade-in el-mb11 el-form-layout"
+              <h2
+                class="el-subtitle"
               >
-                <div
-                  class="el-input-wrap-full"
-                >
-                  <h2
-                    class="el-subtitle"
-                  >
-                    Edit User
-                  </h2>
-                  <p
-                    class="el-has-grey-text el-body-text"
-                  >
-                    Please use the section below to manage which groups this user belongs to:
-                  </p>
-                </div>
+                Edit User
+              </h2>
+              <p
+                class="el-has-grey-text el-has-section-margin el-body-text"
+              >
+                Please use the section below to manage which groups this user belongs to:
+              </p>
+              <div
+                class="el-form-layout-has-margin el-fade-in el-form-layout"
+              >
                 <div
                   class="el-input-wrap-full"
                 >
@@ -4724,29 +4608,25 @@ Object {
                     </div>
                   </div>
                 </div>
+              </div>
+              <div
+                class="el-button-group"
+              >
                 <div
-                  class="el-input-wrap-full"
+                  class="el-button-group-align-right el-button-group-inner"
                 >
-                  <div
-                    class="el-button-group"
+                  <button
+                    class="el-intent-secondary el-button"
+                    type="button"
                   >
-                    <div
-                      class="el-button-group-align-right el-button-group-inner"
-                    >
-                      <button
-                        class="el-intent-secondary el-button"
-                        type="button"
-                      >
-                        Cancel
-                      </button>
-                      <button
-                        class="el-intent-primary el-button"
-                        type="submit"
-                      >
-                        Submit
-                      </button>
-                    </div>
-                  </div>
+                    Cancel
+                  </button>
+                  <button
+                    class="el-intent-primary el-button"
+                    type="submit"
+                  >
+                    Submit
+                  </button>
                 </div>
               </div>
             </form>
@@ -4819,23 +4699,19 @@ Object {
             <form
               class="el-p8"
             >
-              <div
-                class="el-fade-in el-mb11 el-form-layout"
+              <h2
+                class="el-subtitle"
               >
-                <div
-                  class="el-input-wrap-full"
-                >
-                  <h2
-                    class="el-subtitle"
-                  >
-                    Edit User
-                  </h2>
-                  <p
-                    class="el-has-grey-text el-body-text"
-                  >
-                    Please use the section below to manage which groups this user belongs to:
-                  </p>
-                </div>
+                Edit User
+              </h2>
+              <p
+                class="el-has-grey-text el-has-section-margin el-body-text"
+              >
+                Please use the section below to manage which groups this user belongs to:
+              </p>
+              <div
+                class="el-form-layout-has-margin el-fade-in el-form-layout"
+              >
                 <div
                   class="el-input-wrap-full"
                 >
@@ -5029,29 +4905,25 @@ Object {
                     </div>
                   </div>
                 </div>
+              </div>
+              <div
+                class="el-button-group"
+              >
                 <div
-                  class="el-input-wrap-full"
+                  class="el-button-group-align-right el-button-group-inner"
                 >
-                  <div
-                    class="el-button-group"
+                  <button
+                    class="el-intent-secondary el-button"
+                    type="button"
                   >
-                    <div
-                      class="el-button-group-align-right el-button-group-inner"
-                    >
-                      <button
-                        class="el-intent-secondary el-button"
-                        type="button"
-                      >
-                        Cancel
-                      </button>
-                      <button
-                        class="el-intent-primary el-button"
-                        type="submit"
-                      >
-                        Submit
-                      </button>
-                    </div>
-                  </div>
+                    Cancel
+                  </button>
+                  <button
+                    class="el-intent-primary el-button"
+                    type="submit"
+                  >
+                    Submit
+                  </button>
                 </div>
               </div>
             </form>
@@ -5124,23 +4996,19 @@ Object {
             <form
               class="el-p8"
             >
-              <div
-                class="el-fade-in el-mb11 el-form-layout"
+              <h2
+                class="el-subtitle"
               >
-                <div
-                  class="el-input-wrap-full"
-                >
-                  <h2
-                    class="el-subtitle"
-                  >
-                    Edit User
-                  </h2>
-                  <p
-                    class="el-has-grey-text el-body-text"
-                  >
-                    Please use the section below to manage which groups this user belongs to:
-                  </p>
-                </div>
+                Edit User
+              </h2>
+              <p
+                class="el-has-grey-text el-has-section-margin el-body-text"
+              >
+                Please use the section below to manage which groups this user belongs to:
+              </p>
+              <div
+                class="el-form-layout-has-margin el-fade-in el-form-layout"
+              >
                 <div
                   class="el-input-wrap-full"
                 >
@@ -5334,29 +5202,25 @@ Object {
                     </div>
                   </div>
                 </div>
+              </div>
+              <div
+                class="el-button-group"
+              >
                 <div
-                  class="el-input-wrap-full"
+                  class="el-button-group-align-right el-button-group-inner"
                 >
-                  <div
-                    class="el-button-group"
+                  <button
+                    class="el-intent-secondary el-button"
+                    type="button"
                   >
-                    <div
-                      class="el-button-group-align-right el-button-group-inner"
-                    >
-                      <button
-                        class="el-intent-secondary el-button"
-                        type="button"
-                      >
-                        Cancel
-                      </button>
-                      <button
-                        class="el-intent-primary el-button"
-                        type="submit"
-                      >
-                        Submit
-                      </button>
-                    </div>
-                  </div>
+                    Cancel
+                  </button>
+                  <button
+                    class="el-intent-primary el-button"
+                    type="submit"
+                  >
+                    Submit
+                  </button>
                 </div>
               </div>
             </form>
@@ -5429,23 +5293,19 @@ Object {
             <form
               class="el-p8"
             >
-              <div
-                class="el-fade-in el-mb11 el-form-layout"
+              <h2
+                class="el-subtitle"
               >
-                <div
-                  class="el-input-wrap-full"
-                >
-                  <h2
-                    class="el-subtitle"
-                  >
-                    Edit User
-                  </h2>
-                  <p
-                    class="el-has-grey-text el-body-text"
-                  >
-                    Please use the section below to manage which groups this user belongs to:
-                  </p>
-                </div>
+                Edit User
+              </h2>
+              <p
+                class="el-has-grey-text el-has-section-margin el-body-text"
+              >
+                Please use the section below to manage which groups this user belongs to:
+              </p>
+              <div
+                class="el-form-layout-has-margin el-fade-in el-form-layout"
+              >
                 <div
                   class="el-input-wrap-full"
                 >
@@ -5639,29 +5499,25 @@ Object {
                     </div>
                   </div>
                 </div>
+              </div>
+              <div
+                class="el-button-group"
+              >
                 <div
-                  class="el-input-wrap-full"
+                  class="el-button-group-align-right el-button-group-inner"
                 >
-                  <div
-                    class="el-button-group"
+                  <button
+                    class="el-intent-secondary el-button"
+                    type="button"
                   >
-                    <div
-                      class="el-button-group-align-right el-button-group-inner"
-                    >
-                      <button
-                        class="el-intent-secondary el-button"
-                        type="button"
-                      >
-                        Cancel
-                      </button>
-                      <button
-                        class="el-intent-primary el-button"
-                        type="submit"
-                      >
-                        Submit
-                      </button>
-                    </div>
-                  </div>
+                    Cancel
+                  </button>
+                  <button
+                    class="el-intent-primary el-button"
+                    type="submit"
+                  >
+                    Submit
+                  </button>
                 </div>
               </div>
             </form>
@@ -5734,23 +5590,19 @@ Object {
             <form
               class="el-p8"
             >
-              <div
-                class="el-fade-in el-mb11 el-form-layout"
+              <h2
+                class="el-subtitle"
               >
-                <div
-                  class="el-input-wrap-full"
-                >
-                  <h2
-                    class="el-subtitle"
-                  >
-                    Edit User
-                  </h2>
-                  <p
-                    class="el-has-grey-text el-body-text"
-                  >
-                    Please use the section below to manage which groups this user belongs to:
-                  </p>
-                </div>
+                Edit User
+              </h2>
+              <p
+                class="el-has-grey-text el-has-section-margin el-body-text"
+              >
+                Please use the section below to manage which groups this user belongs to:
+              </p>
+              <div
+                class="el-form-layout-has-margin el-fade-in el-form-layout"
+              >
                 <div
                   class="el-input-wrap-full"
                 >
@@ -5944,29 +5796,25 @@ Object {
                     </div>
                   </div>
                 </div>
+              </div>
+              <div
+                class="el-button-group"
+              >
                 <div
-                  class="el-input-wrap-full"
+                  class="el-button-group-align-right el-button-group-inner"
                 >
-                  <div
-                    class="el-button-group"
+                  <button
+                    class="el-intent-secondary el-button"
+                    type="button"
                   >
-                    <div
-                      class="el-button-group-align-right el-button-group-inner"
-                    >
-                      <button
-                        class="el-intent-secondary el-button"
-                        type="button"
-                      >
-                        Cancel
-                      </button>
-                      <button
-                        class="el-intent-primary el-button"
-                        type="submit"
-                      >
-                        Submit
-                      </button>
-                    </div>
-                  </div>
+                    Cancel
+                  </button>
+                  <button
+                    class="el-intent-primary el-button"
+                    type="submit"
+                  >
+                    Submit
+                  </button>
                 </div>
               </div>
             </form>
@@ -6039,23 +5887,19 @@ Object {
             <form
               class="el-p8"
             >
-              <div
-                class="el-fade-in el-mb11 el-form-layout"
+              <h2
+                class="el-subtitle"
               >
-                <div
-                  class="el-input-wrap-full"
-                >
-                  <h2
-                    class="el-subtitle"
-                  >
-                    Edit User
-                  </h2>
-                  <p
-                    class="el-has-grey-text el-body-text"
-                  >
-                    Please use the section below to manage which groups this user belongs to:
-                  </p>
-                </div>
+                Edit User
+              </h2>
+              <p
+                class="el-has-grey-text el-has-section-margin el-body-text"
+              >
+                Please use the section below to manage which groups this user belongs to:
+              </p>
+              <div
+                class="el-form-layout-has-margin el-fade-in el-form-layout"
+              >
                 <div
                   class="el-input-wrap-full"
                 >
@@ -6249,29 +6093,25 @@ Object {
                     </div>
                   </div>
                 </div>
+              </div>
+              <div
+                class="el-button-group"
+              >
                 <div
-                  class="el-input-wrap-full"
+                  class="el-button-group-align-right el-button-group-inner"
                 >
-                  <div
-                    class="el-button-group"
+                  <button
+                    class="el-intent-secondary el-button"
+                    type="button"
                   >
-                    <div
-                      class="el-button-group-align-right el-button-group-inner"
-                    >
-                      <button
-                        class="el-intent-secondary el-button"
-                        type="button"
-                      >
-                        Cancel
-                      </button>
-                      <button
-                        class="el-intent-primary el-button"
-                        type="submit"
-                      >
-                        Submit
-                      </button>
-                    </div>
-                  </div>
+                    Cancel
+                  </button>
+                  <button
+                    class="el-intent-primary el-button"
+                    type="submit"
+                  >
+                    Submit
+                  </button>
                 </div>
               </div>
             </form>
