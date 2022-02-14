@@ -25533,7 +25533,7 @@ fsevents@^1.2.7:
     apollo-server: ^3.5.0
     apollo-server-core: ^3.5.0
     apollo-server-lambda: ^3.5.0
-    axios: ^0.24.0
+    axios: ^0.25.0
     axios-mock-adapter: ^1.20.0
     axios-retry: ^3.2.4
     bufferutil: ^4.0.5
