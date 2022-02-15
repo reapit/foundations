@@ -1,5 +1,4 @@
 import * as path from 'path'
-
 import {
   Topic,
   addLambdaToApi,
@@ -67,9 +66,11 @@ export const createStack = () => {
     codeBuild,
   })
 
+  const fileLocPrefix = 'packages/deployment-service/src/index.'
+
   const functionSetups: { [s: string]: FunctionSetup } = {
     pipelineCreate: {
-      handler: 'main.pipelineCreate',
+      handler: `${fileLocPrefix}pipelineCreate`,
       policies: [...policies.commonBackendPolicies],
       api: {
         method: 'POST',
@@ -82,7 +83,7 @@ export const createStack = () => {
       },
     },
     apiPipelineCreate: {
-      handler: 'main.pipelineCreate',
+      handler: `${fileLocPrefix}pipelineCreate`,
       policies: [...policies.commonBackendPolicies],
       api: {
         method: 'POST',
@@ -94,7 +95,7 @@ export const createStack = () => {
       },
     },
     pipelineUpdate: {
-      handler: 'main.pipelineUpdate',
+      handler: `${fileLocPrefix}pipelineUpdate`,
       policies: [...policies.commonBackendPolicies],
       api: {
         method: 'PUT',
@@ -107,7 +108,7 @@ export const createStack = () => {
       },
     },
     apiPipelineUpdate: {
-      handler: 'main.pipelineUpdate',
+      handler: `${fileLocPrefix}pipelineUpdate`,
       policies: [...policies.commonBackendPolicies],
       api: {
         method: 'PUT',
@@ -119,7 +120,7 @@ export const createStack = () => {
       },
     },
     pipelineGet: {
-      handler: 'main.pipelineGet',
+      handler: `${fileLocPrefix}pipelineGet`,
       policies: [...policies.commonBackendPolicies],
       api: {
         method: 'GET',
@@ -132,7 +133,7 @@ export const createStack = () => {
       },
     },
     apiPipelineGet: {
-      handler: 'main.pipelineGet',
+      handler: `${fileLocPrefix}pipelineGet`,
       policies: [...policies.commonBackendPolicies],
       api: {
         method: 'GET',
@@ -144,7 +145,7 @@ export const createStack = () => {
       },
     },
     pipelineDelete: {
-      handler: 'main.pipelineDelete',
+      handler: `${fileLocPrefix}pipelineDelete`,
       policies: [...policies.commonBackendPolicies],
       api: {
         method: 'DELETE',
@@ -157,7 +158,7 @@ export const createStack = () => {
       },
     },
     apiPipelineDelete: {
-      handler: 'main.pipelineDelete',
+      handler: `${fileLocPrefix}pipelineDelete`,
       policies: [...policies.commonBackendPolicies],
       api: {
         method: 'DELETE',
@@ -169,7 +170,7 @@ export const createStack = () => {
       },
     },
     pipelinePaginate: {
-      handler: 'main.pipelinePaginate',
+      handler: `${fileLocPrefix}pipelinePaginate`,
       policies: [...policies.commonBackendPolicies],
       api: {
         method: 'GET',
@@ -182,7 +183,7 @@ export const createStack = () => {
       },
     },
     apiPipelinePaginate: {
-      handler: 'main.pipelinePaginate',
+      handler: `${fileLocPrefix}pipelinePaginate`,
       policies: [...policies.commonBackendPolicies],
       api: {
         method: 'GET',
@@ -194,7 +195,7 @@ export const createStack = () => {
       },
     },
     pipelineRunnerCreate: {
-      handler: 'main.pipelineRunnerCreate',
+      handler: `${fileLocPrefix}pipelineRunnerCreate`,
       policies: [...policies.commonBackendPolicies],
       api: {
         method: 'POST',
@@ -207,7 +208,7 @@ export const createStack = () => {
       },
     },
     apiPipelineRunnerCreate: {
-      handler: 'main.pipelineRunnerCreate',
+      handler: `${fileLocPrefix}pipelineRunnerCreate`,
       policies: [...policies.commonBackendPolicies],
       api: {
         method: 'POST',
@@ -219,7 +220,7 @@ export const createStack = () => {
       },
     },
     pipelineRunnerUpdate: {
-      handler: 'main.pipelineRunnerUpdate',
+      handler: `${fileLocPrefix}pipelineRunnerUpdate`,
       policies: [...policies.commonBackendPolicies],
       api: {
         method: 'PUT',
@@ -232,7 +233,7 @@ export const createStack = () => {
       },
     },
     apiPipelineRunnerUpdate: {
-      handler: 'main.pipelineRunnerUpdate',
+      handler: `${fileLocPrefix}pipelineRunnerUpdate`,
       policies: [...policies.commonBackendPolicies],
       api: {
         method: 'PUT',
@@ -244,7 +245,7 @@ export const createStack = () => {
       },
     },
     pipelineRunnerPaginate: {
-      handler: 'main.pipelineRunnerPaginate',
+      handler: `${fileLocPrefix}pipelineRunnerPaginate`,
       policies: [...policies.commonBackendPolicies],
       api: {
         method: 'GET',
@@ -257,7 +258,7 @@ export const createStack = () => {
       },
     },
     apiPipelineRunnerPaginate: {
-      handler: 'main.pipelineRunnerPaginate',
+      handler: `${fileLocPrefix}pipelineRunnerPaginate`,
       policies: [...policies.commonBackendPolicies],
       api: {
         method: 'GET',
@@ -269,7 +270,7 @@ export const createStack = () => {
       },
     },
     deployRelease: {
-      handler: 'main.deployRelease',
+      handler: `${fileLocPrefix}deployRelease`,
       policies: [...policies.commonBackendPolicies, policies.cloudFrontPolicy],
       api: {
         method: 'POST',
@@ -283,7 +284,7 @@ export const createStack = () => {
       timeout: 300,
     },
     apiDeployRelease: {
-      handler: 'main.deployRelease',
+      handler: `${fileLocPrefix}deployRelease`,
       policies: [...policies.commonBackendPolicies, policies.cloudFrontPolicy],
       api: {
         method: 'POST',
@@ -296,7 +297,7 @@ export const createStack = () => {
       timeout: 300,
     },
     deployVersion: {
-      handler: 'main.deployVersion',
+      handler: `${fileLocPrefix}deployVersion`,
       policies: [...policies.commonBackendPolicies, policies.cloudFrontPolicy],
       api: {
         method: 'POST',
@@ -309,7 +310,7 @@ export const createStack = () => {
       },
     },
     apiDeployVersion: {
-      handler: 'main.deployVersion',
+      handler: `${fileLocPrefix}deployVersion`,
       policies: [...policies.commonBackendPolicies, policies.cloudFrontPolicy],
       api: {
         method: 'POST',
@@ -321,42 +322,42 @@ export const createStack = () => {
       },
     },
     codebuildExecutor: {
-      handler: 'main.codebuildExecutor',
+      handler: `${fileLocPrefix}codebuildExecutor`,
       policies: [...policies.commonBackendPolicies, policies.codebuildExecPolicy],
       queue: queues[QueueNames.CODEBUILD_EXECUTOR],
     },
     codebuildUpdate: {
-      handler: 'main.codebuildPipelineUpdater',
+      handler: `${fileLocPrefix}codebuildPipelineUpdater`,
       policies: [...policies.commonBackendPolicies],
       topic,
       timeout: 900,
     },
     codebuildDeploy: {
-      handler: 'main.codebuildDeploy',
+      handler: `${fileLocPrefix}codebuildDeploy`,
       policies: [...policies.commonBackendPolicies, policies.cloudFrontPolicy],
       timeout: 300,
       queue: queues[QueueNames.CODEBUILD_VERSION_DEPLOY],
     },
     pipelineSetup: {
-      handler: 'main.pipelineSetup',
+      handler: `${fileLocPrefix}pipelineSetup`,
       policies: [...policies.commonBackendPolicies, policies.cloudFrontPolicy, policies.route53Policy],
       timeout: 900,
       queue: queues[QueueNames.PIPELINE_SETUP],
     },
     pipelineTearDownStart: {
-      handler: 'main.pipelineTearDownStart',
+      handler: `${fileLocPrefix}pipelineTearDownStart`,
       queue: queues[QueueNames.PIPELINE_TEAR_DOWN_START],
       timeout: 300,
       policies: [...policies.commonBackendPolicies, policies.cloudFrontPolicy],
     },
     pipelineTearDown: {
-      handler: 'main.pipelineTearDown',
+      handler: `${fileLocPrefix}pipelineTearDown`,
       queue: queues[QueueNames.PIPELINE_TEAR_DOWN],
       timeout: 300,
       policies: [...policies.commonBackendPolicies],
     },
     pusherAuth: {
-      handler: 'main.pusherAuthentication',
+      handler: `${fileLocPrefix}pusherAuthentication`,
       policies: [...policies.commonBackendPolicies],
       api: {
         method: 'POST',
@@ -369,11 +370,23 @@ export const createStack = () => {
       },
     },
     apiPusherAuth: {
-      handler: 'main.pusherAuthentication',
+      handler: `${fileLocPrefix}pusherAuthentication`,
       policies: [...policies.commonBackendPolicies],
       api: {
         method: 'POST',
         path: 'api/pusher/auth',
+        cors: {
+          origin: '*',
+        },
+        headers: ['Content-Type', 'Authorization', 'api-version', 'X-Api-Key'],
+      },
+    },
+    githubWebhook: {
+      handler: `${fileLocPrefix}githubWebhook`,
+      policies: [...policies.commonBackendPolicies],
+      api: {
+        method: 'POST',
+        path: 'api/github',
         cors: {
           origin: '*',
         },
@@ -390,6 +403,7 @@ export const createStack = () => {
     DEPLOYMENT_LIVE_BUCKET_NAME: buckets['cloud-deployment-live-dev'].bucketName,
     DEPLOYMENT_VERSION_BUCKET_NAME: buckets['cloud-deployment-version-dev'].bucketName,
     DEPLOYMENT_LOG_BUCKET_NAME: buckets['cloud-deployment-log-dev'].bucketName,
+    DEPLOYMENT_REPO_CACHE_BUCKET_NAME: buckets['cloud-deployment-repo-cache-dev'].bucketName,
     REGION: 'eu-west-2',
     CODE_BUILD_PROJECT_NAME: codeBuild.projectName,
   }
@@ -402,7 +416,7 @@ export const createStack = () => {
     const lambda = createLambda({
       stack,
       name,
-      entrypoint: path.resolve('dist', 'main.zip'),
+      entrypoint: path.resolve('bundle.zip'),
       handler: options.handler,
       env,
       vpc,
@@ -438,8 +452,8 @@ export const createStack = () => {
   const migrationHandler = createLambda({
     stack,
     name: 'cloud-deployment-migration',
-    entrypoint: path.resolve('dist', 'main.zip'),
-    handler: 'main.migrationRun',
+    entrypoint: path.resolve('bundle.zip'),
+    handler: `${fileLocPrefix}.migrationRun`,
     env,
     vpc,
   })
