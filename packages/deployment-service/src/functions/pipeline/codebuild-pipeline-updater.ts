@@ -55,6 +55,8 @@ export const codebuildPipelineUpdater: SNSHandler = async (
     event.Records.map(async (record) => {
       const event: BuildPhaseChangeStatusEvent | BuildStateChangeEvent = JSON.parse(record.Sns.Message)
 
+      console.log('event', event)
+
       const buildId = event.detail['build-id']?.split(':')?.pop()
 
       switch (event['detail-type']) {
@@ -188,6 +190,13 @@ const handleStateChange = async ({
     return Promise.all([
       savePipelineRunnerEntity(pipelineRunner),
       pusher.trigger(`private-${pipelineRunner.pipeline?.developerId}`, 'pipeline-runner-update', pipelineRunner),
+    ])
+  } else if (event.detail['build-status'] === 'FAILED') {
+    pipelineRunner.buildStatus = 'FAILED'
+    if (pipelineRunner.pipeline) pipelineRunner.pipeline.buildStatus = 'FAILED'
+    await Promise.all([
+      pusher.trigger(`private-${pipelineRunner.pipeline?.developerId}`, 'pipeline-runner-update', pipelineRunner),
+      savePipelineRunnerEntity(pipelineRunner),
     ])
   }
 }

@@ -1,4 +1,4 @@
-import { PipelineEntity } from '../entities'
+import { PipelineEntity } from '../entities/pipeline.entity'
 import { connect } from './../core'
 import { Pagination, paginate } from 'nestjs-typeorm-paginate'
 
@@ -33,6 +33,13 @@ export const findPipelineById = async (id: string): Promise<PipelineEntity | und
   const repo = connection.getRepository(PipelineEntity)
 
   return repo.findOne({ id })
+}
+
+export const findPipelineByRepo = async (repository: string): Promise<PipelineEntity | undefined> => {
+  const connection = await connect()
+  const repo = connection.getRepository(PipelineEntity)
+
+  return repo.findOne({ repository })
 }
 
 export const paginatePipelines = async (
