@@ -21,7 +21,6 @@ import {
   deleteMetadataObject,
   findMetadataObject,
   getMetadataObject,
-  getMetadataSchemas,
   SchemaModel,
   updateMetadataObject,
 } from './platform'
@@ -162,10 +161,10 @@ const generateMutations = (typeName: string, inputTypeName: string): { mutations
   }
 }
 
-const generateDynamicSchema = async (
+const generateDynamicSchema = (
   baseSchema: GraphQLSchema,
   context?: Context,
-): Promise<{ schema: GraphQLSchema | undefined; extendedTypedefs: string }> => {
+): { schema: GraphQLSchema | undefined; extendedTypedefs: string } => {
   let typeDefs = ''
   const resolvers = {
     Query: {},
@@ -177,8 +176,7 @@ const generateDynamicSchema = async (
   let extendedTypedefs = ''
 
   if (context && context.accessToken) {
-    const metadataSchemas = await getMetadataSchemas(context?.accessToken)
-    metadataSchemas
+    context.metadataSchemas
       ?.map(metadataSchemaToGraphQL)
       .filter(notEmpty)
       .forEach(({ typeName, inputTypeName, typeDefinitions }) => {
@@ -240,7 +238,7 @@ export const getSchema = async (context?: Context) => {
 
   const subschemas = [{ schema: baseSchema }]
 
-  const { schema, extendedTypedefs } = await generateDynamicSchema(baseSchema, context)
+  const { schema, extendedTypedefs } = generateDynamicSchema(baseSchema, context)
 
   if (schema) {
     subschemas.push({
