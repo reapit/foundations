@@ -133,9 +133,7 @@ export const Register: FC<RegisterProps> = () => {
           <Title hasNoMargin hasCenteredText>
             Register
           </Title>
-          <Subtitle hasCenteredText hasSectionMargin>
-            for Reapit Foundations Developer Portal
-          </Subtitle>
+          <Subtitle hasCenteredText>for Reapit Foundations Developer Portal</Subtitle>
         </FlexContainer>
         {formState === 'SUCCESS' ? (
           <PersistantNotification intent="success" isExpanded isFullWidth>

@@ -1,7 +1,6 @@
 import * as React from 'react'
 import {
   FormSection,
-  Helper,
   FormHeading,
   FormSubHeading,
   Grid,
@@ -20,6 +19,7 @@ import { selectCategories } from '@/selector/app-categories'
 import { CategoryModel } from '@reapit/foundations-ts-definitions'
 import { formFields } from './form-schema/form-fields'
 import { checkbox, editor } from './__styles__/styles'
+import { elMb7, PersistantNotification } from '@reapit/elements'
 
 const {
   name,
@@ -55,7 +55,7 @@ const GeneralInformationSection: React.FC<GeneralInformationSectionProps> = ({ i
 
   return (
     <FormSection data-test="submit-app-form">
-      <Helper>
+      <PersistantNotification className={elMb7} isInline isExpanded isFullWidth intent="secondary">
         For more information on how to complete this form, please view our &quot;Step-by-step&quot; guide&nbsp;
         <a
           className={link}
@@ -65,7 +65,7 @@ const GeneralInformationSection: React.FC<GeneralInformationSectionProps> = ({ i
         >
           here
         </a>
-      </Helper>
+      </PersistantNotification>
       <FormHeading>App Listing</FormHeading>
       <FormSubHeading>
         The section below relates to the fields that comprise the listing of your application as it will appear to a

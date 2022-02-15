@@ -95,7 +95,7 @@ export const PrivateRouteWrapper: React.FunctionComponent<PrivateRouteWrapperPro
     return (
       <MainContainer>
         <FlexContainerBasic hasBackground>
-          <Loader label="Loading" fullPage />
+          <Loader fullPage />
         </FlexContainerBasic>
       </MainContainer>
     )
@@ -113,7 +113,7 @@ export const PrivateRouteWrapper: React.FunctionComponent<PrivateRouteWrapperPro
           <Suspense
             fallback={
               <Section>
-                <Loader label="Loading" fullPage />
+                <Loader fullPage />
               </Section>
             }
           >
@@ -133,7 +133,7 @@ export const PrivateRouteWrapper: React.FunctionComponent<PrivateRouteWrapperPro
             <Suspense
               fallback={
                 <Section>
-                  <Loader label="Loading" fullPage />
+                  <Loader fullPage />
                 </Section>
               }
             >

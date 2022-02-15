@@ -1,4 +1,4 @@
-import React, { FC, lazy } from 'react'
+import React, { FC } from 'react'
 import { useHistory } from 'react-router'
 import { History } from 'history'
 import ErrorBoundary from '../../hocs/error-boundary'
@@ -19,35 +19,32 @@ import {
   SecondaryNavItem,
   Subtitle,
   Title,
-  ButtonGroup,
-  useMediaQuery,
 } from '@reapit/elements'
 import { navigate, openNewPage, ExternalPages } from '../../../utils/navigation'
-import { Route, useLocation } from 'react-router-dom'
-import { catchChunkError, useReapitGet } from '@reapit/utils-react'
+import { Route, Switch, useLocation } from 'react-router-dom'
+import { useReapitGet } from '@reapit/utils-react'
 import { useReapitConnect } from '@reapit/connect-session'
 import { getActions, GetActionNames } from '@reapit/utils-common'
 import { reapitConnectBrowserSession } from '../../../core/connect-session'
 import { NoAppsLandingPage } from './no-apps-landing-page'
-
-const AppsPage = lazy(() => catchChunkError(() => import('./apps')))
-const AppsNewPage = lazy(() => catchChunkError(() => import('../apps-new')))
-const AppsDetailPage = lazy(() => catchChunkError(() => import('../app-detail')))
-const AppsEditPage = lazy(() => catchChunkError(() => import('../edit-app')))
+import AppsPage from './apps'
+import AppsNewPage from '../apps-new'
+import AppsDetailPage from '../app-detail'
+import AppsEditPage from '../edit-app'
+import PrivateRoute from '../../../core/private-route'
 
 export const handleOnChange = (history: History) => (page: number) => history.push(`${Routes.APPS}?page=${page}`)
 
 export const Apps: FC = () => {
   const history = useHistory()
   const location = useLocation()
-  const { isMobile } = useMediaQuery()
   const { pathname } = location
   const { connectSession } = useReapitConnect(reapitConnectBrowserSession)
   const developerId = connectSession?.loginIdentity.developerId
-  const [apps, appsLoading] = useReapitGet<AppSummaryModelPagedResult>({
+  const [apps, appsLoading, , refreshApps] = useReapitGet<AppSummaryModelPagedResult>({
     reapitConnectBrowserSession,
     action: getActions(window.reapit.config.appEnv)[GetActionNames.getApps],
-    queryParams: { showHiddenApps: 'true', developerId, pageSize: 1 },
+    queryParams: { showHiddenApps: 'true', developerId, pageSize: 25 },
     fetchWhenTrue: [developerId],
   })
 
@@ -56,7 +53,12 @@ export const Apps: FC = () => {
       <FlexContainer isFlexAuto>
         {appsLoading ? (
           <Loader fullPage />
-        ) : apps?.totalCount ? (
+        ) : apps && !apps?.totalCount ? (
+          <PageContainer>
+            {pathname !== Routes.APPS_NEW && <NoAppsLandingPage />}
+            <Route path={Routes.APPS_NEW} exact component={AppsNewPage} />
+          </PageContainer>
+        ) : apps ? (
           <>
             <SecondaryNavContainer>
               <Title>Apps</Title>
@@ -82,28 +84,15 @@ export const Apps: FC = () => {
               </Button>
             </SecondaryNavContainer>
             <PageContainer className={elHFull}>
-              <FlexContainer isFlexJustifyBetween>
-                <Title>My Apps</Title>
-                {isMobile && (
-                  <ButtonGroup alignment="right">
-                    <Button intent="low" onClick={openNewPage(ExternalPages.developerPortalDocs)}>
-                      Docs
-                    </Button>
-                  </ButtonGroup>
-                )}
-              </FlexContainer>
-              <Route path={Routes.APPS} exact component={AppsPage} />
-              <Route path={Routes.APPS_NEW} exact component={AppsNewPage} />
-              <Route path={Routes.APPS_EDIT} exact component={AppsEditPage} />
-              <Route path={Routes.APP_DETAIL} exact component={AppsDetailPage} />
+              <Switch>
+                <Route path={Routes.APPS} exact component={() => <AppsPage apps={apps} refreshApps={refreshApps} />} />
+                <Route path={Routes.APPS_NEW} exact component={AppsNewPage} />
+                <PrivateRoute path={Routes.APPS_EDIT} exact fetcher component={AppsEditPage} />
+                <PrivateRoute path={Routes.APP_DETAIL} exact fetcher component={AppsDetailPage} />
+              </Switch>
             </PageContainer>
           </>
-        ) : (
-          <PageContainer>
-            {pathname !== Routes.APPS_NEW && <NoAppsLandingPage />}
-            <Route path={Routes.APPS_NEW} exact component={AppsNewPage} />
-          </PageContainer>
-        )}
+        ) : null}
       </FlexContainer>
     </ErrorBoundary>
   )

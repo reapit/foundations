@@ -8,6 +8,10 @@ export type HelperContentRef = {
   [key in AppNewStepId]: HTMLDivElement | null
 }
 
+export const stepIsNotNextStep = (nextStep: AppNewStepId | null, step: AppNewStepId) => {
+  return Boolean(nextStep && nextStep !== step)
+}
+
 export const HelperContent: FC = () => {
   const { appWizardState } = useAppWizard()
   const helperContentRef = useRef<HelperContentRef>({
@@ -27,10 +31,6 @@ export const HelperContent: FC = () => {
   const { nextStep, currentStep, authFlow, lastStep } = appWizardState
 
   useEffect(() => {
-    console.log('Helper Content current step', currentStep)
-    console.log('Helper Content next step', nextStep)
-    console.log('Helper Content last step', lastStep)
-
     if (nextStep && nextStep !== AppNewStepId.permissionsStep) {
       helperContentRef.current[nextStep]?.scrollIntoView({ behavior: 'smooth' })
     }
@@ -46,13 +46,13 @@ export const HelperContent: FC = () => {
 
   return (
     <HelperContentContainer>
-      <Subtitle hasBoldText>About Applications</Subtitle>
-      <BodyText hasGreyText>
+      <Subtitle hasGreyText={Boolean(nextStep)}>About Applications</Subtitle>
+      <BodyText hasGreyText={Boolean(nextStep)}>
         Lorem ipsum dolor sit amet consectetur adipisicing elit. Dolor natus quasi mollitia ratione iure dolores
         voluptatem adipisci laudantium voluptates ut aliquam soluta deleniti, error ad iste quisquam. Voluptas, eos
         facere.
       </BodyText>
-      <BodyText hasGreyText>
+      <BodyText hasGreyText={Boolean(nextStep)}>
         Lorem ipsum dolor sit amet consectetur adipisicing elit. Dolor natus quasi mollitia ratione iure dolores
         voluptatem adipisci laudantium voluptates ut aliquam soluta deleniti, error ad iste quisquam. Voluptas, eos
         facere.
@@ -62,13 +62,15 @@ export const HelperContent: FC = () => {
           helperContentRef.current[AppNewStepId.agencyCloudStep] = ref
         }}
       >
-        <BodyText hasBoldText={nextStep === AppNewStepId.agencyCloudStep}>AgencyCloud Functionality</BodyText>
-        <BodyText hasGreyText={nextStep !== AppNewStepId.agencyCloudStep}>
+        <Subtitle hasGreyText={stepIsNotNextStep(nextStep, AppNewStepId.agencyCloudStep)}>
+          AgencyCloud Functionality
+        </Subtitle>
+        <BodyText hasGreyText={stepIsNotNextStep(nextStep, AppNewStepId.agencyCloudStep)}>
           Lorem ipsum dolor sit amet consectetur adipisicing elit. Dolor natus quasi mollitia ratione iure dolores
           voluptatem adipisci laudantium voluptates ut aliquam soluta deleniti, error ad iste quisquam. Voluptas, eos
           facere.
         </BodyText>
-        <BodyText hasGreyText={nextStep !== AppNewStepId.agencyCloudStep}>
+        <BodyText hasGreyText={stepIsNotNextStep(nextStep, AppNewStepId.agencyCloudStep)}>
           Lorem ipsum dolor sit amet consectetur adipisicing elit. Dolor natus quasi mollitia ratione iure dolores
           voluptatem adipisci laudantium voluptates ut aliquam soluta deleniti, error ad iste quisquam. Voluptas, eos
           facere.
@@ -79,13 +81,15 @@ export const HelperContent: FC = () => {
           helperContentRef.current[AppNewStepId.externalAppStep] = ref
         }}
       >
-        <BodyText hasBoldText={nextStep === AppNewStepId.externalAppStep}>External Web Applications</BodyText>
-        <BodyText hasGreyText={nextStep !== AppNewStepId.externalAppStep}>
+        <Subtitle hasGreyText={stepIsNotNextStep(nextStep, AppNewStepId.externalAppStep)}>
+          External Web Applications
+        </Subtitle>
+        <BodyText hasGreyText={stepIsNotNextStep(nextStep, AppNewStepId.externalAppStep)}>
           Lorem ipsum dolor sit amet consectetur adipisicing elit. Dolor natus quasi mollitia ratione iure dolores
           voluptatem adipisci laudantium voluptates ut aliquam soluta deleniti, error ad iste quisquam. Voluptas, eos
           facere.
         </BodyText>
-        <BodyText hasGreyText={nextStep !== AppNewStepId.externalAppStep}>
+        <BodyText hasGreyText={stepIsNotNextStep(nextStep, AppNewStepId.externalAppStep)}>
           Lorem ipsum dolor sit amet consectetur adipisicing elit. Dolor natus quasi mollitia ratione iure dolores
           voluptatem adipisci laudantium voluptates ut aliquam soluta deleniti, error ad iste quisquam. Voluptas, eos
           facere.
@@ -96,13 +100,15 @@ export const HelperContent: FC = () => {
           helperContentRef.current[AppNewStepId.dataFeedStep] = ref
         }}
       >
-        <BodyText hasBoldText={nextStep === AppNewStepId.dataFeedStep}>Data Portal and Reporting Feeds</BodyText>
-        <BodyText hasGreyText={nextStep !== AppNewStepId.dataFeedStep}>
+        <Subtitle hasGreyText={stepIsNotNextStep(nextStep, AppNewStepId.dataFeedStep)}>
+          Data Portal and Reporting Feeds
+        </Subtitle>
+        <BodyText hasGreyText={stepIsNotNextStep(nextStep, AppNewStepId.dataFeedStep)}>
           Lorem ipsum dolor sit amet consectetur adipisicing elit. Dolor natus quasi mollitia ratione iure dolores
           voluptatem adipisci laudantium voluptates ut aliquam soluta deleniti, error ad iste quisquam. Voluptas, eos
           facere.
         </BodyText>
-        <BodyText hasGreyText={nextStep !== AppNewStepId.dataFeedStep}>
+        <BodyText hasGreyText={stepIsNotNextStep(nextStep, AppNewStepId.dataFeedStep)}>
           Lorem ipsum dolor sit amet consectetur adipisicing elit. Dolor natus quasi mollitia ratione iure dolores
           voluptatem adipisci laudantium voluptates ut aliquam soluta deleniti, error ad iste quisquam. Voluptas, eos
           facere.
@@ -113,13 +119,13 @@ export const HelperContent: FC = () => {
           helperContentRef.current[AppNewStepId.websiteFeedStep] = ref
         }}
       >
-        <BodyText hasBoldText={nextStep === AppNewStepId.websiteFeedStep}>Website Feeds</BodyText>
-        <BodyText hasGreyText={nextStep !== AppNewStepId.websiteFeedStep}>
+        <Subtitle hasGreyText={stepIsNotNextStep(nextStep, AppNewStepId.websiteFeedStep)}>Website Feeds</Subtitle>
+        <BodyText hasGreyText={stepIsNotNextStep(nextStep, AppNewStepId.websiteFeedStep)}>
           Lorem ipsum dolor sit amet consectetur adipisicing elit. Dolor natus quasi mollitia ratione iure dolores
           voluptatem adipisci laudantium voluptates ut aliquam soluta deleniti, error ad iste quisquam. Voluptas, eos
           facere.
         </BodyText>
-        <BodyText hasGreyText={nextStep !== AppNewStepId.websiteFeedStep}>
+        <BodyText hasGreyText={stepIsNotNextStep(nextStep, AppNewStepId.websiteFeedStep)}>
           Lorem ipsum dolor sit amet consectetur adipisicing elit. Dolor natus quasi mollitia ratione iure dolores
           voluptatem adipisci laudantium voluptates ut aliquam soluta deleniti, error ad iste quisquam. Voluptas, eos
           facere.
@@ -130,13 +136,15 @@ export const HelperContent: FC = () => {
           helperContentRef.current[AppNewStepId.webServicesStep] = ref
         }}
       >
-        <BodyText hasBoldText={nextStep === AppNewStepId.webServicesStep}>Web Services Migrations</BodyText>
-        <BodyText hasGreyText={nextStep !== AppNewStepId.webServicesStep}>
+        <Subtitle hasGreyText={stepIsNotNextStep(nextStep, AppNewStepId.webServicesStep)}>
+          Web Services Migrations
+        </Subtitle>
+        <BodyText hasGreyText={stepIsNotNextStep(nextStep, AppNewStepId.webServicesStep)}>
           Lorem ipsum dolor sit amet consectetur adipisicing elit. Dolor natus quasi mollitia ratione iure dolores
           voluptatem adipisci laudantium voluptates ut aliquam soluta deleniti, error ad iste quisquam. Voluptas, eos
           facere.
         </BodyText>
-        <BodyText hasGreyText={nextStep !== AppNewStepId.webServicesStep}>
+        <BodyText hasGreyText={stepIsNotNextStep(nextStep, AppNewStepId.webServicesStep)}>
           Lorem ipsum dolor sit amet consectetur adipisicing elit. Dolor natus quasi mollitia ratione iure dolores
           voluptatem adipisci laudantium voluptates ut aliquam soluta deleniti, error ad iste quisquam. Voluptas, eos
           facere.
@@ -147,15 +155,15 @@ export const HelperContent: FC = () => {
           helperContentRef.current[AppNewStepId.reapitConnectStep] = ref
         }}
       >
-        <BodyText hasBoldText={nextStep === AppNewStepId.reapitConnectStep}>
+        <Subtitle hasGreyText={stepIsNotNextStep(nextStep, AppNewStepId.reapitConnectStep)}>
           Using Reapit Connect as an Itentity Provider
-        </BodyText>
-        <BodyText hasGreyText={nextStep !== AppNewStepId.reapitConnectStep}>
+        </Subtitle>
+        <BodyText hasGreyText={stepIsNotNextStep(nextStep, AppNewStepId.reapitConnectStep)}>
           Lorem ipsum dolor sit amet consectetur adipisicing elit. Dolor natus quasi mollitia ratione iure dolores
           voluptatem adipisci laudantium voluptates ut aliquam soluta deleniti, error ad iste quisquam. Voluptas, eos
           facere.
         </BodyText>
-        <BodyText hasGreyText={nextStep !== AppNewStepId.reapitConnectStep}>
+        <BodyText hasGreyText={stepIsNotNextStep(nextStep, AppNewStepId.reapitConnectStep)}>
           Lorem ipsum dolor sit amet consectetur adipisicing elit. Dolor natus quasi mollitia ratione iure dolores
           voluptatem adipisci laudantium voluptates ut aliquam soluta deleniti, error ad iste quisquam. Voluptas, eos
           facere.
@@ -166,13 +174,13 @@ export const HelperContent: FC = () => {
           helperContentRef.current[AppNewStepId.otherAppStep] = ref
         }}
       >
-        <BodyText hasBoldText={nextStep === AppNewStepId.otherAppStep}>Other App Types</BodyText>
-        <BodyText hasGreyText={nextStep !== AppNewStepId.otherAppStep}>
+        <Subtitle hasGreyText={stepIsNotNextStep(nextStep, AppNewStepId.otherAppStep)}>Other App Types</Subtitle>
+        <BodyText hasGreyText={stepIsNotNextStep(nextStep, AppNewStepId.otherAppStep)}>
           Lorem ipsum dolor sit amet consectetur adipisicing elit. Dolor natus quasi mollitia ratione iure dolores
           voluptatem adipisci laudantium voluptates ut aliquam soluta deleniti, error ad iste quisquam. Voluptas, eos
           facere.
         </BodyText>
-        <BodyText hasGreyText={nextStep !== AppNewStepId.otherAppStep}>
+        <BodyText hasGreyText={stepIsNotNextStep(nextStep, AppNewStepId.otherAppStep)}>
           Lorem ipsum dolor sit amet consectetur adipisicing elit. Dolor natus quasi mollitia ratione iure dolores
           voluptatem adipisci laudantium voluptates ut aliquam soluta deleniti, error ad iste quisquam. Voluptas, eos
           facere.
@@ -183,13 +191,13 @@ export const HelperContent: FC = () => {
           helperContentRef.current[AppNewStepId.clientSideStep] = ref
         }}
       >
-        <BodyText hasBoldText={nextStep === AppNewStepId.clientSideStep}>Client Side Apps</BodyText>
-        <BodyText hasGreyText={nextStep !== AppNewStepId.clientSideStep}>
+        <Subtitle hasGreyText={stepIsNotNextStep(nextStep, AppNewStepId.clientSideStep)}>Client Side Apps</Subtitle>
+        <BodyText hasGreyText={stepIsNotNextStep(nextStep, AppNewStepId.clientSideStep)}>
           Lorem ipsum dolor sit amet consectetur adipisicing elit. Dolor natus quasi mollitia ratione iure dolores
           voluptatem adipisci laudantium voluptates ut aliquam soluta deleniti, error ad iste quisquam. Voluptas, eos
           facere.
         </BodyText>
-        <BodyText hasGreyText={nextStep !== AppNewStepId.clientSideStep}>
+        <BodyText hasGreyText={stepIsNotNextStep(nextStep, AppNewStepId.clientSideStep)}>
           Lorem ipsum dolor sit amet consectetur adipisicing elit. Dolor natus quasi mollitia ratione iure dolores
           voluptatem adipisci laudantium voluptates ut aliquam soluta deleniti, error ad iste quisquam. Voluptas, eos
           facere.
@@ -200,13 +208,13 @@ export const HelperContent: FC = () => {
           helperContentRef.current[AppNewStepId.serverSideStep] = ref
         }}
       >
-        <BodyText hasBoldText={nextStep === AppNewStepId.serverSideStep}>Server Side Apps</BodyText>
-        <BodyText hasGreyText={nextStep !== AppNewStepId.serverSideStep}>
+        <Subtitle hasGreyText={stepIsNotNextStep(nextStep, AppNewStepId.serverSideStep)}>Server Side Apps</Subtitle>
+        <BodyText hasGreyText={stepIsNotNextStep(nextStep, AppNewStepId.serverSideStep)}>
           Lorem ipsum dolor sit amet consectetur adipisicing elit. Dolor natus quasi mollitia ratione iure dolores
           voluptatem adipisci laudantium voluptates ut aliquam soluta deleniti, error ad iste quisquam. Voluptas, eos
           facere.
         </BodyText>
-        <BodyText hasGreyText={nextStep !== AppNewStepId.serverSideStep}>
+        <BodyText hasGreyText={stepIsNotNextStep(nextStep, AppNewStepId.serverSideStep)}>
           Lorem ipsum dolor sit amet consectetur adipisicing elit. Dolor natus quasi mollitia ratione iure dolores
           voluptatem adipisci laudantium voluptates ut aliquam soluta deleniti, error ad iste quisquam. Voluptas, eos
           facere.
@@ -217,15 +225,21 @@ export const HelperContent: FC = () => {
           helperContentRef.current[AppNewStepId.rcRedirectsStep] = ref
         }}
       >
-        <BodyText hasBoldText={authFlow === 'authorisationCode' && nextStep === AppNewStepId.permissionsStep}>
+        <Subtitle
+          hasGreyText={authFlow === 'clientCredentials' || stepIsNotNextStep(nextStep, AppNewStepId.permissionsStep)}
+        >
           Reapit Connect Redirects
-        </BodyText>
-        <BodyText hasGreyText={authFlow === 'clientCredentials' || nextStep !== AppNewStepId.permissionsStep}>
+        </Subtitle>
+        <BodyText
+          hasGreyText={authFlow === 'clientCredentials' || stepIsNotNextStep(nextStep, AppNewStepId.permissionsStep)}
+        >
           Lorem ipsum dolor sit amet consectetur adipisicing elit. Dolor natus quasi mollitia ratione iure dolores
           voluptatem adipisci laudantium voluptates ut aliquam soluta deleniti, error ad iste quisquam. Voluptas, eos
           facere.
         </BodyText>
-        <BodyText hasGreyText={authFlow === 'clientCredentials' || nextStep !== AppNewStepId.permissionsStep}>
+        <BodyText
+          hasGreyText={authFlow === 'clientCredentials' || stepIsNotNextStep(nextStep, AppNewStepId.permissionsStep)}
+        >
           Lorem ipsum dolor sit amet consectetur adipisicing elit. Dolor natus quasi mollitia ratione iure dolores
           voluptatem adipisci laudantium voluptates ut aliquam soluta deleniti, error ad iste quisquam. Voluptas, eos
           facere.
@@ -236,13 +250,15 @@ export const HelperContent: FC = () => {
           helperContentRef.current[AppNewStepId.permissionsStep] = ref
         }}
       >
-        <BodyText hasBoldText={currentStep === AppNewStepId.permissionsStep || lastStep}>Permissions</BodyText>
-        <BodyText hasGreyText={currentStep !== AppNewStepId.permissionsStep && !lastStep}>
+        <Subtitle hasGreyText={stepIsNotNextStep(currentStep, AppNewStepId.permissionsStep) && !lastStep}>
+          Permissions
+        </Subtitle>
+        <BodyText hasGreyText={stepIsNotNextStep(currentStep, AppNewStepId.permissionsStep) && !lastStep}>
           Lorem ipsum dolor sit amet consectetur adipisicing elit. Dolor natus quasi mollitia ratione iure dolores
           voluptatem adipisci laudantium voluptates ut aliquam soluta deleniti, error ad iste quisquam. Voluptas, eos
           facere.
         </BodyText>
-        <BodyText hasGreyText={currentStep !== AppNewStepId.permissionsStep && !lastStep}>
+        <BodyText hasGreyText={stepIsNotNextStep(currentStep, AppNewStepId.permissionsStep) && !lastStep}>
           Lorem ipsum dolor sit amet consectetur adipisicing elit. Dolor natus quasi mollitia ratione iure dolores
           voluptatem adipisci laudantium voluptates ut aliquam soluta deleniti, error ad iste quisquam. Voluptas, eos
           facere.

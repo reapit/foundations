@@ -20,6 +20,7 @@ export enum GetActionNames {
   getBillingDataByMonth = 'getBillingDataByMonth',
   getInstallations = 'getInstallations',
   getDeveloperMembers = 'getDeveloperMembers',
+  getAppById = 'getAppById',
 }
 
 export type GetActions = { [key in GetActionNames]: GetAction }
@@ -29,6 +30,11 @@ export const getActions = (appEnv: AppEnv): GetActions => ({
     api: ApiNames(appEnv).platform,
     path: PathNames.apps,
     errorMessage: 'Something went wrong fetching apps - this error has been logged',
+  },
+  [GetActionNames.getAppById]: {
+    api: ApiNames(appEnv).platform,
+    path: PathNames.appsId,
+    errorMessage: 'Something went wrong fetching app details',
   },
   [GetActionNames.getPipeline]: {
     api: ApiNames(appEnv).pipeline,

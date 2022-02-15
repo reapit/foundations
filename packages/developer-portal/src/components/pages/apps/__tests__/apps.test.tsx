@@ -5,13 +5,10 @@ import { mount } from 'enzyme'
 import configureStore from 'redux-mock-store'
 import appState from '@/reducers/__stubs__/app-state'
 import Routes from '@/constants/routes'
-import DeveloperHome, { handleOnCardClick, handleOnChange } from '../apps'
-import { AppSummaryModel } from '@reapit/foundations-ts-definitions'
-import { getMockRouterProps } from '@/utils/mock-helper'
-import routes from '@/constants/routes'
+import DeveloperHome from '../apps'
+import { appsDataStub } from '../../../../sagas/__stubs__/apps'
 
 describe('Login', () => {
-  const { history } = getMockRouterProps({})
   let store
   beforeEach(() => {
     /* mocking store */
@@ -24,29 +21,10 @@ describe('Login', () => {
       mount(
         <ReactRedux.Provider store={store}>
           <MemoryRouter initialEntries={[{ pathname: Routes.APPS, key: 'developerHomeRoute' }]}>
-            <DeveloperHome />
+            <DeveloperHome apps={appsDataStub.data} refreshApps={jest.fn()} />
           </MemoryRouter>
         </ReactRedux.Provider>,
       ),
     ).toMatchSnapshot()
-  })
-
-  describe('handleOnCardClick', () => {
-    it('should run correctly', () => {
-      const mockAppSummary: AppSummaryModel = {
-        id: 'testId',
-      }
-      const fn = handleOnCardClick(history)
-      fn(mockAppSummary)
-      expect(history.push).toBeCalledWith(`${Routes.APPS}/${mockAppSummary.id}`)
-    })
-  })
-
-  describe('handleOnChange', () => {
-    it('should run correctly', () => {
-      const fn = handleOnChange(history)
-      fn(1)
-      expect(history.push).toBeCalledWith(`${routes.APPS}?page=${1}`)
-    })
   })
 })
