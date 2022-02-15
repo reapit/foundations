@@ -1,15 +1,46 @@
-import { PipelineRunnerEntity, TaskEntity } from '../../entities'
+import { PipelineRunnerEntity } from '../../entities/pipeline-runner.entity'
+import { TaskEntity } from '../../entities/task.entity'
 import { Context, Callback, SQSEvent, SQSHandler } from 'aws-lambda'
 import { plainToClass } from 'class-transformer'
 import { CodeBuild } from 'aws-sdk'
 import yaml from 'yaml'
-import { PackageManagerEnum } from '../../../../foundations-ts-definitions/deployment-schema'
+import { PackageManagerEnum, PipelineModelInterface } from '../../../../foundations-ts-definitions/deployment-schema'
 import { QueueNames } from '../../constants'
-import { sqs, savePipelineRunnerEntity, s3Client } from '../../services'
+import { sqs, savePipelineRunnerEntity, s3Client, githubApp } from '../../services'
 
 const codebuild = new CodeBuild({
   region: process.env.REGION,
 })
+
+const downloadSourceToS3 = async (
+  pipeline: PipelineModelInterface,
+  pipelineRunner: PipelineRunnerEntity,
+): Promise<string> => {
+  const installationId = parseInt(pipelineRunner.token as string)
+  const parts = pipeline.repository?.split('/') as string[]
+
+  const response = await (
+    await githubApp.getInstallationOctokit(installationId)
+  ).request('GET /repos/{owner}/{repo}/zipball/{ref}', {
+    ref: '',
+    owner: parts[parts.length - 2],
+    repo: parts[parts.length - 1],
+  })
+
+  return new Promise<string>((resolve, reject) =>
+    s3Client.upload(
+      {
+        Bucket: process.env.DEPLOYMENT_REPO_CACHE_BUCKET_NAME as string,
+        Key: `${pipelineRunner.id as string}.zip`,
+        Body: Buffer.from(response.data as ArrayBuffer),
+      },
+      (err, data: any) => {
+        if (err) reject(err)
+        resolve([process.env.DEPLOYMENT_REPO_CACHE_BUCKET_NAME as string, data.Key].join('/'))
+      },
+    ),
+  )
+}
 
 const deleteMessage = (ReceiptHandle: string): Promise<void> =>
   new Promise((resolve, reject) =>
@@ -41,7 +72,15 @@ export const codebuildExecutor: SQSHandler = async (
         throw new Error('pipeline not found')
       }
 
+      if (!pipelineRunner.token) {
+        throw new Error('Pipeline Runner does not have sufficiant token for github')
+      }
+
       const s3BuildLogsLocation = `arn:aws:s3:::${process.env.DEPLOYMENT_LOG_BUCKET_NAME}`
+
+      const repoLocation = await downloadSourceToS3(pipeline, pipelineRunner)
+
+      console.log('location', repoLocation)
 
       try {
         const start = codebuild.startBuild({
@@ -51,6 +90,8 @@ export const codebuildExecutor: SQSHandler = async (
             phases: {
               install: {
                 commands: [
+                  'cd */',
+                  'ls -la',
                   pipeline.packageManager === PackageManagerEnum.YARN
                     ? pipeline.packageManager
                     : `${pipeline.packageManager} install`,
@@ -64,8 +105,8 @@ export const codebuildExecutor: SQSHandler = async (
               files: `${pipeline.outDir}/**/*`,
             },
           }),
-          sourceTypeOverride: 'GITHUB',
-          sourceLocationOverride: pipeline.repository,
+          sourceTypeOverride: 'S3',
+          sourceLocationOverride: repoLocation,
           artifactsOverride: {
             type: 'S3',
             packaging: 'ZIP',
@@ -117,7 +158,11 @@ export const codebuildExecutor: SQSHandler = async (
       } catch (error: any) {
         console.error(error)
         console.log('codebuild config failure')
-        await deleteMessage(record.receiptHandle)
+
+        pipelineRunner.buildStatus = 'FAILED'
+
+        await Promise.all([deleteMessage(record.receiptHandle), savePipelineRunnerEntity(pipelineRunner)])
+
         return Promise.reject(error)
       }
 
