@@ -16,7 +16,7 @@ const fetchMock = require('node-fetch')
 const mockQuery = (name: string, variables: Record<string, any> | undefined, data: Record<string, any>) => {
   fetchMock.post(
     (url, options) => {
-      if (url === config.graphqlUri) {
+      if (url === config.graphqlUri || url === 'http://localhost:4001/') {
         const body = JSON.parse(options.body)
         if (variables && deepEqual(variables, body.variables)) {
           return true
