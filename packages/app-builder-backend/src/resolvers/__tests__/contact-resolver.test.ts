@@ -8,6 +8,7 @@ import { SchemaLink } from '@apollo/client/link/schema'
 import { Context } from '../../types'
 import { mockContacts } from '../__mocks__/mock-contacts'
 import { mockContact } from '../__mocks__/mock-contact'
+import config from '../../config.json'
 
 jest.mock('node-fetch', () => require('fetch-mock-jest').sandbox())
 const fetchMock = require('node-fetch')
@@ -15,7 +16,7 @@ const fetchMock = require('node-fetch')
 const mockQuery = (name: string, variables: Record<string, any> | undefined, data: Record<string, any>) => {
   fetchMock.post(
     (url, options) => {
-      if (url === 'http://localhost:4001/graphql') {
+      if (url === config.graphqlUri) {
         const body = JSON.parse(options.body)
         if (variables && deepEqual(variables, body.variables)) {
           return true
