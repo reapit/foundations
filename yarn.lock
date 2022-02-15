@@ -8625,7 +8625,6 @@ __metadata:
     apollo-server-core: ^3.5.0
     apollo-server-express: ^3.5.0
     apollo-server-lambda: ^3.5.0
-    babel-jest: ^27.4.5
     class-validator: ^0.13.2
     concurrently: ^6.4.0
     cors: ^2.8.5
