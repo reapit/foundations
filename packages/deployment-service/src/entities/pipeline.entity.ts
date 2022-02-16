@@ -54,8 +54,11 @@ export class PipelineEntity extends AbstractEntity implements PipelineModelInter
   @Column()
   appId?: string
 
-  @Column({ nullable: true })
+  @Column({ nullable: true, type: 'varchar', length: 20 })
   installationId?: number
+
+  @Column({ nullable: true, type: 'varchar', length: 20 })
+  repositoryId?: number
 
   get uniqueRepoName(): string {
     return `${this.developerId}/${this.subDomain}`

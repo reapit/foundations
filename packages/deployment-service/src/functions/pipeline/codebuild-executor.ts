@@ -74,15 +74,13 @@ export const codebuildExecutor: SQSHandler = async (
         throw new Error('pipeline not found')
       }
 
-      if (!pipeline.installationId) {
+      if (!pipeline.repositoryId || !pipeline.installationId) {
         throw new Error('Pipeline repository is not configured or repository does not have reapit github app installed')
       }
 
       const s3BuildLogsLocation = `arn:aws:s3:::${process.env.DEPLOYMENT_LOG_BUCKET_NAME}`
 
       const repoLocation = await downloadSourceToS3(pipeline, pipelineRunner)
-
-      console.log('location', repoLocation)
 
       try {
         const start = codebuild.startBuild({

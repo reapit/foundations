@@ -8,12 +8,24 @@ import { defaultOutputHeaders, QueueNames } from '../constants'
 import * as service from '../services'
 import { PipelineRunnerType } from '@reapit/foundations-ts-definitions'
 
-type GithubCommitEvent = { ref: string; commits: any[]; repository: { html_url: string }; installation: { id: number } }
-type GithubRepoInstallation = { installation: { id: number }; repositories_added: { full_name: string }[] }
+type GithubCommitEvent = {
+  ref: string
+  commits: any[]
+  repository: { html_url: string; id: number }
+  installation: { id: number }
+}
+type GithubRepoInstallation = {
+  installation: { id: number }
+  repositories_added: { full_name: string; id: number }[]
+  repositories: { full_name: string; id: number }[]
+}
 
 const isCommitEvent = (value: any): value is GithubCommitEvent => value.ref && value.commits
 const isRepoInstallEvent = (value: any): value is GithubRepoInstallation =>
-  value.action && value.action === 'added' && value.repositories_added && value.installation
+  value.action &&
+  (value.action === 'added' || value.action === 'created') &&
+  (value.repositories_added || value.repositories) &&
+  value.installation
 
 export const githubWebhook = httpHandler<GithubCommitEvent | GithubRepoInstallation, void>({
   defaultOutputHeaders,
@@ -21,9 +33,9 @@ export const githubWebhook = httpHandler<GithubCommitEvent | GithubRepoInstallat
     // TODO auth with github
 
     if (isCommitEvent(body)) {
-      const installationId = body.installation.id
+      const repositoryId = body.repository.id
 
-      const pipeline = await service.findPipelineByInstallationId(installationId)
+      const pipeline = await service.findPipelineByRepositoryId(repositoryId)
 
       if (!pipeline) {
         throw new NotFoundException()
@@ -56,8 +68,9 @@ export const githubWebhook = httpHandler<GithubCommitEvent | GithubRepoInstallat
         ),
       )
     } else if (isRepoInstallEvent(body)) {
+      const repositories = body.repositories_added || body.repositories
       await Promise.all(
-        body.repositories_added.map(async (repository) => {
+        repositories.map(async (repository) => {
           const repo = `https://github.com/${repository.full_name}`
 
           const pipeline = await service.findPipelineByRepo(repo)
@@ -68,6 +81,7 @@ export const githubWebhook = httpHandler<GithubCommitEvent | GithubRepoInstallat
 
           return service.updatePipelineEntity(pipeline, {
             installationId: body.installation.id,
+            repositoryId: repository.id,
           })
         }),
       )
