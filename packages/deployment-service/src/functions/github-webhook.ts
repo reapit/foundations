@@ -18,10 +18,8 @@ const isRepoInstallEvent = (value: any): value is GithubRepoInstallation =>
 export const githubWebhook = httpHandler<GithubCommitEvent | GithubRepoInstallation, void>({
   defaultOutputHeaders,
   handler: async ({ body }) => {
-
     // TODO auth with github
 
-    
     if (isCommitEvent(body)) {
       const installationId = body.installation.id
 
