@@ -36,6 +36,7 @@
     "conf": "yarn config-manager --namespace cloud --entity deployment-service --name local --mode fetch",
     "migration:generate": "ts-node -P ./tsconfig.json ../../node_modules/.bin/typeorm migration:generate",
     "migration:run": "ts-node -P ./tsconfig.json ../../node_modules/.bin/typeorm migration:run",
+    "migration:create": "ts-node -P ./tsconfig.json ../../node_modules/.bin/typeorm migration:create",
     "migration:revert": "ts-node -P ./tsconfig.json ../../node_modules/.bin/typeorm migration:revert"
   },
   "devDependencies": {
