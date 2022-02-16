@@ -74,7 +74,7 @@ export const codebuildExecutor: SQSHandler = async (
         throw new Error('pipeline not found')
       }
 
-      if (!pipeline.repositoryId || !pipeline.installationId) {
+      if (!pipeline.installationId) {
         throw new Error('Pipeline repository is not configured or repository does not have reapit github app installed')
       }
 
