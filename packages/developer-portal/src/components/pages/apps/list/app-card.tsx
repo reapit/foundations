@@ -7,7 +7,7 @@ import { SendFunction, useReapitUpdate } from '@reapit/utils-react'
 import { updateActions, UpdateActionNames } from '@reapit/utils-common'
 import { reapitConnectBrowserSession } from '../../../../core/connect-session'
 import { navigate } from '../../../../utils/navigation'
-import defaultAppIcon from '../../../assets/images/default-app-icon.jpg'
+import defaultAppIcon from '../../../../assets/images/default-app-icon.jpg'
 
 export const handleDeleteApp = (deleteApp: SendFunction<void, boolean>) => (event?: MouseEvent) => {
   event?.stopPropagation()
