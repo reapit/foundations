@@ -291,13 +291,12 @@ exports[`DeveloperAppDetail should match a snapshot 1`] = `
                                 <Button
                                   className="mb-2"
                                   dataTest="detail-modal-edit-button"
-                                  fullWidth={true}
                                   onClick={[Function]}
                                   type="button"
                                   variant="primary"
                                 >
                                   <button
-                                    className="button is-fullwidth  is-primary mb-2"
+                                    className="button   is-primary mb-2"
                                     data-test="detail-modal-edit-button"
                                     disabled={false}
                                     onClick={[Function]}
@@ -308,12 +307,11 @@ exports[`DeveloperAppDetail should match a snapshot 1`] = `
                                 </Button>
                                 <Button
                                   className="mb-2"
-                                  fullWidth={true}
                                   onClick={[Function]}
                                   variant="danger"
                                 >
                                   <button
-                                    className="button is-fullwidth  is-danger mb-2"
+                                    className="button   is-danger mb-2"
                                     data-test=""
                                     disabled={false}
                                     onClick={[Function]}

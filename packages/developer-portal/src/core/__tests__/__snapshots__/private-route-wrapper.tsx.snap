@@ -17,7 +17,6 @@ exports[`PrivateRouteWrapper should match snapshot 1`] = `
           <Section>
             <Loader
               fullPage={true}
-              label="Loading"
             />
           </Section>
         }

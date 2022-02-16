@@ -9,6 +9,8 @@ import { MediaStateProvider, NavStateProvider, SnackProvider } from '@reapit/ele
 import configureStore from 'redux-mock-store'
 import appState from '../reducers/__stubs__/app-state'
 import { ReduxState } from '../types/core'
+import { Router } from 'react-router-dom'
+import { createBrowserHistory } from 'history'
 
 class ReduxTestState {
   state: ReduxState
@@ -43,13 +45,16 @@ const CombinedProvider: FC = ({ children }) => {
   const mockStore = configureStore()
   // Before first render, provider will instantiate the current value of the store
   const store = mockStore({ ...reduxTestState.state })
+  const history = createBrowserHistory()
   return (
     <Provider store={store}>
-      <SnackProvider>
-        <NavStateProvider>
-          <MediaStateProvider>{children}</MediaStateProvider>
-        </NavStateProvider>
-      </SnackProvider>
+      <Router history={history}>
+        <SnackProvider>
+          <NavStateProvider>
+            <MediaStateProvider>{children}</MediaStateProvider>
+          </NavStateProvider>
+        </SnackProvider>
+      </Router>
     </Provider>
   )
 }

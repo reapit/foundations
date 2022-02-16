@@ -1197,42 +1197,6 @@ exports[`App Detail edit V8 should match a snapshot 1`] = `
                       </section>
                     </ElPageContainer>
                   </PageContainer>
-                  <SubmitAppWizardModal
-                    onClose={[Function]}
-                    visible={false}
-                  >
-                    <SubmitAppWizard
-                      onClose={[Function]}
-                      visible={false}
-                    >
-                      <ModalV2
-                        isCentered={true}
-                        isPadding={false}
-                        onClose={[Function]}
-                        title="Before you start"
-                        visible={false}
-                      >
-                        <Dialog
-                          className="m36ncwu-modal-container"
-                          closeIcon={
-                            <span
-                              aria-label="close"
-                              className="delete"
-                            />
-                          }
-                          destroyOnClose={true}
-                          onClose={[Function]}
-                          title={
-                            <ModalHeaderV2>
-                              Before you start
-                            </ModalHeaderV2>
-                          }
-                          visible={false}
-                          wrapClassName="m140lwlu-modal-centered mhi5uvy-modal-no-padding"
-                        />
-                      </ModalV2>
-                    </SubmitAppWizard>
-                  </SubmitAppWizardModal>
                 </div>
               </ElFlexContainer>
             </FlexContainer>

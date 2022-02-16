@@ -28,8 +28,6 @@ import {
 } from '@reapit/elements'
 import { navigate, openNewPage, ExternalPages } from '../../../utils/navigation'
 import Routes from '@/constants/routes'
-import { onCloseSubmitAppModal, onShowSubmitAppModal } from '../apps/apps'
-import { SubmitAppWizardModal } from '@/components/ui/submit-app-wizard'
 import ErrorBoundary from '@/components/hocs/error-boundary'
 import { AppPipeline } from './pipeline'
 import { MEDIA_INDEX } from '@/constants/media'
@@ -88,7 +86,6 @@ const AppDetailV8Edit: React.FC<AppDetailEditProps> = () => {
   const location = useLocation()
   const history = useHistory()
   const { pathname } = location
-  const [submitAppModalVisible, setSubmitAppModalVisible] = useState<boolean>(false)
 
   if (isLoadingAppDetail || isLoadingInstallations || unfetch) {
     return <Loader label="Loading" fullPage />
@@ -100,10 +97,7 @@ const AppDetailV8Edit: React.FC<AppDetailEditProps> = () => {
         <SecondaryNavContainer>
           <Title>Apps</Title>
           <SecondaryNav className={elMb8}>
-            <SecondaryNavItem
-              onClick={navigate(history, Routes.APPS)}
-              active={pathname === Routes.APPS && !submitAppModalVisible}
-            >
+            <SecondaryNavItem onClick={navigate(history, Routes.APPS)} active={pathname === Routes.APPS}>
               My Apps
             </SecondaryNavItem>
             <SecondaryNavItem
@@ -118,7 +112,7 @@ const AppDetailV8Edit: React.FC<AppDetailEditProps> = () => {
             >
               Edit App
             </SecondaryNavItem>
-            <SecondaryNavItem onClick={onShowSubmitAppModal(setSubmitAppModalVisible)} active={submitAppModalVisible}>
+            <SecondaryNavItem onClick={navigate(history, Routes.APPS_NEW)} active={pathname === Routes.APPS_NEW}>
               Create New App
             </SecondaryNavItem>
           </SecondaryNav>
@@ -167,10 +161,6 @@ const AppDetailV8Edit: React.FC<AppDetailEditProps> = () => {
           ></Tabs>
           <AppDetailsTabs tab={tab} />
         </PageContainer>
-        <SubmitAppWizardModal
-          visible={submitAppModalVisible}
-          onClose={onCloseSubmitAppModal(setSubmitAppModalVisible)}
-        />
       </FlexContainer>
     </ErrorBoundary>
   )
