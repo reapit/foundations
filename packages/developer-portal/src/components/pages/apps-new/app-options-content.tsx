@@ -41,7 +41,7 @@ export const AppOptionsContent: FC = () => {
         onClick={handleSetAppWizardState(setAppWizardState, AppNewStepId.websiteFeedStep)}
       >
         <Icon className={elMr8} fontSize="2rem" icon="feedAltInfographic" />
-        <StepOptionItemText>Webside Feed</StepOptionItemText>
+        <StepOptionItemText>Website Feed</StepOptionItemText>
         {nextStep === AppNewStepId.websiteFeedStep && <Icon icon="tickSolidSystem" intent="primary" />}
       </StepOptionItem>
       <StepOptionItem

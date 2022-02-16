@@ -1,6 +1,5 @@
 import React, { FC } from 'react'
 import { useHistory } from 'react-router'
-import { History } from 'history'
 import ErrorBoundary from '../../hocs/error-boundary'
 import { AppSummaryModelPagedResult } from '@reapit/foundations-ts-definitions'
 import Routes from '../../../constants/routes'
@@ -32,8 +31,6 @@ import AppsNewPage from '../apps-new'
 import AppsDetailPage from '../app-detail'
 import AppsEditPage from '../edit-app'
 import PrivateRoute from '../../../core/private-route'
-
-export const handleOnChange = (history: History) => (page: number) => history.push(`${Routes.APPS}?page=${page}`)
 
 export const Apps: FC = () => {
   const history = useHistory()

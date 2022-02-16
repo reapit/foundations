@@ -1,431 +1,816 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`Login should match a snapshot 1`] = `
-<Provider
-  store={
-    Object {
-      "clearActions": [Function],
-      "dispatch": [Function],
-      "getActions": [Function],
-      "getState": [Function],
-      "replaceReducer": [Function],
-      "subscribe": [Function],
-    }
-  }
->
-  <MemoryRouter
-    initialEntries={
-      Array [
-        Object {
-          "key": "developerHomeRoute",
-          "pathname": "/apps",
-        },
-      ]
-    }
-  >
-    <Router
-      history={
-        Object {
-          "action": "POP",
-          "block": [Function],
-          "canGo": [Function],
-          "createHref": [Function],
-          "entries": Array [
-            Object {
-              "hash": "",
-              "key": "developerHomeRoute",
-              "pathname": "/apps",
-              "search": "",
-            },
-          ],
-          "go": [Function],
-          "goBack": [Function],
-          "goForward": [Function],
-          "index": 0,
-          "length": 1,
-          "listen": [Function],
-          "location": Object {
-            "hash": "",
-            "key": "developerHomeRoute",
-            "pathname": "/apps",
-            "search": "",
-          },
-          "push": [Function],
-          "replace": [Function],
-        }
-      }
-    >
-      <Apps>
-        <Connect(ErrorBoundary)>
-          <ErrorBoundary
-            componentError={null}
-            errorThrownComponent={[Function]}
+exports[`AppsPage should match a snapshot 1`] = `
+Object {
+  "asFragment": [Function],
+  "baseElement": <body>
+    <div>
+      <div
+        class="ecbqyq6-el-snack-holder"
+      />
+      <div
+        class="e1q0zwo9-el-flex-justify-between e2kmzjs-el-flex-container"
+      >
+        <h1
+          class="e2dm5rh-el-title"
+        >
+          My Apps
+        </h1>
+      </div>
+      <div
+        class="e20pb60-el-grid"
+      >
+        <div
+          class="e14pp0yd-el-col"
+        >
+          <div
+            class="e6p05ya-el-fade-in ertn4py-el-card-wrap"
           >
-            <FlexContainer
-              isFlexAuto={true}
-            >
-              <ElFlexContainer
-                className="eoxpwv-el-flex-auto"
-              >
-                <div
-                  className="eoxpwv-el-flex-auto e2kmzjs-el-flex-container"
-                >
-                  <SecondaryNavContainer>
-                    <ElSecondaryNavContainer>
-                      <aside
-                        className="e93m1fg-el-secondary-nav-container"
-                      >
-                        <Title>
-                          <ElTitle
-                            className=""
-                          >
-                            <h1
-                              className="e2dm5rh-el-title"
-                            >
-                              Apps
-                            </h1>
-                          </ElTitle>
-                        </Title>
-                        <SecondaryNav
-                          className="e5lndhu-el-mb8"
-                        >
-                          <ElSecondaryNav
-                            className="e5lndhu-el-mb8"
-                          >
-                            <div
-                              className="e5lndhu-el-mb8 e125gftx-el-secondary-nav"
-                            >
-                              <SecondaryNavItem
-                                active={true}
-                                onClick={[Function]}
-                              >
-                                <ElSecondaryNavItem
-                                  className="evmehgn-el-is-active"
-                                  onClick={[Function]}
-                                >
-                                  <div
-                                    className="evmehgn-el-is-active e1ohezfm-el-secondary-nav-item"
-                                    onClick={[Function]}
-                                  >
-                                    My Apps
-                                  </div>
-                                </ElSecondaryNavItem>
-                              </SecondaryNavItem>
-                              <SecondaryNavItem
-                                active={false}
-                                onClick={[Function]}
-                              >
-                                <ElSecondaryNavItem
-                                  className=""
-                                  onClick={[Function]}
-                                >
-                                  <div
-                                    className="e1ohezfm-el-secondary-nav-item"
-                                    onClick={[Function]}
-                                  >
-                                    Create New App
-                                  </div>
-                                </ElSecondaryNavItem>
-                              </SecondaryNavItem>
-                            </div>
-                          </ElSecondaryNav>
-                        </SecondaryNav>
-                        <Icon
-                          className="esplruv-el-mb3"
-                          icon="myAppsInfographic"
-                          iconSize="large"
-                        >
-                          <ElIcon
-                            className="esplruv-el-mb3 e143qafr-el-icon-size-large"
-                            style={
-                              Object {
-                                "fontSize": undefined,
-                              }
-                            }
-                          >
-                            <span
-                              className="esplruv-el-mb3 e143qafr-el-icon-size-large ej9yrfo-el-icon"
-                              style={
-                                Object {
-                                  "fontSize": undefined,
-                                }
-                              }
-                            >
-                              <Memo()>
-                                <svg
-                                  fill="none"
-                                  height="1em"
-                                  viewBox="0 0 80 81"
-                                  width="1em"
-                                  xmlns="http://www.w3.org/2000/svg"
-                                >
-                                  <path
-                                    d="M68.0839 32.5781L39.9172 22.6511L11.7505 32.5781L39.9172 42.6555L68.0839 32.5781Z"
-                                    fill="#23A4DE"
-                                  />
-                                  <path
-                                    d="M68.0842 32.5781L39.9175 22.6511V42.6555L68.0842 32.5781Z"
-                                    fill="#0061A8"
-                                  />
-                                  <path
-                                    d="M50.5783 7.46606H28.611C26.4797 7.46606 24.7457 9.23906 24.7457 11.4178V58.7411C24.7457 60.9199 26.4797 62.6929 28.611 62.6929H50.5783C52.7097 62.6929 54.4441 60.9199 54.4441 58.7411V11.4178C54.4441 9.23906 52.7097 7.46606 50.5783 7.46606V7.46606Z"
-                                    fill="#262F69"
-                                  />
-                                  <path
-                                    d="M32.189 10.3965C31.9798 10.0786 31.8576 9.69614 31.8576 9.28426C31.8576 8.47572 32.3286 7.78095 33.0042 7.46606H28.6113C26.4764 7.46606 24.7455 9.2355 24.7455 11.4178V58.7411C24.7455 60.9235 26.4764 62.6924 28.6113 62.6924H33.2815V13.8597C33.2815 12.6169 32.8676 11.428 32.189 10.3965Z"
-                                    fill="#262F69"
-                                  />
-                                  <path
-                                    d="M26.9832 32.426V58.7411C26.9832 59.6603 27.712 60.4054 28.6108 60.4054H50.578C51.4768 60.4054 52.2056 59.6603 52.2056 58.7411C52.2056 57.8381 52.2056 44.6557 52.2056 32.426H26.9832Z"
-                                    fill="#262F69"
-                                  />
-                                  <path
-                                    d="M50.5653 9.75391H47.3006C46.9926 9.75391 46.7432 10.0089 46.7432 10.3232C46.7432 11.0784 46.1391 11.696 45.4008 11.696H33.7636C33.0248 11.696 32.4207 11.0784 32.4207 10.3232C32.4207 10.0089 32.1712 9.75391 31.8632 9.75391H28.5986C27.6993 9.75391 26.9705 10.499 26.9705 11.4177V48.7548H52.1934V11.4177C52.1934 10.499 51.4645 9.75391 50.5653 9.75391Z"
-                                    fill="white"
-                                  />
-                                  <path
-                                    d="M28.9352 28.5258L39.6076 18.0381L50.2801 28.5258V43.0087H28.9352V28.5258Z"
-                                    fill="#262F69"
-                                  />
-                                  <path
-                                    d="M28.9352 28.5258L39.6076 18.0381L50.2801 28.5258V36.7661L28.9352 28.5258Z"
-                                    fill="#7BC9EB"
-                                  />
-                                  <path
-                                    d="M50.2801 43.0087H44.0328L35.1825 22.3866L39.6077 18.0381L50.2801 28.5258V43.0087Z"
-                                    fill="#0061A8"
-                                  />
-                                  <path
-                                    d="M50.2801 28.5258V36.7661L39.6077 32.6977L35.1825 22.3866L39.6077 18.0381L50.2801 28.5258Z"
-                                    fill="#32BCFA"
-                                  />
-                                  <path
-                                    d="M39.9172 42.6831L11.7505 32.5779V68.9179L39.9172 78.0015V42.6831Z"
-                                    fill="#31448F"
-                                  />
-                                  <path
-                                    d="M68.0842 68.9179V32.5779L39.9175 42.6831V78.0015L68.0842 68.9179Z"
-                                    fill="#262F69"
-                                  />
-                                  <path
-                                    d="M11.7504 32.5784L1.99976 44.3104L30.6966 54.9142L39.9171 42.6558L11.7504 32.5784Z"
-                                    fill="#7BC9EB"
-                                  />
-                                  <path
-                                    d="M68.0842 32.5781L77.8381 44.3101L49.1413 54.9139L39.9175 42.6555L68.0842 32.5781Z"
-                                    fill="#FABE3D"
-                                  />
-                                  <path
-                                    d="M68.0842 32.5779L77.8381 44.3099L49.1413 54.9137L39.9175 42.6553L68.0842 32.5779Z"
-                                    fill="#23A4DE"
-                                  />
-                                  <rect
-                                    fill="#FFE5C7"
-                                    height="10.2818"
-                                    rx="4"
-                                    transform="matrix(0.762524 -0.64696 0.631676 0.775232 44.3977 27.4504)"
-                                    width="10.2439"
-                                  />
-                                  <rect
-                                    fill="#FFB71B"
-                                    height="19.3572"
-                                    rx="6"
-                                    transform="matrix(0.849949 0.526866 -0.514212 0.857663 19.7162 2)"
-                                    width="19.2099"
-                                  />
-                                  <rect
-                                    fill="#FFE5C7"
-                                    height="7.85"
-                                    rx="3"
-                                    transform="matrix(0.950312 0.311297 -0.302034 0.953297 58.7117 2.60693)"
-                                    width="7.74445"
-                                  />
-                                </svg>
-                              </Memo()>
-                            </span>
-                          </ElIcon>
-                        </Icon>
-                        <Subtitle>
-                          <ElSubtitle
-                            className=""
-                          >
-                            <h2
-                              className="evblxhy-el-subtitle"
-                            >
-                              Apps Documentation
-                            </h2>
-                          </ElSubtitle>
-                        </Subtitle>
-                        <SmallText
-                          hasGreyText={true}
-                        >
-                          <ElSmallText
-                            className="e11jaxfn-el-has-grey-text"
-                          >
-                            <p
-                              className="e11jaxfn-el-has-grey-text e15ggth7-el-small-text"
-                            >
-                              This is the dashboard for your applications created using the Reapit Foundations platform. If you have not created an app before or you need help, please take the time to view our getting started guide.
-                            </p>
-                          </ElSmallText>
-                        </SmallText>
-                        <Button
-                          className="esplruv-el-mb3"
-                          intent="neutral"
-                          onClick={[Function]}
-                        >
-                          <ElButton
-                            className="esplruv-el-mb3 e1fle5tm-el-intent-neutral"
-                            onClick={[Function]}
-                          >
-                            <button
-                              className="esplruv-el-mb3 e1fle5tm-el-intent-neutral e1f2ikqj-el-button"
-                              onClick={[Function]}
-                            >
-                              View Docs
-                            </button>
-                          </ElButton>
-                        </Button>
-                      </aside>
-                    </ElSecondaryNavContainer>
-                  </SecondaryNavContainer>
-                  <PageContainer
-                    className="e12d7zo5-el-hfull"
-                  >
-                    <ElPageContainer
-                      className="e12d7zo5-el-hfull"
-                    >
-                      <section
-                        className="e12d7zo5-el-hfull eukst9x-el-page-container"
-                      >
-                        <FlexContainer
-                          isFlexJustifyBetween={true}
-                        >
-                          <ElFlexContainer
-                            className="e1q0zwo9-el-flex-justify-between"
-                          >
-                            <div
-                              className="e1q0zwo9-el-flex-justify-between e2kmzjs-el-flex-container"
-                            >
-                              <Title>
-                                <ElTitle
-                                  className=""
-                                >
-                                  <h1
-                                    className="e2dm5rh-el-title"
-                                  >
-                                    My Apps
-                                  </h1>
-                                </ElTitle>
-                              </Title>
-                            </div>
-                          </ElFlexContainer>
-                        </FlexContainer>
-                        <AppList
-                          infoType="DEVELOPER_APPS_EMPTY"
-                          list={Array []}
-                          loading={false}
-                          onCardClick={[Function]}
-                        >
-                          <div
-                            className="mb-4"
-                          >
-                            <Helper
-                              variant="info"
-                            >
-                              <div
-                                className="notification helper-wrap helper-info"
-                              >
-                                It looks like you haven’t submitted an App yet. When you’re ready, click on ‘Create New App’ to get started.
-                              </div>
-                            </Helper>
-                          </div>
-                        </AppList>
-                        <Pagination
-                          onChange={[Function]}
-                          pageNumber={1}
-                        />
-                      </section>
-                    </ElPageContainer>
-                  </PageContainer>
-                </div>
-              </ElFlexContainer>
-            </FlexContainer>
-            <SubmitAppWizardModal
-              onClose={[Function]}
-              visible={false}
-            >
-              <SubmitAppWizard
-                onClose={[Function]}
-                visible={false}
-              >
-                <ModalV2
-                  isCentered={true}
-                  isPadding={false}
-                  onClose={[Function]}
-                  title="Before you start"
-                  visible={false}
-                >
-                  <Dialog
-                    className="m36ncwu-modal-container"
-                    closeIcon={
-                      <span
-                        aria-label="close"
-                        className="delete"
-                      />
-                    }
-                    destroyOnClose={true}
-                    onClose={[Function]}
-                    title={
-                      <ModalHeaderV2>
-                        Before you start
-                      </ModalHeaderV2>
-                    }
-                    visible={false}
-                    wrapClassName="m140lwlu-modal-centered mhi5uvy-modal-no-padding"
-                  />
-                </ModalV2>
-              </SubmitAppWizard>
-            </SubmitAppWizardModal>
-            <SandboxPopUp
-              loading={false}
+            <div
+              class="ec7f1kt-el-card-context-menu-wrapper"
             >
               <div
-                className="w1hg8kxc-wrap-popup"
+                class="ewpy0cr-el-card-context-menu-toggle"
               >
-                <ToastMessage
-                  message="This is a sandbox environment, with anonymised test data and isolated from production"
-                  onCloseToast={[Function]}
-                  variant="primary"
-                  visible={false}
+                <span
+                  class="ej9yrfo-el-icon"
+                  style="font-size: 1.25rem;"
                 >
-                  <div
-                    className="toast"
-                    data-test="toast-wrapper"
-                    onClick={[Function]}
+                  <svg
+                    fill="none"
+                    height="1em"
+                    viewBox="0 0 20 20"
+                    width="1em"
+                    xmlns="http://www.w3.org/2000/svg"
                   >
-                    <Button
-                      fullWidth={true}
-                      type="reset"
-                      variant="primary"
-                    >
-                      <button
-                        className="button is-fullwidth  is-primary "
-                        data-test=""
-                        disabled={false}
-                        type="reset"
-                      >
-                        This is a sandbox environment, with anonymised test data and isolated from production
-                      </button>
-                    </Button>
-                  </div>
-                </ToastMessage>
+                    <circle
+                      cx="19"
+                      cy="4"
+                      fill="currentColor"
+                      r="1"
+                    />
+                    <circle
+                      cx="19"
+                      cy="10"
+                      fill="currentColor"
+                      r="1"
+                    />
+                    <circle
+                      cx="19"
+                      cy="16"
+                      fill="currentColor"
+                      r="1"
+                    />
+                  </svg>
+                </span>
               </div>
-            </SandboxPopUp>
-          </ErrorBoundary>
-        </Connect(ErrorBoundary)>
-      </Apps>
-    </Router>
-  </MemoryRouter>
-</Provider>
+              <div
+                class="eh85zp4-el-card-context-menu-items"
+              >
+                <div
+                  class="euknxbk-el-card-context-menu-item"
+                >
+                  <span
+                    class="ej9yrfo-el-icon"
+                  >
+                    <svg
+                      fill="none"
+                      height="1em"
+                      viewBox="0 0 20 20"
+                      width="1em"
+                      xmlns="http://www.w3.org/2000/svg"
+                    >
+                      <path
+                        clip-rule="evenodd"
+                        d="M15.8336 17.2478C16.1265 17.5407 16.6014 17.5407 16.8943 17.2478C17.1872 16.955 17.1872 16.4801 16.8943 16.1872L10.7071 10L16.8943 3.81282C17.1872 3.51992 17.1872 3.04505 16.8943 2.75216C16.6014 2.45926 16.1265 2.45926 15.8336 2.75216L9.64643 8.93934L3.8128 3.10571C3.51991 2.81282 3.04503 2.81282 2.75214 3.10571C2.45925 3.3986 2.45925 3.87348 2.75214 4.16637L8.58577 10L2.75214 15.8336C2.45925 16.1265 2.45925 16.6014 2.75214 16.8943C3.04503 17.1872 3.51991 17.1872 3.8128 16.8943L9.64643 11.0607L15.8336 17.2478Z"
+                        fill="currentColor"
+                        fill-rule="evenodd"
+                      />
+                    </svg>
+                  </span>
+                </div>
+                <div
+                  class="euknxbk-el-card-context-menu-item"
+                >
+                  <span
+                    class="ej9yrfo-el-icon"
+                  >
+                    <svg
+                      fill="none"
+                      height="1em"
+                      viewBox="0 0 20 20"
+                      width="1em"
+                      xmlns="http://www.w3.org/2000/svg"
+                    >
+                      <path
+                        d="M1.05582 19.5H1.18758L7.54482 18.1165C7.66865 18.0959 7.78339 18.0385 7.87418 17.9518L18.6452 7.1808C19.432 6.39567 19.871 5.32777 19.8639 4.21632C19.8654 3.09622 19.4278 2.02019 18.6452 1.21886C17.8601 0.432032 16.7922 -0.00696545 15.6807 0.000158881C14.5621 -0.00973953 13.4892 0.443255 12.7162 1.25184L1.97807 12.0228C1.88337 12.099 1.81434 12.2025 1.78042 12.3193L0.397035 18.6765C0.35927 18.9047 0.432657 19.1373 0.594688 19.3024C0.716306 19.4265 0.882058 19.4975 1.05582 19.5ZM15.6807 1.31772C17.2634 1.31759 18.5464 2.60054 18.5466 4.18322C18.5466 4.19425 18.5465 4.20528 18.5464 4.21632C18.5572 4.9703 18.2597 5.69603 17.7229 6.22557L13.6714 2.14112C14.2052 1.6107 14.9282 1.31438 15.6807 1.31772ZM12.7491 3.09641L16.8006 7.14788L7.41299 16.5025L3.36152 12.4839L12.7491 3.09641ZM2.8345 13.8016L6.09543 17.0625L1.91219 17.9848L2.8345 13.8016Z"
+                        fill="currentColor"
+                      />
+                    </svg>
+                  </span>
+                </div>
+                <div
+                  class="euknxbk-el-card-context-menu-item"
+                >
+                  <span
+                    class="e1vxext9-el-intent-danger ej9yrfo-el-icon"
+                  >
+                    <svg
+                      fill="none"
+                      height="1em"
+                      viewBox="0 0 20 20"
+                      width="1em"
+                      xmlns="http://www.w3.org/2000/svg"
+                    >
+                      <path
+                        d="M16.5625 2.5H13.125V1.875C13.125 0.841133 12.2839 0 11.25 0H8.75C7.71613 0 6.875 0.841133 6.875 1.875V2.5H3.4375C2.57594 2.5 1.875 3.20094 1.875 4.0625V6.25C1.875 6.59516 2.15484 6.875 2.5 6.875H2.84156L3.38152 18.2142C3.42922 19.2156 4.25187 20 5.25437 20H14.7456C15.7482 20 16.5708 19.2156 16.6185 18.2142L17.1584 6.875H17.5C17.8452 6.875 18.125 6.59516 18.125 6.25V4.0625C18.125 3.20094 17.4241 2.5 16.5625 2.5ZM8.125 1.875C8.125 1.53039 8.40539 1.25 8.75 1.25H11.25C11.5946 1.25 11.875 1.53039 11.875 1.875V2.5H8.125V1.875ZM3.125 4.0625C3.125 3.8902 3.2652 3.75 3.4375 3.75H16.5625C16.7348 3.75 16.875 3.8902 16.875 4.0625V5.625C16.6824 5.625 3.92316 5.625 3.125 5.625V4.0625ZM15.3699 18.1547C15.354 18.4885 15.0798 18.75 14.7456 18.75H5.25437C4.9202 18.75 4.64598 18.4885 4.63012 18.1547L4.09297 6.875H15.907L15.3699 18.1547Z"
+                        fill="currentColor"
+                      />
+                      <path
+                        d="M10 17.5C10.3452 17.5 10.625 17.2202 10.625 16.875V8.75C10.625 8.40484 10.3452 8.125 10 8.125C9.65484 8.125 9.375 8.40484 9.375 8.75V16.875C9.375 17.2202 9.6548 17.5 10 17.5Z"
+                        fill="currentColor"
+                      />
+                      <path
+                        d="M13.125 17.5C13.4702 17.5 13.75 17.2202 13.75 16.875V8.75C13.75 8.40484 13.4702 8.125 13.125 8.125C12.7798 8.125 12.5 8.40484 12.5 8.75V16.875C12.5 17.2202 12.7798 17.5 13.125 17.5Z"
+                        fill="currentColor"
+                      />
+                      <path
+                        d="M6.875 17.5C7.22016 17.5 7.5 17.2202 7.5 16.875V8.75C7.5 8.40484 7.22016 8.125 6.875 8.125C6.52984 8.125 6.25 8.40484 6.25 8.75V16.875C6.25 17.2202 6.5298 17.5 6.875 17.5Z"
+                        fill="currentColor"
+                      />
+                    </svg>
+                  </span>
+                </div>
+              </div>
+            </div>
+            <div
+              class="e1sw79q5-el-card-main-wrap"
+            >
+              <div
+                class="e1bgmgin-el-card-image-wrap"
+              >
+                <img
+                  src="https://reapit-app-store-app-media.s3.eu-west-2.amazonaws.com/d10e790c-2bf2-40ae-9c43-82c1534bde31.png"
+                />
+              </div>
+              <div
+                class="e1rjwng7-el-card-heading-wrap"
+              >
+                <h5
+                  class="e1n8fwu7-el-card-heading"
+                >
+                  test
+                </h5>
+                <h6
+                  class="e160zim8-el-card-sub-heading"
+                >
+                  Pete's Proptech World Ltd
+                </h6>
+                <h6
+                  class="e1nfyxby-el-card-sub-heading-additional"
+                />
+              </div>
+              <button
+                class="e17hzamr-el-mobile-toggle"
+              >
+                <span
+                  class="ej9yrfo-el-icon"
+                >
+                  <svg
+                    fill="none"
+                    height="1em"
+                    viewBox="0 0 12 12"
+                    width="1em"
+                    xmlns="http://www.w3.org/2000/svg"
+                  >
+                    <path
+                      clip-rule="evenodd"
+                      d="M11.0498 3.17368L6.00273 8.55662L0.956931 3.17508C0.738006 2.94162 0.383056 2.94165 0.164132 3.1751C-0.054715 3.40862 -0.0547118 3.78713 0.164149 4.02062L5.60635 9.82494C5.82527 10.0584 6.1802 10.0583 6.39913 9.82493L11.8413 4.02064L11.8426 4.01921C12.0577 3.78166 12.0516 3.40311 11.8288 3.17369C11.6116 2.94991 11.2671 2.94989 11.0498 3.17368Z"
+                      fill="currentColor"
+                      fill-rule="evenodd"
+                    />
+                  </svg>
+                </span>
+              </button>
+            </div>
+            <div
+              class="em92f2t-el-card-body-wrap"
+            >
+              nXXT2zaK807ysWgy8F0WEhIYRP3TgosAtfuiLtQCImoSx0kynxbIF0nkGHU36Oz13kM3DG0Bcsicr8L6eWFKLBg4axlmiOEWcvwHAbBP9LRvoFkCl58k1wjhOExnpaZItEyOT1AXVKv8PE44aMGtVz
+            </div>
+          </div>
+        </div>
+        <div
+          class="e14pp0yd-el-col"
+        >
+          <div
+            class="e6p05ya-el-fade-in ertn4py-el-card-wrap"
+          >
+            <div
+              class="ec7f1kt-el-card-context-menu-wrapper"
+            >
+              <div
+                class="ewpy0cr-el-card-context-menu-toggle"
+              >
+                <span
+                  class="ej9yrfo-el-icon"
+                  style="font-size: 1.25rem;"
+                >
+                  <svg
+                    fill="none"
+                    height="1em"
+                    viewBox="0 0 20 20"
+                    width="1em"
+                    xmlns="http://www.w3.org/2000/svg"
+                  >
+                    <circle
+                      cx="19"
+                      cy="4"
+                      fill="currentColor"
+                      r="1"
+                    />
+                    <circle
+                      cx="19"
+                      cy="10"
+                      fill="currentColor"
+                      r="1"
+                    />
+                    <circle
+                      cx="19"
+                      cy="16"
+                      fill="currentColor"
+                      r="1"
+                    />
+                  </svg>
+                </span>
+              </div>
+              <div
+                class="eh85zp4-el-card-context-menu-items"
+              >
+                <div
+                  class="euknxbk-el-card-context-menu-item"
+                >
+                  <span
+                    class="ej9yrfo-el-icon"
+                  >
+                    <svg
+                      fill="none"
+                      height="1em"
+                      viewBox="0 0 20 20"
+                      width="1em"
+                      xmlns="http://www.w3.org/2000/svg"
+                    >
+                      <path
+                        clip-rule="evenodd"
+                        d="M15.8336 17.2478C16.1265 17.5407 16.6014 17.5407 16.8943 17.2478C17.1872 16.955 17.1872 16.4801 16.8943 16.1872L10.7071 10L16.8943 3.81282C17.1872 3.51992 17.1872 3.04505 16.8943 2.75216C16.6014 2.45926 16.1265 2.45926 15.8336 2.75216L9.64643 8.93934L3.8128 3.10571C3.51991 2.81282 3.04503 2.81282 2.75214 3.10571C2.45925 3.3986 2.45925 3.87348 2.75214 4.16637L8.58577 10L2.75214 15.8336C2.45925 16.1265 2.45925 16.6014 2.75214 16.8943C3.04503 17.1872 3.51991 17.1872 3.8128 16.8943L9.64643 11.0607L15.8336 17.2478Z"
+                        fill="currentColor"
+                        fill-rule="evenodd"
+                      />
+                    </svg>
+                  </span>
+                </div>
+                <div
+                  class="euknxbk-el-card-context-menu-item"
+                >
+                  <span
+                    class="ej9yrfo-el-icon"
+                  >
+                    <svg
+                      fill="none"
+                      height="1em"
+                      viewBox="0 0 20 20"
+                      width="1em"
+                      xmlns="http://www.w3.org/2000/svg"
+                    >
+                      <path
+                        d="M1.05582 19.5H1.18758L7.54482 18.1165C7.66865 18.0959 7.78339 18.0385 7.87418 17.9518L18.6452 7.1808C19.432 6.39567 19.871 5.32777 19.8639 4.21632C19.8654 3.09622 19.4278 2.02019 18.6452 1.21886C17.8601 0.432032 16.7922 -0.00696545 15.6807 0.000158881C14.5621 -0.00973953 13.4892 0.443255 12.7162 1.25184L1.97807 12.0228C1.88337 12.099 1.81434 12.2025 1.78042 12.3193L0.397035 18.6765C0.35927 18.9047 0.432657 19.1373 0.594688 19.3024C0.716306 19.4265 0.882058 19.4975 1.05582 19.5ZM15.6807 1.31772C17.2634 1.31759 18.5464 2.60054 18.5466 4.18322C18.5466 4.19425 18.5465 4.20528 18.5464 4.21632C18.5572 4.9703 18.2597 5.69603 17.7229 6.22557L13.6714 2.14112C14.2052 1.6107 14.9282 1.31438 15.6807 1.31772ZM12.7491 3.09641L16.8006 7.14788L7.41299 16.5025L3.36152 12.4839L12.7491 3.09641ZM2.8345 13.8016L6.09543 17.0625L1.91219 17.9848L2.8345 13.8016Z"
+                        fill="currentColor"
+                      />
+                    </svg>
+                  </span>
+                </div>
+                <div
+                  class="euknxbk-el-card-context-menu-item"
+                >
+                  <span
+                    class="e1vxext9-el-intent-danger ej9yrfo-el-icon"
+                  >
+                    <svg
+                      fill="none"
+                      height="1em"
+                      viewBox="0 0 20 20"
+                      width="1em"
+                      xmlns="http://www.w3.org/2000/svg"
+                    >
+                      <path
+                        d="M16.5625 2.5H13.125V1.875C13.125 0.841133 12.2839 0 11.25 0H8.75C7.71613 0 6.875 0.841133 6.875 1.875V2.5H3.4375C2.57594 2.5 1.875 3.20094 1.875 4.0625V6.25C1.875 6.59516 2.15484 6.875 2.5 6.875H2.84156L3.38152 18.2142C3.42922 19.2156 4.25187 20 5.25437 20H14.7456C15.7482 20 16.5708 19.2156 16.6185 18.2142L17.1584 6.875H17.5C17.8452 6.875 18.125 6.59516 18.125 6.25V4.0625C18.125 3.20094 17.4241 2.5 16.5625 2.5ZM8.125 1.875C8.125 1.53039 8.40539 1.25 8.75 1.25H11.25C11.5946 1.25 11.875 1.53039 11.875 1.875V2.5H8.125V1.875ZM3.125 4.0625C3.125 3.8902 3.2652 3.75 3.4375 3.75H16.5625C16.7348 3.75 16.875 3.8902 16.875 4.0625V5.625C16.6824 5.625 3.92316 5.625 3.125 5.625V4.0625ZM15.3699 18.1547C15.354 18.4885 15.0798 18.75 14.7456 18.75H5.25437C4.9202 18.75 4.64598 18.4885 4.63012 18.1547L4.09297 6.875H15.907L15.3699 18.1547Z"
+                        fill="currentColor"
+                      />
+                      <path
+                        d="M10 17.5C10.3452 17.5 10.625 17.2202 10.625 16.875V8.75C10.625 8.40484 10.3452 8.125 10 8.125C9.65484 8.125 9.375 8.40484 9.375 8.75V16.875C9.375 17.2202 9.6548 17.5 10 17.5Z"
+                        fill="currentColor"
+                      />
+                      <path
+                        d="M13.125 17.5C13.4702 17.5 13.75 17.2202 13.75 16.875V8.75C13.75 8.40484 13.4702 8.125 13.125 8.125C12.7798 8.125 12.5 8.40484 12.5 8.75V16.875C12.5 17.2202 12.7798 17.5 13.125 17.5Z"
+                        fill="currentColor"
+                      />
+                      <path
+                        d="M6.875 17.5C7.22016 17.5 7.5 17.2202 7.5 16.875V8.75C7.5 8.40484 7.22016 8.125 6.875 8.125C6.52984 8.125 6.25 8.40484 6.25 8.75V16.875C6.25 17.2202 6.5298 17.5 6.875 17.5Z"
+                        fill="currentColor"
+                      />
+                    </svg>
+                  </span>
+                </div>
+              </div>
+            </div>
+            <div
+              class="e1sw79q5-el-card-main-wrap"
+            >
+              <div
+                class="e1bgmgin-el-card-image-wrap"
+              >
+                <img
+                  src="https://reapit-app-store-app-media.s3.eu-west-2.amazonaws.com/1d38c5ec-e3c0-4138-9fe0-e77bce4034d1.octet-stream"
+                />
+              </div>
+              <div
+                class="e1rjwng7-el-card-heading-wrap"
+              >
+                <h5
+                  class="e1n8fwu7-el-card-heading"
+                >
+                  asd
+                </h5>
+                <h6
+                  class="e160zim8-el-card-sub-heading"
+                >
+                  Pete's Proptech World Ltd
+                </h6>
+                <h6
+                  class="e1nfyxby-el-card-sub-heading-additional"
+                />
+              </div>
+              <button
+                class="e17hzamr-el-mobile-toggle"
+              >
+                <span
+                  class="ej9yrfo-el-icon"
+                >
+                  <svg
+                    fill="none"
+                    height="1em"
+                    viewBox="0 0 12 12"
+                    width="1em"
+                    xmlns="http://www.w3.org/2000/svg"
+                  >
+                    <path
+                      clip-rule="evenodd"
+                      d="M11.0498 3.17368L6.00273 8.55662L0.956931 3.17508C0.738006 2.94162 0.383056 2.94165 0.164132 3.1751C-0.054715 3.40862 -0.0547118 3.78713 0.164149 4.02062L5.60635 9.82494C5.82527 10.0584 6.1802 10.0583 6.39913 9.82493L11.8413 4.02064L11.8426 4.01921C12.0577 3.78166 12.0516 3.40311 11.8288 3.17369C11.6116 2.94991 11.2671 2.94989 11.0498 3.17368Z"
+                      fill="currentColor"
+                      fill-rule="evenodd"
+                    />
+                  </svg>
+                </span>
+              </button>
+            </div>
+            <div
+              class="em92f2t-el-card-body-wrap"
+            >
+              asdQiiAJTmXGxPin7pwUiCsepZWXz1EJS71eGlvgPKH4hpE6J8DRDpzP2kDdOwpQPr4aHCCwWwxBJwzARLa7wMpJh5J61GhmQjLfKZkcDd47L9WEfQYVYAj0DTPJP0BuUMAAg2
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </body>,
+  "container": <div>
+    <div
+      class="ecbqyq6-el-snack-holder"
+    />
+    <div
+      class="e1q0zwo9-el-flex-justify-between e2kmzjs-el-flex-container"
+    >
+      <h1
+        class="e2dm5rh-el-title"
+      >
+        My Apps
+      </h1>
+    </div>
+    <div
+      class="e20pb60-el-grid"
+    >
+      <div
+        class="e14pp0yd-el-col"
+      >
+        <div
+          class="e6p05ya-el-fade-in ertn4py-el-card-wrap"
+        >
+          <div
+            class="ec7f1kt-el-card-context-menu-wrapper"
+          >
+            <div
+              class="ewpy0cr-el-card-context-menu-toggle"
+            >
+              <span
+                class="ej9yrfo-el-icon"
+                style="font-size: 1.25rem;"
+              >
+                <svg
+                  fill="none"
+                  height="1em"
+                  viewBox="0 0 20 20"
+                  width="1em"
+                  xmlns="http://www.w3.org/2000/svg"
+                >
+                  <circle
+                    cx="19"
+                    cy="4"
+                    fill="currentColor"
+                    r="1"
+                  />
+                  <circle
+                    cx="19"
+                    cy="10"
+                    fill="currentColor"
+                    r="1"
+                  />
+                  <circle
+                    cx="19"
+                    cy="16"
+                    fill="currentColor"
+                    r="1"
+                  />
+                </svg>
+              </span>
+            </div>
+            <div
+              class="eh85zp4-el-card-context-menu-items"
+            >
+              <div
+                class="euknxbk-el-card-context-menu-item"
+              >
+                <span
+                  class="ej9yrfo-el-icon"
+                >
+                  <svg
+                    fill="none"
+                    height="1em"
+                    viewBox="0 0 20 20"
+                    width="1em"
+                    xmlns="http://www.w3.org/2000/svg"
+                  >
+                    <path
+                      clip-rule="evenodd"
+                      d="M15.8336 17.2478C16.1265 17.5407 16.6014 17.5407 16.8943 17.2478C17.1872 16.955 17.1872 16.4801 16.8943 16.1872L10.7071 10L16.8943 3.81282C17.1872 3.51992 17.1872 3.04505 16.8943 2.75216C16.6014 2.45926 16.1265 2.45926 15.8336 2.75216L9.64643 8.93934L3.8128 3.10571C3.51991 2.81282 3.04503 2.81282 2.75214 3.10571C2.45925 3.3986 2.45925 3.87348 2.75214 4.16637L8.58577 10L2.75214 15.8336C2.45925 16.1265 2.45925 16.6014 2.75214 16.8943C3.04503 17.1872 3.51991 17.1872 3.8128 16.8943L9.64643 11.0607L15.8336 17.2478Z"
+                      fill="currentColor"
+                      fill-rule="evenodd"
+                    />
+                  </svg>
+                </span>
+              </div>
+              <div
+                class="euknxbk-el-card-context-menu-item"
+              >
+                <span
+                  class="ej9yrfo-el-icon"
+                >
+                  <svg
+                    fill="none"
+                    height="1em"
+                    viewBox="0 0 20 20"
+                    width="1em"
+                    xmlns="http://www.w3.org/2000/svg"
+                  >
+                    <path
+                      d="M1.05582 19.5H1.18758L7.54482 18.1165C7.66865 18.0959 7.78339 18.0385 7.87418 17.9518L18.6452 7.1808C19.432 6.39567 19.871 5.32777 19.8639 4.21632C19.8654 3.09622 19.4278 2.02019 18.6452 1.21886C17.8601 0.432032 16.7922 -0.00696545 15.6807 0.000158881C14.5621 -0.00973953 13.4892 0.443255 12.7162 1.25184L1.97807 12.0228C1.88337 12.099 1.81434 12.2025 1.78042 12.3193L0.397035 18.6765C0.35927 18.9047 0.432657 19.1373 0.594688 19.3024C0.716306 19.4265 0.882058 19.4975 1.05582 19.5ZM15.6807 1.31772C17.2634 1.31759 18.5464 2.60054 18.5466 4.18322C18.5466 4.19425 18.5465 4.20528 18.5464 4.21632C18.5572 4.9703 18.2597 5.69603 17.7229 6.22557L13.6714 2.14112C14.2052 1.6107 14.9282 1.31438 15.6807 1.31772ZM12.7491 3.09641L16.8006 7.14788L7.41299 16.5025L3.36152 12.4839L12.7491 3.09641ZM2.8345 13.8016L6.09543 17.0625L1.91219 17.9848L2.8345 13.8016Z"
+                      fill="currentColor"
+                    />
+                  </svg>
+                </span>
+              </div>
+              <div
+                class="euknxbk-el-card-context-menu-item"
+              >
+                <span
+                  class="e1vxext9-el-intent-danger ej9yrfo-el-icon"
+                >
+                  <svg
+                    fill="none"
+                    height="1em"
+                    viewBox="0 0 20 20"
+                    width="1em"
+                    xmlns="http://www.w3.org/2000/svg"
+                  >
+                    <path
+                      d="M16.5625 2.5H13.125V1.875C13.125 0.841133 12.2839 0 11.25 0H8.75C7.71613 0 6.875 0.841133 6.875 1.875V2.5H3.4375C2.57594 2.5 1.875 3.20094 1.875 4.0625V6.25C1.875 6.59516 2.15484 6.875 2.5 6.875H2.84156L3.38152 18.2142C3.42922 19.2156 4.25187 20 5.25437 20H14.7456C15.7482 20 16.5708 19.2156 16.6185 18.2142L17.1584 6.875H17.5C17.8452 6.875 18.125 6.59516 18.125 6.25V4.0625C18.125 3.20094 17.4241 2.5 16.5625 2.5ZM8.125 1.875C8.125 1.53039 8.40539 1.25 8.75 1.25H11.25C11.5946 1.25 11.875 1.53039 11.875 1.875V2.5H8.125V1.875ZM3.125 4.0625C3.125 3.8902 3.2652 3.75 3.4375 3.75H16.5625C16.7348 3.75 16.875 3.8902 16.875 4.0625V5.625C16.6824 5.625 3.92316 5.625 3.125 5.625V4.0625ZM15.3699 18.1547C15.354 18.4885 15.0798 18.75 14.7456 18.75H5.25437C4.9202 18.75 4.64598 18.4885 4.63012 18.1547L4.09297 6.875H15.907L15.3699 18.1547Z"
+                      fill="currentColor"
+                    />
+                    <path
+                      d="M10 17.5C10.3452 17.5 10.625 17.2202 10.625 16.875V8.75C10.625 8.40484 10.3452 8.125 10 8.125C9.65484 8.125 9.375 8.40484 9.375 8.75V16.875C9.375 17.2202 9.6548 17.5 10 17.5Z"
+                      fill="currentColor"
+                    />
+                    <path
+                      d="M13.125 17.5C13.4702 17.5 13.75 17.2202 13.75 16.875V8.75C13.75 8.40484 13.4702 8.125 13.125 8.125C12.7798 8.125 12.5 8.40484 12.5 8.75V16.875C12.5 17.2202 12.7798 17.5 13.125 17.5Z"
+                      fill="currentColor"
+                    />
+                    <path
+                      d="M6.875 17.5C7.22016 17.5 7.5 17.2202 7.5 16.875V8.75C7.5 8.40484 7.22016 8.125 6.875 8.125C6.52984 8.125 6.25 8.40484 6.25 8.75V16.875C6.25 17.2202 6.5298 17.5 6.875 17.5Z"
+                      fill="currentColor"
+                    />
+                  </svg>
+                </span>
+              </div>
+            </div>
+          </div>
+          <div
+            class="e1sw79q5-el-card-main-wrap"
+          >
+            <div
+              class="e1bgmgin-el-card-image-wrap"
+            >
+              <img
+                src="https://reapit-app-store-app-media.s3.eu-west-2.amazonaws.com/d10e790c-2bf2-40ae-9c43-82c1534bde31.png"
+              />
+            </div>
+            <div
+              class="e1rjwng7-el-card-heading-wrap"
+            >
+              <h5
+                class="e1n8fwu7-el-card-heading"
+              >
+                test
+              </h5>
+              <h6
+                class="e160zim8-el-card-sub-heading"
+              >
+                Pete's Proptech World Ltd
+              </h6>
+              <h6
+                class="e1nfyxby-el-card-sub-heading-additional"
+              />
+            </div>
+            <button
+              class="e17hzamr-el-mobile-toggle"
+            >
+              <span
+                class="ej9yrfo-el-icon"
+              >
+                <svg
+                  fill="none"
+                  height="1em"
+                  viewBox="0 0 12 12"
+                  width="1em"
+                  xmlns="http://www.w3.org/2000/svg"
+                >
+                  <path
+                    clip-rule="evenodd"
+                    d="M11.0498 3.17368L6.00273 8.55662L0.956931 3.17508C0.738006 2.94162 0.383056 2.94165 0.164132 3.1751C-0.054715 3.40862 -0.0547118 3.78713 0.164149 4.02062L5.60635 9.82494C5.82527 10.0584 6.1802 10.0583 6.39913 9.82493L11.8413 4.02064L11.8426 4.01921C12.0577 3.78166 12.0516 3.40311 11.8288 3.17369C11.6116 2.94991 11.2671 2.94989 11.0498 3.17368Z"
+                    fill="currentColor"
+                    fill-rule="evenodd"
+                  />
+                </svg>
+              </span>
+            </button>
+          </div>
+          <div
+            class="em92f2t-el-card-body-wrap"
+          >
+            nXXT2zaK807ysWgy8F0WEhIYRP3TgosAtfuiLtQCImoSx0kynxbIF0nkGHU36Oz13kM3DG0Bcsicr8L6eWFKLBg4axlmiOEWcvwHAbBP9LRvoFkCl58k1wjhOExnpaZItEyOT1AXVKv8PE44aMGtVz
+          </div>
+        </div>
+      </div>
+      <div
+        class="e14pp0yd-el-col"
+      >
+        <div
+          class="e6p05ya-el-fade-in ertn4py-el-card-wrap"
+        >
+          <div
+            class="ec7f1kt-el-card-context-menu-wrapper"
+          >
+            <div
+              class="ewpy0cr-el-card-context-menu-toggle"
+            >
+              <span
+                class="ej9yrfo-el-icon"
+                style="font-size: 1.25rem;"
+              >
+                <svg
+                  fill="none"
+                  height="1em"
+                  viewBox="0 0 20 20"
+                  width="1em"
+                  xmlns="http://www.w3.org/2000/svg"
+                >
+                  <circle
+                    cx="19"
+                    cy="4"
+                    fill="currentColor"
+                    r="1"
+                  />
+                  <circle
+                    cx="19"
+                    cy="10"
+                    fill="currentColor"
+                    r="1"
+                  />
+                  <circle
+                    cx="19"
+                    cy="16"
+                    fill="currentColor"
+                    r="1"
+                  />
+                </svg>
+              </span>
+            </div>
+            <div
+              class="eh85zp4-el-card-context-menu-items"
+            >
+              <div
+                class="euknxbk-el-card-context-menu-item"
+              >
+                <span
+                  class="ej9yrfo-el-icon"
+                >
+                  <svg
+                    fill="none"
+                    height="1em"
+                    viewBox="0 0 20 20"
+                    width="1em"
+                    xmlns="http://www.w3.org/2000/svg"
+                  >
+                    <path
+                      clip-rule="evenodd"
+                      d="M15.8336 17.2478C16.1265 17.5407 16.6014 17.5407 16.8943 17.2478C17.1872 16.955 17.1872 16.4801 16.8943 16.1872L10.7071 10L16.8943 3.81282C17.1872 3.51992 17.1872 3.04505 16.8943 2.75216C16.6014 2.45926 16.1265 2.45926 15.8336 2.75216L9.64643 8.93934L3.8128 3.10571C3.51991 2.81282 3.04503 2.81282 2.75214 3.10571C2.45925 3.3986 2.45925 3.87348 2.75214 4.16637L8.58577 10L2.75214 15.8336C2.45925 16.1265 2.45925 16.6014 2.75214 16.8943C3.04503 17.1872 3.51991 17.1872 3.8128 16.8943L9.64643 11.0607L15.8336 17.2478Z"
+                      fill="currentColor"
+                      fill-rule="evenodd"
+                    />
+                  </svg>
+                </span>
+              </div>
+              <div
+                class="euknxbk-el-card-context-menu-item"
+              >
+                <span
+                  class="ej9yrfo-el-icon"
+                >
+                  <svg
+                    fill="none"
+                    height="1em"
+                    viewBox="0 0 20 20"
+                    width="1em"
+                    xmlns="http://www.w3.org/2000/svg"
+                  >
+                    <path
+                      d="M1.05582 19.5H1.18758L7.54482 18.1165C7.66865 18.0959 7.78339 18.0385 7.87418 17.9518L18.6452 7.1808C19.432 6.39567 19.871 5.32777 19.8639 4.21632C19.8654 3.09622 19.4278 2.02019 18.6452 1.21886C17.8601 0.432032 16.7922 -0.00696545 15.6807 0.000158881C14.5621 -0.00973953 13.4892 0.443255 12.7162 1.25184L1.97807 12.0228C1.88337 12.099 1.81434 12.2025 1.78042 12.3193L0.397035 18.6765C0.35927 18.9047 0.432657 19.1373 0.594688 19.3024C0.716306 19.4265 0.882058 19.4975 1.05582 19.5ZM15.6807 1.31772C17.2634 1.31759 18.5464 2.60054 18.5466 4.18322C18.5466 4.19425 18.5465 4.20528 18.5464 4.21632C18.5572 4.9703 18.2597 5.69603 17.7229 6.22557L13.6714 2.14112C14.2052 1.6107 14.9282 1.31438 15.6807 1.31772ZM12.7491 3.09641L16.8006 7.14788L7.41299 16.5025L3.36152 12.4839L12.7491 3.09641ZM2.8345 13.8016L6.09543 17.0625L1.91219 17.9848L2.8345 13.8016Z"
+                      fill="currentColor"
+                    />
+                  </svg>
+                </span>
+              </div>
+              <div
+                class="euknxbk-el-card-context-menu-item"
+              >
+                <span
+                  class="e1vxext9-el-intent-danger ej9yrfo-el-icon"
+                >
+                  <svg
+                    fill="none"
+                    height="1em"
+                    viewBox="0 0 20 20"
+                    width="1em"
+                    xmlns="http://www.w3.org/2000/svg"
+                  >
+                    <path
+                      d="M16.5625 2.5H13.125V1.875C13.125 0.841133 12.2839 0 11.25 0H8.75C7.71613 0 6.875 0.841133 6.875 1.875V2.5H3.4375C2.57594 2.5 1.875 3.20094 1.875 4.0625V6.25C1.875 6.59516 2.15484 6.875 2.5 6.875H2.84156L3.38152 18.2142C3.42922 19.2156 4.25187 20 5.25437 20H14.7456C15.7482 20 16.5708 19.2156 16.6185 18.2142L17.1584 6.875H17.5C17.8452 6.875 18.125 6.59516 18.125 6.25V4.0625C18.125 3.20094 17.4241 2.5 16.5625 2.5ZM8.125 1.875C8.125 1.53039 8.40539 1.25 8.75 1.25H11.25C11.5946 1.25 11.875 1.53039 11.875 1.875V2.5H8.125V1.875ZM3.125 4.0625C3.125 3.8902 3.2652 3.75 3.4375 3.75H16.5625C16.7348 3.75 16.875 3.8902 16.875 4.0625V5.625C16.6824 5.625 3.92316 5.625 3.125 5.625V4.0625ZM15.3699 18.1547C15.354 18.4885 15.0798 18.75 14.7456 18.75H5.25437C4.9202 18.75 4.64598 18.4885 4.63012 18.1547L4.09297 6.875H15.907L15.3699 18.1547Z"
+                      fill="currentColor"
+                    />
+                    <path
+                      d="M10 17.5C10.3452 17.5 10.625 17.2202 10.625 16.875V8.75C10.625 8.40484 10.3452 8.125 10 8.125C9.65484 8.125 9.375 8.40484 9.375 8.75V16.875C9.375 17.2202 9.6548 17.5 10 17.5Z"
+                      fill="currentColor"
+                    />
+                    <path
+                      d="M13.125 17.5C13.4702 17.5 13.75 17.2202 13.75 16.875V8.75C13.75 8.40484 13.4702 8.125 13.125 8.125C12.7798 8.125 12.5 8.40484 12.5 8.75V16.875C12.5 17.2202 12.7798 17.5 13.125 17.5Z"
+                      fill="currentColor"
+                    />
+                    <path
+                      d="M6.875 17.5C7.22016 17.5 7.5 17.2202 7.5 16.875V8.75C7.5 8.40484 7.22016 8.125 6.875 8.125C6.52984 8.125 6.25 8.40484 6.25 8.75V16.875C6.25 17.2202 6.5298 17.5 6.875 17.5Z"
+                      fill="currentColor"
+                    />
+                  </svg>
+                </span>
+              </div>
+            </div>
+          </div>
+          <div
+            class="e1sw79q5-el-card-main-wrap"
+          >
+            <div
+              class="e1bgmgin-el-card-image-wrap"
+            >
+              <img
+                src="https://reapit-app-store-app-media.s3.eu-west-2.amazonaws.com/1d38c5ec-e3c0-4138-9fe0-e77bce4034d1.octet-stream"
+              />
+            </div>
+            <div
+              class="e1rjwng7-el-card-heading-wrap"
+            >
+              <h5
+                class="e1n8fwu7-el-card-heading"
+              >
+                asd
+              </h5>
+              <h6
+                class="e160zim8-el-card-sub-heading"
+              >
+                Pete's Proptech World Ltd
+              </h6>
+              <h6
+                class="e1nfyxby-el-card-sub-heading-additional"
+              />
+            </div>
+            <button
+              class="e17hzamr-el-mobile-toggle"
+            >
+              <span
+                class="ej9yrfo-el-icon"
+              >
+                <svg
+                  fill="none"
+                  height="1em"
+                  viewBox="0 0 12 12"
+                  width="1em"
+                  xmlns="http://www.w3.org/2000/svg"
+                >
+                  <path
+                    clip-rule="evenodd"
+                    d="M11.0498 3.17368L6.00273 8.55662L0.956931 3.17508C0.738006 2.94162 0.383056 2.94165 0.164132 3.1751C-0.054715 3.40862 -0.0547118 3.78713 0.164149 4.02062L5.60635 9.82494C5.82527 10.0584 6.1802 10.0583 6.39913 9.82493L11.8413 4.02064L11.8426 4.01921C12.0577 3.78166 12.0516 3.40311 11.8288 3.17369C11.6116 2.94991 11.2671 2.94989 11.0498 3.17368Z"
+                    fill="currentColor"
+                    fill-rule="evenodd"
+                  />
+                </svg>
+              </span>
+            </button>
+          </div>
+          <div
+            class="em92f2t-el-card-body-wrap"
+          >
+            asdQiiAJTmXGxPin7pwUiCsepZWXz1EJS71eGlvgPKH4hpE6J8DRDpzP2kDdOwpQPr4aHCCwWwxBJwzARLa7wMpJh5J61GhmQjLfKZkcDd47L9WEfQYVYAj0DTPJP0BuUMAAg2
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>,
+  "debug": [Function],
+  "findAllByAltText": [Function],
+  "findAllByDisplayValue": [Function],
+  "findAllByLabelText": [Function],
+  "findAllByPlaceholderText": [Function],
+  "findAllByRole": [Function],
+  "findAllByTestId": [Function],
+  "findAllByText": [Function],
+  "findAllByTitle": [Function],
+  "findByAltText": [Function],
+  "findByDisplayValue": [Function],
+  "findByLabelText": [Function],
+  "findByPlaceholderText": [Function],
+  "findByRole": [Function],
+  "findByTestId": [Function],
+  "findByText": [Function],
+  "findByTitle": [Function],
+  "getAllByAltText": [Function],
+  "getAllByDisplayValue": [Function],
+  "getAllByLabelText": [Function],
+  "getAllByPlaceholderText": [Function],
+  "getAllByRole": [Function],
+  "getAllByTestId": [Function],
+  "getAllByText": [Function],
+  "getAllByTitle": [Function],
+  "getByAltText": [Function],
+  "getByDisplayValue": [Function],
+  "getByLabelText": [Function],
+  "getByPlaceholderText": [Function],
+  "getByRole": [Function],
+  "getByTestId": [Function],
+  "getByText": [Function],
+  "getByTitle": [Function],
+  "queryAllByAltText": [Function],
+  "queryAllByDisplayValue": [Function],
+  "queryAllByLabelText": [Function],
+  "queryAllByPlaceholderText": [Function],
+  "queryAllByRole": [Function],
+  "queryAllByTestId": [Function],
+  "queryAllByText": [Function],
+  "queryAllByTitle": [Function],
+  "queryByAltText": [Function],
+  "queryByDisplayValue": [Function],
+  "queryByLabelText": [Function],
+  "queryByPlaceholderText": [Function],
+  "queryByRole": [Function],
+  "queryByTestId": [Function],
+  "queryByText": [Function],
+  "queryByTitle": [Function],
+  "rerender": [Function],
+  "unmount": [Function],
+}
 `;

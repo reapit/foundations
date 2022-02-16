@@ -14,17 +14,60 @@ jest.mock('../use-app-wizard', () => ({
   }),
 }))
 
+const steps = [
+  {
+    text: 'AgencyCloud Functionality',
+    nextStep: AppNewStepId.agencyCloudStep,
+    authFlow: 'authorisationCode',
+  },
+  {
+    text: 'Create an External Web Application',
+    nextStep: AppNewStepId.externalAppStep,
+    authFlow: 'clientCredentials',
+  },
+  {
+    text: 'Data / Portal / Reporting Feed',
+    nextStep: AppNewStepId.dataFeedStep,
+    authFlow: 'clientCredentials',
+  },
+  {
+    text: 'Website Feed',
+    nextStep: AppNewStepId.websiteFeedStep,
+    authFlow: 'clientCredentials',
+  },
+  {
+    text: 'WebServices to Foundations Migration',
+    nextStep: AppNewStepId.webServicesStep,
+    authFlow: 'clientCredentials',
+  },
+  {
+    text: 'Reapit Connect as ID Provider',
+    nextStep: AppNewStepId.reapitConnectStep,
+    authFlow: 'authorisationCode',
+  },
+  {
+    text: 'Other',
+    nextStep: AppNewStepId.otherAppStep,
+    authFlow: 'clientCredentials',
+  },
+]
+
 describe('AppOptionsContent', () => {
   it('should match a snapshot', () => {
     expect(render(<AppOptionsContent />)).toMatchSnapshot()
   })
 
-  it('should handle next step on selection of an item', async () => {
-    const rendered = render(<AppOptionsContent />)
-    const item = await rendered.findByText('Existing Reapit Customer')
+  steps.forEach(({ text, nextStep, authFlow }, index) => {
+    it(`should handle next step on selection of step ${text}`, async () => {
+      const rendered = render(<AppOptionsContent />)
+      const item = await rendered.findByText(text)
 
-    item.click()
+      item.click()
 
-    expect(mockSetAppWizardState.mock.calls[0][0]()).toEqual({ nextStep: AppNewStepId.agencyCloudStep })
+      expect(mockSetAppWizardState.mock.calls[index][0]()).toEqual({
+        nextStep,
+        authFlow,
+      })
+    })
   })
 })

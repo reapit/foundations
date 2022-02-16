@@ -41,6 +41,9 @@ const steps = [
   AppNewStepId.clientSideStep,
   AppNewStepId.websiteFeedStep,
   AppNewStepId.permissionsStep,
+  AppNewStepId.externalAppStep,
+  AppNewStepId.applicationTypeStep,
+  AppNewStepId.webServicesStep,
 ]
 
 describe('StepOptionsContent', () => {
