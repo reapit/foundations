@@ -4,6 +4,7 @@ import { APIGatewayEvent } from 'aws-lambda'
 import { Context } from './types'
 import { getSchema } from './get-schema'
 import { ExtendedApolloServerLambda } from './extended-apollo-server'
+import { getMetadataSchemas } from './platform'
 
 const lowerCaseKeys = (obj: Record<string, string | undefined>): Record<string, string> => {
   const newObj = {}
@@ -19,13 +20,12 @@ const createHandler = async (event: APIGatewayEvent) => {
   const lowercaseHeaders = lowerCaseKeys(event.headers)
   const { authorization } = lowercaseHeaders
   const apiUrl = `https://${event.headers.Host}/${event.requestContext.stage}/`
-  if (!authorization) {
-    throw new Error('Must have the authorization header')
-  }
+  const accessToken = lowercaseHeaders['reapit-connect-token'] as string
   const context: Context = {
     apiUrl,
     idToken: authorization?.split(' ')[1],
-    accessToken: lowercaseHeaders['reapit-connect-token'] as string,
+    accessToken,
+    metadataSchemas: accessToken ? await getMetadataSchemas(accessToken).catch(() => []) : [],
   }
   const server = new ExtendedApolloServerLambda({
     schema: await getSchema(),

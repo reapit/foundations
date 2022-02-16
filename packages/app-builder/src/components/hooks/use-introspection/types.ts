@@ -21,7 +21,7 @@ export type QueryableField = IntrospectionField & {
 const mutationTypes = ['create', 'update', 'delete']
 export type MutationType = typeof mutationTypes[number]
 export const stringIsMutationType = (str: string): str is MutationType => {
-  return mutationTypes.includes(str)
+  return mutationTypes.some((mt) => str.startsWith(mt))
 }
 
 export const isIntrospectionObjectType = (type: any): type is IntrospectionObjectType => {
