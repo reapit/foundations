@@ -1,29 +1,32 @@
-import * as React from 'react'
-import { AppDetailState } from '@/reducers/apps/app-detail'
-import { BodyText, ColSplit, Grid, InputWrap, Subtitle, Title } from '@reapit/elements'
+import React, { FC, useEffect } from 'react'
+import { BodyText, ColSplit, Grid, InputWrap, Loader, PersistantNotification, Subtitle, Title } from '@reapit/elements'
+import { AppUriParams, useAppState } from '../state/use-app-state'
+import { useParams } from 'react-router-dom'
+import { handleSetAppId } from '../utils/handle-set-app-id'
 
-export type AppContentProps = {
-  appDetailState: AppDetailState
-}
+export const AppDetail: FC = () => {
+  const { appsDataState, setAppId } = useAppState()
+  const { appId } = useParams<AppUriParams>()
 
-export type CustomUninstallCell = React.FC<{ onClick: () => void }>
+  useEffect(handleSetAppId(appId, setAppId), [appId])
 
-export const AppContent: React.FC<AppContentProps> = ({ appDetailState }) => {
-  const appDetailData = appDetailState.data || {}
+  const { appDetail, appDetailLoading } = appsDataState
 
-  return (
+  return appDetailLoading ? (
+    <Loader />
+  ) : appDetail ? (
     <>
       <Grid>
         <ColSplit>
           <InputWrap>
             <Subtitle>Authentication (Client ID)</Subtitle>
-            <BodyText hasGreyText>{appDetailData.externalId}</BodyText>
+            <BodyText hasGreyText>{appDetail?.externalId}</BodyText>
           </InputWrap>
         </ColSplit>
         <ColSplit>
           <InputWrap>
             <Subtitle>Status</Subtitle>
-            <BodyText hasGreyText>{appDetailData.isHidden}</BodyText>
+            <BodyText hasGreyText>{appDetail?.isHidden}</BodyText>
           </InputWrap>
         </ColSplit>
       </Grid>
@@ -32,41 +35,41 @@ export const AppContent: React.FC<AppContentProps> = ({ appDetailState }) => {
         <ColSplit>
           <InputWrap>
             <Subtitle>App Name</Subtitle>
-            <BodyText hasGreyText>{appDetailData.name}</BodyText>
+            <BodyText hasGreyText>{appDetail?.name}</BodyText>
           </InputWrap>
           <InputWrap>
             <Subtitle>Category</Subtitle>
-            <BodyText hasGreyText>{appDetailData.category}</BodyText>
+            <BodyText hasGreyText>{appDetail?.category}</BodyText>
           </InputWrap>
           <InputWrap>
             <Subtitle>Support Email</Subtitle>
-            <BodyText hasGreyText>{appDetailData.supportEmail}</BodyText>
+            <BodyText hasGreyText>{appDetail?.supportEmail}</BodyText>
           </InputWrap>
           <InputWrap>
             <Subtitle>Telephone</Subtitle>
-            <BodyText hasGreyText>{appDetailData.telephone}</BodyText>
+            <BodyText hasGreyText>{appDetail?.telephone}</BodyText>
           </InputWrap>
           <InputWrap>
             <Subtitle>Agency Cloud Integration Type</Subtitle>
-            <BodyText hasGreyText>{appDetailData.desktopIntegrationTypeIds}</BodyText>
+            <BodyText hasGreyText>{appDetail?.desktopIntegrationTypeIds}</BodyText>
           </InputWrap>
         </ColSplit>
         <ColSplit>
           <InputWrap>
             <Subtitle>Lanuch URL</Subtitle>
-            <BodyText hasGreyText>{appDetailData.launchUri || 'None'}</BodyText>
+            <BodyText hasGreyText>{appDetail?.launchUri || 'None'}</BodyText>
           </InputWrap>
           <InputWrap>
             <Subtitle>Homepage</Subtitle>
-            <BodyText hasGreyText>{appDetailData.homePage}</BodyText>
+            <BodyText hasGreyText>{appDetail?.homePage}</BodyText>
           </InputWrap>
           <InputWrap>
             <Subtitle>Pricing Info</Subtitle>
-            <BodyText hasGreyText>{appDetailData.pricingUrl || 'Not available'}</BodyText>
+            <BodyText hasGreyText>{appDetail?.pricingUrl || 'Not available'}</BodyText>
           </InputWrap>
           <InputWrap>
             <Subtitle>Privacy Policy</Subtitle>
-            <BodyText hasGreyText>{appDetailData.privacyPolicyUrl}</BodyText>
+            <BodyText hasGreyText>{appDetail?.privacyPolicyUrl}</BodyText>
           </InputWrap>
         </ColSplit>
         <ColSplit>
@@ -80,13 +83,13 @@ export const AppContent: React.FC<AppContentProps> = ({ appDetailState }) => {
         <ColSplit>
           <InputWrap>
             <Subtitle>Description</Subtitle>
-            <BodyText hasGreyText>{appDetailData.description}</BodyText>
+            <BodyText hasGreyText>{appDetail?.description}</BodyText>
           </InputWrap>
         </ColSplit>
         <ColSplit>
           <InputWrap>
             <Subtitle>Summary</Subtitle>
-            <BodyText hasGreyText>{appDetailData.summary}</BodyText>
+            <BodyText hasGreyText>{appDetail?.summary}</BodyText>
           </InputWrap>
         </ColSplit>
       </Grid>
@@ -96,13 +99,13 @@ export const AppContent: React.FC<AppContentProps> = ({ appDetailState }) => {
         <ColSplit>
           <InputWrap>
             <Subtitle>Redirect URL(s)*</Subtitle>
-            <BodyText hasGreyText>{appDetailData.redirectUris?.join(', ')}</BodyText>
+            <BodyText hasGreyText>{appDetail?.redirectUris?.join(', ')}</BodyText>
           </InputWrap>
         </ColSplit>
         <ColSplit>
           <InputWrap>
             <Subtitle>Sign Out URI(s)*</Subtitle>
-            <BodyText hasGreyText>{appDetailData.signoutUris?.join(', ')}</BodyText>
+            <BodyText hasGreyText>{appDetail?.signoutUris?.join(', ')}</BodyText>
           </InputWrap>
         </ColSplit>
       </Grid>
@@ -111,10 +114,16 @@ export const AppContent: React.FC<AppContentProps> = ({ appDetailState }) => {
         <ColSplit>
           <InputWrap>
             <Subtitle>Description</Subtitle>
-            <BodyText hasGreyText>{appDetailData.developerAbout}</BodyText>
+            <BodyText hasGreyText>{appDetail?.developerAbout}</BodyText>
           </InputWrap>
         </ColSplit>
       </Grid>
     </>
+  ) : (
+    <PersistantNotification intent="secondary" isExpanded isFullWidth isInline>
+      No record of this app found
+    </PersistantNotification>
   )
 }
+
+export default AppDetail

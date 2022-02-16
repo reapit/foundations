@@ -3,13 +3,13 @@ import React from 'react'
 import { StepOptionsContent } from '../step-options-content'
 import { AppNewStepId } from '../config'
 import { DeepMap, FieldError, UseFormGetValues } from 'react-hook-form'
-import { CreateAppFormSchema } from '../apps-new'
+import { CreateAppFormSchema } from '..'
 
-const mockUseAppWizard = jest.fn()
+const mockuseAppState = jest.fn()
 
-jest.mock('../use-app-wizard', () => ({
-  useAppWizard: jest.fn(() => ({
-    setAppWizardState: mockUseAppWizard,
+jest.mock('../../state/use-app-state', () => ({
+  useAppState: jest.fn(() => ({
+    setAppWizardState: mockuseAppState,
     appWizardState: {
       currentStep: 'agencyCloudStep',
     },
@@ -49,7 +49,7 @@ const steps = [
 describe('StepOptionsContent', () => {
   steps.forEach((step) => {
     it('should match a snapshot', () => {
-      mockUseAppWizard.mockReturnValue({
+      mockuseAppState.mockReturnValue({
         appWizardState: {
           currentStep: step,
         },

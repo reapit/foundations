@@ -1,7 +1,7 @@
 import { BodyText, Subtitle } from '@reapit/elements'
 import React, { FC, useEffect, useRef } from 'react'
 import { AppNewStepId } from './config'
-import { useAppWizard } from './use-app-wizard'
+import { useAppState } from '../state/use-app-state'
 import { HelperContentContainer } from './__styles__'
 
 export type HelperContentRef = {
@@ -13,7 +13,7 @@ export const stepIsNotNextStep = (nextStep: AppNewStepId | null, step: AppNewSte
 }
 
 export const HelperContent: FC = () => {
-  const { appWizardState } = useAppWizard()
+  const { appWizardState } = useAppState()
   const helperContentRef = useRef<HelperContentRef>({
     [AppNewStepId.applicationTypeStep]: null,
     [AppNewStepId.agencyCloudStep]: null,

@@ -1,11 +1,7 @@
 import React from 'react'
 import { shallow } from 'enzyme'
 import { PackageManagerEnum } from '@reapit/foundations-ts-definitions'
-import {
-  addNewPipelineDeployment,
-  PipelineDeploymentTable,
-  pipelineRunnerSetter,
-} from '../pipeline/pipeline-runner-table'
+import { addNewPipelineDeployment, PipelineDeploymentTable, pipelineRunnerSetter } from '../pipeline-runner-table'
 
 describe('Pipeline Deployment Table', () => {
   it('Should match snapshot', () => {

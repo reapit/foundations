@@ -1,5 +1,5 @@
 import React from 'react'
-import AppDetailV8Edit from '../app-detail-v8-edit'
+import AppDetailV8Edit from '..'
 import { ReduxState } from '@/types/core'
 import configureStore from 'redux-mock-store'
 import Routes from '@/constants/routes'
@@ -26,7 +26,7 @@ describe('App Detail edit V8', () => {
     expect(
       mount(
         <ReactRedux.Provider store={store}>
-          <MemoryRouter initialEntries={[{ pathname: Routes.APP_DETAIL_V8, key: 'developerAppDetailRoute' }]}>
+          <MemoryRouter initialEntries={[{ pathname: Routes.APP_DETAIL, key: 'developerAppDetailRoute' }]}>
             <AppDetailV8Edit />
           </MemoryRouter>
         </ReactRedux.Provider>,

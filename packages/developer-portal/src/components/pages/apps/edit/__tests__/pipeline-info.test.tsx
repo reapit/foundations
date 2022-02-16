@@ -1,6 +1,6 @@
 import React from 'react'
 import { shallow } from 'enzyme'
-import { PipelineInfo } from '../pipeline/pipeline-info'
+import { PipelineInfo } from '../pipeline-info'
 
 describe('Pipeline info', () => {
   it('Should match snapshot', () => {

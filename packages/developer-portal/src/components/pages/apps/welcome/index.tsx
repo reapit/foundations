@@ -23,7 +23,7 @@ export const handeSetShowWizard = (setShowWizard: Dispatch<SetStateAction<boolea
   setShowWizard(!showWizard)
 }
 
-export const AppsWelcome: FC = () => {
+export const AppsWelcomePage: FC = () => {
   const history = useHistory()
   return (
     <GridResponsive>
@@ -127,3 +127,5 @@ export const AppsWelcome: FC = () => {
     </GridResponsive>
   )
 }
+
+export default AppsWelcomePage

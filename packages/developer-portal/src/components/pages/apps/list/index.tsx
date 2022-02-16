@@ -1,16 +1,14 @@
 import React, { FC } from 'react'
-import { AppSummaryModelPagedResult } from '@reapit/foundations-ts-definitions'
 import { Button, ButtonGroup, Col, FlexContainer, Title, useMediaQuery, Grid } from '@reapit/elements'
 import { ExternalPages, openNewPage } from '../../../../utils/navigation'
 import { AppCard } from './app-card'
+import { useAppState } from '../state/use-app-state'
 
-export interface AppsPageProps {
-  apps: AppSummaryModelPagedResult
-  refreshApps: () => void
-}
-
-export const AppsPage: FC<AppsPageProps> = ({ apps, refreshApps }) => {
+export const AppsList: FC = () => {
   const { isMobile } = useMediaQuery()
+  const { appsDataState } = useAppState()
+
+  const { apps } = appsDataState
 
   return (
     <>
@@ -27,7 +25,7 @@ export const AppsPage: FC<AppsPageProps> = ({ apps, refreshApps }) => {
       <Grid>
         {apps?.data?.map((app) => (
           <Col key={app.id}>
-            <AppCard app={app} refreshApps={refreshApps} />
+            <AppCard app={app} />
           </Col>
         ))}
       </Grid>
@@ -35,4 +33,4 @@ export const AppsPage: FC<AppsPageProps> = ({ apps, refreshApps }) => {
   )
 }
 
-export default AppsPage
+export default AppsList

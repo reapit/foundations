@@ -1,9 +1,9 @@
 import { elMb10, InputGroup } from '@reapit/elements'
 import React, { Dispatch, FC, SetStateAction, useEffect } from 'react'
 import { UseFormRegister, DeepMap, FieldError } from 'react-hook-form'
-import { CreateAppFormSchema } from './apps-new'
+import { CreateAppFormSchema } from '.'
 import { AppNewStepId } from './config'
-import { AppWizardState, useAppWizard } from './use-app-wizard'
+import { AppWizardState, useAppState } from '../state/use-app-state'
 import { StepFormContainer } from './__styles__'
 
 interface AuthOptionsContentProps {
@@ -21,7 +21,7 @@ export const handleSetAppWizardState = (setAppWizardState: Dispatch<SetStateActi
 }
 
 export const AuthOptionsContent: FC<AuthOptionsContentProps> = ({ register, errors }) => {
-  const { setAppWizardState } = useAppWizard()
+  const { setAppWizardState } = useAppState()
 
   useEffect(handleSetAppWizardState(setAppWizardState), [])
 

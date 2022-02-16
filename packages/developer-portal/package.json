@@ -26,6 +26,7 @@
     "@reapit/elements": "workspace:packages/elements",
     "@reapit/elements-legacy": "workspace:packages/elements-legacy",
     "@reapit/utils-common": "workspace:packages/utils-common",
+    "@reapit/utils-react": "workspace:packages/utils-common",
     "@sentry/browser": "^6.16.1",
     "amazon-cognito-identity-js": "^4.6.3",
     "chart.js": "^2.9.4",

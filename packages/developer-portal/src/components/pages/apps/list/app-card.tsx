@@ -8,26 +8,28 @@ import { updateActions, UpdateActionNames } from '@reapit/utils-common'
 import { reapitConnectBrowserSession } from '../../../../core/connect-session'
 import { navigate } from '../../../../utils/navigation'
 import defaultAppIcon from '../../../../assets/images/default-app-icon.jpg'
+import { useAppState } from '../state/use-app-state'
 
 export const handleDeleteApp = (deleteApp: SendFunction<void, boolean>) => (event?: MouseEvent) => {
   event?.stopPropagation()
   deleteApp()
 }
 
-export const handleRefreshApps = (refreshApps: () => void, appDeleted?: boolean) => () => {
+export const handleRefreshApps = (appsRefresh: () => void, appDeleted?: boolean) => () => {
   if (appDeleted) {
-    refreshApps()
+    appsRefresh()
   }
 }
 
 export interface AppCardProps {
   app: AppSummaryModel
-  refreshApps: () => void
 }
 
-export const AppCard: FC<AppCardProps> = ({ app, refreshApps }) => {
+export const AppCard: FC<AppCardProps> = ({ app }) => {
   const history = useHistory()
+  const { appsDataState } = useAppState()
 
+  const { appsRefresh } = appsDataState
   const { id, name, isDirectApi, developer, iconUri, summary } = app
 
   const [, , deleteApp, appDeleted] = useReapitUpdate<void, boolean>({
@@ -39,7 +41,7 @@ export const AppCard: FC<AppCardProps> = ({ app, refreshApps }) => {
     },
   })
 
-  useEffect(handleRefreshApps(refreshApps, appDeleted), [appDeleted])
+  useEffect(handleRefreshApps(appsRefresh, appDeleted), [appDeleted])
 
   return (
     <Card

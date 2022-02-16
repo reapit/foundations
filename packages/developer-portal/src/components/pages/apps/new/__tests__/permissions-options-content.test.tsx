@@ -1,13 +1,13 @@
 import { render } from '@testing-library/react'
 import React from 'react'
 import { UseFormGetValues } from 'react-hook-form'
-import { CreateAppFormSchema } from '../apps-new'
+import { CreateAppFormSchema } from '..'
 import { handleSetOptions, PermissionsOptionsContent, prepareOptions } from '../permissions-options-content'
 
 const mockSetAppWizardState = jest.fn()
 
-jest.mock('../use-app-wizard', () => ({
-  useAppWizard: () => ({
+jest.mock('../../state/use-app-state', () => ({
+  useAppState: () => ({
     appWizardState: {
       currentStep: 'websiteFeedStep',
     },

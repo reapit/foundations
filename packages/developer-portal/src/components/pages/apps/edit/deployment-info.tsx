@@ -7,7 +7,7 @@ import { useReapitGet, useReapitUpdate } from '@reapit/utils-react'
 import React from 'react'
 import { reapitConnectBrowserSession } from '../../../../core/connect-session'
 import { openNewPage } from '@/utils/navigation'
-import { UpdateReturnTypeEnum } from '@reapit/utils-react/src/use-reapit-data/use-reapit-update'
+import { UpdateReturnTypeEnum } from '@reapit/utils-react'
 import { PipelineDeploymentTable } from './pipeline-runner-table'
 import { PipelineInfo } from './pipeline-info'
 

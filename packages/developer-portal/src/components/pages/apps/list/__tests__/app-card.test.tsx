@@ -6,9 +6,7 @@ import { AppSummaryModel } from '@reapit/foundations-ts-definitions'
 
 describe('AppCard', () => {
   it('should match a snapshot', () => {
-    expect(
-      render(<AppCard app={(appsDataStub?.data?.data as AppSummaryModel[])[0]} refreshApps={jest.fn()} />),
-    ).toMatchSnapshot()
+    expect(render(<AppCard app={(appsDataStub?.data?.data as AppSummaryModel[])[0]} />)).toMatchSnapshot()
   })
 
   it('should handle refresh apps', () => {

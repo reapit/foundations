@@ -1,6 +1,6 @@
 import React from 'react'
 import { shallow } from 'enzyme'
-import { PipelineDeploymentInfo } from '../pipeline/deployment-info'
+import { PipelineDeploymentInfo } from '../deployment-info'
 import { PackageManagerEnum } from '@reapit/foundations-ts-definitions'
 
 describe('Deployment info', () => {

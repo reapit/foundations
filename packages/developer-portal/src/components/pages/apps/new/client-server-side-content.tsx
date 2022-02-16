@@ -2,12 +2,12 @@ import { cx } from '@linaria/core'
 import { elMr8, Icon } from '@reapit/elements'
 import React, { FC } from 'react'
 import { AppNewStepId } from './config'
-import { useAppWizard } from './use-app-wizard'
+import { useAppState } from '../state/use-app-state'
 import { handleSetAppWizardState } from './utils'
 import { StepOptionItem, stepOptionItemSelected, StepOptionItemText } from './__styles__'
 
 export const ClientServerSideContent: FC = () => {
-  const { appWizardState, setAppWizardState } = useAppWizard()
+  const { appWizardState, setAppWizardState } = useAppState()
   const { nextStep } = appWizardState
 
   return (

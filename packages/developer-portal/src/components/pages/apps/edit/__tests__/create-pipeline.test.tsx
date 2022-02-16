@@ -1,6 +1,6 @@
 import React from 'react'
 import { shallow } from 'enzyme'
-import { CreatePipeline, pipelineCreateFormHandle } from '../pipeline/create-pipeline'
+import { CreatePipeline, pipelineCreateFormHandle } from '../create-pipeline'
 
 describe('App Pipeline Create', () => {
   it('Should match snapshot', () => {

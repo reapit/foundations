@@ -5,8 +5,8 @@ import { AppNewStepId } from '../config'
 
 const mockSetAppWizardState = jest.fn()
 
-jest.mock('../use-app-wizard', () => ({
-  useAppWizard: () => ({
+jest.mock('../../state/use-app-state', () => ({
+  useAppState: () => ({
     setAppWizardState: mockSetAppWizardState,
     appWizardState: {
       nextStep: 'agencyCloudStep',

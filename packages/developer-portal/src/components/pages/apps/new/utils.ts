@@ -1,6 +1,6 @@
 import { Dispatch, SetStateAction } from 'react'
 import { AppAuthFlow, AppNewStepId } from './config'
-import { AppWizardState } from './use-app-wizard'
+import { AppWizardState } from '../state/use-app-state'
 
 export const handleSetAppWizardState =
   (

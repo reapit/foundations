@@ -1,9 +1,9 @@
 import React from 'react'
 import { shallow } from 'enzyme'
-import { AppPipeline } from '../pipeline'
+import { AppPipeline } from '../app-pipeline'
 
 describe('App Pipeline', () => {
   it('should match snapshot', () => {
-    expect(shallow(<AppPipeline appId={'12345'} />)).toMatchSnapshot()
+    expect(shallow(<AppPipeline />)).toMatchSnapshot()
   })
 })

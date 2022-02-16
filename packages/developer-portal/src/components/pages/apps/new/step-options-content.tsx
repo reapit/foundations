@@ -3,12 +3,12 @@ import { elFadeIn, elWFull, FlexContainer } from '@reapit/elements'
 import React, { FC } from 'react'
 import { DeepMap, FieldError, UseFormGetValues, UseFormRegister } from 'react-hook-form'
 import { AppOptionsContent } from './app-options-content'
-import { CreateAppFormSchema } from './apps-new'
+import { CreateAppFormSchema } from '.'
 import { AuthOptionsContent } from './auth-options-content'
 import { ClientServerSideContent } from './client-server-side-content'
 import { AppNewStepId } from './config'
 import { PermissionsOptionsContent } from './permissions-options-content'
-import { useAppWizard } from './use-app-wizard'
+import { useAppState } from '../state/use-app-state'
 
 interface StepOptionsContentProps {
   register: UseFormRegister<CreateAppFormSchema>
@@ -17,7 +17,7 @@ interface StepOptionsContentProps {
 }
 
 export const StepOptionsContent: FC<StepOptionsContentProps> = ({ register, errors, getValues }) => {
-  const { appWizardState } = useAppWizard()
+  const { appWizardState } = useAppState()
   const { currentStep } = appWizardState
 
   return (

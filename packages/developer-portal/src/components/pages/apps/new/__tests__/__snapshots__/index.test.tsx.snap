@@ -1,6 +1,6 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`AppTypeOptionsContent should match a snapshot 1`] = `
+exports[`AppsNew should match a snapshot 1`] = `
 Object {
   "asFragment": [Function],
   "baseElement": <body>

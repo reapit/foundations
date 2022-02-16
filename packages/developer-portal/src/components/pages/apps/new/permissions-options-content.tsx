@@ -1,7 +1,7 @@
 import { MultiSelectInput, Loader, MultiSelectOption, InputGroup, elMb5 } from '@reapit/elements'
 import React, { ChangeEvent, Dispatch, FC, SetStateAction, useCallback, useEffect, useState } from 'react'
 import { StepFormContainer } from './__styles__'
-import { AppWizardState, useAppWizard } from './use-app-wizard'
+import { AppWizardState, useAppState } from '../state/use-app-state'
 import { appWizardSteps } from './config'
 import { useReapitConnect } from '@reapit/connect-session'
 import { ScopeModel } from '@reapit/foundations-ts-definitions'
@@ -9,7 +9,7 @@ import { getActions, GetActionNames } from '@reapit/utils-common'
 import { useReapitGet } from '@reapit/utils-react'
 import { reapitConnectBrowserSession } from '../../../../core/connect-session'
 import { UseFormRegister, UseFormGetValues } from 'react-hook-form'
-import { CreateAppFormSchema } from './apps-new'
+import { CreateAppFormSchema } from '.'
 import debounce from 'just-debounce-it'
 
 interface PermissionsOptionsContentProps {
@@ -63,7 +63,7 @@ export const handleSetLastStep = (setAppWizardState: Dispatch<SetStateAction<App
 }
 
 export const PermissionsOptionsContent: FC<PermissionsOptionsContentProps> = ({ register, getValues }) => {
-  const { appWizardState, setAppWizardState } = useAppWizard()
+  const { appWizardState, setAppWizardState } = useAppState()
   const { connectSession } = useReapitConnect(reapitConnectBrowserSession)
   const [permissions, loading] = useReapitGet<ScopeModel[]>({
     reapitConnectBrowserSession,
