@@ -4,20 +4,22 @@ import { Context, Callback, SQSEvent, SQSHandler } from 'aws-lambda'
 import { plainToClass } from 'class-transformer'
 import { CodeBuild } from 'aws-sdk'
 import yaml from 'yaml'
-import { PackageManagerEnum, PipelineModelInterface } from '../../../../foundations-ts-definitions/deployment-schema'
+import { PackageManagerEnum } from '../../../../foundations-ts-definitions/deployment-schema'
 import { QueueNames } from '../../constants'
 import { sqs, savePipelineRunnerEntity, s3Client, githubApp } from '../../services'
+import { PipelineEntity } from '@/entities/pipeline.entity'
 
 const codebuild = new CodeBuild({
   region: process.env.REGION,
 })
 
-const downloadSourceToS3 = async (
-  pipeline: PipelineModelInterface,
-  pipelineRunner: PipelineRunnerEntity,
-): Promise<string> => {
-  const installationId = parseInt(pipelineRunner.token as string)
+const downloadSourceToS3 = async (pipeline: PipelineEntity, pipelineRunner: PipelineRunnerEntity): Promise<string> => {
+  const installationId = pipeline.installationId
   const parts = pipeline.repository?.split('/') as string[]
+
+  if (!installationId) {
+    throw new Error('No installation Id. Please install github app')
+  }
 
   const response = await (
     await githubApp.getInstallationOctokit(installationId)
@@ -72,8 +74,8 @@ export const codebuildExecutor: SQSHandler = async (
         throw new Error('pipeline not found')
       }
 
-      if (!pipelineRunner.token) {
-        throw new Error('Pipeline Runner does not have sufficiant token for github')
+      if (!pipeline.installationId) {
+        throw new Error('Pipeline repository is not configured or repository does not have reapit github app installed')
       }
 
       const s3BuildLogsLocation = `arn:aws:s3:::${process.env.DEPLOYMENT_LOG_BUCKET_NAME}`

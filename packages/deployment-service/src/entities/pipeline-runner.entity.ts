@@ -52,9 +52,6 @@ export class PipelineRunnerEntity extends AbstractEntity implements PipelineRunn
   @Column({ default: false })
   currentlyDeployed: boolean = false
 
-  @Column({ nullable: true })
-  token?: string
-
   @AfterInsert()
   afterInsert() {
     this.S3Location = `${this.pipeline?.uniqueRepoName}/${this.id}.zip`

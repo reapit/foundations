@@ -8,14 +8,19 @@ import { defaultOutputHeaders, QueueNames } from '../constants'
 import * as service from '../services'
 import { PipelineRunnerType } from '@reapit/foundations-ts-definitions'
 
-export const githubWebhook = httpHandler<
-  { ref: string; commits: any[]; repository: { html_url: string }; installation: { id: number } },
-  void
->({
+type GithubCommitEvent = { ref: string; commits: any[]; repository: { html_url: string }; installation: { id: number } }
+type GithubRepoInstallation = { installation: { id: number }; repositories_added: { full_name: string }[] }
+
+const isCommitEvent = (value: any): value is GithubCommitEvent => value.ref && value.commits
+const isRepoInstallEvent = (value: any): value is GithubRepoInstallation =>
+  value.action && value.action === 'added' && value.repositories_added && value.installation
+
+export const githubWebhook = httpHandler<GithubCommitEvent | GithubRepoInstallation, void>({
   defaultOutputHeaders,
   handler: async ({ body }) => {
-    if (body.ref && body.commits) {
 
+    // TODO auth with github
+    if (isCommitEvent(body)) {
       const repo = body.repository.html_url
 
       const pipeline = await service.findPipelineByRepo(repo)
@@ -33,7 +38,6 @@ export const githubWebhook = httpHandler<
 
       const pipelineRunner = await service.createPipelineRunnerEntity({
         type: PipelineRunnerType.REPO,
-        token: body.installation.id.toString(),
         pipeline,
       })
 
@@ -50,6 +54,22 @@ export const githubWebhook = httpHandler<
             resolve()
           },
         ),
+      )
+    } else if (isRepoInstallEvent(body)) {
+      await Promise.all(
+        body.repositories_added.map(async (repository) => {
+          const repo = `https://github.com/${repository.full_name}`
+
+          const pipeline = await service.findPipelineByRepo(repo)
+
+          if (!pipeline) {
+            throw new NotFoundException()
+          }
+
+          return service.updatePipelineEntity(pipeline, {
+            installationId: body.installation.id,
+          })
+        }),
       )
     }
   },
