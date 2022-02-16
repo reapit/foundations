@@ -20,10 +20,12 @@ export const githubWebhook = httpHandler<GithubCommitEvent | GithubRepoInstallat
   handler: async ({ body }) => {
 
     // TODO auth with github
-    if (isCommitEvent(body)) {
-      const repo = body.repository.html_url
 
-      const pipeline = await service.findPipelineByRepo(repo)
+    
+    if (isCommitEvent(body)) {
+      const installationId = body.installation.id
+
+      const pipeline = await service.findPipelineByInstallationId(installationId)
 
       if (!pipeline) {
         throw new NotFoundException()

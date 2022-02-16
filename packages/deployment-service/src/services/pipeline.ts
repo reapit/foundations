@@ -42,6 +42,13 @@ export const findPipelineByRepo = async (repository: string): Promise<PipelineEn
   return repo.findOne({ repository })
 }
 
+export const findPipelineByInstallationId = async (installationId: string | number): Promise<PipelineEntity | undefined> => {
+  const connection = await connect()
+  const repo = connection.getRepository(PipelineEntity)
+
+  return repo.findOne({ installationId: typeof installationId === 'number' ? installationId : parseInt(installationId) })
+}
+
 export const paginatePipelines = async (
   developerId: string,
   appId?: string,
