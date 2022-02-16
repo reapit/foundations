@@ -1,12 +1,12 @@
 import React, { FC, MouseEvent, useEffect } from 'react'
 import { useHistory } from 'react-router'
 import { AppSummaryModel } from '@reapit/foundations-ts-definitions'
-import Routes from '../../../constants/routes'
+import Routes from '../../../../constants/routes'
 import { Card, elFadeIn } from '@reapit/elements'
 import { SendFunction, useReapitUpdate } from '@reapit/utils-react'
 import { updateActions, UpdateActionNames } from '@reapit/utils-common'
-import { reapitConnectBrowserSession } from '../../../core/connect-session'
-import { navigate } from '../../../utils/navigation'
+import { reapitConnectBrowserSession } from '../../../../core/connect-session'
+import { navigate } from '../../../../utils/navigation'
 import defaultAppIcon from '../../../assets/images/default-app-icon.jpg'
 
 export const handleDeleteApp = (deleteApp: SendFunction<void, boolean>) => (event?: MouseEvent) => {

@@ -1,7 +1,7 @@
 import React, { FC } from 'react'
 import { AppSummaryModelPagedResult } from '@reapit/foundations-ts-definitions'
 import { Button, ButtonGroup, Col, FlexContainer, Title, useMediaQuery, Grid } from '@reapit/elements'
-import { ExternalPages, openNewPage } from '../../../utils/navigation'
+import { ExternalPages, openNewPage } from '../../../../utils/navigation'
 import { AppCard } from './app-card'
 
 export interface AppsPageProps {

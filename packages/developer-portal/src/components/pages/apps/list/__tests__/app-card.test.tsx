@@ -1,6 +1,6 @@
 import React, { MouseEvent } from 'react'
-import { appsDataStub } from '../../../../sagas/__stubs__/apps'
-import { render } from '../../../../tests/react-testing'
+import { appsDataStub } from '../../../../../sagas/__stubs__/apps'
+import { render } from '../../../../../tests/react-testing'
 import { AppCard, handleDeleteApp, handleRefreshApps } from '../app-card'
 import { AppSummaryModel } from '@reapit/foundations-ts-definitions'
 

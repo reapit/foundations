@@ -14,16 +14,16 @@ import {
 } from '@reapit/elements'
 import React, { Dispatch, FC, SetStateAction } from 'react'
 import { useHistory } from 'react-router'
-import Routes from '../../../constants/routes'
-import { navigate } from '../../../utils/navigation'
-import { StepContainer } from '../apps-new/__styles__'
-import videoImage from '../../../assets/images/desktop/video-placeholder.svg'
+import Routes from '../../../../constants/routes'
+import { navigate } from '../../../../utils/navigation'
+import { StepContainer } from '../new/__styles__'
+import videoImage from '../../../../assets/images/desktop/video-placeholder.svg'
 
 export const handeSetShowWizard = (setShowWizard: Dispatch<SetStateAction<boolean>>, showWizard: boolean) => () => {
   setShowWizard(!showWizard)
 }
 
-export const NoAppsLandingPage: FC = () => {
+export const AppsWelcome: FC = () => {
   const history = useHistory()
   return (
     <GridResponsive>

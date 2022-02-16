@@ -25,9 +25,9 @@ import { useReapitGet } from '@reapit/utils-react'
 import { useReapitConnect } from '@reapit/connect-session'
 import { getActions, GetActionNames } from '@reapit/utils-common'
 import { reapitConnectBrowserSession } from '../../../core/connect-session'
-import { NoAppsLandingPage } from './no-apps-landing-page'
-import AppsPage from './apps'
-import AppsNewPage from '../apps-new'
+import { AppsWelcome } from './welcome/apps-welcome'
+import AppsPage from './list/apps'
+import AppsNewPage from './new'
 import AppsDetailPage from '../app-detail'
 import AppsEditPage from '../edit-app'
 import PrivateRoute from '../../../core/private-route'
@@ -52,7 +52,7 @@ export const Apps: FC = () => {
           <Loader fullPage />
         ) : apps && !apps?.totalCount ? (
           <PageContainer>
-            {pathname !== Routes.APPS_NEW && <NoAppsLandingPage />}
+            {pathname !== Routes.APPS_NEW && <AppsWelcome />}
             <Route path={Routes.APPS_NEW} exact component={AppsNewPage} />
           </PageContainer>
         ) : apps ? (

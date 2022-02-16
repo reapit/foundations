@@ -17,7 +17,7 @@ Object {
             Create App
           </h1>
           <div
-            class="so5czpm-step-container"
+            class="s1cmhhgj-step-container"
           >
             <h2
               class="eh96l6x-el-has-bold-text evblxhy-el-subtitle"
@@ -165,7 +165,7 @@ Object {
                   class="e1jxji48-el-flex-column e1yw9yco-el-wfull e6p05ya-el-fade-in e2kmzjs-el-flex-container"
                 >
                   <div
-                    class="s1sq45h9-step-option-item"
+                    class="s19p3ohd-step-option-item"
                   >
                     <span
                       class="e1y7nq95-el-mr8 ej9yrfo-el-icon"
@@ -214,13 +214,13 @@ Object {
                       </svg>
                     </span>
                     <div
-                      class="s1td2ky4-step-option-item-text"
+                      class="s18v16ky-step-option-item-text"
                     >
                       AgencyCloud Functionality
                     </div>
                   </div>
                   <div
-                    class="s1sq45h9-step-option-item"
+                    class="s19p3ohd-step-option-item"
                   >
                     <span
                       class="e1y7nq95-el-mr8 ej9yrfo-el-icon"
@@ -262,13 +262,13 @@ Object {
                       </svg>
                     </span>
                     <div
-                      class="s1td2ky4-step-option-item-text"
+                      class="s18v16ky-step-option-item-text"
                     >
                       Create an External Web Application
                     </div>
                   </div>
                   <div
-                    class="s1sq45h9-step-option-item"
+                    class="s19p3ohd-step-option-item"
                   >
                     <span
                       class="e1y7nq95-el-mr8 ej9yrfo-el-icon"
@@ -304,13 +304,13 @@ Object {
                       </svg>
                     </span>
                     <div
-                      class="s1td2ky4-step-option-item-text"
+                      class="s18v16ky-step-option-item-text"
                     >
                       Data / Portal / Reporting Feed
                     </div>
                   </div>
                   <div
-                    class="s1sq45h9-step-option-item"
+                    class="s19p3ohd-step-option-item"
                   >
                     <span
                       class="e1y7nq95-el-mr8 ej9yrfo-el-icon"
@@ -346,13 +346,13 @@ Object {
                       </svg>
                     </span>
                     <div
-                      class="s1td2ky4-step-option-item-text"
+                      class="s18v16ky-step-option-item-text"
                     >
                       Website Feed
                     </div>
                   </div>
                   <div
-                    class="s1sq45h9-step-option-item"
+                    class="s19p3ohd-step-option-item"
                   >
                     <span
                       class="e1y7nq95-el-mr8 ej9yrfo-el-icon"
@@ -436,13 +436,13 @@ Object {
                       </svg>
                     </span>
                     <div
-                      class="s1td2ky4-step-option-item-text"
+                      class="s18v16ky-step-option-item-text"
                     >
                       WebServices to Foundations Migration
                     </div>
                   </div>
                   <div
-                    class="s1sq45h9-step-option-item"
+                    class="s19p3ohd-step-option-item"
                   >
                     <span
                       class="e1y7nq95-el-mr8 ej9yrfo-el-icon"
@@ -479,13 +479,13 @@ Object {
                       </svg>
                     </span>
                     <div
-                      class="s1td2ky4-step-option-item-text"
+                      class="s18v16ky-step-option-item-text"
                     >
                       Reapit Connect as ID Provider
                     </div>
                   </div>
                   <div
-                    class="s1sq45h9-step-option-item"
+                    class="s19p3ohd-step-option-item"
                   >
                     <span
                       class="e1y7nq95-el-mr8 ej9yrfo-el-icon"
@@ -527,7 +527,7 @@ Object {
                       </svg>
                     </span>
                     <div
-                      class="s1td2ky4-step-option-item-text"
+                      class="s18v16ky-step-option-item-text"
                     >
                       Other
                     </div>
@@ -561,7 +561,7 @@ Object {
           class="e14pp0yd-el-col"
         >
           <div
-            class="h1kf1nbn-helper-content-container"
+            class="hadvzab-helper-content-container"
           >
             <h2
               class="evblxhy-el-subtitle"
@@ -783,7 +783,7 @@ Object {
           Create App
         </h1>
         <div
-          class="so5czpm-step-container"
+          class="s1cmhhgj-step-container"
         >
           <h2
             class="eh96l6x-el-has-bold-text evblxhy-el-subtitle"
@@ -931,7 +931,7 @@ Object {
                 class="e1jxji48-el-flex-column e1yw9yco-el-wfull e6p05ya-el-fade-in e2kmzjs-el-flex-container"
               >
                 <div
-                  class="s1sq45h9-step-option-item"
+                  class="s19p3ohd-step-option-item"
                 >
                   <span
                     class="e1y7nq95-el-mr8 ej9yrfo-el-icon"
@@ -980,13 +980,13 @@ Object {
                     </svg>
                   </span>
                   <div
-                    class="s1td2ky4-step-option-item-text"
+                    class="s18v16ky-step-option-item-text"
                   >
                     AgencyCloud Functionality
                   </div>
                 </div>
                 <div
-                  class="s1sq45h9-step-option-item"
+                  class="s19p3ohd-step-option-item"
                 >
                   <span
                     class="e1y7nq95-el-mr8 ej9yrfo-el-icon"
@@ -1028,13 +1028,13 @@ Object {
                     </svg>
                   </span>
                   <div
-                    class="s1td2ky4-step-option-item-text"
+                    class="s18v16ky-step-option-item-text"
                   >
                     Create an External Web Application
                   </div>
                 </div>
                 <div
-                  class="s1sq45h9-step-option-item"
+                  class="s19p3ohd-step-option-item"
                 >
                   <span
                     class="e1y7nq95-el-mr8 ej9yrfo-el-icon"
@@ -1070,13 +1070,13 @@ Object {
                     </svg>
                   </span>
                   <div
-                    class="s1td2ky4-step-option-item-text"
+                    class="s18v16ky-step-option-item-text"
                   >
                     Data / Portal / Reporting Feed
                   </div>
                 </div>
                 <div
-                  class="s1sq45h9-step-option-item"
+                  class="s19p3ohd-step-option-item"
                 >
                   <span
                     class="e1y7nq95-el-mr8 ej9yrfo-el-icon"
@@ -1112,13 +1112,13 @@ Object {
                     </svg>
                   </span>
                   <div
-                    class="s1td2ky4-step-option-item-text"
+                    class="s18v16ky-step-option-item-text"
                   >
                     Website Feed
                   </div>
                 </div>
                 <div
-                  class="s1sq45h9-step-option-item"
+                  class="s19p3ohd-step-option-item"
                 >
                   <span
                     class="e1y7nq95-el-mr8 ej9yrfo-el-icon"
@@ -1202,13 +1202,13 @@ Object {
                     </svg>
                   </span>
                   <div
-                    class="s1td2ky4-step-option-item-text"
+                    class="s18v16ky-step-option-item-text"
                   >
                     WebServices to Foundations Migration
                   </div>
                 </div>
                 <div
-                  class="s1sq45h9-step-option-item"
+                  class="s19p3ohd-step-option-item"
                 >
                   <span
                     class="e1y7nq95-el-mr8 ej9yrfo-el-icon"
@@ -1245,13 +1245,13 @@ Object {
                     </svg>
                   </span>
                   <div
-                    class="s1td2ky4-step-option-item-text"
+                    class="s18v16ky-step-option-item-text"
                   >
                     Reapit Connect as ID Provider
                   </div>
                 </div>
                 <div
-                  class="s1sq45h9-step-option-item"
+                  class="s19p3ohd-step-option-item"
                 >
                   <span
                     class="e1y7nq95-el-mr8 ej9yrfo-el-icon"
@@ -1293,7 +1293,7 @@ Object {
                     </svg>
                   </span>
                   <div
-                    class="s1td2ky4-step-option-item-text"
+                    class="s18v16ky-step-option-item-text"
                   >
                     Other
                   </div>
@@ -1327,7 +1327,7 @@ Object {
         class="e14pp0yd-el-col"
       >
         <div
-          class="h1kf1nbn-helper-content-container"
+          class="hadvzab-helper-content-container"
         >
           <h2
             class="evblxhy-el-subtitle"

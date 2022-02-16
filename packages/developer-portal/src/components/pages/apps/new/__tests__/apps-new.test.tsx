@@ -4,7 +4,7 @@ import React from 'react'
 import { AppsNew, handleNavigateOnSuccess, handleSubmitApp, stepIsValid } from '../apps-new'
 import { AppWizardProvider } from '../use-app-wizard'
 import { History } from 'history'
-import Routes from '../../../../constants/routes'
+import Routes from '../../../../../constants/routes'
 import { AppNewStepId } from '../config'
 
 jest.mock('project-name-generator', () => ({

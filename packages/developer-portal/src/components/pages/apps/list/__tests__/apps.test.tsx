@@ -1,7 +1,7 @@
 import React from 'react'
 import { AppsPage } from '../apps'
-import { appsDataStub } from '../../../../sagas/__stubs__/apps'
-import { render } from '../../../../tests/react-testing'
+import { appsDataStub } from '../../../../../sagas/__stubs__/apps'
+import { render } from '../../../../../tests/react-testing'
 
 describe('AppsPage', () => {
   it('should match a snapshot', () => {

@@ -1,6 +1,6 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`NoAppsLandingPage should match a snapshot when apps are present 1`] = `
+exports[`AppsWelcome should match a snapshot when apps are present 1`] = `
 Object {
   "asFragment": [Function],
   "baseElement": <body>
@@ -20,7 +20,7 @@ Object {
             Apps
           </h1>
           <div
-            class="so5czpm-step-container"
+            class="s1cmhhgj-step-container"
           >
             <div
               class="e1jxji48-el-flex-column ejp6mq9-el-flex-justify-around e2kmzjs-el-flex-container"
@@ -370,7 +370,7 @@ Object {
           Apps
         </h1>
         <div
-          class="so5czpm-step-container"
+          class="s1cmhhgj-step-container"
         >
           <div
             class="e1jxji48-el-flex-column ejp6mq9-el-flex-justify-around e2kmzjs-el-flex-container"
