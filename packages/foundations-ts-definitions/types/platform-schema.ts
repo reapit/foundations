@@ -6949,6 +6949,22 @@ export interface DepartmentModel {
    */
   commercialUseClassOptions?: string[]
   /**
+   * A flag to determing if the department has bedrooms configured
+   */
+  hasBedrooms?: boolean
+  /**
+   * A flag to determing if the department has bathrooms configured
+   */
+  hasBathrooms?: boolean
+  /**
+   * A flag to determing if the department has reception rooms configured
+   */
+  hasReceptionRooms?: boolean
+  /**
+   * A flag to determing if the department has parking spaces configured
+   */
+  hasParkingSpaces?: boolean
+  /**
    * The ETag for the current version of the department. Used for managing update concurrency
    */
   readonly _eTag?: string
@@ -7015,6 +7031,22 @@ export interface DepartmentModelPagedResult {
      * A collection of commercial use class values that will be accepted by other services
      */
     commercialUseClassOptions?: string[]
+    /**
+     * A flag to determing if the department has bedrooms configured
+     */
+    hasBedrooms?: boolean
+    /**
+     * A flag to determing if the department has bathrooms configured
+     */
+    hasBathrooms?: boolean
+    /**
+     * A flag to determing if the department has reception rooms configured
+     */
+    hasReceptionRooms?: boolean
+    /**
+     * A flag to determing if the department has parking spaces configured
+     */
+    hasParkingSpaces?: boolean
     /**
      * The ETag for the current version of the department. Used for managing update concurrency
      */
