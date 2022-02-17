@@ -102,7 +102,13 @@ const FormSettings = () => {
           return `Form of ${typeName || ''}${typeName ? 's' : ''}`
         }}
       >
-        <TypeList />
+        <TypeList
+          onChange={() => {
+            setTimeout(() => {
+              setShouldUpdate(true)
+            }, 100)
+          }}
+        />
         <IntegrationLanding typeName={typeName} />
         <ToolbarItem
           type={ToolbarItemType.Select}

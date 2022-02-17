@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useEffect, useState } from 'react'
 import { useEditor, useNode } from '@craftjs/core'
 import { ToolbarItem, ToolbarItemType, ToolbarSection } from '../toolbar'
 import Container from './container'
@@ -12,6 +12,8 @@ import { useObjectList } from '@/components/hooks/objects/use-object-list'
 import { useIntrospection } from '@/components/hooks/use-introspection'
 import { CreatePage } from './create-page'
 import { TypeList } from './type-list'
+import { InputGroup } from '@reapit/elements'
+import { useObject } from '@/components/hooks/objects/use-object'
 
 const defaultProps = {}
 
@@ -26,6 +28,38 @@ const Table = (props: TableProps) => {
   return <ETable {...props} ref={(ref) => ref && connect(drag(ref))} disabled={isEditing} />
 }
 
+const ColumnControls = ({
+  availableFields,
+  includedFields = [],
+  setIncludedFields,
+}: {
+  availableFields: string[]
+  includedFields?: string[]
+  setIncludedFields: (fields: string[]) => void
+}) => (
+  <ToolbarSection
+    title="Fields"
+    props={['includedFields']}
+    summary={({ includedFields }: any) => {
+      return `Table with ${(includedFields || []).length} columns`
+    }}
+  >
+    {availableFields.map((field) => (
+      <InputGroup
+        key={field}
+        type="checkbox"
+        name={field}
+        label={field}
+        checked={includedFields.includes(field)}
+        onChange={(e) => {
+          const { checked } = e.target
+          const newFields = checked ? [...includedFields, field] : includedFields.filter((f) => f !== field)
+          setIncludedFields(newFields)
+        }}
+      />
+    ))}
+  </ToolbarSection>
+)
 const ContainerSettings = Container.craft.related.toolbar
 
 export const IntegrationLanding = ({ typeName }: { typeName: string | undefined }) => {
@@ -59,13 +93,16 @@ export const IntegrationLanding = ({ typeName }: { typeName: string | undefined 
 }
 
 const TableSettings = () => {
-  const { typeName } = useNode((node) => node.data.props)
+  const { typeName, includedFields } = useNode((node) => node.data.props)
   const subobjects = useSubObjects(typeName)
   const { specials } = useObjectSpecials(typeName)
   const { available: searchAvailable } = useObjectSearch(typeName)
+  const { object } = useObject(typeName)
   const {
     actions: { setProp },
   } = useNode()
+
+  const [shouldUpdate, setShouldUpdate] = useState(false)
 
   const sp = (prop: string, value: any) => {
     setProp((props) => {
@@ -73,6 +110,15 @@ const TableSettings = () => {
       return props
     })
   }
+
+  const availableFields = object?.object.fields.map((f) => f.name) || []
+
+  useEffect(() => {
+    if (shouldUpdate) {
+      setShouldUpdate(false)
+      sp('includedFields', availableFields)
+    }
+  }, [shouldUpdate])
 
   return (
     <>
@@ -84,7 +130,13 @@ const TableSettings = () => {
           return `Table of ${typeName || ''}${typeName ? 's' : ''}`
         }}
       >
-        <TypeList />
+        <TypeList
+          onChange={() => {
+            setTimeout(() => {
+              setShouldUpdate(true)
+            }, 100)
+          }}
+        />
       </ToolbarSection>
       <DestinationPage
         sectionTitle="Edit Page"
@@ -93,6 +145,11 @@ const TableSettings = () => {
         createControl={
           <CreatePage typeName={typeName} operationType="update" onCreate={(pageId) => sp('editPageId', pageId)} />
         }
+      />
+      <ColumnControls
+        availableFields={availableFields}
+        includedFields={includedFields}
+        setIncludedFields={(fields: string[]) => sp('includedFields', fields)}
       />
       <IntegrationLanding typeName={typeName} />
       {subobjects.data.map((subobject) => (

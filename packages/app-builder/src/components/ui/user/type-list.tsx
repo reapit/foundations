@@ -5,13 +5,13 @@ import { useTypeList } from '@/components/hooks/objects/use-type-list'
 import { useCreateCustomEntity } from '@/components/hooks/custom-entities/use-create-custom-entity'
 import { ToolbarItem, ToolbarItemType } from '../toolbar'
 
-export const TypeList = () => {
+export const TypeList = ({ onChange }: { onChange?: (value: string) => void }) => {
   const { data, loading } = useTypeList()
   const { createCustomEntity, loading: createLoading } = useCreateCustomEntity()
 
   return (
     <>
-      <ToolbarItem type={ToolbarItemType.Select} propKey="typeName" title="Object Type">
+      <ToolbarItem type={ToolbarItemType.Select} propKey="typeName" title="Object Type" onChange={onChange}>
         {(data || []).map((typeName) => (
           <option key={typeName} value={typeName}>
             {typeName}
