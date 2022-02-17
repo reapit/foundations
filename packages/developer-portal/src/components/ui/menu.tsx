@@ -42,11 +42,8 @@ export const XmasLogo: React.FC = () => {
 }
 
 export const getDefaultNavIndex = (pathname: string) => {
+  if (pathname.includes('/apps')) return 1
   switch (pathname) {
-    case Routes.APPS:
-    case Routes.APP_DETAIL:
-    case Routes.APP_PREVIEW:
-      return 1
     case Routes.ANALYTICS:
     case Routes.ANALYTICS_TAB:
       return 2

@@ -22,6 +22,7 @@ export enum GetActionNames {
   getDeveloperMembers = 'getDeveloperMembers',
   getCustomersById = 'getCustomersById',
   getAppById = 'getAppById',
+  getAppSecret = 'getAppSecret',
 }
 
 export type GetActions = { [key in GetActionNames]: GetAction }
@@ -91,5 +92,10 @@ export const getActions = (appEnv: AppEnv): GetActions => ({
     api: ApiNames(appEnv).platform,
     path: PathNames.customersById,
     errorMessage: 'Something went wrong fetching your customer information',
+  },
+  [GetActionNames.getAppSecret]: {
+    api: ApiNames(appEnv).platform,
+    path: PathNames.appSecretById,
+    errorMessage: 'Something went wrong fetching your client secret',
   },
 })

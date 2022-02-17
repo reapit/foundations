@@ -3,22 +3,17 @@ import { useHistory } from 'react-router'
 import ErrorBoundary from '../../../hocs/error-boundary'
 import Routes from '../../../../constants/routes'
 import {
-  SmallText,
-  Button,
   elHFull,
-  elMb3,
   elMb8,
   FlexContainer,
-  Icon,
   Loader,
   PageContainer,
   SecondaryNav,
   SecondaryNavContainer,
   SecondaryNavItem,
-  Subtitle,
   Title,
 } from '@reapit/elements'
-import { navigate, openNewPage, ExternalPages } from '../../../../utils/navigation'
+import { navigate } from '../../../../utils/navigation'
 import { Redirect, Route, Switch, useLocation } from 'react-router-dom'
 import AppsWelcomePage from '../welcome'
 import AppsListPage from '../list'
@@ -26,22 +21,8 @@ import AppsNewPage from '../new'
 import AppsDetailPage from '../detail'
 import AppEditPage from '../edit'
 import { useAppState } from '../state/use-app-state'
-
-export const getCurrentPage = (pathname: string) => {
-  const isAppsList = pathname === Routes.APPS
-  const isAppsNew = pathname === Routes.APPS_NEW
-  const isAppsWelcome = pathname === Routes.APPS_WELCOME
-  const isAppsEdit = /^\/apps\/[a-z0-9-]+\/edit/.test(pathname)
-  const isAppsDetail = /^\/apps\/[a-z0-9-]+/.test(pathname) && !isAppsEdit && !isAppsNew
-
-  return {
-    isAppsList,
-    isAppsNew,
-    isAppsWelcome,
-    isAppsEdit,
-    isAppsDetail,
-  }
-}
+import { getCurrentPage } from '../utils/get-current-page'
+import { Helper } from './helper'
 
 export const AppsPage: FC = () => {
   const history = useHistory()
@@ -81,15 +62,7 @@ export const AppsPage: FC = () => {
                   New App
                 </SecondaryNavItem>
               </SecondaryNav>
-              <Icon className={elMb3} icon="myAppsInfographic" iconSize="large" />
-              <Subtitle>Apps Documentation</Subtitle>
-              <SmallText hasGreyText>
-                This is the dashboard for your applications created using the Reapit Foundations platform. If you have
-                not created an app before or you need help, please take the time to view our getting started guide.
-              </SmallText>
-              <Button className={elMb3} intent="neutral" onClick={openNewPage(ExternalPages.developerPortalDocs)}>
-                View Docs
-              </Button>
+              <Helper />
             </SecondaryNavContainer>
             <PageContainer className={elHFull}>
               <Switch>

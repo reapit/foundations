@@ -27,4 +27,5 @@ export enum PathNames {
   developerById = '/marketplace/developers/{developerId}',
   customersById = '/marketplace/customers/{customerId}',
   developers = '/marketplace/developers',
+  appSecretById = '/marketplace/apps/{appId}/secret',
 }
