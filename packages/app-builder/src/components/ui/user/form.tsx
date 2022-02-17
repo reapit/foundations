@@ -20,6 +20,12 @@ const defaultProps = {
   destination: '/',
 }
 
+const strToCamel = (str: string) =>
+  str
+    .split(' ')
+    .map((s) => s.charAt(0).toUpperCase() + s.slice(1))
+    .join('')
+
 const Form = (props: FormProps) => {
   const { isEditing } = useEditor((state) => ({
     isEditing: state.options.enabled,
@@ -120,7 +126,7 @@ const FormSettings = () => {
         {object?.supportsCustomFields && (
           <Button
             onClick={async () => {
-              const name = prompt('Enter a name for the input')
+              const name = strToCamel(prompt('Enter a name for the input') || '')
               if (name) {
                 const existingFields = customEntity?.fields || []
                 updateCustomEntity(typeName, {
