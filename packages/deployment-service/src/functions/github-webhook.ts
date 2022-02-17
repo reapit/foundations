@@ -3,10 +3,12 @@ import {
   httpHandler,
   HttpStatusCode,
   NotFoundException,
+  UnauthorizedException,
 } from '@homeservenow/serverless-aws-handler'
 import { defaultOutputHeaders, QueueNames } from '../constants'
 import * as service from '../services'
 import { PipelineRunnerType } from '@reapit/foundations-ts-definitions'
+import { githubApp } from '../services'
 
 type GithubCommitEvent = {
   ref: string
@@ -29,8 +31,20 @@ const isRepoInstallEvent = (value: any): value is GithubRepoInstallation =>
 
 export const githubWebhook = httpHandler<GithubCommitEvent | GithubRepoInstallation, void>({
   defaultOutputHeaders,
-  handler: async ({ body }) => {
-    // TODO auth with github
+  handler: async ({ body, event }) => {
+    const { headers } = event
+
+    const signature = headers['X-Hub-Signature-256']
+
+    if (!signature) {
+      throw new UnauthorizedException('No signature')
+    }
+
+    const verified = await githubApp.webhooks.verify(body, signature)
+
+    if (!verified) {
+      throw new UnauthorizedException('Invalid signature')
+    }
 
     if (isCommitEvent(body)) {
       const repositoryId = body.repository.id
