@@ -9476,7 +9476,7 @@ __metadata:
     eslint-plugin-prettier: ^4.0.0
     jest: ^27.4.5
     jest-coverage-badges: ^1.1.2
-    serialize-error: ^9.1.0
+    serialize-error: ^7.0.1
     uuid: ^8.3.2
   bin:
     reapit-fetch-public-keys: ./src/fetch-public-keys/index.js
@@ -19288,7 +19288,7 @@ __metadata:
     jest-coverage-badges: ^1.1.2
     memorystore: ^1.6.6
     morgan: ^1.10.0
-    serialize-error: ^7.0.1
+    serialize-error: ^9.1.0
     serverless: ^2.69.1
     serverless-deployment-bucket: ^1.5.1
     serverless-http: ^2.7.0
