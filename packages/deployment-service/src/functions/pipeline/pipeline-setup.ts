@@ -1,7 +1,7 @@
 import { CloudFrontClient, CreateDistributionCommand } from '@aws-sdk/client-cloudfront'
 import { Callback, SQSEvent, SQSHandler, Context } from 'aws-lambda'
 import { plainToClass } from 'class-transformer'
-import { PipelineEntity } from '../../entities'
+import { PipelineEntity } from '../../entities/pipeline.entity'
 import { v4 as uuid } from 'uuid'
 import { Route53Client, ChangeResourceRecordSetsCommand } from '@aws-sdk/client-route-53'
 import { s3Client, sqs, updatePipelineEntity, pusher } from '../../services'

@@ -1,30 +1,22 @@
 {
+  "extends": "../../tsconfig.json",
   "compilerOptions": {
-    "allowJs": true,
-    "esModuleInterop": true,
-    "allowSyntheticDefaultImports": true,
-    "lib": ["es2019", "dom"],
     "module": "commonjs",
-    "moduleResolution": "node",
-    "noEmit": false,
-    "noImplicitAny": false,
-    "forceConsistentCasingInFileNames": true,
-    "outDir": "dist",
-    "strict": true,
-    "target": "es5",
-    "typeRoots": ["./node_modules/@types"],
-    "sourceMap": true,
+    "target": "ES2018",
+    "typeRoots": ["./src/core/definitions.d.ts", "node_modules/@types", "../../node_modules/@types"],
+    "baseUrl": "./",
     "sourceRoot": "/",
-    "inlineSources": true,
-    "resolveJsonModule": true,
+    "paths": {
+      "@/*": ["src/*"],
+      "@reapit/*": ["../*"]
+    },
+    "declaration": true,
+    "declarationDir": "dist",
     "experimentalDecorators": true,
     "emitDecoratorMetadata": true,
-    "jsx": "react",
-    "baseUrl": "./",
-    "paths": {
-      "@reapit/connect-session": ["../connect-session/src"],
-      "@reapit/utils-node": ["../utils-node"]
-    }
+    "strictPropertyInitialization": false,
+    "outDir": "./dist"
   },
-  "exclude": ["public", "dist", "scripts", "**/node_modules", "coverage", "archive/**/*", "**/__tests__/**/*", "cdk/**/*"]
+  "include": ["src"],
+  "exclude": ["public", "dist", "src/scripts", "node_modules", "src/tests/coverage", "../connect-session/**/*"]
 }

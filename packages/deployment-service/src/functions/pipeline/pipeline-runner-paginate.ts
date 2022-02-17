@@ -1,5 +1,5 @@
 import { ForbiddenException, httpHandler, NotFoundException } from '@homeservenow/serverless-aws-handler'
-import { PipelineRunnerEntity } from './../../entities'
+import { PipelineRunnerEntity } from '../../entities/pipeline-runner.entity'
 import * as pipelineService from './../../services/pipeline'
 import * as service from './../../services/pipeline-runner'
 import { resolveCreds } from './../../utils'

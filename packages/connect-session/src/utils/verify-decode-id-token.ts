@@ -79,8 +79,7 @@ export const connectSessionVerifyDecodeIdTokenWithPublicKeys = async (
       orgProduct: claim['custom:reapit:orgProduct'] || null,
     }
   } catch (error) {
-    const err = error as Error
-    console.error('Reapit Connect Session error:', err.message)
+    console.error('Reapit Connect Session error:', (error as any).message)
   }
 }
 

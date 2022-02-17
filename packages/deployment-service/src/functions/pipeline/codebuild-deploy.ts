@@ -1,6 +1,6 @@
 import { SQSEvent, SQSHandler, Context, Callback } from 'aws-lambda'
 import { QueueNames } from '../../constants'
-import { PipelineEntity } from '../../entities'
+import { PipelineEntity } from '../../entities/pipeline.entity'
 import { deployFromStore } from '../../executables'
 import {
   findPipelineRunnerById,
@@ -10,7 +10,6 @@ import {
   updateTask,
   resetCurrentlyDeployed,
 } from '../../services'
-import { logger } from '../../core'
 
 const deleteMessage = (ReceiptHandle: string): Promise<void> =>
   new Promise((resolve, reject) =>
@@ -89,7 +88,7 @@ export const codebuildDeploy: SQSHandler = async (event: SQSEvent, context: Cont
 
         await resetCurrentlyDeployed(pipelineRunner.pipeline as PipelineEntity)
       } catch (error: any) {
-        logger.error(error)
+        console.error(error)
 
         pipelineRunner.buildStatus = 'FAILED'
         if (pipelineRunner.pipeline) {

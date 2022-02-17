@@ -1,7 +1,9 @@
 import { Connection, createConnection } from 'typeorm'
 import { SecretsManager } from 'aws-sdk'
 import { SubDomainSubscriber } from '../subscribers/sub-domain'
-import { TaskEntity, PipelineEntity, PipelineRunnerEntity } from './../entities'
+import { TaskEntity } from '../entities/task.entity'
+import { PipelineEntity } from '../entities/pipeline.entity'
+import { PipelineRunnerEntity } from '../entities/pipeline-runner.entity'
 import migrations from './../../migrations'
 import { MysqlConnectionOptions } from 'typeorm/driver/mysql/MysqlConnectionOptions'
 

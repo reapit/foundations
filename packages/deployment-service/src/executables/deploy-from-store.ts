@@ -1,8 +1,9 @@
 import { s3Client } from '../services'
-import { PipelineEntity, PipelineRunnerEntity } from './../entities'
+import { PipelineRunnerEntity } from '../entities/pipeline-runner.entity'
 import { GetObjectOutput } from 'aws-sdk/clients/s3'
 import { releaseToLiveFromZip } from './release-to-live'
 import { CloudFrontClient, CreateInvalidationCommand } from '@aws-sdk/client-cloudfront'
+import { PipelineEntity } from 'src/entities/pipeline.entity'
 
 const getFromVersionS3 = async (location: string): Promise<GetObjectOutput | never> =>
   new Promise<GetObjectOutput>((resolve, reject) =>

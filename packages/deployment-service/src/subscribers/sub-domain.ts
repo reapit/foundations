@@ -1,5 +1,5 @@
 import { EntitySubscriberInterface, InsertEvent, EventSubscriber, EntityManager, UpdateEvent } from 'typeorm'
-import { PipelineEntity } from './../entities'
+import { PipelineEntity } from '../entities/pipeline.entity'
 import generate from 'project-name-generator'
 
 @EventSubscriber()

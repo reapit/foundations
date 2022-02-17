@@ -59,7 +59,7 @@ export class ReapitConnectServerSession {
       }
       throw new Error('No access token returned by Reapit Connect')
     } catch (error) {
-      console.error('Reapit Connect Token Error', error.message)
+      console.error('Reapit Connect Token Error', (error as any).message)
     }
   }
 
@@ -81,7 +81,7 @@ export class ReapitConnectServerSession {
 
       throw new Error('No session returned from Reapit Connect')
     } catch (error) {
-      console.error('Reapit Connect Session error', error.message)
+      console.error('Reapit Connect Session error', (error as any).message)
     }
   }
 }

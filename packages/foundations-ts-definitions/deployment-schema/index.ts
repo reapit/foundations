@@ -59,4 +59,5 @@ export enum AppTypeEnum {
 export enum PipelineRunnerType {
   BUILD = 'BUILD',
   RELEASE = 'RELEASE',
+  REPO = 'REPO',
 }
