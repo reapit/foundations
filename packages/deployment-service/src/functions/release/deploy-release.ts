@@ -9,10 +9,11 @@ import {
 } from '../../services'
 import { defaultOutputHeaders } from '../../constants'
 import * as pipelineService from '../../services/pipeline'
-import { PipelineEntity, PipelineRunnerEntity } from '../../entities'
+import { PipelineEntity } from '../../entities/pipeline.entity'
 import { ownership } from '../../utils/ownership'
 import { deployFromStore } from './../../executables'
 import { PipelineRunnerType } from '@reapit/foundations-ts-definitions'
+import { PipelineRunnerEntity } from '../../entities/pipeline-runner.entity'
 
 /**
  * Deploy a new release

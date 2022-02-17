@@ -8,7 +8,7 @@ import {
 import { ChangeResourceRecordSetsCommand, Route53Client } from '@aws-sdk/client-route-53'
 import { SQSEvent, SQSHandler, Context, Callback } from 'aws-lambda'
 import { deletePipelineEntity, deletePipelineRunners, deleteTasksFromPipeline, s3Client, sqs } from '../../services'
-import { PipelineEntity } from '../../entities'
+import { PipelineEntity } from '../../entities/pipeline.entity'
 import { QueueNames } from '../../constants'
 
 const tearDownCloudFront = async (Id: string): Promise<string> => {

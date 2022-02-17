@@ -127,7 +127,7 @@ export const fetcherWithBlob = async <B>({
     try {
       const blob = await res.blob()
       return blob
-    } catch (err) {
+    } catch (err: any) {
       const error = new FetchError("Can't convert response to blob. Error:", err.message)
       console.error(error.message)
       throw error

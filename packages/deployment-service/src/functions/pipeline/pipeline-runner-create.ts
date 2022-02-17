@@ -1,4 +1,4 @@
-import { PipelineRunnerEntity } from './../../entities'
+import { PipelineRunnerEntity } from '../../entities/pipeline-runner.entity'
 import { ownership, resolveCreds } from './../../utils'
 import {
   BadRequestException,

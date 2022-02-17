@@ -189,5 +189,12 @@ const handleStateChange = async ({
       savePipelineRunnerEntity(pipelineRunner),
       pusher.trigger(`private-${pipelineRunner.pipeline?.developerId}`, 'pipeline-runner-update', pipelineRunner),
     ])
+  } else if (event.detail['build-status'] === 'FAILED') {
+    pipelineRunner.buildStatus = 'FAILED'
+    if (pipelineRunner.pipeline) pipelineRunner.pipeline.buildStatus = 'FAILED'
+    await Promise.all([
+      pusher.trigger(`private-${pipelineRunner.pipeline?.developerId}`, 'pipeline-runner-update', pipelineRunner),
+      savePipelineRunnerEntity(pipelineRunner),
+    ])
   }
 }

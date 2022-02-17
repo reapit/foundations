@@ -2,9 +2,10 @@ import { resolveCreds } from '../../utils'
 import { httpHandler, NotFoundException } from '@homeservenow/serverless-aws-handler'
 import { defaultOutputHeaders } from '../../constants'
 import * as services from './../../services/pipeline-runner'
-import { PipelineEntity, PipelineRunnerEntity } from './../../entities'
+import { PipelineEntity } from '../../entities/pipeline.entity'
 import { deployFromStore } from './../../executables/deploy-from-store'
 import { ownership } from '../../utils/ownership'
+import { PipelineRunnerEntity } from '../../entities/pipeline-runner.entity'
 
 /**
  * Release a particular version
