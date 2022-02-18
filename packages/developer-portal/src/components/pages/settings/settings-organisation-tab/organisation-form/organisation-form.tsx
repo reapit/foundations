@@ -120,7 +120,7 @@ export const handleSubmit = (updateDeveloperDataDispatch) => (values: Organisati
     postcode,
     countryId,
   }
-  debugger
+
   // reset all unncessary fields to '' when checked appropriate checkboxes
   if (noRegistrationNumber) {
     otherData.registrationNumber = ''
