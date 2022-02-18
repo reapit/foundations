@@ -327,6 +327,7 @@ exports[`DeveloperSubmitApp should match a snapshot when pendingRevisions = fals
                   "_deps": Array [],
                   "_exclusive": Object {},
                   "_mutate": undefined,
+                  "_nullable": true,
                   "_options": Object {
                     "abortEarly": true,
                     "recursive": true,
@@ -499,6 +500,7 @@ exports[`DeveloperSubmitApp should match a snapshot when pendingRevisions = fals
                     "trim": false,
                   },
                   "_mutate": undefined,
+                  "_nullable": true,
                   "_options": Object {
                     "abortEarly": true,
                     "recursive": true,

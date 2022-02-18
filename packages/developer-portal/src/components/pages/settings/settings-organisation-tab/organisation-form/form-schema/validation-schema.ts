@@ -47,7 +47,7 @@ export const companyInformationFormSchema = Yup.object().shape({
     })
     .max(100, MAXIMUM_CHARACTER_LENGTH(100)),
 
-  [noTaxRegistrationField.name]: Yup.boolean(),
+  [noTaxRegistrationField.name]: Yup.boolean().nullable(),
 
   [taxNumberField.name]: Yup.string().when(noTaxRegistrationField.name, {
     is: false,
@@ -55,7 +55,7 @@ export const companyInformationFormSchema = Yup.object().shape({
     otherwise: Yup.string().notRequired(),
   }),
 
-  [noRegistrationNumberField.name]: Yup.boolean(),
+  [noRegistrationNumberField.name]: Yup.boolean().nullable(),
 
   // when unchecked "NO COMPANY REGISTRATION NUMBER" -> validate
   [registrationNumberField.name]: Yup.string().when(noRegistrationNumberField.name, {
@@ -67,11 +67,13 @@ export const companyInformationFormSchema = Yup.object().shape({
   [aboutField.name]: Yup.string().trim().required(FIELD_REQUIRED).max(250, MAXIMUM_CHARACTER_LENGTH(250)),
 
   // when checked "NO COMPANY REGISTRATION NUMBER" -> validate
-  [nationalInsuranceField.name]: Yup.string().when(noRegistrationNumberField.name, {
-    is: true,
-    then: Yup.string().trim().required(FIELD_REQUIRED).max(20, MAXIMUM_CHARACTER_LENGTH(20)),
-    otherwise: Yup.string().notRequired(),
-  }),
+  [nationalInsuranceField.name]: Yup.string()
+    .nullable()
+    .when(noRegistrationNumberField.name, {
+      is: true,
+      then: Yup.string().trim().required(FIELD_REQUIRED).max(20, MAXIMUM_CHARACTER_LENGTH(20)),
+      otherwise: Yup.string().notRequired(),
+    }),
 
   [buildingNameField.name]: Yup.string().trim().max(35, MAXIMUM_CHARACTER_LENGTH(35)),
 
