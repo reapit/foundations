@@ -36,6 +36,7 @@ export * from './components/toggle'
 export * from './components/typography'
 export * from './components/form-layout'
 export * from './components/tool-tip'
+export * from './components/input-error'
 
 export * from './hooks/use-portal'
 export * from './hooks/use-snack'

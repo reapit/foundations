@@ -23,6 +23,7 @@ export enum GetActionNames {
   getCustomersById = 'getCustomersById',
   getAppById = 'getAppById',
   getAppSecret = 'getAppSecret',
+  getDesktopIntegrationTypes = 'getDesktopIntegrationTypes',
 }
 
 export type GetActions = { [key in GetActionNames]: GetAction }
@@ -97,5 +98,10 @@ export const getActions = (appEnv: AppEnv): GetActions => ({
     api: ApiNames(appEnv).platform,
     path: PathNames.appSecretById,
     errorMessage: 'Something went wrong fetching your client secret',
+  },
+  [GetActionNames.getDesktopIntegrationTypes]: {
+    api: ApiNames(appEnv).platform,
+    path: PathNames.desktopIntegrationTypes,
+    errorMessage: 'Something went wrong fetching the desktop integration options',
   },
 })
