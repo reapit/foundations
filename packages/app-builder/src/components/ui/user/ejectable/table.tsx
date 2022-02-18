@@ -301,11 +301,11 @@ export const Table = forwardRef<HTMLDivElement, TableProps & { disabled?: boolea
       })
     }
 
-    const [row] = rows || []
+    const [firstRow] = rows || []
 
     const displaySearch = searchAvailable && showSearch
-    const displayTable = typeName && row
-    const displayNothingFound = !loading && !row
+    const displayTable = typeName && firstRow
+    const displayNothingFound = !loading && !firstRow
     const displayNoType = !loading && !typeName
     const displayNoResultsFound = searchAvailable && queryStr
 
@@ -318,12 +318,13 @@ export const Table = forwardRef<HTMLDivElement, TableProps & { disabled?: boolea
           {loading && <Loader label="Loading" />}
           {displayTable && (
             <ELTable
-              numberColumns={row.cells.length + 1}
+              numberColumns={firstRow.cells.length + 1}
               style={{ flex: 1, opacity: searchLoading ? 0.5 : 1, transition: '300ms opacity' }}
               rows={rows || undefined}
             />
           )}
-          {displayNothingFound ? <span>{displayNoResultsFound ? 'No results found' : 'Nothing found'}</span> : null}
+          {displayNothingFound && displayNoResultsFound && <span>No results found</span>}
+          {displayNothingFound && !displayNoResultsFound && <span>Nothing found</span>}
           {displayNoType && <div>No type selected</div>}
         </div>
       </Container>
