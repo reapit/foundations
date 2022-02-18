@@ -37,16 +37,24 @@ export const createApi = (
   })
 }
 
+export type LambdaRoute = {
+  path: string,
+  method: string,
+}
+
 export const addLambdaToApi = (
   scope: cdk.Stack,
   api: apigateway.RestApi,
   lambdaFunction: lambda.Function,
-  path: string,
-  method: string,
+  routes: LambdaRoute | LambdaRoute[],
   cognitoUserPoolId?: string,
 ) => {
-  api.root.resourceForPath(path).addMethod(method, new apigateway.LambdaIntegration(lambdaFunction), {
-    authorizer: cognitoUserPoolId ? getAuthorizer(scope, cognitoUserPoolId) : undefined,
-    authorizationType: cognitoUserPoolId ? apigateway.AuthorizationType.COGNITO : undefined,
+  const routesToAdd = Array.isArray(routes) ? routes : [routes]
+
+  routesToAdd.forEach((route) => {
+    api.root.resourceForPath(route.path).addMethod(route.method, new apigateway.LambdaIntegration(lambdaFunction), {
+      authorizer: cognitoUserPoolId ? getAuthorizer(scope, cognitoUserPoolId) : undefined,
+      authorizationType: cognitoUserPoolId ? apigateway.AuthorizationType.COGNITO : undefined,
+    })
   })
 }
