@@ -1,22 +1,19 @@
-import React, { FC, useEffect, useState } from 'react'
-import { Loader, PersistantNotification, Tabs, Title } from '@reapit/elements'
-import { AppPipeline } from './app-pipeline'
+import React, { ChangeEvent, Dispatch, FC, SetStateAction, useEffect, useState } from 'react'
+import { Loader, PersistantNotification, Tabs, TabsOption, Title } from '@reapit/elements'
 import { AppUriParams, useAppState } from '../state/use-app-state'
 import { handleSetAppId } from '../utils/handle-set-app-id'
 import { useParams } from 'react-router-dom'
+import { AppEditTab } from './edit-page-tabs'
+import { AppEditForm } from './app-edit-form'
+// import { CreateAppRevisionModel } from '@reapit/foundations-ts-definitions'
 
-const AppDetailsTabs = ({ tab }: { tab: string }) => {
-  switch (tab) {
-    case 'pipelines':
-      return <AppPipeline />
-    default:
-    case 'details':
-      return <div>Edititng</div>
+export const handleChangeTab =
+  (setTab: Dispatch<SetStateAction<AppEditTab>>) => (event: ChangeEvent<HTMLInputElement>) => {
+    setTab(event.target.value as AppEditTab)
   }
-}
 
-const AppEditPage: FC = () => {
-  const [tab, setTab] = useState<string>('details')
+export const AppEditPage: FC = () => {
+  const [tab, setTab] = useState<AppEditTab>(AppEditTab.general)
   const { appId } = useParams<AppUriParams>()
   const { appsDataState, setAppId } = useAppState()
 
@@ -28,31 +25,54 @@ const AppEditPage: FC = () => {
     <Loader />
   ) : appDetail ? (
     <>
-      <Title>Edit {appDetail?.name}</Title>
+      <Title>{appDetail?.name}</Title>
 
       <Tabs
         isFullWidth
-        name="app_tabs"
-        onChange={(event) =>
-          // @ts-ignore
-          setTab(event.target.value)
+        name="app-edit-tabs"
+        onChange={handleChangeTab(setTab)}
+        options={
+          [
+            {
+              id: AppEditTab.general,
+              value: AppEditTab.general,
+              text: 'General Info',
+              isChecked: tab === AppEditTab.general,
+            },
+            {
+              id: AppEditTab.authentication,
+              value: AppEditTab.authentication,
+              text: 'Authentication',
+              isChecked: tab === AppEditTab.authentication,
+            },
+            {
+              id: AppEditTab.permissions,
+              value: AppEditTab.permissions,
+              text: 'Permissions',
+              isChecked: tab === AppEditTab.permissions,
+            },
+            {
+              id: AppEditTab.acIntegration,
+              value: AppEditTab.acIntegration,
+              text: 'AgencyCloud Integration',
+              isChecked: tab === AppEditTab.acIntegration,
+            },
+            {
+              id: AppEditTab.appListing,
+              value: AppEditTab.appListing,
+              text: 'App Listing',
+              isChecked: tab === AppEditTab.appListing,
+            },
+            window.reapit.config.appEnv !== 'production' && {
+              id: AppEditTab.pipelines,
+              value: AppEditTab.pipelines,
+              text: 'Pipelines',
+              isChecked: tab === AppEditTab.pipelines,
+            },
+          ].filter(Boolean) as TabsOption[]
         }
-        options={[
-          {
-            id: 'details',
-            value: 'details',
-            text: 'General Info',
-            isChecked: tab === 'details',
-          },
-          {
-            id: 'pipelines',
-            value: 'pipelines',
-            text: 'Pipeline',
-            isChecked: tab === 'pipelines',
-          },
-        ]}
       />
-      <AppDetailsTabs tab={tab} />
+      <AppEditForm tab={tab} />
     </>
   ) : (
     <PersistantNotification intent="secondary" isExpanded isFullWidth isInline>

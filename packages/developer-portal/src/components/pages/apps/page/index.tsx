@@ -20,6 +20,7 @@ import AppsListPage from '../list'
 import AppsNewPage from '../new'
 import AppsDetailPage from '../detail'
 import AppEditPage from '../edit'
+import AppInstallationsPage from '../installations'
 import { useAppState } from '../state/use-app-state'
 import { getCurrentPage } from '../utils/get-current-page'
 import { Helper } from './helper'
@@ -31,7 +32,8 @@ export const AppsPage: FC = () => {
   const { appsDataState, appId } = useAppState()
 
   const { apps, appsLoading } = appsDataState
-  const { isAppsList, isAppsNew, isAppsWelcome, isAppsEdit, isAppsDetail } = getCurrentPage(pathname)
+  const { isAppsList, isAppsNew, isAppsWelcome, isAppsEdit, isAppsDetail, isAppsInstallations } =
+    getCurrentPage(pathname)
 
   return (
     <ErrorBoundary>
@@ -48,13 +50,19 @@ export const AppsPage: FC = () => {
                 <SecondaryNavItem onClick={navigate(history, Routes.APPS)} active={isAppsList}>
                   My Apps
                 </SecondaryNavItem>
-                {(isAppsEdit || isAppsDetail) && (
+                {(isAppsEdit || isAppsDetail || isAppsInstallations) && (
                   <>
                     <SecondaryNavItem onClick={navigate(history, `${Routes.APPS}/${appId}`)} active={isAppsDetail}>
                       App Details
                     </SecondaryNavItem>
                     <SecondaryNavItem onClick={navigate(history, `${Routes.APPS}/${appId}/edit`)} active={isAppsEdit}>
                       Edit Details
+                    </SecondaryNavItem>
+                    <SecondaryNavItem
+                      onClick={navigate(history, `${Routes.APPS}/${appId}/installations`)}
+                      active={isAppsInstallations}
+                    >
+                      Installations
                     </SecondaryNavItem>
                   </>
                 )}
@@ -69,6 +77,7 @@ export const AppsPage: FC = () => {
                 <Route path={Routes.APPS} exact component={AppsListPage} />
                 <Route path={Routes.APPS_NEW} exact component={AppsNewPage} />
                 <Route path={Routes.APPS_WELCOME} exact component={AppsWelcomePage} />
+                <Route path={Routes.APP_INSTALLATIONS} exact component={AppInstallationsPage} />
                 <Route path={Routes.APPS_EDIT} component={AppEditPage} />
                 <Route path={Routes.APP_DETAIL} component={AppsDetailPage} />
               </Switch>

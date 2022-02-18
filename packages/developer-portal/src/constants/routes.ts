@@ -4,6 +4,7 @@ const Routes = {
   APPS_WELCOME: '/apps/welcome',
   APPS_NEW: '/apps/new',
   APP_DETAIL: '/apps/:appId',
+  APP_INSTALLATIONS: '/apps/:appId/installations',
   SWAGGER: '/swagger',
   DESKTOP: '/desktop',
   APPS_EDIT: '/apps/:appId/edit',
