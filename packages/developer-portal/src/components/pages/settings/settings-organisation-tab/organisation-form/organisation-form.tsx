@@ -160,9 +160,7 @@ const OrganisationForm: React.FC<OrganisationFormProps> = ({ onInviteNewMemberCl
       validationSchema={companyInformationFormSchema}
       onSubmit={handleSubmit(updateDeveloperDataDispatch)}
     >
-      {({ values, errors }) => {
-        console.log(values)
-        console.log(errors)
+      {({ values }) => {
         return (
           <Form>
             <H3 className="flex justify-between">
