@@ -29,12 +29,27 @@ import { CustomEntityResolver, PLACEHOLDER } from './resolvers/custom-entity-res
 
 const noT = (str: string) => str.split('T0').join('')
 
+const strToCamel = (str: string) =>
+  str
+    .split(' ')
+    .map((s) => s.charAt(0).toUpperCase() + s.slice(1))
+    .join('')
+
+const objToCamel = (obj: Record<string, any>) => {
+  const newObj = {}
+  Object.keys(obj).forEach((key) => {
+    newObj[strToCamel(key)] = obj[key]
+  })
+  return newObj
+}
+
 const metadataSchemaToGraphQL = (metadataSchema: SchemaModel) => {
   if (!metadataSchema.schema) {
     return
   }
 
   const parsedSchema = JSON.parse(metadataSchema.schema)
+  parsedSchema.properties = objToCamel(parsedSchema.properties)
 
   const output = getGraphqlSchemaFromJsonSchema({
     rootName: metadataSchema.id || 'object',
@@ -189,7 +204,7 @@ const generateDynamicSchema = (
             .split('id: ID!')
             .join('')
         } else {
-          typeDefs += typeDefinitions.split(`type ${typeName}`).join(`"@supportsCustomFields()"\ntype ${typeName}`)
+          typeDefs += typeDefinitions.split(`type ${typeName}`).join(`\n"@supportsCustomFields()"\ntype ${typeName}`)
 
           const queries = generateQueries(typeName)
           const mutations = generateMutations(typeName, inputTypeName)

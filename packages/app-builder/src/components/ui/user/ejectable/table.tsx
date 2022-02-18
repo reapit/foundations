@@ -35,6 +35,7 @@ export interface TableProps extends ContainerProps {
   editPageId?: string
   showControls?: string
   showSearch?: string
+  excludedFields?: string[]
   [key: string]: any
 }
 
@@ -190,7 +191,7 @@ const getAdditionalCells = (
     .flat()
 
 export const Table = forwardRef<HTMLDivElement, TableProps & { disabled?: boolean }>(
-  ({ typeName, editPageId, showControls, disabled, showSearch, ...props }, ref) => {
+  ({ typeName, editPageId, showControls, disabled, showSearch, includedFields = [], ...props }, ref) => {
     const { data: listResults, loading: listLoading } = useObjectList(typeName)
     const { available: deletionAvailable } = useObjectDelete(typeName)
     const { available: updateAvailable } = useObjectUpdate(typeName)
@@ -220,7 +221,9 @@ export const Table = forwardRef<HTMLDivElement, TableProps & { disabled?: boolea
     const rows: RowProps[] | undefined =
       data && typeName
         ? data.map((row): RowProps => {
-            const cells = [...getDataCells(row, subobjectNames)].filter(notEmpty)
+            const cells = getDataCells(row, subobjectNames)
+              .filter(({ label }) => includedFields.map((s) => s.toLowerCase()).includes(label.toLowerCase()))
+              .filter(notEmpty)
 
             const controls = showControls
               ? [
