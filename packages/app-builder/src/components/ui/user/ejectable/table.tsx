@@ -146,55 +146,104 @@ const PrintableQR = ({ destination, context, size }) => {
   )
 }
 
-const getAdditionalCells = (
-  specialsAndSubobjects: { name: string; label: string }[],
-  props: Record<string, any>,
-  rowId: string,
-  typeName: string,
-  context: any,
-  historyPush: (dest: string) => void,
-  appId?: string,
-) =>
-  specialsAndSubobjects
-    .map(({ name, label }) => {
+const AdditionalCells = ({
+  specialsAndSubobjects,
+  props,
+  rowId,
+  typeName,
+  context,
+  historyPush,
+  appId,
+}: {
+  specialsAndSubobjects: { name: string; label: string }[]
+  props: Record<string, any>
+  rowId: string
+  typeName: string
+  context: any
+  historyPush: (dest: string) => void
+  appId?: string
+}) => (
+  <>
+    {specialsAndSubobjects.map(({ name, label }) => {
       const pageId = props[`${name}Page`]
       const printableQrPageId = !!props[`${name}PagePrintableQR`]
       const printableQrSize = parseInt(props[`${name}PagePrintableQRSize`], 10)
       if (!pageId) return null
 
-      return [
+      return (
+        <>
+          <Button
+            key={name}
+            onClick={() => {
+              const pathname = path.join('/', appId || '', pageId === '~' ? '' : pageId)
+              const ctx = {
+                ...context,
+                [lowercaseFirstLetter(`${typeName}Id`)]: rowId,
+              }
+              historyPush(`${pathname}?${qs.stringify(ctx)}`)
+            }}
+          >
+            {label}
+          </Button>
+          {printableQrPageId && (
+            <PrintableQR
+              size={printableQrSize}
+              destination={pageId}
+              context={{
+                ...context,
+                [lowercaseFirstLetter(`${typeName}Id`)]: rowId,
+              }}
+            />
+          )}
+        </>
+      )
+    })}
+  </>
+)
+
+const Controls = ({
+  typeName,
+  disabled,
+  editPageId,
+  rowId,
+}: {
+  typeName?: string
+  disabled?: boolean
+  editPageId?: string
+  rowId: string
+}) => {
+  const { available: deletionAvailable } = useObjectDelete(typeName)
+  const { available: updateAvailable } = useObjectUpdate(typeName)
+  const history = useHistory()
+  const { appId } = usePageId()
+
+  if (!typeName) {
+    return null
+  }
+
+  return (
+    <>
+      {updateAvailable && (
         <Button
-          key={name}
+          disabled={disabled}
+          intent="secondary"
           onClick={() => {
-            const pathname = path.join('/', appId || '', pageId === '~' ? '' : pageId)
-            const ctx = {
-              ...context,
-              [lowercaseFirstLetter(`${typeName}Id`)]: rowId,
+            if (editPageId) {
+              history.push(`${appId}/${editPageId}?editObjectId=${rowId}`)
             }
-            historyPush(`${pathname}?${qs.stringify(ctx)}`)
           }}
         >
-          {label}
-        </Button>,
-        printableQrPageId ? (
-          <PrintableQR
-            size={printableQrSize}
-            destination={pageId}
-            context={{
-              ...context,
-              [lowercaseFirstLetter(`${typeName}Id`)]: rowId,
-            }}
-          />
-        ) : undefined,
-      ]
-    })
-    .flat()
+          <Icon icon="editSystem" />
+        </Button>
+      )}
+      {deletionAvailable && <DeleteButton disabled={disabled} id={rowId} typeName={typeName} />}
+    </>
+  )
+}
 
 export const Table = forwardRef<HTMLDivElement, TableProps & { disabled?: boolean }>(
   ({ typeName, editPageId, showControls, disabled, showSearch, includedFields = [], ...props }, ref) => {
     const { data: listResults, loading: listLoading } = useObjectList(typeName)
-    const { available: deletionAvailable } = useObjectDelete(typeName)
-    const { available: updateAvailable } = useObjectUpdate(typeName)
     const subobjects = useSubObjects(typeName)
     const [queryStr, setQueryStr] = React.useState('')
     const {
@@ -218,80 +267,64 @@ export const Table = forwardRef<HTMLDivElement, TableProps & { disabled?: boolea
 
     const data = searchResults || listResults
 
-    const rows: RowProps[] | undefined =
-      data && typeName
-        ? data.map((row): RowProps => {
-            const cells = getDataCells(row, subobjectNames)
-              .filter(({ label }) => includedFields.map((s) => s.toLowerCase()).includes(label.toLowerCase()))
-              .filter(notEmpty)
+    let rows: RowProps[] | undefined
+    if (data && typeName) {
+      rows = data.map((row): RowProps => {
+        const cells = getDataCells(row, subobjectNames)
+          .filter(({ label }) => includedFields.map((s) => s.toLowerCase()).includes(label.toLowerCase()))
+          .filter(notEmpty)
 
-            const controls = showControls
-              ? [
-                  updateAvailable ? (
-                    <Button
-                      disabled={disabled}
-                      intent="secondary"
-                      onClick={() => {
-                        if (editPageId) {
-                          history.push(`${appId}/${editPageId}?editObjectId=${row.id}`)
-                        }
-                      }}
-                    >
-                      <Icon icon="editSystem" />
-                    </Button>
-                  ) : undefined,
-                  deletionAvailable ? <DeleteButton disabled={disabled} id={row.id} typeName={typeName} /> : undefined,
-                ].filter(notEmpty)
-              : []
+        const additionalContent: RowActionProps = {
+          content: (
+            <>
+              <AdditionalCells
+                context={context}
+                historyPush={history.push}
+                rowId={row.id}
+                typeName={typeName}
+                appId={appId}
+                props={props}
+                specialsAndSubobjects={specialsAndSubobjects}
+              />
+              {showControls && (
+                <Controls rowId={row.id} disabled={disabled} editPageId={editPageId} typeName={typeName} />
+              )}
+            </>
+          ),
+        }
 
-            const additionalCells = getAdditionalCells(
-              specialsAndSubobjects,
-              props,
-              row.id,
-              typeName,
-              context,
-              history.push,
-              appId,
-            )
+        return {
+          cells,
+          expandableContent: showControls ? additionalContent : undefined,
+          ctaContent: !showControls ? additionalContent : undefined,
+        }
+      })
+    }
 
-            const buttons = [...additionalCells.filter(notEmpty), ...controls]
-
-            const additionalContent: RowActionProps = {
-              content: (
-                <>
-                  {buttons.map((button, i) => (
-                    <React.Fragment key={i}>{button}</React.Fragment>
-                  ))}
-                </>
-              ),
-            }
-
-            return {
-              cells,
-              expandableContent: buttons.length > 2 ? additionalContent : undefined,
-              ctaContent: buttons.length <= 2 ? additionalContent : undefined,
-            }
-          })
-        : undefined
     const [row] = rows || []
+
+    const displaySearch = searchAvailable && showSearch
+    const displayTable = typeName && row
+    const displayNothingFound = !loading && !row
+    const displayNoType = !loading && !typeName
+    const displayNoResultsFound = searchAvailable && queryStr
+
     return (
       <Container {...props} ref={ref}>
         <div className={cx(elFlex, elFlex1, elFlexColumn)}>
-          {searchAvailable && showSearch && (
+          {displaySearch && (
             <Input type="text" placeholder="Search" value={queryStr} onChange={(e) => setQueryStr(e.target.value)} />
           )}
           {loading && <Loader label="Loading" />}
-          {typeName && row && (
+          {displayTable && (
             <ELTable
               numberColumns={row.cells.length + 1}
               style={{ flex: 1, opacity: searchLoading ? 0.5 : 1, transition: '300ms opacity' }}
               rows={rows || undefined}
             />
           )}
-          {!loading && !rows?.length ? (
-            <span>{searchAvailable && queryStr ? 'No results found' : 'Nothing found'}</span>
-          ) : null}
-          {!loading && !typeName && <div>No type selected</div>}
+          {displayNothingFound ? <span>{displayNoResultsFound ? 'No results found' : 'Nothing found'}</span> : null}
+          {displayNoType && <div>No type selected</div>}
         </div>
       </Container>
     )

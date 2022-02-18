@@ -87,6 +87,12 @@ const FormSettings = () => {
     }
   }, [shouldUpdate, args])
 
+  const updateIn100ms = () => {
+    setTimeout(() => {
+      setShouldUpdate(true)
+    }, 100)
+  }
+
   return (
     <>
       <ContainerSettings />
@@ -97,24 +103,9 @@ const FormSettings = () => {
           return `Form of ${typeName || ''}${typeName ? 's' : ''}`
         }}
       >
-        <TypeList
-          onChange={() => {
-            setTimeout(() => {
-              setShouldUpdate(true)
-            }, 100)
-          }}
-        />
+        <TypeList onChange={updateIn100ms} />
         <IntegrationLanding typeName={typeName} />
-        <ToolbarItem
-          type={ToolbarItemType.Select}
-          onChange={() => {
-            setTimeout(() => {
-              setShouldUpdate(true)
-            }, 100)
-          }}
-          propKey="formType"
-          title="Form Type"
-        >
+        <ToolbarItem type={ToolbarItemType.Select} onChange={updateIn100ms} propKey="formType" title="Form Type">
           {['create', 'update', ...specials.map(({ name }) => name)].map((formType) => (
             <option key={formType} value={formType}>
               {formType}
