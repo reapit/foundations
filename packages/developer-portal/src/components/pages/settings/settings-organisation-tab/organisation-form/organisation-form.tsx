@@ -120,7 +120,7 @@ export const handleSubmit = (updateDeveloperDataDispatch) => (values: Organisati
     postcode,
     countryId,
   }
-
+  debugger
   // reset all unncessary fields to '' when checked appropriate checkboxes
   if (noRegistrationNumber) {
     otherData.registrationNumber = ''
@@ -160,7 +160,9 @@ const OrganisationForm: React.FC<OrganisationFormProps> = ({ onInviteNewMemberCl
       validationSchema={companyInformationFormSchema}
       onSubmit={handleSubmit(updateDeveloperDataDispatch)}
     >
-      {({ values }) => {
+      {({ values, errors }) => {
+        console.log(values)
+        console.log(errors)
         return (
           <Form>
             <H3 className="flex justify-between">

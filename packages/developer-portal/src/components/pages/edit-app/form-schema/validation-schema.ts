@@ -41,7 +41,7 @@ const {
 export const validationSchemaSubmitRevision: Yup.SchemaOf<{ [s: string]: any }> = Yup.object().shape({
   [name.name]: Yup.string().trim().required(FIELD_REQUIRED).max(100, MAXIMUM_CHARACTER_LENGTH(100)),
 
-  [isListed.name]: Yup.boolean(),
+  [isListed.name]: Yup.boolean().nullable(),
 
   [telephone.name]: Yup.string()
     .when(isListed.name, {
@@ -206,6 +206,7 @@ export const validationSchemaSubmitRevision: Yup.SchemaOf<{ [s: string]: any }> 
     }),
 
   [pricingUrl.name]: Yup.string()
+    .nullable()
     .trim()
     .when([isFree.name, isListed.name], {
       is: (isFree, isListed) => !isFree && isListed,
