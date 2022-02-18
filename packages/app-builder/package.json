@@ -28,6 +28,7 @@
     "@linaria/react": "^3.0.0-beta.15",
     "@reapit/connect-session": "workspace:packages/connect-session",
     "@reapit/elements": "workspace:packages/elements",
+    "@reapit/utils-common": "workspace:packages/utils-common",
     "@reapit/utils-react": "workspace:packages/utils-react",
     "@sentry/browser": "^6.16.1",
     "clone-deep": "^4.0.1",
