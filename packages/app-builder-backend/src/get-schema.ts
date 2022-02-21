@@ -26,14 +26,9 @@ import {
 } from './platform'
 import { notEmpty } from './utils/helpers'
 import { CustomEntityResolver, PLACEHOLDER } from './resolvers/custom-entity-resolver'
+import { strToCamel } from '@reapit/utils-common'
 
 const noT = (str: string) => str.split('T0').join('')
-
-const strToCamel = (str: string) =>
-  str
-    .split(' ')
-    .map((s) => s.charAt(0).toUpperCase() + s.slice(1))
-    .join('')
 
 const objToCamel = (obj: Record<string, any>) => {
   const newObj = {}

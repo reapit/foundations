@@ -40,7 +40,7 @@ const ColumnControls = ({
   <ToolbarSection
     title="Fields"
     props={['includedFields']}
-    summary={({ includedFields }: any) => {
+    summary={() => {
       return `Table with ${(includedFields || []).length} columns`
     }}
   >
@@ -120,6 +120,12 @@ const TableSettings = () => {
     }
   }, [shouldUpdate])
 
+  const updateIn100ms = () => {
+    setTimeout(() => {
+      setShouldUpdate(true)
+    }, 100)
+  }
+
   return (
     <>
       <ContainerSettings />
@@ -130,13 +136,7 @@ const TableSettings = () => {
           return `Table of ${typeName || ''}${typeName ? 's' : ''}`
         }}
       >
-        <TypeList
-          onChange={() => {
-            setTimeout(() => {
-              setShouldUpdate(true)
-            }, 100)
-          }}
-        />
+        <TypeList onChange={updateIn100ms} />
       </ToolbarSection>
       <DestinationPage
         sectionTitle="Edit Page"

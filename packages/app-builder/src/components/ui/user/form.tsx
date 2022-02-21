@@ -15,16 +15,11 @@ import { Button } from '@reapit/elements'
 import { useUpdateCustomEntity } from '@/components/hooks/custom-entities/use-update-custom-entity'
 import { useCustomEntity } from '@/components/hooks/custom-entities/use-custom-entity'
 import { useObject } from '@/components/hooks/objects/use-object'
+import { strToCamel } from '@reapit/utils-common'
 
 const defaultProps = {
   destination: '/',
 }
-
-const strToCamel = (str: string) =>
-  str
-    .split(' ')
-    .map((s) => s.charAt(0).toUpperCase() + s.slice(1))
-    .join('')
 
 const Form = (props: FormProps) => {
   const { isEditing } = useEditor((state) => ({
@@ -92,6 +87,12 @@ const FormSettings = () => {
     }
   }, [shouldUpdate, args])
 
+  const updateIn100ms = () => {
+    setTimeout(() => {
+      setShouldUpdate(true)
+    }, 100)
+  }
+
   return (
     <>
       <ContainerSettings />
@@ -102,24 +103,9 @@ const FormSettings = () => {
           return `Form of ${typeName || ''}${typeName ? 's' : ''}`
         }}
       >
-        <TypeList
-          onChange={() => {
-            setTimeout(() => {
-              setShouldUpdate(true)
-            }, 100)
-          }}
-        />
+        <TypeList onChange={updateIn100ms} />
         <IntegrationLanding typeName={typeName} />
-        <ToolbarItem
-          type={ToolbarItemType.Select}
-          onChange={() => {
-            setTimeout(() => {
-              setShouldUpdate(true)
-            }, 100)
-          }}
-          propKey="formType"
-          title="Form Type"
-        >
+        <ToolbarItem type={ToolbarItemType.Select} onChange={updateIn100ms} propKey="formType" title="Form Type">
           {['create', 'update', ...specials.map(({ name }) => name)].map((formType) => (
             <option key={formType} value={formType}>
               {formType}
