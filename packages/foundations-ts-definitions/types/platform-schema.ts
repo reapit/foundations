@@ -412,29 +412,37 @@ export interface ApplicantModel {
    */
   specialFeatures?: string[]
   /**
-   * The minimum number of bedrooms the applicant requires
+   * The minimum number of bedrooms the applicant requires. This is only supported by some departments. Please [refer to the glossary](https://foundations-documentation.reapit.cloud/platform-glossary#department) for more information
    */
   bedroomsMin?: number // int32
   /**
-   * The maximum number of bedrooms the applicant requires
+   * The maximum number of bedrooms the applicant requires. This is only supported by some departments. Please [refer to the glossary](https://foundations-documentation.reapit.cloud/platform-glossary#department) for more information
    */
   bedroomsMax?: number // int32
   /**
-   * The minimum number of reception rooms the applicant requires
+   * The minimum number of reception rooms the applicant requires. This is only supported by some departments. Please [refer to the glossary](https://foundations-documentation.reapit.cloud/platform-glossary#department) for more information
    */
   receptionsMin?: number // int32
   /**
-   * The maximum number of reception rooms the applicant requires
+   * The maximum number of reception rooms the applicant requires. This is only supported by some departments. Please [refer to the glossary](https://foundations-documentation.reapit.cloud/platform-glossary#department) for more information
    */
   receptionsMax?: number // int32
   /**
-   * The minimum number of bathrooms the applicant requires
+   * The minimum number of bathrooms the applicant requires. This is only supported by some departments. Please [refer to the glossary](https://foundations-documentation.reapit.cloud/platform-glossary#department) for more information
    */
   bathroomsMin?: number // int32
   /**
-   * The maximum number of bathrooms the applicant requires
+   * The maximum number of bathrooms the applicant requires. This is only supported by some departments. Please [refer to the glossary](https://foundations-documentation.reapit.cloud/platform-glossary#department) for more information
    */
   bathroomsMax?: number // int32
+  /**
+   * The minimum number of parking spaces the applicant requires. This is only supported by some departments. Please [refer to the glossary](https://foundations-documentation.reapit.cloud/platform-glossary#department) for more information
+   */
+  parkingSpacesMin?: number // int32
+  /**
+   * The maximum number of parking spaces the applicant requires. This is only supported by some departments. Please [refer to the glossary](https://foundations-documentation.reapit.cloud/platform-glossary#department) for more information
+   */
+  parkingSpacesMax?: number // int32
   /**
    * The applicant's location type (areas/addresses/none)
    */
@@ -775,29 +783,37 @@ export interface ApplicantModelPagedResult {
      */
     specialFeatures?: string[]
     /**
-     * The minimum number of bedrooms the applicant requires
+     * The minimum number of bedrooms the applicant requires. This is only supported by some departments. Please [refer to the glossary](https://foundations-documentation.reapit.cloud/platform-glossary#department) for more information
      */
     bedroomsMin?: number // int32
     /**
-     * The maximum number of bedrooms the applicant requires
+     * The maximum number of bedrooms the applicant requires. This is only supported by some departments. Please [refer to the glossary](https://foundations-documentation.reapit.cloud/platform-glossary#department) for more information
      */
     bedroomsMax?: number // int32
     /**
-     * The minimum number of reception rooms the applicant requires
+     * The minimum number of reception rooms the applicant requires. This is only supported by some departments. Please [refer to the glossary](https://foundations-documentation.reapit.cloud/platform-glossary#department) for more information
      */
     receptionsMin?: number // int32
     /**
-     * The maximum number of reception rooms the applicant requires
+     * The maximum number of reception rooms the applicant requires. This is only supported by some departments. Please [refer to the glossary](https://foundations-documentation.reapit.cloud/platform-glossary#department) for more information
      */
     receptionsMax?: number // int32
     /**
-     * The minimum number of bathrooms the applicant requires
+     * The minimum number of bathrooms the applicant requires. This is only supported by some departments. Please [refer to the glossary](https://foundations-documentation.reapit.cloud/platform-glossary#department) for more information
      */
     bathroomsMin?: number // int32
     /**
-     * The maximum number of bathrooms the applicant requires
+     * The maximum number of bathrooms the applicant requires. This is only supported by some departments. Please [refer to the glossary](https://foundations-documentation.reapit.cloud/platform-glossary#department) for more information
      */
     bathroomsMax?: number // int32
+    /**
+     * The minimum number of parking spaces the applicant requires. This is only supported by some departments. Please [refer to the glossary](https://foundations-documentation.reapit.cloud/platform-glossary#department) for more information
+     */
+    parkingSpacesMin?: number // int32
+    /**
+     * The maximum number of parking spaces the applicant requires. This is only supported by some departments. Please [refer to the glossary](https://foundations-documentation.reapit.cloud/platform-glossary#department) for more information
+     */
+    parkingSpacesMax?: number // int32
     /**
      * The applicant's location type (areas/addresses/none)
      */
@@ -4002,6 +4018,14 @@ export interface CreateApplicantModel {
    */
   bathroomsMax?: number // int32
   /**
+   * The minimum number of parking spaces the applicant requires
+   */
+  parkingSpacesMin?: number // int32
+  /**
+   * The maximum number of parking spaces the applicant requires
+   */
+  parkingSpacesMax?: number // int32
+  /**
    * The applicant's location type (areas/addresses/none)
    */
   locationType?: string
@@ -5915,6 +5939,10 @@ export interface CreatePropertyModel {
    * The total number of bathrooms in the property
    */
   bathrooms?: number // int32
+  /**
+   * The total number of parking spaces the property has. This is only supported by some departments. Please refer to the glossary for support [department](https://foundations-documentation.reapit.cloud/platform-glossary#department)
+   */
+  parkingSpaces?: number // int32
   /**
    * The council tax banding of the property (A/B/C/D/E/F/G/H)
    */
@@ -10687,17 +10715,21 @@ export interface PropertyModel {
    */
   negotiatorId?: string
   /**
-   * The total number of bedrooms in the property
+   * The total number of bedrooms in the property. This is only supported by some departments. Please [refer to the glossary](https://foundations-documentation.reapit.cloud/platform-glossary#department) for more information
    */
   bedrooms?: number // int32
   /**
-   * The total number of reception rooms in the property
+   * The total number of reception rooms in the property. This is only supported by some departments. Please [refer to the glossary](https://foundations-documentation.reapit.cloud/platform-glossary#department) for more information
    */
   receptions?: number // int32
   /**
-   * The total number of bathrooms in the property
+   * The total number of bathrooms in the property. This is only supported by some departments. Please [refer to the glossary](https://foundations-documentation.reapit.cloud/platform-glossary#department) for more information
    */
   bathrooms?: number // int32
+  /**
+   * The total number of parking spaces the property has. This is only supported by some departments. Please [refer to the glossary](https://foundations-documentation.reapit.cloud/platform-glossary#department) for more information
+   */
+  parkingSpaces?: number // int32
   /**
    * The council tax banding of the property (A/B/C/D/E/F/G/H)
    */
@@ -11273,17 +11305,21 @@ export interface PropertyModelPagedResult {
      */
     negotiatorId?: string
     /**
-     * The total number of bedrooms in the property
+     * The total number of bedrooms in the property. This is only supported by some departments. Please [refer to the glossary](https://foundations-documentation.reapit.cloud/platform-glossary#department) for more information
      */
     bedrooms?: number // int32
     /**
-     * The total number of reception rooms in the property
+     * The total number of reception rooms in the property. This is only supported by some departments. Please [refer to the glossary](https://foundations-documentation.reapit.cloud/platform-glossary#department) for more information
      */
     receptions?: number // int32
     /**
-     * The total number of bathrooms in the property
+     * The total number of bathrooms in the property. This is only supported by some departments. Please [refer to the glossary](https://foundations-documentation.reapit.cloud/platform-glossary#department) for more information
      */
     bathrooms?: number // int32
+    /**
+     * The total number of parking spaces the property has. This is only supported by some departments. Please [refer to the glossary](https://foundations-documentation.reapit.cloud/platform-glossary#department) for more information
+     */
+    parkingSpaces?: number // int32
     /**
      * The council tax banding of the property (A/B/C/D/E/F/G/H)
      */
@@ -13985,6 +14021,14 @@ export interface UpdateApplicantModel {
    */
   bathroomsMax?: number // int32
   /**
+   * The minimum number of parking spaces the applicant requires
+   */
+  parkingSpacesMin?: number // int32
+  /**
+   * The maximum number of parking spaces the applicant requires
+   */
+  parkingSpacesMax?: number // int32
+  /**
    * The applicant's location type (areas/addresses/none)
    */
   locationType?: string
@@ -15723,6 +15767,10 @@ export interface UpdatePropertyModel {
    * The total number of bathrooms in the property
    */
   bathrooms?: number // int32
+  /**
+   * The total number of parking spaces the property has. This is only supported by some departments. Please refer to the glossary for support [department](https://foundations-documentation.reapit.cloud/platform-glossary#department)
+   */
+  parkingSpaces?: number // int32
   /**
    * The council tax banding of the property (A/B/C/D/E/F/G/H)
    */
