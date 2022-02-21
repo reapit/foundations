@@ -3,6 +3,7 @@ import { useMutation } from '@apollo/client'
 import UPDATE_APPOINTMENT_BY_ID from '../../../graphql/mutations/update-appointment-by-id.graphql'
 import { ExtendedAppointmentModel } from '../../../types/global'
 import { BodyText, Button, elMb6, elTextCenter, FlexContainer } from '@reapit/elements'
+import { useGetAppointmentEtag } from '@/graphql/hooks/use-get-appointment-etag'
 
 export type CancelConfirmModalProps = {
   appointment: ExtendedAppointmentModel
@@ -15,6 +16,7 @@ export type UpdateAppointmentData = {
 
 export type HandleUpdateAppointmentParams = {
   updateAppointment: ({ variables: UpdateAppointmentVariables }) => void
+  getAppointmentEtag: (id: string) => Promise<string>
   appointment: ExtendedAppointmentModel
 }
 
@@ -25,9 +27,13 @@ export type UpdateAppointmentVariables = {
 }
 
 export const handleUpdateAppointment =
-  ({ updateAppointment, appointment }: HandleUpdateAppointmentParams) =>
-  () => {
-    const { id, _eTag } = appointment
+  ({ updateAppointment, getAppointmentEtag, appointment }: HandleUpdateAppointmentParams) =>
+  async () => {
+    const { id } = appointment
+    if (!id) {
+      return null
+    }
+    const _eTag = await getAppointmentEtag(id)
     updateAppointment({
       variables: { id, cancelled: true, _eTag },
     })
@@ -40,6 +46,7 @@ export const CancelConfirmModal: React.FC<CancelConfirmModalProps> = ({ appointm
       onCompleted: closeModal,
     },
   )
+  const getAppointmentEtag = useGetAppointmentEtag()
 
   return (
     <>
@@ -54,7 +61,7 @@ export const CancelConfirmModal: React.FC<CancelConfirmModalProps> = ({ appointm
           intent="critical"
           size={2}
           loading={loading}
-          onClick={handleUpdateAppointment({ updateAppointment, appointment })}
+          onClick={handleUpdateAppointment({ updateAppointment, getAppointmentEtag, appointment })}
           type="button"
         >
           Yes

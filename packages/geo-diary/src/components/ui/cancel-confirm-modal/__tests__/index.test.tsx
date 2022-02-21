@@ -20,13 +20,15 @@ describe('CancelConfirmModal', () => {
 })
 
 describe('handleUpdateAppointment', () => {
-  it('should handle an appointment update', () => {
+  it('should handle an appointment update', async () => {
     const updateAppointment = jest.fn()
-    const curried = handleUpdateAppointment({ updateAppointment, appointment })
+    const getAppointmentEtag = jest.fn().mockResolvedValue('some-etag')
+    const curried = handleUpdateAppointment({ updateAppointment, getAppointmentEtag, appointment })
 
-    curried()
+    await curried()
+    expect(getAppointmentEtag).toHaveBeenCalledWith(appointment.id)
     expect(updateAppointment).toHaveBeenCalledWith({
-      variables: { id: appointment?.id, cancelled: true, _eTag: appointment?._eTag },
+      variables: { id: appointment?.id, cancelled: true, _eTag: 'some-etag' },
     })
   })
 })
