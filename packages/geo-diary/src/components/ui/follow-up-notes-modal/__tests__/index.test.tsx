@@ -20,19 +20,21 @@ describe('FollowUpNotesModal', () => {
 })
 
 describe('handleUpdateAppointment', () => {
-  it('should handle an appointment update', () => {
+  it('should handle an appointment update', async () => {
     const updateAppointment = jest.fn()
     const mockFormData = {
       due: '2021-01-01',
       notes: 'some notes',
     }
-    const curried = handleUpdateAppointment({ updateAppointment, appointment })
+    const getAppointmentEtag = jest.fn().mockResolvedValue('some-etag')
+    const curried = handleUpdateAppointment({ updateAppointment, getAppointmentEtag, appointment })
 
-    curried(mockFormData)
+    await curried(mockFormData)
+    expect(getAppointmentEtag).toHaveBeenCalledWith(appointment.id)
     expect(updateAppointment).toHaveBeenCalledWith({
       variables: {
         id: appointment?.id,
-        _eTag: appointment?._eTag,
+        _eTag: 'some-etag',
         followUp: { notes: mockFormData.notes },
         followUpOn: mockFormData.due,
       },
