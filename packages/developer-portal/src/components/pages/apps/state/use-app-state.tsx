@@ -1,12 +1,11 @@
 import { AppDetailModel, AppSummaryModelPagedResult, MediaModel } from '@reapit/foundations-ts-definitions'
 import { useReapitGet } from '@reapit/utils-react'
-import React, { useState, Dispatch, SetStateAction, FC, createContext, useContext } from 'react'
+import React, { useState, Dispatch, SetStateAction, FC, createContext, useContext, useEffect } from 'react'
 import { GetActionNames, getActions } from '@reapit/utils-common'
 import { reapitConnectBrowserSession } from '../../../../core/connect-session'
 import { AppAuthFlow, AppNewStepId } from '../new/config'
 import { useReapitConnect } from '@reapit/connect-session'
 import { AppEditFormSchema, defaultValues } from '../edit/form-schema/form-fields'
-import { useEffect } from 'react'
 
 export interface AppUriParams {
   appId: string
@@ -32,6 +31,8 @@ export interface AppsDataState {
 export interface AppEditState {
   appEditForm: AppEditFormSchema
   setAppEditForm: Dispatch<SetStateAction<AppEditFormSchema>>
+  appEditSaving: boolean
+  setAppEditSaving: Dispatch<SetStateAction<boolean>>
 }
 
 export interface AppStateHook {
@@ -109,6 +110,7 @@ const { Provider } = AppStateContext
 export const AppProvider: FC = ({ children }) => {
   const [appWizardState, setAppWizardState] = useState<AppWizardState>(defaultAppWizardState)
   const [appEditForm, setAppEditForm] = useState<AppEditFormSchema>(defaultValues)
+  const [appEditSaving, setAppEditSaving] = useState<boolean>(false)
   const [appId, setAppId] = useState<string | null>(null)
   const { connectSession } = useReapitConnect(reapitConnectBrowserSession)
 
@@ -141,6 +143,8 @@ export const AppProvider: FC = ({ children }) => {
   const appEditState: AppEditState = {
     appEditForm,
     setAppEditForm,
+    appEditSaving,
+    setAppEditSaving,
   }
 
   return (

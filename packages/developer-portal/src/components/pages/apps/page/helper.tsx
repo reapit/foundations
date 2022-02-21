@@ -1,15 +1,20 @@
 import { Button, elMb3, Icon, SmallText, Subtitle } from '@reapit/elements'
-import React, { FC } from 'react'
+import React, { Dispatch, FC, SetStateAction } from 'react'
 import { useLocation } from 'react-router-dom'
 import { openNewPage, ExternalPages } from '../../../../utils/navigation'
 import { useAppState } from '../state/use-app-state'
 import { getCurrentPage } from '../utils/get-current-page'
 
+export const handleSetAppEditSaving = (setAppEditSaving: Dispatch<SetStateAction<boolean>>) => () => {
+  setAppEditSaving(true)
+}
+
 export const Helper: FC = () => {
   const location = useLocation()
-  const { appId } = useAppState()
+  const { appId, appEditState } = useAppState()
   const { pathname } = location
   const { isAppsEdit, isAppsDetail } = getCurrentPage(pathname)
+  const { setAppEditSaving } = appEditState
 
   if (isAppsEdit) {
     return (
@@ -20,6 +25,9 @@ export const Helper: FC = () => {
           Before you list your app you can save the details at any point below. After app listing, you will have to
           create an app revision for our team to review.
         </SmallText>
+        <Button className={elMb3} intent="primary" onClick={handleSetAppEditSaving(setAppEditSaving)} chevronRight>
+          Save Changes
+        </Button>
       </>
     )
   }
