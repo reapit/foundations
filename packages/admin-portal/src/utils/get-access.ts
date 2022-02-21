@@ -14,6 +14,7 @@ const ADMIN_LIMITED_ROUTES = [
   Routes.CUSTOMERS,
   Routes.APPS,
   Routes.DEV_MANAGEMENT,
+  Routes.USAGE,
 ]
 
 export const getAccess = (session: ReapitConnectSession | null, route: string): boolean => {
