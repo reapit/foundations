@@ -8,7 +8,9 @@ export const useGetAppointmentEtag = () => {
       }
     }
   `
-  const [getAppointmentEtag] = useLazyQuery(getAppointmentEtagQuery)
+  const [getAppointmentEtag] = useLazyQuery(getAppointmentEtagQuery, {
+    fetchPolicy: 'network-only',
+  })
 
   return async (id: string) => {
     const { data } = await getAppointmentEtag({ variables: { id } })
