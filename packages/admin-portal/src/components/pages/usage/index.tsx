@@ -22,7 +22,7 @@ export const UsagePage: FC = () => {
   const [usageFilters, setUsageFilters] = useState<UsageFilters>({})
   const { month, developerId, appId, customerId } = usageFilters
 
-  const appIdFilter = appId ? { appId } : {}
+  const appIdFilter = appId ? { applicationId: appId } : {}
   const customerIdFilter = customerId ? { customerId } : {}
 
   const [billing, billingLoading] = useReapitGet<BillingBreakdownForMonthV2Model>({
