@@ -80,24 +80,28 @@ export const formFields: Record<keyof AppEditFormSchema, InputGroupProps & { nam
     name: 'supportEmail',
     label: 'Support email',
     placeholder: 'The contact to your support team if your users have a problem',
+    type: 'email',
   },
   telephone: {
     name: 'telephone',
     label: 'Telephone',
     placeholder: 'Should one of our developers need to contact you about your app',
     errorMessage: 'Invalid Telephone number',
+    type: 'text',
   },
   homePage: {
     name: 'homePage',
     label: 'Home page',
     placeholder: 'Your company homepage. HTTP:// or HTTPS://',
     errorMessage: 'Invalid Home Page URL',
+    type: 'text',
   },
   launchUri: {
     name: 'launchUri',
     label: 'Launch URI',
     placeholder: 'The launch page for your app. HTTPS only other than for http://localhost',
     errorMessage: 'Invalid Launch URI',
+    type: 'text',
   },
   summary: {
     name: 'summary',
@@ -115,22 +119,26 @@ export const formFields: Record<keyof AppEditFormSchema, InputGroupProps & { nam
     label: 'Terms and Conditions',
     placeholder: 'URL to link to your Terms and Conditions',
     errorMessage: 'Invalid URL - has to be https://',
+    type: 'text',
   },
   privacyPolicyUrl: {
     name: 'privacyPolicyUrl',
     label: 'Privacy Policy',
     placeholder: 'URL to link to your Privacy Policy',
     errorMessage: 'Invalid URL - has to be https://',
+    type: 'text',
   },
   pricingUrl: {
     name: 'pricingUrl',
     label: 'Pricing Info',
     placeholder: 'URL to link to your Pricing Info',
     errorMessage: 'Invalid URL - has to be https://',
+    type: 'text',
   },
   isFree: {
     name: 'isFree',
     label: 'This application is free',
+    type: 'checkbox',
   },
   authFlow: {
     name: 'authFlow',
@@ -141,36 +149,44 @@ export const formFields: Record<keyof AppEditFormSchema, InputGroupProps & { nam
     label: 'Redirect URI(s)',
     placeholder: 'Enter your Redirect URI(s)',
     errorMessage: 'Invalid redirect uri(s)',
+    type: 'text',
   },
   signoutUris: {
     name: 'signoutUris',
     label: 'Sign Out URI(s)',
     placeholder: 'Enter your Sign Out URI(s)',
     errorMessage: 'Invalid sign out uri(s)',
+    type: 'text',
   },
   iconImageUrl: {
     name: 'iconImageUrl',
-    label: 'Upload Image',
+    label: 'Upload Icon Image',
+    type: 'file',
   },
   screen1ImageUrl: {
     name: 'screen1ImageUrl',
-    label: 'Upload Image',
+    label: 'Upload Featured Image',
+    type: 'file',
   },
   screen2ImageUrl: {
     name: 'screen2ImageUrl',
-    label: 'Upload Image',
+    label: 'Upload Other Listing Image',
+    type: 'file',
   },
   screen3ImageUrl: {
     name: 'screen3ImageUrl',
-    label: 'Upload Image',
+    label: 'Upload Other Listing Image',
+    type: 'file',
   },
   screen4ImageUrl: {
     name: 'screen4ImageUrl',
-    label: 'Upload Image',
+    label: 'Upload Other Listing Image',
+    type: 'file',
   },
   screen5ImageUrl: {
     name: 'screen5ImageUrl',
-    label: 'Upload Image',
+    label: 'Upload Other Listing Image',
+    type: 'file',
   },
   scopes: {
     name: 'scopes',
@@ -180,6 +196,7 @@ export const formFields: Record<keyof AppEditFormSchema, InputGroupProps & { nam
     name: 'limitToClientIds',
     placeholder: 'Please enter the Customer ID. For multiple Customer ID’s, please separate using a comma',
     errorMessage: 'Invalid Customer ID(s). Each Customer ID should be between 3 and 15 characters.',
+    type: 'text',
   },
   desktopIntegrationTypeIds: {
     name: 'desktopIntegrationTypeIds',
@@ -189,10 +206,12 @@ export const formFields: Record<keyof AppEditFormSchema, InputGroupProps & { nam
   isListed: {
     name: 'isListed',
     label: 'Status: Listed',
+    type: 'checkbox',
   },
   isDirectApi: {
     name: 'isDirectApi',
     label: 'Integration',
+    type: 'checkbox',
   },
   isPrivateApp: {
     name: 'isPrivateApp',

@@ -1,21 +1,34 @@
 import React, { FC } from 'react'
-import { BodyText, FormLayout, InputWrapFull, MultiSelectInput, Subtitle, InputError, Loader } from '@reapit/elements'
+import {
+  BodyText,
+  FormLayout,
+  InputWrapFull,
+  MultiSelectInput,
+  Subtitle,
+  InputError,
+  Loader,
+  MultiSelectOption,
+} from '@reapit/elements'
 import { AppEditTabsProps } from './edit-page-tabs'
 import { formFields } from './form-schema/form-fields'
 import { useReapitGet } from '@reapit/utils-react'
-import { DesktopIntegrationTypeModel } from '@reapit/foundations-ts-definitions'
+import { DesktopIntegrationTypeModelPagedResult } from '@reapit/foundations-ts-definitions'
 import { reapitConnectBrowserSession } from '../../../../core/connect-session'
 import { GetActionNames, getActions } from '@reapit/utils-common'
+import { useAppState } from '../state/use-app-state'
 
 export const AcIntegrationTab: FC<AppEditTabsProps> = ({ register, errors }) => {
-  const [desktopIntegrationTypes, desktopIntegrationTypesLoading] = useReapitGet<DesktopIntegrationTypeModel>({
-    reapitConnectBrowserSession,
-    action: getActions(window.reapit.config.appEnv)[GetActionNames.getDesktopIntegrationTypes],
-  })
+  const { appEditState } = useAppState()
+  const { appEditForm } = appEditState
+  const [desktopIntegrationTypes, desktopIntegrationTypesLoading] =
+    useReapitGet<DesktopIntegrationTypeModelPagedResult>({
+      reapitConnectBrowserSession,
+      action: getActions(window.reapit.config.appEnv)[GetActionNames.getDesktopIntegrationTypes],
+    })
 
   const { desktopIntegrationTypeIds } = formFields
   const { name } = desktopIntegrationTypeIds
-  console.log(desktopIntegrationTypes)
+
   return (
     <>
       <Subtitle>AgencyCloud Integration</Subtitle>
@@ -26,30 +39,25 @@ export const AcIntegrationTab: FC<AppEditTabsProps> = ({ register, errors }) => 
       </BodyText>
       {desktopIntegrationTypesLoading && <Loader />}
       <FormLayout hasMargin>
-        <InputWrapFull>
-          <MultiSelectInput
-            id={name}
-            {...register('desktopIntegrationTypeIds')}
-            options={[
-              {
-                name: 'Item one',
-                value: 'item-one',
-              },
-              {
-                name: 'Item two',
-                value: 'item-two',
-              },
-              {
-                name: 'Item three',
-                value: 'item-three',
-              },
-            ]}
-            defaultValues={['item-one']}
-          />
-          {errors.desktopIntegrationTypeIds?.message && (
-            <InputError message={errors.desktopIntegrationTypeIds?.message} />
-          )}
-        </InputWrapFull>
+        {desktopIntegrationTypes && (
+          <InputWrapFull>
+            <MultiSelectInput
+              id={name}
+              {...desktopIntegrationTypeIds}
+              {...register('desktopIntegrationTypeIds')}
+              options={
+                desktopIntegrationTypes?.data?.map(({ name, id }) => ({
+                  name,
+                  value: id,
+                })) as MultiSelectOption[]
+              }
+              defaultValues={appEditForm.desktopIntegrationTypeIds.split(',').filter(Boolean)}
+            />
+            {errors.desktopIntegrationTypeIds?.message && (
+              <InputError message={errors.desktopIntegrationTypeIds?.message} />
+            )}
+          </InputWrapFull>
+        )}
       </FormLayout>
     </>
   )

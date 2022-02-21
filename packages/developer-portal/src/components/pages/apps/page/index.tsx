@@ -40,38 +40,40 @@ export const AppsPage: FC = () => {
       <FlexContainer isFlexAuto>
         {appsLoading ? (
           <Loader fullPage />
-        ) : apps && !apps?.totalCount && !isAppsWelcome ? (
+        ) : apps && !apps?.totalCount && !isAppsWelcome && !isAppsNew ? (
           <Redirect to={Routes.APPS_WELCOME} />
         ) : apps ? (
           <>
-            <SecondaryNavContainer>
-              <Title>Apps</Title>
-              <SecondaryNav className={elMb8}>
-                <SecondaryNavItem onClick={navigate(history, Routes.APPS)} active={isAppsList}>
-                  My Apps
-                </SecondaryNavItem>
-                {(isAppsEdit || isAppsDetail || isAppsInstallations) && (
-                  <>
-                    <SecondaryNavItem onClick={navigate(history, `${Routes.APPS}/${appId}`)} active={isAppsDetail}>
-                      App Details
-                    </SecondaryNavItem>
-                    <SecondaryNavItem onClick={navigate(history, `${Routes.APPS}/${appId}/edit`)} active={isAppsEdit}>
-                      Edit Details
-                    </SecondaryNavItem>
-                    <SecondaryNavItem
-                      onClick={navigate(history, `${Routes.APPS}/${appId}/installations`)}
-                      active={isAppsInstallations}
-                    >
-                      Installations
-                    </SecondaryNavItem>
-                  </>
-                )}
-                <SecondaryNavItem onClick={navigate(history, Routes.APPS_NEW)} active={isAppsNew}>
-                  New App
-                </SecondaryNavItem>
-              </SecondaryNav>
-              <Helper />
-            </SecondaryNavContainer>
+            {Boolean(apps?.totalCount) && (
+              <SecondaryNavContainer>
+                <Title>Apps</Title>
+                <SecondaryNav className={elMb8}>
+                  <SecondaryNavItem onClick={navigate(history, Routes.APPS)} active={isAppsList}>
+                    My Apps
+                  </SecondaryNavItem>
+                  {(isAppsEdit || isAppsDetail || isAppsInstallations) && (
+                    <>
+                      <SecondaryNavItem onClick={navigate(history, `${Routes.APPS}/${appId}`)} active={isAppsDetail}>
+                        App Details
+                      </SecondaryNavItem>
+                      <SecondaryNavItem onClick={navigate(history, `${Routes.APPS}/${appId}/edit`)} active={isAppsEdit}>
+                        Edit Details
+                      </SecondaryNavItem>
+                      <SecondaryNavItem
+                        onClick={navigate(history, `${Routes.APPS}/${appId}/installations`)}
+                        active={isAppsInstallations}
+                      >
+                        Installations
+                      </SecondaryNavItem>
+                    </>
+                  )}
+                  <SecondaryNavItem onClick={navigate(history, Routes.APPS_NEW)} active={isAppsNew}>
+                    New App
+                  </SecondaryNavItem>
+                </SecondaryNav>
+                <Helper />
+              </SecondaryNavContainer>
+            )}
             <PageContainer className={elHFull}>
               <Switch>
                 <Route path={Routes.APPS} exact component={AppsListPage} />

@@ -4,7 +4,7 @@ import { AppEditTabsProps } from './edit-page-tabs'
 import { formFields } from './form-schema/form-fields'
 
 export const GeneralTab: FC<AppEditTabsProps> = ({ register, errors }) => {
-  const { name } = formFields
+  const { name, isPrivateApp, limitToClientIds, isListed, isDirectApi } = formFields
   return (
     <>
       <Subtitle>General Info</Subtitle>
@@ -16,6 +16,22 @@ export const GeneralTab: FC<AppEditTabsProps> = ({ register, errors }) => {
       <FormLayout hasMargin>
         <InputWrap>
           <InputGroup {...name} {...register('name')} errorMessage={errors?.name?.message} />
+        </InputWrap>
+        <InputWrap>
+          <InputGroup {...isPrivateApp} {...register('isPrivateApp')} errorMessage={errors?.isPrivateApp?.message} />
+        </InputWrap>
+        <InputWrap>
+          <InputGroup
+            {...limitToClientIds}
+            {...register('limitToClientIds')}
+            errorMessage={errors?.limitToClientIds?.message}
+          />
+        </InputWrap>
+        <InputWrap>
+          <InputGroup {...isListed} {...register('isListed')} errorMessage={errors?.isListed?.message} />
+        </InputWrap>
+        <InputWrap>
+          <InputGroup {...isDirectApi} {...register('isDirectApi')} errorMessage={errors?.isDirectApi?.message} />
         </InputWrap>
       </FormLayout>
     </>

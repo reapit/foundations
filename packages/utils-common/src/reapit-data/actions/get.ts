@@ -24,6 +24,7 @@ export enum GetActionNames {
   getAppById = 'getAppById',
   getAppSecret = 'getAppSecret',
   getDesktopIntegrationTypes = 'getDesktopIntegrationTypes',
+  getAppCategories = 'getAppCategories',
 }
 
 export type GetActions = { [key in GetActionNames]: GetAction }
@@ -103,5 +104,10 @@ export const getActions = (appEnv: AppEnv): GetActions => ({
     api: ApiNames(appEnv).platform,
     path: PathNames.desktopIntegrationTypes,
     errorMessage: 'Something went wrong fetching the desktop integration options',
+  },
+  [GetActionNames.getAppCategories]: {
+    api: ApiNames(appEnv).platform,
+    path: PathNames.appCategories,
+    errorMessage: 'Something went wrong fetching the category options',
   },
 })

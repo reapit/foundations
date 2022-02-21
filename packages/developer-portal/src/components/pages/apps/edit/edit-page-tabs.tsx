@@ -1,5 +1,5 @@
 import React, { FC } from 'react'
-import { DeepMap, FieldError, UseFormRegister } from 'react-hook-form'
+import { Control, DeepMap, FieldError, UseFormRegister } from 'react-hook-form'
 import { AcIntegrationTab } from './ac-integration-tab'
 import { AppListingTab } from './app-listing-tab'
 import { AppPipeline } from './app-pipeline'
@@ -21,6 +21,7 @@ export interface AppEditTabsProps {
   tab: AppEditTab
   register: UseFormRegister<AppEditFormSchema>
   errors: DeepMap<Partial<AppEditFormSchema>, FieldError>
+  control: Control<AppEditFormSchema, object>
 }
 
 export const AppEditTabs: FC<AppEditTabsProps> = (props) => {
