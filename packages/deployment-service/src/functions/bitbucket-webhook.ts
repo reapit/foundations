@@ -1,40 +1,41 @@
 import { BitbucketClientEntity } from '@/entities/bitbucket-client.entity'
 import { findByClientKey, findPipelineByRepo, saveClientInfo } from '@/services'
-import { httpHandler, HttpStatusCode, NotFoundException, UnauthorizedException } from '@homeservenow/serverless-aws-handler'
+import {
+  httpHandler,
+  HttpStatusCode,
+  NotFoundException,
+  UnauthorizedException,
+} from '@homeservenow/serverless-aws-handler'
 import * as jwt from 'atlassian-jwt'
 import { APIGatewayEvent } from 'aws-lambda'
 
-const createSession = ({
-  clientKey,
-  verifiedClaim,
-  sharedSecret,
-  key,
-}: {
-  clientKey: string
-  verifiedClaim: any
-  sharedSecret: string
-  key: string
-}): string => {
-  const now = new Date()
-  const exp = new Date()
-  exp.setMinutes(exp.getMinutes() + 10)
+// const createSession = ({
+//   clientKey,
+//   verifiedClaim,
+//   sharedSecret,
+//   key,
+// }: {
+//   clientKey: string
+//   verifiedClaim: any
+//   sharedSecret: string
+//   key: string
+// }): string => {
+//   const now = new Date()
+//   const exp = new Date()
+//   exp.setMinutes(exp.getMinutes() + 10)
 
-  const baseJwt = {
-    iss: key,
-    iat: now.getTime(),
-    sub: verifiedClaim.sub,
-    exp,
-    aud: [clientKey],
-  }
+//   const baseJwt = {
+//     iss: key,
+//     iat: now.getTime(),
+//     sub: verifiedClaim.sub,
+//     exp,
+//     aud: [clientKey],
+//   }
 
-  return jwt.encodeSymmetric(baseJwt, sharedSecret)
-}
+//   return jwt.encodeSymmetric(baseJwt, sharedSecret)
+// }
 
-const authenticate = async ({
-  request,
-}: {
-  request: APIGatewayEvent,
-}): Promise<BitbucketClientEntity | never> => {
+const authenticate = async ({ request }: { request: APIGatewayEvent }): Promise<BitbucketClientEntity | never> => {
   const headerToken = request.headers['Authorization']
 
   if (!headerToken) {
@@ -64,7 +65,12 @@ const authenticate = async ({
     throw new UnauthorizedException('No existing clientKey')
   }
 
-  const verifiedClaims = jwt.decodeSymmetric(token, existingClient.data.sharedSecret, jwt.SymmetricAlgorithm.HS256, false)
+  const verifiedClaims = jwt.decodeSymmetric(
+    token,
+    existingClient.data.sharedSecret,
+    jwt.SymmetricAlgorithm.HS256,
+    false,
+  )
 
   const expiry = verifiedClaims.exp
 
@@ -139,7 +145,7 @@ const authenticate = async ({
   // success(verifiedClaims)
 }
 
-const handleEventTypes = async (event: { eventType: string, clientKey: string }) => {
+const handleEventTypes = async (event: { eventType: string; clientKey: string }) => {
   switch (event.eventType) {
     case 'installed':
       await saveClientInfo(event.clientKey, event)
@@ -151,34 +157,37 @@ const handleEventTypes = async (event: { eventType: string, clientKey: string })
   }
 }
 
-const handlePushEvent = async (event: {
-  event: string
-  data: {
-    push: {
-      changes: {
-        commits: {
-          hash: string
-          author: {
-            user: {
-              display_name: string
+const handlePushEvent = async (
+  event: {
+    event: string
+    data: {
+      push: {
+        changes: {
+          commits: {
+            hash: string
+            author: {
+              user: {
+                display_name: string
+              }
             }
+            message: string
+          }[]
+          new: {
+            name: string //branch name
           }
-          message: string
         }[]
-        new: {
-          name: string //branch name
-        }
-      }[]
+      }
+      repository: {
+        full_name: string
+      }
     }
-    repository: {
-      full_name: string
-    }
-  }
-}, client: BitbucketClientEntity) => {
+  },
+  client: BitbucketClientEntity,
+) => {
   console.log('data', event.data.push.changes, event.data.push.changes[0].commits[0])
   const pipeline = await findPipelineByRepo(`https://bitbucket.org/${event.data.repository.full_name}`)
 
-  console.log('pipeline', pipeline)
+  console.log('pipeline', pipeline, client)
 
   if (!pipeline) {
     throw new NotFoundException('no pipeline for installed repo')
@@ -187,8 +196,8 @@ const handlePushEvent = async (event: {
   // TODO start runner
 
   const branchName = event.data.push.changes[0].new.name
+  console.log('branch', branchName)
   // TODO condition for pipeline
-
 }
 
 export const bitbucketWebhook = httpHandler<any, void>({
@@ -201,7 +210,6 @@ export const bitbucketWebhook = httpHandler<any, void>({
     if (body.eventType) {
       await handleEventTypes(body)
     } else if (body.event) {
-
       const client = await authenticate({
         request: event,
       })

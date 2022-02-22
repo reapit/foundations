@@ -14,8 +14,10 @@ export const saveClientInfo = async (clientKey: string, data: any): Promise<Bitb
   const connection = await connect()
   const repo = connection.getRepository(BitbucketClientEntity)
 
-  return repo.save(repo.create({
-    clientKey,
-    data,
-  }))
+  return repo.save(
+    repo.create({
+      clientKey,
+      data,
+    }),
+  )
 }
