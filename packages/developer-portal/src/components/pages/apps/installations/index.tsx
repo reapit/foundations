@@ -92,6 +92,7 @@ export const AppInstallations: FC = () => {
                 },
               ],
               ctaContent: {
+                headerContent: 'Uninstall',
                 icon: 'trashSystem',
                 onClick: console.log,
               },

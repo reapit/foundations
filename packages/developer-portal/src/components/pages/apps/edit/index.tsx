@@ -15,18 +15,19 @@ export const handleChangeTab =
 export const AppEditPage: FC = () => {
   const [tab, setTab] = useState<AppEditTab>(AppEditTab.general)
   const { appId } = useParams<AppUriParams>()
-  const { appsDataState, setAppId } = useAppState()
+  const { appsDataState, appEditState, setAppId } = useAppState()
 
   useEffect(handleSetAppId(appId, setAppId), [appId])
 
   const { appDetail, appDetailLoading } = appsDataState
+  const isAgencyCloudIntegrated = appEditState.appEditForm.isAgencyCloudIntegrated
+  const isListed = appEditState.appEditForm.isListed
 
   return appDetailLoading ? (
-    <Loader />
+    <Loader fullPage />
   ) : appDetail ? (
     <>
       <Title>{appDetail?.name}</Title>
-
       <Tabs
         isFullWidth
         name="app-edit-tabs"
@@ -39,7 +40,7 @@ export const AppEditPage: FC = () => {
               text: 'General Info',
               isChecked: tab === AppEditTab.general,
             },
-            {
+            appDetail.authFlow === 'authorisationCode' && {
               id: AppEditTab.authentication,
               value: AppEditTab.authentication,
               text: 'Authentication',
@@ -51,13 +52,14 @@ export const AppEditPage: FC = () => {
               text: 'Permissions',
               isChecked: tab === AppEditTab.permissions,
             },
-            {
-              id: AppEditTab.acIntegration,
-              value: AppEditTab.acIntegration,
-              text: 'AgencyCloud Integration',
-              isChecked: tab === AppEditTab.acIntegration,
-            },
-            {
+            appDetail.authFlow === 'authorisationCode' &&
+              isAgencyCloudIntegrated && {
+                id: AppEditTab.acIntegration,
+                value: AppEditTab.acIntegration,
+                text: 'AgencyCloud Integration',
+                isChecked: tab === AppEditTab.acIntegration,
+              },
+            isListed && {
               id: AppEditTab.appListing,
               value: AppEditTab.appListing,
               text: 'App Listing',

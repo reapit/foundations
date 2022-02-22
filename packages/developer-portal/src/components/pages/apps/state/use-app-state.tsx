@@ -83,7 +83,7 @@ export const handleSetDefaultFormValues =
         summary: appDetail.summary ?? '',
         launchUri: appDetail.launchUri ?? '',
         isListed: appDetail.isListed ?? false,
-        isDirectApi: appDetail.isDirectApi ?? false,
+        isAgencyCloudIntegrated: !appDetail.isDirectApi,
         isFree: appDetail.isFree ?? true,
         privacyPolicyUrl: appDetail.privacyPolicyUrl ?? '',
         pricingUrl: appDetail.pricingUrl ?? '',

@@ -28,7 +28,7 @@ export interface AppEditFormSchema {
   pricingUrl: string
   products: string
   isListed: boolean
-  isDirectApi: boolean
+  isAgencyCloudIntegrated: boolean
   isPrivateApp: boolean
 }
 
@@ -60,7 +60,7 @@ export const defaultValues: AppEditFormSchema = {
   termsAndConditionsUrl: '',
   products: '',
   isListed: false,
-  isDirectApi: false,
+  isAgencyCloudIntegrated: false,
   isPrivateApp: false,
 }
 
@@ -194,6 +194,7 @@ export const formFields: Record<keyof AppEditFormSchema, InputGroupProps & { nam
   },
   limitToClientIds: {
     name: 'limitToClientIds',
+    label: 'Private App Client Ids',
     placeholder: 'Please enter the Customer ID. For multiple Customer ID’s, please separate using a comma',
     errorMessage: 'Invalid Customer ID(s). Each Customer ID should be between 3 and 15 characters.',
     type: 'text',
@@ -205,17 +206,15 @@ export const formFields: Record<keyof AppEditFormSchema, InputGroupProps & { nam
   },
   isListed: {
     name: 'isListed',
-    label: 'Status: Listed',
-    type: 'checkbox',
+    label: 'AppMarket Listed',
   },
-  isDirectApi: {
-    name: 'isDirectApi',
-    label: 'Integration',
-    type: 'checkbox',
+  isAgencyCloudIntegrated: {
+    name: 'isAgencyCloudIntegrated',
+    label: 'AgencyCloud Integration',
   },
   isPrivateApp: {
     name: 'isPrivateApp',
-    label: 'Private Apps',
+    label: 'Private App',
   },
   developerId: {
     name: 'developerId',

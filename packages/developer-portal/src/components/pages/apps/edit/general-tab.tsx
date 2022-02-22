@@ -1,10 +1,20 @@
 import React, { FC } from 'react'
-import { BodyText, FormLayout, InputGroup, InputWrap, Subtitle } from '@reapit/elements'
+import {
+  BodyText,
+  ElToggleItem,
+  FormLayout,
+  InputGroup,
+  InputWrap,
+  InputWrapFull,
+  Label,
+  Subtitle,
+  Toggle,
+} from '@reapit/elements'
 import { AppEditTabsProps } from './edit-page-tabs'
 import { formFields } from './form-schema/form-fields'
 
 export const GeneralTab: FC<AppEditTabsProps> = ({ register, errors }) => {
-  const { name, isPrivateApp, limitToClientIds, isListed, isDirectApi } = formFields
+  const { name, isPrivateApp, limitToClientIds, isListed, isAgencyCloudIntegrated } = formFields
   return (
     <>
       <Subtitle>General Info</Subtitle>
@@ -14,25 +24,43 @@ export const GeneralTab: FC<AppEditTabsProps> = ({ register, errors }) => {
         ornare enim sed magna tincidunt volutpat.
       </BodyText>
       <FormLayout hasMargin>
-        <InputWrap>
+        <InputWrapFull>
           <InputGroup {...name} {...register('name')} errorMessage={errors?.name?.message} />
+        </InputWrapFull>
+        <InputWrap>
+          <InputGroup>
+            <Label>{isListed.label}</Label>
+            <Toggle id="app-edit-is-listed" {...register('isListed')} hasGreyBg>
+              <ElToggleItem>Yes</ElToggleItem>
+              <ElToggleItem>No</ElToggleItem>
+            </Toggle>
+          </InputGroup>
         </InputWrap>
         <InputWrap>
-          <InputGroup {...isPrivateApp} {...register('isPrivateApp')} errorMessage={errors?.isPrivateApp?.message} />
+          <InputGroup>
+            <Label>{isAgencyCloudIntegrated.label}</Label>
+            <Toggle id="app-edit-is-ac-inegrated" {...register('isAgencyCloudIntegrated')} hasGreyBg>
+              <ElToggleItem>Yes</ElToggleItem>
+              <ElToggleItem>No</ElToggleItem>
+            </Toggle>
+          </InputGroup>
         </InputWrap>
         <InputWrap>
+          <InputGroup>
+            <Label>{isPrivateApp.label}</Label>
+            <Toggle id="app-edit-is-private-app" {...register('isPrivateApp')} hasGreyBg>
+              <ElToggleItem>Yes</ElToggleItem>
+              <ElToggleItem>No</ElToggleItem>
+            </Toggle>
+          </InputGroup>
+        </InputWrap>
+        <InputWrapFull>
           <InputGroup
             {...limitToClientIds}
             {...register('limitToClientIds')}
             errorMessage={errors?.limitToClientIds?.message}
           />
-        </InputWrap>
-        <InputWrap>
-          <InputGroup {...isListed} {...register('isListed')} errorMessage={errors?.isListed?.message} />
-        </InputWrap>
-        <InputWrap>
-          <InputGroup {...isDirectApi} {...register('isDirectApi')} errorMessage={errors?.isDirectApi?.message} />
-        </InputWrap>
+        </InputWrapFull>
       </FormLayout>
     </>
   )

@@ -10,7 +10,7 @@ import {
   isValidHttpUrl,
   isValidHttpsUrl,
 } from '@reapit/utils-common'
-import { array, boolean, object, string } from 'yup'
+import { boolean, object, string } from 'yup'
 
 const { USER_SESSION, CLIENT_SECRET } = authFlows
 const { FIELD_REQUIRED, MAXIMUM_CHARACTER_LENGTH, FIELD_WRONG_EMAIL_FORMAT } = errorMessages
@@ -127,7 +127,7 @@ export const appEditValidationSchema = object().shape({
 
   [authFlow.name]: string().trim().required(FIELD_REQUIRED).oneOf([USER_SESSION, CLIENT_SECRET]),
 
-  [scopes.name]: array().when(authFlow.name, (authFlow, schema) => {
+  [scopes.name]: string().when(authFlow.name, (authFlow, schema) => {
     if (authFlow === CLIENT_SECRET) {
       return schema.required(scopes.errorMessage)
     }
