@@ -44,20 +44,22 @@ const ColumnControls = ({
       return `Table with ${(includedFields || []).length} columns`
     }}
   >
-    {availableFields.map((field) => (
-      <InputGroup
-        key={field}
-        type="checkbox"
-        name={field}
-        label={field}
-        checked={includedFields.includes(field)}
-        onChange={(e) => {
-          const { checked } = e.target
-          const newFields = checked ? [...includedFields, field] : includedFields.filter((f) => f !== field)
-          setIncludedFields(newFields)
-        }}
-      />
-    ))}
+    {availableFields
+      .filter((field) => field !== 'id')
+      .map((field) => (
+        <InputGroup
+          key={field}
+          type="checkbox"
+          name={field}
+          label={field}
+          checked={includedFields.includes(field)}
+          onChange={(e) => {
+            const { checked } = e.target
+            const newFields = checked ? [...includedFields, field] : includedFields.filter((f) => f !== field)
+            setIncludedFields(newFields)
+          }}
+        />
+      ))}
   </ToolbarSection>
 )
 const ContainerSettings = Container.craft.related.toolbar

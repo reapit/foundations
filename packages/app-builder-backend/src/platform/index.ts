@@ -26,8 +26,12 @@ export const getMetadataObject = async (id: string, accessToken: string) => {
 
   const data = (await res.json()) as MetadataModel
 
-  return data.metadata
+  return {
+    ...data.metadata,
+    id,
+  }
 }
+
 export const deleteMetadataObject = async (id: string, accessToken: string) => {
   const res = await fetch(`${platformApiUrl}/metadata/${id}`, {
     method: 'DELETE',
@@ -106,12 +110,20 @@ export const createMetadataObject = async (entityType: string, metadata: any, ac
       'Content-Type': 'application/json',
       'api-version': '2020-01-31',
     },
-    redirect: 'follow',
     body: JSON.stringify({ entityType, metadata }),
   })
-  const data = (await res.json()) as MetadataModel
+  if (res.status > 300) {
+    throw new Error(`Failed to create ${entityType}`)
+  }
+  const newUrl = res.headers.get('location')
 
-  return data.metadata
+  const id = newUrl?.split('/').pop()
+
+  if (!id) {
+    throw new Error(`Failed to get id from ${newUrl}`)
+  }
+
+  return getMetadataObject(id, accessToken)
 }
 
 export const createMetadataSchema = async (schema: CreateSchemaRequest, accessToken: string) => {
