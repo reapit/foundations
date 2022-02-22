@@ -73,7 +73,10 @@ export const parseIntrospectionResult = (introspection: IntrospectionQuery): Int
       .filter(notEmpty)[0] as IntrospectionField & { acKey: string }
 
     return {
-      object,
+      object: {
+        ...object,
+        fields: object.fields.filter(({ name }) => !name.startsWith('_placeholder')),
+      },
       labelKeys,
       acKeyField,
       supportsCustomFields: !!object.description?.includes('@supportsCustomFields()'),
