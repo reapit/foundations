@@ -183,8 +183,6 @@ export const useReapitGet = <DataType>({
     errorSnack,
   }
 
-  // debugger
-
   useEffect(handleGet<DataType>(handleGetParams), [connectSession, queryParams, headers, fetchWhenTrue])
 
   const refresh = useCallback(handleRefresh<DataType>(handleGetParams), [
