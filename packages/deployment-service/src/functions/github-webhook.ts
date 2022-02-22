@@ -67,6 +67,8 @@ export const githubWebhook = httpHandler<GithubCommitEvent | GithubRepoInstallat
         pipeline,
       })
 
+      // TODO check branch before deploying
+
       await new Promise<void>((resolve, reject) =>
         service.sqs.sendMessage(
           {

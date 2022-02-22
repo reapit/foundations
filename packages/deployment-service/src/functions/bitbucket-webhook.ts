@@ -166,7 +166,7 @@ const handlePushEvent = async (event: {
           message: string
         }[]
         new: {
-          name: string
+          name: string //branch name
         }
       }[]
     }
@@ -185,6 +185,10 @@ const handlePushEvent = async (event: {
   }
 
   // TODO start runner
+
+  const branchName = event.data.push.changes[0].new.name
+  // TODO condition for pipeline
+
 }
 
 export const bitbucketWebhook = httpHandler<any, void>({
