@@ -1,4 +1,4 @@
-import React, { FC, useState, MouseEvent } from 'react'
+import React, { FC, useState, Dispatch, SetStateAction } from 'react'
 import { Title, Subtitle, BodyText, Button, FlexContainer, ButtonGroup, elMb12 } from '@reapit/elements'
 import Routes from '../../../constants/routes'
 import { KeyAnimation, SendFunction, useReapitUpdate } from '@reapit/utils-react'
@@ -12,11 +12,6 @@ import { openNewPage } from '../../../utils/navigation'
 import { CreateDeveloperModel } from '@reapit/foundations-ts-definitions'
 import TermsAndConditionsModal from '../../ui/terms-and-conditions-modal'
 import dayjs from 'dayjs'
-
-export const onLoginButtonClick = () => (event: MouseEvent) => {
-  event.preventDefault()
-  reapitConnectBrowserSession.connectLoginRedirect(`${window.location.origin}${Routes.APPS}`)
-}
 
 export interface UpdateCustomerModel {
   accountApprovedEmail: string
@@ -54,6 +49,11 @@ export const handleCreateAccount =
       }
     }
     registerCustomer()
+  }
+
+export const handleSetModal =
+  (termsModalVisible: boolean, setTermsModalVisible: Dispatch<SetStateAction<boolean>>) => () => {
+    setTermsModalVisible(termsModalVisible)
   }
 
 export const CustomerRegister: FC = () => {
@@ -159,16 +159,16 @@ export const CustomerRegister: FC = () => {
             Visit AppMarket
           </Button>
           {isCustomerAdmin && !hasDeveloperOrg && (
-            <Button onClick={() => setTermsModalVisible(true)} intent="critical" size={3}>
+            <Button onClick={handleSetModal(true, setTermsModalVisible)} intent="critical" size={3}>
               Proceed
             </Button>
           )}
         </ButtonGroup>
         <TermsAndConditionsModal
           visible={termsModalVisible}
-          afterClose={() => setTermsModalVisible(false)}
+          afterClose={handleSetModal(false, setTermsModalVisible)}
           onAccept={handleCreateAccount(updateCustomer, createDeveloper, connectSession)}
-          onDecline={() => setTermsModalVisible(false)}
+          onDecline={handleSetModal(false, setTermsModalVisible)}
           isSubmitting={creatingDeveloper || updatingCustomer}
         />
         <BodyText hasGreyText hasCenteredText>
