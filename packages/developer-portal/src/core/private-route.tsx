@@ -19,7 +19,7 @@ export const handleRedirectRegistraitionPage =
     const isCustomer = selectIsCustomer(connectSession)
 
     if (developerId || !connectSession) return
-    debugger
+
     if (!isCustomer) {
       return history.push(Routes.SELECT_ROLE)
     }

@@ -25,4 +25,5 @@ export enum PathNames {
   billingDataByMonth = '/trafficevents/billing/{month}/',
   developerById = '/marketplace/developers/{developerId}',
   customersById = '/marketplace/customers/{customerId}',
+  developers = '/marketplace/developers',
 }

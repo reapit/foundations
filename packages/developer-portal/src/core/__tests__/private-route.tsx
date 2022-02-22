@@ -8,6 +8,7 @@ import Routes from '@/constants/routes'
 import { MemoryRouter } from 'react-router'
 import { getMockRouterProps } from '@/utils/mock-helper'
 import { ReapitConnectSession } from '@reapit/connect-session'
+import { COGNITO_GROUP_USERS } from '../../selector/auth'
 
 jest.mock('@/utils/session')
 
@@ -41,19 +42,20 @@ describe('PrivateRouter', () => {
       } as ReapitConnectSession
       const curried = handleRedirectRegistraitionPage(history, mockConnectSession)
       curried()
-      expect(history.replace).toBeCalledWith(`${Routes.SELECT_ROLE}`)
+      expect(history.push).toBeCalledWith(`${Routes.SELECT_ROLE}`)
     })
 
     it('should redirect to authentication page for DEVELOPER', () => {
       const mockConnectSession = {
         loginIdentity: {
           developerId: '',
-          clientId: 'RES',
+          agencyCloudId: 'RES',
+          groups: [COGNITO_GROUP_USERS],
         },
       } as ReapitConnectSession
       const curried = handleRedirectRegistraitionPage(history, mockConnectSession)
       curried()
-      expect(history.replace).toBeCalledWith(`${Routes.CUSTOMER_REGISTER}`)
+      expect(history.push).toBeCalledWith(`${Routes.CUSTOMER_REGISTER}`)
     })
   })
 })

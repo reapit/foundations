@@ -14,6 +14,7 @@ export enum UpdateActionNames {
   createApiKeyByMember = 'createApiKeyByMember',
   updateDeveloper = 'updateDeveloper',
   updateCustomer = 'updateCustomer',
+  createDeveloper = 'createDeveloper',
 }
 
 export type UpdateActions = { [key in UpdateActionNames]: UpdateAction }
@@ -47,5 +48,11 @@ export const updateActions = (appEnv: AppEnv): UpdateActions => ({
     api: ApiNames(appEnv).platform,
     path: PathNames.customersById,
     errorMessage: 'Update to terms failed, please try again',
+  },
+  [UpdateActionNames.createDeveloper]: {
+    api: ApiNames(appEnv).platform,
+    path: PathNames.developers,
+    errorMessage: 'Failed to create developer organisation, please try again',
+    successMessage: 'Your developer account has been successfully created',
   },
 })
