@@ -8,7 +8,7 @@ import {
   AcceptInviteModel,
   UpdateMemberModel,
 } from '@reapit/foundations-ts-definitions'
-import { fetcher } from '@reapit/utils-common'
+import { fetcher, FetchError } from '@reapit/utils-common'
 import { URLS } from './constants'
 import { getPlatformHeaders, logger } from '@reapit/utils-react'
 import { FetchListCommonParams, FetchByIdCommonParams } from './types'
@@ -16,6 +16,7 @@ import { stringify } from 'query-string'
 import Routes from '../constants/routes'
 import { history } from '@/core/router'
 import { reapitConnectBrowserSession } from '../core/connect-session'
+import { selectIsCustomer } from '../selector/auth'
 
 export type FetchDevelopersListParams = FetchListCommonParams & {
   name?: string
@@ -70,7 +71,8 @@ export const fetchDevelopersList = async (
       })
       return response
     }
-  } catch (error) {
+  } catch (err) {
+    const error = err as FetchError
     logger(error)
     throw error?.response
   }
@@ -88,7 +90,8 @@ export const createDeveloper = async (params: CreateDeveloperParams) => {
       },
     })
     return response
-  } catch (error) {
+  } catch (err) {
+    const error = err as FetchError
     logger(error)
     throw error?.response
   }
@@ -108,7 +111,8 @@ export const fetchDeveloperById = async (params: FetchDeveloperByIdParams): Prom
       })
       return response
     }
-  } catch (error) {
+  } catch (err) {
+    const error = err as FetchError
     logger(error)
     throw error?.response
   }
@@ -129,7 +133,8 @@ export const updateDeveloperById = async (params: UpdateDeveloperByIdParams) => 
       })
       return response
     }
-  } catch (error) {
+  } catch (err) {
+    const error = err as FetchError
     logger(error)
     throw error?.response
   }
@@ -151,9 +156,18 @@ export const fetchOrganisationMembers = async (
       })
       return response
     }
-  } catch (error) {
-    if (error.response.statusCode === 403) {
-      history.push(`${Routes.AUTHENTICATION}/developer`)
+  } catch (err) {
+    const error = err as FetchError & { response: { statusCode: number } }
+    if (error.response?.statusCode === 403 && !window.location.pathname.includes(Routes.CUSTOMER_REGISTER)) {
+      const session = (await reapitConnectBrowserSession.connectSession()) ?? null
+      const isCustomer = selectIsCustomer(session)
+      debugger
+      if (!isCustomer) {
+        history.push(Routes.SELECT_ROLE)
+      } else {
+        history.push(`${Routes.CUSTOMER_REGISTER}`)
+      }
+      return
     } else {
       logger(error)
       throw error?.response
@@ -185,7 +199,8 @@ export const inviteDeveloperAsOrgMemberApi = async (params: InviteDeveloperAsOrg
       })
       return response
     }
-  } catch (error) {
+  } catch (err) {
+    const error = err as FetchError
     logger(error)
     throw error?.response
   }
@@ -205,7 +220,8 @@ export const fetchMemberDetails = async (params: FetchMemberDetailsParams): Prom
       })
       return response
     }
-  } catch (error) {
+  } catch (err) {
+    const error = err as FetchError
     logger(error)
     throw error?.response
   }
@@ -225,7 +241,8 @@ export const acceptInviteMember = async (params: AcceptInviteMemberParams) => {
       },
     })
     return response
-  } catch (error) {
+  } catch (err) {
+    const error = err as FetchError
     logger(error)
     throw error?.response
   }
@@ -244,7 +261,8 @@ export const rejectInviteMember = async (params: RejectInviteMemberParams) => {
       },
     })
     return response
-  } catch (error) {
+  } catch (err) {
+    const error = err as FetchError
     logger(error)
     throw error?.response
   }
@@ -265,7 +283,8 @@ export const updateOrganisationMemberById = async (params: UpdateOrganisationMem
       })
       return response
     }
-  } catch (error) {
+  } catch (err) {
+    const error = err as FetchError
     logger(error)
     throw error?.response
   }
@@ -290,7 +309,8 @@ export const disableMemberApi = async (params: DisableMemberParams) => {
       })
       return response
     }
-  } catch (error) {
+  } catch (err) {
+    const error = err as FetchError
     logger(error)
     throw error?.response
   }

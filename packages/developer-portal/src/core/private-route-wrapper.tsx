@@ -106,7 +106,7 @@ export const PrivateRouteWrapper: React.FunctionComponent<PrivateRouteWrapperPro
 
   return (
     <MainContainer>
-      {showMenu && <Menu />}
+      {showMenu && location.pathname !== Routes.CUSTOMER_REGISTER && <Menu />}
       {isV3Page ? (
         <>
           <Suspense

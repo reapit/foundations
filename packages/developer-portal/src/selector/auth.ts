@@ -25,17 +25,26 @@ export const selectLoggedUserEmail = (state: ReapitConnectSession | null): strin
 }
 
 export const selectIsUserOrUserAdmin = (state: ReapitConnectSession | null): boolean => {
+  return selectIsUserAdmin(state) || selectIsCustomer(state)
+}
+
+export const selectIsUserAdmin = (state: ReapitConnectSession | null): boolean => {
   const loginIdentity = selectLoginIdentity(state)
 
-  return (
-    Boolean(loginIdentity?.groups?.includes(COGNITO_GROUP_ADMIN_USERS)) ||
-    Boolean(loginIdentity?.groups?.includes(COGNITO_GROUP_USERS)) ||
-    Boolean(loginIdentity?.groups?.includes(COGNITO_GROUP_ADMIN_USERS_LEGACY))
+  return Boolean(
+    (loginIdentity?.groups?.includes(COGNITO_GROUP_ADMIN_USERS) ||
+      loginIdentity?.groups?.includes(COGNITO_GROUP_ADMIN_USERS_LEGACY)) &&
+      loginIdentity?.agencyCloudId &&
+      loginIdentity?.agencyCloudId !== 'SBOX',
   )
 }
 
 export const selectIsCustomer = (state: ReapitConnectSession | null): boolean => {
   const loginIdentity = selectLoginIdentity(state)
 
-  return Boolean(loginIdentity?.agencyCloudId && loginIdentity?.agencyCloudId !== 'SBOX')
+  return Boolean(
+    loginIdentity?.agencyCloudId &&
+      loginIdentity?.agencyCloudId !== 'SBOX' &&
+      loginIdentity?.groups?.includes(COGNITO_GROUP_USERS),
+  )
 }

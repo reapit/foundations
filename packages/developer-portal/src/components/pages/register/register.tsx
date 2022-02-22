@@ -139,7 +139,8 @@ export const Register: FC<RegisterProps> = () => {
         </FlexContainer>
         {formState === 'SUCCESS' ? (
           <PersistantNotification intent="success" isExpanded isFullWidth>
-            Successfully registered. Check your email to confirm your account.
+            Successfully registered, if you already have a Reapit Connect account, please now login. If you do not,
+            please check your email to confirm your account.
           </PersistantNotification>
         ) : (
           <>

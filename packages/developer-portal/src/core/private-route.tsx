@@ -1,10 +1,11 @@
-import * as React from 'react'
+import React, { useEffect } from 'react'
 import { History } from 'history'
 import { Route, RouteProps, useHistory } from 'react-router'
 import RouteFetcher from '../components/hocs/route-fetcher'
 import Routes from '@/constants/routes'
-import { useReapitConnect, ReapitConnectSession, LoginIdentity } from '@reapit/connect-session'
+import { useReapitConnect, ReapitConnectSession } from '@reapit/connect-session'
 import { reapitConnectBrowserSession } from '@/core/connect-session'
+import { selectIsCustomer } from '../selector/auth'
 
 export interface PrivateRouteProps {
   component: React.FunctionComponent | React.LazyExoticComponent<any>
@@ -12,33 +13,25 @@ export interface PrivateRouteProps {
   fetcher?: boolean
 }
 
-export const isNotAllowedToAccess = (loginIdentity?: LoginIdentity) => {
-  if (!loginIdentity || !loginIdentity.developerId) return false
-  return true
-}
+export const handleRedirectRegistraitionPage =
+  (history: History, connectSession: ReapitConnectSession | null) => () => {
+    const developerId = connectSession?.loginIdentity?.developerId
+    const isCustomer = selectIsCustomer(connectSession)
 
-export const handleRedirectToAuthenticationPage = (
-  history: History,
-  loginIdentity?: LoginIdentity,
-  isFetchingAccessToken?: boolean,
-) => {
-  return () => {
-    if (!loginIdentity || isFetchingAccessToken) {
-      return
+    if (developerId || !connectSession) return
+    debugger
+    if (!isCustomer) {
+      return history.push(Routes.SELECT_ROLE)
     }
-    const { developerId } = loginIdentity
-    if (!developerId) {
-      history.replace(`${Routes.AUTHENTICATION}/developer`)
-    }
+
+    history.push(`${Routes.CUSTOMER_REGISTER}`)
   }
-}
 
 export const PrivateRoute = ({ component, fetcher = false, ...rest }: PrivateRouteProps & RouteProps) => {
   const history = useHistory()
   const { connectSession } = useReapitConnect(reapitConnectBrowserSession)
-  const { loginIdentity } = (connectSession || {}) as ReapitConnectSession
 
-  React.useEffect(handleRedirectToAuthenticationPage(history, loginIdentity), [loginIdentity, history])
+  useEffect(handleRedirectRegistraitionPage(history, connectSession), [connectSession, history])
 
   return (
     <Route
