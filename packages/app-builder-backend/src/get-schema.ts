@@ -30,10 +30,26 @@ import { strToCamel } from '@reapit/utils-common'
 
 const noT = (str: string) => str.split('T0').join('')
 
+const cleanFieldName = (fieldName: string) =>
+  removeFirstCharIfNumber(
+    strToCamel(fieldName)
+      .split('-')
+      .join('_')
+      .replace(/[^a-zA-Z0-9_]/g, ''),
+  )
+
+const removeFirstCharIfNumber = (str: string) => {
+  const firstChar = str.charAt(0)
+  if (firstChar >= '0' && firstChar <= '9') {
+    return str.substring(1)
+  }
+  return str
+}
+
 const objToCamel = (obj: Record<string, any>) => {
   const newObj = {}
   Object.keys(obj).forEach((key) => {
-    newObj[strToCamel(key)] = obj[key]
+    newObj[cleanFieldName(key)] = obj[key]
   })
   return newObj
 }
