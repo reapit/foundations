@@ -9,6 +9,7 @@
     "@reapit/connect-session": "workspace:packages/connect-session",
     "@reapit/utils-node": "workspace:packages/utils-node",
     "adm-zip": "^0.5.9",
+    "atlassian-jwt": "^2.0.2",
     "class-transformer": "^0.5.1",
     "class-validator": "^0.13.2",
     "jwt-decode": "^3.1.2",
