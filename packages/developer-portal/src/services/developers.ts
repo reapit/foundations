@@ -161,7 +161,7 @@ export const fetchOrganisationMembers = async (
     if (error.response?.statusCode === 403 && !window.location.pathname.includes(Routes.CUSTOMER_REGISTER)) {
       const session = (await reapitConnectBrowserSession.connectSession()) ?? null
       const isCustomer = selectIsCustomer(session)
-      debugger
+
       if (!isCustomer) {
         history.push(Routes.SELECT_ROLE)
       } else {
