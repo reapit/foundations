@@ -1,6 +1,6 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`Home should match a snapshot 1`] = `
+exports[`Sidebar should match a snapshot 1`] = `
 <ApolloProvider
   client={
     ApolloClient {
@@ -1251,6 +1251,6 @@ exports[`Home should match a snapshot 1`] = `
     }
   }
 >
-  <Authenticated />
+  <Sidebar />
 </ApolloProvider>
 `;

@@ -2,14 +2,14 @@ import * as React from 'react'
 import { shallow } from 'enzyme'
 import { MockedProvider } from '@apollo/client/testing'
 
-import Home from '../home'
+import AppSelect from '../app-select'
 
-describe('Home', () => {
+describe('AppSelect', () => {
   it('should match a snapshot', () => {
     expect(
       shallow(
         <MockedProvider>
-          <Home />
+          <AppSelect />
         </MockedProvider>,
       ),
     ).toMatchSnapshot()

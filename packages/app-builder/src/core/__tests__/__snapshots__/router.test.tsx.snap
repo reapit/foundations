@@ -25,41 +25,7 @@ exports[`Router should match a snapshot 1`] = `
   <Suspense
     fallback={null}
   >
-    <Switch>
-      <Route
-        component={
-          Object {
-            "$$typeof": Symbol(react.lazy),
-            "_init": [Function],
-            "_payload": Object {
-              "_result": [Function],
-              "_status": -1,
-            },
-          }
-        }
-        path="/login"
-      />
-      <PrivateRouteWrapper>
-        <Switch>
-          <Route
-            component={
-              Object {
-                "$$typeof": Symbol(react.lazy),
-                "_init": [Function],
-                "_payload": Object {
-                  "_result": [Function],
-                  "_status": -1,
-                },
-              }
-            }
-            path="/"
-          />
-        </Switch>
-      </PrivateRouteWrapper>
-      <Redirect
-        to="/login"
-      />
-    </Switch>
+    <EditorOrViewer />
   </Suspense>
 </Router>
 `;
