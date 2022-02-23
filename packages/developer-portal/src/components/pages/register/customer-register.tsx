@@ -9,14 +9,9 @@ import { ReapitConnectSession, useReapitConnect } from '@reapit/connect-session'
 import { selectDeveloperId, selectIsCustomer, selectIsUserAdmin } from '../../../selector/auth'
 import { UpdateActionNames, updateActions } from '@reapit/utils-common'
 import { openNewPage } from '../../../utils/navigation'
-import { CreateDeveloperModel } from '@reapit/foundations-ts-definitions'
+import { CreateDeveloperModel, UpdateCustomerModel } from '@reapit/foundations-ts-definitions'
 import TermsAndConditionsModal from '../../ui/terms-and-conditions-modal'
 import dayjs from 'dayjs'
-
-export interface UpdateCustomerModel {
-  accountApprovedEmail: string
-  accountApproved: string
-}
 
 export const handleCreateAccount =
   (
