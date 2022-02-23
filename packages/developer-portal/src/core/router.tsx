@@ -11,7 +11,9 @@ import { RedirectToSettingsProfilePage } from '@/components/pages/settings/setti
 import { OkayPage } from '@reapit/utils-react'
 
 export const history = createBrowserHistory()
-const Authentication = React.lazy(() => catchChunkError(() => import('../components/pages/authentication')))
+const CustomerRegister = React.lazy(() =>
+  catchChunkError(() => import('../components/pages/register/customer-register')),
+)
 const Login = React.lazy(() => catchChunkError(() => import('../components/pages/login')))
 const Register = React.lazy(() => catchChunkError(() => import('../components/pages/register')))
 const Apps = React.lazy(() => catchChunkError(() => import('../components/pages/apps')))
@@ -59,10 +61,9 @@ const Router = () => {
             <Route path={Routes.REGISTER_CONFIRM} exact component={RegisterConfirm} />
             <Route path={Routes.FOUR_O_FOUR} exact render={() => <Info infoType="404" />} />
             <Route path={Routes.INVITE} component={Invite} />
-
             <PrivateRouteWrapper path="/">
               <Switch>
-                <PrivateRoute path={Routes.AUTHENTICATION_LOGIN_TYPE} component={Authentication} />
+                <PrivateRoute path={Routes.CUSTOMER_REGISTER} exact component={CustomerRegister} />
                 <PrivateRoute path={Routes.APPS} component={Apps} exact fetcher />
                 <PrivateRoute path={Routes.APPS_NEW} component={AppsNewPage} exact />
                 <PrivateRoute path={Routes.APP_DETAIL} component={AppDetail} exact fetcher />

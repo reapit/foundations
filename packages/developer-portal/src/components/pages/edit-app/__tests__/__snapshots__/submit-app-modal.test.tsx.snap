@@ -112,6 +112,11 @@ Object {
         >
           You can find your Reapit Reference from any Reapit correspondence under the ‘Account’ section.
         </p>
+        <p
+          class="e1byern-el-body-text"
+        >
+          The verification process is typically completed within 1 – 2 working days. You will be notified via email when this has been completed and you can continue with your app submission.
+        </p>
         <div
           class="e19a1osy-el-button-group"
         >
@@ -170,6 +175,11 @@ Object {
         class="e1byern-el-body-text"
       >
         You can find your Reapit Reference from any Reapit correspondence under the ‘Account’ section.
+      </p>
+      <p
+        class="e1byern-el-body-text"
+      >
+        The verification process is typically completed within 1 – 2 working days. You will be notified via email when this has been completed and you can continue with your app submission.
       </p>
       <div
         class="e19a1osy-el-button-group"

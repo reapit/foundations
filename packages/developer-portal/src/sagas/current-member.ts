@@ -30,9 +30,6 @@ export const currentMemberFetch = function* () {
     throw new Error('Cannot fetch current member')
   } catch (error) {
     yield put(fetchCurrentMemberFailed())
-    notification.error({
-      message: error.message,
-    })
   }
 }
 
