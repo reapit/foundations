@@ -59,7 +59,6 @@ const Router = () => {
             <PrivateRouteWrapper path="/">
               <Switch>
                 <PrivateRoute path={Routes.CUSTOMER_REGISTER} exact component={CustomerRegister} />
-                <PrivateRoute path={Routes.APPS} component={Apps} exact fetcher />
                 <PrivateRoute path={Routes.APPS} component={Apps} />
                 <PrivateRoute path={Routes.API_DOCS} component={ApiDocsPage} />
                 <PrivateRoute path={Routes.ANALYTICS_SCHEMA_DOCS} component={ApiDocsPage} />
