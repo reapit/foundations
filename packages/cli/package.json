@@ -9,7 +9,7 @@
     "axios": "^0.25.0",
     "chalk": "^4.1.2",
     "cli-spinners": "^2.6.1",
-    "create-react-app": "^4.0.3",
+    "create-react-app": "^5.0.0",
     "figlet": "^1.5.2",
     "inquirer": "^8.2.0",
     "latest-semver": "^3.0.0",
