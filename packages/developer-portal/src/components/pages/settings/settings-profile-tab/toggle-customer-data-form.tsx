@@ -95,12 +95,12 @@ export const ToggleCustomerDataForm: React.FC<ToggleCustomerDataFormProps> = () 
                     hasGreyBg
                     {...register('sandboxId')}
                     options={
-                      sandboxes?.data?.map((sandbox) => ({
+                      (sandboxes?.data?.map((sandbox) => ({
                         id: sandbox.id ?? '',
                         text: sandbox.name ?? '',
                         value: sandbox.id ?? '',
                         isChecked: defaultValues.sandboxId === sandbox.id,
-                      })) as ToggleRadioOption[]
+                      })) as ToggleRadioOption[]) ?? []
                     }
                   />
                   <Label>Choose Sandbox</Label>
