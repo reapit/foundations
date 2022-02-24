@@ -130,7 +130,7 @@ describe('AppsNew', () => {
   })
 
   it('should handle navigate on success', () => {
-    const appCreated = true
+    const appCreated = {}
     const history = {
       push: jest.fn(),
     } as unknown as History

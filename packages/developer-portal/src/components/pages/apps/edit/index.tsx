@@ -15,13 +15,11 @@ export const handleChangeTab =
 export const AppEditPage: FC = () => {
   const [tab, setTab] = useState<AppEditTab>(AppEditTab.general)
   const { appId } = useParams<AppUriParams>()
-  const { appsDataState, appEditState, setAppId } = useAppState()
+  const { appsDataState, appTabsState, setAppId } = useAppState()
 
   useEffect(handleSetAppId(appId, setAppId), [appId])
 
   const { appDetail, appDetailLoading } = appsDataState
-  const isAgencyCloudIntegrated = appEditState.appEditForm.isAgencyCloudIntegrated
-  const isListed = appEditState.appEditForm.isListed
 
   return appDetailLoading ? (
     <Loader fullPage />
@@ -53,19 +51,19 @@ export const AppEditPage: FC = () => {
               isChecked: tab === AppEditTab.permissions,
             },
             appDetail.authFlow === 'authorisationCode' &&
-              isAgencyCloudIntegrated && {
+              appTabsState.isAgencyCloudIntegrated && {
                 id: AppEditTab.acIntegration,
                 value: AppEditTab.acIntegration,
                 text: 'AgencyCloud Integration',
                 isChecked: tab === AppEditTab.acIntegration,
               },
-            isListed && {
+            (appTabsState.isCompletingListing || appTabsState.isListed) && {
               id: AppEditTab.appListing,
               value: AppEditTab.appListing,
               text: 'App Listing',
               isChecked: tab === AppEditTab.appListing,
             },
-            window.reapit.config.appEnv !== 'production' && {
+            window.reapit.config.appEnv === 'local' && {
               id: AppEditTab.pipelines,
               value: AppEditTab.pipelines,
               text: 'Pipelines',

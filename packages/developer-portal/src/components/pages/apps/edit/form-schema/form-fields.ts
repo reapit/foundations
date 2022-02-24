@@ -30,6 +30,7 @@ export interface AppEditFormSchema {
   isListed: boolean
   isAgencyCloudIntegrated: boolean
   isPrivateApp: boolean
+  isCompletingListing: boolean
 }
 
 export const defaultValues: AppEditFormSchema = {
@@ -62,6 +63,7 @@ export const defaultValues: AppEditFormSchema = {
   isListed: false,
   isAgencyCloudIntegrated: false,
   isPrivateApp: false,
+  isCompletingListing: false,
 }
 
 export const formFields: Record<keyof AppEditFormSchema, InputGroupProps & { name: string }> = {
@@ -207,6 +209,10 @@ export const formFields: Record<keyof AppEditFormSchema, InputGroupProps & { nam
   isListed: {
     name: 'isListed',
     label: 'AppMarket Listed',
+  },
+  isCompletingListing: {
+    name: 'isCompletingListing',
+    label: 'Completing App Listing',
   },
   isAgencyCloudIntegrated: {
     name: 'isAgencyCloudIntegrated',

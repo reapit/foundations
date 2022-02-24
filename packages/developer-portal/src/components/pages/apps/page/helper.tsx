@@ -11,10 +11,11 @@ export const handleSetAppEditSaving = (setAppEditSaving: Dispatch<SetStateAction
 
 export const Helper: FC = () => {
   const location = useLocation()
-  const { appId, appEditState } = useAppState()
+  const { appId, appEditState, appsDataState, appTabsState } = useAppState()
   const { pathname } = location
   const { isAppsEdit, isAppsDetail } = getCurrentPage(pathname)
   const { setAppEditSaving } = appEditState
+  const { isListed } = appTabsState
 
   if (isAppsEdit) {
     return (
@@ -25,9 +26,19 @@ export const Helper: FC = () => {
           Before you list your app you can save the details at any point below. After app listing, you will have to
           create an app revision for our team to review.
         </SmallText>
-        <Button className={elMb3} intent="primary" onClick={handleSetAppEditSaving(setAppEditSaving)} chevronRight>
-          Save Changes
-        </Button>
+        {isListed && !appsDataState.appDetail?.isListed ? (
+          <Button className={elMb3} intent="critical" onClick={handleSetAppEditSaving(setAppEditSaving)} chevronRight>
+            Submit Review
+          </Button>
+        ) : isListed ? (
+          <Button className={elMb3} intent="critical" onClick={handleSetAppEditSaving(setAppEditSaving)} chevronRight>
+            Create Revision
+          </Button>
+        ) : (
+          <Button className={elMb3} intent="primary" onClick={handleSetAppEditSaving(setAppEditSaving)} chevronRight>
+            Save Changes
+          </Button>
+        )}
       </>
     )
   }

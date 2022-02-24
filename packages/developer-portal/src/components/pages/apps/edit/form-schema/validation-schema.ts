@@ -43,23 +43,23 @@ export const appEditValidationSchema = object().shape({
 
   [isListed.name]: boolean(),
 
-  [telephone.name]: string()
-    .when(isListed.name, {
-      is: true,
-      then: string().trim().required(FIELD_REQUIRED),
-      otherwise: string().notRequired(),
-    })
-    .matches(telephoneRegex, telephone.errorMessage)
-    .max(20, MAXIMUM_CHARACTER_LENGTH(20)),
+  [telephone.name]: string().when(isListed.name, {
+    is: true,
+    then: string()
+      .trim()
+      .required(FIELD_REQUIRED)
+      .matches(telephoneRegex, telephone.errorMessage)
+      .max(20, MAXIMUM_CHARACTER_LENGTH(20)),
+    otherwise: string().notRequired(),
+  }),
 
   [supportEmail.name]: string()
     .trim()
     .when(isListed.name, {
       is: true,
-      then: string().trim().required(FIELD_REQUIRED),
+      then: string().trim().required(FIELD_REQUIRED).matches(emailRegex, FIELD_WRONG_EMAIL_FORMAT),
       otherwise: string().notRequired(),
-    })
-    .matches(emailRegex, FIELD_WRONG_EMAIL_FORMAT),
+    }),
 
   [launchUri.name]: string()
     .trim()
@@ -109,21 +109,25 @@ export const appEditValidationSchema = object().shape({
     .trim()
     .when(isListed.name, {
       is: true,
-      then: string().trim().required(FIELD_REQUIRED),
+      then: string()
+        .trim()
+        .required(FIELD_REQUIRED)
+        .min(150, errorMessages.BETWEEN_MIN_MAX_CHARACTER_LENGTH(150, 1500))
+        .max(1500, errorMessages.BETWEEN_MIN_MAX_CHARACTER_LENGTH(150, 1500)),
       otherwise: string().notRequired(),
-    })
-    .min(150, errorMessages.BETWEEN_MIN_MAX_CHARACTER_LENGTH(150, 1500))
-    .max(1500, errorMessages.BETWEEN_MIN_MAX_CHARACTER_LENGTH(150, 1500)),
+    }),
 
   [summary.name]: string()
     .trim()
     .when(isListed.name, {
       is: true,
-      then: string().trim().required(FIELD_REQUIRED),
+      then: string()
+        .trim()
+        .required(FIELD_REQUIRED)
+        .min(50, errorMessages.BETWEEN_MIN_MAX_CHARACTER_LENGTH(50, 150))
+        .max(150, errorMessages.BETWEEN_MIN_MAX_CHARACTER_LENGTH(50, 150)),
       otherwise: string().notRequired(),
-    })
-    .min(50, errorMessages.BETWEEN_MIN_MAX_CHARACTER_LENGTH(50, 150))
-    .max(150, errorMessages.BETWEEN_MIN_MAX_CHARACTER_LENGTH(50, 150)),
+    }),
 
   [authFlow.name]: string().trim().required(FIELD_REQUIRED).oneOf([USER_SESSION, CLIENT_SECRET]),
 

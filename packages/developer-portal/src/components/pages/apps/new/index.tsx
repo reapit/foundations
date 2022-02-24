@@ -28,7 +28,7 @@ import generate from 'project-name-generator'
 import { ReapitConnectSession, useReapitConnect } from '@reapit/connect-session'
 import dashify from 'dashify'
 import { reapitConnectBrowserSession } from '../../../../core/connect-session'
-import { useReapitUpdate, SendFunction } from '@reapit/utils-react'
+import { useReapitUpdate, SendFunction, UpdateReturnTypeEnum } from '@reapit/utils-react'
 import Routes from '../../../../constants/routes'
 import { History } from 'history'
 import { useHistory } from 'react-router-dom'
@@ -140,6 +140,7 @@ export const handleSubmitApp =
       name,
       scopes: splitScopes,
       developerId,
+      isDirectApi: true,
     }
 
     const extraFields =
@@ -153,9 +154,9 @@ export const handleSubmitApp =
     return createApp(createAppModel)
   }
 
-export const handleNavigateOnSuccess = (appCreated: boolean | undefined, history: History) => () => {
-  if (appCreated) {
-    history.push(Routes.APPS)
+export const handleNavigateOnSuccess = (app: AppDetailModel | undefined, history: History) => () => {
+  if (app) {
+    history.push(`${Routes.APPS}/${app.id}`)
   }
 }
 
@@ -173,13 +174,14 @@ export const AppsNewPage: FC = () => {
     resolver: yupResolver(authFlow === 'authorisationCode' ? authCodeSchema : clientCredsSchema),
   })
   const { connectSession } = useReapitConnect(reapitConnectBrowserSession)
-  const [appCreating, , createApp, appCreated] = useReapitUpdate<CreateAppModel, null>({
+  const [appCreating, app, createApp] = useReapitUpdate<CreateAppModel, AppDetailModel>({
     reapitConnectBrowserSession,
     action: updateActions(window.reapit.config.appEnv)[UpdateActionNames.createApp],
     method: 'POST',
+    returnType: UpdateReturnTypeEnum.LOCATION,
   })
 
-  useEffect(handleNavigateOnSuccess(appCreated, history), [appCreated])
+  useEffect(handleNavigateOnSuccess(app, history), [app])
 
   const { headingText, headerText, iconName } = getAppWizardStep(currentStep)
 

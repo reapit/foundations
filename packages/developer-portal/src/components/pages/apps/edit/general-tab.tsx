@@ -12,9 +12,15 @@ import {
 } from '@reapit/elements'
 import { AppEditTabsProps } from './edit-page-tabs'
 import { formFields } from './form-schema/form-fields'
+import { useAppState } from '../state/use-app-state'
+import { listingInCompletion } from '../utils/listing-in-completion'
 
-export const GeneralTab: FC<AppEditTabsProps> = ({ register, errors }) => {
-  const { name, isPrivateApp, limitToClientIds, isListed, isAgencyCloudIntegrated } = formFields
+export const GeneralTab: FC<AppEditTabsProps> = ({ register, errors, getValues }) => {
+  const { appsDataState } = useAppState()
+  const formValues = getValues()
+  const hasCompletedValues = listingInCompletion(formValues)
+  const { name, isPrivateApp, limitToClientIds, isListed, isAgencyCloudIntegrated, isCompletingListing } = formFields
+
   return (
     <>
       <Subtitle>General Info</Subtitle>
@@ -37,14 +43,32 @@ export const GeneralTab: FC<AppEditTabsProps> = ({ register, errors }) => {
           </InputGroup>
         </InputWrap>
         <InputWrap>
-          <InputGroup>
-            <Label>{isAgencyCloudIntegrated.label}</Label>
-            <Toggle id="app-edit-is-ac-inegrated" {...register('isAgencyCloudIntegrated')} hasGreyBg>
-              <ElToggleItem>Yes</ElToggleItem>
-              <ElToggleItem>No</ElToggleItem>
-            </Toggle>
-          </InputGroup>
+          {hasCompletedValues || formValues.isListed ? (
+            <>
+              <Label>{isCompletingListing.label}</Label>
+              <BodyText>App Listing Under Completion</BodyText>
+            </>
+          ) : (
+            <InputGroup>
+              <Label>{isCompletingListing.label}</Label>
+              <Toggle id="app-edit-completing-listing" {...register('isCompletingListing')} hasGreyBg>
+                <ElToggleItem>Yes</ElToggleItem>
+                <ElToggleItem>No</ElToggleItem>
+              </Toggle>
+            </InputGroup>
+          )}
         </InputWrap>
+        {appsDataState.appDetail?.authFlow === 'authorisationCode' && (
+          <InputWrap>
+            <InputGroup>
+              <Label>{isAgencyCloudIntegrated.label}</Label>
+              <Toggle id="app-edit-is-ac-inegrated" {...register('isAgencyCloudIntegrated')} hasGreyBg>
+                <ElToggleItem>Yes</ElToggleItem>
+                <ElToggleItem>No</ElToggleItem>
+              </Toggle>
+            </InputGroup>
+          </InputWrap>
+        )}
         <InputWrap>
           <InputGroup>
             <Label>{isPrivateApp.label}</Label>

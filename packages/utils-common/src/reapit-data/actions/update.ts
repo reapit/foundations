@@ -16,6 +16,7 @@ export enum UpdateActionNames {
   updateCustomer = 'updateCustomer',
   createDeveloper = 'createDeveloper',
   deleteApp = 'deleteApp',
+  createAppRevsion = 'createAppRevsion',
 }
 
 export type UpdateActions = { [key in UpdateActionNames]: UpdateAction }
@@ -61,5 +62,11 @@ export const updateActions = (appEnv: AppEnv): UpdateActions => ({
     path: PathNames.developers,
     errorMessage: 'Failed to create developer organisation, please try again',
     successMessage: 'Your developer account has been successfully created',
+  },
+  [UpdateActionNames.createAppRevsion]: {
+    api: ApiNames(appEnv).platform,
+    path: PathNames.appRevision,
+    errorMessage: 'Failed to creat an app revision, please check for errors and try again',
+    successMessage: 'App revision created successfully',
   },
 })
