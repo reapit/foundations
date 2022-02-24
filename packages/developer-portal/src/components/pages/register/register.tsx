@@ -138,10 +138,17 @@ export const Register: FC<RegisterProps> = () => {
           </Subtitle>
         </FlexContainer>
         {formState === 'SUCCESS' ? (
-          <PersistantNotification intent="success" isExpanded isFullWidth>
-            Successfully registered, if you already have a Reapit Connect account, please now login. If you do not,
-            please check your email to confirm your account.
-          </PersistantNotification>
+          <>
+            <PersistantNotification className={elMb12} intent="success" isExpanded isFullWidth>
+              Successfully registered, if you already have a Reapit Connect account, please now login. If you do not,
+              please check your email to confirm your account.
+            </PersistantNotification>
+            <ButtonGroup alignment="center" className={elMb12}>
+              <Button onClick={onLoginButtonClick()} intent="primary" size={3}>
+                Login With Reapit
+              </Button>
+            </ButtonGroup>
+          </>
         ) : (
           <>
             <form

@@ -1,5 +1,5 @@
 import React from 'react'
-import { mount } from 'enzyme'
+import { shallow } from 'enzyme'
 import appState from '@/reducers/__stubs__/app-state'
 import { MemberModel } from '@reapit/foundations-ts-definitions'
 import configureStore from 'redux-mock-store'
@@ -28,7 +28,7 @@ describe('ToggleCustomerDataForm', () => {
   const store = mockStore(appState)
 
   it('should match snapshot', () => {
-    const wrapper = mount(
+    const wrapper = shallow(
       <Provider store={store}>
         <ToggleCustomerDataForm />
       </Provider>,
