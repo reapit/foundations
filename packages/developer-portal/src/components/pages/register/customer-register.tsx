@@ -97,7 +97,7 @@ export const CustomerRegister: FC = () => {
               organisation, you will need to be invited by the Admin who set the account up.
             </BodyText>
             <BodyText hasGreyText hasCenteredText hasSectionMargin>
-              For more information on how and Admin can Invite Members to an organisation, please
+              For more information on how an Admin can Invite Members to an organisation, please{' '}
               <a onClick={openNewPage(ExternalPages.inviteMembersDocs)} target="_blank" rel="noreferrer">
                 click here
               </a>
