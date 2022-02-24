@@ -41,35 +41,41 @@ export const ToggleCustomerDataForm: React.FC<ToggleCustomerDataFormProps> = () 
   const updateCurrentMemberInformation = (values: ToggleCustomerDataValues) => dispatch(updateCurrentMember(values))
   const defaultValues = generateInitialValues({ currentMemberInfo })
   const isClient = clientId && isUserOrUserAdmin
+  const isDev = window.reapit.config.appEnv !== 'production'
   const [sandboxes] = useReapitGet<SandboxModelPagedResult>({
     reapitConnectBrowserSession,
     action: getActions(window.reapit.config.appEnv)[GetActionNames.getSandboxes],
+    fetchWhenTrue: [isDev],
   })
   const { register, handleSubmit } = useForm<ToggleCustomerDataValues>({
     defaultValues,
   })
 
-  if (!sandboxes?.data) return null
-
   return (
     <form onSubmit={handleSubmit(handleSubmitToggleCustomerData(updateCurrentMemberInformation))}>
       <FormSection>
         <FadeIn>
-          <H5>Customer Data</H5>
+          {(isClient || isDev) && <H5>Customer Data</H5>}
           {isClient && (
             <FormSubHeading>
               As your account is associated with both the Sandbox Data (SBOX) and Customer Data, you can choose to
               toggle between which data you want to see available in the Developer Portal.
             </FormSubHeading>
           )}
-          <FormSubHeading>
-            You can choose which sandbox you wish to view based on your Reapit Product. This is specific and only
-            associated to your developer profile. Please note, you will need to log out and log back in again to see
-            this change take effect.
-          </FormSubHeading>
-          <FormSubHeading>
-            <strong>Please note, you will need to log out and log back in again to see this change take effect.</strong>
-          </FormSubHeading>
+          {isDev && (
+            <FormSubHeading>
+              You can choose which sandbox you wish to view based on your Reapit Product. This is specific and only
+              associated to your developer profile. Please note, you will need to log out and log back in again to see
+              this change take effect.
+            </FormSubHeading>
+          )}
+          {(isClient || isDev) && (
+            <FormSubHeading>
+              <strong>
+                Please note, you will need to log out and log back in again to see this change take effect.
+              </strong>
+            </FormSubHeading>
+          )}
           <Grid>
             {isClient && (
               <GridItem>
@@ -82,29 +88,33 @@ export const ToggleCustomerDataForm: React.FC<ToggleCustomerDataFormProps> = () 
                 </InputGroup>
               </GridItem>
             )}
-            <GridItem>
-              <InputGroup>
-                <ToggleRadio
-                  hasGreyBg
-                  {...register('sandboxId')}
-                  options={
-                    sandboxes?.data?.map((sandbox) => ({
-                      id: sandbox.id ?? '',
-                      text: sandbox.name ?? '',
-                      value: sandbox.id ?? '',
-                      isChecked: defaultValues.sandboxId === sandbox.id,
-                    })) as ToggleRadioOption[]
-                  }
-                />
-                <Label>Choose Sandbox</Label>
-              </InputGroup>
-            </GridItem>
+            {isDev && (
+              <GridItem>
+                <InputGroup>
+                  <ToggleRadio
+                    hasGreyBg
+                    {...register('sandboxId')}
+                    options={
+                      sandboxes?.data?.map((sandbox) => ({
+                        id: sandbox.id ?? '',
+                        text: sandbox.name ?? '',
+                        value: sandbox.id ?? '',
+                        isChecked: defaultValues.sandboxId === sandbox.id,
+                      })) as ToggleRadioOption[]
+                    }
+                  />
+                  <Label>Choose Sandbox</Label>
+                </InputGroup>
+              </GridItem>
+            )}
           </Grid>
-          <LevelRight>
-            <Button dataTest="save-changes" loading={isUpdating} variant="primary" type="submit">
-              Save Changes
-            </Button>
-          </LevelRight>
+          {(isClient || isDev) && (
+            <LevelRight>
+              <Button dataTest="save-changes" loading={isUpdating} variant="primary" type="submit">
+                Save Changes
+              </Button>
+            </LevelRight>
+          )}
         </FadeIn>
       </FormSection>
     </form>

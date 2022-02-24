@@ -109,23 +109,16 @@ Object {
             ’ has already been setup within the Developer Portal. To access this organisation, you will need to be invited by the Admin who set the account up.
           </p>
           <p
-            class="e11jaxfn-el-has-grey-text e1bb7egt-el-has-centered-text e1byern-el-body-text"
+            class="e11jaxfn-el-has-grey-text etrchfm-el-has-section-margin e1bb7egt-el-has-centered-text e1byern-el-body-text"
           >
-            An admin can invite you from
-             
+            For more information on how and Admin can Invite Members to an organisation, please
             <a
-              href="undefined/settings/organisation"
               rel="noreferrer"
               target="_blank"
             >
-              this page
+              click here
             </a>
             .
-          </p>
-          <p
-            class="e11jaxfn-el-has-grey-text etrchfm-el-has-section-margin e1bb7egt-el-has-centered-text e1byern-el-body-text"
-          >
-            You will need to contact them directly to request access.
           </p>
           <div
             class="e7eari0-el-mb12 e19a1osy-el-button-group"
@@ -252,23 +245,16 @@ Object {
           ’ has already been setup within the Developer Portal. To access this organisation, you will need to be invited by the Admin who set the account up.
         </p>
         <p
-          class="e11jaxfn-el-has-grey-text e1bb7egt-el-has-centered-text e1byern-el-body-text"
+          class="e11jaxfn-el-has-grey-text etrchfm-el-has-section-margin e1bb7egt-el-has-centered-text e1byern-el-body-text"
         >
-          An admin can invite you from
-           
+          For more information on how and Admin can Invite Members to an organisation, please
           <a
-            href="undefined/settings/organisation"
             rel="noreferrer"
             target="_blank"
           >
-            this page
+            click here
           </a>
           .
-        </p>
-        <p
-          class="e11jaxfn-el-has-grey-text etrchfm-el-has-section-margin e1bb7egt-el-has-centered-text e1byern-el-body-text"
-        >
-          You will need to contact them directly to request access.
         </p>
         <div
           class="e7eari0-el-mb12 e19a1osy-el-button-group"

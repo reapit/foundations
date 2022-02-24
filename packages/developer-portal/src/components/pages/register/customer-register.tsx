@@ -8,7 +8,7 @@ import { reapitConnectBrowserSession } from '../../../core/connect-session'
 import { ReapitConnectSession, useReapitConnect } from '@reapit/connect-session'
 import { selectDeveloperId, selectIsCustomer, selectIsUserAdmin } from '../../../selector/auth'
 import { UpdateActionNames, updateActions } from '@reapit/utils-common'
-import { openNewPage } from '../../../utils/navigation'
+import { ExternalPages, openNewPage } from '../../../utils/navigation'
 import { CreateDeveloperModel, UpdateCustomerModel } from '@reapit/foundations-ts-definitions'
 import TermsAndConditionsModal from '../../ui/terms-and-conditions-modal'
 import dayjs from 'dayjs'
@@ -96,15 +96,12 @@ export const CustomerRegister: FC = () => {
               The organisation ‘{orgName}’ has already been setup within the Developer Portal. To access this
               organisation, you will need to be invited by the Admin who set the account up.
             </BodyText>
-            <BodyText hasGreyText hasCenteredText>
-              An admin can invite you from{' '}
-              <a href={`${window.location.origin}${Routes.SETTINGS_ORGANISATION_TAB}`} target="_blank" rel="noreferrer">
-                this page
+            <BodyText hasGreyText hasCenteredText hasSectionMargin>
+              For more information on how and Admin can Invite Members to an organisation, please
+              <a onClick={openNewPage(ExternalPages.inviteMembersDocs)} target="_blank" rel="noreferrer">
+                click here
               </a>
               .
-            </BodyText>
-            <BodyText hasGreyText hasCenteredText hasSectionMargin>
-              You will need to contact them directly to request access.
             </BodyText>
           </>
         )}
