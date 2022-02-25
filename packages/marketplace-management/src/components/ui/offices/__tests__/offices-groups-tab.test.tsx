@@ -82,7 +82,7 @@ describe('mergeOfficesGroups', () => {
 describe('getOfficeQueryFromGroups', () => {
   it('should get an office query from office groups', () => {
     const result = getOfficeQueryFromGroups(mockOfficeGroupModels)
-    const expected = '?id=SOME_ID&id=ANOTHER_ID'
+    const expected = 'id=SOME_ID&id=ANOTHER_ID'
     expect(result).toEqual(expected)
   })
 })

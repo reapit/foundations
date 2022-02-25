@@ -30,6 +30,8 @@ import { yupResolver } from '@hookform/resolvers/yup'
 import { boolean, object, string } from 'yup'
 import errorMessages from '../../../constants/error-messages'
 import { useForm, UseFormReset, UseFormGetValues } from 'react-hook-form'
+import { fetcherWithClientCode } from '../../../utils/fetcher'
+import { useOrgId } from '../../../utils/use-org-id'
 
 export interface OfficeGroupEditFormProps {
   officeGroup: OfficeGroupModel
@@ -128,8 +130,13 @@ export const OfficeGroupEditForm: FC<OfficeGroupEditFormProps> = ({ officeGroup,
     debounce((event: ChangeEvent<HTMLInputElement>) => setSearchString(event.target.value), 500),
     [500],
   )
+  const {
+    orgIdState: { orgClientId },
+  } = useOrgId()
+
   const { data } = useSWR<OfficeModelPagedResult | undefined>(
-    !orgId || !searchString ? null : `${URLS.OFFICES}?pageSize=999&organisationId=${orgId}&name=${searchString}`,
+    !orgClientId || !searchString ? null : `${URLS.OFFICES}?pageSize=100&&name=${searchString}`,
+    fetcherWithClientCode(orgClientId as string),
   )
 
   const searchedOffices = data?._embedded ?? []

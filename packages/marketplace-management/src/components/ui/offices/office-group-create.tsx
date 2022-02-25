@@ -33,6 +33,7 @@ import { History } from 'history'
 import Routes from '../../../constants/routes'
 import { history } from '../../../core/router'
 import { useOrgId } from '../../../utils/use-org-id'
+import { fetcherWithClientCode } from '../../../utils/fetcher'
 
 export interface OfficeGroupCreateProps {}
 
@@ -133,7 +134,7 @@ export const OfficeGroupCreate: FC<OfficeGroupCreateProps> = () => {
   const [options, setOptions] = useState<MultiSelectOption[]>([])
   const [selectedStep, setSelectedStep] = useState<string>('1')
   const {
-    orgIdState: { orgId, orgName },
+    orgIdState: { orgId, orgClientId, orgName },
   } = useOrgId()
   const { success, error } = useSnack()
   const debouncedSearch = useCallback(
@@ -141,7 +142,8 @@ export const OfficeGroupCreate: FC<OfficeGroupCreateProps> = () => {
     [500],
   )
   const { data } = useSWR<OfficeModelPagedResult | undefined>(
-    !orgId || !searchString ? null : `${URLS.OFFICES}?pageSize=999&organisationId=${orgId}&name=${searchString}`,
+    !orgClientId || !searchString ? null : `${URLS.OFFICES}?pageSize=100&name=${searchString}`,
+    fetcherWithClientCode(orgClientId as string),
   )
 
   const offices = data?._embedded ?? []
