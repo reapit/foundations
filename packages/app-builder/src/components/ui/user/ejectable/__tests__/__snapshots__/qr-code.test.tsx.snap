@@ -1,0 +1,12 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`QRCode should match a snapshot 1`] = `
+<ForwardRef
+  width={0}
+>
+  <Memo(QRCode)
+    size={0}
+    value="undefined/123"
+  />
+</ForwardRef>
+`;

@@ -1,0 +1,66 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`ToolbarItem should match a snapshot - Number 1`] = `
+<div
+  className="el-mb3"
+>
+  <ToolbarItemInput
+    onChange={[Function]}
+    propKey=""
+    title=""
+    type={1}
+  />
+</div>
+`;
+
+exports[`ToolbarItem should match a snapshot - Radio 1`] = `
+<div
+  className="el-mb3"
+>
+  <ToolbarItemInput
+    onChange={[Function]}
+    propKey=""
+    title=""
+    type={3}
+  />
+</div>
+`;
+
+exports[`ToolbarItem should match a snapshot - Select 1`] = `
+<div
+  className="el-mb3"
+>
+  <ToolbarItemInput
+    onChange={[Function]}
+    propKey=""
+    title=""
+    type={4}
+  />
+</div>
+`;
+
+exports[`ToolbarItem should match a snapshot - Slider 1`] = `
+<div
+  className="el-mb3"
+>
+  <ToolbarItemInput
+    onChange={[Function]}
+    propKey=""
+    title=""
+    type={2}
+  />
+</div>
+`;
+
+exports[`ToolbarItem should match a snapshot - Text 1`] = `
+<div
+  className="el-mb3"
+>
+  <ToolbarItemInput
+    onChange={[Function]}
+    propKey=""
+    title=""
+    type={0}
+  />
+</div>
+`;

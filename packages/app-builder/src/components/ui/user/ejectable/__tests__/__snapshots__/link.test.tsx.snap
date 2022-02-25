@@ -1,0 +1,17 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Link should match a snapshot 1`] = `
+<Link
+  onClick={[Function]}
+  to={
+    Object {
+      "pathname": "/123",
+      "search": "",
+    }
+  }
+>
+  <ForwardRef
+    width={0}
+  />
+</Link>
+`;

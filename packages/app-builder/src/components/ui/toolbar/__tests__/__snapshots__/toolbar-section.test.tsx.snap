@@ -1,0 +1,14 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`ToolbarSection should match a snapshot 1`] = `
+<details>
+  <summary
+    className="el-flex el-flex-justify-between el-px3 el-mt6 cursor-pointer"
+  >
+    <span />
+  </summary>
+  <div
+    className="el-mt3"
+  />
+</details>
+`;

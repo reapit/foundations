@@ -11,7 +11,13 @@ interface ToolbarSectionProps {
   props: any
 }
 
-export const ToolbarSection: FC<ToolbarSectionProps> = ({ title, props, summary, children }: ToolbarSectionProps) => {
+interface DisplayToolbarSectionProps {
+  children: React.ReactNode
+  title: string
+  summaryText: string
+}
+
+export const ToolbarSection = ({ children, title, summary, props }: ToolbarSectionProps) => {
   const { nodeProps } = useNode((node) => ({
     nodeProps:
       props &&
@@ -21,13 +27,25 @@ export const ToolbarSection: FC<ToolbarSectionProps> = ({ title, props, summary,
       }, {}),
   }))
 
+  const summaryText = summary && props && nodeProps && summary(nodeProps)
+
   return (
-    <details>
-      <summary className={cx(elFlex, elFlexJustifyBetween, elPx3, elMt6, cursorPointer)}>
-        <span>{title}</span>
-        {summary && props && <span>{summary(nodeProps)}</span>}
-      </summary>
-      <div className={cx(elMt3)}>{children}</div>
-    </details>
+    <DisplayToolbarSection title={title} summaryText={summaryText}>
+      {children}
+    </DisplayToolbarSection>
   )
 }
+
+export const DisplayToolbarSection: FC<DisplayToolbarSectionProps> = ({
+  title,
+  summaryText,
+  children,
+}: DisplayToolbarSectionProps) => (
+  <details>
+    <summary className={cx(elFlex, elFlexJustifyBetween, elPx3, elMt6, cursorPointer)}>
+      <span>{title}</span>
+      {summaryText && <span>{summaryText}</span>}
+    </summary>
+    <div className={cx(elMt3)}>{children}</div>
+  </details>
+)

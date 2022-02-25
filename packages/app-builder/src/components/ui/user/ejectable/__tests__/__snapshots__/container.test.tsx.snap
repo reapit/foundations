@@ -1,0 +1,17 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Container should match a snapshot 1`] = `
+<ContainerDiv
+  style={
+    Object {
+      "background": undefined,
+      "display": undefined,
+      "flex": undefined,
+      "height": undefined,
+      "padding": "undefinedpx",
+      "width": undefined,
+    }
+  }
+  width={0}
+/>
+`;

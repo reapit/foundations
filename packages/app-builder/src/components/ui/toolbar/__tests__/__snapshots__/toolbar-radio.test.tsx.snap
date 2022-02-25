@@ -1,0 +1,9 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`ToolbarRadio should match a snapshot 1`] = `
+<ForwardRef
+  name=""
+  type="radio"
+  value=""
+/>
+`;

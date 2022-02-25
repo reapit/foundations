@@ -1,0 +1,32 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Toolbar should match a snapshot - active 1`] = `
+<div
+  className="el-py1 el-hfull"
+/>
+`;
+
+exports[`Toolbar should match a snapshot - inactive 1`] = `
+<div
+  className="el-py1 el-hfull"
+>
+  <div
+    className="el-px6 el-py3 el-flex el-flex-column el-flex-align-center el-hfull el-flex-justify-center el-text-center"
+    style={
+      Object {
+        "color": "rgba(0, 0, 0, 0.5607843137254902)",
+        "fontSize": "11px",
+      }
+    }
+  >
+    <SmallText
+      hasBoldText={true}
+    >
+      Click on a component to start editing.
+    </SmallText>
+    <h2>
+      You could also double click on the layers below to edit their names, like in Photoshop
+    </h2>
+  </div>
+</div>
+`;

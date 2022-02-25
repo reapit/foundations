@@ -1,0 +1,10 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`ToolbarDropdown should match a snapshot 1`] = `
+<div>
+  <Label />
+  <ForwardRef
+    onChange={[Function]}
+  />
+</div>
+`;

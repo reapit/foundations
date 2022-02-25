@@ -1,0 +1,56 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`ToolbarRadio should match a snapshot - Number 1`] = `
+<ForwardRef>
+  <Label />
+  <ForwardRef
+    onChange={[Function]}
+    type="number"
+    value=""
+  />
+</ForwardRef>
+`;
+
+exports[`ToolbarRadio should match a snapshot - Radio 1`] = `
+<ForwardRef>
+  <Label />
+  <ForwardRef
+    onChange={[Function]}
+    type="number"
+    value=""
+  />
+</ForwardRef>
+`;
+
+exports[`ToolbarRadio should match a snapshot - Select 1`] = `
+<ForwardRef>
+  <Label />
+  <ForwardRef
+    onChange={[Function]}
+    type="number"
+    value=""
+  />
+</ForwardRef>
+`;
+
+exports[`ToolbarRadio should match a snapshot - Slider 1`] = `
+<ForwardRef>
+  <Label />
+  <ForwardRef
+    onChange={[Function]}
+    type="number"
+    value=""
+  />
+</ForwardRef>
+`;
+
+exports[`ToolbarRadio should match a snapshot - Text 1`] = `
+<ForwardRef>
+  <Label />
+  <ForwardRef
+    onChange={[Function]}
+    type="text"
+    value=""
+  />
+</ForwardRef>
+`;
