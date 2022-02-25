@@ -121,7 +121,10 @@ export const onHandleSubmit =
     success(toastMessages.CHANGES_SAVE_SUCCESS)
 
     onComplete()
-    refetchMembers()
+    // Set timeout as a workaround for RDS replication error.
+    setTimeout(() => {
+      refetchMembers()
+    }, 500)
   }
 
 export const EditUserGroupForm: FC<EditUserGroupFormProps> = ({ userGroup, onComplete, orgId }) => {

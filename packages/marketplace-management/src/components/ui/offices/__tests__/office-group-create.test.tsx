@@ -10,7 +10,13 @@ import useSWR from 'swr'
 import { mockOfficeList } from '../../../../services/__stubs__/offices'
 import { OFFICE_IN_USE_ERROR } from '../../../../services/office'
 
-jest.mock('swr')
+jest.mock('swr', () => ({
+  __esModule: true,
+  default: jest.fn(),
+  useSWRConfig: jest.fn(() => ({
+    mutate: jest.fn(),
+  })),
+}))
 jest.mock('@reapit/utils-common')
 jest.mock('../../../../utils/prepare-options')
 jest.mock('../../../../utils/use-org-id')
@@ -46,10 +52,11 @@ describe('onHandleSubmit', () => {
   const status = true
   const orgId = 'ORG1'
   const officeIds = 'OF1,OF2'
+  const mutate = jest.fn()
   const history = {
     push: jest.fn(),
   } as unknown as History
-  const onSubmit = onHandleSubmit(history, orgId, success, error)
+  const onSubmit = onHandleSubmit(history, orgId, mutate, success, error)
 
   it('should show notification error', async () => {
     mockedFetch.mockReturnValueOnce(undefined)

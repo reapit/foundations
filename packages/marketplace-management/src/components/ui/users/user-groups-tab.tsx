@@ -87,7 +87,10 @@ const UserGroupsTab: FC = () => {
   )
 
   const onComplete = () => {
-    mutate()
+    // Set timeout as a workaround for RDS replication error.
+    setTimeout(() => {
+      mutate()
+    }, 500)
     setIndexExpandedRow(null)
   }
 
