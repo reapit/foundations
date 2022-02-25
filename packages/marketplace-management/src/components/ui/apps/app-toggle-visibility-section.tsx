@@ -32,8 +32,11 @@ export const handleOnCheckboxChange =
       orgId,
     )
     if (updatedAppRestrictions) {
-      await reFetchApp()
-      return success('Successfully updated app restrictions')
+      // Set timeout as a workaround for RDS replication error.
+      success('Successfully updated app restrictions')
+      return setTimeout(async () => {
+        await reFetchApp()
+      }, 1000)
     }
 
     error('Failed to update app restrictions')

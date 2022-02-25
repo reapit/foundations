@@ -75,7 +75,7 @@ export const onHandleSubmit =
         // Set timeout as a workaround for RDS replication error.
         setTimeout(() => {
           mutate(`${URLS.ORGANISATIONS}/${orgId}/${URLS.OFFICES_GROUPS}`)
-        }, 500)
+        }, 1000)
         return
       }
 

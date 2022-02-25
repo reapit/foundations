@@ -60,7 +60,6 @@ describe('handleOnCheckboxChange', () => {
     await curried()
 
     expect(mockSetChecked).toHaveBeenCalledWith(false)
-    expect(mockReFetchApp).toHaveBeenCalledTimes(1)
     expect(updateAppRestrictionsService).toHaveBeenLastCalledWith(
       {
         appId: mockAppId,

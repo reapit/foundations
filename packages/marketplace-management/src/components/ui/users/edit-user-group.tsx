@@ -124,7 +124,7 @@ export const onHandleSubmit =
     // Set timeout as a workaround for RDS replication error.
     setTimeout(() => {
       refetchMembers()
-    }, 500)
+    }, 1000)
   }
 
 export const EditUserGroupForm: FC<EditUserGroupFormProps> = ({ userGroup, onComplete, orgId }) => {
