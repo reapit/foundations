@@ -6,19 +6,66 @@ import { CodeBuild } from 'aws-sdk'
 import yaml from 'yaml'
 import { PackageManagerEnum } from '../../../../foundations-ts-definitions/deployment-schema'
 import { QueueNames } from '../../constants'
-import { sqs, savePipelineRunnerEntity, s3Client, githubApp } from '../../services'
-import { PipelineEntity } from '@/entities/pipeline.entity'
+import { sqs, savePipelineRunnerEntity, s3Client, githubApp, getBitBucketToken } from '../../services'
+import { PipelineEntity } from '../../entities/pipeline.entity'
+import fetch from 'node-fetch'
 
 const codebuild = new CodeBuild({
   region: process.env.REGION,
 })
 
-const downloadSourceToS3 = async (pipeline: PipelineEntity, pipelineRunner: PipelineRunnerEntity): Promise<string> => {
+const baseBitbucketUrl = 'https://bitbucket.org'
+
+export const downloadBitbucketSourceToS3 = async (pipeline, pipelineRunner, client, event): Promise<string> => {
+  const parts = pipeline.repository?.split('/') as string[]
+  const url = `${baseBitbucketUrl}/${parts[parts.length - 2]}/${parts[parts.length - 1]}/get/${pipeline.branch}.zip`
+
+  if (!client) {
+    throw new Error('Cannot pull from bitbucket without client data')
+  }
+
+  const tokenData = await getBitBucketToken({
+    key: client.key,
+    clientKey: client.clientKey,
+    sharedScret: client.sharedSecret,
+  })
+
+  const result = await fetch(url, {
+    headers: {
+      Authorization: event?.data.repository.is_private ? `Bearer ${tokenData.access_token}` : '',
+    },
+  })
+
+  if (result.status !== 200) {
+    throw new Error('failed to fetch zip from bitbucket')
+  }
+
+  const buffer = Buffer.from(await result.arrayBuffer())
+
+  return new Promise<string>((resolve, reject) =>
+    s3Client.upload(
+      {
+        Bucket: process.env.DEPLOYMENT_REPO_CACHE_BUCKET_NAME as string,
+        Key: `${pipelineRunner.id as string}.zip`,
+        Body: buffer,
+      },
+      (err, data: any) => {
+        if (err) reject(err)
+        resolve([process.env.DEPLOYMENT_REPO_CACHE_BUCKET_NAME as string, data.Key].join('/'))
+      },
+    ),
+  )
+}
+
+const downloadGithubSourceToS3 = async (
+  pipeline: PipelineEntity,
+  pipelineRunner: PipelineRunnerEntity,
+): Promise<string> => {
   const installationId = pipeline.installationId
   const parts = pipeline.repository?.split('/') as string[]
 
   if (!installationId) {
-    throw new Error('No installation Id. Please install github app')
+    throw new Error('Pipeline repository is not configured or repository does not have reapit github app installed')
   }
 
   const response = await (
@@ -67,20 +114,20 @@ export const codebuildExecutor: SQSHandler = async (
 ): Promise<void> => {
   await Promise.all(
     event.Records.map(async (record) => {
-      const pipelineRunner = plainToClass(PipelineRunnerEntity, JSON.parse(record.body))
+      const payload = JSON.parse(record.body)
+      const pipelineRunner = plainToClass(PipelineRunnerEntity, payload.pipelineRunner)
       const pipeline = pipelineRunner.pipeline
+      const event = payload.event
 
       if (!pipeline) {
         throw new Error('pipeline not found')
       }
 
-      if (!pipeline.installationId) {
-        throw new Error('Pipeline repository is not configured or repository does not have reapit github app installed')
-      }
-
       const s3BuildLogsLocation = `arn:aws:s3:::${process.env.DEPLOYMENT_LOG_BUCKET_NAME}`
 
-      const repoLocation = await downloadSourceToS3(pipeline, pipelineRunner)
+      const repoLocation = pipeline.repository?.includes('github')
+        ? await downloadGithubSourceToS3(pipeline, pipelineRunner)
+        : await downloadBitbucketSourceToS3(pipeline, pipelineRunner, payload.client, event)
 
       try {
         const start = codebuild.startBuild({
@@ -91,7 +138,6 @@ export const codebuildExecutor: SQSHandler = async (
               install: {
                 commands: [
                   'cd */',
-                  'ls -la',
                   pipeline.packageManager === PackageManagerEnum.YARN
                     ? pipeline.packageManager
                     : `${pipeline.packageManager} install`,

@@ -1,39 +1,23 @@
-import { BitbucketClientEntity } from '@/entities/bitbucket-client.entity'
-import { findByClientKey, findPipelineByRepo, saveClientInfo } from '@/services'
+import { QueueNames } from '../constants'
+import { BitbucketClientData, BitbucketClientEntity } from '../entities/bitbucket-client.entity'
 import {
+  createPipelineRunnerEntity,
+  findByClientKey,
+  findPipelineByRepo,
+  pipelineRunnerCountRunning,
+  saveClientInfo,
+  sqs,
+} from '../services'
+import {
+  HttpErrorException,
   httpHandler,
   HttpStatusCode,
   NotFoundException,
   UnauthorizedException,
 } from '@homeservenow/serverless-aws-handler'
+import { PipelineRunnerType } from '@reapit/foundations-ts-definitions/deployment-schema'
 import * as jwt from 'atlassian-jwt'
 import { APIGatewayEvent } from 'aws-lambda'
-
-// const createSession = ({
-//   clientKey,
-//   verifiedClaim,
-//   sharedSecret,
-//   key,
-// }: {
-//   clientKey: string
-//   verifiedClaim: any
-//   sharedSecret: string
-//   key: string
-// }): string => {
-//   const now = new Date()
-//   const exp = new Date()
-//   exp.setMinutes(exp.getMinutes() + 10)
-
-//   const baseJwt = {
-//     iss: key,
-//     iat: now.getTime(),
-//     sub: verifiedClaim.sub,
-//     exp,
-//     aud: [clientKey],
-//   }
-
-//   return jwt.encodeSymmetric(baseJwt, sharedSecret)
-// }
 
 const authenticate = async ({ request }: { request: APIGatewayEvent }): Promise<BitbucketClientEntity | never> => {
   const headerToken = request.headers['Authorization']
@@ -79,133 +63,94 @@ const authenticate = async ({ request }: { request: APIGatewayEvent }): Promise<
   }
 
   return existingClient
-
-  // const jwtRequest = {
-  //   method: request.httpMethod,
-  //   pathname: request.path,
-  //   query: request.queryStringParameters as { [s: string]: string },
-  //   body: request.body || {},
-  // }
-  // let signatureHashVerified: boolean
-
-  // console.log('verified', verifiedClaims, jwtRequest, existingClient.data)
-
-  // if (verifiedClaims.qsh) {
-  //   const expectedHash = jwt.createQueryStringHash(jwtRequest, false, existingClient.data.baseUrl)
-
-  //   console.log('expected', expectedHash)
-
-  //   signatureHashVerified = verifiedClaims.qsh === expectedHash
-
-  //   console.log('signed', signatureHashVerified)
-
-  //   if (!signatureHashVerified) {
-  //     const expectedAgain = jwt.createQueryStringHash(jwtRequest, true, existingClient.data.baseUrl)
-  //     signatureHashVerified = verifiedClaims.qsh === expectedAgain
-
-  //     console.log('expected again', expectedAgain)
-
-  //     if (!signatureHashVerified) {
-  //       throw new UnauthorizedException()
-  //     }
-  //   }
-  // }
-
-  // TODO success method
-
-  // const success = (verifiedClaim: any) => {
-  //   const token = createSession({
-  //     clientKey,
-  //     verifiedClaim,
-  //     sharedSecret,
-  //     key,
-  //   })
-
-  //   const verified: { [s: string]: any } = {
-  //     clientKey: clientKey,
-  //     hostBaseUrl: baseUrl,
-  //     token,
-  //   }
-
-  //   if (verifiedClaims.context) {
-  //     verified.context
-
-  //     const user = verifiedClaims.context.user
-  //     if (user) {
-  //       if (user.accountId) verified.userAccountId = user.accountId
-  //       if (user.userKey) verified.userKey = user.userKey
-  //     }
-  //   }
-
-  //   if (!verified.userAccountId) {
-  //     verified.userAccountId = verifiedClaims.sub
-  //   }
-  // }
-
-  // success(verifiedClaims)
 }
 
 const handleEventTypes = async (event: { eventType: string; clientKey: string }) => {
   switch (event.eventType) {
     case 'installed':
       await saveClientInfo(event.clientKey, event)
-      console.log('save the details to db against repo. Not quiet sure though as no repo details provided')
       break
     case 'uninstalled':
+      // TODO disable pipeline
       console.log('disable pipeline')
       break
   }
 }
 
-const handlePushEvent = async (
-  event: {
-    event: string
-    data: {
-      push: {
-        changes: {
-          commits: {
-            hash: string
-            author: {
-              user: {
-                display_name: string
-              }
+export type BitBucketEvent = {
+  event: string
+  data: {
+    push: {
+      changes: {
+        commits: {
+          hash: string
+          author: {
+            user: {
+              display_name: string
             }
-            message: string
-          }[]
-          new: {
-            name: string //branch name
           }
+          message: string
         }[]
-      }
-      repository: {
-        full_name: string
-      }
+        new: {
+          name: string //branch name
+        }
+      }[]
     }
-  },
-  client: BitbucketClientEntity,
-) => {
-  console.log('data', event.data.push.changes, event.data.push.changes[0].commits[0])
-  const pipeline = await findPipelineByRepo(`https://bitbucket.org/${event.data.repository.full_name}`)
+    repository: {
+      full_name: string
+      is_private: boolean
+    }
+  }
+}
 
-  console.log('pipeline', pipeline, client)
+const handlePushEvent = async (event: BitBucketEvent, client: BitbucketClientData) => {
+  const pipeline = await findPipelineByRepo(`https://bitbucket.org/${event.data.repository.full_name}`)
 
   if (!pipeline) {
     throw new NotFoundException('no pipeline for installed repo')
   }
 
-  // TODO start runner
-
   const branchName = event.data.push.changes[0].new.name
-  console.log('branch', branchName)
-  // TODO condition for pipeline
+
+  if (branchName !== pipeline.branch) {
+    throw new HttpErrorException('Cannot create deployment for configured branch', 409 as HttpStatusCode)
+  }
+
+  if (
+    (pipeline.buildStatus && 'CREATING_ARCHITECTURE' === pipeline.buildStatus) ||
+    (await pipelineRunnerCountRunning(pipeline)) >= 1
+  ) {
+    throw new HttpErrorException('Cannot create deployment in current state', 409 as HttpStatusCode)
+  }
+
+  const pipelineRunner = await createPipelineRunnerEntity({
+    type: PipelineRunnerType.REPO,
+    pipeline,
+  })
+
+  await new Promise<void>((resolve, reject) =>
+    sqs.sendMessage(
+      {
+        MessageBody: JSON.stringify({
+          pipelineRunner,
+          client,
+          event,
+        }),
+        QueueUrl: QueueNames.CODEBUILD_EXECUTOR,
+      },
+      (error) => {
+        if (error) {
+          reject(error)
+        }
+        resolve()
+      },
+    ),
+  )
 }
 
 export const bitbucketWebhook = httpHandler<any, void>({
   defaultStatusCode: HttpStatusCode.NO_CONTENT,
   handler: async ({ body, event }) => {
-    console.log('path', event.path)
-    console.log('event', body)
-    console.log('headers', event.headers)
 
     if (body.eventType) {
       await handleEventTypes(body)
@@ -214,7 +159,7 @@ export const bitbucketWebhook = httpHandler<any, void>({
         request: event,
       })
 
-      await handlePushEvent(body, client)
+      await handlePushEvent(body, client.data)
     } else if (event.path === 'healthcheck') {
       return {
         statusCode: HttpStatusCode.OK,
