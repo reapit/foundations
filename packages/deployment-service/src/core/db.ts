@@ -4,7 +4,7 @@ import { SubDomainSubscriber } from '../subscribers/sub-domain'
 import { TaskEntity } from '../entities/task.entity'
 import { PipelineEntity } from '../entities/pipeline.entity'
 import { PipelineRunnerEntity } from '../entities/pipeline-runner.entity'
-import { BitbucketClientEntity } from '@/entities/bitbucket-client.entity'
+import { BitbucketClientEntity } from '../entities/bitbucket-client.entity'
 import migrations from './../../migrations'
 import { MysqlConnectionOptions } from 'typeorm/driver/mysql/MysqlConnectionOptions'
 
