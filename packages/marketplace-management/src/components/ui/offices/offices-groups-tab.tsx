@@ -116,7 +116,9 @@ const OfficesGroupsTab: FC = () => {
   const { data: officesResponse } = useSWR<OfficeModelPagedResult>(
     !orgClientId || !officeIdsQuery
       ? null
-      : `${URLS.OFFICES}/?${officeIdsQuery ? officeIdsQuery + '&pageSize=100' : 'pageSize=100'}`,
+      : `${URLS.OFFICES}/?${
+          officeIdsQuery ? getOfficeQueryFromGroups(officeGroups) + '&pageSize=100' : 'pageSize=100'
+        }`,
     fetcherWithClientCode(orgClientId as string),
   )
 
@@ -126,7 +128,10 @@ const OfficesGroupsTab: FC = () => {
     officeGroups.length && offices?.length ? mergeOfficesGroups(offices, officeGroups) : officeGroups
 
   const onComplete = () => {
-    mutate()
+    // Set timeout as a workaround for RDS replication error.
+    setTimeout(() => {
+      mutate()
+    }, 500)
     setIndexExpandedRow(null)
   }
 
