@@ -31665,6 +31665,7 @@ fsevents@^1.2.7:
     serverless-s3-deploy: ^0.10.1
     serverless-s3-remover: ^0.6.0
     serverless-single-page-app-plugin: ^1.0.4
+    swr: ^1.2.2
     typescript: ^4.3.5
     webpack: ^5.65.0
     webpack-dev-server: ^4.6.0
@@ -41859,6 +41860,15 @@ resolve@^2.0.0-next.3:
   peerDependencies:
     react: ^16.11.0 || ^17.0.0
   checksum: 1bbc7fb107565cdfa2d15d5e14cd51cac9e4087ba08d4557aedf69552186ec4eb57aeb9dc6e3021e23b2ad3638b56e392b86f95518a000842797d10e89f2405e
+  languageName: node
+  linkType: hard
+
+"swr@npm:^1.2.2":
+  version: 1.2.2
+  resolution: "swr@npm:1.2.2"
+  peerDependencies:
+    react: ^16.11.0 || ^17.0.0 || ^18.0.0
+  checksum: 723747c7c263536d8c9ee8b38039462395ba09a7925508f22c8fc940a1ae72e1f05ef678767b2197ce337e170f4812563281bc4b5f9ad7e4eec895cd7139fb8e
   languageName: node
   linkType: hard
 
