@@ -74,13 +74,16 @@ describe('onHandleSubmit', () => {
     expect(error).toHaveBeenCalledWith(toastMessages.OFFICE_ALREADY_ASSIGNED_CREATE, 10000)
   })
 
-  it('should show notification success', async () => {
+  it('should show notification success', (done) => {
     mockedFetch.mockReturnValueOnce(mockResponse)
 
-    await onSubmit({ name, officeIds, status })
+    onSubmit({ name, officeIds, status })
 
-    expect(success).toHaveBeenCalledWith(toastMessages.CREATE_OFFICE_GROUP_SUCCESS)
-    expect(history.push).toHaveBeenCalledWith(Routes.OFFICES_GROUPS)
+    setTimeout(() => {
+      expect(success).toHaveBeenCalledWith(toastMessages.CREATE_OFFICE_GROUP_SUCCESS)
+      expect(history.push).toHaveBeenCalledWith(Routes.OFFICES_GROUPS)
+      done()
+    }, 1001)
   })
 })
 
