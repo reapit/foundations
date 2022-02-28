@@ -82,6 +82,7 @@ scripts/webpack/webpack-sass-prod/.temp/*
 credentials.json
 # Yarn
 .yarn/*
+!.yarn/patches
 !.yarn/cache
 !.yarn/releases
 !.yarn/plugins
