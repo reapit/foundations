@@ -16,6 +16,8 @@ export const saveClientInfo = async (clientKey: string, data: any): Promise<Bitb
   const connection = await connect()
   const repo = connection.getRepository(BitbucketClientEntity)
 
+  delete data.sharedSecret
+
   return repo.save(
     repo.create({
       clientKey,
@@ -27,11 +29,9 @@ export const saveClientInfo = async (clientKey: string, data: any): Promise<Bitb
 export const getBitBucketToken = async ({
   key,
   clientKey,
-  sharedScret,
 }: {
   key: string
   clientKey: string
-  sharedScret: string
 }): Promise<{ access_token: string }> => {
   const qs = (params: Record<string, any>) => {
     const sp = new URLSearchParams(params)
@@ -63,7 +63,7 @@ export const getBitBucketToken = async ({
     qsh,
   }
 
-  const jwtToken = jwt.encodeSymmetric(tokenData, sharedScret)
+  const jwtToken = jwt.encodeSymmetric(tokenData, process.env.BITBUCKET_SHARED_SECRET as string)
   const options = {
     method: opts.method,
     headers: {
