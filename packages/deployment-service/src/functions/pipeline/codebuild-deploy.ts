@@ -53,21 +53,21 @@ export const codebuildDeploy: SQSHandler = async (event: SQSEvent, context: Cont
         throw new Error('No deployable task')
       }
 
-      const deployTask = pipelineRunner.tasks[deployTaskIndex]
-      deployTask.startTime = new Date()
-      deployTask.buildStatus = 'IN_PROGRESS'
-
-      pipelineRunner.tasks[deployTaskIndex] = deployTask
-
-      await Promise.all([
-        updateTask(deployTask, {
-          startTime: new Date(),
-          buildStatus: 'IN_PROGRESS',
-        }),
-        pusher.trigger(`${pipelineRunner.pipeline?.developerId}`, 'pipeline-runner-update', pipelineRunner),
-      ])
-
       try {
+        const deployTask = pipelineRunner.tasks[deployTaskIndex]
+        deployTask.startTime = new Date()
+        deployTask.buildStatus = 'IN_PROGRESS'
+
+        pipelineRunner.tasks[deployTaskIndex] = deployTask
+
+        await Promise.all([
+          updateTask(deployTask, {
+            startTime: new Date(),
+            buildStatus: 'IN_PROGRESS',
+          }),
+          pusher.trigger(`${pipelineRunner.pipeline?.developerId}`, 'pipeline-runner-update', pipelineRunner),
+        ])
+
         await deployFromStore({
           pipeline: pipelineRunner.pipeline as PipelineEntity,
           pipelineRunner,

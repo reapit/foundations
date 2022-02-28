@@ -138,14 +138,14 @@ export const codebuildExecutor: SQSHandler = async (
 
       try {
         const repoLocation = pipeline.repository?.includes('github')
-        ? await downloadGithubSourceToS3(pipeline, pipelineRunner)
-        : await downloadBitbucketSourceToS3({
-            pipeline,
-            pipelineRunner,
-            client: payload.client,
-            event,
-          })
-          
+          ? await downloadGithubSourceToS3(pipeline, pipelineRunner)
+          : await downloadBitbucketSourceToS3({
+              pipeline,
+              pipelineRunner,
+              client: payload.client,
+              event,
+            })
+
         const start = codebuild.startBuild({
           projectName: process.env.CODE_BUILD_PROJECT_NAME as string,
           buildspecOverride: yaml.stringify({
