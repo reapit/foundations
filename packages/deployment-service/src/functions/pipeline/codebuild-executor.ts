@@ -9,6 +9,8 @@ import { QueueNames } from '../../constants'
 import { sqs, savePipelineRunnerEntity, s3Client, githubApp, getBitBucketToken } from '../../services'
 import { PipelineEntity } from '../../entities/pipeline.entity'
 import fetch from 'node-fetch'
+import { BitbucketClientData } from '@/entities/bitbucket-client.entity'
+import { BitBucketEvent } from '..'
 
 const codebuild = new CodeBuild({
   region: process.env.REGION,
@@ -16,7 +18,17 @@ const codebuild = new CodeBuild({
 
 const baseBitbucketUrl = 'https://bitbucket.org'
 
-export const downloadBitbucketSourceToS3 = async (pipeline, pipelineRunner, client, event): Promise<string> => {
+export const downloadBitbucketSourceToS3 = async ({
+  pipeline,
+  pipelineRunner,
+  client,
+  event,
+}: {
+  pipeline: PipelineEntity,
+  pipelineRunner: PipelineRunnerEntity,
+  client: BitbucketClientData,
+  event: BitBucketEvent,
+}): Promise<string> => {
   const parts = pipeline.repository?.split('/') as string[]
   const url = `${baseBitbucketUrl}/${parts[parts.length - 2]}/${parts[parts.length - 1]}/get/${pipeline.branch}.zip`
 
@@ -27,7 +39,6 @@ export const downloadBitbucketSourceToS3 = async (pipeline, pipelineRunner, clie
   const tokenData = await getBitBucketToken({
     key: client.key,
     clientKey: client.clientKey,
-    sharedScret: client.sharedSecret,
   })
 
   const result = await fetch(url, {
@@ -127,7 +138,12 @@ export const codebuildExecutor: SQSHandler = async (
 
       const repoLocation = pipeline.repository?.includes('github')
         ? await downloadGithubSourceToS3(pipeline, pipelineRunner)
-        : await downloadBitbucketSourceToS3(pipeline, pipelineRunner, payload.client, event)
+        : await downloadBitbucketSourceToS3({
+          pipeline,
+          pipelineRunner,
+          client: payload.client,
+          event,
+        })
 
       try {
         const start = codebuild.startBuild({
