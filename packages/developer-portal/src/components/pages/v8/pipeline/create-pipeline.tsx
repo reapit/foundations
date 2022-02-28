@@ -118,7 +118,7 @@ const PipelineCreationModal = ({ open, onModalClose, appId, refreshPipeline }: P
           </InputWrap>
           <InputWrap>
             <InputGroup>
-              <Label>Branch Name</Label>
+              <Label>Deployment Branch</Label>
               <Input {...register('branch')} />
               {errors.branch?.message && <InputAddOn intent="danger">{errors.branch.message}</InputAddOn>}
             </InputGroup>
