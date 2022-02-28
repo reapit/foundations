@@ -64,6 +64,7 @@ export class PipelineCreate extends AbstractCommand {
       buildCommand,
       packageManager,
       appId,
+      branch,
     }: {
       name: string
       appType: string
@@ -73,6 +74,7 @@ export class PipelineCreate extends AbstractCommand {
       buildCommand: string
       packageManager: string
       appId: string
+      branch: string,
     },
     spinner: Ora,
   ): Promise<PipelineModelInterface> {
@@ -86,6 +88,7 @@ export class PipelineCreate extends AbstractCommand {
       buildCommand,
       packageManager,
       appId,
+      branch,
     })
 
     if (response.status === 200) {
@@ -139,6 +142,12 @@ export class PipelineCreate extends AbstractCommand {
         message: "Your project's name",
         name: 'name',
         default: process.cwd().split('/').pop(),
+      },
+      {
+        type: 'input',
+        message: 'Deployment branch',
+        name: 'branch',
+        default: 'master',
       },
       {
         type: 'list',
