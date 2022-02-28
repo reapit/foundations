@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { MouseEvent } from 'react'
 import { shallow } from 'enzyme'
 import {
   Card,
@@ -91,11 +91,15 @@ describe('handleToggleContextMenu', () => {
     const mockValue = false
     const mockSetValue = jest.fn()
     const curried = handleToggleContextMenu(mockValue, mockSetValue)
+    const event = {
+      stopPropagation: jest.fn(),
+    }
 
-    curried()
+    curried((event as unknown) as MouseEvent)
 
     expect(mockSetValue).toHaveBeenCalledTimes(1)
     expect(mockSetValue).toHaveBeenCalledWith(true)
+    expect(event.stopPropagation).toHaveBeenCalledTimes(1)
   })
 })
 
@@ -104,11 +108,15 @@ describe('handleToggleMainMobileOpen', () => {
     const mockValue = false
     const mockSetValue = jest.fn()
     const curried = handleToggleMainMobileOpen(mockValue, mockSetValue)
+    const event = {
+      stopPropagation: jest.fn(),
+    }
 
-    curried()
+    curried((event as unknown) as MouseEvent)
 
     expect(mockSetValue).toHaveBeenCalledTimes(1)
     expect(mockSetValue).toHaveBeenCalledWith(true)
+    expect(event.stopPropagation).toHaveBeenCalledTimes(1)
   })
 })
 
@@ -117,11 +125,15 @@ describe('handleToggleListMobileOpen', () => {
     const mockValue = false
     const mockSetValue = jest.fn()
     const curried = handleToggleListMobileOpen(mockValue, mockSetValue)
+    const event = {
+      stopPropagation: jest.fn(),
+    }
 
-    curried()
+    curried((event as unknown) as MouseEvent)
 
     expect(mockSetValue).toHaveBeenCalledTimes(1)
     expect(mockSetValue).toHaveBeenCalledWith(true)
+    expect(event.stopPropagation).toHaveBeenCalledTimes(1)
   })
 })
 
@@ -132,12 +144,16 @@ describe('handleToggleBothMobileOpen', () => {
     const mockSetValue = jest.fn()
     const mockSetSecondValue = jest.fn()
     const curried = handleToggleBothMobileOpen(mockValue, mockSetValue, mockSecondValue, mockSetSecondValue)
+    const event = {
+      stopPropagation: jest.fn(),
+    }
 
-    curried()
+    curried((event as unknown) as MouseEvent)
 
     expect(mockSetValue).toHaveBeenCalledTimes(1)
     expect(mockSetValue).toHaveBeenCalledWith(true)
     expect(mockSetSecondValue).toHaveBeenCalledTimes(1)
     expect(mockSetSecondValue).toHaveBeenCalledWith(true)
+    expect(event.stopPropagation).toHaveBeenCalledTimes(1)
   })
 })

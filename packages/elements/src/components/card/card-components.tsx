@@ -1,5 +1,5 @@
 import { cx } from '@linaria/core'
-import React, { Dispatch, FC, HTMLAttributes, SetStateAction, useState } from 'react'
+import React, { Dispatch, FC, HTMLAttributes, SetStateAction, useState, MouseEvent } from 'react'
 import {
   CardWrap,
   CardHeading,
@@ -80,21 +80,24 @@ export interface CardProps extends HTMLAttributes<HTMLDivElement> {
 export const handleToggleContextMenu = (
   contextMenuOpen: boolean,
   setContextMenuOpen: Dispatch<SetStateAction<boolean>>,
-) => () => {
+) => (event: MouseEvent) => {
+  event.stopPropagation()
   setContextMenuOpen(!contextMenuOpen)
 }
 
 export const handleToggleMainMobileOpen = (
   mainMobileOpen: boolean,
   setMainMobileOpen: Dispatch<SetStateAction<boolean>>,
-) => () => {
+) => (event: MouseEvent) => {
+  event.stopPropagation()
   setMainMobileOpen(!mainMobileOpen)
 }
 
 export const handleToggleListMobileOpen = (
   listMobileOpen: boolean,
   setListMobileOpen: Dispatch<SetStateAction<boolean>>,
-) => () => {
+) => (event: MouseEvent) => {
+  event.stopPropagation()
   setListMobileOpen(!listMobileOpen)
 }
 
@@ -103,7 +106,8 @@ export const handleToggleBothMobileOpen = (
   setMainMobileOpen: Dispatch<SetStateAction<boolean>>,
   listMobileOpen: boolean,
   setListMobileOpen: Dispatch<SetStateAction<boolean>>,
-) => () => {
+) => (event: MouseEvent) => {
+  event.stopPropagation()
   setMainMobileOpen(!mainMobileOpen)
   setListMobileOpen(!listMobileOpen)
 }

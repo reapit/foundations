@@ -55,6 +55,7 @@ export const PrivateRouteWrapper: React.FunctionComponent<PrivateRouteWrapperPro
   const isV3Page =
     ELEMENTS_V3_PAGES.includes(location.pathname) ||
     location.pathname.includes(Routes.API_DOCS) ||
+    location.pathname.includes('apps') ||
     location.pathname.includes('v8')
 
   useEffect(() => {
@@ -94,7 +95,7 @@ export const PrivateRouteWrapper: React.FunctionComponent<PrivateRouteWrapperPro
     return (
       <MainContainer>
         <FlexContainerBasic hasBackground>
-          <Loader label="Loading" fullPage />
+          <Loader fullPage />
         </FlexContainerBasic>
       </MainContainer>
     )
@@ -112,7 +113,7 @@ export const PrivateRouteWrapper: React.FunctionComponent<PrivateRouteWrapperPro
           <Suspense
             fallback={
               <Section>
-                <Loader label="Loading" fullPage />
+                <Loader fullPage />
               </Section>
             }
           >
@@ -132,7 +133,7 @@ export const PrivateRouteWrapper: React.FunctionComponent<PrivateRouteWrapperPro
             <Suspense
               fallback={
                 <Section>
-                  <Loader label="Loading" fullPage />
+                  <Loader fullPage />
                 </Section>
               }
             >

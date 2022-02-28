@@ -94,6 +94,8 @@ export const handleGet =
 
     const shouldFetch = checkShouldFetch<DataType>(handleGetParams)
     const { successMessage, errorMessage } = action
+    const controller = new AbortController()
+    const signal = controller.signal
 
     const getData = async () => {
       setError(null)
@@ -108,6 +110,7 @@ export const handleGet =
         uriParams,
         headers,
         logger,
+        signal,
       })
       const data = typeof response === 'string' ? null : response
       const error = typeof response === 'string' ? response : null
@@ -123,19 +126,26 @@ export const handleGet =
     if (shouldFetch) {
       getData()
     }
+
+    return () => {
+      if (!shouldFetch) {
+        controller.abort()
+      }
+    }
   }
 
 export const handleRefresh =
   <DataType>(handleGetParams: HandleGetParams<DataType>) =>
   () => {
     const { setData, setError, action, errorSnack, connectSession, queryParams, headers } = handleGetParams
-
+    const controller = new AbortController()
+    const signal = controller.signal
     const { errorMessage } = action
 
     const getData = async () => {
       setError(null)
 
-      const response = await getFetcher<DataType>({ action, connectSession, queryParams, headers, logger })
+      const response = await getFetcher<DataType>({ action, connectSession, queryParams, headers, logger, signal })
       const data = typeof response === 'string' ? null : response
       const error = typeof response === 'string' ? response : null
 
@@ -146,6 +156,10 @@ export const handleRefresh =
     }
 
     getData()
+
+    return () => {
+      controller.abort()
+    }
   }
 
 export const useReapitGet = <DataType>({

@@ -22,7 +22,7 @@ export type NarrowOptionsType = {
 
 export interface CellProps {
   label: string
-  value: string
+  value: ReactNode
   children?: ReactNode
   icon?: IconNames
   className?: string

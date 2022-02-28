@@ -3,18 +3,7 @@ import routes from '@/constants/routes'
 import { Redirect } from 'react-router-dom'
 import { History } from 'history'
 import { useHistory, useParams } from 'react-router'
-import {
-  Input,
-  Button,
-  Alert,
-  H3,
-  ButtonGroup,
-  Formik,
-  Form,
-  H6,
-  FormikValues,
-  LevelRight,
-} from '@reapit/elements-legacy'
+import { Input, Button, Alert, ButtonGroup, Formik, Form, H6, FormikValues, LevelRight } from '@reapit/elements-legacy'
 import { FIELD_ERROR_DESCRIPTION } from '@/constants/form'
 import { useDispatch, useSelector } from 'react-redux'
 import { CreateAppRevisionModel, AppDetailModel, DeveloperModel } from '@reapit/foundations-ts-definitions'
@@ -40,7 +29,7 @@ import { reapitConnectBrowserSession } from '@/core/connect-session'
 import { getDeveloperIdFromConnectSession } from '@/utils/session'
 import { createAppRevision } from '@/actions/apps'
 import { selectSettingsPageDeveloperInformation } from '@/selector/settings'
-import { Loader, useModal } from '@reapit/elements'
+import { Loader, Title, useModal } from '@reapit/elements'
 import { ReapitProductsSection } from './reapit-products-section'
 import { SubmitAppModal } from './submit-app-modal'
 
@@ -375,7 +364,7 @@ export const DeveloperEditApp: React.FC<DeveloperSubmitAppProps> = () => {
 
   const { isLoading, errorMessage, data } = appDetailState
   if (isLoading) {
-    return <Loader label="Loading" fullPage />
+    return <Loader fullPage />
   }
 
   if (errorMessage) {
@@ -402,7 +391,7 @@ export const DeveloperEditApp: React.FC<DeveloperSubmitAppProps> = () => {
 
   return (
     <>
-      <H3>Edit App</H3>
+      <Title>Edit App</Title>
       <Formik
         validationSchema={validationSchemaSubmitRevision}
         initialValues={initialValues}

@@ -49,12 +49,9 @@ export const containerOuterHeader = css`
   }
 `
 export const buttonGroup = css`
-  display: flex;
-  flex-direction: column;
   ${forMobileOnly} {
     > button {
       width: 50%;
     }
-    flex-direction: row;
   }
 `

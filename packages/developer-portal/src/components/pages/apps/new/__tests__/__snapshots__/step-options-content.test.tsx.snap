@@ -1,0 +1,1957 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`StepOptionsContent should match a snapshot 1`] = `
+Object {
+  "asFragment": [Function],
+  "baseElement": <body>
+    <div>
+      <div
+        class="e1jxji48-el-flex-column e1yw9yco-el-wfull e6p05ya-el-fade-in e2kmzjs-el-flex-container"
+      >
+        <div
+          class="s1mx1bhn-step-form-container"
+        >
+          <div
+            class="e1ffzzrg-el-mb10 e1979rmu-el-input-group"
+          >
+            <input
+              class="e1urjlvd-el-input"
+              id="test-static-id"
+              type="text"
+              value="http://localhost:8080"
+            />
+            <label
+              class="e1nbkkrq-el-label"
+              for="test-static-id"
+            >
+              Login Redirect URI
+            </label>
+            <span
+              class="e1vxext9-el-intent-danger e15fmnse-el-input-add-on"
+            >
+              Some error
+            </span>
+          </div>
+          <div
+            class="e1979rmu-el-input-group"
+          >
+            <input
+              class="e1urjlvd-el-input"
+              id="test-static-id"
+              type="text"
+              value="http://localhost:8080/login"
+            />
+            <label
+              class="e1nbkkrq-el-label"
+              for="test-static-id"
+            >
+              Logout Redirect URI
+            </label>
+            <span
+              class="e1vxext9-el-intent-danger e15fmnse-el-input-add-on"
+            >
+              Some error
+            </span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </body>,
+  "container": <div>
+    <div
+      class="e1jxji48-el-flex-column e1yw9yco-el-wfull e6p05ya-el-fade-in e2kmzjs-el-flex-container"
+    >
+      <div
+        class="s1mx1bhn-step-form-container"
+      >
+        <div
+          class="e1ffzzrg-el-mb10 e1979rmu-el-input-group"
+        >
+          <input
+            class="e1urjlvd-el-input"
+            id="test-static-id"
+            type="text"
+            value="http://localhost:8080"
+          />
+          <label
+            class="e1nbkkrq-el-label"
+            for="test-static-id"
+          >
+            Login Redirect URI
+          </label>
+          <span
+            class="e1vxext9-el-intent-danger e15fmnse-el-input-add-on"
+          >
+            Some error
+          </span>
+        </div>
+        <div
+          class="e1979rmu-el-input-group"
+        >
+          <input
+            class="e1urjlvd-el-input"
+            id="test-static-id"
+            type="text"
+            value="http://localhost:8080/login"
+          />
+          <label
+            class="e1nbkkrq-el-label"
+            for="test-static-id"
+          >
+            Logout Redirect URI
+          </label>
+          <span
+            class="e1vxext9-el-intent-danger e15fmnse-el-input-add-on"
+          >
+            Some error
+          </span>
+        </div>
+      </div>
+    </div>
+  </div>,
+  "debug": [Function],
+  "findAllByAltText": [Function],
+  "findAllByDisplayValue": [Function],
+  "findAllByLabelText": [Function],
+  "findAllByPlaceholderText": [Function],
+  "findAllByRole": [Function],
+  "findAllByTestId": [Function],
+  "findAllByText": [Function],
+  "findAllByTitle": [Function],
+  "findByAltText": [Function],
+  "findByDisplayValue": [Function],
+  "findByLabelText": [Function],
+  "findByPlaceholderText": [Function],
+  "findByRole": [Function],
+  "findByTestId": [Function],
+  "findByText": [Function],
+  "findByTitle": [Function],
+  "getAllByAltText": [Function],
+  "getAllByDisplayValue": [Function],
+  "getAllByLabelText": [Function],
+  "getAllByPlaceholderText": [Function],
+  "getAllByRole": [Function],
+  "getAllByTestId": [Function],
+  "getAllByText": [Function],
+  "getAllByTitle": [Function],
+  "getByAltText": [Function],
+  "getByDisplayValue": [Function],
+  "getByLabelText": [Function],
+  "getByPlaceholderText": [Function],
+  "getByRole": [Function],
+  "getByTestId": [Function],
+  "getByText": [Function],
+  "getByTitle": [Function],
+  "queryAllByAltText": [Function],
+  "queryAllByDisplayValue": [Function],
+  "queryAllByLabelText": [Function],
+  "queryAllByPlaceholderText": [Function],
+  "queryAllByRole": [Function],
+  "queryAllByTestId": [Function],
+  "queryAllByText": [Function],
+  "queryAllByTitle": [Function],
+  "queryByAltText": [Function],
+  "queryByDisplayValue": [Function],
+  "queryByLabelText": [Function],
+  "queryByPlaceholderText": [Function],
+  "queryByRole": [Function],
+  "queryByTestId": [Function],
+  "queryByText": [Function],
+  "queryByTitle": [Function],
+  "rerender": [Function],
+  "unmount": [Function],
+}
+`;
+
+exports[`StepOptionsContent should match a snapshot 2`] = `
+Object {
+  "asFragment": [Function],
+  "baseElement": <body>
+    <div>
+      <div
+        class="e1jxji48-el-flex-column e1yw9yco-el-wfull e6p05ya-el-fade-in e2kmzjs-el-flex-container"
+      >
+        <div
+          class="s1mx1bhn-step-form-container"
+        >
+          <div
+            class="e1ffzzrg-el-mb10 e1979rmu-el-input-group"
+          >
+            <input
+              class="e1urjlvd-el-input"
+              id="test-static-id"
+              type="text"
+              value="http://localhost:8080"
+            />
+            <label
+              class="e1nbkkrq-el-label"
+              for="test-static-id"
+            >
+              Login Redirect URI
+            </label>
+            <span
+              class="e1vxext9-el-intent-danger e15fmnse-el-input-add-on"
+            >
+              Some error
+            </span>
+          </div>
+          <div
+            class="e1979rmu-el-input-group"
+          >
+            <input
+              class="e1urjlvd-el-input"
+              id="test-static-id"
+              type="text"
+              value="http://localhost:8080/login"
+            />
+            <label
+              class="e1nbkkrq-el-label"
+              for="test-static-id"
+            >
+              Logout Redirect URI
+            </label>
+            <span
+              class="e1vxext9-el-intent-danger e15fmnse-el-input-add-on"
+            >
+              Some error
+            </span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </body>,
+  "container": <div>
+    <div
+      class="e1jxji48-el-flex-column e1yw9yco-el-wfull e6p05ya-el-fade-in e2kmzjs-el-flex-container"
+    >
+      <div
+        class="s1mx1bhn-step-form-container"
+      >
+        <div
+          class="e1ffzzrg-el-mb10 e1979rmu-el-input-group"
+        >
+          <input
+            class="e1urjlvd-el-input"
+            id="test-static-id"
+            type="text"
+            value="http://localhost:8080"
+          />
+          <label
+            class="e1nbkkrq-el-label"
+            for="test-static-id"
+          >
+            Login Redirect URI
+          </label>
+          <span
+            class="e1vxext9-el-intent-danger e15fmnse-el-input-add-on"
+          >
+            Some error
+          </span>
+        </div>
+        <div
+          class="e1979rmu-el-input-group"
+        >
+          <input
+            class="e1urjlvd-el-input"
+            id="test-static-id"
+            type="text"
+            value="http://localhost:8080/login"
+          />
+          <label
+            class="e1nbkkrq-el-label"
+            for="test-static-id"
+          >
+            Logout Redirect URI
+          </label>
+          <span
+            class="e1vxext9-el-intent-danger e15fmnse-el-input-add-on"
+          >
+            Some error
+          </span>
+        </div>
+      </div>
+    </div>
+  </div>,
+  "debug": [Function],
+  "findAllByAltText": [Function],
+  "findAllByDisplayValue": [Function],
+  "findAllByLabelText": [Function],
+  "findAllByPlaceholderText": [Function],
+  "findAllByRole": [Function],
+  "findAllByTestId": [Function],
+  "findAllByText": [Function],
+  "findAllByTitle": [Function],
+  "findByAltText": [Function],
+  "findByDisplayValue": [Function],
+  "findByLabelText": [Function],
+  "findByPlaceholderText": [Function],
+  "findByRole": [Function],
+  "findByTestId": [Function],
+  "findByText": [Function],
+  "findByTitle": [Function],
+  "getAllByAltText": [Function],
+  "getAllByDisplayValue": [Function],
+  "getAllByLabelText": [Function],
+  "getAllByPlaceholderText": [Function],
+  "getAllByRole": [Function],
+  "getAllByTestId": [Function],
+  "getAllByText": [Function],
+  "getAllByTitle": [Function],
+  "getByAltText": [Function],
+  "getByDisplayValue": [Function],
+  "getByLabelText": [Function],
+  "getByPlaceholderText": [Function],
+  "getByRole": [Function],
+  "getByTestId": [Function],
+  "getByText": [Function],
+  "getByTitle": [Function],
+  "queryAllByAltText": [Function],
+  "queryAllByDisplayValue": [Function],
+  "queryAllByLabelText": [Function],
+  "queryAllByPlaceholderText": [Function],
+  "queryAllByRole": [Function],
+  "queryAllByTestId": [Function],
+  "queryAllByText": [Function],
+  "queryAllByTitle": [Function],
+  "queryByAltText": [Function],
+  "queryByDisplayValue": [Function],
+  "queryByLabelText": [Function],
+  "queryByPlaceholderText": [Function],
+  "queryByRole": [Function],
+  "queryByTestId": [Function],
+  "queryByText": [Function],
+  "queryByTitle": [Function],
+  "rerender": [Function],
+  "unmount": [Function],
+}
+`;
+
+exports[`StepOptionsContent should match a snapshot 3`] = `
+Object {
+  "asFragment": [Function],
+  "baseElement": <body>
+    <div>
+      <div
+        class="e1jxji48-el-flex-column e1yw9yco-el-wfull e6p05ya-el-fade-in e2kmzjs-el-flex-container"
+      >
+        <div
+          class="s1mx1bhn-step-form-container"
+        >
+          <div
+            class="e1ffzzrg-el-mb10 e1979rmu-el-input-group"
+          >
+            <input
+              class="e1urjlvd-el-input"
+              id="test-static-id"
+              type="text"
+              value="http://localhost:8080"
+            />
+            <label
+              class="e1nbkkrq-el-label"
+              for="test-static-id"
+            >
+              Login Redirect URI
+            </label>
+            <span
+              class="e1vxext9-el-intent-danger e15fmnse-el-input-add-on"
+            >
+              Some error
+            </span>
+          </div>
+          <div
+            class="e1979rmu-el-input-group"
+          >
+            <input
+              class="e1urjlvd-el-input"
+              id="test-static-id"
+              type="text"
+              value="http://localhost:8080/login"
+            />
+            <label
+              class="e1nbkkrq-el-label"
+              for="test-static-id"
+            >
+              Logout Redirect URI
+            </label>
+            <span
+              class="e1vxext9-el-intent-danger e15fmnse-el-input-add-on"
+            >
+              Some error
+            </span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </body>,
+  "container": <div>
+    <div
+      class="e1jxji48-el-flex-column e1yw9yco-el-wfull e6p05ya-el-fade-in e2kmzjs-el-flex-container"
+    >
+      <div
+        class="s1mx1bhn-step-form-container"
+      >
+        <div
+          class="e1ffzzrg-el-mb10 e1979rmu-el-input-group"
+        >
+          <input
+            class="e1urjlvd-el-input"
+            id="test-static-id"
+            type="text"
+            value="http://localhost:8080"
+          />
+          <label
+            class="e1nbkkrq-el-label"
+            for="test-static-id"
+          >
+            Login Redirect URI
+          </label>
+          <span
+            class="e1vxext9-el-intent-danger e15fmnse-el-input-add-on"
+          >
+            Some error
+          </span>
+        </div>
+        <div
+          class="e1979rmu-el-input-group"
+        >
+          <input
+            class="e1urjlvd-el-input"
+            id="test-static-id"
+            type="text"
+            value="http://localhost:8080/login"
+          />
+          <label
+            class="e1nbkkrq-el-label"
+            for="test-static-id"
+          >
+            Logout Redirect URI
+          </label>
+          <span
+            class="e1vxext9-el-intent-danger e15fmnse-el-input-add-on"
+          >
+            Some error
+          </span>
+        </div>
+      </div>
+    </div>
+  </div>,
+  "debug": [Function],
+  "findAllByAltText": [Function],
+  "findAllByDisplayValue": [Function],
+  "findAllByLabelText": [Function],
+  "findAllByPlaceholderText": [Function],
+  "findAllByRole": [Function],
+  "findAllByTestId": [Function],
+  "findAllByText": [Function],
+  "findAllByTitle": [Function],
+  "findByAltText": [Function],
+  "findByDisplayValue": [Function],
+  "findByLabelText": [Function],
+  "findByPlaceholderText": [Function],
+  "findByRole": [Function],
+  "findByTestId": [Function],
+  "findByText": [Function],
+  "findByTitle": [Function],
+  "getAllByAltText": [Function],
+  "getAllByDisplayValue": [Function],
+  "getAllByLabelText": [Function],
+  "getAllByPlaceholderText": [Function],
+  "getAllByRole": [Function],
+  "getAllByTestId": [Function],
+  "getAllByText": [Function],
+  "getAllByTitle": [Function],
+  "getByAltText": [Function],
+  "getByDisplayValue": [Function],
+  "getByLabelText": [Function],
+  "getByPlaceholderText": [Function],
+  "getByRole": [Function],
+  "getByTestId": [Function],
+  "getByText": [Function],
+  "getByTitle": [Function],
+  "queryAllByAltText": [Function],
+  "queryAllByDisplayValue": [Function],
+  "queryAllByLabelText": [Function],
+  "queryAllByPlaceholderText": [Function],
+  "queryAllByRole": [Function],
+  "queryAllByTestId": [Function],
+  "queryAllByText": [Function],
+  "queryAllByTitle": [Function],
+  "queryByAltText": [Function],
+  "queryByDisplayValue": [Function],
+  "queryByLabelText": [Function],
+  "queryByPlaceholderText": [Function],
+  "queryByRole": [Function],
+  "queryByTestId": [Function],
+  "queryByText": [Function],
+  "queryByTitle": [Function],
+  "rerender": [Function],
+  "unmount": [Function],
+}
+`;
+
+exports[`StepOptionsContent should match a snapshot 4`] = `
+Object {
+  "asFragment": [Function],
+  "baseElement": <body>
+    <div>
+      <div
+        class="e1jxji48-el-flex-column e1yw9yco-el-wfull e6p05ya-el-fade-in e2kmzjs-el-flex-container"
+      >
+        <div
+          class="s1mx1bhn-step-form-container"
+        >
+          <div
+            class="e1ffzzrg-el-mb10 e1979rmu-el-input-group"
+          >
+            <input
+              class="e1urjlvd-el-input"
+              id="test-static-id"
+              type="text"
+              value="http://localhost:8080"
+            />
+            <label
+              class="e1nbkkrq-el-label"
+              for="test-static-id"
+            >
+              Login Redirect URI
+            </label>
+            <span
+              class="e1vxext9-el-intent-danger e15fmnse-el-input-add-on"
+            >
+              Some error
+            </span>
+          </div>
+          <div
+            class="e1979rmu-el-input-group"
+          >
+            <input
+              class="e1urjlvd-el-input"
+              id="test-static-id"
+              type="text"
+              value="http://localhost:8080/login"
+            />
+            <label
+              class="e1nbkkrq-el-label"
+              for="test-static-id"
+            >
+              Logout Redirect URI
+            </label>
+            <span
+              class="e1vxext9-el-intent-danger e15fmnse-el-input-add-on"
+            >
+              Some error
+            </span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </body>,
+  "container": <div>
+    <div
+      class="e1jxji48-el-flex-column e1yw9yco-el-wfull e6p05ya-el-fade-in e2kmzjs-el-flex-container"
+    >
+      <div
+        class="s1mx1bhn-step-form-container"
+      >
+        <div
+          class="e1ffzzrg-el-mb10 e1979rmu-el-input-group"
+        >
+          <input
+            class="e1urjlvd-el-input"
+            id="test-static-id"
+            type="text"
+            value="http://localhost:8080"
+          />
+          <label
+            class="e1nbkkrq-el-label"
+            for="test-static-id"
+          >
+            Login Redirect URI
+          </label>
+          <span
+            class="e1vxext9-el-intent-danger e15fmnse-el-input-add-on"
+          >
+            Some error
+          </span>
+        </div>
+        <div
+          class="e1979rmu-el-input-group"
+        >
+          <input
+            class="e1urjlvd-el-input"
+            id="test-static-id"
+            type="text"
+            value="http://localhost:8080/login"
+          />
+          <label
+            class="e1nbkkrq-el-label"
+            for="test-static-id"
+          >
+            Logout Redirect URI
+          </label>
+          <span
+            class="e1vxext9-el-intent-danger e15fmnse-el-input-add-on"
+          >
+            Some error
+          </span>
+        </div>
+      </div>
+    </div>
+  </div>,
+  "debug": [Function],
+  "findAllByAltText": [Function],
+  "findAllByDisplayValue": [Function],
+  "findAllByLabelText": [Function],
+  "findAllByPlaceholderText": [Function],
+  "findAllByRole": [Function],
+  "findAllByTestId": [Function],
+  "findAllByText": [Function],
+  "findAllByTitle": [Function],
+  "findByAltText": [Function],
+  "findByDisplayValue": [Function],
+  "findByLabelText": [Function],
+  "findByPlaceholderText": [Function],
+  "findByRole": [Function],
+  "findByTestId": [Function],
+  "findByText": [Function],
+  "findByTitle": [Function],
+  "getAllByAltText": [Function],
+  "getAllByDisplayValue": [Function],
+  "getAllByLabelText": [Function],
+  "getAllByPlaceholderText": [Function],
+  "getAllByRole": [Function],
+  "getAllByTestId": [Function],
+  "getAllByText": [Function],
+  "getAllByTitle": [Function],
+  "getByAltText": [Function],
+  "getByDisplayValue": [Function],
+  "getByLabelText": [Function],
+  "getByPlaceholderText": [Function],
+  "getByRole": [Function],
+  "getByTestId": [Function],
+  "getByText": [Function],
+  "getByTitle": [Function],
+  "queryAllByAltText": [Function],
+  "queryAllByDisplayValue": [Function],
+  "queryAllByLabelText": [Function],
+  "queryAllByPlaceholderText": [Function],
+  "queryAllByRole": [Function],
+  "queryAllByTestId": [Function],
+  "queryAllByText": [Function],
+  "queryAllByTitle": [Function],
+  "queryByAltText": [Function],
+  "queryByDisplayValue": [Function],
+  "queryByLabelText": [Function],
+  "queryByPlaceholderText": [Function],
+  "queryByRole": [Function],
+  "queryByTestId": [Function],
+  "queryByText": [Function],
+  "queryByTitle": [Function],
+  "rerender": [Function],
+  "unmount": [Function],
+}
+`;
+
+exports[`StepOptionsContent should match a snapshot 5`] = `
+Object {
+  "asFragment": [Function],
+  "baseElement": <body>
+    <div>
+      <div
+        class="e1jxji48-el-flex-column e1yw9yco-el-wfull e6p05ya-el-fade-in e2kmzjs-el-flex-container"
+      >
+        <div
+          class="s1mx1bhn-step-form-container"
+        >
+          <div
+            class="e1ffzzrg-el-mb10 e1979rmu-el-input-group"
+          >
+            <input
+              class="e1urjlvd-el-input"
+              id="test-static-id"
+              type="text"
+              value="http://localhost:8080"
+            />
+            <label
+              class="e1nbkkrq-el-label"
+              for="test-static-id"
+            >
+              Login Redirect URI
+            </label>
+            <span
+              class="e1vxext9-el-intent-danger e15fmnse-el-input-add-on"
+            >
+              Some error
+            </span>
+          </div>
+          <div
+            class="e1979rmu-el-input-group"
+          >
+            <input
+              class="e1urjlvd-el-input"
+              id="test-static-id"
+              type="text"
+              value="http://localhost:8080/login"
+            />
+            <label
+              class="e1nbkkrq-el-label"
+              for="test-static-id"
+            >
+              Logout Redirect URI
+            </label>
+            <span
+              class="e1vxext9-el-intent-danger e15fmnse-el-input-add-on"
+            >
+              Some error
+            </span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </body>,
+  "container": <div>
+    <div
+      class="e1jxji48-el-flex-column e1yw9yco-el-wfull e6p05ya-el-fade-in e2kmzjs-el-flex-container"
+    >
+      <div
+        class="s1mx1bhn-step-form-container"
+      >
+        <div
+          class="e1ffzzrg-el-mb10 e1979rmu-el-input-group"
+        >
+          <input
+            class="e1urjlvd-el-input"
+            id="test-static-id"
+            type="text"
+            value="http://localhost:8080"
+          />
+          <label
+            class="e1nbkkrq-el-label"
+            for="test-static-id"
+          >
+            Login Redirect URI
+          </label>
+          <span
+            class="e1vxext9-el-intent-danger e15fmnse-el-input-add-on"
+          >
+            Some error
+          </span>
+        </div>
+        <div
+          class="e1979rmu-el-input-group"
+        >
+          <input
+            class="e1urjlvd-el-input"
+            id="test-static-id"
+            type="text"
+            value="http://localhost:8080/login"
+          />
+          <label
+            class="e1nbkkrq-el-label"
+            for="test-static-id"
+          >
+            Logout Redirect URI
+          </label>
+          <span
+            class="e1vxext9-el-intent-danger e15fmnse-el-input-add-on"
+          >
+            Some error
+          </span>
+        </div>
+      </div>
+    </div>
+  </div>,
+  "debug": [Function],
+  "findAllByAltText": [Function],
+  "findAllByDisplayValue": [Function],
+  "findAllByLabelText": [Function],
+  "findAllByPlaceholderText": [Function],
+  "findAllByRole": [Function],
+  "findAllByTestId": [Function],
+  "findAllByText": [Function],
+  "findAllByTitle": [Function],
+  "findByAltText": [Function],
+  "findByDisplayValue": [Function],
+  "findByLabelText": [Function],
+  "findByPlaceholderText": [Function],
+  "findByRole": [Function],
+  "findByTestId": [Function],
+  "findByText": [Function],
+  "findByTitle": [Function],
+  "getAllByAltText": [Function],
+  "getAllByDisplayValue": [Function],
+  "getAllByLabelText": [Function],
+  "getAllByPlaceholderText": [Function],
+  "getAllByRole": [Function],
+  "getAllByTestId": [Function],
+  "getAllByText": [Function],
+  "getAllByTitle": [Function],
+  "getByAltText": [Function],
+  "getByDisplayValue": [Function],
+  "getByLabelText": [Function],
+  "getByPlaceholderText": [Function],
+  "getByRole": [Function],
+  "getByTestId": [Function],
+  "getByText": [Function],
+  "getByTitle": [Function],
+  "queryAllByAltText": [Function],
+  "queryAllByDisplayValue": [Function],
+  "queryAllByLabelText": [Function],
+  "queryAllByPlaceholderText": [Function],
+  "queryAllByRole": [Function],
+  "queryAllByTestId": [Function],
+  "queryAllByText": [Function],
+  "queryAllByTitle": [Function],
+  "queryByAltText": [Function],
+  "queryByDisplayValue": [Function],
+  "queryByLabelText": [Function],
+  "queryByPlaceholderText": [Function],
+  "queryByRole": [Function],
+  "queryByTestId": [Function],
+  "queryByText": [Function],
+  "queryByTitle": [Function],
+  "rerender": [Function],
+  "unmount": [Function],
+}
+`;
+
+exports[`StepOptionsContent should match a snapshot 6`] = `
+Object {
+  "asFragment": [Function],
+  "baseElement": <body>
+    <div>
+      <div
+        class="e1jxji48-el-flex-column e1yw9yco-el-wfull e6p05ya-el-fade-in e2kmzjs-el-flex-container"
+      >
+        <div
+          class="s1mx1bhn-step-form-container"
+        >
+          <div
+            class="e1ffzzrg-el-mb10 e1979rmu-el-input-group"
+          >
+            <input
+              class="e1urjlvd-el-input"
+              id="test-static-id"
+              type="text"
+              value="http://localhost:8080"
+            />
+            <label
+              class="e1nbkkrq-el-label"
+              for="test-static-id"
+            >
+              Login Redirect URI
+            </label>
+            <span
+              class="e1vxext9-el-intent-danger e15fmnse-el-input-add-on"
+            >
+              Some error
+            </span>
+          </div>
+          <div
+            class="e1979rmu-el-input-group"
+          >
+            <input
+              class="e1urjlvd-el-input"
+              id="test-static-id"
+              type="text"
+              value="http://localhost:8080/login"
+            />
+            <label
+              class="e1nbkkrq-el-label"
+              for="test-static-id"
+            >
+              Logout Redirect URI
+            </label>
+            <span
+              class="e1vxext9-el-intent-danger e15fmnse-el-input-add-on"
+            >
+              Some error
+            </span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </body>,
+  "container": <div>
+    <div
+      class="e1jxji48-el-flex-column e1yw9yco-el-wfull e6p05ya-el-fade-in e2kmzjs-el-flex-container"
+    >
+      <div
+        class="s1mx1bhn-step-form-container"
+      >
+        <div
+          class="e1ffzzrg-el-mb10 e1979rmu-el-input-group"
+        >
+          <input
+            class="e1urjlvd-el-input"
+            id="test-static-id"
+            type="text"
+            value="http://localhost:8080"
+          />
+          <label
+            class="e1nbkkrq-el-label"
+            for="test-static-id"
+          >
+            Login Redirect URI
+          </label>
+          <span
+            class="e1vxext9-el-intent-danger e15fmnse-el-input-add-on"
+          >
+            Some error
+          </span>
+        </div>
+        <div
+          class="e1979rmu-el-input-group"
+        >
+          <input
+            class="e1urjlvd-el-input"
+            id="test-static-id"
+            type="text"
+            value="http://localhost:8080/login"
+          />
+          <label
+            class="e1nbkkrq-el-label"
+            for="test-static-id"
+          >
+            Logout Redirect URI
+          </label>
+          <span
+            class="e1vxext9-el-intent-danger e15fmnse-el-input-add-on"
+          >
+            Some error
+          </span>
+        </div>
+      </div>
+    </div>
+  </div>,
+  "debug": [Function],
+  "findAllByAltText": [Function],
+  "findAllByDisplayValue": [Function],
+  "findAllByLabelText": [Function],
+  "findAllByPlaceholderText": [Function],
+  "findAllByRole": [Function],
+  "findAllByTestId": [Function],
+  "findAllByText": [Function],
+  "findAllByTitle": [Function],
+  "findByAltText": [Function],
+  "findByDisplayValue": [Function],
+  "findByLabelText": [Function],
+  "findByPlaceholderText": [Function],
+  "findByRole": [Function],
+  "findByTestId": [Function],
+  "findByText": [Function],
+  "findByTitle": [Function],
+  "getAllByAltText": [Function],
+  "getAllByDisplayValue": [Function],
+  "getAllByLabelText": [Function],
+  "getAllByPlaceholderText": [Function],
+  "getAllByRole": [Function],
+  "getAllByTestId": [Function],
+  "getAllByText": [Function],
+  "getAllByTitle": [Function],
+  "getByAltText": [Function],
+  "getByDisplayValue": [Function],
+  "getByLabelText": [Function],
+  "getByPlaceholderText": [Function],
+  "getByRole": [Function],
+  "getByTestId": [Function],
+  "getByText": [Function],
+  "getByTitle": [Function],
+  "queryAllByAltText": [Function],
+  "queryAllByDisplayValue": [Function],
+  "queryAllByLabelText": [Function],
+  "queryAllByPlaceholderText": [Function],
+  "queryAllByRole": [Function],
+  "queryAllByTestId": [Function],
+  "queryAllByText": [Function],
+  "queryAllByTitle": [Function],
+  "queryByAltText": [Function],
+  "queryByDisplayValue": [Function],
+  "queryByLabelText": [Function],
+  "queryByPlaceholderText": [Function],
+  "queryByRole": [Function],
+  "queryByTestId": [Function],
+  "queryByText": [Function],
+  "queryByTitle": [Function],
+  "rerender": [Function],
+  "unmount": [Function],
+}
+`;
+
+exports[`StepOptionsContent should match a snapshot 7`] = `
+Object {
+  "asFragment": [Function],
+  "baseElement": <body>
+    <div>
+      <div
+        class="e1jxji48-el-flex-column e1yw9yco-el-wfull e6p05ya-el-fade-in e2kmzjs-el-flex-container"
+      >
+        <div
+          class="s1mx1bhn-step-form-container"
+        >
+          <div
+            class="e1ffzzrg-el-mb10 e1979rmu-el-input-group"
+          >
+            <input
+              class="e1urjlvd-el-input"
+              id="test-static-id"
+              type="text"
+              value="http://localhost:8080"
+            />
+            <label
+              class="e1nbkkrq-el-label"
+              for="test-static-id"
+            >
+              Login Redirect URI
+            </label>
+            <span
+              class="e1vxext9-el-intent-danger e15fmnse-el-input-add-on"
+            >
+              Some error
+            </span>
+          </div>
+          <div
+            class="e1979rmu-el-input-group"
+          >
+            <input
+              class="e1urjlvd-el-input"
+              id="test-static-id"
+              type="text"
+              value="http://localhost:8080/login"
+            />
+            <label
+              class="e1nbkkrq-el-label"
+              for="test-static-id"
+            >
+              Logout Redirect URI
+            </label>
+            <span
+              class="e1vxext9-el-intent-danger e15fmnse-el-input-add-on"
+            >
+              Some error
+            </span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </body>,
+  "container": <div>
+    <div
+      class="e1jxji48-el-flex-column e1yw9yco-el-wfull e6p05ya-el-fade-in e2kmzjs-el-flex-container"
+    >
+      <div
+        class="s1mx1bhn-step-form-container"
+      >
+        <div
+          class="e1ffzzrg-el-mb10 e1979rmu-el-input-group"
+        >
+          <input
+            class="e1urjlvd-el-input"
+            id="test-static-id"
+            type="text"
+            value="http://localhost:8080"
+          />
+          <label
+            class="e1nbkkrq-el-label"
+            for="test-static-id"
+          >
+            Login Redirect URI
+          </label>
+          <span
+            class="e1vxext9-el-intent-danger e15fmnse-el-input-add-on"
+          >
+            Some error
+          </span>
+        </div>
+        <div
+          class="e1979rmu-el-input-group"
+        >
+          <input
+            class="e1urjlvd-el-input"
+            id="test-static-id"
+            type="text"
+            value="http://localhost:8080/login"
+          />
+          <label
+            class="e1nbkkrq-el-label"
+            for="test-static-id"
+          >
+            Logout Redirect URI
+          </label>
+          <span
+            class="e1vxext9-el-intent-danger e15fmnse-el-input-add-on"
+          >
+            Some error
+          </span>
+        </div>
+      </div>
+    </div>
+  </div>,
+  "debug": [Function],
+  "findAllByAltText": [Function],
+  "findAllByDisplayValue": [Function],
+  "findAllByLabelText": [Function],
+  "findAllByPlaceholderText": [Function],
+  "findAllByRole": [Function],
+  "findAllByTestId": [Function],
+  "findAllByText": [Function],
+  "findAllByTitle": [Function],
+  "findByAltText": [Function],
+  "findByDisplayValue": [Function],
+  "findByLabelText": [Function],
+  "findByPlaceholderText": [Function],
+  "findByRole": [Function],
+  "findByTestId": [Function],
+  "findByText": [Function],
+  "findByTitle": [Function],
+  "getAllByAltText": [Function],
+  "getAllByDisplayValue": [Function],
+  "getAllByLabelText": [Function],
+  "getAllByPlaceholderText": [Function],
+  "getAllByRole": [Function],
+  "getAllByTestId": [Function],
+  "getAllByText": [Function],
+  "getAllByTitle": [Function],
+  "getByAltText": [Function],
+  "getByDisplayValue": [Function],
+  "getByLabelText": [Function],
+  "getByPlaceholderText": [Function],
+  "getByRole": [Function],
+  "getByTestId": [Function],
+  "getByText": [Function],
+  "getByTitle": [Function],
+  "queryAllByAltText": [Function],
+  "queryAllByDisplayValue": [Function],
+  "queryAllByLabelText": [Function],
+  "queryAllByPlaceholderText": [Function],
+  "queryAllByRole": [Function],
+  "queryAllByTestId": [Function],
+  "queryAllByText": [Function],
+  "queryAllByTitle": [Function],
+  "queryByAltText": [Function],
+  "queryByDisplayValue": [Function],
+  "queryByLabelText": [Function],
+  "queryByPlaceholderText": [Function],
+  "queryByRole": [Function],
+  "queryByTestId": [Function],
+  "queryByText": [Function],
+  "queryByTitle": [Function],
+  "rerender": [Function],
+  "unmount": [Function],
+}
+`;
+
+exports[`StepOptionsContent should match a snapshot 8`] = `
+Object {
+  "asFragment": [Function],
+  "baseElement": <body>
+    <div>
+      <div
+        class="e1jxji48-el-flex-column e1yw9yco-el-wfull e6p05ya-el-fade-in e2kmzjs-el-flex-container"
+      >
+        <div
+          class="s1mx1bhn-step-form-container"
+        >
+          <div
+            class="e1ffzzrg-el-mb10 e1979rmu-el-input-group"
+          >
+            <input
+              class="e1urjlvd-el-input"
+              id="test-static-id"
+              type="text"
+              value="http://localhost:8080"
+            />
+            <label
+              class="e1nbkkrq-el-label"
+              for="test-static-id"
+            >
+              Login Redirect URI
+            </label>
+            <span
+              class="e1vxext9-el-intent-danger e15fmnse-el-input-add-on"
+            >
+              Some error
+            </span>
+          </div>
+          <div
+            class="e1979rmu-el-input-group"
+          >
+            <input
+              class="e1urjlvd-el-input"
+              id="test-static-id"
+              type="text"
+              value="http://localhost:8080/login"
+            />
+            <label
+              class="e1nbkkrq-el-label"
+              for="test-static-id"
+            >
+              Logout Redirect URI
+            </label>
+            <span
+              class="e1vxext9-el-intent-danger e15fmnse-el-input-add-on"
+            >
+              Some error
+            </span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </body>,
+  "container": <div>
+    <div
+      class="e1jxji48-el-flex-column e1yw9yco-el-wfull e6p05ya-el-fade-in e2kmzjs-el-flex-container"
+    >
+      <div
+        class="s1mx1bhn-step-form-container"
+      >
+        <div
+          class="e1ffzzrg-el-mb10 e1979rmu-el-input-group"
+        >
+          <input
+            class="e1urjlvd-el-input"
+            id="test-static-id"
+            type="text"
+            value="http://localhost:8080"
+          />
+          <label
+            class="e1nbkkrq-el-label"
+            for="test-static-id"
+          >
+            Login Redirect URI
+          </label>
+          <span
+            class="e1vxext9-el-intent-danger e15fmnse-el-input-add-on"
+          >
+            Some error
+          </span>
+        </div>
+        <div
+          class="e1979rmu-el-input-group"
+        >
+          <input
+            class="e1urjlvd-el-input"
+            id="test-static-id"
+            type="text"
+            value="http://localhost:8080/login"
+          />
+          <label
+            class="e1nbkkrq-el-label"
+            for="test-static-id"
+          >
+            Logout Redirect URI
+          </label>
+          <span
+            class="e1vxext9-el-intent-danger e15fmnse-el-input-add-on"
+          >
+            Some error
+          </span>
+        </div>
+      </div>
+    </div>
+  </div>,
+  "debug": [Function],
+  "findAllByAltText": [Function],
+  "findAllByDisplayValue": [Function],
+  "findAllByLabelText": [Function],
+  "findAllByPlaceholderText": [Function],
+  "findAllByRole": [Function],
+  "findAllByTestId": [Function],
+  "findAllByText": [Function],
+  "findAllByTitle": [Function],
+  "findByAltText": [Function],
+  "findByDisplayValue": [Function],
+  "findByLabelText": [Function],
+  "findByPlaceholderText": [Function],
+  "findByRole": [Function],
+  "findByTestId": [Function],
+  "findByText": [Function],
+  "findByTitle": [Function],
+  "getAllByAltText": [Function],
+  "getAllByDisplayValue": [Function],
+  "getAllByLabelText": [Function],
+  "getAllByPlaceholderText": [Function],
+  "getAllByRole": [Function],
+  "getAllByTestId": [Function],
+  "getAllByText": [Function],
+  "getAllByTitle": [Function],
+  "getByAltText": [Function],
+  "getByDisplayValue": [Function],
+  "getByLabelText": [Function],
+  "getByPlaceholderText": [Function],
+  "getByRole": [Function],
+  "getByTestId": [Function],
+  "getByText": [Function],
+  "getByTitle": [Function],
+  "queryAllByAltText": [Function],
+  "queryAllByDisplayValue": [Function],
+  "queryAllByLabelText": [Function],
+  "queryAllByPlaceholderText": [Function],
+  "queryAllByRole": [Function],
+  "queryAllByTestId": [Function],
+  "queryAllByText": [Function],
+  "queryAllByTitle": [Function],
+  "queryByAltText": [Function],
+  "queryByDisplayValue": [Function],
+  "queryByLabelText": [Function],
+  "queryByPlaceholderText": [Function],
+  "queryByRole": [Function],
+  "queryByTestId": [Function],
+  "queryByText": [Function],
+  "queryByTitle": [Function],
+  "rerender": [Function],
+  "unmount": [Function],
+}
+`;
+
+exports[`StepOptionsContent should match a snapshot 9`] = `
+Object {
+  "asFragment": [Function],
+  "baseElement": <body>
+    <div>
+      <div
+        class="e1jxji48-el-flex-column e1yw9yco-el-wfull e6p05ya-el-fade-in e2kmzjs-el-flex-container"
+      >
+        <div
+          class="s1mx1bhn-step-form-container"
+        >
+          <div
+            class="e1ffzzrg-el-mb10 e1979rmu-el-input-group"
+          >
+            <input
+              class="e1urjlvd-el-input"
+              id="test-static-id"
+              type="text"
+              value="http://localhost:8080"
+            />
+            <label
+              class="e1nbkkrq-el-label"
+              for="test-static-id"
+            >
+              Login Redirect URI
+            </label>
+            <span
+              class="e1vxext9-el-intent-danger e15fmnse-el-input-add-on"
+            >
+              Some error
+            </span>
+          </div>
+          <div
+            class="e1979rmu-el-input-group"
+          >
+            <input
+              class="e1urjlvd-el-input"
+              id="test-static-id"
+              type="text"
+              value="http://localhost:8080/login"
+            />
+            <label
+              class="e1nbkkrq-el-label"
+              for="test-static-id"
+            >
+              Logout Redirect URI
+            </label>
+            <span
+              class="e1vxext9-el-intent-danger e15fmnse-el-input-add-on"
+            >
+              Some error
+            </span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </body>,
+  "container": <div>
+    <div
+      class="e1jxji48-el-flex-column e1yw9yco-el-wfull e6p05ya-el-fade-in e2kmzjs-el-flex-container"
+    >
+      <div
+        class="s1mx1bhn-step-form-container"
+      >
+        <div
+          class="e1ffzzrg-el-mb10 e1979rmu-el-input-group"
+        >
+          <input
+            class="e1urjlvd-el-input"
+            id="test-static-id"
+            type="text"
+            value="http://localhost:8080"
+          />
+          <label
+            class="e1nbkkrq-el-label"
+            for="test-static-id"
+          >
+            Login Redirect URI
+          </label>
+          <span
+            class="e1vxext9-el-intent-danger e15fmnse-el-input-add-on"
+          >
+            Some error
+          </span>
+        </div>
+        <div
+          class="e1979rmu-el-input-group"
+        >
+          <input
+            class="e1urjlvd-el-input"
+            id="test-static-id"
+            type="text"
+            value="http://localhost:8080/login"
+          />
+          <label
+            class="e1nbkkrq-el-label"
+            for="test-static-id"
+          >
+            Logout Redirect URI
+          </label>
+          <span
+            class="e1vxext9-el-intent-danger e15fmnse-el-input-add-on"
+          >
+            Some error
+          </span>
+        </div>
+      </div>
+    </div>
+  </div>,
+  "debug": [Function],
+  "findAllByAltText": [Function],
+  "findAllByDisplayValue": [Function],
+  "findAllByLabelText": [Function],
+  "findAllByPlaceholderText": [Function],
+  "findAllByRole": [Function],
+  "findAllByTestId": [Function],
+  "findAllByText": [Function],
+  "findAllByTitle": [Function],
+  "findByAltText": [Function],
+  "findByDisplayValue": [Function],
+  "findByLabelText": [Function],
+  "findByPlaceholderText": [Function],
+  "findByRole": [Function],
+  "findByTestId": [Function],
+  "findByText": [Function],
+  "findByTitle": [Function],
+  "getAllByAltText": [Function],
+  "getAllByDisplayValue": [Function],
+  "getAllByLabelText": [Function],
+  "getAllByPlaceholderText": [Function],
+  "getAllByRole": [Function],
+  "getAllByTestId": [Function],
+  "getAllByText": [Function],
+  "getAllByTitle": [Function],
+  "getByAltText": [Function],
+  "getByDisplayValue": [Function],
+  "getByLabelText": [Function],
+  "getByPlaceholderText": [Function],
+  "getByRole": [Function],
+  "getByTestId": [Function],
+  "getByText": [Function],
+  "getByTitle": [Function],
+  "queryAllByAltText": [Function],
+  "queryAllByDisplayValue": [Function],
+  "queryAllByLabelText": [Function],
+  "queryAllByPlaceholderText": [Function],
+  "queryAllByRole": [Function],
+  "queryAllByTestId": [Function],
+  "queryAllByText": [Function],
+  "queryAllByTitle": [Function],
+  "queryByAltText": [Function],
+  "queryByDisplayValue": [Function],
+  "queryByLabelText": [Function],
+  "queryByPlaceholderText": [Function],
+  "queryByRole": [Function],
+  "queryByTestId": [Function],
+  "queryByText": [Function],
+  "queryByTitle": [Function],
+  "rerender": [Function],
+  "unmount": [Function],
+}
+`;
+
+exports[`StepOptionsContent should match a snapshot 10`] = `
+Object {
+  "asFragment": [Function],
+  "baseElement": <body>
+    <div>
+      <div
+        class="e1jxji48-el-flex-column e1yw9yco-el-wfull e6p05ya-el-fade-in e2kmzjs-el-flex-container"
+      >
+        <div
+          class="s1mx1bhn-step-form-container"
+        >
+          <div
+            class="e1ffzzrg-el-mb10 e1979rmu-el-input-group"
+          >
+            <input
+              class="e1urjlvd-el-input"
+              id="test-static-id"
+              type="text"
+              value="http://localhost:8080"
+            />
+            <label
+              class="e1nbkkrq-el-label"
+              for="test-static-id"
+            >
+              Login Redirect URI
+            </label>
+            <span
+              class="e1vxext9-el-intent-danger e15fmnse-el-input-add-on"
+            >
+              Some error
+            </span>
+          </div>
+          <div
+            class="e1979rmu-el-input-group"
+          >
+            <input
+              class="e1urjlvd-el-input"
+              id="test-static-id"
+              type="text"
+              value="http://localhost:8080/login"
+            />
+            <label
+              class="e1nbkkrq-el-label"
+              for="test-static-id"
+            >
+              Logout Redirect URI
+            </label>
+            <span
+              class="e1vxext9-el-intent-danger e15fmnse-el-input-add-on"
+            >
+              Some error
+            </span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </body>,
+  "container": <div>
+    <div
+      class="e1jxji48-el-flex-column e1yw9yco-el-wfull e6p05ya-el-fade-in e2kmzjs-el-flex-container"
+    >
+      <div
+        class="s1mx1bhn-step-form-container"
+      >
+        <div
+          class="e1ffzzrg-el-mb10 e1979rmu-el-input-group"
+        >
+          <input
+            class="e1urjlvd-el-input"
+            id="test-static-id"
+            type="text"
+            value="http://localhost:8080"
+          />
+          <label
+            class="e1nbkkrq-el-label"
+            for="test-static-id"
+          >
+            Login Redirect URI
+          </label>
+          <span
+            class="e1vxext9-el-intent-danger e15fmnse-el-input-add-on"
+          >
+            Some error
+          </span>
+        </div>
+        <div
+          class="e1979rmu-el-input-group"
+        >
+          <input
+            class="e1urjlvd-el-input"
+            id="test-static-id"
+            type="text"
+            value="http://localhost:8080/login"
+          />
+          <label
+            class="e1nbkkrq-el-label"
+            for="test-static-id"
+          >
+            Logout Redirect URI
+          </label>
+          <span
+            class="e1vxext9-el-intent-danger e15fmnse-el-input-add-on"
+          >
+            Some error
+          </span>
+        </div>
+      </div>
+    </div>
+  </div>,
+  "debug": [Function],
+  "findAllByAltText": [Function],
+  "findAllByDisplayValue": [Function],
+  "findAllByLabelText": [Function],
+  "findAllByPlaceholderText": [Function],
+  "findAllByRole": [Function],
+  "findAllByTestId": [Function],
+  "findAllByText": [Function],
+  "findAllByTitle": [Function],
+  "findByAltText": [Function],
+  "findByDisplayValue": [Function],
+  "findByLabelText": [Function],
+  "findByPlaceholderText": [Function],
+  "findByRole": [Function],
+  "findByTestId": [Function],
+  "findByText": [Function],
+  "findByTitle": [Function],
+  "getAllByAltText": [Function],
+  "getAllByDisplayValue": [Function],
+  "getAllByLabelText": [Function],
+  "getAllByPlaceholderText": [Function],
+  "getAllByRole": [Function],
+  "getAllByTestId": [Function],
+  "getAllByText": [Function],
+  "getAllByTitle": [Function],
+  "getByAltText": [Function],
+  "getByDisplayValue": [Function],
+  "getByLabelText": [Function],
+  "getByPlaceholderText": [Function],
+  "getByRole": [Function],
+  "getByTestId": [Function],
+  "getByText": [Function],
+  "getByTitle": [Function],
+  "queryAllByAltText": [Function],
+  "queryAllByDisplayValue": [Function],
+  "queryAllByLabelText": [Function],
+  "queryAllByPlaceholderText": [Function],
+  "queryAllByRole": [Function],
+  "queryAllByTestId": [Function],
+  "queryAllByText": [Function],
+  "queryAllByTitle": [Function],
+  "queryByAltText": [Function],
+  "queryByDisplayValue": [Function],
+  "queryByLabelText": [Function],
+  "queryByPlaceholderText": [Function],
+  "queryByRole": [Function],
+  "queryByTestId": [Function],
+  "queryByText": [Function],
+  "queryByTitle": [Function],
+  "rerender": [Function],
+  "unmount": [Function],
+}
+`;
+
+exports[`StepOptionsContent should match a snapshot 11`] = `
+Object {
+  "asFragment": [Function],
+  "baseElement": <body>
+    <div>
+      <div
+        class="e1jxji48-el-flex-column e1yw9yco-el-wfull e6p05ya-el-fade-in e2kmzjs-el-flex-container"
+      >
+        <div
+          class="s1mx1bhn-step-form-container"
+        >
+          <div
+            class="e1ffzzrg-el-mb10 e1979rmu-el-input-group"
+          >
+            <input
+              class="e1urjlvd-el-input"
+              id="test-static-id"
+              type="text"
+              value="http://localhost:8080"
+            />
+            <label
+              class="e1nbkkrq-el-label"
+              for="test-static-id"
+            >
+              Login Redirect URI
+            </label>
+            <span
+              class="e1vxext9-el-intent-danger e15fmnse-el-input-add-on"
+            >
+              Some error
+            </span>
+          </div>
+          <div
+            class="e1979rmu-el-input-group"
+          >
+            <input
+              class="e1urjlvd-el-input"
+              id="test-static-id"
+              type="text"
+              value="http://localhost:8080/login"
+            />
+            <label
+              class="e1nbkkrq-el-label"
+              for="test-static-id"
+            >
+              Logout Redirect URI
+            </label>
+            <span
+              class="e1vxext9-el-intent-danger e15fmnse-el-input-add-on"
+            >
+              Some error
+            </span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </body>,
+  "container": <div>
+    <div
+      class="e1jxji48-el-flex-column e1yw9yco-el-wfull e6p05ya-el-fade-in e2kmzjs-el-flex-container"
+    >
+      <div
+        class="s1mx1bhn-step-form-container"
+      >
+        <div
+          class="e1ffzzrg-el-mb10 e1979rmu-el-input-group"
+        >
+          <input
+            class="e1urjlvd-el-input"
+            id="test-static-id"
+            type="text"
+            value="http://localhost:8080"
+          />
+          <label
+            class="e1nbkkrq-el-label"
+            for="test-static-id"
+          >
+            Login Redirect URI
+          </label>
+          <span
+            class="e1vxext9-el-intent-danger e15fmnse-el-input-add-on"
+          >
+            Some error
+          </span>
+        </div>
+        <div
+          class="e1979rmu-el-input-group"
+        >
+          <input
+            class="e1urjlvd-el-input"
+            id="test-static-id"
+            type="text"
+            value="http://localhost:8080/login"
+          />
+          <label
+            class="e1nbkkrq-el-label"
+            for="test-static-id"
+          >
+            Logout Redirect URI
+          </label>
+          <span
+            class="e1vxext9-el-intent-danger e15fmnse-el-input-add-on"
+          >
+            Some error
+          </span>
+        </div>
+      </div>
+    </div>
+  </div>,
+  "debug": [Function],
+  "findAllByAltText": [Function],
+  "findAllByDisplayValue": [Function],
+  "findAllByLabelText": [Function],
+  "findAllByPlaceholderText": [Function],
+  "findAllByRole": [Function],
+  "findAllByTestId": [Function],
+  "findAllByText": [Function],
+  "findAllByTitle": [Function],
+  "findByAltText": [Function],
+  "findByDisplayValue": [Function],
+  "findByLabelText": [Function],
+  "findByPlaceholderText": [Function],
+  "findByRole": [Function],
+  "findByTestId": [Function],
+  "findByText": [Function],
+  "findByTitle": [Function],
+  "getAllByAltText": [Function],
+  "getAllByDisplayValue": [Function],
+  "getAllByLabelText": [Function],
+  "getAllByPlaceholderText": [Function],
+  "getAllByRole": [Function],
+  "getAllByTestId": [Function],
+  "getAllByText": [Function],
+  "getAllByTitle": [Function],
+  "getByAltText": [Function],
+  "getByDisplayValue": [Function],
+  "getByLabelText": [Function],
+  "getByPlaceholderText": [Function],
+  "getByRole": [Function],
+  "getByTestId": [Function],
+  "getByText": [Function],
+  "getByTitle": [Function],
+  "queryAllByAltText": [Function],
+  "queryAllByDisplayValue": [Function],
+  "queryAllByLabelText": [Function],
+  "queryAllByPlaceholderText": [Function],
+  "queryAllByRole": [Function],
+  "queryAllByTestId": [Function],
+  "queryAllByText": [Function],
+  "queryAllByTitle": [Function],
+  "queryByAltText": [Function],
+  "queryByDisplayValue": [Function],
+  "queryByLabelText": [Function],
+  "queryByPlaceholderText": [Function],
+  "queryByRole": [Function],
+  "queryByTestId": [Function],
+  "queryByText": [Function],
+  "queryByTitle": [Function],
+  "rerender": [Function],
+  "unmount": [Function],
+}
+`;
+
+exports[`StepOptionsContent should match a snapshot 12`] = `
+Object {
+  "asFragment": [Function],
+  "baseElement": <body>
+    <div>
+      <div
+        class="e1jxji48-el-flex-column e1yw9yco-el-wfull e6p05ya-el-fade-in e2kmzjs-el-flex-container"
+      >
+        <div
+          class="s1mx1bhn-step-form-container"
+        >
+          <div
+            class="e1ffzzrg-el-mb10 e1979rmu-el-input-group"
+          >
+            <input
+              class="e1urjlvd-el-input"
+              id="test-static-id"
+              type="text"
+              value="http://localhost:8080"
+            />
+            <label
+              class="e1nbkkrq-el-label"
+              for="test-static-id"
+            >
+              Login Redirect URI
+            </label>
+            <span
+              class="e1vxext9-el-intent-danger e15fmnse-el-input-add-on"
+            >
+              Some error
+            </span>
+          </div>
+          <div
+            class="e1979rmu-el-input-group"
+          >
+            <input
+              class="e1urjlvd-el-input"
+              id="test-static-id"
+              type="text"
+              value="http://localhost:8080/login"
+            />
+            <label
+              class="e1nbkkrq-el-label"
+              for="test-static-id"
+            >
+              Logout Redirect URI
+            </label>
+            <span
+              class="e1vxext9-el-intent-danger e15fmnse-el-input-add-on"
+            >
+              Some error
+            </span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </body>,
+  "container": <div>
+    <div
+      class="e1jxji48-el-flex-column e1yw9yco-el-wfull e6p05ya-el-fade-in e2kmzjs-el-flex-container"
+    >
+      <div
+        class="s1mx1bhn-step-form-container"
+      >
+        <div
+          class="e1ffzzrg-el-mb10 e1979rmu-el-input-group"
+        >
+          <input
+            class="e1urjlvd-el-input"
+            id="test-static-id"
+            type="text"
+            value="http://localhost:8080"
+          />
+          <label
+            class="e1nbkkrq-el-label"
+            for="test-static-id"
+          >
+            Login Redirect URI
+          </label>
+          <span
+            class="e1vxext9-el-intent-danger e15fmnse-el-input-add-on"
+          >
+            Some error
+          </span>
+        </div>
+        <div
+          class="e1979rmu-el-input-group"
+        >
+          <input
+            class="e1urjlvd-el-input"
+            id="test-static-id"
+            type="text"
+            value="http://localhost:8080/login"
+          />
+          <label
+            class="e1nbkkrq-el-label"
+            for="test-static-id"
+          >
+            Logout Redirect URI
+          </label>
+          <span
+            class="e1vxext9-el-intent-danger e15fmnse-el-input-add-on"
+          >
+            Some error
+          </span>
+        </div>
+      </div>
+    </div>
+  </div>,
+  "debug": [Function],
+  "findAllByAltText": [Function],
+  "findAllByDisplayValue": [Function],
+  "findAllByLabelText": [Function],
+  "findAllByPlaceholderText": [Function],
+  "findAllByRole": [Function],
+  "findAllByTestId": [Function],
+  "findAllByText": [Function],
+  "findAllByTitle": [Function],
+  "findByAltText": [Function],
+  "findByDisplayValue": [Function],
+  "findByLabelText": [Function],
+  "findByPlaceholderText": [Function],
+  "findByRole": [Function],
+  "findByTestId": [Function],
+  "findByText": [Function],
+  "findByTitle": [Function],
+  "getAllByAltText": [Function],
+  "getAllByDisplayValue": [Function],
+  "getAllByLabelText": [Function],
+  "getAllByPlaceholderText": [Function],
+  "getAllByRole": [Function],
+  "getAllByTestId": [Function],
+  "getAllByText": [Function],
+  "getAllByTitle": [Function],
+  "getByAltText": [Function],
+  "getByDisplayValue": [Function],
+  "getByLabelText": [Function],
+  "getByPlaceholderText": [Function],
+  "getByRole": [Function],
+  "getByTestId": [Function],
+  "getByText": [Function],
+  "getByTitle": [Function],
+  "queryAllByAltText": [Function],
+  "queryAllByDisplayValue": [Function],
+  "queryAllByLabelText": [Function],
+  "queryAllByPlaceholderText": [Function],
+  "queryAllByRole": [Function],
+  "queryAllByTestId": [Function],
+  "queryAllByText": [Function],
+  "queryAllByTitle": [Function],
+  "queryByAltText": [Function],
+  "queryByDisplayValue": [Function],
+  "queryByLabelText": [Function],
+  "queryByPlaceholderText": [Function],
+  "queryByRole": [Function],
+  "queryByTestId": [Function],
+  "queryByText": [Function],
+  "queryByTitle": [Function],
+  "rerender": [Function],
+  "unmount": [Function],
+}
+`;
