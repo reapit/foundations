@@ -1,6 +1,7 @@
 import React, { forwardRef, useEffect, useState } from 'react'
 import { useHistory } from 'react-router'
 import qs from 'query-string'
+import path from 'path'
 import { Button, FormLayout, Loader, useSnack } from '@reapit/elements'
 
 import { Container, ContainerProps } from './container'
@@ -26,6 +27,7 @@ export const Form = forwardRef<HTMLDivElement, FormProps & { disabled?: boolean 
     const [formState, setFormState] = useState({})
     const { success, error } = useSnack()
     const history = useHistory()
+    const { appId } = usePageId()
 
     useEffect(() => {
       if (data && args) {
@@ -81,8 +83,9 @@ export const Form = forwardRef<HTMLDivElement, FormProps & { disabled?: boolean 
               .then(() => {
                 success(`Successfully ${formType}d ${typeName}`)
                 if (destination) {
+                  const pathname = path.join('/', appId || '', destination === '~' ? '' : destination)
                   history.push({
-                    pathname: destination,
+                    pathname,
                     search: qs.stringify(context),
                   })
                 }

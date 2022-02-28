@@ -25,6 +25,9 @@ export class PipelineDto {
   @IsString()
   buildCommand?: string = 'build'
 
+  @IsString()
+  branch?: string = 'master'
+
   @IsEnum(PackageManagerEnum)
   packageManager: PackageManagerEnum = PackageManagerEnum.YARN
 

@@ -5,7 +5,7 @@ import { developerStub } from '@/sagas/__stubs__/developer'
 import { ReduxState } from '@/types/core'
 import configureStore from 'redux-mock-store'
 import { Provider } from 'react-redux'
-import { mount } from 'enzyme'
+import { shallow } from 'enzyme'
 import { changePassword as changePasswordAction } from '@/actions/settings'
 import appState from '@/reducers/__stubs__/app-state'
 
@@ -30,7 +30,7 @@ describe('ProfileTab', () => {
   const store = mockStore(mockState)
   it('should match snapshot', () => {
     expect(
-      mount(
+      shallow(
         <Provider store={store}>
           <Forms />
         </Provider>,

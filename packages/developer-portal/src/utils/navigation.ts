@@ -9,6 +9,7 @@ export enum ExternalPages {
   elementsDocs = 'https://foundations-documentation.reapit.cloud/app-development/elements',
   developerPortalDocs = 'https://foundations-documentation.reapit.cloud/developer-portal',
   webhooksDocs = 'https://foundations-documentation.reapit.cloud/api/webhooks',
+  inviteMembersDocs = 'https://foundations-documentation.reapit.cloud/faqs#how-to-invite-new-members',
 }
 
 export const openNewPage = (uri: ExternalPages | string) => () => {

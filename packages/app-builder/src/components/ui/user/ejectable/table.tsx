@@ -271,7 +271,9 @@ export const Table = forwardRef<HTMLDivElement, TableProps & { disabled?: boolea
     if (data && typeName) {
       rows = data.map((row): RowProps => {
         const cells = getDataCells(row, subobjectNames)
-          .filter(({ label }) => includedFields.map((s) => s.toLowerCase()).includes(label.toLowerCase()))
+          .filter(({ label }) =>
+            includedFields.map((s) => s.toLowerCase()).includes(label.toLowerCase().split(' ').join('')),
+          )
           .filter(notEmpty)
 
         const additionalContent: RowActionProps = {
@@ -293,10 +295,14 @@ export const Table = forwardRef<HTMLDivElement, TableProps & { disabled?: boolea
           ),
         }
 
+        const showExtraThing = !!specialsAndSubobjects.length
+        const showExpandableContent = showExtraThing && showControls
+        const showCtaContent = showExtraThing && !showControls
+
         return {
           cells,
-          expandableContent: showControls ? additionalContent : undefined,
-          ctaContent: !showControls ? additionalContent : undefined,
+          expandableContent: showExpandableContent ? additionalContent : undefined,
+          ctaContent: showCtaContent ? additionalContent : undefined,
         }
       })
     }
@@ -318,7 +324,7 @@ export const Table = forwardRef<HTMLDivElement, TableProps & { disabled?: boolea
           {loading && <Loader label="Loading" />}
           {displayTable && (
             <ELTable
-              numberColumns={firstRow.cells.length + 1}
+              numberColumns={firstRow.cells.length + (showControls ? 1 : 0)}
               style={{ flex: 1, opacity: searchLoading ? 0.5 : 1, transition: '300ms opacity' }}
               rows={rows || undefined}
             />
