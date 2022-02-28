@@ -139,7 +139,7 @@ export const DevsManagement: React.FC = () => {
   const StatusBtnCell = ({ row: { original } }) => {
     const activeUser = original.status === 'active'
     if (original.isMember) {
-      return (
+      return !hasLimitedAccess ? (
         <FlexContainerBasic centerContent flexColumn>
           {activeUser && (
             <a onClick={openDisableMemberModal(setSelectedUser, setDisableMemberModalVisible, original)}>Disable</a>
@@ -160,6 +160,8 @@ export const DevsManagement: React.FC = () => {
             'Inactive User'
           )}
         </FlexContainerBasic>
+      ) : (
+        <div>-</div>
       )
     }
 
@@ -213,12 +215,12 @@ export const DevsManagement: React.FC = () => {
           : '-'
       },
     },
-    !hasLimitedAccess && {
+    {
       Header: '',
       id: 'buttonColumn',
       Cell: StatusBtnCell,
     },
-    !hasLimitedAccess && {
+    {
       Header: '',
       id: 'membersColumn',
       Cell: MembersBtnCell,
