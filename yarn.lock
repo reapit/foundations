@@ -19449,6 +19449,13 @@ __metadata:
   languageName: node
   linkType: hard
 
+"cookie@npm:0.4.2":
+  version: 0.4.2
+  resolution: "cookie@npm:0.4.2"
+  checksum: a00833c998bedf8e787b4c342defe5fa419abd96b32f4464f718b91022586b8f1bafbddd499288e75c037642493c83083da426c6a9080d309e3bd90fd11baa9b
+  languageName: node
+  linkType: hard
+
 "cookiejar@npm:^2.1.0":
   version: 2.1.2
   resolution: "cookiejar@npm:2.1.2"
@@ -25933,7 +25940,7 @@ fsevents@^1.2.7:
     axios-retry: ^3.2.4
     bufferutil: ^4.0.5
     concurrently: ^6.4.0
-    cookie: 0.4.1
+    cookie: 0.4.2
     cross-env: ^7.0.3
     dataloader: ^2.0.0
     dayjs: ^1.10.7
