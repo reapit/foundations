@@ -15854,6 +15854,16 @@ __metadata:
   languageName: node
   linkType: hard
 
+"atlassian-jwt@npm:^2.0.2":
+  version: 2.0.2
+  resolution: "atlassian-jwt@npm:2.0.2"
+  dependencies:
+    jsuri: ^1.3.1
+    lodash: ^4.17.21
+  checksum: 38a578259341fbd1b2ac211bc56479a1ed6ffd93d4ecedc444ddcdb11a781c07e9b9c00c7fb8534533714f6a4167dc726361540dcbfff6b6c19bb16f3b759c99
+  languageName: node
+  linkType: hard
+
 "atob-lite@npm:^2.0.0":
   version: 2.0.0
   resolution: "atob-lite@npm:2.0.0"
@@ -20909,6 +20919,7 @@ __metadata:
     "@typescript-eslint/eslint-plugin": ^5.7.0
     "@typescript-eslint/parser": ^5.7.0
     adm-zip: ^0.5.9
+    atlassian-jwt: ^2.0.2
     babel-jest: ^27.4.5
     class-transformer: ^0.5.1
     class-validator: ^0.13.2
@@ -20920,6 +20931,7 @@ __metadata:
     mime-types: ^2.1.34
     mysql: ^2.18.1
     nestjs-typeorm-paginate: ^2.6.3
+    node-fetch: 2
     original-fs: ^1.1.0
     project-name-generator: ^2.1.9
     pusher: ^5.0.0
@@ -30327,6 +30339,13 @@ fsevents@^1.2.7:
     json-schema: 0.2.3
     verror: 1.10.0
   checksum: 6bcb20ec265ae18bb48e540a6da2c65f9c844f7522712d6dfcb01039527a49414816f4869000493363f1e1ea96cbad00e46188d5ecc78257a19f152467587373
+  languageName: node
+  linkType: hard
+
+"jsuri@npm:^1.3.1":
+  version: 1.3.1
+  resolution: "jsuri@npm:1.3.1"
+  checksum: cdb42b8e62fba8a69e172e8cfd7a0388ccd3e40214bbacebfb04d3e0a345aa826482a5ffa7810dde9fc30c4dfebeffdd91810fd29663d939b6f313957bd49524
   languageName: node
   linkType: hard
 
