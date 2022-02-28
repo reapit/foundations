@@ -30,5 +30,5 @@ export enum PathNames {
   appSecretById = '/marketplace/apps/{appId}/secret',
   desktopIntegrationTypes = '/marketplace/desktopIntegrationTypes',
   appCategories = '/marketplace/categories',
-  appRevision = '/marketplace/apps/{appId}/revisons',
+  appRevision = '/marketplace/apps/{appId}/revisions',
 }

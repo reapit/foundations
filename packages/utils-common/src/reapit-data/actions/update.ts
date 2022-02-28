@@ -66,7 +66,7 @@ export const updateActions = (appEnv: AppEnv): UpdateActions => ({
   [UpdateActionNames.createAppRevsion]: {
     api: ApiNames(appEnv).platform,
     path: PathNames.appRevision,
-    errorMessage: 'Failed to creat an app revision, please check for errors and try again',
+    errorMessage: 'Failed to create an app revision, please check for errors and try again',
     successMessage: 'App revision created successfully',
   },
 })
