@@ -113,7 +113,9 @@ const handlePushEvent = async (event: BitBucketEvent, client: BitbucketClientDat
   const branchName = event.data.push.changes[0].new.name
 
   if (branchName !== pipeline.branch) {
-    throw new HttpErrorException('Cannot create deployment for configured branch', 409 as HttpStatusCode)
+    return {
+      statusCode: HttpStatusCode.OK,
+    }
   }
 
   if (
