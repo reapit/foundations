@@ -145,7 +145,7 @@ export class PipelineCreate extends AbstractCommand {
       },
       {
         type: 'input',
-        message: 'Deployment branch',
+        message: 'Deployment branch (will deploy when merging to this branch)',
         name: 'branch',
         default: 'master',
       },
