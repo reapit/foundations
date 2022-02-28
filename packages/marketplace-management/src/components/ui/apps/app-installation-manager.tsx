@@ -201,7 +201,7 @@ const AppInstallationManager: FC<AppInstallationManagerProps> = ({ app }: AppIns
   const {
     data,
     isValidating: installationsValidating,
-    revalidate: revalidateInstallations,
+    mutate: revalidateInstallations,
   } = useSWR<InstallationModelPagedResult>(`${URLS.INSTALLATIONS}/?AppId=${app.id}&IsInstalled=true&pageSize=999`)
 
   const installations = data?.data ?? []

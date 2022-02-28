@@ -1,6 +1,6 @@
 {
   "name": "marketplace-management",
-  "version": "2.0.10",
+  "version": "2.0.13",
   "private": true,
   "description": "Description",
   "repository": {
@@ -35,6 +35,7 @@
     "react-ga": "^2.7.0",
     "react-router": "^5.2.1",
     "react-router-dom": "^5.3.0",
+    "swr": "^1.2.2",
     "yup": "^0.32.11"
   },
   "devDependencies": {
