@@ -51,7 +51,7 @@ const authenticate = async ({ request }: { request: APIGatewayEvent }): Promise<
 
   const verifiedClaims = jwt.decodeSymmetric(
     token,
-    existingClient.data.sharedSecret,
+    process.env.BITBUCKET_SHARED_SECRET as string,
     jwt.SymmetricAlgorithm.HS256,
     false,
   )

@@ -17,7 +17,6 @@ export type BitbucketClientData = {
     display_name: string
   }
   key: string
-  sharedSecret: string
   clientKey: string
   baseApiUrl: string
 }
