@@ -30,10 +30,21 @@ import { strToCamel } from '@reapit/utils-common'
 
 const noT = (str: string) => str.split('T0').join('')
 
+const cleanFieldName = (fieldName: string) =>
+  strToCamel(removeFirstCharsAreNumbers(fieldName.split('-').join('_').replace(/\W/g, '')))
+
+const removeFirstCharsAreNumbers = (str: string) => {
+  const firstChar = str.charAt(0)
+  if (!isNaN(Number(firstChar))) {
+    return removeFirstCharsAreNumbers(str.substring(1))
+  }
+  return str
+}
+
 const objToCamel = (obj: Record<string, any>) => {
   const newObj = {}
   Object.keys(obj).forEach((key) => {
-    newObj[strToCamel(key)] = obj[key]
+    newObj[cleanFieldName(key)] = obj[key]
   })
   return newObj
 }
@@ -110,7 +121,7 @@ const createMetadataType = (typeName: string) => async (parent, args: any, conte
   }
 
   return {
-    ...result.metadata,
+    ...result,
     id: result.id,
   }
 }

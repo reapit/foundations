@@ -7,7 +7,6 @@ import { defaultOutputHeaders } from './../../constants'
 /**
  * Update a pipelineRunner (cancel)
  */
-// TODO refactor to delete method instead?
 export const pipelineRunnerUpdate = httpHandler<{ buildStatus: string }, PipelineRunnerEntity>({
   defaultOutputHeaders,
   validator: (payload) => {

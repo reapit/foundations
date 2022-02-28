@@ -224,6 +224,10 @@ export const SubmitAppModalContent: FC<SubmitAppModalContentProps> = ({
       <BodyText>
         You can find your Reapit Reference from any Reapit correspondence under the ‘Account’ section.
       </BodyText>
+      <BodyText>
+        The verification process is typically completed within 1 – 2 working days. You will be notified via email when
+        this has been completed and you can continue with your app submission.
+      </BodyText>
       <ButtonGroup alignment="right">
         <Button intent="low" onClick={closeModal}>
           Close

@@ -1140,6 +1140,14 @@ export interface CustomerModel {
    * The Reapit billing reference number for the customer
    */
   billingReference?: string
+  /**
+   * The email of the user who approved the customers account
+   */
+  accountApprovedEmail?: string
+  /**
+   * The date time the customers account was approved
+   */
+  accountApproved?: string // date-time
 }
 /**
  * Model to handle paged data and information
@@ -1808,6 +1816,19 @@ export interface UpdateAddressModel {
    * The ISO-3166 country code that the address resides within
    */
   countryId?: string
+}
+/**
+ * The model responsible for updating a customer
+ */
+export interface UpdateCustomerModel {
+  /**
+   * The email of the user approving the customer
+   */
+  accountApprovedEmail?: string
+  /**
+   * The date time the account was approved
+   */
+  accountApproved?: string // date-time
 }
 /**
  * The model responsible for updating a desktop integration type

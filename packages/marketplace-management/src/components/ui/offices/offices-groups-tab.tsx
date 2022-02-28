@@ -10,10 +10,11 @@ import Routes from '@/constants/routes'
 import { URLS } from '../../../constants/api'
 import EditOfficeGroupForm from './office-group-edit-form'
 import { elFadeIn, elMb11, Pagination, PersistantNotification, RowProps, Table, Title } from '@reapit/elements'
-import { OfficeModel } from '@reapit/foundations-ts-definitions'
+import { OfficeModel, OfficeModelPagedResult } from '@reapit/foundations-ts-definitions'
 import { cx } from '@linaria/core'
 import { useOrgId } from '../../../utils/use-org-id'
 import { OrgIdSelect } from '../../hocs/org-id-select'
+import { fetcherWithClientCode } from '../../../utils/fetcher'
 
 export interface OfficeGroupWithOfficesModel extends OfficeGroupModel {
   offices?: OfficeModel[]
@@ -49,7 +50,7 @@ export const getOfficeQueryFromGroups = (officeGroupModels?: OfficeGroupModel[])
   return (
     officeIds?.reduce((query, id, index) => {
       return `${query}${index ? '&id' : 'id'}=${id}`
-    }, '?') ?? ''
+    }, '') ?? ''
   )
 }
 
@@ -97,7 +98,7 @@ const OfficesGroupsTab: FC = () => {
   const onPageChange = useCallback(onPageChangeHandler(history), [history])
   const [indexExpandedRow, setIndexExpandedRow] = useState<number | null>(null)
   const {
-    orgIdState: { orgId, orgName },
+    orgIdState: { orgId, orgName, orgClientId },
   } = useOrgId()
 
   const { data, mutate } = useSWR<OfficeGroupModelPagedResult>(
@@ -112,8 +113,13 @@ const OfficesGroupsTab: FC = () => {
 
   const officeIdsQuery = getOfficeQueryFromGroups(officeGroups)
 
-  const { data: officesResponse } = useSWR<OfficeGroupModelPagedResult>(
-    !officeIdsQuery ? null : `${URLS.OFFICES}/${officeIdsQuery ? officeIdsQuery + '&pageSize=999' : '?pageSize=999'}`,
+  const { data: officesResponse } = useSWR<OfficeModelPagedResult>(
+    !orgClientId || !officeIdsQuery
+      ? null
+      : `${URLS.OFFICES}/?${
+          officeIdsQuery ? getOfficeQueryFromGroups(officeGroups) + '&pageSize=100' : 'pageSize=100'
+        }`,
+    fetcherWithClientCode(orgClientId as string),
   )
 
   const offices = officesResponse?._embedded ?? []
@@ -122,7 +128,10 @@ const OfficesGroupsTab: FC = () => {
     officeGroups.length && offices?.length ? mergeOfficesGroups(offices, officeGroups) : officeGroups
 
   const onComplete = () => {
-    mutate()
+    // Set timeout as a workaround for RDS replication error.
+    setTimeout(() => {
+      mutate()
+    }, 1000)
     setIndexExpandedRow(null)
   }
 

@@ -40,7 +40,7 @@ const createStack = () => {
 
   const lambdaFunction = createFunction(stack, 'graphql', entrypoint, handler, config)
   const api = createApi(stack, 'api')
-  addLambdaToApi(stack, api, lambdaFunction, '/{proxy+}', 'ANY', config.COGNITO_USERPOOL_ID)
+  addLambdaToApi(stack, api, lambdaFunction, { path: '/{proxy+}', method: 'ANY' }, config.COGNITO_USERPOOL_ID)
   output(stack, 'api-url', api.url)
 }
 

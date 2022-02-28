@@ -13,6 +13,7 @@ import {
   addLambdaSNSTrigger,
   addLambdaSQSTrigger,
   Queue,
+  LambdaRoute,
 } from '@reapit/ts-scripts/src/cdk'
 
 import { createLambda } from './create-lambda'
@@ -27,8 +28,7 @@ type FunctionSetup = {
   policies: PolicyStatement[]
   timeout?: number
   api?: {
-    method: string
-    path: string
+    routes: LambdaRoute | LambdaRoute[]
     cors: {
       origin: string
     }
@@ -73,8 +73,10 @@ export const createStack = () => {
       handler: `${fileLocPrefix}pipelineCreate`,
       policies: [...policies.commonBackendPolicies],
       api: {
-        method: 'POST',
-        path: 'pipeline',
+        routes: {
+          method: 'POST',
+          path: 'pipeline',
+        },
         cors: {
           origin: '*',
         },
@@ -86,8 +88,10 @@ export const createStack = () => {
       handler: `${fileLocPrefix}pipelineCreate`,
       policies: [...policies.commonBackendPolicies],
       api: {
-        method: 'POST',
-        path: 'api/pipeline',
+        routes: {
+          method: 'POST',
+          path: 'api/pipeline',
+        },
         cors: {
           origin: '*',
         },
@@ -98,8 +102,10 @@ export const createStack = () => {
       handler: `${fileLocPrefix}pipelineUpdate`,
       policies: [...policies.commonBackendPolicies],
       api: {
-        method: 'PUT',
-        path: 'pipeline/{pipelineId}',
+        routes: {
+          method: 'PUT',
+          path: 'pipeline/{pipelineId}',
+        },
         cors: {
           origin: '*',
         },
@@ -111,8 +117,10 @@ export const createStack = () => {
       handler: `${fileLocPrefix}pipelineUpdate`,
       policies: [...policies.commonBackendPolicies],
       api: {
-        method: 'PUT',
-        path: 'api/pipeline/{pipelineId}',
+        routes: {
+          method: 'PUT',
+          path: 'api/pipeline/{pipelineId}',
+        },
         cors: {
           origin: '*',
         },
@@ -123,8 +131,10 @@ export const createStack = () => {
       handler: `${fileLocPrefix}pipelineGet`,
       policies: [...policies.commonBackendPolicies],
       api: {
-        method: 'GET',
-        path: 'pipeline/{pipelineId}',
+        routes: {
+          method: 'GET',
+          path: 'pipeline/{pipelineId}',
+        },
         cors: {
           origin: '*',
         },
@@ -136,8 +146,10 @@ export const createStack = () => {
       handler: `${fileLocPrefix}pipelineGet`,
       policies: [...policies.commonBackendPolicies],
       api: {
-        method: 'GET',
-        path: 'api/pipeline/{pipelineId}',
+        routes: {
+          method: 'GET',
+          path: 'api/pipeline/{pipelineId}',
+        },
         cors: {
           origin: '*',
         },
@@ -148,8 +160,10 @@ export const createStack = () => {
       handler: `${fileLocPrefix}pipelineDelete`,
       policies: [...policies.commonBackendPolicies],
       api: {
-        method: 'DELETE',
-        path: 'pipeline/{pipelineId}',
+        routes: {
+          method: 'DELETE',
+          path: 'pipeline/{pipelineId}',
+        },
         cors: {
           origin: '*',
         },
@@ -161,8 +175,10 @@ export const createStack = () => {
       handler: `${fileLocPrefix}pipelineDelete`,
       policies: [...policies.commonBackendPolicies],
       api: {
-        method: 'DELETE',
-        path: 'api/pipeline/{pipelineId}',
+        routes: {
+          method: 'DELETE',
+          path: 'api/pipeline/{pipelineId}',
+        },
         cors: {
           origin: '*',
         },
@@ -173,8 +189,10 @@ export const createStack = () => {
       handler: `${fileLocPrefix}pipelinePaginate`,
       policies: [...policies.commonBackendPolicies],
       api: {
-        method: 'GET',
-        path: 'pipeline',
+        routes: {
+          method: 'GET',
+          path: 'pipeline',
+        },
         cors: {
           origin: '*',
         },
@@ -186,8 +204,10 @@ export const createStack = () => {
       handler: `${fileLocPrefix}pipelinePaginate`,
       policies: [...policies.commonBackendPolicies],
       api: {
-        method: 'GET',
-        path: 'api/pipeline',
+        routes: {
+          method: 'GET',
+          path: 'api/pipeline',
+        },
         cors: {
           origin: '*',
         },
@@ -198,8 +218,10 @@ export const createStack = () => {
       handler: `${fileLocPrefix}pipelineRunnerCreate`,
       policies: [...policies.commonBackendPolicies],
       api: {
-        method: 'POST',
-        path: 'pipeline/{pipelineId}/pipeline-runner',
+        routes: {
+          method: 'POST',
+          path: 'pipeline/{pipelineId}/pipeline-runner',
+        },
         cors: {
           origin: '*',
         },
@@ -211,8 +233,10 @@ export const createStack = () => {
       handler: `${fileLocPrefix}pipelineRunnerCreate`,
       policies: [...policies.commonBackendPolicies],
       api: {
-        method: 'POST',
-        path: 'api/pipeline/{pipelineId}/pipeline-runner',
+        routes: {
+          method: 'POST',
+          path: 'api/pipeline/{pipelineId}/pipeline-runner',
+        },
         cors: {
           origin: '*',
         },
@@ -223,8 +247,10 @@ export const createStack = () => {
       handler: `${fileLocPrefix}pipelineRunnerUpdate`,
       policies: [...policies.commonBackendPolicies],
       api: {
-        method: 'PUT',
-        path: 'pipeline/{pipelineId}/pipeline-runner',
+        routes: {
+          method: 'PUT',
+          path: 'pipeline/{pipelineId}/pipeline-runner',
+        },
         cors: {
           origin: '*',
         },
@@ -236,8 +262,10 @@ export const createStack = () => {
       handler: `${fileLocPrefix}pipelineRunnerUpdate`,
       policies: [...policies.commonBackendPolicies],
       api: {
-        method: 'PUT',
-        path: 'api/pipeline/{pipelineId}/pipeline-runner',
+        routes: {
+          method: 'PUT',
+          path: 'api/pipeline/{pipelineId}/pipeline-runner',
+        },
         cors: {
           origin: '*',
         },
@@ -248,8 +276,10 @@ export const createStack = () => {
       handler: `${fileLocPrefix}pipelineRunnerPaginate`,
       policies: [...policies.commonBackendPolicies],
       api: {
-        method: 'GET',
-        path: 'pipeline/{pipelineId}/pipeline-runner',
+        routes: {
+          method: 'GET',
+          path: 'pipeline/{pipelineId}/pipeline-runner',
+        },
         cors: {
           origin: '*',
         },
@@ -261,8 +291,10 @@ export const createStack = () => {
       handler: `${fileLocPrefix}pipelineRunnerPaginate`,
       policies: [...policies.commonBackendPolicies],
       api: {
-        method: 'GET',
-        path: 'api/pipeline/{pipelineId}/pipeline-runner',
+        routes: {
+          method: 'GET',
+          path: 'api/pipeline/{pipelineId}/pipeline-runner',
+        },
         cors: {
           origin: '*',
         },
@@ -273,8 +305,10 @@ export const createStack = () => {
       handler: `${fileLocPrefix}deployRelease`,
       policies: [...policies.commonBackendPolicies, policies.cloudFrontPolicy],
       api: {
-        method: 'POST',
-        path: 'release/{pipelineId}/{version}',
+        routes: {
+          method: 'POST',
+          path: 'release/{pipelineId}/{version}',
+        },
         cors: {
           origin: '*',
         },
@@ -287,8 +321,10 @@ export const createStack = () => {
       handler: `${fileLocPrefix}deployRelease`,
       policies: [...policies.commonBackendPolicies, policies.cloudFrontPolicy],
       api: {
-        method: 'POST',
-        path: 'api/release/{pipelineId}/{version}',
+        routes: {
+          method: 'POST',
+          path: 'api/release/{pipelineId}/{version}',
+        },
         cors: {
           origin: '*',
         },
@@ -300,8 +336,10 @@ export const createStack = () => {
       handler: `${fileLocPrefix}deployVersion`,
       policies: [...policies.commonBackendPolicies, policies.cloudFrontPolicy],
       api: {
-        method: 'POST',
-        path: 'deploy/version/{pipelineRunnerId}',
+        routes: {
+          method: 'POST',
+          path: 'deploy/version/{pipelineRunnerId}',
+        },
         cors: {
           origin: '*',
         },
@@ -313,8 +351,10 @@ export const createStack = () => {
       handler: `${fileLocPrefix}deployVersion`,
       policies: [...policies.commonBackendPolicies, policies.cloudFrontPolicy],
       api: {
-        method: 'POST',
-        path: 'api/deploy/version/{pipelineRunnerId}',
+        routes: {
+          method: 'POST',
+          path: 'api/deploy/version/{pipelineRunnerId}',
+        },
         cors: {
           origin: '*',
         },
@@ -360,8 +400,10 @@ export const createStack = () => {
       handler: `${fileLocPrefix}pusherAuthentication`,
       policies: [...policies.commonBackendPolicies],
       api: {
-        method: 'POST',
-        path: 'pusher/auth',
+        routes: {
+          method: 'POST',
+          path: 'pusher/auth',
+        },
         cors: {
           origin: '*',
         },
@@ -373,8 +415,10 @@ export const createStack = () => {
       handler: `${fileLocPrefix}pusherAuthentication`,
       policies: [...policies.commonBackendPolicies],
       api: {
-        method: 'POST',
-        path: 'api/pusher/auth',
+        routes: {
+          method: 'POST',
+          path: 'api/pusher/auth',
+        },
         cors: {
           origin: '*',
         },
@@ -385,8 +429,44 @@ export const createStack = () => {
       handler: `${fileLocPrefix}githubWebhook`,
       policies: [...policies.commonBackendPolicies],
       api: {
-        method: 'POST',
-        path: 'api/github',
+        routes: {
+          method: 'POST',
+          path: 'api/github',
+        },
+        cors: {
+          origin: '*',
+        },
+        headers: ['Content-Type', 'Authorization', 'api-version', 'X-Api-Key'],
+      },
+    },
+    bitbucketConfig: {
+      handler: `${fileLocPrefix}bitbucketConfig`,
+      policies: [...policies.commonBackendPolicies],
+      api: {
+        routes: {
+          method: 'GET',
+          path: 'api/bitbucket',
+        },
+        cors: {
+          origin: '*',
+        },
+        headers: ['Content-Type', 'Authorization', 'api-version', 'X-Api-Key'],
+      },
+    },
+    bitbucketWebhook: {
+      handler: `${fileLocPrefix}bitbucketWebhook`,
+      policies: [...policies.commonBackendPolicies],
+      api: {
+        routes: [
+          {
+            method: 'POST',
+            path: 'api/bitbucket/{proxy+}',
+          },
+          {
+            method: 'POST',
+            path: 'api/bitbucket',
+          },
+        ],
         cors: {
           origin: '*',
         },
@@ -431,8 +511,7 @@ export const createStack = () => {
         stack,
         api,
         lambda,
-        options.api.path,
-        options.api.method,
+        options.api.routes,
         // TODO: env
         options.api.authorizer ? 'eu-west-2_kiftR4qFc' : undefined,
       )

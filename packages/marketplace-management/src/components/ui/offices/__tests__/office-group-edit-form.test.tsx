@@ -21,6 +21,7 @@ import { OFFICE_IN_USE_ERROR } from '../../../../services/office'
 jest.mock('@reapit/utils-common')
 jest.mock('../../../../core/connect-session')
 jest.mock('swr')
+jest.mock('../../../../utils/use-org-id')
 
 const mockSWR = useSWR as jest.Mock
 const mockedFetch = fetcher as jest.Mock

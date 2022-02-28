@@ -55,6 +55,12 @@ export const githubWebhook = httpHandler<GithubCommitEvent | GithubRepoInstallat
         throw new NotFoundException()
       }
 
+      if (pipeline.branch !== body.ref) {
+        return {
+          statusCode: HttpStatusCode.OK,
+        }
+      }
+
       if (
         (pipeline.buildStatus && 'CREATING_ARCHITECTURE' === pipeline.buildStatus) ||
         (await service.pipelineRunnerCountRunning(pipeline)) >= 1
@@ -70,7 +76,7 @@ export const githubWebhook = httpHandler<GithubCommitEvent | GithubRepoInstallat
       await new Promise<void>((resolve, reject) =>
         service.sqs.sendMessage(
           {
-            MessageBody: JSON.stringify(pipelineRunner),
+            MessageBody: JSON.stringify({ pipelineRunner }),
             QueueUrl: QueueNames.CODEBUILD_EXECUTOR,
           },
           (error) => {

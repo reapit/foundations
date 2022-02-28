@@ -4,7 +4,7 @@ import { toastMessages } from '../../../constants/toast-messages'
 import { prepareOfficeOptions } from '../../../utils/prepare-options'
 import { OfficeModel, OfficeModelPagedResult } from '@reapit/foundations-ts-definitions'
 import debounce from 'just-debounce-it'
-import useSWR from 'swr'
+import useSWR, { useSWRConfig } from 'swr'
 import { URLS } from '../../../constants/api'
 import {
   BodyText,
@@ -33,6 +33,8 @@ import { History } from 'history'
 import Routes from '../../../constants/routes'
 import { history } from '../../../core/router'
 import { useOrgId } from '../../../utils/use-org-id'
+import { fetcherWithClientCode } from '../../../utils/fetcher'
+import { ScopedMutator } from 'swr/dist/types'
 
 export interface OfficeGroupCreateProps {}
 
@@ -52,6 +54,7 @@ export const onHandleSubmit =
   (
     history: History,
     orgId: string | null,
+    mutate: ScopedMutator<any>,
     success: (message: string) => void,
     error: (message: string, delay?: number) => void,
   ) =>
@@ -67,9 +70,12 @@ export const onHandleSubmit =
       }
 
       if (createdOffice) {
-        success(toastMessages.CREATE_OFFICE_GROUP_SUCCESS)
-        history.push(Routes.OFFICES_GROUPS)
-        return
+        // Set timeout as a workaround for RDS replication error.
+        return setTimeout(() => {
+          success(toastMessages.CREATE_OFFICE_GROUP_SUCCESS)
+          mutate(`${URLS.ORGANISATIONS}/${orgId}/${URLS.OFFICES_GROUPS}`)
+          history.push(Routes.OFFICES_GROUPS)
+        }, 1000)
       }
 
       error(toastMessages.FAILED_TO_CREATE_OFFICE_GROUP)
@@ -132,8 +138,9 @@ export const OfficeGroupCreate: FC<OfficeGroupCreateProps> = () => {
   const [searchString, setSearchString] = useState<string>('')
   const [options, setOptions] = useState<MultiSelectOption[]>([])
   const [selectedStep, setSelectedStep] = useState<string>('1')
+  const { mutate } = useSWRConfig()
   const {
-    orgIdState: { orgId, orgName },
+    orgIdState: { orgId, orgClientId, orgName },
   } = useOrgId()
   const { success, error } = useSnack()
   const debouncedSearch = useCallback(
@@ -141,12 +148,13 @@ export const OfficeGroupCreate: FC<OfficeGroupCreateProps> = () => {
     [500],
   )
   const { data } = useSWR<OfficeModelPagedResult | undefined>(
-    !orgId || !searchString ? null : `${URLS.OFFICES}?pageSize=999&organisationId=${orgId}&name=${searchString}`,
+    !orgClientId || !searchString ? null : `${URLS.OFFICES}?pageSize=100&name=${searchString}`,
+    fetcherWithClientCode(orgClientId as string),
   )
 
   const offices = data?._embedded ?? []
 
-  const onSubmit = onHandleSubmit(history, orgId, success, error)
+  const onSubmit = onHandleSubmit(history, orgId, mutate, success, error)
 
   const {
     register,

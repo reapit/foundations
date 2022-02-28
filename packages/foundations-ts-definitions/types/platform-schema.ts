@@ -44,6 +44,10 @@ export interface ApplicantCommercialModel {
    * The commercial use requirements (eg a1, a2, b1), as defined by the applicant's [department](https://foundations-documentation.reapit.cloud/platform-glossary#department)
    */
   useClass?: string[]
+  /**
+   * The commercial floor level attributes (eg basement, subGround, ground, upperFloor), as defined by the property's [department](https://foundations-documentation.reapit.cloud/platform-glossary#department)
+   */
+  floorLevel?: string[]
 }
 /**
  * Representation of the physical address of a building or premise
@@ -572,6 +576,10 @@ export interface ApplicantModel {
      * The commercial use requirements (eg a1, a2, b1), as defined by the applicant's [department](https://foundations-documentation.reapit.cloud/platform-glossary#department)
      */
     useClass?: string[]
+    /**
+     * The commercial floor level attributes (eg basement, subGround, ground, upperFloor), as defined by the property's [department](https://foundations-documentation.reapit.cloud/platform-glossary#department)
+     */
+    floorLevel?: string[]
   }
   /**
    * A collection of unique identifiers of offices attached to the applicant. The first item in the collection is considered the primary office
@@ -943,6 +951,10 @@ export interface ApplicantModelPagedResult {
        * The commercial use requirements (eg a1, a2, b1), as defined by the applicant's [department](https://foundations-documentation.reapit.cloud/platform-glossary#department)
        */
       useClass?: string[]
+      /**
+       * The commercial floor level attributes (eg basement, subGround, ground, upperFloor), as defined by the property's [department](https://foundations-documentation.reapit.cloud/platform-glossary#department)
+       */
+      floorLevel?: string[]
     }
     /**
      * A collection of unique identifiers of offices attached to the applicant. The first item in the collection is considered the primary office
@@ -6977,6 +6989,10 @@ export interface DepartmentModel {
    */
   commercialUseClassOptions?: string[]
   /**
+   * A collection of commercial floor levels values that will be accepted by other services
+   */
+  commercialFloorLevelOptions?: string[]
+  /**
    * A flag to determing if the department has bedrooms configured
    */
   hasBedrooms?: boolean
@@ -7059,6 +7075,10 @@ export interface DepartmentModelPagedResult {
      * A collection of commercial use class values that will be accepted by other services
      */
     commercialUseClassOptions?: string[]
+    /**
+     * A collection of commercial floor levels values that will be accepted by other services
+     */
+    commercialFloorLevelOptions?: string[]
     /**
      * A flag to determing if the department has bedrooms configured
      */
@@ -10255,6 +10275,10 @@ export interface PropertyCommercialModel {
    * The commercial use attributes (eg a1, a2, b1), as defined by the property's [department](https://foundations-documentation.reapit.cloud/platform-glossary#department)
    */
   useClass?: string[]
+  /**
+   * The commercial floor level attributes (eg basement, subGround, ground, upperFloor), as defined by the property's [department](https://foundations-documentation.reapit.cloud/platform-glossary#department)
+   */
+  floorLevel?: string[]
 }
 /**
  * Representation of the the commission fee for a property
@@ -11104,6 +11128,10 @@ export interface PropertyModel {
      * The commercial use attributes (eg a1, a2, b1), as defined by the property's [department](https://foundations-documentation.reapit.cloud/platform-glossary#department)
      */
     useClass?: string[]
+    /**
+     * The commercial floor level attributes (eg basement, subGround, ground, upperFloor), as defined by the property's [department](https://foundations-documentation.reapit.cloud/platform-glossary#department)
+     */
+    floorLevel?: string[]
   }
   /**
    * The attributes describing the overall type of the property (eg house, bungalow, land), as defined by the property's [department](https://foundations-documentation.reapit.cloud/platform-glossary#department)
@@ -11694,6 +11722,10 @@ export interface PropertyModelPagedResult {
        * The commercial use attributes (eg a1, a2, b1), as defined by the property's [department](https://foundations-documentation.reapit.cloud/platform-glossary#department)
        */
       useClass?: string[]
+      /**
+       * The commercial floor level attributes (eg basement, subGround, ground, upperFloor), as defined by the property's [department](https://foundations-documentation.reapit.cloud/platform-glossary#department)
+       */
+      floorLevel?: string[]
     }
     /**
      * The attributes describing the overall type of the property (eg house, bungalow, land), as defined by the property's [department](https://foundations-documentation.reapit.cloud/platform-glossary#department)

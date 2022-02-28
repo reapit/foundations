@@ -12,6 +12,8 @@ import { nullableFields1637076778182 } from './1637076778182-nullable-fields'
 import { appId1637317204753 } from './1637317204753-appId'
 import { cliRefactor1637591977282 } from './1637591977282-cliRefactor'
 import { startTimeFix1638286917874 } from './1638286917874-startTimeFix'
+import { bitBucket1645444063726 } from './1645444063726-bitBucket'
+import { pipelineBranch1645524699376 } from './1645524699376-pipelineBranch'
 
 export default [
   pipelines1625758770110,
@@ -28,4 +30,6 @@ export default [
   appId1637317204753,
   cliRefactor1637591977282,
   startTimeFix1638286917874,
+  bitBucket1645444063726,
+  pipelineBranch1645524699376,
 ]
