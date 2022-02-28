@@ -1,0 +1,67 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`node-helpers nodesArrToObj should match a snapshot 1`] = `
+Object {
+  "ROOT": Object {
+    "custom": Object {},
+    "displayName": "div",
+    "hidden": false,
+    "id": Object {},
+    "isCanvas": false,
+    "linkedNodes": Object {},
+    "nodeId": Object {},
+    "nodes": Array [],
+    "props": Object {},
+    "type": Object {
+      "resolvedName": "div",
+    },
+  },
+}
+`;
+
+exports[`node-helpers nodesObjtoToArr should match a snapshot 1`] = `
+Array [
+  Object {
+    "custom": Object {
+      "displayName": "App",
+    },
+    "displayName": "Container",
+    "hidden": false,
+    "id": "app-idpage-idROOT",
+    "isCanvas": true,
+    "linkedNodes": Object {},
+    "nodeId": "ROOT",
+    "nodes": Array [
+      "tPwDk5SDAg",
+    ],
+    "parent": null,
+    "props": Object {
+      "background": "white",
+      "padding": 40,
+      "width": 12,
+    },
+    "type": Object {
+      "resolvedName": "Container",
+    },
+  },
+  Object {
+    "custom": null,
+    "displayName": "Text",
+    "hidden": false,
+    "id": "app-idpage-idtPwDk5SDAg",
+    "isCanvas": false,
+    "linkedNodes": Object {},
+    "nodeId": "tPwDk5SDAg",
+    "nodes": Array [],
+    "parent": "ROOT",
+    "props": Object {
+      "fontSize": 12,
+      "text": "I'm here by default!",
+      "width": 12,
+    },
+    "type": Object {
+      "resolvedName": "Text",
+    },
+  },
+]
+`;
