@@ -24,10 +24,10 @@ export const downloadBitbucketSourceToS3 = async ({
   client,
   event,
 }: {
-  pipeline: PipelineEntity,
-  pipelineRunner: PipelineRunnerEntity,
-  client: BitbucketClientData,
-  event: BitBucketEvent,
+  pipeline: PipelineEntity
+  pipelineRunner: PipelineRunnerEntity
+  client: BitbucketClientData
+  event: BitBucketEvent
 }): Promise<string> => {
   const parts = pipeline.repository?.split('/') as string[]
   const url = `${baseBitbucketUrl}/${parts[parts.length - 2]}/${parts[parts.length - 1]}/get/${pipeline.branch}.zip`
@@ -139,11 +139,11 @@ export const codebuildExecutor: SQSHandler = async (
       const repoLocation = pipeline.repository?.includes('github')
         ? await downloadGithubSourceToS3(pipeline, pipelineRunner)
         : await downloadBitbucketSourceToS3({
-          pipeline,
-          pipelineRunner,
-          client: payload.client,
-          event,
-        })
+            pipeline,
+            pipelineRunner,
+            client: payload.client,
+            event,
+          })
 
       try {
         const start = codebuild.startBuild({
