@@ -67,6 +67,7 @@ const PipelineCreationModal = ({ open, onModalClose, appId, refreshPipeline }: P
   const { connectSession } = useReapitConnect(reapitConnectBrowserSession)
   const schema: Yup.SchemaOf<PipelineModelSchema> = object().shape({
     name: string().required(),
+    branch: string().required(),
     repository: string()
       .trim()
       .required(errorMessages.FIELD_REQUIRED)
@@ -85,6 +86,7 @@ const PipelineCreationModal = ({ open, onModalClose, appId, refreshPipeline }: P
     resolver: yupResolver(schema),
     defaultValues: {
       buildCommand: 'build',
+      branch: 'master',
       packageManager: PackageManagerEnum.YARN,
     },
   })
@@ -112,6 +114,13 @@ const PipelineCreationModal = ({ open, onModalClose, appId, refreshPipeline }: P
               <Label>Name</Label>
               <Input {...register('name')} />
               {errors.name?.message && <InputAddOn intent="danger">{errors.name.message}</InputAddOn>}
+            </InputGroup>
+          </InputWrap>
+          <InputWrap>
+            <InputGroup>
+              <Label>Branch Name</Label>
+              <Input {...register('branch')} />
+              {errors.branch?.message && <InputAddOn intent="danger">{errors.branch.message}</InputAddOn>}
             </InputGroup>
           </InputWrap>
           <InputWrap>
