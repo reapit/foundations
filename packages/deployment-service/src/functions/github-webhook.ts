@@ -55,6 +55,12 @@ export const githubWebhook = httpHandler<GithubCommitEvent | GithubRepoInstallat
         throw new NotFoundException()
       }
 
+      if (pipeline.branch !== body.ref) {
+        return {
+          statusCode: HttpStatusCode.OK,
+        }
+      }
+
       if (
         (pipeline.buildStatus && 'CREATING_ARCHITECTURE' === pipeline.buildStatus) ||
         (await service.pipelineRunnerCountRunning(pipeline)) >= 1
@@ -66,8 +72,6 @@ export const githubWebhook = httpHandler<GithubCommitEvent | GithubRepoInstallat
         type: PipelineRunnerType.REPO,
         pipeline,
       })
-
-      // TODO check branch before deploying
 
       await new Promise<void>((resolve, reject) =>
         service.sqs.sendMessage(
