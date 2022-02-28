@@ -74,7 +74,7 @@ export class PipelineCreate extends AbstractCommand {
       buildCommand: string
       packageManager: string
       appId: string
-      branch: string,
+      branch: string
     },
     spinner: Ora,
   ): Promise<PipelineModelInterface> {
