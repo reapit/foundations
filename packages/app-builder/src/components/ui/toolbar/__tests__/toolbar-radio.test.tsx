@@ -1,10 +1,10 @@
 import * as React from 'react'
-import { shallow } from 'enzyme'
+import { render, screen } from '@testing-library/react'
 import { ToolbarRadio } from '../toolbar-radio'
 
 describe('ToolbarRadio', () => {
   it('should match a snapshot', () => {
-    const wrapper = shallow(<ToolbarRadio value={''} name={''} />)
-    expect(wrapper).toMatchSnapshot()
+    render(<ToolbarRadio value={''} name={''} />)
+    expect(screen).toMatchSnapshot()
   })
 })

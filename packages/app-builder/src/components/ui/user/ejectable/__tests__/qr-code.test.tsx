@@ -1,5 +1,5 @@
 import * as React from 'react'
-import { shallow } from 'enzyme'
+import { render, screen } from '@testing-library/react'
 import routeData from 'react-router'
 import { QRCode } from '../qr-code'
 
@@ -19,7 +19,7 @@ describe('QRCode', () => {
     jest.spyOn(routeData, 'useLocation').mockReturnValue(mockLocation)
   })
   it('should match a snapshot', () => {
-    const wrapper = shallow(<QRCode width={0} />)
-    expect(wrapper).toMatchSnapshot()
+    render(<QRCode width={0} />)
+    expect(screen).toMatchSnapshot()
   })
 })

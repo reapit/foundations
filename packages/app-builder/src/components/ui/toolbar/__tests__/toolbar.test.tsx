@@ -1,22 +1,22 @@
 import * as React from 'react'
-import { shallow } from 'enzyme'
+import { render, screen } from '@testing-library/react'
 import { Toolbar } from '../index'
 
 describe('Toolbar', () => {
   it('should match a snapshot - inactive', () => {
-    const wrapper = shallow(
+    render(
       <Toolbar active={false}>
         <></>
       </Toolbar>,
     )
-    expect(wrapper).toMatchSnapshot()
+    expect(screen).toMatchSnapshot()
   })
   it('should match a snapshot - active', () => {
-    const wrapper = shallow(
+    render(
       <Toolbar active>
         <></>
       </Toolbar>,
     )
-    expect(wrapper).toMatchSnapshot()
+    expect(screen).toMatchSnapshot()
   })
 })

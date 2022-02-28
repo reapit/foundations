@@ -1,10 +1,10 @@
 import * as React from 'react'
-import { shallow } from 'enzyme'
+import { render, screen } from '@testing-library/react'
 import { ToolbarDropdown } from '../toolbar-dropdown'
 
 describe('ToolbarDropdown', () => {
   it('should match a snapshot', () => {
-    const wrapper = shallow(
+    render(
       <ToolbarDropdown
         title={''}
         value={undefined}
@@ -13,6 +13,6 @@ describe('ToolbarDropdown', () => {
         }}
       />,
     )
-    expect(wrapper).toMatchSnapshot()
+    expect(screen).toMatchSnapshot()
   })
 })

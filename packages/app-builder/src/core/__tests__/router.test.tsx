@@ -1,11 +1,16 @@
 import * as React from 'react'
-import { shallow } from 'enzyme'
-import toJson from 'enzyme-to-json'
+import { render, screen } from '@testing-library/react'
 import Router, { catchChunkError } from '../router'
+import { MockedProvider } from '@apollo/client/testing'
 
 describe('Router', () => {
   it('should match a snapshot', () => {
-    expect(toJson(shallow(<Router />))).toMatchSnapshot()
+    render(
+      <MockedProvider>
+        <Router />
+      </MockedProvider>,
+    )
+    expect(screen).toMatchSnapshot()
   })
 
   describe('catchChunkError', () => {

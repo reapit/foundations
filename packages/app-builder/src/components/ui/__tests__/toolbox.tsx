@@ -1,21 +1,16 @@
 import * as React from 'react'
-import { shallow } from 'enzyme'
+import { render, screen } from '@testing-library/react'
 import { MockedProvider } from '@apollo/client/testing'
 
 import { Toolbox } from '../toolbox'
 
 describe('Toolbox', () => {
   it('should match a snapshot', () => {
-    const wrapper = shallow(
+    render(
       <MockedProvider>
-        <Toolbox
-          enabled={false}
-          create={() => {
-            throw new Error('Function not implemented.')
-          }}
-        />
+        <Toolbox enabled={false} create={() => {}} />
       </MockedProvider>,
     )
-    expect(wrapper).toMatchSnapshot()
+    expect(screen).toMatchSnapshot()
   })
 })

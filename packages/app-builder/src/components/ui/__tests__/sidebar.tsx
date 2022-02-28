@@ -1,15 +1,18 @@
 import * as React from 'react'
-import { shallow } from 'enzyme'
+import { render, screen } from '@testing-library/react'
 import Sidebar from '../sidebar'
 import { MockedProvider } from '@apollo/client/testing'
+import { Editor } from '@craftjs/core'
 
 describe('Sidebar', () => {
   it('should match a snapshot', () => {
-    const wrapper = shallow(
+    render(
       <MockedProvider>
-        <Sidebar />
+        <Editor>
+          <Sidebar />
+        </Editor>
       </MockedProvider>,
     )
-    expect(wrapper).toMatchSnapshot()
+    expect(screen).toMatchSnapshot()
   })
 })

@@ -1,5 +1,5 @@
 import * as React from 'react'
-import { shallow } from 'enzyme'
+import { render, screen } from '@testing-library/react'
 import { MockedProvider } from '@apollo/client/testing'
 import routeData from 'react-router'
 import { Form } from '../form'
@@ -20,11 +20,11 @@ describe('Form', () => {
     jest.spyOn(routeData, 'useLocation').mockReturnValue(mockLocation)
   })
   it('should match a snapshot', () => {
-    const wrapper = shallow(
+    render(
       <MockedProvider>
         <Form formType={''} width={0} />
       </MockedProvider>,
     )
-    expect(wrapper).toMatchSnapshot()
+    expect(screen).toMatchSnapshot()
   })
 })

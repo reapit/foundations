@@ -1,15 +1,18 @@
 import * as React from 'react'
-import { shallow } from 'enzyme'
+import { render, screen } from '@testing-library/react'
 import { RenderNode } from '../index'
 import { MockedProvider } from '@apollo/client/testing'
+import { Editor } from '@craftjs/core'
 
 describe('RenderNode', () => {
   it('should match a snapshot', () => {
-    const wrapper = shallow(
+    render(
       <MockedProvider>
-        <RenderNode render={<></>} iframeRef={{}} />
+        <Editor>
+          <RenderNode render={<></>} iframeRef={{}} />
+        </Editor>
       </MockedProvider>,
     )
-    expect(wrapper).toMatchSnapshot()
+    expect(screen).toMatchSnapshot()
   })
 })

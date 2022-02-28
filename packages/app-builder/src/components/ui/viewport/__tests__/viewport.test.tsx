@@ -1,8 +1,9 @@
 import * as React from 'react'
-import { shallow } from 'enzyme'
+import { render, screen } from '@testing-library/react'
 import routeData from 'react-router'
 import { MockedProvider } from '@apollo/client/testing'
 import { Viewport } from '../index'
+import { Editor } from '@craftjs/core'
 
 describe('Viewport', () => {
   const mockParams = {
@@ -20,24 +21,28 @@ describe('Viewport', () => {
     jest.spyOn(routeData, 'useLocation').mockReturnValue(mockLocation)
   })
   it('should match a snapshot', () => {
-    const wrapper = shallow(
+    render(
       <MockedProvider>
-        <Viewport isSaving={false} iframeRef={undefined} deserialize={() => {}} rendererDivRefHandler={() => {}}>
-          <></>
-        </Viewport>
+        <Editor>
+          <Viewport isSaving={false} iframeRef={undefined} deserialize={() => {}} rendererDivRefHandler={() => {}}>
+            <></>
+          </Viewport>
+        </Editor>
       </MockedProvider>,
     )
-    expect(wrapper).toMatchSnapshot()
+    expect(screen).toMatchSnapshot()
   })
 
   it('should match a snapshot - saving', () => {
-    const wrapper = shallow(
+    render(
       <MockedProvider>
-        <Viewport isSaving iframeRef={undefined} deserialize={() => {}} rendererDivRefHandler={() => {}}>
-          <></>
-        </Viewport>
+        <Editor>
+          <Viewport isSaving iframeRef={undefined} deserialize={() => {}} rendererDivRefHandler={() => {}}>
+            <></>
+          </Viewport>
+        </Editor>
       </MockedProvider>,
     )
-    expect(wrapper).toMatchSnapshot()
+    expect(screen).toMatchSnapshot()
   })
 })

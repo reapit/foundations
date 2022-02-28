@@ -1,24 +1,44 @@
 import * as React from 'react'
-import { shallow } from 'enzyme'
+import { render, screen } from '@testing-library/react'
 import Header from '../index'
 import { MockedProvider } from '@apollo/client/testing'
+import routeData from 'react-router'
+import { Editor } from '@craftjs/core'
 
 describe('Header', () => {
+  const mockParams = {
+    appId: '123',
+    pageId: '456',
+  }
+  const mockLocation = {
+    pathname: '/123/456',
+    hash: '',
+    search: '',
+    state: '',
+  }
+  beforeEach(() => {
+    jest.spyOn(routeData, 'useParams').mockReturnValue(mockParams)
+    jest.spyOn(routeData, 'useLocation').mockReturnValue(mockLocation)
+  })
   it('should match a snapshot', () => {
-    const wrapper = shallow(
+    render(
       <MockedProvider>
-        <Header isSaving={false} />
+        <Editor>
+          <Header isSaving={false} />
+        </Editor>
       </MockedProvider>,
     )
-    expect(wrapper).toMatchSnapshot()
+    expect(screen).toMatchSnapshot()
   })
 
   it('should match a snapshot - saving', () => {
-    const wrapper = shallow(
+    render(
       <MockedProvider>
-        <Header isSaving={true} />
+        <Editor>
+          <Header isSaving={true} />
+        </Editor>
       </MockedProvider>,
     )
-    expect(wrapper).toMatchSnapshot()
+    expect(screen).toMatchSnapshot()
   })
 })

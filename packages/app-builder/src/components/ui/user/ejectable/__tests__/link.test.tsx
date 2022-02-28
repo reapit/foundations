@@ -1,7 +1,8 @@
 import * as React from 'react'
-import { shallow } from 'enzyme'
+import { render, screen } from '@testing-library/react'
 import routeData from 'react-router'
 import { Link } from '../link'
+import { MemoryRouter } from 'react-router-dom'
 
 describe('Link', () => {
   const mockParams = {
@@ -19,7 +20,11 @@ describe('Link', () => {
     jest.spyOn(routeData, 'useLocation').mockReturnValue(mockLocation)
   })
   it('should match a snapshot', () => {
-    const wrapper = shallow(<Link width={0} />)
-    expect(wrapper).toMatchSnapshot()
+    render(
+      <MemoryRouter>
+        <Link width={0} />
+      </MemoryRouter>,
+    )
+    expect(screen).toMatchSnapshot()
   })
 })
