@@ -153,7 +153,6 @@ const handlePushEvent = async (event: BitBucketEvent, client: BitbucketClientDat
 export const bitbucketWebhook = httpHandler<any, void>({
   defaultStatusCode: HttpStatusCode.NO_CONTENT,
   handler: async ({ body, event }) => {
-
     if (body.eventType) {
       await handleEventTypes(body)
     } else if (body.event) {
