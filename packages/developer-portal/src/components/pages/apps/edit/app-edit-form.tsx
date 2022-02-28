@@ -13,6 +13,9 @@ import { AppDetailModel, CreateAppRevisionModel } from '@reapit/foundations-ts-d
 import { UpdateActionNames, updateActions } from '@reapit/utils-common'
 import { reapitConnectBrowserSession } from '../../../../core/connect-session'
 import { formatFormValues } from '../utils/format-form-values'
+import { History } from 'history'
+import Routes from '../../../../constants/routes'
+import { useHistory } from 'react-router'
 
 export interface AppEditFormProps {
   tab: AppEditTab
@@ -24,19 +27,21 @@ export const handleSetAppSubmitting =
     appEditSaving: boolean,
     handleSubmit: UseFormHandleSubmit<AppEditFormSchema>,
     createAppRevision: SendFunction<CreateAppRevisionModel, boolean | AppDetailModel>,
+    history: History,
+    appId: string,
   ) =>
   () => {
     if (appEditSaving) {
       handleSubmit(async (values) => {
-        console.log('Values', values)
-
         const formattedModel = formatFormValues(values)
 
-        console.log('Submitting', formattedModel)
-
-        await createAppRevision(formattedModel)
+        const appRevision = await createAppRevision(formattedModel)
 
         setAppEditSaving(false)
+
+        if (appRevision) {
+          history.push(`${Routes.APPS}/${appId}`)
+        }
       })()
     }
   }
@@ -80,6 +85,7 @@ export const handleSetTabsState =
 export const AppEditForm: FC<AppEditFormProps> = ({ tab }) => {
   const { appId } = useParams<AppUriParams>()
   const { appEditState, setAppId, setAppTabsState } = useAppState()
+  const history = useHistory()
   const { appEditForm, setAppEditSaving, appEditSaving } = appEditState
 
   const [, , createAppRevision] = useReapitUpdate<CreateAppRevisionModel, AppDetailModel>({
@@ -129,7 +135,9 @@ export const AppEditForm: FC<AppEditFormProps> = ({ tab }) => {
     isListed,
   ])
   useEffect(handleSetAppId(appId, setAppId), [appId])
-  useEffect(handleSetAppSubmitting(setAppEditSaving, appEditSaving, handleSubmit, createAppRevision), [appEditSaving])
+  useEffect(handleSetAppSubmitting(setAppEditSaving, appEditSaving, handleSubmit, createAppRevision, history, appId), [
+    appEditSaving,
+  ])
 
   console.log('Errors', errors)
   console.log('Values', getValues())
