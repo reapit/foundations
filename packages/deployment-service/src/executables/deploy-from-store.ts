@@ -42,7 +42,6 @@ const deleteCurrentLiveVersion = async (prefix: string): Promise<void | never> =
       ),
     )
   } catch (e) {
-    // TODO make sure the deployment before is being deleted
     console.error("basically the key doesn't exist")
   }
 }
