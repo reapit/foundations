@@ -75,6 +75,7 @@ describe('AppsNew', () => {
       name: 'some-org-stub-name',
       scopes: [formValues.scopes],
       developerId: connectSession.loginIdentity.developerId,
+      isDirectApi: true,
     })
   })
 
@@ -104,6 +105,7 @@ describe('AppsNew', () => {
       developerId: connectSession.loginIdentity.developerId,
       redirectUris: [formValues.redirectUris],
       signoutUris: [formValues.signoutUris],
+      isDirectApi: true,
     })
   })
 
@@ -130,7 +132,9 @@ describe('AppsNew', () => {
   })
 
   it('should handle navigate on success', () => {
-    const appCreated = {}
+    const appCreated = {
+      id: 'SOME_ID',
+    }
     const history = {
       push: jest.fn(),
     } as unknown as History
@@ -139,7 +143,7 @@ describe('AppsNew', () => {
 
     curried()
 
-    expect(history.push).toHaveBeenCalledWith(Routes.APPS)
+    expect(history.push).toHaveBeenCalledWith(`${Routes.APPS}/${appCreated.id}`)
   })
 
   it('should check if a step is valid for authorisationCode flow and no step history', async () => {

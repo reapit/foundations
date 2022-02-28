@@ -1,10 +1,10 @@
 import React from 'react'
-import { shallow } from 'enzyme'
+import { render } from '../../../../../tests/react-testing'
 import { CreatePipeline, pipelineCreateFormHandle } from '../create-pipeline'
 
-describe('App Pipeline Create', () => {
+describe('CreatePipeline', () => {
   it('Should match snapshot', () => {
-    expect(shallow(<CreatePipeline appId={'12345'} refreshPipeline={() => {}} />)).toMatchSnapshot()
+    expect(render(<CreatePipeline appId={'12345'} refreshPipeline={() => {}} />)).toMatchSnapshot()
   })
 
   it('Form should call refresh on success', async () => {

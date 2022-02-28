@@ -1,14 +1,14 @@
 import React from 'react'
-import { shallow } from 'enzyme'
+import { render } from '../../../../../tests/react-testing'
 import { PackageManagerEnum } from '@reapit/foundations-ts-definitions'
 import { addNewPipelineDeployment, PipelineDeploymentTable, pipelineRunnerSetter } from '../pipeline-runner-table'
 
 describe('Pipeline Deployment Table', () => {
   it('Should match snapshot', () => {
     expect(
-      shallow(
+      render(
         <PipelineDeploymentTable
-          channel={{}}
+          channel={{ bind: jest.fn(), unbind: jest.fn() }}
           pipeline={{
             id: 'pipelineId',
             buildStatus: 'IN_PORGRESS',

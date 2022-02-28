@@ -1,14 +1,14 @@
 import React from 'react'
-import { shallow } from 'enzyme'
 import { PipelineDeploymentInfo } from '../deployment-info'
 import { PackageManagerEnum } from '@reapit/foundations-ts-definitions'
+import { render } from '../../../../../tests/react-testing'
 
-describe('Deployment info', () => {
+describe('PipelineDeploymentInfo', () => {
   it('Should match snapshot', () => {
     expect(
-      shallow(
+      render(
         <PipelineDeploymentInfo
-          channel={{}}
+          channel={{ bind: jest.fn(), unbind: jest.fn() }}
           pipeline={{
             id: 'pipelineId',
             buildStatus: 'IN_PORGRESS',

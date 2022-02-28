@@ -4,17 +4,19 @@ import { Button, ButtonGroup, elMb6, Title } from '@reapit/elements'
 import { PipelineModelInterface, PipelineRunnerModelInterface } from '@reapit/foundations-ts-definitions'
 import { GetActionNames, getActions, UpdateActionNames, updateActions } from '@reapit/utils-common'
 import { useReapitGet, useReapitUpdate } from '@reapit/utils-react'
-import React from 'react'
+import React, { FC } from 'react'
 import { reapitConnectBrowserSession } from '../../../../core/connect-session'
 import { openNewPage } from '@/utils/navigation'
 import { UpdateReturnTypeEnum } from '@reapit/utils-react'
 import { PipelineDeploymentTable } from './pipeline-runner-table'
 import { PipelineInfo } from './pipeline-info'
 
-export const PipelineDeploymentInfo: React.FC<{ pipeline: PipelineModelInterface; channel: any }> = ({
-  pipeline,
-  channel,
-}) => {
+export interface PipelineDeploymentInfoProps {
+  pipeline: PipelineModelInterface
+  channel: any
+}
+
+export const PipelineDeploymentInfo: FC<PipelineDeploymentInfoProps> = ({ pipeline, channel }) => {
   const { connectSession } = useReapitConnect(reapitConnectBrowserSession)
   const [pipelineDeployments, loading] = useReapitGet<{ items: PipelineRunnerModelInterface[] }>({
     reapitConnectBrowserSession,

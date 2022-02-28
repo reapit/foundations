@@ -4,6 +4,8 @@ import { render } from '../../../../../tests/react-testing'
 import { AppCard, handleDeleteApp, handleRefreshApps } from '../app-card'
 import { AppSummaryModel } from '@reapit/foundations-ts-definitions'
 
+jest.mock('../../state/use-app-state')
+
 describe('AppCard', () => {
   it('should match a snapshot', () => {
     expect(render(<AppCard app={(appsDataStub?.data?.data as AppSummaryModel[])[0]} />)).toMatchSnapshot()

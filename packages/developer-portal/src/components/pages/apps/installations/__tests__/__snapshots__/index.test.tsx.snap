@@ -1,6 +1,6 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`AppPipeline should match snapshot 1`] = `
+exports[`AppInstallations should match a snapshot 1`] = `
 Object {
   "asFragment": [Function],
   "baseElement": <body>
@@ -8,56 +8,22 @@ Object {
       <div
         class="ecbqyq6-el-snack-holder"
       />
-      <div
-        class="e1de2pym-el-flex-justify-center ef457sc-el-flex-align-center e2kmzjs-el-flex-container"
+      <h1
+        class="e2dm5rh-el-title"
       >
-        <div>
-          <p
-            class="e1byern-el-body-text"
-          >
-            Loading
-          </p>
-          <div
-            class="ebhrnzh-el-loader-container"
-          >
-            <div
-              class="eq1m1jz-el-loader"
-            >
-              <div
-                class="exikdu1-el-loader-moving-bar"
-              />
-            </div>
-          </div>
-        </div>
-      </div>
+        Installations
+      </h1>
     </div>
   </body>,
   "container": <div>
     <div
       class="ecbqyq6-el-snack-holder"
     />
-    <div
-      class="e1de2pym-el-flex-justify-center ef457sc-el-flex-align-center e2kmzjs-el-flex-container"
+    <h1
+      class="e2dm5rh-el-title"
     >
-      <div>
-        <p
-          class="e1byern-el-body-text"
-        >
-          Loading
-        </p>
-        <div
-          class="ebhrnzh-el-loader-container"
-        >
-          <div
-            class="eq1m1jz-el-loader"
-          >
-            <div
-              class="exikdu1-el-loader-moving-bar"
-            />
-          </div>
-        </div>
-      </div>
-    </div>
+      Installations
+    </h1>
   </div>,
   "debug": [Function],
   "findAllByAltText": [Function],

@@ -1,6 +1,6 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`Apps should match a snapshot when apps are loading 1`] = `
+exports[`AppsPage should match a snapshot when apps are loading 1`] = `
 Object {
   "asFragment": [Function],
   "baseElement": <body>
@@ -99,7 +99,7 @@ Object {
 }
 `;
 
-exports[`Apps should match a snapshot when apps are present 1`] = `
+exports[`AppsPage should match a snapshot when apps are present 1`] = `
 Object {
   "asFragment": [Function],
   "baseElement": <body>
@@ -444,7 +444,7 @@ Object {
 }
 `;
 
-exports[`Apps should match a snapshot when no apps are created 1`] = `
+exports[`AppsPage should match a snapshot when no apps are created 1`] = `
 Object {
   "asFragment": [Function],
   "baseElement": <body>
@@ -456,7 +456,7 @@ Object {
         class="eoxpwv-el-flex-auto e2kmzjs-el-flex-container"
       >
         <section
-          class="eukst9x-el-page-container"
+          class="e12d7zo5-el-hfull eukst9x-el-page-container"
         >
           <div
             class="e20pb60-el-grid"
@@ -814,7 +814,7 @@ Object {
       class="eoxpwv-el-flex-auto e2kmzjs-el-flex-container"
     >
       <section
-        class="eukst9x-el-page-container"
+        class="e12d7zo5-el-hfull eukst9x-el-page-container"
       >
         <div
           class="e20pb60-el-grid"

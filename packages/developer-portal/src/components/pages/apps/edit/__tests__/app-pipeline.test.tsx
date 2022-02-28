@@ -1,9 +1,9 @@
 import React from 'react'
-import { shallow } from 'enzyme'
+import { render } from '../../../../../tests/react-testing'
 import { AppPipeline } from '../app-pipeline'
 
-describe('App Pipeline', () => {
+describe('AppPipeline', () => {
   it('should match snapshot', () => {
-    expect(shallow(<AppPipeline />)).toMatchSnapshot()
+    expect(render(<AppPipeline />)).toMatchSnapshot()
   })
 })

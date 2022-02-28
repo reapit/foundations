@@ -1,11 +1,11 @@
 import React from 'react'
-import { shallow } from 'enzyme'
+import { render } from '../../../../../tests/react-testing'
 import { PipelineInfo } from '../pipeline-info'
 
-describe('Pipeline info', () => {
+describe('Pipelineinfo', () => {
   it('Should match snapshot', () => {
     expect(
-      shallow(
+      render(
         <PipelineInfo
           pipeline={{
             id: 'pipelineId',

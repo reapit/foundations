@@ -5,7 +5,6 @@ import { handleSetAppId } from '../utils/handle-set-app-id'
 import { useParams } from 'react-router-dom'
 import { AppEditTab } from './edit-page-tabs'
 import { AppEditForm } from './app-edit-form'
-// import { CreateAppRevisionModel } from '@reapit/foundations-ts-definitions'
 
 export const handleChangeTab =
   (setTab: Dispatch<SetStateAction<AppEditTab>>) => (event: ChangeEvent<HTMLInputElement>) => {

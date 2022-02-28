@@ -1,11 +1,11 @@
 import React from 'react'
-import AppEditPage from '..'
 import { render } from '../../../../../tests/react-testing'
+import { Helper } from '../helper'
 
 jest.mock('../../state/use-app-state')
 
-describe('AppEditPage', () => {
+describe('Helper', () => {
   it('should match a snapshot', () => {
-    expect(render(<AppEditPage />)).toMatchSnapshot()
+    expect(render(<Helper />)).toMatchSnapshot()
   })
 })

@@ -7,6 +7,7 @@ import { AppAuthFlow, AppNewStepId } from '../new/config'
 import { useReapitConnect } from '@reapit/connect-session'
 import { AppEditFormSchema, defaultValues } from '../edit/form-schema/form-fields'
 import { listingInCompletion } from '../utils/listing-in-completion'
+import { defaultAppTabsState, defaultAppWizardState } from './defaults'
 
 export interface AppUriParams {
   appId: string
@@ -51,15 +52,6 @@ export interface AppStateHook {
   setAppId: Dispatch<SetStateAction<string | null>>
   appTabsState: AppTabsState
   setAppTabsState: Dispatch<SetStateAction<AppTabsState>>
-}
-
-export const defaultAppWizardState: AppWizardState = {
-  currentStep: AppNewStepId.applicationTypeStep,
-  nextStep: null,
-  prevStep: null,
-  stepHistory: [AppNewStepId.applicationTypeStep],
-  authFlow: 'clientCredentials',
-  lastStep: false,
 }
 
 export const handleSetDefaultFormValues =
@@ -130,13 +122,9 @@ export const AppStateContext = createContext<AppStateHook>({} as AppStateHook)
 const { Provider } = AppStateContext
 
 export const AppProvider: FC = ({ children }) => {
-  const [appWizardState, setAppWizardState] = useState<AppWizardState>(defaultAppWizardState)
+  const [appWizardState, setAppWizardState] = useState<AppWizardState>(defaultAppWizardState as AppWizardState)
   const [appEditForm, setAppEditForm] = useState<AppEditFormSchema>(defaultValues)
-  const [appTabsState, setAppTabsState] = useState<AppTabsState>({
-    isCompletingListing: false,
-    isAgencyCloudIntegrated: false,
-    isListed: false,
-  })
+  const [appTabsState, setAppTabsState] = useState<AppTabsState>(defaultAppTabsState)
   const [appEditSaving, setAppEditSaving] = useState<boolean>(false)
   const [appId, setAppId] = useState<string | null>(null)
   const { connectSession } = useReapitConnect(reapitConnectBrowserSession)
