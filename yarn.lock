@@ -5151,6 +5151,21 @@ __metadata:
   languageName: node
   linkType: hard
 
+"@craftjs/core@patch:@craftjs/core@npm:0.2.0-beta.2#../../.yarn/patches/@craftjs-core-npm-0.2.0-beta.2-7286daa8e6::locator=%40reapit%2Fapp-builder%40workspace%3Apackages%2Fapp-builder":
+  version: 0.2.0-beta.2
+  resolution: "@craftjs/core@patch:@craftjs/core@npm%3A0.2.0-beta.2#../../.yarn/patches/@craftjs-core-npm-0.2.0-beta.2-7286daa8e6::version=0.2.0-beta.2&hash=280294&locator=%40reapit%2Fapp-builder%40workspace%3Apackages%2Fapp-builder"
+  dependencies:
+    "@craftjs/utils": ^0.2.0-beta.2
+    "@types/react": ^17.0.5
+    debounce: ^1.2.0
+    lodash: ^4.17.20
+    tiny-invariant: ^1.0.6
+  peerDependencies:
+    react: ^16.8.0 || ^17
+  checksum: 631261b97a19b0f3b4f04d4bd7afd1174964a37a9d30d3a752b65507804855e780abee260d34ce7635d1db77346dfab3e1c8966d69dd9ab20eabb3f019a3e612
+  languageName: node
+  linkType: hard
+
 "@craftjs/layers@npm:0.2.0-beta.2":
   version: 0.2.0-beta.2
   resolution: "@craftjs/layers@npm:0.2.0-beta.2"
@@ -8840,7 +8855,7 @@ __metadata:
   resolution: "@reapit/app-builder@workspace:packages/app-builder"
   dependencies:
     "@apollo/client": ^3.5.6
-    "@craftjs/core": 0.2.0-beta.2
+    "@craftjs/core": "patch:@craftjs/core@npm:0.2.0-beta.2#../../.yarn/patches/@craftjs-core-npm-0.2.0-beta.2-7286daa8e6"
     "@craftjs/layers": 0.2.0-beta.2
     "@linaria/core": ^3.0.0-beta.15
     "@linaria/react": ^3.0.0-beta.15

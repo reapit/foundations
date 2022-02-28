@@ -1,5 +1,4 @@
-import { NodeTree, SerializedNode, useEditor, Element } from '@craftjs/core'
-import { serializeNode } from '../../../utils/serializeNode'
+import { NodeTree, SerializedNode, useEditor, Element, serializeNode } from '@craftjs/core'
 import { Button } from '@reapit/elements'
 import { newPage } from '../header/PageSelector'
 import { useUpdatePage } from '@/components/hooks/apps/use-update-app'
