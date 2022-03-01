@@ -152,6 +152,9 @@ export const codebuildExecutor: SQSHandler = async (
             version: 0.2,
             phases: {
               install: {
+                'runtime-versions': {
+                  nodejs: '12.x',
+                },
                 commands: [
                   'cd */',
                   pipeline.packageManager === PackageManagerEnum.YARN
@@ -160,6 +163,9 @@ export const codebuildExecutor: SQSHandler = async (
                 ],
               },
               build: {
+                'runtime-versions': {
+                  nodejs: '12.x',
+                },
                 commands: [`${pipeline.packageManager} ${pipeline.buildCommand}`],
               },
             },
