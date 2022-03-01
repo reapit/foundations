@@ -5,6 +5,24 @@ import { MockedProvider } from '@apollo/client/testing'
 import { Viewport } from '../index'
 import { Editor } from '@craftjs/core'
 
+import '../inject-frame-styles'
+
+jest.mock('../inject-frame-styles', () => {
+  const InjectFrameStyles = ({ children }) => children
+
+  return {
+    InjectFrameStyles,
+  }
+})
+
+jest.mock('react-frame-component', () => {
+  const IFrame = ({ children }) => children
+  return {
+    default: IFrame,
+    __esModule: true,
+  }
+})
+
 describe('Viewport', () => {
   const mockParams = {
     appId: '123',

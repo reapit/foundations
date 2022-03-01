@@ -4,6 +4,24 @@ import { MockedProvider } from '@apollo/client/testing'
 import routeData from 'react-router'
 
 import Home from '../home'
+import { Editor } from '@craftjs/core'
+import '../../ui/viewport/inject-frame-styles'
+
+jest.mock('../../ui/viewport/inject-frame-styles', () => {
+  const InjectFrameStyles = ({ children }) => children
+
+  return {
+    InjectFrameStyles,
+  }
+})
+
+jest.mock('react-frame-component', () => {
+  const IFrame = ({ children }) => children
+  return {
+    default: IFrame,
+    __esModule: true,
+  }
+})
 
 describe('Home', () => {
   const mockParams = {
@@ -22,9 +40,11 @@ describe('Home', () => {
   })
   it('should match a snapshot', () => {
     render(
-      <MockedProvider>
-        <Home />
-      </MockedProvider>,
+      <Editor>
+        <MockedProvider>
+          <Home />
+        </MockedProvider>
+      </Editor>,
     )
     expect(screen).toMatchSnapshot()
   })
