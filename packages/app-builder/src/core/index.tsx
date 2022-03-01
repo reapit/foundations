@@ -24,7 +24,7 @@ export const renderApp = (Component: React.ComponentType) => {
   const rootElement = document.querySelector('#root') as Element
 
   if (rootElement) {
-    const { asFragment } = render(<Component />, rootElement)
+    render(<Component />, rootElement)
   }
 }
 
