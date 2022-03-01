@@ -134,6 +134,9 @@ import reapitLogoInfographic from './infographic-icons/reapitLogoInfographic'
 import sharedEntitiesInfographic from './infographic-icons/sharedEntitiesInfographic'
 import welcomeInfographic from './infographic-icons/welcomeInfographic'
 import platformApiInfographic from './infographic-icons/platformApiInfographic'
+import appMarketInfographic from './infographic-icons/appMarketInfographic'
+import editAppInfographic from './infographic-icons/editAppInfographic'
+import lockedInfographic from './infographic-icons/lockedInfographic'
 
 export const iconSet = {
   addSystem,
@@ -272,4 +275,7 @@ export const iconSet = {
   sharedEntitiesInfographic,
   welcomeInfographic,
   platformApiInfographic,
+  appMarketInfographic,
+  editAppInfographic,
+  lockedInfographic,
 }

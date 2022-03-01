@@ -21079,6 +21079,7 @@ __metadata:
     "@reapit/ts-scripts": "workspace:packages/ts-scripts"
     "@reapit/ts-types": "workspace:packages/ts-types"
     "@reapit/utils-common": "workspace:packages/utils-common"
+    "@reapit/utils-react": "workspace:packages/utils-react"
     "@redux-saga/testing-utils": ^1.1.3
     "@sentry/browser": ^6.16.1
     "@testing-library/react": ^12.1.2

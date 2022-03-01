@@ -70,7 +70,6 @@ export const AppManagement: React.FC<AppManagementProps> = ({ pendingRevisions, 
           type="button"
           variant="primary"
           dataTest="detail-modal-edit-button"
-          fullWidth
           onClick={onPendingRevisionButtonClick(setIsAppRevisionComparisonModalOpen)}
         >
           PENDING REVISION
@@ -81,14 +80,13 @@ export const AppManagement: React.FC<AppManagementProps> = ({ pendingRevisions, 
           type="button"
           variant="primary"
           dataTest="detail-modal-edit-button"
-          fullWidth
           onClick={onEditDetailButtonClick(history, id)}
         >
           EDIT DETAILS
         </Button>
       )}
 
-      <Button className="mb-2" onClick={onDeleteAppButtonClick(setIsDeleteModalOpen)} variant="danger" fullWidth>
+      <Button className="mb-2" onClick={onDeleteAppButtonClick(setIsDeleteModalOpen)} variant="danger">
         DELETE APP
       </Button>
     </Content>

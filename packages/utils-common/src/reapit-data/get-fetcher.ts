@@ -11,6 +11,7 @@ export interface GetFetcherParams {
   uriParams?: Object
   headers?: StringMap
   logger: (error: Error) => void
+  signal: AbortSignal
 }
 
 export const getFetcher = async <DataType>({
@@ -20,6 +21,7 @@ export const getFetcher = async <DataType>({
   uriParams,
   headers,
   logger,
+  signal,
 }: GetFetcherParams): Promise<DataType | string> => {
   const { api, path } = action
   const deSerialisedPath = uriParams
@@ -38,6 +40,7 @@ export const getFetcher = async <DataType>({
     const res = await fetch(url, {
       headers: getHeaders,
       method: 'GET',
+      signal,
     })
 
     if (res.ok) {

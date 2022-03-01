@@ -51,6 +51,8 @@ jest.mock('@reapit/utils-common', () => ({
 describe('useReapitGet', () => {
   it('should correctly set loading, fetch data, render a success message and refresh', async () => {
     const reapitConnectBrowserSession = {} as unknown as ReapitConnectBrowserSession
+    const controller = new AbortController()
+    const signal = controller.signal
     const mockFetchParams = {
       action: getActions('local')['actionName'],
       connectSession: {
@@ -59,6 +61,8 @@ describe('useReapitGet', () => {
       queryParams: undefined,
       headers: undefined,
       logger,
+      uriParams: undefined,
+      signal,
     }
 
     const { result, waitForNextUpdate } = renderHook<{}, ReapitGetState<typeof mockData>>(() =>
@@ -91,6 +95,8 @@ describe('useReapitGet', () => {
 
   it('should correctly refetch if the query parameter prop changes', async () => {
     const reapitConnectBrowserSession = {} as unknown as ReapitConnectBrowserSession
+    const controller = new AbortController()
+    const signal = controller.signal
     const mockFetchParams = {
       action: getActions('local')['actionName'],
       connectSession: {
@@ -101,6 +107,8 @@ describe('useReapitGet', () => {
       },
       headers: undefined,
       logger,
+      uriParams: undefined,
+      signal,
     }
 
     const initialParams = {
@@ -150,6 +158,8 @@ describe('useReapitGet', () => {
 
   it('should wait to fetch until a known parm is true', async () => {
     const reapitConnectBrowserSession = {} as unknown as ReapitConnectBrowserSession
+    const controller = new AbortController()
+    const signal = controller.signal
     const mockFetchParams = {
       action: getActions('local')['actionName'],
       connectSession: {
@@ -157,6 +167,8 @@ describe('useReapitGet', () => {
       },
       headers: undefined,
       logger,
+      uriParams: undefined,
+      signal,
     }
 
     const { result, waitForNextUpdate, rerender } = renderHook<
@@ -206,6 +218,8 @@ describe('useReapitGet', () => {
     mockFetcher.mockReturnValue('Some error message')
 
     const reapitConnectBrowserSession = {} as unknown as ReapitConnectBrowserSession
+    const controller = new AbortController()
+    const signal = controller.signal
     const mockFetchParams = {
       action: getActions('local')['actionName'],
       connectSession: {
@@ -214,6 +228,8 @@ describe('useReapitGet', () => {
       queryParams: undefined,
       headers: undefined,
       logger,
+      uriParams: undefined,
+      signal,
     }
 
     const { result, waitForNextUpdate } = renderHook<{}, ReapitGetState<typeof mockData>>(() =>
