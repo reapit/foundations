@@ -1,5 +1,7 @@
 import 'source-map-support/register'
 
+import { execSync } from 'child_process'
+
 import { createApi, createFunction, createTable, output, createBaseStack } from '@reapit/ts-scripts/src/cdk'
 
 export const createStack = () => {
@@ -19,7 +21,14 @@ export const createStack = () => {
       partitionKeyName: 'subdomain',
     },
   ])
-
+  execSync('yarn build', {
+    cwd: __dirname,
+    stdio: 'inherit',
+  })
+  execSync('yarn bundle', {
+    cwd: __dirname,
+    stdio: 'inherit',
+  })
   const handler = 'packages/app-builder-backend/src/lambda.handler'
   const lambdaFunction = createFunction(stack, 'graphql-backend', './bundle.zip', handler, {
     APPS_TABLE_NAME: appsTable.tableName,
