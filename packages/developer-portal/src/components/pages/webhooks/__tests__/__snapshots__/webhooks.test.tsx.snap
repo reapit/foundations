@@ -2366,7 +2366,7 @@ Object {
             />
           </div>
           <div
-            class="elkdvoz-el-table"
+            class="ec47sgk-el-mb11 elkdvoz-el-table"
             data-has-call-to-action="false"
             data-has-expandable-action="true"
             data-num-columns-excl-action-col="4"
@@ -2516,6 +2516,59 @@ Object {
                 </div>
               </div>
             </div>
+          </div>
+          <div
+            class="e1nnyshg-el-pagination-wrap"
+          >
+            <div
+              class="ex6bmfc-el-pagination-text"
+            >
+              <strong>
+                1
+              </strong>
+               of 
+              1
+            </div>
+            <button
+              class="e1yynswi-el-pagination-button"
+            >
+              <span
+                class="ej9yrfo-el-icon"
+              >
+                <svg
+                  fill="none"
+                  height="1em"
+                  viewBox="0 0 12 12"
+                  width="1em"
+                  xmlns="http://www.w3.org/2000/svg"
+                >
+                  <path
+                    d="M2 5.5L8 9.39711L8 1.60289L2 5.5Z"
+                    fill="currentColor"
+                  />
+                </svg>
+              </span>
+            </button>
+            <button
+              class="e1yynswi-el-pagination-button"
+            >
+              <span
+                class="ej9yrfo-el-icon"
+              >
+                <svg
+                  fill="none"
+                  height="1em"
+                  viewBox="0 0 12 12"
+                  width="1em"
+                  xmlns="http://www.w3.org/2000/svg"
+                >
+                  <path
+                    d="M9 5.5L3 9.39711L3 1.60289L9 5.5Z"
+                    fill="currentColor"
+                  />
+                </svg>
+              </span>
+            </button>
           </div>
         </section>
       </div>
@@ -2685,7 +2738,7 @@ Object {
           />
         </div>
         <div
-          class="elkdvoz-el-table"
+          class="ec47sgk-el-mb11 elkdvoz-el-table"
           data-has-call-to-action="false"
           data-has-expandable-action="true"
           data-num-columns-excl-action-col="4"
@@ -2835,6 +2888,59 @@ Object {
               </div>
             </div>
           </div>
+        </div>
+        <div
+          class="e1nnyshg-el-pagination-wrap"
+        >
+          <div
+            class="ex6bmfc-el-pagination-text"
+          >
+            <strong>
+              1
+            </strong>
+             of 
+            1
+          </div>
+          <button
+            class="e1yynswi-el-pagination-button"
+          >
+            <span
+              class="ej9yrfo-el-icon"
+            >
+              <svg
+                fill="none"
+                height="1em"
+                viewBox="0 0 12 12"
+                width="1em"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <path
+                  d="M2 5.5L8 9.39711L8 1.60289L2 5.5Z"
+                  fill="currentColor"
+                />
+              </svg>
+            </span>
+          </button>
+          <button
+            class="e1yynswi-el-pagination-button"
+          >
+            <span
+              class="ej9yrfo-el-icon"
+            >
+              <svg
+                fill="none"
+                height="1em"
+                viewBox="0 0 12 12"
+                width="1em"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <path
+                  d="M9 5.5L3 9.39711L3 1.60289L9 5.5Z"
+                  fill="currentColor"
+                />
+              </svg>
+            </span>
+          </button>
         </div>
       </section>
     </div>
@@ -4771,7 +4877,7 @@ Object {
         class="ecbqyq6-el-snack-holder"
       />
       <div
-        class="elkdvoz-el-table"
+        class="ec47sgk-el-mb11 elkdvoz-el-table"
         data-has-call-to-action="false"
         data-has-expandable-action="true"
         data-num-columns-excl-action-col="4"
@@ -4922,6 +5028,59 @@ Object {
           </div>
         </div>
       </div>
+      <div
+        class="e1nnyshg-el-pagination-wrap"
+      >
+        <div
+          class="ex6bmfc-el-pagination-text"
+        >
+          <strong>
+            1
+          </strong>
+           of 
+          1
+        </div>
+        <button
+          class="e1yynswi-el-pagination-button"
+        >
+          <span
+            class="ej9yrfo-el-icon"
+          >
+            <svg
+              fill="none"
+              height="1em"
+              viewBox="0 0 12 12"
+              width="1em"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <path
+                d="M2 5.5L8 9.39711L8 1.60289L2 5.5Z"
+                fill="currentColor"
+              />
+            </svg>
+          </span>
+        </button>
+        <button
+          class="e1yynswi-el-pagination-button"
+        >
+          <span
+            class="ej9yrfo-el-icon"
+          >
+            <svg
+              fill="none"
+              height="1em"
+              viewBox="0 0 12 12"
+              width="1em"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <path
+                d="M9 5.5L3 9.39711L3 1.60289L9 5.5Z"
+                fill="currentColor"
+              />
+            </svg>
+          </span>
+        </button>
+      </div>
     </div>
   </body>,
   "container": <div>
@@ -4929,7 +5088,7 @@ Object {
       class="ecbqyq6-el-snack-holder"
     />
     <div
-      class="elkdvoz-el-table"
+      class="ec47sgk-el-mb11 elkdvoz-el-table"
       data-has-call-to-action="false"
       data-has-expandable-action="true"
       data-num-columns-excl-action-col="4"
@@ -5079,6 +5238,59 @@ Object {
           </div>
         </div>
       </div>
+    </div>
+    <div
+      class="e1nnyshg-el-pagination-wrap"
+    >
+      <div
+        class="ex6bmfc-el-pagination-text"
+      >
+        <strong>
+          1
+        </strong>
+         of 
+        1
+      </div>
+      <button
+        class="e1yynswi-el-pagination-button"
+      >
+        <span
+          class="ej9yrfo-el-icon"
+        >
+          <svg
+            fill="none"
+            height="1em"
+            viewBox="0 0 12 12"
+            width="1em"
+            xmlns="http://www.w3.org/2000/svg"
+          >
+            <path
+              d="M2 5.5L8 9.39711L8 1.60289L2 5.5Z"
+              fill="currentColor"
+            />
+          </svg>
+        </span>
+      </button>
+      <button
+        class="e1yynswi-el-pagination-button"
+      >
+        <span
+          class="ej9yrfo-el-icon"
+        >
+          <svg
+            fill="none"
+            height="1em"
+            viewBox="0 0 12 12"
+            width="1em"
+            xmlns="http://www.w3.org/2000/svg"
+          >
+            <path
+              d="M9 5.5L3 9.39711L3 1.60289L9 5.5Z"
+              fill="currentColor"
+            />
+          </svg>
+        </span>
+      </button>
     </div>
   </div>,
   "debug": [Function],

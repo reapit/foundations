@@ -53,8 +53,8 @@ describe('developer fetch subscription data', () => {
 
   expect(gen.next().value).toEqual(
     all([
-      call(fetchWebhooksTopicsListApi, { applicationId }),
-      call(fetchInstallationsList, { appId: [applicationId] }),
+      call(fetchWebhooksTopicsListApi, { applicationId, pageSize: 999 }),
+      call(fetchInstallationsList, { appId: [applicationId], pageSize: 999 }),
     ]),
   )
 
