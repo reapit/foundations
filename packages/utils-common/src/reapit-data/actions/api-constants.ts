@@ -10,6 +10,7 @@ export const ApiNames = (appEnv: AppEnv) => {
 
 export enum PathNames {
   apps = '/marketplace/apps',
+  appsId = '/marketplace/apps/{appId}',
   installations = '/marketplace/installations',
   getPipeline = '/pipeline/{appId}',
   products = '/marketplace/products',
@@ -26,4 +27,8 @@ export enum PathNames {
   developerById = '/marketplace/developers/{developerId}',
   customersById = '/marketplace/customers/{customerId}',
   developers = '/marketplace/developers',
+  appSecretById = '/marketplace/apps/{appId}/secret',
+  desktopIntegrationTypes = '/marketplace/desktopIntegrationTypes',
+  appCategories = '/marketplace/categories',
+  appRevision = '/marketplace/apps/{appId}/revisions',
 }

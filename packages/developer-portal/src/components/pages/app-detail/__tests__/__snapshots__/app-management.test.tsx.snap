@@ -7,7 +7,6 @@ exports[`ManageApp should match snapshot 1`] = `
   <Button
     className="mb-2"
     dataTest="detail-modal-edit-button"
-    fullWidth={true}
     onClick={[Function]}
     type="button"
     variant="primary"
@@ -16,7 +15,6 @@ exports[`ManageApp should match snapshot 1`] = `
   </Button>
   <Button
     className="mb-2"
-    fullWidth={true}
     onClick={[Function]}
     variant="danger"
   >

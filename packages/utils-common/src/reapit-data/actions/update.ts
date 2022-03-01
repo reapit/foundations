@@ -15,6 +15,8 @@ export enum UpdateActionNames {
   updateDeveloper = 'updateDeveloper',
   updateCustomer = 'updateCustomer',
   createDeveloper = 'createDeveloper',
+  deleteApp = 'deleteApp',
+  createAppRevsion = 'createAppRevsion',
 }
 
 export type UpdateActions = { [key in UpdateActionNames]: UpdateAction }
@@ -33,6 +35,12 @@ export const updateActions = (appEnv: AppEnv): UpdateActions => ({
     path: PathNames.apps,
     errorMessage: 'Something went wrong creating your app, please check for errors and resubmit.',
     successMessage: 'Your app has been successfully created',
+  },
+  [UpdateActionNames.deleteApp]: {
+    api: ApiNames(appEnv).platform,
+    path: PathNames.appsId,
+    errorMessage: 'Something went wrong deleting your app, please try again.',
+    successMessage: 'Your app has been successfully deleted',
   },
   [UpdateActionNames.createApiKeyByMember]: {
     api: ApiNames(appEnv).apiKey,
@@ -54,5 +62,11 @@ export const updateActions = (appEnv: AppEnv): UpdateActions => ({
     path: PathNames.developers,
     errorMessage: 'Failed to create developer organisation, please try again',
     successMessage: 'Your developer account has been successfully created',
+  },
+  [UpdateActionNames.createAppRevsion]: {
+    api: ApiNames(appEnv).platform,
+    path: PathNames.appRevision,
+    errorMessage: 'Failed to create an app revision, please check for errors and try again',
+    successMessage: 'App revision created successfully',
   },
 })

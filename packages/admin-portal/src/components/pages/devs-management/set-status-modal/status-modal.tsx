@@ -88,7 +88,7 @@ export const StatusModal: React.FC<StatusModalProps> = ({ visible, developer, re
   const { company, status, reapitReference } = developer
   const initialValues = {
     status,
-    reapitReference,
+    reapitReference: reapitReference ?? '',
   }
   return (
     <Formik

@@ -1,4 +1,5 @@
 import { History } from 'history'
+import { MouseEvent } from 'react'
 
 export enum ExternalPages {
   platformAPIDocs = 'https://foundations-documentation.reapit.cloud/api/api-documentation',
@@ -16,10 +17,13 @@ export const openNewPage = (uri: ExternalPages | string) => () => {
   window.open(uri, '_blank')
 }
 
-export const navigate = (history: History, route: string) => (): void => {
-  history.push(route)
-  // GQL playground unsets the page title - need to reset this to the correct value
-  if (document.title !== 'Developers') {
-    document.title = 'Developers'
+export const navigate =
+  (history: History, route: string) =>
+  (event?: MouseEvent): void => {
+    event?.stopPropagation()
+    history.push(route)
+    // GQL playground unsets the page title - need to reset this to the correct value
+    if (document.title !== 'Developers') {
+      document.title = 'Developers'
+    }
   }
-}
