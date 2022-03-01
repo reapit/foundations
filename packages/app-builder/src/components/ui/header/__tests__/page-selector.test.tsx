@@ -1,5 +1,5 @@
 import * as React from 'react'
-import { render, screen } from '@testing-library/react'
+import { render } from '@testing-library/react'
 import { PageSelector } from '../PageSelector'
 import { MockedProvider } from '@apollo/client/testing'
 import routeData from 'react-router'
@@ -20,11 +20,11 @@ describe('PageSelector', () => {
     jest.spyOn(routeData, 'useLocation').mockReturnValue(mockLocation)
   })
   it('should match a snapshot', () => {
-    render(
+    const { asFragment } = render(
       <MockedProvider>
         <PageSelector pageId="" onChange={() => {}} />
       </MockedProvider>,
     )
-    expect(screen).toMatchSnapshot()
+    expect(asFragment()).toMatchSnapshot()
   })
 })

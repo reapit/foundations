@@ -1,5 +1,5 @@
 import * as React from 'react'
-import { render, screen } from '@testing-library/react'
+import { render } from '@testing-library/react'
 import { PrivateRouteWrapper } from '../private-route-wrapper'
 import { ReapitConnectBrowserSession } from '@reapit/connect-session'
 
@@ -20,18 +20,17 @@ jest.mock('@reapit/connect-session', () => ({
 
 describe('PrivateRouter', () => {
   it('should match a snapshot', () => {
-    expect(
-      render(
-        <PrivateRouteWrapper
-          reapitConnectBrowserSession={
-            new ReapitConnectBrowserSession({
-              connectClientId: '',
-              connectOAuthUrl: '',
-              connectUserPoolId: '',
-            })
-          }
-        />,
-      ),
-    ).toMatchSnapshot()
+    const { asFragment } = render(
+      <PrivateRouteWrapper
+        reapitConnectBrowserSession={
+          new ReapitConnectBrowserSession({
+            connectClientId: '',
+            connectOAuthUrl: '',
+            connectUserPoolId: '',
+          })
+        }
+      />,
+    )
+    expect(asFragment()).toMatchSnapshot()
   })
 })

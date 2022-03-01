@@ -1,18 +1,25 @@
 import * as React from 'react'
-import { render, screen } from '@testing-library/react'
+import { render } from '@testing-library/react'
 import { RenderNode } from '../index'
 import { MockedProvider } from '@apollo/client/testing'
-import { Editor } from '@craftjs/core'
+
+jest.mock('@craftjs/core', () => {
+  return {
+    useEditor: () => ({}),
+    useNode: () => ({
+      connectors: {},
+      actions: {},
+    }),
+  }
+})
 
 describe('RenderNode', () => {
   it('should match a snapshot', () => {
-    render(
+    const { asFragment } = render(
       <MockedProvider>
-        <Editor>
-          <RenderNode render={<></>} iframeRef={{}} />
-        </Editor>
+        <RenderNode render={<></>} iframeRef={{}} />
       </MockedProvider>,
     )
-    expect(screen).toMatchSnapshot()
+    expect(asFragment()).toMatchSnapshot()
   })
 })

@@ -1,83 +1,82 @@
 import * as React from 'react'
-import { render, screen } from '@testing-library/react'
+import { render } from '@testing-library/react'
 import { ToolbarItem } from '../toolbar-item'
 import { ToolbarItemType } from '../types'
-import { Editor } from '@craftjs/core'
+
+jest.mock('@craftjs/core', () => {
+  return {
+    useEditor: () => ({}),
+    useNode: () => ({
+      connectors: {},
+      actions: {},
+    }),
+  }
+})
 
 describe('ToolbarItem', () => {
   it('should match a snapshot - Text', () => {
-    render(
-      <Editor>
-        <ToolbarItem
-          title={''}
-          onChange={function (): void {
-            throw new Error('Function not implemented.')
-          }}
-          propKey={''}
-          type={ToolbarItemType.Text}
-        />
-      </Editor>,
+    const { asFragment } = render(
+      <ToolbarItem
+        title={''}
+        onChange={function (): void {
+          throw new Error('Function not implemented.')
+        }}
+        propKey={''}
+        type={ToolbarItemType.Text}
+      />,
     )
-    expect(screen).toMatchSnapshot()
+    expect(asFragment()).toMatchSnapshot()
   })
   it('should match a snapshot - Number', () => {
-    render(
-      <Editor>
-        <ToolbarItem
-          title={''}
-          onChange={function (): void {
-            throw new Error('Function not implemented.')
-          }}
-          propKey={''}
-          type={ToolbarItemType.Number}
-        />
-      </Editor>,
+    const { asFragment } = render(
+      <ToolbarItem
+        title={''}
+        onChange={function (): void {
+          throw new Error('Function not implemented.')
+        }}
+        propKey={''}
+        type={ToolbarItemType.Number}
+      />,
     )
-    expect(screen).toMatchSnapshot()
+    expect(asFragment()).toMatchSnapshot()
   })
   it('should match a snapshot - Select', () => {
-    render(
-      <Editor>
-        <ToolbarItem
-          title={''}
-          onChange={function (): void {
-            throw new Error('Function not implemented.')
-          }}
-          propKey={''}
-          type={ToolbarItemType.Select}
-        />
-      </Editor>,
+    const { asFragment } = render(
+      <ToolbarItem
+        title={''}
+        onChange={function (): void {
+          throw new Error('Function not implemented.')
+        }}
+        propKey={''}
+        type={ToolbarItemType.Select}
+      />,
     )
-    expect(screen).toMatchSnapshot()
+    expect(asFragment()).toMatchSnapshot()
   })
   it('should match a snapshot - Slider', () => {
-    render(
-      <Editor>
-        <ToolbarItem
-          title={''}
-          onChange={function (): void {
-            throw new Error('Function not implemented.')
-          }}
-          propKey={''}
-          type={ToolbarItemType.Slider}
-        />
-      </Editor>,
+    const { asFragment } = render(
+      <ToolbarItem
+        title={''}
+        onChange={function (): void {
+          throw new Error('Function not implemented.')
+        }}
+        propKey={''}
+        type={ToolbarItemType.Slider}
+      />,
     )
-    expect(screen).toMatchSnapshot()
+    expect(asFragment()).toMatchSnapshot()
   })
   it('should match a snapshot - Radio', () => {
-    render(
-      <Editor>
-        <ToolbarItem
-          title={''}
-          onChange={function (): void {
-            throw new Error('Function not implemented.')
-          }}
-          propKey={''}
-          type={ToolbarItemType.Radio}
-        />
-      </Editor>,
+    const { asFragment } = render(
+      <ToolbarItem
+        title={''}
+        onChange={function (): void {
+          throw new Error('Function not implemented.')
+        }}
+        propKey={''}
+        type={ToolbarItemType.Radio}
+      />,
     )
-    expect(screen).toMatchSnapshot()
+    expect(asFragment()).toMatchSnapshot()
   })
 })

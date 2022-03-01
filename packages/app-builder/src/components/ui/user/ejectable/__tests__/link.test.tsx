@@ -1,5 +1,5 @@
 import * as React from 'react'
-import { render, screen } from '@testing-library/react'
+import { render } from '@testing-library/react'
 import routeData from 'react-router'
 import { Link } from '../link'
 import { MemoryRouter } from 'react-router-dom'
@@ -20,11 +20,11 @@ describe('Link', () => {
     jest.spyOn(routeData, 'useLocation').mockReturnValue(mockLocation)
   })
   it('should match a snapshot', () => {
-    render(
+    const { asFragment } = render(
       <MemoryRouter>
         <Link width={0} />
       </MemoryRouter>,
     )
-    expect(screen).toMatchSnapshot()
+    expect(asFragment()).toMatchSnapshot()
   })
 })

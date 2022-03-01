@@ -1,11 +1,11 @@
 import * as React from 'react'
-import { render, screen } from '@testing-library/react'
+import { render } from '@testing-library/react'
 import { ToolbarTextInput } from '../toolbar-text-input'
 import { ToolbarItemType } from '..'
 
 describe('ToolbarRadio', () => {
   it('should match a snapshot - Text', () => {
-    render(
+    const { asFragment } = render(
       <ToolbarTextInput
         value={''}
         type={ToolbarItemType.Text}
@@ -14,10 +14,10 @@ describe('ToolbarRadio', () => {
         }}
       />,
     )
-    expect(screen).toMatchSnapshot()
+    expect(asFragment()).toMatchSnapshot()
   })
   it('should match a snapshot - Number', () => {
-    render(
+    const { asFragment } = render(
       <ToolbarTextInput
         value={''}
         type={ToolbarItemType.Number}
@@ -26,10 +26,10 @@ describe('ToolbarRadio', () => {
         }}
       />,
     )
-    expect(screen).toMatchSnapshot()
+    expect(asFragment()).toMatchSnapshot()
   })
   it('should match a snapshot - Radio', () => {
-    render(
+    const { asFragment } = render(
       <ToolbarTextInput
         value={''}
         type={ToolbarItemType.Radio}
@@ -38,10 +38,10 @@ describe('ToolbarRadio', () => {
         }}
       />,
     )
-    expect(screen).toMatchSnapshot()
+    expect(asFragment()).toMatchSnapshot()
   })
   it('should match a snapshot - Select', () => {
-    render(
+    const { asFragment } = render(
       <ToolbarTextInput
         value={''}
         type={ToolbarItemType.Select}
@@ -50,10 +50,10 @@ describe('ToolbarRadio', () => {
         }}
       />,
     )
-    expect(screen).toMatchSnapshot()
+    expect(asFragment()).toMatchSnapshot()
   })
   it('should match a snapshot - Slider', () => {
-    render(
+    const { asFragment } = render(
       <ToolbarTextInput
         value={''}
         type={ToolbarItemType.Slider}
@@ -62,6 +62,6 @@ describe('ToolbarRadio', () => {
         }}
       />,
     )
-    expect(screen).toMatchSnapshot()
+    expect(asFragment()).toMatchSnapshot()
   })
 })

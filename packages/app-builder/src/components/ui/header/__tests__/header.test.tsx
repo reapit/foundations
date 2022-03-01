@@ -1,5 +1,5 @@
 import * as React from 'react'
-import { render, screen } from '@testing-library/react'
+import { render } from '@testing-library/react'
 import Header from '../index'
 import { MockedProvider } from '@apollo/client/testing'
 import routeData from 'react-router'
@@ -21,24 +21,24 @@ describe('Header', () => {
     jest.spyOn(routeData, 'useLocation').mockReturnValue(mockLocation)
   })
   it('should match a snapshot', () => {
-    render(
+    const { asFragment } = render(
       <MockedProvider>
         <Editor>
           <Header isSaving={false} />
         </Editor>
       </MockedProvider>,
     )
-    expect(screen).toMatchSnapshot()
+    expect(asFragment()).toMatchSnapshot()
   })
 
   it('should match a snapshot - saving', () => {
-    render(
+    const { asFragment } = render(
       <MockedProvider>
         <Editor>
           <Header isSaving={true} />
         </Editor>
       </MockedProvider>,
     )
-    expect(screen).toMatchSnapshot()
+    expect(asFragment()).toMatchSnapshot()
   })
 })

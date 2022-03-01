@@ -1,5 +1,5 @@
 import * as React from 'react'
-import { render, screen } from '@testing-library/react'
+import { render } from '@testing-library/react'
 import routeData from 'react-router'
 import { MockedProvider } from '@apollo/client/testing'
 import { Viewport } from '../index'
@@ -39,7 +39,7 @@ describe('Viewport', () => {
     jest.spyOn(routeData, 'useLocation').mockReturnValue(mockLocation)
   })
   it('should match a snapshot', () => {
-    render(
+    const { asFragment } = render(
       <MockedProvider>
         <Editor>
           <Viewport isSaving={false} iframeRef={undefined} deserialize={() => {}} rendererDivRefHandler={() => {}}>
@@ -48,11 +48,11 @@ describe('Viewport', () => {
         </Editor>
       </MockedProvider>,
     )
-    expect(screen).toMatchSnapshot()
+    expect(asFragment()).toMatchSnapshot()
   })
 
   it('should match a snapshot - saving', () => {
-    render(
+    const { asFragment } = render(
       <MockedProvider>
         <Editor>
           <Viewport isSaving iframeRef={undefined} deserialize={() => {}} rendererDivRefHandler={() => {}}>
@@ -61,6 +61,6 @@ describe('Viewport', () => {
         </Editor>
       </MockedProvider>,
     )
-    expect(screen).toMatchSnapshot()
+    expect(asFragment()).toMatchSnapshot()
   })
 })

@@ -1,111 +1,429 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`Header should match a snapshot - saving 1`] = `
-Object {
-  "debug": [Function],
-  "findAllByAltText": [Function],
-  "findAllByDisplayValue": [Function],
-  "findAllByLabelText": [Function],
-  "findAllByPlaceholderText": [Function],
-  "findAllByRole": [Function],
-  "findAllByTestId": [Function],
-  "findAllByText": [Function],
-  "findAllByTitle": [Function],
-  "findByAltText": [Function],
-  "findByDisplayValue": [Function],
-  "findByLabelText": [Function],
-  "findByPlaceholderText": [Function],
-  "findByRole": [Function],
-  "findByTestId": [Function],
-  "findByText": [Function],
-  "findByTitle": [Function],
-  "getAllByAltText": [Function],
-  "getAllByDisplayValue": [Function],
-  "getAllByLabelText": [Function],
-  "getAllByPlaceholderText": [Function],
-  "getAllByRole": [Function],
-  "getAllByTestId": [Function],
-  "getAllByText": [Function],
-  "getAllByTitle": [Function],
-  "getByAltText": [Function],
-  "getByDisplayValue": [Function],
-  "getByLabelText": [Function],
-  "getByPlaceholderText": [Function],
-  "getByRole": [Function],
-  "getByTestId": [Function],
-  "getByText": [Function],
-  "getByTitle": [Function],
-  "logTestingPlaygroundURL": [Function],
-  "queryAllByAltText": [Function],
-  "queryAllByDisplayValue": [Function],
-  "queryAllByLabelText": [Function],
-  "queryAllByPlaceholderText": [Function],
-  "queryAllByRole": [Function],
-  "queryAllByTestId": [Function],
-  "queryAllByText": [Function],
-  "queryAllByTitle": [Function],
-  "queryByAltText": [Function],
-  "queryByDisplayValue": [Function],
-  "queryByLabelText": [Function],
-  "queryByPlaceholderText": [Function],
-  "queryByRole": [Function],
-  "queryByTestId": [Function],
-  "queryByText": [Function],
-  "queryByTitle": [Function],
-}
+<DocumentFragment>
+  <div
+    class="el-flex-justify-center header el-flex-container"
+  >
+    <div
+      class="el-flex-justify-end el-flex-align-center el-flex1 el-mt-auto el-mb-auto el-pr1 el-flex-container"
+    >
+      <div
+        class="el-flex el-flex1"
+      >
+        <a
+          class="item disabled"
+          currentitem="false"
+          data-tip="Undo"
+        >
+          <svg
+            height="18"
+            viewBox="0 0 18 18"
+            width="18"
+            xmlns="http://www.w3.org/2000/svg"
+          >
+            <title>
+              Undo
+            </title>
+            <rect
+              fill="white"
+              height="18"
+              id="Canvas"
+              opacity="0"
+              width="18"
+            />
+            <path
+              d="M15.3315,6.271A5.19551,5.19551,0,0,0,11.8355,5H5.5V2.4A.4.4,0,0,0,5.1,2a.39352.39352,0,0,0-.2635.1L1.072,5.8245a.25.25,0,0,0,0,.35L4.834,9.9a.39352.39352,0,0,0,.2635.1.4.4,0,0,0,.4-.4V7h6.441A3.06949,3.06949,0,0,1,15.05,9.9a2.9445,2.9445,0,0,1-2.78274,3.09783Q12.13375,13.005,12,13H8.5a.5.5,0,0,0-.5.5v1a.5.5,0,0,0,.5.5h3.263a5.16751,5.16751,0,0,0,5.213-4.5065A4.97351,4.97351,0,0,0,15.3315,6.271Z"
+              fill="white"
+            />
+          </svg>
+        </a>
+        <a
+          class="item disabled"
+          currentitem="false"
+          data-tip="Redo"
+        >
+          <svg
+            height="18"
+            viewBox="0 0 18 18"
+            width="18"
+            xmlns="http://www.w3.org/2000/svg"
+          >
+            <title>
+              Redo
+            </title>
+            <rect
+              fill="white"
+              height="18"
+              id="Canvas"
+              opacity="0"
+              width="18"
+            />
+            <path
+              d="M2.6685,6.271A5.19551,5.19551,0,0,1,6.1645,5H12.5V2.4a.4.4,0,0,1,.4-.4.39352.39352,0,0,1,.2635.1l3.762,3.7225a.25.25,0,0,1,0,.35L13.166,9.9a.39352.39352,0,0,1-.2635.1.4.4,0,0,1-.4-.4V7H6.0615A3.06949,3.06949,0,0,0,2.95,9.9a2.9445,2.9445,0,0,0,2.78274,3.09783Q5.86626,13.005,6,13H9.5a.5.5,0,0,1,.5.5v1a.5.5,0,0,1-.5.5H6.237a5.16751,5.16751,0,0,1-5.213-4.5065A4.97349,4.97349,0,0,1,2.6685,6.271Z"
+              fill="white"
+            />
+          </svg>
+        </a>
+      </div>
+      <div
+        class="el-flex1 el-flex el-flex-align-center el-flex-justify-start"
+      >
+        <select
+          class="el-select"
+          id="page_selector"
+          name="page_selector"
+          style="max-width: 150px;"
+        />
+        <button
+          class="el-m1 el-button"
+        >
+          New
+        </button>
+      </div>
+      <span
+        class="el-mr4 el-text-right"
+        style="color: white; width: 100px;"
+      >
+        Saving...
+      </span>
+      <div
+        class="el-button-group"
+      >
+        <div
+          class="el-button-group-inner"
+        >
+          <button
+            class="el-intent-danger el-button-size2 el-button"
+          >
+            delete page
+          </button>
+          <button
+            class="transition cursor-pointer bg-green-400 el-intent-success el-button-size2 el-button"
+          >
+            <div
+              class="button-icon"
+            >
+              <svg
+                viewBox="0 0 18 18"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <rect
+                  fill="#ff13dc"
+                  height="18"
+                  id="Canvas"
+                  opacity="0"
+                  width="18"
+                />
+                <path
+                  d="M15.656,3.8625l-.7275-.5665a.5.5,0,0,0-.7.0875L7.411,12.1415,4.0875,8.8355a.5.5,0,0,0-.707,0L2.718,9.5a.5.5,0,0,0,0,.707l4.463,4.45a.5.5,0,0,0,.75-.0465L15.7435,4.564A.5.5,0,0,0,15.656,3.8625Z"
+                />
+              </svg>
+            </div>
+            Preview
+          </button>
+        </div>
+      </div>
+    </div>
+    <div
+      class="__react_component_tooltip ta10ace27-49a0-4980-9400-19bff3c559aa place-bottom type-dark"
+      data-id="tooltip"
+      id="ta10ace27-49a0-4980-9400-19bff3c559aa"
+    >
+      <style
+        aria-hidden="true"
+      >
+        
+  	.ta10ace27-49a0-4980-9400-19bff3c559aa {
+	    color: #fff;
+	    background: #222;
+	    border: 1px solid transparent;
+  	}
+
+  	.ta10ace27-49a0-4980-9400-19bff3c559aa.place-top {
+        margin-top: -10px;
+    }
+    .ta10ace27-49a0-4980-9400-19bff3c559aa.place-top::before {
+        border-top: 8px solid transparent;
+    }
+    .ta10ace27-49a0-4980-9400-19bff3c559aa.place-top::after {
+        border-left: 8px solid transparent;
+        border-right: 8px solid transparent;
+        bottom: -6px;
+        left: 50%;
+        margin-left: -8px;
+        border-top-color: #222;
+        border-top-style: solid;
+        border-top-width: 6px;
+    }
+
+    .ta10ace27-49a0-4980-9400-19bff3c559aa.place-bottom {
+        margin-top: 10px;
+    }
+    .ta10ace27-49a0-4980-9400-19bff3c559aa.place-bottom::before {
+        border-bottom: 8px solid transparent;
+    }
+    .ta10ace27-49a0-4980-9400-19bff3c559aa.place-bottom::after {
+        border-left: 8px solid transparent;
+        border-right: 8px solid transparent;
+        top: -6px;
+        left: 50%;
+        margin-left: -8px;
+        border-bottom-color: #222;
+        border-bottom-style: solid;
+        border-bottom-width: 6px;
+    }
+
+    .ta10ace27-49a0-4980-9400-19bff3c559aa.place-left {
+        margin-left: -10px;
+    }
+    .ta10ace27-49a0-4980-9400-19bff3c559aa.place-left::before {
+        border-left: 8px solid transparent;
+    }
+    .ta10ace27-49a0-4980-9400-19bff3c559aa.place-left::after {
+        border-top: 5px solid transparent;
+        border-bottom: 5px solid transparent;
+        right: -6px;
+        top: 50%;
+        margin-top: -4px;
+        border-left-color: #222;
+        border-left-style: solid;
+        border-left-width: 6px;
+    }
+
+    .ta10ace27-49a0-4980-9400-19bff3c559aa.place-right {
+        margin-left: 10px;
+    }
+    .ta10ace27-49a0-4980-9400-19bff3c559aa.place-right::before {
+        border-right: 8px solid transparent;
+    }
+    .ta10ace27-49a0-4980-9400-19bff3c559aa.place-right::after {
+        border-top: 5px solid transparent;
+        border-bottom: 5px solid transparent;
+        left: -6px;
+        top: 50%;
+        margin-top: -4px;
+        border-right-color: #222;
+        border-right-style: solid;
+        border-right-width: 6px;
+    }
+  
+      </style>
+    </div>
+  </div>
+</DocumentFragment>
 `;
 
 exports[`Header should match a snapshot 1`] = `
-Object {
-  "debug": [Function],
-  "findAllByAltText": [Function],
-  "findAllByDisplayValue": [Function],
-  "findAllByLabelText": [Function],
-  "findAllByPlaceholderText": [Function],
-  "findAllByRole": [Function],
-  "findAllByTestId": [Function],
-  "findAllByText": [Function],
-  "findAllByTitle": [Function],
-  "findByAltText": [Function],
-  "findByDisplayValue": [Function],
-  "findByLabelText": [Function],
-  "findByPlaceholderText": [Function],
-  "findByRole": [Function],
-  "findByTestId": [Function],
-  "findByText": [Function],
-  "findByTitle": [Function],
-  "getAllByAltText": [Function],
-  "getAllByDisplayValue": [Function],
-  "getAllByLabelText": [Function],
-  "getAllByPlaceholderText": [Function],
-  "getAllByRole": [Function],
-  "getAllByTestId": [Function],
-  "getAllByText": [Function],
-  "getAllByTitle": [Function],
-  "getByAltText": [Function],
-  "getByDisplayValue": [Function],
-  "getByLabelText": [Function],
-  "getByPlaceholderText": [Function],
-  "getByRole": [Function],
-  "getByTestId": [Function],
-  "getByText": [Function],
-  "getByTitle": [Function],
-  "logTestingPlaygroundURL": [Function],
-  "queryAllByAltText": [Function],
-  "queryAllByDisplayValue": [Function],
-  "queryAllByLabelText": [Function],
-  "queryAllByPlaceholderText": [Function],
-  "queryAllByRole": [Function],
-  "queryAllByTestId": [Function],
-  "queryAllByText": [Function],
-  "queryAllByTitle": [Function],
-  "queryByAltText": [Function],
-  "queryByDisplayValue": [Function],
-  "queryByLabelText": [Function],
-  "queryByPlaceholderText": [Function],
-  "queryByRole": [Function],
-  "queryByTestId": [Function],
-  "queryByText": [Function],
-  "queryByTitle": [Function],
-}
+<DocumentFragment>
+  <div
+    class="el-flex-justify-center header el-flex-container"
+  >
+    <div
+      class="el-flex-justify-end el-flex-align-center el-flex1 el-mt-auto el-mb-auto el-pr1 el-flex-container"
+    >
+      <div
+        class="el-flex el-flex1"
+      >
+        <a
+          class="item disabled"
+          currentitem="false"
+          data-tip="Undo"
+        >
+          <svg
+            height="18"
+            viewBox="0 0 18 18"
+            width="18"
+            xmlns="http://www.w3.org/2000/svg"
+          >
+            <title>
+              Undo
+            </title>
+            <rect
+              fill="white"
+              height="18"
+              id="Canvas"
+              opacity="0"
+              width="18"
+            />
+            <path
+              d="M15.3315,6.271A5.19551,5.19551,0,0,0,11.8355,5H5.5V2.4A.4.4,0,0,0,5.1,2a.39352.39352,0,0,0-.2635.1L1.072,5.8245a.25.25,0,0,0,0,.35L4.834,9.9a.39352.39352,0,0,0,.2635.1.4.4,0,0,0,.4-.4V7h6.441A3.06949,3.06949,0,0,1,15.05,9.9a2.9445,2.9445,0,0,1-2.78274,3.09783Q12.13375,13.005,12,13H8.5a.5.5,0,0,0-.5.5v1a.5.5,0,0,0,.5.5h3.263a5.16751,5.16751,0,0,0,5.213-4.5065A4.97351,4.97351,0,0,0,15.3315,6.271Z"
+              fill="white"
+            />
+          </svg>
+        </a>
+        <a
+          class="item disabled"
+          currentitem="false"
+          data-tip="Redo"
+        >
+          <svg
+            height="18"
+            viewBox="0 0 18 18"
+            width="18"
+            xmlns="http://www.w3.org/2000/svg"
+          >
+            <title>
+              Redo
+            </title>
+            <rect
+              fill="white"
+              height="18"
+              id="Canvas"
+              opacity="0"
+              width="18"
+            />
+            <path
+              d="M2.6685,6.271A5.19551,5.19551,0,0,1,6.1645,5H12.5V2.4a.4.4,0,0,1,.4-.4.39352.39352,0,0,1,.2635.1l3.762,3.7225a.25.25,0,0,1,0,.35L13.166,9.9a.39352.39352,0,0,1-.2635.1.4.4,0,0,1-.4-.4V7H6.0615A3.06949,3.06949,0,0,0,2.95,9.9a2.9445,2.9445,0,0,0,2.78274,3.09783Q5.86626,13.005,6,13H9.5a.5.5,0,0,1,.5.5v1a.5.5,0,0,1-.5.5H6.237a5.16751,5.16751,0,0,1-5.213-4.5065A4.97349,4.97349,0,0,1,2.6685,6.271Z"
+              fill="white"
+            />
+          </svg>
+        </a>
+      </div>
+      <div
+        class="el-flex1 el-flex el-flex-align-center el-flex-justify-start"
+      >
+        <select
+          class="el-select"
+          id="page_selector"
+          name="page_selector"
+          style="max-width: 150px;"
+        />
+        <button
+          class="el-m1 el-button"
+        >
+          New
+        </button>
+      </div>
+      <span
+        class="el-mr4 el-text-right"
+        style="color: white; width: 100px;"
+      >
+        Saved
+      </span>
+      <div
+        class="el-button-group"
+      >
+        <div
+          class="el-button-group-inner"
+        >
+          <button
+            class="el-intent-danger el-button-size2 el-button"
+          >
+            delete page
+          </button>
+          <button
+            class="transition cursor-pointer bg-green-400 el-intent-success el-button-size2 el-button"
+          >
+            <div
+              class="button-icon"
+            >
+              <svg
+                viewBox="0 0 18 18"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <rect
+                  fill="#ff13dc"
+                  height="18"
+                  id="Canvas"
+                  opacity="0"
+                  width="18"
+                />
+                <path
+                  d="M15.656,3.8625l-.7275-.5665a.5.5,0,0,0-.7.0875L7.411,12.1415,4.0875,8.8355a.5.5,0,0,0-.707,0L2.718,9.5a.5.5,0,0,0,0,.707l4.463,4.45a.5.5,0,0,0,.75-.0465L15.7435,4.564A.5.5,0,0,0,15.656,3.8625Z"
+                />
+              </svg>
+            </div>
+            Preview
+          </button>
+        </div>
+      </div>
+    </div>
+    <div
+      class="__react_component_tooltip tc17d8b76-6c84-408a-8374-c3560181466b place-bottom type-dark"
+      data-id="tooltip"
+      id="tc17d8b76-6c84-408a-8374-c3560181466b"
+    >
+      <style
+        aria-hidden="true"
+      >
+        
+  	.tc17d8b76-6c84-408a-8374-c3560181466b {
+	    color: #fff;
+	    background: #222;
+	    border: 1px solid transparent;
+  	}
+
+  	.tc17d8b76-6c84-408a-8374-c3560181466b.place-top {
+        margin-top: -10px;
+    }
+    .tc17d8b76-6c84-408a-8374-c3560181466b.place-top::before {
+        border-top: 8px solid transparent;
+    }
+    .tc17d8b76-6c84-408a-8374-c3560181466b.place-top::after {
+        border-left: 8px solid transparent;
+        border-right: 8px solid transparent;
+        bottom: -6px;
+        left: 50%;
+        margin-left: -8px;
+        border-top-color: #222;
+        border-top-style: solid;
+        border-top-width: 6px;
+    }
+
+    .tc17d8b76-6c84-408a-8374-c3560181466b.place-bottom {
+        margin-top: 10px;
+    }
+    .tc17d8b76-6c84-408a-8374-c3560181466b.place-bottom::before {
+        border-bottom: 8px solid transparent;
+    }
+    .tc17d8b76-6c84-408a-8374-c3560181466b.place-bottom::after {
+        border-left: 8px solid transparent;
+        border-right: 8px solid transparent;
+        top: -6px;
+        left: 50%;
+        margin-left: -8px;
+        border-bottom-color: #222;
+        border-bottom-style: solid;
+        border-bottom-width: 6px;
+    }
+
+    .tc17d8b76-6c84-408a-8374-c3560181466b.place-left {
+        margin-left: -10px;
+    }
+    .tc17d8b76-6c84-408a-8374-c3560181466b.place-left::before {
+        border-left: 8px solid transparent;
+    }
+    .tc17d8b76-6c84-408a-8374-c3560181466b.place-left::after {
+        border-top: 5px solid transparent;
+        border-bottom: 5px solid transparent;
+        right: -6px;
+        top: 50%;
+        margin-top: -4px;
+        border-left-color: #222;
+        border-left-style: solid;
+        border-left-width: 6px;
+    }
+
+    .tc17d8b76-6c84-408a-8374-c3560181466b.place-right {
+        margin-left: 10px;
+    }
+    .tc17d8b76-6c84-408a-8374-c3560181466b.place-right::before {
+        border-right: 8px solid transparent;
+    }
+    .tc17d8b76-6c84-408a-8374-c3560181466b.place-right::after {
+        border-top: 5px solid transparent;
+        border-bottom: 5px solid transparent;
+        left: -6px;
+        top: 50%;
+        margin-top: -4px;
+        border-right-color: #222;
+        border-right-style: solid;
+        border-right-width: 6px;
+    }
+  
+      </style>
+    </div>
+  </div>
+</DocumentFragment>
 `;

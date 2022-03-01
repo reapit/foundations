@@ -1,16 +1,16 @@
 import * as React from 'react'
-import { render, screen } from '@testing-library/react'
+import { render } from '@testing-library/react'
 import Router, { catchChunkError } from '../router'
 import { MockedProvider } from '@apollo/client/testing'
 
 describe('Router', () => {
   it('should match a snapshot', () => {
-    render(
+    const { asFragment } = render(
       <MockedProvider>
         <Router />
       </MockedProvider>,
     )
-    expect(screen).toMatchSnapshot()
+    expect(asFragment()).toMatchSnapshot()
   })
 
   describe('catchChunkError', () => {

@@ -1,22 +1,22 @@
 import * as React from 'react'
-import { render, screen } from '@testing-library/react'
+import { render } from '@testing-library/react'
 import { Toolbar } from '../index'
 
 describe('Toolbar', () => {
   it('should match a snapshot - inactive', () => {
-    render(
+    const { asFragment } = render(
       <Toolbar active={false}>
         <></>
       </Toolbar>,
     )
-    expect(screen).toMatchSnapshot()
+    expect(asFragment()).toMatchSnapshot()
   })
   it('should match a snapshot - active', () => {
-    render(
+    const { asFragment } = render(
       <Toolbar active>
         <></>
       </Toolbar>,
     )
-    expect(screen).toMatchSnapshot()
+    expect(asFragment()).toMatchSnapshot()
   })
 })

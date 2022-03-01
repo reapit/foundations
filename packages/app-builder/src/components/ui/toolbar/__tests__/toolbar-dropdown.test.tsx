@@ -1,10 +1,10 @@
 import * as React from 'react'
-import { render, screen } from '@testing-library/react'
+import { render } from '@testing-library/react'
 import { ToolbarDropdown } from '../toolbar-dropdown'
 
 describe('ToolbarDropdown', () => {
   it('should match a snapshot', () => {
-    render(
+    const { asFragment } = render(
       <ToolbarDropdown
         title={''}
         value={undefined}
@@ -13,6 +13,6 @@ describe('ToolbarDropdown', () => {
         }}
       />,
     )
-    expect(screen).toMatchSnapshot()
+    expect(asFragment()).toMatchSnapshot()
   })
 })

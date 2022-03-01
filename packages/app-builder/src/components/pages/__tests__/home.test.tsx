@@ -1,5 +1,5 @@
 import * as React from 'react'
-import { render, screen } from '@testing-library/react'
+import { render } from '@testing-library/react'
 import { MockedProvider } from '@apollo/client/testing'
 import routeData from 'react-router'
 
@@ -39,13 +39,13 @@ describe('Home', () => {
     jest.spyOn(routeData, 'useLocation').mockReturnValue(mockLocation)
   })
   it('should match a snapshot', () => {
-    render(
+    const { asFragment } = render(
       <Editor>
         <MockedProvider>
           <Home />
         </MockedProvider>
       </Editor>,
     )
-    expect(screen).toMatchSnapshot()
+    expect(asFragment()).toMatchSnapshot()
   })
 })
