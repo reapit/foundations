@@ -11,7 +11,7 @@ Object {
       <h1
         class="e2dm5rh-el-title"
       >
-        Peter's Properties
+        will-test-dev-co-voracious-person
       </h1>
       <div
         class="e6l6sr3-el-tabs-full-width exshuwa-el-tabs-wrap"
@@ -35,6 +35,23 @@ Object {
               class="eulcr0n-el-tabs-item"
             >
               General Info
+            </span>
+          </label>
+          <input
+            class="enkj6b-el-tabs"
+            id="authentication"
+            name="app-edit-tabs"
+            type="radio"
+            value="authentication"
+          />
+          <label
+            class="e1ob8xkh-el-tabs-label"
+            for="authentication"
+          >
+            <span
+              class="eulcr0n-el-tabs-item"
+            >
+              Authentication
             </span>
           </label>
           <input
@@ -171,6 +188,40 @@ Object {
               <label
                 class="e1nbkkrq-el-label"
               >
+                AgencyCloud Integration
+              </label>
+              <input
+                class="e1ih6lkl-el-toggle-checkbox"
+                id="app-edit-is-ac-inegrated"
+                name="isAgencyCloudIntegrated"
+                type="checkbox"
+              />
+              <label
+                class="ehi76vp-el-has-grey-bg e1ott14k-el-toggle-label"
+                for="app-edit-is-ac-inegrated"
+              >
+                <span
+                  class="e18omfqv-el-toggle-item"
+                >
+                  Yes
+                </span>
+                <span
+                  class="e18omfqv-el-toggle-item"
+                >
+                  No
+                </span>
+              </label>
+            </div>
+          </div>
+          <div
+            class="e1ksxx4v-el-input-wrap"
+          >
+            <div
+              class="e1979rmu-el-input-group"
+            >
+              <label
+                class="e1nbkkrq-el-label"
+              >
                 Private App
               </label>
               <input
@@ -228,7 +279,7 @@ Object {
     <h1
       class="e2dm5rh-el-title"
     >
-      Peter's Properties
+      will-test-dev-co-voracious-person
     </h1>
     <div
       class="e6l6sr3-el-tabs-full-width exshuwa-el-tabs-wrap"
@@ -252,6 +303,23 @@ Object {
             class="eulcr0n-el-tabs-item"
           >
             General Info
+          </span>
+        </label>
+        <input
+          class="enkj6b-el-tabs"
+          id="authentication"
+          name="app-edit-tabs"
+          type="radio"
+          value="authentication"
+        />
+        <label
+          class="e1ob8xkh-el-tabs-label"
+          for="authentication"
+        >
+          <span
+            class="eulcr0n-el-tabs-item"
+          >
+            Authentication
           </span>
         </label>
         <input
@@ -365,6 +433,40 @@ Object {
             <label
               class="ehi76vp-el-has-grey-bg e1ott14k-el-toggle-label"
               for="app-edit-completing-listing"
+            >
+              <span
+                class="e18omfqv-el-toggle-item"
+              >
+                Yes
+              </span>
+              <span
+                class="e18omfqv-el-toggle-item"
+              >
+                No
+              </span>
+            </label>
+          </div>
+        </div>
+        <div
+          class="e1ksxx4v-el-input-wrap"
+        >
+          <div
+            class="e1979rmu-el-input-group"
+          >
+            <label
+              class="e1nbkkrq-el-label"
+            >
+              AgencyCloud Integration
+            </label>
+            <input
+              class="e1ih6lkl-el-toggle-checkbox"
+              id="app-edit-is-ac-inegrated"
+              name="isAgencyCloudIntegrated"
+              type="checkbox"
+            />
+            <label
+              class="ehi76vp-el-has-grey-bg e1ott14k-el-toggle-label"
+              for="app-edit-is-ac-inegrated"
             >
               <span
                 class="e18omfqv-el-toggle-item"

@@ -4,54 +4,6 @@ import { WebhookCreateEditState } from '../webhooks-subscriptions/webhook-edit-m
 import { webhookDataStub, webhookItemDataStub } from '../../sagas/__stubs__/webhook-edit'
 
 export const appState: ReduxState = {
-  apps: {
-    list: {
-      data: [],
-      isLoading: false,
-    },
-    detail: {
-      data: {},
-      isLoading: false,
-    },
-    authentication: {
-      code: '',
-      isLoading: false,
-    },
-    createApp: {
-      isLoading: false,
-    },
-    deleteApp: {
-      isLoading: false,
-    },
-    revisions: {
-      detail: {
-        data: {},
-        isLoading: false,
-      },
-      list: {
-        data: [],
-        isLoading: false,
-      },
-      declineRevision: {
-        isLoading: false,
-      },
-      createRevision: {
-        isLoading: false,
-      },
-    },
-  },
-  scopes: {
-    list: {
-      data: [],
-      isLoading: false,
-    },
-  },
-  categories: {
-    list: {
-      data: [],
-      isLoading: false,
-    },
-  },
   developer: {
     loading: false,
     formState: 'PENDING',
@@ -117,12 +69,6 @@ export const appState: ReduxState = {
     list: {
       isLoading: false,
       data: null,
-    },
-  },
-  desktopIntegrationTypes: {
-    list: {
-      data: [],
-      isLoading: false,
     },
   },
   webhooksSubscriptions: {

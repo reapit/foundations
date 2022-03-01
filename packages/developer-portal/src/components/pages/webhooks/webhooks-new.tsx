@@ -23,10 +23,12 @@ import { History } from 'history'
 import Routes from '../../../constants/routes'
 import { useHistory } from 'react-router'
 import { SelectAppIdEventHandler, WebhookQueryParams } from './webhooks'
+import { AppSummaryModel } from '@reapit/foundations-ts-definitions'
 
 export interface WebhooksNewProps {
   webhookQueryParams: WebhookQueryParams
   selectAppIdHandler: SelectAppIdEventHandler
+  apps: AppSummaryModel[]
 }
 
 export interface CreateWebhookFormSchema {
@@ -111,11 +113,14 @@ export const getStepContent = (
   getValues: UseFormGetValues<CreateWebhookFormSchema>,
   errors: DeepMap<Partial<CreateWebhookFormSchema>, FieldError>,
   webhookQueryParams: WebhookQueryParams,
+  apps: AppSummaryModel[],
 ): StepsVerticalStep[] => {
   return [
     {
       item: '1',
-      content: <WebhooksNewApp register={register} errors={errors} webhookQueryParams={webhookQueryParams} />,
+      content: (
+        <WebhooksNewApp apps={apps} register={register} errors={errors} webhookQueryParams={webhookQueryParams} />
+      ),
     },
     {
       item: '2',
@@ -158,7 +163,7 @@ export const handleWebhookCreation =
     }
   }
 
-export const WebhooksNew: FC<WebhooksNewProps> = ({ webhookQueryParams, selectAppIdHandler }) => {
+export const WebhooksNew: FC<WebhooksNewProps> = ({ webhookQueryParams, apps, selectAppIdHandler }) => {
   const {
     register,
     getValues,
@@ -176,7 +181,7 @@ export const WebhooksNew: FC<WebhooksNewProps> = ({ webhookQueryParams, selectAp
   const { success, error } = useSnack()
   const [selectedStep, setSelectedStep] = useState<string>('1')
   const webhookCreateEditState = useSelector(selectWebhookCreateEditState)
-  const steps = getStepContent(register, getValues, errors, webhookQueryParams)
+  const steps = getStepContent(register, getValues, errors, webhookQueryParams, apps)
   const currentStep = steps.find((step) => step.item === selectedStep)
   const currentStepIndex = currentStep ? steps.indexOf(currentStep) : 0
   const nextStep = currentStepIndex < 4 ? String(currentStepIndex + 2) : null

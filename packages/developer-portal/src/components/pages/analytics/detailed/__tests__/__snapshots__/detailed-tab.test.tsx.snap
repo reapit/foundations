@@ -25,6 +25,41 @@ exports[`OverviewPage should match snapshot 1`] = `
     }
   }
 >
-  <DetailedTab />
+  <DetailedTab
+    apps={
+      Array [
+        Object {
+          "authFlow": "clientCredentials",
+          "desktopIntegrationTypeIds": Array [],
+          "developerId": "MOCK_DEVELOPER_ID",
+          "homePage": "https://foo.bar",
+          "id": "MOCK_APP_ID",
+          "isFree": true,
+          "isListed": true,
+          "launchUri": "https://foo.bar",
+          "limitToClientIds": Array [],
+          "products": Array [
+            "agencyCloud",
+          ],
+          "summary": "Foo bar Foo bar Foo bar Foo bar Foo bar Foo bar Foo bar Foo bar",
+        },
+        Object {
+          "authFlow": "authorisationCode",
+          "desktopIntegrationTypeIds": Array [],
+          "developerId": "MOCK_DEVELOPER_ID",
+          "homePage": "https://foo.bar",
+          "id": "MOCK_OTHER_APP_ID",
+          "isFree": true,
+          "isListed": true,
+          "launchUri": "https://foo.bar",
+          "limitToClientIds": Array [],
+          "products": Array [
+            "agencyCloud",
+          ],
+          "summary": "Foo bar Foo bar Foo bar Foo bar Foo bar Foo bar Foo bar Foo bar",
+        },
+      ]
+    }
+  />
 </ContextProvider>
 `;

@@ -3,21 +3,12 @@ import { getTabContent, handleChangeTab, WebhooksWrapper, handleSelectAppId } fr
 import { reduxTestState, render } from '../../../../tests/react-testing'
 import Routes from '../../../../constants/routes'
 import { History } from 'history'
-import { appsDataStub } from '../../../../sagas/__stubs__/apps'
-import appState from '../../../../reducers/__stubs__/app-state'
+import { AppSummaryModel } from '@reapit/foundations-ts-definitions'
+import { mockAppSummaryModelPagedResult } from '../../../../tests/__stubs__/apps'
 
 const routes = [Routes.WEBHOOKS_NEW, Routes.WEBHOOKS_MANAGE, Routes.WEBHOOKS_LOGS, Routes.WEBHOOKS_ABOUT]
 
 describe('WebhooksWrapper', () => {
-  reduxTestState.setState({
-    apps: {
-      ...appState.apps,
-      list: {
-        ...appState.apps.list,
-        ...appsDataStub.data,
-      },
-    },
-  })
   routes.forEach((route) => {
     it(`should match a snapshot for the ${route} page`, () => {
       window.location.pathname = route
@@ -38,7 +29,16 @@ describe('getTabContent', () => {
         from: 'FROM',
       }
 
-      expect(render(getTabContent(route, webhookQueryParams, selectAppIdHandler))).toMatchSnapshot()
+      expect(
+        render(
+          getTabContent(
+            route,
+            webhookQueryParams,
+            selectAppIdHandler,
+            mockAppSummaryModelPagedResult.data as AppSummaryModel[],
+          ),
+        ),
+      ).toMatchSnapshot()
     })
   })
 })

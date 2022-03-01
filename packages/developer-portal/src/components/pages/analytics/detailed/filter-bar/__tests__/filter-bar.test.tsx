@@ -7,13 +7,13 @@ import {
   prepareAppDeveloperAppData,
   handleUseCallbackToPrepareFilterFormInitialValues,
 } from '../filter-bar'
-import { appsDataStub } from '@/sagas/__stubs__/apps'
 import { installationsStub } from '@/sagas/__stubs__/installations'
 import { prepareDefaultFilterDateParams } from '../default-filter-group'
+import { mockAppSummaryModelPagedResult } from '../../../../../../tests/__stubs__/apps'
 
 const mockProps: FilterBarProps = {
-  developerAppsData: appsDataStub.data.data || [],
-  installationAppDataArray: installationsStub.data || [],
+  developerAppsData: mockAppSummaryModelPagedResult.data ?? [],
+  installationAppDataArray: installationsStub.data ?? [],
 }
 
 describe('FilterBar', () => {
@@ -25,7 +25,7 @@ describe('FilterBar', () => {
       const { developerAppsData } = mockProps
       const { developerApps, developerAppIds } = prepareAppDeveloperAppData(developerAppsData)
       expect(developerApps).toEqual(developerAppsData)
-      expect(developerAppIds).toEqual(['09043eb8-9e5e-4650-b7f1-f0cb62699027', '261da083-cee2-4f5c-a18f-8f9375f1f5af'])
+      expect(developerAppIds).toEqual(['MOCK_APP_ID', 'MOCK_OTHER_APP_ID'])
     })
   })
   describe('handleUseCallbackToPrepareFilterFormInitialValues', () => {

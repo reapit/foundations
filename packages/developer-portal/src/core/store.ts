@@ -2,10 +2,6 @@ import { createStore, applyMiddleware, compose, combineReducers, Store as ReduxS
 import createSagaMiddleware from 'redux-saga'
 import { fork, all } from '@redux-saga/core/effects'
 import { ReduxState } from '../types/core'
-import appsReducer from '@/reducers/apps'
-import scopesReducer from '@/reducers/scopes'
-import categoriesReducer from '@/reducers/categories'
-import desktopIntegrationTypesReducer from '@/reducers/desktop-integration-types'
 
 import developer from '@/reducers/developer'
 import error from '@/reducers/error'
@@ -19,21 +15,6 @@ import webhooksTopicsReducer from '@/reducers/webhooks-topics'
 import webhooksSubscriptionsReducer from '@/reducers/webhooks-subscriptions'
 import noticationMessage from '@/reducers/notification-message'
 import { currentMemberReducer } from '@/reducers/current-member'
-
-import {
-  appDetailSagas,
-  appListSagas,
-  appAuthenticationSagas,
-  createAppSagas,
-  deleteAppSagas,
-  appRevisionDetailSagas,
-  appRevisionListlSagas,
-  declineAppRevisionSagas,
-  createAppRevisionSagas,
-} from '@/sagas/apps'
-import { scopeListSagas } from '@/sagas/scopes'
-import { categoryListSagas } from '@/sagas/categories'
-import { desktopIntegrationTypeListSagas } from '@/sagas/desktop-integration-types'
 import { trafficStatisticsSagas } from '@/sagas/traffic-statistics'
 import developerSagas from '@/sagas/developer'
 import developerSetStatusSagas from '@/sagas/developer-set-status'
@@ -64,10 +45,6 @@ export class Store {
   static sagaMiddleware = createSagaMiddleware()
 
   static reducers = combineReducers<ReduxState>({
-    apps: appsReducer,
-    scopes: scopesReducer,
-    categories: categoriesReducer,
-    desktopIntegrationTypes: desktopIntegrationTypesReducer,
     developer,
     error,
     developerSetStatus,
@@ -86,18 +63,6 @@ export class Store {
   static sagas = function* () {
     yield all([
       fork(developerSagas),
-      fork(appDetailSagas),
-      fork(appListSagas),
-      fork(scopeListSagas),
-      fork(categoryListSagas),
-      fork(desktopIntegrationTypeListSagas),
-      fork(appAuthenticationSagas),
-      fork(createAppSagas),
-      fork(deleteAppSagas),
-      fork(appRevisionDetailSagas),
-      fork(appRevisionListlSagas),
-      fork(declineAppRevisionSagas),
-      fork(createAppRevisionSagas),
       fork(developerSetStatusSagas),
       fork(settingSagas),
       fork(trafficStatisticsSagas),

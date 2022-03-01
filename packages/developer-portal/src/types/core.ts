@@ -6,10 +6,6 @@ import { SettingsState } from '@/reducers/settings'
 import { NotificationMessageState } from '@/reducers/notification-message'
 import { DeveloperSubscriptionsState } from '@/reducers/developer-subscriptions'
 import { DevelopersRootState } from '@/reducers/developers'
-import { AppsRootState } from '@/reducers/apps'
-import { ScopesRootState } from '@/reducers/scopes'
-import { CategoriesRootState } from '@/reducers/categories'
-import { DesktopIntegrationTypesRootState } from '@/reducers/desktop-integration-types'
 import { InstallationsRootState } from '@/reducers/installations'
 import { WebhooksTopicsRootState } from '@/reducers/webhooks-topics'
 import { WebhooksSubscriptionsRootState } from '@/reducers/webhooks-subscriptions'
@@ -55,16 +51,12 @@ export interface FetcherParams<T> {
 }
 
 export interface ReduxState {
-  apps: AppsRootState
-  scopes: ScopesRootState
-  categories: CategoriesRootState
   developer: DeveloperState
   error: ErrorState
   developerSetStatus: RequestState
   settings: SettingsState
   noticationMessage: NotificationMessageState
   trafficStatistics: TrafficStatisticsRootState
-  desktopIntegrationTypes: DesktopIntegrationTypesRootState
   developerSubscriptions: DeveloperSubscriptionsState
   developers: DevelopersRootState
   installations: InstallationsRootState

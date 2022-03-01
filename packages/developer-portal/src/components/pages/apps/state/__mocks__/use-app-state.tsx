@@ -1,16 +1,15 @@
 import { defaultAppTabsState as mockAppTabsSate, defaultAppWizardState as mockAppWizardState } from '../defaults'
-import { appsDataStub as mockApps } from '../../../../../sagas/__stubs__/apps'
-import { appDetailDataStub as mockApp } from '../../../../../sagas/__stubs__/app-detail'
 import { defaultValues as mockAppEditForm } from '../../edit/form-schema/form-fields'
+import { mockAppDetailModel, mockAppSummaryModelPagedResult } from '../../../../../tests/__stubs__/apps'
 
 export const mockAppState = {
   appWizardState: {
     ...mockAppWizardState,
   },
   appsDataState: {
-    apps: mockApps.data,
+    apps: mockAppSummaryModelPagedResult.data,
     appsLoading: false,
-    appDetail: mockApp.data,
+    appDetail: mockAppDetailModel,
     appDetailLoading: false,
     appsRefresh: jest.fn(),
   },

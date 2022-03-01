@@ -25,7 +25,6 @@ const AnalyticsPage = React.lazy(() => catchChunkError(() => import('@/component
 const RegisterConfirm = React.lazy(() => catchChunkError(() => import('../components/pages/register-confirm')))
 const WebhooksPage = React.lazy(() => catchChunkError(() => import('../components/pages/webhooks')))
 const SettingsPage = React.lazy(() => catchChunkError(() => import('../components/pages/settings/')))
-const AppDetailPreview = React.lazy(() => catchChunkError(() => import('../components/pages/app-detail-preview')))
 const Invite = React.lazy(() => catchChunkError(() => import('../components/pages/invite')))
 const ElementsPage = React.lazy(() => catchChunkError(() => import('../components/pages/elements')))
 const GraphQLPage = React.lazy(() => catchChunkError(() => import('../components/pages/graphql')))
@@ -75,7 +74,6 @@ const Router = () => {
                 <PrivateRoute path={Routes.SETTINGS_ORGANISATION_TAB} fetcher component={SettingsOrganisationTabPage} />
                 <PrivateRoute path={Routes.HELP} exact fetcher component={HelpPage} />
                 <PrivateRoute path={Routes.DEVELOPER_EDITION_DOWNLOAD} component={EditionDownloadPage} />
-                <PrivateRoute path={Routes.APP_PREVIEW} exact component={AppDetailPreview} fetcher />
                 <PrivateRoute path={Routes.GRAPHQL} component={GraphQLPage} />
                 <PrivateRoute path={Routes.ELEMENTS} exact component={ElementsPage} />
                 <Route render={() => <Info infoType="404" />} />

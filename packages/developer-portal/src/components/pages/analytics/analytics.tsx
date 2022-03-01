@@ -5,6 +5,12 @@ import ErrorBoundary from '@/components/hocs/error-boundary'
 import DetailedTab from './detailed'
 import CostExplorerTab from './cost-explorer'
 import Routes from '@/constants/routes'
+import { useReapitConnect } from '@reapit/connect-session'
+import { reapitConnectBrowserSession } from '../../../core/connect-session'
+import { GetActionNames, getActions } from '@reapit/utils-common'
+import { AppSummaryModel, AppSummaryModelPagedResult } from '@reapit/foundations-ts-definitions'
+import { useReapitGet } from '@reapit/utils-react'
+import { Loader } from '@reapit/elements'
 
 export type DeveloperAnalyticsPageProps = {}
 
@@ -55,14 +61,14 @@ export const handleUseEffectToSetCurrentTab = (activeTab, setCurrentTab) => {
   }
 }
 
-export const renderTabContent = (currentTab) => {
+export const renderTabContent = (currentTab: AnalyticsTab, apps: AppSummaryModel[]) => {
   switch (currentTab) {
     case AnalyticsTab.DETAILED:
-      return <DetailedTab />
+      return <DetailedTab apps={apps} />
     case AnalyticsTab.COST_EXPLORER:
-      return <CostExplorerTab />
+      return <CostExplorerTab apps={apps} />
     default:
-      return <DetailedTab />
+      return <DetailedTab apps={apps} />
   }
 }
 
@@ -70,6 +76,16 @@ export const DeveloperAnalyticsPage: React.FC<DeveloperAnalyticsPageProps> = () 
   const [currentTab, setCurrentTab] = React.useState<AnalyticsTab>(AnalyticsTab.DETAILED)
   const history = useHistory()
   const { activeTab } = useParams<{ activeTab: string }>()
+  const { connectSession } = useReapitConnect(reapitConnectBrowserSession)
+
+  const developerId = connectSession?.loginIdentity.developerId
+
+  const [apps, appsLoading] = useReapitGet<AppSummaryModelPagedResult>({
+    reapitConnectBrowserSession,
+    action: getActions(window.reapit.config.appEnv)[GetActionNames.getApps],
+    queryParams: { showHiddenApps: 'true', developerId, pageSize: 25 },
+    fetchWhenTrue: [developerId],
+  })
 
   React.useEffect(handleUseEffectToSetCurrentTab(activeTab, setCurrentTab), [activeTab])
 
@@ -77,7 +93,8 @@ export const DeveloperAnalyticsPage: React.FC<DeveloperAnalyticsPageProps> = () 
     <ErrorBoundary>
       <H3>Dashboard</H3>
       <Tabs tabConfigs={tabConfigs({ currentTab, history })} />
-      {renderTabContent(currentTab)}
+      {appsLoading && <Loader />}
+      {apps?.data && renderTabContent(currentTab, apps.data)}
     </ErrorBoundary>
   )
 }

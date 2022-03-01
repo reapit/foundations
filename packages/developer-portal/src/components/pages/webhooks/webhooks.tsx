@@ -20,6 +20,8 @@ import {
   Title,
   useMediaQuery,
   useModal,
+  SmallText,
+  Loader,
 } from '@reapit/elements'
 import Routes from '../../../constants/routes'
 import { navigate, openNewPage, ExternalPages } from '../../../utils/navigation'
@@ -28,15 +30,16 @@ import { WebhooksManage } from './webhooks-manage'
 import { WebhooksLogs } from './webhooks-logs'
 import { WebhooksNew } from './webhooks-new'
 import { useDispatch } from 'react-redux'
-import { fetchAppList } from '../../../actions/apps'
-import { GET_ALL_PAGE_SIZE } from '../../../constants/paginator'
-import { FetchAppListParams } from '../../../reducers/apps/app-list'
 import { Dispatch as ReduxDispatch } from 'redux'
 import { requestWebhookSubcriptionData } from '../../../actions/webhooks-subscriptions'
 import { StringMap } from '../../../types/core'
 import dayjs from 'dayjs'
-import { SmallText } from '../../../../../elements/src/components/typography/typography'
 import WebhooksControls from './webhooks-controls'
+import { useReapitConnect } from '@reapit/connect-session'
+import { reapitConnectBrowserSession } from '../../../core/connect-session'
+import { GetActionNames, getActions } from '@reapit/utils-common'
+import { AppSummaryModel, AppSummaryModelPagedResult } from '@reapit/foundations-ts-definitions'
+import { useReapitGet } from '@reapit/utils-react'
 
 export interface WebhookQueryParams {
   applicationId: string
@@ -62,10 +65,11 @@ export const getTabContent = (
   pathname: string,
   webhookQueryParams: WebhookQueryParams,
   selectAppIdHandler: SelectAppIdEventHandler,
+  apps: AppSummaryModel[],
 ) => {
   switch (pathname) {
     case Routes.WEBHOOKS_NEW:
-      return <WebhooksNew webhookQueryParams={webhookQueryParams} selectAppIdHandler={selectAppIdHandler} />
+      return <WebhooksNew apps={apps} webhookQueryParams={webhookQueryParams} selectAppIdHandler={selectAppIdHandler} />
     case Routes.WEBHOOKS_MANAGE:
       return <WebhooksManage webhookQueryParams={webhookQueryParams} />
     case Routes.WEBHOOKS_LOGS:
@@ -74,10 +78,6 @@ export const getTabContent = (
     default:
       return <WebhooksAbout />
   }
-}
-
-export const handleFetchApps = (dispatch: ReduxDispatch) => () => {
-  dispatch(fetchAppList({ page: 1, appsPerPage: GET_ALL_PAGE_SIZE } as FetchAppListParams))
 }
 
 export const handleFetchSubscriptions = (dispatch: ReduxDispatch, webhookQueryParams: WebhookQueryParams) => () => {
@@ -125,6 +125,7 @@ export const WebhooksWrapper: FC = () => {
   const dispatch = useDispatch()
   const { Modal, openModal, closeModal } = useModal()
   const { isMobile } = useMediaQuery()
+  const { connectSession } = useReapitConnect(reapitConnectBrowserSession)
   const { pathname } = window.location
   const [webhookQueryParams, setWebhookQueryParams] = useState<WebhookQueryParams>(handleHistoryToQueryParams(history))
   const isAboutPage = pathname === Routes.WEBHOOKS_ABOUT
@@ -132,8 +133,15 @@ export const WebhooksWrapper: FC = () => {
   const isLogsPage = pathname === Routes.WEBHOOKS_LOGS
   const isNewPage = !isAboutPage && !isLogsPage && !isManagePage
   const selectAppIdHandler = handleSelectAppId(setWebhookQueryParams, history)
+  const developerId = connectSession?.loginIdentity.developerId
 
-  useEffect(handleFetchApps(dispatch), [])
+  const [apps, appsLoading] = useReapitGet<AppSummaryModelPagedResult>({
+    reapitConnectBrowserSession,
+    action: getActions(window.reapit.config.appEnv)[GetActionNames.getApps],
+    queryParams: { showHiddenApps: 'true', developerId, pageSize: 25 },
+    fetchWhenTrue: [developerId],
+  })
+
   useEffect(handleFetchSubscriptions(dispatch, webhookQueryParams), [webhookQueryParams])
 
   return (
@@ -175,7 +183,13 @@ export const WebhooksWrapper: FC = () => {
             </Label>
           </div>
         )}
-        <WebhooksControls selectAppIdHandler={selectAppIdHandler} webhookQueryParams={webhookQueryParams} />
+        {apps?.data && (
+          <WebhooksControls
+            apps={apps?.data}
+            selectAppIdHandler={selectAppIdHandler}
+            webhookQueryParams={webhookQueryParams}
+          />
+        )}
       </SecondaryNavContainer>
       <PageContainer>
         <FlexContainer isFlexJustifyBetween>
@@ -195,9 +209,13 @@ export const WebhooksWrapper: FC = () => {
             </ButtonGroup>
           )}
         </FlexContainer>
-        {isMobile && (
+        {isMobile && apps?.data && (
           <Modal title="Filters">
-            <WebhooksControls selectAppIdHandler={selectAppIdHandler} webhookQueryParams={webhookQueryParams} />
+            <WebhooksControls
+              apps={apps.data}
+              selectAppIdHandler={selectAppIdHandler}
+              webhookQueryParams={webhookQueryParams}
+            />
             <ButtonGroup alignment="center">
               <Button intent="secondary" onClick={closeModal}>
                 Close
@@ -236,7 +254,8 @@ export const WebhooksWrapper: FC = () => {
             },
           ]}
         />
-        {getTabContent(pathname, webhookQueryParams, selectAppIdHandler)}
+        {appsLoading && <Loader />}
+        {apps?.data && getTabContent(pathname, webhookQueryParams, selectAppIdHandler, apps.data)}
       </PageContainer>
     </FlexContainer>
   )

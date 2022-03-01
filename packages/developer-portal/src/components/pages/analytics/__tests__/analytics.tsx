@@ -3,6 +3,8 @@ import { shallow } from 'enzyme'
 
 import { AnalyticsTab, handleUseEffectToSetCurrentTab, renderTabContent, tabConfigs } from '../analytics'
 import AnalyticsPage from '../analytics'
+import { AppSummaryModel } from '@reapit/foundations-ts-definitions'
+import { mockAppSummaryModelPagedResult } from '../../../../tests/__stubs__/apps'
 
 jest.mock('react-router-dom', () => ({
   useHistory: () => ({ replace: jest.fn() }),
@@ -47,12 +49,15 @@ describe('AnalyticsPage', () => {
   })
   describe('renderTabContent', () => {
     it('should render Detailed Tab', () => {
-      const result = renderTabContent(AnalyticsTab.DETAILED)
+      const result = renderTabContent(AnalyticsTab.DETAILED, mockAppSummaryModelPagedResult.data as AppSummaryModel[])
       const wrapper = shallow(<div>{result}</div>)
       expect(wrapper).toMatchSnapshot()
     })
     it('should render Billing Tab', () => {
-      const result = renderTabContent(AnalyticsTab.COST_EXPLORER)
+      const result = renderTabContent(
+        AnalyticsTab.COST_EXPLORER,
+        mockAppSummaryModelPagedResult.data as AppSummaryModel[],
+      )
       const wrapper = shallow(<div>{result}</div>)
       expect(wrapper).toMatchSnapshot()
     })

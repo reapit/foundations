@@ -13,12 +13,13 @@ import {
   handleDefaultFilter,
 } from '../detailed-tab'
 import { installationsStub } from '@/sagas/__stubs__/installations'
-import { appsDataStub } from '@/sagas/__stubs__/apps'
 import { ReduxState } from '@/types/core'
 import { fetchInstallationsList, fetchInstallationsFilterList } from '@/actions/installations'
 import { fetchTrafficStatistics } from '@/actions/traffic-statistics'
 import { developerState } from '@/sagas/__stubs__/developer'
 import { httpTrafficPerDayStub } from '@/sagas/__stubs__/app-http-traffic-event'
+import { AppSummaryModel } from '@reapit/foundations-ts-definitions'
+import { mockAppSummaryModelPagedResult } from '../../../../../tests/__stubs__/apps'
 
 jest.mock('@reapit/elements', () => ({
   ...(jest.requireActual('@reapit/elements') as Object),
@@ -66,7 +67,7 @@ describe('OverviewPage', () => {
     expect(
       shallow(
         <ReactRedux.Provider store={store}>
-          <DetailedTab />
+          <DetailedTab apps={mockAppSummaryModelPagedResult.data as AppSummaryModel[]} />
         </ReactRedux.Provider>,
       ),
     ).toMatchSnapshot()
@@ -94,12 +95,12 @@ describe('OverviewPage', () => {
 
   describe('handleFetchHttpTrafficPerDayDataUseCallback', () => {
     it('should run correctly', () => {
-      const developerAppData = appsDataStub.data.data || []
+      const developerAppData = mockAppSummaryModelPagedResult.data || []
       const fn = handleFetchHttpTrafficPerDayDataUseCallback(developerAppData, spyDispatch)
       fn()
       expect(spyDispatch).toBeCalledWith(
         fetchTrafficStatistics({
-          applicationId: ['09043eb8-9e5e-4650-b7f1-f0cb62699027', '261da083-cee2-4f5c-a18f-8f9375f1f5af'],
+          applicationId: ['MOCK_APP_ID', 'MOCK_OTHER_APP_ID'],
           // default is last 7 days
           dateFrom: '2020-06-30',
           dateTo: '2020-07-06',
@@ -118,10 +119,10 @@ describe('OverviewPage', () => {
 
 describe('handleDefaultFilter', () => {
   it('should run correctly', () => {
-    const developerAppData = appsDataStub.data.data || []
+    const developerAppData = mockAppSummaryModelPagedResult.data || []
     const result = handleDefaultFilter(developerAppData)
     expect(result).toEqual({
-      appIds: ['09043eb8-9e5e-4650-b7f1-f0cb62699027', '261da083-cee2-4f5c-a18f-8f9375f1f5af'],
+      appIds: ['MOCK_APP_ID', 'MOCK_OTHER_APP_ID'],
     })
   })
 })

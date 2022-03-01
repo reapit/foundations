@@ -13,13 +13,15 @@ import {
 import dayjs, { Dayjs } from 'dayjs'
 import { URLS } from '@/services/constants'
 import FileSaver from 'file-saver'
-import { selectAppListState } from '@/selector/apps/app-list'
 import FadeIn from '../../../../../styles/fade-in'
 import { getPlatformHeaders } from '@reapit/utils-react'
 import { reapitConnectBrowserSession } from '../../../../../core/connect-session'
 import { Loader } from '@reapit/elements'
+import { AppSummaryModel } from '@reapit/foundations-ts-definitions'
 
-export type TransactionHistoryProps = {}
+export type TransactionHistoryProps = {
+  apps: AppSummaryModel[]
+}
 
 export type MapState = {
   isLoadingDeveloperDetail: boolean
@@ -27,19 +29,18 @@ export type MapState = {
   developerAppIds: string[]
 }
 
-export const selectTransactionHistoryState: (state: ReduxState) => MapState = (state) => {
-  const { data } = selectAppListState(state)
+export const selectTransactionHistoryState: (apps: AppSummaryModel[]) => (state: ReduxState) => MapState =
+  (apps) => (state) => {
+    const developerAppIds = apps
+      ?.map((developerApp) => developerApp.id)
+      .filter((id) => typeof id === 'string') as string[]
 
-  const developerAppIds = data
-    ?.map((developerApp) => developerApp.id)
-    .filter((id) => typeof id === 'string') as string[]
-
-  return {
-    developerCreatedDate: state.developer.myIdentity?.created || '',
-    developerAppIds: developerAppIds,
-    isLoadingDeveloperDetail: state.developer.loading,
+    return {
+      developerCreatedDate: state.developer.myIdentity?.created || '',
+      developerAppIds: developerAppIds,
+      isLoadingDeveloperDetail: state.developer.loading,
+    }
   }
-}
 
 export const createHandleDownLoadButtonOnClickFn =
   ({ month, developerAppIds }: { month: string; developerAppIds: string[] }) =>
@@ -148,9 +149,9 @@ export const handleEarlierClick = (setCurrentPage: React.Dispatch<React.SetState
 
 const currentDate = dayjs()
 
-const TransactionHistory: React.FC<TransactionHistoryProps> = () => {
+const TransactionHistory: React.FC<TransactionHistoryProps> = ({ apps }) => {
   const { developerAppIds, isLoadingDeveloperDetail, developerCreatedDate } = useSelector(
-    selectTransactionHistoryState,
+    selectTransactionHistoryState(apps),
     lodashIsEqual,
   )
   const [currentPage, setCurrentPage] = React.useState<number>(1)

@@ -14,10 +14,11 @@ import ErrorBoundary from '@/components/hocs/error-boundary'
 import { GET_ALL_PAGE_SIZE } from '@/constants/paginator'
 import TrafficEventTable from './traffic-event-table'
 import { prepareDefaultFilterDateParams } from './filter-bar/default-filter-group'
-import { selectAppListState } from '@/selector/apps/app-list'
 import { fetchInstallationsList, fetchInstallationsFilterList } from '@/actions/installations'
 
-export type DetailedTabProps = {}
+export type DetailedTabProps = {
+  apps: AppSummaryModel[]
+}
 
 export const handleMapAppNameToInstallation =
   (installationsAppDataArray: InstallationModel[] = [], developerDataArray: AppSummaryModel[] = []) =>
@@ -90,11 +91,10 @@ export const handleFetchHttpTrafficPerDayDataUseEffect = (fetchHttpTrafficPerDay
   }
 }
 
-export const DetailedTab: React.FC<DetailedTabProps> = () => {
+export const DetailedTab: React.FC<DetailedTabProps> = ({ apps }) => {
   const dispatch = useDispatch()
 
   const appHttpTraffic = useSelector(getAppHttpTraffic)
-  const { data: apps = [] } = useSelector(selectAppListState)
   const installationAppDataArray = useSelector(selectInstallationsListData)
   const installationFilterAppDataArray = useSelector(selectInstallationsFilterListData)
 

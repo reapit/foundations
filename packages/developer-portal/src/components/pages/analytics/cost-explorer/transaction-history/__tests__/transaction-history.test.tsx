@@ -15,6 +15,8 @@ import FileSaver from 'file-saver'
 import appState from '../../../../../../reducers/__stubs__/app-state'
 import { getPlatformHeaders } from '@reapit/utils-react'
 import { reapitConnectBrowserSession } from '../../../../../../core/connect-session'
+import { AppSummaryModel } from '@reapit/foundations-ts-definitions'
+import { mockAppSummaryModelPagedResult } from '../../../../../../tests/__stubs__/apps'
 
 const mockState: ReduxState = {
   ...appState,
@@ -90,8 +92,10 @@ describe('TransactionHistory', () => {
 
   describe('selectTransactionHistoryState', () => {
     it('should return correctly', () => {
-      expect(selectTransactionHistoryState(mockState)).toEqual({
-        developerAppIds: [],
+      expect(
+        selectTransactionHistoryState(mockAppSummaryModelPagedResult.data as AppSummaryModel[])(mockState),
+      ).toEqual({
+        developerAppIds: ['MOCK_APP_ID', 'MOCK_OTHER_APP_ID'],
         developerCreatedDate: '2020-04-30T13:21:20',
         isLoadingDeveloperDetail: false,
       })
@@ -99,7 +103,9 @@ describe('TransactionHistory', () => {
   })
 
   it('should match a snapshot', () => {
-    expect(shallow(<TransactionHistory />)).toMatchSnapshot()
+    expect(
+      shallow(<TransactionHistory apps={mockAppSummaryModelPagedResult.data as AppSummaryModel[]} />),
+    ).toMatchSnapshot()
   })
 
   describe('handleLaterClick and handleEarlierClick', () => {
