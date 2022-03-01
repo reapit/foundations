@@ -62,7 +62,7 @@ exports[`StatusModal should match snapshot 1`] = `
     <Formik
       initialValues={
         Object {
-          "reapitReference": undefined,
+          "reapitReference": "",
           "status": undefined,
         }
       }
