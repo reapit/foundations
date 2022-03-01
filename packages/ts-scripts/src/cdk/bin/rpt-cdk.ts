@@ -29,5 +29,7 @@ if (command) {
         args: <scriptName> - The name of the script to run, defaults to cdk-stack.ts
       deploy - Deploy the CDK stack
         args: <scriptName> - The name of the script to run, defaults to cdk-stack.ts
+      watch - Deploy the CDK stack and watch for changes
+        args: <scriptName> - The name of the script to run, defaults to cdk-stack.ts
   `)
 }
