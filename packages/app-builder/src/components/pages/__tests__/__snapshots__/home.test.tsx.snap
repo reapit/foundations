@@ -129,27 +129,27 @@ exports[`Home should match a snapshot 1`] = `
         </div>
       </div>
       <div
-        class="__react_component_tooltip tf85a8ce2-50bc-4b57-92cc-f2fe33e10001 place-bottom type-dark"
+        class="__react_component_tooltip t00000000-0000-0000-0000-000000000000 place-bottom type-dark"
         data-id="tooltip"
-        id="tf85a8ce2-50bc-4b57-92cc-f2fe33e10001"
+        id="t00000000-0000-0000-0000-000000000000"
       >
         <style
           aria-hidden="true"
         >
           
-  	.tf85a8ce2-50bc-4b57-92cc-f2fe33e10001 {
+  	.t00000000-0000-0000-0000-000000000000 {
 	    color: #fff;
 	    background: #222;
 	    border: 1px solid transparent;
   	}
 
-  	.tf85a8ce2-50bc-4b57-92cc-f2fe33e10001.place-top {
+  	.t00000000-0000-0000-0000-000000000000.place-top {
         margin-top: -10px;
     }
-    .tf85a8ce2-50bc-4b57-92cc-f2fe33e10001.place-top::before {
+    .t00000000-0000-0000-0000-000000000000.place-top::before {
         border-top: 8px solid transparent;
     }
-    .tf85a8ce2-50bc-4b57-92cc-f2fe33e10001.place-top::after {
+    .t00000000-0000-0000-0000-000000000000.place-top::after {
         border-left: 8px solid transparent;
         border-right: 8px solid transparent;
         bottom: -6px;
@@ -160,13 +160,13 @@ exports[`Home should match a snapshot 1`] = `
         border-top-width: 6px;
     }
 
-    .tf85a8ce2-50bc-4b57-92cc-f2fe33e10001.place-bottom {
+    .t00000000-0000-0000-0000-000000000000.place-bottom {
         margin-top: 10px;
     }
-    .tf85a8ce2-50bc-4b57-92cc-f2fe33e10001.place-bottom::before {
+    .t00000000-0000-0000-0000-000000000000.place-bottom::before {
         border-bottom: 8px solid transparent;
     }
-    .tf85a8ce2-50bc-4b57-92cc-f2fe33e10001.place-bottom::after {
+    .t00000000-0000-0000-0000-000000000000.place-bottom::after {
         border-left: 8px solid transparent;
         border-right: 8px solid transparent;
         top: -6px;
@@ -177,13 +177,13 @@ exports[`Home should match a snapshot 1`] = `
         border-bottom-width: 6px;
     }
 
-    .tf85a8ce2-50bc-4b57-92cc-f2fe33e10001.place-left {
+    .t00000000-0000-0000-0000-000000000000.place-left {
         margin-left: -10px;
     }
-    .tf85a8ce2-50bc-4b57-92cc-f2fe33e10001.place-left::before {
+    .t00000000-0000-0000-0000-000000000000.place-left::before {
         border-left: 8px solid transparent;
     }
-    .tf85a8ce2-50bc-4b57-92cc-f2fe33e10001.place-left::after {
+    .t00000000-0000-0000-0000-000000000000.place-left::after {
         border-top: 5px solid transparent;
         border-bottom: 5px solid transparent;
         right: -6px;
@@ -194,13 +194,13 @@ exports[`Home should match a snapshot 1`] = `
         border-left-width: 6px;
     }
 
-    .tf85a8ce2-50bc-4b57-92cc-f2fe33e10001.place-right {
+    .t00000000-0000-0000-0000-000000000000.place-right {
         margin-left: 10px;
     }
-    .tf85a8ce2-50bc-4b57-92cc-f2fe33e10001.place-right::before {
+    .t00000000-0000-0000-0000-000000000000.place-right::before {
         border-right: 8px solid transparent;
     }
-    .tf85a8ce2-50bc-4b57-92cc-f2fe33e10001.place-right::after {
+    .t00000000-0000-0000-0000-000000000000.place-right::after {
         border-top: 5px solid transparent;
         border-bottom: 5px solid transparent;
         left: -6px;

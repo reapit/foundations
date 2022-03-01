@@ -129,27 +129,27 @@ exports[`Viewport should match a snapshot - saving 1`] = `
         </div>
       </div>
       <div
-        class="__react_component_tooltip t5fa49347-8f85-4aee-b504-7a841d4d8a63 place-bottom type-dark"
+        class="__react_component_tooltip t00000000-0000-0000-0000-000000000000 place-bottom type-dark"
         data-id="tooltip"
-        id="t5fa49347-8f85-4aee-b504-7a841d4d8a63"
+        id="t00000000-0000-0000-0000-000000000000"
       >
         <style
           aria-hidden="true"
         >
           
-  	.t5fa49347-8f85-4aee-b504-7a841d4d8a63 {
+  	.t00000000-0000-0000-0000-000000000000 {
 	    color: #fff;
 	    background: #222;
 	    border: 1px solid transparent;
   	}
 
-  	.t5fa49347-8f85-4aee-b504-7a841d4d8a63.place-top {
+  	.t00000000-0000-0000-0000-000000000000.place-top {
         margin-top: -10px;
     }
-    .t5fa49347-8f85-4aee-b504-7a841d4d8a63.place-top::before {
+    .t00000000-0000-0000-0000-000000000000.place-top::before {
         border-top: 8px solid transparent;
     }
-    .t5fa49347-8f85-4aee-b504-7a841d4d8a63.place-top::after {
+    .t00000000-0000-0000-0000-000000000000.place-top::after {
         border-left: 8px solid transparent;
         border-right: 8px solid transparent;
         bottom: -6px;
@@ -160,13 +160,13 @@ exports[`Viewport should match a snapshot - saving 1`] = `
         border-top-width: 6px;
     }
 
-    .t5fa49347-8f85-4aee-b504-7a841d4d8a63.place-bottom {
+    .t00000000-0000-0000-0000-000000000000.place-bottom {
         margin-top: 10px;
     }
-    .t5fa49347-8f85-4aee-b504-7a841d4d8a63.place-bottom::before {
+    .t00000000-0000-0000-0000-000000000000.place-bottom::before {
         border-bottom: 8px solid transparent;
     }
-    .t5fa49347-8f85-4aee-b504-7a841d4d8a63.place-bottom::after {
+    .t00000000-0000-0000-0000-000000000000.place-bottom::after {
         border-left: 8px solid transparent;
         border-right: 8px solid transparent;
         top: -6px;
@@ -177,13 +177,13 @@ exports[`Viewport should match a snapshot - saving 1`] = `
         border-bottom-width: 6px;
     }
 
-    .t5fa49347-8f85-4aee-b504-7a841d4d8a63.place-left {
+    .t00000000-0000-0000-0000-000000000000.place-left {
         margin-left: -10px;
     }
-    .t5fa49347-8f85-4aee-b504-7a841d4d8a63.place-left::before {
+    .t00000000-0000-0000-0000-000000000000.place-left::before {
         border-left: 8px solid transparent;
     }
-    .t5fa49347-8f85-4aee-b504-7a841d4d8a63.place-left::after {
+    .t00000000-0000-0000-0000-000000000000.place-left::after {
         border-top: 5px solid transparent;
         border-bottom: 5px solid transparent;
         right: -6px;
@@ -194,13 +194,13 @@ exports[`Viewport should match a snapshot - saving 1`] = `
         border-left-width: 6px;
     }
 
-    .t5fa49347-8f85-4aee-b504-7a841d4d8a63.place-right {
+    .t00000000-0000-0000-0000-000000000000.place-right {
         margin-left: 10px;
     }
-    .t5fa49347-8f85-4aee-b504-7a841d4d8a63.place-right::before {
+    .t00000000-0000-0000-0000-000000000000.place-right::before {
         border-right: 8px solid transparent;
     }
-    .t5fa49347-8f85-4aee-b504-7a841d4d8a63.place-right::after {
+    .t00000000-0000-0000-0000-000000000000.place-right::after {
         border-top: 5px solid transparent;
         border-bottom: 5px solid transparent;
         left: -6px;
@@ -706,27 +706,27 @@ exports[`Viewport should match a snapshot 1`] = `
         </div>
       </div>
       <div
-        class="__react_component_tooltip ta760292c-7fa2-451f-95bf-e6ea716dbcc1 place-bottom type-dark"
+        class="__react_component_tooltip t00000000-0000-0000-0000-000000000000 place-bottom type-dark"
         data-id="tooltip"
-        id="ta760292c-7fa2-451f-95bf-e6ea716dbcc1"
+        id="t00000000-0000-0000-0000-000000000000"
       >
         <style
           aria-hidden="true"
         >
           
-  	.ta760292c-7fa2-451f-95bf-e6ea716dbcc1 {
+  	.t00000000-0000-0000-0000-000000000000 {
 	    color: #fff;
 	    background: #222;
 	    border: 1px solid transparent;
   	}
 
-  	.ta760292c-7fa2-451f-95bf-e6ea716dbcc1.place-top {
+  	.t00000000-0000-0000-0000-000000000000.place-top {
         margin-top: -10px;
     }
-    .ta760292c-7fa2-451f-95bf-e6ea716dbcc1.place-top::before {
+    .t00000000-0000-0000-0000-000000000000.place-top::before {
         border-top: 8px solid transparent;
     }
-    .ta760292c-7fa2-451f-95bf-e6ea716dbcc1.place-top::after {
+    .t00000000-0000-0000-0000-000000000000.place-top::after {
         border-left: 8px solid transparent;
         border-right: 8px solid transparent;
         bottom: -6px;
@@ -737,13 +737,13 @@ exports[`Viewport should match a snapshot 1`] = `
         border-top-width: 6px;
     }
 
-    .ta760292c-7fa2-451f-95bf-e6ea716dbcc1.place-bottom {
+    .t00000000-0000-0000-0000-000000000000.place-bottom {
         margin-top: 10px;
     }
-    .ta760292c-7fa2-451f-95bf-e6ea716dbcc1.place-bottom::before {
+    .t00000000-0000-0000-0000-000000000000.place-bottom::before {
         border-bottom: 8px solid transparent;
     }
-    .ta760292c-7fa2-451f-95bf-e6ea716dbcc1.place-bottom::after {
+    .t00000000-0000-0000-0000-000000000000.place-bottom::after {
         border-left: 8px solid transparent;
         border-right: 8px solid transparent;
         top: -6px;
@@ -754,13 +754,13 @@ exports[`Viewport should match a snapshot 1`] = `
         border-bottom-width: 6px;
     }
 
-    .ta760292c-7fa2-451f-95bf-e6ea716dbcc1.place-left {
+    .t00000000-0000-0000-0000-000000000000.place-left {
         margin-left: -10px;
     }
-    .ta760292c-7fa2-451f-95bf-e6ea716dbcc1.place-left::before {
+    .t00000000-0000-0000-0000-000000000000.place-left::before {
         border-left: 8px solid transparent;
     }
-    .ta760292c-7fa2-451f-95bf-e6ea716dbcc1.place-left::after {
+    .t00000000-0000-0000-0000-000000000000.place-left::after {
         border-top: 5px solid transparent;
         border-bottom: 5px solid transparent;
         right: -6px;
@@ -771,13 +771,13 @@ exports[`Viewport should match a snapshot 1`] = `
         border-left-width: 6px;
     }
 
-    .ta760292c-7fa2-451f-95bf-e6ea716dbcc1.place-right {
+    .t00000000-0000-0000-0000-000000000000.place-right {
         margin-left: 10px;
     }
-    .ta760292c-7fa2-451f-95bf-e6ea716dbcc1.place-right::before {
+    .t00000000-0000-0000-0000-000000000000.place-right::before {
         border-right: 8px solid transparent;
     }
-    .ta760292c-7fa2-451f-95bf-e6ea716dbcc1.place-right::after {
+    .t00000000-0000-0000-0000-000000000000.place-right::after {
         border-top: 5px solid transparent;
         border-bottom: 5px solid transparent;
         left: -6px;
