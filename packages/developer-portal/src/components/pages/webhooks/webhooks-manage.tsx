@@ -1,4 +1,4 @@
-import { Loader, PersistantNotification, RowProps, StatusIndicator, Table } from '@reapit/elements'
+import { elMb11, Loader, Pagination, PersistantNotification, RowProps, StatusIndicator, Table } from '@reapit/elements'
 import React, { Dispatch, FC, SetStateAction, useEffect, useMemo, useState } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
 import { InstallationModel } from '@reapit/foundations-ts-definitions'
@@ -98,7 +98,7 @@ export const handleSortTableData =
 
 export const WebhooksManage: FC<WebhooksManageProps> = ({ webhookQueryParams }) => {
   const dispatch = useDispatch()
-  const [pageNumber] = useState<number>(1)
+  const [pageNumber, setPageNumber] = useState<number>(1)
   const [expandableContentType, setExpandableContentType] = useState<ExpandableContentType>(
     ExpandableContentType.Controls,
   )
@@ -141,5 +141,19 @@ export const WebhooksManage: FC<WebhooksManageProps> = ({ webhookQueryParams }) 
         No webhooks found for your application. You can create one from the New Webhook wizard.
       </PersistantNotification>
     )
-  return <Table indexExpandedRow={indexExpandedRow} setIndexExpandedRow={setIndexExpandedRow} rows={rows} />
+  return (
+    <>
+      <Table
+        className={elMb11}
+        indexExpandedRow={indexExpandedRow}
+        setIndexExpandedRow={setIndexExpandedRow}
+        rows={rows}
+      />
+      <Pagination
+        callback={setPageNumber}
+        currentPage={pageNumber}
+        numberPages={Math.ceil((subscriptionsData?.totalCount ?? 1) / (subscriptionsData?.pageSize ?? 1))}
+      />
+    </>
+  )
 }
