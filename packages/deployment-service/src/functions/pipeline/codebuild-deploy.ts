@@ -87,6 +87,14 @@ export const codebuildDeploy: SQSHandler = async (event: SQSEvent, context: Cont
         }
 
         await resetCurrentlyDeployed(pipelineRunner.pipeline as PipelineEntity)
+        pipelineRunner.currentlyDeployed = true
+
+        const updatedPipelineRunner = await savePipelineRunnerEntity(pipelineRunner)
+        await pusher.trigger(
+          `private-${pipelineRunner.pipeline?.developerId}`,
+          'pipeline-runner-update',
+          updatedPipelineRunner,
+        )
       } catch (error: any) {
         console.error(error)
 
@@ -103,15 +111,6 @@ export const codebuildDeploy: SQSHandler = async (event: SQSEvent, context: Cont
         }
         await deleteMessage(record.receiptHandle)
       }
-
-      pipelineRunner.currentlyDeployed = true
-
-      const updatedPipelineRunner = await savePipelineRunnerEntity(pipelineRunner)
-      await pusher.trigger(
-        `private-${pipelineRunner.pipeline?.developerId}`,
-        'pipeline-runner-update',
-        updatedPipelineRunner,
-      )
 
       await deleteMessage(record.receiptHandle)
     }),
