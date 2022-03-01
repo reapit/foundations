@@ -1,0 +1,39 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`SidebarItem should match a snapshot 1`] = `
+<DocumentFragment>
+  <div
+    class="el-flex el-flex-column sidebar-item-div"
+    style="--s1re9lvo-0: auto; --s1re9lvo-1: unset;"
+  >
+    <div
+      class="cursor-pointer bg-white el-border-grey-b el-flex el-flex-align-center el-px3 header-div"
+    >
+      <div
+        class="el-flex el-flex1 el-flex-align-center"
+      >
+        <div
+          class="icon-container"
+        />
+        <p
+          class="uppercase el-small-text"
+          style="margin-bottom: 0px;"
+        />
+      </div>
+      <a
+        class="chevron"
+        style="--ckrrxc3-0: 0deg;"
+      >
+        <svg
+          viewBox="0 0 10 6"
+          xmlns="http://www.w3.org/2000/svg"
+        >
+          <path
+            d="M9.99,1.01A.9999.9999,0,0,0,8.28266.30327L5,3.58594,1.71734.30327A.9999.9999,0,1,0,.30327,1.71734L4.29266,5.69673a.99965.99965,0,0,0,1.41468,0L9.69673,1.71734A.99669.99669,0,0,0,9.99,1.01Z"
+          />
+        </svg>
+      </a>
+    </div>
+  </div>
+</DocumentFragment>
+`;

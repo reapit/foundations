@@ -30,14 +30,7 @@ const ToolboxDiv = styled.div`
   width: 45px;
 `
 
-const Toolbox = () => {
-  const {
-    enabled,
-    connectors: { create },
-  } = useEditor((state) => ({
-    enabled: state.options.enabled,
-  }))
-
+export const Toolbox = ({ enabled, create }: { enabled: boolean; create: (ref: HTMLElement, ele: any) => void }) => {
   return (
     <ToolboxDiv
       style={{ width: enabled ? undefined : 0, opacity: enabled ? undefined : 0 }}
@@ -88,4 +81,15 @@ const Toolbox = () => {
   )
 }
 
-export default Toolbox
+const ConnectedToolbox = () => {
+  const {
+    enabled,
+    connectors: { create },
+  } = useEditor((state) => ({
+    enabled: state.options.enabled,
+  }))
+
+  return <Toolbox create={create} enabled={enabled} />
+}
+
+export default ConnectedToolbox

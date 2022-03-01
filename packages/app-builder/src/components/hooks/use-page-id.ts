@@ -5,7 +5,7 @@ export const usePageId = () => {
   const { pageId } = useParams<{ pageId?: string }>()
   let { appId } = useParams<{ appId?: string }>()
   if (!appId) {
-    appId = window.location.hostname.split('.')[0]
+    appId = window?.location?.hostname?.split('.')[0]
   }
   const location = useLocation()
   const context = qs.parse(location.search)

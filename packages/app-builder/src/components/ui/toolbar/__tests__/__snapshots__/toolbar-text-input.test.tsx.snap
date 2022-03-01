@@ -1,0 +1,86 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`ToolbarRadio should match a snapshot - Number 1`] = `
+<DocumentFragment>
+  <div
+    class="el-input-group"
+  >
+    <label
+      class="el-label"
+    />
+    <input
+      class="el-input"
+      type="number"
+      value=""
+    />
+  </div>
+</DocumentFragment>
+`;
+
+exports[`ToolbarRadio should match a snapshot - Radio 1`] = `
+<DocumentFragment>
+  <div
+    class="el-input-group"
+  >
+    <label
+      class="el-label"
+    />
+    <input
+      class="el-input"
+      type="number"
+      value=""
+    />
+  </div>
+</DocumentFragment>
+`;
+
+exports[`ToolbarRadio should match a snapshot - Select 1`] = `
+<DocumentFragment>
+  <div
+    class="el-input-group"
+  >
+    <label
+      class="el-label"
+    />
+    <input
+      class="el-input"
+      type="number"
+      value=""
+    />
+  </div>
+</DocumentFragment>
+`;
+
+exports[`ToolbarRadio should match a snapshot - Slider 1`] = `
+<DocumentFragment>
+  <div
+    class="el-input-group"
+  >
+    <label
+      class="el-label"
+    />
+    <input
+      class="el-input"
+      type="number"
+      value=""
+    />
+  </div>
+</DocumentFragment>
+`;
+
+exports[`ToolbarRadio should match a snapshot - Text 1`] = `
+<DocumentFragment>
+  <div
+    class="el-input-group"
+  >
+    <label
+      class="el-label"
+    />
+    <input
+      class="el-input"
+      type="text"
+      value=""
+    />
+  </div>
+</DocumentFragment>
+`;

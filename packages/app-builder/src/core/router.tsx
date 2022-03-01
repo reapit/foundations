@@ -103,7 +103,7 @@ const AppViewer = () => {
 
 const EditorOrViewer = () => {
   const { location } = window
-  if (location.hostname.startsWith('app-builder') || location.hostname.startsWith('localhost')) {
+  if (location?.hostname?.startsWith('app-builder') || location?.hostname?.startsWith('localhost')) {
     return <AppEditor />
   } else {
     return <AppViewer />

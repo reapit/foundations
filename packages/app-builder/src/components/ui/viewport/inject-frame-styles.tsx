@@ -14,16 +14,18 @@ export const InjectFrameStyles = ({ children }: { children: React.ReactChildren 
       frame.head.appendChild(style.cloneNode(true))
     })
 
-    const observer = new MutationObserver((mutationsList) => {
-      mutationsList.forEach((mutation) => {
-        if (mutation.type === 'childList') {
-          mutation.addedNodes.forEach((node) => {
-            frame.head.appendChild(node.cloneNode(true))
-          })
-        }
-      })
-    })
+    let observer: MutationObserver | undefined
+
     if (isLocal) {
+      observer = new MutationObserver((mutationsList) => {
+        mutationsList.forEach((mutation) => {
+          if (mutation.type === 'childList') {
+            mutation.addedNodes.forEach((node) => {
+              frame.head.appendChild(node.cloneNode(true))
+            })
+          }
+        })
+      })
       observer.observe(document.head, { childList: true, subtree: true })
     }
 
@@ -32,7 +34,7 @@ export const InjectFrameStyles = ({ children }: { children: React.ReactChildren 
 
     return () => {
       if (!isLocal) {
-        observer.disconnect()
+        observer?.disconnect()
       }
     }
   }, [frame])

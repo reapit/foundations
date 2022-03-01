@@ -51,8 +51,7 @@ const Breakpoints = styled.div`
   margin-top: 8px;
 `
 
-const Viewport = ({ children, isSaving, iframeRef }) => {
-  const { connectors, actions } = useEditor()
+export const Viewport = ({ children, isSaving, iframeRef, deserialize, rendererDivRefHandler }) => {
   const [breakpoint, setBreakpoint] = useState(TABLET_BREAKPOINT)
 
   const { pageId, appId } = usePageId()
@@ -62,7 +61,7 @@ const Viewport = ({ children, isSaving, iframeRef }) => {
   useEffect(() => {
     if (page && !loaded) {
       setTimeout(() => {
-        actions.deserialize(nodesArrToObj(page.nodes))
+        deserialize(nodesArrToObj(page.nodes))
         setLoaded(true)
       }, 300)
     }
@@ -114,7 +113,7 @@ const Viewport = ({ children, isSaving, iframeRef }) => {
               <div
                 id="craftjs-renderer"
                 className={cx(elFlex1, elHFull, elWFull, transition, elPb6, overflowAuto)}
-                ref={(ref) => ref && connectors.select(connectors.hover(ref, ''), '')}
+                ref={rendererDivRefHandler}
               >
                 <div className={cx(elFlex, elFlexRow, flexAlignStretch, relative, elPt6, elMAuto)}>
                   <InjectFrameStyles>{children}</InjectFrameStyles>
@@ -129,4 +128,19 @@ const Viewport = ({ children, isSaving, iframeRef }) => {
   )
 }
 
-export default Viewport
+const ConnectedViewport = ({ children, iframeRef, isSaving }) => {
+  const { connectors, actions } = useEditor()
+
+  return (
+    <Viewport
+      isSaving={isSaving}
+      iframeRef={iframeRef}
+      deserialize={actions.deserialize}
+      rendererDivRefHandler={(ref) => ref && connectors.select(connectors.hover(ref, ''), '')}
+    >
+      {children}
+    </Viewport>
+  )
+}
+
+export default ConnectedViewport

@@ -1,0 +1,42 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Form should match a snapshot 1`] = `
+<DocumentFragment>
+  <div
+    class="container-div"
+    style="--c14oj12m-0: 0; --c14oj12m-2: 0;"
+    width="0"
+  >
+    <div>
+      No type selected
+    </div>
+    <form>
+      <div
+        class="el-form-layout"
+      >
+        <div
+          class="el-loader-container"
+        >
+          <p
+            class="el-loader-label"
+          >
+            Loading
+          </p>
+          <div
+            class="el-loader"
+          >
+            <div
+              class="el-loader-moving-bar"
+            />
+          </div>
+        </div>
+        <button
+          class="el-button"
+        >
+          Save
+        </button>
+      </div>
+    </form>
+  </div>
+</DocumentFragment>
+`;

@@ -1,0 +1,31 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Table should match a snapshot 1`] = `
+<DocumentFragment>
+  <div
+    class="container-div"
+    style="--c14oj12m-0: undefined; --c14oj12m-2: NaN;"
+  >
+    <div
+      class="el-flex el-flex1 el-flex-column"
+    >
+      <div
+        class="el-loader-container"
+      >
+        <p
+          class="el-loader-label"
+        >
+          Loading
+        </p>
+        <div
+          class="el-loader"
+        >
+          <div
+            class="el-loader-moving-bar"
+          />
+        </div>
+      </div>
+    </div>
+  </div>
+</DocumentFragment>
+`;

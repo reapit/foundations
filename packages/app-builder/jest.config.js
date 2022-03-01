@@ -14,10 +14,10 @@ module.exports = {
   coveragePathIgnorePatterns: ['<rootDir>/src/tests', 'index.ts', 'index.tsx'],
   coverageThreshold: {
     global: {
-      branches: 40,
-      functions: 46,
-      lines: 71,
-      statements: 67,
+      branches: 36,
+      functions: 33,
+      lines: 50,
+      statements: 48,
     },
   },
 }
