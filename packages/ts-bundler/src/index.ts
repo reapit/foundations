@@ -1,3 +1,3 @@
 import { bundle } from './ts-bundler'
 
-bundle()
+export default bundle

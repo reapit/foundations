@@ -1,8 +1,8 @@
 import path from 'path'
 import fs from 'fs'
 
-export const getWorkspaceRoot = () => {
-  const moduleDir = path.resolve('.')
+export const getWorkspaceRoot = (relModuleDir: string = '.') => {
+  const moduleDir = path.resolve(relModuleDir)
   let repoRoot = moduleDir
   while (repoRoot !== '/') {
     repoRoot = path.resolve(repoRoot, '..')
