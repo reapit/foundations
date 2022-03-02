@@ -22,14 +22,14 @@ if (command) {
 } else {
   console.log(`
     Usage:
-      rpt-cdk <command>
+      rpt-cdk <command> <scriptName>
 
-    Commands:
-      synth - Generate a report of the CDK stack
-        args: <scriptName> - The name of the script to run, defaults to cdk-stack.ts
-      deploy - Deploy the CDK stack
-        args: <scriptName> - The name of the script to run, defaults to cdk-stack.ts
-      watch - Deploy the CDK stack and watch for changes
-        args: <scriptName> - The name of the script to run, defaults to cdk-stack.ts
+      Args: <scriptName> - The name of the script to run, defaults to cdk-stack.ts
+
+      Commands:
+        synth - Generate a report of the CDK stack
+        deploy - Deploy the CDK stack
+        watch - Deploy the CDK stack and watch for changes
+        destroy - Destroy the CDK stack
   `)
 }
