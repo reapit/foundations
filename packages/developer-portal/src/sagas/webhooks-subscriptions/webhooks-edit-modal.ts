@@ -32,8 +32,8 @@ export const requestSubcriptionData = function* ({ data: applicationId }: Action
   yield put(setApplicationId(applicationId))
   try {
     const [subcriptionTopics, subcriptionCustomers] = yield all([
-      call(fetchWebhooksTopicsListApi, { applicationId }),
-      call(fetchInstallationsList, { appId: [applicationId] }),
+      call(fetchWebhooksTopicsListApi, { applicationId, pageSize: 999 }),
+      call(fetchInstallationsList, { appId: [applicationId], pageSize: 999 }),
     ])
     if (subcriptionCustomers && subcriptionTopics) {
       yield put(
