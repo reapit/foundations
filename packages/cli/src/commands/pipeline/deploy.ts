@@ -65,7 +65,6 @@ export class DeployPipelineCommand extends AbstractCommand {
 
     channel.bind('pipeline-runner-update', (event) => {
       if (event.id !== deploymentId) {
-        console.log('ignoring deployment I dont care about')
         return
       }
       this.updateTaskSpinners(event, taskSpinners)
@@ -74,6 +73,8 @@ export class DeployPipelineCommand extends AbstractCommand {
         // Do nothing. continuing in progress
       } else if (event.buildStatus === 'SUCCEEDED') {
         console.log(chalk.green('Deployment successful'))
+        const url = `https://${event.subDomain}.dev.paas.reapit.cloud`
+        console.log(`Check out your deployment: ${chalk.green(url)}`)
         // wait before exiting?
         process.exit(0)
       } else {
