@@ -34,6 +34,7 @@
     "bundle": "ts-bundler",
     "release": "rpt-cdk deploy cdk/cdk.ts",
     "release:watch": "rpt-cdk watch cdk/cdk.ts",
+    "release:destroy": "rpt-cdk destroy cdk/cdk.ts",
     "publish": "echo '...skipping...'",
     "conf": "yarn config-manager --namespace cloud --entity deployment-service --name local --mode fetch",
     "migration:generate": "ts-node -P ./tsconfig.json ../../node_modules/.bin/typeorm migration:generate",
