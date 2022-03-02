@@ -68,17 +68,23 @@ export const deployRelease = httpHandler<any, PipelineRunnerEntity>({
       ),
     )
 
-    await Promise.all([
-      deployFromStore({
-        pipeline: pipelineRunner.pipeline as PipelineEntity,
-        pipelineRunner,
-      }),
-      resetCurrentlyDeployed(pipelineRunner.pipeline as PipelineEntity),
-    ])
+    try {
+      await Promise.all([
+        deployFromStore({
+          pipeline: pipelineRunner.pipeline as PipelineEntity,
+          pipelineRunner,
+        }),
+        resetCurrentlyDeployed(pipelineRunner.pipeline as PipelineEntity),
+      ])
 
-    pipelineRunner.currentlyDeployed = true
-    pipelineRunner.buildStatus = 'COMPLETED'
+      pipelineRunner.currentlyDeployed = true
+      pipelineRunner.buildStatus = 'COMPLETED'
 
-    return savePipelineRunnerEntity(pipelineRunner)
+      return savePipelineRunnerEntity(pipelineRunner)
+    } catch (e) {
+      pipelineRunner.buildStatus = 'FAILED'
+
+      return savePipelineRunnerEntity(pipelineRunner)
+    }
   },
 })
