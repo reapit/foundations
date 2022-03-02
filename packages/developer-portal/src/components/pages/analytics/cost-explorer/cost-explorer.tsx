@@ -8,10 +8,13 @@ import CostExplorer from './cost-explorer-component'
 import { useReapitConnect } from '@reapit/connect-session'
 import { reapitConnectBrowserSession } from '../../../../core/connect-session'
 import { selectIsCustomer } from '../../../../selector/auth'
+import { AppSummaryModel } from '@reapit/foundations-ts-definitions'
 
-export type CostExplorerTabProps = {}
+export type CostExplorerTabProps = {
+  apps: AppSummaryModel[]
+}
 
-export const CostExplorerTab: React.FC<CostExplorerTabProps> = () => {
+export const CostExplorerTab: React.FC<CostExplorerTabProps> = ({ apps }) => {
   const { connectSession } = useReapitConnect(reapitConnectBrowserSession)
   const isCustomerUser = selectIsCustomer(connectSession)
   return (
@@ -21,7 +24,7 @@ export const CostExplorerTab: React.FC<CostExplorerTabProps> = () => {
           <ServiceChart />
         </GridItem>
         <GridItem className="is-half">
-          <TransactionHistory />
+          <TransactionHistory apps={apps} />
         </GridItem>
       </Grid>
       <Grid>

@@ -2,13 +2,83 @@
 
 exports[`AnalyticsPage renderTabContent should render Billing Tab 1`] = `
 <div>
-  <CostExplorerTab />
+  <CostExplorerTab
+    apps={
+      Array [
+        Object {
+          "authFlow": "clientCredentials",
+          "desktopIntegrationTypeIds": Array [],
+          "developerId": "MOCK_DEVELOPER_ID",
+          "homePage": "https://foo.bar",
+          "id": "MOCK_APP_ID",
+          "isFree": true,
+          "isListed": true,
+          "launchUri": "https://foo.bar",
+          "limitToClientIds": Array [],
+          "products": Array [
+            "agencyCloud",
+          ],
+          "summary": "Foo bar Foo bar Foo bar Foo bar Foo bar Foo bar Foo bar Foo bar",
+        },
+        Object {
+          "authFlow": "authorisationCode",
+          "desktopIntegrationTypeIds": Array [],
+          "developerId": "MOCK_DEVELOPER_ID",
+          "homePage": "https://foo.bar",
+          "id": "MOCK_OTHER_APP_ID",
+          "isFree": true,
+          "isListed": true,
+          "launchUri": "https://foo.bar",
+          "limitToClientIds": Array [],
+          "products": Array [
+            "agencyCloud",
+          ],
+          "summary": "Foo bar Foo bar Foo bar Foo bar Foo bar Foo bar Foo bar Foo bar",
+        },
+      ]
+    }
+  />
 </div>
 `;
 
 exports[`AnalyticsPage renderTabContent should render Detailed Tab 1`] = `
 <div>
-  <DetailedTab />
+  <DetailedTab
+    apps={
+      Array [
+        Object {
+          "authFlow": "clientCredentials",
+          "desktopIntegrationTypeIds": Array [],
+          "developerId": "MOCK_DEVELOPER_ID",
+          "homePage": "https://foo.bar",
+          "id": "MOCK_APP_ID",
+          "isFree": true,
+          "isListed": true,
+          "launchUri": "https://foo.bar",
+          "limitToClientIds": Array [],
+          "products": Array [
+            "agencyCloud",
+          ],
+          "summary": "Foo bar Foo bar Foo bar Foo bar Foo bar Foo bar Foo bar Foo bar",
+        },
+        Object {
+          "authFlow": "authorisationCode",
+          "desktopIntegrationTypeIds": Array [],
+          "developerId": "MOCK_DEVELOPER_ID",
+          "homePage": "https://foo.bar",
+          "id": "MOCK_OTHER_APP_ID",
+          "isFree": true,
+          "isListed": true,
+          "launchUri": "https://foo.bar",
+          "limitToClientIds": Array [],
+          "products": Array [
+            "agencyCloud",
+          ],
+          "summary": "Foo bar Foo bar Foo bar Foo bar Foo bar Foo bar Foo bar Foo bar",
+        },
+      ]
+    }
+  />
 </div>
 `;
 
@@ -35,6 +105,5 @@ exports[`AnalyticsPage should match a snapshot 1`] = `
       ]
     }
   />
-  <DetailedTab />
 </Connect(ErrorBoundary)>
 `;

@@ -34,14 +34,14 @@ export const defaultCopyState = {
   appId: 'Copy',
 }
 
-export const handleCopyCode = (copyState: Dispatch<SetStateAction<CopyState>>, key: keyof CopyState) => () => {
-  copyState({
+export const handleCopyCode = (setCopyState: Dispatch<SetStateAction<CopyState>>, key: keyof CopyState) => () => {
+  setCopyState({
     ...defaultCopyState,
     [key]: 'Copied',
   })
 
   setTimeout(() => {
-    copyState((currentState) => ({
+    setCopyState((currentState) => ({
       ...currentState,
       [key]: 'Copy',
     }))

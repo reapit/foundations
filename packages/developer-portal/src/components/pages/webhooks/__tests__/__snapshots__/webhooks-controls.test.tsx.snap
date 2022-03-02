@@ -137,6 +137,12 @@ Object {
               >
                 None selected
               </option>
+              <option
+                value="MOCK_APP_ID"
+              />
+              <option
+                value="MOCK_OTHER_APP_ID"
+              />
             </select>
             <label
               class="e1nbkkrq-el-label"
@@ -212,6 +218,12 @@ Object {
             >
               None selected
             </option>
+            <option
+              value="MOCK_APP_ID"
+            />
+            <option
+              value="MOCK_OTHER_APP_ID"
+            />
           </select>
           <label
             class="e1nbkkrq-el-label"
@@ -302,6 +314,12 @@ Object {
               >
                 None selected
               </option>
+              <option
+                value="MOCK_APP_ID"
+              />
+              <option
+                value="MOCK_OTHER_APP_ID"
+              />
             </select>
             <label
               class="e1nbkkrq-el-label"
@@ -335,6 +353,12 @@ Object {
             >
               None selected
             </option>
+            <option
+              value="MOCK_APP_ID"
+            />
+            <option
+              value="MOCK_OTHER_APP_ID"
+            />
           </select>
           <label
             class="e1nbkkrq-el-label"

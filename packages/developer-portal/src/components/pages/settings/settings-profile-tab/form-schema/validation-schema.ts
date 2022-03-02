@@ -1,3 +1,4 @@
+/* istanbul ignore file */
 import * as Yup from 'yup'
 import { personNameRegex, letterNumberSpaceRegex, passwordRegex } from '@reapit/utils-common'
 import errorMessages from '@/constants/error-messages'

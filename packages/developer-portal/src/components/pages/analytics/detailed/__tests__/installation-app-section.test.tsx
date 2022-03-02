@@ -10,12 +10,12 @@ import {
   countAppsHasInstallation,
 } from '../installation-app-section'
 import { installationsStub } from '@/sagas/__stubs__/installations'
-import { appsDataStub } from '@/sagas/__stubs__/apps'
 import { InstallationsRootState } from '@/reducers/installations'
 import { handleMapAppNameToInstallation } from '../detailed-tab'
 import configureStore from 'redux-mock-store'
 import * as ReactRedux from 'react-redux'
 import appState from '@/reducers/__stubs__/app-state'
+import { mockAppSummaryModelPagedResult } from '../../../../../tests/__stubs__/apps'
 
 jest.mock('@reapit/elements-legacy', () => ({
   ...(jest.requireActual('@reapit/elements-legacy') as Object),
@@ -33,7 +33,7 @@ const installations = {
 describe('InstallationTable', () => {
   const installedApps = handleMapAppNameToInstallation(
     installations.installationsList?.list?.data || [],
-    appsDataStub.data.data || [],
+    mockAppSummaryModelPagedResult.data || [],
   )()
   let store
 

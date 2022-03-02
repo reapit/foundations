@@ -131,29 +131,25 @@ Object {
         <div
           class="e1sw79q5-el-card-main-wrap"
         >
-          <div
-            class="e1bgmgin-el-card-image-wrap"
-          >
-            <img
-              src="https://reapit-app-store-app-media.s3.eu-west-2.amazonaws.com/d10e790c-2bf2-40ae-9c43-82c1534bde31.png"
-            />
-          </div>
+          
           <div
             class="e1rjwng7-el-card-heading-wrap"
           >
             <h5
               class="e1n8fwu7-el-card-heading"
             >
-              test
+              will-test-dev-co-voracious-person
             </h5>
             <h6
               class="e160zim8-el-card-sub-heading"
             >
-              Pete's Proptech World Ltd
+              Will Test DevCo
             </h6>
             <h6
               class="e1nfyxby-el-card-sub-heading-additional"
-            />
+            >
+              Integration
+            </h6>
           </div>
           <button
             class="e17hzamr-el-mobile-toggle"
@@ -181,7 +177,7 @@ Object {
         <div
           class="em92f2t-el-card-body-wrap"
         >
-          nXXT2zaK807ysWgy8F0WEhIYRP3TgosAtfuiLtQCImoSx0kynxbIF0nkGHU36Oz13kM3DG0Bcsicr8L6eWFKLBg4axlmiOEWcvwHAbBP9LRvoFkCl58k1wjhOExnpaZItEyOT1AXVKv8PE44aMGtVz
+          Foo bar Foo bar Foo bar Foo bar Foo bar Foo bar Foo bar Foo bar
         </div>
       </div>
     </div>
@@ -313,29 +309,25 @@ Object {
       <div
         class="e1sw79q5-el-card-main-wrap"
       >
-        <div
-          class="e1bgmgin-el-card-image-wrap"
-        >
-          <img
-            src="https://reapit-app-store-app-media.s3.eu-west-2.amazonaws.com/d10e790c-2bf2-40ae-9c43-82c1534bde31.png"
-          />
-        </div>
+        
         <div
           class="e1rjwng7-el-card-heading-wrap"
         >
           <h5
             class="e1n8fwu7-el-card-heading"
           >
-            test
+            will-test-dev-co-voracious-person
           </h5>
           <h6
             class="e160zim8-el-card-sub-heading"
           >
-            Pete's Proptech World Ltd
+            Will Test DevCo
           </h6>
           <h6
             class="e1nfyxby-el-card-sub-heading-additional"
-          />
+          >
+            Integration
+          </h6>
         </div>
         <button
           class="e17hzamr-el-mobile-toggle"
@@ -363,7 +355,7 @@ Object {
       <div
         class="em92f2t-el-card-body-wrap"
       >
-        nXXT2zaK807ysWgy8F0WEhIYRP3TgosAtfuiLtQCImoSx0kynxbIF0nkGHU36Oz13kM3DG0Bcsicr8L6eWFKLBg4axlmiOEWcvwHAbBP9LRvoFkCl58k1wjhOExnpaZItEyOT1AXVKv8PE44aMGtVz
+        Foo bar Foo bar Foo bar Foo bar Foo bar Foo bar Foo bar Foo bar
       </div>
     </div>
   </div>,
