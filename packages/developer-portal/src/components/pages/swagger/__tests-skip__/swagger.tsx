@@ -1,3 +1,5 @@
+/* istanbul ignore file */
+// Can't add tests to this file because of the way Jest transpiles Swagger UI throws an error
 import * as React from 'react'
 import { shallow } from 'enzyme'
 

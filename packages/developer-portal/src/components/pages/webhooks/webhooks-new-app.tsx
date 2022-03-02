@@ -4,7 +4,6 @@ import {
   InputAddOn,
   InputGroup,
   Label,
-  Loader,
   PersistantNotification,
   Select,
   FormLayout,
@@ -12,20 +11,18 @@ import {
 } from '@reapit/elements'
 import React, { FC } from 'react'
 import { DeepMap, FieldError, UseFormRegister } from 'react-hook-form'
-import { useSelector } from 'react-redux'
-import { selectAppListState } from '../../../selector/apps/app-list'
 import { CreateWebhookFormSchema } from './webhooks-new'
 import { WebhookQueryParams } from './webhooks'
+import { AppSummaryModel } from '@reapit/foundations-ts-definitions'
 
 interface WebhooksNewAppProps {
   register: UseFormRegister<CreateWebhookFormSchema>
   errors: DeepMap<Partial<CreateWebhookFormSchema>, FieldError>
   webhookQueryParams: WebhookQueryParams
+  apps: AppSummaryModel[]
 }
 
-export const WebhooksNewApp: FC<WebhooksNewAppProps> = ({ register, errors, webhookQueryParams }) => {
-  const { data: apps, isLoading } = useSelector(selectAppListState)
-
+export const WebhooksNewApp: FC<WebhooksNewAppProps> = ({ register, apps, errors, webhookQueryParams }) => {
   const errorMessage = errors?.applicationId?.message
   return (
     <>
@@ -35,9 +32,7 @@ export const WebhooksNewApp: FC<WebhooksNewAppProps> = ({ register, errors, webh
       </BodyText>
       <FormLayout className={elFadeIn}>
         <InputWrap>
-          {isLoading ? (
-            <Loader label="Loading" />
-          ) : apps && apps.length ? (
+          {apps && apps.length ? (
             <>
               <InputGroup>
                 <Select {...register('applicationId')} defaultValue={webhookQueryParams.applicationId ?? ''}>

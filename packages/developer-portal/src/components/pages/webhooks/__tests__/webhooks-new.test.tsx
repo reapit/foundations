@@ -14,6 +14,8 @@ import {
   updateWebhookCreateEditState,
 } from '../../../../actions/webhooks-subscriptions'
 import { WebhookCreateEditState } from '../../../../reducers/webhooks-subscriptions/webhook-edit-modal'
+import { AppSummaryModel } from '@reapit/foundations-ts-definitions'
+import { mockAppSummaryModelPagedResult } from '../../../../tests/__stubs__/apps'
 
 const webhookQueryParams = {
   applicationId: 'SOME_ID',
@@ -26,7 +28,13 @@ const steps = ['1', '2', '3', '4', '5']
 describe('WebhooksNew', () => {
   it('should match a snapshot', () => {
     expect(
-      render(<WebhooksNew webhookQueryParams={webhookQueryParams} selectAppIdHandler={jest.fn()} />),
+      render(
+        <WebhooksNew
+          webhookQueryParams={webhookQueryParams}
+          selectAppIdHandler={jest.fn()}
+          apps={mockAppSummaryModelPagedResult.data as AppSummaryModel[]}
+        />,
+      ),
     ).toMatchSnapshot()
   })
 })
@@ -68,7 +76,13 @@ describe('getStepContent', () => {
         to: 'TO',
         from: 'FROM',
       }
-      const steps = getStepContent(register, getValues, errors, webhookQueryParams)
+      const steps = getStepContent(
+        register,
+        getValues,
+        errors,
+        webhookQueryParams,
+        mockAppSummaryModelPagedResult.data as AppSummaryModel[],
+      )
       steps.forEach(({ content }) => {
         expect(render(content as ReactElement)).toMatchSnapshot()
       })

@@ -13,10 +13,6 @@ const props = {
   routerProps: {
     match: {
       path: Routes.APPS,
-      params: { page: 1 },
-    },
-    location: {
-      search: 'page=1',
     },
   } as RouteComponentProps<any, StaticContext, any>,
 }
@@ -29,11 +25,7 @@ describe('RouteFetcher', () => {
   it('should call the routeDispatcher with the route path', () => {
     mount(<RouteFetcher {...props} />)
     expect(routeDispatcher).toHaveBeenCalledTimes(1)
-    expect(routeDispatcher).toHaveBeenCalledWith(
-      props.routerProps.match.path,
-      props.routerProps.match.params,
-      props.routerProps.location.search,
-    )
+    expect(routeDispatcher).toHaveBeenCalledWith(props.routerProps.match.path)
   })
 
   afterEach(() => {

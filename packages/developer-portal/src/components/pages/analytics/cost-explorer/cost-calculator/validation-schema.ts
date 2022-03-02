@@ -1,3 +1,5 @@
+/* istanbul ignore file */
+
 import * as Yup from 'yup'
 import { formFields } from './form-fields'
 import errorMessages from '@/constants/error-messages'

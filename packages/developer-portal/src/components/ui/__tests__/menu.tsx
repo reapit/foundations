@@ -51,10 +51,6 @@ describe('getDefaultNavIndex', () => {
       index: 1,
     },
     {
-      route: Routes.APP_PREVIEW,
-      index: 1,
-    },
-    {
       route: Routes.ANALYTICS,
       index: 2,
     },

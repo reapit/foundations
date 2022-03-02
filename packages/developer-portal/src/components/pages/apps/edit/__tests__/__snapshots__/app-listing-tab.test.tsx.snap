@@ -33,6 +33,7 @@ Object {
               name="supportEmail"
               placeholder="The contact to your support team if your users have a problem"
               type="email"
+              value="Mock field value"
             />
             <label
               class="e1nbkkrq-el-label"
@@ -54,6 +55,7 @@ Object {
               name="telephone"
               placeholder="Should one of our developers need to contact you about your app"
               type="text"
+              value="Mock field value"
             />
             <label
               class="e1nbkkrq-el-label"
@@ -75,6 +77,7 @@ Object {
               name="homePage"
               placeholder="Your company homepage. HTTP:// or HTTPS://"
               type="text"
+              value="Mock field value"
             />
             <label
               class="e1nbkkrq-el-label"
@@ -96,6 +99,7 @@ Object {
               name="launchUri"
               placeholder="The launch page for your app. HTTPS only other than for http://localhost"
               type="text"
+              value="Mock field value"
             />
             <label
               class="e1nbkkrq-el-label"
@@ -117,6 +121,7 @@ Object {
               name="termsAndConditionsUrl"
               placeholder="URL to link to your Terms and Conditions"
               type="text"
+              value="Mock field value"
             />
             <label
               class="e1nbkkrq-el-label"
@@ -138,6 +143,7 @@ Object {
               name="privacyPolicyUrl"
               placeholder="URL to link to your Privacy Policy"
               type="text"
+              value="Mock field value"
             />
             <label
               class="e1nbkkrq-el-label"
@@ -159,6 +165,7 @@ Object {
               name="pricingUrl"
               placeholder="URL to link to your Pricing Info"
               type="text"
+              value="Mock field value"
             />
             <label
               class="e1nbkkrq-el-label"
@@ -179,6 +186,7 @@ Object {
               id="test-static-id"
               name="isFree"
               type="checkbox"
+              value="Mock field value"
             />
             <label
               class="e1nbkkrq-el-label"
@@ -190,7 +198,31 @@ Object {
         </div>
         <div
           class="e1ksxx4v-el-input-wrap"
-        />
+        >
+          <div
+            class="e1979rmu-el-input-group"
+          >
+            <label
+              class="e1nbkkrq-el-label"
+            >
+              Category
+            </label>
+            <select
+              class="e60u3kb-el-select"
+            >
+              <option
+                value=""
+              >
+                Select Option
+              </option>
+              <option
+                value="MOCK_ID"
+              >
+                MOCK_DESCRIPTION
+              </option>
+            </select>
+          </div>
+        </div>
         <div
           class="ep31he9-el-input-wrap-full"
         >
@@ -205,7 +237,9 @@ Object {
             <textarea
               class="e16rclfx-el-text-area"
               placeholder="A short strapline summary for your app listing. Must be between 50 and 150 characters"
-            />
+            >
+              Mock field value
+            </textarea>
           </div>
         </div>
         <div
@@ -229,6 +263,7 @@ Object {
               id="test-static-id"
               name="iconImageUrl"
               type="file"
+              value=""
             />
             <label
               class="e1nbkkrq-el-label"
@@ -249,6 +284,7 @@ Object {
               id="test-static-id"
               name="screen1ImageUrl"
               type="file"
+              value=""
             />
             <label
               class="e1nbkkrq-el-label"
@@ -269,6 +305,7 @@ Object {
               id="test-static-id"
               name="screen2ImageUrl"
               type="file"
+              value=""
             />
             <label
               class="e1nbkkrq-el-label"
@@ -289,6 +326,7 @@ Object {
               id="test-static-id"
               name="screen3ImageUrl"
               type="file"
+              value=""
             />
             <label
               class="e1nbkkrq-el-label"
@@ -309,6 +347,7 @@ Object {
               id="test-static-id"
               name="screen4ImageUrl"
               type="file"
+              value=""
             />
             <label
               class="e1nbkkrq-el-label"
@@ -329,6 +368,7 @@ Object {
               id="test-static-id"
               name="screen5ImageUrl"
               type="file"
+              value=""
             />
             <label
               class="e1nbkkrq-el-label"
@@ -370,6 +410,7 @@ Object {
             name="supportEmail"
             placeholder="The contact to your support team if your users have a problem"
             type="email"
+            value="Mock field value"
           />
           <label
             class="e1nbkkrq-el-label"
@@ -391,6 +432,7 @@ Object {
             name="telephone"
             placeholder="Should one of our developers need to contact you about your app"
             type="text"
+            value="Mock field value"
           />
           <label
             class="e1nbkkrq-el-label"
@@ -412,6 +454,7 @@ Object {
             name="homePage"
             placeholder="Your company homepage. HTTP:// or HTTPS://"
             type="text"
+            value="Mock field value"
           />
           <label
             class="e1nbkkrq-el-label"
@@ -433,6 +476,7 @@ Object {
             name="launchUri"
             placeholder="The launch page for your app. HTTPS only other than for http://localhost"
             type="text"
+            value="Mock field value"
           />
           <label
             class="e1nbkkrq-el-label"
@@ -454,6 +498,7 @@ Object {
             name="termsAndConditionsUrl"
             placeholder="URL to link to your Terms and Conditions"
             type="text"
+            value="Mock field value"
           />
           <label
             class="e1nbkkrq-el-label"
@@ -475,6 +520,7 @@ Object {
             name="privacyPolicyUrl"
             placeholder="URL to link to your Privacy Policy"
             type="text"
+            value="Mock field value"
           />
           <label
             class="e1nbkkrq-el-label"
@@ -496,6 +542,7 @@ Object {
             name="pricingUrl"
             placeholder="URL to link to your Pricing Info"
             type="text"
+            value="Mock field value"
           />
           <label
             class="e1nbkkrq-el-label"
@@ -516,6 +563,7 @@ Object {
             id="test-static-id"
             name="isFree"
             type="checkbox"
+            value="Mock field value"
           />
           <label
             class="e1nbkkrq-el-label"
@@ -527,7 +575,31 @@ Object {
       </div>
       <div
         class="e1ksxx4v-el-input-wrap"
-      />
+      >
+        <div
+          class="e1979rmu-el-input-group"
+        >
+          <label
+            class="e1nbkkrq-el-label"
+          >
+            Category
+          </label>
+          <select
+            class="e60u3kb-el-select"
+          >
+            <option
+              value=""
+            >
+              Select Option
+            </option>
+            <option
+              value="MOCK_ID"
+            >
+              MOCK_DESCRIPTION
+            </option>
+          </select>
+        </div>
+      </div>
       <div
         class="ep31he9-el-input-wrap-full"
       >
@@ -542,7 +614,9 @@ Object {
           <textarea
             class="e16rclfx-el-text-area"
             placeholder="A short strapline summary for your app listing. Must be between 50 and 150 characters"
-          />
+          >
+            Mock field value
+          </textarea>
         </div>
       </div>
       <div
@@ -566,6 +640,7 @@ Object {
             id="test-static-id"
             name="iconImageUrl"
             type="file"
+            value=""
           />
           <label
             class="e1nbkkrq-el-label"
@@ -586,6 +661,7 @@ Object {
             id="test-static-id"
             name="screen1ImageUrl"
             type="file"
+            value=""
           />
           <label
             class="e1nbkkrq-el-label"
@@ -606,6 +682,7 @@ Object {
             id="test-static-id"
             name="screen2ImageUrl"
             type="file"
+            value=""
           />
           <label
             class="e1nbkkrq-el-label"
@@ -626,6 +703,7 @@ Object {
             id="test-static-id"
             name="screen3ImageUrl"
             type="file"
+            value=""
           />
           <label
             class="e1nbkkrq-el-label"
@@ -646,6 +724,7 @@ Object {
             id="test-static-id"
             name="screen4ImageUrl"
             type="file"
+            value=""
           />
           <label
             class="e1nbkkrq-el-label"
@@ -666,6 +745,7 @@ Object {
             id="test-static-id"
             name="screen5ImageUrl"
             type="file"
+            value=""
           />
           <label
             class="e1nbkkrq-el-label"
@@ -673,6 +753,955 @@ Object {
           >
             Upload Other Listing Image
           </label>
+        </div>
+      </div>
+    </div>
+  </div>,
+  "debug": [Function],
+  "findAllByAltText": [Function],
+  "findAllByDisplayValue": [Function],
+  "findAllByLabelText": [Function],
+  "findAllByPlaceholderText": [Function],
+  "findAllByRole": [Function],
+  "findAllByTestId": [Function],
+  "findAllByText": [Function],
+  "findAllByTitle": [Function],
+  "findByAltText": [Function],
+  "findByDisplayValue": [Function],
+  "findByLabelText": [Function],
+  "findByPlaceholderText": [Function],
+  "findByRole": [Function],
+  "findByTestId": [Function],
+  "findByText": [Function],
+  "findByTitle": [Function],
+  "getAllByAltText": [Function],
+  "getAllByDisplayValue": [Function],
+  "getAllByLabelText": [Function],
+  "getAllByPlaceholderText": [Function],
+  "getAllByRole": [Function],
+  "getAllByTestId": [Function],
+  "getAllByText": [Function],
+  "getAllByTitle": [Function],
+  "getByAltText": [Function],
+  "getByDisplayValue": [Function],
+  "getByLabelText": [Function],
+  "getByPlaceholderText": [Function],
+  "getByRole": [Function],
+  "getByTestId": [Function],
+  "getByText": [Function],
+  "getByTitle": [Function],
+  "queryAllByAltText": [Function],
+  "queryAllByDisplayValue": [Function],
+  "queryAllByLabelText": [Function],
+  "queryAllByPlaceholderText": [Function],
+  "queryAllByRole": [Function],
+  "queryAllByTestId": [Function],
+  "queryAllByText": [Function],
+  "queryAllByTitle": [Function],
+  "queryByAltText": [Function],
+  "queryByDisplayValue": [Function],
+  "queryByLabelText": [Function],
+  "queryByPlaceholderText": [Function],
+  "queryByRole": [Function],
+  "queryByTestId": [Function],
+  "queryByText": [Function],
+  "queryByTitle": [Function],
+  "rerender": [Function],
+  "unmount": [Function],
+}
+`;
+
+exports[`AppListingTab should match a snapshot with errors and messages 1`] = `
+Object {
+  "asFragment": [Function],
+  "baseElement": <body>
+    <div>
+      <div
+        class="ecbqyq6-el-snack-holder"
+      />
+      <h2
+        class="evblxhy-el-subtitle"
+      >
+        App Listing
+      </h2>
+      <p
+        class="e11jaxfn-el-has-grey-text etrchfm-el-has-section-margin e1byern-el-body-text"
+      >
+        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur non pulvinar tellus, quis pulvinar dui. Nunc enim libero, ullamcorper ac ex id, tincidunt dapibus lectus. Vestibulum at porta quam, ac condimentum dui. Duis ornare enim sed magna tincidunt volutpat.
+      </p>
+      <div
+        class="e1fwulnz-el-form-layout-has-margin ee6e7by-el-form-layout"
+      >
+        <div
+          class="e1ksxx4v-el-input-wrap"
+        >
+          <div
+            class="e1979rmu-el-input-group"
+          >
+            <input
+              class="e1urjlvd-el-input"
+              id="test-static-id"
+              name="supportEmail"
+              placeholder="The contact to your support team if your users have a problem"
+              type="email"
+            />
+            <label
+              class="e1nbkkrq-el-label"
+              for="test-static-id"
+            >
+              Support email
+            </label>
+            <p
+              class="e19twfs3-el-input-error"
+            >
+              An Error
+            </p>
+          </div>
+        </div>
+        <div
+          class="e1ksxx4v-el-input-wrap"
+        >
+          <div
+            class="e1979rmu-el-input-group"
+          >
+            <input
+              class="e1urjlvd-el-input"
+              id="test-static-id"
+              name="telephone"
+              placeholder="Should one of our developers need to contact you about your app"
+              type="text"
+            />
+            <label
+              class="e1nbkkrq-el-label"
+              for="test-static-id"
+            >
+              Telephone
+            </label>
+            <p
+              class="e19twfs3-el-input-error"
+            >
+              An Error
+            </p>
+          </div>
+        </div>
+        <div
+          class="e1ksxx4v-el-input-wrap"
+        >
+          <div
+            class="e1979rmu-el-input-group"
+          >
+            <input
+              class="e1urjlvd-el-input"
+              id="test-static-id"
+              name="homePage"
+              placeholder="Your company homepage. HTTP:// or HTTPS://"
+              type="text"
+            />
+            <label
+              class="e1nbkkrq-el-label"
+              for="test-static-id"
+            >
+              Home page
+            </label>
+            <p
+              class="e19twfs3-el-input-error"
+            >
+              An Error
+            </p>
+          </div>
+        </div>
+        <div
+          class="e1ksxx4v-el-input-wrap"
+        >
+          <div
+            class="e1979rmu-el-input-group"
+          >
+            <input
+              class="e1urjlvd-el-input"
+              id="test-static-id"
+              name="launchUri"
+              placeholder="The launch page for your app. HTTPS only other than for http://localhost"
+              type="text"
+            />
+            <label
+              class="e1nbkkrq-el-label"
+              for="test-static-id"
+            >
+              Launch URI
+            </label>
+            <p
+              class="e19twfs3-el-input-error"
+            >
+              An Error
+            </p>
+          </div>
+        </div>
+        <div
+          class="e1ksxx4v-el-input-wrap"
+        >
+          <div
+            class="e1979rmu-el-input-group"
+          >
+            <input
+              class="e1urjlvd-el-input"
+              id="test-static-id"
+              name="termsAndConditionsUrl"
+              placeholder="URL to link to your Terms and Conditions"
+              type="text"
+            />
+            <label
+              class="e1nbkkrq-el-label"
+              for="test-static-id"
+            >
+              Terms and Conditions
+            </label>
+            <p
+              class="e19twfs3-el-input-error"
+            >
+              An Error
+            </p>
+          </div>
+        </div>
+        <div
+          class="e1ksxx4v-el-input-wrap"
+        >
+          <div
+            class="e1979rmu-el-input-group"
+          >
+            <input
+              class="e1urjlvd-el-input"
+              id="test-static-id"
+              name="privacyPolicyUrl"
+              placeholder="URL to link to your Privacy Policy"
+              type="text"
+            />
+            <label
+              class="e1nbkkrq-el-label"
+              for="test-static-id"
+            >
+              Privacy Policy
+            </label>
+            <p
+              class="e19twfs3-el-input-error"
+            >
+              An Error
+            </p>
+          </div>
+        </div>
+        <div
+          class="e1ksxx4v-el-input-wrap"
+        >
+          <div
+            class="e1979rmu-el-input-group"
+          >
+            <input
+              class="e1urjlvd-el-input"
+              id="test-static-id"
+              name="pricingUrl"
+              placeholder="URL to link to your Pricing Info"
+              type="text"
+            />
+            <label
+              class="e1nbkkrq-el-label"
+              for="test-static-id"
+            >
+              Pricing Info
+            </label>
+            <p
+              class="e19twfs3-el-input-error"
+            >
+              An Error
+            </p>
+          </div>
+        </div>
+        <div
+          class="e1ksxx4v-el-input-wrap"
+        >
+          <div
+            class="e1979rmu-el-input-group"
+          >
+            <input
+              class="e1urjlvd-el-input"
+              id="test-static-id"
+              name="isFree"
+              type="checkbox"
+            />
+            <label
+              class="e1nbkkrq-el-label"
+              for="test-static-id"
+            >
+              This application is free
+            </label>
+            <p
+              class="e19twfs3-el-input-error"
+            >
+              An Error
+            </p>
+          </div>
+        </div>
+        <div
+          class="e1ksxx4v-el-input-wrap"
+        >
+          <div
+            class="e1979rmu-el-input-group"
+          >
+            <label
+              class="e1nbkkrq-el-label"
+            >
+              Category
+            </label>
+            <select
+              class="e60u3kb-el-select"
+            >
+              <option
+                value=""
+              >
+                Select Option
+              </option>
+              <option
+                value="MOCK_ID"
+              >
+                MOCK_DESCRIPTION
+              </option>
+            </select>
+            <p
+              class="e19twfs3-el-input-error"
+            >
+              An Error
+            </p>
+          </div>
+        </div>
+        <div
+          class="ep31he9-el-input-wrap-full"
+        >
+          <div
+            class="e1979rmu-el-input-group"
+          >
+            <label
+              class="e1nbkkrq-el-label"
+            >
+              Summary
+            </label>
+            <textarea
+              class="e16rclfx-el-text-area"
+              placeholder="A short strapline summary for your app listing. Must be between 50 and 150 characters"
+            />
+          </div>
+          <p
+            class="e19twfs3-el-input-error"
+          >
+            An Error
+          </p>
+        </div>
+        <div
+          class="ep31he9-el-input-wrap-full"
+        >
+          <label
+            class="e1nbkkrq-el-label"
+          >
+            Description
+          </label>
+          <div />
+          <p
+            class="e19twfs3-el-input-error"
+          >
+            An Error
+          </p>
+        </div>
+        <div
+          class="e1ksxx4v-el-input-wrap"
+        >
+          <div
+            class="e1979rmu-el-input-group"
+          >
+            <input
+              class="e1urjlvd-el-input"
+              id="test-static-id"
+              name="iconImageUrl"
+              type="file"
+            />
+            <label
+              class="e1nbkkrq-el-label"
+              for="test-static-id"
+            >
+              Upload Icon Image
+            </label>
+            <p
+              class="e19twfs3-el-input-error"
+            >
+              An Error
+            </p>
+          </div>
+        </div>
+        <div
+          class="e1ksxx4v-el-input-wrap"
+        >
+          <div
+            class="e1979rmu-el-input-group"
+          >
+            <input
+              class="e1urjlvd-el-input"
+              id="test-static-id"
+              name="screen1ImageUrl"
+              type="file"
+            />
+            <label
+              class="e1nbkkrq-el-label"
+              for="test-static-id"
+            >
+              Upload Featured Image
+            </label>
+            <p
+              class="e19twfs3-el-input-error"
+            >
+              An Error
+            </p>
+          </div>
+        </div>
+        <div
+          class="e1ksxx4v-el-input-wrap"
+        >
+          <div
+            class="e1979rmu-el-input-group"
+          >
+            <input
+              class="e1urjlvd-el-input"
+              id="test-static-id"
+              name="screen2ImageUrl"
+              type="file"
+            />
+            <label
+              class="e1nbkkrq-el-label"
+              for="test-static-id"
+            >
+              Upload Other Listing Image
+            </label>
+            <p
+              class="e19twfs3-el-input-error"
+            >
+              An Error
+            </p>
+          </div>
+        </div>
+        <div
+          class="e1ksxx4v-el-input-wrap"
+        >
+          <div
+            class="e1979rmu-el-input-group"
+          >
+            <input
+              class="e1urjlvd-el-input"
+              id="test-static-id"
+              name="screen3ImageUrl"
+              type="file"
+            />
+            <label
+              class="e1nbkkrq-el-label"
+              for="test-static-id"
+            >
+              Upload Other Listing Image
+            </label>
+            <p
+              class="e19twfs3-el-input-error"
+            >
+              An Error
+            </p>
+          </div>
+        </div>
+        <div
+          class="e1ksxx4v-el-input-wrap"
+        >
+          <div
+            class="e1979rmu-el-input-group"
+          >
+            <input
+              class="e1urjlvd-el-input"
+              id="test-static-id"
+              name="screen4ImageUrl"
+              type="file"
+            />
+            <label
+              class="e1nbkkrq-el-label"
+              for="test-static-id"
+            >
+              Upload Other Listing Image
+            </label>
+            <p
+              class="e19twfs3-el-input-error"
+            >
+              An Error
+            </p>
+          </div>
+        </div>
+        <div
+          class="e1ksxx4v-el-input-wrap"
+        >
+          <div
+            class="e1979rmu-el-input-group"
+          >
+            <input
+              class="e1urjlvd-el-input"
+              id="test-static-id"
+              name="screen5ImageUrl"
+              type="file"
+            />
+            <label
+              class="e1nbkkrq-el-label"
+              for="test-static-id"
+            >
+              Upload Other Listing Image
+            </label>
+            <p
+              class="e19twfs3-el-input-error"
+            >
+              An Error
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </body>,
+  "container": <div>
+    <div
+      class="ecbqyq6-el-snack-holder"
+    />
+    <h2
+      class="evblxhy-el-subtitle"
+    >
+      App Listing
+    </h2>
+    <p
+      class="e11jaxfn-el-has-grey-text etrchfm-el-has-section-margin e1byern-el-body-text"
+    >
+      Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur non pulvinar tellus, quis pulvinar dui. Nunc enim libero, ullamcorper ac ex id, tincidunt dapibus lectus. Vestibulum at porta quam, ac condimentum dui. Duis ornare enim sed magna tincidunt volutpat.
+    </p>
+    <div
+      class="e1fwulnz-el-form-layout-has-margin ee6e7by-el-form-layout"
+    >
+      <div
+        class="e1ksxx4v-el-input-wrap"
+      >
+        <div
+          class="e1979rmu-el-input-group"
+        >
+          <input
+            class="e1urjlvd-el-input"
+            id="test-static-id"
+            name="supportEmail"
+            placeholder="The contact to your support team if your users have a problem"
+            type="email"
+          />
+          <label
+            class="e1nbkkrq-el-label"
+            for="test-static-id"
+          >
+            Support email
+          </label>
+          <p
+            class="e19twfs3-el-input-error"
+          >
+            An Error
+          </p>
+        </div>
+      </div>
+      <div
+        class="e1ksxx4v-el-input-wrap"
+      >
+        <div
+          class="e1979rmu-el-input-group"
+        >
+          <input
+            class="e1urjlvd-el-input"
+            id="test-static-id"
+            name="telephone"
+            placeholder="Should one of our developers need to contact you about your app"
+            type="text"
+          />
+          <label
+            class="e1nbkkrq-el-label"
+            for="test-static-id"
+          >
+            Telephone
+          </label>
+          <p
+            class="e19twfs3-el-input-error"
+          >
+            An Error
+          </p>
+        </div>
+      </div>
+      <div
+        class="e1ksxx4v-el-input-wrap"
+      >
+        <div
+          class="e1979rmu-el-input-group"
+        >
+          <input
+            class="e1urjlvd-el-input"
+            id="test-static-id"
+            name="homePage"
+            placeholder="Your company homepage. HTTP:// or HTTPS://"
+            type="text"
+          />
+          <label
+            class="e1nbkkrq-el-label"
+            for="test-static-id"
+          >
+            Home page
+          </label>
+          <p
+            class="e19twfs3-el-input-error"
+          >
+            An Error
+          </p>
+        </div>
+      </div>
+      <div
+        class="e1ksxx4v-el-input-wrap"
+      >
+        <div
+          class="e1979rmu-el-input-group"
+        >
+          <input
+            class="e1urjlvd-el-input"
+            id="test-static-id"
+            name="launchUri"
+            placeholder="The launch page for your app. HTTPS only other than for http://localhost"
+            type="text"
+          />
+          <label
+            class="e1nbkkrq-el-label"
+            for="test-static-id"
+          >
+            Launch URI
+          </label>
+          <p
+            class="e19twfs3-el-input-error"
+          >
+            An Error
+          </p>
+        </div>
+      </div>
+      <div
+        class="e1ksxx4v-el-input-wrap"
+      >
+        <div
+          class="e1979rmu-el-input-group"
+        >
+          <input
+            class="e1urjlvd-el-input"
+            id="test-static-id"
+            name="termsAndConditionsUrl"
+            placeholder="URL to link to your Terms and Conditions"
+            type="text"
+          />
+          <label
+            class="e1nbkkrq-el-label"
+            for="test-static-id"
+          >
+            Terms and Conditions
+          </label>
+          <p
+            class="e19twfs3-el-input-error"
+          >
+            An Error
+          </p>
+        </div>
+      </div>
+      <div
+        class="e1ksxx4v-el-input-wrap"
+      >
+        <div
+          class="e1979rmu-el-input-group"
+        >
+          <input
+            class="e1urjlvd-el-input"
+            id="test-static-id"
+            name="privacyPolicyUrl"
+            placeholder="URL to link to your Privacy Policy"
+            type="text"
+          />
+          <label
+            class="e1nbkkrq-el-label"
+            for="test-static-id"
+          >
+            Privacy Policy
+          </label>
+          <p
+            class="e19twfs3-el-input-error"
+          >
+            An Error
+          </p>
+        </div>
+      </div>
+      <div
+        class="e1ksxx4v-el-input-wrap"
+      >
+        <div
+          class="e1979rmu-el-input-group"
+        >
+          <input
+            class="e1urjlvd-el-input"
+            id="test-static-id"
+            name="pricingUrl"
+            placeholder="URL to link to your Pricing Info"
+            type="text"
+          />
+          <label
+            class="e1nbkkrq-el-label"
+            for="test-static-id"
+          >
+            Pricing Info
+          </label>
+          <p
+            class="e19twfs3-el-input-error"
+          >
+            An Error
+          </p>
+        </div>
+      </div>
+      <div
+        class="e1ksxx4v-el-input-wrap"
+      >
+        <div
+          class="e1979rmu-el-input-group"
+        >
+          <input
+            class="e1urjlvd-el-input"
+            id="test-static-id"
+            name="isFree"
+            type="checkbox"
+          />
+          <label
+            class="e1nbkkrq-el-label"
+            for="test-static-id"
+          >
+            This application is free
+          </label>
+          <p
+            class="e19twfs3-el-input-error"
+          >
+            An Error
+          </p>
+        </div>
+      </div>
+      <div
+        class="e1ksxx4v-el-input-wrap"
+      >
+        <div
+          class="e1979rmu-el-input-group"
+        >
+          <label
+            class="e1nbkkrq-el-label"
+          >
+            Category
+          </label>
+          <select
+            class="e60u3kb-el-select"
+          >
+            <option
+              value=""
+            >
+              Select Option
+            </option>
+            <option
+              value="MOCK_ID"
+            >
+              MOCK_DESCRIPTION
+            </option>
+          </select>
+          <p
+            class="e19twfs3-el-input-error"
+          >
+            An Error
+          </p>
+        </div>
+      </div>
+      <div
+        class="ep31he9-el-input-wrap-full"
+      >
+        <div
+          class="e1979rmu-el-input-group"
+        >
+          <label
+            class="e1nbkkrq-el-label"
+          >
+            Summary
+          </label>
+          <textarea
+            class="e16rclfx-el-text-area"
+            placeholder="A short strapline summary for your app listing. Must be between 50 and 150 characters"
+          />
+        </div>
+        <p
+          class="e19twfs3-el-input-error"
+        >
+          An Error
+        </p>
+      </div>
+      <div
+        class="ep31he9-el-input-wrap-full"
+      >
+        <label
+          class="e1nbkkrq-el-label"
+        >
+          Description
+        </label>
+        <div />
+        <p
+          class="e19twfs3-el-input-error"
+        >
+          An Error
+        </p>
+      </div>
+      <div
+        class="e1ksxx4v-el-input-wrap"
+      >
+        <div
+          class="e1979rmu-el-input-group"
+        >
+          <input
+            class="e1urjlvd-el-input"
+            id="test-static-id"
+            name="iconImageUrl"
+            type="file"
+          />
+          <label
+            class="e1nbkkrq-el-label"
+            for="test-static-id"
+          >
+            Upload Icon Image
+          </label>
+          <p
+            class="e19twfs3-el-input-error"
+          >
+            An Error
+          </p>
+        </div>
+      </div>
+      <div
+        class="e1ksxx4v-el-input-wrap"
+      >
+        <div
+          class="e1979rmu-el-input-group"
+        >
+          <input
+            class="e1urjlvd-el-input"
+            id="test-static-id"
+            name="screen1ImageUrl"
+            type="file"
+          />
+          <label
+            class="e1nbkkrq-el-label"
+            for="test-static-id"
+          >
+            Upload Featured Image
+          </label>
+          <p
+            class="e19twfs3-el-input-error"
+          >
+            An Error
+          </p>
+        </div>
+      </div>
+      <div
+        class="e1ksxx4v-el-input-wrap"
+      >
+        <div
+          class="e1979rmu-el-input-group"
+        >
+          <input
+            class="e1urjlvd-el-input"
+            id="test-static-id"
+            name="screen2ImageUrl"
+            type="file"
+          />
+          <label
+            class="e1nbkkrq-el-label"
+            for="test-static-id"
+          >
+            Upload Other Listing Image
+          </label>
+          <p
+            class="e19twfs3-el-input-error"
+          >
+            An Error
+          </p>
+        </div>
+      </div>
+      <div
+        class="e1ksxx4v-el-input-wrap"
+      >
+        <div
+          class="e1979rmu-el-input-group"
+        >
+          <input
+            class="e1urjlvd-el-input"
+            id="test-static-id"
+            name="screen3ImageUrl"
+            type="file"
+          />
+          <label
+            class="e1nbkkrq-el-label"
+            for="test-static-id"
+          >
+            Upload Other Listing Image
+          </label>
+          <p
+            class="e19twfs3-el-input-error"
+          >
+            An Error
+          </p>
+        </div>
+      </div>
+      <div
+        class="e1ksxx4v-el-input-wrap"
+      >
+        <div
+          class="e1979rmu-el-input-group"
+        >
+          <input
+            class="e1urjlvd-el-input"
+            id="test-static-id"
+            name="screen4ImageUrl"
+            type="file"
+          />
+          <label
+            class="e1nbkkrq-el-label"
+            for="test-static-id"
+          >
+            Upload Other Listing Image
+          </label>
+          <p
+            class="e19twfs3-el-input-error"
+          >
+            An Error
+          </p>
+        </div>
+      </div>
+      <div
+        class="e1ksxx4v-el-input-wrap"
+      >
+        <div
+          class="e1979rmu-el-input-group"
+        >
+          <input
+            class="e1urjlvd-el-input"
+            id="test-static-id"
+            name="screen5ImageUrl"
+            type="file"
+          />
+          <label
+            class="e1nbkkrq-el-label"
+            for="test-static-id"
+          >
+            Upload Other Listing Image
+          </label>
+          <p
+            class="e19twfs3-el-input-error"
+          >
+            An Error
+          </p>
         </div>
       </div>
     </div>

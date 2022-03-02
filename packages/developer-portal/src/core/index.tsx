@@ -68,7 +68,7 @@ const run = async () => {
 
     const { default: App } = await import('./app')
     renderApp(App)
-  } catch (error) {
+  } catch (error: any) {
     logger(error)
   }
 }

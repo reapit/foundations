@@ -23,7 +23,6 @@ const Routes = {
   SETTINGS_BILLING_TAB: '/settings/billing',
   SUBMIT_APP: '/submit-app',
   HELP: '/help',
-  APP_PREVIEW: '/apps/:appId/preview',
   DEVELOPER_EDITION_DOWNLOAD: '/edition-download',
   REGISTER: '/developer/register',
   REGISTER_CONFIRM: '/register/confirm',

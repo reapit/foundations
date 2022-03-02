@@ -1,3 +1,4 @@
+/* istanbul ignore file */
 import { formFields } from './form-fields'
 import errorMessages from '../../../../../constants/error-messages'
 import authFlows from '../../../../../constants/app-auth-flow'

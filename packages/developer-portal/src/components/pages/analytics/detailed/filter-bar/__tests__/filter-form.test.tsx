@@ -13,9 +13,9 @@ import {
 import { fetchInstallationsFilterList } from '@/actions/installations'
 import { fetchTrafficStatistics } from '@/actions/traffic-statistics'
 import { GET_ALL_PAGE_SIZE } from '@/constants/paginator'
-import { appsDataStub } from '@/sagas/__stubs__/apps'
 import { DATE_TIME_FORMAT } from '@reapit/elements-legacy'
 import { SANDBOX_CLIENT_ID, SANDBOX_CLIENT_NAME } from '@/constants/api'
+import { mockAppSummaryModelPagedResult } from '../../../../../../tests/__stubs__/apps'
 
 const mockProps: FilterFormProps = {
   initialValues: {
@@ -25,7 +25,7 @@ const mockProps: FilterFormProps = {
     appId: '',
   },
   installationAppDataArray: [{ customerId: 'DXX', customerName: 'DXX' }],
-  developerApps: appsDataStub.data.data || [],
+  developerApps: mockAppSummaryModelPagedResult.data ?? [],
 }
 
 describe('FilterForm', () => {
@@ -62,7 +62,7 @@ describe('FilterForm', () => {
 
       expect(spyDispatch).toBeCalledWith(
         fetchInstallationsFilterList({
-          appId: ['09043eb8-9e5e-4650-b7f1-f0cb62699027', '261da083-cee2-4f5c-a18f-8f9375f1f5af'],
+          appId: ['MOCK_APP_ID', 'MOCK_OTHER_APP_ID'],
           clientId: ['DXX'],
           pageSize: GET_ALL_PAGE_SIZE,
           installedDateFrom: dayjs(mockFormValues.dateFrom).format(DATE_TIME_FORMAT.YYYY_MM_DD),
@@ -72,7 +72,7 @@ describe('FilterForm', () => {
 
       expect(spyDispatch).toBeCalledWith(
         fetchTrafficStatistics({
-          applicationId: ['09043eb8-9e5e-4650-b7f1-f0cb62699027', '261da083-cee2-4f5c-a18f-8f9375f1f5af'],
+          applicationId: ['MOCK_APP_ID', 'MOCK_OTHER_APP_ID'],
           customerId: ['DXX'],
           dateFrom: dayjs(mockFormValues.dateFrom).format(DATE_TIME_FORMAT.YYYY_MM_DD),
           dateTo: dayjs(mockFormValues.dateTo).format(DATE_TIME_FORMAT.YYYY_MM_DD),
@@ -122,12 +122,10 @@ describe('FilterForm', () => {
           value: '',
         },
         {
-          label: 'test',
-          value: '09043eb8-9e5e-4650-b7f1-f0cb62699027',
+          value: 'MOCK_APP_ID',
         },
         {
-          label: 'asd',
-          value: '261da083-cee2-4f5c-a18f-8f9375f1f5af',
+          value: 'MOCK_OTHER_APP_ID',
         },
       ])
     })

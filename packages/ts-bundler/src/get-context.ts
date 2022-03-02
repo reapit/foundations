@@ -4,11 +4,12 @@ import os from 'os'
 
 import { Context } from './ts-bundler'
 import { getWorkspaceRoot } from './get-workspace-root'
+import { readStateFile } from './state-file'
 
 type TSConfig = { compilerOptions?: { outDir?: string; paths?: Record<string, string> } }
 
-export const getContext = (): Context => {
-  const tsConfig: TSConfig = JSON.parse(fs.readFileSync(path.resolve('tsconfig.json'), 'utf-8'))
+export const getContext = (relModuleDir: string = '.', isIncremental?: boolean): Context => {
+  const tsConfig: TSConfig = JSON.parse(fs.readFileSync(path.resolve(relModuleDir, 'tsconfig.json'), 'utf-8'))
   if (!tsConfig) {
     throw new Error('Could not parse tsconfig.json')
   }
@@ -43,9 +44,24 @@ export const getContext = (): Context => {
   const tmpDir = fs.mkdtempSync([os.tmpdir(), mainModuleName.split('/').join('-') + '-build-'].join(path.sep))
   console.log(`Created tmp directory ${tmpDir}`)
 
-  const { packagesRoot, repoRootLocation } = getWorkspaceRoot()
+  const { packagesRoot, repoRootLocation } = getWorkspaceRoot(relModuleDir)
 
-  const context = { mainModuleName, monorepoNamespace, outDir, tmpDir, subdirs, packagesRoot, repoRootLocation }
+  const moduleDir = path.resolve(relModuleDir)
+  let previousIncrementalState
+  if (isIncremental) {
+    previousIncrementalState = readStateFile(moduleDir)
+  }
 
-  return context
+  return {
+    mainModuleName,
+    monorepoNamespace,
+    outDir,
+    tmpDir,
+    subdirs,
+    packagesRoot,
+    repoRootLocation,
+    previousIncrementalState,
+    isIncremental,
+    moduleDir,
+  }
 }
