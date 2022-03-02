@@ -161,23 +161,39 @@ const handleStateChange = async ({
     throw new Error('pipelineRunner not found')
   }
 
-  // Double check this is fired AFTER codebuild has completed
   if (event.detail['additional-information']['build-complete']) {
-    return new Promise<void>((resolve, reject) =>
-      sqs.sendMessage(
-        {
-          MessageBody: JSON.stringify(pipelineRunner),
-          QueueUrl: QueueNames.CODEBUILD_VERSION_DEPLOY,
-        },
-        (error) => {
-          if (error) {
-            reject(error)
-          }
+    const promises: Promise<any>[] = []
 
-          resolve()
-        },
-      ),
-    )
+    if (event.detail['build-status'] === 'FAILED') {
+      pipelineRunner.buildStatus = 'FAILED'
+      if (pipelineRunner.pipeline) pipelineRunner.pipeline.buildStatus = 'FAILED'
+
+      promises.push(
+        savePipelineRunnerEntity(pipelineRunner),
+      )
+      promises.push(
+        pusher.trigger(`private-${pipelineRunner.pipeline?.developerId}`, 'pipeline-runner-update', pipelineRunner),
+      )
+    }
+
+    return Promise.all([
+      ...promises,
+      new Promise<void>((resolve, reject) =>
+        sqs.sendMessage(
+          {
+            MessageBody: JSON.stringify(pipelineRunner),
+            QueueUrl: QueueNames.CODEBUILD_VERSION_DEPLOY,
+          },
+          (error) => {
+            if (error) {
+              reject(error)
+            }
+
+            resolve()
+          },
+        ),
+      )
+    ])
   }
 
   if (pipelineRunner.buildStatus === 'QUEUED') {
@@ -190,13 +206,6 @@ const handleStateChange = async ({
     return Promise.all([
       savePipelineRunnerEntity(pipelineRunner),
       pusher.trigger(`private-${pipelineRunner.pipeline?.developerId}`, 'pipeline-runner-update', pipelineRunner),
-    ])
-  } else if (event.detail['build-status'] === 'FAILED') {
-    pipelineRunner.buildStatus = 'FAILED'
-    if (pipelineRunner.pipeline) pipelineRunner.pipeline.buildStatus = 'FAILED'
-    await Promise.all([
-      pusher.trigger(`private-${pipelineRunner.pipeline?.developerId}`, 'pipeline-runner-update', pipelineRunner),
-      savePipelineRunnerEntity(pipelineRunner),
     ])
   }
 }
