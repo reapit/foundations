@@ -6989,7 +6989,7 @@ export interface DepartmentModel {
    */
   commercialUseClassOptions?: string[]
   /**
-   * A collection of commercial floor levels values that will be accepted by other services
+   * A collection of commercial floor level values that will be accepted by other services
    */
   commercialFloorLevelOptions?: string[]
   /**
@@ -7076,7 +7076,7 @@ export interface DepartmentModelPagedResult {
      */
     commercialUseClassOptions?: string[]
     /**
-     * A collection of commercial floor levels values that will be accepted by other services
+     * A collection of commercial floor level values that will be accepted by other services
      */
     commercialFloorLevelOptions?: string[]
     /**
