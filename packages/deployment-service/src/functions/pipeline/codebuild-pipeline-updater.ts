@@ -168,9 +168,7 @@ const handleStateChange = async ({
       pipelineRunner.buildStatus = 'FAILED'
       if (pipelineRunner.pipeline) pipelineRunner.pipeline.buildStatus = 'FAILED'
 
-      promises.push(
-        savePipelineRunnerEntity(pipelineRunner),
-      )
+      promises.push(savePipelineRunnerEntity(pipelineRunner))
       promises.push(
         pusher.trigger(`private-${pipelineRunner.pipeline?.developerId}`, 'pipeline-runner-update', pipelineRunner),
       )
@@ -192,7 +190,7 @@ const handleStateChange = async ({
             resolve()
           },
         ),
-      )
+      ),
     ])
   }
 
