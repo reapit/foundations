@@ -153,7 +153,7 @@ export const codebuildExecutor: SQSHandler = async (
             phases: {
               install: {
                 'runtime-versions': {
-                  nodejs: '12.x',
+                  nodejs: 12,
                 },
                 commands: [
                   'cd */',
@@ -163,9 +163,6 @@ export const codebuildExecutor: SQSHandler = async (
                 ],
               },
               build: {
-                'runtime-versions': {
-                  nodejs: '12.x',
-                },
                 commands: [`${pipeline.packageManager} ${pipeline.buildCommand}`],
               },
             },
