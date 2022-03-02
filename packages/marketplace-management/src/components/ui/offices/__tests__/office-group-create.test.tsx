@@ -10,6 +10,7 @@ import useSWR from 'swr'
 import { mockOfficeList } from '../../../../services/__stubs__/offices'
 import { OFFICE_IN_USE_ERROR } from '../../../../services/office'
 
+jest.useFakeTimers()
 jest.mock('swr', () => ({
   __esModule: true,
   default: jest.fn(),
@@ -21,7 +22,6 @@ jest.mock('@reapit/utils-common')
 jest.mock('../../../../utils/prepare-options')
 jest.mock('../../../../utils/use-org-id')
 jest.mock('../../../../core/connect-session')
-jest.useFakeTimers()
 
 const mockResponse = 'success'
 const mockedFetch = fetcher as jest.Mock
@@ -75,10 +75,10 @@ describe('onHandleSubmit', () => {
     expect(error).toHaveBeenCalledWith(toastMessages.OFFICE_ALREADY_ASSIGNED_CREATE, 10000)
   })
 
-  it('should show notification success', () => {
+  it('should show notification success', async () => {
     mockedFetch.mockReturnValueOnce(mockResponse)
 
-    onSubmit({ name, officeIds, status })
+    await onSubmit({ name, officeIds, status })
 
     jest.runAllTimers()
     expect(success).toHaveBeenCalledWith(toastMessages.CREATE_OFFICE_GROUP_SUCCESS)
