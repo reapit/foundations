@@ -1,3 +1,4 @@
+/* istanbul ignore file */
 import * as Yup from 'yup'
 import { emailRegex, telephoneRegex } from '@reapit/utils-common'
 import errorMessages from '@/constants/error-messages'

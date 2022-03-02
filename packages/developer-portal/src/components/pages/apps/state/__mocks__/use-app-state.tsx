@@ -7,7 +7,7 @@ export const mockAppState = {
     ...mockAppWizardState,
   },
   appsDataState: {
-    apps: mockAppSummaryModelPagedResult.data,
+    apps: mockAppSummaryModelPagedResult,
     appsLoading: false,
     appDetail: mockAppDetailModel,
     appDetailLoading: false,

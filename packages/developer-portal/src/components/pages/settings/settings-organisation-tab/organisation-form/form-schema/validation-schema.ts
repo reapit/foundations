@@ -1,3 +1,4 @@
+/* istanbul ignore file */
 import * as Yup from 'yup'
 import { emailRegex, isValidHttpsUrl, telephoneRegex } from '@reapit/utils-common'
 import { formFields } from './form-fields'

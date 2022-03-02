@@ -56,14 +56,14 @@ export const handleSetTabsState =
   ) =>
   () => {
     setAppTabsState((currentState: AppTabsState) => {
-      if (currentState.isAgencyCloudIntegrated !== isAgencyCloudIntegrated) {
+      if (currentState?.isAgencyCloudIntegrated !== isAgencyCloudIntegrated) {
         return {
           ...currentState,
           isAgencyCloudIntegrated,
         }
       }
 
-      if (currentState.isCompletingListing !== isCompletingListing) {
+      if (currentState?.isCompletingListing !== isCompletingListing) {
         const hasCompletedValues = listingInCompletion(getValues())
         return {
           ...currentState,
@@ -71,7 +71,7 @@ export const handleSetTabsState =
         }
       }
 
-      if (currentState.isListed !== isListed) {
+      if (currentState?.isListed !== isListed) {
         return {
           ...currentState,
           isListed,
@@ -138,9 +138,6 @@ export const AppEditForm: FC<AppEditFormProps> = ({ tab }) => {
   useEffect(handleSetAppSubmitting(setAppEditSaving, appEditSaving, handleSubmit, createAppRevision, history, appId), [
     appEditSaving,
   ])
-
-  console.log('Errors', errors)
-  console.log('Values', getValues())
 
   return (
     <form>
