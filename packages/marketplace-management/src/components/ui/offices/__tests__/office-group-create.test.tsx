@@ -21,6 +21,7 @@ jest.mock('@reapit/utils-common')
 jest.mock('../../../../utils/prepare-options')
 jest.mock('../../../../utils/use-org-id')
 jest.mock('../../../../core/connect-session')
+jest.useFakeTimers()
 
 const mockResponse = 'success'
 const mockedFetch = fetcher as jest.Mock
@@ -74,16 +75,14 @@ describe('onHandleSubmit', () => {
     expect(error).toHaveBeenCalledWith(toastMessages.OFFICE_ALREADY_ASSIGNED_CREATE, 10000)
   })
 
-  it('should show notification success', (done) => {
+  it('should show notification success', () => {
     mockedFetch.mockReturnValueOnce(mockResponse)
 
     onSubmit({ name, officeIds, status })
 
-    setTimeout(() => {
-      expect(success).toHaveBeenCalledWith(toastMessages.CREATE_OFFICE_GROUP_SUCCESS)
-      expect(history.push).toHaveBeenCalledWith(Routes.OFFICES_GROUPS)
-      done()
-    }, 1001)
+    jest.runAllTimers()
+    expect(success).toHaveBeenCalledWith(toastMessages.CREATE_OFFICE_GROUP_SUCCESS)
+    expect(history.push).toHaveBeenCalledWith(Routes.OFFICES_GROUPS)
   })
 })
 
