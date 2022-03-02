@@ -52,7 +52,7 @@ export const getContext = (relModuleDir: string = '.', isIncremental?: boolean):
     previousIncrementalState = readStateFile(moduleDir)
   }
 
-  const context = {
+  return {
     mainModuleName,
     monorepoNamespace,
     outDir,
@@ -64,6 +64,4 @@ export const getContext = (relModuleDir: string = '.', isIncremental?: boolean):
     isIncremental,
     moduleDir,
   }
-
-  return context
 }
