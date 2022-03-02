@@ -178,7 +178,9 @@ const handleStateChange = async ({
         },
       ),
     )
-  } else if (pipelineRunner.buildStatus === 'QUEUED') {
+  }
+
+  if (pipelineRunner.buildStatus === 'QUEUED') {
     pipelineRunner.buildStatus = 'IN_PROGRESS'
 
     if (pipelineRunner.pipeline) {
