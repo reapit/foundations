@@ -136,7 +136,8 @@ export class DeployLocalCommand extends AbstractCommand {
     }
 
     spinner.succeed('Successfully published to reapit')
-    console.log(`Check out your deployment: ${chalk.green(`https://${pipeline.subDomain}.dev.paas.reapit.cloud`)}`)
+    const url = `https://${pipeline.subDomain}.dev.paas.reapit.cloud`
+    console.log(`Check out your deployment: ${chalk.green(url)}`)
   }
 
   async fetchPipeline(id: string, spinner: Ora): Promise<PipelineModelInterface> {
