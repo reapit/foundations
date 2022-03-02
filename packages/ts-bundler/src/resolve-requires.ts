@@ -3,15 +3,21 @@ import fs from 'fs'
 
 import { sync } from 'fast-glob'
 
+import { generateHash } from './hash-file'
+
 export const resolveRequires = ({ outDir }: { outDir: string }) => {
   const files = sync(`${outDir}/**/*.{js,jsx,ts,tsx}`, {
     dot: true,
     onlyFiles: true,
   }).map((x) => path.resolve(x))
 
+  const hashes: Record<string, string> = {}
+
   const absBuildDir = path.resolve(outDir)
   files.forEach((file) => {
     const contents = fs.readFileSync(file, 'utf8')
+    const hash = generateHash(contents)
+    hashes[file] = hash
     const newContents = contents.replace(/require\(['"](.*)['"]\)/g, (match, p1) => {
       if (p1.startsWith('@/')) {
         const localFilePath = file.split(absBuildDir)[1]
@@ -25,4 +31,6 @@ export const resolveRequires = ({ outDir }: { outDir: string }) => {
     })
     fs.writeFileSync(file, newContents, 'utf8')
   })
+
+  return generateHash(JSON.stringify(hashes))
 }

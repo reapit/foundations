@@ -6,34 +6,105 @@ import { resolveRequires } from './resolve-requires'
 import { getContext } from './get-context'
 import { execSync } from './utils'
 import { removeDeps } from './remove-deps'
+import { IncrementalState, writeStateFile } from './state-file'
+import { generateHashFromFile } from './hash-file'
 
 export type Context = {
   packagesRoot: string
   repoRootLocation: string
   mainModuleName: string
+  moduleDir: string
   monorepoNamespace: string
   outDir: string
   tmpDir: string
   subdirs: string[]
+  isIncremental?: boolean
+  previousIncrementalState?: IncrementalState
 }
 
-export const bundle = () => {
-  const context = getContext()
+const zipBundle = (tmpDir: string) => {
+  console.log('Zipping bundle')
+  execSync('rm -rf bundle.zip')
+  execSync(`cd ${tmpDir} && zip -q -r ${path.resolve('bundle.zip')} .`)
+  console.log('Zipped bundle, size:')
+  execSync(`du -h ${path.resolve('bundle.zip')}`)
+}
 
-  const { subdirs, mainModuleName, outDir, tmpDir, packagesRoot, repoRootLocation } = context
+const finalize = (context: Context, codeHash: string, yarnLockHash: string) => {
+  if (context.isIncremental) {
+    writeStateFile(context, {
+      codeHash,
+      yarnLockHash,
+    })
+  } else {
+    console.log('Removing tmp directory')
+    execSync(`rm -rf ${context.tmpDir}`)
+    console.log('Removed tmp directory')
+  }
 
-  console.log(`Starting bundle of ${mainModuleName}`)
+  console.log('✨ Bundle complete ✨')
+}
+
+type Config = {
+  relModuleDir?: string
+  isIncremental?: boolean
+}
+
+export const bundle = ({ relModuleDir, isIncremental }: Config) => {
+  const context = getContext(relModuleDir, isIncremental)
+
+  const { subdirs, mainModuleName, outDir, tmpDir, packagesRoot, repoRootLocation, previousIncrementalState } = context
+
+  console.log(`Starting ${isIncremental ? 'incremental ' : ''}bundle of ${mainModuleName}`)
 
   console.log(`Found ${subdirs.length} modules including ${mainModuleName}`)
 
   console.log('Resolving paths in built code')
-  resolveRequires(context)
+  const codeHash = resolveRequires(context)
   console.log('Resolved paths')
+
+  console.log('Generating yarn.lock hash')
+  const yarnLockLocation = path.resolve(repoRootLocation, 'yarn.lock')
+  const yarnLockHash = generateHashFromFile(yarnLockLocation)
+
+  if (isIncremental && !previousIncrementalState) {
+    console.log('No previous incremental state found, performing full bundle')
+  }
+
+  let skipYarnInstall = false
+
+  if (isIncremental && previousIncrementalState) {
+    console.log('Previous incremental state found, performing incremental bundle')
+    const { codeHash: prevCodeHash, yarnLockHash: prevYarnLockHash } = previousIncrementalState
+    const codeIdentical = codeHash === prevCodeHash
+    const yarnLockIdentical = yarnLockHash === prevYarnLockHash
+
+    if (codeIdentical && yarnLockIdentical) {
+      console.log('Code and yarn.lock are identical, zipping previous bundle')
+      zipBundle(previousIncrementalState.prevContext.tmpDir)
+      finalize(context, codeHash, yarnLockHash)
+      return
+    }
+    if (yarnLockIdentical) {
+      // yarn.lock is identical, but code has changed
+      // copy the previous bundle from tmpDir
+      console.log('Code has changed but yarn.lock identical, copying previous bundle')
+      execSync(`rmdir ${tmpDir}`)
+      execSync(`cp -r ${previousIncrementalState.prevContext.tmpDir} ${tmpDir}`)
+      console.log('Copied previous bundle')
+      skipYarnInstall = true
+    }
+    if (codeIdentical) {
+      console.log('Code is identical but yarn.lock has changed, performing full bundle')
+      // code is identical, but yarn.lock has changed
+      // perform normal process
+    }
+  }
 
   const packagesDir = path.resolve(tmpDir, 'packages')
 
   console.log('Creating packages directory')
-  execSync(`mkdir ${packagesDir}`)
+  execSync(`mkdir -p ${packagesDir}`)
   console.log('Created packages directory')
 
   console.log('Copying build directory contents to packages directory')
@@ -53,7 +124,6 @@ export const bundle = () => {
   })
 
   console.log('Processing root yarn.lock')
-  const yarnLockLocation = path.resolve(repoRootLocation, 'yarn.lock')
   processYarnLock(yarnLockLocation, context)
   console.log('Processed root yarn.lock to tmp directory')
 
@@ -77,11 +147,15 @@ export const bundle = () => {
   execSync(`cp -r ${yarnRcLocation} ${tmpDir}`)
   console.log('Copied root .yarnrc.yml to tmp directory')
 
-  console.log(`Running yarn in ${tmpDir}`)
-  // https://github.com/yarnpkg/berry/issues/2948
-  // https://github.com/renovatebot/renovate/discussions/9481?sort=old#discussioncomment-660412
-  execSync(`cd ${tmpDir} && YARN_ENABLE_IMMUTABLE_INSTALLS=false yarn`)
-  console.log(`Ran yarn in ${tmpDir}`)
+  if (!skipYarnInstall) {
+    console.log(`Running yarn in ${tmpDir}`)
+    // https://github.com/yarnpkg/berry/issues/2948
+    // https://github.com/renovatebot/renovate/discussions/9481?sort=old#discussioncomment-660412
+    execSync(`cd ${tmpDir} && YARN_ENABLE_IMMUTABLE_INSTALLS=false yarn`)
+    console.log(`Ran yarn in ${tmpDir}`)
+  } else {
+    console.log('Skipping yarn install')
+  }
 
   console.log('Removing .yarn directory')
   execSync(`rm -rf ${tmpDir}/.yarn`)
@@ -96,15 +170,7 @@ export const bundle = () => {
     console.log(`Copied ${moduleName} package.json`)
   })
 
-  console.log('Zipping bundle')
-  execSync('rm -rf bundle.zip')
-  execSync(`cd ${tmpDir} && zip -q -r ${path.resolve('bundle.zip')} .`)
-  console.log('Zipped bundle, size:')
-  execSync(`du -h ${path.resolve('bundle.zip')}`)
+  zipBundle(tmpDir)
 
-  console.log('Removing tmp directory')
-  execSync(`rm -rf ${tmpDir}`)
-  console.log('Removed tmp directory')
-
-  console.log('✨ Bundle complete ✨')
+  finalize(context, codeHash, yarnLockHash)
 }
