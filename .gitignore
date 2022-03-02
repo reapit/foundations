@@ -95,3 +95,4 @@ cdk.out
 dist.zip
 bundle.zip
 !output.ts
+.ts-bundler-incremental-state.json

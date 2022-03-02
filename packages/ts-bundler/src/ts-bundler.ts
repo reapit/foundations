@@ -104,7 +104,7 @@ export const bundle = ({ relModuleDir, isIncremental }: Config) => {
   const packagesDir = path.resolve(tmpDir, 'packages')
 
   console.log('Creating packages directory')
-  execSync(`mkdir ${packagesDir}`)
+  execSync(`mkdir -p ${packagesDir}`)
   console.log('Created packages directory')
 
   console.log('Copying build directory contents to packages directory')

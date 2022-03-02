@@ -15,13 +15,20 @@ export type IncrementalState = State & {
 }
 
 export const writeStateFile = (context: Context, newState: State) => {
-  const state = { ...newState, prevContext: context }
+  const state = {
+    ...newState,
+    prevContext: {
+      ...context,
+      prevContext: undefined,
+      previousIncrementalState: undefined,
+    },
+  }
   const stateFile = path.resolve(context.moduleDir, stateFileName)
   fs.writeFileSync(stateFile, JSON.stringify(state, null, 2))
 }
 
 export const readStateFile = (moduleDir: string): IncrementalState | undefined => {
-  const stateFile = path.resolve(moduleDir, '..', stateFileName)
+  const stateFile = path.resolve(moduleDir, stateFileName)
   if (!fs.existsSync(stateFile)) {
     return undefined
   }

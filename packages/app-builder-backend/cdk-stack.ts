@@ -25,7 +25,7 @@ export const createStack = () => {
     cwd: __dirname,
     stdio: 'inherit',
   })
-  execSync('yarn bundle', {
+  execSync('yarn bundle --incremental', {
     cwd: __dirname,
     stdio: 'inherit',
   })
