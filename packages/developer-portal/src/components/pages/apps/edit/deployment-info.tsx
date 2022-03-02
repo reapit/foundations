@@ -49,7 +49,8 @@ export const PipelineDeploymentInfo: FC<PipelineDeploymentInfoProps> = ({ pipeli
         <Button
           loading={deploymentLoading}
           intent="primary"
-          onClick={async () => {
+          onClick={async (event) => {
+            event.preventDefault()
             await sendFunc()
           }}
         >
