@@ -13,7 +13,7 @@ export const fetchInstallationsFilterListSaga = function* ({ data }) {
     const uniqueClientIds = [...new Set(data.clientId)]
     const response = yield call(fetchInstallationsList, { ...data, clientId: uniqueClientIds, developerId })
     yield put(fetchInstallationsFilterListSuccess(response))
-  } catch (err) {
+  } catch (err: any) {
     yield put(fetchInstallationsFilterListFailed())
     notification.error({
       message: err?.description || errorMessages.DEFAULT_SERVER_ERROR,

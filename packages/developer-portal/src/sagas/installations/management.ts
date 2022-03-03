@@ -33,7 +33,7 @@ export const createInstallationSaga = function* (options) {
       data.callback()
     }
     yield put(setInstallationsFormState('SUCCESS'))
-  } catch (err) {
+  } catch (err: any) {
     yield put(setInstallationsFormState('ERROR'))
     notification.error({
       message: err?.description || errorMessages.DEFAULT_SERVER_ERROR,
@@ -51,7 +51,7 @@ export const requestInstallationTerminateSaga = function* (options) {
     yield put(setInstallationsFormState('SUCCESS'))
 
     data.callback && data.callback()
-  } catch (err) {
+  } catch (err: any) {
     yield put(setInstallationsFormState('ERROR'))
     notification.error({
       message: err?.description || errorMessages.DEFAULT_SERVER_ERROR,

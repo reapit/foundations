@@ -29,7 +29,7 @@ export const clientPasswordChange = function* ({ data }: Action<ChangePasswordPa
     yield put(changePasswordSuccess())
     localStorage.setItem('isPasswordChanged', 'true')
     reapitConnectBrowserSession.connectLogoutRedirect()
-  } catch (error) {
+  } catch (error: any) {
     yield put(changePasswordFailed(error.message))
     notification.error({
       message: error.message,

@@ -12,7 +12,7 @@ export const fetchDeveloperDetails = function* ({ data }: Action<FetchDeveloperB
     if (!id) throw new Error('Missing some data')
     const response = yield call(fetchDeveloperById, { id })
     yield put(fetchDeveloperDetailsSuccess(response))
-  } catch (err) {
+  } catch (err: any) {
     yield put(fetchDeveloperDetailsFailed())
     notification.error({
       message: err?.description || errorMessages.DEFAULT_SERVER_ERROR,

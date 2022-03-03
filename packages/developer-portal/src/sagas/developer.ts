@@ -30,7 +30,7 @@ export const developerCreate = function* ({ data }: Action<CreateDeveloperModel>
     const regResponse = yield call(createDeveloper, data)
     const status = regResponse ? 'SUCCESS' : 'ERROR'
     yield put(developerSetFormState(status))
-  } catch (err) {
+  } catch (err: any) {
     yield put(developerSetFormState('ERROR'))
     yield call(notification.error, {
       message: err?.description ?? errorMessages.DEFAULT_SERVER_ERROR,
@@ -48,7 +48,7 @@ export const fetchMyIdentitySagas = function* () {
     if (developerIdentity) {
       yield put(setMyIdentity(developerIdentity))
     }
-  } catch (err) {
+  } catch (err: any) {
     yield call(notification.error, {
       message: err?.description ?? errorMessages.DEFAULT_SERVER_ERROR,
     })
@@ -59,7 +59,7 @@ export const fetchBillingSagas = function* ({ data }: Action<FetchBillingsParams
   try {
     const billingResponse = yield call(fetchBillings, data)
     yield put(fetchBillingSuccess(billingResponse))
-  } catch (err) {
+  } catch (err: any) {
     yield put(fetchBillingFailure(err))
     yield call(notification.error, {
       message: err?.description ?? errorMessages.DEFAULT_SERVER_ERROR,
@@ -71,7 +71,7 @@ export const fetchMonthlyBillingSagas = function* ({ data }: Action<FetchBilling
   try {
     const billingResponse = yield call(fetchBillingsByMonth, data)
     yield put(fetchMonthlyBillingSuccess(billingResponse))
-  } catch (err) {
+  } catch (err: any) {
     yield put(fetchMonthlyBillingFailure(err))
     yield call(notification.error, {
       message: err?.description ?? errorMessages.DEFAULT_SERVER_ERROR,
@@ -84,7 +84,7 @@ export const developerWebhookPing = function* ({ data }: Action<PingWebhooksById
     yield put(developerSetWebhookPingStatus('LOADING'))
     yield call(pingWebhooksById, data)
     yield put(developerSetWebhookPingStatus('SUCCESS'))
-  } catch (err) {
+  } catch (err: any) {
     yield put(developerSetWebhookPingStatus('FAILED'))
   }
 }

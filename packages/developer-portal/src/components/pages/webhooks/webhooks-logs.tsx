@@ -46,7 +46,7 @@ export const handleDownloadPayload = (payload: string, timestamp: string) => () 
     const dataBlob = new Blob([payload], { type: 'application/json;charset=utf-8;' })
     saveAs(dataBlob, `reapit-webhook-logs-payload-${timestamp}.json`)
   } catch (err) {
-    logger(err)
+    logger(err as Error)
   }
 }
 

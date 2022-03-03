@@ -10,7 +10,7 @@ export const fetchWebhooksTopics = function* ({ data }: Action<FetchWebhooksTopi
   try {
     const response = yield call(fetchWebhooksTopicsListApi, { ...data })
     yield put(fetchWebhooksTopicsSuccess(response))
-  } catch (err) {
+  } catch (err: any) {
     yield put(fetchWebhooksTopicsFailed(err.description))
     notification.error({
       message: err?.description || errorMessages.DEFAULT_SERVER_ERROR,

@@ -11,6 +11,8 @@ const mockConnectSession = {
 } as ReapitConnectSession
 
 const mockLogger = jest.fn()
+const controller = new AbortController()
+const signal = controller.signal
 
 describe('getFetcher', () => {
   it('fetches and returns data if response is ok', async () => {
@@ -24,6 +26,7 @@ describe('getFetcher', () => {
       action: getActions('local')[GetActionNames.getApps],
       connectSession: mockConnectSession,
       logger: mockLogger,
+      signal,
     })
 
     expect(response).toEqual(mockData)
@@ -41,6 +44,7 @@ describe('getFetcher', () => {
         action: getActions('local')[GetActionNames.getApps],
         connectSession: mockConnectSession,
         logger: mockLogger,
+        signal,
       })
       expect(response).toBeUndefined()
     } catch (err) {
@@ -59,6 +63,7 @@ describe('getFetcher', () => {
         action: getActions('local')[GetActionNames.getApps],
         connectSession: {} as ReapitConnectSession,
         logger: mockLogger,
+        signal,
       })
       expect(response).toBeUndefined()
     } catch (err) {
@@ -80,6 +85,7 @@ describe('getFetcher', () => {
       },
       connectSession: mockConnectSession,
       logger: mockLogger,
+      signal,
     })
   })
 })

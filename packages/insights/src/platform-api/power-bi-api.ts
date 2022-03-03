@@ -56,6 +56,6 @@ export const powerBiApiService = async (
 
     throw new Error('No response returned by API')
   } catch (err) {
-    logger(err)
+    logger(err as Error)
   }
 }

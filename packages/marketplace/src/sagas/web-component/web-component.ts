@@ -19,7 +19,7 @@ export const fetchWebComponentConfigSaga = function* ({ data }: Action<FetchWebC
   try {
     const response = yield call(fetchWebComponentConfigApi, { ...data })
     yield put(fetchWebComponentConfigSuccess(response))
-  } catch (err) {
+  } catch (err: any) {
     yield put(fetchWebComponentConfigFailed(err.description))
     notification.error({
       message: err.description,
@@ -34,7 +34,7 @@ export const updateWebComponentConfigSaga = function* ({ data }: Action<UpdateWe
     yield put(updateWebComponentConfigSuccess())
     yield put(fetchWebComponentConfigSuccess(response))
     callback && callback()
-  } catch (err) {
+  } catch (err: any) {
     yield put(updateWebComponentConfigFailed(err.description))
     notification.error({
       message: err.description,

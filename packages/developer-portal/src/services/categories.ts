@@ -28,8 +28,8 @@ export const fetchCategoryListAPI = async (
       return response
     }
   } catch (error) {
-    logger(error)
-    throw error?.response
+    logger(error as Error)
+    throw error
   }
 }
 
@@ -47,8 +47,8 @@ export const createCategory = async (params: CreateCategoryParams) => {
       return response
     }
   } catch (error) {
-    logger(error)
-    throw new Error(error)
+    logger(error as Error)
+    throw error
   }
 }
 
@@ -66,8 +66,8 @@ export const fetchCategoryById = async (params: FetchCategoryById): Promise<Cate
       return response
     }
   } catch (error) {
-    logger(error)
-    throw new Error(error)
+    logger(error as Error)
+    throw error
   }
 }
 
@@ -85,7 +85,7 @@ export const deleteCategoryById = async (params: DeleteCategoryByIdParams) => {
       return response
     }
   } catch (error) {
-    logger(error)
-    throw new Error(error)
+    logger(error as Error)
+    throw error
   }
 }

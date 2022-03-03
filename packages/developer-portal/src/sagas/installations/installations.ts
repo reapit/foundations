@@ -43,7 +43,7 @@ export const installSagas = function* ({ data }) {
     })
     yield put(fetchInstallationsListSuccess(response))
     callback && callback()
-  } catch (err) {
+  } catch (err: any) {
     yield put(installAppFailed(err.description))
     notification.error({ message: err.description })
   }
@@ -67,7 +67,7 @@ export const uninstallSagas = function* ({ data }) {
     })
     yield put(fetchInstallationsListSuccess(response))
     callback && callback()
-  } catch (err) {
+  } catch (err: any) {
     yield put(uninstallAppFailed(err.description))
     notification.error({ message: err.description })
   }

@@ -25,6 +25,6 @@ export const updateAppRestrictionsService = async (
       throw new Error('Failed to update app restrictions')
     }
   } catch (err) {
-    logger(err)
+    logger(err as Error)
   }
 }

@@ -26,7 +26,7 @@ export const developerFetchSubcriptionsList = function* ({ data }: Action<FetchS
     }
     const response = yield call(fetchSubscriptionsList, { developerId })
     yield put(developerFetchSubscriptionsSuccess(response))
-  } catch (err) {
+  } catch (err: any) {
     notification.error({
       message: err?.description || errorMessages.DEFAULT_SERVER_ERROR,
     })
@@ -42,7 +42,7 @@ export const developerCreateSubscription = function* ({ data }: Action<CreateSub
     } else {
       yield put(developerCreateSubscriptionFalure())
     }
-  } catch (err) {
+  } catch (err: any) {
     yield put(developerCreateSubscriptionFalure())
   }
 }
@@ -52,7 +52,7 @@ export const developerDeleteSubcription = function* ({ data: id }: Action<string
     yield call(deleteSubscription, { id })
     const developerId = yield call(getDeveloperId)
     yield put(developerFetchSubscriptions({ developerId }))
-  } catch (err) {
+  } catch (err: any) {
     notification.error({
       message: err?.description || errorMessages.DEFAULT_SERVER_ERROR,
     })

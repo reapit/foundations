@@ -9,7 +9,7 @@ export const fetchCategories = function* ({ data }: Action<FetchCategoriesParams
   try {
     const desktopIntegrationTypes = yield call(fetchCategoriesApi, { ...data })
     yield put(fetchCategoriesSuccess(desktopIntegrationTypes))
-  } catch (err) {
+  } catch (err: any) {
     yield put(fetchCategoriesFailed(err.description))
     notification.error({
       message: err.description,

@@ -36,7 +36,7 @@ export const getOfficesService = async (
       throw new Error('Failed to fetch offices')
     }
   } catch (err) {
-    logger(err)
+    logger(err as Error)
   }
 }
 
@@ -62,12 +62,12 @@ export const createOfficeGroup = async (
 
       throw new Error('Create office group failed')
     }
-  } catch (err) {
+  } catch (err: any) {
     const description = err?.response?.description
     if (description && description === OFFICE_IN_USE_ERROR) {
       return description
     }
-    logger(err)
+    logger(err as Error)
   }
 }
 
@@ -94,11 +94,11 @@ export const updateOfficeGroup = async (
 
       throw new Error('Update office group failed')
     }
-  } catch (err) {
+  } catch (err: any) {
     const description = err?.response?.description
     if (description && description === OFFICE_IN_USE_ERROR) {
       return description
     }
-    logger(err)
+    logger(err as Error)
   }
 }

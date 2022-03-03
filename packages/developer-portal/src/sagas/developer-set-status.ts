@@ -22,7 +22,7 @@ export const developerSetStatusRequestSaga = function* ({ data: dev }) {
     yield call(updateDeveloperById, { ...dev, companyName: dev.company })
 
     yield put(developerSetStatusRequestSuccess())
-  } catch (err) {
+  } catch (err: any) {
     yield put(developerSetStatusRequestFailure())
     yield call(notification.error, {
       message: err?.description ?? errorMessages.DEFAULT_SERVER_ERROR,
