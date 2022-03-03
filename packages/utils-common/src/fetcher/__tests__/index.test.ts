@@ -45,7 +45,7 @@ describe('fetcherWithRawUrl', () => {
     try {
       const response = await fetcherWithRawUrl(params)
       expect(response).toBeUndefined()
-    } catch (err) {
+    } catch (err: any) {
       expect(err).toBeInstanceOf(FetchError)
       expect(err.message).toEqual(
         `Foundations API error: Status: 400 Method: ${params.method} Path: ${params.url} {"status":400}`,
@@ -89,7 +89,7 @@ describe('fetcherWithReturnHeader', () => {
         headers: {},
       })
       expect(response).toBeUndefined()
-    } catch (err) {
+    } catch (err: any) {
       expect(err).toBeInstanceOf(FetchError)
       expect(err.message).toEqual(`Foundations API error: Status: 400 Method: GET Path: ${url} {"status":400}`)
     }
@@ -129,7 +129,7 @@ describe('fetcherWithBob', () => {
         headers: {},
       })
       expect(response).toBeUndefined()
-    } catch (err) {
+    } catch (err: any) {
       expect(err).toBeInstanceOf(FetchError)
       expect(err.message).toEqual(`Foundations API error: Status: 400 Method: GET Path: ${url} {"status":400}`)
     }
@@ -169,7 +169,7 @@ describe('fetcher', () => {
         headers: {},
       })
       expect(response).toBeUndefined()
-    } catch (err) {
+    } catch (err: any) {
       expect(err).toBeInstanceOf(FetchError)
       expect(err.message).toEqual(`Foundations API error: Status: 400 Method: GET Path: ${url} {"status":400}`)
     }
