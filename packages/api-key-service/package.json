@@ -29,6 +29,7 @@
     "start": "yarn serverless offline start --runtime nodejs12.x --stage local",
     "build": "echo '...skipping...'",
     "lint": "eslint --cache --ext=ts,tsx,js src",
+    "check": "tsc --noEmit --skipLibCheck",
     "test": "echo '...skipping...'",
     "conf": "yarn config-manager --namespace cloud --entity api-key-service --name local --mode fetch",
     "release": "serverless deploy",

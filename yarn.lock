@@ -6551,6 +6551,7 @@ __metadata:
     regenerator-runtime: ^0.13.9
     rimraf: ^3.0.2
     sass-loader: ^12.4.0
+    serverless-webpack: ^5.6.1
     shelljs: ^0.8.4
     stream-browserify: ^3.0.0
     style-loader: ^3.3.1
@@ -13145,6 +13146,21 @@ __metadata:
   languageName: node
   linkType: hard
 
+"bestzip@npm:^2.2.0":
+  version: 2.2.0
+  resolution: "bestzip@npm:2.2.0"
+  dependencies:
+    archiver: ^5.3.0
+    async: ^3.2.0
+    glob: ^7.1.6
+    which: ^2.0.2
+    yargs: ^16.2.0
+  bin:
+    bestzip: bin/cli.js
+  checksum: b2bdec21b60b12e4cbeb30fe55f364317ebdd817ab567c5a8d66a0b710b7091e187b8bc5aee8923f1bf47752331cbd93cd54573e0398fd0b1df18c87d4536e3a
+  languageName: node
+  linkType: hard
+
 "better-assert@npm:~1.0.0":
   version: 1.0.2
   resolution: "better-assert@npm:1.0.2"
@@ -13781,7 +13797,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"builtin-modules@npm:^3.1.0, builtin-modules@npm:^3.2.0":
+"builtin-modules@npm:^3.0.0, builtin-modules@npm:^3.1.0, builtin-modules@npm:^3.2.0":
   version: 3.2.0
   resolution: "builtin-modules@npm:3.2.0"
   checksum: 0265aa1ba78e1a16f4e18668d815cb43fb364e6a6b8aa9189c6f44c7b894a551a43b323c40206959d2d4b2568c1f2805607ad6c88adc306a776ce6904cca6715
@@ -22700,6 +22716,15 @@ fsevents@^1.2.7:
   version: 2.0.5
   resolution: "is-buffer@npm:2.0.5"
   checksum: 764c9ad8b523a9f5a32af29bdf772b08eb48c04d2ad0a7240916ac2688c983bf5f8504bf25b35e66240edeb9d9085461f9b5dae1f3d2861c6b06a65fe983de42
+  languageName: node
+  linkType: hard
+
+"is-builtin-module@npm:^3.1.0":
+  version: 3.1.0
+  resolution: "is-builtin-module@npm:3.1.0"
+  dependencies:
+    builtin-modules: ^3.0.0
+  checksum: f1e5dd2cd5f252d4d799b20a0c8c4f7e9c399c4d141749af76ca0121058d4062c3015d026f1b1409dd3d2a4ddfb9b15cf6eb9c370fed53fea8652ce35b5e95cb
   languageName: node
   linkType: hard
 
@@ -33481,6 +33506,28 @@ resolve@^2.0.0-next.3:
   languageName: node
   linkType: hard
 
+"serverless-webpack@npm:^5.6.1":
+  version: 5.6.1
+  resolution: "serverless-webpack@npm:5.6.1"
+  dependencies:
+    bestzip: ^2.2.0
+    bluebird: ^3.7.2
+    fs-extra: ^9.1.0
+    glob: ^7.2.0
+    is-builtin-module: ^3.1.0
+    lodash: ^4.17.21
+    semver: ^7.3.5
+    ts-node: ">= 8.3.0"
+  peerDependencies:
+    serverless: 1 || 2 || 3
+    webpack: ">= 3.0.0 < 6"
+  dependenciesMeta:
+    ts-node:
+      optional: true
+  checksum: 22386b39af5acfb0de3d65823a1f09a308701d9b7b68da7ee0e7042445923a711b5535f4315870e0191d0e68dc03e8ebab2d16f3b970a76c4c7db3d414dde1b4
+  languageName: node
+  linkType: hard
+
 "serverless@npm:^2.69.1":
   version: 2.69.1
   resolution: "serverless@npm:2.69.1"
@@ -36187,6 +36234,43 @@ resolve@^2.0.0-next.3:
   languageName: node
   linkType: hard
 
+"ts-node@npm:>= 8.3.0":
+  version: 10.6.0
+  resolution: "ts-node@npm:10.6.0"
+  dependencies:
+    "@cspotcode/source-map-support": 0.7.0
+    "@tsconfig/node10": ^1.0.7
+    "@tsconfig/node12": ^1.0.7
+    "@tsconfig/node14": ^1.0.0
+    "@tsconfig/node16": ^1.0.2
+    acorn: ^8.4.1
+    acorn-walk: ^8.1.1
+    arg: ^4.1.0
+    create-require: ^1.1.0
+    diff: ^4.0.1
+    make-error: ^1.1.1
+    v8-compile-cache-lib: ^3.0.0
+    yn: 3.1.1
+  peerDependencies:
+    "@swc/core": ">=1.2.50"
+    "@swc/wasm": ">=1.2.50"
+    "@types/node": "*"
+    typescript: ">=2.7"
+  peerDependenciesMeta:
+    "@swc/core":
+      optional: true
+    "@swc/wasm":
+      optional: true
+  bin:
+    ts-node: dist/bin.js
+    ts-node-cwd: dist/bin-cwd.js
+    ts-node-script: dist/bin-script.js
+    ts-node-transpile-only: dist/bin-transpile.js
+    ts-script: dist/bin-script-deprecated.js
+  checksum: bc7589d8c38dc75a2a6f832ac43faaac7edd3d0ef4643f46a9deeaabcdd35722e8c89e729fcd39a16069b30d09e297c2fb3eec917a82dd3f1e7da8b352bbd447
+  languageName: node
+  linkType: hard
+
 "ts-node@npm:^10.4.0":
   version: 10.4.0
   resolution: "ts-node@npm:10.4.0"
@@ -37520,6 +37604,13 @@ typescript@^3.7.3:
   bin:
     uuid: dist/bin/uuid
   checksum: 5575a8a75c13120e2f10e6ddc801b2c7ed7d8f3c8ac22c7ed0c7b2ba6383ec0abda88c905085d630e251719e0777045ae3236f04c812184b7c765f63a70e58df
+  languageName: node
+  linkType: hard
+
+"v8-compile-cache-lib@npm:^3.0.0":
+  version: 3.0.0
+  resolution: "v8-compile-cache-lib@npm:3.0.0"
+  checksum: 674e312bbca796584b61dc915f33c7e7dc4e06d196e0048cb772c8964493a1ec723f1dd014d9419fd55c24a6eae148f60769da23f622e05cd13268063fa1ed6b
   languageName: node
   linkType: hard
 

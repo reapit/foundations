@@ -18,10 +18,10 @@ export const downloadDocument = async (documentId: string) => {
     })
 
     if (documentBlob) {
-      return window.URL.createObjectURL(documentBlob)
+      return window.URL.createObjectURL(documentBlob as Blob)
     }
   } catch (error) {
-    logger(error)
+    logger(error as Error)
     notification.error({ message: 'Document not found' })
   }
 }

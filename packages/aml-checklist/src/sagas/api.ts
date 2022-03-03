@@ -20,7 +20,7 @@ export const fetchChecklist = async ({ id, headers }) => {
     })
     return response
   } catch (err) {
-    logger(err)
+    logger(err as Error)
     throw err
   }
 }
@@ -41,7 +41,7 @@ export const fetchIdentityCheck = async ({ contactId, headers }) => {
     }
     return newResponse?._embedded?.[0] || null
   } catch (err) {
-    logger(err)
+    logger(err as Error)
     throw err
   }
 }
@@ -62,7 +62,7 @@ export const updateChecklist = async ({ contact, headers }) => {
     })
     return response
   } catch (err) {
-    logger(err)
+    logger(err as Error)
     throw err
   }
 }
@@ -86,7 +86,7 @@ export const uploadImage = async ({ name, imageData, headers }) => {
     })
     return response
   } catch (err) {
-    logger(err)
+    logger(err as Error)
     throw err
   }
 }
@@ -107,7 +107,7 @@ export const updateIdentityCheck = async ({ identityChecks, headers }) => {
     })
     return response
   } catch (err) {
-    logger(err)
+    logger(err as Error)
     throw err
   }
 }
@@ -124,7 +124,7 @@ export const createIdentityCheck = async ({ identityChecks, headers }) => {
     })
     return response
   } catch (err) {
-    logger(err)
+    logger(err as Error)
     throw err
   }
 }
@@ -140,7 +140,7 @@ export const fetchContact = async ({ params, headers }) => {
     })
     return responseContacts
   } catch (err) {
-    logger(err)
+    logger(err as Error)
     throw err
   }
 }
@@ -155,7 +155,7 @@ export const fetchIdentityDocumentTypes = async ({ headers }) => {
     })
     return response
   } catch (err) {
-    logger(err)
+    logger(err as Error)
     throw err
   }
 }

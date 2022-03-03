@@ -17,6 +17,7 @@
     "test": "echo '...skipping...'",
     "build": "ncc build src/index.js -m -o action",
     "lint": "eslint --cache --ext=ts,tsx,js src",
+    "check": "echo '...skipping...'",
     "deploy": "echo '...skipping...'",
     "release": "echo '...skipping...'",
     "publish": "echo '...skipping...'",

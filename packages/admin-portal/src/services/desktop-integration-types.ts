@@ -55,7 +55,7 @@ export const fetchDesktopIntegrationTypesList = async (
       return response
     }
   } catch (error) {
-    logger(error)
+    logger(error as Error)
     throw error
   }
 }
@@ -74,8 +74,8 @@ export const createDesktopIntegrationTypes = async (params: CreateDesktopIntegra
       return response
     }
   } catch (error) {
-    logger(error)
-    throw new Error(error)
+    logger(error as Error)
+    throw error
   }
 }
 
@@ -95,8 +95,8 @@ export const fetchDesktopIntegrationTypesById = async (
       return response
     }
   } catch (error) {
-    logger(error)
-    throw new Error(error)
+    logger(error as Error)
+    throw error
   }
 }
 
@@ -115,7 +115,7 @@ export const updateDesktopIntegrationTypesById = async (params: UpdateDesktopInt
       return response
     }
   } catch (error) {
-    logger(error)
-    throw new Error(error)
+    logger(error as Error)
+    throw error
   }
 }

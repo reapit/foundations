@@ -17,7 +17,7 @@ export const fetchScopesList = async (): Promise<ScopeModel[] | void> => {
       return response
     }
   } catch (error) {
-    logger(error)
+    logger(error as Error)
     throw error
   }
 }

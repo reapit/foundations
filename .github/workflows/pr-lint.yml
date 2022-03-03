@@ -1,4 +1,4 @@
-name: Lint PR
+name: Check PR Name
 
 on:
   pull_request:
@@ -6,7 +6,7 @@ on:
 
 jobs:
   pr-lint:
-    name: Lint PR
+    name: Check PR Name
     runs-on: ubuntu-latest
     steps:
       - uses: seferov/pr-lint-action@master

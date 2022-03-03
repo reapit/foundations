@@ -34,6 +34,7 @@
     "test": "echo '...skipping...'",
     "build": "echo '...skipping...'",
     "lint": "eslint --cache --ext=ts,tsx,js src",
+    "check": "tsc --noEmit --skipLibCheck",
     "release": "serverless deploy",
     "publish": "echo '...skipping...'",
     "conf": "yarn config-manager --namespace cloud --entity security-header-lambda --name local --mode fetch",

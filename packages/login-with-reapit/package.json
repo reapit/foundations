@@ -7,10 +7,11 @@
     "test": "echo '...skipping...issue with svelte testing library that needs fixing with an update https://github.com/testing-library/dom-testing-library/pull/916'",
     "build": "cross-env NODE_ENV=production && rimraf public/dist && webpack && tsc",
     "lint": "eslint --cache --ext=ts,tsx,js src",
+    "check": "tsc --noEmit --skipLibCheck",
     "release": "echo '...skipping...'",
     "publish": "yarn npm publish --access public",
     "conf": "echo '...skipping...'",
-    "commit": "concurrently \"yarn test --coverage --no-cache --silent --forceExit --detectOpenHandles --runInBand --watch=false && jest-coverage-badges --input src/tests/coverage/coverage-summary.json --output src/tests/badges\" \"yarn lint --fix\""
+    "commit": "yarn test --coverage --no-cache --silent --forceExit --detectOpenHandles --runInBand --watch=false && jest-coverage-badges --input src/tests/coverage/coverage-summary.json --output src/tests/badges && yarn lint --fix && yarn check"
   },
   "main": "public/dist/login-with-reapit.js",
   "umd": "public/dist/login-with-reapit.js",
