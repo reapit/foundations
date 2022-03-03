@@ -1,12 +1,13 @@
 #https://github.com/actions/labeler
 
-name: 'Set Label For Pull Request'
+name: 'Label PR'
 on:
   pull_request:
     types: [opened, 'synchronize']
 
 jobs:
   label:
+    name: Label
     runs-on: ubuntu-latest
     steps:
       - uses: actions/labeler@v2

@@ -24,7 +24,7 @@ export const installSagas = function* ({ data }) {
     yield call(createInstallation, { ...restParams, clientId, approvedBy: email })
     yield put(installAppSuccess())
     callback && callback()
-  } catch (err) {
+  } catch (err: any) {
     yield put(installAppFailed(err.description))
     notification.error({ message: err.description })
   }
@@ -38,7 +38,7 @@ export const uninstallSagas = function* ({ data }) {
     yield call(removeAccessToAppById, { ...restParams, terminatedBy: email })
     yield put(uninstallAppSuccess())
     callback && callback(false)
-  } catch (err) {
+  } catch (err: any) {
     const { callback } = data
     if (err.statusCode === 403 && callback) {
       return callback(true)

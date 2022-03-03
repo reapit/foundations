@@ -40,7 +40,7 @@ export const fetchApps = function* ({ data }) {
     }
 
     yield put(fetchAppsSuccess(filteredOfClientHiddenApps))
-  } catch (err) {
+  } catch (err: any) {
     yield put(fetchAppsFailed(err.description))
     notification.error({
       message: err.description,
@@ -61,7 +61,7 @@ export const fetchDeveloperApps = function* ({ data }) {
     const response = yield call(fetchAppsApi, defaultParams)
 
     yield put(fetchDeveloperAppsSuccess(response))
-  } catch (err) {
+  } catch (err: any) {
     yield put(fetchAppsFailed(err.description))
     notification.error({
       message: err.description,
@@ -81,7 +81,7 @@ export const fetchFeatureApps = function* ({ data }) {
     })
 
     yield put(fetchFeatureAppsSuccess(response))
-  } catch (err) {
+  } catch (err: any) {
     yield put(fetchFeatureAppsFailed(err.description))
     notification.error({
       message: err.description,
@@ -99,7 +99,7 @@ export const fetchAppDetailSagas = function* ({ data }: Action<FetchAppByIdParam
       appDetailResponse.apiKey = apiKeyResponse?.apiKey || ''
     }
     yield put(fetchAppDetailSuccess(appDetailResponse))
-  } catch (err) {
+  } catch (err: any) {
     yield put(fetchAppDetailFailed(err.description))
     notification.error({
       message: err.description,

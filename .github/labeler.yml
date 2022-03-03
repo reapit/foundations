@@ -1,15 +1,36 @@
-archive:
-  - archive/**/*
-
 infra:
   - .github/**/*
   - scripts/**/*
+
+dependencies:
+  - .yarn/**/*
 
 admin-portal:
   - packages/admin-portal/**
 
 aml-checklist:
   - packages/aml-checklist/**
+
+api-key-service:
+  - packages/api-key-service/**
+
+api-key-verify:
+  - packages/api-key-verify/**
+
+app-builder:
+  - packages/app-builder/**
+
+app-builder-backend:
+  - packages/app-builder-backend/**
+
+auto-bump:
+  - packages/auto-bump/**
+
+auto-reply-bot:
+  - packages/auto-reply-bot/**
+
+cli:
+  - packages/cli/**
 
 cloud-alert:
   - packages/cloud-alert/**
@@ -26,11 +47,14 @@ connect-session:
 cra-template-foundations:
   - packages/cra-template-foundations/**
 
+create-node-app-generator:
+  - packages/cra-template-foundations/**
+
 data-warehouse:
   - packages/data-warehouse/**
 
-demo-site:
-  - packages/demo-site/**
+deployment-service:
+  - packages/deployment-service/**
 
 developer-portal:
   - packages/developer-portal/**
@@ -38,14 +62,20 @@ developer-portal:
 elements:
   - packages/elements/**
 
-event-status-service:
-  - packages/event-status-service/**
+elements-legacy:
+  - packages/elements-legacy/**
 
-foundations-ts-definitons:
-  - packages/foundations-ts-definitons/**
+events-service:
+  - packages/events-service/**
+
+foundations-ts-definitions:
+  - packages/foundations-ts-definitions/**
 
 geo-diary:
   - packages/geo-diary/**
+
+geo-diary-marketing:
+  - packages/geo-diary-marketing/**
 
 graphql-server:
   - packages/graphql-server/**
@@ -71,41 +101,32 @@ payments-client:
 payments-service:
   - packages/payments-service/**
 
-property-projector:
-  -packages/property-projector/**
-
 react-app-scaffolder:
   - packages/react-app-scaffolder/**
 
 reapit-connect:
   - packages/reapit-connect/**
 
-ts-types:
-  - packages/ts-types/**
+security-header-lambda:
+  - packages/security-header-lambda/**
+
+seed-data-workflow:
+  - packages/seed-data-workflow/**
+
+ts-bundler:
+  - packages/ts-bundler/**
 
 ts-scripts:
   - packages/ts-scripts/**
 
-utils:
-  - packages/utils/**
+ts-types:
+  - packages/ts-types/**
 
-web-components:
-  - packages/web-components/**
+utils-common:
+  - packages/utils-common/**
 
-web-components-config-server:
-  - packages/web-components-config-server/**
+utils-node:
+  - packages/utils-node/**
 
-api-key-service:
-  - packages/api-key-service/**
-
-deployment-service:
-  - packages/deployment-service/**
-
-deployment-service-ui:
-  - packages/deployment-service-ui/**
-
-api-key-verify:
-  - packages/api-key-verify/**
-
-cli:
-  - packages/cli/**
+utils-react:
+  - packages/utils-react/**

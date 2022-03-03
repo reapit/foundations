@@ -17,7 +17,7 @@ export const apphttpTrafficEventSaga = function* ({ data }: Action<FetchTrafficS
     const uniqueCustomerIds = [...new Set(data.customerId)]
     const response = yield call(fetchTrafficStatistics, { ...data, customerId: uniqueCustomerIds })
     yield put(fetchTrafficStatisticsSuccess(response))
-  } catch (err) {
+  } catch (err: any) {
     yield put(fetchTrafficStatisticsFailed())
     yield call(notification.error, {
       message: err?.description ?? errorMessages.DEFAULT_SERVER_ERROR,

@@ -11,7 +11,7 @@ export const fetchWebhookLogs = function* ({ data }: Action<WebhookLogsQuery>) {
   try {
     const logs = yield call(fetchWebhookLogsApi, { ...data })
     yield put(fetchWebhookLogsSuccess({ logs: logs ?? [] }))
-  } catch (err) {
+  } catch (err: any) {
     yield put(fetchWebhookLogsError(err.description))
     // Weirdly the API returns a 404 when no logs are found - this is intended not an error so handling
     // by showing an info message not an error

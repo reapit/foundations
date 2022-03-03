@@ -61,7 +61,7 @@ export const currentMemberUpdate = function* ({ data }) {
   } catch (error) {
     yield put(updateCurrentMemberFailed())
     notification.error({
-      message: error.message,
+      message: (error as Error).message,
     })
   }
 }

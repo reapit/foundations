@@ -86,7 +86,7 @@ export const confirmRegistration = async (params: ConfirmRegistrationParams): Pr
     }
     return await confirmRegistrationService(params)
   } catch (err) {
-    logger(new Error(err.message))
+    logger(err as Error)
     console.error(`Bad request, failed to confirm registration, ${err}`)
   }
 }

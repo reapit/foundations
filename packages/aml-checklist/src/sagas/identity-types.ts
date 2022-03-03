@@ -14,7 +14,7 @@ export const identityTypesDataFetch = function* () {
     const response = yield call(fetchIdentityDocumentTypes, { headers })
     yield put(identityTypesReceiveData(response))
   } catch (err) {
-    logger(err)
+    logger(err as Error)
     yield put(identityTypesRequestFailure())
     yield call(notification.error, {
       message: extractNetworkErrString(err),

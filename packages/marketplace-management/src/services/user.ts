@@ -28,7 +28,7 @@ export const addMemberToGroup = async (group: UpdateUserGroupParams): Promise<an
       throw new Error('Adding member to group failed')
     }
   } catch (err) {
-    logger(err)
+    logger(err as Error)
   }
 }
 
@@ -51,7 +51,7 @@ export const removeMemberFromGroup = async (group: UpdateUserGroupParams): Promi
       throw new Error('Removing member from group failed')
     }
   } catch (err) {
-    logger(err)
+    logger(err as Error)
   }
 }
 
@@ -74,6 +74,6 @@ export const getUserInfo = async (email: string): Promise<UserInfoModel | undefi
       throw new Error('Fetching user info failed')
     }
   } catch (err) {
-    logger(err)
+    logger(err as Error)
   }
 }

@@ -49,7 +49,7 @@ export const fetchNegotiators = async (params: FetchNegotiatorsParams): Promise<
       return response
     }
   } catch (error) {
-    logger(error)
-    throw new Error(error)
+    logger(error as Error)
+    throw error
   }
 }

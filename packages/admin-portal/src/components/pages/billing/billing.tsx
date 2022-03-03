@@ -74,7 +74,7 @@ export const handleDownloadBillingPeriod =
         setBillingDwFile(billingDwFile as Blob)
       } catch (error) {
         notification.error({
-          message: error.message || errorMessages.DEFAULT_SERVER_ERROR,
+          message: (error as Error).message || errorMessages.DEFAULT_SERVER_ERROR,
           duration: 5,
         })
       }

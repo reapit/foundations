@@ -30,12 +30,13 @@ const webpackConfigNode = {
     new ResolveTSPathsToWebpackAlias({
       tsconfig: PATHS.tsConfig,
     }),
-    new ForkTsCheckerWebpackPlugin({
-      eslint: {
-        files: './src/**/*.ts',
-      },
-    }),
-  ],
+    slsw.lib.webpack.isLocal &&
+      new ForkTsCheckerWebpackPlugin({
+        eslint: {
+          files: './src/**/*.ts',
+        },
+      }),
+  ].filter(Boolean),
   module: {
     rules: [
       {

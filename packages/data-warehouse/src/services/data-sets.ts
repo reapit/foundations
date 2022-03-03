@@ -26,6 +26,6 @@ export const getDataSetsService = async (): Promise<PagedDatasetsModel | undefin
       throw new Error('Failed to fetch datasets')
     }
   } catch (err) {
-    logger(err)
+    logger(err as Error)
   }
 }

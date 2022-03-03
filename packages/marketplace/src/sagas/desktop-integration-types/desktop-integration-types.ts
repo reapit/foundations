@@ -15,7 +15,7 @@ export const fetchDesktopIntegrationTypes = function* ({ data }: Action<FetchDes
   try {
     const desktopIntegrationTypes = yield call(fetchDesktopIntegrationTypesApi, { ...data })
     yield put(fetchDesktopIntegrationTypesSuccess(desktopIntegrationTypes))
-  } catch (err) {
+  } catch (err: any) {
     yield put(fetchDesktopIntegrationTypesFailed(err.description))
     notification.error({
       message: err.description,

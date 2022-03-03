@@ -54,7 +54,7 @@ const run = async () => {
 
     renderApp(App)
   } catch (error) {
-    logger(error)
+    logger(error as Error)
   }
 }
 

@@ -72,8 +72,8 @@ export const fetchBillings = async (params: FetchBillingsParams): Promise<Billin
       return response
     }
   } catch (error) {
-    logger(error)
-    throw new Error(error)
+    logger(error as Error)
+    throw error
   }
 }
 
@@ -101,7 +101,7 @@ export const fetchBillingsByMonth = async (
       return response
     }
   } catch (error) {
-    logger(error)
-    throw new Error(error)
+    logger(error as Error)
+    throw error
   }
 }

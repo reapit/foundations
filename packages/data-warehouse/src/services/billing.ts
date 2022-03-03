@@ -29,7 +29,7 @@ export const getBillingByMonthService = async (
       throw new Error('Failed to fetch billing')
     }
   } catch (err) {
-    logger(err)
+    logger(err as Error)
   }
 }
 
@@ -59,6 +59,6 @@ export const getBillingByDatesService = async (
       throw new Error('Failed to fetch billing')
     }
   } catch (err) {
-    logger(err)
+    logger(err as Error)
   }
 }

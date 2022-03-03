@@ -26,11 +26,12 @@
     "start": "echo '...skipping...'",
     "test": "cross-env TZ=UTC jest --watch --colors --silent",
     "build": "cross-env NODE_ENV=production tsdx build --format=cjs,esm,umd",
-    "lint": "eslint --cache --ext=ts,tsx,js src --fix",
+    "lint": "eslint --cache --ext=ts,tsx,js src",
+    "check": "tsc --noEmit --skipLibCheck",
     "release": "echo '...skipping...'",
     "publish": "yarn npm publish --access public",
     "conf": "echo '...skipping...'",
-    "commit": "concurrently \"yarn test --coverage --no-cache --silent --forceExit --detectOpenHandles --runInBand --watch=false && jest-coverage-badges --input src/tests/coverage/coverage-summary.json --output src/tests/badges\" \"yarn lint\""
+    "commit": "yarn test --coverage --no-cache --silent --forceExit --detectOpenHandles --runInBand --watch=false && jest-coverage-badges --input src/tests/coverage/coverage-summary.json --output src/tests/badges && yarn lint --fix && yarn check"
   },
   "dependencies": {
     "@babel/runtime": "^7.16.5",

@@ -35,7 +35,7 @@ export const fetchSubscriptionsList = async (
       return response as SubscriptionModelPagedResult
     }
   } catch (error) {
-    logger(error)
+    logger(error as Error)
     throw error
   }
 }
@@ -57,8 +57,8 @@ export const createDeveloperSubscription = async (
       return response
     }
   } catch (error) {
-    logger(error)
-    throw new Error(error)
+    logger(error as Error)
+    throw error
   }
 }
 
@@ -77,7 +77,7 @@ export const deleteSubscription = async (params: DeleteSubscriptionParams) => {
       return response
     }
   } catch (error) {
-    logger(error)
+    logger(error as Error)
     throw error
   }
 }

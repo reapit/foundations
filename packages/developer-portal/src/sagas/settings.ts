@@ -26,7 +26,7 @@ export const developerInformationFetch = function* () {
     if (response) {
       yield put(requestDeveloperDataSuccess(response))
     }
-  } catch (error) {
+  } catch (error: any) {
     yield call(notification.error, {
       message: error?.description ?? errorMessages.DEFAULT_SERVER_ERROR,
     })
@@ -68,7 +68,7 @@ export const developerInfomationChange = function* ({ data }: Action<UpdateDevel
       const newResponse = yield call(fetchDeveloperById, { id: developerId })
       yield put(requestDeveloperDataSuccess(newResponse))
     }
-  } catch (error) {
+  } catch (error: any) {
     yield call(notification.error, {
       message: error?.description ?? errorMessages.DEFAULT_SERVER_ERROR,
     })
@@ -101,7 +101,7 @@ export const developerPasswordChange = function* ({ data }: Action<ChangePasswor
     }
     localStorage.setItem('isPasswordChanged', 'true')
     reapitConnectBrowserSession.connectLogoutRedirect()
-  } catch (error) {
+  } catch (error: any) {
     yield call(notification.error, {
       message: error?.description ?? errorMessages.DEFAULT_SERVER_ERROR,
     })

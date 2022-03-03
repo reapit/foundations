@@ -11,7 +11,7 @@ export const getPepSearchStatus = () => {
     }
     return null
   } catch (err) {
-    console.error('ERROR GETTING PEP SEARCH STATUS', err.message)
+    console.error('ERROR GETTING PEP SEARCH STATUS', err)
     return null
   }
 }
@@ -21,7 +21,7 @@ export const setPepSearchStatus = (pepSearchStatus: any) => {
     const statusJSON = JSON.stringify(pepSearchStatus)
     window.localStorage.setItem(REAPIT_PEP_SEARCH_STATUS, statusJSON)
   } catch (err) {
-    console.error('ERROR SETTING PEP SEARCH STATUS', err.message)
+    console.error('ERROR SETTING PEP SEARCH STATUS', err)
   }
 }
 

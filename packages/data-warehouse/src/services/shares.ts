@@ -26,7 +26,7 @@ export const getSharesService = async (): Promise<PagedSharesModel | undefined |
       throw new Error('Failed to fetch shares')
     }
   } catch (err) {
-    logger(err)
+    logger(err as Error)
   }
 }
 
@@ -49,7 +49,7 @@ export const deleteSharesService = async (shareId: string): Promise<boolean | un
       throw new Error('Failed to delete share')
     }
   } catch (err) {
-    logger(err)
+    logger(err as Error)
   }
 }
 
@@ -72,6 +72,6 @@ export const refreshSharesService = async (shareId: string): Promise<boolean | u
       throw new Error('Failed to refresh share')
     }
   } catch (err) {
-    logger(err)
+    logger(err as Error)
   }
 }

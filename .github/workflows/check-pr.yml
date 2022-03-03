@@ -1,0 +1,38 @@
+name: Check PR
+
+on:
+  pull_request:
+    types: ['opened', 'synchronize']
+
+env:
+  NPM_TOKEN: ${{secrets.NPM_TOKEN}}
+  AWS_ACCESS_KEY_ID: ${{secrets.AWS_ACCESS_KEY_ID}}
+  AWS_SECRET_ACCESS_KEY: ${{secrets.AWS_SECRET_ACCESS_KEY}}
+  AWS_REGION: ${{secrets.AWS_REGION}}
+  CI: true
+
+jobs:
+  test-pr:
+    name: Check
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v2
+        with:
+          fetch-depth: 0
+
+      - name: Set Node
+        uses: actions/setup-node@v1
+        with:
+          node-version: '14.x'
+
+      - name: Install
+        run: yarn
+
+      - name: Fetch config
+        run: |
+          yarn changed foreach --parallel --verbose --git-range origin/master run conf --name development
+
+      - name: TypeCheck
+        run: |
+          yarn changed foreach --parallel --verbose --git-range origin/master run check

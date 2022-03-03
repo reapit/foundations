@@ -163,7 +163,12 @@ export default (app) => {
       return
     }
 
-    console.log('test', toColumn.data.name.toLowerCase, Object.keys(movedColumnResponses), movedColumnResponses[toColumn.data.name.toLowerCase])
+    console.log(
+      'test',
+      toColumn.data.name.toLowerCase,
+      Object.keys(movedColumnResponses),
+      movedColumnResponses[toColumn.data.name.toLowerCase],
+    )
 
     return event.octokit.issues.createComment({
       issue_number: issue.data.number,

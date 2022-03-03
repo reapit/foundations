@@ -35,7 +35,7 @@ export const fetchSubscriptionListApi = async (
       return response
     }
   } catch (error) {
-    logger(error)
+    logger(error as Error)
     throw error
   }
 }
@@ -54,8 +54,8 @@ export const cancelSubscriptionApi = async (params: CancelSubscriptionParams) =>
       return response
     }
   } catch (error) {
-    logger(error)
-    throw error?.response
+    logger(error as Error)
+    throw error
   }
 }
 
@@ -73,7 +73,7 @@ export const createSubscriptionApi = async (params: CreateSubscriptionModel) => 
       return response
     }
   } catch (error) {
-    logger(error)
-    throw error?.response
+    logger(error as Error)
+    throw error
   }
 }

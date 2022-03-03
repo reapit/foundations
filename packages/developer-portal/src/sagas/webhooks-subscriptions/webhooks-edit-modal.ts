@@ -45,7 +45,7 @@ export const requestSubcriptionData = function* ({ data: applicationId }: Action
     } else {
       yield put(requestWebhookSubcriptionReceiveFailure())
     }
-  } catch (err) {
+  } catch (err: any) {
     notification.error({
       message: err?.description || errorMessages.DEFAULT_SERVER_ERROR,
     })
@@ -65,7 +65,7 @@ export const createNewWebhook = function* ({ data }: Action<CreateWebhookParams>
     if (newListResponse) {
       yield put(fetchWebhooksSubscriptionsSuccess(newListResponse as PagedResultWebhookModel_))
     }
-  } catch (err) {
+  } catch (err: any) {
     yield put(updateWebhookCreateEditState(WebhookCreateEditState.ERROR))
   }
 }
@@ -83,7 +83,7 @@ export const editWebhook = function* ({ data }: Action<EditWebhookParams>) {
     if (newListResponse) {
       yield put(fetchWebhooksSubscriptionsSuccess(newListResponse as PagedResultWebhookModel_))
     }
-  } catch (err) {
+  } catch (err: any) {
     yield put(updateWebhookCreateEditState(WebhookCreateEditState.ERROR))
   }
 }
@@ -101,7 +101,7 @@ export const deleteWebhook = function* ({ data }: Action<DeleteWebhookParams>) {
     if (newListResponse) {
       yield put(fetchWebhooksSubscriptionsSuccess(newListResponse as PagedResultWebhookModel_))
     }
-  } catch (err) {
+  } catch (err: any) {
     yield put(updateWebhookCreateEditState(WebhookCreateEditState.ERROR))
   }
 }
@@ -112,7 +112,7 @@ export const requestWebhookData = function* ({ data: webhookId }: Action<string>
     const { applicationId } = data
     yield put(requestWebhookReceiveData(data))
     yield put(requestWebhookSubcriptionData(applicationId))
-  } catch (err) {
+  } catch (err: any) {
     yield put(requestWebhookReceiveDataFailure())
     notification.error({
       message: err?.description || errorMessages.DEFAULT_SERVER_ERROR,

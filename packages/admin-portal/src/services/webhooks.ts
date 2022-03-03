@@ -51,7 +51,7 @@ export const fetchWebookSubscriptions = async (params: FetchWebhooksParms): Prom
       return response
     }
   } catch (error) {
-    logger(error)
+    logger(error as Error)
     throw error
   }
 }

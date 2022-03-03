@@ -25,7 +25,7 @@ export const getSubscriptionsService = async (): Promise<SubscriptionModelPagedR
       throw new Error('Failed to fetch subscriptions')
     }
   } catch (err) {
-    logger(err)
+    logger(err as Error)
   }
 }
 
@@ -50,7 +50,7 @@ export const createSubscriptionsService = async (
       throw new Error('Failed to create subscription')
     }
   } catch (err) {
-    logger(err)
+    logger(err as Error)
   }
 }
 
@@ -72,6 +72,6 @@ export const deleteSubscriptionsService = async (id: string): Promise<boolean | 
       throw new Error('Failed to delete subscription')
     }
   } catch (err) {
-    logger(err)
+    logger(err as Error)
   }
 }

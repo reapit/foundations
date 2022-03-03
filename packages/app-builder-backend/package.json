@@ -14,15 +14,16 @@
     "test": "cp config.json src && cross-env TZ=UTC jest --no-cache --watch --colors --silent=false",
     "build": "cp config.json src && tsc",
     "bundle": "ts-bundler",
-    "lint": "eslint --cache --ext=ts,tsx,js src --fix",
+    "lint": "eslint --cache --ext=ts,tsx,js src",
     "release": "rpt-cdk deploy",
     "release:watch": "rpt-cdk watch",
     "release:destroy": "rpt-cdk destroy",
+    "check": "cp config.json src && tsc --noEmit --skipLibCheck",
     "publish": "echo '...skipping...'",
-    "conf": "yarn config-manager --namespace cloud --entity app-builder --name local --mode fetch",
+    "conf": "yarn config-manager --namespace cloud --entity app-builder-backend --name local --mode fetch",
     "synth": "rpt-cdk synth",
     "ddb": "docker run -d -p 8000:8000 amazon/dynamodb-local",
-    "commit": "concurrently \"yarn test --coverage --no-cache --silent --forceExit --detectOpenHandles --runInBand --watch=false\" \"yarn lint\""
+    "commit": "yarn test --coverage --no-cache --silent --forceExit --detectOpenHandles --runInBand --watch=false && yarn lint --fix && yarn check"
   },
   "dependencies": {
     "@aws-sdk/client-dynamodb": "^3.27.0",

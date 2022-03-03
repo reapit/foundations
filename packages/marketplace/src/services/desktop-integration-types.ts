@@ -22,7 +22,7 @@ export const fetchDesktopIntegrationTypesApi = async (
       return response
     }
   } catch (error) {
-    logger(error)
-    throw error?.response
+    logger(error as Error)
+    throw error
   }
 }

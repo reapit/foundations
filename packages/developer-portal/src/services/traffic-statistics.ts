@@ -51,7 +51,7 @@ export const fetchTrafficStatistics = async (
       return response
     }
   } catch (error) {
-    logger(error)
-    throw new Error(error)
+    logger(error as Error)
+    throw error
   }
 }

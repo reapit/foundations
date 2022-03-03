@@ -101,25 +101,24 @@ export const bundle = ({ relModuleDir, isIncremental }: Config) => {
     }
   }
 
-  const packagesDir = path.resolve(tmpDir, 'packages')
+  const newPackagesDir = path.resolve(tmpDir, 'packages')
 
   console.log('Creating packages directory')
-  execSync(`mkdir -p ${packagesDir}`)
+  execSync(`mkdir -p ${newPackagesDir}`)
   console.log('Created packages directory')
 
   console.log('Copying build directory contents to packages directory')
-  execSync(`cp -r ${outDir}/* ${packagesDir}`)
+  execSync(`cp -r ${outDir}/* ${newPackagesDir}`)
   console.log('Copied build directory contents to packages directory')
-
   const toCopy = processWorkspaceDeps(context)
   console.log(`Found ${toCopy.length} modules to copy without processing`)
 
   toCopy.forEach((moduleName) => {
     console.log(`Copying without processing ${moduleName}`)
     const moduleSourceDir = path.resolve(packagesRoot, moduleName)
-    execSync(`cp -r ${moduleSourceDir} ${packagesDir}`)
-    execSync(`rm -rf ${path.resolve(packagesDir, moduleName, 'node_modules')}`)
-    removeDeps(path.resolve(packagesDir, moduleName))
+    execSync(`cp -r ${moduleSourceDir} ${newPackagesDir}`)
+    execSync(`rm -rf ${path.resolve(newPackagesDir, moduleName, 'node_modules')}`)
+    removeDeps(path.resolve(newPackagesDir, moduleName))
     console.log(`Copied ${moduleName}`)
   })
 
@@ -165,7 +164,7 @@ export const bundle = ({ relModuleDir, isIncremental }: Config) => {
   toCopy.forEach((moduleName) => {
     console.log(`Copying ${moduleName} package.json`)
     const moduleSourceDirPkgJson = path.resolve(packagesRoot, moduleName, 'package.json')
-    const moduleDestDir = path.resolve(packagesDir, moduleName)
+    const moduleDestDir = path.resolve(newPackagesDir, moduleName)
     execSync(`cp -f ${moduleSourceDirPkgJson} ${moduleDestDir}`)
     console.log(`Copied ${moduleName} package.json`)
   })

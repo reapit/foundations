@@ -11,6 +11,7 @@
     "test": "echo '...skipping...'",
     "build": "echo '...skipping...'",
     "lint": "echo '...skipping...'",
+    "check": "echo '...skipping...'",
     "release": "echo '...skipping...'",
     "publish": "yarn npm publish --access public",
     "conf": "echo '...skipping...'",

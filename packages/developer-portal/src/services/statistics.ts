@@ -26,7 +26,7 @@ export const fetchStatisticsList = async (params: FetchStatisticsListParams): Pr
       return response
     }
   } catch (error) {
-    logger(error)
-    throw new Error(error)
+    logger(error as Error)
+    throw error
   }
 }

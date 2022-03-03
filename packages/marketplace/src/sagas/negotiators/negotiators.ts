@@ -9,7 +9,7 @@ export const fetchNegotiators = function* ({ data }: Action<FetchNegotiatorsPara
   try {
     const negotiators = yield call(fetchNegotiatorsApi, { ...data })
     yield put(fetchNegotiatorsSuccess(negotiators))
-  } catch (err) {
+  } catch (err: any) {
     yield put(fetchNegotiatorsFailed(err.description))
     notification.error({
       message: err.description,

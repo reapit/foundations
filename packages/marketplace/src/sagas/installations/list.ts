@@ -10,7 +10,7 @@ export const fetchInstallationsListSaga = function* ({ data }) {
   try {
     const response = yield call(fetchInstallationsList, data)
     yield put(fetchInstallationsListSuccess(response))
-  } catch (err) {
+  } catch (err: any) {
     yield put(fetchInstallationsListFailed())
     notification.error({
       message: err?.description || errorMessages.DEFAULT_SERVER_ERROR,
