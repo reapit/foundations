@@ -8,6 +8,7 @@ import * as service from './../../services/pipeline'
 import { ownership, resolveCreds } from './../../utils'
 import { defaultOutputHeaders, QueueNames } from './../../constants'
 import { sqs, pusher } from '../../services'
+import { PipelineEntity } from '../../entities/pipeline.entity'
 
 /**
  * Delete a pipeline
@@ -15,7 +16,7 @@ import { sqs, pusher } from '../../services'
 export const pipelineDelete = httpHandler({
   defaultOutputHeaders,
   defaultStatusCode: HttpStatusCode.NO_CONTENT,
-  handler: async ({ event }): Promise<void> => {
+  handler: async ({ event }): Promise<PipelineEntity> => {
     const { developerId } = await resolveCreds(event)
 
     const pipeline = await service.findPipelineById(event.pathParameters?.pipelineId as string)
@@ -47,5 +48,7 @@ export const pipelineDelete = httpHandler({
         },
       ),
     )
+
+    return pipeline
   },
 })
