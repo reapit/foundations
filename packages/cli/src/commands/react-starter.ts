@@ -33,7 +33,7 @@ export class ReactStarterCommand extends AbstractCommand {
           if (err !== null) {
             console.error(err)
             spinner.stop()
-            reject()
+            return reject()
           }
           spinner.stop()
           resolve()
