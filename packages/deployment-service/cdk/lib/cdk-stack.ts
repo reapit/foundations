@@ -158,7 +158,7 @@ export const createStack = () => {
     },
     pipelineDelete: {
       handler: `${fileLocPrefix}pipelineDelete`,
-      policies: [...policies.commonBackendPolicies],
+      policies: [...policies.commonBackendPolicies, policies.cloudFrontPolicy],
       api: {
         routes: {
           method: 'DELETE',
