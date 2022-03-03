@@ -81,7 +81,7 @@ const run = async () => {
       renderApp(GoogleMapsError)
     })
   } catch (error) {
-    logger(error)
+    logger(error as Error)
   }
 }
 

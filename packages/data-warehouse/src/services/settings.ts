@@ -26,7 +26,7 @@ export const getSettingsService = async (): Promise<SettingsModel | undefined | 
       throw new Error('Failed to fetch settings')
     }
   } catch (err) {
-    logger(err)
+    logger(err as Error)
   }
 }
 
@@ -52,6 +52,6 @@ export const updateSettingsService = async (settings: Partial<SettingsModel>): P
       throw new Error('Failed to update settings')
     }
   } catch (err) {
-    logger(err)
+    logger(err as Error)
   }
 }

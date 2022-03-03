@@ -13,7 +13,7 @@ import { DATE_TIME_FORMAT, notification } from '@reapit/elements-legacy'
 import { Action } from '@/types/core'
 import ActionTypes from '@/constants/action-types'
 import { REVISIONS_PER_PAGE } from '@/constants/paginator'
-import { extractNetworkErrString, errorMessages } from '@reapit/utils-common'
+import { extractNetworkErrString } from '@reapit/utils-common'
 import dayjs from 'dayjs'
 import {
   fetchDevelopersList,
@@ -59,8 +59,9 @@ export const organisationFetchMembers = function* ({ data }: Action<FetchDevelop
     const response = yield call(fetchOrganisationMembers, data)
     yield put(fetchDeveloperMembersListSuccess(response))
   } catch (err) {
+    const networkErrorString = extractNetworkErrString(err)
     notification.error({
-      message: err?.description || errorMessages.DEFAULT_SERVER_ERROR,
+      message: networkErrorString,
     })
   }
 }
@@ -71,9 +72,10 @@ export const developerDisableMember = function* ({ data }: Action<DisableMemberA
     data.callback(true)
     yield put(fetchDeveloperMemberList({ id: data.developerId }))
   } catch (err) {
+    const networkErrorString = extractNetworkErrString(err)
     data.callback(false)
     notification.error({
-      message: err?.description || errorMessages.DEFAULT_SERVER_ERROR,
+      message: networkErrorString,
     })
   }
 }
@@ -86,8 +88,9 @@ export const setDeveloperMemberAdmin = function* ({ data }: Action<SetAsAdminPar
 
     callback && callback()
   } catch (err) {
+    const networkErrorString = extractNetworkErrString(err)
     notification.error({
-      message: err?.description || errorMessages.DEFAULT_SERVER_ERROR,
+      message: networkErrorString,
     })
   }
 }

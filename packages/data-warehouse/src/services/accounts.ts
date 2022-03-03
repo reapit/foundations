@@ -26,7 +26,7 @@ export const getAccountsService = async (): Promise<PagedAccountsModel | undefin
       throw new Error('Failed to fetch account')
     }
   } catch (err) {
-    logger(err)
+    logger(err as Error)
   }
 }
 
@@ -49,7 +49,7 @@ export const getAccountService = async (accountId: string): Promise<AccountModel
       throw new Error('Failed to fetch account')
     }
   } catch (err) {
-    logger(err)
+    logger(err as Error)
   }
 }
 
@@ -71,7 +71,7 @@ export const disableAccountsService = async (id: string): Promise<boolean | unde
       throw new Error('Failed to delete account')
     }
   } catch (err) {
-    logger(err)
+    logger(err as Error)
   }
 }
 
@@ -93,7 +93,7 @@ export const createAccountsService = async (account: AccountCreateModel): Promis
       throw new Error('Failed to create account')
     }
   } catch (err) {
-    logger(err)
+    logger(err as Error)
   }
 }
 
@@ -121,6 +121,6 @@ export const updateAccountService = async (
       throw new Error('Failed to update account')
     }
   } catch (err) {
-    logger(err)
+    logger(err as Error)
   }
 }

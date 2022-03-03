@@ -24,6 +24,7 @@
     "test": "echo '...skipping...'",
     "build": "echo '...skipping...'",
     "lint": "echo '...skipping...'",
+    "check": "echo '...skipping...'",
     "release": "echo '...skipping...'",
     "publish": "echo '...skipping...'",
     "conf": "echo '...skipping...'",

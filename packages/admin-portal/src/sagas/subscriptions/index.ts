@@ -81,8 +81,9 @@ export const cancelSubscriptionHandler = function* ({ data: { id } }) {
       })
     }
   } catch (err) {
+    const networkErrorString = extractNetworkErrString(err)
     notification.error({
-      message: err?.description || errorMessages.DEFAULT_SERVER_ERROR,
+      message: networkErrorString,
     })
     yield put(cancelSubscriptionFailed())
   }
@@ -100,8 +101,9 @@ export const createSubscriptionHandler = function* ({ data }) {
       yield put(createSubscriptionFailed())
     }
   } catch (err) {
+    const networkErrorString = extractNetworkErrString(err)
     notification.error({
-      message: err?.description || errorMessages.DEFAULT_SERVER_ERROR,
+      message: networkErrorString,
     })
     yield put(createSubscriptionFailed())
   }

@@ -42,6 +42,6 @@ export const createRequestService = async (datasetId: string): Promise<boolean |
       throw new Error('Failed to create request')
     }
   } catch (err) {
-    logger(err)
+    logger(err as Error)
   }
 }

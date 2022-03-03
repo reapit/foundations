@@ -15,7 +15,7 @@ export const webhooksSubscriptionsFetch = function* ({ data }: Action<FetchWebho
     yield put(setApplicationId(data?.applicationId?.[0] as string))
     const response = yield call(fetchWebhooksSubscriptionsListApi, data)
     yield put(fetchWebhooksSubscriptionsSuccess(response))
-  } catch (err) {
+  } catch (err: any) {
     yield put(fetchWebhooksSubscriptionsFailed(err.description))
     notification.error({
       message: err?.description || errorMessages.DEFAULT_SERVER_ERROR,

@@ -49,7 +49,8 @@
   "scripts": {
     "run": "ts-node src/index.ts",
     "build": "tsc -p .",
-    "lint": "eslint --cache --ext=ts,tsx,js src --fix",
+    "lint": "eslint --cache --ext=ts,tsx,js src",
+    "check": "tsc --noEmit --skipLibCheck",
     "conf": "yarn config-manager --namespace cloud --entity cli --name local --mode fetch",
     "test": "echo '...skipping...'",
     "release": "echo '...skipping...'",

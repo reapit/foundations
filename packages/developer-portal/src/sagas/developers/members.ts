@@ -26,7 +26,7 @@ export const organisationFetchMembers = function* ({ data }: Action<FetchOrganis
   try {
     const response = yield call(fetchOrganisationMembers, data)
     yield put(fetchOrganisationMembersSuccess(response))
-  } catch (err) {
+  } catch (err: any) {
     yield put(fetchOrganisationMembersFailed(err?.description))
     notification.error({
       message: err?.description || errorMessages.DEFAULT_SERVER_ERROR,
@@ -44,7 +44,7 @@ export const inviteDeveloperAsOrgMemberSagas = function* ({
       const developerId = yield call(getDeveloperId)
       yield put(fetchOrganisationMembersAction({ id: developerId }))
     }
-  } catch (err) {
+  } catch (err: any) {
     data.callback()
     yield put(inviteDeveloperAsOrgMemberFailed())
     notification.error({
@@ -67,7 +67,7 @@ export const disableMemberSagas = function* ({ data }: Action<DisableMemberActio
         message: errorMessages.DEFAULT_SERVER_ERROR,
       })
     }
-  } catch (err) {
+  } catch (err: any) {
     callback(false)
     yield put(disableMemberFailed())
     notification.error({

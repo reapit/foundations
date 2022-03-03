@@ -45,8 +45,8 @@ export const fetchWebComponentConfigApi = async (
       return response
     }
   } catch (error) {
-    logger(error)
-    throw error?.response
+    logger(error as Error)
+    throw error
   }
 }
 
@@ -67,7 +67,7 @@ export const updateWebComponentConfigApi = async (
       return response
     }
   } catch (error) {
-    logger(error)
-    throw error?.response
+    logger(error as Error)
+    throw error
   }
 }

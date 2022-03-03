@@ -13,7 +13,7 @@ export const setAsAdminSaga = function* ({ data }: Action<SetAsAdminParams>) {
     yield put(setAsAdminSuccess())
     yield put(fetchOrganisationMembers({ id: params.id }))
     callback && callback()
-  } catch (err) {
+  } catch (err: any) {
     yield put(setAsAdminFailed())
     notification.error({
       message: err?.description || errorMessages.DEFAULT_SERVER_ERROR,

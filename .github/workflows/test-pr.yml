@@ -13,6 +13,7 @@ env:
 
 jobs:
   test-pr:
+    name: Test
     runs-on: ubuntu-latest
     steps:
       - name: Checkout
@@ -31,11 +32,11 @@ jobs:
       - name: Fetch config
         run: |
           yarn changed foreach --parallel --verbose --git-range origin/master run conf --name development
-      
+
       - name: Lint
         run: |
           yarn changed foreach --parallel --verbose --git-range origin/master run lint
-    
+
       - name: Test
         run: |
           yarn changed foreach --parallel --verbose --interlaced --git-range origin/master run test --watch=false --coverage --ci --forceExit --detectOpenHandles --runInBand

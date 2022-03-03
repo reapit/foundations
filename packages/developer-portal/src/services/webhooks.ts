@@ -148,8 +148,8 @@ export const fetchWebhooksSubscriptionsListApi = async (
       return response
     }
   } catch (error) {
-    logger(error)
-    throw error?.response
+    logger(error as Error)
+    throw error
   }
 }
 
@@ -168,8 +168,8 @@ export const createWebhooksSubscription = async (params: CreateWebhooksSubscript
       return response
     }
   } catch (error) {
-    logger(error)
-    throw error?.response
+    logger(error as Error)
+    throw error
   }
 }
 
@@ -190,8 +190,8 @@ export const fetchWebhooksSubscriptionById = async (
       return response
     }
   } catch (error) {
-    logger(error)
-    throw error?.response
+    logger(error as Error)
+    throw error
   }
 }
 
@@ -211,8 +211,8 @@ export const updateWebhooksSubscriptionById = async (params: UpdateWebhooksSubsc
       return response
     }
   } catch (error) {
-    logger(error)
-    throw error?.response
+    logger(error as Error)
+    throw error
   }
 }
 
@@ -231,8 +231,8 @@ export const deleteWebhooksSubscriptionById = async (params: DeleteWebhooksSubsc
       return response
     }
   } catch (error) {
-    logger(error)
-    throw error?.response
+    logger(error as Error)
+    throw error
   }
 }
 
@@ -252,8 +252,8 @@ export const pingWebhooksById = async (params: PingWebhooksByIdParams) => {
       return response
     }
   } catch (error) {
-    logger(error)
-    throw error?.response
+    logger(error as Error)
+    throw error
   }
 }
 
@@ -274,8 +274,8 @@ export const fetchWebhooksTopicsListApi = async (
       return response
     }
   } catch (error) {
-    logger(error)
-    throw error?.response
+    logger(error as Error)
+    throw error
   }
 }
 
@@ -294,8 +294,8 @@ export const createWebhooksTopic = async (params: CreateWebhooksTopicParams) => 
       return response
     }
   } catch (error) {
-    logger(error)
-    throw error?.response
+    logger(error as Error)
+    throw error
   }
 }
 
@@ -314,8 +314,8 @@ export const fetchWebhooksTopicById = async (params: FetchWebhooksTopicByIdParam
       return response
     }
   } catch (error) {
-    logger(error)
-    throw error?.response
+    logger(error as Error)
+    throw error
   }
 }
 export const updateWebhooksTopicById = async (params: UpdateWebhooksTopicByIdParams) => {
@@ -334,8 +334,8 @@ export const updateWebhooksTopicById = async (params: UpdateWebhooksTopicByIdPar
       return response
     }
   } catch (error) {
-    logger(error)
-    throw error?.response
+    logger(error as Error)
+    throw error
   }
 }
 
@@ -352,7 +352,7 @@ export const fetchWebhookLogsApi = async (params: WebhookLogsQuery): Promise<Web
       })
       return response
     }
-  } catch (error) {
+  } catch (error: any) {
     // Weirdly the API returns a 404 when no logs are returned - this happens a lot so not
     // logging to sentry as is intended behaviour and will get very noisy
     if (error.status !== 404) {

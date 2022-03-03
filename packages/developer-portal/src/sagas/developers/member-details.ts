@@ -19,7 +19,7 @@ export const fetchMemberDetailsSaga = function* ({ data }: Action<FetchMemberDet
     if (!developerId || !memberId) throw new Error('Missing some data')
     const response = yield call(fetchMemberDetails, { developerId, memberId })
     yield put(fetchMemberDetailsSuccess(response))
-  } catch (err) {
+  } catch (err: any) {
     yield put(fetchMemberDetailsFailed())
     notification.error({
       message: err?.description || errorMessages.DEFAULT_SERVER_ERROR,
@@ -32,7 +32,7 @@ export const acceptInviteMemberSaga = function* ({ data }: Action<AcceptInviteMe
     yield put(setInviteMemberStatus('ACCEPTING'))
     yield call(acceptInviteMember, data)
     yield put(setInviteMemberStatus('ACCEPTED'))
-  } catch (err) {
+  } catch (err: any) {
     yield put(setInviteMemberStatus('ERROR'))
     notification.error({
       message: err?.description || errorMessages.DEFAULT_SERVER_ERROR,
@@ -45,7 +45,7 @@ export const rejectInviteMemberSaga = function* ({ data }: Action<RejectInviteMe
     yield put(setInviteMemberStatus('REJECTING'))
     yield call(rejectInviteMember, data)
     yield put(setInviteMemberStatus('REJECTED'))
-  } catch (err) {
+  } catch (err: any) {
     yield put(setInviteMemberStatus('ERROR'))
     notification.error({
       message: err?.description || errorMessages.DEFAULT_SERVER_ERROR,

@@ -38,8 +38,8 @@ export const createApi = (
 }
 
 export type LambdaRoute = {
-  path: string,
-  method: string,
+  path: string
+  method: string
 }
 
 export const addLambdaToApi = (

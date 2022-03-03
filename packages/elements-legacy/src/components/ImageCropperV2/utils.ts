@@ -16,10 +16,10 @@ export const generateDownload = (canvas: HTMLCanvasElement, completedCrop: Compl
 
   canvas.toBlob(
     (blob) => {
-      const url = window.URL.createObjectURL(blob)
+      const url = window.URL.createObjectURL(blob as Blob)
       const anchor = document.createElement('a')
       anchor.download = 'cropped.png'
-      anchor.href = URL.createObjectURL(blob)
+      anchor.href = URL.createObjectURL(blob as Blob)
       anchor.click()
       window.URL.revokeObjectURL(url)
     },

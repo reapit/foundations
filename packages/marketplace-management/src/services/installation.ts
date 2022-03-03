@@ -34,7 +34,7 @@ export const bulkInstall = async (
       throw new Error('Failed to create bulk installations')
     }
   } catch (err) {
-    logger(err)
+    logger(err as Error)
   }
 }
 
@@ -54,7 +54,7 @@ export const installOrg = async (body: CreateInstallationModel): Promise<boolean
       throw new Error('Failed to create installation')
     }
   } catch (err) {
-    logger(err)
+    logger(err as Error)
   }
 }
 
@@ -77,6 +77,6 @@ export const uninstallOrg = async (
       throw new Error('Failed to terminate installation')
     }
   } catch (err) {
-    logger(err)
+    logger(err as Error)
   }
 }
