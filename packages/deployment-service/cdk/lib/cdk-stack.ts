@@ -158,7 +158,7 @@ export const createStack = () => {
     },
     pipelineDelete: {
       handler: `${fileLocPrefix}pipelineDelete`,
-      policies: [...policies.commonBackendPolicies, policies.cloudFrontPolicy],
+      policies: [...policies.commonBackendPolicies],
       api: {
         routes: {
           method: 'DELETE',
@@ -394,7 +394,7 @@ export const createStack = () => {
       handler: `${fileLocPrefix}pipelineTearDown`,
       queue: queues[QueueNames.PIPELINE_TEAR_DOWN],
       timeout: 300,
-      policies: [...policies.commonBackendPolicies],
+      policies: [...policies.commonBackendPolicies, policies.cloudFrontPolicy],
     },
     pusherAuth: {
       handler: `${fileLocPrefix}pusherAuthentication`,
