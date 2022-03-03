@@ -3,14 +3,15 @@
 #
 # You may wish to alter this file to override the set of languages analyzed,
 # or to provide custom queries or build logic.
-name: 'CodeQL Analyse'
+name: 'CodeQL Analyze'
 
 on:
   pull_request:
     types: ['opened', 'synchronize']
 
+jobs:
   analyze:
-    name: Analyse
+    name: Analyze
     runs-on: ubuntu-latest
 
     strategy:
