@@ -49,6 +49,6 @@ export const pipelineDelete = httpHandler({
       ),
     )
 
-    return pipeline
+    return updatedPipeline
   },
 })
