@@ -14,7 +14,7 @@ export const getWorkspaceRoot = (relModuleDir: string = '.') => {
         const rr = path.relative(moduleDir, repoRoot)
         return {
           repoRootLocation: rr,
-          packagesRoot: path.relative(moduleDir, path.resolve(rr, packagesDir.replace('*', ''))),
+          packagesRoot: path.relative(moduleDir, path.resolve(rr, packagesDir.replace('*', '').split('/')[0])),
         }
       }
     }
