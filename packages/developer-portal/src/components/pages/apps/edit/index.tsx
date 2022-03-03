@@ -62,7 +62,7 @@ export const AppEditPage: FC = () => {
               text: 'App Listing',
               isChecked: tab === AppEditTab.appListing,
             },
-            window.reapit.config.appEnv === 'local' && {
+            {
               id: AppEditTab.pipelines,
               value: AppEditTab.pipelines,
               text: 'Pipelines',

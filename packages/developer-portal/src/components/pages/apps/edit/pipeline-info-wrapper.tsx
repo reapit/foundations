@@ -29,7 +29,7 @@ export const PipelineWrapper: React.FC<{
 
   return (
     <>
-      <PipelineDeploymentInfo channel={channel} pipeline={pipeline} />
+      <PipelineDeploymentInfo channel={channel} pipeline={pipeline} setPipeline={setPipeline} />
     </>
   )
 }
