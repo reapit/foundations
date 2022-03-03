@@ -13,6 +13,7 @@ env:
 
 jobs:
   build-pr:
+    name: Build PR
     runs-on: ubuntu-latest
     steps:
       - name: Checkout
@@ -35,5 +36,3 @@ jobs:
       - name: Build
         run: |
           yarn changed foreach --parallel --verbose --git-range origin/master run build
-
-      

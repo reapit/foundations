@@ -13,11 +13,11 @@
     "start": "echo '...skipping...'",
     "test": "echo '...skipping...'",
     "build": "echo '...skipping...'",
-    "lint": "eslint --cache --ext=ts,tsx,js src --fix",
+    "lint": "eslint --cache --ext=ts,tsx,js src",
     "release": "echo '...skipping...'",
     "publish": "yarn npm publish --access public",
     "conf": "echo '...skipping...'",
-    "commit": "concurrently \"yarn test --coverage --no-cache --silent --forceExit --detectOpenHandles --runInBand --watch=false && jest-coverage-badges --input src/tests/coverage/coverage-summary.json --output src/tests/badges\" \"yarn lint\""
+    "commit": "concurrently \"yarn test --coverage --no-cache --silent --forceExit --detectOpenHandles --runInBand --watch=false && jest-coverage-badges --input src/tests/coverage/coverage-summary.json --output src/tests/badges\" \"yarn lint --fix\""
   },
   "dependencies": {
     "@aws/dynamodb-data-mapper": "^0.7.3",

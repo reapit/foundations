@@ -6,11 +6,12 @@ on:
 
 jobs:
   pr-lint:
+    name: Lint PR
     runs-on: ubuntu-latest
     steps:
       - uses: seferov/pr-lint-action@master
         with:
-          title-regex: '^(?:(?:\[WIP\] ?)?(?:build|ci|chore|docs|feat|fix|perf|refactor|revert|style|test)\:(?:\ +?#\d+?\ +?)?.*)|(?:\[Snyk\].*)'
+          title-regex: '^(?:(?:\[WIP\] ?)?(?:build|ci|chore|docs|task|feat|fix|perf|refactor|revert|style|test)\:(?:\ +?#\d+?\ +?)?.*)|(?:\[Snyk\].*)'
           title-regex-flags: 'g' # optional
           github-token: ${{ secrets.GITHUB_TOKEN }}
           auto-close-message: 'Closing this pull request since the title does not match %pattern% pattern. Please fix the title and re-open the pull request.'

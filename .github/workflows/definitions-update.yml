@@ -3,10 +3,11 @@ name: TS Definitions Update
 on:
   schedule:
     # * is a special character in YAML so you have to quote this string
-    - cron: '0 0 1-31 * *'
+    - cron: '0 0 * * 1-5'
 
 jobs:
   check:
+    name: TS Definitions Update
     runs-on: ubuntu-latest
     steps:
       - name: checks out repository to $GITHUB_WORKSPACE

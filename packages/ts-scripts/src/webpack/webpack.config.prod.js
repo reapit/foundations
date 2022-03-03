@@ -8,7 +8,6 @@ const { EnvironmentPlugin, SourceMapDevToolPlugin } = require('webpack')
 const { PATHS } = require('./constants')
 const { getVersionTag, getRef } = require('./utils')
 const { ESBuildMinifyPlugin } = require('esbuild-loader')
-const ForkTsCheckerWebpackPlugin = require('fork-ts-checker-webpack-plugin')
 const WorkboxWebpackPlugin = require('workbox-webpack-plugin')
 const NodePolyfillPlugin = require('node-polyfill-webpack-plugin')
 
@@ -138,11 +137,6 @@ const webpackConfigProd = ({ appName }) => {
     },
     plugins: [
       new NodePolyfillPlugin(),
-      new ForkTsCheckerWebpackPlugin({
-        eslint: {
-          files: './src/**/*.{ts,tsx,js,jsx}',
-        },
-      }),
       new ResolveTSPathsToWebpackAlias({
         tsconfig: PATHS.tsConfig,
       }),

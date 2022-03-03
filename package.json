@@ -3,7 +3,39 @@
   "private": true,
   "workspaces": {
     "packages": [
-      "packages/*"
+      "packages/admin-portal",
+      "packages/aml-checklist",
+      "packages/api-key-service",
+      "packages/api-key-verify",
+      "packages/app-builder",
+      "packages/app-builder-backend",
+      "packages/auto-bump",
+      "packages/auto-reply-bot",
+      "packages/cli",
+      "packages/config-manager",
+      "packages/connect-session",
+      "packages/cra-template-foundations",
+      "packages/create-node-app-generator",
+      "packages/data-warehouse",
+      "packages/deployment-service",
+      "packages/developer-portal",
+      "packages/elements",
+      "packages/elements-legacy",
+      "packages/foundations-ts-definitions",
+      "packages/geo-diary",
+      "packages/graphql-server",
+      "packages/insights",
+      "packages/marketplace",
+      "packages/marketplace-management",
+      "packages/react-app-scaffolder",
+      "packages/security-header-lambda:",
+      "packages/seed-data-workflow",
+      "packages/ts-bundler",
+      "packages/ts-scripts",
+      "packages/ts-types",
+      "packages/utils-common",
+      "packages/utils-node",
+      "packages/utils-react"
     ]
   },
   "scripts": {
@@ -11,6 +43,7 @@
     "test-all": "yarn workspaces foreach --parallel --verbose --interlaced run test --watch=false --coverage --ci --silent --forceExit --detectOpenHandles --runInBand",
     "conf-all": "yarn workspaces foreach --parallel --verbose run conf",
     "lint-all": "yarn workspaces foreach --parallel --verbose run lint",
+    "check-all": "yarn workspaces foreach --parallel --verbose run check",
     "upgrade-all": "yarn upgrade-interactive",
     "postinstall": "husky install"
   },

@@ -17,6 +17,7 @@ env:
 
 jobs:
   release-prod:
+    name: Release Prod
     runs-on: ubuntu-latest
     steps:
       - name: Checkout
@@ -59,6 +60,14 @@ jobs:
         run: |
           yarn workspace ${{ steps.tagName.outputs.package }} run build
 
+      - name: Release
+        run: |
+          yarn workspace ${{ steps.tagName.outputs.package }} run release --stage prod
+
+      - name: Publish
+        run: |
+          yarn workspace ${{ steps.tagName.outputs.package }} run publish --tag latest
+
       - name: Package Version Bump
         uses: ./packages/auto-bump
         env:
@@ -67,13 +76,5 @@ jobs:
       - name: Commit
         uses: stefanzweifel/git-auto-commit-action@v4
         with:
-          commit_message: "chore: bump ${{ steps.tagName.outputs.package }} version"
+          commit_message: 'chore: bump ${{ steps.tagName.outputs.package }} version'
           branch: master
-
-      - name: Release
-        run: |
-          yarn workspace ${{ steps.tagName.outputs.package }} run release --stage prod
-
-      - name: Publish
-        run: |
-          yarn workspace ${{ steps.tagName.outputs.package }} run publish --tag latest

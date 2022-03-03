@@ -11,11 +11,11 @@
     "start": "webpack serve --hot --color --mode development",
     "test": "cross-env TZ=UTC jest --watch --colors --silent",
     "build": "rimraf public/dist && NODE_ENV=production webpack",
-    "lint": "eslint --cache --ext=ts,tsx,js src --fix",
+    "lint": "eslint --cache --ext=ts,tsx,js src",
     "release": "serverless deploy",
     "publish": "echo '...skipping...'",
     "conf": "yarn config-manager --namespace cloud --entity data-warehouse --name local --mode fetch",
-    "commit": "concurrently \"yarn test --coverage --no-cache --silent --forceExit --detectOpenHandles --runInBand --watch=false && jest-coverage-badges --input src/tests/coverage/coverage-summary.json --output src/tests/badges\" \"yarn lint\""
+    "commit": "concurrently \"yarn test --coverage --no-cache --silent --forceExit --detectOpenHandles --runInBand --watch=false && jest-coverage-badges --input src/tests/coverage/coverage-summary.json --output src/tests/badges\" \"yarn lint --fix\""
   },
   "dependencies": {
     "@linaria/core": "^3.0.0-beta.15",

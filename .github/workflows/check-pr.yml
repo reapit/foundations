@@ -1,4 +1,4 @@
-name: Test PR
+name: Check PR
 
 on:
   pull_request:
@@ -13,7 +13,7 @@ env:
 
 jobs:
   test-pr:
-    name: Test PR
+    name: Check PR
     runs-on: ubuntu-latest
     steps:
       - name: Checkout
@@ -29,14 +29,10 @@ jobs:
       - name: Install
         run: yarn
 
-      - name: Fetch config
-        run: |
-          yarn changed foreach --parallel --verbose --git-range origin/master run conf --name development
-
       - name: Lint
         run: |
           yarn changed foreach --parallel --verbose --git-range origin/master run lint
 
-      - name: Test
+      - name: TypeCheck
         run: |
-          yarn changed foreach --parallel --verbose --interlaced --git-range origin/master run test --watch=false --coverage --ci --forceExit --detectOpenHandles --runInBand
+          yarn changed foreach --parallel --verbose --git-range origin/master run check

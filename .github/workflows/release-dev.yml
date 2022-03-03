@@ -15,6 +15,7 @@ env:
 
 jobs:
   release-dev:
+    name: Release Dev
     runs-on: ubuntu-latest
     steps:
       - name: Checkout
@@ -41,4 +42,3 @@ jobs:
       - name: Release
         run: |
           yarn changed foreach --parallel --verbose --git-range HEAD~1 run release
-

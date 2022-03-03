@@ -11,11 +11,11 @@
     "start": "yarn serverless offline start --runtime nodejs12.x --stage local --printOutput",
     "test": "cross-env TZ=UTC jest --watch --colors --silent",
     "build": "echo '...skipping...'",
-    "lint": "eslint --cache --ext=ts,tsx,js src --fix",
+    "lint": "eslint --cache --ext=ts,tsx,js src",
     "release": "serverless deploy",
     "publish": "echo '...skipping...'",
     "conf": "yarn config-manager --namespace cloud --entity mailer-service --name local --mode fetch",
-    "commit": "concurrently \"yarn test --coverage --no-cache --silent --forceExit --detectOpenHandles --runInBand --watch=false && jest-coverage-badges --input src/tests/coverage/coverage-summary.json --output src/tests/badges\" \"yarn lint\""
+    "commit": "concurrently \"yarn test --coverage --no-cache --silent --forceExit --detectOpenHandles --runInBand --watch=false && jest-coverage-badges --input src/tests/coverage/coverage-summary.json --output src/tests/badges\" \"yarn lint --fix\""
   },
   "dependencies": {
     "@reapit/utils-node": "workspace:packages/utils-node",
