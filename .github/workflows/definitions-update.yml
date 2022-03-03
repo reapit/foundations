@@ -7,7 +7,7 @@ on:
 
 jobs:
   check:
-    name: TS Definitions Update
+    name: Update
     runs-on: ubuntu-latest
     steps:
       - name: checks out repository to $GITHUB_WORKSPACE

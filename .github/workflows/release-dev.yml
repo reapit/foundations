@@ -15,7 +15,7 @@ env:
 
 jobs:
   release-dev:
-    name: Release Dev
+    name: Release
     runs-on: ubuntu-latest
     steps:
       - name: Checkout

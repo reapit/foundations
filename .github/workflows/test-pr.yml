@@ -13,7 +13,7 @@ env:
 
 jobs:
   test-pr:
-    name: Test PR
+    name: Test
     runs-on: ubuntu-latest
     steps:
       - name: Checkout

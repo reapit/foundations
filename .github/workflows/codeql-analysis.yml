@@ -3,29 +3,14 @@
 #
 # You may wish to alter this file to override the set of languages analyzed,
 # or to provide custom queries or build logic.
-name: 'CodeQL'
+name: 'CodeQL Analyse'
 
 on:
   pull_request:
     types: ['opened', 'synchronize']
 
-paths-ignore:
-  - .yarn
-  - .github
-  - .husky
-  - '**/*.test.tsx'
-  - '**/*.test.ts'
-  - '**/*.snap'
-  - '**/*.md'
-  - '**/public/**/*'
-  - '**/dist/**/*'
-  - '**/node_modules/**/*'
-  - '**/coverage/**/*'
-  - '**/.serverless/**/*'
-
-jobs:
   analyze:
-    name: CodeQL Analyse
+    name: Analyse
     runs-on: ubuntu-latest
 
     strategy:
@@ -55,6 +40,7 @@ jobs:
         uses: github/codeql-action/init@v1
         with:
           languages: ${{ matrix.language }}
+          config-file: ./.github/codeql.yml
           # If you wish to specify custom queries, you can do so here or in a config file.
           # By default, queries listed here will override any specified in a config file.
           # Prefix the list here with "+" to use these queries and those in the config file.

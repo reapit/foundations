@@ -13,7 +13,7 @@ env:
 
 jobs:
   test-pr:
-    name: Lint PR
+    name: Lint
     runs-on: ubuntu-latest
     steps:
       - name: Checkout

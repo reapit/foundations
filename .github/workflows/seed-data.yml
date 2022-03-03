@@ -8,7 +8,7 @@ on:
 jobs:
   check:
     runs-on: ubuntu-latest
-    name: Seed Data
+    name: Seed
     steps:
       - name: checks out repository to $GITHUB_WORKSPACE
         uses: actions/checkout@v2

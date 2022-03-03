@@ -18,7 +18,7 @@ env:
 jobs:
   rollback-prod:
     runs-on: ubuntu-latest
-    name: Rollback Prod
+    name: Rollback
     steps:
       - name: Get Tag
         uses: olegtarasov/get-tag@v2.1
