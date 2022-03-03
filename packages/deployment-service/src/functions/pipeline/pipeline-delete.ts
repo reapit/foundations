@@ -31,17 +31,17 @@ export const pipelineDelete = httpHandler({
       throw new HttpErrorException('Cannot delete pipeline in current build status', 409 as HttpStatusCode)
     }
 
-    await service.updatePipelineEntity(pipeline, {
+    const updatedPipeline = await service.updatePipelineEntity(pipeline, {
       buildStatus: 'DELETING',
     })
 
-    await pusher.trigger(`private-${pipeline?.developerId}`, 'pipeline-delete', pipeline)
+    await pusher.trigger(`private-${pipeline?.developerId}`, 'pipeline-delete', updatedPipeline)
 
     await new Promise<void>((resolve, reject) =>
       sqs.sendMessage(
         {
           QueueUrl: QueueNames.PIPELINE_TEAR_DOWN_START,
-          MessageBody: JSON.stringify(pipeline),
+          MessageBody: JSON.stringify(updatedPipeline),
         },
         (error) => {
           error ? reject(error) : resolve()
