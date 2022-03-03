@@ -30,12 +30,14 @@ const boot = async (defaultCommand: AbstractCommand, commands: (AbstractCommand 
   const helpCommand = new HelpCommand()
   helpCommand.setCommands(commands)
 
+  let showHelpCommand = false
   if (!params && Object.keys(options).length === 0) {
-    defaultCommand.run(params, options)
-    await checkVersion()
-    helpCommand.run()
-    return
+    showHelpCommand = true
   } else if (!params || (params.length === 0 && options)) {
+    showHelpCommand = true
+  }
+
+  if (showHelpCommand) {
     defaultCommand.run(params, options)
     await checkVersion()
     helpCommand.run()
@@ -54,7 +56,6 @@ const boot = async (defaultCommand: AbstractCommand, commands: (AbstractCommand 
     console.log('Command not found, were you looking for one of these?')
 
     helpCommand.run()
-    return
   } else {
     if (command instanceof ParentCommand && command.isChildRunnable(params)) {
       if (options.help) {
