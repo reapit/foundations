@@ -168,7 +168,11 @@ const PipelineCreationModal = ({ open, onModalClose, appId, refreshPipeline }: P
           </InputWrap>
         </FormLayout>
         <ButtonGroup alignment="right">
-          <Button onClick={handleSubmit(pipelineCreateFormHandle(send, refreshPipeline, appId))} loading={loading} intent={'primary'}>
+          <Button
+            onClick={handleSubmit(pipelineCreateFormHandle(send, refreshPipeline, appId))}
+            loading={loading}
+            intent={'primary'}
+          >
             Create
           </Button>
         </ButtonGroup>
