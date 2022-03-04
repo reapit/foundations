@@ -71,7 +71,7 @@ export const onHandleSubmit =
     const officeIds = listId.toString()
     const status = params.status ? 'active' : 'inactive'
     const response = await updateOfficeGroup({ name, officeIds, status }, orgId, officeGroup?.id || '')
-    console.log(response)
+
     if (response && response === OFFICE_IN_USE_ERROR) {
       return error(toastMessages.OFFICE_ALREADY_ASSIGNED_EDIT, 10000)
     }
