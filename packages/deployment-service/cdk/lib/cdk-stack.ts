@@ -393,7 +393,7 @@ export const createStack = () => {
     pipelineTearDown: {
       handler: `${fileLocPrefix}pipelineTearDown`,
       queue: queues[QueueNames.PIPELINE_TEAR_DOWN],
-      timeout: 300,
+      timeout: 600,
       policies: [...policies.commonBackendPolicies, policies.cloudFrontPolicy, policies.route53Policy],
     },
     pusherAuth: {
