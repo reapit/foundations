@@ -1,0 +1,19 @@
+import { Meta, Story, Canvas } from '@storybook/addon-docs/blocks'
+import { FileInput } from './index'
+import { RenderHtmlMarkup } from '../../storybook/render-html-markup'
+
+<Meta title="FileInput" component={FileInput} />
+
+# FileInput
+
+The input component is by design just a styled html / react component to allow developers maximum flexibility to use whatever form library they choose, or simply by listening on the native `onChange` event, accessing the `value` property of the input.
+
+You may also wish to add your own custom elements eg a JS Datepicker - in this case, just target the default input with your own custom component or use the CSS classes provided.
+
+<Canvas>
+  <Story name="File Input">
+    <FileInput />
+  </Story>
+</Canvas>
+
+<RenderHtmlMarkup component="FileInput" story="File Input" />
