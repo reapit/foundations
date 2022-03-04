@@ -6,12 +6,19 @@ const buildStatusToIntent = (status: string): Intent => {
   switch (status) {
     case 'CREATING_ARCHITECTURE':
       return 'primary'
-    case 'SUCCESS':
+    case 'COMPLETED':
       return 'primary'
-    case 'RUNNING':
+    case 'IN_PROGRESS':
       return 'secondary'
     case 'PENDING':
     case 'QUEUED':
+      return 'critical'
+    case 'FAILED':
+      return 'danger'
+    case 'DELETING':
+      return 'danger'
+    case 'READY_FOR_DEPLOYMENT':
+      return 'low'
     default:
       return 'neutral'
   }
