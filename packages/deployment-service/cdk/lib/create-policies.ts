@@ -111,6 +111,5 @@ export const createPolicies = ({
     sqsPolicies,
     secretManagerPolicy,
     S3BucketPolicy,
-    // lambdaInvoke,
   }
 }

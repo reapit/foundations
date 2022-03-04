@@ -8,6 +8,7 @@ import * as service from './../../services/pipeline'
 import { ownership, resolveCreds } from './../../utils'
 import { defaultOutputHeaders, QueueNames } from './../../constants'
 import { sqs, pusher } from '../../services'
+import { PipelineEntity } from '../../entities/pipeline.entity'
 
 /**
  * Delete a pipeline
@@ -15,7 +16,7 @@ import { sqs, pusher } from '../../services'
 export const pipelineDelete = httpHandler({
   defaultOutputHeaders,
   defaultStatusCode: HttpStatusCode.NO_CONTENT,
-  handler: async ({ event }): Promise<void> => {
+  handler: async ({ event }): Promise<PipelineEntity> => {
     const { developerId } = await resolveCreds(event)
 
     const pipeline = await service.findPipelineById(event.pathParameters?.pipelineId as string)
@@ -30,22 +31,24 @@ export const pipelineDelete = httpHandler({
       throw new HttpErrorException('Cannot delete pipeline in current build status', 409 as HttpStatusCode)
     }
 
-    await service.updatePipelineEntity(pipeline, {
+    const updatedPipeline = await service.updatePipelineEntity(pipeline, {
       buildStatus: 'DELETING',
     })
 
-    await pusher.trigger(`private-${pipeline?.developerId}`, 'pipeline-delete', pipeline)
+    await pusher.trigger(`private-${pipeline?.developerId}`, 'pipeline-delete', updatedPipeline)
 
     await new Promise<void>((resolve, reject) =>
       sqs.sendMessage(
         {
           QueueUrl: QueueNames.PIPELINE_TEAR_DOWN_START,
-          MessageBody: JSON.stringify(pipeline),
+          MessageBody: JSON.stringify(updatedPipeline),
         },
         (error) => {
           error ? reject(error) : resolve()
         },
       ),
     )
+
+    return updatedPipeline
   },
 })

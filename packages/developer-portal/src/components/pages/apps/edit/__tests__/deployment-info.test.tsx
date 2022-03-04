@@ -8,6 +8,7 @@ describe('PipelineDeploymentInfo', () => {
     expect(
       render(
         <PipelineDeploymentInfo
+          setPipeline={() => {}}
           channel={{ bind: jest.fn(), unbind: jest.fn() }}
           pipeline={{
             id: 'pipelineId',
