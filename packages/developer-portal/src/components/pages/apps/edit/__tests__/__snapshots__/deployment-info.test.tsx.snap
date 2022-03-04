@@ -127,6 +127,11 @@ Object {
           >
             Deploy With Cli
           </button>
+          <button
+            class="e1vxext9-el-intent-danger e1f2ikqj-el-button"
+          >
+            Delete Pipeline
+          </button>
         </div>
       </div>
       <div
@@ -289,6 +294,11 @@ Object {
           class="e1iow709-el-intent-critical e1f2ikqj-el-button"
         >
           Deploy With Cli
+        </button>
+        <button
+          class="e1vxext9-el-intent-danger e1f2ikqj-el-button"
+        >
+          Delete Pipeline
         </button>
       </div>
     </div>
