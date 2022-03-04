@@ -9,6 +9,7 @@ import {
 import generateDomain from 'project-name-generator'
 
 import { App } from './entities/app'
+import { CustomEntity } from './entities/custom-entity'
 import { Page } from './entities/page'
 
 const {
@@ -65,7 +66,7 @@ export const ensureTables = async () => {
 export type DDBApp = Omit<Omit<App, 'clientId'>, 'name'>
 
 const ddbItemToApp = (item: { [key: string]: AttributeValue }): DDBApp => {
-  const { id, createdAt, updatedAt, pages, subdomain } = item
+  const { id, createdAt, updatedAt, pages, subdomain, customEntities } = item
 
   return {
     id: id?.S as string,
@@ -73,6 +74,7 @@ const ddbItemToApp = (item: { [key: string]: AttributeValue }): DDBApp => {
     updatedAt: new Date(parseInt(updatedAt?.N as string)),
     subdomain: subdomain?.S as string,
     pages: (pages?.S && (JSON.parse(pages.S as string) as Array<Page>)) || [],
+    customEntities: (customEntities?.S && (JSON.parse(customEntities.S as string) as Array<CustomEntity>)) || [],
   }
 }
 
@@ -129,6 +131,7 @@ export const createApp = async (id: string, name: string, subdomain: string, pag
       updatedAt: { N: date.getTime().toString() },
       pages: { S: JSON.stringify(pages) },
       subdomain: { S: subdomain },
+      customEntities: { S: JSON.stringify([]) },
     },
   })
   await ddb.send(d)
@@ -139,6 +142,7 @@ export const createApp = async (id: string, name: string, subdomain: string, pag
     createdAt: date,
     updatedAt: date,
     pages: [],
+    customEntities: [],
   }
 }
 
@@ -152,6 +156,7 @@ export const updateApp = async (app: DDBApp): Promise<DDBApp> => {
       updatedAt: { N: date.getTime().toString() },
       pages: { S: JSON.stringify(app.pages) },
       subdomain: { S: app.subdomain },
+      customEntities: { S: JSON.stringify(app.customEntities) },
     },
   })
   await ddb.send(d)

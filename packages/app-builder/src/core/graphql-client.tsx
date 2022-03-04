@@ -4,7 +4,7 @@ import { ReapitConnectBrowserSession } from '@reapit/connect-session'
 
 import { graphqlUri } from './config'
 
-export const createClient = (session: ReapitConnectBrowserSession) => {
+export const createClient = (session: ReapitConnectBrowserSession, appId?: string) => {
   const httpLink = createHttpLink({
     uri: graphqlUri,
   })
@@ -17,6 +17,7 @@ export const createClient = (session: ReapitConnectBrowserSession) => {
         ...headers,
         authorization: token ? `Bearer ${token.idToken}` : '',
         'reapit-connect-token': token ? token.accessToken : '',
+        'app-id': appId,
       },
     }
   })

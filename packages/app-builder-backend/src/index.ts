@@ -8,24 +8,26 @@ import { ApolloServerPluginDrainHttpServer } from 'apollo-server-core'
 import { Context } from './types'
 import { ensureTables } from './ddb'
 import { getSchema } from './get-schema'
-import { getMetadataSchemas, SchemaModel } from './platform'
+import { CustomEntity } from './entities/custom-entity'
+import { getCustomEntities } from './custom-entites'
 
 const parseContext = async ({ req }): Promise<Context> => {
   const context = {
     idToken: req.headers.authorization?.split(' ')[1] || '',
     accessToken: req.headers['reapit-connect-token'] as string,
     apiUrl: 'http://localhost:4000/',
+    appId: req.headers['app-id'],
   }
 
-  let metadataSchemas: SchemaModel[] = []
+  let customEntities: CustomEntity[] = []
 
   if (context.accessToken) {
-    metadataSchemas = await getMetadataSchemas(context.accessToken)
+    customEntities = await getCustomEntities(context.accessToken)
   }
 
   return {
     ...context,
-    metadataSchemas,
+    customEntities,
   }
 }
 

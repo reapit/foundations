@@ -139,7 +139,7 @@ export class AppResolver {
       return []
     }
     const appBuilderApps = await Promise.all(
-      apps?.map(async ({ id, externalId, name }) => {
+      apps.map(async ({ id, externalId, name }) => {
         if (!id) {
           return undefined
         }

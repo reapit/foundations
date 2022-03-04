@@ -2,7 +2,6 @@ import { buildSchema } from 'type-graphql'
 import { stitchSchemas } from '@graphql-tools/stitch'
 import { GraphQLSchema } from 'graphql'
 import { makeExecutableSchema } from '@graphql-tools/schema'
-import { getGraphqlSchemaFromJsonSchema } from 'get-graphql-from-jsonschema'
 import Pluralize from 'pluralize'
 
 import { AppResolver } from './resolvers/app-resolver'
@@ -21,61 +20,60 @@ import {
   deleteMetadataObject,
   findMetadataObject,
   getMetadataObject,
-  SchemaModel,
   updateMetadataObject,
 } from './platform'
 import { notEmpty } from './utils/helpers'
-import { CustomEntityResolver, PLACEHOLDER } from './resolvers/custom-entity-resolver'
-import { strToCamel } from '@reapit/utils-common'
+import { CustomEntityResolver } from './resolvers/custom-entity-resolver'
+import { CustomEntity, CustomEntityField } from './entities/custom-entity'
 
-const noT = (str: string) => str.split('T0').join('')
-
-const cleanFieldName = (fieldName: string) =>
-  strToCamel(removeFirstCharsAreNumbers(fieldName.split('-').join('_').replace(/\W/g, '')))
-
-const removeFirstCharsAreNumbers = (str: string) => {
-  const firstChar = str.charAt(0)
-  if (!isNaN(Number(firstChar))) {
-    return removeFirstCharsAreNumbers(str.substring(1))
+const customEntityFieldTypeToGraphQLType = (fieldType: CustomEntityField['type']) => {
+  switch (fieldType) {
+    case 'string':
+      return 'String'
+    case 'number':
+      return 'Int'
+    default:
+      return 'String'
   }
-  return str
 }
 
-const objToCamel = (obj: Record<string, any>) => {
-  const newObj = {}
-  Object.keys(obj).forEach((key) => {
-    newObj[cleanFieldName(key)] = obj[key]
-  })
-  return newObj
-}
+const customEntityToTypeDefs = (
+  customEntity: CustomEntity,
+  { rootName, direction = 'output' }: { rootName: string; direction?: 'input' | 'output' },
+) => {
+  const fields = customEntity.fields
+    .map((field) => `${field.name}: ${customEntityFieldTypeToGraphQLType(field.type)}`)
+    .join('\n')
 
-const metadataSchemaToGraphQL = (metadataSchema: SchemaModel) => {
-  if (!metadataSchema.schema) {
-    return
-  }
-
-  const parsedSchema = JSON.parse(metadataSchema.schema)
-  parsedSchema.properties = objToCamel(parsedSchema.properties)
-
-  const output = getGraphqlSchemaFromJsonSchema({
-    rootName: metadataSchema.id || 'object',
-    schema: parsedSchema,
-  })
-
-  const input = getGraphqlSchemaFromJsonSchema({
-    rootName: (metadataSchema.id || 'object') + 'Input',
-    schema: parsedSchema,
-    direction: 'input',
-  })
-
-  const typeDefinitions = noT([output.typeDefinitions, input.typeDefinitions].flat().join('\n'))
-    .split(`type ${noT(output.typeName)} {\n`)
-    .join(`type ${noT(output.typeName)} {\n id: ID!\n`)
+  const typeDefinitions = `${direction === 'output' ? 'type' : 'input'}  ${rootName} {
+    id: ID!
+    ${fields}
+  }`
 
   return {
     typeDefinitions,
-    typeName: noT(output.typeName),
-    inputTypeName: noT(input.typeName),
+    typeName: rootName,
+  }
+}
+
+const customEntityToGraphQL = (
+  customEntity: CustomEntity,
+): { typeDefinitions: string; typeName: string; inputTypeName: string } => {
+  const output = customEntityToTypeDefs(customEntity, {
+    rootName: customEntity.name || 'object',
+  })
+
+  const input = customEntityToTypeDefs(customEntity, {
+    rootName: (customEntity.name || 'object') + 'Input',
+    direction: 'input',
+  })
+
+  const typeDefinitions = [output.typeDefinitions, input.typeDefinitions].flat().join('\n')
+
+  return {
+    typeDefinitions,
+    typeName: output.typeName,
+    inputTypeName: input.typeName,
   }
 }
 
@@ -85,10 +83,13 @@ const listMetadataType = (typeName: string) => async (parent, args, context: Con
   const list = await findMetadataObject(typeName, context.accessToken)
   return (
     list
-      ?.map(({ metadata, id }) => ({
-        ...metadata,
-        id,
-      }))
+      ?.map(({ metadata, id }) => {
+        const data = metadata?.appBuilderData ? JSON.parse(metadata.appBuilderData) : {}
+        return {
+          ...data,
+          id,
+        }
+      })
       .filter(notEmpty)
       .flat() || []
   )
@@ -98,8 +99,9 @@ const getMetadataType =
   () =>
   async (parent, { id }: { id: string }, context: Context) => {
     const result = await getMetadataObject(id, context.accessToken)
+    const data = result?.appBuilderData ? JSON.parse(result.appBuilderData) : {}
     return {
-      ...result,
+      ...data,
       id,
     }
   }
@@ -115,7 +117,11 @@ const searchMetadataType =
 
 const createMetadataType = (typeName: string) => async (parent, args: any, context: Context) => {
   const [newObject] = Object.values(args)
-  const result = await createMetadataObject(typeName, newObject, context.accessToken)
+  const result = await createMetadataObject(
+    typeName,
+    { appBuilderData: JSON.stringify(newObject) },
+    context.accessToken,
+  )
   if (!result) {
     throw new Error('failed to create')
   }
@@ -128,7 +134,7 @@ const createMetadataType = (typeName: string) => async (parent, args: any, conte
 
 const updateMetadataType = () => (parent, args: any, context: Context) => {
   const [id, newObject] = Object.values(args)
-  return updateMetadataObject(id, newObject, context.accessToken)
+  return updateMetadataObject(id, { appBuilderData: JSON.stringify(newObject) }, context.accessToken)
 }
 
 const deleteMetadataType =
@@ -196,9 +202,9 @@ const generateDynamicSchema = (
 
   let extendedTypedefs = ''
 
-  if (context && context.accessToken) {
-    context.metadataSchemas
-      ?.map(metadataSchemaToGraphQL)
+  if (context?.customEntities) {
+    context.customEntities
+      .map(customEntityToGraphQL)
       .filter(notEmpty)
       .forEach(({ typeName, inputTypeName, typeDefinitions }) => {
         if (baseSchema.getType(typeName)) {
@@ -226,7 +232,8 @@ const generateDynamicSchema = (
     .filter(notEmpty)
     .join('\n')
 
-  const allTypeDefinitions = [typeDefs, schemaStr].join('\n').split('__placeholder').join(PLACEHOLDER)
+  const allTypeDefinitions = [typeDefs, schemaStr].join('\n')
+
   const schema = allTypeDefinitions.trim()
     ? makeExecutableSchema({
         typeDefs: allTypeDefinitions,

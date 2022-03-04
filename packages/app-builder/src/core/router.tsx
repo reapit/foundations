@@ -45,17 +45,21 @@ const AppSelect = React.lazy(() => catchChunkError(() => import('../components/p
 const AppView = React.lazy(() => catchChunkError(() => import('../components/pages/app-view')))
 
 const AppEditor = () => {
+  const { appId } = usePageId()
+
   return (
-    <PrivateRouteWrapper reapitConnectBrowserSession={reapitConnectBrowserSession}>
-      <MainContainer>
-        <Menu />
-        <Switch>
-          <Route path={Routes.APP_VIEW} component={AppView} />
-          <Route path={Routes.APP_EDIT} component={HomePage} />
-          <Route path={Routes.APP_SELECT} component={AppSelect} />
-        </Switch>
-      </MainContainer>
-    </PrivateRouteWrapper>
+    <ApolloProvider client={createClient(reapitConnectBrowserSession, appId)}>
+      <PrivateRouteWrapper reapitConnectBrowserSession={reapitConnectBrowserSession}>
+        <MainContainer>
+          <Menu />
+          <Switch>
+            <Route path={Routes.APP_VIEW} component={AppView} />
+            <Route path={Routes.APP_EDIT} component={HomePage} />
+            <Route path={Routes.APP_SELECT} component={AppSelect} />
+          </Switch>
+        </MainContainer>
+      </PrivateRouteWrapper>
+    </ApolloProvider>
   )
 }
 
@@ -91,7 +95,7 @@ const AppViewer = () => {
   })
 
   return (
-    <ApolloProvider client={createClient(session)}>
+    <ApolloProvider client={createClient(session, app.id)}>
       <PrivateRouteWrapper reapitConnectBrowserSession={session}>
         <MainContainer>
           <Route path={Routes.APP_VIEW_ROOT} component={AppView} />

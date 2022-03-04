@@ -1,8 +1,9 @@
-import { SchemaModel } from './platform'
+import { CustomEntity } from './entities/custom-entity'
 
 export type Context = {
   accessToken: string
   idToken: string
   apiUrl: string
-  metadataSchemas: SchemaModel[]
+  customEntities: CustomEntity[]
+  appId?: string
 }

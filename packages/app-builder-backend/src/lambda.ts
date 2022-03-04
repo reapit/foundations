@@ -4,7 +4,7 @@ import { APIGatewayEvent } from 'aws-lambda'
 import { Context } from './types'
 import { getSchema } from './get-schema'
 import { ExtendedApolloServerLambda } from './extended-apollo-server'
-import { getMetadataSchemas } from './platform'
+import { getCustomEntities } from './custom-entites'
 
 const lowerCaseKeys = (obj: Record<string, string | undefined>): Record<string, string> => {
   const newObj = {}
@@ -25,7 +25,8 @@ const createHandler = async (event: APIGatewayEvent) => {
     apiUrl,
     idToken: authorization?.split(' ')[1],
     accessToken,
-    metadataSchemas: accessToken ? await getMetadataSchemas(accessToken).catch(() => []) : [],
+    customEntities: accessToken ? await getCustomEntities(accessToken).catch(() => []) : [],
+    appId: lowercaseHeaders['app-id'],
   }
   const server = new ExtendedApolloServerLambda({
     schema: await getSchema(),
