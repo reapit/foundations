@@ -42,7 +42,6 @@ export const pipelineCreateFormHandle =
     appId: string,
   ) =>
   async (values: PipelineModelInterface) => {
-    console.log('ffs am here')
     const result = await createPipeline({
       ...values,
       appId,
