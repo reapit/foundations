@@ -85,8 +85,6 @@ export const PipelineDeploymentInfo: FC<PipelineDeploymentInfoProps> = ({ pipeli
             event.preventDefault()
             const result = await deleteFunc()
 
-            console.log('de', result)
-
             if (result && typeof result !== 'boolean') setPipeline(result)
           }}
         >
