@@ -17,6 +17,7 @@ export enum UpdateActionNames {
   createDeveloper = 'createDeveloper',
   deleteApp = 'deleteApp',
   createAppRevsion = 'createAppRevsion',
+  deleteOfficeGroup = 'deleteOfficeGroup',
 }
 
 export type UpdateActions = { [key in UpdateActionNames]: UpdateAction }
@@ -68,5 +69,11 @@ export const updateActions = (appEnv: AppEnv): UpdateActions => ({
     path: PathNames.appRevision,
     errorMessage: 'Failed to create an app revision, please check for errors and try again',
     successMessage: 'App revision created successfully',
+  },
+  [UpdateActionNames.deleteOfficeGroup]: {
+    api: ApiNames(appEnv).platform,
+    path: PathNames.officeGroupId,
+    errorMessage: 'Failed to delete this office group, please try again',
+    successMessage: 'Successfully deleted office group',
   },
 })

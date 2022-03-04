@@ -1,7 +1,8 @@
-import React from 'react'
-import { fetcher } from '@reapit/utils-common'
+import React, { MouseEvent } from 'react'
 import OfficeGroupEditForm, {
   EditOfficeGroupSchema,
+  handleDeleteGroup,
+  handleOpenModal,
   handleSetNewOptions,
   handleSetOptions,
   OfficeGroupEditFormProps,
@@ -16,15 +17,38 @@ import { prepareOfficeOptions } from '../../../../utils/prepare-options'
 import { OfficeModel } from '@reapit/foundations-ts-definitions'
 import { OfficeGroupModel } from '../../../../types/organisations-schema'
 import { toastMessages } from '../../../../constants/toast-messages'
-import { OFFICE_IN_USE_ERROR } from '../../../../services/office'
+import { OFFICE_IN_USE_ERROR, updateOfficeGroup } from '../../../../services/office'
+import { useReapitGet } from '@reapit/utils-react'
 
-jest.mock('@reapit/utils-common')
+jest.mock('@reapit/utils-common', () => ({
+  fetcher: jest.fn(),
+  GetActionNames: {
+    getInstallations: 'getInstallations',
+  },
+  getActions: jest.fn(() => ({})),
+  UpdateActionNames: {
+    deleteOfficeGroup: 'deleteOfficeGroup',
+  },
+  updateActions: jest.fn(() => ({})),
+}))
+
+jest.mock('@reapit/utils-react', () => ({
+  useReapitUpdate: jest.fn(() => [null, null, jest.fn()]),
+  useReapitGet: jest.fn(() => [{ data: [{ client: 'MOCK_CLIENT' }] }]),
+  logger: jest.fn(),
+}))
+
 jest.mock('../../../../core/connect-session')
 jest.mock('swr')
 jest.mock('../../../../utils/use-org-id')
+jest.mock('../../../../services/office', () => ({
+  updateOfficeGroup: jest.fn(),
+  OFFICE_IN_USE_ERROR: 'TEST_ERROR',
+}))
 
 const mockSWR = useSWR as jest.Mock
-const mockedFetch = fetcher as jest.Mock
+const mockUseReapitGet = useReapitGet as jest.Mock
+const mockUpdateOfficeGroup = updateOfficeGroup as jest.Mock
 
 mockSWR.mockReturnValue({
   data: mockOfficeList,
@@ -35,16 +59,14 @@ mockSWR.mockReturnValue({
 const props = (): OfficeGroupEditFormProps => ({
   officeGroup: (mockOfficeGroups._embedded as OfficeGroupModel[])[0],
   offices: mockOfficeList._embedded as OfficeModel[],
-  orgId: '1185e436-3b7e-4f67-a4b7-68f83054ad3c',
   onComplete: jest.fn,
 })
-
-jest.mock('../../../../core/connect-session')
 
 const mockResponse = 'success'
 
 describe('OfficeGroupEditForm', () => {
   it('should match a snapshot', () => {
+    mockUseReapitGet.mockReturnValue([null, null, jest.fn()])
     expect(render(<OfficeGroupEditForm {...props()} />)).toMatchSnapshot()
   })
 })
@@ -60,7 +82,7 @@ describe('onHandleSubmit', () => {
   const onSubmit = onHandleSubmit(onComplete, officeGroup, orgId, success, error)
 
   it('should call error correctly', async () => {
-    mockedFetch.mockReturnValueOnce(undefined)
+    mockUpdateOfficeGroup.mockReturnValueOnce(undefined)
 
     await onSubmit({ name, officeIds, status: true })
 
@@ -68,7 +90,7 @@ describe('onHandleSubmit', () => {
   })
 
   it('should display a different error for offices assigned error', async () => {
-    mockedFetch.mockReturnValueOnce(OFFICE_IN_USE_ERROR)
+    mockUpdateOfficeGroup.mockReturnValueOnce(OFFICE_IN_USE_ERROR)
 
     await onSubmit({ name, officeIds, status: true })
 
@@ -76,7 +98,7 @@ describe('onHandleSubmit', () => {
   })
 
   it('should correctly call success', async () => {
-    mockedFetch.mockReturnValueOnce(mockResponse)
+    mockUpdateOfficeGroup.mockReturnValueOnce(mockResponse)
 
     await onSubmit({ name, officeIds, status: true })
 
@@ -117,5 +139,44 @@ describe('handleSetNewOptions', () => {
     curried()
 
     expect(setOptions).toHaveBeenCalledWith(prepareOfficeOptions(searchedOffices))
+  })
+})
+
+describe('handleDeleteGroup', () => {
+  it('should handle deleting a group', async () => {
+    const deleteOfficeGroup = jest.fn(() => new Promise<boolean>((resolve) => resolve(true)))
+    const onComplete = jest.fn()
+
+    const curried = handleDeleteGroup(deleteOfficeGroup, onComplete)
+    const event = {
+      preventDefault: jest.fn(),
+      stopPropagation: jest.fn(),
+    } as unknown as MouseEvent<HTMLButtonElement>
+
+    await curried(event)
+
+    expect(onComplete).toHaveBeenCalledTimes(1)
+    expect(deleteOfficeGroup).toHaveBeenCalledTimes(1)
+    expect(event.preventDefault).toHaveBeenCalledTimes(1)
+    expect(event.stopPropagation).toHaveBeenCalledTimes(1)
+  })
+})
+
+describe('handleOpenModal', () => {
+  it('should handle opening a modal', () => {
+    const openModal = jest.fn()
+
+    const curried = handleOpenModal(openModal)
+
+    const event = {
+      preventDefault: jest.fn(),
+      stopPropagation: jest.fn(),
+    } as unknown as MouseEvent<HTMLButtonElement>
+
+    curried(event)
+
+    expect(openModal).toHaveBeenCalledTimes(1)
+    expect(event.preventDefault).toHaveBeenCalledTimes(1)
+    expect(event.stopPropagation).toHaveBeenCalledTimes(1)
   })
 })

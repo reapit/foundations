@@ -31,4 +31,5 @@ export enum PathNames {
   desktopIntegrationTypes = '/marketplace/desktopIntegrationTypes',
   appCategories = '/marketplace/categories',
   appRevision = '/marketplace/apps/{appId}/revisions',
+  officeGroupId = '/organisations/organisations/{orgId}/officegroups/{groupId}',
 }
