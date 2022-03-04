@@ -67,14 +67,15 @@ const disableCloudFront = async (Id: string): Promise<any> => {
 }
 
 const tearDownLiveBucketLocation = (location: string): Promise<void> => {
-  return new Promise<void>((resolve, reject) =>
+  return new Promise<void>((resolve) =>
     s3Client.deleteObject(
       {
         Bucket: process.env.DEPLOYMENT_LIVE_BUCKET_NAME as string,
         Key: location,
       },
-      (error) => {
-        error ? reject(error) : resolve()
+      () => {
+        resolve()
+        // error ? reject(error) : resolve()
       },
     ),
   )
@@ -125,7 +126,7 @@ export const pipelineTearDownStart: SQSHandler = async (event: SQSEvent, context
             {
               QueueUrl: QueueNames.PIPELINE_TEAR_DOWN,
               MessageBody: JSON.stringify(pipeline),
-              DelaySeconds: 300,
+              DelaySeconds: 500,
             },
             (error, data) => {
               error ? reject(error) : resolve(data)
@@ -155,14 +156,23 @@ export const pipelineTearDown: SQSHandler = async (event: SQSEvent, context: Con
     event.Records.map(async (record) => {
       const pipeline: PipelineEntity = JSON.parse(record.body) as PipelineEntity
 
+      console.log('pipeline', pipeline)
+
       const domainName = await tearDownCloudFront(pipeline.cloudFrontId as string)
 
-      await Promise.all([
-        tearDownLiveBucketLocation(`pipeline/${pipeline.uniqueRepoName}`),
-        tearDownR53(domainName, pipeline.id as string, pipeline.subDomain as string),
-      ])
+      console.log('after domain', domainName)
+
+      await tearDownLiveBucketLocation(`pipeline/${pipeline.uniqueRepoName}`)
+
+      console.log('after bucket delete')
+
+      await tearDownR53(domainName, pipeline.id as string, pipeline.subDomain as string)
+
+      console.log('after teardown r53')
 
       await deleteAllFromDb(pipeline)
+
+      console.log('after db delete')
 
       await new Promise<void>((resolve, reject) =>
         sqs.deleteMessage(
