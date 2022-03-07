@@ -21,12 +21,13 @@ const createHandler = async (event: APIGatewayEvent) => {
   const { authorization } = lowercaseHeaders
   const apiUrl = `https://${event.headers.Host}/${event.requestContext.stage}/`
   const accessToken = lowercaseHeaders['reapit-connect-token'] as string
+  const appId = lowercaseHeaders['app-id']
   const context: Context = {
     apiUrl,
     idToken: authorization?.split(' ')[1],
     accessToken,
-    customEntities: accessToken ? await getCustomEntities(accessToken).catch(() => []) : [],
-    appId: lowercaseHeaders['app-id'],
+    customEntities: appId ? await getCustomEntities(appId).catch(() => []) : [],
+    appId,
   }
   const server = new ExtendedApolloServerLambda({
     schema: await getSchema(),

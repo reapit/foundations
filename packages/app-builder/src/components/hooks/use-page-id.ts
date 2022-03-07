@@ -1,6 +1,14 @@
 import { useHistory, useParams, useLocation } from 'react-router'
 import qs from 'query-string'
 
+export const getAppId = (): string => {
+  const parts = window.location.pathname.split('/')
+  const numParts = parts.length
+  const appId = parts[1]
+  const subdomain = window.location.hostname.split('.')[0]
+  return numParts === 3 ? appId : subdomain
+}
+
 export const usePageId = () => {
   const { pageId } = useParams<{ pageId?: string }>()
   let { appId } = useParams<{ appId?: string }>()

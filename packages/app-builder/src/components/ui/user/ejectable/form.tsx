@@ -2,6 +2,7 @@ import React, { forwardRef, useEffect, useState } from 'react'
 import { useHistory } from 'react-router'
 import qs from 'query-string'
 import path from 'path'
+import { v4 } from 'uuid'
 import { Button, FormLayout, Loader, useSnack } from '@reapit/elements'
 
 import { Container, ContainerProps } from './container'
@@ -65,8 +66,15 @@ export const Form = forwardRef<HTMLDivElement, FormProps & { disabled?: boolean 
             e.preventDefault()
             let variables
             if (formType === 'create') {
+              let fs = { ...formState }
+              if (args[0].fields?.find((field) => field.name === 'id')) {
+                fs = {
+                  ...fs,
+                  id: v4(),
+                }
+              }
               variables = {
-                [args[0].name]: formState,
+                [args[0].name]: fs,
               }
             } else {
               variables = {

@@ -47,10 +47,10 @@ const ObjectTableCell = ({ obj }) => {
     return (
       <>
         {obj.map((item: any, i: number) => (
-          <>
+          <React.Fragment key={i}>
             <ObjectTableCell key={item.id} obj={item} />
             {i !== obj.length - 1 && <span>, </span>}
-          </>
+          </React.Fragment>
         ))}
       </>
     )
@@ -171,7 +171,7 @@ const AdditionalCells = ({
       if (!pageId) return null
 
       return (
-        <>
+        <React.Fragment key={label}>
           <Button
             key={name}
             onClick={() => {
@@ -195,7 +195,7 @@ const AdditionalCells = ({
               }}
             />
           )}
-        </>
+        </React.Fragment>
       )
     })}
   </>

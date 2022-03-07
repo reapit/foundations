@@ -1,10 +1,11 @@
+import { getAppId } from '@/components/hooks/use-page-id'
 import { ApolloClient, InMemoryCache, createHttpLink } from '@apollo/client'
 import { setContext } from '@apollo/client/link/context'
 import { ReapitConnectBrowserSession } from '@reapit/connect-session'
 
 import { graphqlUri } from './config'
 
-export const createClient = (session: ReapitConnectBrowserSession, appId?: string) => {
+export const createClient = (session: ReapitConnectBrowserSession) => {
   const httpLink = createHttpLink({
     uri: graphqlUri,
   })
@@ -17,7 +18,7 @@ export const createClient = (session: ReapitConnectBrowserSession, appId?: strin
         ...headers,
         authorization: token ? `Bearer ${token.idToken}` : '',
         'reapit-connect-token': token ? token.accessToken : '',
-        'app-id': appId,
+        'app-id': getAppId(),
       },
     }
   })

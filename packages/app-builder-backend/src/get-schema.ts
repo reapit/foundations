@@ -45,7 +45,7 @@ const customEntityToTypeDefs = (
     .map((field) => `${field.name}: ${customEntityFieldTypeToGraphQLType(field.type)}`)
     .join('\n')
 
-  const typeDefinitions = `${direction === 'output' ? 'type' : 'input'}  ${rootName} {
+  const typeDefinitions = `${direction === 'output' ? 'type' : 'input'} ${rootName} {
     id: ID!
     ${fields}
   }`

@@ -22,7 +22,7 @@ const parseContext = async ({ req }): Promise<Context> => {
   let customEntities: CustomEntity[] = []
 
   if (context.accessToken) {
-    customEntities = await getCustomEntities(context.accessToken)
+    customEntities = await getCustomEntities(context.appId)
   }
 
   return {

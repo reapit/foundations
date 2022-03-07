@@ -13,8 +13,9 @@ import { componentSelected, indicator, littleButton } from './styles'
 
 export const RenderNode = ({ render, iframeRef }) => {
   const { id } = useNode()
-  const { actions, query, isActive } = useEditor((state) => ({
+  const { actions, query, isActive, enabled } = useEditor((state) => ({
     isActive: !!state.nodes[id]?.events.selected,
+    enabled: state.options.enabled,
   }))
 
   const {
@@ -84,6 +85,7 @@ export const RenderNode = ({ render, iframeRef }) => {
   return (
     <>
       {(isHover || isActive) &&
+        enabled &&
         container &&
         dom &&
         ReactDOM.createPortal(
