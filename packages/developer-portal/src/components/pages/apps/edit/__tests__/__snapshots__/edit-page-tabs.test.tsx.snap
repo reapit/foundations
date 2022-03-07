@@ -317,120 +317,222 @@ Object {
           class="e1ksxx4v-el-input-wrap"
         >
           <div
-            class="e1979rmu-el-input-group"
+            class="e1ndspjz-el-file-input-wrap"
           >
-            <input
-              class="e1urjlvd-el-input"
-              id="test-static-id"
-              name="iconImageUrl"
-              type="file"
-            />
             <label
               class="e1nbkkrq-el-label"
-              for="test-static-id"
             >
               Upload Icon Image
             </label>
+            <div
+              class="ef457sc-el-flex-align-center e2kmzjs-el-flex-container"
+            >
+              <button
+                class="elmeic8-el-mr4 e1ymtwpu-el-intent-low e1f2ikqj-el-button"
+                type="button"
+              >
+                Upload
+              </button>
+              <input
+                class="eqyxiu0-el-file-input"
+                type="file"
+              />
+              <input
+                class="e17gdmv2-el-file-input-hidden"
+                id="test-static-id"
+                value=""
+              />
+              <p
+                class="e11jaxfn-el-has-grey-text ewfctk4-el-has-no-margin e15ggth7-el-small-text"
+              >
+                Dimensions: 96px x 96px
+              </p>
+            </div>
           </div>
         </div>
         <div
           class="e1ksxx4v-el-input-wrap"
         >
           <div
-            class="e1979rmu-el-input-group"
+            class="e1ndspjz-el-file-input-wrap"
           >
-            <input
-              class="e1urjlvd-el-input"
-              id="test-static-id"
-              name="screen1ImageUrl"
-              type="file"
-            />
             <label
               class="e1nbkkrq-el-label"
-              for="test-static-id"
             >
               Upload Featured Image
             </label>
+            <div
+              class="ef457sc-el-flex-align-center e2kmzjs-el-flex-container"
+            >
+              <button
+                class="elmeic8-el-mr4 e1ymtwpu-el-intent-low e1f2ikqj-el-button"
+                type="button"
+              >
+                Upload
+              </button>
+              <input
+                class="eqyxiu0-el-file-input"
+                type="file"
+              />
+              <input
+                class="e17gdmv2-el-file-input-hidden"
+                id="test-static-id"
+                value=""
+              />
+              <p
+                class="e11jaxfn-el-has-grey-text ewfctk4-el-has-no-margin e15ggth7-el-small-text"
+              >
+                Dimensions: 495px x 222px
+              </p>
+            </div>
           </div>
         </div>
         <div
           class="e1ksxx4v-el-input-wrap"
         >
           <div
-            class="e1979rmu-el-input-group"
+            class="e1ndspjz-el-file-input-wrap"
           >
-            <input
-              class="e1urjlvd-el-input"
-              id="test-static-id"
-              name="screen2ImageUrl"
-              type="file"
-            />
             <label
               class="e1nbkkrq-el-label"
-              for="test-static-id"
             >
               Upload Other Listing Image
             </label>
+            <div
+              class="ef457sc-el-flex-align-center e2kmzjs-el-flex-container"
+            >
+              <button
+                class="elmeic8-el-mr4 e1ymtwpu-el-intent-low e1f2ikqj-el-button"
+                type="button"
+              >
+                Upload
+              </button>
+              <input
+                class="eqyxiu0-el-file-input"
+                type="file"
+              />
+              <input
+                class="e17gdmv2-el-file-input-hidden"
+                id="test-static-id"
+                value=""
+              />
+              <p
+                class="e11jaxfn-el-has-grey-text ewfctk4-el-has-no-margin e15ggth7-el-small-text"
+              >
+                Dimensions: 598px x 457px
+              </p>
+            </div>
           </div>
         </div>
         <div
           class="e1ksxx4v-el-input-wrap"
         >
           <div
-            class="e1979rmu-el-input-group"
+            class="e1ndspjz-el-file-input-wrap"
           >
-            <input
-              class="e1urjlvd-el-input"
-              id="test-static-id"
-              name="screen3ImageUrl"
-              type="file"
-            />
             <label
               class="e1nbkkrq-el-label"
-              for="test-static-id"
             >
               Upload Other Listing Image
             </label>
+            <div
+              class="ef457sc-el-flex-align-center e2kmzjs-el-flex-container"
+            >
+              <button
+                class="elmeic8-el-mr4 e1ymtwpu-el-intent-low e1f2ikqj-el-button"
+                type="button"
+              >
+                Upload
+              </button>
+              <input
+                class="eqyxiu0-el-file-input"
+                type="file"
+              />
+              <input
+                class="e17gdmv2-el-file-input-hidden"
+                id="test-static-id"
+                value=""
+              />
+              <p
+                class="e11jaxfn-el-has-grey-text ewfctk4-el-has-no-margin e15ggth7-el-small-text"
+              >
+                Dimensions: 598px x 457px
+              </p>
+            </div>
           </div>
         </div>
         <div
           class="e1ksxx4v-el-input-wrap"
         >
           <div
-            class="e1979rmu-el-input-group"
+            class="e1ndspjz-el-file-input-wrap"
           >
-            <input
-              class="e1urjlvd-el-input"
-              id="test-static-id"
-              name="screen4ImageUrl"
-              type="file"
-            />
             <label
               class="e1nbkkrq-el-label"
-              for="test-static-id"
             >
               Upload Other Listing Image
             </label>
+            <div
+              class="ef457sc-el-flex-align-center e2kmzjs-el-flex-container"
+            >
+              <button
+                class="elmeic8-el-mr4 e1ymtwpu-el-intent-low e1f2ikqj-el-button"
+                type="button"
+              >
+                Upload
+              </button>
+              <input
+                class="eqyxiu0-el-file-input"
+                type="file"
+              />
+              <input
+                class="e17gdmv2-el-file-input-hidden"
+                id="test-static-id"
+                value=""
+              />
+              <p
+                class="e11jaxfn-el-has-grey-text ewfctk4-el-has-no-margin e15ggth7-el-small-text"
+              >
+                Dimensions: 598px x 457px
+              </p>
+            </div>
           </div>
         </div>
         <div
           class="e1ksxx4v-el-input-wrap"
         >
           <div
-            class="e1979rmu-el-input-group"
+            class="e1ndspjz-el-file-input-wrap"
           >
-            <input
-              class="e1urjlvd-el-input"
-              id="test-static-id"
-              name="screen5ImageUrl"
-              type="file"
-            />
             <label
               class="e1nbkkrq-el-label"
-              for="test-static-id"
             >
               Upload Other Listing Image
             </label>
+            <div
+              class="ef457sc-el-flex-align-center e2kmzjs-el-flex-container"
+            >
+              <button
+                class="elmeic8-el-mr4 e1ymtwpu-el-intent-low e1f2ikqj-el-button"
+                type="button"
+              >
+                Upload
+              </button>
+              <input
+                class="eqyxiu0-el-file-input"
+                type="file"
+              />
+              <input
+                class="e17gdmv2-el-file-input-hidden"
+                id="test-static-id"
+                value=""
+              />
+              <p
+                class="e11jaxfn-el-has-grey-text ewfctk4-el-has-no-margin e15ggth7-el-small-text"
+              >
+                Dimensions: 598px x 457px
+              </p>
+            </div>
           </div>
         </div>
       </div>
@@ -654,120 +756,222 @@ Object {
         class="e1ksxx4v-el-input-wrap"
       >
         <div
-          class="e1979rmu-el-input-group"
+          class="e1ndspjz-el-file-input-wrap"
         >
-          <input
-            class="e1urjlvd-el-input"
-            id="test-static-id"
-            name="iconImageUrl"
-            type="file"
-          />
           <label
             class="e1nbkkrq-el-label"
-            for="test-static-id"
           >
             Upload Icon Image
           </label>
+          <div
+            class="ef457sc-el-flex-align-center e2kmzjs-el-flex-container"
+          >
+            <button
+              class="elmeic8-el-mr4 e1ymtwpu-el-intent-low e1f2ikqj-el-button"
+              type="button"
+            >
+              Upload
+            </button>
+            <input
+              class="eqyxiu0-el-file-input"
+              type="file"
+            />
+            <input
+              class="e17gdmv2-el-file-input-hidden"
+              id="test-static-id"
+              value=""
+            />
+            <p
+              class="e11jaxfn-el-has-grey-text ewfctk4-el-has-no-margin e15ggth7-el-small-text"
+            >
+              Dimensions: 96px x 96px
+            </p>
+          </div>
         </div>
       </div>
       <div
         class="e1ksxx4v-el-input-wrap"
       >
         <div
-          class="e1979rmu-el-input-group"
+          class="e1ndspjz-el-file-input-wrap"
         >
-          <input
-            class="e1urjlvd-el-input"
-            id="test-static-id"
-            name="screen1ImageUrl"
-            type="file"
-          />
           <label
             class="e1nbkkrq-el-label"
-            for="test-static-id"
           >
             Upload Featured Image
           </label>
+          <div
+            class="ef457sc-el-flex-align-center e2kmzjs-el-flex-container"
+          >
+            <button
+              class="elmeic8-el-mr4 e1ymtwpu-el-intent-low e1f2ikqj-el-button"
+              type="button"
+            >
+              Upload
+            </button>
+            <input
+              class="eqyxiu0-el-file-input"
+              type="file"
+            />
+            <input
+              class="e17gdmv2-el-file-input-hidden"
+              id="test-static-id"
+              value=""
+            />
+            <p
+              class="e11jaxfn-el-has-grey-text ewfctk4-el-has-no-margin e15ggth7-el-small-text"
+            >
+              Dimensions: 495px x 222px
+            </p>
+          </div>
         </div>
       </div>
       <div
         class="e1ksxx4v-el-input-wrap"
       >
         <div
-          class="e1979rmu-el-input-group"
+          class="e1ndspjz-el-file-input-wrap"
         >
-          <input
-            class="e1urjlvd-el-input"
-            id="test-static-id"
-            name="screen2ImageUrl"
-            type="file"
-          />
           <label
             class="e1nbkkrq-el-label"
-            for="test-static-id"
           >
             Upload Other Listing Image
           </label>
+          <div
+            class="ef457sc-el-flex-align-center e2kmzjs-el-flex-container"
+          >
+            <button
+              class="elmeic8-el-mr4 e1ymtwpu-el-intent-low e1f2ikqj-el-button"
+              type="button"
+            >
+              Upload
+            </button>
+            <input
+              class="eqyxiu0-el-file-input"
+              type="file"
+            />
+            <input
+              class="e17gdmv2-el-file-input-hidden"
+              id="test-static-id"
+              value=""
+            />
+            <p
+              class="e11jaxfn-el-has-grey-text ewfctk4-el-has-no-margin e15ggth7-el-small-text"
+            >
+              Dimensions: 598px x 457px
+            </p>
+          </div>
         </div>
       </div>
       <div
         class="e1ksxx4v-el-input-wrap"
       >
         <div
-          class="e1979rmu-el-input-group"
+          class="e1ndspjz-el-file-input-wrap"
         >
-          <input
-            class="e1urjlvd-el-input"
-            id="test-static-id"
-            name="screen3ImageUrl"
-            type="file"
-          />
           <label
             class="e1nbkkrq-el-label"
-            for="test-static-id"
           >
             Upload Other Listing Image
           </label>
+          <div
+            class="ef457sc-el-flex-align-center e2kmzjs-el-flex-container"
+          >
+            <button
+              class="elmeic8-el-mr4 e1ymtwpu-el-intent-low e1f2ikqj-el-button"
+              type="button"
+            >
+              Upload
+            </button>
+            <input
+              class="eqyxiu0-el-file-input"
+              type="file"
+            />
+            <input
+              class="e17gdmv2-el-file-input-hidden"
+              id="test-static-id"
+              value=""
+            />
+            <p
+              class="e11jaxfn-el-has-grey-text ewfctk4-el-has-no-margin e15ggth7-el-small-text"
+            >
+              Dimensions: 598px x 457px
+            </p>
+          </div>
         </div>
       </div>
       <div
         class="e1ksxx4v-el-input-wrap"
       >
         <div
-          class="e1979rmu-el-input-group"
+          class="e1ndspjz-el-file-input-wrap"
         >
-          <input
-            class="e1urjlvd-el-input"
-            id="test-static-id"
-            name="screen4ImageUrl"
-            type="file"
-          />
           <label
             class="e1nbkkrq-el-label"
-            for="test-static-id"
           >
             Upload Other Listing Image
           </label>
+          <div
+            class="ef457sc-el-flex-align-center e2kmzjs-el-flex-container"
+          >
+            <button
+              class="elmeic8-el-mr4 e1ymtwpu-el-intent-low e1f2ikqj-el-button"
+              type="button"
+            >
+              Upload
+            </button>
+            <input
+              class="eqyxiu0-el-file-input"
+              type="file"
+            />
+            <input
+              class="e17gdmv2-el-file-input-hidden"
+              id="test-static-id"
+              value=""
+            />
+            <p
+              class="e11jaxfn-el-has-grey-text ewfctk4-el-has-no-margin e15ggth7-el-small-text"
+            >
+              Dimensions: 598px x 457px
+            </p>
+          </div>
         </div>
       </div>
       <div
         class="e1ksxx4v-el-input-wrap"
       >
         <div
-          class="e1979rmu-el-input-group"
+          class="e1ndspjz-el-file-input-wrap"
         >
-          <input
-            class="e1urjlvd-el-input"
-            id="test-static-id"
-            name="screen5ImageUrl"
-            type="file"
-          />
           <label
             class="e1nbkkrq-el-label"
-            for="test-static-id"
           >
             Upload Other Listing Image
           </label>
+          <div
+            class="ef457sc-el-flex-align-center e2kmzjs-el-flex-container"
+          >
+            <button
+              class="elmeic8-el-mr4 e1ymtwpu-el-intent-low e1f2ikqj-el-button"
+              type="button"
+            >
+              Upload
+            </button>
+            <input
+              class="eqyxiu0-el-file-input"
+              type="file"
+            />
+            <input
+              class="e17gdmv2-el-file-input-hidden"
+              id="test-static-id"
+              value=""
+            />
+            <p
+              class="e11jaxfn-el-has-grey-text ewfctk4-el-has-no-margin e15ggth7-el-small-text"
+            >
+              Dimensions: 598px x 457px
+            </p>
+          </div>
         </div>
       </div>
     </div>

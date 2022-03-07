@@ -1,5 +1,5 @@
 import React from 'react'
-import { Control, DeepMap, FieldError } from 'react-hook-form'
+import { Control, DeepMap, FieldError, UseFormGetValues } from 'react-hook-form'
 import { render } from '../../../../../tests/react-testing'
 import { AppListingTab } from '../app-listing-tab'
 import { AppEditTab } from '../edit-page-tabs'
@@ -11,6 +11,11 @@ jest.mock('react-hook-form', () => ({
 }))
 jest.mock('@reapit/utils-react', () => ({
   useReapitGet: jest.fn(() => [{ data: [{ description: 'MOCK_DESCRIPTION', id: 'MOCK_ID' }] }]),
+  useReapitUpdate: jest.fn(() => [undefined, undefined, jest.fn()]),
+  UpdateReturnTypeEnum: {
+    RESPONSE: 'RESPONSE',
+  },
+  ImageCropperFileInput: () => <div></div>,
 }))
 
 describe('AppListingTab', () => {
@@ -43,7 +48,16 @@ describe('AppListingTab', () => {
           errors={{}}
           tab={AppEditTab.appListing}
           control={{} as Control<AppEditFormSchema, object>}
-          getValues={jest.fn()}
+          getValues={
+            jest.fn(() => ({
+              iconImageUrl: '',
+              screen1ImageUrl: '',
+              screen2ImageUrl: '',
+              screen3ImageUrl: '',
+              screen4ImageUrl: '',
+              screen5ImageUrl: '',
+            })) as unknown as UseFormGetValues<AppEditFormSchema>
+          }
         />,
       ),
     ).toMatchSnapshot()
@@ -77,7 +91,16 @@ describe('AppListingTab', () => {
           }
           tab={AppEditTab.appListing}
           control={{} as Control<AppEditFormSchema, object>}
-          getValues={jest.fn()}
+          getValues={
+            jest.fn(() => ({
+              iconImageUrl: '',
+              screen1ImageUrl: '',
+              screen2ImageUrl: '',
+              screen3ImageUrl: '',
+              screen4ImageUrl: '',
+              screen5ImageUrl: '',
+            })) as unknown as UseFormGetValues<AppEditFormSchema>
+          }
         />,
       ),
     ).toMatchSnapshot()

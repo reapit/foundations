@@ -255,128 +255,32 @@ Object {
         <div
           class="e1ksxx4v-el-input-wrap"
         >
-          <div
-            class="e1979rmu-el-input-group"
-          >
-            <input
-              class="e1urjlvd-el-input"
-              id="test-static-id"
-              name="iconImageUrl"
-              type="file"
-              value=""
-            />
-            <label
-              class="e1nbkkrq-el-label"
-              for="test-static-id"
-            >
-              Upload Icon Image
-            </label>
-          </div>
+          <div />
         </div>
         <div
           class="e1ksxx4v-el-input-wrap"
         >
-          <div
-            class="e1979rmu-el-input-group"
-          >
-            <input
-              class="e1urjlvd-el-input"
-              id="test-static-id"
-              name="screen1ImageUrl"
-              type="file"
-              value=""
-            />
-            <label
-              class="e1nbkkrq-el-label"
-              for="test-static-id"
-            >
-              Upload Featured Image
-            </label>
-          </div>
+          <div />
         </div>
         <div
           class="e1ksxx4v-el-input-wrap"
         >
-          <div
-            class="e1979rmu-el-input-group"
-          >
-            <input
-              class="e1urjlvd-el-input"
-              id="test-static-id"
-              name="screen2ImageUrl"
-              type="file"
-              value=""
-            />
-            <label
-              class="e1nbkkrq-el-label"
-              for="test-static-id"
-            >
-              Upload Other Listing Image
-            </label>
-          </div>
+          <div />
         </div>
         <div
           class="e1ksxx4v-el-input-wrap"
         >
-          <div
-            class="e1979rmu-el-input-group"
-          >
-            <input
-              class="e1urjlvd-el-input"
-              id="test-static-id"
-              name="screen3ImageUrl"
-              type="file"
-              value=""
-            />
-            <label
-              class="e1nbkkrq-el-label"
-              for="test-static-id"
-            >
-              Upload Other Listing Image
-            </label>
-          </div>
+          <div />
         </div>
         <div
           class="e1ksxx4v-el-input-wrap"
         >
-          <div
-            class="e1979rmu-el-input-group"
-          >
-            <input
-              class="e1urjlvd-el-input"
-              id="test-static-id"
-              name="screen4ImageUrl"
-              type="file"
-              value=""
-            />
-            <label
-              class="e1nbkkrq-el-label"
-              for="test-static-id"
-            >
-              Upload Other Listing Image
-            </label>
-          </div>
+          <div />
         </div>
         <div
           class="e1ksxx4v-el-input-wrap"
         >
-          <div
-            class="e1979rmu-el-input-group"
-          >
-            <input
-              class="e1urjlvd-el-input"
-              id="test-static-id"
-              name="screen5ImageUrl"
-              type="file"
-              value=""
-            />
-            <label
-              class="e1nbkkrq-el-label"
-              for="test-static-id"
-            >
-              Upload Other Listing Image
-            </label>
-          </div>
+          <div />
         </div>
       </div>
     </div>
@@ -632,128 +536,32 @@ Object {
       <div
         class="e1ksxx4v-el-input-wrap"
       >
-        <div
-          class="e1979rmu-el-input-group"
-        >
-          <input
-            class="e1urjlvd-el-input"
-            id="test-static-id"
-            name="iconImageUrl"
-            type="file"
-            value=""
-          />
-          <label
-            class="e1nbkkrq-el-label"
-            for="test-static-id"
-          >
-            Upload Icon Image
-          </label>
-        </div>
+        <div />
       </div>
       <div
         class="e1ksxx4v-el-input-wrap"
       >
-        <div
-          class="e1979rmu-el-input-group"
-        >
-          <input
-            class="e1urjlvd-el-input"
-            id="test-static-id"
-            name="screen1ImageUrl"
-            type="file"
-            value=""
-          />
-          <label
-            class="e1nbkkrq-el-label"
-            for="test-static-id"
-          >
-            Upload Featured Image
-          </label>
-        </div>
+        <div />
       </div>
       <div
         class="e1ksxx4v-el-input-wrap"
       >
-        <div
-          class="e1979rmu-el-input-group"
-        >
-          <input
-            class="e1urjlvd-el-input"
-            id="test-static-id"
-            name="screen2ImageUrl"
-            type="file"
-            value=""
-          />
-          <label
-            class="e1nbkkrq-el-label"
-            for="test-static-id"
-          >
-            Upload Other Listing Image
-          </label>
-        </div>
+        <div />
       </div>
       <div
         class="e1ksxx4v-el-input-wrap"
       >
-        <div
-          class="e1979rmu-el-input-group"
-        >
-          <input
-            class="e1urjlvd-el-input"
-            id="test-static-id"
-            name="screen3ImageUrl"
-            type="file"
-            value=""
-          />
-          <label
-            class="e1nbkkrq-el-label"
-            for="test-static-id"
-          >
-            Upload Other Listing Image
-          </label>
-        </div>
+        <div />
       </div>
       <div
         class="e1ksxx4v-el-input-wrap"
       >
-        <div
-          class="e1979rmu-el-input-group"
-        >
-          <input
-            class="e1urjlvd-el-input"
-            id="test-static-id"
-            name="screen4ImageUrl"
-            type="file"
-            value=""
-          />
-          <label
-            class="e1nbkkrq-el-label"
-            for="test-static-id"
-          >
-            Upload Other Listing Image
-          </label>
-        </div>
+        <div />
       </div>
       <div
         class="e1ksxx4v-el-input-wrap"
       >
-        <div
-          class="e1979rmu-el-input-group"
-        >
-          <input
-            class="e1urjlvd-el-input"
-            id="test-static-id"
-            name="screen5ImageUrl"
-            type="file"
-            value=""
-          />
-          <label
-            class="e1nbkkrq-el-label"
-            for="test-static-id"
-          >
-            Upload Other Listing Image
-          </label>
-        </div>
+        <div />
       </div>
     </div>
   </div>,
@@ -1111,152 +919,62 @@ Object {
         <div
           class="e1ksxx4v-el-input-wrap"
         >
-          <div
-            class="e1979rmu-el-input-group"
+          <div />
+          <p
+            class="e19twfs3-el-input-error"
           >
-            <input
-              class="e1urjlvd-el-input"
-              id="test-static-id"
-              name="iconImageUrl"
-              type="file"
-            />
-            <label
-              class="e1nbkkrq-el-label"
-              for="test-static-id"
-            >
-              Upload Icon Image
-            </label>
-            <p
-              class="e19twfs3-el-input-error"
-            >
-              An Error
-            </p>
-          </div>
+            An Error
+          </p>
         </div>
         <div
           class="e1ksxx4v-el-input-wrap"
         >
-          <div
-            class="e1979rmu-el-input-group"
+          <div />
+          <p
+            class="e19twfs3-el-input-error"
           >
-            <input
-              class="e1urjlvd-el-input"
-              id="test-static-id"
-              name="screen1ImageUrl"
-              type="file"
-            />
-            <label
-              class="e1nbkkrq-el-label"
-              for="test-static-id"
-            >
-              Upload Featured Image
-            </label>
-            <p
-              class="e19twfs3-el-input-error"
-            >
-              An Error
-            </p>
-          </div>
+            An Error
+          </p>
         </div>
         <div
           class="e1ksxx4v-el-input-wrap"
         >
-          <div
-            class="e1979rmu-el-input-group"
+          <div />
+          <p
+            class="e19twfs3-el-input-error"
           >
-            <input
-              class="e1urjlvd-el-input"
-              id="test-static-id"
-              name="screen2ImageUrl"
-              type="file"
-            />
-            <label
-              class="e1nbkkrq-el-label"
-              for="test-static-id"
-            >
-              Upload Other Listing Image
-            </label>
-            <p
-              class="e19twfs3-el-input-error"
-            >
-              An Error
-            </p>
-          </div>
+            An Error
+          </p>
         </div>
         <div
           class="e1ksxx4v-el-input-wrap"
         >
-          <div
-            class="e1979rmu-el-input-group"
+          <div />
+          <p
+            class="e19twfs3-el-input-error"
           >
-            <input
-              class="e1urjlvd-el-input"
-              id="test-static-id"
-              name="screen3ImageUrl"
-              type="file"
-            />
-            <label
-              class="e1nbkkrq-el-label"
-              for="test-static-id"
-            >
-              Upload Other Listing Image
-            </label>
-            <p
-              class="e19twfs3-el-input-error"
-            >
-              An Error
-            </p>
-          </div>
+            An Error
+          </p>
         </div>
         <div
           class="e1ksxx4v-el-input-wrap"
         >
-          <div
-            class="e1979rmu-el-input-group"
+          <div />
+          <p
+            class="e19twfs3-el-input-error"
           >
-            <input
-              class="e1urjlvd-el-input"
-              id="test-static-id"
-              name="screen4ImageUrl"
-              type="file"
-            />
-            <label
-              class="e1nbkkrq-el-label"
-              for="test-static-id"
-            >
-              Upload Other Listing Image
-            </label>
-            <p
-              class="e19twfs3-el-input-error"
-            >
-              An Error
-            </p>
-          </div>
+            An Error
+          </p>
         </div>
         <div
           class="e1ksxx4v-el-input-wrap"
         >
-          <div
-            class="e1979rmu-el-input-group"
+          <div />
+          <p
+            class="e19twfs3-el-input-error"
           >
-            <input
-              class="e1urjlvd-el-input"
-              id="test-static-id"
-              name="screen5ImageUrl"
-              type="file"
-            />
-            <label
-              class="e1nbkkrq-el-label"
-              for="test-static-id"
-            >
-              Upload Other Listing Image
-            </label>
-            <p
-              class="e19twfs3-el-input-error"
-            >
-              An Error
-            </p>
-          </div>
+            An Error
+          </p>
         </div>
       </div>
     </div>
@@ -1557,152 +1275,62 @@ Object {
       <div
         class="e1ksxx4v-el-input-wrap"
       >
-        <div
-          class="e1979rmu-el-input-group"
+        <div />
+        <p
+          class="e19twfs3-el-input-error"
         >
-          <input
-            class="e1urjlvd-el-input"
-            id="test-static-id"
-            name="iconImageUrl"
-            type="file"
-          />
-          <label
-            class="e1nbkkrq-el-label"
-            for="test-static-id"
-          >
-            Upload Icon Image
-          </label>
-          <p
-            class="e19twfs3-el-input-error"
-          >
-            An Error
-          </p>
-        </div>
+          An Error
+        </p>
       </div>
       <div
         class="e1ksxx4v-el-input-wrap"
       >
-        <div
-          class="e1979rmu-el-input-group"
+        <div />
+        <p
+          class="e19twfs3-el-input-error"
         >
-          <input
-            class="e1urjlvd-el-input"
-            id="test-static-id"
-            name="screen1ImageUrl"
-            type="file"
-          />
-          <label
-            class="e1nbkkrq-el-label"
-            for="test-static-id"
-          >
-            Upload Featured Image
-          </label>
-          <p
-            class="e19twfs3-el-input-error"
-          >
-            An Error
-          </p>
-        </div>
+          An Error
+        </p>
       </div>
       <div
         class="e1ksxx4v-el-input-wrap"
       >
-        <div
-          class="e1979rmu-el-input-group"
+        <div />
+        <p
+          class="e19twfs3-el-input-error"
         >
-          <input
-            class="e1urjlvd-el-input"
-            id="test-static-id"
-            name="screen2ImageUrl"
-            type="file"
-          />
-          <label
-            class="e1nbkkrq-el-label"
-            for="test-static-id"
-          >
-            Upload Other Listing Image
-          </label>
-          <p
-            class="e19twfs3-el-input-error"
-          >
-            An Error
-          </p>
-        </div>
+          An Error
+        </p>
       </div>
       <div
         class="e1ksxx4v-el-input-wrap"
       >
-        <div
-          class="e1979rmu-el-input-group"
+        <div />
+        <p
+          class="e19twfs3-el-input-error"
         >
-          <input
-            class="e1urjlvd-el-input"
-            id="test-static-id"
-            name="screen3ImageUrl"
-            type="file"
-          />
-          <label
-            class="e1nbkkrq-el-label"
-            for="test-static-id"
-          >
-            Upload Other Listing Image
-          </label>
-          <p
-            class="e19twfs3-el-input-error"
-          >
-            An Error
-          </p>
-        </div>
+          An Error
+        </p>
       </div>
       <div
         class="e1ksxx4v-el-input-wrap"
       >
-        <div
-          class="e1979rmu-el-input-group"
+        <div />
+        <p
+          class="e19twfs3-el-input-error"
         >
-          <input
-            class="e1urjlvd-el-input"
-            id="test-static-id"
-            name="screen4ImageUrl"
-            type="file"
-          />
-          <label
-            class="e1nbkkrq-el-label"
-            for="test-static-id"
-          >
-            Upload Other Listing Image
-          </label>
-          <p
-            class="e19twfs3-el-input-error"
-          >
-            An Error
-          </p>
-        </div>
+          An Error
+        </p>
       </div>
       <div
         class="e1ksxx4v-el-input-wrap"
       >
-        <div
-          class="e1979rmu-el-input-group"
+        <div />
+        <p
+          class="e19twfs3-el-input-error"
         >
-          <input
-            class="e1urjlvd-el-input"
-            id="test-static-id"
-            name="screen5ImageUrl"
-            type="file"
-          />
-          <label
-            class="e1nbkkrq-el-label"
-            for="test-static-id"
-          >
-            Upload Other Listing Image
-          </label>
-          <p
-            class="e19twfs3-el-input-error"
-          >
-            An Error
-          </p>
-        </div>
+          An Error
+        </p>
       </div>
     </div>
   </div>,

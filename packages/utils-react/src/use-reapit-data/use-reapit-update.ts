@@ -105,7 +105,7 @@ export const send =
         case UpdateReturnTypeEnum.RESPONSE:
           data = await response.json()
 
-          Promise.all([setData(data), setLoading(false), setSuccess(true)])
+          await Promise.all([setData(data), setLoading(false), setSuccess(true)])
           return data
         case UpdateReturnTypeEnum.LOCATION:
           location = response.headers.get('Location')
@@ -120,7 +120,7 @@ export const send =
 
           data = await fetchResponse.json()
 
-          Promise.all([setLoading(false), setSuccess(true), setData(data)])
+          await Promise.all([setLoading(false), setSuccess(true), setData(data)])
           break
         case UpdateReturnTypeEnum.NONE:
         default:
