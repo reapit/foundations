@@ -158,7 +158,7 @@ Object {
                   Please Select
                 </option>
                 <option
-                  value="SOME_ID"
+                  value="DXX"
                 >
                   SOME_NAME (Code: DXX)
                 </option>
@@ -323,7 +323,7 @@ Object {
                 Please Select
               </option>
               <option
-                value="SOME_ID"
+                value="DXX"
               >
                 SOME_NAME (Code: DXX)
               </option>

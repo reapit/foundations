@@ -73,8 +73,8 @@ export const FilterForm: FC<FilterFormProps> = ({ setUsageFilters, apps, install
           <InputGroup>
             <Select {...register('customerId')} disabled={!developerId || !month || !appId || !installations}>
               <option value="">Please Select</option>
-              {installations?.data?.map(({ customerId, customerName, id, client }) => (
-                <option key={id} value={customerId}>
+              {installations?.data?.map(({ customerName, id, client }) => (
+                <option key={id} value={client}>
                   {customerName} (Code: {client})
                 </option>
               ))}
