@@ -129,7 +129,7 @@ export const handleSetNewOptions =
   }
 
 export const handleDeleteGroup =
-  (deleteOfficeGroup: SendFunction<undefined, boolean>, onComplete: () => void) =>
+  (deleteOfficeGroup: SendFunction<undefined, boolean>, onComplete: () => void, closeModal: () => void) =>
   async (event: MouseEvent<HTMLButtonElement>) => {
     event.preventDefault()
     event.stopPropagation()
@@ -138,6 +138,7 @@ export const handleDeleteGroup =
 
     if (response) {
       onComplete()
+      closeModal()
     }
   }
 
@@ -258,7 +259,7 @@ export const OfficeGroupEditForm: FC<OfficeGroupEditFormProps> = ({ officeGroup,
         </BodyText>
         {hasInstallations && (
           <BodyText>
-            To uninstall, please visit <Link to={Routes.MARKETPLACE}>the marketplace page.</Link>
+            To uninstall, please visit <Link to={Routes.MARKETPLACE}>the AppMarket page.</Link>
           </BodyText>
         )}
         <ButtonGroup alignment="right">
@@ -266,7 +267,11 @@ export const OfficeGroupEditForm: FC<OfficeGroupEditFormProps> = ({ officeGroup,
             Close
           </Button>
           {!hasInstallations && (
-            <Button onClick={handleDeleteGroup(deleteOfficeGroup, onComplete)} intent="danger" type="button">
+            <Button
+              onClick={handleDeleteGroup(deleteOfficeGroup, onComplete, closeModal)}
+              intent="danger"
+              type="button"
+            >
               Delete
             </Button>
           )}
