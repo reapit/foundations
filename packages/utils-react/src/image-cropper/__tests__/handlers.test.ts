@@ -6,7 +6,6 @@ import {
   onChangeHandler,
   onCompleteHandler,
   onCropClickHandler,
-  onChangeUpImage,
 } from '../handlers'
 import { CompletedCrop } from '../types'
 import { generateBase64FromCanvas } from '../utils'
@@ -97,22 +96,14 @@ describe('onCropClickHandler', () => {
   })
 })
 
-describe('onChangeUpImage', () => {
-  it('should call setState correctly', () => {
-    const fn = onChangeUpImage({ setCrop: setStateMock, crop: completedCrop })
-    fn()
-    expect(setStateMock).toHaveBeenCalledWith(completedCrop)
-  })
-})
-
 describe('onCloseHandler', () => {
   it('should call setState correctly', () => {
     const setVisible = jest.fn()
-    const setUpImg = jest.fn()
+    const setFileName = jest.fn()
     const setCroppedImage = jest.fn()
-    const fn = onCloseHandler({ setVisible, setUpImg, setCroppedImage })
+    const fn = onCloseHandler({ setVisible, setFileName, setCroppedImage })
     fn()
-    expect(setUpImg).toHaveBeenCalledWith('')
+    expect(setFileName).toHaveBeenCalledWith('')
     expect(setCroppedImage).toHaveBeenCalledWith('')
     expect(setVisible).toHaveBeenCalledWith(false)
   })

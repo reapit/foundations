@@ -9,6 +9,10 @@ export const handleSetAppEditSaving = (setAppEditSaving: Dispatch<SetStateAction
   setAppEditSaving(true)
 }
 
+export const handleCancelPendingRevsion = () => () => {
+  console.log('Cancelling')
+}
+
 export const Helper: FC = () => {
   const location = useLocation()
   const { appId, appEditState, appsDataState, appTabsState } = useAppState()
@@ -29,6 +33,10 @@ export const Helper: FC = () => {
         {isListed && !appsDataState.appDetail?.isListed ? (
           <Button className={elMb3} intent="critical" onClick={handleSetAppEditSaving(setAppEditSaving)} chevronRight>
             Submit Review
+          </Button>
+        ) : isListed && appsDataState.appDetail?.pendingRevisions ? (
+          <Button className={elMb3} intent="critical" onClick={handleCancelPendingRevsion()} chevronRight>
+            Cancel Pending Revision
           </Button>
         ) : isListed ? (
           <Button className={elMb3} intent="critical" onClick={handleSetAppEditSaving(setAppEditSaving)} chevronRight>

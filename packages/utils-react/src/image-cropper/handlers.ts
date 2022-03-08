@@ -87,38 +87,27 @@ export const onCropClickHandler =
     onCropClick({ previewCanvasRef, completedCrop })
   }
 
-export const onChangeUpImage =
-  ({ setCrop, crop }: { setCrop: React.Dispatch<Crop>; crop: Crop }) =>
-  () => {
-    setCrop(crop)
-  }
-
 // ImageCropperWithInput's handlers
 export const onCloseHandler =
   ({
     setVisible,
-    setUpImg,
+    setFileName,
     setCroppedImage,
   }: {
     setVisible: React.Dispatch<boolean>
-    setUpImg: React.Dispatch<string>
-    setCroppedImage: React.Dispatch<string | null>
+    setFileName: React.Dispatch<string>
+    setCroppedImage: React.Dispatch<string>
   }) =>
   () => {
-    setUpImg('')
+    setFileName('')
     setCroppedImage('')
     setVisible(false)
   }
 
 export const onCropClick =
-  ({
-    setCroppedImage,
-    setVisible,
-  }: {
-    setCroppedImage: React.Dispatch<string | null>
-    setVisible: React.Dispatch<boolean>
-  }) =>
+  ({ setCroppedImage, setVisible }: { setCroppedImage: React.Dispatch<string>; setVisible: React.Dispatch<boolean> }) =>
   ({ previewCanvasRef, completedCrop }) => {
+    console.log(previewCanvasRef, completedCrop)
     const base64Data = generateBase64FromCanvas(previewCanvasRef.current, completedCrop)
     setCroppedImage(base64Data)
     setVisible(false)
