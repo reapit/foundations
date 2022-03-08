@@ -275,6 +275,12 @@ Object {
             class="el-button-group-align-right el-button-group-inner"
           >
             <button
+              class="el-intent-danger el-button"
+              type="button"
+            >
+              Delete
+            </button>
+            <button
               class="el-intent-primary el-button"
               type="submit"
             >
@@ -555,6 +561,12 @@ Object {
         <div
           class="el-button-group-align-right el-button-group-inner"
         >
+          <button
+            class="el-intent-danger el-button"
+            type="button"
+          >
+            Delete
+          </button>
           <button
             class="el-intent-primary el-button"
             type="submit"

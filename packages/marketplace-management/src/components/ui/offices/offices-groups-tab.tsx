@@ -55,8 +55,7 @@ export const getOfficeQueryFromGroups = (officeGroupModels?: OfficeGroupModel[])
 }
 
 export const handleSortTableData =
-  (officeGroups: OfficeGroupWithOfficesModel[], offices: OfficeModel[], orgId: string, onComplete: () => void) =>
-  (): RowProps[] => {
+  (officeGroups: OfficeGroupWithOfficesModel[], offices: OfficeModel[], onComplete: () => void) => (): RowProps[] => {
     return officeGroups.map((officeGroup: OfficeGroupWithOfficesModel) => ({
       cells: [
         {
@@ -82,9 +81,7 @@ export const handleSortTableData =
         },
       ],
       expandableContent: {
-        content: (
-          <EditOfficeGroupForm orgId={orgId} offices={offices} officeGroup={officeGroup} onComplete={onComplete} />
-        ),
+        content: <EditOfficeGroupForm offices={offices} officeGroup={officeGroup} onComplete={onComplete} />,
       },
     }))
   }
@@ -135,10 +132,7 @@ const OfficesGroupsTab: FC = () => {
     setIndexExpandedRow(null)
   }
 
-  const rows = useMemo(handleSortTableData(groupsWithOffices, offices, orgId ?? '', onComplete), [
-    groupsWithOffices,
-    offices,
-  ])
+  const rows = useMemo(handleSortTableData(groupsWithOffices, offices, onComplete), [groupsWithOffices, offices])
 
   return (
     <ErrorBoundary>

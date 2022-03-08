@@ -7579,6 +7579,15 @@ export interface EnquiryModelPagedResult {
   }
 }
 /**
+ * Any specific details relating to the marketing of a property in Guernsey
+ */
+export interface GuernseyModel {
+  /**
+   * Attributes describing which markets the property is available in (local/openA/openB/openC/openD)
+   */
+  market?: string[]
+}
+/**
  * Representation of a contact identity check
  */
 export interface IdentityCheckModel {
@@ -10197,6 +10206,7 @@ export interface Properties {
     | 'townhouse'
     | 'developmentPlot'
   )[]
+  market?: ('local' | 'openA' | 'openB' | 'openC' | 'openD')[]
   address?: string
   departmentId?: string
   bedroomsFrom?: number
@@ -11134,6 +11144,20 @@ export interface PropertyModel {
     floorLevel?: string[]
   }
   /**
+   * Details relating to the real estate market in specific countries. Child models are named based on the ISO3166 country code that the data inside the model relates to
+   */
+  regional?: {
+    /**
+     * Any specific details relating to the marketing of a property in Guernsey
+     */
+    ggy?: {
+      /**
+       * Attributes describing which markets the property is available in (local/openA/openB/openC/openD)
+       */
+      market?: string[]
+    }
+  }
+  /**
    * The attributes describing the overall type of the property (eg house, bungalow, land), as defined by the property's [department](https://foundations-documentation.reapit.cloud/platform-glossary#department)
    */
   type?: string[]
@@ -11728,6 +11752,20 @@ export interface PropertyModelPagedResult {
       floorLevel?: string[]
     }
     /**
+     * Details relating to the real estate market in specific countries. Child models are named based on the ISO3166 country code that the data inside the model relates to
+     */
+    regional?: {
+      /**
+       * Any specific details relating to the marketing of a property in Guernsey
+       */
+      ggy?: {
+        /**
+         * Attributes describing which markets the property is available in (local/openA/openB/openC/openD)
+         */
+        market?: string[]
+      }
+    }
+    /**
      * The attributes describing the overall type of the property (eg house, bungalow, land), as defined by the property's [department](https://foundations-documentation.reapit.cloud/platform-glossary#department)
      */
     type?: string[]
@@ -11824,6 +11862,20 @@ export interface PropertyModelPagedResult {
     [name: string]: {
       href?: string
     }
+  }
+}
+/**
+ * Details relating to the real estate market in specific countries. Child models are named based on the ISO3166 country code that the data inside the model relates to
+ */
+export interface PropertyRegionalModel {
+  /**
+   * Any specific details relating to the marketing of a property in Guernsey
+   */
+  ggy?: {
+    /**
+     * Attributes describing which markets the property is available in (local/openA/openB/openC/openD)
+     */
+    market?: string[]
   }
 }
 /**

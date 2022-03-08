@@ -107,7 +107,7 @@ const PipelineCreationModal = ({ open, onModalClose, appId, refreshPipeline }: P
         Sed lobortis egestas tellus placerat condimentum. Orci varius natoque penatibus et magnis dis parturient montes,
         nascetur ridiculus mus.
       </BodyText>
-      <form onSubmit={handleSubmit(pipelineCreateFormHandle(send, refreshPipeline, appId))}>
+      <form>
         <FormLayout hasMargin>
           <InputWrap>
             <InputGroup>
@@ -167,7 +167,11 @@ const PipelineCreationModal = ({ open, onModalClose, appId, refreshPipeline }: P
           </InputWrap>
         </FormLayout>
         <ButtonGroup alignment="right">
-          <Button loading={loading} intent={'primary'}>
+          <Button
+            onClick={handleSubmit(pipelineCreateFormHandle(send, refreshPipeline, appId))}
+            loading={loading}
+            intent={'primary'}
+          >
             Create
           </Button>
         </ButtonGroup>
@@ -205,7 +209,10 @@ export const CreatePipeline = ({ appId, refreshPipeline }: CreatePipelineInterfa
           <Button
             intent="primary"
             chevronRight
-            onClick={() => setModalOpen(true)}
+            onClick={(e) => {
+              e.preventDefault()
+              setModalOpen(true)
+            }}
             onMouseOver={() => {
               setNewPipelineAnimated(true)
             }}

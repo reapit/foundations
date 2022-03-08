@@ -27,6 +27,7 @@
     "@reapit/connect-session": "workspace:packages/connect-session",
     "@reapit/elements": "workspace:packages/elements",
     "@reapit/utils-common": "workspace:packages/utils-common",
+    "@reapit/utils-react": "workspace:packages/utils-react",
     "@sentry/browser": "^6.16.1",
     "dayjs": "^1.10.7",
     "just-debounce-it": "^1.5.0",
