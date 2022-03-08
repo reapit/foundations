@@ -12,6 +12,7 @@ import {
   elHasNoMargin,
   elHasCenteredText,
   elHasSectionMargin,
+  elHasDisabledText,
 } from './__styles__'
 
 export interface TypographyProps extends HTMLAttributes<HTMLElement> {
@@ -22,6 +23,7 @@ export interface TypographyProps extends HTMLAttributes<HTMLElement> {
   hasItalicText?: boolean
   hasCenteredText?: boolean
   hasRegularText?: boolean
+  hasDisabledText?: boolean
 }
 
 export const Title: FC<TypographyProps> = ({
@@ -33,6 +35,7 @@ export const Title: FC<TypographyProps> = ({
   hasNoMargin,
   hasSectionMargin,
   hasCenteredText,
+  hasDisabledText,
   ...rest
 }) => {
   return (
@@ -45,6 +48,7 @@ export const Title: FC<TypographyProps> = ({
         hasNoMargin && elHasNoMargin,
         hasSectionMargin && elHasSectionMargin,
         hasCenteredText && elHasCenteredText,
+        hasDisabledText && elHasDisabledText,
       )}
       {...rest}
     >
@@ -62,6 +66,7 @@ export const Subtitle: FC<TypographyProps> = ({
   hasNoMargin,
   hasSectionMargin,
   hasCenteredText,
+  hasDisabledText,
   ...rest
 }) => {
   return (
@@ -74,6 +79,7 @@ export const Subtitle: FC<TypographyProps> = ({
         hasNoMargin && elHasNoMargin,
         hasSectionMargin && elHasSectionMargin,
         hasCenteredText && elHasCenteredText,
+        hasDisabledText && elHasDisabledText,
       )}
       {...rest}
     >
@@ -91,6 +97,7 @@ export const BodyText: FC<TypographyProps> = ({
   hasNoMargin,
   hasSectionMargin,
   hasCenteredText,
+  hasDisabledText,
   ...rest
 }) => {
   return (
@@ -103,6 +110,7 @@ export const BodyText: FC<TypographyProps> = ({
         hasNoMargin && elHasNoMargin,
         hasSectionMargin && elHasSectionMargin,
         hasCenteredText && elHasCenteredText,
+        hasDisabledText && elHasDisabledText,
       )}
       {...rest}
     >
@@ -120,6 +128,7 @@ export const SmallText: FC<TypographyProps> = ({
   hasNoMargin,
   hasSectionMargin,
   hasCenteredText,
+  hasDisabledText,
   ...rest
 }) => {
   return (
@@ -132,6 +141,7 @@ export const SmallText: FC<TypographyProps> = ({
         hasNoMargin && elHasNoMargin,
         hasSectionMargin && elHasSectionMargin,
         hasCenteredText && elHasCenteredText,
+        hasDisabledText && elHasDisabledText,
       )}
       {...rest}
     >

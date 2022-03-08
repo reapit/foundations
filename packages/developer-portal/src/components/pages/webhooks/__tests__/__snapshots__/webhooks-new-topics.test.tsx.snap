@@ -9,7 +9,7 @@ Object {
         class="ecbqyq6-el-snack-holder"
       />
       <p
-        class="e11jaxfn-el-has-grey-text etrchfm-el-has-section-margin e1byern-el-body-text"
+        class="e11jaxfn-el-has-grey-text etrchfm-el-has-section-margin e15ggth7-el-body-text"
       >
         Select topics for your webhook from the list below to allow your application to receive real-time notifications about the topics you choose to subscribe to. A single webhook subscription can receive notifications for multiple topics so long as your application has been granted the required permissions.
       </p>
@@ -97,7 +97,7 @@ Object {
       class="ecbqyq6-el-snack-holder"
     />
     <p
-      class="e11jaxfn-el-has-grey-text etrchfm-el-has-section-margin e1byern-el-body-text"
+      class="e11jaxfn-el-has-grey-text etrchfm-el-has-section-margin e15ggth7-el-body-text"
     >
       Select topics for your webhook from the list below to allow your application to receive real-time notifications about the topics you choose to subscribe to. A single webhook subscription can receive notifications for multiple topics so long as your application has been granted the required permissions.
     </p>
@@ -242,7 +242,7 @@ Object {
         class="ecbqyq6-el-snack-holder"
       />
       <p
-        class="e11jaxfn-el-has-grey-text etrchfm-el-has-section-margin e1byern-el-body-text"
+        class="e11jaxfn-el-has-grey-text etrchfm-el-has-section-margin e15ggth7-el-body-text"
       >
         Select topics for your webhook from the list below to allow your application to receive real-time notifications about the topics you choose to subscribe to. A single webhook subscription can receive notifications for multiple topics so long as your application has been granted the required permissions.
       </p>
@@ -330,7 +330,7 @@ Object {
       class="ecbqyq6-el-snack-holder"
     />
     <p
-      class="e11jaxfn-el-has-grey-text etrchfm-el-has-section-margin e1byern-el-body-text"
+      class="e11jaxfn-el-has-grey-text etrchfm-el-has-section-margin e15ggth7-el-body-text"
     >
       Select topics for your webhook from the list below to allow your application to receive real-time notifications about the topics you choose to subscribe to. A single webhook subscription can receive notifications for multiple topics so long as your application has been granted the required permissions.
     </p>

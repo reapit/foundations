@@ -9,10 +9,45 @@ Object {
         class="ecbqyq6-el-snack-holder"
       />
       <h1
-        class="e2dm5rh-el-title"
+        class="evblxhy-el-title"
       >
         will-test-dev-co-voracious-person
       </h1>
+      <h2
+        class="e1byern-el-subtitle"
+      >
+        Authenticating Your App
+      </h2>
+      <p
+        class="e11jaxfn-el-has-grey-text e15ggth7-el-body-text"
+      >
+        Client Side Apps use our identity provider
+         
+        <a>
+          Reapit Connect
+        </a>
+         to authenticate against our API. Your application will need to re-direct to Reapit Connect where we will handle user login and in turn, re-direct back to your app with a code in the url that you exchange for access and id JWTs, referred to as
+         
+        <a>
+          Authorization Code flow.
+        </a>
+         You will need the Client Id and Redirect Uris below to configure Reapit Connect.
+      </p>
+      <p
+        class="e11jaxfn-el-has-grey-text etrchfm-el-has-section-margin e15ggth7-el-body-text"
+      >
+        To make this process easier, we provide you with an authentication module for client-side apps,
+         
+        <a>
+          Connect Session
+        </a>
+        , which comes bundled with our
+         
+        <a>
+          Create React App Template
+        </a>
+         for quick start client-side development.
+      </p>
       <div
         class="e20pb60-el-grid"
       >
@@ -48,12 +83,12 @@ Object {
             </span>
             <div>
               <h2
-                class="ewfctk4-el-has-no-margin evblxhy-el-subtitle"
+                class="ewfctk4-el-has-no-margin e1byern-el-subtitle"
               >
                 Authentication Client Id
               </h2>
               <p
-                class="e11jaxfn-el-has-grey-text e1byern-el-body-text"
+                class="e11jaxfn-el-has-grey-text e15ggth7-el-body-text"
               >
                 MOCK_EXTERNAL_ID
               </p>
@@ -106,12 +141,12 @@ Object {
             </span>
             <div>
               <h2
-                class="ewfctk4-el-has-no-margin evblxhy-el-subtitle"
+                class="ewfctk4-el-has-no-margin e1byern-el-subtitle"
               >
                 Authentication Client Secret
               </h2>
               <p
-                class="e11jaxfn-el-has-grey-text e1byern-el-body-text"
+                class="e11jaxfn-el-has-grey-text e15ggth7-el-body-text"
               >
                 MOCK_EXTERNAL_ID
               </p>
@@ -224,12 +259,12 @@ Object {
             </span>
             <div>
               <h2
-                class="ewfctk4-el-has-no-margin evblxhy-el-subtitle"
+                class="ewfctk4-el-has-no-margin e1byern-el-subtitle"
               >
                 App Id
               </h2>
               <p
-                class="e11jaxfn-el-has-grey-text e1byern-el-body-text"
+                class="e11jaxfn-el-has-grey-text e15ggth7-el-body-text"
               >
                 MOCK_APP_ID
               </p>
@@ -245,12 +280,12 @@ Object {
           class="e14pp0yd-el-col"
         >
           <h2
-            class="ewfctk4-el-has-no-margin evblxhy-el-subtitle"
+            class="ewfctk4-el-has-no-margin e1byern-el-subtitle"
           >
             Redirect Uri(s)
           </h2>
           <p
-            class="e11jaxfn-el-has-grey-text ewfctk4-el-has-no-margin e1byern-el-body-text"
+            class="e11jaxfn-el-has-grey-text ewfctk4-el-has-no-margin e15ggth7-el-body-text"
           >
             https://foo.bar
           </p>
@@ -259,12 +294,12 @@ Object {
           class="e14pp0yd-el-col"
         >
           <h2
-            class="ewfctk4-el-has-no-margin evblxhy-el-subtitle"
+            class="ewfctk4-el-has-no-margin e1byern-el-subtitle"
           >
             Sign Out Uri(s)
           </h2>
           <p
-            class="e11jaxfn-el-has-grey-text ewfctk4-el-has-no-margin e1byern-el-body-text"
+            class="e11jaxfn-el-has-grey-text ewfctk4-el-has-no-margin e15ggth7-el-body-text"
           >
             https://foo.bar
           </p>
@@ -276,12 +311,12 @@ Object {
             class="e14pp0yd-el-col"
           >
             <h2
-              class="ewfctk4-el-has-no-margin evblxhy-el-subtitle"
+              class="ewfctk4-el-has-no-margin e1byern-el-subtitle"
             >
               Integration Type
             </h2>
             <p
-              class="e11jaxfn-el-has-grey-text ewfctk4-el-has-no-margin e1byern-el-body-text"
+              class="e11jaxfn-el-has-grey-text ewfctk4-el-has-no-margin e15ggth7-el-body-text"
             >
               You have a client side authenticated integration that will not render within the AgencyCloud desktop CRM
             </p>
@@ -294,12 +329,12 @@ Object {
             class="e14pp0yd-el-col"
           >
             <h2
-              class="ewfctk4-el-has-no-margin evblxhy-el-subtitle"
+              class="ewfctk4-el-has-no-margin e1byern-el-subtitle"
             >
               App Status
             </h2>
             <p
-              class="e11jaxfn-el-has-grey-text ewfctk4-el-has-no-margin e1byern-el-body-text"
+              class="e11jaxfn-el-has-grey-text ewfctk4-el-has-no-margin e15ggth7-el-body-text"
             >
               Your app is live and public in the AppMarket with a pending revision under review
             </p>
@@ -309,7 +344,7 @@ Object {
           class="e14pp0yd-el-col"
         >
           <h2
-            class="ewfctk4-el-has-no-margin evblxhy-el-subtitle"
+            class="ewfctk4-el-has-no-margin e1byern-el-subtitle"
           >
             Permissions
           </h2>
@@ -337,10 +372,45 @@ Object {
       class="ecbqyq6-el-snack-holder"
     />
     <h1
-      class="e2dm5rh-el-title"
+      class="evblxhy-el-title"
     >
       will-test-dev-co-voracious-person
     </h1>
+    <h2
+      class="e1byern-el-subtitle"
+    >
+      Authenticating Your App
+    </h2>
+    <p
+      class="e11jaxfn-el-has-grey-text e15ggth7-el-body-text"
+    >
+      Client Side Apps use our identity provider
+       
+      <a>
+        Reapit Connect
+      </a>
+       to authenticate against our API. Your application will need to re-direct to Reapit Connect where we will handle user login and in turn, re-direct back to your app with a code in the url that you exchange for access and id JWTs, referred to as
+       
+      <a>
+        Authorization Code flow.
+      </a>
+       You will need the Client Id and Redirect Uris below to configure Reapit Connect.
+    </p>
+    <p
+      class="e11jaxfn-el-has-grey-text etrchfm-el-has-section-margin e15ggth7-el-body-text"
+    >
+      To make this process easier, we provide you with an authentication module for client-side apps,
+       
+      <a>
+        Connect Session
+      </a>
+      , which comes bundled with our
+       
+      <a>
+        Create React App Template
+      </a>
+       for quick start client-side development.
+    </p>
     <div
       class="e20pb60-el-grid"
     >
@@ -376,12 +446,12 @@ Object {
           </span>
           <div>
             <h2
-              class="ewfctk4-el-has-no-margin evblxhy-el-subtitle"
+              class="ewfctk4-el-has-no-margin e1byern-el-subtitle"
             >
               Authentication Client Id
             </h2>
             <p
-              class="e11jaxfn-el-has-grey-text e1byern-el-body-text"
+              class="e11jaxfn-el-has-grey-text e15ggth7-el-body-text"
             >
               MOCK_EXTERNAL_ID
             </p>
@@ -434,12 +504,12 @@ Object {
           </span>
           <div>
             <h2
-              class="ewfctk4-el-has-no-margin evblxhy-el-subtitle"
+              class="ewfctk4-el-has-no-margin e1byern-el-subtitle"
             >
               Authentication Client Secret
             </h2>
             <p
-              class="e11jaxfn-el-has-grey-text e1byern-el-body-text"
+              class="e11jaxfn-el-has-grey-text e15ggth7-el-body-text"
             >
               MOCK_EXTERNAL_ID
             </p>
@@ -552,12 +622,12 @@ Object {
           </span>
           <div>
             <h2
-              class="ewfctk4-el-has-no-margin evblxhy-el-subtitle"
+              class="ewfctk4-el-has-no-margin e1byern-el-subtitle"
             >
               App Id
             </h2>
             <p
-              class="e11jaxfn-el-has-grey-text e1byern-el-body-text"
+              class="e11jaxfn-el-has-grey-text e15ggth7-el-body-text"
             >
               MOCK_APP_ID
             </p>
@@ -573,12 +643,12 @@ Object {
         class="e14pp0yd-el-col"
       >
         <h2
-          class="ewfctk4-el-has-no-margin evblxhy-el-subtitle"
+          class="ewfctk4-el-has-no-margin e1byern-el-subtitle"
         >
           Redirect Uri(s)
         </h2>
         <p
-          class="e11jaxfn-el-has-grey-text ewfctk4-el-has-no-margin e1byern-el-body-text"
+          class="e11jaxfn-el-has-grey-text ewfctk4-el-has-no-margin e15ggth7-el-body-text"
         >
           https://foo.bar
         </p>
@@ -587,12 +657,12 @@ Object {
         class="e14pp0yd-el-col"
       >
         <h2
-          class="ewfctk4-el-has-no-margin evblxhy-el-subtitle"
+          class="ewfctk4-el-has-no-margin e1byern-el-subtitle"
         >
           Sign Out Uri(s)
         </h2>
         <p
-          class="e11jaxfn-el-has-grey-text ewfctk4-el-has-no-margin e1byern-el-body-text"
+          class="e11jaxfn-el-has-grey-text ewfctk4-el-has-no-margin e15ggth7-el-body-text"
         >
           https://foo.bar
         </p>
@@ -604,12 +674,12 @@ Object {
           class="e14pp0yd-el-col"
         >
           <h2
-            class="ewfctk4-el-has-no-margin evblxhy-el-subtitle"
+            class="ewfctk4-el-has-no-margin e1byern-el-subtitle"
           >
             Integration Type
           </h2>
           <p
-            class="e11jaxfn-el-has-grey-text ewfctk4-el-has-no-margin e1byern-el-body-text"
+            class="e11jaxfn-el-has-grey-text ewfctk4-el-has-no-margin e15ggth7-el-body-text"
           >
             You have a client side authenticated integration that will not render within the AgencyCloud desktop CRM
           </p>
@@ -622,12 +692,12 @@ Object {
           class="e14pp0yd-el-col"
         >
           <h2
-            class="ewfctk4-el-has-no-margin evblxhy-el-subtitle"
+            class="ewfctk4-el-has-no-margin e1byern-el-subtitle"
           >
             App Status
           </h2>
           <p
-            class="e11jaxfn-el-has-grey-text ewfctk4-el-has-no-margin e1byern-el-body-text"
+            class="e11jaxfn-el-has-grey-text ewfctk4-el-has-no-margin e15ggth7-el-body-text"
           >
             Your app is live and public in the AppMarket with a pending revision under review
           </p>
@@ -637,7 +707,7 @@ Object {
         class="e14pp0yd-el-col"
       >
         <h2
-          class="ewfctk4-el-has-no-margin evblxhy-el-subtitle"
+          class="ewfctk4-el-has-no-margin e1byern-el-subtitle"
         >
           Permissions
         </h2>

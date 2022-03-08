@@ -36,6 +36,7 @@ import {
   SCREENSHOT_DIMENSIONS,
   SCREENSHOT_RATIO,
 } from './constants'
+import { ExternalPages, openNewPage } from '../../../../utils/navigation'
 
 export const handlePreviewImage =
   (setPreviewImage: Dispatch<SetStateAction<string | null>>, openModal: () => void) => (previewImage: string) => {
@@ -103,10 +104,15 @@ export const AppListingTab: FC<AppEditTabsProps> = ({ register, errors, control,
   return (
     <>
       <Subtitle>App Listing</Subtitle>
+      <BodyText hasGreyText>
+        The detail included on this page populates your app listing in the AppMarket. While you are in development, you
+        can complete this in your own time however, when you are ready to sumbit your app for approval, it all needs to
+        be completed.
+      </BodyText>
       <BodyText hasGreyText hasSectionMargin>
-        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur non pulvinar tellus, quis pulvinar dui. Nunc
-        enim libero, ullamcorper ac ex id, tincidunt dapibus lectus. Vestibulum at porta quam, ac condimentum dui. Duis
-        ornare enim sed magna tincidunt volutpat.
+        For information on listing your app <a onClick={openNewPage(ExternalPages.listingAppDocs)}>see here</a>. If you
+        are looking for guidance on what we look for when reviewing app, there is a dedicated page{' '}
+        <a onClick={openNewPage(ExternalPages.reviewingAppDocs)}>here.</a>
       </BodyText>
       <FormLayout hasMargin>
         <InputWrap>

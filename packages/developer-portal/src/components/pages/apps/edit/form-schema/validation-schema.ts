@@ -115,10 +115,7 @@ export const appEditValidationSchema = object().shape({
         .required(FIELD_REQUIRED)
         .min(150, errorMessages.BETWEEN_MIN_MAX_CHARACTER_LENGTH(150, 1500))
         .max(1500, errorMessages.BETWEEN_MIN_MAX_CHARACTER_LENGTH(150, 1500)),
-      otherwise: string()
-        .notRequired()
-        .min(150, errorMessages.BETWEEN_MIN_MAX_CHARACTER_LENGTH(150, 1500))
-        .max(1500, errorMessages.BETWEEN_MIN_MAX_CHARACTER_LENGTH(150, 1500)),
+      otherwise: string().notRequired(),
     }),
 
   [summary.name]: string()
@@ -130,10 +127,7 @@ export const appEditValidationSchema = object().shape({
         .required(FIELD_REQUIRED)
         .min(50, errorMessages.BETWEEN_MIN_MAX_CHARACTER_LENGTH(50, 150))
         .max(150, errorMessages.BETWEEN_MIN_MAX_CHARACTER_LENGTH(50, 150)),
-      otherwise: string()
-        .notRequired()
-        .min(50, errorMessages.BETWEEN_MIN_MAX_CHARACTER_LENGTH(50, 150))
-        .max(150, errorMessages.BETWEEN_MIN_MAX_CHARACTER_LENGTH(50, 150)),
+      otherwise: string().notRequired(),
     }),
 
   [authFlow.name]: string().trim().required(FIELD_REQUIRED).oneOf([USER_SESSION, CLIENT_SECRET]),

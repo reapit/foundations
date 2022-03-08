@@ -217,9 +217,6 @@ export const Register: FC<RegisterProps> = () => {
                 isSubmitting={isSubmitting}
               />
               <ButtonGroup alignment="center" className={elMb12}>
-                <Button onClick={onLoginButtonClick()} intent="primary" size={3}>
-                  Login With Reapit
-                </Button>
                 <Button type="submit" loading={isSubmitting} intent="critical" chevronRight size={3}>
                   Register
                 </Button>

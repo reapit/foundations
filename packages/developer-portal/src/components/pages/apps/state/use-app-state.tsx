@@ -28,6 +28,7 @@ export interface AppsDataState {
   appDetail: AppDetailModel | null
   appDetailLoading: boolean
   appsRefresh: (queryParams?: Object | undefined) => void
+  appsDetailRefresh: (queryParams?: Object | undefined) => void
 }
 
 export interface AppEditState {
@@ -75,7 +76,7 @@ export const AppProvider: FC = ({ children }) => {
     fetchWhenTrue: [developerId],
   })
 
-  const [appDetail, appDetailLoading] = useReapitGet<AppDetailModel>({
+  const [appDetail, appDetailLoading, , appsDetailRefresh] = useReapitGet<AppDetailModel>({
     reapitConnectBrowserSession,
     action: getActions(window.reapit.config.appEnv)[GetActionNames.getAppById],
     uriParams: { appId },
@@ -93,6 +94,7 @@ export const AppProvider: FC = ({ children }) => {
     appDetail,
     appDetailLoading,
     appsRefresh,
+    appsDetailRefresh,
   }
 
   const appEditState: AppEditState = {

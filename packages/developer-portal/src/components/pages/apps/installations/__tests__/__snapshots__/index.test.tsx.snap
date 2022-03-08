@@ -9,10 +9,19 @@ Object {
         class="ecbqyq6-el-snack-holder"
       />
       <h1
-        class="e2dm5rh-el-title"
+        class="evblxhy-el-title"
       >
         Installations
       </h1>
+      <p
+        class="e11jaxfn-el-has-grey-text etrchfm-el-has-section-margin e15ggth7-el-body-text"
+      >
+        The table below gives you the information you need to understand Reapit Client organisations that have installed your application for use. In addition, you can force terminate a customer installation by using the call to action on each row. For more information on the installations table
+        <a>
+           see here
+        </a>
+        .
+      </p>
       <div
         class="ec47sgk-el-mb11 elkdvoz-el-table"
         data-has-call-to-action="true"
@@ -246,10 +255,19 @@ Object {
       class="ecbqyq6-el-snack-holder"
     />
     <h1
-      class="e2dm5rh-el-title"
+      class="evblxhy-el-title"
     >
       Installations
     </h1>
+    <p
+      class="e11jaxfn-el-has-grey-text etrchfm-el-has-section-margin e15ggth7-el-body-text"
+    >
+      The table below gives you the information you need to understand Reapit Client organisations that have installed your application for use. In addition, you can force terminate a customer installation by using the call to action on each row. For more information on the installations table
+      <a>
+         see here
+      </a>
+      .
+    </p>
     <div
       class="ec47sgk-el-mb11 elkdvoz-el-table"
       data-has-call-to-action="true"
@@ -540,7 +558,7 @@ Object {
         class="ecbqyq6-el-snack-holder"
       />
       <h1
-        class="e2dm5rh-el-title"
+        class="evblxhy-el-title"
       >
         Installations
       </h1>
@@ -562,7 +580,7 @@ Object {
       class="ecbqyq6-el-snack-holder"
     />
     <h1
-      class="e2dm5rh-el-title"
+      class="evblxhy-el-title"
     >
       Installations
     </h1>
@@ -641,7 +659,7 @@ Object {
         class="ecbqyq6-el-snack-holder"
       />
       <h1
-        class="e2dm5rh-el-title"
+        class="evblxhy-el-title"
       >
         Installations
       </h1>
@@ -671,7 +689,7 @@ Object {
         <div
           class="e1mwx0ir-el-pn-content"
         >
-          No installations for thie application.
+          No installations for the application.
         </div>
       </div>
     </div>
@@ -681,7 +699,7 @@ Object {
       class="ecbqyq6-el-snack-holder"
     />
     <h1
-      class="e2dm5rh-el-title"
+      class="evblxhy-el-title"
     >
       Installations
     </h1>
@@ -711,7 +729,7 @@ Object {
       <div
         class="e1mwx0ir-el-pn-content"
       >
-        No installations for thie application.
+        No installations for the application.
       </div>
     </div>
   </div>,
@@ -778,7 +796,7 @@ Object {
         class="ecbqyq6-el-snack-holder"
       />
       <h1
-        class="e2dm5rh-el-title"
+        class="evblxhy-el-title"
       >
         Installations
       </h1>
@@ -789,7 +807,7 @@ Object {
       class="ecbqyq6-el-snack-holder"
     />
     <h1
-      class="e2dm5rh-el-title"
+      class="evblxhy-el-title"
     >
       Installations
     </h1>

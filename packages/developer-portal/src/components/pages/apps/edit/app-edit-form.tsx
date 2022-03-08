@@ -29,6 +29,8 @@ export const handleSetAppSubmitting =
     createAppRevision: SendFunction<CreateAppRevisionModel, boolean | AppDetailModel>,
     history: History,
     appId: string,
+    appsRefresh: () => void,
+    appsDetailRefresh: () => void,
   ) =>
   () => {
     if (appEditSaving) {
@@ -40,6 +42,8 @@ export const handleSetAppSubmitting =
         setAppEditSaving(false)
 
         if (appRevision) {
+          appsRefresh()
+          appsDetailRefresh()
           history.push(`${Routes.APPS}/${appId}`)
         }
       })()
@@ -84,9 +88,10 @@ export const handleSetTabsState =
 
 export const AppEditForm: FC<AppEditFormProps> = ({ tab }) => {
   const { appId } = useParams<AppUriParams>()
-  const { appEditState, setAppId, setAppTabsState } = useAppState()
+  const { appEditState, setAppId, setAppTabsState, appsDataState } = useAppState()
   const history = useHistory()
   const { appEditForm, setAppEditSaving, appEditSaving } = appEditState
+  const { appsRefresh, appsDetailRefresh } = appsDataState
 
   const [, , createAppRevision] = useReapitUpdate<CreateAppRevisionModel, AppDetailModel>({
     reapitConnectBrowserSession,
@@ -135,9 +140,19 @@ export const AppEditForm: FC<AppEditFormProps> = ({ tab }) => {
     isListed,
   ])
   useEffect(handleSetAppId(appId, setAppId), [appId])
-  useEffect(handleSetAppSubmitting(setAppEditSaving, appEditSaving, handleSubmit, createAppRevision, history, appId), [
-    appEditSaving,
-  ])
+  useEffect(
+    handleSetAppSubmitting(
+      setAppEditSaving,
+      appEditSaving,
+      handleSubmit,
+      createAppRevision,
+      history,
+      appId,
+      appsRefresh,
+      appsDetailRefresh,
+    ),
+    [appEditSaving],
+  )
 
   return (
     <form>
