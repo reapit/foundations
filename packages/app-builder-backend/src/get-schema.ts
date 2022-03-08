@@ -1,7 +1,9 @@
 import { buildSchema } from 'type-graphql'
 import { stitchSchemas } from '@graphql-tools/stitch'
-import { GraphQLSchema } from 'graphql'
+import { GraphQLResolveInfo, GraphQLSchema } from 'graphql'
 import { makeExecutableSchema } from '@graphql-tools/schema'
+import { delegateToSchema } from '@graphql-tools/delegate'
+
 import Pluralize from 'pluralize'
 
 import { AppResolver } from './resolvers/app-resolver'
@@ -25,6 +27,7 @@ import {
 import { notEmpty } from './utils/helpers'
 import { CustomEntityResolver } from './resolvers/custom-entity-resolver'
 import { CustomEntity, CustomEntityField } from './entities/custom-entity'
+import { extractMetadata, isIdEntityType } from './utils/extract-metadata'
 
 const customEntityFieldTypeToGraphQLType = (fieldType: CustomEntityField['type']) => {
   switch (fieldType) {
@@ -188,10 +191,36 @@ const generateMutations = (typeName: string, inputTypeName: string): { mutations
   }
 }
 
+const delegationResolver = (baseSchema: GraphQLSchema) => (root, args, context, info) => {
+  if (!context) {
+    throw new Error('no context')
+  }
+  const [argName, argValue] = Object.entries(args).filter(([name]) => name !== 'id')[0]
+  if (!isIdEntityType(argName)) {
+    throw new Error('no id')
+  }
+  const { metadata, ...cleanObj } = extractMetadata(context, argName, argValue)
+  context.operationMetadata[argName] = metadata
+  return delegateToSchema({
+    schema: baseSchema,
+    operation: info.operation.operation,
+    fieldName: info.fieldName,
+    args: { [argName]: cleanObj },
+    context,
+    info,
+  })
+}
+
+type Resolver = (root: any, args: any, context: Context, info: GraphQLResolveInfo) => void
+
 const generateDynamicSchema = (
   baseSchema: GraphQLSchema,
   context?: Context,
-): { schema: GraphQLSchema | undefined; extendedTypedefs: string } => {
+): {
+  schema: GraphQLSchema | undefined
+  extendedTypedefs: string
+  resolvers: Record<string, Record<string, Resolver>>
+} => {
   let typeDefs = ''
   const resolvers = {
     Query: {},
@@ -201,6 +230,8 @@ const generateDynamicSchema = (
   let mutation = ''
 
   let extendedTypedefs = ''
+
+  const Mutation: Record<string, Resolver> = {}
 
   if (context?.customEntities) {
     context.customEntities
@@ -215,6 +246,10 @@ const generateDynamicSchema = (
             .join(`extend input ${inputTypeName}`)
             .split('id: ID!')
             .join('')
+          const createName = `create${typeName}`
+          Mutation[createName] = delegationResolver(baseSchema)
+          const updateName = `update${typeName}`
+          Mutation[updateName] = delegationResolver(baseSchema)
         } else {
           typeDefs += typeDefinitions.split(`type ${typeName}`).join(`\n"@supportsCustomFields()"\ntype ${typeName}`)
 
@@ -244,10 +279,13 @@ const generateDynamicSchema = (
   return {
     schema,
     extendedTypedefs,
+    resolvers: {
+      Mutation,
+    },
   }
 }
 
-export const getSchema = async (context?: Context) => {
+export const getSchema = async (context?: Context): Promise<GraphQLSchema> => {
   const baseSchema = await buildSchema({
     resolvers: [
       BookResolver,
@@ -266,7 +304,7 @@ export const getSchema = async (context?: Context) => {
 
   const subschemas = [{ schema: baseSchema }]
 
-  const { schema, extendedTypedefs } = generateDynamicSchema(baseSchema, context)
+  const { schema, extendedTypedefs, resolvers } = generateDynamicSchema(baseSchema, context)
 
   if (schema) {
     subschemas.push({
@@ -277,6 +315,7 @@ export const getSchema = async (context?: Context) => {
   const schemas = stitchSchemas({
     subschemas,
     typeDefs: extendedTypedefs,
+    resolvers,
   })
 
   return schemas

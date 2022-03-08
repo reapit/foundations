@@ -1,15 +1,16 @@
 import 'reflect-metadata'
-import { ExtendedApolloServerExpress } from './extended-apollo-server'
 import express from 'express'
 import http from 'http'
 import cors from 'cors'
 import { ApolloServerPluginDrainHttpServer } from 'apollo-server-core'
 
+import { ExtendedApolloServerExpress } from './extended-apollo-server'
 import { Context } from './types'
 import { ensureTables } from './ddb'
 import { getSchema } from './get-schema'
 import { CustomEntity } from './entities/custom-entity'
 import { getCustomEntities } from './custom-entites'
+import { MetadataSchemaType } from './utils/extract-metadata'
 
 const parseContext = async ({ req }): Promise<Context> => {
   const context = {
@@ -21,13 +22,14 @@ const parseContext = async ({ req }): Promise<Context> => {
 
   let customEntities: CustomEntity[] = []
 
-  if (context.accessToken) {
+  if (context.appId) {
     customEntities = await getCustomEntities(context.appId)
   }
 
   return {
     ...context,
     customEntities,
+    operationMetadata: {} as Record<MetadataSchemaType, any>,
   }
 }
 
@@ -43,6 +45,10 @@ const start = async () => {
     context: parseContext,
     plugins: [ApolloServerPluginDrainHttpServer({ httpServer })],
     schemaCallback: (req) => parseContext({ req }).then(getSchema),
+    formatError: (error) => {
+      console.log(error)
+      return error
+    },
   })
 
   await server.start()

@@ -5,6 +5,7 @@ import { Context } from './types'
 import { getSchema } from './get-schema'
 import { ExtendedApolloServerLambda } from './extended-apollo-server'
 import { getCustomEntities } from './custom-entites'
+import { MetadataSchemaType } from './utils/extract-metadata'
 
 const lowerCaseKeys = (obj: Record<string, string | undefined>): Record<string, string> => {
   const newObj = {}
@@ -28,11 +29,16 @@ const createHandler = async (event: APIGatewayEvent) => {
     accessToken,
     customEntities: appId ? await getCustomEntities(appId).catch(() => []) : [],
     appId,
+    operationMetadata: {} as Record<MetadataSchemaType, any>,
   }
   const server = new ExtendedApolloServerLambda({
     schema: await getSchema(),
     context,
     schemaCallback: () => getSchema(context),
+    formatError: (error) => {
+      console.log(error)
+      return error
+    },
   })
 
   return server.createHandler()

@@ -1,4 +1,5 @@
 import { CustomEntity } from './entities/custom-entity'
+import { MetadataSchemaType } from './utils/extract-metadata'
 
 export type Context = {
   accessToken: string
@@ -6,4 +7,5 @@ export type Context = {
   apiUrl: string
   customEntities: CustomEntity[]
   appId?: string
+  operationMetadata: Record<MetadataSchemaType, any>
 }

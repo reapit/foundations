@@ -1,7 +1,7 @@
 import { gql } from 'apollo-server-core'
 import { Arg, Authorized, Ctx, Mutation, Query, Resolver } from 'type-graphql'
 
-import { extractMetadata } from '../utils/extract-metadata'
+import { MetadataSchemaType } from '../utils/extract-metadata'
 import { Contact, ContactFragment, ContactInput } from '../entities/contact'
 import { Context } from '../types'
 import { query } from '../utils/graphql-fetch'
@@ -91,6 +91,8 @@ const searchContacts = async (queryStr: string, accessToken: string, idToken: st
   })
 }
 
+const entityName: MetadataSchemaType = 'contact'
+
 @Resolver(() => Contact)
 export class ContactResolver {
   @Authorized()
@@ -128,13 +130,10 @@ export class ContactResolver {
 
   @Authorized()
   @Mutation(() => Contact)
-  async createContact(@Ctx() context: Context, @Arg('contact') contact: ContactInput): Promise<Contact> {
-    const { accessToken, idToken } = context
-    const newContact = await createContact(
-      extractMetadata<ContactInput>(context, 'contact', contact),
-      accessToken,
-      idToken,
-    )
+  async createContact(@Ctx() context: Context, @Arg(entityName) contact: ContactInput): Promise<Contact> {
+    const { accessToken, idToken, operationMetadata } = context
+    const { [entityName]: metadata } = operationMetadata
+    const newContact = await createContact({ ...contact, metadata }, accessToken, idToken)
     return {
       ...(newContact.metadata || {}),
       ...newContact,
@@ -146,15 +145,11 @@ export class ContactResolver {
   async updateContact(
     @Ctx() context: Context,
     @Arg('id') id: string,
-    @Arg('contact') contact: ContactInput,
+    @Arg(entityName) contact: ContactInput,
   ): Promise<Contact> {
-    const { accessToken, idToken } = context
-    const newContact = await updateContact(
-      id,
-      extractMetadata<ContactInput>(context, 'contact', contact),
-      accessToken,
-      idToken,
-    )
+    const { accessToken, idToken, operationMetadata } = context
+    const { [entityName]: metadata } = operationMetadata
+    const newContact = await updateContact(id, { ...contact, metadata }, accessToken, idToken)
     return {
       ...(newContact.metadata || {}),
       ...newContact,

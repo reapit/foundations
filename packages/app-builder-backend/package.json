@@ -27,6 +27,7 @@
   },
   "dependencies": {
     "@aws-sdk/client-dynamodb": "^3.27.0",
+    "@graphql-tools/delegate": "^8.5.1",
     "@graphql-tools/stitch": "^8.4.3",
     "@reapit/app-builder": "workspace:packages/app-builder",
     "@reapit/cra-template-foundations": "workspace:packages/cra-template-foundations",
