@@ -11,20 +11,34 @@ import {
   Icon,
   Subtitle,
   Title,
+  useModal,
 } from '@reapit/elements'
-import React, { Dispatch, FC, SetStateAction } from 'react'
+import React, { Dispatch, FC, SetStateAction, useState } from 'react'
 import { useHistory } from 'react-router'
 import Routes from '../../../../constants/routes'
-import { navigate } from '../../../../utils/navigation'
+import { ExternalPages, navigate, openNewPage } from '../../../../utils/navigation'
 import { StepContainer } from '../new/__styles__'
 import videoImage from '../../../../assets/images/desktop/video-placeholder.svg'
 
-export const handeSetShowWizard = (setShowWizard: Dispatch<SetStateAction<boolean>>, showWizard: boolean) => () => {
-  setShowWizard(!showWizard)
+export const HAS_WATCHED_WELCOME_VIDEO = 'HAS_WATCHED_WELCOME_VIDEO'
+
+export const handleHasWatchedVideo =
+  (setHasWatchedVideo: Dispatch<SetStateAction<boolean>>, closeModal: () => void) => () => {
+    setHasWatchedVideo(true)
+    window.localStorage.setItem(HAS_WATCHED_WELCOME_VIDEO, HAS_WATCHED_WELCOME_VIDEO)
+    closeModal()
+  }
+
+export const checkHasWatchedVideo = (): boolean => {
+  const retrieved = window.localStorage.getItem(HAS_WATCHED_WELCOME_VIDEO)
+
+  return Boolean(retrieved)
 }
 
 export const AppsWelcomePage: FC = () => {
   const history = useHistory()
+  const { Modal, openModal, closeModal } = useModal()
+  const [hasWatchedVideo, setHasWatchedVideo] = useState<boolean>(checkHasWatchedVideo())
   return (
     <GridResponsive>
       <ColResponsive
@@ -41,35 +55,6 @@ export const AppsWelcomePage: FC = () => {
             <div className={elMb7}>
               <div className={elMb11}>
                 <Subtitle hasBoldText hasNoMargin>
-                  Create APP
-                </Subtitle>
-              </div>
-              <FlexContainer isFlexColumn className={elMb11}>
-                <FlexContainer>
-                  <Icon className={elMr5} icon="welcomeInfographic" iconSize="large" />
-                  <BodyText hasGreyText>
-                    Lorem, ipsum dolor sit amet consectetur adipisicing elit. Maxime quia vero eos voluptatem voluptate,
-                    vitae id autem officia soluta fugit, impedit, ad facilis commodi distinctio esse sint consequatur!
-                    Architecto, aliquid?
-                  </BodyText>
-                </FlexContainer>
-                <div className={elMb11}>
-                  <BodyText hasGreyText hasNoMargin>
-                    Lorem, ipsum dolor sit amet consectetur adipisicing elit. Maxime quia vero eos voluptatem voluptate,
-                    vitae id autem officia soluta fugit, impedit, ad facilis commodi distinctio esse sint consequatur!
-                    Architecto, aliquid?
-                  </BodyText>
-                </div>
-                <ButtonGroup alignment="left">
-                  <Button intent="critical" size={2} onClick={navigate(history, Routes.APPS_NEW)} chevronRight>
-                    Create App
-                  </Button>
-                </ButtonGroup>
-              </FlexContainer>
-            </div>
-            <div>
-              <div className={elMb11}>
-                <Subtitle hasBoldText hasNoMargin>
                   View Docs
                 </Subtitle>
               </div>
@@ -77,21 +62,57 @@ export const AppsWelcomePage: FC = () => {
                 <FlexContainer>
                   <Icon className={elMr5} icon="myAppsInfographic" iconSize="large" />
                   <BodyText hasGreyText>
-                    Lorem ipsum dolor sit amet consectetur adipisicing elit. Suscipit perspiciatis minus commodi vitae!
-                    Maxime iusto, magni repellendus saepe blanditiis culpa sit aut explicabo ad vel delectus aperiam
-                    ipsam velit quae.
+                    We have invested a considerable amount of time to ensure our documentation is as comprehensive as
+                    possible, from detailed references, to our APIs to a glossary of terms and frequently asked
+                    questions.
+                  </BodyText>
+                </FlexContainer>
+                <BodyText hasGreyText>
+                  Having first watched the video, you may want to have a deep dive into the documentation before
+                  creating your first app.
+                </BodyText>
+                <div className={elMb11}>
+                  <BodyText hasGreyText hasNoMargin>
+                    If you get stuck at any point when working with Foundations, make the docs your first port of call.
+                  </BodyText>
+                </div>
+                <ButtonGroup alignment="left">
+                  <Button onClick={openNewPage(ExternalPages.baseDocs)} intent="primary" size={2} chevronRight>
+                    View Docs
+                  </Button>
+                </ButtonGroup>
+              </FlexContainer>
+            </div>
+            <div>
+              <div className={elMb11}>
+                <Subtitle hasBoldText hasNoMargin>
+                  Create APP
+                </Subtitle>
+              </div>
+              <FlexContainer isFlexColumn className={elMb11}>
+                <FlexContainer>
+                  <Icon className={elMr5} icon="welcomeInfographic" iconSize="large" />
+                  <BodyText hasGreyText>
+                    Creating an app is the starting point for authenticating against the Foundations APIs. Your app
+                    might be a web application, possibly rendered inside of the AgencyCloud CRM, or a simple data feed
+                    to serve a website.
                   </BodyText>
                 </FlexContainer>
                 <div className={elMb11}>
                   <BodyText hasGreyText hasNoMargin>
-                    Lorem, ipsum dolor sit amet consectetur adipisicing elit. Maxime quia vero eos voluptatem voluptate,
-                    vitae id autem officia soluta fugit, impedit, ad facilis commodi distinctio esse sint consequatur!
-                    Architecto, aliquid?
+                    In all cases, you will need to use the app creation wizard that will walk you through creating your
+                    app, explain key concepts along the way and link out to our documentation where relevant.
                   </BodyText>
                 </div>
                 <ButtonGroup alignment="left">
-                  <Button intent="primary" size={2}>
-                    View Docs
+                  <Button
+                    disabled={!hasWatchedVideo}
+                    intent="critical"
+                    size={2}
+                    onClick={navigate(history, Routes.APPS_NEW)}
+                    chevronRight
+                  >
+                    {hasWatchedVideo ? 'Create App' : 'Watch Video To Start'}
                   </Button>
                 </ButtonGroup>
               </FlexContainer>
@@ -109,21 +130,40 @@ export const AppsWelcomePage: FC = () => {
       >
         <Title>About Foundations</Title>
         <BodyText hasGreyText>
-          Lorem, ipsum dolor sit amet consectetur adipisicing elit. Maxime quia vero eos voluptatem voluptate, vitae id
-          autem officia soluta fugit, impedit, ad facilis commodi distinctio esse sint consequatur! Architecto, aliquid?
+          Reapit Foundations is a Software as a Service Platform that enables developers to access, update and enhance
+          data within the Reapit AgencyCloud desktop CRM.
         </BodyText>
-        <BodyText>
+        <BodyText hasGreyText>
+          There are a number of aspects to Foundations documented within this Developer Portal, specifically, APIs,
+          Webhooks, a UI Library and Data Analytics solutions. We also have an AppMarketplace to facilitate the
+          publishing and installation of the software you build on top of the Platform.
+        </BodyText>
+        <BodyText hasGreyText>
+          Every developer will have different use cases for Foundations and it is unlikely you will need to use all of
+          the APIs and tooling we provide. However, the starting point for all integrations is to create an
+          &lsquo;App&rsquo;, which on a basic level is the means to authenticate aginst our services.
+        </BodyText>
+        <BodyText hasGreyText>
+          Before getting started, please watch this short video with some Foundations Basics.
+        </BodyText>
+        <BodyText onClick={openModal}>
           <img src={videoImage} style={{ width: '100%' }} alt="Video placeholder" />
         </BodyText>
         <BodyText hasGreyText>
-          Lorem, ipsum dolor sit amet consectetur adipisicing elit. Maxime quia vero eos voluptatem voluptate, vitae id
-          autem officia soluta fugit, impedit, ad facilis commodi distinctio esse sint consequatur! Architecto, aliquid?
-        </BodyText>
-        <BodyText hasGreyText>
-          Lorem, ipsum dolor sit amet consectetur adipisicing elit. Maxime quia vero eos voluptatem voluptate, vitae id
-          autem officia soluta fugit, impedit, ad facilis commodi distinctio esse sint consequatur! Architecto, aliquid?
+          When you have watched the video, please confirm this and your next step will be to create your first app using
+          the wizard on the left hand side of this page. This will allow you to authenticated against our APIs.
         </BodyText>
       </ColResponsive>
+      <Modal title="Welcome to Reapit Foundations">
+        <ButtonGroup alignment="right">
+          <Button intent="low" onClick={closeModal}>
+            Close
+          </Button>
+          <Button intent="critical" onClick={handleHasWatchedVideo(setHasWatchedVideo, closeModal)} chevronRight>
+            Confirm Watched
+          </Button>
+        </ButtonGroup>
+      </Modal>
     </GridResponsive>
   )
 }

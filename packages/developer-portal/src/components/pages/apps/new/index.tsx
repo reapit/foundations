@@ -154,16 +154,19 @@ export const handleSubmitApp =
     return createApp(createAppModel)
   }
 
-export const handleNavigateOnSuccess = (app: AppDetailModel | undefined, history: History) => () => {
-  if (app) {
-    history.push(`${Routes.APPS}/${app.id}`)
+export const handleNavigateOnSuccess =
+  (app: AppDetailModel | undefined, history: History, appsRefresh: () => void) => () => {
+    if (app) {
+      appsRefresh()
+      history.push(`${Routes.APPS}/${app.id}`)
+    }
   }
-}
 
 export const AppsNewPage: FC = () => {
-  const { appWizardState, setAppWizardState } = useAppState()
+  const { appWizardState, setAppWizardState, appsDataState } = useAppState()
   const history = useHistory()
   const { currentStep, prevStep, nextStep, stepHistory, authFlow, lastStep } = appWizardState
+  const { appsRefresh } = appsDataState
   const {
     register,
     getValues,
@@ -181,7 +184,7 @@ export const AppsNewPage: FC = () => {
     returnType: UpdateReturnTypeEnum.LOCATION,
   })
 
-  useEffect(handleNavigateOnSuccess(app, history), [app])
+  useEffect(handleNavigateOnSuccess(app, history, appsRefresh), [app])
 
   const { headingText, headerText, iconName } = getAppWizardStep(currentStep)
 

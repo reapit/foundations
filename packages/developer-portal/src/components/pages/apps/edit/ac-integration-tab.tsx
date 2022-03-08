@@ -16,6 +16,7 @@ import { DesktopIntegrationTypeModelPagedResult } from '@reapit/foundations-ts-d
 import { reapitConnectBrowserSession } from '../../../../core/connect-session'
 import { GetActionNames, getActions } from '@reapit/utils-common'
 import { useAppState } from '../state/use-app-state'
+import { ExternalPages, openNewPage } from '../../../../utils/navigation'
 
 export const AcIntegrationTab: FC<AppEditTabsProps> = ({ register, errors }) => {
   const { appEditState } = useAppState()
@@ -32,10 +33,15 @@ export const AcIntegrationTab: FC<AppEditTabsProps> = ({ register, errors }) => 
   return (
     <>
       <Subtitle>AgencyCloud Integration</Subtitle>
+      <BodyText hasGreyText>
+        When your application is integrated with AgencyCloud you can either launch it from the dedicated Apps menu in
+        the AgencyCloud software, or from a series of menus embedded within other pages. Your app can receive contextual
+        entity ids as global variables so it can launch with relevant data for your users. For more on our desktop API{' '}
+        <a onClick={openNewPage(ExternalPages.desktopDocs)}>see here.</a>
+      </BodyText>
       <BodyText hasGreyText hasSectionMargin>
-        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur non pulvinar tellus, quis pulvinar dui. Nunc
-        enim libero, ullamcorper ac ex id, tincidunt dapibus lectus. Vestibulum at porta quam, ac condimentum dui. Duis
-        ornare enim sed magna tincidunt volutpat.
+        The below list maps to the various menus from which you can launch your app or replace an AgencyCloud Screen.
+        You should select the ones that are relevant to your app only.
       </BodyText>
       {desktopIntegrationTypesLoading && <Loader />}
       <FormLayout hasMargin>
@@ -46,7 +52,7 @@ export const AcIntegrationTab: FC<AppEditTabsProps> = ({ register, errors }) => 
               {...desktopIntegrationTypeIds}
               {...register('desktopIntegrationTypeIds')}
               options={
-                desktopIntegrationTypes?.data?.map(({ name, id }) => ({
+                desktopIntegrationTypes.data?.map(({ name, id }) => ({
                   name,
                   value: id,
                 })) as MultiSelectOption[]

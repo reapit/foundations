@@ -30,76 +30,76 @@ export type AppNewWizardSteps = { [key in AppNewStepId]: AppNewWizardStep }
 
 export const appWizardSteps: AppNewWizardSteps = {
   [AppNewStepId.applicationTypeStep]: {
-    headingText: '1. What do you want to do today?',
+    headingText: 'What do you want to do today?',
     headerText:
-      'Lorem ipsum dolor sit amet consectetur, adipisicing elit. Sapiente quam neque impedit dolor doloribus corrupti quaerat sint veritatis, temporibus in illo hic dicta similique! Eius, commodi consectetur! Id, fugit exercitationem.',
+      'First tell us about the kind of app or integration you are building to ensure we get you authenticated correctly. By selecting an option, relevant documentation and links will appear on the right hand side of the page before progressing.',
     iconName: 'userInfographic',
   },
   [AppNewStepId.webServicesStep]: {
-    headingText: '2. What kind of app am I building?',
+    headingText: 'What kind of app are you building?',
     headerText:
-      'Lorem ipsum dolor sit amet consectetur, adipisicing elit. Sapiente quam neque impedit dolor doloribus corrupti quaerat sint veritatis, temporibus in illo hic dicta similique! Eius, commodi consectetur! Id, fugit exercitationem.',
+      'Do you intend your app to be client or server-side authenticated? If you are not sure, select an option for relevant documentation and links on the right hand side of the page.',
     iconName: 'userDeviceInfographic',
   },
   [AppNewStepId.reapitConnectStep]: {
-    headingText: '2. What kind of app am I building?',
+    headingText: 'What kind of app are you building?',
     headerText:
-      'Lorem ipsum dolor sit amet consectetur, adipisicing elit. Sapiente quam neque impedit dolor doloribus corrupti quaerat sint veritatis, temporibus in illo hic dicta similique! Eius, commodi consectetur! Id, fugit exercitationem.',
+      'Do you intend your app to be client or server-side authenticated? If you are not sure, select an option for relevant documentation and links on the right hand side of the page.',
     iconName: 'userDeviceInfographic',
   },
   [AppNewStepId.otherAppStep]: {
-    headingText: '2. What kind of app am I building?',
+    headingText: 'What kind of app are you building?',
     headerText:
-      'Lorem ipsum dolor sit amet consectetur, adipisicing elit. Sapiente quam neque impedit dolor doloribus corrupti quaerat sint veritatis, temporibus in illo hic dicta similique! Eius, commodi consectetur! Id, fugit exercitationem.',
+      'Do you intend your app to be client or server-side authenticated? If you are not sure, select an option for relevant documentation and links on the right hand side of the page.',
     iconName: 'userDeviceInfographic',
   },
   [AppNewStepId.externalAppStep]: {
-    headingText: '2. What kind of app am I building?',
+    headingText: 'What kind of app are you building?',
     headerText:
-      'Lorem ipsum dolor sit amet consectetur, adipisicing elit. Sapiente quam neque impedit dolor doloribus corrupti quaerat sint veritatis, temporibus in illo hic dicta similique! Eius, commodi consectetur! Id, fugit exercitationem.',
+      'Do you intend your app to be client or server-side authenticated? If you are not sure, select an option for relevant documentation and links on the right hand side of the page.',
     iconName: 'userDeviceInfographic',
   },
   [AppNewStepId.agencyCloudStep]: {
-    headingText: '3. Authentication',
+    headingText: 'Authentication',
     headerText:
-      'Lorem ipsum dolor sit amet consectetur, adipisicing elit. Sapiente quam neque impedit dolor doloribus corrupti quaerat sint veritatis, temporibus in illo hic dicta similique! Eius, commodi consectetur! Id, fugit exercitationem.',
+      'Please supply at least one redirect and logout uri. A non-https localhost uri is acceptable for quick start development.',
     iconName: 'userAuthInfographic',
   },
   [AppNewStepId.dataFeedStep]: {
-    headingText: '3. Permissions',
+    headingText: 'Permissions',
     headerText:
-      'Lorem ipsum dolor sit amet consectetur, adipisicing elit. Sapiente quam neque impedit dolor doloribus corrupti quaerat sint veritatis, temporibus in illo hic dicta similique! Eius, commodi consectetur! Id, fugit exercitationem.',
+      'Please supply relevant read/write, entity specific permissions for your application. You can add or remove these later and for server side apps only, at least one permission is required.',
     iconName: 'userAuthInfographic',
   },
   [AppNewStepId.serverSideStep]: {
-    headingText: '3. Permissions',
+    headingText: 'Permissions',
     headerText:
-      'Lorem ipsum dolor sit amet consectetur, adipisicing elit. Sapiente quam neque impedit dolor doloribus corrupti quaerat sint veritatis, temporibus in illo hic dicta similique! Eius, commodi consectetur! Id, fugit exercitationem.',
+      'Please supply relevant read/write, entity specific permissions for your application. You can add or remove these later and for server side apps only, at least one permission is required.',
     iconName: 'userAuthInfographic',
   },
   [AppNewStepId.clientSideStep]: {
-    headingText: '3. Authentication',
+    headingText: 'Authentication',
     headerText:
-      'Lorem ipsum dolor sit amet consectetur, adipisicing elit. Sapiente quam neque impedit dolor doloribus corrupti quaerat sint veritatis, temporibus in illo hic dicta similique! Eius, commodi consectetur! Id, fugit exercitationem.',
+      'Please supply at least one redirect and logout uri. A non-https localhost uri is acceptable for quick start development.',
     iconName: 'userAuthInfographic',
   },
   [AppNewStepId.rcRedirectsStep]: {
-    headingText: '3. Authentication',
+    headingText: 'Authentication',
     headerText:
-      'Lorem ipsum dolor sit amet consectetur, adipisicing elit. Sapiente quam neque impedit dolor doloribus corrupti quaerat sint veritatis, temporibus in illo hic dicta similique! Eius, commodi consectetur! Id, fugit exercitationem.',
+      'Please supply at least one redirect and logout uri. A non-https localhost uri is acceptable for quick start development.',
     iconName: 'userAuthInfographic',
   },
   [AppNewStepId.websiteFeedStep]: {
-    headingText: '3. Permissions',
+    headingText: 'Permissions',
     headerText:
-      'Lorem ipsum dolor sit amet consectetur, adipisicing elit. Sapiente quam neque impedit dolor doloribus corrupti quaerat sint veritatis, temporibus in illo hic dicta similique! Eius, commodi consectetur! Id, fugit exercitationem.',
+      'Please supply relevant read/write, entity specific permissions for your application. You can add or remove these later and for server side apps only, at least one permission is required.',
     iconName: 'userAuthInfographic',
     permissions: ['agencyCloud/properties.read', 'agencyCloud/applicants.read', 'agencyCloud/images.read'],
   },
   [AppNewStepId.permissionsStep]: {
-    headingText: '3. Permissions',
+    headingText: 'Permissions',
     headerText:
-      'Lorem ipsum dolor sit amet consectetur, adipisicing elit. Sapiente quam neque impedit dolor doloribus corrupti quaerat sint veritatis, temporibus in illo hic dicta similique! Eius, commodi consectetur! Id, fugit exercitationem.',
+      'Please supply relevant read/write, entity specific permissions for your application. You can add or remove these later and for server side apps only, at least one permission is required.',
     iconName: 'userAuthInfographic',
   },
 }

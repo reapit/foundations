@@ -21,6 +21,7 @@ import { useReapitGet } from '@reapit/utils-react'
 import { GetActionNames, getActions } from '@reapit/utils-common'
 import { reapitConnectBrowserSession } from '../../../../core/connect-session'
 import { PermissionChip } from './__styles__'
+import { ExternalPages, openNewPage } from '../../../../utils/navigation'
 
 export interface CopyState {
   externalId: string
@@ -96,6 +97,42 @@ export const AppDetail: FC = () => {
   ) : appDetail ? (
     <>
       <Title>{name}</Title>
+      <Subtitle>Authenticating Your App</Subtitle>
+      {authFlow === 'authorisationCode' && (
+        <>
+          <BodyText hasGreyText>
+            Client Side Apps use our identity provider{' '}
+            <a onClick={openNewPage(ExternalPages.reapitConnectDocs)}>Reapit Connect</a> to authenticate against our
+            API. Your application will need to re-direct to Reapit Connect where we will handle user login and in turn,
+            re-direct back to your app with a code in the url that you exchange for access and id JWTs, referred to as{' '}
+            <a onClick={openNewPage(ExternalPages.authoizationFlowDocs)}>Authorization Code flow.</a> You will need the
+            Client Id and Redirect Uris below to configure Reapit Connect.
+          </BodyText>
+          <BodyText hasGreyText hasSectionMargin>
+            To make this process easier, we provide you with an authentication module for client-side apps,{' '}
+            <a onClick={openNewPage(ExternalPages.connectSessionDocs)}>Connect Session</a>, which comes bundled with our{' '}
+            <a onClick={openNewPage(ExternalPages.craDocs)}>Create React App Template</a> for quick start client-side
+            development.
+          </BodyText>
+        </>
+      )}
+      {authFlow === 'clientCredentials' && (
+        <>
+          <BodyText hasGreyText>
+            Server-side applications authenticate against our API using the{' '}
+            <a onClick={openNewPage(ExternalPages.clientCredentials)}>Client Credentials authentication flow.</a> This
+            process involves the exchange of a Client Id and Client Secret for a JWT access token to authenticate
+            against all requests.
+          </BodyText>
+          <BodyText hasGreyText hasSectionMargin>
+            To make this process easier, we provide you with a NodeJS authentication module for server-side apps,{' '}
+            <a onClick={openNewPage(ExternalPages.connectSessionDocs)}>Connect Session</a>. For developers in other back
+            end languages, you might find the{' '}
+            <a onClick={openNewPage(ExternalPages.connectSessionNodeExample)}>source code</a> helpful as an
+            implementation example.
+          </BodyText>
+        </>
+      )}
       <Grid>
         {externalId && (
           <Col>

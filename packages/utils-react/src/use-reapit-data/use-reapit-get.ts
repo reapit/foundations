@@ -137,7 +137,7 @@ export const handleGet =
 export const handleRefresh =
   <DataType>(handleGetParams: HandleGetParams<DataType>) =>
   () => {
-    const { setData, setError, action, errorSnack, connectSession, queryParams, headers } = handleGetParams
+    const { setData, setError, action, errorSnack, connectSession, uriParams, queryParams, headers } = handleGetParams
     const controller = new AbortController()
     const signal = controller.signal
     const { errorMessage } = action
@@ -145,7 +145,15 @@ export const handleRefresh =
     const getData = async () => {
       setError(null)
 
-      const response = await getFetcher<DataType>({ action, connectSession, queryParams, headers, logger, signal })
+      const response = await getFetcher<DataType>({
+        action,
+        connectSession,
+        queryParams,
+        uriParams,
+        headers,
+        logger,
+        signal,
+      })
       const data = typeof response === 'string' ? null : response
       const error = typeof response === 'string' ? response : null
 
@@ -202,6 +210,7 @@ export const useReapitGet = <DataType>({
   const refresh = useCallback(handleRefresh<DataType>(handleGetParams), [
     connectSession,
     queryParams,
+    uriParams,
     headers,
     fetchWhenTrue,
   ])

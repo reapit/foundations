@@ -10,25 +10,35 @@ Object {
       />
       <form>
         <h2
-          class="evblxhy-el-subtitle"
+          class="e1byern-el-subtitle"
         >
           Permissions
         </h2>
         <p
-          class="e11jaxfn-el-has-grey-text etrchfm-el-has-section-margin e1byern-el-body-text"
+          class="e11jaxfn-el-has-grey-text etrchfm-el-has-section-margin e15ggth7-el-body-text"
         >
-          Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur non pulvinar tellus, quis pulvinar dui. Nunc enim libero, ullamcorper ac ex id, tincidunt dapibus lectus. Vestibulum at porta quam, ac condimentum dui. Duis ornare enim sed magna tincidunt volutpat.
+          Permissions are registered as scopes against the access token you receive back from one of our Authentication Flows. They map 1:1 and on a read/write basis to endpoints in our Foundations REST API. As such, it is worth looking at the
+           
+          <a
+            href="/swagger"
+            rel="noopener noreferrer"
+            target="_blank"
+          >
+            API explorer here
+             
+          </a>
+          before procceeding, to investigate which permissions you think you will need.
         </p>
         <div
           class="e1fwulnz-el-form-layout-has-margin ee6e7by-el-form-layout"
         />
         <h2
-          class="evblxhy-el-subtitle"
+          class="e1byern-el-subtitle"
         >
           Reapit Products
         </h2>
         <p
-          class="e11jaxfn-el-has-grey-text etrchfm-el-has-section-margin e1byern-el-body-text"
+          class="e11jaxfn-el-has-grey-text etrchfm-el-has-section-margin e15ggth7-el-body-text"
         >
           This section refers to products that are available within the Reapit Group of Companies. For UK based developers, this will typically default to Agency Cloud however, as we launch the Reapit AppMarket in other countries and with different products, you may wish for your application to list in these alternative AppMarkets. You can select more than one option but at least one option must be selected.
         </p>
@@ -44,25 +54,35 @@ Object {
     />
     <form>
       <h2
-        class="evblxhy-el-subtitle"
+        class="e1byern-el-subtitle"
       >
         Permissions
       </h2>
       <p
-        class="e11jaxfn-el-has-grey-text etrchfm-el-has-section-margin e1byern-el-body-text"
+        class="e11jaxfn-el-has-grey-text etrchfm-el-has-section-margin e15ggth7-el-body-text"
       >
-        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur non pulvinar tellus, quis pulvinar dui. Nunc enim libero, ullamcorper ac ex id, tincidunt dapibus lectus. Vestibulum at porta quam, ac condimentum dui. Duis ornare enim sed magna tincidunt volutpat.
+        Permissions are registered as scopes against the access token you receive back from one of our Authentication Flows. They map 1:1 and on a read/write basis to endpoints in our Foundations REST API. As such, it is worth looking at the
+         
+        <a
+          href="/swagger"
+          rel="noopener noreferrer"
+          target="_blank"
+        >
+          API explorer here
+           
+        </a>
+        before procceeding, to investigate which permissions you think you will need.
       </p>
       <div
         class="e1fwulnz-el-form-layout-has-margin ee6e7by-el-form-layout"
       />
       <h2
-        class="evblxhy-el-subtitle"
+        class="e1byern-el-subtitle"
       >
         Reapit Products
       </h2>
       <p
-        class="e11jaxfn-el-has-grey-text etrchfm-el-has-section-margin e1byern-el-body-text"
+        class="e11jaxfn-el-has-grey-text etrchfm-el-has-section-margin e15ggth7-el-body-text"
       >
         This section refers to products that are available within the Reapit Group of Companies. For UK based developers, this will typically default to Agency Cloud however, as we launch the Reapit AppMarket in other countries and with different products, you may wish for your application to list in these alternative AppMarkets. You can select more than one option but at least one option must be selected.
       </p>

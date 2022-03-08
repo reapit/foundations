@@ -9,7 +9,7 @@ Object {
         class="ecbqyq6-el-snack-holder"
       />
       <p
-        class="e11jaxfn-el-has-grey-text etrchfm-el-has-section-margin e1byern-el-body-text"
+        class="e11jaxfn-el-has-grey-text etrchfm-el-has-section-margin e15ggth7-el-body-text"
       >
         Select customers from the list below by default we have prepopulated this with ‘Sandbox Estates (SBOX)’. If you select one customer, you will need to specify each customer individually. If you select ‘All Customers’, the sandbox environment will be excluded and you will need to create a separate webhook for ‘Sandbox Estates (SBOX)’.
       </p>
@@ -87,7 +87,7 @@ Object {
       class="ecbqyq6-el-snack-holder"
     />
     <p
-      class="e11jaxfn-el-has-grey-text etrchfm-el-has-section-margin e1byern-el-body-text"
+      class="e11jaxfn-el-has-grey-text etrchfm-el-has-section-margin e15ggth7-el-body-text"
     >
       Select customers from the list below by default we have prepopulated this with ‘Sandbox Estates (SBOX)’. If you select one customer, you will need to specify each customer individually. If you select ‘All Customers’, the sandbox environment will be excluded and you will need to create a separate webhook for ‘Sandbox Estates (SBOX)’.
     </p>

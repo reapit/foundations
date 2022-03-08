@@ -22,6 +22,8 @@ describe('handleSetAppSubmitting', () => {
     const appEditSaving = true
     const handleSubmit = jest.fn(() => mockSubmitHandler)
     const createAppRevision = jest.fn(() => new Promise<boolean>((resolve) => resolve(true)))
+    const appsRefresh = jest.fn()
+    const appsDetailRefresh = jest.fn()
     const history = {
       push: jest.fn(),
     } as unknown as History
@@ -34,6 +36,8 @@ describe('handleSetAppSubmitting', () => {
       createAppRevision,
       history,
       appId,
+      appsRefresh,
+      appsDetailRefresh,
     )
 
     curried()
@@ -45,6 +49,8 @@ describe('handleSetAppSubmitting', () => {
     expect(createAppRevision).toHaveBeenCalledWith(formatFormValues(defaultValues))
     expect(setAppEditSaving).toHaveBeenCalledWith(false)
     expect(history.push).toHaveBeenCalledWith(`${Routes.APPS}/${appId}`)
+    expect(appsRefresh).toHaveBeenCalledTimes(1)
+    expect(appsDetailRefresh).toHaveBeenCalledTimes(1)
   })
 })
 

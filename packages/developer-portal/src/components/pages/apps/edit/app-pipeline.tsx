@@ -44,7 +44,7 @@ export const AppPipeline: FC = () => {
           auth={{
             headers: {
               ...COGNITO_HEADERS,
-              Authorization: connectSession?.idToken,
+              Authorization: connectSession.idToken,
             },
           }}
         >

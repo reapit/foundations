@@ -18,12 +18,12 @@ Object {
             class="e1ksxx4v-el-input-wrap"
           >
             <h2
-              class="evblxhy-el-subtitle"
+              class="e1byern-el-subtitle"
             >
               Status
             </h2>
             <p
-              class="e1byern-el-body-text"
+              class="e15ggth7-el-body-text"
             >
               <span
                 class="epibvz0-el-intent-secondary e1cp9zgf-el-status-indicator"
@@ -36,24 +36,24 @@ Object {
             class="e1ksxx4v-el-input-wrap"
           >
             <h2
-              class="evblxhy-el-subtitle"
+              class="e1byern-el-subtitle"
             >
               Repository
             </h2>
             <p
-              class="e1byern-el-body-text"
+              class="e15ggth7-el-body-text"
             />
           </div>
           <div
             class="e1ksxx4v-el-input-wrap"
           >
             <h2
-              class="evblxhy-el-subtitle"
+              class="e1byern-el-subtitle"
             >
               Package Manager
             </h2>
             <p
-              class="e1byern-el-body-text"
+              class="e15ggth7-el-body-text"
             />
           </div>
         </div>
@@ -64,36 +64,36 @@ Object {
             class="e1ksxx4v-el-input-wrap"
           >
             <h2
-              class="evblxhy-el-subtitle"
+              class="e1byern-el-subtitle"
             >
               Build Command
             </h2>
             <p
-              class="e1byern-el-body-text"
+              class="e15ggth7-el-body-text"
             />
           </div>
           <div
             class="e1ksxx4v-el-input-wrap"
           >
             <h2
-              class="evblxhy-el-subtitle"
+              class="e1byern-el-subtitle"
             >
               Tests
             </h2>
             <p
-              class="e1byern-el-body-text"
+              class="e15ggth7-el-body-text"
             />
           </div>
           <div
             class="e1ksxx4v-el-input-wrap"
           >
             <h2
-              class="evblxhy-el-subtitle"
+              class="e1byern-el-subtitle"
             >
               Location
             </h2>
             <p
-              class="e1byern-el-body-text"
+              class="e15ggth7-el-body-text"
             />
           </div>
         </div>
@@ -114,12 +114,12 @@ Object {
           class="e1ksxx4v-el-input-wrap"
         >
           <h2
-            class="evblxhy-el-subtitle"
+            class="e1byern-el-subtitle"
           >
             Status
           </h2>
           <p
-            class="e1byern-el-body-text"
+            class="e15ggth7-el-body-text"
           >
             <span
               class="epibvz0-el-intent-secondary e1cp9zgf-el-status-indicator"
@@ -132,24 +132,24 @@ Object {
           class="e1ksxx4v-el-input-wrap"
         >
           <h2
-            class="evblxhy-el-subtitle"
+            class="e1byern-el-subtitle"
           >
             Repository
           </h2>
           <p
-            class="e1byern-el-body-text"
+            class="e15ggth7-el-body-text"
           />
         </div>
         <div
           class="e1ksxx4v-el-input-wrap"
         >
           <h2
-            class="evblxhy-el-subtitle"
+            class="e1byern-el-subtitle"
           >
             Package Manager
           </h2>
           <p
-            class="e1byern-el-body-text"
+            class="e15ggth7-el-body-text"
           />
         </div>
       </div>
@@ -160,36 +160,36 @@ Object {
           class="e1ksxx4v-el-input-wrap"
         >
           <h2
-            class="evblxhy-el-subtitle"
+            class="e1byern-el-subtitle"
           >
             Build Command
           </h2>
           <p
-            class="e1byern-el-body-text"
+            class="e15ggth7-el-body-text"
           />
         </div>
         <div
           class="e1ksxx4v-el-input-wrap"
         >
           <h2
-            class="evblxhy-el-subtitle"
+            class="e1byern-el-subtitle"
           >
             Tests
           </h2>
           <p
-            class="e1byern-el-body-text"
+            class="e15ggth7-el-body-text"
           />
         </div>
         <div
           class="e1ksxx4v-el-input-wrap"
         >
           <h2
-            class="evblxhy-el-subtitle"
+            class="e1byern-el-subtitle"
           >
             Location
           </h2>
           <p
-            class="e1byern-el-body-text"
+            class="e15ggth7-el-body-text"
           />
         </div>
       </div>
