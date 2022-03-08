@@ -25,7 +25,7 @@ export class ReactStarterCommand extends AbstractCommand {
 
   async createReactApp(spinner: Ora, name: string): Promise<void> {
     return new Promise((resolve, reject) => {
-      spinner.start('Creating app with create-react-app')
+      spinner.start('Creating app with create-react-app (this might take a while)')
       exec(
         `npx create-react-app ${name} --template @reapit/cra-template-foundations`,
         { maxBuffer: 1024 * 10000 },
@@ -33,7 +33,7 @@ export class ReactStarterCommand extends AbstractCommand {
           if (err !== null) {
             console.error(err)
             spinner.stop()
-            reject()
+            return reject()
           }
           spinner.stop()
           resolve()

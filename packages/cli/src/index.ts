@@ -1,6 +1,5 @@
 #!/usr/bin/env node
 
-import chalk from 'chalk'
 import 'reflect-metadata'
 import argv from 'process.argv'
 import { AbstractCommand } from './abstract.command'
@@ -29,15 +28,18 @@ const boot = async (defaultCommand: AbstractCommand, commands: (AbstractCommand 
   const params = commandsArgs['--']
   const options = commandsArgs
   const helpCommand = new HelpCommand()
+  helpCommand.setCommands(commands)
 
+  let showHelpCommand = false
   if (!params && Object.keys(options).length === 0) {
-    defaultCommand.run(params, options)
-    await checkVersion()
-    return
+    showHelpCommand = true
   } else if (!params || (params.length === 0 && options)) {
+    showHelpCommand = true
+  }
+
+  if (showHelpCommand) {
     defaultCommand.run(params, options)
     await checkVersion()
-    helpCommand.setCommands(commands)
     helpCommand.run()
     return
   }
@@ -51,7 +53,9 @@ const boot = async (defaultCommand: AbstractCommand, commands: (AbstractCommand 
   })
 
   if (!command) {
-    console.log(chalk.red('sub command not found'))
+    console.log('Command not found, were you looking for one of these?')
+
+    helpCommand.run()
   } else {
     if (command instanceof ParentCommand && command.isChildRunnable(params)) {
       if (options.help) {
