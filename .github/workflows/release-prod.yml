@@ -60,14 +60,6 @@ jobs:
         run: |
           yarn workspace ${{ steps.tagName.outputs.package }} run build
 
-      - name: Release
-        run: |
-          yarn workspace ${{ steps.tagName.outputs.package }} run release --stage prod
-
-      - name: Publish
-        run: |
-          yarn workspace ${{ steps.tagName.outputs.package }} run publish --tag latest
-
       - name: Package Version Bump
         uses: ./packages/auto-bump
         env:
@@ -78,3 +70,11 @@ jobs:
         with:
           commit_message: 'chore: bump ${{ steps.tagName.outputs.package }} version'
           branch: master
+
+      - name: Release
+        run: |
+          yarn workspace ${{ steps.tagName.outputs.package }} run release --stage prod
+
+      - name: Publish
+        run: |
+          yarn workspace ${{ steps.tagName.outputs.package }} run publish --tag latest
