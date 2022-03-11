@@ -49,6 +49,7 @@ const createContactMutation = gql`
     $marketingConsent: String!
     $officeIds: [String!]!
     $negotiatorIds: [String!]!
+    $metadata: JSON
   ) {
     CreateContact(
       title: $title
@@ -58,6 +59,7 @@ const createContactMutation = gql`
       negotiatorIds: $negotiatorIds
       officeIds: $officeIds
       email: $email
+      metadata: $metadata
     ) {
       ...ContactFragment
     }
@@ -75,6 +77,7 @@ const updateContactMutation = gql`
     $marketingConsent: String!
     $officeIds: [String!]!
     $negotiatorIds: [String!]!
+    $metadata: JSON
   ) {
     UpdateContact(
       id: $id
@@ -85,6 +88,7 @@ const updateContactMutation = gql`
       email: $email
       negotiatorIds: $negotiatorIds
       officeIds: $officeIds
+      metadata: $metadata
     ) {
       ...ContactFragment
     }
@@ -144,7 +148,7 @@ const getContacts = async (accessToken: string, idToken: string): Promise<Contac
 }
 
 const getContact = async (id: string, accessToken: string, idToken: string): Promise<Contact | null> => {
-  const contact = await query<ContactAPIResponse<ContactsEmbeds> | null>(getContactQuery, { id }, 'GetContact', {
+  const contact = await query<ContactAPIResponse<ContactsEmbeds> | null>(getContactQuery, { id }, 'GetContactById', {
     accessToken,
     idToken,
   })
@@ -162,11 +166,11 @@ const getContact = async (id: string, accessToken: string, idToken: string): Pro
 }
 
 const createContact = async (contact: ContactInput, accessToken: string, idToken: string): Promise<Contact> => {
-  const { id } = await query<ContactAPIResponse<null>>(createContactMutation, contact, 'CreateContact', {
+  const res = await query<ContactAPIResponse<null>>(createContactMutation, contact, 'CreateContact', {
     accessToken,
     idToken,
   })
-
+  const { id } = res
   const newContact = await getContact(id, accessToken, idToken)
   if (!newContact) {
     throw new Error('Failed to create contact')
@@ -200,48 +204,49 @@ const entityName: MetadataSchemaType = 'contact'
 export class ContactResolver {
   @Authorized()
   @Query(() => [Contact])
-  async listContacts(@Ctx() { accessToken, idToken }: Context): Promise<Contact[]> {
+  async listContacts(@Ctx() { accessToken, idToken, storeCachedMetadata }: Context): Promise<Contact[]> {
     const contacts = await getContacts(accessToken, idToken)
-
-    return contacts.map((contact) => ({
-      ...(contact.metadata || {}),
-      ...contact,
-    }))
+    contacts.forEach((contact) => {
+      storeCachedMetadata(entityName, contact.id, contact.metadata)
+    })
+    return contacts
   }
 
   @Authorized()
   @Query(() => [Contact])
-  async searchContacts(@Ctx() { accessToken, idToken }: Context, @Arg('query') queryStr: string): Promise<Contact[]> {
+  async searchContacts(
+    @Ctx() { accessToken, idToken, storeCachedMetadata }: Context,
+    @Arg('query') queryStr: string,
+  ): Promise<Contact[]> {
     const contacts = await searchContacts(queryStr, accessToken, idToken)
-    return contacts.map((contact) => ({
-      ...(contact.metadata || {}),
-      ...contact,
-    }))
+    contacts.forEach((contact) => {
+      storeCachedMetadata(entityName, contact.id, contact.metadata)
+    })
+    return contacts
   }
 
   @Authorized()
   @Query(() => Contact)
-  async getContact(@Ctx() { accessToken, idToken }: Context, @Arg('id') id: string): Promise<Contact> {
-    const contact = await getContact(accessToken, idToken, id)
+  async getContact(
+    @Ctx() { accessToken, idToken, storeCachedMetadata }: Context,
+    @Arg('id') id: string,
+  ): Promise<Contact> {
+    const contact = await getContact(id, accessToken, idToken)
     if (!contact) {
       throw new Error(`Contact with id ${id} not found`)
     }
-    return {
-      ...(contact.metadata || {}),
-      ...contact,
-    }
+    storeCachedMetadata(entityName, id, contact.metadata)
+    return contact
   }
 
   @Authorized()
   @Mutation(() => Contact)
   async createContact(@Ctx() context: Context, @Arg(entityName) contact: ContactInput): Promise<Contact> {
-    const { accessToken, idToken, operationMetadata } = context
+    const { accessToken, idToken, operationMetadata, storeCachedMetadata } = context
     const { [entityName]: metadata } = operationMetadata
     const newContact = await createContact({ ...contact, metadata }, accessToken, idToken)
-    return {
-      ...(newContact.metadata || {}),
-      ...newContact,
-    }
+    storeCachedMetadata(entityName, newContact.id, contact.metadata)
+    return newContact
   }
 
   @Authorized()
@@ -251,12 +256,10 @@ export class ContactResolver {
     @Arg('id') id: string,
     @Arg(entityName) contact: ContactInput,
   ): Promise<Contact> {
-    const { accessToken, idToken, operationMetadata } = context
+    const { accessToken, idToken, operationMetadata, storeCachedMetadata } = context
     const { [entityName]: metadata } = operationMetadata
     const newContact = await updateContact(id, { ...contact, metadata }, accessToken, idToken)
-    return {
-      ...(newContact.metadata || {}),
-      ...newContact,
-    }
+    storeCachedMetadata(entityName, newContact.id, contact.metadata)
+    return newContact
   }
 }

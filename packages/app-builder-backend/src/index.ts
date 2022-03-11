@@ -26,10 +26,16 @@ const parseContext = async ({ req }): Promise<Context> => {
     customEntities = await getCustomEntities(context.appId)
   }
 
+  const metadataCache = {} as Record<string, any>
   return {
     ...context,
     customEntities,
     operationMetadata: {} as Record<MetadataSchemaType, any>,
+    storeCachedMetadata: (typeName: MetadataSchemaType, id: string, metadata: any) => {
+      metadataCache[`${typeName}-${id}`] = metadata
+    },
+    getCachedMetadata: (typeName: MetadataSchemaType, id: string, key: string) =>
+      metadataCache[`${typeName}-${id}`]?.[key],
   }
 }
 

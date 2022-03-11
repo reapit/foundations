@@ -61,7 +61,7 @@ const customEntityToTypeDefs = (
 
 const customEntityToGraphQL = (
   customEntity: CustomEntity,
-): { typeDefinitions: string; typeName: string; inputTypeName: string } => {
+): { typeDefinitions: string; typeName: string; inputTypeName: string; customEntity: CustomEntity } => {
   const output = customEntityToTypeDefs(customEntity, {
     rootName: customEntity.name || 'object',
   })
@@ -77,6 +77,7 @@ const customEntityToGraphQL = (
     typeDefinitions,
     typeName: output.typeName,
     inputTypeName: input.typeName,
+    customEntity,
   }
 }
 
@@ -211,6 +212,17 @@ const delegationResolver = (baseSchema: GraphQLSchema) => (root, args, context, 
   })
 }
 
+const metadataResolver = (root: any, args: any, context: Context, info: GraphQLResolveInfo) => {
+  if (!info.path.typename) {
+    return ''
+  }
+  const lcTypeName = info.path.typename.toLowerCase()
+  if (!isIdEntityType(lcTypeName)) {
+    return ''
+  }
+  return context.getCachedMetadata(lcTypeName, root.id, info.path.key as string)
+}
+
 type Resolver = (root: any, args: any, context: Context, info: GraphQLResolveInfo) => void
 
 const generateDynamicSchema = (
@@ -232,12 +244,12 @@ const generateDynamicSchema = (
   let extendedTypedefs = ''
 
   const Mutation: Record<string, Resolver> = {}
-
+  const TypeResolvers: Record<string, Record<string, Resolver>> = {}
   if (context?.customEntities) {
     context.customEntities
       .map(customEntityToGraphQL)
       .filter(notEmpty)
-      .forEach(({ typeName, inputTypeName, typeDefinitions }) => {
+      .forEach(({ typeName, inputTypeName, typeDefinitions, customEntity }) => {
         if (baseSchema.getType(typeName)) {
           extendedTypedefs += typeDefinitions
             .split(`type ${typeName}`)
@@ -250,6 +262,11 @@ const generateDynamicSchema = (
           Mutation[createName] = delegationResolver(baseSchema)
           const updateName = `update${typeName}`
           Mutation[updateName] = delegationResolver(baseSchema)
+          TypeResolvers[typeName] = {}
+          customEntity.fields.forEach((field) => {
+            const fieldName = field.name
+            TypeResolvers[typeName][fieldName] = metadataResolver
+          })
         } else {
           typeDefs += typeDefinitions.split(`type ${typeName}`).join(`\n"@supportsCustomFields()"\ntype ${typeName}`)
 
@@ -281,6 +298,7 @@ const generateDynamicSchema = (
     extendedTypedefs,
     resolvers: {
       Mutation,
+      ...TypeResolvers,
     },
   }
 }

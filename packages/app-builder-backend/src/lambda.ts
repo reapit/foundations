@@ -23,6 +23,7 @@ const createHandler = async (event: APIGatewayEvent) => {
   const apiUrl = `https://${event.headers.Host}/${event.requestContext.stage}/`
   const accessToken = lowercaseHeaders['reapit-connect-token'] as string
   const appId = lowercaseHeaders['app-id']
+  const metadataCache = {} as Record<string, any>
   const context: Context = {
     apiUrl,
     idToken: authorization?.split(' ')[1],
@@ -30,6 +31,11 @@ const createHandler = async (event: APIGatewayEvent) => {
     customEntities: appId ? await getCustomEntities(appId).catch(() => []) : [],
     appId,
     operationMetadata: {} as Record<MetadataSchemaType, any>,
+    storeCachedMetadata: (typeName: MetadataSchemaType, id: string, metadata: any) => {
+      metadataCache[`${typeName}-${id}`] = metadata
+    },
+    getCachedMetadata: (typeName: MetadataSchemaType, id: string, key: string) =>
+      metadataCache[`${typeName}-${id}`]?.[key],
   }
   const server = new ExtendedApolloServerLambda({
     schema: await getSchema(),
