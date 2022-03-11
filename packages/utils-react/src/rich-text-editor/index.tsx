@@ -51,7 +51,7 @@ export const Editor = ({
 
   React.useEffect(() => {
     init({
-      element: containerEl.current,
+      element: containerEl && containerEl.current,
       onChange: (html: string) => onChange && onChange(html),
       styleWithCSS: false,
       defaultParagraphSeparator: 'div',
