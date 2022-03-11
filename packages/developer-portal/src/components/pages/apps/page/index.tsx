@@ -40,11 +40,11 @@ export const AppsPage: FC = () => {
       <FlexContainer isFlexAuto>
         {appsLoading ? (
           <Loader fullPage />
-        ) : apps && !apps?.totalCount && !isAppsWelcome && !isAppsNew ? (
+        ) : apps && !apps.totalCount && !isAppsWelcome && !isAppsNew ? (
           <Redirect to={Routes.APPS_WELCOME} />
         ) : apps ? (
           <>
-            {Boolean(apps?.totalCount) && (
+            {Boolean(apps.totalCount) && (
               <SecondaryNavContainer>
                 <Title>Apps</Title>
                 <SecondaryNav className={elMb8}>

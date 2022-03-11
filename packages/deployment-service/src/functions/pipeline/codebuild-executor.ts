@@ -225,6 +225,8 @@ export const codebuildExecutor: SQSHandler = async (
         console.log('codebuild config failure')
 
         pipelineRunner.buildStatus = 'FAILED'
+        pipeline.buildStatus = 'FAILED'
+        pipelineRunner.pipeline = pipeline
 
         await Promise.all([deleteMessage(record.receiptHandle), savePipelineRunnerEntity(pipelineRunner)])
 

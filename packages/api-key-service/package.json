@@ -23,6 +23,7 @@
     "eslint-plugin-prettier": "^4.0.0",
     "jest": "27.4.5",
     "serverless": "^2.69.1",
+    "serverless-offline": "^8.5.0",
     "serverless-plugin-log-retention": "^2.0.0"
   },
   "scripts": {

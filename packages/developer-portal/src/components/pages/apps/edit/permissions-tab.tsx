@@ -16,6 +16,8 @@ import { useReapitGet } from '@reapit/utils-react'
 import { reapitConnectBrowserSession } from '../../../../core/connect-session'
 import { useAppState } from '../state/use-app-state'
 import { formFields } from './form-schema/form-fields'
+import { Link } from 'react-router-dom'
+import Routes from '../../../../constants/routes'
 
 export const PermissionsTab: FC<AppEditTabsProps> = ({ register, errors }) => {
   const { appEditState } = useAppState()
@@ -37,9 +39,13 @@ export const PermissionsTab: FC<AppEditTabsProps> = ({ register, errors }) => {
     <>
       <Subtitle>Permissions</Subtitle>
       <BodyText hasGreyText hasSectionMargin>
-        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur non pulvinar tellus, quis pulvinar dui. Nunc
-        enim libero, ullamcorper ac ex id, tincidunt dapibus lectus. Vestibulum at porta quam, ac condimentum dui. Duis
-        ornare enim sed magna tincidunt volutpat.
+        Permissions are registered as scopes against the access token you receive back from one of our Authentication
+        Flows. They map 1:1 and on a read/write basis to endpoints in our Foundations REST API. As such, it is worth
+        looking at the{' '}
+        <Link to={Routes.SWAGGER} target="_blank" rel="noopener noreferrer">
+          API explorer here{' '}
+        </Link>
+        before procceeding, to investigate which permissions you think you will need.
       </BodyText>
       {scopesListLoading && <Loader />}
       <FormLayout hasMargin>
@@ -50,7 +56,7 @@ export const PermissionsTab: FC<AppEditTabsProps> = ({ register, errors }) => {
               {...scopes}
               {...register('scopes')}
               options={
-                scopesList?.map(({ name, description }) => ({
+                scopesList.map(({ name, description }) => ({
                   name: description,
                   value: name,
                 })) as MultiSelectOption[]

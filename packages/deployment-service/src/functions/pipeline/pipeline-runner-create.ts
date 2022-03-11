@@ -37,6 +37,7 @@ export const pipelineRunnerCreate = httpHandler<void, PipelineRunnerEntity>({
 
     if (
       (pipeline.buildStatus && 'CREATING_ARCHITECTURE' === pipeline.buildStatus) ||
+      'DELETING' === pipeline.buildStatus ||
       (await service.pipelineRunnerCountRunning(pipeline)) >= 1
     ) {
       throw new HttpErrorException('Cannot create deployment in current state', 409 as HttpStatusCode)

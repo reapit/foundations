@@ -11,6 +11,17 @@ export enum ExternalPages {
   developerPortalDocs = 'https://foundations-documentation.reapit.cloud/developer-portal',
   webhooksDocs = 'https://foundations-documentation.reapit.cloud/api/webhooks',
   inviteMembersDocs = 'https://foundations-documentation.reapit.cloud/faqs#how-to-invite-new-members',
+  desktopDocs = 'https://foundations-documentation.reapit.cloud/api/desktop-api',
+  clientCredentials = 'https://foundations-documentation.reapit.cloud/api/api-documentation#client-credentials-flow',
+  reapitConnectDocs = 'https://foundations-documentation.reapit.cloud/api/reapit-connect',
+  loginWithReapitDocs = 'https://foundations-documentation.reapit.cloud/app-development/web',
+  authoizationFlowDocs = 'https://foundations-documentation.reapit.cloud/api/reapit-connect#authentication-flow',
+  connectSessionDocs = 'https://foundations-documentation.reapit.cloud/app-development/connect-session',
+  craDocs = 'https://foundations-documentation.reapit.cloud/app-development/create-react-app-template',
+  connectSessionNodeExample = 'https://github.com/reapit/foundations/blob/master/packages/connect-session/src/server/index.ts',
+  installationsTableDocs = 'https://foundations-documentation.reapit.cloud/faqs#installations-table',
+  listingAppDocs = 'https://foundations-documentation.reapit.cloud/listing-your-app',
+  reviewingAppDocs = 'https://foundations-documentation.reapit.cloud/listing-your-app/app-listing-review',
 }
 
 export const openNewPage = (uri: ExternalPages | string) => () => {

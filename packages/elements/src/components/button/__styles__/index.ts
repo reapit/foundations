@@ -82,30 +82,50 @@ export const ElButton = styled.button`
     background-image: linear-gradient(to right, var(--intent-primary), var(--intent-primary));
     color: var(--intent-primary-text);
     outline-color: var(--intent-primary-dark);
+
+    &:hover {
+      color: rgba(255, 255, 255, 0.75);
+    }
   }
 
   &.${elIntentSecondary} {
     background-image: linear-gradient(to right, var(--intent-secondary), var(--intent-secondary));
     color: var(--intent-secondary-text);
     outline-color: var(--intent-secondary-dark);
+
+    &:hover {
+      color: rgba(255, 255, 255, 0.75);
+    }
   }
 
   &.${elIntentCritical} {
     background-image: linear-gradient(to right, var(--intent-critical), var(--intent-critical));
     color: var(--intent-critical-text);
     outline-color: var(--intent-critical-dark);
+
+    &:hover {
+      color: rgba(255, 255, 255, 0.75);
+    }
   }
 
   &.${elIntentSuccess} {
     background-image: linear-gradient(to right, var(--intent-success), var(--intent-success));
     color: var(--intent-success-text);
     outline-color: var(--intent-success-dark);
+
+    &:hover {
+      color: rgba(255, 255, 255, 0.75);
+    }
   }
 
   &.${elIntentDanger} {
     background-image: linear-gradient(to right, var(--intent-danger), var(--intent-danger));
     color: var(--intent-danger-text);
     outline-color: var(--intent-danger-dark);
+
+    &:hover {
+      color: rgba(255, 255, 255, 0.75);
+    }
   }
 
   &.${elIntentLow} {
@@ -115,6 +135,10 @@ export const ElButton = styled.button`
 
   &[disabled] {
     opacity: 0.35;
+  }
+
+  &:hover {
+    color: rgba(0, 97, 168, 0.75);
   }
 
   &.${elIsLoading} {

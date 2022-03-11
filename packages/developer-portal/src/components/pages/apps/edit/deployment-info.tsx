@@ -13,10 +13,11 @@ import { PipelineInfo } from './pipeline-info'
 
 export interface PipelineDeploymentInfoProps {
   pipeline: PipelineModelInterface
+  setPipeline: (pipeline: PipelineModelInterface) => void
   channel: any
 }
 
-export const PipelineDeploymentInfo: FC<PipelineDeploymentInfoProps> = ({ pipeline, channel }) => {
+export const PipelineDeploymentInfo: FC<PipelineDeploymentInfoProps> = ({ pipeline, channel, setPipeline }) => {
   const { connectSession } = useReapitConnect(reapitConnectBrowserSession)
   const [pipelineDeployments, loading] = useReapitGet<{ items: PipelineRunnerModelInterface[] }>({
     reapitConnectBrowserSession,
@@ -41,6 +42,19 @@ export const PipelineDeploymentInfo: FC<PipelineDeploymentInfoProps> = ({ pipeli
     returnType: UpdateReturnTypeEnum.RESPONSE,
   })
 
+  const [deleteLoading, , deleteFunc] = useReapitUpdate<void, PipelineRunnerModelInterface>({
+    reapitConnectBrowserSession,
+    action: updateActions(window.reapit.config.appEnv)[UpdateActionNames.deletePipeline],
+    uriParams: {
+      appId: pipeline.id,
+    },
+    method: 'DELETE',
+    headers: {
+      Authorization: connectSession?.idToken as string,
+    },
+    returnType: UpdateReturnTypeEnum.RESPONSE,
+  })
+
   return (
     <>
       <PipelineInfo pipeline={pipeline} />
@@ -53,6 +67,7 @@ export const PipelineDeploymentInfo: FC<PipelineDeploymentInfoProps> = ({ pipeli
             event.preventDefault()
             await sendFunc()
           }}
+          disabled={pipeline.buildStatus === 'DELETING'}
         >
           Deploy
         </Button>
@@ -61,6 +76,19 @@ export const PipelineDeploymentInfo: FC<PipelineDeploymentInfoProps> = ({ pipeli
           onClick={openNewPage('https://github.com/reapit/foundations/tree/master/packages/cli#readme')}
         >
           Deploy With Cli
+        </Button>
+        <Button
+          loading={deleteLoading}
+          intent="danger"
+          disabled={pipeline.buildStatus === 'DELETING'}
+          onClick={async (event) => {
+            event.preventDefault()
+            const result = await deleteFunc()
+
+            if (result && typeof result !== 'boolean') setPipeline(result)
+          }}
+        >
+          Delete Pipeline
         </Button>
       </ButtonGroup>
       <PipelineDeploymentTable

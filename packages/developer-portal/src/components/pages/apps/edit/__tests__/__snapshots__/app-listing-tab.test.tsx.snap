@@ -9,14 +9,27 @@ Object {
         class="ecbqyq6-el-snack-holder"
       />
       <h2
-        class="evblxhy-el-subtitle"
+        class="e1byern-el-subtitle"
       >
         App Listing
       </h2>
       <p
-        class="e11jaxfn-el-has-grey-text etrchfm-el-has-section-margin e1byern-el-body-text"
+        class="e11jaxfn-el-has-grey-text e15ggth7-el-body-text"
       >
-        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur non pulvinar tellus, quis pulvinar dui. Nunc enim libero, ullamcorper ac ex id, tincidunt dapibus lectus. Vestibulum at porta quam, ac condimentum dui. Duis ornare enim sed magna tincidunt volutpat.
+        The detail included on this page populates your app listing in the AppMarket. While you are in development, you can complete this in your own time however, when you are ready to sumbit your app for approval, it all needs to be completed.
+      </p>
+      <p
+        class="e11jaxfn-el-has-grey-text etrchfm-el-has-section-margin e15ggth7-el-body-text"
+      >
+        For information on listing your app 
+        <a>
+          see here
+        </a>
+        . If you are looking for guidance on what we look for when reviewing app, there is a dedicated page
+         
+        <a>
+          here.
+        </a>
       </p>
       <div
         class="e1fwulnz-el-form-layout-has-margin ee6e7by-el-form-layout"
@@ -255,128 +268,32 @@ Object {
         <div
           class="e1ksxx4v-el-input-wrap"
         >
-          <div
-            class="e1979rmu-el-input-group"
-          >
-            <input
-              class="e1urjlvd-el-input"
-              id="test-static-id"
-              name="iconImageUrl"
-              type="file"
-              value=""
-            />
-            <label
-              class="e1nbkkrq-el-label"
-              for="test-static-id"
-            >
-              Upload Icon Image
-            </label>
-          </div>
+          <div />
         </div>
         <div
           class="e1ksxx4v-el-input-wrap"
         >
-          <div
-            class="e1979rmu-el-input-group"
-          >
-            <input
-              class="e1urjlvd-el-input"
-              id="test-static-id"
-              name="screen1ImageUrl"
-              type="file"
-              value=""
-            />
-            <label
-              class="e1nbkkrq-el-label"
-              for="test-static-id"
-            >
-              Upload Featured Image
-            </label>
-          </div>
+          <div />
         </div>
         <div
           class="e1ksxx4v-el-input-wrap"
         >
-          <div
-            class="e1979rmu-el-input-group"
-          >
-            <input
-              class="e1urjlvd-el-input"
-              id="test-static-id"
-              name="screen2ImageUrl"
-              type="file"
-              value=""
-            />
-            <label
-              class="e1nbkkrq-el-label"
-              for="test-static-id"
-            >
-              Upload Other Listing Image
-            </label>
-          </div>
+          <div />
         </div>
         <div
           class="e1ksxx4v-el-input-wrap"
         >
-          <div
-            class="e1979rmu-el-input-group"
-          >
-            <input
-              class="e1urjlvd-el-input"
-              id="test-static-id"
-              name="screen3ImageUrl"
-              type="file"
-              value=""
-            />
-            <label
-              class="e1nbkkrq-el-label"
-              for="test-static-id"
-            >
-              Upload Other Listing Image
-            </label>
-          </div>
+          <div />
         </div>
         <div
           class="e1ksxx4v-el-input-wrap"
         >
-          <div
-            class="e1979rmu-el-input-group"
-          >
-            <input
-              class="e1urjlvd-el-input"
-              id="test-static-id"
-              name="screen4ImageUrl"
-              type="file"
-              value=""
-            />
-            <label
-              class="e1nbkkrq-el-label"
-              for="test-static-id"
-            >
-              Upload Other Listing Image
-            </label>
-          </div>
+          <div />
         </div>
         <div
           class="e1ksxx4v-el-input-wrap"
         >
-          <div
-            class="e1979rmu-el-input-group"
-          >
-            <input
-              class="e1urjlvd-el-input"
-              id="test-static-id"
-              name="screen5ImageUrl"
-              type="file"
-              value=""
-            />
-            <label
-              class="e1nbkkrq-el-label"
-              for="test-static-id"
-            >
-              Upload Other Listing Image
-            </label>
-          </div>
+          <div />
         </div>
       </div>
     </div>
@@ -386,14 +303,27 @@ Object {
       class="ecbqyq6-el-snack-holder"
     />
     <h2
-      class="evblxhy-el-subtitle"
+      class="e1byern-el-subtitle"
     >
       App Listing
     </h2>
     <p
-      class="e11jaxfn-el-has-grey-text etrchfm-el-has-section-margin e1byern-el-body-text"
+      class="e11jaxfn-el-has-grey-text e15ggth7-el-body-text"
     >
-      Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur non pulvinar tellus, quis pulvinar dui. Nunc enim libero, ullamcorper ac ex id, tincidunt dapibus lectus. Vestibulum at porta quam, ac condimentum dui. Duis ornare enim sed magna tincidunt volutpat.
+      The detail included on this page populates your app listing in the AppMarket. While you are in development, you can complete this in your own time however, when you are ready to sumbit your app for approval, it all needs to be completed.
+    </p>
+    <p
+      class="e11jaxfn-el-has-grey-text etrchfm-el-has-section-margin e15ggth7-el-body-text"
+    >
+      For information on listing your app 
+      <a>
+        see here
+      </a>
+      . If you are looking for guidance on what we look for when reviewing app, there is a dedicated page
+       
+      <a>
+        here.
+      </a>
     </p>
     <div
       class="e1fwulnz-el-form-layout-has-margin ee6e7by-el-form-layout"
@@ -632,128 +562,32 @@ Object {
       <div
         class="e1ksxx4v-el-input-wrap"
       >
-        <div
-          class="e1979rmu-el-input-group"
-        >
-          <input
-            class="e1urjlvd-el-input"
-            id="test-static-id"
-            name="iconImageUrl"
-            type="file"
-            value=""
-          />
-          <label
-            class="e1nbkkrq-el-label"
-            for="test-static-id"
-          >
-            Upload Icon Image
-          </label>
-        </div>
+        <div />
       </div>
       <div
         class="e1ksxx4v-el-input-wrap"
       >
-        <div
-          class="e1979rmu-el-input-group"
-        >
-          <input
-            class="e1urjlvd-el-input"
-            id="test-static-id"
-            name="screen1ImageUrl"
-            type="file"
-            value=""
-          />
-          <label
-            class="e1nbkkrq-el-label"
-            for="test-static-id"
-          >
-            Upload Featured Image
-          </label>
-        </div>
+        <div />
       </div>
       <div
         class="e1ksxx4v-el-input-wrap"
       >
-        <div
-          class="e1979rmu-el-input-group"
-        >
-          <input
-            class="e1urjlvd-el-input"
-            id="test-static-id"
-            name="screen2ImageUrl"
-            type="file"
-            value=""
-          />
-          <label
-            class="e1nbkkrq-el-label"
-            for="test-static-id"
-          >
-            Upload Other Listing Image
-          </label>
-        </div>
+        <div />
       </div>
       <div
         class="e1ksxx4v-el-input-wrap"
       >
-        <div
-          class="e1979rmu-el-input-group"
-        >
-          <input
-            class="e1urjlvd-el-input"
-            id="test-static-id"
-            name="screen3ImageUrl"
-            type="file"
-            value=""
-          />
-          <label
-            class="e1nbkkrq-el-label"
-            for="test-static-id"
-          >
-            Upload Other Listing Image
-          </label>
-        </div>
+        <div />
       </div>
       <div
         class="e1ksxx4v-el-input-wrap"
       >
-        <div
-          class="e1979rmu-el-input-group"
-        >
-          <input
-            class="e1urjlvd-el-input"
-            id="test-static-id"
-            name="screen4ImageUrl"
-            type="file"
-            value=""
-          />
-          <label
-            class="e1nbkkrq-el-label"
-            for="test-static-id"
-          >
-            Upload Other Listing Image
-          </label>
-        </div>
+        <div />
       </div>
       <div
         class="e1ksxx4v-el-input-wrap"
       >
-        <div
-          class="e1979rmu-el-input-group"
-        >
-          <input
-            class="e1urjlvd-el-input"
-            id="test-static-id"
-            name="screen5ImageUrl"
-            type="file"
-            value=""
-          />
-          <label
-            class="e1nbkkrq-el-label"
-            for="test-static-id"
-          >
-            Upload Other Listing Image
-          </label>
-        </div>
+        <div />
       </div>
     </div>
   </div>,
@@ -820,14 +654,27 @@ Object {
         class="ecbqyq6-el-snack-holder"
       />
       <h2
-        class="evblxhy-el-subtitle"
+        class="e1byern-el-subtitle"
       >
         App Listing
       </h2>
       <p
-        class="e11jaxfn-el-has-grey-text etrchfm-el-has-section-margin e1byern-el-body-text"
+        class="e11jaxfn-el-has-grey-text e15ggth7-el-body-text"
       >
-        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur non pulvinar tellus, quis pulvinar dui. Nunc enim libero, ullamcorper ac ex id, tincidunt dapibus lectus. Vestibulum at porta quam, ac condimentum dui. Duis ornare enim sed magna tincidunt volutpat.
+        The detail included on this page populates your app listing in the AppMarket. While you are in development, you can complete this in your own time however, when you are ready to sumbit your app for approval, it all needs to be completed.
+      </p>
+      <p
+        class="e11jaxfn-el-has-grey-text etrchfm-el-has-section-margin e15ggth7-el-body-text"
+      >
+        For information on listing your app 
+        <a>
+          see here
+        </a>
+        . If you are looking for guidance on what we look for when reviewing app, there is a dedicated page
+         
+        <a>
+          here.
+        </a>
       </p>
       <div
         class="e1fwulnz-el-form-layout-has-margin ee6e7by-el-form-layout"
@@ -1111,152 +958,62 @@ Object {
         <div
           class="e1ksxx4v-el-input-wrap"
         >
-          <div
-            class="e1979rmu-el-input-group"
+          <div />
+          <p
+            class="e19twfs3-el-input-error"
           >
-            <input
-              class="e1urjlvd-el-input"
-              id="test-static-id"
-              name="iconImageUrl"
-              type="file"
-            />
-            <label
-              class="e1nbkkrq-el-label"
-              for="test-static-id"
-            >
-              Upload Icon Image
-            </label>
-            <p
-              class="e19twfs3-el-input-error"
-            >
-              An Error
-            </p>
-          </div>
+            An Error
+          </p>
         </div>
         <div
           class="e1ksxx4v-el-input-wrap"
         >
-          <div
-            class="e1979rmu-el-input-group"
+          <div />
+          <p
+            class="e19twfs3-el-input-error"
           >
-            <input
-              class="e1urjlvd-el-input"
-              id="test-static-id"
-              name="screen1ImageUrl"
-              type="file"
-            />
-            <label
-              class="e1nbkkrq-el-label"
-              for="test-static-id"
-            >
-              Upload Featured Image
-            </label>
-            <p
-              class="e19twfs3-el-input-error"
-            >
-              An Error
-            </p>
-          </div>
+            An Error
+          </p>
         </div>
         <div
           class="e1ksxx4v-el-input-wrap"
         >
-          <div
-            class="e1979rmu-el-input-group"
+          <div />
+          <p
+            class="e19twfs3-el-input-error"
           >
-            <input
-              class="e1urjlvd-el-input"
-              id="test-static-id"
-              name="screen2ImageUrl"
-              type="file"
-            />
-            <label
-              class="e1nbkkrq-el-label"
-              for="test-static-id"
-            >
-              Upload Other Listing Image
-            </label>
-            <p
-              class="e19twfs3-el-input-error"
-            >
-              An Error
-            </p>
-          </div>
+            An Error
+          </p>
         </div>
         <div
           class="e1ksxx4v-el-input-wrap"
         >
-          <div
-            class="e1979rmu-el-input-group"
+          <div />
+          <p
+            class="e19twfs3-el-input-error"
           >
-            <input
-              class="e1urjlvd-el-input"
-              id="test-static-id"
-              name="screen3ImageUrl"
-              type="file"
-            />
-            <label
-              class="e1nbkkrq-el-label"
-              for="test-static-id"
-            >
-              Upload Other Listing Image
-            </label>
-            <p
-              class="e19twfs3-el-input-error"
-            >
-              An Error
-            </p>
-          </div>
+            An Error
+          </p>
         </div>
         <div
           class="e1ksxx4v-el-input-wrap"
         >
-          <div
-            class="e1979rmu-el-input-group"
+          <div />
+          <p
+            class="e19twfs3-el-input-error"
           >
-            <input
-              class="e1urjlvd-el-input"
-              id="test-static-id"
-              name="screen4ImageUrl"
-              type="file"
-            />
-            <label
-              class="e1nbkkrq-el-label"
-              for="test-static-id"
-            >
-              Upload Other Listing Image
-            </label>
-            <p
-              class="e19twfs3-el-input-error"
-            >
-              An Error
-            </p>
-          </div>
+            An Error
+          </p>
         </div>
         <div
           class="e1ksxx4v-el-input-wrap"
         >
-          <div
-            class="e1979rmu-el-input-group"
+          <div />
+          <p
+            class="e19twfs3-el-input-error"
           >
-            <input
-              class="e1urjlvd-el-input"
-              id="test-static-id"
-              name="screen5ImageUrl"
-              type="file"
-            />
-            <label
-              class="e1nbkkrq-el-label"
-              for="test-static-id"
-            >
-              Upload Other Listing Image
-            </label>
-            <p
-              class="e19twfs3-el-input-error"
-            >
-              An Error
-            </p>
-          </div>
+            An Error
+          </p>
         </div>
       </div>
     </div>
@@ -1266,14 +1023,27 @@ Object {
       class="ecbqyq6-el-snack-holder"
     />
     <h2
-      class="evblxhy-el-subtitle"
+      class="e1byern-el-subtitle"
     >
       App Listing
     </h2>
     <p
-      class="e11jaxfn-el-has-grey-text etrchfm-el-has-section-margin e1byern-el-body-text"
+      class="e11jaxfn-el-has-grey-text e15ggth7-el-body-text"
     >
-      Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur non pulvinar tellus, quis pulvinar dui. Nunc enim libero, ullamcorper ac ex id, tincidunt dapibus lectus. Vestibulum at porta quam, ac condimentum dui. Duis ornare enim sed magna tincidunt volutpat.
+      The detail included on this page populates your app listing in the AppMarket. While you are in development, you can complete this in your own time however, when you are ready to sumbit your app for approval, it all needs to be completed.
+    </p>
+    <p
+      class="e11jaxfn-el-has-grey-text etrchfm-el-has-section-margin e15ggth7-el-body-text"
+    >
+      For information on listing your app 
+      <a>
+        see here
+      </a>
+      . If you are looking for guidance on what we look for when reviewing app, there is a dedicated page
+       
+      <a>
+        here.
+      </a>
     </p>
     <div
       class="e1fwulnz-el-form-layout-has-margin ee6e7by-el-form-layout"
@@ -1557,152 +1327,62 @@ Object {
       <div
         class="e1ksxx4v-el-input-wrap"
       >
-        <div
-          class="e1979rmu-el-input-group"
+        <div />
+        <p
+          class="e19twfs3-el-input-error"
         >
-          <input
-            class="e1urjlvd-el-input"
-            id="test-static-id"
-            name="iconImageUrl"
-            type="file"
-          />
-          <label
-            class="e1nbkkrq-el-label"
-            for="test-static-id"
-          >
-            Upload Icon Image
-          </label>
-          <p
-            class="e19twfs3-el-input-error"
-          >
-            An Error
-          </p>
-        </div>
+          An Error
+        </p>
       </div>
       <div
         class="e1ksxx4v-el-input-wrap"
       >
-        <div
-          class="e1979rmu-el-input-group"
+        <div />
+        <p
+          class="e19twfs3-el-input-error"
         >
-          <input
-            class="e1urjlvd-el-input"
-            id="test-static-id"
-            name="screen1ImageUrl"
-            type="file"
-          />
-          <label
-            class="e1nbkkrq-el-label"
-            for="test-static-id"
-          >
-            Upload Featured Image
-          </label>
-          <p
-            class="e19twfs3-el-input-error"
-          >
-            An Error
-          </p>
-        </div>
+          An Error
+        </p>
       </div>
       <div
         class="e1ksxx4v-el-input-wrap"
       >
-        <div
-          class="e1979rmu-el-input-group"
+        <div />
+        <p
+          class="e19twfs3-el-input-error"
         >
-          <input
-            class="e1urjlvd-el-input"
-            id="test-static-id"
-            name="screen2ImageUrl"
-            type="file"
-          />
-          <label
-            class="e1nbkkrq-el-label"
-            for="test-static-id"
-          >
-            Upload Other Listing Image
-          </label>
-          <p
-            class="e19twfs3-el-input-error"
-          >
-            An Error
-          </p>
-        </div>
+          An Error
+        </p>
       </div>
       <div
         class="e1ksxx4v-el-input-wrap"
       >
-        <div
-          class="e1979rmu-el-input-group"
+        <div />
+        <p
+          class="e19twfs3-el-input-error"
         >
-          <input
-            class="e1urjlvd-el-input"
-            id="test-static-id"
-            name="screen3ImageUrl"
-            type="file"
-          />
-          <label
-            class="e1nbkkrq-el-label"
-            for="test-static-id"
-          >
-            Upload Other Listing Image
-          </label>
-          <p
-            class="e19twfs3-el-input-error"
-          >
-            An Error
-          </p>
-        </div>
+          An Error
+        </p>
       </div>
       <div
         class="e1ksxx4v-el-input-wrap"
       >
-        <div
-          class="e1979rmu-el-input-group"
+        <div />
+        <p
+          class="e19twfs3-el-input-error"
         >
-          <input
-            class="e1urjlvd-el-input"
-            id="test-static-id"
-            name="screen4ImageUrl"
-            type="file"
-          />
-          <label
-            class="e1nbkkrq-el-label"
-            for="test-static-id"
-          >
-            Upload Other Listing Image
-          </label>
-          <p
-            class="e19twfs3-el-input-error"
-          >
-            An Error
-          </p>
-        </div>
+          An Error
+        </p>
       </div>
       <div
         class="e1ksxx4v-el-input-wrap"
       >
-        <div
-          class="e1979rmu-el-input-group"
+        <div />
+        <p
+          class="e19twfs3-el-input-error"
         >
-          <input
-            class="e1urjlvd-el-input"
-            id="test-static-id"
-            name="screen5ImageUrl"
-            type="file"
-          />
-          <label
-            class="e1nbkkrq-el-label"
-            for="test-static-id"
-          >
-            Upload Other Listing Image
-          </label>
-          <p
-            class="e19twfs3-el-input-error"
-          >
-            An Error
-          </p>
-        </div>
+          An Error
+        </p>
       </div>
     </div>
   </div>,

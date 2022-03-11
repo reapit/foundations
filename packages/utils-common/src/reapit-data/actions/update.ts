@@ -18,6 +18,8 @@ export enum UpdateActionNames {
   deleteApp = 'deleteApp',
   createAppRevsion = 'createAppRevsion',
   deleteOfficeGroup = 'deleteOfficeGroup',
+  deletePipeline = 'deletePipeline',
+  fileUpload = 'fileUpload',
 }
 
 export type UpdateActions = { [key in UpdateActionNames]: UpdateAction }
@@ -75,5 +77,16 @@ export const updateActions = (appEnv: AppEnv): UpdateActions => ({
     path: PathNames.officeGroupId,
     errorMessage: 'Failed to delete this office group, please try again',
     successMessage: 'Successfully deleted office group',
+  },
+  [UpdateActionNames.deletePipeline]: {
+    api: ApiNames(appEnv).pipeline,
+    path: PathNames.getPipeline,
+    errorMessage: 'Failed to delete Pipeline',
+    successMessage: 'Pipeline deleting',
+  },
+  [UpdateActionNames.fileUpload]: {
+    api: ApiNames(appEnv).platform,
+    path: PathNames.fileUpload,
+    errorMessage: 'Failed to upload one of your files',
   },
 })

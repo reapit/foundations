@@ -58,7 +58,8 @@ const fetchSchema = async (apiVersion) => {
   const apiSchema = [
     {
       definitionFile: path.resolve(FOUNDATIONS_TYPES_FOLDER, './platform-schema.ts'),
-      endpoint: `${PLATFORM_API_BASE_URL}/docs`,
+      // normally this would be at `${PLATFORM_API_BASE_URL}/docs`, but endpoint down for now. Using fallback for now
+      endpoint: `https://reapit-swagger-dev.s3.eu-west-2.amazonaws.com/foundations_swagger.json`,
       headers: {
         'api-version': apiVersion,
       },

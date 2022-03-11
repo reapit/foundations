@@ -1536,6 +1536,10 @@ export interface MemberModel {
    */
   role?: string
   /**
+   * The github username of the member
+   */
+  gitHubUsername?: string
+  /**
    * The date the member agreed to the terms
    */
   agreedTerms?: string // date-time
@@ -1953,4 +1957,8 @@ export interface UpdateMemberModel {
    * The identifier of the sandbox environment to use (AUS/GBR)
    */
   sandboxId?: string
+  /**
+   * The github username for this member
+   */
+  gitHubUsername?: string
 }

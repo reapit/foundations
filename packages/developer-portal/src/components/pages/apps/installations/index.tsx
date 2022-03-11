@@ -1,5 +1,5 @@
 import React, { FC, useEffect, useState } from 'react'
-import { elMb11, Loader, Pagination, PersistantNotification, Table, Title } from '@reapit/elements'
+import { BodyText, elMb11, Loader, Pagination, PersistantNotification, Table, Title } from '@reapit/elements'
 import { useParams } from 'react-router-dom'
 import { AppUriParams, useAppState } from '../state/use-app-state'
 import { handleSetAppId } from '../utils/handle-set-app-id'
@@ -9,6 +9,7 @@ import { reapitConnectBrowserSession } from '../../../../core/connect-session'
 import { combineAddress, GetActionNames, getActions } from '@reapit/utils-common'
 import dayjs from 'dayjs'
 import { useReapitConnect } from '@reapit/connect-session'
+import { ExternalPages, openNewPage } from '../../../../utils/navigation'
 
 export const AppInstallations: FC = () => {
   const { appId } = useParams<AppUriParams>()
@@ -40,6 +41,12 @@ export const AppInstallations: FC = () => {
         <Loader />
       ) : installations?.totalCount ? (
         <>
+          <BodyText hasGreyText hasSectionMargin>
+            The table below gives you the information you need to understand Reapit Client organisations that have
+            installed your application for use. In addition, you can force terminate a customer installation by using
+            the call to action on each row. For more information on the installations table
+            <a onClick={openNewPage(ExternalPages.installationsTableDocs)}> see here</a>.
+          </BodyText>
           <Table
             numberColumns={6}
             className={elMb11}
@@ -106,7 +113,7 @@ export const AppInstallations: FC = () => {
         </>
       ) : installations ? (
         <PersistantNotification intent="secondary" isExpanded isFullWidth isInline>
-          No installations for thie application.
+          No installations for the application.
         </PersistantNotification>
       ) : null}
     </>

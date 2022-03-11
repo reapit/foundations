@@ -1,6 +1,6 @@
 import React from 'react'
 import { render } from '../../../../../tests/react-testing'
-import AppsWelcomePage, { handeSetShowWizard } from '..'
+import AppsWelcomePage, { handleHasWatchedVideo } from '..'
 
 describe('AppsWelcome', () => {
   it('should match a snapshot when apps are present', () => {
@@ -8,13 +8,15 @@ describe('AppsWelcome', () => {
   })
 })
 
-describe('handeSetShowWizard', () => {
+describe('handleHasWatchedVideo', () => {
   it('should handle toggling wizard', () => {
-    const setShowWizard = jest.fn()
-    const curried = handeSetShowWizard(setShowWizard, true)
+    const setHasWatchedVideo = jest.fn()
+    const closeModal = jest.fn()
+    const curried = handleHasWatchedVideo(setHasWatchedVideo, closeModal)
 
     curried()
 
-    expect(setShowWizard).toHaveBeenCalledWith(false)
+    expect(setHasWatchedVideo).toHaveBeenCalledWith(true)
+    expect(closeModal).toHaveBeenCalledTimes(1)
   })
 })

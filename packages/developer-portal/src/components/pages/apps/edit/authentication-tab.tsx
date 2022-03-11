@@ -2,6 +2,7 @@ import React, { FC } from 'react'
 import { BodyText, FormLayout, InputGroup, InputWrapFull, Subtitle } from '@reapit/elements'
 import { AppEditTabsProps } from './edit-page-tabs'
 import { formFields } from './form-schema/form-fields'
+import { ExternalPages, openNewPage } from '../../../../utils/navigation'
 
 export const AuthenticationTab: FC<AppEditTabsProps> = ({ register, errors }) => {
   const { redirectUris, signoutUris } = formFields
@@ -9,9 +10,12 @@ export const AuthenticationTab: FC<AppEditTabsProps> = ({ register, errors }) =>
     <>
       <Subtitle>Authentication</Subtitle>
       <BodyText hasGreyText hasSectionMargin>
-        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur non pulvinar tellus, quis pulvinar dui. Nunc
-        enim libero, ullamcorper ac ex id, tincidunt dapibus lectus. Vestibulum at porta quam, ac condimentum dui. Duis
-        ornare enim sed magna tincidunt volutpat.
+        When using the Reapit Connect{' '}
+        <a onClick={openNewPage(ExternalPages.authoizationFlowDocs)}>Authorization Code flow,</a> you need to register
+        both a re-direct uri and a logout uri. The former is the location in your app, you want Reapit Connect to
+        re-direct to after a successful user login, the latter, after a succesful logout. Only uris that are registered
+        here will be accepted as a location by Reapit Connect although, you can register multiple locations with a comma
+        separated list.
       </BodyText>
       <FormLayout hasMargin>
         <InputWrapFull>

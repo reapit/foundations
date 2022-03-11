@@ -12,7 +12,7 @@ Object {
         class="el6khyg-el-p8"
       >
         <h2
-          class="ek1d8t2-el-ml3 evblxhy-el-subtitle"
+          class="ek1d8t2-el-ml3 e1byern-el-subtitle"
         >
           Test Webhook Subscription
         </h2>
@@ -51,7 +51,7 @@ Object {
             class="eb3z2eu-el-col-split"
           >
             <p
-              class="e1byern-el-body-text"
+              class="e15ggth7-el-body-text"
             >
               To test your Webhook subscription, please select a subscription topic and an example payload for that topic will be sent to the configured URL. For more information, please
                
@@ -94,7 +94,7 @@ Object {
       class="el6khyg-el-p8"
     >
       <h2
-        class="ek1d8t2-el-ml3 evblxhy-el-subtitle"
+        class="ek1d8t2-el-ml3 e1byern-el-subtitle"
       >
         Test Webhook Subscription
       </h2>
@@ -133,7 +133,7 @@ Object {
           class="eb3z2eu-el-col-split"
         >
           <p
-            class="e1byern-el-body-text"
+            class="e15ggth7-el-body-text"
           >
             To test your Webhook subscription, please select a subscription topic and an example payload for that topic will be sent to the configured URL. For more information, please
              

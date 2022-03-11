@@ -8,6 +8,7 @@ export const elHasBoldText = css``
 export const elHasItalicText = css``
 export const elHasCenteredText = css``
 export const elHasSectionMargin = css``
+export const elHasDisabledText = css``
 
 export const ElTitle = styled.h1`
   font-family: var(--font-sans-serif);
@@ -20,6 +21,14 @@ export const ElTitle = styled.h1`
 
   &.${elHasGreyText} {
     color: var(--color-grey-dark);
+  }
+
+  &.${elHasDisabledText} {
+    color: var(--color-grey-medium);
+
+    a {
+      color: var(--color-grey-medium);
+    }
   }
 
   &.${elHasRegularText} {
@@ -56,6 +65,14 @@ export const ElSubtitle = styled.h2`
     color: var(--color-grey-dark);
   }
 
+  &.${elHasDisabledText} {
+    color: var(--color-grey-medium);
+
+    a {
+      color: var(--color-grey-medium);
+    }
+  }
+
   &.${elHasBoldText} {
     font-weight: bold;
   }
@@ -90,6 +107,14 @@ export const ElBodyText = styled.p`
     color: var(--color-grey-dark);
   }
 
+  &.${elHasDisabledText} {
+    color: var(--color-grey-medium);
+
+    a {
+      color: var(--color-grey-medium);
+    }
+  }
+
   &.${elHasBoldText} {
     font-weight: bold;
   }
@@ -122,6 +147,14 @@ export const ElSmallText = styled.p`
 
   &.${elHasGreyText} {
     color: var(--color-grey-dark);
+  }
+
+  &.${elHasDisabledText} {
+    color: var(--color-grey-medium);
+
+    a {
+      color: var(--color-grey-medium);
+    }
   }
 
   &.${elHasBoldText} {

@@ -1,11 +1,11 @@
 import { ReapitConnectSession } from '@reapit/connect-session'
-import { render } from '@testing-library/react'
 import React from 'react'
 import { AppsNewPage, handleNavigateOnSuccess, handleSubmitApp, stepIsValid } from '..'
 import { AppProvider } from '../../state/use-app-state'
 import { History } from 'history'
 import Routes from '../../../../../constants/routes'
 import { AppNewStepId } from '../config'
+import { render } from '../../../../../tests/react-testing'
 
 jest.mock('project-name-generator', () => ({
   __esModule: true,
@@ -138,12 +138,14 @@ describe('AppsNew', () => {
     const history = {
       push: jest.fn(),
     } as unknown as History
+    const appsRefresh = jest.fn()
 
-    const curried = handleNavigateOnSuccess(appCreated, history)
+    const curried = handleNavigateOnSuccess(appCreated, history, appsRefresh)
 
     curried()
 
     expect(history.push).toHaveBeenCalledWith(`${Routes.APPS}/${appCreated.id}`)
+    expect(appsRefresh).toHaveBeenCalledTimes(1)
   })
 
   it('should check if a step is valid for authorisationCode flow and no step history', async () => {

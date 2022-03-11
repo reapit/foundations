@@ -146,8 +146,9 @@ describe('handleDeleteGroup', () => {
   it('should handle deleting a group', async () => {
     const deleteOfficeGroup = jest.fn(() => new Promise<boolean>((resolve) => resolve(true)))
     const onComplete = jest.fn()
+    const closeModal = jest.fn()
 
-    const curried = handleDeleteGroup(deleteOfficeGroup, onComplete)
+    const curried = handleDeleteGroup(deleteOfficeGroup, onComplete, closeModal)
     const event = {
       preventDefault: jest.fn(),
       stopPropagation: jest.fn(),
@@ -156,6 +157,7 @@ describe('handleDeleteGroup', () => {
     await curried(event)
 
     expect(onComplete).toHaveBeenCalledTimes(1)
+    expect(closeModal).toHaveBeenCalledTimes(1)
     expect(deleteOfficeGroup).toHaveBeenCalledTimes(1)
     expect(event.preventDefault).toHaveBeenCalledTimes(1)
     expect(event.stopPropagation).toHaveBeenCalledTimes(1)
