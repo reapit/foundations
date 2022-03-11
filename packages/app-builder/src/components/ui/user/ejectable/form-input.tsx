@@ -1,17 +1,14 @@
-import React, { useEffect, useRef } from 'react'
+import React from 'react'
 import {
   CardWrap,
   ElBodyText,
   elHasGreyText,
-  ElInput,
   elMy2,
   FloatingButton,
   InputGroup,
   InputWrap,
   Label,
   Loader,
-  MultiSelectInput,
-  MultiSelectInputProps,
   SearchableDropdown,
   Select,
 } from '@reapit/elements'
@@ -37,35 +34,6 @@ type GenericObject = {
   [key: string]: any
 }
 
-const SearchableMultiSelectInput = ({
-  id,
-  onChange,
-  getResults,
-}: Omit<MultiSelectInputProps, 'options'> & {
-  getResults: (query: string) => Promise<{ name: string; value: any }[]>
-}) => {
-  // const [values, setValues] = React.useState<any[]>([])
-  const [results, setResults] = React.useState<{ name: string; value: any }[]>([])
-
-  const handleSearchChange = (e: React.ChangeEvent<HTMLInputElement | HTMLSelectElement>) => {
-    getResults(e.target.value).then(setResults)
-  }
-
-  return (
-    <InputWrap>
-      <ElInput placeholder="Search" onChange={handleSearchChange} />
-      <MultiSelectInput
-        id={id}
-        onChange={(e) => {
-          console.log(e.target.value)
-          onChange && onChange(e)
-        }}
-        options={results}
-      />
-    </InputWrap>
-  )
-}
-
 const SelectIDofType = ({
   typeName,
   value,
@@ -73,11 +41,9 @@ const SelectIDofType = ({
   defaultValue,
   name,
   disabled,
-  multiSelect,
 }: {
   typeName: string
   name: string
-  multiSelect?: boolean
   value?: React.SelectHTMLAttributes<HTMLSelectElement>['value']
   disabled?: boolean
   defaultValue?: React.SelectHTMLAttributes<HTMLSelectElement>['defaultValue']
@@ -86,38 +52,6 @@ const SelectIDofType = ({
   const { data, loading } = useObjectList(typeName)
   const { object } = useObject(typeName)
   const { available: searchAvailable, search } = useLazyObjectSearch(typeName)
-
-  if (multiSelect) {
-    if (searchAvailable) {
-      return (
-        <SearchableMultiSelectInput
-          id={name}
-          onChange={onChange}
-          getResults={async (query: string) => {
-            const results = await search(query)
-            return results.map((result) => ({ name: getLabel(result, object?.labelKeys), value: result.id }))
-          }}
-        />
-      )
-    }
-    return (
-      <MultiSelectInput
-        name={name}
-        id={name}
-        onChange={onChange}
-        defaultValue={defaultValue}
-        disabled={disabled}
-        options={
-          data
-            ? data.map((obj) => ({
-                name: getLabel(obj, object?.labelKeys),
-                value: obj.id,
-              }))
-            : []
-        }
-      />
-    )
-  }
 
   if (searchAvailable) {
     return (
@@ -141,7 +75,8 @@ const SelectIDofType = ({
             {getLabel(obj, object?.labelKeys)}
           </option>
         ))}
-        <option disabled selected> {/* deepscan-disable-line */}
+        {/* deepscan-disable-next-line */}
+        <option disabled selected>
           Select a {typeName}
         </option>
       </Select>
@@ -200,7 +135,8 @@ const Input = ({
                 {value}
               </option>
             ))}
-            <option disabled selected>{/* deepscan-disable-line */}
+            {/* deepscan-disable-next-line */}
+            <option disabled selected>
               Select a {inputTypeName}
             </option>
           </Select>
@@ -215,7 +151,6 @@ const Input = ({
             typeName={idOfType}
             onChange={onChange}
             value={value}
-            multiSelect={input.isList}
             defaultValue={defaultValue}
           />
         </>
@@ -336,9 +271,9 @@ const InnerFormInput = (
 
   if (!formInput) return null
 
-  const { isList, idOfType } = formInput
+  const { isList } = formInput
   const label = friendlyIdName(name)
-  if (isList && !idOfType) {
+  if (isList) {
     return (
       <ListInput
         defaultValue={defaultValue}

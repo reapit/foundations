@@ -42,7 +42,9 @@ export const extractMetadata = <T>(
   metadataSchemaType: MetadataSchemaType,
   object: T,
 ): T & { metadata?: any } => {
-  const metadataFields = context.customEntities.find((metadataSchema) => metadataSchema.id === metadataSchemaType)
+  const metadataFields = context.customEntities.find(
+    (metadataSchema) => metadataSchema.id.toLowerCase() === metadataSchemaType,
+  )
 
   if (!metadataFields) {
     return object

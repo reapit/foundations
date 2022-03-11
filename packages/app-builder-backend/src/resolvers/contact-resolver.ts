@@ -46,7 +46,7 @@ const createContactMutation = gql`
     $forename: String
     $surname: String
     $email: String
-    $marketingConsent: String
+    $marketingConsent: String!
     $officeIds: [String!]!
     $negotiatorIds: [String!]!
   ) {
@@ -72,7 +72,7 @@ const updateContactMutation = gql`
     $forename: String
     $surname: String
     $email: String
-    $marketingConsent: String
+    $marketingConsent: String!
     $officeIds: [String!]!
     $negotiatorIds: [String!]!
   ) {
