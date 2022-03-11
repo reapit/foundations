@@ -40,7 +40,7 @@ export const AppsPage: FC = () => {
       <FlexContainer isFlexAuto>
         {appsLoading ? (
           <Loader fullPage />
-        ) : apps && !apps.totalCount && !isAppsWelcome && !isAppsNew ? (
+        ) : apps && !apps.totalCount && !isAppsWelcome && isAppsList ? (
           <Redirect to={Routes.APPS_WELCOME} />
         ) : apps ? (
           <>
@@ -57,7 +57,7 @@ export const AppsPage: FC = () => {
                         App Details
                       </SecondaryNavItem>
                       <SecondaryNavItem onClick={navigate(history, `${Routes.APPS}/${appId}/edit`)} active={isAppsEdit}>
-                        Edit Details
+                        Edit App
                       </SecondaryNavItem>
                       <SecondaryNavItem
                         onClick={navigate(history, `${Routes.APPS}/${appId}/installations`)}

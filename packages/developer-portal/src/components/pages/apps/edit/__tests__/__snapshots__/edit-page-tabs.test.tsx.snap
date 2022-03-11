@@ -8,11 +8,6 @@ Object {
       <div
         class="ecbqyq6-el-snack-holder"
       />
-      <h2
-        class="e1byern-el-subtitle"
-      >
-        AgencyCloud Integration
-      </h2>
       <p
         class="e11jaxfn-el-has-grey-text e15ggth7-el-body-text"
       >
@@ -23,24 +18,58 @@ Object {
         </a>
       </p>
       <p
-        class="e11jaxfn-el-has-grey-text etrchfm-el-has-section-margin e15ggth7-el-body-text"
+        class="e11jaxfn-el-has-grey-text e15ggth7-el-body-text"
+      >
+        You should toggle ‘AgencyCloud Integration’ only if you are intending your app to be launched as replacement screen from within AgencyCloud
+      </p>
+      <p
+        class="e11jaxfn-el-has-grey-text e15ggth7-el-body-text"
       >
         The below list maps to the various menus from which you can launch your app or replace an AgencyCloud Screen. You should select the ones that are relevant to your app only.
       </p>
       <div
         class="e1fwulnz-el-form-layout-has-margin ee6e7by-el-form-layout"
-      />
+      >
+        <div
+          class="e1ksxx4v-el-input-wrap"
+        >
+          <div
+            class="e1979rmu-el-input-group"
+          >
+            <label
+              class="e1nbkkrq-el-label"
+            >
+              AgencyCloud Integration
+            </label>
+            <input
+              class="e1ih6lkl-el-toggle-checkbox"
+              id="app-edit-is-ac-inegrated"
+              type="checkbox"
+            />
+            <label
+              class="ehi76vp-el-has-grey-bg e1ott14k-el-toggle-label"
+              for="app-edit-is-ac-inegrated"
+            >
+              <span
+                class="e18omfqv-el-toggle-item"
+              >
+                Yes
+              </span>
+              <span
+                class="e18omfqv-el-toggle-item"
+              >
+                No
+              </span>
+            </label>
+          </div>
+        </div>
+      </div>
     </div>
   </body>,
   "container": <div>
     <div
       class="ecbqyq6-el-snack-holder"
     />
-    <h2
-      class="e1byern-el-subtitle"
-    >
-      AgencyCloud Integration
-    </h2>
     <p
       class="e11jaxfn-el-has-grey-text e15ggth7-el-body-text"
     >
@@ -51,13 +80,52 @@ Object {
       </a>
     </p>
     <p
-      class="e11jaxfn-el-has-grey-text etrchfm-el-has-section-margin e15ggth7-el-body-text"
+      class="e11jaxfn-el-has-grey-text e15ggth7-el-body-text"
+    >
+      You should toggle ‘AgencyCloud Integration’ only if you are intending your app to be launched as replacement screen from within AgencyCloud
+    </p>
+    <p
+      class="e11jaxfn-el-has-grey-text e15ggth7-el-body-text"
     >
       The below list maps to the various menus from which you can launch your app or replace an AgencyCloud Screen. You should select the ones that are relevant to your app only.
     </p>
     <div
       class="e1fwulnz-el-form-layout-has-margin ee6e7by-el-form-layout"
-    />
+    >
+      <div
+        class="e1ksxx4v-el-input-wrap"
+      >
+        <div
+          class="e1979rmu-el-input-group"
+        >
+          <label
+            class="e1nbkkrq-el-label"
+          >
+            AgencyCloud Integration
+          </label>
+          <input
+            class="e1ih6lkl-el-toggle-checkbox"
+            id="app-edit-is-ac-inegrated"
+            type="checkbox"
+          />
+          <label
+            class="ehi76vp-el-has-grey-bg e1ott14k-el-toggle-label"
+            for="app-edit-is-ac-inegrated"
+          >
+            <span
+              class="e18omfqv-el-toggle-item"
+            >
+              Yes
+            </span>
+            <span
+              class="e18omfqv-el-toggle-item"
+            >
+              No
+            </span>
+          </label>
+        </div>
+      </div>
+    </div>
   </div>,
   "debug": [Function],
   "findAllByAltText": [Function],
@@ -121,11 +189,6 @@ Object {
       <div
         class="ecbqyq6-el-snack-holder"
       />
-      <h2
-        class="e1byern-el-subtitle"
-      >
-        App Listing
-      </h2>
       <p
         class="e11jaxfn-el-has-grey-text e15ggth7-el-body-text"
       >
@@ -323,15 +386,18 @@ Object {
           <div
             class="e1979rmu-el-input-group"
           >
+            <input
+              class="e1urjlvd-el-input"
+              id="test-static-id"
+              name="summary"
+              placeholder="A short strapline summary for your app listing. Must be between 50 and 150 characters"
+            />
             <label
               class="e1nbkkrq-el-label"
+              for="test-static-id"
             >
               Summary
             </label>
-            <textarea
-              class="e16rclfx-el-text-area"
-              placeholder="A short strapline summary for your app listing. Must be between 50 and 150 characters"
-            />
           </div>
         </div>
         <div
@@ -573,11 +639,6 @@ Object {
     <div
       class="ecbqyq6-el-snack-holder"
     />
-    <h2
-      class="e1byern-el-subtitle"
-    >
-      App Listing
-    </h2>
     <p
       class="e11jaxfn-el-has-grey-text e15ggth7-el-body-text"
     >
@@ -775,15 +836,18 @@ Object {
         <div
           class="e1979rmu-el-input-group"
         >
+          <input
+            class="e1urjlvd-el-input"
+            id="test-static-id"
+            name="summary"
+            placeholder="A short strapline summary for your app listing. Must be between 50 and 150 characters"
+          />
           <label
             class="e1nbkkrq-el-label"
+            for="test-static-id"
           >
             Summary
           </label>
-          <textarea
-            class="e16rclfx-el-text-area"
-            placeholder="A short strapline summary for your app listing. Must be between 50 and 150 characters"
-          />
         </div>
       </div>
       <div
@@ -1082,13 +1146,8 @@ Object {
       <div
         class="ecbqyq6-el-snack-holder"
       />
-      <h2
-        class="e1byern-el-subtitle"
-      >
-        Authentication
-      </h2>
       <p
-        class="e11jaxfn-el-has-grey-text etrchfm-el-has-section-margin e15ggth7-el-body-text"
+        class="e11jaxfn-el-has-grey-text e15ggth7-el-body-text"
       >
         When using the Reapit Connect
          
@@ -1149,13 +1208,8 @@ Object {
     <div
       class="ecbqyq6-el-snack-holder"
     />
-    <h2
-      class="e1byern-el-subtitle"
-    >
-      Authentication
-    </h2>
     <p
-      class="e11jaxfn-el-has-grey-text etrchfm-el-has-section-margin e15ggth7-el-body-text"
+      class="e11jaxfn-el-has-grey-text e15ggth7-el-body-text"
     >
       When using the Reapit Connect
        
@@ -1273,11 +1327,6 @@ Object {
       <div
         class="ecbqyq6-el-snack-holder"
       />
-      <h2
-        class="e1byern-el-subtitle"
-      >
-        General Info
-      </h2>
       <p
         class="e11jaxfn-el-has-grey-text e15ggth7-el-body-text"
       >
@@ -1318,6 +1367,11 @@ Object {
       >
         Your app name can be anything as long as it is unique in our database. By default we auto generate one from your company name and some randomised words. You should change it to something memorable to you and your customers.
       </p>
+      <p
+        class="e11jaxfn-el-has-grey-text e15ggth7-el-body-text"
+      >
+        You can toggle ‘AppMarket Listed’ if your app is publicly listed in the AppMarket.
+      </p>
       <div
         class="e1fwulnz-el-form-layout-has-margin ee6e7by-el-form-layout"
       >
@@ -1339,106 +1393,6 @@ Object {
               for="test-static-id"
             >
               Name
-            </label>
-          </div>
-        </div>
-      </div>
-      <h2
-        class="e1byern-el-subtitle"
-      >
-        App Listings
-      </h2>
-      <p
-        class="e11jaxfn-el-has-grey-text e15ggth7-el-body-text"
-      >
-        The toggles below will depend on how far you are progressing with the development of your app.
-      </p>
-      <p
-        class="e11jaxfn-el-has-grey-text e15ggth7-el-body-text"
-      >
-        You should toggle ‘Completing App Listing’ when you are ready to start completing the app listing information. This will enable you to start completing it without the fields being required and you can save at any point.
-      </p>
-      <p
-        class="e11jaxfn-el-has-grey-text e15ggth7-el-body-text"
-      >
-        You should toggle ‘AgencyCloud Integration’ only if you are intending your app to be launched as replacement screen from within AgencyCloud
-      </p>
-      <p
-        class="e11jaxfn-el-has-grey-text e15ggth7-el-body-text"
-      >
-        You should toggle ‘AppMarket Listed’ when you are ready to submit your app for review. This will make all relevant fields required before saving and will notify our team that it is ready to review. When you app has been reviewed and accepted, you can de-list your app by toggling again and saving the app.
-      </p>
-      <p
-        class="e11jaxfn-el-has-grey-text e15ggth7-el-body-text"
-      >
-        You should toggle ‘Private App’ if you only want your app to be private to a select group of customers. You should enter their client codes from the installations table as a comma separated list.
-      </p>
-      <div
-        class="e1fwulnz-el-form-layout-has-margin ee6e7by-el-form-layout"
-      >
-        <div
-          class="e1ksxx4v-el-input-wrap"
-        >
-          <div
-            class="e1979rmu-el-input-group"
-          >
-            <label
-              class="e1nbkkrq-el-label"
-            >
-              Completing App Listing
-            </label>
-            <input
-              class="e1ih6lkl-el-toggle-checkbox"
-              id="app-edit-completing-listing"
-              type="checkbox"
-            />
-            <label
-              class="ehi76vp-el-has-grey-bg e1ott14k-el-toggle-label"
-              for="app-edit-completing-listing"
-            >
-              <span
-                class="e18omfqv-el-toggle-item"
-              >
-                Yes
-              </span>
-              <span
-                class="e18omfqv-el-toggle-item"
-              >
-                No
-              </span>
-            </label>
-          </div>
-        </div>
-        <div
-          class="e1ksxx4v-el-input-wrap"
-        >
-          <div
-            class="e1979rmu-el-input-group"
-          >
-            <label
-              class="e1nbkkrq-el-label"
-            >
-              AgencyCloud Integration
-            </label>
-            <input
-              class="e1ih6lkl-el-toggle-checkbox"
-              id="app-edit-is-ac-inegrated"
-              type="checkbox"
-            />
-            <label
-              class="ehi76vp-el-has-grey-bg e1ott14k-el-toggle-label"
-              for="app-edit-is-ac-inegrated"
-            >
-              <span
-                class="e18omfqv-el-toggle-item"
-              >
-                Yes
-              </span>
-              <span
-                class="e18omfqv-el-toggle-item"
-              >
-                No
-              </span>
             </label>
           </div>
         </div>
@@ -1475,60 +1429,6 @@ Object {
             </label>
           </div>
         </div>
-        <div
-          class="e1ksxx4v-el-input-wrap"
-        >
-          <div
-            class="e1979rmu-el-input-group"
-          >
-            <label
-              class="e1nbkkrq-el-label"
-            >
-              Private App
-            </label>
-            <input
-              class="e1ih6lkl-el-toggle-checkbox"
-              id="app-edit-is-private-app"
-              type="checkbox"
-            />
-            <label
-              class="ehi76vp-el-has-grey-bg e1ott14k-el-toggle-label"
-              for="app-edit-is-private-app"
-            >
-              <span
-                class="e18omfqv-el-toggle-item"
-              >
-                Yes
-              </span>
-              <span
-                class="e18omfqv-el-toggle-item"
-              >
-                No
-              </span>
-            </label>
-          </div>
-        </div>
-        <div
-          class="ep31he9-el-input-wrap-full"
-        >
-          <div
-            class="e1979rmu-el-input-group"
-          >
-            <input
-              class="e1urjlvd-el-input"
-              id="test-static-id"
-              name="limitToClientIds"
-              placeholder="Please enter the Customer ID. For multiple Customer ID’s, please separate using a comma"
-              type="text"
-            />
-            <label
-              class="e1nbkkrq-el-label"
-              for="test-static-id"
-            >
-              Private App Client Ids
-            </label>
-          </div>
-        </div>
       </div>
     </div>
   </body>,
@@ -1536,11 +1436,6 @@ Object {
     <div
       class="ecbqyq6-el-snack-holder"
     />
-    <h2
-      class="e1byern-el-subtitle"
-    >
-      General Info
-    </h2>
     <p
       class="e11jaxfn-el-has-grey-text e15ggth7-el-body-text"
     >
@@ -1581,6 +1476,11 @@ Object {
     >
       Your app name can be anything as long as it is unique in our database. By default we auto generate one from your company name and some randomised words. You should change it to something memorable to you and your customers.
     </p>
+    <p
+      class="e11jaxfn-el-has-grey-text e15ggth7-el-body-text"
+    >
+      You can toggle ‘AppMarket Listed’ if your app is publicly listed in the AppMarket.
+    </p>
     <div
       class="e1fwulnz-el-form-layout-has-margin ee6e7by-el-form-layout"
     >
@@ -1602,106 +1502,6 @@ Object {
             for="test-static-id"
           >
             Name
-          </label>
-        </div>
-      </div>
-    </div>
-    <h2
-      class="e1byern-el-subtitle"
-    >
-      App Listings
-    </h2>
-    <p
-      class="e11jaxfn-el-has-grey-text e15ggth7-el-body-text"
-    >
-      The toggles below will depend on how far you are progressing with the development of your app.
-    </p>
-    <p
-      class="e11jaxfn-el-has-grey-text e15ggth7-el-body-text"
-    >
-      You should toggle ‘Completing App Listing’ when you are ready to start completing the app listing information. This will enable you to start completing it without the fields being required and you can save at any point.
-    </p>
-    <p
-      class="e11jaxfn-el-has-grey-text e15ggth7-el-body-text"
-    >
-      You should toggle ‘AgencyCloud Integration’ only if you are intending your app to be launched as replacement screen from within AgencyCloud
-    </p>
-    <p
-      class="e11jaxfn-el-has-grey-text e15ggth7-el-body-text"
-    >
-      You should toggle ‘AppMarket Listed’ when you are ready to submit your app for review. This will make all relevant fields required before saving and will notify our team that it is ready to review. When you app has been reviewed and accepted, you can de-list your app by toggling again and saving the app.
-    </p>
-    <p
-      class="e11jaxfn-el-has-grey-text e15ggth7-el-body-text"
-    >
-      You should toggle ‘Private App’ if you only want your app to be private to a select group of customers. You should enter their client codes from the installations table as a comma separated list.
-    </p>
-    <div
-      class="e1fwulnz-el-form-layout-has-margin ee6e7by-el-form-layout"
-    >
-      <div
-        class="e1ksxx4v-el-input-wrap"
-      >
-        <div
-          class="e1979rmu-el-input-group"
-        >
-          <label
-            class="e1nbkkrq-el-label"
-          >
-            Completing App Listing
-          </label>
-          <input
-            class="e1ih6lkl-el-toggle-checkbox"
-            id="app-edit-completing-listing"
-            type="checkbox"
-          />
-          <label
-            class="ehi76vp-el-has-grey-bg e1ott14k-el-toggle-label"
-            for="app-edit-completing-listing"
-          >
-            <span
-              class="e18omfqv-el-toggle-item"
-            >
-              Yes
-            </span>
-            <span
-              class="e18omfqv-el-toggle-item"
-            >
-              No
-            </span>
-          </label>
-        </div>
-      </div>
-      <div
-        class="e1ksxx4v-el-input-wrap"
-      >
-        <div
-          class="e1979rmu-el-input-group"
-        >
-          <label
-            class="e1nbkkrq-el-label"
-          >
-            AgencyCloud Integration
-          </label>
-          <input
-            class="e1ih6lkl-el-toggle-checkbox"
-            id="app-edit-is-ac-inegrated"
-            type="checkbox"
-          />
-          <label
-            class="ehi76vp-el-has-grey-bg e1ott14k-el-toggle-label"
-            for="app-edit-is-ac-inegrated"
-          >
-            <span
-              class="e18omfqv-el-toggle-item"
-            >
-              Yes
-            </span>
-            <span
-              class="e18omfqv-el-toggle-item"
-            >
-              No
-            </span>
           </label>
         </div>
       </div>
@@ -1735,60 +1535,6 @@ Object {
             >
               No
             </span>
-          </label>
-        </div>
-      </div>
-      <div
-        class="e1ksxx4v-el-input-wrap"
-      >
-        <div
-          class="e1979rmu-el-input-group"
-        >
-          <label
-            class="e1nbkkrq-el-label"
-          >
-            Private App
-          </label>
-          <input
-            class="e1ih6lkl-el-toggle-checkbox"
-            id="app-edit-is-private-app"
-            type="checkbox"
-          />
-          <label
-            class="ehi76vp-el-has-grey-bg e1ott14k-el-toggle-label"
-            for="app-edit-is-private-app"
-          >
-            <span
-              class="e18omfqv-el-toggle-item"
-            >
-              Yes
-            </span>
-            <span
-              class="e18omfqv-el-toggle-item"
-            >
-              No
-            </span>
-          </label>
-        </div>
-      </div>
-      <div
-        class="ep31he9-el-input-wrap-full"
-      >
-        <div
-          class="e1979rmu-el-input-group"
-        >
-          <input
-            class="e1urjlvd-el-input"
-            id="test-static-id"
-            name="limitToClientIds"
-            placeholder="Please enter the Customer ID. For multiple Customer ID’s, please separate using a comma"
-            type="text"
-          />
-          <label
-            class="e1nbkkrq-el-label"
-            for="test-static-id"
-          >
-            Private App Client Ids
           </label>
         </div>
       </div>
@@ -1856,13 +1602,8 @@ Object {
       <div
         class="ecbqyq6-el-snack-holder"
       />
-      <h2
-        class="e1byern-el-subtitle"
-      >
-        Permissions
-      </h2>
       <p
-        class="e11jaxfn-el-has-grey-text etrchfm-el-has-section-margin e15ggth7-el-body-text"
+        class="e11jaxfn-el-has-grey-text e15ggth7-el-body-text"
       >
         Permissions are registered as scopes against the access token you receive back from one of our Authentication Flows. They map 1:1 and on a read/write basis to endpoints in our Foundations REST API. As such, it is worth looking at the
          
@@ -1879,32 +1620,86 @@ Object {
       <div
         class="e1fwulnz-el-form-layout-has-margin ee6e7by-el-form-layout"
       />
-      <h2
-        class="e1byern-el-subtitle"
-      >
-        Reapit Products
-      </h2>
       <p
-        class="e11jaxfn-el-has-grey-text etrchfm-el-has-section-margin e15ggth7-el-body-text"
+        class="e11jaxfn-el-has-grey-text e15ggth7-el-body-text"
       >
         This section refers to products that are available within the Reapit Group of Companies. For UK based developers, this will typically default to Agency Cloud however, as we launch the Reapit AppMarket in other countries and with different products, you may wish for your application to list in these alternative AppMarkets. You can select more than one option but at least one option must be selected.
       </p>
       <div
         class="e1fwulnz-el-form-layout-has-margin ee6e7by-el-form-layout"
       />
+      <p
+        class="e11jaxfn-el-has-grey-text e15ggth7-el-body-text"
+      >
+        You should toggle ‘Private App’ if you only want your app to be private to a select group of customers. You should enter their client codes from the installations table as a comma separated list.
+      </p>
+      <div
+        class="e1fwulnz-el-form-layout-has-margin ee6e7by-el-form-layout"
+      >
+        <div
+          class="e1ksxx4v-el-input-wrap"
+        >
+          <div
+            class="e1979rmu-el-input-group"
+          >
+            <label
+              class="e1nbkkrq-el-label"
+            >
+              Private App
+            </label>
+            <input
+              class="e1ih6lkl-el-toggle-checkbox"
+              id="app-edit-is-private-app"
+              type="checkbox"
+            />
+            <label
+              class="ehi76vp-el-has-grey-bg e1ott14k-el-toggle-label"
+              for="app-edit-is-private-app"
+            >
+              <span
+                class="e18omfqv-el-toggle-item"
+              >
+                Yes
+              </span>
+              <span
+                class="e18omfqv-el-toggle-item"
+              >
+                No
+              </span>
+            </label>
+          </div>
+        </div>
+        <div
+          class="ep31he9-el-input-wrap-full"
+        >
+          <div
+            class="e1979rmu-el-input-group"
+          >
+            <input
+              class="e1urjlvd-el-input"
+              disabled=""
+              id="test-static-id"
+              name="limitToClientIds"
+              placeholder="Please enter the Customer ID. For multiple Customer ID’s, please separate using a comma"
+              type="text"
+            />
+            <label
+              class="e1nbkkrq-el-label"
+              for="test-static-id"
+            >
+              Private App Client Ids
+            </label>
+          </div>
+        </div>
+      </div>
     </div>
   </body>,
   "container": <div>
     <div
       class="ecbqyq6-el-snack-holder"
     />
-    <h2
-      class="e1byern-el-subtitle"
-    >
-      Permissions
-    </h2>
     <p
-      class="e11jaxfn-el-has-grey-text etrchfm-el-has-section-margin e15ggth7-el-body-text"
+      class="e11jaxfn-el-has-grey-text e15ggth7-el-body-text"
     >
       Permissions are registered as scopes against the access token you receive back from one of our Authentication Flows. They map 1:1 and on a read/write basis to endpoints in our Foundations REST API. As such, it is worth looking at the
        
@@ -1921,19 +1716,78 @@ Object {
     <div
       class="e1fwulnz-el-form-layout-has-margin ee6e7by-el-form-layout"
     />
-    <h2
-      class="e1byern-el-subtitle"
-    >
-      Reapit Products
-    </h2>
     <p
-      class="e11jaxfn-el-has-grey-text etrchfm-el-has-section-margin e15ggth7-el-body-text"
+      class="e11jaxfn-el-has-grey-text e15ggth7-el-body-text"
     >
       This section refers to products that are available within the Reapit Group of Companies. For UK based developers, this will typically default to Agency Cloud however, as we launch the Reapit AppMarket in other countries and with different products, you may wish for your application to list in these alternative AppMarkets. You can select more than one option but at least one option must be selected.
     </p>
     <div
       class="e1fwulnz-el-form-layout-has-margin ee6e7by-el-form-layout"
     />
+    <p
+      class="e11jaxfn-el-has-grey-text e15ggth7-el-body-text"
+    >
+      You should toggle ‘Private App’ if you only want your app to be private to a select group of customers. You should enter their client codes from the installations table as a comma separated list.
+    </p>
+    <div
+      class="e1fwulnz-el-form-layout-has-margin ee6e7by-el-form-layout"
+    >
+      <div
+        class="e1ksxx4v-el-input-wrap"
+      >
+        <div
+          class="e1979rmu-el-input-group"
+        >
+          <label
+            class="e1nbkkrq-el-label"
+          >
+            Private App
+          </label>
+          <input
+            class="e1ih6lkl-el-toggle-checkbox"
+            id="app-edit-is-private-app"
+            type="checkbox"
+          />
+          <label
+            class="ehi76vp-el-has-grey-bg e1ott14k-el-toggle-label"
+            for="app-edit-is-private-app"
+          >
+            <span
+              class="e18omfqv-el-toggle-item"
+            >
+              Yes
+            </span>
+            <span
+              class="e18omfqv-el-toggle-item"
+            >
+              No
+            </span>
+          </label>
+        </div>
+      </div>
+      <div
+        class="ep31he9-el-input-wrap-full"
+      >
+        <div
+          class="e1979rmu-el-input-group"
+        >
+          <input
+            class="e1urjlvd-el-input"
+            disabled=""
+            id="test-static-id"
+            name="limitToClientIds"
+            placeholder="Please enter the Customer ID. For multiple Customer ID’s, please separate using a comma"
+            type="text"
+          />
+          <label
+            class="e1nbkkrq-el-label"
+            for="test-static-id"
+          >
+            Private App Client Ids
+          </label>
+        </div>
+      </div>
+    </div>
   </div>,
   "debug": [Function],
   "findAllByAltText": [Function],

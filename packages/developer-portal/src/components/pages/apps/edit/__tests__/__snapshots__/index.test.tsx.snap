@@ -34,7 +34,24 @@ Object {
             <span
               class="eulcr0n-el-tabs-item"
             >
-              General Info
+              About Listings
+            </span>
+          </label>
+          <input
+            class="enkj6b-el-tabs"
+            id="appListing"
+            name="app-edit-tabs"
+            type="radio"
+            value="appListing"
+          />
+          <label
+            class="e1ob8xkh-el-tabs-label"
+            for="appListing"
+          >
+            <span
+              class="eulcr0n-el-tabs-item"
+            >
+              AppMarket Listing
             </span>
           </label>
           <input
@@ -71,17 +88,29 @@ Object {
               Permissions
             </span>
           </label>
+          <input
+            class="enkj6b-el-tabs"
+            id="acIntegration"
+            name="app-edit-tabs"
+            type="radio"
+            value="acIntegration"
+          />
+          <label
+            class="e1ob8xkh-el-tabs-label"
+            for="acIntegration"
+          >
+            <span
+              class="eulcr0n-el-tabs-item"
+            >
+              AgencyCloud Integration
+            </span>
+          </label>
         </div>
         <div
           class="e1147ynd-el-tabs-footer"
         />
       </div>
       <form>
-        <h2
-          class="e1byern-el-subtitle"
-        >
-          General Info
-        </h2>
         <p
           class="e11jaxfn-el-has-grey-text e15ggth7-el-body-text"
         >
@@ -122,6 +151,11 @@ Object {
         >
           Your app name can be anything as long as it is unique in our database. By default we auto generate one from your company name and some randomised words. You should change it to something memorable to you and your customers.
         </p>
+        <p
+          class="e11jaxfn-el-has-grey-text e15ggth7-el-body-text"
+        >
+          You can toggle ‘AppMarket Listed’ if your app is publicly listed in the AppMarket.
+        </p>
         <div
           class="e1fwulnz-el-form-layout-has-margin ee6e7by-el-form-layout"
         >
@@ -143,108 +177,6 @@ Object {
                 for="test-static-id"
               >
                 Name
-              </label>
-            </div>
-          </div>
-        </div>
-        <h2
-          class="e1byern-el-subtitle"
-        >
-          App Listings
-        </h2>
-        <p
-          class="e11jaxfn-el-has-grey-text e15ggth7-el-body-text"
-        >
-          The toggles below will depend on how far you are progressing with the development of your app.
-        </p>
-        <p
-          class="e11jaxfn-el-has-grey-text e15ggth7-el-body-text"
-        >
-          You should toggle ‘Completing App Listing’ when you are ready to start completing the app listing information. This will enable you to start completing it without the fields being required and you can save at any point.
-        </p>
-        <p
-          class="e11jaxfn-el-has-grey-text e15ggth7-el-body-text"
-        >
-          You should toggle ‘AgencyCloud Integration’ only if you are intending your app to be launched as replacement screen from within AgencyCloud
-        </p>
-        <p
-          class="e11jaxfn-el-has-grey-text e15ggth7-el-body-text"
-        >
-          You should toggle ‘AppMarket Listed’ when you are ready to submit your app for review. This will make all relevant fields required before saving and will notify our team that it is ready to review. When you app has been reviewed and accepted, you can de-list your app by toggling again and saving the app.
-        </p>
-        <p
-          class="e11jaxfn-el-has-grey-text e15ggth7-el-body-text"
-        >
-          You should toggle ‘Private App’ if you only want your app to be private to a select group of customers. You should enter their client codes from the installations table as a comma separated list.
-        </p>
-        <div
-          class="e1fwulnz-el-form-layout-has-margin ee6e7by-el-form-layout"
-        >
-          <div
-            class="e1ksxx4v-el-input-wrap"
-          >
-            <div
-              class="e1979rmu-el-input-group"
-            >
-              <label
-                class="e1nbkkrq-el-label"
-              >
-                Completing App Listing
-              </label>
-              <input
-                class="e1ih6lkl-el-toggle-checkbox"
-                id="app-edit-completing-listing"
-                name="isCompletingListing"
-                type="checkbox"
-              />
-              <label
-                class="ehi76vp-el-has-grey-bg e1ott14k-el-toggle-label"
-                for="app-edit-completing-listing"
-              >
-                <span
-                  class="e18omfqv-el-toggle-item"
-                >
-                  Yes
-                </span>
-                <span
-                  class="e18omfqv-el-toggle-item"
-                >
-                  No
-                </span>
-              </label>
-            </div>
-          </div>
-          <div
-            class="e1ksxx4v-el-input-wrap"
-          >
-            <div
-              class="e1979rmu-el-input-group"
-            >
-              <label
-                class="e1nbkkrq-el-label"
-              >
-                AgencyCloud Integration
-              </label>
-              <input
-                class="e1ih6lkl-el-toggle-checkbox"
-                id="app-edit-is-ac-inegrated"
-                name="isAgencyCloudIntegrated"
-                type="checkbox"
-              />
-              <label
-                class="ehi76vp-el-has-grey-bg e1ott14k-el-toggle-label"
-                for="app-edit-is-ac-inegrated"
-              >
-                <span
-                  class="e18omfqv-el-toggle-item"
-                >
-                  Yes
-                </span>
-                <span
-                  class="e18omfqv-el-toggle-item"
-                >
-                  No
-                </span>
               </label>
             </div>
           </div>
@@ -282,61 +214,6 @@ Object {
               </label>
             </div>
           </div>
-          <div
-            class="e1ksxx4v-el-input-wrap"
-          >
-            <div
-              class="e1979rmu-el-input-group"
-            >
-              <label
-                class="e1nbkkrq-el-label"
-              >
-                Private App
-              </label>
-              <input
-                class="e1ih6lkl-el-toggle-checkbox"
-                id="app-edit-is-private-app"
-                name="isPrivateApp"
-                type="checkbox"
-              />
-              <label
-                class="ehi76vp-el-has-grey-bg e1ott14k-el-toggle-label"
-                for="app-edit-is-private-app"
-              >
-                <span
-                  class="e18omfqv-el-toggle-item"
-                >
-                  Yes
-                </span>
-                <span
-                  class="e18omfqv-el-toggle-item"
-                >
-                  No
-                </span>
-              </label>
-            </div>
-          </div>
-          <div
-            class="ep31he9-el-input-wrap-full"
-          >
-            <div
-              class="e1979rmu-el-input-group"
-            >
-              <input
-                class="e1urjlvd-el-input"
-                id="test-static-id"
-                name="limitToClientIds"
-                placeholder="Please enter the Customer ID. For multiple Customer ID’s, please separate using a comma"
-                type="text"
-              />
-              <label
-                class="e1nbkkrq-el-label"
-                for="test-static-id"
-              >
-                Private App Client Ids
-              </label>
-            </div>
-          </div>
         </div>
       </form>
     </div>
@@ -371,7 +248,24 @@ Object {
           <span
             class="eulcr0n-el-tabs-item"
           >
-            General Info
+            About Listings
+          </span>
+        </label>
+        <input
+          class="enkj6b-el-tabs"
+          id="appListing"
+          name="app-edit-tabs"
+          type="radio"
+          value="appListing"
+        />
+        <label
+          class="e1ob8xkh-el-tabs-label"
+          for="appListing"
+        >
+          <span
+            class="eulcr0n-el-tabs-item"
+          >
+            AppMarket Listing
           </span>
         </label>
         <input
@@ -408,17 +302,29 @@ Object {
             Permissions
           </span>
         </label>
+        <input
+          class="enkj6b-el-tabs"
+          id="acIntegration"
+          name="app-edit-tabs"
+          type="radio"
+          value="acIntegration"
+        />
+        <label
+          class="e1ob8xkh-el-tabs-label"
+          for="acIntegration"
+        >
+          <span
+            class="eulcr0n-el-tabs-item"
+          >
+            AgencyCloud Integration
+          </span>
+        </label>
       </div>
       <div
         class="e1147ynd-el-tabs-footer"
       />
     </div>
     <form>
-      <h2
-        class="e1byern-el-subtitle"
-      >
-        General Info
-      </h2>
       <p
         class="e11jaxfn-el-has-grey-text e15ggth7-el-body-text"
       >
@@ -459,6 +365,11 @@ Object {
       >
         Your app name can be anything as long as it is unique in our database. By default we auto generate one from your company name and some randomised words. You should change it to something memorable to you and your customers.
       </p>
+      <p
+        class="e11jaxfn-el-has-grey-text e15ggth7-el-body-text"
+      >
+        You can toggle ‘AppMarket Listed’ if your app is publicly listed in the AppMarket.
+      </p>
       <div
         class="e1fwulnz-el-form-layout-has-margin ee6e7by-el-form-layout"
       >
@@ -480,108 +391,6 @@ Object {
               for="test-static-id"
             >
               Name
-            </label>
-          </div>
-        </div>
-      </div>
-      <h2
-        class="e1byern-el-subtitle"
-      >
-        App Listings
-      </h2>
-      <p
-        class="e11jaxfn-el-has-grey-text e15ggth7-el-body-text"
-      >
-        The toggles below will depend on how far you are progressing with the development of your app.
-      </p>
-      <p
-        class="e11jaxfn-el-has-grey-text e15ggth7-el-body-text"
-      >
-        You should toggle ‘Completing App Listing’ when you are ready to start completing the app listing information. This will enable you to start completing it without the fields being required and you can save at any point.
-      </p>
-      <p
-        class="e11jaxfn-el-has-grey-text e15ggth7-el-body-text"
-      >
-        You should toggle ‘AgencyCloud Integration’ only if you are intending your app to be launched as replacement screen from within AgencyCloud
-      </p>
-      <p
-        class="e11jaxfn-el-has-grey-text e15ggth7-el-body-text"
-      >
-        You should toggle ‘AppMarket Listed’ when you are ready to submit your app for review. This will make all relevant fields required before saving and will notify our team that it is ready to review. When you app has been reviewed and accepted, you can de-list your app by toggling again and saving the app.
-      </p>
-      <p
-        class="e11jaxfn-el-has-grey-text e15ggth7-el-body-text"
-      >
-        You should toggle ‘Private App’ if you only want your app to be private to a select group of customers. You should enter their client codes from the installations table as a comma separated list.
-      </p>
-      <div
-        class="e1fwulnz-el-form-layout-has-margin ee6e7by-el-form-layout"
-      >
-        <div
-          class="e1ksxx4v-el-input-wrap"
-        >
-          <div
-            class="e1979rmu-el-input-group"
-          >
-            <label
-              class="e1nbkkrq-el-label"
-            >
-              Completing App Listing
-            </label>
-            <input
-              class="e1ih6lkl-el-toggle-checkbox"
-              id="app-edit-completing-listing"
-              name="isCompletingListing"
-              type="checkbox"
-            />
-            <label
-              class="ehi76vp-el-has-grey-bg e1ott14k-el-toggle-label"
-              for="app-edit-completing-listing"
-            >
-              <span
-                class="e18omfqv-el-toggle-item"
-              >
-                Yes
-              </span>
-              <span
-                class="e18omfqv-el-toggle-item"
-              >
-                No
-              </span>
-            </label>
-          </div>
-        </div>
-        <div
-          class="e1ksxx4v-el-input-wrap"
-        >
-          <div
-            class="e1979rmu-el-input-group"
-          >
-            <label
-              class="e1nbkkrq-el-label"
-            >
-              AgencyCloud Integration
-            </label>
-            <input
-              class="e1ih6lkl-el-toggle-checkbox"
-              id="app-edit-is-ac-inegrated"
-              name="isAgencyCloudIntegrated"
-              type="checkbox"
-            />
-            <label
-              class="ehi76vp-el-has-grey-bg e1ott14k-el-toggle-label"
-              for="app-edit-is-ac-inegrated"
-            >
-              <span
-                class="e18omfqv-el-toggle-item"
-              >
-                Yes
-              </span>
-              <span
-                class="e18omfqv-el-toggle-item"
-              >
-                No
-              </span>
             </label>
           </div>
         </div>
@@ -616,61 +425,6 @@ Object {
               >
                 No
               </span>
-            </label>
-          </div>
-        </div>
-        <div
-          class="e1ksxx4v-el-input-wrap"
-        >
-          <div
-            class="e1979rmu-el-input-group"
-          >
-            <label
-              class="e1nbkkrq-el-label"
-            >
-              Private App
-            </label>
-            <input
-              class="e1ih6lkl-el-toggle-checkbox"
-              id="app-edit-is-private-app"
-              name="isPrivateApp"
-              type="checkbox"
-            />
-            <label
-              class="ehi76vp-el-has-grey-bg e1ott14k-el-toggle-label"
-              for="app-edit-is-private-app"
-            >
-              <span
-                class="e18omfqv-el-toggle-item"
-              >
-                Yes
-              </span>
-              <span
-                class="e18omfqv-el-toggle-item"
-              >
-                No
-              </span>
-            </label>
-          </div>
-        </div>
-        <div
-          class="ep31he9-el-input-wrap-full"
-        >
-          <div
-            class="e1979rmu-el-input-group"
-          >
-            <input
-              class="e1urjlvd-el-input"
-              id="test-static-id"
-              name="limitToClientIds"
-              placeholder="Please enter the Customer ID. For multiple Customer ID’s, please separate using a comma"
-              type="text"
-            />
-            <label
-              class="e1nbkkrq-el-label"
-              for="test-static-id"
-            >
-              Private App Client Ids
             </label>
           </div>
         </div>

@@ -1,6 +1,6 @@
 import React from 'react'
 import { render } from '../../../../../tests/react-testing'
-import { AppEditForm, handleSetAppSubmitting, handleSetTabsState } from '../app-edit-form'
+import { AppEditForm, handleSetAppSubmitting } from '../app-edit-form'
 import { AppEditTab } from '../edit-page-tabs'
 import { History } from 'history'
 import { defaultValues } from '../form-schema/form-fields'
@@ -51,87 +51,5 @@ describe('handleSetAppSubmitting', () => {
     expect(history.push).toHaveBeenCalledWith(`${Routes.APPS}/${appId}`)
     expect(appsRefresh).toHaveBeenCalledTimes(1)
     expect(appsDetailRefresh).toHaveBeenCalledTimes(1)
-  })
-})
-
-describe('handleSetTabsState', () => {
-  it('should set tabs state if agencyCloudIntegrated', async () => {
-    const setAppTabsState = jest.fn()
-    const getValues = jest.fn()
-    const isCompletingListing = true
-    const isAgencyCloudIntegrated = true
-    const isListed = true
-
-    const curried = handleSetTabsState(
-      setAppTabsState,
-      getValues,
-      isCompletingListing,
-      isAgencyCloudIntegrated,
-      isListed,
-    )
-
-    curried()
-
-    expect(setAppTabsState.mock.calls[0][0]()).toEqual({ isAgencyCloudIntegrated: true })
-  })
-
-  it('should set tabs state if isCompletingListing', async () => {
-    const setAppTabsState = jest.fn()
-    const getValues = jest.fn(() => defaultValues) as any
-    const isCompletingListing = true
-    const isAgencyCloudIntegrated = undefined as any
-    const isListed = true
-
-    const curried = handleSetTabsState(
-      setAppTabsState,
-      getValues,
-      isCompletingListing,
-      isAgencyCloudIntegrated,
-      isListed,
-    )
-
-    curried()
-
-    expect(setAppTabsState.mock.calls[0][0]()).toEqual({ isCompletingListing: true })
-  })
-
-  it('should set tabs state if isListed', async () => {
-    const setAppTabsState = jest.fn()
-    const getValues = jest.fn(() => defaultValues) as any
-    const isCompletingListing = undefined as any
-    const isAgencyCloudIntegrated = undefined as any
-    const isListed = true
-
-    const curried = handleSetTabsState(
-      setAppTabsState,
-      getValues,
-      isCompletingListing,
-      isAgencyCloudIntegrated,
-      isListed,
-    )
-
-    curried()
-
-    expect(setAppTabsState.mock.calls[0][0]()).toEqual({ isListed: true })
-  })
-
-  it('should not tabs state if no values are true', async () => {
-    const setAppTabsState = jest.fn()
-    const getValues = jest.fn(() => defaultValues) as any
-    const isCompletingListing = undefined as any
-    const isAgencyCloudIntegrated = undefined as any
-    const isListed = undefined as any
-
-    const curried = handleSetTabsState(
-      setAppTabsState,
-      getValues,
-      isCompletingListing,
-      isAgencyCloudIntegrated,
-      isListed,
-    )
-
-    curried()
-
-    expect(setAppTabsState.mock.calls[0][0]()).toBeUndefined()
   })
 })

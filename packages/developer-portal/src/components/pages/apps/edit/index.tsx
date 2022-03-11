@@ -14,7 +14,7 @@ export const handleChangeTab =
 export const AppEditPage: FC = () => {
   const [tab, setTab] = useState<AppEditTab>(AppEditTab.general)
   const { appId } = useParams<AppUriParams>()
-  const { appsDataState, appTabsState, setAppId } = useAppState()
+  const { appsDataState, setAppId } = useAppState()
 
   useEffect(handleSetAppId(appId, setAppId), [appId])
 
@@ -24,7 +24,7 @@ export const AppEditPage: FC = () => {
     <Loader fullPage />
   ) : appDetail ? (
     <>
-      <Title>{appDetail?.name}</Title>
+      <Title>{appDetail.name}</Title>
       <Tabs
         isFullWidth
         name="app-edit-tabs"
@@ -34,8 +34,14 @@ export const AppEditPage: FC = () => {
             {
               id: AppEditTab.general,
               value: AppEditTab.general,
-              text: 'General Info',
+              text: 'About Listings',
               isChecked: tab === AppEditTab.general,
+            },
+            {
+              id: AppEditTab.appListing,
+              value: AppEditTab.appListing,
+              text: 'AppMarket Listing',
+              isChecked: tab === AppEditTab.appListing,
             },
             appDetail.authFlow === 'authorisationCode' && {
               id: AppEditTab.authentication,
@@ -49,18 +55,11 @@ export const AppEditPage: FC = () => {
               text: 'Permissions',
               isChecked: tab === AppEditTab.permissions,
             },
-            appDetail.authFlow === 'authorisationCode' &&
-              appTabsState.isAgencyCloudIntegrated && {
-                id: AppEditTab.acIntegration,
-                value: AppEditTab.acIntegration,
-                text: 'AgencyCloud Integration',
-                isChecked: tab === AppEditTab.acIntegration,
-              },
-            (appTabsState.isCompletingListing || appTabsState.isListed) && {
-              id: AppEditTab.appListing,
-              value: AppEditTab.appListing,
-              text: 'App Listing',
-              isChecked: tab === AppEditTab.appListing,
+            appDetail.authFlow === 'authorisationCode' && {
+              id: AppEditTab.acIntegration,
+              value: AppEditTab.acIntegration,
+              text: 'AgencyCloud Integration',
+              isChecked: tab === AppEditTab.acIntegration,
             },
             window.reapit.config.appEnv === 'local' && {
               id: AppEditTab.pipelines,

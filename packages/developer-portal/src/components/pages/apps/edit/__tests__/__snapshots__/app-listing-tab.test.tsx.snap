@@ -8,11 +8,6 @@ Object {
       <div
         class="ecbqyq6-el-snack-holder"
       />
-      <h2
-        class="e1byern-el-subtitle"
-      >
-        App Listing
-      </h2>
       <p
         class="e11jaxfn-el-has-grey-text e15ggth7-el-body-text"
       >
@@ -242,17 +237,19 @@ Object {
           <div
             class="e1979rmu-el-input-group"
           >
+            <input
+              class="e1urjlvd-el-input"
+              id="test-static-id"
+              name="summary"
+              placeholder="A short strapline summary for your app listing. Must be between 50 and 150 characters"
+              value="Mock field value"
+            />
             <label
               class="e1nbkkrq-el-label"
+              for="test-static-id"
             >
               Summary
             </label>
-            <textarea
-              class="e16rclfx-el-text-area"
-              placeholder="A short strapline summary for your app listing. Must be between 50 and 150 characters"
-            >
-              Mock field value
-            </textarea>
           </div>
         </div>
         <div
@@ -302,11 +299,6 @@ Object {
     <div
       class="ecbqyq6-el-snack-holder"
     />
-    <h2
-      class="e1byern-el-subtitle"
-    >
-      App Listing
-    </h2>
     <p
       class="e11jaxfn-el-has-grey-text e15ggth7-el-body-text"
     >
@@ -536,17 +528,19 @@ Object {
         <div
           class="e1979rmu-el-input-group"
         >
+          <input
+            class="e1urjlvd-el-input"
+            id="test-static-id"
+            name="summary"
+            placeholder="A short strapline summary for your app listing. Must be between 50 and 150 characters"
+            value="Mock field value"
+          />
           <label
             class="e1nbkkrq-el-label"
+            for="test-static-id"
           >
             Summary
           </label>
-          <textarea
-            class="e16rclfx-el-text-area"
-            placeholder="A short strapline summary for your app listing. Must be between 50 and 150 characters"
-          >
-            Mock field value
-          </textarea>
         </div>
       </div>
       <div
@@ -653,11 +647,6 @@ Object {
       <div
         class="ecbqyq6-el-snack-holder"
       />
-      <h2
-        class="e1byern-el-subtitle"
-      >
-        App Listing
-      </h2>
       <p
         class="e11jaxfn-el-has-grey-text e15ggth7-el-body-text"
       >
@@ -924,21 +913,24 @@ Object {
           <div
             class="e1979rmu-el-input-group"
           >
+            <input
+              class="e1urjlvd-el-input"
+              id="test-static-id"
+              name="summary"
+              placeholder="A short strapline summary for your app listing. Must be between 50 and 150 characters"
+            />
             <label
               class="e1nbkkrq-el-label"
+              for="test-static-id"
             >
               Summary
             </label>
-            <textarea
-              class="e16rclfx-el-text-area"
-              placeholder="A short strapline summary for your app listing. Must be between 50 and 150 characters"
-            />
+            <p
+              class="e19twfs3-el-input-error"
+            >
+              An Error
+            </p>
           </div>
-          <p
-            class="e19twfs3-el-input-error"
-          >
-            An Error
-          </p>
         </div>
         <div
           class="ep31he9-el-input-wrap-full"
@@ -1022,11 +1014,6 @@ Object {
     <div
       class="ecbqyq6-el-snack-holder"
     />
-    <h2
-      class="e1byern-el-subtitle"
-    >
-      App Listing
-    </h2>
     <p
       class="e11jaxfn-el-has-grey-text e15ggth7-el-body-text"
     >
@@ -1293,21 +1280,24 @@ Object {
         <div
           class="e1979rmu-el-input-group"
         >
+          <input
+            class="e1urjlvd-el-input"
+            id="test-static-id"
+            name="summary"
+            placeholder="A short strapline summary for your app listing. Must be between 50 and 150 characters"
+          />
           <label
             class="e1nbkkrq-el-label"
+            for="test-static-id"
           >
             Summary
           </label>
-          <textarea
-            class="e16rclfx-el-text-area"
-            placeholder="A short strapline summary for your app listing. Must be between 50 and 150 characters"
-          />
+          <p
+            class="e19twfs3-el-input-error"
+          >
+            An Error
+          </p>
         </div>
-        <p
-          class="e19twfs3-el-input-error"
-        >
-          An Error
-        </p>
       </div>
       <div
         class="ep31he9-el-input-wrap-full"

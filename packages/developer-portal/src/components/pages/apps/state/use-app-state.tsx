@@ -6,7 +6,7 @@ import { reapitConnectBrowserSession } from '../../../../core/connect-session'
 import { AppAuthFlow, AppNewStepId } from '../new/config'
 import { useReapitConnect } from '@reapit/connect-session'
 import { AppEditFormSchema, defaultValues } from '../edit/form-schema/form-fields'
-import { defaultAppTabsState, defaultAppWizardState } from './defaults'
+import { defaultAppWizardState } from './defaults'
 import { handleSetDefaultFormValues } from '../utils/handle-default-form-values'
 
 export interface AppUriParams {
@@ -38,12 +38,6 @@ export interface AppEditState {
   setAppEditSaving: Dispatch<SetStateAction<boolean>>
 }
 
-export interface AppTabsState {
-  isListed: boolean
-  isCompletingListing: boolean
-  isAgencyCloudIntegrated: boolean
-}
-
 export interface AppStateHook {
   appWizardState: AppWizardState
   appsDataState: AppsDataState
@@ -51,8 +45,6 @@ export interface AppStateHook {
   setAppWizardState: Dispatch<SetStateAction<AppWizardState>>
   appId: string | null
   setAppId: Dispatch<SetStateAction<string | null>>
-  appTabsState: AppTabsState
-  setAppTabsState: Dispatch<SetStateAction<AppTabsState>>
 }
 
 export const AppStateContext = createContext<AppStateHook>({} as AppStateHook)
@@ -62,7 +54,6 @@ const { Provider } = AppStateContext
 export const AppProvider: FC = ({ children }) => {
   const [appWizardState, setAppWizardState] = useState<AppWizardState>(defaultAppWizardState as AppWizardState)
   const [appEditForm, setAppEditForm] = useState<AppEditFormSchema>(defaultValues)
-  const [appTabsState, setAppTabsState] = useState<AppTabsState>(defaultAppTabsState)
   const [appEditSaving, setAppEditSaving] = useState<boolean>(false)
   const [appId, setAppId] = useState<string | null>(null)
   const { connectSession } = useReapitConnect(reapitConnectBrowserSession)
@@ -83,10 +74,7 @@ export const AppProvider: FC = ({ children }) => {
     fetchWhenTrue: [appId],
   })
 
-  useEffect(handleSetDefaultFormValues(setAppEditForm, appDetail, setAppTabsState, developerId), [
-    appDetail,
-    developerId,
-  ])
+  useEffect(handleSetDefaultFormValues(setAppEditForm, appDetail, developerId), [appDetail, developerId])
 
   const appsDataState: AppsDataState = {
     apps,
@@ -113,8 +101,6 @@ export const AppProvider: FC = ({ children }) => {
         setAppWizardState,
         appId,
         setAppId,
-        appTabsState,
-        setAppTabsState,
       }}
     >
       {children}

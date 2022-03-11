@@ -1,3 +1,4 @@
+import { AppAuthFlow } from './../new/config'
 import { AppNewStepId } from '../new/config'
 
 export const defaultAppTabsState = {
@@ -11,6 +12,6 @@ export const defaultAppWizardState = {
   nextStep: null,
   prevStep: null,
   stepHistory: [AppNewStepId.applicationTypeStep],
-  authFlow: 'clientCredentials',
+  authFlow: 'clientCredentials' as AppAuthFlow,
   lastStep: false,
 }

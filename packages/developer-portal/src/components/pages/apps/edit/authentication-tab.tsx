@@ -1,5 +1,5 @@
 import React, { FC } from 'react'
-import { BodyText, FormLayout, InputGroup, InputWrapFull, Subtitle } from '@reapit/elements'
+import { BodyText, FormLayout, InputGroup, InputWrapFull } from '@reapit/elements'
 import { AppEditTabsProps } from './edit-page-tabs'
 import { formFields } from './form-schema/form-fields'
 import { ExternalPages, openNewPage } from '../../../../utils/navigation'
@@ -8,8 +8,7 @@ export const AuthenticationTab: FC<AppEditTabsProps> = ({ register, errors }) =>
   const { redirectUris, signoutUris } = formFields
   return (
     <>
-      <Subtitle>Authentication</Subtitle>
-      <BodyText hasGreyText hasSectionMargin>
+      <BodyText hasGreyText>
         When using the Reapit Connect{' '}
         <a onClick={openNewPage(ExternalPages.authoizationFlowDocs)}>Authorization Code flow,</a> you need to register
         both a re-direct uri and a logout uri. The former is the location in your app, you want Reapit Connect to

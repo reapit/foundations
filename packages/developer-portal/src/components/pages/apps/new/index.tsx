@@ -33,6 +33,7 @@ import Routes from '../../../../constants/routes'
 import { History } from 'history'
 import { useHistory } from 'react-router-dom'
 import { HelperContent } from './helper-content'
+import { defaultAppWizardState } from '../state/defaults'
 
 export interface CreateAppFormSchema {
   redirectUris?: string
@@ -101,6 +102,7 @@ export const handleSetSteps =
               prevStep: currentStep,
               currentStep: nextStep,
               stepHistory: [...stepHistory, nextStep],
+              lastStep: nextStep === AppNewStepId.reapitConnectStep,
             }
           }
 
@@ -124,6 +126,7 @@ export const handleSubmitApp =
   (
     authFlow: AppAuthFlow,
     connectSession: ReapitConnectSession | null,
+    stepHistory: (AppNewStepId | null)[],
     createApp: SendFunction<CreateAppModel, AppDetailModel | null | boolean>,
   ) =>
   ({ redirectUris, signoutUris, scopes }: CreateAppFormSchema) => {
@@ -140,7 +143,7 @@ export const handleSubmitApp =
       name,
       scopes: splitScopes,
       developerId,
-      isDirectApi: true,
+      isDirectApi: !stepHistory.includes(AppNewStepId.agencyCloudStep),
     }
 
     const extraFields =
@@ -155,9 +158,16 @@ export const handleSubmitApp =
   }
 
 export const handleNavigateOnSuccess =
-  (app: AppDetailModel | undefined, history: History, appsRefresh: () => void) => () => {
+  (
+    app: AppDetailModel | undefined,
+    history: History,
+    appsRefresh: () => void,
+    setAppWizardState: Dispatch<SetStateAction<AppWizardState>>,
+  ) =>
+  () => {
     if (app) {
       appsRefresh()
+      setAppWizardState(defaultAppWizardState)
       history.push(`${Routes.APPS}/${app.id}`)
     }
   }
@@ -184,7 +194,7 @@ export const AppsNewPage: FC = () => {
     returnType: UpdateReturnTypeEnum.LOCATION,
   })
 
-  useEffect(handleNavigateOnSuccess(app, history, appsRefresh), [app])
+  useEffect(handleNavigateOnSuccess(app, history, appsRefresh, setAppWizardState), [app])
 
   const { headingText, headerText, iconName } = getAppWizardStep(currentStep)
 
@@ -201,7 +211,7 @@ export const AppsNewPage: FC = () => {
         <Title>Create App</Title>
         <StepContainer>
           <Subtitle hasBoldText>{headingText}</Subtitle>
-          <form onSubmit={handleSubmit(handleSubmitApp(authFlow, connectSession, createApp))}>
+          <form onSubmit={handleSubmit(handleSubmitApp(authFlow, connectSession, stepHistory, createApp))}>
             <FlexContainer className={elMb7}>
               <Icon className={elMr5} icon={iconName} iconSize="large" />
               <SmallText hasGreyText>{headerText}</SmallText>

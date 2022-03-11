@@ -661,9 +661,9 @@ Object {
         Before you list your app you can save the details at any point below. After app listing, you will have to create an app revision for our team to review.
       </p>
       <button
-        class="esplruv-el-mb3 ebee6r1-el-intent-primary e1tqqdf9-el-button-has-right-chevron e1f2ikqj-el-button"
+        class="esplruv-el-mb3 e1iow709-el-intent-critical e1tqqdf9-el-button-has-right-chevron e1f2ikqj-el-button"
       >
-        Save Changes
+        Cancel Pending Revision
       </button>
     </div>
   </body>,
@@ -784,9 +784,9 @@ Object {
       Before you list your app you can save the details at any point below. After app listing, you will have to create an app revision for our team to review.
     </p>
     <button
-      class="esplruv-el-mb3 ebee6r1-el-intent-primary e1tqqdf9-el-button-has-right-chevron e1f2ikqj-el-button"
+      class="esplruv-el-mb3 e1iow709-el-intent-critical e1tqqdf9-el-button-has-right-chevron e1f2ikqj-el-button"
     >
-      Save Changes
+      Cancel Pending Revision
     </button>
   </div>,
   "debug": [Function],
@@ -1267,9 +1267,9 @@ Object {
         Before you list your app you can save the details at any point below. After app listing, you will have to create an app revision for our team to review.
       </p>
       <button
-        class="esplruv-el-mb3 e1iow709-el-intent-critical e1tqqdf9-el-button-has-right-chevron e1f2ikqj-el-button"
+        class="esplruv-el-mb3 ebee6r1-el-intent-primary e1tqqdf9-el-button-has-right-chevron e1f2ikqj-el-button"
       >
-        Submit Review
+        Save Changes
       </button>
     </div>
   </body>,
@@ -1390,9 +1390,9 @@ Object {
       Before you list your app you can save the details at any point below. After app listing, you will have to create an app revision for our team to review.
     </p>
     <button
-      class="esplruv-el-mb3 e1iow709-el-intent-critical e1tqqdf9-el-button-has-right-chevron e1f2ikqj-el-button"
+      class="esplruv-el-mb3 ebee6r1-el-intent-primary e1tqqdf9-el-button-has-right-chevron e1f2ikqj-el-button"
     >
-      Submit Review
+      Save Changes
     </button>
   </div>,
   "debug": [Function],

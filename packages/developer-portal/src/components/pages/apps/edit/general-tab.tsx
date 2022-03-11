@@ -13,20 +13,17 @@ import {
 import { AppEditTabsProps } from './edit-page-tabs'
 import { formFields } from './form-schema/form-fields'
 import { useAppState } from '../state/use-app-state'
-import { listingInCompletion } from '../utils/listing-in-completion'
 import Routes from '../../../../constants/routes'
 import { Link } from 'react-router-dom'
 import { ExternalPages, openNewPage } from '../../../../utils/navigation'
 
-export const GeneralTab: FC<AppEditTabsProps> = ({ register, errors, getValues }) => {
+export const GeneralTab: FC<AppEditTabsProps> = ({ register, errors }) => {
   const { appsDataState, appId } = useAppState()
-  const formValues = getValues()
-  const hasCompletedValues = listingInCompletion(formValues)
-  const { name, isPrivateApp, limitToClientIds, isListed, isAgencyCloudIntegrated, isCompletingListing } = formFields
+  const isPublicListed = appsDataState.appDetail?.isListed
+  const { name, isListed } = formFields
 
   return (
     <>
-      <Subtitle>General Info</Subtitle>
       <BodyText hasGreyText>
         You already have supplied enough details to get started with our APIs and if you just want to develop your app,
         you should visit the <Link to={`${Routes.APPS}/${appId}`}>App Detail page</Link> to obtain your Client Id.
@@ -48,88 +45,26 @@ export const GeneralTab: FC<AppEditTabsProps> = ({ register, errors, getValues }
         Your app name can be anything as long as it is unique in our database. By default we auto generate one from your
         company name and some randomised words. You should change it to something memorable to you and your customers.
       </BodyText>
+      {isPublicListed && (
+        <BodyText hasGreyText>
+          You can toggle &lsquo;AppMarket Listed&rsquo; if your app is publicly listed in the AppMarket.
+        </BodyText>
+      )}
       <FormLayout hasMargin>
         <InputWrapFull>
           <InputGroup {...name} {...register('name')} errorMessage={errors?.name?.message} />
         </InputWrapFull>
-      </FormLayout>
-      <Subtitle>App Listings</Subtitle>
-      <BodyText hasGreyText>
-        The toggles below will depend on how far you are progressing with the development of your app.
-      </BodyText>
-      <BodyText hasGreyText>
-        You should toggle &lsquo;Completing App Listing&rsquo; when you are ready to start completing the app listing
-        information. This will enable you to start completing it without the fields being required and you can save at
-        any point.
-      </BodyText>
-      {appsDataState.appDetail?.authFlow === 'authorisationCode' && (
-        <BodyText hasGreyText>
-          You should toggle &lsquo;AgencyCloud Integration&rsquo; only if you are intending your app to be launched as
-          replacement screen from within AgencyCloud
-        </BodyText>
-      )}
-      <BodyText hasGreyText>
-        You should toggle &lsquo;AppMarket Listed&rsquo; when you are ready to submit your app for review. This will
-        make all relevant fields required before saving and will notify our team that it is ready to review. When you
-        app has been reviewed and accepted, you can de-list your app by toggling again and saving the app.
-      </BodyText>
-      <BodyText hasGreyText>
-        You should toggle &lsquo;Private App&rsquo; if you only want your app to be private to a select group of
-        customers. You should enter their client codes from the installations table as a comma separated list.
-      </BodyText>
-      <FormLayout hasMargin>
-        <InputWrap>
-          {hasCompletedValues || formValues.isListed ? (
-            <>
-              <Label>{isCompletingListing.label}</Label>
-              <BodyText>App Listing Under Completion</BodyText>
-            </>
-          ) : (
-            <InputGroup>
-              <Label>{isCompletingListing.label}</Label>
-              <Toggle id="app-edit-completing-listing" {...register('isCompletingListing')} hasGreyBg>
-                <ElToggleItem>Yes</ElToggleItem>
-                <ElToggleItem>No</ElToggleItem>
-              </Toggle>
-            </InputGroup>
-          )}
-        </InputWrap>
-        {appsDataState.appDetail?.authFlow === 'authorisationCode' && (
+        {isPublicListed && (
           <InputWrap>
             <InputGroup>
-              <Label>{isAgencyCloudIntegrated.label}</Label>
-              <Toggle id="app-edit-is-ac-inegrated" {...register('isAgencyCloudIntegrated')} hasGreyBg>
+              <Label>{isListed.label}</Label>
+              <Toggle id="app-edit-is-listed" {...register('isListed')} hasGreyBg>
                 <ElToggleItem>Yes</ElToggleItem>
                 <ElToggleItem>No</ElToggleItem>
               </Toggle>
             </InputGroup>
           </InputWrap>
         )}
-        <InputWrap>
-          <InputGroup>
-            <Label>{isListed.label}</Label>
-            <Toggle id="app-edit-is-listed" {...register('isListed')} hasGreyBg>
-              <ElToggleItem>Yes</ElToggleItem>
-              <ElToggleItem>No</ElToggleItem>
-            </Toggle>
-          </InputGroup>
-        </InputWrap>
-        <InputWrap>
-          <InputGroup>
-            <Label>{isPrivateApp.label}</Label>
-            <Toggle id="app-edit-is-private-app" {...register('isPrivateApp')} hasGreyBg>
-              <ElToggleItem>Yes</ElToggleItem>
-              <ElToggleItem>No</ElToggleItem>
-            </Toggle>
-          </InputGroup>
-        </InputWrap>
-        <InputWrapFull>
-          <InputGroup
-            {...limitToClientIds}
-            {...register('limitToClientIds')}
-            errorMessage={errors?.limitToClientIds?.message}
-          />
-        </InputWrapFull>
       </FormLayout>
     </>
   )
