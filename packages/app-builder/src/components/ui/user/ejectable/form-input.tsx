@@ -1,14 +1,17 @@
-import React from 'react'
+import React, { useEffect, useRef } from 'react'
 import {
   CardWrap,
   ElBodyText,
   elHasGreyText,
+  ElInput,
   elMy2,
   FloatingButton,
   InputGroup,
   InputWrap,
   Label,
   Loader,
+  MultiSelectInput,
+  MultiSelectInputProps,
   SearchableDropdown,
   Select,
 } from '@reapit/elements'
@@ -34,6 +37,35 @@ type GenericObject = {
   [key: string]: any
 }
 
+const SearchableMultiSelectInput = ({
+  id,
+  onChange,
+  getResults,
+}: Omit<MultiSelectInputProps, 'options'> & {
+  getResults: (query: string) => Promise<{ name: string; value: any }[]>
+}) => {
+  // const [values, setValues] = React.useState<any[]>([])
+  const [results, setResults] = React.useState<{ name: string; value: any }[]>([])
+
+  const handleSearchChange = (e: React.ChangeEvent<HTMLInputElement | HTMLSelectElement>) => {
+    getResults(e.target.value).then(setResults)
+  }
+
+  return (
+    <InputWrap>
+      <ElInput placeholder="Search" onChange={handleSearchChange} />
+      <MultiSelectInput
+        id={id}
+        onChange={(e) => {
+          console.log(e.target.value)
+          onChange && onChange(e)
+        }}
+        options={results}
+      />
+    </InputWrap>
+  )
+}
+
 const SelectIDofType = ({
   typeName,
   value,
@@ -41,9 +73,11 @@ const SelectIDofType = ({
   defaultValue,
   name,
   disabled,
+  multiSelect,
 }: {
   typeName: string
   name: string
+  multiSelect?: boolean
   value?: React.SelectHTMLAttributes<HTMLSelectElement>['value']
   disabled?: boolean
   defaultValue?: React.SelectHTMLAttributes<HTMLSelectElement>['defaultValue']
@@ -52,6 +86,38 @@ const SelectIDofType = ({
   const { data, loading } = useObjectList(typeName)
   const { object } = useObject(typeName)
   const { available: searchAvailable, search } = useLazyObjectSearch(typeName)
+
+  if (multiSelect) {
+    if (searchAvailable) {
+      return (
+        <SearchableMultiSelectInput
+          id={name}
+          onChange={onChange}
+          getResults={async (query: string) => {
+            const results = await search(query)
+            return results.map((result) => ({ name: getLabel(result, object?.labelKeys), value: result.id }))
+          }}
+        />
+      )
+    }
+    return (
+      <MultiSelectInput
+        name={name}
+        id={name}
+        onChange={onChange}
+        defaultValue={defaultValue}
+        disabled={disabled}
+        options={
+          data
+            ? data.map((obj) => ({
+                name: getLabel(obj, object?.labelKeys),
+                value: obj.id,
+              }))
+            : []
+        }
+      />
+    )
+  }
 
   if (searchAvailable) {
     return (
@@ -75,7 +141,7 @@ const SelectIDofType = ({
             {getLabel(obj, object?.labelKeys)}
           </option>
         ))}
-        <option selected disabled>
+        <option disabled selected> {/* deepscan-disable-line */}
           Select a {typeName}
         </option>
       </Select>
@@ -134,7 +200,7 @@ const Input = ({
                 {value}
               </option>
             ))}
-            <option selected disabled>
+            <option disabled selected>{/* deepscan-disable-line */}
               Select a {inputTypeName}
             </option>
           </Select>
@@ -149,6 +215,7 @@ const Input = ({
             typeName={idOfType}
             onChange={onChange}
             value={value}
+            multiSelect={input.isList}
             defaultValue={defaultValue}
           />
         </>
@@ -187,8 +254,7 @@ const ListInput = React.forwardRef(
     },
     ref: React.ForwardedRef<HTMLDivElement>,
   ) => {
-    const [listValue, setListValue] = React.useState<Record<string, any>[]>(defaultValue || [])
-
+    const [listValue, setListValue] = React.useState<any[]>(defaultValue || [])
     return (
       <InputWrap ref={ref}>
         <Label>{label}</Label>
@@ -196,6 +262,19 @@ const ListInput = React.forwardRef(
           {listValue.map((value, idx) => (
             <CardWrap key={idx} className={elMy2}>
               <InputWrap>
+                {formInput?.idOfType && (
+                  <SelectIDofType
+                    disabled={disabled}
+                    name={label}
+                    typeName={formInput.idOfType}
+                    onChange={(e) => {
+                      const newListValue = [...listValue]
+                      newListValue[idx] = e.target.value
+                      setListValue(newListValue)
+                      onChange(newListValue)
+                    }}
+                  />
+                )}
                 {formInput?.fields?.map((input) => (
                   <div key={input.name}>
                     <Input
@@ -253,13 +332,13 @@ const InnerFormInput = (
   const disabled = rest.disabled || rest.isReadOnly
   const { onChange, defaultValues } = useFormContext()
   const defaultValue = defaultValues[name]
-  const formInput = args && args[0] && args[0]?.fields?.find((arg) => arg.name === name)
+  const formInput = args && args[0] && args[0].fields?.find((arg) => arg.name === name)
 
   if (!formInput) return null
 
-  const { isList } = formInput
+  const { isList, idOfType } = formInput
   const label = friendlyIdName(name)
-  if (isList) {
+  if (isList && !idOfType) {
     return (
       <ListInput
         defaultValue={defaultValue}

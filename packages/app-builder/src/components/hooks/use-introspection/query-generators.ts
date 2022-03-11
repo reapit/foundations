@@ -72,12 +72,10 @@ export const getGetQuery = (
   if (!list) {
     return undefined
   }
-  const listDict = list && queryableFieldToNestedDict(list.type, queryableObjectTypes)
+  const listDict = queryableFieldToNestedDict(list.type, queryableObjectTypes)
   const listTypeStr = listDict && nestedFieldsToString(listDict)
   const args = parseArgs(list.args, inputObjectTypes, queryableObjectTypes, enums)
-  const listQuery =
-    list &&
-    `query ${list.name}(${stringifyArgs(args, true)}) {
+  const listQuery = `query ${list.name}(${stringifyArgs(args, true)}) {
         ${list.name}(${stringifyArgs(args, false)})
           ${listTypeStr ? ` ${listTypeStr}` : ''}
     }`
@@ -193,7 +191,7 @@ const getMutationObject = (
   inputObjectTypes: Array<IntrospectionInputTypeRef>,
   enums: Array<IntrospectionEnumType>,
 ): GeneratedMutation => {
-  const mutationDict = mutation && queryableFieldToNestedDict(mutation.type, queryableObjectTypes)
+  const mutationDict = queryableFieldToNestedDict(mutation.type, queryableObjectTypes)
   const mutationTypeStr = mutationDict && nestedFieldsToString(mutationDict)
   const args = parseArgs(mutation.args, inputObjectTypes, queryableObjectTypes, enums)
   const mutationStr = `

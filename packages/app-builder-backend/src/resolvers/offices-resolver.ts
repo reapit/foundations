@@ -2,16 +2,15 @@ import { gql } from 'apollo-server-core'
 import { Resolver, Query, Ctx } from 'type-graphql'
 
 import { query } from '../utils/graphql-fetch'
-import { Office } from '../entities/office'
+import { Office, OfficeFragment } from '../entities/office'
 import { Context } from '../types'
 
 const getOfficesQuery = gql`
+  ${OfficeFragment}
   query getOffices {
     GetOffices {
       _embedded {
-        id
-        name
-        metadata
+        ...OfficeFragment
       }
     }
   }
