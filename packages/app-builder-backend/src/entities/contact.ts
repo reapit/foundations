@@ -12,7 +12,6 @@ registerEnumType(MarketingConsent, {
   name: 'MarketingConsent',
 })
 
-// TODO: add officeIds and negotiatorIds
 @ObjectType({ description: '@labelKeys(title, forename, surname) @supportsCustomFields()' })
 export class Contact {
   @Field(() => ID)
