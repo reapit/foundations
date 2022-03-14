@@ -21,7 +21,7 @@
   },
   "dependencies": {
     "@reapit/connect-session": "workspace:packages/connect-session",
-    "axios": "^0.25.0",
+    "axios": "^0.26.0",
     "dayjs": "^1.10.7",
     "eslint": "^8.4.1",
     "snyk": "^1.793.0",

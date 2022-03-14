@@ -6558,7 +6558,7 @@ __metadata:
     reflect-metadata: ^0.1.13
     semver: ^7.3.5
     shleemy: ^1.2.2
-    simple-git: ^2.48.0
+    simple-git: ^3.3.0
     ts-node: ^10.4.0
   bin:
     reapit: ./dist/cli/src/index.js
@@ -6598,7 +6598,7 @@ __metadata:
     "@types/base-64": ^1.0.0
     "@typescript-eslint/eslint-plugin": ^5.7.0
     "@typescript-eslint/parser": ^5.7.0
-    axios: ^0.25.0
+    axios: ^0.26.0
     babel-jest: ^27.4.5
     base-64: ^1.0.0
     bashleigh-idtoken-verifier: 2.2.3
@@ -13010,6 +13010,15 @@ __metadata:
   dependencies:
     follow-redirects: ^1.14.7
   checksum: 2a8a3787c05f2a0c9c3878f49782357e2a9f38945b93018fb0c4fd788171c43dceefbb577988628e09fea53952744d1ecebde234b561f1e703aa43e0a598a3ad
+  languageName: node
+  linkType: hard
+
+"axios@npm:^0.26.0":
+  version: 0.26.1
+  resolution: "axios@npm:0.26.1"
+  dependencies:
+    follow-redirects: ^1.14.8
+  checksum: d9eb58ff4bc0b36a04783fc9ff760e9245c829a5a1052ee7ca6013410d427036b1d10d04e7380c02f3508c5eaf3485b1ae67bd2adbfec3683704745c8d7a6e1a
   languageName: node
   linkType: hard
 
@@ -20215,6 +20224,16 @@ __metadata:
     debug:
       optional: true
   checksum: 40c67899c2e3149a27e8b6498a338ff27f39fe138fde8d7f0756cb44b073ba0bfec3d52af28f20c5bdd67263d564d0d8d7b5efefd431de95c18c42f7b4aef457
+  languageName: node
+  linkType: hard
+
+"follow-redirects@npm:^1.14.8":
+  version: 1.14.9
+  resolution: "follow-redirects@npm:1.14.9"
+  peerDependenciesMeta:
+    debug:
+      optional: true
+  checksum: f5982e0eb481818642492d3ca35a86989c98af1128b8e1a62911a3410621bc15d2b079e8170b35b19d3bdee770b73ed431a257ed86195af773771145baa57845
   languageName: node
   linkType: hard
 
@@ -33707,7 +33726,7 @@ resolve@^2.0.0-next.3:
     "@reapit/ts-types": "workspace:packages/ts-types"
     "@typescript-eslint/eslint-plugin": ^5.7.0
     "@typescript-eslint/parser": ^5.7.0
-    axios: ^0.25.0
+    axios: ^0.26.0
     dayjs: ^1.10.7
     eslint: ^8.4.1
     eslint-plugin-prettier: ^4.0.0
@@ -34369,7 +34388,7 @@ resolve@^2.0.0-next.3:
   languageName: node
   linkType: hard
 
-"simple-git@npm:^2.47.0, simple-git@npm:^2.48.0":
+"simple-git@npm:^2.47.0":
   version: 2.48.0
   resolution: "simple-git@npm:2.48.0"
   dependencies:
@@ -34377,6 +34396,17 @@ resolve@^2.0.0-next.3:
     "@kwsites/promise-deferred": ^1.1.1
     debug: ^4.3.2
   checksum: ba84b942ad5cebb9d43df2f147e414e348584f40023121896959f22d05e260ae71b862a93db5c473413f8d218f2122f2964d22f6b7bd77cc12dabc7e73b066be
+  languageName: node
+  linkType: hard
+
+"simple-git@npm:^3.3.0":
+  version: 3.3.0
+  resolution: "simple-git@npm:3.3.0"
+  dependencies:
+    "@kwsites/file-exists": ^1.1.1
+    "@kwsites/promise-deferred": ^1.1.1
+    debug: ^4.3.3
+  checksum: ae4c541a8b8cdac79ed8ca6bc899877b28b475207762a41866ddd4d31be3dd82cd5ddd4c16f0536e7a9a72f13a6472300481ac64523177425955f6b4c680bd1e
   languageName: node
   linkType: hard
 

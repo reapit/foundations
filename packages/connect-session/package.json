@@ -35,7 +35,7 @@
   },
   "dependencies": {
     "@babel/runtime": "^7.16.5",
-    "axios": "^0.25.0",
+    "axios": "^0.26.0",
     "base-64": "^1.0.0",
     "bashleigh-idtoken-verifier": "2.2.3",
     "isomorphic-fetch": "^3.0.0",
