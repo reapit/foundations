@@ -56,10 +56,10 @@ export const updateCustomEntity = async (
   }
   const customEntities = app.customEntities ?? []
   const updatedCustomEntity = {
-    ...customEntities.find((customEntity) => customEntity.id === id),
+    ...customEntities.find((ce) => ce.id === id),
     ...customEntity,
   }
-  const index = customEntities.findIndex((customEntity) => customEntity.id === id)
+  const index = customEntities.findIndex((ce) => ce.id === id)
   customEntities.splice(index, 1, updatedCustomEntity)
   await updateApp({ ...app, customEntities, id: appId })
   return updatedCustomEntity

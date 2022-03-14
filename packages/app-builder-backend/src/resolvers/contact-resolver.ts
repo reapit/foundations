@@ -174,11 +174,7 @@ const getContact = async (id: string, accessToken: string, idToken: string): Pro
   }
 
   const hoistedContact = hoistEmbeds<ContactAPIResponse<ContactsEmbeds>, ContactsEmbeds>(contact)
-  return {
-    ...hoistedContact,
-    offices: hoistedContact.offices || [],
-    negotiators: hoistedContact.negotiators || [],
-  }
+  return addDefaultEmbeds(hoistedContact)
 }
 
 const createContact = async (contact: ContactInput, accessToken: string, idToken: string): Promise<Contact> => {
@@ -194,6 +190,12 @@ const createContact = async (contact: ContactInput, accessToken: string, idToken
   return newContact
 }
 
+const addDefaultEmbeds = (contact: Contact): Contact => ({
+  ...contact,
+  offices: contact.offices || [],
+  negotiators: contact.negotiators || [],
+})
+
 const searchContacts = async (queryStr: string, accessToken: string, idToken: string): Promise<Contact[]> => {
   const contacts = await query<{ _embedded: ContactAPIResponse<ContactsEmbeds>[] }>(
     searchContactsQuery,
@@ -207,11 +209,7 @@ const searchContacts = async (queryStr: string, accessToken: string, idToken: st
 
   return contacts._embedded
     .map((c) => hoistEmbeds<ContactAPIResponse<ContactsEmbeds>, ContactsEmbeds>(c))
-    .map((c) => ({
-      ...c,
-      offices: c.offices || [],
-      negotiators: c.negotiators || [],
-    }))
+    .map(addDefaultEmbeds)
 }
 
 const entityName: MetadataSchemaType = 'contact'
