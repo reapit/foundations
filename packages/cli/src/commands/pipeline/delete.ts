@@ -16,6 +16,7 @@ import axios from 'axios'
 })
 export class DeletePipelineCommand extends AbstractCommand {
   async confirmation(pipeline: PipelineModelInterface) {
+    this.writeLine(chalk.red('!! This will delete your pipeline, deployments and hosting of your application. !!'))
     const answers = await inquirer.prompt([
       {
         type: 'confirm',
