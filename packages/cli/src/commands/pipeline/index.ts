@@ -5,6 +5,7 @@ import { DeployPipelineCommand } from './deploy'
 import { PipelineList } from './list'
 import { LinkPipelineCommand } from './link'
 import { DeployLocalCommand } from './deploy-local'
+import { DeletePipelineCommand } from './delete'
 
 @Command({
   name: 'pipeline',
@@ -17,5 +18,6 @@ export class PipelineCommand extends ParentCommand {
     new DeployPipelineCommand(),
     new LinkPipelineCommand(),
     new DeployLocalCommand(),
+    new DeletePipelineCommand(),
   ]
 }
