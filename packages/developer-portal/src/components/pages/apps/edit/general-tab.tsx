@@ -1,11 +1,15 @@
 import React, { FC } from 'react'
 import {
   BodyText,
+  Button,
+  ColSplit,
+  elMb10,
   ElToggleItem,
   FormLayout,
+  Grid,
+  Icon,
   InputGroup,
   InputWrap,
-  InputWrapFull,
   Label,
   Subtitle,
   Toggle,
@@ -14,16 +18,51 @@ import { AppEditTabsProps } from './edit-page-tabs'
 import { formFields } from './form-schema/form-fields'
 import { useAppState } from '../state/use-app-state'
 import Routes from '../../../../constants/routes'
-import { Link } from 'react-router-dom'
-import { ExternalPages, openNewPage } from '../../../../utils/navigation'
+import { Link, useHistory } from 'react-router-dom'
+import { ExternalPages, navigate, openNewPage } from '../../../../utils/navigation'
+import { IconContainer } from './__styles__'
 
-export const GeneralTab: FC<AppEditTabsProps> = ({ register, errors }) => {
+export const GeneralTab: FC<AppEditTabsProps> = ({ register }) => {
   const { appsDataState, appId } = useAppState()
+  const history = useHistory()
   const isPublicListed = appsDataState.appDetail?.isListed
-  const { name, isListed } = formFields
+  const { isListed } = formFields
 
   return (
     <>
+      <Grid>
+        <ColSplit>
+          <IconContainer className={elMb10}>
+            <Icon icon="editAppInfographic" fontSize="8.75em" />
+          </IconContainer>
+          <Subtitle>Manage App Listing</Subtitle>
+          <BodyText hasGreyText>
+            Our webhooks system allows your application to directly subscribe to events happening in our customers data.
+            Rather than needing to make API calls to poll for new information, a webhook subscription can be created to
+            allow Reapit Foundations to send a HTTP request directly to your endpoints that you configure here.
+          </BodyText>
+          <Button chevronRight intent="critical" onClick={navigate(history, Routes.WEBHOOKS_NEW)}>
+            Check Status
+          </Button>
+        </ColSplit>
+        <ColSplit>
+          <IconContainer className={elMb10}>
+            <Icon icon="docsInfographic" fontSize="8.75em" />
+          </IconContainer>
+          <Subtitle>App Listing Documentation</Subtitle>
+          <BodyText hasGreyText>
+            This system is designed to work flexibly with your application. If you wish, you can set up a single
+            endpoint to catch all topics for all customers. Alternatively, you may wish to set up a different webhook
+            subscription per topic or per customer. For more information about Webhooks, please see our{' '}
+            <a href={ExternalPages.webhooksDocs} target="_blank" rel="noreferrer">
+              webhooks documentation.
+            </a>
+          </BodyText>
+          <Button intent="low" onClick={openNewPage(ExternalPages.listingAppDocs)}>
+            View Docs
+          </Button>
+        </ColSplit>
+      </Grid>
       <BodyText hasGreyText>
         You already have supplied enough details to get started with our APIs and if you just want to develop your app,
         you should visit the <Link to={`${Routes.APPS}/${appId}`}>App Detail page</Link> to obtain your Client Id.
@@ -40,20 +79,12 @@ export const GeneralTab: FC<AppEditTabsProps> = ({ register, errors }) => {
         you like until your app is listed, or live in the AppMarket. From this point on, you will need to create
         revisions to your app for our team to review. You can only have one live revision outstanding at any given time.
       </BodyText>
-      <Subtitle>App Name</Subtitle>
-      <BodyText hasGreyText>
-        Your app name can be anything as long as it is unique in our database. By default we auto generate one from your
-        company name and some randomised words. You should change it to something memorable to you and your customers.
-      </BodyText>
       {isPublicListed && (
         <BodyText hasGreyText>
           You can toggle &lsquo;AppMarket Listed&rsquo; if your app is publicly listed in the AppMarket.
         </BodyText>
       )}
       <FormLayout hasMargin>
-        <InputWrapFull>
-          <InputGroup {...name} {...register('name')} errorMessage={errors?.name?.message} />
-        </InputWrapFull>
         {isPublicListed && (
           <InputWrap>
             <InputGroup>

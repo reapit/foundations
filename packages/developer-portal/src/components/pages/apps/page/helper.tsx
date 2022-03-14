@@ -112,15 +112,25 @@ export const Helper: FC = () => {
             Cancel Revision
           </Button>
         ) : appsDataState.appDetail?.isListed ? (
-          <Button
-            className={elMb3}
-            intent="critical"
-            loading={isRefreshing}
-            onClick={handleSetAppEditSaving(setAppEditSaving)}
-            chevronRight
-          >
-            Create Revision
-          </Button>
+          <>
+            <Button
+              className={elMb3}
+              intent="primary"
+              loading={isRefreshing}
+              onClick={handleSetAppEditSaving(setAppEditSaving)}
+            >
+              De-list app
+            </Button>
+            <Button
+              className={elMb3}
+              intent="critical"
+              loading={isRefreshing}
+              onClick={handleSetAppEditSaving(setAppEditSaving)}
+              chevronRight
+            >
+              Create Revision
+            </Button>
+          </>
         ) : (
           <Button className={elMb3} intent="primary" onClick={handleSetAppEditSaving(setAppEditSaving)} chevronRight>
             Save Changes

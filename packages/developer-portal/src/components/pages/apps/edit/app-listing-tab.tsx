@@ -77,6 +77,7 @@ export const AppListingTab: FC<AppEditTabsProps> = ({ register, errors, control,
   const { Modal, openModal, closeModal } = useModal()
 
   const {
+    name,
     supportEmail,
     telephone,
     homePage,
@@ -118,6 +119,9 @@ export const AppListingTab: FC<AppEditTabsProps> = ({ register, errors, control,
         <a onClick={openNewPage(ExternalPages.reviewingAppDocs)}>here.</a>
       </BodyText>
       <FormLayout hasMargin>
+        <InputWrapFull>
+          <InputGroup {...name} {...register('name')} errorMessage={errors?.name?.message} />
+        </InputWrapFull>
         <InputWrap>
           <InputGroup {...supportEmail} {...register('supportEmail')} errorMessage={errors?.supportEmail?.message} />
         </InputWrap>
