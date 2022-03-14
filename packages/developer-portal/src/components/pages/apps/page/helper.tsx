@@ -1,25 +1,92 @@
 import { Button, elMb3, Icon, SmallText, Subtitle } from '@reapit/elements'
-import React, { Dispatch, FC, SetStateAction } from 'react'
+import { AppRevisionModelPagedResult, RejectRevisionModel } from '@reapit/foundations-ts-definitions'
+import { SendFunction, useReapitUpdate } from '@reapit/utils-react'
+import React, { Dispatch, FC, SetStateAction, useEffect, useState } from 'react'
 import { useLocation } from 'react-router-dom'
+import { UpdateActionNames, updateActions } from '@reapit/utils-common'
 import { openNewPage, ExternalPages } from '../../../../utils/navigation'
 import { useAppState } from '../state/use-app-state'
 import { getCurrentPage } from '../utils/get-current-page'
+import { reapitConnectBrowserSession } from '../../../../core/connect-session'
+import { ReapitConnectSession, useReapitConnect } from '@reapit/connect-session'
 
 export const handleSetAppEditSaving = (setAppEditSaving: Dispatch<SetStateAction<boolean>>) => () => {
   setAppEditSaving(true)
 }
 
-export const handleCancelPendingRevsion = () => () => {
-  console.log('Cancelling')
-}
+export const handleCancelPendingRevsion =
+  (
+    cancelRevision: SendFunction<RejectRevisionModel, boolean | null>,
+    connectSession: ReapitConnectSession | null,
+    revisionId: string | null,
+  ) =>
+  () => {
+    if (revisionId) {
+      cancelRevision({
+        name: connectSession?.loginIdentity.name,
+        email: connectSession?.loginIdentity.email,
+        rejectionReason: 'Cancelled by developer',
+        rejectedByDeveloper: true,
+      })
+    }
+  }
+
+export const handleSetRevisionId =
+  (appRevisions: AppRevisionModelPagedResult | null, setRevisionId: Dispatch<SetStateAction<string | null>>) => () => {
+    if (appRevisions?.data && appRevisions.data[0] && appRevisions.data[0].id) {
+      setRevisionId(appRevisions.data[0].id)
+    }
+  }
+
+export const handleCancelSuccess =
+  (
+    appsDetailRefresh: () => void,
+    setRevisionId: Dispatch<SetStateAction<string | null>>,
+    appRefreshRevisions: () => void,
+    success?: boolean,
+  ) =>
+  () => {
+    if (success) {
+      appsDetailRefresh()
+      appRefreshRevisions()
+      setRevisionId(null)
+    }
+  }
 
 export const Helper: FC = () => {
   const location = useLocation()
   const { appId, appEditState, appsDataState } = useAppState()
+  const [revisionId, setRevisionId] = useState<string | null>(null)
+  const { connectSession } = useReapitConnect(reapitConnectBrowserSession)
   const { pathname } = location
   const { isAppsEdit, isAppsDetail } = getCurrentPage(pathname)
   const { setAppEditSaving } = appEditState
+  const {
+    appsDetailRefresh,
+    appRefreshRevisions,
+    appRevisions,
+    appDetail,
+    appDetailRefreshing,
+    appRevisionsRefreshing,
+  } = appsDataState
   const isCompleted = false
+  const hasRevisions = Boolean(appDetail?.pendingRevisions)
+  const isRefreshing = appDetailRefreshing || appRevisionsRefreshing
+
+  const [, , cancelRevision, cancelRevisionSuccess] = useReapitUpdate<RejectRevisionModel, null>({
+    reapitConnectBrowserSession,
+    action: updateActions(window.reapit.config.appEnv)[UpdateActionNames.cancelRevision],
+    uriParams: {
+      appId,
+      revisionId,
+    },
+  })
+
+  useEffect(handleSetRevisionId(appRevisions, setRevisionId), [appRevisions])
+
+  useEffect(handleCancelSuccess(appsDetailRefresh, setRevisionId, appRefreshRevisions, cancelRevisionSuccess), [
+    cancelRevisionSuccess,
+  ])
 
   if (isAppsEdit) {
     return (
@@ -34,12 +101,24 @@ export const Helper: FC = () => {
           <Button className={elMb3} intent="critical" onClick={handleSetAppEditSaving(setAppEditSaving)} chevronRight>
             Submit Review
           </Button>
-        ) : appsDataState.appDetail?.pendingRevisions ? (
-          <Button className={elMb3} intent="critical" onClick={handleCancelPendingRevsion()} chevronRight>
-            Cancel Pending Revision
+        ) : hasRevisions ? (
+          <Button
+            className={elMb3}
+            intent="critical"
+            loading={isRefreshing}
+            onClick={handleCancelPendingRevsion(cancelRevision, connectSession, revisionId)}
+            chevronRight
+          >
+            Cancel Revision
           </Button>
         ) : appsDataState.appDetail?.isListed ? (
-          <Button className={elMb3} intent="critical" onClick={handleSetAppEditSaving(setAppEditSaving)} chevronRight>
+          <Button
+            className={elMb3}
+            intent="critical"
+            loading={isRefreshing}
+            onClick={handleSetAppEditSaving(setAppEditSaving)}
+            chevronRight
+          >
             Create Revision
           </Button>
         ) : (

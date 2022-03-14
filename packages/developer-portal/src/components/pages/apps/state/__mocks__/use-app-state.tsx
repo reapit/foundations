@@ -9,10 +9,16 @@ export const mockAppState = {
   appsDataState: {
     apps: mockAppSummaryModelPagedResult,
     appsLoading: false,
+    appsRefreshing: false,
     appDetail: mockAppDetailModel,
     appDetailLoading: false,
+    appDetailRefreshing: false,
+    appRevisions: mockAppSummaryModelPagedResult,
+    appRevisionsLoading: false,
+    appRevisionsRefreshing: false,
     appsRefresh: jest.fn(),
     appsDetailRefresh: jest.fn(),
+    appRefreshRevisions: jest.fn(),
   },
   appEditState: {
     appEditForm: mockAppEditForm,

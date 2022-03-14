@@ -24,6 +24,7 @@ describe('handleSetAppSubmitting', () => {
     const createAppRevision = jest.fn(() => new Promise<boolean>((resolve) => resolve(true)))
     const appsRefresh = jest.fn()
     const appsDetailRefresh = jest.fn()
+    const appRefreshRevisions = jest.fn()
     const history = {
       push: jest.fn(),
     } as unknown as History
@@ -38,6 +39,7 @@ describe('handleSetAppSubmitting', () => {
       appId,
       appsRefresh,
       appsDetailRefresh,
+      appRefreshRevisions,
     )
 
     curried()
@@ -51,5 +53,6 @@ describe('handleSetAppSubmitting', () => {
     expect(history.push).toHaveBeenCalledWith(`${Routes.APPS}/${appId}`)
     expect(appsRefresh).toHaveBeenCalledTimes(1)
     expect(appsDetailRefresh).toHaveBeenCalledTimes(1)
+    expect(appRefreshRevisions).toHaveBeenCalledTimes(1)
   })
 })

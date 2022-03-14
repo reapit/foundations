@@ -1,4 +1,8 @@
-import { AppDetailModel, AppSummaryModelPagedResult } from '@reapit/foundations-ts-definitions'
+import {
+  AppDetailModel,
+  AppRevisionModelPagedResult,
+  AppSummaryModelPagedResult,
+} from '@reapit/foundations-ts-definitions'
 import { useReapitGet } from '@reapit/utils-react'
 import React, { useState, Dispatch, SetStateAction, FC, createContext, useContext, useEffect } from 'react'
 import { GetActionNames, getActions } from '@reapit/utils-common'
@@ -24,11 +28,17 @@ export interface AppWizardState {
 
 export interface AppsDataState {
   apps: AppSummaryModelPagedResult | null
+  appsRefreshing: boolean
   appsLoading: boolean
   appDetail: AppDetailModel | null
+  appDetailRefreshing: boolean
+  appRevisions: AppRevisionModelPagedResult | null
+  appRevisionsLoading: boolean
+  appRevisionsRefreshing: boolean
   appDetailLoading: boolean
   appsRefresh: (queryParams?: Object | undefined) => void
   appsDetailRefresh: (queryParams?: Object | undefined) => void
+  appRefreshRevisions: () => void
 }
 
 export interface AppEditState {
@@ -60,29 +70,44 @@ export const AppProvider: FC = ({ children }) => {
 
   const developerId = connectSession?.loginIdentity.developerId
 
-  const [apps, appsLoading, , appsRefresh] = useReapitGet<AppSummaryModelPagedResult>({
+  const [apps, appsLoading, , appsRefresh, appsRefreshing] = useReapitGet<AppSummaryModelPagedResult>({
     reapitConnectBrowserSession,
     action: getActions(window.reapit.config.appEnv)[GetActionNames.getApps],
     queryParams: { showHiddenApps: 'true', developerId, pageSize: 25 },
     fetchWhenTrue: [developerId],
   })
 
-  const [appDetail, appDetailLoading, , appsDetailRefresh] = useReapitGet<AppDetailModel>({
+  const [appDetail, appDetailLoading, , appsDetailRefresh, appDetailRefreshing] = useReapitGet<AppDetailModel>({
     reapitConnectBrowserSession,
     action: getActions(window.reapit.config.appEnv)[GetActionNames.getAppById],
     uriParams: { appId },
     fetchWhenTrue: [appId],
   })
 
+  const [appRevisions, appRevisionsLoading, , appRefreshRevisions, appRevisionsRefreshing] =
+    useReapitGet<AppRevisionModelPagedResult>({
+      reapitConnectBrowserSession,
+      action: getActions(window.reapit.config.appEnv)[GetActionNames.getAppRevisions],
+      queryParams: { pageSize: 2 },
+      uriParams: { appId },
+      fetchWhenTrue: [appId],
+    })
+
   useEffect(handleSetDefaultFormValues(setAppEditForm, appDetail, developerId), [appDetail, developerId])
 
   const appsDataState: AppsDataState = {
     apps,
     appsLoading,
+    appsRefreshing,
     appDetail,
     appDetailLoading,
+    appDetailRefreshing,
+    appRevisions,
+    appRevisionsLoading,
+    appRevisionsRefreshing,
     appsRefresh,
     appsDetailRefresh,
+    appRefreshRevisions,
   }
 
   const appEditState: AppEditState = {

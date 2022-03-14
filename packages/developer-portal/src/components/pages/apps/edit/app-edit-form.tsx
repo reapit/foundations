@@ -30,6 +30,7 @@ export const handleSetAppSubmitting =
     appId: string,
     appsRefresh: () => void,
     appsDetailRefresh: () => void,
+    appRefreshRevisions: () => void,
   ) =>
   () => {
     if (appEditSaving) {
@@ -41,8 +42,9 @@ export const handleSetAppSubmitting =
         setAppEditSaving(false)
 
         if (appRevision) {
-          appsRefresh()
           appsDetailRefresh()
+          appRefreshRevisions()
+          appsRefresh()
           history.push(`${Routes.APPS}/${appId}`)
         }
       })()
@@ -54,7 +56,7 @@ export const AppEditForm: FC<AppEditFormProps> = ({ tab }) => {
   const { appEditState, setAppId, appsDataState } = useAppState()
   const history = useHistory()
   const { appEditForm, setAppEditSaving, appEditSaving } = appEditState
-  const { appsRefresh, appsDetailRefresh } = appsDataState
+  const { appsRefresh, appsDetailRefresh, appRefreshRevisions } = appsDataState
 
   const [, , createAppRevision] = useReapitUpdate<CreateAppRevisionModel, AppDetailModel>({
     reapitConnectBrowserSession,
@@ -93,6 +95,7 @@ export const AppEditForm: FC<AppEditFormProps> = ({ tab }) => {
       appId,
       appsRefresh,
       appsDetailRefresh,
+      appRefreshRevisions,
     ),
     [appEditSaving],
   )
