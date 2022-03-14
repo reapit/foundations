@@ -78,6 +78,7 @@ const updateContactMutation = gql`
     $officeIds: [String!]!
     $negotiatorIds: [String!]!
     $metadata: JSON
+    $_eTag: String!
   ) {
     UpdateContact(
       id: $id
@@ -89,6 +90,7 @@ const updateContactMutation = gql`
       negotiatorIds: $negotiatorIds
       officeIds: $officeIds
       metadata: $metadata
+      _eTag: $_eTag
     ) {
       ...ContactFragment
     }
@@ -97,6 +99,7 @@ const updateContactMutation = gql`
 
 type ContactAPIResponse<T> = Omit<Omit<Contact, 'offices'>, 'negotiators'> & {
   _embedded: T
+  _eTag: string
 }
 
 type ContactsEmbeds = {
@@ -115,7 +118,12 @@ const updateContact = async (
   accessToken: string,
   idToken: string,
 ): Promise<Contact> => {
-  await query<ContactAPIResponse<null>>(updateContactMutation, { ...contact, id }, 'UpdateContact', {
+  const existingContact = await getApiContact(id, accessToken, idToken)
+  if (!existingContact) {
+    throw new Error(`Contact with id ${id} not found`)
+  }
+  const { _eTag } = existingContact
+  await query<ContactAPIResponse<null>>(updateContactMutation, { ...contact, id, _eTag }, 'UpdateContact', {
     accessToken,
     idToken,
   })
@@ -147,11 +155,19 @@ const getContacts = async (accessToken: string, idToken: string): Promise<Contac
     }))
 }
 
-const getContact = async (id: string, accessToken: string, idToken: string): Promise<Contact | null> => {
-  const contact = await query<ContactAPIResponse<ContactsEmbeds> | null>(getContactQuery, { id }, 'GetContactById', {
+const getApiContact = async (
+  id: string,
+  accessToken: string,
+  idToken: string,
+): Promise<ContactAPIResponse<ContactsEmbeds> | null> => {
+  return query<ContactAPIResponse<ContactsEmbeds> | null>(getContactQuery, { id }, 'GetContactById', {
     accessToken,
     idToken,
   })
+}
+
+const getContact = async (id: string, accessToken: string, idToken: string): Promise<Contact | null> => {
+  const contact = await getApiContact(id, accessToken, idToken)
 
   if (!contact) {
     return null

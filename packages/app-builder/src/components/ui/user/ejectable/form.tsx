@@ -45,7 +45,10 @@ export const Form = forwardRef<HTMLDivElement, FormProps & { disabled?: boolean 
             }
           }
         })
-        setFormState(dataCopy)
+        setFormState((prevState) => ({
+          ...prevState,
+          ...dataCopy,
+        }))
       }
     }, [data, args])
 
@@ -54,7 +57,10 @@ export const Form = forwardRef<HTMLDivElement, FormProps & { disabled?: boolean 
       if (type === 'checkbox') {
         return setFormState((prevState) => ({ ...prevState, [name]: checked }))
       }
-      setFormState((prevState) => ({ ...prevState, [name]: value }))
+      setFormState((prevState) => {
+        console.log({ ...prevState, [name]: value })
+        return { ...prevState, [name]: value }
+      })
     }
 
     return (
@@ -105,8 +111,7 @@ export const Form = forwardRef<HTMLDivElement, FormProps & { disabled?: boolean 
         >
           <FormContextProvider value={{ onChange: handleInputChange, defaultValues: data || {} }}>
             <FormLayout>
-              {getLoading && <Loader label="Loading" />}
-              {children}
+              {getLoading ? <Loader label="Loading" /> : children}
               <Button disabled={disabled} loading={mutationLoading}>
                 {formType === 'create' ? 'Create' : 'Save'}
               </Button>

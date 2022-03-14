@@ -30,7 +30,7 @@ export const query = async <T>(
   const json = (await res.json()) as any
   if (json.errors) {
     console.log(JSON.stringify(json.errors, null, 2))
-    if (json.errors[0].extensions.code === 'BAD_USER_INPUT') {
+    if (json.errors[0].extensions.code === 'BAD_USER_INPUT' && json.errors[0].extensions.validationErrors) {
       throw new Error(json.errors[0].extensions.validationErrors.errors.map(({ message }) => message).join(', '))
     }
     throw new Error(json.errors[0].message)

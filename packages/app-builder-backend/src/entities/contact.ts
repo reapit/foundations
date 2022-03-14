@@ -86,5 +86,6 @@ export const ContactFragment = gql`
         ...NegotiatorFragment
       }
     }
+    _eTag
   }
 `
